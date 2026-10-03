@@ -9,3 +9,21 @@ a8df0ce Install Claude Code Game Studios (agents, skills, hooks, rules)
 a8df0ce Install Claude Code Game Studios (agents, skills, hooks, rules)
 ---
 
+## Session End: 20261003_213945
+### Commits
+cfe81ad Fix plugin installer on Windows: force LF for .sh, add PowerShell version
+0d24c0d Add game-dev skills (ai-gamedev-kit, Godot) and plugin install script
+a8df0ce Install Claude Code Game Studios (agents, skills, hooks, rules)
+---
+
+## Session End: 20261003_214314
+### Commits
+21fb75a Update settings.json
+cfe81ad Fix plugin installer on Windows: force LF for .sh, add PowerShell version
+0d24c0d Add game-dev skills (ai-gamedev-kit, Godot) and plugin install script
+a8df0ce Install Claude Code Game Studios (agents, skills, hooks, rules)
+### Uncommitted Changes
+production/session-logs/.session-end.hash
+production/session-logs/session-log.md
+---
+
