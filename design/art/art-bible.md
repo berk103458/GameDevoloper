@@ -42,10 +42,66 @@ Köy oyuncunun kapıdaki kararlarından kurulur, bu yüzden köyde rastgele deko
 
 ## 2. Mood & Atmosphere
 
-[To be designed] — for each major game state (exploration, combat, victory,
-defeat, menus — whichever this game has): the emotional target, lighting
-character (time of day, colour temperature, contrast), 3–5 atmospheric
-descriptors, and energy level. Each state must look distinct from the others.
+Her durum Bölüm 1'deki tek kurala bağlıdır. Durumlar birbirinden **renk sıcaklığıyla değil**, dört şeyle ayrılır: (1) ekrandaki meşale lekesinin miktarı ve yeri, (2) gece `#0D0F14` ile soğuk mavi `#4A6B8A` arasındaki alan oranı, (3) kadrajın sıkılığı, (4) mürekkep çizgisinin yoğunluğu. Palet hiçbir durumda ısınmaz; bir durum "daha iyi" hissettirecekse bunu daha çok meşale ya da daha geniş kadraj taşır (İlke 3).
+
+> **Teknik not (technical-artist):** Meşale ışığı `PointLight2D` + gradyan dokusuyla yapılmaz; elle çizilmiş, sert kenarlı, düz `#C4843A` poligon/sprite lekeleridir. `WorldEnvironment` glow kapalıdır — 4.6'daki glow yeniden yazımı ne olursa olsun yumuşak hale üretir ve İlke 1'i bozar.
+
+### 2.1 Kapıda gece — varış ve sohbet
+- **Duygu:** Yorgun dikkat; karşındaki bir yabancı ve sen onu okumaya çalışıyorsun.
+- **Işık:** Tek meşale. Gelenin yüzünün yarısına ve kapının bir kanadına sert kenarlı `#C4843A` lekesi; gerisi gece. Yüzün ışık almayan yarısı soğuk mavi ya da düz mürekkep gölgesi.
+- **Sıfatlar:** sessiz, yakın, yorgun, tetikte. **Enerji:** düşük, sabit.
+- **Taşıyıcı öğe:** Yüze düşen yarım meşale lekesi. Konuşma ilerledikçe ışık değişmez (İlke 2); bilgiyi ışık değil sohbet açar. Kişinin yarısını görürsün, gerisini sorarak öğrenirsin (Sütun 2).
+
+### 2.2 Karar anı
+- **Duygu:** Ağırlık — ne seçersen seç bir bedel var (Sütun 1).
+- **Işık:** Meşale lekesi aynı; kadraj hafifçe daralır, soğuk mavi alan küçülür, gece öne çıkar. Seçenekler tek tek belirir (kilit: "ekrana bir anda düşmez").
+- **Sıfatlar:** dar, durgun, ağır, sessiz. **Enerji:** çok düşük, nefes tutulmuş.
+- **Taşıyıcı öğe:** Daralan kadraj. Hiçbir seçenek renkle "doğru/yanlış" diye işaretlenmez; yanıp sönen düğme ya da renk vurgusu yok (Sütun 3).
+
+### 2.3 Köy görünümü — her zaman meşaleler yandıktan sonra
+*Kullanıcı kararı (4 Ekim 2026): seçenek B. Oyunda gün ışığı sahnesi yoktur.*
+- **Duygu:** Kapıdan sonra nefes alma; kırılgan bir emek.
+- **Işık:** Köy her zaman alacakaranlıkta ya da gecede, meşaleler yanmışken gösterilir. Kaç meşale yanıyorsa köy o kadar büyümüştür. Palet, gök ve zemin ısınmaz.
+- **Sıfatlar:** dağınık, kırılgan, emek kokan, soğuk. **Enerji:** düşük–orta.
+- **Taşıyıcı öğe:** Köydeki meşale lekelerinin sayısı — Sütun 3 ve Sütun 4 aynı görüntüde birleşir. Köyde gelişigüzel süs yoktur; her öğe bir kapı kararına bağlanır (İlke 3).
+- **Risk:** Hiç gün ışığı olmaması monotonluk yaratabilir; çeşitlilik kadraj, meşale dizilimi ve kalabalık yoğunluğuyla sağlanır.
+
+### 2.4 Barlar kırılmaya yaklaşırken — kriz
+- **Duygu:** Kemiren endişe, panik değil (birinci perdede refleks yok).
+- **Işık:** Palet kırmızıya kaymaz — paletimizde kırmızı yok ve olmayacak. Kriz şekille anlatılır: barlarda mürekkep çatlakları (Bölüm 3). Sahnedeki meşale lekesi küçülebilir; bu yalnız ruh halidir, sinyal değildir (Bölüm 4).
+- **Sıfatlar:** gergin, çatlak, kurumuş, ince. **Enerji:** orta — gerilim artar, tempo artmaz.
+- **Taşıyıcı öğe:** Bar çerçevesindeki çatlak mürekkep çizgileri.
+
+### 2.5 Rüşvet
+- **Duygu:** Sessiz utanç, el altından pazarlık.
+- **Işık:** Meşale lekesi yalnız ellere ve keseye düşer; yüzler gölgede. Kimse kimsenin gözüne bakmaz.
+- **Sıfatlar:** gizli, alçak, el altından, kısa. **Enerji:** çok düşük, kısa bir an.
+- **Taşıyıcı öğe:** Deri kese (ahşap `#3D2E24` ailesi).
+- **Renk kuralı:** Para ve sikke altın ya da sıcak tonla çizilmez; sikke soğuk kül tonunda, kese ahşap tonunda. Sikkenin üstünde rakam ya da yazı yoktur.
+
+### 2.6 Perde geçişi — ağalık
+- **Duygu:** Ağırlaşan sorumluluk; zafer değil, rol değişimi.
+- **Işık:** Palet ısınmaz. Köyde biriken meşaleler ilk kez tek bir kadrajda birlikte görünür. Geçiş kesme ya da düz renk kararma ile yapılır — crossfade yok.
+- **Sıfatlar:** ağır, geniş, sessiz, yeni. **Enerji:** düşük, törensiz.
+- **Açık soru (kullanıcı: "sonra"):** İkinci perdede kapının köyün içinden ve daha küçük görünmesi önerildi; karar ertelendi.
+
+### 2.7 İkinci perde — savunma
+- **Duygu:** Kurduğun şeyi kaybetme korkusu.
+- **Işık:** Köyün meşale lekeleri korunacak şey olarak öne çıkar. Tekfur'un güçleri soğuk mavi uzak siluetlerdir (palet rolü "uzak figürler") — kötü adam yüzü yok (İlke 2).
+- **Sıfatlar:** sıkışmış, kalabalık, savunmacı, soğuk. **Enerji:** oyunun en yükseği, yine de gösterişli efekt yok (Sütun 3). Kilitteki demoda savunma ayrı harita değil, bar ve rüşvet üzerinden işler; görsel zenginlik bu ölçekte kalır.
+- **Taşıyıcı öğe:** Soğuk mavi siluet kalabalığının köyün meşale lekelerine yaklaşması.
+- **Açık soru (kullanıcı: "sonra karar verelim"):** Saldırıda ateş/yangın olacak mı? Olacaksa meşale ailesinin kuralına (aynı `#C4843A`, sert düz leke) uymalı.
+
+### 2.8 Son(lar)
+Sonların adı ve koşulu kilitte boştur; içerik uydurulmaz. Yalnız çerçeve: her son tek bir durağan kadrajdır; palet aynı kalır — son "mutlu" diye ısınmaz, "kötü" diye kararmaz. Sonlar renk koduyla değil kompozisyonla ayrılır (kapının durumu, meşale sayısı, kadraj genişliği). **Enerji:** durgun.
+
+### 2.9 Menüler
+- **Duygu:** Eşik — oyuna girmeden önceki gece.
+- **Işık:** Gece zemin, tek meşale lekesi, kapı siluetinin bir parçası. Arayüz metni kül tonunda (Bölüm 4).
+- **Sıfatlar:** boş, sakin, bekleyen. **Enerji:** en düşük.
+- **Taşıyıcı öğe:** Tek meşale — oyunun görsel sözleşmesini ilk karede kurar.
+
+**Ayırt edilebilirlik özeti:** Sohbet = yarım yüz ışığı · Karar = daralan kadraj · Köy = meşale sayısı · Kriz = çatlak · Rüşvet = yalnız eller · Ağalık = biriken meşaleler · Savunma = soğuk kalabalık · Son = durağan kompozisyon · Menü = tek meşale.
 
 ## 3. Shape Language
 
