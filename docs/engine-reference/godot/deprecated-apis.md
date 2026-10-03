@@ -41,3 +41,16 @@ with the "Use Instead" column.
 | `Texture2D` in `Shader.set_default_texture_parameter()` / `get_default_texture_parameter()` | `Texture` base type | Changed in 4.4; the shading language's `sampler2D` / `texture()` did not change |
 | Manual post-process viewport chains | `Compositor` + `CompositorEffect` | Structured post-processing (4.3+) |
 | GodotPhysics3D for new projects | Jolt Physics 3D | Default since 4.6; better stability |
+
+
+## 4.6 → 4.7
+
+Last verified: 2026-10-04 · Source: https://github.com/godotengine/godot-docs/blob/master/tutorials/migrating/upgrading_to_godot_4.7.rst
+
+| Deprecated / Removed | Use Instead | Since | Notes |
+|------------|-------------|-------|-------|
+| `RichTextLabel.ImageUpdateMask.UPDATE_WIDTH_IN_PERCENT` | `RichTextLabel.ImageUpdateMask.UPDATE_WIDTH_UNIT` | 4.7 | Renamed |
+| `add_image(..., width_in_percent, height_in_percent)` (bool) | `width_unit` / `height_unit` (`RichTextLabel.ImageUnit`) | 4.7 | Also applies to `update_image` |
+| `AnimationNodeBlendSpace1D/2D.sync` (bool) | `sync_mode` (`SyncMode` enum) | 4.7 | |
+| `AudioEffectSpectrumAnalyzer.tap_back_pos` | — (removed) | 4.7 | |
+| Comparing `InputEvent.device` to `0` for mouse/keyboard | `InputEvent.DEVICE_ID_MOUSE` / `InputEvent.DEVICE_ID_KEYBOARD`, or check event type | 4.7 | |

@@ -1,6 +1,6 @@
 # Godot — Current Best Practices
 
-Last verified: 2026-02-12 | Engine: Godot 4.6
+Last verified: 2026-02-12 | Engine: Godot 4.7.2
 
 Practices that are **new or changed** since the model's training data (~4.3).
 This supplements (not replaces) the agent's built-in knowledge.
@@ -163,3 +163,13 @@ Sources:
 - **SDL3 gamepad driver**: Better cross-platform gamepad support
 - **Android**: Edge-to-edge display, camera feed access, 16KB page support (Android 15+)
 - **Linux**: Wayland subwindow support for multi-window capability
+
+
+## 4.6 → 4.7
+
+Last verified: 2026-10-04 · Source: https://github.com/godotengine/godot-docs/blob/master/tutorials/migrating/upgrading_to_godot_4.7.rst
+
+- New projects default to stretch mode `canvas_items` and aspect `expand` — the right base for a resolution-independent 2D UI; keep it unless a pixel-art look needs `viewport`.
+- Draw lines with the width you want to see: 4.7 no longer thickens antialiased lines.
+- Identify mouse/keyboard input by event type or the `DEVICE_ID_*` constants, never by device `0`.
+- When overriding a method with a typed return, always end with an explicit `return`.

@@ -20,7 +20,7 @@
 | Aspect | Detail |
 | ---- | ---- |
 | **Genre** | Kapıda konuşma ve karar oyunu + köy; ikinci perdede savunma |
-| **Platform** | PC. Flutter, Dart. Konsol, mobil, web ve Steam Deck yok |
+| **Platform** | PC. Godot 4.7.2, GDScript (bkz. Technical Considerations — motor kararı). Konsol, mobil, web ve Steam Deck yok |
 | **Target Audience** | Açık |
 | **Player Count** | Tek oyunculu |
 | **Session Length** | Açık |
@@ -28,7 +28,7 @@
 | **Estimated Scope** | Açık |
 | **Comparable Titles** | Papers Please, Reigns, Not Tonight, Yes Your Grace, Death and Taxes — yakın oyunlar, kopya değil |
 
-Şu an çevrimdışı demo. 3D savunma abinin denemesi; motor seçilmedi.
+Şu an çevrimdışı demo. Oyunun tamamı 2D (4 Ekim motor kararı).
 
 ---
 
@@ -193,10 +193,14 @@ Açık.
 
 ## Technical Considerations
 
+> **Motor kararı (4 Ekim 2026, kullanıcı):** Godot 4.7.2, GDScript. Oyunun tamamı 2D,
+> çünkü tüm asset'ler 2D. Bu karar kilitteki "Flutter, Dart" ve "3D savunma denemesi /
+> 3D motoru açık" satırlarının yerine geçer.
+
 | Consideration | Assessment |
 | ---- | ---- |
-| **Engine** | Flutter, Dart (2D). İkinci perdenin 3D motoru açık |
-| **Key Technical Challenges** | Karaktere göre değişen seçenekli sohbet sistemi; ileride 2D ile 3D taraf arasında köy durumunun aktarımı |
+| **Engine** | Godot 4.7.2, GDScript. Tamamı 2D |
+| **Key Technical Challenges** | Karaktere göre değişen seçenekli sohbet sistemi |
 | **Art Style** | 2D kalın mürekkep, düz renk |
 | **Networking** | Yok |
 | **Content Volume** | Açık |
@@ -210,13 +214,13 @@ Açık.
 - Yedi sekiz karakterin adı.
 - Köyün oturduğu eşik (elli gün yalnız örnek).
 - Sohbet adım sayısı.
-- İkinci perdenin 3D motoru.
+- ~~İkinci perdenin 3D motoru.~~ Kapandı: tamamı 2D, Godot (4 Ekim).
 - Bar etiketleri (Halk, Soylular, Tüccarlar, Ordu) onaylanmadı.
 
 ### Risks
 - Sohbet her karakterde tekrarlayıcı hissedebilir.
-- Flutter oyun motoru değil; animasyon ve ses elle kurulmalı.
-- 3D ikinci perde kapsamı şişirebilir.
+- Godot 4.7 eğitim verisinin ötesinde; API önerileri docs/engine-reference/godot ile doğrulanmalı.
+- İkinci perde (savunma) kapsamı şişirebilir.
 
 ---
 
@@ -232,7 +236,7 @@ Açık — süre uydurulmaz.
 
 ## Next Steps
 
-- [ ] `/setup-engine` — Flutter'ı kaydet; 3D motor açık
+- [x] `/setup-engine` — Godot 4.7.2, GDScript
 - [ ] `/art-bible` — yukarıdaki görsel kilitten
 - [ ] `/design-review design/gdd/game-concept.md`
 - [ ] `/map-systems` → `/design-system`

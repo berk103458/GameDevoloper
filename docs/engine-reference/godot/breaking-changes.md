@@ -4,6 +4,34 @@ Last verified: 2026-02-12
 
 Changes between Godot versions, focused on post-LLM-cutoff changes (4.4+).
 
+## 4.6 → 4.7 (2026 — POST-CUTOFF, HIGH RISK)
+
+Last verified: 2026-10-04 · Source: https://github.com/godotengine/godot-docs/blob/master/tutorials/migrating/upgrading_to_godot_4.7.rst
+
+| Subsystem | Change | Details |
+|-----------|--------|---------|
+| Core | `Object.is_class` param `String` → `StringName` | GDScript compatible |
+| Core | `OptimizedTranslation.generate` returns `bool` (was `void`) | GDScript compatible |
+| 2D | `CPUParticles2D`/`GPUParticles2D.request_particles_process` adds optional `process_time_residual` | GDScript compatible |
+| GUI | `Control.accessibility_live` type → `AccessibilityServer.AccessibilityLiveMode` | GDScript compatible; C# breaking |
+| GUI | `RichTextLabel.ImageUpdateMask.UPDATE_WIDTH_IN_PERCENT` → `UPDATE_WIDTH_UNIT` | **Breaks GDScript** |
+| GUI | `RichTextLabel.add_image`/`update_image`: `width`/`height` int → float; `width_in_percent`/`height_in_percent` (bool) → `width_unit`/`height_unit` (`RichTextLabel.ImageUnit`) | GDScript compatible by position; renamed params |
+| Text | `Font.find_variation` adds optional `palette_index`, `custom_colors` | GDScript compatible |
+| Rendering | `ImageTexture`/`PortableCompressedTexture2D.get_format` moved to `Texture2D` | Compatible |
+| Animation | `Animation.length` metadata float → double | GDScript compatible |
+| Physics | `PhysicsServer2D.body_set_shape_as_one_way_collision` adds optional `direction` | GDScript compatible |
+| Audio | `AudioEffectSpectrumAnalyzer.tap_back_pos` removed | **Breaks GDScript** |
+
+### Behavior changes (4.7)
+
+- **Rendering:** `CanvasItem` no longer adds the antialiasing feather when drawing lines — lines look thinner; increase width to match 4.6.
+- **Animation:** `AnimationNodeBlendSpace1D/2D` boolean `sync` replaced by a `SyncMode` enum (`sync_mode`).
+- **Audio/Physics:** `AudioStreamPlayer` default `area_mask` 1 → 0; reset to layer 1 if relying on `Area2D` `audio_bus_override`.
+- **Input:** Mouse and keyboard device IDs are `InputEvent.DEVICE_ID_MOUSE` / `InputEvent.DEVICE_ID_KEYBOARD`, no longer `0`.
+- **GDScript:** Setting a packed-array element no longer calls the whole property's setter. Overrides of a method with a typed return inherit that return type and need an explicit `return` (add `return null`).
+- **Changed default (new projects):** `display/window/stretch/mode` = `canvas_items`, `display/window/stretch/aspect` = `expand` (was `disabled` / `keep`).
+- Jolt (3D) `WorldBoundaryShape3D`, `SoftBody3D`, `Area3D` changes — 3D only, not relevant to this project.
+
 ## 4.5 → 4.6 (Jan 2026 — POST-CUTOFF, HIGH RISK)
 
 | Subsystem | Change | Details |

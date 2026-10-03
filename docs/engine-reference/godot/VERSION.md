@@ -2,17 +2,17 @@
 
 | Field | Value |
 |-------|-------|
-| **Engine Version** | Godot 4.6 |
-| **Installed at pin time** | NOT DETERMINED — `/setup-engine` §3 probes the installed editor and records the result here. |
-| **Release Date** | January 2026 |
-| **Project Pinned** | 2026-02-12 |
-| **Last Docs Verified** | 2026-02-12 |
+| **Engine Version** | Godot 4.7.2 |
+| **Installed at pin time** | 4.7.2 — reported by the user (`C:/Users/ds/Desktop/Godot_v4.7.2-stable_win64.exe`); not probed by /setup-engine, which ran in a cloud container without the binary |
+| **Release Date** | 4.7.2: 2026-08-18 (web search result; godotengine.org was not reachable to confirm) |
+| **Project Pinned** | 2026-10-04 |
+| **Last Docs Verified** | 2026-10-04 (4.6 → 4.7 only; earlier spans last verified 2026-02-12) |
 | **LLM Knowledge Cutoff** | May 2025 |
 
 ## Knowledge Gap Warning
 
 The LLM's training data likely covers Godot up to ~4.3. Versions 4.4, 4.5,
-and 4.6 introduced significant changes that the model does NOT know about.
+4.6 and 4.7 introduced significant changes that the model does NOT know about.
 Always cross-reference this directory before suggesting Godot API calls.
 
 ## Installed-Version Gap Warning
@@ -31,11 +31,13 @@ version-qualified claim** — `NOT DETERMINED` means the gap is unknown, not abs
 | 4.4 | ~Mid 2025 | MEDIUM | Jolt physics option, FileAccess return types, shader texture type changes |
 | 4.5 | ~Late 2025 | HIGH | Accessibility (AccessKit), variadic args, @abstract, shader baker, SMAA |
 | 4.6 | Jan 2026 | HIGH | Jolt default, glow rework, D3D12 default on Windows, IK restored |
+| 4.7 | 2026 (4.7.2: 2026-08-18) | HIGH | New-project stretch defaults, line feather removed, input device IDs, typed-return overrides, RichTextLabel image API |
 
 ## Verified Sources
 
 - Official docs: https://docs.godotengine.org/en/stable/
 - 4.5→4.6 migration: https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.6.html
 - 4.4→4.5 migration: https://docs.godotengine.org/en/stable/tutorials/migrating/upgrading_to_godot_4.5.html
+- 4.6→4.7 migration: https://github.com/godotengine/godot-docs/blob/master/tutorials/migrating/upgrading_to_godot_4.7.rst
 - Changelog: https://github.com/godotengine/godot/blob/master/CHANGELOG.md
 - Release notes: https://godotengine.org/releases/4.6/
