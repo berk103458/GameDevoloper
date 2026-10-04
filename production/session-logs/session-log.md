@@ -2210,3 +2210,160 @@ cfe81ad Fix plugin installer on Windows: force LF for .sh, add PowerShell versio
 a8df0ce Install Claude Code Game Studios (agents, skills, hooks, rules)
 ---
 
+## Archived Session State: 20261004_040406
+# Session State
+
+- **Task**: karakter-kadrosu GDD
+- **Status**: Complete — Designed (pending /design-review in a fresh session); QA findings applied (34 ACs)
+- **File**: design/gdd/karakter-kadrosu.md
+- **Decisions**: 6 named (Miraen, Sorhan, Thessra, Karaca Usta, Aydoğdu, Saruca Hatun); adsız sınıf şablonları; F1 azalan dönüş p0=0.6 d=0.5 k_azami=4; F2 2–4 gece; F3 Sorhan 3 / Saruca 2; kaldı/gitti eşlemesi Karar (7)'ye; two RNG streams (dönüş, ad)
+- **Open**: Osmanoğulları anakronizmi (Sonlar 15); imza şekilleri art-director onayı bekliyor
+- **Previously done**: #1 oyun durumu, #2 içerik veri hattı, #3 girdi ve odak — Designed
+- **Next**: Ayarlar ve erişilebilirlik (17) — user requested; then Barlar (8)
+- **Done**: ayarlar-ve-erisilebilirlik GDD (#17) — Designed; MVP subset: ses, ekran modu, metin ölçeği, belirme hızı; VS: tuş atama, iki adımlı onay, imleç, azaltılmış hareket, ekran okuyucu. QA applied (24 ACs, injected storage + window adapter, key classes etkin/bilinen-pasif/bilinmeyen).
+- **Next**: Barlar (8)
+
+## Prototype: kapi-dongusu-concept
+- **Phase**: 6 — Playtest debrief (built, auto-run OK on Godot 4.7.2 under xvfb; waiting for user to play)
+- **Path**: Engine (Godot), separate project in prototypes/kapi-dongusu-concept/
+- **Hypothesis**: Önce sohbet sonra karar → kararlar ağır, bar kırılınca "bir gece daha"
+- **Assumptions**: bars break at 0 and 10; rüşvet/kışla = kaldı; rüşvet hakkı auto-spent
+- **Tooling**: Godot 4.7.2 linux binary at /tmp (session-local), xvfb-run + opengl3 for screenshots
+
+## Dikey dilim 1 (ana proje) — 2026-10-04
+- **Durum**: Oynanabilir; Godot 4.7.2'de xvfb altında otomatik oynatıldı (perde 1 → köy oturdu → perde 2 → son); ekranlar production/qa/evidence/dikey-dilim-1/
+- **Kod**: src/veri (Resource sınıfları), src/cekirdek/katalog.gd, src/sistemler (oturum, barlar, köy, kadro, kayıt, ayarlar), src/arayuz (ana, kapı, köy, HUD, bilgi, ayarlar)
+- **İçerik**: tools/icerik/icerik_uret.py → data/ (.tres + metinler.csv); sanat: tools/art/uret_yer_tutucu.py → assets/art/
+- **GDD'siz geçici kurallar**: bar yalnız 0'da kırılır; rüşvet/kışla = kaldı; köy oturma eşiği 12; perde 2 = 10 gece; saldırı/savunma formülü oturum.gd
+- **Sırada**: ses, Barlar/Sohbet/Karar GDD'leri, gdUnit4 testleri, sonlar, daha çok içerik
+---
+
+## Session End: 20261004_040406
+### Commits
+357b21f feat: first playable vertical slice of the full game
+d22f41a chore: update session logs
+9e5afb2 chore(prototype): untrack Godot editor cache
+ae79fcf feat(prototype): playable gate-loop prototype (kapi-dongusu)
+504d12e docs(gdd): apply QA review to settings GDD
+311f0cf chore: update session logs
+2d80fae docs(gdd): design settings and accessibility (ayarlar)
+f7d2b56 docs(gdd): apply QA review to character roster GDD
+7d7dd25 docs(gdd): design character roster (karakter kadrosu)
+8cb5928 chore: update session logs
+3b2874f docs(gdd): add character roster GDD skeleton
+2d8e5b4 chore: update session logs
+3307b57 docs(gdd): finalize input and focus GDD after QA review
+7297806 docs(gdd): draft input and focus navigation GDD
+30b0a22 docs(gdd): design content data pipeline (icerik veri hatti)
+df41134 docs(registry): register day-cycle formulas and GUN_ARTISI
+f52a16c docs(gdd): complete game state and day cycle GDD
+324c1ed chore: update session logs
+ab6b768 docs(gdd): game state — formulas, edge cases, dependencies
+2c3e1f4 chore: update session logs
+5cfcf46 docs(gdd): game state — overview and detailed design
+964951c docs(gdd): skeleton for game state and day cycle
+4cdd874 docs: add systems index (22 systems)
+f6f2bc0 docs(art): art bible section 9 — reference direction
+d3db67f chore: update session logs
+fd7c3f9 docs(art): art bible section 8 — asset standards
+b9147cf docs(art): art bible section 7 — UI/HUD visual direction
+7f09720 chore: update session logs
+7c6da1d chore: update session logs
+6443dca chore: update session logs
+dc9fc51 chore: update session logs
+7060c15 docs(art): art bible section 6 — environment design language
+79f3cd0 docs(art): art bible section 5 — character design direction
+0cc1178 chore: update session logs
+31b5c88 docs(art): art bible section 4 — colour system
+7b196eb docs(art): art bible section 3 — shape language
+4a60cf9 docs(art): art bible section 2 — mood and atmosphere
+d492de1 chore: update session logs
+40920c4 docs(art): art bible section 1 — visual identity statement
+6aa826f chore: update session logs
+e1542db chore: configure Godot 4.7.2 (GDScript, 2D)
+3544b79 docs: align game concept with locked KAPI-KONSEPT
+2e51c9f docs: add game concept (Kapı Defteri)
+a989ef2 Update session logs
+180a68b Update session logs
+8fc886f Update session logs
+84c64bc Update session logs
+15d058c Update session logs
+50746d2 Configure project: stage Concept, rigor standard, automation guided
+8a13320 Install github/awesome-copilot (agents, instructions, skills, hooks, workflows)
+0d36105 Update session logs
+9bedf21 Update session logs
+c9a74cc Update session logs
+e957040 Update session logs
+21fb75a Update settings.json
+cfe81ad Fix plugin installer on Windows: force LF for .sh, add PowerShell version
+0d24c0d Add game-dev skills (ai-gamedev-kit, Godot) and plugin install script
+a8df0ce Install Claude Code Game Studios (agents, skills, hooks, rules)
+---
+
+## Session End: 20261004_041758
+### Commits
+357b21f feat: first playable vertical slice of the full game
+d22f41a chore: update session logs
+9e5afb2 chore(prototype): untrack Godot editor cache
+ae79fcf feat(prototype): playable gate-loop prototype (kapi-dongusu)
+504d12e docs(gdd): apply QA review to settings GDD
+311f0cf chore: update session logs
+2d80fae docs(gdd): design settings and accessibility (ayarlar)
+f7d2b56 docs(gdd): apply QA review to character roster GDD
+7d7dd25 docs(gdd): design character roster (karakter kadrosu)
+8cb5928 chore: update session logs
+3b2874f docs(gdd): add character roster GDD skeleton
+2d8e5b4 chore: update session logs
+3307b57 docs(gdd): finalize input and focus GDD after QA review
+7297806 docs(gdd): draft input and focus navigation GDD
+30b0a22 docs(gdd): design content data pipeline (icerik veri hatti)
+df41134 docs(registry): register day-cycle formulas and GUN_ARTISI
+f52a16c docs(gdd): complete game state and day cycle GDD
+324c1ed chore: update session logs
+ab6b768 docs(gdd): game state — formulas, edge cases, dependencies
+2c3e1f4 chore: update session logs
+5cfcf46 docs(gdd): game state — overview and detailed design
+964951c docs(gdd): skeleton for game state and day cycle
+4cdd874 docs: add systems index (22 systems)
+f6f2bc0 docs(art): art bible section 9 — reference direction
+d3db67f chore: update session logs
+fd7c3f9 docs(art): art bible section 8 — asset standards
+b9147cf docs(art): art bible section 7 — UI/HUD visual direction
+7f09720 chore: update session logs
+7c6da1d chore: update session logs
+6443dca chore: update session logs
+dc9fc51 chore: update session logs
+7060c15 docs(art): art bible section 6 — environment design language
+79f3cd0 docs(art): art bible section 5 — character design direction
+0cc1178 chore: update session logs
+31b5c88 docs(art): art bible section 4 — colour system
+7b196eb docs(art): art bible section 3 — shape language
+4a60cf9 docs(art): art bible section 2 — mood and atmosphere
+d492de1 chore: update session logs
+40920c4 docs(art): art bible section 1 — visual identity statement
+6aa826f chore: update session logs
+e1542db chore: configure Godot 4.7.2 (GDScript, 2D)
+3544b79 docs: align game concept with locked KAPI-KONSEPT
+2e51c9f docs: add game concept (Kapı Defteri)
+a989ef2 Update session logs
+180a68b Update session logs
+8fc886f Update session logs
+84c64bc Update session logs
+15d058c Update session logs
+50746d2 Configure project: stage Concept, rigor standard, automation guided
+8a13320 Install github/awesome-copilot (agents, instructions, skills, hooks, workflows)
+0d36105 Update session logs
+9bedf21 Update session logs
+c9a74cc Update session logs
+e957040 Update session logs
+21fb75a Update settings.json
+cfe81ad Fix plugin installer on Windows: force LF for .sh, add PowerShell version
+0d24c0d Add game-dev skills (ai-gamedev-kit, Godot) and plugin install script
+a8df0ce Install Claude Code Game Studios (agents, skills, hooks, rules)
+### Uncommitted Changes
+production/session-logs/.active-state.hash
+production/session-logs/.session-end.hash
+production/session-logs/session-cost.md
+production/session-logs/session-log.md
+---
+
