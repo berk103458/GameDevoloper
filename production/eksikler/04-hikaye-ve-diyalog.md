@@ -37,6 +37,7 @@ Karardan sonra herkese aynı satır çıkıyor: "Kapı açıldı. %s içeri gird
 - Kural aynı kalır: tepki **ipucu verir, hüküm vermez**.
 
 ## 5. Sohbet derinliği (Ö2)
+- **Güncelleme (4 Ekim):** Ahmet'in 20 hazır diyaloğu (`data/diyalog/diyalog_01_20.json`) adsız gelenlere bağlandı: düğmeler sorulan soru sayısına göre açılıyor, karardan sonra gelenin bir cevabı geliyor. Her diyalog oyun başına bir kez geliyor; sıra kayda yazılıyor, 20'si bitince sınıf şablonlarına dönülüyor.
 - Her gelişte 3 soru var ve en çok 2'si sorulabiliyor. Sorular hep aynı sırada ve hep aynı cevabı alıyor.
 - Discovery (MDA 2. öncelik) için şunlar eksik:
   - **Takip sorusu:** Bir cevap yeni bir soru açar. "Kösedağ'da kaldı." → "Sen nasıl kurtuldun?"

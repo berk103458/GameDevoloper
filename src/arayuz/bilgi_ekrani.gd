@@ -15,6 +15,8 @@ var dugmeler: PackedStringArray = []
 ## Pasif (basılamaz) düğme indeksleri.
 var pasifler: Array[int] = []
 var arka_plan: String = "env_menu_bg"
+## "3d_koy" arka planı için: oyuncunun kurduğu köy (perde geçişi ve sonlar, sanat kitabı 2.6, 2.8).
+var oturum: Oturum
 
 
 func _ready() -> void:
@@ -23,8 +25,19 @@ func _ready() -> void:
 	zemin.color = Renkler.GECE
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(zemin)
-	var arka := Sanat.doku("env", arka_plan) if arka_plan != "" and arka_plan != "3d_kapi" else null
-	if arka_plan == "3d_kapi":
+	var arka := Sanat.doku("env", arka_plan) if arka_plan != "" and not arka_plan.begins_with("3d_") else null
+	if arka_plan == "3d_koy" and oturum != null:
+		var kap_k := SubViewportContainer.new()
+		kap_k.stretch = true
+		kap_k.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		add_child(kap_k)
+		var vp_k := SubViewport.new()
+		vp_k.size = Vector2i(1920, 1080)
+		kap_k.add_child(vp_k)
+		var koy := KoySahnesi.new()
+		koy.oturum = oturum
+		vp_k.add_child(koy)
+	elif arka_plan == "3d_kapi":
 		# 3D kapı gecesi arka plan (kırılma sonu).
 		var kap := SubViewportContainer.new()
 		kap.stretch = true

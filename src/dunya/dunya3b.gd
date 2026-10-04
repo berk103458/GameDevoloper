@@ -4,6 +4,8 @@ class_name Dunya3B
 extends RefCounted
 
 const MODEL_KOK := "res://assets/model/"
+const MESALE_ALEV_DIS := Color("#E0782A")
+const MESALE_ALEV_IC := Color("#FFD27A")
 ## Dokusuz nesnelerin palet rengi.
 const NESNE_RENK := {
 	"mesale": Renkler.AHSAP, "kazik_cit": Renkler.AHSAP, "araba": Renkler.AHSAP, "agac": Renkler.DERIN_MAVI,
@@ -64,20 +66,26 @@ static func mesale_kur(kok: Node3D, konum: Vector3, guc: float = 2.6, menzil: fl
 	var m := nesne("mesale", 1.9)
 	m.position = konum
 	kok.add_child(m)
-	var alev := MeshInstance3D.new()
-	# Alev: küçük, uzun, sert kenarlı leke; parlaklığı ışık taşır, mesh değil.
-	var k := SphereMesh.new()
-	k.radius = 0.08
-	k.height = 0.3
-	alev.mesh = k
-	var mat := StandardMaterial3D.new()
-	mat.albedo_color = Renkler.MESALE
-	mat.emission_enabled = true
-	mat.emission = Renkler.MESALE
-	mat.emission_energy_multiplier = 1.4
-	alev.material_override = mat
-	alev.position = konum + Vector3(0, 1.95, 0)
+	# Alev: iç içe iki koni (dışı turuncu, içi sarı). Parlaklık 1'in üstünde: ışımalı sahnelerde (menü) parlar.
+	var alev := Node3D.new()
+	alev.position = konum + Vector3(0, 1.9, 0)
 	kok.add_child(alev)
+	for katman in [[0.11, 0.5, MESALE_ALEV_DIS, 2.2], [0.06, 0.3, MESALE_ALEV_IC, 2.8]]:
+		var mi := MeshInstance3D.new()
+		var koni := CylinderMesh.new()
+		koni.top_radius = 0.0
+		koni.bottom_radius = katman[0]
+		koni.height = katman[1]
+		koni.radial_segments = 8
+		mi.mesh = koni
+		mi.position.y = katman[1] / 2.0
+		var mat := StandardMaterial3D.new()
+		mat.albedo_color = Color.BLACK
+		mat.emission_enabled = true
+		mat.emission = katman[2]
+		mat.emission_energy_multiplier = katman[3]
+		mi.material_override = mat
+		alev.add_child(mi)
 	var isik := OmniLight3D.new()
 	isik.light_color = Renkler.MESALE
 	isik.light_energy = guc
@@ -85,6 +93,7 @@ static func mesale_kur(kok: Node3D, konum: Vector3, guc: float = 2.6, menzil: fl
 	isik.shadow_enabled = true
 	isik.position = konum + Vector3(0, 2.0, 0)
 	isik.set_meta("taban", guc)
+	isik.set_meta("alev", alev)
 	kok.add_child(isik)
 	return isik
 

@@ -29,7 +29,7 @@ func kur(model: Node3D) -> void:
 
 
 ## Hedefe yürür (dünya konumu), yüzünü yürüdüğü yöne çevirir.
-func yuru(hedef: Vector3) -> void:
+func yuru(hedef: Vector3, hiz: float = YURUME_HIZI) -> void:
 	var fark := hedef - position
 	fark.y = 0.0
 	if fark.length() < 0.01:
@@ -37,9 +37,9 @@ func yuru(hedef: Vector3) -> void:
 	look_at(position + fark, Vector3.UP, true)
 	if _oynatici != null:
 		_oynatici.play(_anim)
-		_oynatici.speed_scale = YURUME_HIZI / 1.35
+		_oynatici.speed_scale = hiz / 1.35
 	var t := create_tween()
-	t.tween_property(self, "position", hedef, fark.length() / YURUME_HIZI)
+	t.tween_property(self, "position", hedef, fark.length() / hiz)
 	await t.finished
 	if is_inside_tree():
 		dur()

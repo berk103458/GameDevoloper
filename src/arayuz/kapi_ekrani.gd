@@ -227,7 +227,7 @@ func _karar_ver(anahtar: String) -> void:
 	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)
 	_yaz(tr("anlati.sonuc." + anahtar) % tr(_gelen.ad_anahtari))
 	if _gelen.yanitlar.has(anahtar):
-		_yaz(str(_gelen.yanitlar[anahtar]))
+		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), str(_gelen.yanitlar[anahtar])])
 	if sonuc["rusvet_harcandi"] >= 0:
 		Ses.cal(&"sfx_bar_catlak")
 		_yaz("[i]%s[/i]" % (tr("anlati.rusvet.harcandi") % tr(oturum.ayarlar.bar_anahtarlari[sonuc["rusvet_harcandi"]])))

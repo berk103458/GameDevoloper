@@ -402,7 +402,7 @@ ARAYUZ = {
     "arayuz.menu.alt": "Kösedağ'dan sonra. Uçta bir kapı.",
     "arayuz.menu.ust": "Kösedağ'dan sonra · 1243",
     "arayuz.menu.baslik": "Uçta bir kapı.",
-    "arayuz.menu.ipucu": "Yön tuşları seçer · Enter onaylar",
+    "arayuz.menu.ipucu": "Yön tuşları ile seç · Enter ile onayla",
     "arayuz.duraklat.baslik": "Duraklatıldı",
     "arayuz.duraklat.devam": "Devam et",
     "arayuz.duraklat.menu": "Ana menüye dön",

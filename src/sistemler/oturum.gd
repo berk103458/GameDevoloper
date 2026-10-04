@@ -398,15 +398,17 @@ func _adli_gelen(id: StringName) -> Gelen:
 	return g
 
 
+## Sıradaki hazır diyalog (data/diyalog). Her biri oyun başına bir kez gelir; bitince boş döner
+## ve adsız gelenler sınıf şablonlarına düşer (aynı kişi ikinci kez kapıya gelmez).
 func _gemini_al() -> Dictionary:
 	if _gemini.is_empty():
 		var metin := FileAccess.get_file_as_string("res://data/diyalog/diyalog_01_20.json")
 		var ayris = JSON.parse_string(metin)
 		if ayris is Array:
 			_gemini = ayris
-	if _gemini.is_empty():
+	if _gemini_sira >= _gemini.size():
 		return {}
-	var d: Dictionary = _gemini[_gemini_sira % _gemini.size()]
+	var d: Dictionary = _gemini[_gemini_sira]
 	_gemini_sira += 1
 	return d
 
@@ -489,6 +491,7 @@ func kaydet() -> Dictionary:
 		"koy": {"asker": koy.sayi(&"asker"), "esnaf": koy.sayi(&"esnaf"), "ciftci": koy.sayi(&"ciftci")},
 		"koy_adlilar": koy.adlilar.map(func(x): return String(x)),
 		"kadro": kadro.kaydet(),
+		"diyalog_sira": _gemini_sira,
 		"rng": [str(_rng.state), str(_rng_donus.state), str(_rng_ad.state)]}
 	# 64 bit sayılar JSON'da float'a döner; metin olarak saklanır.
 
@@ -535,4 +538,5 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 		o._rng.state = String(r[0]).to_int()
 		o._rng_donus.state = String(r[1]).to_int()
 		o._rng_ad.state = String(r[2]).to_int()
+	o._gemini_sira = int(veri.get("diyalog_sira", 0))
 	return o

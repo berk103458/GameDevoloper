@@ -101,13 +101,15 @@ func _gece_bitti(rapor: Dictionary) -> void:
 func _son_goster(son: StringName) -> void:
 	kayit.sil()
 	var e := _bilgi(tr("arayuz.son." + String(son)), tr("arayuz.son.%s_metin" % son), [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
-		oturum.gun, "env_village_bg")
+		oturum.gun, "3d_koy")
+	e.oturum = oturum
 	e.secildi.connect(_son_secimi)
 	_goster(e)
 
 
 func _perde_gecisi() -> void:
-	var e := _bilgi(tr("arayuz.perde.baslik"), tr("arayuz.perde.metin"), [tr("arayuz.perde.devam")], -1, "env_village_bg")
+	var e := _bilgi(tr("arayuz.perde.baslik"), tr("arayuz.perde.metin"), [tr("arayuz.perde.devam")], -1, "3d_koy")
+	e.oturum = oturum
 	e.secildi.connect(func(_i: int) -> void: _kapiya_git())
 	_goster(e)
 
