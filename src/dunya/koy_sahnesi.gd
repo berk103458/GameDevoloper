@@ -70,7 +70,10 @@ func _kur(animasyon: bool = true) -> void:
 	var ev_sayisi := clampi(1 + nufus / 3, 1, 14)
 	for i in ev_sayisi:
 		var p := _ev_konumu(i)
-		var ev := Dunya3B.nesne("ev" if i % 3 != 2 else "cadir", 2.6 if i % 3 != 2 else 2.2, "yapi")
+		# Konak geliştikçe çadırlar eve döner ve evler büyür (köy sağlamlaşır).
+		var konak: int = oturum.yapilar[&"konak"]
+		var cadir := i % 3 == 2 and konak < 2
+		var ev := Dunya3B.nesne("cadir" if cadir else "ev", 2.2 if cadir else 2.6 + konak * 0.35, "yapi")
 		ev.position = p
 		ev.rotation_degrees.y = rad_to_deg(atan2(-p.x, -p.z)) + 180.0
 		add_child(ev)
@@ -88,8 +91,9 @@ func _kur(animasyon: bool = true) -> void:
 	var calisan := _tarlalar_kur()
 	_halki_kur(animasyon, calisan)
 	_gezginler_kur()
+	_sur_kur()
+	_konak_kur()
 	if oturum.perde == 2:
-		_sur_kur()
 		_tekfur_kur()
 
 
@@ -169,12 +173,14 @@ func _sur_kur() -> void:
 	var sur: int = oturum.yapilar[&"sur"]
 	if sur <= 0:
 		return
-	var boy := 2.4 + sur * 0.9
+	var boy := 1.8 + sur * 0.6
 	var adet := 34
+	# Tarlalar çitin dışına taşar: çit tarla alanında kesilir, ekinler örtülmez.
+	var tarla := Rect2(TARLA_KOK.x - TARLA_BOYUT.x, TARLA_KOK.z - TARLA_BOYUT.y, TARLA_ARALIK.x + TARLA_BOYUT.x * 2.0, TARLA_ARALIK.y * 2.0 + TARLA_BOYUT.y * 2.0)
 	for i in adet:
 		var a := TAU * i / adet
 		var p := Vector3(sin(a) * 20.0, 0, cos(a) * 20.0)
-		if p.distance_to(Vector3(0, 0, -20)) < 3.5:
+		if p.distance_to(Vector3(0, 0, -20)) < 3.5 or (not oturum.tarlalar.parseller.is_empty() and tarla.has_point(Vector2(p.x, p.z))):
 			continue
 		var c := Dunya3B.nesne("kazik_cit", boy)
 		c.position = p
@@ -348,3 +354,66 @@ func _gezgin_dongu(g: KarakterModel, duraklar: Array[Vector3], tohum: int) -> vo
 		if not is_instance_valid(g) or not g.is_inside_tree():
 			return
 		await get_tree().create_timer(rng.randf_range(1.0, 3.5)).timeout
+
+
+# ─── Köy konağı ──────────────────────────────────────────────────────────
+
+## Konak seviyesine göre: taş temel + ahşap üst kat (1), avlu duvarı ve sancak (2), taş kule (3).
+func _konak_kur() -> void:
+	var sev: int = oturum.yapilar[&"konak"]
+	if sev <= 0:
+		return
+	var kok := Node3D.new()
+	kok.position = Vector3(-5.0, 0, -12.5)
+	kok.rotation_degrees.y = 15
+	add_child(kok)
+	var tas := Dunya3B.duz_malzeme(Color("#8a8072"))
+	var ahsap := Dunya3B.duz_malzeme(Color("#5a3d27"))
+	var cati := Dunya3B.duz_malzeme(Color("#6e3a26"))
+	_kutu(kok, Vector3(4.6, 1.6, 3.6), Vector3(0, 0.8, 0), tas)
+	_kutu(kok, Vector3(4.2, 1.5, 3.2), Vector3(0, 2.35, 0), ahsap)
+	var c := MeshInstance3D.new()
+	var p := PrismMesh.new()
+	p.size = Vector3(4.8, 1.3, 3.8)
+	c.mesh = p
+	c.position = Vector3(0, 3.75, 0)
+	c.material_override = cati
+	kok.add_child(c)
+	_kutu(kok, Vector3(0.9, 1.3, 0.1), Vector3(0, 0.65, 1.82), ahsap)
+	_isiklar.append(Dunya3B.mesale_kur(self, kok.position + Vector3(1.6, 0, 2.4), 2.2, 8.0))
+	if sev >= 2:
+		for x in [-3.6, 3.6]:
+			_kutu(kok, Vector3(0.4, 1.1, 5.0), Vector3(x, 0.55, 1.2), tas)
+		_kutu(kok, Vector3(2.4, 1.1, 0.4), Vector3(-2.4, 0.55, 3.7), tas)
+		_kutu(kok, Vector3(2.4, 1.1, 0.4), Vector3(2.4, 0.55, 3.7), tas)
+		_kutu(kok, Vector3(0.08, 5.5, 0.08), Vector3(2.9, 2.75, -1.2), ahsap)
+		_kutu(kok, Vector3(1.2, 0.8, 0.03), Vector3(3.5, 4.9, -1.2), Dunya3B.duz_malzeme(Color("#7a2f2a")))
+	if sev >= 3:
+		var kule := MeshInstance3D.new()
+		var k := CylinderMesh.new()
+		k.top_radius = 1.1
+		k.bottom_radius = 1.3
+		k.height = 6.5
+		kule.mesh = k
+		kule.position = Vector3(-3.2, 3.25, -1.0)
+		kule.material_override = tas
+		kok.add_child(kule)
+		var tepe := MeshInstance3D.new()
+		var t := CylinderMesh.new()
+		t.top_radius = 0.0
+		t.bottom_radius = 1.5
+		t.height = 1.6
+		tepe.mesh = t
+		tepe.position = Vector3(-3.2, 7.3, -1.0)
+		tepe.material_override = cati
+		kok.add_child(tepe)
+
+
+func _kutu(kok: Node3D, boyut: Vector3, konum: Vector3, mat: Material) -> void:
+	var m := MeshInstance3D.new()
+	var b := BoxMesh.new()
+	b.size = boyut
+	m.mesh = b
+	m.position = konum
+	m.material_override = mat
+	kok.add_child(m)

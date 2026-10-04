@@ -131,7 +131,10 @@ arayuz.yapi.azami,%s — en üst seviyede
 arayuz.yapi.esnaf_gerek,%d esnaf gerekir
 arayuz.yapi.kervansaray,Kervansaray
 arayuz.yapi.kervansaray_aciklama,Gecelik kervan geliri; 2. seviyede kapıya daha çok kişi gelir.
+arayuz.yapi.konak,Köy konağı
+arayuz.yapi.konak_aciklama,"Soylular +1; köy büyür, evler sağlamlaşır."
 arayuz.yapi.kur,%s kur / büyüt — %d akçe
+arayuz.yapi.nufus_gerek,%d nüfus gerekir
 arayuz.yapi.pazar,Pazar
 arayuz.yapi.pazar_aciklama,Esnaf başına gelir artar; Halk +1.
 arayuz.yapi.seviye,%s — seviye %d

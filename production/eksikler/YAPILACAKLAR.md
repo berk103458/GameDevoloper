@@ -24,6 +24,6 @@ Durum: ✅ bitti · 🔨 bu turda · ⏳ sırada. Sıra önceliktir: önce kapı
 11. ✅ Köy haritasına yollar ve gezen köylüler.
 12. ✅ Tarla tasarımı; çiftçiler tarlada çalışırken görünsün.
 13. ✅ Bitki türleri, büyüme dönemleri ve bunları etkileyen olaylar.
-14. ⏳ Köy geliştikçe tasarımı değişsin; geliştirmeler (sur büyüt, köy konağı vb.).
+14. ✅ Köy geliştikçe tasarımı değişsin; geliştirmeler (sur büyüt, köy konağı vb.). — `design/gdd/koy-gelisimi.md`
 15. ⏳ Ses efektleri ve müzikler (düğün müziği, köy hayatı, olay sesleri).
 16. ⏳ Köy içi ek olaylar ve mini oyunlar.

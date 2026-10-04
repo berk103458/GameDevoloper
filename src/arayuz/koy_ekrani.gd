@@ -116,12 +116,10 @@ func _yenile() -> void:
 	var b := Label.new()
 	b.text = tr("arayuz.koy.yapilar")
 	_yapi_kutusu.add_child(b)
-	for yapi in [&"pazar", &"kervansaray", &"sur"]:
+	for yapi in [&"pazar", &"kervansaray", &"konak", &"sur"]:
 		var d := oturum.yapi_durumu(yapi)
 		var ad := tr("arayuz.yapi." + String(yapi))
 		var seviye: int = oturum.yapilar[yapi]
-		if yapi == &"sur" and oturum.perde < 2:
-			continue
 		var dugme := Button.new()
 		dugme.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		dugme.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -131,6 +129,8 @@ func _yenile() -> void:
 			dugme.disabled = true
 		else:
 			var ek := "" if oturum.koy.sayi(&"esnaf") >= d["esnaf"] else "  (" + tr("arayuz.yapi.esnaf_gerek") % d["esnaf"] + ")"
+			if int(d.get("nufus", 0)) > oturum.koy.toplam():
+				ek = "  (" + tr("arayuz.yapi.nufus_gerek") % d["nufus"] + ")"
 			dugme.text = "%s  [%d]  —  %s%s" % [tr("arayuz.yapi.kur") % [ad, d["bedel"]], seviye, tr("arayuz.yapi.%s_aciklama" % yapi), ek]
 			dugme.disabled = not d["olur"]
 			dugme.pressed.connect(func() -> void:

@@ -67,8 +67,11 @@ extends Resource
 ## Seviye başına gereken esnaf.
 @export var pazar_esnaf: PackedInt32Array = PackedInt32Array([1, 3, 5])
 @export var kervansaray_esnaf: PackedInt32Array = PackedInt32Array([2, 4, 6])
-## Sur seviyesi bedelleri (yalnız ikinci perde).
+## Sur seviyesi bedelleri (birinci perdede de kurulur; savunmaya ikinci perdede sayılır).
 @export var sur_bedel: PackedInt32Array = PackedInt32Array([6, 10, 15])
+## Köy konağı seviye bedelleri ve gereken nüfus; her seviye Soylular +1, köyün görünüşü gelişir.
+@export var konak_bedel: PackedInt32Array = PackedInt32Array([10, 18, 28])
+@export var konak_nufus: PackedInt32Array = PackedInt32Array([5, 10, 16])
 
 @export_group("Olaylar")
 ## Gece sonunda bir olay çıkma olasılığı (uygun olay varsa).

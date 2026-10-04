@@ -21,7 +21,7 @@ var tohum: int = 0
 var akce: int = 0
 var ambar: int = 0
 ## Yapı seviyeleri (0 = yok): pazar, kervansaray, sur.
-var yapilar: Dictionary = {&"pazar": 0, &"kervansaray": 0, &"sur": 0}
+var yapilar: Dictionary = {&"pazar": 0, &"kervansaray": 0, &"sur": 0, &"konak": 0}
 ## Olayların bıraktığı işaretler (kararların uzun vadeli izleri).
 var bayraklar: Dictionary = {}
 var gorulen_olaylar: Dictionary = {}
@@ -297,16 +297,28 @@ func son_belirle() -> StringName:
 ## Bir yapının bir sonraki seviyesi için {bedel, esnaf, olur: bool}; azamideyse bedel -1.
 func yapi_durumu(yapi: StringName) -> Dictionary:
 	var seviye: int = yapilar[yapi]
-	var bedeller: PackedInt32Array = ayarlar.pazar_bedel if yapi == &"pazar" else (ayarlar.kervansaray_bedel if yapi == &"kervansaray" else ayarlar.sur_bedel)
-	if seviye >= bedeller.size() or (yapi == &"sur" and perde < 2):
-		return {"bedel": -1, "esnaf": 0, "olur": false}
+	var bedeller: PackedInt32Array
+	match yapi:
+		&"pazar":
+			bedeller = ayarlar.pazar_bedel
+		&"kervansaray":
+			bedeller = ayarlar.kervansaray_bedel
+		&"konak":
+			bedeller = ayarlar.konak_bedel
+		_:
+			bedeller = ayarlar.sur_bedel
+	if seviye >= bedeller.size():
+		return {"bedel": -1, "esnaf": 0, "nufus": 0, "olur": false}
+	if yapi == &"konak":
+		var nufus := ayarlar.konak_nufus[seviye]
+		return {"bedel": bedeller[seviye], "esnaf": 0, "nufus": nufus, "olur": akce >= bedeller[seviye] and koy.toplam() >= nufus}
 	var esnaf := 0
 	if yapi == &"pazar":
 		esnaf = ayarlar.pazar_esnaf[seviye]
 	elif yapi == &"kervansaray":
 		esnaf = ayarlar.kervansaray_esnaf[seviye]
 	var bedel := bedeller[seviye]
-	return {"bedel": bedel, "esnaf": esnaf, "olur": akce >= bedel and koy.sayi(&"esnaf") >= esnaf}
+	return {"bedel": bedel, "esnaf": esnaf, "nufus": 0, "olur": akce >= bedel and koy.sayi(&"esnaf") >= esnaf}
 
 
 func yapi_kur(yapi: StringName) -> bool:
@@ -319,6 +331,8 @@ func yapi_kur(yapi: StringName) -> bool:
 		barlar.ekle(2, 1)
 	elif yapi == &"pazar":
 		barlar.ekle(0, 1)
+	elif yapi == &"konak":
+		barlar.ekle(1, 1)
 	return true
 
 
@@ -636,7 +650,7 @@ func kaydet() -> Dictionary:
 	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "gun": gun, "perde": perde, "perde2_gece": perde2_gece,
 		"rusvet_hakki": rusvet_hakki, "barlar": Array(barlar.degerler),
 		"akce": akce, "ambar": ambar, "sonraki_gelen_ek": sonraki_gelen_ek,
-		"yapilar": {"pazar": yapilar[&"pazar"], "kervansaray": yapilar[&"kervansaray"], "sur": yapilar[&"sur"]},
+		"yapilar": {"pazar": yapilar[&"pazar"], "kervansaray": yapilar[&"kervansaray"], "sur": yapilar[&"sur"], "konak": yapilar[&"konak"]},
 		"bayraklar": bayraklar.keys().map(func(x): return String(x)),
 		"rusvet_sayisi": int(bayraklar.get(&"rusvet_sayisi", 0)),
 		"gorulen_olaylar": gorulen_olaylar.keys().map(func(x): return String(x)),
@@ -668,7 +682,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.ambar = int(veri.get("ambar", 0))
 	o.sonraki_gelen_ek = int(veri.get("sonraki_gelen_ek", 0))
 	var y: Dictionary = veri.get("yapilar", {})
-	for k in [&"pazar", &"kervansaray", &"sur"]:
+	for k in o.yapilar.keys():
 		o.yapilar[k] = int(y.get(String(k), 0))
 	for b in veri.get("bayraklar", []):
 		o.bayraklar[StringName(b)] = true
