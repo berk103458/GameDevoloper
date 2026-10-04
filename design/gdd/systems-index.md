@@ -43,7 +43,7 @@ Oyun, kapıda geçen kısa bir sohbet-ve-karar döngüsü etrafında kurulu: kap
 
 | # | System Name | Category | Priority | Status | Design Doc | Depends On |
 |---|-------------|----------|----------|--------|------------|------------|
-| 1 | Oyun durumu ve gün döngüsü | Core | MVP | Not Started | — | — |
+| 1 | Oyun durumu ve gün döngüsü | Core | MVP | Designed | design/gdd/oyun-durumu-ve-gun-dongusu.md | — |
 | 2 | İçerik veri hattı (inferred) | Core | MVP | Not Started | — | — |
 | 3 | Girdi ve odak gezinmesi (inferred) | Core | MVP | Not Started | — | — |
 | 4 | Varış kuyruğu | Gameplay | MVP | Not Started | — | 1, 2, 5 |
@@ -197,10 +197,10 @@ Döngü yok. Dikkat edilen yakın döngüler:
 | Metric | Count |
 |--------|-------|
 | Total systems identified | 22 |
-| Design docs started | 0 |
+| Design docs started | 1 |
 | Design docs reviewed | 0 |
 | Design docs approved | 0 |
-| MVP systems designed | 0/13 |
+| MVP systems designed | 1/13 |
 | Vertical Slice systems designed | 0/8 |
 
 ---

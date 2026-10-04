@@ -1,6 +1,7 @@
 # Session State
 
-- **Task**: Designing oyun-durumu-ve-gun-dongusu GDD
-- **Current section**: Starting (skeleton created)
+- **Task**: oyun-durumu-ve-gun-dongusu GDD
+- **Status**: Complete — Designed (pending /design-review in a fresh session)
 - **File**: design/gdd/oyun-durumu-ve-gun-dongusu.md
-- **Context**: systems-index.md written (22 systems). This is system #1 (MVP, Foundation). Tier: standard — author Summary, Overview, Detailed Design, Formulas (only if numeric rules), Edge Cases, Dependencies, Acceptance Criteria; skip Player Fantasy and Tuning Knobs.
+- **Sections**: Summary, Overview, Detailed Design (Core Rules, States and Transitions, Interactions), Formulas, Edge Cases, Dependencies, Visual/Audio, Game Feel, UI Requirements, Cross-References, Acceptance Criteria, Open Questions
+- **Next**: İçerik veri hattı (#2 in design order)
