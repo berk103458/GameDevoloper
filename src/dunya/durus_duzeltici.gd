@@ -26,6 +26,8 @@ var faz: float = 0.0
 
 ## Anlık duygu hareketi: &"sevinc" (eller göğüste, baş eğilir) ya da &"ofke" (yumruk sallanır, baş sallanır).
 var duygu: StringName = &""
+## Sürekli hareket (döngü): &"calis" — eğilip orak sallar (tarlada çiftçi). Boş = yok.
+var surekli: StringName = &""
 ## Duygu hareketinin süresi (s).
 @export var duygu_suresi := 1.6
 var _duygu_t := 0.0
@@ -61,8 +63,11 @@ func _process_modification() -> void:
 	_zaman += dt
 	if duygu != &"":
 		_duygu_t += dt
-		if _duygu_t >= duygu_suresi:
+		if _duygu_t >= duygu_suresi and surekli == &"":
 			duygu = &""
+	elif surekli != &"":
+		duygu = surekli
+		_duygu_t = 0.0
 	if bekleme > 0.0:
 		_nefes(sk)
 	if duygu != &"":
@@ -143,6 +148,8 @@ func duygu_baslat(ad: StringName) -> void:
 func _zarf() -> float:
 	if duygu == &"":
 		return 0.0
+	if surekli != &"" and duygu == surekli:
+		return 1.0
 	var t := _duygu_t / duygu_suresi
 	return smoothstep(0.0, 0.18, t) * (1.0 - smoothstep(0.75, 1.0, t))
 
@@ -155,6 +162,12 @@ func _duygu_hedefleri(yan: float) -> Array[Vector3]:
 			if yan < 0.0:
 				return [Vector3(-0.1, -0.8, 0.6), Vector3(0.8, 0.35, 0.45)]
 			return [Vector3.ZERO, Vector3.ZERO]
+		&"calis":
+			# Eğilip orakla biçer: iki kol aşağı-öne, sağ kol yay çizerek sallanır.
+			var salla := sin(_zaman * 2.6 + faz)
+			if yan < 0.0:
+				return [Vector3(-0.15 + salla * 0.35, -0.75, 0.6), Vector3(0.2 + salla * 0.5, -0.8, 0.55)]
+			return [Vector3(0.2, -0.85, 0.5), Vector3(-0.1, -0.85, 0.45)]
 		&"ofke":
 			if yan < 0.0:
 				# Sağ kol bekçiye uzanır ve sert sert sallanır.
@@ -173,6 +186,10 @@ func _duygu_govde(sk: Skeleton3D) -> void:
 		&"sevinc":
 			_dondur_global(sk, _k["Spine01"], Vector3.RIGHT, deg_to_rad(16.0) * z)
 			_dondur_global(sk, _k["Head"], Vector3.RIGHT, deg_to_rad(12.0) * z * (0.5 + 0.5 * sin(_duygu_t * 9.0)))
+		&"calis":
+			_dondur_global(sk, _k["Spine01"], Vector3.RIGHT, deg_to_rad(38.0 + 6.0 * sin(_zaman * 2.6 + faz)))
+			_dondur_global(sk, _k["Spine"], Vector3.RIGHT, deg_to_rad(12.0))
+			_dondur_global(sk, _k["Head"], Vector3.RIGHT, deg_to_rad(10.0))
 		&"ofke":
 			_dondur_global(sk, _k["Spine01"], Vector3.RIGHT, deg_to_rad(8.0) * z)
 			_dondur_global(sk, _k["Head"], Vector3.UP, deg_to_rad(16.0) * z * sin(_duygu_t * 12.0))

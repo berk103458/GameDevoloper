@@ -84,6 +84,34 @@ extends Resource
 ## Uygunsuz yazımın bedeli (işin barından düşen).
 @export var uyumsuz_ceza: int = 1
 
+@export_group("Tarla ve ürünler")
+## Her bu kadar çiftçi bir tarla (parsel) açar; en çok `tarla_azami`.
+@export var ciftci_tarla_basina: int = 2
+@export var tarla_azami: int = 6
+## Ürün tablosu (aynı sıra): id, büyüme süresi (gece), hasat verimi (ambar), tohum bedeli (ambar).
+@export var bitki_idleri: PackedStringArray
+@export var bitki_sureleri: PackedInt32Array
+@export var bitki_verimleri: PackedInt32Array
+@export var bitki_tohumlari: PackedInt32Array
+## Erken donda ölen ekin yaşı (≤ bu gece).
+@export var don_esigi: int = 1
+
+
+## Ürün id → büyüme süresi.
+func bitki_sure_sozlugu() -> Dictionary:
+	var d := {}
+	for i in bitki_idleri.size():
+		d[bitki_idleri[i]] = bitki_sureleri[i]
+	return d
+
+
+## Ürün id → hasat verimi.
+func bitki_verim_sozlugu() -> Dictionary:
+	var d := {}
+	for i in bitki_idleri.size():
+		d[bitki_idleri[i]] = bitki_verimleri[i]
+	return d
+
 @export_group("Sıra olayları")
 ## İki gelen arasında kuyrukta bir olay çıkma olasılığı.
 @export var sira_olay_olasiligi: float = 0.35

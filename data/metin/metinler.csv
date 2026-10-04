@@ -7,6 +7,10 @@ anlati.baski.vergi,Beyin adamı vergi istedi. Soylular memnun değil.
 anlati.gece.basladi,%d. gece. Yolda yine birileri var.
 anlati.gece.bitti,Gece bitti.
 anlati.gelir,Pazar ve kervandan %d akçe geldi.
+anlati.hasat.arpa,Arpa hasadı: +%d ürün ambara.
+anlati.hasat.bugday,Buğday hasadı: +%d ürün ambara.
+anlati.hasat.mercimek,Mercimek hasadı: +%d ürün ambara.
+anlati.hasat.nohut,Nohut hasadı: +%d ürün ambara.
 anlati.heybe.alinan,Alınan: %s.
 anlati.heybe.durust,Dürüst birinin heybesini didikledin. Halk bunu duyacak.
 anlati.heybe.gasp,Teklifinden fazlasını aldın. Halk bunu duyacak.
@@ -118,6 +122,11 @@ arayuz.son.menu,Ana menü
 arayuz.son.tutundu,Uç tutundu.
 arayuz.son.tutundu_metin,Tekfur'un adamları bir sabah gelmedi. Köy kışı çıkardı. Kapı hâlâ açılıp kapanıyor.
 arayuz.son.yeniden,Yeniden başla
+arayuz.tarla.baslik,Tarlalar (%d)
+arayuz.tarla.bos,boş
+arayuz.tarla.durum,%s %d/%d
+arayuz.tarla.ek,"%s ek — %d gece, +%d · tohum %d"
+arayuz.tarla.yok,Tarla açmak için çiftçi gerek (her %d çiftçi bir tarla).
 arayuz.yapi.azami,%s — en üst seviyede
 arayuz.yapi.esnaf_gerek,%d esnaf gerekir
 arayuz.yapi.kervansaray,Kervansaray
@@ -132,6 +141,10 @@ bar.halk,Halk
 bar.ordu,Ordu
 bar.soylular,Soylular
 bar.tuccarlar,Tüccarlar
+bitki.arpa,Arpa
+bitki.bugday,Buğday
+bitki.mercimek,Mercimek
+bitki.nohut,Nohut
 esya.akce,akçe
 esya.arpa,arpa çuvalı
 esya.bakir,bakır tas
@@ -344,6 +357,30 @@ olay.sur_catlak.secenek3,"Bırak, şimdilik dayanır"
 olay.sur_catlak.sonuc1,Sur sabaha onarıldı.
 olay.sur_catlak.sonuc2,"Herkes taş taşıdı. Kimse şikâyet etmedi, kimse teşekkür etmedi."
 olay.sur_catlak.sonuc3,Çatlak her gece biraz daha uzadı.
+olay.tarla_cekirge.baslik,Çekirge
+olay.tarla_cekirge.metin,Doğudan bir çekirge bulutu geliyor. Gökyüzü vızıldıyor.
+olay.tarla_cekirge.secenek1,"Duman yak, kov (1 ambar)"
+olay.tarla_cekirge.secenek2,Kaderine bırak
+olay.tarla_cekirge.sonuc1,Islak samanı yaktınız. Çekirgeler tarlaların üstünden geçip gitti.
+olay.tarla_cekirge.sonuc2,Çekirgeler bir gece kaldı. Hasat yarıya indi.
+olay.tarla_don.baslik,Erken don
+olay.tarla_don.metin,Gece ayaz çıktı. Sabaha karşı tarlaları kırağı bastı.
+olay.tarla_don.secenek1,Tarlaları örttür (2 akçe)
+olay.tarla_don.secenek2,Örtecek bir şey yok
+olay.tarla_don.sonuc1,"Keçeler, çuvallar, kilimler... Ne bulduysanız tarlaya serdiniz. Ekin kurtuldu."
+olay.tarla_don.sonuc2,Genç ekinler dondu. Toprağı yeniden sürmek gerekecek.
+olay.tarla_kuraklik.baslik,Kuraklık
+olay.tarla_kuraklik.metin,"Günlerdir yağmur yok. Toprak çatladı, ekinler boynunu büktü."
+olay.tarla_kuraklik.secenek1,Kuyudan su taşıt
+olay.tarla_kuraklik.secenek2,"Bekle, yağmur gelir"
+olay.tarla_kuraklik.sonuc1,"Halk bütün gün kova taşıdı. Ekinler kurtuldu, sırtlar ağrıdı."
+olay.tarla_kuraklik.sonuc2,Yağmur gelmedi. Ekinler bir gece geriledi.
+olay.tarla_yagmur.baslik,Bereketli yağmur
+olay.tarla_yagmur.metin,Gece boyu ince ince yağmur yağdı. Sabah tarlalar ışıldıyordu.
+olay.tarla_yagmur.secenek1,Şükret
+olay.tarla_yagmur.secenek2,"Ark kazdır, suyu tut (2 akçe)"
+olay.tarla_yagmur.sonuc1,Ekinler bir gecede bir karış uzadı.
+olay.tarla_yagmur.sonuc2,Arklardan su şırıldadı. Ekinler iki gecelik yol aldı.
 olay.tekfur_elcisi.baslik,Tekfur'un elçisi
 olay.tekfur_elcisi.metin,"Tekfur'un elçisi geldi. Sözü kısa: her ay haraç öde, köyün rahat etsin."
 olay.tekfur_elcisi.secenek1,Haracı kabul et (sekiz akçe)

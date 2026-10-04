@@ -23,6 +23,7 @@ var _dugme: Button
 var _serit: PanelContainer
 var _durum: Label
 var _yapi_kutusu: VBoxContainer
+var _tarla_kutusu: VBoxContainer
 var _kart: PanelContainer
 var _ilk_cizim := true
 
@@ -88,6 +89,10 @@ func _bilgi_ciz() -> void:
 	_yapi_kutusu.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_yapi_kutusu.size_flags_stretch_ratio = 1.3
 	yatay.add_child(_yapi_kutusu)
+	_tarla_kutusu = VBoxContainer.new()
+	_tarla_kutusu.add_theme_constant_override("separation", 6)
+	_tarla_kutusu.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	yatay.add_child(_tarla_kutusu)
 	_dugme = Button.new()
 	_dugme.text = tr("arayuz.koy.sonraki")
 	_dugme.custom_minimum_size = Vector2(300, 72)
@@ -105,6 +110,7 @@ func _bilgi_ciz() -> void:
 func _yenile() -> void:
 	_durum.text = tr("arayuz.koy.nufus") % [oturum.koy.sayi(&"asker"), oturum.koy.sayi(&"esnaf"), oturum.koy.sayi(&"ciftci")] \
 		+ "   ·   " + tr("arayuz.hud.akce") % oturum.akce + "   ·   " + tr("arayuz.hud.ambar") % oturum.ambar
+	_tarlalari_ciz()
 	for c in _yapi_kutusu.get_children():
 		c.queue_free()
 	var b := Label.new()
@@ -217,3 +223,50 @@ func _olay_sec(olay: OlayVerisi, i: int) -> void:
 		_dugme.disabled = false
 		_yeniden_ciz()
 	)
+
+
+## Tarlalar: parsellerin durumu; boş parsel varsa her ürün için "ek" düğmesi (tohum ambardan).
+func _tarlalari_ciz() -> void:
+	for c in _tarla_kutusu.get_children():
+		c.queue_free()
+	var a := oturum.ayarlar
+	var t := oturum.tarlalar
+	var b := Label.new()
+	b.text = tr("arayuz.tarla.baslik") % t.parseller.size()
+	_tarla_kutusu.add_child(b)
+	if t.parseller.is_empty():
+		var l := Label.new()
+		l.text = tr("arayuz.tarla.yok") % a.ciftci_tarla_basina
+		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		l.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.KUCUK_PX))
+		l.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
+		_tarla_kutusu.add_child(l)
+		return
+	var sureler := a.bitki_sure_sozlugu()
+	var parcalar: PackedStringArray = []
+	for p in t.parseller:
+		if p["bitki"] == "":
+			parcalar.append(tr("arayuz.tarla.bos"))
+		else:
+			parcalar.append(tr("arayuz.tarla.durum") % [tr("bitki." + String(p["bitki"])), p["gun"], sureler[p["bitki"]]])
+	var d := Label.new()
+	d.text = " · ".join(parcalar)
+	d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	d.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.KUCUK_PX))
+	d.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
+	_tarla_kutusu.add_child(d)
+	if t.bos_sayisi() == 0:
+		return
+	for i in a.bitki_idleri.size():
+		var id := a.bitki_idleri[i]
+		var e := Button.new()
+		e.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		e.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.KUCUK_PX))
+		e.text = tr("arayuz.tarla.ek") % [tr("bitki." + id), a.bitki_sureleri[i], a.bitki_verimleri[i], a.bitki_tohumlari[i]]
+		e.disabled = oturum.ambar < a.bitki_tohumlari[i]
+		e.pressed.connect(func() -> void:
+			if oturum.tarla_ek(id):
+				Ses.cal(&"sfx_insaat", -6.0)
+				_yeniden_ciz()
+		)
+		_tarla_kutusu.add_child(e)

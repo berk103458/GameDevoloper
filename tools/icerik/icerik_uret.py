@@ -67,6 +67,17 @@ def sn(x: str) -> str:
 BARLAR = [t("bar.halk", "Halk"), t("bar.soylular", "Soylular"),
           t("bar.tuccarlar", "Tüccarlar"), t("bar.ordu", "Ordu")]
 
+# ─── Ürünler (design/gdd/tarla-ve-urunler.md): (id, ad, süre gece, verim ambar, tohum ambar) ─
+BITKILER = [
+    ("bugday", "Buğday", 4, 10, 2),
+    ("arpa", "Arpa", 3, 7, 1),
+    ("mercimek", "Mercimek", 2, 4, 1),
+    ("nohut", "Nohut", 3, 6, 2),
+]
+for b in BITKILER:
+    t("bitki.%s" % b[0], b[1])
+    t("anlati.hasat.%s" % b[0], b[1] + " hasadı: +%d ürün ambara.")
+
 # ─── Heybe eşyaları (design/gdd/heybe-ve-rusvet.md) ─────────────────────────
 # (id, ad, tür, birim değer akçe, kimler taşır, yalnız astarda mı)
 ESYALAR = [
@@ -101,6 +112,10 @@ tres("data/ayarlar/oyun.tres", "OyunAyarlari", "res://src/veri/oyun_ayarlari.gd"
     "gizli_akce_min": 8, "gizli_akce_max": 20, "gizli_esya_olasiligi": 0.4,
     "teklif_orani": 0.5, "gasp_halk_cezasi": 1, "durust_arama_cezasi": 1,
     "sira_olay_olasiligi": 0.35,
+    # Ürünler: (id, süre gece, verim ambar, tohum ambar)
+    "ciftci_tarla_basina": 2, "tarla_azami": 6, "don_esigi": 1,
+    "bitki_idleri": psa([b[0] for b in BITKILER]), "bitki_sureleri": pia([b[2] for b in BITKILER]),
+    "bitki_verimleri": pia([b[3] for b in BITKILER]), "bitki_tohumlari": pia([b[4] for b in BITKILER]),
     # İş yerleri: (id, sınıf, uygunsuzda düşen bar: 0 Halk, 2 Tüccarlar, 3 Ordu, gereken yapı)
     "is_idleri": psa(["tarla", "pazar", "kervansaray", "kisla"]),
     "is_siniflari": psa(["ciftci", "esnaf", "esnaf", "asker"]),
@@ -540,6 +555,22 @@ OLAYLAR = [
          metin="Ayşe Bacı köyün kadınlarını tezgâhın başına topladı. Kilim dokuyacaklar, satacaklar.",
          secenekler=[("Destekle (iki akçe)", {"gerekli": {"akce": 2}, "bar": [1, 0, 2, 0], "bayrak": "baci_tezgah"}, "İlk kilim pazarda üç akçeye gitti."),
                      ("Kadınların işi tarlada", {"bar": [-1, 0, 0, 0], "ambar": 2}, "Tezgâh bir köşeye kaldırıldı.")]),
+    dict(id="tarla_yagmur", baslik="Bereketli yağmur", kosul={"tarla_ekili_min": 1}, agirlik=2, tek=False,
+         metin="Gece boyu ince ince yağmur yağdı. Sabah tarlalar ışıldıyordu.",
+         secenekler=[("Şükret", {"tarla_gun": 1}, "Ekinler bir gecede bir karış uzadı."),
+                     ("Ark kazdır, suyu tut (2 akçe)", {"gerekli": {"akce": 2}, "tarla_gun": 2}, "Arklardan su şırıldadı. Ekinler iki gecelik yol aldı.")]),
+    dict(id="tarla_kuraklik", baslik="Kuraklık", kosul={"tarla_ekili_min": 1, "gece_min": 2}, agirlik=2, tek=False,
+         metin="Günlerdir yağmur yok. Toprak çatladı, ekinler boynunu büktü.",
+         secenekler=[("Kuyudan su taşıt", {"bar": [-1, 0, 0, 0]}, "Halk bütün gün kova taşıdı. Ekinler kurtuldu, sırtlar ağrıdı."),
+                     ("Bekle, yağmur gelir", {"tarla_gun": -1}, "Yağmur gelmedi. Ekinler bir gece geriledi.")]),
+    dict(id="tarla_cekirge", baslik="Çekirge", kosul={"tarla_ekili_min": 1, "gece_min": 3}, agirlik=1, tek=False,
+         metin="Doğudan bir çekirge bulutu geliyor. Gökyüzü vızıldıyor.",
+         secenekler=[("Duman yak, kov (1 ambar)", {"gerekli": {"ambar": 1}}, "Islak samanı yaktınız. Çekirgeler tarlaların üstünden geçip gitti."),
+                     ("Kaderine bırak", {"tarla_verim": 0.5}, "Çekirgeler bir gece kaldı. Hasat yarıya indi.")]),
+    dict(id="tarla_don", baslik="Erken don", kosul={"tarla_ekili_min": 1, "gece_min": 4}, agirlik=1, tek=False,
+         metin="Gece ayaz çıktı. Sabaha karşı tarlaları kırağı bastı.",
+         secenekler=[("Tarlaları örttür (2 akçe)", {"gerekli": {"akce": 2}}, "Keçeler, çuvallar, kilimler... Ne bulduysanız tarlaya serdiniz. Ekin kurtuldu."),
+                     ("Örtecek bir şey yok", {"tarla_don": 1}, "Genç ekinler dondu. Toprağı yeniden sürmek gerekecek.")]),
     dict(id="yusuf_keci", baslik="Keçi", kosul={"koyde": ["yusuf"], "gece_min": 2}, agirlik=2,
          metin="Yusuf'un keçisi bir sabah kapının önünde bekliyordu. Yanında dört keçi daha.",
          secenekler=[("Sürü Yusuf'un olsun", {"ambar": 3, "bar": [2, 0, 0, 0]}, "Yusuf o gün ilk kez güldü."),
@@ -692,6 +723,11 @@ ARAYUZ = {
     "arayuz.hud.akce": "Akçe %d",
     "arayuz.hud.ambar": "Ambar %d",
     "arayuz.koy.yapilar": "Yapılar",
+    "arayuz.tarla.baslik": "Tarlalar (%d)",
+    "arayuz.tarla.yok": "Tarla açmak için çiftçi gerek (her %d çiftçi bir tarla).",
+    "arayuz.tarla.bos": "boş",
+    "arayuz.tarla.durum": "%s %d/%d",
+    "arayuz.tarla.ek": "%s ek — %d gece, +%d · tohum %d",
     "arayuz.yapi.pazar": "Pazar",
     "arayuz.yapi.kervansaray": "Kervansaray",
     "arayuz.yapi.sur": "Sur",

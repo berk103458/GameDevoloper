@@ -32,6 +32,8 @@ var _rng_donus: RandomNumberGenerator
 var _rng_ad: RandomNumberGenerator
 ## Heybe içeriği için ayrı akış (yalan ve eşyalar diğer çekilişleri kaydırmasın).
 var _rng_heybe: RandomNumberGenerator
+## Köyün tarlaları ve ekinleri.
+var tarlalar := Tarlalar.new()
 var _gemini: Array = []
 var _gemini_sira: int = 0
 
@@ -188,6 +190,11 @@ func gece_sonu() -> Dictionary:
 	var tuketim := ceili(toplam / float(ayarlar.tuketim_bolen))
 	ambar += uretim - tuketim
 	olaylar.append({"anahtar": "anlati.ambar", "deger": [uretim, tuketim]})
+	# Tarlalar: ekinler büyür, olgunlaşanlar ambara.
+	for h in tarlalar.gece(ayarlar.bitki_sure_sozlugu(), ayarlar.bitki_verim_sozlugu()):
+		ambar += int(h["verim"])
+		olaylar.append({"anahtar": "anlati.hasat." + String(h["bitki"]), "deger": [h["verim"]]})
+	tarlalar.alan_guncelle(koy.sayi(&"ciftci"), ayarlar.ciftci_tarla_basina, ayarlar.tarla_azami)
 	if ambar < 0:
 		ambar = 0
 		barlar.ekle(0, -1)
@@ -409,6 +416,11 @@ func olay_uygula(olay: OlayVerisi, i: int) -> Dictionary:
 				koy.cikar(StringName(sinif))
 	if e.has("bayrak"):
 		bayraklar[StringName(e["bayrak"])] = true
+	tarlalar.gun_ekle(int(e.get("tarla_gun", 0)))
+	if e.has("tarla_verim"):
+		tarlalar.verim_carp(float(e["tarla_verim"]))
+	if e.has("tarla_don"):
+		tarlalar.genc_yok_et(ayarlar.don_esigi)
 	if e.has("ayril"):
 		var id := StringName(e["ayril"])
 		if kadro.durumlar.has(id) and kadro.durumlar[id]["durum"] == &"koyde":
@@ -437,6 +449,8 @@ func _kosul_tutar(k: Dictionary) -> bool:
 		if bayraklar.has(StringName(b)):
 			return false
 	if koy.toplam() < int(k.get("nufus_min", 0)):
+		return false
+	if tarlalar.ekili_sayisi() < int(k.get("tarla_ekili_min", 0)):
 		return false
 	var sm: Dictionary = k.get("sinif_min", {})
 	for s in sm:
@@ -598,6 +612,15 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 	return PackedStringArray(["kabul", "ret"])
 
 
+## Boş bir tarlaya ürün eker; tohum ambardan düşer. Döner: ekildi mi.
+func tarla_ek(bitki: String) -> bool:
+	var i := ayarlar.bitki_idleri.find(bitki)
+	if i < 0 or ambar < ayarlar.bitki_tohumlari[i] or tarlalar.bos_sayisi() == 0:
+		return false
+	ambar -= ayarlar.bitki_tohumlari[i]
+	return tarlalar.ek(bitki)
+
+
 ## Kapıda seçilebilen iş yerleri (gereken yapı kurulmuşsa).
 func is_yerleri() -> PackedStringArray:
 	var s := PackedStringArray()
@@ -621,6 +644,7 @@ func kaydet() -> Dictionary:
 		"koy_adlilar": koy.adlilar.map(func(x): return String(x)),
 		"kadro": kadro.kaydet(),
 		"diyalog_sira": _gemini_sira,
+		"tarlalar": tarlalar.kaydet(),
 		"rng": [str(_rng.state), str(_rng_donus.state), str(_rng_ad.state), str(_rng_heybe.state)]}
 	# 64 bit sayılar JSON'da float'a döner; metin olarak saklanır.
 
@@ -670,4 +694,6 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	if r.size() >= 4:
 		o._rng_heybe.state = String(r[3]).to_int()
 	o._gemini_sira = int(veri.get("diyalog_sira", 0))
+	o.tarlalar.yukle(veri.get("tarlalar", []))
+	o.tarlalar.alan_guncelle(o.koy.sayi(&"ciftci"), o.ayarlar.ciftci_tarla_basina, o.ayarlar.tarla_azami)
 	return o

@@ -80,6 +80,14 @@ func dur() -> void:
 		_oynatici.speed_scale = 0.0
 
 
+## Sürekli iş hareketini açar/kapatır (&"calis" ya da &"").
+func calis(ad: StringName) -> void:
+	if _duzeltici != null:
+		_duzeltici.surekli = ad
+		if ad == &"":
+			_duzeltici.duygu = &""
+
+
 ## Anlık duygu hareketi (&"sevinc" / &"ofke"); süresi kadar bekler.
 func duygu(ad: StringName) -> void:
 	if _duzeltici == null:
