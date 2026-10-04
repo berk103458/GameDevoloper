@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OlayVerisi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/olay_verisi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"hirsizlik"
+baslik_anahtari = "olay.hirsizlik.baslik"
+metin_anahtari = "olay.hirsizlik.metin"
+kosullar = {"sinif_min": {"esnaf": 2}}
+agirlik = 1.0
+tek_sefer = true
+secenek_anahtarlari = PackedStringArray("olay.hirsizlik.secenek1", "olay.hirsizlik.secenek2", "olay.hirsizlik.secenek3")
+secenek_etkileri = Array[Dictionary]([{"bar": [-1, 0, 1, 1]}, {"gerekli": {"akce": 3}, "bar": [0, 0, 1, 0]}, {"bar": [0, 0, -1, 0]}])

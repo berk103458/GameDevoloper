@@ -1,12 +1,16 @@
 keys,tr
-anlati.baski.gida,Ambar azaldı. Halk homurdanıyor.
+anlati.ambar,"Ambar: +%d ürün, −%d tüketim."
+anlati.baski.gida,Ambar boşaldı. Halk aç yattı.
 anlati.baski.ordu,Uzakta Tekfur'un adamlarının ateşleri görüldü.
 anlati.baski.tuccar,Pazar boş kaldı. Tüccarlar uğramıyor.
 anlati.baski.vergi,Beyin adamı vergi istedi. Soylular memnun değil.
 anlati.gece.basladi,%d. gece. Yolda yine birileri var.
 anlati.gece.bitti,Gece bitti.
+anlati.gelir,Pazar ve kervandan %d akçe geldi.
 anlati.rusvet.harcandi,%s kırılmak üzereydi. Bir kese el altından gitti.
 anlati.saldiri.agir,Tekfur'un adamları köyün kıyısını yaktı.
+anlati.saldiri.guc,Tekfur'un adamları: güç %d. Köyün savunması: %d.
+anlati.saldiri.kayip,Saldırıda köyden biri öldü.
 anlati.saldiri.puskurtuldu,"Tekfur'un adamları surun dibine kadar geldi, geri döndü."
 anlati.sonuc.kabul,Kapı açıldı. %s içeri girdi.
 anlati.sonuc.kisla,%s kışlaya yazıldı.
@@ -30,6 +34,8 @@ arayuz.duraklat.baslik,Duraklatıldı
 arayuz.duraklat.devam,Devam et
 arayuz.duraklat.menu,Ana menüye dön
 arayuz.hata.icerik,Oyun içeriği yüklenemedi. Ayrıntı geliştirici günlüğünde.
+arayuz.hud.akce,Akçe %d
+arayuz.hud.ambar,Ambar %d
 arayuz.hud.gece,%d. gece
 arayuz.hud.kose,Köy: %d
 arayuz.karar.kabul,Kabul
@@ -38,13 +44,17 @@ arayuz.karar.onayla,%s — onayla
 arayuz.karar.ret,Ret
 arayuz.karar.rusvet,Rüşvet al
 arayuz.koy.baslik,Köy
+arayuz.koy.kese_al,Boş keseyi doldur — %d akçe
 arayuz.koy.nufus,%d asker · %d esnaf · %d çiftçi
+arayuz.koy.olay_secenek_kosul,(olmaz)
 arayuz.koy.sonraki,Kapıya dön
+arayuz.koy.yapilar,Yapılar
 arayuz.menu.alt,Kösedağ'dan sonra. Uçta bir kapı.
 arayuz.menu.ayarlar,Ayarlar
 arayuz.menu.cik,Çık
 arayuz.menu.devam,Devam
 arayuz.menu.yeni,Yeni gece
+arayuz.olay.devam,Devam
 arayuz.perde.baslik,Köy oturdu.
 arayuz.perde.devam,Ağa olarak devam et
 arayuz.perde.metin,"Kapıdan girenler artık bir köy. Sen artık kapının muhafızı değil, köyün ağasısın.
@@ -57,22 +67,220 @@ arayuz.sohbet.devam,Devam
 arayuz.sohbet.ipucu,Kararda: 1–4 seçer · aynı karara tekrar basmak onaylar · Esc seçimi bırakır
 arayuz.sohbet.karar_ver,Kararını ver
 arayuz.sohbet.sen,Sen
+arayuz.son.ahi,Ahi kasabası.
+arayuz.son.ahi_metin,"Pazar büyüdü, ocak kuruldu. Köyün adı uçtan çok kervan yolunda anılır oldu. Tekfur bile buradan geçerken pazarlık etti."
+arayuz.son.bey,Beyin uç köyü.
+arayuz.son.bey_metin,"Köy beyin sancağı altına girdi. Vergi düzenli, nöbet düzenli. Kapıyı artık beyin adamı tutuyor; sen sofrada oturuyorsun."
+arayuz.son.ertugrul,Ertuğrul'un obasına katıldın.
+arayuz.son.ertugrul_metin,"Bir bahar sabahı batıdan atlılar geldi. Köy, Söğüt'teki obanın uç karakollarından biri oldu. Kapı açık kaldı; bekçisi artık sen değildin."
 arayuz.son.gun,Hayatta kalınan gün
+arayuz.son.harac,Tekfur'un haraççısı.
+arayuz.son.harac_metin,Köy ayakta kaldı. Her ay bir kese Tekfur'a gitti. Kimse savaşmadı; kimse de kapıdan özgür geçmedi.
 arayuz.son.kirildi,%s kırıldı.
+arayuz.son.kirildi.0,Halk kapıyı kendisi açtı ve gitti.
+arayuz.son.kirildi.1,Bey seni azletti. Kapıya başkası bakacak.
+arayuz.son.kirildi.2,Kervanlar yolunu değiştirdi. Köy açlıktan dağıldı.
+arayuz.son.kirildi.3,Tekfur'un adamları kapıyı kırdı.
 arayuz.son.menu,Ana menü
 arayuz.son.tutundu,Uç tutundu.
 arayuz.son.tutundu_metin,Tekfur'un adamları bir sabah gelmedi. Köy kışı çıkardı. Kapı hâlâ açılıp kapanıyor.
 arayuz.son.yeniden,Yeniden başla
+arayuz.yapi.azami,%s — en üst seviyede
+arayuz.yapi.esnaf_gerek,%d esnaf gerekir
+arayuz.yapi.kervansaray,Kervansaray
+arayuz.yapi.kervansaray_aciklama,Gecelik kervan geliri; 2. seviyede kapıya daha çok kişi gelir.
+arayuz.yapi.kur,%s kur / büyüt — %d akçe
+arayuz.yapi.pazar,Pazar
+arayuz.yapi.pazar_aciklama,Esnaf başına gelir artar; Halk +1.
+arayuz.yapi.seviye,%s — seviye %d
+arayuz.yapi.sur,Sur
+arayuz.yapi.sur_aciklama,Her seviye savunmayı 2 artırır.
 bar.halk,Halk
 bar.ordu,Ordu
 bar.soylular,Soylular
 bar.tuccarlar,Tüccarlar
 karakter.aydogdu.ad,Aydoğdu
+karakter.ayse_baci.ad,Ayşe Bacı
+karakter.hasan_celebi.ad,Hasan Çelebi
 karakter.karaca_usta.ad,Karaca Usta
 karakter.miraen.ad,Miraen
+karakter.nogay.ad,Nogay
 karakter.saruca_hatun.ad,Saruca Hatun
 karakter.sorhan.ad,Sorhan
 karakter.thessra.ad,Thessra
+karakter.yusuf.ad,Yusuf
+olay.ahi_haber.baslik,Kayseri'den haber
+olay.ahi_haber.metin,Kayseri'deki büyük Ahi ocağından bir haberci geldi. Yeni ocağı tanıyorlar.
+olay.ahi_haber.secenek1,Ocağa bağlan
+olay.ahi_haber.secenek2,Bağımsız kal
+olay.ahi_haber.sonuc1,Ocağın kuşağı Kayseri'den mühürlü geldi.
+olay.ahi_haber.sonuc2,Haberci kırgın döndü.
+olay.aydogdu_oba.baslik,Obanın gelişi
+olay.aydogdu_oba.metin,"Aydoğdu'nun obası kapıya dayandı: yirmi kişi, otuz koyun, iki kağnı."
+olay.aydogdu_oba.secenek1,Hepsini al
+olay.aydogdu_oba.secenek2,Yalnız savaşanları al
+olay.aydogdu_oba.secenek3,Obayı geri gönder
+olay.aydogdu_oba.sonuc1,Koyunlar ambarı doldurdu; çadırlar köyü kalabalıklaştırdı.
+olay.aydogdu_oba.sonuc2,Obanın kadınları ve çocukları yollarına devam etti. Aydoğdu onları uğurlarken dönmedi.
+olay.aydogdu_oba.sonuc3,Aydoğdu sabah atına bindi ve obasının peşine düştü.
+olay.ayse_tezgah.baslik,Bacıların tezgâhı
+olay.ayse_tezgah.metin,"Ayşe Bacı köyün kadınlarını tezgâhın başına topladı. Kilim dokuyacaklar, satacaklar."
+olay.ayse_tezgah.secenek1,Destekle (iki akçe)
+olay.ayse_tezgah.secenek2,Kadınların işi tarlada
+olay.ayse_tezgah.sonuc1,İlk kilim pazarda üç akçeye gitti.
+olay.ayse_tezgah.sonuc2,Tezgâh bir köşeye kaldırıldı.
+olay.bey_daveti.baslik,Beyin daveti
+olay.bey_daveti.metin,Bölgenin beyi seni sofrasına çağırıyor. Köyünü kendi himayesine almak istiyor.
+olay.bey_daveti.secenek1,Himayeyi kabul et
+olay.bey_daveti.secenek2,Nazikçe geri çevir
+olay.bey_daveti.sonuc1,"Bey'in sancağı kapının üstüne asıldı. Vergi artık senden değil, beyin adamlarından sorulacak."
+olay.bey_daveti.sonuc2,Bey bir şey demedi. Beyler bir şey demezler.
+olay.dervis.baslik,Gezgin derviş
+olay.dervis.metin,"Bir gezgin derviş kapının dibinde geceledi. Batıdan, uçlardan haber getiriyor."
+olay.dervis.secenek1,Misafir et
+olay.dervis.secenek2,"Ekmek ver, uğurla"
+olay.dervis.sonuc1,"Derviş sabah giderken Söğüt diye bir yerden, orada toplanan Türkmenlerden söz etti."
+olay.dervis.sonuc2,Derviş dua etti ve yürüdü.
+olay.dugun.baslik,Düğün
+olay.dugun.metin,"İki aile, kapıdan ayrı ayrı girmiş iki genci evlendirmek istiyor."
+olay.dugun.secenek1,Düğün ver (üç akçe)
+olay.dugun.secenek2,Sade bir nikâh yeter
+olay.dugun.secenek3,Şimdi sırası değil
+olay.dugun.sonuc1,Bir gece boyunca kimse kapıyı düşünmedi.
+olay.dugun.sonuc2,Nikâhı köyün en yaşlısı kıydı.
+olay.dugun.sonuc3,Gençler bir şey demedi. Aileler dedi.
+olay.ertugrul_haberi.baslik,Batıdan haber
+olay.ertugrul_haberi.metin,"Batıda, Söğüt yöresinde Ertuğrul adında bir Türkmen beyi uçlarda adam topluyor. Haberci senden de söz almak istiyor."
+olay.ertugrul_haberi.secenek1,Ertuğrul'a haber gönder
+olay.ertugrul_haberi.secenek2,Uzak dur
+olay.ertugrul_haberi.sonuc1,Haberci sabah batıya yola çıktı. Ardından iki atlı daha gitti.
+olay.ertugrul_haberi.sonuc2,Söğüt uzak. Tekfur yakın.
+olay.hasan_defter.baslik,Kâtibin defteri
+olay.hasan_defter.metin,"Hasan Çelebi köyün defterini tuttu. Kim ne getirdi, kim ne yedi, kim ne borçlu — hepsi yazılı."
+olay.hasan_defter.secenek1,Deftere göre vergi topla
+olay.hasan_defter.secenek2,Defteri yalnız ambar için kullan
+olay.hasan_defter.secenek3,Defteri yak
+olay.hasan_defter.sonuc1,Kasa doldu. Halk defterden korkmaya başladı.
+olay.hasan_defter.sonuc2,Ambarda artık hiçbir şey kaybolmuyor.
+olay.hasan_defter.sonuc3,Halk bir gece ateşin başında güldü. Hasan ağladı.
+olay.hirsizlik.baslik,Pazarda hırsızlık
+olay.hirsizlik.metin,Pazardan bir top kumaş ve bir kese çalındı. Esnaf suçluyu istiyor.
+olay.hirsizlik.secenek1,"Suçluyu bul, cezalandır"
+olay.hirsizlik.secenek2,Zararı köy kasasından öde
+olay.hirsizlik.secenek3,Esnafın işine karışma
+olay.hirsizlik.sonuc1,Suçlu yeni gelenlerden biriydi. Herkes bunu hatırlayacak.
+olay.hirsizlik.sonuc2,Esnaf memnun. Hırsız hâlâ aralarında.
+olay.hirsizlik.sonuc3,Pazarda kepenkler erken iniyor artık.
+olay.kacak_koylu.baslik,Gece kaçanlar
+olay.kacak_koylu.metin,Gece köyden üç kişi kaçmaya çalışırken nöbetçiler yakaladı.
+olay.kacak_koylu.secenek1,"Geri getir, ders olsun"
+olay.kacak_koylu.secenek2,Bırak gitsinler
+olay.kacak_koylu.sonuc1,Kaçaklar geri getirildi. Bir daha kimse denemedi. Henüz.
+olay.kacak_koylu.sonuc2,Kapı arkalarından kapandı. Bu sefer içeriden.
+olay.karaca_ocak.baslik,Ahi ocağı
+olay.karaca_ocak.metin,"Karaca Usta, pazarın yanında bir Ahi ocağı kurmak istiyor. Çıraklar yemin edecek, esnaf birbirine kefil olacak."
+olay.karaca_ocak.secenek1,Ocağa izin ver
+olay.karaca_ocak.secenek2,Önce Kayseri'ye olan borcunu öde
+olay.karaca_ocak.sonuc1,Ocağın kapısına bir kuşak asıldı. O gece pazar her zamankinden kalabalıktı.
+olay.karaca_ocak.sonuc2,Karaca borcunu ödedi ama ocağı kurmaktan söz etmedi bir daha.
+olay.kervan.baslik,Kervan
+olay.kervan.metin,Halep'ten Sivas'a giden bir kervan kervansarayda konaklamak istiyor.
+olay.kervan.secenek1,Konuk et
+olay.kervan.secenek2,Ağır bir geçiş akçesi iste
+olay.kervan.secenek3,Askerlerine eşlik ettir
+olay.kervan.sonuc1,Kervancılar haber getirdi: güneydeki yollar hâlâ açık.
+olay.kervan.sonuc2,Kervan ödedi. Bir dahaki sefere başka yoldan gidecekler.
+olay.kervan.sonuc3,Kervan güvenle geçti. Kışla bir gece boş kaldı.
+olay.kitlik.baslik,Ambarın dibi
+olay.kitlik.metin,"Ambarın dibi göründü. Çuvallar boş, ekmek ince."
+olay.kitlik.secenek1,Beyden zahire iste
+olay.kitlik.secenek2,"Pazar malını sat, buğday al"
+olay.kitlik.secenek3,Tayını yarıya indir
+olay.kitlik.sonuc1,Zahire geldi; yanında bir de mektup: 'Unutmayız.'
+olay.kitlik.sonuc2,Pazar bir gün boş kaldı. Ambar doldu.
+olay.kitlik.sonuc3,Kimse aç ölmedi. Kimse tok da uyumadı.
+olay.miraen_cavus.baslik,Selçuklu çavuşu
+olay.miraen_cavus.metin,Bir Selçuklu çavuşu kapıya geldi. Bozgundan kaçanları arıyor. Listesinde Miraen'in adı var.
+olay.miraen_cavus.secenek1,Miraen'i teslim et
+olay.miraen_cavus.secenek2,Burada öyle biri yok de
+olay.miraen_cavus.secenek3,Çavuşun eline üç akçe sıkıştır
+olay.miraen_cavus.sonuc1,Miraen karşı çıkmadı. Giderken kırık kınını kapının dibine bıraktı.
+olay.miraen_cavus.sonuc2,Çavuş inanmadı ama ısrar da etmedi. Miraen o gece nöbete kendisi çıktı.
+olay.miraen_cavus.sonuc3,Çavuş listeye bir çizgi çekti ve atına bindi.
+olay.mogol_duman.baslik,Ufukta duman
+olay.mogol_duman.metin,"Doğuda, tepelerin ardında duman var. Moğol öncüleri olabilir; yanan bir köy de olabilir."
+olay.mogol_duman.secenek1,Yarın gece kapıyı kapalı tut
+olay.mogol_duman.secenek2,Nöbeti iki katına çıkar
+olay.mogol_duman.secenek3,Kaçanlara kapıyı aç
+olay.mogol_duman.sonuc1,Ertesi gece kapının önünde kimse beklemedi. Ya da kimse kapıyı çalmadı.
+olay.mogol_duman.sonuc2,Gece boyu kimse uyumadı. Duman sabaha doğru dağıldı.
+olay.mogol_duman.sonuc3,O gece kapıya her zamankinden çok insan geldi.
+olay.nogay_haber.baslik,Dilmacın uyarısı
+olay.nogay_haber.metin,Nogay geceyarısı yanına geldi: 'Moğol öncülerinin işaretini tanıyorum. Yolun kenarındaki taşlar dizilmiş.'
+olay.nogay_haber.secenek1,"Taşları dağıt, izleri sil"
+olay.nogay_haber.secenek2,Nogay'ı casus diye kov
+olay.nogay_haber.sonuc1,Ertesi gece yol sessizdi.
+olay.nogay_haber.sonuc2,Nogay hiçbir şey demeden gitti. Taşlar yerinde kaldı.
+olay.salgin.baslik,Öksürük
+olay.salgin.metin,"Köyde öksürük yayılıyor. Önce çocuklar, sonra yaşlılar."
+olay.salgin.secenek1,Thessra'nın ilaçlarını kullan
+olay.salgin.secenek2,Hastaları ayır
+olay.salgin.secenek3,"Sabret, geçer"
+olay.salgin.sonuc1,Thessra üç gece uyumadı. Kimse ölmedi.
+olay.salgin.sonuc2,Hastaların çadırı köyün dışına kuruldu. Biri sabaha çıkmadı.
+olay.salgin.sonuc3,Geçti. Ama herkes kimin öksürdüğünü hatırladı.
+olay.saruca_tohum.baslik,Tohum
+olay.saruca_tohum.metin,Saruca Hatun'un getirdiği tohum ambarda bekliyor. Kış yaklaşıyor.
+olay.saruca_tohum.secenek1,"Tarla aç, toprağa ver"
+olay.saruca_tohum.secenek2,"Ambara kat, kışı çıkaralım"
+olay.saruca_tohum.sonuc1,İlk gece kimse bir şey görmedi. Ama köy artık her gece biraz daha fazla ürün kaldıracak.
+olay.saruca_tohum.sonuc2,Ambar doldu. Saruca bir şey demedi; çocuğun ipini sıktı.
+olay.sorhan_damga.baslik,Damgalı atlar
+olay.sorhan_damga.metin,Bir Türkmen beyinin adamları geldi. Sorhan'ın getirdiği atlardaki damga onların.
+olay.sorhan_damga.secenek1,Atları geri ver
+olay.sorhan_damga.secenek2,Sorhan'ı koru
+olay.sorhan_damga.secenek3,Atları beş akçeye satın al
+olay.sorhan_damga.sonuc1,Adamlar atları alıp gitti. Sorhan bir süre kimseyle konuşmadı.
+olay.sorhan_damga.sonuc2,Adamlar dönerken arkalarına baktılar. Uçta kin unutulmaz.
+olay.sorhan_damga.sonuc3,Atlar köyün oldu. Kışlanın ilk binekleri.
+olay.sur_catlak.baslik,Surda çatlak
+olay.sur_catlak.metin,Gece saldırısından sonra surda bir çatlak açıldı.
+olay.sur_catlak.secenek1,Ustalara onart (beş akçe)
+olay.sur_catlak.secenek2,Köylüleri çalıştır
+olay.sur_catlak.secenek3,"Bırak, şimdilik dayanır"
+olay.sur_catlak.sonuc1,Sur sabaha onarıldı.
+olay.sur_catlak.sonuc2,"Herkes taş taşıdı. Kimse şikâyet etmedi, kimse teşekkür etmedi."
+olay.sur_catlak.sonuc3,Çatlak her gece biraz daha uzadı.
+olay.tekfur_elcisi.baslik,Tekfur'un elçisi
+olay.tekfur_elcisi.metin,"Tekfur'un elçisi geldi. Sözü kısa: her ay haraç öde, köyün rahat etsin."
+olay.tekfur_elcisi.secenek1,Haracı kabul et (sekiz akçe)
+olay.tekfur_elcisi.secenek2,Reddet
+olay.tekfur_elcisi.secenek3,"Oyala, cevabı sonra ver"
+olay.tekfur_elcisi.sonuc1,Elçi parayı aldı. Tekfur'un adamları o gece tepelerden inmedi.
+olay.tekfur_elcisi.sonuc2,Elçi gülümsedi ve gitti. Gülümsemesi iyi bir şey değildi.
+olay.tekfur_elcisi.sonuc3,Elçi bir gece daha bekleyeceğini söyledi.
+olay.thessra_afyon.baslik,Eksik şişe
+olay.thessra_afyon.metin,"Thessra'nın kutusundan bir şişe eksik. Sabah, değirmenin arkasında uyuşmuş bir adam bulundu."
+olay.thessra_afyon.secenek1,Thessra'yı sorguya çek
+olay.thessra_afyon.secenek2,"Kutuyu kilitle, anahtar sende dursun"
+olay.thessra_afyon.secenek3,Görmezden gel
+olay.thessra_afyon.sonuc1,Thessra bir şey demedi. Ertesi gün kutuyu sana getirdi; kapağı açıktı.
+olay.thessra_afyon.sonuc2,Kutuyu soran hekimler artık sana geliyor. Her biri bir akçe bırakıyor.
+olay.thessra_afyon.sonuc3,Pazarda şişeler el altından dolaşmaya başladı.
+olay.vergi_tahsildari.baslik,Tahsildar
+olay.vergi_tahsildari.metin,"Beyin tahsildarı geldi. Yanında iki atlı, elinde defter."
+olay.vergi_tahsildari.secenek1,Dört akçe öde
+olay.vergi_tahsildari.secenek2,Ambardan öde
+olay.vergi_tahsildari.secenek3,Ödemeyi reddet
+olay.vergi_tahsildari.sonuc1,"Tahsildar parayı saydı, defterine bir şey yazdı, gitti."
+olay.vergi_tahsildari.sonuc2,Çuvallar atlara yüklendi. Halk arkalarından baktı.
+olay.vergi_tahsildari.sonuc3,Tahsildar kapıdan çıkarken köyün adını yüksek sesle tekrarladı.
+olay.yusuf_keci.baslik,Keçi
+olay.yusuf_keci.metin,Yusuf'un keçisi bir sabah kapının önünde bekliyordu. Yanında dört keçi daha.
+olay.yusuf_keci.secenek1,Sürü Yusuf'un olsun
+olay.yusuf_keci.secenek2,Keçiler köyün malı
+olay.yusuf_keci.sonuc1,Yusuf o gün ilk kez güldü.
+olay.yusuf_keci.sonuc2,Ambar doldu. Yusuf ipi yine eline aldı ve bir şey demedi.
 sablon.asker.ad1,Yaralı bir asker
 sablon.asker.ad2,Bir firari
 sablon.asker.ad3,Yaya bir sipahi
@@ -134,6 +342,25 @@ sohbet.aydogdu.giris1,"Kolu sargılı bir okçu. Sırtında yay, belinde sadak."
 sohbet.aydogdu.s1,Kimsin?
 sohbet.aydogdu.s2,Yaran ne?
 sohbet.aydogdu.s3,Yalnız mısın?
+sohbet.ayse_baci.c1,"Ayşe derler. Kayseri'de bacılardandım. Dokuruz, öğretiriz."
+sohbet.ayse_baci.c2,Çıraklarım. Yolda annelerini yitirdiler.
+sohbet.ayse_baci.c3,"Erkekler ocakta, biz tezgâhta. Biri olmazsa öteki eksik kalır."
+sohbet.ayse_baci.c4,Bir dere geçerken kırıldı. Elimiz kırılmadı ama.
+sohbet.ayse_baci.c5,Başka uçta kapı var ama ocak yok. Burada olacak diye duydum.
+sohbet.ayse_baci.giris1,Sırtında katlanmış bir dokuma tezgâhı taşıyan orta yaşlı bir kadın. Yanında iki genç kız.
+sohbet.ayse_baci.giris2,Ayşe Bacı yine geldi. Tezgâhın bir ayağı kırık.
+sohbet.ayse_baci.s1,Kimsin?
+sohbet.ayse_baci.s2,Bu kızlar kim?
+sohbet.ayse_baci.s3,Bacılar ne iş yapar?
+sohbet.ayse_baci.s4,Tezgâha ne oldu?
+sohbet.ayse_baci.s5,Neden döndün?
+sohbet.hasan_celebi.c1,Hasan. Sivas divanında kâtiptim. Vergi yazardım.
+sohbet.hasan_celebi.c2,"Kimin ne borçlu olduğu. Moğol da sorar, bey de."
+sohbet.hasan_celebi.c3,Bir köy kayıtsız yaşamaz. Ben kaydederim; sen yönetirsin.
+sohbet.hasan_celebi.giris1,"İyi dikilmiş bir kaftan, mürekkep lekeli parmaklar. Yanında defterler dolu bir heybe."
+sohbet.hasan_celebi.s1,Kimsin?
+sohbet.hasan_celebi.s2,Heybede ne var?
+sohbet.hasan_celebi.s3,Burada ne işin var?
 sohbet.karaca_usta.c1,Karaca derler. Kayseri'de tabakhanem vardı. Yandı.
 sohbet.karaca_usta.c2,Çıraklarım. Ben neredeysem onlar orada.
 sohbet.karaca_usta.c3,"Ocağa borcum var. Ödeyeceğim, vakti gelince."
@@ -153,6 +380,18 @@ sohbet.miraen.giris1,Atsız bir atlı. Kılıcının kını kırık; bakışı h
 sohbet.miraen.s1,Kimsin?
 sohbet.miraen.s2,Atın nerede?
 sohbet.miraen.s3,Birliğin nerede?
+sohbet.nogay.c1,Nogay. Dilmaçtım. Moğol beyinin sözünü Türkçeye çevirirdim.
+sohbet.nogay.c2,Çevirdiğim sözler köyleri yaktı. Ben çevirmekten yoruldum.
+sohbet.nogay.c3,Arkamda değil. Ama uzak da değil.
+sohbet.nogay.c4,Bir Türkmen obası aldı. Karşılığında beni öldürmediler.
+sohbet.nogay.c5,Bir yer. Kimsenin sözünü çevirmediğim bir yer.
+sohbet.nogay.giris1,"Bozkır biçimi kalpaklı, sessiz bir adam. Atını yedeğinde değil, elinde tutuyor."
+sohbet.nogay.giris2,Nogay yine geldi. Bu sefer atı yok; ayakları sargılı.
+sohbet.nogay.s1,Kimsin?
+sohbet.nogay.s2,Neden kaçtın?
+sohbet.nogay.s3,Moğollar nerede?
+sohbet.nogay.s4,Atın nerede?
+sohbet.nogay.s5,Bu kez ne istiyorsun?
 sohbet.saruca_hatun.c1,Saruca. Sivas'ın köylerindendim.
 sohbet.saruca_hatun.c2,Yoktur artık.
 sohbet.saruca_hatun.c3,Çocuğa bir çatı.
@@ -202,3 +441,15 @@ sohbet.thessra.s3,Baban nerede?
 sohbet.thessra.s4,Neden döndün?
 sohbet.thessra.s5,Kutu boşaldı mı?
 sohbet.thessra.s6,Kime sattın?
+sohbet.yusuf.c1,Yusuf.
+sohbet.yusuf.c2,Kösedağ'a babam gitti. Annem yolda kaldı.
+sohbet.yusuf.c3,İp bende kaldı. Keçi kaçtı. Belki döner.
+sohbet.yusuf.c4,Bir değirmencinin yanında. Sonra değirmen de gitti.
+sohbet.yusuf.c5,Keçi güderim. Bir de beklerim.
+sohbet.yusuf.giris1,"On iki yaşlarında bir oğlan. Elinde bir keçi ipi, ucunda keçi yok."
+sohbet.yusuf.giris2,Yusuf yine kapıda. Daha zayıf.
+sohbet.yusuf.s1,Adın ne?
+sohbet.yusuf.s2,Ailen nerede?
+sohbet.yusuf.s3,Keçin nerede?
+sohbet.yusuf.s4,Nerede kaldın?
+sohbet.yusuf.s5,Ne iş bilirsin?

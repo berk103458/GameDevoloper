@@ -2,3 +2,7 @@
 # Godot
 .godot/
 data/metin/*.translation
+tools/art/ham/
+tools/art/yedek/
+tools/art/gelen/*
+!tools/art/gelen/.gitkeep

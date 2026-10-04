@@ -8,6 +8,7 @@ var _bar_etiketleri: Array[Label] = []
 var _keseler: HBoxContainer
 var _gece: Label
 var _koy: Label
+var _ekonomi: Label
 
 
 ## HUD'u bir oturuma bağlar.
@@ -38,6 +39,10 @@ func _ready() -> void:
 	var bosluk := Control.new()
 	bosluk.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	kutu.add_child(bosluk)
+	_ekonomi = Label.new()
+	_ekonomi.add_theme_font_size_override("font_size", Tema.KUCUK_PX)
+	_ekonomi.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	kutu.add_child(_ekonomi)
 	_keseler = HBoxContainer.new()
 	_keseler.add_theme_constant_override("separation", 6)
 	kutu.add_child(_keseler)
@@ -89,6 +94,7 @@ func guncelle() -> void:
 			_keseler.add_child(l)
 	_gece.text = tr("arayuz.hud.gece") % _oturum.gosterilen_gece()
 	_koy.text = tr("arayuz.hud.kose") % _oturum.koy.toplam()
+	_ekonomi.text = "%s\n%s" % [tr("arayuz.hud.akce") % _oturum.akce, tr("arayuz.hud.ambar") % _oturum.ambar]
 
 
 func _parca(durum: String) -> Control:

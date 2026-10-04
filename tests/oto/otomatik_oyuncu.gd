@@ -77,9 +77,25 @@ func _dongu() -> void:
 			a.ayarlar.varsayilana_don()
 			a._kapat()
 		elif ekran is KoyEkrani:
+			var koy := ekran as KoyEkrani
 			await get_tree().create_timer(2.5).timeout
+			if koy._kart != null and is_instance_valid(koy._kart) and not koy._kart.is_queued_for_deletion():
+				await _foto("04_olay")
+				var secim := _dugmeler(koy._kart)
+				if not secim.is_empty():
+					secim[rng.randi_range(0, secim.size() - 1)].pressed.emit()
+					await get_tree().create_timer(0.3).timeout
+					var tamam := _dugmeler(koy._kart)
+					if not tamam.is_empty():
+						await _foto("04_olay_sonuc")
+						tamam[0].pressed.emit()
+				continue
+			for y in _dugmeler(koy._yapi_kutusu):
+				y.pressed.emit()
+				await get_tree().create_timer(0.2).timeout
 			await _foto("05_koy_perde%d" % ana.oturum.perde)
-			(ekran as KoyEkrani).devam_istendi.emit()
+			print("gece ", ana.oturum.gun, " akce=", ana.oturum.akce, " ambar=", ana.oturum.ambar, " yapilar=", ana.oturum.yapilar, " bayraklar=", ana.oturum.bayraklar.keys())
+			koy.devam_istendi.emit()
 		elif ekran is KapiEkrani:
 			var k := ekran as KapiEkrani
 			var d := _dugmeler(k._secenekler)

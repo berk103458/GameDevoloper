@@ -148,6 +148,7 @@ func _siradaki() -> void:
 	_portre.position = Vector2(DUNYA_GENISLIK + 50, _dunya.size.y - PORTRE_BOYUT.y)
 	_yaz("\n[i]%s[/i]" % tr(_gelen.giris_anahtari))
 	oturum.ziyaret_basladi(_gelen)
+	_adim_sesi(6)
 	await Adim.yuru(_portre, Vector2(PORTRE_X, _portre.position.y), 6, 10.0)
 	if oturum.perde == 2 or _gelen.sorular.is_empty():
 		_karar_goster()
@@ -230,18 +231,30 @@ func _karar_birak() -> void:
 func _karar_ver(anahtar: String) -> void:
 	evre = &"sonuc"
 	_temizle()
+	Ses.cal(&"sfx_onay")
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar))
+	if anahtar == "rusvet":
+		Ses.cal(&"sfx_kese")
+	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)
 	_yaz(tr("anlati.sonuc." + anahtar) % tr(_gelen.ad_anahtari))
 	if sonuc["rusvet_harcandi"] >= 0:
+		Ses.cal(&"sfx_bar_catlak")
 		_yaz("[i]%s[/i]" % (tr("anlati.rusvet.harcandi") % tr(oturum.ayarlar.bar_anahtarlari[sonuc["rusvet_harcandi"]])))
 	hud.guncelle()
 	_daralt(false)
 	var hedef_x := -PORTRE_BOYUT.x - 40 if sonuc["kaldi"] else DUNYA_GENISLIK + 50
+	_adim_sesi(8)
 	await Adim.yuru(_portre, Vector2(hedef_x, _portre.position.y), 8, 10.0)
 	if sonuc["kirilan"] >= 0:
 		oturum_bitti.emit(sonuc["kirilan"])
 		return
 	_siradaki()
+
+
+func _adim_sesi(adet: int) -> void:
+	for i in adet / 2:
+		Ses.cal(&"sfx_adim", -6.0)
+		await get_tree().create_timer(Adim.KARE_SN * 4.0).timeout
 
 
 func _daralt(icerden: bool) -> void:
@@ -260,6 +273,7 @@ func _dugme(yazi: String) -> Button:
 	b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	b.custom_minimum_size = Vector2(0, 64)
 	b.focus_mode = Control.FOCUS_ALL
+	b.focus_entered.connect(func() -> void: Ses.cal(&"sfx_secim", -8.0))
 	b.mouse_entered.connect(func() -> void:
 		if b.visible:
 			b.grab_focus()

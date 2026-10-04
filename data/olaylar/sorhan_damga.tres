@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OlayVerisi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/olay_verisi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"sorhan_damga"
+baslik_anahtari = "olay.sorhan_damga.baslik"
+metin_anahtari = "olay.sorhan_damga.metin"
+kosullar = {"koyde": ["sorhan"], "gece_min": 2}
+agirlik = 3.0
+tek_sefer = true
+secenek_anahtarlari = PackedStringArray("olay.sorhan_damga.secenek1", "olay.sorhan_damga.secenek2", "olay.sorhan_damga.secenek3")
+secenek_etkileri = Array[Dictionary]([{"bar": [0, 1, -1, 0]}, {"bar": [0, -1, 1, -1], "bayrak": "turkmen_kin"}, {"gerekli": {"akce": 5}, "bar": [0, 0, 0, 2]}])
