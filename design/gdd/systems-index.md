@@ -44,14 +44,14 @@ Oyun, kapıda geçen kısa bir sohbet-ve-karar döngüsü etrafında kurulu: kap
 | # | System Name | Category | Priority | Status | Design Doc | Depends On |
 |---|-------------|----------|----------|--------|------------|------------|
 | 1 | Oyun durumu ve gün döngüsü | Core | MVP | Designed | design/gdd/oyun-durumu-ve-gun-dongusu.md | — |
-| 2 | İçerik veri hattı (inferred) | Core | MVP | Not Started | — | — |
+| 2 | İçerik veri hattı (inferred) | Core | MVP | Designed | design/gdd/icerik-veri-hatti.md | — |
 | 3 | Girdi ve odak gezinmesi (inferred) | Core | MVP | Not Started | — | — |
 | 4 | Varış kuyruğu | Gameplay | MVP | Not Started | — | 1, 2, 5 |
 | 5 | Karakter kadrosu | Gameplay | MVP | Not Started | — | 2 |
 | 6 | Sohbet | Gameplay | MVP | Not Started | — | 2, 5 |
 | 7 | Karar | Gameplay | MVP | Not Started | — | 5, 6, 8, 9, 10 |
 | 8 | Barlar | Gameplay | MVP | Not Started | — | 1, 2 |
-| 9 | Rüşvet hakları | Gameplay | MVP | Not Started | — | 1 |
+| 9 | Rüşvet hakları | Gameplay | MVP | Not Started | — | 1, 2 |
 | 10 | Köy nüfusu | Gameplay | MVP | Not Started | — | 1, 2 |
 | 11 | Köy yapıları | Gameplay | Vertical Slice | Not Started | — | 2, 10 |
 | 12 | Köy üretimi | Economy | Vertical Slice | Not Started | — | 10, 11 |
