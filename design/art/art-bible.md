@@ -194,9 +194,74 @@ Yedek sinyal gerektiren bilgiler (renk asla tek başına sinyal değildir):
 
 ## 5. Character Design Direction
 
-[To be designed] — the player character's visual archetype, how players tell
-enemies, NPCs and allies apart at a glance, expression and pose style, and how
-much detail survives at game camera distance (LOD philosophy).
+### 5.0 Ana fikir
+**Figür yolun ve emeğin izini taşır; niyetin izini asla.** Herkes aynı yorgun gövde dilinden çıkar (3.1) ve üç katmanla ayrılır: (1) eşya — sınıfa dair *ipucu*; (2) imza şekli — *kim* olduğu; (3) yolun izi — ne kadar yol yürüdüğü. Hiçbir katman "iyi/tehlikeli" demez (İlke 2).
+
+### 5.1 Oyuncu karakteri — kervan muhafızı
+*Kullanıcı kararı (4 Ekim 2026): seçenek A.*
+- **Yüzü hiç gösterilmez.** Oyuncunun aynası köydür (Sütun 4).
+- **Kapıda:** Birinci şahıs bakış; kamera muhafızın gelene baktığı yerdedir. Gelenin yüzü kahramandır (3.4); oyuncunun yüzü kadraja girerse bir karede iki kahraman olur.
+- **Yalnız eller:** Kapı kanadına dayanan el; rüşvette keseyi uzatan/alan el (2.5). Eller ahşap tonu yün yen ve deri bilekliktir; yüzük, süs, rütbe işareti yok.
+- **Köy görünümünde oyuncu figürü yoktur** — köyde görülen herkes içeri alınmış biridir (İlke 3).
+- **Ağalık (2.6):** Rol değişimi giysiyle değil kadrajla anlatılır; oyuncuya kaftan, kürk ya da rütbe giydirilmez.
+
+### 5.2 Ortak figür şablonu — 13. yüzyıl Anadolu ucu
+Kilitteki temel (yün kapüşon, keten tunik, deri kemer) her figürün başlangıcıdır. Dönem için akla yatkın eklemeler:
+- **Baş:** yün kapüşon; keçe börk; sade sarık sargısı. Kadınlarda baş örtüsü ya da omza dökülen örtü.
+- **Gövde:** keten tunik/gömlek; üstünde önü bindirmeli, bağcık ya da kuşakla kapanan yün kaftan; keçe kepenek (kolsuz kalın keçe pelerin). Dikişli yakalı palto yok.
+- **Bel:** deri kemer; Ahi'de şed; yün kuşak sargısı.
+- **Bacak/ayak:** bol yün şalvar ya da tozluk sargısı; çarık; atlı ve askerlerde yumuşak deri çizme; yoldakilerde ayağa bez sargı.
+- **Kapanma:** bağcık, düğüm, kuşak, kemik ya da ahşap ilik. **Fermuar, sıra düğme, metal toka dizisi yok.**
+- **Yasak:** modern kep, palto, fermuar (kilit); dönem dışı kavuk, fes, sıra düğmeli cepken; fantastik zırh, boynuzlu miğfer.
+- **Kadın ve çocuk figürleri** kapıya gelenler arasında yer alır (kullanıcı kararı, 4 Ekim 2026); aynı giyim ve gövde kuralları geçerlidir. Çocuk figürleri de yorgun gövde dilini taşır; "masum" ya da "tehlikeli" diye işaretlenmez (İlke 2).
+- **Renk — yalnız paletten** (kullanıcı kararı, 4 Ekim 2026): Ten için ayrı hex yoktur; yüzün ışık alan yarısı meşale lekesi, almayan yarısı soğuk mavi ya da mürekkep gölgesidir (2.1). Keten dahil tüm kumaş gece soğuk mavi ya da derin mavi okunur; deri ve ahşap eşya ahşap tonunda; kül arayüz ve sikkeye ayrılmıştır.
+
+### 5.3 Bir bakışta ayırt etme — sınıf ipuçları
+Okunurluk **ipucudur**, hüküm değil (3.1, karar B). Her ipucu siyah dolgu ~64 px testinde **siluetin dış hattını** değiştirmelidir; siluet içinde kalan bir iç çizgi ipucu sayılmaz.
+- **Asker:** dikey, uzun çizgi — kemerden sarkan hafif eğri kılıç kını, omuzda mızrak ya da yuvarlak kalkan kenarı; okçu Türkmen için sadak ve yay. Zırh en fazla kapitone kaftan ya da tek miğfer çizgisi.
+- **Esnaf:** sırtta denk ya da bohça (siluetin üstüne çıkan kütle), elde tek meslek aleti.
+- **Ahi:** esnaf siluetine ek **şed**. Şed siyah dolguda görünmez, bu yüzden **düğümünün sarkan uçları siluetin dışına taşar**; Ahi'yi 64 px'te bu uçlar tanıtır. Şed deri kemerin üstüne bağlanır.
+- **Çiftçi:** yatay, yere yakın kütle — tahıl çuvalı, orak ya da çapa; gövdenin altında taşınır.
+- **İpucu yalan söylemez ama her şeyi söylemez:** bir asker bohça taşıyabilir; eşya yalnız "nesin?" sorusuna bir başlangıç verir.
+
+### 5.4 Özel karakterler ve imza şekli
+Miraen, Sorhan, Thessra ve adı konmamış 7–8 karakter için bu belge **görünüş tanımlamaz, yalnız kural koyar**; işleri serbesttir.
+1. **Tek imza şekli** — siluetin dış hattını değiştiren tek şekil (kapüşon kesimi, taşınan nesne, omuz/kol çizgisi farkı). İkinci imza yok.
+2. **İmza sınıf eşyası değildir** — tek başına asker/esnaf/çiftçi okutmaz.
+3. **İmza niyet söylemez** — silah ucu, gizli bıçak, "şüpheli" sargı gibi tehdit ya da güven ima eden şekiller imza olamaz (İlke 2).
+4. **Geri dönüşte imza sabit, durum değişken** — geçen zamanı yolun izi gösterir (yıpranmış kumaş, artan sargı, değişen yük).
+5. **Her ölçekte görünür** — köy basamağında da (5.7) okunur; içeri alınan özel karakter köyde imzasıyla bulunur (6.4).
+6. **Benzersiz** — iki imza siyah dolguda yan yana karıştırılmaz.
+
+### 5.5 Üç topluluk
+Ahlakla değil, **durum, ölçek ve uzaklıkla** ayrılırlar (İlke 2, 4.2).
+- **Yoldakiler (Moğol baskınından kaçanlar, kapıda):** yükün altında; katmanlı sargı, bohça, ayakta bez, kumaş eteklerinde düz derin mavi toz lekeleri. Arkadaki bekleyen kuyruk düzensiz ritimlidir — eğik başlar, farklı yükseklikte yükler.
+- **Köylüler (içeri alınanlar):** aynı insanlar, yükü bırakmış; elde iş aleti, bir meşale lekesinin yanında eğilmiş ya da bir şey taşırken. İlk gün kapıdan giren köyde de tanınır.
+- **Tekfur'un adamları:** yalnız **uzak** — soğuk mavi/derin mavi düz siluet, iç detay ve yüz yok (2.7, 3.4). Onları siluet ritmi ayırır: düzenli aralık, tekrarlanan dikey mızrak uçları, ortak kalkan biçimi — "örgütlü ve uzak", "şeytani" değil.
+- **Moğollar:** kilitte sahnede tanımlı değil — **açık soru** (aşağıda).
+
+### 5.6 İfade ve poz
+- **Taban ifade: yorgun ve tutuk** — ağır göz kapağı, göz altında tek mürekkep çizgisi, kapalı ya da hafif aralık ağız, öne eğik baş.
+- **Dar aralık** — üç kaldıraç: göz kapağı açıklığı, ağız çizgisinin eğimi, baş açısı. Çığlık, gözyaşı damlası, abartılı kaş, anime işaretleri (ter damlası, kızarma) yok.
+- **Önerilen poz seti (kart başına):** nötr-yorgun, dinleyen, kaçınan (bakış yanda), konuşan, sessiz. Sayı Bölüm 8'de bütçelenir.
+- **İfade söylenene tepki verir, sonuca değil** — karar öncesinde hiçbir ifade "doğru seçenek" ipucu vermez (Sütun 2).
+- **Gövde:** düşük omuzlar, ağırlık tek bacakta, eller yüke ya da kemere tutunmuş; kahramanca dik duruş, dinamik aksiyon açısı yok.
+- **Işık ifadeyi değiştirmez** — sohbet boyunca meşale lekesi sabittir (2.1).
+
+### 5.7 2D ayrıntı basamakları ("LOD")
+Godot'da otomatik 2D LOD yoktur; **her basamak ayrı çizilir**. Kart çizimi köy boyutuna küçültülmez (6 px kontur 1 px'in altına düşer, mürekkep kimliği kaybolur). Kontur her basamakta ekran px'inde sabittir.
+
+| Basamak | Ölçek (1080p, öneri) | Kontur | Korunan | Atılan |
+|---|---|---|---|---|
+| **Kart / sohbet** | Yüz-göğüs, ekran yüksekliğinin ~%55–70'i | Dış 6 px, iç 3 px | Yüz çizgileri, sınıf eşyası, imza şekli, şed düğümü, yol izi, birkaç kumaş kıvrımı | Kumaş dokusu, dikiş, süs |
+| **Köy figürü** | Tam boy ~64–120 px (3.1'deki test) | Dış 2 px, iç yok | Siluet, sınıf eşyası, imza, şed uçları, meşaleye dönük yanda tek sert leke | Yüz (kapüşon şekli yeter), kıvrım, yol izi |
+| **Uzak kalabalık** | <48 px | Yok | Yalnız dış siluet; düz soğuk mavi ya da derin mavi | Tüm iç ayrıntı (Tekfur adamları, kapı kuyruğu) |
+
+**Kural:** Bir ayrıntı bulunduğu basamakta siyah dolgu testini değiştirmiyorsa o basamaktan atılır (istisna: kart basamağında yüz çizgileri).
+
+### Açık sorular (Bölüm 5)
+- **Karar sonrası yüz tepkisi:** Karardan sonra gelen kişinin tepkisi gösterilecek mi; gösterilirse sonucu söylemeyen, aynı dar aralıkta bir tepki mi?
+- **Moğollar:** Kaçılan baskın görselde hiç gösterilecek mi (uzak siluet, ufukta duman), yoksa yalnız yoldakilerin izleriyle mi anlatılacak?
 
 ## 6. Environment Design Language
 
