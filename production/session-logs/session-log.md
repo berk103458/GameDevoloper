@@ -3346,3 +3346,30 @@ ea33fd2 chore(3d): add generated models
 production/session-logs/agent-audit.log
 ---
 
+## Session End: 20261004_171830
+### Commits
+6608051 chore: session logs
+e7d0ad4 feat(ui): main menu matches the moonlit reference; wire teammate dialogues safely
+b294c3d Merge remote-tracking branch 'origin/claude/keen-cerf-42meo7' into claude/festive-volta-li1sfm
+194a6f9 feat(ui): themed 3D main menu and Alegreya typeface
+9a75c8a Diyaloglar ve uretilen gorseller ortak repoda.
+2a304b5 docs: consolidated production plan and missing-content backlog
+49e4bec Merge branch 'claude/keen-cerf-42meo7' of https://github.com/berk103458/GameDevoloper into claude/keen-cerf-42meo7
+8cd28c8 Update project.godot
+6c2c724 docs: 3D build notes and evidence screenshots
+215c215 fix(3d): palisade spacing, village gate behind village, faster pacing
+152404a chore(3d): add generated models
+6eee3b9 chore(3d): add generated models
+d1ba191 chore(3d): add generated models
+7e87988 chore(3d): add generated models
+27ea2cd chore(3d): add generated models
+cd1912f chore(3d): add generated models
+21b236f chore(3d): add generated models
+1d37aad chore(3d): add generated models
+2a31403 chore(3d): add generated models
+0f9f351 chore(3d): add generated models
+ea33fd2 chore(3d): add generated models
+2831f88 chore(3d): add generated character models so far
+626acad feat(3d): 3D gate and village scenes with Meshy AI models
+---
+
