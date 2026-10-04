@@ -578,6 +578,28 @@ OLAYLAR = [
                      ("Keçiler köyün malı", {"ambar": 5, "bar": [-1, 0, 0, 0]}, "Ambar doldu. Yusuf ipi yine eline aldı ve bir şey demedi.")]),
 ]
 
+# Olay sesleri (tools/ses/ses_uret.py üretir): id → (efekt, müzik döngüsü).
+OLAY_SESLERI = {
+    "dugun": ("", "muzik_dugun_dongu"),
+    "salgin": ("sfx_oksuruk", ""),
+    "kervan": ("sfx_kervan", ""),
+    "hirsizlik": ("sfx_kavga", ""),
+    "tarla_yagmur": ("sfx_yagmur", ""),
+    "tarla_kuraklik": ("sfx_ruzgar", ""),
+    "tarla_cekirge": ("sfx_cekirge", ""),
+    "tarla_don": ("sfx_ruzgar", ""),
+    "sira_atlama": ("sfx_kalabalik", ""),
+    "sira_kavga": ("sfx_kavga", ""),
+    "sira_vazgecen": ("sfx_adim", ""),
+    "sira_panik": ("sfx_at_nali", ""),
+}
+
+
+def ses_alanlari(i):
+    efekt, muzik = OLAY_SESLERI.get(i, ("", ""))
+    return {"ses": sn(efekt), "muzik": sn(muzik)}
+
+
 for o in OLAYLAR:
     i = o["id"]
     baslik = t("olay.%s.baslik" % i, o["baslik"])
@@ -590,7 +612,8 @@ for o in OLAYLAR:
     tres("data/olaylar/%s.tres" % i, "OlayVerisi", "res://src/veri/olay_verisi.gd", {
         "id": sn(i), "baslik_anahtari": baslik, "metin_anahtari": metin,
         "kosullar": gd(o["kosul"]), "agirlik": float(o.get("agirlik", 1)), "tek_sefer": o.get("tek", True),
-        "secenek_anahtarlari": psa(secs), "secenek_etkileri": "Array[Dictionary](" + gd(etkiler) + ")"})
+        "secenek_anahtarlari": psa(secs), "secenek_etkileri": "Array[Dictionary](" + gd(etkiler) + ")",
+        **ses_alanlari(i)})
 
 # ─── Sıra olayları: iki gelen arasında kuyrukta olanlar (design/gdd/sira-olaylari.md) ──
 # canlandirma: KapiSahnesi.sira_olayi() anahtarı; etki "kuyruk": -1 sıradan birini düşürür.
@@ -631,7 +654,8 @@ for o in SIRA_OLAYLARI:
     tres("data/sira_olaylari/%s.tres" % i, "OlayVerisi", "res://src/veri/olay_verisi.gd", {
         "id": sn(i), "baslik_anahtari": baslik, "metin_anahtari": metin,
         "kosullar": gd(kosul), "agirlik": float(o.get("agirlik", 1)), "tek_sefer": False,
-        "secenek_anahtarlari": psa(secs), "secenek_etkileri": "Array[Dictionary](" + gd(etkiler) + ")"})
+        "secenek_anahtarlari": psa(secs), "secenek_etkileri": "Array[Dictionary](" + gd(etkiler) + ")",
+        **ses_alanlari(i)})
 
 # ─── Arayüz ve anlatı metinleri ──────────────────────────────────────────
 ARAYUZ = {

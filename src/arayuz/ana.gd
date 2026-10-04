@@ -190,6 +190,9 @@ func _goster(e: Control) -> void:
 		_ekran.queue_free()
 	_ekran = e
 	add_child(e)
+	# Köyde gece ortamı (cırcır, rüzgâr, uzak köpek); başka her yerde kapı meşalesi. Olay müziği ekranla biter.
+	Ses.ortam_cal(&"ortam_koy_dongu" if e is KoyEkrani else &"")
+	Ses.muzik_cal(&"")
 
 
 func _hata_goster() -> void:

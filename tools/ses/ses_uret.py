@@ -714,6 +714,292 @@ def ortam_mesale_dongu():
     return mix((bed, 1.0), (cr, 1.0))
 
 
+# ============================================================ koy hayati SFX
+def sfx_hasat():
+    """Orak savrulmasi + ekin hisirtisi."""
+    n = secs(0.8)
+    sw_env = [math.exp(-((i / SR - 0.22) / 0.08) ** 2) for i in range(n)]
+    swish = mul(biquad(noise(n, 1301), "bp", lambda t: 700.0 + 2600.0 * smooth((t - 0.1) / 0.25), 1.6), sw_env)
+    r = random.Random(1302)
+    grains = zeros(n)
+    for _ in range(160):
+        t = 0.24 + 0.45 * r.random() ** 1.4
+        i = secs(t)
+        a = (0.2 + 0.8 * r.random()) * math.exp(-(t - 0.24) / 0.2)
+        for j in range(secs(0.002)):
+            if i + j < n:
+                grains[i + j] += a * (2.0 * r.random() - 1.0) * math.exp(-j / 25.0)
+    rustle = biquad(biquad(grains, "hp", 1800), "lp", 7500)
+    return mix((norm(swish), 1.0), (norm(rustle), 0.55))
+
+
+def sfx_ekim():
+    """Bir avuc tohum toprağa sacilir."""
+    n = secs(1.0)
+    r = random.Random(1401)
+    clicks = zeros(n)
+    for _ in range(90):
+        t = 0.08 + 0.7 * r.random() ** 1.8
+        i = secs(t)
+        a = 0.3 + 0.7 * r.random()
+        for j in range(secs(0.001)):
+            if i + j < n:
+                clicks[i + j] += a * (2.0 * r.random() - 1.0)
+    seeds = resonate(clicks, [(3200, 10, 1.0), (4700, 9, 0.6), (2300, 8, 0.4)])
+    toss = mul(biquad(noise(n, 1402), "bp", 1200, 0.7), [math.exp(-((i / SR - 0.06) / 0.04) ** 2) for i in range(n)])
+    soil = biquad(burst(n, secs(0.1), 0.5, 0.4, 1403), "lp", 500)
+    return mix((norm(seeds), 1.0), (norm(toss), 0.3), (norm(soil), 0.25))
+
+
+def _sesler(n, adet, seed, f_lo, f_hi, sure_lo, sure_hi, t_hi, amp_lo):
+    r = random.Random(seed)
+    sa = zeros(n)
+    se = zeros(n)
+    for v in range(adet):
+        shout_src(sa if v % 2 else se, secs(0.02 + t_hi * r.random()), sure_lo + (sure_hi - sure_lo) * r.random(),
+                  f_lo + (f_hi - f_lo) * r.random(), seed + 10 + v, amp_lo + (1.0 - amp_lo) * r.random())
+    return mix((resonate(sa, VOWEL_A), 1.0), (resonate(se, VOWEL_E), 0.8))
+
+
+def sfx_kalabalik():
+    """Siradakilerin homurtusu."""
+    n = secs(2.0)
+    c = biquad(biquad(_sesler(n, 14, 1501, 110.0, 190.0, 0.3, 0.7, 1.5, 0.2), "lp", 1100), "hp", 150)
+    swell = [math.sin(math.pi * i / n) ** 0.7 for i in range(n)]
+    return reverb(mul(norm(c), swell), room=0.6, damp=0.6, wet=0.3, dry=0.8)
+
+
+def sfx_kavga():
+    """Bagiris ve bir tokat/itis."""
+    n = secs(1.6)
+    c = biquad(biquad(_sesler(n, 5, 1601, 170.0, 260.0, 0.25, 0.5, 1.0, 0.6), "lp", 2200), "hp", 160)
+    hits = zeros(n)
+    for k, t in enumerate((0.35, 0.9)):
+        mix_into(hits, sweep_thump(n, secs(t), 140.0, 70.0, 0.02, 0.18, 1.0))
+        mix_into(hits, biquad(burst(n, secs(t), 0.02, 0.012, 1610 + k), "bp", 1400, 0.9), 0.6)
+    return reverb(mix((norm(c), 0.8), (norm(hits), 0.9)), room=0.5, damp=0.6, wet=0.25, dry=0.85)
+
+
+def sfx_yagmur():
+    n = secs(3.0)
+    bed = biquad(biquad(noise(n, 1701), "hp", 700), "lp", 6000)
+    r = random.Random(1702)
+    drops = zeros(n)
+    for _ in range(600):
+        i = int(n * r.random())
+        a = 0.2 + 0.8 * r.random() ** 2
+        f = 1500.0 + 3500.0 * r.random()
+        for j in range(secs(0.006)):
+            if i + j < n:
+                drops[i + j] += a * math.sin(TAU * f * j / SR) * math.exp(-j / 60.0)
+    env = [smooth(i / secs(0.8)) * smooth((n - i) / secs(0.9)) for i in range(n)]
+    return mul(mix((norm(bed), 0.5), (norm(drops), 0.6)), env)
+
+
+def sfx_cekirge():
+    """Cekirge surusu: titresen vizilti."""
+    n = secs(2.5)
+    out = zeros(n)
+    r = random.Random(1801)
+    for v in range(6):
+        f0 = 170.0 + 90.0 * r.random()
+        am = smooth_rand(n, 18.0, 1810 + v, 0.2, 1.0)
+        ph = 0.0
+        for i in range(n):
+            ph += f0 * (1.0 + 0.03 * math.sin(TAU * 3.0 * i / SR + v)) / SR
+            ph -= int(ph)
+            out[i] += am[i] * (2.0 * ph - 1.0)
+    buzz = biquad(biquad(out, "bp", 2400, 0.8), "lp", 6000)
+    wings = mul(biquad(noise(n, 1802), "bp", 4500, 1.2), smooth_rand(n, 25.0, 1803, 0.1, 1.0))
+    env = [smooth(i / secs(0.9)) * smooth((n - i) / secs(0.6)) for i in range(n)]
+    return mul(mix((norm(buzz), 1.0), (norm(wings), 0.5)), env)
+
+
+def sfx_ruzgar():
+    n = secs(2.5)
+    wc = smooth_rand(n, 0.8, 1901)
+    w = biquad(noise(n, 1902), "bp", lambda t: 250.0 + 700.0 * wc[min(int(t * SR), n - 1)], 1.2)
+    whistle = biquad(noise(n, 1903), "bp", lambda t: 900.0 + 600.0 * wc[min(int(t * SR), n - 1)], 12.0)
+    env = [math.sin(math.pi * i / n) ** 1.2 for i in range(n)]
+    return mul(mix((norm(w), 1.0), (norm(whistle), 0.25)), env)
+
+
+BELL = (1.0, 2.76, 5.40, 8.93)
+
+
+def sfx_kervan():
+    """Deve canlari ve agir adimlar."""
+    n = secs(2.5)
+    bells = zeros(n)
+    for k, t in enumerate((0.05, 0.6, 1.1, 1.7, 2.15)):
+        f = 620.0 if k % 2 == 0 else 760.0
+        mix_into(bells, partials(n, [(f * m, a, t60) for m, a, t60 in
+                                     zip(BELL, (1.0, 0.5, 0.3, 0.15), (1.4, 0.8, 0.4, 0.25))], secs(t)),
+                 0.8 + 0.2 * (k % 2))
+    steps = zeros(n)
+    for k, t in enumerate((0.2, 0.85, 1.45, 2.0)):
+        mix_into(steps, biquad(burst(n, secs(t), 0.08, 0.06, 2010 + k), "lp", 260))
+    return reverb(mix((norm(bells), 1.0), (norm(steps), 0.4)), room=0.6, damp=0.5, wet=0.3, dry=0.9)
+
+
+def sfx_oksuruk():
+    n = secs(1.2)
+    out = zeros(n)
+    for k, (t, a) in enumerate(((0.05, 1.0), (0.42, 0.8), (0.7, 0.55))):
+        i0 = secs(t)
+        g = random.Random(2101 + k).random
+        for j in range(secs(0.2)):
+            if i0 + j >= n:
+                break
+            u = j / SR
+            e = a * (1.0 - math.exp(-u / 0.004)) * math.exp(-u / 0.06)
+            out[i0 + j] += e * (2.0 * g() - 1.0)
+    body = resonate(out, [(420, 5, 1.0), (1300, 6, 0.6), (2600, 6, 0.3)])
+    return reverb(mix((norm(body), 1.0), (norm(biquad(out, "lp", 900)), 0.5)), room=0.4, damp=0.6, wet=0.2, dry=0.9)
+
+
+def sfx_at_nali():
+    """Uzaktan yaklasan dortnala atlar."""
+    n = secs(2.0)
+    out = zeros(n)
+    k = 0
+    t = 0.05
+    while t < 1.9:
+        for d in (0.0, 0.09, 0.17):
+            a = 0.25 + 0.75 * (t / 1.9)
+            on = secs(t + d)
+            mix_into(out, sweep_thump(n, on, 160.0, 80.0, 0.01, 0.08, a))
+            mix_into(out, biquad(burst(n, on, 0.015, 0.01, 2200 + k, a), "bp", 900, 1.0), 0.5)
+            k += 1
+        t += 0.4
+    return reverb(biquad(out, "lp", 2500), room=0.7, damp=0.5, wet=0.35, dry=0.8)
+
+
+# =============================================================== yeni dongular
+def zurna_line(n, notes, base, eighth, amp, seed):
+    """Zurna: parlak, genizden cift kamis. notes: (yarim ton, sekizlik). Dongu basinda/sonunda dil vurusu."""
+    fr = zeros(n)
+    edges = []
+    t = 0.0
+    fprev = None
+    for semi, d in notes:
+        f = base * 2.0 ** (semi / 12.0)
+        i0 = secs(t)
+        i1 = min(n, secs(t + d * eighth))
+        g = secs(0.018)
+        fp = f if fprev is None else fprev
+        edges.append(i0)
+        for i in range(i0, i1):
+            k = i - i0
+            fr[i] = fp + (f - fp) * smooth(k / g) if k < g else f
+        fprev = f
+        t += d * eighth
+    for i in range(secs(t), n):
+        fr[i] = fprev
+    r = random.Random(seed)
+    vph = TAU * r.random()
+    env = [1.0] * n
+    w = secs(0.03)
+    for e0 in edges:
+        for i in range(max(0, e0 - w), min(n, e0 + w)):
+            dt = (i - e0) / (0.012 * SR)
+            env[i] = min(env[i], 1.0 - 0.75 * math.exp(-dt * dt))
+    H = [1.0 / k ** 0.75 for k in range(1, 15)]
+    tone = zeros(n)
+    ph = 0.0
+    for i in range(n):
+        ph += fr[i] * (1.0 + 0.006 * math.sin(TAU * 5.8 * i / SR + vph)) / SR
+        if ph >= 1.0:
+            ph -= 1.0
+        x = TAU * ph
+        s1 = math.sin(x)
+        c2 = 2.0 * math.cos(x)
+        sp, sc = 0.0, s1
+        acc = H[0] * s1
+        for k in range(1, len(H)):
+            sp, sc = sc, c2 * sc - sp
+            acc += H[k] * sc
+        tone[i] = acc * env[i]
+    nasal = resonate(tone, [(1150, 4, 1.0), (2450, 5, 0.8), (3600, 5, 0.35)])
+    return [amp * v for v in mix((norm(tone), 0.45), (norm(nasal), 1.0))]
+
+
+def muzik_dugun_dongu():
+    """Dugun: davul-zurna, 9/8 karsilama (2+2+2+3). 12 olcu, dikissiz."""
+    eighth = 0.15
+    bar = 9 * eighth
+    Ls = 12 * bar
+    L = secs(Ls)
+    P1 = [(12, 2), (10, 1), (8, 1), (7, 2), (8, 1), (7, 1), (5, 2), (4, 2), (5, 1), (4, 1), (1, 1), (0, 3)]
+    P2 = [(0, 2), (1, 1), (4, 1), (5, 2), (7, 2), (8, 1), (7, 1), (5, 1), (4, 1), (5, 2), (7, 4)]
+    P3 = [(7, 2), (8, 1), (10, 1), (12, 2), (13, 1), (12, 1), (10, 2), (8, 2), (7, 1), (8, 1), (7, 4)]
+    P4 = [(5, 2), (4, 1), (5, 1), (7, 2), (5, 1), (4, 1), (1, 2), (4, 1), (1, 1), (0, 6)]
+    notes = P1 + P2 + P3 + P4 + P1 + P4
+    A4 = 440.0
+    melody = zurna_line(L, notes, A4, eighth, 1.0, 2301)
+    dem = zurna_line(L, [(0, 108)], round(A4 / 2.0 * Ls) / Ls, eighth, 1.0, 2302)
+    tail = secs(2.0)
+    drum = zeros(L + tail)
+    desen = ((0, "D", 1.0), (2, "T", 0.7), (4, "D", 0.8), (6, "T", 0.7), (7, "T", 0.45), (8, "T", 0.6))
+    k = 0
+    for b in range(12):
+        for e, tur, a in desen:
+            on = secs(b * bar + e * eighth)
+            if tur == "D":
+                mix_into(drum, sweep_thump(L + tail, on, 120.0, 58.0, 0.03, 0.5, a))
+                mix_into(drum, biquad(burst(L + tail, on, 0.03, 0.02, 2400 + k, a), "lp", 400), 0.4)
+            else:
+                mix_into(drum, biquad(burst(L + tail, on, 0.02, 0.015, 2400 + k, a), "bp", 2600, 1.4))
+            k += 1
+    drum = wrap_add(reverb(drum, room=0.55, damp=0.5, wet=0.22, dry=0.9), L)
+    zurna = wrap_add(reverb(mix((melody, 1.0), (dem, 0.22)) + zeros(tail), room=0.6, damp=0.5, wet=0.25, dry=0.85), L)
+    return mix((norm(zurna), 0.75), (norm(drum), 1.0))
+
+
+def ortam_koy_dongu():
+    """Koy gecesi: cirit bocekleri, ruzgar, uzak kopek, baykus."""
+    Ls = 30.0
+    L = secs(Ls)
+    X = secs(2.0)
+    M = L + X
+    wc = smooth_rand(M, 0.1, 2501)
+    wind = biquad(noise(M, 2502), "bp", lambda t: 280.0 + 200.0 * wc[min(int(t * SR), M - 1)], 0.7)
+    wind = mul(wind, smooth_rand(M, 0.12, 2503, 0.3, 1.0))
+    leaves = mul(biquad(noise(M, 2504), "hp", 3000), smooth_rand(M, 0.3, 2505, 0.0, 1.0))
+    bed = seam(mix((norm(wind), 0.35), (norm(leaves), 0.06)), L, X)
+    crick = zeros(L)
+    r = random.Random(2510)
+    for c in range(4):
+        f = 4200.0 + 700.0 * r.random()
+        per = Ls / round(Ls / (0.7 + 0.5 * r.random()))
+        nab = 3 + c % 2
+        rate = 28.0 + 8.0 * r.random()
+        amp = 0.4 + 0.6 * r.random()
+        off = r.random() * per
+        mod = smooth_rand(L, 0.05, 2520 + c, 0.3, 1.0)
+        for i in range(L):
+            t = (i / SR + off) % per
+            p = t * rate
+            if p < nab:
+                u = p - int(p)
+                e = math.sin(math.pi * min(1.0, u / 0.6)) if u < 0.6 else 0.0
+                crick[i] += amp * mod[i] * e * math.sin(TAU * f * i / SR)
+    ev = zeros(L + secs(3.0))
+    for k, t in enumerate((6.0, 6.45, 20.5, 20.8, 21.2)):
+        b = zeros(secs(0.3))
+        shout_src(b, 0, 0.13, 480.0 + 40 * k, 2530 + k, 1.0)
+        b = biquad(resonate(b, VOWEL_A), "lp", 1400)
+        mix_into(ev, [0.0] * secs(t) + b, 0.5)
+    for k, t in enumerate((13.0, 13.5, 14.3)):
+        on = secs(t)
+        m = secs(0.5 if k < 2 else 0.9)
+        for j in range(m):
+            u = j / m
+            ev[on + j] += 0.6 * math.sin(math.pi * u) ** 2 * math.sin(TAU * (370.0 - 25.0 * u) * j / SR)
+    ev = wrap_add(reverb(ev, room=0.9, damp=0.6, wet=0.6, dry=0.4), L)
+    return mix((bed, 1.0), (norm(crick), 0.18), (norm(ev), 0.35))
+
+
 # ====================================================================== cikis
 def write_wav(path, x):
     a = array("h", (int(round(max(-1.0, min(1.0, v)) * 32767.0)) for v in x))
@@ -746,6 +1032,18 @@ URETICILER = (
     ("sfx_insaat.wav", sfx_insaat, "sfx", 1.5, 0.12),
     ("sfx_saldiri.wav", sfx_saldiri, "sfx", 3.0, 0.5),
     ("sfx_olay.wav", sfx_olay, "sfx", 1.0, 0.2),
+    ("muzik_dugun_dongu.wav", muzik_dugun_dongu, "dongu", None, None),
+    ("ortam_koy_dongu.wav", ortam_koy_dongu, "dongu", None, None),
+    ("sfx_hasat.wav", sfx_hasat, "sfx", 0.8, 0.1),
+    ("sfx_ekim.wav", sfx_ekim, "sfx", 1.0, 0.15),
+    ("sfx_kalabalik.wav", sfx_kalabalik, "sfx", 2.0, 0.3),
+    ("sfx_kavga.wav", sfx_kavga, "sfx", 1.6, 0.3),
+    ("sfx_yagmur.wav", sfx_yagmur, "sfx", 3.0, 0.3),
+    ("sfx_cekirge.wav", sfx_cekirge, "sfx", 2.5, 0.3),
+    ("sfx_ruzgar.wav", sfx_ruzgar, "sfx", 2.5, 0.3),
+    ("sfx_kervan.wav", sfx_kervan, "sfx", 2.5, 0.4),
+    ("sfx_oksuruk.wav", sfx_oksuruk, "sfx", 1.2, 0.2),
+    ("sfx_at_nali.wav", sfx_at_nali, "sfx", 2.0, 0.3),
 )
 
 

@@ -14,3 +14,7 @@ extends Resource
 ## Seçenek başına etki: bar[4], akce, ambar, kese, nufus{sinif: n}, bayrak, ayril (karakter id),
 ## sonraki_gelen (bir sonraki gece gelen sayısına ek), gerekli{akce|ambar|koyde}.
 @export var secenek_etkileri: Array[Dictionary] = []
+## Kart açılınca çalan efekt (`assets/ses/<ad>.wav`); boşsa genel olay sesi.
+@export var ses: StringName
+## Kart açıkken çalan müzik döngüsü (düğün gibi); boşsa müzik değişmez.
+@export var muzik: StringName

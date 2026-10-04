@@ -12,3 +12,5 @@ agirlik = 3.0
 tek_sefer = false
 secenek_anahtarlari = PackedStringArray("olay.sira_atlama.secenek1", "olay.sira_atlama.secenek2")
 secenek_etkileri = Array[Dictionary]([{"bar": [1, 0, 0, 0], "geri": true}, {"akce": 2, "bar": [-1, 0, 0, 0]}])
+ses = &"sfx_kalabalik"
+muzik = &""

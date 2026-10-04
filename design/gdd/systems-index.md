@@ -64,7 +64,7 @@ Oyun, kapıda geçen kısa bir sohbet-ve-karar döngüsü etrafında kurulu: kap
 | 19 | HUD | UI | MVP | Not Started | — | 1, 8, 9 |
 | 20 | Köy görünümü | UI | Vertical Slice | Not Started | — | 1, 5, 7, 10, 11 |
 | 21 | Menüler ve son ekranı | UI | Vertical Slice | Not Started | — | 1, 3, 16, 17 |
-| 22 | Ses (inferred) | Audio | Vertical Slice | Not Started | — | 1, 7, 8, 17 |
+| 22 | Ses | Audio | Vertical Slice | Designed (uygulandı) | design/gdd/ses.md | 1, 16, 17, 25, 26 |
 | 23 | Heybe ve rüşvet | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/heybe-ve-rusvet.md | 2, 6, 7, 8, 12, 18 |
 | 24 | İş yerleri | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/is-yerleri.md | 7, 8, 10, 11, 18 |
 | 25 | Sıra olayları | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/sira-olaylari.md | 8, 18 |

@@ -12,3 +12,5 @@ agirlik = 2.0
 tek_sefer = false
 secenek_anahtarlari = PackedStringArray("olay.kervan.secenek1", "olay.kervan.secenek2", "olay.kervan.secenek3")
 secenek_etkileri = Array[Dictionary]([{"akce": 4, "bar": [0, 0, 1, 0]}, {"akce": 8, "bar": [0, 0, -1, 0]}, {"bar": [0, 0, 2, -1]}])
+ses = &"sfx_kervan"
+muzik = &""

@@ -73,6 +73,8 @@ func _bilgi_ciz() -> void:
 	_durum = Label.new()
 	sol.add_child(_durum)
 	for o in rapor.get("olaylar", []):
+		if String(o["anahtar"]).begins_with("anlati.hasat."):
+			Ses.cal(&"sfx_hasat", -4.0)
 		var l := Label.new()
 		var d: Array = o.get("deger", [])
 		l.text = tr(o["anahtar"]) % d if not d.is_empty() else tr(o["anahtar"])
@@ -163,6 +165,10 @@ func _yeniden_ciz() -> void:
 
 func _olay_goster(olay: OlayVerisi) -> void:
 	Ses.cal(&"sfx_olay")
+	if olay.ses != &"":
+		Ses.cal(olay.ses, -3.0)
+	if olay.muzik != &"":
+		Ses.muzik_cal(olay.muzik)
 	_dugme.disabled = true
 	_kart = PanelContainer.new()
 	_kart.position = Vector2(560, 120)
@@ -216,6 +222,7 @@ func _olay_sec(olay: OlayVerisi, i: int) -> void:
 	v.add_child(tamam)
 	tamam.grab_focus.call_deferred()
 	tamam.pressed.connect(func() -> void:
+		Ses.muzik_cal(&"")
 		_kart.queue_free()
 		if sonuc["kirilan"] >= 0:
 			oturum_bitti.emit(sonuc["kirilan"])
@@ -266,7 +273,7 @@ func _tarlalari_ciz() -> void:
 		e.disabled = oturum.ambar < a.bitki_tohumlari[i]
 		e.pressed.connect(func() -> void:
 			if oturum.tarla_ek(id):
-				Ses.cal(&"sfx_insaat", -6.0)
+				Ses.cal(&"sfx_ekim", -4.0)
 				_yeniden_ciz()
 		)
 		_tarla_kutusu.add_child(e)

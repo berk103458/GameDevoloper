@@ -12,3 +12,5 @@ agirlik = 1.0
 tek_sefer = false
 secenek_anahtarlari = PackedStringArray("olay.tarla_cekirge.secenek1", "olay.tarla_cekirge.secenek2")
 secenek_etkileri = Array[Dictionary]([{"gerekli": {"ambar": 1}}, {"tarla_verim": 0.5}])
+ses = &"sfx_cekirge"
+muzik = &""

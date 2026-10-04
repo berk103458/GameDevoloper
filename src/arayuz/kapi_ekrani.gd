@@ -525,6 +525,8 @@ func _sira_olayi(o: OlayVerisi) -> bool:
 	_bolum.text = tr("arayuz.kapi.karar")
 	_bilgi_yaz()
 	Ses.cal(&"sfx_olay")
+	if o.ses != &"":
+		Ses.cal(o.ses, -3.0)
 	_yaz("[i]%s[/i]" % tr(o.metin_anahtari))
 	var anahtar := String(o.kosullar.get("canlandirma", ""))
 	await sahne.sira_olayi_baslat(anahtar)

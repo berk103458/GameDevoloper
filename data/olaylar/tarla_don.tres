@@ -12,3 +12,5 @@ agirlik = 1.0
 tek_sefer = false
 secenek_anahtarlari = PackedStringArray("olay.tarla_don.secenek1", "olay.tarla_don.secenek2")
 secenek_etkileri = Array[Dictionary]([{"gerekli": {"akce": 2}}, {"tarla_don": 1}])
+ses = &"sfx_ruzgar"
+muzik = &""

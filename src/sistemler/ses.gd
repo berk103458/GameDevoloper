@@ -4,9 +4,19 @@ extends Node
 
 const KOK := "res://assets/ses/"
 const ES_ZAMANLI := 6
+const VARSAYILAN_MUZIK := &"muzik_gece_dongu"
+const VARSAYILAN_ORTAM := &"ortam_mesale_dongu"
+## Döngüler arası geçiş süresi (s) ve sessiz kabul edilen düzey.
+const GECIS := 1.5
+const SESSIZ_DB := -40.0
 
 var _muzik: AudioStreamPlayer
 var _ortam: AudioStreamPlayer
+## Geçiş için ikinci oynatıcılar: yeni döngü bunda açılır, eskisi söner, sonra yer değiştirirler.
+var _muzik_yedek: AudioStreamPlayer
+var _ortam_yedek: AudioStreamPlayer
+var _muzik_ad: StringName = &""
+var _ortam_ad: StringName = &""
 var _efektler: Array[AudioStreamPlayer] = []
 var _sira := 0
 var _onbellek: Dictionary = {}
@@ -21,15 +31,69 @@ func _ready() -> void:
 			AudioServer.set_bus_name(i, bus)
 			AudioServer.set_bus_send(i, "Master")
 	_muzik = _oynatici("Muzik")
+	_muzik_yedek = _oynatici("Muzik")
 	_ortam = _oynatici("Efekt")
+	_ortam_yedek = _oynatici("Efekt")
 	for i in ES_ZAMANLI:
 		_efektler.append(_oynatici("Efekt"))
 
 
 ## Arka plan müziğini ve meşale ortamını başlatır (zaten çalıyorsa dokunmaz).
 func dongu_baslat() -> void:
-	_dongu(_muzik, "muzik_gece_dongu")
-	_dongu(_ortam, "ortam_mesale_dongu", -6.0)
+	if _muzik_ad == &"":
+		_muzik_ad = VARSAYILAN_MUZIK
+		_dongu(_muzik, String(VARSAYILAN_MUZIK))
+	if _ortam_ad == &"":
+		_ortam_ad = VARSAYILAN_ORTAM
+		_dongu(_ortam, String(VARSAYILAN_ORTAM), -6.0)
+
+
+## Müziği yumuşak geçişle başka bir döngüye çevirir (düğün gibi olaylar). &"" = varsayılan.
+func muzik_cal(ad: StringName, db: float = 0.0) -> void:
+	if ad == &"":
+		ad = VARSAYILAN_MUZIK
+	if ad == _muzik_ad:
+		return
+	if _gecis(_muzik, _muzik_yedek, ad, db):
+		_muzik_ad = ad
+		var t := _muzik
+		_muzik = _muzik_yedek
+		_muzik_yedek = t
+
+
+## Ortam döngüsünü değiştirir (kapıda meşale, köyde gece). &"" = varsayılan.
+func ortam_cal(ad: StringName, db: float = -6.0) -> void:
+	if ad == &"":
+		ad = VARSAYILAN_ORTAM
+	if ad == _ortam_ad:
+		return
+	if _gecis(_ortam, _ortam_yedek, ad, db):
+		_ortam_ad = ad
+		var t := _ortam
+		_ortam = _ortam_yedek
+		_ortam_yedek = t
+
+
+## Çalan müzik döngüsünün adı.
+func muzik_adi() -> StringName:
+	return _muzik_ad
+
+
+## Çalan ortam döngüsünün adı.
+func ortam_adi() -> StringName:
+	return _ortam_ad
+
+
+func _gecis(eski: AudioStreamPlayer, yeni: AudioStreamPlayer, ad: StringName, db: float) -> bool:
+	yeni.stop()
+	_dongu(yeni, String(ad), SESSIZ_DB)
+	if not yeni.playing:
+		return false
+	var t := create_tween().set_parallel()
+	t.tween_property(yeni, "volume_db", db, GECIS)
+	t.tween_property(eski, "volume_db", SESSIZ_DB, GECIS)
+	t.chain().tween_callback(eski.stop)
+	return true
 
 
 ## Bir efekt çalar.

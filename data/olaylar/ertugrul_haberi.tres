@@ -12,3 +12,5 @@ agirlik = 3.0
 tek_sefer = true
 secenek_anahtarlari = PackedStringArray("olay.ertugrul_haberi.secenek1", "olay.ertugrul_haberi.secenek2")
 secenek_etkileri = Array[Dictionary]([{"bayrak": "ertugrul", "bar": [0, -1, 0, 1]}, {"bar": [0, 1, 0, 0]}])
+ses = &""
+muzik = &""
