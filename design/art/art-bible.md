@@ -324,7 +324,7 @@ Köy **yeni bina türüyle değil, insan ve izle** büyür (İlke 3, 2.3). Kald�
 
 ### 6.6 Figür okunurluğu kuralı
 **Doku hiçbir zaman figürle yarışmaz.**
-1. **Çizgi basamağı:** Ortam çizgileri aynı karedeki figürün dış konturundan en az bir basamak incedir — kapıda figür 6 px, ortam ≤ 3 px, doku ≤ 2 px; köy basamağında figür 2 px, ortam dokusu 1 px ya da çizgisiz.
+1. **Çizgi basamağı:** Ortam çizgileri aynı karedeki figürün dış konturundan en az bir basamak incedir — kapıda figür 6 px, ortam ≤ 3 px, doku ≤ 2 px; köy basamağında figür 2 px, ortam dokusu çizgisiz (*düzeltme 4 Ekim 2026: en ince çizgi 2 px — 1 px doku kaldırıldı, bkz. 8.4*).
 2. **Sessiz halka:** Figür siluetinin çevresinde, kendi kontur kalınlığının ~3 katı genişliğinde bir alana ortam doku çizgisi girmez (öneri; Bölüm 8'de doğrulanır). Figürün arkası tek düz ton.
 3. **Siyah dolgu testi sahnede de geçer:** figür siyah doldurulup sahneye konduğunda 64 px'te tanınmalı. Arkasındaki prop siluetiyle birleşen figür testi geçmez — prop kaydırılır, figür değil.
 4. **Yoğunluk tavanı:** Ortamın bir bölgesindeki çizgi yoğunluğu, o karedeki kahraman figürün iç ayrıntı yoğunluğunu geçmez. Göz önce sıcak lekeye, sonra kalın mürekkebe gider (3.4); ince doku sona kalır.
@@ -475,10 +475,175 @@ Sert kenarlı, hafif elle kesilmiş, asimetrik ok; kül dolgu + 2 px mürekkep k
 
 ## 8. Asset Standards
 
-[To be designed] — file formats, naming convention, texture resolution tiers,
-LOD levels, export settings, and the engine's hard limits (poly budgets per
-asset category, texture memory, material slots). Where an art preference and a
-technical limit disagree, record both and the trade-off chosen.
+> art-director + technical-artist birlikte. **[GK]** işaretli motor bilgileri `docs/engine-reference/godot/` içinde yoktur, genel bilgidir — Godot 4.7.2 editöründe doğrulanmalıdır. "ÖNERİ" işaretli sayılar kalibrasyon sahnesiyle (8.12) doğrulanana kadar kesin değildir.
+
+### 8.0 Üretim hattı
+**Yapay zekâ taslak çizer, el kesinleştirir; palet ve mürekkep elden çıkar.**
+1. **Spec** — varlık başına yazılı istem (basamak 5.7, palet rolleri, "yazı yok, gradyan yok, düz renk, kalın siyah kontur"); `design/art/asset-specs/` altında.
+2. **Ham üretim (Gemini)** — olduğu gibi saklanır, **asla doğrudan oyuna girmez**.
+3. **Temizlik (elle)** — sahte yazı silinir, gradyan düzleştirilir, kontur yeniden çizilir (8.5), palet eşlenir (8.6).
+4. **Ana dosya** — katmanlı, 2×, palet-tam.
+5. **Dışa aktarım** — PNG → Godot içe aktarımı.
+6. **Denetim** (8.8) — dosyada ve oyun içi ekran görüntüsünde.
+
+Görüntü modelleri tam hex, sabit çizgi kalınlığı ve gerçek düz renk üretmez; düz yüzeylere gradyan ve gürültü, tabela/kitabe/sikkeye sahte yazı ekler. Bölüm 1'in kuralı ancak temizlik adımı zorunlu tutulursa korunur.
+
+### 8.1 Dosya biçimleri
+| Aşama | Biçim | Not |
+|---|---|---|
+| Ham yapay zekâ çıktısı | Model ne verirse, değiştirilmeden | İstem ve tarihle saklanır |
+| Ana dosya | Katmanlı `.kra` ya da `.psd` (ekip tek araç seçer) | Zorunlu katmanlar: `ink`, `fill`, `light` (8.6) |
+| Oyun içi raster | **PNG, 8 bit/kanal RGBA, sRGB** | `iCCP`/`gAMA` parçaları silinir (renk kaymasını önler) |
+| Arayüz simgesi, panel çerçevesi, bar levhası | SVG olabilir | Godot SVG'yi içe aktarırken rasterleştirir [GK]; `svg/scale = 2.0`. Karakter ve ortam mürekkebi her zaman PNG |
+| Büyük düz renk alanları | Doku yok — `ColorRect` / `Polygon2D` | Gece zemin, düz gök, uzak arazi bandı dokuya basılmaz |
+
+### 8.2 Adlandırma
+Biçim: `[önek]_[ad]_[varyant]_[basamak|boyut].png` — **yalnız küçük ASCII harf, rakam ve `_`**, İngilizce ad (kodla uyumlu; `farmer`, `caravanserai`). Türkçe karakter, boşluk ve tire yok. Varyant iki hane (`_01`).
+
+| Önek | Kapsam | Örnek |
+|---|---|---|
+| `char_` | Adlı ya da sınıf figürü | `char_miraen_listening_card.png`, `char_farmer_01_idle_village.png` |
+| `crowd_` | Uzak kalabalık | `crowd_tekfur_spear_01_far.png` |
+| `env_` | Yapılar, arazi katmanları | `env_gate_closed_card.png`, `env_terrain_ridge_01_bg.png` |
+| `prop_` | İz propları (İlke 3) | `prop_spear_rack_01_village.png` |
+| `ui_` | Panel, bar levhası, düğme | `ui_bar_segment_cracked_02.png`, `ui_btn_decision_focus.png` |
+| `icon_` | Simgeler | `icon_bribe_pouch_full_48.png` |
+| `fx_` | Meşale lekesi, ateş, çatlak | `fx_torchlight_patch_03.png`, `fx_campfire_dying_02_far.png` |
+
+- **Basamak eki (5.7)** zorunlu: `_card` / `_village` / `_far`. Ortam derinliği: `_fg` / `_mg` / `_bg`.
+- **Arayüz/simge boyutu:** 1080p ekran boyutu (`_48`).
+- **Durum:** `_hover`, `_focus`, `_pressed`, `_disabled`, `_full`, `_empty`, `_cracked`. **Renk adı asla durum eki değildir** (`_red`, `_gold` yasak, 4.2).
+- Kaynak dosya aynı adı taşır (`.kra`); ham çıktı `_raw_01` eki alır. Dolgu/mürekkep ayrı dosyalara bölünürse `_fill` / `_ink`.
+
+### 8.3 Taban çözünürlük ve ölçekleme
+*Kullanıcı kararları (4 Ekim 2026): genişle + güvenli kadraj; alt sınır 1080p.*
+- `display/window/size/viewport_width × height` = **1920×1080** (sanat birimi = 1080p px).
+- `stretch/mode = canvas_items`, `stretch/aspect = expand`, `stretch/scale_mode = fractional` [GK]. Elle yazılan `project.godot`'ta bu anahtarlar açıkça yazılır — 4.7'deki "yeni proje varsayılanı" Proje Yöneticisi'nin yazdığı ayar olabilir, motor varsayılanına güvenilmez.
+- **Güvenli kadraj:** Her sahnenin önemli öğeleri 16:9 alanın içindedir. Geniş ekranda açılan taşma alanı yalnız gece ya da soğuk mavi düz tondur; kahraman öğe ve meşale lekesi içermez (4.3'teki %10–15 oranı 16:9 alanda ölçülür).
+- **Mürekkep kalınlığı** fiziksel pikselde değil, **1080p biriminde** sabittir (5.7'deki "ekran px'inde sabit" = "1080p birimde sabit"): 1080p'de 6 px, 1440p'de 8, 4K'da 12.
+- **Desteklenen en düşük çözünürlük 1080p.** 720p yalnız geliştirme penceresidir; sanat değerlendirmesi 720p'de yapılmaz.
+- `rendering/viewport/hdr_2d` kapalı; `WorldEnvironment`/glow yok (Bölüm 2).
+
+### 8.4 Çizgi ağırlıkları ve üretim ölçeği
+**Tüm sanat 2× çizilir** (3840×2160 eşdeğeri) ve 1080p birimde 0,5 ölçekle yerleştirilir — 4K'ya kadar doku büyütülmez.
+
+| Katman | 1080p | Ana dosya (2×) |
+|---|---|---|
+| Kahraman dış hat | 6 px | 12 px |
+| İç ayrıntı | 3 px | 6 px |
+| Destek / uzak öğe, köy figürü konturu | 2 px | 4 px |
+| Doku çizgisi | 2 px | 4 px |
+| **En ince çizgi (mutlak)** | **2 px** | **4 px** |
+
+Tolerans ±1 ana dosya pikseli. **1 px çizgi yoktur** (kullanıcı kararı, 4 Ekim 2026; 6.6 buna göre düzeltildi). Hücre ve sprite boyutları çift sayıdır (0,5× tam piksele düşsün).
+
+**4.7 notu:** `CanvasItem` artık çizgilere AA tüyü eklemiyor [BC/BP]; mürekkep runtime çizgisi (`draw_line`, `Line2D`) olarak çizilmez, dokuya pişirilir. Çalışma anındaki çizgiler (odak çerçevesi, bar çatlağı) `StyleBoxFlat.border_width` ya da dokuyla yapılır.
+
+### 8.5 Kenar yumuşatma ve palet saflığı
+*Kullanıcı kararı (4 Ekim 2026): yalnız kenarda AA, dosyada saf.*
+- **Dosyada:** Sprite'ın **iç** renk sınırları (mürekkep–dolgu, dolgu–meşale lekesi) sert ve palet-tamdır. Yumuşatma yalnız sprite'ın **dış kenarında, saydamlıkla** yapılır — kenar pikselinin RGB'si bir palet rengidir, yalnız alfası değişir.
+- **Ekranda:** `canvas_items` tamsayı olmayan ölçeklerde ve doğrusal filtrede kenarlarda ara ton üretir. **Kenar AA pikseli gradyan sayılmaz.** Saflık dosyada denetlenir (8.8), ekranda yalnız sıcak alan oranı ölçülür.
+- **Kart dış hattı** (12 px ana dosya) her `_card` varlığında elle ya da sabit genişlikli konturla **yeniden çizilir**; iç çizgiler tolerans dışındaysa yeniden çizilir. `_village` dış hattı dolgu maskesinden sabit genişlikli kontur olarak türetilebilir (siyah dolgu testini de verir, 3.1).
+- Bir basamağın çizimi başka basamağa **küçültülerek üretilmez** (5.7).
+
+### 8.6 Palet eşlemesi
+- **Hedef palet tam 7 hex:** `#0D0F14`, `#4A6B8A`, `#3D2E24`, `#C4843A`, `#06070A`, `#B8C2CC`, `#24364A`. Tek kaynak `assets/palette/` (`.gpl`, `.ase`, `palette_swatch.png`).
+- **Dithering kapalı.** En yakın renk algısal uzayda (OKLab) hesaplanır.
+- **Mürekkep ile gece neredeyse aynı renktir** — otomatik eşleme ayıramaz; renk katmandan gelir: `ink` = mürekkep, `fill`'deki koyular = gece, `light` = yalnız meşale.
+- **Gradyan niceleme ile düzelmez** (basamaklı şeride dönüşür); elle tek tona düzleştirilir ya da sert kenarlı iki bölgeye (soğuk mavi → derin mavi) ayrılır.
+- **Sıcak ten tuzağı:** Yapay zekâ yüzleri sıcak tenli çizer; niceleme bunu meşaleye eşler ve İlke 1'i bozar. Meşale lekesi dışındaki sıcak piksel elle soğuk maviye çevrilir (5.2).
+
+### 8.7 Godot içe aktarma ayarları
+| Ayar | Değer | Gerekçe |
+|---|---|---|
+| `compress/mode` | **Lossless** | VRAM sıkıştırması (BC1/BC3) uç renkleri RGB565'e indirger, ör. `#C4843A` → `#C6…`; 4×4 bloklarda ara ton üretir [GK] |
+| `mipmaps/generate` | Açık (2× üretilen dünya, kart, arayüz) | 0,5× ve altında çizgi kopmasını ve parıldamayı önler; +%33 bellek |
+| Filtre (`rendering/textures/canvas_textures/default_texture_filter`) | `Linear Mipmap` | Ölçeklemede çizgi kalınlığı tutarlı [GK] |
+| `process/fix_alpha_border` | Açık | Saydam kenarda koyu/renkli hale oluşmasın [GK] |
+| Modulate / CanvasModulate | Kullanılmaz | Hex'i değiştirir (6.2) |
+
+### 8.8 Sert kenarlı meşale lekeleri
+- **Kart / sohbet** (yarım yüz lekesi): sanatçının çizdiği ayrı katman sprite'ı (krizde küçültülebilir, 2.4).
+- **Köy / kapı zemini ve duvarı:** dokusuz düz `#C4843A` `Polygon2D` — doku belleği sıfır, kolay batch'lenir, köy büyüdükçe veriden eklenir (6.4). `Polygon2D.antialiased = true` (~1 px tüy) önerilir; 4.7'deki tüy değişikliğinin poligona etkisi doğrulanmalı.
+- **Katman sırası:** dolgu → leke → mürekkep (figür sprite'ı `fill` ve `ink` olarak ikiye ayrılır; `clip_children` batch'i kırdığı için kullanılmaz).
+- **Blend:** `MIX`, modulate beyaz. **Add/Mul/Screen yasak** — hex'i bozar. Leke "ışık" değil, opak boya katmanıdır. `PointLight2D` yok.
+
+### 8.9 Atlas, sprite sayfası, kart pozları
+- **Kart pozları — ortak gövde + baş değişir** (kullanıcı kararı, 4 Ekim 2026): gövde bir kez çizilir, baş/ifade parçaları ortak bir atlas'ta (512×512). **Adlı karakter 5 poz** (nötr-yorgun, dinleyen, kaçınan, konuşan, sessiz), **adsız sınıf figürü 2 poz** (nötr-yorgun, konuşan). Bellek ~32 MiB/karakter (tam çizim ~107 MiB olurdu).
+- **Köy figürleri ve propları:** tek atlas sayfası (2048×2048), karakter başına sabit 256×256 hücre (ana dosya), pivot ayak tabanında alt-orta. `y_sort` farklı dokular arasında batch kırar — tek sayfa yüzlerce figürü birkaç draw call'a indirir.
+- **Uzak kalabalık:** köy atlasında ya da dokusuz `Polygon2D`.
+- **Arayüz:** 1024×1024 atlas; paneller 9-slice (`NinePatchRect` / `StyleBoxTexture`).
+- Hücre arası boşluk ≥ 8 px (ana dosya). Renk varyantı `modulate` ile değil, atlas'ta ayrı kare ile; asimetrik eşyalı figürler (kın, şed düğümü) `flip_h` ile aynalanmaz.
+
+### 8.10 Kategori başına doku sınırı ve bütçeler (ÖNERİ)
+`project.yaml` içinde performans bütçesi henüz yok; aşağıdakiler min-spec belirlenince technical-director ile kesinleşir.
+
+| Kategori | En büyük doku |
+|---|---|
+| Kart gövdesi | 2048×2048 |
+| Kart baş/ifade parçaları | 512×512 ortak atlas |
+| Köy figürü + prop + uzak kalabalık | 2048×2048 atlas sayfası |
+| Ortam katmanları (kapı, kervansaray, sur) | 4096 kenar, kırpılmış |
+| Arayüz | 1024×1024 atlas |
+| **Mutlak üst sınır** | 4096 |
+
+| Bütçe | Öneri |
+|---|---|
+| Yerleşik doku belleği | ≤ 512 MiB |
+| Aynı anda yüklü kart karakteri | ≤ 2 |
+| 2D draw call / kare | ≤ 200 |
+| Görünür köy figürü | ≤ 150 |
+| Meşale lekesi poligonu | ≤ 60 (her biri ≤ 16 köşe) |
+| Parçacık sistemi | **0** (yangın kararı verilirse yeniden açılır) |
+| Özel shader | 0 (mürekkep pişirilir) |
+
+### 8.11 Fontlar
+- TTF/OTF dinamik font; arayüz ve başlıkta **MSDF** (her ölçekte keskin), `msdf_pixel_range ≥ 8`, mipmap açık [GK]. 22 px alt sınır sayesinde MSDF'nin küçük punto zayıflığı sorun olmaz; gerekirse gövde metni için normal raster + oversampling.
+- Kullanılan glifler önceden üretilir (pre-render), ilk görünümde takılma olmaz.
+- **Türkçe glif kabul testi:** `ç Ç ğ Ğ ı İ ö Ö ş Ş ü Ü â î û Â Î Û`; eksik glif varsa fallback font tanımlanır (7.4).
+
+### 8.12 Denetim
+Bir yardımcı betik (technical-artist yazar) **yalnız gözlem raporlar**; kararı insan verir (CLAUDE.md).
+
+| # | Kural | Tür |
+|---|---|---|
+| R1 | Alfası > 0 her pikselin RGB'si 7 hex'ten biri (tolerans 0) | Betik |
+| R2 | Alfa 0 ya da 255; ara alfa yalnız ≤ 2 ana dosya piksellik dış kenar bandında | Betik |
+| R3 | Kül yalnız `ui_`/`icon_` ve sikkede; meşale yalnız meşale, ateş, `fx_torchlight`, `light` katmanı | Betik |
+| R4 | Basamak eki ile piksel boyutu 8.4/8.9 aralığında | Betik |
+| R5 | Ad 8.2 desenine uyar | Betik |
+| R6 | Yazı, rakam, sahte yazı, imza, filigran yok | İnsan |
+| R7 | Gradyan, şerit, gren, gürültü, hale yok | İnsan |
+| R8 | Çizgi ağırlığı toleransta; siyah dolgu testi 64 px'te geçiyor | İnsan |
+| R9 | Hüküm yok (İlke 2) | İnsan |
+| R10 | Kapı kadrajında meşale piksel oranı ≤ %10–15 (16:9 güvenli alanda, ekran görüntüsünde) | Betik + ekran |
+
+**Kalibrasyon sahnesi (yapılmadı, ilk teknik iş):** 2/3/6 px çizgi örnekleri, 64 px siyah siluet, 7 palet karesi; 1920×1080, 2560×1440, 3840×2160 ve 21:9 pencerede açılıp ekran görüntüleri `production/qa/evidence/` altına konur, palet karelerinin iç pikselleri hex olarak ölçülür. Kodlama standardı gereği motor çalıştırılıp gözlenmeden bu bölümün sayıları doğrulanmış sayılmaz.
+
+### 8.13 `assets/` klasör düzeni
+```
+assets/
+  palette/                    palette.gpl, palette.ase, palette_swatch.png
+  art/
+    _source/                  .gdignore — Godot içe aktarmaz
+      raw/                    ham yapay zekâ çıktısı + istem kaydı
+      master/                 .kra/.psd ana dosyalar
+    characters/<ad>/          card/, village/
+    crowd/
+    environment/              gate/, caravanserai/, market/, terrain/
+    props/
+    ui/                       panels/, bars/, buttons/
+    icons/
+    fx/
+  fonts/
+```
+`_source/` içinde **`.gdignore`** zorunlu — yoksa Godot ham PNG'leri de içe aktarır. Büyük ikili dosyalar için Git LFS kararı producer ve technical-artist'te.
+
+### Açık sorular (Bölüm 8)
+- **Gemini çıktı çözünürlüğü** doğrulanmadı; 2× ana dosyaya (kart ~1500 px) yetmezse temizlikten önce büyütme adımı gerekir. İlk test üretimiyle ölçülecek.
+- **Yapay zekâ beyanı:** Gemini görselleri görünmez SynthID filigranı taşır; Steam'in yapay zekâ içerik beyanı producer'a iletilmeli.
+- **Köy figürü animasyonu** olacak mı; kare sayısı?
+- **Ana dosya aracı:** Krita mı Photoshop mu?
 
 ## 9. Reference Direction
 
