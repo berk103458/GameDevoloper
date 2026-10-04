@@ -171,7 +171,8 @@ Ana fikir: **kalın mürekkep görsel hiyerarşinin kendisidir** — neyin önem
 
 ### 4.4 Arayüz paletinin dünyadan ayrılması
 - Arayüz yalnız **gece** (panel dolgusu), **mürekkep** (çerçeve) ve **kül** (metin, simge) kullanır.
-- **Meşale rengi arayüzde kullanılmaz.** Seçili seçenek bile turuncu ile vurgulanmaz — arayüzde sıcaklık "bu seçenek iyi" diye okunur ve İlke 2'yi bozar. Seçili / üzerine gelinen öğe kalınlaşan mürekkep çerçeveyle ya da çerçeve-metin yer değişimiyle (ters çevirme) gösterilir.
+- **Meşale rengi arayüzde kullanılmaz.** Seçili seçenek bile turuncu ile vurgulanmaz — arayüzde sıcaklık "bu seçenek iyi" diye okunur ve İlke 2'yi bozar. Seçili / üzerine gelinen öğe **kül çerçeve ve ters çevirme** ile gösterilir (ayrıntı 7.3).
+- *Düzeltme (4 Ekim 2026):* İlk taslaktaki "kalınlaşan mürekkep çerçeve" seçeneği kaldırıldı — mürekkep `#06070A` ile gece `#0D0F14` arasındaki kontrast ~1.06:1, yani gece panelinde görünmez. Bu nedenle kül, arayüzde metin ve simgenin yanında **durum çerçevesi** olarak da kullanılır (kullanıcı kararı).
 - Gerekçe: dünyadaki tek sıcak noktanın anlamını korumak.
 
 ### 4.5 Renk körlüğü ve okunurluk güvenliği
@@ -330,9 +331,147 @@ Köy **yeni bina türüyle değil, insan ve izle** büyür (İlke 3, 2.3). Kald�
 
 ## 7. UI/HUD Visual Direction
 
-[To be designed] — diegetic versus screen-space HUD, typography (personality,
-weight, size hierarchy, minimum readable size), iconography style, UI animation
-feel, and any art-direction versus readability conflict and how it was decided.
+### 7.0 Ana fikir
+**Arayüz sessiz bir defterdir; sahne dünyanındır.** Arayüz yalnız gece `#0D0F14`, mürekkep `#06070A` ve kül `#B8C2CC` ile çizilir (4.4). Meşale `#C4843A` arayüzde hiçbir durumda kullanılmaz. Görüntüde yazı ve rakam yoktur; arayüzdeki her kelime ve sayı koddan gelen metindir (`Label` / `RichTextLabel`). Arayüz hiçbir seçeneği büyüterek, parlatarak ya da renklendirerek "doğru" diye işaretlemez (Sütun 2, 3.3).
+
+### 7.1 Diegetik ve ekran-uzayı
+
+| Öğe | Nerede | Palet |
+|---|---|---|
+| Kapı, meşale, gelen kişi; rüşvetteki kese ve eller; köydeki meşaleler; reddedilenin uzak ateşi | Dünya | Dünya paleti (Bölüm 2–6) |
+| Sohbet, seçenekler, karar düğmeleri | Ekran | Arayüz paleti |
+| **Barlar** | **Ekran — üst HUD şeridi** (kullanıcı kararı B, 4 Ekim 2026) | Arayüz paleti |
+| Rüşvet hakkı keseleri, gün sayacı, menüler, imleç | Ekran | Arayüz paleti |
+
+Barlar dünyaya konmaz: kapı yanına çakılı bloklar meşaleye yakın ısınır (sıcaklık bir "durum" anlamı kazanır, İlke 1 ve 4.2 bozulur), kapının 2 sabit prop bütçesini (6.3) doldurur ve köy görünümünde kaybolur.
+
+### 7.2 Kapı sohbet ekranı yerleşimi
+Referans 1920×1080; ölçüler öneridir (Bölüm 8'de doğrulanır).
+
+```
++--------------------------------------------------------------+
+| [bar][bar][bar][bar]                  [kese kese kese] [gün] |  HUD şeridi ~80 px
++-------------------------------+------------------------------+
+|                               | Konuşanın adı                |
+|   KADRAJ (dünya)              | — Konuşma satırı...          |
+|   kapı kanadı, meşale,        |     anlatı satırı (italik)   |
+|   gelenin yüzü ve göğsü       | — Konuşma satırı...          |
+|   (~1100 px)                  |------------------------------|
+|                               | [ seçenek 1               ]  |
+|                               | [ seçenek 2               ]  |  tek tek belirir
+|                               | [ seçenek 3               ]  |
++-------------------------------+------------------------------+
+                                  sohbet sütunu ~780 px, iç boşluk 40 px
+```
+
+- **Kadraj — tam taşma** (kullanıcı kararı, 4 Ekim 2026): Dünya ekranın sol kenarına kadar uzanır; dünyayı arayüzden yalnız sohbet panelinin kenarı ayırır. Yüz-göğüs basamağında çizilir (5.7); yüz ekranın sol üçte birinde, kahraman odak (3.4).
+- **Sohbet sütunu (sağ):** Gece dolgulu panel; kadrajla ortak kenarında 6 px mürekkep çizgi (soğuk mavi ya da meşale lekesine değdiği için okunur). Satır uzunluğu 45–60 karakter, sola hizalı, iki yana yaslama yok. Üstte sohbet kaydı (yeni satır alta eklenir), altta seçenek yığını.
+- **Seçenek şeritleri:** Eşit yükseklik (~64 px) ve genişlik, aralarında 12 px. Yığın 2–6 şerit taşır; yuvalar baştan ayrılır, şerit sayısı yerleşimi kaydırmaz. Uzun seçenek iki satıra kırılır, eşitlik en uzun seçeneğe göre korunur.
+- **Karar evresi:** Sohbet bitince seçenek yığınının yerine karar düğmeleri gelir — aynı şerit grameri, tek fark solda 48 px simge (sohbet seçeneklerinde simge yok; evreyi ayıran budur). Aynı anda kadraj daralır (2.2): gece rengi dikey şeritler kadrajın kenarlarından **sert adımlarla** girer (7.7). HUD ve sohbet sütunu yerinde kalır.
+- **Sabit yuva:** Bir karar fiili göründüğünde hep aynı yuvada durur; olmayan seçenek boş yuva bırakır, ötekiler kaymaz. Yuvaların sırası anlam taşımaz (sıra game-designer ile belirlenir).
+- **HUD şeridi:** Barlar solda, rüşvet keseleri ve gün sayacı sağda. Sohbet sırasında da görünür. Bar sayısı veriden gelir, yerleşim ondan bağımsızdır.
+
+### 7.3 Durum grameri
+*Kullanıcı kararı (4 Ekim 2026): kül çerçeve + ters çevirme.* Üç durum birbirinden ayrı ve her biri ≥ 3:1 farkla okunur (WCAG 2.4.7 / 2.4.13).
+
+| Durum | Görünüm |
+|---|---|
+| Normal | Gece dolgu, kül metin ve simge, mürekkep çerçeve (yalnız dünyaya değdiği yerde görünür). |
+| Üzerine gelme / klavye–gamepad odağı | **≥ 3 px kül çerçeve** (~10.5:1). Hover ve gamepad odağı tek bir "odak" durumudur; son kullanılan giriş odağı taşır. |
+| Seçili / onaya hazır | **Tam ters çevirme:** kül dolgu, gece metin ve simge. |
+| Basılı | Ters çevirme + dolgu içinde 4 px gece iç çerçeve (bir kare). |
+| Kullanılamaz | Gri ton ya da alfa soluklaştırma yok (palet dışı ton üretir); boş kese simgesi + kesik kül çerçeve. Düğmenin hiç gösterilmemesi oyun tasarımı kararıdır (açık soru). |
+
+Köşeler sert, yuvarlatma 0, gölge yok, cam efekti yok.
+
+**İki adımlı onay** (kullanıcı kararı, 4 Ekim 2026): Kararlar geri alınamaz ve dört düğme özdeştir. İlk basış seçer (ters çevirme), **aynı düğmeye ikinci basış** kararı verir; başka düğmeye basmak seçimi değiştirir. Ayarlardan kapatılabilir. Ek önlemler: karar paneli açıldıktan ve son seçenek belirdikten sonra ~300–500 ms giriş kilidi (sohbetten taşan tıklamaya karşı); düğmeler arası ≥ 24 px, yükseklik ≥ 56 px; simgenin yanında koddan gelen kelime her zaman görünür. Geri alma (undo) yok — kararın ağırlığını bozar.
+
+### 7.4 Tipografi
+**Kişilik:** Yorgun bir yolcunun ağzından okunan ama kitap gibi düzgün metin — hafif elle yazılmış ritmi olan hümanist bir serif; kaligrafik gösteriş yok.
+- **Yasak:** blackletter, sahte ortaçağ fontları, Arap harfini taklit eden Latin fontlar, ince/hairline kesimler, **yalnız büyük harfli fontlar** (ı/i ayrımı kaybolur).
+- **Ağırlıklar:** Regular, Italic, Bold (varsa Medium). Light/Thin yok.
+
+| Rol (1080p) | Boyut | Biçim |
+|---|---|---|
+| Konuşma satırı | 30 px | Dik, başında uzun tire "—" |
+| Anlatı satırı | 28 px | İtalik, +32 px sol girinti, tiresiz, etiketsiz |
+| Konuşanın adı | 22–24 px | Bold, konuşma satırının üstünde |
+| Seçenek / karar düğmesi | 30 px | Dik |
+| HUD sayısı (gün) | 32 px | Bold, tablo rakamı |
+| Bar etiketi | 22 px | Dik |
+| Son ekranı gün sayısı | 72 px | Bold |
+| **Mutlak alt sınır** | **22 px** | |
+
+Satır aralığı 1.35–1.45 (İ, Ş, Ç, Ğ'nin nokta ve kuyrukları kırpılmasın). Metin ölçeği ayarı %100 / %125 / %150; sohbet sütunu %150'de kaydırmayla taşır.
+
+**Anlatı ile konuşma** renkle ayrılamaz (ikisi de kül); ayrım biçim (dik/italik), Türk edebî diyalog geleneği (konuşma uzun tireyle başlar) ve konumla (anlatı girintili, adsız) yapılır — renk körlüğünden bağımsız (4.5).
+
+**Türkçe zorunlulukları:**
+- Fontta `ç Ç ğ Ğ ı İ ö Ö ş Ş ü Ü` ve `â î û Â Î Û` olmalı. Test dizgisi: `Çağ ılgın İğdir ıssız öşü — ÇĞİÖŞÜ çğıiöşü fi fı` — Godot'da gerçek font dosyasıyla 22 ve 30 px'te ekran görüntüsü alınarak doğrulanır.
+- Metin kontrollerinde `language = "tr"`; font "fi/fı" bağlarında ı/i ayrımını bozuyorsa `liga` kapatılır.
+- **Otomatik büyük harf yok** (`uppercase`, `to_upper()`): i→I dönüşümü İ'yi kaybettirebilir. Büyük harf gerekiyorsa kaynak metinde yazılır.
+
+**Aday font aileleri (ÖNERİ, onaylanmadı; hepsi SIL OFL):** 1. Alegreya / Alegreya Sans (ilk tercih), 2. Literata, 3. Source Serif 4 / Source Sans 3, 4. Noto Serif. EB Garamond 1080p'de küçük boyda ince kaldığı için önerilmez.
+
+### 7.5 İkonografi
+- **Biçim:** Düz siluet; iç ayrıntılar 3 px boşluk olarak kesilir. İkinci renk, parıltı, gradyan yok.
+- **Teknik:** Tek renkli alfa maskesi; rengi Theme verir, ters çevirmede simge kendiliğinden gece tonuna döner.
+- **Izgara:** Düğmede 48 px, HUD'da 40 px. Simgede harf ve rakam yok.
+- **Kaynak — dünyadaki nesneler (6.4):** Kabul = açık kapı kanadı · Ret = sürgüsü çekili kapalı kapı · Rüşvet = kese (HUD kesesiyle aynı siluet) · Kışla = dik mızrak ve kalkan kenarı. **✓/✗ kullanılmaz** — kararı notlandırır (Sütun 2). Düğmeler ileride değişse de kural aynı: her karar fiili, dünyada izini bırakan nesneyle simgelenir.
+- **Rüşvet keseleri:** Üç kese; dolu = kül dolgu, boş = 3 px kül kontur. Anında değişir.
+- **Gün sayacı:** Simge + koddan sayı; sayım çentiği yok. Simge açık soru.
+
+### 7.6 Barlar
+- Yatay, parçalı levhalar; parça sayısı ve eşikler veridir (GDD'de).
+- Parça durumları: (1) sağlam — kül dolgu, (2) çatlak 1 — tek mürekkep çatlak, (3) çatlak 2 — dallanan çatlak, (4) yarık — iki yarım 4 px ayrık, yalnız kül kontur. Çatlak çizgisi ≥ 2 px.
+- En güçlü sinyal **sağlam parça sayısıdır**; kırılan parça boş kül kontura döner (keselerle aynı dil).
+- Etiket koddan gelir; bar etiketleri henüz onaylanmadı, bar başına simge yok. Koddan sayı ya da durum kelimesi her zaman görünür.
+- Yedek sinyal: şekil + ses + metin (4.5). Kırmızı, flaş, yanıp sönme, titreme yok.
+
+### 7.7 Arayüz animasyonu — sert adımlar
+Alfa geçişi (fade) zamana yayılmış bir gradyandır (palet dışı griler üretir); 2.6 crossfade'i de yasaklar. **Alfa fade ve crossfade arayüzde kullanılmaz.** Kilitteki "seçenekler ekrana bir anda düşmez" bir *sıralama* kuralıdır:
+- **Seçenek girişi:** Her şerit bir karede belirir (kesme); isteğe bağlı olarak sağdan 3 adımda 16'şar px kayar (12 fps, ara kare karışımı yok). Seçenekler arası ~0.30 s (veri).
+- **Atlama:** Herhangi bir girdi kalan seçeneklerin hepsini anında gösterir ama seçmez (giriş kilidi devreye girer). Ayarlarda belirme hızı: normal / hızlı / anında.
+- **Kadraj daralması:** gece şeritleri 3 adımda girer.
+- **Bar çatlağı:** sprite karesi değişir + ses; flaş ya da sarsıntı yok.
+- **Konuşma satırı:** bütün satır tek seferde (daktilo efekti açık soru; olursa atlanabilir).
+- **Sahne geçişi:** kesme ya da düz gece rengine kesme (1–3 kare), ardından kesme (2.6).
+- **Yasak:** alfa fade, ease-out bulanması, ölçek zıplaması, parıltı nabzı, ekran sarsıntısı, yanıp sönme.
+- **Azaltılmış hareket** ayarı kaymayı kaldırır; sıra korunur.
+
+### 7.8 İmleç
+Sert kenarlı, hafif elle kesilmiş, asimetrik ok; kül dolgu + 2 px mürekkep kontur. Kılıç ya da eldiven imleci yok; "işaret eden el" yerine okun çentikli bir çeşidi. 1080p'de 32×32, ayarla 48×48. Godot: `Input.set_custom_mouse_cursor` (`CURSOR_ARROW`, `CURSOR_POINTING_HAND`); ayarlardan sistem imlecine dönülebilir.
+
+### 7.9 Menüler
+- **Ana menü (2.9):** gece zemin, tek meşale lekesi, kapı siluetinin bir parçası; sol-altta kül metin listesi (odakta kül çerçeve, seçimde ters çevirme). Oyunun adı görsele gömülmez; ad konunca koddan basılır.
+- **Duraklatma:** dünyanın üstüne **opak** gece paneli — yarı saydam karartma yok (palet dışı ton).
+- **Ayarlar:** parçalı kaydırıcılar (bar grameri). Metin ölçeği, imleç boyutu, seçenek belirme hızı, iki adımlı onay aç/kapa, azaltılmış hareket, ekran modu, tuş atama.
+- **Son / skor ekranı:** gece rengine kesme; "hayatta kalınan gün" etiketi koddan, sayı 72 px Bold; kutlama efekti yok (2.8).
+
+### 7.10 Gamepad ve klavye gezinmesi
+- Odak sırası görsel sırayı izler: sohbet listesinde yukarı/aşağı, karar sırasında sol/sağ; liste içinde sarar, barlara ya da menüye atlamaz (`focus_neighbor_*` açıkça tanımlanır).
+- Karar paneli açılınca odak ilk yuvaya gelir (iki adımlı onay sayesinde güvenli).
+- **B / Esc hiçbir zaman "ret" değildir**; yalnız seçimi iptal eder ya da menüyü açar.
+- Kararlar doğrudan yüz tuşlarına ya da 1–4 kısayollarına bağlanırsa iki adımlı onay zorunludur.
+- Tuş ipucu glifleri kül renkte, son kullanılan girişe göre değişir; tüm tuşlar yeniden atanabilir.
+
+### 7.11 Godot uygulama notları (ui-programmer / technical-artist)
+- Projenin varsayılanı tek bir `Theme` kaynağı. `StyleBoxFlat`: `corner_radius_* = 0`, `shadow_size = 0`, `bg_color = #0D0F14`. Focus/hover: `border_width ≥ 3`, `border_color = #B8C2CC`. Pressed/seçili: `bg_color = #B8C2CC`.
+- Tip varyasyonları: `DialogueLabel`, `NarrationLabel`, `SpeakerLabel`, `ChoiceButton`, `DecisionButton`, `HudCounter`, `BarLabel`.
+- `font_color` / `icon_normal_color` kül; `font_pressed_color` / `icon_pressed_color` gece.
+- Animasyon: `AnimationPlayer` izleri `UPDATE_DISCRETE` ya da zamanlayıcı ile sıralama; `modulate:a` tween'i yok.
+- Tüm metin çeviri anahtarlarından (`tr()`); metin kontrollerinde `language = "tr"`.
+- Godot 4.5+ AccessKit ile ekran okuyucu her seçeneği belirdiği anda okumalı.
+- Doğrulama: her ekranın 1080p ekran görüntüsü `production/qa/evidence/` altına.
+
+### Açık sorular (Bölüm 7)
+1. **Gün sayacı simgesi:** ay diski, başka bir simge ya da simgesiz yalnız sayı? (Hilal sembol yükü taşıdığı için önerilmedi.)
+2. **Oyuncunun seçtiği replik** sohbet kaydında görünecek mi; nasıl etiketlenecek?
+3. **Adı bilinmeyen gelen için konuşan etiketi:** boş, "Yabancı" ya da koddan bir tanım?
+4. **Rüşvet hakkı bitince** düğme gizlensin mi, kullanılamaz olarak mı görünsün?
+5. **Daktilo efekti** olsun mu?
+6. **Font:** Alegreya önerildi; onay ve Godot'da Türkçe glif testi gerekiyor.
+7. **Seçenek sırası:** sabit mi, rastgele mi? (game-designer ile)
 
 ## 8. Asset Standards
 
