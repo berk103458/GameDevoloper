@@ -5,12 +5,19 @@ extends RefCounted
 const GOVDE_PX := 26
 const KUCUK_PX := 22
 const BASLIK_PX := 34
+## Sanat kitabı 7.4: hümanist serif (Alegreya, SIL OFL). Değişken font; ağırlık wght ekseninden.
+const FONT_DIK := "res://assets/font/Alegreya-wght.ttf"
+const FONT_ITALIK := "res://assets/font/Alegreya-Italic-wght.ttf"
 
 
 ## Verilen ayarlara göre tema üretir.
 static func olustur(ayarlar: Ayarlar) -> Theme:
 	var t := Theme.new()
+	t.default_font = font(400)
 	t.default_font_size = ayarlar.boyut(GOVDE_PX)
+	t.set_font("italics_font", "RichTextLabel", font(400, true))
+	t.set_font("bold_font", "RichTextLabel", font(700))
+	t.set_font("bold_italics_font", "RichTextLabel", font(700, true))
 	for tur in ["Label", "Button", "RichTextLabel"]:
 		t.set_color("font_color", tur, Renkler.KUL)
 	t.set_color("default_color", "RichTextLabel", Renkler.KUL)
@@ -41,7 +48,34 @@ static func olustur(ayarlar: Ayarlar) -> Theme:
 	var bos := StyleBoxEmpty.new()
 	t.set_stylebox("normal", "RichTextLabel", bos)
 	t.set_stylebox("focus", "RichTextLabel", bos)
+	_menu_dugmesi(t, ayarlar)
 	return t
+
+
+## Verilen ağırlıkta (400–900) Alegreya. Font dosyası yoksa null (motor varsayılanına düşer).
+static func font(agirlik: int, italik: bool = false) -> Font:
+	var yol := FONT_ITALIK if italik else FONT_DIK
+	if not ResourceLoader.exists(yol):
+		return null
+	var f := FontVariation.new()
+	f.base_font = load(yol)
+	f.variation_opentype = {TextServerManager.get_primary_interface().name_to_tag("wght"): agirlik}
+	return f
+
+
+## Ana menü düğmesi (7.9): kutusuz kül metin; odakta kül çerçeve, seçimde ters çevirme.
+static func _menu_dugmesi(t: Theme, ayarlar: Ayarlar) -> void:
+	t.add_type("MenuDugmesi")
+	t.set_type_variation("MenuDugmesi", "Button")
+	var normal := _kutu(Renkler.GECE, Renkler.KUL, 0)
+	normal.draw_center = false
+	var odak := _kutu(Renkler.GECE, Renkler.KUL, 3)
+	odak.draw_center = false
+	t.set_stylebox("normal", "MenuDugmesi", normal)
+	t.set_stylebox("hover", "MenuDugmesi", normal)
+	t.set_stylebox("disabled", "MenuDugmesi", normal)
+	t.set_stylebox("focus", "MenuDugmesi", odak)
+	t.set_font_size("font_size", "MenuDugmesi", ayarlar.boyut(32))
 
 
 static func _kutu(dolgu: Color, kenar: Color, kalinlik: int) -> StyleBoxFlat:

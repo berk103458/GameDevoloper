@@ -65,15 +65,16 @@ static func mesale_kur(kok: Node3D, konum: Vector3, guc: float = 2.6, menzil: fl
 	m.position = konum
 	kok.add_child(m)
 	var alev := MeshInstance3D.new()
+	# Alev: küçük, uzun, sert kenarlı leke; parlaklığı ışık taşır, mesh değil.
 	var k := SphereMesh.new()
-	k.radius = 0.12
-	k.height = 0.32
+	k.radius = 0.08
+	k.height = 0.3
 	alev.mesh = k
 	var mat := StandardMaterial3D.new()
 	mat.albedo_color = Renkler.MESALE
 	mat.emission_enabled = true
 	mat.emission = Renkler.MESALE
-	mat.emission_energy_multiplier = 3.0
+	mat.emission_energy_multiplier = 1.4
 	alev.material_override = mat
 	alev.position = konum + Vector3(0, 1.95, 0)
 	kok.add_child(alev)
@@ -117,9 +118,15 @@ static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "") -> Node3
 	return kap
 
 
-## Bir düğümün (modelin) dünya ölçeğindeki genişliği (x) ve derinliği (z).
+## İsteğe bağlı bir model diskte var mı (yoksa çağıran onu atlar; kutu yer tutucu istemez).
+static func model_var_mi(ad: String, tur: String = "") -> bool:
+	return _yol(ad, tur) != ""
+
+
+## `nesne()` kabının dünya ölçeğindeki boyutu (x genişlik, y yükseklik, z derinlik).
+## `_kutu` alt düğümlerin ölçeğini zaten içerir; ölçek yeniden çarpılmaz.
 static func boyut(n: Node3D) -> Vector3:
-	return _kutu(n).size * n.get_child(0).scale if n.get_child_count() > 0 and n.get_child(0) is Node3D else _kutu(n).size
+	return _kutu(n).size
 
 
 ## Karakter modeli adı: adlı karakter id'si, portre kökü ya da sınıf.

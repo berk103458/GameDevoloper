@@ -33,7 +33,12 @@ func _ready() -> void:
 
 ## Ana menüyü gösterir.
 func ana_menu() -> void:
-	var e := _bilgi("", tr("arayuz.menu.alt"), [tr("arayuz.menu.yeni"), tr("arayuz.menu.devam"), tr("arayuz.menu.ayarlar"), tr("arayuz.menu.cik")])
+	var e := MenuEkrani.new()
+	e.ayarlar = ayarlar
+	e.ust_satir = tr("arayuz.menu.ust")
+	e.baslik = tr("arayuz.menu.baslik")
+	e.ipucu = tr("arayuz.menu.ipucu")
+	e.dugmeler = PackedStringArray([tr("arayuz.menu.yeni"), tr("arayuz.menu.devam"), tr("arayuz.menu.ayarlar"), tr("arayuz.menu.cik")])
 	if not kayit.var_mi():
 		e.pasifler = [1]
 	e.secildi.connect(func(i: int) -> void:
