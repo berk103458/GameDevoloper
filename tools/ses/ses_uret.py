@@ -875,6 +875,39 @@ def sfx_at_nali():
     return reverb(biquad(out, "lp", 2500), room=0.7, damp=0.5, wet=0.35, dry=0.8)
 
 
+def sfx_ok():
+    """Yay kirisi, okun vizlamasi ve hedefe saplanma."""
+    n = secs(0.9)
+    twang = mix((karplus(n, 110.0, 0.35, 2601), 1.0), (karplus(n, 220.0, 0.2, 2602), 0.3))
+    whoosh = mul(biquad(noise(n, 2603), "bp", lambda t: 2500.0 - 1500.0 * smooth(t / 0.4), 2.0),
+                 [math.exp(-((i / SR - 0.2) / 0.09) ** 2) for i in range(n)])
+    thunk = mix((sweep_thump(n, secs(0.42), 260.0, 120.0, 0.01, 0.12, 1.0), 1.0),
+                (biquad(burst(n, secs(0.42), 0.02, 0.012, 2604), "bp", 1800, 1.5), 0.5))
+    return mix((norm(twang), 0.6), (norm(whoosh), 0.5), (norm(thunk), 1.0))
+
+
+def sfx_kurt():
+    """Uzaktan kurt ulumasi: yukselip inen perde, hafif ikinci kurt."""
+    n = secs(3.0)
+    out = zeros(n)
+    for k, (on, dur, f0, a) in enumerate(((0.05, 2.4, 330.0, 1.0), (0.9, 1.9, 410.0, 0.5))):
+        ph = 0.0
+        i0 = secs(on)
+        m = secs(dur)
+        for j in range(m):
+            if i0 + j >= n:
+                break
+            u = j / m
+            f = f0 * (1.0 + 0.45 * math.sin(math.pi * min(1.0, u * 1.6)) - 0.25 * smooth((u - 0.6) / 0.4))
+            f *= 1.0 + 0.012 * math.sin(TAU * 5.0 * j / SR + k)
+            ph += f / SR
+            ph -= int(ph)
+            e = a * smooth(u / 0.15) * smooth((1.0 - u) / 0.35)
+            out[i0 + j] += e * (math.sin(TAU * ph) + 0.25 * math.sin(2 * TAU * ph) + 0.08 * math.sin(3 * TAU * ph))
+    breath = mul(biquad(noise(n, 2701), "bp", 900, 0.8), [abs(v) for v in out])
+    return reverb(mix((norm(out), 1.0), (norm(breath), 0.15)), room=0.92, damp=0.5, wet=0.55, dry=0.5)
+
+
 # =============================================================== yeni dongular
 def zurna_line(n, notes, base, eighth, amp, seed):
     """Zurna: parlak, genizden cift kamis. notes: (yarim ton, sekizlik). Dongu basinda/sonunda dil vurusu."""
@@ -1044,6 +1077,8 @@ URETICILER = (
     ("sfx_kervan.wav", sfx_kervan, "sfx", 2.5, 0.4),
     ("sfx_oksuruk.wav", sfx_oksuruk, "sfx", 1.2, 0.2),
     ("sfx_at_nali.wav", sfx_at_nali, "sfx", 2.0, 0.3),
+    ("sfx_ok.wav", sfx_ok, "sfx", 0.9, 0.2),
+    ("sfx_kurt.wav", sfx_kurt, "sfx", 3.0, 0.5),
 )
 
 

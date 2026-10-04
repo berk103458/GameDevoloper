@@ -25,6 +25,8 @@ var _durum: Label
 var _yapi_kutusu: VBoxContainer
 var _tarla_kutusu: VBoxContainer
 var _kart: PanelContainer
+## Açık mini oyun (olay seçeneği `oyun` isterse); yoksa null.
+var mini_oyun: MiniOyun
 var _ilk_cizim := true
 
 
@@ -207,11 +209,34 @@ func _olay_goster(olay: OlayVerisi) -> void:
 
 func _olay_sec(olay: OlayVerisi, i: int) -> void:
 	Ses.cal(&"sfx_onay")
-	var sonuc := oturum.olay_uygula(olay, i)
+	var e: Dictionary = olay.secenek_etkileri[i]
+	var puan := -1
+	var azami := 0
+	if e.has("oyun"):
+		mini_oyun = MiniOyun.olustur(StringName(e["oyun"]), ayarlar, oturum.ayarlar)
+	if mini_oyun != null:
+		_kart.visible = false
+		# Pano köyü örter; 3D çizimi durur, zayıf makinede de zamanlama kare hızına takılmaz.
+		var vp := sahne3b.get_viewport() as SubViewport
+		vp.render_target_update_mode = SubViewport.UPDATE_DISABLED
+		add_child(mini_oyun)
+		var r: Array = await mini_oyun.bitti
+		vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+		puan = r[0]
+		azami = r[1]
+		mini_oyun.queue_free()
+		mini_oyun = null
+		_kart.visible = true
+	var sonuc := oturum.olay_uygula(olay, i, puan)
 	var v: VBoxContainer = _kart.get_child(0).get_child(0)
 	for c in v.get_children():
 		if c is Button:
 			c.queue_free()
+	if puan >= 0:
+		var p := Label.new()
+		p.text = tr("arayuz.oyun.puan") % [puan, azami]
+		p.add_theme_color_override("font_color", MenuSatiri.ALTIN)
+		v.add_child(p)
 	var l := Label.new()
 	l.text = tr(sonuc["sonuc_anahtari"])
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

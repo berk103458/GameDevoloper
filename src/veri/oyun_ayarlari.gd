@@ -119,6 +119,19 @@ func bitki_verim_sozlugu() -> Dictionary:
 ## İki gelen arasında kuyrukta bir olay çıkma olasılığı.
 @export var sira_olay_olasiligi: float = 0.35
 
+@export_group("Mini oyunlar")
+## Okçuluk: ok sayısı (her ok en çok 2 puan), nişangâhın salınım hızı (salınım/s) ve her okta artışı,
+## merkez ve halka yarıçapı (hedef yarıçapına oranla). design/gdd/koy-mini-oyunlari.md
+@export var okculuk_ok: int = 3
+@export var okculuk_hiz: float = 0.45
+@export var okculuk_hiz_artis: float = 0.12
+@export var okculuk_merkez: float = 0.15
+@export var okculuk_halka: float = 0.42
+## Harman: vuruş sayısı (her isabet 1 puan), vuruş aralığı (s) ve isabet toleransı (s).
+@export var harman_vurus: int = 8
+@export var harman_aralik: float = 0.8
+@export var harman_tolerans: float = 0.17
+
 @export_group("Heybe")
 ## Gelenin söylediği akçe aralığı.
 @export var beyan_akce_min: int = 2

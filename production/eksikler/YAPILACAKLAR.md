@@ -26,4 +26,4 @@ Durum: ✅ bitti · 🔨 bu turda · ⏳ sırada. Sıra önceliktir: önce kapı
 13. ✅ Bitki türleri, büyüme dönemleri ve bunları etkileyen olaylar.
 14. ✅ Köy geliştikçe tasarımı değişsin; geliştirmeler (sur büyüt, köy konağı vb.). — `design/gdd/koy-gelisimi.md`
 15. ✅ Ses efektleri ve müzikler (düğün müziği, köy hayatı, olay sesleri). — `design/gdd/ses.md`
-16. ⏳ Köy içi ek olaylar ve mini oyunlar.
+16. ✅ Köy içi ek olaylar ve mini oyunlar. — `design/gdd/koy-mini-oyunlari.md`

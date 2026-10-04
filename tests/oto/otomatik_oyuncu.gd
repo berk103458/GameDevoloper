@@ -85,6 +85,14 @@ func _dongu() -> void:
 				if not secim.is_empty():
 					secim[rng.randi_range(0, secim.size() - 1)].pressed.emit()
 					await get_tree().create_timer(0.3).timeout
+					var foto := true
+					while koy.mini_oyun != null:
+						await get_tree().create_timer(rng.randf_range(0.3, 0.9)).timeout
+						if foto and koy.mini_oyun != null:
+							await _foto("04_mini_oyun")
+							foto = false
+						if koy.mini_oyun != null:
+							koy.mini_oyun.bas()
 					var tamam := _dugmeler(koy._kart)
 					if not tamam.is_empty():
 						await _foto("04_olay_sonuc")

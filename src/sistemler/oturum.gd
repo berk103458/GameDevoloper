@@ -405,12 +405,26 @@ func secenek_olur(olay: OlayVerisi, i: int) -> bool:
 	for id in g.get("koyde", []):
 		if kadro.durumlar.get(StringName(id), {}).get("durum") != &"koyde":
 			return false
+	var gs: Dictionary = g.get("sinif", {})
+	for s in gs:
+		if koy.sayi(StringName(s)) < int(gs[s]):
+			return false
 	return true
 
 
 ## Seçeneği uygular. Döner: {kirilan, rusvet_harcandi, sonuc_anahtari}.
-func olay_uygula(olay: OlayVerisi, i: int) -> Dictionary:
+## `puan`: seçenek bir mini oyun açtıysa (`oyun`) alınan puan; ödül `oyun_odul` × puan, puan ≥ `oyun_esik`
+## ise `oyun_basari` etkisi de uygulanır (design/gdd/koy-mini-oyunlari.md). −1 = oyun oynanmadı.
+func olay_uygula(olay: OlayVerisi, i: int, puan: int = -1) -> Dictionary:
 	var e: Dictionary = olay.secenek_etkileri[i]
+	if puan >= 0 and e.has("oyun"):
+		var odul: Dictionary = e.get("oyun_odul", {})
+		akce += int(odul.get("akce", 0)) * puan
+		ambar += int(odul.get("ambar", 0)) * puan
+		if puan >= int(e.get("oyun_esik", 9999)):
+			var b: Dictionary = e.get("oyun_basari", {})
+			if b.has("bar"):
+				barlar.uygula(PackedInt32Array(b["bar"]))
 	var g: Dictionary = e.get("gerekli", {})
 	akce -= int(g.get("akce", 0))
 	ambar -= int(g.get("ambar", 0))
@@ -442,6 +456,9 @@ func olay_uygula(olay: OlayVerisi, i: int) -> Dictionary:
 			koy.cikar(katalog.karakter(id).sinif, id)
 	var sonuc := _bar_cozumu()
 	sonuc["sonuc_anahtari"] = "%s.sonuc%d" % [olay.metin_anahtari.trim_suffix(".metin"), i + 1]
+	sonuc["oyun_puan"] = puan
+	if puan >= 0 and e.has("oyun") and puan < int(e.get("oyun_esik", 0)):
+		sonuc["sonuc_anahtari"] += "_az"
 	return sonuc
 
 

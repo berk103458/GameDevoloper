@@ -90,6 +90,17 @@ arayuz.menu.ipucu,Yön tuşları ile seç · Enter ile onayla
 arayuz.menu.ust,Kösedağ'dan sonra · 1243
 arayuz.menu.yeni,Yeni gece
 arayuz.olay.devam,Devam
+arayuz.oyun.harman.baslik,Harman
+arayuz.oyun.harman.ipucu,Daralan halka düvenin çemberine oturduğu anda Boşluk'a bas ya da tıkla.
+arayuz.oyun.isabet,İsabet
+arayuz.oyun.iska,Iska
+arayuz.oyun.kenar,Halkaya  +1
+arayuz.oyun.ok,Ok %d / %d
+arayuz.oyun.okculuk.baslik,Okçuluk
+arayuz.oyun.okculuk.ipucu,Nişangâh hedefin ortasından geçerken Boşluk'a bas ya da tıkla.
+arayuz.oyun.puan,Puan %d / %d
+arayuz.oyun.tam,Tam isabet  +2
+arayuz.oyun.vurus,Vuruş %d / %d
 arayuz.perde.baslik,Köy oturdu.
 arayuz.perde.devam,Ağa olarak devam et
 arayuz.perde.metin,"Kapıdan girenler artık bir köy. Sen artık kapının muhafızı değil, köyün ağasısın.
@@ -208,6 +219,12 @@ olay.ayse_tezgah.secenek1,Destekle (iki akçe)
 olay.ayse_tezgah.secenek2,Kadınların işi tarlada
 olay.ayse_tezgah.sonuc1,İlk kilim pazarda üç akçeye gitti.
 olay.ayse_tezgah.sonuc2,Tezgâh bir köşeye kaldırıldı.
+olay.bebek.baslik,Yeni doğan
+olay.bebek.metin,Kapıdan geçen bir ailenin kızı köyde doğum yaptı. Köyde doğan ilk çocuk.
+olay.bebek.secenek1,Ziyafet ver (bir ambar)
+olay.bebek.secenek2,Ebeye bir akçe gönder
+olay.bebek.sonuc1,Çocuğa köyün adı verildi.
+olay.bebek.sonuc2,Ebe akçeyi çocuğun beşiğine bağladı.
 olay.bey_daveti.baslik,Beyin daveti
 olay.bey_daveti.metin,Bölgenin beyi seni sofrasına çağırıyor. Köyünü kendi himayesine almak istiyor.
 olay.bey_daveti.secenek1,Himayeyi kabul et
@@ -234,6 +251,13 @@ olay.ertugrul_haberi.secenek1,Ertuğrul'a haber gönder
 olay.ertugrul_haberi.secenek2,Uzak dur
 olay.ertugrul_haberi.sonuc1,Haberci sabah batıya yola çıktı. Ardından iki atlı daha gitti.
 olay.ertugrul_haberi.sonuc2,Söğüt uzak. Tekfur yakın.
+olay.harman.baslik,Harman
+olay.harman.metin,Harman yerine demetler serildi. Düveni çekecek öküzler hazır; birinin davulun ritmine uyup onları sürmesi gerek.
+olay.harman.secenek1,Düveni sen sür
+olay.harman.secenek2,Çiftçiler halletsin
+olay.harman.sonuc1,"Saman savruldu, tane ambara aktı. Çiftçiler başını salladı."
+olay.harman.sonuc1_az,"Öküzler ritmi kaçırdı, düven sekti. Çiftçiler işi senden devraldı."
+olay.harman.sonuc2,İş ağır ama sağlam gitti.
 olay.hasan_defter.baslik,Kâtibin defteri
 olay.hasan_defter.metin,"Hasan Çelebi köyün defterini tuttu. Kim ne getirdi, kim ne yedi, kim ne borçlu — hepsi yazılı."
 olay.hasan_defter.secenek1,Deftere göre vergi topla
@@ -278,6 +302,14 @@ olay.kitlik.secenek3,Tayını yarıya indir
 olay.kitlik.sonuc1,Zahire geldi; yanında bir de mektup: 'Unutmayız.'
 olay.kitlik.sonuc2,Pazar bir gün boş kaldı. Ambar doldu.
 olay.kitlik.sonuc3,Kimse aç ölmedi. Kimse tok da uyumadı.
+olay.kurt.baslik,Ağıldaki kurt
+olay.kurt.metin,Gece ağıldan uluma geldi. Sabah iki koyun eksikti; çamurda iri pençe izleri var.
+olay.kurt.secenek1,Askerleri pusuya yatır
+olay.kurt.secenek2,Ağılı taşla çevir (iki akçe)
+olay.kurt.secenek3,Kaderine bırak
+olay.kurt.sonuc1,Kurdun postu kapının üstüne asıldı.
+olay.kurt.sonuc2,Taş duvar bir günde örüldü. Kurt bir daha gelmedi.
+olay.kurt.sonuc3,Kurt üç gece daha geldi.
 olay.miraen_cavus.baslik,Selçuklu çavuşu
 olay.miraen_cavus.metin,Bir Selçuklu çavuşu kapıya geldi. Bozgundan kaçanları arıyor. Listesinde Miraen'in adı var.
 olay.miraen_cavus.secenek1,Miraen'i teslim et
@@ -300,6 +332,21 @@ olay.nogay_haber.secenek1,"Taşları dağıt, izleri sil"
 olay.nogay_haber.secenek2,Nogay'ı casus diye kov
 olay.nogay_haber.sonuc1,Ertesi gece yol sessizdi.
 olay.nogay_haber.sonuc2,Nogay hiçbir şey demeden gitti. Taşlar yerinde kaldı.
+olay.okculuk.baslik,Okçuluk yarışı
+olay.okculuk.metin,Askerler kışlanın arkasına bir hedef dikmiş; köyün gençleri de sıraya girmiş. Senin de bir yay tutup tutmayacağını merak ediyorlar.
+olay.okculuk.secenek1,"Yayı al, sen de at"
+olay.okculuk.secenek2,Ödülü sen koy (iki akçe)
+olay.okculuk.secenek3,Ok boşa harcanmaz
+olay.okculuk.sonuc1,Son ok da yerine oturdu. Kışladan bir uğultu yükseldi.
+olay.okculuk.sonuc1_az,Oklar saman balyasına gömüldü; hedefe pek değmedi. Askerler gülmemeye çalıştı.
+olay.okculuk.sonuc2,Ödülü bir çoban kazandı. Ertesi gün kışlaya yazıldı.
+olay.okculuk.sonuc3,Hedef söküldü. Gençler dağıldı.
+olay.pazar_gunu.baslik,Pazar günü
+olay.pazar_gunu.metin,Komşu obalardan tüccarlar geldi. Pazar hiç bu kadar kalabalık olmamıştı.
+olay.pazar_gunu.secenek1,Bac al (pazar vergisi)
+olay.pazar_gunu.secenek2,"Bac alma, bol olsun"
+olay.pazar_gunu.sonuc1,"Kasa doldu, tüccarlar söylendi."
+olay.pazar_gunu.sonuc2,Tüccarlar gelecek ay yine geleceklerini söylediler.
 olay.salgin.baslik,Öksürük
 olay.salgin.metin,"Köyde öksürük yayılıyor. Önce çocuklar, sonra yaşlılar."
 olay.salgin.secenek1,Thessra'nın ilaçlarını kullan
@@ -408,6 +455,12 @@ olay.vergi_tahsildari.secenek3,Ödemeyi reddet
 olay.vergi_tahsildari.sonuc1,"Tahsildar parayı saydı, defterine bir şey yazdı, gitti."
 olay.vergi_tahsildari.sonuc2,Çuvallar atlara yüklendi. Halk arkalarından baktı.
 olay.vergi_tahsildari.sonuc3,Tahsildar kapıdan çıkarken köyün adını yüksek sesle tekrarladı.
+olay.yangin.baslik,Samanlıkta yangın
+olay.yangin.metin,Gece yarısı samanlıktan alev yükseldi. Rüzgâr evlere doğru esiyor.
+olay.yangin.secenek1,Herkes kovaya!
+olay.yangin.secenek2,"Evleri koru, samanlık yansın"
+olay.yangin.sonuc1,"Kuyudan samanlığa bir insan zinciri kuruldu. Sabah herkes isliydi, ama evler ayaktaydı."
+olay.yangin.sonuc2,Samanlık kül oldu. Evlere kıvılcım bile değmedi.
 olay.yusuf_keci.baslik,Keçi
 olay.yusuf_keci.metin,Yusuf'un keçisi bir sabah kapının önünde bekliyordu. Yanında dört keçi daha.
 olay.yusuf_keci.secenek1,Sürü Yusuf'un olsun

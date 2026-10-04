@@ -12,7 +12,8 @@ extends Resource
 @export var tek_sefer: bool = true
 @export var secenek_anahtarlari: PackedStringArray
 ## Seçenek başına etki: bar[4], akce, ambar, kese, nufus{sinif: n}, bayrak, ayril (karakter id),
-## sonraki_gelen (bir sonraki gece gelen sayısına ek), gerekli{akce|ambar|koyde}.
+## sonraki_gelen (bir sonraki gece gelen sayısına ek), gerekli{akce|ambar|koyde|sinif{sinif: n}},
+## tarla_gun, tarla_verim, tarla_don, oyun (mini oyun: okculuk|harman) + oyun_odul{akce|ambar}, oyun_esik, oyun_basari{bar}.
 @export var secenek_etkileri: Array[Dictionary] = []
 ## Kart açılınca çalan efekt (`assets/ses/<ad>.wav`); boşsa genel olay sesi.
 @export var ses: StringName

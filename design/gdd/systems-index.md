@@ -70,6 +70,7 @@ Oyun, kapıda geçen kısa bir sohbet-ve-karar döngüsü etrafında kurulu: kap
 | 25 | Sıra olayları | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/sira-olaylari.md | 8, 18 |
 | 26 | Tarla ve ürünler | Economy | Vertical Slice | Designed (uygulandı) | design/gdd/tarla-ve-urunler.md | 10, 12, 16, 20 |
 | 27 | Köy gelişimi | Economy | Vertical Slice | Designed (uygulandı) | design/gdd/koy-gelisimi.md | 8, 10, 11, 20, 26 |
+| 28 | Köy içi olaylar ve mini oyunlar | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/koy-mini-oyunlari.md | 8, 12, 16, 20, 22 |
 
 *Kategoriler arasında şablonun "Meta" kategorisi kullanılmadı.*
 

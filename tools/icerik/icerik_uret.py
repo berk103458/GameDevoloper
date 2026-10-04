@@ -113,6 +113,8 @@ tres("data/ayarlar/oyun.tres", "OyunAyarlari", "res://src/veri/oyun_ayarlari.gd"
     "gizli_akce_min": 8, "gizli_akce_max": 20, "gizli_esya_olasiligi": 0.4,
     "teklif_orani": 0.5, "gasp_halk_cezasi": 1, "durust_arama_cezasi": 1,
     "sira_olay_olasiligi": 0.35,
+    "okculuk_ok": 3, "okculuk_hiz": 0.45, "okculuk_hiz_artis": 0.12, "okculuk_merkez": 0.15, "okculuk_halka": 0.42,
+    "harman_vurus": 8, "harman_aralik": 0.8, "harman_tolerans": 0.17,
     # Ürünler: (id, süre gece, verim ambar, tohum ambar)
     "ciftci_tarla_basina": 2, "tarla_azami": 6, "don_esigi": 1,
     "bitki_idleri": psa([b[0] for b in BITKILER]), "bitki_sureleri": pia([b[2] for b in BITKILER]),
@@ -576,6 +578,38 @@ OLAYLAR = [
          metin="Yusuf'un keçisi bir sabah kapının önünde bekliyordu. Yanında dört keçi daha.",
          secenekler=[("Sürü Yusuf'un olsun", {"ambar": 3, "bar": [2, 0, 0, 0]}, "Yusuf o gün ilk kez güldü."),
                      ("Keçiler köyün malı", {"ambar": 5, "bar": [-1, 0, 0, 0]}, "Ambar doldu. Yusuf ipi yine eline aldı ve bir şey demedi.")]),
+    # ─── Köy içi olaylar ve mini oyunlar (design/gdd/koy-mini-oyunlari.md) ──
+    # "oyun": mini oyun açar; ödül oyun_odul × puan, puan ≥ oyun_esik ise oyun_basari da uygulanır.
+    dict(id="okculuk", baslik="Okçuluk yarışı", kosul={"sinif_min": {"asker": 2}, "gece_min": 2}, agirlik=2, tek=False,
+         metin="Askerler kışlanın arkasına bir hedef dikmiş; köyün gençleri de sıraya girmiş. Senin de bir yay tutup tutmayacağını merak ediyorlar.",
+         secenekler=[("Yayı al, sen de at", {"oyun": "okculuk", "oyun_odul": {"akce": 1}, "oyun_esik": 4, "oyun_basari": {"bar": [1, 0, 0, 1]}},
+                      "Son ok da yerine oturdu. Kışladan bir uğultu yükseldi.",
+                      "Oklar saman balyasına gömüldü; hedefe pek değmedi. Askerler gülmemeye çalıştı."),
+                     ("Ödülü sen koy (iki akçe)", {"gerekli": {"akce": 2}, "bar": [0, 0, 0, 2]}, "Ödülü bir çoban kazandı. Ertesi gün kışlaya yazıldı."),
+                     ("Ok boşa harcanmaz", {"bar": [0, 0, 0, -1]}, "Hedef söküldü. Gençler dağıldı.")]),
+    dict(id="harman", baslik="Harman", kosul={"sinif_min": {"ciftci": 3}, "gece_min": 3}, agirlik=2, tek=False,
+         metin="Harman yerine demetler serildi. Düveni çekecek öküzler hazır; birinin davulun ritmine uyup onları sürmesi gerek.",
+         secenekler=[("Düveni sen sür", {"oyun": "harman", "oyun_odul": {"ambar": 1}, "oyun_esik": 6, "oyun_basari": {"bar": [1, 0, 0, 0]}},
+                      "Saman savruldu, tane ambara aktı. Çiftçiler başını salladı.",
+                      "Öküzler ritmi kaçırdı, düven sekti. Çiftçiler işi senden devraldı."),
+                     ("Çiftçiler halletsin", {"ambar": 3}, "İş ağır ama sağlam gitti.")]),
+    dict(id="kurt", baslik="Ağıldaki kurt", kosul={"gece_min": 3}, agirlik=2, tek=False,
+         metin="Gece ağıldan uluma geldi. Sabah iki koyun eksikti; çamurda iri pençe izleri var.",
+         secenekler=[("Askerleri pusuya yatır", {"gerekli": {"sinif": {"asker": 1}}, "bar": [1, 0, 0, 1]}, "Kurdun postu kapının üstüne asıldı."),
+                     ("Ağılı taşla çevir (iki akçe)", {"gerekli": {"akce": 2}, "bar": [1, 0, 0, 0]}, "Taş duvar bir günde örüldü. Kurt bir daha gelmedi."),
+                     ("Kaderine bırak", {"ambar": -2, "bar": [-1, 0, 0, 0]}, "Kurt üç gece daha geldi.")]),
+    dict(id="yangin", baslik="Samanlıkta yangın", kosul={"nufus_min": 5, "gece_min": 2}, agirlik=1, tek=False,
+         metin="Gece yarısı samanlıktan alev yükseldi. Rüzgâr evlere doğru esiyor.",
+         secenekler=[("Herkes kovaya!", {"ambar": -1, "bar": [1, 0, 0, 0]}, "Kuyudan samanlığa bir insan zinciri kuruldu. Sabah herkes isliydi, ama evler ayaktaydı."),
+                     ("Evleri koru, samanlık yansın", {"ambar": -3}, "Samanlık kül oldu. Evlere kıvılcım bile değmedi.")]),
+    dict(id="bebek", baslik="Yeni doğan", kosul={"nufus_min": 6, "gece_min": 4}, agirlik=1,
+         metin="Kapıdan geçen bir ailenin kızı köyde doğum yaptı. Köyde doğan ilk çocuk.",
+         secenekler=[("Ziyafet ver (bir ambar)", {"gerekli": {"ambar": 1}, "bar": [2, 0, 0, 0]}, "Çocuğa köyün adı verildi."),
+                     ("Ebeye bir akçe gönder", {"gerekli": {"akce": 1}, "bar": [1, 0, 0, 0]}, "Ebe akçeyi çocuğun beşiğine bağladı.")]),
+    dict(id="pazar_gunu", baslik="Pazar günü", kosul={"yapi_min": {"pazar": 1}, "gece_min": 2}, agirlik=2, tek=False,
+         metin="Komşu obalardan tüccarlar geldi. Pazar hiç bu kadar kalabalık olmamıştı.",
+         secenekler=[("Bac al (pazar vergisi)", {"akce": 3, "bar": [0, 0, -1, 0]}, "Kasa doldu, tüccarlar söylendi."),
+                     ("Bac alma, bol olsun", {"bar": [1, 0, 2, 0]}, "Tüccarlar gelecek ay yine geleceklerini söylediler.")]),
 ]
 
 # Olay sesleri (tools/ses/ses_uret.py üretir): id → (efekt, müzik döngüsü).
@@ -592,6 +626,12 @@ OLAY_SESLERI = {
     "sira_kavga": ("sfx_kavga", ""),
     "sira_vazgecen": ("sfx_adim", ""),
     "sira_panik": ("sfx_at_nali", ""),
+    "okculuk": ("sfx_ok", ""),
+    "harman": ("sfx_hasat", ""),
+    "kurt": ("sfx_kurt", ""),
+    "yangin": ("sfx_kalabalik", ""),
+    "pazar_gunu": ("sfx_kalabalik", ""),
+    "bebek": ("", "muzik_dugun_dongu"),
 }
 
 
@@ -605,9 +645,12 @@ for o in OLAYLAR:
     baslik = t("olay.%s.baslik" % i, o["baslik"])
     metin = t("olay.%s.metin" % i, o["metin"])
     secs, etkiler = [], []
-    for n, (sec, etki, sonuc) in enumerate(o["secenekler"]):
+    for n, secenek in enumerate(o["secenekler"]):
+        sec, etki, sonuc = secenek[:3]
         secs.append(t("olay.%s.secenek%d" % (i, n + 1), sec))
         t("olay.%s.sonuc%d" % (i, n + 1), sonuc)
+        if len(secenek) > 3:  # mini oyunda eşik altı puanın sonucu
+            t("olay.%s.sonuc%d_az" % (i, n + 1), secenek[3])
         etkiler.append(etki)
     tres("data/olaylar/%s.tres" % i, "OlayVerisi", "res://src/veri/olay_verisi.gd", {
         "id": sn(i), "baslik_anahtari": baslik, "metin_anahtari": metin,
@@ -659,6 +702,17 @@ for o in SIRA_OLAYLARI:
 
 # ─── Arayüz ve anlatı metinleri ──────────────────────────────────────────
 ARAYUZ = {
+    "arayuz.oyun.okculuk.baslik": "Okçuluk",
+    "arayuz.oyun.okculuk.ipucu": "Nişangâh hedefin ortasından geçerken Boşluk'a bas ya da tıkla.",
+    "arayuz.oyun.harman.baslik": "Harman",
+    "arayuz.oyun.harman.ipucu": "Daralan halka düvenin çemberine oturduğu anda Boşluk'a bas ya da tıkla.",
+    "arayuz.oyun.ok": "Ok %d / %d",
+    "arayuz.oyun.vurus": "Vuruş %d / %d",
+    "arayuz.oyun.tam": "Tam isabet  +2",
+    "arayuz.oyun.kenar": "Halkaya  +1",
+    "arayuz.oyun.iska": "Iska",
+    "arayuz.oyun.isabet": "İsabet",
+    "arayuz.oyun.puan": "Puan %d / %d",
     "arayuz.menu.yeni": "Yeni gece",
     "arayuz.menu.devam": "Devam",
     "arayuz.menu.ayarlar": "Ayarlar",
