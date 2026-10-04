@@ -39,16 +39,16 @@ Oyun sohbet ve okuma üzerine kurulu; metni rahat okuyamayan biri oyunu oynayama
 | `azaltilmis_hareket` | Azaltılmış hareket | açık / kapalı | kapalı | Kayma ve geçişler kaldırılır (sanat kitabı 7.7) | Vertical Slice |
 | `ekran_okuyucu` | Ekran okuyucu | açık / kapalı | kapalı | AccessKit duyuruları (kural 13) | Vertical Slice |
 
-2. **MVP'de görünmeyen ayar yoktur, gizli ayar yoktur.** Vertical Slice ayarları MVP ekranında hiç gösterilmez (pasif düğme olarak bile); ayar dosyasında da yazılmaz.
+2. **MVP'de görünmeyen ayar yoktur, gizli ayar yoktur.** Vertical Slice ayarları MVP ekranında hiç gösterilmez (pasif düğme olarak bile). MVP sürümü dosyaya yeni bir Vertical Slice anahtarı yazmaz; dosyada önceden varsa aynen korur (kural 8). Hangi aşamanın etkin olduğu veridir (`ayar_varsayilanlari.tres` içinde `asama`).
 3. **Ayarlar oyunu değiştirmez.** Hiçbir ayar bar değeri, karar seçeneği, dönüş olasılığı, gün sayısı ya da skor üzerinde etki yapmaz. "Kolay mod" bu sistemin konusu değildir.
 
 **Uygulama ve saklama**
 
 4. **Anında uygulanır.** Oyuncu bir değeri değiştirdiği anda sonuç görülür ve duyulur: ses kaydırıcısı oynarken düzey değişir, metin ölçeği değişince ayarlar ekranının kendisi de yeni boyutla çizilir. "Uygula" düğmesi yoktur.
-5. **Ekrandan çıkınca yazılır.** Ayarlar ekranı kapanırken (geri ya da menüye dönüş) değerler `user://ayarlar.cfg` dosyasına (Godot `ConfigFile`) bir kez yazılır. Yazma başarısız olursa değerler bu oturum boyunca geçerli kalır ve geliştirme hatası kaydedilir; oyuncuya engel çıkarılmaz.
+5. **Ekrandan çıkınca yazılır.** Ayarlar ekranı kapanırken (geri ya da menüye dönüş) değerler `user://ayarlar.cfg` dosyasına (Godot `ConfigFile`) bir kez yazılır. Dosya erişimi ve pencere modu değişimi sisteme enjekte edilen birer bağdaştırıcı üzerinden yapılır (birim testler sahtesini kullanır). Yazma başarısız olursa değerler bu oturum boyunca geçerli kalır ve geliştirme hatası kaydedilir; oyuncuya engel çıkarılmaz.
 6. **Kayıttan ayrıdır.** Ayar dosyası oyun kaydı (16) değildir: oturum sonunda silinmez, yeni oyunda sıfırlanmaz, kayıt yüklemek ayarları değiştirmez.
 7. **Açılışta okunur.** Ayarlar oyun açılırken, İçerik veri hattı *Hazır* olduktan sonra ve *Menü* gösterilmeden önce okunup uygulanır; ilk karede doğru ses düzeyi ve metin boyutu vardır.
-8. **Bozuk ya da eksik dosya.** Dosya yoksa varsayılanlar kullanılır (ilk açılış). Bir anahtar bilinmiyorsa yok sayılır; bir değer geçersizse (tür yanlış, aralık dışı, listede yok) **o anahtar varsayılana döner** — değer en yakına kırpılmaz — ve geliştirme hatası kaydedilir. Oyun her durumda açılır (ayar dosyası içerik değildir; İçerik veri hattı'nın "hata = başlama" kuralı uygulanmaz).
+8. **Bozuk ya da eksik dosya.** Dosya yoksa varsayılanlar kullanılır (ilk açılış). Dosyadaki anahtarlar üç sınıftır: *etkin* (bu aşamanın ayarları — doğrulanır ve uygulanır), *bilinen-pasif* (tabloda olup bu aşamada açık olmayan ayarlar — doğrulanmaz, uygulanmaz, yazarken aynen korunur) ve *bilinmeyen* (tabloda yok — yok sayılır, bir sonraki yazmada düşer). Etkin bir değer geçersizse (tür yanlış, aralık dışı, listede yok) **o anahtar varsayılana döner** — değer en yakına kırpılmaz — ve geliştirme hatası kaydedilir. Oyun her durumda açılır (ayar dosyası içerik değildir; İçerik veri hattı'nın "hata = başlama" kuralı uygulanmaz).
 9. **Varsayılana dön.** Ayarlar ekranının her sayfasında "Varsayılana dön" vardır; yalnız o sayfanın ayarlarını varsayılana döndürür, hemen uygular. Geri alınamaz ama tek ayarın değeri yeniden değiştirilebilir; onay sorulmaz (hiçbir oyun verisi kaybolmaz).
 
 **Ses**
@@ -57,7 +57,7 @@ Oyun sohbet ve okuma üzerine kurulu; metni rahat okuyamayan biri oyunu oynayama
 
 **Ekran**
 
-11. **Ekran modu** yalnız iki değer taşır: `pencere` (1920×1080 içerik, pencere sistemce boyutlanabilir; ölçekleme `project.godot` ayarlarıyla) ve `tam_ekran` (sınırsız tam ekran). Çözünürlük seçimi yoktur: içerik her zaman 1920×1080 taban üzerinden ölçeklenir (sanat kitabı 8.3). Değişim anında olur; geri sayımlı "değişikliği koru?" sorusu gerekmez çünkü iki mod da her zaman görüntü verir.
+11. **Ekran modu** yalnız iki değer taşır: `pencere` (1920×1080 içerik, pencere sistemce boyutlanabilir; ölçekleme `project.godot` ayarlarıyla) ve `tam_ekran` (sınırsız tam ekran: `WINDOW_MODE_FULLSCREEN`, `EXCLUSIVE_FULLSCREEN` değil). Çözünürlük seçimi yoktur: içerik her zaman 1920×1080 taban üzerinden ölçeklenir (sanat kitabı 8.3). Değişim anında olur; geri sayımlı "değişikliği koru?" sorusu gerekmez çünkü iki mod da her zaman görüntü verir.
 
 **Metin**
 
@@ -82,7 +82,7 @@ Oyun sohbet ve okuma üzerine kurulu; metni rahat okuyamayan biri oyunu oynayama
 |---|---|---|
 | **Yüklenmedi** | Program açılışı | Dosya okundu ya da yok → *Uygulandı* |
 | **Uygulandı** | Açılış okuması, ya da ekran kapandıktan sonra yazma | Ayarlar ekranı açılır → *Düzenleniyor* |
-| **Düzenleniyor** | Ayarlar ekranı açık; her değişiklik anında uygulanır, dosyaya yazılmaz | Ekran kapanır → dosyaya yazılır → *Uygulandı* |
+| **Düzenleniyor** | Ayarlar ekranı açık; her değişiklik anında uygulanır, dosyaya yazılmaz | Ekran kapanır → dosyaya yazılır → *Uygulandı*; yazma başarısız → değerler bellekte geçerli, geliştirme hatası → yine *Uygulandı* |
 
 Program *Düzenleniyor*'dayken kapanırsa (pencere kapatma, çökme) son yazılmış dosya geçerlidir; ekranda yapılan değişiklikler kaybolur.
 
@@ -143,10 +143,10 @@ Program *Düzenleniyor*'dayken kapanırsa (pencere kapatma, çökme) son yazılm
 ## Edge Cases
 
 - **If ayar dosyası hiç yoksa**: varsayılanlar uygulanır; dosya, oyuncu ayar ekranını ilk kez kapattığında yazılır (açılışta yazılmaz).
-- **If dosya okunamıyorsa (bozuk biçim)**: tüm ayarlar varsayılan, 1 geliştirme hatası; dosya ayar ekranı kapanana dek üzerine yazılmaz.
+- **If dosya okunamıyorsa (bozuk biçim)**: tüm ayarlar varsayılan, 1 geliştirme hatası; dosya ayar ekranı kapanana dek üzerine yazılmaz, kapanınca geçerli içerikle üzerine yazılır.
 - **If bir değer aralık dışındaysa** (ör. `ses_ana = 14`, `metin_olcegi = 110`, `ekran_modu = "yarim"`): yalnız o anahtar varsayılana döner, kırpılmaz; 1 geliştirme hatası.
 - **If dosyada bilinmeyen anahtar varsa** (ör. eski sürümden): yok sayılır; bir sonraki yazmada dosyadan düşer.
-- **If MVP sürümünde dosyada Vertical Slice anahtarı varsa** (ileride): okunur ama uygulanmaz ve ekranda gösterilmez; yazarken korunur.
+- **If MVP sürümünde dosyada Vertical Slice anahtarı varsa**: bilinen-pasif sınıfındadır (kural 8) — uygulanmaz, ekranda gösterilmez, yazarken aynen korunur.
 - **If dosyaya yazılamıyorsa** (salt okunur klasör, disk dolu): değerler bu oturumda geçerli, 1 geliştirme hatası, oyuncuya engel yok.
 - **If ana ses 0 ise**: tüm sesler susar; müzik ve efekt kaydırıcıları değerlerini korur ve çalışır görünür.
 - **If tam ekrana geçilirken birden çok monitör varsa**: oyun penceresinin bulunduğu monitörde tam ekran olur.
@@ -189,43 +189,46 @@ Program *Düzenleniyor*'dayken kapanırsa (pencere kapatma, çökme) son yazılm
 
 ## Acceptance Criteria
 
-> **Gözlem noktaları:** Testler ayar sistemini geçici bir `user://` klasörüyle kurar; okunanlar: geçerli ayar değerleri, `AudioServer` bus düzeyi ve mute durumu, pencere modu, tema yazı boyutları, belirme çarpanı, dosya içeriği, geliştirme hatası sayacı.
+> **Gözlem noktaları:** Ayar sistemi testlerde *sahte depolama* (bellekte metin; yazma sayacı; istenirse `ERR_FILE_CANT_WRITE` döndürür) ve *sahte pencere bağdaştırıcısı* (istenen pencere modunu kaydeder) ile kurulur; birim testte dosya G/Ç yoktur. Beklenen varsayılanlar sabit kodlanmaz, fixture `ayar_varsayilanlari.tres` kaydından okunur. "Aynı kare" = girdi olayı işlendikten hemen sonra, `await process_frame` olmadan. "MVP yapılandırması" = `AyarKatalogu.asama == &"mvp"` (veri: `ayar_varsayilanlari.tres`). Okunanlar: geçerli değerler, `AudioServer` bus düzeyi ve mute, sahte pencerenin son modu, tema yazı boyutları, belirme çarpanı, sahte depolamanın içeriği ve yazma sayacı, geliştirme hatası sayacı.
 
 **Saklama**
-- **AC-1 (Logic) İlk açılış.** **GIVEN** `user://ayarlar.cfg` yok **WHEN** oyun açılır **THEN** tüm MVP ayarları tablo 1'deki varsayılanlarda; dosya hâlâ yok.
-- **AC-2 (Logic) Ekrandan çıkınca yazma.** **GIVEN** ayar ekranında `ses_muzik` 7 → 4 **WHEN** ekran açıkken dosya okunur **THEN** dosyada değer eski; **WHEN** ekran kapanır **THEN** dosyada `ses_muzik = 4`, tek yazma.
-- **AC-3 (Logic) Yeniden açılış.** **GIVEN** dosyada `metin_olcegi = 150`, `ekran_modu = pencere` **WHEN** oyun açılır **THEN** *Menü*'nün ilk karesinde gövde metni 33 px ve pencere modu.
-- **AC-4 (Logic) Geçersiz değer.** **GIVEN** dosyada `ses_ana = 14`, `metin_olcegi = 110`, `ekran_modu = "yarim"`, `belirme_hizi = 3` **WHEN** açılış **THEN** dördü de varsayılan (8, 100, tam_ekran, normal), diğer anahtarlar dosyadaki gibi, 4 geliştirme hatası, oyun açıldı.
-- **AC-5 (Logic) Bozuk dosya.** **GIVEN** dosya geçersiz biçimde **WHEN** açılış **THEN** tüm ayarlar varsayılan, 1 geliştirme hatası, oyun açıldı; dosya içeriği değişmedi.
-- **AC-6 (Logic) Bilinmeyen anahtar.** **GIVEN** dosyada `parlaklik = 5` **WHEN** açılış ve ayar ekranı aç-kapa **THEN** hata yok; yeni dosyada `parlaklik` yok.
-- **AC-7 (Logic) Yazma hatası.** **GIVEN** dosya yazılamaz **WHEN** ekran kapanır **THEN** değerler bellekte yeni hâlinde, 1 geliştirme hatası, ekran kapandı.
-- **AC-8 (Integration) Kayıttan bağımsız.** **GIVEN** `metin_olcegi = 125` **WHEN** oturum biter (kayıt silinir), yeni oyun başlar, eski bir kayıt yüklenir **THEN** her durumda `metin_olcegi = 125`.
+- **AC-1 (Logic) İlk açılış.** **GIVEN** sahte depolama boş **WHEN** sistem açılır **THEN** 6 MVP ayarı fixture varsayılanlarında; yazma sayacı 0.
+- **AC-2 (Logic) Ekrandan çıkınca yazma.** **GIVEN** ayar ekranı açık **WHEN** `ses_muzik` iki kez değişir **THEN** yazma sayacı 0; **WHEN** ekran kapanır **THEN** yazma sayacı 1 ve depolamada son değer.
+- **AC-3 (Logic) Yeniden açılış.** **GIVEN** depolamada `metin_olcegi = 150`, `ekran_modu = pencere` **WHEN** sistem açılır **THEN** *Menü* örneklenmeden önce gövde tema boyutu 33 px ve sahte pencerenin son modu `WINDOW_MODE_WINDOWED`.
+- **AC-4 (Logic) Geçersiz değer.** **GIVEN** depolamada `ses_ana = 14`, `metin_olcegi = 110`, `ekran_modu = "yarim"`, `belirme_hizi = 3`, `ses_efekt = 2` **WHEN** açılış **THEN** ilk dördü fixture varsayılanında, `ses_efekt = 2`; 4 geliştirme hatası.
+- **AC-5 (Logic) Bozuk dosya.** **GIVEN** depolama içeriği `[[[` (`ConfigFile.parse` → `ERR_PARSE_ERROR`) **WHEN** açılış **THEN** tüm ayarlar varsayılan, 1 geliştirme hatası, yazma sayacı 0. **WHEN** ekran aç-kapa **THEN** depolamada geçerli bir ayar dosyası var.
+- **AC-6 (Logic) Bilinmeyen anahtar düşer.** **GIVEN** depolamada `parlaklik = 5` **WHEN** açılış ve ekran aç-kapa **THEN** 0 hata; yazılan içerikte `parlaklik` yok.
+- **AC-7 (Logic) Bilinen-pasif anahtar korunur.** **GIVEN** MVP yapılandırması, depolamada `imlec_boyutu = 48` **WHEN** açılış ve ekran aç-kapa **THEN** `imlec_boyutu` uygulanmadı, ekranda yok, yazılan içerikte `imlec_boyutu = 48` aynen var.
+- **AC-8 (Logic) Yazma hatası.** **GIVEN** sahte depolama yazmada `ERR_FILE_CANT_WRITE` döner **WHEN** ekran kapanır **THEN** değerler bellekte yeni hâliyle uygulanmış, 1 geliştirme hatası, ekran kapandı, durum *Uygulandı*.
+- **AC-9 (Logic) Kapatmada kayıp.** **GIVEN** ayar ekranında `ses_ana` 8 → 3, ekran kapanmadan sistem yeniden kurulur (aynı depolama) **THEN** `ses_ana = 8`.
+- **AC-10 (Integration) Kayıttan bağımsız.** **GIVEN** `metin_olcegi = 125` **WHEN** oturum biter (kayıt silinir), yeni oyun başlar, eski bir kayıt yüklenir **THEN** her adımda `metin_olcegi = 125`.
 
 **Uygulama**
-- **AC-9 (Logic) Ses F1.** **GIVEN** `ses_ana` sırayla 10, 8, 5, 1, 0 **WHEN** uygulanır **THEN** Master bus 0.0, −1.94, −6.02, −20.0 dB (±0.01) ve 0'da `mute = true`; 1'e dönülünce `mute = false`.
-- **AC-10 (Logic) Bus bağımsızlığı.** **GIVEN** `ses_muzik = 0`, `ses_efekt = 8` **THEN** Müzik bus susturulmuş, Efekt bus −1.94 dB.
-- **AC-11 (Logic) Anında uygulama.** **GIVEN** ayar ekranı açık **WHEN** `ses_efekt` kaydırıcısında `gezin_sag` bir kez **THEN** aynı karede Efekt bus yeni düzeyde.
-- **AC-12 (Logic) Metin F2.** **GIVEN** taban 22 ve 26 px **WHEN** ölçek 100 / 125 / 150 **THEN** 22/28/33 ve 26/33/39 px; skor rakamı her ölçekte 72 px.
-- **AC-13 (Integration) Metin taşmaz.** **GIVEN** %150, veri hattındaki en uzun sohbet satırı ve en uzun karar düğmesi metni **WHEN** ekran çizilir **THEN** hiçbir `Label`'ın metni kesilmemiş (`get_visible_line_count() == get_line_count()` ya da kaydırma kabında), kontroller birbirinin üstüne binmiyor.
-- **AC-14 (Logic) Belirme F3.** **GIVEN** `taban_gecikme_ms = 300` (fixture) **WHEN** `normal`, `hizli`, `aninda` **THEN** 300, 150, 0 ms. `aninda`'da 3 seçeneğin üçü aynı karede görünür, sıra korunur.
-- **AC-15 (Logic) Ekran modu.** **GIVEN** `tam_ekran` **WHEN** `pencere` seçilir **THEN** aynı karede pencere modu `WINDOW_MODE_WINDOWED`; içerik 1920×1080 tabandan ölçekli.
-- **AC-16 (Logic) Varsayılana dön.** **GIVEN** Ses sayfasında üç değer değişmiş, Metin sayfasında ölçek 150 **WHEN** Ses sayfasında "Varsayılana dön" **THEN** üç ses varsayılanda ve uygulanmış; ölçek hâlâ 150; onay sorulmadı.
-- **AC-17 (Logic) Oyun kuralına dokunmaz.** **GIVEN** fixture oturumu, sabit seed **WHEN** aynı karar dizisi tüm ayar birleşimleriyle (MVP) oynanır **THEN** gün sayacı, bar değerleri ve karakter durumları her birleşimde aynı.
+- **AC-11 (Logic) Ses F1.** **GIVEN** `ses_ana` sırayla 10, 8, 5, 1, 0 **WHEN** uygulanır **THEN** Master bus 0.0 / −1.94 / −6.02 / −20.0 dB (±0.01); 0'da `mute = true`; tekrar 1'de `mute = false`.
+- **AC-12 (Logic) Bus bağımsızlığı.** **GIVEN** `ses_muzik = 0`, `ses_efekt = 8` **THEN** Müzik bus susturulmuş, Efekt −1.94 dB. **GIVEN** `ses_ana = 0` **THEN** `ses_muzik` ve `ses_efekt` değerleri değişmemiş.
+- **AC-13 (Logic) Anında uygulama.** **GIVEN** ayar ekranı, odak `ses_efekt` (8) **WHEN** `gezin_sag` **THEN** aynı karede `ses_efekt = 9` ve Efekt bus −0.92 dB (±0.01).
+- **AC-14 (Logic) Metin F2.** **GIVEN** taban 22 ve 26 px **WHEN** ölçek 100 / 125 / 150 **THEN** 22/28/33 ve 26/33/39 px; skor rakamı her ölçekte 72 px; satır aralığı oranı her ölçekte [1.35, 1.45] içinde.
+- **AC-15 (Integration) Metin taşmaz.** **GIVEN** %150, veri hattındaki en uzun sohbet satırı ve en uzun karar düğmesi metni **WHEN** sohbet ekranı çizilir **THEN** metin taşıyan her kontrolde `text_overrun_behavior == OVERRUN_NO_TRIMMING`, sığmayan sütun kaydırma kabında; aynı kaptaki görünür kontrollerin `get_global_rect()` alanları kesişmiyor.
+- **AC-16 (Integration) Duraklatmada ölçek.** **GIVEN** sohbet sürerken duraklat → Ayarlar **WHEN** `metin_olcegi` 100 → 150 **THEN** aynı karede arkadaki sohbet ve HUD etiketlerinin tema boyutu ölçekli değerde.
+- **AC-17 (Logic) Belirme F3.** **GIVEN** fixture `taban_gecikme_ms = 300` **WHEN** `normal`, `hizli`, `aninda` **THEN** 300, 150, 0 ms. `aninda`'da 3 seçeneğin üçü aynı karede görünür, sıra korunur. **WHEN** `aninda`'da atlama (`onayla`) **THEN** hiçbir seçenek seçilmez, 0 sinyal.
+- **AC-18 (Logic) Ekran modu.** **GIVEN** `tam_ekran` **WHEN** `pencere` seçilir **THEN** aynı karede sahte pencere `WINDOW_MODE_WINDOWED` aldı; **WHEN** `tam_ekran` **THEN** `WINDOW_MODE_FULLSCREEN` (EXCLUSIVE değil).
+- **AC-19 (Logic) Varsayılana dön.** **GIVEN** Ses sayfasında üç değer değişmiş, metin ölçeği 150 **WHEN** Ses sayfasında "Varsayılana dön" **THEN** üç ses varsayılanda ve uygulanmış; ölçek 150; onay sorulmadı.
+- **AC-20 (Logic) Oyun kuralına dokunmaz.** **GIVEN** fixture oturumu, sabit seed, aynı karar dizisi **WHEN** 9 koşu: varsayılan; `ses_ana` 0 ve 10; `metin_olcegi` 125 ve 150; `belirme_hizi` `hizli` ve `aninda`; `ekran_modu` her iki değer **THEN** gün sayacı, bar değerleri ve karakter durumları 9 koşuda varsayılan koşuyla aynı.
 
 **Erişim ve gezinme**
-- **AC-18 (Integration) Oyun içinden açılış.** **GIVEN** *Kapı açık* **WHEN** duraklat → Ayarlar → değişiklik → geri **THEN** Oyun durumu açılış boyunca *Duraklatıldı*; geri ile duraklatma menüsüne dönülür.
-- **AC-19 (Logic) Gamepad ile tam kullanım.** **GIVEN** yalnız gamepad olayları **WHEN** ayar ekranındaki her ayara gidilip değeri bir kez değiştirilir ve ekran kapatılır **THEN** her ayar değişti, fare olayı kullanılmadı.
-- **AC-20 (Logic) MVP'de VS ayarı yok.** **GIVEN** MVP yapılandırması **WHEN** ayar ekranı açılır **THEN** yalnız 6 MVP ayarı var; dosya yazılınca yalnız 6 anahtar.
+- **AC-21 (Integration) Oyun içinden açılış.** **GIVEN** *Kapı açık* **WHEN** duraklat → Ayarlar → bir değişiklik → `geri` **THEN** Oyun durumu bu süre boyunca *Duraklatıldı*; `geri` ile duraklatma menüsü açık.
+- **AC-22 (Integration) Gamepad ile tam kullanım.** **GIVEN** yalnız gamepad olayları **WHEN** ayar ekranındaki her ayara gidilip değeri bir kez değiştirilir ve `B` ile kapanır **THEN** 6 ayarın hepsi değişmiş, yazma sayacı 1.
+- **AC-23 (Logic) MVP'de VS ayarı yok.** **GIVEN** MVP yapılandırması, depolama boş **WHEN** ekran açılır ve kapanır **THEN** ekranda 6 ayar; yazılan içerikte 6 MVP anahtarı ve hiç VS anahtarı yok (önceden var olan VS anahtarları AC-7'ye göre korunur).
 
 **Görünüm**
-- **AC-21 (UI) Ayar ekranı.** **GIVEN** 1080p **WHEN** ayar ekranı %100 ve %150'de açılır **THEN** parçalı kaydırıcılar, odak çerçevesi ve ters çevirme sanat kitabı 7.3/7.9'a uygun; iki ekran görüntüsü `production/qa/evidence/` altında saklanır.
+- **AC-24 (UI) Ayar ekranı.** **GIVEN** 1080p, gerçek pencere **WHEN** ayar ekranı %100 ve %150'de açılır, ayrıca pencere ve tam ekran modunda **THEN** parçalı kaydırıcılar, odak çerçevesi ve ters çevirme sanat kitabı 7.3 / 7.9'a uygun; dört ekran görüntüsü `production/qa/evidence/` altında saklanır (gerçek pencere modu burada elle doğrulanır).
 
-*Vertical Slice ayarlarının (iki adımlı onay, tuş atama, imleç, azaltılmış hareket, ekran okuyucu) kabul ölçütleri Vertical Slice başında bu belgeye eklenecek; tuş atama ve iki adımlı onayın davranış ölçütleri zaten Girdi ve odak gezinmesi'nde (AC-23, AC-42–46).*
+*Vertical Slice ayarlarının kabul ölçütleri Vertical Slice başında eklenecek; tuş atama ve iki adımlı onayın davranış ölçütleri Girdi ve odak gezinmesi'ndedir (AC-23, AC-42–46).*
 
 ## Open Questions
 
 1. **Ekran okuyucu (AccessKit) 4.7.2'de** — duyuru API'si ve Windows'ta NVDA/Narrator ile davranış doğrulanmadı. Sahibi: ui-programmer. Hedef: Vertical Slice başı.
 2. **Ses eğrisi** — F1 doğrusal kazanç; düşük parçalarda sıçrama duyulursa `(seviye/10)^2` gibi bir üs eklenir. Sahibi: Ses (22). Hedef: ilk prototip.
-3. **Varsayılan ekran modu** — `tam_ekran` mı `pencere` mi? Geliştirme sırasında pencere daha pratik; dağıtımda tam ekran öneriliyor. Sahibi: Kullanıcı.
+3. **Varsayılan ekran modu** — şimdilik `tam_ekran` (veri; testler değeri fixture'dan okur, değişirse yalnız veri değişir). Geliştirme sırasında `pencere` daha pratik olabilir. Sahibi: Kullanıcı.
 4. **Altyazı / ses betimleme** — seslendirme yok; ses efektlerine altyazı gerekip gerekmediği Ses (22) tasarlanırken karar verilir.
 5. **Renk körlüğü** — palet tek renk ayrımına dayanmıyor (sanat kitabı 4); ayrı bir renk modu şimdilik gerekmiyor. Sahibi: art-director onaylayacak.
