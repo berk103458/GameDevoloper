@@ -40,7 +40,7 @@
 #   Each entry: name, status, source, referenced_by[], attributes{}, added, revised
 
 version: 1
-last_updated: ""
+last_updated: "2026-10-04"
 
 # ─── ENTITIES ────────────────────────────────────────────────────────────────
 # Named game-world objects: enemies, NPCs, characters, factions, bosses.
@@ -109,7 +109,44 @@ items: []
 #   output_range[min, max], added
 # Optional: expression (the actual formula), notes
 
-formulas: []
+formulas:
+  - name: gun_sayaci_artisi
+    status: active
+    source: design/gdd/oyun-durumu-ve-gun-dongusu.md
+    referenced_by:
+      - design/gdd/oyun-durumu-ve-gun-dongusu.md
+    variables:
+      - gun_sayaci
+      - GUN_ARTISI
+    output_range: [1, null]
+    expression: "gun_sayaci + GUN_ARTISI"
+    notes: "Runs once per night, only on Kapı açık -> Gece sonu. Night interrupted by a broken bar does not count."
+    added: 2026-10-04
+    revised: ""
+  - name: skor
+    status: active
+    source: design/gdd/oyun-durumu-ve-gun-dongusu.md
+    referenced_by:
+      - design/gdd/oyun-durumu-ve-gun-dongusu.md
+    variables:
+      - gun_sayaci_son
+    output_range: [0, null]
+    expression: "gun_sayaci_son"
+    notes: "Hayatta kalınan gün. Single counter across both acts; computed once on Oturum sonu. 0 is valid."
+    added: 2026-10-04
+    revised: ""
+  - name: gosterilen_gece
+    status: active
+    source: design/gdd/oyun-durumu-ve-gun-dongusu.md
+    referenced_by:
+      - design/gdd/oyun-durumu-ve-gun-dongusu.md
+    variables:
+      - gun_sayaci
+    output_range: [1, null]
+    expression: "gun_sayaci + 1"
+    notes: "HUD night number during a session ('1. gece' on the first night)."
+    added: 2026-10-04
+    revised: ""
 
 # Example:
 #
@@ -142,7 +179,16 @@ formulas: []
 #
 # Required fields: name, status, source, referenced_by, value, unit, added
 
-constants: []
+constants:
+  - name: GUN_ARTISI
+    status: active
+    source: design/gdd/oyun-durumu-ve-gun-dongusu.md
+    referenced_by:
+      - design/gdd/oyun-durumu-ve-gun-dongusu.md
+    value: 1
+    unit: gün / gece
+    added: 2026-10-04
+    revised: ""
 
 # Example:
 #
