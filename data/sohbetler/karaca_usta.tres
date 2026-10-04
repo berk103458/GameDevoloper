@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SohbetVerisi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/sohbet_verisi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"karaca_usta"
+giris_anahtarlari = PackedStringArray("sohbet.karaca_usta.giris1", "sohbet.karaca_usta.giris2")
+soru_anahtarlari = PackedStringArray("sohbet.karaca_usta.s1", "sohbet.karaca_usta.s2", "sohbet.karaca_usta.s3", "sohbet.karaca_usta.s4", "sohbet.karaca_usta.s5")
+cevap_anahtarlari = PackedStringArray("sohbet.karaca_usta.c1", "sohbet.karaca_usta.c2", "sohbet.karaca_usta.c3", "sohbet.karaca_usta.c4", "sohbet.karaca_usta.c5")
+soru_ziyareti = PackedInt32Array(1, 1, 1, 2, 2)

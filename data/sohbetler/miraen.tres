@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SohbetVerisi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/sohbet_verisi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"miraen"
+giris_anahtarlari = PackedStringArray("sohbet.miraen.giris1")
+soru_anahtarlari = PackedStringArray("sohbet.miraen.s1", "sohbet.miraen.s2", "sohbet.miraen.s3")
+cevap_anahtarlari = PackedStringArray("sohbet.miraen.c1", "sohbet.miraen.c2", "sohbet.miraen.c3")
+soru_ziyareti = PackedInt32Array(0, 0, 0)
