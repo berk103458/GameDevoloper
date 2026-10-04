@@ -265,9 +265,68 @@ Godot'da otomatik 2D LOD yoktur; **her basamak ayrı çizilir**. Kart çizimi k�
 
 ## 6. Environment Design Language
 
-[To be designed] — architectural style and its tie to the world's culture,
-texture philosophy (painted, PBR or stylised, and why), prop density rules per
-area type, and environmental storytelling guidelines.
+### 6.0 Ana fikir
+**Ortam sahne değil, kayıttır.** Kapı dış dünyayı tutar; köy kapıda verilen kararları kayda geçirir. Yapı listesi kilitlidir: kapı ve sur, kervansaray, pazar. Bunların dışında görünen her şey içeri alınmış birinin izidir (İlke 3). Doğa ıssız, soğuk ve az çizgilidir; insan izi düz kenarlı, ahşap ve meşalelidir (3.2).
+
+### 6.1 Mimari — Selçuklu dönemi uç
+**Anadolu Selçuklu yapısının ıssız bir uçta, az elle ve aceleyle yapılmış hâli.** Saray ya da sultan hanı görkemi yok; ölçek küçük, işçilik kaba, süs tek çizgi.
+- **Kapı:** Oyunun en büyük dikdörtgeni ve kahraman yapısı (3.2). Kalın dikey tahtalar, ağır yatay kirişler, çok az demir (tek menteşe ya da sürgü). Ahşap tonu, en kalın mürekkep. Tahtaların hafif eşitsiz boyu elle ve aceleyle yapıldığını söyler.
+- **Sur (palisat):** Yan yana çakılmış ahşap kazıklar; uçları kabaca sivriltilmiş, aralarında eşitsiz boşluklar. Destekleyici öğe: 2 px ya da daha ince kontur, kapıdan alçak. Taş sur ya da burç yok.
+- **Kervansaray:** Kapalı kare avlu, tek **sivri kemerli** taçkapı (Selçuklu imzası). Duvarlar moloz ya da kaba kesme taş (soğuk mavi düz leke + birkaç mürekkep derz çizgisi); kapı kanatları ve saçak kirişleri ahşap. Mukarnas yok ya da tek çizgiyle ima. **Kitabe bölümü boş bir çerçevedir — içinde harf ya da rakam yok.**
+- **Pazar:** Açık, alçak; ahşap direkler, gerili keten/keçe örtüler (gece soğuk mavi). Tabela, yazılı levha, sayılı ölçek yok.
+- **Barınma izleri (bina değil):** keçe çadır, kara çadır, sundurma, ocak taşı, çit — yapı türü değil insan izi (3.2). Izgara düzeni yok; yerleşim organik ve sıkışık, meşalelerin çevresinde toplanır.
+
+### 6.2 Doku felsefesi — düz renk ve mürekkep
+**Doku tonla değil çizgiyle verilir.** Yüzeyin ahşap, taş ya da keçe olduğunu birkaç mürekkep çizgisi söyler; renk geçişi, gren ya da gürültü söylemez.
+
+Boyalı ve PBR doku neden yok:
+1. **İlke 1 ve gradyan yasağı** — boyalı doku ton değişimiyle, PBR normal haritası ve ışık hesabıyla çalışır; ikisi de yumuşak geçiş üretir ve sert kenarlı meşale lekesini bulandırır.
+2. **Okunurluk** — ahşabın gece üzerindeki kontrastı ~1.5:1 (4.5); değer gürültüsü bu kontrastı da yer, kapı geceye karışır.
+3. **Palet disiplini** — 7 renk ve düz ton basamakları (4.1); boyalı doku paletin dışında ara tonlar üretir.
+4. **Ölçek** — doku, 5.7'deki basamaklar arasında titreşir ve karakterle yarışır.
+
+**Kurallar:**
+- Doku çizgileri en fazla 2 px; her zaman kahraman konturdan ince.
+- Ahşap için birkaç damar çizgisi; taş için derz ve tek tük çatlak; toprak için seyrek yatay çizgi.
+- Dithering, gren, gürültü katmanı, boyalı fırça izi yok.
+- **Teknik not (technical-artist):** `CanvasItem` normal map'i ve `Light2D` gölgelemesi kullanılmaz; gece hissi için `CanvasModulate` ile toplu renk çarpımı da yapılmaz (kilitli hex değerlerini değiştirir). Renkler doğrudan paletle boyanır.
+
+### 6.3 Bölgelere göre prop yoğunluğu
+
+| Bölge | Yoğunluk | Ne bulunur | Kural |
+|---|---|---|---|
+| **Kapı** | En düşük | Kapı, tek meşale, sur parçası, gelenin taşıdıkları; arkada uzak kuyruk | Sabit prop en fazla 2. Kadrajın propları **gelen kişiye aittir** (bohça, hayvan, yük). Gece ağırlıklı (4.3). |
+| **Köy** | Kararlara bağlı, düşük → orta | Kervansaray, pazar, içeri alınanların izleri | Her prop bir kabul kararına izlenebilir (İlke 3). Kümeler meşale lekelerinin çevresinde toplanır; ışık dışındaki proplar yalnız mürekkep siluetidir. Kimseye bağlı olmayan süs yok. |
+| **Savunma** | Köy + savunma izleri | Köyün izleri; içeri alınan askerlerin mızrak sehpası, kalkanı, nöbet yeri | Savunmanın görünüşü **içeri alınan askerlerden** gelir — asker almadıysan mızrak sehpası da yok. Tekfur tarafında prop yok; yalnız arazi katmanları ve siluetler. |
+
+### 6.4 Çevresel anlatım — yazısız hikâye
+1. **Her iz bir kişiye.** Köydeki her ayrıntı belirli bir kabul kararına bağlanır — tasarım zorunluluğu olduğu kadar veri bağıdır: iz, bir kabul kaydından türetilir (sistem tasarımında karşılığı kurulmalı).
+2. **Sınıfların izi kendi yerinde:**
+   - **Esnaf / Ahi:** pazar örtüsü altında tezgâh, alet, örs; Ahi'nin izi pazarda yoğunlaşır.
+   - **Çiftçi:** izleri **kervansaray ve pazarın dışında**, köyün kenarında — sürülmüş toprağın yatay çizgileri, tahıl çuvalı, orak. Kilitteki "çiftçi kervansaraya ya da pazara yazmaz" kuralının görsel karşılığı.
+   - **Asker / kışla:** kapıya ve sura yakın **nöbet izleri** — nöbet yeri, dayanmış mızrak, kalkan, nöbet ocağı. "Kışla" kararının köydeki görsel karşılığı budur; kışla bir bina değildir (kullanıcı kararı, 4 Ekim 2026).
+   - **Yolcu ve kervan:** kervansaray avlusunda yük ve denk.
+3. **Özel karakterlerin izi kendi imza şeklini tekrar eder** (5.4); oyuncu köyde gördüğü şekli kapıdan hatırlar. Şeklin ne olduğu ve izin yeri karakter tasarlandıkça belirlenir.
+4. **Reddedilenlerin izi** (kullanıcı kararı, 4 Ekim 2026): Geri çevrilenler kapının dışında uzak bir iz bırakır — örneğin uzak kuyrukta kalan ve zamanla sönen bir ateş. İz uzak basamakta (5.7) çizilir, hüküm vermez; yalnız "biri burada kaldı" der (Sütun 1). Ateş meşale ailesinin kuralına uyar (aynı `#C4843A`, sert düz leke).
+5. **Yazı ve rakam yok** — kitabe boş, sikke rakamsız (2.5), tabela yok, sayım çentiği yok. Bilgi kodda.
+6. **İz hüküm vermez** — "bu kişi iyiydi" demez; yalnız "bu kişi buradaydı ve bu işi yaptı" der (İlke 2).
+
+### 6.5 Köyün görsel büyümesi
+Köy **yeni bina türüyle değil, insan ve izle** büyür (İlke 3, 2.3). Kaldıraçlar, önem sırasıyla:
+1. **Meşale sayısı** — asıl büyüme ölçüsü (2.3, 4.3). Palet ısınmaz; sıcak leke sayısı artar.
+2. **İz yoğunluğu** — meşale kümeleri çevresinde prop sayısı artar.
+3. **Köy figürü kalabalığı** — köy basamağındaki figürler (5.7) çoğalır, yerleşim sıkışır.
+4. **Var olan yapıların dolması** — kervansaray avlusu dolar, pazar örtüleri ve tezgâhlar çoğalır (aynı yapının büyümesi, yeni bina türü değil).
+5. **Kadraj** — köy büyüdükçe görünüm genişler; perde geçişinde meşalelerin hepsi ilk kez tek kadraja sığar (2.6).
+
+**Yasak:** yeni bina türü, ızgara yerleşim, gün ışığına geçiş (2.3), büyümeyi "ödül" gibi gösteren parıltı ya da efekt (Sütun 3).
+
+### 6.6 Figür okunurluğu kuralı
+**Doku hiçbir zaman figürle yarışmaz.**
+1. **Çizgi basamağı:** Ortam çizgileri aynı karedeki figürün dış konturundan en az bir basamak incedir — kapıda figür 6 px, ortam ≤ 3 px, doku ≤ 2 px; köy basamağında figür 2 px, ortam dokusu 1 px ya da çizgisiz.
+2. **Sessiz halka:** Figür siluetinin çevresinde, kendi kontur kalınlığının ~3 katı genişliğinde bir alana ortam doku çizgisi girmez (öneri; Bölüm 8'de doğrulanır). Figürün arkası tek düz ton.
+3. **Siyah dolgu testi sahnede de geçer:** figür siyah doldurulup sahneye konduğunda 64 px'te tanınmalı. Arkasındaki prop siluetiyle birleşen figür testi geçmez — prop kaydırılır, figür değil.
+4. **Yoğunluk tavanı:** Ortamın bir bölgesindeki çizgi yoğunluğu, o karedeki kahraman figürün iç ayrıntı yoğunluğunu geçmez. Göz önce sıcak lekeye, sonra kalın mürekkebe gider (3.4); ince doku sona kalır.
 
 ## 7. UI/HUD Visual Direction
 
