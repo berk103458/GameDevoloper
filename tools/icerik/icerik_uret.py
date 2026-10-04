@@ -72,7 +72,11 @@ tres("data/ayarlar/oyun.tres", "OyunAyarlari", "res://src/veri/oyun_ayarlari.gd"
     "bar_baslangic": 6, "bar_azami": 10, "rusvet_kurtarma": 3, "rusvet_hakki": 3,
     "gece_basina_gelen": 3, "adli_olasiligi": 0.6, "azami_soru": 2, "belirme_ms": 300.0,
     "gida_carpani": 3, "ordu_baski_gecesi": 3, "vergi_araligi": 4, "tuccar_baski_gecesi": 2,
-    "oturma_esigi": 12, "perde2_gece_basina_gelen": 2, "perde2_hedef_gece": 10,
+    "oturma_esigi": 18, "perde2_gece_basina_gelen": 2, "perde2_hedef_gece": 12,
+    "pazar_bedel": pia([6, 12, 20]), "kervansaray_bedel": pia([8, 15, 24]), "sur_bedel": pia([8, 14, 22]),
+    "pazar_esnaf": pia([1, 3, 5]), "kervansaray_esnaf": pia([2, 4, 6]),
+    "akce_baslangic": 4, "rusvet_akce": 3, "kese_fiyati": 10, "kervansaray_gelir": 2, "esnaf_gelir": 1,
+    "pazar_tezgah_taban": 2, "pazar_tezgah_artis": 2, "olay_olasiligi": 0.75,
     "saldiri_taban": 1, "saldiri_artis_araligi": 2, "savunma_bolen": 2,
 })
 
@@ -422,6 +426,8 @@ ARAYUZ = {
     "anlati.baski.gida": "Ambar boşaldı. Halk aç yattı.",
     "anlati.ambar": "Ambar: +%d ürün, −%d tüketim.",
     "anlati.gelir": "Pazar ve kervandan %d akçe geldi.",
+    "anlati.maas": "Askerlerin payı: %d akçe.",
+    "anlati.maas_yok": "Askerlere verecek akçe yok. Kışlada homurtu var.",
     "anlati.saldiri.guc": "Tekfur'un adamları: güç %d. Köyün savunması: %d.",
     "anlati.saldiri.kayip": "Saldırıda köyden biri öldü.",
     "arayuz.hud.akce": "Akçe %d",

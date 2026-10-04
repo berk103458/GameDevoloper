@@ -7,6 +7,8 @@ anlati.baski.vergi,Beyin adamı vergi istedi. Soylular memnun değil.
 anlati.gece.basladi,%d. gece. Yolda yine birileri var.
 anlati.gece.bitti,Gece bitti.
 anlati.gelir,Pazar ve kervandan %d akçe geldi.
+anlati.maas,Askerlerin payı: %d akçe.
+anlati.maas_yok,Askerlere verecek akçe yok. Kışlada homurtu var.
 anlati.rusvet.harcandi,%s kırılmak üzereydi. Bir kese el altından gitti.
 anlati.saldiri.agir,Tekfur'un adamları köyün kıyısını yaktı.
 anlati.saldiri.guc,Tekfur'un adamları: güç %d. Köyün savunması: %d.

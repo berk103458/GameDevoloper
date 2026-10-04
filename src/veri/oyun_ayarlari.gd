@@ -52,6 +52,9 @@ extends Resource
 @export var tuketim_bolen: int = 2
 ## Esnaf başına gecelik akçe; pazar her seviyede +1 akçe/esnaf.
 @export var esnaf_gelir: int = 1
+## Pazarsız alışveriş edebilen esnaf sayısı; pazar her seviyede bu kadar ekler.
+@export var pazar_tezgah_taban: int = 2
+@export var pazar_tezgah_artis: int = 2
 ## Kervansaray seviyesi başına gecelik akçe.
 @export var kervansaray_gelir: int = 2
 ## Boş rüşvet kesesini yeniden doldurmanın bedeli.

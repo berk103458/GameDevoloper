@@ -114,12 +114,22 @@ func gece_sonu() -> Dictionary:
 		barlar.ekle(0, -1)
 		olaylar.append({"anahtar": "anlati.baski.gida"})
 	# Akçe: esnaf ve pazar, kervansaray.
-	var gelir: int = koy.sayi(&"esnaf") * (ayarlar.esnaf_gelir + yapilar[&"pazar"]) + yapilar[&"kervansaray"] * ayarlar.kervansaray_gelir
+	# Pazar, kaç esnafın alışveriş edebildiğini sınırlar: 2 + 2 × seviye.
+	var satan := mini(koy.sayi(&"esnaf"), ayarlar.pazar_tezgah_taban + ayarlar.pazar_tezgah_artis * int(yapilar[&"pazar"]))
+	var gelir: int = satan * ayarlar.esnaf_gelir + int(yapilar[&"kervansaray"]) * ayarlar.kervansaray_gelir
 	if gelir > 0:
 		akce += gelir
 		olaylar.append({"anahtar": "anlati.gelir", "deger": [gelir]})
-	if yapilar[&"kervansaray"] >= 3 and gun % 2 == 1:
-		barlar.ekle(2, 1)
+	# Asker maaşı: her iki asker bir akçe. Ödenemezse Ordu düşer.
+	var maas := koy.sayi(&"asker") / 2
+	if maas > 0:
+		if akce >= maas:
+			akce -= maas
+			olaylar.append({"anahtar": "anlati.maas", "deger": [maas]})
+		else:
+			akce = 0
+			barlar.ekle(3, -1)
+			olaylar.append({"anahtar": "anlati.maas_yok"})
 	if perde == 1:
 		if gun >= ayarlar.ordu_baski_gecesi and koy.sayi(&"asker") * 2 < gun:
 			barlar.ekle(3, -1)

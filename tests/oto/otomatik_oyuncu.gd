@@ -90,8 +90,12 @@ func _dongu() -> void:
 						await _foto("04_olay_sonuc")
 						tamam[0].pressed.emit()
 				continue
-			for y in _dugmeler(koy._yapi_kutusu):
-				y.pressed.emit()
+			# Her basış yapı listesini yeniden kurar; her seferinde listeyi baştan al.
+			for deneme in 4:
+				var yapilar := _dugmeler(koy._yapi_kutusu)
+				if yapilar.is_empty():
+					break
+				yapilar[0].pressed.emit()
 				await get_tree().create_timer(0.2).timeout
 			await _foto("05_koy_perde%d" % ana.oturum.perde)
 			print("gece ", ana.oturum.gun, " akce=", ana.oturum.akce, " ambar=", ana.oturum.ambar, " yapilar=", ana.oturum.yapilar, " bayraklar=", ana.oturum.bayraklar.keys())
