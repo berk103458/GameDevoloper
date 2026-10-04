@@ -49,6 +49,9 @@ var _levha_ad: Label
 var _gece_gelen := 0
 var _is_secenekleri: PackedStringArray = []
 var _is_karari := ""
+## Sıra olayında seçilen seçenek.
+signal _sira_secildi(i: int)
+var _sira_satirlari: Array[Button] = []
 
 
 func _ready() -> void:
@@ -504,7 +507,50 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	if sonuc["kirilan"] >= 0:
 		oturum_bitti.emit(sonuc["kirilan"])
 		return
+	# İki gelen arasında sırada bir şey olabilir.
+	var so := oturum.sira_olayi_sec(_kuyruk.size())
+	if so != null and await _sira_olayi(so):
+		return
 	_siradaki()
+
+
+## Sıra olayı: kuyrukta olan canlandırılır, bekçi seçer, sonucu oynar. Bar kırıldıysa true.
+func _sira_olayi(o: OlayVerisi) -> bool:
+	evre = &"sira"
+	_temizle()
+	_kayit.clear()
+	_ad.text = tr("arayuz.kapi.sira")
+	_sinif.text = tr(o.baslik_anahtari)
+	_levha_ad.text = tr(o.baslik_anahtari)
+	_bolum.text = tr("arayuz.kapi.karar")
+	_bilgi_yaz()
+	Ses.cal(&"sfx_olay")
+	_yaz("[i]%s[/i]" % tr(o.metin_anahtari))
+	var anahtar := String(o.kosullar.get("canlandirma", ""))
+	await sahne.sira_olayi_baslat(anahtar)
+	_sira_satirlari = []
+	for i in o.secenek_anahtarlari.size():
+		var b := _dugme("%d · %s" % [i + 1, tr(o.secenek_anahtarlari[i])])
+		b.custom_minimum_size.y = 66
+		b.disabled = not oturum.secenek_olur(o, i)
+		b.pressed.connect(func() -> void: _sira_secildi.emit(i))
+		_sira_satirlari.append(b)
+	_sirayla_goster(_sira_satirlari)
+	var i: int = await _sira_secildi
+	_temizle()
+	var etki: Dictionary = o.secenek_etkileri[i]
+	var sonuc := oturum.olay_uygula(o, i)
+	_yaz(tr(sonuc["sonuc_anahtari"]))
+	if int(etki.get("kuyruk", 0)) < 0 and _kuyruk.size() > 0:
+		_kuyruk.pop_back()
+		_bilgi_yaz()
+	hud.guncelle()
+	await sahne.sira_olayi_bitir(anahtar, etki)
+	await get_tree().create_timer(0.8).timeout
+	if sonuc["kirilan"] >= 0:
+		oturum_bitti.emit(sonuc["kirilan"])
+		return true
+	return false
 
 
 func _adim_sesi(adet: int) -> void:
@@ -587,6 +633,12 @@ func _unhandled_input(olay: InputEvent) -> void:
 		for n in 5:
 			if olay.is_action_pressed("kisayol_%d" % (n + 1)) and n < _karar_anahtarlari.size():
 				_karar_bas(_karar_anahtarlari[n])
+				get_viewport().set_input_as_handled()
+				return
+	if evre == &"sira":
+		for n in 5:
+			if olay.is_action_pressed("kisayol_%d" % (n + 1)) and n < _sira_satirlari.size() and not _sira_satirlari[n].disabled:
+				_sira_secildi.emit(n)
 				get_viewport().set_input_as_handled()
 				return
 	if evre == &"is":

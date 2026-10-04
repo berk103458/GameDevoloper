@@ -17,6 +17,7 @@ var _karakterler: Dictionary = {}
 var _sohbetler: Dictionary = {}
 var _siniflar: Dictionary = {}
 var _olaylar: Dictionary = {}
+var _sira_olaylari: Dictionary = {}
 
 
 ## Verilen kök klasörden tüm içeriği yükler ve doğrular. Testler fixture kökü verir.
@@ -26,6 +27,7 @@ func yukle(kok: String = "res://data") -> Durum:
 	_sohbetler = _klasor_yukle(kok + "/sohbetler")
 	_siniflar = _klasor_yukle(kok + "/siniflar")
 	_olaylar = _klasor_yukle(kok + "/olaylar")
+	_sira_olaylari = _klasor_yukle(kok + "/sira_olaylari")
 	ayarlar = load(kok + "/ayarlar/oyun.tres") as OyunAyarlari
 	_dogrula()
 	durum = Durum.HAZIR if hatalar.is_empty() else Durum.HATALI
@@ -49,6 +51,16 @@ func karakterler() -> Array[KarakterVerisi]:
 	anahtarlar.sort()
 	for k in anahtarlar:
 		sonuc.append(_karakterler[k])
+	return sonuc
+
+
+## Kuyruk (sıra) olayları (kimlik sırasıyla).
+func sira_olaylari() -> Array[OlayVerisi]:
+	var sonuc: Array[OlayVerisi] = []
+	var anahtarlar := _sira_olaylari.keys()
+	anahtarlar.sort()
+	for k in anahtarlar:
+		sonuc.append(_sira_olaylari[k])
 	return sonuc
 
 

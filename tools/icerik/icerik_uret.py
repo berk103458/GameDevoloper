@@ -100,6 +100,7 @@ tres("data/ayarlar/oyun.tres", "OyunAyarlari", "res://src/veri/oyun_ayarlari.gd"
     "beyan_akce_min": 2, "beyan_akce_max": 8, "yalan_olasiligi": 0.35,
     "gizli_akce_min": 8, "gizli_akce_max": 20, "gizli_esya_olasiligi": 0.4,
     "teklif_orani": 0.5, "gasp_halk_cezasi": 1, "durust_arama_cezasi": 1,
+    "sira_olay_olasiligi": 0.35,
     # İş yerleri: (id, sınıf, uygunsuzda düşen bar: 0 Halk, 2 Tüccarlar, 3 Ordu, gereken yapı)
     "is_idleri": psa(["tarla", "pazar", "kervansaray", "kisla"]),
     "is_siniflari": psa(["ciftci", "esnaf", "esnaf", "asker"]),
@@ -559,6 +560,47 @@ for o in OLAYLAR:
         "kosullar": gd(o["kosul"]), "agirlik": float(o.get("agirlik", 1)), "tek_sefer": o.get("tek", True),
         "secenek_anahtarlari": psa(secs), "secenek_etkileri": "Array[Dictionary](" + gd(etkiler) + ")"})
 
+# ─── Sıra olayları: iki gelen arasında kuyrukta olanlar (design/gdd/sira-olaylari.md) ──
+# canlandirma: KapiSahnesi.sira_olayi() anahtarı; etki "kuyruk": -1 sıradan birini düşürür.
+SIRA_OLAYLARI = [
+    dict(id="sira_atlama", baslik="Sıra kapan", canlandirma="atlama", agirlik=3,
+         metin="Sıranın arkasından biri dirsekleriyle öne doğru ilerliyor. Bekleyenler homurdanıyor.",
+         secenekler=[("Sırasına geri gönder", {"bar": [1, 0, 0, 0], "geri": True}, "Adam söylene söylene geri döndü. Bekleyenler başlarıyla seni selamladı."),
+                     ("Elindeki akçeyi al, öne geçsin", {"akce": 2, "bar": [-1, 0, 0, 0]}, "İki akçe avucuna düştü. Arkada biri yere tükürdü.")]),
+    dict(id="sira_kavga", baslik="Kavga", canlandirma="kavga", agirlik=2,
+         metin="Sırada iki adam bir su testisi yüzünden birbirine girdi.",
+         secenekler=[("Araya gir, ayır", {"bar": [0, 0, 0, 1]}, "İkisini de bileğinden tuttun. Testiyi ikisine verdin; yarısı döküldü."),
+                     ("Karışma, kendileri bitirsin", {"bar": [-1, 0, 0, 0]}, "Kavga kendi kendine bitti. Birinin kaşı yarıldı.")]),
+    dict(id="sira_bayilma", baslik="Yere yığılan", canlandirma="bayilma", agirlik=2,
+         metin="Sırada yaşlı bir kadın sendeledi ve yere yığıldı.",
+         secenekler=[("Su ve ekmek gönder (1 ambar)", {"gerekli": {"ambar": 1}, "bar": [1, 0, 0, 0]}, "Kadın doğruldu; ekmeği ikiye bölüp yanındakine verdi."),
+                     ("Sıra yürüsün", {"bar": [-1, 0, 0, 0]}, "Birileri kadını yolun kenarına çekti. Sıra yürüdü.")]),
+    dict(id="sira_vazgecen", baslik="Vazgeçen", canlandirma="vazgecme", agirlik=2, kosul={"kuyruk_min": 2},
+         metin="Sıranın sonundaki biri bir süre kapıya baktı, sonra döndü ve yola koyuldu.",
+         secenekler=[("Seslen, geri çağır", {"geri": True}, "Seslendin. Durdu, düşündü, sonra sırasına döndü."),
+                     ("Bırak gitsin", {"kuyruk": -1}, "Yol onu yuttu. Sıra bir kişi kısaldı.")]),
+    dict(id="sira_panik", baslik="Arkadan atlılar", canlandirma="panik", agirlik=1,
+         metin="Sıradakilerden biri bağırıyor: arkadan atlılar geliyormuş. Sıra kıpırdanıyor.",
+         secenekler=[("Sakin olun, kapı açık", {"bar": [1, 0, 0, -1]}, "Sıra sustu. Kimse yerinden kıpırdamadı."),
+                     ("Nöbetçileri yola sal", {"bar": [0, 0, 0, 1]}, "Nöbetçiler döndü: yolda yalnız bir kervan var.")]),
+]
+
+for o in SIRA_OLAYLARI:
+    i = o["id"]
+    baslik = t("olay.%s.baslik" % i, o["baslik"])
+    metin = t("olay.%s.metin" % i, o["metin"])
+    secs, etkiler = [], []
+    for n, (sec, etki, sonuc) in enumerate(o["secenekler"]):
+        secs.append(t("olay.%s.secenek%d" % (i, n + 1), sec))
+        t("olay.%s.sonuc%d" % (i, n + 1), sonuc)
+        etkiler.append(etki)
+    kosul = dict(o.get("kosul", {}))
+    kosul["canlandirma"] = o["canlandirma"]
+    tres("data/sira_olaylari/%s.tres" % i, "OlayVerisi", "res://src/veri/olay_verisi.gd", {
+        "id": sn(i), "baslik_anahtari": baslik, "metin_anahtari": metin,
+        "kosullar": gd(kosul), "agirlik": float(o.get("agirlik", 1)), "tek_sefer": False,
+        "secenek_anahtarlari": psa(secs), "secenek_etkileri": "Array[Dictionary](" + gd(etkiler) + ")"})
+
 # ─── Arayüz ve anlatı metinleri ──────────────────────────────────────────
 ARAYUZ = {
     "arayuz.menu.yeni": "Yeni gece",
@@ -598,6 +640,7 @@ ARAYUZ = {
     "anlati.is.uyumsuz": "Bu iş ona göre değil. %s bunu hissedecek.",
     "arayuz.kapi.bilgi": "%d. gece · %d. gelen · sırada %d kişi",
     "arayuz.kapi.sorular": "Sorular",
+    "arayuz.kapi.sira": "Sırada",
     "arayuz.kapi.karar": "Karar",
     "arayuz.kapi.sohbete_don": "Sohbete dön",
     "arayuz.karar.rusvet_miktar": "Rüşvet al — %d akçe",

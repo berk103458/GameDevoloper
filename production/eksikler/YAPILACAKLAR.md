@@ -17,7 +17,7 @@ Durum: ✅ bitti · 🔨 bu turda · ⏳ sırada. Sıra önceliktir: önce kapı
 6. ✅ Kabul ve ret anında tepki: şükran (el göğüste, eğilme) ve öfke (uzanıp sallanan kol, baş sallama).
 7. ✅ Kabul edilenin nerede çalışacağı kapıda seçilsin (tarla, pazar, kervansaray, kışla).
 8. ✅ Uygun olmayan yere yazılan kişi oranın gücünü düşürsün (çırak kışlaya → Ordu düşer).
-9. ⏳ Sırada bekleyenlerde anlık olaylar (sıra kapma, kavga, düşen çocuk…).
+9. ✅ Sırada bekleyenlerde anlık olaylar (sıra kapma, kavga, düşen çocuk…).
 10. ✅ Kapı bekçiliği için yeni arayüz ("gate"): tam ekran 3D, konuşma kutusu, kapı defteri. (İlk geçiş; geri bildirimle cilalanacak.)
 
 ## Köy

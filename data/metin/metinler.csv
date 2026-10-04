@@ -60,6 +60,7 @@ arayuz.is.tarla,Tarlaya yaz
 arayuz.is.uygun,%s işi
 arayuz.kapi.bilgi,%d. gece · %d. gelen · sırada %d kişi
 arayuz.kapi.karar,Karar
+arayuz.kapi.sira,Sırada
 arayuz.kapi.sohbete_don,Sohbete dön
 arayuz.kapi.sorular,Sorular
 arayuz.karar.elkoy,"El koy, geri çevir"
@@ -297,6 +298,36 @@ olay.saruca_tohum.secenek1,"Tarla aç, toprağa ver"
 olay.saruca_tohum.secenek2,"Ambara kat, kışı çıkaralım"
 olay.saruca_tohum.sonuc1,İlk gece kimse bir şey görmedi. Ama köy artık her gece biraz daha fazla ürün kaldıracak.
 olay.saruca_tohum.sonuc2,Ambar doldu. Saruca bir şey demedi; çocuğun ipini sıktı.
+olay.sira_atlama.baslik,Sıra kapan
+olay.sira_atlama.metin,Sıranın arkasından biri dirsekleriyle öne doğru ilerliyor. Bekleyenler homurdanıyor.
+olay.sira_atlama.secenek1,Sırasına geri gönder
+olay.sira_atlama.secenek2,"Elindeki akçeyi al, öne geçsin"
+olay.sira_atlama.sonuc1,Adam söylene söylene geri döndü. Bekleyenler başlarıyla seni selamladı.
+olay.sira_atlama.sonuc2,İki akçe avucuna düştü. Arkada biri yere tükürdü.
+olay.sira_bayilma.baslik,Yere yığılan
+olay.sira_bayilma.metin,Sırada yaşlı bir kadın sendeledi ve yere yığıldı.
+olay.sira_bayilma.secenek1,Su ve ekmek gönder (1 ambar)
+olay.sira_bayilma.secenek2,Sıra yürüsün
+olay.sira_bayilma.sonuc1,Kadın doğruldu; ekmeği ikiye bölüp yanındakine verdi.
+olay.sira_bayilma.sonuc2,Birileri kadını yolun kenarına çekti. Sıra yürüdü.
+olay.sira_kavga.baslik,Kavga
+olay.sira_kavga.metin,Sırada iki adam bir su testisi yüzünden birbirine girdi.
+olay.sira_kavga.secenek1,"Araya gir, ayır"
+olay.sira_kavga.secenek2,"Karışma, kendileri bitirsin"
+olay.sira_kavga.sonuc1,İkisini de bileğinden tuttun. Testiyi ikisine verdin; yarısı döküldü.
+olay.sira_kavga.sonuc2,Kavga kendi kendine bitti. Birinin kaşı yarıldı.
+olay.sira_panik.baslik,Arkadan atlılar
+olay.sira_panik.metin,Sıradakilerden biri bağırıyor: arkadan atlılar geliyormuş. Sıra kıpırdanıyor.
+olay.sira_panik.secenek1,"Sakin olun, kapı açık"
+olay.sira_panik.secenek2,Nöbetçileri yola sal
+olay.sira_panik.sonuc1,Sıra sustu. Kimse yerinden kıpırdamadı.
+olay.sira_panik.sonuc2,Nöbetçiler döndü: yolda yalnız bir kervan var.
+olay.sira_vazgecen.baslik,Vazgeçen
+olay.sira_vazgecen.metin,"Sıranın sonundaki biri bir süre kapıya baktı, sonra döndü ve yola koyuldu."
+olay.sira_vazgecen.secenek1,"Seslen, geri çağır"
+olay.sira_vazgecen.secenek2,Bırak gitsin
+olay.sira_vazgecen.sonuc1,"Seslendin. Durdu, düşündü, sonra sırasına döndü."
+olay.sira_vazgecen.sonuc2,Yol onu yuttu. Sıra bir kişi kısaldı.
 olay.sorhan_damga.baslik,Damgalı atlar
 olay.sorhan_damga.metin,Bir Türkmen beyinin adamları geldi. Sorhan'ın getirdiği atlardaki damga onların.
 olay.sorhan_damga.secenek1,Atları geri ver

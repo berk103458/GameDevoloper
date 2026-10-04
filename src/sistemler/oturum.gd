@@ -354,6 +354,27 @@ func olay_sec() -> OlayVerisi:
 	return adaylar[-1]
 
 
+## İki gelen arasında kuyrukta bir olay (ağırlıklı rastgele) ya da null. `kuyruk`: sırada bekleyen sayısı.
+func sira_olayi_sec(kuyruk: int) -> OlayVerisi:
+	if kuyruk <= 0 or _rng.randf() >= ayarlar.sira_olay_olasiligi:
+		return null
+	var adaylar: Array[OlayVerisi] = []
+	var toplam := 0.0
+	for o in katalog.sira_olaylari():
+		if kuyruk < int(o.kosullar.get("kuyruk_min", 1)):
+			continue
+		adaylar.append(o)
+		toplam += o.agirlik
+	if adaylar.is_empty():
+		return null
+	var r := _rng.randf() * toplam
+	for o in adaylar:
+		r -= o.agirlik
+		if r <= 0.0:
+			return o
+	return adaylar[-1]
+
+
 ## Bir seçeneğin gereklilikleri karşılanıyor mu.
 func secenek_olur(olay: OlayVerisi, i: int) -> bool:
 	var e: Dictionary = olay.secenek_etkileri[i]

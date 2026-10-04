@@ -47,6 +47,7 @@ gizli_esya_olasiligi = 0.4
 teklif_orani = 0.5
 gasp_halk_cezasi = 1
 durust_arama_cezasi = 1
+sira_olay_olasiligi = 0.35
 is_idleri = PackedStringArray("tarla", "pazar", "kervansaray", "kisla")
 is_siniflari = PackedStringArray("ciftci", "esnaf", "esnaf", "asker")
 is_barlari = PackedInt32Array(0, 2, 2, 3)

@@ -84,6 +84,10 @@ extends Resource
 ## Uygunsuz yazımın bedeli (işin barından düşen).
 @export var uyumsuz_ceza: int = 1
 
+@export_group("Sıra olayları")
+## İki gelen arasında kuyrukta bir olay çıkma olasılığı.
+@export var sira_olay_olasiligi: float = 0.35
+
 @export_group("Heybe")
 ## Gelenin söylediği akçe aralığı.
 @export var beyan_akce_min: int = 2

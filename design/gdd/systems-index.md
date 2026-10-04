@@ -67,6 +67,7 @@ Oyun, kapıda geçen kısa bir sohbet-ve-karar döngüsü etrafında kurulu: kap
 | 22 | Ses (inferred) | Audio | Vertical Slice | Not Started | — | 1, 7, 8, 17 |
 | 23 | Heybe ve rüşvet | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/heybe-ve-rusvet.md | 2, 6, 7, 8, 12, 18 |
 | 24 | İş yerleri | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/is-yerleri.md | 7, 8, 10, 11, 18 |
+| 25 | Sıra olayları | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/sira-olaylari.md | 8, 18 |
 
 *Kategoriler arasında şablonun "Meta" kategorisi kullanılmadı.*
 

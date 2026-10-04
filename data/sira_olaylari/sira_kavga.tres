@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OlayVerisi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/olay_verisi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"sira_kavga"
+baslik_anahtari = "olay.sira_kavga.baslik"
+metin_anahtari = "olay.sira_kavga.metin"
+kosullar = {"canlandirma": "kavga"}
+agirlik = 2.0
+tek_sefer = false
+secenek_anahtarlari = PackedStringArray("olay.sira_kavga.secenek1", "olay.sira_kavga.secenek2")
+secenek_etkileri = Array[Dictionary]([{"bar": [0, 0, 0, 1]}, {"bar": [-1, 0, 0, 0]}])

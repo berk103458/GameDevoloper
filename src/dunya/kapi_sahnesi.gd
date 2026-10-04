@@ -15,6 +15,9 @@ var _gelen: KarakterModel
 ## Gelenin ayağının dibine konan heybe (arama sırasında).
 var _heybe: Node3D
 var _isiklar: Array[OmniLight3D] = []
+## Kuyrukta bekleyen figürler ve yerleri (sıra olayları bunları canlandırır).
+var _kuyruktakiler: Array[KarakterModel] = []
+var _kuyruk_yerleri: Array[Vector3] = []
 var _zaman := 0.0
 
 
@@ -81,6 +84,106 @@ func _ayril(g: KarakterModel, kaldi: bool) -> void:
 		await g.yuru(DONUS)
 	if is_instance_valid(g):
 		g.queue_free()
+
+
+## Kameranın bakış noktası ve görüş açısı (sıra olayında kuyruğa döner).
+const BAKIS_KAPI := Vector3(0.0, 1.35, -6.0)
+const BAKIS_KUYRUK := Vector3(-0.1, 1.1, -14.0)
+var _bakis := BAKIS_KAPI
+
+
+## Kamerayı kuyruğa çevirip yakınlaştırır (true) ya da kapıya döndürür (false).
+func kuyruga_bak(evet: bool) -> void:
+	var t := create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	t.tween_method(_bakis_ayarla, _bakis, BAKIS_KUYRUK if evet else BAKIS_KAPI, 0.6)
+	t.tween_property(kamera, "fov", 30.0 if evet else 52.0, 0.6)
+	await t.finished
+
+
+func _bakis_ayarla(v: Vector3) -> void:
+	_bakis = v
+	kamera.look_at(v)
+
+
+## Sıra olayı canlandırması (ilk aşama): olay oynar. `anahtar`: atlama, kavga, bayilma, vazgecme, panik.
+func sira_olayi_baslat(anahtar: String) -> void:
+	var n := _kuyruktakiler.size()
+	if n < 2:
+		return
+	await kuyruga_bak(true)
+	match anahtar:
+		"atlama":
+			var k := _kuyruktakiler[n - 1]
+			await k.yuru(Vector3(0.9, 0, -9.6), 3.4)
+			k.bak(kamera.position)
+		"kavga":
+			var a := _kuyruktakiler[0]
+			var b := _kuyruktakiler[1]
+			a.bak(b.position)
+			b.bak(a.position)
+			for tur in 2:
+				a.duygu(&"ofke")
+				b.duygu(&"ofke")
+				var t := create_tween().set_parallel()
+				t.tween_property(a, "position", a.position + (b.position - a.position).normalized() * 0.35, 0.18)
+				t.tween_property(b, "position", b.position + (a.position - b.position).normalized() * 0.2, 0.18)
+				t.chain().tween_property(a, "position", _kuyruk_yerleri[0], 0.25)
+				await get_tree().create_timer(0.9).timeout
+		"bayilma":
+			var k := _kuyruktakiler[mini(2, n - 1)]
+			var t := create_tween()
+			t.tween_property(k, "rotation:x", deg_to_rad(-82.0), 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+			await t.finished
+		"vazgecme":
+			var k := _kuyruktakiler[n - 1]
+			await k.yuru(k.position + Vector3(0.3, 0, -4.5), 2.4)
+		"panik":
+			_kuyruktakiler[n - 1].duygu(&"ofke")
+			for k in _kuyruktakiler:
+				k.bak(k.position + Vector3(0, 0, -10))
+			await get_tree().create_timer(1.2).timeout
+
+
+## Sıra olayının ikinci aşaması: seçilen seçeneğe göre biter. `etki`: seçeneğin etki sözlüğü.
+func sira_olayi_bitir(anahtar: String, etki: Dictionary) -> void:
+	var n := _kuyruktakiler.size()
+	if n < 2:
+		return
+	var geri: bool = etki.get("geri", false)
+	match anahtar:
+		"atlama":
+			if geri:
+				await _kuyruktakiler[n - 1].yuru(_kuyruk_yerleri[n - 1], 2.0)
+				_kuyruktakiler[n - 1].bak(Vector3(0, 0, 10))
+		"kavga":
+			_kuyruktakiler[0].bak(Vector3(0, 0, 10))
+			_kuyruktakiler[1].bak(Vector3(0, 0, 10))
+		"bayilma":
+			var k := _kuyruktakiler[mini(2, n - 1)]
+			if etki.get("bar", [0])[0] > 0:
+				var t := create_tween()
+				t.tween_property(k, "rotation:x", 0.0, 0.6).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+				await t.finished
+				k.bak(Vector3(0, 0, 10))
+			else:
+				var t := create_tween()
+				t.tween_property(k, "position:x", k.position.x - 2.4, 1.2)
+				await t.finished
+		"vazgecme":
+			var k := _kuyruktakiler[n - 1]
+			if geri:
+				await k.yuru(_kuyruk_yerleri[n - 1], 1.6)
+				k.bak(Vector3(0, 0, 10))
+			else:
+				_kuyruktakiler.remove_at(n - 1)
+				_kuyruk_yerleri.remove_at(n - 1)
+				await k.yuru(k.position + Vector3(0, 0, -16.0), 1.6)
+				if is_instance_valid(k):
+					k.queue_free()
+		"panik":
+			for k in _kuyruktakiler:
+				k.bak(Vector3(0, 0, 10))
+	await kuyruga_bak(false)
 
 
 ## Gelen heybesini önüne koyar: deri torba ve kapağı, yere konur gibi belirir.
@@ -159,6 +262,8 @@ func _kuyruk_kur() -> void:
 		k.position = Vector3(-0.4 + (i % 2) * 0.9, 0, -11.0 - i * 2.0)
 		add_child(k)
 		k.bak(Vector3(0, 0, 10))
+		_kuyruktakiler.append(k)
+		_kuyruk_yerleri.append(k.position)
 
 
 func _cevre_kur() -> void:

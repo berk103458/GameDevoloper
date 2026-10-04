@@ -123,5 +123,8 @@ func _dongu() -> void:
 			elif k.evre == &"is":
 				await _foto("03b_is_yeri")
 				d[rng.randi_range(0, d.size() - 1)].pressed.emit()
+			elif k.evre == &"sira":
+				await _foto("03c_sira_olayi")
+				d[rng.randi_range(0, d.size() - 1)].pressed.emit()
 	print("ZAMAN ASIMI")
 	get_tree().quit()
