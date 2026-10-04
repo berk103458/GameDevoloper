@@ -7,3 +7,5 @@
 - **Open**: Osmanoğulları anakronizmi (Sonlar 15); imza şekilleri art-director onayı bekliyor
 - **Previously done**: #1 oyun durumu, #2 içerik veri hattı, #3 girdi ve odak — Designed
 - **Next**: Ayarlar ve erişilebilirlik (17) — user requested; then Barlar (8)
+- **Done**: ayarlar-ve-erisilebilirlik GDD (#17) — Designed; MVP subset: ses, ekran modu, metin ölçeği, belirme hızı; VS: tuş atama, iki adımlı onay, imleç, azaltılmış hareket, ekran okuyucu. QA review running.
+- **Next**: Barlar (8)

@@ -59,7 +59,7 @@ Oyun, kapıda geçen kısa bir sohbet-ve-karar döngüsü etrafında kurulu: kap
 | 14 | İkinci perde savunması | Gameplay | Vertical Slice | Not Started | — | 1, 8, 9, 10, 13 |
 | 15 | Sonlar | Narrative | Alpha | Not Started | — | 1, 2, 8, 10, 13, 14, 21 |
 | 16 | Kaydet / yükle (inferred) | Persistence | MVP | Not Started | — | 1, 4, 5, 8, 9, 10 |
-| 17 | Ayarlar ve erişilebilirlik | Persistence | Vertical Slice | Not Started | — | 3 |
+| 17 | Ayarlar ve erişilebilirlik | Persistence | MVP (kısmi) + Vertical Slice | Designed | design/gdd/ayarlar-ve-erisilebilirlik.md | 2, 3 |
 | 18 | Sohbet ve karar arayüzü | UI | MVP | Not Started | — | 3, 6, 7 |
 | 19 | HUD | UI | MVP | Not Started | — | 1, 8, 9 |
 | 20 | Köy görünümü | UI | Vertical Slice | Not Started | — | 1, 5, 7, 10, 11 |
@@ -197,7 +197,7 @@ Döngü yok. Dikkat edilen yakın döngüler:
 | Metric | Count |
 |--------|-------|
 | Total systems identified | 22 |
-| Design docs started | 4 |
+| Design docs started | 5 |
 | Design docs reviewed | 0 |
 | Design docs approved | 0 |
 | MVP systems designed | 4/13 |
