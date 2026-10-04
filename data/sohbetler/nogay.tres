@@ -6,6 +6,8 @@
 script = ExtResource("1")
 id = &"nogay"
 giris_anahtarlari = PackedStringArray("sohbet.nogay.giris1", "sohbet.nogay.giris2")
-soru_anahtarlari = PackedStringArray("sohbet.nogay.s1", "sohbet.nogay.s2", "sohbet.nogay.s3", "sohbet.nogay.s4", "sohbet.nogay.s5")
-cevap_anahtarlari = PackedStringArray("sohbet.nogay.c1", "sohbet.nogay.c2", "sohbet.nogay.c3", "sohbet.nogay.c4", "sohbet.nogay.c5")
-soru_ziyareti = PackedInt32Array(1, 1, 1, 2, 2)
+acilis_anahtarlari = PackedStringArray("sohbet.nogay.acilis1", "sohbet.nogay.acilis2")
+soru_anahtarlari = PackedStringArray("sohbet.nogay.s1", "sohbet.nogay.s2", "sohbet.nogay.s3", "sohbet.nogay.s4", "sohbet.nogay.s5", "sohbet.nogay.s6", "sohbet.nogay.s7", "sohbet.nogay.s8", "sohbet.nogay.s9")
+cevap_anahtarlari = PackedStringArray("sohbet.nogay.c1", "sohbet.nogay.c2", "sohbet.nogay.c3", "sohbet.nogay.c4", "sohbet.nogay.c5", "sohbet.nogay.c6", "sohbet.nogay.c7", "sohbet.nogay.c8", "sohbet.nogay.c9")
+soru_ziyareti = PackedInt32Array(1, 1, 1, 1, 1, 1, 2, 2, 2)
+soru_ust = PackedInt32Array(-1, 0, -1, 2, -1, 4, -1, -1, 7)

@@ -457,8 +457,13 @@ func _adli_gelen(id: StringName) -> Gelen:
 	g.portre = k.portre
 	var ziyaret := int(kadro.durumlar[id]["ziyaret"]) + 1
 	g.giris_anahtari = s.giris(ziyaret)
+	g.acilis = s.acilis(ziyaret)
+	var yerel := {}
 	for i in s.sorular(ziyaret):
+		yerel[i] = g.sorular.size()
 		g.sorular.append(PackedStringArray([s.soru_anahtarlari[i], s.cevap_anahtarlari[i]]))
+	for i in s.sorular(ziyaret):
+		g.soru_ust.append(int(yerel.get(s.ust(i), -1)))
 	g.secenekler = _perde_secenekleri(k.karar_secenekleri)
 	for karar in g.secenekler:
 		g.etkiler[StringName(karar)] = k.etki(karar)
@@ -491,8 +496,8 @@ func _figur_gelen() -> Gelen:
 	g.sinif = sablon.sinif
 	g.portre = sablon.portreler[0]
 	g.giris_anahtari = String(d["sahne"])
-	for cift in d["sorular"]:
-		g.sorular.append(PackedStringArray([String(cift[0]), String(cift[1])]))
+	g.acilis = String(d.get("acilis", ""))
+	_json_sorular(g, d["sorular"], -1)
 	var tum: Array = []
 	for i in d["secenekler"].size():
 		tum.append({"k": String(d["secenekler"][i]), "e": int(d["esik"][i])})
@@ -516,6 +521,16 @@ func _figur_gelen() -> Gelen:
 	return g
 
 
+## JSON diyalogdaki soru ağacını düzler: [soru, cevap, [takipler]].
+func _json_sorular(g: Gelen, liste: Array, ust: int) -> void:
+	for cift in liste:
+		var i := g.sorular.size()
+		g.sorular.append(PackedStringArray([String(cift[0]), String(cift[1])]))
+		g.soru_ust.append(ust)
+		if cift.size() > 2 and cift[2] is Array:
+			_json_sorular(g, cift[2], i)
+
+
 func _figur_sablon() -> Gelen:
 	var siniflar := Katalog.SINIFLAR
 	var sablon := katalog.sinif(siniflar[_rng.randi_range(0, siniflar.size() - 1)])
@@ -526,9 +541,15 @@ func _figur_sablon() -> Gelen:
 	g.sinif = sablon.sinif
 	g.portre = sablon.portreler[cesit]
 	g.giris_anahtari = sablon.giris_anahtarlari[cesit]
+	if cesit < sablon.acilis_anahtarlari.size():
+		g.acilis = sablon.acilis_anahtarlari[cesit]
+	var yerel := {}
 	for i in sablon.soru_anahtarlari.size():
 		if sablon.soru_cesidi[i] == cesit:
+			yerel[i] = g.sorular.size()
 			g.sorular.append(PackedStringArray([sablon.soru_anahtarlari[i], sablon.cevap_anahtarlari[i]]))
+			var u: int = sablon.soru_ust[i] if i < sablon.soru_ust.size() else -1
+			g.soru_ust.append(int(yerel.get(u, -1)))
 	g.secenekler = _perde_secenekleri(sablon.karar_secenekleri)
 	for karar in g.secenekler:
 		var etki := sablon.etki(karar).duplicate()

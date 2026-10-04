@@ -12,6 +12,10 @@ var portre: String = ""
 var giris_anahtari: String = ""
 ## [soru_anahtari, cevap_anahtari] çiftleri.
 var sorular: Array[PackedStringArray] = []
+## Her sorunun üst sorusunun `sorular` içindeki indeksi; -1 = kök. Üst sorulunca takip açılır.
+var soru_ust: PackedInt32Array = PackedInt32Array()
+## Açılış sözü: kapıya varınca kendini ve hikâyesini anlatır (anahtar ya da düz metin).
+var acilis: String = ""
 var secenekler: PackedStringArray = []
 ## Karar -> bar etkisi.
 var etkiler: Dictionary = {}

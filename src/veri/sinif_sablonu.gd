@@ -9,12 +9,16 @@ extends Resource
 @export var ad_havuzu: PackedStringArray
 ## Çeşit başına giriş anlatısı anahtarı; çeşit sayısı = bu dizinin boyu.
 @export var giris_anahtarlari: PackedStringArray
+## Çeşit başına açılış sözü (gelenin kendini anlattığı söz).
+@export var acilis_anahtarlari: PackedStringArray
 ## Çeşit başına portre kökü.
 @export var portreler: PackedStringArray
 ## Sorular: anahtar, cevap anahtarı ve ait olduğu çeşit (0'dan).
 @export var soru_anahtarlari: PackedStringArray
 @export var cevap_anahtarlari: PackedStringArray
 @export var soru_cesidi: PackedInt32Array
+## Takip sorusunun üst sorusu (-1 = kök).
+@export var soru_ust: PackedInt32Array
 @export var karar_secenekleri: PackedStringArray
 @export var etki_kabul: PackedInt32Array
 @export var etki_ret: PackedInt32Array

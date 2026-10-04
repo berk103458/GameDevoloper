@@ -6,7 +6,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Uzaklardan koptum. Doğudan. Moğol atlarının çiğnediği topraklardan."
+        "Uzaklardan koptum. Doğudan. Moğol atlarının çiğnediği topraklardan.",
+        [
+          [
+            "Doğuda nereden?",
+            "Erzincan'ın ovasından. Ova artık yok; at izi var."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -32,7 +38,8 @@
       "kabul": "Allah razı olsun. Ocağın tütsün hep.",
       "rusvet": "Şu darının yarısını vereyim sana, yeter ki aç o kapıyı."
     },
-    "not": "Önce Ret. Bir cevap sonra Kabul ve Rüşvet. Kışla yok."
+    "not": "Önce Ret. Bir cevap sonra Kabul ve Rüşvet. Kışla yok.",
+    "acilis": "Selam olsun. Doğudan geliyorum; tarlam yandı, elimde bu darı ile tohum kaldı. Tohumu kimseye vermem, toprağa veririm."
   },
   {
     "id": "diyalog_02",
@@ -41,7 +48,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Kumaş tüccarıydım. Eskiden. Şehir düşünce geriye bir tek bu kaldı."
+        "Kumaş tüccarıydım. Eskiden. Şehir düşünce geriye bir tek bu kaldı.",
+        [
+          [
+            "Hangi şehir?",
+            "Kayseri. Çarşısında kırk yıl çuha sattık. Kırk yılın bir topu kaldı."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -67,7 +80,8 @@
       "kabul": "Geçeyim hemen, göze batmadan.",
       "ret": "Gidemem ki bir yere, dizlerimde derman kalmadı."
     },
-    "not": "Önce Rüşvet. Bir cevap sonra Kabul ve Ret. Kışla yok."
+    "not": "Önce Rüşvet. Bir cevap sonra Kabul ve Ret. Kışla yok.",
+    "acilis": "Kumaşçıydım; şehir düşünce elimde bu top kaldı. Bir tezgâh, bir köşe bulursam yine satarım."
   },
   {
     "id": "diyalog_03",
@@ -76,7 +90,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Sivastan beri yürüyorum. Pusatım kırıldı."
+        "Sivastan beri yürüyorum. Pusatım kırıldı.",
+        [
+          [
+            "Kimin askeriydin?",
+            "Sultanın. Sultan uzakta, ben buradayım. Hangisi daha çok asker sayılır, sen söyle."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -102,7 +122,8 @@
       "kabul": "Sağ ol yoldaş. Bir köşede soluklanırım.",
       "ret": "Kan revan içinde nereye gideyim? Yapma."
     },
-    "not": "Önce Kışla. Bir cevap sonra Kabul ve Ret. Rüşvet yok."
+    "not": "Önce Kışla. Bir cevap sonra Kabul ve Ret. Rüşvet yok.",
+    "acilis": "Kargım kırıldı, bacağım da az kaldı. Ama ayaktayım. Bir köşe ver, gerisini ben hallederim."
   },
   {
     "id": "diyalog_04",
@@ -111,7 +132,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Sürüden arta kalanlarla kaçan bir çoban."
+        "Sürüden arta kalanlarla kaçan bir çoban.",
+        [
+          [
+            "Koyunların adı var mı?",
+            "Biri Ak, biri Kara. Hayal gücümüz koyunlardan da kısa."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -137,7 +164,8 @@
       "rusvet": "Süt sağarım sana. Yeter ki içeri al bizi.",
       "ret": "Gece ayazı vurur bizi dışarıda, perişan oluruz."
     },
-    "not": "Önce Kabul. Bir cevap sonra Rüşvet ve Ret. Kışla yok."
+    "not": "Önce Kabul. Bir cevap sonra Rüşvet ve Ret. Kışla yok.",
+    "acilis": "İki koyunum, bir süt kabım var. Yaylaya çıkamadık; yayla da yandı. Bir ağıl yeter bize."
   },
   {
     "id": "diyalog_05",
@@ -146,7 +174,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Ateşin yoldaşıydım. Ocağım söndü."
+        "Ateşin yoldaşıydım. Ocağım söndü.",
+        [
+          [
+            "Örsün nerede?",
+            "Taşıyamadım. Örs ağırdır; yolda insan ağırlığından kurtulmak ister."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -172,7 +206,8 @@
       "kabul": "Bana bir ocak gösterin, yeter.",
       "kisla": "Kılıç döverim, temren sivritirim. İş bilirim."
     },
-    "not": "Önce Ret. Bir cevap sonra Kabul ve Kışla. Rüşvet yok."
+    "not": "Önce Ret. Bir cevap sonra Kabul ve Kışla. Rüşvet yok.",
+    "acilis": "Demirciyim. Örsüm yok, körüğün yarısı elimde. Bir örs bulursam bu köyün nalını ben dökerim."
   },
   {
     "id": "diyalog_06",
@@ -181,7 +216,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Erzincan taraflarından. Bozguna uğradık."
+        "Erzincan taraflarından. Bozguna uğradık.",
+        [
+          [
+            "Kılıcı kime sattın?",
+            "Bir hancıya. Hancı kılıçla ne yapar bilmem; ben de ekmekle ne yapacağımı bilirim."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -207,7 +248,8 @@
       "kabul": "Eksik olma. Köşede biraz soluklanırım.",
       "ret": "Gidecek mecalim kalmadı be usta, etme."
     },
-    "not": "Önce Kışla. Bir cevap sonra Kabul. İki cevap sonra Ret. Rüşvet yok."
+    "not": "Önce Kışla. Bir cevap sonra Kabul. İki cevap sonra Ret. Rüşvet yok.",
+    "acilis": "Miğferim yamuk, kınım boş. Kılıcı sattım, ekmek aldım. Şimdi nöbet tutacak bir kapı arıyorum."
   },
   {
     "id": "diyalog_07",
@@ -216,7 +258,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Köyü yakılanlardan. Tarlamı ateşte bıraktım."
+        "Köyü yakılanlardan. Tarlamı ateşte bıraktım.",
+        [
+          [
+            "Saban nasıl kırıldı?",
+            "Kaçarken arabadan düştü. Tekerlek de kırıldı, ben de az kalsın."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -242,7 +290,8 @@
       "ret": "Yol sorma bana, ayaklarım su topladı geri dönemem.",
       "kabul": "Yüzün gülsün hep, çok yoruldum yollarda."
     },
-    "not": "Önce Rüşvet. Bir cevap sonra Ret. İki cevap sonra Kabul. Kışla yok."
+    "not": "Önce Rüşvet. Bir cevap sonra Ret. İki cevap sonra Kabul. Kışla yok.",
+    "acilis": "Sabanım kırık, çuvalım küçük. Ama arpa iyi arpa. Bir tarla verirseniz kırık sabanla da sürerim."
   },
   {
     "id": "diyalog_08",
@@ -251,7 +300,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Çarşı yandığında dükkanından anca canını atan biri."
+        "Çarşı yandığında dükkanından anca canını atan biri.",
+        [
+          [
+            "Ne iş yaparsın tam?",
+            "Semer dikerim. Biz olmasa yük hayvanın sırtında durmaz."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -274,7 +329,8 @@
       "kabul": "Hızır yoldaşın olsun, içeri alıver beni.",
       "rusvet": "Eski çarığını onarırım, yeter ki geç de bana."
     },
-    "not": "Önce Kabul. Bir cevap sonra Rüşvet. Ret ve Kışla yok."
+    "not": "Önce Kabul. Bir cevap sonra Rüşvet. Ret ve Kışla yok.",
+    "acilis": "İp eğirir, deri delerim. Malım yok ama ellerim var. Bir ocağın kenarı yeter."
   },
   {
     "id": "diyalog_09",
@@ -283,7 +339,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Öncüydüm. Dağlardan aştım da geldim."
+        "Öncüydüm. Dağlardan aştım da geldim.",
+        [
+          [
+            "Okların ne oldu?",
+            "Hepsini attım. Birkaçı tuttu. Tutmayanlar da korkuttu; o da bir şey."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -306,7 +368,8 @@
       "ret": "Yapma, o dağlara geri dönecek halim yok.",
       "kabul": "İyi ettin. Bir duvar dibinde dikilirim usulca."
     },
-    "not": "Önce Ret. Bir cevap sonra Kabul. Kışla ve Rüşvet yok."
+    "not": "Önce Ret. Bir cevap sonra Kabul. Kışla ve Rüşvet yok.",
+    "acilis": "Okçuyum. Yayım sağlam, sadağım boş. Bana ok verin, kapınızı ben korurum."
   },
   {
     "id": "diyalog_10",
@@ -315,7 +378,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Obadan sağ çıkan bir ben kaldım galiba."
+        "Obadan sağ çıkan bir ben kaldım galiba.",
+        [
+          [
+            "Kimle paylaştın?",
+            "Yolda bir anayla iki çocuğu. Onlar güneye gitti, ben buraya."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -341,7 +410,8 @@
       "rusvet": "Testimdeki suyun yarısı senin olsun, yeter ki bırak gireyim.",
       "kabul": "Sağ olasın, şu gölgede bir dinleneyim."
     },
-    "not": "Önce Ret. Bir cevap sonra Rüşvet. İki cevap sonra Kabul. Kışla yok."
+    "not": "Önce Ret. Bir cevap sonra Rüşvet. İki cevap sonra Kabul. Kışla yok.",
+    "acilis": "Testimde su, cebimde yarım ekmek. Yolda ikisini de paylaştım; kalan bu. Bir gece yeter bana."
   },
   {
     "id": "diyalog_11",
@@ -350,7 +420,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Gerideki taş köprünün nöbetinden çekilen neferim. İki gündür boğazı tutuyorduk, mola vermeden tepeyi aştım. Soluğum tıkandı, tabanlarım su topladı. Arkadaki düzlük darmadağın oldu."
+        "Gerideki taş köprünün nöbetinden çekilen neferim. İki gündür boğazı tutuyorduk, mola vermeden tepeyi aştım. Soluğum tıkandı, tabanlarım su topladı. Arkadaki düzlük darmadağın oldu.",
+        [
+          [
+            "Kolun ne oldu?",
+            "Bir Moğol okunu kalkan durdurdu, ikincisini kolum."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -376,7 +452,8 @@
       "ret": "Bu yaralı kolla hendeğin ötesine geçemem. Gece çökünce atlı devriyeler düzlüğü tarar. Kalkanı çalıların arasına çeker, sabahı beklerim. Yağmur başlarsa çamurda kalırım.",
       "kisla": "Kışlaya geçer, yüzbaşıya durumu baştan anlatırım. Köprüdeki bendin çöktüğünü, atlıların hangi yoldan yardığını bilmeleri gerekir. Elim sağlam olmasa da siperde gözetleme yaparım. Nöbete yazılmaya hazırım."
     },
-    "not": "Kabul, Ret, Kışla"
+    "not": "Kabul, Ret, Kışla",
+    "acilis": "Kalkanım çatlak, kolum sargılı. Kargımı nehre kaptırdım. Savaşacak gücüm yok ama nöbet tutacak gözüm var."
   },
   {
     "id": "diyalog_12",
@@ -385,7 +462,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Aşağı nahiyeleri gezen kalaycı ustasıyım. Dün sabahtan beri eşeğin yularını çeke çeke dağ yolunu tırmandım. Tozdan boğazım kurudu, ayaklarımda derman kalmadı. Köyün pazarı dağılınca can havliyle yola düştüm."
+        "Aşağı nahiyeleri gezen kalaycı ustasıyım. Dün sabahtan beri eşeğin yularını çeke çeke dağ yolunu tırmandım. Tozdan boğazım kurudu, ayaklarımda derman kalmadı. Köyün pazarı dağılınca can havliyle yola düştüm.",
+        [
+          [
+            "Kaşındaki yara ne?",
+            "Bir kazan devrildi. Kazanı kurtardım, kaşı kurtaramadım."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -411,7 +494,8 @@
       "kabul": "Eşeği avlunun kuytu duvarına bağlarım. Bir kova su bulursam hayvanın dilini ıslatırım. Kendim de sundurmanın altına çöker, sabah ezanına kadar kımıldamam. Kimsenin işine karışmam.",
       "ret": "Bu yükle kapı önünde açıkta kalamam. Heybedeki bakırlar tıngırdadıkça ses ta vadiden duyulur. Eşeği şu kayalığın arkasına çeker, başını tutarım. Geceyi sağ salim atlatmak zor olur."
     },
-    "not": "Rüşvet, Kabul, Ret"
+    "not": "Rüşvet, Kabul, Ret",
+    "acilis": "Bakırcıyım; eşeğim tasları taşır, ben eşeği. Bu taslarda bir köy çorba içer. Kapıyı açarsan ilk çorba senden."
   },
   {
     "id": "diyalog_13",
@@ -420,7 +504,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Yamaçtaki ağılın çobanıyım. Dün geceden beri sırtımda bu yavruyla kayalık aşıyorum. Yorgunluktan dizlerim tutmuyor, çarıklarım da parçalandı. Başka kimsem kalmadı."
+        "Yamaçtaki ağılın çobanıyım. Dün geceden beri sırtımda bu yavruyla kayalık aşıyorum. Yorgunluktan dizlerim tutmuyor, çarıklarım da parçalandı. Başka kimsem kalmadı.",
+        [
+          [
+            "Neden topal oğlağı aldın?",
+            "Sağlamlar kendini kurtarır. Topalın bir benim kucağım vardı."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -443,7 +533,8 @@
       "ret": "Şu kapı eşiğindeki taşın dibine büzülürüm. Keçiyi göğsüme sarar, üstüme yırtık keçemi çekerim. Gözümü yummadan sabahı beklerim. Başka gidecek yönüm yok.",
       "kabul": "Hayvan bir avuç kuru saman koklasın yeter. Avlunun en dar köşesine ilişirim. Ortalığı kirletmem, kimseye yük olmam. Sabah olunca ilk kervanla çıkarım."
     },
-    "not": "Ret, Kabul"
+    "not": "Ret, Kabul",
+    "acilis": "Çobanım. Sürüyü dağa saldım, bu topal oğlağı bırakamadım. Onun için de bir çatı ararım."
   },
   {
     "id": "diyalog_14",
@@ -452,7 +543,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Tuz gölünden kervan düzüp dağ köylerine mal taşıyan satıcıyım. Üç gündür katırın arkasından taşlık yolları yürüyorum. Tabanlarım yarıldı, tozu yutmaktan sesim kısıldı. Kervan bozulunca yükün çoğunu orada bıraktım."
+        "Tuz gölünden kervan düzüp dağ köylerine mal taşıyan satıcıyım. Üç gündür katırın arkasından taşlık yolları yürüyorum. Tabanlarım yarıldı, tozu yutmaktan sesim kısıldı. Kervan bozulunca yükün çoğunu orada bıraktım.",
+        [
+          [
+            "Tuzu nereden aldın?",
+            "Tuz gölünden. Göl hâlâ orada; yol artık yok."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -478,7 +575,8 @@
       "rusvet": "Beni içeri sal muhafız, şu kesenin ağzını açayım. Avucuna iki tutam has ak tuz dökeyim, etinizi tuzlarsınız. Uç yerinde böyle tuz zor bulunur. Kimseye bir kelime etmem.",
       "ret": "Hava karardı, kapı önünde açıkta kalamam. Yoldaki çapulcular bu keseyi görse boğazıma çöker. Karşıki kayaların arasına saklanıp şafağa kadar beklerim. Yükümü kaptırırsam elim boş kalırım."
     },
-    "not": "Kabul, Rüşvet, Ret"
+    "not": "Kabul, Rüşvet, Ret",
+    "acilis": "Tuzcuyum. Kesemdeki tuz bir köyün kışını çıkarır. Tuz olmazsa et kokar, peynir olmaz."
   },
   {
     "id": "diyalog_15",
@@ -487,7 +585,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "İlerideki tepe gözetleme kulesinin borazancısıyım. Kule düşünce kayalıklardan aşağı koşarak indim. Soluğum göğsüme sığmıyor, ciğerim yandı. Arkamdan gelen atlıların tozu henüz yatışmadı."
+        "İlerideki tepe gözetleme kulesinin borazancısıyım. Kule düşünce kayalıklardan aşağı koşarak indim. Soluğum göğsüme sığmıyor, ciğerim yandı. Arkamdan gelen atlıların tozu henüz yatışmadı.",
+        [
+          [
+            "Neden kimse toplanmadı?",
+            "Toplanacak kimse kalmamıştı. Ben yine de çaldım; boş vadiye."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -513,7 +617,8 @@
       "ret": "Kapıyı yüzüme kapatırsan bu açık arazide hedef olurum. Sırtımda ne zırh kaldı ne doğru dürüst silah. Hendek kenarındaki menfeze puser, gözümü ovadan ayırmam. Atlılar yaklaşırsa bir taşın ardına yatarım.",
       "kabul": "Sağ olasın, revir duvarının dibine çökerim. Şakağımdaki kanı yıkar, biraz soluklanırım. Gece nöbetine adam lazımsa kılıcımı kuşanır kapıda dururum. Sessizce emrinizi beklerim."
     },
-    "not": "Kışla, Ret, Kabul"
+    "not": "Kışla, Ret, Kabul",
+    "acilis": "Borazancıydım; borazanım çaldı mı birlik toplanırdı. Son çaldığımda kimse toplanmadı."
   },
   {
     "id": "diyalog_16",
@@ -522,7 +627,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Aşağı vadideki yamaç bağlarının bekçisiyim. Asmaları bırakıp dağ yolundan kaçalı iki gün oldu. Açlıktan dizlerim titriyor, gözüm kararıyor. Bu fidanı kökünden söküp yanıma alabildim."
+        "Aşağı vadideki yamaç bağlarının bekçisiyim. Asmaları bırakıp dağ yolundan kaçalı iki gün oldu. Açlıktan dizlerim titriyor, gözüm kararıyor. Bu fidanı kökünden söküp yanıma alabildim.",
+        [
+          [
+            "Ne fidanı bu?",
+            "Asma. Üç yıl sonra üzüm verir. Üç yıl beklemeyi göze alan biri lazım."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -548,7 +659,8 @@
       "kabul": "Avluya geçer, su kuyusunun yanında sessizce otururum. Fidanın köküne bir avuç su döker, kendim de bir yudum içerim. Kimseye zararım dokunmaz, yük olmam. Sabah kervanla birlikte çıkar giderim.",
       "rusvet": "Muhafız, kuşağımdaki şu iki aşı çeliğine bak. Biri has ballı incir, biri çekirdeksiz üzüm dalıdır. Buralarda kimsede bulunmaz, bahçene diksen iki yıla meyve verir. Geçir beni içeri, ikisini de sana bırakayım."
     },
-    "not": "Ret, Kabul, Rüşvet"
+    "not": "Ret, Kabul, Rüşvet",
+    "acilis": "Bağcıyım. Bu fidanı bağdan söktüm; kökü bezde. Bir avuç toprak bulursam yeniden dikerim."
   },
   {
     "id": "diyalog_17",
@@ -557,7 +669,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Köyleri dolaşıp yün ve iplik tartan seyyar çerçiyim. Dün ikindiden beri yayla yolunda yürüyorum. Ayağımdaki mest parçalandı, topuğum taşa vurmaktan yarıldı. Sırtımdaki çuvalları uçurum başında bırakmak zorunda kaldım."
+        "Köyleri dolaşıp yün ve iplik tartan seyyar çerçiyim. Dün ikindiden beri yayla yolunda yürüyorum. Ayağımdaki mest parçalandı, topuğum taşa vurmaktan yarıldı. Sırtımdaki çuvalları uçurum başında bırakmak zorunda kaldım.",
+        [
+          [
+            "Terazin doğru mu gerçekten?",
+            "Doğru. Ama tartan elin doğru olup olmadığını terazi bilmez."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -583,7 +701,8 @@
       "ret": "Dışarıda bu sakat ayakla fazla yürüyemem. Kapının yanındaki sundurma direğine yaslanır beklerim. Eşkıya gelirse terazimi toprağa gömerim. Sabah kapı açılana kadar buradan ayrılmam.",
       "kabul": "Samanlığın bir kenarına ilişir, ayağımı sararım. Terazimi torbama koyar, kimsenin işine karışmam. Gece boyunca bir lokma ekmek kemirir yatarım. Sabah erkenden yoluma koyulurum."
     },
-    "not": "Rüşvet, Ret, Kabul"
+    "not": "Rüşvet, Ret, Kabul",
+    "acilis": "Kantarcıyım; tartarım. Terazim doğru tartar, ben de doğru söylerim. Pazarın varsa sana lazımım."
   },
   {
     "id": "diyalog_18",
@@ -592,7 +711,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Kale hendeğinde harç karan, taş taşıyan ırgatım. Sabahtan beri küreği omuzlayıp yokuş yukarı koştum. Kireç tozu gözlerimi yaktı, sırtım ağrıdan kilitlendi. Şantiyede kimse kalmadı, herkes dağıldı."
+        "Kale hendeğinde harç karan, taş taşıyan ırgatım. Sabahtan beri küreği omuzlayıp yokuş yukarı koştum. Kireç tozu gözlerimi yaktı, sırtım ağrıdan kilitlendi. Şantiyede kimse kalmadı, herkes dağıldı.",
+        [
+          [
+            "Omzuna ne oldu?",
+            "Bir taş düştü. Taşı ben dizmiştim; demek iyi dizmemişim."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -618,7 +743,8 @@
       "kisla": "Kışlaya yollarsan beden duvarına harç kararım. Hendeğin hangi tarafının zayıf olduğunu bilirim. Çöken taşları yerine dizer, muhafızlara yardım ederim. Gücüm kuvvetim yerindedir, siper kazarım.",
       "ret": "Kapı dışında açık alanda duramam. Hendeğin kuru tarafına iner, küreğimi kucağıma alıp yatarım. Gece gelen giden olursa ses etmem. Sabah olunca yukarı köylere doğru yürürüm."
     },
-    "not": "Kabul, Kışla, Ret"
+    "not": "Kabul, Kışla, Ret",
+    "acilis": "Kireççiyim, duvarcıyım. Ellerim kireçten yarıldı ama duvar örerim. Surun varsa bana ihtiyacın var."
   },
   {
     "id": "diyalog_19",
@@ -627,7 +753,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Menzil hanının tandırında ekmek pişiren hamurkarım. İki menzildir aralıksız yayan geliyorum. Hamur teknesi sırtımı ezdi, tabanlarım sızım sızım sızlıyor. Fırın ateşe verilince üzerimdeki önlükle kaçtım."
+        "Menzil hanının tandırında ekmek pişiren hamurkarım. İki menzildir aralıksız yayan geliyorum. Hamur teknesi sırtımı ezdi, tabanlarım sızım sızım sızlıyor. Fırın ateşe verilince üzerimdeki önlükle kaçtım.",
+        [
+          [
+            "Fırının var mıydı?",
+            "Vardı. Şimdi bir kül yığını. Ama ekmek külde de pişer."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -653,7 +785,8 @@
       "rusvet": "Muhafız, kuşağımdaki çıkına bakıver. İçinde has kokulu çörekotuyla iki parça kuru peksimet var. Ocağınızda çorbanıza katarsınız, lezzet verir. Al bunları torbana koy, beni içeriye buyur et.",
       "kabul": "Ocak başına sokulmam, samanlık tarafında bir köşeye büzülürüm. Tekneyi altıma koyar, oklavamı yanıma alırım. Gece çıt çıkarmadan dinlenirim. Sabah kervana taze ekmek gerekirse elimden geleni yaparım."
     },
-    "not": "Ret, Rüşvet, Kabul"
+    "not": "Ret, Rüşvet, Kabul",
+    "acilis": "Ekmekçiyim. Teknem sırtımda, oklavam boynumda. Un verirseniz sabaha ekmek kokusu yayılır."
   },
   {
     "id": "diyalog_20",
@@ -662,7 +795,13 @@
     "sorular": [
       [
         "Kimsin?",
-        "Kervan yollarında at nallayan seyyar nalbant ustasıyım. Dün öğleden beri yürümekten dizlerim koptu. Sol topuğuma nal çivisi battı, basamıyorum. Kervanın ağırlığı dağılınca aletlerin çoğunu yolda döktüm."
+        "Kervan yollarında at nallayan seyyar nalbant ustasıyım. Dün öğleden beri yürümekten dizlerim koptu. Sol topuğuma nal çivisi battı, basamıyorum. Kervanın ağırlığı dağılınca aletlerin çoğunu yolda döktüm.",
+        [
+          [
+            "Ayağına ne oldu?",
+            "Bir at bastı. At kendi nalını bana ödetti."
+          ]
+        ]
       ],
       [
         "Nesin?",
@@ -688,6 +827,7 @@
       "kabul": "Ahırın yanındaki saman yığınının dibine çökerim. Yaralı topuğumu bağlar, sabaha kadar kımıldamam. Kimsenin yoluna çıkmam, gürültü etmem. Sabah olunca işime gücüme bakarım.",
       "ret": "Bu yaralı ayakla açık bozkırda adım atamam. Kapının dibindeki kütüğe oturur, kerpeteni kucağımda tutarım. Gece atlılar gelirse çalılığa sürünürüm. Sabah kapı açılana kadar buradan ayrılmam."
     },
-    "not": "Kışla, Kabul, Ret"
+    "not": "Kışla, Kabul, Ret",
+    "acilis": "Nalbantım. Nal çakarım, kerpeten tutarım. Atınız varsa nalsız kalmasın."
   }
 ]

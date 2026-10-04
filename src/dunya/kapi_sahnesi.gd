@@ -3,8 +3,10 @@
 class_name KapiSahnesi
 extends Node3D
 
-const DURMA := Vector3(0.0, 0.0, -3.0)
-const BASLANGIC := Vector3(0.6, 0.0, -12.5)
+const DURMA := Vector3(0.0, 0.0, -2.5)
+const BASLANGIC := Vector3(0.5, 0.0, -9.0)
+## Kapıya yürüyüş hızı (m/s): yürüyüş ~2 saniye.
+const YAKLASMA_HIZI := 2.4
 const ICERI := Vector3(1.9, 0.0, 2.5)
 const DONUS := Vector3(-0.8, 0.0, -22.0)
 
@@ -48,7 +50,7 @@ func gelen_yaklas(model_adi: String) -> void:
 	_gelen = Dunya3B.karakter(model_adi)
 	_gelen.position = BASLANGIC
 	add_child(_gelen)
-	await _gelen.yuru(DURMA)
+	await _gelen.yuru(DURMA, YAKLASMA_HIZI)
 	_gelen.bak(kamera.position)
 
 
@@ -150,7 +152,7 @@ func _kuyruk_kur() -> void:
 	var adlar := ["ciftci", "esnaf", "ciftci_kadin", "asker", "ciftci"]
 	for i in adlar.size():
 		var k := Dunya3B.karakter(adlar[i])
-		k.position = Vector3(-0.4 + (i % 2) * 0.9, 0, -16.0 - i * 2.2)
+		k.position = Vector3(-0.4 + (i % 2) * 0.9, 0, -11.0 - i * 2.0)
 		add_child(k)
 		k.bak(Vector3(0, 0, 10))
 

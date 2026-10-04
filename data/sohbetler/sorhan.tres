@@ -6,6 +6,8 @@
 script = ExtResource("1")
 id = &"sorhan"
 giris_anahtarlari = PackedStringArray("sohbet.sorhan.giris1", "sohbet.sorhan.giris2", "sohbet.sorhan.giris3")
-soru_anahtarlari = PackedStringArray("sohbet.sorhan.s1", "sohbet.sorhan.s2", "sohbet.sorhan.s3", "sohbet.sorhan.s4", "sohbet.sorhan.s5", "sohbet.sorhan.s6", "sohbet.sorhan.s7", "sohbet.sorhan.s8", "sohbet.sorhan.s9")
-cevap_anahtarlari = PackedStringArray("sohbet.sorhan.c1", "sohbet.sorhan.c2", "sohbet.sorhan.c3", "sohbet.sorhan.c4", "sohbet.sorhan.c5", "sohbet.sorhan.c6", "sohbet.sorhan.c7", "sohbet.sorhan.c8", "sohbet.sorhan.c9")
-soru_ziyareti = PackedInt32Array(1, 1, 1, 2, 2, 2, 3, 3, 3)
+acilis_anahtarlari = PackedStringArray("sohbet.sorhan.acilis1", "sohbet.sorhan.acilis2", "sohbet.sorhan.acilis3")
+soru_anahtarlari = PackedStringArray("sohbet.sorhan.s1", "sohbet.sorhan.s2", "sohbet.sorhan.s3", "sohbet.sorhan.s4", "sohbet.sorhan.s5", "sohbet.sorhan.s6", "sohbet.sorhan.s7", "sohbet.sorhan.s8", "sohbet.sorhan.s9", "sohbet.sorhan.s10", "sohbet.sorhan.s11", "sohbet.sorhan.s12", "sohbet.sorhan.s13", "sohbet.sorhan.s14", "sohbet.sorhan.s15", "sohbet.sorhan.s16", "sohbet.sorhan.s17", "sohbet.sorhan.s18", "sohbet.sorhan.s19", "sohbet.sorhan.s20", "sohbet.sorhan.s21", "sohbet.sorhan.s22", "sohbet.sorhan.s23")
+cevap_anahtarlari = PackedStringArray("sohbet.sorhan.c1", "sohbet.sorhan.c2", "sohbet.sorhan.c3", "sohbet.sorhan.c4", "sohbet.sorhan.c5", "sohbet.sorhan.c6", "sohbet.sorhan.c7", "sohbet.sorhan.c8", "sohbet.sorhan.c9", "sohbet.sorhan.c10", "sohbet.sorhan.c11", "sohbet.sorhan.c12", "sohbet.sorhan.c13", "sohbet.sorhan.c14", "sohbet.sorhan.c15", "sohbet.sorhan.c16", "sohbet.sorhan.c17", "sohbet.sorhan.c18", "sohbet.sorhan.c19", "sohbet.sorhan.c20", "sohbet.sorhan.c21", "sohbet.sorhan.c22", "sohbet.sorhan.c23")
+soru_ziyareti = PackedInt32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3)
+soru_ust = PackedInt32Array(-1, 0, 1, -1, 3, 4, 3, -1, 7, -1, 9, 9, -1, 12, -1, 14, -1, 16, 17, -1, 19, -1, 21)

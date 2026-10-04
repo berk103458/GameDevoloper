@@ -130,10 +130,15 @@ func _siradaki() -> void:
 	_yalan_yazildi = false
 	_ad.text = tr(_gelen.ad_anahtari)
 	_sinif.text = tr("arayuz.sinif.gibi") % tr("arayuz.sinif." + String(_gelen.sinif))
-	_yaz("\n[i]%s[/i]" % tr(_gelen.giris_anahtari))
+	# Yeni gelenle konuşma kaydı baştan: yalnız gece başlığı ve bu gelenin konuşması.
+	_kayit.clear()
+	_yaz("[color=#4A6B8A]%s[/color]" % (tr("arayuz.hud.gece") % oturum.gosterilen_gece()))
+	_yaz("[i]%s[/i]" % tr(_gelen.giris_anahtari))
 	oturum.ziyaret_basladi(_gelen)
 	_adim_sesi(12)
 	await sahne.gelen_yaklas(Dunya3B.karakter_adi(_gelen.id if _gelen.adli else &"", _gelen.portre, _gelen.sinif))
+	if _gelen.acilis != "":
+		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), tr(_gelen.acilis)])
 	if oturum.perde == 2 or _gelen.sorular.is_empty():
 		_karar_goster()
 	else:
@@ -147,7 +152,11 @@ func _sohbet_goster() -> void:
 	for i in _gelen.sorular.size():
 		if i in _sorulan:
 			continue
-		var b := _dugme("— " + tr(_gelen.sorular[i][0]))
+		# Takip sorusu, üst sorusu sorulunca açılır (konuştukça yeni sorular).
+		var ust: int = _gelen.soru_ust[i] if i < _gelen.soru_ust.size() else -1
+		if ust >= 0 and not (ust in _sorulan):
+			continue
+		var b := _dugme(("  ↳ " if ust >= 0 else "— ") + tr(_gelen.sorular[i][0]))
 		b.pressed.connect(_soru_sor.bind(i))
 		dugmeler.append(b)
 	if _gelen.heybe != null and not _gelen.heybe.soruldu:

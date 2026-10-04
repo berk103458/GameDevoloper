@@ -6,6 +6,8 @@
 script = ExtResource("1")
 id = &"saruca_hatun"
 giris_anahtarlari = PackedStringArray("sohbet.saruca_hatun.giris1", "sohbet.saruca_hatun.giris2")
-soru_anahtarlari = PackedStringArray("sohbet.saruca_hatun.s1", "sohbet.saruca_hatun.s2", "sohbet.saruca_hatun.s3", "sohbet.saruca_hatun.s4", "sohbet.saruca_hatun.s5", "sohbet.saruca_hatun.s6")
-cevap_anahtarlari = PackedStringArray("sohbet.saruca_hatun.c1", "sohbet.saruca_hatun.c2", "sohbet.saruca_hatun.c3", "sohbet.saruca_hatun.c4", "sohbet.saruca_hatun.c5", "sohbet.saruca_hatun.c6")
-soru_ziyareti = PackedInt32Array(1, 1, 1, 2, 2, 2)
+acilis_anahtarlari = PackedStringArray("sohbet.saruca_hatun.acilis1", "sohbet.saruca_hatun.acilis2")
+soru_anahtarlari = PackedStringArray("sohbet.saruca_hatun.s1", "sohbet.saruca_hatun.s2", "sohbet.saruca_hatun.s3", "sohbet.saruca_hatun.s4", "sohbet.saruca_hatun.s5", "sohbet.saruca_hatun.s6", "sohbet.saruca_hatun.s7", "sohbet.saruca_hatun.s8", "sohbet.saruca_hatun.s9", "sohbet.saruca_hatun.s10", "sohbet.saruca_hatun.s11")
+cevap_anahtarlari = PackedStringArray("sohbet.saruca_hatun.c1", "sohbet.saruca_hatun.c2", "sohbet.saruca_hatun.c3", "sohbet.saruca_hatun.c4", "sohbet.saruca_hatun.c5", "sohbet.saruca_hatun.c6", "sohbet.saruca_hatun.c7", "sohbet.saruca_hatun.c8", "sohbet.saruca_hatun.c9", "sohbet.saruca_hatun.c10", "sohbet.saruca_hatun.c11")
+soru_ziyareti = PackedInt32Array(1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2)
+soru_ust = PackedInt32Array(-1, 0, -1, 2, -1, 4, -1, 6, -1, 8, -1)

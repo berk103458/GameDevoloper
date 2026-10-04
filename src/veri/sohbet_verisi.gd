@@ -5,10 +5,14 @@ extends Resource
 @export var id: StringName
 ## Ziyaret başına giriş anlatısı (1. ziyaret = indeks 0); fazla ziyarette son giriş kullanılır.
 @export var giris_anahtarlari: PackedStringArray
+## Ziyaret başına açılış sözü: gelen kapıya varınca kendini ve hikâyesini anlatır.
+@export var acilis_anahtarlari: PackedStringArray
 @export var soru_anahtarlari: PackedStringArray
 @export var cevap_anahtarlari: PackedStringArray
 ## Sorunun sorulabildiği ziyaret (1'den); 0 = her ziyarette.
 @export var soru_ziyareti: PackedInt32Array
+## Sorunun üst sorusu (takip sorusu ise); -1 = kök. Üst soru sorulunca açılır.
+@export var soru_ust: PackedInt32Array
 
 
 ## Verilen ziyarette sorulabilen soruların indeksleri.
@@ -27,3 +31,15 @@ func sorular(ziyaret: int) -> PackedInt32Array:
 ## Ziyaretin giriş anlatısı anahtarı.
 func giris(ziyaret: int) -> String:
 	return giris_anahtarlari[clampi(ziyaret - 1, 0, giris_anahtarlari.size() - 1)]
+
+
+## Ziyaretin açılış sözü anahtarı; yoksa boş.
+func acilis(ziyaret: int) -> String:
+	if acilis_anahtarlari.is_empty():
+		return ""
+	return acilis_anahtarlari[clampi(ziyaret - 1, 0, acilis_anahtarlari.size() - 1)]
+
+
+## Sorunun üst sorusu (-1 = kök).
+func ust(i: int) -> int:
+	return soru_ust[i] if i < soru_ust.size() else -1

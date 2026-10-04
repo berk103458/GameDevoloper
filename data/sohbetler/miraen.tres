@@ -6,6 +6,8 @@
 script = ExtResource("1")
 id = &"miraen"
 giris_anahtarlari = PackedStringArray("sohbet.miraen.giris1")
-soru_anahtarlari = PackedStringArray("sohbet.miraen.s1", "sohbet.miraen.s2", "sohbet.miraen.s3")
-cevap_anahtarlari = PackedStringArray("sohbet.miraen.c1", "sohbet.miraen.c2", "sohbet.miraen.c3")
-soru_ziyareti = PackedInt32Array(0, 0, 0)
+acilis_anahtarlari = PackedStringArray("sohbet.miraen.acilis1")
+soru_anahtarlari = PackedStringArray("sohbet.miraen.s1", "sohbet.miraen.s2", "sohbet.miraen.s3", "sohbet.miraen.s4", "sohbet.miraen.s5", "sohbet.miraen.s6", "sohbet.miraen.s7", "sohbet.miraen.s8", "sohbet.miraen.s9", "sohbet.miraen.s10", "sohbet.miraen.s11", "sohbet.miraen.s12")
+cevap_anahtarlari = PackedStringArray("sohbet.miraen.c1", "sohbet.miraen.c2", "sohbet.miraen.c3", "sohbet.miraen.c4", "sohbet.miraen.c5", "sohbet.miraen.c6", "sohbet.miraen.c7", "sohbet.miraen.c8", "sohbet.miraen.c9", "sohbet.miraen.c10", "sohbet.miraen.c11", "sohbet.miraen.c12")
+soru_ziyareti = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+soru_ust = PackedInt32Array(-1, 0, 1, 0, -1, 4, 5, 4, -1, 8, 9, 8)

@@ -326,175 +326,375 @@ olay.yusuf_keci.secenek1,Sürü Yusuf'un olsun
 olay.yusuf_keci.secenek2,Keçiler köyün malı
 olay.yusuf_keci.sonuc1,Yusuf o gün ilk kez güldü.
 olay.yusuf_keci.sonuc2,Ambar doldu. Yusuf ipi yine eline aldı ve bir şey demedi.
+sablon.asker.acilis1,"Bir yudum su, bir köşe. Yaralıyım ama yürüyorum. Kimin adamı olduğumu sorma; artık kimsenin değilim."
+sablon.asker.acilis2,"Akşamın hayrolsun. Silahımı bıraktım, adımı da bırakmak isterim. Bir gece, bir köşe; sabah ola hayrola."
 sablon.asker.ad1,Yaralı bir asker
 sablon.asker.ad2,Bir firari
 sablon.asker.ad3,Yaya bir sipahi
 sablon.asker.ad4,Bir sınır bekçisi
 sablon.asker.c1_c1,Artık kimsenin.
-sablon.asker.c1_c2,"Yürüyorum, değil mi?"
-sablon.asker.c1_c3,Herkes savaştaydı. Sonra herkes yoldaydı.
+sablon.asker.c1_c2,Bir sipahinin. Kösedağ'da öldü; onu taşıyamadım.
+sablon.asker.c1_c3,Bahadır Bey. Söylesem bilmezsin. Bilen kalmadı.
+sablon.asker.c1_c4,Hafif. Kimse emir vermiyor. Kimse ekmek de vermiyor.
+sablon.asker.c1_c5,"Ekmek veren, ok atmayı bilen birine bağlanırım. Sen misin?"
+sablon.asker.c1_c6,"Yürüyorum, değil mi?"
+sablon.asker.c1_c7,Bakma. Bakınca kötüleşiyor sanki.
+sablon.asker.c1_c8,Herkes savaştaydı. Sonra herkes yoldaydı.
+sablon.asker.c1_c9,Çok şey. Çoğunu unutmaya çalışıyorum. Unutamadıklarım benimle yürüyor.
 sablon.asker.c1_s1,Kimin adamısın?
-sablon.asker.c1_s2,Yaran ağır mı?
-sablon.asker.c1_s3,Savaşta mıydın?
+sablon.asker.c1_s2,Önce kimin adamıydın?
+sablon.asker.c1_s3,Adı neydi?
+sablon.asker.c1_s4,Kimsenin olmak nasıl?
+sablon.asker.c1_s5,Yeniden birine bağlanır mısın?
+sablon.asker.c1_s6,Yaran ağır mı?
+sablon.asker.c1_s7,Bakayım mı?
+sablon.asker.c1_s8,Savaşta mıydın?
+sablon.asker.c1_s9,Neler gördün?
 sablon.asker.c2_c1,Herkes bir şeyden kaçıyor bu yolda.
-sablon.asker.c2_c2,Bıraktım.
-sablon.asker.c2_c3,Olsaydı bu kadar yavaş yürür müydüm?
+sablon.asker.c2_c2,"Bir çavuş. Bir liste. Listede adım var mı, bilmiyorum. Varmış gibi yürüyorum."
+sablon.asker.c2_c3,Bıraktım.
+sablon.asker.c2_c4,Bir dereye. Su iyi saklar.
+sablon.asker.c2_c5,Olsaydı bu kadar yavaş yürür müydüm?
+sablon.asker.c2_c6,"O zaman burada durup seninle konuşmazdım, kapıcı."
 sablon.asker.c2_s1,Kimden kaçıyorsun?
-sablon.asker.c2_s2,Silahın var mı?
-sablon.asker.c2_s3,Peşinde biri var mı?
+sablon.asker.c2_s2,Senin kaçtığın ne?
+sablon.asker.c2_s3,Silahın var mı?
+sablon.asker.c2_s4,Nereye bıraktın?
+sablon.asker.c2_s5,Peşinde biri var mı?
+sablon.asker.c2_s6,Ya olsaydı?
 sablon.asker.giris1,Sargısı kirlenmiş bir asker.
 sablon.asker.giris2,Gözleri sürekli yolda olan bir adam.
+sablon.ciftci.acilis1,"Akşam hayrola. Rençberim; öküzüm yolda öldü, boyunduruğu bırakamadım. Toprak verirseniz sabanı ben çekerim."
+sablon.ciftci.acilis2,"Selam. Ben tarlada çalışırım; kocam tarlada kaldı. Hasada kadar bir iş, bir köşe isterim."
 sablon.ciftci.ad1,Yorgun bir çiftçi
 sablon.ciftci.ad2,Irgat bir kadın
 sablon.ciftci.ad3,Sivaslı bir rençber
 sablon.ciftci.ad4,Bir orakçı
 sablon.ciftci.c1_c1,Yolda öldü. Boyunduruğu bırakamadım.
-sablon.ciftci.c1_c2,Toprak. Başka bir şey bilmem.
-sablon.ciftci.c1_c3,Sivas'ın ovasından. Ova yandı.
+sablon.ciftci.c1_c2,"Öküz ölür, boyunduruk kalır. Belki başka öküz bulurum."
+sablon.ciftci.c1_c3,Toprak. Başka bir şey bilmem.
+sablon.ciftci.c1_c4,"Buğday, arpa. Toprak iyiyse nohut."
+sablon.ciftci.c1_c5,Sivas'ın ovasından. Ova yandı.
+sablon.ciftci.c1_c6,"Kim yakmadı ki? Önce Moğol geçti, sonra bizimkiler kalanı aldı."
 sablon.ciftci.c1_s1,Öküzün nerede?
-sablon.ciftci.c1_s2,Ne iş bilirsin?
-sablon.ciftci.c1_s3,Nereden geliyorsun?
+sablon.ciftci.c1_s2,Neden taşıyorsun boyunduruğu?
+sablon.ciftci.c1_s3,Ne iş bilirsin?
+sablon.ciftci.c1_s4,Ne ekersin?
+sablon.ciftci.c1_s5,Nereden geliyorsun?
+sablon.ciftci.c1_s6,Kim yaktı?
 sablon.ciftci.c2_c1,Kocam tarlada kaldı.
-sablon.ciftci.c2_c2,Hasat zamanı iş.
-sablon.ciftci.c2_c3,Yolda kimse kimseyi beklemiyor.
+sablon.ciftci.c2_c2,Vardı. (Başka bir şey demiyor.)
+sablon.ciftci.c2_c3,Hasat zamanı iş.
+sablon.ciftci.c2_c4,"O zamana kadar ot yolarım, su taşırım. Boş durmam."
+sablon.ciftci.c2_c5,Yolda kimse kimseyi beklemiyor.
+sablon.ciftci.c2_c6,Boş köyler. Bir de yolun kenarına dizilmiş taşlar. Kim dizdi bilmiyorum.
 sablon.ciftci.c2_s1,Kimin nesisin?
-sablon.ciftci.c2_s2,Ne istersin?
-sablon.ciftci.c2_s3,Yalnız mı yürüdün?
+sablon.ciftci.c2_s2,Çocuğun var mı?
+sablon.ciftci.c2_s3,Ne istersin?
+sablon.ciftci.c2_s4,Hasada daha çok var.
+sablon.ciftci.c2_s5,Yalnız mı yürüdün?
+sablon.ciftci.c2_s6,Yolda ne gördün?
 sablon.ciftci.giris1,Sırtında boyunduruk taşıyan bir adam. Öküzü yok.
 sablon.ciftci.giris2,"Elleri nasırlı bir kadın, yalnız."
+sablon.esnaf.acilis1,"Selam usta... yani kapıcı. Ustamı yolda kaybettim. Deri işlerim, biraz da demir. Bir ocak bulursam yeniden başlarım."
+sablon.esnaf.acilis2,"Bakırcıyım; tas, kepçe, kazan. Malım bu kadar kaldı, borcum daha çok. Kervansaray varsa orada satarım."
 sablon.esnaf.ad1,Bir Ahi çırağı
 sablon.esnaf.ad2,Seyyar bir bakırcı
 sablon.esnaf.ad3,Bir keçeci
 sablon.esnaf.ad4,Bir semerci
 sablon.esnaf.c1_c1,Yolda kaybettim. Arıyorum.
-sablon.esnaf.c1_c2,Deri. Biraz da demir.
-sablon.esnaf.c1_c3,"Kayseri'nin. Ocak yerinde mi, bilmem."
+sablon.esnaf.c1_c2,"Bir kalabalıkta elini bıraktım. Sonra kalabalık dağıldı, usta da."
+sablon.esnaf.c1_c3,Deri. Biraz da demir.
+sablon.esnaf.c1_c4,Kemer tokası. Ustam 'senin tokan kemeri sever' derdi.
+sablon.esnaf.c1_c5,"Kayseri'nin. Ocak yerinde mi, bilmem."
+sablon.esnaf.c1_c6,Henüz değil. Şed kuşanmama bir yıl vardı.
 sablon.esnaf.c1_s1,Ustan nerede?
-sablon.esnaf.c1_s2,Ne iş yaparsın?
-sablon.esnaf.c1_s3,Ocağın hangisi?
+sablon.esnaf.c1_s2,Nasıl kaybettin?
+sablon.esnaf.c1_s3,Ne iş yaparsın?
+sablon.esnaf.c1_s4,En iyi neyi yaparsın?
+sablon.esnaf.c1_s5,Ocağın hangisi?
+sablon.esnaf.c1_s6,Ahi misin?
 sablon.esnaf.c2_c1,Kalan bu. Borcum daha çok.
-sablon.esnaf.c2_c2,Kervansaray varsa oraya.
-sablon.esnaf.c2_c3,Bir Rum tüccara. O da yolda bir yerde.
+sablon.esnaf.c2_c2,"Yol aldı. Biri bir tasa ekmek verdi, biri bir kazana geçit."
+sablon.esnaf.c2_c3,Kervansaray varsa oraya.
+sablon.esnaf.c2_c4,O zaman pazara. Pazar da yoksa kapının dibine. Bakır her yerde satılır.
+sablon.esnaf.c2_c5,Bir Rum tüccara. O da yolda bir yerde.
+sablon.esnaf.c2_c6,Bulursam. Bulamazsam borç bende kalır.
 sablon.esnaf.c2_s1,Malın bu kadar mı?
-sablon.esnaf.c2_s2,Nereye gidiyorsun?
-sablon.esnaf.c2_s3,Kime borçlusun?
+sablon.esnaf.c2_s2,Kalanı ne oldu?
+sablon.esnaf.c2_s3,Nereye gidiyorsun?
+sablon.esnaf.c2_s4,Kervansaray yoksa?
+sablon.esnaf.c2_s5,Kime borçlusun?
+sablon.esnaf.c2_s6,Ödeyecek misin?
 sablon.esnaf.giris1,"Elinde alet torbası, genç bir çırak."
 sablon.esnaf.giris2,Sırtında birkaç bakır kap.
+sohbet.aydogdu.acilis1,"Aydoğdu. Türkmen'im, okçuyum. Kolum yaralı ama yayı hâlâ gerebilirim. Arkamdan obam geliyor; önden ben bakayım dedim."
 sohbet.aydogdu.c1,Aydoğdu. Türkmen'im.
-sohbet.aydogdu.c2,Kösedağ'dan hatıra.
-sohbet.aydogdu.c3,Şimdilik. (Arkasındaki yola bakıyor.)
+sohbet.aydogdu.c2,"Avşar. Babam beydi, ben değilim. Bey olmak için önce sağ kalmak gerek."
+sohbet.aydogdu.c3,Kösedağ'dan hatıra.
+sohbet.aydogdu.c4,Yayı gerince. Gerince her şey ağrır zaten.
+sohbet.aydogdu.c5,Kendim. Dişimle. Pek güzel olmadı.
+sohbet.aydogdu.c6,Şimdilik. (Arkasındaki yola bakıyor.)
+sohbet.aydogdu.c7,"Obam. Yirmi kişi, otuz koyun. Yer varsa getiririm."
+sohbet.aydogdu.c8,O zaman yürürüz. Türkmen yürümeyi bilir.
 sohbet.aydogdu.giris1,"Kolu sargılı bir okçu. Sırtında yay, belinde sadak."
 sohbet.aydogdu.s1,Kimsin?
-sohbet.aydogdu.s2,Yaran ne?
-sohbet.aydogdu.s3,Yalnız mısın?
+sohbet.aydogdu.s2,Hangi boydan?
+sohbet.aydogdu.s3,Yaran ne?
+sohbet.aydogdu.s4,Ağrıyor mu?
+sohbet.aydogdu.s5,Kim sardı?
+sohbet.aydogdu.s6,Yalnız mısın?
+sohbet.aydogdu.s7,Arkanda kim var?
+sohbet.aydogdu.s8,Ya yer yoksa?
+sohbet.ayse_baci.acilis1,"Hayırlı akşamlar. Ben Ayşe, Kayseri'de bacılardandım. Bu kızlara dokumayı ben öğretiyorum. Tezgâh sırtımda; ev neredeyse tezgâh orada kurulur."
+sohbet.ayse_baci.acilis2,"Yine biz. Tezgâhın bir ayağı kırıldı ama ellerimiz sağlam. Başka uçta kapı var, ocak yok; burada olacak diye duydum."
 sohbet.ayse_baci.c1,"Ayşe derler. Kayseri'de bacılardandım. Dokuruz, öğretiriz."
-sohbet.ayse_baci.c2,Çıraklarım. Yolda annelerini yitirdiler.
-sohbet.ayse_baci.c3,"Erkekler ocakta, biz tezgâhta. Biri olmazsa öteki eksik kalır."
-sohbet.ayse_baci.c4,Bir dere geçerken kırıldı. Elimiz kırılmadı ama.
-sohbet.ayse_baci.c5,Başka uçta kapı var ama ocak yok. Burada olacak diye duydum.
+sohbet.ayse_baci.c10,"Yolda bir dervişten. Dervişler her şeyi duyar, yarısını söyler."
+sohbet.ayse_baci.c2,"Kadınların ocağı. Erkekler ahi olur, biz bacı. Biri olmazsa öteki eksik kalır."
+sohbet.ayse_baci.c3,Çıraklarım. Yolda annelerini yitirdiler.
+sohbet.ayse_baci.c4,"Yünü eğirmeyi, boyamayı, kilim dokumayı. Bir kilim bir kışı geçirir."
+sohbet.ayse_baci.c5,"Erkekler ocakta, biz tezgâhta. Biri olmazsa öteki eksik kalır."
+sohbet.ayse_baci.c6,"Satılır. İyi bir kilim üç akçe eder, çok iyisi beş."
+sohbet.ayse_baci.c7,Bir dere geçerken kırıldı. Elimiz kırılmadı ama.
+sohbet.ayse_baci.c8,"Bir marangoz bulursam bir günde. Bulamazsam bir haftada, kendim."
+sohbet.ayse_baci.c9,Başka uçta kapı var ama ocak yok. Burada olacak diye duydum.
 sohbet.ayse_baci.giris1,Sırtında katlanmış bir dokuma tezgâhı taşıyan orta yaşlı bir kadın. Yanında iki genç kız.
 sohbet.ayse_baci.giris2,Ayşe Bacı yine geldi. Tezgâhın bir ayağı kırık.
 sohbet.ayse_baci.s1,Kimsin?
-sohbet.ayse_baci.s2,Bu kızlar kim?
-sohbet.ayse_baci.s3,Bacılar ne iş yapar?
-sohbet.ayse_baci.s4,Tezgâha ne oldu?
-sohbet.ayse_baci.s5,Neden döndün?
+sohbet.ayse_baci.s10,Kimden duydun?
+sohbet.ayse_baci.s2,Bacılar kim?
+sohbet.ayse_baci.s3,Bu kızlar kim?
+sohbet.ayse_baci.s4,Ne öğreniyorlar?
+sohbet.ayse_baci.s5,Bacılar ne iş yapar?
+sohbet.ayse_baci.s6,Dokuduğunuz satılır mı?
+sohbet.ayse_baci.s7,Tezgâha ne oldu?
+sohbet.ayse_baci.s8,Tamir edilir mi?
+sohbet.ayse_baci.s9,Neden döndün?
+sohbet.hasan_celebi.acilis1,"Hasan, Sivas divanının kâtibi. Kimin ne borçlu olduğunun defterini taşıyorum. Moğol da sorar, bey de; cevap bende."
 sohbet.hasan_celebi.c1,Hasan. Sivas divanında kâtiptim. Vergi yazardım.
-sohbet.hasan_celebi.c2,"Kimin ne borçlu olduğu. Moğol da sorar, bey de."
-sohbet.hasan_celebi.c3,Bir köy kayıtsız yaşamaz. Ben kaydederim; sen yönetirsin.
+sohbet.hasan_celebi.c2,Herkesin unutmak istediğini hatırlar.
+sohbet.hasan_celebi.c3,"Kimin ne borçlu olduğu. Moğol da sorar, bey de."
+sohbet.hasan_celebi.c4,"Yakmak kolay. Ama yakarsam kimin ne ödediğini de kimse bilmez. Borç da yanar, alacak da."
+sohbet.hasan_celebi.c5,Kim kapıyı açarsa ona okurum. Bu kadar dürüstüm.
+sohbet.hasan_celebi.c6,Bir köy kayıtsız yaşamaz. Ben kaydederim; sen yönetirsin.
 sohbet.hasan_celebi.giris1,"İyi dikilmiş bir kaftan, mürekkep lekeli parmaklar. Yanında defterler dolu bir heybe."
 sohbet.hasan_celebi.s1,Kimsin?
-sohbet.hasan_celebi.s2,Heybede ne var?
-sohbet.hasan_celebi.s3,Burada ne işin var?
+sohbet.hasan_celebi.s2,Kâtip ne iş yapar?
+sohbet.hasan_celebi.s3,Bu defterler ne?
+sohbet.hasan_celebi.s4,Neden yakmadın?
+sohbet.hasan_celebi.s5,Moğol'a verir misin?
+sohbet.hasan_celebi.s6,Burada ne işin var?
+sohbet.karaca_usta.acilis1,"Selamünaleyküm. Karaca derler; Kayseri'de tabakhanem vardı. Moğol geldi, deriler de ocak da yandı. Bu iki çırak, ocağımdan kalanlar."
+sohbet.karaca_usta.acilis2,"Yine Karaca. Çıraklardan birini başka bir ustaya verdim, aç kalmasın diye. Ocak sorar: kapı neden kapandı? Cevabım olsun istedim."
 sohbet.karaca_usta.c1,Karaca derler. Kayseri'de tabakhanem vardı. Yandı.
-sohbet.karaca_usta.c2,Çıraklarım. Ben neredeysem onlar orada.
-sohbet.karaca_usta.c3,"Ocağa borcum var. Ödeyeceğim, vakti gelince."
-sohbet.karaca_usta.c4,Başka bir ustaya verdim. Aç kalmasın diye.
-sohbet.karaca_usta.c5,Ocak sorar: kapı neden kapandı? Cevabım olsun istedim.
+sohbet.karaca_usta.c10,"Musa'yı. Sessiz olanı. Sessizler az yer, çok çalışır."
+sohbet.karaca_usta.c11,Ocak sorar: kapı neden kapandı? Cevabım olsun istedim.
+sohbet.karaca_usta.c12,Henüz yok. Belki sen verirsin.
+sohbet.karaca_usta.c2,"Ham deriyi alırım; çarık olur, kemer olur, eyer olur. Sabır ister; deri aceleciyi sevmez."
+sohbet.karaca_usta.c3,"Moğol şehri almadı, yaktı. Biz derileri kurtaralım derken ocağı kaybettik."
+sohbet.karaca_usta.c4,Çıraklarım. Ben neredeysem onlar orada.
+sohbet.karaca_usta.c5,"Biri Hasan, biri Musa. Hasan sabırsız, Musa sessiz. İkisi birden bir usta eder."
+sohbet.karaca_usta.c6,"Ocağa borcum var. Ödeyeceğim, vakti gelince."
+sohbet.karaca_usta.c7,Yola çıkarken ocağın sandığından akçe aldım. Ahi borcu unutmaz; ben de unutmam.
+sohbet.karaca_usta.c8,Esnafın kardeşliği. Birbirimize kefil oluruz. Bir usta yalan söylerse hepimiz utanırız.
+sohbet.karaca_usta.c9,Başka bir ustaya verdim. Aç kalmasın diye.
 sohbet.karaca_usta.giris1,Belinde şed bağlı bir usta. Yanında iki çırak.
 sohbet.karaca_usta.giris2,Karaca Usta yine geldi. Çıraklardan biri yok.
 sohbet.karaca_usta.s1,Kimsin?
-sohbet.karaca_usta.s2,Bunlar kim?
-sohbet.karaca_usta.s3,Ahi ocağın ne der?
-sohbet.karaca_usta.s4,Çırağın nerede?
-sohbet.karaca_usta.s5,Neden döndün?
+sohbet.karaca_usta.s10,Hangisini verdin?
+sohbet.karaca_usta.s11,Neden döndün?
+sohbet.karaca_usta.s12,Cevabın ne?
+sohbet.karaca_usta.s2,Ne iş yaparsın?
+sohbet.karaca_usta.s3,Tabakhane nasıl yandı?
+sohbet.karaca_usta.s4,Bunlar kim?
+sohbet.karaca_usta.s5,Adları ne?
+sohbet.karaca_usta.s6,Ahi ocağın ne der?
+sohbet.karaca_usta.s7,Ne borcu?
+sohbet.karaca_usta.s8,Ahiler kim?
+sohbet.karaca_usta.s9,Çırağın nerede?
+sohbet.miraen.acilis1,"Selam sana, kapıcı. Atımı da sancağımı da Kösedağ'da bıraktım. Üç gündür yürüyorum; arkamdan gelen olur mu diye dönüp duruyorum."
 sohbet.miraen.c1,Miraen. Gürcü'yüm. Sultanın ordusundaydım.
-sohbet.miraen.c2,Kösedağ'da kaldı. Ben kalmadım.
-sohbet.miraen.c3,Birlik mi... Dağıldı. Herkes dağıldı. (Gözlerini kaçırıyor.)
+sohbet.miraen.c10,Kaçanları sayan biri hep olur. (Arkasındaki yola bakıyor.)
+sohbet.miraen.c11,Herkes kaçtı. Ben biraz daha geç kaçtım.
+sohbet.miraen.c12,İkisi benimle yürüdü. Biri dereyi geçemedi; öteki geçti ve gitti.
+sohbet.miraen.c2,"Bizim beyler sultana bağlıydı, biz de onların atlısıyız. Sancak değişir, at aynı kalır."
+sohbet.miraen.c3,Kimseye. Bu kadar özgür olacağımı hiç düşünmezdim. Hoşuma da gitmiyor.
+sohbet.miraen.c4,Yüz atlının başıydım. Şimdi yüz adımlık yolun başındayım.
+sohbet.miraen.c5,Kösedağ'da kaldı. Ben kalmadım.
+sohbet.miraen.c6,"Atım vuruldu, altında kaldım. Gece olunca ölülerin arasından kalktım."
+sohbet.miraen.c7,"Sonra yürüdüm. Moğol ateşlerinden uzak, dereleri izleyerek."
+sohbet.miraen.c8,"Kın kırık, kılıç sağlam. Kılıcı bırakmadım; kın kendini bıraktı."
+sohbet.miraen.c9,Birlik mi... Dağıldı. Herkes dağıldı. (Gözlerini kaçırıyor.)
 sohbet.miraen.giris1,Atsız bir atlı. Kılıcının kını kırık; bakışı hep arkasındaki yolda.
 sohbet.miraen.s1,Kimsin?
-sohbet.miraen.s2,Atın nerede?
-sohbet.miraen.s3,Birliğin nerede?
+sohbet.miraen.s10,Seni arayan var mı?
+sohbet.miraen.s11,Kaçtın mı yani?
+sohbet.miraen.s12,Arkadaşların?
+sohbet.miraen.s2,Gürcü ne arar sultanın ordusunda?
+sohbet.miraen.s3,Şimdi kime bağlısın?
+sohbet.miraen.s4,Rütben neydi?
+sohbet.miraen.s5,Atın nerede?
+sohbet.miraen.s6,Nasıl kurtuldun?
+sohbet.miraen.s7,Sonra?
+sohbet.miraen.s8,Kılıcın neden kırık?
+sohbet.miraen.s9,Birliğin nerede?
+sohbet.nogay.acilis1,Nogay. Moğol beyinin dilmacıydım; onun sözünü Türkçeye çevirirdim. Çevirdiğim sözler köyleri yaktı. Çevirmekten yoruldum.
+sohbet.nogay.acilis2,"Yine Nogay. Atım yok; bir Türkmen obası aldı, karşılığında beni öldürmediler. Adil bir alışveriş."
 sohbet.nogay.c1,Nogay. Dilmaçtım. Moğol beyinin sözünü Türkçeye çevirirdim.
-sohbet.nogay.c2,Çevirdiğim sözler köyleri yaktı. Ben çevirmekten yoruldum.
-sohbet.nogay.c3,Arkamda değil. Ama uzak da değil.
-sohbet.nogay.c4,Bir Türkmen obası aldı. Karşılığında beni öldürmediler.
-sohbet.nogay.c5,Bir yer. Kimsenin sözünü çevirmediğim bir yer.
+sohbet.nogay.c2,Dört. Beşincisi susmaktı; onu geç öğrendim.
+sohbet.nogay.c3,Çevirdiğim sözler köyleri yaktı. Ben çevirmekten yoruldum.
+sohbet.nogay.c4,"'Teslim olun, kimseye dokunulmayacak.' Her köyde aynı sözü çevirdim. Hiçbirinde doğru çıkmadı."
+sohbet.nogay.c5,Arkamda değil. Ama uzak da değil.
+sohbet.nogay.c6,"Gelirler. Önce bir elçi, sonra bir söz, sonra ateş. Sırayı bilirim."
+sohbet.nogay.c7,Bir Türkmen obası aldı. Karşılığında beni öldürmediler.
+sohbet.nogay.c8,Bir yer. Kimsenin sözünü çevirmediğim bir yer.
+sohbet.nogay.c9,Sorarsan söylerim. Sormazsan da bazen.
 sohbet.nogay.giris1,"Bozkır biçimi kalpaklı, sessiz bir adam. Atını yedeğinde değil, elinde tutuyor."
 sohbet.nogay.giris2,Nogay yine geldi. Bu sefer atı yok; ayakları sargılı.
 sohbet.nogay.s1,Kimsin?
-sohbet.nogay.s2,Neden kaçtın?
-sohbet.nogay.s3,Moğollar nerede?
-sohbet.nogay.s4,Atın nerede?
-sohbet.nogay.s5,Bu kez ne istiyorsun?
+sohbet.nogay.s2,Kaç dil bilirsin?
+sohbet.nogay.s3,Neden kaçtın?
+sohbet.nogay.s4,Hangi sözler?
+sohbet.nogay.s5,Moğollar nerede?
+sohbet.nogay.s6,Buraya gelirler mi?
+sohbet.nogay.s7,Atın nerede?
+sohbet.nogay.s8,Bu kez ne istiyorsun?
+sohbet.nogay.s9,Bir şey bilirsen söyler misin?
+sohbet.saruca_hatun.acilis1,"Allah'ın selamı üzerine olsun. Ben Saruca, Sivas köylerindenim. Kocamı tarlada bıraktık. Kucağımdaki çocuk için bir çatı arıyorum, başka bir şey değil."
+sohbet.saruca_hatun.acilis2,Yine geldim. Bu sefer sırtımda tohum var; çocuğu bir hana bıraktım. Tohumu toprağa koymadan ölürsem bu yük boşa taşınmış olur.
 sohbet.saruca_hatun.c1,Saruca. Sivas'ın köylerindendim.
-sohbet.saruca_hatun.c2,Yoktur artık.
-sohbet.saruca_hatun.c3,Çocuğa bir çatı.
-sohbet.saruca_hatun.c4,"Tohum. Yemeyiz, ekeriz. Toprak verirseniz."
-sohbet.saruca_hatun.c5,Bir hana bıraktım. Tohumu getirmek için.
-sohbet.saruca_hatun.c6,Biliyorum. Tohum da biliyor.
+sohbet.saruca_hatun.c10,"Hancı kadın iyi biri. Ama han handır; bugün var, yarın yok."
+sohbet.saruca_hatun.c11,Biliyorum. Tohum da biliyor.
+sohbet.saruca_hatun.c2,"Atlılar geldi, ambarı boşalttılar, sonra damları yaktılar. Biz dereye saklandık."
+sohbet.saruca_hatun.c3,Yoktur artık.
+sohbet.saruca_hatun.c4,Tarladan dönmedi. Bulduğumuzda geç kalmıştık. (Sesi hiç değişmiyor.)
+sohbet.saruca_hatun.c5,Çocuğa bir çatı.
+sohbet.saruca_hatun.c6,"Ekerim, biçerim, harman ederim. Bir tarla verirsen karnımızı ben doyururum."
+sohbet.saruca_hatun.c7,"Tohum. Yemeyiz, ekeriz. Toprak verirseniz."
+sohbet.saruca_hatun.c8,"Buğday, biraz da mercimek. Buğday kışa dayanır, mercimek çabuk biter."
+sohbet.saruca_hatun.c9,Bir hana bıraktım. Tohumu getirmek için.
 sohbet.saruca_hatun.giris1,"Kucağında çocuk, yorgun bir kadın."
 sohbet.saruca_hatun.giris2,Saruca Hatun yine. Bu sefer sırtında bir çuval.
 sohbet.saruca_hatun.s1,Kimsin?
-sohbet.saruca_hatun.s2,Kocan nerede?
-sohbet.saruca_hatun.s3,Ne istersin?
-sohbet.saruca_hatun.s4,Çuvalda ne var?
-sohbet.saruca_hatun.s5,Çocuk nerede?
-sohbet.saruca_hatun.s6,Kış yaklaşıyor.
+sohbet.saruca_hatun.s10,Güvenli mi orası?
+sohbet.saruca_hatun.s11,Kış yaklaşıyor.
+sohbet.saruca_hatun.s2,Köyün ne oldu?
+sohbet.saruca_hatun.s3,Kocan nerede?
+sohbet.saruca_hatun.s4,Ne oldu ona?
+sohbet.saruca_hatun.s5,Ne istersin?
+sohbet.saruca_hatun.s6,Sen ne iş yaparsın?
+sohbet.saruca_hatun.s7,Çuvalda ne var?
+sohbet.saruca_hatun.s8,Ne tohumu?
+sohbet.saruca_hatun.s9,Çocuk nerede?
+sohbet.sorhan.acilis1,"Hey kapıcı! At lazım mı? İyi at bunlar, Moğol atından uslu. Ben Sorhan, Kıpçak'ım; hangi kapı açılırsa oraya giderim."
+sohbet.sorhan.acilis2,"Yine ben. Bu sefer yalnız değilim: karım, iki çocuğum. Geçen sefer yolda bekliyorlardı; bu sefer bekleyecek yer kalmadı."
+sohbet.sorhan.acilis3,"Sorhan. Hatırlarsın. Atlar yok, aile yok. Bir ben kaldım, bir de bu kapı."
 sohbet.sorhan.c1,"Sorhan. At satarım, alan olursa."
-sohbet.sorhan.c2,Şimdi benim.
-sohbet.sorhan.c3,Neresi kapı açarsa.
-sohbet.sorhan.c4,"Karım, çocuklarım. Geçen sefer yolda bekliyorlardı."
-sohbet.sorhan.c5,Yol parası oldu.
-sohbet.sorhan.c6,Başka kapı açılmadı.
-sohbet.sorhan.c7,Bir kervana verdim onları. Güneye.
-sohbet.sorhan.c8,Atlar gitti. Ben kaldım.
-sohbet.sorhan.c9,Bir yer. Sadece bir yer.
+sohbet.sorhan.c10,"Karım, çocuklarım. Geçen sefer yolda bekliyorlardı."
+sohbet.sorhan.c11,"Ayaz. Benden iyi ata biner, söylemesi ayıp."
+sohbet.sorhan.c12,Dün yediler. Bugünü sorma.
+sohbet.sorhan.c13,Yol parası oldu.
+sohbet.sorhan.c14,"Bir Türkmen beyinin adamlarına. Geçit için at istediler. Bir at, bir aileye bedel."
+sohbet.sorhan.c15,Başka kapı açılmadı.
+sohbet.sorhan.c16,"Üçünü. Biri kapalıydı, biri yanmıştı, biri bize ok attı."
+sohbet.sorhan.c17,Bir kervana verdim onları. Güneye.
+sohbet.sorhan.c18,Kervancı üç kişi aldı. Ben dördüncüydüm.
+sohbet.sorhan.c19,"Halep'te bir han var, adı Kırmızı Kapı. Orada bekleyecekler. Beklerlerse."
+sohbet.sorhan.c2,"Bozkırdan. Kıpçak obası dağıldı; Moğol bizi önce kendine kattı, sonra tükürdü."
+sohbet.sorhan.c20,Atlar gitti. Ben kaldım.
+sohbet.sorhan.c21,At bakmayı bilirim. Atı olan bir köy bulursam onun atlarına bakarım.
+sohbet.sorhan.c22,Bir yer. Sadece bir yer.
+sohbet.sorhan.c23,Çünkü yolum hep buraya çıkıyor. Bu da bir hesap.
+sohbet.sorhan.c3,Atlarını ben güdüyordum. Bir gece atları kendim için güttüm.
+sohbet.sorhan.c4,Şimdi benim.
+sohbet.sorhan.c5,"Damga eski sahibin, at yeni sahibin. Damga yalan söylemez ama her şeyi de söylemez."
+sohbet.sorhan.c6,"Ya öldü ya beni arıyor. İkisi de benim derdim değil, değil mi?"
+sohbet.sorhan.c7,"Sana mı? Bir gece uyku, bir kap çorba. Başkasına beş akçe."
+sohbet.sorhan.c8,Neresi kapı açarsa.
+sohbet.sorhan.c9,Var. Yolda bekliyorlar. Yer bulursam getireceğim.
 sohbet.sorhan.giris1,Üç atı yedeğinde bir Kıpçak. Atların ikisinde yabancı bir damga var.
 sohbet.sorhan.giris2,Sorhan yine. Bu sefer yanında bir kadın ve iki çocuk. Atlardan biri eksik.
 sohbet.sorhan.giris3,Sorhan. Yalnız. Ne at var ne aile.
 sohbet.sorhan.s1,Kimsin?
-sohbet.sorhan.s2,Bu atlar senin mi?
-sohbet.sorhan.s3,Nereye gidiyorsun?
-sohbet.sorhan.s4,Bunlar kim?
-sohbet.sorhan.s5,Bir at nerede?
-sohbet.sorhan.s6,Neden geri geldin?
-sohbet.sorhan.s7,Ailen nerede?
-sohbet.sorhan.s8,Atlar?
-sohbet.sorhan.s9,Ne istiyorsun?
+sohbet.sorhan.s10,Bunlar kim?
+sohbet.sorhan.s11,Karının adı ne?
+sohbet.sorhan.s12,Çocuklar aç mı?
+sohbet.sorhan.s13,Bir at nerede?
+sohbet.sorhan.s14,Kime verdin?
+sohbet.sorhan.s15,Neden geri geldin?
+sohbet.sorhan.s16,Başka kapıları denedin mi?
+sohbet.sorhan.s17,Ailen nerede?
+sohbet.sorhan.s18,Neden onlarla gitmedin?
+sohbet.sorhan.s19,Bir daha görecek misin?
+sohbet.sorhan.s2,Nereden geliyorsun?
+sohbet.sorhan.s20,Atlar?
+sohbet.sorhan.s21,Atsız ne yapacaksın?
+sohbet.sorhan.s22,Ne istiyorsun?
+sohbet.sorhan.s23,Neden burası?
+sohbet.sorhan.s3,Neden ayrıldın?
+sohbet.sorhan.s4,Bu atlar senin mi?
+sohbet.sorhan.s5,Damga kimin?
+sohbet.sorhan.s6,Eski sahibi nerede?
+sohbet.sorhan.s7,Kaça satarsın?
+sohbet.sorhan.s8,Nereye gidiyorsun?
+sohbet.sorhan.s9,Ailen var mı?
+sohbet.thessra.acilis1,"Akşamın hayrolsun. Ben Thessra, Trabzonlu bir hekimin kızıyım. Babamı yolda gömdüm; elimde onun kutusu kaldı. Kutudakiler acıyı dindirir."
+sohbet.thessra.acilis2,"Yine ben. Kervan beni de kutuyu da istemedi. Kutu hafifledi; yol uzundu, ağrıyan çoktu."
 sohbet.thessra.c1,Thessra. Trabzon'dan. Babam hekimdi.
-sohbet.thessra.c2,İlaç. Ağrıya iyi gelir... başka şeye de.
-sohbet.thessra.c3,Yolda gömdük.
-sohbet.thessra.c4,Kervan beni de kutuyu da istemedi.
-sohbet.thessra.c5,Yarısı. Yol uzun.
-sohbet.thessra.c6,Satmadım. Verdim. Ağrıyan çoktu.
+sohbet.thessra.c10,Hasta bir çocuğa baktı; çocuğun öksürüğü ona geçti. İyileştirdiği son kişi o çocuktu.
+sohbet.thessra.c11,Kervan beni de kutuyu da istemedi.
+sohbet.thessra.c12,Kutuda zehir var dediler. Var. Her ilaç biraz zehirdir.
+sohbet.thessra.c13,Yarısı. Yol uzun.
+sohbet.thessra.c14,"Bir bebeğin ateşine, bir askerin bacağına, bir yaşlının son gecesine."
+sohbet.thessra.c15,Satmadım. Verdim. Ağrıyan çoktu.
+sohbet.thessra.c16,Ağrıyandan para alınmaz. Ağrısı geçince verirse alırım.
+sohbet.thessra.c2,"Babam Sivas'ta bir beye bakıyordu. Bey öldü, şehir yandı. Trabzon'a dönmeye çalışırken yol bizi buraya çıkardı."
+sohbet.thessra.c3,Yıllarca babamın elini tuttum. Yara sarmayı bilirim. Bana kimse hekim demez; kadınım çünkü.
+sohbet.thessra.c4,"Ateş düşürürüm, yara sararım, doğuma yardım ederim. İsteyen olursa."
+sohbet.thessra.c5,İlaç. Ağrıya iyi gelir... başka şeye de.
+sohbet.thessra.c6,Uyku. Fazlası derin uyku. Çok fazlası... uyanmamak.
+sohbet.thessra.c7,Sorarsın diye. Sormasaydın söylemezdim.
+sohbet.thessra.c8,Ağrın yoksa vermem. Babam böyle öğretti.
+sohbet.thessra.c9,Yolda gömdük.
 sohbet.thessra.giris1,Kucağında tahta bir kutu taşıyan genç bir kadın.
 sohbet.thessra.giris2,Thessra yine kapıda. Kutusu daha hafif görünüyor.
 sohbet.thessra.s1,Kimsin?
-sohbet.thessra.s2,Kutuda ne var?
-sohbet.thessra.s3,Baban nerede?
-sohbet.thessra.s4,Neden döndün?
-sohbet.thessra.s5,Kutu boşaldı mı?
-sohbet.thessra.s6,Kime sattın?
+sohbet.thessra.s10,Nasıl öldü?
+sohbet.thessra.s11,Neden döndün?
+sohbet.thessra.s12,Neden istemediler?
+sohbet.thessra.s13,Kutu boşaldı mı?
+sohbet.thessra.s14,Kime harcadın?
+sohbet.thessra.s15,Kime sattın?
+sohbet.thessra.s16,Para almadan mı?
+sohbet.thessra.s2,Trabzon'dan buraya neden?
+sohbet.thessra.s3,Sen de hekim misin?
+sohbet.thessra.s4,Burada ne yaparsın?
+sohbet.thessra.s5,Kutuda ne var?
+sohbet.thessra.s6,Başka şey ne?
+sohbet.thessra.s7,Bunu neden söyledin?
+sohbet.thessra.s8,Bir şişe ver bakalım.
+sohbet.thessra.s9,Baban nerede?
+sohbet.yusuf.acilis1,"Selam... Adım Yusuf. Keçimi arıyorum; ip bende kaldı. Karnım da aç, ama önce keçi."
+sohbet.yusuf.acilis2,"Yine ben, Yusuf. Bir değirmencinin yanındaydım; değirmen de gitti. Keçi hâlâ dönmedi."
 sohbet.yusuf.c1,Yusuf.
-sohbet.yusuf.c2,Kösedağ'a babam gitti. Annem yolda kaldı.
-sohbet.yusuf.c3,İp bende kaldı. Keçi kaçtı. Belki döner.
-sohbet.yusuf.c4,Bir değirmencinin yanında. Sonra değirmen de gitti.
-sohbet.yusuf.c5,Keçi güderim. Bir de beklerim.
+sohbet.yusuf.c10,Babamı. Keçiyi. Akşamı. Hepsi bir gün gelir.
+sohbet.yusuf.c2,On iki. Ya da on üç. Annem bilirdi.
+sohbet.yusuf.c3,Kösedağ'a babam gitti. Annem yolda kaldı.
+sohbet.yusuf.c4,"Ateşi vardı. Bir sabah kalkmadı. Ben de ipi aldım, yürüdüm."
+sohbet.yusuf.c5,İp bende kaldı. Keçi kaçtı. Belki döner.
+sohbet.yusuf.c6,Karabaş. Ama başı ak. Babam şakadan koymuş.
+sohbet.yusuf.c7,Bir değirmencinin yanında. Sonra değirmen de gitti.
+sohbet.yusuf.c8,"Askerler un istedi, değirmenci vermedi. Sonra değirmen yandı."
+sohbet.yusuf.c9,Keçi güderim. Bir de beklerim.
 sohbet.yusuf.giris1,"On iki yaşlarında bir oğlan. Elinde bir keçi ipi, ucunda keçi yok."
 sohbet.yusuf.giris2,Yusuf yine kapıda. Daha zayıf.
 sohbet.yusuf.s1,Adın ne?
-sohbet.yusuf.s2,Ailen nerede?
-sohbet.yusuf.s3,Keçin nerede?
-sohbet.yusuf.s4,Nerede kaldın?
-sohbet.yusuf.s5,Ne iş bilirsin?
+sohbet.yusuf.s10,Neyi beklersin?
+sohbet.yusuf.s2,Kaç yaşındasın?
+sohbet.yusuf.s3,Ailen nerede?
+sohbet.yusuf.s4,Yolda mı kaldı?
+sohbet.yusuf.s5,Keçin nerede?
+sohbet.yusuf.s6,Keçinin adı ne?
+sohbet.yusuf.s7,Nerede kaldın?
+sohbet.yusuf.s8,Değirmene ne oldu?
+sohbet.yusuf.s9,Ne iş bilirsin?

@@ -6,6 +6,8 @@
 script = ExtResource("1")
 id = &"hasan_celebi"
 giris_anahtarlari = PackedStringArray("sohbet.hasan_celebi.giris1")
-soru_anahtarlari = PackedStringArray("sohbet.hasan_celebi.s1", "sohbet.hasan_celebi.s2", "sohbet.hasan_celebi.s3")
-cevap_anahtarlari = PackedStringArray("sohbet.hasan_celebi.c1", "sohbet.hasan_celebi.c2", "sohbet.hasan_celebi.c3")
-soru_ziyareti = PackedInt32Array(0, 0, 0)
+acilis_anahtarlari = PackedStringArray("sohbet.hasan_celebi.acilis1")
+soru_anahtarlari = PackedStringArray("sohbet.hasan_celebi.s1", "sohbet.hasan_celebi.s2", "sohbet.hasan_celebi.s3", "sohbet.hasan_celebi.s4", "sohbet.hasan_celebi.s5", "sohbet.hasan_celebi.s6")
+cevap_anahtarlari = PackedStringArray("sohbet.hasan_celebi.c1", "sohbet.hasan_celebi.c2", "sohbet.hasan_celebi.c3", "sohbet.hasan_celebi.c4", "sohbet.hasan_celebi.c5", "sohbet.hasan_celebi.c6")
+soru_ziyareti = PackedInt32Array(0, 0, 0, 0, 0, 0)
+soru_ust = PackedInt32Array(-1, 0, -1, 2, 3, -1)

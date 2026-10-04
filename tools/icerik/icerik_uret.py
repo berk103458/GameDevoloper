@@ -88,7 +88,7 @@ for e in ESYALAR:
 tres("data/ayarlar/oyun.tres", "OyunAyarlari", "res://src/veri/oyun_ayarlari.gd", {
     "bar_anahtarlari": psa(BARLAR),
     "bar_baslangic": 6, "bar_azami": 10, "rusvet_kurtarma": 3, "rusvet_hakki": 3,
-    "gece_basina_gelen": 3, "adli_olasiligi": 0.6, "azami_soru": 2, "belirme_ms": 300.0,
+    "gece_basina_gelen": 3, "adli_olasiligi": 0.6, "azami_soru": 4, "belirme_ms": 300.0,
     "ciftci_uretim": 3, "tuketim_bolen": 1,
     "gida_carpani": 3, "ordu_baski_gecesi": 3, "vergi_araligi": 4, "tuccar_baski_gecesi": 2,
     "oturma_esigi": 18, "perde2_gece_basina_gelen": 2, "perde2_hedef_gece": 12,
@@ -108,105 +108,208 @@ tres("data/ayarlar/oyun.tres", "OyunAyarlari", "res://src/veri/oyun_ayarlari.gd"
 # ─── Adlı karakterler ────────────────────────────────────────────────────
 # etki sırası: Halk, Soylular, Tüccarlar, Ordu
 KARAKTERLER = [
+    # sorular: (ziyaret, soru, cevap, [takip]) — takip: (soru, cevap, [takip]); bir soru sorulunca takipleri açılır.
+    # acilislar: ziyaret başına, gelen kapıya varınca kendini ve hikâyesini anlattığı söz.
     dict(id="miraen", ad="Miraen", koken="yabanci", sinif="asker", kural="hic_donmez", erken=0,
          secenekler=["kabul", "ret", "kisla"],
          etki=dict(kabul=[0, -1, 0, 1], ret=[0, 0, 0, -1], kisla=[-1, 0, 0, 2]),
          girisler=["Atsız bir atlı. Kılıcının kını kırık; bakışı hep arkasındaki yolda."],
-         sorular=[(0, "Kimsin?", "Miraen. Gürcü'yüm. Sultanın ordusundaydım."),
-                  (0, "Atın nerede?", "Kösedağ'da kaldı. Ben kalmadım."),
-                  (0, "Birliğin nerede?", "Birlik mi... Dağıldı. Herkes dağıldı. (Gözlerini kaçırıyor.)")]),
+         acilislar=["Selam sana, kapıcı. Atımı da sancağımı da Kösedağ'da bıraktım. Üç gündür yürüyorum; arkamdan gelen olur mu diye dönüp duruyorum."],
+         sorular=[(0, "Kimsin?", "Miraen. Gürcü'yüm. Sultanın ordusundaydım.", [
+                      ("Gürcü ne arar sultanın ordusunda?", "Bizim beyler sultana bağlıydı, biz de onların atlısıyız. Sancak değişir, at aynı kalır.", [
+                          ("Şimdi kime bağlısın?", "Kimseye. Bu kadar özgür olacağımı hiç düşünmezdim. Hoşuma da gitmiyor.", [])]),
+                      ("Rütben neydi?", "Yüz atlının başıydım. Şimdi yüz adımlık yolun başındayım.", [])]),
+                  (0, "Atın nerede?", "Kösedağ'da kaldı. Ben kalmadım.", [
+                      ("Nasıl kurtuldun?", "Atım vuruldu, altında kaldım. Gece olunca ölülerin arasından kalktım.", [
+                          ("Sonra?", "Sonra yürüdüm. Moğol ateşlerinden uzak, dereleri izleyerek.", [])]),
+                      ("Kılıcın neden kırık?", "Kın kırık, kılıç sağlam. Kılıcı bırakmadım; kın kendini bıraktı.", [])]),
+                  (0, "Birliğin nerede?", "Birlik mi... Dağıldı. Herkes dağıldı. (Gözlerini kaçırıyor.)", [
+                      ("Seni arayan var mı?", "Kaçanları sayan biri hep olur. (Arkasındaki yola bakıyor.)", [
+                          ("Kaçtın mı yani?", "Herkes kaçtı. Ben biraz daha geç kaçtım.", [])]),
+                      ("Arkadaşların?", "İkisi benimle yürüdü. Biri dereyi geçemedi; öteki geçti ve gitti.", [])])]),
     dict(id="sorhan", ad="Sorhan", koken="yabanci", sinif="esnaf", kural="birden_cok_gelir", n=3, erken=1,
          secenekler=["kabul", "ret", "rusvet", "kisla"],
          etki=dict(kabul=[0, 0, 1, 1], ret=[0, 0, -1, 0], rusvet=[-1, 0, 2, 0], kisla=[0, -1, 0, 1]),
          girisler=["Üç atı yedeğinde bir Kıpçak. Atların ikisinde yabancı bir damga var.",
                    "Sorhan yine. Bu sefer yanında bir kadın ve iki çocuk. Atlardan biri eksik.",
                    "Sorhan. Yalnız. Ne at var ne aile."],
-         sorular=[(1, "Kimsin?", "Sorhan. At satarım, alan olursa."),
-                  (1, "Bu atlar senin mi?", "Şimdi benim."),
-                  (1, "Nereye gidiyorsun?", "Neresi kapı açarsa."),
-                  (2, "Bunlar kim?", "Karım, çocuklarım. Geçen sefer yolda bekliyorlardı."),
-                  (2, "Bir at nerede?", "Yol parası oldu."),
-                  (2, "Neden geri geldin?", "Başka kapı açılmadı."),
-                  (3, "Ailen nerede?", "Bir kervana verdim onları. Güneye."),
-                  (3, "Atlar?", "Atlar gitti. Ben kaldım."),
-                  (3, "Ne istiyorsun?", "Bir yer. Sadece bir yer.")]),
+         acilislar=["Hey kapıcı! At lazım mı? İyi at bunlar, Moğol atından uslu. Ben Sorhan, Kıpçak'ım; hangi kapı açılırsa oraya giderim.",
+                    "Yine ben. Bu sefer yalnız değilim: karım, iki çocuğum. Geçen sefer yolda bekliyorlardı; bu sefer bekleyecek yer kalmadı.",
+                    "Sorhan. Hatırlarsın. Atlar yok, aile yok. Bir ben kaldım, bir de bu kapı."],
+         sorular=[(1, "Kimsin?", "Sorhan. At satarım, alan olursa.", [
+                      ("Nereden geliyorsun?", "Bozkırdan. Kıpçak obası dağıldı; Moğol bizi önce kendine kattı, sonra tükürdü.", [
+                          ("Neden ayrıldın?", "Atlarını ben güdüyordum. Bir gece atları kendim için güttüm.", [])])]),
+                  (1, "Bu atlar senin mi?", "Şimdi benim.", [
+                      ("Damga kimin?", "Damga eski sahibin, at yeni sahibin. Damga yalan söylemez ama her şeyi de söylemez.", [
+                          ("Eski sahibi nerede?", "Ya öldü ya beni arıyor. İkisi de benim derdim değil, değil mi?", [])]),
+                      ("Kaça satarsın?", "Sana mı? Bir gece uyku, bir kap çorba. Başkasına beş akçe.", [])]),
+                  (1, "Nereye gidiyorsun?", "Neresi kapı açarsa.", [
+                      ("Ailen var mı?", "Var. Yolda bekliyorlar. Yer bulursam getireceğim.", [])]),
+                  (2, "Bunlar kim?", "Karım, çocuklarım. Geçen sefer yolda bekliyorlardı.", [
+                      ("Karının adı ne?", "Ayaz. Benden iyi ata biner, söylemesi ayıp.", []),
+                      ("Çocuklar aç mı?", "Dün yediler. Bugünü sorma.", [])]),
+                  (2, "Bir at nerede?", "Yol parası oldu.", [
+                      ("Kime verdin?", "Bir Türkmen beyinin adamlarına. Geçit için at istediler. Bir at, bir aileye bedel.", [])]),
+                  (2, "Neden geri geldin?", "Başka kapı açılmadı.", [
+                      ("Başka kapıları denedin mi?", "Üçünü. Biri kapalıydı, biri yanmıştı, biri bize ok attı.", [])]),
+                  (3, "Ailen nerede?", "Bir kervana verdim onları. Güneye.", [
+                      ("Neden onlarla gitmedin?", "Kervancı üç kişi aldı. Ben dördüncüydüm.", [
+                          ("Bir daha görecek misin?", "Halep'te bir han var, adı Kırmızı Kapı. Orada bekleyecekler. Beklerlerse.", [])])]),
+                  (3, "Atlar?", "Atlar gitti. Ben kaldım.", [
+                      ("Atsız ne yapacaksın?", "At bakmayı bilirim. Atı olan bir köy bulursam onun atlarına bakarım.", [])]),
+                  (3, "Ne istiyorsun?", "Bir yer. Sadece bir yer.", [
+                      ("Neden burası?", "Çünkü yolum hep buraya çıkıyor. Bu da bir hesap.", [])])]),
     dict(id="thessra", ad="Thessra", koken="yabanci", sinif="esnaf", kural="oranla_doner", erken=1,
          secenekler=["kabul", "ret", "rusvet"],
          etki=dict(kabul=[1, 0, 1, -1], ret=[-1, 0, 0, 0], rusvet=[0, 1, 1, -1]),
          girisler=["Kucağında tahta bir kutu taşıyan genç bir kadın.",
                    "Thessra yine kapıda. Kutusu daha hafif görünüyor."],
-         sorular=[(1, "Kimsin?", "Thessra. Trabzon'dan. Babam hekimdi."),
-                  (1, "Kutuda ne var?", "İlaç. Ağrıya iyi gelir... başka şeye de."),
-                  (1, "Baban nerede?", "Yolda gömdük."),
-                  (2, "Neden döndün?", "Kervan beni de kutuyu da istemedi."),
-                  (2, "Kutu boşaldı mı?", "Yarısı. Yol uzun."),
-                  (2, "Kime sattın?", "Satmadım. Verdim. Ağrıyan çoktu.")]),
+         acilislar=["Akşamın hayrolsun. Ben Thessra, Trabzonlu bir hekimin kızıyım. Babamı yolda gömdüm; elimde onun kutusu kaldı. Kutudakiler acıyı dindirir.",
+                    "Yine ben. Kervan beni de kutuyu da istemedi. Kutu hafifledi; yol uzundu, ağrıyan çoktu."],
+         sorular=[(1, "Kimsin?", "Thessra. Trabzon'dan. Babam hekimdi.", [
+                      ("Trabzon'dan buraya neden?", "Babam Sivas'ta bir beye bakıyordu. Bey öldü, şehir yandı. Trabzon'a dönmeye çalışırken yol bizi buraya çıkardı.", []),
+                      ("Sen de hekim misin?", "Yıllarca babamın elini tuttum. Yara sarmayı bilirim. Bana kimse hekim demez; kadınım çünkü.", [
+                          ("Burada ne yaparsın?", "Ateş düşürürüm, yara sararım, doğuma yardım ederim. İsteyen olursa.", [])])]),
+                  (1, "Kutuda ne var?", "İlaç. Ağrıya iyi gelir... başka şeye de.", [
+                      ("Başka şey ne?", "Uyku. Fazlası derin uyku. Çok fazlası... uyanmamak.", [
+                          ("Bunu neden söyledin?", "Sorarsın diye. Sormasaydın söylemezdim.", [])]),
+                      ("Bir şişe ver bakalım.", "Ağrın yoksa vermem. Babam böyle öğretti.", [])]),
+                  (1, "Baban nerede?", "Yolda gömdük.", [
+                      ("Nasıl öldü?", "Hasta bir çocuğa baktı; çocuğun öksürüğü ona geçti. İyileştirdiği son kişi o çocuktu.", [])]),
+                  (2, "Neden döndün?", "Kervan beni de kutuyu da istemedi.", [
+                      ("Neden istemediler?", "Kutuda zehir var dediler. Var. Her ilaç biraz zehirdir.", [])]),
+                  (2, "Kutu boşaldı mı?", "Yarısı. Yol uzun.", [
+                      ("Kime harcadın?", "Bir bebeğin ateşine, bir askerin bacağına, bir yaşlının son gecesine.", [])]),
+                  (2, "Kime sattın?", "Satmadım. Verdim. Ağrıyan çoktu.", [
+                      ("Para almadan mı?", "Ağrıyandan para alınmaz. Ağrısı geçince verirse alırım.", [])])]),
     dict(id="karaca_usta", ad="Karaca Usta", koken="yerel", sinif="esnaf", kural="oranla_doner", erken=2,
          secenekler=["kabul", "ret", "rusvet", "kisla"],
          etki=dict(kabul=[1, 0, 1, 0], ret=[-1, 0, -1, 0], rusvet=[0, 1, -1, 0], kisla=[0, 0, -1, 1]),
          girisler=["Belinde şed bağlı bir usta. Yanında iki çırak.",
                    "Karaca Usta yine geldi. Çıraklardan biri yok."],
-         sorular=[(1, "Kimsin?", "Karaca derler. Kayseri'de tabakhanem vardı. Yandı."),
-                  (1, "Bunlar kim?", "Çıraklarım. Ben neredeysem onlar orada."),
-                  (1, "Ahi ocağın ne der?", "Ocağa borcum var. Ödeyeceğim, vakti gelince."),
-                  (2, "Çırağın nerede?", "Başka bir ustaya verdim. Aç kalmasın diye."),
-                  (2, "Neden döndün?", "Ocak sorar: kapı neden kapandı? Cevabım olsun istedim.")]),
+         acilislar=["Selamünaleyküm. Karaca derler; Kayseri'de tabakhanem vardı. Moğol geldi, deriler de ocak da yandı. Bu iki çırak, ocağımdan kalanlar.",
+                    "Yine Karaca. Çıraklardan birini başka bir ustaya verdim, aç kalmasın diye. Ocak sorar: kapı neden kapandı? Cevabım olsun istedim."],
+         sorular=[(1, "Kimsin?", "Karaca derler. Kayseri'de tabakhanem vardı. Yandı.", [
+                      ("Ne iş yaparsın?", "Ham deriyi alırım; çarık olur, kemer olur, eyer olur. Sabır ister; deri aceleciyi sevmez.", []),
+                      ("Tabakhane nasıl yandı?", "Moğol şehri almadı, yaktı. Biz derileri kurtaralım derken ocağı kaybettik.", [])]),
+                  (1, "Bunlar kim?", "Çıraklarım. Ben neredeysem onlar orada.", [
+                      ("Adları ne?", "Biri Hasan, biri Musa. Hasan sabırsız, Musa sessiz. İkisi birden bir usta eder.", [])]),
+                  (1, "Ahi ocağın ne der?", "Ocağa borcum var. Ödeyeceğim, vakti gelince.", [
+                      ("Ne borcu?", "Yola çıkarken ocağın sandığından akçe aldım. Ahi borcu unutmaz; ben de unutmam.", [
+                          ("Ahiler kim?", "Esnafın kardeşliği. Birbirimize kefil oluruz. Bir usta yalan söylerse hepimiz utanırız.", [])])]),
+                  (2, "Çırağın nerede?", "Başka bir ustaya verdim. Aç kalmasın diye.", [
+                      ("Hangisini verdin?", "Musa'yı. Sessiz olanı. Sessizler az yer, çok çalışır.", [])]),
+                  (2, "Neden döndün?", "Ocak sorar: kapı neden kapandı? Cevabım olsun istedim.", [
+                      ("Cevabın ne?", "Henüz yok. Belki sen verirsin.", [])])]),
     dict(id="aydogdu", ad="Aydoğdu", koken="yerel", sinif="asker", kural="hic_donmez", erken=3,
          secenekler=["kabul", "ret", "kisla"],
          etki=dict(kabul=[1, -1, 0, 1], ret=[-1, 0, 0, 0], kisla=[0, -1, 0, 2]),
          girisler=["Kolu sargılı bir okçu. Sırtında yay, belinde sadak."],
-         sorular=[(0, "Kimsin?", "Aydoğdu. Türkmen'im."),
-                  (0, "Yaran ne?", "Kösedağ'dan hatıra."),
-                  (0, "Yalnız mısın?", "Şimdilik. (Arkasındaki yola bakıyor.)")]),
+         acilislar=["Aydoğdu. Türkmen'im, okçuyum. Kolum yaralı ama yayı hâlâ gerebilirim. Arkamdan obam geliyor; önden ben bakayım dedim."],
+         sorular=[(0, "Kimsin?", "Aydoğdu. Türkmen'im.", [
+                      ("Hangi boydan?", "Avşar. Babam beydi, ben değilim. Bey olmak için önce sağ kalmak gerek.", [])]),
+                  (0, "Yaran ne?", "Kösedağ'dan hatıra.", [
+                      ("Ağrıyor mu?", "Yayı gerince. Gerince her şey ağrır zaten.", []),
+                      ("Kim sardı?", "Kendim. Dişimle. Pek güzel olmadı.", [])]),
+                  (0, "Yalnız mısın?", "Şimdilik. (Arkasındaki yola bakıyor.)", [
+                      ("Arkanda kim var?", "Obam. Yirmi kişi, otuz koyun. Yer varsa getiririm.", [
+                          ("Ya yer yoksa?", "O zaman yürürüz. Türkmen yürümeyi bilir.", [])])])]),
     dict(id="saruca_hatun", ad="Saruca Hatun", koken="yerel", sinif="ciftci", kural="birden_cok_gelir", n=2, erken=0,
          secenekler=["kabul", "ret", "rusvet"],
          etki=dict(kabul=[1, 0, 0, 0], ret=[-1, 0, 0, 0], rusvet=[-1, 1, 1, 0]),
          girisler=["Kucağında çocuk, yorgun bir kadın.",
                    "Saruca Hatun yine. Bu sefer sırtında bir çuval."],
-         sorular=[(1, "Kimsin?", "Saruca. Sivas'ın köylerindendim."),
-                  (1, "Kocan nerede?", "Yoktur artık."),
-                  (1, "Ne istersin?", "Çocuğa bir çatı."),
-                  (2, "Çuvalda ne var?", "Tohum. Yemeyiz, ekeriz. Toprak verirseniz."),
-                  (2, "Çocuk nerede?", "Bir hana bıraktım. Tohumu getirmek için."),
-                  (2, "Kış yaklaşıyor.", "Biliyorum. Tohum da biliyor.")]),
+         acilislar=["Allah'ın selamı üzerine olsun. Ben Saruca, Sivas köylerindenim. Kocamı tarlada bıraktık. Kucağımdaki çocuk için bir çatı arıyorum, başka bir şey değil.",
+                    "Yine geldim. Bu sefer sırtımda tohum var; çocuğu bir hana bıraktım. Tohumu toprağa koymadan ölürsem bu yük boşa taşınmış olur."],
+         sorular=[(1, "Kimsin?", "Saruca. Sivas'ın köylerindendim.", [
+                      ("Köyün ne oldu?", "Atlılar geldi, ambarı boşalttılar, sonra damları yaktılar. Biz dereye saklandık.", [])]),
+                  (1, "Kocan nerede?", "Yoktur artık.", [
+                      ("Ne oldu ona?", "Tarladan dönmedi. Bulduğumuzda geç kalmıştık. (Sesi hiç değişmiyor.)", [])]),
+                  (1, "Ne istersin?", "Çocuğa bir çatı.", [
+                      ("Sen ne iş yaparsın?", "Ekerim, biçerim, harman ederim. Bir tarla verirsen karnımızı ben doyururum.", [])]),
+                  (2, "Çuvalda ne var?", "Tohum. Yemeyiz, ekeriz. Toprak verirseniz.", [
+                      ("Ne tohumu?", "Buğday, biraz da mercimek. Buğday kışa dayanır, mercimek çabuk biter.", [])]),
+                  (2, "Çocuk nerede?", "Bir hana bıraktım. Tohumu getirmek için.", [
+                      ("Güvenli mi orası?", "Hancı kadın iyi biri. Ama han handır; bugün var, yarın yok.", [])]),
+                  (2, "Kış yaklaşıyor.", "Biliyorum. Tohum da biliyor.", [])]),
     dict(id="ayse_baci", ad="Ayşe Bacı", koken="yerel", sinif="esnaf", kural="oranla_doner", erken=2, portre="farmer_02",
          secenekler=["kabul", "ret", "rusvet"],
          etki=dict(kabul=[1, 0, 1, 0], ret=[-1, 0, 0, 0], rusvet=[0, 1, 0, -1]),
          girisler=["Sırtında katlanmış bir dokuma tezgâhı taşıyan orta yaşlı bir kadın. Yanında iki genç kız.",
                    "Ayşe Bacı yine geldi. Tezgâhın bir ayağı kırık."],
-         sorular=[(1, "Kimsin?", "Ayşe derler. Kayseri'de bacılardandım. Dokuruz, öğretiriz."),
-                  (1, "Bu kızlar kim?", "Çıraklarım. Yolda annelerini yitirdiler."),
-                  (1, "Bacılar ne iş yapar?", "Erkekler ocakta, biz tezgâhta. Biri olmazsa öteki eksik kalır."),
-                  (2, "Tezgâha ne oldu?", "Bir dere geçerken kırıldı. Elimiz kırılmadı ama."),
-                  (2, "Neden döndün?", "Başka uçta kapı var ama ocak yok. Burada olacak diye duydum.")]),
+         acilislar=["Hayırlı akşamlar. Ben Ayşe, Kayseri'de bacılardandım. Bu kızlara dokumayı ben öğretiyorum. Tezgâh sırtımda; ev neredeyse tezgâh orada kurulur.",
+                    "Yine biz. Tezgâhın bir ayağı kırıldı ama ellerimiz sağlam. Başka uçta kapı var, ocak yok; burada olacak diye duydum."],
+         sorular=[(1, "Kimsin?", "Ayşe derler. Kayseri'de bacılardandım. Dokuruz, öğretiriz.", [
+                      ("Bacılar kim?", "Kadınların ocağı. Erkekler ahi olur, biz bacı. Biri olmazsa öteki eksik kalır.", [])]),
+                  (1, "Bu kızlar kim?", "Çıraklarım. Yolda annelerini yitirdiler.", [
+                      ("Ne öğreniyorlar?", "Yünü eğirmeyi, boyamayı, kilim dokumayı. Bir kilim bir kışı geçirir.", [])]),
+                  (1, "Bacılar ne iş yapar?", "Erkekler ocakta, biz tezgâhta. Biri olmazsa öteki eksik kalır.", [
+                      ("Dokuduğunuz satılır mı?", "Satılır. İyi bir kilim üç akçe eder, çok iyisi beş.", [])]),
+                  (2, "Tezgâha ne oldu?", "Bir dere geçerken kırıldı. Elimiz kırılmadı ama.", [
+                      ("Tamir edilir mi?", "Bir marangoz bulursam bir günde. Bulamazsam bir haftada, kendim.", [])]),
+                  (2, "Neden döndün?", "Başka uçta kapı var ama ocak yok. Burada olacak diye duydum.", [
+                      ("Kimden duydun?", "Yolda bir dervişten. Dervişler her şeyi duyar, yarısını söyler.", [])])]),
     dict(id="hasan_celebi", ad="Hasan Çelebi", koken="yerel", sinif="esnaf", kural="hic_donmez", erken=4, portre="craftsman_01",
          secenekler=["kabul", "ret", "rusvet", "kisla"],
          etki=dict(kabul=[-1, 2, 0, 0], ret=[0, -2, 0, 0], rusvet=[0, 1, 1, 0], kisla=[0, -1, 0, 1]),
          girisler=["İyi dikilmiş bir kaftan, mürekkep lekeli parmaklar. Yanında defterler dolu bir heybe."],
-         sorular=[(0, "Kimsin?", "Hasan. Sivas divanında kâtiptim. Vergi yazardım."),
-                  (0, "Heybede ne var?", "Kimin ne borçlu olduğu. Moğol da sorar, bey de."),
-                  (0, "Burada ne işin var?", "Bir köy kayıtsız yaşamaz. Ben kaydederim; sen yönetirsin.")]),
+         acilislar=["Hasan, Sivas divanının kâtibi. Kimin ne borçlu olduğunun defterini taşıyorum. Moğol da sorar, bey de; cevap bende."],
+         sorular=[(0, "Kimsin?", "Hasan. Sivas divanında kâtiptim. Vergi yazardım.", [
+                      ("Kâtip ne iş yapar?", "Herkesin unutmak istediğini hatırlar.", [])]),
+                  (0, "Bu defterler ne?", "Kimin ne borçlu olduğu. Moğol da sorar, bey de.", [
+                      ("Neden yakmadın?", "Yakmak kolay. Ama yakarsam kimin ne ödediğini de kimse bilmez. Borç da yanar, alacak da.", [
+                          ("Moğol'a verir misin?", "Kim kapıyı açarsa ona okurum. Bu kadar dürüstüm.", [])])]),
+                  (0, "Burada ne işin var?", "Bir köy kayıtsız yaşamaz. Ben kaydederim; sen yönetirsin.", [])]),
     dict(id="nogay", ad="Nogay", koken="yabanci", sinif="asker", kural="birden_cok_gelir", n=2, erken=5, portre="soldier_01",
          secenekler=["kabul", "ret", "kisla"],
          etki=dict(kabul=[-1, 0, 1, 1], ret=[0, 0, 0, -1], kisla=[-1, -1, 0, 2]),
          girisler=["Bozkır biçimi kalpaklı, sessiz bir adam. Atını yedeğinde değil, elinde tutuyor.",
                    "Nogay yine geldi. Bu sefer atı yok; ayakları sargılı."],
-         sorular=[(1, "Kimsin?", "Nogay. Dilmaçtım. Moğol beyinin sözünü Türkçeye çevirirdim."),
-                  (1, "Neden kaçtın?", "Çevirdiğim sözler köyleri yaktı. Ben çevirmekten yoruldum."),
-                  (1, "Moğollar nerede?", "Arkamda değil. Ama uzak da değil."),
-                  (2, "Atın nerede?", "Bir Türkmen obası aldı. Karşılığında beni öldürmediler."),
-                  (2, "Bu kez ne istiyorsun?", "Bir yer. Kimsenin sözünü çevirmediğim bir yer.")]),
+         acilislar=["Nogay. Moğol beyinin dilmacıydım; onun sözünü Türkçeye çevirirdim. Çevirdiğim sözler köyleri yaktı. Çevirmekten yoruldum.",
+                    "Yine Nogay. Atım yok; bir Türkmen obası aldı, karşılığında beni öldürmediler. Adil bir alışveriş."],
+         sorular=[(1, "Kimsin?", "Nogay. Dilmaçtım. Moğol beyinin sözünü Türkçeye çevirirdim.", [
+                      ("Kaç dil bilirsin?", "Dört. Beşincisi susmaktı; onu geç öğrendim.", [])]),
+                  (1, "Neden kaçtın?", "Çevirdiğim sözler köyleri yaktı. Ben çevirmekten yoruldum.", [
+                      ("Hangi sözler?", "'Teslim olun, kimseye dokunulmayacak.' Her köyde aynı sözü çevirdim. Hiçbirinde doğru çıkmadı.", [])]),
+                  (1, "Moğollar nerede?", "Arkamda değil. Ama uzak da değil.", [
+                      ("Buraya gelirler mi?", "Gelirler. Önce bir elçi, sonra bir söz, sonra ateş. Sırayı bilirim.", [])]),
+                  (2, "Atın nerede?", "Bir Türkmen obası aldı. Karşılığında beni öldürmediler.", []),
+                  (2, "Bu kez ne istiyorsun?", "Bir yer. Kimsenin sözünü çevirmediğim bir yer.", [
+                      ("Bir şey bilirsen söyler misin?", "Sorarsan söylerim. Sormazsan da bazen.", [])])]),
     dict(id="yusuf", ad="Yusuf", koken="yerel", sinif="ciftci", kural="oranla_doner", erken=3, portre="farmer_01",
          secenekler=["kabul", "ret", "kisla"],
          etki=dict(kabul=[2, 0, 0, -1], ret=[-1, 0, 0, 0], kisla=[-2, 0, 0, 1]),
          girisler=["On iki yaşlarında bir oğlan. Elinde bir keçi ipi, ucunda keçi yok.",
                    "Yusuf yine kapıda. Daha zayıf."],
-         sorular=[(1, "Adın ne?", "Yusuf."),
-                  (1, "Ailen nerede?", "Kösedağ'a babam gitti. Annem yolda kaldı."),
-                  (1, "Keçin nerede?", "İp bende kaldı. Keçi kaçtı. Belki döner."),
-                  (2, "Nerede kaldın?", "Bir değirmencinin yanında. Sonra değirmen de gitti."),
-                  (2, "Ne iş bilirsin?", "Keçi güderim. Bir de beklerim.")]),
+         acilislar=["Selam... Adım Yusuf. Keçimi arıyorum; ip bende kaldı. Karnım da aç, ama önce keçi.",
+                    "Yine ben, Yusuf. Bir değirmencinin yanındaydım; değirmen de gitti. Keçi hâlâ dönmedi."],
+         sorular=[(1, "Adın ne?", "Yusuf.", [
+                      ("Kaç yaşındasın?", "On iki. Ya da on üç. Annem bilirdi.", [])]),
+                  (1, "Ailen nerede?", "Kösedağ'a babam gitti. Annem yolda kaldı.", [
+                      ("Yolda mı kaldı?", "Ateşi vardı. Bir sabah kalkmadı. Ben de ipi aldım, yürüdüm.", [])]),
+                  (1, "Keçin nerede?", "İp bende kaldı. Keçi kaçtı. Belki döner.", [
+                      ("Keçinin adı ne?", "Karabaş. Ama başı ak. Babam şakadan koymuş.", [])]),
+                  (2, "Nerede kaldın?", "Bir değirmencinin yanında. Sonra değirmen de gitti.", [
+                      ("Değirmene ne oldu?", "Askerler un istedi, değirmenci vermedi. Sonra değirmen yandı.", [])]),
+                  (2, "Ne iş bilirsin?", "Keçi güderim. Bir de beklerim.", [
+                      ("Neyi beklersin?", "Babamı. Keçiyi. Akşamı. Hepsi bir gün gelir.", [])])]),
 ]
+
+
+def duzle(liste, ust=-1, cikti=None):
+    """Soru ağacını düz listeye çevirir: [(ziyaret, soru, cevap, ust_indeks)]. Kök: (z, s, c, [takip]); takip: (s, c, [takip])."""
+    if cikti is None:
+        cikti = []
+    for oge in liste:
+        if len(oge) == 4 and isinstance(oge[0], int):
+            z, s, c, takip = oge
+        else:
+            s, c, takip = oge
+            z = cikti[ust][0]
+        cikti.append((z, s, c, ust))
+        duzle(takip, len(cikti) - 1, cikti)
+    return cikti
+
 
 for k in KARAKTERLER:
     i = k["id"]
@@ -221,51 +324,82 @@ for k in KARAKTERLER:
         alan["etki_" + karar] = pia(k["etki"].get(karar, [0, 0, 0, 0]))
     tres("data/karakterler/%s.tres" % i, "KarakterVerisi", "res://src/veri/karakter_verisi.gd", alan)
     girisler = [t("sohbet.%s.giris%d" % (i, n + 1), g) for n, g in enumerate(k["girisler"])]
-    sorular, cevaplar, ziyaret = [], [], []
-    for n, (z, s, c) in enumerate(k["sorular"]):
+    acilislar = [t("sohbet.%s.acilis%d" % (i, n + 1), a) for n, a in enumerate(k["acilislar"])]
+    sorular, cevaplar, ziyaret, ust = [], [], [], []
+    for n, (z, s, c, u) in enumerate(duzle(k["sorular"])):
         sorular.append(t("sohbet.%s.s%d" % (i, n + 1), s))
         cevaplar.append(t("sohbet.%s.c%d" % (i, n + 1), c))
         ziyaret.append(z)
+        ust.append(u)
     tres("data/sohbetler/%s.tres" % i, "SohbetVerisi", "res://src/veri/sohbet_verisi.gd", {
-        "id": sn(i), "giris_anahtarlari": psa(girisler), "soru_anahtarlari": psa(sorular),
-        "cevap_anahtarlari": psa(cevaplar), "soru_ziyareti": pia(ziyaret)})
+        "id": sn(i), "giris_anahtarlari": psa(girisler), "acilis_anahtarlari": psa(acilislar),
+        "soru_anahtarlari": psa(sorular), "cevap_anahtarlari": psa(cevaplar), "soru_ziyareti": pia(ziyaret),
+        "soru_ust": pia(ust)})
 
 # ─── Sınıf şablonları ─────────────────────────────────────────────────────
+# çeşit: (portre, giriş anlatısı, açılış sözü, sorular [(soru, cevap, [takip])])
 SINIFLAR = [
     dict(id="ciftci",
          adlar=["Yorgun bir çiftçi", "Irgat bir kadın", "Sivaslı bir rençber", "Bir orakçı"],
          cesitler=[("farmer_01", "Sırtında boyunduruk taşıyan bir adam. Öküzü yok.",
-                    [("Öküzün nerede?", "Yolda öldü. Boyunduruğu bırakamadım."),
-                     ("Ne iş bilirsin?", "Toprak. Başka bir şey bilmem."),
-                     ("Nereden geliyorsun?", "Sivas'ın ovasından. Ova yandı.")]),
+                    "Akşam hayrola. Rençberim; öküzüm yolda öldü, boyunduruğu bırakamadım. Toprak verirseniz sabanı ben çekerim.",
+                    [("Öküzün nerede?", "Yolda öldü. Boyunduruğu bırakamadım.", [
+                         ("Neden taşıyorsun boyunduruğu?", "Öküz ölür, boyunduruk kalır. Belki başka öküz bulurum.", [])]),
+                     ("Ne iş bilirsin?", "Toprak. Başka bir şey bilmem.", [
+                         ("Ne ekersin?", "Buğday, arpa. Toprak iyiyse nohut.", [])]),
+                     ("Nereden geliyorsun?", "Sivas'ın ovasından. Ova yandı.", [
+                         ("Kim yaktı?", "Kim yakmadı ki? Önce Moğol geçti, sonra bizimkiler kalanı aldı.", [])])]),
                    ("farmer_02", "Elleri nasırlı bir kadın, yalnız.",
-                    [("Kimin nesisin?", "Kocam tarlada kaldı."),
-                     ("Ne istersin?", "Hasat zamanı iş."),
-                     ("Yalnız mı yürüdün?", "Yolda kimse kimseyi beklemiyor.")])],
+                    "Selam. Ben tarlada çalışırım; kocam tarlada kaldı. Hasada kadar bir iş, bir köşe isterim.",
+                    [("Kimin nesisin?", "Kocam tarlada kaldı.", [
+                         ("Çocuğun var mı?", "Vardı. (Başka bir şey demiyor.)", [])]),
+                     ("Ne istersin?", "Hasat zamanı iş.", [
+                         ("Hasada daha çok var.", "O zamana kadar ot yolarım, su taşırım. Boş durmam.", [])]),
+                     ("Yalnız mı yürüdün?", "Yolda kimse kimseyi beklemiyor.", [
+                         ("Yolda ne gördün?", "Boş köyler. Bir de yolun kenarına dizilmiş taşlar. Kim dizdi bilmiyorum.", [])])])],
          secenekler=["kabul", "ret", "rusvet", "kisla"],
          etki=dict(kabul=[1, 0, 0, 0], ret=[-1, 0, 0, 0], rusvet=[-1, 0, 1, 0], kisla=[0, 0, 0, 1])),
     dict(id="esnaf",
          adlar=["Bir Ahi çırağı", "Seyyar bir bakırcı", "Bir keçeci", "Bir semerci"],
          cesitler=[("craftsman_01", "Elinde alet torbası, genç bir çırak.",
-                    [("Ustan nerede?", "Yolda kaybettim. Arıyorum."),
-                     ("Ne iş yaparsın?", "Deri. Biraz da demir."),
-                     ("Ocağın hangisi?", "Kayseri'nin. Ocak yerinde mi, bilmem.")]),
+                    "Selam usta... yani kapıcı. Ustamı yolda kaybettim. Deri işlerim, biraz da demir. Bir ocak bulursam yeniden başlarım.",
+                    [("Ustan nerede?", "Yolda kaybettim. Arıyorum.", [
+                         ("Nasıl kaybettin?", "Bir kalabalıkta elini bıraktım. Sonra kalabalık dağıldı, usta da.", [])]),
+                     ("Ne iş yaparsın?", "Deri. Biraz da demir.", [
+                         ("En iyi neyi yaparsın?", "Kemer tokası. Ustam 'senin tokan kemeri sever' derdi.", [])]),
+                     ("Ocağın hangisi?", "Kayseri'nin. Ocak yerinde mi, bilmem.", [
+                         ("Ahi misin?", "Henüz değil. Şed kuşanmama bir yıl vardı.", [])])]),
                    ("craftsman_01", "Sırtında birkaç bakır kap.",
-                    [("Malın bu kadar mı?", "Kalan bu. Borcum daha çok."),
-                     ("Nereye gidiyorsun?", "Kervansaray varsa oraya."),
-                     ("Kime borçlusun?", "Bir Rum tüccara. O da yolda bir yerde.")])],
+                    "Bakırcıyım; tas, kepçe, kazan. Malım bu kadar kaldı, borcum daha çok. Kervansaray varsa orada satarım.",
+                    [("Malın bu kadar mı?", "Kalan bu. Borcum daha çok.", [
+                         ("Kalanı ne oldu?", "Yol aldı. Biri bir tasa ekmek verdi, biri bir kazana geçit.", [])]),
+                     ("Nereye gidiyorsun?", "Kervansaray varsa oraya.", [
+                         ("Kervansaray yoksa?", "O zaman pazara. Pazar da yoksa kapının dibine. Bakır her yerde satılır.", [])]),
+                     ("Kime borçlusun?", "Bir Rum tüccara. O da yolda bir yerde.", [
+                         ("Ödeyecek misin?", "Bulursam. Bulamazsam borç bende kalır.", [])])])],
          secenekler=["kabul", "ret", "rusvet", "kisla"],
          etki=dict(kabul=[0, 0, 1, 0], ret=[0, 0, -1, 0], rusvet=[0, 1, 1, -1], kisla=[0, 0, -1, 1])),
     dict(id="asker",
          adlar=["Yaralı bir asker", "Bir firari", "Yaya bir sipahi", "Bir sınır bekçisi"],
          cesitler=[("soldier_01", "Sargısı kirlenmiş bir asker.",
-                    [("Kimin adamısın?", "Artık kimsenin."),
-                     ("Yaran ağır mı?", "Yürüyorum, değil mi?"),
-                     ("Savaşta mıydın?", "Herkes savaştaydı. Sonra herkes yoldaydı.")]),
+                    "Bir yudum su, bir köşe. Yaralıyım ama yürüyorum. Kimin adamı olduğumu sorma; artık kimsenin değilim.",
+                    [("Kimin adamısın?", "Artık kimsenin.", [
+                         ("Önce kimin adamıydın?", "Bir sipahinin. Kösedağ'da öldü; onu taşıyamadım.", [
+                             ("Adı neydi?", "Bahadır Bey. Söylesem bilmezsin. Bilen kalmadı.", [])]),
+                         ("Kimsenin olmak nasıl?", "Hafif. Kimse emir vermiyor. Kimse ekmek de vermiyor.", [
+                             ("Yeniden birine bağlanır mısın?", "Ekmek veren, ok atmayı bilen birine bağlanırım. Sen misin?", [])])]),
+                     ("Yaran ağır mı?", "Yürüyorum, değil mi?", [
+                         ("Bakayım mı?", "Bakma. Bakınca kötüleşiyor sanki.", [])]),
+                     ("Savaşta mıydın?", "Herkes savaştaydı. Sonra herkes yoldaydı.", [
+                         ("Neler gördün?", "Çok şey. Çoğunu unutmaya çalışıyorum. Unutamadıklarım benimle yürüyor.", [])])]),
                    ("soldier_01", "Gözleri sürekli yolda olan bir adam.",
-                    [("Kimden kaçıyorsun?", "Herkes bir şeyden kaçıyor bu yolda."),
-                     ("Silahın var mı?", "Bıraktım."),
-                     ("Peşinde biri var mı?", "Olsaydı bu kadar yavaş yürür müydüm?")])],
+                    "Akşamın hayrolsun. Silahımı bıraktım, adımı da bırakmak isterim. Bir gece, bir köşe; sabah ola hayrola.",
+                    [("Kimden kaçıyorsun?", "Herkes bir şeyden kaçıyor bu yolda.", [
+                         ("Senin kaçtığın ne?", "Bir çavuş. Bir liste. Listede adım var mı, bilmiyorum. Varmış gibi yürüyorum.", [])]),
+                     ("Silahın var mı?", "Bıraktım.", [
+                         ("Nereye bıraktın?", "Bir dereye. Su iyi saklar.", [])]),
+                     ("Peşinde biri var mı?", "Olsaydı bu kadar yavaş yürür müydüm?", [
+                         ("Ya olsaydı?", "O zaman burada durup seninle konuşmazdım, kapıcı.", [])])])],
          secenekler=["kabul", "ret", "rusvet", "kisla"],
          etki=dict(kabul=[0, -1, 0, 1], ret=[0, 0, 0, -1], rusvet=[0, 1, 0, -1], kisla=[-1, 0, 0, 2])),
 ]
@@ -273,17 +407,21 @@ SINIFLAR = [
 for s in SINIFLAR:
     i = s["id"]
     adlar = [t("sablon.%s.ad%d" % (i, n + 1), a) for n, a in enumerate(s["adlar"])]
-    girisler, portreler, sorular, cevaplar, cesit = [], [], [], [], []
-    for c, (portre, giris, ss) in enumerate(s["cesitler"]):
+    girisler, acilislar, portreler, sorular, cevaplar, cesit, ust = [], [], [], [], [], [], []
+    for c, (portre, giris, acilis, ss) in enumerate(s["cesitler"]):
         girisler.append(t("sablon.%s.giris%d" % (i, c + 1), giris))
+        acilislar.append(t("sablon.%s.acilis%d" % (i, c + 1), acilis))
         portreler.append(portre)
-        for n, (soru, cevap) in enumerate(ss):
+        taban = len(sorular)
+        for n, (_z, soru, cevap, u) in enumerate(duzle([(0,) + tuple(x) for x in ss])):
             sorular.append(t("sablon.%s.c%d_s%d" % (i, c + 1, n + 1), soru))
             cevaplar.append(t("sablon.%s.c%d_c%d" % (i, c + 1, n + 1), cevap))
             cesit.append(c)
+            ust.append(-1 if u < 0 else taban + u)
     alan = {"id": sn(i), "sinif": sn(i), "ad_havuzu": psa(adlar), "giris_anahtarlari": psa(girisler),
-            "portreler": psa(portreler), "soru_anahtarlari": psa(sorular), "cevap_anahtarlari": psa(cevaplar),
-            "soru_cesidi": pia(cesit), "karar_secenekleri": psa(s["secenekler"])}
+            "acilis_anahtarlari": psa(acilislar), "portreler": psa(portreler), "soru_anahtarlari": psa(sorular),
+            "cevap_anahtarlari": psa(cevaplar), "soru_cesidi": pia(cesit), "soru_ust": pia(ust),
+            "karar_secenekleri": psa(s["secenekler"])}
     for karar in ("kabul", "ret", "rusvet", "kisla"):
         alan["etki_" + karar] = pia(s["etki"][karar])
     tres("data/siniflar/%s.tres" % i, "SinifSablonu", "res://src/veri/sinif_sablonu.gd", alan)

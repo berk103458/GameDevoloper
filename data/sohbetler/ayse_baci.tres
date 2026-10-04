@@ -6,6 +6,8 @@
 script = ExtResource("1")
 id = &"ayse_baci"
 giris_anahtarlari = PackedStringArray("sohbet.ayse_baci.giris1", "sohbet.ayse_baci.giris2")
-soru_anahtarlari = PackedStringArray("sohbet.ayse_baci.s1", "sohbet.ayse_baci.s2", "sohbet.ayse_baci.s3", "sohbet.ayse_baci.s4", "sohbet.ayse_baci.s5")
-cevap_anahtarlari = PackedStringArray("sohbet.ayse_baci.c1", "sohbet.ayse_baci.c2", "sohbet.ayse_baci.c3", "sohbet.ayse_baci.c4", "sohbet.ayse_baci.c5")
-soru_ziyareti = PackedInt32Array(1, 1, 1, 2, 2)
+acilis_anahtarlari = PackedStringArray("sohbet.ayse_baci.acilis1", "sohbet.ayse_baci.acilis2")
+soru_anahtarlari = PackedStringArray("sohbet.ayse_baci.s1", "sohbet.ayse_baci.s2", "sohbet.ayse_baci.s3", "sohbet.ayse_baci.s4", "sohbet.ayse_baci.s5", "sohbet.ayse_baci.s6", "sohbet.ayse_baci.s7", "sohbet.ayse_baci.s8", "sohbet.ayse_baci.s9", "sohbet.ayse_baci.s10")
+cevap_anahtarlari = PackedStringArray("sohbet.ayse_baci.c1", "sohbet.ayse_baci.c2", "sohbet.ayse_baci.c3", "sohbet.ayse_baci.c4", "sohbet.ayse_baci.c5", "sohbet.ayse_baci.c6", "sohbet.ayse_baci.c7", "sohbet.ayse_baci.c8", "sohbet.ayse_baci.c9", "sohbet.ayse_baci.c10")
+soru_ziyareti = PackedInt32Array(1, 1, 1, 1, 1, 1, 2, 2, 2, 2)
+soru_ust = PackedInt32Array(-1, 0, -1, 2, -1, 4, -1, 6, -1, 8)
