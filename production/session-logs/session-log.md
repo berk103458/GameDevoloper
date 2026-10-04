@@ -3300,3 +3300,21 @@ src/dunya/karakter_model.gd
 src/dunya/koy_sahnesi.gd
 ---
 
+## Session End: 20261004_154711
+### Commits
+215c215 fix(3d): palisade spacing, village gate behind village, faster pacing
+152404a chore(3d): add generated models
+6eee3b9 chore(3d): add generated models
+d1ba191 chore(3d): add generated models
+7e87988 chore(3d): add generated models
+27ea2cd chore(3d): add generated models
+cd1912f chore(3d): add generated models
+21b236f chore(3d): add generated models
+1d37aad chore(3d): add generated models
+2a31403 chore(3d): add generated models
+0f9f351 chore(3d): add generated models
+ea33fd2 chore(3d): add generated models
+2831f88 chore(3d): add generated character models so far
+626acad feat(3d): 3D gate and village scenes with Meshy AI models
+---
+
