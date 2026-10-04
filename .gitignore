@@ -2,3 +2,13 @@
 # Godot
 .godot/
 data/metin/*.translation
+tools/art/ham/
+tools/art/yedek/
+tools/art/gelen/*
+!tools/art/gelen/.gitkeep
+tools/model/durum.json
+# Meshy: oyunda yalnız *_yuru.glb (iskelet + yürüme) kullanılır; ham ve iskelet kopyaları repoya girmez
+assets/model/karakter/*.glb
+!assets/model/karakter/*_yuru.glb
+assets/model/**/*.jpg
+assets/model/**/*.png

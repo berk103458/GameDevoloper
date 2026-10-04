@@ -14,6 +14,10 @@ config/name="GameDevoloper"
 run/main_scene="res://src/arayuz/ana.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[autoload]
+
+Ses="*res://src/sistemler/ses.gd"
+
 [display]
 
 window/size/viewport_width=1920

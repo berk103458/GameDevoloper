@@ -40,3 +40,36 @@ extends Resource
 @export var saldiri_artis_araligi: int = 2
 ## Savunma = asker / bu sayı (aşağı yuvarlanır).
 @export var savunma_bolen: int = 2
+
+@export_group("Ekonomi")
+@export var akce_baslangic: int = 4
+## Rüşvet alınınca kesene giren akçe.
+@export var rusvet_akce: int = 3
+@export var ambar_baslangic: int = 6
+## Çiftçi başına gecelik ürün.
+@export var ciftci_uretim: int = 2
+## Gecelik tüketim = ceil(nüfus / bu sayı).
+@export var tuketim_bolen: int = 2
+## Esnaf başına gecelik akçe; pazar her seviyede +1 akçe/esnaf.
+@export var esnaf_gelir: int = 1
+## Pazarsız alışveriş edebilen esnaf sayısı; pazar her seviyede bu kadar ekler.
+@export var pazar_tezgah_taban: int = 2
+@export var pazar_tezgah_artis: int = 2
+## Kervansaray seviyesi başına gecelik akçe.
+@export var kervansaray_gelir: int = 2
+## Boş rüşvet kesesini yeniden doldurmanın bedeli.
+@export var kese_fiyati: int = 8
+
+@export_group("Yapılar")
+## Seviye 1, 2, 3 bedelleri (akçe).
+@export var pazar_bedel: PackedInt32Array = PackedInt32Array([5, 9, 14])
+@export var kervansaray_bedel: PackedInt32Array = PackedInt32Array([7, 12, 18])
+## Seviye başına gereken esnaf.
+@export var pazar_esnaf: PackedInt32Array = PackedInt32Array([1, 3, 5])
+@export var kervansaray_esnaf: PackedInt32Array = PackedInt32Array([2, 4, 6])
+## Sur seviyesi bedelleri (yalnız ikinci perde).
+@export var sur_bedel: PackedInt32Array = PackedInt32Array([6, 10, 15])
+
+@export_group("Olaylar")
+## Gece sonunda bir olay çıkma olasılığı (uygun olay varsa).
+@export var olay_olasiligi: float = 0.75

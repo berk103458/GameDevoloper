@@ -16,6 +16,7 @@ var ayarlar: OyunAyarlari
 var _karakterler: Dictionary = {}
 var _sohbetler: Dictionary = {}
 var _siniflar: Dictionary = {}
+var _olaylar: Dictionary = {}
 
 
 ## Verilen kök klasörden tüm içeriği yükler ve doğrular. Testler fixture kökü verir.
@@ -24,6 +25,7 @@ func yukle(kok: String = "res://data") -> Durum:
 	_karakterler = _klasor_yukle(kok + "/karakterler")
 	_sohbetler = _klasor_yukle(kok + "/sohbetler")
 	_siniflar = _klasor_yukle(kok + "/siniflar")
+	_olaylar = _klasor_yukle(kok + "/olaylar")
 	ayarlar = load(kok + "/ayarlar/oyun.tres") as OyunAyarlari
 	_dogrula()
 	durum = Durum.HAZIR if hatalar.is_empty() else Durum.HATALI
@@ -47,6 +49,16 @@ func karakterler() -> Array[KarakterVerisi]:
 	anahtarlar.sort()
 	for k in anahtarlar:
 		sonuc.append(_karakterler[k])
+	return sonuc
+
+
+## Tüm gece olayları (kimlik sırasıyla).
+func olaylar() -> Array[OlayVerisi]:
+	var sonuc: Array[OlayVerisi] = []
+	var anahtarlar := _olaylar.keys()
+	anahtarlar.sort()
+	for k in anahtarlar:
+		sonuc.append(_olaylar[k])
 	return sonuc
 
 
@@ -108,6 +120,17 @@ func _dogrula() -> void:
 			_anahtar_dogrula(a, "sohbet %s" % s.id)
 		for a in s.soru_anahtarlari + s.cevap_anahtarlari:
 			_anahtar_dogrula(a, "sohbet %s" % s.id)
+	for o: OlayVerisi in _olaylar.values():
+		_anahtar_dogrula(o.baslik_anahtari, "olay %s" % o.id)
+		_anahtar_dogrula(o.metin_anahtari, "olay %s" % o.id)
+		if o.secenek_anahtarlari.size() != o.secenek_etkileri.size() or o.secenek_anahtarlari.is_empty():
+			hatalar.append("olay %s: seçenek ve etki sayısı eşit olmalı" % o.id)
+		for i in o.secenek_anahtarlari.size():
+			_anahtar_dogrula(o.secenek_anahtarlari[i], "olay %s" % o.id)
+			_anahtar_dogrula("%s.sonuc%d" % [o.metin_anahtari.trim_suffix(".metin"), i + 1], "olay %s" % o.id)
+		for id in o.kosullar.get("koyde", []) + o.kosullar.get("ayrildi", []):
+			if not _karakterler.has(StringName(id)):
+				hatalar.append("olay %s: bilinmeyen karakter %s" % [o.id, id])
 	for sinif_adi in SINIFLAR:
 		var s: SinifSablonu = _siniflar.get(sinif_adi)
 		if s == null:

@@ -193,6 +193,8 @@ Açık.
 
 ## Technical Considerations
 
+> **Görsel kararı (4 Ekim 2026, kullanıcı):** Oyun 3D sunuma geçti. Modeller Meshy AI ile üretilir (`tools/model/meshy_uret.py`); kapı ve köy 3D sahne, arayüz 2D kalır. Sanat kitabındaki palet, gece-meşale ışığı ve "iyi/kötü işareti yok" kuralları 3D için de geçerlidir; 2D çizim kuralları (mürekkep kalınlığı, 2× çizim) artık yalnız arayüz ve simgeler içindir.
+
 > **Motor kararı (4 Ekim 2026, kullanıcı):** Godot 4.7.2, GDScript. Oyunun tamamı 2D,
 > çünkü tüm asset'ler 2D. Bu karar kilitteki "Flutter, Dart" ve "3D savunma denemesi /
 > 3D motoru açık" satırlarının yerine geçer.

@@ -28,6 +28,7 @@ func _ready() -> void:
 		_hata_goster()
 		return
 	ana_menu()
+	Ses.dongu_baslat()
 
 
 ## Ana menüyü gösterir.
@@ -72,25 +73,32 @@ func _kapiya_git() -> void:
 
 
 func _gece_bitti(rapor: Dictionary) -> void:
-	if rapor["son"] == &"tutundu":
-		kayit.sil()
-		var e := _bilgi(tr("arayuz.son.tutundu"), tr("arayuz.son.tutundu_metin"), [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
-			oturum.gun, "env_village_bg")
-		e.secildi.connect(_son_secimi)
-		_goster(e)
+	Ses.cal(&"sfx_gece_bitti")
+	if rapor["son"] != &"" and rapor["son"] != &"kirildi":
+		_son_goster(rapor["son"])
 		return
-	kayit.yaz(oturum.kaydet())
 	var koy := KoyEkrani.new()
 	koy.oturum = oturum
 	koy.ayarlar = ayarlar
 	koy.rapor = rapor
+	koy.oturum_bitti.connect(_kirildi)
 	koy.devam_istendi.connect(func() -> void:
+		# Gece sonu kaydı: olay ve yapılar çözüldükten sonra (GDD 1: gece sonu çözümünden sonra).
+		kayit.yaz(oturum.kaydet())
 		if rapor["perde_degisti"]:
 			_perde_gecisi()
 		else:
 			_kapiya_git()
 	)
 	_goster(koy)
+
+
+func _son_goster(son: StringName) -> void:
+	kayit.sil()
+	var e := _bilgi(tr("arayuz.son." + String(son)), tr("arayuz.son.%s_metin" % son), [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
+		oturum.gun, "env_village_bg")
+	e.secildi.connect(_son_secimi)
+	_goster(e)
 
 
 func _perde_gecisi() -> void:
@@ -102,7 +110,8 @@ func _perde_gecisi() -> void:
 func _kirildi(kirilan: int) -> void:
 	kayit.sil()
 	var ad := tr(oturum.ayarlar.bar_anahtarlari[kirilan])
-	var e := _bilgi(tr("arayuz.son.kirildi") % ad, "", [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")], oturum.gun)
+	Ses.cal(&"sfx_bar_kirildi")
+	var e := _bilgi(tr("arayuz.son.kirildi") % ad, tr("arayuz.son.kirildi.%d" % kirilan), [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")], oturum.gun)
 	e.secildi.connect(_son_secimi)
 	_goster(e)
 
@@ -156,7 +165,7 @@ func _ust_kapat() -> void:
 		_ekran.process_mode = Node.PROCESS_MODE_INHERIT
 
 
-func _bilgi(baslik: String, metin: String, dugmeler: Array, sayi: int = -1, arka: String = "env_menu_bg") -> BilgiEkrani:
+func _bilgi(baslik: String, metin: String, dugmeler: Array, sayi: int = -1, arka: String = "3d_kapi") -> BilgiEkrani:
 	var e := BilgiEkrani.new()
 	e.ayarlar = ayarlar
 	e.baslik = baslik

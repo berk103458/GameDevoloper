@@ -26,3 +26,25 @@ func toplam() -> int:
 
 func sayi(sinif: StringName) -> int:
 	return int(sayilar[sinif])
+
+
+## Köyden bir kişi çıkarır (sınıfta kimse yoksa bir şey olmaz).
+func cikar(sinif: StringName, adli_id: StringName = &"") -> void:
+	if int(sayilar[sinif]) <= 0:
+		return
+	sayilar[sinif] = int(sayilar[sinif]) - 1
+	if adli_id != &"":
+		adlilar.erase(adli_id)
+	degisti.emit()
+
+
+## Nüfusu olan sınıflardan rastgele `adet` kişi çıkarır.
+func cikar_rastgele(adet: int, rng: RandomNumberGenerator) -> void:
+	for k in adet:
+		var dolu: Array[StringName] = []
+		for s in sayilar:
+			if int(sayilar[s]) > 0:
+				dolu.append(s)
+		if dolu.is_empty():
+			return
+		cikar(dolu[rng.randi_range(0, dolu.size() - 1)])
