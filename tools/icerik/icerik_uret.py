@@ -71,6 +71,7 @@ tres("data/ayarlar/oyun.tres", "OyunAyarlari", "res://src/veri/oyun_ayarlari.gd"
     "bar_anahtarlari": psa(BARLAR),
     "bar_baslangic": 6, "bar_azami": 10, "rusvet_kurtarma": 3, "rusvet_hakki": 3,
     "gece_basina_gelen": 3, "adli_olasiligi": 0.6, "azami_soru": 2, "belirme_ms": 300.0,
+    "ciftci_uretim": 3, "tuketim_bolen": 1,
     "gida_carpani": 3, "ordu_baski_gecesi": 3, "vergi_araligi": 4, "tuccar_baski_gecesi": 2,
     "oturma_esigi": 18, "perde2_gece_basina_gelen": 2, "perde2_hedef_gece": 12,
     "pazar_bedel": pia([6, 12, 20]), "kervansaray_bedel": pia([8, 15, 24]), "sur_bedel": pia([8, 14, 22]),
