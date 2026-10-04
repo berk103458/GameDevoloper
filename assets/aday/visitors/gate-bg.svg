@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Kap1 arka plan  karanl1k fantezi yerle_im">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2230"/>
+      <stop offset="55%" stop-color="#0d0f14"/>
+      <stop offset="100%" stop-color="#06080c"/>
+    </linearGradient>
+    <radialGradient id="torch" cx="0.5" cy="0.72" r="0.45">
+      <stop offset="0%" stop-color="#c4843a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#c4843a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="doorLight" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#5a4535"/>
+      <stop offset="100%" stop-color="#2a1f18"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <ellipse cx="480" cy="420" rx="420" ry="180" fill="url(#torch)"/>
+  <!-- distant hills -->
+  <path fill="#141820" d="M0 320 L120 280 L240 300 L400 260 L560 290 L720 250 L960 270 L960 540 L0 540 Z"/>
+  <path fill="#0f1218" opacity="0.9" d="M0 360 L200 330 L480 350 L760 320 L960 340 L960 540 L0 540 Z"/>
+  <!-- gate frame -->
+  <rect x="300" y="80" width="360" height="420" rx="4" fill="#2a2018" stroke="#1a1510" stroke-width="6"/>
+  <!-- doors -->
+  <rect x="318" y="100" width="156" height="380" rx="2" fill="url(#doorLight)" stroke="#3d2e24" stroke-width="3"/>
+  <rect x="486" y="100" width="156" height="380" rx="2" fill="url(#doorLight)" stroke="#3d2e24" stroke-width="3"/>
+  <line x1="480" y1="100" x2="480" y2="480" stroke="#1a1510" stroke-width="4"/>
+  <!-- torch brackets -->
+  <rect x="268" y="200" width="24" height="80" fill="#3d2e24"/>
+  <rect x="668" y="200" width="24" height="80" fill="#3d2e24"/>
+  <ellipse cx="280" cy="190" rx="18" ry="28" fill="#c4843a" opacity="0.9"/>
+  <ellipse cx="680" cy="190" rx="18" ry="28" fill="#c4843a" opacity="0.85"/>
+  <ellipse cx="280" cy="185" rx="10" ry="16" fill="#e8a855"/>
+  <ellipse cx="680" cy="185" rx="10" ry="16" fill="#e8a855"/>
+  <!-- mist -->
+  <ellipse cx="480" cy="500" rx="380" ry="40" fill="#4a6b8a" opacity="0.12"/>
+  <!-- vignette -->
+  <rect width="960" height="540" fill="url(#sky)" opacity="0" style="mix-blend-mode:multiply"/>
+  <ellipse cx="480" cy="270" rx="520" ry="320" fill="none" stroke="#000" stroke-width="120" opacity="0.35"/>
+</svg>
