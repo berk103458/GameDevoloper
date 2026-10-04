@@ -3402,3 +3402,59 @@ ea33fd2 chore(3d): add generated models
 626acad feat(3d): 3D gate and village scenes with Meshy AI models
 ---
 
+## Session End: 20261004_224604
+### Commits
+2af5108 feat(kapi): visitor bags, lies, inspection panel and explicit bribe amount
+5ae934e chore: session logs
+0fe084c feat(3d): idle animation and hand/arm pose fix for all Meshy characters
+6608051 chore: session logs
+e7d0ad4 feat(ui): main menu matches the moonlit reference; wire teammate dialogues safely
+b294c3d Merge remote-tracking branch 'origin/claude/keen-cerf-42meo7' into claude/festive-volta-li1sfm
+194a6f9 feat(ui): themed 3D main menu and Alegreya typeface
+9a75c8a Diyaloglar ve uretilen gorseller ortak repoda.
+2a304b5 docs: consolidated production plan and missing-content backlog
+49e4bec Merge branch 'claude/keen-cerf-42meo7' of https://github.com/berk103458/GameDevoloper into claude/keen-cerf-42meo7
+8cd28c8 Update project.godot
+6c2c724 docs: 3D build notes and evidence screenshots
+215c215 fix(3d): palisade spacing, village gate behind village, faster pacing
+152404a chore(3d): add generated models
+6eee3b9 chore(3d): add generated models
+d1ba191 chore(3d): add generated models
+7e87988 chore(3d): add generated models
+27ea2cd chore(3d): add generated models
+cd1912f chore(3d): add generated models
+21b236f chore(3d): add generated models
+1d37aad chore(3d): add generated models
+2a31403 chore(3d): add generated models
+0f9f351 chore(3d): add generated models
+---
+
+## Session End: 20261004_235514
+### Commits
+060cfc0 feat(koy): village events with archery and threshing mini-games
+1040aaf feat(ses): wedding davul-zurna, village night ambience, harvest and event sounds
+c92d8ef feat(koy): village hall with three levels, walls in act one, homes grow with the village
+a0571a4 feat(koy): roads, wandering villagers, fields with crops and working farmers
+25c64bb feat(kapi): live queue events between visitors
+69bc63b feat(kapi): choose where accepted visitors work; mismatch weakens that place
+e4008df feat(3d): gratitude and anger gestures on accept and reject
+987c29f feat(kapi): new gate UI — full-screen 3D, speech box, gate ledger
+b3ea3b2 feat(sohbet): branching follow-up questions, arrival monologues, per-visitor log
+2af5108 feat(kapi): visitor bags, lies, inspection panel and explicit bribe amount
+5ae934e chore: session logs
+0fe084c feat(3d): idle animation and hand/arm pose fix for all Meshy characters
+6608051 chore: session logs
+e7d0ad4 feat(ui): main menu matches the moonlit reference; wire teammate dialogues safely
+b294c3d Merge remote-tracking branch 'origin/claude/keen-cerf-42meo7' into claude/festive-volta-li1sfm
+194a6f9 feat(ui): themed 3D main menu and Alegreya typeface
+9a75c8a Diyaloglar ve uretilen gorseller ortak repoda.
+2a304b5 docs: consolidated production plan and missing-content backlog
+49e4bec Merge branch 'claude/keen-cerf-42meo7' of https://github.com/berk103458/GameDevoloper into claude/keen-cerf-42meo7
+8cd28c8 Update project.godot
+### Uncommitted Changes
+production/session-logs/.session-end.hash
+production/session-logs/compaction-log.txt
+production/session-logs/session-cost.md
+production/session-logs/session-log.md
+---
+
