@@ -105,9 +105,44 @@ Sonların adı ve koşulu kilitte boştur; içerik uydurulmaz. Yalnız çerçeve
 
 ## 3. Shape Language
 
-[To be designed] — character silhouette philosophy (readable at thumbnail
-size, one distinguishing trait per archetype), environment geometry, UI shape
-grammar, and hero versus supporting shapes.
+Ana fikir: **kalın mürekkep görsel hiyerarşinin kendisidir** — neyin önemli olduğunu renk değil çizgi kalınlığı söyler. Bu bir süs değil zorunluluktur: ahşap `#3D2E24` ile gece `#0D0F14` arasındaki kontrast yalnızca ~1.5:1'dir (Bölüm 4); kapı ve insan yapımı her şey kalın mürekkep konturu olmadan geceden ayrılamaz.
+
+**Çizgi ağırlığı hiyerarşisi (1080p referans yüksekliğinde; Bölüm 8'de technical-artist doğrular):**
+- Kahraman dış siluet: 6 px
+- İç detay (kıvrım, yüz çizgisi): 3 px
+- Destekleyici / uzak öğeler: 2 px ya da çizgisiz düz soğuk mavi leke
+
+### 3.1 Karakter silüet felsefesi
+- **Okunurluk testi:** Her karakter düz siyah dolguyla, ~64 px yükseklikte (kart / küçük resim boyutu) tanınabilmelidir. Tanıma yükünü renk değil siluet taşır — bu aynı zamanda renk körlüğü güvenliğidir (Bölüm 4.5).
+- **Ortak gövde dili (yorgunluk):** Düşük omuzlar, öne eğik baş, kapüşonun üçgen tepesi, kalın kumaşın düz ve ağır düşüşü. Keskin aksiyon pozu ve kahramanca dik duruş yok (Sütun 3). Ortak şablon: yün kapüşon, keten tunik, deri kemer. Modern kep, palto, fermuar şablona hiç girmez.
+- **Sınıf ayrımı eşyayla yapılır, ahlakla değil:**
+  - **Asker:** Kemerden sarkan kın, omuzda mızrak ya da kalkan kenarı — dikey, uzun çizgi.
+  - **Esnaf:** Sırtta denk ya da bohça, elde alet. **Ahi** esnafı belinde belirgin bir **kuşak (şed)** taşır (kullanıcı onayı, 4 Ekim 2026); kilitteki "deri kemer" ile çelişmez.
+  - **Çiftçi:** Tahıl çuvalı, orak ya da çapa — yatay, yere yakın kütle.
+- **Okunurluk düzeyi — ipucu (kullanıcı kararı: B):** Eşya sınıfa dair bir *ipucu* verir; "Kimsin, nesin" sohbeti onu doğrular. Siluet sınıfı kesin olarak söylemez, ama görsel de yalan söylemez. Böylece İlke 2 korunur ve sohbetin görevi kalır.
+- **Özel karakterler (Miraen, Sorhan, Thessra ve adı konmamış 7–8 karakter):** İşleri serbest olduğu için sınıf eşyası yerine her birine tek bir **imza şekli** (alışılmadık bir kapüşon kesimi, tek bir taşınan nesne vb.) verilir. Geri dönen karakterler bununla tanınır. Kural: imza şekli kişinin kim olduğunu söyler, ne yapacağını asla söylemez (İlke 2).
+- **Yasak:** Kötü adam yüzü, sivri şeytani kaşlar, "güvenilir" yuvarlak hatlar; renkle iyi/kötü kodlaması. Kartta iyi-kötü etiketi yok.
+
+### 3.2 Çevre geometrisi
+- **Kapı (kahraman yapı):** Oyunun en büyük dikdörtgeni. Kalın dikey tahtalar, ağır yatay kirişler, demir yok ya da çok az. Ahşap `#3D2E24`, en kalın mürekkep. Dikeyliği bariyer anlamı taşır (Sütun 1).
+- **Dünya (taş, gök, uzak arazi):** Düzensiz, kırık, alçak yatay çizgiler; soğuk mavi düz lekeler. Uç bölge ıssızdır — kalabalık doku yok. Derinlik gradyanla değil, düz ton katmanlarıyla verilir (Bölüm 4).
+- **Köy — yalnız iki yapı:**
+  - **Kervansaray:** Kapalı kare avlu, tek kemerli taçkapı; Selçuklu kervansarayının sadeleştirilmiş hali (mukarnas yok ya da tek çizgiyle ima). Kapıyla akraba dikdörtgen, insan yapımı düzenin dili.
+  - **Pazar:** Açık, alçak; direkler ve gerili örtüler.
+  - Bunların dışında görünen her nesne (çadır, ocak, çit) içeri alınan birinin izidir — gelişigüzel dekor yok (İlke 3). Bina yerleştirme hissi veren ızgara düzeni yok; yerleşim organik ve sıkışıktır.
+- **Özet:** İnsan yapımı = düz kenar ve dik açı, ahşap · Doğa = kırık ve düzensiz, soğuk mavi · Gece = şekilsiz boşluk.
+
+### 3.3 Arayüz şekil grameri
+- **Paneller:** Sert köşeli dikdörtgen, kalın mürekkep çerçeve, düz gece dolgu. Yuvarlak köşe ve cam efekti yok.
+- **Sohbet seçenekleri:** Tek tek beliren, eşit boyda yatay şeritler. Hiçbir seçenek ötekinden büyük, parlak ya da renkli değildir — kimse sonucu söylemez (Sütun 2).
+- **Karar düğmeleri:** Kabul, ret, rüşvet, kışla — aynı şekil, renk ve boyut. Farkı yalnız simge ve koddan gelen kelime yapar. Yeşil-kabul / kırmızı-ret yok. Düğmeler ileride değişecek; gramer düğme sayısından bağımsızdır.
+- **Barlar:** Yatay, parçalı levhalar (tahta ya da taş blok). Bar zayıfladıkça parçalara mürekkep çatlakları eklenir; kırılma eşiğinde parça yarılır. Bilgi şekille de taşınır (Bölüm 4.5). Bar etiketleri onaylanmadığı için bar başına simge tanımlanmadı.
+- **Rüşvet hakları:** Üç ayrı kese simgesi; kullanıldıkça boş kontura döner. Rakam sanatta değil, gerekirse kodda.
+
+### 3.4 Kahraman ve destekleyici şekiller
+- **Kahraman (en kalın çizgi, en yüksek kontrast):** Kapıdaki yüz, kapı, meşale ve meşale lekeleri.
+- **Destekleyici (ince ya da çizgisiz, düşük kontrast):** Gök, sur, uzak figürler, Tekfur kalabalığı.
+- **Kural:** Bir karede en fazla bir kahraman odak — sohbette yüz, köyde meşale kümesi, savunmada korunan köy. Göz önce sıcak lekeye, sonra kalın mürekkebe, en son soğuk alana gider.
 
 ## 4. Color System
 
