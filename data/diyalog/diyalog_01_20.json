@@ -1,0 +1,693 @@
+[
+  {
+    "id": "diyalog_01",
+    "sinif": "ciftci",
+    "sahne": "Kapıya yorgun adımlarla biri yanaştı. Sırtında boyundan büyük bir darı çuvalı var. Eliyle göğsüne bastırdığı ayrı bir kesede tohum taşıyor.",
+    "sorular": [
+      [
+        "Kimsin",
+        "Uzaklardan koptum. Doğudan. Moğol atlarının çiğnediği topraklardan."
+      ],
+      [
+        "Nesin",
+        "Toprak adamıyım. Tarlam yandı, canımı zor kurtardım."
+      ],
+      [
+        "Kendini tanıt",
+        "Ne önemi var? Evsiz barksız bir garip. Yaşamak derdindeyim."
+      ]
+    ],
+    "secenekler": [
+      "ret",
+      "kabul",
+      "rusvet"
+    ],
+    "esik": [
+      0,
+      1,
+      1
+    ],
+    "yanitlar": {
+      "ret": "Geri dönersem yollarda tükenirim, yapma.",
+      "kabul": "Allah razı olsun. Ocağın tütsün hep.",
+      "rusvet": "Şu darının yarısını vereyim sana, yeter ki aç o kapıyı."
+    },
+    "not": "Önce Ret. Bir cevap sonra Kabul ve Rüşvet. Kışla yok."
+  },
+  {
+    "id": "diyalog_02",
+    "sinif": "esnaf",
+    "sahne": "Üstü başı toz içinde. Koltuk altında çuha topu.",
+    "sorular": [
+      [
+        "Kimsin",
+        "Kumaş tüccarıydım. Eskiden. Şehir düşünce geriye bir tek bu kaldı."
+      ],
+      [
+        "Nesin",
+        "Elinde malı olan bir gariban. Pazar arıyorum."
+      ],
+      [
+        "Kendini tanıt",
+        "Yolcu... Dükkanı, tezgahı küle dönmüş bir yolcu."
+      ]
+    ],
+    "secenekler": [
+      "rusvet",
+      "kabul",
+      "ret"
+    ],
+    "esik": [
+      0,
+      1,
+      1
+    ],
+    "yanitlar": {
+      "rusvet": "Şu çuhadan bir arşın keseyim sana. Hakiki yün.",
+      "kabul": "Geçeyim hemen, göze batmadan.",
+      "ret": "Gidemem ki bir yere, dizlerimde derman kalmadı."
+    },
+    "not": "Önce Rüşvet. Bir cevap sonra Kabul ve Ret. Kışla yok."
+  },
+  {
+    "id": "diyalog_03",
+    "sinif": "asker",
+    "sahne": "Aksayarak geldi. Kırık kargıya yaslanıyor.",
+    "sorular": [
+      [
+        "Kimsin",
+        "Sivastan beri yürüyorum. Pusatım kırıldı."
+      ],
+      [
+        "Nesin",
+        "Nöbetçiydim. Sınır boyunda. Dağıldık."
+      ],
+      [
+        "Kendini tanıt",
+        "Birlik kalmadı ki künyemi vereyim. Sağ kalanlardanım sadece."
+      ]
+    ],
+    "secenekler": [
+      "kisla",
+      "kabul",
+      "ret"
+    ],
+    "esik": [
+      0,
+      1,
+      1
+    ],
+    "yanitlar": {
+      "kisla": "Yara bere içindeyim ama kılıç tutarım. Yeter ki aş verin.",
+      "kabul": "Sağ ol yoldaş. Bir köşede soluklanırım.",
+      "ret": "Kan revan içinde nereye gideyim? Yapma."
+    },
+    "not": "Önce Kışla. Bir cevap sonra Kabul ve Ret. Rüşvet yok."
+  },
+  {
+    "id": "diyalog_04",
+    "sinif": "ciftci",
+    "sahne": "İki koyun, belinde süt kabı.",
+    "sorular": [
+      [
+        "Kimsin",
+        "Sürüden arta kalanlarla kaçan bir çoban."
+      ],
+      [
+        "Nesin",
+        "Hayvanlarına can yoldaşı olan biri. Otlaklarımız Moğol atlarına kaldı."
+      ],
+      [
+        "Kendini tanıt",
+        "Açlık nedir bilmeyen adamdım. Şimdi bir lokmaya muhtaçım."
+      ]
+    ],
+    "secenekler": [
+      "kabul",
+      "rusvet",
+      "ret"
+    ],
+    "esik": [
+      0,
+      1,
+      1
+    ],
+    "yanitlar": {
+      "kabul": "Bereket bulasın. Hayvanlar da perişan olmuştu.",
+      "rusvet": "Süt sağarım sana. Yeter ki içeri al bizi.",
+      "ret": "Gece ayazı vurur bizi dışarıda, perişan oluruz."
+    },
+    "not": "Önce Kabul. Bir cevap sonra Rüşvet ve Ret. Kışla yok."
+  },
+  {
+    "id": "diyalog_05",
+    "sinif": "esnaf",
+    "sahne": "Elleri is. Çekiç ve körük parçası, örs yok.",
+    "sorular": [
+      [
+        "Kimsin",
+        "Ateşin yoldaşıydım. Ocağım söndü."
+      ],
+      [
+        "Nesin",
+        "Demire şekil veren ellerim var. Kaçarken anca bunları kurtarabildim."
+      ],
+      [
+        "Kendini tanıt",
+        "Ustaydım. Şimdi yurtsuz bir çırak gibiyim kapında."
+      ]
+    ],
+    "secenekler": [
+      "ret",
+      "kabul",
+      "kisla"
+    ],
+    "esik": [
+      0,
+      1,
+      1
+    ],
+    "yanitlar": {
+      "ret": "Etme muhafız. Zanaatım var, bir ocak başı göster bana yeter.",
+      "kabul": "Bana bir ocak gösterin, yeter.",
+      "kisla": "Kılıç döverim, temren sivritirim. İş bilirim."
+    },
+    "not": "Önce Ret. Bir cevap sonra Kabul ve Kışla. Rüşvet yok."
+  },
+  {
+    "id": "diyalog_06",
+    "sinif": "asker",
+    "sahne": "Miğfer yamulmuş, kın boş.",
+    "sorular": [
+      [
+        "Kimsin",
+        "Erzincan taraflarından. Bozguna uğradık."
+      ],
+      [
+        "Nesin",
+        "Yaya bir er. Pusatımı yitirdim meydanda."
+      ],
+      [
+        "Kendini tanıt",
+        "Bölük dağılalı beri adımı bile unuttum. Geride kalanlardan biriyim."
+      ]
+    ],
+    "secenekler": [
+      "kisla",
+      "kabul",
+      "ret"
+    ],
+    "esik": [
+      0,
+      1,
+      2
+    ],
+    "yanitlar": {
+      "kisla": "Zırh giyer, o boş kını doldururum. Soluğum yetiyor daha.",
+      "kabul": "Eksik olma. Köşede biraz soluklanırım.",
+      "ret": "Gidecek mecalim kalmadı be usta, etme."
+    },
+    "not": "Önce Kışla. Bir cevap sonra Kabul. İki cevap sonra Ret. Rüşvet yok."
+  },
+  {
+    "id": "diyalog_07",
+    "sinif": "ciftci",
+    "sahne": "Kırık saban, küçük arpa çuvalı.",
+    "sorular": [
+      [
+        "Kimsin",
+        "Köyü yakılanlardan. Tarlamı ateşte bıraktım."
+      ],
+      [
+        "Nesin",
+        "Ekin eken bir garip. Tohumu zor kurtardım alevlerden."
+      ],
+      [
+        "Kendini tanıt",
+        "Toprağı eşeleyen adamdım, şimdi yollarda sürünüyorum."
+      ]
+    ],
+    "secenekler": [
+      "rusvet",
+      "ret",
+      "kabul"
+    ],
+    "esik": [
+      0,
+      1,
+      2
+    ],
+    "yanitlar": {
+      "rusvet": "Şu arpadan bir avuç alırsın kendine, yeter ki gözünü yum.",
+      "ret": "Yol sorma bana, ayaklarım su topladı geri dönemem.",
+      "kabul": "Yüzün gülsün hep, çok yoruldum yollarda."
+    },
+    "not": "Önce Rüşvet. Bir cevap sonra Ret. İki cevap sonra Kabul. Kışla yok."
+  },
+  {
+    "id": "diyalog_08",
+    "sinif": "esnaf",
+    "sahne": "İp çilesi, deri biz. Mal yok.",
+    "sorular": [
+      [
+        "Kimsin",
+        "Çarşı yandığında dükkanından anca canını atan biri."
+      ],
+      [
+        "Nesin",
+        "Dikici. Çarığa, deriye şekil veririm."
+      ],
+      [
+        "Kendini tanıt",
+        "Gelen geçenin pabucunu onarırdım. Şimdi kendi pabucum delik."
+      ]
+    ],
+    "secenekler": [
+      "kabul",
+      "rusvet"
+    ],
+    "esik": [
+      0,
+      1
+    ],
+    "yanitlar": {
+      "kabul": "Hızır yoldaşın olsun, içeri alıver beni.",
+      "rusvet": "Eski çarığını onarırım, yeter ki geç de bana."
+    },
+    "not": "Önce Kabul. Bir cevap sonra Rüşvet. Ret ve Kışla yok."
+  },
+  {
+    "id": "diyalog_09",
+    "sinif": "asker",
+    "sahne": "Sağlam yay, sadak neredeyse boş.",
+    "sorular": [
+      [
+        "Kimsin",
+        "Öncüydüm. Dağlardan aştım da geldim."
+      ],
+      [
+        "Nesin",
+        "Kemankeş. Yayıma zarar gelmedi ama okum tükendi yolda."
+      ],
+      [
+        "Kendini tanıt",
+        "Gözcü birliğindenim. Arkadaşlarım geride toprağa düştü."
+      ]
+    ],
+    "secenekler": [
+      "ret",
+      "kabul"
+    ],
+    "esik": [
+      0,
+      1
+    ],
+    "yanitlar": {
+      "ret": "Yapma, o dağlara geri dönecek halim yok.",
+      "kabul": "İyi ettin. Bir duvar dibinde dikilirim usulca."
+    },
+    "not": "Önce Ret. Bir cevap sonra Kabul. Kışla ve Rüşvet yok."
+  },
+  {
+    "id": "diyalog_10",
+    "sinif": "ciftci",
+    "sahne": "Toprak testi, yarım ekmek.",
+    "sorular": [
+      [
+        "Kimsin",
+        "Obadan sağ çıkan bir ben kaldım galiba."
+      ],
+      [
+        "Nesin",
+        "Ekini biçilmiş, ambarı boşalmış köylü."
+      ],
+      [
+        "Kendini tanıt",
+        "Bağı bahçesi olan biriydim, şimdi bir damla suyla yarım somuna kaldım."
+      ]
+    ],
+    "secenekler": [
+      "ret",
+      "rusvet",
+      "kabul"
+    ],
+    "esik": [
+      0,
+      1,
+      2
+    ],
+    "yanitlar": {
+      "ret": "Çıkarma beni geri o yollara, insaf eyle.",
+      "rusvet": "Testimdeki suyun yarısı senin olsun, yeter ki bırak gireyim.",
+      "kabul": "Sağ olasın, şu gölgede bir dinleneyim."
+    },
+    "not": "Önce Ret. Bir cevap sonra Rüşvet. İki cevap sonra Kabul. Kışla yok."
+  },
+  {
+    "id": "diyalog_11",
+    "sinif": "asker",
+    "sahne": "Omzunda çatlak bir kalkan asılı duruyor, kargısı elinde yok. Sağ kolu dirsekten bileğe kadar kirli bir bezle göğsüne sarılmış. Çizmeleri dizine kadar balçığa batmış, zırhının etekleri yırtık.",
+    "sorular": [
+      [
+        "Kimsin",
+        "“Gerideki taş köprünün nöbetinden çekilen neferim. İki gündür boğazı tutuyorduk, mola vermeden tepeyi aştım. Soluğum tıkandı, tabanlarım su topladı. Arkadaki düzlük darmadağın oldu.”"
+      ],
+      [
+        "Nesin",
+        "“Sancak beyinin yayrak piyadesiyim. Kargı tutar, bendin önünde saf kurardım. Kargım kırılınca kalkanla kaldım, zırhın kayışları da koptu. Elimdeki tek sağlam şey bu kalkan.”"
+      ],
+      [
+        "Kendini tanıt",
+        "“Öğleye doğru toz bulutu kalktı, süvariler bir anda bendi sardı. Kalkanı siper edip kargıyı öne sürdüm ama atların ağırlığına dayanamadık. Koluma darbe alınca çalılığa yuvarlandım, su yolundan buraya kadar koştum.”"
+      ]
+    ],
+    "secenekler": [
+      "kabul",
+      "ret",
+      "kisla"
+    ],
+    "esik": [
+      0,
+      0,
+      0
+    ],
+    "yanitlar": {
+      "kabul": "“Sağ olasın muhafız. Revir tarafında temiz suyla biraz bez bulsam yeter. Şu kolu sarıp bir köşede soluklanırım. Kimseye ayak bağı olmam.”",
+      "ret": "“Bu yaralı kolla hendeğin ötesine geçemem. Gece çökünce atlı devriyeler düzlüğü tarar. Kalkanı çalıların arasına çeker, sabahı beklerim. Yağmur başlarsa çamurda kalırım.”",
+      "kisla": "“Kışlaya geçer, yüzbaşıya durumu baştan anlatırım. Köprüdeki bendin çöktüğünü, atlıların hangi yoldan yardığını bilmeleri gerekir. Elim sağlam olmasa da siperde gözetleme yaparım. Nöbete yazılmaya hazırım.”"
+    },
+    "not": "Kabul, Ret, Kışla"
+  },
+  {
+    "id": "diyalog_12",
+    "sinif": "esnaf",
+    "sahne": "Eşeğinin heybesinde dövme bakır taslar ve iki uzun kepçe birbirine çarpıp tıngırdıyor. Önlüğü ocak isine bulanmış, sol kaşının üstünde kurumuş derin bir sıyrık var.",
+    "sorular": [
+      [
+        "Kimsin",
+        "“Aşağı nahiyeleri gezen kalaycı ustasıyım. Dün sabahtan beri eşeğin yularını çeke çeke dağ yolunu tırmandım. Tozdan boğazım kurudu, ayaklarımda derman kalmadı. Köyün pazarı dağılınca can havliyle yola düştüm.”"
+      ],
+      [
+        "Nesin",
+        "“Ocak kurar, bakır kap döver, kalay çekerim. Heybede kalan son taslarla şu iki kepçeyi kurtarabildim. Körüğümle kıskaçlarım tezgâhta kaldı. Elimdeki zanaatla karnımı doyururum.”"
+      ],
+      [
+        "Kendini tanıt",
+        "“Öğle vakti kazanı kalaylarken çığlıklar koptu. Atlılar pazar yerine dalıp çadırları devirdi. Heybeye ne sığdıysa attım, eşeği patikaya sürüp dere boyunca kaçtım.”"
+      ]
+    ],
+    "secenekler": [
+      "rusvet",
+      "kabul",
+      "ret"
+    ],
+    "esik": [
+      0,
+      0,
+      0
+    ],
+    "yanitlar": {
+      "rusvet": "“Muhafız, şu kargını az yana çek. Heybedeki dövme sarı tası sana bırakayım, ocakta dövülmüş has maldır. Yanındaki kepçeyi de al, çorbana daldırırsın. Aramızda kalsın, kimse görmez.”",
+      "kabul": "“Eşeği avlunun kuytu duvarına bağlarım. Bir kova su bulursam hayvanın dilini ıslatırım. Kendim de sundurmanın altına çöker, sabah ezanına kadar kımıldamam. Kimsenin işine karışmam.”",
+      "ret": "“Bu yükle kapı önünde açıkta kalamam. Heybedeki bakırlar tıngırdadıkça ses ta vadiden duyulur. Eşeği şu kayalığın arkasına çeker, başını tutarım. Geceyi sağ salim atlatmak zor olur.”"
+    },
+    "not": "Rüşvet, Kabul, Ret"
+  },
+  {
+    "id": "diyalog_13",
+    "sinif": "ciftci",
+    "sahne": "Kucağında zayıf, topal bir teke yavrusu sıkıca sarılı duruyor. Keçe yeleği boydan boya yırtılmış, çarıkları taşa sürtünmekten parçalanmış. Çıplak dizleri diken çizikleri ve pıhtılaşmış kanla kaplı.",
+    "sorular": [
+      [
+        "Kimsin",
+        "“Yamaçtaki ağılın çobanıyım. Dün geceden beri sırtımda bu yavruyla kayalık aşıyorum. Yorgunluktan dizlerim tutmuyor, çarıklarım da parçalandı. Başka kimsem kalmadı.”"
+      ],
+      [
+        "Nesin",
+        "“Davar güderim, dağda yaylarım. Elimde ne tarla var ne dükkân, bildiğim tek iş koyun keçi bakmaktır. Şu kucağımdaki tekeyi üç yıldır beslediğim anacından aldım. Bütün varlığım bundan ibarettir.”"
+      ],
+      [
+        "Kendini tanıt",
+        "“Karşı sırttan kara dumanlar yükseldi, ardından nal sesleri vadiyi doldurdu. Ağılın kapısını açıp sürüyü dağa saldım. Bu topal oğlağı bırakamadım, kucağıma alıp uçurum dibinden yürüdüm.”"
+      ]
+    ],
+    "secenekler": [
+      "ret",
+      "kabul"
+    ],
+    "esik": [
+      0,
+      0
+    ],
+    "yanitlar": {
+      "ret": "“Şu kapı eşiğindeki taşın dibine büzülürüm. Keçiyi göğsüme sarar, üstüme yırtık keçemi çekerim. Gözümü yummadan sabahı beklerim. Başka gidecek yönüm yok.”",
+      "kabul": "“Hayvan bir avuç kuru saman koklasın yeter. Avlunun en dar köşesine ilişirim. Ortalığı kirletmem, kimseye yük olmam. Sabah olunca ilk kervanla çıkarım.”"
+    },
+    "not": "Ret, Kabul"
+  },
+  {
+    "id": "diyalog_14",
+    "sinif": "esnaf",
+    "sahne": "Kendir kuşağında irice, kalın deriden bir tuz kesesi sarkıyor. Sırtındaki çuval heybe aşınmaktan delinmiş. Elleri tuzdan ve soğuktan çatlamış, sol şakağında kurumuş sert bir sıyrık var.",
+    "sorular": [
+      [
+        "Kimsin",
+        "“Tuz gölünden kervan düzüp dağ köylerine mal taşıyan satıcıyım. Üç gündür katırın arkasından taşlık yolları yürüyorum. Tabanlarım yarıldı, tozu yutmaktan sesim kısıldı. Kervan bozulunca yükün çoğunu orada bıraktım.”"
+      ],
+      [
+        "Nesin",
+        "“Tuz tüccarıyım, kaya tuzu tartar satarım. Develerim, denklerim gitti, geriye kuşaktaki bu kese kaldı. Bu tuz dağ köylerinde gümüşten kıymetlidir. Elimdeki tek sermayem budur.”"
+      ],
+      [
+        "Kendini tanıt",
+        "“Bozkır yolunda kervanın önünü kestiler, denkleri bıçaklayıp yükleri devirdiler. Katırlar dağa kaçıştı, ortalık birbirine girdi. Ben de kuşağımdaki keseyi kavrayıp kuru dere yatağından buraya vurdum.”"
+      ]
+    ],
+    "secenekler": [
+      "kabul",
+      "rusvet",
+      "ret"
+    ],
+    "esik": [
+      0,
+      0,
+      0
+    ],
+    "yanitlar": {
+      "kabul": "“Kapı aralığından sundurmanın altına girsem yeter. Keseyi yastık yapar, samanların üstünde uzanırım. Sabah gün doğarken kervan toplanırsa onlara katılırım. Çıt çıkarmadan vaktimi beklerim.”",
+      "rusvet": "“Beni içeri sal muhafız, şu kesenin ağzını açayım. Avucuna iki tutam has ak tuz dökeyim, etinizi tuzlarsınız. Uç yerinde böyle tuz zor bulunur. Kimseye bir kelime etmem.”",
+      "ret": "“Hava karardı, kapı önünde açıkta kalamam. Yoldaki çapulcular bu keseyi görse boğazıma çöker. Karşıki kayaların arasına saklanıp şafağa kadar beklerim. Yükümü kaptırırsam elim boş kalırım.”"
+    },
+    "not": "Kabul, Rüşvet, Ret"
+  },
+  {
+    "id": "diyalog_15",
+    "sinif": "asker",
+    "sahne": "Boynundaki deri kayışta eğri bir bakır borazan asılı duruyor. Deri yeleği omuz başından parçalanmış, belindeki kılıcın ahşap kını çatlak. Şakağından yanağına doğru taze bir kılıç sıyrığı pıhtılaşmış.",
+    "sorular": [
+      [
+        "Kimsin",
+        "“İlerideki tepe gözetleme kulesinin borazancısıyım. Kule düşünce kayalıklardan aşağı koşarak indim. Soluğum göğsüme sığmıyor, ciğerim yandı. Arkamdan gelen atlıların tozu henüz yatışmadı.”"
+      ],
+      [
+        "Nesin",
+        "“Uç sancağının gözcüsüyüm, boru çalar haber veririm. Yedi yıldır tepelerde nöbet bekler, düşman görünce duman salarım. Silahım şu çatlak kınlı kılıçla boynumdaki borudur. Rütbem neferdir ama gördüğümü bilirim.”"
+      ],
+      [
+        "Kendini tanıt",
+        "“Öğleden sonra ovadan büyük bir atlı kolu belirdi. Hemen boruyu çaldım, kuleye tırmanıp işaret meşalesini yaktım. Alt kata ok yağdırdılar, kapıyı ateşe verince arkadaki yardan atlayıp kaçtım.”"
+      ]
+    ],
+    "secenekler": [
+      "kisla",
+      "ret",
+      "kabul"
+    ],
+    "esik": [
+      0,
+      0,
+      0
+    ],
+    "yanitlar": {
+      "kisla": "“Beni hemen kışlaya, dizdarın huzuruna çıkar. Atlıların kaç kişi olduğunu, vadinin hangi koluna saptığını anlatmam gerek. Boruyu da buradaki gözcülere veririm, ses menzilini bilirim. Nöbette bir can daha işinize yarar.”",
+      "ret": "“Kapıyı yüzüme kapatırsan bu açık arazide hedef olurum. Sırtımda ne zırh kaldı ne doğru dürüst silah. Hendek kenarındaki menfeze puser, gözümü ovadan ayırmam. Atlılar yaklaşırsa bir taşın ardına yatarım.”",
+      "kabul": "“Sağ olasın, revir duvarının dibine çökerim. Şakağımdaki kanı yıkar, biraz soluklanırım. Gece nöbetine adam lazımsa kılıcımı kuşanır kapıda dururum. Sessizce emrinizi beklerim.”"
+    },
+    "not": "Kışla, Ret, Kabul"
+  },
+  {
+    "id": "diyalog_16",
+    "sinif": "ciftci",
+    "sahne": "Kucağında kökleri bezle sarılı kuru bir fidan gövdesi ve sapı aşınmış bir bağ bıçağı tutuyor. Peştamalı balçığa ve toprağa bulanmış. Avuç içleri su toplamış, patlayan yerlerden sarı su sızıyor.",
+    "sorular": [
+      [
+        "Kimsin",
+        "“Aşağı vadideki yamaç bağlarının bekçisiyim. Asmaları bırakıp dağ yolundan kaçalı iki gün oldu. Açlıktan dizlerim titriyor, gözüm kararıyor. Bu fidanı kökünden söküp yanıma alabildim.”"
+      ],
+      [
+        "Nesin",
+        "“Bağcıyım, asma budar aşı yaparım. Çubuk diker, kuru kütükten üzüm alırım. Elimde şu körelmiş bağ bıçağından başka alet kalmadı. Topraktan başka hiçbir şeyden anlamam.”"
+      ],
+      [
+        "Kendini tanıt",
+        "“Bağ evinde yaprak ayıklarken birden at sesleri geldi. Asmaları ateşe verdiler, çardakları devirip geçtiler. En kıymetli aşı fidanını söküp koynuma soktum, hendek boyu sürünerek uzaklaştım.”"
+      ]
+    ],
+    "secenekler": [
+      "ret",
+      "kabul",
+      "rusvet"
+    ],
+    "esik": [
+      0,
+      0,
+      0
+    ],
+    "yanitlar": {
+      "ret": "“Kervansarayın dış duvarının dibine büzülürüm. Fidanı toprağa gömer, kökünü nemli tutmaya çalışırım. Geceyi taşların arasında geçiririm. Sabah olunca yukarı köylere doğru yürürüm.”",
+      "kabul": "“Avluya geçer, su kuyusunun yanında sessizce otururum. Fidanın köküne bir avuç su döker, kendim de bir yudum içerim. Kimseye zararım dokunmaz, yük olmam. Sabah kervanla birlikte çıkar giderim.”",
+      "rusvet": "“Muhafız, kuşağımdaki şu iki aşı çeliğine bak. Biri has ballı incir, biri çekirdeksiz üzüm dalıdır. Buralarda kimsede bulunmaz, bahçene diksen iki yıla meyve verir. Geçir beni içeri, ikisini de sana bırakayım.”"
+    },
+    "not": "Ret, Kabul, Rüşvet"
+  },
+  {
+    "id": "diyalog_17",
+    "sinif": "esnaf",
+    "sahne": "Kuşağında pirinç dirhem ağırlıkları birbirine vuruyor, koynundan küçük bir el terazisi sarkıyor. Çamurlu kaftanının etekleri yırtılmış. Sol ayağındaki mest parçalanmış, topuğundan sızan kan çamura karışıyor.",
+    "sorular": [
+      [
+        "Kimsin",
+        "“Köyleri dolaşıp yün ve iplik tartan seyyar çerçiyim. Dün ikindiden beri yayla yolunda yürüyorum. Ayağımdaki mest parçalandı, topuğum taşa vurmaktan yarıldı. Sırtımdaki çuvalları uçurum başında bırakmak zorunda kaldım.”"
+      ],
+      [
+        "Nesin",
+        "“Tartıcı esnafıyım, dirhemle mal alır satarım. Yün tartar, boya otu ölçer, denk bağlarım. Terazimle şu beş parça pirinç ağırlığım benim ekmek teknemdir. Esnaflıktan başka yol bilmem.”"
+      ],
+      [
+        "Kendini tanıt",
+        "“Menzil hanının önünde denkleri tartıyordum. Ansızın bağırtılar koptu, süvariler meydana daldı. Çuvalları deşip yünleri savurdular. Teraziyi kuşağıma soktum, ahırın arkasından dağa fırladım.”"
+      ]
+    ],
+    "secenekler": [
+      "rusvet",
+      "ret",
+      "kabul"
+    ],
+    "esik": [
+      0,
+      0,
+      0
+    ],
+    "yanitlar": {
+      "rusvet": "“Muhafız gardaş, kuşağımdaki şu ağır pirinç dirhemi görüyorsun. Has dökümdür, çarşıda tartıya koysan hatırı sayılır akçe eder. Kemerine iliştir, senin hakkın olsun. Yeter ki kapıdaki sürgüyü arala.”",
+      "ret": "“Dışarıda bu sakat ayakla fazla yürüyemem. Kapının yanındaki sundurma direğine yaslanır beklerim. Eşkıya gelirse terazimi toprağa gömerim. Sabah kapı açılana kadar buradan ayrılmam.”",
+      "kabul": "“Samanlığın bir kenarına ilişir, ayağımı sararım. Terazimi torbama koyar, kimsenin işine karışmam. Gece boyunca bir lokma ekmek kemirir yatarım. Sabah erkenden yoluma koyulurum.”"
+    },
+    "not": "Rüşvet, Ret, Kabul"
+  },
+  {
+    "id": "diyalog_18",
+    "sinif": "ciftci",
+    "sahne": "Sırtında demir başlıklı ağır bir kürek taşıyor. Yırtık abasının altından çıkan parmak uçları kireçten çatlamış ve kabuk bağlamış. Sağ omzunda sopa ya da taş çarpmasından kalma taze morluk var.",
+    "sorular": [
+      [
+        "Kimsin",
+        "“Kale hendeğinde harç karan, taş taşıyan ırgatım. Sabahtan beri küreği omuzlayıp yokuş yukarı koştum. Kireç tozu gözlerimi yaktı, sırtım ağrıdan kilitlendi. Şantiyede kimse kalmadı, herkes dağıldı.”"
+      ],
+      [
+        "Nesin",
+        "“Kerpiç dökerim, taş kırar harç kararım. Tarlada saban sürer, kışın kalede beden tamir ederim. Elimdeki tek mal bu demir kürektir. Kol gücümle gündelik kazanırım.”"
+      ],
+      [
+        "Kendini tanıt",
+        "“Hendeğin dış duvarını örüyorduk, birden bağrışmalar duyuldu. Atlılar hendeğin karşısına dizilip ok atmaya başladı. Kazmayı bıraktım, küreği kapıp hendeğin dibine atladım. Menfezden sürünerek tepeye çıktım.”"
+      ]
+    ],
+    "secenekler": [
+      "kabul",
+      "kisla",
+      "ret"
+    ],
+    "esik": [
+      0,
+      0,
+      0
+    ],
+    "yanitlar": {
+      "kabul": "“Avlu kenarında bir taşın üstüne otururum. Küreği yanıma koyar, başımı duvara yaslarım. Kimseyi rahatsız etmem, sabah işime bakarım. Bir tas su bulursam kirecimi yıkarım.”",
+      "kisla": "“Kışlaya yollarsan beden duvarına harç kararım. Hendeğin hangi tarafının zayıf olduğunu bilirim. Çöken taşları yerine dizer, muhafızlara yardım ederim. Gücüm kuvvetim yerindedir, siper kazarım.”",
+      "ret": "“Kapı dışında açık alanda duramam. Hendeğin kuru tarafına iner, küreğimi kucağıma alıp yatarım. Gece gelen giden olursa ses etmem. Sabah olunca yukarı köylere doğru yürürüm.”"
+    },
+    "not": "Kabul, Kışla, Ret"
+  },
+  {
+    "id": "diyalog_19",
+    "sinif": "esnaf",
+    "sahne": "Boynuna urganla asılmış gürgen bir oklava ve sırtında tahta hamur teknesi taşıyor. Unlu mintanının kolları yırtılmış. Sol dirseğinde taş zemine çarpmaktan kaynaklanan derin bir sürtünme sıyrığı var.",
+    "sorular": [
+      [
+        "Kimsin",
+        "“Menzil hanının tandırında ekmek pişiren hamurkarım. İki menzildir aralıksız yayan geliyorum. Hamur teknesi sırtımı ezdi, tabanlarım sızım sızım sızlıyor. Fırın ateşe verilince üzerimdeki önlükle kaçtım.”"
+      ],
+      [
+        "Nesin",
+        "“Fırıncıyım, un eler, tekne tartar, ekmek yaparım. Askerin peksimetini, yolcunun yufkasını dökerim. Sırtımdaki şu gürgen tekne babamdan kalmadır. Bildiğim zanaat hamur yoğurmaktır.”"
+      ],
+      [
+        "Kendini tanıt",
+        "“Sabah ilk ekmekleri fırına sürerken kapıdaki bağrışmaları duydum. Atlılar fırının kilerine dalıp un çuvallarını yardı. Oklavayı boynuma taktım, tekneyi sırtlayıp un bacasından dışarı fırladım.”"
+      ]
+    ],
+    "secenekler": [
+      "ret",
+      "rusvet",
+      "kabul"
+    ],
+    "esik": [
+      0,
+      0,
+      0
+    ],
+    "yanitlar": {
+      "ret": "“Dışarıda rüzgâr sert esiyor, açıkta duramam. Tekneyi başıma siper eder, kervansarayın sundurma dibine sinerim. Unlarım rüzgârda uçuşur ama canımı kollarım. Sabah kapı aralanınca tekrar denerim.”",
+      "rusvet": "“Muhafız, kuşağımdaki çıkına bakıver. İçinde has kokulu çörekotuyla iki parça kuru peksimet var. Ocağınızda çorbanıza katarsınız, lezzet verir. Al bunları torbana koy, beni içeriye buyur et.”",
+      "kabul": "“Ocak başına sokulmam, samanlık tarafında bir köşeye büzülürüm. Tekneyi altıma koyar, oklavamı yanıma alırım. Gece çıt çıkarmadan dinlenirim. Sabah kervana taze ekmek gerekirse elimden geleni yaparım.”"
+    },
+    "not": "Ret, Rüşvet, Kabul"
+  },
+  {
+    "id": "diyalog_20",
+    "sinif": "esnaf",
+    "sahne": "Eski bir deri palaskaya takılı demir çifte nal ve uzun bir kerpeten sarkıyor. Toz içindeki mintanı terden sırılsıklam olmuş. Sol topuğu yırtık bir bezle sarılı, beze kan ve çamur bulaşmış.",
+    "sorular": [
+      [
+        "Kimsin",
+        "“Kervan yollarında at nallayan seyyar nalbant ustasıyım. Dün öğleden beri yürümekten dizlerim koptu. Sol topuğuma nal çivisi battı, basamıyorum. Kervanın ağırlığı dağılınca aletlerin çoğunu yolda döktüm.”"
+      ],
+      [
+        "Nesin",
+        "“Demirci nalbantım, soğuk nal büker, tırnak keserim. Katırın, atın ayağını düzeltir, kervanı yolda tutarım. Palaskamdaki çifte demir nal ile şu kerpeten elimde kalan son maldır. Ekmeğimi bu demirden çıkarırım.”"
+      ],
+      [
+        "Kendini tanıt",
+        "“Konak yerinde bir aygırın tırnağını temizliyordum. Ansızın tepeden ok yağdı, kervan atları zincirlerini kırıp kaçıştı. Atlılar çadırlara girince kerpeteni kuşağıma soktum, hendeğin menfezinden kayıp kurtuldum.”"
+      ]
+    ],
+    "secenekler": [
+      "kisla",
+      "kabul",
+      "ret"
+    ],
+    "esik": [
+      0,
+      0,
+      0
+    ],
+    "yanitlar": {
+      "kisla": "“Beni doğruca kışlanın ahırına gönderin. Kaledeki atların tırnaklarına bakarım, düşen nalları çakarım. Elim çekiç tutar, ocağa faydam dokunur. Muhafızların binekleri sağlam kalır.”",
+      "kabul": "“Ahırın yanındaki saman yığınının dibine çökerim. Yaralı topuğumu bağlar, sabaha kadar kımıldamam. Kimsenin yoluna çıkmam, gürültü etmem. Sabah olunca işime gücüme bakarım.”",
+      "ret": "“Bu yaralı ayakla açık bozkırda adım atamam. Kapının dibindeki kütüğe oturur, kerpeteni kucağımda tutarım. Gece atlılar gelirse çalılığa sürünürüm. Sabah kapı açılana kadar buradan ayrılmam.”"
+    },
+    "not": "Kışla, Kabul, Ret"
+  }
+]

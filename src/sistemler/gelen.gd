@@ -15,3 +15,7 @@ var sorular: Array[PackedStringArray] = []
 var secenekler: PackedStringArray = []
 ## Karar -> bar etkisi.
 var etkiler: Dictionary = {}
+## Gemini diyalogunda kararın ziyaretçiye ait cevabı.
+var yanitlar: Dictionary = {}
+## Bu kadar soru sorulunca karar düğmesi açılır. Boşsa hepsi açık.
+var esikler: PackedInt32Array = PackedInt32Array()

@@ -170,7 +170,16 @@ func _karar_goster() -> void:
 	_temizle()
 	_daralt(true)
 	_karar_dugmeleri = []
-	_karar_anahtarlari = _gelen.secenekler
+	var gorunen := PackedStringArray()
+	for n in _gelen.secenekler.size():
+		var esik := 0
+		if n < _gelen.esikler.size():
+			esik = _gelen.esikler[n]
+		if _sorulan.size() >= esik:
+			gorunen.append(_gelen.secenekler[n])
+	if gorunen.is_empty():
+		gorunen = _gelen.secenekler
+	_karar_anahtarlari = gorunen
 	for n in _karar_anahtarlari.size():
 		var anahtar := _karar_anahtarlari[n]
 		var b := _dugme("%d · %s" % [n + 1, tr("arayuz.karar." + anahtar)])
@@ -217,6 +226,8 @@ func _karar_ver(anahtar: String) -> void:
 		Ses.cal(&"sfx_kese")
 	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)
 	_yaz(tr("anlati.sonuc." + anahtar) % tr(_gelen.ad_anahtari))
+	if _gelen.yanitlar.has(anahtar):
+		_yaz(str(_gelen.yanitlar[anahtar]))
 	if sonuc["rusvet_harcandi"] >= 0:
 		Ses.cal(&"sfx_bar_catlak")
 		_yaz("[i]%s[/i]" % (tr("anlati.rusvet.harcandi") % tr(oturum.ayarlar.bar_anahtarlari[sonuc["rusvet_harcandi"]])))

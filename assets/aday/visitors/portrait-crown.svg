@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" role="img" aria-label="Taç elçisi portre taslak">
+  <rect width="320" height="400" fill="#0d0f14"/>
+  <!-- outer wood -->
+  <rect x="16" y="16" width="288" height="368" fill="#3d2e24" rx="4"/>
+  <!-- gold inner frame -->
+  <rect x="22" y="22" width="276" height="356" fill="none" stroke="#d4af37" stroke-width="3" rx="3"/>
+  <rect x="28" y="28" width="264" height="344" fill="#1a1510" rx="2"/>
+  <!-- cold top light -->
+  <rect x="28" y="28" width="264" height="120" fill="#4a6b8a" opacity="0.12"/>
+  <!-- formal shoulders -->
+  <path fill="#2a2520" d="M70 330 L250 330 L240 376 L80 376 Z"/>
+  <path fill="#1a1510" d="M120 300 L200 300 L190 340 L130 340 Z"/>
+  <!-- rosette -->
+  <circle cx="160" cy="318" r="14" fill="#b8860b"/>
+  <circle cx="160" cy="318" r="8" fill="#d4af37"/>
+  <!-- head symmetric -->
+  <ellipse cx="160" cy="200" rx="64" ry="78" fill="#9a8b7a"/>
+  <ellipse cx="142" cy="192" rx="7" ry="5" fill="#1a1510"/>
+  <ellipse cx="178" cy="192" rx="7" ry="5" fill="#1a1510"/>
+  <path stroke="#5c4a3a" stroke-width="2" fill="none" d="M138 178 L182 178"/>
+  <path stroke="#6b5344" stroke-width="2" fill="none" d="M150 238 L170 238"/>
+  <!-- direct gaze highlight -->
+  <circle cx="145" cy="188" r="2" fill="#e8dcc8" opacity="0.6"/>
+  <circle cx="181" cy="188" r="2" fill="#e8dcc8" opacity="0.6"/>
+</svg>
