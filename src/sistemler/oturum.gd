@@ -125,7 +125,7 @@ func ziyaret_basladi(gelen: Gelen) -> void:
 ## Karar uygulanır. Döner: {kaldi, kirilan (-1), rusvet_harcandi (bar indeksi ya da -1),
 ## alinan (heybeden alınanların listesi), alinan_akce, alinan_ambar, gasp (bool), durust_arandi (bool)}.
 ## "elkoy": astardan çıkanlara el konur, gelen geri çevrilir (yalnız yalan yakalanınca).
-func karar_ver(gelen: Gelen, karar: StringName) -> Dictionary:
+func karar_ver(gelen: Gelen, karar: StringName, is_yeri: StringName = &"") -> Dictionary:
 	var h := gelen.heybe
 	var ek := {"alinan": [], "alinan_akce": 0, "alinan_ambar": 0, "gasp": false, "durust_arandi": false}
 	if karar == &"elkoy":
@@ -157,8 +157,18 @@ func karar_ver(gelen: Gelen, karar: StringName) -> Dictionary:
 	if karar == &"rusvet":
 		bayraklar[&"rusvet_sayisi"] = int(bayraklar.get(&"rusvet_sayisi", 0)) + 1
 	var kaldi := karar != &"ret" and karar != &"elkoy"
+	ek["is_yeri"] = is_yeri
+	ek["uyumsuz"] = false
 	if kaldi:
 		var sinif: StringName = &"asker" if karar == &"kisla" else gelen.sinif
+		var i := ayarlar.is_idleri.find(String(is_yeri))
+		if i >= 0:
+			# Kişi yazıldığı işi yapar; işe uygun değilse oranın barı düşer.
+			sinif = StringName(ayarlar.is_siniflari[i])
+			if sinif != gelen.sinif:
+				barlar.ekle(ayarlar.is_barlari[i], -ayarlar.uyumsuz_ceza)
+				ek["uyumsuz"] = true
+				ek["uyumsuz_bar"] = ayarlar.is_barlari[i]
 		koy.ekle(sinif, gelen.id if gelen.adli else &"", "soldier_01" if karar == &"kisla" and not gelen.adli else gelen.portre)
 	if gelen.adli:
 		kadro.sonuc(gelen.id, kaldi, karar, gun)
@@ -565,6 +575,16 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 	if perde == 1:
 		return secenekler
 	return PackedStringArray(["kabul", "ret"])
+
+
+## Kapıda seçilebilen iş yerleri (gereken yapı kurulmuşsa).
+func is_yerleri() -> PackedStringArray:
+	var s := PackedStringArray()
+	for i in ayarlar.is_idleri.size():
+		var y := ayarlar.is_yapilari[i]
+		if y == "" or int(yapilar.get(StringName(y), 0)) > 0:
+			s.append(ayarlar.is_idleri[i])
+	return s
 
 
 ## Gece sonu kaydı için sözlük.

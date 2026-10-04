@@ -120,5 +120,8 @@ func _dongu() -> void:
 				k._karar_bas(anahtar)
 				await _foto("03_karar_secili_perde%d" % ana.oturum.perde)
 				k._karar_bas(anahtar)
+			elif k.evre == &"is":
+				await _foto("03b_is_yeri")
+				d[rng.randi_range(0, d.size() - 1)].pressed.emit()
 	print("ZAMAN ASIMI")
 	get_tree().quit()

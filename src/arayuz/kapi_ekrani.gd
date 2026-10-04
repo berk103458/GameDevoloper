@@ -47,6 +47,8 @@ var _bolum: Label
 var _bilgi: Label
 var _levha_ad: Label
 var _gece_gelen := 0
+var _is_secenekleri: PackedStringArray = []
+var _is_karari := ""
 
 
 func _ready() -> void:
@@ -384,7 +386,7 @@ func _karar_goster() -> void:
 		var anahtar := _karar_anahtarlari[n]
 		var b := _dugme("%d · %s" % [n + 1, _karar_etiketi(anahtar)])
 		b.doku = Sanat.doku("ui", "icon_decision_%s_48" % KARAR_SIMGE[anahtar])
-		b.custom_minimum_size.y = 74
+		b.custom_minimum_size.y = 80
 		b.punto = ayarlar.boyut(30)
 		b.alt_yazi = _karar_alt_yazi(anahtar)
 		b.pressed.connect(_karar_bas.bind(anahtar))
@@ -408,11 +410,15 @@ func _karar_alt_yazi(anahtar: String) -> String:
 
 
 ## İki adımlı onay: ilk basış seçer, aynı karara ikinci basış verir.
+## Kabul ve rüşvette ardından iş yeri seçilir.
 func _karar_bas(anahtar: String) -> void:
 	if evre != &"karar":
 		return
 	if _secili == anahtar:
-		_karar_ver(anahtar)
+		if (anahtar == "kabul" or anahtar == "rusvet") and oturum.perde == 1:
+			_is_goster(anahtar)
+		else:
+			_karar_ver(anahtar)
 		return
 	_secili = anahtar
 	for i in _karar_dugmeleri.size():
@@ -426,6 +432,33 @@ func _karar_bas(anahtar: String) -> void:
 			b.grab_focus()
 
 
+## İş yeri adımı: kabul edilen nerede çalışacak? Altta işin sınıfı yazar (tarafsız bilgi).
+func _is_goster(karar: String) -> void:
+	evre = &"is"
+	_temizle()
+	_bolum.text = tr("arayuz.is.baslik")
+	var satirlar: Array[Button] = []
+	var yerler := oturum.is_yerleri()
+	for n in yerler.size():
+		var yer := yerler[n]
+		var i := oturum.ayarlar.is_idleri.find(yer)
+		var b := _dugme("%d · %s" % [n + 1, tr("arayuz.is." + yer)])
+		b.custom_minimum_size.y = 80
+		b.punto = ayarlar.boyut(28)
+		b.alt_yazi = tr("arayuz.is.uygun") % tr("arayuz.sinif." + oturum.ayarlar.is_siniflari[i])
+		b.doku = Sanat.doku("ui", "icon_decision_%s_48" % ("barracks" if yer == "kisla" else "accept"))
+		b.pressed.connect(func() -> void:
+			if evre == &"is":
+				_karar_ver(karar, StringName(yer))
+		)
+		satirlar.append(b)
+	_is_secenekleri = yerler
+	_is_karari = karar
+	var g := _dugme(tr("arayuz.is.geri"), _eylemler)
+	g.pressed.connect(_karar_goster)
+	_sirayla_goster(satirlar)
+
+
 func _karar_birak() -> void:
 	if evre != &"karar" or _secili == "":
 		return
@@ -436,16 +469,20 @@ func _karar_birak() -> void:
 		_karar_dugmeleri[i].queue_redraw()
 
 
-func _karar_ver(anahtar: String) -> void:
+func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	evre = &"sonuc"
 	_temizle()
 	_bolum.text = ""
 	Ses.cal(&"sfx_onay")
-	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar))
+	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar), is_yeri)
 	if anahtar == "rusvet" or anahtar == "elkoy":
 		Ses.cal(&"sfx_kese")
 	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)
 	_yaz(tr("anlati.sonuc." + anahtar) % tr(_gelen.ad_anahtari))
+	if is_yeri != &"":
+		_yaz("[i]%s[/i]" % (tr("anlati.is.yazildi") % [tr(_gelen.ad_anahtari), tr("anlati.is.yer." + String(is_yeri))]))
+	if sonuc.get("uyumsuz", false):
+		_yaz("[i][color=#C4843A]%s[/color][/i]" % (tr("anlati.is.uyumsuz") % tr(oturum.ayarlar.bar_anahtarlari[sonuc["uyumsuz_bar"]])))
 	if not sonuc.get("alinan", []).is_empty():
 		var parca: PackedStringArray = []
 		for a in sonuc["alinan"]:
@@ -552,6 +589,16 @@ func _unhandled_input(olay: InputEvent) -> void:
 				_karar_bas(_karar_anahtarlari[n])
 				get_viewport().set_input_as_handled()
 				return
+	if evre == &"is":
+		for n in 5:
+			if olay.is_action_pressed("kisayol_%d" % (n + 1)) and n < _is_secenekleri.size():
+				_karar_ver(_is_karari, StringName(_is_secenekleri[n]))
+				get_viewport().set_input_as_handled()
+				return
+		if olay.is_action_pressed("geri"):
+			get_viewport().set_input_as_handled()
+			_karar_goster()
+			return
 	if olay.is_action_pressed("geri"):
 		get_viewport().set_input_as_handled()
 		if evre == &"karar" and _secili != "":

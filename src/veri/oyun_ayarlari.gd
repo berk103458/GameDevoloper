@@ -74,6 +74,16 @@ extends Resource
 ## Gece sonunda bir olay çıkma olasılığı (uygun olay varsa).
 @export var olay_olasiligi: float = 0.75
 
+@export_group("İş yerleri")
+## Kabul edilen kapıda bir iş yerine yazılır (design/gdd/is-yerleri.md). Aynı sıra:
+## id, işin sınıfı (köy nüfusunda sayıldığı yer), uygunsuz yazılınca düşen bar, gereken yapı ("" = yok).
+@export var is_idleri: PackedStringArray
+@export var is_siniflari: PackedStringArray
+@export var is_barlari: PackedInt32Array
+@export var is_yapilari: PackedStringArray
+## Uygunsuz yazımın bedeli (işin barından düşen).
+@export var uyumsuz_ceza: int = 1
+
 @export_group("Heybe")
 ## Gelenin söylediği akçe aralığı.
 @export var beyan_akce_min: int = 2
