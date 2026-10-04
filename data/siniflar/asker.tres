@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SinifSablonu" format=3]
+
+[ext_resource type="Script" path="res://src/veri/sinif_sablonu.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"asker"
+sinif = &"asker"
+ad_havuzu = PackedStringArray("sablon.asker.ad1", "sablon.asker.ad2", "sablon.asker.ad3", "sablon.asker.ad4")
+giris_anahtarlari = PackedStringArray("sablon.asker.giris1", "sablon.asker.giris2")
+portreler = PackedStringArray("soldier_01", "soldier_01")
+soru_anahtarlari = PackedStringArray("sablon.asker.c1_s1", "sablon.asker.c1_s2", "sablon.asker.c1_s3", "sablon.asker.c2_s1", "sablon.asker.c2_s2", "sablon.asker.c2_s3")
+cevap_anahtarlari = PackedStringArray("sablon.asker.c1_c1", "sablon.asker.c1_c2", "sablon.asker.c1_c3", "sablon.asker.c2_c1", "sablon.asker.c2_c2", "sablon.asker.c2_c3")
+soru_cesidi = PackedInt32Array(0, 0, 0, 1, 1, 1)
+karar_secenekleri = PackedStringArray("kabul", "ret", "rusvet", "kisla")
+etki_kabul = PackedInt32Array(0, -1, 0, 1)
+etki_ret = PackedInt32Array(0, 0, 0, -1)
+etki_rusvet = PackedInt32Array(0, 1, 0, -1)
+etki_kisla = PackedInt32Array(-1, 0, 0, 2)

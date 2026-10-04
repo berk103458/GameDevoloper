@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="OyunAyarlari" format=3]
+
+[ext_resource type="Script" path="res://src/veri/oyun_ayarlari.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+bar_anahtarlari = PackedStringArray("bar.halk", "bar.soylular", "bar.tuccarlar", "bar.ordu")
+bar_baslangic = 6
+bar_azami = 10
+rusvet_kurtarma = 3
+rusvet_hakki = 3
+gece_basina_gelen = 3
+adli_olasiligi = 0.6
+azami_soru = 2
+belirme_ms = 300.0
+gida_carpani = 3
+ordu_baski_gecesi = 3
+vergi_araligi = 4
+tuccar_baski_gecesi = 2
+oturma_esigi = 12
+perde2_gece_basina_gelen = 2
+perde2_hedef_gece = 10
+saldiri_taban = 1
+saldiri_artis_araligi = 2
+savunma_bolen = 2

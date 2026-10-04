@@ -1,17 +1,19 @@
 ; Engine configuration file.
-; run/main_scene is intentionally unset: /dev-story or the developer sets it once a scene exists.
 
 config_version=5
 
 [application]
 
 config/name="GameDevoloper"
+run/main_scene="res://src/arayuz/ana.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/window_width_override=1600
+window/size/window_height_override=900
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="fractional"
@@ -19,3 +21,8 @@ window/stretch/scale_mode="fractional"
 [rendering]
 
 renderer/rendering_method="forward_plus"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://data/metin/metinler.tr.translation")
+locale/fallback="tr"

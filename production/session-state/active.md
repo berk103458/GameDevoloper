@@ -16,3 +16,10 @@
 - **Hypothesis**: Önce sohbet sonra karar → kararlar ağır, bar kırılınca "bir gece daha"
 - **Assumptions**: bars break at 0 and 10; rüşvet/kışla = kaldı; rüşvet hakkı auto-spent
 - **Tooling**: Godot 4.7.2 linux binary at /tmp (session-local), xvfb-run + opengl3 for screenshots
+
+## Dikey dilim 1 (ana proje) — 2026-10-04
+- **Durum**: Oynanabilir; Godot 4.7.2'de xvfb altında otomatik oynatıldı (perde 1 → köy oturdu → perde 2 → son); ekranlar production/qa/evidence/dikey-dilim-1/
+- **Kod**: src/veri (Resource sınıfları), src/cekirdek/katalog.gd, src/sistemler (oturum, barlar, köy, kadro, kayıt, ayarlar), src/arayuz (ana, kapı, köy, HUD, bilgi, ayarlar)
+- **İçerik**: tools/icerik/icerik_uret.py → data/ (.tres + metinler.csv); sanat: tools/art/uret_yer_tutucu.py → assets/art/
+- **GDD'siz geçici kurallar**: bar yalnız 0'da kırılır; rüşvet/kışla = kaldı; köy oturma eşiği 12; perde 2 = 10 gece; saldırı/savunma formülü oturum.gd
+- **Sırada**: ses, Barlar/Sohbet/Karar GDD'leri, gdUnit4 testleri, sonlar, daha çok içerik
