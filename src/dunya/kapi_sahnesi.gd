@@ -65,10 +65,14 @@ func gelen_git(kaldi: bool) -> void:
 	_gelen = null
 	# Giden kişi yürümeye devam eder; sahne onu beklemez, kısa bir süre sonra sıradaki gelir.
 	_ayril(g, kaldi)
-	await get_tree().create_timer(1.6).timeout
+	await get_tree().create_timer(2.6).timeout
 
 
 func _ayril(g: KarakterModel, kaldi: bool) -> void:
+	# Önce tepki: kabulde şükran, retde öfke; sonra yürür.
+	await g.duygu(&"sevinc" if kaldi else &"ofke")
+	if not is_instance_valid(g):
+		return
 	if kaldi:
 		await g.yuru(Vector3(1.6, 0, -0.5))
 		if is_instance_valid(g):

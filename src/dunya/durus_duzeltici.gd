@@ -24,6 +24,12 @@ var faz: float = 0.0
 @export var yuru_kol := 0.6
 @export var yuru_onkol := 0.5
 
+## Anlık duygu hareketi: &"sevinc" (eller göğüste, baş eğilir) ya da &"ofke" (yumruk sallanır, baş sallanır).
+var duygu: StringName = &""
+## Duygu hareketinin süresi (s).
+@export var duygu_suresi := 1.6
+var _duygu_t := 0.0
+
 var _k := {}
 var _zaman := 0.0
 var _el_dinlenme := {}
@@ -51,9 +57,16 @@ func _process_modification() -> void:
 	var sk := get_skeleton()
 	if sk == null or _k.is_empty() or _k["LeftHand"] < 0 or _k["RightHand"] < 0:
 		return
-	_zaman += get_process_delta_time()
+	var dt := get_process_delta_time()
+	_zaman += dt
+	if duygu != &"":
+		_duygu_t += dt
+		if _duygu_t >= duygu_suresi:
+			duygu = &""
 	if bekleme > 0.0:
 		_nefes(sk)
+	if duygu != &"":
+		_duygu_govde(sk)
 	_kol(sk, "Left", 1.0)
 	_kol(sk, "Right", -1.0)
 
@@ -70,11 +83,23 @@ func _kol(sk: Skeleton3D, yan_ad: String, yan: float) -> void:
 	var l_el := Transform3D(Basis(_el_dinlenme[yan_ad + "Hand"]), sk.get_bone_pose_position(el))
 	var w_kol := lerpf(yuru_kol, 1.0, bekleme)
 	var w_on := lerpf(yuru_onkol, 1.0, bekleme)
+	var zarf := _zarf()
+	var d_kol := Vector3.ZERO
+	var d_on := Vector3.ZERO
+	if zarf > 0.0:
+		var hedefler := _duygu_hedefleri(yan)
+		d_kol = hedefler[0]
+		d_on = hedefler[1]
+		if d_kol != Vector3.ZERO:
+			w_kol = lerpf(w_kol, 1.0, zarf)
+			w_on = lerpf(w_on, 1.0, zarf)
 
 	# 1) Üst kol: Arm→ForeArm yönü hedefe.
 	var g_kol := g_omuz * l_kol
 	var g_on := g_kol * l_on
 	var hedef_kol := Vector3(yan * kol_yana, -1.0, kol_one).normalized()
+	if d_kol != Vector3.ZERO:
+		hedef_kol = hedef_kol.slerp(d_kol.normalized(), zarf)
 	g_kol.basis = Basis(_yay((g_on.origin - g_kol.origin).normalized(), hedef_kol, w_kol)) * g_kol.basis
 	l_kol.basis = g_omuz.basis.inverse() * g_kol.basis
 
@@ -82,6 +107,8 @@ func _kol(sk: Skeleton3D, yan_ad: String, yan: float) -> void:
 	g_on = g_kol * l_on
 	var g_el := g_on * l_el
 	var hedef_on := Vector3(yan * kol_yana, -1.0, onkol_one).normalized()
+	if d_on != Vector3.ZERO:
+		hedef_on = hedef_on.slerp(d_on.normalized(), zarf)
 	var on_yon := (g_el.origin - g_on.origin).normalized()
 	g_on.basis = Basis(_yay(on_yon, hedef_on, w_on)) * g_on.basis
 	g_el = g_on * l_el
@@ -104,6 +131,51 @@ func _kol(sk: Skeleton3D, yan_ad: String, yan: float) -> void:
 	sk.set_bone_pose_rotation(kol, l_kol.basis.get_rotation_quaternion())
 	sk.set_bone_pose_rotation(onkol, l_on.basis.get_rotation_quaternion())
 	sk.set_bone_pose_rotation(el, l_el.basis.get_rotation_quaternion())
+
+
+## Duygu hareketini başlatır.
+func duygu_baslat(ad: StringName) -> void:
+	duygu = ad
+	_duygu_t = 0.0
+
+
+## Duygu zarfı: hızlı giriş, tutuş, yumuşak çıkış (0..1).
+func _zarf() -> float:
+	if duygu == &"":
+		return 0.0
+	var t := _duygu_t / duygu_suresi
+	return smoothstep(0.0, 0.18, t) * (1.0 - smoothstep(0.75, 1.0, t))
+
+
+## Duyguya göre üst kol ve önkol hedef yönleri (iskelet uzayı); ZERO = bu kol değişmez.
+func _duygu_hedefleri(yan: float) -> Array[Vector3]:
+	match duygu:
+		&"sevinc":
+			# Sağ el göğse (şükran); sol kol yanda kalır.
+			if yan < 0.0:
+				return [Vector3(-0.1, -0.8, 0.6), Vector3(0.8, 0.35, 0.45)]
+			return [Vector3.ZERO, Vector3.ZERO]
+		&"ofke":
+			if yan < 0.0:
+				# Sağ kol bekçiye uzanır ve sert sert sallanır.
+				var salla := sin(_duygu_t * 16.0) * 0.3
+				return [Vector3(-0.15, 0.05, 1.0), Vector3(-0.05, 0.4 + salla, 0.9)]
+			return [Vector3.ZERO, Vector3.ZERO]
+	return [Vector3.ZERO, Vector3.ZERO]
+
+
+## Duygu: gövde ve baş (sevinçte eğilme ve baş sallama, öfkede baş iki yana ve öne yüklenme).
+func _duygu_govde(sk: Skeleton3D) -> void:
+	var z := _zarf()
+	if z <= 0.0:
+		return
+	match duygu:
+		&"sevinc":
+			_dondur_global(sk, _k["Spine01"], Vector3.RIGHT, deg_to_rad(16.0) * z)
+			_dondur_global(sk, _k["Head"], Vector3.RIGHT, deg_to_rad(12.0) * z * (0.5 + 0.5 * sin(_duygu_t * 9.0)))
+		&"ofke":
+			_dondur_global(sk, _k["Spine01"], Vector3.RIGHT, deg_to_rad(8.0) * z)
+			_dondur_global(sk, _k["Head"], Vector3.UP, deg_to_rad(16.0) * z * sin(_duygu_t * 12.0))
 
 
 ## Durma: nefes (gövde), yavaş ağırlık aktarma (kalça), ara sıra bakış (baş). Hepsi küçük açılar.

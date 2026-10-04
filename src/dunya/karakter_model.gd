@@ -80,6 +80,14 @@ func dur() -> void:
 		_oynatici.speed_scale = 0.0
 
 
+## Anlık duygu hareketi (&"sevinc" / &"ofke"); süresi kadar bekler.
+func duygu(ad: StringName) -> void:
+	if _duzeltici == null:
+		return
+	_duzeltici.duygu_baslat(ad)
+	await get_tree().create_timer(_duzeltici.duygu_suresi * 0.8).timeout
+
+
 ## Bir noktaya döner (Y ekseninde).
 func bak(nokta: Vector3) -> void:
 	var f := nokta - position
