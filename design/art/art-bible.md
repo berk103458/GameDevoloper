@@ -146,10 +146,51 @@ Ana fikir: **kalın mürekkep görsel hiyerarşinin kendisidir** — neyin önem
 
 ## 4. Color System
 
-[To be designed] — a primary palette of 5–7 colours with their meaning in this
-world, semantic colour usage, per-area colour temperature rules, the UI palette
-and where it diverges, and colourblind safety: which semantic colours need a
-shape, icon or sound backup.
+### 4.1 Ana palet
+
+| # | Ad | Hex | Durum | Rol |
+|---|---|---|---|---|
+| 1 | Gece | `#0D0F14` | Kilitli | Zemin, boşluk, gölge — ekranın en büyük alanı |
+| 2 | Soğuk mavi | `#4A6B8A` | Kilitli | Dünya: gök, taş, uzak figürler, yüzlerin ışık almayan yanı |
+| 3 | Ahşap | `#3D2E24` | Kilitli | Kapı ve insan yapımı her şey: kiriş, kese, kemer, kervansaray ve pazar ahşabı |
+| 4 | Meşale | `#C4843A` | Kilitli | Tek sıcaklık: yalnız meşale ve onun yüzeylere düşen sert lekeleri |
+| 5 | Mürekkep | `#06070A` | Onaylı (4 Ekim 2026) | Kontur çizgisi; geceden bir kademe koyu, mavi ve ahşap dolguların üstünde net okunur |
+| 6 | Kül | `#B8C2CC` | Onaylı (4 Ekim 2026) | Arayüz metni, simge, sikke; soğuk kırık beyaz (krem/parşömen gibi sıcak bir beyaz bilinçli olarak seçilmedi — sıcaklık yalnız meşalenin) |
+| 7 | Derin mavi | `#24364A` | Onaylı (4 Ekim 2026) | Uzak katman / ikinci derinlik basamağı — gradyan yerine düz ton basamağı |
+
+### 4.2 Semantik renk kullanımı
+- **Sıcaklık = meşale = insan varlığı ve emek.** Başka anlamı yoktur; "iyi", "güvenli" ya da "doğru seçenek" demek değildir.
+- **Soğuk = dünya ve mesafe.** "Tehlike" ya da "düşman" demek değildir. Tekfur soğuk çizilir çünkü uzaktadır, kötü olduğu için değil (İlke 2).
+- **Ahşap = insan yapımı.** Kapı, kese, köy yapıları.
+- **Yasak semantikler:** Kırmızı = tehlike, yeşil = onay, altın = ödül. Bu renkler paletimizde yoktur ve eklenmeyecektir. Durum bilgisi şekil, simge, metin (kod) ve sesle verilir.
+
+### 4.3 Bölge bazında sıcaklık kuralları
+- **Kapı:** En fazla bir meşale kaynağı. Sıcak leke kapı kadrajının yaklaşık %10–15'ini geçmez (ayarlanabilir; Bölüm 8'de doğrulanır). Gece ağırlıkta, gelenin yüzü kahraman.
+- **Köy:** Sıcaklık yalnız meşale sayısıyla artar; her meşale bir kapı kararının izidir (İlke 3). Palet, arka plan ve gök hiçbir zaman ısınmaz. Köy her zaman meşaleler yanmışken gösterilir (Bölüm 2.3).
+- **Savunma:** Köyün meşaleleri korunacak sıcak çekirdek; saldıran taraf tamamen soğuk mavi ve derin mavi. Ateş/yangın kararı açık (Bölüm 2.7); olursa meşale rengi ve sert leke kuralını kullanır.
+
+### 4.4 Arayüz paletinin dünyadan ayrılması
+- Arayüz yalnız **gece** (panel dolgusu), **mürekkep** (çerçeve) ve **kül** (metin, simge) kullanır.
+- **Meşale rengi arayüzde kullanılmaz.** Seçili seçenek bile turuncu ile vurgulanmaz — arayüzde sıcaklık "bu seçenek iyi" diye okunur ve İlke 2'yi bozar. Seçili / üzerine gelinen öğe kalınlaşan mürekkep çerçeveyle ya da çerçeve-metin yer değişimiyle (ters çevirme) gösterilir.
+- Gerekçe: dünyadaki tek sıcak noktanın anlamını korumak.
+
+### 4.5 Renk körlüğü ve okunurluk güvenliği
+Gece `#0D0F14` üzerinde kontrast (WCAG göreli parlaklık, yaklaşık):
+- Meşale ≈ 6.1:1 — iyi
+- Soğuk mavi ≈ 3.4:1 — büyük öğeler için yeterli
+- **Ahşap ≈ 1.5:1 — çok düşük.** Kapı ve ahşap nesneler mürekkep kontur ve meşale lekesi olmadan okunmaz; kalın mürekkep bu yüzden zorunludur.
+- Kül ≈ 10.6:1 — metin için AAA
+
+Ayrımlar:
+- **Meşale ↔ soğuk mavi:** sarı-mavi ekseni; döteranopi ve protanopide korunur. Tritanopi bu ekseni zayıflatır, ama ~2:1 parlaklık farkı okumayı taşır.
+- **Meşale ↔ ahşap:** aynı ton ailesi; ayrımı tamamen parlaklık yapar — renk körlüğünde de güvenli.
+
+Yedek sinyal gerektiren bilgiler (renk asla tek başına sinyal değildir):
+1. **Barlar / kırılmaya yaklaşma:** şekil (çatlak, yarılan parça) + ses ipucu + koddan metin etiketi.
+2. **Rüşvet hakları:** dolu/boş kese simgesi; sayı gerekirse kodda.
+3. **Seçili arayüz öğesi:** çerçeve kalınlığı ya da ters çevirme; renk değişimi yok.
+4. **Krizde küçülen meşale lekesi:** yalnız ruh hali; bilgi taşımaz.
+5. **Geri dönen karakterler:** renkle değil imza siluetiyle tanınır (Bölüm 3.1).
 
 ## 5. Character Design Direction
 
