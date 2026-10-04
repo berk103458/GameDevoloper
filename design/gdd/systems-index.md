@@ -47,7 +47,7 @@ Oyun, kapıda geçen kısa bir sohbet-ve-karar döngüsü etrafında kurulu: kap
 | 2 | İçerik veri hattı (inferred) | Core | MVP | Designed | design/gdd/icerik-veri-hatti.md | — |
 | 3 | Girdi ve odak gezinmesi (inferred) | Core | MVP | Designed | design/gdd/girdi-ve-odak-gezinmesi.md | 2 |
 | 4 | Varış kuyruğu | Gameplay | MVP | Not Started | — | 1, 2, 5 |
-| 5 | Karakter kadrosu | Gameplay | MVP | Not Started | — | 2 |
+| 5 | Karakter kadrosu | Gameplay | MVP | Designed | design/gdd/karakter-kadrosu.md | 1, 2 |
 | 6 | Sohbet | Gameplay | MVP | Not Started | — | 2, 5 |
 | 7 | Karar | Gameplay | MVP | Not Started | — | 5, 6, 8, 9, 10 |
 | 8 | Barlar | Gameplay | MVP | Not Started | — | 1, 2 |
@@ -197,10 +197,10 @@ Döngü yok. Dikkat edilen yakın döngüler:
 | Metric | Count |
 |--------|-------|
 | Total systems identified | 22 |
-| Design docs started | 3 |
+| Design docs started | 4 |
 | Design docs reviewed | 0 |
 | Design docs approved | 0 |
-| MVP systems designed | 3/13 |
+| MVP systems designed | 4/13 |
 | Vertical Slice systems designed | 0/8 |
 
 ---
