@@ -60,11 +60,11 @@ Kapı oyununun ağırlığı, gelen kişinin bir *kişi* olmasından gelir: oyun
 9. **"Kaldı / gitti" sözleşmesi.** Karar (7) bir ziyaretin sonunda bu sisteme iki sonuçtan birini bildirir: **kaldı** (karakter köye/kışlaya geçti) ya da **gitti** (karakter kapıdan ayrıldı). Hangi düğmenin (kabul, ret, rüşvet, kışla, karaktere özel seçenekler) hangi sonuca düştüğünü 7 belirler. "Kaldı" → durum `koyde`; dönüş kuralı bir daha çalışmaz.
 10. **Dönüş kuralı yalnız "gitti"de çalışır** ve tam olarak bir kez, ziyaretin sonunda:
     - `hic_donmez` → `kalici_ayrildi`. RNG çağrılmaz.
-    - `oranla_doner` → F1 ile zar atılır; tutarsa `donebilir` ve F2 ile en erken dönüş gecesi; tutmazsa ya da üst sınıra varıldıysa `kalici_ayrildi`.
+    - `oranla_doner` → önce üst sınır: `ziyaret_sayisi ≥ k_azami` ise `kalici_ayrildi` ve zar atılmaz. Değilse F1 ile zar atılır; tutarsa `donebilir` ve F2 ile en erken dönüş gecesi; tutmazsa `kalici_ayrildi`.
     - `birden_cok_gelir` → F3: ziyaret sayısı hedefin altındaysa `donebilir` + F2; değilse `kalici_ayrildi`.
-11. **Uygunluk, seçim değil.** Bu sistem kimin *gelebileceğini* söyler; o gece kimin geleceğini Varış kuyruğu (4) seçer. Uygunluk: durum `gelmedi` ve `gece ≥ en_erken_gece`, ya da durum `donebilir` ve `gece ≥ en_erken_donus_gecesi`. 4 uygun olmayan bir karakter isterse istek reddedilir.
-12. **Ziyaret sayılır.** 4 bir karakteri o gecenin listesine koyduğunda değil, karakter kapıya *geldiğinde* (sohbet başladığında) `ziyaret_sayisi` 1 artar ve `son_ziyaret_gecesi` yazılır.
-13. **Rastgelelik tek kaynaktan.** Tüm zarlar oturuma enjekte edilen tek bir seed'li `RandomNumberGenerator`'dan gelir. Seed ve RNG durumu 16 tarafından kaydedilir; aynı kayıttan aynı zarlar çıkar. Testler sabit seed kullanır.
+11. **Uygunluk, seçim değil.** Bu sistem kimin *gelebileceğini* söyler; o gece kimin geleceğini Varış kuyruğu (4) seçer. Uygunluk: karakter bu gece henüz istenmemiş **ve** (durum `gelmedi` ve `gece ≥ en_erken_gece`, ya da durum `donebilir` ve `gece ≥ en_erken_donus_gecesi`). 4 bir karakteri istediğinde "bu gece istendi" işareti konur (gece sonunda temizlenir); uygun olmayan bir istek reddedilir.
+12. **Ziyaret sayılır.** 4 bir karakteri o gecenin listesine koyduğunda değil, karakter kapıya *geldiğinde* `ziyaret_sayisi` 1 artar ve `son_ziyaret_gecesi` yazılır. "Ziyaret başladı" bildirimini Sohbet (6) o karakterle sohbeti açtığında gönderir. Bir ziyarete yalnız bir sonuç ("kaldı" ya da "gitti") kabul edilir; ikincisi yok sayılır.
+13. **Rastgelelik enjekte ve ayrık.** Bu sistem iki seed'li `RandomNumberGenerator` akışı kullanır, ikisi de oturuma enjekte edilir: *dönüş akışı* (F1, F2) ve *ad akışı* (figür adları). Ayrı tutulur ki bir gecedeki figür sayısı dönüş zarlarını kaydırmasın. Seed'ler ve akış durumları 16 tarafından kaydedilir; aynı kayıttan aynı zarlar çıkar. Testler sahte ya da sabit seed'li RNG kullanır.
 14. **Veri.** Adlı karakterler `res://data/karakterler/<id>.tres` (`KarakterVerisi`), şablonlar `res://data/siniflar/<sinif>.tres` (`SinifSablonu`) olarak İçerik veri hattı (2) kurallarıyla durur. Metinler (ad, geçmiş, durum) anahtardır: `karakter.<id>.ad`, `sablon.<sinif>.ad<n>`.
 
 **`KarakterVerisi` alanları**
@@ -109,10 +109,10 @@ Figür örneklerinin durumu yoktur.
 | İçerik veri hattı (2) | — | `KarakterVerisi`, `SinifSablonu` kayıtları |
 | Oyun durumu (1) | — | Gün sayacı (`gece` değeri) |
 | Varış kuyruğu (4) | Uygun adlı karakterler, şablon listesi, figür örneği | "Bu karakter / bu şablon geldi" |
-| Sohbet (6) | `sohbet_id`, ziyaret sayısı (kaçıncı gelişi olduğuna göre sohbet seçmek için), ad anahtarı | — |
+| Sohbet (6) | `sohbet_id`, ziyaret sayısı (kaçıncı gelişi olduğuna göre sohbet seçmek için), ad anahtarı | "Ziyaret başladı" (kural 12) |
 | Karar (7) | `karar_secenekleri`, ziyaret sayısı | "kaldı / gitti" + verilen karar (`son_karar`) |
 | Köy nüfusu (10) | Kaldı'da sınıf (adlı ya da figür) | — |
-| Kaydet / yükle (16) | Karakter durumları, RNG seed ve durumu | Yüklemede aynıları |
+| Kaydet / yükle (16) | Karakter durumları, iki RNG akışının seed ve durumu | Yüklemede aynıları |
 | Sonlar (15) | Karakter durumları (ör. kimin köyde olduğu) | — |
 | Köy görünümü (20) | Köydeki adlı karakterler (imza ile görünürler) | — |
 
@@ -121,12 +121,12 @@ Figür örneklerinin durumu yoktur.
 **F1 — Olasılıkla dönüş (`oranla_doner`)**
 
 `p_k = clamp(p0 * d^(k - 1), 0, 1)`
-`doner = (k < k_azami) and (rng.randf() < p_k)`
+`doner = (k < k_azami) and (rng.randf() < p_k)` — `and` kısa devre yapar: `k ≥ k_azami` ise zar atılmaz.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| `k` | int | 1 – k_azami | calculated | Bu "gitti"den sonraki `ziyaret_sayisi` |
+| `k` | int | 1 – k_azami | calculated | `ziyaret_sayisi` — bu ziyaret dahil, geliş anında artmış değer |
 | `p0` | float | (0, 1] | data file | İlk ayrılıştan sonra dönme olasılığı |
 | `d` | float | [0, 1] | data file | Her ziyarette olasılığın çarpıldığı azalma oranı |
 | `k_azami` | int | 2 – 6 | data file | Kesin ziyaret üst sınırı |
@@ -180,6 +180,7 @@ Figür örneklerinin durumu yoktur.
 - **If kayıtta katalogda olmayan bir karakter `id`'si varsa**: kayıt reddedilir, *Menü*'de kalınır; sessiz atlama yok (16 ile tutarlı).
 - **If katalogda kayıtta olmayan yeni bir karakter varsa ve `icerik_surumu` aynıysa**: karakter `gelmedi` ile başlar.
 - **If ad havuzu o gece tükenirse** (havuzdaki addan çok figür): havuz sıfırlanır, tekrar çekilir; aynı ad iki kez görünebilir, hata değil.
+- **If "bu gece istendi" işaretli bir karakter gece sonunda gelmediyse** (ör. kuyruk erken kapandı): işaret temizlenir, durum değişmez, sonraki gece yine uygun olabilir.
 - **If iki adlı karakter aynı gece uygunsa**: ikisi de uygundur; kaçının geleceği 4'ün işidir.
 - **If oyun yeni oturumla başlarsa**: tüm adlı karakterler `gelmedi`, sayaçlar 0, RNG yeni seed.
 
@@ -197,11 +198,11 @@ Figür örneklerinin durumu yoktur.
 | Sistem | Bağ | Arayüz |
 |---|---|---|
 | Varış kuyruğu (4) | Sert | Uygunluk sorgusu, figür örneği; "geldi" bildirimi |
-| Sohbet (6) | Sert | `sohbet_id`, ziyaret sayısı, ad anahtarı |
+| Sohbet (6) | Sert | `sohbet_id`, ziyaret sayısı, ad anahtarı; "ziyaret başladı" bildirir |
 | Karar (7) | Sert | `karar_secenekleri`; "kaldı / gitti" bildirir |
 | Köy nüfusu (10) | Sert | Kaldı'da sınıf |
 | Sonlar (15) | Yumuşak | Karakter durumları |
-| Kaydet / yükle (16) | Sert | Durumlar, RNG seed ve durumu |
+| Kaydet / yükle (16) | Sert | Durumlar, iki RNG akışının seed'i ve durumu |
 | Köy görünümü (20) | Yumuşak | Köydeki adlı karakterler |
 
 *Çift yönlü bağımlılık: Sistem dizini 5'i yalnız 2'ye bağlı gösteriyor; 1'e (gün sayacı) de bağlıdır, eklendi. Karar (7) belgesi "kaldı / gitti" sözleşmesini ve her düğmenin hangisine düştüğünü yazmalıdır.*
@@ -232,43 +233,53 @@ Figür örneklerinin durumu yoktur.
 
 ## Acceptance Criteria
 
-> **Gözlem noktaları:** Testler İçerik veri hattı'nın fixture kataloğunu ve sabit seed'li RNG'yi kullanır. Okunanlar: karakter `durum`, `ziyaret_sayisi`, `en_erken_donus_gecesi`, uygunluk listesi, figür örneği alanları, geliştirme hatası sayacı.
+> **Gözlem noktaları:** Testler İçerik veri hattı'nın fixture kataloğunu kullanır. RNG yerine *sahte RNG* enjekte edilir: sıradaki `randf` / `randi_range` dönüşleri testte verilir, çağrılar argümanlarıyla sayılır. Köy nüfusu (10) yerine *spy*: aldığı sınıf bildirimlerini sayar. Okunanlar: karakter `durum`, `ziyaret_sayisi`, `son_karar`, `en_erken_donus_gecesi`, uygunluk sonucu, figür örneği alanları, uyarı ve geliştirme hatası sayaçları.
 
 **Veri ve doğrulama**
-- **AC-1 (Logic) Gerçek kadro yüklenir.** **GIVEN** depodaki `res://data/` **WHEN** katalog yüklenir **THEN** *Hazır*, 6 adlı karakter, 3 sınıf şablonu; her adlı karakterin `donus_kurali` tabloyla (Core Rules 1) aynı.
-- **AC-2 (Logic) Kurala göre zorunlu alanlar.** **GIVEN** fixture'da sırayla `oranla_doner` + `p0` yok; `birden_cok_gelir` + `n_ziyaret = 1`; `g_min = 5, g_max = 3`; `p0 = 0` **THEN** her birinde katalog *Hatalı*, 1 hata.
-- **AC-3 (Logic) Seçenek listesi.** **GIVEN** `karar_secenekleri` sırayla `[]`, `[kabul, kabul]`, `[ucur]` **THEN** her birinde *Hatalı*.
-- **AC-4 (Logic) Şablon sayısı.** **GIVEN** `ciftci` şablonu yok; ayrı testte iki `asker` şablonu **THEN** *Hatalı*.
-- **AC-5 (Logic) Fazla alan uyarıdır.** **GIVEN** `hic_donmez` karakterde `p0 = 0.5` dolu **THEN** *Hazır*, 1 uyarı.
+- **AC-1 (Logic) Gerçek kadro.** **GIVEN** depodaki `res://data/` **WHEN** katalog yüklenir **THEN** *Hazır*; 6 adlı karakter ve 3 sınıf şablonu; her karakterin `sinif` ve `donus_kurali` değeri Core Rules 1 tablosuyla aynı; Sorhan `n_ziyaret = 3`, Saruca `n_ziyaret = 2`.
+- **AC-2 (Logic) Alan doğrulaması.** **GIVEN** fixture'da her satır ayrı bir testte: `oranla_doner` + `p0` yok; `p0 = 0`; `p0 = 1.2`; `d = 1.5`; `k_azami = 1`; `k_azami = 7`; `birden_cok_gelir` + `n_ziyaret = 1`; `g_min = 5, g_max = 3`; `g_max = 11`; `en_erken_gece = -1`; `sohbet_id` var olmayan kayıt; `ad_anahtari` tabloda yok; `ad_havuzu` 2 öğe; hiç adlı karakter yok **WHEN** katalog yüklenir **THEN** her birinde *Hatalı* ve tam 1 hata.
+- **AC-3 (Logic) Seçenek listesi.** **GIVEN** `karar_secenekleri` sırayla `[]`, `[kabul, kabul]`, `[ucur]` **WHEN** yükleme **THEN** her birinde *Hatalı*, 1 hata.
+- **AC-4 (Logic) Şablon sayısı.** **GIVEN** `ciftci` şablonu yok; ayrı testte iki `asker` şablonu **WHEN** yükleme **THEN** *Hatalı*.
+- **AC-5 (Logic) Fazla alan uyarıdır.** **GIVEN** `hic_donmez` karakterde `p0 = 0.5` dolu **WHEN** yükleme **THEN** *Hazır*, 1 uyarı, 0 hata.
 
-**Durum ve dönüş**
-- **AC-6 (Logic) Başlangıç.** **GIVEN** yeni oturum **THEN** 6 karakterin hepsi `gelmedi`, `ziyaret_sayisi = 0`.
-- **AC-7 (Logic) Uygunluk.** **GIVEN** `en_erken_gece = 2` olan karakter **WHEN** gece = 1 **THEN** uygun değil; **WHEN** gece = 2 **THEN** uygun.
-- **AC-8 (Logic) Ziyaret sayımı.** **GIVEN** karakter seçildi ama sohbet başlamadı **THEN** `ziyaret_sayisi = 0`; **WHEN** sohbet başlar **THEN** 1, `son_ziyaret_gecesi` = o gece.
-- **AC-9 (Logic) Kaldı.** **GIVEN** herhangi bir kural **WHEN** "kaldı" **THEN** `koyde`, 10'a sınıf bir kez bildirildi, RNG çağrı sayısı değişmedi.
-- **AC-10 (Logic) Hiç dönmez.** **GIVEN** Miraen **WHEN** "gitti" **THEN** `kalici_ayrildi`, RNG çağrı sayısı değişmedi; sonraki 10 gecede uygun değil.
-- **AC-11 (Logic) F1 dönüş.** **GIVEN** p0 = 0.6, d = 0.5, k_azami = 4, sahte RNG `randf` → 0.41, `randi_range` → 3, gece = 3 **WHEN** ilk "gitti" **THEN** `donebilir`, `en_erken_donus_gecesi = 6`.
-- **AC-12 (Logic) F1 azalma.** **GIVEN** aynı veri, `randf` → 0.35 **WHEN** 2. "gitti" (p_2 = 0.30) **THEN** `kalici_ayrildi` (0.35 ≥ 0.30). **GIVEN** `randf` → 0.29 **THEN** `donebilir`.
-- **AC-13 (Logic) F1 üst sınır.** **GIVEN** `ziyaret_sayisi = 4 = k_azami` **WHEN** "gitti" **THEN** `kalici_ayrildi`, `randf` çağrılmadı.
-- **AC-14 (Logic) F3.** **GIVEN** Sorhan (`n_ziyaret = 3`) **WHEN** 1. ve 2. gelişte "gitti" **THEN** her seferinde `donebilir`; **WHEN** 3. gelişte "gitti" **THEN** `kalici_ayrildi`, `randf` hiç çağrılmadı.
-- **AC-15 (Logic) Ara gelişte kaldı.** **GIVEN** Sorhan 2. gelişinde **WHEN** "kaldı" **THEN** `koyde`, 3. geliş için hiç uygun olmaz.
-- **AC-16 (Logic) F2 aralığı.** **GIVEN** g_min = 2, g_max = 4, gece = 10, 1000 farklı seed **THEN** her `en_erken_donus_gecesi` ∈ [12, 14] ve üç değerin üçü de görüldü.
-- **AC-17 (Logic) Erken istek.** **GIVEN** `en_erken_donus_gecesi = 6` **WHEN** 4 gece 5'te ister **THEN** reddedilir, 1 geliştirme hatası, durum değişmez.
-- **AC-18 (Logic) Aynı gece iki istek.** **WHEN** 4 aynı karakteri aynı gece ikinci kez ister **THEN** reddedilir.
-- **AC-19 (Logic) Determinizm.** **GIVEN** seed S **WHEN** aynı karar dizisi iki kez oynatılır **THEN** tüm karakter durumları ve `en_erken_donus_gecesi` değerleri iki koşuda aynı.
+**Durum, uygunluk, ziyaret**
+- **AC-6 (Logic) Yeni oturum.** **GIVEN** yeni oturum, ayrı iki oturumda seed A ve B **WHEN** başlar **THEN** 6 karakter `gelmedi`, `ziyaret_sayisi = 0`; iki oturumun kayıtlı seed'leri farklı.
+- **AC-7 (Logic) İlk uygunluk.** **GIVEN** `en_erken_gece = 2` **WHEN** gece = 1 uygunluk sorulur **THEN** hayır; **WHEN** gece = 2 **THEN** evet.
+- **AC-8 (Logic) Dönüş uygunluğu.** **GIVEN** `donebilir`, `en_erken_donus_gecesi = 6` **WHEN** gece = 5 **THEN** hayır; **WHEN** gece = 6 **THEN** evet.
+- **AC-9 (Logic) Erken istek.** **GIVEN** AC-8'deki karakter **WHEN** 4 gece 5'te ister **THEN** reddedilir, 1 geliştirme hatası, durum ve sayaçlar değişmez.
+- **AC-10 (Logic) Aynı gece ikinci istek.** **GIVEN** karakter bu gece 4 tarafından istenmiş **WHEN** aynı gece tekrar istenir **THEN** reddedilir, 1 geliştirme hatası, durum değişmez.
+- **AC-11 (Logic) Ziyaret sayımı.** **GIVEN** karakter istendi ama "ziyaret başladı" gelmedi **THEN** `ziyaret_sayisi = 0`. **WHEN** "ziyaret başladı" (gece 3) **THEN** `ziyaret_sayisi = 1`, `son_ziyaret_gecesi = 3`.
+- **AC-12 (Logic) Son karar.** **GIVEN** ziyaret sürüyor **WHEN** Karar "gitti" ile `rusvet` bildirir **THEN** `son_karar = &"rusvet"`.
+
+**Dönüş kuralları**
+- **AC-13 (Logic) Kaldı (parametrik).** **GIVEN** sırayla `hic_donmez`, `oranla_doner`, `birden_cok_gelir` karakter **WHEN** "kaldı" **THEN** her birinde `koyde`, spy'da sınıf bildirimi tam 1, sahte RNG çağrısı 0.
+- **AC-14 (Logic) Hiç dönmez.** **GIVEN** Miraen **WHEN** "gitti" **THEN** `kalici_ayrildi`, RNG çağrısı 0; sonraki 10 gecenin hiçbirinde uygun değil.
+- **AC-15 (Logic) F1 ilk dönüş.** **GIVEN** p0 = 0.6, d = 0.5, k_azami = 4, `ziyaret_sayisi = 1`, gece = 3, sahte `randf` → 0.41, `randi_range` → 3 **WHEN** "gitti" **THEN** `donebilir`, `en_erken_donus_gecesi = 6`, `randi_range(2, 4)` çağrıldı.
+- **AC-16 (Logic) F1 azalma — ret.** **GIVEN** aynı veri, `ziyaret_sayisi = 2` (p_2 = 0.30), `randf` → 0.35 **WHEN** "gitti" **THEN** `kalici_ayrildi`, `randi_range` çağrılmadı.
+- **AC-17 (Logic) F1 azalma — dönüş.** **GIVEN** `ziyaret_sayisi = 2`, `randf` → 0.29 **WHEN** "gitti" **THEN** `donebilir`.
+- **AC-18 (Logic) F1 üst sınır.** **GIVEN** `ziyaret_sayisi = 4 = k_azami` **WHEN** "gitti" **THEN** `kalici_ayrildi`, `randf` ve `randi_range` çağrılmadı.
+- **AC-19 (Logic) F1 sınır değerleri.** **GIVEN** `d = 0`, p0 = 0.6 **WHEN** `ziyaret_sayisi = 1`, `randf` → 0.5 **THEN** `donebilir`; **WHEN** `ziyaret_sayisi = 2`, `randf` → 0.0 **THEN** `kalici_ayrildi` (p_2 = 0). **GIVEN** `p0 = 1.0`, `ziyaret_sayisi = 1`, `randf` → 0.999 **THEN** `donebilir`.
+- **AC-20 (Logic) F2 aralık.** **GIVEN** g_min = 2, g_max = 4, gece = 10 **WHEN** sahte `randi_range` → 2, ayrı testte → 4 **THEN** sırasıyla 12 ve 14; çağrı argümanları `(2, 4)`. **GIVEN** g_min = g_max = 3 **THEN** `randi_range(3, 3)` çağrıldı, sonuç 13.
+- **AC-21 (Logic) F3.** **GIVEN** Sorhan (`n_ziyaret = 3`), `randi_range` → 2 **WHEN** 1. ve 2. gelişte "gitti" **THEN** her seferinde `donebilir`, `randf` çağrılmadı. **WHEN** 3. gelişte "gitti" **THEN** `kalici_ayrildi`, `randf` ve `randi_range` çağrılmadı.
+- **AC-22 (Logic) Ara gelişte kaldı.** **GIVEN** Sorhan 2. gelişinde **WHEN** "kaldı" **THEN** `koyde`; sonraki 10 gecede uygun değil.
+- **AC-23 (Logic) Tek değerlendirme.** **GIVEN** bir ziyarete "gitti" bildirilmiş **WHEN** aynı ziyarete ikinci "gitti" ya da "kaldı" gelir **THEN** yok sayılır, 1 geliştirme hatası, durum ve RNG çağrı sayısı değişmez.
 
 **Figürler**
-- **AC-20 (Logic) Figür örneği.** **GIVEN** `esnaf` şablonu, havuz 3 ad **WHEN** aynı gece 3 örnek istenir **THEN** 3 farklı ad, sınıf hep `esnaf`. **WHEN** 4. örnek **THEN** geçerli bir ad döner (havuz sıfırlandı), 0 hata.
-- **AC-21 (Logic) Figür iz bırakmaz.** **GIVEN** bir figür "kaldı" **THEN** 10'a sınıf bildirildi; kayıt verisinde figür girişi yok; sonraki gecelerde aynı örnek uygunluk listesinde yok.
+- **AC-24 (Logic) Figür örneği.** **GIVEN** `esnaf` şablonu, havuz 3 ad **WHEN** aynı gece 3 örnek istenir **THEN** 3 farklı ad, sınıf hep `esnaf`. **WHEN** 4. örnek **THEN** havuzdan geçerli bir ad, 0 hata.
+- **AC-25 (Logic) Figür iz bırakmaz.** **GIVEN** bir figür "kaldı" **THEN** spy'da 1 sınıf bildirimi; kayıt verisinde figür girişi yok; adlı karakterlerin tüm durum ve sayaçları değişmedi.
+- **AC-26 (Logic) Figür adları dönüş zarlarını kaydırmaz.** **GIVEN** aynı dönüş seed'i, bir koşuda 0, diğerinde 5 figür örneği istenir **WHEN** aynı karar dizisi oynanır **THEN** iki koşuda tüm `en_erken_donus_gecesi` ve durumlar aynı (figür adları ayrı RNG akışından, kural 13).
 
-**Kayıt**
-- **AC-22 (Integration) Kayıt / yükleme.** **GIVEN** 3 gece oynanmış, Thessra `donebilir` (en erken 6), Miraen `kalici_ayrildi`, RNG belli bir durumda **WHEN** gece sonu kaydı → yükleme **THEN** tüm durumlar aynı ve sonraki ilk `randf` değeri kayıttan önceki koşuyla aynı.
-- **AC-23 (Integration) Gece ortası çıkış.** **GIVEN** gece 4'te Thessra'nın ziyareti sürerken menüye çıkılır **WHEN** Devam **THEN** Thessra gece 4 başındaki durumda, `ziyaret_sayisi` artmamış.
-- **AC-24 (Logic) Bilinmeyen kimlik.** **GIVEN** kayıtta `ali` karakteri **WHEN** yükleme **THEN** reddedilir, *Menü*, 1 geliştirme hatası.
+**Kayıt ve oturum**
+- **AC-27 (Integration) Determinizm ve kayıt.** **GIVEN** seed S, 3 gece oynanmış (Thessra `donebilir`, en erken 6; Miraen `kalici_ayrildi`) **WHEN** gece sonu kaydı yazılır ve yeni bir süreçte yüklenir **THEN** tüm durumlar aynı ve sonraki ilk dönüş zarı kayıttan önceki koşuyla aynı değer.
+- **AC-28 (Integration) Gece ortası çıkış.** **GIVEN** gece 4'te Thessra'nın ziyareti sürerken menüye çıkılır **WHEN** "Devam" son gece sonu kaydından yükler **THEN** Thessra gece 4 başındaki durumda, `ziyaret_sayisi` artmamış.
+- **AC-29 (Integration) Bar kırılınca.** **GIVEN** gece 5'te Sorhan "gitti" almadan bar kırılır **WHEN** oturum sonu **THEN** karakter durumları için kayıt yazılmamış (GDD 1: oturum sonu kaydı siler).
+- **AC-30 (Integration) Bilinmeyen kimlik.** **GIVEN** kayıtta katalogda olmayan `ali` **WHEN** yükleme **THEN** reddedilir, *Menü*, 1 geliştirme hatası.
+- **AC-31 (Integration) Yeni karakter, aynı sürüm.** **GIVEN** kayıtta yalnız 5 karakter, katalogda 6, `icerik_surumu` aynı **WHEN** yükleme **THEN** 6. karakter `gelmedi`, diğer 5'i kayıttaki gibi.
 
 **İçerik ve görünüm**
-- **AC-25 (Logic, CI) Etiket yok.** **GIVEN** `KarakterVerisi` ve `SinifSablonu` betikleri **WHEN** alan adları taranır **THEN** `iyi`, `kotu`, `guven`, `tehlike`, `sadakat` gibi hüküm alanı yok.
-- **AC-26 (UI) İmza okunurluğu.** **GIVEN** 6 karakterin siyah dolgu 64 px silueti yan yana **WHEN** gözden geçirilir **THEN** her biri imzasıyla ayırt edilir, ikisi karışmaz (sanat kitabı 5.4); görüntü `production/qa/evidence/` altında saklanır.
+- **AC-32 (Logic, CI) Hüküm alanı yok.** **GIVEN** `KarakterVerisi` ve `SinifSablonu` betikleri **WHEN** alan adları taranır **THEN** `iyi`, `kotu`, `guven`, `tehlike`, `sadakat` içeren alan yok.
+- **AC-33 (Config/Data) Hassasiyet kontrol listesi.** **GIVEN** her karakterin metni ve geçmişi **WHEN** içerik incelemesi Core Rules 4'teki 6 maddeyi tek tek işaretler **THEN** 6 karakterin hepsinde 6/6; liste `production/qa/` altında saklanır.
+- **AC-34 (Visual/Feel) İmza okunurluğu.** **GIVEN** 6 karakterin siyah dolgu 64 px silueti, adları gizli **WHEN** ≥ 3 kişiye 6 siluet ve 6 imza tarifi gösterilip eşleştirmeleri istenir **THEN** eşleştirme ≥ %90 doğru; görüntü `production/qa/evidence/` altında, art-director onayıyla.
 
 ## Open Questions
 

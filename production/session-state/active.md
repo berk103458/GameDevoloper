@@ -1,12 +1,9 @@
 # Session State
 
-- **Task**: girdi-ve-odak-gezinmesi GDD
-- **Status**: Complete — Designed (pending /design-review in a fresh session)
-- **File**: design/gdd/girdi-ve-odak-gezinmesi.md
-- **Sections**: Summary, Overview, Detailed Design (Core Rules 1–22, States, Interactions), Formulas (F1 mod değişimi, F2 tekrar), Edge Cases, Dependencies, Acceptance Criteria (48), Open Questions
-- **Decisions**: tek odak (hover=normal stil, mouse_entered→grab_focus); kısayollar her zaman iki adımlı; Esc yalnız `geri`, `menu` = P/Start; gamepad kısayolu MVP'de yok; bozuk tuş ataması oyunu durdurmaz
-- **Pending user confirmation**: gamepad kısayolu yok; bozuk atama dosyası davranışı
-- **Previously done**: oyun-durumu-ve-gun-dongusu (#1), icerik-veri-hatti (#2) — both Designed, pending review
-- **Next**: Karakter kadrosu (#4 in design order)
-
-- **Current**: karakter-kadrosu GDD skeleton created. Decisions: 6 named (Miraen, Sorhan, Thessra foreign + 3 local), adsız sınıf figürleri fill nights, one return rule per named character. Waiting on narrative-director + systems-designer drafts.
+- **Task**: karakter-kadrosu GDD
+- **Status**: Complete — Designed (pending /design-review in a fresh session); QA findings applied (34 ACs)
+- **File**: design/gdd/karakter-kadrosu.md
+- **Decisions**: 6 named (Miraen, Sorhan, Thessra, Karaca Usta, Aydoğdu, Saruca Hatun); adsız sınıf şablonları; F1 azalan dönüş p0=0.6 d=0.5 k_azami=4; F2 2–4 gece; F3 Sorhan 3 / Saruca 2; kaldı/gitti eşlemesi Karar (7)'ye; two RNG streams (dönüş, ad)
+- **Open**: Osmanoğulları anakronizmi (Sonlar 15); imza şekilleri art-director onayı bekliyor
+- **Previously done**: #1 oyun durumu, #2 içerik veri hattı, #3 girdi ve odak — Designed
+- **Next**: Ayarlar ve erişilebilirlik (17) — user requested; then Barlar (8)
