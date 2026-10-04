@@ -3,7 +3,7 @@
 class_name KoySahnesi
 extends Node3D
 
-const KAPI := Vector3(0, 0, 15)
+const KAPI := Vector3(0, 0, -19)
 const AZAMI_FIGUR := 32
 
 var oturum: Oturum
@@ -45,16 +45,17 @@ func _process(delta: float) -> void:
 func _kamera_yerlestir() -> void:
 	if kamera == null:
 		return
-	var r := 21.0
-	kamera.position = Vector3(sin(_aci) * r * 0.5, 9.0, cos(_aci) * r)
-	kamera.look_at(Vector3(0, 0.5, -1.5))
+	var r := 17.0
+	kamera.position = Vector3(sin(_aci) * r * 0.5, 7.5, cos(_aci) * r)
+	kamera.look_at(Vector3(0, 0.8, -4.0))
 
 
 func _kur(animasyon: bool = true) -> void:
 	var kapi := Dunya3B.nesne("kapi", 4.2, "yapi")
 	kapi.position = KAPI
+	kapi.rotation_degrees.y = 180
 	add_child(kapi)
-	_isiklar.append(Dunya3B.mesale_kur(self, KAPI + Vector3(-2.6, 0, -0.8), 2.0, 8.0))
+	_isiklar.append(Dunya3B.mesale_kur(self, KAPI + Vector3(-3.0, 0, 1.2), 2.0, 8.0))
 	_yapilari_kur()
 	var nufus := oturum.koy.toplam()
 	var ev_sayisi := clampi(1 + nufus / 3, 1, 14)
@@ -99,11 +100,11 @@ func _yapilari_kur() -> void:
 
 
 func _ev_konumu(i: int) -> Vector3:
-	# Köyün ortasındaki kuyunun çevresinde iki halka; giriş yolu (güney) boş kalır.
+	# Köyün ortasındaki kuyunun çevresinde iki halka; kapıdan gelen yol (kuzey) boş kalır.
 	var halka := 0 if i < 7 else 1
 	var sira := i if halka == 0 else i - 7
 	var r := 9.0 + halka * 5.5
-	var a := deg_to_rad(-150.0 + sira * 50.0 + halka * 25.0)
+	var a := deg_to_rad(30.0 + sira * 50.0 + halka * 25.0)
 	return Vector3(sin(a) * r, 0, -cos(a) * r)
 
 
@@ -134,7 +135,7 @@ func _halki_kur(animasyon: bool) -> void:
 		var f := Dunya3B.karakter(Dunya3B.karakter_adi(g["adli_id"], g.get("portre", ""), g["sinif"]))
 		add_child(f)
 		if animasyon:
-			f.position = KAPI + Vector3(0, 0, 2)
+			f.position = KAPI + Vector3(0, 0, 1.5)
 			_gir(f, _halk_konumu(i), n)
 		else:
 			f.position = _halk_konumu(i)
@@ -145,7 +146,7 @@ func _gir(f: KarakterModel, hedef: Vector3, sira: int) -> void:
 	await get_tree().create_timer(0.3 + sira * 0.9).timeout
 	if not is_instance_valid(f):
 		return
-	await f.yuru(Vector3(0, 0, 9))
+	await f.yuru(Vector3(0, 0, -11))
 	if is_instance_valid(f):
 		await f.yuru(hedef)
 		if is_instance_valid(f):
@@ -161,7 +162,7 @@ func _sur_kur() -> void:
 	for i in adet:
 		var a := TAU * i / adet
 		var p := Vector3(sin(a) * 20.0, 0, cos(a) * 20.0)
-		if p.distance_to(KAPI) < 3.5:
+		if p.distance_to(Vector3(0, 0, -20)) < 3.5:
 			continue
 		var c := Dunya3B.nesne("kazik_cit", boy)
 		c.position = p
@@ -176,9 +177,9 @@ func _tekfur_kur() -> void:
 	var mat := Dunya3B.duz_malzeme(Renkler.DERIN_MAVI)
 	for i in adet:
 		var f := Dunya3B.karakter("asker")
-		f.position = Vector3(-14 + (i % 8) * 4.0, 0, -uzak - (i / 8) * 3.0)
+		f.position = Vector3(-26 + (i % 8) * 3.0, 0, -uzak - (i / 8) * 3.0)
 		for mi in f.find_children("*", "MeshInstance3D", true, false):
 			(mi as MeshInstance3D).material_override = mat
 		add_child(f)
 		f.bak(Vector3.ZERO)
-	_isiklar.append(Dunya3B.mesale_kur(self, Vector3(0, 0, -uzak + 2.0), 1.6, 9.0))
+	_isiklar.append(Dunya3B.mesale_kur(self, Vector3(-16, 0, -uzak + 2.0), 1.6, 9.0))

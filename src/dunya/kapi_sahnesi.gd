@@ -4,9 +4,9 @@ class_name KapiSahnesi
 extends Node3D
 
 const DURMA := Vector3(0.0, 0.0, -3.0)
-const BASLANGIC := Vector3(0.6, 0.0, -26.0)
+const BASLANGIC := Vector3(0.6, 0.0, -12.5)
 const ICERI := Vector3(1.9, 0.0, 2.5)
-const DONUS := Vector3(-0.8, 0.0, -32.0)
+const DONUS := Vector3(-0.8, 0.0, -22.0)
 
 var kamera: Camera3D
 var _gelen: KarakterModel
@@ -56,12 +56,20 @@ func gelen_git(kaldi: bool) -> void:
 		return
 	var g := _gelen
 	_gelen = null
+	# Giden kişi yürümeye devam eder; sahne onu beklemez, kısa bir süre sonra sıradaki gelir.
+	_ayril(g, kaldi)
+	await get_tree().create_timer(1.6).timeout
+
+
+func _ayril(g: KarakterModel, kaldi: bool) -> void:
 	if kaldi:
 		await g.yuru(Vector3(1.6, 0, -0.5))
-		await g.yuru(ICERI)
+		if is_instance_valid(g):
+			await g.yuru(ICERI)
 	else:
 		await g.yuru(DONUS)
-	g.queue_free()
+	if is_instance_valid(g):
+		g.queue_free()
 
 
 ## Karar anında kadraj daralır (kamera görüş açısı sert adımlarla).
@@ -93,11 +101,14 @@ func _kapi_kur() -> void:
 	var kanat_sag := _kutu(Vector3(1.9, 3.9, 0.14), Vector3(0, 0, 0), ahsap)
 	kanat_sag.position = Vector3(2.75, 1.95, -0.4)
 	kanat_sag.rotation_degrees.y = -72
-	# Kazık duvar kapının iki yanında.
+	# Kazık duvar kapının iki yanında: parça genişliği modelden ölçülür, kapı boşluğu açık kalır.
+	var ornek := Dunya3B.nesne("kazik_cit", 3.4)
+	var w := clampf(Dunya3B.boyut(ornek).x, 1.0, 6.0)
+	ornek.free()
 	for yon in [-1, 1]:
-		for i in 7:
-			var c := Dunya3B.nesne("kazik_cit", 3.6)
-			c.position = Vector3(yon * (3.4 + i * 2.3), 0, -1.4)
+		for i in 6:
+			var c := Dunya3B.nesne("kazik_cit", 3.4)
+			c.position = Vector3(yon * (2.5 + w / 2.0 + i * w * 0.95), 0, -1.4)
 			add_child(c)
 
 

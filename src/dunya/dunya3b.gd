@@ -117,6 +117,11 @@ static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "") -> Node3
 	return kap
 
 
+## Bir düğümün (modelin) dünya ölçeğindeki genişliği (x) ve derinliği (z).
+static func boyut(n: Node3D) -> Vector3:
+	return _kutu(n).size * n.get_child(0).scale if n.get_child_count() > 0 and n.get_child(0) is Node3D else _kutu(n).size
+
+
 ## Karakter modeli adı: adlı karakter id'si, portre kökü ya da sınıf.
 static func karakter_adi(adli_id: StringName, portre: String, sinif: StringName) -> String:
 	if adli_id != &"" and _yol(String(adli_id) + "_yuru", "karakter") != "":

@@ -2,7 +2,7 @@
 class_name KarakterModel
 extends Node3D
 
-const YURUME_HIZI := 1.35  # m/s
+const YURUME_HIZI := 1.9  # m/s (oyun temposu için gerçekten biraz hızlı)
 
 var _oynatici: AnimationPlayer
 var _anim: String = ""
@@ -37,11 +37,12 @@ func yuru(hedef: Vector3) -> void:
 	look_at(position + fark, Vector3.UP, true)
 	if _oynatici != null:
 		_oynatici.play(_anim)
-		_oynatici.speed_scale = 1.0
+		_oynatici.speed_scale = YURUME_HIZI / 1.35
 	var t := create_tween()
 	t.tween_property(self, "position", hedef, fark.length() / YURUME_HIZI)
 	await t.finished
-	dur()
+	if is_inside_tree():
+		dur()
 
 
 ## Durur: yürüme döngüsü çok yavaş oynar (yerinde kıpırtı).
