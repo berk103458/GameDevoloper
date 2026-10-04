@@ -1,14 +1,14 @@
 # Session Subagent Cost
 
 **Session:** `c5ad507d-65a5-5f99-ae43-45082858bd06`  
-**Updated:** 20261004_031106
+**Updated:** 20261004_031633
 
-Subagent spawns this session: **14**
+Subagent spawns this session: **15**
 
 | Agent | Spawns |
 |-------|--------|
 | art-director | 6 |
-| qa-lead | 3 |
+| qa-lead | 4 |
 | systems-designer | 2 |
 | ux-designer | 1 |
 | technical-artist | 1 |
