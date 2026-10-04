@@ -1,11 +1,10 @@
 # Session State
 
-- **Task**: icerik-veri-hatti GDD
+- **Task**: girdi-ve-odak-gezinmesi GDD
 - **Status**: Complete — Designed (pending /design-review in a fresh session)
-- **File**: design/gdd/icerik-veri-hatti.md
-- **Decisions**: typed .tres Resources under res://data/<tur>/<id>.tres; Turkish-only keyed text in data/metin/metinler.csv via tr(); load once + validate; any error blocks start (error screen in release)
-- **Index**: #2 Designed; #9 Rüşvet hakları now depends on 1, 2
-- **Next**: Girdi ve odak gezinmesi (#3 in design order)
-
-- **Task**: girdi-ve-odak-gezinmesi GDD (skeleton created, In Design)
-- **Open conflict**: art bible 7.3 "tek odak durumu" vs Godot 4.6 dual-focus
+- **File**: design/gdd/girdi-ve-odak-gezinmesi.md
+- **Sections**: Summary, Overview, Detailed Design (Core Rules 1–22, States, Interactions), Formulas (F1 mod değişimi, F2 tekrar), Edge Cases, Dependencies, Acceptance Criteria (48), Open Questions
+- **Decisions**: tek odak (hover=normal stil, mouse_entered→grab_focus); kısayollar her zaman iki adımlı; Esc yalnız `geri`, `menu` = P/Start; gamepad kısayolu MVP'de yok; bozuk tuş ataması oyunu durdurmaz
+- **Pending user confirmation**: gamepad kısayolu yok; bozuk atama dosyası davranışı
+- **Previously done**: oyun-durumu-ve-gun-dongusu (#1), icerik-veri-hatti (#2) — both Designed, pending review
+- **Next**: Karakter kadrosu (#4 in design order)
