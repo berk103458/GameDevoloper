@@ -3,7 +3,7 @@
 > **Status**: Draft
 > **Owned By**: art-director
 > **Last Updated**: 2026-10-04
-> **Art Director Sign-Off (AD-ART-BIBLE)**: [Not yet reviewed]
+> **Art Director Sign-Off (AD-ART-BIBLE)**: SKIPPED 2026-10-04 — lean mode
 
 `/art-bible` writes these nine sections in this order and replaces each
 section's `[To be designed]` line as that section is approved. A section still
@@ -486,6 +486,8 @@ Sert kenarlı, hafif elle kesilmiş, asimetrik ok; kül dolgu + 2 px mürekkep k
 5. **Dışa aktarım** — PNG → Godot içe aktarımı.
 6. **Denetim** (8.8) — dosyada ve oyun içi ekran görüntüsünde.
 
+**Komut kuralı (kullanıcı onayı, 4 Ekim 2026):** Gemini komutlarına referans adı **hiç yazılmaz** ("Reigns tarzında", "minyatür gibi", "ağaç baskı stili" yasak); yalnız Bölüm 9'dan çıkan kural cümlesi yazılır. Ad, kaynağın paletini, yazısını ve yüz kalıplarını da getirir — kopya riski.
+
 Görüntü modelleri tam hex, sabit çizgi kalınlığı ve gerçek düz renk üretmez; düz yüzeylere gradyan ve gürültü, tabela/kitabe/sikkeye sahte yazı ekler. Bölüm 1'in kuralı ancak temizlik adımı zorunlu tutulursa korunur.
 
 ### 8.1 Dosya biçimleri
@@ -647,6 +649,43 @@ assets/
 
 ## 9. Reference Direction
 
-[To be designed] — 3–5 references (games, films, art styles or artists). For
-each: the specific element to take from it, and what to avoid so the result
-does not read as a copy.
+### 9.0 Ana fikir
+**Referans bir kural verir, bir görünüş vermez.** Her kaynaktan tek bir teknik, renk ya da kompozisyon kuralı alınır; kaynaklar birbirini tekrar etmez, her biri farklı bir işe bakar. Kullanıcının kendi referansları Reigns ve Papers, Please'tir ("yakın, kopya değil"). Üç oyun dışı kaynak, her biri başka bir boşluğu (giyim, yapı, mürekkep tekniği) doldurduğu için eklendi (kullanıcı seçimi Claude'a bıraktı, 4 Ekim 2026).
+
+**Komut kuralı (8.0):** Referans adı Gemini komutuna hiçbir zaman yazılmaz; yalnız bu bölümden çıkan kural cümlesi girer.
+
+| # | Kaynak | Baktığı iş | Desteklediği bölüm |
+|---|---|---|---|
+| 1 | Reigns | Figürün kart boyutunda okunması | 3.1, 5.4, 5.7 |
+| 2 | Papers, Please | Kapı sahnesinin kadrajı, tekrarın yorgunluğu | 2.1, 5.5, 6.3, 7.2 |
+| 3 | Varka ve Gülşah minyatürleri | Dönem giyimi | 5.2, 5.3 |
+| 4 | Selçuklu kervansaray taçkapısı | Yapı kütlesi | 3.2, 6.1 |
+| 5 | Ağaç / linol baskı (yüksek baskı tekniği) | Mürekkep çizgisi, gölge kütlesi | 3, 6.2, 2.1 |
+
+### 9.1 Reigns — kart boyutunda tek imza
+- **Alınan:** Büst kadrajında tek figür ve onu küçük boyda tanıtan **tek bir dış hat şekli** (başlık, sakal, taşınan nesne). Yüzün birkaç parçaya indirgenmesi: göz kapağı, ağız çizgisi, baş açısı — 5.4'teki imza şekli ve 5.6'daki üç ifade kaldıracının kaynağı.
+- **Ayrışılan:** Reigns'in konturu yoktur, bizde kalın mürekkep zorunlu (3). Karikatür burun ve mizahi abartı yok; taban ifade yorgun (5.6). Karakter başına renkli/sıcak kart zemini yok — zemin her zaman gece (4.2). Eğilen/kaydırılan kart çerçevesi ve kart üstü metin yok (7.2). Üstte dolan simge barları yok — bizim barlar simgesiz, çatlayan levhalar (7.6).
+
+### 9.2 Papers, Please — yorgun kapı
+- **Alınan:** Birinci şahıs, sabit kadraj; gelen kişi oyuncuya gelir, oyuncu yerinden kalkmaz (5.1). Kahraman odak **tek kişi**, arkadaki kuyruk yalnız uzak ritim (5.5, 6.3). Her gün aynı kadrajın tekrarı yorgunluğu taşır; değişen yalnız gelen kişidir.
+- **Ayrışılan:** Piksel sanat yok — 2× çizim ve mürekkep (8.4). Belge, mühür, metin yığını yok; karar sohbetle verilir (Sütun 2, 7.0). Yeşil/kırmızı onay damgası yok (4.2). Çamurlu, düşük doygunluklu kahverengi-zeytin palet yok. Kuşbakışı kuyruk ve propaganda afişi estetiği yok.
+
+### 9.3 Varka ve Gülşah minyatürleri
+*13. yüzyıl Anadolu Selçuklu resimli el yazması (Topkapı Sarayı Müzesi koleksiyonu). Katalog numarası, kesin tarih ve nakkaş bilgisi hafızadan yazıldı — kaynakla doğrulanmalı.*
+- **Alınan:** Yalnız **giyim ve aksesuar sözlüğü**: önü bindirmeli kaftan, bel kuşağı, börk ve sarık sargısı, yumuşak çizme, sadak ve yay, yuvarlak kalkan — 5.2'deki şablonun görsel kanıtı ve yapay zekânın dönem dışı kavuk/fes/cepken üretimine karşı temizlik referansı (8.0). İkinci kural: figürler **düz bir zemin önünde, yere düşen gölge olmadan** durur — 6.6'daki "figürün arkası tek düz ton" kuralını destekler.
+- **Ayrışılan:** Kırmızı, altın, lacivert zemin yok (palet 7 hex; altın yasak semantik, 4.2). Yaldız, metin kartuşu, yazı alanı yok (R6). Saray ve kahramanlık sahnesi, dinamik savaş pozu yok (5.6). Kalıp "ay yüz" güzellik tipi yok; yuvarlak "güvenilir" hat yasak (3.1). Minyatürün eşit, ışıksız aydınlığı yok — tek kaynak meşale (İlke 1).
+
+### 9.4 Selçuklu kervansaray taçkapısı
+*Yalnız plan ve kütle için; ölçek ve süsleme alınmaz.*
+- **Alınan:** **Düz, sağır bir duvar kütlesinde tek ve yoğun bir giriş.** Vurgu sivri kemerli taçkapıda toplanır, duvarın geri kalanı sessizdir — 3.4'teki "bir karede bir kahraman" kuralının mimarideki karşılığı; 6.1'deki kervansaray tarifini besler ve kapı ile kervansarayın aynı "dikdörtgen içinde tek açıklık" dilini paylaşmasını sağlar.
+- **Ayrışılan:** Anıtsal ölçek ve sultan hanı görkemi yok — bizimki uçta, kaba ve küçük (6.1). Mukarnas, geometrik geçme, oyma süsleme yok ya da en fazla tek çizgi. Kitabe yazısı yok (6.4). Sıcak bal rengi kesme taş yok — taş soğuk mavi düz leke (4.1); yapay zekâ çıktısında en olası sıcak renk sızıntısı budur (8.6). Hayvan figürlü kabartmalar yok (sembol yükü, hüküm riski, İlke 2).
+
+### 9.5 Ağaç / linol baskı — yüksek baskı tekniği
+*Belirli bir sanatçı değil, tekniğin kendisi (sanatçı adı stil taklidi riski taşır, 8.0).*
+- **Alınan:** **Gölgenin çizgiyle değil, düz siyah kütleyle verilmesi** — yüzün ışık almayan yarısı tek parça mürekkep ya da soğuk mavi alan (2.1); ara ton taraması yok, ışık–gölge sınırı tek sert kenar (meşale lekesiyle aynı mantık, İlke 1). İkinci kural: malzeme dokusu **birkaç paralel oyma çizgisiyle** verilir (ahşap damarı, toprak) — 6.2'deki "doku tonla değil çizgiyle" kuralı.
+- **Ayrışılan:** İncelip kalınlaşan, sivrilen çizgi yok — ağırlık 6/3/2 px'te sabit (8.4). Kâğıt dokusu, mürekkep taşması, baskı lekesi, ahşap gren izi yok (R7). Ekspresyonist yüz bozması ve korku tonu yok (kötü adam yüzü riski, 3.1). Sık tarama yok; doku çizgisi seyrek ve sessiz halkaya girmez (6.6).
+
+### 9.6 Görsel referans OLMAYANLAR
+Not Tonight, Yes Your Grace ve Death and Taxes **oynanış akrabasıdır**, görsel referans değildir (ilk ikisi piksel sanat, üçüncüsü yuvarlak karikatür çizgi). Ortak tuzak: karar ekranında renkli onay/ret işaretleri (4.2).
+
+**Ayrışma testi:** Bir görsel, yanına konduğunda herhangi bir referansın **ekran görüntüsü** sanılıyorsa fazla yakındır; yalnız o referansın kuralını taşıyorsa doğrudur.
