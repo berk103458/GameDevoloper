@@ -6,3 +6,6 @@
 - **Decisions**: typed .tres Resources under res://data/<tur>/<id>.tres; Turkish-only keyed text in data/metin/metinler.csv via tr(); load once + validate; any error blocks start (error screen in release)
 - **Index**: #2 Designed; #9 Rüşvet hakları now depends on 1, 2
 - **Next**: Girdi ve odak gezinmesi (#3 in design order)
+
+- **Task**: girdi-ve-odak-gezinmesi GDD (skeleton created, In Design)
+- **Open conflict**: art bible 7.3 "tek odak durumu" vs Godot 4.6 dual-focus
