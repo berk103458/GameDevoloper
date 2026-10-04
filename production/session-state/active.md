@@ -8,3 +8,5 @@
 - **Pending user confirmation**: gamepad kısayolu yok; bozuk atama dosyası davranışı
 - **Previously done**: oyun-durumu-ve-gun-dongusu (#1), icerik-veri-hatti (#2) — both Designed, pending review
 - **Next**: Karakter kadrosu (#4 in design order)
+
+- **Current**: karakter-kadrosu GDD skeleton created. Decisions: 6 named (Miraen, Sorhan, Thessra foreign + 3 local), adsız sınıf figürleri fill nights, one return rule per named character. Waiting on narrative-director + systems-designer drafts.
