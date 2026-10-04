@@ -30,6 +30,8 @@ var sonraki_gelen_ek: int = 0
 var _rng: RandomNumberGenerator
 var _rng_donus: RandomNumberGenerator
 var _rng_ad: RandomNumberGenerator
+## Heybe içeriği için ayrı akış (yalan ve eşyalar diğer çekilişleri kaydırmasın).
+var _rng_heybe: RandomNumberGenerator
 var _gemini: Array = []
 var _gemini_sira: int = 0
 
@@ -45,6 +47,8 @@ func _init(katalog_: Katalog, tohum_: int = 0) -> void:
 	_rng_donus.seed = tohum + 1
 	_rng_ad = RandomNumberGenerator.new()
 	_rng_ad.seed = tohum + 2
+	_rng_heybe = RandomNumberGenerator.new()
+	_rng_heybe.seed = tohum + 3
 	barlar = Barlar.new(ayarlar.bar_anahtarlari.size(), ayarlar.bar_baslangic, ayarlar.bar_azami)
 	koy = KoyNufusu.new()
 	kadro = KarakterKadrosu.new(katalog, _rng_donus, _rng_ad)
@@ -75,7 +79,41 @@ func gece_kuyrugu() -> Array[Gelen]:
 			sonuc.append(_adli_gelen(id))
 		else:
 			sonuc.append(_figur_gelen())
+	for g in sonuc:
+		g.heybe = heybe_uret(g.sinif)
 	return sonuc
+
+
+## Bir gelenin heybesi: söylediği akçe, sınıfına göre 1–2 eşya; yalancının astarında akçe ve
+## bazen değerli bir eşya (design/gdd/heybe-ve-rusvet.md, F1–F3).
+func heybe_uret(sinif: StringName) -> Heybe:
+	var h := Heybe.new()
+	var a := ayarlar
+	var beyan := _rng_heybe.randi_range(a.beyan_akce_min, a.beyan_akce_max)
+	h.ekle("akce", "akce", 1, beyan, false)
+	var adaylar: Array[int] = []
+	var degerliler: Array[int] = []
+	for i in a.esya_idleri.size():
+		if a.esya_idleri[i] == "akce":
+			continue
+		if a.esya_gizli[i] == 1:
+			degerliler.append(i)
+			continue
+		var kim := a.esya_siniflari[i]
+		if kim == "*" or String(sinif) in kim.split(","):
+			adaylar.append(i)
+	for n in _rng_heybe.randi_range(1, 2):
+		if adaylar.is_empty():
+			break
+		var i: int = adaylar.pop_at(_rng_heybe.randi_range(0, adaylar.size() - 1))
+		h.ekle(a.esya_idleri[i], a.esya_turleri[i], a.esya_degerleri[i], 1, false)
+	h.teklif = maxi(1, ceili(beyan * a.teklif_orani))
+	if _rng_heybe.randf() < a.yalan_olasiligi:
+		h.ekle("akce", "akce", 1, _rng_heybe.randi_range(a.gizli_akce_min, a.gizli_akce_max), true)
+		if not degerliler.is_empty() and _rng_heybe.randf() < a.gizli_esya_olasiligi:
+			var i: int = degerliler[_rng_heybe.randi_range(0, degerliler.size() - 1)]
+			h.ekle(a.esya_idleri[i], a.esya_turleri[i], a.esya_degerleri[i], 1, true)
+	return h
 
 
 ## Sohbet açıldı (adlı karakterde ziyaret sayılır).
@@ -84,13 +122,41 @@ func ziyaret_basladi(gelen: Gelen) -> void:
 		kadro.ziyaret_basladi(gelen.id, gun)
 
 
-## Karar uygulanır. Döner: {kaldi, kirilan (-1), rusvet_harcandi (bar indeksi ya da -1)}.
+## Karar uygulanır. Döner: {kaldi, kirilan (-1), rusvet_harcandi (bar indeksi ya da -1),
+## alinan (heybeden alınanların listesi), alinan_akce, alinan_ambar, gasp (bool), durust_arandi (bool)}.
+## "elkoy": astardan çıkanlara el konur, gelen geri çevrilir (yalnız yalan yakalanınca).
 func karar_ver(gelen: Gelen, karar: StringName) -> Dictionary:
-	barlar.uygula(gelen.etkiler.get(karar, PackedInt32Array()))
-	if karar == &"rusvet":
+	var h := gelen.heybe
+	var ek := {"alinan": [], "alinan_akce": 0, "alinan_ambar": 0, "gasp": false, "durust_arandi": false}
+	if karar == &"elkoy":
+		barlar.uygula(gelen.etkiler.get(&"ret", PackedInt32Array()))
+	else:
+		barlar.uygula(gelen.etkiler.get(karar, PackedInt32Array()))
+	if h != null:
+		if karar == &"rusvet" and not h.alinan_var():
+			h.teklifi_sec()
+		elif karar == &"elkoy":
+			h.saklananlari_sec()
+		if karar == &"rusvet" or karar == &"elkoy":
+			var d := h.alinan_dagilim()
+			akce += d["akce"]
+			ambar += d["ambar"]
+			ek["alinan_akce"] = d["akce"]
+			ek["alinan_ambar"] = d["ambar"]
+			for e in h.esyalar:
+				if int(e["alinan"]) > 0:
+					ek["alinan"].append({"id": e["id"], "adet": e["alinan"]})
+			if h.gasp() > 0:
+				barlar.ekle(0, -ayarlar.gasp_halk_cezasi)
+				ek["gasp"] = true
+		if h.astar_yoklandi and not h.yalan_var():
+			barlar.ekle(0, -ayarlar.durust_arama_cezasi)
+			ek["durust_arandi"] = true
+	elif karar == &"rusvet":
 		akce += ayarlar.rusvet_akce
+	if karar == &"rusvet":
 		bayraklar[&"rusvet_sayisi"] = int(bayraklar.get(&"rusvet_sayisi", 0)) + 1
-	var kaldi := karar != &"ret"
+	var kaldi := karar != &"ret" and karar != &"elkoy"
 	if kaldi:
 		var sinif: StringName = &"asker" if karar == &"kisla" else gelen.sinif
 		koy.ekle(sinif, gelen.id if gelen.adli else &"", "soldier_01" if karar == &"kisla" and not gelen.adli else gelen.portre)
@@ -98,6 +164,7 @@ func karar_ver(gelen: Gelen, karar: StringName) -> Dictionary:
 		kadro.sonuc(gelen.id, kaldi, karar, gun)
 	var sonuc := _bar_cozumu()
 	sonuc["kaldi"] = kaldi
+	sonuc.merge(ek)
 	return sonuc
 
 
@@ -492,7 +559,7 @@ func kaydet() -> Dictionary:
 		"koy_adlilar": koy.adlilar.map(func(x): return String(x)),
 		"kadro": kadro.kaydet(),
 		"diyalog_sira": _gemini_sira,
-		"rng": [str(_rng.state), str(_rng_donus.state), str(_rng_ad.state)]}
+		"rng": [str(_rng.state), str(_rng_donus.state), str(_rng_ad.state), str(_rng_heybe.state)]}
 	# 64 bit sayılar JSON'da float'a döner; metin olarak saklanır.
 
 
@@ -534,9 +601,11 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	if not o.kadro.yukle(veri.get("kadro", {})):
 		return null
 	var r: Array = veri.get("rng", [])
-	if r.size() == 3:
+	if r.size() >= 3:
 		o._rng.state = String(r[0]).to_int()
 		o._rng_donus.state = String(r[1]).to_int()
 		o._rng_ad.state = String(r[2]).to_int()
+	if r.size() >= 4:
+		o._rng_heybe.state = String(r[3]).to_int()
 	o._gemini_sira = int(veri.get("diyalog_sira", 0))
 	return o

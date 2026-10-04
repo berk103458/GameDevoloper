@@ -19,3 +19,5 @@ var etkiler: Dictionary = {}
 var yanitlar: Dictionary = {}
 ## Bu kadar soru sorulunca karar düğmesi açılır. Boşsa hepsi açık.
 var esikler: PackedInt32Array = PackedInt32Array()
+## Heybesi: söylediği ve astarda sakladığı (Oturum.heybe_uret).
+var heybe: Heybe

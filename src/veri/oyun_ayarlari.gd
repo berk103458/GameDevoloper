@@ -73,3 +73,28 @@ extends Resource
 @export_group("Olaylar")
 ## Gece sonunda bir olay çıkma olasılığı (uygun olay varsa).
 @export var olay_olasiligi: float = 0.75
+
+@export_group("Heybe")
+## Gelenin söylediği akçe aralığı.
+@export var beyan_akce_min: int = 2
+@export var beyan_akce_max: int = 8
+## Gelenin yalan söyleyip astara bir şey saklama olasılığı.
+@export var yalan_olasiligi: float = 0.35
+## Astarda saklı akçe aralığı.
+@export var gizli_akce_min: int = 8
+@export var gizli_akce_max: int = 20
+## Yalancının astarına ayrıca değerli bir eşya saklama olasılığı.
+@export var gizli_esya_olasiligi: float = 0.4
+## Rüşvet teklifi = ceil(beyan akçe × oran), en az 1.
+@export var teklif_orani: float = 0.5
+## Teklifinden fazlasını almanın (gasp) Halk bedeli.
+@export var gasp_halk_cezasi: int = 1
+## Dürüst birinin astarını yoklamanın Halk bedeli.
+@export var durust_arama_cezasi: int = 1
+## Eşya tablosu (aynı sıra): id, tür (akce|gida|mal), birim değer (akçe), kimler taşır ("*" = herkes),
+## yalnız astarda mı çıkar (1 = değerli, saklanan).
+@export var esya_idleri: PackedStringArray
+@export var esya_turleri: PackedStringArray
+@export var esya_degerleri: PackedInt32Array
+@export var esya_siniflari: PackedStringArray
+@export var esya_gizli: PackedInt32Array

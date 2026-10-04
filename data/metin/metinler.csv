@@ -7,6 +7,10 @@ anlati.baski.vergi,Beyin adamı vergi istedi. Soylular memnun değil.
 anlati.gece.basladi,%d. gece. Yolda yine birileri var.
 anlati.gece.bitti,Gece bitti.
 anlati.gelir,Pazar ve kervandan %d akçe geldi.
+anlati.heybe.alinan,Alınan: %s.
+anlati.heybe.durust,Dürüst birinin heybesini didikledin. Halk bunu duyacak.
+anlati.heybe.gasp,Teklifinden fazlasını aldın. Halk bunu duyacak.
+anlati.heybe.yakalandi,Astardan çıkanlar: %s. %s gözlerini kaçırıyor.
 anlati.maas,Askerlerin payı: %d akçe.
 anlati.maas_yok,Askerlere verecek akçe yok. Kışlada homurtu var.
 anlati.rusvet.harcandi,%s kırılmak üzereydi. Bir kese el altından gitti.
@@ -14,6 +18,7 @@ anlati.saldiri.agir,Tekfur'un adamları köyün kıyısını yaktı.
 anlati.saldiri.guc,Tekfur'un adamları: güç %d. Köyün savunması: %d.
 anlati.saldiri.kayip,Saldırıda köyden biri öldü.
 anlati.saldiri.puskurtuldu,"Tekfur'un adamları surun dibine kadar geldi, geri döndü."
+anlati.sonuc.elkoy,Saklananlara el konuldu. %s yoluna döndü.
 anlati.sonuc.kabul,Kapı açıldı. %s içeri girdi.
 anlati.sonuc.kisla,%s kışlaya yazıldı.
 anlati.sonuc.ret,Kapı kapalı kaldı. %s yoluna döndü.
@@ -40,11 +45,14 @@ arayuz.hud.akce,Akçe %d
 arayuz.hud.ambar,Ambar %d
 arayuz.hud.gece,%d. gece
 arayuz.hud.kose,Köy: %d
+arayuz.karar.elkoy,"El koy, geri çevir"
 arayuz.karar.kabul,Kabul
 arayuz.karar.kisla,Kışlaya yaz
 arayuz.karar.onayla,%s — onayla
 arayuz.karar.ret,Ret
 arayuz.karar.rusvet,Rüşvet al
+arayuz.karar.rusvet_deger,Rüşvet al — %d akçe değerinde
+arayuz.karar.rusvet_miktar,Rüşvet al — %d akçe
 arayuz.koy.baslik,Köy
 arayuz.koy.kese_al,Boş keseyi doldur — %d akçe
 arayuz.koy.nufus,%d asker · %d esnaf · %d çiftçi
@@ -69,6 +77,8 @@ arayuz.sinif.ciftci,çiftçi
 arayuz.sinif.esnaf,esnaf
 arayuz.sinif.gibi,%s gibi görünüyor
 arayuz.sohbet.devam,Devam
+arayuz.sohbet.heybe_ara,Heybesini ara
+arayuz.sohbet.heybe_sor,Heybende ne var?
 arayuz.sohbet.ipucu,Kararda: 1–4 seçer · aynı karara tekrar basmak onaylar · Esc seçimi bırakır
 arayuz.sohbet.karar_ver,Kararını ver
 arayuz.sohbet.sen,Sen
@@ -104,6 +114,36 @@ bar.halk,Halk
 bar.ordu,Ordu
 bar.soylular,Soylular
 bar.tuccarlar,Tüccarlar
+esya.akce,akçe
+esya.arpa,arpa çuvalı
+esya.bakir,bakır tas
+esya.ekmek,kuru ekmek
+esya.hancer,hançer
+esya.ilac,ilaç şişesi
+esya.kumas,çuha topu
+esya.ok,ok demeti
+esya.tohum,tohum kesesi
+esya.tuz,tuz kesesi
+esya.yuzuk,gümüş yüzük
+heybe.adet,%d / %d
+heybe.alinacaklar,Alınacaklar
+heybe.astar,Astarı yokla
+heybe.astar_bos,Astar boş. %s seni süzüyor: “Aradın da ne buldun?”
+heybe.astar_yoklandi,Astar yoklandı
+heybe.baslik,%s — heybe
+heybe.beyan.akce,Kesemde %d akçe var.
+heybe.beyan.esya,Bir de %s.
+heybe.beyan.yok,Başka bir şeyim yok.
+heybe.bos,Bir eşyaya bas: alınacaklara gider. Yine bas: heybeye döner.
+heybe.gasp_uyari,Teklifinden %d akçe fazlası. Kapıda adın çıkar.
+heybe.gizli,beyan edilmedi
+heybe.kapat,Heybeyi kapat
+heybe.serbest,Sakladıklarını alırsan kimse bir şey diyemez.
+heybe.sormadin,Ona ne taşıdığını sormadın.
+heybe.soyledigi,Söylediği: “%s”
+heybe.teklif,Teklifi: %d akçe
+heybe.toplam,Değeri: %d akçe
+heybe.yakalandi,Yalan yakalandı
 karakter.aydogdu.ad,Aydoğdu
 karakter.ayse_baci.ad,Ayşe Bacı
 karakter.hasan_celebi.ad,Hasan Çelebi

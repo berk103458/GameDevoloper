@@ -67,6 +67,24 @@ def sn(x: str) -> str:
 BARLAR = [t("bar.halk", "Halk"), t("bar.soylular", "Soylular"),
           t("bar.tuccarlar", "Tüccarlar"), t("bar.ordu", "Ordu")]
 
+# ─── Heybe eşyaları (design/gdd/heybe-ve-rusvet.md) ─────────────────────────
+# (id, ad, tür, birim değer akçe, kimler taşır, yalnız astarda mı)
+ESYALAR = [
+    ("akce", "akçe", "akce", 1, "*", 0),
+    ("arpa", "arpa çuvalı", "gida", 4, "ciftci", 0),
+    ("tohum", "tohum kesesi", "gida", 3, "ciftci", 0),
+    ("ekmek", "kuru ekmek", "gida", 1, "*", 0),
+    ("tuz", "tuz kesesi", "mal", 2, "ciftci,esnaf", 0),
+    ("kumas", "çuha topu", "mal", 4, "esnaf", 0),
+    ("bakir", "bakır tas", "mal", 3, "esnaf", 0),
+    ("ok", "ok demeti", "mal", 2, "asker", 0),
+    ("hancer", "hançer", "mal", 3, "asker", 0),
+    ("ilac", "ilaç şişesi", "mal", 3, "esnaf", 0),
+    ("yuzuk", "gümüş yüzük", "mal", 9, "*", 1),
+]
+for e in ESYALAR:
+    t("esya.%s" % e[0], e[1])
+
 tres("data/ayarlar/oyun.tres", "OyunAyarlari", "res://src/veri/oyun_ayarlari.gd", {
     "bar_anahtarlari": psa(BARLAR),
     "bar_baslangic": 6, "bar_azami": 10, "rusvet_kurtarma": 3, "rusvet_hakki": 3,
@@ -79,6 +97,12 @@ tres("data/ayarlar/oyun.tres", "OyunAyarlari", "res://src/veri/oyun_ayarlari.gd"
     "akce_baslangic": 4, "rusvet_akce": 3, "kese_fiyati": 10, "kervansaray_gelir": 2, "esnaf_gelir": 1,
     "pazar_tezgah_taban": 2, "pazar_tezgah_artis": 2, "olay_olasiligi": 0.75,
     "saldiri_taban": 1, "saldiri_artis_araligi": 2, "savunma_bolen": 2,
+    "beyan_akce_min": 2, "beyan_akce_max": 8, "yalan_olasiligi": 0.35,
+    "gizli_akce_min": 8, "gizli_akce_max": 20, "gizli_esya_olasiligi": 0.4,
+    "teklif_orani": 0.5, "gasp_halk_cezasi": 1, "durust_arama_cezasi": 1,
+    "esya_idleri": psa([e[0] for e in ESYALAR]), "esya_turleri": psa([e[2] for e in ESYALAR]),
+    "esya_degerleri": pia([e[3] for e in ESYALAR]), "esya_siniflari": psa([e[4] for e in ESYALAR]),
+    "esya_gizli": pia([e[5] for e in ESYALAR]),
 })
 
 # ─── Adlı karakterler ────────────────────────────────────────────────────
@@ -416,6 +440,35 @@ ARAYUZ = {
     "arayuz.karar.ret": "Ret",
     "arayuz.karar.rusvet": "Rüşvet al",
     "arayuz.karar.kisla": "Kışlaya yaz",
+    "arayuz.karar.elkoy": "El koy, geri çevir",
+    "arayuz.karar.rusvet_miktar": "Rüşvet al — %d akçe",
+    "arayuz.karar.rusvet_deger": "Rüşvet al — %d akçe değerinde",
+    "arayuz.sohbet.heybe_sor": "Heybende ne var?",
+    "arayuz.sohbet.heybe_ara": "Heybesini ara",
+    "heybe.beyan.akce": "Kesemde %d akçe var.",
+    "heybe.beyan.esya": "Bir de %s.",
+    "heybe.beyan.yok": "Başka bir şeyim yok.",
+    "heybe.baslik": "%s — heybe",
+    "heybe.soyledigi": "Söylediği: “%s”",
+    "heybe.sormadin": "Ona ne taşıdığını sormadın.",
+    "heybe.astar": "Astarı yokla",
+    "heybe.astar_yoklandi": "Astar yoklandı",
+    "heybe.astar_bos": "Astar boş. %s seni süzüyor: “Aradın da ne buldun?”",
+    "heybe.yakalandi": "Yalan yakalandı",
+    "heybe.gizli": "beyan edilmedi",
+    "heybe.alinacaklar": "Alınacaklar",
+    "heybe.bos": "Bir eşyaya bas: alınacaklara gider. Yine bas: heybeye döner.",
+    "heybe.toplam": "Değeri: %d akçe",
+    "heybe.teklif": "Teklifi: %d akçe",
+    "heybe.gasp_uyari": "Teklifinden %d akçe fazlası. Kapıda adın çıkar.",
+    "heybe.serbest": "Sakladıklarını alırsan kimse bir şey diyemez.",
+    "heybe.kapat": "Heybeyi kapat",
+    "heybe.adet": "%d / %d",
+    "anlati.heybe.alinan": "Alınan: %s.",
+    "anlati.heybe.gasp": "Teklifinden fazlasını aldın. Halk bunu duyacak.",
+    "anlati.heybe.durust": "Dürüst birinin heybesini didikledin. Halk bunu duyacak.",
+    "anlati.heybe.yakalandi": "Astardan çıkanlar: %s. %s gözlerini kaçırıyor.",
+    "anlati.sonuc.elkoy": "Saklananlara el konuldu. %s yoluna döndü.",
     "arayuz.karar.onayla": "%s — onayla",
     "arayuz.sinif.asker": "asker",
     "arayuz.sinif.esnaf": "esnaf",

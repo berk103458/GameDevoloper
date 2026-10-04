@@ -10,7 +10,7 @@ signal oturum_bitti(kirilan: int)
 signal duraklat_istendi
 
 const DUNYA_GENISLIK := 1140.0
-const KARAR_SIMGE := {"kabul": "accept", "ret": "reject", "rusvet": "bribe", "kisla": "barracks"}
+const KARAR_SIMGE := {"kabul": "accept", "ret": "reject", "rusvet": "bribe", "kisla": "barracks", "elkoy": "reject"}
 
 var oturum: Oturum
 var ayarlar: Ayarlar
@@ -25,6 +25,9 @@ var _karar_anahtarlari: PackedStringArray = []
 var _belirme_id := 0
 var _beliriyor := false
 var _gosterilecek: Array[Button] = []
+## Açık heybe paneli (yoksa null).
+var _heybe_paneli: HeybePaneli
+var _yalan_yazildi := false
 
 var hud: Hud
 var _dunya: Control
@@ -124,6 +127,7 @@ func _siradaki() -> void:
 		return
 	_gelen = _kuyruk.pop_front()
 	_sorulan = []
+	_yalan_yazildi = false
 	_ad.text = tr(_gelen.ad_anahtari)
 	_sinif.text = tr("arayuz.sinif.gibi") % tr("arayuz.sinif." + String(_gelen.sinif))
 	_yaz("\n[i]%s[/i]" % tr(_gelen.giris_anahtari))
@@ -146,10 +150,96 @@ func _sohbet_goster() -> void:
 		var b := _dugme("— " + tr(_gelen.sorular[i][0]))
 		b.pressed.connect(_soru_sor.bind(i))
 		dugmeler.append(b)
+	if _gelen.heybe != null and not _gelen.heybe.soruldu:
+		var h := _dugme("— " + tr("arayuz.sohbet.heybe_sor"))
+		h.pressed.connect(_heybe_sor)
+		dugmeler.append(h)
+	if _gelen.heybe != null:
+		dugmeler.append(_heybe_dugmesi())
 	var k := _dugme(tr("arayuz.sohbet.karar_ver"))
 	k.pressed.connect(_karar_goster)
 	dugmeler.append(k)
 	_sirayla_goster(dugmeler)
+
+
+## "Heybende ne var?": gelen beyanını söyler (soru hakkından sayılmaz).
+func _heybe_sor() -> void:
+	if evre != &"sohbet":
+		return
+	_gelen.heybe.soruldu = true
+	_yaz("[color=#4A6B8A]%s:[/color] %s\n[b]%s:[/b] %s" % [tr("arayuz.sohbet.sen"), tr("arayuz.sohbet.heybe_sor"),
+		tr(_gelen.ad_anahtari), _beyan_metni()])
+	_sohbet_goster()
+
+
+## Gelenin söylediği: "Kesemde N akçe var. Bir de X, Y."
+func _beyan_metni() -> String:
+	var h := _gelen.heybe
+	var esyalar: PackedStringArray = []
+	for e in h.beyan_edilenler():
+		if e["tur"] != "akce":
+			esyalar.append(tr("esya." + String(e["id"])))
+	var m := tr("heybe.beyan.akce") % h.beyan_akce()
+	m += " " + ((tr("heybe.beyan.esya") % ", ".join(esyalar)) if not esyalar.is_empty() else tr("heybe.beyan.yok"))
+	return m
+
+
+func _heybe_dugmesi() -> Button:
+	var b := _dugme(tr("arayuz.sohbet.heybe_ara"))
+	b.icon = Sanat.doku("ui", "icon_bribe_pouch_full_48")
+	b.pressed.connect(_heybe_ac)
+	return b
+
+
+## Heybe panelini dünya alanının üstünde açar; kapanınca bulunulan evre yeniden çizilir.
+func _heybe_ac() -> void:
+	if _heybe_paneli != null or _gelen == null or _gelen.heybe == null:
+		return
+	var donus := evre
+	_secenekler.visible = false
+	sahne.heybe_koy()
+	_heybe_paneli = HeybePaneli.new()
+	_heybe_paneli.heybe = _gelen.heybe
+	_heybe_paneli.ayarlar = ayarlar
+	_heybe_paneli.gelen_adi = tr(_gelen.ad_anahtari)
+	_heybe_paneli.beyan_metni = _beyan_metni()
+	_heybe_paneli.position = _dunya.position
+	add_child(_heybe_paneli)
+	_heybe_paneli.degisti.connect(_heybe_degisti)
+	await _heybe_paneli.kapandi
+	_heybe_paneli.queue_free()
+	_heybe_paneli = null
+	_secenekler.visible = true
+	if donus == &"karar":
+		_karar_goster()
+	else:
+		_sohbet_goster()
+
+
+func _heybe_degisti() -> void:
+	var h := _gelen.heybe
+	if h.yakalandi() and not _yalan_yazildi:
+		_yalan_yazildi = true
+		var cikan: PackedStringArray = []
+		for e in h.esyalar:
+			if e["gizli"]:
+				cikan.append(_esya_yazisi(e, int(e["adet"])))
+		_yaz("[color=#C4843A]%s[/color]" % (tr("anlati.heybe.yakalandi") % [", ".join(cikan), tr(_gelen.ad_anahtari)]))
+
+
+func _esya_yazisi(e: Dictionary, adet: int) -> String:
+	var ad := tr("esya." + String(e["id"]))
+	return ("%d %s" % [adet, ad]) if (adet > 1 or e["tur"] == "akce") else ad
+
+
+## Karar düğmesinin yazısı; rüşvette miktar görünür.
+func _karar_etiketi(anahtar: String) -> String:
+	if anahtar == "rusvet" and _gelen.heybe != null:
+		var h := _gelen.heybe
+		if h.alinan_var():
+			return tr("arayuz.karar.rusvet_deger") % h.alinan_deger()
+		return tr("arayuz.karar.rusvet_miktar") % h.teklif
+	return tr("arayuz.karar." + anahtar)
 
 
 func _soru_sor(i: int) -> void:
@@ -179,15 +269,21 @@ func _karar_goster() -> void:
 			gorunen.append(_gelen.secenekler[n])
 	if gorunen.is_empty():
 		gorunen = _gelen.secenekler
+	if _gelen.heybe != null and _gelen.heybe.yakalandi() and not gorunen.has("elkoy"):
+		gorunen = gorunen.duplicate()
+		gorunen.append("elkoy")
 	_karar_anahtarlari = gorunen
 	for n in _karar_anahtarlari.size():
 		var anahtar := _karar_anahtarlari[n]
-		var b := _dugme("%d · %s" % [n + 1, tr("arayuz.karar." + anahtar)])
+		var b := _dugme("%d · %s" % [n + 1, _karar_etiketi(anahtar)])
 		b.icon = Sanat.doku("ui", "icon_decision_%s_48" % KARAR_SIMGE[anahtar])
 		b.custom_minimum_size.y = 72
 		b.pressed.connect(_karar_bas.bind(anahtar))
 		_karar_dugmeleri.append(b)
-	_sirayla_goster(_karar_dugmeleri)
+	var liste: Array[Button] = _karar_dugmeleri.duplicate()
+	if _gelen.heybe != null:
+		liste.append(_heybe_dugmesi())
+	_sirayla_goster(liste)
 
 
 ## İki adımlı onay: ilk basış seçer, aynı karara ikinci basış verir.
@@ -200,7 +296,7 @@ func _karar_bas(anahtar: String) -> void:
 	_secili = anahtar
 	for i in _karar_dugmeleri.size():
 		var b := _karar_dugmeleri[i]
-		var ad := tr("arayuz.karar." + _karar_anahtarlari[i])
+		var ad := _karar_etiketi(_karar_anahtarlari[i])
 		b.toggle_mode = true
 		b.set_pressed_no_signal(_karar_anahtarlari[i] == _secili)
 		b.text = (tr("arayuz.karar.onayla") % ad) if _karar_anahtarlari[i] == _secili else "%d · %s" % [i + 1, ad]
@@ -214,7 +310,7 @@ func _karar_birak() -> void:
 	_secili = ""
 	for i in _karar_dugmeleri.size():
 		_karar_dugmeleri[i].set_pressed_no_signal(false)
-		_karar_dugmeleri[i].text = "%d · %s" % [i + 1, tr("arayuz.karar." + _karar_anahtarlari[i])]
+		_karar_dugmeleri[i].text = "%d · %s" % [i + 1, _karar_etiketi(_karar_anahtarlari[i])]
 
 
 func _karar_ver(anahtar: String) -> void:
@@ -222,10 +318,19 @@ func _karar_ver(anahtar: String) -> void:
 	_temizle()
 	Ses.cal(&"sfx_onay")
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar))
-	if anahtar == "rusvet":
+	if anahtar == "rusvet" or anahtar == "elkoy":
 		Ses.cal(&"sfx_kese")
 	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)
 	_yaz(tr("anlati.sonuc." + anahtar) % tr(_gelen.ad_anahtari))
+	if not sonuc.get("alinan", []).is_empty():
+		var parca: PackedStringArray = []
+		for a in sonuc["alinan"]:
+			parca.append(_esya_yazisi({"id": a["id"], "tur": "akce" if a["id"] == "akce" else ""}, int(a["adet"])))
+		_yaz("[i]%s[/i]" % (tr("anlati.heybe.alinan") % ", ".join(parca)))
+	if sonuc.get("gasp", false):
+		_yaz("[i][color=#C4843A]%s[/color][/i]" % tr("anlati.heybe.gasp"))
+	if sonuc.get("durust_arandi", false):
+		_yaz("[i][color=#C4843A]%s[/color][/i]" % tr("anlati.heybe.durust"))
 	if _gelen.yanitlar.has(anahtar):
 		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), str(_gelen.yanitlar[anahtar])])
 	if sonuc["rusvet_harcandi"] >= 0:
@@ -307,6 +412,8 @@ func _yaz(s: String) -> void:
 
 
 func _input(olay: InputEvent) -> void:
+	if _heybe_paneli != null:
+		return
 	# Belirme sürerken bir basış atlamadır: kalanlar görünür, hiçbiri seçilmez (Girdi kural 17).
 	if _beliriyor and (olay.is_action_pressed("ui_accept") or (olay is InputEventMouseButton and olay.pressed)):
 		_tumunu_goster()
@@ -314,6 +421,8 @@ func _input(olay: InputEvent) -> void:
 
 
 func _unhandled_input(olay: InputEvent) -> void:
+	if _heybe_paneli != null:
+		return
 	if evre == &"karar":
 		for n in 4:
 			if olay.is_action_pressed("kisayol_%d" % (n + 1)) and n < _karar_anahtarlari.size():

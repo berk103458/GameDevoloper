@@ -10,6 +10,8 @@ const DONUS := Vector3(-0.8, 0.0, -22.0)
 
 var kamera: Camera3D
 var _gelen: KarakterModel
+## Gelenin ayağının dibine konan heybe (arama sırasında).
+var _heybe: Node3D
 var _isiklar: Array[OmniLight3D] = []
 var _zaman := 0.0
 
@@ -52,6 +54,9 @@ func gelen_yaklas(model_adi: String) -> void:
 
 ## Karar sonrası: kaldıysa içeri, gittiyse yola.
 func gelen_git(kaldi: bool) -> void:
+	if is_instance_valid(_heybe):
+		_heybe.queue_free()
+	_heybe = null
 	if _gelen == null:
 		return
 	var g := _gelen
@@ -70,6 +75,35 @@ func _ayril(g: KarakterModel, kaldi: bool) -> void:
 		await g.yuru(DONUS)
 	if is_instance_valid(g):
 		g.queue_free()
+
+
+## Gelen heybesini önüne koyar: deri torba ve kapağı, yere konur gibi belirir.
+func heybe_koy() -> void:
+	if _gelen == null or is_instance_valid(_heybe):
+		return
+	_heybe = Node3D.new()
+	# Torba: basık küre gövde, üstte devrik kapak ve askı.
+	var govde := MeshInstance3D.new()
+	var k := SphereMesh.new()
+	k.radius = 0.16
+	k.height = 0.26
+	govde.mesh = k
+	govde.scale = Vector3(1.0, 0.85, 0.7)
+	govde.position.y = 0.11
+	govde.material_override = Dunya3B.duz_malzeme(Color("#6b4630"))
+	_heybe.add_child(govde)
+	var kapak := MeshInstance3D.new()
+	var b := BoxMesh.new()
+	b.size = Vector3(0.24, 0.02, 0.16)
+	kapak.mesh = b
+	kapak.position = Vector3(0, 0.2, -0.1)
+	kapak.rotation_degrees.x = -60
+	kapak.material_override = Dunya3B.duz_malzeme(Color("#4a2f1f"))
+	_heybe.add_child(kapak)
+	_heybe.position = _gelen.position + Vector3(0.42, 0, 0.12)
+	_heybe.scale = Vector3.ONE * 0.2
+	add_child(_heybe)
+	create_tween().tween_property(_heybe, "scale", Vector3.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
 ## Karar anında kadraj daralır (kamera görüş açısı sert adımlarla).
