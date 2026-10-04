@@ -243,11 +243,12 @@ func _bilgi_ciz() -> void:
 	# Orta: yapılar
 	_yapi_kutusu = VBoxContainer.new()
 	_yapi_kutusu.add_theme_constant_override("separation", 8)
-	_yapi_kutusu.custom_minimum_size = Vector2(620, 0)
+	_yapi_kutusu.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_yapi_kutusu.size_flags_stretch_ratio = 1.3
 	yatay.add_child(_yapi_kutusu)
 	_dugme = Button.new()
 	_dugme.text = tr("arayuz.koy.sonraki")
-	_dugme.custom_minimum_size = Vector2(320, 72)
+	_dugme.custom_minimum_size = Vector2(300, 72)
 	_dugme.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	_dugme.pressed.connect(func() -> void: devam_istendi.emit())
 	yatay.add_child(_dugme)
@@ -275,6 +276,7 @@ func _yenile() -> void:
 			continue
 		var dugme := Button.new()
 		dugme.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		dugme.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		dugme.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.KUCUK_PX))
 		if d["bedel"] < 0:
 			dugme.text = tr("arayuz.yapi.azami") % ad
@@ -292,6 +294,7 @@ func _yenile() -> void:
 	if oturum.rusvet_hakki < oturum.ayarlar.rusvet_hakki:
 		var k := Button.new()
 		k.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		k.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		k.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.KUCUK_PX))
 		k.text = tr("arayuz.koy.kese_al") % oturum.ayarlar.kese_fiyati
 		k.disabled = not oturum.kese_alinabilir()
