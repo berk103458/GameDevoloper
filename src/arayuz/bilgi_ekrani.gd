@@ -23,8 +23,25 @@ func _ready() -> void:
 	zemin.color = Renkler.GECE
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(zemin)
-	var arka := Sanat.doku("env", arka_plan) if arka_plan != "" else null
-	if arka != null:
+	var arka := Sanat.doku("env", arka_plan) if arka_plan != "" and arka_plan != "3d_kapi" else null
+	if arka_plan == "3d_kapi":
+		# 3D kapı sahnesi arka plan: menüde kapı, meşale ve yolda bekleyenler.
+		var kap := SubViewportContainer.new()
+		kap.stretch = true
+		kap.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		add_child(kap)
+		var vp := SubViewport.new()
+		vp.size = Vector2i(1920, 1080)
+		kap.add_child(vp)
+		var sahne := KapiSahnesi.new()
+		vp.add_child(sahne)
+		var golge := ColorRect.new()
+		golge.color = Color(Renkler.GECE, 0.55)
+		golge.position = Vector2.ZERO
+		golge.size = Vector2(980, 1080)
+		golge.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		add_child(golge)
+	elif arka != null:
 		var r := TextureRect.new()
 		r.texture = arka
 		r.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)

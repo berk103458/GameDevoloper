@@ -165,7 +165,7 @@ func _ust_kapat() -> void:
 		_ekran.process_mode = Node.PROCESS_MODE_INHERIT
 
 
-func _bilgi(baslik: String, metin: String, dugmeler: Array, sayi: int = -1, arka: String = "env_menu_bg") -> BilgiEkrani:
+func _bilgi(baslik: String, metin: String, dugmeler: Array, sayi: int = -1, arka: String = "3d_kapi") -> BilgiEkrani:
 	var e := BilgiEkrani.new()
 	e.ayarlar = ayarlar
 	e.baslik = baslik

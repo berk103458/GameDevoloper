@@ -91,7 +91,7 @@ func karar_ver(gelen: Gelen, karar: StringName) -> Dictionary:
 	var kaldi := karar != &"ret"
 	if kaldi:
 		var sinif: StringName = &"asker" if karar == &"kisla" else gelen.sinif
-		koy.ekle(sinif, gelen.id if gelen.adli else &"", gelen.portre if gelen.adli else "")
+		koy.ekle(sinif, gelen.id if gelen.adli else &"", "soldier_01" if karar == &"kisla" and not gelen.adli else gelen.portre)
 	if gelen.adli:
 		kadro.sonuc(gelen.id, kaldi, karar, gun)
 	var sonuc := _bar_cozumu()

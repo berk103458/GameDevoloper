@@ -99,6 +99,10 @@ func _dongu() -> void:
 				await get_tree().create_timer(0.2).timeout
 			await _foto("05_koy_perde%d" % ana.oturum.perde)
 			print("gece ", ana.oturum.gun, " akce=", ana.oturum.akce, " ambar=", ana.oturum.ambar, " yapilar=", ana.oturum.yapilar, " bayraklar=", ana.oturum.bayraklar.keys())
+			if OS.get_environment("GECE_SINIRI") != "" and ana.oturum.gun >= int(OS.get_environment("GECE_SINIRI")):
+				print("GECE_SINIRI")
+				get_tree().quit()
+				return
 			koy.devam_istendi.emit()
 		elif ekran is KapiEkrani:
 			var k := ekran as KapiEkrani

@@ -17,7 +17,8 @@ var ayarlar: Ayarlar
 ## `Oturum.gece_sonu()` raporu.
 var rapor: Dictionary = {}
 
-var _sahne: Control
+## 3D köy sahnesi.
+var sahne3b: KoySahnesi
 var _dugme: Button
 var _serit: PanelContainer
 var _durum: Label
@@ -32,180 +33,21 @@ func _ready() -> void:
 	zemin.color = Renkler.GECE
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(zemin)
-	_sahne = Control.new()
-	_sahne.position = Vector2(0, 0)
-	_sahne.size = Vector2(1920, KOY_YUKSEKLIK)
-	_sahne.clip_contents = true
-	add_child(_sahne)
-	_sahne_ciz()
+	var kap := SubViewportContainer.new()
+	kap.stretch = true
+	kap.position = Vector2.ZERO
+	kap.size = Vector2(1920, KOY_YUKSEKLIK - 300)
+	add_child(kap)
+	var vp := SubViewport.new()
+	vp.size = Vector2i(kap.size)
+	vp.msaa_3d = Viewport.MSAA_4X
+	kap.add_child(vp)
+	sahne3b = KoySahnesi.new()
+	sahne3b.oturum = oturum
+	vp.add_child(sahne3b)
 	_bilgi_ciz()
 	if oturum.perde == 2:
 		Ses.cal(&"sfx_saldiri", -6.0)
-
-
-func _sahne_ciz() -> void:
-	var arka := Sanat.doku("env", "env_village_bg")
-	if arka != null:
-		var r := TextureRect.new()
-		r.texture = arka
-		r.size = _sahne.size
-		r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		r.stretch_mode = TextureRect.STRETCH_SCALE
-		_sahne.add_child(r)
-	else:
-		var y := ColorRect.new()
-		y.color = Renkler.SOGUK_MAVI
-		y.position = Vector2(0, ZEMIN_Y)
-		y.size = Vector2(1920, KOY_YUKSEKLIK - ZEMIN_Y)
-		_sahne.add_child(y)
-	if oturum.perde == 2:
-		_tekfur_ciz()
-	_yapilari_ciz()
-	_mesaleleri_ciz()
-	_figurleri_ciz()
-	_ilk_cizim = false
-
-
-## Meşale sayısı = 1 + nüfus / 3 (en çok AZAMI_MESALE).
-func mesale_sayisi() -> int:
-	return clampi(1 + oturum.koy.toplam() / 3, 1, AZAMI_MESALE)
-
-
-func _mesale_konumu(i: int) -> Vector2:
-	# Sabit, düzensiz bir dizilim: köy sağa ve sola doğru yayılır.
-	var sira := [960, 760, 1160, 600, 1330, 450, 1480, 860, 1060, 300, 1640, 680]
-	var derin := [0, 40, 20, 70, 50, 30, 80, 110, 100, 60, 90, 130]
-	return Vector2(sira[i], ZEMIN_Y + 40 + derin[i])
-
-
-func _mesaleleri_ciz() -> void:
-	var leke := Sanat.doku("fx", "fx_torchlight_patch_village_01")
-	var mesale := Sanat.doku("fx", "fx_torch_village_01")
-	for i in mesale_sayisi():
-		var p := _mesale_konumu(i)
-		if leke != null:
-			var l := TextureRect.new()
-			l.texture = leke
-			l.position = p - Vector2(130, -50)
-			_sahne.add_child(l)
-		else:
-			var l2 := ColorRect.new()
-			l2.color = Renkler.MESALE
-			l2.position = p + Vector2(-90, 70)
-			l2.size = Vector2(180, 40)
-			_sahne.add_child(l2)
-		if mesale != null:
-			var m := TextureRect.new()
-			m.texture = mesale
-			m.position = p - Vector2(20, 0)
-			_sahne.add_child(m)
-
-
-func _figur_konumu(i: int) -> Vector2:
-	# Meşale kümelerinin çevresine sıkışan yerleşim; konum sırası sabittir.
-	var mesale := _mesale_konumu(i % mesale_sayisi())
-	var halka := i / mesale_sayisi()
-	var yon := -1.0 if (i + halka) % 2 == 0 else 1.0
-	return mesale + Vector2(yon * (40 + halka * 34), 10 + (halka % 3) * 22)
-
-
-func _figurleri_ciz() -> void:
-	var yeni := oturum.koy.bu_gece_girenler
-	var eski_sayi := clampi(oturum.koy.toplam() - yeni.size(), 0, AZAMI_FIGUR)
-	var sirali_siniflar := _sinif_dizisi()
-	for i in eski_sayi:
-		_figur_ekle(&"", sirali_siniflar[i % sirali_siniflar.size()] if not sirali_siniflar.is_empty() else &"ciftci", _figur_konumu(i), false)
-	for n in yeni.size():
-		var i := eski_sayi + n
-		if i >= AZAMI_FIGUR:
-			break
-		var g: Dictionary = yeni[n]
-		if not _ilk_cizim:
-			_figur_ekle(g["adli_id"], g["sinif"], _figur_konumu(i), false)
-			continue
-		var f := _figur_ekle(g["adli_id"], g["sinif"], Vector2(1960, _figur_konumu(i).y), true)
-		_gir(f, _figur_konumu(i), n)
-
-
-func _sinif_dizisi() -> Array[StringName]:
-	var dizi: Array[StringName] = []
-	for s in [&"ciftci", &"esnaf", &"asker"]:
-		for k in oturum.koy.sayi(s):
-			dizi.append(s)
-	return dizi
-
-
-func _figur_ekle(adli_id: StringName, sinif: StringName, konum: Vector2, _yeni: bool) -> Control:
-	var t := Sanat.koy_figuru(adli_id, sinif)
-	var c: Control
-	if t != null:
-		var r := TextureRect.new()
-		r.texture = t
-		c = r
-	else:
-		var k := ColorRect.new()
-		k.color = Renkler.DERIN_MAVI
-		k.size = Vector2(36, 96)
-		c = k
-	c.position = konum - Vector2(28, 110)
-	_sahne.add_child(c)
-	return c
-
-
-func _gir(f: Control, hedef: Vector2, sira: int) -> void:
-	await get_tree().create_timer(0.4 + sira * 0.5).timeout
-	await Adim.yuru(f, hedef - Vector2(28, 110), 14, 6.0)
-
-
-## Yapı seviyeleri: yapıların önünde seviye başına bir meşale; ikinci perdede sur (kazık çit).
-func _yapilari_ciz() -> void:
-	var mesale := Sanat.doku("fx", "fx_torch_village_01")
-	var yerler := {&"kervansaray": [360.0, 575.0, 790.0], &"pazar": [1290.0, 1500.0, 1710.0]}
-	for yapi in yerler:
-		var xler: Array = yerler[yapi]
-		for i in int(oturum.yapilar[yapi]):
-			if mesale != null:
-				var m := TextureRect.new()
-				m.texture = mesale
-				m.position = Vector2(xler[i] - 20, 470)
-				_sahne.add_child(m)
-	var sur: int = oturum.yapilar[&"sur"]
-	if oturum.perde == 2 and sur > 0:
-		var boy := 30.0 + sur * 22.0
-		var x := 0.0
-		while x < 1920.0:
-			var kazik := ColorRect.new()
-			kazik.color = Renkler.AHSAP
-			kazik.position = Vector2(x, KOY_YUKSEKLIK - 300 - boy)
-			kazik.size = Vector2(26, boy)
-			_sahne.add_child(kazik)
-			var uc := ColorRect.new()
-			uc.color = Renkler.MUREKKEP
-			uc.position = Vector2(x, KOY_YUKSEKLIK - 300 - boy)
-			uc.size = Vector2(26, 4)
-			_sahne.add_child(uc)
-			x += 34.0
-
-
-func _tekfur_ciz() -> void:
-	var t := Sanat.doku("char", "crowd_tekfur_spear_01_far")
-	var yakinlik := clampf(float(oturum.perde2_gece) / oturum.ayarlar.perde2_hedef_gece, 0.0, 1.0)
-	# Uzak tepelerde, kervansarayın solunda; geceler geçtikçe sayıca artar ve aşağı (yakına) iner.
-	var adet := mini(1 + oturum.perde2_gece / 3, 3)
-	for i in adet:
-		var x := -260.0 + i * 150.0 + yakinlik * 60.0
-		var y := 392.0 + yakinlik * 70.0 + i * 12.0
-		if t != null:
-			var r := TextureRect.new()
-			r.texture = t
-			r.position = Vector2(x, y)
-			_sahne.add_child(r)
-		else:
-			var k := ColorRect.new()
-			k.color = Renkler.DERIN_MAVI
-			k.position = Vector2(x, y)
-			k.size = Vector2(200, 30)
-			_sahne.add_child(k)
 
 
 func _bilgi_ciz() -> void:
@@ -308,9 +150,7 @@ func _yenile() -> void:
 
 ## Yapı kurulunca köy yeniden çizilir (yapı görünümü ve meşaleler).
 func _yeniden_ciz() -> void:
-	for c in _sahne.get_children():
-		c.queue_free()
-	_sahne_ciz()
+	sahne3b.yenile()
 	_yenile()
 	_dugme.grab_focus.call_deferred()
 
