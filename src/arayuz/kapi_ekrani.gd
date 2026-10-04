@@ -9,7 +9,11 @@ signal gece_bitti(rapor: Dictionary)
 signal oturum_bitti(kirilan: int)
 signal duraklat_istendi
 
-const DUNYA_GENISLIK := 1140.0
+## Sağdaki kapı defteri paneli ve sol alttaki konuşma kutusu (ekran px, 1080p).
+const DEFTER := Rect2(1172, 104, 716, 952)
+const KONUSMA := Rect2(36, 742, 1104, 314)
+## Kamerayı yana kaydırır: gelen kişi ekranın sol-ortasında durur, defterin altında kalmaz.
+const KAMERA_KAYMA := 1.05
 const KARAR_SIMGE := {"kabul": "accept", "ret": "reject", "rusvet": "bribe", "kisla": "barracks", "elkoy": "reject"}
 
 var oturum: Oturum
@@ -37,6 +41,12 @@ var _ad: Label
 var _sinif: Label
 var _kayit: RichTextLabel
 var _secenekler: VBoxContainer
+## Defterin altında her zaman görünen eylemler (Heybesini ara, Kararını ver, Sohbete dön).
+var _eylemler: VBoxContainer
+var _bolum: Label
+var _bilgi: Label
+var _levha_ad: Label
+var _gece_gelen := 0
 
 
 func _ready() -> void:
@@ -46,54 +56,27 @@ func _ready() -> void:
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(zemin)
 
+	# 3D kapı sahnesi tüm ekranı kaplar; arayüz üstüne biner.
 	_dunya = Control.new()
 	_dunya.position = Vector2(0, 92)
-	_dunya.size = Vector2(DUNYA_GENISLIK, 988)
-	_dunya.clip_contents = true
+	_dunya.size = Vector2(1140, 988)
 	add_child(_dunya)
 	var kap := SubViewportContainer.new()
 	kap.stretch = true
-	kap.size = _dunya.size
-	_dunya.add_child(kap)
+	kap.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	kap.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(kap)
+	move_child(kap, 1)
 	var vp := SubViewport.new()
-	vp.size = Vector2i(_dunya.size)
+	vp.size = Vector2i(1920, 1080)
 	vp.msaa_3d = Viewport.MSAA_4X
 	kap.add_child(vp)
 	sahne = KapiSahnesi.new()
 	vp.add_child(sahne)
+	sahne.kamera.h_offset = KAMERA_KAYMA
 
-	var panel := PanelContainer.new()
-	panel.position = Vector2(DUNYA_GENISLIK, 92)
-	panel.size = Vector2(1920 - DUNYA_GENISLIK, 988)
-	add_child(panel)
-	var kenar := MarginContainer.new()
-	for y in ["margin_left", "margin_right", "margin_top", "margin_bottom"]:
-		kenar.add_theme_constant_override(y, 28)
-	panel.add_child(kenar)
-	var dikey := VBoxContainer.new()
-	dikey.add_theme_constant_override("separation", 12)
-	kenar.add_child(dikey)
-	_ad = Label.new()
-	_ad.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.BASLIK_PX))
-	dikey.add_child(_ad)
-	_sinif = Label.new()
-	_sinif.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.KUCUK_PX))
-	dikey.add_child(_sinif)
-	_kayit = RichTextLabel.new()
-	_kayit.bbcode_enabled = true
-	_kayit.scroll_following = true
-	_kayit.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	_kayit.focus_mode = Control.FOCUS_NONE
-	dikey.add_child(_kayit)
-	_secenekler = VBoxContainer.new()
-	_secenekler.add_theme_constant_override("separation", 12)
-	dikey.add_child(_secenekler)
-	var ipucu := Label.new()
-	ipucu.text = tr("arayuz.sohbet.ipucu")
-	ipucu.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	ipucu.add_theme_font_size_override("font_size", ayarlar.boyut(18))
-	ipucu.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
-	dikey.add_child(ipucu)
+	_konusma_kur()
+	_defter_kur()
 
 	hud = Hud.new()
 	add_child(hud)
@@ -101,11 +84,115 @@ func _ready() -> void:
 	hud.bagla(oturum)
 
 
+## Sol alt: isim levhası ve bu gelenle konuşmanın tamamı (kaydırılır).
+func _konusma_kur() -> void:
+	var kutu := CerceveKutu.new()
+	kutu.position = KONUSMA.position
+	kutu.size = KONUSMA.size
+	add_child(kutu)
+	var kenar := MarginContainer.new()
+	kenar.position = KONUSMA.position
+	kenar.size = KONUSMA.size
+	for y in ["margin_left", "margin_right"]:
+		kenar.add_theme_constant_override(y, 30)
+	kenar.add_theme_constant_override("margin_top", 34)
+	kenar.add_theme_constant_override("margin_bottom", 18)
+	add_child(kenar)
+	_kayit = RichTextLabel.new()
+	_kayit.bbcode_enabled = true
+	_kayit.scroll_following = true
+	_kayit.focus_mode = Control.FOCUS_NONE
+	_kayit.add_theme_color_override("default_color", MenuSatiri.KREM)
+	kenar.add_child(_kayit)
+	var levha := CerceveKutu.new()
+	levha.dolgu = Color(0.06, 0.05, 0.04, 0.95)
+	levha.position = KONUSMA.position + Vector2(28, -22)
+	levha.size = Vector2(420, 44)
+	add_child(levha)
+	_levha_ad = Label.new()
+	_levha_ad.position = levha.position + Vector2(18, 4)
+	_levha_ad.add_theme_font_override("font", Tema.font(700))
+	_levha_ad.add_theme_font_size_override("font_size", ayarlar.boyut(24))
+	_levha_ad.add_theme_color_override("font_color", MenuSatiri.ALTIN)
+	add_child(_levha_ad)
+
+
+## Sağ: kapı defteri — gelenin kartı, sorular ya da kararlar (kaydırılır), sabit eylemler.
+func _defter_kur() -> void:
+	var kutu := CerceveKutu.new()
+	kutu.position = DEFTER.position
+	kutu.size = DEFTER.size
+	add_child(kutu)
+	var kenar := MarginContainer.new()
+	kenar.position = DEFTER.position
+	kenar.size = DEFTER.size
+	for y in ["margin_left", "margin_right", "margin_top", "margin_bottom"]:
+		kenar.add_theme_constant_override(y, 26)
+	add_child(kenar)
+	var dikey := VBoxContainer.new()
+	dikey.add_theme_constant_override("separation", 6)
+	kenar.add_child(dikey)
+	_ad = Label.new()
+	_ad.add_theme_font_override("font", Tema.font(600))
+	_ad.add_theme_font_size_override("font_size", ayarlar.boyut(40))
+	_ad.add_theme_color_override("font_color", MenuSatiri.KREM)
+	dikey.add_child(_ad)
+	_sinif = Label.new()
+	_sinif.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.KUCUK_PX))
+	_sinif.add_theme_color_override("font_color", MenuSatiri.SOLUK)
+	dikey.add_child(_sinif)
+	_bilgi = Label.new()
+	_bilgi.add_theme_font_size_override("font_size", ayarlar.boyut(19))
+	_bilgi.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
+	dikey.add_child(_bilgi)
+	dikey.add_child(_ayrac(MenuSusu.Tur.ALT))
+	_bolum = Label.new()
+	_bolum.add_theme_font_override("font", Tema.font(700))
+	_bolum.add_theme_font_size_override("font_size", ayarlar.boyut(22))
+	_bolum.add_theme_color_override("font_color", MenuSatiri.ALTIN)
+	dikey.add_child(_bolum)
+	var kaydir := ScrollContainer.new()
+	kaydir.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	kaydir.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	kaydir.follow_focus = true
+	dikey.add_child(kaydir)
+	_secenekler = VBoxContainer.new()
+	_secenekler.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_secenekler.add_theme_constant_override("separation", 6)
+	kaydir.add_child(_secenekler)
+	dikey.add_child(_ayrac(MenuSusu.Tur.UST))
+	_eylemler = VBoxContainer.new()
+	_eylemler.add_theme_constant_override("separation", 6)
+	dikey.add_child(_eylemler)
+	var ipucu := Label.new()
+	ipucu.text = tr("arayuz.sohbet.ipucu")
+	ipucu.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	ipucu.add_theme_font_size_override("font_size", ayarlar.boyut(16))
+	ipucu.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
+	dikey.add_child(ipucu)
+
+
+func _ayrac(tur: MenuSusu.Tur) -> Control:
+	var s := MenuSusu.new()
+	s.tur = tur
+	s.konum = 332.0
+	s.custom_minimum_size = Vector2(0, 24)
+	s.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	s.resized.connect(s.queue_redraw)
+	return s
+
+
+## Defterdeki bilgi satırı: kaçıncı gece, kaçıncı gelen, sırada kaç kişi.
+func _bilgi_yaz() -> void:
+	_bilgi.text = tr("arayuz.kapi.bilgi") % [oturum.gosterilen_gece(), _gece_gelen, _kuyruk.size()]
+
+
 ## Yeni geceyi başlatır: kuyruk kurulur, ilk gelen kapıya yürür.
 func gece_baslat() -> void:
 	evre = &"gecis"
 	_temizle()
 	_kuyruk = oturum.gece_kuyrugu()
+	_gece_gelen = 0
 	_kayit.clear()
 	_yaz("[color=#B8C2CC][b]%s[/b][/color]" % (tr("anlati.gece.basladi") % oturum.gosterilen_gece()))
 	hud.guncelle()
@@ -117,6 +204,8 @@ func _siradaki() -> void:
 	if _kuyruk.is_empty():
 		_ad.text = ""
 		_sinif.text = ""
+		_levha_ad.text = ""
+		_bilgi.text = ""
 		evre = &"gecis"
 		var rapor := oturum.gece_sonu()
 		hud.guncelle()
@@ -130,6 +219,10 @@ func _siradaki() -> void:
 	_yalan_yazildi = false
 	_ad.text = tr(_gelen.ad_anahtari)
 	_sinif.text = tr("arayuz.sinif.gibi") % tr("arayuz.sinif." + String(_gelen.sinif))
+	_levha_ad.text = tr(_gelen.ad_anahtari)
+	_gece_gelen += 1
+	_bilgi_yaz()
+	_bolum.text = ""
 	# Yeni gelenle konuşma kaydı baştan: yalnız gece başlığı ve bu gelenin konuşması.
 	_kayit.clear()
 	_yaz("[color=#4A6B8A]%s[/color]" % (tr("arayuz.hud.gece") % oturum.gosterilen_gece()))
@@ -148,6 +241,7 @@ func _siradaki() -> void:
 func _sohbet_goster() -> void:
 	evre = &"sohbet"
 	_temizle()
+	_bolum.text = tr("arayuz.kapi.sorular")
 	var dugmeler: Array[Button] = []
 	for i in _gelen.sorular.size():
 		if i in _sorulan:
@@ -156,7 +250,8 @@ func _sohbet_goster() -> void:
 		var ust: int = _gelen.soru_ust[i] if i < _gelen.soru_ust.size() else -1
 		if ust >= 0 and not (ust in _sorulan):
 			continue
-		var b := _dugme(("  ↳ " if ust >= 0 else "— ") + tr(_gelen.sorular[i][0]))
+		var b := _dugme(("↳ " if ust >= 0 else "— ") + tr(_gelen.sorular[i][0]))
+		b.girinti = 30.0 if ust >= 0 else 0.0
 		b.pressed.connect(_soru_sor.bind(i))
 		dugmeler.append(b)
 	if _gelen.heybe != null and not _gelen.heybe.soruldu:
@@ -164,10 +259,10 @@ func _sohbet_goster() -> void:
 		h.pressed.connect(_heybe_sor)
 		dugmeler.append(h)
 	if _gelen.heybe != null:
-		dugmeler.append(_heybe_dugmesi())
-	var k := _dugme(tr("arayuz.sohbet.karar_ver"))
+		_heybe_dugmesi()
+	var k := _dugme(tr("arayuz.sohbet.karar_ver"), _eylemler)
+	k.ikon = MenuSatiri.Ikon.KAPI
 	k.pressed.connect(_karar_goster)
-	dugmeler.append(k)
 	_sirayla_goster(dugmeler)
 
 
@@ -194,8 +289,8 @@ func _beyan_metni() -> String:
 
 
 func _heybe_dugmesi() -> Button:
-	var b := _dugme(tr("arayuz.sohbet.heybe_ara"))
-	b.icon = Sanat.doku("ui", "icon_bribe_pouch_full_48")
+	var b := _dugme(tr("arayuz.sohbet.heybe_ara"), _eylemler)
+	b.doku = Sanat.doku("ui", "icon_bribe_pouch_full_48")
 	b.pressed.connect(_heybe_ac)
 	return b
 
@@ -206,6 +301,7 @@ func _heybe_ac() -> void:
 		return
 	var donus := evre
 	_secenekler.visible = false
+	_eylemler.visible = false
 	sahne.heybe_koy()
 	_heybe_paneli = HeybePaneli.new()
 	_heybe_paneli.heybe = _gelen.heybe
@@ -219,6 +315,7 @@ func _heybe_ac() -> void:
 	_heybe_paneli.queue_free()
 	_heybe_paneli = null
 	_secenekler.visible = true
+	_eylemler.visible = true
 	if donus == &"karar":
 		_karar_goster()
 	else:
@@ -267,6 +364,7 @@ func _karar_goster() -> void:
 	evre = &"karar"
 	_secili = ""
 	_temizle()
+	_bolum.text = tr("arayuz.kapi.karar")
 	_daralt(true)
 	_karar_dugmeleri = []
 	var gorunen := PackedStringArray()
@@ -285,14 +383,28 @@ func _karar_goster() -> void:
 	for n in _karar_anahtarlari.size():
 		var anahtar := _karar_anahtarlari[n]
 		var b := _dugme("%d · %s" % [n + 1, _karar_etiketi(anahtar)])
-		b.icon = Sanat.doku("ui", "icon_decision_%s_48" % KARAR_SIMGE[anahtar])
-		b.custom_minimum_size.y = 72
+		b.doku = Sanat.doku("ui", "icon_decision_%s_48" % KARAR_SIMGE[anahtar])
+		b.custom_minimum_size.y = 74
+		b.punto = ayarlar.boyut(30)
+		b.alt_yazi = _karar_alt_yazi(anahtar)
 		b.pressed.connect(_karar_bas.bind(anahtar))
 		_karar_dugmeleri.append(b)
-	var liste: Array[Button] = _karar_dugmeleri.duplicate()
+	# Eylemler (defterin altı) hemen görünür; yalnız kararlar sırayla belirir.
 	if _gelen.heybe != null:
-		liste.append(_heybe_dugmesi())
-	_sirayla_goster(liste)
+		_heybe_dugmesi()
+	if oturum.perde == 1 and _sorulan.size() < mini(oturum.ayarlar.azami_soru, _gelen.sorular.size()):
+		var g := _dugme(tr("arayuz.kapi.sohbete_don"), _eylemler)
+		g.pressed.connect(_sohbet_goster)
+	_sirayla_goster(_karar_dugmeleri)
+
+
+## Karar satırının altındaki küçük, tarafsız bilgi (sonucu söylemez).
+func _karar_alt_yazi(anahtar: String) -> String:
+	if anahtar == "rusvet" and _gelen.heybe != null:
+		return tr("heybe.teklif") % _gelen.heybe.teklif
+	if anahtar == "elkoy":
+		return tr("heybe.yakalandi")
+	return ""
 
 
 ## İki adımlı onay: ilk basış seçer, aynı karara ikinci basış verir.
@@ -309,6 +421,7 @@ func _karar_bas(anahtar: String) -> void:
 		b.toggle_mode = true
 		b.set_pressed_no_signal(_karar_anahtarlari[i] == _secili)
 		b.text = (tr("arayuz.karar.onayla") % ad) if _karar_anahtarlari[i] == _secili else "%d · %s" % [i + 1, ad]
+		b.queue_redraw()
 		if _karar_anahtarlari[i] == _secili:
 			b.grab_focus()
 
@@ -320,11 +433,13 @@ func _karar_birak() -> void:
 	for i in _karar_dugmeleri.size():
 		_karar_dugmeleri[i].set_pressed_no_signal(false)
 		_karar_dugmeleri[i].text = "%d · %s" % [i + 1, _karar_etiketi(_karar_anahtarlari[i])]
+		_karar_dugmeleri[i].queue_redraw()
 
 
 func _karar_ver(anahtar: String) -> void:
 	evre = &"sonuc"
 	_temizle()
+	_bolum.text = ""
 	Ses.cal(&"sfx_onay")
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar))
 	if anahtar == "rusvet" or anahtar == "elkoy":
@@ -365,26 +480,25 @@ func _daralt(icerden: bool) -> void:
 	await sahne.daralt(icerden)
 
 
-func _dugme(yazi: String) -> Button:
-	var b := Button.new()
+## Defter satırı (altın çerçeveli, menü satırıyla aynı dil). Varsayılan yer: sorular/kararlar listesi.
+func _dugme(yazi: String, kap: Container = null) -> MenuSatiri:
+	var b := MenuSatiri.new()
 	b.text = yazi
-	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-	b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	b.custom_minimum_size = Vector2(0, 64)
-	b.focus_mode = Control.FOCUS_ALL
+	b.ikon = MenuSatiri.Ikon.YOK
+	b.font_ = Tema.font(500)
+	b.punto = ayarlar.boyut(26)
+	b.alt_punto = ayarlar.boyut(17)
+	b.custom_minimum_size = Vector2(0, 58)
+	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	b.focus_entered.connect(func() -> void: Ses.cal(&"sfx_secim", -8.0))
-	b.mouse_entered.connect(func() -> void:
-		if b.visible:
-			b.grab_focus()
-	)
-	_secenekler.add_child(b)
+	(kap if kap != null else _secenekler).add_child(b)
 	return b
 
 
 func _temizle() -> void:
 	_belirme_id += 1
 	_beliriyor = false
-	for c in _secenekler.get_children():
+	for c in _secenekler.get_children() + _eylemler.get_children():
 		c.queue_free()
 
 
@@ -433,7 +547,7 @@ func _unhandled_input(olay: InputEvent) -> void:
 	if _heybe_paneli != null:
 		return
 	if evre == &"karar":
-		for n in 4:
+		for n in 5:
 			if olay.is_action_pressed("kisayol_%d" % (n + 1)) and n < _karar_anahtarlari.size():
 				_karar_bas(_karar_anahtarlari[n])
 				get_viewport().set_input_as_handled()

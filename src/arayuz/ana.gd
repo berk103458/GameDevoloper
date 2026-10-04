@@ -211,7 +211,7 @@ func _imleci_kur() -> void:
 func _eylemleri_kur() -> void:
 	var tuslar := {
 		"geri": [KEY_ESCAPE], "menu": [KEY_P],
-		"kisayol_1": [KEY_1], "kisayol_2": [KEY_2], "kisayol_3": [KEY_3], "kisayol_4": [KEY_4],
+		"kisayol_1": [KEY_1], "kisayol_2": [KEY_2], "kisayol_3": [KEY_3], "kisayol_4": [KEY_4], "kisayol_5": [KEY_5],
 	}
 	for eylem in tuslar:
 		if InputMap.has_action(eylem):

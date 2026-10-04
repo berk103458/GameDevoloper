@@ -45,6 +45,10 @@ arayuz.hud.akce,Akçe %d
 arayuz.hud.ambar,Ambar %d
 arayuz.hud.gece,%d. gece
 arayuz.hud.kose,Köy: %d
+arayuz.kapi.bilgi,%d. gece · %d. gelen · sırada %d kişi
+arayuz.kapi.karar,Karar
+arayuz.kapi.sohbete_don,Sohbete dön
+arayuz.kapi.sorular,Sorular
 arayuz.karar.elkoy,"El koy, geri çevir"
 arayuz.karar.kabul,Kabul
 arayuz.karar.kisla,Kışlaya yaz
@@ -79,7 +83,7 @@ arayuz.sinif.gibi,%s gibi görünüyor
 arayuz.sohbet.devam,Devam
 arayuz.sohbet.heybe_ara,Heybesini ara
 arayuz.sohbet.heybe_sor,Heybende ne var?
-arayuz.sohbet.ipucu,Kararda: 1–4 seçer · aynı karara tekrar basmak onaylar · Esc seçimi bırakır
+arayuz.sohbet.ipucu,Kararda: 1–5 seçer · aynı karara tekrar basmak onaylar · Esc seçimi bırakır
 arayuz.sohbet.karar_ver,Kararını ver
 arayuz.sohbet.sen,Sen
 arayuz.son.ahi,Ahi kasabası.
