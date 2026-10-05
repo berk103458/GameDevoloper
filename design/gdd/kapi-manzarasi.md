@@ -36,6 +36,11 @@ tehlikeli; tehdit gece gece yaklaşıyor).
     SSAO, SSIL, AgX ton eşleme, renk ayarı (kontrast 1.08, doygunluk 0.88), yalnız küçük yarıçaplı ışıma, uzak alan bulanıklığı.
 12. **Alev ve duman:** gölgelendirici (`alev.gdshader`, `duman.gdshader`): gürültüyle dalgalanan, kameraya dönük dörtgenler.
 13. **Çözünürlük:** 3D, pencerenin fiziksel çözünürlüğünde çizilir (4K ekranda 3840×2160), arayüzün altına serilir.
+14. **Uzak plan (ön planla aynı gerçeklik):** kutu ev ve koni ağaç yoktur.
+   - Dağlar: ridged gürültülü yükseklik alanı (z −190…−350); kaya dokusu (`aerial_rocks_02`), tepelerde kar (`snow_field_aerial`), sise karışır.
+   - Ağaçlar: `fir_sapling_medium`'dan pişirilmiş saydam görüntüler (impostor, `tools/varlik/impostor_pisir.gd`); servi dar, köknar geniş; kümeler hâlinde.
+   - Yanan köy: Meshy `ev`/`cadir` modelleri yere oturur (y = arazi yüksekliği − 0.25), damlarda alev, evlerden yükselen duman sütunları, ufukta soluk kızıllık.
+   - Yoldaki kaçanlar: gerçek karakter modelleri yürür; bir kısmı fener taşır (ışıklı), yolun sonunda baştan döner.
 
 ## Formulas
 - Kadraj: pencere x aralığı `[H − 0.755·d, H + 0.14·d]` (H = 1.3, d = kameraya uzaklık) — iki direk (±1.75, d≈4.2) sınırda.

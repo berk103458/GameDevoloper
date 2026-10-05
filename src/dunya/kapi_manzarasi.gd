@@ -65,6 +65,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_zaman += delta
+	_yuruyenleri_ilerlet(delta)
 	for i in _ates_isiklari.size():
 		var l := _ates_isiklari[i]
 		l.light_energy = float(l.get_meta("taban")) * (0.8 + 0.2 * sin(_zaman * 7.3 + i * 1.7) * sin(_zaman * 2.9 + i))
@@ -282,59 +283,97 @@ func _yol_kur() -> void:
 	add_child(m)
 
 
-# ── Uzak dağlar: üç kat silüet sırtı, uzaklaştıkça sise karışır. ──
+# ── Uzak dağlar: gürültülü sırtlardan bir dağ silsilesi; kaya dokusu, tepelerde kar (arazi.gdshader). Sise karışır. ──
 func _daglar_kur() -> void:
-	var katlar := [[-170.0, 22.0, Color("#141c30")], [-230.0, 38.0, Color("#10172a")], [-300.0, 60.0, Color("#0d1324")]]
-	for k in katlar:
-		var st := SurfaceTool.new()
-		st.begin(Mesh.PRIMITIVE_TRIANGLES)
-		var z: float = k[0]
-		var boy: float = k[1]
-		var onceki := Vector3.ZERO
-		for i in 61:
-			var x := -260.0 + i * 520.0 / 60.0
-			var y := boy * (0.45 + 0.3 * sin(x * 0.02 + z) + 0.25 * sin(x * 0.057 - z * 0.3))
-			var p := Vector3(x, y, z + sin(x * 0.03) * 10.0)
-			if i > 0:
-				for v in [Vector3(onceki.x, -5, onceki.z), onceki, p, Vector3(onceki.x, -5, onceki.z), p, Vector3(p.x, -5, p.z)]:
-					st.add_vertex(v)
-			onceki = p
-		var m := MeshInstance3D.new()
-		m.mesh = st.commit()
-		var mat := _malzeme(k[2])
-		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		mat.cull_mode = BaseMaterial3D.CULL_DISABLED
-		m.material_override = mat
-		add_child(m)
+	var g := FastNoiseLite.new()
+	g.seed = 1243
+	g.noise_type = FastNoiseLite.TYPE_SIMPLEX
+	g.fractal_type = FastNoiseLite.FRACTAL_RIDGED
+	g.fractal_octaves = 5
+	g.frequency = 0.008
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var nx := 140
+	var nz := 40
+	for j in nz:
+		for i in nx:
+			var kose := []
+			for d in [Vector2i(0, 0), Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 0), Vector2i(1, 1), Vector2i(0, 1)]:
+				var x: float = -320.0 + (i + d.x) * 640.0 / nx
+				var z: float = -190.0 - (j + d.y) * 160.0 / nz
+				var derin := clampf((-z - 190.0) / 60.0, 0.0, 1.0)
+				var h := (g.get_noise_2d(x, z) * 0.5 + 0.5) * lerpf(18.0, 70.0, derin) + derin * 10.0
+				kose.append(Vector3(x, h, z))
+			for k in 6:
+				var v: Vector3 = kose[k]
+				st.set_color(Color(clampf((v.y - 22.0) / 18.0, 0.0, 1.0), 0, 0))
+				st.set_uv(Vector2(v.x, v.z))
+				st.add_vertex(v)
+	st.generate_normals()
+	st.generate_tangents()
+	var m := MeshInstance3D.new()
+	m.mesh = st.commit()
+	var sh := ShaderMaterial.new()
+	sh.shader = load("res://src/dunya/arazi.gdshader")
+	for harita in [["renk", "diff"], ["normal", "nor_gl"], ["kaba", "rough"]]:
+		sh.set_shader_parameter("camur_" + harita[0], Pbr.doku("aerial_rocks_02", harita[1]))
+		sh.set_shader_parameter("kar_" + harita[0], Pbr.doku("snow_field_aerial", harita[1]))
+	sh.set_shader_parameter("boy", 24.0)
+	sh.set_shader_parameter("ton", Color(0.55, 0.55, 0.6))
+	m.material_override = sh
+	m.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(m)
 
 
-# ── Serviler ve kuru ağaçlar: tepelerde koyu silüetler (yol kenarında seyrek). ──
+# ── Serviler ve köknarlar: Poly Haven ağacından pişirilmiş görüntüler (impostor; tools/varlik/impostor_pisir.gd),
+# kameraya dönük dörtgenlerde. Servi: dar ve uzun; köknar kümesi: geniş. Yol kenarında ve tepelerde, kümeler hâlinde. ──
 func _serviler_kur() -> void:
-	var mm := MultiMesh.new()
-	mm.transform_format = MultiMesh.TRANSFORM_3D
-	var koni := CylinderMesh.new()
-	koni.top_radius = 0.05
-	koni.bottom_radius = 0.45
-	koni.height = 5.5
-	koni.radial_segments = 8
-	mm.mesh = koni
-	var yerler: Array[Vector3] = []
+	var dokular: Array[Texture2D] = []
+	for ad in ["a", "b", "c"]:
+		var yol := "res://assets/ph/impostor/servi_%s.png" % ad
+		if ResourceLoader.exists(yol):
+			dokular.append(load(yol))
+	if dokular.is_empty():
+		return
+	var mats: Array[StandardMaterial3D] = []
+	for d in dokular:
+		var m := StandardMaterial3D.new()
+		m.albedo_texture = d
+		m.albedo_color = Color(0.55, 0.6, 0.6)
+		m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+		m.alpha_scissor_threshold = 0.45
+		m.billboard_mode = BaseMaterial3D.BILLBOARD_FIXED_Y
+		m.billboard_keep_scale = true
+		m.cull_mode = BaseMaterial3D.CULL_DISABLED
+		m.roughness = 1.0
+		m.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		mats.append(m)
 	var r := RandomNumberGenerator.new()
 	r.seed = 3
-	while yerler.size() < 45:
-		var x := r.randf_range(-70.0, 70.0)
-		var z := r.randf_range(-140.0, -22.0)
-		if _yola_yakinlik(x, z) > 0.4 or z > -48.0:
-			continue
-		yerler.append(Vector3(x, yukseklik(x, z), z))
-	mm.instance_count = yerler.size()
-	for i in yerler.size():
-		var o := r.randf_range(0.7, 1.5)
-		mm.set_instance_transform(i, Transform3D(Basis.IDENTITY.scaled(Vector3(o, o * r.randf_range(0.9, 1.4), o)), yerler[i] + Vector3(0, 2.2 * o, 0)))
-	var s := MultiMeshInstance3D.new()
-	s.multimesh = mm
-	s.material_override = _malzeme(SERVI)
-	add_child(s)
+	var yerler: Array[Vector4] = []
+	# Kümeler: tepelerde ve yol boyunca (yolun üstüne değil).
+	var kumeler := [Vector3(-26, 0, -48), Vector3(-14, 0, -70), Vector3(14, 0, -58), Vector3(-30, 0, -95),
+		Vector3(22, 0, -100), Vector3(-6, 0, -118), Vector3(10, 0, -80), Vector3(-40, 0, -130), Vector3(32, 0, -125),
+		Vector3(-18, 0, -34), Vector3(9, 0, -38)]
+	for k in kumeler:
+		for n in r.randi_range(3, 7):
+			var x: float = k.x + r.randf_range(-6.0, 6.0)
+			var z: float = k.z + r.randf_range(-5.0, 5.0)
+			if _yola_yakinlik(x, z) > 0.35:
+				continue
+			yerler.append(Vector4(x, yukseklik(x, z), z, r.randf()))
+	for y in yerler:
+		var q := QuadMesh.new()
+		var boy := r.randf_range(7.0, 12.0)
+		var servi := y.w < 0.65
+		q.size = Vector2(boy * (0.28 if servi else 0.5), boy)
+		q.center_offset = Vector3(0, boy * 0.5, 0)
+		var m := MeshInstance3D.new()
+		m.mesh = q
+		m.material_override = mats[r.randi() % mats.size()]
+		m.position = Vector3(y.x, y.y - 0.3, y.z)
+		m.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		add_child(m)
 
 
 # ── Yol kenarı: kırık çitler, taş yığınları, yıkık taş direk, terk edilmiş eşya. Sorgu alanı (x −2..2, z −1..−6) boş. ──
@@ -394,8 +433,8 @@ func _yol_kenari_kur() -> void:
 	direk_ust.rotation.z = 0.25
 	add_child(direk_ust)
 	# Kuru ceviz: sağ arkada, güçlü silüet; dalları rüzgârda çok hafif oynar.
-	var agac := Dunya3B.nesne("agac", 8.5)
-	agac.position = Vector3(3.6, yukseklik(3.6, -25.0), -25.0)
+	var agac := Dunya3B.nesne("agac", 9.0)
+	agac.position = Vector3(-12.0, yukseklik(-12.0, -27.0), -27.0)
 	agac.rotation.y = 0.6
 	add_child(agac)
 	_dallar.append(agac)
@@ -414,90 +453,111 @@ func _kutu(boyut: Vector3, konum: Vector3, mat: Material) -> MeshInstance3D:
 	return m
 
 
-# ── Yolda kapıya yürüyen insanlar (silüet): kuyruğun arkasında, uzaklaştıkça küçük; bazılarının elinde fener. ──
+# ── Yolda kapıya yürüyen insanlar: gerçek karakter modelleri yolun üstünde yavaşça kapıya yürür; kuyruğun sonuna
+# varan yolun başına döner (sıra hiç bitmez gibi). Bazılarının elinde fener; uzakta yalnız fener ışığı seçilir. ──
+const YURUYEN_HIZ := 0.55
+const YURUYEN_SON := 0.17
+var _yuruyenler: Array = []
+
+
 func _multeciler_kur() -> void:
 	var r := RandomNumberGenerator.new()
 	r.seed = 21 + gece
-	var adet := 10 + mini(gece, 8) * 2 if perde == 1 else 6
-	var govde := CapsuleMesh.new()
-	govde.radius = 0.22
-	govde.height = 1.4
-	var bas := SphereMesh.new()
-	bas.radius = 0.13
-	bas.height = 0.26
-	var mat := _malzeme(SILUET)
+	var adet := 6 + mini(gece, 6) if perde == 1 else 4
+	var turler := ["ciftci", "ciftci_kadin", "esnaf", "asker", "ciftci", "ciftci_kadin"]
 	for i in adet:
-		var t := 0.24 + float(i) / adet * 0.62 + r.randf() * 0.02
-		var p := yol_noktasi(t)
-		var kisi := Node3D.new()
-		kisi.position = p + Vector3(r.randf_range(-0.4, 0.4), 0, 0)
-		var g := MeshInstance3D.new()
-		g.mesh = govde
-		g.position.y = 0.72
-		g.material_override = mat
-		kisi.add_child(g)
-		var b := MeshInstance3D.new()
-		b.mesh = bas
-		b.position.y = 1.52
-		b.material_override = mat
-		kisi.add_child(b)
-		# Yük: sırtta bohça ya da yanında hayvan.
-		if r.randf() < 0.4:
-			var y := MeshInstance3D.new()
-			var yk := SphereMesh.new()
-			yk.radius = 0.25
-			yk.height = 0.4
-			y.mesh = yk
-			y.position = Vector3(0, 1.05, 0.22)
-			y.material_override = mat
-			kisi.add_child(y)
-		if r.randf() < 0.25:
+		var k := Dunya3B.karakter(turler[i % turler.size()])
+		var t := YURUYEN_SON + 0.05 + float(i) / adet * 0.55 + r.randf() * 0.02
+		add_child(k)
+		k.scale = Vector3.ONE * r.randf_range(0.92, 1.05)
+		var yan := r.randf_range(-0.5, 0.5)
+		if r.randf() < 0.35:
 			var fener := MeshInstance3D.new()
 			var f := SphereMesh.new()
-			f.radius = 0.07
-			f.height = 0.14
+			f.radius = 0.06
+			f.height = 0.12
 			fener.mesh = f
-			fener.position = Vector3(0.3, 0.9, 0)
-			fener.material_override = _isik_sacan(ATES_IC, 3.0)
-			kisi.add_child(fener)
-		kisi.scale = Vector3.ONE * r.randf_range(0.85, 1.05)
-		add_child(kisi)
+			fener.position = Vector3(0.35, 0.95, 0.1)
+			fener.material_override = _isik_sacan(ATES_IC, 4.0)
+			k.add_child(fener)
+			var l := OmniLight3D.new()
+			l.light_color = ATES
+			l.light_energy = 0.6
+			l.omni_range = 4.0
+			l.position = fener.position
+			k.add_child(l)
+		_yuruyenler.append({"k": k, "t": t, "yan": yan})
+		_yuruyen_yerlestir(_yuruyenler[-1])
+		k.yuru(k.position + Vector3(0, 0, 0.001), 0.01)
+
+
+func _yuruyen_yerlestir(y: Dictionary) -> void:
+	var k: KarakterModel = y["k"]
+	var t: float = y["t"]
+	var p := yol_noktasi(t)
+	var ileri := yol_noktasi(maxf(t - 0.01, 0.0)) - p
+	ileri.y = 0.0
+	var yan := Vector3(-ileri.z, 0, ileri.x).normalized()
+	k.position = p + yan * float(y["yan"])
+	k.look_at(k.position + ileri, Vector3.UP, true)
+
+
+## Yürüyenleri ilerletir (KapiManzarasi._process).
+func _yuruyenleri_ilerlet(delta: float) -> void:
+	for y in _yuruyenler:
+		var t: float = y["t"]
+		var adim := YURUYEN_HIZ * delta / maxf(yol_noktasi(t).distance_to(yol_noktasi(t + 0.01)) * 100.0, 0.01)
+		t -= adim
+		if t < YURUYEN_SON:
+			t = 0.78 + randf() * 0.04
+		y["t"] = t
+		_yuruyen_yerlestir(y)
 
 
 # ── 1. perde: tepenin ardında yanan köy. Gece 0: yalnız ince duman; sonra ateş büyür; 5. geceden sonra sırtta atlılar. ──
 func _yanan_koy_kur(soner := false) -> void:
 	var taban := KOY_YERI + Vector3(0, yukseklik(KOY_YERI.x, KOY_YERI.z), 0)
 	var siddet := clampf(gece / 6.0, 0.0, 1.0) if not soner else 0.25
-	# Ev silüetleri.
+	# Köy: dokulu kerpiç evler ve çadırlar sırta oturur (her biri kendi zeminine; havada durmaz).
 	var mat := _malzeme(SILUET)
-	for i in 7:
-		var boy := 2.2 + (i % 3) * 0.6
-		var p := taban + Vector3(-12.0 + i * 4.0, 0.0, (i % 2) * 3.0)
-		add_child(_kutu(Vector3(3.0, boy, 3.0), p + Vector3(0, boy * 0.5, 0), mat))
-		var cati := MeshInstance3D.new()
-		var pr := PrismMesh.new()
-		pr.size = Vector3(3.4, 1.4, 3.2)
-		cati.mesh = pr
-		cati.position = p + Vector3(0, boy + 0.7, 0)
-		cati.material_override = mat
-		add_child(cati)
+	var rk := RandomNumberGenerator.new()
+	rk.seed = 77
+	var evler: Array[Vector3] = []
+	for i in 11:
+		var x := rk.randf_range(-16.0, 16.0)
+		var z := rk.randf_range(-6.0, 6.0)
+		var p := Vector3(taban.x + x, 0, taban.z + z)
+		p.y = yukseklik(p.x, p.z) - 0.25
+		var cadir := i % 4 == 3
+		var ev := Dunya3B.nesne("cadir" if cadir else "ev", rk.randf_range(2.6, 3.6) * (0.8 if cadir else 1.0), "yapi")
+		ev.position = p
+		ev.rotation.y = rk.randf() * TAU
+		ev.scale = Vector3.ONE * rk.randf_range(0.9, 1.25)
+		add_child(ev)
+		evler.append(p)
+	# Köyün ortasında yıkık bir taş kule (silüette köy olduğu okunsun).
+	var kule := _kutu(Vector3(3.0, 7.0, 3.0), Vector3(taban.x + 2.0, yukseklik(taban.x + 2.0, taban.z) + 3.2, taban.z - 1.0),
+			Pbr.malzeme("castle_wall_varriation", 3.0, Color(0.6, 0.58, 0.56)))
+	add_child(kule)
 	# Ateşler: gece arttıkça çoğalır ve büyür.
 	var ates_sayisi := 0 if gece == 0 and not soner else 1 + int(siddet * 6.0)
 	var r := RandomNumberGenerator.new()
 	r.seed = 1243
 	for i in ates_sayisi:
-		var p := taban + Vector3(r.randf_range(-12.0, 12.0), 1.4 + r.randf() * 1.2, r.randf_range(-2.0, 3.0))
-		_ates_kur(p, r.randf_range(1.0, 2.0) * (0.8 + siddet), 6.0 + siddet * 10.0)
+		# Ateş bir evin damında: o evin zemininden yukarıda.
+		var ev_p: Vector3 = evler[i % evler.size()]
+		var p := ev_p + Vector3(r.randf_range(-0.8, 0.8), 2.4 + r.randf() * 0.6, r.randf_range(-0.8, 0.8))
+		_ates_kur(p, r.randf_range(1.2, 2.2) * (0.8 + siddet), 6.0 + siddet * 10.0)
 	# Ufukta yangının parıltısı: tepenin üstünde geniş, yumuşak turuncu hale.
 	if ates_sayisi > 0:
 		var hale := MeshInstance3D.new()
 		var q := QuadMesh.new()
-		q.size = Vector2(40.0 + siddet * 30.0, 14.0 + siddet * 10.0)
+		q.size = Vector2(70.0 + siddet * 40.0, 26.0 + siddet * 14.0)
 		hale.mesh = q
 		hale.position = taban + Vector3(0, 5.0, -2.0)
 		var hm := StandardMaterial3D.new()
 		hm.albedo_texture = _yumusak_doku()
-		hm.albedo_color = Color(ATES, 0.25 + siddet * 0.35)
+		hm.albedo_color = Color(ATES, 0.1 + siddet * 0.16)
 		hm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		hm.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
 		hm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -510,7 +570,7 @@ func _yanan_koy_kur(soner := false) -> void:
 	for k in sutun:
 		var d := MeshInstance3D.new()
 		var q := QuadMesh.new()
-		var boy := 34.0 + siddet * 26.0 - k * 4.0
+		var boy := 45.0 + siddet * 40.0 - k * 6.0
 		q.size = Vector2(boy * 0.8, boy)
 		q.center_offset = Vector3(0, boy * 0.5, 0)
 		d.mesh = q
@@ -520,7 +580,8 @@ func _yanan_koy_kur(soner := false) -> void:
 		sh.set_shader_parameter("tohum", float(k) * 0.37)
 		sh.set_shader_parameter("koyuluk", 0.45 + siddet * 0.35)
 		d.material_override = sh
-		d.position = taban + Vector3(-8.0 + k * 6.0, 1.0, -3.0 - k)
+		var kaynak: Vector3 = evler[(k * 3) % evler.size()]
+		d.position = kaynak + Vector3(0, 2.0, -1.0 - k)
 		d.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		add_child(d)
 	# Sırtta atlı silüetleri (5. geceden sonra).

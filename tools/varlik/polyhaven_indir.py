@@ -34,6 +34,11 @@ VARLIKLAR = [
     ("boulder_01", "model", "1k"),
     ("rock_moss_set_01", "model", "1k"),
     ("dry_branches_medium_01", "model", "1k"),
+    # Uzak plan: dağ silsilesinin kaya ve kar dokuları
+    # fir_sapling_medium (75 MB geometri) repoya girmez: tools/varlik/impostor_pisir.gd ondan uzak plan için
+    # saydam görüntüler (impostor) pişirir; yalnız görüntüler (assets/ph/impostor/) repoya girer.
+    ("aerial_rocks_02", "doku", "2k"),
+    ("snow_field_aerial", "doku", "2k"),
 ]
 HARITALAR = {"Diffuse": "diff", "nor_gl": "nor_gl", "Rough": "rough"}
 

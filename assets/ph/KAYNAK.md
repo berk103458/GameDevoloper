@@ -16,3 +16,7 @@ Hepsi CC0 (kamu malı). İndirici: `tools/varlik/polyhaven_indir.py`.
 - `boulder_01` (model, 1k) — https://polyhaven.com/a/boulder_01
 - `rock_moss_set_01` (model, 1k) — https://polyhaven.com/a/rock_moss_set_01
 - `dry_branches_medium_01` (model, 1k) — https://polyhaven.com/a/dry_branches_medium_01
+- `fir_sapling_medium` (model, 1k) — https://polyhaven.com/a/fir_sapling_medium
+- `fir_tree_01` (model, 1k) — https://polyhaven.com/a/fir_tree_01
+- `aerial_rocks_02` (doku, 2k) — https://polyhaven.com/a/aerial_rocks_02
+- `snow_field_aerial` (doku, 2k) — https://polyhaven.com/a/snow_field_aerial
