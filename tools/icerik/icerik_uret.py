@@ -11,6 +11,7 @@ burada değiştirip betiği yeniden çalıştırın:
 üzerine yazılır.
 """
 import csv
+import json
 import os
 import sys
 
@@ -337,8 +338,13 @@ def duzle(liste, ust=-1, cikti=None):
 
 # karakterler/CHR_001–030: sayfalardan ayrıştırılır (tools/icerik/karakter_sayfalari.py)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from karakter_sayfalari import EL_ESYALARI  # noqa: E402
 from karakter_sayfalari import karakterler as _chr_karakterleri  # noqa: E402
 KARAKTERLER += _chr_karakterleri()[0]
+# Elde taşınan eşyalar: model adı → [[eşya, el]] (src/dunya/el_esyasi.gd okur)
+with open(os.path.join(KOK, "data", "el_esyalari.json"), "w", encoding="utf-8") as _f:
+    json.dump({k: [list(x) for x in v] for k, v in sorted(EL_ESYALARI.items())}, _f, ensure_ascii=False, indent=1)
+    _f.write("\n")
 
 for k in KARAKTERLER:
     i = k["id"]

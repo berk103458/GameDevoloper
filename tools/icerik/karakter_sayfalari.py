@@ -30,6 +30,42 @@ NIYET = {
 }
 AZAMI_SORU = 6
 
+# Elde taşınan eşyalar (sayfadaki Obje_2_Yük ve Yüz_ve_Postür'den): kimlik → [(eşya, "sag"/"sol")].
+# Meshy modelinde olmayan ya da sırtta kalan yük ele verilir; biçimler src/dunya/el_esyasi.gd.
+# Modelde zaten olanlar (CHR_008 sepeti, CHR_011 sırt çuvalı, CHR_015 yabası) eklenmez.
+EL_ESYALARI = {
+    "chr_001": [("odun", "sag")],                       # ıslak sazla sarılı meşe kütüğü bağı
+    "chr_002": [("torba", "sag")],                      # kenevir torba (zehirli tohum)
+    "chr_003": [("sepet", "sol"), ("cekic", "sag")],    # kömür sepeti, kalaycı aleti
+    "chr_004": [("kamci", "sag"), ("kurk", "sol")],     # at kamçısı, kürk dengi
+    "chr_005": [("heybe", "sag")],                      # kıl heybe (sol kol sargıda)
+    "chr_006": [("sepet_buyuk", "sag")],                # saman dolu saz sepet
+    "chr_007": [("sandik", "sol")],                     # divan sandığı
+    "chr_008": [("asa", "sag")],                        # ardıç baston (sepet modelde)
+    "chr_009": [("heybe", "sol")],                      # kına heybesi
+    "chr_010": [("heybe", "sag")],                      # kıl hurç
+    # chr_011: harman çuvalı sayfada da sırtta; modelde var, ele eşya verilmez.
+    "chr_012": [("sepet_buyuk", "sag")],                # asma küfesi
+    "chr_013": [("degnek", "sag"), ("testi", "sol")],   # meşe değnek, tohum testisi
+    "chr_014": [("degnek", "sag")],                     # çoban değneği
+    "chr_015": [("sepet", "sag")],                      # fide sepeti (yaba modelde)
+    "chr_016": [("odun", "sag")],                       # aşı çubuğu demeti
+    "chr_017": [("heybe", "sag")],                      # keçe heybe
+    "chr_018": [("capa", "sag"), ("kabak", "sol")],     # çapa, su kabağı
+    "chr_019": [("kazma", "sag"), ("cubuk", "sol")],    # kör kazma, su ölçeği
+    "chr_020": [("kalbur", "sol")],                     # kalbur kasnağı
+    "chr_021": [("bohca", "sol")],                      # yol çıkını
+    "chr_022": [("bohca", "sol")],                      # ot bohçası
+    "chr_023": [("cubuk", "sag")],                      # geçit çubuğu
+    "chr_024": [("kilic_bez", "sag")],                  # beze sarılı eğri kılıç
+    "chr_025": [("kova", "sag"), ("kova", "sol")],      # su kovaları
+    "chr_026": [("heybe", "sag")],                      # saraç çantası
+    "chr_027": [("testi", "sag")],                      # çatlak testi
+    "chr_028": [("bohca", "sol")],                      # bez topları
+    "chr_029": [("cekic", "sag")],                      # çivi çekici
+    "chr_030": [("kile", "sag"), ("torba", "sol")],     # tahta kile, un kesesi
+}
+
 
 def _alan(metin, ad):
     m = re.search(r"\[%s\]:\s*(.+)" % re.escape(ad), metin)

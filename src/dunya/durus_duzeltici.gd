@@ -254,6 +254,11 @@ func _burgu(q: Quaternion, eksen: Vector3) -> Quaternion:
 
 ## Her elin şeklini mesh'ten ölçer: el kemiğine bağlı köşelerin kemik uzayındaki ağırlık merkezi
 ## parmak yönünü, bileğe yakın köşelerin yana taşması başparmak yönünü verir.
+## Avuç ortası (el kemiğinin uzayında, mesh'ten ölçülen); ölçülemediyse null.
+func avuc(el_ad: String) -> Variant:
+	return _el_sekli.get(el_ad + "_merkez")
+
+
 func _el_seklini_olc(sk: Skeleton3D) -> Dictionary:
 	var sonuc := {}
 	var mi: MeshInstance3D = null
@@ -327,6 +332,8 @@ func _el_seklini_olc(sk: Skeleton3D) -> Dictionary:
 		if sayi > 0 and toplam < 0.0:
 			genislik = -genislik
 		sonuc[ad] = [parmak, genislik]
+		# Elin mesh ağırlık merkezi (kemik uzayında): avuç ortası; elde taşınan eşya buraya oturur.
+		sonuc[ad + "_merkez"] = merkez
 	_sekil_onbellek[anahtar] = sonuc
 	return sonuc
 

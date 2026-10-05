@@ -220,6 +220,11 @@ func _izler_cozulur(anim: Animation, kok: Node) -> bool:
 	return toplam > 0 and float(cozulen) / toplam >= IZ_ESIGI
 
 
+## Duruş düzelticisi (avuç ölçüsü için); iskeletsiz modelde null.
+func duzeltici() -> DurusDuzeltici:
+	return _duzeltici
+
+
 ## Bir noktaya döner (Y ekseninde).
 func bak(nokta: Vector3) -> void:
 	var f := nokta - position

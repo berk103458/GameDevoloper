@@ -21,6 +21,8 @@ Kapıdaki her yüzün bir hikâyesi, bir yalanı ve ele veren bir izi var: bile�
    - Masum — kabul: sınıf katkısı (asker Ordu +1, esnaf Tüccar +1, çiftçi Halk +1); ret: Halk −1; rüşvet: (−1, 0, +1, 0); kışla: (−1, 0, 0, +1).
 7. Hareketler: kapıya varınca bekleme; cevap verirken cevabın uzunluğu kadar konuşma (1.5–5 s); kabulde şükran eğilmesi; retde tehlikeli öfkelenir, masum diz çöker. Klip yoksa prosedürel hareket (DurusDuzeltici) oynar; klip oynarken DurusDuzeltici susar.
 
+8. **El eşyaları:** Meshy modelinde olmayan ya da yanlış yerde kalan yük (sayfadaki `Obje_2_Yük`) Godot'ta basit biçimlerle ele verilir (`src/dunya/el_esyasi.gd`, tablo `data/el_esyalari.json` ← `karakter_sayfalari.EL_ESYALARI`). Parmak kemiği olmadığı için tutma noktası mesh'ten ölçülen avuç ortasıdır; eşya kemiğin son pozunu (DurusDuzeltici sonrası) izler, asılı eşya yerçekimiyle sarkar ve el hızıyla sallanır, asa dik durur. Kredi harcamaz. Modelde zaten olan yük (CHR_008 sepet, CHR_011 sırt çuvalı, CHR_015 yaba) eklenmez.
+
 ## Formulas
 - **Konuşma süresi:** `clamp(len(cevap) / 28, 1.5, 5.0)` saniye.
 - **Meshy maliyeti:** karakter başına önizleme 5 + doku 10 + iskelet 5 + 4 hareket × 3 = 32 kredi.
@@ -43,3 +45,4 @@ Karakter kadrosu (karakter-kadrosu.md), Karar (7), Barlar (8), Sohbet ve karar a
 ## Acceptance Criteria
 - 30 karakter katalogda; her birinin açılışı, ≥3 kök sorusu, takip soruları, 6 soru sınırı ve 4 kararı var; tehlikeli sayısı 7; etki yönleri doğru. — `tests/unit/karakter_sayfalari/karakter_sayfalari_test.gd`
 - Hareket klipleri iskelete oturur ve kapıda oynar. — `production/qa/evidence/karakter-sayfalari-1/`
+- El eşyaları tablodaki her tür kurulur; eşya yürürken, konuşurken, eğilirken ve diz çökerken avuçta kalır. — aynı test + `production/qa/evidence/el-esyalari-1/`

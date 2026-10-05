@@ -18,6 +18,8 @@ const PORTRE_MODEL := {
 const SINIF_MODEL := {&"asker": "asker", &"esnaf": "esnaf", &"ciftci": "ciftci"}
 
 static var _onbellek: Dictionary = {}
+const EL_ESYALARI := "res://data/el_esyalari.json"
+static var _el_esyalari: Dictionary = {}
 
 
 ## Gece ortamı: koyu gök, soğuk mavi ortam ışığı, sis, ay ışığı.
@@ -186,9 +188,29 @@ static func karakter(ad: String) -> KarakterModel:
 	var yol := _yol(ad + "_yuru", "karakter")
 	if yol != "":
 		k.kur((_sahne(yol)).instantiate(), ad)
+		_el_esyalari_tak(k, ad)
 	else:
 		k.kur(null)
 	return k
+
+
+## Karakterin elinde taşıdığı eşyalar (data/el_esyalari.json): model adı → [[eşya, "sag"|"sol"]].
+static func _el_esyalari_tak(k: KarakterModel, ad: String) -> void:
+	if _el_esyalari.is_empty():
+		var veri = JSON.parse_string(FileAccess.get_file_as_string(EL_ESYALARI))
+		_el_esyalari = veri if veri is Dictionary else {"_": []}
+	if not _el_esyalari.has(ad):
+		return
+	var sk := k.find_children("*", "Skeleton3D", true, false)
+	if sk.is_empty():
+		return
+	for parca in _el_esyalari[ad]:
+		var e := ElEsyasi.olustur(String(parca[0]))
+		if e == null:
+			push_warning("Tanınmayan el eşyası: %s (%s)" % [parca[0], ad])
+			continue
+		k.add_child(e)
+		e.bagla(k, sk[0] as Skeleton3D, String(parca[1]) == "sag", k.duzeltici())
 
 
 ## Meshy hareket klibi: ayıklanmış `hareket/<ad>_<hareket>.res` (repoda), yoksa ham `<ad>_<hareket>.glb`; yoksa "".

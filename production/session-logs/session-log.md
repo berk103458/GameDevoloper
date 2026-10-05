@@ -3505,3 +3505,22 @@ production/session-logs/session-cost.md
 production/session-logs/session-log.md
 ---
 
+## Session End: 20261005_042518
+### Commits
+59a8aab chore: update session logs
+cf65151 feat(karakter): CHR_001-030 in game with Meshy models and motions
+488d6b3 chore: update session logs
+060cfc0 feat(koy): village events with archery and threshing mini-games
+1040aaf feat(ses): wedding davul-zurna, village night ambience, harvest and event sounds
+c92d8ef feat(koy): village hall with three levels, walls in act one, homes grow with the village
+a0571a4 feat(koy): roads, wandering villagers, fields with crops and working farmers
+25c64bb feat(kapi): live queue events between visitors
+69bc63b feat(kapi): choose where accepted visitors work; mismatch weakens that place
+e4008df feat(3d): gratitude and anger gestures on accept and reject
+987c29f feat(kapi): new gate UI — full-screen 3D, speech box, gate ledger
+b3ea3b2 feat(sohbet): branching follow-up questions, arrival monologues, per-visitor log
+2af5108 feat(kapi): visitor bags, lies, inspection panel and explicit bribe amount
+5ae934e chore: session logs
+0fe084c feat(3d): idle animation and hand/arm pose fix for all Meshy characters
+---
+

@@ -48,6 +48,20 @@ func _init() -> void:
 	var c := o._adli_gelen(&"chr_021")
 	_esit("gelen sınırı", c.azami_soru, 6)
 	_esit("gelen niyeti", c.tehlikeli, false)
+	# El eşyaları: tablodaki her tür kurulur, el adı geçerli; sırtta yükü modelde olan CHR_011 boş.
+	var esyalar = JSON.parse_string(FileAccess.get_file_as_string(Dunya3B.EL_ESYALARI))
+	_esit("eşya tablosu okunur", esyalar is Dictionary, true)
+	if esyalar is Dictionary:
+		for ad in esyalar:
+			for parca in esyalar[ad]:
+				var e := ElEsyasi.olustur(String(parca[0]))
+				_esit("eşya kurulur %s %s" % [ad, parca[0]], e != null, true)
+				_esit("el adı %s" % ad, String(parca[1]) in ["sag", "sol"], true)
+				if e != null:
+					e.free()
+		_esit("CHR_011 eşyasız", esyalar.has("chr_011"), false)
+		_esit("CHR_002 torba", esyalar.get("chr_002", []), [["torba", "sag"]])
+	_esit("bilinmeyen eşya", ElEsyasi.olustur("yok_boyle"), null)
 	print("KARAKTER SAYFALARI TEST: %s (%d hata)" % ["GEÇTİ" if _hata == 0 else "KALDI", _hata])
 	quit(1 if _hata > 0 else 0)
 
