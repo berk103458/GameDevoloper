@@ -57,6 +57,15 @@ extends Resource
 @export var pazar_tezgah_artis: int = 2
 ## Kervansaray seviyesi başına gecelik akçe.
 @export var kervansaray_gelir: int = 2
+## Ambar takası (design/gdd/koy-gelisimi.md, F3): köy, bu kadar gecelik tüketimi ambarda yedek tutar; fazlasını
+## yoldan geçen tüccara satar. `ambar_akce_orani` ürün = 1 akçe; gecede en çok `takas_taban` + pazar seviyesi ×
+## `takas_pazar_artis` akçelik satılır.
+@export var ambar_yedek_gece: int = 1
+## Tezgâh bulamayan esnaftan bu kadarı bir akçe kazanır (seyyar satış).
+@export var seyyar_bolen: int = 2
+@export var ambar_akce_orani: int = 4
+@export var takas_taban: int = 2
+@export var takas_pazar_artis: int = 1
 ## Boş rüşvet kesesini yeniden doldurmanın bedeli.
 @export var kese_fiyati: int = 8
 
