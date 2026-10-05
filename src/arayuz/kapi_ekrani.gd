@@ -13,7 +13,7 @@ signal duraklat_istendi
 const DEFTER := Rect2(1172, 104, 716, 952)
 const KONUSMA := Rect2(36, 742, 1104, 314)
 ## Kamerayı yana kaydırır: gelen kişi ekranın sol-ortasında durur, defterin altında kalmaz.
-const KAMERA_KAYMA := 1.05
+const KAMERA_KAYMA := 1.3
 const KARAR_SIMGE := {"kabul": "accept", "ret": "reject", "rusvet": "bribe", "kisla": "barracks", "elkoy": "reject"}
 
 var oturum: Oturum
@@ -77,6 +77,10 @@ func _ready() -> void:
 	vp.msaa_3d = Viewport.MSAA_4X
 	kap.add_child(vp)
 	sahne = KapiSahnesi.new()
+	sahne.gece = oturum.gun
+	sahne.perde = oturum.perde
+	sahne.sur = int(oturum.yapilar[&"sur"])
+	sahne.yakinlik = clampf(float(oturum.perde2_gece) / oturum.ayarlar.perde2_hedef_gece, 0.0, 1.0)
 	vp.add_child(sahne)
 	sahne.kamera.h_offset = KAMERA_KAYMA
 

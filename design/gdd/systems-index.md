@@ -72,6 +72,7 @@ Oyun, kapıda geçen kısa bir sohbet-ve-karar döngüsü etrafında kurulu: kap
 | 27 | Köy gelişimi | Economy | Vertical Slice | Designed (uygulandı) | design/gdd/koy-gelisimi.md | 8, 10, 11, 20, 26 |
 | 28 | Köy içi olaylar ve mini oyunlar | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/koy-mini-oyunlari.md | 8, 12, 16, 20, 22 |
 | 29 | Karakter sayfaları (CHR_001–030) | Narrative | Vertical Slice | Designed (uygulandı) | design/gdd/karakter-sayfalari.md | 7, 8, 18 |
+| 30 | Kapı manzarası | UI | Vertical Slice | Designed (uygulandı) | design/gdd/kapi-manzarasi.md | 11, 18, 22, 25 |
 
 *Kategoriler arasında şablonun "Meta" kategorisi kullanılmadı.*
 

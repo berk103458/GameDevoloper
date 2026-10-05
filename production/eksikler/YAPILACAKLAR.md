@@ -31,3 +31,4 @@ Durum: ✅ bitti · 🔨 bu turda · ⏳ sırada. Sıra önceliktir: önce kapı
 ## 5 Ekim 2026
 17. ✅ karakterler/CHR_001–030: Meshy modelleri, hareketleri ve oyuna ekleme — `design/gdd/karakter-sayfalari.md`
 18. ✅ CHR karakterlerinin elleri: eksik / sırtta kalan yükler ele verildi (kredi harcanmadı) — `src/dunya/el_esyasi.gd`
+19. ✅ Kapı manzarası: konsepte göre yeni arka plan; kapı sur seviyesiyle (çit → taş sur) değişir; tehdit gece gece yaklaşır — `design/gdd/kapi-manzarasi.md`

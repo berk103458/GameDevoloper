@@ -77,6 +77,9 @@ VARLIKLAR = {
     "cuval_yigini": ("nesne", "A small pile of grain sacks and two clay storage jars.", False, False, 0, 1500),
     "agac": ("nesne", "A bare gnarled old walnut tree, low poly, few branches.", False, False, 0, 2000),
     "kaya": ("nesne", "A cluster of three rough grey rocks.", False, False, 0, 600),
+    # Kapı sahnesi: kağnıyı çeken öküz (dokulu; sahnede ön planda)
+    "okuz": ("nesne", "A single thin Anatolian grey ox standing still, side view, long horns curving forward and up, "
+             "bony hips, short coat, a simple wooden yoke on its neck, head slightly lowered. No cart, no rider.", True, False, 0, 5000),
 }
 # karakterler/CHR_001–030 (doku + iskelet + hareketler)
 for _k, (_ad, _cins, _boy, _istem) in CHR.items():

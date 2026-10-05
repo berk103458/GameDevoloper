@@ -4,13 +4,25 @@ class_name KapiSahnesi
 extends Node3D
 
 const DURMA := Vector3(0.0, 0.0, -2.5)
+## Kameranın görüş açısı (dikey, derece).
+const GORUS := 46.0
 const BASLANGIC := Vector3(0.5, 0.0, -9.0)
 ## Kapıya yürüyüş hızı (m/s): yürüyüş ~2 saniye.
 const YAKLASMA_HIZI := 2.4
 const ICERI := Vector3(1.9, 0.0, 2.5)
 const DONUS := Vector3(-0.8, 0.0, -22.0)
 
+## Kapıyı ve manzarayı belirleyen durum (KapiEkrani sahneyi eklemeden önce oturumdan doldurur).
+var gece := 0
+var perde := 1
+var sur := 0
+## 2. perde: Tekfur'un yakınlığı 0..1.
+var yakinlik := 0.0
+
 var kamera: Camera3D
+var manzara: KapiManzarasi
+var cerceve: KapiCercevesi
+var _okuz: Node3D
 var _gelen: KarakterModel
 ## Gelenin ayağının dibine konan heybe (arama sırasında).
 var _heybe: Node3D
@@ -22,23 +34,32 @@ var _zaman := 0.0
 
 
 func _ready() -> void:
-	Dunya3B.ortam_kur(self, 0.028)
-	Dunya3B.zemin_kur(self)
-	_yol_kur()
-	_kapi_kur()
-	_isiklar.append(Dunya3B.mesale_kur(self, Vector3(-1.75, 0, -1.6), 3.2, 10.0))
-	_isiklar.append(Dunya3B.mesale_kur(self, Vector3(3.5, 0, -14.0), 1.4, 7.0))
+	Dunya3B.ortam_kur(self, 0.012)
+	_ortam_ayarla()
+	manzara = KapiManzarasi.new()
+	manzara.gece = gece
+	manzara.perde = perde
+	manzara.yakinlik = yakinlik
+	add_child(manzara)
+	cerceve = KapiCercevesi.new()
+	cerceve.seviye = sur
+	add_child(cerceve)
+	_isiklar.append_array(cerceve.isiklar)
 	_kuyruk_kur()
-	_cevre_kur()
+	_kagni_kur()
 	kamera = Camera3D.new()
-	kamera.position = Vector3(0.0, 1.62, 1.2)
-	kamera.fov = 52.0
+	# Bekçinin yeri: kapının biraz gerisinde; iki direk ve meşaleler kadrajın kenarlarında (arayüzün solunda) kalır.
+	kamera.position = Vector3(0.0, 1.62, 3.0)
+	kamera.fov = GORUS
 	add_child(kamera)
 	kamera.look_at(Vector3(0.0, 1.35, -6.0))
 
 
 func _process(delta: float) -> void:
 	_zaman += delta
+	# Öküz: arada başını sallar gibi hafifçe öne eğilip kalkar.
+	if _okuz != null:
+		_okuz.rotation.x = 0.03 * maxf(0.0, sin(_zaman * 0.7)) * sin(_zaman * 3.1)
 	for i in _isiklar.size():
 		var l := _isiklar[i]
 		var taban: float = l.get_meta("taban")
@@ -113,7 +134,7 @@ var _bakis := BAKIS_KAPI
 func kuyruga_bak(evet: bool) -> void:
 	var t := create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	t.tween_method(_bakis_ayarla, _bakis, BAKIS_KUYRUK if evet else BAKIS_KAPI, 0.6)
-	t.tween_property(kamera, "fov", 30.0 if evet else 52.0, 0.6)
+	t.tween_property(kamera, "fov", 28.0 if evet else GORUS, 0.6)
 	await t.finished
 
 
@@ -235,66 +256,75 @@ func heybe_koy() -> void:
 ## Karar anında kadraj daralır (kamera görüş açısı sert adımlarla).
 func daralt(icerden: bool) -> void:
 	for i in range(1, 4):
-		kamera.fov = 52.0 - (i if icerden else 3 - i) * 3.0
+		kamera.fov = GORUS - (i if icerden else 3 - i) * 3.0
 		await get_tree().create_timer(1.0 / 12.0).timeout
 
 
-func _yol_kur() -> void:
-	var m := MeshInstance3D.new()
-	var p := PlaneMesh.new()
-	p.size = Vector2(4.5, 60.0)
-	m.mesh = p
-	m.position = Vector3(0, 0.01, -30.0)
-	m.material_override = Dunya3B.duz_malzeme(Renkler.AHSAP.lerp(Renkler.SOGUK_MAVI, 0.45))
-	add_child(m)
-
-
-func _kapi_kur() -> void:
-	var ahsap := Dunya3B.duz_malzeme(Renkler.AHSAP)
-	for x in [-2.2, 2.2]:
-		_kutu(Vector3(0.5, 4.6, 0.5), Vector3(x, 2.3, -1.4), ahsap)
-	_kutu(Vector3(5.4, 0.55, 0.6), Vector3(0, 4.55, -1.4), ahsap)
-	# Açık kapı kanatları (içe doğru açılmış).
-	var kanat_sol := _kutu(Vector3(1.9, 3.9, 0.14), Vector3(0, 0, 0), ahsap)
-	kanat_sol.position = Vector3(-2.75, 1.95, -0.4)
-	kanat_sol.rotation_degrees.y = 72
-	var kanat_sag := _kutu(Vector3(1.9, 3.9, 0.14), Vector3(0, 0, 0), ahsap)
-	kanat_sag.position = Vector3(2.75, 1.95, -0.4)
-	kanat_sag.rotation_degrees.y = -72
-	# Kazık duvar kapının iki yanında: parça genişliği modelden ölçülür, kapı boşluğu açık kalır.
-	var ornek := Dunya3B.nesne("kazik_cit", 3.4)
-	var w := clampf(Dunya3B.boyut(ornek).x, 1.0, 6.0)
-	ornek.free()
-	for yon in [-1, 1]:
-		for i in 6:
-			var c := Dunya3B.nesne("kazik_cit", 3.4)
-			c.position = Vector3(yon * (2.5 + w / 2.0 + i * w * 0.95), 0, -1.4)
-			add_child(c)
+## Soğuk ay ışığı, mavi sis ve gece göğü: dış dünya soğuk kalsın; sıcaklık yalnız meşalelerden gelsin.
+func _ortam_ayarla() -> void:
+	for n in get_children():
+		if n is WorldEnvironment:
+			var env := (n as WorldEnvironment).environment
+			env.fog_light_color = Color("#1a2540")
+			env.fog_light_energy = 0.8
+			env.fog_density = 0.012
+			env.ambient_light_color = Color("#3d5478")
+			env.ambient_light_energy = 0.45
+			# Işıma: meşale alevleri ve ufuktaki yangın hafifçe parlar.
+			env.glow_enabled = true
+			env.glow_intensity = 0.6
+			env.glow_bloom = 0.05
+			env.glow_hdr_threshold = 1.2
+		elif n is DirectionalLight3D:
+			var ay := n as DirectionalLight3D
+			ay.light_color = Color("#8fa6d8")
+			ay.light_energy = 0.55
+			ay.rotation_degrees = Vector3(-28, 155, 0)
 
 
 func _kuyruk_kur() -> void:
+	# Bekleyen sıra: yolun üstünde, kapıdan geriye; en öndekiler belirgin, gerisi manzaradaki silüetlere karışır.
 	var adlar := ["ciftci", "esnaf", "ciftci_kadin", "asker", "ciftci"]
 	for i in adlar.size():
 		var k := Dunya3B.karakter(adlar[i])
-		k.position = Vector3(-0.4 + (i % 2) * 0.9, 0, -11.0 - i * 2.0)
+		var p := KapiManzarasi.yol_noktasi(0.06 + i * 0.022)
+		k.position = Vector3(p.x - 0.7 + (i % 2) * 0.7, p.y, p.z - 3.0)
 		add_child(k)
 		k.bak(Vector3(0, 0, 10))
 		_kuyruktakiler.append(k)
 		_kuyruk_yerleri.append(k.position)
 
 
-func _cevre_kur() -> void:
-	var yerler := [["agac", Vector3(-7, 0, -12), 5.5], ["kaya", Vector3(5, 0, -8), 1.0], ["agac", Vector3(9, 0, -22), 6.0],
-		["kaya", Vector3(-4.5, 0, -20), 1.2], ["araba", Vector3(-3.6, 0, -6.5), 1.6], ["cuval_yigini", Vector3(3.0, 0, -4.0), 0.9]]
-	for y in yerler:
-		var n := Dunya3B.nesne(y[0], y[2])
-		n.position = y[1]
-		n.rotation_degrees.y = y[1].x * 13.0
-		add_child(n)
-	# Uzak tepeler.
+## Sağ orta planda öküzlü kağnı: yükü bir ailenin bütün evi (çuval, sandık, testi, yorgan).
+func _kagni_kur() -> void:
+	var araba := Dunya3B.nesne("araba", 1.7)
+	araba.position = Vector3(1.9, 0, -12.5)
+	araba.rotation.y = deg_to_rad(-100)
+	add_child(araba)
+	var yuk := Node3D.new()
+	yuk.position = araba.position + Vector3(0, 1.0, 0)
+	yuk.rotation.y = araba.rotation.y
+	add_child(yuk)
+	var renkler := [Color("#6b5a40"), Color("#4a3a2c"), Color("#5c4a5a"), Color("#7a6a4a")]
 	for i in 5:
-		var t := _kutu(Vector3(30, 6 + i * 2, 4), Vector3(-50 + i * 25, 0, -60 - i * 3), Dunya3B.duz_malzeme(Renkler.DERIN_MAVI))
-		t.rotation_degrees.z = 8.0 * (1 if i % 2 == 0 else -1)
+		var m := MeshInstance3D.new()
+		if i % 2 == 0:
+			var k := SphereMesh.new()
+			k.radius = 0.35
+			k.height = 0.55
+			m.mesh = k
+		else:
+			var b := BoxMesh.new()
+			b.size = Vector3(0.6, 0.45, 0.5)
+			m.mesh = b
+		m.position = Vector3(-0.7 + i * 0.35, 0.25 + (i % 2) * 0.15, (i % 3 - 1) * 0.3)
+		m.material_override = Dunya3B.duz_malzeme(renkler[i % renkler.size()])
+		yuk.add_child(m)
+	if Dunya3B.model_var_mi("okuz"):
+		_okuz = Dunya3B.nesne("okuz", 1.55)
+		_okuz.position = araba.position + Vector3(-0.6, 0, 2.6)
+		_okuz.rotation.y = araba.rotation.y + PI
+		add_child(_okuz)
 
 
 func _kutu(boyut: Vector3, konum: Vector3, mat: Material) -> MeshInstance3D:
