@@ -37,6 +37,7 @@ var hud: Hud
 var _dunya: Control
 ## 3D kapı sahnesi.
 var sahne: KapiSahnesi
+var _vp: SubViewport
 var _ad: Label
 var _sinif: Label
 var _kayit: RichTextLabel
@@ -66,16 +67,22 @@ func _ready() -> void:
 	_dunya.position = Vector2(0, 92)
 	_dunya.size = Vector2(1140, 988)
 	add_child(_dunya)
-	var kap := SubViewportContainer.new()
-	kap.stretch = true
+	# 3D, pencerenin gerçek çözünürlüğünde çizilir (4K ekranda 4K) ve arayüzün altına tam ekran serilir.
+	_vp = SubViewport.new()
+	_vp.msaa_3d = Viewport.MSAA_4X
+	_vp.screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA
+	_vp.size = _cizim_boyutu()
+	add_child(_vp)
+	var kap := TextureRect.new()
+	kap.texture = _vp.get_texture()
+	kap.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	kap.stretch_mode = TextureRect.STRETCH_SCALE
 	kap.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	kap.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(kap)
 	move_child(kap, 1)
-	var vp := SubViewport.new()
-	vp.size = Vector2i(1920, 1080)
-	vp.msaa_3d = Viewport.MSAA_4X
-	kap.add_child(vp)
+	get_window().size_changed.connect(func() -> void: _vp.size = _cizim_boyutu())
+	var vp := _vp
 	sahne = KapiSahnesi.new()
 	sahne.gece = oturum.gun
 	sahne.perde = oturum.perde
@@ -94,6 +101,13 @@ func _ready() -> void:
 
 
 ## Sol alt: isim levhası ve bu gelenle konuşmanın tamamı (kaydırılır).
+## 3D çizim boyutu: pencerenin fiziksel piksel boyutu (en az 1920×1080), 16:9.
+func _cizim_boyutu() -> Vector2i:
+	var p := get_window().size
+	var en := maxi(p.x, 1920)
+	return Vector2i(en, int(en * 9.0 / 16.0))
+
+
 func _konusma_kur() -> void:
 	var kutu := CerceveKutu.new()
 	kutu.position = KONUSMA.position

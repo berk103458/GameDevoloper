@@ -35,7 +35,6 @@ var _zaman := 0.0
 
 func _ready() -> void:
 	Dunya3B.ortam_kur(self, 0.012)
-	_ortam_ayarla()
 	manzara = KapiManzarasi.new()
 	manzara.gece = gece
 	manzara.perde = perde
@@ -53,6 +52,7 @@ func _ready() -> void:
 	kamera.fov = GORUS
 	add_child(kamera)
 	kamera.look_at(Vector3(0.0, 1.35, -6.0))
+	_ortam_ayarla()
 
 
 func _process(delta: float) -> void:
@@ -260,26 +260,78 @@ func daralt(icerden: bool) -> void:
 		await get_tree().create_timer(1.0 / 12.0).timeout
 
 
-## Soğuk ay ışığı, mavi sis ve gece göğü: dış dünya soğuk kalsın; sıcaklık yalnız meşalelerden gelsin.
+## Sinematik gece ışığı (Forward+): HDRI gökyüzü, ay ışığı, hacimsel sis (meşale ışığı sisin içinde huzme yapar),
+## ortam gölgesi (SSAO), dolaylı ışık (SSIL), AgX ton eşleme, soğuk-sıcak renk ayarı ve uzak alan bulanıklığı.
+## Compatibility çiziciyle açılırsa desteklenmeyen ayarlar yok sayılır; sahne yine düzgün görünür.
 func _ortam_ayarla() -> void:
 	for n in get_children():
 		if n is WorldEnvironment:
 			var env := (n as WorldEnvironment).environment
-			env.fog_light_color = Color("#1a2540")
-			env.fog_light_energy = 0.8
-			env.fog_density = 0.012
-			env.ambient_light_color = Color("#3d5478")
-			env.ambient_light_energy = 0.45
-			# Işıma: meşale alevleri ve ufuktaki yangın hafifçe parlar.
+			var hdri := Pbr.gok(KapiManzarasi.GOK)
+			if hdri != null:
+				var gok := PanoramaSkyMaterial.new()
+				gok.panorama = hdri
+				gok.energy_multiplier = 0.7
+				var sky := Sky.new()
+				sky.sky_material = gok
+				sky.radiance_size = Sky.RADIANCE_SIZE_256
+				env.background_mode = Environment.BG_SKY
+				env.sky = sky
+				env.sky_rotation = Vector3(0, deg_to_rad(200.0), 0)
+				env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
+				env.ambient_light_sky_contribution = 0.85
+				env.reflected_light_source = Environment.REFLECTION_SOURCE_SKY
+			env.ambient_light_color = Color("#2c3c5c")
+			env.ambient_light_energy = 0.5
+			env.tonemap_mode = Environment.TONE_MAPPER_AGX
+			env.tonemap_exposure = 1.5
+			# Uzak sis: tepeler ve ufuk soğuk maviye karışır.
+			env.fog_enabled = true
+			env.fog_mode = Environment.FOG_MODE_EXPONENTIAL
+			env.fog_light_color = Color("#16213a")
+			env.fog_light_energy = 0.9
+			env.fog_density = 0.006
+			env.fog_sky_affect = 0.25
+			env.fog_aerial_perspective = 0.4
+			# Hacimsel sis: meşalelerin çevresinde sıcak ışık hüzmesi, yakın planda nem.
+			env.volumetric_fog_enabled = true
+			env.volumetric_fog_density = 0.018
+			env.volumetric_fog_albedo = Color("#8796b8")
+			env.volumetric_fog_length = 48.0
+			env.volumetric_fog_anisotropy = 0.35
+			env.volumetric_fog_ambient_inject = 0.15
+			env.ssao_enabled = true
+			env.ssao_radius = 1.2
+			env.ssao_intensity = 2.2
+			env.ssil_enabled = true
+			env.ssil_intensity = 0.8
 			env.glow_enabled = true
-			env.glow_intensity = 0.6
-			env.glow_bloom = 0.05
-			env.glow_hdr_threshold = 1.2
+			env.glow_intensity = 0.45
+			env.glow_bloom = 0.0
+			env.glow_hdr_threshold = 1.3
+			# Yalnız küçük yarıçaplı ışıma katmanları: alevin çevresinde dar hale, ekranı kaplayan pus yok.
+			for k in range(1, 8):
+				env.set("glow_levels/%d" % k, 1.0 if k <= 3 else 0.0)
+			# Renk ayarı: hafif kontrast, doygunluk biraz düşük (savaş sonrası, soğuk gece).
+			env.adjustment_enabled = true
+			env.adjustment_contrast = 1.08
+			env.adjustment_saturation = 0.88
 		elif n is DirectionalLight3D:
 			var ay := n as DirectionalLight3D
-			ay.light_color = Color("#8fa6d8")
-			ay.light_energy = 0.55
-			ay.rotation_degrees = Vector3(-28, 155, 0)
+			ay.light_color = Color("#9fb4e6")
+			ay.light_energy = 0.32
+			ay.light_volumetric_fog_energy = 0.6
+			ay.rotation_degrees = Vector3(-24, 155, 0)
+			ay.shadow_enabled = true
+			ay.directional_shadow_max_distance = 60.0
+			ay.shadow_blur = 1.5
+	# Kamera: uzak alan çok hafif bulanık (gözü gelene çeker), sabit pozlama.
+	var nitelik := CameraAttributesPractical.new()
+	nitelik.dof_blur_far_enabled = true
+	nitelik.dof_blur_far_distance = 45.0
+	nitelik.dof_blur_far_transition = 40.0
+	nitelik.dof_blur_amount = 0.04
+	kamera.attributes = nitelik
 
 
 func _kuyruk_kur() -> void:

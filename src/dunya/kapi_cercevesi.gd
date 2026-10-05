@@ -20,15 +20,19 @@ var _ahsap: StandardMaterial3D
 var _koyu_ahsap: StandardMaterial3D
 var _demir: StandardMaterial3D
 var _tas: StandardMaterial3D
+var _kutuk: StandardMaterial3D
 
 
 func _ready() -> void:
-	_ahsap = Dunya3B.duz_malzeme(Color("#4a3426"))
-	_koyu_ahsap = Dunya3B.duz_malzeme(Color("#2e2119"))
-	_demir = Dunya3B.duz_malzeme(Color("#2a2c30"))
-	_demir.metallic = 0.6
-	_demir.roughness = 0.5
-	_tas = Dunya3B.duz_malzeme(Color("#4c4740"))
+	# Taranmış dokular (Poly Haven, CC0): kapı ahşabı ve sur taşı 4K, kütük kabuğu 2K.
+	_ahsap = Pbr.malzeme("medieval_wood", 1.3, Color(0.78, 0.7, 0.62))
+	_koyu_ahsap = Pbr.malzeme("medieval_wood", 1.3, Color(0.48, 0.42, 0.38))
+	_kutuk = Pbr.malzeme("bark_willow", 1.1, Color(0.7, 0.66, 0.62))
+	_demir = StandardMaterial3D.new()
+	_demir.albedo_color = Color("#2a2a2c")
+	_demir.metallic = 0.5
+	_demir.roughness = 0.75
+	_tas = Pbr.malzeme("castle_wall_varriation", 2.4, Color(0.82, 0.8, 0.78))
 	match seviye:
 		0:
 			_kutuk_kapi()
@@ -74,14 +78,14 @@ func _silindir(r: float, boy: float, konum: Vector3, mat: Material, donus := Vec
 # ── 0: kütük kapı ──
 func _kutuk_kapi() -> void:
 	for yan in [-1.0, 1.0]:
-		_silindir(0.22, 4.0, Vector3(yan * YARI, 2.0, Z), _ahsap)
+		_silindir(0.22, 4.0, Vector3(yan * YARI, 2.0, Z), _kutuk)
 		# Alçak örgü çit (çubuklar + yatay sırıklar).
 		for i in 10:
 			var x: float = yan * (YARI + 0.5 + i * 0.45)
-			_silindir(0.04, 1.3, Vector3(x, 0.65, Z + 0.1), _koyu_ahsap, Vector3(0, 0, yan * 0.05))
+			_silindir(0.04, 1.3, Vector3(x, 0.65, Z + 0.1), _kutuk, Vector3(0, 0, yan * 0.05))
 		for h in [0.45, 0.95]:
 			_kutu(Vector3(4.6, 0.07, 0.07), Vector3(yan * (YARI + 2.5), h, Z + 0.1), _ahsap)
-	_silindir(0.17, YARI * 2.0 + 0.9, Vector3(0, 3.35, Z), _ahsap, Vector3(0, 0, PI / 2.0))
+	_silindir(0.17, YARI * 2.0 + 0.9, Vector3(0, 3.35, Z), _kutuk, Vector3(0, 0, PI / 2.0))
 	# Kirişe bağlı ip ve çaprazlama sırık: kaba ama tutuyor.
 	for yan in [-1.0, 1.0]:
 		_silindir(0.06, 1.3, Vector3(yan * (YARI - 0.45), 2.95, Z), _koyu_ahsap, Vector3(0, 0, yan * 0.8))
@@ -108,20 +112,8 @@ func _ahsap_kapi() -> void:
 # ── 2 ve 3: taş sur ──
 func _tas_sur(boy: float, kuleli: bool) -> void:
 	for yan in [-1.0, 1.0]:
-		# Yontma taş duvar: sıra sıra, her sıra kaydırılmış bloklar (renk tonu hafifçe değişir).
-		var sira := 0
-		var y := 0.0
-		while y < boy:
-			var h := 0.42 + (sira % 3) * 0.06
-			var x := YARI + 0.45 + (0.35 if sira % 2 == 1 else 0.0)
-			while x < YARI + 12.0:
-				var en := 0.8 + fmod(x * 1.7 + sira, 0.6)
-				var ton := _tas.duplicate() as StandardMaterial3D
-				ton.albedo_color = _tas.albedo_color.darkened(fmod(x * 0.37 + sira * 0.21, 0.22))
-				_kutu(Vector3(en - 0.04, h - 0.04, 1.1), Vector3(yan * (x + en * 0.5), y + h * 0.5, Z - 0.2), ton)
-				x += en
-			y += h
-			sira += 1
+		# Sur duvarı: taş dokulu kalın gövde (dokuda taşlar zaten var; blok blok örmek gerekmez).
+		_kutu(Vector3(10.0, boy, 1.1), Vector3(yan * (YARI + 0.45 + 5.0), boy * 0.5, Z - 0.2), _tas)
 		_direk(yan, boy - 0.3)
 		_kanat(yan)
 		if kuleli:
@@ -159,23 +151,17 @@ func _kemer(dogus: float) -> void:
 func _gecit(derin: float, tas: bool) -> void:
 	for yan in [-1.0, 1.0]:
 		if tas:
+			# Geçit duvarı: tek taş gövde; ağzında hafif içeri çekilmiş bir sıra blok (kalınlık okunsun).
+			_kutu(Vector3(0.7, 3.8, derin), Vector3(yan * (YARI + 0.35), 1.9, Z - derin * 0.5), _tas)
 			var y := 0.0
-			var sira := 0
-			while y < 3.6:
-				var h := 0.42 + (sira % 3) * 0.07
-				var z := Z - 0.05
-				while z > Z - derin:
-					var uzun := 0.55 + fmod(z * 3.1 + sira, 0.4)
-					var ton := _tas.duplicate() as StandardMaterial3D
-					ton.albedo_color = _tas.albedo_color.darkened(0.08 + fmod(z * 0.7 + sira * 0.3, 0.2))
-					_kutu(Vector3(0.6, h - 0.04, uzun - 0.04), Vector3(yan * (YARI + 0.3), y + h * 0.5, z - uzun * 0.5), ton)
-					z -= uzun
+			while y < 3.4:
+				var h := 0.5 + fmod(y * 3.7, 0.25)
+				_kutu(Vector3(0.18, h - 0.03, 0.55), Vector3(yan * (YARI + 0.02), y + h * 0.5, Z - 0.3), _tas)
 				y += h
-				sira += 1
 		else:
 			var z := Z - 0.1
 			while z > Z - derin:
-				_silindir(0.16, 3.4 + fmod(z * 7.0, 0.5), Vector3(yan * (YARI + 0.05), 1.75, z - 0.16), _ahsap if int(z * 10) % 2 == 0 else _koyu_ahsap)
+				_silindir(0.16, 3.4 + fmod(z * 7.0, 0.5), Vector3(yan * (YARI + 0.05), 1.75, z - 0.16), _kutuk)
 				z -= 0.32
 
 
@@ -184,7 +170,7 @@ func _direk(yan: float, boy: float) -> void:
 	for k in 3:
 		_kutu(Vector3(0.18, boy, 0.6), Vector3(yan * (YARI - 0.18 + k * 0.185), boy * 0.5, Z), _ahsap if k % 2 == 0 else _koyu_ahsap)
 	for h in [0.9, 2.4, boy - 0.6]:
-		_kutu(Vector3(0.6, 0.1, 0.64), Vector3(yan * YARI, h, Z + 0.01), _demir)
+		_kutu(Vector3(0.57, 0.08, 0.62), Vector3(yan * YARI, h, Z + 0.01), _demir)
 		for c in [-0.2, 0.0, 0.2]:
 			var civi := _kutu(Vector3(0.05, 0.05, 0.05), Vector3(yan * YARI + c, h, Z + 0.34), _demir)
 			civi.scale = Vector3.ONE
@@ -203,7 +189,19 @@ func _direk(yan: float, boy: float) -> void:
 
 
 func _kanat(yan: float) -> void:
-	# İçe doğru açılmış kanat: kameranın yanında, görüntünün kenarını kapatır.
+	# Kale kapısının kanadı (Poly Haven `large_castle_door`): içe doğru tam açık, geçidin iç yüzüne yaslı.
+	var model := Pbr.model("large_castle_door")
+	if model != null:
+		for c in model.get_children():
+			var ad := String(c.name)
+			if not ad.ends_with("_left" if yan < 0.0 else "_right"):
+				c.queue_free()
+		model.scale = Vector3(1.7, 1.2, 1.3)
+		model.position = Vector3(yan * (YARI + 0.1), 0, Z + 0.25)
+		model.rotation.y = yan * -1.5
+		add_child(model)
+		return
+	# Model yoksa: kalaslardan kanat.
 	var kanat := Node3D.new()
 	# Kanat duvarın iç yüzüne yaslanmış (tam açık): direğin ardında kalır, görüşü kapatmaz.
 	kanat.position = Vector3(yan * (YARI + 0.3), 0, Z + 0.45)
@@ -231,31 +229,35 @@ func _mesale(konum: Vector3, yan: float) -> void:
 	sepet.position = konum
 	sepet.material_override = _demir
 	add_child(sepet)
+	# Alev: parçacık (yumuşak, titreşen); sepetin içinde küçük kor.
 	var alev := Node3D.new()
-	alev.position = konum + Vector3(0, 0.1, 0)
+	alev.position = konum + Vector3(0, 0.05, 0)
 	add_child(alev)
-	for katman in [[0.075, 0.3, Dunya3B.MESALE_ALEV_DIS, 2.6], [0.04, 0.18, Dunya3B.MESALE_ALEV_IC, 3.2]]:
-		var mi := MeshInstance3D.new()
-		var koni := CylinderMesh.new()
-		koni.top_radius = 0.0
-		koni.bottom_radius = katman[0]
-		koni.height = katman[1]
-		koni.radial_segments = 8
-		mi.mesh = koni
-		mi.position.y = katman[1] / 2.0
-		var mat := StandardMaterial3D.new()
-		mat.albedo_color = Color.BLACK
-		mat.emission_enabled = true
-		mat.emission = katman[2]
-		mat.emission_energy_multiplier = katman[3]
-		mi.material_override = mat
-		alev.add_child(mi)
+	for k in 2:
+		var dil := KapiManzarasi.alev(0.42 - k * 0.12, 3.0 - k * 0.6, yan * 5.0 + k * 2.3)
+		dil.position = Vector3((k - 0.5) * 0.03, 0, 0)
+		alev.add_child(dil)
+	var kor := MeshInstance3D.new()
+	var kk := SphereMesh.new()
+	kk.radius = 0.07
+	kk.height = 0.08
+	kor.mesh = kk
+	kor.position = konum + Vector3(0, 0.07, 0)
+	var km := StandardMaterial3D.new()
+	km.albedo_color = Color.BLACK
+	km.emission_enabled = true
+	km.emission = Color("#ff8a2a")
+	km.emission_energy_multiplier = 3.0
+	kor.material_override = km
+	add_child(kor)
 	var isik := OmniLight3D.new()
 	isik.light_color = Renkler.MESALE
 	isik.light_energy = 1.9
 	isik.omni_range = 9.0
 	isik.omni_attenuation = 1.3
 	isik.shadow_enabled = true
+	# Hacimsel siste hafif sıcak hale: kamera ışığa çok yakın, tam güçte sis küresi ekranı kaplar.
+	isik.light_volumetric_fog_energy = 0.12
 	isik.position = konum + Vector3(yan * -0.3, 0.5, -0.5)
 	isik.set_meta("taban", 1.9)
 	isik.set_meta("alev", alev)
@@ -266,30 +268,44 @@ func _mesale(konum: Vector3, yan: float) -> void:
 func _esik() -> void:
 	# Kapı eşiği: kalas döşeme ve yassı taşlar (sorgu alanının önü).
 	for i in 6:
-		_kutu(Vector3(0.55, 0.06, 2.2), Vector3(-1.4 + i * 0.56, 0.03, Z - 0.6), _koyu_ahsap if i % 2 == 0 else _koyu_ahsap.duplicate())
+		var k := _kutu(Vector3(0.53, 0.07, 2.2), Vector3(-1.4 + i * 0.56, 0.035 + (i % 2) * 0.008, Z - 0.6), _koyu_ahsap)
+		k.rotation.y = (i % 3 - 1) * 0.015
 	var r := RandomNumberGenerator.new()
 	r.seed = 5
 	for i in 14:
 		var x := r.randf_range(-1.6, 1.6)
 		var z := r.randf_range(-5.5, -2.0)
-		var tas := _kutu(Vector3(r.randf_range(0.4, 0.8), 0.05, r.randf_range(0.3, 0.6)), Vector3(x, 0.03, z), _tas)
+		var tas := _kutu(Vector3(r.randf_range(0.4, 0.8), 0.06, r.randf_range(0.3, 0.6)), Vector3(x, 0.02, z), _tas)
 		tas.rotation.y = r.randf() * PI
 
 
 func _on_plan() -> void:
-	# Kapının içinde, iki kenarda: fıçı, sandık, testi (ön plan yüksek ayrıntı; sorgu alanından uzakta).
-	var ahsap := _ahsap
-	_silindir(0.3, 0.8, Vector3(-YARI + 0.05, 0.4, Z + 0.9), ahsap)
-	for h in [0.12, 0.68]:
-		_silindir(0.32, 0.05, Vector3(-YARI + 0.05, h, Z + 0.9), _demir)
-	_kutu(Vector3(0.6, 0.5, 0.5), Vector3(YARI + 0.2, 0.25, Z + 0.9), _koyu_ahsap, Vector3(0, 0.3, 0))
+	# Kapının içinde, iki kenarda: fıçılar ve sandık (Poly Haven modelleri), testi. Sorgu alanından uzakta.
+	var fici := Pbr.model("wooden_barrels_01")
+	if fici != null:
+		for c in fici.get_children():
+			if not String(c.name).ends_with("barrel01"):
+				c.queue_free()
+			else:
+				# Takımdaki konumu sıfırlanır: fıçı kendi yerinde (kapının sol dibinde) durur.
+				(c as Node3D).position = Vector3((c as Node3D).position.x * 0.0, (c as Node3D).position.y, 0)
+		fici.position = Vector3(-YARI + 0.35, 0, Z + 0.55)
+		fici.rotation.y = 0.4
+		add_child(fici)
+	var sandik := Pbr.model("wooden_crate_01")
+	if sandik != null:
+		sandik.position = Vector3(YARI - 0.35, 0, Z + 0.9)
+		sandik.rotation.y = -0.5
+		sandik.scale = Vector3.ONE * 1.1
+		add_child(sandik)
 	var testi := Dunya3B.duz_malzeme(Color("#6e3f26"))
+	testi.roughness = 0.85
 	var govde := MeshInstance3D.new()
 	var k := SphereMesh.new()
-	k.radius = 0.24
-	k.height = 0.55
+	k.radius = 0.2
+	k.height = 0.46
 	govde.mesh = k
-	govde.position = Vector3(YARI - 0.25, 0.27, Z + 0.6)
+	govde.position = Vector3(YARI - 0.95, 0.23, Z + 0.5)
 	govde.material_override = testi
 	add_child(govde)
-	_silindir(0.07, 0.16, Vector3(YARI - 0.25, 0.6, Z + 0.6), testi)
+	_silindir(0.06, 0.14, Vector3(YARI - 0.95, 0.5, Z + 0.5), testi)

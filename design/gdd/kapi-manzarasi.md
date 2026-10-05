@@ -27,6 +27,16 @@ tehlikeli; tehdit gece gece yaklaşıyor).
    - 3 — derin taş geçit, kemer üstünde kule duvarı ve sancak, mazgallar
 9. **Kıpırtı:** meşale ve uzak ateşler titrer, duman rüzgârla sağa yatar, öküz arada başını eğer, sıradakiler nefes alır (DurusDuzeltici).
 
+10. **Gerçekçi görüntü (Forward+):** taranmış PBR dokular ve modeller (Poly Haven, CC0; `tools/varlik/polyhaven_indir.py`, liste `assets/ph/KAYNAK.md`):
+    yol `muddy_tracks`, arazi `brown_mud_rocks_01` + kırağı `snow_02` (`arazi.gdshader`), sur `castle_wall_varriation` 4K,
+    kapı ahşabı `medieval_wood` 4K, kütük `bark_willow`; modeller `large_castle_door` (kanatlar), `wooden_barrels_01`,
+    `wooden_crate_01`, `boulder_01`, `rock_moss_set_01`, `dead_tree_trunk_02`, `dry_branches_medium_01`; gök HDRI
+    `satara_night_no_lamps`. Dokusu bulunmayan yüzey düz renge düşer (`Pbr.malzeme`).
+11. **Işık ve son işlem:** HDRI gök ve ortam ışığı, hacimsel sis (meşalenin sise katkısı 0.12: kamera ışığa çok yakın),
+    SSAO, SSIL, AgX ton eşleme, renk ayarı (kontrast 1.08, doygunluk 0.88), yalnız küçük yarıçaplı ışıma, uzak alan bulanıklığı.
+12. **Alev ve duman:** gölgelendirici (`alev.gdshader`, `duman.gdshader`): gürültüyle dalgalanan, kameraya dönük dörtgenler.
+13. **Çözünürlük:** 3D, pencerenin fiziksel çözünürlüğünde çizilir (4K ekranda 3840×2160), arayüzün altına serilir.
+
 ## Formulas
 - Kadraj: pencere x aralığı `[H − 0.755·d, H + 0.14·d]` (H = 1.3, d = kameraya uzaklık) — iki direk (±1.75, d≈4.2) sınırda.
 - Şiddet `s = clamp(gece/6, 0, 1)`; Tekfur yakınlığı `y = perde2_gece / perde2_hedef_gece`.

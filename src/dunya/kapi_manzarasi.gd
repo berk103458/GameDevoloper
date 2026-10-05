@@ -25,6 +25,9 @@ const YOL_NOKTALARI := [Vector2(0.0, 0.0), Vector2(0.0, -10.0), Vector2(-0.8, -1
 ## Yanan köyün sırtı ve Tekfur ordusunun geldiği yön (ufukta, yolun bittiği yerin sağı).
 const KOY_YERI := Vector3(-8.0, 0.0, -136.0)
 
+## Gece gökyüzü (Poly Haven HDRI).
+const GOK := "satara_night_no_lamps"
+
 ## Gece (0'dan) ve perde: tehdidin ne kadar büyüdüğünü belirler.
 var gece := 0
 var perde := 1
@@ -44,7 +47,9 @@ func ates_sayisi() -> int:
 
 
 func _ready() -> void:
-	_gok_kur()
+	# Gökyüzü HDRI'dan gelir (KapiSahnesi ortamı); HDRI yoksa yordamsal gök ve yıldızlar.
+	if Pbr.gok(GOK) == null:
+		_gok_kur()
 	_arazi_kur()
 	_yol_kur()
 	_daglar_kur()
@@ -185,64 +190,95 @@ func _gok_kur() -> void:
 
 # ── Arazi: ızgara mesh, tepeler ve kırağı lekeleri (köşe rengi). ──
 func _arazi_kur() -> void:
+	# Izgara: kapıya yakın sık (0.8 m), uzakta seyrek; köşe rengi .r kırağı maskesi (arazi.gdshader).
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var n := 110
-	var x0 := -90.0
-	var z0 := 4.0
-	var adim_x := 180.0 / n
-	var adim_z := 180.0 / n
+	var xs := _izgara(-90.0, 90.0, 0.8, 3.0, 0.0)
+	var zs := _izgara(-200.0, 6.0, 0.8, 3.0, 0.0)
 	var gurultu := FastNoiseLite.new()
 	gurultu.seed = 7
-	gurultu.frequency = 0.08
-	for j in n:
-		for i in n:
+	gurultu.frequency = 0.06
+	for j in zs.size() - 1:
+		for i in xs.size() - 1:
 			var kose := []
 			for d in [Vector2i(0, 0), Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 0), Vector2i(1, 1), Vector2i(0, 1)]:
-				var x: float = x0 + (i + d.x) * adim_x
-				var z: float = z0 - (j + d.y) * adim_z
+				var x: float = xs[i + d.x]
+				var z: float = zs[j + d.y]
 				kose.append(Vector3(x, yukseklik(x, z), z))
 			for k in 6:
 				var v: Vector3 = kose[k]
-				var kiragi := clampf(gurultu.get_noise_2d(v.x, v.z) * 1.4 + 0.2, 0.0, 1.0)
-				st.set_color(TOPRAK.lerp(KIRAGI, kiragi * 0.55))
+				var kiragi := clampf(gurultu.get_noise_2d(v.x, v.z) * 1.3 + 0.35 - _yola_yakinlik(v.x, v.z) * 0.6, 0.0, 1.0)
+				st.set_color(Color(kiragi, 0, 0))
+				st.set_uv(Vector2(v.x, v.z))
 				st.add_vertex(v)
 	st.generate_normals()
+	st.generate_tangents()
 	var m := MeshInstance3D.new()
 	m.mesh = st.commit()
-	m.material_override = _malzeme(Color.WHITE, true)
+	var sh := ShaderMaterial.new()
+	sh.shader = load("res://src/dunya/arazi.gdshader")
+	for harita in [["renk", "diff"], ["normal", "nor_gl"], ["kaba", "rough"]]:
+		sh.set_shader_parameter("camur_" + harita[0], Pbr.doku("brown_mud_rocks_01", harita[1]))
+		sh.set_shader_parameter("kar_" + harita[0], Pbr.doku("snow_02", harita[1]))
+	m.material_override = sh
 	add_child(m)
+
+
+## Kapıdan (0) uzaklaştıkça büyüyen aralıklarla ızgara çizgileri: yakında `ince`, uzakta `kalin` m.
+static func _izgara(bas: float, son: float, ince: float, kalin: float, merkez: float) -> PackedFloat32Array:
+	var a := PackedFloat32Array()
+	var v := bas
+	while v < son:
+		a.append(v)
+		var uzak := clampf(absf(v - merkez) / 60.0, 0.0, 1.0)
+		v += lerpf(ince, kalin, uzak)
+	a.append(son)
+	return a
 
 
 # ── Yol: kapıda geniş (sorgu alanı), ufka doğru daralan kıvrık şerit; kenarlarda tekerlek izi. ──
 func _yol_kur() -> void:
+	# Beş şerit enine: ortası tam, kenarlara doğru saydamlaşır (arazinin kırağısına yumuşak geçer).
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var parca := 160
-	var onceki_sol := Vector3.ZERO
-	var onceki_sag := Vector3.ZERO
-	for s in parca + 1:
-		var t := float(s) / parca
+	var parca := 260
+	var enine := [-0.62, -0.42, -0.25, 0.25, 0.42, 0.62]
+	var saydam := [0.0, 0.85, 1.0, 1.0, 0.85, 0.0]
+	var onceki: Array = []
+	var yol_boyu := 0.0
+	var onceki_p := yol_noktasi(0.0)
+	for s_ in parca + 1:
+		var t := float(s_) / parca
 		var p := yol_noktasi(t)
-		var ileri := yol_noktasi(minf(t + 0.004, 1.0)) - yol_noktasi(maxf(t - 0.004, 0.0))
+		yol_boyu += p.distance_to(onceki_p)
+		onceki_p = p
+		var ileri := yol_noktasi(minf(t + 0.003, 1.0)) - yol_noktasi(maxf(t - 0.003, 0.0))
 		ileri.y = 0.0
 		var yan := Vector3(-ileri.z, 0, ileri.x).normalized()
-		var en := lerpf(4.6, 1.2, pow(t, 0.55))
-		var sol := p + yan * en * 0.5
-		var sag := p - yan * en * 0.5
-		sol.y = yukseklik(sol.x, sol.z) + 0.03 + t * 0.05
-		sag.y = yukseklik(sag.x, sag.z) + 0.03 + t * 0.05
-		if s > 0:
-			var r := YOL.darkened(0.15 * (s % 3) / 2.0)
-			for v in [onceki_sol, onceki_sag, sag, onceki_sol, sag, sol]:
-				st.set_color(r)
-				st.add_vertex(v)
-		onceki_sol = sol
-		onceki_sag = sag
+		var en := lerpf(5.2, 1.4, pow(t, 0.55))
+		var sira: Array = []
+		for k in enine.size():
+			var v := p + yan * en * float(enine[k])
+			v.y = yukseklik(v.x, v.z) + 0.025 + t * 0.06
+			sira.append([v, Vector2(float(enine[k]) * en / 3.0, yol_boyu / 3.0), saydam[k]])
+		if s_ > 0:
+			for k in enine.size() - 1:
+				for q in [[onceki, k], [onceki, k + 1], [sira, k + 1], [onceki, k], [sira, k + 1], [sira, k]]:
+					var n: Array = q[0][q[1]]
+					st.set_color(Color(1, 1, 1, n[2]))
+					st.set_uv(n[1])
+					st.add_vertex(n[0])
+		onceki = sira
 	st.generate_normals()
+	st.generate_tangents()
 	var m := MeshInstance3D.new()
 	m.mesh = st.commit()
-	m.material_override = _malzeme(Color.WHITE, true)
+	var mat := Pbr.malzeme("muddy_tracks", 1.0, Color(0.72, 0.66, 0.6), false).duplicate() as StandardMaterial3D
+	mat.uv1_scale = Vector3.ONE
+	mat.vertex_color_use_as_albedo = true
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS
+	m.material_override = mat
+	m.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(m)
 
 
@@ -278,17 +314,17 @@ func _serviler_kur() -> void:
 	mm.transform_format = MultiMesh.TRANSFORM_3D
 	var koni := CylinderMesh.new()
 	koni.top_radius = 0.05
-	koni.bottom_radius = 0.6
-	koni.height = 4.5
-	koni.radial_segments = 6
+	koni.bottom_radius = 0.45
+	koni.height = 5.5
+	koni.radial_segments = 8
 	mm.mesh = koni
 	var yerler: Array[Vector3] = []
 	var r := RandomNumberGenerator.new()
 	r.seed = 3
-	while yerler.size() < 70:
+	while yerler.size() < 45:
 		var x := r.randf_range(-70.0, 70.0)
 		var z := r.randf_range(-140.0, -22.0)
-		if _yola_yakinlik(x, z) > 0.4 or (absf(x) < 9.0 and z > -30.0):
+		if _yola_yakinlik(x, z) > 0.4 or z > -48.0:
 			continue
 		yerler.append(Vector3(x, yukseklik(x, z), z))
 	mm.instance_count = yerler.size()
@@ -303,8 +339,8 @@ func _serviler_kur() -> void:
 
 # ── Yol kenarı: kırık çitler, taş yığınları, yıkık taş direk, terk edilmiş eşya. Sorgu alanı (x −2..2, z −1..−6) boş. ──
 func _yol_kenari_kur() -> void:
-	var ahsap := _malzeme(Color("#3b2e26"))
-	var tas := _malzeme(Color("#4f5566"))
+	var ahsap := Pbr.malzeme("bark_willow", 1.0, Color(0.55, 0.5, 0.46))
+	var tas := Pbr.malzeme("castle_wall_varriation", 2.4, Color(0.7, 0.7, 0.72))
 	# Kırık çit: yolun solunda ve sağında kesik kesik, yer yer devrik.
 	var r := RandomNumberGenerator.new()
 	r.seed = 11
@@ -328,11 +364,30 @@ func _yol_kenari_kur() -> void:
 				kiris.rotation.x = r.randf_range(-0.3, 0.3)
 				tutam.add_child(kiris)
 	# Taş yığınları ve yıkık direk (sol orta plan).
-	for y in [[Vector3(-4.6, 0, -6.0), 0.9], [Vector3(-5.5, 0, -12.5), 1.2], [Vector3(4.6, 0, -18.0), 1.0], [Vector3(-7.0, 0, -24.0), 1.4]]:
-		var k := Dunya3B.nesne("kaya", y[1])
-		k.position = y[0] + Vector3(0, yukseklik(y[0].x, y[0].z), 0)
+	for y in [[Vector3(-4.8, 0, -7.0), 0.8, "boulder_01"], [Vector3(-7.5, 0, -15.0), 0.5, "rock_moss_set_01"],
+			[Vector3(4.8, 0, -19.0), 0.9, "boulder_01"], [Vector3(-9.0, 0, -26.0), 0.6, "rock_moss_set_01"],
+			[Vector3(-3.4, 0, -11.0), 0.35, "boulder_01"]]:
+		var k: Node3D = Pbr.model(y[2])
+		if k == null:
+			k = Dunya3B.nesne("kaya", y[1])
+		else:
+			k.scale = Vector3.ONE * float(y[1])
+		k.position = y[0] + Vector3(0, yukseklik(y[0].x, y[0].z) - 0.1, 0)
 		k.rotation.y = y[0].x
 		add_child(k)
+	# Devrik kütük ve kuru dallar (yol kenarı, orta plan).
+	var kutuk := Pbr.model("dead_tree_trunk_02")
+	if kutuk != null:
+		kutuk.position = Vector3(-5.2, yukseklik(-5.2, -9.5), -9.5)
+		kutuk.rotation.y = 0.5
+		add_child(kutuk)
+	for d in [[Vector3(3.6, 0, -6.0), 0.3], [Vector3(-3.6, 0, -16.0), 1.4], [Vector3(5.5, 0, -12.0), 2.2]]:
+		var dal := Pbr.model("dry_branches_medium_01")
+		if dal == null:
+			break
+		dal.position = d[0] + Vector3(0, yukseklik(d[0].x, d[0].z), 0)
+		dal.rotation.y = d[1]
+		add_child(dal)
 	var direk := _kutu(Vector3(1.0, 2.4, 1.0), Vector3(3.0, 1.2, -15.0), tas)
 	add_child(direk)
 	var direk_ust := _kutu(Vector3(0.8, 0.55, 0.8), Vector3(2.9, 2.65, -15.1), tas)
@@ -416,8 +471,16 @@ func _yanan_koy_kur(soner := false) -> void:
 	# Ev silüetleri.
 	var mat := _malzeme(SILUET)
 	for i in 7:
-		var ev := _kutu(Vector3(3.0, 2.2 + (i % 3) * 0.6, 3.0), taban + Vector3(-12.0 + i * 4.0, 1.0, (i % 2) * 3.0), mat)
-		add_child(ev)
+		var boy := 2.2 + (i % 3) * 0.6
+		var p := taban + Vector3(-12.0 + i * 4.0, 0.0, (i % 2) * 3.0)
+		add_child(_kutu(Vector3(3.0, boy, 3.0), p + Vector3(0, boy * 0.5, 0), mat))
+		var cati := MeshInstance3D.new()
+		var pr := PrismMesh.new()
+		pr.size = Vector3(3.4, 1.4, 3.2)
+		cati.mesh = pr
+		cati.position = p + Vector3(0, boy + 0.7, 0)
+		cati.material_override = mat
+		add_child(cati)
 	# Ateşler: gece arttıkça çoğalır ve büyür.
 	var ates_sayisi := 0 if gece == 0 and not soner else 1 + int(siddet * 6.0)
 	var r := RandomNumberGenerator.new()
@@ -442,42 +505,24 @@ func _yanan_koy_kur(soner := false) -> void:
 		hm.disable_fog = true
 		hale.material_override = hm
 		add_child(hale)
-	# Duman: hep var; gece arttıkça kalınlaşır. Rüzgârla sağa yatar.
-	var duman := CPUParticles3D.new()
-	duman.position = taban + Vector3(-2.0, 4.0, 0)
-	duman.amount = 40 + int(siddet * 60.0)
-	duman.lifetime = 14.0
-	duman.preprocess = 14.0
-	duman.emission_shape = CPUParticles3D.EMISSION_SHAPE_BOX
-	duman.emission_box_extents = Vector3(8.0 * (0.3 + siddet), 1.0, 2.0)
-	duman.direction = Vector3(0.35, 1.0, 0)
-	duman.spread = 12.0
-	duman.gravity = Vector3(0.6, 0.4, 0)
-	duman.initial_velocity_min = 1.5
-	duman.initial_velocity_max = 2.5
-	duman.scale_amount_min = 3.0
-	duman.scale_amount_max = 6.0 + siddet * 6.0
-	var buyume := Curve.new()
-	buyume.add_point(Vector2(0, 0.4))
-	buyume.add_point(Vector2(1, 1.8))
-	duman.scale_amount_curve = buyume
-	var solma := Gradient.new()
-	solma.set_color(0, Color(DUMAN, 0.0))
-	solma.add_point(0.15, Color(DUMAN.lightened(0.15), 0.55))
-	solma.set_color(solma.get_point_count() - 1, Color(DUMAN, 0.0))
-	duman.color_ramp = solma
-	var q := QuadMesh.new()
-	q.size = Vector2(3, 3)
-	duman.mesh = q
-	var dm := StandardMaterial3D.new()
-	dm.albedo_texture = _yumusak_doku()
-	dm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	dm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	dm.vertex_color_use_as_albedo = true
-	dm.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
-	dm.disable_fog = true
-	duman.material_override = dm
-	add_child(duman)
+	# Duman: hep var; gece arttıkça sütunlar çoğalır ve kalınlaşır. Rüzgârla sağa yatar.
+	var sutun := 1 + int(siddet * 3.0)
+	for k in sutun:
+		var d := MeshInstance3D.new()
+		var q := QuadMesh.new()
+		var boy := 34.0 + siddet * 26.0 - k * 4.0
+		q.size = Vector2(boy * 0.8, boy)
+		q.center_offset = Vector3(0, boy * 0.5, 0)
+		d.mesh = q
+		var sh := ShaderMaterial.new()
+		sh.shader = load("res://src/dunya/duman.gdshader")
+		sh.set_shader_parameter("gurultu", _gurultu_doku())
+		sh.set_shader_parameter("tohum", float(k) * 0.37)
+		sh.set_shader_parameter("koyuluk", 0.45 + siddet * 0.35)
+		d.material_override = sh
+		d.position = taban + Vector3(-8.0 + k * 6.0, 1.0, -3.0 - k)
+		d.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		add_child(d)
 	# Sırtta atlı silüetleri (5. geceden sonra).
 	if not soner and gece >= 5:
 		for i in mini(gece - 3, 8):
@@ -485,6 +530,81 @@ func _yanan_koy_kur(soner := false) -> void:
 			var x := -22.0 + i * 3.2
 			a.position = Vector3(KOY_YERI.x + x, yukseklik(KOY_YERI.x + x, KOY_YERI.z + 14.0) + 0.1, KOY_YERI.z + 14.0)
 			add_child(a)
+
+
+## Alev: dalgalanan damla biçimli gölgelendirici (alev.gdshader), kameraya dönük. `boy` alevin yüksekliği (m).
+## Meşaleler (KapiCercevesi) ve uzak yangınlar kullanır; birkaç dil yan yana konarak daha büyük ateş olur.
+static func alev(boy: float, parlaklik: float = 2.5, tohum: float = 0.0) -> MeshInstance3D:
+	var m := MeshInstance3D.new()
+	var q := QuadMesh.new()
+	q.size = Vector2(boy * 0.62, boy)
+	q.center_offset = Vector3(0, boy * 0.42, 0)
+	m.mesh = q
+	var sh := ShaderMaterial.new()
+	sh.shader = load("res://src/dunya/alev.gdshader")
+	sh.set_shader_parameter("gurultu", _gurultu_doku())
+	sh.set_shader_parameter("parlaklik", parlaklik)
+	sh.set_shader_parameter("tohum", tohum)
+	m.material_override = sh
+	m.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	return m
+
+
+static var _gurultu: NoiseTexture2D
+
+
+static func _gurultu_doku() -> NoiseTexture2D:
+	if _gurultu == null:
+		var g := FastNoiseLite.new()
+		g.frequency = 0.02
+		g.fractal_octaves = 3
+		_gurultu = NoiseTexture2D.new()
+		_gurultu.noise = g
+		_gurultu.width = 256
+		_gurultu.height = 256
+		_gurultu.seamless = true
+	return _gurultu
+
+
+## Parçacık alev: yumuşak, toplamalı (additive) taneler; sarıdan kızıla söner. `boy` ≈ alevin yüksekliği (m),
+## `parlaklik` ışımanın gücü (1 = sönük, 2 = meşale yakını). Meşaleler (KapiCercevesi) de bunu kullanır.
+static func parcacik_alev(boy: float, parlaklik: float) -> CPUParticles3D:
+	var a := CPUParticles3D.new()
+	a.amount = 16
+	a.lifetime = 0.7
+	a.preprocess = 1.0
+	a.emission_shape = CPUParticles3D.EMISSION_SHAPE_SPHERE
+	a.emission_sphere_radius = boy * 0.18
+	a.direction = Vector3.UP
+	a.spread = 10.0
+	a.gravity = Vector3(0.05, boy * 1.2, 0)
+	a.initial_velocity_min = boy * 0.6
+	a.initial_velocity_max = boy * 1.2
+	a.scale_amount_min = boy * 0.35
+	a.scale_amount_max = boy * 0.7
+	var kucul := Curve.new()
+	kucul.add_point(Vector2(0, 1.0))
+	kucul.add_point(Vector2(1, 0.15))
+	a.scale_amount_curve = kucul
+	var renk := Gradient.new()
+	renk.set_color(0, Color(ATES_IC, 0.85))
+	renk.add_point(0.3, Color(ATES, 0.7))
+	renk.set_color(renk.get_point_count() - 1, Color(0.5, 0.08, 0.02, 0.0))
+	a.color_ramp = renk
+	var q := QuadMesh.new()
+	q.size = Vector2(1, 1.5)
+	a.mesh = q
+	var m := StandardMaterial3D.new()
+	m.albedo_texture = _yumusak_doku()
+	# Karışım (toplamalı değil): üst üste binen taneler parlaklığı katlamaz, alev ışımaya boğulmaz.
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.vertex_color_use_as_albedo = true
+	m.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+	m.disable_fog = true
+	m.albedo_color = Color(parlaklik, parlaklik, parlaklik)
+	a.material_override = m
+	return a
 
 
 ## Kenarları yumuşak yuvarlak leke (duman taneleri için).
@@ -504,23 +624,10 @@ static func _yumusak_doku() -> GradientTexture2D:
 
 
 func _ates_kur(p: Vector3, boy: float, isik: float) -> void:
-	# Birkaç dil: farklı boy ve eğimde koniler, içte sarı çekirdek.
-	for d in 3:
-		for katman in [[ATES, 1.0, 3.0], [ATES_IC, 0.5, 4.5]]:
-			var a := MeshInstance3D.new()
-			var k := CylinderMesh.new()
-			k.top_radius = 0.0
-			var b: float = boy * (1.0 - d * 0.25) * katman[1]
-			k.bottom_radius = b * 0.4
-			k.height = b * 1.7
-			k.radial_segments = 5
-			a.mesh = k
-			a.position = p + Vector3((d - 1) * boy * 0.35, k.height * 0.5, (d % 2) * 0.3)
-			a.rotation.z = (d - 1) * 0.18
-			a.material_override = _isik_sacan(katman[0], katman[2])
-			a.set_meta("olcek", 1.0)
-			add_child(a)
-			_alevler.append(a)
+	for k in 3:
+		var dil := alev(boy * (1.25 - k * 0.25), 2.2, float(k) * 3.7 + p.x)
+		dil.position = p + Vector3((k - 1) * boy * 0.35, 0, (k % 2) * 0.3)
+		add_child(dil)
 	var l := OmniLight3D.new()
 	l.light_color = ATES
 	l.light_energy = isik * 0.2
@@ -529,6 +636,12 @@ func _ates_kur(p: Vector3, boy: float, isik: float) -> void:
 	l.set_meta("taban", l.light_energy)
 	add_child(l)
 	_ates_isiklari.append(l)
+	# Test ve tehdit sayımı için: her ateş bir "alev" sayılır.
+	var iz := MeshInstance3D.new()
+	iz.set_meta("olcek", 1.0)
+	iz.visible = false
+	add_child(iz)
+	_alevler.append(iz)
 
 
 func _atli_kur(mat: Material) -> Node3D:
