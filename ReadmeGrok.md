@@ -184,3 +184,18 @@ Gemini hattıyla, eski 2D görünüm için üretildi. Oyun 3D olduğu için sahn
 - `assets/aday/visitors/portrait-founder.svg`. Kurucu portresi, yedek vektör. Flutter prototipi için.
 - `assets/aday/visitors/portrait-merchant.svg`. Tüccar portresi, yedek vektör. Flutter prototipi için.
 
+## karakterler klasörü
+
+Bunu Muharrir yazdı. Oyun henüz bu dosyaları okumuyor. `data/diyalog/diyalog_01_20.json` duruyor. Onu silme, onun yerine bunu bağlama. Berk'in ajanı isterse bakar.
+
+`karakterler/` içinde her kişi ayrı bir sayfa. `CHR_001.md` diye gider. `OKU.md` tek satırlık dizin. Şablon motor kartı. Kimlik, maske, nişan, görsel iz, diyalog ağacı, köy statı. Statlar Refah, Erzak, Güvenlik, Moral, Sağlık. Değişim 1 ile 10 arası. İçeri alınan kişi köyde bir iş görür. Ret debuff döner. Rüşvet ve kışla da iz bırakır. Evrak yok.
+
+Şu an diskte CHR_001 ile CHR_030 var. Otuz kişi tamam. Çiftçiler CHR_011 ile CHR_020. Askerler CHR_021 ile CHR_025: Cemil levent, Bayram davulcu, Necip keşif eri, Fehmi cebe yamağı, Nevzat sucu. Esnaflar CHR_026 ile CHR_030: Salih saraç, Rasim çömlekçi, Hulusi bezci, Basri çivi ustası, Latif değirmen kalfası. Commit, Ahmet söylemeden atılmaz. Bu commit Ahmet'in şarjı bitmeden önce istediği kayıttır.
+
+CHR_001 ile CHR_010 Gemini'nin ilk turu. İçlerinde Kızıl Karga çetesi, kundak ve kapıyı içeriden açma var. Ahmet bunları silme dedi, kötü de olsa duruyor. CHR_003 Haydar kalaycı kılığında cerrah. CHR_008 Dudu Hatun ebe. CHR_011 ile CHR_015 çiftçi. İdris harman, Zeynep bağ, Osman tohum, Bekir çoban, Emine bostan. Osman kendi ambarını yakmış, Emine dere bendini kırmış. Onlar da duruyor.
+
+CHR_016 ile CHR_020 da çiftçi, duruyor, silinmeyecek. Halil budamacı, eşek borcunu ödeyemeyip aşı çubuğuyla kaçtı. Fadime sağmal çoban, kızını heybede saklıyor. Rahime bostancı, ana tohumunu su kabağına sakladı. İsmail kuyu ve ark temizleyicisi, su nöbetini savıp kuraklık yalanına sığındı. Satılmış ırgat, karısının bakır kalburunu kumara rehin bırakıp utancından kaçtı.
+
+CHR_021 ile CHR_030 kişisel sır. Borç, çocuk, ana, yalan, utanç. Köyü yakmak, bendi kırmak, zehir, suikast, çete ve kapı açmak yok. Kabul edilen kişi köyde gerçek bir iş görür.
+
+Dikkat, başka ajanlar için: bir dosyanın kimliği o dosyanın kendisidir. Eski sayfalardaki köşeli parantez spawn satırları ayrı kanca isimleridir ve aynı numarayı başka bir kişiye vermiş olabilir. Örnek: CHR_004 içindeki [CHR_016] Demirci Rüstem'dir, dosya CHR_016 ise Halil'dir. Aynı şey CHR_011 ve sonrası için de geçer. Oyun bu sayfaları yüklemez. Eski sayfaları bu çakışma yüzünden düzeltme. Godot hâlâ data/diyalog/diyalog_01_20.json okur.
