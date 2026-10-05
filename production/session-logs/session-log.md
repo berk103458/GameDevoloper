@@ -3556,3 +3556,20 @@ production/session-logs/session-log.md
 df1d2b6 chore: update session logs
 ---
 
+## Session End: 20261005_155414
+### Commits
+1df5b30 feat(kapi): new gate backdrop from the concept, gate grows with the walls
+df1d2b6 chore: update session logs
+---
+
+## Session End: 20261005_180328
+### Commits
+f7f7273 feat(kapi): realistic gate scene — scanned PBR, HDRI night, volumetric light, native 4K
+1df5b30 feat(kapi): new gate backdrop from the concept, gate grows with the walls
+df1d2b6 chore: update session logs
+### Uncommitted Changes
+production/session-logs/.session-end.hash
+production/session-logs/session-cost.md
+production/session-logs/session-log.md
+---
+
