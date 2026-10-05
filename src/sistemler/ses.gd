@@ -44,7 +44,20 @@ func _ready() -> void:
 ## AudioStreamPlaybackWAV sızıntısı bildirir (QA A-002, A-003). Pencere kapatma da buradan geçer.
 func cik(kod: int = 0) -> void:
 	await sustur()
+	_onbellekleri_bosalt()
 	get_tree().quit(kod)
+
+
+## Statik önbellekler (doku, malzeme, model, klip) motor kapanırken görüntü sunucusundan sonra bırakılır ve
+## "Texture ... leaked" bildirir; çıkıştan önce boşaltılır. Sahneler kendi kopyalarını tutar, etkilenmez.
+func _onbellekleri_bosalt() -> void:
+	Sanat._onbellek.clear()
+	Pbr._onbellek.clear()
+	Dunya3B._onbellek.clear()
+	Dunya3B._el_esyalari.clear()
+	KarakterModel._klip_onbellek.clear()
+	DurusDuzeltici._sekil_onbellek.clear()
+	KapiManzarasi._gurultu = null
 
 
 ## Çalan her şeyi durdurur ve akışları bırakır; ses sunucusu birkaç karede çalanları siler.
