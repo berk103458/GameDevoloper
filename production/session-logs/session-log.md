@@ -3761,3 +3761,51 @@ production/session-logs/session-cost.md
 production/session-logs/session-log.md
 ---
 
+## Session End: 20261005_214758
+### Commits
+f6bdb08 chore: update session logs
+cf67d4d fix(ekonomi): akçe never stalls — surplus grain sold, street vendors, soldiers paid in grain
+d3688fc chore: merge cursor/chr-001-sati-4019 (Satı page kept as a draft)
+84706bc chore: merge claude/keen-cerf-42meo7 (Godot .import files)
+e833a5c chore: update session logs
+d089232 chore: update session logs
+95d60e8 d
+b5ab740 feat(kapi): arrivals come from the queue — front steps out, line advances in a wave
+a53e472 test(kapi): 4K evidence frame of the realistic far plane
+0b3a5ca feat(kapi): realistic far plane — rock-and-snow mountains, impostor cypress/fir, grounded burning village, walking refugees
+6f359e8 chore: update session logs
+f905f8b test(kapi): 4K evidence frame of the realistic gate scene
+5a6ec02 test(kapi): keep the gate screenshot tool for visual evidence
+f7f7273 feat(kapi): realistic gate scene — scanned PBR, HDRI night, volumetric light, native 4K
+1df5b30 feat(kapi): new gate backdrop from the concept, gate grows with the walls
+df1d2b6 chore: update session logs
+---
+
+## Session End: 20261005_215523
+### Commits
+f6bdb08 chore: update session logs
+cf67d4d fix(ekonomi): akçe never stalls — surplus grain sold, street vendors, soldiers paid in grain
+d3688fc chore: merge cursor/chr-001-sati-4019 (Satı page kept as a draft)
+84706bc chore: merge claude/keen-cerf-42meo7 (Godot .import files)
+e833a5c chore: update session logs
+d089232 chore: update session logs
+95d60e8 d
+b5ab740 feat(kapi): arrivals come from the queue — front steps out, line advances in a wave
+a53e472 test(kapi): 4K evidence frame of the realistic far plane
+0b3a5ca feat(kapi): realistic far plane — rock-and-snow mountains, impostor cypress/fir, grounded burning village, walking refugees
+6f359e8 chore: update session logs
+f905f8b test(kapi): 4K evidence frame of the realistic gate scene
+5a6ec02 test(kapi): keep the gate screenshot tool for visual evidence
+f7f7273 feat(kapi): realistic gate scene — scanned PBR, HDRI night, volumetric light, native 4K
+1df5b30 feat(kapi): new gate backdrop from the concept, gate grows with the walls
+df1d2b6 chore: update session logs
+### Uncommitted Changes
+production/session-logs/.session-end.hash
+production/session-logs/session-cost.md
+production/session-logs/session-log.md
+src/arayuz/ana.gd
+src/sistemler/ses.gd
+tests/oto/otomatik_oyuncu.gd
+tests/unit/ses/ses_test.gd
+---
+

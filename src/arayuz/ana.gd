@@ -46,7 +46,7 @@ func ana_menu() -> void:
 			0: yeni_oyun()
 			1: devam_et()
 			2: _ayarlari_ac(ana_menu)
-			3: get_tree().quit()
+			3: Ses.cik()
 	)
 	_goster(e)
 
