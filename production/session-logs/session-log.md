@@ -3687,3 +3687,17 @@ production/session-logs/session-cost.md
 production/session-logs/session-log.md
 ---
 
+## Session End: 20261005_212244
+### Commits
+d089232 chore: update session logs
+b5ab740 feat(kapi): arrivals come from the queue — front steps out, line advances in a wave
+a53e472 test(kapi): 4K evidence frame of the realistic far plane
+0b3a5ca feat(kapi): realistic far plane — rock-and-snow mountains, impostor cypress/fir, grounded burning village, walking refugees
+6f359e8 chore: update session logs
+f905f8b test(kapi): 4K evidence frame of the realistic gate scene
+5a6ec02 test(kapi): keep the gate screenshot tool for visual evidence
+f7f7273 feat(kapi): realistic gate scene — scanned PBR, HDRI night, volumetric light, native 4K
+1df5b30 feat(kapi): new gate backdrop from the concept, gate grows with the walls
+df1d2b6 chore: update session logs
+---
+
