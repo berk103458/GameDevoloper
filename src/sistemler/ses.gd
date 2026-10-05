@@ -24,6 +24,7 @@ var _onbellek: Dictionary = {}
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	get_tree().auto_accept_quit = false
 	for bus in ["Muzik", "Efekt"]:
 		if AudioServer.get_bus_index(bus) < 0:
 			AudioServer.add_bus()
@@ -36,6 +37,49 @@ func _ready() -> void:
 	_ortam_yedek = _oynatici("Efekt")
 	for i in ES_ZAMANLI:
 		_efektler.append(_oynatici("Efekt"))
+
+
+## Oyundan çıkış: önce sesleri susturur, ses sunucusunun çalanları bırakmasını bekler, sonra çıkar.
+## Doğrudan `get_tree().quit()` çalan döngüleri ses sunucusunda bırakır; motor kapanırken AudioStreamWAV /
+## AudioStreamPlaybackWAV sızıntısı bildirir (QA A-002, A-003). Pencere kapatma da buradan geçer.
+func cik(kod: int = 0) -> void:
+	await sustur()
+	_onbellekleri_bosalt()
+	get_tree().quit(kod)
+
+
+## Statik önbellekler (doku, malzeme, model, klip) ve imleç dokusu motor kapanırken görüntü sunucusundan sonra bırakılır ve
+## "Texture ... leaked" bildirir; çıkıştan önce boşaltılır. Sahneler kendi kopyalarını tutar, etkilenmez.
+func _onbellekleri_bosalt() -> void:
+	Sanat._onbellek.clear()
+	Pbr._onbellek.clear()
+	Dunya3B._onbellek.clear()
+	Dunya3B._el_esyalari.clear()
+	KarakterModel._klip_onbellek.clear()
+	DurusDuzeltici._sekil_onbellek.clear()
+	KapiManzarasi._gurultu = null
+	# Özel fare imleci (ana.gd) Input'ta kalır; Input görüntü sunucusundan sonra kapanır.
+	Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(null, Input.CURSOR_POINTING_HAND)
+
+
+## Çalan her şeyi durdurur ve akışları bırakır; ses sunucusu birkaç karede çalanları siler.
+func sustur() -> void:
+	for o: AudioStreamPlayer in [_muzik, _muzik_yedek, _ortam, _ortam_yedek] + _efektler:
+		if is_instance_valid(o):
+			o.stop()
+			o.stream = null
+	_muzik_ad = &""
+	_ortam_ad = &""
+	_onbellek.clear()
+	for i in 3:
+		await get_tree().process_frame
+	await get_tree().create_timer(0.1, true, false, true).timeout
+
+
+func _notification(ne: int) -> void:
+	if ne == NOTIFICATION_WM_CLOSE_REQUEST:
+		cik()
 
 
 ## Arka plan müziğini ve meşale ortamını başlatır (zaten çalıyorsa dokunmaz).

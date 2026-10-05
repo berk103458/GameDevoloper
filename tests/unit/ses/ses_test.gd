@@ -40,6 +40,9 @@ func _gecis_dene() -> void:
 	_esit("köy ortamı", s.ortam_adi(), &"ortam_koy_dongu")
 	s.muzik_cal(&"olmayan_dosya")
 	_esit("olmayan dosya müziği değiştirmez", s.muzik_adi(), SES.VARSAYILAN_MUZIK)
+	# Çıkıştan önce susturulur: ses sunucusu çalan döngüleri bırakır (kapanışta sızıntı bildirilmez).
+	await s.sustur()
+	_esit("susturuldu", s.muzik_adi(), &"")
 	print("SES TEST: %s (%d hata)" % ["GEÇTİ" if _hata == 0 else "KALDI", _hata])
 	quit(1 if _hata > 0 else 0)
 

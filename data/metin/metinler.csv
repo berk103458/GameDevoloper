@@ -7,6 +7,7 @@ anlati.baski.vergi,Beyin adamı vergi istedi. Soylular memnun değil.
 anlati.gece.basladi,%d. gece. Yolda yine birileri var.
 anlati.gece.bitti,Gece bitti.
 anlati.gelir,Pazar ve kervandan %d akçe geldi.
+anlati.takas,"Ambarın fazlası tüccara satıldı: −%d ürün, +%d akçe."
 anlati.hasat.arpa,Arpa hasadı: +%d ürün ambara.
 anlati.hasat.bugday,Buğday hasadı: +%d ürün ambara.
 anlati.hasat.mercimek,Mercimek hasadı: +%d ürün ambara.
@@ -22,6 +23,7 @@ anlati.is.yer.kisla,kışlaya
 anlati.is.yer.pazar,pazara
 anlati.is.yer.tarla,tarlaya
 anlati.maas,Askerlerin payı: %d akçe.
+anlati.maas_ambar,"Askerin hakkı ödendi: −%d akçe, kalanı ambardan −%d ürün."
 anlati.maas_yok,Askerlere verecek akçe yok. Kışlada homurtu var.
 anlati.rusvet.harcandi,%s kırılmak üzereydi. Bir kese el altından gitti.
 anlati.saldiri.agir,Tekfur'un adamları köyün kıyısını yaktı.

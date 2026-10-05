@@ -199,19 +199,33 @@ func gece_sonu() -> Dictionary:
 		ambar = 0
 		barlar.ekle(0, -1)
 		olaylar.append({"anahtar": "anlati.baski.gida"})
+	# Ambar takası: yedeğin üstündeki ürün tüccara satılır (ambar boşa birikmez, akçe hiç kurumaz).
+	var takas := ambar_takasi(ambar, tuketim, int(yapilar[&"pazar"]))
+	if takas.x > 0:
+		ambar -= takas.x
+		akce += takas.y
+		olaylar.append({"anahtar": "anlati.takas", "deger": [takas.x, takas.y]})
 	# Akçe: esnaf ve pazar, kervansaray.
 	# Pazar, kaç esnafın alışveriş edebildiğini sınırlar: 2 + 2 × seviye.
 	var satan := mini(koy.sayi(&"esnaf"), ayarlar.pazar_tezgah_taban + ayarlar.pazar_tezgah_artis * int(yapilar[&"pazar"]))
-	var gelir: int = satan * ayarlar.esnaf_gelir + int(yapilar[&"kervansaray"]) * ayarlar.kervansaray_gelir
+	# Tezgâh bulamayan esnaf seyyar satar: her `seyyar_bolen` kişi bir akçe.
+	var seyyar := (koy.sayi(&"esnaf") - satan) / ayarlar.seyyar_bolen
+	var gelir: int = satan * ayarlar.esnaf_gelir + seyyar + int(yapilar[&"kervansaray"]) * ayarlar.kervansaray_gelir
 	if gelir > 0:
 		akce += gelir
 		olaylar.append({"anahtar": "anlati.gelir", "deger": [gelir]})
-	# Asker maaşı: her iki asker bir akçe. Ödenemezse Ordu düşer.
+	# Asker maaşı: her iki asker bir akçe. Akçe yetmezse eksiği ambardan, ürünle ödenir (oran takastaki gibi);
+	# o da yetmezse Ordu düşer.
 	var maas := koy.sayi(&"asker") / 2
 	if maas > 0:
-		if akce >= maas:
+		var eksik := maxi(0, maas - akce)
+		if eksik == 0:
 			akce -= maas
 			olaylar.append({"anahtar": "anlati.maas", "deger": [maas]})
+		elif ambar >= eksik * ayarlar.ambar_akce_orani:
+			olaylar.append({"anahtar": "anlati.maas_ambar", "deger": [akce, eksik * ayarlar.ambar_akce_orani]})
+			ambar -= eksik * ayarlar.ambar_akce_orani
+			akce = 0
 		else:
 			akce = 0
 			barlar.ekle(3, -1)
@@ -263,6 +277,16 @@ func gece_sonu() -> Dictionary:
 
 
 ## İkinci perdede Tekfur'un saldırı gücü.
+## Ambar takası (F3): satılan ürün (x) ve karşılığı akçe (y). Yedek = gecelik tüketim × `ambar_yedek_gece`.
+func ambar_takasi(ambar_: int, tuketim: int, pazar: int) -> Vector2i:
+	var yedek := maxi(tuketim, 1) * ayarlar.ambar_yedek_gece
+	var fazla := ambar_ - yedek
+	if fazla < ayarlar.ambar_akce_orani:
+		return Vector2i.ZERO
+	var akce_ := mini(fazla / ayarlar.ambar_akce_orani, ayarlar.takas_taban + pazar * ayarlar.takas_pazar_artis)
+	return Vector2i(akce_ * ayarlar.ambar_akce_orani, akce_)
+
+
 func saldiri_gucu() -> int:
 	var g := ayarlar.saldiri_taban + perde2_gece / ayarlar.saldiri_artis_araligi
 	if bayraklar.has(&"harac"):
