@@ -1,0 +1,30 @@
+- CHR_001: Hamza, Asker, Karaboran harami çetesinin erzak ambarını kundaklayıp köy kapısını açmak üzere yolladığı sabotajcı öncü.  
+- CHR_002: Meryem, Çiftçi, dağdaki haydutların bereket tohumu vaadiyle kandırıp köyün içme suyu kuyusuna zehirli banotu saçması için gönderdiği safdil kız.  
+- CHR_003: Haydar, Esnaf, Taşlık Hisar sancak beyinin zulmünden kaçan, sefil bir kalaycı kılığına bürünmüş usta cerrah ve yüksek vasıflı çelik dökümcüsü.  
+- CHR_004: İlyas, Esnaf, kürk tüccarı kılığına girmiş, kardeşi Hamza'yı kurtarmak ve köyü içeriden açtırmak isteyen Karaboran harami reisi.  
+- CHR_005: Kerim, Asker, sakat çoban kılığına bürünmüş, sargısındaki kamayla gece nöbetçilerini biçmeyi hedefleyen Karaboran fedaisi.  
+- CHR_006: Seyit, Çiftçi, dilsiz hamal numarası yaparak saman sepetinde değirmeni kundaklamak için katran fitilleri taşıyan çete yamağı.  
+- CHR_007: Şemsettin, Asker, adalet dağıtma kisvesiyle rüşvet toplamak ve tutsak haramileri altın karşılığı kaçırmak için gelen yozlaşmış kadı naibi.  
+- CHR_008: Dudu Hatun, Esnaf, garip bir ebe kılığına girmiş, yaralı haramileri tedavi ettiği için sancaktan kaçan kaçak usta hekim.  
+- CHR_009: Abbas, Esnaf, seyyar çerçi kılığında dolaşan, köyün ana su kuyusuna dökmek üzere engerek zehri taşıyan sinsi çete kuryesi.  
+- CHR_010: Gaffar, Çiftçi, pazar tellalı kılığına girmiş, muhafızlara rüşvet dağıtarak gece batı kapısını açtırmayı hedefleyen şantajcı madrabaz.  
+- CHR_011: İdris, Çiftçi, tefecinin el koyduğu has kunduru buğdayını çuvalında kaçırıp emeğiyle yaşamak isteyen harman ırgatı.  
+- CHR_012: Zeynep, Çiftçi, sancak ağası yetim oğlunu köle yapmasın diye çocuğu asma küfesine saklayıp kaçan usta bağcı kadın.  
+- CHR_013: Osman Dayı, Çiftçi, beylik ağasının müsadere etmek istediği yedi kuşaklık kadim kuraklık tohumunu testisinde kaçıran ihtiyar tohumcu.  
+- CHR_014: Bekir, Çiftçi, ağır hayvan vergisi ve levent celbinden kaçmak için köyünün kuraklıkta kırıldığı yalanını uyduran damızlık merinos çobanı.  
+- CHR_015: Emine Hatun, Çiftçi, ağanın köylünün suyunu kesmesine öfkelenip gece dere bendini parçalayarak kaçan asi bostancı ve su arkı ustası.  
+- CHR_016: Halil, Çiftçi, bağ sahibine eşek borcunu ödeyemeyip kendi aşı çubuklarıyla kaçan budamacı.  
+- CHR_017: Fadime, Çiftçi, ölen kocasının kardeşine kaptırmamak için kızını heybede saklayan sağmal çoban.  
+- CHR_018: Rahime, Çiftçi, eniştesinin pazarda satacağı ana tohumunu su kabağına saklayan bostancı.  
+- CHR_019: İsmail, Çiftçi, su nöbetini savıp kuraklık yalanına sığınan kuyu ve ark temizleyicisi.  
+- CHR_020: Satılmış, Çiftçi, harman eğlencesinde karısının bakır kalburunu kumara rehin bırakıp utancından kaçan ırgat.  
+- CHR_021: Cemil, Asker, kardeşi yolda ölünce yalnız anası için celpten kaçıp kırık yoklama nişanını saklayan levent; alınırsa suru onarır, gece bekçiliğini talim ettirir.  
+- CHR_022: Bayram, Asker, babasının ilacı için bölük davulunu satan kışla davulcusu; alınırsa tarla işine tempo tutar, çocuklara alarm vuruşunu öğretir.  
+- CHR_023: Necip, Asker, sarhoş olup geçidi kaçırınca yolu boş diye yalan söyleyen keşif eri; alınırsa hendekleri yürür, geleni haber verir.  
+- CHR_024: Fehmi, Asker, sancak anbarına geri vermesi gereken eğri kılıcı utancından saklayan cebe yamağı; alınırsa alet düzeltir, kapıya çivi çakar.  
+- CHR_025: Nevzat, Asker, küçük kız kardeşine diye fazla ekmek saklayan kışla sucusu; alınırsa su taşır, ortak sofrada ekmeği pay eder.  
+- CHR_026: Salih, Esnaf, kirasını ödemek için müşterinin eyerini rehinciye bırakıp utanan saraç; alınırsa ahırda koşum onarır.  
+- CHR_027: Rasim, Esnaf, çatlak su testisini bırakıp kuyu evi fark etmeden kaçan çömlekçi; alınırsa kuyuyu sıvar, testi onarır.  
+- CHR_028: Hulusi, Esnaf, çocuklarına giysi diye loncanın ortak kesiminden iki top bezi saklayan bezci; alınırsa bez evinde diker.  
+- CHR_029: Basri, Esnaf, köy siparişinin çivisini eksik bırakıp utancından kaçan çivi ustası; alınırsa çivi ve menteşe döğer.  
+- CHR_030: Latif, Esnaf, hasta babasına diye azıcık un ayıran değirmen kalfası; alınırsa taş döndürür, kileyi doğru ölçer.  

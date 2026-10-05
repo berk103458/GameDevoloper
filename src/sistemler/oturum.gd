@@ -543,6 +543,8 @@ func _adli_gelen(id: StringName) -> Gelen:
 	g.secenekler = _perde_secenekleri(k.karar_secenekleri)
 	for karar in g.secenekler:
 		g.etkiler[StringName(karar)] = k.etki(karar)
+	g.azami_soru = k.azami_soru
+	g.tehlikeli = k.tehlikeli
 	return g
 
 

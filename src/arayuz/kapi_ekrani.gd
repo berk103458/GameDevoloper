@@ -359,7 +359,12 @@ func _soru_sor(i: int) -> void:
 	_sorulan.append(i)
 	_yaz("[color=#4A6B8A]%s:[/color] %s\n[b]%s:[/b] %s" % [tr("arayuz.sohbet.sen"), tr(_gelen.sorular[i][0]),
 		tr(_gelen.ad_anahtari), tr(_gelen.sorular[i][1])])
-	if _sorulan.size() >= oturum.ayarlar.azami_soru or _sorulan.size() >= _gelen.sorular.size():
+	# Cevap uzunluğu kadar konuşur; sorgu uzadıkça (üçüncü sorudan sonra) gerginleşir.
+	if _sorulan.size() >= 3 and sahne.gelen_hareket_var("gergin"):
+		sahne.gelen_gergin()
+	else:
+		sahne.gelen_konus(clampf(tr(_gelen.sorular[i][1]).length() / 28.0, 1.5, 5.0))
+	if _sorulan.size() >= _gelen.soru_siniri(oturum.ayarlar.azami_soru) or _sorulan.size() >= _gelen.sorular.size():
 		_karar_goster()
 	else:
 		_sohbet_goster()
@@ -397,7 +402,7 @@ func _karar_goster() -> void:
 	# Eylemler (defterin altı) hemen görünür; yalnız kararlar sırayla belirir.
 	if _gelen.heybe != null:
 		_heybe_dugmesi()
-	if oturum.perde == 1 and _sorulan.size() < mini(oturum.ayarlar.azami_soru, _gelen.sorular.size()):
+	if oturum.perde == 1 and _sorulan.size() < mini(_gelen.soru_siniri(oturum.ayarlar.azami_soru), _gelen.sorular.size()):
 		var g := _dugme(tr("arayuz.kapi.sohbete_don"), _eylemler)
 		g.pressed.connect(_sohbet_goster)
 	_sirayla_goster(_karar_dugmeleri)
@@ -503,7 +508,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	hud.guncelle()
 	_daralt(false)
 	_adim_sesi(8)
-	await sahne.gelen_git(sonuc["kaldi"])
+	await sahne.gelen_git(sonuc["kaldi"], _gelen.tehlikeli or not _gelen.adli)
 	if sonuc["kirilan"] >= 0:
 		oturum_bitti.emit(sonuc["kirilan"])
 		return

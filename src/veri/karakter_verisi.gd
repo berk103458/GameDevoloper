@@ -31,6 +31,10 @@ extends Resource
 @export var en_erken_gece: int = 0
 ## Portre dosya kökü: `char_<portre>_neutral_card.png`.
 @export var portre: StringName
+## Bu karaktere sorulabilecek en çok soru; 0 = genel ayar (`OyunAyarlari.azami_soru`).
+@export var azami_soru: int = 0
+## Kötü niyetli mi (karakter sayfasındaki fraksiyon): retteki tepki öfke olur, masumda yıkılma.
+@export var tehlikeli: bool = false
 
 
 ## Verilen kararın bar etkisini döner; tanınmayan karar için boş dizi.

@@ -6,6 +6,9 @@ Kredi tasarrufu için:
 - Doku (refine, 10 kredi) yalnız karakterlerde ve `doku=True` olan yapılarda yapılır;
   diğer nesneler dokusuz gelir ve oyunda düz palet renkleriyle boyanır.
 - İskelet (rig, 5 kredi) yalnız karakterlerde; yürüme ve koşma animasyonu bunun içinde gelir.
+- Hareketler (animasyon, hareket başına 3 kredi): iskeletli her karakter için `chr_istemleri.HAREKETLER`
+  (bekle, konuş, gergin, panik, öfke, sevinç, selam) → `<ad>_<hareket>.glb`. `--hareketsiz` ile atlanır.
+- karakterler/CHR_001–030: istemler `tools/model/chr_istemleri.py`.
 - Her adımın görev kimliği `tools/model/durum.json`a yazılır; betik yeniden çalışınca biten
   adımları atlar (kredi iki kez harcanmaz).
 
@@ -13,6 +16,8 @@ Kullanım:
     MESHY_API_KEY=... python3 tools/model/meshy_uret.py --kuru            # yalnız plan ve kredi tahmini
     MESHY_API_KEY=... python3 tools/model/meshy_uret.py --sadece asker    # tek model
     MESHY_API_KEY=... python3 tools/model/meshy_uret.py --butce 400       # hepsi, en çok 400 kredi
+    MESHY_API_KEY=... python3 tools/model/meshy_uret.py --grup chr        # yalnız CHR_001–030
+    MESHY_API_KEY=... python3 tools/model/meshy_uret.py --hareket-listesi # kitaplıktaki hareketlerin adları
 Anahtar `--anahtar DOSYA` ile de verilebilir. Anahtar asla repoya yazılmaz.
 """
 import argparse
@@ -21,14 +26,19 @@ import os
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from chr_istemleri import CHR, HAREKETLER, TABAN, hareket_listesi  # noqa: E402
 
 KOK = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."))
 CIKTI = os.path.join(KOK, "assets", "model")
-DURUM = os.path.join(os.path.dirname(__file__), "durum.json")
+# Paralel çalıştırmada her süreç kendi durum dosyasını kullanabilir (MESHY_DURUM=...).
+DURUM = os.environ.get("MESHY_DURUM") or os.path.join(os.path.dirname(__file__), "durum.json")
 API = "https://api.meshy.ai/openapi"
 MODEL = "meshy-6-lite"
-FIYAT = {"onizleme": 5, "doku": 10, "iskelet": 5}
+FIYAT = {"onizleme": 5, "doku": 10, "iskelet": 5, "hareket": 3}
 
 STIL = ("Stylized low-poly game asset for a 13th-century Anatolian frontier setting (year 1243, Seljuk borderland). "
         "Simple clean shapes, readable silhouette, hand-made rustic materials, muted colours. No text, no modern items. ")
@@ -68,6 +78,10 @@ VARLIKLAR = {
     "agac": ("nesne", "A bare gnarled old walnut tree, low poly, few branches.", False, False, 0, 2000),
     "kaya": ("nesne", "A cluster of three rough grey rocks.", False, False, 0, 600),
 }
+# karakterler/CHR_001–030 (doku + iskelet + hareketler)
+for _k, (_ad, _cins, _boy, _istem) in CHR.items():
+    VARLIKLAR[_k] = ("karakter", TABAN + _istem, True, True, _boy, 8000)
+HAREKETSIZ = False
 
 
 def anahtar_al(dosya):
@@ -117,14 +131,75 @@ def indir(url, hedef):
         f.write(r.read())
 
 
-def maliyet(ad):
+def diskte(ad):
+    """Model dosyası zaten repoda mı (durum.json kaybolsa da kredi iki kez harcanmaz)."""
+    tur, _, _, iskelet, _, _ = VARLIKLAR[ad]
+    return os.path.exists(os.path.join(CIKTI, tur, ad + ("_yuru.glb" if iskelet else ".glb")))
+
+
+def maliyet(ad, durum=None):
     tur, _, doku, iskelet, _, _ = VARLIKLAR[ad]
-    return FIYAT["onizleme"] + (FIYAT["doku"] if doku else 0) + (FIYAT["iskelet"] if iskelet else 0)
+    d = (durum or {}).get(ad, {})
+    if diskte(ad) and "iskelet" not in d:
+        return 0  # elle ya da eski oturumda üretilmiş; iskelet görevi bilinmediği için hareket de üretilemez
+    m = 0
+    if not d.get("model_bitti"):
+        m += FIYAT["onizleme"] + (FIYAT["doku"] if doku else 0) + (FIYAT["iskelet"] if iskelet else 0)
+    if iskelet and not HAREKETSIZ:
+        m += FIYAT["hareket"] * sum(1 for h in hareket_listesi(ad) if not d.get("hareketler", {}).get(h, {}).get("bitti"))
+    return m
+
+
+def hareket_kimligi(anahtar, hareket, durum):
+    """Kitaplıkta adı arar; ilk tam eşleşen (yoksa ilk sonuç) kimliği durum.json'a yazar."""
+    kitap = durum.setdefault("_kitaplik", {})
+    if hareket in kitap:
+        return kitap[hareket]
+    for ad in HAREKETLER[hareket]:
+        g = istek(anahtar, "GET", "/v1/animations/library?" + urllib.parse.urlencode({"search": ad}))
+        liste = g if isinstance(g, list) else g.get("result", g.get("data", []))
+        if not liste:
+            continue
+        tam = [x for x in liste if ad.lower() in (str(x.get("key", "")).lower(), str(x.get("name", "")).lower())]
+        if not tam:
+            continue
+        sec = (tam or liste)[0]
+        kitap[hareket] = {"id": int(sec.get("action_id", sec.get("id"))), "ad": sec.get("name", ad)}
+        kaydet(durum)
+        return kitap[hareket]
+    raise RuntimeError("kitaplıkta bulunamadı: %s %s" % (hareket, HAREKETLER[hareket]))
+
+
+def hareketleri_uret(anahtar, ad, d, durum):
+    """İskelet görevinden her hareket için ayrı animasyon görevi; `<ad>_<hareket>.glb`."""
+    yapilan = d.setdefault("hareketler", {})
+    for h in hareket_listesi(ad):
+        if yapilan.get(h, {}).get("bitti"):
+            continue
+        k = hareket_kimligi(anahtar, h, durum)
+        g = yapilan.setdefault(h, {})
+        if "gorev" not in g:
+            g["gorev"] = istek(anahtar, "POST", "/v1/animations", {
+                "rig_task_id": d["iskelet"], "action_id": k["id"],
+                "post_process": {"operation_type": "change_fps", "fps": 30}})["result"]
+            kaydet(durum)
+        r = bekle(anahtar, "/v1/animations/" + g["gorev"])["result"]
+        indir(r["animation_glb_url"], os.path.join(CIKTI, "karakter", "%s_%s.glb" % (ad, h)))
+        g["bitti"] = True
+        kaydet(durum)
+        print("    hareket:", ad, h, "←", k["ad"], flush=True)
 
 
 def uret(anahtar, ad, durum):
     tur, istem, doku, iskelet, boy, poli = VARLIKLAR[ad]
     d = durum.setdefault(ad, {})
+    if d.get("model_bitti") or (d.get("bitti") and "model_bitti" not in d):
+        d["model_bitti"] = True
+        if iskelet and not HAREKETSIZ and "iskelet" in d:
+            hareketleri_uret(anahtar, ad, d, durum)
+        d["bitti"] = True
+        kaydet(durum)
+        return
     if "onizleme" not in d:
         govde = {"mode": "preview", "prompt": (STIL + istem)[:800], "ai_model": MODEL,
                  "should_remesh": True, "topology": "triangle", "target_polycount": poli, "target_formats": ["glb"]}
@@ -150,6 +225,10 @@ def uret(anahtar, ad, durum):
         r = bekle(anahtar, "/v1/rigging/" + d["iskelet"])["result"]
         indir(r["rigged_character_glb_url"], os.path.join(CIKTI, tur, ad + "_iskelet.glb"))
         indir(r["basic_animations"]["walking_glb_url"], os.path.join(CIKTI, tur, ad + "_yuru.glb"))
+    d["model_bitti"] = True
+    kaydet(durum)
+    if iskelet and not HAREKETSIZ:
+        hareketleri_uret(anahtar, ad, d, durum)
     d["bitti"] = True
     kaydet(durum)
 
@@ -165,14 +244,28 @@ def main():
     a.add_argument("--sadece", nargs="*")
     a.add_argument("--butce", type=int, default=10**9, help="bu çalıştırmada harcanacak en çok kredi")
     a.add_argument("--kuru", action="store_true")
+    a.add_argument("--grup", choices=["chr", "eski"], help="chr: CHR_001–030; eski: ilk 26 varlık")
+    a.add_argument("--hareketsiz", action="store_true", help="animasyon adımını atla")
+    a.add_argument("--hareket-listesi", action="store_true", help="kitaplıktaki hareketleri yaz ve çık")
     o = a.parse_args()
+    global HAREKETSIZ
+    HAREKETSIZ = o.hareketsiz
     durum = json.load(open(DURUM)) if os.path.exists(DURUM) else {}
-    adlar = o.sadece or list(VARLIKLAR)
-    bekleyen = [x for x in adlar if not durum.get(x, {}).get("bitti")]
-    toplam = sum(maliyet(x) for x in bekleyen)
+    if o.hareket_listesi:
+        g = istek(anahtar_al(o.anahtar), "GET", "/v1/animations/library")
+        for x in (g if isinstance(g, list) else g.get("result", g.get("data", []))):
+            print(x.get("action_id", x.get("id")), x.get("name"), x.get("category", ""), x.get("sub_category", ""))
+        return
+    adlar = o.sadece or [x for x in VARLIKLAR
+                         if not o.grup or (o.grup == "chr") == x.startswith("chr_")]
+    hazir = [x for x in adlar if diskte(x) and "iskelet" not in durum.get(x, {})]
+    if hazir:
+        print("Diskte hazır, atlanıyor (%d): %s" % (len(hazir), " ".join(hazir)))
+    bekleyen = [x for x in adlar if x not in hazir and maliyet(x, durum) > 0]
+    toplam = sum(maliyet(x, durum) for x in bekleyen)
     print("Bekleyen %d model, tahmini %d kredi" % (len(bekleyen), toplam))
     for x in bekleyen:
-        print("  %-14s %3d kredi" % (x, maliyet(x)))
+        print("  %-14s %3d kredi" % (x, maliyet(x, durum)))
     if o.kuru:
         return
     anahtar = anahtar_al(o.anahtar)
@@ -180,7 +273,7 @@ def main():
     print("Bakiye:", bakiye)
     harcanan = 0
     for x in bekleyen:
-        m = maliyet(x)
+        m = maliyet(x, durum)
         if harcanan + m > o.butce:
             print("Bütçe doldu; %s atlandı." % x)
             continue

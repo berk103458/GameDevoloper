@@ -1,6 +1,9 @@
 ## Yürüyebilen karakter: Meshy iskeletli modeli, yürüme animasyonu ve durma animasyonu.
 ## Durma: dinlenme pozundan kurulan "bekle" animasyonu + DurusDuzeltici (nefes, ağırlık aktarma, bakış).
 ## DurusDuzeltici her iki durumda da kolları indirir, bileği düzeltir ve avucu bacağa çevirir.
+## Meshy hareketleri: `<ad>_<hareket>.glb` varsa (bekle, konus, sevinc, ofke, panik, gergin) animasyonu kitaplığa
+## eklenir ve prosedürel hareketin yerine o oynar; bekleme dışındaki kliplerde DurusDuzeltici susar (kolları klip belirler).
+## Üretim: tools/model/meshy_uret.py (hareket adları tools/model/chr_istemleri.py).
 class_name KarakterModel
 extends Node3D
 
@@ -8,14 +11,26 @@ const YURUME_HIZI := 1.9  # m/s (oyun temposu için gerçekten biraz hızlı)
 const BEKLE := "bekle"
 ## Yürüme ile durma arasındaki karışım süresi (s).
 const GECIS := 0.3
+const HAREKETLER := ["bekle", "konus", "sevinc", "ofke", "panik", "gergin"]
+const DONGULU := ["bekle", "konus", "gergin"]
+## Bir klip dosyasının izlerinin en az bu payı bu iskelette çözülmeli; yoksa klip alınmaz.
+const IZ_ESIGI := 0.8
 
 var _oynatici: AnimationPlayer
 var _anim: String = ""
 var _duzeltici: DurusDuzeltici
 var _bekleme_hedef := 1.0
+## Yüklenen Meshy hareketleri: hareket adı → kitaplıktaki animasyon adı (`m_<hareket>`).
+var _klipler: Dictionary = {}
+var _duzeltici_hedef := 1.0
+var _klip_sirasi := 0
+
+## Klip dosyalarından çıkarılan animasyonlar (yol → Animation); aynı karakterin kopyaları paylaşır.
+static var _klip_onbellek: Dictionary = {}
 
 
-func kur(model: Node3D) -> void:
+## `ad`: model adı; `<ad>_<hareket>.glb` dosyaları bununla aranır.
+func kur(model: Node3D, ad: String = "") -> void:
 	if model == null:
 		var m := MeshInstance3D.new()
 		var c := CapsuleMesh.new()
@@ -40,12 +55,15 @@ func kur(model: Node3D) -> void:
 		_duzeltici.faz = randf() * 20.0
 		_duzeltici.bekleme = 1.0
 		sk[0].add_child(_duzeltici)
+	if ad != "":
+		_klipleri_yukle(ad)
 	dur()
 
 
 func _process(delta: float) -> void:
 	if _duzeltici != null:
 		_duzeltici.bekleme = move_toward(_duzeltici.bekleme, _bekleme_hedef, delta / GECIS)
+		_duzeltici.influence = move_toward(_duzeltici.influence, _duzeltici_hedef, delta / GECIS)
 
 
 ## Hedefe yürür (dünya konumu), yüzünü yürüdüğü yöne çevirir.
@@ -59,6 +77,8 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI) -> void:
 		_oynatici.play(_anim, GECIS)
 		_oynatici.speed_scale = hiz / 1.35
 	_bekleme_hedef = 0.0
+	_duzeltici_hedef = 1.0
+	_klip_sirasi += 1
 	var t := create_tween()
 	t.tween_property(self, "position", hedef, fark.length() / hiz)
 	await t.finished
@@ -72,6 +92,10 @@ func dur() -> void:
 	if _oynatici == null:
 		return
 	_oynatici.speed_scale = 1.0
+	if _klipler.has("bekle"):
+		_klip_oynat("bekle")
+		return
+	_duzeltici_hedef = 1.0
 	if _oynatici.has_animation(BEKLE):
 		_oynatici.play(BEKLE, GECIS)
 	else:
@@ -88,12 +112,112 @@ func calis(ad: StringName) -> void:
 			_duzeltici.duygu = &""
 
 
-## Anlık duygu hareketi (&"sevinc" / &"ofke"); süresi kadar bekler.
+## Anlık duygu hareketi (&"sevinc" / &"ofke" / &"panik"); süresi kadar bekler.
+## Meshy klibi varsa o oynar (en çok 3 s), yoksa prosedürel hareket (panik → öfke hareketi).
 func duygu(ad: StringName) -> void:
+	if _klipler.has(String(ad)):
+		var sira := _klip_oynat(String(ad))
+		var uzunluk := _oynatici.get_animation(_klipler[String(ad)]).length
+		await get_tree().create_timer(clampf(uzunluk * 0.9, 0.6, 3.0)).timeout
+		if is_inside_tree() and sira == _klip_sirasi:
+			dur()
+		return
 	if _duzeltici == null:
 		return
-	_duzeltici.duygu_baslat(ad)
+	_duzeltici.duygu_baslat(&"ofke" if ad == &"panik" else ad)
 	await get_tree().create_timer(_duzeltici.duygu_suresi * 0.8).timeout
+
+
+## Konuşma hareketi `sure` saniye (klip yoksa bir şey yapmaz); sonra beklemeye döner.
+func konus(sure: float) -> void:
+	if not _klipler.has("konus"):
+		return
+	var sira := _klip_oynat("konus")
+	await get_tree().create_timer(sure).timeout
+	if is_inside_tree() and sira == _klip_sirasi:
+		dur()
+
+
+## Gerginlik (sorgu sıkıştıkça): döngülü klip; yoksa bir şey yapmaz. Bekleme yerine geçer.
+func gergin() -> void:
+	if _klipler.has("gergin"):
+		_klip_oynat("gergin")
+
+
+## Bu hareketin Meshy klibi yüklü mü.
+func hareket_var(ad: String) -> bool:
+	return _klipler.has(ad)
+
+
+func _klip_oynat(ad: String) -> int:
+	_klip_sirasi += 1
+	# Meshy'nin bekleme klibi kolları A-pozundan açık bırakır: DurusDuzeltici kolları indirip eli düzeltir.
+	# Diğer kliplerde (konuşma, eğilme, öfke, diz çökme) kolları klip belirler.
+	_duzeltici_hedef = 1.0 if ad == "bekle" else 0.0
+	_oynatici.speed_scale = 1.0
+	_oynatici.play(_klipler[ad], GECIS)
+	return _klip_sirasi
+
+
+## `<ad>_<hareket>.glb` dosyalarındaki animasyonu bu oynatıcının kitaplığına ekler. İzleri bu iskelette
+## çözülmeyen klip alınmaz (başka bir iskeletten gelmiş olabilir).
+func _klipleri_yukle(ad: String) -> void:
+	if _oynatici == null:
+		return
+	var kok := _oynatici.get_node_or_null(_oynatici.root_node)
+	if kok == null:
+		return
+	var kitap := _oynatici.get_animation_library(&"")
+	for h: String in HAREKETLER:
+		var yol := Dunya3B.hareket_yolu(ad, h)
+		if yol == "":
+			continue
+		var adi := "m_" + h
+		if not kitap.has_animation(adi):
+			var anim := _klip_al(yol)
+			if anim == null or not _izler_cozulur(anim, kok):
+				continue
+			anim = anim.duplicate()
+			anim.loop_mode = Animation.LOOP_LINEAR if h in DONGULU else Animation.LOOP_NONE
+			kitap.add_animation(adi, anim)
+		_klipler[h] = adi
+
+
+static func _klip_al(yol: String) -> Animation:
+	if _klip_onbellek.has(yol):
+		return _klip_onbellek[yol]
+	var anim: Animation = null
+	var kaynak := load(yol)
+	if kaynak is Animation:
+		_klip_onbellek[yol] = kaynak
+		return kaynak
+	var sahne := kaynak as PackedScene
+	if sahne != null:
+		var n := sahne.instantiate()
+		var ap := n.find_children("*", "AnimationPlayer", true, false)
+		if not ap.is_empty():
+			var o := ap[0] as AnimationPlayer
+			var liste := o.get_animation_list()
+			if not liste.is_empty():
+				anim = o.get_animation(liste[0])
+		n.free()
+	_klip_onbellek[yol] = anim
+	return anim
+
+
+func _izler_cozulur(anim: Animation, kok: Node) -> bool:
+	var toplam := 0
+	var cozulen := 0
+	for i in anim.get_track_count():
+		var yol := anim.track_get_path(i)
+		toplam += 1
+		var dugum := kok.get_node_or_null(NodePath(String(yol.get_concatenated_names())))
+		if dugum is Skeleton3D:
+			if (dugum as Skeleton3D).find_bone(String(yol.get_concatenated_subnames())) >= 0:
+				cozulen += 1
+		elif dugum != null:
+			cozulen += 1
+	return toplam > 0 and float(cozulen) / toplam >= IZ_ESIGI
 
 
 ## Bir noktaya döner (Y ekseninde).

@@ -27,3 +27,6 @@ Durum: ✅ bitti · 🔨 bu turda · ⏳ sırada. Sıra önceliktir: önce kapı
 14. ✅ Köy geliştikçe tasarımı değişsin; geliştirmeler (sur büyüt, köy konağı vb.). — `design/gdd/koy-gelisimi.md`
 15. ✅ Ses efektleri ve müzikler (düğün müziği, köy hayatı, olay sesleri). — `design/gdd/ses.md`
 16. ✅ Köy içi ek olaylar ve mini oyunlar. — `design/gdd/koy-mini-oyunlari.md`
+
+## 5 Ekim 2026
+17. ✅ karakterler/CHR_001–030: Meshy modelleri, hareketleri ve oyuna ekleme — `design/gdd/karakter-sayfalari.md`

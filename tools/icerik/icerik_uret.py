@@ -12,6 +12,7 @@ burada değiştirip betiği yeniden çalıştırın:
 """
 import csv
 import os
+import sys
 
 KOK = os.path.join(os.path.dirname(__file__), "..", "..")
 METIN: dict[str, str] = {}
@@ -334,6 +335,11 @@ def duzle(liste, ust=-1, cikti=None):
     return cikti
 
 
+# karakterler/CHR_001–030: sayfalardan ayrıştırılır (tools/icerik/karakter_sayfalari.py)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from karakter_sayfalari import karakterler as _chr_karakterleri  # noqa: E402
+KARAKTERLER += _chr_karakterleri()[0]
+
 for k in KARAKTERLER:
     i = k["id"]
     ad = t("karakter.%s.ad" % i, k["ad"])
@@ -342,6 +348,7 @@ for k in KARAKTERLER:
         "sohbet_id": sn(i), "karar_secenekleri": psa(k["secenekler"]),
         "donus_kurali": sn(k["kural"]), "en_erken_gece": k["erken"], "portre": sn(k.get("portre", i)),
         "p0": 0.6, "d": 0.5, "k_azami": 4, "n_ziyaret": k.get("n", 1), "g_min": 2, "g_max": 4,
+        "azami_soru": k.get("azami_soru", 0), "tehlikeli": k.get("tehlikeli", False),
     }
     for karar in ("kabul", "ret", "rusvet", "kisla"):
         alan["etki_" + karar] = pia(k["etki"].get(karar, [0, 0, 0, 0]))

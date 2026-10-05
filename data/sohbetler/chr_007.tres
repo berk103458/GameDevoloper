@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SohbetVerisi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/sohbet_verisi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"chr_007"
+giris_anahtarlari = PackedStringArray("sohbet.chr_007.giris1")
+acilis_anahtarlari = PackedStringArray("sohbet.chr_007.acilis1")
+soru_anahtarlari = PackedStringArray("sohbet.chr_007.s1", "sohbet.chr_007.s2", "sohbet.chr_007.s3", "sohbet.chr_007.s4", "sohbet.chr_007.s5", "sohbet.chr_007.s6", "sohbet.chr_007.s7", "sohbet.chr_007.s8", "sohbet.chr_007.s9", "sohbet.chr_007.s10", "sohbet.chr_007.s11")
+cevap_anahtarlari = PackedStringArray("sohbet.chr_007.c1", "sohbet.chr_007.c2", "sohbet.chr_007.c3", "sohbet.chr_007.c4", "sohbet.chr_007.c5", "sohbet.chr_007.c6", "sohbet.chr_007.c7", "sohbet.chr_007.c8", "sohbet.chr_007.c9", "sohbet.chr_007.c10", "sohbet.chr_007.c11")
+soru_ziyareti = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+soru_ust = PackedInt32Array(-1, 0, 1, 0, 3, -1, 5, 6, 6, -1, 9)

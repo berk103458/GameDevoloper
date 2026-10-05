@@ -185,7 +185,15 @@ static func karakter(ad: String) -> KarakterModel:
 	k.name = ad
 	var yol := _yol(ad + "_yuru", "karakter")
 	if yol != "":
-		k.kur((_sahne(yol)).instantiate())
+		k.kur((_sahne(yol)).instantiate(), ad)
 	else:
 		k.kur(null)
 	return k
+
+
+## Meshy hareket klibi: ayıklanmış `hareket/<ad>_<hareket>.res` (repoda), yoksa ham `<ad>_<hareket>.glb`; yoksa "".
+static func hareket_yolu(ad: String, hareket: String) -> String:
+	var res := "%shareket/%s_%s.res" % [MODEL_KOK, ad, hareket]
+	if ResourceLoader.exists(res):
+		return res
+	return _yol(ad + "_" + hareket, "karakter")

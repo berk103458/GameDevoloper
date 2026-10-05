@@ -191,6 +191,36 @@ heybe.toplam,Değeri: %d akçe
 heybe.yakalandi,Yalan yakalandı
 karakter.aydogdu.ad,Aydoğdu
 karakter.ayse_baci.ad,Ayşe Bacı
+karakter.chr_001.ad,Hamza
+karakter.chr_002.ad,Meryem
+karakter.chr_003.ad,Haydar
+karakter.chr_004.ad,İlyas
+karakter.chr_005.ad,Kerim
+karakter.chr_006.ad,Seyit
+karakter.chr_007.ad,Şemsettin
+karakter.chr_008.ad,Dudu Hatun
+karakter.chr_009.ad,Abbas
+karakter.chr_010.ad,Gaffar
+karakter.chr_011.ad,İdris
+karakter.chr_012.ad,Zeynep
+karakter.chr_013.ad,Osman Dayı
+karakter.chr_014.ad,Bekir
+karakter.chr_015.ad,Emine Hatun
+karakter.chr_016.ad,Halil
+karakter.chr_017.ad,Fadime
+karakter.chr_018.ad,Rahime
+karakter.chr_019.ad,İsmail
+karakter.chr_020.ad,Satılmış
+karakter.chr_021.ad,Cemil
+karakter.chr_022.ad,Bayram
+karakter.chr_023.ad,Necip
+karakter.chr_024.ad,Fehmi
+karakter.chr_025.ad,Nevzat
+karakter.chr_026.ad,Salih
+karakter.chr_027.ad,Rasim
+karakter.chr_028.ad,Hulusi
+karakter.chr_029.ad,Basri
+karakter.chr_030.ad,Latif
 karakter.hasan_celebi.ad,Hasan Çelebi
 karakter.karaca_usta.ad,Karaca Usta
 karakter.miraen.ad,Miraen
@@ -611,6 +641,726 @@ sohbet.ayse_baci.s6,Dokuduğunuz satılır mı?
 sohbet.ayse_baci.s7,Tezgâha ne oldu?
 sohbet.ayse_baci.s8,Tamir edilir mi?
 sohbet.ayse_baci.s9,Neden döndün?
+sohbet.chr_001.acilis1,"Aç kapıyı nöbetçi, gün devrildi devrilecek. Dağda ayaz bastırdı, kurt uluması vadiyi sardı. Sırtımdaki iki parça dağ odununu köye teslim edip bir tas sıcak çorbaya sığınmaya geldim."
+sohbet.chr_001.c1,"Dağ yolu tenhaydı ağam. Eşkıya dediğin altın yüklü kervana pusu kurar, benim gibi iki çürük meşe kütüğü taşıyan baldırı çıplağa kim ok atar? Köpeğe kemik atsan dönüp bakmaz halime."
+sohbet.chr_001.c10,"(Gözleri dehşetle açılır, sırtındaki yükü gürültüyle yere düşürür) Sen... Sen nereden anladın? Kütüğün içini kimse göremezdi!"
+sohbet.chr_001.c11,"(Dizlerinin bağı çözülür, çöker) Lanet olsun... Ağabeyim İlyas bu gece üçüncü nöbette ambarı ateşe vermemi emretti. Yangın çıkınca ahali oraya koşacak, çete de batı kapısından girip tahılı yağmalayacaktı. Her şeyi anlattım, canımı bağışla!"
+sohbet.chr_001.c2,"Öyle dersin de muhafız ağa... Çete beni görmedi değil hani. Vadide at kişnemesi duyunca kendimi çalılığa attım, nefesimi tuttum. Ucuz kurtuldum velhasıl."
+sohbet.chr_001.c3,"(Dişlerini sıkar, sesini kısarak parmaklıkların arasına sokulur) Tamam... Bağırma ahaliye. Boğazda Kızıl Karga'nın gözcüleri kesti önümü. 'Köyün içine girip haber uçurmazsan kelleni gövdenden ayırırız' dediler. Beni zorla önden saldılar!"
+sohbet.chr_001.c4,"(Gözleri seğirir, eli kuşağındaki meşin kemere kayar) Dilini kolla nöbetçi! Kimsenin uşağı değilim ben! Kendi ekmeğimin peşindeyim, başıma dert sarmadan aç şu kanadı!"
+sohbet.chr_001.c5,"(Dişlerini sıkar, sesini kısarak parmaklıkların arasına sokulur) Tamam... Bağırma ahaliye. Boğazda Kızıl Karga'nın gözcüleri kesti önümü. 'Köyün içine girip haber uçurmazsan kelleni gövdenden ayırırız' dediler. Beni zorla önden saldılar!"
+sohbet.chr_001.c6,"Ben Taşlıbel köyünün rençberiyim ağam. Belimiz bükük olsa da dik duruşumuz atadan kalma dağlı inadıdır. Ocak söndü, beylik vergiye bağladı, biz de dağıldık."
+sohbet.chr_001.c7,"(Bir an yutkunur, alnında ter taneleri belirir) Şey... Sipahi İshak Bey derlerdi... Yok, sancak beyi teftişe gelmezdi, biz vergiyi köyün ihtiyarına sayardık."
+sohbet.chr_001.c8,"(Başını öne eğer, omuzları çöker) Doğrudur... Köyümüz dağıldı. Adım Hamza'dır. Kızıl Karga'nın reisi İlyas benim ağabeyim olur. Beni bu batağa o sürükledi, ama ben kan dökülsün istemem gayrı."
+sohbet.chr_001.c9,"(Gözleri vahşice parlar, hırsla tıslar) Evet be! İlyas'ın kardeşi Hamza'yım ben! Dağda açlıktan kırılacak mıydık? Ağabeyim asılan babamızın öcünü alacak! Ama beni buraya yem diye gönderdi, biliyorum! İzin ver sığınayım, çetenin yerini dökeyim önüne!"
+sohbet.chr_001.giris1,"Ocağı sönmüş, atı nalsızlıktan çatlamış, sırtında dağ kütüğü taşıyıp günü kurtarmaya çalışan garip bir odun nakliyecisi. Sağ el başparmak tırnağı dibinde katranlaşmış kükürt sarılığı ve avuç içinde taze kav isi; parmak boğumlarında ip bağlama sürtünmesi izi."
+sohbet.chr_001.s1,Karaboran boğazında Kızıl Karga çetesi kol gezerken sırtında yükle bu dağları nasıl tek başına aştın?
+sohbet.chr_001.s10,"Sırtındaki yükten odun değil, neft ve kükürt kokusu yayılıyor! İndir o bağı yere!"
+sohbet.chr_001.s11,"Yalanın buraya kadardı, şimdi her şeyi dökül!"
+sohbet.chr_001.s2,"Haklısın, dağın haydutu senin gibi sefilin peşine düşmez."
+sohbet.chr_001.s3,"Çalılığa sinen adamın çizmesinde dağ dikeni olur, senin çizmende harami ocağının külü var!"
+sohbet.chr_001.s4,Yalan söylersin! Karaboran'da Kızıl Karga uçan kuştan haraç keser. Sırtında yükle o boğazdan sağ geçen adam ya canını satmıştır ya da onların uşağıdır!
+sohbet.chr_001.s5,Kuşağına giden o elini indir! Yalanın sesinde titriyor; Karaboran'da kimin adına yol gözlüyorsun?
+sohbet.chr_001.s6,Oduncu kılığına bürünmüşsün lakin yürüyüşün bir levent gibi sert ve adımlı. Kimin ocağındansın?
+sohbet.chr_001.s7,"Madem Taşlıbel'densin, oranın sipahisi kimdi, tahrir defterine hangi sancak adına yazıldınız söyle bakalım?"
+sohbet.chr_001.s8,"Korkma, Taşlıbel'in yakılıp kül edildiğini bilirim. Dağdan kaçan mazluma kapımız kapanmaz, doğruyu söyle yeter."
+sohbet.chr_001.s9,"Taşlıbel iki kış evvel Kızıl Karga'ya yataklık etti diye sancak sipahilerince yerle bir edildi! Yolda çeteyle anlaştığını zaten biliyorum, asıl adın ne senin?"
+sohbet.chr_002.acilis1,"Kurban olayım nöbetçi ağa, kapıyı yüzüme kapama. Sazlıkova'yı sel aldı, mezramız çamura battı. Ben kötü biri değilim; bostan bellerim, kuyudan kova çekerim, ahır süpürürüm, yeter ki başımı sokacak bir dam verin."
+sohbet.chr_002.c1,"Dağ yolunda ak sakallı, pir derviş babalara denk geldim ağam. Halime acıdılar. 'Şu tepeyi aşınca ulu bir köy vardır, suyu mübarektir, var git oraya sığın' dediler, elime de azık verdiler."
+sohbet.chr_002.c10,"(Dehşetle bileklerindeki mor kabarcıklara bakar, nefesi düğümlenir) Z-zehir mi? Derimdeki bu yaralar... tohum yüzünden mi oldu? Bana mübarek dediler... Günahıma girdiler ağam!"
+sohbet.chr_002.c11,"(Torbayı dehşet içinde yere fırlatır, diz çöküp saçını başını yolar) Allahım sen affet! Bilmiyordum... Köyün çeşmesini, kuzuları kurutacaklarmış! O adamlar 'Biz arkadan geleceğiz, ahali sayıklamaya başlayınca köye çökeceğiz' diye gülüşüyorlardı. Ben ne yaptım!"
+sohbet.chr_002.c2,"Bana çok merhametli davrandılar ağam... Sırtımı sıvazladılar, hayır duaları ettiler. Ben de onların sözüne bel bağlayıp koştum geldim."
+sohbet.chr_002.c3,"(Hıçkırıklarını tutamayarak) Dediler ki... 'Bu torbadaki kutsal tohumları köyün ana su kuyusuna dökersen, kırk gün sonra tarlalardan altın başaklar fışkırır, köyde kimse aç kalmaz.' Ben sadece iyilik etmek istedim!"
+sohbet.chr_002.c4,"(Gözleri dolar, titreyerek geriye çekilir) Günahımı alma ağam! Onlar hak aşığı dervişlerdi! 'Köyün suyuna bereket getireceksin' dediler, yalan mı söyleyecekti nur yüzlü pirler?"
+sohbet.chr_002.c5,"(Hıçkırıklarını tutamayarak) Dediler ki... 'Bu torbadaki kutsal tohumları köyün ana su kuyusuna dökersen, kırk gün sonra tarlalardan altın başaklar fışkırır, köyde kimse aç kalmaz.' Ben sadece iyilik etmek istedim!"
+sohbet.chr_002.c6,"Biz Balçıkbükü'nde üç öksüz kardeştik ağam. Babam bendi tamir ederken balçıkta can verdi. Ben evin en büyüğüyüm, kardeşlerime ben analık ederim."
+sohbet.chr_002.c7,"(Parmaklarını kıvırır, telaşlanır) Kış çıkarken... arpa atılır toprağa... Çeltik bataklıkta yatar ağam, ama bizim tarlamız yoktu ki, beyin ortakçısıydık biz..."
+sohbet.chr_002.c8,"(Gözyaşlarını fistanının yenine siler) Adım Meryem'dir ağam... Kardeşlerim açlıktan tahta gibi kurudu mezrada. O adamlar 'Bu dediklerimizi yaparsan kardeşlerine bir çuval un, bir küp kavurma yollarız' dediler. Çaresiz kaldım!"
+sohbet.chr_002.c9,"(Feryat ederek ağlar) Evet, kardeşlerim ölmesin diye yaptım! Dağdaki o silahlı adamlar tuttu yakamdan! 'Kuyuya bu tohumları saçmazsan o bebeleri bataklıkta boğarız' dediler! Ben katil değilim ağam, canımı alın kardeşlerime kıymayın!"
+sohbet.chr_002.giris1,"Sel felaketinden canını zor kurtarmış, bir lokma ekmek ve kuru samanlık karşılığında her türlü ağır ırgatlığa razı öksüz bir köy kızı. İki elinin ayasında ve bileklerinde su toplamış morumsu kabarcıklar, çatlaklar ve deliceotu özsuyunun bıraktığı asitli yanık lekeleri."
+sohbet.chr_002.s1,"Sazlıkova sele gittiyse o dağ patikalarına tek başına nasıl vurdun, seni buraya kim yolladı?"
+sohbet.chr_002.s10,"Kucağındaki torbadan acı badem kokusu tütüyor, bileklerin de yara içinde! Göster o torbayı!"
+sohbet.chr_002.s11,"Gözünü aç kızım, seni bir köy dolusu insanı zehirlemeye alet etmişler!"
+sohbet.chr_002.s2,"Dervişler düşkünün elinden tutar, iyi insanlara rast gelmişsin."
+sohbet.chr_002.s3,"Sırtını sıvazlayan o adamlar sana sadece yol duası mı etti? Gözlerini kaçırma benden, başka ne tembihlediler?"
+sohbet.chr_002.s4,"Bu dağ başında derviş ne arar be kızım! O dediğin adamlar yolu tutan harami çakallarıdır, seni kandırmışlar!"
+sohbet.chr_002.s5,"Kuyuya ne bereketi getirecekmişsin? Açık konuş, o adamlar sana ne yapmanı söyledi?"
+sohbet.chr_002.s6,Rençber kızıyım dersin lakin gözlerinde bir şey saklar gibi telaşlı bir ürperti var. Mezrada kimin kızıydın sen?
+sohbet.chr_002.s7,"Madem rençbersin, kış çıkarken tarlaya ne ekilir, çeltik tavasına ne vakit su verilir söyle bakalım?"
+sohbet.chr_002.s8,"Zor zanaat ortakçılık, bilirim. Çektiğin çileyi yüzünden okuyorum, korkma benden."
+sohbet.chr_002.s9,"Bataklıkta ortakçılık yapan kız kuyuya dökmek için derviş torbasıyla yola çıkmaz! Seni kim gönderdi Meryem, o adamlar seni neyle tehdit etti?"
+sohbet.chr_003.acilis1,"Selamunaleyküm muhafız oğul. Taşlık Hisar'dan gelirim, adım derviş kalaycı derler. Köyünüzün tenceresi tavası delikse lehimlerim, saban demirini bilerim. Başımı sokacak bir samanlık, bir tas sıcak aşa razıyım."
+sohbet.chr_003.c1,"Dağ yollarının kurduyum oğul. Kervan yoluna çıkmam, keçi patikalarından yürürüm. Eşkıya da kalaycı sepetine tenezzül etmez; iki delik tencere için kimse yay kirişini germez."
+sohbet.chr_003.c10,"(Şaşkınlıkla geri çekilir, sakalını sıvazlar) Vay canına... Bir sınır muhafızının cerrah neşterini ve pota yanığını ilk bakışta teşhis edeceğini hiç ummazdım."
+sohbet.chr_003.c11,"(Körüğün kapağını aralar, parıldayan çelik aletleri gösterir) Madem gördün, inkâr etmem. Yanımda kırk yıllık cerrah takımım ve çeliğe su verme kalıplarım var. Köyünüzün Şifahane'sinde kangrenli bacak keser, yaralı dikerim. Demirhane'nizde orakları kırılmaz çelikten dökerim. Yeter ki beni o zalim beye teslim etmeyin."
+sohbet.chr_003.c2,"Gözün keskinmiş muhafız... Eşek yaşlıdır, yüküm de kömür doludur. Maden kömürü ağır çeker, ocak harlansın diye dağ meşesi taşırım."
+sohbet.chr_003.c3,"(İçini çeker, etrafı süzerek fısıldar) Beyin süvarileri ardımdadır. Taşlık Hisar'ın gizli cephanesinden firar ettim. Yakalarlarsa diri diri derimi yüzerler. Sırf demiri ve insan etini bildiğim için kement attılar boynuma."
+sohbet.chr_003.c4,"(Gözleri kısılır, sesindeki gevşek köylü tavrı aniden kaybolur, omurgası dikleşir) Şüphe etmek vazifendir oğul, lakin her ağır yükün altında fenalık arama. Taşlık Hisar'ın cellatlarından kaçan bir biçareyim ben."
+sohbet.chr_003.c5,"(İçini çeker, etrafı süzerek fısıldar) Beyin süvarileri ardımdadır. Taşlık Hisar'ın gizli cephanesinden firar ettim. Yakalarlarsa diri diri derimi yüzerler. Sırf demiri ve insan etini bildiğim için kement attılar boynuma."
+sohbet.chr_003.c6,"Taşlık Hisar çarşısında elli yıl kalay çaldım, nal dövdüm oğul. Çok paşa gördüm, çok bey sofrasının artığını topladım. Dilimiz terbiyeliyse ondandır."
+sohbet.chr_003.c7,"(Hafifçe tebessüm eder, ellerine bakar) Mıhı tırnağın beyaz çizgisine çalarsın, ete kaçarsa hayvan topallar... Lakin ben at tırnağından ziyade insan kemiğini bilirim oğul. Can damarını da etin derinini de..."
+sohbet.chr_003.c8,"(Ağırbaşlı bir vakarla başını eğer) Adım Haydar'dır. Taşlık Hisar'ın başcerrahı ve döküm ustasıydım. Savaş meydanında yüzlerce leventin bacağını diktim, okunu çıkardım. Bey zalimdi; yaralı esirleri zehirlememi ve gizli hançerler dövmemi emretti. Reddedip kaçtım."
+sohbet.chr_003.c9,"(Gözleri parlar, sesini yükseltir) Evet! Ben Başcerrah Haydar'ım! O zalim beyin ordusuna canımı satmadım diye kaçak ilan edildim! Bu ellerle bin can kurtardım ben; eşkıya değilim, hırsız değilim! Bu kapıyı açarsan köyüne hekim olurum, ocakçı olurum; açmazsan boynumu cellada uzatırım!"
+sohbet.chr_003.giris1,"Dilsiz gibi az konuşan, saçı sakalı külden ağarmış, köylünün tencere tavasını iki lokma kuru ekmeğe kalaylayan zavallı bir gezgin kalaycı. Sağ el başparmağı ile işaret parmağı arasında cerrah neşteri ve hassas mengene tutmaktan kemikleşmiş derin nasır çizgisi ile ön kolundaki akkor maden sıçramasından kalma hilal biçimli eski pota yanığı."
+sohbet.chr_003.s1,Taşlık Hisar yolu çetelerle ve sancak süvarileriyle tutulmuşken ihtiyar halinle bu koca körükle o dağları nasıl tek başına aştın?
+sohbet.chr_003.s10,"Kılıfındaki o parlak maden kalay çubuğu değil, has gümüş cerrah neşteri! Göster o körüğü!"
+sohbet.chr_003.s11,Gözümüzden kaçmaz usta. Şimdi sakladığın hünerin aslını dökül.
+sohbet.chr_003.s2,"Doğru dersin, hırsız bile zengine bakar; fakirin canından gayrı nesi var."
+sohbet.chr_003.s3,Dağ meşesi kömürü böyle madeni çınlamaz ihtiyar! O sepetlerin dibinde ne saklıyorsun?
+sohbet.chr_003.s4,"Keçi patikasında eşekle bu ağırlık taşınmaz ihtiyar! Körüğünün ağırlığı eşeğin belini bükmüş, taşıdığın şey tencere kalayı değil!"
+sohbet.chr_003.s5,Cellat lafı çıktı ağzından! Taşlık Hisar beyinin cellatları kimi arar da bu sınıra kadar kovalar?
+sohbet.chr_003.s6,Kalaycıyım dersin lakin dilinde saray ocağı görmüş bir edep var. Kimin tezgahında yetiştin ihtiyar?
+sohbet.chr_003.s7,"Madem elli yıllık nalbantsın, atın tırnağına mıh çakarken can damarı nerededir, söve nasıl tesviye edilir söyle bakalım?"
+sohbet.chr_003.s8,"Demek yaralı saran, can kurtaran birisin. Gözlerindeki keder de bundan. Çekinme benden usta."
+sohbet.chr_003.s9,Sancak beyinin cephanesinden kaçtığını kendi ağzınla söyledin! Sıradan nalbant insan etinden ne anlar? Kimsin sen Haydar Usta?
+sohbet.chr_004.acilis1,"Aç şu kapıyı nöbetçi. Şehre giden kürk tüccarıyım. Dağda fırtına patlayacak, atlarımı köyün hanına çekip geceliğine iyi para ödeyeceğim."
+sohbet.chr_004.c1,"Paran varsa yol bulunur nöbetçi. Boğazdaki haydutlara haraçlarını verdim, geçtim. Tüccar adam kan dökmez, kesesini açar."
+sohbet.chr_004.c10,"(Gözleri kısılır, kamçısını yere atar) Gözün açıkmış muhafız. Beni tanıdın demek."
+sohbet.chr_004.c11,"(Balyaların ipini çözer) Kardeşim Hamza içeride. Gece kapıyı dışarıdan kırmak için getirdim bu keskileri. Ama beni içeri alırsan köyünle cenk etmem. Hamza'yı alır, yayladan çeker giderim. Size de bir kese altın bırakırım."
+sohbet.chr_004.c2,Öyle ya... Benim arkam sağlamdır. Sancakta da hatırım sayılır. Beni fazla oyalamasan iyi edersin.
+sohbet.chr_004.c3,"(Sesini alçaltır, parmaklıklara sokulur) Tamam, uzatma. Buraya önden yolladığım kardeşim Hamza için geldim. Sağ mı ölü mü, onu söyle bana."
+sohbet.chr_004.c4,"(Kaşları çatılır, kamçısını sıkar) Haddini aşma kapıcı! Yolumu kime sorduğumu sana mı hesap vereceğim?"
+sohbet.chr_004.c5,"(Sesini alçaltır, parmaklıklara sokulur) Tamam, uzatma. Buraya önden yolladığım kardeşim Hamza için geldim. Sağ mı ölü mü, onu söyle bana."
+sohbet.chr_004.c6,"Taşlıbel eşrafındanım. Babam sancak leventiydi, biz de tüccarlığa soyunduk. Dağda büyüsek de töre biliriz."
+sohbet.chr_004.c7,"(Bıyığını burkar, gözleri kararır) Beyin damgasını sorarsan, o damgayı babamın sırtına vurdular. Biz bey tanımayız muhafız."
+sohbet.chr_004.c8,"(Dik durur, sesini alçaltır) Adım İlyas. Kızıl Karga derler bana. Kardeşimi almaya geldim. Bana Hamza'yı verin, köyünüze tek bir çakıl taşı bile fırlatmadan çeker giderim."
+sohbet.chr_004.c9,"(Gözleri parlar, kılıcın kabzasına vurur) Evet, İlyas'ım ben! Bu dağların efendisiyim! Kardeşimin kılına zarar geldiyse bu köyü çıra gibi yakarım! Açın kapıyı!"
+sohbet.chr_004.giris1,"Dağ yaylalarından kürk toplayıp şehre götüren, parası bol, kibirli ve cömert bir kürk tüccarı. Sol elinin işaret ve orta parmağında yay kirişi çekmekten oluşmuş derin yara izi ve sağ avucunda ağır kılıç kabzası nasırı."
+sohbet.chr_004.s1,Karaboran boğazı eşkıyadan geçilmezken sırtında bunca kıymetli kürkle hangi yoldan geçtin?
+sohbet.chr_004.s10,"Boynundaki şahin düdüğü, kürklerin altındaki çelik keski ve elindeki kiriş izi! Sen tüccar değil, Kızıl Karga'nın ta kendisisin!"
+sohbet.chr_004.s11,Yalan bitti İlyas. Şimdi niyetini dökül!
+sohbet.chr_004.s2,Akıllıca. Eşkıyaya para vermek can vermekten yeğdir.
+sohbet.chr_004.s3,"Arkan sağlamsa niye kervansız, tek atla kaçar gibi geldin?"
+sohbet.chr_004.s4,"Yalan bu! Kızıl Karga tüccardan haraç alıp sağ bırakmaz, yükünü de atını da alıp uçuruma atar!"
+sohbet.chr_004.s5,"Sert yapma! Boğazda kiminle anlaştın, kimi arıyorsun bu köyde?"
+sohbet.chr_004.s6,Tüccarım dersin ama duruşun sancak sipahisi gibi sert. Kimin kervanındansın?
+sohbet.chr_004.s7,"Madem Taşlıbel tüccarısın, sancak beyine hangi vergiyi ödersiniz, kürk damgası nerede basılır?"
+sohbet.chr_004.s8,"Babanın acısını bilirim. Dağda canı yanan çok. Doğruyu söyle, derdin ne?"
+sohbet.chr_004.s9,"Kardeşin Hamza'yı köyü yakmaya yolladın! Sen Taşlıbel tüccarı değil, Kızıl Karga İlyas'sın!"
+sohbet.chr_005.acilis1,"Merhamet et ağa, kapıyı aç. Dağda ayı bastı, kolumu kırdı, sürüm dağıldı. Bir tas sıcak çorba, bir kuru köşe verin; ne iş olsa yaparım."
+sohbet.chr_005.c1,"Kayalıklara tırmandım ağam. Haydutlar atlı gezer, sarp kayaya çıkamaz. Kolum kırılınca kendimi uçurum dibine attım da kurtuldum."
+sohbet.chr_005.c10,"(Gözleri açılır, sağlam eliyle sargıyı tutar) Gözünden bir şey kaçmıyor muhafız..."
+sohbet.chr_005.c11,"(Sargıyı çözer, kamayı toprağa saplar) Gece nöbetçileri şişleyip kapı kilidini kesecektim. Reis öyle emretti. Ama kolum gerçekten ağrır, yoruldum bu hayattan. Canımı bağışla, köyün çobanı olayım."
+sohbet.chr_005.c2,"Öyle ya... Çalılar tuttu beni ağam. Can havli işte, acıdan bayılmışım, sabah ayazında kendime geldim."
+sohbet.chr_005.c3,"(Dişlerini sıkar, parmaklıklara sokulur) Tamam... Çetenin nöbetçisiyim ben. Reis beni köye yolladı. İçerideki adamlarımıza haber ulaştıracaktım."
+sohbet.chr_005.c4,"(Gözleri kısılır, sağlam koluyla heybesini sıkar) Şüpheyi bırak ağa! Yaralı adamla alay mı edersin? Aç şu kapıyı!"
+sohbet.chr_005.c5,"(Dişlerini sıkar, parmaklıklara sokulur) Tamam... Çetenin nöbetçisiyim ben. Reis beni köye yolladı. İçerideki adamlarımıza haber ulaştıracaktım."
+sohbet.chr_005.c6,"Çatakkaya mezrasındanım ağam. Ağanın koyunlarını güderdim. Sancak sipahileri geldi, ocağımızı dağıttı, ben de dağlara düştüm."
+sohbet.chr_005.c7,"(Yutkunur, başını eğer) Kırkım... güz başında yapılır... Biz koyuna damga vurmazdık, kulağını enlerdik ağam."
+sohbet.chr_005.c8,"(Omuzları çöker) Adım Kerim'dir. Çolak Kerim derler dağda. İlyas Reis beni büyüttü, borcumu ödemek için geldim. Ama canımdan bıktım gayrı."
+sohbet.chr_005.c9,"(Sağlam eliyle sargıyı kavrar, gözleri parlar) Evet, Çolak Kerim'im ben! İlyas Reis'in fedaisiyim! Kapıyı açmazsanız bu gece kandaşlarım kanınızı içer!"
+sohbet.chr_005.giris1,"Dağda ayı saldırısına uğrayıp sol kolunu sakatlamış, karın tokluğuna davar güdecek garip ve mazlum bir çoban. Sakat numarası yaptığı sol elinin parmakları diri ve güçlüdür; bileğinde sargının kenarından taşan karga pençesi dövmesi görünür."
+sohbet.chr_005.s1,Ayı bastı dersin ama Karaboran yolunda ayılardan önce Kızıl Karga'nın pusuları vardır. Seni nasıl sağ bıraktılar?
+sohbet.chr_005.s10,"Sargının içindeki kama kabzası, heybendeki demir keskisi ve bileğindeki karga dövmesi! Sen sakat çoban değil, harami fedaisisin!"
+sohbet.chr_005.s11,Yalan bitti Kerim. Niyetini söyle!
+sohbet.chr_005.s2,Kayalıklara sığındıysan atlılar yetişemez elbet.
+sohbet.chr_005.s3,Bayılan adamın heybesinde taze yağlanmış demir keskisi ne arar?
+sohbet.chr_005.s4,Uçurumdan yuvarlanan adamın kolu kırılır da üstü başı kayada paramparça olur! Senin urbanda tek bir yırtık yok!
+sohbet.chr_005.s5,Sesindeki o hırıltı çoban sesi değil! Karaboran'da kimin adamısın sen?
+sohbet.chr_005.s6,Çobanım dersin lakin adım atışın bir kılıç erbabı gibi dengeli. Hangi yaylanın adamısın?
+sohbet.chr_005.s7,"Madem Çatakkayalısın, oranın koyun damgası nasıldır, kırkım zamanı ne vakittir?"
+sohbet.chr_005.s8,"Köyü dağılan adamın derdi çok olur, bilirim. Sakin ol, doğrusunu de."
+sohbet.chr_005.s9,"Çatakkaya eşkıya yatağıdır! Çeteden olduğunu itiraf ettin, asıl adın ne senin?"
+sohbet.chr_006.acilis1,"(Elleriyle karnını gösterir, ağzını açıp 'Aaa, eee' diye sesler çıkararak boynunu büker, saman sepetini yere bırakır.)"
+sohbet.chr_006.c1,"(Eliyle dağları işaret eder, boynuna bıçak çalınır gibi hareket yapar, sonra toprağa kapanıp merhamet diler.)"
+sohbet.chr_006.c10,"(Dehşetle geri sıçrar, sepetini düşürür) Sen nereden bildin zifti?"
+sohbet.chr_006.c11,"(Yere diz çöker, ellerini açar) Bu gece değirmenin savaklarına zift döküp ateşe verecektim. Unlar yanınca köylü panikleyecekti. Ama istemedim ağabey, zorla yaptırdılar. Beni kurtarın o çeteden!"
+sohbet.chr_006.c2,"(Gözleri dolar, başını sallar, sepetine sarılır.)"
+sohbet.chr_006.c3,"(Aniden kısık ve çatlak bir sesle konuşur) Vurma ağabey... Dağdaki İlyas Reis yolladı beni. 'Saman taşıyorum de, değirmenin dibine bu zifti dök' dedi. Açtım, mecbur kaldım!"
+sohbet.chr_006.c4,"(Gözleri büyür, titremeye başlar, sırtını duvara verir.)"
+sohbet.chr_006.c5,"(Aniden kısık ve çatlak bir sesle konuşur) Vurma ağabey... Dağdaki İlyas Reis yolladı beni. 'Saman taşıyorum de, değirmenin dibine bu zifti dök' dedi. Açtım, mecbur kaldım!"
+sohbet.chr_006.c6,"(Parmaklarıyla göğsünü gösterir, 'Köy yandı' gibisinden iki elini havaya kaldırıp alev taklidi yapar.)"
+sohbet.chr_006.c7,"(Yere çömelir, çubukla toprağa kaba bir ev resmi çizer, gözlerini muhafıza diker.)"
+sohbet.chr_006.c8,(Ağlayarak başını kaldırır) Adım Seyit'tir. Çorakdere'den kaçırdılar beni. Kundakçı Hamza'nın çırağı yaptılar. Ben adam öldürmedim ağabey!
+sohbet.chr_006.c9,"(Ayağa fırlar, bağırır) Evet, konuşuyorum! Adım Seyit! Çete köyümü bastı, anamı vurdu! Beni de köle ettiler! Alın beni içeri, dağa dönersem beni asarlar!"
+sohbet.chr_006.giris1,"Dilsiz ve sağır numarası yapan, el kol işaretleriyle karnının aç olduğunu anlatan zavallı bir yetim amele. Dilsiz numarası yapmasına rağmen arkadan gelen ani nida sesine irkilerek dönmesi ve gömlek yakasındaki taze kara zift lekesi."
+sohbet.chr_006.s1,Dağ yolundan gelirsin lakin dilsiz halinle eşkıya pususundan nasıl kurtuldun?
+sohbet.chr_006.s10,"Matarandaki zift kokusu, samanın altındaki fitiller ve yakandaki zift lekesi! Numarayı kes, konuş bakalım!"
+sohbet.chr_006.s11,Her şeyi gördüm Seyit. Niyetini anlat!
+sohbet.chr_006.s2,"Zavallı çocuk, haramiler hırpalamış belli ki."
+sohbet.chr_006.s3,Sepetinde ne taşıdığını göstermeden içeri adım atamazsın!
+sohbet.chr_006.s4,"Bırak bu el kol oyununu! Boğazdaki haramiler dilsiz çocuğu sağ bırakmaz, arkandan seslenince irkildin!"
+sohbet.chr_006.s5,Korkunun ecele faydası yok! Kim yolladı seni köye?
+sohbet.chr_006.s6,Yetimim dersin ama ellerinde yük taşımaktan ziyade köz tutma izleri var. Kimin çırağısın?
+sohbet.chr_006.s7,"Hangi köy yandı, muhtar kimdi, babanın adı neydi söyle bakalım?"
+sohbet.chr_006.s8,Köyün yandıysa acın büyüktür. Doğruyu söylersen sana sahip çıkarız.
+sohbet.chr_006.s9,"Zift taşıdığını kendi ağzınla söyledin! Dilsiz değilsin sen, adın ne senin?"
+sohbet.chr_007.acilis1,Açın kapıyı! Sancak Divanı'ndan Kadı Naibi Şemsettin Efendi derler bana. Beyimizin fermanıyla köyünüzün tahririni ve zindanını teftişe geldim. Yolumu kesmeye cüret etmeyin!
+sohbet.chr_007.c1,Ben devletin adamıyım muhafız! Dağdaki harami bile sancak fermanını görünce önümde diz çöker. Beni sıradan köylüyle bir mi tutarsın?
+sohbet.chr_007.c10,"(Yüzü kireç gibi bembeyaz olur, sandığın kilidine sarılır) Nereden açtın o sandığı sen!"
+sohbet.chr_007.c11,"(Ses tonu yumuşar, fısıldar) Tamam muhafız ağa... Görüyorsun işte, dünya hali. Köyünüzün ambarından pay istemem. Tutsakları da size bırakırım. Yeter ki beni içeri alın, bir gece dinleneyim, yoluma gideyim. Sandıktaki altınlardan da payın ayrılır."
+sohbet.chr_007.c2,Elbette öyledir. Şimdi lafı uzatma da kışlanın kapısını aç. Zindandaki tutsakları sayacağım.
+sohbet.chr_007.c3,"(Sesini alçaltır, parmaklıklara yaklaşır) Bak muhafız... Akıllı adamsın. Dağdakiler tutsak Hamza için bana iki kese altın vaat etti. Onu bana teslim edin, payınızı alın, bu iş kapansın."
+sohbet.chr_007.c4,"(Sarığını düzeltir, gözlerini diker) Sen kim oluyorsun da beylik katibini sorguya çekersin bre zındık!"
+sohbet.chr_007.c5,"(Sesini alçaltır, parmaklıklara yaklaşır) Bak muhafız... Akıllı adamsın. Dağdakiler tutsak Hamza için bana iki kese altın vaat etti. Onu bana teslim edin, payınızı alın, bu iş kapansın."
+sohbet.chr_007.c6,Ben Taşlık Hisar Divanı'nda on beş yıl kadı vekilliği yaptım. Kanunnameyi ezbere bilirim. Benim geçmişimi sorgulamak senin haddin değildir.
+sohbet.chr_007.c7,"(Duraksar, kaşlarını oynatır) Zahire hakkı... beye aittir! Kanunname benim cebimdedir muhafız, ahkam kesme!"
+sohbet.chr_007.c8,"(Omuzlarını düşürür, içini çeker) Doğrudur... Sancak hazinesinde açık çıktı, suçu üzerime yıktılar. Borcumu kapatmazsam kellem gidecek. Bana o tutsağı verin, borcumu ödeyeyim."
+sohbet.chr_007.c9,"(Kızarır, cübbesini silkeler) Ben divan memuruyum! Sancak beyinin fermanı bendedir! Beni içeri almazsanız yarın bir alay süvariyle gelip bu köyü haritadan silerim!"
+sohbet.chr_007.giris1,"Adalet dağıtan, kanun ve nizamı koruyan, sancak beyinin fermanını taşıyan dürüst ve vakar sahibi bir divan memuru. Kaftanının geniş yen astarında gizli para kesesi cepleri ve parmaklarındaki yüzük diplerinde taze kırmızı mühür mumu lekesi."
+sohbet.chr_007.s1,"Sancak yolu haydut kaynarken maiyetsiz, tek bir katırla bu sınıra nasıl vardınız efendi?"
+sohbet.chr_007.s10,"Mahfazandaki sahte damgalar, sandığındaki rüşvet defteri ve yenindeki gizli para cepleri! Sen kadı naibi değil, harami ortağı bir rüşvetçisin!"
+sohbet.chr_007.s11,"Mesele sandık değil efendi, asıl niyetini anlat!"
+sohbet.chr_007.s2,"Devletin heybeti büyüktür efendi, haklısınız."
+sohbet.chr_007.s3,"Zindandaki tutsakları neden muhafızsız, yalnız saymak istersiniz?"
+sohbet.chr_007.s4,Fermana dağdaki harami diz çökmez! Haramiyle anlaşmayan memur o boğazdan sağ çıkamaz!
+sohbet.chr_007.s5,"Bağırma! Boğazda hangi çeteyle anlaştın, kimin canını satmaya geldin?"
+sohbet.chr_007.s6,Kadı naibiyim dersiniz lakin divanınızın mührünü hangi sancak beyi onayladı?
+sohbet.chr_007.s7,"Madem kanun bilirsiniz, kaçak leventlerin diyeti hangi fasılda yazar, köyün zahire hakkı nedir?"
+sohbet.chr_007.s8,"Zor zamanlar efendi, sancak da dardadır bilirim. Doğruyu derseniz anlaşırız."
+sohbet.chr_007.s9,Altın için tutsak kaçırmaya geldiğini itiraf ettin! Sancaktan kovulmuş bir sahtekarsın sen!
+sohbet.chr_008.acilis1,"Selamunaleyküm yiğit nöbetçi. Dağardı yaylasından gelirim, adım Dudu Ebe derler. Ocağım yandı, yolda kaldım. Köyünüzün hastası, kırığı çıkığı varsa sararım; bir lokma ekmek, bir sıcak köşe yeter bana."
+sohbet.chr_008.c1,"Kervan yolundan gelmedim oğul. Keçi izlerini takip ettim. Yaşlı kadına dağ kurdu bile dokunmaz, ot toplaya toplaya vardım buraya."
+sohbet.chr_008.c10,(İrkip küfesini yere indirir) Nereden anladın oğul...
+sohbet.chr_008.c11,"(Kollarını açar, hırkasının içindeki aletleri gösterir) Evet, dağda vurulan haramileri dağladım. Ama onlar için değil, can için yaptım. Yanımda kurşun çıkaran kıskaçlarım, acıyı dindiren şuruplarım var. Köyünüzün Şifahane'sinde ölenleri diriltirim, hastalara derman olurum. Beni o zalim sipahilere teslim etmeyin."
+sohbet.chr_008.c2,"Öyle ya oğlum... Yolda bazen soluklandım, pınarlardan su içtim. Ayaklarım şişti ama çok şükür kapınıza erdim."
+sohbet.chr_008.c3,"(İçini çeker, başını sallar) Tamam oğul... Dağdaki o yaralı uşakları getirdiler önüme. 'Yaralarını sarmazsan kulübeni yakarız' dediler. Hekim adam yaralı seçer mi? Can kurtardım diye beylik beni kaçak saydı."
+sohbet.chr_008.c4,"(Bastonunu sıkar, gözleri buğulanır) Bana harami yamağı mı dersin oğul? Kocamış kadının günahına girme!"
+sohbet.chr_008.c5,"(İçini çeker, başını sallar) Tamam oğul... Dağdaki o yaralı uşakları getirdiler önüme. 'Yaralarını sarmazsan kulübeni yakarız' dediler. Hekim adam yaralı seçer mi? Can kurtardım diye beylik beni kaçak saydı."
+sohbet.chr_008.c6,"Dağardı yaylasında doğdum, orada kocalttım saçımı. Yüzlerce bebenin göbeğini kestim. Üç oğlumu askere verdim, üçü de şehit düştü."
+sohbet.chr_008.c7,"(Gözleri parlar) Hummanın ilacı söğüt kabuğu ve ak nilüferdir. Kurşun yarasını kaynar sirkeyle yıkar, dağlama demiriyle basarsın oğul..."
+sohbet.chr_008.c8,"(Gözyaşını siler) Adım Dudu'dur. Ben cana düşman değilim oğul. Dağda inleyen kim varsa merhem sürdüm. Ama çete peşimi bırakmadı, sipahi ocağımı yıktı. Sığınacak bir dam ararım."
+sohbet.chr_008.c9,"(Bastonunu yere vurur, sesi titrer) Evet! Dağda kanı akan canı kurtardım! Günah mı bu? Beyin kılıcı keser de hekimin merhemi suç mu olur? Beni de vurun o vakit, canımdan bıktım!"
+sohbet.chr_008.giris1,"Yaylasından sürülmüş, köy köy dolaşıp dua okuyan, sıtmalı çocuklara kurşun döken garip bir ihtiyar ebe. Sağ avucunun içinde şifalı ot özünden değil, kızgın demirle yara dağlamaktan sıçrayan cerahat yanığı izi ve parmak uçlarında ocak isi."
+sohbet.chr_008.s1,Dağardı yaylası askerle tutulmuşken bu yaşta o koca küfeyle nasıl aştın dağları nine?
+sohbet.chr_008.s10,"Havanındaki afyon kokusu, küfendeki kanlı bezler ve elindeki yara yanığı! Sen ebe değil, dağdaki haramilerin hekimisin!"
+sohbet.chr_008.s11,Gözümüzden kaçmaz nine. Şimdi aslını söyle!
+sohbet.chr_008.s2,"Doğrudur nine, şifacı kadına kurdun bile hürmeti vardır."
+sohbet.chr_008.s3,Küfende otların altına gizlediğin bezler neden kızıla boyanmış?
+sohbet.chr_008.s4,Keçi izinden bu koca küfeyle geçilmez! Dağdaki haramiler seni at sırtında mı geçirdi yoksa?
+sohbet.chr_008.s5,Gizleme nine! Dağda kimin kanını yıkadın o bezlerden?
+sohbet.chr_008.s6,Ebeyim dersin lakin avuçlarında ateş ve demir kokusu var. Hangi ocağın şifacısısın sen?
+sohbet.chr_008.s7,"Madem dağ ebesisin, humma basan çocuğa ne kaynatılır, kurşun yarası neyle yıkanır?"
+sohbet.chr_008.s8,"Usta bir şifacısın nine, hünerin bellidir. Çekinme, derdini aç."
+sohbet.chr_008.s9,Kurşun yarası dağlamayı köy ebesi bilmez! Haramilerin ordusuna hekimlik ettin sen!
+sohbet.chr_009.acilis1,"Selamlar ağaların ağası nöbetçi! Çerçi Abbas derler bana. Halep kınası, Hasankeyf aynası, iğnesi, ipliği getirdim. Köyün hanımlarına üç beş süs satıp bu gece hanın köşesinde kıvrılayım."
+sohbet.chr_009.c1,Kervan ne gezer ağam! Fakir adam kendi bacağının kervanıdır. Katırımla patikalardan tıkır tıkır geldim işte. Kim bakar benim iki paslı iğneme?
+sohbet.chr_009.c10,"(Aynaları yere düşürür, dizlerinin bağı çözülür) Sen... sen cin misin nesin ağam!"
+sohbet.chr_009.c11,"(Zehir kesesini çıkarıp yere atar) Bu gece köyün ana su kuyusuna dökecektim bu engerek tozunu. Sabah herkes kıvranırken çete batı kapısından girecekti. Her şeyi anlattım, canımı bağışla!"
+sohbet.chr_009.c2,"Öyle ya kurban olduğum... Dağda birkaç haramiye rast geldim de iki ayna bir parça kına hediye ettim, güle oynaya saldılar."
+sohbet.chr_009.c3,"(Yere çöker, sesini kısar) Tamam ağam, aramızda kalsın... Çete beni yolladı. 'Kız içeri giremedi, var git köyün çeşmesini sen hallet' dediler. Beni zorladılar!"
+sohbet.chr_009.c4,"(Gözleri döner, poşusunu çeker) Aman ağam! Yoksul bir çerçinin ekmeğiyle oynama, kurbanın olayım!"
+sohbet.chr_009.c5,"(Yere çöker, sesini kısar) Tamam ağam, aramızda kalsın... Çete beni yolladı. 'Kız içeri giremedi, var git köyün çeşmesini sen hallet' dediler. Beni zorladılar!"
+sohbet.chr_009.c6,Sazlıkova pazarlarında yirmi yıldır çerçilik yaparım ağam. Kulağım küçüklükten çıbandan delindi de ayaz vurmasın diye poşu örterim.
+sohbet.chr_009.c7,"(Kulağını tutar, dili damağına yapışır) Ağam... Gençlik hatası işte... Pazar yerinde iki dirhem tuz aşırmıştım, cellat acımadı kesti."
+sohbet.chr_009.c8,(Başını eğer) Adım Çopur Abbas'tır. Çetenin kuryesiyim. Beni borçla bağladılar kendilerine. 'Bu işi bitirmezsen öbür kulağını da keseriz' dediler. Can havliyle geldim.
+sohbet.chr_009.c9,"(Gözleri parlar, katırın arkasına geçer) Evet, Çopur Abbas'ım ben! Bu köye su içirmeyeceğim! Çete bu gece kapıya dayanacak, hiçbirinizi sağ koymayacaklar!"
+sohbet.chr_009.giris1,"İğne, iplik, kına ve ayna satan, güler yüzlü, çenebaz ve zararsız bir garip gezgin çerçi. Sarı poşusunun altından taşan sağ kulağındaki ceza kesiği izi ve tırnak diplerindeki kına değil, gri engerek zehri tortusu."
+sohbet.chr_009.s1,Sazlıkova bataklığından bu dağ köyüne kadar bunca boncukla hangi kervanla geldin çerçi?
+sohbet.chr_009.s10,"Çekmecendeki engerek tozu, kınanın içine gizlediğin zehir torbaları ve poşunun altındaki kesik kulak! Sen esnaf değil, kuyu zehirlemeye gelen çete uşağısın!"
+sohbet.chr_009.s11,Yalan bitti Abbas. Niyetini açıkla!
+sohbet.chr_009.s2,"Doğru, çerçinin malına haydut tenezzül etmez."
+sohbet.chr_009.s3,Haramiler aynayla kınayla adam salmaz! Heybendeki o ağır torbalarda ne var?
+sohbet.chr_009.s4,"Yalan söylersin! Sazlıkova yolunu tutan çete uçan sinekten haraç alır, senin katırını çoktan kesip yerlerdi!"
+sohbet.chr_009.s5,Kıvırma çerçi! Dağdaki haramiler seni bu köye niye saldı?
+sohbet.chr_009.s6,Çerçiyim dersin ama kulağındaki o poşuyu niye öyle yamuk doladın başına?
+sohbet.chr_009.s7,Çıban değil o! Sancak beyinin celladı hangi suçtan kulak keser söyle bakalım?
+sohbet.chr_009.s8,"Cezanı çekmişsin, geçmişte kalmış. Doğruyu dersen sana acırım."
+sohbet.chr_009.s9,Kulağı kesik hırsız köyün suyuna zehir katmaya gelmiş! Kimsin sen Abbas?
+sohbet.chr_010.acilis1,"Eyvallah nöbetçi gardaşım! Tellal Gaffar derler bana. İki keçi getirdim pazara, köylünün işi görülsün. Aç şu kapıyı da akşam hanın ocağında iki lafın belini kıralım."
+sohbet.chr_010.c1,Ben yolun kurduyum gardaşım. Kimseye görünmeden dere yatağından kıvrıldım geldim. Keçi dediğin dağda yol açar.
+sohbet.chr_010.c10,"(Çıngırağını saklar, yüzü sararır) Yavaş konuş nöbetçi ağa... Ahali duyacak!"
+sohbet.chr_010.c11,"(Kuşağındaki gümüşleri avucuna döker) Bak ağam, altı adet has gümüş dirhem. Köyün muhafızlarına dağıtacaktım bunu. İki tanesi senin olsun, bu gece batı kapısını görmezden gel. Kimsenin canı yanmayacak, sadece ambarı boşaltacaklar."
+sohbet.chr_010.c2,"Öyle ya muhafız ağam... Kuru taşlara bastım hep. Yılların tellalıyız, ayağımızı nereye basacağımızı biliriz."
+sohbet.chr_010.c3,"(Sırıtışı kaybolur, kulağına eğilir) Bak muhafız ağa... Dağdaki çete reisi İlyas beni yolladı. 'Köyün nöbetçilerine şu gümüşleri say, gece kapıyı aralık bıraksınlar' dedi. Payını al, keyfine bak."
+sohbet.chr_010.c4,"(Bıyığını büker, sırıtır) Yahu ne kurcalarsın gardaşım? İki dirhem ekmeğimizin peşindeyiz şurada."
+sohbet.chr_010.c5,"(Sırıtışı kaybolur, kulağına eğilir) Bak muhafız ağa... Dağdaki çete reisi İlyas beni yolladı. 'Köyün nöbetçilerine şu gümüşleri say, gece kapıyı aralık bıraksınlar' dedi. Payını al, keyfine bak."
+sohbet.chr_010.c6,"Sınır Hanı mezrasında doğdum büyüdüm. Pazarda mal alıp satarım. Herkes beni sever, kimseye bir zararım dokunmaz."
+sohbet.chr_010.c7,(Gözlerini kırpıştırır) Keçisine göre değişir ağam... Tellaliye de han ağasına sayılır... Ama bizim hesabımız gayrıresmidir.
+sohbet.chr_010.c8,"(Yutkunur) Adım Gaffar işte. Kumar borcum vardı, dağdakiler borcumu kapattı, beni de bu işe koştular. Ben kan dökmem ağam, sadece laf taşır, para iletirim."
+sohbet.chr_010.c9,"(Gözleri parlar, sesini yükseltir) Evet, Gaffar'ım ben! Bu sınırda benim elimden geçmeyen iş mi var? Açın şu kapıyı, aklınızı başınıza alın, açmazsanız köylünün borç defterini meydana dökerim!"
+sohbet.chr_010.giris1,"Köyün pazarına iki cılız keçi getiren, herkesin halini hatırını soran, neşeli ve zararsız bir davar tellalı. Sol avucunun içinde tefeci mührü basmaktan kalma mor çivit mürekkebi lekesi ve kuşağında gizli altın bölmesi."
+sohbet.chr_010.s1,Sınır boyu tekinsizken bu iki cılız keçiyle hangi yoldan geldin Gaffar?
+sohbet.chr_010.s10,"Kesendeki ağır gümüş dirhemler, hurcundaki şantaj çetelesi ve elindeki tefeci lekesi! Sen tellal değil, rüşvetçi bir madrabazsan!"
+sohbet.chr_010.s11,Her şeyin ortada Gaffar. Dökül niyetini!
+sohbet.chr_010.s2,"Haklısın, keçi patikayı iyi bilir."
+sohbet.chr_010.s3,Ayağını bildiğin gibi heybende ne sakladığını da söylesene!
+sohbet.chr_010.s4,Dere yatağı balçık içindedir! Senin çizmelerinde tek bir damla çamur yok!
+sohbet.chr_010.s5,Pişkinliği bırak! Sınır boyunda kimin parasını taşıyorsun sen?
+sohbet.chr_010.s6,Tellalım dersin ama kuşağındaki gümüş köstek tellal harcı değil. Kimin hesabını görürsün?
+sohbet.chr_010.s7,"Madem pazarcısın, sınır boyunda keçinin rayici nedir, tellaliye harcı kime verilir?"
+sohbet.chr_010.s8,"Zor iştir tellallık, iki tarafı da idare etmek gerek. Doğrusunu de bana."
+sohbet.chr_010.s9,Haraminin parasını dağıtmaya geldiğini söyledin! Sen tefecilerin ayakçısısın!
+sohbet.chr_011.acilis1,"Selam sabah nöbetçi gardaş. Gün kararmadan kapıyı tutuver hele. Çeltikten, tozdan ciğerim kurudu; harman savurmaya, tırpan sallamaya amele ararsanız buradayım."
+sohbet.chr_011.c1,"Bizim mezrada harman bitti gardaşım. Ekin az çıktı, aç kaldık. Boş oturmaktansa gurbete çıkayım, çalışan el darda kalmaz dedim."
+sohbet.chr_011.c10,"(Dizleri titrer, çuvalı bırakır) Her şeyi görmüşsün gardaş... İnkar etmem."
+sohbet.chr_011.c11,"(Çuvalın ağzını açar, altın sarısı iri buğday tanelerini gösterir) Bak şu tânelere gardaşım... Saf kunduru tohumu. Köyün tarlasına ekersek bire on beş verir. Değirmende öğütürsek unu bembeyaz çıkar. Beni içeri al, harmanın başına geçir. Tefecinin adamları gelirse de sakla beni."
+sohbet.chr_011.c2,"Öyle ya... Birkaç kile azığım var işte. Köye yük olmayayım, kendi ekmeğimi taştan çıkarayım niyetindeyim."
+sohbet.chr_011.c3,"(Sesini kısar, başını öne eğer) Tamam gardaşım... Yalan yok, kaçtım. Aşağı Harman'ın tefecisi Faik Ağa ekini elimden alacaktı. Gece kendi ektiğim buğdayı yüklendim, korumaların sopasından zor kurtuldum."
+sohbet.chr_011.c4,"(Yutkunur, çuvalın ipini sıkar) Ne sorgularsın gardaşım? Sırtımdaki helal terimdir, hırsızlık malı taşıyan adam böyle güpegündüz kapıya gelir mi?"
+sohbet.chr_011.c5,"(Sesini kısar, başını öne eğer) Tamam gardaşım... Yalan yok, kaçtım. Aşağı Harman'ın tefecisi Faik Ağa ekini elimden alacaktı. Gece kendi ektiğim buğdayı yüklendim, korumaların sopasından zor kurtuldum."
+sohbet.chr_011.c6,"Aşağı Harman'da Veli oğullarındanım. Topraktan başka şey bilmeyiz. Tırpan salla dersen sabaha kadar biçerim, kalbur tut dersen tozunu alırım."
+sohbet.chr_011.c7,"(Hafif ferahlar) İkindi rüzgarında savrulur gardaşım, saman uçar dâne kalır. Bir kile sekiz şiniktir, beye beşte bir hak düşer... Lakin tefeci gelince hak falan kalmaz."
+sohbet.chr_011.c8,"(Gözleri parlar) Adım İdris'tir. Hırsız değilim ben. Alın terim o buğday. Köyünüze ekeyim, harmanında çalışayım. Yeter ki o zalim tefeciye beni teslim etmeyin."
+sohbet.chr_011.c9,"(Çuvalı sıkar, hırsla konuşur) Evet, İdris'im ben! Çoluk çocuğumun kışlık rızkını o harami ağaya bırakmadım diye suçlu mu oldum? Bu eller iki köyü doyuracak ekin biçer, geri çevirirseniz dağda kurda kuşa yem olurum!"
+sohbet.chr_011.giris1,"Kuraklık yüzünden mezrası dağılmış, boğaz tokluğuna tırpan sallayıp harman sürecek garip bir rençber. Göğsündeki yırtık yakadan görünen sopa darbesi morluğu ve kollarında gece kaçarken dikenli çit tellerinden kalma taze yırtıklar."
+sohbet.chr_011.s1,Harman zamanı köyünü bırakıp bu sınır kapısına niye tek başına vurdun rençber?
+sohbet.chr_011.s10,"Kuşağındaki tefeci çetelesi, çuvalındaki mühürlü kunduru buğdayı ve göğsündeki sopa izi! Sen amele değil, tefeciden mal kaçıran borçlusun!"
+sohbet.chr_011.s11,Yalan bitti İdris. Şimdi niyetini dökül!
+sohbet.chr_011.s2,"Doğrudur, ekin bitince ırgat gurbete çıkar."
+sohbet.chr_011.s3,"Azık dediğin bir çıkın olur, senin sırtındaki yük bey ambarı yükü!"
+sohbet.chr_011.s4,Ekin bittiyse sırtındaki o koca çuval niye has buğdayla dopdolu?
+sohbet.chr_011.s5,"Yalanın bacakları kısadır! Yolda kimden kaçtın, doğruyu söyle!"
+sohbet.chr_011.s6,Alnın terli ama gözlerinde bir kaçak korkusu var. Hangi mezranın harmanından gelirsin?
+sohbet.chr_011.s7,"Madem harman ırgatısın, kunduru buğdayı ne zaman savrulur, kile hesabı kaça bölünür?"
+sohbet.chr_011.s8,"Tefecinin insafı olmaz, bilirim. Alın teri döken adama kapımız açık."
+sohbet.chr_011.s9,"Tefeciden tohum kaçırdığını ağzınla söyledin! Ağa arkandan adam salacak, adın ne senin?"
+sohbet.chr_012.acilis1,"Hayırlı nöbetler ağam. Boğazı aştım da geldim. Asma budamayı, pekmez kaynatmayı iyi bilirim. Bağınızda bahçenizde boğaz tokluğuna ter dökeyim, bir sundurma altı verin yeter."
+sohbet.chr_012.c1,"Patikalardan yürüdüm ağam. Dağ köyleri tanıdıktır, kimse dul kadına ilişmez. Asma çubukları topladım yolda, köye bereket getiririm."
+sohbet.chr_012.c10,"(Küfenin kapağını aralar, gözyaşları içinde başını eğer) Bildin ağam... Saklayacak halim kalmadı."
+sohbet.chr_012.c11,"(Küfeden uyuyan Yusuf'u çıkarıp göğsüne basar) Yanımda üç bağ çubuğu çeliği var ağam. Razakı ve misket üzümü. Köyünüzün bağlarına aşılayayım, pekmez kaynatayım. Yeter ki yavrumla başımızı sokacak bir dam verin, bizi o zalim ağaya vermeyin."
+sohbet.chr_012.c2,Öyledir ağam... Elim işe yatkındır. Köyünüzün bağları kurumuşsa diriltirim.
+sohbet.chr_012.c3,"(Gözyaşları boşanır, diz çöker) Tamam ağam... Küfede yavrum var. Üç yaşında öksüz Yusuf'um. Sancak ağası kocamın borcuna karşılık köle alacaktı. Kaçırdım yavrumu, kıymayın bize!"
+sohbet.chr_012.c4,"(Küfeyi iki eliyle sarar, geri çekilir) Dokunmayın küfeme kurban olayım! İçinde yaprak var sadece, kuru yaprak!"
+sohbet.chr_012.c5,"(Gözyaşları boşanır, diz çöker) Tamam ağam... Küfede yavrum var. Üç yaşında öksüz Yusuf'um. Sancak ağası kocamın borcuna karşılık köle alacaktı. Kaçırdım yavrumu, kıymayın bize!"
+sohbet.chr_012.c6,"Asmalıdere köyündenim. Rahmetli kocamla on yıl bağ sürdük, nar yetiştirdik. Kuraklık vurdu, ocağımız dağıldı."
+sohbet.chr_012.c7,(Sesi titrer ama kendinden emin) Gözler uyanmadan şubatta budanır ağam... Mart başında kalem aşısı vurulur. Çubuğun özsuyu ağlamadan işi bitirirsin.
+sohbet.chr_012.c8,"(Yemenisini düzeltir) Adım Zeynep'tir. Ben hırsız değilim ağam. Elimle ektiğim üzümden başka şey tatmadım. Beni içeri alın, bağınızı cennet edeyim, yavrumu da bir köşede büyüteyim."
+sohbet.chr_012.c9,"(Çocuğuna sarılır, feryat eder) Evet, Zeynep'im ben! Çocuğumu ağaya köle vermedim diye canımı mı alacaksınız? Bu köyde hiç mi ana baba yok? Kapıyı açın, bağınızda gece gündüz çalışayım!"
+sohbet.chr_012.giris1,"Boğaz tokluğuna bağ kazacak, asma budayacak, kuru bir saçak altında barınmaya razı kimsesiz bir dul bağcı kadın. Elbisesinin göğüs kısmındaki taze süt sızıntısı lekesi ve küfeyi taşırken omzunu korumak için sardığı kundak bezi parçası."
+sohbet.chr_012.s1,Dağ boğazını tek bir kadın başına o koca küfeyle nasıl aştın Hatice kızı?
+sohbet.chr_012.s10,"Göğsündeki tahta emzik, küfendeki çocuk soluğu ve göğsündeki süt lekesi! Sen yalnız değilsin kadın, indir o küfeyi!"
+sohbet.chr_012.s11,"Korkma bacım, niyetini söyle."
+sohbet.chr_012.s2,"Doğrudur, bağcı kadına dağda kem gözle bakmazlar."
+sohbet.chr_012.s3,"Küfeni yere koymadan adım atamazsın, ne saklıyorsun orada?"
+sohbet.chr_012.s4,Asma çubuğu böyle canlı nefes almaz! Küfenin içinden ses geliyor!
+sohbet.chr_012.s5,"Kuru yaprak kıpırdamaz! Ne saklıyorsun orada, açık söyle!"
+sohbet.chr_012.s6,Bağcıyım dersin ama gözlerinde kaçak telaşı var. Kimin ocağındandın sen?
+sohbet.chr_012.s7,"Madem bağcısın, asma ne zaman aşılanır, kış budaması hangi ayda yapılır?"
+sohbet.chr_012.s8,"Usta bir bağcısın kadın, hünerin belli. Korkma, sana kötülük gelmez."
+sohbet.chr_012.s9,"Ağanın adamları kaçak reayayı aratır! Sancak peşine düşecek, adın ne senin?"
+sohbet.chr_013.acilis1,Kolay gele evlat. İhtiyar halimle şu yokuşu tırmandım. Toprağın dilinden anlarım; kurak toprakta hangi tohumun başak vereceğini benden iyi bilen azdır. Köyünüzde toprağa can vereyim.
+sohbet.chr_013.c1,"Eşek kocamış ama yolu bilir evlat. Su başlarını takip ettim, pınarlardan doldurdum testimi. Kimseden aş istemedim."
+sohbet.chr_013.c10,"(Testiyi iki eliyle tutar, derin bir nefes alır) Gözün pek keskinmiş evlat..."
+sohbet.chr_013.c11,"(Testinin balmumunu sıyırır, avucuna döktüğü iri kızıl buğday tanelerini gösterir) Bak evlat... Bu tohum susuzlukta çatlayan toprakta bile boy verir. Köyünüzün tarlalarına ekersek kıtlık yüzü görmezsiniz. Değirmeniniz durmaz. Beni içeri al, tohumu köye emanet edeyim."
+sohbet.chr_013.c2,Öyledir evlat... Toprağı bilen aç kalmaz. Köyünüzün tarlalarına bereket getiririm.
+sohbet.chr_013.c3,"(İçini çeker, parmaklıklara sokulur) Tamam evlat... Ağa köyün bütün tohumuna el koydu. Dedemin dedesinden kalan kızıl kılçık tohumunu vermedim. Gece ambarı ateşe verip testiyi kaptım, tazıları saldılar ardımdan."
+sohbet.chr_013.c4,"(Değneğini sıkar, gözleri kısılır) Neden her şeyin altında fenalık ararsın evlat? İhtiyar bir tohumcunun testisi seni niye bu kadar işkillendirir?"
+sohbet.chr_013.c5,"(İçini çeker, parmaklıklara sokulur) Tamam evlat... Ağa köyün bütün tohumuna el koydu. Dedemin dedesinden kalan kızıl kılçık tohumunu vermedim. Gece ambarı ateşe verip testiyi kaptım, tazıları saldılar ardımdan."
+sohbet.chr_013.c6,"Kocapınar köyünün tohumcusuyum. Yedi kuşaktır bizim ocak buğday ayıklar. Bey gelir geçer, padişah değişir ama tohum kalır."
+sohbet.chr_013.c7,(Gözleri parıldar) Toprak kırağıyı yemeden ekilir evlat. Kökü derine insin ki yaz kurutmasın. Başak tanesi kızarınca orak vurulur.
+sohbet.chr_013.c8,"(Başını sallar) Adım Osman'dır. Koca Osman derler. Ben bu tohumu beye yedirmem evlat. Köyünüzün tarlasına saçayım, kuraklıkta bile aç kalmayın."
+sohbet.chr_013.c9,"(Değneğini yere vurur, sesi gürleşir) Evet, Koca Osman'ım ben! Yedi kuşaklık tohumu o haramzade beye vermedim! İster vurun ister kovun, bu tohumu benden alamazsınız! Toprağına bereket isteyen kapısını açar!"
+sohbet.chr_013.giris1,"Köyü kuraklıktan kavrulmuş, bir parça kuru ekmek karşılığında gençlere tarla sürmeyi öğretecek ihtiyar bir rençber. Sağ paçasında taze kan sızmış bez sargı ve ağanın av köpeklerinin dişlediği taze diş yarası izi."
+sohbet.chr_013.s1,Alçakvadi kuruduysa bu yaşta o yüklü eşekle tek başına nasıl aştın dağları Osman Dayı?
+sohbet.chr_013.s10,"Belindeki mühürlü testi, heybendeki müsadere tutanağı ve bacağındaki tazı ısırığı! Sen ağadan ata tohumu kaçıran Koca Osman'sın!"
+sohbet.chr_013.s11,Tohumun aslını anlat Osman Dayı!
+sohbet.chr_013.s2,"Doğru dersin dayı, tecrübeli çiftçi yolunu bulur."
+sohbet.chr_013.s3,"Belindeki o mühürlü testide su taşınmaz dayı, ne var onun içinde?"
+sohbet.chr_013.s4,Su başlarından gelen adamın bacağında av köpeği yarası ne gezer!
+sohbet.chr_013.s5,Ağanın köpekleri kimi kovaladıysa testi de ondadır! Doğruyu söyle!
+sohbet.chr_013.s6,Tohumcuyum dersin ama gözlerinde ağa korkusu sezinlenir. Kimin ocağındandın sen?
+sohbet.chr_013.s7,"Madem tohumcusun, kuraklık buğdayı hangi tavda ekilir, başak ne vakit sararır?"
+sohbet.chr_013.s8,"Kıymetli bir bilgin var dayı, toprağın kadrini bilen adamsın."
+sohbet.chr_013.s9,Ağanın zaptiyeleri buralara kadar iz sürecek! Kimsin sen Osman Dayı?
+sohbet.chr_014.acilis1,"Selamın aleyküm bekçi gardaş. Dağda yayla kurudu, sürüden kalan iki baş damızlıkla yola düştüm. Ağılınızda yer, koyunlarınıza çoban gerekse hakkıyla güderim."
+sohbet.chr_014.c1,"Gözüm gibi baktım bu iki başa gardaşım. Koca sürüden bunlar kaldı elimde. Kayalıklardan aşırdım, çalı çırpı yedire yedire indirdim ovaya."
+sohbet.chr_014.c10,"(Koçun boynuna sarılır, gözleri açılır) Nereden anladın gardaş..."
+sohbet.chr_014.c11,"(Koçların başını okşar) Bu iki koç sancaktaki en iyi damızlıktır gardaşım. Köyün koyunlarına katarsak seneye ağıllar kuzu dolar, yünüyle aba dokursunuz. Beni kışlaya sürmeyin, ağılınızda ömrümce hizmet edeyim."
+sohbet.chr_014.c2,"Öyledir gardaşım... Cins hayvandır bunlar, yayla havası iyi gelir. Köyünüzün ağılına bereket katar."
+sohbet.chr_014.c3,"(Sesini kısar, başını eğer) Tamam gardaşım... Doğru bildin. Sancak sipahileri geldi yaylaya. 'Hem sürünü alırız hem seni levent yazarız' dediler. Babam öldü, geride kardeşlerim var. Koçları kaptığım gibi gece dağa vurdum."
+sohbet.chr_014.c4,"(Yutkunur, koçun yularını sıkar) Gece kurttan sakındım gardaşım... Çıngırak sesine kurt uyanmasın diye tıkadım dilini."
+sohbet.chr_014.c5,"(Sesini kısar, başını eğer) Tamam gardaşım... Doğru bildin. Sancak sipahileri geldi yaylaya. 'Hem sürünü alırız hem seni levent yazarız' dediler. Babam öldü, geride kardeşlerim var. Koçları kaptığım gibi gece dağa vurdum."
+sohbet.chr_014.c6,"Çorakdere yaylasında doğdum. Koyunların arasında büyüdüm. Kırkım bilirim, sağım bilirim, peynir mayalarım. Cenk etmek benim harcım değil gardaşım."
+sohbet.chr_014.c7,"(Gözleri parlar) Her biri altı okka saf yapağı verir gardaşım! Güz ayında koç katımı yapılır, bahara ikiz kuzular dökülür ağıla."
+sohbet.chr_014.c8,"(Yüzü güler) Adım Bekir'dir. Ben kılıç tutamam gardaşım, kaval tutarım. Köyünüzün ağılına bakayım, sütünü peynirini artırayım. Beni o sipahilere vermeyin."
+sohbet.chr_014.c9,"(Değneğini kaldırır, sesi yükselir) Evet, Bekir'im ben! Kardeşlerimi aç bırakıp beyin cengine gitmedim diye hain mi oldum? Bu iki damızlık köyünüzün sürüsünü iki katına çıkarır! Alacaksanız alın, yoksa dağda koyun güderim!"
+sohbet.chr_014.giris1,"Dağda sürüsü kurttan ve kuraklıktan kırılmış, iki cılız tokluyla kalmış, karın tokluğuna çobanlık yapacak biçare bir dağlı. Çizmesinde dağ tozu süsü varken tırnak diplerinde sulak yayla kili kokusu ve omzunda koç zaptetmekten kalma taze boynuz çürüğü."
+sohbet.chr_014.s1,"Yayla kuruduysa bu koçların yünü niye pırıl pırıl, semiz hayvanlarla hangi yoldan indin?"
+sohbet.chr_014.s10,"Kurşunla susturulmuş çıngırak, yünlerin içindeki yırtık ferman ve omzundaki taze boynuz çürüğü! Sen sürü kırımından değil, levent celbinden kaçan Bekir'sin!"
+sohbet.chr_014.s11,Yalan bitti Bekir. Niyetini söyle!
+sohbet.chr_014.s2,"Helal olsun, iyi çoban malına iyi bakar."
+sohbet.chr_014.s3,"Çıngırağın dilini niye kurşunla tıkadın öyleyse, kimden saklandın?"
+sohbet.chr_014.s4,Çalı yiyen koyun böyle yağ bağlamaz! Sen yaylanın göbeğinden kaçırmışsın bu sürüyü!
+sohbet.chr_014.s5,"Kurt çıngırağa gelmez, zaptiye gelir! Sancak zaptiyelerinden mi kaçtın?"
+sohbet.chr_014.s6,Çobanım dersin ama yaşın tam levent yazılacak çağda. Sancak kütüğünden kaçar gibi geldin?
+sohbet.chr_014.s7,"Madem merinos güdersin, bu koçlar yılda kaç okka yapağı verir, tohumlama ne vakittir?"
+sohbet.chr_014.s8,"Çobanlığı iyi bilirsin Bekir, toprağın insanısın. Korkma, doğrunun yanındayız."
+sohbet.chr_014.s9,Zaptiyeler ardına düşecek! Asker kaçağı mısın sen?
+sohbet.chr_015.acilis1,"Günün hayrolsun nöbetçi. Çakıllıvadi'den yürüdüm geldim. Kuruyan toprağa su getirmeyi, arktan bostana bereket akıtmayı bilirim. Kazmam elimde, kuyu başınızda ter dökmeye hazırım."
+sohbet.chr_015.c1,Dere yataklarından geldim nöbetçi. Suyun kuruduğu yerleri aradım. Nerede su biterse orada insan çaresiz kalır. Kendi bacaklarıma güvendim.
+sohbet.chr_015.c10,"(Gözlerini diker, çapasını indirir) Doğru dersin nöbetçi. Gözünden kaçmamış."
+sohbet.chr_015.c11,"(Sepetindeki fideleri ve su vanalarını gösterir) Köyünüzün kuyuları sığ, suyu acıymış, bilirim. Yanımda kuyu derinleştirme araçlarım ve sulak bostan fidelerim var. Kuyu başınıza taş bent öreyim, bostanları yeşerteyim. Yeter ki beni o zalim ağanın zaptiyelerine vermeyin."
+sohbet.chr_015.c2,"Öyledir... Kimseye görünmeden gece yürüdüm. Benim kavgam insanla değil, kuraklıkladır."
+sohbet.chr_015.c3,"(Gözleri parlar, sesini yükseltir) Ağa köyün ortak suyunu kesti! Çocuklar susuzluktan kırılırken suyunu kendi bahçesine akıttı. Gece gittim, bent kapağını parçaladım, suyu vadiye saldım. Kaçtım işte, pişman da değilim!"
+sohbet.chr_015.c4,"(Kaşları çatılır, çapasını sıkar) Neyi kurcalarsın nöbetçi? Ekmeğimin peşindeyim, haram mal taşımam ben!"
+sohbet.chr_015.c5,"(Gözleri parlar, sesini yükseltir) Ağa köyün ortak suyunu kesti! Çocuklar susuzluktan kırılırken suyunu kendi bahçesine akıttı. Gece gittim, bent kapağını parçaladım, suyu vadiye saldım. Kaçtım işte, pişman da değilim!"
+sohbet.chr_015.c6,"Çakıllıvadi'de yirmi yıldır su arkı kazarım, kuyu açarım. Suyun damarını toprağın altından duyarım. Kocamı taşkında kaybettim ama suya küsmedim."
+sohbet.chr_015.c7,"(Yüzü aydınlanır) Kuyu tabanına killi kum basarsın, damar temizlenir. Bende de kireçle yumurta akı katılmış taş harcı vurursun ki su basınca yarıp geçmesin."
+sohbet.chr_015.c8,"(Vakur bir duruşla bakar) Adım Emine'dir. Ben asi değilim, köylünün suyunu kurtaran bir anayım. Köyünüzün kuyularını derinleştireyim, bostanlarına su çekeyim. Beni o zalim ağaya teslim etmeyin."
+sohbet.chr_015.c9,"(Çapasını yere vurur, sesi çınlar) Evet, Bostancı Emine'yim ben! Çocukların suyunu çalan ağaya boyun eğmedim! Kapıyı açarsanız bu köyün çeşmelerinden gürül gürül su akar, açmazsanız dağdaki kuraklıkta kuyu kazarım gene boyun eğmem!"
+sohbet.chr_015.giris1,"Boğaz tokluğuna kuyu başında kova çekecek, bostan belleyecek, kuru ekmeğe razı kimsesiz bir bostancı kadın. Kollarında dere kireci ve harç yanıkları ile sağ bileğinde bent kapağını kanırtırken demir manivelanın bıraktığı derin sıyrık izi."
+sohbet.chr_015.s1,Çakıllıvadi'den bu sınıra kadar sırtında bu koca su aletleriyle hangi yoldan vardın bacım?
+sohbet.chr_015.s10,"Çapandaki bent kireci, sepetindeki kırık su mandalı ve kolundaki demir sıyrığı! Sen ağanın bent kapağını parçalayan asi Emine Hatun'sun!"
+sohbet.chr_015.s11,Niyetini açıkça söyle Emine Hatun!
+sohbet.chr_015.s2,"Doğrudur, su ustası dere yatağını iyi bilir."
+sohbet.chr_015.s3,Sepetinde sakladığın tunç mandal neyin nesidir peki?
+sohbet.chr_015.s4,Dere yatakları ağanın korumalarıyla doludur! Sırtında bu demirlerle yakalanmadan nasıl geçtin?
+sohbet.chr_015.s5,Kime kafa tuttun da kaçtın Çakıllıvadi'den? Açık konuş!
+sohbet.chr_015.s6,Bostancıyım dersin lakin bileğindeki demir yarası bir cenk gazisi gibi taze. Kimin bendinden gelirsin?
+sohbet.chr_015.s7,"Madem su ustasısın, kuruyan kuyu nasıl canlandırılır, taş bent hangi harçla tutar?"
+sohbet.chr_015.s8,"Büyük bir zanaatin var Emine Hatun, su getiren el baş üstünde tutulur."
+sohbet.chr_015.s9,Ağanın zaptiyeleri bendi yıkanı arar! Asi misin sen?
+sohbet.chr_016.acilis1,"Yol uzun geldi bekçi. Dizlerim tutmuyor. Bağ budağım ben, kuru asmayı diriltirim. Bir köşe verseniz budamaya dururum."
+sohbet.chr_016.c1,"Koruklu'da bağ bitti bekçi. Üzüm az oldu, iş kalmadı. Boş duracağıma burada budama yapayım dedim."
+sohbet.chr_016.c10,(Demeti yere bırakır) Görmüşsün bekçi. İnkar etmem.
+sohbet.chr_016.c11,"(Demetin ağzını açar, taze kalemleri gösterir) Şu çubuklara bak. Sağlam aşı. Bağ Evi'nde budamamı yaparsam asma tutar, üzüm olur. Beni içeri al. Eşref'in adamı gelirse sakla beni."
+sohbet.chr_016.c2,Birkaç kalem çubuk işte. Kendi aşım. Köye yük olmayayım diye yanıma aldım.
+sohbet.chr_016.c3,"(Başını eğer) Tamam. Borcum var. Eşref Ağa'ya eşek parası kaldı. Ödeyemeyince bileğimi bağladılar. Gece ipi çözdüm, kendi aşıladığım çubukları aldım, geldim."
+sohbet.chr_016.c4,(Demetin ipini sıkar) Ne karıştırırsın bekçi? Sırtımdaki kendi emeğim. Borçlu adam güpegündüz kapıya çıkar mı?
+sohbet.chr_016.c5,"(Başını eğer) Tamam. Borcum var. Eşref Ağa'ya eşek parası kaldı. Ödeyemeyince bileğimi bağladılar. Gece ipi çözdüm, kendi aşıladığım çubukları aldım, geldim."
+sohbet.chr_016.c6,"Koruklu'danım. Bağdan başka iş bilmem. Budamayı, aşıyı, herek bağlamayı yaparım."
+sohbet.chr_016.c7,"(Eli rahatlar) Şubat sonu, göz uyanmadan. Üst göze dokunma, kuru çubuğu dipten kes. Aşı kalemini özsu yürümeden bağlarsın. Borç düşünce takvim şaşar ama el şaşmaz."
+sohbet.chr_016.c8,"(Yüzünü siler) Adım Halil. Hırsız değilim. O çubuklar benim aşım. Bağ Evi'nde budarım, kuru asmayı düzeltirim. Yeter ki Eşref Ağa'nın adamına teslim etmeyin."
+sohbet.chr_016.c9,"(Demeti göğsüne çeker) Evet, Halil'im ben. Eşek borcu için bileğimi bağladılar. Kendi emeğim olan çubuğu bırakıp gideyim mi? Bu el bir bağı diriltir. Geri çevirirseniz dağda aç kalırım."
+sohbet.chr_016.giris1,"Bağı kurumuş bir köyden inmiş, boğaz tokluğuna asma budayacak yorgun bir rençber. Sol bileğinde taze ip yanığı ve gömlek yeninde kopmuş kenevir lifleri."
+sohbet.chr_016.s1,Bağ zamanı köyünü bırakıp bu kapıya niye tek başına geldin?
+sohbet.chr_016.s10,"Kuşağındaki borç değneği, demetteki mühürlü aşı çubuğu ve bileğindeki ip yanığı! Sen iş arayan değil, borç kaçkınısın!"
+sohbet.chr_016.s11,Yalan bitti Halil. Şimdi niyetini söyle.
+sohbet.chr_016.s2,"Doğrudur, iş bitince budamacı yer arar."
+sohbet.chr_016.s3,Kendi aşın dediğin demet ağanın ipiyle bağlı!
+sohbet.chr_016.s4,İş bittiyse sırtındaki taze çubuk demeti neyin nesi?
+sohbet.chr_016.s5,"Yalanın kısa. Bileğindeki ip izi duruyor, doğruyu söyle!"
+sohbet.chr_016.s6,Elin bıçak tutmuş ama halin kaçak gibi. Hangi bağdan kopup geldin?
+sohbet.chr_016.s7,"Madem budamacısın, asma hangi ay budanır, hangi göz bırakılır?"
+sohbet.chr_016.s8,Borç insanın yakasını bırakmaz. İş bilen adama kapımız açık.
+sohbet.chr_016.s9,"Borcunu ağzınla söyledin. Eşref'in adamı arkandan gelir, adın ne?"
+sohbet.chr_017.acilis1,"Koyunlar susadı. İki sağmalım var, ben de bitkinim. Ağılınız varsa sağarım, yün de kırkarım. Hayvan kapıda üşür."
+sohbet.chr_017.c1,"Yayla kurudu sandık, sürü dağıldı. Elimde bu iki baş kaldı. Sağmal varsa ekmek de vardır dedim, indim."
+sohbet.chr_017.c10,(Heybenin kapağını aralar) Bildin. Saklayacak halim kalmadı.
+sohbet.chr_017.c11,"(Uyuyan Esma'yı gösterir, yine örter) Kızım bu. İki sağmalım da var. Ağıl'da sağarım, yün kırkarım, sütü peynire koyarım. Bizi içeri alın. Recep gelirse kızı vermeyin."
+sohbet.chr_017.c2,"Heybede yün var, biraz peynir. Kendi azığım. Kimseye yük olmam."
+sohbet.chr_017.c3,"(Sesini kısar) Tamam. Heybede kızım var. Adı Esma. Kocam öldü. Kaynım Recep çocuğu da koyunu da miras dedi. Kızı vermedim, kaçtım."
+sohbet.chr_017.c4,(Heybeyi iki elle tutar) Dokunma heybe me. İçinde yün var. Çobanı yol ortasında soyacak mısın?
+sohbet.chr_017.c5,"(Sesini kısar) Tamam. Heybede kızım var. Adı Esma. Kocam öldü. Kaynım Recep çocuğu da koyunu da miras dedi. Kızı vermedim, kaçtım."
+sohbet.chr_017.c6,"Karayayla'danım. Sağmal bilirim, kuzu bilirim. Ağılınızda yer varsa hakkıyla güderim."
+sohbet.chr_017.c7,"(Koyunun memesine bakar) Meme şişer, kuyruk altı kızarırsa kuzu yakındır. Kırkım güzün olur, yünü dibinden yolmazsın, makas boyu alırsın. Bunu bilmeyen çoban sürüyü kırar."
+sohbet.chr_017.c8,"(Heybeyi göğsüne bastırır) Adım Fadime. Hırsız değilim. Kızım Esma benim. Ağıl'da sağarım, yün ayıklarım. Yeter ki Recep'e teslim etmeyin bizi."
+sohbet.chr_017.c9,"(Kızını sıkı sarar) Evet, Fadime'yim. Çocuğumu kaynıma mal diye vermedim. Bu iki sağmal bir ağılı doyurur. Geri çevirirseniz dağda ikimiz de kalırız."
+sohbet.chr_017.giris1,"Yaylası dağılmış, iki sağmalla iş arayan dul bir çoban. Göğsündeki süt lekesi ve etek ucunda küçük bir çamur izi, koyun ayağından büyük."
+sohbet.chr_017.s1,Çoban köyünü bırakıp bu sınıra niye tek başına indi?
+sohbet.chr_017.s10,"Çıngıraktaki saç kurdelesi, heybedeki çocuk ve göğüsteki süt lekesi! Sen yalnız çoban değilsin, çocuğunu saklıyorsun!"
+sohbet.chr_017.s11,Yalan bitti Fadime. Şimdi niyetini söyle.
+sohbet.chr_017.s2,"Doğrudur, çoban sürüsünü arar."
+sohbet.chr_017.s3,Yün peynir gibi kımıldamaz. Heybede ne var?
+sohbet.chr_017.s4,Sürü dağıldıysa heyben niye kuzu değil de insan gibi kımıldıyor?
+sohbet.chr_017.s5,Kurdele de süt lekesi de duruyor. Çocuğu söyle!
+sohbet.chr_017.s6,Koyunun hali iyi ama senin gözün yolda. Hangi ağıldan geldin?
+sohbet.chr_017.s7,"Madem çobansın, koyun kuzuya yakın mı nasıl anlaşılır, yün ne zaman kırkılır?"
+sohbet.chr_017.s8,Çoluk çocuğu kapıdan çevirmeyiz. İş bilen çobana yer var.
+sohbet.chr_017.s9,"Kızını heybede sakladığını söyledin. Kaynın peşinde, adın ne?"
+sohbet.chr_018.acilis1,"Bostandan geliyorum, elim toprak. Soğan, bamya, kabak bilirim. Tarlanız varsa çapa vururum, boğaz tokluğuna."
+sohbet.chr_018.c1,"Derebostan'da tarla bölündü. Benim payıma otluk düştü. İş aramaya çıktım, çapa bende."
+sohbet.chr_018.c10,(Kabağı bırakır) Gördün. İnkar etmem.
+sohbet.chr_018.c11,"(Bir avuç tohum gösterir) Bak. Anamın bamyası, kabağı. Bostan binasında çapa vururum, fide dikerim. Soğan da tutar. Beni içeri alın. Hayri gelirse tohumu vermeyin."
+sohbet.chr_018.c2,"Kapta biraz su vardı, bitti. Yanımda azık niyetine bir avuç çekirdek var, o kadar."
+sohbet.chr_018.c3,"(Kapağı sıyırır, sesi düşer) Tamam. İçinde anamın tohumu var. Bamya, kabak. Eniştem Hayri pazarda satacaktı. Sakladım, kaçtım."
+sohbet.chr_018.c4,(Kabağı eteğinin altına iter) Ne kurcalarsın? Bostancıyım ben. Haram mal taşıdığım yok.
+sohbet.chr_018.c5,"(Kapağı sıyırır, sesi düşer) Tamam. İçinde anamın tohumu var. Bamya, kabak. Eniştem Hayri pazarda satacaktı. Sakladım, kaçtım."
+sohbet.chr_018.c6,"Derebostan'danım. Çapadan, fideden başka işim yok. Soğanı da bamyayı da yerinde ekerim."
+sohbet.chr_018.c7,"(Toprağı parmağında ezer) Bamya toprak ısınınca ekilir, tohum iki parmak derine. Kabak fidesi don yemeden dışarı çıkmaz, gece üstüne çul atarsın. Bunu bilmeyen bostanı boşa sürer."
+sohbet.chr_018.c8,"(Başını kaldırır) Adım Rahime. Hırsız değilim. O tohum anamın. Bostan'da çapa vururum, fide dikerim. Yeter ki Hayri'ye vermeyin."
+sohbet.chr_018.c9,"(Kabağı sıkı tutar) Evet, Rahime'yim. Anamın tohumunu pazarda ucuza gitmesin diye aldım. Bu el bir bostanı yeşertir. Geri çevirirseniz tohum da ben de kururuz."
+sohbet.chr_018.giris1,"Tarlası bölününce iş aramaya çıkmış, çapa vuracak yorgun bir bostancı. Yen dikişinde sıkışmış iki tane bamya tohumu ve tırnak altında taze toprak değil, kuru tohum kabuğu."
+sohbet.chr_018.s1,Bostan dururken bu kapıya niye tek başına yürüdün?
+sohbet.chr_018.s10,"Kuşaktaki tohum düğümü, su kabağındaki çekirdek ve yen dikişindeki bamya tanesi! Sen bostancı değil, tohum saklayan kadınsın!"
+sohbet.chr_018.s11,Yalan bitti Rahime. Şimdi niyetini söyle.
+sohbet.chr_018.s2,"Doğrudur, tarla bölününce insan iş arar."
+sohbet.chr_018.s3,"Azık bir avuç olmaz, o kap mühürlü. İçinde ne var?"
+sohbet.chr_018.s4,Otluğa düştüysen belindeki kabın niye tohumla dolu?
+sohbet.chr_018.s5,Düğüm de dikişteki tane de duruyor. Tohumu söyle!
+sohbet.chr_018.s6,Elin toprak ama belindeki kap kuru. Hangi tarladan geldin?
+sohbet.chr_018.s7,"Madem bostancısın, bamya ne zaman ekilir, kabak fidesi donu nasıl atlatır?"
+sohbet.chr_018.s8,Ana tohumu pazara gidecek mal değildir. İş bilene yer var.
+sohbet.chr_018.s9,"Tohumu sakladığını söyledin. Enişten peşinde, adın ne?"
+sohbet.chr_019.acilis1,"Su kokusu aldım bu taraftan. Bizim oralarda kuyu çamur tuttu derler, ben de ark temizlemeye iş arıyorum. Kazmam kör ama elim durmaz."
+sohbet.chr_019.c1,Akpınar'da kuyu kurudu. Ark da çatladı. Su kalmayınca iş de kalmadı. Burada kuyu temizlerim dedim.
+sohbet.chr_019.c10,(Pusulayı yere düşürür) Okudun. Yalanım ortaya çıktı.
+sohbet.chr_019.c11,"(Ölçeği uzatır) Su varmış, ben yok dedim. Burada öyle yapmam. Kuyu'nun dibini temizlerim, Su Arkı'nın çamurunu atarım. İçme suyu durulur, bostan da su görür. Beni içeri alın. Muhtara hemen haber salmayın."
+sohbet.chr_019.c2,"Yolda bir birikintiye bastım, o kadar. Ölçek eski, çizgisi kalmış."
+sohbet.chr_019.c3,"(Cebindeki kâğıdı ezer) Tamam. Kuraklık yalan. Kuyu doluydu. Su nöbetimi savdım, komşunun bostanı susuz kaldı. Ben gök vermedi dedim. Muhtar ölçtü, su yerindeydi. Utancımdan çıktım."
+sohbet.chr_019.c4,"(Ölçeği arkasına alır) Ne ölçersin hemşerim? Su arıyorum, yalan taşımıyorum."
+sohbet.chr_019.c5,"(Cebindeki kâğıdı ezer) Tamam. Kuraklık yalan. Kuyu doluydu. Su nöbetimi savdım, komşunun bostanı susuz kaldı. Ben gök vermedi dedim. Muhtar ölçtü, su yerindeydi. Utancımdan çıktım."
+sohbet.chr_019.c6,"Akpınar'danım. Kuyu temizlerim, arkın çamurunu atarım. Su nöbetini de bilirim, savmasam iyiydi."
+sohbet.chr_019.c7,"(Ölçeğin ıslak ucunu gösterir, sonra saklar) Dipteki kumun kokusu değişirse damar yakındır. Arkı savak savak açarsın, çamuru yukarı atarsın, suyu kendi yatağında bırakırsın. Bunu bilirim. Nöbeti savmak başka."
+sohbet.chr_019.c8,"(Başını eğer) Adım İsmail. Yalancıyım, inkâr etmem. Kuyu binasında dibi temizlerim, Su Arkı'nın çamurunu atarım. Yeter ki muhtarın adamına hemen teslim etmeyin."
+sohbet.chr_019.c9,"(Kazmayı sıkar) Evet, İsmail'im. Yalan söyledim, bostanı susuz bıraktım. Ama bu el kuyuyu temizler, arkın çamurunu atar. Geri çevirirseniz bir köy daha susuz kalır, ben de."
+sohbet.chr_019.giris1,"Kuyusu kuruyan bir köyden inmiş, ark temizleyecek yorgun bir sucu. Paçası dizine kadar taze ark çamuru, toz değil; yeninde hâlâ ıslak su çizgisi."
+sohbet.chr_019.s1,Sucu köyünü bırakıp bu kapıya niye tek başına geldi?
+sohbet.chr_019.s10,"Muhtarın pusulası, ıslak su ölçeği ve taze çamur paça! Sen kuraklık yalanı söyleyen sucusun!"
+sohbet.chr_019.s11,Yalan bitti İsmail. Şimdi niyetini söyle.
+sohbet.chr_019.s2,"Doğrudur, kuyu kuruyunca sucu yer arar."
+sohbet.chr_019.s3,Birikinti paçayı dizine kadar çıkarmaz. Yalanın ne?
+sohbet.chr_019.s4,Kuyu kuruduysa ölçeğinin dibi niye daha ıslak?
+sohbet.chr_019.s5,Pusula da çamur da duruyor. Kuraklık lafını bırak!
+sohbet.chr_019.s6,"Paçan ıslak, kurak köyden gelen böyle yürümez. Hangi kuyudan geldin?"
+sohbet.chr_019.s7,"Madem sucusun, kuyu damarı nasıl anlaşılır, ark nasıl temizlenir?"
+sohbet.chr_019.s8,Nöbet savmak ayıp ama eli işe yatkın adam lazım. Kapı açık.
+sohbet.chr_019.s9,"Kuraklık yalanını söyledin. Muhtar peşinde, adın ne?"
+sohbet.chr_020.acilis1,"Harman tozu burnumda kaldı. Savurmaya, döven sürmeye gelirim. Gece yürümekten belim tutuldu, bir tas su olsa iyi olur."
+sohbet.chr_020.c1,"Sarıharman'da iş bitti. Sap savruldu, paylar bölündü. Boş duracağıma burada döven sürerim dedim."
+sohbet.chr_020.c10,(Kasnağı yere kor) Gördün. Utancımı da gördün.
+sohbet.chr_020.c11,"(Boş kasnağı çevirir) Tel gitti, el duruyor. Harman Yeri'nde döven sürerim, sapı savururum, kalburu da yeni tel gelince çekerim. Dane temiz çıkar. Beni içeri alın. Nazım'a hemen haber salmayın."
+sohbet.chr_020.c2,"Kalbur eski. Tel yolda koptu. Samanı elemek için yanıma aldım, o kadar."
+sohbet.chr_020.c3,"(Kâğıdı açar, sesi düşer) Tamam. Harman günü kumarda kaybettim. Karımın bakır kalburunu Nazım'a rehin verdim. Köylüye kurt kaptı dedim. Duydular. Yüzüme bakmadılar, kalktım geldim."
+sohbet.chr_020.c4,(Kasnağı sıkar) Ne bakarsın öyle. Harman adamıyım. Utanç taşıdığım yok.
+sohbet.chr_020.c5,"(Kâğıdı açar, sesi düşer) Tamam. Harman günü kumarda kaybettim. Karımın bakır kalburunu Nazım'a rehin verdim. Köylüye kurt kaptı dedim. Duydular. Yüzüme bakmadılar, kalktım geldim."
+sohbet.chr_020.c6,"Sarıharman'danım. Döven sürerim, sap savururum, kalbur çekerim. Başka hünerim yok."
+sohbet.chr_020.c7,"(Eli kasnakta gezer) İkindi yelinde savrulur, rüzgar arkandan esecek, saman uçar dane kalır. Döveni düz sür, sapı ez, taşı yarmadan. Bunu bilirim. Kalburu koruyamadım, o ayrı."
+sohbet.chr_020.c8,"(Gözünü kaldırır) Adım Satılmış. Utandım, inkâr etmem. Harman Yeri'nde döven sürerim, sap savururum. Yeter ki Nazım'a hemen teslim etmeyin."
+sohbet.chr_020.c9,"(Yaralı elini gösterir) Evet, Satılmış'ım. Kalburu kumara verdim, kurt yalanı söyledim. Bu el yine harman savurur. Geri çevirirseniz utancım da açlığım da dağda kalır."
+sohbet.chr_020.giris1,"Harmanı bitmiş bir köyden inmiş, savurmaya gelecek yorgun bir ırgat. Sağ elinin mafsalı yarık ve gömlek yakasında şarap lekesi, harman tozu değil."
+sohbet.chr_020.s1,Harman bitmeden bu kapıya niye tek başına düştün?
+sohbet.chr_020.s10,"Kuşağındaki rehin kâğıdı, teli sökük kalbur ve mafsalındaki yara! Sen ırgat değil, kalburunu kumara kaptıran adamsın!"
+sohbet.chr_020.s11,Yalan bitti Satılmış. Şimdi niyetini söyle.
+sohbet.chr_020.s2,"Doğrudur, harman bitince ırgat yer arar."
+sohbet.chr_020.s3,Kopan tel samanla doldurulmaz. O kâğıt ne?
+sohbet.chr_020.s4,İş bittiyse koltuğundaki kalburun teli niye sökük?
+sohbet.chr_020.s5,Rehin kâğıdı da yara da duruyor. Kalburu ne yaptın?
+sohbet.chr_020.s6,Elin harman eli ama yüzün utançlı. Hangi harmandan geldin?
+sohbet.chr_020.s7,"Madem harman ırgatısın, sap ne zaman savrulur, döven nasıl sürülür?"
+sohbet.chr_020.s8,Utanç ağırdır. İş bilen adama bir kapı açılır.
+sohbet.chr_020.s9,"Kalburu kumara verdiğini söyledin. Nazım peşinde, adın ne?"
+sohbet.chr_021.acilis1,"Yol uzun geldi bekçi. Dizlerim tutmuyor. Taş dizerim, gedik örerim. Bir köşe verseniz surun dibine dururum."
+sohbet.chr_021.c1,"Kumlukale'de iş bitti bekçi. Duvar çöktü, adam az kaldı. Boş duracağıma burada taş dizerim dedim."
+sohbet.chr_021.c10,"(Nişanı yere bırakır, bileğini açar) Görmüşsün bekçi. İnkar etmem."
+sohbet.chr_021.c11,"(Çıkını açar, yırtık yeni gösterir) Kardeşim Müslim bu yende düştü yolda. Anam Hanife evde tek. Sur'da taş dizerim, gece bekçiliğini gençlere sayarım. Beni içeri al. Şahin Çavuş gelirse sakla beni."
+sohbet.chr_021.c2,Eski bir tahta işte. Yoldan aldım. Köye yük olmayayım diye yanıma koydum.
+sohbet.chr_021.c3,"(Başını eğer) Tamam. Kaçtım. Kardeşim Müslim yolda öldü. Anam Hanife evde tek. Çavuş Şahin bileğimi yoklama ipiyle bağladı. Gece ipi kestim, nişanı kırdım, geldim."
+sohbet.chr_021.c4,(Bileğini yeninin içine çeker) Ne karıştırırsın bekçi? Bileğim taştan sıyrıldı. Kaçak adam güpegündüz kapıya çıkar mı?
+sohbet.chr_021.c5,"(Başını eğer) Tamam. Kaçtım. Kardeşim Müslim yolda öldü. Anam Hanife evde tek. Çavuş Şahin bileğimi yoklama ipiyle bağladı. Gece ipi kestim, nişanı kırdım, geldim."
+sohbet.chr_021.c6,"Kumlukale ocağındanım. Duvar, sıra, gece adımı bilirim. Taş dizerim, gediği kapatırım."
+sohbet.chr_021.c7,"(Eli rahatlar) Gece sırası iki adamdır, biri durur biri yürür. Gedik altta geniş, üstte dar örülür. Harç kurumadan üstüne basılmaz. Anam aklıma düşünce adım şaşar ama el şaşmaz."
+sohbet.chr_021.c8,"(Yüzünü siler) Adım Cemil. Hırsız değilim. O kırık nişan benim kaçtığımın parçası. Sur'da taş dizerim, gece sırasını gençlere sayarım. Yeter ki Şahin Çavuş'a teslim etmeyin."
+sohbet.chr_021.c9,"(Bileğini saklar) Evet, Cemil'im ben. Kardeşim yolda öldü, anam yalnız. Bileğimdeki lif ondan. Bu el bir gediği kapatır. Geri çevirirseniz anam da ben de açıkta kalırız."
+sohbet.chr_021.giris1,"Ocağı dağılmış, duvar örmeye gelmiş yorgun bir taş işçisi. Sol bileğinde taze ip sıyrığı ve deriye gömülü kenevir lifi."
+sohbet.chr_021.s1,Ocak dururken sur dibine niye tek başına geldin?
+sohbet.chr_021.s10,"Kuşağındaki kırık yoklama nişanı, çıkındaki kardeş yeni ve bileğindeki kenevir lifi! Sen iş arayan değil, celp kaçkınısın!"
+sohbet.chr_021.s11,Yalan bitti Cemil. Şimdi niyetini söyle.
+sohbet.chr_021.s2,"Doğrudur, ocak dağılınca taşçı yer arar."
+sohbet.chr_021.s3,Yoldan aldığın tahtada senin adın yazılı!
+sohbet.chr_021.s4,İş bittiyse kuşağındaki kırık tahta nişan neyin nesi?
+sohbet.chr_021.s5,"Yalanın kısa. Bileğindeki kenevir lifi duruyor, doğruyu söyle!"
+sohbet.chr_021.s6,Elin taş tutmuş ama halin kaçak gibi. Hangi ocaktan koptun?
+sohbet.chr_021.s7,"Madem ocaktansın, gece sırası nasıl kurulur, gedik nasıl örülür?"
+sohbet.chr_021.s8,Ananın yükü ağırdır. İş bilen adama kapımız açık.
+sohbet.chr_021.s9,"Anan için kaçtığını ağzınla söyledin. Çavuş arkandan gelir, adın ne?"
+sohbet.chr_022.acilis1,"Ayaklarım şişti bekçi. Elim boş ama vuruşum durur. Tarlada tempo tutarım, çocuklara alarm vuruşunu sayarım. Bir köşe verseniz işe dururum."
+sohbet.chr_022.c1,Hisaraltı'da davul sustu bekçi. İş kalmadı. Boş duracağıma burada vuruş tutayım dedim.
+sohbet.chr_022.c10,"(Halkayı yere bırakır, omzunu açar) Görmüşsün bekçi. İnkar etmem."
+sohbet.chr_022.c11,"(Ot bohçasını açar) Babam Reşat için sattım. Nazile'ye davul gitti, ilaç geldi. Tarla Damı'nda tempo tutarım, Meydan'da alarmı çocuklara sayarım. Beni içeri al. Pertev Emin gelirse sakla beni."
+sohbet.chr_022.c2,Eski bir halka işte. Yoldan kaldı. Köye yük olmayayım diye cebime attım.
+sohbet.chr_022.c3,"(Başını eğer) Tamam. Sattım. Babam Reşat yatakta. Otacı Nazile ilaç dedi, param yoktu. Bölük davulunu verdim, halkayı cebime sakladım, geldim."
+sohbet.chr_022.c4,(Omzunu örter) Ne karıştırırsın bekçi? Omzum kayıştan aşındı. Davul satan adam güpegündüz kapıya çıkar mı?
+sohbet.chr_022.c5,"(Başını eğer) Tamam. Sattım. Babam Reşat yatakta. Otacı Nazile ilaç dedi, param yoktu. Bölük davulunu verdim, halkayı cebime sakladım, geldim."
+sohbet.chr_022.c6,"Hisaraltı davul ocağındanım. Tempo, alarm, yürüyüş vuruşu bilirim. Tarlada da sayarım, meydana da."
+sohbet.chr_022.c7,"(Tokmağı ikiye böler gibi vurur) Alarm üç kısa bir uzun. Tarla temposu yavaş başlar, orak düşünce sıklaşır. Babam aklıma düşünce el şaşar ama sayım şaşmaz."
+sohbet.chr_022.c8,"(Yüzünü siler) Adım Bayram. Hırsız değilim. O halka sattığım davulun parçası. Tarla Damı'nda tempo tutarım, çocuklara alarmı sayarım. Yeter ki Pertev Emin'e teslim etmeyin."
+sohbet.chr_022.c9,"(Omzunu kapatır) Evet, Bayram'ım ben. Babam hasta diye davulu sattım. Omzumdaki çizgi ondan. Bu el bir tarlayı sayar. Geri çevirirseniz babam da ben de açıkta kalırız."
+sohbet.chr_022.giris1,"Davulu yolda kırılmış, tempo tutmaya gelmiş yorgun bir ocak eri. Sol omzunda davul kayışının bıraktığı soluk çizgi ve kopuk toka deliği."
+sohbet.chr_022.s1,Davulcu ocakta durur. Sen niye tek başına bu kapıdasın?
+sohbet.chr_022.s10,"Kuşağındaki tokmak, cebindeki davul halkası ve omzundaki boş kayış çizgisi! Sen tempo arayan değil, davul satmış kaçaksın!"
+sohbet.chr_022.s11,Yalan bitti Bayram. Şimdi niyetini söyle.
+sohbet.chr_022.s2,"Doğrudur, davul susunca adam yer arar."
+sohbet.chr_022.s3,Yoldan kalan halkada davul kasnağının izi var!
+sohbet.chr_022.s4,Davul sustuysa cebindeki pirinç halka neyin nesi?
+sohbet.chr_022.s5,"Yalanın kısa. Omzundaki boş çizgi duruyor, doğruyu söyle!"
+sohbet.chr_022.s6,"Tokmak var, davul yok. Hangi kışladan koptun?"
+sohbet.chr_022.s7,"Madem davulcusun, alarm vuruşu kaçtır, tarla temposu nasıl sayılır?"
+sohbet.chr_022.s8,Babanın derdi insanın yakasını bırakmaz. İş bilen adama kapımız açık.
+sohbet.chr_022.s9,"Davulu sattığını ağzınla söyledin. Emin arkandan gelir, adın ne?"
+sohbet.chr_023.acilis1,"Başım çatlıyor bekçi. Yol yürüdüm, hendek bilirim. Kimin geldiğini sayarım. Bir köşe verseniz hendekte dururum."
+sohbet.chr_023.c1,"Bozgeçit sakindi bekçi. Yol boştu. İş kalmadı, burada hendek yürüyeyim dedim."
+sohbet.chr_023.c10,"(Şişeyi yere bırakır, sakalını açar) Görmüşsün bekçi. İnkar etmem."
+sohbet.chr_023.c11,"(Çubuğu gösterir, kertiksizdir) Bu gece geçide çıkmadım. Bedri'ye yol boş dedim. Bir daha yalan saymam. Hendek'te yürürüm, geleni olduğu gibi söylerim. Beni içeri al. Timur gelirse sakla beni."
+sohbet.chr_023.c2,Eski bir çubuk işte. Sayım bitti. Köye yük olmayayım diye cebime koydum.
+sohbet.chr_023.c3,(Başını eğer) Tamam. İçtim. Geçidi kaçırdım. Çavuş Bedri'ye yol boş dedim. Çubuğa kertik atmadım. Utancımdan geldim.
+sohbet.chr_023.c4,(Sakalını yener) Ne karıştırırsın bekçi? Sakalım toz tuttu. Yalan söyleyen adam güpegündüz kapıya çıkar mı?
+sohbet.chr_023.c5,(Başını eğer) Tamam. İçtim. Geçidi kaçırdım. Çavuş Bedri'ye yol boş dedim. Çubuğa kertik atmadım. Utancımdan geldim.
+sohbet.chr_023.c6,"Bozgeçit keşif yokuşundanım. Hendek, iz, gelen giden bilirim. Kim geçti sayarım."
+sohbet.chr_023.c7,"(Eli rahatlar) Geçit izi çakılda taze olur, eski iz toz tutar. Hendek dibi sabah çiyinde yürünür, gece ayak sesi uzar. Şarap düşünce göz şaşar ama kulak şaşmaz."
+sohbet.chr_023.c8,"(Yüzünü siler) Adım Necip. Hırsız değilim. O çubuk geçide uğramadığımın parçası. Hendek'te yürürüm, geleni doğru sayarım. Yeter ki Timur'a teslim etmeyin."
+sohbet.chr_023.c9,"(Sakalını saklar) Evet, Necip'im ben. İçtim, geçidi kaçırdım, yolu boş dedim. Sakalımdaki sıra ondan. Bu kulak bir hendeği sayar. Geri çevirirseniz dağda aç kalırım."
+sohbet.chr_023.giris1,"Yolu yürüyüp bitmiş, hendek bakmaya gelmiş yorgun bir yol eri. Sakalında ve çenesinde taze üzüm sırası lekesi."
+sohbet.chr_023.s1,Keşif eri geçitte durur. Sen niye tek başına bu kapıdasın?
+sohbet.chr_023.s10,"Kuşağındaki boş şişe, cebindeki kertiksiz geçit çubuğu ve sakalındaki şarap lekesi! Sen yol yürüyen değil, geçidi kaçırmış yalancısın!"
+sohbet.chr_023.s11,Yalan bitti Necip. Şimdi niyetini söyle.
+sohbet.chr_023.s2,"Doğrudur, yol boşsa keşif eri yer arar."
+sohbet.chr_023.s3,Sayımı biten çubukta o gecenin kertiği olur!
+sohbet.chr_023.s4,Yol boşsa cebindeki çubuk niye kertiksiz?
+sohbet.chr_023.s5,"Yalanın kısa. Sakalındaki şarap sırası duruyor, doğruyu söyle!"
+sohbet.chr_023.s6,"Ayağın temiz, halin bozuk. Hangi geçitten koptun?"
+sohbet.chr_023.s7,"Madem keşif erisin, geçit izi nasıl okunur, hendek dibi ne zaman yürünür?"
+sohbet.chr_023.s8,Bir gece şaşmak insanı bitirmez. İş bilen adama kapımız açık.
+sohbet.chr_023.s9,"Yolu boş dediğini ağzınla söyledin. Bekçi arkandan gelir, adın ne?"
+sohbet.chr_024.acilis1,"Omuzlarım düştü bekçi. Örste durmuşluğum var. Eğriyi düzeltirim, menteşe çakarım. Bir köşe verseniz aletin ucundan tutarım."
+sohbet.chr_024.c1,Demirkapı'da iş bitti bekçi. Örs soğudu. Boş duracağıma burada alet düzeltirim dedim.
+sohbet.chr_024.c10,"(Bezi açar, eğri namluyu yere kor) Görmüşsün bekçi. İnkar etmem."
+sohbet.chr_024.c11,"(Eğri yeri gösterir) Şuna bak. Orta yerinden bükük. Kimseye sallamadım. Tamir Sundurması'nda alet düzeltirim, kapı tahtasına çivi çakarım. Beni içeri al. Fikret Emin gelirse sakla beni."
+sohbet.chr_024.c2,Eski bir demir parçası işte. Yoldan aldım. Köye yük olmayayım diye sardım.
+sohbet.chr_024.c3,"(Başını eğer) Tamam. Sakladım. Bir kılıç eğri kaldı. Fikret Emin'e geri veremedim. Utandım. Beze sardım, geldim. Kimseye kaldırmadım."
+sohbet.chr_024.c4,(Kolunu yener) Ne karıştırırsın bekçi? Kolum örsten sıyrıldı. Kılıç saklayan adam güpegündüz kapıya çıkar mı?
+sohbet.chr_024.c5,"(Başını eğer) Tamam. Sakladım. Bir kılıç eğri kaldı. Fikret Emin'e geri veremedim. Utandım. Beze sardım, geldim. Kimseye kaldırmadım."
+sohbet.chr_024.c6,"Demirkapı anbarındanım. Eğriyi düzeltirim, menteşe yaparım, çivi dizerim. Kapı tahtasını sıkarım."
+sohbet.chr_024.c7,"(Eli rahatlar) Eğri namlu soğukken vurulmaz, közde yavaş düzelir. Menteşe kanada iki, pervazına üç çivi. Utanç düşünce el titrer ama ölçü şaşmaz."
+sohbet.chr_024.c8,"(Yüzünü siler) Adım Fehmi. Hırsız değilim, bir kılıcı utancımdan sakladım. Tamir Sundurması'nda alet düzeltirim, kapıya çivi çakarım. Yeter ki Fikret Emin'e teslim etmeyin."
+sohbet.chr_024.c9,"(Kolu saklar) Evet, Fehmi'yim ben. Eğri kılıcı geri veremedim. Koldaki kesik ondan. Bu el bir menteşeyi düz tutar. Geri çevirirseniz dağda aç kalırım."
+sohbet.chr_024.giris1,"Örsü dağılmış, alet düzeltmeye gelmiş yorgun bir demir yamağı. Sol ön kolda eğri namlunun açtığı taze ince kesik."
+sohbet.chr_024.s1,Anbar dururken tamir sundurmasına niye tek başına geldin?
+sohbet.chr_024.s10,"Kolundaki eğri kılıç, cebindeki açık anbar çubuğu ve ön koldaki taze kesik! Sen alet arayan değil, kılıç saklayan yamağısın!"
+sohbet.chr_024.s11,Yalan bitti Fehmi. Şimdi niyetini söyle.
+sohbet.chr_024.s2,"Doğrudur, örs susunca yamak yer arar."
+sohbet.chr_024.s3,Yoldan aldığın demirin dipinde anbar kertiği var!
+sohbet.chr_024.s4,İş bittiyse kolunun altındaki bez niye metal sesi veriyor?
+sohbet.chr_024.s5,"Yalanın kısa. Kolundaki kesik duruyor, doğruyu söyle!"
+sohbet.chr_024.s6,Elin demir tutmuş ama kolun sarılı. Hangi anbardan koptun?
+sohbet.chr_024.s7,"Madem cebe yamağısın, eğri namlu nasıl düzeltilir, menteşe nereye çakılır?"
+sohbet.chr_024.s8,Utanç insanın yakasını bırakmaz. İş bilen adama kapımız açık.
+sohbet.chr_024.s9,"Kılıcı sakladığını ağzınla söyledin. Emin arkandan gelir, adın ne?"
+sohbet.chr_025.acilis1,"Boğazım kurudu bekçi. Su taşırım, ekmek paylarım. Çeşmede dururum, sofrada da. Bir köşe verseniz yükü indiririm."
+sohbet.chr_025.c1,Akçavuş'ta su bitti bekçi. Fıçı kurudu. Boş duracağıma burada taşırım dedim.
+sohbet.chr_025.c10,"(Yazmayı açar, somunu gösterir) Görmüşsün bekçi. İnkar etmem."
+sohbet.chr_025.c11,"(Somunu ikiye böler gibi gösterir, yine sarar) Zahide küçük. Buna muhtaç. Ben çeşmede su taşırım, sofrada payı doğru keserim. Bir daha fazla almam. Beni içeri al. Remzi gelirse sakla beni."
+sohbet.chr_025.c2,Eski bir kırıntı işte. Yoldan kaldı. Köye yük olmayayım diye silkelemedim.
+sohbet.chr_025.c3,"(Başını eğer) Tamam. Sakladım. Küçük kardeşim Zahide aç. Fırından bir somun fazla aldım. Remzi sayınca kaçtım. Yazmaya sardım, geldim."
+sohbet.chr_025.c4,(Koltuk dikişini yener) Ne karıştırırsın bekçi? Un yoldan sıçradı. Ekmek saklayan adam güpegündüz kapıya çıkar mı?
+sohbet.chr_025.c5,"(Başını eğer) Tamam. Sakladım. Küçük kardeşim Zahide aç. Fırından bir somun fazla aldım. Remzi sayınca kaçtım. Yazmaya sardım, geldim."
+sohbet.chr_025.c6,"Akçavuş su yokuşundanım. Fıçı taşırım, pay bölerim. Su eksilmesin, ekmek de artmasın diye sayarım."
+sohbet.chr_025.c7,"(Eli rahatlar) Fıçı iki omza birden biner, tek omuz döker. Ekmek payı kişi başı bir dilim, çocuk yarım. Kardeşim aklıma düşünce sayım şaşar ama omuz şaşmaz."
+sohbet.chr_025.c8,"(Yüzünü siler) Adım Nevzat. Hırsız değilim. O somun Zahide'nin payıydı, fazla kaçtı. Çeşmede su taşırım, Ortak Sofra'da ekmeği doğru bölerim. Yeter ki Remzi'ye teslim etmeyin."
+sohbet.chr_025.c9,"(Yazmayı göğsüne bastırır) Evet, Nevzat'ım ben. Zahide için somun sakladım. Koltuk dikişindeki un ondan. Bu omuz bir çeşmeyi doldurur. Geri çevirirseniz kardeşim aç kalır."
+sohbet.chr_025.giris1,"Su omuzu çökmüş, çeşmeye gelmiş yorgun bir kışla sucusu. Sol koltuk dikişinde kurumuş un ve ekmek kırıntısı."
+sohbet.chr_025.s1,Sucu kışlada durur. Sen niye tek başına bu kapıdasın?
+sohbet.chr_025.s10,"Omzundaki su omuzu, yazmadaki yarım somun ve koltuk dikişindeki un! Sen sucu değil, ekmek saklayan ersin!"
+sohbet.chr_025.s11,Yalan bitti Nevzat. Şimdi niyetini söyle.
+sohbet.chr_025.s2,"Doğrudur, fıçı kuruyunca sucu yer arar."
+sohbet.chr_025.s3,Yol kırıntısı yazma dikişine somun diye girmez!
+sohbet.chr_025.s4,Su bittiyse koltuk dikişindeki un neyin nesi?
+sohbet.chr_025.s5,"Yalanın kısa. Koltuk dikişindeki un duruyor, doğruyu söyle!"
+sohbet.chr_025.s6,Omzun ıslak ama koltuğun unlu. Hangi kışladan koptun?
+sohbet.chr_025.s7,"Madem sucusun, fıçı nasıl dengelenir, ekmek payı kaça bölünür?"
+sohbet.chr_025.s8,Kardeşin açsa insan dayanmaz. İş bilen adama kapımız açık.
+sohbet.chr_025.s9,"Ekmeği sakladığını ağzınla söyledin. Ekmekçi arkandan gelir, adın ne?"
+sohbet.chr_026.acilis1,"Ellerim deri kokar bekçi. Koşum dikerim, eyer yamarım. Ahırın bir köşesinde dururum."
+sohbet.chr_026.c1,Koşuluçarşı'da iş bitti bekçi. Eyer kalmadı. Boş duracağıma burada koşum dikerim dedim.
+sohbet.chr_026.c10,"(Kayışı yere bırakır, bileğini açar) Görmüşsün bekçi. İnkar etmem."
+sohbet.chr_026.c11,"(Kayışın kördüğümünü gösterir) Eyer gitti, bu kaldı. Ahır'da koşum dikerim, eyer yamarım. Bir daha başkasının malını rehine koymam. Beni içeri al. Seyfettin gelirse sakla beni."
+sohbet.chr_026.c2,Eski bir kayış işte. Yoldan kaldı. Köye yük olmayayım diye yanıma aldım.
+sohbet.chr_026.c3,"(Başını eğer) Tamam. Rehine koydum. Kiramı ödeyemedim. Seyfettin'in eyerini verdim. Kayışı utancımdan aldım, geldim."
+sohbet.chr_026.c4,(Bileğini yener) Ne karıştırırsın bekçi? Bileğim bizden yandı. Eyer rehine koyan adam güpegündüz kapıya çıkar mı?
+sohbet.chr_026.c5,"(Başını eğer) Tamam. Rehine koydum. Kiramı ödeyemedim. Seyfettin'in eyerini verdim. Kayışı utancımdan aldım, geldim."
+sohbet.chr_026.c6,"Koşuluçarşı eyer sokağındanım. Koşum dikerim, kayış değiştiririm, eyer yamarım."
+sohbet.chr_026.c7,"(Eli rahatlar) Koşum ter yerinden çürür, önce orası yoklanır. Üzengi kayışı çift dikiş, tek kat yetmez. Kira düşünce el titrer ama iğne şaşmaz."
+sohbet.chr_026.c8,(Yüzünü siler) Adım Salih. Hırsız değilim. O kayış Seyfettin'in eyerinden kaldı. Ahır'da koşum onarırım. Yeter ki Seyfettin'e teslim etmeyin.
+sohbet.chr_026.c9,"(Bileğini saklar) Evet, Salih'im ben. Kiram için eyeri rehine koydum. Bileğimdeki halka ondan. Bu el bir koşumu tutar. Geri çevirirseniz dağda aç kalırım."
+sohbet.chr_026.giris1,"Dükkânı kapanmış, koşum dikmeye gelmiş yorgun bir saraç. Sağ bileğinde rehinci ipinin bıraktığı taze yanık halka."
+sohbet.chr_026.s1,Saraç dükkânda durur. Sen niye tek başına bu kapıdasın?
+sohbet.chr_026.s10,"Kuşağındaki eyer çubuğu, çantadaki üzengi kayışı ve bileğindeki rehin izi! Sen koşum arayan değil, eyer rehine koymuş saraçsın!"
+sohbet.chr_026.s11,Yalan bitti Salih. Şimdi niyetini söyle.
+sohbet.chr_026.s2,"Doğrudur, iş bitince saraç yer arar."
+sohbet.chr_026.s3,Yoldan kalan kayışta müşteri dikişi var!
+sohbet.chr_026.s4,İş bittiyse çantadaki üzengi kayışı neyin nesi?
+sohbet.chr_026.s5,"Yalanın kısa. Bileğindeki rehin halkası duruyor, doğruyu söyle!"
+sohbet.chr_026.s6,Elin deri tutmuş ama bileğin yanık. Hangi çarşıdan koptun?
+sohbet.chr_026.s7,"Madem saraçsın, koşum nereden çürür, üzengi kayışı nasıl dikilir?"
+sohbet.chr_026.s8,Kira insanın yakasını bırakmaz. İş bilen adama kapımız açık.
+sohbet.chr_026.s9,"Eyer rehine koyduğunu ağzınla söyledin. Müşteri arkandan gelir, adın ne?"
+sohbet.chr_027.acilis1,"Kil kurudu elimde bekçi. Testi onarırım, kuyu sıvarım. Bir köşe verseniz çamuru çözerim."
+sohbet.chr_027.c1,Testiköy'de iş bitti bekçi. Ocak söndü. Boş duracağıma burada testi onarırım dedim.
+sohbet.chr_027.c10,"(Dibi yere kor, paçayı çeker) Görmüşsün bekçi. İnkar etmem."
+sohbet.chr_027.c11,"(Çatlağı parmağıyla gösterir) Su buradan kaçtı. Kuyu Evi'nde duvarı sıvarım, testiyi içten kapatırım. Bir daha sağlam diye yalan kertik atmam. Beni içeri al. Şevki gelirse sakla beni."
+sohbet.chr_027.c2,Eski bir dip işte. Yoldan aldım. Köye yük olmayayım diye çuvala koydum.
+sohbet.chr_027.c3,(Başını eğer) Tamam. Çatlaktı. Kuyu evine sağlam diye bıraktım. Şevki fark etmeden kaçtım. Dip bende kaldı.
+sohbet.chr_027.c4,(Paçayı indirir) Ne karıştırırsın bekçi? Baldırım yoldan ıslandı. Çatlak testi bırakan adam güpegündüz kapıya çıkar mı?
+sohbet.chr_027.c5,(Başını eğer) Tamam. Çatlaktı. Kuyu evine sağlam diye bıraktım. Şevki fark etmeden kaçtım. Dip bende kaldı.
+sohbet.chr_027.c6,"Testiköy çömlek ocağındanım. Testi onarırım, kuyu duvarını sıvarım, çatlağı kille kapatırım."
+sohbet.chr_027.c7,"(Eli rahatlar) Çatlak kuru kil tutmaz, nemli şerbetle içten sıvanır. Kuyu sıvası saman karışık, güneşte birden kurutulmaz. Utanç düşünce el titrer ama çanak şaşmaz."
+sohbet.chr_027.c8,"(Yüzünü siler) Adım Rasim. Hırsız değilim. O dip benim kaçırdığım testinin parçası. Kuyu Evi'nde sıvarım, testiyi onarırım. Yeter ki Şevki'ye teslim etmeyin."
+sohbet.chr_027.c9,"(Paçayı saklar) Evet, Rasim'im ben. Çatlak testiyi bırakıp kaçtım. Baldırımdaki kil ondan. Bu el bir kuyuyu tutar. Geri çevirirseniz dağda aç kalırım."
+sohbet.chr_027.giris1,"Ocağı sönmüş, testi onarmaya gelmiş yorgun bir çömlekçi. Sol baldırda yukarıdan aşağı inen ıslak kil çizgisi."
+sohbet.chr_027.s1,Çömlekçi ocağında durur. Sen niye tek başına bu kapıdasın?
+sohbet.chr_027.s10,"Çuvalındaki çatlak dip, kuşağındaki yalan teslim çubuğu ve baldırındaki kil çizgisi! Sen testi onaran değil, çatlak kaçıran çömlekçisin!"
+sohbet.chr_027.s11,Yalan bitti Rasim. Şimdi niyetini söyle.
+sohbet.chr_027.s2,"Doğrudur, ocak sönünce çömlekçi yer arar."
+sohbet.chr_027.s3,Yoldan aldığın dip senin ocağının kili!
+sohbet.chr_027.s4,Ocak söndüyse çuvalındaki dip niye hâlâ ıslak?
+sohbet.chr_027.s5,"Yalanın kısa. Baldırındaki kil çizgisi duruyor, doğruyu söyle!"
+sohbet.chr_027.s6,Elin kil tutmuş ama paçan ıslak. Hangi ocaktan koptun?
+sohbet.chr_027.s7,"Madem çömlekçisin, testi çatlağı nasıl kapanır, kuyu sıvası neyle tutulur?"
+sohbet.chr_027.s8,Bir çatlak insanı bitirmez. İş bilen adama kapımız açık.
+sohbet.chr_027.s9,"Çatlak bıraktığını ağzınla söyledin. Kuyu eri arkandan gelir, adın ne?"
+sohbet.chr_028.acilis1,"Sırtım tutuldu bekçi. Bez dikerim, yama tutarım. Çocukların söküğünü de kapatırım. Bir köşe verseniz iğneye dururum."
+sohbet.chr_028.c1,Bezhan'da iş bitti bekçi. Kesim dağıldı. Boş duracağıma burada dikerim dedim.
+sohbet.chr_028.c10,"(Yeleği aralar, topları gösterir) Görmüşsün bekçi. İnkar etmem."
+sohbet.chr_028.c11,"(Topları çocuk boyu katlar) İkisi bu kadar. Çocuklarıma gömlek olur, fazlası yok. Bez Evi'nde dikerim, payı doğru keserim. Beni içeri al. Bahri gelirse sakla beni."
+sohbet.chr_028.c2,Eski bir astar işte. Yoldan kaldı. Köye yük olmayayım diye sardım.
+sohbet.chr_028.c3,(Başını eğer) Tamam. Sakladım. İki top. Ortak kesimden. Çocuklarım çıplak. Bahri payı sayınca kaçtım.
+sohbet.chr_028.c4,(Yeleği ilikler) Ne karıştırırsın bekçi? İçim terden boyandı. Top saklayan adam güpegündüz kapıya çıkar mı?
+sohbet.chr_028.c5,(Başını eğer) Tamam. Sakladım. İki top. Ortak kesimden. Çocuklarım çıplak. Bahri payı sayınca kaçtım.
+sohbet.chr_028.c6,"Bezhan bez sokağındanım. Sökük dikerim, yama tutarım, çocuk ölçüsü keserim."
+sohbet.chr_028.c7,"(Eli rahatlar) Top ters katlanır, çivit dışa vurmasın. Çocuk gömleği omuzdan bir karış, yen dirsekte biter. Çocuk aklıma düşünce makas titrer ama dikiş şaşmaz."
+sohbet.chr_028.c8,(Yüzünü siler) Adım Hulusi. Hırsız değilim. O iki top çocuklarımın üstüydü. Bez Evi'nde dikerim. Yeter ki Bahri'ye teslim etmeyin.
+sohbet.chr_028.c9,"(Yeleği tutar) Evet, Hulusi'yim ben. İki topu çocuklarım için sakladım. İçimdeki çivit ondan. Bu el bir söküğü kapatır. Geri çevirirseniz çocuklar açıkta kalır."
+sohbet.chr_028.giris1,"Tezgâhı kapanmış, dikişe gelmiş yorgun bir bez satıcısı. Yeleğin iç yüzünde, dışarıdan görünmeyen taze çivit lekesi."
+sohbet.chr_028.s1,Bezci tezgâhta durur. Sen niye tek başına bu kapıdasın?
+sohbet.chr_028.s10,"Kuşağındaki kesim çubuğu, yelekteki iki top ucu ve iç yüzde çivit lekesi! Sen dikiş arayan değil, top saklayan bezcisin!"
+sohbet.chr_028.s11,Yalan bitti Hulusi. Şimdi niyetini söyle.
+sohbet.chr_028.s2,"Doğrudur, kesim bitince bezci yer arar."
+sohbet.chr_028.s3,Yol astarında lonca ipi durmaz!
+sohbet.chr_028.s4,Kesim bittiyse yeleğinin içi niye şişkin?
+sohbet.chr_028.s5,"Yalanın kısa. Yeleğinin içindeki çivit duruyor, doğruyu söyle!"
+sohbet.chr_028.s6,"Dışın sade, göğsün şişkin. Hangi tezgâhtan koptun?"
+sohbet.chr_028.s7,"Madem bezcisin, top nasıl katlanır, çocuk gömleği nereden kısaltılır?"
+sohbet.chr_028.s8,Çocuk çıplaksa insan dayanmaz. İş bilen adama kapımız açık.
+sohbet.chr_028.s9,"Top sakladığını ağzınla söyledin. Kesimci arkandan gelir, adın ne?"
+sohbet.chr_029.acilis1,"Parmaklarım şiş bekçi. Çivi döğerim, menteşe yaparım. Ocağın bir köşesinde dururum."
+sohbet.chr_029.c1,Örslü'de iş bitti bekçi. Sipariş kapandı. Boş duracağıma burada çivi döğerim dedim.
+sohbet.chr_029.c10,"(Keseyi yere kor, parmağını açar) Görmüşsün bekçi. İnkar etmem."
+sohbet.chr_029.c11,"(Çivileri sayar, eksiktir) Halis'in hakkı bu kadardı, ben kaçırdım. Çivi Ocağı'nda döğerim, sayıyı tam veririm. Bir daha eksik kese dikmem. Beni içeri al. Halis gelirse sakla beni."
+sohbet.chr_029.c2,Bir avuç çivi işte. Yoldan kaldı. Köye yük olmayayım diye sakladım.
+sohbet.chr_029.c3,"(Başını eğer) Tamam. Eksik saydım. Halis yüz çivi istedi. Bir keseyi ayırdım. Utandım, kaçtım. Kimseye kaldırmadım."
+sohbet.chr_029.c4,(Parmağını yumar) Ne karıştırırsın bekçi? Parmak örsten çöktü. Eksik çivi saklayan adam güpegündüz kapıya çıkar mı?
+sohbet.chr_029.c5,"(Başını eğer) Tamam. Eksik saydım. Halis yüz çivi istedi. Bir keseyi ayırdım. Utandım, kaçtım. Kimseye kaldırmadım."
+sohbet.chr_029.c6,"Örslü çivi ocağındanım. Çivi döğerim, menteşe yaparım, sayıyı eksiksiz veririm."
+sohbet.chr_029.c7,"(Eli rahatlar) Çivi dört vuruş, beşincisi ezer. Menteşe iki kanat, pimi gevşek kalmaz. Utanç düşünce sayım şaşar ama örs şaşmaz."
+sohbet.chr_029.c8,"(Yüzünü siler) Adım Basri. Hırsız değilim. O kese utancımdan kaldı. Çivi Ocağı'nda çivi döğerim, menteşe yaparım. Yeter ki Halis'e teslim etmeyin."
+sohbet.chr_029.c9,"(Parmağını saklar) Evet, Basri'yim ben. Siparişi eksik bıraktım. Başparmaktaki çukur ondan. Bu el bir menteşeyi tutar. Geri çevirirseniz dağda aç kalırım."
+sohbet.chr_029.giris1,"Ocağı sönmüş, çivi dövmeye gelmiş yorgun bir çivi ustası. Sol başparmakta on taze çekiç çukuru ve kese ağzındaki isli dikiş."
+sohbet.chr_029.s1,Çivi ustası örste durur. Sen niye tek başına bu kapıdasın?
+sohbet.chr_029.s10,"Kuşağındaki sipariş çubuğu, önlükteki eksik çivi kesesi ve başparmaktaki çekiç çukurları! Sen iş arayan değil, siparişi eksik bırakıp kaçan ustasın!"
+sohbet.chr_029.s11,Yalan bitti Basri. Şimdi niyetini söyle.
+sohbet.chr_029.s2,"Doğrudur, sipariş bitince usta yer arar."
+sohbet.chr_029.s3,Yol çivisi sipariş çubuğundaki eksikle bir tutulur!
+sohbet.chr_029.s4,Sipariş bittiyse önlüğünün altı niye şıkırdıyor?
+sohbet.chr_029.s5,"Yalanın kısa. Başparmağındaki on çukur duruyor, doğruyu söyle!"
+sohbet.chr_029.s6,Elin çekiç tutmuş ama başparmağın taze çukur. Hangi ocaktan koptun?
+sohbet.chr_029.s7,"Madem çivi ustasısın, çivi kaç vuruşta biter, menteşe kaç kanat ister?"
+sohbet.chr_029.s8,Bir eksik sayım insanı yer bitirir. İş bilen adama kapımız açık.
+sohbet.chr_029.s9,"Eksik bıraktığını ağzınla söyledin. Sipariş sahibi arkandan gelir, adın ne?"
+sohbet.chr_030.acilis1,"Un doldu ciğerime bekçi. Taş döndürürüm, kile ölçerim. Değirmende dururum, doğru tartarım."
+sohbet.chr_030.c1,Unluköy'de taş durdu bekçi. İş kalmadı. Boş duracağıma burada döndürürüm dedim.
+sohbet.chr_030.c10,"(Keseyi söker, unu gösterir) Görmüşsün bekçi. İnkar etmem."
+sohbet.chr_030.c11,"(Kısa kertiği gösterir) Şurası eğelenmiş. Babam Saffet için azıcık ayırdım. Değirmen'de taşı döndürürüm, kileyi tam silerim. Bir daha kısa ölçmem. Beni içeri al. Cevat gelirse sakla beni."
+sohbet.chr_030.c2,Bir avuç yol azığı işte. Kendim için aldım. Köye yük olmayayım diye diktim.
+sohbet.chr_030.c3,(Başını eğer) Tamam. Ayırdım. Babam Saffet hasta. Kısa ölçüyle az un aldım. Cevat sayınca kaçtım. Keseyi astara diktim.
+sohbet.chr_030.c4,(Tırnağını yumar) Ne karıştırırsın bekçi? Tırnağım taş tozu. Un ayıran adam güpegündüz kapıya çıkar mı?
+sohbet.chr_030.c5,(Başını eğer) Tamam. Ayırdım. Babam Saffet hasta. Kısa ölçüyle az un aldım. Cevat sayınca kaçtım. Keseyi astara diktim.
+sohbet.chr_030.c6,"Unluköy değirmen başındanım. Taş döndürürüm, kile ölçerim, unu nemden korurum."
+sohbet.chr_030.c7,"(Eli rahatlar) Taş öğle sıcağında sıkılmaz, sabah serininde döner. Kile ağzına kadar, üstü bıçakla silinir. Babam aklıma düşünce kertik şaşar ama taş şaşmaz."
+sohbet.chr_030.c8,"(Yüzünü siler) Adım Latif. Hırsız değilim. O avuç babam Saffet içindi. Değirmen'de taşı döndürürüm, kileyi doğru ölçerim. Yeter ki Cevat'a teslim etmeyin."
+sohbet.chr_030.c9,"(Tırnağını saklar) Evet, Latif'im ben. Babam için az un ayırdım. Tırnaktaki hilal ondan. Bu el bir taşı döndürür. Geri çevirirseniz babam aç kalır."
+sohbet.chr_030.giris1,"Taşın tozu sinmiş, değirmende çalışmaya gelmiş yorgun bir kalfa. Ölçen elin tırnağı altında beyaz un hilali."
+sohbet.chr_030.s1,Değirmenci taşın başında durur. Sen niye tek başına bu kapıdasın?
+sohbet.chr_030.s10,"Kuşağındaki kısa ölçü, astardaki baba unu ve tırnaktaki un hilali! Sen doğru tartan değil, un ayıran kalfasın!"
+sohbet.chr_030.s11,Yalan bitti Latif. Şimdi niyetini söyle.
+sohbet.chr_030.s2,"Doğrudur, taş durunca kalfa yer arar."
+sohbet.chr_030.s3,Yol azığının ağzında babanın adı dikili!
+sohbet.chr_030.s4,Taş durduysa astarındaki un kesesi neyin nesi?
+sohbet.chr_030.s5,"Yalanın kısa. Tırnağındaki un hilali duruyor, doğruyu söyle!"
+sohbet.chr_030.s6,Elin un tutmuş ama çubuğun kısa. Hangi değirmenden koptun?
+sohbet.chr_030.s7,"Madem değirmen kalfasısın, taş ne zaman sıkılır, kile nasıl dolar?"
+sohbet.chr_030.s8,Baban hasta ise insan dayanamıyor. İş bilen adama kapımız açık.
+sohbet.chr_030.s9,"Un ayırdığını ağzınla söyledin. Emin arkandan gelir, adın ne?"
 sohbet.hasan_celebi.acilis1,"Hasan, Sivas divanının kâtibi. Kimin ne borçlu olduğunun defterini taşıyorum. Moğol da sorar, bey de; cevap bende."
 sohbet.hasan_celebi.c1,Hasan. Sivas divanında kâtiptim. Vergi yazardım.
 sohbet.hasan_celebi.c2,Herkesin unutmak istediğini hatırlar.

@@ -25,3 +25,12 @@ var yanitlar: Dictionary = {}
 var esikler: PackedInt32Array = PackedInt32Array()
 ## Heybesi: söylediği ve astarda sakladığı (Oturum.heybe_uret).
 var heybe: Heybe
+## Bu gelene sorulabilecek en çok soru; 0 = genel ayar.
+var azami_soru: int = 0
+## Kötü niyetli mi: retteki tepki öfke, değilse yıkılma (panik).
+var tehlikeli: bool = false
+
+
+## Sorulabilecek soru sınırı: gelenin kendi sınırı, yoksa genel ayar.
+func soru_siniri(genel: int) -> int:
+	return azami_soru if azami_soru > 0 else genel

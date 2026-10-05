@@ -57,8 +57,25 @@ func gelen_yaklas(model_adi: String) -> void:
 	_gelen.bak(kamera.position)
 
 
-## Karar sonrası: kaldıysa içeri, gittiyse yola.
-func gelen_git(kaldi: bool) -> void:
+## Gelen konuşuyor (cevap verirken): Meshy konuşma klibi varsa `sure` saniye oynar.
+func gelen_konus(sure: float) -> void:
+	if _gelen != null:
+		_gelen.konus(sure)
+
+
+## Gelenin bu Meshy hareketi var mı.
+func gelen_hareket_var(ad: String) -> bool:
+	return _gelen != null and _gelen.hareket_var(ad)
+
+
+## Sorgu sıkıştı: gelen gerginleşir (klip varsa).
+func gelen_gergin() -> void:
+	if _gelen != null:
+		_gelen.gergin()
+
+
+## Karar sonrası: kaldıysa içeri, gittiyse yola. `tehlikeli`: retde öfke, değilse yıkılma.
+func gelen_git(kaldi: bool, tehlikeli: bool = true) -> void:
 	if is_instance_valid(_heybe):
 		_heybe.queue_free()
 	_heybe = null
@@ -67,13 +84,13 @@ func gelen_git(kaldi: bool) -> void:
 	var g := _gelen
 	_gelen = null
 	# Giden kişi yürümeye devam eder; sahne onu beklemez, kısa bir süre sonra sıradaki gelir.
-	_ayril(g, kaldi)
+	_ayril(g, kaldi, tehlikeli)
 	await get_tree().create_timer(2.6).timeout
 
 
-func _ayril(g: KarakterModel, kaldi: bool) -> void:
-	# Önce tepki: kabulde şükran, retde öfke; sonra yürür.
-	await g.duygu(&"sevinc" if kaldi else &"ofke")
+func _ayril(g: KarakterModel, kaldi: bool, tehlikeli: bool = true) -> void:
+	# Önce tepki: kabulde şükran; retde kötü niyetli öfkelenir, masum diz çöker. Sonra yürür.
+	await g.duygu(&"sevinc" if kaldi else (&"ofke" if tehlikeli else &"panik"))
 	if not is_instance_valid(g):
 		return
 	if kaldi:

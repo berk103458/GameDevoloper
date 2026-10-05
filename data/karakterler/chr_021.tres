@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="KarakterVerisi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/karakter_verisi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"chr_021"
+ad_anahtari = &"karakter.chr_021.ad"
+koken = &"yerel"
+sinif = &"asker"
+sohbet_id = &"chr_021"
+karar_secenekleri = PackedStringArray("kabul", "ret", "rusvet", "kisla")
+donus_kurali = &"hic_donmez"
+en_erken_gece = 3
+portre = &"soldier_01"
+p0 = 0.6
+d = 0.5
+k_azami = 4
+n_ziyaret = 1
+g_min = 2
+g_max = 4
+azami_soru = 6
+tehlikeli = false
+etki_kabul = PackedInt32Array(0, 0, 0, 1)
+etki_ret = PackedInt32Array(-1, 0, 0, 0)
+etki_rusvet = PackedInt32Array(-1, 0, 1, 0)
+etki_kisla = PackedInt32Array(-1, 0, 0, 1)

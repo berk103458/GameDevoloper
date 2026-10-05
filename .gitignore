@@ -12,3 +12,16 @@ assets/model/karakter/*.glb
 !assets/model/karakter/*_yuru.glb
 assets/model/**/*.jpg
 assets/model/**/*.png
+# Meshy hareket glb'leri (model+doku, ~3 MB) repoya girmez; animasyonları assets/model/hareket/*.res olarak ayıklanır
+assets/model/karakter/*_bekle.glb.import
+assets/model/karakter/*_konus.glb.import
+assets/model/karakter/*_sevinc.glb.import
+assets/model/karakter/*_ofke.glb.import
+assets/model/karakter/*_panik.glb.import
+assets/model/karakter/*_gergin.glb.import
+assets/model/karakter/*_bekle_*.import
+assets/model/karakter/*_konus_*.import
+assets/model/karakter/*_sevinc_*.import
+assets/model/karakter/*_ofke_*.import
+assets/model/karakter/*_panik_*.import
+__pycache__/
