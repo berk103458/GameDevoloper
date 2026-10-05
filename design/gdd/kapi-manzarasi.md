@@ -41,6 +41,14 @@ tehlikeli; tehdit gece gece yaklaşıyor).
    - Ağaçlar: `fir_sapling_medium`'dan pişirilmiş saydam görüntüler (impostor, `tools/varlik/impostor_pisir.gd`); servi dar, köknar geniş; kümeler hâlinde.
    - Yanan köy: Meshy `ev`/`cadir` modelleri yere oturur (y = arazi yüksekliği − 0.25), damlarda alev, evlerden yükselen duman sütunları, ufukta soluk kızıllık.
    - Yoldaki kaçanlar: gerçek karakter modelleri yürür; bir kısmı fener taşır (ışıklı), yolun sonunda baştan döner.
+15. **Kuyruk (sıradan gelme):** kapıdaki kuyruk gecenin gerçek listesidir (`KapiSahnesi.kuyruk_doldur`); dekor değildir.
+   - İlk `KUYRUK_GORUNEN` (6) kişi yolda sıra hâlinde durur (~1.3 m aralık, ikişer hafif yana kayık); gerisi uzakta bekler.
+   - Sırası gelen kuyruğun başından çıkıp kapıya yürür (1.6 m/s); hiçbir gelen boşlukta belirmez.
+   - Arkadakiler birer yer ilerler, öndekinden 0.35 s sonra (dalga); boşalan son yere uzakta bekleyen sisin içinden belirerek (1.6 s) katılır.
+   - Dönüşler yumuşaktır (0.45 s); kimse yerinde anında dönmez.
+   - Reddedilen kuyruğun solundan geri yürür, kuyruğun içinden geçmez; uzakta sise karışır.
+   - Yoldaki yürüyenler kuyruğun sonunun gerisinde kalabalığa karışır (solarak), yolun ortasında birden yok olmaz.
+   - Sıra olayında kuyruktan ayrılan, görünen kuyruğun sonundaki kişidir; gecenin listesinden de o çıkar.
 
 ## Formulas
 - Kadraj: pencere x aralığı `[H − 0.755·d, H + 0.14·d]` (H = 1.3, d = kameraya uzaklık) — iki direk (±1.75, d≈4.2) sınırda.

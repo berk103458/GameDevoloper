@@ -205,6 +205,11 @@ func _ayrac(tur: MenuSusu.Tur) -> Control:
 	return s
 
 
+## Gelenin 3D modelinin adı (kuyrukta ve kapıda aynı model).
+func _model_adi(g: Gelen) -> String:
+	return Dunya3B.karakter_adi(g.id if g.adli else &"", g.portre, g.sinif)
+
+
 ## Defterdeki bilgi satırı: kaçıncı gece, kaçıncı gelen, sırada kaç kişi.
 func _bilgi_yaz() -> void:
 	_bilgi.text = tr("arayuz.kapi.bilgi") % [oturum.gosterilen_gece(), _gece_gelen, _kuyruk.size()]
@@ -215,6 +220,10 @@ func gece_baslat() -> void:
 	evre = &"gecis"
 	_temizle()
 	_kuyruk = oturum.gece_kuyrugu()
+	var adlar: Array[String] = []
+	for g in _kuyruk:
+		adlar.append(_model_adi(g))
+	sahne.kuyruk_doldur(adlar)
 	_gece_gelen = 0
 	_kayit.clear()
 	_yaz("[color=#B8C2CC][b]%s[/b][/color]" % (tr("anlati.gece.basladi") % oturum.gosterilen_gece()))
@@ -252,7 +261,7 @@ func _siradaki() -> void:
 	_yaz("[i]%s[/i]" % tr(_gelen.giris_anahtari))
 	oturum.ziyaret_basladi(_gelen)
 	_adim_sesi(12)
-	await sahne.gelen_yaklas(Dunya3B.karakter_adi(_gelen.id if _gelen.adli else &"", _gelen.portre, _gelen.sinif))
+	await sahne.gelen_yaklas(_model_adi(_gelen))
 	if _gelen.acilis != "":
 		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), tr(_gelen.acilis)])
 	if oturum.perde == 2 or _gelen.sorular.is_empty():
@@ -567,7 +576,8 @@ func _sira_olayi(o: OlayVerisi) -> bool:
 	var sonuc := oturum.olay_uygula(o, i)
 	_yaz(tr(sonuc["sonuc_anahtari"]))
 	if int(etki.get("kuyruk", 0)) < 0 and _kuyruk.size() > 0:
-		_kuyruk.pop_back()
+		# Sahnede kuyruktan ayrılan, görünen kuyruğun sonundaki kişidir; gecenin listesinden de o çıkar.
+		_kuyruk.remove_at(mini(_kuyruk.size(), KapiSahnesi.KUYRUK_GORUNEN) - 1)
 		_bilgi_yaz()
 	hud.guncelle()
 	await sahne.sira_olayi_bitir(anahtar, etki)

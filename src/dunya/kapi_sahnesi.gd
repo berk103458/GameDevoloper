@@ -1,16 +1,33 @@
-## Kapı sahnesi (3D): muhafızın gözünden açık kapı, meşale, yol ve kuyruk. Gelen kişi yoldan yürür,
-## kapının önünde durur; kabul edilen içeri (kameranın yanından), reddedilen yola geri döner.
+## Kapı sahnesi (3D): muhafızın gözünden açık kapı, meşale, yol ve kuyruk. Gecenin kuyruğu yolda
+## sıra hâlinde bekler: sırası gelen kuyruğun başından çıkıp kapıya yürür, arkadakiler birer adım ilerler (öndekinden
+## başlayan bir dalga), sisin içinden yeni biri kuyruğun sonuna katılır. Kapının önünde duran sorgulanır; kabul edilen
+## içeri (kameranın yanından), reddedilen kuyruğun yanından yola geri döner.
 class_name KapiSahnesi
 extends Node3D
 
 const DURMA := Vector3(0.0, 0.0, -2.5)
 ## Kameranın görüş açısı (dikey, derece).
 const GORUS := 46.0
-const BASLANGIC := Vector3(0.5, 0.0, -9.0)
-## Kapıya yürüyüş hızı (m/s): yürüyüş ~2 saniye.
-const YAKLASMA_HIZI := 2.4
+## Kuyruk boşken (yalnız yedek) gelenin çıktığı yer: kuyruğun başının da gerisi, sisin içi.
+const BASLANGIC := Vector3(0.0, 0.0, -14.0)
+## Kuyruğun başından kapıya yürüyüş hızı (m/s): yorgun ama istekli bir adım (~3.5 s).
+const YAKLASMA_HIZI := 1.6
+## Arkadakilerin bir yer ilerleme hızı (m/s) ve her birinin öndekinden sonra kıpırdama gecikmesi (s).
+const ILERLEME_HIZI := 1.15
+const ILERLEME_GECIKMESI := 0.35
+## Kuyrukta görünen en çok kişi; gerisi yolun uzağında bekler, sıra ilerledikçe sisten çıkıp gelir.
+const KUYRUK_GORUNEN := 6
+## Kuyruk yerlerinin yol üzerindeki başlangıcı ve aralığı (yol_noktasi parametresi; ~1.3 m aralık).
+const KUYRUK_BAS := 0.06
+const KUYRUK_ARA := 0.016
+## Kuyruğa katılan yeni kişinin geldiği yer: son yerden bu kadar yer geride (sisin içinde, görünmez başlar).
+const KATILMA_UZAKLIGI := 6
+## Sisten çıkma / sise karışma süresi (s).
+const BELIRME_SURESI := 1.6
 const ICERI := Vector3(1.9, 0.0, 2.5)
-const DONUS := Vector3(-0.8, 0.0, -22.0)
+## Reddedilen kuyruğun solundan yürür (kuyruğun içinden geçmez); bu yol parametresinde sise karışıp gider.
+const DONUS_YANI := -1.9
+const DONUS_SON := 0.22
 
 ## Kapıyı ve manzarayı belirleyen durum (KapiEkrani sahneyi eklemeden önce oturumdan doldurur).
 var gece := 0
@@ -30,6 +47,10 @@ var _isiklar: Array[OmniLight3D] = []
 ## Kuyrukta bekleyen figürler ve yerleri (sıra olayları bunları canlandırır).
 var _kuyruktakiler: Array[KarakterModel] = []
 var _kuyruk_yerleri: Array[Vector3] = []
+## Görünen kuyruğun gerisinde bekleyenlerin model adları (sırayla); sıra ilerledikçe kuyruğa katılırlar.
+var _bekleyenler: Array[String] = []
+## Görünenlerin model adları (`_kuyruktakiler` ile aynı sırada): sıradaki gelenle eşleşmezse model değiştirilir.
+var _kuyruk_adlari: Array[String] = []
 var _zaman := 0.0
 
 
@@ -44,7 +65,6 @@ func _ready() -> void:
 	cerceve.seviye = sur
 	add_child(cerceve)
 	_isiklar.append_array(cerceve.isiklar)
-	_kuyruk_kur()
 	_kagni_kur()
 	kamera = Camera3D.new()
 	# Bekçinin yeri: kapının biraz gerisinde; iki direk ve meşaleler kadrajın kenarlarında (arayüzün solunda) kalır.
@@ -67,15 +87,120 @@ func _process(delta: float) -> void:
 		l.light_energy = taban * (0.88 + 0.12 * sin(_zaman * 9.0 + i * 2.1) * sin(_zaman * 3.3 + i))
 
 
-## Gelen kişiyi yoldan kapıya yürütür.
+## Sıradaki kişi kuyruğun başından çıkıp kapıya yürür; arkadakiler birer yer ilerler. `model_adi`: gelenin modeli
+## (kuyruğun başındakiyle aynı olmalı; değilse — kuyruk kurulmadıysa — sisten yeni biri gelir).
 func gelen_yaklas(model_adi: String) -> void:
 	if _gelen != null:
 		_gelen.queue_free()
-	_gelen = Dunya3B.karakter(model_adi)
-	_gelen.position = BASLANGIC
-	add_child(_gelen)
+		_gelen = null
+	var bastaki: KarakterModel = null
+	if not _kuyruktakiler.is_empty() and _kuyruk_adlari[0] != model_adi:
+		# Kuyruk gecenin listesiyle kayışmışsa baştaki, gelecek kişinin modeliyle yerinde değiştirilir.
+		var yeni := Dunya3B.karakter(model_adi)
+		yeni.transform = _kuyruktakiler[0].transform
+		add_child(yeni)
+		_kuyruktakiler[0].queue_free()
+		_kuyruktakiler[0] = yeni
+		_kuyruk_adlari[0] = model_adi
+	if not _kuyruktakiler.is_empty():
+		bastaki = _kuyruktakiler.pop_front()
+		_kuyruk_adlari.pop_front()
+		_kuyruk_yerleri.pop_back()
+	if bastaki == null:
+		bastaki = Dunya3B.karakter(model_adi)
+		bastaki.position = BASLANGIC + Vector3(0, KapiManzarasi.yukseklik(BASLANGIC.x, BASLANGIC.z), 0)
+		add_child(bastaki)
+		bastaki.gorunurluk(0.0)
+		_belir(bastaki, 1.0)
+	_gelen = bastaki
+	# Bastaki yerinden ayrılır ayrılmaz arkası kıpırdar; gelen yürürken kuyruk da ilerler.
+	_kuyruk_ilerle()
 	await _gelen.yuru(DURMA, YAKLASMA_HIZI)
-	_gelen.bak(kamera.position)
+	if _gelen == bastaki:
+		await _gelen.don(kamera.position)
+
+
+## Gecenin kuyruğunu kurar: `adlar` sıradaki gelenlerin model adları (önden arkaya). İlk `KUYRUK_GORUNEN` kişi
+## yolda sıra hâlinde durur, gerisi uzakta bekler. Önceki kuyruk varsa kaldırılır.
+func kuyruk_doldur(adlar: Array) -> void:
+	for k in _kuyruktakiler:
+		k.queue_free()
+	_kuyruktakiler.clear()
+	_kuyruk_yerleri.clear()
+	_kuyruk_adlari.clear()
+	_bekleyenler.clear()
+	for i in adlar.size():
+		var ad := String(adlar[i])
+		if i >= KUYRUK_GORUNEN:
+			_bekleyenler.append(ad)
+			continue
+		var k := Dunya3B.karakter(ad)
+		k.position = kuyruk_yeri(i)
+		add_child(k)
+		k.bak(kuyruk_yeri(i - 1) + _sapma(i))
+		_kuyruktakiler.append(k)
+		_kuyruk_adlari.append(ad)
+		_kuyruk_yerleri.append(k.position)
+
+
+## Kuyruğun `i`. yeri (0: en ön). Yolun üstünde, ikişer hafif yana kayık (düz bir çizgi değil, insan sırası).
+static func kuyruk_yeri(i: int) -> Vector3:
+	var p := KapiManzarasi.yol_noktasi(KUYRUK_BAS + i * KUYRUK_ARA)
+	var x := p.x - 0.35 + posmod(i, 2) * 0.55 + sin(i * 2.3) * 0.12
+	return Vector3(x, KapiManzarasi.yukseklik(x, p.z - 3.0), p.z - 3.0)
+
+
+## Kuyrukta bekleyenin baktığı yere küçük bir sapma: herkes aynı noktaya kilitlenmiş gibi durmaz.
+func _sapma(i: int) -> Vector3:
+	return Vector3(sin(i * 1.7) * 0.9, 0, 0)
+
+
+## Kuyrukta görünen kişi sayısı (x) ve uzakta bekleyen sayısı (y).
+func kuyruk_sayilari() -> Vector2i:
+	return Vector2i(_kuyruktakiler.size(), _bekleyenler.size())
+
+
+## Kuyruğu ilerletir: her kişi kendi yerine yürür, öndekinden biraz sonra (dalga). Eksik yer varsa uzakta bekleyen
+## biri sisin içinden çıkıp sonuna katılır.
+func _kuyruk_ilerle() -> void:
+	while _kuyruktakiler.size() < KUYRUK_GORUNEN and not _bekleyenler.is_empty():
+		var ad: String = _bekleyenler.pop_front()
+		var k := Dunya3B.karakter(ad)
+		k.position = kuyruk_yeri(_kuyruktakiler.size() + KATILMA_UZAKLIGI)
+		add_child(k)
+		k.gorunurluk(0.0)
+		_kuyruktakiler.append(k)
+		_kuyruk_adlari.append(ad)
+		_kuyruk_yerleri.append(k.position)
+	for i in _kuyruktakiler.size():
+		_kuyruk_yerleri[i] = kuyruk_yeri(i)
+		_yerine_yuru(_kuyruktakiler[i], i * ILERLEME_GECIKMESI)
+
+
+func _yerine_yuru(k: KarakterModel, gecikme: float) -> void:
+	if gecikme > 0.0:
+		await get_tree().create_timer(gecikme).timeout
+	if not is_instance_valid(k) or not _kuyruktakiler.has(k):
+		return
+	if absf(k.rotation.x) > 0.01:
+		# Bayılıp yerde kalan: önce doğrulur.
+		var t := create_tween()
+		t.tween_property(k, "rotation:x", 0.0, 0.6).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		await t.finished
+	var hedef := kuyruk_yeri(_kuyruktakiler.find(k))
+	if k.position.distance_to(hedef) > 2.5:
+		_belir(k, 1.0)
+	await k.yuru(hedef, ILERLEME_HIZI)
+	var j := _kuyruktakiler.find(k)
+	if j >= 0 and k.position.distance_to(kuyruk_yeri(j)) < 0.05:
+		k.don(kuyruk_yeri(j - 1) + _sapma(j))
+
+
+## Görünürlüğü `hedef`e `BELIRME_SURESI` içinde götürür (sisten çıkma / sise karışma).
+func _belir(k: KarakterModel, hedef: float) -> void:
+	var t := k.create_tween()
+	t.tween_method(k.gorunurluk, 1.0 - hedef, hedef, BELIRME_SURESI)
+	await t.finished
 
 
 ## Gelen konuşuyor (cevap verirken): Meshy konuşma klibi varsa `sure` saniye oynar.
@@ -119,7 +244,17 @@ func _ayril(g: KarakterModel, kaldi: bool, tehlikeli: bool = true) -> void:
 		if is_instance_valid(g):
 			await g.yuru(ICERI)
 	else:
-		await g.yuru(DONUS)
+		# Kuyruğun yanından geri döner; kuyruğun içinden geçmez, uzakta sise karışır.
+		var noktalar: Array[Vector3] = []
+		for t: float in [KUYRUK_BAS, KUYRUK_BAS + 0.05, KUYRUK_BAS + 0.1, DONUS_SON]:
+			var p := KapiManzarasi.yol_noktasi(t)
+			noktalar.append(Vector3(p.x + DONUS_YANI, 0, p.z - 3.0))
+		for i in noktalar.size():
+			if not is_instance_valid(g):
+				return
+			if i == noktalar.size() - 1:
+				_belir(g, 0.0)
+			await g.yuru(noktalar[i])
 	if is_instance_valid(g):
 		g.queue_free()
 
@@ -215,6 +350,10 @@ func sira_olayi_bitir(anahtar: String, etki: Dictionary) -> void:
 			else:
 				_kuyruktakiler.remove_at(n - 1)
 				_kuyruk_yerleri.remove_at(n - 1)
+				_kuyruk_adlari.remove_at(n - 1)
+				# Boşalan yere uzakta bekleyen biri gelir; vazgeçen yola dönüp sise karışır.
+				_kuyruk_ilerle()
+				_belir(k, 0.0)
 				await k.yuru(k.position + Vector3(0, 0, -16.0), 1.6)
 				if is_instance_valid(k):
 					k.queue_free()
@@ -332,19 +471,6 @@ func _ortam_ayarla() -> void:
 	nitelik.dof_blur_far_transition = 40.0
 	nitelik.dof_blur_amount = 0.04
 	kamera.attributes = nitelik
-
-
-func _kuyruk_kur() -> void:
-	# Bekleyen sıra: yolun üstünde, kapıdan geriye; en öndekiler belirgin, gerisi manzaradaki silüetlere karışır.
-	var adlar := ["ciftci", "esnaf", "ciftci_kadin", "asker", "ciftci"]
-	for i in adlar.size():
-		var k := Dunya3B.karakter(adlar[i])
-		var p := KapiManzarasi.yol_noktasi(0.06 + i * 0.022)
-		k.position = Vector3(p.x - 0.7 + (i % 2) * 0.7, p.y, p.z - 3.0)
-		add_child(k)
-		k.bak(Vector3(0, 0, 10))
-		_kuyruktakiler.append(k)
-		_kuyruk_yerleri.append(k.position)
 
 
 ## Sağ orta planda öküzlü kağnı: yükü bir ailenin bütün evi (çuval, sandık, testi, yorgan).

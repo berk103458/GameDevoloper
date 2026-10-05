@@ -15,6 +15,8 @@ const HAREKETLER := ["bekle", "konus", "sevinc", "ofke", "panik", "gergin"]
 const DONGULU := ["bekle", "konus", "gergin"]
 ## Bir klip dosyasının izlerinin en az bu payı bu iskelette çözülmeli; yoksa klip alınmaz.
 const IZ_ESIGI := 0.8
+## Dönüş süresi (s): yürümeye başlarken ve bir şeye bakarken gövde bu sürede döner.
+const DONUS_SURESI := 0.45
 
 var _oynatici: AnimationPlayer
 var _anim: String = ""
@@ -24,6 +26,11 @@ var _bekleme_hedef := 1.0
 var _klipler: Dictionary = {}
 var _duzeltici_hedef := 1.0
 var _klip_sirasi := 0
+## Süren yürüyüş: yeni bir yürüyüş eskisini keser (iki hareket aynı anda konumu çekiştirmez).
+var _yurume: Tween
+## Görünürlük önbelleği (`gorunurluk`): boyanan parçalar ve fener ışıklarının taban güçleri.
+var _parcalar: Array[GeometryInstance3D] = []
+var _gorunurluk := 1.0
 
 ## Klip dosyalarından çıkarılan animasyonlar (yol → Animation); aynı karakterin kopyaları paylaşır.
 static var _klip_onbellek: Dictionary = {}
@@ -72,17 +79,21 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI) -> void:
 	fark.y = 0.0
 	if fark.length() < 0.01:
 		return
-	look_at(position + fark, Vector3.UP, true)
+	if _yurume != null and _yurume.is_valid():
+		_yurume.kill()
 	if _oynatici != null:
 		_oynatici.play(_anim, GECIS)
 		_oynatici.speed_scale = hiz / 1.35
 	_bekleme_hedef = 0.0
 	_duzeltici_hedef = 1.0
 	_klip_sirasi += 1
-	var t := create_tween()
+	# Gövde yürüyüş yönüne yumuşakça döner (yerinde fırıldak gibi değil); yürüyüşün ilk adımlarıyla birlikte.
+	var t := create_tween().set_parallel()
+	t.tween_property(self, "rotation:y", _hedef_aci(fark), DONUS_SURESI).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	t.tween_property(self, "position", hedef, fark.length() / hiz)
+	_yurume = t
 	await t.finished
-	if is_inside_tree():
+	if is_inside_tree() and _yurume == t:
 		dur()
 
 
@@ -231,6 +242,42 @@ func bak(nokta: Vector3) -> void:
 	f.y = 0.0
 	if f.length() > 0.01:
 		look_at(position + f, Vector3.UP, true)
+
+
+## Bir noktaya yumuşakça döner (Y ekseninde, `DONUS_SURESI` içinde). Sahne kurulurken `bak`, oyun sırasında bu.
+func don(nokta: Vector3) -> void:
+	var f := nokta - position
+	f.y = 0.0
+	if f.length() <= 0.01:
+		return
+	var t := create_tween()
+	t.tween_property(self, "rotation:y", _hedef_aci(f), DONUS_SURESI).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	await t.finished
+
+
+## `yon` doğrultusuna bakan Y açısı; şimdiki açıdan kısa yoldan (en çok yarım tur).
+func _hedef_aci(yon: Vector3) -> float:
+	var aci := atan2(yon.x, yon.z)
+	return rotation.y + wrapf(aci - rotation.y, -PI, PI)
+
+
+## Görünürlük 0..1: uzakta sise karışan ya da sisten çıkan kişi ani belirmez, yavaşça görünür olur.
+func gorunurluk(deger: float) -> void:
+	deger = clampf(deger, 0.0, 1.0)
+	if is_equal_approx(deger, _gorunurluk):
+		return
+	_gorunurluk = deger
+	if _parcalar.is_empty():
+		for n in find_children("*", "GeometryInstance3D", true, false):
+			_parcalar.append(n as GeometryInstance3D)
+		for n in find_children("*", "OmniLight3D", true, false):
+			n.set_meta("taban", (n as OmniLight3D).light_energy)
+	for p in _parcalar:
+		if is_instance_valid(p):
+			p.transparency = 1.0 - deger
+			p.visible = deger > 0.01
+	for n in find_children("*", "OmniLight3D", true, false):
+		(n as OmniLight3D).light_energy = float(n.get_meta("taban", 1.0)) * deger
 
 
 ## Yürüme animasyonunun izlerini kullanarak dinlenme pozunda duran döngülü "bekle" animasyonu kurar.

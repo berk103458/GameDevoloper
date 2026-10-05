@@ -456,7 +456,11 @@ func _kutu(boyut: Vector3, konum: Vector3, mat: Material) -> MeshInstance3D:
 # ── Yolda kapıya yürüyen insanlar: gerçek karakter modelleri yolun üstünde yavaşça kapıya yürür; kuyruğun sonuna
 # varan yolun başına döner (sıra hiç bitmez gibi). Bazılarının elinde fener; uzakta yalnız fener ışığı seçilir. ──
 const YURUYEN_HIZ := 0.55
-const YURUYEN_SON := 0.17
+## Yürüyenler kuyruğun sonunun biraz gerisinde kalabalığa karışır (sise karışarak kaybolur, birden yok olmaz).
+const YURUYEN_SON := 0.21
+const YURUYEN_BAS := 0.78
+## Kaybolma / belirme payı (yol parametresi).
+const YURUYEN_SOLMA := 0.025
 var _yuruyenler: Array = []
 
 
@@ -509,9 +513,11 @@ func _yuruyenleri_ilerlet(delta: float) -> void:
 		var adim := YURUYEN_HIZ * delta / maxf(yol_noktasi(t).distance_to(yol_noktasi(t + 0.01)) * 100.0, 0.01)
 		t -= adim
 		if t < YURUYEN_SON:
-			t = 0.78 + randf() * 0.04
+			t = YURUYEN_BAS + randf() * 0.04
 		y["t"] = t
 		_yuruyen_yerlestir(y)
+		var k: KarakterModel = y["k"]
+		k.gorunurluk(minf((t - YURUYEN_SON) / YURUYEN_SOLMA, (YURUYEN_BAS + 0.04 - t) / YURUYEN_SOLMA))
 
 
 # ── 1. perde: tepenin ardında yanan köy. Gece 0: yalnız ince duman; sonra ateş büyür; 5. geceden sonra sırtta atlılar. ──
