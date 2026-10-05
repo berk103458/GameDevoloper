@@ -28,3 +28,7 @@
 - CHR_028: Hulusi, Esnaf, çocuklarına giysi diye loncanın ortak kesiminden iki top bezi saklayan bezci; alınırsa bez evinde diker.  
 - CHR_029: Basri, Esnaf, köy siparişinin çivisini eksik bırakıp utancından kaçan çivi ustası; alınırsa çivi ve menteşe döğer.  
 - CHR_030: Latif, Esnaf, hasta babasına diye azıcık un ayıran değirmen kalfası; alınırsa taş döndürür, kileyi doğru ölçer.  
+
+## Taslaklar (oyun okumaz)
+
+- `taslak/CHR_001_Sati.md` — Satı, esnaf, çuvalın dibinde yarım yay saklayan yaycı. `cursor/chr-001-sati-4019` dalından geldi; CHR_001 numarası Hamza'da olduğu için ayrı tutuldu.
