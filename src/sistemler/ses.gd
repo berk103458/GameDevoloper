@@ -48,7 +48,7 @@ func cik(kod: int = 0) -> void:
 	get_tree().quit(kod)
 
 
-## Statik önbellekler (doku, malzeme, model, klip) motor kapanırken görüntü sunucusundan sonra bırakılır ve
+## Statik önbellekler (doku, malzeme, model, klip) ve imleç dokusu motor kapanırken görüntü sunucusundan sonra bırakılır ve
 ## "Texture ... leaked" bildirir; çıkıştan önce boşaltılır. Sahneler kendi kopyalarını tutar, etkilenmez.
 func _onbellekleri_bosalt() -> void:
 	Sanat._onbellek.clear()
@@ -58,6 +58,9 @@ func _onbellekleri_bosalt() -> void:
 	KarakterModel._klip_onbellek.clear()
 	DurusDuzeltici._sekil_onbellek.clear()
 	KapiManzarasi._gurultu = null
+	# Özel fare imleci (ana.gd) Input'ta kalır; Input görüntü sunucusundan sonra kapanır.
+	Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(null, Input.CURSOR_POINTING_HAND)
 
 
 ## Çalan her şeyi durdurur ve akışları bırakır; ses sunucusu birkaç karede çalanları siler.
