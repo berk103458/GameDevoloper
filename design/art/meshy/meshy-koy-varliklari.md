@@ -10,6 +10,7 @@ Kod: **O** = Game development koleksiyonu, **K** = Karakter assetleri, **A/B** =
 
 Topluluk modelleri herkese açık hâlde yalnız Meshy görüntüleyicisinde duruyor; **GLB indirmek oturum açmayı gerektiriyor**, bu yüzden buradan çekilemedi. İndirilen GLB'ler `assets/model/yapi/` (bina) ya da `assets/model/nesne/` (eşya) altına tablodaki adla konursa sahne kodu `Dunya3B.nesne(ad, boy)` ile hemen kullanır.
 
+- **İndirme adımı:** GLB'leri hangi adla olursa olsun `assets/meshy/gelen/` klasörüne indir (zip de olur), sonra `python3 tools/varlik/meshy_esle.py` çalıştır. Betik her dosyayı üçgen sayısıyla bu listedeki modele eşler ve `assets/meshy/<bölüm>/<kod>_<ad>.glb` olarak koyar; eksikleri bağlantılarıyla yazar. Oyuna eklemez. Liste: `meshy-secim.json`.
 - **Üçgen sayısı:** 100 binin üstündekiler Blender *Decimate* ile 20–50 bine indirilmeli (köy sahnesinde onlarca kopya var).
 - **Üslup birliği:** hepsi aynı gece ışığında, aynı ton çarpanıyla (`albedo_color`, kapı sahnesindeki gibi) gösterilir; parlak renkli olanlar (O65, K04) koyulaştırılır.
 
