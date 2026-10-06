@@ -341,3 +341,10 @@ Sıradaki: SYS-15. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 DUMAN_TESTI_20 modu sabit 20 iterasyon çalışır ve hem gece hem gün 20 olmadan başarılı çıkmaz. SYS-10 ile aynı doğrulanmış pakettir; normal otomatik oyuncu modu korunur.
 
 Sıradaki: SYS-14. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — SYS-14 (6 Ekim 2026)
+
+Göç motoru açık _v2_v3 adımı ve N→N+1 döngüsüyle ilerliyor; sürüm atlaması/kesirli sürüm güvenle reddedilir. Kişisel alanların korunması, derin kopya, idempotent yükleme ve 20 gecelik JSON dönüşüm testi geçti.
+
+Sıradaki: KVR-12. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

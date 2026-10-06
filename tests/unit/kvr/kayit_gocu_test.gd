@@ -23,6 +23,17 @@ func _initialize() -> void:
 	var gelecekteki := yeni.duplicate(true)
 	gelecekteki["surum"] = 99
 	_kontrol(motor.uygula(gelecekteki, 7).is_empty(), "Gelecek sürüm geriye düşürülmüyor")
+	for bozuk_surum in [2.5, "2", 1, 0, INF, NAN]:
+		var bozuk := eski.duplicate(true)
+		bozuk["surum"] = bozuk_surum
+		_kontrol(motor.uygula(bozuk, 7).is_empty(), "Geçersiz sürüm tahmini tam sayıya dönüştürülmez")
+	var kisisel := eski.duplicate(true)
+	kisisel["muhafiz_akce"] = 17
+	kisisel["muhafiz_esyalari"] = [{"ad": "yuzuk", "adet": 1}]
+	var kisisel_yeni: Dictionary = motor.uygula(kisisel, 7)
+	_kontrol(kisisel_yeni["muhafiz_akce"] == 17 and kisisel_yeni["muhafiz_esyalari"] == kisisel["muhafiz_esyalari"], "N→N+1 mevcut kişisel alanları korur")
+	kisisel_yeni["muhafiz_esyalari"][0]["adet"] = 3
+	_kontrol(kisisel["muhafiz_esyalari"][0]["adet"] == 1, "Adım derin kopyada çalışır")
 	yeni["muhafiz_akce"] = "secret"
 	_kontrol(motor.uygula(yeni, 7).is_empty(), "Hatalı kasa tipi reddediliyor")
 	print("KAYIT GÖÇÜ: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])

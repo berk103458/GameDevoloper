@@ -81,7 +81,7 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [x] **KVR-10:** Otomatik CHR Markdown → `.tres` Derleme Betiği (`tools/chr_parser.py` — **taslak hedef yol**) — `karakterler/CHR_*.md` dosyalarını okuyup eksik alan kontrolü yapan ve doğrudan oyuna hazır `.tres` dosyası çıkaran derleme aracı. (Codex)
 
 - [ ] **KVR-11:** `metinler.csv` Anahtar Standardı Sözleşmesi — Replik: `CHR_XXX_DUGUM_YY_REPLIK`; seçenek: `CHR_XXX_DUGUM_YY_SEC_Z_METIN`; heybe: `CLUE_CHRXXX_ESYA_ADI_BASLIK` / `_TANIM`; CSV'ye satır bazlı ekleme kuralı.
-- [ ] **KVR-12:** Bina Adı Sözlüğü — CHR hedef binalarını katalogdaki türlerle birebir eşleyen statik sözlük (ör. Köy Meydanı, Ahır, Muhafız Kışlası, Değirmen, Şifahane, Bostan).
+- [/] **KVR-12:** Bina Adı Sözlüğü — CHR hedef binalarını katalogdaki türlerle birebir eşleyen statik sözlük (ör. Köy Meydanı, Ahır, Muhafız Kışlası, Değirmen, Şifahane, Bostan).
 - [ ] **KVR-13:** Tansiyon / Stat Clamp — Runtime sınır kontrolü: tansiyon 0–10; karar anlık etkileri tipik −4…+4 clamp.
 - [ ] **KVR-14:** Eksik Alan Fallback — CHR/`KarakterVerisi` okumada boş veya eksik alanda güvenli varsayılan profil; çökme yok.
 - [ ] **KVR-15:** `dogrula() -> bool` — Zorunlu alanlar (ID, başlangıç tansiyonu, karar etkileri) derleme/başlangıçta geçerlilik teyidi (**taslak hedef**: `KarakterVerisi.dogrula` / `tools/chr_parser.py`).
@@ -261,7 +261,7 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **SYS-11:** Ajan Pre-Merge `sanity_check` Paketi (`tools/sanity_check.py` — **taslak hedef yol**) — Commit öncesi CSV/anahtar/script tarama tek komut; SYS-06 ile tamamlayıcı.
 - [ ] **SYS-12:** Runtime `[KEY_NOT_FOUND]` / `MISSING_KEY` Gösterimi — **≡ BUG-07 / SYS-09**; eksik metin anahtarında güvenli ekran metni.
 - [ ] **SYS-13:** `memory_free` / Düşük Donanım Bellek Paketi — **taslak hedef**; düşük VRAM/RAM profilinde cache temizliği (BUG-10 ile ilişkili).
-- [/] **SYS-14:** `KAYIT_SURUMU` Adım Adım Migration — SYS-01 tamamlayıcı; sürüm N→N+1 alan göç fonksiyonları (satır kanıtsız uyarı geçerli).
+- [x] **SYS-14:** `KAYIT_SURUMU` Adım Adım Migration — SYS-01 tamamlayıcı; sürüm N→N+1 alan göç fonksiyonları (satır kanıtsız uyarı geçerli). (Codex)
 - [x] **SYS-15:** `otomatik_oyuncu` Sabit 20 Tur Kilidi — SYS-10 tamamlayıcı; headless duman testinde tur sayısının sabitlenmesi. (Codex)
 
 ---
