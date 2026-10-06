@@ -62,7 +62,7 @@ func _dongu() -> void:
 				e.secildi.emit(0)
 			elif e.sayi >= 0:
 				await _foto("09_son")
-				print("SON: ", e.baslik, " gun=", e.sayi, " perde=", ana.oturum.perde, " koy=", ana.oturum.koy.toplam(), " barlar=", ana.oturum.barlar.degerler)
+				print("SON: ", e.baslik, " gun=", e.sayi, " perde=", ana.oturum.perde, " koy=", ana.oturum.koy.toplam(), " huzur=", ana.oturum.yonetim.huzur(), " akce=", ana.oturum.akce)
 				Ses.cik()
 				return
 			else:
@@ -88,12 +88,13 @@ func _dongu() -> void:
 					secim[rng.randi_range(0, secim.size() - 1)].pressed.emit()
 					await get_tree().create_timer(0.3).timeout
 					var foto := true
-					while koy.mini_oyun != null:
+					# Rapor kartının "sabah oldu" düğmesi köy ekranını kapatır: ekran gittiyse mini oyun yoktur.
+					while is_instance_valid(koy) and koy.mini_oyun != null:
 						await get_tree().create_timer(rng.randf_range(0.3, 0.9)).timeout
-						if foto and koy.mini_oyun != null:
+						if foto and is_instance_valid(koy) and koy.mini_oyun != null:
 							await _foto("04_mini_oyun")
 							foto = false
-						if koy.mini_oyun != null:
+						if is_instance_valid(koy) and koy.mini_oyun != null:
 							koy.mini_oyun.bas()
 				continue
 			# Köy yönetimi: basit bir oyuncu gibi barınak ve üretim kurar, boştakileri atar, isyanda aş dağıtır.
