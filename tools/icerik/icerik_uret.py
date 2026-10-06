@@ -765,7 +765,7 @@ ARAYUZ = {
     "anlati.is.yer.kervansaray": "kervansaraya",
     "anlati.is.yer.kisla": "kışlaya",
     "anlati.is.uyumsuz": "Bu iş ona göre değil. %s bunu hissedecek.",
-    "arayuz.kapi.bilgi": "%d. gece · %d. gelen · sırada %d kişi",
+    "arayuz.kapi.bilgi": "%d. gün · %d. gelen · sırada %d kişi",
     "arayuz.kapi.sorular": "Sorular",
     "arayuz.kapi.sira": "Sırada",
     "arayuz.kapi.karar": "Karar",

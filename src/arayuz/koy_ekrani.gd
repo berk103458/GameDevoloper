@@ -35,6 +35,7 @@ var _bant: PanelContainer
 var _ipucu: Label
 var _ust_kart: PanelContainer
 var _gece_dugmesi: Button
+var _hiz_dugmesi: Button
 var _kategori := "barinma"
 var _y: KoyYonetimi
 
@@ -117,11 +118,8 @@ func _alt_panel_kur() -> void:
 	pazar.pressed.connect(_pazar_ac)
 	var nufus := _dugme(tr("koy.eylem.nufus"), sag)
 	nufus.pressed.connect(_nufus_ac)
-	var hiz := _dugme(tr("koy.eylem.hiz") % 1, sag)
-	hiz.pressed.connect(func() -> void:
-		Engine.time_scale = 2.0 if Engine.time_scale < 1.5 else 1.0
-		hiz.text = tr("koy.eylem.hiz") % int(Engine.time_scale)
-	)
+	_hiz_dugmesi = _dugme(tr("koy.eylem.hiz") % 1, sag)
+	_hiz_dugmesi.pressed.connect(func() -> void: _hiz_sec(1 if Engine.time_scale > 1.5 else 2))
 	_gece_dugmesi = _dugme(tr("koy.eylem.gece"), yatay)
 	_gece_dugmesi.custom_minimum_size = Vector2(260, 150)
 	_gece_dugmesi.pressed.connect(_geceye_gec)
@@ -263,10 +261,27 @@ func _unhandled_input(olay: InputEvent) -> void:
 				_yapi_satirini_ciz()
 			KEY_P:
 				_nufus_ac()
+			KEY_1:
+				_hiz_sec(1)
+			KEY_2:
+				_hiz_sec(2)
+			KEY_SPACE:
+				_hiz_sec(1 if Engine.time_scale > 1.5 else 2)
 			KEY_ESCAPE:
 				if _ust_kart != null:
 					return
 				_kip_sec("")
+
+
+## Köy sahnesinin hızı (17.4: 1 / 2 / boşluk). Ekrandan çıkılınca 1x'e döner.
+func _hiz_sec(kat: int) -> void:
+	Engine.time_scale = float(kat)
+	if _hiz_dugmesi != null:
+		_hiz_dugmesi.text = tr("koy.eylem.hiz") % kat
+
+
+func _exit_tree() -> void:
+	Engine.time_scale = 1.0
 
 
 # ── Yapı bilgi penceresi (10.1, 17.3) ─────────────────────────────────────────────────────────────
