@@ -63,6 +63,28 @@ func _init() -> void:
 	var hasta := _gelen(5)
 	hasta.acik_bayraklar = PackedStringArray(["hasta"])
 	_esit("açık hasta: kusurlu", hasta.kusurlu(), true)
+	# Kanıt sorusu birden çok gerçeği birden açar (virgüllü bayrak).
+	var cok := _gelen(5)
+	cok.sorular = [PackedStringArray(["s1", "c1"])]
+	cok.soru_bayraklari = PackedStringArray(["sabotajci,hasta"])
+	cok.soru_soruldu(0)
+	_esit("virgüllü bayrak ikisini açar", cok.acik_bayraklar, PackedStringArray(["sabotajci", "hasta"]))
+	# Sayfadan gizli ustalık: sorulmadıkça sınıftan usta bayrağı türetilmez; sorulursa o ustalık işlenir.
+	var gizli_usta := _gelen(9)
+	gizli_usta.gizli_bayraklar = PackedStringArray(["usta_demirci"])
+	s = o.karar_ver(gizli_usta, &"kabul")
+	k = o.yonetim.koylu(s["koylu_id"])
+	_esit("gizli ustalık sınıftan türemez", k.bayrak_var("usta_ciftci"), false)
+	_esit("gizli ustalık köye gizli", "usta_demirci" in k.gizli_bayraklar, true)
+	var acik_usta := _gelen(9)
+	acik_usta.gizli_bayraklar = PackedStringArray(["usta_demirci"])
+	acik_usta.acik_bayraklar = PackedStringArray(["usta_demirci"])
+	s = o.karar_ver(acik_usta, &"kabul")
+	k = o.yonetim.koylu(s["koylu_id"])
+	_esit("açılan ustalık tek", k.bayraklar, PackedStringArray(["usta_demirci"]))
+	# Sayfa verisi: CHR_003'ün kanıt sorusu ustalığını açar.
+	var sohbet := _k.sohbet(&"chr_003")
+	_esit("CHR_003 kanıt bayrağı", sohbet != null and "usta_demirci" in sohbet.soru_bayraklari, true)
 	# Gece: köy yönetimi çözer, gün ilerler; kayıt geri yüklenir.
 	o.yonetim.kaynaklar.ekle("gida", 50)
 	var r := o.gece_sonu()

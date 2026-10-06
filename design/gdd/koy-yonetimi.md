@@ -1,6 +1,6 @@
 # Köy Yönetimi (2. Aşama)
 
-> **Status**: In Design — çekirdek (Aşama A) uygulandı
+> **Status**: In Design — Aşama A (çekirdek), B (oturum ve kapı) ve C (köy arayüzü) uygulandı; D bekliyor
 > **Kaynak**: kullanıcının "Oyun Geliştirme Planı: 2. Aşama" belgesi (20 başlık), 6 Ekim 2026
 > **Kod**: `src/koy/` · Ayarlar: `data/ayarlar/koy.tres` (`KoyAyarlari`) · Yapılar: `data/koy/binalar.json`
 > **Test**: `tests/unit/koy_yonetimi/koy_yonetimi_test.gd` · Denge: `tools/denge/koy_benzetimi.gd`
@@ -32,6 +32,15 @@ Kapıda verdiğin her karar köyde bir yüz, bir iş, bir kin olarak geri döner
    iltimas denetimi → kış kaydırması / bahar dönüşü → üretim (isyanda yok) → inşaat → barındırma → tüketim →
    sağlık ve moral → akçe (maaş, haftalık vergi) → husumet olayları → asayiş sönümü → isyan → aşamalar (Ağalık,
    haraç, Tekfur) → son denetimi → rapor kartı.
+
+### Kapıda açılan gerçekler (1, 2.1)
+- Her CHR sayfasının tek bir **Dal 3 kanıt sorusu** var (`[Clue_…]` ipuçlarına dayanan soru). O soru sorulursa
+  sayfanın gizli bayrakları kapıda açılır; sorulmazsa köye gizli taşınır (`Koylu.gizli_bayraklar`).
+- Sırlar ve zanaat `tools/icerik/karakter_sayfalari.py` `SIRLAR` tablosunda, `Gerçek_Kimlik`ten elle çıkarılır:
+  `casus_suphesi`, `sabotajci`, `hirsiz`, `hasta`, `tembel`, `usta_<uzmanlık>`.
+- Sayfa ustalığı gizliyse sınıftan usta bayrağı türetilmez: ustalık yalnız sorguda açılırsa üretime yarar.
+  Sayfası olmayan (adsız) gelenlerde stat ≥ 7 sınıfın ustalığını açık verir.
+- Açık `casus_suphesi`/`hirsiz`/`hasta`/`sabotajci` reddi gerekçeli yapar (husumet +1).
 
 ### Kapı kararları (2, 3)
 - **Haksız harç** (2.3): yoksuldan `harc_akce` alınır; kişiye `somurulmus`, sadakati %30 düşer, köy adaleti azalır.
@@ -117,3 +126,11 @@ Hepsi `tests/unit/koy_yonetimi/koy_yonetimi_test.gd` içinde:
 - Husumet sönümü ve eşikleri, muhafız zarı; sur taksitleri ve rezerv kilidi.
 - Açlık, kış soğuğu, kış kaydırması ve bahar dönüşü; isyan sonu ve isyandan çıkış.
 - Emniyet kilidi; Ağalık, haraç, Tekfur yenilgisi; kayıt geri yükleme ve bozuk kayıtta yedek.
+
+`tests/unit/kapi_kararlari/kapi_kararlari_test.gd` içinde:
+- Kabul, harç, rüşvet, ret (haksız/gerekçeli), kışla köye doğru işlenir.
+- Soru bayrağı yalnız o soru sorulunca açılır; virgüllü kanıt bayrağı hepsini açar; sorulmayan gizli kalır.
+- Sayfadan gizli ustalık sınıftan türemez; CHR_003 kanıt sorusu `usta_demirci` açar.
+
+Arayüz (görsel kanıt, `production/qa/evidence/koy-yonetimi/`):
+- Gündüz kapı ışığı; köy ekranında yapı bilgi paneli, hayalet önizleme ve red gerekçesi, gece rapor kartı.

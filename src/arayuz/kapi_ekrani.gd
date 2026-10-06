@@ -385,7 +385,8 @@ func _soru_sor(i: int) -> void:
 		tr(_gelen.ad_anahtari), tr(_gelen.sorular[i][1])])
 	if _gelen.acik_bayraklar.size() > once:
 		Ses.cal(&"sfx_olay", -6.0)
-		_yaz("[i][color=#C4843A]%s[/color][/i]" % (tr("arayuz.bayrak.acildi") % tr("koy.bayrak." + _gelen.acik_bayraklar[-1])))
+		for b in _gelen.acik_bayraklar.slice(once):
+			_yaz("[i][color=#C4843A]%s[/color][/i]" % (tr("arayuz.bayrak.acildi") % tr("koy.bayrak." + b)))
 	# Cevap uzunluğu kadar konuşur; sorgu uzadıkça (üçüncü sorudan sonra) gerginleşir.
 	if _sorulan.size() >= 3 and sahne.gelen_hareket_var("gergin"):
 		sahne.gelen_gergin()

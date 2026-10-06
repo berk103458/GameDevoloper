@@ -31,7 +31,8 @@ var azami_soru: int = 0
 var tehlikeli: bool = false
 ## Zanaat yeteneği 1–10 (köyde üretim formülü).
 var stat: int = 5
-## Sorgu ağacında soru → bayrak: o soru sorulup cevabı alınınca açılan gerçek (`soru_bayraklari[i]`, boş = yok).
+## Sorgu ağacında soru → bayrak: o soru sorulup cevabı alınınca açılan gerçek (`soru_bayraklari[i]`, boş = yok;
+## birden çok bayrak virgülle ayrılır).
 var soru_bayraklari: PackedStringArray = []
 ## Kapıda açılmayan gerçekler köye gizli taşınır (casus, hırsız, hasta …).
 var gizli_bayraklar: PackedStringArray = []
@@ -58,9 +59,9 @@ func kusurlu() -> bool:
 ## i. soru sorulunca açılan bayrağı kaydeder (koşullu kilit: yalnız o dal sorulursa).
 func soru_soruldu(i: int) -> void:
 	if i < soru_bayraklari.size() and soru_bayraklari[i] != "":
-		var b := soru_bayraklari[i]
-		if not b in acik_bayraklar:
-			acik_bayraklar.append(b)
+		for b in soru_bayraklari[i].split(",", false):
+			if not b in acik_bayraklar:
+				acik_bayraklar.append(b)
 
 
 ## Sorulabilecek soru sınırı: gelenin kendi sınırı, yoksa genel ayar.

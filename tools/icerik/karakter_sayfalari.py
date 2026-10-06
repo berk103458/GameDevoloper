@@ -10,6 +10,8 @@ Okunan alanlar (sayfa şablonu `karakterler/CHR_002.md`):
 - Dal 1/2/3 düğümleri → soru ağacı: seçenek metni = soru, hedef düğümün NPC repliği = cevap,
   hedefin seçenekleri = takip soruları. Tansiyon, ipucu ve bayrak koşulları oyunda yok: koşullu
   dallar düz takip sorusu olur; "Final_Ret" ve "Karar_Menusu" dallanmaz.
+- Dal 3 kanıt sorusu ([Clue_…] ipuçlarına dayanan soru) → o soru sorulursa gizli bayraklar kapıda açılır
+  (SIRLAR; design/gdd/koy-yonetimi.md, plan 1. ve 2.1). Açılmayanlar köye gizli taşınır.
 BÖLÜM 5 (gecikmeli sonuçlar, doğan karakterler) henüz oyuna bağlanmadı.
 """
 import os
@@ -29,6 +31,43 @@ NIYET = {
     False: dict(kabul=[0, 0, 0, 0], ret=[-1, 0, 0, 0], rusvet=[-1, 0, 1, 0], kisla=[-1, 0, 0, 1]),
 }
 AZAMI_SORU = 6
+
+# Gerçek_Kimlik'ten köye taşınan sırlar: kimlik → (zanaat 1–10, gizli bayraklar). Gizli bayrak kapıda yalnız Dal 3
+# kanıt sorusuyla açılır; `usta_*` gizliyse ustalık da ancak sorguda açılırsa üretime yarar (src/koy/uretim.gd).
+# Bayraklar: casus_suphesi (çete/divan gözü), sabotajci (kundak, zehir), hirsiz, hasta, tembel, usta_<uzmanlık>
+# (uzmanlıklar data/koy/binalar.json: ciftci, oduncu, tasci, avci, demirci).
+SIRLAR = {
+    "chr_001": (5, ["sabotajci", "usta_oduncu"]),     # Hamza: çetenin kundakçısı, meşe kütüğü taşır
+    "chr_002": (5, ["sabotajci", "hasta"]),           # Meryem: bilmeden kuyuya banotu taşır, bilekleri zehirli
+    "chr_003": (9, ["usta_demirci"]),                 # Haydar Usta: cerrah ve çelik dökümcüsü
+    "chr_004": (6, ["casus_suphesi", "usta_avci"]),   # İlyas: Kızıl Karga'nın reisi, kürk tüccarı kılığında
+    "chr_005": (5, ["casus_suphesi"]),                # Çolak Kerim: sargıda kama saklayan fedai
+    "chr_006": (4, ["sabotajci"]),                    # Seyit: saman sepetinde katran fitili
+    "chr_007": (3, ["casus_suphesi"]),                # Şemsettin: divanın teftiş kâtibi
+    "chr_008": (8, []),                               # Dudu Hatun: otacı (şifa yapısı yok, ustalık yok)
+    "chr_009": (4, ["sabotajci"]),                    # Çopur Abbas: zehir kaçakçısı
+    "chr_010": (4, ["casus_suphesi"]),                # Tellal Gaffar: çeteye kapı açtıracak aracı
+    "chr_011": (6, ["hirsiz"]),                       # İdris: ambardan iki torba buğday aşırmış
+    "chr_012": (8, ["usta_ciftci"]),                  # Zeynep: usta bağcı
+    "chr_013": (9, ["usta_ciftci"]),                  # Osman Dayı: yedi kuşak tohumcu
+    "chr_014": (5, []),                               # Bekir: vergiden kaçan çoban
+    "chr_015": (8, ["usta_ciftci"]),                  # Emine Hatun: bostancı, ark ustası
+    "chr_016": (6, []),                               # Halil: borçlu budamacı
+    "chr_017": (5, []),                               # Fadime: çoban
+    "chr_018": (7, ["usta_ciftci"]),                  # Rahime: bostancı
+    "chr_019": (5, ["usta_tasci"]),                   # İsmail: kuyu temizleyen, arkçı
+    "chr_020": (4, ["tembel"]),                       # Satılmış: kumarda kalburu kaybetmiş
+    "chr_021": (6, []),                               # Cemil: levent ocağı kaçağı
+    "chr_022": (4, []),                               # Bayram: davulcu
+    "chr_023": (5, ["tembel"]),                       # Necip: içip geçidi kaçıran keşif eri
+    "chr_024": (7, ["usta_demirci"]),                 # Fehmi: cebe yamağı
+    "chr_025": (4, ["hirsiz"]),                       # Nevzat: ekmeği dikişe saklamış
+    "chr_026": (7, ["usta_demirci"]),                 # Salih: saraç
+    "chr_027": (6, ["usta_tasci"]),                   # Rasim: çömlekçi, kuyu sıvacısı
+    "chr_028": (5, ["hirsiz"]),                       # Hulusi: loncadan iki top bez
+    "chr_029": (8, ["usta_demirci"]),                 # Basri: çivi ustası
+    "chr_030": (6, ["hirsiz"]),                       # Latif: kısa ölçüyle un ayırmış
+}
 
 # Elde taşınan eşyalar (sayfadaki Obje_2_Yük ve Yüz_ve_Postür'den): kimlik → [(eşya, "sag"/"sol")].
 # Meshy modelinde olmayan ya da sırtta kalan yük ele verilir; biçimler src/dunya/el_esyasi.gd.
@@ -92,13 +131,15 @@ def _soru_metni(s):
 
 
 def dugumler(metin):
-    """Düğüm adı → {npc, secenekler: [(metin, hedef)], gec: [hedef]} (gec: metinsiz koşullu yönlendirme)."""
+    """Düğüm adı → {npc, secenekler: [(metin, hedef)], gec: [hedef], kanit: {soru metni}}.
+
+    gec: metinsiz koşullu yönlendirme; kanit: [Clue_…] ipucuna dayanan (Dal 3) soruların metni."""
     d = {}
     simdiki = None
     for satir in metin.splitlines():
         m = re.match(r"\s*-\s*Düğüm[ _]([\w.]+):\s*$", satir)
         if m:
-            simdiki = d.setdefault(m.group(1), {"npc": "", "secenekler": [], "gec": []})
+            simdiki = d.setdefault(m.group(1), {"npc": "", "secenekler": [], "gec": [], "kanit": set()})
             continue
         if simdiki is None:
             continue
@@ -113,6 +154,8 @@ def dugumler(metin):
         m = re.match(r'\s*-\s*(Seçenek[^:]*|Test sorusu):\s*(.*)$', satir)
         if m:
             simdiki["secenekler"].append((_soru_metni(m.group(2)), hedef))
+            if "[Clue" in m.group(2):
+                simdiki["kanit"].add(_soru_metni(m.group(2)))
         else:
             simdiki["gec"].append(hedef)
     return d
@@ -188,7 +231,10 @@ def karakterler():
         portre = {"asker": "soldier_01", "esnaf": "craftsman_01", "ciftci": "farmer_01"}[sinif]
         if cinsiyet[kimlik] == "k":
             portre = "farmer_02"
+        zanaat, gizli = SIRLAR.get(kimlik, (0, []))
+        kanit = set().union(*(x["kanit"] for x in d.values())) if d else set()
         liste.append(dict(
+            zanaat=zanaat, gizli=gizli, kanit_sorulari=kanit,
             id=kimlik, ad=ad, koken="yerel", sinif=sinif, kural="hic_donmez", erken=erken, portre=portre,
             secenekler=["kabul", "ret", "rusvet", "kisla"], etki=etki, azami_soru=AZAMI_SORU,
             girisler=[giris], acilislar=[acilis], sorular=[(0, s, c, t) for s, c, t in agac],

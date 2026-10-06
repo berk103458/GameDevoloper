@@ -11,3 +11,4 @@ soru_anahtarlari = PackedStringArray("sohbet.nogay.s1", "sohbet.nogay.s2", "sohb
 cevap_anahtarlari = PackedStringArray("sohbet.nogay.c1", "sohbet.nogay.c2", "sohbet.nogay.c3", "sohbet.nogay.c4", "sohbet.nogay.c5", "sohbet.nogay.c6", "sohbet.nogay.c7", "sohbet.nogay.c8", "sohbet.nogay.c9")
 soru_ziyareti = PackedInt32Array(1, 1, 1, 1, 1, 1, 2, 2, 2)
 soru_ust = PackedInt32Array(-1, 0, -1, 2, -1, 4, -1, -1, 7)
+soru_bayraklari = PackedStringArray("", "", "", "", "", "", "", "", "")

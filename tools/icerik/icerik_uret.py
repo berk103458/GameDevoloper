@@ -108,7 +108,9 @@ tres("data/ayarlar/oyun.tres", "OyunAyarlari", "res://src/veri/oyun_ayarlari.gd"
     "pazar_bedel": pia([6, 12, 20]), "kervansaray_bedel": pia([8, 15, 24]), "sur_bedel": pia([8, 14, 22]),
     "konak_bedel": pia([10, 18, 28]), "konak_nufus": pia([5, 10, 16]),
     "pazar_esnaf": pia([1, 3, 5]), "kervansaray_esnaf": pia([2, 4, 6]),
-    "akce_baslangic": 4, "rusvet_akce": 3, "kese_fiyati": 10, "kervansaray_gelir": 2, "esnaf_gelir": 1,
+    "akce_baslangic": 4, "rusvet_akce": 3, "kese_fiyati": 10, "kervansaray_gelir": 2,
+    "ambar_yedek_gece": 1, "seyyar_bolen": 2, "ambar_akce_orani": 4, "takas_taban": 2, "takas_pazar_artis": 1,
+    "esnaf_gelir": 1,
     "pazar_tezgah_taban": 2, "pazar_tezgah_artis": 2, "olay_olasiligi": 0.75,
     "saldiri_taban": 1, "saldiri_artis_araligi": 2, "savunma_bolen": 2,
     "beyan_akce_min": 2, "beyan_akce_max": 8, "yalan_olasiligi": 0.35,
@@ -355,14 +357,16 @@ for k in KARAKTERLER:
         "donus_kurali": sn(k["kural"]), "en_erken_gece": k["erken"], "portre": sn(k.get("portre", i)),
         "p0": 0.6, "d": 0.5, "k_azami": 4, "n_ziyaret": k.get("n", 1), "g_min": 2, "g_max": 4,
         "azami_soru": k.get("azami_soru", 0), "tehlikeli": k.get("tehlikeli", False),
+        "zanaat": k.get("zanaat", 0), "gizli_bayraklar": psa(k.get("gizli", [])),
     }
     for karar in ("kabul", "ret", "rusvet", "kisla"):
         alan["etki_" + karar] = pia(k["etki"].get(karar, [0, 0, 0, 0]))
     tres("data/karakterler/%s.tres" % i, "KarakterVerisi", "res://src/veri/karakter_verisi.gd", alan)
     girisler = [t("sohbet.%s.giris%d" % (i, n + 1), g) for n, g in enumerate(k["girisler"])]
     acilislar = [t("sohbet.%s.acilis%d" % (i, n + 1), a) for n, a in enumerate(k["acilislar"])]
-    sorular, cevaplar, ziyaret, ust = [], [], [], []
+    sorular, cevaplar, ziyaret, ust, bayraklar = [], [], [], [], []
     for n, (z, s, c, u) in enumerate(duzle(k["sorular"])):
+        bayraklar.append(",".join(k.get("gizli", [])) if s in k.get("kanit_sorulari", ()) else "")
         sorular.append(t("sohbet.%s.s%d" % (i, n + 1), s))
         cevaplar.append(t("sohbet.%s.c%d" % (i, n + 1), c))
         ziyaret.append(z)
@@ -370,7 +374,7 @@ for k in KARAKTERLER:
     tres("data/sohbetler/%s.tres" % i, "SohbetVerisi", "res://src/veri/sohbet_verisi.gd", {
         "id": sn(i), "giris_anahtarlari": psa(girisler), "acilis_anahtarlari": psa(acilislar),
         "soru_anahtarlari": psa(sorular), "cevap_anahtarlari": psa(cevaplar), "soru_ziyareti": pia(ziyaret),
-        "soru_ust": pia(ust)})
+        "soru_ust": pia(ust), "soru_bayraklari": psa(bayraklar)})
 
 # ─── Sınıf şablonları ─────────────────────────────────────────────────────
 # çeşit: (portre, giriş anlatısı, açılış sözü, sorular [(soru, cevap, [takip])])
@@ -886,6 +890,13 @@ for k, v in ARAYUZ.items():
     t(k, v)
 
 yol = os.path.join(KOK, "data/metin/metinler.csv")
+# Bu betiğin üretmediği anahtarlar (köy yönetimi arayüzü gibi elle eklenenler) korunur; betik yalnız kendi
+# anahtarlarının metnini yazar. Kullanılmayan elle eklenmiş anahtarı silmek elle yapılır.
+if os.path.exists(yol):
+    with open(yol, encoding="utf-8", newline="") as f:
+        for satir in list(csv.reader(f))[1:]:
+            if len(satir) >= 2 and satir[0] not in METIN:
+                METIN[satir[0]] = satir[1]
 with open(yol, "w", encoding="utf-8", newline="") as f:
     w = csv.writer(f, lineterminator="\n")
     w.writerow(["keys", "tr"])

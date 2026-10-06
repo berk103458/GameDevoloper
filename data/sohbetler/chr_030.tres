@@ -11,3 +11,4 @@ soru_anahtarlari = PackedStringArray("sohbet.chr_030.s1", "sohbet.chr_030.s2", "
 cevap_anahtarlari = PackedStringArray("sohbet.chr_030.c1", "sohbet.chr_030.c2", "sohbet.chr_030.c3", "sohbet.chr_030.c4", "sohbet.chr_030.c5", "sohbet.chr_030.c6", "sohbet.chr_030.c7", "sohbet.chr_030.c8", "sohbet.chr_030.c9", "sohbet.chr_030.c10", "sohbet.chr_030.c11")
 soru_ziyareti = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 soru_ust = PackedInt32Array(-1, 0, 1, 0, 3, -1, 5, 6, 6, -1, 9)
+soru_bayraklari = PackedStringArray("", "", "", "", "", "", "", "", "", "hirsiz", "")

@@ -290,8 +290,12 @@ func _eski_yapi_seviyesi(ad: String) -> int:
 	return 0
 
 
-## Usta gelenin uzmanlık bayrağı (kapıda görülen el, alet: stat 7 ve üstü).
+## Usta gelenin uzmanlık bayrağı (kapıda görülen el, alet: stat 7 ve üstü). Karakter sayfası ustalığı gizli
+## bayrak olarak veriyorsa sınıftan türetilmez: o ustalık ancak sorguda açılırsa köyde işe yarar.
 func _uzmanlik_bayragi(g: Gelen) -> PackedStringArray:
+	for b in g.gizli_bayraklar + g.acik_bayraklar:
+		if b.begins_with("usta_"):
+			return PackedStringArray()
 	var u := _usta_uzmanlik(g)
 	return PackedStringArray(["usta_" + u]) if u != "" else PackedStringArray()
 

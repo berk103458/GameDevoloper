@@ -1,5 +1,5 @@
 extends Node
-## Kapı ekranı fotoğrafı (kanıt için; menüsüz kurulum). ENV: GECE, PERDE, SUR, BEKLE, CIKTI, ARAYUZ=0 (yalnız 3D).
+## Kapı ekranı fotoğrafı (kanıt için; menüsüz kurulum). ENV: GECE (gün), PERDE, SUR, BEKLE, CIKTI, ARAYUZ=0 (yalnız 3D).
 ## Forward+ için: VK_ICD_FILENAMES=.../lvp_icd.json godot --rendering-driver vulkan --resolution 3840x2160 tests/oto/kapi_foto.tscn
 func _ready() -> void:
 	TranslationServer.set_locale("tr")
@@ -12,9 +12,9 @@ func _ready() -> void:
 	add_child(kok)
 	var o := Oturum.new(katalog, 4)
 	o.gun = int(OS.get_environment("GECE"))
-	o.perde = int(OS.get_environment("PERDE"))
-	o.perde2_gece = int(OS.get_environment("GECE"))
-	o.yapilar[&"sur"] = int(OS.get_environment("SUR"))
+	# PERDE=2: Ağalık aşaması (perde köy yönetiminden türer); SUR: sur seviyesi.
+	o.yonetim.agalik = OS.get_environment("PERDE") == "2"
+	o.yonetim.sur_seviye = int(OS.get_environment("SUR"))
 	var k := KapiEkrani.new()
 	k.oturum = o
 	k.ayarlar = ayarlar
