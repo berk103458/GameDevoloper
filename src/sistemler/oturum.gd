@@ -32,6 +32,8 @@ var onceki_durum: Dictionary = {}
 var _rng: RandomNumberGenerator
 var _rng_donus: RandomNumberGenerator
 var _rng_ad: RandomNumberGenerator
+var _gemini: Array = []
+var _gemini_sira: int = 0
 
 
 ## Yeni oturum. `tohum` 0 ise rastgele seçilir.
@@ -400,7 +402,56 @@ func _adli_gelen(id: StringName) -> Gelen:
 	return g
 
 
+func _gemini_al() -> Dictionary:
+	if _gemini.is_empty():
+		var metin := FileAccess.get_file_as_string("res://data/diyalog/diyalog_01_20.json")
+		var ayris = JSON.parse_string(metin)
+		if ayris is Array:
+			_gemini = ayris
+	if _gemini.is_empty():
+		return {}
+	var d: Dictionary = _gemini[_gemini_sira % _gemini.size()]
+	_gemini_sira += 1
+	return d
+
+
 func _figur_gelen() -> Gelen:
+	var d := _gemini_al()
+	if d.is_empty():
+		return _figur_sablon()
+	var sablon := katalog.sinif(StringName(String(d["sinif"])))
+	var ornek := kadro.figur_ornegi(sablon)
+	var g := Gelen.new()
+	g.ad_anahtari = ornek["ad_anahtari"]
+	g.sinif = sablon.sinif
+	g.portre = sablon.portreler[0]
+	g.giris_anahtari = String(d["sahne"])
+	for cift in d["sorular"]:
+		g.sorular.append(PackedStringArray([String(cift[0]), String(cift[1])]))
+	var tum: Array = []
+	for i in d["secenekler"].size():
+		tum.append({"k": String(d["secenekler"][i]), "e": int(d["esik"][i])})
+	if perde != 1:
+		var sade: Array = []
+		for o in tum:
+			if o["k"] == "kabul" or o["k"] == "ret":
+				sade.append(o)
+		tum = sade
+	g.secenekler = PackedStringArray()
+	g.esikler = PackedInt32Array()
+	for o in tum:
+		g.secenekler.append(o["k"])
+		g.esikler.append(int(o["e"]))
+	g.yanitlar = d["yanitlar"]
+	for karar in g.secenekler:
+		var etki := sablon.etki(karar).duplicate()
+		if karar == "kabul":
+			etki[_rng.randi_range(0, etki.size() - 1)] += 1 if _rng.randf() < 0.5 else -1
+		g.etkiler[StringName(karar)] = etki
+	return g
+
+
+func _figur_sablon() -> Gelen:
 	var siniflar := Katalog.SINIFLAR
 	var sablon := katalog.sinif(siniflar[_rng.randi_range(0, siniflar.size() - 1)])
 	var ornek := kadro.figur_ornegi(sablon)
