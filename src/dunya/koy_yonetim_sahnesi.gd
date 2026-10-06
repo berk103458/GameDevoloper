@@ -163,8 +163,13 @@ func _ortam_kur() -> void:
 	cevre.tonemap_exposure = 1.1
 	cevre.fog_enabled = true
 	cevre.fog_light_color = Color("#a08670")
-	cevre.fog_density = 0.004
+	# Kuşbakışı kamerada yoğun sis bütün köyü bej bir pusa boğuyordu: yalnız ufku yumuşatacak kadar.
+	cevre.fog_density = 0.0015
 	cevre.fog_sky_affect = 0.3
+	# AgX renkleri soldurur; akşam köyü canlı kalsın diye hafif kontrast ve doygunluk.
+	cevre.adjustment_enabled = true
+	cevre.adjustment_contrast = 1.12
+	cevre.adjustment_saturation = 1.2
 	cevre.ssao_enabled = true
 	cevre.glow_enabled = true
 	cevre.glow_intensity = 0.35
@@ -187,8 +192,8 @@ func _zemin_kur() -> void:
 	var p := PlaneMesh.new()
 	p.size = Vector2(260, 260)
 	z.mesh = p
-	# Kuru bozkır çayırı: akşam ışığında kuma dönmesin diye hafif yeşile çekilir.
-	z.material_override = Pbr.malzeme("sparse_grass", 3.0, Color(0.62, 0.72, 0.5))
+	# Kuru bozkır çayırı: akşam ışığında çamura dönmesin diye yeşile çekilir; geniş karo uzaktan da desen gösterir.
+	z.material_override = Pbr.malzeme("sparse_grass", 7.0, Color(0.5, 0.68, 0.38))
 	add_child(z)
 
 

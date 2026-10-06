@@ -290,7 +290,7 @@ func _bilgi_kur() -> void:
 	_bilgi = PanelContainer.new()
 	_bilgi.set_anchors_and_offsets_preset(Control.PRESET_RIGHT_WIDE)
 	_bilgi.offset_left = -520
-	_bilgi.offset_top = 110
+	_bilgi.offset_top = 150
 	_bilgi.offset_bottom = -230
 	_bilgi.visible = false
 	add_child(_bilgi)
