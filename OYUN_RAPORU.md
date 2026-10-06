@@ -2,7 +2,7 @@
 
 **Dal:** `claude/festive-volta-li1sfm` @ `de421a6` (origin ile eşit)
 **Tarih:** 6 Ekim 2026 ~21:30 Europe/Istanbul
-**Kural:** Commit/push yok. Bu dosya yerel kalır.
+**Güncel kural:** Kullanıcının talimatıyla her tamamlanan yenilik kontrol edilir, iki yerel kopyada eşitlenir, commit ve push yapılır. Aşağıdaki ilk rapor başka çalışma ortamının tarihsel kaydıdır; orada belirtilen WIP bu docs commitinde bulunmaz.
 
 ---
 
@@ -122,3 +122,15 @@ WIP birleşimi: `halk_hareketi` + `_hayvanlar`/`_dekor`/`_gorunum` aynı `KoyYon
 **Eklendi:** repo köküne ROADMAP.md (nihai Master Yol Haritası).
 Kapsam: Bölüm 0–12 + Bölüm 2.5 (KVR) + SYS-09 anahtar standardı (replik/seçenek/heybe CSV isimlendirme).
 
+
+
+## Codex yenilik notu — SYS-09 (6 Ekim 2026)
+
+- Taban: iki yerel kopya `4f7c460` festive docs commitine güncellendi. KVR-01…10 okundu.
+- Paket: yalnız SYS-09; dal `feature/sys09-csv-dogrulama`. Festive entegrasyonu bekleniyor; roadmap `[/]`.
+- Yeni araç: `tools/metin_dogrula.py`. UTF-8/BOM, strict CSV parse, `keys`/`tr` başlığı, boş/tekrarlı sütunlar, sütun sayısı, boş anahtar/TR metni, mükerrer ID ve CHR/CLUE isimlendirmesi denetlenir. Hata varsa exit 1; başarıda exit 0. Dosyalara yazmaz.
+- Eski noktalı anahtarlar korunur; ek dil sütunları desteklenir. Yeni CHR/CLUE anahtarları SYS-09 kalıplarına uyar. Runtime `Clue_*` bayrak adları CSV çeviri anahtarlarıyla karıştırılmaz.
+- Test: `python -B -m unittest discover -s tests/tools -p test_metin_dogrula.py -v` — 10 test başarılı.
+- Gerçek veri: `python -B tools/metin_dogrula.py` — mevcut `data/metin/metinler.csv` başarılı. `git diff --check` başarılı.
+- KAP-01, aktif KAP-02/KAP-03, CHR sayfaları, mevcut CSV ve korumalı çekirdek değiştirilmedi.
+- Sınır: Bu araç metin anahtarlarının runtime tarafından referanslanıp referanslanmadığını taramaz; SYS-06/07/08 ve Godot entegrasyonu ayrı paketlerdir.

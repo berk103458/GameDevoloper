@@ -215,9 +215,10 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **SYS-06:** Ajan Pre-Merge Doğrulama Betiği (`tools/sanity_check.py`) — Commit öncesi tek komut yerel test.
 - [ ] **SYS-07:** Headless Godot Derleme ve Script Error Taraması — Parse/script yükleme hatalarını listele.
 - [ ] **SYS-08:** Korumalı Çekirdek Fonksiyon İmza Denetçisi — `KarakterModel.kur`, `devam_istendi`, `gece_sonu` silinmesin (`git diff`).
-- [ ] **SYS-09:** Metinler CSV Doğrulama ve İsimlendirme Standardı — Bağlayıcı anahtarlar:
+- [/] **SYS-09:** Metinler CSV Doğrulama ve İsimlendirme Standardı — Bağlayıcı anahtarlar:
   - Replikler: `CHR_XXX_DUGUM_YY_REPLIK`
   - Seçenekler: `CHR_XXX_DUGUM_YY_SEC_Z_METIN`
   - Heybe: `CLUE_CHRXXX_ESYA_ADI_BASLIK` / `_TANIM`
   - Format bozukluğu, eksik sütun, mükerrer ID denetimi.
+  - Codex: `feature/sys09-csv-dogrulama` — `tools/metin_dogrula.py` ve 10 test hazır; festive entegrasyonu bekleniyor.
 - [ ] **SYS-10:** 20 Turluk Otomatik Oyuncu Duman Testi (`otomatik_oyuncu.gd`) — Headless 20 gece; bellek/çökme kontrolü.
