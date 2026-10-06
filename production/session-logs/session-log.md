@@ -3343,3 +3343,22 @@ ea33fd2 chore(3d): add generated models
 f1c7ed9 feat(koy): Manor Lords tarzı köy — arazi, orman, köylü programı, hayvanlar, yeni HUD
 ---
 
+## Session End: 20261006_135241
+### Commits
+2420b29 feat(koy): Meshy koyun sürüsü, statik hayvanlara kodla hareket, kart düzeltmeleri
+610bbb0 Merge remote-tracking branch 'origin/claude/keen-cerf-42meo7' into claude/keen-cerf-42meo7
+f1c7ed9 feat(koy): Manor Lords tarzı köy — arazi, orman, köylü programı, hayvanlar, yeni HUD
+---
+
+## Session End: 20261006_140947
+### Commits
+73b6158 docs(model): Meshy Discover indirme listesi ve teslim klasörü
+2420b29 feat(koy): Meshy koyun sürüsü, statik hayvanlara kodla hareket, kart düzeltmeleri
+610bbb0 Merge remote-tracking branch 'origin/claude/keen-cerf-42meo7' into claude/keen-cerf-42meo7
+f1c7ed9 feat(koy): Manor Lords tarzı köy — arazi, orman, köylü programı, hayvanlar, yeni HUD
+### Uncommitted Changes
+production/session-logs/.session-end.hash
+production/session-logs/session-cost.md
+production/session-logs/session-log.md
+---
+
