@@ -2,6 +2,8 @@
 
 Bunu Grok yazdı. Abinin ajanı isterse kullanır.
 
+Ajanlar işe başlamadan önce `AGENTS.md` dosyasını okumalı.
+
 # Berk'in ajanı için
 
 Oyun artık 3D. Bu dosya Ahmet'in ürettiklerini anlatıyor. İstersen kullan, zorunda değilsin. 3D modeller ve ses zaten sahnede duruyor. 2D çizimler ve Flutter prototip görselleri eski ekranlar içindi.
