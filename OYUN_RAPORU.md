@@ -478,3 +478,17 @@ Sıradaki: BUG-11. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 BUG-08 ile aynı doğrulanmış koruma: tek geçiş kilidi + disabled gece düğmesi + rapor boyunca 1x. Yeni köy ekranı kendi kilidini alır; Oturum.gece_sonu simülasyon API imzası ve akışı değişmedi.
 
 Sıradaki: BUG-09. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — BUG-09 (6 Ekim 2026)
+
+Eksik/silinmiş klip, boş veya silinen AnimationPlayer güvenle atlanır; gerçek idle (adlı kitaplık dahil) bulunur, idle yoksa ilk pozda durulur. Geçerli klip ve kur/yuru APIleri korunur. Fallback, gerçek Meshy ayrılış/orphan, headless ve API testleri geçti.
+
+Sıradaki: BUG-12. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — BUG-12 (6 Ekim 2026)
+
+BUG-09 ile aynı koruma: klip eşlemesi has_animation ile doğrulanır; eksik dosya negatif önbelleğe alınır, bozuk cache değeri Animation olarak dönmez. _klip_onbellek adı/API korunur ve eksik hareket idle fallbacke gider.
+
+Sıradaki: BUG-10. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

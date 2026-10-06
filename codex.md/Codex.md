@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-6 Ekim 2026. Taban: festive 8ba9956; çalışma dalı feature/kvr-runtime. Önceki yayımlanan commit: 2417fc7. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir, commit edilir ve ayrı komut beklemeden GitHub’a gönderilir. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+6 Ekim 2026. Taban: festive 8ba9956; çalışma dalı feature/kvr-runtime. Önceki yayımlanan commit: a8ee649. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir, commit edilir ve ayrı komut beklemeden GitHub’a gönderilir. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -51,9 +51,11 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - BUG-06: Mevcut queue_free akışında sızıntı üretilemedi: gerçek Meshy karakterleriyle 6 kabul/ret rotası ve rota ortasında sahne değişimi sonunda model silindi, orphan sayısı 0 kaldı. Bu lifecycle kontrolü sanity paketine eklendi; üretim akışı gereksiz yeniden yazılmadı.
 - BUG-08: Köy ekranı gece hesaplaşmasını ekran başına tek kilitle yürütür; düğme disabled olur ve hız 1x kalır. 2x başlangıçta tekrar sinyal/metot çağrısı gün, tüketim, kasa veya RNGyi değiştirmedi; rapor kartı korunur. Gerçek üç köylülü UI, headless ve API testleri geçti.
 - BUG-11: BUG-08 ile aynı doğrulanmış koruma: tek geçiş kilidi + disabled gece düğmesi + rapor boyunca 1x. Yeni köy ekranı kendi kilidini alır; Oturum.gece_sonu simülasyon API imzası ve akışı değişmedi.
+- BUG-09: Eksik/silinmiş klip, boş veya silinen AnimationPlayer güvenle atlanır; gerçek idle (adlı kitaplık dahil) bulunur, idle yoksa ilk pozda durulur. Geçerli klip ve kur/yuru APIleri korunur. Fallback, gerçek Meshy ayrılış/orphan, headless ve API testleri geçti.
+- BUG-12: BUG-09 ile aynı koruma: klip eşlemesi has_animation ile doğrulanır; eksik dosya negatif önbelleğe alınır, bozuk cache değeri Animation olarak dönmez. _klip_onbellek adı/API korunur ve eksik hareket idle fallbacke gider.
 
 ## Sonraki çalışma
-BUG-09. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+BUG-10. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler otomatik commit/push kuralına göre kaydedilir. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.

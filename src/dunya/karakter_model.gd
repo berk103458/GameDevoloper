@@ -53,7 +53,9 @@ func kur(model: Node3D, ad: String = "") -> void:
 	if ap.is_empty():
 		return
 	_oynatici = ap[0]
-	_anim = _oynatici.get_animation_list()[0]
+	_anim = preload("res://src/dunya/guvenli_karakter_animasyonu.gd").ilk(_oynatici)
+	if _anim.is_empty():
+		return
 	_oynatici.get_animation(_anim).loop_mode = Animation.LOOP_LINEAR
 	var sk := model.find_children("*", "Skeleton3D", true, false)
 	if not sk.is_empty():
@@ -81,7 +83,7 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI) -> void:
 		return
 	if _yurume != null and _yurume.is_valid():
 		_yurume.kill()
-	if _oynatici != null:
+	if is_instance_valid(_oynatici) and preload("res://src/dunya/guvenli_karakter_animasyonu.gd").var_mi(_oynatici, _anim):
 		_oynatici.play(_anim, GECIS)
 		_oynatici.speed_scale = hiz / 1.35
 	_bekleme_hedef = 0.0
@@ -108,19 +110,14 @@ func yurumeyi_durdur() -> void:
 ## Durur: "bekle" animasyonuna yumuşak geçiş; nefes ve kıpırtıyı DurusDuzeltici verir.
 func dur() -> void:
 	_bekleme_hedef = 1.0
-	if _oynatici == null:
+	if not is_instance_valid(_oynatici):
 		return
 	_oynatici.speed_scale = 1.0
-	if _klipler.has("bekle"):
+	if hareket_var("bekle"):
 		_klip_oynat("bekle")
 		return
 	_duzeltici_hedef = 1.0
-	if _oynatici.has_animation(BEKLE):
-		_oynatici.play(BEKLE, GECIS)
-	else:
-		_oynatici.play(_anim)
-		_oynatici.seek(0.0, true)
-		_oynatici.speed_scale = 0.0
+	preload("res://src/dunya/guvenli_karakter_animasyonu.gd").dur(_oynatici, _anim, GECIS)
 
 
 ## Sürekli iş hareketini açar/kapatır (&"calis" ya da &"").
@@ -134,7 +131,7 @@ func calis(ad: StringName) -> void:
 ## Anlık duygu hareketi (&"sevinc" / &"ofke" / &"panik"); süresi kadar bekler.
 ## Meshy klibi varsa o oynar (en çok 3 s), yoksa prosedürel hareket (panik → öfke hareketi).
 func duygu(ad: StringName) -> void:
-	if _klipler.has(String(ad)):
+	if hareket_var(String(ad)):
 		var sira := _klip_oynat(String(ad))
 		var uzunluk := _oynatici.get_animation(_klipler[String(ad)]).length
 		await get_tree().create_timer(clampf(uzunluk * 0.9, 0.6, 3.0)).timeout
@@ -142,6 +139,7 @@ func duygu(ad: StringName) -> void:
 			dur()
 		return
 	if _duzeltici == null:
+		dur()
 		return
 	_duzeltici.duygu_baslat(&"ofke" if ad == &"panik" else ad)
 	await get_tree().create_timer(_duzeltici.duygu_suresi * 0.8).timeout
@@ -149,7 +147,8 @@ func duygu(ad: StringName) -> void:
 
 ## Konuşma hareketi `sure` saniye (klip yoksa bir şey yapmaz); sonra beklemeye döner.
 func konus(sure: float) -> void:
-	if not _klipler.has("konus"):
+	if not hareket_var("konus"):
+		dur()
 		return
 	var sira := _klip_oynat("konus")
 	await get_tree().create_timer(sure).timeout
@@ -159,17 +158,22 @@ func konus(sure: float) -> void:
 
 ## Gerginlik (sorgu sıkıştıkça): döngülü klip; yoksa bir şey yapmaz. Bekleme yerine geçer.
 func gergin() -> void:
-	if _klipler.has("gergin"):
+	if hareket_var("gergin"):
 		_klip_oynat("gergin")
+	else:
+		dur()
 
 
 ## Bu hareketin Meshy klibi yüklü mü.
 func hareket_var(ad: String) -> bool:
-	return _klipler.has(ad)
+	return is_instance_valid(_oynatici) and _klipler.has(ad) and preload("res://src/dunya/guvenli_karakter_animasyonu.gd").var_mi(_oynatici, _klipler[ad])
 
 
 func _klip_oynat(ad: String) -> int:
 	_klip_sirasi += 1
+	if not hareket_var(ad):
+		dur()
+		return _klip_sirasi
 	# Meshy'nin bekleme klibi kolları A-pozundan açık bırakır: DurusDuzeltici kolları indirip eli düzeltir.
 	# Diğer kliplerde (konuşma, eğilme, öfke, diz çökme) kolları klip belirler.
 	_duzeltici_hedef = 1.0 if ad == "bekle" else 0.0
@@ -186,7 +190,10 @@ func _klipleri_yukle(ad: String) -> void:
 	var kok := _oynatici.get_node_or_null(_oynatici.root_node)
 	if kok == null:
 		return
-	var kitap := _oynatici.get_animation_library(&"")
+	var kitap: AnimationLibrary = _oynatici.get_animation_library(&"") if _oynatici.has_animation_library(&"") else null
+	if kitap == null:
+		kitap = AnimationLibrary.new()
+		_oynatici.add_animation_library(&"", kitap)
 	for h: String in HAREKETLER:
 		var yol := Dunya3B.hareket_yolu(ad, h)
 		if yol == "":
@@ -204,7 +211,11 @@ func _klipleri_yukle(ad: String) -> void:
 
 static func _klip_al(yol: String) -> Animation:
 	if _klip_onbellek.has(yol):
-		return _klip_onbellek[yol]
+		var kayit: Variant = _klip_onbellek[yol]
+		return kayit if kayit is Animation else null
+	if not ResourceLoader.exists(yol):
+		_klip_onbellek[yol] = null
+		return null
 	var anim: Animation = null
 	var kaynak := load(yol)
 	if kaynak is Animation:
@@ -312,7 +323,7 @@ func _bekle_animasyonu_kur(sk: Skeleton3D) -> void:
 			a.rotation_track_insert_key(iz, 0.0, dinlenme.basis.get_rotation_quaternion())
 		else:
 			a.position_track_insert_key(iz, 0.0, dinlenme.origin)
-	var kitap := _oynatici.get_animation_library(&"")
+	var kitap: AnimationLibrary = _oynatici.get_animation_library(&"") if _oynatici.has_animation_library(&"") else null
 	if kitap == null:
 		kitap = AnimationLibrary.new()
 		_oynatici.add_animation_library(&"", kitap)
