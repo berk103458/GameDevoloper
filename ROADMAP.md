@@ -21,6 +21,12 @@
 - [ ] **ADM-09:** Otomatik Senaryo Koşucusu (Scenario Runner) — "10 Gün Kıtlık", "Gece Haydut Baskını", "Veba Salgını" gibi uç durum senaryolarını tek tuşla tetikleyen test otomasyonu.
 - [ ] **ADM-10:** Save / State Anlık Görüntü (Snapshot) Aracı — Mevcut oyun durumunu geçici bir slota kaydedip tek tuşla o ana geri dönmeyi sağlayan debug save/load desteği.
 
+- [ ] **ADM-11:** Çift kasa ve rüşvet arayüzü — `koy_akce` / `muhafiz_akce` bakiyelerini ayrı ayrı değiştir; rüşvet kesesi ekle veya sıfırla (taslak: `src/debug/kasa_denetleyici.gd`).
+- [ ] **ADM-12:** Mevsim ve hava durumunu anında tetikleme — mevsim + kar fırtınası/kuraklık; zemin shader ve tüketim çarpanı testi.
+- [ ] **ADM-13:** Canlı köylü ve zanaat denetçisi — atanan bina, anlık eylem, zanaat verimi canlı tablo.
+- [ ] **ADM-14:** Kriz ve sabotaj enjektörü — tek tuş veba / kuyu zehirlenmesi / ambar kundaklaması.
+- [ ] **ADM-15:** Otomatik diyalog akışı ve tansiyon sabitleyici — diyalogları auto-geç; tansiyonu 2/5/9’a kilitle.
+
 ---
 
 ## BÖLÜM 1: Kritik Bugfix, Performans ve Bellek Optimizasyonu
@@ -101,6 +107,12 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **UZM-09:** Gizli Eğilimler (Hidden Alignment) — İçeri sızan haydutların iş başında gibi görünüp geceleri erzak çalması.
 - [ ] **UZM-10:** Köylü Kartı UI ve Görev Atama Ekranı — Köylüye tıklanınca yetenekler, geçmiş ve en verimli binaları gösteren yönetim kartı.
 
+- [ ] **UZM-11:** Köylü Deneyim ve Ustalık Seviye Atlama — her 5 gün XP; Çırak→Kalfa→Usta; bina üretim çarpanı ↑ (taslak: `src/koy/koylu_gelisim_yoneticisi.gd`).
+- [ ] **UZM-12:** Zanaat Kazası ve Alet Kırma Riski — uyumsuz işte acemi → alet kırma/yanık; geçici üretim duruşu + Şifahane ihtiyacı.
+- [ ] **UZM-13:** Aşağılanma / Grev — soylu/okumuş (ör. CHR_007 Şemsettin) ağır fiziksel işe verilirse iş bırakır, köylüleri kışkırtır.
+- [ ] **UZM-14:** Gece Vardiyası Yorgunluk — gece uykusuz → ertesi gün kaza/nöbette uyuma ihtimali %40 ↑.
+- [ ] **UZM-15:** Atama Önizleme ve Verim Sinerji Göstergesi — kart sürüklerken yeşil/kırmızı tahmini verim UI (Bölüm 5 ANI atama önizlemesi ile örtüşebilir — birleştir/adaptör; ID kalır).
+
 ---
 
 ## BÖLÜM 4: Derin Ekonomi, Üretim Zincirleri ve Çift Kasa Sistemi
@@ -137,6 +149,13 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **ANI-09:** Hava Durumuna Göre Karakter Tepkileri — Yağmurda saçak altı; karda yavaş/büzülmüş yürüyüş.
 - [ ] **ANI-10:** Sabotajcıların Gece Gölgeli Sinsi Davranışı — Ateşten uzak, kuytu bekleme; nöbetçi yaklaşınca yön değiştirme.
 
+- [ ] **ANI-11:** Zanaat Araçları Dinamik Kemik Soketi (`BoneAttachment3D`) — el kemiklerine alet; mola/uykuda stok (taslak: `src/dunya/karakter_ekipman_yoneticisi.gd`).
+- [ ] **ANI-12:** Bekleme Animasyonu Desenkronizasyonu — idle offset 0.1–1.5s + 3 idle varyasyon.
+- [ ] **ANI-13:** Köy İçi 3B Zemin Navigasyonu (`NavigationRegion3D`) — patika/kapı; bina içinden geçme yok.
+- [ ] **ANI-14:** Köylü Takip Kamerası ve Yüzen Durum Kartı — tıkla odak + isim/zanaat billboard.
+- [ ] **ANI-15:** Atölye Duman ve Kıvılcım Partikülleri (LOD) — duman/kıvılcım/su damlası, düşük donanım.
+Not: ANI-04↔EKO-03, ANI-08↔UZM-01..05 konsolidasyon.
+
 ---
 
 ## BÖLÜM 6: Gezgin Tüccarlar, Hayvan Pazarı ve Sipariş Sözleşmeleri
@@ -151,6 +170,13 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **TUC-08:** Gezgin Silah Tüccarı (Karaborsa) — Zırh/yay/kalkan; kaçak tutsak satın alma teklifi.
 - [ ] **TUC-09:** Dinamik Fiyatlandırma ve Kıtlık Enflasyonu — Kışta odun/erzak ×3; yazda ucuzlama.
 - [ ] **TUC-10:** Pazar Yeri Alışveriş Arayüzü (Trade UI) — Ambar fazlası → köy veya muhafız akçesi.
+
+- [ ] **TUC-11:** Muhafız Kişisel Karaborsa ve Kaçak Mal Alışverişi — nadir/yasaklı eşya yalnızca `muhafiz_akce` ile; muhafız odası envanterine (taslak: `src/koy/ticaret/karaborsa_adaptoru.gd`).
+- [ ] **TUC-12:** Kapıda Tüccardan Geçiş Bacı ve Rüşvet Alma — resmi kayıt yerine şahsi `muhafiz_akce` hızlı giriş rüşveti → pazara anında geçiş.
+- [ ] **TUC-13:** Zanaat Sözleşmesinden Muhafız Komisyonu Aşırma — Work Order tesliminde kamudan gizlice %10–%20 komisyon şahsi keseye.
+- [ ] **TUC-14:** Canlı Hayvan Takas ve Sürüye Katılım — `koy_akce` ile inek/öküz → Ahır/Ağıl kapasitesi + 3B sahne + lojistik/üretim çarpanı.
+- [ ] **TUC-15:** Tüccar Kervanına Koruma Muhafızı Kiralama — kışladan geçici koruma; peşin akçe köye; kiralanan süre Güvenlik geçici düşer.
+Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhafiz_akce`.
 
 ---
 
@@ -282,8 +308,16 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **SYS-14:** `KAYIT_SURUMU` Adım Adım Migration — SYS-01 tamamlayıcı; sürüm N→N+1 alan göç fonksiyonları (satır kanıtsız uyarı geçerli).
 - [ ] **SYS-15:** `otomatik_oyuncu` Sabit 20 Tur Kilidi — SYS-10 tamamlayıcı; headless duman testinde tur sayısının sabitlenmesi.
 
+- [ ] **SYS-16:** Adsız Diyalog Sırası Kayıt Kalıcılığı — `mevcut_diyalog_indeksi` → `user://kayit.json`; Devam kaldığı yerden.
+- [ ] **SYS-17:** `diyalog_01_20.json` Mantık Düzeltmeleri — diyalog_08’e ret; 13/14/16/17 “sabah kervanla giderim” → yerleşik köylü.
+- [ ] **SYS-18:** Atıl Bayrakların Olaylara Bağlanması — `baci_tezgah`, `dervis`, `miraen_sadik`, `turkmen_kin`, `thessra_kirgin`, `rusvet_sayisi` → gece/diplomasi (KVR-06 ile örtüşür, yeni sözlük yok).
+- [ ] **SYS-19:** 1→2. Perde Geçiş — nüfus 18 → “Köy Oturdu”; Ağa olarak devam → gece sayacı sıfırlanmadan 2. perde 12 gece.
+- [ ] **SYS-20:** Beş Nihai Son + Epilog Matrisi — 5 son (Ertuğrul Obası, Ahi Kasabası, Tekfur Haraççısı, Beyin Uç Köyü, Uç Tutundu) + yozlaşma/5 stat (taslak: `src/sistemler/son_yoneticisi.gd`).
+
 ---
 
 **Gemini döngü 1–7 birikimi (2026-10-06):** KAP/KVR/EKO/SYS/BUG/CAS/ODA +11…15 eklendi; örtüşmeler (KAP-15≡BUG-02, BUG-07≡SYS-09, ODA-02≡EKO-01/EKO-11) notlandı; kanıtsız path = taslak hedef; kanıtsız `[x]` yok.
 
 **Gemini döngü 8–10 birikimi (2026-10-06):** MEV/HAR/KRI +11…15 eklendi; örtüşmeler (MEV-02≡EKO-09 / MEV-11; KRI-14↔KRI-06; KRI-15↔KRI-03) notlandı; HAR-15 [ ] BEKLEMEDE ("kodda var" geri çekildi); kanıtsız path = taslak hedef; kanıtsız `[x]` yok.
+
+**Gemini döngü 11–15 birikimi (2026-10-07):** ADM/TUC/UZM/ANI/SYS-16…20 eklendi; UZM-15↔ANI atama önizlemesi konsolidasyon notu; ANI-04↔EKO-03, ANI-08↔UZM-01..05; TUC↔EKO-01/EKO-11 çift kasa; SYS-18↔KVR-06; Ahmet 15’te dur (tur 16 YOK); kanıtsız path = taslak hedef; kanıtsız `[x]` yok.

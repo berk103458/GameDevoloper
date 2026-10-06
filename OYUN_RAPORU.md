@@ -160,3 +160,14 @@ AGENTS yönlendirme notu: Claude→CLAUDE.md, Codex→codex.md/, Gemini→GEMINI
 - KRI (Gemini gerçek çıktı): teşhis ibresi, açlık–sağlık çapraz, yatak/triyaj, nöbetçi ambar, şifalı ot toplama.
 - WIP (festive+keen) bu committe **yok**.
 
+
+---
+
+## Yenilik notu — Gemini döngü 11–15 ROADMAP genişletmesi
+
+**Güncellendi:** ROADMAP.md — Gemini döngü 11–15 birikimi (2026-10-07 Europe/Istanbul).
+- Yeni: ADM/TUC/UZM/ANI **+11…15** ve SYS-16…20 (taslak hedef yollar notlu); hepsi `[ ]` BEKLEMEDE.
+- UZM-15: Gemini A örtüşme notu — Bölüm 5 ANI atama önizlemesi ile birleştir/adaptör; ID silinmedi.
+- Örtüşme: ANI-04↔EKO-03, ANI-08↔UZM-01..05; TUC↔EKO-01/EKO-11 çift kasa; SYS-18↔KVR-06.
+- Ahmet kararı: **15’te duruldu** — tur 16 YOK.
+- WIP (festive+keen) bu committe **yok**.
