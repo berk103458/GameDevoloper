@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # User project rules
 
 These explicit user instructions take precedence over conflicting collaboration or approval guidelines in CLAUDE.md and other project documents.
@@ -7,9 +6,8 @@ These explicit user instructions take precedence over conflicting collaboration 
 - Required local mirror: C:\Users\ds\Documents\GitHub\GameDevoloper
 - Automatically transfer every change made for the user in this project to the required local mirror, including code, assets, configuration, documentation, new files, renames, and deletions. Do this during the task and before reporting completion; never wait for a commit prompt or separate transfer approval.
 - Apply synchronization to the files changed by the task. Preserve unrelated local work. Do not blindly replace the entire checkout, its .git directory, branch, or history. If the same file has independent changes, reconcile them and preserve both intended changes; ask only when a real conflict requires the user's decision.
-- Do not create commits or push merely because files were synchronized. When the user says "commit" (including "comit" or "commitle"), that instruction authorizes committing all pending project changes and pushing them to the configured GitHub remote. Inspect the changes and repository state first, include the complete requested changeset, and never force-push unless explicitly authorized.
+- Standing user instruction (2026-10-06): after every completed development change, run the relevant checks, synchronize both local copies, then commit the complete intended changeset and push to the configured GitHub remote without waiting for a separate commit prompt. This supersedes the previous wait-for-commit rule. Inspect repository state first, preserve unrelated work and secrets, and never force-push unless explicitly authorized.
 - Keep these rules in both copies whenever updating them.
-=======
 # Kapı Muhafızı — Çoklu Ajan ve Geliştirici Çalışma İlkeleri
 
 Bu doküman, `berk103458/GameDevoloper` projesinde çalışan tüm yapay zeka ajanları ve geliştiriciler için **zorunlu kuralları** içerir. Herhangi bir kod yazmadan veya dal (branch) açmadan önce bu kuralların okunması ve uygulanması şarttır.
@@ -74,4 +72,3 @@ Merge yapılmadan önce şu adımlar doğrulanmalıdır:
 1. **Sıfır Hata Politikası:** Godot headless import ve parse kontrolü hatasız tamamlanmalıdır. Konsolda `SCRIPT ERROR` veya `Failed to load script` çıktısı varken kod birleştirilemez.
 2. **Birim Testler:** `koy_yonetimi` birim testleri ve mümkünse `otomatik_oyuncu` kısa koşusu sorunsuz geçmelidir.
 3. **Ajan Notu:** Her ajan yaptığı değişikliği açıkça listeleyen kısa bir oturum özeti bırakmalı, böylece `OYUN_RAPORU` kolayca güncellenebilmelidir.
->>>>>>> 5c560658fb8f76b0b8ec2dbb12a8c1cdb3619c80

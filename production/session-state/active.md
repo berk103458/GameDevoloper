@@ -7,7 +7,7 @@
 - Köylüler: yol tercih eden A*, bina/arazi engeli, iş/dinlenme/gece ev rutini; yenilemede kimlik/konum korunuyor. Yapı içine giriş ve tam kalabalık kaçınması sonraki işler.
 - Kontroller: rota birim testi, köylü hareket entegrasyonu ve HUD entegrasyonu başarılı; Vulkan görünüm kanıtları `production/qa/evidence/koy-hud/` içinde.
 - Meshy API kimlik doğrulaması ve görev listesi başarılı; kontrol anında 2 kredi. Anahtar yalnız gitignored yerel dosyada. Ücretli üretim yapılmadı. Web kütüphanesinin oturum erişimi ayrıca doğrulanmadı.
-- Çalışma ve `C:\Users\ds\Documents\GitHub\GameDevoloper` kopyaları her değişiklikte eşitlenir. Commit/push kullanıcının commit talimatını bekler.
+- Çalışma ve `C:\Users\ds\Documents\GitHub\GameDevoloper` kopyaları her değişiklikte eşitlenir. 2026-10-06 güncel kullanıcı talimatı: her tamamlanan geliştirme kontrol edilip iki yerel kopyada eşitlendikten sonra ayrı bir commit istemi beklenmeden commit ve push yapılır.
 - Sıradaki geliştirme: mesleğe özgü alet/hareketler ve kalabalık kaçınması, ardından görsel plandaki yapı/çevre iyileştirmeleri.
 
 Önceki oturum kayıtları aşağıda tarihsel bağlam olarak korunmuştur.
