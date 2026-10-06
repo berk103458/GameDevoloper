@@ -122,3 +122,11 @@ WIP birleşimi: `halk_hareketi` + `_hayvanlar`/`_dekor`/`_gorunum` aynı `KoyYon
 **Eklendi:** repo köküne ROADMAP.md (nihai Master Yol Haritası).
 Kapsam: Bölüm 0–12 + Bölüm 2.5 (KVR) + SYS-09 anahtar standardı (replik/seçenek/heybe CSV isimlendirme).
 
+
+---
+
+## Yenilik notu — codex.md ajan günlüğü kuralı
+
+**Eklendi:** `AGENTS.md` içine «Codex çalışma günlüğü ve ROADMAP işaretleme» kuralı (Muharrir hariç tüm ajanlar).
+**Klasör:** `codex.md/` (klasör adı tam olarak `codex.md`); örnek rapor: `codex.md/Muharrir.md`.
+Her commit/pull sonrası ajan kendini tanıtır, durum/plan yazar; ROADMAP’te kapanan adımları işaretler `(ajan)`.

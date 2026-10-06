@@ -72,3 +72,15 @@ Merge yapılmadan önce şu adımlar doğrulanmalıdır:
 1. **Sıfır Hata Politikası:** Godot headless import ve parse kontrolü hatasız tamamlanmalıdır. Konsolda `SCRIPT ERROR` veya `Failed to load script` çıktısı varken kod birleştirilemez.
 2. **Birim Testler:** `koy_yonetimi` birim testleri ve mümkünse `otomatik_oyuncu` kısa koşusu sorunsuz geçmelidir.
 3. **Ajan Notu:** Her ajan yaptığı değişikliği açıkça listeleyen kısa bir oturum özeti bırakmalı, böylece `OYUN_RAPORU` kolayca güncellenebilmelidir.
+
+## 0. Her çalışmanın başında
+
+Bu projede her çalıştığında **önce** aşağıdaki «Codex çalışma günlüğü ve ROADMAP işaretleme» kuralına uy.
+
+---
+
+### Codex çalışma günlüğü ve ROADMAP işaretleme (Muharrir hariç tüm ajanlar)
+
+Proje reposunda codex.md adlı bir klaösr ekle. Basitçe kendini tanıt. Ardından ne üzerinde çalıştığını, sonraki çalışma planını, güncel durumunu rapor halinda oraya her commit ve pull ettiğinde güncelleyerek yaz.
+
+Ayrıca roadmap üzerinde çalışmayı bitirdiğin, kapanmış adımları işaretle ve yapanın sen olduğun parantez açarak o adımın sonunda belirt.
