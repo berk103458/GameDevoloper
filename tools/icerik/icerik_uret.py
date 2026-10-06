@@ -807,7 +807,7 @@ ARAYUZ = {
     "anlati.sonuc.ret": "Kapı kapalı kaldı. %s yoluna döndü.",
     "anlati.sonuc.rusvet": "Kese el değiştirdi. %s içeri girdi.",
     "anlati.sonuc.kisla": "%s kışlaya yazıldı.",
-    "anlati.gece.basladi": "%d. gece. Yolda yine birileri var.",
+    "anlati.gece.basladi": "%d. gün. Kapının önünde yine bir kuyruk var.",
     "anlati.gece.bitti": "Gece bitti.",
     "anlati.baski.gida": "Ambar boşaldı. Halk aç yattı.",
     "anlati.ambar": "Ambar: +%d ürün, −%d tüketim.",

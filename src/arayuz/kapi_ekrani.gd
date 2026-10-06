@@ -252,7 +252,7 @@ func _siradaki() -> void:
 	_bolum.text = ""
 	# Yeni gelenle konuşma kaydı baştan: yalnız gece başlığı ve bu gelenin konuşması.
 	_kayit.clear()
-	_yaz("[color=#4A6B8A]%s[/color]" % (tr("arayuz.hud.gece") % oturum.gosterilen_gece()))
+	_yaz("[color=#4A6B8A]%s[/color]" % (tr("arayuz.hud.gun") % oturum.gosterilen_gece()))
 	_yaz("[i]%s[/i]" % tr(_gelen.giris_anahtari))
 	oturum.ziyaret_basladi(_gelen)
 	_adim_sesi(12)
