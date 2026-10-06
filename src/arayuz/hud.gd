@@ -74,6 +74,11 @@ func _ready() -> void:
 	_nufus.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_ambar_bar = _bar(sag)
 	kutu.add_child(sag)
+	set_process(false)
+	visibility_changed.connect(_islem_ayarla)
+
+func _islem_ayarla() -> void:
+	preload("res://src/arayuz/hud_islem_kapisi.gd").uygula(self)
 
 
 func _etiket(ust: Control, punto: int) -> Label:
@@ -100,6 +105,7 @@ func _process(delta: float) -> void:
 func guncelle() -> void:
 	if _oturum == null:
 		return
+	_islem_ayarla()
 	var y := _oturum.yonetim
 	var k := y.kaynaklar
 	if y.gun != _onceki_gun:

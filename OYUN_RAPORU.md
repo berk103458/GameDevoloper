@@ -450,3 +450,10 @@ Sıradaki: BUG-04. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 Kapı noktasal gölge atlası en çok 2048; meşale ışık/gölge mesafe sönümü renderer üzerinden ayarlanır, kare başına uzaklık taraması eklenmez. Düşük kalite ve sahne açıkken değişen tercihler korunur; son kapı kapanınca atlas geri döner. Profil/çoklu sahne/ayar testleri, native kapı görüntüsü ve korumalı API denetimi geçti.
 
 Sıradaki: BUG-05. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — BUG-05 (6 Ekim 2026)
+
+HUD yalnız görünür aktif uyarı varken işlenir; uyarısız/oturumsuz/gizli HUD set_process(false) ile uyur ve değişimde uyanır. El eşyasının yalnız delta kopyalayan boş _process callbacki kaldırıldı; skeleton_updated ve Node kare süresi kullanılır. Uyanma/gizlenme/renk sıfırlama, kapı/köy UI ve API testleri geçti.
+
+Sıradaki: BUG-06. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

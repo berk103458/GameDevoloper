@@ -106,15 +106,9 @@ func bagla(govde: Node3D, iskelet: Skeleton3D, sag: bool, duzeltici: DurusDuzelt
 	iskelet.skeleton_updated.connect(_guncelle)
 
 
-var _delta := 0.016
-
-
-func _process(delta: float) -> void:
-	_delta = delta
-
-
 func _guncelle() -> void:
-	var delta := _delta
+	# Zaten skeleton_updated ile çağrılır; delta için ayrı boş _process gerekmez.
+	var delta := get_process_delta_time()
 	if _iskelet == null or _el < 0 or not is_instance_valid(_iskelet) or not is_inside_tree():
 		return
 	var t := _iskelet.global_transform
