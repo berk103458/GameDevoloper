@@ -35,6 +35,10 @@ arayuz.ayarlar.varsayilan,Varsayılana dön
 arayuz.duraklat.baslik,Duraklatıldı
 arayuz.duraklat.devam,Devam et
 arayuz.duraklat.menu,Ana menüye dön
+arayuz.durum.ambar_artar,Ambar her gece %d artıyor
+arayuz.durum.ambar_bos,Ambar boş — açlık kapıda
+arayuz.durum.ambar_yeter,Ambar %d gece yeter
+arayuz.durum.baslik,Köyün hâli
 arayuz.hata.icerik,Oyun içeriği yüklenemedi. Ayrıntı geliştirici günlüğünde.
 arayuz.hud.akce,Akçe %d
 arayuz.hud.ambar,Ambar %d
@@ -45,12 +49,59 @@ arayuz.karar.kisla,Kışlaya yaz
 arayuz.karar.onayla,%s — onayla
 arayuz.karar.ret,Ret
 arayuz.karar.rusvet,Rüşvet al
+arayuz.kart.adsiz,Adını söylemedi
+arayuz.kart.giris,%d. gece kapıdan girdi
+arayuz.kart.giris_bilinmez,Ne zaman girdiği bilinmiyor
+arayuz.kart.is,İşi: %s
+arayuz.kart.kapat,Kapat
+arayuz.kart.karar.kabul,Kapıda kabul edildi
+arayuz.kart.karar.kisla,Kışlaya yazıldı
+arayuz.kart.karar.olay,Bir olayla köye katıldı
+arayuz.kart.karar.rusvet,Rüşvetle içeri alındı
+arayuz.kart.konus,Konuş
+arayuz.kart.simdi,Şimdi: %s
+arayuz.kaynak.akce,Akçe
+arayuz.kaynak.ambar,Ambar
+arayuz.kaynak.asker,Asker
+arayuz.kaynak.ciftci,Çiftçi
+arayuz.kaynak.esnaf,Esnaf
+arayuz.kaynak.kese,Rüşvet kesesi
+arayuz.kaynak.nufus,Nüfus
+arayuz.konus.asker.iyi1,Sur yükseldikçe uyku da derinleşiyor.
+arayuz.konus.asker.iyi2,"Kapıyı tutan elin titrememesi, arkasındaki ateşe bağlı."
+arayuz.konus.asker.kotu1,Tekfur'un ateşleri her gece biraz daha yakın.
+arayuz.konus.asker.kotu2,Maaş gecikirse mızrak da gecikir ağam.
+arayuz.konus.ciftci.iyi1,Toprak yumuşak bu yıl. Bir hasat daha görürsek köy tutunur.
+arayuz.konus.ciftci.iyi2,Çapayı bıraktığımda ateşin başında yer var. Daha ne isterim.
+arayuz.konus.ciftci.kotu1,Ambar boşaldıkça çocuklar sessizleşiyor ağam.
+arayuz.konus.ciftci.kotu2,"Ekiyoruz ama kim biçecek, bilmiyoruz."
+arayuz.konus.esnaf.iyi1,Pazar kurulursa yolu buraya düşen tüccar eli boş gitmez.
+arayuz.konus.esnaf.iyi2,"Çekiç sesi duyulan köye kervan uğrar, derler."
+arayuz.konus.esnaf.kotu1,"Kimse alış veriş etmiyor. Akçe elden ele değil, sandığa gidiyor."
+arayuz.konus.esnaf.kotu2,Ustalığım burada çürüyor ağam.
 arayuz.koy.baslik,Köy
+arayuz.koy.gece_oldu,Gece çöktü. Kapı seni bekliyor.
+arayuz.koy.ipucu,WASD kaydır · Q/E döndür · Tekerlek yakınlaş · Köylüye tıkla
 arayuz.koy.kese_al,Boş keseyi doldur — %d akçe
 arayuz.koy.nufus,%d asker · %d esnaf · %d çiftçi
 arayuz.koy.olay_secenek_kosul,(olmaz)
+arayuz.koy.perde,%d. perde
+arayuz.koy.rapor,Gecenin defteri
+arayuz.koy.saat,%02d:%02d
 arayuz.koy.sonraki,Kapıya dön
+arayuz.koy.takvim,%d. gün
 arayuz.koy.yapilar,Yapılar
+arayuz.koylu.durum.calisiyor,çalışıyor
+arayuz.koylu.durum.dinlenmede,evine dönüyor
+arayuz.koylu.durum.ise_giderken,işine gidiyor
+arayuz.koylu.durum.meydanda,"meydanda, ateş başında"
+arayuz.koylu.durum.uykuda,evinde uyuyor
+arayuz.koylu.is.atolye,atölyede çekiç
+arayuz.koylu.is.nobet,kapıda nöbet
+arayuz.koylu.is.odun,odunlukta balta
+arayuz.koylu.is.pazar,pazarda tezgâh
+arayuz.koylu.is.tarla,tarlada çapa
+arayuz.koylu.is.tas,taş ocağında kazma
 arayuz.menu.alt,Kösedağ'dan sonra. Uçta bir kapı.
 arayuz.menu.ayarlar,Ayarlar
 arayuz.menu.cik,Çık
@@ -97,6 +148,8 @@ arayuz.yapi.pazar_aciklama,Esnaf başına gelir artar; Halk +1.
 arayuz.yapi.seviye,%s — seviye %d
 arayuz.yapi.sur,Sur
 arayuz.yapi.sur_aciklama,Her seviye savunmayı 2 artırır.
+arayuz.zaman.duraklat,Duraklat
+arayuz.zaman.geceye_gec,Geceye geç
 bar.halk,Halk
 bar.ordu,Ordu
 bar.soylular,Soylular

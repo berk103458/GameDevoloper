@@ -67,6 +67,13 @@ VARLIKLAR = {
     "cuval_yigini": ("nesne", "A small pile of grain sacks and two clay storage jars.", False, False, 0, 1500),
     "agac": ("nesne", "A bare gnarled old walnut tree, low poly, few branches.", False, False, 0, 2000),
     "kaya": ("nesne", "A cluster of three rough grey rocks.", False, False, 0, 600),
+    # Köy canlılığı (köy güncellemesi, 6 Ekim 2026): hayvanlar dokulu, eşyalar dokusuz
+    "tavuk": ("nesne", "A single brown village hen standing, simple rounded body, small red comb, low poly.", True, False, 0, 1200),
+    "kopek": ("nesne", "A single lean Anatolian shepherd dog (kangal) standing on four legs, side view, tan fur, black muzzle.", True, False, 0, 2500),
+    "odun_yigini": ("nesne", "A neat stack of split firewood logs.", False, False, 0, 1200),
+    "fici": ("nesne", "A single wooden barrel with wooden hoops.", False, False, 0, 600),
+    "saman_balyasi": ("nesne", "A loose round pile of hay with a pitchfork-free top.", False, False, 0, 800),
+    "senlik_atesi": ("nesne", "A village campfire: a ring of rough stones with crossed logs in the middle, no flame.", False, False, 0, 1200),
 }
 
 

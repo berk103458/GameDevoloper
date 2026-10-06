@@ -59,8 +59,8 @@ static func duz_malzeme(renk: Color) -> StandardMaterial3D:
 	return mat
 
 
-## Meşale: model (varsa) + titreyen sıcak ışık. Işığı döner.
-static func mesale_kur(kok: Node3D, konum: Vector3, guc: float = 2.6, menzil: float = 9.0) -> OmniLight3D:
+## Meşale: model (varsa) + titreyen sıcak ışık. Işığı döner. Köyde gölgesizdir (yalnız merkez ateşi gölge düşürür).
+static func mesale_kur(kok: Node3D, konum: Vector3, guc: float = 2.6, menzil: float = 9.0, golge: bool = true) -> OmniLight3D:
 	var m := nesne("mesale", 1.9)
 	m.position = konum
 	kok.add_child(m)
@@ -81,7 +81,7 @@ static func mesale_kur(kok: Node3D, konum: Vector3, guc: float = 2.6, menzil: fl
 	isik.light_color = Renkler.MESALE
 	isik.light_energy = guc
 	isik.omni_range = menzil
-	isik.shadow_enabled = true
+	isik.shadow_enabled = golge
 	isik.position = konum + Vector3(0, 2.0, 0)
 	isik.set_meta("taban", guc)
 	kok.add_child(isik)
@@ -102,6 +102,26 @@ static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "") -> Node3
 		m.material_override = duz_malzeme(NESNE_RENK.get(ad, Renkler.AHSAP))
 		kap.add_child(m)
 		return kap
+	_oturt(kap, yol, yukseklik)
+	if NESNE_RENK.has(ad):
+		var mat := duz_malzeme(NESNE_RENK[ad])
+		for mi in kap.find_children("*", "MeshInstance3D", true, false):
+			(mi as MeshInstance3D).material_override = mat
+	return kap
+
+
+## Kenney CC0 eşyası (`assets/kenney/esya/<ad>.glb`), tabanı y=0'a oturtulmuş. Model yoksa boş düğüm.
+static func esya(ad: String, yukseklik: float) -> Node3D:
+	var kap := Node3D.new()
+	kap.name = ad
+	var yol := "res://assets/kenney/esya/%s.glb" % ad
+	if ResourceLoader.exists(yol):
+		_oturt(kap, yol, yukseklik)
+	return kap
+
+
+## Modeli kabın içine yükler; tabanı y=0'a, ortası kabın merkezine gelir; yüksekliğe ölçeklenir.
+static func _oturt(kap: Node3D, yol: String, yukseklik: float) -> void:
 	var n: Node3D = (_sahne(yol)).instantiate()
 	kap.add_child(n)
 	var kutu := _kutu(n)
@@ -110,11 +130,6 @@ static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "") -> Node3
 		olcek = yukseklik / kutu.size.y
 	n.scale = Vector3.ONE * olcek
 	n.position = Vector3(-(kutu.position.x + kutu.size.x / 2.0) * olcek, -kutu.position.y * olcek, -(kutu.position.z + kutu.size.z / 2.0) * olcek)
-	if NESNE_RENK.has(ad):
-		var mat := duz_malzeme(NESNE_RENK[ad])
-		for mi in n.find_children("*", "MeshInstance3D", true, false):
-			(mi as MeshInstance3D).material_override = mat
-	return kap
 
 
 ## Bir düğümün (modelin) dünya ölçeğindeki genişliği (x) ve derinliği (z).

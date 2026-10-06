@@ -98,6 +98,22 @@ func _dongu() -> void:
 				yapilar[0].pressed.emit()
 				await get_tree().create_timer(0.2).timeout
 			await _foto("05_koy_perde%d" % ana.oturum.perde)
+			if not _cekilen.has("06_karakter_karti") and DisplayServer.get_name() != "headless":
+				# Köylüler yerine otursun; sonra en yakın görünür köylünün kartını aç.
+				await get_tree().create_timer(3.0).timeout
+				var ai: KoyluAI = null
+				for k in koy.sahne3b.yonetici.koyluler:
+					if k.govde.visible:
+						ai = k
+						break
+				if ai != null:
+					koy.karakter_goster(ai)
+					koy._karakter_karti._konus()
+					await _foto("06_karakter_karti")
+					koy._karakter_kapat()
+				koy.sahne3b.geceye_gec()
+				await get_tree().create_timer(9.0).timeout
+				await _foto("05b_koy_gece")
 			print("gece ", ana.oturum.gun, " akce=", ana.oturum.akce, " ambar=", ana.oturum.ambar, " yapilar=", ana.oturum.yapilar, " bayraklar=", ana.oturum.bayraklar.keys())
 			if OS.get_environment("GECE_SINIRI") != "" and ana.oturum.gun >= int(OS.get_environment("GECE_SINIRI")):
 				print("GECE_SINIRI")

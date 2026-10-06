@@ -84,6 +84,7 @@ func _gece_bitti(rapor: Dictionary) -> void:
 	koy.oturum_bitti.connect(_kirildi)
 	koy.devam_istendi.connect(func() -> void:
 		# Gece sonu kaydı: olay ve yapılar çözüldükten sonra (GDD 1: gece sonu çözümünden sonra).
+		oturum.gece_basi_isaretle()
 		kayit.yaz(oturum.kaydet())
 		if rapor["perde_degisti"]:
 			_perde_gecisi()

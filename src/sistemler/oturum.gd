@@ -27,6 +27,8 @@ var bayraklar: Dictionary = {}
 var gorulen_olaylar: Dictionary = {}
 ## Bir sonraki gecenin gelen sayısına ek (olaylardan).
 var sonraki_gelen_ek: int = 0
+## Bir önceki köy görünümünden ayrılırken alınan anlık durum (HUD'daki +/− farkları için; kaydedilmez).
+var onceki_durum: Dictionary = {}
 var _rng: RandomNumberGenerator
 var _rng_donus: RandomNumberGenerator
 var _rng_ad: RandomNumberGenerator
@@ -49,6 +51,7 @@ func _init(katalog_: Katalog, tohum_: int = 0) -> void:
 	rusvet_hakki = ayarlar.rusvet_hakki
 	akce = ayarlar.akce_baslangic
 	ambar = ayarlar.ambar_baslangic
+	onceki_durum = anlik_durum()
 
 
 ## Gösterilen gece numarası (1'den).
@@ -91,7 +94,8 @@ func karar_ver(gelen: Gelen, karar: StringName) -> Dictionary:
 	var kaldi := karar != &"ret"
 	if kaldi:
 		var sinif: StringName = &"asker" if karar == &"kisla" else gelen.sinif
-		koy.ekle(sinif, gelen.id if gelen.adli else &"", "soldier_01" if karar == &"kisla" and not gelen.adli else gelen.portre)
+		koy.ekle(sinif, gelen.id if gelen.adli else &"", "soldier_01" if karar == &"kisla" and not gelen.adli else gelen.portre,
+			gelen.ad_anahtari, karar, gun + 1)
 	if gelen.adli:
 		kadro.sonuc(gelen.id, kaldi, karar, gun)
 	var sonuc := _bar_cozumu()
@@ -103,10 +107,10 @@ func karar_ver(gelen: Gelen, karar: StringName) -> Dictionary:
 ## Döner: {olaylar: Array[Dictionary] {anahtar, deger}, kirilan, rusvet_harcandi, son, perde_degisti, olay: OlayVerisi|null}
 func gece_sonu() -> Dictionary:
 	var olaylar: Array[Dictionary] = []
-	var toplam := koy.toplam()
 	# Ambar: çiftçi üretir, herkes yer.
-	var uretim := koy.sayi(&"ciftci") * ayarlar.ciftci_uretim + (2 if bayraklar.has(&"tarla") else 0)
-	var tuketim := ceili(toplam / float(ayarlar.tuketim_bolen))
+	var tahmin := ambar_tahmini()
+	var uretim: int = tahmin["uretim"]
+	var tuketim: int = tahmin["tuketim"]
 	ambar += uretim - tuketim
 	olaylar.append({"anahtar": "anlati.ambar", "deger": [uretim, tuketim]})
 	if ambar < 0:
@@ -304,7 +308,7 @@ func olay_uygula(olay: OlayVerisi, i: int) -> Dictionary:
 		var n := int(nufus[sinif])
 		for k in absi(n):
 			if n > 0:
-				koy.ekle(StringName(sinif))
+				koy.ekle(StringName(sinif), &"", "", "", &"olay", gun)
 			else:
 				koy.cikar(StringName(sinif))
 	if e.has("bayrak"):
@@ -426,6 +430,25 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 	return PackedStringArray(["kabul", "ret"])
 
 
+## Bu gecenin ambar üretimi ve tüketimi (gece sonu çözümü ve HUD aynı hesabı kullanır).
+func ambar_tahmini() -> Dictionary:
+	var uretim := koy.sayi(&"ciftci") * ayarlar.ciftci_uretim + (2 if bayraklar.has(&"tarla") else 0)
+	var tuketim := ceili(koy.toplam() / float(ayarlar.tuketim_bolen))
+	return {"uretim": uretim, "tuketim": tuketim}
+
+
+## HUD farkları için kaynak ve bar değerlerinin anlık kopyası.
+func anlik_durum() -> Dictionary:
+	return {"akce": akce, "ambar": ambar, "nufus": koy.toplam(), "kese": rusvet_hakki,
+		"asker": koy.sayi(&"asker"), "esnaf": koy.sayi(&"esnaf"), "ciftci": koy.sayi(&"ciftci"),
+		"barlar": Array(barlar.degerler)}
+
+
+## Köyden kapıya dönülürken çağrılır: sonraki köy görünümündeki farklar buradan ölçülür.
+func gece_basi_isaretle() -> void:
+	onceki_durum = anlik_durum()
+
+
 ## Gece sonu kaydı için sözlük.
 func kaydet() -> Dictionary:
 	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "gun": gun, "perde": perde, "perde2_gece": perde2_gece,
@@ -437,6 +460,7 @@ func kaydet() -> Dictionary:
 		"gorulen_olaylar": gorulen_olaylar.keys().map(func(x): return String(x)),
 		"koy": {"asker": koy.sayi(&"asker"), "esnaf": koy.sayi(&"esnaf"), "ciftci": koy.sayi(&"ciftci")},
 		"koy_adlilar": koy.adlilar.map(func(x): return String(x)),
+		"koy_kisiler": koy.kisiler_kaydi(),
 		"kadro": kadro.kaydet(),
 		"rng": [str(_rng.state), str(_rng_donus.state), str(_rng_ad.state)]}
 	# 64 bit sayılar JSON'da float'a döner; metin olarak saklanır.
@@ -477,6 +501,8 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 		o.koy.sayilar[s] = int(k.get(String(s), 0))
 	for a in veri.get("koy_adlilar", []):
 		o.koy.adlilar.append(StringName(a))
+	o.koy.kisileri_yukle(veri.get("koy_kisiler", []))
+	o.onceki_durum = o.anlik_durum()
 	if not o.kadro.yukle(veri.get("kadro", {})):
 		return null
 	var r: Array = veri.get("rng", [])
