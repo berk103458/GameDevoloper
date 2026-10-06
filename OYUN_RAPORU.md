@@ -171,3 +171,13 @@ AGENTS yönlendirme notu: Claude→CLAUDE.md, Codex→codex.md/, Gemini→GEMINI
 - Örtüşme: ANI-04↔EKO-03, ANI-08↔UZM-01..05; TUC↔EKO-01/EKO-11 çift kasa; SYS-18↔KVR-06.
 - Ahmet kararı: **15’te duruldu** — tur 16 YOK.
 - WIP (festive+keen) bu committe **yok**.
+
+---
+
+## Yenilik notu — Görev defteri (QuestSystem 2)
+
+**Güncellendi:** `docs/QUEST_SYSTEM_PLAN.md` uygulandı. Eklenti `addons/quest_system/` (MIT, etiket `2.0.1.4_4`). Autoload sırası `Ses`, sonra `QuestSystem` → `GorevYoneticisi`.
+- Üç deneme: `quest_gate_admit_three`, `quest_granary_food_36`, `quest_zeynep_usta_ciftci`. Ödül yok. `koy_akce` / `muhafiz_akce` eklenmedi.
+- Kayıt sürümü 2; isteğe bağlı `gorev` sözlüğü. SYS-18 bayrakları yazılmaz.
+- Köy HUD altında defter (`GorevDefteri`). Kapı ekranı, heybe ve `diyalog_01_20.json` duruyor.
+- `project.godot` sürprizi: editör `ProjectSettings.save()` eklenti varsayılanına eşit olan `require_objective_completed` ve `allow_repeating_completed_quests` satırlarını siliyor. İçe aktarmadan sonra elle geri yazıldı; dosyada duruyorlar.

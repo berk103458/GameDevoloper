@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GorevKaydi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/gorev_kaydi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = 2
+quest_name = "gorev.quest_granary_food_36.baslik"
+quest_description = "gorev.quest_granary_food_36.amac"
+quest_objective = "gorev.quest_granary_food_36.amac"
+slug = "quest_granary_food_36"
+baslik_anahtari = "gorev.quest_granary_food_36.baslik"
+amac_anahtari = "gorev.quest_granary_food_36.amac"
+tur = "gida_esik"
+hedef = 36
