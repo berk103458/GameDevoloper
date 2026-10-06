@@ -113,7 +113,7 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **EKO-06:** Demir Madenciliği, Ocak ve Alet Aşınması — Demirci alet üretir; alet yoksa üretim hızı %70 düşer.
 - [ ] **EKO-07:** Asker Maaşları ve Kamu İsyan Eşiği — Kışladaki askerler her gece 1 akçe; ödenmezse güvenlik çöker, rüşvete yönelim.
 - [ ] **EKO-08:** Köy Pazarı Vergilendirme Oranları — Düşük/Orta/Ağır vergi (ağır akçe getirir, Moral ve Refahı ezer).
-- [ ] **EKO-09:** Dinamik Tüketim Dengesi (Nüfus × İklim) — Her canlı: 1 Erzak/gece; soğukta +1 Odun; karşılanamazsa donma/açlık ölümleri. **Not (Gemini):** BEKLEMEDE — satır/dosya kanıtsız; yanlış kısmi kilit yok (`[x]` verilmedi).
+- [ ] **EKO-09:** Dinamik Tüketim Dengesi (Nüfus × İklim) — Her canlı: 1 Erzak/gece; soğukta +1 Odun; karşılanamazsa donma/açlık ölümleri. **Not (Gemini):** BEKLEMEDE — satır/dosya kanıtsız; yanlış kısmi kilit yok (`[x]` verilmedi). **≡ MEV-02 / MEV-11**.
 - [ ] **EKO-10:** İflas ve Hazine Çöküşü Olayları — Köy Akçesi 3 gece üst üste <0 → tefeci baskını ve kamu mallarına el koyma.
 
 - [ ] **EKO-11:** Kişisel Kasa (`muhafiz_akce`) HUD Göstergesi (`src/arayuz/koy_hud/kese_gostergesi.gd` — **taslak hedef yol**) — Rüşvet geliri ve kişisel kesenin köy HUD'unda gösterimi; **≡ ODA-02** yüzeyi.
@@ -157,7 +157,7 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 ## BÖLÜM 7: [Yeni Özellik 1] Mevsimler, Hava Durumu ve Kış Felaketi
 
 - [ ] **MEV-01:** 4 Mevsim Döngü Motoru (`src/dunya/mevsim_yoneticisi.gd`) — Her mevsim 7 gün; 28 günlük yıl.
-- [ ] **MEV-02:** Kış Soğuğu ve Don Mekaniği — Fazladan odun; biterse 1–3 köylü donar.
+- [ ] **MEV-02:** Kış Soğuğu ve Don Mekaniği — Fazladan odun; biterse 1–3 köylü donar. **≡ EKO-09** (mevsim çarpanı / gece_sonu odun tüketimi; MEV-11 adaptör yüzeyi).
 - [ ] **MEV-03:** Donmuş Toprak ve Tarımsal Felç — Kışın bostan/tarla üretimi durur; yalnızca ambar.
 - [ ] **MEV-04:** Dinamik Kar Yağışı ve Zemin Kar Örtüsü Shader'ı — Zemin ve çatılarda kademeli kar.
 - [ ] **MEV-05:** Çatı Çökmesi ve Kar Temizleme Rutini — Ağır karda çökme riski; kürekle çatı kürüme.
@@ -166,6 +166,12 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **MEV-08:** Sonbahar Hasat Şenliği ve Moral Dopingi — Ambar doluysa şenlik → Moral zirve.
 - [ ] **MEV-09:** Fırtınalı Günlerde Kapı Görüşünün Kapanması — Tipi/sis → 2D ipuçları bulanık.
 - [ ] **MEV-10:** Kış Kurt Sürüsü Saldırıları — Aç kurtlar ağıla; muhafız meşale/mızrak nöbeti.
+
+- [ ] **MEV-11:** `gece_sonu` Mevsim Odun Tüketim Adaptörü (`src/dunya/mevsim_tuketim_adaptoru.gd` — **taslak hedef yol**) — Kışta hane başına +1 odun; karşılanamazsa donma. **≡ MEV-02 / EKO-09** (ayrı ekonomi paketi değil; mevsim yüzeyi).
+- [ ] **MEV-12:** Mevsim / Takvim HUD (`src/arayuz/koy_hud/mevsim_takvim.gd` — **taslak hedef yol**) — Güncel mevsim, yıl günü ve kısa hava durumu göstergesi.
+- [ ] **MEV-13:** Soğuk Salgın Baskısı — Sert kışta hastalık riski ↑ → şifahane doluluk ve iş gücü düşüşü (KRI/saglik bağının mevsim tetikleyicisi; **taslak**).
+- [ ] **MEV-14:** Kış Ahır / Ağıl Saman İhtiyacı — Saman yoksa hayvan ölümü; ambar/sürü kaybı olayı (**taslak**).
+- [ ] **MEV-15:** Fırtınada Kapı Kuyruk Daralması — Tipi/fırtınada kuyruk kapasitesi 3→1/0; kalan NPC'lerde gerginlik ↑ (MEV-09 tamamlayıcı; **taslak**).
 
 ---
 
@@ -224,6 +230,12 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **HAR-09:** Haberci Güvercin ve Ulak Sistemi — Harita krizlerinin köye anlatı sahneleri.
 - [ ] **HAR-10:** 2. Perde Savunma Savaşı Taktik Konuşlanması — Sur okçu / kapı mızraklı yerleştirme.
 
+- [ ] **HAR-11:** Güvenlik Eşiği Kafile / Çete Dengesi — Güvenlik <4 → casus/çete uğrama ↑; Güvenlik >7 → tüccar uğrama ↑ (**taslak**; kapı kuyruğu + Güvenlik bağ).
+- [ ] **HAR-12:** Tekfur / Moğol Heyeti Kuyruk Başı Zorunlu — Diplomatik/askeri heyetler kapı kuyruğunda öne alınır; atlanamaz (**taslak**).
+- [ ] **HAR-13:** Gözcü Ertesi Gün Kafile Önizleme — HAR-06 tamamlayıcı: ertesi günün kafile/heyet özeti HUD/harita notu (**taslak hedef**).
+- [ ] **HAR-14:** Müfreze Pusu Temizliği → Tüccar Akışı ↑ — HAR-05 tamamlayıcı: başarılı pusu temizliği sonrası tüccar uğrama artışı (**taslak**).
+- [ ] **HAR-15:** 2. Perde Savunma Formülü → Güvenlik — HAR-10 tamamlayıcı; savunma konuşlanmasının Güvenlik skoruna etkisi. **Not (Gemini):** [ ] **BEKLEMEDE** — formül kanıtsız/taslak; "kodda var" geri çekildi.
+
 ---
 
 ## BÖLÜM 11: [Yeni Özellik 5] Salgın Hastalık, Şifahane ve Toplumsal Krizler
@@ -238,6 +250,12 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **KRI-08:** Batıl İnanç ve Cadı Avı Histerisi — Yabancı kadın (ör. Dudu) hedefi.
 - [ ] **KRI-09:** Kaçak Leventlerin Köyü Terk Etmesi — Krizde firar → Güvenlik çöker.
 - [ ] **KRI-10:** Krizden Çıkış ve Toplumsal Kenetlenme Bonusu — Atlatınca sadakat + Refah patlaması.
+
+- [ ] **KRI-11:** Kapıda Bulaşıcı Hastalık Teşhis İbresi (`src/kapi/hastalik_teshis_adaptoru.gd` — **taslak hedef yol**) — Portre/heybede irin, kanlı öksürük, ateş → `ipucu_yoneticisi` enfeksiyon şüphesi + karantina şartı.
+- [ ] **KRI-12:** Açlık–Sağlık Çapraz (`src/koy/kriz_yoneticisi.gd` — **taslak hedef yol**) — Erzak <3 iken Sağlık her gece −1 ekstra; salgın yayılma ×2.
+- [ ] **KRI-13:** Şifahane Yatak Kapasitesi + Triyaj — Yatak dolunca Moral/Sağlık günlük çöker (**taslak**).
+- [ ] **KRI-14:** Erzak Bitince Kışla Nöbetçisi Ambara — Erzak tükenince nöbetçi ambara yönelir; arbede olursa Moral kaybı (**taslak**; KRI-06 kıtlık/yağma ile ilişkili — birleştir notu: tetikleyici yüzeyi).
+- [ ] **KRI-15:** Salgında Vasıfsız Köylü Şifalı Ot Toplama — Salgın sırasında vasıfsız köylü ot toplar → ilaç üretim hızı ↑ (**taslak**; KRI-03 hekim/ilaç tamamlayıcı).
 
 ---
 
@@ -267,3 +285,5 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 ---
 
 **Gemini döngü 1–7 birikimi (2026-10-06):** KAP/KVR/EKO/SYS/BUG/CAS/ODA +11…15 eklendi; örtüşmeler (KAP-15≡BUG-02, BUG-07≡SYS-09, ODA-02≡EKO-01/EKO-11) notlandı; kanıtsız path = taslak hedef; kanıtsız `[x]` yok.
+
+**Gemini döngü 8–10 birikimi (2026-10-06):** MEV/HAR/KRI +11…15 eklendi; örtüşmeler (MEV-02≡EKO-09 / MEV-11; KRI-14↔KRI-06; KRI-15↔KRI-03) notlandı; HAR-15 [ ] BEKLEMEDE ("kodda var" geri çekildi); kanıtsız path = taslak hedef; kanıtsız `[x]` yok.

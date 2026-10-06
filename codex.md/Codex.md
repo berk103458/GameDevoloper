@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-6 Ekim 2026. Taban: festive 0b0c365; çalışma dalı feature/kvr-runtime. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir, commit edilir ve ayrı komut beklemeden GitHub’a gönderilir. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+6 Ekim 2026. Taban: festive 8ba9956; çalışma dalı feature/kvr-runtime. Festive 8ba9956 belge güncellemesi yerel geliştirmeler korunarak birleştirildi. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir, commit edilir ve ayrı komut beklemeden GitHub’a gönderilir. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
