@@ -1,18 +1,22 @@
 ## Köy yönetimi sahnesi (3D, design/gdd/koy-yonetimi.md 6, 9, 14.2): akşam ışığında, ızgaraya oturan yapılar,
 ## meydana bağlı patikalar, çalışanlar yapılarının önünde, boştakiler meydan ateşinin başında. Yerleşim önizlemesi
 ## (hayalet) ve fareyle hücre seçimi buradadır; kararları `KoyEkrani` verir, sahne yalnız gösterir.
+## Arazi, çimen ve orman kuşağı `KoyArazisi`, ışık ve gök `KoyAtmosferi` (görsel tasarım md, madde 1–5).
 class_name KoyYonetimSahnesi
 extends Node3D
 
 ## Bir ızgara hücresi (m).
 const HUCRE := 2.0
-const GOK_AKSAM := "kloppenheim_06_puresky"
+## Mevsime göre çayırın kuruluğu (ilkbahar, yaz, sonbahar, kış).
+const KURULUK: Array[float] = [0.08, 0.3, 0.62, 0.85]
 const AZAMI_KOYLU := 30
 const UYGUN := Color(0.35, 0.75, 0.4, 0.42)
 const UYGUNSUZ := Color(0.85, 0.3, 0.25, 0.42)
 
 var yonetim: KoyYonetimi
 var kamera: Camera3D
+var arazi: KoyArazisi
+var atmosfer: KoyAtmosferi
 ## Kamera: hedef nokta, uzaklık, yön ve eğim (derece).
 var hedef := Vector3(0, 0, 4)
 var uzaklik := 38.0
@@ -29,8 +33,11 @@ var _zaman := 0.0
 
 
 func _ready() -> void:
-	_ortam_kur()
-	_zemin_kur()
+	atmosfer = KoyAtmosferi.new()
+	add_child(atmosfer)
+	arazi = KoyArazisi.new()
+	add_child(arazi)
+	arazi.kur(self, kapi_noktasi())
 	add_child(_yapilar)
 	add_child(_halk)
 	_hayalet = MeshInstance3D.new()
@@ -61,7 +68,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_zaman += delta
 	if _ates_isigi != null:
-		_ates_isigi.light_energy = 2.4 * (0.85 + 0.15 * sin(_zaman * 9.0) * sin(_zaman * 3.1))
+		_ates_isigi.light_energy = atmosfer.ates_gucu * (0.85 + 0.15 * sin(_zaman * 9.0) * sin(_zaman * 3.1))
 	# Strateji kamerası (18.5): WASD kaydırır, Q/E döndürür; tekerlek `yakinlas` ile.
 	var ileri := Vector3(-sin(deg_to_rad(yon)), 0, -cos(deg_to_rad(yon)))
 	var sag := Vector3(-ileri.z, 0, ileri.x)
@@ -85,6 +92,18 @@ func _process(delta: float) -> void:
 		hedef.x = clampf(hedef.x, -sinir, sinir)
 		hedef.z = clampf(hedef.z, -sinir, sinir + 8.0)
 	_kamera_yerlestir()
+
+
+## Işığı gündüz / akşam / gece fazına geçirir (KoyAtmosferi).
+func faz(ad: StringName, sure: float = 2.0) -> void:
+	atmosfer.faz(ad, sure)
+
+
+## Kapının dünya konumu (x, z): kapı yolu ve arazi buradan güneye uzanır.
+func kapi_noktasi() -> Vector2:
+	var m := yonetim.a.meydan
+	var x := hucre_kosesi(Vector2i(m.position.x + m.size.x / 2, 0)).x + HUCRE * 0.5
+	return Vector2(x, hucre_kosesi(yonetim.a.izgara_boyut).z + 1.0)
 
 
 func yakinlas(adim: float) -> void:
@@ -148,55 +167,6 @@ func secim_goster(b: KoyBinasi) -> void:
 
 # ── Kurulum ───────────────────────────────────────────────────────────────────────────────────────
 
-func _ortam_kur() -> void:
-	var cevre := Environment.new()
-	cevre.background_mode = Environment.BG_SKY
-	var gok := Sky.new()
-	var pm := PanoramaSkyMaterial.new()
-	pm.panorama = Pbr.gok(GOK_AKSAM)
-	pm.energy_multiplier = 0.55
-	gok.sky_material = pm
-	cevre.sky = gok
-	cevre.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	cevre.ambient_light_energy = 0.55
-	cevre.tonemap_mode = Environment.TONE_MAPPER_AGX
-	cevre.tonemap_exposure = 1.1
-	cevre.fog_enabled = true
-	cevre.fog_light_color = Color("#a08670")
-	# Kuşbakışı kamerada yoğun sis bütün köyü bej bir pusa boğuyordu: yalnız ufku yumuşatacak kadar.
-	cevre.fog_density = 0.0015
-	cevre.fog_sky_affect = 0.3
-	# AgX renkleri soldurur; akşam köyü canlı kalsın diye hafif kontrast ve doygunluk.
-	cevre.adjustment_enabled = true
-	cevre.adjustment_contrast = 1.12
-	cevre.adjustment_saturation = 1.2
-	cevre.ssao_enabled = true
-	cevre.glow_enabled = true
-	cevre.glow_intensity = 0.35
-	cevre.glow_hdr_threshold = 1.4
-	var we := WorldEnvironment.new()
-	we.environment = cevre
-	add_child(we)
-	# Alçak akşam güneşi: uzun, sıcak gölgeler.
-	var gunes := DirectionalLight3D.new()
-	gunes.light_color = Color("#ffc58a")
-	gunes.light_energy = 1.1
-	gunes.rotation_degrees = Vector3(-18, -60, 0)
-	gunes.shadow_enabled = true
-	gunes.directional_shadow_max_distance = 120.0
-	add_child(gunes)
-
-
-func _zemin_kur() -> void:
-	var z := MeshInstance3D.new()
-	var p := PlaneMesh.new()
-	p.size = Vector2(260, 260)
-	z.mesh = p
-	# Kuru bozkır çayırı: akşam ışığında çamura dönmesin diye yeşile çekilir; geniş karo uzaktan da desen gösterir.
-	z.material_override = Pbr.malzeme("sparse_grass", 7.0, Color(0.5, 0.68, 0.38))
-	add_child(z)
-
-
 ## Sahneyi köy yönetiminden yeniden kurar (yapı kurulunca, yıkılınca, atama değişince).
 func yenile() -> void:
 	for c in _yapilar.get_children():
@@ -204,7 +174,9 @@ func yenile() -> void:
 	for c in _halk.get_children():
 		c.queue_free()
 	_ates_isigi = null
-	_yollar_kur()
+	# Yollar ve meydan zemini arazinin splat maskesinde çizilir (organik kenar, tek zemin).
+	arazi.maske_guncelle()
+	arazi.kuruluk_ayarla(KURULUK[clampi(yonetim.mevsim(), 0, KURULUK.size() - 1)])
 	_meydan_kur()
 	for b in yonetim.binalar:
 		var n := _bina_dugumu(b)
@@ -216,44 +188,15 @@ func yenile() -> void:
 	_halki_kur()
 
 
-## Tüm yol hücreleri tek bir ağda (tek çizim çağrısı, 20.2).
-func _yollar_kur() -> void:
-	var st := SurfaceTool.new()
-	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	st.set_normal(Vector3.UP)
-	for h in yonetim.izgara.yollar:
-		var k := hucre_kosesi(h) + Vector3(0, 0.02, 0)
-		var a := k
-		var b := k + Vector3(HUCRE, 0, 0)
-		var c := k + Vector3(HUCRE, 0, HUCRE)
-		var d := k + Vector3(0, 0, HUCRE)
-		for v in [a, b, c, a, c, d]:
-			st.set_uv(Vector2(v.x, v.z) / 4.0)
-			st.add_vertex(v)
-	if yonetim.izgara.yollar.is_empty():
-		return
-	st.generate_tangents()
-	var m := MeshInstance3D.new()
-	m.mesh = st.commit()
-	m.material_override = Pbr.malzeme("rocky_trail", 4.0, Color(0.8, 0.75, 0.68), false)
-	_yapilar.add_child(m)
-
-
 func _meydan_kur() -> void:
 	var m := yonetim.a.meydan
-	var zemin := MeshInstance3D.new()
-	var p := PlaneMesh.new()
-	p.size = Vector2(m.size) * HUCRE
-	zemin.mesh = p
-	zemin.material_override = Pbr.malzeme("rocky_trail", 3.0, Color(0.72, 0.68, 0.62))
-	zemin.position = alan_merkezi(m.position, m.size) + Vector3(0, 0.03, 0)
-	_yapilar.add_child(zemin)
+	var orta := alan_merkezi(m.position, m.size)
 	var kuyu := Dunya3B.nesne("kuyu", 1.6)
-	kuyu.position = zemin.position + Vector3(-2.2, 0, -2.2)
+	kuyu.position = orta + Vector3(-2.2, 0, -2.2)
 	_yapilar.add_child(kuyu)
 	# Meydan ateşi (9.1: akşam köylüler kandil ve ateş başında).
 	var ocak := Node3D.new()
-	ocak.position = zemin.position + Vector3(1.2, 0, 1.2)
+	ocak.position = orta + Vector3(1.2, 0.03, 1.2)
 	for i in 7:
 		var tas := MeshInstance3D.new()
 		var s := SphereMesh.new()
@@ -269,7 +212,7 @@ func _meydan_kur() -> void:
 	ocak.add_child(alev)
 	_ates_isigi = OmniLight3D.new()
 	_ates_isigi.light_color = Color("#ff9a4a")
-	_ates_isigi.light_energy = 2.4
+	_ates_isigi.light_energy = atmosfer.ates_gucu
 	_ates_isigi.omni_range = 11.0
 	_ates_isigi.position = Vector3(0, 1.2, 0)
 	_ates_isigi.shadow_enabled = true
@@ -281,9 +224,10 @@ func _sur_kur() -> void:
 	var b := yonetim.a.izgara_boyut
 	var kose := hucre_kosesi(Vector2i.ZERO)
 	var uc := hucre_kosesi(b)
-	var kapi_x := hucre_kosesi(Vector2i(yonetim.a.meydan.position.x + yonetim.a.meydan.size.x / 2, 0)).x + HUCRE * 0.5
+	var kp := kapi_noktasi()
+	var kapi_x := kp.x
 	var kapi := Dunya3B.nesne("kapi", 3.6 + yonetim.sur_seviye * 0.5, "yapi")
-	kapi.position = Vector3(kapi_x, 0, uc.z + 1.0)
+	kapi.position = Vector3(kapi_x, 0, kp.y)
 	_yapilar.add_child(kapi)
 	Dunya3B.mesale_kur(_yapilar, kapi.position + Vector3(-2.6, 0, 0.4), 2.0, 8.0)
 	if yonetim.sur_seviye <= 0:

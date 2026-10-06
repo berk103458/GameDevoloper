@@ -1,0 +1,71 @@
+{
+	"egim": 45.0,
+	"hucreler": [
+		{
+			"aci": 0.0,
+			"boy": 10.3706309318542,
+			"dip_v": 0.800905265559287,
+			"model": "fir_sapling_medium",
+			"parca": "fir_sapling_medium_a_LOD0",
+			"yukseklik": 8.82632681727409
+		},
+		{
+			"aci": 0.0,
+			"boy": 8.64316314697266,
+			"dip_v": 0.818869161910897,
+			"model": "fir_sapling_medium",
+			"parca": "fir_sapling_medium_b_LOD0",
+			"yukseklik": 7.79525320976973
+		},
+		{
+			"aci": 0.0,
+			"boy": 7.2951208114624,
+			"dip_v": 0.786267012673239,
+			"model": "fir_sapling_medium",
+			"parca": "fir_sapling_medium_c_LOD0",
+			"yukseklik": 5.90675231814384
+		},
+		{
+			"aci": 150.0,
+			"boy": 11.6848571205139,
+			"dip_v": 0.767061690254394,
+			"model": "fir_sapling_medium",
+			"parca": "fir_sapling_medium_a_LOD0",
+			"yukseklik": 8.82632681727409
+		},
+		{
+			"aci": 0.0,
+			"boy": 5.49874153137207,
+			"dip_v": 0.671839412219024,
+			"model": "island_tree_02",
+			"parca": "",
+			"yukseklik": 3.03959408402443
+		},
+		{
+			"aci": 90.0,
+			"boy": 5.59952569961548,
+			"dip_v": 0.668746547938781,
+			"model": "island_tree_02",
+			"parca": "",
+			"yukseklik": 3.03959408402443
+		},
+		{
+			"aci": 180.0,
+			"boy": 5.49874177932739,
+			"dip_v": 0.671839382790876,
+			"model": "island_tree_02",
+			"parca": "",
+			"yukseklik": 3.03959408402443
+		},
+		{
+			"aci": 270.0,
+			"boy": 5.59952557563782,
+			"dip_v": 0.66874651974119,
+			"model": "island_tree_02",
+			"parca": "",
+			"yukseklik": 3.03959408402443
+		}
+	],
+	"satir": 2,
+	"sutun": 4
+}

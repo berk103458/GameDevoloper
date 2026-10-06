@@ -1,6 +1,7 @@
 ## Köy yönetimi ekranı fotoğrafı: birkaç gün oynanmış bir köy kurar (yapılar, atamalar), KoyEkrani'ni açar,
 ## bir yapıyı seçip hayalet önizlemeyi gösterir ve ekran görüntüsünü CIKTI'ya kaydeder.
-## Çalıştırma: CIKTI=/yol/koy.png [GUN=6] [KIP=bilgi|insa|rapor] godot --path . tests/oto/koy_foto.tscn
+## Çalıştırma: CIKTI=/yol/koy.png [GUN=6] [KIP=bilgi|insa|rapor|bos] [FAZ=gunduz|aksam|gece] [KAMERA=uzak]
+##   godot --path . tests/oto/koy_foto.tscn
 extends Node
 
 
@@ -60,6 +61,12 @@ func _ready() -> void:
 	get_tree().root.add_child.call_deferred(ana)
 	ana.add_child.call_deferred(e)
 	await get_tree().create_timer(1.0).timeout
+	# FAZ=gunduz|aksam|gece: ışık fazı anında (kanıt çekimi için); KAMERA=uzak: orman kuşağını da gösteren geniş açı.
+	if OS.get_environment("FAZ") != "":
+		e.sahne3b.faz(StringName(OS.get_environment("FAZ")), 0.0)
+	if OS.get_environment("KAMERA") == "uzak":
+		e.sahne3b.uzaklik = 80.0
+		e.sahne3b.egim = 40.0
 	match OS.get_environment("KIP"):
 		"insa":
 			e._kategori = "uretim"
@@ -69,6 +76,8 @@ func _ready() -> void:
 			e._hayalet_guncelle()
 		"rapor":
 			e._geceye_gec()
+		"bos":
+			pass
 		_:
 			e._secili_bina = t1
 			e.sahne3b.secim_goster(y.bina(t1))

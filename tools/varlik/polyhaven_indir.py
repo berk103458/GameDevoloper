@@ -45,6 +45,10 @@ VARLIKLAR = [
     ("rocky_trail", "doku", "2k"),                          # köy patikaları
     ("brown_mud_leaves_01", "doku", "1k"),                  # tarla toprağı
     ("snow_field_aerial", "doku", "2k"),
+    # Köy orman kuşağı (görsel tasarım md, madde 2): yalnız pişirme kaynağı, repoya girmez. tools/varlik/orman_pisir.gd
+    # bunlardan köy kamerasının açısıyla saydam görüntüler (assets/ph/impostor/orman_atlas.png) pişirir.
+    ("fir_sapling_medium", "model", "1k"),     # köknar fidanları (3 ağaç)
+    ("island_tree_02", "model", "1k"),         # yapraklı ağaç (meşe yerine)
 ]
 HARITALAR = {"Diffuse": "diff", "nor_gl": "nor_gl", "Rough": "rough"}
 

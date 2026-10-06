@@ -547,6 +547,8 @@ func _geceye_gec() -> void:
 	var once := _y.kaynaklar.stok.duplicate()
 	var sonuc := oturum.gece_sonu()
 	_yenile()
+	# Gece hesaplaşması karanlıkta: rapor kartı ay ışığına dönen köyün üstünde açılır.
+	sahne3b.faz(&"gece", 1.8)
 	var r: Dictionary = sonuc["rapor"]
 	var v := _kart_ac(tr("koy.rapor.baslik") % (int(r["gun"]) + 1))
 	var uretim: Dictionary = r["uretim"]

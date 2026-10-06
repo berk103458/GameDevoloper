@@ -25,3 +25,7 @@ assets/model/karakter/*_sevinc_*.import
 assets/model/karakter/*_ofke_*.import
 assets/model/karakter/*_panik_*.import
 __pycache__/
+
+# Orman pişirme kaynakları (ağır; yalnız pişmiş atlas repoya girer)
+assets/ph/model/fir_sapling_medium/
+assets/ph/model/island_tree_02/
