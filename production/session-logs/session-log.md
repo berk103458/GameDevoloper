@@ -4130,3 +4130,40 @@ a53e472 test(kapi): 4K evidence frame of the realistic far plane
 0b3a5ca feat(kapi): realistic far plane — rock-and-snow mountains, impostor cypress/fir, grounded burning village, walking refugees
 ---
 
+## Session End: 20261006_031230
+### Commits
+0d7fec9 chore: oturum günlükleri
+07c7c50 test(oto): otomatik oyuncu kapanan köy ekranını okumaz
+3992619 test(koy): köy yönetimi Forward+ görsel kanıtı; kapı gün sayar
+d2d6b0b fix(koy): köy ekranı kanıt düzeltmeleri — bilgi paneli HUD'u örtmez, zemin pusa boğulmaz
+aaaf750 feat(koy): hız kısayolları (1 / 2 / boşluk) ve kapı bilgisinde gün
+2efaf31 feat(kapi): karakter sayfalarının sırları köye taşınır — kanıt sorusu gizli bayrakları açar
+eb057ec feat(koy): köy yönetimi oyuna bağlandı — gündüz kapı, akşam köy, gece hesaplaşması
+d6708de feat(koy): 2. aşama köy yönetimi çekirdeği — ambar, mevsim, ızgara, üretim, husumet, ekonomi, isyan, Ağalık, güvenli kayıt
+0462187 chore(varlik): Meshy download matcher — sort hand-downloaded GLBs by triangle count
+e93798b Merge remote-tracking branch 'origin/claude/festive-volta-li1sfm' into claude/festive-volta-li1sfm
+0e11b58 docs(art): Meshy köy varlıkları — ayıklama, animasyon durumu, dönem uygun ek öneriler
+2a98ff5 d
+60dae1d d
+b509935 fix(ses): release the custom mouse cursor before quitting
+0f1a22a chore: update session logs
+64d9d61 fix(ses): empty static resource caches before quitting
+2f4075d fix(ses): silence loops before quitting — no AudioStreamWAV leak at exit
+f6bdb08 chore: update session logs
+cf67d4d fix(ekonomi): akçe never stalls — surplus grain sold, street vendors, soldiers paid in grain
+d3688fc chore: merge cursor/chr-001-sati-4019 (Satı page kept as a draft)
+84706bc chore: merge claude/keen-cerf-42meo7 (Godot .import files)
+e833a5c chore: update session logs
+d089232 chore: update session logs
+95d60e8 d
+b5ab740 feat(kapi): arrivals come from the queue — front steps out, line advances in a wave
+a53e472 test(kapi): 4K evidence frame of the realistic far plane
+---
+
+## Session End: 20261006_151148
+### Uncommitted Changes
+production/session-logs/.session-end.hash
+production/session-logs/session-cost.md
+production/session-logs/session-log.md
+---
+
