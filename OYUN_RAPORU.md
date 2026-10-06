@@ -425,3 +425,7 @@ Sıradaki: KAP-14. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 Nişan ve yük tıklaması kaynak fiziksel açıklamasını ayrı modal karta açıyor; alttaki girdi durur ve kapatma sorguya döner. Mevcut heybe akışı ve başka ajanın dosyaları korunur. Nişan/yük kartı, gerçek kapı native görüntü ve headless tarama testleri geçti.
 
 Sıradaki: BUG-02. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+## Codex — Son paket doğrulaması (6 Ekim 2026)
+
+24 Godot birim testi, iki gerçek UI kabul sahnesi ve sabit 20 gece duman koşusu geçti; Python ve korumalı API kontrolleri başarılı. KVR-04 başlangıç sözleşmesi 1–3; CHR_022/024/026/028/030 değerleri 1 korunur. Geliştirmeler PR #3’te, iki yerel kopya eşit. Sıradaki BUG-02/KAP-15 kuyruk senkronu inceleniyor.

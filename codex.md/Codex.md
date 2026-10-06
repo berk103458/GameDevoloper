@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-6 Ekim 2026. Taban: festive 7277f8d; çalışma dalı feature/kvr-runtime. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir, commit edilir ve ayrı komut beklemeden GitHub’a gönderilir. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+6 Ekim 2026. Taban: festive 8ba9956; çalışma dalı feature/kvr-runtime. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir, commit edilir ve ayrı komut beklemeden GitHub’a gönderilir. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -50,3 +50,7 @@ BUG-02. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler otomatik commit/push kuralına göre kaydedilir. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
+
+## Son paket doğrulaması
+
+24 Godot birim testi, 2 gerçek UI kabul sahnesi, sabit 20 gece duman koşusu ve Python kontrolleri başarılı. Önceki yayımlanan commit: 3954d48. İki yerel kopya eşit; tamamlanan değişiklikler feature/kvr-runtime üzerinden PR #3’e gönderildi. Sıradaki çalışma BUG-02/KAP-15 kuyruk senkronudur.
