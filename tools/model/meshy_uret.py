@@ -70,6 +70,7 @@ VARLIKLAR = {
     # Köy canlılığı (köy güncellemesi, 6 Ekim 2026): hayvanlar dokulu, eşyalar dokusuz
     "tavuk": ("nesne", "A single brown village hen standing, simple rounded body, small red comb, low poly.", True, False, 0, 1200),
     "kopek": ("nesne", "A single lean Anatolian shepherd dog (kangal) standing on four legs, side view, tan fur, black muzzle.", True, False, 0, 2500),
+    "koyun": ("nesne", "A single fluffy Anatolian village sheep (Akkaraman breed) standing on four legs, cream wool, dark face, low poly.", True, False, 0, 1800),
     "odun_yigini": ("nesne", "A neat stack of split firewood logs.", False, False, 0, 1200),
     "fici": ("nesne", "A single wooden barrel with wooden hoops.", False, False, 0, 600),
     "saman_balyasi": ("nesne", "A loose round pile of hay with a pitchfork-free top.", False, False, 0, 800),

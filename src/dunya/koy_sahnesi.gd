@@ -301,6 +301,12 @@ func _hayvanlari_kur() -> void:
 		h.hiz = 0.7
 		_icerik.add_child(h)
 		h.kur("chick", 0.32, yuva, oturum.tohum + 100 + i)
+	for i in ayar.koyun_sayisi:
+		var h := HayvanAI.new()
+		h.yaricap = 5.0
+		h.hiz = 0.45
+		_icerik.add_child(h)
+		h.kur("koyun", 0.85, KoyYerlesimi.MERA, oturum.tohum + 300 + i)
 	for i in ayar.kopek_sayisi:
 		var h := HayvanAI.new()
 		h.yaricap = 8.0

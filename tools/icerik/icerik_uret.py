@@ -533,6 +533,7 @@ ARAYUZ = {
     "arayuz.koylu.durum.calisiyor": "çalışıyor",
     "arayuz.koylu.durum.dinlenmede": "evine dönüyor",
     "arayuz.koylu.durum.meydanda": "meydanda, ateş başında",
+    "arayuz.koylu.durum.geliyor": "kapıdan köye giriyor",
     "arayuz.konus.ciftci.iyi1": "Toprak yumuşak bu yıl. Bir hasat daha görürsek köy tutunur.",
     "arayuz.konus.ciftci.iyi2": "Çapayı bıraktığımda ateşin başında yer var. Daha ne isterim.",
     "arayuz.konus.ciftci.kotu1": "Ambar boşaldıkça çocuklar sessizleşiyor ağam.",

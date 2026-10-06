@@ -15,6 +15,8 @@ const TARLA := Vector3(15.0, 0, 15.0)
 const ODUNLUK := Vector3(-22.0, 0, 8.0)
 const TAS_OCAGI := Vector3(21.0, 0, -12.0)
 const ATOLYE := Vector3(-5.0, 0, 5.5)
+## Koyunların otladığı mera (köyün güneybatısı).
+const MERA := Vector3(-11.0, 0, 19.0)
 const NOBET: Array[Vector3] = [Vector3(-3.2, 0, -16.5), Vector3(3.2, 0, -16.5), Vector3(-12.0, 0, -12.0), Vector3(12.0, 0, -11.0)]
 const AZAMI_EV := 14
 

@@ -3337,3 +3337,9 @@ ea33fd2 chore(3d): add generated models
 626acad feat(3d): 3D gate and village scenes with Meshy AI models
 ---
 
+## Session End: 20261006_133433
+### Commits
+610bbb0 Merge remote-tracking branch 'origin/claude/keen-cerf-42meo7' into claude/keen-cerf-42meo7
+f1c7ed9 feat(koy): Manor Lords tarzı köy — arazi, orman, köylü programı, hayvanlar, yeni HUD
+---
+

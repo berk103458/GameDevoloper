@@ -27,6 +27,8 @@ var _nobetci_gece := false
 var _meydan: MeydanAlani
 var _nav: KoyNavigasyon
 var _calisiyor_anim := false
+## Kapıdan köye yeni giriyor (ilk yürüyüş bitene dek).
+var _kapidan := false
 
 
 ## Köylüyü kurar. `rng` kişiye özgü sapmaları (hız, saatler) belirler.
@@ -69,6 +71,7 @@ func yerlestir(saat: float) -> void:
 func kapidan_gir(kapi: Vector3) -> void:
 	govde.position = kapi
 	durum = Durum.DINLENMEDE
+	_kapidan = true
 	_git(ev_kapisi)
 
 
@@ -148,6 +151,9 @@ func is_anahtari() -> String:
 
 ## Kartta gösterilecek durum anahtarı (`arayuz.koylu.durum.<ad>`).
 func durum_anahtari() -> String:
+	if _kapidan and durum == Durum.DINLENMEDE and not _yol_bitti():
+		return "arayuz.koylu.durum.geliyor"
+	_kapidan = false
 	return "arayuz.koylu.durum." + (Durum.keys()[durum] as String).to_lower()
 
 

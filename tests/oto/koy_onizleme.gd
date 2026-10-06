@@ -32,6 +32,10 @@ func _ready() -> void:
 	if OS.get_environment("MESAFE") != "":
 		s.kamera._hedef_uzaklik = float(OS.get_environment("MESAFE"))
 		s.kamera.uzaklik = s.kamera._hedef_uzaklik
+	if OS.get_environment("ODAK") != "":
+		var o_ := OS.get_environment("ODAK").split(",")
+		s.kamera.odak = Vector3(float(o_[0]), 0, float(o_[1]))
+		s.kamera._hedef_odak = s.kamera.odak
 	var saatler := (OS.get_environment("SAATLER") if OS.get_environment("SAATLER") != "" else "16.6,19.0,21.2").split(",")
 	for sa in saatler:
 		s.saat = float(sa)

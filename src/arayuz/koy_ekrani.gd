@@ -83,7 +83,7 @@ func _hud_kur() -> void:
 	_defter_kur()
 	# Alt: inşa kartları (sol) — zaman denetimi ve kapıya dönüş (sağ).
 	var alt := PanelContainer.new()
-	alt.position = Vector2(20, EKRAN.y - 196)
+	alt.position = Vector2(20, EKRAN.y - 214)
 	add_child(alt)
 	var alt_kenar := MarginContainer.new()
 	for y in ["margin_left", "margin_right", "margin_top", "margin_bottom"]:
@@ -176,7 +176,7 @@ func _yenile() -> void:
 		_yapi_kutusu.add_child(kart)
 	if oturum.rusvet_hakki < oturum.ayarlar.rusvet_hakki:
 		var k := Button.new()
-		k.custom_minimum_size = Vector2(220, 150)
+		k.custom_minimum_size = Vector2(220, 170)
 		k.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		k.icon = load(HudYardim.IKON_KOK + "swap-bag.svg") if ResourceLoader.exists(HudYardim.IKON_KOK + "swap-bag.svg") else null
 		k.expand_icon = false

@@ -13,7 +13,7 @@ var oturum: Oturum
 
 
 func _ready() -> void:
-	custom_minimum_size = Vector2(300, 150)
+	custom_minimum_size = Vector2(330, 170)
 	clip_contents = true
 	var d := oturum.yapi_durumu(yapi)
 	var seviye: int = oturum.yapilar[yapi]
@@ -56,7 +56,7 @@ func _ready() -> void:
 		var bl := HudYardim.etiket(str(d["bedel"]), &"Sayi", 24)
 		bl.add_theme_color_override("font_color", Renkler.PARSOMEN if oturum.akce >= int(d["bedel"]) else Renkler.EKSI)
 		bedel.add_child(bl)
-	var aciklama := HudYardim.etiket(tr("arayuz.yapi.%s_aciklama" % yapi), &"", 18)
+	var aciklama := HudYardim.etiket(tr("arayuz.yapi.%s_aciklama" % yapi), &"", 16)
 	aciklama.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	aciklama.add_theme_color_override("font_color", Renkler.PARSOMEN.darkened(0.15))
 	v.add_child(aciklama)
@@ -67,7 +67,7 @@ func _ready() -> void:
 		disabled = true
 	else:
 		if oturum.koy.sayi(&"esnaf") < int(d["esnaf"]):
-			var e := HudYardim.etiket(tr("arayuz.yapi.esnaf_gerek") % d["esnaf"], &"", 18)
+			var e := HudYardim.etiket(tr("arayuz.yapi.esnaf_gerek") % d["esnaf"], &"", 16)
 			e.add_theme_color_override("font_color", Renkler.EKSI)
 			v.add_child(e)
 		disabled = not d["olur"]

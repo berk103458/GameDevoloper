@@ -1,5 +1,6 @@
-## Köy hayvanları (tavuk, köpek): yuvasının çevresinde gezinir, durup eşelenir. Köpek ara sıra bir
-## köylünün peşine takılır. Modeller Kenney "Cube Pets" (CC0), kendi yürüme/boş/yeme animasyonlarıyla.
+## Köy hayvanları (tavuk, köpek, koyun): yuvasının çevresinde gezinir, durup eşelenir/otlar. Köpek ara sıra
+## bir köylünün peşine takılır. Tavuk ve köpek Kenney "Cube Pets" (CC0), kendi animasyonlarıyla; koyun Meshy
+## (`assets/model/nesne/koyun.glb`), iskeletsizdir: yürürken sekme ve otlarken baş eğme kodla verilir.
 class_name HayvanAI
 extends Node3D
 
@@ -17,6 +18,10 @@ var _hedef := Vector3.ZERO
 var _bekle := 0.0
 var _takip: KoyluAI
 var _rng := RandomNumberGenerator.new()
+## Animasyonsuz modelde kodla oynatılan gövde ve hâli ("walk", "eat", "idle").
+var _govde: Node3D
+var _hal := "idle"
+var _faz := 0.0
 
 
 ## Hayvanı kurar: `tur` Kenney adı (chick, dog), `boy` metre.
@@ -27,6 +32,11 @@ func kur(tur_: String, boy: float, yuva_: Vector3, tohum: int) -> void:
 	position = yuva + Vector3(_rng.randf_range(-2, 2), 0, _rng.randf_range(-2, 2))
 	var yol := HAYVAN_KOK + "animal-%s.glb" % tur
 	if not ResourceLoader.exists(yol):
+		# Kenney'de yoksa Meshy statik modeli (koyun): kodla canlandırılır.
+		_govde = Dunya3B.nesne(tur, boy, "nesne")
+		add_child(_govde)
+		_faz = _rng.randf() * TAU
+		_bekle = _rng.randf_range(0.0, 3.0)
 		return
 	var kap := Node3D.new()
 	add_child(kap)
@@ -51,6 +61,7 @@ func kur(tur_: String, boy: float, yuva_: Vector3, tohum: int) -> void:
 
 
 func _process(delta: float) -> void:
+	_canlandir(delta)
 	if _takip != null and is_instance_valid(_takip) and _takip.govde.visible:
 		_hedef = _takip.govde.position + Vector3(0.9, 0, -0.9)
 		if position.distance_to(_hedef) < 1.2:
@@ -89,6 +100,27 @@ func _yeni_hedef() -> void:
 	_hedef = yuva + Vector3(sin(a), 0, cos(a)) * _rng.randf_range(0.5, yaricap)
 
 
+## Statik modelin kodla hareketi: yürürken hafif sekme ve yalpalama, otlarken öne eğilme.
+func _canlandir(delta: float) -> void:
+	if _govde == null:
+		return
+	_faz += delta
+	match _hal:
+		"walk", "run":
+			_govde.position.y = absf(sin(_faz * 9.0)) * 0.05
+			_govde.rotation.z = sin(_faz * 9.0) * 0.04
+			_govde.rotation.x = lerpf(_govde.rotation.x, 0.0, clampf(delta * 6.0, 0.0, 1.0))
+		"eat":
+			_govde.position.y = lerpf(_govde.position.y, 0.0, clampf(delta * 6.0, 0.0, 1.0))
+			_govde.rotation.z = 0.0
+			_govde.rotation.x = lerpf(_govde.rotation.x, 0.22 + sin(_faz * 2.0) * 0.03, clampf(delta * 3.0, 0.0, 1.0))
+		_:
+			_govde.position.y = lerpf(_govde.position.y, 0.0, clampf(delta * 6.0, 0.0, 1.0))
+			_govde.rotation.z = 0.0
+			_govde.rotation.x = lerpf(_govde.rotation.x, 0.0, clampf(delta * 3.0, 0.0, 1.0))
+
+
 func _oynat(ad: String) -> void:
+	_hal = ad
 	if _oynatici != null and _oynatici.has_animation(ad) and _oynatici.current_animation != ad:
 		_oynatici.play(ad, 0.2)

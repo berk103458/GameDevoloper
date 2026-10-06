@@ -35,6 +35,7 @@ extends Resource
 ## Tavuk ve köpek sayısı.
 @export var tavuk_sayisi := 5
 @export var kopek_sayisi := 1
+@export var koyun_sayisi := 7
 
 
 ## Kaynaktan yükler; dosya yoksa varsayılanlar.
