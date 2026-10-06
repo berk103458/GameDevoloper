@@ -1,5 +1,7 @@
 # Claude Code Game Studios -- Game Studio Agent Architecture
 
+> **Agents:** Before any work, read `AGENTS.md` (Kapı Muhafızı — çoklu ajan ve geliştirici çalışma ilkeleri).
+
 Indie game development managed through 49 coordinated Claude Code subagents.
 Each agent owns a specific domain, enforcing separation of concerns and quality.
 
