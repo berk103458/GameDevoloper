@@ -35,6 +35,10 @@ extends Resource
 @export var azami_soru: int = 0
 ## Kötü niyetli mi (karakter sayfasındaki fraksiyon): retteki tepki öfke olur, masumda yıkılma.
 @export var tehlikeli: bool = false
+## Zanaat yeteneği 1–10 (köyde üretim formülü); 0 = kimlikten türetilir.
+@export var zanaat: int = 0
+## Kapıda açılmazsa köye gizli taşınan gerçekler (`casus_suphesi`, `hirsiz`, `hasta`, `usta_ciftci` …).
+@export var gizli_bayraklar: PackedStringArray = []
 
 
 ## Verilen kararın bar etkisini döner; tanınmayan karar için boş dizi.

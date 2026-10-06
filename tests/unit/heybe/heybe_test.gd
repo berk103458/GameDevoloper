@@ -74,22 +74,23 @@ func _oturum_kararlari() -> void:
 	g.heybe.al(g.heybe.esyalar[1], 1)
 	akce = o.akce
 	var ambar := o.ambar
-	var halk := o.barlar.degerler[0]
+	var adalet := o.yonetim.adalet
 	s = o.karar_ver(g, &"elkoy")
 	_esit("el koy akçe", o.akce, akce + 29)
 	_esit("el koy ambar", o.ambar, ambar + 4)
 	_esit("el koy geri çevirir", s["kaldi"], false)
 	_esit("arpa teklif üstü: gasp", s["gasp"], true)
-	_esit("gasp Halk bedeli", o.barlar.degerler[0], halk - k.ayarlar.gasp_halk_cezasi)
-	# Dürüst birinin astarını yoklamak: Halk bedeli.
+	_esit("gasp adalet bedeli", o.yonetim.adalet, adalet - k.ayarlar.gasp_halk_cezasi * Oturum.KOPRU_ADALET)
+	# Dürüst birinin astarını yoklamak: köyün morali düşer.
 	o = Oturum.new(k, 7)
+	var tanik := o.yonetim.kabul({"ad": "tanık"})
 	g = Gelen.new()
 	g.heybe = _ornek(false)
 	g.heybe.astar_yokla()
-	halk = o.barlar.degerler[0]
+	var moral := tanik.moral
 	s = o.karar_ver(g, &"kabul")
 	_esit("dürüst arandı", s["durust_arandi"], true)
-	_esit("dürüst arama bedeli", o.barlar.degerler[0], halk - k.ayarlar.durust_arama_cezasi)
+	_esit("dürüst arama bedeli", tanik.moral, moral - k.ayarlar.durust_arama_cezasi * Oturum.KOPRU_MORAL)
 
 
 func _uretim_belirlenimci() -> void:

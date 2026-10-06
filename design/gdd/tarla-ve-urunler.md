@@ -1,5 +1,8 @@
 # Tarla ve ürünler
 
+> **Yerine geçti (6 Ekim 2026)**: 2. aşama köy yönetimi bu sistemin yerini aldı — `design/gdd/koy-yonetimi.md`. Kod kaldırıldı; belge tarih için duruyor.
+
+
 *Durum: Uygulandı (4 Ekim 2026, kullanıcı isteği). Değerler `data/ayarlar/oyun.tres` → `tools/icerik/icerik_uret.py`.*
 
 ## Overview

@@ -78,10 +78,12 @@ func _dongu() -> void:
 			a._kapat()
 		elif ekran is KoyEkrani:
 			var koy := ekran as KoyEkrani
-			await get_tree().create_timer(2.5).timeout
-			if koy._kart != null and is_instance_valid(koy._kart) and not koy._kart.is_queued_for_deletion():
-				await _foto("04_olay")
-				var secim := _dugmeler(koy._kart)
+			await get_tree().create_timer(1.0).timeout
+			var kart := koy._ust_kart
+			if kart != null and is_instance_valid(kart) and not kart.is_queued_for_deletion():
+				# Rapor, olay ya da olay sonucu kartı: seçeneklerden birine (mini oyunu da oyna).
+				await _foto("04_kart")
+				var secim := _dugmeler(kart)
 				if not secim.is_empty():
 					secim[rng.randi_range(0, secim.size() - 1)].pressed.emit()
 					await get_tree().create_timer(0.3).timeout
@@ -93,25 +95,19 @@ func _dongu() -> void:
 							foto = false
 						if koy.mini_oyun != null:
 							koy.mini_oyun.bas()
-					var tamam := _dugmeler(koy._kart)
-					if not tamam.is_empty():
-						await _foto("04_olay_sonuc")
-						tamam[0].pressed.emit()
 				continue
-			# Her basış yapı listesini yeniden kurar; her seferinde listeyi baştan al.
-			for deneme in 4:
-				var yapilar := _dugmeler(koy._yapi_kutusu)
-				if yapilar.is_empty():
-					break
-				yapilar[0].pressed.emit()
-				await get_tree().create_timer(0.2).timeout
+			# Köy yönetimi: basit bir oyuncu gibi barınak ve üretim kurar, boştakileri atar, isyanda aş dağıtır.
+			_koy_yonet(koy)
+			await get_tree().create_timer(0.3).timeout
 			await _foto("05_koy_perde%d" % ana.oturum.perde)
-			print("gece ", ana.oturum.gun, " akce=", ana.oturum.akce, " ambar=", ana.oturum.ambar, " yapilar=", ana.oturum.yapilar, " bayraklar=", ana.oturum.bayraklar.keys())
-			if OS.get_environment("GECE_SINIRI") != "" and ana.oturum.gun >= int(OS.get_environment("GECE_SINIRI")):
+			var y := ana.oturum.yonetim
+			print("gün ", y.gun, " nüfus=", y.nufus(), " akce=", y.akce, " gida=", y.kaynaklar.miktar("gida"), " odun=", y.kaynaklar.miktar("odun"),
+				" yapı=", y.binalar.size(), " huzur=", y.huzur(), " husumet=", y.husumet.puan, " sur=", y.sur_seviye)
+			if OS.get_environment("GECE_SINIRI") != "" and y.gun >= int(OS.get_environment("GECE_SINIRI")):
 				print("GECE_SINIRI")
 				Ses.cik()
 				return
-			koy.devam_istendi.emit()
+			koy._geceye_gec()
 		elif ekran is KapiEkrani:
 			var k := ekran as KapiEkrani
 			var d := _dugmeler(k._secenekler)
@@ -136,3 +132,50 @@ func _dongu() -> void:
 				d[rng.randi_range(0, d.size() - 1)].pressed.emit()
 	print("ZAMAN ASIMI")
 	Ses.cik()
+
+
+## Basit köy stratejisi (tools/denge/koy_benzetimi.gd ile aynı fikir): yatak yetmezse çadır, nüfusa göre tarla,
+## bir hızarhane; yol yoksa meydandan dışa yol; boştakileri yuvalara; isyanda aş; haracı ödeyebilirse öder.
+func _koy_yonet(koy: KoyEkrani) -> void:
+	var y := ana.oturum.yonetim
+	var istek: Array[String] = []
+	if y.yatak_kapasitesi() < y.nufus() + 2:
+		istek.append("cadir")
+	var say := {}
+	for b in y.binalar:
+		say[b.tur] = int(say.get(b.tur, 0)) + 1
+	if int(say.get("tarla", 0)) * 3 < y.nufus() * 6 / 10 + 1:
+		istek.append("tarla")
+	if int(say.get("hizarhane", 0)) < 1:
+		istek.append("hizarhane")
+	if int(say.get("avci", 0)) < 1 and y.nufus() > 5:
+		istek.append("avci")
+	for t in istek:
+		var kuruldu := false
+		for yy in y.izgara.boyut.y:
+			for xx in y.izgara.boyut.x:
+				if not kuruldu and y.yerlesim(t, Vector2i(xx, yy))["olur"]:
+					kuruldu = y.bina_kur(t, Vector2i(xx, yy))["olur"]
+		if not kuruldu:
+			var m := y.izgara.meydan
+			var orta := m.position + m.size / 2
+			for r in range(1, 12):
+				for d in [Vector2i(r, 0), Vector2i(-r, 0), Vector2i(0, -r)]:
+					for kol in [-4, 0, 4]:
+						y.yol_kur(orta + d + (Vector2i(0, kol) if d.y == 0 else Vector2i(kol, 0)))
+	for k in y.bostakiler():
+		for tur in ["tarla", "avci", "hizarhane"]:
+			var atandi := false
+			for b in y.binalar:
+				if not atandi and b.tur == tur and y.ata(k.id, b.id):
+					atandi = true
+			if atandi:
+				break
+	if y.isyan_kalan >= 0:
+		y.as_dagit()
+	if y.harac_bekliyor and not y.harac_ode():
+		y.harac_reddet()
+	if y.kaynaklar.miktar("odun") > 40:
+		y.tezgah_sat("odun", 20)
+	koy._yenile()
+

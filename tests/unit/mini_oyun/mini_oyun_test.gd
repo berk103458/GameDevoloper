@@ -30,16 +30,18 @@ func _init() -> void:
 	olay.metin_anahtari = "olay.deneme.metin"
 	olay.secenek_etkileri = [{"oyun": "harman", "oyun_odul": {"ambar": 1}, "oyun_esik": 3, "oyun_basari": {"bar": [1, 0, 0, 0]}}]
 	var o := Oturum.new(k, 5)
+	var tanik := o.yonetim.kabul({"ad": "tanık"})
 	var ambar := o.ambar
-	var halk := o.barlar.degerler[0]
+	var moral := tanik.moral
 	var s := o.olay_uygula(olay, 0, 2)
 	_esit("ödül: puan başına ambar", o.ambar, ambar + 2)
-	_esit("ödül: eşik altı başarı yok", o.barlar.degerler[0], halk)
+	_esit("ödül: eşik altı başarı yok", tanik.moral, moral)
 	_esit("ödül: puan raporda", s["oyun_puan"], 2)
 	_esit("ödül: eşik altı sonucu", s["sonuc_anahtari"], "olay.deneme.sonuc1_az")
 	o = Oturum.new(k, 5)
+	tanik = o.yonetim.kabul({"ad": "tanık"})
 	s = o.olay_uygula(olay, 0, 3)
-	_esit("ödül: eşikte başarı", o.barlar.degerler[0], halk + 1)
+	_esit("ödül: eşikte başarı (Halk → moral köprüsü)", tanik.moral, moral + Oturum.KOPRU_MORAL)
 	_esit("ödül: eşikte sonucu", s["sonuc_anahtari"], "olay.deneme.sonuc1")
 	# Katalogdaki mini oyunlu olaylar tanınan türleri anar.
 	var turler := 0

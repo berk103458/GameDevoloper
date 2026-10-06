@@ -66,14 +66,14 @@ Oyun, kapıda geçen kısa bir sohbet-ve-karar döngüsü etrafında kurulu: kap
 | 21 | Menüler ve son ekranı | UI | Vertical Slice | Not Started | — | 1, 3, 16, 17 |
 | 22 | Ses | Audio | Vertical Slice | Designed (uygulandı) | design/gdd/ses.md | 1, 16, 17, 25, 26 |
 | 23 | Heybe ve rüşvet | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/heybe-ve-rusvet.md | 2, 6, 7, 8, 12, 18 |
-| 24 | İş yerleri | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/is-yerleri.md | 7, 8, 10, 11, 18 |
+| 24 | İş yerleri | Gameplay | Vertical Slice | Yerine geçti (31) | design/gdd/is-yerleri.md | 7, 8, 10, 11, 18 |
 | 25 | Sıra olayları | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/sira-olaylari.md | 8, 18 |
-| 26 | Tarla ve ürünler | Economy | Vertical Slice | Designed (uygulandı) | design/gdd/tarla-ve-urunler.md | 10, 12, 16, 20 |
-| 27 | Köy gelişimi | Economy | Vertical Slice | Designed (uygulandı) | design/gdd/koy-gelisimi.md | 8, 10, 11, 20, 26 |
+| 26 | Tarla ve ürünler | Economy | Vertical Slice | Yerine geçti (31) | design/gdd/tarla-ve-urunler.md | 10, 12, 16, 20 |
+| 27 | Köy gelişimi | Economy | Vertical Slice | Yerine geçti (31) | design/gdd/koy-gelisimi.md | 8, 10, 11, 20, 26 |
 | 28 | Köy içi olaylar ve mini oyunlar | Gameplay | Vertical Slice | Designed (uygulandı) | design/gdd/koy-mini-oyunlari.md | 8, 12, 16, 20, 22 |
 | 29 | Karakter sayfaları (CHR_001–030) | Narrative | Vertical Slice | Designed (uygulandı) | design/gdd/karakter-sayfalari.md | 7, 8, 18 |
 | 30 | Kapı manzarası | UI | Vertical Slice | Designed (uygulandı) | design/gdd/kapi-manzarasi.md | 11, 18, 22, 25 |
-| 31 | Köy yönetimi (2. aşama) | Economy | 2. Aşama | In Design (çekirdek uygulandı) | design/gdd/koy-yonetimi.md | 7, 8, 10, 11, 16, 20, 26, 27 |
+| 31 | Köy yönetimi (2. aşama) | Economy | 2. Aşama | In Design (çekirdek, kapı ve köy arayüzü uygulandı) | design/gdd/koy-yonetimi.md | 7, 8, 10, 11, 16, 20, 26, 27 |
 
 *Kategoriler arasında şablonun "Meta" kategorisi kullanılmadı.*
 

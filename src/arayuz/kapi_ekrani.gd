@@ -14,7 +14,7 @@ const DEFTER := Rect2(1172, 104, 716, 952)
 const KONUSMA := Rect2(36, 742, 1104, 314)
 ## Kamerayı yana kaydırır: gelen kişi ekranın sol-ortasında durur, defterin altında kalmaz.
 const KAMERA_KAYMA := 1.3
-const KARAR_SIMGE := {"kabul": "accept", "ret": "reject", "rusvet": "bribe", "kisla": "barracks", "elkoy": "reject"}
+const KARAR_SIMGE := {"kabul": "accept", "harc": "bribe", "ret": "reject", "rusvet": "bribe", "kisla": "barracks", "elkoy": "reject"}
 
 var oturum: Oturum
 var ayarlar: Ayarlar
@@ -48,8 +48,6 @@ var _bolum: Label
 var _bilgi: Label
 var _levha_ad: Label
 var _gece_gelen := 0
-var _is_secenekleri: PackedStringArray = []
-var _is_karari := ""
 ## Sıra olayında seçilen seçenek.
 signal _sira_secildi(i: int)
 var _sira_satirlari: Array[Button] = []
@@ -87,7 +85,7 @@ func _ready() -> void:
 	sahne.gece = oturum.gun
 	sahne.perde = oturum.perde
 	sahne.sur = int(oturum.yapilar[&"sur"])
-	sahne.yakinlik = clampf(float(oturum.perde2_gece) / oturum.ayarlar.perde2_hedef_gece, 0.0, 1.0)
+	sahne.yakinlik = clampf(float(oturum.yonetim.tekfur_baski + oturum.yonetim.savusturulan) / maxf(1.0, oturum.yonetim.a.zafer_bask_sayisi), 0.0, 1.0)
 	vp.add_child(sahne)
 	sahne.kamera.h_offset = KAMERA_KAYMA
 
@@ -239,12 +237,9 @@ func _siradaki() -> void:
 		_levha_ad.text = ""
 		_bilgi.text = ""
 		evre = &"gecis"
-		var rapor := oturum.gece_sonu()
+		# Kapı nöbeti bitti (Faz 1); gece hesaplaşması köy yönetiminden sonra yapılır.
 		hud.guncelle()
-		if rapor["son"] == &"kirildi":
-			oturum_bitti.emit(rapor["kirilan"])
-		else:
-			gece_bitti.emit(rapor)
+		gece_bitti.emit({})
 		return
 	_gelen = _kuyruk.pop_front()
 	_sorulan = []
@@ -384,8 +379,13 @@ func _soru_sor(i: int) -> void:
 	if evre != &"sohbet":
 		return
 	_sorulan.append(i)
+	var once := _gelen.acik_bayraklar.size()
+	_gelen.soru_soruldu(i)
 	_yaz("[color=#4A6B8A]%s:[/color] %s\n[b]%s:[/b] %s" % [tr("arayuz.sohbet.sen"), tr(_gelen.sorular[i][0]),
 		tr(_gelen.ad_anahtari), tr(_gelen.sorular[i][1])])
+	if _gelen.acik_bayraklar.size() > once:
+		Ses.cal(&"sfx_olay", -6.0)
+		_yaz("[i][color=#C4843A]%s[/color][/i]" % (tr("arayuz.bayrak.acildi") % tr("koy.bayrak." + _gelen.acik_bayraklar[-1])))
 	# Cevap uzunluğu kadar konuşur; sorgu uzadıkça (üçüncü sorudan sonra) gerginleşir.
 	if _sorulan.size() >= 3 and sahne.gelen_hareket_var("gergin"):
 		sahne.gelen_gergin()
@@ -450,10 +450,7 @@ func _karar_bas(anahtar: String) -> void:
 	if evre != &"karar":
 		return
 	if _secili == anahtar:
-		if (anahtar == "kabul" or anahtar == "rusvet") and oturum.perde == 1:
-			_is_goster(anahtar)
-		else:
-			_karar_ver(anahtar)
+		_karar_ver(anahtar)
 		return
 	_secili = anahtar
 	for i in _karar_dugmeleri.size():
@@ -465,33 +462,6 @@ func _karar_bas(anahtar: String) -> void:
 		b.queue_redraw()
 		if _karar_anahtarlari[i] == _secili:
 			b.grab_focus()
-
-
-## İş yeri adımı: kabul edilen nerede çalışacak? Altta işin sınıfı yazar (tarafsız bilgi).
-func _is_goster(karar: String) -> void:
-	evre = &"is"
-	_temizle()
-	_bolum.text = tr("arayuz.is.baslik")
-	var satirlar: Array[Button] = []
-	var yerler := oturum.is_yerleri()
-	for n in yerler.size():
-		var yer := yerler[n]
-		var i := oturum.ayarlar.is_idleri.find(yer)
-		var b := _dugme("%d · %s" % [n + 1, tr("arayuz.is." + yer)])
-		b.custom_minimum_size.y = 80
-		b.punto = ayarlar.boyut(28)
-		b.alt_yazi = tr("arayuz.is.uygun") % tr("arayuz.sinif." + oturum.ayarlar.is_siniflari[i])
-		b.doku = Sanat.doku("ui", "icon_decision_%s_48" % ("barracks" if yer == "kisla" else "accept"))
-		b.pressed.connect(func() -> void:
-			if evre == &"is":
-				_karar_ver(karar, StringName(yer))
-		)
-		satirlar.append(b)
-	_is_secenekleri = yerler
-	_is_karari = karar
-	var g := _dugme(tr("arayuz.is.geri"), _eylemler)
-	g.pressed.connect(_karar_goster)
-	_sirayla_goster(satirlar)
 
 
 func _karar_birak() -> void:
@@ -514,10 +484,10 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 		Ses.cal(&"sfx_kese")
 	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)
 	_yaz(tr("anlati.sonuc." + anahtar) % tr(_gelen.ad_anahtari))
-	if is_yeri != &"":
-		_yaz("[i]%s[/i]" % (tr("anlati.is.yazildi") % [tr(_gelen.ad_anahtari), tr("anlati.is.yer." + String(is_yeri))]))
-	if sonuc.get("uyumsuz", false):
-		_yaz("[i][color=#C4843A]%s[/color][/i]" % (tr("anlati.is.uyumsuz") % tr(oturum.ayarlar.bar_anahtarlari[sonuc["uyumsuz_bar"]])))
+	if sonuc["kaldi"]:
+		_yaz("[i]%s[/i]" % (tr("anlati.koy.yazildi") % tr(_gelen.ad_anahtari)))
+	if sonuc.get("harc", false):
+		_yaz("[i][color=#C4843A]%s[/color][/i]" % (tr("anlati.harc") % oturum.yonetim.a.harc_akce))
 	if not sonuc.get("alinan", []).is_empty():
 		var parca: PackedStringArray = []
 		for a in sonuc["alinan"]:
@@ -529,16 +499,10 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 		_yaz("[i][color=#C4843A]%s[/color][/i]" % tr("anlati.heybe.durust"))
 	if _gelen.yanitlar.has(anahtar):
 		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), str(_gelen.yanitlar[anahtar])])
-	if sonuc["rusvet_harcandi"] >= 0:
-		Ses.cal(&"sfx_bar_catlak")
-		_yaz("[i]%s[/i]" % (tr("anlati.rusvet.harcandi") % tr(oturum.ayarlar.bar_anahtarlari[sonuc["rusvet_harcandi"]])))
 	hud.guncelle()
 	_daralt(false)
 	_adim_sesi(8)
 	await sahne.gelen_git(sonuc["kaldi"], _gelen.tehlikeli or not _gelen.adli)
-	if sonuc["kirilan"] >= 0:
-		oturum_bitti.emit(sonuc["kirilan"])
-		return
 	# İki gelen arasında sırada bir şey olabilir.
 	var so := oturum.sira_olayi_sec(_kuyruk.size())
 	if so != null and await _sira_olayi(so):
@@ -676,16 +640,6 @@ func _unhandled_input(olay: InputEvent) -> void:
 				_sira_secildi.emit(n)
 				get_viewport().set_input_as_handled()
 				return
-	if evre == &"is":
-		for n in 5:
-			if olay.is_action_pressed("kisayol_%d" % (n + 1)) and n < _is_secenekleri.size():
-				_karar_ver(_is_karari, StringName(_is_secenekleri[n]))
-				get_viewport().set_input_as_handled()
-				return
-		if olay.is_action_pressed("geri"):
-			get_viewport().set_input_as_handled()
-			_karar_goster()
-			return
 	if olay.is_action_pressed("geri"):
 		get_viewport().set_input_as_handled()
 		if evre == &"karar" and _secili != "":

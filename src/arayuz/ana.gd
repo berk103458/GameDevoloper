@@ -1,11 +1,12 @@
 ## Oyunun kök sahnesi: kataloğu ve ayarları kurar, ekranlar arasında geçer.
-## Akış: Menü → Kapı (gece) → Köy (gece sonu) → … → Perde geçişi → … → Son.
+## Günlük döngü (design/gdd/koy-yonetimi.md, 14): Kapı (gündüz) → Köy yönetimi (akşam) → Gece hesaplaşması ve rapor
+## → bir sonraki gün. Ağalık eşiğinde geçiş kartı; son ekranı istatistiklerle (16.5). Her faz geçişinde kayıt (13.4).
 class_name Ana
 extends Control
 
 var katalog: Katalog
 var ayarlar: Ayarlar
-var kayit: KayitDeposu
+var kayit: GuvenliKayit
 var oturum: Oturum
 var _ekran: Control
 var _kapi: KapiEkrani
@@ -22,7 +23,7 @@ func _ready() -> void:
 	ayarlar.degisti.connect(func(_a: StringName) -> void: theme = Tema.olustur(ayarlar))
 	theme = Tema.olustur(ayarlar)
 	_imleci_kur()
-	kayit = KayitDeposu.new()
+	kayit = GuvenliKayit.new()
 	katalog = Katalog.new()
 	if katalog.yukle() != Katalog.Durum.HAZIR:
 		_hata_goster()
@@ -70,27 +71,24 @@ func _kapiya_git() -> void:
 	_kapi = KapiEkrani.new()
 	_kapi.oturum = oturum
 	_kapi.ayarlar = ayarlar
-	_kapi.gece_bitti.connect(_gece_bitti)
-	_kapi.oturum_bitti.connect(_kirildi)
+	_kapi.gece_bitti.connect(_koye_git)
+	_kapi.oturum_bitti.connect(func(_k: int) -> void: _son_goster(&"halk_kirildi"))
 	_kapi.duraklat_istendi.connect(_duraklat)
 	_goster(_kapi)
 	_kapi.gece_baslat()
 
 
-func _gece_bitti(rapor: Dictionary) -> void:
-	Ses.cal(&"sfx_gece_bitti")
-	if rapor["son"] != &"" and rapor["son"] != &"kirildi":
-		_son_goster(rapor["son"])
-		return
+## Kapı nöbeti bitti (Faz 1 → Faz 2): kayıt, sonra köy yönetimi.
+func _koye_git(_rapor: Dictionary = {}) -> void:
+	kayit.yaz(oturum.kaydet())
 	var koy := KoyEkrani.new()
 	koy.oturum = oturum
 	koy.ayarlar = ayarlar
-	koy.rapor = rapor
-	koy.oturum_bitti.connect(_kirildi)
-	koy.devam_istendi.connect(func() -> void:
-		# Gece sonu kaydı: olay ve yapılar çözüldükten sonra (GDD 1: gece sonu çözümünden sonra).
+	koy.oturum_bitti.connect(_son_goster)
+	koy.devam_istendi.connect(func(rapor: Dictionary) -> void:
+		# Gece çözüldü ve olay seçildi: kayıt, sonra yeni gün (Ağalıkta önce geçiş kartı).
 		kayit.yaz(oturum.kaydet())
-		if rapor["perde_degisti"]:
+		if rapor.get("perde_degisti", false):
 			_perde_gecisi()
 		else:
 			_kapiya_git()
@@ -100,7 +98,10 @@ func _gece_bitti(rapor: Dictionary) -> void:
 
 func _son_goster(son: StringName) -> void:
 	kayit.sil()
-	var e := _bilgi(tr("arayuz.son." + String(son)), tr("arayuz.son.%s_metin" % son), [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
+	Ses.cal(&"sfx_bar_kirildi" if son != &"zafer" else &"sfx_gece_bitti")
+	var y := oturum.yonetim
+	var metin := tr("arayuz.son.%s_metin" % son) + "\n\n" + tr("arayuz.son.istatistik") % [y.gun, y.kabul_sayisi, y.ret_sayisi, y.nufus()]
+	var e := _bilgi(tr("arayuz.son." + String(son)), metin, [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
 		oturum.gun, "3d_koy")
 	e.oturum = oturum
 	e.secildi.connect(_son_secimi)
@@ -111,15 +112,6 @@ func _perde_gecisi() -> void:
 	var e := _bilgi(tr("arayuz.perde.baslik"), tr("arayuz.perde.metin"), [tr("arayuz.perde.devam")], -1, "3d_koy")
 	e.oturum = oturum
 	e.secildi.connect(func(_i: int) -> void: _kapiya_git())
-	_goster(e)
-
-
-func _kirildi(kirilan: int) -> void:
-	kayit.sil()
-	var ad := tr(oturum.ayarlar.bar_anahtarlari[kirilan])
-	Ses.cal(&"sfx_bar_kirildi")
-	var e := _bilgi(tr("arayuz.son.kirildi") % ad, tr("arayuz.son.kirildi.%d" % kirilan), [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")], oturum.gun)
-	e.secildi.connect(_son_secimi)
 	_goster(e)
 
 

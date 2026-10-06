@@ -29,6 +29,38 @@ var heybe: Heybe
 var azami_soru: int = 0
 ## Kötü niyetli mi: retteki tepki öfke, değilse yıkılma (panik).
 var tehlikeli: bool = false
+## Zanaat yeteneği 1–10 (köyde üretim formülü).
+var stat: int = 5
+## Sorgu ağacında soru → bayrak: o soru sorulup cevabı alınınca açılan gerçek (`soru_bayraklari[i]`, boş = yok).
+var soru_bayraklari: PackedStringArray = []
+## Kapıda açılmayan gerçekler köye gizli taşınır (casus, hırsız, hasta …).
+var gizli_bayraklar: PackedStringArray = []
+## Kapıda sorguyla açılan bayraklar (KapiEkrani doldurur).
+var acik_bayraklar: PackedStringArray = []
+
+
+## Yoksul değil mi: heybesinde söylediği akçe zenginlik eşiğinde ya da üstünde.
+func zengin(esik: int) -> bool:
+	return heybe != null and heybe.beyan_akce() >= esik
+
+
+## Kusurlu mu: kötü niyetli, yalanı yakalanmış ya da sorguda suçlu bir bayrağı açılmış. Böyle birinin reddi
+## gerekçeli sayılır (husumet +1), değilse haksızdır (+3).
+func kusurlu() -> bool:
+	if tehlikeli or (heybe != null and heybe.yalan_var()):
+		return true
+	for b in acik_bayraklar:
+		if b in ["casus_suphesi", "hirsiz", "hasta", "sabotajci"]:
+			return true
+	return false
+
+
+## i. soru sorulunca açılan bayrağı kaydeder (koşullu kilit: yalnız o dal sorulursa).
+func soru_soruldu(i: int) -> void:
+	if i < soru_bayraklari.size() and soru_bayraklari[i] != "":
+		var b := soru_bayraklari[i]
+		if not b in acik_bayraklar:
+			acik_bayraklar.append(b)
 
 
 ## Sorulabilecek soru sınırı: gelenin kendi sınırı, yoksa genel ayar.

@@ -13,6 +13,9 @@ var durum: Durum = Durum.YUKLENMEDI
 ## Doğrulama hataları (dosya + kural).
 var hatalar: PackedStringArray = []
 var ayarlar: OyunAyarlari
+## Köy yönetimi ayarları ve yapı kataloğu (design/gdd/koy-yonetimi.md).
+var koy_ayarlari: KoyAyarlari
+var binalar: BinaKatalogu
 var _karakterler: Dictionary = {}
 var _sohbetler: Dictionary = {}
 var _siniflar: Dictionary = {}
@@ -29,6 +32,8 @@ func yukle(kok: String = "res://data") -> Durum:
 	_olaylar = _klasor_yukle(kok + "/olaylar")
 	_sira_olaylari = _klasor_yukle(kok + "/sira_olaylari")
 	ayarlar = load(kok + "/ayarlar/oyun.tres") as OyunAyarlari
+	koy_ayarlari = load(kok + "/ayarlar/koy.tres") as KoyAyarlari if ResourceLoader.exists(kok + "/ayarlar/koy.tres") else KoyAyarlari.new()
+	binalar = BinaKatalogu.new(kok + "/koy/binalar.json" if FileAccess.file_exists(kok + "/koy/binalar.json") else BinaKatalogu.YOL)
 	_dogrula()
 	durum = Durum.HAZIR if hatalar.is_empty() else Durum.HATALI
 	for h in hatalar:

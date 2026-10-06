@@ -34,8 +34,8 @@ func _ready() -> void:
 		var vp_k := SubViewport.new()
 		vp_k.size = Vector2i(1920, 1080)
 		kap_k.add_child(vp_k)
-		var koy := KoySahnesi.new()
-		koy.oturum = oturum
+		var koy := KoyYonetimSahnesi.new()
+		koy.yonetim = oturum.yonetim
 		vp_k.add_child(koy)
 	elif arka_plan == "3d_kapi":
 		# 3D kapı gecesi arka plan (kırılma sonu).

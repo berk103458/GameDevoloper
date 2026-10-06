@@ -35,6 +35,8 @@ var perde := 1
 var sur := 0
 ## 2. perde: Tekfur'un yakınlığı 0..1.
 var yakinlik := 0.0
+## Kapı nöbeti gündüz (Faz 1); gece görünümü gece olayları için kalır.
+var gunduz := true
 
 var kamera: Camera3D
 var manzara: KapiManzarasi
@@ -60,6 +62,7 @@ func _ready() -> void:
 	manzara.gece = gece
 	manzara.perde = perde
 	manzara.yakinlik = yakinlik
+	manzara.gunduz = gunduz
 	add_child(manzara)
 	cerceve = KapiCercevesi.new()
 	cerceve.seviye = sur
@@ -406,6 +409,9 @@ func _ortam_ayarla() -> void:
 	for n in get_children():
 		if n is WorldEnvironment:
 			var env := (n as WorldEnvironment).environment
+			if gunduz:
+				_gunduz_ortami(env)
+				continue
 			var hdri := Pbr.gok(KapiManzarasi.GOK)
 			if hdri != null:
 				var gok := PanoramaSkyMaterial.new()
@@ -455,6 +461,15 @@ func _ortam_ayarla() -> void:
 			env.adjustment_enabled = true
 			env.adjustment_contrast = 1.08
 			env.adjustment_saturation = 0.88
+		elif n is DirectionalLight3D and gunduz:
+			var gunes := n as DirectionalLight3D
+			gunes.light_color = Color("#fff0da")
+			gunes.light_energy = 2.0
+			gunes.light_volumetric_fog_energy = 0.3
+			gunes.rotation_degrees = Vector3(-38, 140, 0)
+			gunes.shadow_enabled = true
+			gunes.directional_shadow_max_distance = 80.0
+			gunes.shadow_blur = 1.2
 		elif n is DirectionalLight3D:
 			var ay := n as DirectionalLight3D
 			ay.light_color = Color("#9fb4e6")
@@ -471,6 +486,51 @@ func _ortam_ayarla() -> void:
 	nitelik.dof_blur_far_transition = 40.0
 	nitelik.dof_blur_amount = 0.04
 	kamera.attributes = nitelik
+
+
+## Gündüz ortamı: bulutlu öğle göğü, ılık güneş, hafif pus; meşaleler gündüz sönük yanar.
+func _gunduz_ortami(env: Environment) -> void:
+	var hdri := Pbr.gok(KapiManzarasi.GOK_GUNDUZ)
+	if hdri != null:
+		var gok := PanoramaSkyMaterial.new()
+		gok.panorama = hdri
+		gok.energy_multiplier = 1.0
+		var sky := Sky.new()
+		sky.sky_material = gok
+		sky.radiance_size = Sky.RADIANCE_SIZE_256
+		env.background_mode = Environment.BG_SKY
+		env.sky = sky
+		env.sky_rotation = Vector3(0, deg_to_rad(120.0), 0)
+		env.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
+		env.ambient_light_sky_contribution = 1.0
+		env.reflected_light_source = Environment.REFLECTION_SOURCE_SKY
+	env.ambient_light_energy = 0.9
+	env.tonemap_mode = Environment.TONE_MAPPER_AGX
+	env.tonemap_exposure = 1.0
+	env.fog_enabled = true
+	env.fog_mode = Environment.FOG_MODE_EXPONENTIAL
+	env.fog_light_color = Color("#a9b6c4")
+	env.fog_light_energy = 1.0
+	env.fog_density = 0.004
+	env.fog_sky_affect = 0.15
+	env.fog_aerial_perspective = 0.6
+	env.volumetric_fog_enabled = true
+	env.volumetric_fog_density = 0.005
+	env.volumetric_fog_albedo = Color("#d8dde4")
+	env.volumetric_fog_length = 64.0
+	env.ssao_enabled = true
+	env.ssao_radius = 1.2
+	env.ssao_intensity = 1.6
+	env.ssil_enabled = true
+	env.ssil_intensity = 0.6
+	env.glow_enabled = true
+	env.glow_intensity = 0.25
+	env.glow_hdr_threshold = 1.6
+	env.adjustment_enabled = true
+	env.adjustment_contrast = 1.06
+	env.adjustment_saturation = 0.92
+	for l in _isiklar:
+		l.set_meta("taban", float(l.get_meta("taban")) * 0.3)
 
 
 ## Sağ orta planda öküzlü kağnı: yükü bir ailenin bütün evi (çuval, sandık, testi, yorgan).

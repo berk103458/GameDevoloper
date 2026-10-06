@@ -1591,3 +1591,150 @@ sohbet.yusuf.s6,Keçinin adı ne?
 sohbet.yusuf.s7,Nerede kaldın?
 sohbet.yusuf.s8,Değirmene ne oldu?
 sohbet.yusuf.s9,Ne iş bilirsin?
+anlati.harc,Kapı harcı alındı: %d akçe. Yoksulun yüzü düştü.
+anlati.koy.yazildi,%s köyün meydanına geçti; boştaki iş gücüne yazıldı.
+arayuz.bayrak.acildi,Ortaya çıktı: %s
+arayuz.hud.adalet,Adalet %d
+arayuz.hud.asayis,Asayiş riski %d
+arayuz.hud.gun,%d. gün
+arayuz.hud.huzur,Huzur %d
+arayuz.hud.isyan,İSYAN — %d gün
+arayuz.hud.mevsim,%s · %d/%d
+arayuz.hud.nufus,Nüfus %d / yatak %d · ambar %d/%d
+arayuz.son.istatistik,"%d gün dayandın. Kapıdan %d kişiyi aldın, %d kişiyi geri çevirdin. Son günde köyde %d kişi vardı."
+arayuz.son.halk_kirildi,Halk kırıldı
+arayuz.son.halk_kirildi_metin,"Köy boşaldı. Açlık, soğuk ya da hastalık; sonunda meydanda ateşi yakacak kimse kalmadı."
+arayuz.son.isyan,İsyan
+arayuz.son.isyan_metin,"Üç gün boyunca kimse sözünü dinlemedi. Bir sabah kapıyı açık, ambarı boş buldun; halk köyü topluca terk etmişti."
+arayuz.son.tekfur,Tekfur'un akıncıları
+arayuz.son.tekfur_metin,Haracı reddettin ve sur dayanmadı. Akıncılar meydanı yaktı; köyün adı yalnız Tekfur'un defterinde kaldı.
+arayuz.son.zafer,Uç bağımsız
+arayuz.son.zafer_metin,"Tekfur'un üçüncü baskısı da surun dibinde dağıldı. Köy artık kimseye haraç vermiyor; kapı senin, sözün senin."
+koy.arac.yol,Yol döşe
+koy.arac.yik,Yık
+koy.kategori.barinma,Barınma
+koy.kategori.uretim,Üretim
+koy.kategori.hizmet,Hizmet
+koy.kategori.savunma,Savunma
+koy.yapi.cadir,Çadır
+koy.yapi.kulube,Kulübe
+koy.yapi.tarla,Buğday tarlası
+koy.yapi.hizarhane,Hızarhane
+koy.yapi.tas_ocagi,Taş ocağı
+koy.yapi.avci,Avcı kulübesi
+koy.yapi.atolye,Atölye
+koy.yapi.ambar,Ambar
+koy.yapi.cadir_aciklama,"Keçe çadır: üç kişilik yatak. Ucuz, çabuk kurulur."
+koy.yapi.kulube_aciklama,Taş temelli kulübe: dört kişilik yatak.
+koy.yapi.tarla_aciklama,"Üç çiftçilik tarla: gıda. Kışın donar, çiftçiler başka işe kayar."
+koy.yapi.hizarhane_aciklama,Odun keser ya da odundan kereste biçer.
+koy.yapi.tas_ocagi_aciklama,Taş çıkarır.
+koy.yapi.avci_aciklama,Av: gıda ve kürk. Kışın da çalışır.
+koy.yapi.atolye_aciklama,Alet (kereste + demir) ya da yakacak (kereste) yapar.
+koy.yapi.ambar_aciklama,Ambar kapasitesini 100 artırır.
+koy.kaynak.gida,Gıda
+koy.kaynak.odun,Odun
+koy.kaynak.tas,Taş
+koy.kaynak.kereste,Kereste
+koy.kaynak.alet,Alet
+koy.kaynak.kurk,Kürk
+koy.kaynak.demir,Demir
+koy.kaynak.akce,Akçe
+koy.recete.gida,Buğday
+koy.recete.odun,Odun
+koy.recete.kereste,Kereste
+koy.recete.tas,Taş
+koy.recete.av,Av
+koy.recete.alet,Alet
+koy.recete.yakacak,Yakacak
+koy.mevsim.ilkbahar,İlkbahar
+koy.mevsim.yaz,Yaz
+koy.mevsim.sonbahar,Sonbahar
+koy.mevsim.kis,Kış
+koy.ipucu.insa,Sol tık: kur · R: döndür · sağ tık: vazgeç
+koy.ipucu.yol,Sol tık: meydana bağlı yola komşu hücreye yol döşe · sağ tık: bitir
+koy.ipucu.yik,Sol tık: yapıyı yık (malzemenin yarısı geri gelir) · sağ tık: vazgeç
+koy.neden.sinir,köyün sınırı dışında
+koy.neden.dolu,yer dolu
+koy.neden.yol_yok,meydana bağlı bir yola değmiyor
+koy.neden.malzeme,ambarda malzeme yok
+koy.neden.akce,akçe yetmiyor
+koy.bekliyor.girdi,Bekliyor: ham madde yok
+koy.bekliyor.ambar_dolu,Bekliyor: ambar dolu
+koy.bekliyor.kis,Kış: tarla dondu
+koy.bilgi.ata,Boştakilerden ata:
+koy.bilgi.calisan,Çalışanlar %d / %d
+koy.bilgi.cikar,İşten çıkar
+koy.bilgi.iskele,İskele: %d gün kaldı (boştakiler yardım eder)
+koy.bilgi.moral,moral
+koy.bilgi.saglik,sağlık
+koy.bilgi.stat,zanaat
+koy.bilgi.surgun,Sürgün et
+koy.bilgi.yatak,Yatak %d / %d
+koy.eylem.gece,Geceye geç
+koy.eylem.hiz,Hız %dx
+koy.eylem.nufus,Nüfus (P)
+koy.eylem.pazar,Pazar
+koy.harac.bant,"Tekfur'un elçisi haraç istiyor: %d akçe, %d gıda."
+koy.harac.ode,Haracı öde
+koy.harac.reddet,"Reddet, sura güven"
+koy.is.bosta,boşta
+koy.is.muhafiz,muhafız
+koy.isyan.as,Aş dağıt (%d gıda)
+koy.isyan.bant,Köy isyanda! %d gün içinde huzuru geri getir.
+koy.isyan.surgun,Elebaşını sür
+koy.isyan.vergi,Bu haftanın vergisini kaldır
+koy.muhafiz.durum,Muhafız %d / %d — haftalık maaş kişi başı %d akçe (kışla kararıyla alınanlar muhafız olur)
+koy.nufus.baslik,Nüfus %d · yatak %d
+koy.nufus.ad,Ad
+koy.nufus.is,İş
+koy.nufus.moral,Moral
+koy.nufus.saglik,Sağlık
+koy.nufus.stat,Zanaat
+koy.olay.aclik,Ambarda gıda yetmedi: %d kişi aç yattı.
+koy.olay.agalik,Köy on sekiz haneyi geçti. Artık sana Ağa diyorlar — ve Tekfur bunu duydu.
+koy.olay.baskin,"Dışarıda kalanlar haydutlarla birleşip baskın yaptı: %d gıda, %d odun gitti, yaralılar var."
+koy.olay.bonus_satis,Ambar doluydu; ustaların fazla ürünü (%d) tezgâhta satıldı: +%d akçe.
+koy.olay.firar,%s ambardan %d gıda alıp gece köyü terk etti.
+koy.olay.harac,Tekfur'un elçisi geldi: %d akçe ve %d gıda haraç istiyor.
+koy.olay.harac_cevapsiz,Elçi cevapsız döndü. Tekfur bunu ret sayacak.
+koy.olay.iltimas,"""Muhafız zengine çalışıyor"" diye söyleniyorlar: herkesin morali %d düştü."
+koy.olay.isyan_basladi,Köy isyanda! Üretim durdu; %d gün içinde huzur dönmezse halk dağılacak.
+koy.olay.isyan_bitti,İsyan yatıştı; köy işine döndü.
+koy.olay.isyan_uretim_yok,İsyan sürüyor: kimse işe gitmedi.
+koy.olay.maas_yok,Muhafızlara verecek akçe yoktu; nöbeti bıraktılar.
+koy.olay.olum,%s bu gece öldü.
+koy.olay.sizma,Reddettiklerinden biri gece sızdı: %d gıda ve %d alet çalındı.
+koy.olay.soguk,Ocaklarda odun bitti; soğuk herkesi yordu (sağlık -%d).
+koy.olay.tekfur_baskini,"Tekfur'un akıncıları geldi: güçleri %d, savunman %d."
+koy.olay.vergi,Hafta başı vergisi toplandı: %d akçe.
+koy.pazar.al,%d %s al (%d akçe)
+koy.pazar.baslik,Pazar
+koy.pazar.kervan_var,"Bugün kervan köyde: tam fiyatla alıyor, demir, alet ve tahıl satıyor."
+koy.pazar.kervan_yok,Kervan %d gün sonra gelecek.
+koy.pazar.kervana,Kervana %d sat
+koy.pazar.sat,Tezgâhta %d sat
+koy.pazar.tezgah,Köy tezgâhı kervan fiyatının %%%d'ini öder; günde en çok %d akçe.
+koy.rapor.akce,Akçe: %d → %d
+koy.rapor.baslik,%d. gecenin raporu
+koy.rapor.huzur,Köy huzuru: %d
+koy.rapor.sabah,Sabah oldu — kapıya
+koy.rapor.tuketim,"Tüketilen: %d gıda, %d odun"
+koy.rapor.uretim,Üretim: %s
+koy.sur.azami,Sur en üst seviyede
+koy.sur.rezerv,Son %d akçe savunmaya harcanamaz (rezerv).
+koy.sur.taksit,Sur %d — taksit %d/%d öde (%d akçe)
+koy.bayrak.usta_ciftci,usta çiftçi
+koy.bayrak.usta_demirci,usta demirci
+koy.bayrak.usta_avci,usta avcı
+koy.bayrak.usta_oduncu,usta oduncu
+koy.bayrak.usta_tasci,usta taşçı
+koy.bayrak.somurulmus,sömürülmüş
+koy.bayrak.casus_suphesi,casus şüphesi
+koy.bayrak.hirsiz,hırsız
+koy.bayrak.hasta,hasta
+koy.bayrak.sabotajci,sabotajcı
+koy.bayrak.tembel,tembel
+koy.bayrak.agir_yarali,ağır yaralı
+arayuz.karar.harc,"Harç al, içeri al"
+anlati.sonuc.harc,%s geçiş harcını ödeyip içeri girdi.

@@ -1,41 +1,62 @@
-## Bir oyun oturumu: gün döngüsü, kuyruk, karar, gece sonu çözümü ve kayıt.
-## Kurallar: design/gdd/oyun-durumu-ve-gun-dongusu.md ve karakter-kadrosu.md;
-## Barlar, Karar ve savunma için prototipte sınanan geçici kurallar (Open Questions).
+## Bir oyun oturumu: günlük döngü (gündüz kapı → akşam köy → gece hesaplaşma), kuyruk, karar ve kayıt.
+## Köyün kendisi `KoyYonetimi`'dir (design/gdd/koy-yonetimi.md); oturum kapı, olaylar ve karakter kadrosunu ona bağlar.
+## Eski dört bar kalktı (kullanıcı kararı, 6 Ekim 2026): içerikteki bar etkileri `_bar_uygula` köprüsüyle yeni
+## göstergelere çevrilir (Halk → moral, Soylular → adalet, Tüccarlar → akçe, Ordu → asayiş).
 class_name Oturum
 extends RefCounted
 
-const KAYIT_SURUMU := 1
+const KAYIT_SURUMU := 2
+## Bar köprüsü: eski bir bar puanının yeni göstergedeki karşılığı.
+const KOPRU_MORAL := 5
+const KOPRU_ADALET := 5
+const KOPRU_ASAYIS := 5
 
 var katalog: Katalog
 var ayarlar: OyunAyarlari
-var barlar: Barlar
 var koy: KoyNufusu
 var kadro: KarakterKadrosu
-## Tamamlanan gece sayısı = skor.
-var gun: int = 0
-## 1 = kapı ve köy, 2 = ağalık ve savunma.
-var perde: int = 1
-var perde2_gece: int = 0
-var rusvet_hakki: int = 3
+## Köy yönetimi: ambar, köylüler, yapılar, ekonomi, gece çözümü, sonlar.
+var yonetim: KoyYonetimi
 var tohum: int = 0
-var akce: int = 0
-var ambar: int = 0
-## Yapı seviyeleri (0 = yok): pazar, kervansaray, sur.
-var yapilar: Dictionary = {&"pazar": 0, &"kervansaray": 0, &"sur": 0, &"konak": 0}
 ## Olayların bıraktığı işaretler (kararların uzun vadeli izleri).
 var bayraklar: Dictionary = {}
 var gorulen_olaylar: Dictionary = {}
-## Bir sonraki gecenin gelen sayısına ek (olaylardan).
+## Bir sonraki günün gelen sayısına ek (olaylardan).
 var sonraki_gelen_ek: int = 0
 var _rng: RandomNumberGenerator
 var _rng_donus: RandomNumberGenerator
 var _rng_ad: RandomNumberGenerator
 ## Heybe içeriği için ayrı akış (yalan ve eşyalar diğer çekilişleri kaydırmasın).
 var _rng_heybe: RandomNumberGenerator
-## Köyün tarlaları ve ekinleri.
-var tarlalar := Tarlalar.new()
 var _gemini: Array = []
 var _gemini_sira: int = 0
+
+## Tamamlanan gün sayısı (skor).
+var gun: int:
+	get:
+		return yonetim.gun
+	set(v):
+		yonetim.gun = v
+## 1 = karakol / iskân, 2 = Ağalık (Tekfur diplomasisi).
+var perde: int:
+	get:
+		return 2 if yonetim.agalik else 1
+var akce: int:
+	get:
+		return yonetim.akce
+	set(v):
+		yonetim.akce = maxi(0, v)
+## Ambardaki gıda (eski "ambar" alanı).
+var ambar: int:
+	get:
+		return yonetim.kaynaklar.miktar("gida")
+	set(v):
+		yonetim.kaynaklar.stok["gida"] = maxi(0, v)
+## Eski yapı seviyeleri (köy sahnesi görünümü için; sur köy yönetiminden).
+var yapilar: Dictionary:
+	get:
+		return {&"pazar": _eski_yapi_seviyesi("pazar"), &"kervansaray": _eski_yapi_seviyesi("kervansaray"),
+			&"sur": yonetim.sur_seviye, &"konak": _eski_yapi_seviyesi("konak")}
 
 
 ## Yeni oturum. `tohum` 0 ise rastgele seçilir.
@@ -51,12 +72,10 @@ func _init(katalog_: Katalog, tohum_: int = 0) -> void:
 	_rng_ad.seed = tohum + 2
 	_rng_heybe = RandomNumberGenerator.new()
 	_rng_heybe.seed = tohum + 3
-	barlar = Barlar.new(ayarlar.bar_anahtarlari.size(), ayarlar.bar_baslangic, ayarlar.bar_azami)
+	yonetim = KoyYonetimi.new(katalog.koy_ayarlari, katalog.binalar, tohum + 4)
 	koy = KoyNufusu.new()
 	kadro = KarakterKadrosu.new(katalog, _rng_donus, _rng_ad)
-	rusvet_hakki = ayarlar.rusvet_hakki
-	akce = ayarlar.akce_baslangic
-	ambar = ayarlar.ambar_baslangic
+
 
 
 ## Gösterilen gece numarası (1'den).
@@ -64,12 +83,11 @@ func gosterilen_gece() -> int:
 	return gun + 1
 
 
+
 ## Bu gecenin varış listesi.
 func gece_kuyrugu() -> Array[Gelen]:
 	koy.bu_gece_girenler = []
 	var sayi := ayarlar.gece_basina_gelen if perde == 1 else ayarlar.perde2_gece_basina_gelen
-	if yapilar[&"kervansaray"] >= 2:
-		sayi += 1
 	sayi = maxi(1, sayi + sonraki_gelen_ek)
 	sonraki_gelen_ek = 0
 	var uygun := kadro.uygunlar(gun)
@@ -83,7 +101,11 @@ func gece_kuyrugu() -> Array[Gelen]:
 			sonuc.append(_figur_gelen())
 	for g in sonuc:
 		g.heybe = heybe_uret(g.sinif)
+		if g.secenekler.has("kabul") and not g.zengin(ayarlar.zengin_esigi) and not g.secenekler.has("harc"):
+			g.secenekler.insert(g.secenekler.find("kabul") + 1, "harc")
+			g.etkiler[&"harc"] = g.etkiler.get(&"kabul", PackedInt32Array())
 	return sonuc
+
 
 
 ## Bir gelenin heybesi: söylediği akçe, sınıfına göre 1–2 eşya; yalancının astarında akçe ve
@@ -118,22 +140,23 @@ func heybe_uret(sinif: StringName) -> Heybe:
 	return h
 
 
+
 ## Sohbet açıldı (adlı karakterde ziyaret sayılır).
 func ziyaret_basladi(gelen: Gelen) -> void:
 	if gelen.adli:
 		kadro.ziyaret_basladi(gelen.id, gun)
 
 
-## Karar uygulanır. Döner: {kaldi, kirilan (-1), rusvet_harcandi (bar indeksi ya da -1),
-## alinan (heybeden alınanların listesi), alinan_akce, alinan_ambar, gasp (bool), durust_arandi (bool)}.
-## "elkoy": astardan çıkanlara el konur, gelen geri çevrilir (yalnız yalan yakalanınca).
-func karar_ver(gelen: Gelen, karar: StringName, is_yeri: StringName = &"") -> Dictionary:
+## Karar uygulanır (design/gdd/koy-yonetimi.md, 2–3). Döner: {kaldi, kirilan (-1), rusvet_harcandi (-1),
+## alinan, alinan_akce, alinan_ambar, gasp, durust_arandi, harc, koylu_id}.
+## Kararlar: `kabul`, `harc` (yoksuldan zorla geçiş akçesi), `rusvet` (teklifini alıp içeri), `kisla` (asker, muhafız),
+## `ret`, `elkoy` (astardan çıkanlara el konur, geri çevrilir; yalnız yalan yakalanınca).
+func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> Dictionary:
 	var h := gelen.heybe
-	var ek := {"alinan": [], "alinan_akce": 0, "alinan_ambar": 0, "gasp": false, "durust_arandi": false}
-	if karar == &"elkoy":
-		barlar.uygula(gelen.etkiler.get(&"ret", PackedInt32Array()))
-	else:
-		barlar.uygula(gelen.etkiler.get(karar, PackedInt32Array()))
+	var ek := {"kirilan": -1, "rusvet_harcandi": -1, "alinan": [], "alinan_akce": 0, "alinan_ambar": 0, "gasp": false,
+		"durust_arandi": false, "harc": karar == &"harc", "koylu_id": -1}
+	_bar_uygula(gelen.etkiler.get(&"ret" if karar == &"elkoy" else karar, PackedInt32Array()))
+	var rusvet_akce := 0
 	if h != null:
 		if karar == &"rusvet" and not h.alinan_var():
 			h.teklifi_sec()
@@ -141,7 +164,7 @@ func karar_ver(gelen: Gelen, karar: StringName, is_yeri: StringName = &"") -> Di
 			h.saklananlari_sec()
 		if karar == &"rusvet" or karar == &"elkoy":
 			var d := h.alinan_dagilim()
-			akce += d["akce"]
+			rusvet_akce = d["akce"]
 			ambar += d["ambar"]
 			ek["alinan_akce"] = d["akce"]
 			ek["alinan_ambar"] = d["ambar"]
@@ -149,230 +172,156 @@ func karar_ver(gelen: Gelen, karar: StringName, is_yeri: StringName = &"") -> Di
 				if int(e["alinan"]) > 0:
 					ek["alinan"].append({"id": e["id"], "adet": e["alinan"]})
 			if h.gasp() > 0:
-				barlar.ekle(0, -ayarlar.gasp_halk_cezasi)
+				yonetim.adalet = maxi(0, yonetim.adalet - ayarlar.gasp_halk_cezasi * KOPRU_ADALET)
 				ek["gasp"] = true
 		if h.astar_yoklandi and not h.yalan_var():
-			barlar.ekle(0, -ayarlar.durust_arama_cezasi)
+			_herkese_moral(-ayarlar.durust_arama_cezasi * KOPRU_MORAL)
 			ek["durust_arandi"] = true
 	elif karar == &"rusvet":
-		akce += ayarlar.rusvet_akce
+		rusvet_akce = ayarlar.rusvet_akce
 	if karar == &"rusvet":
 		bayraklar[&"rusvet_sayisi"] = int(bayraklar.get(&"rusvet_sayisi", 0)) + 1
 	var kaldi := karar != &"ret" and karar != &"elkoy"
-	ek["is_yeri"] = is_yeri
-	ek["uyumsuz"] = false
 	if kaldi:
 		var sinif: StringName = &"asker" if karar == &"kisla" else gelen.sinif
-		var i := ayarlar.is_idleri.find(String(is_yeri))
-		if i >= 0:
-			# Kişi yazıldığı işi yapar; işe uygun değilse oranın barı düşer.
-			sinif = StringName(ayarlar.is_siniflari[i])
-			if sinif != gelen.sinif:
-				barlar.ekle(ayarlar.is_barlari[i], -ayarlar.uyumsuz_ceza)
-				ek["uyumsuz"] = true
-				ek["uyumsuz_bar"] = ayarlar.is_barlari[i]
-		koy.ekle(sinif, gelen.id if gelen.adli else &"", "soldier_01" if karar == &"kisla" and not gelen.adli else gelen.portre)
-	if gelen.adli:
-		kadro.sonuc(gelen.id, kaldi, karar, gun)
-	var sonuc := _bar_cozumu()
-	sonuc["kaldi"] = kaldi
-	sonuc.merge(ek)
-	return sonuc
-
-
-## Gece sonu çözümü (GDD 1 sırası: üretim ve baskılar → bar → son → köy oturdu → sayaç → olay).
-## Döner: {olaylar: Array[Dictionary] {anahtar, deger}, kirilan, rusvet_harcandi, son, perde_degisti, olay: OlayVerisi|null}
-func gece_sonu() -> Dictionary:
-	var olaylar: Array[Dictionary] = []
-	var toplam := koy.toplam()
-	# Ambar: çiftçi üretir, herkes yer.
-	var uretim := koy.sayi(&"ciftci") * ayarlar.ciftci_uretim + (2 if bayraklar.has(&"tarla") else 0)
-	var tuketim := ceili(toplam / float(ayarlar.tuketim_bolen))
-	ambar += uretim - tuketim
-	olaylar.append({"anahtar": "anlati.ambar", "deger": [uretim, tuketim]})
-	# Tarlalar: ekinler büyür, olgunlaşanlar ambara.
-	for h in tarlalar.gece(ayarlar.bitki_sure_sozlugu(), ayarlar.bitki_verim_sozlugu()):
-		ambar += int(h["verim"])
-		olaylar.append({"anahtar": "anlati.hasat." + String(h["bitki"]), "deger": [h["verim"]]})
-	tarlalar.alan_guncelle(koy.sayi(&"ciftci"), ayarlar.ciftci_tarla_basina, ayarlar.tarla_azami)
-	if ambar < 0:
-		ambar = 0
-		barlar.ekle(0, -1)
-		olaylar.append({"anahtar": "anlati.baski.gida"})
-	# Ambar takası: yedeğin üstündeki ürün tüccara satılır (ambar boşa birikmez, akçe hiç kurumaz).
-	var takas := ambar_takasi(ambar, tuketim, int(yapilar[&"pazar"]))
-	if takas.x > 0:
-		ambar -= takas.x
-		akce += takas.y
-		olaylar.append({"anahtar": "anlati.takas", "deger": [takas.x, takas.y]})
-	# Akçe: esnaf ve pazar, kervansaray.
-	# Pazar, kaç esnafın alışveriş edebildiğini sınırlar: 2 + 2 × seviye.
-	var satan := mini(koy.sayi(&"esnaf"), ayarlar.pazar_tezgah_taban + ayarlar.pazar_tezgah_artis * int(yapilar[&"pazar"]))
-	# Tezgâh bulamayan esnaf seyyar satar: her `seyyar_bolen` kişi bir akçe.
-	var seyyar := (koy.sayi(&"esnaf") - satan) / ayarlar.seyyar_bolen
-	var gelir: int = satan * ayarlar.esnaf_gelir + seyyar + int(yapilar[&"kervansaray"]) * ayarlar.kervansaray_gelir
-	if gelir > 0:
-		akce += gelir
-		olaylar.append({"anahtar": "anlati.gelir", "deger": [gelir]})
-	# Asker maaşı: her iki asker bir akçe. Akçe yetmezse eksiği ambardan, ürünle ödenir (oran takastaki gibi);
-	# o da yetmezse Ordu düşer.
-	var maas := koy.sayi(&"asker") / 2
-	if maas > 0:
-		var eksik := maxi(0, maas - akce)
-		if eksik == 0:
-			akce -= maas
-			olaylar.append({"anahtar": "anlati.maas", "deger": [maas]})
-		elif ambar >= eksik * ayarlar.ambar_akce_orani:
-			olaylar.append({"anahtar": "anlati.maas_ambar", "deger": [akce, eksik * ayarlar.ambar_akce_orani]})
-			ambar -= eksik * ayarlar.ambar_akce_orani
-			akce = 0
-		else:
-			akce = 0
-			barlar.ekle(3, -1)
-			olaylar.append({"anahtar": "anlati.maas_yok"})
-	if perde == 1:
-		if gun >= ayarlar.ordu_baski_gecesi and koy.sayi(&"asker") * 2 < gun:
-			barlar.ekle(3, -1)
-			olaylar.append({"anahtar": "anlati.baski.ordu"})
-		if gun >= ayarlar.tuccar_baski_gecesi and koy.sayi(&"esnaf") == 0 and yapilar[&"pazar"] == 0:
-			barlar.ekle(2, -1)
-			olaylar.append({"anahtar": "anlati.baski.tuccar"})
+		var k := yonetim.kabul({"ad": tr_gelen(gelen), "adli_id": gelen.id if gelen.adli else &"", "sinif": sinif,
+			"portre": "soldier_01" if karar == &"kisla" and not gelen.adli else gelen.portre, "stat": gelen.stat,
+			"bayraklar": gelen.acik_bayraklar + _uzmanlik_bayragi(gelen), "gizli": _gizliler(gelen)},
+			karar == &"harc", rusvet_akce if (karar == &"rusvet" and gelen.kusurlu()) else 0,
+			gelen.zengin(ayarlar.zengin_esigi))
+		if karar == &"rusvet" and not gelen.kusurlu():
+			akce += rusvet_akce
+		if karar == &"kisla":
+			yonetim.muhafiz_ata(k.id)
+		ek["koylu_id"] = k.id
 	else:
-		var saldiri := saldiri_gucu()
-		var savunma := savunma_gucu()
-		olaylar.append({"anahtar": "anlati.saldiri.guc", "deger": [saldiri, savunma]})
-		if saldiri > savunma:
-			barlar.ekle(3, -1)
-			barlar.ekle(0, -1)
-			if saldiri - savunma >= 2 and koy.toplam() > 0:
-				koy.cikar_rastgele(1, _rng)
-				olaylar.append({"anahtar": "anlati.saldiri.kayip"})
-			olaylar.append({"anahtar": "anlati.saldiri.agir"})
-		else:
-			olaylar.append({"anahtar": "anlati.saldiri.puskurtuldu"})
-	if (gun + 1) % ayarlar.vergi_araligi == 0 and not bayraklar.has(&"bey_dostu"):
-		barlar.ekle(1, -1)
-		olaylar.append({"anahtar": "anlati.baski.vergi"})
-	var sonuc := _bar_cozumu()
-	sonuc["olaylar"] = olaylar
-	sonuc["son"] = &""
-	sonuc["perde_degisti"] = false
-	sonuc["olay"] = null
-	if sonuc["kirilan"] >= 0:
-		sonuc["son"] = &"kirildi"
-		return sonuc
-	gun += 1
+		akce += rusvet_akce
+		yonetim.ret(tr_gelen(gelen), not gelen.kusurlu(), _usta_uzmanlik(gelen))
+	_koy_esitle()
+	if gelen.adli:
+		kadro.sonuc(gelen.id, kaldi, &"kabul" if karar == &"harc" else karar, gun)
+	ek["kaldi"] = kaldi
+	return ek
+
+
+## Gece hesaplaşması (Faz 3). Döner: {olaylar: [{anahtar, deger}], kirilan (-1), rusvet_harcandi (-1),
+## son: StringName ("" | halk_kirildi | isyan | tekfur | zafer), perde_degisti (Ağalık bu gece), olay, rapor}.
+func gece_sonu() -> Dictionary:
+	var agalik_once := yonetim.agalik
+	var r := yonetim.gece()
+	_koy_esitle()
 	kadro.gece_bitti()
-	if perde == 2:
-		perde2_gece += 1
-		if perde2_gece >= ayarlar.perde2_hedef_gece:
-			sonuc["son"] = son_belirle()
-			return sonuc
-	elif koy.toplam() >= ayarlar.oturma_esigi:
-		perde = 2
-		sonuc["perde_degisti"] = true
-		return sonuc
-	sonuc["olay"] = olay_sec()
+	var sonuc := {"olaylar": r["olaylar"], "kirilan": -1, "rusvet_harcandi": -1, "son": StringName(r["son"]),
+		"perde_degisti": not agalik_once and yonetim.agalik, "olay": null, "rapor": r}
+	if r["son"] == "" and not sonuc["perde_degisti"]:
+		sonuc["olay"] = olay_sec()
 	return sonuc
 
 
-## İkinci perdede Tekfur'un saldırı gücü.
-## Ambar takası (F3): satılan ürün (x) ve karşılığı akçe (y). Yedek = gecelik tüketim × `ambar_yedek_gece`.
-func ambar_takasi(ambar_: int, tuketim: int, pazar: int) -> Vector2i:
-	var yedek := maxi(tuketim, 1) * ayarlar.ambar_yedek_gece
-	var fazla := ambar_ - yedek
-	if fazla < ayarlar.ambar_akce_orani:
-		return Vector2i.ZERO
-	var akce_ := mini(fazla / ayarlar.ambar_akce_orani, ayarlar.takas_taban + pazar * ayarlar.takas_pazar_artis)
-	return Vector2i(akce_ * ayarlar.ambar_akce_orani, akce_)
+## Eski bar etkisini yeni göstergelere çevirir: [Halk, Soylular, Tüccarlar, Ordu] → moral, adalet, akçe, asayiş.
+func _bar_uygula(etki: PackedInt32Array) -> void:
+	if etki.size() > 0 and etki[0] != 0:
+		_herkese_moral(etki[0] * KOPRU_MORAL)
+	if etki.size() > 1 and etki[1] != 0:
+		yonetim.adalet = clampi(yonetim.adalet + etki[1] * KOPRU_ADALET, 0, 100)
+	if etki.size() > 2 and etki[2] != 0:
+		akce += etki[2]
+	if etki.size() > 3 and etki[3] != 0:
+		yonetim.asayis_riski = clampi(yonetim.asayis_riski - etki[3] * KOPRU_ASAYIS, 0, 100)
 
 
-func saldiri_gucu() -> int:
-	var g := ayarlar.saldiri_taban + perde2_gece / ayarlar.saldiri_artis_araligi
-	if bayraklar.has(&"harac"):
-		g -= 2
-	return maxi(0, g)
+## Eski bar koşulları için 0–10 gösterge: 0 huzur, 1 adalet, 2 akçe, 3 güvenlik (100 − asayiş riski).
+func gosterge(i: int) -> int:
+	match i:
+		0:
+			return yonetim.huzur() / 10
+		1:
+			return yonetim.adalet / 10
+		2:
+			return clampi(akce / 5, 0, 10)
+		3:
+			return (100 - yonetim.asayis_riski) / 10
+	return 0
 
 
-## Köyün savunması: asker ve sur.
-func savunma_gucu() -> int:
-	var s: int = koy.sayi(&"asker") / ayarlar.savunma_bolen + yapilar[&"sur"] * 2
-	if bayraklar.has(&"ertugrul"):
-		s += 1
+func _herkese_moral(m: int) -> void:
+	for k in yonetim.koylular:
+		k.moral = clampi(k.moral + m, 0, 100)
+
+
+## Köy nüfusu (sınıf sayıları ve adlılar) köy yönetiminden yeniden kurulur.
+func _koy_esitle() -> void:
+	for s in koy.sayilar:
+		koy.sayilar[s] = 0
+	koy.adlilar.clear()
+	for k in yonetim.koylular:
+		koy.sayilar[k.sinif] = int(koy.sayilar.get(k.sinif, 0)) + 1
+		if k.adli_id != &"":
+			koy.adlilar.append(k.adli_id)
+	koy.degisti.emit()
+
+
+func _sinif_cikar(sinif: StringName) -> void:
+	for i in range(yonetim.koylular.size() - 1, -1, -1):
+		if yonetim.koylular[i].sinif == sinif:
+			yonetim.koylular.remove_at(i)
+			return
+
+
+func _yapi_sayisi(tur: String) -> int:
+	var n := 0
+	for b in yonetim.binalar:
+		if b.tur == tur and b.hazir():
+			n += 1
+	return n
+
+
+## Olay koşullarındaki eski yapılar: pazar ≈ atölye, kervansaray ≈ ambar, konak ≈ Ağalık.
+func _eski_yapi_seviyesi(ad: String) -> int:
+	match ad:
+		"pazar":
+			return mini(_yapi_sayisi("atolye"), 3)
+		"kervansaray":
+			return mini(_yapi_sayisi("ambar"), 3)
+		"konak":
+			return 1 if yonetim.agalik else 0
+		"sur":
+			return yonetim.sur_seviye
+	return 0
+
+
+## Usta gelenin uzmanlık bayrağı (kapıda görülen el, alet: stat 7 ve üstü).
+func _uzmanlik_bayragi(g: Gelen) -> PackedStringArray:
+	var u := _usta_uzmanlik(g)
+	return PackedStringArray(["usta_" + u]) if u != "" else PackedStringArray()
+
+
+func _usta_uzmanlik(g: Gelen) -> String:
+	if g.stat < 7:
+		return ""
+	return {&"ciftci": "ciftci", &"esnaf": "demirci", &"asker": "avci"}.get(g.sinif, "")
+
+
+## Kapıda açılmayan gizli gerçekler köye taşınır.
+func _gizliler(g: Gelen) -> PackedStringArray:
+	var s := PackedStringArray()
+	for b in g.gizli_bayraklar:
+		if not b in g.acik_bayraklar:
+			s.append(b)
 	return s
 
 
-## İkinci perdenin sonunda hangi son: köyün durumuna göre.
-func son_belirle() -> StringName:
-	var b := barlar.degerler
-	if bayraklar.has(&"ertugrul") and b[3] >= 6:
-		return &"ertugrul"
-	if bayraklar.has(&"ahi_ocagi") and yapilar[&"pazar"] >= 2:
-		return &"ahi"
-	if bayraklar.has(&"harac"):
-		return &"harac"
-	if bayraklar.has(&"bey_dostu") and b[1] >= 7:
-		return &"bey"
-	return &"tutundu"
+## Gelenin köydeki adı (çeviri anahtarı çevrilmiş).
+func tr_gelen(g: Gelen) -> String:
+	return TranslationServer.translate(g.ad_anahtari)
 
 
-# ─── Yapılar ─────────────────────────────────────────────────────────────
-
-## Bir yapının bir sonraki seviyesi için {bedel, esnaf, olur: bool}; azamideyse bedel -1.
-func yapi_durumu(yapi: StringName) -> Dictionary:
-	var seviye: int = yapilar[yapi]
-	var bedeller: PackedInt32Array
-	match yapi:
-		&"pazar":
-			bedeller = ayarlar.pazar_bedel
-		&"kervansaray":
-			bedeller = ayarlar.kervansaray_bedel
-		&"konak":
-			bedeller = ayarlar.konak_bedel
-		_:
-			bedeller = ayarlar.sur_bedel
-	if seviye >= bedeller.size():
-		return {"bedel": -1, "esnaf": 0, "nufus": 0, "olur": false}
-	if yapi == &"konak":
-		var nufus := ayarlar.konak_nufus[seviye]
-		return {"bedel": bedeller[seviye], "esnaf": 0, "nufus": nufus, "olur": akce >= bedeller[seviye] and koy.toplam() >= nufus}
-	var esnaf := 0
-	if yapi == &"pazar":
-		esnaf = ayarlar.pazar_esnaf[seviye]
-	elif yapi == &"kervansaray":
-		esnaf = ayarlar.kervansaray_esnaf[seviye]
-	var bedel := bedeller[seviye]
-	return {"bedel": bedel, "esnaf": esnaf, "nufus": 0, "olur": akce >= bedel and koy.sayi(&"esnaf") >= esnaf}
-
-
-func yapi_kur(yapi: StringName) -> bool:
-	var d := yapi_durumu(yapi)
-	if not d["olur"]:
-		return false
-	akce -= d["bedel"]
-	yapilar[yapi] = int(yapilar[yapi]) + 1
-	if yapi == &"kervansaray":
-		barlar.ekle(2, 1)
-	elif yapi == &"pazar":
-		barlar.ekle(0, 1)
-	elif yapi == &"konak":
-		barlar.ekle(1, 1)
-	return true
-
-
-func kese_alinabilir() -> bool:
-	return rusvet_hakki < ayarlar.rusvet_hakki and akce >= ayarlar.kese_fiyati
-
-
-func kese_al() -> bool:
-	if not kese_alinabilir():
-		return false
-	akce -= ayarlar.kese_fiyati
-	rusvet_hakki += 1
-	return true
+func tr_ad(sinif: StringName) -> String:
+	return TranslationServer.translate("arayuz.sinif." + String(sinif))
 
 
 # ─── Olaylar ─────────────────────────────────────────────────────────────
+
 
 ## Bu gece sonu için uygun bir olay (ağırlıklı rastgele) ya da null.
 func olay_sec() -> OlayVerisi:
@@ -399,6 +348,7 @@ func olay_sec() -> OlayVerisi:
 	return adaylar[-1]
 
 
+
 ## İki gelen arasında kuyrukta bir olay (ağırlıklı rastgele) ya da null. `kuyruk`: sırada bekleyen sayısı.
 func sira_olayi_sec(kuyruk: int) -> OlayVerisi:
 	if kuyruk <= 0 or _rng.randf() >= ayarlar.sira_olay_olasiligi:
@@ -420,6 +370,7 @@ func sira_olayi_sec(kuyruk: int) -> OlayVerisi:
 	return adaylar[-1]
 
 
+
 ## Bir seçeneğin gereklilikleri karşılanıyor mu.
 func secenek_olur(olay: OlayVerisi, i: int) -> bool:
 	var e: Dictionary = olay.secenek_etkileri[i]
@@ -436,6 +387,7 @@ func secenek_olur(olay: OlayVerisi, i: int) -> bool:
 	return true
 
 
+
 ## Seçeneği uygular. Döner: {kirilan, rusvet_harcandi, sonuc_anahtari}.
 ## `puan`: seçenek bir mini oyun açtıysa (`oyun`) alınan puan; ödül `oyun_odul` × puan, puan ≥ `oyun_esik`
 ## ise `oyun_basari` etkisi de uygulanır (design/gdd/koy-mini-oyunlari.md). −1 = oyun oynanmadı.
@@ -448,42 +400,41 @@ func olay_uygula(olay: OlayVerisi, i: int, puan: int = -1) -> Dictionary:
 		if puan >= int(e.get("oyun_esik", 9999)):
 			var b: Dictionary = e.get("oyun_basari", {})
 			if b.has("bar"):
-				barlar.uygula(PackedInt32Array(b["bar"]))
+				_bar_uygula(PackedInt32Array(b["bar"]))
 	var g: Dictionary = e.get("gerekli", {})
 	akce -= int(g.get("akce", 0))
 	ambar -= int(g.get("ambar", 0))
 	if e.has("bar"):
-		barlar.uygula(PackedInt32Array(e["bar"]))
+		_bar_uygula(PackedInt32Array(e["bar"]))
 	akce = maxi(0, akce + int(e.get("akce", 0)))
 	ambar = maxi(0, ambar + int(e.get("ambar", 0)))
-	rusvet_hakki = clampi(rusvet_hakki + int(e.get("kese", 0)), 0, ayarlar.rusvet_hakki)
 	sonraki_gelen_ek += int(e.get("sonraki_gelen", 0))
 	var nufus: Dictionary = e.get("nufus", {})
 	for sinif in nufus:
 		var n := int(nufus[sinif])
 		for k in absi(n):
 			if n > 0:
-				koy.ekle(StringName(sinif))
+				yonetim.kabul({"ad": tr_ad(StringName(sinif)), "sinif": sinif, "stat": _rng.randi_range(3, 7)})
 			else:
-				koy.cikar(StringName(sinif))
+				_sinif_cikar(StringName(sinif))
 	if e.has("bayrak"):
 		bayraklar[StringName(e["bayrak"])] = true
-	tarlalar.gun_ekle(int(e.get("tarla_gun", 0)))
-	if e.has("tarla_verim"):
-		tarlalar.verim_carp(float(e["tarla_verim"]))
-	if e.has("tarla_don"):
-		tarlalar.genc_yok_et(ayarlar.don_esigi)
 	if e.has("ayril"):
 		var id := StringName(e["ayril"])
 		if kadro.durumlar.has(id) and kadro.durumlar[id]["durum"] == &"koyde":
 			kadro.durumlar[id]["durum"] = &"kalici_ayrildi"
-			koy.cikar(katalog.karakter(id).sinif, id)
-	var sonuc := _bar_cozumu()
+			for k in yonetim.koylular:
+				if k.adli_id == id:
+					yonetim.koylular.erase(k)
+					break
+	_koy_esitle()
+	var sonuc := {"kirilan": -1, "rusvet_harcandi": -1}
 	sonuc["sonuc_anahtari"] = "%s.sonuc%d" % [olay.metin_anahtari.trim_suffix(".metin"), i + 1]
 	sonuc["oyun_puan"] = puan
 	if puan >= 0 and e.has("oyun") and puan < int(e.get("oyun_esik", 0)):
 		sonuc["sonuc_anahtari"] += "_az"
 	return sonuc
+
 
 
 func _kosul_tutar(k: Dictionary) -> bool:
@@ -505,7 +456,7 @@ func _kosul_tutar(k: Dictionary) -> bool:
 			return false
 	if koy.toplam() < int(k.get("nufus_min", 0)):
 		return false
-	if tarlalar.ekili_sayisi() < int(k.get("tarla_ekili_min", 0)):
+	if _yapi_sayisi("tarla") < int(k.get("tarla_ekili_min", 0)):
 		return false
 	var sm: Dictionary = k.get("sinif_min", {})
 	for s in sm:
@@ -515,35 +466,20 @@ func _kosul_tutar(k: Dictionary) -> bool:
 		return false
 	var ym: Dictionary = k.get("yapi_min", {})
 	for y in ym:
-		if int(yapilar.get(StringName(y), 0)) < int(ym[y]):
+		if _eski_yapi_seviyesi(String(y)) < int(ym[y]):
 			return false
 	var bm: Dictionary = k.get("bar_max", {})
 	for i in bm:
-		if barlar.degerler[int(i)] > int(bm[i]):
+		if gosterge(int(i)) > int(bm[i]):
 			return false
 	var bmin: Dictionary = k.get("bar_min", {})
 	for i in bmin:
-		if barlar.degerler[int(i)] < int(bmin[i]):
+		if gosterge(int(i)) < int(bmin[i]):
 			return false
 	if k.has("sans") and _rng.randf() >= float(k["sans"]):
 		return false
 	return true
 
-
-## Kırılan bar varsa önce rüşvet hakkı harcanır.
-func _bar_cozumu() -> Dictionary:
-	var sonuc := {"kirilan": -1, "rusvet_harcandi": -1}
-	var i := barlar.kirilan()
-	while i >= 0:
-		if rusvet_hakki > 0:
-			rusvet_hakki -= 1
-			barlar.ayarla(i, ayarlar.rusvet_kurtarma)
-			sonuc["rusvet_harcandi"] = i
-			i = barlar.kirilan()
-		else:
-			sonuc["kirilan"] = i
-			break
-	return sonuc
 
 
 func _adli_gelen(id: StringName) -> Gelen:
@@ -569,7 +505,13 @@ func _adli_gelen(id: StringName) -> Gelen:
 		g.etkiler[StringName(karar)] = k.etki(karar)
 	g.azami_soru = k.azami_soru
 	g.tehlikeli = k.tehlikeli
+	g.stat = k.zanaat if k.zanaat > 0 else 4 + int(String(id).hash() % 4)
+	g.gizli_bayraklar = k.gizli_bayraklar.duplicate()
+	if g.tehlikeli and g.gizli_bayraklar.is_empty():
+		g.gizli_bayraklar.append("casus_suphesi")
+	g.soru_bayraklari = s.soru_bayraklari_ziyaret(ziyaret)
 	return g
+
 
 
 ## Sıradaki hazır diyalog (data/diyalog). Her biri oyun başına bir kez gelir; bitince boş döner
@@ -585,6 +527,7 @@ func _gemini_al() -> Dictionary:
 	var d: Dictionary = _gemini[_gemini_sira]
 	_gemini_sira += 1
 	return d
+
 
 
 func _figur_gelen() -> Gelen:
@@ -615,12 +558,14 @@ func _figur_gelen() -> Gelen:
 		g.secenekler.append(o["k"])
 		g.esikler.append(int(o["e"]))
 	g.yanitlar = d["yanitlar"]
+	g.stat = _rng.randi_range(3, 7)
 	for karar in g.secenekler:
 		var etki := sablon.etki(karar).duplicate()
 		if karar == "kabul":
 			etki[_rng.randi_range(0, etki.size() - 1)] += 1 if _rng.randf() < 0.5 else -1
 		g.etkiler[StringName(karar)] = etki
 	return g
+
 
 
 ## JSON diyalogdaki soru ağacını düzler: [soru, cevap, [takipler]].
@@ -631,6 +576,7 @@ func _json_sorular(g: Gelen, liste: Array, ust: int) -> void:
 		g.soru_ust.append(ust)
 		if cift.size() > 2 and cift[2] is Array:
 			_json_sorular(g, cift[2], i)
+
 
 
 func _figur_sablon() -> Gelen:
@@ -652,6 +598,7 @@ func _figur_sablon() -> Gelen:
 			g.sorular.append(PackedStringArray([sablon.soru_anahtarlari[i], sablon.cevap_anahtarlari[i]]))
 			var u: int = sablon.soru_ust[i] if i < sablon.soru_ust.size() else -1
 			g.soru_ust.append(int(yerel.get(u, -1)))
+	g.stat = _rng.randi_range(3, 7)
 	g.secenekler = _perde_secenekleri(sablon.karar_secenekleri)
 	for karar in g.secenekler:
 		var etki := sablon.etki(karar).duplicate()
@@ -662,6 +609,7 @@ func _figur_sablon() -> Gelen:
 	return g
 
 
+
 ## İkinci perdede kapı sade bir süzgeçtir: yalnız kabul ve ret.
 func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 	if perde == 1:
@@ -669,88 +617,41 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 	return PackedStringArray(["kabul", "ret"])
 
 
-## Boş bir tarlaya ürün eker; tohum ambardan düşer. Döner: ekildi mi.
-func tarla_ek(bitki: String) -> bool:
-	var i := ayarlar.bitki_idleri.find(bitki)
-	if i < 0 or ambar < ayarlar.bitki_tohumlari[i] or tarlalar.bos_sayisi() == 0:
-		return false
-	ambar -= ayarlar.bitki_tohumlari[i]
-	return tarlalar.ek(bitki)
-
-
-## Kapıda seçilebilen iş yerleri (gereken yapı kurulmuşsa).
-func is_yerleri() -> PackedStringArray:
-	var s := PackedStringArray()
-	for i in ayarlar.is_idleri.size():
-		var y := ayarlar.is_yapilari[i]
-		if y == "" or int(yapilar.get(StringName(y), 0)) > 0:
-			s.append(ayarlar.is_idleri[i])
-	return s
-
-
-## Gece sonu kaydı için sözlük.
+## Gün sonu kaydı için sözlük (oturum + köy yönetimi).
 func kaydet() -> Dictionary:
-	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "gun": gun, "perde": perde, "perde2_gece": perde2_gece,
-		"rusvet_hakki": rusvet_hakki, "barlar": Array(barlar.degerler),
-		"akce": akce, "ambar": ambar, "sonraki_gelen_ek": sonraki_gelen_ek,
-		"yapilar": {"pazar": yapilar[&"pazar"], "kervansaray": yapilar[&"kervansaray"], "sur": yapilar[&"sur"], "konak": yapilar[&"konak"]},
+	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
 		"bayraklar": bayraklar.keys().map(func(x): return String(x)),
 		"rusvet_sayisi": int(bayraklar.get(&"rusvet_sayisi", 0)),
 		"gorulen_olaylar": gorulen_olaylar.keys().map(func(x): return String(x)),
-		"koy": {"asker": koy.sayi(&"asker"), "esnaf": koy.sayi(&"esnaf"), "ciftci": koy.sayi(&"ciftci")},
-		"koy_adlilar": koy.adlilar.map(func(x): return String(x)),
 		"kadro": kadro.kaydet(),
 		"diyalog_sira": _gemini_sira,
-		"tarlalar": tarlalar.kaydet(),
+		"koy_yonetimi": yonetim.kaydet(),
 		"rng": [str(_rng.state), str(_rng_donus.state), str(_rng_ad.state), str(_rng_heybe.state)]}
 	# 64 bit sayılar JSON'da float'a döner; metin olarak saklanır.
 
 
 ## Kayıttan oturum kurar; geçersizse null.
 static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
-	if int(veri.get("surum", 0)) != KAYIT_SURUMU:
+	if int(veri.get("surum", 0)) != KAYIT_SURUMU or not (veri.get("koy_yonetimi") is Dictionary):
 		push_error("Kayıt sürümü uyuşmuyor")
 		return null
-	var gun_: float = veri.get("gun", -1)
-	var perde_: int = int(veri.get("perde", 0))
-	if gun_ < 0 or gun_ != floorf(gun_) or not perde_ in [1, 2]:
-		push_error("Kayıt geçersiz: gün/perde")
-		return null
 	var o := Oturum.new(katalog_, String(veri["tohum"]).to_int())
-	o.gun = int(gun_)
-	o.perde = perde_
-	o.perde2_gece = int(veri.get("perde2_gece", 0))
-	o.rusvet_hakki = int(veri.get("rusvet_hakki", 0))
-	o.akce = int(veri.get("akce", 0))
-	o.ambar = int(veri.get("ambar", 0))
+	o.yonetim = KoyYonetimi.kayittan(katalog_.koy_ayarlari, katalog_.binalar, veri["koy_yonetimi"])
 	o.sonraki_gelen_ek = int(veri.get("sonraki_gelen_ek", 0))
-	var y: Dictionary = veri.get("yapilar", {})
-	for k in o.yapilar.keys():
-		o.yapilar[k] = int(y.get(String(k), 0))
 	for b in veri.get("bayraklar", []):
 		o.bayraklar[StringName(b)] = true
 	if int(veri.get("rusvet_sayisi", 0)) > 0:
 		o.bayraklar[&"rusvet_sayisi"] = int(veri["rusvet_sayisi"])
 	for g in veri.get("gorulen_olaylar", []):
 		o.gorulen_olaylar[StringName(g)] = true
-	var b: Array = veri.get("barlar", [])
-	for i in mini(b.size(), o.barlar.degerler.size()):
-		o.barlar.degerler[i] = int(b[i])
-	var k: Dictionary = veri.get("koy", {})
-	for s in [&"asker", &"esnaf", &"ciftci"]:
-		o.koy.sayilar[s] = int(k.get(String(s), 0))
-	for a in veri.get("koy_adlilar", []):
-		o.koy.adlilar.append(StringName(a))
 	if not o.kadro.yukle(veri.get("kadro", {})):
 		return null
 	var r: Array = veri.get("rng", [])
-	if r.size() >= 3:
+	if r.size() >= 4:
 		o._rng.state = String(r[0]).to_int()
 		o._rng_donus.state = String(r[1]).to_int()
 		o._rng_ad.state = String(r[2]).to_int()
-	if r.size() >= 4:
 		o._rng_heybe.state = String(r[3]).to_int()
 	o._gemini_sira = int(veri.get("diyalog_sira", 0))
-	o.tarlalar.yukle(veri.get("tarlalar", []))
-	o.tarlalar.alan_guncelle(o.koy.sayi(&"ciftci"), o.ayarlar.ciftci_tarla_basina, o.ayarlar.tarla_azami)
+	o._koy_esitle()
 	return o

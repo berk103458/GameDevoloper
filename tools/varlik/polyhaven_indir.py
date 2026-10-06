@@ -38,6 +38,12 @@ VARLIKLAR = [
     # fir_sapling_medium (75 MB geometri) repoya girmez: tools/varlik/impostor_pisir.gd ondan uzak plan için
     # saydam görüntüler (impostor) pişirir; yalnız görüntüler (assets/ph/impostor/) repoya girer.
     ("aerial_rocks_02", "doku", "2k"),
+    # 2. aşama: gündüz kapı ve akşam köy yönetimi (design/gdd/koy-yonetimi.md)
+    ("kloofendal_48d_partly_cloudy_puresky", "gok", "2k"),  # gündüz kapı gökyüzü
+    ("kloppenheim_06_puresky", "gok", "2k"),                # akşam köy gökyüzü (gün batımı)
+    ("sparse_grass", "doku", "2k"),                         # köy çayırı
+    ("rocky_trail", "doku", "2k"),                          # köy patikaları
+    ("brown_mud_leaves_01", "doku", "1k"),                  # tarla toprağı
     ("snow_field_aerial", "doku", "2k"),
 ]
 HARITALAR = {"Diffuse": "diff", "nor_gl": "nor_gl", "Rough": "rough"}

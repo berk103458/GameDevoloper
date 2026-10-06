@@ -13,6 +13,8 @@ extends Resource
 @export var soru_ziyareti: PackedInt32Array
 ## Sorunun üst sorusu (takip sorusu ise); -1 = kök. Üst soru sorulunca açılır.
 @export var soru_ust: PackedInt32Array
+## Soru sorulup cevabı alınınca açılan bayrak (koşullu kilit, design/gdd/koy-yonetimi.md 1.3–1.4); boş = yok.
+@export var soru_bayraklari: PackedStringArray
 
 
 ## Verilen ziyarette sorulabilen soruların indeksleri.
@@ -26,6 +28,14 @@ func sorular(ziyaret: int) -> PackedInt32Array:
 		if soru_ziyareti[i] == 0 or soru_ziyareti[i] == hedef:
 			sonuc.append(i)
 	return sonuc
+
+
+## `sorular(ziyaret)` ile aynı sırada soru bayrakları.
+func soru_bayraklari_ziyaret(ziyaret: int) -> PackedStringArray:
+	var s := PackedStringArray()
+	for i in sorular(ziyaret):
+		s.append(soru_bayraklari[i] if i < soru_bayraklari.size() else "")
+	return s
 
 
 ## Ziyaretin giriş anlatısı anahtarı.

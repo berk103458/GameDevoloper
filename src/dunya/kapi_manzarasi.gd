@@ -27,12 +27,16 @@ const KOY_YERI := Vector3(-8.0, 0.0, -136.0)
 
 ## Gece gökyüzü (Poly Haven HDRI).
 const GOK := "satara_night_no_lamps"
+## Gündüz gökyüzü: kapı nöbeti gündüz tutulur (design/gdd/koy-yonetimi.md, 14.1; kullanıcı kararı 6 Ekim 2026).
+const GOK_GUNDUZ := "kloofendal_48d_partly_cloudy_puresky"
 
 ## Gece (0'dan) ve perde: tehdidin ne kadar büyüdüğünü belirler.
 var gece := 0
 var perde := 1
 ## İkinci perdede Tekfur'un yakınlığı 0..1 (perde2_gece / perde2_hedef_gece).
 var yakinlik := 0.0
+## Gündüz: yangının parıltısı ve fenerler söner, duman görünür kalır.
+var gunduz := false
 
 var _zaman := 0.0
 var _ates_isiklari: Array[OmniLight3D] = []
@@ -48,7 +52,7 @@ func ates_sayisi() -> int:
 
 func _ready() -> void:
 	# Gökyüzü HDRI'dan gelir (KapiSahnesi ortamı); HDRI yoksa yordamsal gök ve yıldızlar.
-	if Pbr.gok(GOK) == null:
+	if Pbr.gok(GOK_GUNDUZ if gunduz else GOK) == null:
 		_gok_kur()
 	_arazi_kur()
 	_yol_kur()
@@ -484,12 +488,13 @@ func _multeciler_kur() -> void:
 			fener.position = Vector3(0.35, 0.95, 0.1)
 			fener.material_override = _isik_sacan(ATES_IC, 4.0)
 			k.add_child(fener)
-			var l := OmniLight3D.new()
-			l.light_color = ATES
-			l.light_energy = 0.6
-			l.omni_range = 4.0
-			l.position = fener.position
-			k.add_child(l)
+			if not gunduz:
+				var l := OmniLight3D.new()
+				l.light_color = ATES
+				l.light_energy = 0.6
+				l.omni_range = 4.0
+				l.position = fener.position
+				k.add_child(l)
 		_yuruyenler.append({"k": k, "t": t, "yan": yan})
 		_yuruyen_yerlestir(_yuruyenler[-1])
 		k.yuru(k.position + Vector3(0, 0, 0.001), 0.01)
@@ -555,7 +560,7 @@ func _yanan_koy_kur(soner := false) -> void:
 		var p := ev_p + Vector3(r.randf_range(-0.8, 0.8), 2.4 + r.randf() * 0.6, r.randf_range(-0.8, 0.8))
 		_ates_kur(p, r.randf_range(1.2, 2.2) * (0.8 + siddet), 6.0 + siddet * 10.0)
 	# Ufukta yangının parıltısı: tepenin üstünde geniş, yumuşak turuncu hale.
-	if ates_sayisi > 0:
+	if ates_sayisi > 0 and not gunduz:
 		var hale := MeshInstance3D.new()
 		var q := QuadMesh.new()
 		q.size = Vector2(70.0 + siddet * 40.0, 26.0 + siddet * 14.0)
