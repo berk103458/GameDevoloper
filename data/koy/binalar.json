@@ -1,0 +1,16 @@
+{
+ "_aciklama": "Köy yapı kataloğu (design/gdd/koy-yonetimi.md, 7). boyut: ızgara hücresi (1 hücre = 2 m). maliyet ambardan (ve akçe) düşer. uretim: çalışan başına günlük temel üretim (formül F4). receteler: girdi ambardan düşer. kis_durur: kışın üretim yok.",
+ "cadir":       {"kategori": "barinma", "boyut": [2, 2], "maliyet": {"odun": 4}, "yatak": 3, "insa_gun": 1, "model": "yapi/cadir"},
+ "kulube":      {"kategori": "barinma", "boyut": [2, 2], "maliyet": {"odun": 6, "tas": 2, "kereste": 2}, "yatak": 4, "insa_gun": 2, "model": "yapi/ev"},
+ "tarla":       {"kategori": "uretim", "boyut": [3, 3], "maliyet": {"odun": 3}, "slot": 3, "insa_gun": 1, "kis_durur": true,
+                 "receteler": {"gida": {"uretim": {"gida": 2.0}}}, "uzmanlik": "ciftci"},
+ "hizarhane":   {"kategori": "uretim", "boyut": [2, 2], "maliyet": {"odun": 6, "tas": 2, "alet": 1}, "slot": 2, "insa_gun": 2,
+                 "receteler": {"odun": {"uretim": {"odun": 3.0}}, "kereste": {"girdi": {"odun": 2}, "uretim": {"kereste": 1.0}}}, "uzmanlik": "oduncu"},
+ "tas_ocagi":   {"kategori": "uretim", "boyut": [2, 2], "maliyet": {"odun": 6, "alet": 1}, "slot": 2, "insa_gun": 2,
+                 "receteler": {"tas": {"uretim": {"tas": 1.5}}}, "uzmanlik": "tasci"},
+ "avci":        {"kategori": "uretim", "boyut": [2, 2], "maliyet": {"odun": 5}, "slot": 1, "insa_gun": 1,
+                 "receteler": {"av": {"uretim": {"gida": 1.5, "kurk": 0.5}}}, "uzmanlik": "avci"},
+ "atolye":      {"kategori": "uretim", "boyut": [2, 2], "maliyet": {"odun": 6, "tas": 4, "kereste": 2}, "slot": 2, "insa_gun": 2,
+                 "receteler": {"alet": {"girdi": {"kereste": 1, "demir": 1}, "uretim": {"alet": 1.0}}, "yakacak": {"girdi": {"kereste": 1}, "uretim": {"odun": 3.0}}}, "uzmanlik": "demirci"},
+ "ambar":       {"kategori": "hizmet", "boyut": [3, 2], "maliyet": {"odun": 10, "tas": 6, "kereste": 4}, "insa_gun": 3, "kapasite": 100}
+}

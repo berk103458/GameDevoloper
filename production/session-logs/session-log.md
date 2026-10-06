@@ -3978,3 +3978,31 @@ f7f7273 feat(kapi): realistic gate scene — scanned PBR, HDRI night, volumetric
 1df5b30 feat(kapi): new gate backdrop from the concept, gate grows with the walls
 ---
 
+## Session End: 20261005_233339
+### Commits
+0462187 chore(varlik): Meshy download matcher — sort hand-downloaded GLBs by triangle count
+e93798b Merge remote-tracking branch 'origin/claude/festive-volta-li1sfm' into claude/festive-volta-li1sfm
+0e11b58 docs(art): Meshy köy varlıkları — ayıklama, animasyon durumu, dönem uygun ek öneriler
+2a98ff5 d
+60dae1d d
+b509935 fix(ses): release the custom mouse cursor before quitting
+0f1a22a chore: update session logs
+64d9d61 fix(ses): empty static resource caches before quitting
+2f4075d fix(ses): silence loops before quitting — no AudioStreamWAV leak at exit
+f6bdb08 chore: update session logs
+cf67d4d fix(ekonomi): akçe never stalls — surplus grain sold, street vendors, soldiers paid in grain
+d3688fc chore: merge cursor/chr-001-sati-4019 (Satı page kept as a draft)
+84706bc chore: merge claude/keen-cerf-42meo7 (Godot .import files)
+e833a5c chore: update session logs
+d089232 chore: update session logs
+95d60e8 d
+b5ab740 feat(kapi): arrivals come from the queue — front steps out, line advances in a wave
+a53e472 test(kapi): 4K evidence frame of the realistic far plane
+0b3a5ca feat(kapi): realistic far plane — rock-and-snow mountains, impostor cypress/fir, grounded burning village, walking refugees
+6f359e8 chore: update session logs
+f905f8b test(kapi): 4K evidence frame of the realistic gate scene
+5a6ec02 test(kapi): keep the gate screenshot tool for visual evidence
+f7f7273 feat(kapi): realistic gate scene — scanned PBR, HDRI night, volumetric light, native 4K
+1df5b30 feat(kapi): new gate backdrop from the concept, gate grows with the walls
+---
+
