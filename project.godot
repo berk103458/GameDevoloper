@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 [autoload]
 
 Ses="*res://src/sistemler/ses.gd"
+QuestSystem="*res://src/sistemler/gorev_yoneticisi.gd"
 
 [display]
 
@@ -27,7 +28,18 @@ window/size/window_height_override=900
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/quest_system/plugin.cfg")
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://data/metin/metinler.tr.translation")
 locale/fallback="tr"
+
+[quest_system]
+
+config/autoload_script_path="res://src/sistemler/gorev_yoneticisi.gd"
+config/check_for_updates_on_startup=false
+config/require_objective_completed=true
+config/allow_repeating_completed_quests=false
