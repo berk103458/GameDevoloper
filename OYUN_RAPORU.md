@@ -404,3 +404,10 @@ Sıradaki: KAP-11. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 IpucuYoneticisi ziyaret başına oturumdan bağımsız Clue kaydı sunuyor; mükerrer kayıt/sinyal, boş anahtar ve Flag reddedilir. ChrSorgusu inceleme adaptörleri bu servisi kullanır; dışa verilen sözlük kopyadır. Servis, gerçek sorgu/UI ve headless testleri geçti.
 
 Sıradaki: KAP-12. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — KAP-12 (6 Ekim 2026)
+
+0–10 canlı tansiyon barı Sakin/Gergin/Panik eşik renkleriyle sorgu sinyaline bağlandı; kalıcı kabul kilidi açıklanıyor. Eşik, renk, değer clamp ve sahne çıkışı testleri geçti; gerçek kapı UI headless ve native görüntü kontrolü tamamlandı.
+
+Sıradaki: KAP-13. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

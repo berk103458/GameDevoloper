@@ -13,8 +13,9 @@ func guncelle() -> void:
 		remove_child(cocuk)
 		cocuk.queue_free()
 	var dugum: Dictionary = sorgu.karakter.diyalog_dugumu(sorgu.dugum_id)
-	var durum := Label.new()
-	durum.text = "Tansiyon: %d / 10%s" % [sorgu.tansiyon, " — Panik: barışçıl kabul kapalı" if sorgu.bayraklar["Flag_Kilitlendi"] else ""]
+	var durum := preload("res://src/arayuz/kapi/tansiyon_gostergesi.gd").new()
+	durum.name = "TansiyonGostergesi"
+	durum.sorgu = sorgu
 	add_child(durum)
 	if not sorgu.son_zar.is_empty():
 		var sonuc := Label.new()
