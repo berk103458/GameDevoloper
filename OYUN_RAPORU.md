@@ -418,3 +418,10 @@ Sıradaki: KAP-13. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 Panikte Kabul düğmesi disabled olarak görünür ve gerekçesini gösterir; yalnız ret/kışla/rüşvet etkin kalır. Düğme/kısayol onay yolu ve doğrudan karar API'si kabulü yan etkisiz engeller. Gerçek kapı UI kabul testi ve korumalı API denetimi geçti.
 
 Sıradaki: KAP-14. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — KAP-14 (6 Ekim 2026)
+
+Nişan ve yük tıklaması kaynak fiziksel açıklamasını ayrı modal karta açıyor; alttaki girdi durur ve kapatma sorguya döner. Mevcut heybe akışı ve başka ajanın dosyaları korunur. Nişan/yük kartı, gerçek kapı native görüntü ve headless tarama testleri geçti.
+
+Sıradaki: BUG-02. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

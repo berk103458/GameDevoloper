@@ -4,6 +4,15 @@ extends PanelContainer
 var sorgu: RefCounted
 var _aciklama: RichTextLabel
 
+func _nesne_incele(sira: int) -> void:
+	if has_node("EsyaDetayKarti"):
+		return
+	_aciklama.text = sorgu.obje_incele(sira)
+	var kart := preload("res://src/arayuz/kapi/esya_detay_karti.tscn").instantiate()
+	kart.baslik = "İncelenen nişan" if sira == 1 else "İncelenen yük"
+	kart.aciklama = _aciklama.text
+	add_child(kart)
+
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -18,12 +27,12 @@ func _ready() -> void:
 	var nisani := Button.new()
 	nisani.text = "Nişanı / mührü incele"
 	nisani.custom_minimum_size.y = 70
-	nisani.pressed.connect(func() -> void: _aciklama.text = sorgu.obje_incele(1))
+	nisani.pressed.connect(_nesne_incele.bind(1))
 	kutu.add_child(nisani)
 	var yuk := Button.new()
 	yuk.text = "Yükü / gizli bölmeyi incele"
 	yuk.custom_minimum_size.y = 70
-	yuk.pressed.connect(func() -> void: _aciklama.text = sorgu.obje_incele(2))
+	yuk.pressed.connect(_nesne_incele.bind(2))
 	kutu.add_child(yuk)
 	var portre := TextureButton.new()
 	portre.name = "GorselIz"
