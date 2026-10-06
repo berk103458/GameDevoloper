@@ -77,3 +77,24 @@ elsewhere in the repo, so they are restated here rather than lost:
 - **Helpers in `.claude/scripts/` emit observations, never verdicts.** A script
   that scores or judges will eventually contradict a mode or override it cannot
   see. (Cited by `artifact-check.sh` and `adr-dep-graph.sh`.)
+
+---
+
+## Claude — Çalışma günlüğü (Kapı Muhafızı)
+
+### Kimlik
+Claude — kod / entegrasyon ajanı (Godot GDScript, festive dalı).
+
+### Şu an üzerinde çalışılan
+ROADMAP commit `4f7c460` sonrası. Aktif işaretli: **KAP-02** (tansiyon durum makinesi), **KAP-03** (heybe paneli). Bu turda yalnızca proje kural / günlüğü dokümanları.
+
+### Sonraki plan
+Ahmet yönlendirdiğinde KAP-02/03 koduna devam; festive+keen WIP’i ayrı, bilinçli commit ile almak.
+
+### Güncel durum
+- HEAD festive; ROADMAP `4f7c460` push’lu.
+- festive+keen WIP **unstaged** olabilir (HUD, koy görsel, metinler.csv vb.) — dokunulmadı.
+- Günlük dosyaları: `CLAUDE.md` (bu dosya), `codex.md/`, `GEMINI.md`.
+
+### Kural
+Bu projede her çalıştığında **önce** bu dosyayı ve `AGENTS.md`’yi oku. Her **commit** ve **pull** sonrası bu dosyadaki durum bölümünü güncelle. ROADMAP’te kapattığın adımları `[x]` yap ve satır sonuna `(Claude)` yaz.

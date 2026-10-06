@@ -130,3 +130,11 @@ Kapsam: Bölüm 0–12 + Bölüm 2.5 (KVR) + SYS-09 anahtar standardı (replik/s
 **Eklendi:** `AGENTS.md` içine «Codex çalışma günlüğü ve ROADMAP işaretleme» kuralı (Muharrir hariç tüm ajanlar).
 **Klasör:** `codex.md/` (klasör adı tam olarak `codex.md`); örnek rapor: `codex.md/Muharrir.md`.
 Her commit/pull sonrası ajan kendini tanıtır, durum/plan yazar; ROADMAP’te kapanan adımları işaretler `(ajan)`.
+
+---
+
+## Yenilik notu — Claude / Codex / Gemini günlükleri
+
+**Eklendi:** `CLAUDE.md` durum bölümü, `GEMINI.md`, `codex.md/Codex.md`.
+Üç model için tanıt + durum + commit/pull sonrası güncelleme + ROADMAP `(Claude|Codex|Gemini)` işareti.
+AGENTS yönlendirme notu: Claude→CLAUDE.md, Codex→codex.md/, Gemini→GEMINI.md; Muharrir kural dışı (isteğe bağlı).

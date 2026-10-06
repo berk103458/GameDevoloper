@@ -84,3 +84,5 @@ Bu projede her çalıştığında **önce** aşağıdaki «Codex çalışma gün
 Proje reposunda codex.md adlı bir klaösr ekle. Basitçe kendini tanıt. Ardından ne üzerinde çalıştığını, sonraki çalışma planını, güncel durumunu rapor halinda oraya her commit ve pull ettiğinde güncelleyerek yaz.
 
 Ayrıca roadmap üzerinde çalışmayı bitirdiğin, kapanmış adımları işaretle ve yapanın sen olduğun parantez açarak o adımın sonunda belirt.
+
+**Dosya yönlendirme (Muharrir hariç):** Claude → `CLAUDE.md`; Codex → `codex.md/` (ör. `codex.md/Codex.md`); Gemini → `GEMINI.md`. Muharrir bu günlük kuralının dışında; isteğe bağlı tutabilir (`codex.md/Muharrir.md`).
