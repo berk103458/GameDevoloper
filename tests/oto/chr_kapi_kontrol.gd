@@ -39,8 +39,15 @@ func _ready() -> void:
 	ekran._soru_sor(2)
 	assert(g.chr_sorgusu().bayraklar["Flag_Kilitlendi"])
 	ekran._karar_goster()
-	assert(not ekran._karar_anahtarlari.has("kabul") and ekran._karar_anahtarlari.has("ret"))
+	assert(ekran._karar_anahtarlari.has("kabul") and ekran._karar_anahtarlari.has("ret"))
+	var kabul_indeksi := ekran._karar_anahtarlari.find("kabul")
+	assert(ekran._karar_dugmeleri[kabul_indeksi].disabled)
+	for i in ekran._karar_anahtarlari.size():
+		if ekran._karar_anahtarlari[i] != "kabul":
+			assert(ekran._karar_anahtarlari[i] in ["ret", "kisla", "rusvet"] and not ekran._karar_dugmeleri[i].disabled)
 	var kamu := o.koy_akce
+	ekran._karar_bas("kabul")
+	assert(ekran._secili.is_empty())
 	ekran._karar_ver("kabul")
 	assert(ekran.evre == &"karar" and o.koy_akce == kamu)
 	kok.queue_free()

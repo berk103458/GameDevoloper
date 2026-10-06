@@ -1,6 +1,14 @@
 ## Kapı ekranına eklenen küçük bağlantı; JSON ve eski heybe akışı korunur.
 extends RefCounted
 
+static func karar_kilidi(dugme: MenuSatiri, sorgu: RefCounted, karar: StringName) -> void:
+	if sorgu == null:
+		return
+	dugme.disabled = not sorgu.karar_acik(karar)
+	if dugme.disabled:
+		dugme.alt_yazi = "Panik: barışçıl kabul kapalı"
+		dugme.tooltip_text = dugme.alt_yazi
+
 static func diyalog_goster(ekran: Control, gelen: Gelen, secenekler: VBoxContainer, eylemler: VBoxContainer) -> bool:
 	var sorgu := gelen.chr_sorgusu()
 	if sorgu == null:

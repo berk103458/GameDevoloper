@@ -411,3 +411,10 @@ Sıradaki: KAP-12. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 0–10 canlı tansiyon barı Sakin/Gergin/Panik eşik renkleriyle sorgu sinyaline bağlandı; kalıcı kabul kilidi açıklanıyor. Eşik, renk, değer clamp ve sahne çıkışı testleri geçti; gerçek kapı UI headless ve native görüntü kontrolü tamamlandı.
 
 Sıradaki: KAP-13. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — KAP-13 (6 Ekim 2026)
+
+Panikte Kabul düğmesi disabled olarak görünür ve gerekçesini gösterir; yalnız ret/kışla/rüşvet etkin kalır. Düğme/kısayol onay yolu ve doğrudan karar API'si kabulü yan etkisiz engeller. Gerçek kapı UI kabul testi ve korumalı API denetimi geçti.
+
+Sıradaki: KAP-14. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

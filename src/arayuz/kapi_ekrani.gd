@@ -458,7 +458,7 @@ func _karar_goster() -> void:
 	if chr != null:
 		_karar_anahtarlari = PackedStringArray()
 		for karar in gorunen:
-			if chr.karar_acik(StringName(karar)):
+			if chr.karar_acik(StringName(karar)) or karar == "kabul":
 				_karar_anahtarlari.append(karar)
 	for n in _karar_anahtarlari.size():
 		var anahtar := _karar_anahtarlari[n]
@@ -467,6 +467,7 @@ func _karar_goster() -> void:
 		b.custom_minimum_size.y = 80
 		b.punto = ayarlar.boyut(30)
 		b.alt_yazi = _karar_alt_yazi(anahtar)
+		preload("res://src/arayuz/chr_kapi_adaptoru.gd").karar_kilidi(b, chr, StringName(anahtar))
 		b.pressed.connect(_karar_bas.bind(anahtar))
 		_karar_dugmeleri.append(b)
 	# Eylemler (defterin altı) hemen görünür; yalnız kararlar sırayla belirir.
