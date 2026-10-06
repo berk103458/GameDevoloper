@@ -222,6 +222,11 @@ func gelen_gergin() -> void:
 	if _gelen != null:
 		_gelen.gergin()
 
+## CHR panik adaptörü; mevcut duygu/klip önbelleği kullanılır.
+func gelen_panik() -> void:
+	if _gelen != null:
+		_gelen.duygu(&"ofke")
+
 
 ## Karar sonrası: kaldıysa içeri, gittiyse yola. `tehlikeli`: retde öfke, değilse yıkılma.
 func gelen_git(kaldi: bool, tehlikeli: bool = true) -> void:

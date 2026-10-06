@@ -32,3 +32,6 @@ assets/ph/model/island_tree_02/
 
 # Local Meshy API credential
 /.meshy-api-key
+
+# Local sanity-check logs
+/work/sanity/

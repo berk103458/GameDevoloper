@@ -152,7 +152,7 @@ func gida_gunu() -> float:
 ## Kapıdan biri içeri alınır; serbest iş gücü havuzuna (boşta) yazılır. `v`: {ad, adli_id, sinif, portre, stat,
 ## bayraklar, gizli}. `harc`: yoksuldan zorla geçiş akçesi kesildi; `rusvet`: şüpheli rüşvetle alındı (akçe ayrıca
 ## verilir); `zengin`: parası için alındı.
-func kabul(v: Dictionary, harc: bool = false, rusvet: int = 0, zengin: bool = false) -> Koylu:
+func kabul(v: Dictionary, harc: bool = false, rusvet: int = 0, zengin: bool = false, rusvet_koy_kasasina: bool = true) -> Koylu:
 	var k := Koylu.new()
 	k.id = _sonraki_id
 	_sonraki_id += 1
@@ -172,7 +172,8 @@ func kabul(v: Dictionary, harc: bool = false, rusvet: int = 0, zengin: bool = fa
 		k.sadakat = int(k.sadakat * (1.0 - a.harc_sadakat_orani))
 		adalet = maxi(0, adalet - a.harc_adalet)
 	if rusvet > 0:
-		akce += rusvet
+		if rusvet_koy_kasasina:
+			akce += rusvet
 		asayis_riski = mini(100, asayis_riski + a.rusvet_asayis)
 	if zengin:
 		_bugun_zengin_kabul = true

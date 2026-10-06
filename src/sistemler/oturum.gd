@@ -5,7 +5,7 @@
 class_name Oturum
 extends RefCounted
 
-const KAYIT_SURUMU := 2
+const KAYIT_SURUMU := 3
 ## Bar köprüsü: eski bir bar puanının yeni göstergedeki karşılığı.
 const KOPRU_MORAL := 5
 const KOPRU_ADALET := 5
@@ -18,6 +18,10 @@ var kadro: KarakterKadrosu
 ## Köy yönetimi: ambar, köylüler, yapılar, ekonomi, gece çözümü, sonlar.
 var yonetim: KoyYonetimi
 var tohum: int = 0
+var muhafiz_tecrubesi: int = 0
+var muhafiz_akce: int = 0
+var muhafiz_esyalari: Array[Dictionary] = []
+var yeni_binalar: Array[Dictionary] = []
 ## Olayların bıraktığı işaretler (kararların uzun vadeli izleri).
 var bayraklar: Dictionary = {}
 var gorulen_olaylar: Dictionary = {}
@@ -41,11 +45,17 @@ var gun: int:
 var perde: int:
 	get:
 		return 2 if yonetim.agalik else 1
-var akce: int:
+var koy_akce: int:
 	get:
 		return yonetim.akce
 	set(v):
 		yonetim.akce = maxi(0, v)
+## Eski UI/köy API'si kamu kasasının takma adıdır.
+var akce: int:
+	get:
+		return koy_akce
+	set(v):
+		koy_akce = v
 ## Ambardaki gıda (eski "ambar" alanı).
 var ambar: int:
 	get:
@@ -152,10 +162,21 @@ func ziyaret_basladi(gelen: Gelen) -> void:
 ## Kararlar: `kabul`, `harc` (yoksuldan zorla geçiş akçesi), `rusvet` (teklifini alıp içeri), `kisla` (asker, muhafız),
 ## `ret`, `elkoy` (astardan çıkanlara el konur, geri çevrilir; yalnız yalan yakalanınca).
 func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> Dictionary:
+	var sorgu := gelen.chr_sorgusu()
+	if sorgu != null and not sorgu.karar_acik(karar):
+		return {"engellendi": true, "kaldi": false, "kirilan": -1}
+	if sorgu != null and sorgu.bayraklar["Flag_Sir_Tamamen_Cozuldu"]:
+		for bayrak in gelen.gizli_bayraklar:
+			if not bayrak in gelen.acik_bayraklar:
+				gelen.acik_bayraklar.append(bayrak)
 	var h := gelen.heybe
 	var ek := {"kirilan": -1, "rusvet_harcandi": -1, "alinan": [], "alinan_akce": 0, "alinan_ambar": 0, "gasp": false,
 		"durust_arandi": false, "harc": karar == &"harc", "koylu_id": -1}
-	_bar_uygula(gelen.etkiler.get(&"ret" if karar == &"elkoy" else karar, PackedInt32Array()))
+	var bar_etkisi: PackedInt32Array = gelen.etkiler.get(&"ret" if karar == &"elkoy" else karar, PackedInt32Array()).duplicate()
+	# Eski rüşvet satırındaki Tüccarlar katkısı kamuya para üretemez.
+	if karar == &"rusvet" and bar_etkisi.size() > 2:
+		bar_etkisi[2] = 0
+	_bar_uygula(bar_etkisi)
 	var rusvet_akce := 0
 	if h != null:
 		if karar == &"rusvet" and not h.alinan_var():
@@ -165,7 +186,8 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 		if karar == &"rusvet" or karar == &"elkoy":
 			var d := h.alinan_dagilim()
 			rusvet_akce = d["akce"]
-			ambar += d["ambar"]
+			if karar == &"elkoy":
+				ambar += d["ambar"]
 			ek["alinan_akce"] = d["akce"]
 			ek["alinan_ambar"] = d["ambar"]
 			for e in h.esyalar:
@@ -181,6 +203,15 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 		rusvet_akce = ayarlar.rusvet_akce
 	if karar == &"rusvet":
 		bayraklar[&"rusvet_sayisi"] = int(bayraklar.get(&"rusvet_sayisi", 0)) + 1
+		var kisisel := preload("res://src/sistemler/cift_kasa_dagitimi.gd").kisisel_rusvet(gelen, ayarlar.rusvet_akce)
+		muhafiz_akce += int(kisisel["akce"])
+		muhafiz_esyalari.append_array(kisisel["esyalar"])
+		ek["muhafiz_akce"] = kisisel["akce"]
+		ek["muhafiz_esyalari"] = kisisel["esyalar"]
+		if sorgu != null:
+			ek["alinan_akce"] = kisisel["akce"]
+			ek["alinan_ambar"] = 0
+			ek["alinan"] = []
 	var kaldi := karar != &"ret" and karar != &"elkoy"
 	if kaldi:
 		var sinif: StringName = &"asker" if karar == &"kisla" else gelen.sinif
@@ -188,9 +219,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 			"portre": "soldier_01" if karar == &"kisla" and not gelen.adli else gelen.portre, "stat": gelen.stat,
 			"bayraklar": gelen.acik_bayraklar + _uzmanlik_bayragi(gelen), "gizli": _gizliler(gelen)},
 			karar == &"harc", rusvet_akce if (karar == &"rusvet" and gelen.kusurlu()) else 0,
-			gelen.zengin(ayarlar.zengin_esigi))
-		if karar == &"rusvet" and not gelen.kusurlu():
-			akce += rusvet_akce
+			gelen.zengin(ayarlar.zengin_esigi), false)
 		if karar == &"kisla":
 			yonetim.muhafiz_ata(k.id)
 		ek["koylu_id"] = k.id
@@ -201,6 +230,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	if gelen.adli:
 		kadro.sonuc(gelen.id, kaldi, &"kabul" if karar == &"harc" else karar, gun)
 	ek["kaldi"] = kaldi
+	muhafiz_tecrubesi += 1
 	return ek
 
 
@@ -629,6 +659,9 @@ func kaydet() -> Dictionary:
 		"gorulen_olaylar": gorulen_olaylar.keys().map(func(x): return String(x)),
 		"kadro": kadro.kaydet(),
 		"diyalog_sira": _gemini_sira,
+		"muhafiz_tecrubesi": muhafiz_tecrubesi,
+		"muhafiz_akce": muhafiz_akce, "muhafiz_esyalari": muhafiz_esyalari.duplicate(true),
+		"mevsim": yonetim.mevsim(), "yeni_binalar": yeni_binalar.duplicate(true),
 		"koy_yonetimi": yonetim.kaydet(),
 		"rng": [str(_rng.state), str(_rng_donus.state), str(_rng_ad.state), str(_rng_heybe.state)]}
 	# 64 bit sayılar JSON'da float'a döner; metin olarak saklanır.
@@ -636,7 +669,8 @@ func kaydet() -> Dictionary:
 
 ## Kayıttan oturum kurar; geçersizse null.
 static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
-	if int(veri.get("surum", 0)) != KAYIT_SURUMU or not (veri.get("koy_yonetimi") is Dictionary):
+	veri = preload("res://src/sistemler/kayit_gocu.gd").uygula(veri, katalog_.koy_ayarlari.mevsim_gun)
+	if veri.is_empty():
 		push_error("Kayıt sürümü uyuşmuyor")
 		return null
 	var o := Oturum.new(katalog_, String(veri["tohum"]).to_int())
@@ -657,5 +691,9 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 		o._rng_ad.state = String(r[2]).to_int()
 		o._rng_heybe.state = String(r[3]).to_int()
 	o._gemini_sira = int(veri.get("diyalog_sira", 0))
+	o.muhafiz_tecrubesi = maxi(0, int(veri.get("muhafiz_tecrubesi", 0)))
+	o.muhafiz_akce = maxi(0, int(veri.get("muhafiz_akce", 0)))
+	o.muhafiz_esyalari = preload("res://src/sistemler/cift_kasa_dagitimi.gd").esyalari_yukle(veri.get("muhafiz_esyalari", []))
+	o.yeni_binalar.assign(veri.get("yeni_binalar", []))
 	o._koy_esitle()
 	return o

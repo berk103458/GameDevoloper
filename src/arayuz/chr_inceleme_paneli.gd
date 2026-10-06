@@ -1,0 +1,51 @@
+## 2D CHR inceleme; mevcut heybe panelinin eşya/astar API'sini değiştirmez.
+extends PanelContainer
+
+var sorgu: RefCounted
+var _aciklama: RichTextLabel
+
+func _ready() -> void:
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	z_index = 20
+	var kutu := VBoxContainer.new()
+	kutu.add_theme_constant_override("separation", 18)
+	add_child(kutu)
+	var baslik := Label.new()
+	baslik.text = "Nişan ve yük incelemesi"
+	baslik.add_theme_font_size_override("font_size", 28)
+	kutu.add_child(baslik)
+	var nisani := Button.new()
+	nisani.text = "Nişanı / mührü incele"
+	nisani.custom_minimum_size.y = 70
+	nisani.pressed.connect(func() -> void: _aciklama.text = sorgu.obje_incele(1))
+	kutu.add_child(nisani)
+	var yuk := Button.new()
+	yuk.text = "Yükü / gizli bölmeyi incele"
+	yuk.custom_minimum_size.y = 70
+	yuk.pressed.connect(func() -> void: _aciklama.text = sorgu.obje_incele(2))
+	kutu.add_child(yuk)
+	var portre := TextureButton.new()
+	portre.name = "GorselIz"
+	portre.ignore_texture_size = true
+	portre.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+	portre.custom_minimum_size = Vector2(240, 220)
+	var eski_yol := "res://data/karakterler/%s.tres" % String(sorgu.karakter.id)
+	if ResourceLoader.exists(eski_yol):
+		var eski := load(eski_yol) as KarakterVerisi
+		portre.texture_normal = Sanat.portre(String(eski.portre))
+	portre.tooltip_text = "Portrede fiziksel izi incele"
+	portre.pressed.connect(func() -> void: _aciklama.text = sorgu.gorsel_incele())
+	kutu.add_child(portre)
+	var iz_etiketi := Label.new()
+	iz_etiketi.text = "Fiziksel izi incelemek için portreye tıkla"
+	kutu.add_child(iz_etiketi)
+	_aciklama = RichTextLabel.new()
+	_aciklama.custom_minimum_size = Vector2(950, 290)
+	_aciklama.add_theme_font_size_override("normal_font_size", 24)
+	kutu.add_child(_aciklama)
+	var kapat := Button.new()
+	kapat.text = "Sorguya dön"
+	kapat.custom_minimum_size.y = 60
+	kapat.pressed.connect(queue_free)
+	kutu.add_child(kapat)

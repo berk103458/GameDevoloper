@@ -10,6 +10,9 @@ var _kabul_orani := 0.75
 
 
 func _ready() -> void:
+	if OS.get_environment("DUMAN_TESTI_20") == "1":
+		add_child(preload("res://tests/oto/duman_20.gd").new())
+		return
 	var t := OS.get_environment("TOHUM")
 	rng.seed = int(t) if t != "" else 11
 	if OS.get_environment("KLASOR") != "":

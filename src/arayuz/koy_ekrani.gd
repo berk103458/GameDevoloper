@@ -40,6 +40,7 @@ var _son_hiz := 1
 var _onceki_fizik_adimi := 8
 var _kategori := "barinma"
 var _y: KoyYonetimi
+var _dinamik_ortam: Node
 
 
 func _ready() -> void:
@@ -47,6 +48,8 @@ func _ready() -> void:
 	_onceki_fizik_adimi = Engine.max_physics_steps_per_frame
 	Engine.max_physics_steps_per_frame = 8
 	_y = oturum.yonetim
+	_dinamik_ortam = preload("res://src/sistemler/koy_ortam_sesi.gd").new()
+	add_child(_dinamik_ortam)
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_kap = SubViewportContainer.new()
 	_kap.stretch = true
@@ -83,6 +86,11 @@ func _ready() -> void:
 	_ipucu.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	add_child(_ipucu)
 	_yenile()
+
+## Ana ekran ses adaptörü; ışığın ilk gunduz fazıyla aynı başlar.
+func ortam_baslat() -> void:
+	if _dinamik_ortam != null:
+		_dinamik_ortam.faz(&"gunduz")
 
 
 # ── Alt panel (17.2) ──────────────────────────────────────────────────────────────────────────────
@@ -580,6 +588,7 @@ func _geceye_gec() -> void:
 	_yenile()
 	# Gece hesaplaşması karanlıkta: rapor kartı ay ışığına dönen köyün üstünde açılır.
 	sahne3b.faz(&"gece", 1.8)
+	_dinamik_ortam.faz(&"gece")
 	var r: Dictionary = sonuc["rapor"]
 	var v := _kart_ac(tr("koy.rapor.baslik") % (int(r["gun"]) + 1))
 	var uretim: Dictionary = r["uretim"]

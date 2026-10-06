@@ -6,7 +6,7 @@ These explicit user instructions take precedence over conflicting collaboration 
 - Required local mirror: C:\Users\ds\Documents\GitHub\GameDevoloper
 - Automatically transfer every change made for the user in this project to the required local mirror, including code, assets, configuration, documentation, new files, renames, and deletions. Do this during the task and before reporting completion; never wait for a commit prompt or separate transfer approval.
 - Apply synchronization to the files changed by the task. Preserve unrelated local work. Do not blindly replace the entire checkout, its .git directory, branch, or history. If the same file has independent changes, reconcile them and preserve both intended changes; ask only when a real conflict requires the user's decision.
-- Standing user instruction (2026-10-06): after every completed development change, run the relevant checks, synchronize both local copies, then commit the complete intended changeset and push to the configured GitHub remote without waiting for a separate commit prompt. This supersedes the previous wait-for-commit rule. Inspect repository state first, preserve unrelated work and secrets, and never force-push unless explicitly authorized.
+- Current standing user instruction: after every completed development change, run relevant checks, synchronize both local copies, commit the complete intended changeset and push to GitHub without waiting for a separate commit prompt. This supersedes the earlier wait-for-commit instruction. Preserve unrelated work and secrets; never force-push without explicit authorization.
 - Keep these rules in both copies whenever updating them.
 # Kapı Muhafızı — Çoklu Ajan ve Geliştirici Çalışma İlkeleri
 

@@ -1,0 +1,91 @@
+"""Pre-merge local checks. Does not stage, commit, write CSV or touch user saves.
+
+python -B tools/sanity_check.py --godot /path/to/godot
+Defaults: CHR validation, Python tests, headless import, all unit scripts and
+isolated CHR/village UI scenarios. Logs go to work/sanity (gitignored).
+"""
+from __future__ import annotations
+import argparse
+import os
+from pathlib import Path
+import re
+import shutil
+import signal
+import subprocess
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+ERROR = re.compile(r"(?:^|\n)(?:SCRIPT ERROR:|ERROR:)|Failed to load script|\bKALDI\b")
+
+
+def run(command, root, timeout, env=None):
+    process = None
+    try:
+        options = {"creationflags": subprocess.CREATE_NEW_PROCESS_GROUP} if os.name == "nt" else {"start_new_session": True}
+        process = subprocess.Popen(command, cwd=root, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                   text=True, encoding="utf-8", errors="replace",
+                                   env={**os.environ, **env} if env else None, **options)
+        stdout, stderr = process.communicate(timeout=timeout)
+        output = stdout + stderr
+        return process.returncode == 0 and not ERROR.search(output), output
+    except (subprocess.TimeoutExpired, OSError) as error:
+        if process is not None and process.poll() is None:
+            if os.name == "nt":
+                subprocess.run(["taskkill", "/PID", str(process.pid), "/T", "/F"], capture_output=True)
+            else:
+                os.killpg(process.pid, signal.SIGKILL)
+            process.communicate()
+        return False, str(error)
+
+
+def find_godot(explicit=None):
+    if explicit:
+        return str(Path(explicit).resolve())
+    if os.environ.get("GODOT_BIN"):
+        return os.environ["GODOT_BIN"]
+    for name in ("godot", "godot4"):
+        found = shutil.which(name)
+        if found:
+            return found
+    return None
+
+
+def checks(godot, root):
+    yield "chr-source", [sys.executable, "-B", "tools/chr_parser.py", "--check"], None
+    yield "python-tests", [sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests/tools"], None
+    yield "protected-api", [sys.executable, "-B", "tools/api_sozlesmesi.py"], None
+    yield "headless-import", [godot, "--headless", "--path", str(root), "--editor", "--import", "--quit"], None
+    for script in sorted((root / "tests/unit").rglob("*test.gd")):
+        yield script.stem, [godot, "--headless", "--path", str(root), "-s", str(script)], "GEÇTİ"
+    for scene in ("chr_kapi_kontrol", "koy_ortam_kontrol"):
+        yield scene, [godot, "--headless", "--path", str(root), f"tests/oto/{scene}.tscn"], "GEÇTİ"
+    yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--godot")
+    parser.add_argument("--timeout", type=float, default=120)
+    parser.add_argument("--logs", type=Path, default=ROOT / "work/sanity")
+    args = parser.parse_args()
+    godot = find_godot(args.godot)
+    if not godot:
+        parser.error("Godot not found; use --godot or GODOT_BIN")
+    args.logs.mkdir(parents=True, exist_ok=True)
+    failed = []
+    for name, command, marker in checks(godot, ROOT):
+        env = {"DUMAN_TESTI_20": "1"} if name == "20-night-smoke" else None
+        ok, output = run(command, ROOT, args.timeout, env=env)
+        if marker and marker not in output:
+            ok = False
+            output += "\nMissing completion marker: " + marker
+        (args.logs / (name + ".log")).write_text(output, encoding="utf-8")
+        print(("PASS " if ok else "FAIL ") + name, flush=True)
+        if not ok:
+            failed.append(name)
+    print(f"Sanity: {len(failed)} failed. No staging/commit/push.")
+    return 1 if failed else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

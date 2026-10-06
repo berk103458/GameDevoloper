@@ -2,7 +2,7 @@
 
 **Dal:** `claude/festive-volta-li1sfm` @ `de421a6` (origin ile eşit)
 **Tarih:** 6 Ekim 2026 ~21:30 Europe/Istanbul
-**Kural:** Commit/push yok. Bu dosya yerel kalır.
+**Güncel talimat:** Değişiklikler iki yerel kopyada biriktirilir; Ahmet commit demeden stage/commit/push yapılmaz. Aşağıdaki önceki ortam raporu tarihsel bağlamdır.
 
 ---
 
@@ -138,3 +138,206 @@ Her commit/pull sonrası ajan kendini tanıtır, durum/plan yazar; ROADMAP’te 
 **Eklendi:** `CLAUDE.md` durum bölümü, `GEMINI.md`, `codex.md/Codex.md`.
 Üç model için tanıt + durum + commit/pull sonrası güncelleme + ROADMAP `(Claude|Codex|Gemini)` işareti.
 AGENTS yönlendirme notu: Claude→CLAUDE.md, Codex→codex.md/, Gemini→GEMINI.md; Muharrir kural dışı (isteğe bağlı).
+
+
+## Codex — KVR-01 (6 Ekim 2026)
+
+KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
+
+Sıradaki: KVR-02. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KVR-02 (6 Ekim 2026)
+
+Şecere ve gündüz/gece davranışı kaynak anahtarlarıyla Resource alanlarına bağlandı; kayıt/yükleme ve veri izolasyonu testi geçti.
+
+Sıradaki: KVR-03. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KVR-03 (6 Ekim 2026)
+
+obje_1/obje_2 sözlükleri ve StringName ipucu erişim adaptörü eklendi; iki ipucu roundtrip ve geçersiz nesne testleri geçti.
+
+Sıradaki: KVR-04. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KVR-04 (6 Ekim 2026)
+
+Görsel hata ipucu, başlangıç tansiyonu ve poz anahtarları eklendi; 3/4 ve 7/8 eşikleri ile özelleştirilmiş animasyon Resource testi geçti.
+
+Sıradaki: KVR-05. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KVR-05 (6 Ekim 2026)
+
+Düğüm/seçenek sözleşmesi, SYS-09 uyumlu metin anahtarları ve hedef/delta doğrulaması eklendi; kaynak izolasyonu ve bozuk zincir testleri geçti. CSV ve KAP-01 değiştirilmedi.
+
+Sıradaki: KVR-06. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KVR-06 (6 Ekim 2026)
+
+Dört standart Flag sözlüğü ve sorgu başına izole kopya eklendi; bool tip/eksik/yabancı bayrak ve izolasyon testleri geçti.
+
+Sıradaki: KVR-07. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KVR-07 (6 Ekim 2026)
+
+Beş kararın beş stat etkisi, kişisel akçe ve eşya alanları eklendi; eski bar API korunarak tip ve rüşvet ayrımı testleri geçti.
+
+Sıradaki: KVR-08. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KVR-08 (6 Ekim 2026)
+
+Tipli gecikmeli olay dizisi ve pozitif tur/bina/olay/stat doğrulaması eklendi; negatif debuff roundtrip ve bozuk olay testleri geçti.
+
+Sıradaki: KVR-09. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KVR-09 (6 Ekim 2026)
+
+Dört karar spawn sözlüğü ve kanonik CHR kimliği/pozitif offset doğrulaması eklendi; zincir roundtrip ve geçersiz veri testleri geçti.
+
+Sıradaki: KVR-10. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KVR-10 (6 Ekim 2026)
+
+CHR derleyicisi 30 sayfayı doğrulayıp ayrı chr_runtime kaynakları üretiyor; 5 Python testi, 30 Resource kabul testi ve headless import geçti. Kaynak başlangıç tansiyonu 1–3 korunuyor; 93 harici spawn ID henüz kaynak sayfası olmayan referans olarak raporlanıyor. CSV/JSON kilidine dokunulmadı.
+
+Sıradaki: KAP-04. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KAP-04 (6 Ekim 2026)
+
+CHR ziyaretine ayrı sorgu hafızası ve nişan inceleme paneli bağlandı; gerçek düğme tıklaması, tekrarlı inceleme ve ziyaret izolasyonu testi geçti. Mevcut heybe/JSON akışı korunuyor.
+
+Sıradaki: KAP-05. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KAP-05 (6 Ekim 2026)
+
+Yük/gizli bölme eylemi ayrı ipucu üretiyor; nişanla karışmıyor ve geçersiz indeks reddediliyor. Panel inceleme sırasında alttaki ekranın tıklamalarını engelliyor; UI testi geçti.
+
+Sıradaki: KAP-06. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KAP-06 (6 Ekim 2026)
+
+2D portre tıklaması kaynak fiziksel iz açıklamasını ve görsel ipucunu açıyor; mevcut portre dosyası yeniden kullanılıyor. Üç ipucunun bağımsızlığı ve tekrarlı inceleme testleri geçti.
+
+Sıradaki: KAP-07. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KAP-07 (6 Ekim 2026)
+
+CHR diyalog paneli eklendi; kanıt seçeneği UI ve model katmanında kilitleniyor, herhangi bir geçerli ipucuyla açılıp parlıyor. Kaynak dallar/flaglar ve sessiz koşullu düğümler yürütülüyor; kilit, UI açılma ve sır çözme testleri geçti.
+
+Sıradaki: KAP-08. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KAP-08 (6 Ekim 2026)
+
+Tansiyon 8 panik/Flag_Kilitlendi oluşturuyor, kabul ve harç kapanıyor; yalnız zorunlu ret/kışla/rüşvet kalıyor. UI ve Oturum API engeli ile duygu adaptörü eklendi; eşik, kalıcılık ve yan etkisiz ret testleri geçti.
+
+Sıradaki: KAP-09. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KAP-09 (6 Ekim 2026)
+
+Blöf/ikna olasılığı ayrı Resource kurallarında; tecrübe artırıyor, tansiyon düşürüyor. Denenmiş seçenek yeniden zar atamaz; başarısızlık tansiyon/panik doğuruyor. Deterministik zar, tecrübe ve başarısızlık testleri geçti; tecrübe kayıtla korunuyor.
+
+Sıradaki: KAP-10. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — KAP-10 (6 Ekim 2026)
+
+Replik başında özgün kısa foley ve konuşma animasyonu tetikleniyor; metal/ferman/bebek/kabza/deri/sikke sesleri üretildi. Panel yenilemesi sesi tekrarlamaz; ses dosyaları, eşleme ve tekrar engeli testi geçti.
+
+Sıradaki: EKO-01. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — EKO-01 (6 Ekim 2026)
+
+Kamu/kişisel kasa ayrıldı; eski akce kamu aliası olarak kaldı. Rüşvet ve eşyası muhafıza, el koyma/harç köye gidiyor; şüpheli rüşvetin asayiş etkisi korunuyor. Çift kasa/JSON roundtrip, heybe ve kapı karar testleri geçti.
+
+Sıradaki: SYS-01. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — SYS-01 (6 Ekim 2026)
+
+v2 kayıtları v3 çift kasa/mevsim/yeni bina alanlarına derin kopyada göç ediyor; köy/kadro/RNG korunuyor. İdempotent göç, eski JSON yükleme ve bozuk/gelecek sürüm reddi testleri geçti. Köy içermeyen eski v1 biçimi tahmini dönüşüm yerine güvenle reddediliyor.
+
+Sıradaki: SYS-02. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — SYS-02 (6 Ekim 2026)
+
+Ana kayıt doğrulanmış tmp üzerinden değişiyor; yedek de bak.tmp ile atomik güncelleniyor. Yarım tmp, bozuk ana dosya ve başarısız yedek rename ana kaydı koruyor. Atomik kayıt, köy yönetimi ve headless import testleri geçti; KayitDeposu aynı güvenli APIye bağlandı.
+
+Sıradaki: Son entegrasyon doğrulaması. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — öncelik paketi son doğrulaması
+
+20 madde kapandı (KVR-01…10, KAP-04…10, EKO-01, SYS-01/02). 15 Godot birim testi + 5 Python testi ve gerçek kapı UI senaryosu geçti. CHR tansiyon 1–3 kararı uygulandı; kaynakta 1 olan beş karakter aynen kaldı. Festive 52cecad docs pull ve ROADMAP uzantıları korundu. CHR UI metinlerinden dahili Clue/Flag kimlikleri ayrıldı; çözülen sır eski köy bayraklarına aktarılıyor.
+
+KVR karar/gecikmeli olay/spawn maddeleri veri şeması kapsamındadır; takip NPC sayfalarının 93 harici kimliği ve gece olaylarının uygulanması ilerleyen runtime paketlerine aittir. Teknik sınırlar: design/technical/chr-runtime.md. Commit/push yapılmadı.
+
+
+## Codex — SYS-03 (6 Ekim 2026)
+
+Tansiyon 0–3 ney/kopuz, 4–7 yaylı ve 8–10 kudüm/davul temalı özgün üç müzik katmanı eklendi. Eşikler 0.7 saniyede geçiyor; aynı eşik döngüyü yeniden başlatmıyor. Çıkışta sesler duruyor; müzik katmanı ve gerçek kapı UI testleri geçti.
+
+Sıradaki: SYS-04. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — SYS-04 (6 Ekim 2026)
+
+Gündüz çekiç/koyun/su, gece meşale/kurt/baykuş temalı özgün döngüler Ambiance→Efekt bus ile bağlandı. Köyün gece fazı sesi değiştiriyor; çıkışta bus geri dönüyor. Faz/idempotent geçiş ve gerçek köy UI/ses kapanışı testleri geçti.
+
+Sıradaki: SYS-05. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — SYS-05 (6 Ekim 2026)
+
+Ses.oynat bool API ve optional autoload adaptörü eklendi; eski cal korunuyor. Eksik/null dosya, hazır olmayan havuz, bozuk havuz indeksi ve döngü oynatıcısı güvenle atlanıyor. Yeni güvenli ses ve mevcut ses regresyon testleri geçti.
+
+Sıradaki: SYS-06. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — SYS-06 (6 Ekim 2026)
+
+tools/sanity_check.py tek komutta CHR/Python/headless import, 18 Godot birim testi ve 2 izole UI sahnesini çalıştırıyor. Sıfır çıkış koduyla Script Error, eksik tamamlanma işareti veya timeout başarı sayılmıyor; timeout yalnız kendi süreç ağacını kapatıyor. Tam koşu: 0 başarısız.
+
+Sıradaki: SYS-07. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — SYS-07 (6 Ekim 2026)
+
+Headless import tarayıcısı hata mesajlarını res://dosya ve satır bilgisiyle JSON/log raporuna çıkarıyor. Script Error ve yükleme hatası süreç 0 olsa da başarısız; warning ayrı tutuluyor. Çoklu tanı/path testi ve gerçek headless tarama geçti.
+
+Sıradaki: SYS-08. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — SYS-08 (6 Ekim 2026)
+
+Korumalı kur/yuru/gece_sonu, sinyal payloadları, akce/kayıt sürümü ve klip önbelleği Git tabanına karşı doğrulanıyor. Silme/tip/imza değişimi reddedilir; biçim ve sürüm değeri değişimi serbest. 4 denetçi testi ve gerçek API taraması geçti; sanity komutuna bağlandı.
+
+Sıradaki: SYS-10. Yerel çalışma; commit/push yapılmadı.
+
+
+## Codex — SYS-10 (6 Ekim 2026)
+
+İzole model koşusu tam 20 geceyi, her gece JSON kayıt roundtrip ve bellek ölçümünü doğruladı; mevcut otomatik oyuncuya yalnız ortam değişkeni adaptörü eklendi. Tam sanity koşusu: 18 Godot birim testi, 3 kabul/duman sahnesi ve Python kontrolleri başarılı; gerçek kullanıcı kayıtları korunur.
+
+Sıradaki: SYS-15. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — SYS-15 (6 Ekim 2026)
+
+DUMAN_TESTI_20 modu sabit 20 iterasyon çalışır ve hem gece hem gün 20 olmadan başarılı çıkmaz. SYS-10 ile aynı doğrulanmış pakettir; normal otomatik oyuncu modu korunur.
+
+Sıradaki: SYS-14. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

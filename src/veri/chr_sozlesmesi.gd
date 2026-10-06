@@ -1,0 +1,102 @@
+## CHR derleyicisi ve runtime adaptörlerinin ortak doğrulama sınırı.
+class_name ChrSozlesmesi
+extends RefCounted
+
+const BAYRAKLAR := ["Flag_Yol_Sirri_Acik", "Flag_Kimlik_Cozuldu", "Flag_Sir_Tamamen_Cozuldu", "Flag_Kilitlendi"]
+const STATLAR := ["Refah", "Erzak", "Guvenlik", "Moral", "Saglik"]
+const KARARLAR := ["kabul", "gonullu_ret", "zorunlu_ret", "rusvet", "kisla"]
+
+static func spawn_hatalari(spawns: Dictionary) -> PackedStringArray:
+	var hatalar := PackedStringArray()
+	var desen := RegEx.new()
+	desen.compile("^CHR_[0-9]{3}$")
+	for kosul in spawns:
+		if not String(kosul) in ["on_accept", "on_reject", "on_bribe", "on_jail"]:
+			hatalar.append("Tanımsız spawn koşulu: %s" % kosul)
+		var spawn: Variant = spawns[kosul]
+		if not spawn is Dictionary:
+			hatalar.append("Spawn sözlük olmalı")
+			continue
+		if desen.search(String(spawn.get("entity_id", ""))) == null:
+			hatalar.append("Spawn entity_id CHR_XXX olmalı")
+		if not spawn.get("offset") is int or int(spawn.get("offset", -1)) < 1:
+			hatalar.append("Spawn offset pozitif int olmalı")
+	return hatalar
+
+static func gecikmeli_hatalari(olaylar: Array[Dictionary]) -> PackedStringArray:
+	var hatalar := PackedStringArray()
+	for olay in olaylar:
+		if not olay.get("tur_offset") is int or int(olay.get("tur_offset", -1)) < 1:
+			hatalar.append("Gecikmeli olay tur_offset pozitif int olmalı")
+		for alan in ["hedef_bina", "olay_id"]:
+			if String(olay.get(alan, "")).is_empty():
+				hatalar.append("Gecikmeli olay %s eksik" % alan)
+		var stat: Variant = olay.get("stat_etkisi")
+		if stat is Dictionary:
+			hatalar.append_array(stat_hatalari(stat))
+		else:
+			hatalar.append("Gecikmeli olay stat_etkisi eksik")
+	return hatalar
+
+static func stat_hatalari(etki: Dictionary) -> PackedStringArray:
+	var hatalar := PackedStringArray()
+	for anahtar in etki:
+		if not String(anahtar) in STATLAR or not etki[anahtar] is int:
+			hatalar.append("Geçersiz stat/tip: %s" % anahtar)
+	return hatalar
+
+static func karar_hatalari(matris: Dictionary) -> PackedStringArray:
+	var hatalar := PackedStringArray()
+	for karar in KARARLAR:
+		var sonuc: Variant = matris.get(karar)
+		if not sonuc is Dictionary:
+			hatalar.append("Karar eksik/geçersiz: %s" % karar)
+			continue
+		var stat: Variant = sonuc.get("stat_etkisi")
+		if stat is Dictionary:
+			hatalar.append_array(stat_hatalari(stat))
+		else:
+			hatalar.append("%s: stat_etkisi eksik" % karar)
+		if not sonuc.get("muhafiz_akce", 0) is int:
+			hatalar.append("%s: kişisel akçe int olmalı" % karar)
+		if not sonuc.get("esyalar", []) is Array:
+			hatalar.append("%s: esyalar dizi olmalı" % karar)
+	return hatalar
+
+static func bayrak_hatalari(bayraklar: Dictionary) -> PackedStringArray:
+	var hatalar := PackedStringArray()
+	for anahtar in BAYRAKLAR:
+		if not bayraklar.get(anahtar) is bool:
+			hatalar.append("%s: bool bayrak eksik/geçersiz" % anahtar)
+	for anahtar in bayraklar:
+		if not String(anahtar) in BAYRAKLAR:
+			hatalar.append("Tanımsız standart bayrak: %s" % anahtar)
+	return hatalar
+
+static func diyalog_hatalari(dugumler: Dictionary) -> PackedStringArray:
+	var hatalar := PackedStringArray()
+	if not dugumler.has("00"):
+		hatalar.append("Düğüm 00 eksik")
+	for kimlik in dugumler:
+		var dugum: Variant = dugumler[kimlik]
+		if not dugum is Dictionary:
+			hatalar.append("%s: düğüm sözlük olmalı" % kimlik)
+			continue
+		if String(dugum.get("replik_anahtari", "")).is_empty():
+			hatalar.append("%s: replik_anahtari eksik" % kimlik)
+		var secenekler: Variant = dugum.get("secenekler", [])
+		if not secenekler is Array:
+			hatalar.append("%s: secenekler dizi olmalı" % kimlik)
+			continue
+		for secenek in secenekler:
+			if not secenek is Dictionary:
+				hatalar.append("%s: seçenek sözlük olmalı" % kimlik)
+				continue
+			if String(secenek.get("metin_anahtari", "")).is_empty():
+				hatalar.append("%s: metin_anahtari eksik" % kimlik)
+			if not secenek.get("tansiyon_delta") is int:
+				hatalar.append("%s: tansiyon_delta int olmalı" % kimlik)
+			var hedef := String(secenek.get("hedef", ""))
+			if not hedef.is_empty() and not dugumler.has(hedef):
+				hatalar.append("%s: hedef bulunamadı: %s" % [kimlik, hedef])
+	return hatalar

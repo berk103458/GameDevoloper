@@ -65,6 +65,7 @@ func _onbellekleri_bosalt() -> void:
 
 ## Çalan her şeyi durdurur ve akışları bırakır; ses sunucusu birkaç karede çalanları siler.
 func sustur() -> void:
+	get_tree().call_group("chr_tansiyon_muzigi", "durdur")
 	for o: AudioStreamPlayer in [_muzik, _muzik_yedek, _ortam, _ortam_yedek] + _efektler:
 		if is_instance_valid(o):
 			o.stop()
@@ -122,13 +123,32 @@ func ortam_cal(ad: StringName, db: float = -6.0) -> void:
 func muzik_adi() -> StringName:
 	return _muzik_ad
 
+## Sorgu müziği adaptörü; oyuncunun Muzik bus ayarına dokunmaz.
+func muzik_sesi() -> float:
+	return _muzik.volume_db if is_instance_valid(_muzik) else 0.0
+
+func muzik_sesini_ayarla(db: float) -> void:
+	for o in [_muzik, _muzik_yedek]:
+		if is_instance_valid(o):
+			o.volume_db = db
+
 
 ## Çalan ortam döngüsünün adı.
 func ortam_adi() -> StringName:
 	return _ortam_ad
 
+func ortam_busu_adi() -> StringName:
+	return _ortam.bus if is_instance_valid(_ortam) else &"Efekt"
+
+func ortam_busunu_ayarla(ad: StringName) -> void:
+	for o in [_ortam, _ortam_yedek]:
+		if is_instance_valid(o):
+			o.bus = ad
+
 
 func _gecis(eski: AudioStreamPlayer, yeni: AudioStreamPlayer, ad: StringName, db: float) -> bool:
+	if not is_instance_valid(eski) or not is_instance_valid(yeni):
+		return false
 	yeni.stop()
 	_dongu(yeni, String(ad), SESSIZ_DB)
 	if not yeni.playing:
@@ -142,17 +162,29 @@ func _gecis(eski: AudioStreamPlayer, yeni: AudioStreamPlayer, ad: StringName, db
 
 ## Bir efekt çalar.
 func cal(ad: StringName, db: float = 0.0) -> void:
+	oynat(ad, db)
+
+## Başlamayan ses false döner; eski cal API'si bu güvenli yolu kullanır.
+func oynat(ad: StringName, db: float = 0.0) -> bool:
+	if _efektler.is_empty() or ad == &"" or not is_finite(db):
+		return false
 	var akis := _akis(String(ad))
 	if akis == null:
-		return
+		return false
+	_sira = posmod(_sira, _efektler.size())
 	var o := _efektler[_sira]
 	_sira = (_sira + 1) % _efektler.size()
+	if not is_instance_valid(o):
+		return false
 	o.stream = akis
 	o.volume_db = db
 	o.play()
+	return true
 
 
 func _dongu(o: AudioStreamPlayer, ad: String, db: float = 0.0) -> void:
+	if not is_instance_valid(o):
+		return
 	if o.playing:
 		return
 	var akis := _akis(ad)

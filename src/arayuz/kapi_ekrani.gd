@@ -32,6 +32,7 @@ var _gosterilecek: Array[Button] = []
 ## Açık heybe paneli (yoksa null).
 var _heybe_paneli: HeybePaneli
 var _yalan_yazildi := false
+var _chr_muzik: Node
 
 var hud: Hud
 var _dunya: Control
@@ -242,6 +243,8 @@ func _siradaki() -> void:
 		gece_bitti.emit({})
 		return
 	_gelen = _kuyruk.pop_front()
+	if _chr_muzik != null:
+		_chr_muzik.durdur()
 	_sorulan = []
 	_yalan_yazildi = false
 	_ad.text = tr(_gelen.ad_anahtari)
@@ -269,6 +272,8 @@ func _sohbet_goster() -> void:
 	evre = &"sohbet"
 	_temizle()
 	_bolum.text = tr("arayuz.kapi.sorular")
+	if preload("res://src/arayuz/chr_kapi_adaptoru.gd").diyalog_goster(self, _gelen, _secenekler, _eylemler):
+		return
 	var dugmeler: Array[Button] = []
 	for i in _gelen.sorular.size():
 		if i in _sorulan:
@@ -316,6 +321,9 @@ func _beyan_metni() -> String:
 
 
 func _heybe_dugmesi() -> Button:
+	var chr_dugme := preload("res://src/arayuz/chr_kapi_adaptoru.gd").inceleme_dugmesi(self, _gelen, _eylemler)
+	if chr_dugme != null:
+		return chr_dugme
 	var b := _dugme(tr("arayuz.sohbet.heybe_ara"), _eylemler)
 	b.doku = Sanat.doku("ui", "icon_bribe_pouch_full_48")
 	b.pressed.connect(_heybe_ac)
@@ -359,6 +367,24 @@ func _heybe_degisti() -> void:
 				cikan.append(_esya_yazisi(e, int(e["adet"])))
 		_yaz("[color=#C4843A]%s[/color]" % (tr("anlati.heybe.yakalandi") % [", ".join(cikan), tr(_gelen.ad_anahtari)]))
 
+func _chr_tansiyon_degisti(deger: int) -> void:
+	if _chr_muzik == null:
+		_chr_muzik = preload("res://src/sistemler/tansiyon_muzigi.gd").new()
+		add_child(_chr_muzik)
+	_chr_muzik.guncelle(deger)
+	if sahne == null:
+		return
+	if deger >= 8:
+		sahne.gelen_panik()
+	elif deger >= 4:
+		sahne.gelen_gergin()
+
+func _chr_replik_basladi(metin: String) -> void:
+	if sahne != null:
+		var sorgu := _gelen.chr_sorgusu()
+		if sorgu != null and not sorgu.bayraklar["Flag_Kilitlendi"]:
+			sahne.gelen_konus(clampf(metin.length() / 28.0, 1.5, 5.0))
+
 
 func _esya_yazisi(e: Dictionary, adet: int) -> String:
 	var ad := tr("esya." + String(e["id"]))
@@ -367,6 +393,11 @@ func _esya_yazisi(e: Dictionary, adet: int) -> String:
 
 ## Karar düğmesinin yazısı; rüşvette miktar görünür.
 func _karar_etiketi(anahtar: String) -> String:
+	var sorgu := _gelen.chr_sorgusu()
+	if anahtar == "ret" and sorgu != null and sorgu.bayraklar["Flag_Kilitlendi"]:
+		return "Zorunlu ret"
+	if anahtar == "rusvet" and sorgu != null:
+		return "Rüşvet: %d kişisel akçe" % int(sorgu.karakter.karar_verisi(&"rusvet").get("muhafiz_akce", 0))
 	if anahtar == "rusvet" and _gelen.heybe != null:
 		var h := _gelen.heybe
 		if h.alinan_var():
@@ -377,6 +408,11 @@ func _karar_etiketi(anahtar: String) -> String:
 
 func _soru_sor(i: int) -> void:
 	if evre != &"sohbet":
+		return
+	var chr := _gelen.chr_sorgusu()
+	if chr != null:
+		if chr.secenek_sec(i):
+			_sohbet_goster()
 		return
 	_sorulan.append(i)
 	var once := _gelen.acik_bayraklar.size()
@@ -418,6 +454,12 @@ func _karar_goster() -> void:
 		gorunen = gorunen.duplicate()
 		gorunen.append("elkoy")
 	_karar_anahtarlari = gorunen
+	var chr := _gelen.chr_sorgusu()
+	if chr != null:
+		_karar_anahtarlari = PackedStringArray()
+		for karar in gorunen:
+			if chr.karar_acik(StringName(karar)):
+				_karar_anahtarlari.append(karar)
 	for n in _karar_anahtarlari.size():
 		var anahtar := _karar_anahtarlari[n]
 		var b := _dugme("%d · %s" % [n + 1, _karar_etiketi(anahtar)])
@@ -438,6 +480,9 @@ func _karar_goster() -> void:
 
 ## Karar satırının altındaki küçük, tarafsız bilgi (sonucu söylemez).
 func _karar_alt_yazi(anahtar: String) -> String:
+	var sorgu := _gelen.chr_sorgusu()
+	if anahtar == "rusvet" and sorgu != null:
+		return ", ".join(sorgu.karakter.karar_verisi(&"rusvet").get("esyalar", []))
 	if anahtar == "rusvet" and _gelen.heybe != null:
 		return tr("heybe.teklif") % _gelen.heybe.teklif
 	if anahtar == "elkoy":
@@ -448,6 +493,9 @@ func _karar_alt_yazi(anahtar: String) -> String:
 ## İki adımlı onay: ilk basış seçer, aynı karara ikinci basış verir.
 ## Kabul ve rüşvette ardından iş yeri seçilir.
 func _karar_bas(anahtar: String) -> void:
+	var sorgu := _gelen.chr_sorgusu()
+	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)):
+		return
 	if evre != &"karar":
 		return
 	if _secili == anahtar:
@@ -476,6 +524,9 @@ func _karar_birak() -> void:
 
 
 func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
+	var sorgu := _gelen.chr_sorgusu()
+	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)):
+		return
 	evre = &"sonuc"
 	_temizle()
 	_bolum.text = ""
@@ -618,7 +669,7 @@ func _yaz(s: String) -> void:
 
 
 func _input(olay: InputEvent) -> void:
-	if _heybe_paneli != null:
+	if _heybe_paneli != null or has_node("ChrInceleme"):
 		return
 	# Belirme sürerken bir basış atlamadır: kalanlar görünür, hiçbiri seçilmez (Girdi kural 17).
 	if _beliriyor and (olay.is_action_pressed("ui_accept") or (olay is InputEventMouseButton and olay.pressed)):
@@ -627,7 +678,7 @@ func _input(olay: InputEvent) -> void:
 
 
 func _unhandled_input(olay: InputEvent) -> void:
-	if _heybe_paneli != null:
+	if _heybe_paneli != null or has_node("ChrInceleme"):
 		return
 	if evre == &"karar":
 		for n in 5:

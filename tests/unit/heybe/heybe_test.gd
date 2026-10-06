@@ -64,7 +64,8 @@ func _oturum_kararlari() -> void:
 	g.heybe = _ornek(false)
 	var akce := o.akce
 	var s := o.karar_ver(g, &"rusvet")
-	_esit("rüşvet teklif", o.akce, akce + 3)
+	_esit("rüşvet kamu kasasını değiştirmez", o.akce, akce)
+	_esit("rüşvet kişisel keseye", o.muhafiz_akce, 3)
 	_esit("rüşvet gasp yok", s["gasp"], false)
 	# El koy: saklananların hepsi, tepside yalnız arpa olsa bile; gelen kalmaz.
 	o = Oturum.new(k, 7)

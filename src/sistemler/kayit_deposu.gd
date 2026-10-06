@@ -10,29 +10,18 @@ func _init(yol_: String = "user://kayit.json") -> void:
 
 
 func var_mi() -> bool:
-	return FileAccess.file_exists(yol)
+	return GuvenliKayit.new(yol).var_mi()
 
 
 ## Sözlüğü yazar; başarısızsa false.
 func yaz(veri: Dictionary) -> bool:
-	var f := FileAccess.open(yol, FileAccess.WRITE)
-	if f == null:
-		push_error("Kayıt yazılamadı: %s" % FileAccess.get_open_error())
-		return false
-	return f.store_string(JSON.stringify(veri))
+	return GuvenliKayit.new(yol).yaz(veri)
 
 
 ## Kayıt sözlüğü; yoksa ya da bozuksa boş sözlük.
 func oku() -> Dictionary:
-	if not var_mi():
-		return {}
-	var veri: Variant = JSON.parse_string(FileAccess.get_file_as_string(yol))
-	if not (veri is Dictionary):
-		push_error("Kayıt bozuk")
-		return {}
-	return veri
+	return GuvenliKayit.new(yol).oku()
 
 
 func sil() -> void:
-	if var_mi():
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(yol))
+	GuvenliKayit.new(yol).sil()

@@ -17,23 +17,7 @@ func var_mi() -> bool:
 
 ## Yazar; başarısızsa ana kayda dokunmaz ve false döner.
 func yaz(veri: Dictionary) -> bool:
-	var metin := JSON.stringify(veri)
-	var tmp := yol + ".tmp"
-	var f := FileAccess.open(tmp, FileAccess.WRITE)
-	if f == null:
-		push_error("Kayıt yazılamadı: %s" % FileAccess.get_open_error())
-		return false
-	f.store_string(metin)
-	f.close()
-	if _oku_dosya(tmp).is_empty():
-		push_error("Kayıt doğrulanamadı")
-		return false
-	var dizin := DirAccess.open(yol.get_base_dir())
-	if dizin == null:
-		return false
-	if FileAccess.file_exists(yol):
-		dizin.copy(yol, yol + ".bak")
-	return dizin.rename(tmp, yol) == OK
+	return preload("res://src/sistemler/atomik_json_kaydi.gd").yaz(yol, veri)
 
 
 ## Kayıt sözlüğü: ana kayıt bozuk ya da eksikse yedek; ikisi de yoksa boş. `yedekten` okunduysa işaretlenir.
@@ -49,15 +33,10 @@ func oku() -> Dictionary:
 
 
 func sil() -> void:
-	for y in [yol, yol + ".bak", yol + ".tmp"]:
+	for y in [yol, yol + ".bak", yol + ".tmp", yol + ".bak.tmp"]:
 		if FileAccess.file_exists(y):
 			DirAccess.remove_absolute(ProjectSettings.globalize_path(y))
 
 
 static func _oku_dosya(y: String) -> Dictionary:
-	if not FileAccess.file_exists(y):
-		return {}
-	var j := JSON.new()
-	if j.parse(FileAccess.get_file_as_string(y)) != OK:
-		return {}
-	return j.data if j.data is Dictionary else {}
+	return preload("res://src/sistemler/atomik_json_kaydi.gd").oku(y)

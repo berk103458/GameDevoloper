@@ -183,7 +183,10 @@ func _goster(e: Control) -> void:
 	_ekran = e
 	add_child(e)
 	# Köyde gece ortamı (cırcır, rüzgâr, uzak köpek); başka her yerde kapı meşalesi. Olay müziği ekranla biter.
-	Ses.ortam_cal(&"ortam_koy_dongu" if e is KoyEkrani else &"")
+	if e is KoyEkrani:
+		e.ortam_baslat()
+	else:
+		Ses.ortam_cal(&"")
 	Ses.muzik_cal(&"")
 
 

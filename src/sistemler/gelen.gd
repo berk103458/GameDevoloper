@@ -3,6 +3,17 @@ class_name Gelen
 extends RefCounted
 
 var adli: bool = false
+## KAP adaptörü: yalnız CHR kaynağı olan adlı ziyaretçiye eklenir.
+var _chr_sorgusu: RefCounted
+var _chr_kontrol_edildi := false
+
+func chr_sorgusu() -> RefCounted:
+	if not _chr_kontrol_edildi:
+		_chr_kontrol_edildi = true
+		var yol := "res://data/chr_runtime/%s.tres" % String(id).to_upper()
+		if adli and String(id).begins_with("chr_") and ResourceLoader.exists(yol):
+			_chr_sorgusu = preload("res://src/sistemler/chr_sorgusu.gd").new(load(yol) as KarakterVerisi)
+	return _chr_sorgusu
 ## Adlı karakterin kimliği; figürde boş.
 var id: StringName = &""
 var ad_anahtari: String = ""
@@ -48,7 +59,7 @@ func zengin(esik: int) -> bool:
 ## Kusurlu mu: kötü niyetli, yalanı yakalanmış ya da sorguda suçlu bir bayrağı açılmış. Böyle birinin reddi
 ## gerekçeli sayılır (husumet +1), değilse haksızdır (+3).
 func kusurlu() -> bool:
-	if tehlikeli or (heybe != null and heybe.yalan_var()):
+	if tehlikeli or (chr_sorgusu() == null and heybe != null and heybe.yalan_var()):
 		return true
 	for b in acik_bayraklar:
 		if b in ["casus_suphesi", "hirsiz", "hasta", "sabotajci"]:
