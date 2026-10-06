@@ -24,6 +24,8 @@ Oturum sürümü 3: v2→v3 göçü kişisel kasa/envanter, tecrübe, takvim ve 
 
 ## Doğrulama
 
+Derlenmiş CHR `dogrula()` / `dogrulama_hatalari()` ile kimlik, ad/sınıf/fraksiyon, **1–3 başlangıç tansiyonu**, karar/varyant statları ve sorgu şeması açısından doğrulanır. Gelen adaptörü geçersiz kaynağı sorguya bağlamaz. Eski katalog Resource'ları bu yeni CHR kapısından geçirilmez. Runtime tansiyonu ayrıca 0–10; anlık karar stat kopyaları −4…+4 sınırındadır. Kaynak CHR belgeleri ve değerleri değişmez.
+
 - `python -B tools/chr_parser.py --check`
 - `python -B -m unittest discover -s tests/tools -p test_chr_parser.py`
 - Godot `--headless --path . --editor --import --quit`

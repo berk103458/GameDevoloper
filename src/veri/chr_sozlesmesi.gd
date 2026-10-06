@@ -6,6 +6,24 @@ const BAYRAKLAR := ["Flag_Yol_Sirri_Acik", "Flag_Kimlik_Cozuldu", "Flag_Sir_Tama
 const STATLAR := ["Refah", "Erzak", "Guvenlik", "Moral", "Saglik"]
 const KARARLAR := ["kabul", "gonullu_ret", "zorunlu_ret", "rusvet", "kisla"]
 
+## Derlenmiş CHR profili için katı kontrol; eski katalog profilleri bu kapıdan geçirilmez.
+static func karakter_hatalari(k: KarakterVerisi) -> PackedStringArray:
+	var hatalar := PackedStringArray()
+	var desen := RegEx.new()
+	desen.compile("^CHR_[0-9]{3}$")
+	if desen.search(String(k.entity_id)) == null:
+		hatalar.append("entity_id CHR_XXX olmalı")
+	if k.ad.strip_edges().is_empty() or k.sinif == &"" or k.fraksiyon == &"":
+		hatalar.append("Ad/sınıf/fraksiyon eksik")
+	if k.baslangic_tansiyonu < 1 or k.baslangic_tansiyonu > 3:
+		hatalar.append("Başlangıç tansiyonu 1–3 olmalı")
+	hatalar.append_array(karar_hatalari(k.karar_matrisi))
+	hatalar.append_array(diyalog_hatalari(k.diyalog_dugumleri))
+	hatalar.append_array(bayrak_hatalari(k.sorgu_bayraklari))
+	hatalar.append_array(gecikmeli_hatalari(k.gecikmeli_etkiler))
+	hatalar.append_array(spawn_hatalari(k.sonraki_spawns))
+	return hatalar
+
 static func spawn_hatalari(spawns: Dictionary) -> PackedStringArray:
 	var hatalar := PackedStringArray()
 	var desen := RegEx.new()
@@ -61,6 +79,15 @@ static func karar_hatalari(matris: Dictionary) -> PackedStringArray:
 			hatalar.append("%s: kişisel akçe int olmalı" % karar)
 		if not sonuc.get("esyalar", []) is Array:
 			hatalar.append("%s: esyalar dizi olmalı" % karar)
+		var varyantlar: Variant = sonuc.get("varyantlar", [])
+		if not varyantlar is Array:
+			hatalar.append("%s: varyantlar dizi olmalı" % karar)
+			continue
+		for varyant in varyantlar:
+			if not varyant is Dictionary or not varyant.get("stat_etkisi") is Dictionary:
+				hatalar.append("%s: varyant stat_etkisi eksik" % karar)
+			else:
+				hatalar.append_array(stat_hatalari(varyant["stat_etkisi"]))
 	return hatalar
 
 static func bayrak_hatalari(bayraklar: Dictionary) -> PackedStringArray:

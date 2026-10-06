@@ -12,7 +12,9 @@ func chr_sorgusu() -> RefCounted:
 		_chr_kontrol_edildi = true
 		var yol := "res://data/chr_runtime/%s.tres" % String(id).to_upper()
 		if adli and String(id).begins_with("chr_") and ResourceLoader.exists(yol):
-			_chr_sorgusu = preload("res://src/sistemler/chr_sorgusu.gd").new(load(yol) as KarakterVerisi)
+			var kaynak := load(yol) as KarakterVerisi
+			if kaynak != null and kaynak.dogrula():
+				_chr_sorgusu = preload("res://src/sistemler/chr_sorgusu.gd").new(kaynak)
 	return _chr_sorgusu
 ## Adlı karakterin kimliği; figürde boş.
 var id: StringName = &""

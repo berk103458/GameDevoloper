@@ -390,3 +390,10 @@ Sıradaki: KVR-14. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 Null kaynak, eksik/bozuk düğüm, seçenek, bayrak, nesne, animasyon ve karar alanları kaynak verisi değiştirilmeden güvenle okunuyor. Bozuk geçiş/eşya/kasa alanları eylem üretmez; boş profil karar ekranına izin verir. Tam sanity ve ek fallback/çift kasa regresyonu geçti.
 
 Sıradaki: KVR-15. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — KVR-15 (6 Ekim 2026)
+
+KarakterVerisi.dogrula ve hata listesi 30 derlenmiş profili yüklemede denetliyor: CHR kimliği, başlangıç tansiyonu 1–3 ve karar/varyant stat tipleri. Geçersiz kaynak Gelen adaptöründe sorguya bağlanmıyor; eski katalog korunur. 30 profil, kaynak 1 değerleri, bozuk profil, sorgu ve headless testleri geçti.
+
+Sıradaki: KAP-11. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

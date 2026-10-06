@@ -2,6 +2,13 @@
 class_name KarakterVerisi
 extends Resource
 
+## KVR-15: derlenmiş CHR profili başlangıç kontrolü; alanlar değiştirilmez.
+func dogrula() -> bool:
+	return dogrulama_hatalari().is_empty()
+
+func dogrulama_hatalari() -> PackedStringArray:
+	return ChrSozlesmesi.karakter_hatalari(self)
+
 ## CHR metinleri ayrı kaynakta: SYS-09 birleşene kadar CSV yazılmaz.
 @export var metinler: Dictionary = {}
 @export var spawn_kosulu: String = ""
