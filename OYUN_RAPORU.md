@@ -138,3 +138,25 @@ Her commit/pull sonrası ajan kendini tanıtır, durum/plan yazar; ROADMAP’te 
 **Eklendi:** `CLAUDE.md` durum bölümü, `GEMINI.md`, `codex.md/Codex.md`.
 Üç model için tanıt + durum + commit/pull sonrası güncelleme + ROADMAP `(Claude|Codex|Gemini)` işareti.
 AGENTS yönlendirme notu: Claude→CLAUDE.md, Codex→codex.md/, Gemini→GEMINI.md; Muharrir kural dışı (isteğe bağlı).
+
+---
+
+## Yenilik notu — Gemini döngü 1–7 ROADMAP genişletmesi
+
+**Güncellendi:** ROADMAP.md — Gemini döngü 1–7 birikimi (2026-10-06 Europe/Istanbul).
+- Durum: KAP-01 [x]; KVR-04 başlangıç tansiyonu **1–3**; KVR-09 [/] (NPC kuyruk runtime; CHR okuma kaldı); EKO-09 [ ] BEKLEMEDE; SYS-01/10 kısmi + satır kanıtsız uyarısı (tam [x] yok).
+- Örtüşme: KAP-15≡BUG-02; BUG-07≡SYS-09; ODA-02≡EKO-01/EKO-11.
+- Yeni: KAP/KVR/EKO/SYS/BUG/CAS/ODA **+11…15** (taslak hedef yollar notlu).
+- WIP (festive+keen) bu committe **yok**.
+
+---
+
+## Yenilik notu — Gemini döngü 8–10 ROADMAP genişletmesi
+
+**Güncellendi:** ROADMAP.md — Gemini döngü 8–10 birikimi (2026-10-06 Europe/Istanbul).
+- Yeni: MEV/HAR/KRI **+11…15** (taslak hedef yollar notlu).
+- Örtüşme: MEV-02≡EKO-09 / MEV-11; KRI-14↔KRI-06; KRI-15↔KRI-03.
+- HAR-15 [ ] BEKLEMEDE — "kodda var" geri çekildi (formül kanıtsız/taslak).
+- KRI (Gemini gerçek çıktı): teşhis ibresi, açlık–sağlık çapraz, yatak/triyaj, nöbetçi ambar, şifalı ot toplama.
+- WIP (festive+keen) bu committe **yok**.
+
