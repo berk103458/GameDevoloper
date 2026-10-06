@@ -429,3 +429,17 @@ Sıradaki: BUG-02. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 ## Codex — Son paket doğrulaması (6 Ekim 2026)
 
 24 Godot birim testi, iki gerçek UI kabul sahnesi ve sabit 20 gece duman koşusu geçti; Python ve korumalı API kontrolleri başarılı. KVR-04 başlangıç sözleşmesi 1–3; CHR_022/024/026/028/030 değerleri 1 korunur. Geliştirmeler PR #3’te, iki yerel kopya eşit. Sıradaki BUG-02/KAP-15 kuyruk senkronu inceleniyor.
+
+
+## Codex — BUG-02 (6 Ekim 2026)
+
+Sıra atlama kabulünde aynı Gelen ve model erase/push_front ile birlikte öne taşınır, model doğrudan kapı çizgisine yürür. Tekrarlı model adları indeksle taşınır; rüşvet kişisel keseye gider. En az iki kişi koşulu eklendi; gerçek 3D sıra atlama, ret, kasa ve mevcut kuyruk regresyonu geçti.
+
+Sıradaki: KAP-15. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — KAP-15 (6 Ekim 2026)
+
+BUG-02 ile aynı doğrulanmış entegrasyon paketi: gece listesi ve model kuyruğu eşleşir, öne alınan nesne kapıda yeniden yaratılmaz. Yeni gerçek sahne testi sanity paketine bağlandı; korumalı API denetimi geçti.
+
+Sıradaki: BUG-04. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

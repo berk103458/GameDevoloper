@@ -26,7 +26,7 @@
 ## BÖLÜM 1: Kritik Bugfix, Performans ve Bellek Optimizasyonu
 
 - [!] **BUG-01:** Menü ve Kapı Sahnesi Giriş Takılmaları (Shader & Asset Hitching) — `src/cekirdek/varlik_onbellek.gd` kurularak modeller, materyaller ve fontlar arka planda (`ResourceLoader.load_threaded_request`) yüklenerek ana iş parçacığı rahatlatılacak.
-- [!] **BUG-02:** Sıra Atlama Rüşvetinde Kuyruk Senkronizasyon Hatası — Rüşvetle öne geçmek isteyen NPC'nin kuyruk listesinde `erase` ve `push_front` ile en başa taşınması ve hemen kapı çizgisine yürümesi. **≡ KAP-15** — ayrı paket değil; KAP-15 bu maddeye referans verir.
+- [x] **BUG-02:** Sıra Atlama Rüşvetinde Kuyruk Senkronizasyon Hatası — Rüşvetle öne geçmek isteyen NPC'nin kuyruk listesinde `erase` ve `push_front` ile en başa taşınması ve hemen kapı çizgisine yürümesi. **≡ KAP-15** — ayrı paket değil; KAP-15 bu maddeye referans verir. (Codex)
 - [!] **BUG-03:** Rüşvet Kabul ve Ret Repliklerinin Sessiz Kalması — Rüşvet kabul veya reddedildiğinde diyalog kutusuna uygun ses ve CSV repliğinin düşmemesi sorunu çözülecek.
 - [!] **BUG-04:** Kapı Sahnesinde Işık ve Gölge Optimizasyonu — Meşale ışıklarındaki dinamik gölge haritası boyutu düşürülecek, gereksiz mesafe kontrolleri LOD ile optimize edilecek.
 - [!] **BUG-05:** Boşta Duran Scriptlerin İşlemci Tüketimi (`_process` Hijyeni) — Kapı ve menü ekranlarında aktif girdi almayan düğümlerin `set_process(false)` ile uyutulması.
@@ -61,7 +61,7 @@
 - [x] **KAP-12:** Tansiyon Göstergesi UI (`src/arayuz/kapi/tansiyon_gostergesi.gd` — **taslak hedef yol**) — Karakter tansiyonu 0–10 dinamik bar/gösterge; Sakin (0–3), Gergin (4–7), Panik (8–10) eşik renkleri. (Codex)
 - [x] **KAP-13:** `Flag_Kilitlendi` Karar Buton Kısıtı — Tansiyon ≥8 iken Kabul `disabled = true`; yalnızca Zorunlu Ret, Kışla ve Rüşvet seçilebilir. (Codex)
 - [x] **KAP-14:** 2D Eşya İnceleme Modal Kartı (`src/arayuz/kapi/esya_detay_karti.tscn` — **taslak hedef yol**) — Heybe Obje 1/2 tıklanınca açılan görsel/fiziksel inceleme kartı. (Codex)
-- [ ] **KAP-15:** Sıra Atlama Rüşvet Entegrasyonu — **≡ BUG-02 — ayrı paket değil**; kuyruk `erase`/`push_front` senkronu BUG-02 altında takip edilir.
+- [x] **KAP-15:** Sıra Atlama Rüşvet Entegrasyonu — **≡ BUG-02 — ayrı paket değil**; kuyruk `erase`/`push_front` senkronu BUG-02 altında takip edilir. (Codex)
 
 ---
 

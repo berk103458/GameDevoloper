@@ -597,6 +597,8 @@ func _sira_olayi(o: OlayVerisi) -> bool:
 		_kuyruk.remove_at(mini(_kuyruk.size(), KapiSahnesi.KUYRUK_GORUNEN) - 1)
 		_bilgi_yaz()
 	hud.guncelle()
+	if await preload("res://src/kapi/sira_atlama_adaptoru.gd").uygula(self, anahtar, etki):
+		hud.guncelle()
 	await sahne.sira_olayi_bitir(anahtar, etki)
 	await get_tree().create_timer(0.8).timeout
 	if sonuc["kirilan"] >= 0:

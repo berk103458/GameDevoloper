@@ -57,7 +57,7 @@ def checks(godot, root):
     yield "headless-import", [godot, "--headless", "--path", str(root), "--editor", "--import", "--quit"], None
     for script in sorted((root / "tests/unit").rglob("*test.gd")):
         yield script.stem, [godot, "--headless", "--path", str(root), "-s", str(script)], "GEÇTİ"
-    for scene in ("chr_kapi_kontrol", "koy_ortam_kontrol"):
+    for scene in ("chr_kapi_kontrol", "koy_ortam_kontrol", "sira_atlama_kontrol"):
         yield scene, [godot, "--headless", "--path", str(root), f"tests/oto/{scene}.tscn"], "GEÇTİ"
     yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
 
