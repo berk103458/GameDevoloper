@@ -66,6 +66,7 @@ func _ready() -> void:
 	add_child(hud)
 	hud.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
 	hud.bagla(oturum)
+	add_child(GorevDefteri.new())
 	_alt_panel_kur()
 	_bilgi_kur()
 	_bant = PanelContainer.new()

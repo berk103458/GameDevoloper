@@ -1742,3 +1742,10 @@ koy.kart.sure,%d günde tamamlanır
 koy.kart.eksik,Malzeme yetersiz
 koy.hiz.durdur,Duraklat / sürdür (Boşluk)
 koy.hud.ambar,Ambar: %d / %d
+gorev.defter.baslik,Defter
+gorev.quest_gate_admit_three.baslik,Kapıyı tut
+gorev.quest_gate_admit_three.amac,Üç kişiyi içeri al.
+gorev.quest_granary_food_36.baslik,Ambar defteri
+gorev.quest_granary_food_36.amac,Erzakı 36'ya çıkar.
+gorev.quest_zeynep_usta_ciftci.baslik,Zeynep'in eli
+gorev.quest_zeynep_usta_ciftci.amac,Zeynep'e sor; usta çiftçi izini aç.
