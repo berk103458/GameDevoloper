@@ -348,3 +348,10 @@ Sıradaki: SYS-14. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 Göç motoru açık _v2_v3 adımı ve N→N+1 döngüsüyle ilerliyor; sürüm atlaması/kesirli sürüm güvenle reddedilir. Kişisel alanların korunması, derin kopya, idempotent yükleme ve 20 gecelik JSON dönüşüm testi geçti.
 
 Sıradaki: KVR-12. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — KVR-12 (6 Ekim 2026)
+
+CHR bina adı sözlüğü tüm 30 sayfanın gecikmeli hedeflerini katalog türlerine eşliyor; birleşik Ağıl/Ahır iki hedef olarak korunur. Yeni CHR türleri inşa/üretim uygulaması gelene kadar kurulamaz; mevcut 8 yapı verisi aynen kaldı. Bina sözlüğü, köy regresyonu ve headless script taraması geçti.
+
+Sıradaki: KVR-13. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

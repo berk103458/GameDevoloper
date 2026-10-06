@@ -215,6 +215,8 @@ func yerlesim(tur: String, hucre: Vector2i, yon: int = 0) -> Dictionary:
 func bina_kur(tur: String, hucre: Vector2i, yon: int = 0) -> Dictionary:
 	if not katalog.var_mi(tur):
 		return {"olur": false, "neden": "tur", "id": -1}
+	if not katalog.veri(tur).get("kurulabilir", true):
+		return {"olur": false, "neden": "hedef_turu", "id": -1}
 	var d := yerlesim(tur, hucre, yon)
 	if not d["olur"]:
 		d["id"] = -1

@@ -12,6 +12,10 @@ KVR-07/08/09 **veri şeması** maddeleridir: beş stat etkileri, gecikmeli olay 
 
 Rüşvet yalnız kişisel kasaya/eşyalara yazılır. CHR rüşveti kaynak karar matrisinden, eski ziyaretçi rüşveti seçilmiş heybe eşyalarından okunur. Kamu kasasının eski `akce` API'si korunur; müsadere ve harç kamu geliridir.
 
+## CHR bina adları
+
+`BinaKatalogu.chr_hedef_turleri(ad)` kaynak konumu ayrı sözlükle katalog türlerine bağlar. Ağıl ve Ahır iki hedefe açılır; tanımsız ad boş dizi döndürür. Mevcut ambar/tarla verileri aynen korunur; Şifahane, Muhafız Kışlası gibi yeni türler yalnız `chr_hedef` kayıtlarıdır ve `kurulabilir=false` taşır. Bu sözlük inşa/üretim sistemini uygulamaz; bedelsiz bina yaratmaz. 30 CHR kaynağının tüm gecikmeli hedefleri birim testinde katalogla doğrulanır.
+
 ## Kayıt
 
 Oturum sürümü 3: v2→v3 göçü kişisel kasa/envanter, tecrübe, takvim ve yeni bina alanlarını ekler; köy, kadro ve RNG verisini korur. Köy verisi olmayan v1 dört bar kayıtları ve gelecekteki sürümler güvenle reddedilir; kullanıcı dosyası dönüştürülerek ezilmez.

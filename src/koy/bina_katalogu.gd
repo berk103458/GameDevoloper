@@ -15,6 +15,11 @@ func _init(yol: String = YOL) -> void:
 	for k in v:
 		if not String(k).begins_with("_"):
 			turler[String(k)] = v[k]
+	# Kaynak CHR konumları ayrı türdür; mevcut yapı verileri ezilmez.
+	turler.merge(preload("res://src/koy/chr_bina_sozlugu.gd").katalog_ekleri(), false)
+
+func chr_hedef_turleri(ad: String) -> PackedStringArray:
+	return preload("res://src/koy/chr_bina_sozlugu.gd").turler(ad)
 
 
 func var_mi(tur: String) -> bool:
