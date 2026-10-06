@@ -68,6 +68,9 @@ func _ready() -> void:
 	cerceve.seviye = sur
 	add_child(cerceve)
 	_isiklar.append_array(cerceve.isiklar)
+	var golge_profili := preload("res://src/dunya/kapi_golge_profili.gd").new()
+	golge_profili.isiklar = _isiklar
+	add_child(golge_profili)
 	_kagni_kur()
 	kamera = Camera3D.new()
 	# Bekçinin yeri: kapının biraz gerisinde; iki direk ve meşaleler kadrajın kenarlarında (arayüzün solunda) kalır.

@@ -443,3 +443,10 @@ Sıradaki: KAP-15. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 BUG-02 ile aynı doğrulanmış entegrasyon paketi: gece listesi ve model kuyruğu eşleşir, öne alınan nesne kapıda yeniden yaratılmaz. Yeni gerçek sahne testi sanity paketine bağlandı; korumalı API denetimi geçti.
 
 Sıradaki: BUG-04. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — BUG-04 (6 Ekim 2026)
+
+Kapı noktasal gölge atlası en çok 2048; meşale ışık/gölge mesafe sönümü renderer üzerinden ayarlanır, kare başına uzaklık taraması eklenmez. Düşük kalite ve sahne açıkken değişen tercihler korunur; son kapı kapanınca atlas geri döner. Profil/çoklu sahne/ayar testleri, native kapı görüntüsü ve korumalı API denetimi geçti.
+
+Sıradaki: BUG-05. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

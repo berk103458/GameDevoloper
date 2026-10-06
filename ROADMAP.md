@@ -28,7 +28,7 @@
 - [!] **BUG-01:** Menü ve Kapı Sahnesi Giriş Takılmaları (Shader & Asset Hitching) — `src/cekirdek/varlik_onbellek.gd` kurularak modeller, materyaller ve fontlar arka planda (`ResourceLoader.load_threaded_request`) yüklenerek ana iş parçacığı rahatlatılacak.
 - [x] **BUG-02:** Sıra Atlama Rüşvetinde Kuyruk Senkronizasyon Hatası — Rüşvetle öne geçmek isteyen NPC'nin kuyruk listesinde `erase` ve `push_front` ile en başa taşınması ve hemen kapı çizgisine yürümesi. **≡ KAP-15** — ayrı paket değil; KAP-15 bu maddeye referans verir. (Codex)
 - [!] **BUG-03:** Rüşvet Kabul ve Ret Repliklerinin Sessiz Kalması — Rüşvet kabul veya reddedildiğinde diyalog kutusuna uygun ses ve CSV repliğinin düşmemesi sorunu çözülecek.
-- [!] **BUG-04:** Kapı Sahnesinde Işık ve Gölge Optimizasyonu — Meşale ışıklarındaki dinamik gölge haritası boyutu düşürülecek, gereksiz mesafe kontrolleri LOD ile optimize edilecek.
+- [x] **BUG-04:** Kapı Sahnesinde Işık ve Gölge Optimizasyonu — Meşale ışıklarındaki dinamik gölge haritası boyutu düşürülecek, gereksiz mesafe kontrolleri LOD ile optimize edilecek. (Codex)
 - [!] **BUG-05:** Boşta Duran Scriptlerin İşlemci Tüketimi (`_process` Hijyeni) — Kapı ve menü ekranlarında aktif girdi almayan düğümlerin `set_process(false)` ile uyutulması.
 - [!] **BUG-06:** 3D Karakter Bellek Sızıntısı (Orphan Nodes) — Kapıdan içeri giren veya geri dönen karakter sahnelerinin ağaçtan silinirken bellekten düşmemesi hatası `queue_free()` kontrolleriyle giderilecek.
 - [!] **BUG-07:** CSV Sözdizimi ve Tırnak Hataları Fallback Mekanizması — Eksik anahtar durumunda oyunun kilitlenmesi önlenecek, ekrana güvenli `[KEY_NOT_FOUND]` basılarak çalışmaya devam edilecek. **≡ SYS-09** (metinler.csv doğrulama / isimlendirme birleşik paket).

@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-6 Ekim 2026. Taban: festive 8ba9956; çalışma dalı feature/kvr-runtime. Önceki yayımlanan commit: 086347a. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir, commit edilir ve ayrı komut beklemeden GitHub’a gönderilir. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+6 Ekim 2026. Taban: festive 8ba9956; çalışma dalı feature/kvr-runtime. Önceki yayımlanan commit: fb771bf. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir, commit edilir ve ayrı komut beklemeden GitHub’a gönderilir. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -46,9 +46,10 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - KAP-14: Nişan ve yük tıklaması kaynak fiziksel açıklamasını ayrı modal karta açıyor; alttaki girdi durur ve kapatma sorguya döner. Mevcut heybe akışı ve başka ajanın dosyaları korunur. Nişan/yük kartı, gerçek kapı native görüntü ve headless tarama testleri geçti.
 - BUG-02: Sıra atlama kabulünde aynı Gelen ve model erase/push_front ile birlikte öne taşınır, model doğrudan kapı çizgisine yürür. Tekrarlı model adları indeksle taşınır; rüşvet kişisel keseye gider. En az iki kişi koşulu eklendi; gerçek 3D sıra atlama, ret, kasa ve mevcut kuyruk regresyonu geçti.
 - KAP-15: BUG-02 ile aynı doğrulanmış entegrasyon paketi: gece listesi ve model kuyruğu eşleşir, öne alınan nesne kapıda yeniden yaratılmaz. Yeni gerçek sahne testi sanity paketine bağlandı; korumalı API denetimi geçti.
+- BUG-04: Kapı noktasal gölge atlası en çok 2048; meşale ışık/gölge mesafe sönümü renderer üzerinden ayarlanır, kare başına uzaklık taraması eklenmez. Düşük kalite ve sahne açıkken değişen tercihler korunur; son kapı kapanınca atlas geri döner. Profil/çoklu sahne/ayar testleri, native kapı görüntüsü ve korumalı API denetimi geçti.
 
 ## Sonraki çalışma
-BUG-04. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+BUG-05. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler otomatik commit/push kuralına göre kaydedilir. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
