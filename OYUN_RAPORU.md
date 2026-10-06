@@ -464,3 +464,17 @@ Sıradaki: BUG-06. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 Mevcut queue_free akışında sızıntı üretilemedi: gerçek Meshy karakterleriyle 6 kabul/ret rotası ve rota ortasında sahne değişimi sonunda model silindi, orphan sayısı 0 kaldı. Bu lifecycle kontrolü sanity paketine eklendi; üretim akışı gereksiz yeniden yazılmadı.
 
 Sıradaki: BUG-08. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — BUG-08 (6 Ekim 2026)
+
+Köy ekranı gece hesaplaşmasını ekran başına tek kilitle yürütür; düğme disabled olur ve hız 1x kalır. 2x başlangıçta tekrar sinyal/metot çağrısı gün, tüketim, kasa veya RNGyi değiştirmedi; rapor kartı korunur. Gerçek üç köylülü UI, headless ve API testleri geçti.
+
+Sıradaki: BUG-11. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — BUG-11 (6 Ekim 2026)
+
+BUG-08 ile aynı doğrulanmış koruma: tek geçiş kilidi + disabled gece düğmesi + rapor boyunca 1x. Yeni köy ekranı kendi kilidini alır; Oturum.gece_sonu simülasyon API imzası ve akışı değişmedi.
+
+Sıradaki: BUG-09. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

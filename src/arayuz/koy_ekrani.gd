@@ -41,6 +41,7 @@ var _onceki_fizik_adimi := 8
 var _kategori := "barinma"
 var _y: KoyYonetimi
 var _dinamik_ortam: Node
+var _gece_kilidi := preload("res://src/sistemler/gece_gecis_kilidi.gd").new()
 
 
 func _ready() -> void:
@@ -308,6 +309,8 @@ func _unhandled_input(olay: InputEvent) -> void:
 
 ## 1/2/3 hız seçer; boşluk durdurur veya son hızda sürdürür. Arayüz duraklamada çalışır.
 func _hiz_sec(kat: int) -> void:
+	if _gece_kilidi.kilitli():
+		kat = 1
 	kat = clampi(kat, 0, 3)
 	get_tree().paused = kat == 0
 	Engine.time_scale = float(kat) if kat > 0 else 1.0
@@ -580,6 +583,9 @@ func _bant_ciz() -> void:
 # ── Gece (Faz 3) ve rapor kartı (14.3–14.4) ───────────────────────────────────────────────────────
 
 func _geceye_gec() -> void:
+	if not _gece_kilidi.al():
+		return
+	_gece_dugmesi.disabled = true
 	_kip_sec("")
 	_hiz_sec(1)
 	Ses.cal(&"sfx_gece_bitti")
