@@ -397,3 +397,10 @@ Sıradaki: KVR-15. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 KarakterVerisi.dogrula ve hata listesi 30 derlenmiş profili yüklemede denetliyor: CHR kimliği, başlangıç tansiyonu 1–3 ve karar/varyant stat tipleri. Geçersiz kaynak Gelen adaptöründe sorguya bağlanmıyor; eski katalog korunur. 30 profil, kaynak 1 değerleri, bozuk profil, sorgu ve headless testleri geçti.
 
 Sıradaki: KAP-11. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — KAP-11 (6 Ekim 2026)
+
+IpucuYoneticisi ziyaret başına oturumdan bağımsız Clue kaydı sunuyor; mükerrer kayıt/sinyal, boş anahtar ve Flag reddedilir. ChrSorgusu inceleme adaptörleri bu servisi kullanır; dışa verilen sözlük kopyadır. Servis, gerçek sorgu/UI ve headless testleri geçti.
+
+Sıradaki: KAP-12. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

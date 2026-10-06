@@ -6,7 +6,10 @@ signal ipucu_bulundu(ipucu: StringName)
 signal tansiyon_degisti(deger: int)
 signal replik_basladi(metin: String)
 var karakter: KarakterVerisi
-var ipuclari: Dictionary = {}
+var _ipucu_servisi := IpucuYoneticisi.new()
+var ipuclari: Dictionary:
+	get:
+		return _ipucu_servisi.kayitlar()
 var bayraklar: Dictionary = {}
 var tansiyon: int = 2:
 	set(deger):
@@ -120,8 +123,7 @@ func karar_acik(karar: StringName) -> bool:
 
 func gorsel_incele() -> String:
 	var ipucu := karakter.gorsel_hata_ipucu
-	if ipucu != &"" and not ipuclari.has(ipucu):
-		ipuclari[ipucu] = true
+	if _ipucu_servisi.kaydet(ipucu):
 		ipucu_bulundu.emit(ipucu)
 	return karakter.gorsel_hata
 
@@ -136,8 +138,7 @@ func obje_incele(sira: int) -> String:
 	if sira not in [1, 2]:
 		return ""
 	var ipucu := karakter.obje_ipucu(sira)
-	if ipucu != &"" and not ipuclari.has(ipucu):
-		ipuclari[ipucu] = true
+	if _ipucu_servisi.kaydet(ipucu):
 		ipucu_bulundu.emit(ipucu)
 	var obje := karakter.obje_1 if sira == 1 else karakter.obje_2
 	return preload("res://src/veri/chr_guvenli_okuma.gd").metin(obje.get("aciklama"))

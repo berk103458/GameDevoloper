@@ -57,8 +57,8 @@
 - [x] **KAP-09:** Diyalog İçi Blöf ve İkna Başarı Olasılığı — Muhafızın tecrübesine ve karakterin tansiyonuna göre yalanı çürütme seçeneklerinin dinamik başarı zarı. (Codex)
 - [x] **KAP-10:** Sorgu İçi Ses Efektleri (SFX) Tetikleyicisi — Çapa şakırtısı, ferman yırtılması, bebek soluğu ve kılıç kabzası seslerinin diyalog replikleriyle eşzamanlı çalması. (Codex)
 
-- [/] **KAP-11:** İpucu Runtime Servisi (`src/kapi/ipucu_yoneticisi.gd` — **taslak hedef yol**) — 2D heybe/portre etkileşimlerinden üretilen `Clue_*` anahtarlarını oturumdan bağımsız toplayan, mükerrer kaydı engelleyen servis katmanı.
-- [ ] **KAP-12:** Tansiyon Göstergesi UI (`src/arayuz/kapi/tansiyon_gostergesi.gd` — **taslak hedef yol**) — Karakter tansiyonu 0–10 dinamik bar/gösterge; Sakin (0–3), Gergin (4–7), Panik (8–10) eşik renkleri.
+- [x] **KAP-11:** İpucu Runtime Servisi (`src/kapi/ipucu_yoneticisi.gd` — **taslak hedef yol**) — 2D heybe/portre etkileşimlerinden üretilen `Clue_*` anahtarlarını oturumdan bağımsız toplayan, mükerrer kaydı engelleyen servis katmanı. (Codex)
+- [/] **KAP-12:** Tansiyon Göstergesi UI (`src/arayuz/kapi/tansiyon_gostergesi.gd` — **taslak hedef yol**) — Karakter tansiyonu 0–10 dinamik bar/gösterge; Sakin (0–3), Gergin (4–7), Panik (8–10) eşik renkleri.
 - [ ] **KAP-13:** `Flag_Kilitlendi` Karar Buton Kısıtı — Tansiyon ≥8 iken Kabul `disabled = true`; yalnızca Zorunlu Ret, Kışla ve Rüşvet seçilebilir.
 - [ ] **KAP-14:** 2D Eşya İnceleme Modal Kartı (`src/arayuz/kapi/esya_detay_karti.tscn` — **taslak hedef yol**) — Heybe Obje 1/2 tıklanınca açılan görsel/fiziksel inceleme kartı.
 - [ ] **KAP-15:** Sıra Atlama Rüşvet Entegrasyonu — **≡ BUG-02 — ayrı paket değil**; kuyruk `erase`/`push_front` senkronu BUG-02 altında takip edilir.
