@@ -23,7 +23,8 @@ extends Resource
 @export var karar_matrisi: Dictionary = {}
 
 func karar_verisi(karar: StringName) -> Dictionary:
-	return preload("res://src/sistemler/chr_runtime_sinirlari.gd").karar(karar_matrisi.get(String(karar), {}))
+	var kaynak := preload("res://src/veri/chr_guvenli_okuma.gd").sozluk(karar_matrisi.get(String(karar)))
+	return preload("res://src/sistemler/chr_runtime_sinirlari.gd").karar(kaynak)
 
 ## KVR-06: başlangıç verisi; her sorgu kendi kopyasını kullanır.
 @export var sorgu_bayraklari: Dictionary = {
@@ -34,7 +35,10 @@ func karar_verisi(karar: StringName) -> Dictionary:
 }
 
 func yeni_sorgu_bayraklari() -> Dictionary:
-	return sorgu_bayraklari.duplicate(true)
+	var sonuc := {}
+	for bayrak in ChrSozlesmesi.BAYRAKLAR:
+		sonuc[bayrak] = sorgu_bayraklari.get(bayrak, false) if sorgu_bayraklari.get(bayrak, false) is bool else false
+	return sonuc
 
 ## KVR-05: düğüm kimliği -> replik_anahtari, secenekler dizisi.
 ## Seçenek: metin_anahtari, hedef, tansiyon_delta; kaynak kimliği aynen kalır.
@@ -42,7 +46,7 @@ func yeni_sorgu_bayraklari() -> Dictionary:
 
 ## Kopya döndürülür: bir sorgunun değişiklikleri paylaşılan kaynağı etkilemez.
 func diyalog_dugumu(dugum_id: StringName) -> Dictionary:
-	return diyalog_dugumleri.get(String(dugum_id), {}).duplicate(true)
+	return preload("res://src/veri/chr_guvenli_okuma.gd").dugum(diyalog_dugumleri.get(String(dugum_id)))
 
 ## KVR-04: kaynak görsel ipucu ve pozları; sınırlar sorgu sözleşmesidir.
 @export var gorsel_hata_ipucu: StringName = &""
@@ -56,7 +60,7 @@ func diyalog_dugumu(dugum_id: StringName) -> Dictionary:
 
 func tansiyon_animasyonu(tansiyon: int) -> StringName:
 	var durum := "Idle" if tansiyon < 4 else "Stressed" if tansiyon < 8 else "Panic"
-	return StringName(animasyon_anahtarlari.get(durum, durum))
+	return StringName(preload("res://src/veri/chr_guvenli_okuma.gd").metin(animasyon_anahtarlari.get(durum), durum))
 
 ## KVR-03: açıklama kaynak Obje_1_Nişan / Obje_2_Yük metnidir.
 @export var obje_1: Dictionary = {"aciklama": "", "uretilen_ipucu": &""}
@@ -65,7 +69,7 @@ func tansiyon_animasyonu(tansiyon: int) -> StringName:
 ## Sorgu/heybe adaptörleri tek sözleşmeden ipucu alır; kaynak değiştirilmez.
 func obje_ipucu(sira: int) -> StringName:
 	var obje := obje_1 if sira == 1 else obje_2 if sira == 2 else {}
-	return StringName(obje.get("uretilen_ipucu", &""))
+	return StringName(preload("res://src/veri/chr_guvenli_okuma.gd").metin(obje.get("uretilen_ipucu")))
 
 ## KVR-02: kaynak Secere_Matrisi ve Köy_içi_Davranış adları korunur.
 @export var secere_matrisi: Dictionary = {

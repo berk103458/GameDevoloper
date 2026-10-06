@@ -37,7 +37,7 @@ func basari_olasiligi() -> float:
 	return kurallar.olasilik(tecrube, tansiyon)
 
 func metin(anahtar: StringName) -> String:
-	return String(karakter.metinler.get(String(anahtar), String(anahtar)))
+	return preload("res://src/veri/chr_guvenli_okuma.gd").metin(karakter.metinler.get(String(anahtar)), String(anahtar))
 
 func secenek_acik(secenek: Dictionary, indeks: int = -1) -> bool:
 	if indeks >= 0 and _denemeler.has("%s:%d" % [dugum_id, indeks]):
@@ -127,7 +127,8 @@ func gorsel_incele() -> String:
 
 func _init(k: KarakterVerisi) -> void:
 	_rng.randomize()
-	karakter = k
+	karakter = k if k != null else KarakterVerisi.new()
+	k = karakter
 	bayraklar = k.yeni_sorgu_bayraklari()
 	tansiyon = k.baslangic_tansiyonu
 
@@ -139,4 +140,4 @@ func obje_incele(sira: int) -> String:
 		ipuclari[ipucu] = true
 		ipucu_bulundu.emit(ipucu)
 	var obje := karakter.obje_1 if sira == 1 else karakter.obje_2
-	return String(obje.get("aciklama", ""))
+	return preload("res://src/veri/chr_guvenli_okuma.gd").metin(obje.get("aciklama"))

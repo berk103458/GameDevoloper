@@ -383,3 +383,10 @@ Sıradaki: KVR-14. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 - HAR-15 [ ] BEKLEMEDE — "kodda var" geri çekildi (formül kanıtsız/taslak).
 - KRI (Gemini gerçek çıktı): teşhis ibresi, açlık–sağlık çapraz, yatak/triyaj, nöbetçi ambar, şifalı ot toplama.
 - WIP (festive+keen) bu committe **yok**.
+
+
+## Codex — KVR-14 (6 Ekim 2026)
+
+Null kaynak, eksik/bozuk düğüm, seçenek, bayrak, nesne, animasyon ve karar alanları kaynak verisi değiştirilmeden güvenle okunuyor. Bozuk geçiş/eşya/kasa alanları eylem üretmez; boş profil karar ekranına izin verir. Tam sanity ve ek fallback/çift kasa regresyonu geçti.
+
+Sıradaki: KVR-15. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

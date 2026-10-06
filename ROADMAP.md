@@ -83,8 +83,8 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **KVR-11:** `metinler.csv` Anahtar Standardı Sözleşmesi — Replik: `CHR_XXX_DUGUM_YY_REPLIK`; seçenek: `CHR_XXX_DUGUM_YY_SEC_Z_METIN`; heybe: `CLUE_CHRXXX_ESYA_ADI_BASLIK` / `_TANIM`; CSV'ye satır bazlı ekleme kuralı.
 - [x] **KVR-12:** Bina Adı Sözlüğü — CHR hedef binalarını katalogdaki türlerle birebir eşleyen statik sözlük (ör. Köy Meydanı, Ahır, Muhafız Kışlası, Değirmen, Şifahane, Bostan). (Codex)
 - [x] **KVR-13:** Tansiyon / Stat Clamp — Runtime sınır kontrolü: tansiyon 0–10; karar anlık etkileri tipik −4…+4 clamp. (Codex)
-- [/] **KVR-14:** Eksik Alan Fallback — CHR/`KarakterVerisi` okumada boş veya eksik alanda güvenli varsayılan profil; çökme yok.
-- [ ] **KVR-15:** `dogrula() -> bool` — Zorunlu alanlar (ID, başlangıç tansiyonu, karar etkileri) derleme/başlangıçta geçerlilik teyidi (**taslak hedef**: `KarakterVerisi.dogrula` / `tools/chr_parser.py`).
+- [x] **KVR-14:** Eksik Alan Fallback — CHR/`KarakterVerisi` okumada boş veya eksik alanda güvenli varsayılan profil; çökme yok. (Codex)
+- [/] **KVR-15:** `dogrula() -> bool` — Zorunlu alanlar (ID, başlangıç tansiyonu, karar etkileri) derleme/başlangıçta geçerlilik teyidi (**taslak hedef**: `KarakterVerisi.dogrula` / `tools/chr_parser.py`).
 
 ---
 
