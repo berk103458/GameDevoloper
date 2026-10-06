@@ -201,6 +201,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	if gelen.adli:
 		kadro.sonuc(gelen.id, kaldi, &"kabul" if karar == &"harc" else karar, gun)
 	ek["kaldi"] = kaldi
+	GorevAdaptoru.bildir_karar(self, gelen, karar, ek)
 	return ek
 
 
@@ -215,6 +216,7 @@ func gece_sonu() -> Dictionary:
 		"perde_degisti": not agalik_once and yonetim.agalik, "olay": null, "rapor": r}
 	if r["son"] == "" and not sonuc["perde_degisti"]:
 		sonuc["olay"] = olay_sec()
+	GorevAdaptoru.bildir_gece(self)
 	return sonuc
 
 
@@ -630,6 +632,7 @@ func kaydet() -> Dictionary:
 		"kadro": kadro.kaydet(),
 		"diyalog_sira": _gemini_sira,
 		"koy_yonetimi": yonetim.kaydet(),
+		"gorev": GorevAdaptoru.kaydet(),
 		"rng": [str(_rng.state), str(_rng_donus.state), str(_rng_ad.state), str(_rng_heybe.state)]}
 	# 64 bit sayılar JSON'da float'a döner; metin olarak saklanır.
 
@@ -658,4 +661,5 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 		o._rng_heybe.state = String(r[3]).to_int()
 	o._gemini_sira = int(veri.get("diyalog_sira", 0))
 	o._koy_esitle()
+	GorevAdaptoru.yukle(veri.get("gorev", {}))
 	return o

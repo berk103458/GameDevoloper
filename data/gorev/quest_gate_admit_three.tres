@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GorevKaydi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/gorev_kaydi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = 1
+quest_name = "gorev.quest_gate_admit_three.baslik"
+quest_description = "gorev.quest_gate_admit_three.amac"
+quest_objective = "gorev.quest_gate_admit_three.amac"
+slug = "quest_gate_admit_three"
+baslik_anahtari = "gorev.quest_gate_admit_three.baslik"
+amac_anahtari = "gorev.quest_gate_admit_three.amac"
+tur = "kabul_sayisi"
+hedef = 3

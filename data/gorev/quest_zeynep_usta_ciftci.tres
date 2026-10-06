@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GorevKaydi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/gorev_kaydi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = 3
+quest_name = "gorev.quest_zeynep_usta_ciftci.baslik"
+quest_description = "gorev.quest_zeynep_usta_ciftci.amac"
+quest_objective = "gorev.quest_zeynep_usta_ciftci.amac"
+slug = "quest_zeynep_usta_ciftci"
+baslik_anahtari = "gorev.quest_zeynep_usta_ciftci.baslik"
+amac_anahtari = "gorev.quest_zeynep_usta_ciftci.amac"
+tur = "bayrak"
+hedef = 1
+bayrak = "usta_ciftci"
+bayrak_yeri = "gelen"
