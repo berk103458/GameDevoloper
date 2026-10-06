@@ -97,6 +97,14 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI) -> void:
 		dur()
 
 
+## Yeni rota veya iptal için konum tween'ini durdurur ve bekleme pozuna geçer.
+func yurumeyi_durdur() -> void:
+	if _yurume != null and _yurume.is_valid():
+		_yurume.kill()
+	_yurume = null
+	dur()
+
+
 ## Durur: "bekle" animasyonuna yumuşak geçiş; nefes ve kıpırtıyı DurusDuzeltici verir.
 func dur() -> void:
 	_bekleme_hedef = 1.0

@@ -90,3 +90,17 @@ static func _kutu(dolgu: Color, kenar: Color, kalinlik: int) -> StyleBoxFlat:
 	s.content_margin_top = 12
 	s.content_margin_bottom = 12
 	return s
+
+
+## Köy panelleri: koyu ahşap zemin ve ince bronz kenar.
+static func koy_paneli() -> StyleBoxFlat:
+	var s := _kutu(Color("201f1bed"), Color("64543a"), 1)
+	s.content_margin_left = 12
+	s.content_margin_right = 12
+	s.content_margin_top = 6
+	s.content_margin_bottom = 6
+	return s
+
+## Köy başlıklarında kullanılan SIL OFL lisanslı Cinzel.
+static func koy_baslik_fontu() -> Font:
+	return load("res://assets/font/Cinzel-wght.ttf")

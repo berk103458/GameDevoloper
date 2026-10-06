@@ -10,12 +10,14 @@ const UYARI := Color("#C4843A")
 const ASAYIS_KRITIK := 60
 
 var _oturum: Oturum
-var _akce: Label
+var _akce: KaynakGostergesi
 var _stok_etiketleri: Dictionary = {}
 var _gun: Label
 var _mevsim: Label
 var _nufus: Label
-var _huzur_kutu: HBoxContainer
+var _huzur_bar: ProgressBar
+var _adalet_bar: ProgressBar
+var _ambar_bar: ProgressBar
 var _huzur_etiket: Label
 var _adalet: Label
 var _asayis: Label
@@ -34,25 +36,33 @@ func bagla(oturum: Oturum) -> void:
 
 
 func _ready() -> void:
-	custom_minimum_size = Vector2(0, 92)
+	custom_minimum_size = Vector2(0, 108)
+	add_theme_stylebox_override("panel", Tema.koy_paneli())
 	var kutu := HBoxContainer.new()
-	kutu.add_theme_constant_override("separation", 26)
+	kutu.add_theme_constant_override("separation", 14)
 	add_child(kutu)
-	_akce = _etiket(kutu, Tema.BASLIK_PX)
+	var kaynak_kaydir := ScrollContainer.new()
+	kaynak_kaydir.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	kaynak_kaydir.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	kaynak_kaydir.follow_focus = true
+	kutu.add_child(kaynak_kaydir)
+	var kaynaklar := HBoxContainer.new()
+	kaynaklar.add_theme_constant_override("separation", 8)
+	kaynak_kaydir.add_child(kaynaklar)
+	_akce = _kaynak(kaynaklar, "akce")
 	for t in STOKLAR:
-		_stok_etiketleri[t] = _etiket(kutu, Tema.KUCUK_PX)
+		_stok_etiketleri[t] = _kaynak(kaynaklar, t)
 	var orta := Control.new()
-	orta.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	orta.custom_minimum_size.x = 4
 	kutu.add_child(orta)
 	var huzur := VBoxContainer.new()
 	huzur.add_theme_constant_override("separation", 4)
 	_huzur_etiket = _etiket(huzur, Tema.KUCUK_PX)
-	_huzur_kutu = HBoxContainer.new()
-	_huzur_kutu.add_theme_constant_override("separation", 3)
-	huzur.add_child(_huzur_kutu)
+	_huzur_bar = _bar(huzur)
 	kutu.add_child(huzur)
 	var gosterge := VBoxContainer.new()
 	_adalet = _etiket(gosterge, Tema.KUCUK_PX)
+	_adalet_bar = _bar(gosterge)
 	_asayis = _etiket(gosterge, Tema.KUCUK_PX)
 	kutu.add_child(gosterge)
 	var sag := VBoxContainer.new()
@@ -62,12 +72,13 @@ func _ready() -> void:
 	_mevsim.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_nufus = _etiket(sag, Tema.KUCUK_PX)
 	_nufus.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_ambar_bar = _bar(sag)
 	kutu.add_child(sag)
 
 
 func _etiket(ust: Control, punto: int) -> Label:
 	var l := Label.new()
-	l.add_theme_font_size_override("font_size", punto)
+	l.add_theme_font_size_override("font_size", roundi(punto * float(get_theme_default_font_size()) / Tema.GOVDE_PX))
 	l.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	ust.add_child(l)
 	return l
@@ -80,7 +91,7 @@ func _process(delta: float) -> void:
 	# Uyarılar yanıp söner (zamanlayıcıyla değil, kare başı tek bir alfa: bellek tahsisi yok).
 	var yanip := 0.55 + 0.45 * sin(_zaman * 6.0)
 	var y := _oturum.yonetim
-	(_stok_etiketleri["gida"] as Label).modulate.a = yanip if y.gida_gunu() < 2.0 and y.nufus() > 0 else 1.0
+	(_stok_etiketleri["gida"] as KaynakGostergesi).modulate.a = yanip if y.gida_gunu() < 2.0 and y.nufus() > 0 else 1.0
 	_asayis.modulate.a = yanip if y.asayis_riski >= ASAYIS_KRITIK else 1.0
 	_huzur_etiket.modulate.a = yanip if y.isyan_kalan >= 0 else 1.0
 
@@ -96,26 +107,22 @@ func guncelle() -> void:
 		if _onceki_gun >= 0:
 			for t in STOKLAR:
 				_net[t] = k.miktar(t) - int(_onceki.get(t, 0))
+			_net["akce"] = y.akce - int(_onceki.get("akce", y.akce))
+		_onceki["akce"] = y.akce
 		_onceki_gun = y.gun
 		for t in STOKLAR:
 			_onceki[t] = k.miktar(t)
-	_akce.text = tr("arayuz.hud.akce") % y.akce
+	_akce.guncelle(y.akce, int(_net.get("akce", 0)))
 	for t in STOKLAR:
-		var l: Label = _stok_etiketleri[t]
-		var net := int(_net.get(t, 0))
-		l.text = "%s %d%s" % [tr("koy.kaynak." + t), k.miktar(t), ("  (%+d)" % net) if net != 0 else ""]
-		l.add_theme_color_override("font_color", UYARI if (t == "gida" and y.gida_gunu() < 2.0 and y.nufus() > 0) else Renkler.KUL)
+		var l: KaynakGostergesi = _stok_etiketleri[t]
+		l.guncelle(k.miktar(t), int(_net.get(t, 0)), t == "gida" and y.gida_gunu() < 2.0 and y.nufus() > 0)
 	_huzur_etiket.text = (tr("arayuz.hud.isyan") % y.isyan_kalan) if y.isyan_kalan >= 0 else tr("arayuz.hud.huzur") % y.huzur()
-	for c in _huzur_kutu.get_children():
-		c.queue_free()
-	var dolu := y.huzur() / 10
-	for s in 10:
-		var durum := "empty"
-		if s < dolu:
-			durum = "full"
-			if dolu <= 3 and s == dolu - 1:
-				durum = "cracked_02"
-		_huzur_kutu.add_child(_parca(durum))
+	_huzur_bar.value = y.huzur()
+	_huzur_bar.tooltip_text = _huzur_etiket.text
+	_adalet_bar.value = y.adalet
+	_ambar_bar.max_value = maxi(1, k.kapasite)
+	_ambar_bar.value = k.toplam()
+	_ambar_bar.tooltip_text = tr("koy.hud.ambar") % [k.toplam(), k.kapasite]
 	_adalet.text = tr("arayuz.hud.adalet") % y.adalet
 	_asayis.text = tr("arayuz.hud.asayis") % y.asayis_riski
 	_asayis.add_theme_color_override("font_color", UYARI if y.asayis_riski >= ASAYIS_KRITIK else Renkler.KUL)
@@ -124,16 +131,24 @@ func guncelle() -> void:
 	_nufus.text = tr("arayuz.hud.nufus") % [y.nufus(), y.yatak_kapasitesi(), k.toplam(), k.kapasite]
 
 
-func _parca(durum: String) -> Control:
-	var t := Sanat.doku("ui", "ui_bar_segment_%s" % durum)
-	if t != null:
-		var r := TextureRect.new()
-		r.texture = t
-		r.custom_minimum_size = Vector2(16, 26)
-		r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		return r
-	var c := ColorRect.new()
-	c.custom_minimum_size = Vector2(14, 24)
-	c.color = Renkler.KUL if durum != "empty" else Renkler.DERIN_MAVI
-	return c
+func _bar(ust: Control) -> ProgressBar:
+	var bar := ProgressBar.new()
+	bar.custom_minimum_size = Vector2(150, 8)
+	bar.show_percentage = false
+	bar.mouse_filter = Control.MOUSE_FILTER_PASS
+	var arka := StyleBoxFlat.new()
+	arka.bg_color = Color("36362e")
+	var dolu := StyleBoxFlat.new()
+	dolu.bg_color = KaynakGostergesi.BRONZ
+	bar.add_theme_stylebox_override("background", arka)
+	bar.add_theme_stylebox_override("fill", dolu)
+	ust.add_child(bar)
+	return bar
+
+
+func _kaynak(ust: Control, tur: String) -> KaynakGostergesi:
+	var kart := KaynakGostergesi.new()
+	ust.add_child(kart)
+	var olcek := float(get_theme_default_font_size()) / Tema.GOVDE_PX
+	kart.kur(tur, roundi(18 * olcek))
+	return kart

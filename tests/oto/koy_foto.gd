@@ -52,6 +52,8 @@ func _ready() -> void:
 	y.muhafiz_ata(y.koylular[11].id)
 	o._koy_esitle()
 	var ayarlar := Ayarlar.new()
+	if OS.get_environment("METIN_OLCEGI") != "":
+		ayarlar.degerler[&"metin_olcegi"] = int(OS.get_environment("METIN_OLCEGI"))
 	var e := KoyEkrani.new()
 	e.oturum = o
 	e.ayarlar = ayarlar

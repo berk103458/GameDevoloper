@@ -1738,3 +1738,7 @@ sohbet.yusuf.s6,Keçinin adı ne?
 sohbet.yusuf.s7,Nerede kaldın?
 sohbet.yusuf.s8,Değirmene ne oldu?
 sohbet.yusuf.s9,Ne iş bilirsin?
+koy.kart.sure,%d günde tamamlanır
+koy.kart.eksik,Malzeme yetersiz
+koy.hiz.durdur,Duraklat / sürdür (Boşluk)
+koy.hud.ambar,Ambar: %d / %d

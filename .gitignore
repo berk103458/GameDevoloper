@@ -29,3 +29,6 @@ __pycache__/
 # Orman pişirme kaynakları (ağır; yalnız pişmiş atlas repoya girer)
 assets/ph/model/fir_sapling_medium/
 assets/ph/model/island_tree_02/
+
+# Local Meshy API credential
+/.meshy-api-key

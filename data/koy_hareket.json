@@ -1,0 +1,10 @@
+{
+  "zemin_maliyeti": 2.5,
+  "yurume_hizi": 1.6,
+  "hiz_farki": 0.15,
+  "calisma_suresi": 45.0,
+  "dinlenme_suresi": 12.0,
+  "kare_basina_rota": 5,
+  "varis_mesafesi": 0.03,
+  "durak_araligi": 0.35
+}

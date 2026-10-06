@@ -35,12 +35,17 @@ var _bant: PanelContainer
 var _ipucu: Label
 var _ust_kart: PanelContainer
 var _gece_dugmesi: Button
-var _hiz_dugmesi: Button
+var _hiz_dugmeleri: Dictionary = {}
+var _son_hiz := 1
+var _onceki_fizik_adimi := 8
 var _kategori := "barinma"
 var _y: KoyYonetimi
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	_onceki_fizik_adimi = Engine.max_physics_steps_per_frame
+	Engine.max_physics_steps_per_frame = 8
 	_y = oturum.yonetim
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_kap = SubViewportContainer.new()
@@ -54,6 +59,7 @@ func _ready() -> void:
 	_vp.screen_space_aa = Viewport.SCREEN_SPACE_AA_SMAA
 	_kap.add_child(_vp)
 	sahne3b = KoyYonetimSahnesi.new()
+	sahne3b.process_mode = Node.PROCESS_MODE_PAUSABLE
 	sahne3b.yonetim = _y
 	_vp.add_child(sahne3b)
 	hud = Hud.new()
@@ -67,8 +73,12 @@ func _ready() -> void:
 	_bant.position.y = 110
 	add_child(_bant)
 	_ipucu = Label.new()
-	_ipucu.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
-	_ipucu.position.y -= 250
+	_ipucu.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+	_ipucu.offset_left = 24
+	_ipucu.offset_right = -24
+	_ipucu.offset_top = -ayarlar.boyut(260) - 70
+	_ipucu.offset_bottom = -ayarlar.boyut(260) - 12
+	_ipucu.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_ipucu.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.KUCUK_PX))
 	_ipucu.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	add_child(_ipucu)
@@ -80,8 +90,9 @@ func _ready() -> void:
 func _alt_panel_kur() -> void:
 	_alt = PanelContainer.new()
 	_alt.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
-	_alt.custom_minimum_size.y = 210
-	_alt.offset_top = -210
+	_alt.custom_minimum_size.y = ayarlar.boyut(260)
+	_alt.add_theme_stylebox_override("panel", Tema.koy_paneli())
+	_alt.offset_top = -ayarlar.boyut(260)
 	add_child(_alt)
 	var kenar := MarginContainer.new()
 	for y in ["margin_left", "margin_right", "margin_top", "margin_bottom"]:
@@ -110,7 +121,13 @@ func _alt_panel_kur() -> void:
 		b.pressed.connect(func() -> void: _kip_sec(a))
 	_yapi_satiri = HBoxContainer.new()
 	_yapi_satiri.add_theme_constant_override("separation", 8)
-	sol.add_child(_yapi_satiri)
+	var kaydir := ScrollContainer.new()
+	kaydir.custom_minimum_size.y = ayarlar.boyut(160)
+	kaydir.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	kaydir.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	kaydir.follow_focus = true
+	sol.add_child(kaydir)
+	kaydir.add_child(_yapi_satiri)
 	var sag := VBoxContainer.new()
 	sag.add_theme_constant_override("separation", 8)
 	yatay.add_child(sag)
@@ -118,8 +135,18 @@ func _alt_panel_kur() -> void:
 	pazar.pressed.connect(_pazar_ac)
 	var nufus := _dugme(tr("koy.eylem.nufus"), sag)
 	nufus.pressed.connect(_nufus_ac)
-	_hiz_dugmesi = _dugme(tr("koy.eylem.hiz") % 1, sag)
-	_hiz_dugmesi.pressed.connect(func() -> void: _hiz_sec(1 if Engine.time_scale > 1.5 else 2))
+	var hizlar := HBoxContainer.new()
+	hizlar.add_theme_constant_override("separation", 4)
+	sag.add_child(hizlar)
+	for kat in [0, 1, 2, 3]:
+		var b := _dugme("Ⅱ" if kat == 0 else "%dx" % kat, hizlar)
+		b.add_theme_font_size_override("font_size", ayarlar.boyut(18))
+		b.add_theme_stylebox_override("normal", Tema.koy_paneli())
+		b.toggle_mode = true
+		b.set_pressed_no_signal(kat == 1)
+		b.tooltip_text = tr("koy.hiz.durdur") if kat == 0 else tr("koy.eylem.hiz") % kat
+		b.pressed.connect(func() -> void: _hiz_sec(kat))
+		_hiz_dugmeleri[kat] = b
 	_gece_dugmesi = _dugme(tr("koy.eylem.gece"), yatay)
 	_gece_dugmesi.custom_minimum_size = Vector2(260, 150)
 	_gece_dugmesi.pressed.connect(_geceye_gec)
@@ -127,6 +154,7 @@ func _alt_panel_kur() -> void:
 
 func _yapi_satirini_ciz() -> void:
 	for c in _yapi_satiri.get_children():
+		_yapi_satiri.remove_child(c)
 		c.queue_free()
 	for c in _kategori_satiri.get_children():
 		if c is Button and c.toggle_mode:
@@ -135,14 +163,9 @@ func _yapi_satirini_ciz() -> void:
 		_savunma_satiri()
 		return
 	for tur in _y.katalog.kategoridekiler(_kategori):
-		var m := _y.katalog.maliyet(tur)
-		var parca: PackedStringArray = []
-		for t in m:
-			parca.append("%d %s" % [int(m[t]), tr("koy.kaynak." + String(t))])
-		var b := _dugme("%s\n%s" % [tr("koy.yapi." + tur), ", ".join(parca)], _yapi_satiri)
-		b.custom_minimum_size = Vector2(190, 82)
-		b.tooltip_text = tr("koy.yapi.%s_aciklama" % tur)
-		b.disabled = not _y.kaynaklar.yeterli(_malzeme(m))
+		var b := YapiKarti.new()
+		_yapi_satiri.add_child(b)
+		b.kur(tur, _y, ayarlar)
 		b.pressed.connect(func() -> void: _kip_sec("insa", tur))
 
 
@@ -265,23 +288,31 @@ func _unhandled_input(olay: InputEvent) -> void:
 				_hiz_sec(1)
 			KEY_2:
 				_hiz_sec(2)
+			KEY_3:
+				_hiz_sec(3)
 			KEY_SPACE:
-				_hiz_sec(1 if Engine.time_scale > 1.5 else 2)
+				_hiz_sec(_son_hiz if get_tree().paused else 0)
 			KEY_ESCAPE:
 				if _ust_kart != null:
 					return
 				_kip_sec("")
 
 
-## Köy sahnesinin hızı (17.4: 1 / 2 / boşluk). Ekrandan çıkılınca 1x'e döner.
+## 1/2/3 hız seçer; boşluk durdurur veya son hızda sürdürür. Arayüz duraklamada çalışır.
 func _hiz_sec(kat: int) -> void:
-	Engine.time_scale = float(kat)
-	if _hiz_dugmesi != null:
-		_hiz_dugmesi.text = tr("koy.eylem.hiz") % kat
+	kat = clampi(kat, 0, 3)
+	get_tree().paused = kat == 0
+	Engine.time_scale = float(kat) if kat > 0 else 1.0
+	if kat > 0:
+		_son_hiz = kat
+	for hiz in _hiz_dugmeleri:
+		(_hiz_dugmeleri[hiz] as Button).set_pressed_no_signal(hiz == kat)
 
 
 func _exit_tree() -> void:
+	get_tree().paused = false
 	Engine.time_scale = 1.0
+	Engine.max_physics_steps_per_frame = _onceki_fizik_adimi
 
 
 # ── Yapı bilgi penceresi (10.1, 17.3) ─────────────────────────────────────────────────────────────
@@ -291,7 +322,7 @@ func _bilgi_kur() -> void:
 	_bilgi.set_anchors_and_offsets_preset(Control.PRESET_RIGHT_WIDE)
 	_bilgi.offset_left = -520
 	_bilgi.offset_top = 150
-	_bilgi.offset_bottom = -230
+	_bilgi.offset_bottom = -ayarlar.boyut(260) - 20
 	_bilgi.visible = false
 	add_child(_bilgi)
 	var kenar := MarginContainer.new()
@@ -542,7 +573,7 @@ func _bant_ciz() -> void:
 
 func _geceye_gec() -> void:
 	_kip_sec("")
-	Engine.time_scale = 1.0
+	_hiz_sec(1)
 	Ses.cal(&"sfx_gece_bitti")
 	var once := _y.kaynaklar.stok.duplicate()
 	var sonuc := oturum.gece_sonu()

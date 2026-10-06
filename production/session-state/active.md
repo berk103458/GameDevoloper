@@ -1,5 +1,17 @@
 # Session State
 
+## Codex devralması — 2026-10-06 (güncel)
+
+- Claude'un son brifingi `son-devralma.md` içinde; geliştirmeyi Codex devraldı.
+- Köy görsel planı: `design/art/koy-gorsel-plani.md`. HUD simgeleri, maliyet kartları, yatay kaydırma, ölçeklenen metin ve duraklatma/1x/2x/3x hazır.
+- Köylüler: yol tercih eden A*, bina/arazi engeli, iş/dinlenme/gece ev rutini; yenilemede kimlik/konum korunuyor. Yapı içine giriş ve tam kalabalık kaçınması sonraki işler.
+- Kontroller: rota birim testi, köylü hareket entegrasyonu ve HUD entegrasyonu başarılı; Vulkan görünüm kanıtları `production/qa/evidence/koy-hud/` içinde.
+- Meshy API kimlik doğrulaması ve görev listesi başarılı; kontrol anında 2 kredi. Anahtar yalnız gitignored yerel dosyada. Ücretli üretim yapılmadı. Web kütüphanesinin oturum erişimi ayrıca doğrulanmadı.
+- Çalışma ve `C:\Users\ds\Documents\GitHub\GameDevoloper` kopyaları her değişiklikte eşitlenir. Commit/push kullanıcının commit talimatını bekler.
+- Sıradaki geliştirme: mesleğe özgü alet/hareketler ve kalabalık kaçınması, ardından görsel plandaki yapı/çevre iyileştirmeleri.
+
+Önceki oturum kayıtları aşağıda tarihsel bağlam olarak korunmuştur.
+
 - **Task**: karakter-kadrosu GDD
 - **Status**: Complete — Designed (pending /design-review in a fresh session); QA findings applied (34 ACs)
 - **File**: design/gdd/karakter-kadrosu.md

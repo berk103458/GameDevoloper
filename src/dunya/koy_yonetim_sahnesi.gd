@@ -25,6 +25,7 @@ var egim := 52.0
 
 var _yapilar := Node3D.new()
 var _halk := Node3D.new()
+var halk_hareketi: KoyHalkHareketi
 var _hayalet: MeshInstance3D
 var _hayalet_malzeme: StandardMaterial3D
 var _secim: MeshInstance3D
@@ -40,6 +41,9 @@ func _ready() -> void:
 	arazi.kur(self, kapi_noktasi())
 	add_child(_yapilar)
 	add_child(_halk)
+	halk_hareketi = KoyHalkHareketi.new()
+	halk_hareketi.sahne = self
+	add_child(halk_hareketi)
 	_hayalet = MeshInstance3D.new()
 	_hayalet.mesh = BoxMesh.new()
 	_hayalet_malzeme = StandardMaterial3D.new()
@@ -63,6 +67,7 @@ func _ready() -> void:
 	add_child(kamera)
 	_kamera_yerlestir()
 	yenile()
+	faz(&"gunduz", 0.0)
 
 
 func _process(delta: float) -> void:
@@ -97,6 +102,7 @@ func _process(delta: float) -> void:
 ## Işığı gündüz / akşam / gece fazına geçirir (KoyAtmosferi).
 func faz(ad: StringName, sure: float = 2.0) -> void:
 	atmosfer.faz(ad, sure)
+	halk_hareketi.faz(ad)
 
 
 ## Kapının dünya konumu (x, z): kapı yolu ve arazi buradan güneye uzanır.
@@ -171,8 +177,6 @@ func secim_goster(b: KoyBinasi) -> void:
 func yenile() -> void:
 	for c in _yapilar.get_children():
 		c.queue_free()
-	for c in _halk.get_children():
-		c.queue_free()
 	_ates_isigi = null
 	# Yollar ve meydan zemini arazinin splat maskesinde çizilir (organik kenar, tek zemin).
 	arazi.maske_guncelle()
@@ -185,7 +189,7 @@ func yenile() -> void:
 		n.set_meta("bina_id", b.id)
 		_yapilar.add_child(n)
 	_sur_kur()
-	_halki_kur()
+	halk_hareketi.yenile()
 
 
 func _meydan_kur() -> void:
@@ -370,33 +374,3 @@ func _kutu(kok: Node3D, boyut: Vector3, konum: Vector3, mat: Material) -> MeshIn
 	return m
 
 
-## Köylüler (20.1: en çok 30 model): çalışanlar yapılarının önünde, muhafızlar kapıda, boştakiler meydan ateşi başında.
-func _halki_kur() -> void:
-	var meydan := alan_merkezi(yonetim.a.meydan.position, yonetim.a.meydan.size) + Vector3(1.2, 0, 1.2)
-	var bosta := 0
-	var yapi_basi := {}
-	for k in yonetim.koylular.slice(0, AZAMI_KOYLU):
-		var f := Dunya3B.karakter(Dunya3B.karakter_adi(k.adli_id, k.portre, k.sinif))
-		_halk.add_child(f)
-		var p: Vector3
-		var b := yonetim.bina(k.is_yeri)
-		if k.is_yeri == KoyYonetimi.MUHAFIZ:
-			# Kapının iki yanında nöbet.
-			p = hucre_kosesi(Vector2i(yonetim.a.meydan.position.x + yonetim.a.meydan.size.x / 2, yonetim.a.izgara_boyut.y)) + Vector3(-1.0 + (k.id % 2) * 4.0, 0, -1.2)
-			f.position = p
-			f.bak(p + Vector3(0, 0, 10))
-		elif b != null and b.hazir():
-			var sira: int = yapi_basi.get(b.id, 0)
-			yapi_basi[b.id] = sira + 1
-			var boy := b.boyut(yonetim.katalog)
-			p = alan_merkezi(b.hucre, boy) + Vector3((sira - 1) * 0.9, 0, boy.y * HUCRE * 0.5 + 0.6)
-			f.position = p
-			f.bak(alan_merkezi(b.hucre, boy))
-		else:
-			var a := TAU * bosta / 9.0 + (bosta / 9) * 0.35
-			var r := 2.0 + (bosta / 9) * 1.0
-			p = meydan + Vector3(cos(a), 0, sin(a)) * r
-			bosta += 1
-			f.position = p
-			f.bak(meydan)
-		f.set_meta("koylu_id", k.id)
