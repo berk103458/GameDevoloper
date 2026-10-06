@@ -457,3 +457,10 @@ Sıradaki: BUG-05. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 HUD yalnız görünür aktif uyarı varken işlenir; uyarısız/oturumsuz/gizli HUD set_process(false) ile uyur ve değişimde uyanır. El eşyasının yalnız delta kopyalayan boş _process callbacki kaldırıldı; skeleton_updated ve Node kare süresi kullanılır. Uyanma/gizlenme/renk sıfırlama, kapı/köy UI ve API testleri geçti.
 
 Sıradaki: BUG-06. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — BUG-06 (6 Ekim 2026)
+
+Mevcut queue_free akışında sızıntı üretilemedi: gerçek Meshy karakterleriyle 6 kabul/ret rotası ve rota ortasında sahne değişimi sonunda model silindi, orphan sayısı 0 kaldı. Bu lifecycle kontrolü sanity paketine eklendi; üretim akışı gereksiz yeniden yazılmadı.
+
+Sıradaki: BUG-08. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
