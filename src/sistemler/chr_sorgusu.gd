@@ -8,7 +8,9 @@ signal replik_basladi(metin: String)
 var karakter: KarakterVerisi
 var ipuclari: Dictionary = {}
 var bayraklar: Dictionary = {}
-var tansiyon: int = 2
+var tansiyon: int = 2:
+	set(deger):
+		tansiyon = clampi(deger, 0, 10)
 var dugum_id: StringName = &"00"
 var tecrube: int = 0
 var kurallar: Resource = preload("res://data/chr_runtime/sorgu_kurallari.tres")

@@ -355,3 +355,10 @@ Sıradaki: KVR-12. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 CHR bina adı sözlüğü tüm 30 sayfanın gecikmeli hedeflerini katalog türlerine eşliyor; birleşik Ağıl/Ahır iki hedef olarak korunur. Yeni CHR türleri inşa/üretim uygulaması gelene kadar kurulamaz; mevcut 8 yapı verisi aynen kaldı. Bina sözlüğü, köy regresyonu ve headless script taraması geçti.
 
 Sıradaki: KVR-13. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+
+
+## Codex — KVR-13 (6 Ekim 2026)
+
+Runtime tansiyonu doğrudan yazım dahil 0–10 sınırında; karar anlık beş stat kopyaları ve koşullu varyantlar −4…+4 sınırında. Kaynak Resource ve kişisel kasa tutarları değişmez. Sınır, sorgu/panik, çift kasa ve headless script testleri geçti.
+
+Sıradaki: KVR-14. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.

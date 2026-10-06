@@ -23,7 +23,7 @@ extends Resource
 @export var karar_matrisi: Dictionary = {}
 
 func karar_verisi(karar: StringName) -> Dictionary:
-	return karar_matrisi.get(String(karar), {}).duplicate(true)
+	return preload("res://src/sistemler/chr_runtime_sinirlari.gd").karar(karar_matrisi.get(String(karar), {}))
 
 ## KVR-06: başlangıç verisi; her sorgu kendi kopyasını kullanır.
 @export var sorgu_bayraklari: Dictionary = {
