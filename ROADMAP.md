@@ -26,15 +26,21 @@
 ## BÖLÜM 1: Kritik Bugfix, Performans ve Bellek Optimizasyonu
 
 - [!] **BUG-01:** Menü ve Kapı Sahnesi Giriş Takılmaları (Shader & Asset Hitching) — `src/cekirdek/varlik_onbellek.gd` kurularak modeller, materyaller ve fontlar arka planda (`ResourceLoader.load_threaded_request`) yüklenerek ana iş parçacığı rahatlatılacak.
-- [!] **BUG-02:** Sıra Atlama Rüşvetinde Kuyruk Senkronizasyon Hatası — Rüşvetle öne geçmek isteyen NPC'nin kuyruk listesinde `erase` ve `push_front` ile en başa taşınması ve hemen kapı çizgisine yürümesi.
+- [!] **BUG-02:** Sıra Atlama Rüşvetinde Kuyruk Senkronizasyon Hatası — Rüşvetle öne geçmek isteyen NPC'nin kuyruk listesinde `erase` ve `push_front` ile en başa taşınması ve hemen kapı çizgisine yürümesi. **≡ KAP-15** — ayrı paket değil; KAP-15 bu maddeye referans verir.
 - [!] **BUG-03:** Rüşvet Kabul ve Ret Repliklerinin Sessiz Kalması — Rüşvet kabul veya reddedildiğinde diyalog kutusuna uygun ses ve CSV repliğinin düşmemesi sorunu çözülecek.
 - [!] **BUG-04:** Kapı Sahnesinde Işık ve Gölge Optimizasyonu — Meşale ışıklarındaki dinamik gölge haritası boyutu düşürülecek, gereksiz mesafe kontrolleri LOD ile optimize edilecek.
 - [!] **BUG-05:** Boşta Duran Scriptlerin İşlemci Tüketimi (`_process` Hijyeni) — Kapı ve menü ekranlarında aktif girdi almayan düğümlerin `set_process(false)` ile uyutulması.
 - [!] **BUG-06:** 3D Karakter Bellek Sızıntısı (Orphan Nodes) — Kapıdan içeri giren veya geri dönen karakter sahnelerinin ağaçtan silinirken bellekten düşmemesi hatası `queue_free()` kontrolleriyle giderilecek.
-- [!] **BUG-07:** CSV Sözdizimi ve Tırnak Hataları Fallback Mekanizması — Eksik anahtar durumunda oyunun kilitlenmesi önlenecek, ekrana güvenli `[KEY_NOT_FOUND]` basılarak çalışmaya devam edilecek.
+- [!] **BUG-07:** CSV Sözdizimi ve Tırnak Hataları Fallback Mekanizması — Eksik anahtar durumunda oyunun kilitlenmesi önlenecek, ekrana güvenli `[KEY_NOT_FOUND]` basılarak çalışmaya devam edilecek. **≡ SYS-09** (metinler.csv doğrulama / isimlendirme birleşik paket).
 - [!] **BUG-08:** Gece Sonu Hesaplamasında Çift Sayım Bug'ı — UI hızlandırma (2x) açıkken gün bitişine basıldığında tüketim fonksiyonunun iki kez tetiklenmesi engellenecek.
 - [!] **BUG-09:** Animasyon Oynatıcısında Eksik Klip Çökmesi — Bir modelde istenen animasyon yoksa sessizce varsayılan idle klibine geri dönen koruma bloğu yazılacak.
 - [!] **BUG-10:** Düşük Donanım Grafik Ayarları Profili — Düşük grafik modunda partiküllerin (meşale kıvılcımı, duman) kapatılması ve 3B çözünürlük ölçeğinin ayarlanabilmesi.
+
+- [!] **BUG-11:** `gece_sonu` Çift Tetik Koruması — Gün bitişinde buton `disabled` + hız 1x; **BUG-08 hâlâ açık**; BUG-11 onun düzeltme/koruma alt adımı (ayrı numara).
+- [!] **BUG-12:** `_klip_onbellek` `has()` / idle Fallback — Eksik animasyon klipinde `has()` kontrolü ve idle'a düşme (**taslak yol notu** OK; KarakterModel üzerinde).
+- [!] **BUG-13:** Kapı Kamera FOV Sabitleme — Kapı sahnesinde FOV kayması/zoom drift'inin sabitlenmesi.
+- [!] **BUG-14:** `Ses.oynat` Havuz Temizliği — Ses oynatıcı havuzunun sahne geçişlerinde temizlenmesi / sızıntı önleme.
+- [!] **BUG-15:** Heybe `mouse_filter = STOP` — Heybe paneli açıkken tıklamanın 3B sahneye sızmasını engelleme.
 
 ---
 
@@ -51,22 +57,34 @@
 - [ ] **KAP-09:** Diyalog İçi Blöf ve İkna Başarı Olasılığı — Muhafızın tecrübesine ve karakterin tansiyonuna göre yalanı çürütme seçeneklerinin dinamik başarı zarı.
 - [ ] **KAP-10:** Sorgu İçi Ses Efektleri (SFX) Tetikleyicisi — Çapa şakırtısı, ferman yırtılması, bebek soluğu ve kılıç kabzası seslerinin diyalog replikleriyle eşzamanlı çalması.
 
+- [ ] **KAP-11:** İpucu Runtime Servisi (`src/kapi/ipucu_yoneticisi.gd` — **taslak hedef yol**) — 2D heybe/portre etkileşimlerinden üretilen `Clue_*` anahtarlarını oturumdan bağımsız toplayan, mükerrer kaydı engelleyen servis katmanı.
+- [ ] **KAP-12:** Tansiyon Göstergesi UI (`src/arayuz/kapi/tansiyon_gostergesi.gd` — **taslak hedef yol**) — Karakter tansiyonu 0–10 dinamik bar/gösterge; Sakin (0–3), Gergin (4–7), Panik (8–10) eşik renkleri.
+- [ ] **KAP-13:** `Flag_Kilitlendi` Karar Buton Kısıtı — Tansiyon ≥8 iken Kabul `disabled = true`; yalnızca Zorunlu Ret, Kışla ve Rüşvet seçilebilir.
+- [ ] **KAP-14:** 2D Eşya İnceleme Modal Kartı (`src/arayuz/kapi/esya_detay_karti.tscn` — **taslak hedef yol**) — Heybe Obje 1/2 tıklanınca açılan görsel/fiziksel inceleme kartı.
+- [ ] **KAP-15:** Sıra Atlama Rüşvet Entegrasyonu — **≡ BUG-02 — ayrı paket değil**; kuyruk `erase`/`push_front` senkronu BUG-02 altında takip edilir.
+
 ---
 
 ## BÖLÜM 2.5: Karakter Veri Sözleşmesi (CHR → Runtime Şeması)
 
 Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir standart `KarakterVerisi` kaynağına (`.tres` / Dictionary) dönüştürülmesi ve ajanlar arası veri tutarlılığının kilitlenmesi.
 
-- [ ] **KVR-01:** KarakterVerisi Temel Resource Sınıfı (`src/veri/karakter_verisi.gd`) — `entity_id: StringName`, `ad: String`, `sinif: StringName`, `fraksiyon: StringName` ve `en_erken_tur: int` temel alanlarını içeren tip tanımlı veri yapısı.
+- [ ] **KVR-01:** KarakterVerisi Temel Resource Sınıfı (`src/veri/karakter_verisi.gd` — **taslak hedef yol**) — `entity_id: StringName`, `ad: String`, `sinif: StringName`, `fraksiyon: StringName` ve `en_erken_tur: int` temel alanlarını içeren tip tanımlı veri yapısı.
 - [ ] **KVR-02:** Bölüm 1 Eşlemesi (Secere, Doğum Yeri ve Kırılma Olayı) — Karakterin aile bağı, kırılma olayı ve köy içi gündüz/gece davranış hedeflerinin veri nesnesine string/enum olarak bağlanması.
 - [ ] **KVR-03:** Bölüm 2 Eşlemesi (Heybe ve İpucu Sözleşmesi) — `obje_1: Dictionary`, `obje_2: Dictionary` ve üretecekleri `uretilen_ipucu: StringName` (ör. `Clue_CHR015_BentCapasi`) sözlüğü.
-- [ ] **KVR-04:** Bölüm 3 Eşlemesi (Görsel Hata ve Tansiyon Pozları) — `gorsel_hata_ipucu: StringName` (`Clue_Görsel_*`), başlangıç tansiyonu (2–3) ve Idle/Stressed/Panic animasyon kütüphanesi anahtarları.
+- [ ] **KVR-04:** Bölüm 3 Eşlemesi (Görsel Hata ve Tansiyon Pozları) — `gorsel_hata_ipucu: StringName` (`Clue_Görsel_*`), başlangıç tansiyonu (**1–3**, Ahmet kararı; eski 2–3 değil) ve Idle/Stressed/Panic animasyon kütüphanesi anahtarları.
 - [ ] **KVR-05:** Bölüm 4 Eşlemesi (Diyalog Düğümleri ve Tansiyon Delta Şeması) — Düğüm 00, Dal 1 (Yol), Dal 2 (Geçmiş), Dal 3 (Kanıt) metin anahtarları ile her seçeneğin üreteceği tansiyon değişimi (`tansiyon_delta: int`).
 - [ ] **KVR-06:** Bölüm 4 Bayrak Sözleşmesi (`Flag_*` Alanları) — Karakter sorgusunda tetiklenebilecek 4 standart bayrağın (`Flag_Yol_Sirri_Acik`, `Flag_Kimlik_Cozuldu`, `Flag_Sir_Tamamen_Cozuldu`, `Flag_Kilitlendi`) sözlük karşılığı.
 - [ ] **KVR-07:** Bölüm 5 Karar Matrisi Şeması (Anlık Etkiler) — Kabul, Gönüllü Ret, Zorunlu Ret, Rüşvet (kişisel akçe/eşya) ve Kışla (zindan) durumlarının anlık 5 stat (Refah, Erzak, Güvenlik, Moral, Sağlık) etkileri.
 - [ ] **KVR-08:** Bölüm 5 Gecikmeli Olay/Debuff Şeması — `gecikmeli_etkiler: Array[Dictionary]`: `{ "tur_offset": 3, "hedef_bina": "Ahir", "olay_id": "GeceBicaklamasi", "stat_etkisi": {"Guvenlik": -3} }`.
-- [ ] **KVR-09:** Takip Eden Karakter Zinciri Şeması (Spawn Offsets) — `sonraki_spawns: Dictionary`: karara bağlı (`on_accept`, `on_reject`, `on_bribe`, `on_jail`) çağrılacak yeni NPC ID'si ve tur gecikmesi (`offset: int`).
-- [ ] **KVR-10:** Otomatik CHR Markdown → `.tres` Derleme Betiği (`tools/chr_parser.py`) — `karakterler/CHR_*.md` dosyalarını okuyup eksik alan kontrolü yapan ve doğrudan oyuna hazır `.tres` dosyası çıkaran derleme aracı.
+- [/] **KVR-09:** Takip Eden Karakter Zinciri Şeması (Spawn Offsets) — `sonraki_spawns: Dictionary`: karara bağlı (`on_accept`, `on_reject`, `on_bribe`, `on_jail`) çağrılacak yeni NPC ID'si ve tur gecikmesi (`offset: int`). **Not (Gemini):** NPC kuyruk runtime hazır (VAR: kuyruk+ofset); CHR parser okuma kaldı — tam [x] değil.
+- [ ] **KVR-10:** Otomatik CHR Markdown → `.tres` Derleme Betiği (`tools/chr_parser.py` — **taslak hedef yol**) — `karakterler/CHR_*.md` dosyalarını okuyup eksik alan kontrolü yapan ve doğrudan oyuna hazır `.tres` dosyası çıkaran derleme aracı.
+
+- [ ] **KVR-11:** `metinler.csv` Anahtar Standardı Sözleşmesi — Replik: `CHR_XXX_DUGUM_YY_REPLIK`; seçenek: `CHR_XXX_DUGUM_YY_SEC_Z_METIN`; heybe: `CLUE_CHRXXX_ESYA_ADI_BASLIK` / `_TANIM`; CSV'ye satır bazlı ekleme kuralı.
+- [ ] **KVR-12:** Bina Adı Sözlüğü — CHR hedef binalarını katalogdaki türlerle birebir eşleyen statik sözlük (ör. Köy Meydanı, Ahır, Muhafız Kışlası, Değirmen, Şifahane, Bostan).
+- [ ] **KVR-13:** Tansiyon / Stat Clamp — Runtime sınır kontrolü: tansiyon 0–10; karar anlık etkileri tipik −4…+4 clamp.
+- [ ] **KVR-14:** Eksik Alan Fallback — CHR/`KarakterVerisi` okumada boş veya eksik alanda güvenli varsayılan profil; çökme yok.
+- [ ] **KVR-15:** `dogrula() -> bool` — Zorunlu alanlar (ID, başlangıç tansiyonu, karar etkileri) derleme/başlangıçta geçerlilik teyidi (**taslak hedef**: `KarakterVerisi.dogrula` / `tools/chr_parser.py`).
 
 ---
 
@@ -95,8 +113,14 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **EKO-06:** Demir Madenciliği, Ocak ve Alet Aşınması — Demirci alet üretir; alet yoksa üretim hızı %70 düşer.
 - [ ] **EKO-07:** Asker Maaşları ve Kamu İsyan Eşiği — Kışladaki askerler her gece 1 akçe; ödenmezse güvenlik çöker, rüşvete yönelim.
 - [ ] **EKO-08:** Köy Pazarı Vergilendirme Oranları — Düşük/Orta/Ağır vergi (ağır akçe getirir, Moral ve Refahı ezer).
-- [ ] **EKO-09:** Dinamik Tüketim Dengesi (Nüfus × İklim) — Her canlı: 1 Erzak/gece; soğukta +1 Odun; karşılanamazsa donma/açlık ölümleri.
+- [ ] **EKO-09:** Dinamik Tüketim Dengesi (Nüfus × İklim) — Her canlı: 1 Erzak/gece; soğukta +1 Odun; karşılanamazsa donma/açlık ölümleri. **Not (Gemini):** BEKLEMEDE — satır/dosya kanıtsız; yanlış kısmi kilit yok (`[x]` verilmedi).
 - [ ] **EKO-10:** İflas ve Hazine Çöküşü Olayları — Köy Akçesi 3 gece üst üste <0 → tefeci baskını ve kamu mallarına el koyma.
+
+- [ ] **EKO-11:** Kişisel Kasa (`muhafiz_akce`) HUD Göstergesi (`src/arayuz/koy_hud/kese_gostergesi.gd` — **taslak hedef yol**) — Rüşvet geliri ve kişisel kesenin köy HUD'unda gösterimi; **≡ ODA-02** yüzeyi.
+- [ ] **EKO-12:** Ambar Kapasite Sınırı ve Bozulma/Ziyan Mantığı — Stok üst sınırı; aşım veya bekletmede ziyan/bozulma.
+- [ ] **EKO-13:** Zanaat Aletleri Aşınma ve Verim Düşüşü Adaptörü — Tarla/maden vb. üretimde alet aşınması → verim düşüşü.
+- [ ] **EKO-14:** Çift Kasa Arası Acil Kurtarma ve Zimmet Mekaniği — `koy_akce` ↔ `muhafiz_akce` acil transfer / zimmet tradeoff.
+- [ ] **EKO-15:** Gece Sonu Ayrıntılı Bilanço Sözlüğü — `gece_sonu()` dönüşüne ayrıntılı bilanço alanları.
 
 ---
 
@@ -158,12 +182,18 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **CAS-09:** Köylü İhbar Mektupları ve Fısıltı Gazetesi — Sabah imzasız şüphe pusulaları.
 - [ ] **CAS-10:** Sahte Suçlama ve Haksız Yargı Tazminatı — Masum zindan → aile terk + Moral çöküşü.
 
+- [ ] **CAS-11:** `Clue_*` → Divan Kanıt Listesi Bağlayıcı (`src/kapi/divan_kanit.gd` — **taslak hedef yol**) — Kapı sorgu ipuçlarını divan yargılamasına taşıyan köprü.
+- [ ] **CAS-12:** Kuyu Zehirleme Clue/Flag Tetikleyici — CHR_002/009 içeri alındığında banotu + sabah zehir olayını `Flag_*`/`Clue_*` sözleşmesine bağlama.
+- [ ] **CAS-13:** Ambar Kundaklama Clue/Flag Tetikleyici — CHR_001/006 kundak riskini mevcut Clue/Flag sözleşmesine bağlama.
+- [ ] **CAS-14:** Divan Kanıt Sunum UI — Kapıda toplanan `Clue_*` kartlarının divan sahnesinde gösterimi (CAS-05/`divan_ekrani` — **taslak hedef**).
+- [ ] **CAS-15:** Clue→Divan Örtüşme Notu — KAP ipucu motoru ile CAS kanıt sunumu tek veri sözleşmesi; çift kayıt yok.
+
 ---
 
 ## BÖLÜM 9: [Yeni Özellik 3] Muhafızın Odası, Kişisel Kasa ve Yozlaşma Ağacı
 
 - [ ] **ODA-01:** Muhafız Odası 3B/2.5B İç Mekan (`src/dunya/muhafiz_odasi.tscn`) — Yatak, masa, meşale, gizli kasa.
-- [ ] **ODA-02:** Gizli Zemin Kasası (Rüşvet Deposu) — Rüşvet akçesi ve kaçak eşya; denetçiden gizli.
+- [ ] **ODA-02:** Gizli Zemin Kasası (Rüşvet Deposu) — Rüşvet akçesi ve kaçak eşya; denetçiden gizli. **≡ EKO-01 / EKO-11** — `muhafiz_akce` çift kasa + kişisel kese HUD ile örtüşür; ayrı ekonomi paketi değil, ODA yüzeyi.
 - [ ] **ODA-03:** Muhafız Kişisel Envanteri — CHR rüşvet eşyalarının sergilenmesi.
 - [ ] **ODA-04:** Yozlaşma vs. Adalet Terazisi — "Adil Muhafız" ↔ "Yozlaşmış Derebeyi".
 - [ ] **ODA-05:** Yozlaşma Yetenek Ağacı — Göz Yumma (+%50 rüşvet); Haraç Kesme (günlük esnaf).
@@ -172,6 +202,12 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **ODA-08:** Oda Geliştirmeleri — Muhafız akçesiyle yatak/askılık/kütüphane → yorgunluk silme.
 - [ ] **ODA-09:** Vicdan Azabı ve Gece Kabusları — Haksız ret/ölüm → rüya/algı bozukluğu.
 - [ ] **ODA-10:** Oyun Sonu Muhafız Kaderi (Epilogue) — Köyden bağımsız: kaçak Venedik veya adil kahraman.
+
+- [ ] **ODA-11:** Rüşvet → `muhafiz_akce` Oda Kasası Yazımı (`src/dunya/muhafiz_odasi.gd` — **taslak hedef yol**) — Kapı rüşvetinin gizli kasaya işlenmesi; **≡ EKO-01 / EKO-11**.
+- [ ] **ODA-12:** Yozlaşma Skoru Runtime (`src/sistemler/yozlasma.gd` — **taslak hedef yol**) — Adalet↔yozlaşma terazisinin oturum alanı.
+- [ ] **ODA-13:** Müfettiş Teftiş Save-Slot Taraması — Gizli kasa içeriğinin teftiş olayında save/state üzerinden kontrolü.
+- [ ] **ODA-14:** Oda UI Kese Göstergesi — ODA-02 yüzeyi + EKO-11 `kese_gostergesi` (**taslak hedef yol**) köy/oda ortak gösterge.
+- [ ] **ODA-15:** Epilogue Dal Seçici — Yozlaşma/adalet skoruna göre oyun sonu kader dalları (ODA-10 tamamlayıcı).
 
 ---
 
@@ -207,7 +243,7 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 
 ## BÖLÜM 12: Güvenli Kayıt (Migration), Ses ve Doğrulama (Sanity Check)
 
-- [ ] **SYS-01:** Sürüm Atlama ve Kayıt Göç Motoru (`guvenli_kayit.gd`) — `KAYIT_SURUMU` geçişinde `muhafiz_akce`, mevsim, yeni_binalar alanlarıyla göç.
+- [ ] **SYS-01:** Sürüm Atlama ve Kayıt Göç Motoru (`guvenli_kayit.gd`) — `KAYIT_SURUMU` geçişinde `muhafiz_akce`, mevsim, yeni_binalar alanlarıyla göç. **Not (Gemini):** kısmi iz (`GuvenliKayit` + `KAYIT_SURUMU`) var ama **satır kanıtsız** — tam `[x]` verilmedi; adım adım migration doğrulanmadı.
 - [ ] **SYS-02:** Atomik Kayıt Protokolü (`.tmp` Koruması) — Önce `kayit.json.tmp`, sonra atomik rename.
 - [ ] **SYS-03:** Katmanlı Dinamik Tansiyon Müziği — 0–3 ney/kopuz; 4–7 yaylı; 8–10 kudüm/davul.
 - [ ] **SYS-04:** Köy Dinamik Ortam Sesleri (Ambiance Bus) — Gündüz çekiç/koyun/su; gece meşale/kurt/baykuş.
@@ -215,9 +251,19 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **SYS-06:** Ajan Pre-Merge Doğrulama Betiği (`tools/sanity_check.py`) — Commit öncesi tek komut yerel test.
 - [ ] **SYS-07:** Headless Godot Derleme ve Script Error Taraması — Parse/script yükleme hatalarını listele.
 - [ ] **SYS-08:** Korumalı Çekirdek Fonksiyon İmza Denetçisi — `KarakterModel.kur`, `devam_istendi`, `gece_sonu` silinmesin (`git diff`).
-- [ ] **SYS-09:** Metinler CSV Doğrulama ve İsimlendirme Standardı — Bağlayıcı anahtarlar:
+- [ ] **SYS-09:** Metinler CSV Doğrulama ve İsimlendirme Standardı — **≡ BUG-07** birleşik paket. Bağlayıcı anahtarlar:
   - Replikler: `CHR_XXX_DUGUM_YY_REPLIK`
   - Seçenekler: `CHR_XXX_DUGUM_YY_SEC_Z_METIN`
   - Heybe: `CLUE_CHRXXX_ESYA_ADI_BASLIK` / `_TANIM`
   - Format bozukluğu, eksik sütun, mükerrer ID denetimi.
-- [ ] **SYS-10:** 20 Turluk Otomatik Oyuncu Duman Testi (`otomatik_oyuncu.gd`) — Headless 20 gece; bellek/çökme kontrolü.
+- [ ] **SYS-10:** 20 Turluk Otomatik Oyuncu Duman Testi (`otomatik_oyuncu.gd`) — Headless 20 gece; bellek/çökme kontrolü. **Not (Gemini):** kısmi iz (headless otomatik oyuncu) var ama **sabit 20 tur satır kanıtsız** — tam `[x]` verilmedi.
+
+- [ ] **SYS-11:** Ajan Pre-Merge `sanity_check` Paketi (`tools/sanity_check.py` — **taslak hedef yol**) — Commit öncesi CSV/anahtar/script tarama tek komut; SYS-06 ile tamamlayıcı.
+- [ ] **SYS-12:** Runtime `[KEY_NOT_FOUND]` / `MISSING_KEY` Gösterimi — **≡ BUG-07 / SYS-09**; eksik metin anahtarında güvenli ekran metni.
+- [ ] **SYS-13:** `memory_free` / Düşük Donanım Bellek Paketi — **taslak hedef**; düşük VRAM/RAM profilinde cache temizliği (BUG-10 ile ilişkili).
+- [ ] **SYS-14:** `KAYIT_SURUMU` Adım Adım Migration — SYS-01 tamamlayıcı; sürüm N→N+1 alan göç fonksiyonları (satır kanıtsız uyarı geçerli).
+- [ ] **SYS-15:** `otomatik_oyuncu` Sabit 20 Tur Kilidi — SYS-10 tamamlayıcı; headless duman testinde tur sayısının sabitlenmesi.
+
+---
+
+**Gemini döngü 1–7 birikimi (2026-10-06):** KAP/KVR/EKO/SYS/BUG/CAS/ODA +11…15 eklendi; örtüşmeler (KAP-15≡BUG-02, BUG-07≡SYS-09, ODA-02≡EKO-01/EKO-11) notlandı; kanıtsız path = taslak hedef; kanıtsız `[x]` yok.
