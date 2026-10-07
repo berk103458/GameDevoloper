@@ -821,3 +821,10 @@ EKO-08 hâlâ [/] ve kullanıcı Refah kararı bekleniyor. EKO-09 henüz kapanma
 
 ## Kullanıcı yeni yetkisi — 7 Ekim 2026
 Kullanıcı tüm projeyi Codex’in otonom geliştirmesini, rutin kararlar için duraksamamasını ve şu ana kadarki bütün Codex işini GitHub’a pushlamasını açıkça istedi. Önceki commit bekleme şartı bu yayın için kaldırıldı. 380 dosyalık değişiklik kümesi eşitleme manifestiyle birebir uyuşuyor, dışarıda bağımsız değişiklik yok; source/ayna HEAD 29a3a6a. Son tam sanity EKO-08 0 hata/20 gece, son tüketim ölüm birimi iki kopyada geçti. EKO-08 hâlâ aktif; yayın tamamlanmış özellikler ile bu açık geliştirme kontrol noktasını birlikte içerir, Refah bitmiş sayılmaz. Açık karar Codex tarafından köylü ekonomik Refahını kamu hazinesinden ayrı ele alarak çözülecek; mevcut kamu/kişisel kasalar korunacak. Commit/push bu kontrol noktası için şimdi uygulanır, teslim kanıtı yayın sonrası doğrulanır.
+
+
+## Codex — EKO-08 (7 Ekim 2026)
+
+VergiPolitikasi dış JSON düşük/orta/ağır oranlarını gerçek pazar ve haftalık kamu tahsilatına bağlar; eski orta taban, muafiyet ve aynı gece koruması korunur. Kullanıcının otonom tasarım yetkisiyle Refah kamu kasasından ayrı köylü ekonomik yaşam standardı (0–100, dış başlangıç 50) oldu; ağır vergi gelir getirirken Moral/Refah -5, düşük +2. Optional doğrulanmış kişi JSON, ADM-04 enjektör/pazar/köylü kartı gerçek puanı gösterir. Kamu/kişisel kasa ve CHR/CSV isimleri korunur. Source/ayna gerçek vergi/Refah/JSON birimleri ve UI geçti; native RTX3060 ekran incelendi. Tam sanity work/sanity_eko08_refah ve 20 gece: 0 başarısız. Önceki 380 dosyalık kontrol noktası GitHub 3973e30 olarak yayımlandı; yeni karar ADR ile kayıtlıdır.
+
+Sıradaki: EKO-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

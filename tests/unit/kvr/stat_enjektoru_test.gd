@@ -24,7 +24,7 @@ func _initialize() -> void:
 	_kontrol(o.yonetim.asayis_riski == 100, "Güvenlik alt sınırı")
 	o.koy_akce = 12
 	StatEnjektoru.degistir(o, "Refah", 4)
-	_kontrol(o.koy_akce == 16 and StatEnjektoru.oku(o, "Refah") == 16, "Refah kamu kasasının görünümüdür")
+	_kontrol(o.koy_akce == 12 and StatEnjektoru.oku(o, "Refah") == 54, "Refah köylülerin ekonomik durumudur; kamu akçesi değişmez")
 	var erzak := o.ambar
 	StatEnjektoru.degistir(o, "Erzak", -4)
 	_kontrol(o.ambar == erzak - 4, "Erzak ayrı hayali stat değil gerçek gıdadır")

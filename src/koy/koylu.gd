@@ -29,6 +29,8 @@ var gizli_egilim: Dictionary = {"tur": "yok", "calinan": 0, "son_gece": 0, "yaka
 ## Açık bayraklar: `usta_ciftci`, `somurulmus`, `tembel` …
 var bayraklar: PackedStringArray = []
 var gizli_bayraklar: PackedStringArray = []
+## Kamu kasasından ayrı ekonomik yaşam standardı (0–100).
+var refah: int = EkonomikRefah.baslangic()
 var moral: int = 60
 var saglik: int = 100
 var sadakat: int = 60
@@ -73,7 +75,7 @@ func usta_mi() -> bool:
 
 func kaydet() -> Dictionary:
 	return {"id": id, "ad": ad, "adli_id": String(adli_id), "sinif": String(sinif), "portre": portre, "stat": stat, "zanaat_turu": ZanaatTuru.anahtar(zanaat_turu),
-		"bayraklar": Array(bayraklar), "gizli": Array(gizli_bayraklar), "moral": moral, "saglik": saglik,
+		"bayraklar": Array(bayraklar), "gizli": Array(gizli_bayraklar), "moral": moral, "refah": refah, "saglik": saglik,
 		"sadakat": sadakat, "is_yeri": is_yeri, "kis_oncesi": kis_oncesi_is, "ev": ev, "ac": ac, "giris": giris_gunu,
 		"pasif_ozellikler": pasif_ozellikler.duplicate(true), "egitim": egitim.duplicate(true), "gelisim": gelisim.duplicate(true), "grev": grev.duplicate(true), "yorgunluk": yorgunluk.duplicate(true), "is_kazasi": is_kazasi.duplicate(true), "zanaat_kazasi": zanaat_kazasi.duplicate(true), "toplumsal_bag": toplumsal_bag.duplicate(true), "yas_grubu": String(yas_grubu), "gizli_egilim": gizli_egilim.duplicate(true)}
 
@@ -99,6 +101,7 @@ static func kayittan(v: Dictionary) -> Koylu:
 	k.bayraklar = PackedStringArray(v.get("bayraklar", []))
 	k.gizli_bayraklar = PackedStringArray(v.get("gizli", []))
 	k.gizli_egilim = GizliEgilimler.oku(v.get("gizli_egilim"), k)
+	k.refah = EkonomikRefah.yukle(v.get("refah"))
 	k.moral = int(v.get("moral", 60))
 	k.saglik = int(v.get("saglik", 100))
 	k.sadakat = int(v.get("sadakat", 60))

@@ -11,9 +11,9 @@ const ALANLAR := ["koy_akce", "muhafiz_akce", "gida", "odun", "tas", "demir", "R
 
 func _ready() -> void:
 	secim = OptionButton.new()
-	for ad in ["Köy Akçesi", "Muhafız Akçesi", "Erzak (stok)", "Odun", "Taş", "Demir", "Refah (köy akçesi)", "Erzak (gıda)", "Güvenlik (0–100)", "Moral (ortalama)", "Sağlık (ortalama)"]:
+	for ad in ["Köy Akçesi", "Muhafız Akçesi", "Erzak (stok)", "Odun", "Taş", "Demir", "Refah (ekonomik ortalama)", "Erzak (gıda)", "Güvenlik (0–100)", "Moral (ortalama)", "Sağlık (ortalama)"]:
 		secim.add_item(ad)
-	secim.tooltip_text = "Refah=köy akçesi; Erzak=gıda stoku (aynı kaynak). Güvenlik=100−asayiş riski. Moral/Sağlık: her köylüye delta, ekranda ortalama."
+	secim.tooltip_text = "Refah=köylü ekonomik yaşam standardı (0–100); kamu akçesi ayrı; Erzak=gıda stoku (aynı kaynak). Güvenlik=100−asayiş riski. Moral/Sağlık: her köylüye delta, ekranda ortalama."
 	secim.item_selected.connect(func(_i: int) -> void: yenile())
 	add_child(secim)
 	miktar = SpinBox.new()

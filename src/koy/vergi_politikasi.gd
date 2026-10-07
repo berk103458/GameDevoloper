@@ -1,5 +1,4 @@
-## EKO-08 aktif: vergi oranı, gerçek haftalık kamu tahsilatı ve Moral.
-## Refah eşlemesi kararı bekliyor; bu sınıf Refah sözleşmesini değiştirmez.
+## EKO-08: gerçek haftalık kamu tahsilatı, Moral ve ekonomik Refah.
 class_name VergiPolitikasi
 extends RefCounted
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/koy/vergi_politikasi.json"))
@@ -20,6 +19,7 @@ static func tahsil(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 	y.akce += vergi
 	y.son_vergi_gece = y.gun
 	y._herkese_moral(int(AYAR[y.vergi_orani].moral))
+	EkonomikRefah.degistir(y, int(AYAR[y.vergi_orani].refah))
 	olaylar.append({"anahtar": "koy.olay.vergi", "deger": [vergi]})
 ## Optional eski kayıt; bilinmeyen oran orta, bozuk gün -1 olur.
 static func yukle(y: KoyYonetimi, v: Variant) -> void:
@@ -29,4 +29,4 @@ static func yukle(y: KoyYonetimi, v: Variant) -> void:
 	if (gun is int or gun is float) and is_finite(float(gun)) and floor(float(gun)) == float(gun) and float(gun) >= -1 and float(gun) <= 1000000000: y.son_vergi_gece = int(gun)
 ## Pazar açıklaması yalnız uygulanan kuralları sunar.
 static func metin(y: KoyYonetimi) -> String:
-	return "Vergi: %s · haftalık %d akçe · Moral %+d\nHafta sonunda tahsil edilir; vergi muafiyeti korunur." % [AYAR[y.vergi_orani].ad, bedel(y), int(AYAR[y.vergi_orani].moral)]
+	return "Vergi: %s · haftalık %d akçe · Moral %+d · Refah %+d\nEkonomik Refah: %d/100. Hafta sonunda tahsil edilir; vergi muafiyeti korunur." % [AYAR[y.vergi_orani].ad, bedel(y), int(AYAR[y.vergi_orani].moral), int(AYAR[y.vergi_orani].refah), EkonomikRefah.oku(y)]

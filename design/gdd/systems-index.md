@@ -233,4 +233,4 @@ Döngü yok. Dikkat edilen yakın döngüler:
 
 - [Muhafız maaşları](muhafiz-maaslari.md): EKO-07 kamu maaşı/borç, kışla ve güvenlik/rüşvet riski.
 
-- [Vergi politikası](vergi-politikasi.md): EKO-08 aktif; Refah kararı bekliyor.
+- [Vergi politikası](vergi-politikasi.md): EKO-08 vergi, Moral ve hazineden ayrı ekonomik Refah.

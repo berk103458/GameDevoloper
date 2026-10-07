@@ -16,7 +16,7 @@ func _initialize() -> void:
 	var olaylar: Array[Dictionary] = []
 	var once := y.akce
 	y._akce(olaylar)
-	_kontrol(y.akce == once + 1 and y.huzur() == 52, "Gerçek düşük tahsilat kamu kasasını ve Moral etkisini uygular")
+	_kontrol(y.akce == once + 1 and y.huzur() == 52 and EkonomikRefah.oku(y) == 52, "Gerçek düşük tahsilat kamu kasasını ve Moral etkisini uygular")
 	var tekrar := y.kaydet()
 	y._akce(olaylar)
 	_kontrol(y.kaydet() == tekrar, "Aynı gece tekrar tahsilat yapılmaz")
@@ -24,7 +24,7 @@ func _initialize() -> void:
 	y.gun += y.a.mevsim_gun
 	once = y.akce
 	y._akce(olaylar)
-	_kontrol(y.akce == once + 4 and y.huzur() == 47, "Ağır vergi gerçek kamu geliri ve Moral kaybı")
+	_kontrol(y.akce == once + 4 and y.huzur() == 47 and EkonomikRefah.oku(y) == 47, "Ağır vergi gerçek kamu geliri ve Moral kaybı")
 	y.gun += y.a.mevsim_gun
 	y.vergi_muaf = true
 	var muaf := y.kaydet()

@@ -37,6 +37,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_kontrol(y.vergi_orani == "agir" and y.akce == int(once.akce) and y.gun == int(once.gun), "UI oranı kaydeder; günü veya kasayı ilerletmez")
 	_kontrol(_metin(ekran).contains("Vergi: Ağır · haftalık 4 akçe · Moral -5"), "Pazar seçilen gerçek bedeli ve Moral etkisini gösterir")
+	_kontrol(_metin(ekran).contains("Refah -5") and _metin(ekran).contains("Ekonomik Refah: 50/100"), "Pazar hazineden ayrı ekonomik Refahı ve vergi kaybını açıklar")
 	var secili := _dugme(ekran, "Vergi · Ağır")
 	_kontrol(secili != null and secili.disabled, "Seçili oran yeniden basılamaz")
 	await get_tree().create_timer(0.5).timeout

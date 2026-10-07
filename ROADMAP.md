@@ -124,8 +124,8 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [x] **EKO-05:** Taş Ocağı, Kireç ve Harç Üretimi — Sur/taş binalar için ham taş ve kireç kuyusunda harç. (Codex)
 - [x] **EKO-06:** Demir Madenciliği, Ocak ve Alet Aşınması — Demirci alet üretir; alet yoksa üretim hızı %70 düşer. (Codex)
 - [x] **EKO-07:** Asker Maaşları ve Kamu İsyan Eşiği — Kışladaki askerler her gece 1 akçe; ödenmezse güvenlik çöker, rüşvete yönelim. (Codex)
-- [/] **EKO-08:** Köy Pazarı Vergilendirme Oranları — Düşük/Orta/Ağır vergi (ağır akçe getirir, Moral ve Refahı ezer).
-- [ ] **EKO-09:** Dinamik Tüketim Dengesi (Nüfus × İklim) — Her canlı: 1 Erzak/gece; soğukta +1 Odun; karşılanamazsa donma/açlık ölümleri. **Not (Gemini):** BEKLEMEDE — satır/dosya kanıtsız; yanlış kısmi kilit yok (`[x]` verilmedi). **≡ MEV-02 / MEV-11**.
+- [x] **EKO-08:** Köy Pazarı Vergilendirme Oranları — Düşük/Orta/Ağır vergi (ağır akçe getirir, Moral ve Refahı ezer). (Codex)
+- [/] **EKO-09:** Dinamik Tüketim Dengesi (Nüfus × İklim) — Her canlı: 1 Erzak/gece; soğukta +1 Odun; karşılanamazsa donma/açlık ölümleri. **Not (Gemini):** BEKLEMEDE — satır/dosya kanıtsız; yanlış kısmi kilit yok (`[x]` verilmedi). **≡ MEV-02 / MEV-11**.
 - [ ] **EKO-10:** İflas ve Hazine Çöküşü Olayları — Köy Akçesi 3 gece üst üste <0 → tefeci baskını ve kamu mallarına el koyma.
 
 - [ ] **EKO-11:** Kişisel Kasa (`muhafiz_akce`) HUD Göstergesi (`src/arayuz/koy_hud/kese_gostergesi.gd` — **taslak hedef yol**) — Rüşvet geliri ve kişisel kesenin köy HUD'unda gösterimi; **≡ ODA-02** yüzeyi.

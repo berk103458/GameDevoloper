@@ -2,16 +2,19 @@
   "dusuk": {
     "ad": "Düşük",
     "carpan": 0.5,
-    "moral": 2
+    "moral": 2,
+    "refah": 2
   },
   "orta": {
     "ad": "Orta",
     "carpan": 1.0,
-    "moral": 0
+    "moral": 0,
+    "refah": 0
   },
   "agir": {
     "ad": "Ağır",
     "carpan": 2.0,
-    "moral": -5
+    "moral": -5,
+    "refah": -5
   }
 }
