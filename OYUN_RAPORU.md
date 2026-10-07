@@ -977,3 +977,18 @@ Sıradaki: ANI-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Mevcut iklim sözleşmesine yağmur; aynı A* ile erişilebilir düz kutu saçağa sığınma, muhafız görevini koruma, kar fırtınasında görsel hız ×0.72 ve mevcut modifierde hafif büzülme. Ekonomi/RNG değişmez. Tam 144 kontrol ve izole 20 gece sıfır başarısız; native ve ayna geçti. Envanter G/VFX-YAGMUR güncel; asset üretilmedi/indirilmedi.
 
 Sıradaki: ANI-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+## Ahmet yerel full pull — 8 Ekim 2026 ~02:05 (Europe/Istanbul)
+
+`git fetch --all --prune`; yalnız festive değişti (`af876a7` → `3fb1810`, 5 Codex commiti, yazar berk103458). Diğer 9 uzak dal yeni commit almadı ve yerel takip dalları uzakla eşit. Yerelde ileri commit yoktu; merge fast-forward oldu, conflict yok.
+
+Gelenler:
+- `7a416e7` ANI-07 — akşam/gece boşta kalan köylüler meydan ateşi çevresinde ayrı A* duraklarında ısınır (`src/koy/gorsel/ates_basi_rutini.gd`; meydan ocağı konumu sahnede tek çağrıyla).
+- `afe0907` merge — Cursor BUG-03/BUG-15 düzeltmeleri ve 8 Ekim asset kuralı korunarak birleştirildi.
+- `8825b61` ANI-08 — örs/çekiç ve fırın küreği döngüleri, düz kutu yer tutucularla (`src/koy/gorsel/zanaat_tezgahi.gd`, `data/zanaat_tezgahi.json`).
+- `c7572f8` ANI-09 — yağmurda saçak altına sığınma, kar fırtınasında yavaş ve büzülmüş yürüyüş (`src/koy/gorsel/karakter_hava_tepkisi.gd`; `durus_duzeltici.gd` içinde `hava_egimi`; iklim denetçisine "Yağmur").
+- `3fb1810` ANI-09 commitli temiz açılış denetimi notu; asset gerekmedi.
+
+ROADMAP: ANI-07/08/09 `[x] (Codex)`; ANI-10 `[/] (Codex)`. KAP-02/03 `[/]` → `[ ]` (sahipsiz). Yeni png/glb/ogg/wav dosyası yok; envanter G tablosuna ANI07-ISINMA, ANI08-TEZGAH, ANI08-HAREKET, ANI09-SACAK, ANI09-BUZULME eklendi.
+
+Doğrulama (yerel Godot headless): import hatasız; `ates_basi_rutini_test`, `zanaat_tezgahi_test`, `karakter_hava_test`, `karar_replik_test` ile `ates_basi_rutini_kontrol`, `zanaat_tezgahi_kontrol`, `karakter_hava_kontrol`, `acilis_bagimlilik_kontrol` sahneleri GEÇTİ. Conflict marker yok; `koy_sahnesi` / `KoyYerlesimi` / `KoyluAI` geri gelmedi.

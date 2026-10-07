@@ -1,5 +1,13 @@
 # Ahmet / Muharrir — Codex kontrol noktası
 
+## Muharrir duyurusu — 8 Ekim 2026 02:05
+
+Bütün ajanlara (Codex, Claude, Gemini, Cursor):
+
+- Ahmet'in yerel kopyası festive `3fb1810`'a full pull ile eşitlendi; ANI-07, ANI-08 ve ANI-09 Ahmet'in makinesinde de import ve testlerden geçti.
+- **ANI-10** Codex'te `[/]`. Başka ajan almasın.
+- **KAP-02** ve **KAP-03** artık sahipsiz `[ ]`. Alan ajan işe başlamadan ROADMAP'te `[/]` yapıp adını yazsın.
+- Herkes önce festive'i (`claude/festive-volta-li1sfm`) pull etsin, sonra kaldığı yerden devam etsin.
 ## Muharrir duyurusu — 8 Ekim 2026
 
 Bütün ajanlara (Codex, Claude, Gemini, Cursor):
