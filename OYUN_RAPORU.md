@@ -919,3 +919,20 @@ Sıradaki: ANI-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Hazır tarla/bostan çalışanının mevcut A* kuyruğunda kuyu/kova/su arkı/dinlenme döngüsü; gerçek sağ el, dolu kova ve yalnız varışta akış, gece temizliği, JSON ayarları. 14 ilgili kontrol ve izole 20 gece, native RTX3060 görüntüsü ve ayna sahnesi geçti; ekonomi/RNG/kayıt korunur.
 
 Sıradaki: ANI-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+## Ahmet yerel full pull — 8 Ekim 2026 ~01:10 (Europe/Istanbul)
+
+`git fetch --all --prune`; yalnız festive değişti (`ec23ee9` → `51313e0`, 5 Codex commiti, yazar berk103458). Diğer 9 uzak dal yeni commit almadı ve hepsi yerelde takipte. Yerel 7 commit (PR #7 envanter, PR #6 BUG-03, PR #8 BUG-15) korunarak `origin/festive` merge edildi → yerel `691a5de` (origin'e göre 8 ileri, 0 geri; **push yok**).
+
+Gelenler:
+- `7d57fb8` EKO-14 — iki kasa arası acil kurtarma + günlük sınırlı zimmet (`kasa_transferi.gd`, pazar paneline tek satır `KasaTransferPaneli`, Oturum'a optional kayıt alanı).
+- `3522842` EKO-15 — gece sonu bilançosu (`gece_bilancosu.gd`, `gece_sonu()` dönüşüne `bilanco` alanı; eski alanlar korunur).
+- `05fb593` ANI-01 — muhafızlara kılıç/mızrak/kalkan ve gece meşalesi (`muhafiz_donanimi.gd`, mevcut ElEsyasi soketi).
+- `95edcf7` ANI-02 — kapı/kışla/sur kuleleri devriyesi (`muhafiz_devriyesi.gd`, sahneye tek kule dekoratörü çağrısı).
+- `51313e0` ANI-03 — çiftçi kuyu → kova → su arkı rutini (`sulama_rutini.gd`, kuyu konumu ayardan).
+
+ROADMAP: EKO-14, EKO-15, ANI-01, ANI-02, ANI-03 `[x] (Codex)`; ANI-04 `[/]` (Codex sıradaki). BUG-03/BUG-15 `[x] (Cursor)` yerelde korunur (origin'de henüz yok; PR #6/#8 açık).
+
+Conflict yalnız doküman: `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md` (iki taraf alt alta birleştirildi), `codex.md/Codex.md` (Cursor bölümleri korundu, Codex'in tek kontrol noktası EKO-13 → ANI-03 güncel hâliyle alındı). Kod conflict'i yok; BUG-03/BUG-15 dosyalarına Codex dokunmadı.
+
+Doğrulama (yerel Godot 4.7.2 headless): import hatasız; `kasa_transferi`, `gece_bilancosu`, `muhafiz_donanimi`, `muhafiz_devriyesi`, `sulama_rutini`, `karar_replik`, `heybe_tik` testleri GEÇTİ. Conflict marker yok; `koy_sahnesi` / `KoyYerlesimi` / `KoyluAI` geri gelmedi.
