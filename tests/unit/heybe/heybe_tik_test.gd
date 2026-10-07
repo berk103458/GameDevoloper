@@ -1,10 +1,10 @@
 ## BUG-15: Heybe paneli açıkken sol tık dünya alanına ve 3B görüntü kapısına sızmamalı.
-## Panel yeniden yazılmaz. Kapı ekranı heybe'yi `_dunya` dikdörtgeninin (0, 92, 1140×988) üstüne koyar;
-## 3B doku `MOUSE_FILTER_IGNORE` bir TextureRect'tir ve SubViewport'a kendiliğinden tık iletmez.
-## Bu betik iki yüzeyi de dener:
-##  1) Kapıdaki dünya kontrolü (aynı dikdörtgen).
-##  2) Godot'nun 3B'ye tık ilettiği SubViewportContainer (köy ekranındaki yol).
+## Panel yeniden yazılmaz. `HeybePaneli._ready` `MOUSE_FILTER_STOP` atar.
+## Kapı ekranı paneli `_dunya` dikdörtgeninin (0, 92, 1140×988) üstüne koyar. 3B doku
+## `MOUSE_FILTER_IGNORE` olduğu için tıklamayı SubViewport'a kendiliğinden iletmez.
+## Betik iki yüzeyi dener: o dünya kontrolü ve Godot'nun 3B'ye tık ilettiği SubViewportContainer.
 ##   godot --headless --path . -s tests/unit/heybe/heybe_tik_test.gd
+## Panel betiği autoload'lardan sonra `load` edilir; üst düzey tür ipucu `-s` derlemesini bozar.
 extends SceneTree
 
 const DUNYA := Rect2(0, 92, 1140, 988)
@@ -30,7 +30,7 @@ func _calistir() -> void:
 	var kok := Control.new()
 	kok.name = "Kok"
 	kok.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	kok.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	kok.position = Vector2.ZERO
 	kok.size = Vector2(1920, 1080)
 	kok.theme = Tema.olustur(Ayarlar.new("user://bug15_ayar.cfg"))
 	root.add_child(kok)
@@ -50,17 +50,18 @@ func _calistir() -> void:
 	var doku := TextureRect.new()
 	doku.name = "KapiDokusu"
 	doku.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	doku.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	doku.position = Vector2.ZERO
+	doku.size = Vector2(1920, 1080)
 	kok.add_child(doku)
 	kok.move_child(doku, 0)
 
-	var panel := _panel()
+	var panel: Control = _panel()
 	panel.position = DUNYA.position
 	kok.add_child(panel)
 	await process_frame
 	await process_frame
 
-	var zemin := panel.get_child(0)
+	var zemin: Control = panel.get_child(0)
 	_esit("HeybePaneli mouse_filter STOP", panel.mouse_filter, Control.MOUSE_FILTER_STOP)
 	_esit("zemin ColorRect", zemin is ColorRect, true)
 	_esit("zemin mouse_filter STOP", zemin.mouse_filter, Control.MOUSE_FILTER_STOP)
@@ -98,7 +99,7 @@ func _calistir() -> void:
 	sonda.name = "KapiSahnesiSonda"
 	vp.add_child(sonda)
 	kok.add_child(kap)
-	var panel2 := _panel()
+	var panel2: Control = _panel()
 	panel2.position = DUNYA.position
 	kok.add_child(panel2)
 	await process_frame
@@ -116,15 +117,20 @@ func _calistir() -> void:
 	_esit("kapalıyken 3B SubViewport tık alır", sonda.sol_tik, 1)
 	print("  3B kapalı sonda=%d" % sonda.sol_tik)
 
+	kok.free()
+	await process_frame
 	print("HEYBE TIK: %s (%d hata)" % ["GEÇTİ" if _hata == 0 else "KALDI", _hata])
-	quit(1 if _hata > 0 else 0)
+	# Autoload adı `-s` derlemesinde görünmez; düğüm çıkışta akışları bırakır.
+	var ses = root.get_node(^"Ses")
+	await ses.cik(1 if _hata > 0 else 0)
 
 
-func _panel() -> HeybePaneli:
+func _panel() -> Control:
 	var heybe := Heybe.new()
 	heybe.ekle("arpa", "gida", 4, 1, false)
 	heybe.soruldu = true
-	var panel := HeybePaneli.new()
+	var betik: GDScript = load("res://src/arayuz/heybe_paneli.gd")
+	var panel: Control = betik.new()
 	panel.heybe = heybe
 	panel.ayarlar = Ayarlar.new("user://bug15_ayar.cfg")
 	panel.gelen_adi = "Yolcu"
@@ -132,7 +138,7 @@ func _panel() -> HeybePaneli:
 	return panel
 
 
-func _panel_bitti(panel: HeybePaneli) -> void:
+func _panel_bitti(panel: Control) -> void:
 	for _i in 50:
 		if not is_instance_valid(panel) or not panel._mesgul:
 			return
@@ -155,7 +161,7 @@ func _tik(nokta: Vector2) -> void:
 	await process_frame
 
 
-func _filtre(deger: MouseFilter) -> String:
+func _filtre(deger: int) -> String:
 	if deger == Control.MOUSE_FILTER_STOP:
 		return "STOP"
 	if deger == Control.MOUSE_FILTER_PASS:
