@@ -108,6 +108,9 @@ EKO-14. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 
+## Cursor — eksik asset envanteri, 7 Ekim 2026
+Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
 ## EKO-13 kontrol noktası — 7 Ekim 2026
 EKO-12 `76e8b1f` ile festive'e pushlandı; 120 kontrolün son logları 0 hata (dört düzeltilen eski test tekrar geçti), 20 gece/native/ayna dahil. EKO-13 mevcut DemirZinciri + dış JSON aşınmasını kullanır, ikinci sistem yok. Yeni src/arayuz/koy_hud/alet_asinma_bilgisi.gd salt okunur, Hud'a tek satır adaptör; tests/unit/kvr/alet_asinmasi_test.gd üç gerçek yapıdaki son alet geçişini ölçer. demir_zinciri_kontrol.gd gerçek %40 aşınma/%30 aletsiz verim ipucunu ve tekrar çizimin model değiştirmediğini denetler.
 İlgili dört birim, headless/native gerçek UI, kaynak/ayna import, statik açılış/API denetimi geçti. EKO-13 [x] (Codex), sıradaki EKO-14 çift kasa kurtarma/zimmet. Paket normal festive commit/push için doğrulandı. ds GitHub kopyası tüm değişikliklerle eşit; Ahmet Windows yolu mevcut değil, oraya full pull yapılamadı. Önceki açılış denetimi docs/denetim/2026-10-07-acilis.md; Claude devri iptal, SYS-09 CSV kilidi korunur.

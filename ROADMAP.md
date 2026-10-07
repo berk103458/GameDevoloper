@@ -6,6 +6,8 @@
 - `[ ]` BEKLEMEDE (SIRADAKİ GÖREVLER)
 - `[!]` KRİTİK BUGFIX / TEST BEKLİYOR
 
+**Doküman notu (Cursor, 7 Ekim 2026):** Eksik asset envanteri çıkarıldı: `docs/EKSIK_ASSET_ENVANTERI.md`. Oyun özelliği kapatılmadı; görsel, ses ve model üretilmedi.
+
 ---
 
 ## BÖLÜM 0: Geliştirici Admin Paneli ve Hızlı Test Araçları
