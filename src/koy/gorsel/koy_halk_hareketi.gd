@@ -18,6 +18,7 @@ func eylem(id: int) -> String:
 	if d.is_empty(): return "Durum yok"
 	if int(d.adim) < d.yol.size(): return "Yürüyor"
 	var k := sahne.yonetim.koylu(id)
+	if d.get("ates_basi", false): return "Ateş başında ısınıyor"
 	if d.get("degirmenci", false): return String(d.get("degirmenci_ad", "Öğütme bekliyor"))
 	if d.get("coban", false): return String(d.get("coban_ad", "Sürü yolu kapalı"))
 	if d.get("oduncu", false): return String(d.get("oduncu_ad", "Tomruk yolu kapalı"))
@@ -91,7 +92,7 @@ func _process(delta: float) -> void:
 					OduncuRutini.varis(f, d.get("oduncu", false) and int(d.get("oduncu_i", 0)) == 0)
 					SulamaRutini.varis(f, d.get("sulama", false) and int(d.get("sulama_i", 0)) == 1)
 					f.bak(d.bak)
-					f.calis(&"calis" if d.is else &"")
+					f.calis(&"isin" if d.get("ates_basi", false) else (&"calis" if d.is else &""))
 		elif d.get("oduncu", false):
 			d.bekle += delta
 			if d.bekle >= float(OduncuRutini.AYAR.sureler[d.oduncu_i]):
@@ -205,13 +206,21 @@ func _planla(id: int) -> void:
 	else:
 		d.degirmenci_i = 0
 	DegirmenHareketi.esya(f, d.degirmenci, tasiyor)
+	d.ates_basi = false
+	if AtesBasiRutini.aday(sahne.yonetim, k, faz_adi):
+		var ates := AtesBasiRutini.hedef(self, k, bas)
+		if not ates.is_empty():
+			son = ates.son
+			d.bak = ates.bak
+			d.ates_basi = true
+			d.is = false
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false
 	d.yol = []
 	for h in hucreler:
 		d.yol.append(_konum(h))
-	if not d.yol.is_empty():
+	if not d.yol.is_empty() and not d.ates_basi:
 		# Küçük, hücre içinde kalan durak farkı: aynı durakta üst üste binmeyi azaltır.
 		d.yol[-1] += Vector3((id % 3 - 1) * float(_ayar.durak_araligi), 0, ((id / 3) % 3 - 1) * float(_ayar.durak_araligi))
 	d.adim = 0

@@ -157,6 +157,8 @@ func _zarf() -> float:
 ## Duyguya göre üst kol ve önkol hedef yönleri (iskelet uzayı); ZERO = bu kol değişmez.
 func _duygu_hedefleri(yan: float) -> Array[Vector3]:
 	match duygu:
+		&"isin":
+			return AtesBasiRutini.kol(yan, _zaman + faz)
 		&"sevinc":
 			# Sağ el göğse (şükran); sol kol yanda kalır.
 			if yan < 0.0:

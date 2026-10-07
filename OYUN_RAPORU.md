@@ -932,3 +932,10 @@ Sıradaki: ANI-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Gerçek çalışan/girdi/depo koşullarıyla dönen ahşap çark, el kemiğine bağlı çuval ve erişilebilir ön sundurma durağı; mevcut ekonomi ve kayıt değişmez. 15 ilgili kontrol ve 20 gece, son durak düzeltmesi sonrası headless/native/ayna sahne kontrolü geçti.
 
 Sıradaki: ANI-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-07 (8 Ekim 2026)
+
+Boşta köylüler akşam/gece mevcut ateşte ayrı ve güvenli A* duraklarında ısınır; gerçek iskelette iki el önde, gündüz duruş kapanır. Atanmış çalışan/guard rutinleri korunur. 15 ilgili kontrol/20 gece, native görüntü ve ayna import/sahne geçti.
+
+Sıradaki: ANI-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

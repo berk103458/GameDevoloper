@@ -207,7 +207,7 @@ func _meydan_kur() -> void:
 	_yapilar.add_child(kuyu)
 	# Meydan ateşi (9.1: akşam köylüler kandil ve ateş başında).
 	var ocak := Node3D.new()
-	ocak.position = orta + Vector3(1.2, 0.03, 1.2)
+	ocak.position = AtesBasiRutini.konum(self)
 	for i in 7:
 		var tas := MeshInstance3D.new()
 		var s := SphereMesh.new()

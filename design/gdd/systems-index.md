@@ -260,3 +260,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Çoban ve sürü](coban-surusu.md) — ANI-05: CHR ağıl, kapı ve aynı A* üzerinde otlak/dönüş döngüsü.
 
 - [Değirmen çarkı ve çuval](degirmen-hareketi.md) — ANI-06: gerçek çalışma koşullarıyla çark ve taşıma görseli.
+
+- ANI-07: [Ateş başı ritüeli](ates-basi-ritueli.md) — mevcut ateş, ayrı A* durakları, gerçek iskelette ısınma.

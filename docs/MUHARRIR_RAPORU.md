@@ -69,3 +69,8 @@ Tam work/sanity_ani05: 134 kontrol 0 başarısız, 20 gece dahil. Son kapı/bina
 ## ANI-06 yayın kontrol noktası — 8 Ekim 2026
 
 Değirmen hareketi 15 ilgili kontrolden ve 20 gecelik duman testinden geçti; son sundurma durak düzeltmesi kaynak ve ayna headless sahnelerinde, native Vulkan görüntüsünde doğrulandı. ANI-05 dc2d0ad yalnız commitli dosyalarla önbelleksiz dışa aktarıldı: ikinci import ve gerçek açılış bağımlılık kontrolü hatasız (docs/denetim/2026-10-07-acilis.md). Tam paket festive üzerinde normal commit/push ile yayımlanır. Ahmet Windows yolu bu makinede mevcut değil; o kopya güncellendi iddiası yok. Sıradaki ANI-07; Claude devri iptal.
+
+
+## ANI-07 — 8 Ekim 2026
+
+Ateş başı ritüeli ROADMAP [x] (Codex). 15 ilgili kontrol ve 20 gece: sıfır başarısız; son halka yayılımı native ve ayna sahnesinde tekrar geçti. İlk UI testindeki karışık girinti düzeltildi; final import/çalışma hatasız. İki ds kopyası eşitlenerek festive normal commit/push; Ahmet Windows yolu burada yok. Sıradaki ANI-08; CSV ve eski mimari korunuyor.

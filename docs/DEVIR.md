@@ -133,3 +133,8 @@ Kişisel kese ayrı HUD: gerçek rüşvet, kamu değişmezliği, eşya adedi, JS
 
 ## Açılış denetimi kontrol noktası
 Codex sorumlu; Claude devri iptal. Yayımlanmış festive a225fba kaynakları önbelleksiz Godot 4.7.2 import sonrası 20 bağımlılık/gerçek menü/Katalog HAZIR testini geçti. Eski kapi_kuyrugu_test.gd.uid merge artığı uzlaştırıldı. Yeni tam sanity_acilis_denetimi 0 başarısız, 20 gece; kaynak ve ds ayna gerçek açılış/statik testleri geçti. Çalışan test süreci yok. Ahmet'in `_iskelet`/EL_KEMIGI hatalı satırları güncel 330 satırlık karakter_model.gd içinde yok; yerel diff/buffer kontrolü raporlandı. Tüm kanıt docs/denetim/2026-10-07-acilis.md. Sıradaki EKO-12; Ahmet yerel hata sonucu ayrıca beklenir, orada çözüldü denmez.
+
+
+## ANI-07 — 8 Ekim 2026
+
+Ateş başı ritüeli ROADMAP [x] (Codex). 15 ilgili kontrol ve 20 gece: sıfır başarısız; son halka yayılımı native ve ayna sahnesinde tekrar geçti. İlk UI testindeki karışık girinti düzeltildi; final import/çalışma hatasız. İki ds kopyası eşitlenerek festive normal commit/push; Ahmet Windows yolu burada yok. Sıradaki ANI-08; CSV ve eski mimari korunuyor.

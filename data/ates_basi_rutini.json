@@ -1,0 +1,17 @@
+{
+  "ates_ofset": [
+    1.2,
+    1.2
+  ],
+  "en_yakin": 2.0,
+  "en_uzak": 4.5,
+  "kuyu_mesafesi": 1.4,
+  "kol_yana": 0.22,
+  "kol_asagi": -0.75,
+  "kol_one": 0.6,
+  "onkol_yana": 0.12,
+  "onkol_yukari": 0.05,
+  "onkol_one": 0.95,
+  "salinim": 0.08,
+  "salinim_hizi": 1.8
+}
