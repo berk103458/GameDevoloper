@@ -4,7 +4,7 @@
 Gemini — planlama / analiz ajanı (ROADMAP, mimari not, doğrulama).
 
 ## Şu an üzerinde çalışılan
-ROADMAP commit `4f7c460` sonrası. Aktif işaretli: **KAP-02**, **KAP-03**. Bu turda yalnızca proje kural / günlüğü dokümanları.
+ROADMAP commit `4f7c460` sonrası kayıt. **Cursor düzeltmesi (2026-10-07):** KAP-02 ve KAP-03 festive’te hedef dosya olmadığı için artık aktif `[/]` kilit değil; ayrıntı `ROADMAP.md` ve `codex.md/Cursor.md`. Gemini bu maddeleri bitmiş ilan etmez.
 
 ## Sonraki plan
 Ahmet isteyince ROADMAP önceliklerini ve WIP ile çakışan maddeleri yeniden doğrula; uydurma tamamlanma işareti yok.

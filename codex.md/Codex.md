@@ -6,6 +6,8 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 ## Güncel durum
 7 Ekim 2026. Festive kontrol edilen uç: 018f4c9 (yeni docs yerel üçlü birleştirme ile alındı; commit yok); çalışma dalı feature/kvr-runtime. Önceki yayımlanan commit: 994a2cb. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
+**Cursor düzeltmesi (2026-10-07):** festive HEAD bu not eklenirken `00040db`. EKO-11 kodu ve KAP-02/KAP-03 hedef dosyaları yok; bu üçü `[/]` aktif kilitten çıkarıldı. Quest PR #4 ve SYS-09 PR #2 açık. Ayrıntı `codex.md/Cursor.md`. Codex’in kapanan madde listesi bu satırla değiştirilmedi.
+
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
 - KVR-02: Şecere ve gündüz/gece davranışı kaynak anahtarlarıyla Resource alanlarına bağlandı; kayıt/yükleme ve veri izolasyonu testi geçti.

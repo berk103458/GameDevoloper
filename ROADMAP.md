@@ -38,7 +38,7 @@
 - [x] **BUG-04:** Kapı Sahnesinde Işık ve Gölge Optimizasyonu — Meşale ışıklarındaki dinamik gölge haritası boyutu düşürülecek, gereksiz mesafe kontrolleri LOD ile optimize edilecek. (Codex)
 - [x] **BUG-05:** Boşta Duran Scriptlerin İşlemci Tüketimi (`_process` Hijyeni) — Kapı ve menü ekranlarında aktif girdi almayan düğümlerin `set_process(false)` ile uyutulması. (Codex)
 - [x] **BUG-06:** 3D Karakter Bellek Sızıntısı (Orphan Nodes) — Kapıdan içeri giren veya geri dönen karakter sahnelerinin ağaçtan silinirken bellekten düşmemesi hatası `queue_free()` kontrolleriyle giderilecek. (Codex)
-- [!] **BUG-07:** CSV Sözdizimi ve Tırnak Hataları Fallback Mekanizması — Eksik anahtar durumunda oyunun kilitlenmesi önlenecek, ekrana güvenli `[KEY_NOT_FOUND]` basılarak çalışmaya devam edilecek. **≡ SYS-09** (metinler.csv doğrulama / isimlendirme birleşik paket).
+- [!] **BUG-07:** CSV Sözdizimi ve Tırnak Hataları Fallback Mekanizması — Eksik anahtar durumunda oyunun kilitlenmesi önlenecek, ekrana güvenli `[KEY_NOT_FOUND]` basılarak çalışmaya devam edilecek. **≡ SYS-09** (metinler.csv doğrulama / isimlendirme birleşik paket). **PR #2 bekliyor** (`feature/sys09-csv-dogrulama`); festive’e merge edilmeden `[x]` yok.
 - [x] **BUG-08:** Gece Sonu Hesaplamasında Çift Sayım Bug'ı — UI hızlandırma (2x) açıkken gün bitişine basıldığında tüketim fonksiyonunun iki kez tetiklenmesi engellenecek. (Codex)
 - [x] **BUG-09:** Animasyon Oynatıcısında Eksik Klip Çökmesi — Bir modelde istenen animasyon yoksa sessizce varsayılan idle klibine geri dönen koruma bloğu yazılacak. (Codex)
 - [x] **BUG-10:** Düşük Donanım Grafik Ayarları Profili — Düşük grafik modunda partiküllerin (meşale kıvılcımı, duman) kapatılması ve 3B çözünürlük ölçeğinin ayarlanabilmesi. (Codex)
@@ -47,15 +47,15 @@
 - [x] **BUG-12:** `_klip_onbellek` `has()` / idle Fallback — Eksik animasyon klipinde `has()` kontrolü ve idle'a düşme (**taslak yol notu** OK; KarakterModel üzerinde). (Codex)
 - [x] **BUG-13:** Kapı Kamera FOV Sabitleme — Kapı sahnesinde FOV kayması/zoom drift'inin sabitlenmesi. (Codex)
 - [x] **BUG-14:** `Ses.oynat` Havuz Temizliği — Ses oynatıcı havuzunun sahne geçişlerinde temizlenmesi / sızıntı önleme. (Codex)
-- [!] **BUG-15:** Heybe `mouse_filter = STOP` — Heybe paneli açıkken tıklamanın 3B sahneye sızmasını engelleme.
+- [!] **BUG-15:** Heybe `mouse_filter = STOP` — Heybe paneli açıkken tıklamanın 3B sahneye sızmasını engelleme. **Not (Cursor, 2026-10-07):** festive `src/arayuz/heybe_paneli.gd` kökte `MOUSE_FILTER_STOP` koyuyor. 3B sahneye sızma bu turda yeniden test edilmedi; bu yüzden `[x]` yok.
 
 ---
 
 ## BÖLÜM 2: Kapı Sorgusu, Tansiyon ve 2D Heybe Clue Motoru
 
 - [x] **KAP-01:** JSON Diyalog Ağacı İskeleti (KİLİTLİ)
-- [/] **KAP-02:** Tansiyon Durum Makinesi (`src/kapi/tansiyon_yoneticisi.gd`) [AKTİF] — 0–3 Sakin, 4–7 Gergin, 8–10 Panik aralıklarının diyalog seçimlerindeki tansiyon çarpanlarıyla (+/−) güncellenmesi.
-- [/] **KAP-03:** 2D Heybe Paneli Arayüzü (`src/arayuz/kapi/heybe_paneli.gd`) [AKTİF] — Karakterin yanında açılan, tıklandığında büyüyen ve ipucu kartı açan 2D eşya/nişan vitrini.
+- [ ] **KAP-02:** Tansiyon Durum Makinesi (`src/kapi/tansiyon_yoneticisi.gd`) — 0–3 Sakin, 4–7 Gergin, 8–10 Panik aralıklarının diyalog seçimlerindeki tansiyon çarpanlarıyla (+/−) güncellenmesi. **Not (Cursor, 2026-10-07):** hedef dosya festive’te yok; `[/]` aktif kilit kaldırıldı. Tansiyon `ChrSorgusu` içinde güncellenir; bant renkleri KAP-12’de kilitli. Ayrı durum makinesi bitmiş sayılmaz.
+- [ ] **KAP-03:** 2D Heybe Paneli Arayüzü (`src/arayuz/kapi/heybe_paneli.gd`) — Karakterin yanında açılan, tıklandığında büyüyen ve ipucu kartı açan 2D eşya/nişan vitrini. **Not (Cursor, 2026-10-07):** hedef yol festive’te yok; `[/]` aktif kilit kaldırıldı. Mevcut panel `src/arayuz/heybe_paneli.gd`. Modal kart KAP-14’te kilitli. Bu madde `[x]` değil.
 - [x] **KAP-04:** Obje 1 (Nişan / Mühür) Etkileşimi — Karakterin taşıdığı rozet, mühür, berat veya fermanın incelenmesi ve ilgili `Clue_*` anahtarının hafızaya atılması. (Codex)
 - [x] **KAP-05:** Obje 2 (Yük / Çuval) Etkileşimi — Saman altı, gizli bölme veya sahte taban kontrolleriyle kaçak eşya tespit mekanizması. (Codex)
 - [x] **KAP-06:** Görsel Hata (Yara / İz) İnceleme Alanı — Karakterin modelindeki fiziksel çelişkilerin (harç kireci, zincir yarası, süt lekesi) 2D görsel portre üzerinden tıklanması. (Codex)
@@ -130,7 +130,7 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [x] **EKO-09:** Dinamik Tüketim Dengesi (Nüfus × İklim) — Her canlı: 1 Erzak/gece; soğukta +1 Odun; karşılanamazsa donma/açlık ölümleri. **Kanıt (Codex):** TuketimDengesi / MevsimTuketimAdaptoru gerçek gece, ölüm, restore, native HUD ve 20 gece kontrolleri. **≡ MEV-02 / MEV-11**. (Codex)
 - [x] **EKO-10:** İflas ve Hazine Çöküşü Olayları — Köy Akçesi 3 gece üst üste <0 → tefeci baskını ve kamu mallarına el koyma. (Codex)
 
-- [/] **EKO-11:** Kişisel Kasa (`muhafiz_akce`) HUD Göstergesi (`src/arayuz/koy_hud/kese_gostergesi.gd` — **taslak hedef yol**) — Rüşvet geliri ve kişisel kesenin köy HUD'unda gösterimi; **≡ ODA-02** yüzeyi.
+- [ ] **EKO-11:** Kişisel Kasa (`muhafiz_akce`) HUD Göstergesi (`src/arayuz/koy_hud/kese_gostergesi.gd` — **taslak hedef yol**) — Rüşvet geliri ve kişisel kesenin köy HUD'unda gösterimi; **≡ ODA-02** yüzeyi. **Not (Cursor, 2026-10-07):** dosya festive’te yok. Codex günlüğü bunu sıradaki paket sayar; kod yazılmadığı için `[/]` aktif kilit kaldırıldı. `[x]` değil.
 - [ ] **EKO-12:** Ambar Kapasite Sınırı ve Bozulma/Ziyan Mantığı — Stok üst sınırı; aşım veya bekletmede ziyan/bozulma.
 - [ ] **EKO-13:** Zanaat Aletleri Aşınma ve Verim Düşüşü Adaptörü — Tarla/maden vb. üretimde alet aşınması → verim düşüşü.
 - [ ] **EKO-14:** Çift Kasa Arası Acil Kurtarma ve Zimmet Mekaniği — `koy_akce` ↔ `muhafiz_akce` acil transfer / zimmet tradeoff.
@@ -297,7 +297,7 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **SYS-06:** Ajan Pre-Merge Doğrulama Betiği (`tools/sanity_check.py`) — Commit öncesi tek komut yerel test. (Codex)
 - [x] **SYS-07:** Headless Godot Derleme ve Script Error Taraması — Parse/script yükleme hatalarını listele. (Codex)
 - [x] **SYS-08:** Korumalı Çekirdek Fonksiyon İmza Denetçisi — `KarakterModel.kur`, `devam_istendi`, `gece_sonu` silinmesin (`git diff`). (Codex)
-- [ ] **SYS-09:** Metinler CSV Doğrulama ve İsimlendirme Standardı — **≡ BUG-07** birleşik paket. Bağlayıcı anahtarlar:
+- [ ] **SYS-09:** Metinler CSV Doğrulama ve İsimlendirme Standardı — **≡ BUG-07** birleşik paket. **PR #2 bekliyor** (`feature/sys09-csv-dogrulama`, açık, merge değil). Bağlayıcı anahtarlar:
   - Replikler: `CHR_XXX_DUGUM_YY_REPLIK`
   - Seçenekler: `CHR_XXX_DUGUM_YY_SEC_Z_METIN`
   - Heybe: `CLUE_CHRXXX_ESYA_ADI_BASLIK` / `_TANIM`
@@ -324,3 +324,5 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 **Gemini döngü 8–10 birikimi (2026-10-06):** MEV/HAR/KRI +11…15 eklendi; örtüşmeler (MEV-02≡EKO-09 / MEV-11; KRI-14↔KRI-06; KRI-15↔KRI-03) notlandı; HAR-15 [ ] BEKLEMEDE ("kodda var" geri çekildi); kanıtsız path = taslak hedef; kanıtsız `[x]` yok.
 
 **Gemini döngü 11–15 birikimi (2026-10-07):** ADM/TUC/UZM/ANI/SYS-16…20 eklendi; UZM-15↔ANI atama önizlemesi konsolidasyon notu; ANI-04↔EKO-03, ANI-08↔UZM-01..05; TUC↔EKO-01/EKO-11 çift kasa; SYS-18↔KVR-06; Ahmet 15’te dur (tur 16 YOK); kanıtsız path = taslak hedef; kanıtsız `[x]` yok.
+
+**Cursor disiplin turu (2026-10-07):** festive ağacında `koy_sahnesi.gd` / `KoyYerlesimi` yok; dosya silinmedi. KAP-01 `[x]` kilit korundu. Mevcut `[x]` maddeler bu turda yeniden yazılmadı. QuestSystem köy defteri festive’te yok — **PR #4 bekliyor**, `[x]` yok. SYS-09 / BUG-07 **PR #2 bekliyor**, `[x]` yok. PR #3 (kvr-runtime) merge edilmiş durumda. KAP-02, KAP-03 ve EKO-11 hedef dosyaları festive’te olmadığı için `[/]` aktif kilitleri `[ ]` yapıldı.
