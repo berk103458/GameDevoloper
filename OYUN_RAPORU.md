@@ -925,3 +925,10 @@ Sıradaki: ANI-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 CHR ağıl gerçek katalog/üretim adaptörü; dört koyunluk başlangıç sürüsü, aynı A* grafiğinde sabah çayır/akşam kapı dönüşü. Kapı tüm sürü dönünce kapanır; çobansız sürü, yıkım ve kopuk rota güvenli. 134 sanity kontrolü/20 gece, native ve son ayna sahnesi geçti.
 
 Sıradaki: ANI-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-06 (8 Ekim 2026)
+
+Gerçek çalışan/girdi/depo koşullarıyla dönen ahşap çark, el kemiğine bağlı çuval ve erişilebilir ön sundurma durağı; mevcut ekonomi ve kayıt değişmez. 15 ilgili kontrol ve 20 gece, son durak düzeltmesi sonrası headless/native/ayna sahne kontrolü geçti.
+
+Sıradaki: ANI-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

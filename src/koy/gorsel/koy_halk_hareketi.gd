@@ -18,6 +18,7 @@ func eylem(id: int) -> String:
 	if d.is_empty(): return "Durum yok"
 	if int(d.adim) < d.yol.size(): return "Yürüyor"
 	var k := sahne.yonetim.koylu(id)
+	if d.get("degirmenci", false): return String(d.get("degirmenci_ad", "Öğütme bekliyor"))
 	if d.get("coban", false): return String(d.get("coban_ad", "Sürü yolu kapalı"))
 	if d.get("oduncu", false): return String(d.get("oduncu_ad", "Tomruk yolu kapalı"))
 	if d.get("sulama", false): return String(d.get("sulama_ad", "Sulama bekliyor"))
@@ -106,6 +107,11 @@ func _process(delta: float) -> void:
 			if d.bekle >= float(MuhafizDevriyesi.AYAR.durak_suresi):
 				d.devriye_i += 1
 				_iste(id)
+		elif d.get("degirmenci", false):
+			d.bekle += delta
+			if d.bekle >= float(DegirmenHareketi.AYAR.sureler[d.degirmenci_i]):
+				d.degirmenci_i = (int(d.degirmenci_i) + 1) % 3
+				_iste(id)
 		elif d.get("coban", false):
 			continue
 		elif faz_adi == &"gunduz":
@@ -185,6 +191,20 @@ func _planla(id: int) -> void:
 		d.dinlen = true
 		d.bak = _konum(son)
 		d.coban_ad = "Sürü yolu kapalı" if suru.is_empty() else suru.ad
+	d.degirmenci = DegirmenHareketi.aday(sahne.yonetim, k, faz_adi)
+	var tasiyor := false
+	if d.degirmenci:
+		d.degirmenci_i = int(d.get("degirmenci_i", 0))
+		var un := DegirmenHareketi.hedef(self, k, bas, d.degirmenci_i)
+		son = bas if un.is_empty() else un.son
+		d.degirmenci_ad = "Öğütme yolu kapalı" if un.is_empty() else un.ad
+		d.is = not un.is_empty() and un.calisiyor and d.degirmenci_i == 0
+		d.dinlen = not d.is
+		tasiyor = not un.is_empty() and un.calisiyor and d.degirmenci_i == 1
+		d.bak = sahne.alan_merkezi(b.hucre, b.boyut(sahne.yonetim.katalog))
+	else:
+		d.degirmenci_i = 0
+	DegirmenHareketi.esya(f, d.degirmenci, tasiyor)
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false

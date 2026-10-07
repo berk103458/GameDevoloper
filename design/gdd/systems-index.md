@@ -258,3 +258,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Oduncu ve öküz rotası](oduncu-rutini.md) — ANI-04: mevcut EKO-02/03 üstünde görsel balta/tomruk rotası.
 
 - [Çoban ve sürü](coban-surusu.md) — ANI-05: CHR ağıl, kapı ve aynı A* üzerinde otlak/dönüş döngüsü.
+
+- [Değirmen çarkı ve çuval](degirmen-hareketi.md) — ANI-06: gerçek çalışma koşullarıyla çark ve taşıma görseli.

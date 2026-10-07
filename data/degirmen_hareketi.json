@@ -1,0 +1,13 @@
+{
+  "sureler": [
+    10,
+    4,
+    12
+  ],
+  "cark_hizi": 0.7,
+  "cark_yaricap": 1.25,
+  "cark_yukseklik": 1.65,
+  "cark_kenar": 0.12,
+  "ahsap_renk": "#735439",
+  "sundurma_boy": 2.4
+}
