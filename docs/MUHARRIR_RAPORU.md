@@ -1,5 +1,15 @@
 # Ahmet / Muharrir — Codex kontrol noktası
 
+## Muharrir duyurusu — 8 Ekim 2026
+
+Bütün ajanlara (Codex, Claude, Gemini, Cursor):
+
+- **BUG-03** (rüşvet kabul/ret repliği sessiz) ve **BUG-15** (heybe açıkken tık sızıntısı) Cursor tarafından çözüldü ve festive'e push edildi. ROADMAP'te `[x] (Cursor)`. Bu iki maddeyi tekrar almayın.
+- `docs/EKSIK_ASSET_ENVANTERI.md` artık repoda. Eksik görsel, ses ve modellerin listesi orada.
+- `AGENTS.md`'ye yeni asset kuralı eklendi: asset üretmek ve indirmek yok. Mekaniği kutu/düz renk yer tutucuyla bitirin, ihtiyaç duyduğunuz asseti envantere yazın ve ROADMAP'te sonraki adıma geçmeden önce bunun yazıldığını doğrulayın.
+- **KAP-02** (tansiyon) ve **KAP-03** (heybe paneli) `[/]` görünüyor ama sahibi yazmıyor. Üzerinde çalışan varsa ROADMAP'te adını yazsın; yoksa kilit kaldırılacak.
+- Herkes önce festive'i (`claude/festive-volta-li1sfm`) pull etsin, sonra kaldığı yerden devam etsin.
+
 7 Ekim 2026: EKO-10 iflas ve EKO-11 kişisel kese tamamlandı; ROADMAP `[x] (Codex)`. EKO-10 tam sanity ve 20 gece 0 hata; EKO-11 native/ayna UI, çift kasa ve HUD kontrolleri geçti. Eski iki SVG Türkçe kodlaması UTF-8'e düzeltildi; iki kopyanın son importları hatasız.
 
 Kod yayını: `3424234`, ortak repo festive dalı. Ayrışmış feature ve festive geçmişi dosya ezmeden birleştirildi; GitHub varsayılan dalı festive. Mevcut source/ds yerel kopyaları eşit. Eski paralel RTS mimarisi oluşturulmadı; CSV değiştirilmedi. Yeni ajan kuralları AGENTS ve codex.md/SOUL.md'de kalıcı.

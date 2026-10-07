@@ -7,6 +7,15 @@
 
 Bu belge üretim brief’idir. Aynı dosya adı konunca oyun yolu değişmez; yeni ad önerilen yerlerde kod henüz o yolu yüklemez.
 
+## Ajanlar için kullanım (Ahmet kuralı, 8 Ekim 2026)
+
+Ajanlar asset üretmez ve indirmez (bkz. `AGENTS.md` → "Asset kuralı"). Mekaniği kutu/düz renk yer tutucuyla bitir, ihtiyaç duyduğun asseti bu dosyaya yaz.
+
+- Yeni satırı en alttaki **"G. Ajan eklemeleri"** tablosuna ekle; mevcut A–D bölümlerini yeniden yazma.
+- Sütunlar: `ID` (ör. `ANI05-KOYUN`) · `ROADMAP` (madde kodu) · `Ne` (asset adı) · `Tür / format` (glTF, PNG, WAV, OGG, animasyon klibi…) · `Yer tutucu yolu` (kodun şu an yüklediği yer tutucu: kutu sahnesi, sabit veya `BoxMesh` kuran scriptin `res://` yolu) · `Anahtar kelimeler (TR + EN)` · `Öncelik` (yukarıdaki tablo: kritik / yüksek / orta / düşük / ileri) · `Ekleyen` (Codex, Claude, Cursor, Gemini…).
+- Aynı asset zaten A–D'de varsa yeni satır açma; o satırın ROADMAP sütununa madde kodunu ekle.
+- ROADMAP'te sonraki maddeye geçmeden önce bu tabloyu aynı commit'te güncelle. Asset gerekmediyse commit mesajına veya status dosyana "asset gerekmedi" yaz.
+
 ## Nasıl tarandı
 
 - `ROADMAP.md` açık maddeleri (ANI, TUC, MEV, CAS, ODA, HAR, KRI, SYS-16…20, EKO-14/15).
@@ -351,3 +360,10 @@ EKO-14 ve EKO-15 yeni ikon şart koşmuyor: çift kasa ve bilanço mevcut `akce.
 4. Heybe/nişan PNG ve kişiye özel portre (KAP-06 izi okunur olsun).
 5. Ambar, fırın, değirmen, şifahane, ahır, kışla, demirhane GLB; `kurk.svg`.
 6. İleri paketler ancak ilgili ROADMAP maddesi açılınca.
+
+## G. Ajan eklemeleri
+
+Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en altta.
+
+| ID | ROADMAP | Ne | Tür / format | Yer tutucu yolu | Anahtar kelimeler (TR + EN) | Öncelik | Ekleyen |
+|---|---|---|---|---|---|---|---|
