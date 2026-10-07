@@ -244,3 +244,13 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Ambar bakımı](ambar-bakimi.md) — EKO-12; kapasite daralması ve gecelik gıda ziyanı.
 
 - [Alet aşınması](alet-asinmasi.md) — EKO-13; mevcut adaptör, son alet geçişi ve salt okunur HUD.
+
+- [Kasa transferi](kasa-transferi.md) — EKO-14; acil kurtarma ve bedelli günlük zimmet.
+
+- [Gece bilançosu](gece-bilancosu.md) — EKO-15; gerçek kamu/kişisel ve stok mutabakat sözlüğü.
+
+- [Muhafız donanımı](muhafiz-donanimi.md) — ANI-01: mevcut el soketleri, gece meşalesi ve sınırlı dinamik ışık.
+
+- [Muhafız devriyesi](muhafiz-devriyesi.md) — ANI-02: mevcut A* üzerinde kapı/kışla/sur nöbet döngüsü.
+
+- [Su taşıma rutini](sulama-rutini.md) — ANI-03: mevcut halk kuyruğunda kuyu/kova/su arkı döngüsü.

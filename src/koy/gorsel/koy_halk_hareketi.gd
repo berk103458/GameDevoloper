@@ -18,6 +18,8 @@ func eylem(id: int) -> String:
 	if d.is_empty(): return "Durum yok"
 	if int(d.adim) < d.yol.size(): return "Yürüyor"
 	var k := sahne.yonetim.koylu(id)
+	if d.get("sulama", false): return String(d.get("sulama_ad", "Sulama bekliyor"))
+	if d.get("devriye", false): return String(d.get("devriye_ad", "Nöbette"))
 	if faz_adi == &"gece": return "Ev önünde" if k != null and k.ev >= 0 else "Meydanda"
 	if faz_adi != &"gunduz": return "Meydanda"
 	if d.dinlen: return "Dinleniyor"
@@ -38,13 +40,14 @@ func yenile() -> void:
 			var h := rotaci.yakin(m.position + Vector2i(k.id % m.size.x, (k.id / m.size.x) % m.size.y))
 			f.position = _konum(h)
 			modeller[k.id] = f
-			_durum[k.id] = {"yol": [], "adim": 0, "bekle": 0.0, "dinlen": false, "is": false, "bak": f.position}
+			_durum[k.id] = {"yol": [], "adim": 0, "bekle": 0.0, "dinlen": false, "is": false, "bak": f.position, "devriye_i": k.id, "devriye": false}
 		_iste(k.id)
 	for id in modeller.keys():
 		if not kalan.has(id):
 			modeller[id].queue_free()
 			modeller.erase(id)
 			_durum.erase(id)
+	MuhafizDonanimi.yenile(self)
 
 ## Gece eve; akşam meydana; gündüz iş ve kısa dinlenme döngüsüne geçer.
 func faz(ad: StringName) -> void:
@@ -52,6 +55,7 @@ func faz(ad: StringName) -> void:
 	for id in modeller:
 		_durum[id].dinlen = false
 		_iste(id)
+	MuhafizDonanimi.yenile(self)
 
 func _iste(id: int) -> void:
 	if not _bekleyen.has(id):
@@ -79,8 +83,19 @@ func _process(delta: float) -> void:
 				if d.adim < d.yol.size():
 					_adim(id)
 				else:
+					SulamaRutini.varis(f, d.get("sulama", false) and int(d.get("sulama_i", 0)) == 1)
 					f.bak(d.bak)
 					f.calis(&"calis" if d.is else &"")
+		elif d.get("sulama", false):
+			d.bekle += delta
+			if d.bekle >= float(SulamaRutini.AYAR.sureler[d.sulama_i]):
+				d.sulama_i = (int(d.sulama_i) + 1) % 3
+				_iste(id)
+		elif d.get("devriye", false):
+			d.bekle += delta
+			if d.bekle >= float(MuhafizDevriyesi.AYAR.durak_suresi):
+				d.devriye_i += 1
+				_iste(id)
 		elif faz_adi == &"gunduz":
 			d.bekle += delta
 			var sure := float(_ayar.dinlenme_suresi if d.dinlen else _ayar.calisma_suresi)
@@ -117,6 +132,27 @@ func _planla(id: int) -> void:
 	elif k.is_yeri == KoyYonetimi.MUHAFIZ and faz_adi == &"gunduz" and not d.dinlen:
 		son = rotaci.yakin(Vector2i(m.position.x + m.size.x / 2, sahne.yonetim.a.izgara_boyut.y - 1))
 		d.bak = _konum(son) + Vector3.FORWARD * -sahne.HUCRE
+	d.devriye = MuhafizMaasi.aday(k, sahne.yonetim)
+	if d.devriye:
+		var nobet := MuhafizDevriyesi.hedef(sahne.yonetim, rotaci, bas, int(d.devriye_i))
+		d.is = false
+		d.dinlen = false
+		son = bas if nobet.is_empty() else nobet.son
+		d.bak = _konum(son) + Vector3.FORWARD * -sahne.HUCRE
+		d.devriye_ad = "Nöbette" if nobet.is_empty() else nobet.ad
+		if not nobet.is_empty(): d.devriye_i = nobet.sira
+	d.sulama = SulamaRutini.aday(sahne.yonetim, k, faz_adi)
+	if d.sulama:
+		d.sulama_i = int(d.get("sulama_i", 0))
+		var su := SulamaRutini.hedef(self, k, bas, d.sulama_i)
+		d.is = not su.is_empty() and d.sulama_i == 1
+		d.dinlen = d.sulama_i == 2
+		son = bas if su.is_empty() else su.son
+		d.bak = f.position if su.is_empty() else su.bak
+		d.sulama_ad = "Sulama yolu kapalı" if su.is_empty() else su.ad
+	else:
+		d.sulama_i = 0
+	SulamaRutini.esya(f, d.sulama, int(d.sulama_i))
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false

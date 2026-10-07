@@ -1,0 +1,10 @@
+{
+  "gunluk_zimmet_azami": 10,
+  "zimmet_adalet": -5,
+  "zimmet_moral": -3,
+  "zimmet_asayis": 5,
+  "dugme_adetleri": [
+    5,
+    10
+  ]
+}

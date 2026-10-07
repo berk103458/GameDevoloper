@@ -885,3 +885,37 @@ Rüşvet kabul ve ret kararında diyalog kutusu `anlati.sonuc.rusvet` / `anlati.
 ## Cursor — BUG-15 (7 Ekim 2026)
 
 Heybe paneli yeniden yazılmadı. `HeybePaneli` ve zemin `ColorRect` `mouse_filter = STOP`. Headless `heybe_tik_test`: panel açıkken dünya alanı ve 3B görüntü kapısı sol tık almaz, panel kapanınca aynı nokta ikisine de gider. KAP-02/03, EKO-14, BUG-03 ve CSV değişmedi. Windows aynaları bu ortamda yok.
+
+## Codex — EKO-14 (8 Ekim 2026)
+
+Mevcut iki kasa arasında atomik açık kurtarma ve günlük sınırlı, sosyal bedelli zimmet; dış JSON, optional kayıt ve aynı gün restore koruması, mevcut pazar/HUD adaptörü. 123 kontrol/20 gece, native UI ve ayna import geçti.
+
+Sıradaki: EKO-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — EKO-15 (8 Ekim 2026)
+
+gece_sonu dönüşüne salt okunur bilanco: kamu/kişisel açılış-kapanış, gerçek ödenen maaş/vergi, tüm stok hareketleri ve taşma mutabakatı. Önceki gündüz taşması tekrar gider sayılmaz; eski borç ödemesi, restore ve kopya güvenliği geçti. 124 kontrol ve 20 gece hatasız.
+
+Sıradaki: ANI-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-01 (8 Ekim 2026)
+
+Mevcut ElEsyasi soketinde kılıç/mızrak, gündüz kalkan ve gece meşale; dört gölgesiz ışık bütçesi. Gerçek el pozu/özgün CHR görünürlüğü, görev/faz/tekrar yenileme, kayıt-RNG değişmezliği doğrulandı; 126 sanity kontrolü ve izole 20 gece geçti.
+
+Sıradaki: ANI-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-02 (8 Ekim 2026)
+
+Mevcut halk A* kuyruğunda kapı/hazır kışla/işlevli sur kuleleri devriyesi; gece nöbeti, erişilemeyen durakları atlama ve görev bırakınca normal rutin. Dört ahşap platform dekoratörü; 14 ilgili kontrol, izole 20 gece, native RTX3060 ve ayna sahne geçti.
+
+Sıradaki: ANI-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-03 (8 Ekim 2026)
+
+Hazır tarla/bostan çalışanının mevcut A* kuyruğunda kuyu/kova/su arkı/dinlenme döngüsü; gerçek sağ el, dolu kova ve yalnız varışta akış, gece temizliği, JSON ayarları. 14 ilgili kontrol ve izole 20 gece, native RTX3060 görüntüsü ve ayna sahnesi geçti; ekonomi/RNG/kayıt korunur.
+
+Sıradaki: ANI-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

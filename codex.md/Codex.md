@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-7 Ekim 2026. Festive kontrol edilen uç: 76e8b1f; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 76e8b1f. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Festive kontrol edilen uç: 95edcf7; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 95edcf7. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -100,9 +100,14 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - EKO-11: Kişisel kese HUD eklendi; gerçek rüşvet sinyali, kamu/kişisel ayrımı, eşya adedi, JSON geri dönüşü ve salt okunur çizim UI testinde geçti. Native ekran büyük bakiyeyi okunur gösterdi; çift kasa ve HUD regresyonları geçti. İki eski SVG UTF-8 kodlaması düzeltildi.
 - EKO-12: Ambar kapasite daralması/restore sınırı, gecelik %2 kalan gıda bozulması, kesir/gece/pending kayıp JSON, mevcut HUD ipucu ve ayrı ziyan raporu. 120 kontrol (düzeltilen dört test tekrar geçti), izole 20 gece, native UI ve ayna import geçti.
 - EKO-13: EKO-06 aşınma adaptörü korundu; tarla/taş ocağı/demir madeninde son aletli tam üretim ve sonraki %30 verim doğrulandı. Mevcut alet HUD ipucu gerçek stok/kesir/ortak dengeyi salt okunur gösteriyor. Dört ilgili birim, headless/native UI, kaynak/ayna import ve API denetimi geçti.
+- EKO-14: Mevcut iki kasa arasında atomik açık kurtarma ve günlük sınırlı, sosyal bedelli zimmet; dış JSON, optional kayıt ve aynı gün restore koruması, mevcut pazar/HUD adaptörü. 123 kontrol/20 gece, native UI ve ayna import geçti.
+- EKO-15: gece_sonu dönüşüne salt okunur bilanco: kamu/kişisel açılış-kapanış, gerçek ödenen maaş/vergi, tüm stok hareketleri ve taşma mutabakatı. Önceki gündüz taşması tekrar gider sayılmaz; eski borç ödemesi, restore ve kopya güvenliği geçti. 124 kontrol ve 20 gece hatasız.
+- ANI-01: Mevcut ElEsyasi soketinde kılıç/mızrak, gündüz kalkan ve gece meşale; dört gölgesiz ışık bütçesi. Gerçek el pozu/özgün CHR görünürlüğü, görev/faz/tekrar yenileme, kayıt-RNG değişmezliği doğrulandı; 126 sanity kontrolü ve izole 20 gece geçti.
+- ANI-02: Mevcut halk A* kuyruğunda kapı/hazır kışla/işlevli sur kuleleri devriyesi; gece nöbeti, erişilemeyen durakları atlama ve görev bırakınca normal rutin. Dört ahşap platform dekoratörü; 14 ilgili kontrol, izole 20 gece, native RTX3060 ve ayna sahne geçti.
+- ANI-03: Hazır tarla/bostan çalışanının mevcut A* kuyruğunda kuyu/kova/su arkı/dinlenme döngüsü; gerçek sağ el, dolu kova ve yalnız varışta akış, gece temizliği, JSON ayarları. 14 ilgili kontrol ve izole 20 gece, native RTX3060 görüntüsü ve ayna sahnesi geçti; ekonomi/RNG/kayıt korunur.
 
 ## Sonraki çalışma
-EKO-14. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+ANI-04. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
@@ -111,9 +116,9 @@ Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_R
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
 
-## EKO-13 kontrol noktası — 7 Ekim 2026
-EKO-12 `76e8b1f` ile festive'e pushlandı; 120 kontrolün son logları 0 hata (dört düzeltilen eski test tekrar geçti), 20 gece/native/ayna dahil. EKO-13 mevcut DemirZinciri + dış JSON aşınmasını kullanır, ikinci sistem yok. Yeni src/arayuz/koy_hud/alet_asinma_bilgisi.gd salt okunur, Hud'a tek satır adaptör; tests/unit/kvr/alet_asinmasi_test.gd üç gerçek yapıdaki son alet geçişini ölçer. demir_zinciri_kontrol.gd gerçek %40 aşınma/%30 aletsiz verim ipucunu ve tekrar çizimin model değiştirmediğini denetler.
-İlgili dört birim, headless/native gerçek UI, kaynak/ayna import, statik açılış/API denetimi geçti. EKO-13 [x] (Codex), sıradaki EKO-14 çift kasa kurtarma/zimmet. Paket normal festive commit/push için doğrulandı. ds GitHub kopyası tüm değişikliklerle eşit; Ahmet Windows yolu mevcut değil, oraya full pull yapılamadı. Önceki açılış denetimi docs/denetim/2026-10-07-acilis.md; Claude devri iptal, SYS-09 CSV kilidi korunur.
+## ANI-03 kontrol noktası — 8 Ekim 2026
+ANI-02 95edcf7 festive'e pushlandı. Yeni src/koy/gorsel/sulama_rutini.gd + dış JSON; mevcut ElEsyasi.kova ve A* kuyruğunda kuyu/sulama/dinlenme. Hazır tarla/bostan görseline ark adaptörü; gerçek kuyu konumu aynı ayardan gelir. Kova doluluğu ve yalnız varışta su akışı, kış/gece filtreleri ve CHR görünürlüğünü geri verme; kayıt/üretim bonusu/ikinci simülasyon yoktur. 14 ilgili kontrol 0 hata, izole 20 gece dahil; native RTX3060 gerçek çiftçi görüntüsü ve ayna import/sahne geçti.
+ANI-03 [x] (Codex), sıradaki ANI-04 oduncu/öküz tomruk rotası. İki ds kopyası eşit; Ahmet Windows yolu yok, oraya full pull uygulanamadı. SYS-09 CSV kilidi ve Claude devri iptali korunur. Olgun paket normal festive commit/push.
 
 ## Cursor — BUG-03
 Durum: BUG-03 kapandı. İşe başlarken kilit «BUG-03 üzerindeyim» idi; Codex/Claude aynı maddeyi almasın diye ROADMAP bu turda Cursor’a ayrıldı.

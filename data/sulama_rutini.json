@@ -1,0 +1,23 @@
+{
+  "kuyu_ofset": [
+    -2.2,
+    -2.2
+  ],
+  "kuyu_yaklasma": [
+    1,
+    0
+  ],
+  "sureler": [
+    3,
+    5,
+    12
+  ],
+  "ark_genislik": 0.14,
+  "ark_aralik": 1.1,
+  "su_renk": "#476f7b",
+  "toprak_renk": "#3b3022",
+  "kova_su_y": -0.105,
+  "kova_su_yaricap": 0.115,
+  "akis_boy": 0.5,
+  "akis_yaricap": 0.018
+}

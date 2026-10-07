@@ -135,17 +135,17 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [x] **EKO-11:** Kişisel Kasa (`muhafiz_akce`) HUD Göstergesi (`src/arayuz/koy_hud/kese_gostergesi.gd` — **taslak hedef yol**) — Rüşvet geliri ve kişisel kesenin köy HUD'unda gösterimi; **≡ ODA-02** yüzeyi. (Codex)
 - [x] **EKO-12:** Ambar Kapasite Sınırı ve Bozulma/Ziyan Mantığı — Stok üst sınırı; aşım veya bekletmede ziyan/bozulma. (Codex)
 - [x] **EKO-13:** Zanaat Aletleri Aşınma ve Verim Düşüşü Adaptörü — Tarla/maden vb. üretimde alet aşınması → verim düşüşü. (Codex)
-- [/] **EKO-14:** Çift Kasa Arası Acil Kurtarma ve Zimmet Mekaniği — `koy_akce` ↔ `muhafiz_akce` acil transfer / zimmet tradeoff.
-- [ ] **EKO-15:** Gece Sonu Ayrıntılı Bilanço Sözlüğü — `gece_sonu()` dönüşüne ayrıntılı bilanço alanları.
+- [x] **EKO-14:** Çift Kasa Arası Acil Kurtarma ve Zimmet Mekaniği — `koy_akce` ↔ `muhafiz_akce` acil transfer / zimmet tradeoff. (Codex)
+- [x] **EKO-15:** Gece Sonu Ayrıntılı Bilanço Sözlüğü — `gece_sonu()` dönüşüne ayrıntılı bilanço alanları. (Codex)
 
 ---
 
 ## BÖLÜM 5: Yaşayan Köy, Zanaat Rutinleri ve Görsel Polish
 
-- [ ] **ANI-01:** Muhafız Modellerine Silah ve Meşale Soketleri — Kılıç, kalkan, mızrak; geceleri dinamik ışıklı meşale.
-- [ ] **ANI-02:** Muhafız Dinamik Nöbet ve Devriye Rotası — Kapı, kışla ve sur kuleleri arasında düzenli yürüyüş.
-- [ ] **ANI-03:** Çiftçi ve Bostancı Su Taşıma Rutini — Kuyu → kova → su arkı hendekleri döngüsü.
-- [ ] **ANI-04:** Oduncu ve Öküz Tomruk Taşıma Rotası — Orman → balta → tomruk öküzle hızara.
+- [x] **ANI-01:** Muhafız Modellerine Silah ve Meşale Soketleri — Kılıç, kalkan, mızrak; geceleri dinamik ışıklı meşale. (Codex)
+- [x] **ANI-02:** Muhafız Dinamik Nöbet ve Devriye Rotası — Kapı, kışla ve sur kuleleri arasında düzenli yürüyüş. (Codex)
+- [x] **ANI-03:** Çiftçi ve Bostancı Su Taşıma Rutini — Kuyu → kova → su arkı hendekleri döngüsü. (Codex)
+- [/] **ANI-04:** Oduncu ve Öküz Tomruk Taşıma Rotası — Orman → balta → tomruk öküzle hızara.
 - [ ] **ANI-05:** Çoban ve Sürü Otlatma Döngüsü — Sabah ağıl aç → çayır → akşam ağıla kapat.
 - [ ] **ANI-06:** Değirmen Çarkı ve Çuval Taşıma Hareketi — Çark/pervane dönüşü; değirmenci çuvalla sundurma.
 - [ ] **ANI-07:** Akşam Ateş Başı Toplanma Ritüeli — Gece boşta kalan köylülerin meydan ateşi etrafında ısınması.

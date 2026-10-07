@@ -30,3 +30,28 @@ EKO-12 `76e8b1f` ile festive'e pushlandı; 120 kontrolün son logları 0 hata (d
 
 ## Cursor — BUG-03 (7 Ekim 2026)
 `73f8172` rüşvet repliğini değil açılış UID denetimini taşımıştı. Karar kutusu `rusvet` ve `ret` için CSV satırını güvenli basar, JSON yanıtını çevirir, CHR’de boş `yanitlar` yüzünden düşmeyen anlatıyı yazar ve mevcut foley dosyasını çalar. Yeni asset yok. Eksik olan yalnız karar repliğinin ayrı seslendirmesidir; `sfx_chr_sikke.wav` ve `sfx_chr_deri.wav` kullanıldı. KAP-02/03, EKO-14, SYS-09 ve diğer BUG maddelerine dokunulmadı. Ahmet Windows yolu bu ortamda yok.
+
+## EKO-14 — 8 Ekim 2026
+Festive fetch/pull başlangıçta günceldi (ec23ee9). KasaTransferi ve dış JSON: kişisel keseden yalnız kamu açığını kapatma; günde bir kez en çok 10 kamu akçesini zimmet (Adalet −5, Moral −3, Asayiş +5). Aynı gün/bozuk/eski kayıt, atomik ret, sayısal taşma ve oyun sonu kontrolleri; toplam para/RNG korunur. Oturum yalnız optional özet/kayıt adaptörü, mevcut pazar tek satır panel adaptörüyle genişledi; CSV ve ikinci HUD yok.
+123 sanity kontrolü 0 başarısız, izole 20 gece; native gerçek düğmeler/HUD ve ayna import geçti. EKO-14 [x] (Codex), sıradaki EKO-15. Her iki ds kopyası eşit; Ahmet Windows yolu mevcut değil, oraya full pull yapılamadı. Claude devri iptal. Olgun paket normal festive commit/push; bu repo notu doğrudan muhataba teslim iddiası değildir.
+
+
+## EKO-15 kontrol noktası — 8 Ekim 2026
+EKO-14 `7d57fb8` festive'e pushlandı, 123 kontrol/20 gece/native pazar ve ayna geçti. EKO-15 yeni src/sistemler/gece_bilancosu.gd salt okunur fotoğraf/mutabakat adaptörü; Oturum.gece_sonu'na iki satır ve API açıklaması. Eski dönüş alanları ve kayıt şeması korunur. Kamu/kişisel önce-sonra/net, gerçek ödenen maaş (borç dahil), gerçekleşen vergi, her ambar türünde üretim/tüketim/ziyan/diğer net; gündüz ve gecenin ertelenmiş taşma bildirimi iki kez kayıp sayılmaz. transfer_ozeti ömür boyu toplamdır, gece geliri değildir.
+Yeni gerçek gece birimi tüm stok/kamu eşitliklerini, haftalık vergiyi, ödenmeyen ücret ve borç ödemesini, iki taşma zamanlamasını, JSON restore, salt okunur hesap ve rapor kopyasını denetler. Tam work/sanity_eko15: 124 kontrol 0 başarısız, izole 20 gece dahil. Kaynak/ayna import ve API/statik denetim geçti. EKO-15 [x] (Codex); sıradaki ANI-01 mevcut karakter/ElEsyasi mimarisi üzerinde incelenecek, henüz yeni animasyon kodu yazılmadı.
+İki ds kopyası eşit. Ahmet'in ayrı Windows yolu bu makinede bulunmadığından full pull yapılamadı. CSV/SYS-09 kilidi, çekirdek API, eski RTS yasağı ve Claude devri iptali korunur. Olgun paket normal festive commit/push; repo notu doğrudan muhataba teslim kanıtı değildir.
+
+
+## ANI-01 kontrol noktası — 8 Ekim 2026
+EKO-15 3522842 festive üzerinde. Yeni MuhafizDonanimi mevcut ElEsyasi API'sini kullanır; KoyHalkHareketi yalnız iki çağrıyla genişledi. JSON prop/ışık ayarları, gerçek Meshy asker sahne testi ve el pozu/görünürlük birimi aynı pakettedir. 126 sanity kontrolü 0 başarısız, izole 20 gece; genişletilen birim tekrar geçti, native RTX3060 gece görüntüsü ve ayna import/gerçek sahne geçti. ANI-01 [x] (Codex); ANI-02 sıradaki: mevcut rota kuyruğunda kapı/kışla/sur devriyesi.
+İki ds kopyası eşitlenir. Ahmet Windows yolu mevcut değil; oraya full pull uygulanamadı. CSV kilidi, çekirdek API ve eski RTS yasağı korunur; Claude devri iptal. Olgun paket normal festive commit/push; doğrudan muhataba teslim iddiası yoktur.
+
+
+## ANI-02 kontrol noktası — 8 Ekim 2026
+ANI-01 05fb593 festive'e pushlandı; 126 sanity kontrolü/20 gece geçti. ANI-02 yeni src/koy/gorsel/muhafiz_devriyesi.gd ve JSON hedef/ölçü ayarları; mevcut halk kuyruğuna hedef/bekleme adaptörü, mevcut sahneye tek kule dekoratörü çağrısı. Nöbetçi zeminde kule önüne yürür; platforma çıkma animasyonu yoktur. Kışla/kapı/dört kule, gece devamı, eksik/yanmış/kopuk durak ve görevi bırakma gerçek testlerle doğrulandı. 14 ilgili kontrol 0 hata, 20 gece dahil; native görüntü ve ds ayna import/sahne geçti. Testin ilk girinti, ambar fixture ve geçici düğüm adı beklentileri düzeltildi; son testler hatasızdır.
+ANI-02 [x] (Codex); sıradaki ANI-03 kuyu/kova/sulama rutini. ds kopyaları eşit; Ahmet Windows yolu yok, full pull uygulanamadı. CSV, eski mimari ve çekirdek API korunur; Claude devri iptal. Olgun paket normal festive commit/push.
+
+
+## ANI-03 kontrol noktası — 8 Ekim 2026
+ANI-02 95edcf7 festive'e pushlandı. Yeni src/koy/gorsel/sulama_rutini.gd + dış JSON; mevcut ElEsyasi.kova ve A* kuyruğunda kuyu/sulama/dinlenme. Hazır tarla/bostan görseline ark adaptörü; gerçek kuyu konumu aynı ayardan gelir. Kova doluluğu ve yalnız varışta su akışı, kış/gece filtreleri ve CHR görünürlüğünü geri verme; kayıt/üretim bonusu/ikinci simülasyon yoktur. 14 ilgili kontrol 0 hata, izole 20 gece dahil; native RTX3060 gerçek çiftçi görüntüsü ve ayna import/sahne geçti.
+ANI-03 [x] (Codex), sıradaki ANI-04 oduncu/öküz tomruk rotası. İki ds kopyası eşit; Ahmet Windows yolu yok, oraya full pull uygulanamadı. SYS-09 CSV kilidi ve Claude devri iptali korunur. Olgun paket normal festive commit/push.

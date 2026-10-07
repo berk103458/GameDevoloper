@@ -193,6 +193,7 @@ func yenile() -> void:
 		n.set_meta("bina_id", b.id)
 		_yapilar.add_child(n)
 	_sur_kur()
+	MuhafizDevriyesi.kule_kur(self, _yapilar)
 	halk_hareketi.yenile()
 	IklimGorseli.uygula(self)
 
@@ -201,7 +202,7 @@ func _meydan_kur() -> void:
 	var m := yonetim.a.meydan
 	var orta := alan_merkezi(m.position, m.size)
 	var kuyu := Dunya3B.nesne("kuyu", 1.6)
-	kuyu.position = orta + Vector3(-2.2, 0, -2.2)
+	kuyu.position = SulamaRutini.kuyu_konumu(self)
 	_yapilar.add_child(kuyu)
 	# Meydan ateşi (9.1: akşam köylüler kandil ve ateş başında).
 	var ocak := Node3D.new()
@@ -279,6 +280,7 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 			n.add_child(Dunya3B.nesne("ev", 2.9, "yapi"))
 		"tarla", "bostan":
 			_tarla(n, en, derin)
+			SulamaRutini.ark_kur(n, en, derin)
 		"hizarhane", "odunluk":
 			_sundurma(n, en * 0.8, derin * 0.7, 2.6)
 			var kutuk := Pbr.model("dead_tree_trunk_02")
