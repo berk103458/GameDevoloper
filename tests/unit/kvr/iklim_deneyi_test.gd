@@ -12,7 +12,7 @@ func _initialize() -> void:
 		sonra["koy_yonetimi"]["iklim_deneyi"] = {}
 		sonra["mevsim"] = once["mevsim"]
 		_kontrol(sonra == once and o.yonetim.a == ayarlar, "Mevsim seçimi gün/RNG/kaynak/denge Resource'unu değiştirmez")
-	for p in [[-1, "normal", 2, 0], [3, "normal", 2, k.koy_ayarlari.kis_odun_hane], [3, "kar_firtinasi", 2, 2 * k.koy_ayarlari.kis_odun_hane], [1, "kuraklik", 3, 0]]:
+	for p in [[-1, "normal", 2, 0], [3, "normal", 2, 2], [3, "kar_firtinasi", 2, 4], [1, "kuraklik", 3, 0]]:
 		o = _oturum(k)
 		IklimDeneyi.degistir(o, p[0], p[1])
 		var geri := Oturum.kayittan(k, JSON.parse_string(JSON.stringify(o.kaydet())))

@@ -1,6 +1,6 @@
-# Codex ↔ Claude proje devri
+# Codex proje durum kaydı (Claude devri iptal)
 
-Kullanıcının 7 Ekim 2026 talimatı: Codex kullanım limitinde %5 kalınca Claude devralır. Codex limiti yenilenince Codex görevi tekrar alır. Bu bir proje kuralıdır; AGENTS.md her iki kopyada geçerlidir.
+Güncel 7 Ekim 2026 talimatı: Claude’a görev devri iptal. Codex otonom geliştirmeye devam eder; önceki devir prosedürleri tarihsel kayıttır.
 
 ## Güncel sahiplik
 
@@ -114,3 +114,10 @@ GitHub push başarılı: origin feature/kvr-runtime 29a3a6a → 3973e30 (380 dos
 
 ## EKO-08 kapanışı
 Tam sanity work/sanity_eko08_refah ve 20 gece 0 başarısız. Source/ayna birim/UI ve native görüntü geçti. EKO-08 [x] (Codex), EKO-09 [/] sıradadır. Refah engeli kullanıcı otonom yetkisiyle ADR kararı uygulanarak giderildi; soru beklenmez. Canlı test süreci yok. Mevcut tüm çalışma 3973e30 sonrası yeni Refah kontrol noktası olarak yayınlanır.
+
+## EKO-09 doğrulama sürüyor
+Kişi başı soğuk yakacak hesabı TuketimDengesi / MevsimTuketimAdaptoru üzerinden gerçek gece ve HUD ihtiyacına bağlandı. Her yaş nüfusa dahil; ortak hesap kuraklık/fırtına çarpanlarını korur. Gerçek aynı kulübede üç kişi üç odun, boş köy, açlık/donma ölümü, kayıt restore ve salt okunur gözlem birimleri source/aynada geçti. Native tooltip work/eko09_tuketim.png görüldü. Ayna import/UI geçti. Tam sanity work/sanity_eko09 canlı; son gözlem muhafiz_maasi_kontrol PASS, kapanış yok. Source/ayna HEAD d561f04, GitHub dal ucu ls-remote ile doğrulandı. CSV değişmedi.
+
+
+## Claude devri iptal — güncel kullanıcı talimatı
+Kullanıcı “Claude’a iş aktarma, sen devam et” dedi. Codex tek sorumlu olarak otonom geliştirmeye devam eder. Eski %5 eşiğinde Claude’a mesaj/devir ve reset sonrası geri alma kuralları kaldırıldı; bu dosyanın önceki devir bölümleri tarihsel kayıttır, çalıştırılmayacak. gamedevoloper-limit-ve-claude-devri otomasyonu PAUSED yapıldı. EKO-09 tam sanity 0 başarısız ve 20 gece geçti; son aynı ev/boş köy birimi source/aynada tekrar geçti. Sıradaki kapanış ve GitHub yayınıdır.

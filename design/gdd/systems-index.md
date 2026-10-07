@@ -234,3 +234,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Muhafız maaşları](muhafiz-maaslari.md): EKO-07 kamu maaşı/borç, kışla ve güvenlik/rüşvet riski.
 
 - [Vergi politikası](vergi-politikasi.md): EKO-08 vergi, Moral ve hazineden ayrı ekonomik Refah.
+
+- [Tüketim dengesi](tuketim-dengesi.md): EKO-09 nüfus/iklim ortak hesap, MEV-11 adaptörü.

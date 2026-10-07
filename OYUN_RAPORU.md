@@ -828,3 +828,14 @@ Kullanıcı tüm projeyi Codex’in otonom geliştirmesini, rutin kararlar için
 VergiPolitikasi dış JSON düşük/orta/ağır oranlarını gerçek pazar ve haftalık kamu tahsilatına bağlar; eski orta taban, muafiyet ve aynı gece koruması korunur. Kullanıcının otonom tasarım yetkisiyle Refah kamu kasasından ayrı köylü ekonomik yaşam standardı (0–100, dış başlangıç 50) oldu; ağır vergi gelir getirirken Moral/Refah -5, düşük +2. Optional doğrulanmış kişi JSON, ADM-04 enjektör/pazar/köylü kartı gerçek puanı gösterir. Kamu/kişisel kasa ve CHR/CSV isimleri korunur. Source/ayna gerçek vergi/Refah/JSON birimleri ve UI geçti; native RTX3060 ekran incelendi. Tam sanity work/sanity_eko08_refah ve 20 gece: 0 başarısız. Önceki 380 dosyalık kontrol noktası GitHub 3973e30 olarak yayımlandı; yeni karar ADR ile kayıtlıdır.
 
 Sıradaki: EKO-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Claude devri iptal — güncel kullanıcı talimatı
+Kullanıcı “Claude’a iş aktarma, sen devam et” dedi. Codex tek sorumlu olarak otonom geliştirmeye devam eder. Eski %5 eşiğinde Claude’a mesaj/devir ve reset sonrası geri alma kuralları kaldırıldı; bu dosyanın önceki devir bölümleri tarihsel kayıttır, çalıştırılmayacak. gamedevoloper-limit-ve-claude-devri otomasyonu PAUSED yapıldı. EKO-09 tam sanity 0 başarısız ve 20 gece geçti; son aynı ev/boş köy birimi source/aynada tekrar geçti. Sıradaki kapanış ve GitHub yayınıdır.
+
+
+## Codex — EKO-09 (7 Ekim 2026)
+
+TuketimDengesi ve gerçek src/dunya/mevsim_tuketim_adaptoru.gd (MEV-11) ile her yaşayan köylü/yaş grubu kişi başı 1 Erzak, soğukta +1 Odun; kuraklık/fırtına çarpanları ortak hesapta. Önceki hane tarifi EKO-09 kişi sözleşmesine geçirildi, eski ayar alanı uyumluluk için kaldı. Gerçek gece tüketimi, gıda süresi ve HUD tooltip aynı formülü kullanır; açlık/soğuk sağlık ve gerçek ölüm/RNG döngüsü korunur. Üç kişinin aynı gerçek kulübede üç odun tüketmesi, boş nüfus, dört iklim, ölüm ve kayıt restore source/aynada geçti. Native HUD tooltip görüntüsü incelendi, ayna import/UI geçti. Tam sanity work/sanity_eko09 ve 20 gece: 0 başarısız. MEV-11 tamamlandı; MEV-02 özel 1–3 donma olayı ayrıca açık. Claude devir kuralı kullanıcının son talimatıyla iptal edildi; otomasyon PAUSED, Codex devam eder.
+
+Sıradaki: EKO-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

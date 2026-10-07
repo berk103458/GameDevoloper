@@ -163,7 +163,7 @@ func kervan_gunu() -> bool:
 
 ## Ambarda kaç günlük gıda var (uyarı için).
 func gida_gunu() -> float:
-	return float(kaynaklar.miktar("gida")) / float(maxi(1, nufus() * a.gida_kisi))
+	return float(kaynaklar.miktar("gida")) / float(maxi(1, int(TuketimDengesi.gerek(self).gida)))
 
 
 # ── Kapı: kabul ve ret ────────────────────────────────────────────────────────────────────────────
@@ -673,8 +673,9 @@ func _hane_sayisi() -> int:
 
 
 func _tuket(tuketim: Dictionary, olaylar: Array[Dictionary]) -> void:
-	var kisi_gida := a.gida_kisi * IklimDeneyi.gida_carpani(self)
-	var gerek := ceili(nufus() * kisi_gida)
+	var ihtiyac := TuketimDengesi.gerek(self)
+	var kisi_gida := float(ihtiyac.kisi_gida)
+	var gerek := int(ihtiyac.gida)
 	var yenen := kaynaklar.azalt("gida", gerek)
 	tuketim["gida"] = yenen
 	var ac_sayisi := 0
@@ -685,7 +686,7 @@ func _tuket(tuketim: Dictionary, olaylar: Array[Dictionary]) -> void:
 	for i in koylular.size():
 		koylular[i].ac = i >= koylular.size() - ac_sayisi
 	if kis_mi():
-		var odun := ceili(_hane_sayisi() * a.kis_odun_hane * IklimDeneyi.odun_carpani(self))
+		var odun := int(ihtiyac.odun)
 		var yakilan := kaynaklar.azalt("odun", odun)
 		tuketim["odun"] = yakilan
 		if yakilan < odun:

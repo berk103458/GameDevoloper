@@ -125,8 +125,8 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [x] **EKO-06:** Demir Madenciliği, Ocak ve Alet Aşınması — Demirci alet üretir; alet yoksa üretim hızı %70 düşer. (Codex)
 - [x] **EKO-07:** Asker Maaşları ve Kamu İsyan Eşiği — Kışladaki askerler her gece 1 akçe; ödenmezse güvenlik çöker, rüşvete yönelim. (Codex)
 - [x] **EKO-08:** Köy Pazarı Vergilendirme Oranları — Düşük/Orta/Ağır vergi (ağır akçe getirir, Moral ve Refahı ezer). (Codex)
-- [/] **EKO-09:** Dinamik Tüketim Dengesi (Nüfus × İklim) — Her canlı: 1 Erzak/gece; soğukta +1 Odun; karşılanamazsa donma/açlık ölümleri. **Not (Gemini):** BEKLEMEDE — satır/dosya kanıtsız; yanlış kısmi kilit yok (`[x]` verilmedi). **≡ MEV-02 / MEV-11**.
-- [ ] **EKO-10:** İflas ve Hazine Çöküşü Olayları — Köy Akçesi 3 gece üst üste <0 → tefeci baskını ve kamu mallarına el koyma.
+- [x] **EKO-09:** Dinamik Tüketim Dengesi (Nüfus × İklim) — Her canlı: 1 Erzak/gece; soğukta +1 Odun; karşılanamazsa donma/açlık ölümleri. **Not (Gemini):** BEKLEMEDE — satır/dosya kanıtsız; yanlış kısmi kilit yok (`[x]` verilmedi). **≡ MEV-02 / MEV-11**. (Codex)
+- [/] **EKO-10:** İflas ve Hazine Çöküşü Olayları — Köy Akçesi 3 gece üst üste <0 → tefeci baskını ve kamu mallarına el koyma.
 
 - [ ] **EKO-11:** Kişisel Kasa (`muhafiz_akce`) HUD Göstergesi (`src/arayuz/koy_hud/kese_gostergesi.gd` — **taslak hedef yol**) — Rüşvet geliri ve kişisel kesenin köy HUD'unda gösterimi; **≡ ODA-02** yüzeyi.
 - [ ] **EKO-12:** Ambar Kapasite Sınırı ve Bozulma/Ziyan Mantığı — Stok üst sınırı; aşım veya bekletmede ziyan/bozulma.
@@ -193,7 +193,7 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [ ] **MEV-09:** Fırtınalı Günlerde Kapı Görüşünün Kapanması — Tipi/sis → 2D ipuçları bulanık.
 - [ ] **MEV-10:** Kış Kurt Sürüsü Saldırıları — Aç kurtlar ağıla; muhafız meşale/mızrak nöbeti.
 
-- [ ] **MEV-11:** `gece_sonu` Mevsim Odun Tüketim Adaptörü (`src/dunya/mevsim_tuketim_adaptoru.gd` — **taslak hedef yol**) — Kışta hane başına +1 odun; karşılanamazsa donma. **≡ MEV-02 / EKO-09** (ayrı ekonomi paketi değil; mevsim yüzeyi).
+- [x] **MEV-11:** `gece_sonu` Mevsim Odun Tüketim Adaptörü (`src/dunya/mevsim_tuketim_adaptoru.gd`) — Soğukta kişi başına +1 odun; karşılanamazsa sağlık kaybıyla donma (EKO-09 ortak hesabı). **≡ MEV-02 / EKO-09** (ayrı ekonomi paketi değil; mevsim yüzeyi). (Codex; EKO-09)
 - [ ] **MEV-12:** Mevsim / Takvim HUD (`src/arayuz/koy_hud/mevsim_takvim.gd` — **taslak hedef yol**) — Güncel mevsim, yıl günü ve kısa hava durumu göstergesi.
 - [ ] **MEV-13:** Soğuk Salgın Baskısı — Sert kışta hastalık riski ↑ → şifahane doluluk ve iş gücü düşüşü (KRI/saglik bağının mevsim tetikleyicisi; **taslak**).
 - [ ] **MEV-14:** Kış Ahır / Ağıl Saman İhtiyacı — Saman yoksa hayvan ölümü; ambar/sürü kaybı olayı (**taslak**).

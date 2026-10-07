@@ -17,7 +17,7 @@ extends Resource
 @export_group("Tüketim")
 ## Kişi başı gecelik gıda.
 @export var gida_kisi: int = 1
-## Kışın hane başı gecelik ek odun.
+## Eski denge alanı uyumluluk için korunur; EKO-09 odun_kisi dış JSON verisini kullanır.
 @export var kis_odun_hane: int = 1
 ## Odun yetmezse kışın her gece sağlık kaybı.
 @export var soguk_saglik: int = 15

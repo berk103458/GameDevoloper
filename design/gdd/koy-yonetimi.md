@@ -53,7 +53,7 @@ Kapıda verdiğin her karar köyde bir yüz, bir iş, bir kin olarak geri döner
 - Tek ortak ambar; toplam stok kapasiteyi geçemez, dolunca üretim durur (yapı "ambar dolu" bekler).
 - Her mevsim 7 gün; 22–28. günler (indeks 21–27) kış. Kışın `kis_durur` yapılar (tarla) durur, çalışanları
   kışın çalışan boş yuvalara kayar, baharda eski işlerine döner (8.5).
-- Kişi başı 1 gıda; kışın hane başı +1 odun. Odun yetmezse herkes `soguk_saglik` kaybeder. Gıda yetmezse en son
+- Kişi başı 1 gıda; soğukta kişi başı +1 odun. Odun yetmezse herkes `soguk_saglik` kaybeder. Gıda yetmezse en son
   gelenler aç kalır: sağlık ve moral kaybı, ertesi gün verim yarı.
 
 ### Akçe (5)
@@ -90,7 +90,7 @@ Kapıda verdiğin her karar köyde bir yüz, bir iş, bir kin olarak geri döner
 
 ## Formulas
 
-- **F1 Tüketim**: `gida = nüfus × gida_kisi`; kışın `odun = hane × kis_odun_hane` (hane = dolu barınak + evsizler 1).
+- **F1 Tüketim**: `gida = ceil(nüfus × gida_kisi × iklim_gida_çarpanı)`; soğukta `odun = ceil(nüfus × odun_kisi × iklim_odun_çarpanı)` (EKO-09; ortak TuketimDengesi / MevsimTuketimAdaptoru).
 - **F2 Tezgâh**: `akçe = min(⌊adet × fiyat × 0.6⌋, 4 − bugün_kazanılan)`; satılan = `⌈akçe / (fiyat × 0.6)⌉`.
 - **F3 Vergi**: `Σ (usta ? 3 : 1)`; usta = `usta_*` bayrağı ya da stat ≥ 7.
 - **F4 Üretim**: `Günlük = Temel × (0.5 + Stat / 10) × Bileşik × (aç ? 0.5 : 1)`; artık ondalık yapı başına birikir.
