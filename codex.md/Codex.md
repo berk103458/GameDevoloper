@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Festive kontrol edilen uç: adcf3b2; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: adcf3b2. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Festive kontrol edilen uç: dc2d0ad; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: dc2d0ad. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -107,9 +107,10 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - ANI-03: Hazır tarla/bostan çalışanının mevcut A* kuyruğunda kuyu/kova/su arkı/dinlenme döngüsü; gerçek sağ el, dolu kova ve yalnız varışta akış, gece temizliği, JSON ayarları. 14 ilgili kontrol ve izole 20 gece, native RTX3060 görüntüsü ve ayna sahnesi geçti; ekonomi/RNG/kayıt korunur.
 - ANI-04: Mevcut A* kuyruğunda orman kenarı/balta/hızar/kamp döngüsü; gerçek öküz/ahır bütçesi, elle taşıma fallback, varışta balta, gece temizliği. 15 ilgili kontrol ve izole 20 gece, native RTX3060 ve ayna import/sahne geçti; EKO-02/03 kayıt/stoğu/RNG korunur.
 - ANI-05: CHR ağıl gerçek katalog/üretim adaptörü; dört koyunluk başlangıç sürüsü, aynı A* grafiğinde sabah çayır/akşam kapı dönüşü. Kapı tüm sürü dönünce kapanır; çobansız sürü, yıkım ve kopuk rota güvenli. 134 sanity kontrolü/20 gece, native ve son ayna sahnesi geçti.
+- ANI-06: Gerçek çalışan/girdi/depo koşullarıyla dönen ahşap çark, el kemiğine bağlı çuval ve erişilebilir ön sundurma durağı; mevcut ekonomi ve kayıt değişmez. 15 ilgili kontrol ve 20 gece, son durak düzeltmesi sonrası headless/native/ayna sahne kontrolü geçti.
 
 ## Sonraki çalışma
-ANI-06. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+ANI-07. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
@@ -118,10 +119,9 @@ Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_R
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
 
-## ANI-05 kontrol noktası — 8 Ekim 2026
-ANI-04 adcf3b2 festive'e pushlandı; 15 ilgili kontrol/20 gece/native/ayna geçti. ANI-05 yeni CobanSurusu + JSON; CHR Ağıl→agil kimliği aynı, katalog tek adaptör, kapılı çit mevcut bina kökünde. 14 odun+6 erzak bedeline dört koyunluk başlangıç sürüsü, bir çoban slotu/temel 1 erzak reçetesi denge varsayımıdır. Prosedürel koyunlar ücretsizdir; Meshy/kemikli klip iddiası yoktur. Sabah otlak, akşam kapıdan dönüş; çobansız sürü ağılda kalır, kopuk dönüş çitten kestirme yapmaz. Yeni koyun satın alma/ölüm/çoğalma ekonomisi yazılmadı.
-Tam work/sanity_ani05: 134 kontrol 0 başarısız, 20 gece dahil. Son kapı/bina üretimi/restore/kopuk yol birim ve sahne tekrarları da geçti. Native RTX3060 görüntüsüyle koyun aralığı/yüz ayrıntıları düzeltildi; JSON kapı anahtarı ASCII yapıldı, son import/runtime hata yok. ds ayna son import/sahne geçti. ANI-05 [x] (Codex), sıradaki ANI-06 değirmen çarkı/çuval.
-İki ds kopyası eşitlenir. Ahmet Windows yolu mevcut değil; full pull uygulanamadı. CSV/SYS-09 kilidi, çekirdek API/eski RTS yasağı ve Claude devri iptali korunur. Olgun paket normal festive commit/push.
+## ANI-06 yayın kontrol noktası — 8 Ekim 2026
+
+Değirmen hareketi 15 ilgili kontrolden ve 20 gecelik duman testinden geçti; son sundurma durak düzeltmesi kaynak ve ayna headless sahnelerinde, native Vulkan görüntüsünde doğrulandı. ANI-05 dc2d0ad yalnız commitli dosyalarla önbelleksiz dışa aktarıldı: ikinci import ve gerçek açılış bağımlılık kontrolü hatasız (docs/denetim/2026-10-07-acilis.md). Tam paket festive üzerinde normal commit/push ile yayımlanır. Ahmet Windows yolu bu makinede mevcut değil; o kopya güncellendi iddiası yok. Sıradaki ANI-07; Claude devri iptal.
 
 ## Cursor — BUG-03
 Durum: BUG-03 kapandı. İşe başlarken kilit «BUG-03 üzerindeyim» idi; Codex/Claude aynı maddeyi almasın diye ROADMAP bu turda Cursor’a ayrıldı.

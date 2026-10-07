@@ -76,3 +76,8 @@ ANI-03 51313e0 festive üzerinde. Yeni src/koy/gorsel/oduncu_rutini.gd + data/od
 ANI-04 adcf3b2 festive'e pushlandı; 15 ilgili kontrol/20 gece/native/ayna geçti. ANI-05 yeni CobanSurusu + JSON; CHR Ağıl→agil kimliği aynı, katalog tek adaptör, kapılı çit mevcut bina kökünde. 14 odun+6 erzak bedeline dört koyunluk başlangıç sürüsü, bir çoban slotu/temel 1 erzak reçetesi denge varsayımıdır. Prosedürel koyunlar ücretsizdir; Meshy/kemikli klip iddiası yoktur. Sabah otlak, akşam kapıdan dönüş; çobansız sürü ağılda kalır, kopuk dönüş çitten kestirme yapmaz. Yeni koyun satın alma/ölüm/çoğalma ekonomisi yazılmadı.
 Tam work/sanity_ani05: 134 kontrol 0 başarısız, 20 gece dahil. Son kapı/bina üretimi/restore/kopuk yol birim ve sahne tekrarları da geçti. Native RTX3060 görüntüsüyle koyun aralığı/yüz ayrıntıları düzeltildi; JSON kapı anahtarı ASCII yapıldı, son import/runtime hata yok. ds ayna son import/sahne geçti. ANI-05 [x] (Codex), sıradaki ANI-06 değirmen çarkı/çuval.
 İki ds kopyası eşitlenir. Ahmet Windows yolu mevcut değil; full pull uygulanamadı. CSV/SYS-09 kilidi, çekirdek API/eski RTS yasağı ve Claude devri iptali korunur. Olgun paket normal festive commit/push.
+
+
+## ANI-06 yayın kontrol noktası — 8 Ekim 2026
+
+Değirmen hareketi 15 ilgili kontrolden ve 20 gecelik duman testinden geçti; son sundurma durak düzeltmesi kaynak ve ayna headless sahnelerinde, native Vulkan görüntüsünde doğrulandı. ANI-05 dc2d0ad yalnız commitli dosyalarla önbelleksiz dışa aktarıldı: ikinci import ve gerçek açılış bağımlılık kontrolü hatasız (docs/denetim/2026-10-07-acilis.md). Tam paket festive üzerinde normal commit/push ile yayımlanır. Ahmet Windows yolu bu makinede mevcut değil; o kopya güncellendi iddiası yok. Sıradaki ANI-07; Claude devri iptal.
