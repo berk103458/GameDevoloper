@@ -14,4 +14,4 @@ static func tarifler(tur: String, temel: Dictionary) -> Dictionary:
 	r["kereste"] = {"girdi": {"tomruk": 2}, "uretim": {"kereste": 1.0}}
 	return r
 static func ad(anahtar: String) -> String:
-	return {"koy.kaynak.tomruk": "Tomruk", "koy.recete.tomruk": "Ormandan tomruk", "koy.recete.kereste": "Kalas · 2 tomruk", "koy.recete.odun": "Yakacak · 2 tomruk", "koy.yapi.odunluk": "Orman Kampı", "koy.yapi.odunluk_aciklama": "Oduncular ormandan tomruk getirir; hızar 2 tomruğu kalasa veya yakacak oduna işler."}.get(anahtar, TranslationServer.translate(anahtar))
+	return {"koy.kaynak.tomruk": "Tomruk", "koy.recete.tomruk": "Ormandan tomruk", "koy.recete.kereste": "Kalas · 2 tomruk", "koy.recete.odun": "Yakacak · 2 tomruk", "koy.yapi.odunluk": "Orman Kampı", "koy.yapi.odunluk_aciklama": "Oduncular ormandan tomruk getirir; hızar 2 tomruğu kalasa veya yakacak oduna işler."}.get(anahtar, CobanSurusu.ad(anahtar))

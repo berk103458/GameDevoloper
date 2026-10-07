@@ -144,8 +144,8 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [x] **ANI-02:** Muhafız Dinamik Nöbet ve Devriye Rotası — Kapı, kışla ve sur kuleleri arasında düzenli yürüyüş. (Codex)
 - [x] **ANI-03:** Çiftçi ve Bostancı Su Taşıma Rutini — Kuyu → kova → su arkı hendekleri döngüsü. (Codex)
 - [x] **ANI-04:** Oduncu ve Öküz Tomruk Taşıma Rotası — Orman → balta → tomruk öküzle hızara. (Codex)
-- [/] **ANI-05:** Çoban ve Sürü Otlatma Döngüsü — Sabah ağıl aç → çayır → akşam ağıla kapat.
-- [ ] **ANI-06:** Değirmen Çarkı ve Çuval Taşıma Hareketi — Çark/pervane dönüşü; değirmenci çuvalla sundurma.
+- [x] **ANI-05:** Çoban ve Sürü Otlatma Döngüsü — Sabah ağıl aç → çayır → akşam ağıla kapat. (Codex)
+- [/] **ANI-06:** Değirmen Çarkı ve Çuval Taşıma Hareketi — Çark/pervane dönüşü; değirmenci çuvalla sundurma.
 - [ ] **ANI-07:** Akşam Ateş Başı Toplanma Ritüeli — Gece boşta kalan köylülerin meydan ateşi etrafında ısınması.
 - [ ] **ANI-08:** Zanaatkar Tezgâh Animasyonları — Örs/çekiç, fırın küreği vb. döngüsel hareketler.
 - [ ] **ANI-09:** Hava Durumuna Göre Karakter Tepkileri — Yağmurda saçak altı; karda yavaş/büzülmüş yürüyüş.

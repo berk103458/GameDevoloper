@@ -24,6 +24,7 @@ func _init(yol: String = YOL) -> void:
 	HarcZinciri.ekle(turler)
 	DemirZinciri.ekle(turler)
 	MuhafizMaasi.ekle(turler)
+	CobanSurusu.ekle(turler)
 	# Kaynak CHR konumları ayrı türdür; mevcut yapı verileri ezilmez.
 	turler.merge(preload("res://src/koy/chr_bina_sozlugu.gd").katalog_ekleri(), false)
 

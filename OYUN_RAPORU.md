@@ -918,3 +918,10 @@ Sıradaki: ANI-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Mevcut A* kuyruğunda orman kenarı/balta/hızar/kamp döngüsü; gerçek öküz/ahır bütçesi, elle taşıma fallback, varışta balta, gece temizliği. 15 ilgili kontrol ve izole 20 gece, native RTX3060 ve ayna import/sahne geçti; EKO-02/03 kayıt/stoğu/RNG korunur.
 
 Sıradaki: ANI-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-05 (8 Ekim 2026)
+
+CHR ağıl gerçek katalog/üretim adaptörü; dört koyunluk başlangıç sürüsü, aynı A* grafiğinde sabah çayır/akşam kapı dönüşü. Kapı tüm sürü dönünce kapanır; çobansız sürü, yıkım ve kopuk rota güvenli. 134 sanity kontrolü/20 gece, native ve son ayna sahnesi geçti.
+
+Sıradaki: ANI-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

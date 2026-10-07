@@ -256,3 +256,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Su taşıma rutini](sulama-rutini.md) — ANI-03: mevcut halk kuyruğunda kuyu/kova/su arkı döngüsü.
 
 - [Oduncu ve öküz rotası](oduncu-rutini.md) — ANI-04: mevcut EKO-02/03 üstünde görsel balta/tomruk rotası.
+
+- [Çoban ve sürü](coban-surusu.md) — ANI-05: CHR ağıl, kapı ve aynı A* üzerinde otlak/dönüş döngüsü.

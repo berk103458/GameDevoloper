@@ -309,6 +309,8 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 			if sandik != null:
 				sandik.position = Vector3(-en * 0.3, 0, derin * 0.32)
 				n.add_child(sandik)
+		"agil":
+			CobanSurusu.agil_kur(n, en, derin)
 		"ambar":
 			n.add_child(Dunya3B.nesne("kervansaray", 3.0, "yapi"))
 		_:

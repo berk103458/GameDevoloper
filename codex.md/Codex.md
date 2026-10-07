@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Festive kontrol edilen uç: 51313e0; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 51313e0. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Festive kontrol edilen uç: adcf3b2; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: adcf3b2. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -106,14 +106,16 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - ANI-02: Mevcut halk A* kuyruğunda kapı/hazır kışla/işlevli sur kuleleri devriyesi; gece nöbeti, erişilemeyen durakları atlama ve görev bırakınca normal rutin. Dört ahşap platform dekoratörü; 14 ilgili kontrol, izole 20 gece, native RTX3060 ve ayna sahne geçti.
 - ANI-03: Hazır tarla/bostan çalışanının mevcut A* kuyruğunda kuyu/kova/su arkı/dinlenme döngüsü; gerçek sağ el, dolu kova ve yalnız varışta akış, gece temizliği, JSON ayarları. 14 ilgili kontrol ve izole 20 gece, native RTX3060 görüntüsü ve ayna sahnesi geçti; ekonomi/RNG/kayıt korunur.
 - ANI-04: Mevcut A* kuyruğunda orman kenarı/balta/hızar/kamp döngüsü; gerçek öküz/ahır bütçesi, elle taşıma fallback, varışta balta, gece temizliği. 15 ilgili kontrol ve izole 20 gece, native RTX3060 ve ayna import/sahne geçti; EKO-02/03 kayıt/stoğu/RNG korunur.
+- ANI-05: CHR ağıl gerçek katalog/üretim adaptörü; dört koyunluk başlangıç sürüsü, aynı A* grafiğinde sabah çayır/akşam kapı dönüşü. Kapı tüm sürü dönünce kapanır; çobansız sürü, yıkım ve kopuk rota güvenli. 134 sanity kontrolü/20 gece, native ve son ayna sahnesi geçti.
 
 ## Sonraki çalışma
-ANI-05. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+ANI-06. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 
-## ANI-04 kontrol noktası — 8 Ekim 2026
-ANI-03 51313e0 festive üzerinde. Yeni src/koy/gorsel/oduncu_rutini.gd + data/oduncu_rutini.json; mevcut halk A* kuyruğunda orman kenarı/hızar/kamp aşamaları ve gerçek ElEsyasi balta/tomruk. Görünür öküzler kayıtlı öküz ve hazır ahır kapasitesini aşmaz; hızarsız veya hayvansız durumlar mevcut iş/elle taşıma yoluna döner. Öküz GLB'de klip yok: ortak rota dönüşümünde yer değiştirir, kemikli yürüyüş iddiası yoktur. Kuyu çevresindeki durak/işçi-hayvan aralığı native görüntüyle düzeltildi. İlk arazi API imza hatası yerelken düzeltildi; yayımlanan kaynak import hatasızdır.
-15 ilgili kontrol 0 başarısız; gerçek iki işçi/tek öküz, izole 20 gece, kaynak/ayna import ve sahne, native RTX3060 geçti. ANI-04 [x] (Codex); sıradaki ANI-05 çoban/sürü otlatma. ds kopyaları eşit; Ahmet Windows yolu bulunmuyor, full pull yapılamadı. CSV/çekirdek API/eski RTS yasağı ve Claude devri iptali korunur. Olgun paket normal festive commit/push.
+## ANI-05 kontrol noktası — 8 Ekim 2026
+ANI-04 adcf3b2 festive'e pushlandı; 15 ilgili kontrol/20 gece/native/ayna geçti. ANI-05 yeni CobanSurusu + JSON; CHR Ağıl→agil kimliği aynı, katalog tek adaptör, kapılı çit mevcut bina kökünde. 14 odun+6 erzak bedeline dört koyunluk başlangıç sürüsü, bir çoban slotu/temel 1 erzak reçetesi denge varsayımıdır. Prosedürel koyunlar ücretsizdir; Meshy/kemikli klip iddiası yoktur. Sabah otlak, akşam kapıdan dönüş; çobansız sürü ağılda kalır, kopuk dönüş çitten kestirme yapmaz. Yeni koyun satın alma/ölüm/çoğalma ekonomisi yazılmadı.
+Tam work/sanity_ani05: 134 kontrol 0 başarısız, 20 gece dahil. Son kapı/bina üretimi/restore/kopuk yol birim ve sahne tekrarları da geçti. Native RTX3060 görüntüsüyle koyun aralığı/yüz ayrıntıları düzeltildi; JSON kapı anahtarı ASCII yapıldı, son import/runtime hata yok. ds ayna son import/sahne geçti. ANI-05 [x] (Codex), sıradaki ANI-06 değirmen çarkı/çuval.
+İki ds kopyası eşitlenir. Ahmet Windows yolu mevcut değil; full pull uygulanamadı. CSV/SYS-09 kilidi, çekirdek API/eski RTS yasağı ve Claude devri iptali korunur. Olgun paket normal festive commit/push.
