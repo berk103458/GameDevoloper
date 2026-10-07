@@ -21,6 +21,8 @@ var tohum: int = 0
 var muhafiz_tecrubesi: int = 0
 var muhafiz_akce: int = 0
 var muhafiz_esyalari: Array[Dictionary] = []
+## EKO-14 optional transfer özeti; iki mevcut kasanın bakiyesi ayrı kalır.
+var kasa_transferleri: Dictionary = {"son_zimmet": -1, "kurtarma_toplam": 0, "zimmet_toplam": 0}
 var yeni_binalar: Array[Dictionary] = []
 ## Olayların bıraktığı işaretler (kararların uzun vadeli izleri).
 var bayraklar: Dictionary = {}
@@ -662,6 +664,7 @@ func kaydet() -> Dictionary:
 		"diyalog_sira": _gemini_sira,
 		"muhafiz_tecrubesi": muhafiz_tecrubesi,
 		"muhafiz_akce": muhafiz_akce, "muhafiz_esyalari": muhafiz_esyalari.duplicate(true),
+		"kasa_transferleri": kasa_transferleri.duplicate(true),
 		"mevsim": yonetim.mevsim(), "yeni_binalar": yeni_binalar.duplicate(true),
 		"koy_yonetimi": yonetim.kaydet(),
 		"rng": [str(_rng.state), str(_rng_donus.state), str(_rng_ad.state), str(_rng_heybe.state)]}
@@ -694,6 +697,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o._gemini_sira = int(veri.get("diyalog_sira", 0))
 	o.muhafiz_tecrubesi = maxi(0, int(veri.get("muhafiz_tecrubesi", 0)))
 	o.muhafiz_akce = maxi(0, int(veri.get("muhafiz_akce", 0)))
+	o.kasa_transferleri = KasaTransferi.oku(veri.get("kasa_transferleri"))
 	o.muhafiz_esyalari = preload("res://src/sistemler/cift_kasa_dagitimi.gd").esyalari_yukle(veri.get("muhafiz_esyalari", []))
 	o.yeni_binalar.assign(veri.get("yeni_binalar", []))
 	o._koy_esitle()

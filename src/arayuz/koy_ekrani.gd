@@ -558,6 +558,7 @@ func _pazar_ac() -> void:
 		_etiket(v, tr("koy.pazar.kervan_yok") % (_y.a.kervan_araligi - 1 - _y.gun % _y.a.kervan_araligi), Tema.KUCUK_PX)
 	CekiHayvaniPaneli.ekle(self, v)
 	VergiPaneli.ekle(self, v)
+	KasaTransferPaneli.ekle(self, v)
 	var kapat := _dugme(tr("arayuz.olay.devam"), v)
 	kapat.pressed.connect(_kart_kapat)
 	kapat.grab_focus.call_deferred()

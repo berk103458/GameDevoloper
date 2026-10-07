@@ -244,3 +244,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Ambar bakımı](ambar-bakimi.md) — EKO-12; kapasite daralması ve gecelik gıda ziyanı.
 
 - [Alet aşınması](alet-asinmasi.md) — EKO-13; mevcut adaptör, son alet geçişi ve salt okunur HUD.
+
+- [Kasa transferi](kasa-transferi.md) — EKO-14; acil kurtarma ve bedelli günlük zimmet.

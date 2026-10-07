@@ -876,3 +876,10 @@ Sıradaki: EKO-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 EKO-06 aşınma adaptörü korundu; tarla/taş ocağı/demir madeninde son aletli tam üretim ve sonraki %30 verim doğrulandı. Mevcut alet HUD ipucu gerçek stok/kesir/ortak dengeyi salt okunur gösteriyor. Dört ilgili birim, headless/native UI, kaynak/ayna import ve API denetimi geçti.
 
 Sıradaki: EKO-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — EKO-14 (8 Ekim 2026)
+
+Mevcut iki kasa arasında atomik açık kurtarma ve günlük sınırlı, sosyal bedelli zimmet; dış JSON, optional kayıt ve aynı gün restore koruması, mevcut pazar/HUD adaptörü. 123 kontrol/20 gece, native UI ve ayna import geçti.
+
+Sıradaki: EKO-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
