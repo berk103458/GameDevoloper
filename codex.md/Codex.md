@@ -142,3 +142,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 ## ANI-09 yayın kontrol noktası — 8 Ekim 2026
 
 Tam sanity work/sanity_ani09: 144 kontrol, sıfır başarısız; izole 20 gece dahil. Native yağmur/kar, kaynak ve ayna sahne/import geçti. Gerçek hız testi render zamanlamasına değil aynı süreli tween adımına dayanır. Yeni asset dosyası yok, envanter G ve VFX-YAGMUR kayıtları güncel. Yağmur mevcut admin/iklim kayıt alanını kullanır, rastgele hava takvimi/VFX MEV paketidir. KAP-02/03 [ ], BUG-03/15 Cursor [x] korunur. İki ds kopyası eşitlenir; Ahmet yolu burada yok. Sıradaki ANI-10.
+
+
+ANI-09 temiz commit denetimi: c7572f8 arşivi, ilk/ikinci import geçici bağımlılık hataları, üçüncü import ve 20 bağımlıklı menü/ANI-09 sahnesi hatasız. Ayrıntı docs/denetim/2026-10-07-acilis.md. Bu rapor paketi için asset gerekmedi. Sıradaki ANI-10 (Codex).
