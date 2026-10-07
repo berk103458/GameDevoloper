@@ -42,6 +42,9 @@ func _calistir() -> void:
 	_kontrol(adapt.ses_adi("Hançer kabzasına sarılır", "ret") == &"sfx_chr_kabza" and adapt.dosya_var(&"sfx_chr_kabza"), "Metindeki kabza mevcut dosyaya gider")
 	for ses in ["sfx_chr_sikke", "sfx_chr_deri", "sfx_chr_kabza", "sfx_chr_metal", "sfx_chr_kagit", "sfx_chr_bebek", "sfx_kese", "sfx_onay", "sfx_kapi_acilir", "sfx_kapi_kapanir"]:
 		_kontrol(ResourceLoader.exists("res://assets/ses/%s.wav" % ses), "Mevcut ses duruyor: " + ses)
+	var oynatici := root.get_node_or_null("Ses")
+	if oynatici != null and oynatici.has_method("sustur"):
+		await oynatici.sustur()
 	print("KARAR REPLIK: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
 	quit(hata)
 
