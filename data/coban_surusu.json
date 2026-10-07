@@ -1,0 +1,61 @@
+{
+  "agil": {
+    "kategori": "uretim",
+    "boyut": [
+      3,
+      3
+    ],
+    "maliyet": {
+      "odun": 14,
+      "gida": 6
+    },
+    "slot": 1,
+    "insa_gun": 2,
+    "kurulabilir": true,
+    "uzmanlik": "coban",
+    "receteler": {
+      "gida": {
+        "uretim": {
+          "gida": 1.0
+        }
+      }
+    }
+  },
+  "koyun_sayisi": 4,
+  "suruler_azami": 4,
+  "yurume_hizi": 1.4,
+  "varis_mesafesi": 0.06,
+  "otlak_uzaklik": 4,
+  "yun_renk": "#d1c8ac",
+  "deri_renk": "#453e33",
+  "govde_olcek": [
+    0.32,
+    0.24,
+    0.49
+  ],
+  "govde_y": 0.52,
+  "bas_olcek": [
+    0.13,
+    0.16,
+    0.2
+  ],
+  "bas_y": 0.64,
+  "bas_z": -0.47,
+  "bacak_boy": 0.34,
+  "bacak_yaricap": 0.04,
+  "cit_boy": 1.1,
+  "cit_kalinlik": 0.09,
+  "cit_renk": "#70553a",
+  "otlama_aralik": [
+    1.0,
+    1.3
+  ],
+  "kulak_olcek": [
+    0.11,
+    0.04,
+    0.08
+  ],
+  "goz_yaricap": 0.025,
+  "yun_tutam": 0.105,
+  "kapi_genislik": 1.4
+}

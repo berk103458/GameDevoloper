@@ -193,6 +193,7 @@ func yenile() -> void:
 		n.set_meta("bina_id", b.id)
 		_yapilar.add_child(n)
 	_sur_kur()
+	OduncuRutini.orman_kur(self, _yapilar)
 	MuhafizDevriyesi.kule_kur(self, _yapilar)
 	halk_hareketi.yenile()
 	IklimGorseli.uygula(self)
@@ -308,6 +309,8 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 			if sandik != null:
 				sandik.position = Vector3(-en * 0.3, 0, derin * 0.32)
 				n.add_child(sandik)
+		"agil":
+			CobanSurusu.agil_kur(n, en, derin)
 		"ambar":
 			n.add_child(Dunya3B.nesne("kervansaray", 3.0, "yapi"))
 		_:

@@ -1,0 +1,30 @@
+{
+  "sureler": [
+    6,
+    4,
+    12
+  ],
+  "okuz_boy": 1.1,
+  "okuz_yan": 1.25,
+  "okuz_donus": 0,
+  "tomruk_yaricap": 0.12,
+  "tomruk_boy": 1.1,
+  "tomruk_sayi": 2,
+  "tomruk_renk": "#685038",
+  "balta_sap": [
+    0.025,
+    0.6,
+    0.025
+  ],
+  "balta_bas": [
+    0.22,
+    0.13,
+    0.045
+  ],
+  "balta_renk": "#888b8c",
+  "agac_boy": 5.5,
+  "orman_ofset": 3.0,
+  "balta_salininim": 0.35,
+  "balta_hiz": 3.5,
+  "kuyu_guvenlik_mesafe": 2.5
+}

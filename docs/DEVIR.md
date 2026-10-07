@@ -6,7 +6,7 @@ Güncel 7 Ekim 2026 talimatı: Claude’a görev devri iptal. Codex otonom geli�
 
 - Sorumlu: Codex. Claude görev devri kullanıcı tarafından iptal edildi; mesaj, limit devri ve geri alma yapılmaz.
 - Otomasyon: `gamedevoloper-limit-ve-claude-devri` PAUSED; eski prosedürler aşağıda yalnız tarihsel kayıttır.
-- Son tamamlanan madde: EKO-11 (kişisel kese HUD). EKO-10: Kamu kasası üç ardışık gece negatifse tek tefeci baskını ve kamu varlığına el koyma; özel kese korunur.
+- Son tamamlanan madde: ANI-05 (çoban/sürü). Önceki EKO-11 kaydı tarihsel; güncel paket/test ayrıntıları codex.md/Codex.md ve docs/MUHARRIR_RAPORU.md. Sıradaki ANI-06; Codex sorumluluğu devam eder.
 - Doğrulama: work/sanity_eko10 tam koşu 0 başarısız, 20 gece dahil; kaynak native UI ve ayna birim/UI kontrolleri geçti. Çalışan test süreci yok.
 - Sıradaki: EKO-12 ambar kapasitesi/ziyan. Feature geçmişi festive ana dala birleştirildi; GitHub varsayılanı festive.
 - Son yayımlanan HEAD: 00040db (festive + feature); EKO-11 yayına hazırlanıyor. Commit/push kullanıcı tarafından yetkilendirildi.

@@ -18,6 +18,8 @@ func eylem(id: int) -> String:
 	if d.is_empty(): return "Durum yok"
 	if int(d.adim) < d.yol.size(): return "Yürüyor"
 	var k := sahne.yonetim.koylu(id)
+	if d.get("coban", false): return String(d.get("coban_ad", "Sürü yolu kapalı"))
+	if d.get("oduncu", false): return String(d.get("oduncu_ad", "Tomruk yolu kapalı"))
 	if d.get("sulama", false): return String(d.get("sulama_ad", "Sulama bekliyor"))
 	if d.get("devriye", false): return String(d.get("devriye_ad", "Nöbette"))
 	if faz_adi == &"gece": return "Ev önünde" if k != null and k.ev >= 0 else "Meydanda"
@@ -48,6 +50,7 @@ func yenile() -> void:
 			modeller.erase(id)
 			_durum.erase(id)
 	MuhafizDonanimi.yenile(self)
+	CobanSurusu.yenile(self)
 
 ## Gece eve; akşam meydana; gündüz iş ve kısa dinlenme döngüsüne geçer.
 func faz(ad: StringName) -> void:
@@ -56,6 +59,7 @@ func faz(ad: StringName) -> void:
 		_durum[id].dinlen = false
 		_iste(id)
 	MuhafizDonanimi.yenile(self)
+	CobanSurusu.yenile(self)
 
 func _iste(id: int) -> void:
 	if not _bekleyen.has(id):
@@ -83,9 +87,15 @@ func _process(delta: float) -> void:
 				if d.adim < d.yol.size():
 					_adim(id)
 				else:
+					OduncuRutini.varis(f, d.get("oduncu", false) and int(d.get("oduncu_i", 0)) == 0)
 					SulamaRutini.varis(f, d.get("sulama", false) and int(d.get("sulama_i", 0)) == 1)
 					f.bak(d.bak)
 					f.calis(&"calis" if d.is else &"")
+		elif d.get("oduncu", false):
+			d.bekle += delta
+			if d.bekle >= float(OduncuRutini.AYAR.sureler[d.oduncu_i]):
+				d.oduncu_i = (int(d.oduncu_i) + 1) % 3
+				_iste(id)
 		elif d.get("sulama", false):
 			d.bekle += delta
 			if d.bekle >= float(SulamaRutini.AYAR.sureler[d.sulama_i]):
@@ -96,6 +106,8 @@ func _process(delta: float) -> void:
 			if d.bekle >= float(MuhafizDevriyesi.AYAR.durak_suresi):
 				d.devriye_i += 1
 				_iste(id)
+		elif d.get("coban", false):
+			continue
 		elif faz_adi == &"gunduz":
 			d.bekle += delta
 			var sure := float(_ayar.dinlenme_suresi if d.dinlen else _ayar.calisma_suresi)
@@ -153,6 +165,26 @@ func _planla(id: int) -> void:
 	else:
 		d.sulama_i = 0
 	SulamaRutini.esya(f, d.sulama, int(d.sulama_i))
+	d.oduncu = OduncuRutini.aday(sahne.yonetim, k, faz_adi)
+	if d.oduncu:
+		d.oduncu_i = int(d.get("oduncu_i", 0))
+		var odun := OduncuRutini.hedef(self, k, bas, d.oduncu_i)
+		d.is = not odun.is_empty() and d.oduncu_i == 0
+		d.dinlen = d.oduncu_i == 2
+		son = bas if odun.is_empty() else odun.son
+		d.bak = f.position if odun.is_empty() else odun.bak
+		d.oduncu_ad = "Tomruk yolu kapalı" if odun.is_empty() else odun.ad
+	else:
+		d.oduncu_i = 0
+	OduncuRutini.esya(f, sahne.yonetim, id, d.oduncu, int(d.oduncu_i))
+	d.coban = CobanSurusu.hazir(sahne.yonetim.bina(k.is_yeri))
+	if d.coban:
+		var suru := CobanSurusu.hedef(self, k, bas)
+		son = bas if suru.is_empty() else suru.son
+		d.is = false
+		d.dinlen = true
+		d.bak = _konum(son)
+		d.coban_ad = "Sürü yolu kapalı" if suru.is_empty() else suru.ad
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false
@@ -163,6 +195,7 @@ func _planla(id: int) -> void:
 		# Küçük, hücre içinde kalan durak farkı: aynı durakta üst üste binmeyi azaltır.
 		d.yol[-1] += Vector3((id % 3 - 1) * float(_ayar.durak_araligi), 0, ((id / 3) % 3 - 1) * float(_ayar.durak_araligi))
 	d.adim = 0
+	if d.coban: CobanSurusu.plan(self, k, d.yol)
 	if not d.yol.is_empty():
 		_adim(id)
 

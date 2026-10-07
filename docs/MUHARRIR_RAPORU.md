@@ -55,3 +55,14 @@ ANI-02 [x] (Codex); sıradaki ANI-03 kuyu/kova/sulama rutini. ds kopyaları eşi
 ## ANI-03 kontrol noktası — 8 Ekim 2026
 ANI-02 95edcf7 festive'e pushlandı. Yeni src/koy/gorsel/sulama_rutini.gd + dış JSON; mevcut ElEsyasi.kova ve A* kuyruğunda kuyu/sulama/dinlenme. Hazır tarla/bostan görseline ark adaptörü; gerçek kuyu konumu aynı ayardan gelir. Kova doluluğu ve yalnız varışta su akışı, kış/gece filtreleri ve CHR görünürlüğünü geri verme; kayıt/üretim bonusu/ikinci simülasyon yoktur. 14 ilgili kontrol 0 hata, izole 20 gece dahil; native RTX3060 gerçek çiftçi görüntüsü ve ayna import/sahne geçti.
 ANI-03 [x] (Codex), sıradaki ANI-04 oduncu/öküz tomruk rotası. İki ds kopyası eşit; Ahmet Windows yolu yok, oraya full pull uygulanamadı. SYS-09 CSV kilidi ve Claude devri iptali korunur. Olgun paket normal festive commit/push.
+
+
+## ANI-04 kontrol noktası — 8 Ekim 2026
+ANI-03 51313e0 festive üzerinde. Yeni src/koy/gorsel/oduncu_rutini.gd + data/oduncu_rutini.json; mevcut halk A* kuyruğunda orman kenarı/hızar/kamp aşamaları ve gerçek ElEsyasi balta/tomruk. Görünür öküzler kayıtlı öküz ve hazır ahır kapasitesini aşmaz; hızarsız veya hayvansız durumlar mevcut iş/elle taşıma yoluna döner. Öküz GLB'de klip yok: ortak rota dönüşümünde yer değiştirir, kemikli yürüyüş iddiası yoktur. Kuyu çevresindeki durak/işçi-hayvan aralığı native görüntüyle düzeltildi. İlk arazi API imza hatası yerelken düzeltildi; yayımlanan kaynak import hatasızdır.
+15 ilgili kontrol 0 başarısız; gerçek iki işçi/tek öküz, izole 20 gece, kaynak/ayna import ve sahne, native RTX3060 geçti. ANI-04 [x] (Codex); sıradaki ANI-05 çoban/sürü otlatma. ds kopyaları eşit; Ahmet Windows yolu bulunmuyor, full pull yapılamadı. CSV/çekirdek API/eski RTS yasağı ve Claude devri iptali korunur. Olgun paket normal festive commit/push.
+
+
+## ANI-05 kontrol noktası — 8 Ekim 2026
+ANI-04 adcf3b2 festive'e pushlandı; 15 ilgili kontrol/20 gece/native/ayna geçti. ANI-05 yeni CobanSurusu + JSON; CHR Ağıl→agil kimliği aynı, katalog tek adaptör, kapılı çit mevcut bina kökünde. 14 odun+6 erzak bedeline dört koyunluk başlangıç sürüsü, bir çoban slotu/temel 1 erzak reçetesi denge varsayımıdır. Prosedürel koyunlar ücretsizdir; Meshy/kemikli klip iddiası yoktur. Sabah otlak, akşam kapıdan dönüş; çobansız sürü ağılda kalır, kopuk dönüş çitten kestirme yapmaz. Yeni koyun satın alma/ölüm/çoğalma ekonomisi yazılmadı.
+Tam work/sanity_ani05: 134 kontrol 0 başarısız, 20 gece dahil. Son kapı/bina üretimi/restore/kopuk yol birim ve sahne tekrarları da geçti. Native RTX3060 görüntüsüyle koyun aralığı/yüz ayrıntıları düzeltildi; JSON kapı anahtarı ASCII yapıldı, son import/runtime hata yok. ds ayna son import/sahne geçti. ANI-05 [x] (Codex), sıradaki ANI-06 değirmen çarkı/çuval.
+İki ds kopyası eşitlenir. Ahmet Windows yolu mevcut değil; full pull uygulanamadı. CSV/SYS-09 kilidi, çekirdek API/eski RTS yasağı ve Claude devri iptali korunur. Olgun paket normal festive commit/push.

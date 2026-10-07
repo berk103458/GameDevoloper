@@ -936,3 +936,16 @@ ROADMAP: EKO-14, EKO-15, ANI-01, ANI-02, ANI-03 `[x] (Codex)`; ANI-04 `[/]` (Cod
 Conflict yalnız doküman: `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md` (iki taraf alt alta birleştirildi), `codex.md/Codex.md` (Cursor bölümleri korundu, Codex'in tek kontrol noktası EKO-13 → ANI-03 güncel hâliyle alındı). Kod conflict'i yok; BUG-03/BUG-15 dosyalarına Codex dokunmadı.
 
 Doğrulama (yerel Godot 4.7.2 headless): import hatasız; `kasa_transferi`, `gece_bilancosu`, `muhafiz_donanimi`, `muhafiz_devriyesi`, `sulama_rutini`, `karar_replik`, `heybe_tik` testleri GEÇTİ. Conflict marker yok; `koy_sahnesi` / `KoyYerlesimi` / `KoyluAI` geri gelmedi.
+
+## Codex — ANI-04 (8 Ekim 2026)
+
+Mevcut A* kuyruğunda orman kenarı/balta/hızar/kamp döngüsü; gerçek öküz/ahır bütçesi, elle taşıma fallback, varışta balta, gece temizliği. 15 ilgili kontrol ve izole 20 gece, native RTX3060 ve ayna import/sahne geçti; EKO-02/03 kayıt/stoğu/RNG korunur.
+
+Sıradaki: ANI-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-05 (8 Ekim 2026)
+
+CHR ağıl gerçek katalog/üretim adaptörü; dört koyunluk başlangıç sürüsü, aynı A* grafiğinde sabah çayır/akşam kapı dönüşü. Kapı tüm sürü dönünce kapanır; çobansız sürü, yıkım ve kopuk rota güvenli. 134 sanity kontrolü/20 gece, native ve son ayna sahnesi geçti.
+
+Sıradaki: ANI-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
