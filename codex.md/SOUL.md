@@ -19,3 +19,5 @@ Kaynak: Ahmet'in 7 Ekim 2026 açık talimatı. Bu dosya kalıcı proje hafızas�
 - Somut 7 Ekim açılış vakası: Ahmet engine 4.7.2 ed1daf0bf. `_iskelet`/`EL_KEMIGI` ve 338–349 hata satırları yayımlanmış 330 satırlık karakter_model.gd ile uyuşmaz; keen el kodu/yerel buffer farkı kontrol edilir. Eski tanım ekleyerek ikinci el/RTS sistemi üretilmez. `--remote-check` kritik yerel dosyaların gerçek festive içeriğini karşılaştırır; önce bağımsız diff korunur.
 
 - Ahmet/Muharrir, 8 Ekim asset kuralı: asset üretimi/indirme yok; mekanik basit kutu/düz renk yer tutucuyla tamamlanır. Eksik gerçek asset docs/EKSIK_ASSET_ENVANTERI.md G tablosuna kapanış commitinde kaydedilir; yeni asset gerekmiyorsa commit başlığında "asset gerekmedi" belirtilir. BUG-03/15 Cursor tarafından kapandı, tekrar alınmaz. KAP-02/03 sahipsizse [ ] kalır; üstlenince ad yazılır.
+
+- 8 Ekim Muharrir talimatı: yeni rutin mantığı koy_halk_hareketi.gd içine eklenmez; yeni rutin dosyasına tek satırlık adaptör çağrılarıyla bağlanır. Status kontrol edilen son commit bilgisini taşır, boş başlık bırakılmaz.

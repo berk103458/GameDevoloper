@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Festive kontrol edilen uç: 8825b61; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 8825b61. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: 608855e (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 608855e. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -111,19 +111,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - ANI-07: Boşta köylüler akşam/gece mevcut ateşte ayrı ve güvenli A* duraklarında ısınır; gerçek iskelette iki el önde, gündüz duruş kapanır. Atanmış çalışan/guard rutinleri korunur. 15 ilgili kontrol/20 gece, native görüntü ve ayna import/sahne geçti.
 - ANI-08: Gerçek fiziksel çalışan/reçete/girdi/ambar koşullarıyla örs çekiç ve fırın küreği döngüleri; mevcut modifier/el soketi, tek noktada düz kutu yer tutucular. 17 ilgili kontrol ve 20 gece; son alet açı düzeltmesi native/ayna sahnesinde geçti. Envanter G güncel, asset üretilmedi/indirilmedi.
 - ANI-09: Mevcut iklim sözleşmesine yağmur; aynı A* ile erişilebilir düz kutu saçağa sığınma, muhafız görevini koruma, kar fırtınasında görsel hız ×0.72 ve mevcut modifierde hafif büzülme. Ekonomi/RNG değişmez. Tam 144 kontrol ve izole 20 gece sıfır başarısız; native ve ayna geçti. Envanter G/VFX-YAGMUR güncel; asset üretilmedi/indirilmedi.
+- ANI-10: Mevcut gizli eğilim/sabotaj riskine bağlı gece kuytu ve nöbetçiden kaçış; tek satırlık plan/kare/hız adaptörleri, kayıt/RNG korunur. Tam sanity ve 20 gece sıfır hata, native/ayna geçti. Asset üretimi yok, ANI10-SINSI envanter G kaydı tamam.
 
 ## Sonraki çalışma
-ANI-10. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+BEKLEME — 05:10 limit yenilenmesi. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
-## Cursor ortamından korunan tarihsel notlar
-
-
-
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -139,9 +138,7 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## ANI-09 yayın kontrol noktası — 8 Ekim 2026
 
-Tam sanity work/sanity_ani09: 144 kontrol, sıfır başarısız; izole 20 gece dahil. Native yağmur/kar, kaynak ve ayna sahne/import geçti. Gerçek hız testi render zamanlamasına değil aynı süreli tween adımına dayanır. Yeni asset dosyası yok, envanter G ve VFX-YAGMUR kayıtları güncel. Yağmur mevcut admin/iklim kayıt alanını kullanır, rastgele hava takvimi/VFX MEV paketidir. KAP-02/03 [ ], BUG-03/15 Cursor [x] korunur. İki ds kopyası eşitlenir; Ahmet yolu burada yok. Sıradaki ANI-10.
+## Kullanıcı talimatıyla duraklama — 8 Ekim 2026
 
-
-ANI-09 temiz commit denetimi: c7572f8 arşivi, ilk/ikinci import geçici bağımlılık hataları, üçüncü import ve 20 bağımlıklı menü/ANI-09 sahnesi hatasız. Ayrıntı docs/denetim/2026-10-07-acilis.md. Bu rapor paketi için asset gerekmedi. Sıradaki ANI-10 (Codex).
+ANI-10 kapandı; yeni maddeye başlanmadı, ANI-11 [ ] kalır. Kontrol edilen son commit: 608855e (festive); ANI-10 kapanış paketi normal commit/push ile yayımlanır. 146 sanity kontrolü/20 gece sıfır hata; son ince adaptör düzenlemesi birim/native/ayna sahnesinde tekrar geçti. 05:10 Europe/Istanbul tek devam otomasyonu; canlı limit reseti 05:10:41. Devamda önce pull/duyuru/ROADMAP, Cursor ve Claude sahipli maddeler atlanır; BUG-07 CSV paketi SYS-09/SYS-12/KVR-11/SYS-11 Cursor sorumluluğunda. Sıradaki uygun madde (normalde ANI-11) ancak o turda sahiplenilip commit edilir.

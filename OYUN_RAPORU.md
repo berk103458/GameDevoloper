@@ -992,3 +992,9 @@ Gelenler:
 ROADMAP: ANI-07/08/09 `[x] (Codex)`; ANI-10 `[/] (Codex)`. KAP-02/03 `[/]` → `[ ]` (sahipsiz). Yeni png/glb/ogg/wav dosyası yok; envanter G tablosuna ANI07-ISINMA, ANI08-TEZGAH, ANI08-HAREKET, ANI09-SACAK, ANI09-BUZULME eklendi.
 
 Doğrulama (yerel Godot headless): import hatasız; `ates_basi_rutini_test`, `zanaat_tezgahi_test`, `karakter_hava_test`, `karar_replik_test` ile `ates_basi_rutini_kontrol`, `zanaat_tezgahi_kontrol`, `karakter_hava_kontrol`, `acilis_bagimlilik_kontrol` sahneleri GEÇTİ. Conflict marker yok; `koy_sahnesi` / `KoyYerlesimi` / `KoyluAI` geri gelmedi.
+
+## Codex — ANI-10 (8 Ekim 2026)
+
+Mevcut gizli eğilim/sabotaj riskine bağlı gece kuytu ve nöbetçiden kaçış; tek satırlık plan/kare/hız adaptörleri, kayıt/RNG korunur. Tam sanity ve 20 gece sıfır hata, native/ayna geçti. Asset üretimi yok, ANI10-SINSI envanter G kaydı tamam.
+
+Sıradaki: BEKLEME — 05:10 limit yenilenmesi. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

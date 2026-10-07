@@ -266,3 +266,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - ANI-08: [Zanaat tezgâhı](zanaat-tezgahi.md) — gerçek reçete koşulları, mevcut el soketi, kutu yer tutucuları.
 
 - ANI-09: [Karakter hava tepkileri](karakter-hava.md) — mevcut iklimde yağmur/kar; A* saçak, yürüyüş hızı, aynı gövde modifieri.
+
+- ANI-10: [Sinsi gece](sinsi-gece.md) — salt görsel kuytu/kaçış; mevcut A* ve riskler.

@@ -107,3 +107,8 @@ Tam sanity work/sanity_ani09: 144 kontrol, sıfır başarısız; izole 20 gece d
 
 
 ANI-09 temiz commit denetimi: c7572f8 arşivi, ilk/ikinci import geçici bağımlılık hataları, üçüncü import ve 20 bağımlıklı menü/ANI-09 sahnesi hatasız. Ayrıntı docs/denetim/2026-10-07-acilis.md. Bu rapor paketi için asset gerekmedi. Sıradaki ANI-10 (Codex).
+
+
+## ANI-10 kapanış ve duraklama — 8 Ekim 2026
+
+ANI-10 [x] (Codex); tam 146 kontrol ve 20 gece sıfır hata; native gece ve ds ayna geçti. Mantık yeni SinsiGeceRutini dosyasında; halk hareketinde tek satırlık adaptör çağrıları. Gizli kimlik, kayıt/RNG ve ekonomik hesaplar korunur. Asset üretilmedi/indirilmedi; G tablosunda ANI10-SINSI. 608855e iki ds kopyaya pull edildi. Muharrir ANI-07/08/09 Ahmet makinesinde geçtiğini bildirdi; bu makineden Ahmet yolu erişilemiyor. Kapanış paketi normal festive commit/push. Kullanıcı emriyle duruldu; ANI-11 henüz alınmadı. 05:10 limit yenilenince tek devam turunda önce pull/duyuru/sahiplik kontrolü yapılır; BUG-07 CSV paketi Cursor adına korunur.

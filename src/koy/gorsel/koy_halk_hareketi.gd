@@ -19,6 +19,7 @@ func eylem(id: int) -> String:
 	if int(d.adim) < d.yol.size(): return "Yürüyor"
 	var k := sahne.yonetim.koylu(id)
 	if d.get("siginma", false): return "Yağmurdan saçak altında korunuyor"
+	if d.get("sinsi", false): return "Tenhada bekliyor"
 	if d.get("ates_basi", false): return "Ateş başında ısınıyor"
 	if d.get("degirmenci", false): return String(d.get("degirmenci_ad", "Öğütme bekliyor"))
 	if d.get("coban", false): return String(d.get("coban_ad", "Sürü yolu kapalı"))
@@ -83,6 +84,7 @@ func _process(delta: float) -> void:
 			continue
 		var d: Dictionary = _durum[id]
 		var f: KarakterModel = modeller[id]
+		if SinsiGeceRutini.guncelle(self, id, delta): continue
 		if d.adim < d.yol.size():
 			var hedef: Vector3 = d.yol[d.adim]
 			if f.position.distance_to(hedef) <= float(_ayar.varis_mesafesi):
@@ -246,6 +248,7 @@ func _planla(id: int) -> void:
 		SulamaRutini.esya(f, false, 0)
 		DegirmenHareketi.esya(f, false, false)
 		ZanaatTezgahi.esya(f, "")
+	son = SinsiGeceRutini.planla(self, k, bas, son)
 	if f.duzeltici() != null: f.duzeltici().hava_egimi = KarakterHavaTepkisi.egim(sahne.yonetim)
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
@@ -263,7 +266,7 @@ func _planla(id: int) -> void:
 
 func _adim(id: int) -> void:
 	var fark := sin(float(id) * 2.4) * float(_ayar.hiz_farki)
-	modeller[id].yuru(_durum[id].yol[_durum[id].adim], float(_ayar.yurume_hizi) * (1.0 + fark) * KarakterHavaTepkisi.hiz(sahne.yonetim))
+	modeller[id].yuru(_durum[id].yol[_durum[id].adim], float(_ayar.yurume_hizi) * (1.0 + fark) * KarakterHavaTepkisi.hiz(sahne.yonetim) * SinsiGeceRutini.hiz(_durum[id]))
 
 func _konum(h: Vector2i) -> Vector3:
 	return sahne.alan_merkezi(h, Vector2i.ONE)
