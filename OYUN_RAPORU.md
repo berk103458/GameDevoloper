@@ -881,3 +881,7 @@ Sıradaki: EKO-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 ## Cursor — BUG-03 (7 Ekim 2026)
 
 Rüşvet kabul ve ret kararında diyalog kutusu `anlati.sonuc.rusvet` / `anlati.sonuc.ret` satırını ve varsa çevrilmiş ziyaretçi yanıtını alır; konuşma mevcut `sfx_chr_sikke` veya `sfx_chr_deri` ile tetiklenir. `73f8172` UID denetimiydi, sessizlik ayrı kaldı. Yeni ses, görsel veya model üretilmedi. Ayrı seslendirme dosyası yok. CSV, KAP-02/03, EKO-14 ve SYS-09 validator değişmedi. Godot 4.7.2 headless import hatasız; `karar_replik_test.gd` 0 hata. Ahmet ve ds Windows kopyaları bu makinede yok.
+
+## Cursor — BUG-15 (7 Ekim 2026)
+
+Heybe paneli yeniden yazılmadı. `HeybePaneli` ve zemin `ColorRect` `mouse_filter = STOP`. Headless `heybe_tik_test`: panel açıkken dünya alanı ve 3B görüntü kapısı sol tık almaz, panel kapanınca aynı nokta ikisine de gider. KAP-02/03, EKO-14, BUG-03 ve CSV değişmedi. Windows aynaları bu ortamda yok.

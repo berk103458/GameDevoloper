@@ -49,7 +49,7 @@
 - [x] **BUG-12:** `_klip_onbellek` `has()` / idle Fallback — Eksik animasyon klipinde `has()` kontrolü ve idle'a düşme (**taslak yol notu** OK; KarakterModel üzerinde). (Codex)
 - [x] **BUG-13:** Kapı Kamera FOV Sabitleme — Kapı sahnesinde FOV kayması/zoom drift'inin sabitlenmesi. (Codex)
 - [x] **BUG-14:** `Ses.oynat` Havuz Temizliği — Ses oynatıcı havuzunun sahne geçişlerinde temizlenmesi / sızıntı önleme. (Codex)
-- [!] **BUG-15:** Heybe `mouse_filter = STOP` — Heybe paneli açıkken tıklamanın 3B sahneye sızmasını engelleme.
+- [x] **BUG-15:** Heybe `mouse_filter = STOP` — Heybe paneli açıkken tıklamanın 3B sahneye sızmasını engelleme. Kod zaten STOP; `heybe_tik_test` açıkken dünya ve 3B tık 0, kapalıyken 1. (Cursor)
 
 ---
 
