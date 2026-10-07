@@ -142,3 +142,5 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 ## Kullanıcı talimatıyla duraklama — 8 Ekim 2026
 
 ANI-10 kapandı; yeni maddeye başlanmadı, ANI-11 [ ] kalır. Kontrol edilen son commit: 608855e (festive); ANI-10 kapanış paketi normal commit/push ile yayımlanır. 146 sanity kontrolü/20 gece sıfır hata; son ince adaptör düzenlemesi birim/native/ayna sahnesinde tekrar geçti. 05:10 Europe/Istanbul tek devam otomasyonu; canlı limit reseti 05:10:41. Devamda önce pull/duyuru/ROADMAP, Cursor ve Claude sahipli maddeler atlanır; BUG-07 CSV paketi SYS-09/SYS-12/KVR-11/SYS-11 Cursor sorumluluğunda. Sıradaki uygun madde (normalde ANI-11) ancak o turda sahiplenilip commit edilir.
+
+Kontrol edilen son commit: `8f00e9f`; gelen `1e898fd` BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor sahipliği dosya ezmeden korundu. ANI-10 özellik commit ve entegrasyonu tamam; yeni maddeye başlanmadı.
