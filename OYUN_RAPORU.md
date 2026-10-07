@@ -846,3 +846,10 @@ Sıradaki: EKO-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Üç ardışık negatif kamu kapanışında tek tefeci baskını; kamu bina/stok el koyması, özel kese korunması, eski/yeni JSON ve gerçek gece/UI kontrolleri geçti. Tam sanity 0 başarısız, 20 gece dahil; iki kopya doğrulandı. Claude devri iptal, Codex sorumlu.
 
 Sıradaki: EKO-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — EKO-11 (7 Ekim 2026)
+
+Kişisel kese HUD eklendi; gerçek rüşvet sinyali, kamu/kişisel ayrımı, eşya adedi, JSON geri dönüşü ve salt okunur çizim UI testinde geçti. Native ekran büyük bakiyeyi okunur gösterdi; çift kasa ve HUD regresyonları geçti. İki eski SVG UTF-8 kodlaması düzeltildi.
+
+Sıradaki: EKO-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

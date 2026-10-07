@@ -11,6 +11,7 @@ const ASAYIS_KRITIK := 60
 
 var _oturum: Oturum
 var _akce: KaynakGostergesi
+var _kese: KeseGostergesi
 var _stok_etiketleri: Dictionary = {}
 var _gun: Label
 var _mevsim: Label
@@ -46,6 +47,8 @@ func _ready() -> void:
 	kaynak_kaydir.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	kaynak_kaydir.follow_focus = true
 	kutu.add_child(kaynak_kaydir)
+	_kese = KeseGostergesi.new()
+	kutu.add_child(_kese)
 	var kaynaklar := HBoxContainer.new()
 	kaynaklar.add_theme_constant_override("separation", 8)
 	kaynak_kaydir.add_child(kaynaklar)
@@ -120,6 +123,7 @@ func guncelle() -> void:
 			_onceki[t] = k.miktar(t)
 	_akce.guncelle(y.akce, int(_net.get("akce", 0)), y.akce < 0)
 	_akce.tooltip_text = IflasYoneticisi.tip(y)
+	_kese.guncelle(_oturum)
 	for t in STOKLAR:
 		var l: KaynakGostergesi = _stok_etiketleri[t]
 		l.guncelle(k.miktar(t), int(_net.get(t, 0)), t == "gida" and y.gida_gunu() < 2.0 and y.nufus() > 0)

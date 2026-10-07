@@ -130,8 +130,8 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [x] **EKO-09:** Dinamik Tüketim Dengesi (Nüfus × İklim) — Her canlı: 1 Erzak/gece; soğukta +1 Odun; karşılanamazsa donma/açlık ölümleri. **Kanıt (Codex):** TuketimDengesi / MevsimTuketimAdaptoru gerçek gece, ölüm, restore, native HUD ve 20 gece kontrolleri. **≡ MEV-02 / MEV-11**. (Codex)
 - [x] **EKO-10:** İflas ve Hazine Çöküşü Olayları — Köy Akçesi 3 gece üst üste <0 → tefeci baskını ve kamu mallarına el koyma. (Codex)
 
-- [/] **EKO-11:** Kişisel Kasa (`muhafiz_akce`) HUD Göstergesi (`src/arayuz/koy_hud/kese_gostergesi.gd` — **taslak hedef yol**) — Rüşvet geliri ve kişisel kesenin köy HUD'unda gösterimi; **≡ ODA-02** yüzeyi.
-- [ ] **EKO-12:** Ambar Kapasite Sınırı ve Bozulma/Ziyan Mantığı — Stok üst sınırı; aşım veya bekletmede ziyan/bozulma.
+- [x] **EKO-11:** Kişisel Kasa (`muhafiz_akce`) HUD Göstergesi (`src/arayuz/koy_hud/kese_gostergesi.gd` — **taslak hedef yol**) — Rüşvet geliri ve kişisel kesenin köy HUD'unda gösterimi; **≡ ODA-02** yüzeyi. (Codex)
+- [/] **EKO-12:** Ambar Kapasite Sınırı ve Bozulma/Ziyan Mantığı — Stok üst sınırı; aşım veya bekletmede ziyan/bozulma.
 - [ ] **EKO-13:** Zanaat Aletleri Aşınma ve Verim Düşüşü Adaptörü — Tarla/maden vb. üretimde alet aşınması → verim düşüşü.
 - [ ] **EKO-14:** Çift Kasa Arası Acil Kurtarma ve Zimmet Mekaniği — `koy_akce` ↔ `muhafiz_akce` acil transfer / zimmet tradeoff.
 - [ ] **EKO-15:** Gece Sonu Ayrıntılı Bilanço Sözlüğü — `gece_sonu()` dönüşüne ayrıntılı bilanço alanları.

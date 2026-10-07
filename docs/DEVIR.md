@@ -6,10 +6,10 @@ Güncel 7 Ekim 2026 talimatı: Claude’a görev devri iptal. Codex otonom geli�
 
 - Sorumlu: Codex. Claude görev devri kullanıcı tarafından iptal edildi; mesaj, limit devri ve geri alma yapılmaz.
 - Otomasyon: `gamedevoloper-limit-ve-claude-devri` PAUSED; eski prosedürler aşağıda yalnız tarihsel kayıttır.
-- Son tamamlanan madde: EKO-10. Kamu kasası üç ardışık gece negatifse tek tefeci baskını ve kamu varlığına el koyma; özel kese korunur.
+- Son tamamlanan madde: EKO-11 (kişisel kese HUD). EKO-10: Kamu kasası üç ardışık gece negatifse tek tefeci baskını ve kamu varlığına el koyma; özel kese korunur.
 - Doğrulama: work/sanity_eko10 tam koşu 0 başarısız, 20 gece dahil; kaynak native UI ve ayna birim/UI kontrolleri geçti. Çalışan test süreci yok.
-- Sıradaki: EKO-11 kişisel kese HUD. Önce doğrulanmış feature dalı festive ana dala entegre edilir.
-- Son yayımlanan HEAD: 994a2cb; EKO-10 kapanışı yayına hazırlanıyor. Commit/push kullanıcı tarafından yetkilendirildi.
+- Sıradaki: EKO-12 ambar kapasitesi/ziyan. Feature geçmişi festive ana dala birleştirildi; GitHub varsayılanı festive.
+- Son yayımlanan HEAD: 00040db (festive + feature); EKO-11 yayına hazırlanıyor. Commit/push kullanıcı tarafından yetkilendirildi.
 - İki yerel kopya bağımsız çalışmaları ve sırları koruyarak eşitlenir. Force-push yapılmaz. SYS-09 PR #2 birleşmeden CSV değiştirilmez.
 
 ## Tarihsel devir kayıtları (uygulanmaz)
@@ -124,3 +124,8 @@ Kullanıcı “Claude’a iş aktarma, sen devam et” dedi. Codex tek sorumlu o
 
 ## EKO-10 uygulama / doğrulama
 Kamu erişimcisi signed açık taşır; özel kese/stoklar sıfır alt sınırını korur. IflasYoneticisi üç negatif kapanışta bir kez kamu malına iadesiz el koyar. En yeni yapı gerçek ızgara/iş/barınak/üretim artığıyla birlikte çıkar; yapı yoksa konfigürasyon kamu stoğundan alır, kişisel keseye dokunmaz, borcu silmez. Optional doğrulanmış JSON ve gerçek rapor/HUD metin adaptörü. İlk restore kontrolünde kaldırılmış yapının kesirli üretim artığı bulundu; ortak çıkarma temizliğiyle düzeltildi. Genişletilmiş kaynak/el koyma/restore birimi ve eski harç-yıkım kontrolü geçti. Native gerçek gece düğmesi/rapor work/eko10_iflas.png incelendi. Tam sanity henüz yapılmadan madde kapanmaz. Claude devri iptal, Codex sorumlu.
+
+
+## EKO-11 kontrol noktası
+
+Kişisel kese ayrı HUD: gerçek rüşvet, kamu değişmezliği, eşya adedi, JSON geri dönüşü ve salt okunur çizim testleri geçti. Native screenshot work/eko11_kese.png okunur. Çift kasa ve HUD işlem/admin regresyonları geçti. İki eski SVG CP1254 → UTF-8 düzeltildi; kaynak import hatasız. Ayna ilk tam model importunda üretilen gömülü JPG kaynaklarına geçici erişim hatası verdi; ikinci import hatasız ve ayna UI kontrolü geçti. Claude devri iptal, otomasyon PAUSED.

@@ -238,3 +238,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Tüketim dengesi](tuketim-dengesi.md): EKO-09 nüfus/iklim ortak hesap, MEV-11 adaptörü.
 
 - [Kamu iflası](iflas.md): EKO-10 üç negatif gece ve iadesiz kamu varlığına el koyma.
+
+- [Kişisel kese](kisisel-kese.md) — EKO-11; kamu/kişisel HUD ayrımı.
