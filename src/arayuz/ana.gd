@@ -21,6 +21,7 @@ func _ready() -> void:
 	admin.baglam = self
 	add_child(admin)
 	TranslationServer.set_locale("tr")
+	GuvenliMetin.kur()  # BUG-07: eksik metin anahtarı kilitlemez
 	ayarlar = Ayarlar.new()
 	ayarlar.yukle()
 	ayarlar.uygula()

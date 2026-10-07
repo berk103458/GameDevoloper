@@ -1,7 +1,7 @@
 """Pre-merge local checks. Does not stage, commit, write CSV or touch user saves.
 
 python -B tools/sanity_check.py --godot /path/to/godot
-Defaults: CHR validation, Python tests, headless import, all unit scripts and
+Defaults: CHR validation, CSV/key validation (SYS-09/KVR-11), Python tests, headless import, all unit scripts and
 isolated CHR/village UI scenarios. Logs go to work/sanity (gitignored).
 """
 from __future__ import annotations
@@ -52,6 +52,7 @@ def find_godot(explicit=None):
 
 def checks(godot, root):
     yield "chr-source", [sys.executable, "-B", "tools/chr_parser.py", "--check"], None
+    yield "metin-csv", [sys.executable, "-B", "tools/metin_dogrula.py", "--kaynak"], None
     yield "python-tests", [sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests/tools"], None
     yield "startup-source", [sys.executable, "-B", "tools/acilis_denetimi.py"], None
     yield "protected-api", [sys.executable, "-B", "tools/api_sozlesmesi.py"], None

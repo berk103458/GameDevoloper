@@ -12,6 +12,8 @@ const KURALLAR: Array[StringName] = [&"hic_donmez", &"oranla_doner", &"birden_co
 var durum: Durum = Durum.YUKLENMEDI
 ## Doğrulama hataları (dosya + kural).
 var hatalar: PackedStringArray = []
+## BUG-07: eksik/boş metin anahtarı oyunu kilitlemez; uyarı olur (GuvenliMetin, sanity_check yakalar).
+var uyarilar: PackedStringArray = []
 var ayarlar: OyunAyarlari
 ## Köy yönetimi ayarları ve yapı kataloğu (design/gdd/koy-yonetimi.md).
 var koy_ayarlari: KoyAyarlari
@@ -26,6 +28,7 @@ var _sira_olaylari: Dictionary = {}
 ## Verilen kök klasörden tüm içeriği yükler ve doğrular. Testler fixture kökü verir.
 func yukle(kok: String = "res://data") -> Durum:
 	hatalar = []
+	uyarilar = []
 	_karakterler = _klasor_yukle(kok + "/karakterler")
 	_sohbetler = _klasor_yukle(kok + "/sohbetler")
 	_siniflar = _klasor_yukle(kok + "/siniflar")
@@ -173,6 +176,5 @@ func _secenek_dogrula(secenekler: PackedStringArray, kim: String) -> void:
 
 
 func _anahtar_dogrula(anahtar: String, kim: String) -> void:
-	var metin := TranslationServer.translate(anahtar)
-	if metin == anahtar or metin.strip_edges().is_empty():
-		hatalar.append("%s: metin anahtarı tabloda yok ya da boş: %s" % [kim, anahtar])
+	if GuvenliMetin.eksik_mi(anahtar):
+		uyarilar.append(GuvenliMetin.uyar("%s: metin anahtarı tabloda yok ya da boş: %s" % [kim, anahtar]))
