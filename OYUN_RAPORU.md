@@ -876,3 +876,8 @@ Sıradaki: EKO-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 EKO-06 aşınma adaptörü korundu; tarla/taş ocağı/demir madeninde son aletli tam üretim ve sonraki %30 verim doğrulandı. Mevcut alet HUD ipucu gerçek stok/kesir/ortak dengeyi salt okunur gösteriyor. Dört ilgili birim, headless/native UI, kaynak/ayna import ve API denetimi geçti.
 
 Sıradaki: EKO-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Cursor — BUG-03 (7 Ekim 2026)
+
+Rüşvet kabul ve ret kararında diyalog kutusu `anlati.sonuc.rusvet` / `anlati.sonuc.ret` satırını ve varsa çevrilmiş ziyaretçi yanıtını alır; konuşma mevcut `sfx_chr_sikke` veya `sfx_chr_deri` ile tetiklenir. `73f8172` UID denetimiydi, sessizlik ayrı kaldı. Yeni ses, görsel veya model üretilmedi. Ayrı seslendirme dosyası yok. CSV, KAP-02/03, EKO-14 ve SYS-09 validator değişmedi. Godot ikili bu ortamda yoksa headless test koşusu raporda ayrıca yazılır. Ahmet ve ds Windows kopyaları bu makinede yok.

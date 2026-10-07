@@ -539,7 +539,11 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	if anahtar == "rusvet" or anahtar == "elkoy":
 		Ses.cal(&"sfx_kese")
 	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)
-	_yaz(tr("anlati.sonuc." + anahtar) % tr(_gelen.ad_anahtari))
+	var replik := preload("res://src/kapi/karar_replik_adaptoru.gd")
+	if replik.ilgilendirir(anahtar):
+		_karar_replik_dusur(replik, anahtar)
+	else:
+		_yaz(tr("anlati.sonuc." + anahtar) % tr(_gelen.ad_anahtari))
 	if sonuc["kaldi"]:
 		_yaz("[i]%s[/i]" % (tr("anlati.koy.yazildi") % tr(_gelen.ad_anahtari)))
 	if sonuc.get("harc", false):
@@ -553,7 +557,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 		_yaz("[i][color=#C4843A]%s[/color][/i]" % tr("anlati.heybe.gasp"))
 	if sonuc.get("durust_arandi", false):
 		_yaz("[i][color=#C4843A]%s[/color][/i]" % tr("anlati.heybe.durust"))
-	if _gelen.yanitlar.has(anahtar):
+	if not replik.ilgilendirir(anahtar) and _gelen.yanitlar.has(anahtar):
 		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), str(_gelen.yanitlar[anahtar])])
 	hud.guncelle()
 	_daralt(false)
@@ -564,6 +568,16 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	if so != null and await _sira_olayi(so):
 		return
 	_siradaki()
+
+
+## BUG-03: rüşvet ve ret satırını kutuya yazar, mevcut foley ile konuşturur.
+func _karar_replik_dusur(adaptoru: GDScript, anahtar: String) -> void:
+	var paket: Dictionary = adaptoru.uygula(_gelen, anahtar)
+	for satir in paket["satirlar"]:
+		_yaz(String(satir))
+	var metin := String(paket["metin"])
+	if sahne != null and not metin.is_empty():
+		sahne.gelen_konus(clampf(metin.length() / 28.0, 1.5, 5.0))
 
 
 ## Sıra olayı: kuyrukta olan canlandırılır, bekçi seçer, sonucu oynar. Bar kırıldıysa true.
