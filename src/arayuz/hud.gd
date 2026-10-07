@@ -128,6 +128,7 @@ func guncelle() -> void:
 		var l: KaynakGostergesi = _stok_etiketleri[t]
 		l.guncelle(k.miktar(t), int(_net.get(t, 0)), t == "gida" and y.gida_gunu() < 2.0 and y.nufus() > 0)
 		if t in ["gida", "odun"]: l.tooltip_text = TuketimDengesi.tip(y, t)
+		if t == "alet": l.tooltip_text = AletAsinmaBilgisi.tip(y)
 	_huzur_etiket.text = (tr("arayuz.hud.isyan") % y.isyan_kalan) if y.isyan_kalan >= 0 else tr("arayuz.hud.huzur") % y.huzur()
 	_huzur_bar.value = y.huzur()
 	_huzur_bar.tooltip_text = _huzur_etiket.text

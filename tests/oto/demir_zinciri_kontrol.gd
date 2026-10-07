@@ -37,9 +37,16 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_kontrol(r.uretim.get("demir", 0) >= 2 and r.uretim.get("alet", 0) >= 1, "Gerçek UI modelinde demir ve alet üretimi")
 	_kontrol(_metin(ekran._bilgi_icerik).contains("Demir · 2 cevher + 1 odun"), "Ocak girdileri oyuncuya görünür")
+	y.alet_asinma = 0.4
+	ekran.hud.guncelle()
+	_kontrol(ekran.hud._stok_etiketleri["alet"].tooltip_text.contains("%40"), "EKO-13 gerçek birikmiş aşınma mevcut alet göstergesinde")
+	var salt := y.kaydet()
+	ekran.hud.guncelle()
+	_kontrol(y.kaydet() == salt, "Aşınma HUD çiziminde ilerlemez")
 	y.kaynaklar.azalt("alet", 10000)
 	ekran._yenile()
 	await get_tree().process_frame
+	_kontrol(ekran.hud._stok_etiketleri["alet"].tooltip_text.contains("%30"), "EKO-13 aletsiz verim gerçek göstergede")
 	_kontrol(_metin(ekran._bilgi_icerik).contains("Alet yok · üretim −%70"), "Alet yokluğu bina bilgi panelinde açıklanır")
 	for tur in ["cevher", "demir"]:
 		_kontrol(ekran.hud._stok_etiketleri.has(tur), "Stok HUD'a bağlı: " + tur)

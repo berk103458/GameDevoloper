@@ -242,3 +242,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kişisel kese](kisisel-kese.md) — EKO-11; kamu/kişisel HUD ayrımı.
 
 - [Ambar bakımı](ambar-bakimi.md) — EKO-12; kapasite daralması ve gecelik gıda ziyanı.
+
+- [Alet aşınması](alet-asinmasi.md) — EKO-13; mevcut adaptör, son alet geçişi ve salt okunur HUD.

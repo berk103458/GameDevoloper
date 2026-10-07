@@ -21,4 +21,4 @@ EKO-02 kereste/yakacak, EKO-05 harç; KoyYonetimi gerçek gece üretimi, Kaynakl
 Yeni yapı, reçete, aletsiz çarpan, aşınma ve alet gereken türler data/koy/demir_zinciri.json içinde açık denge varsayımlarıdır.
 
 ## Acceptance Criteria
-Gerçek gecede cevher/demir/alet; aletsiz %70 düşüş gerçek model ve salt okunur önizlemede eşit; fiili üretimde alet tükenmesi; duruşta aşınma olmaması; eski/yeni JSON, bozuk kayıt; gerçek UI stok/maliyet/açıklama; native görüntü, ayna ve tam regresyon geçmeden ROADMAP kapanmaz. EKO-13 ayrı detaylı aşınma paketi bu maddeyle otomatik kapatılmaz.
+Gerçek gecede cevher/demir/alet; aletsiz %70 düşüş gerçek model ve salt okunur önizlemede eşit; fiili üretimde alet tükenmesi; duruşta aşınma olmaması; eski/yeni JSON, bozuk kayıt; gerçek UI stok/maliyet/açıklama; native görüntü, ayna ve tam regresyon geçmeden ROADMAP kapanmaz. EKO-13 detaylı aşınma doğrulaması ve HUD ipucu [alet aşınması](alet-asinmasi.md) paketinde ayrıca kapanır.
