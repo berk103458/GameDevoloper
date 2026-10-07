@@ -134,13 +134,13 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [x] **EKO-12:** Ambar Kapasite Sınırı ve Bozulma/Ziyan Mantığı — Stok üst sınırı; aşım veya bekletmede ziyan/bozulma. (Codex)
 - [x] **EKO-13:** Zanaat Aletleri Aşınma ve Verim Düşüşü Adaptörü — Tarla/maden vb. üretimde alet aşınması → verim düşüşü. (Codex)
 - [x] **EKO-14:** Çift Kasa Arası Acil Kurtarma ve Zimmet Mekaniği — `koy_akce` ↔ `muhafiz_akce` acil transfer / zimmet tradeoff. (Codex)
-- [/] **EKO-15:** Gece Sonu Ayrıntılı Bilanço Sözlüğü — `gece_sonu()` dönüşüne ayrıntılı bilanço alanları.
+- [x] **EKO-15:** Gece Sonu Ayrıntılı Bilanço Sözlüğü — `gece_sonu()` dönüşüne ayrıntılı bilanço alanları. (Codex)
 
 ---
 
 ## BÖLÜM 5: Yaşayan Köy, Zanaat Rutinleri ve Görsel Polish
 
-- [ ] **ANI-01:** Muhafız Modellerine Silah ve Meşale Soketleri — Kılıç, kalkan, mızrak; geceleri dinamik ışıklı meşale.
+- [/] **ANI-01:** Muhafız Modellerine Silah ve Meşale Soketleri — Kılıç, kalkan, mızrak; geceleri dinamik ışıklı meşale.
 - [ ] **ANI-02:** Muhafız Dinamik Nöbet ve Devriye Rotası — Kapı, kışla ve sur kuleleri arasında düzenli yürüyüş.
 - [ ] **ANI-03:** Çiftçi ve Bostancı Su Taşıma Rutini — Kuyu → kova → su arkı hendekleri döngüsü.
 - [ ] **ANI-04:** Oduncu ve Öküz Tomruk Taşıma Rotası — Orman → balta → tomruk öküzle hızara.

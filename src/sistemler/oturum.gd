@@ -239,7 +239,9 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 
 ## Gece hesaplaşması (Faz 3). Döner: {olaylar: [{anahtar, deger}], kirilan (-1), rusvet_harcandi (-1),
 ## son: StringName ("" | halk_kirildi | isyan | tekfur | zafer), perde_degisti (Ağalık bu gece), olay, rapor}.
+## bilanco: kamu/kişisel açılış-kapanış, gerçek vergi/maaş ve tüm stokların mutabakatı (EKO-15).
 func gece_sonu() -> Dictionary:
+	var bilanco_once := GeceBilancosu.fotograf(self)
 	var agalik_once := yonetim.agalik
 	var r := yonetim.gece()
 	_koy_esitle()
@@ -248,6 +250,7 @@ func gece_sonu() -> Dictionary:
 		"perde_degisti": not agalik_once and yonetim.agalik, "olay": null, "rapor": r}
 	if r["son"] == "" and not sonuc["perde_degisti"]:
 		sonuc["olay"] = olay_sec()
+	sonuc["bilanco"] = GeceBilancosu.olustur(self, bilanco_once, r)
 	return sonuc
 
 

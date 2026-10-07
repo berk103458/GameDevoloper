@@ -246,3 +246,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Alet aşınması](alet-asinmasi.md) — EKO-13; mevcut adaptör, son alet geçişi ve salt okunur HUD.
 
 - [Kasa transferi](kasa-transferi.md) — EKO-14; acil kurtarma ve bedelli günlük zimmet.
+
+- [Gece bilançosu](gece-bilancosu.md) — EKO-15; gerçek kamu/kişisel ve stok mutabakat sözlüğü.
