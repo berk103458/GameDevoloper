@@ -12,7 +12,7 @@ static func degistir(o: Oturum, alan: String, fark: int) -> Dictionary:
 	var sonra: int
 	if alan in ["koy_akce", "muhafiz_akce"]:
 		once = int(o.get(alan))
-		sonra = maxi(once + fark, 0)
+		sonra = once + fark if alan == "koy_akce" else maxi(once + fark, 0)
 		o.set(alan, sonra)
 	else:
 		var kaynak := o.yonetim.kaynaklar

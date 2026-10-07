@@ -236,3 +236,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Vergi politikası](vergi-politikasi.md): EKO-08 vergi, Moral ve hazineden ayrı ekonomik Refah.
 
 - [Tüketim dengesi](tuketim-dengesi.md): EKO-09 nüfus/iklim ortak hesap, MEV-11 adaptörü.
+
+- [Kamu iflası](iflas.md): EKO-10 üç negatif gece ve iadesiz kamu varlığına el koyma.

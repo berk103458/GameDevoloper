@@ -839,3 +839,10 @@ Kullanıcı “Claude’a iş aktarma, sen devam et” dedi. Codex tek sorumlu o
 TuketimDengesi ve gerçek src/dunya/mevsim_tuketim_adaptoru.gd (MEV-11) ile her yaşayan köylü/yaş grubu kişi başı 1 Erzak, soğukta +1 Odun; kuraklık/fırtına çarpanları ortak hesapta. Önceki hane tarifi EKO-09 kişi sözleşmesine geçirildi, eski ayar alanı uyumluluk için kaldı. Gerçek gece tüketimi, gıda süresi ve HUD tooltip aynı formülü kullanır; açlık/soğuk sağlık ve gerçek ölüm/RNG döngüsü korunur. Üç kişinin aynı gerçek kulübede üç odun tüketmesi, boş nüfus, dört iklim, ölüm ve kayıt restore source/aynada geçti. Native HUD tooltip görüntüsü incelendi, ayna import/UI geçti. Tam sanity work/sanity_eko09 ve 20 gece: 0 başarısız. MEV-11 tamamlandı; MEV-02 özel 1–3 donma olayı ayrıca açık. Claude devir kuralı kullanıcının son talimatıyla iptal edildi; otomasyon PAUSED, Codex devam eder.
 
 Sıradaki: EKO-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — EKO-10 (7 Ekim 2026)
+
+Üç ardışık negatif kamu kapanışında tek tefeci baskını; kamu bina/stok el koyması, özel kese korunması, eski/yeni JSON ve gerçek gece/UI kontrolleri geçti. Tam sanity 0 başarısız, 20 gece dahil; iki kopya doğrulandı. Claude devri iptal, Codex sorumlu.
+
+Sıradaki: EKO-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

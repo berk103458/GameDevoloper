@@ -1,0 +1,9 @@
+{
+  "eksi_gece_esigi": 3,
+  "stok_el_koyma": {
+    "kereste": 5,
+    "tas": 5,
+    "odun": 5,
+    "gida": 5
+  }
+}
