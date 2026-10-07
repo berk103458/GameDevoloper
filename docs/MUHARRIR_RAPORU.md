@@ -48,3 +48,8 @@ EKO-15 3522842 festive üzerinde. Yeni MuhafizDonanimi mevcut ElEsyasi API'sini 
 ## ANI-02 kontrol noktası — 8 Ekim 2026
 ANI-01 05fb593 festive'e pushlandı; 126 sanity kontrolü/20 gece geçti. ANI-02 yeni src/koy/gorsel/muhafiz_devriyesi.gd ve JSON hedef/ölçü ayarları; mevcut halk kuyruğuna hedef/bekleme adaptörü, mevcut sahneye tek kule dekoratörü çağrısı. Nöbetçi zeminde kule önüne yürür; platforma çıkma animasyonu yoktur. Kışla/kapı/dört kule, gece devamı, eksik/yanmış/kopuk durak ve görevi bırakma gerçek testlerle doğrulandı. 14 ilgili kontrol 0 hata, 20 gece dahil; native görüntü ve ds ayna import/sahne geçti. Testin ilk girinti, ambar fixture ve geçici düğüm adı beklentileri düzeltildi; son testler hatasızdır.
 ANI-02 [x] (Codex); sıradaki ANI-03 kuyu/kova/sulama rutini. ds kopyaları eşit; Ahmet Windows yolu yok, full pull uygulanamadı. CSV, eski mimari ve çekirdek API korunur; Claude devri iptal. Olgun paket normal festive commit/push.
+
+
+## ANI-03 kontrol noktası — 8 Ekim 2026
+ANI-02 95edcf7 festive'e pushlandı. Yeni src/koy/gorsel/sulama_rutini.gd + dış JSON; mevcut ElEsyasi.kova ve A* kuyruğunda kuyu/sulama/dinlenme. Hazır tarla/bostan görseline ark adaptörü; gerçek kuyu konumu aynı ayardan gelir. Kova doluluğu ve yalnız varışta su akışı, kış/gece filtreleri ve CHR görünürlüğünü geri verme; kayıt/üretim bonusu/ikinci simülasyon yoktur. 14 ilgili kontrol 0 hata, izole 20 gece dahil; native RTX3060 gerçek çiftçi görüntüsü ve ayna import/sahne geçti.
+ANI-03 [x] (Codex), sıradaki ANI-04 oduncu/öküz tomruk rotası. İki ds kopyası eşit; Ahmet Windows yolu yok, oraya full pull uygulanamadı. SYS-09 CSV kilidi ve Claude devri iptali korunur. Olgun paket normal festive commit/push.

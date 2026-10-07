@@ -252,3 +252,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Muhafız donanımı](muhafiz-donanimi.md) — ANI-01: mevcut el soketleri, gece meşalesi ve sınırlı dinamik ışık.
 
 - [Muhafız devriyesi](muhafiz-devriyesi.md) — ANI-02: mevcut A* üzerinde kapı/kışla/sur nöbet döngüsü.
+
+- [Su taşıma rutini](sulama-rutini.md) — ANI-03: mevcut halk kuyruğunda kuyu/kova/su arkı döngüsü.

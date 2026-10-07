@@ -18,6 +18,7 @@ func eylem(id: int) -> String:
 	if d.is_empty(): return "Durum yok"
 	if int(d.adim) < d.yol.size(): return "Yürüyor"
 	var k := sahne.yonetim.koylu(id)
+	if d.get("sulama", false): return String(d.get("sulama_ad", "Sulama bekliyor"))
 	if d.get("devriye", false): return String(d.get("devriye_ad", "Nöbette"))
 	if faz_adi == &"gece": return "Ev önünde" if k != null and k.ev >= 0 else "Meydanda"
 	if faz_adi != &"gunduz": return "Meydanda"
@@ -82,8 +83,14 @@ func _process(delta: float) -> void:
 				if d.adim < d.yol.size():
 					_adim(id)
 				else:
+					SulamaRutini.varis(f, d.get("sulama", false) and int(d.get("sulama_i", 0)) == 1)
 					f.bak(d.bak)
 					f.calis(&"calis" if d.is else &"")
+		elif d.get("sulama", false):
+			d.bekle += delta
+			if d.bekle >= float(SulamaRutini.AYAR.sureler[d.sulama_i]):
+				d.sulama_i = (int(d.sulama_i) + 1) % 3
+				_iste(id)
 		elif d.get("devriye", false):
 			d.bekle += delta
 			if d.bekle >= float(MuhafizDevriyesi.AYAR.durak_suresi):
@@ -134,6 +141,18 @@ func _planla(id: int) -> void:
 		d.bak = _konum(son) + Vector3.FORWARD * -sahne.HUCRE
 		d.devriye_ad = "Nöbette" if nobet.is_empty() else nobet.ad
 		if not nobet.is_empty(): d.devriye_i = nobet.sira
+	d.sulama = SulamaRutini.aday(sahne.yonetim, k, faz_adi)
+	if d.sulama:
+		d.sulama_i = int(d.get("sulama_i", 0))
+		var su := SulamaRutini.hedef(self, k, bas, d.sulama_i)
+		d.is = not su.is_empty() and d.sulama_i == 1
+		d.dinlen = d.sulama_i == 2
+		son = bas if su.is_empty() else su.son
+		d.bak = f.position if su.is_empty() else su.bak
+		d.sulama_ad = "Sulama yolu kapalı" if su.is_empty() else su.ad
+	else:
+		d.sulama_i = 0
+	SulamaRutini.esya(f, d.sulama, int(d.sulama_i))
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false
