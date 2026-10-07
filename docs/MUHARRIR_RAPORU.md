@@ -16,3 +16,9 @@ Ahmet/Muharrir'e iletilebilir tam dosya tablosu ve 14 madde: docs/denetim/2026-1
 ## Yayın doğrulaması
 
 Denetim ve UID düzeltmesi `73f8172` commit’iyle origin/claude/festive-volta-li1sfm dalına pushlandı; uzak SHA canlı doğrulandı. Kaynak ve ds GitHub kopyası aynı HEAD/izlenen içerikte; dirty/untracked kaynak yok. Tam sanity 0 başarısız / 20 gece. Ahmet’in gerçek yerel dosyası erişilebilir olmadığı için orada çözüldü denmez; `_iskelet`/EL_KEMIGI farkı için uzak içerik denetimi raporda. Bu belge kontrol noktası yayın sonucunu kaydeder.
+
+
+## EKO-12 kontrol noktası — 7 Ekim 2026
+AmbarBakimi + data/koy/ambar_bakimi.json; Kaynaklar kapasite/optional bakım kaydı, KoyYonetimi tüketim sonrası bakım, mevcut Hud ipucu ve rapor metni ince adaptörleri. Başlangıç/kayıt/kapasite daralması stoğu sınırlar; kalan gıda gecelik %2 bozulur; kesir, bekleyen taşma ve aynı gün koruması kayıtta korunur. CSV/kişisel-kamu kasa/RNG değişmez. ROADMAP EKO-12 [x] (Codex); sıradaki EKO-13.
+120 sanity kontrolünün son logları 0 başarısız: ilk koşuda dört eski test beklentisi başarısız oldu; iflas/odun/tahıl/zanaat testleri ayar ve bozulma hesabı düzeltildikten sonra tekrar geçti (work/sanity_eko12_final/summary.json). 20 gece duman, gerçek Ana/Hud, native RTX3060 görüntüsü ve ayna import geçti. Diğer restore fixture'ları aynı dış denge ayarlarını yüklemeden önce verir. Aynı ana UI ikinci panelle değiştirilmedi.
+Ahmet Windows yolu bu makinede yok; full pull uygulanamadı. Önceki açılış denetimi docs/denetim/2026-10-07-acilis.md geçerlidir; bildirilen eski _iskelet/EL_KEMIGI kodu festive'de yok. Claude devri iptal. Paket normal festive commit/push için doğrulandı; bu repo raporu doğrudan muhataba teslim iddiası değildir.

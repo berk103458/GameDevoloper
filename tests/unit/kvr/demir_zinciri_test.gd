@@ -47,6 +47,7 @@ func _initialize() -> void:
 	AtamaOnizlemesi.brut(y, tarla)
 	KoyluDenetcisi.satirlar(o)
 	_kontrol(y.kaydet() == gozlem, "Denetçi ve atama önizlemesi stok/aşınma/RNG değiştirmez")
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	_kontrol(geri.yonetim.kaynaklar.miktar("cevher") == y.kaynaklar.miktar("cevher") and geri.yonetim.alet_asinma == y.alet_asinma, "Cevher/aşınma JSON dönüşümünde korunur")
 	# Girdisiz ocak, tam ambar ve boş iş aşınma üretmez.

@@ -32,6 +32,7 @@ func _initialize() -> void:
 	y._uret(u, olaylar)
 	_kontrol(u.is_empty() and y.kaynaklar.kaydet() == once and firin.bekliyor == "girdi", "Unsuz fırın mevcut gıdayı atlatmaz; odun da tüketmez")
 	y.kaynaklar.ekle("un", 5)
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	_kontrol(geri.yonetim.kaynaklar.miktar("un") == 5 and geri.yonetim.bina(firin.id).recete == "ekmek", "Yeni stok ve tarif JSON dönüşümünde korunur")
 	_kontrol(y.katalog.receteler("tarla").has("gida") and y.katalog.receteler("degirmen").has("ogutme"), "Eski tarif kimlikleri ve sebze/erzak yolu korunur")

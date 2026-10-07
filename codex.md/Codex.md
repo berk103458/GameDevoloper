@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-7 Ekim 2026. Festive kontrol edilen uç: 00040db; özellik dalı feature/kvr-runtime festive geçmişiyle birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 00040db. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+7 Ekim 2026. Festive kontrol edilen uç: 93a9a0b; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 93a9a0b. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -98,22 +98,16 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - EKO-09: TuketimDengesi ve gerçek src/dunya/mevsim_tuketim_adaptoru.gd (MEV-11) ile her yaşayan köylü/yaş grubu kişi başı 1 Erzak, soğukta +1 Odun; kuraklık/fırtına çarpanları ortak hesapta. Önceki hane tarifi EKO-09 kişi sözleşmesine geçirildi, eski ayar alanı uyumluluk için kaldı. Gerçek gece tüketimi, gıda süresi ve HUD tooltip aynı formülü kullanır; açlık/soğuk sağlık ve gerçek ölüm/RNG döngüsü korunur. Üç kişinin aynı gerçek kulübede üç odun tüketmesi, boş nüfus, dört iklim, ölüm ve kayıt restore source/aynada geçti. Native HUD tooltip görüntüsü incelendi, ayna import/UI geçti. Tam sanity work/sanity_eko09 ve 20 gece: 0 başarısız. MEV-11 tamamlandı; MEV-02 özel 1–3 donma olayı ayrıca açık. Claude devir kuralı kullanıcının son talimatıyla iptal edildi; otomasyon PAUSED, Codex devam eder.
 - EKO-10: Üç ardışık negatif kamu kapanışında tek tefeci baskını; kamu bina/stok el koyması, özel kese korunması, eski/yeni JSON ve gerçek gece/UI kontrolleri geçti. Tam sanity 0 başarısız, 20 gece dahil; iki kopya doğrulandı. Claude devri iptal, Codex sorumlu.
 - EKO-11: Kişisel kese HUD eklendi; gerçek rüşvet sinyali, kamu/kişisel ayrımı, eşya adedi, JSON geri dönüşü ve salt okunur çizim UI testinde geçti. Native ekran büyük bakiyeyi okunur gösterdi; çift kasa ve HUD regresyonları geçti. İki eski SVG UTF-8 kodlaması düzeltildi.
+- EKO-12: Ambar kapasite daralması/restore sınırı, gecelik %2 kalan gıda bozulması, kesir/gece/pending kayıp JSON, mevcut HUD ipucu ve ayrı ziyan raporu. 120 kontrol (düzeltilen dört test tekrar geçti), izole 20 gece, native UI ve ayna import geçti.
 
 ## Sonraki çalışma
-EKO-12. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+EKO-13. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 
-## Son yayın / yeni kalıcı talimatlar
-EKO-10 ve EKO-11 `[x] (Codex)`, festive'e entegre ve push edildi; yayımlanan kod kontrol noktası 3424234. GitHub varsayılan dalı festive. Kaynak ve ds GitHub kopyası aynı HEAD; çalışma dalı artık festive. Ahmet'in ajan düzeni `codex.md/SOUL.md` ve AGENTS.md'ye kaydedildi. Claude devri iptal; otomasyon PAUSED. Sıradaki EKO-12 incelemesi başladı, henüz kod yazılmadı. Ahmet'in yeni Windows kopyası bu makinede mevcut değil; full pull uygulanamadı.
-
-
-## Açılış / eksik commit denetimi — 7 Ekim 2026
-Yayımlanmış a225fba festive'in izlenen dosyaları temiz arşivden Godot 4.7.2 ile import edildi; 20 Ses/Ana sınıfı parse, gerçek ana menü, Katalog HAZIR ve input/havuz testi geçti. Eski 2a98ff5 commit'inden kalan kapi_kuyrugu_test.gd.uid merge artığı düzeltildi. Yeni statik denetim ve gerçek açılış testi sanity'ye eklendi. Ahmet de aynı engine sürümünü doğruladı. Bildirdiği `_iskelet`/`EL_KEMIGI` 338–349 hataları güncel 330 satırlık karakter_model.gd'de bulunmuyor; yerel dosya/buffer farkı araştırılmalı. Eski keen değişkenleri için sahte stub eklenmedi. Detay ve son oturum dosya manifesti docs/denetim/2026-10-07-acilis.md. Tam regresyon work/sanity_acilis_denetimi: 0 başarısız, 20 gece dahil. Kaynak/ayna statik uzak içerik, import ve gerçek açılış geçti; olgun denetim paketi festive yayınına hazır. EKO-12 aktif inceleme, kod yok; yeni hata denetimi önce tamamlanır.
-
-
-## Yayın doğrulaması
-
-Denetim ve UID düzeltmesi `73f8172` commit’iyle origin/claude/festive-volta-li1sfm dalına pushlandı; uzak SHA canlı doğrulandı. Kaynak ve ds GitHub kopyası aynı HEAD/izlenen içerikte; dirty/untracked kaynak yok. Tam sanity 0 başarısız / 20 gece. Ahmet’in gerçek yerel dosyası erişilebilir olmadığı için orada çözüldü denmez; `_iskelet`/EL_KEMIGI farkı için uzak içerik denetimi raporda. Bu belge kontrol noktası yayın sonucunu kaydeder.
+## EKO-12 kontrol noktası — 7 Ekim 2026
+AmbarBakimi + data/koy/ambar_bakimi.json; Kaynaklar kapasite/optional bakım kaydı, KoyYonetimi tüketim sonrası bakım, mevcut Hud ipucu ve rapor metni ince adaptörleri. Başlangıç/kayıt/kapasite daralması stoğu sınırlar; kalan gıda gecelik %2 bozulur; kesir, bekleyen taşma ve aynı gün koruması kayıtta korunur. CSV/kişisel-kamu kasa/RNG değişmez. ROADMAP EKO-12 [x] (Codex); sıradaki EKO-13.
+120 sanity kontrolünün son logları 0 başarısız: ilk koşuda dört eski test beklentisi başarısız oldu; iflas/odun/tahıl/zanaat testleri ayar ve bozulma hesabı düzeltildikten sonra tekrar geçti (work/sanity_eko12_final/summary.json). 20 gece duman, gerçek Ana/Hud, native RTX3060 görüntüsü ve ayna import geçti. Diğer restore fixture'ları aynı dış denge ayarlarını yüklemeden önce verir. Aynı ana UI ikinci panelle değiştirilmedi.
+Ahmet Windows yolu bu makinede yok; full pull uygulanamadı. Önceki açılış denetimi docs/denetim/2026-10-07-acilis.md geçerlidir; bildirilen eski _iskelet/EL_KEMIGI kodu festive'de yok. Claude devri iptal. Paket normal festive commit/push için doğrulandı; bu repo raporu doğrudan muhataba teslim iddiası değildir.

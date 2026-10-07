@@ -28,6 +28,7 @@ func _initialize() -> void:
 	var sonraki := y.gece()
 	k.moral = 50
 	_kontrol(is_equal_approx(float(sonraki["uretim"]["gida"]) + float(y._artik.get(artik_anahtari, 0.0)) - onceki_artik, 3.52), "Kalfa bonusu sonraki gerçek üretimde kullanılır")
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	geri.yonetim.a = y.a.duplicate(true)
 	geri.yonetim._ambar_kapasitesi()

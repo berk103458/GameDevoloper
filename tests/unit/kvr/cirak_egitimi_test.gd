@@ -22,6 +22,7 @@ func _initialize() -> void:
 		y.gece()
 		_kontrol(k.egitim.get("gece") == n and k.stat == 3, "Gerçek ortak gece: %d" % n)
 	var v := JSON.parse_string(JSON.stringify(o.kaydet())) as Dictionary
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, v)
 	geri.yonetim.a = y.a.duplicate(true)
 	geri.yonetim._ambar_kapasitesi()

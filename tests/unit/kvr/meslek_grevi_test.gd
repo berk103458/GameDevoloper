@@ -21,6 +21,7 @@ func _initialize() -> void:
 	var rapor := y.gece()
 	_kontrol(rapor["uretim"].is_empty() and y.kaynaklar.miktar("demir") == demir and y.kaynaklar.miktar("kereste") == kereste and k.gelisim.is_empty(), "Gerçek grev üretim/girdi/XP yi durdurur")
 	_kontrol(k.grev.gece == 1 and rapor["olaylar"].any(func(e: Dictionary) -> bool: return e["anahtar"].contains("greve başladı")), "Grev gerçek gece raporu ve sayacı")
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	geri.yonetim.a = y.a.duplicate(true)
 	geri.yonetim._ambar_kapasitesi()

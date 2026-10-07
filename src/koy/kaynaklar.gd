@@ -6,13 +6,18 @@ extends RefCounted
 const TURLER: Array[String] = ["gida", "odun", "tas", "kereste", "alet", "kurk", "demir", "tomruk", "bugday", "un", "kirec", "harc", "cevher"]
 
 var stok: Dictionary = {}
-var kapasite: int = 150
+var bakim: Dictionary = {"artik": {}, "tasma": {}, "son_gece": -1}
+var kapasite: int = 150:
+	set(v):
+		kapasite = maxi(0, v)
+		AmbarBakimi.sinirla(self)
 
 
 func _init(kapasite_: int = 150, baslangic: Dictionary = {}) -> void:
 	kapasite = kapasite_
 	for t in TURLER:
-		stok[t] = int(baslangic.get(t, 0))
+		stok[t] = maxi(0, int(baslangic.get(t, 0)))
+	AmbarBakimi.sinirla(self)
 
 
 func miktar(tur: String) -> int:
@@ -66,12 +71,15 @@ func azalt(tur: String, adet: int) -> int:
 
 
 func kaydet() -> Dictionary:
-	return {"stok": stok.duplicate(), "kapasite": kapasite}
+	return {"stok": stok.duplicate(), "kapasite": kapasite, "bakim": bakim.duplicate(true)}
 
 
 static func kayittan(v: Dictionary) -> Kaynaklar:
 	var k := Kaynaklar.new(int(v.get("kapasite", 150)))
-	var s: Dictionary = v.get("stok", {})
-	for t in s:
-		k.stok[t] = int(s[t])
+	k.bakim = AmbarBakimi.oku(v.get("bakim"))
+	var s: Dictionary = v.get("stok", {}) if v.get("stok", {}) is Dictionary else {}
+	for t in TURLER:
+		var n: Variant = s.get(t, 0)
+		k.stok[t] = clampi(int(n), 0, 1000000000) if (n is int or n is float) and is_finite(float(n)) else 0
+	AmbarBakimi.sinirla(k)
 	return k

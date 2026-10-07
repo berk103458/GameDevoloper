@@ -18,6 +18,7 @@ func _initialize() -> void:
 	var rapor := y.gece()
 	_kontrol(k.zanaat_kazasi.get("tur") == "yanik" and ZanaatKazalari.durur(k) and k.saglik == 80, "Gerçek uyumsuz ocak kazası yanık/sağlık/duruş üretir")
 	_kontrol(rapor["olaylar"].any(func(e: Dictionary) -> bool: return e["anahtar"].contains("ocakta yandı")), "Yanık gerçek gece raporunda")
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	geri.yonetim.a = y.a.duplicate(true)
 	geri.yonetim._ambar_kapasitesi()
@@ -44,7 +45,7 @@ func _initialize() -> void:
 	var gida := y.kaynaklar.miktar("gida")
 	var tedavi := y.gece()
 	_kontrol(k.zanaat_kazasi.is_empty() and k.saglik == 100 and not k.bayrak_var("agir_yarali"), "Gerçek gece Şifahane yanığı ve kazaya ait bayrağı iyileştirir")
-	_kontrol(y.kaynaklar.miktar("gida") == gida - 2 - int(tedavi["tuketim"]["gida"]) and tedavi["olaylar"].any(func(e: Dictionary) -> bool: return e["anahtar"].contains("Şifahane")), "Tedavi gerçek iki erzak ve raporu kullanır")
+	_kontrol(y.kaynaklar.miktar("gida") == gida - 2 - int(tedavi["tuketim"]["gida"]) - int(tedavi.ziyan.bozulma.get("gida", 0)) and tedavi["olaylar"].any(func(e: Dictionary) -> bool: return e["anahtar"].contains("Şifahane")), "Tedavi gerçek iki erzak ve raporu kullanır")
 	# Alet kırma mevcut zarından gelir; ikincil kaza zarını güvenli kaçır.
 	y.ata(k.id, b.id)
 	k.moral = 50

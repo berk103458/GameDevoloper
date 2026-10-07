@@ -30,6 +30,7 @@ func _initialize() -> void:
 	var rapor := y.gece()
 	_kontrol(rapor["uretim"].is_empty() and a.saglik == 95 and c.saglik == 95 and d.saglik == 95, "Gerçek gece kavga; iki çifte giren aynı kişi yalnız bir kez yaralanır")
 	_kontrol(rapor["olaylar"].any(func(e: Dictionary) -> bool: return e["anahtar"].contains("kan davası kavgasında")), "Kavga gerçek gece raporunda")
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	geri.yonetim.a = y.a.duplicate(true)
 	geri.yonetim._ambar_kapasitesi()

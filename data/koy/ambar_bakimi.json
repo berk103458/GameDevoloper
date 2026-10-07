@@ -1,0 +1,20 @@
+{
+  "gecelik_bozulma": {
+    "gida": 0.02
+  },
+  "tasma_sirasi": [
+    "gida",
+    "un",
+    "bugday",
+    "kurk",
+    "odun",
+    "tomruk",
+    "kereste",
+    "tas",
+    "cevher",
+    "demir",
+    "kirec",
+    "harc",
+    "alet"
+  ]
+}

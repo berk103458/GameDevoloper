@@ -37,6 +37,7 @@ func _initialize() -> void:
 	var cocuk := y.kabul({"adli_id": "chr_006"})
 	_kontrol(not y.ata(cocuk.id, orman.id), "Çocuk ormanda ağır işe atanamaz")
 	y.kaynaklar.ekle("tomruk", 5)
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	_kontrol(geri.yonetim.kaynaklar.miktar("tomruk") == 5 and geri.yonetim.bina(orman.id).tur == "odunluk" and geri.yonetim.bina(hizar.id).recete == "odun", "Yeni kaynak/bina ve eski tarif JSON dönüşümünde korunur")
 	var eski := Kaynaklar.kayittan({"stok": {"odun": 12, "kereste": 4}, "kapasite": 150})

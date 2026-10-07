@@ -56,6 +56,7 @@ func _initialize() -> void:
 	var satirlar := KoyluDenetcisi.satirlar(o)
 	var ust := satirlar.filter(func(r: Dictionary) -> bool: return r["id"] == yasli.id)[0] as Dictionary
 	_kontrol(float(ust["carpan"]) == 0.0 and ust["engel"].contains("Danışman") and o.kaydet() == anlik, "Canlı danışman önizlemesi kendi üretimini sıfır ve salt okunur gösterir")
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(anlik)))
 	_kontrol(geri.yonetim.koylu(yasli.id).yas_grubu == &"yasli" and geri.yonetim.koylu(cocuk.id).yas_grubu == &"cocuk", "Yaş sınıfı tam JSON kayıtla korunur")
 	var eski := yasli.kaydet()

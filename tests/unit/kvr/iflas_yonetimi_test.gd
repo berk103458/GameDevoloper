@@ -43,9 +43,10 @@ func _initialize() -> void:
 	stok_o.muhafiz_akce = 9
 	for i in 3: stok_y.gece()
 	_kontrol(stok_y.kaynaklar.miktar("kereste") == 0 and stok_o.muhafiz_akce == 9, "Yapısız köyde gerçek kamu stoğuna el koyulur; özel kese korunur")
-	var stok_once := stok_y.kaynaklar.kaydet()
-	stok_y.gece()
-	_kontrol(stok_y.kaynaklar.kaydet() == stok_once, "Aynı kesintisiz borç serisi ikinci baskın üretmez")
+	var stok_once := stok_y.kaynaklar.stok.duplicate()
+	var sonraki := stok_y.gece()
+	stok_once["gida"] -= int(sonraki.ziyan.bozulma.get("gida", 0))
+	_kontrol(stok_y.kaynaklar.stok == stok_once and not sonraki.olaylar.any(func(e: Dictionary) -> bool: return e.get("anahtar") == "koy.olay.iflas"), "Aynı kesintisiz borç serisi ikinci baskın üretmez")
 	for bozuk in [{"eksi_gece": 2.5, "son_gece": -4, "el_konuldu": "evet"}, [3], null]:
 		_kontrol(IflasYoneticisi.oku(bozuk).eksi_gece == 0 and IflasYoneticisi.oku(bozuk).son_gece == -1, "Bozuk iflas geçmişi güvenli varsayılana döner")
 	var sabit := stok_y.kaydet()

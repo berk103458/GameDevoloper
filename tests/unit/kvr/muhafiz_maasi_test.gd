@@ -43,6 +43,7 @@ func _initialize() -> void:
 	var tekrar := y.kaydet()
 	y._akce(olaylar)
 	_kontrol(y.kaydet() == tekrar, "Görevi bırakmış kişi ikinci kez maaş/borç/rüşvet üretmez")
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	_kontrol(geri.yonetim.maas_durumu == y.maas_durumu, "Borç/rüşvet ledger JSON dönüşümünde korunur")
 	y.gun += 1

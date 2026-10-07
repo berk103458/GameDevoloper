@@ -134,7 +134,7 @@ func guncelle() -> void:
 	_adalet_bar.value = y.adalet
 	_ambar_bar.max_value = maxi(1, k.kapasite)
 	_ambar_bar.value = k.toplam()
-	_ambar_bar.tooltip_text = tr("koy.hud.ambar") % [k.toplam(), k.kapasite]
+	_ambar_bar.tooltip_text = (tr("koy.hud.ambar") % [k.toplam(), k.kapasite]) + "\n" + AmbarBakimi.tip()
 	_adalet.text = tr("arayuz.hud.adalet") % y.adalet
 	_asayis.text = tr("arayuz.hud.asayis") % y.asayis_riski
 	_asayis.add_theme_color_override("font_color", UYARI if y.asayis_riski >= ASAYIS_KRITIK else Renkler.KUL)

@@ -19,6 +19,7 @@ func _initialize() -> void:
 	_kontrol(asker.saglik == 80 and asker.bayrak_var("agir_yarali") and asker.is_kazasi.get("kalan") == 3, "Gerçek gecede sakatlanma sağlık ve bayrağa işler")
 	_kontrol(ilk["olaylar"].any(func(e: Dictionary) -> bool: return e["anahtar"].contains("yaralandı")), "Kaza gerçek gece raporunda")
 	_kontrol(is_equal_approx(Uretim.koylu_carpani(asker, "ciftci", y.a, "tarla"), 0.35), "Yaralı bayrağı mevcut verim formülünü azaltır")
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	geri.yonetim.a = y.a.duplicate(true)
 	geri.yonetim._ambar_kapasitesi()

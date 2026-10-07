@@ -43,6 +43,7 @@ func _initialize() -> void:
 	y._uret(u, olaylar)
 	_kontrol(u.is_empty() and stok == y.kaynaklar.kaydet(), "Kireçsiz harç reçetesi taş harcamaz")
 	y.kaynaklar.ekle("harc", harc_once)
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	_kontrol(geri.yonetim.kaynaklar.miktar("harc") == harc_once and geri.yonetim.bina(kuyu.id).recete == "harc", "Tarif ve yeni stoklar gerçek oturum JSON dönüşümünde korunur")
 	# Seviye 3 erken taksit malzemeyi tüketmez; son taksit tek kez tüketir.

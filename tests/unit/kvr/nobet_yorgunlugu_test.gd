@@ -17,6 +17,7 @@ func _initialize() -> void:
 	y._rng.seed = _tohum(0.14, 1.0)
 	y.gece()
 	_kontrol(NobetYorgunlugu.aktif(k, y) and is_equal_approx(IsKazalari.risk(k, y), 0.14), "Gerçek uyanık nöbet ertesi gün riski %40 artırır")
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	geri.yonetim.a = y.a.duplicate(true)
 	geri.yonetim._ambar_kapasitesi()

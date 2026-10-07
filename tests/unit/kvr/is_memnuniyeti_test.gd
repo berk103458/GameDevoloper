@@ -37,7 +37,7 @@ func _initialize() -> void:
 	y._rng.seed = _tohum(0.12)
 	var rapor := y.gece()
 	_kontrol(rapor["uretim"].is_empty() and k.moral == 17, "İsyancı kendi üretimini durdurur, uyumsuz iş morali azalır")
-	_kontrol(rapor["olaylar"].any(func(e: Dictionary) -> bool: return e["anahtar"].contains("sabotaj yaptı")) and y.kaynaklar.miktar("gida") == once - 3 - int(rapor["tuketim"]["gida"]), "Gerçek gece sabotajı gerçek ambar ve rapora işler")
+	_kontrol(rapor["olaylar"].any(func(e: Dictionary) -> bool: return e["anahtar"].contains("sabotaj yaptı")) and y.kaynaklar.miktar("gida") == once - 3 - int(rapor["tuketim"]["gida"]) - int(rapor.ziyan.bozulma.get("gida", 0)), "Gerçek gece sabotajı gerçek ambar ve rapora işler")
 	_kontrol(k.sadakat == 58, "Sabotaj kişisel sadakati azaltır")
 	k.pasif_ozellikler["zayif"] = ["inatci"]
 	_kontrol(IsMemnuniyeti.esik(k) == 30, "İnatçı kişisel eşik 30")
@@ -50,6 +50,7 @@ func _initialize() -> void:
 	_kontrol(is_equal_approx(IsMemnuniyeti.sabotaj_riski(k, y), 0.04), "Zorla nöbet yüksek moralle %4 sabotaj")
 	k.moral = 10
 	_kontrol(is_equal_approx(IsMemnuniyeti.sabotaj_riski(k, y), 0.24) and y.muhafiz_sayisi() == 1 and y.etkin_muhafiz_sayisi() == 0, "İsyan eşiği altında zorla nöbet %24; yuva korunur, etkin savunma yok")
+	kat.koy_ayarlari = y.a.duplicate(true)
 	var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 	geri.yonetim.a = y.a.duplicate(true)
 	geri.yonetim._ambar_kapasitesi()

@@ -862,3 +862,10 @@ Ahmet talimatları codex.md/SOUL.md ve AGENTS.md içine kaydedildi. Festive tek 
 
 ## Codex — Açılış bağımlılık / eksik commit denetimi (7 Ekim 2026)
 Commitli festive arşivinden önbelleksiz import sonrası 20 bağımlılık, gerçek Ana._ready menü, Katalog HAZIR, Ses havuzu ve runtime input testi geçti. kapi_kuyrugu_test.gd.uid içindeki eski merge artığı uzlaştırıldı. Statik UTF-8/BOM/class/UID/sahne/CSV denetimi ve gerçek açılış sahnesi sanity'ye alındı. Ahmet'in `_iskelet`/`EL_KEMIGI` 338–349 hata metni güncel 330 satırlık karakter_model.gd ile uyuşmuyor; eski keen el kodu/buffer farkı incelenmeli, sahte tanım eklenmedi. CSV ve Quest PR #4 değiştirilmedi. Tam dosya/14 madde raporu docs/denetim/2026-10-07-acilis.md; tam regresyon work/sanity_acilis_denetimi 0 başarısız / 20 gece; kaynak/ayna açılış ve statik kontrolleri geçti.
+
+
+## Codex — EKO-12 (7 Ekim 2026)
+
+Ambar kapasite daralması/restore sınırı, gecelik %2 kalan gıda bozulması, kesir/gece/pending kayıp JSON, mevcut HUD ipucu ve ayrı ziyan raporu. 120 kontrol (düzeltilen dört test tekrar geçti), izole 20 gece, native UI ve ayna import geçti.
+
+Sıradaki: EKO-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

@@ -519,6 +519,7 @@ func gece() -> Dictionary:
 	_barindir()
 	GizliEgilimler.gece(self, calismalar, olaylar)
 	_tuket(rapor["tuketim"], olaylar)
+	rapor["ziyan"] = AmbarBakimi.gece(kaynaklar, gun, olaylar)
 	KrizEnjektoru.gece(self, olaylar)
 	_saglik_ve_moral(rapor["olenler"], olaylar)
 	IsMemnuniyeti.gece(self, calismalar, olaylar)

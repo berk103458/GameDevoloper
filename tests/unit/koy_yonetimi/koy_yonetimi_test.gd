@@ -106,7 +106,7 @@ func _insa_ve_uretim() -> void:
 	var once := y.kaynaklar.miktar("gida")
 	var r := y.gece()
 	_esit("üç uyumlu çiftçi 9 gıda + 0.6 kesir üretti", int(r["uretim"].get("gida", 0)), 9)
-	_esit("dört kişi 4 yedi", y.kaynaklar.miktar("gida"), once + 9 - 4)
+	_esit("dört kişi 4 yedi", y.kaynaklar.miktar("gida"), once + 9 - 4 - int(r.ziyan.bozulma.get("gida", 0)))
 	# Yıkım: harcananın yarısı döner.
 	var odun := y.kaynaklar.miktar("odun")
 	y.bina_yik(b.id)
@@ -266,6 +266,8 @@ func _emniyet_ve_son() -> void:
 
 func _tekfur() -> void:
 	var y := _koy(_a.agalik_nufus)
+	y.a = y.a.duplicate(true)
+	y.a.ambar_taban_kapasite = 10000
 	y.kaynaklar.kapasite = 10000
 	y.kaynaklar.ekle("gida", 2000)
 	y.gece()
