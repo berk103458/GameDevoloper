@@ -6,6 +6,8 @@
 - `[ ]` BEKLEMEDE (SIRADAKİ GÖREVLER)
 - `[!]` KRİTİK BUGFIX / TEST BEKLİYOR
 
+**Doküman notu (Cursor, 7 Ekim 2026):** Eksik asset envanteri çıkarıldı: `docs/EKSIK_ASSET_ENVANTERI.md`. Oyun özelliği kapatılmadı; görsel, ses ve model üretilmedi.
+
 ---
 
 ## BÖLÜM 0: Geliştirici Admin Paneli ve Hızlı Test Araçları
@@ -34,7 +36,7 @@
 
 - [x] **BUG-01:** Menü ve Kapı Sahnesi Giriş Takılmaları (Shader & Asset Hitching) — `src/cekirdek/varlik_onbellek.gd` kurularak modeller, materyaller ve fontlar arka planda (`ResourceLoader.load_threaded_request`) yüklenerek ana iş parçacığı rahatlatılacak. (Codex)
 - [x] **BUG-02:** Sıra Atlama Rüşvetinde Kuyruk Senkronizasyon Hatası — Rüşvetle öne geçmek isteyen NPC'nin kuyruk listesinde `erase` ve `push_front` ile en başa taşınması ve hemen kapı çizgisine yürümesi. **≡ KAP-15** — ayrı paket değil; KAP-15 bu maddeye referans verir. (Codex)
-- [!] **BUG-03:** Rüşvet Kabul ve Ret Repliklerinin Sessiz Kalması — Rüşvet kabul veya reddedildiğinde diyalog kutusuna uygun ses ve CSV repliğinin düşmemesi sorunu çözülecek.
+- [x] **BUG-03:** Rüşvet Kabul ve Ret Repliklerinin Sessiz Kalması — Rüşvet kabul veya ret diyalog kutusuna `anlati.sonuc.rusvet` / `anlati.sonuc.ret` satırını ve varsa çevrilmiş yanıtı yazar; konuşma mevcut `sfx_chr_sikke` / `sfx_chr_deri` (metin eşleşirse diğer `sfx_chr_*`) dosyasıyla tetiklenir. `73f8172` UID/açılış denetimiydi. Ayrı seslendirme dosyası yok, üretilmedi. (Cursor)
 - [x] **BUG-04:** Kapı Sahnesinde Işık ve Gölge Optimizasyonu — Meşale ışıklarındaki dinamik gölge haritası boyutu düşürülecek, gereksiz mesafe kontrolleri LOD ile optimize edilecek. (Codex)
 - [x] **BUG-05:** Boşta Duran Scriptlerin İşlemci Tüketimi (`_process` Hijyeni) — Kapı ve menü ekranlarında aktif girdi almayan düğümlerin `set_process(false)` ile uyutulması. (Codex)
 - [x] **BUG-06:** 3D Karakter Bellek Sızıntısı (Orphan Nodes) — Kapıdan içeri giren veya geri dönen karakter sahnelerinin ağaçtan silinirken bellekten düşmemesi hatası `queue_free()` kontrolleriyle giderilecek. (Codex)
@@ -47,7 +49,7 @@
 - [x] **BUG-12:** `_klip_onbellek` `has()` / idle Fallback — Eksik animasyon klipinde `has()` kontrolü ve idle'a düşme (**taslak yol notu** OK; KarakterModel üzerinde). (Codex)
 - [x] **BUG-13:** Kapı Kamera FOV Sabitleme — Kapı sahnesinde FOV kayması/zoom drift'inin sabitlenmesi. (Codex)
 - [x] **BUG-14:** `Ses.oynat` Havuz Temizliği — Ses oynatıcı havuzunun sahne geçişlerinde temizlenmesi / sızıntı önleme. (Codex)
-- [!] **BUG-15:** Heybe `mouse_filter = STOP` — Heybe paneli açıkken tıklamanın 3B sahneye sızmasını engelleme.
+- [x] **BUG-15:** Heybe `mouse_filter = STOP` — Heybe paneli açıkken tıklamanın 3B sahneye sızmasını engelleme. Kod zaten STOP; `heybe_tik_test` açıkken dünya ve 3B tık 0, kapalıyken 1. (Cursor)
 
 ---
 

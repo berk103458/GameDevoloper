@@ -1,5 +1,15 @@
 # Ahmet / Muharrir — Codex kontrol noktası
 
+## Muharrir duyurusu — 8 Ekim 2026
+
+Bütün ajanlara (Codex, Claude, Gemini, Cursor):
+
+- **BUG-03** (rüşvet kabul/ret repliği sessiz) ve **BUG-15** (heybe açıkken tık sızıntısı) Cursor tarafından çözüldü ve festive'e push edildi. ROADMAP'te `[x] (Cursor)`. Bu iki maddeyi tekrar almayın.
+- `docs/EKSIK_ASSET_ENVANTERI.md` artık repoda. Eksik görsel, ses ve modellerin listesi orada.
+- `AGENTS.md`'ye yeni asset kuralı eklendi: asset üretmek ve indirmek yok. Mekaniği kutu/düz renk yer tutucuyla bitirin, ihtiyaç duyduğunuz asseti envantere yazın ve ROADMAP'te sonraki adıma geçmeden önce bunun yazıldığını doğrulayın.
+- **KAP-02** (tansiyon) ve **KAP-03** (heybe paneli) `[/]` görünüyor ama sahibi yazmıyor. Üzerinde çalışan varsa ROADMAP'te adını yazsın; yoksa kilit kaldırılacak.
+- Herkes önce festive'i (`claude/festive-volta-li1sfm`) pull etsin, sonra kaldığı yerden devam etsin.
+
 7 Ekim 2026: EKO-10 iflas ve EKO-11 kişisel kese tamamlandı; ROADMAP `[x] (Codex)`. EKO-10 tam sanity ve 20 gece 0 hata; EKO-11 native/ayna UI, çift kasa ve HUD kontrolleri geçti. Eski iki SVG Türkçe kodlaması UTF-8'e düzeltildi; iki kopyanın son importları hatasız.
 
 Kod yayını: `3424234`, ortak repo festive dalı. Ayrışmış feature ve festive geçmişi dosya ezmeden birleştirildi; GitHub varsayılan dalı festive. Mevcut source/ds yerel kopyaları eşit. Eski paralel RTS mimarisi oluşturulmadı; CSV değiştirilmedi. Yeni ajan kuralları AGENTS ve codex.md/SOUL.md'de kalıcı.
@@ -28,6 +38,8 @@ Ahmet Windows yolu bu makinede yok; full pull uygulanamadı. Önceki açılış 
 EKO-12 `76e8b1f` ile festive'e pushlandı; 120 kontrolün son logları 0 hata (dört düzeltilen eski test tekrar geçti), 20 gece/native/ayna dahil. EKO-13 mevcut DemirZinciri + dış JSON aşınmasını kullanır, ikinci sistem yok. Yeni src/arayuz/koy_hud/alet_asinma_bilgisi.gd salt okunur, Hud'a tek satır adaptör; tests/unit/kvr/alet_asinmasi_test.gd üç gerçek yapıdaki son alet geçişini ölçer. demir_zinciri_kontrol.gd gerçek %40 aşınma/%30 aletsiz verim ipucunu ve tekrar çizimin model değiştirmediğini denetler.
 İlgili dört birim, headless/native gerçek UI, kaynak/ayna import, statik açılış/API denetimi geçti. EKO-13 [x] (Codex), sıradaki EKO-14 çift kasa kurtarma/zimmet. Paket normal festive commit/push için doğrulandı. ds GitHub kopyası tüm değişikliklerle eşit; Ahmet Windows yolu mevcut değil, oraya full pull yapılamadı. Önceki açılış denetimi docs/denetim/2026-10-07-acilis.md; Claude devri iptal, SYS-09 CSV kilidi korunur.
 
+## Cursor — BUG-03 (7 Ekim 2026)
+`73f8172` rüşvet repliğini değil açılış UID denetimini taşımıştı. Karar kutusu `rusvet` ve `ret` için CSV satırını güvenli basar, JSON yanıtını çevirir, CHR’de boş `yanitlar` yüzünden düşmeyen anlatıyı yazar ve mevcut foley dosyasını çalar. Yeni asset yok. Eksik olan yalnız karar repliğinin ayrı seslendirmesidir; `sfx_chr_sikke.wav` ve `sfx_chr_deri.wav` kullanıldı. KAP-02/03, EKO-14, SYS-09 ve diğer BUG maddelerine dokunulmadı. Ahmet Windows yolu bu ortamda yok.
 
 ## EKO-14 — 8 Ekim 2026
 Festive fetch/pull başlangıçta günceldi (ec23ee9). KasaTransferi ve dış JSON: kişisel keseden yalnız kamu açığını kapatma; günde bir kez en çok 10 kamu akçesini zimmet (Adalet −5, Moral −3, Asayiş +5). Aynı gün/bozuk/eski kayıt, atomik ret, sayısal taşma ve oyun sonu kontrolleri; toplam para/RNG korunur. Oturum yalnız optional özet/kayıt adaptörü, mevcut pazar tek satır panel adaptörüyle genişledi; CSV ve ikinci HUD yok.
@@ -74,3 +86,5 @@ Değirmen hareketi 15 ilgili kontrolden ve 20 gecelik duman testinden geçti; so
 ## ANI-07 — 8 Ekim 2026
 
 Ateş başı ritüeli ROADMAP [x] (Codex). 15 ilgili kontrol ve 20 gece: sıfır başarısız; son halka yayılımı native ve ayna sahnesinde tekrar geçti. İlk UI testindeki karışık girinti düzeltildi; final import/çalışma hatasız. İki ds kopyası eşitlenerek festive normal commit/push; Ahmet Windows yolu burada yok. Sıradaki ANI-08; CSV ve eski mimari korunuyor.
+
+ANI-07 push sırasında origin af876a7 güncellemesi geldi. Cursor BUG-03/heybe testleri ve 8 Ekim asset üretme yasağı korunarak birleştiriliyor; ANI-07 eksik ısınma klibi envantere eklendi, asset üretilmedi/indirilmedi.

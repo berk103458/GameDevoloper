@@ -120,3 +120,21 @@ Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_R
 ## ANI-07 — 8 Ekim 2026
 
 Ateş başı ritüeli ROADMAP [x] (Codex). 15 ilgili kontrol ve 20 gece: sıfır başarısız; son halka yayılımı native ve ayna sahnesinde tekrar geçti. İlk UI testindeki karışık girinti düzeltildi; final import/çalışma hatasız. İki ds kopyası eşitlenerek festive normal commit/push; Ahmet Windows yolu burada yok. Sıradaki ANI-08; CSV ve eski mimari korunuyor.
+## Cursor — eksik asset envanteri, 7 Ekim 2026
+Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+## ANI-06 yayın kontrol noktası — 8 Ekim 2026
+
+Değirmen hareketi 15 ilgili kontrolden ve 20 gecelik duman testinden geçti; son sundurma durak düzeltmesi kaynak ve ayna headless sahnelerinde, native Vulkan görüntüsünde doğrulandı. ANI-05 dc2d0ad yalnız commitli dosyalarla önbelleksiz dışa aktarıldı: ikinci import ve gerçek açılış bağımlılık kontrolü hatasız (docs/denetim/2026-10-07-acilis.md). Tam paket festive üzerinde normal commit/push ile yayımlanır. Ahmet Windows yolu bu makinede mevcut değil; o kopya güncellendi iddiası yok. Sıradaki ANI-07; Claude devri iptal.
+
+## Cursor — BUG-03
+Durum: BUG-03 kapandı. İşe başlarken kilit «BUG-03 üzerindeyim» idi; Codex/Claude aynı maddeyi almasın diye ROADMAP bu turda Cursor’a ayrıldı.
+Kök: `73f8172` rüşvet repliğini değil UID/açılış denetimini düzeltmişti. `_karar_ver` CSV anlatısını `%` ile basıyor, CHR ziyaretçisinde `yanitlar` boş kalıyor, JSON yanıtı `tr()` ve konuşma sesi olmadan yazılıyordu. Karar kutusu sessizdi.
+Düzeltme: `src/kapi/karar_replik_adaptoru.gd` yalnız `rusvet` ve `ret` için CSV satırını ve varsa çevrilmiş yanıtı diyalog kutusuna yazar; mevcut `sfx_chr_sikke.wav` / `sfx_chr_deri.wav` (metinde kabza, kâğıt, metal, bebek veya sikke geçiyorsa o dosya) çalar. Yeni ses/görsel/model üretilmedi ve indirilmedi.
+Eksik asset: karar repliği için ayrı seslendirme (voice-over) dosyası yok. Kullanılanlar: `assets/ses/sfx_chr_sikke.wav`, `sfx_chr_deri.wav`, `sfx_chr_kabza.wav`, `sfx_chr_metal.wav`, `sfx_chr_kagit.wav`, `sfx_chr_bebek.wav`; kapıdaki mevcut `sfx_onay`, `sfx_kese`, `sfx_kapi_acilir`, `sfx_kapi_kapanir` duruyor.
+Doğrulama: Godot 4.7.2 headless import hatasız; `tests/unit/kvr/karar_replik_test.gd` GEÇTİ (0 hata). API sözleşmesi ve açılış UID denetimi geçti. CSV, KAP-02/03, EKO-14 ve SYS-09 validator’a dokunulmadı.
+Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyaları bu Linux ortamında yok; eşitlendi denmez.
+
+## Birleştirme kontrol noktası — 8 Ekim 2026
+
+Codex Windows çalışma ortamı: ds kaynak/ayna kopyaları mevcut, Ahmet yolu yok. Üstteki Linux raporu Cursor ortamına aittir. Remote af876a7 (Cursor BUG-03 ve eksik asset kuralları) ile yerel ANI-07 7a416e7 birlikte korunuyor. Yeni asset üretimi/indirme yapılmaz; mevcut ısınma kodu gerçek animasyon dosyasının yer tutucusudur, envanter güncellenir. ANI-08 sıradaki.

@@ -878,6 +878,14 @@ EKO-06 aşınma adaptörü korundu; tarla/taş ocağı/demir madeninde son aletl
 Sıradaki: EKO-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
 
 
+## Cursor — BUG-03 (7 Ekim 2026)
+
+Rüşvet kabul ve ret kararında diyalog kutusu `anlati.sonuc.rusvet` / `anlati.sonuc.ret` satırını ve varsa çevrilmiş ziyaretçi yanıtını alır; konuşma mevcut `sfx_chr_sikke` veya `sfx_chr_deri` ile tetiklenir. `73f8172` UID denetimiydi, sessizlik ayrı kaldı. Yeni ses, görsel veya model üretilmedi. Ayrı seslendirme dosyası yok. CSV, KAP-02/03, EKO-14 ve SYS-09 validator değişmedi. Godot 4.7.2 headless import hatasız; `karar_replik_test.gd` 0 hata. Ahmet ve ds Windows kopyaları bu makinede yok.
+
+## Cursor — BUG-15 (7 Ekim 2026)
+
+Heybe paneli yeniden yazılmadı. `HeybePaneli` ve zemin `ColorRect` `mouse_filter = STOP`. Headless `heybe_tik_test`: panel açıkken dünya alanı ve 3B görüntü kapısı sol tık almaz, panel kapanınca aynı nokta ikisine de gider. KAP-02/03, EKO-14, BUG-03 ve CSV değişmedi. Windows aynaları bu ortamda yok.
+
 ## Codex — EKO-14 (8 Ekim 2026)
 
 Mevcut iki kasa arasında atomik açık kurtarma ve günlük sınırlı, sosyal bedelli zimmet; dış JSON, optional kayıt ve aynı gün restore koruması, mevcut pazar/HUD adaptörü. 123 kontrol/20 gece, native UI ve ayna import geçti.
@@ -912,6 +920,22 @@ Hazır tarla/bostan çalışanının mevcut A* kuyruğunda kuyu/kova/su arkı/di
 
 Sıradaki: ANI-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
 
+## Ahmet yerel full pull — 8 Ekim 2026 ~01:10 (Europe/Istanbul)
+
+`git fetch --all --prune`; yalnız festive değişti (`ec23ee9` → `51313e0`, 5 Codex commiti, yazar berk103458). Diğer 9 uzak dal yeni commit almadı ve hepsi yerelde takipte. Yerel 7 commit (PR #7 envanter, PR #6 BUG-03, PR #8 BUG-15) korunarak `origin/festive` merge edildi → yerel `691a5de` (origin'e göre 8 ileri, 0 geri; **push yok**).
+
+Gelenler:
+- `7d57fb8` EKO-14 — iki kasa arası acil kurtarma + günlük sınırlı zimmet (`kasa_transferi.gd`, pazar paneline tek satır `KasaTransferPaneli`, Oturum'a optional kayıt alanı).
+- `3522842` EKO-15 — gece sonu bilançosu (`gece_bilancosu.gd`, `gece_sonu()` dönüşüne `bilanco` alanı; eski alanlar korunur).
+- `05fb593` ANI-01 — muhafızlara kılıç/mızrak/kalkan ve gece meşalesi (`muhafiz_donanimi.gd`, mevcut ElEsyasi soketi).
+- `95edcf7` ANI-02 — kapı/kışla/sur kuleleri devriyesi (`muhafiz_devriyesi.gd`, sahneye tek kule dekoratörü çağrısı).
+- `51313e0` ANI-03 — çiftçi kuyu → kova → su arkı rutini (`sulama_rutini.gd`, kuyu konumu ayardan).
+
+ROADMAP: EKO-14, EKO-15, ANI-01, ANI-02, ANI-03 `[x] (Codex)`; ANI-04 `[/]` (Codex sıradaki). BUG-03/BUG-15 `[x] (Cursor)` yerelde korunur (origin'de henüz yok; PR #6/#8 açık).
+
+Conflict yalnız doküman: `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md` (iki taraf alt alta birleştirildi), `codex.md/Codex.md` (Cursor bölümleri korundu, Codex'in tek kontrol noktası EKO-13 → ANI-03 güncel hâliyle alındı). Kod conflict'i yok; BUG-03/BUG-15 dosyalarına Codex dokunmadı.
+
+Doğrulama (yerel Godot 4.7.2 headless): import hatasız; `kasa_transferi`, `gece_bilancosu`, `muhafiz_donanimi`, `muhafiz_devriyesi`, `sulama_rutini`, `karar_replik`, `heybe_tik` testleri GEÇTİ. Conflict marker yok; `koy_sahnesi` / `KoyYerlesimi` / `KoyluAI` geri gelmedi.
 
 ## Codex — ANI-04 (8 Ekim 2026)
 
