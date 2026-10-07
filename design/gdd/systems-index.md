@@ -254,3 +254,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Muhafız devriyesi](muhafiz-devriyesi.md) — ANI-02: mevcut A* üzerinde kapı/kışla/sur nöbet döngüsü.
 
 - [Su taşıma rutini](sulama-rutini.md) — ANI-03: mevcut halk kuyruğunda kuyu/kova/su arkı döngüsü.
+
+- [Oduncu ve öküz rotası](oduncu-rutini.md) — ANI-04: mevcut EKO-02/03 üstünde görsel balta/tomruk rotası.

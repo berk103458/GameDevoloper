@@ -18,6 +18,7 @@ func eylem(id: int) -> String:
 	if d.is_empty(): return "Durum yok"
 	if int(d.adim) < d.yol.size(): return "Yürüyor"
 	var k := sahne.yonetim.koylu(id)
+	if d.get("oduncu", false): return String(d.get("oduncu_ad", "Tomruk yolu kapalı"))
 	if d.get("sulama", false): return String(d.get("sulama_ad", "Sulama bekliyor"))
 	if d.get("devriye", false): return String(d.get("devriye_ad", "Nöbette"))
 	if faz_adi == &"gece": return "Ev önünde" if k != null and k.ev >= 0 else "Meydanda"
@@ -83,9 +84,15 @@ func _process(delta: float) -> void:
 				if d.adim < d.yol.size():
 					_adim(id)
 				else:
+					OduncuRutini.varis(f, d.get("oduncu", false) and int(d.get("oduncu_i", 0)) == 0)
 					SulamaRutini.varis(f, d.get("sulama", false) and int(d.get("sulama_i", 0)) == 1)
 					f.bak(d.bak)
 					f.calis(&"calis" if d.is else &"")
+		elif d.get("oduncu", false):
+			d.bekle += delta
+			if d.bekle >= float(OduncuRutini.AYAR.sureler[d.oduncu_i]):
+				d.oduncu_i = (int(d.oduncu_i) + 1) % 3
+				_iste(id)
 		elif d.get("sulama", false):
 			d.bekle += delta
 			if d.bekle >= float(SulamaRutini.AYAR.sureler[d.sulama_i]):
@@ -153,6 +160,18 @@ func _planla(id: int) -> void:
 	else:
 		d.sulama_i = 0
 	SulamaRutini.esya(f, d.sulama, int(d.sulama_i))
+	d.oduncu = OduncuRutini.aday(sahne.yonetim, k, faz_adi)
+	if d.oduncu:
+		d.oduncu_i = int(d.get("oduncu_i", 0))
+		var odun := OduncuRutini.hedef(self, k, bas, d.oduncu_i)
+		d.is = not odun.is_empty() and d.oduncu_i == 0
+		d.dinlen = d.oduncu_i == 2
+		son = bas if odun.is_empty() else odun.son
+		d.bak = f.position if odun.is_empty() else odun.bak
+		d.oduncu_ad = "Tomruk yolu kapalı" if odun.is_empty() else odun.ad
+	else:
+		d.oduncu_i = 0
+	OduncuRutini.esya(f, sahne.yonetim, id, d.oduncu, int(d.oduncu_i))
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false
