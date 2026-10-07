@@ -13,3 +13,7 @@ Kaynak: Ahmet'in 7 Ekim 2026 açık talimatı. Bu dosya kalıcı proje hafızas�
 - Büyük paket, ihlal riski ve commit raporu Ahmet/Muharrir'e iletilir; erişilebilir muhatap kanalı yoksa repo raporu hazırlanır, teslim edildi iddiası kurulmaz.
 - Claude iş devri kullanıcı tarafından iptal edilmiştir; Codex devam eder, limit devri otomasyonu kapalı kalır. Sorumluluk devriyle durum raporu farklıdır.
 - SYS-09 PR #2 birleşmeden CSV değiştirilmez; eski kapı/karakter/kayıt API'leri ve sırlar korunur.
+
+- Eksik commit / açılmama denetimi (7 Ekim): Ses/Ana üst parse hatasında ilk kök hata, engine sürümü, tüm bağımlılıklar, autoload/input/plugin, UID/class çakışmaları, UTF-8/BOM, sahne/resource yolları ve veri şemaları kontrol edilir. Büyük paket ve açılış hatasında commitli dosyalardan önbelleksiz kopya import + gerçek menü testi yapılır; eski önbellekli test yeterli sayılmaz. Tüm gerekli kaynak/test/ayarlar aynı olgun pakette commit edilir; denetim araçları tools/acilis_denetimi.py ve tests/oto/acilis_bagimlilik_kontrol.tscn. Son kanıt docs/denetim/2026-10-07-acilis.md; Ahmet kopyasında çözüm doğrulanmadan çözüldü denmez.
+
+- Somut 7 Ekim açılış vakası: Ahmet engine 4.7.2 ed1daf0bf. `_iskelet`/`EL_KEMIGI` ve 338–349 hata satırları yayımlanmış 330 satırlık karakter_model.gd ile uyuşmaz; keen el kodu/yerel buffer farkı kontrol edilir. Eski tanım ekleyerek ikinci el/RTS sistemi üretilmez. `--remote-check` kritik yerel dosyaların gerçek festive içeriğini karşılaştırır; önce bağımsız diff korunur.

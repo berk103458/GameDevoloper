@@ -108,3 +108,7 @@ Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_R
 
 ## Son yayın / yeni kalıcı talimatlar
 EKO-10 ve EKO-11 `[x] (Codex)`, festive'e entegre ve push edildi; yayımlanan kod kontrol noktası 3424234. GitHub varsayılan dalı festive. Kaynak ve ds GitHub kopyası aynı HEAD; çalışma dalı artık festive. Ahmet'in ajan düzeni `codex.md/SOUL.md` ve AGENTS.md'ye kaydedildi. Claude devri iptal; otomasyon PAUSED. Sıradaki EKO-12 incelemesi başladı, henüz kod yazılmadı. Ahmet'in yeni Windows kopyası bu makinede mevcut değil; full pull uygulanamadı.
+
+
+## Açılış / eksik commit denetimi — 7 Ekim 2026
+Yayımlanmış a225fba festive'in izlenen dosyaları temiz arşivden Godot 4.7.2 ile import edildi; 20 Ses/Ana sınıfı parse, gerçek ana menü, Katalog HAZIR ve input/havuz testi geçti. Eski 2a98ff5 commit'inden kalan kapi_kuyrugu_test.gd.uid merge artığı düzeltildi. Yeni statik denetim ve gerçek açılış testi sanity'ye eklendi. Ahmet de aynı engine sürümünü doğruladı. Bildirdiği `_iskelet`/`EL_KEMIGI` 338–349 hataları güncel 330 satırlık karakter_model.gd'de bulunmuyor; yerel dosya/buffer farkı araştırılmalı. Eski keen değişkenleri için sahte stub eklenmedi. Detay ve son oturum dosya manifesti docs/denetim/2026-10-07-acilis.md. Tam regresyon work/sanity_acilis_denetimi: 0 başarısız, 20 gece dahil. Kaynak/ayna statik uzak içerik, import ve gerçek açılış geçti; olgun denetim paketi festive yayınına hazır. EKO-12 aktif inceleme, kod yok; yeni hata denetimi önce tamamlanır.

@@ -129,3 +129,7 @@ Kamu erişimcisi signed açık taşır; özel kese/stoklar sıfır alt sınırı
 ## EKO-11 kontrol noktası
 
 Kişisel kese ayrı HUD: gerçek rüşvet, kamu değişmezliği, eşya adedi, JSON geri dönüşü ve salt okunur çizim testleri geçti. Native screenshot work/eko11_kese.png okunur. Çift kasa ve HUD işlem/admin regresyonları geçti. İki eski SVG CP1254 → UTF-8 düzeltildi; kaynak import hatasız. Ayna ilk tam model importunda üretilen gömülü JPG kaynaklarına geçici erişim hatası verdi; ikinci import hatasız ve ayna UI kontrolü geçti. Claude devri iptal, otomasyon PAUSED.
+
+
+## Açılış denetimi kontrol noktası
+Codex sorumlu; Claude devri iptal. Yayımlanmış festive a225fba kaynakları önbelleksiz Godot 4.7.2 import sonrası 20 bağımlılık/gerçek menü/Katalog HAZIR testini geçti. Eski kapi_kuyrugu_test.gd.uid merge artığı uzlaştırıldı. Yeni tam sanity_acilis_denetimi 0 başarısız, 20 gece; kaynak ve ds ayna gerçek açılış/statik testleri geçti. Çalışan test süreci yok. Ahmet'in `_iskelet`/EL_KEMIGI hatalı satırları güncel 330 satırlık karakter_model.gd içinde yok; yerel diff/buffer kontrolü raporlandı. Tüm kanıt docs/denetim/2026-10-07-acilis.md. Sıradaki EKO-12; Ahmet yerel hata sonucu ayrıca beklenir, orada çözüldü denmez.

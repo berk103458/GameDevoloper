@@ -858,3 +858,7 @@ Sıradaki: EKO-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 ## Codex — Ajan düzeni kalıcı kayıt (7 Ekim 2026)
 
 Ahmet talimatları codex.md/SOUL.md ve AGENTS.md içine kaydedildi. Festive tek çalışma dalı; olgun paket commit/push, güncel ROADMAP/status ve Ahmet–Muharrir raporu. Yeni Ahmet Windows yolu bu makinede yok; full pull uygulandı denmedi. Claude görev devri iptal kararı korunur.
+
+
+## Codex — Açılış bağımlılık / eksik commit denetimi (7 Ekim 2026)
+Commitli festive arşivinden önbelleksiz import sonrası 20 bağımlılık, gerçek Ana._ready menü, Katalog HAZIR, Ses havuzu ve runtime input testi geçti. kapi_kuyrugu_test.gd.uid içindeki eski merge artığı uzlaştırıldı. Statik UTF-8/BOM/class/UID/sahne/CSV denetimi ve gerçek açılış sahnesi sanity'ye alındı. Ahmet'in `_iskelet`/`EL_KEMIGI` 338–349 hata metni güncel 330 satırlık karakter_model.gd ile uyuşmuyor; eski keen el kodu/buffer farkı incelenmeli, sahte tanım eklenmedi. CSV ve Quest PR #4 değiştirilmedi. Tam dosya/14 madde raporu docs/denetim/2026-10-07-acilis.md; tam regresyon work/sanity_acilis_denetimi 0 başarısız / 20 gece; kaynak/ayna açılış ve statik kontrolleri geçti.
