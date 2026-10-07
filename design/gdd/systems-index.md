@@ -248,3 +248,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kasa transferi](kasa-transferi.md) — EKO-14; acil kurtarma ve bedelli günlük zimmet.
 
 - [Gece bilançosu](gece-bilancosu.md) — EKO-15; gerçek kamu/kişisel ve stok mutabakat sözlüğü.
+
+- [Muhafız donanımı](muhafiz-donanimi.md) — ANI-01: mevcut el soketleri, gece meşalesi ve sınırlı dinamik ışık.

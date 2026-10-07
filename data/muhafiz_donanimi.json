@@ -1,0 +1,150 @@
+{
+  "azami_isik": 4,
+  "isik_gucu": 1.4,
+  "isik_menzil": 3.5,
+  "titresim": 0.12,
+  "titresim_hizi": 8.0,
+  "renk_isik": "#ffad55",
+  "gece_fazlari": [
+    "gece"
+  ],
+  "parcalar": {
+    "kilic": [
+      {
+        "tur": "kutu",
+        "boyut": [
+          0.06,
+          0.74,
+          0.022
+        ],
+        "konum": [
+          0,
+          0.43,
+          0
+        ],
+        "renk": "#929caa"
+      },
+      {
+        "tur": "kutu",
+        "boyut": [
+          0.22,
+          0.035,
+          0.04
+        ],
+        "konum": [
+          0,
+          0.045,
+          0
+        ],
+        "renk": "#756545"
+      },
+      {
+        "tur": "silindir",
+        "yaricap": 0.025,
+        "boy": 0.18,
+        "konum": [
+          0,
+          -0.06,
+          0
+        ],
+        "renk": "#453626"
+      }
+    ],
+    "mizrak": [
+      {
+        "tur": "silindir",
+        "yaricap": 0.025,
+        "boy": 1.8,
+        "konum": [
+          0,
+          0.15,
+          0
+        ],
+        "renk": "#57412b"
+      },
+      {
+        "tur": "kutu",
+        "boyut": [
+          0.06,
+          0.3,
+          0.025
+        ],
+        "konum": [
+          0,
+          1.2,
+          0
+        ],
+        "renk": "#929caa"
+      }
+    ],
+    "kalkan": [
+      {
+        "tur": "silindir",
+        "yaricap": 0.25,
+        "boy": 0.06,
+        "konum": [
+          0,
+          -0.08,
+          0
+        ],
+        "renk": "#75563b",
+        "donus": [
+          90,
+          0,
+          0
+        ]
+      },
+      {
+        "tur": "silindir",
+        "yaricap": 0.065,
+        "boy": 0.09,
+        "konum": [
+          0,
+          -0.08,
+          0.04
+        ],
+        "renk": "#929caa",
+        "donus": [
+          90,
+          0,
+          0
+        ]
+      }
+    ],
+    "mesale": [
+      {
+        "tur": "silindir",
+        "yaricap": 0.025,
+        "boy": 0.55,
+        "konum": [
+          0,
+          0.18,
+          0
+        ],
+        "renk": "#57412b"
+      },
+      {
+        "tur": "silindir",
+        "yaricap": 0.06,
+        "boy": 0.12,
+        "konum": [
+          0,
+          0.48,
+          0
+        ],
+        "renk": "#4e3524"
+      },
+      {
+        "tur": "alev",
+        "yaricap": 0.075,
+        "boy": 0.2,
+        "konum": [
+          0,
+          0.62,
+          0
+        ],
+        "renk": "#ffad55"
+      }
+    ]
+  }
+}

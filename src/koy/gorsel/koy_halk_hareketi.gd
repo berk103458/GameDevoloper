@@ -45,6 +45,7 @@ func yenile() -> void:
 			modeller[id].queue_free()
 			modeller.erase(id)
 			_durum.erase(id)
+	MuhafizDonanimi.yenile(self)
 
 ## Gece eve; akşam meydana; gündüz iş ve kısa dinlenme döngüsüne geçer.
 func faz(ad: StringName) -> void:
@@ -52,6 +53,7 @@ func faz(ad: StringName) -> void:
 	for id in modeller:
 		_durum[id].dinlen = false
 		_iste(id)
+	MuhafizDonanimi.yenile(self)
 
 func _iste(id: int) -> void:
 	if not _bekleyen.has(id):

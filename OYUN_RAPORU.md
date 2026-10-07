@@ -890,3 +890,10 @@ Sıradaki: EKO-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 gece_sonu dönüşüne salt okunur bilanco: kamu/kişisel açılış-kapanış, gerçek ödenen maaş/vergi, tüm stok hareketleri ve taşma mutabakatı. Önceki gündüz taşması tekrar gider sayılmaz; eski borç ödemesi, restore ve kopya güvenliği geçti. 124 kontrol ve 20 gece hatasız.
 
 Sıradaki: ANI-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-01 (8 Ekim 2026)
+
+Mevcut ElEsyasi soketinde kılıç/mızrak, gündüz kalkan ve gece meşale; dört gölgesiz ışık bütçesi. Gerçek el pozu/özgün CHR görünürlüğü, görev/faz/tekrar yenileme, kayıt-RNG değişmezliği doğrulandı; 126 sanity kontrolü ve izole 20 gece geçti.
+
+Sıradaki: ANI-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

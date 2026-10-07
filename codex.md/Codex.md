@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Festive kontrol edilen uç: 7d57fb8; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 7d57fb8. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Festive kontrol edilen uç: 3522842; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 3522842. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -102,15 +102,15 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - EKO-13: EKO-06 aşınma adaptörü korundu; tarla/taş ocağı/demir madeninde son aletli tam üretim ve sonraki %30 verim doğrulandı. Mevcut alet HUD ipucu gerçek stok/kesir/ortak dengeyi salt okunur gösteriyor. Dört ilgili birim, headless/native UI, kaynak/ayna import ve API denetimi geçti.
 - EKO-14: Mevcut iki kasa arasında atomik açık kurtarma ve günlük sınırlı, sosyal bedelli zimmet; dış JSON, optional kayıt ve aynı gün restore koruması, mevcut pazar/HUD adaptörü. 123 kontrol/20 gece, native UI ve ayna import geçti.
 - EKO-15: gece_sonu dönüşüne salt okunur bilanco: kamu/kişisel açılış-kapanış, gerçek ödenen maaş/vergi, tüm stok hareketleri ve taşma mutabakatı. Önceki gündüz taşması tekrar gider sayılmaz; eski borç ödemesi, restore ve kopya güvenliği geçti. 124 kontrol ve 20 gece hatasız.
+- ANI-01: Mevcut ElEsyasi soketinde kılıç/mızrak, gündüz kalkan ve gece meşale; dört gölgesiz ışık bütçesi. Gerçek el pozu/özgün CHR görünürlüğü, görev/faz/tekrar yenileme, kayıt-RNG değişmezliği doğrulandı; 126 sanity kontrolü ve izole 20 gece geçti.
 
 ## Sonraki çalışma
-ANI-01. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+ANI-02. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 
-## EKO-15 kontrol noktası — 8 Ekim 2026
-EKO-14 `7d57fb8` festive'e pushlandı, 123 kontrol/20 gece/native pazar ve ayna geçti. EKO-15 yeni src/sistemler/gece_bilancosu.gd salt okunur fotoğraf/mutabakat adaptörü; Oturum.gece_sonu'na iki satır ve API açıklaması. Eski dönüş alanları ve kayıt şeması korunur. Kamu/kişisel önce-sonra/net, gerçek ödenen maaş (borç dahil), gerçekleşen vergi, her ambar türünde üretim/tüketim/ziyan/diğer net; gündüz ve gecenin ertelenmiş taşma bildirimi iki kez kayıp sayılmaz. transfer_ozeti ömür boyu toplamdır, gece geliri değildir.
-Yeni gerçek gece birimi tüm stok/kamu eşitliklerini, haftalık vergiyi, ödenmeyen ücret ve borç ödemesini, iki taşma zamanlamasını, JSON restore, salt okunur hesap ve rapor kopyasını denetler. Tam work/sanity_eko15: 124 kontrol 0 başarısız, izole 20 gece dahil. Kaynak/ayna import ve API/statik denetim geçti. EKO-15 [x] (Codex); sıradaki ANI-01 mevcut karakter/ElEsyasi mimarisi üzerinde incelenecek, henüz yeni animasyon kodu yazılmadı.
-İki ds kopyası eşit. Ahmet'in ayrı Windows yolu bu makinede bulunmadığından full pull yapılamadı. CSV/SYS-09 kilidi, çekirdek API, eski RTS yasağı ve Claude devri iptali korunur. Olgun paket normal festive commit/push; repo notu doğrudan muhataba teslim kanıtı değildir.
+## ANI-01 kontrol noktası — 8 Ekim 2026
+EKO-15 3522842 festive üzerinde. Yeni MuhafizDonanimi mevcut ElEsyasi API'sini kullanır; KoyHalkHareketi yalnız iki çağrıyla genişledi. JSON prop/ışık ayarları, gerçek Meshy asker sahne testi ve el pozu/görünürlük birimi aynı pakettedir. 126 sanity kontrolü 0 başarısız, izole 20 gece; genişletilen birim tekrar geçti, native RTX3060 gece görüntüsü ve ayna import/gerçek sahne geçti. ANI-01 [x] (Codex); ANI-02 sıradaki: mevcut rota kuyruğunda kapı/kışla/sur devriyesi.
+İki ds kopyası eşitlenir. Ahmet Windows yolu mevcut değil; oraya full pull uygulanamadı. CSV kilidi, çekirdek API ve eski RTS yasağı korunur; Claude devri iptal. Olgun paket normal festive commit/push; doğrudan muhataba teslim iddiası yoktur.
