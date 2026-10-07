@@ -112,3 +112,8 @@ EKO-10 ve EKO-11 `[x] (Codex)`, festive'e entegre ve push edildi; yayımlanan ko
 
 ## Açılış / eksik commit denetimi — 7 Ekim 2026
 Yayımlanmış a225fba festive'in izlenen dosyaları temiz arşivden Godot 4.7.2 ile import edildi; 20 Ses/Ana sınıfı parse, gerçek ana menü, Katalog HAZIR ve input/havuz testi geçti. Eski 2a98ff5 commit'inden kalan kapi_kuyrugu_test.gd.uid merge artığı düzeltildi. Yeni statik denetim ve gerçek açılış testi sanity'ye eklendi. Ahmet de aynı engine sürümünü doğruladı. Bildirdiği `_iskelet`/`EL_KEMIGI` 338–349 hataları güncel 330 satırlık karakter_model.gd'de bulunmuyor; yerel dosya/buffer farkı araştırılmalı. Eski keen değişkenleri için sahte stub eklenmedi. Detay ve son oturum dosya manifesti docs/denetim/2026-10-07-acilis.md. Tam regresyon work/sanity_acilis_denetimi: 0 başarısız, 20 gece dahil. Kaynak/ayna statik uzak içerik, import ve gerçek açılış geçti; olgun denetim paketi festive yayınına hazır. EKO-12 aktif inceleme, kod yok; yeni hata denetimi önce tamamlanır.
+
+
+## Yayın doğrulaması
+
+Denetim ve UID düzeltmesi `73f8172` commit’iyle origin/claude/festive-volta-li1sfm dalına pushlandı; uzak SHA canlı doğrulandı. Kaynak ve ds GitHub kopyası aynı HEAD/izlenen içerikte; dirty/untracked kaynak yok. Tam sanity 0 başarısız / 20 gece. Ahmet’in gerçek yerel dosyası erişilebilir olmadığı için orada çözüldü denmez; `_iskelet`/EL_KEMIGI farkı için uzak içerik denetimi raporda. Bu belge kontrol noktası yayın sonucunu kaydeder.

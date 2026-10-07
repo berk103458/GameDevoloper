@@ -11,3 +11,8 @@ Sorumlu Codex; Claude devir otomasyonu PAUSED. Sıradaki EKO-12 ambar kapasite/z
 
 ## Son açılış denetimi
 Ahmet/Muharrir'e iletilebilir tam dosya tablosu ve 14 madde: docs/denetim/2026-10-07-acilis.md. Tüm 20 bağımlılık commitli/parse edilir; yeni temiz menü testi geçti. Asıl bildirilen `_iskelet`/`EL_KEMIGI` kodu güncel festive karakter modelinde yok (330 satır); eski keen sürümünde bulunuyor. Yerel dosya veya editör buffer farkı araştırılmalı. Eski test UID merge artığı (2a98ff5) düzeltildi; bu UID'nin üst parse hatasının nedeni olduğu iddia edilmiyor. Kaynak/ayar eksik commit bulgusu yok; denetim öncesi dirty kaynak yoktu. Tam regresyon work/sanity_acilis_denetimi 0 başarısız, 20 gece dahil; kaynak/ayna import ve gerçek açılış geçti. Denetim/düzeltme paketi olgun, festive yayınına hazır.
+
+
+## Yayın doğrulaması
+
+Denetim ve UID düzeltmesi `73f8172` commit’iyle origin/claude/festive-volta-li1sfm dalına pushlandı; uzak SHA canlı doğrulandı. Kaynak ve ds GitHub kopyası aynı HEAD/izlenen içerikte; dirty/untracked kaynak yok. Tam sanity 0 başarısız / 20 gece. Ahmet’in gerçek yerel dosyası erişilebilir olmadığı için orada çözüldü denmez; `_iskelet`/EL_KEMIGI farkı için uzak içerik denetimi raporda. Bu belge kontrol noktası yayın sonucunu kaydeder.
