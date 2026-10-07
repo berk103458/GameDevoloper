@@ -18,6 +18,7 @@ func eylem(id: int) -> String:
 	if d.is_empty(): return "Durum yok"
 	if int(d.adim) < d.yol.size(): return "Yürüyor"
 	var k := sahne.yonetim.koylu(id)
+	if d.get("devriye", false): return String(d.get("devriye_ad", "Nöbette"))
 	if faz_adi == &"gece": return "Ev önünde" if k != null and k.ev >= 0 else "Meydanda"
 	if faz_adi != &"gunduz": return "Meydanda"
 	if d.dinlen: return "Dinleniyor"
@@ -38,7 +39,7 @@ func yenile() -> void:
 			var h := rotaci.yakin(m.position + Vector2i(k.id % m.size.x, (k.id / m.size.x) % m.size.y))
 			f.position = _konum(h)
 			modeller[k.id] = f
-			_durum[k.id] = {"yol": [], "adim": 0, "bekle": 0.0, "dinlen": false, "is": false, "bak": f.position}
+			_durum[k.id] = {"yol": [], "adim": 0, "bekle": 0.0, "dinlen": false, "is": false, "bak": f.position, "devriye_i": k.id, "devriye": false}
 		_iste(k.id)
 	for id in modeller.keys():
 		if not kalan.has(id):
@@ -83,6 +84,11 @@ func _process(delta: float) -> void:
 				else:
 					f.bak(d.bak)
 					f.calis(&"calis" if d.is else &"")
+		elif d.get("devriye", false):
+			d.bekle += delta
+			if d.bekle >= float(MuhafizDevriyesi.AYAR.durak_suresi):
+				d.devriye_i += 1
+				_iste(id)
 		elif faz_adi == &"gunduz":
 			d.bekle += delta
 			var sure := float(_ayar.dinlenme_suresi if d.dinlen else _ayar.calisma_suresi)
@@ -119,6 +125,15 @@ func _planla(id: int) -> void:
 	elif k.is_yeri == KoyYonetimi.MUHAFIZ and faz_adi == &"gunduz" and not d.dinlen:
 		son = rotaci.yakin(Vector2i(m.position.x + m.size.x / 2, sahne.yonetim.a.izgara_boyut.y - 1))
 		d.bak = _konum(son) + Vector3.FORWARD * -sahne.HUCRE
+	d.devriye = MuhafizMaasi.aday(k, sahne.yonetim)
+	if d.devriye:
+		var nobet := MuhafizDevriyesi.hedef(sahne.yonetim, rotaci, bas, int(d.devriye_i))
+		d.is = false
+		d.dinlen = false
+		son = bas if nobet.is_empty() else nobet.son
+		d.bak = _konum(son) + Vector3.FORWARD * -sahne.HUCRE
+		d.devriye_ad = "Nöbette" if nobet.is_empty() else nobet.ad
+		if not nobet.is_empty(): d.devriye_i = nobet.sira
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false

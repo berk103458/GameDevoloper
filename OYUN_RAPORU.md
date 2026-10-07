@@ -897,3 +897,10 @@ Sıradaki: ANI-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Mevcut ElEsyasi soketinde kılıç/mızrak, gündüz kalkan ve gece meşale; dört gölgesiz ışık bütçesi. Gerçek el pozu/özgün CHR görünürlüğü, görev/faz/tekrar yenileme, kayıt-RNG değişmezliği doğrulandı; 126 sanity kontrolü ve izole 20 gece geçti.
 
 Sıradaki: ANI-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-02 (8 Ekim 2026)
+
+Mevcut halk A* kuyruğunda kapı/hazır kışla/işlevli sur kuleleri devriyesi; gece nöbeti, erişilemeyen durakları atlama ve görev bırakınca normal rutin. Dört ahşap platform dekoratörü; 14 ilgili kontrol, izole 20 gece, native RTX3060 ve ayna sahne geçti.
+
+Sıradaki: ANI-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

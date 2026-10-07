@@ -250,3 +250,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Gece bilançosu](gece-bilancosu.md) — EKO-15; gerçek kamu/kişisel ve stok mutabakat sözlüğü.
 
 - [Muhafız donanımı](muhafiz-donanimi.md) — ANI-01: mevcut el soketleri, gece meşalesi ve sınırlı dinamik ışık.
+
+- [Muhafız devriyesi](muhafiz-devriyesi.md) — ANI-02: mevcut A* üzerinde kapı/kışla/sur nöbet döngüsü.

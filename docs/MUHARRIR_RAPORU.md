@@ -43,3 +43,8 @@ Yeni gerçek gece birimi tüm stok/kamu eşitliklerini, haftalık vergiyi, öden
 ## ANI-01 kontrol noktası — 8 Ekim 2026
 EKO-15 3522842 festive üzerinde. Yeni MuhafizDonanimi mevcut ElEsyasi API'sini kullanır; KoyHalkHareketi yalnız iki çağrıyla genişledi. JSON prop/ışık ayarları, gerçek Meshy asker sahne testi ve el pozu/görünürlük birimi aynı pakettedir. 126 sanity kontrolü 0 başarısız, izole 20 gece; genişletilen birim tekrar geçti, native RTX3060 gece görüntüsü ve ayna import/gerçek sahne geçti. ANI-01 [x] (Codex); ANI-02 sıradaki: mevcut rota kuyruğunda kapı/kışla/sur devriyesi.
 İki ds kopyası eşitlenir. Ahmet Windows yolu mevcut değil; oraya full pull uygulanamadı. CSV kilidi, çekirdek API ve eski RTS yasağı korunur; Claude devri iptal. Olgun paket normal festive commit/push; doğrudan muhataba teslim iddiası yoktur.
+
+
+## ANI-02 kontrol noktası — 8 Ekim 2026
+ANI-01 05fb593 festive'e pushlandı; 126 sanity kontrolü/20 gece geçti. ANI-02 yeni src/koy/gorsel/muhafiz_devriyesi.gd ve JSON hedef/ölçü ayarları; mevcut halk kuyruğuna hedef/bekleme adaptörü, mevcut sahneye tek kule dekoratörü çağrısı. Nöbetçi zeminde kule önüne yürür; platforma çıkma animasyonu yoktur. Kışla/kapı/dört kule, gece devamı, eksik/yanmış/kopuk durak ve görevi bırakma gerçek testlerle doğrulandı. 14 ilgili kontrol 0 hata, 20 gece dahil; native görüntü ve ds ayna import/sahne geçti. Testin ilk girinti, ambar fixture ve geçici düğüm adı beklentileri düzeltildi; son testler hatasızdır.
+ANI-02 [x] (Codex); sıradaki ANI-03 kuyu/kova/sulama rutini. ds kopyaları eşit; Ahmet Windows yolu yok, full pull uygulanamadı. CSV, eski mimari ve çekirdek API korunur; Claude devri iptal. Olgun paket normal festive commit/push.

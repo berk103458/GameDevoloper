@@ -193,6 +193,7 @@ func yenile() -> void:
 		n.set_meta("bina_id", b.id)
 		_yapilar.add_child(n)
 	_sur_kur()
+	MuhafizDevriyesi.kule_kur(self, _yapilar)
 	halk_hareketi.yenile()
 	IklimGorseli.uygula(self)
 

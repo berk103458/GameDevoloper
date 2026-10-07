@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Festive kontrol edilen uç: 3522842; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 3522842. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Festive kontrol edilen uç: 05fb593; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 05fb593. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -103,14 +103,15 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - EKO-14: Mevcut iki kasa arasında atomik açık kurtarma ve günlük sınırlı, sosyal bedelli zimmet; dış JSON, optional kayıt ve aynı gün restore koruması, mevcut pazar/HUD adaptörü. 123 kontrol/20 gece, native UI ve ayna import geçti.
 - EKO-15: gece_sonu dönüşüne salt okunur bilanco: kamu/kişisel açılış-kapanış, gerçek ödenen maaş/vergi, tüm stok hareketleri ve taşma mutabakatı. Önceki gündüz taşması tekrar gider sayılmaz; eski borç ödemesi, restore ve kopya güvenliği geçti. 124 kontrol ve 20 gece hatasız.
 - ANI-01: Mevcut ElEsyasi soketinde kılıç/mızrak, gündüz kalkan ve gece meşale; dört gölgesiz ışık bütçesi. Gerçek el pozu/özgün CHR görünürlüğü, görev/faz/tekrar yenileme, kayıt-RNG değişmezliği doğrulandı; 126 sanity kontrolü ve izole 20 gece geçti.
+- ANI-02: Mevcut halk A* kuyruğunda kapı/hazır kışla/işlevli sur kuleleri devriyesi; gece nöbeti, erişilemeyen durakları atlama ve görev bırakınca normal rutin. Dört ahşap platform dekoratörü; 14 ilgili kontrol, izole 20 gece, native RTX3060 ve ayna sahne geçti.
 
 ## Sonraki çalışma
-ANI-02. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+ANI-03. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 
-## ANI-01 kontrol noktası — 8 Ekim 2026
-EKO-15 3522842 festive üzerinde. Yeni MuhafizDonanimi mevcut ElEsyasi API'sini kullanır; KoyHalkHareketi yalnız iki çağrıyla genişledi. JSON prop/ışık ayarları, gerçek Meshy asker sahne testi ve el pozu/görünürlük birimi aynı pakettedir. 126 sanity kontrolü 0 başarısız, izole 20 gece; genişletilen birim tekrar geçti, native RTX3060 gece görüntüsü ve ayna import/gerçek sahne geçti. ANI-01 [x] (Codex); ANI-02 sıradaki: mevcut rota kuyruğunda kapı/kışla/sur devriyesi.
-İki ds kopyası eşitlenir. Ahmet Windows yolu mevcut değil; oraya full pull uygulanamadı. CSV kilidi, çekirdek API ve eski RTS yasağı korunur; Claude devri iptal. Olgun paket normal festive commit/push; doğrudan muhataba teslim iddiası yoktur.
+## ANI-02 kontrol noktası — 8 Ekim 2026
+ANI-01 05fb593 festive'e pushlandı; 126 sanity kontrolü/20 gece geçti. ANI-02 yeni src/koy/gorsel/muhafiz_devriyesi.gd ve JSON hedef/ölçü ayarları; mevcut halk kuyruğuna hedef/bekleme adaptörü, mevcut sahneye tek kule dekoratörü çağrısı. Nöbetçi zeminde kule önüne yürür; platforma çıkma animasyonu yoktur. Kışla/kapı/dört kule, gece devamı, eksik/yanmış/kopuk durak ve görevi bırakma gerçek testlerle doğrulandı. 14 ilgili kontrol 0 hata, 20 gece dahil; native görüntü ve ds ayna import/sahne geçti. Testin ilk girinti, ambar fixture ve geçici düğüm adı beklentileri düzeltildi; son testler hatasızdır.
+ANI-02 [x] (Codex); sıradaki ANI-03 kuyu/kova/sulama rutini. ds kopyaları eşit; Ahmet Windows yolu yok, full pull uygulanamadı. CSV, eski mimari ve çekirdek API korunur; Claude devri iptal. Olgun paket normal festive commit/push.

@@ -141,8 +141,8 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 ## BÖLÜM 5: Yaşayan Köy, Zanaat Rutinleri ve Görsel Polish
 
 - [x] **ANI-01:** Muhafız Modellerine Silah ve Meşale Soketleri — Kılıç, kalkan, mızrak; geceleri dinamik ışıklı meşale. (Codex)
-- [/] **ANI-02:** Muhafız Dinamik Nöbet ve Devriye Rotası — Kapı, kışla ve sur kuleleri arasında düzenli yürüyüş.
-- [ ] **ANI-03:** Çiftçi ve Bostancı Su Taşıma Rutini — Kuyu → kova → su arkı hendekleri döngüsü.
+- [x] **ANI-02:** Muhafız Dinamik Nöbet ve Devriye Rotası — Kapı, kışla ve sur kuleleri arasında düzenli yürüyüş. (Codex)
+- [/] **ANI-03:** Çiftçi ve Bostancı Su Taşıma Rutini — Kuyu → kova → su arkı hendekleri döngüsü.
 - [ ] **ANI-04:** Oduncu ve Öküz Tomruk Taşıma Rotası — Orman → balta → tomruk öküzle hızara.
 - [ ] **ANI-05:** Çoban ve Sürü Otlatma Döngüsü — Sabah ağıl aç → çayır → akşam ağıla kapat.
 - [ ] **ANI-06:** Değirmen Çarkı ve Çuval Taşıma Hareketi — Çark/pervane dönüşü; değirmenci çuvalla sundurma.
