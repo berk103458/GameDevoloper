@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Festive kontrol edilen uç: f275e67; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: f275e67. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Festive kontrol edilen uç: afe0907; çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: afe0907. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -109,23 +109,20 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - ANI-05: CHR ağıl gerçek katalog/üretim adaptörü; dört koyunluk başlangıç sürüsü, aynı A* grafiğinde sabah çayır/akşam kapı dönüşü. Kapı tüm sürü dönünce kapanır; çobansız sürü, yıkım ve kopuk rota güvenli. 134 sanity kontrolü/20 gece, native ve son ayna sahnesi geçti.
 - ANI-06: Gerçek çalışan/girdi/depo koşullarıyla dönen ahşap çark, el kemiğine bağlı çuval ve erişilebilir ön sundurma durağı; mevcut ekonomi ve kayıt değişmez. 15 ilgili kontrol ve 20 gece, son durak düzeltmesi sonrası headless/native/ayna sahne kontrolü geçti.
 - ANI-07: Boşta köylüler akşam/gece mevcut ateşte ayrı ve güvenli A* duraklarında ısınır; gerçek iskelette iki el önde, gündüz duruş kapanır. Atanmış çalışan/guard rutinleri korunur. 15 ilgili kontrol/20 gece, native görüntü ve ayna import/sahne geçti.
+- ANI-08: Gerçek fiziksel çalışan/reçete/girdi/ambar koşullarıyla örs çekiç ve fırın küreği döngüleri; mevcut modifier/el soketi, tek noktada düz kutu yer tutucular. 17 ilgili kontrol ve 20 gece; son alet açı düzeltmesi native/ayna sahnesinde geçti. Envanter G güncel, asset üretilmedi/indirilmedi.
 
 ## Sonraki çalışma
-ANI-08. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 başka ajana ait aktif işlerdir. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+ANI-09. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
+## Cursor ortamından korunan tarihsel notlar
 
-## ANI-07 — 8 Ekim 2026
-
-Ateş başı ritüeli ROADMAP [x] (Codex). 15 ilgili kontrol ve 20 gece: sıfır başarısız; son halka yayılımı native ve ayna sahnesinde tekrar geçti. İlk UI testindeki karışık girinti düzeltildi; final import/çalışma hatasız. İki ds kopyası eşitlenerek festive normal commit/push; Ahmet Windows yolu burada yok. Sıradaki ANI-08; CSV ve eski mimari korunuyor.
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
 
-## ANI-06 yayın kontrol noktası — 8 Ekim 2026
 
-Değirmen hareketi 15 ilgili kontrolden ve 20 gecelik duman testinden geçti; son sundurma durak düzeltmesi kaynak ve ayna headless sahnelerinde, native Vulkan görüntüsünde doğrulandı. ANI-05 dc2d0ad yalnız commitli dosyalarla önbelleksiz dışa aktarıldı: ikinci import ve gerçek açılış bağımlılık kontrolü hatasız (docs/denetim/2026-10-07-acilis.md). Tam paket festive üzerinde normal commit/push ile yayımlanır. Ahmet Windows yolu bu makinede mevcut değil; o kopya güncellendi iddiası yok. Sıradaki ANI-07; Claude devri iptal.
 
 ## Cursor — BUG-03
 Durum: BUG-03 kapandı. İşe başlarken kilit «BUG-03 üzerindeyim» idi; Codex/Claude aynı maddeyi almasın diye ROADMAP bu turda Cursor’a ayrıldı.
@@ -135,6 +132,6 @@ Eksik asset: karar repliği için ayrı seslendirme (voice-over) dosyası yok. K
 Doğrulama: Godot 4.7.2 headless import hatasız; `tests/unit/kvr/karar_replik_test.gd` GEÇTİ (0 hata). API sözleşmesi ve açılış UID denetimi geçti. CSV, KAP-02/03, EKO-14 ve SYS-09 validator’a dokunulmadı.
 Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyaları bu Linux ortamında yok; eşitlendi denmez.
 
-## Birleştirme kontrol noktası — 8 Ekim 2026
+## ANI-08 yayın kontrol noktası — 8 Ekim 2026
 
-Codex Windows çalışma ortamı: ds kaynak/ayna kopyaları mevcut, Ahmet yolu yok. Üstteki Linux raporu Cursor ortamına aittir. Remote af876a7 (Cursor BUG-03 ve eksik asset kuralları) ile yerel ANI-07 7a416e7 birlikte korunuyor. Yeni asset üretimi/indirme yapılmaz; mevcut ısınma kodu gerçek animasyon dosyasının yer tutucusudur, envanter güncellenir. ANI-08 sıradaki.
+17 ilgili kontrol ve izole 20 gece sıfır başarısız. Son alet dönüşleri native/ayna import-sahne kontrolünde doğrulandı. ANI-08 envanter G satırları tamam; asset üretilmedi/indirilmedi. KAP-02/03 sahipsiz [ ] durumuna alındı; BUG-03/15 Cursor kapanışları korunuyor. İki ds kopyası eşitlenerek festive normal commit/push; Ahmet Windows yolu mevcut değil. Sıradaki ANI-09.

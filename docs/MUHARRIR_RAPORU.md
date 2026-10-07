@@ -88,3 +88,6 @@ Değirmen hareketi 15 ilgili kontrolden ve 20 gecelik duman testinden geçti; so
 Ateş başı ritüeli ROADMAP [x] (Codex). 15 ilgili kontrol ve 20 gece: sıfır başarısız; son halka yayılımı native ve ayna sahnesinde tekrar geçti. İlk UI testindeki karışık girinti düzeltildi; final import/çalışma hatasız. İki ds kopyası eşitlenerek festive normal commit/push; Ahmet Windows yolu burada yok. Sıradaki ANI-08; CSV ve eski mimari korunuyor.
 
 ANI-07 push sırasında origin af876a7 güncellemesi geldi. Cursor BUG-03/heybe testleri ve 8 Ekim asset üretme yasağı korunarak birleştiriliyor; ANI-07 eksik ısınma klibi envantere eklendi, asset üretilmedi/indirilmedi.
+
+
+ANI-08: ROADMAP [x] (Codex), 17 kontrol/20 gece ve native/ayna geçti. Asset üretimi/indirme yok; envanter G ve ANI-ALET mevcut kaydı tamam. KAP-02/03 sahipsiz [ ] yapıldı, BUG-03/15 tekrar alınmadı. Kaynak/ds ayna eşitlenip festive normal commit/push; Ahmet yolu erişilebilir değil. Sıradaki ANI-09.

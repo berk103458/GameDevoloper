@@ -262,3 +262,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Değirmen çarkı ve çuval](degirmen-hareketi.md) — ANI-06: gerçek çalışma koşullarıyla çark ve taşıma görseli.
 
 - ANI-07: [Ateş başı ritüeli](ates-basi-ritueli.md) — mevcut ateş, ayrı A* durakları, gerçek iskelette ısınma.
+
+- ANI-08: [Zanaat tezgâhı](zanaat-tezgahi.md) — gerçek reçete koşulları, mevcut el soketi, kutu yer tutucuları.

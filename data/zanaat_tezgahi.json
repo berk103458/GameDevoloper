@@ -1,0 +1,74 @@
+{
+  "turler": {
+    "demirhane": "dov",
+    "atolye": "dov",
+    "civi_ocagi": "dov",
+    "tamir_sundurmasi": "dov",
+    "firin": "pisir"
+  },
+  "ors_boy": [
+    0.8,
+    0.7,
+    0.45
+  ],
+  "firin_boy": [
+    0.85,
+    1.1,
+    0.5
+  ],
+  "sap_boy": [
+    0.07,
+    0.5,
+    0.07
+  ],
+  "cekic_boy": [
+    0.3,
+    0.13,
+    0.15
+  ],
+  "kurek_boy": [
+    0.36,
+    0.06,
+    0.5
+  ],
+  "ahsap": "#7a5c3c",
+  "demir": "#5c5f63",
+  "tugla": "#965a42",
+  "vurus_hizi": 2.8,
+  "vurus_genlik": 0.4,
+  "kurek_hizi": 1.4,
+  "kurek_genlik": 0.2,
+  "pisir_kol": [
+    0.18,
+    -0.75,
+    0.6
+  ],
+  "pisir_onkol": [
+    0.1,
+    -0.4,
+    0.9
+  ],
+  "dov_sag_kol": [
+    -0.15,
+    -0.6,
+    0.7
+  ],
+  "dov_sag_onkol": [
+    0.05,
+    -0.3,
+    0.9
+  ],
+  "dov_sol_kol": [
+    0.2,
+    -0.8,
+    0.5
+  ],
+  "dov_sol_onkol": [
+    -0.1,
+    -0.8,
+    0.5
+  ],
+  "cekic_aci": 0.8,
+  "kurek_aci": -1.5707963,
+  "kurek_ilerleme": 0.18
+}

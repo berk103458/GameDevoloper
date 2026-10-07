@@ -92,7 +92,7 @@ func _process(delta: float) -> void:
 					OduncuRutini.varis(f, d.get("oduncu", false) and int(d.get("oduncu_i", 0)) == 0)
 					SulamaRutini.varis(f, d.get("sulama", false) and int(d.get("sulama_i", 0)) == 1)
 					f.bak(d.bak)
-					f.calis(&"isin" if d.get("ates_basi", false) else (&"calis" if d.is else &""))
+					f.calis(&"isin" if d.get("ates_basi", false) else (StringName(d.get("zanaat_hareket", "calis")) if d.is else &""))
 		elif d.get("oduncu", false):
 			d.bekle += delta
 			if d.bekle >= float(OduncuRutini.AYAR.sureler[d.oduncu_i]):
@@ -206,6 +206,20 @@ func _planla(id: int) -> void:
 	else:
 		d.degirmenci_i = 0
 	DegirmenHareketi.esya(f, d.degirmenci, tasiyor)
+	d.zanaat = ZanaatTezgahi.aday(sahne.yonetim, k, faz_adi)
+	d.zanaat_hareket = "calis"
+	var alet_turu := ""
+	if d.zanaat:
+		var z := sahne.yonetim.bina(k.is_yeri)
+		var tezgah := ZanaatTezgahi.hedef(self, k, bas)
+		d.is = not d.dinlen and not tezgah.is_empty() and ZanaatTezgahi.aktif(sahne.yonetim, k)
+		if d.is:
+			son = tezgah.son
+			d.bak = tezgah.bak
+			d.zanaat_hareket = ZanaatTezgahi.AYAR.turler[z.tur]
+			alet_turu = z.tur
+	if faz_adi == &"gunduz" and b != null and ZanaatTezgahi.AYAR.turler.has(b.tur) and not d.zanaat: d.is = false
+	ZanaatTezgahi.esya(f, alet_turu)
 	d.ates_basi = false
 	if AtesBasiRutini.aday(sahne.yonetim, k, faz_adi):
 		var ates := AtesBasiRutini.hedef(self, k, bas)

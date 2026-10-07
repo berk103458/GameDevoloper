@@ -138,3 +138,6 @@ Codex sorumlu; Claude devri iptal. Yayımlanmış festive a225fba kaynakları ö
 ## ANI-07 — 8 Ekim 2026
 
 Ateş başı ritüeli ROADMAP [x] (Codex). 15 ilgili kontrol ve 20 gece: sıfır başarısız; son halka yayılımı native ve ayna sahnesinde tekrar geçti. İlk UI testindeki karışık girinti düzeltildi; final import/çalışma hatasız. İki ds kopyası eşitlenerek festive normal commit/push; Ahmet Windows yolu burada yok. Sıradaki ANI-08; CSV ve eski mimari korunuyor.
+
+
+ANI-08: ROADMAP [x] (Codex), 17 kontrol/20 gece ve native/ayna geçti. Asset üretimi/indirme yok; envanter G ve ANI-ALET mevcut kaydı tamam. KAP-02/03 sahipsiz [ ] yapıldı, BUG-03/15 tekrar alınmadı. Kaynak/ds ayna eşitlenip festive normal commit/push; Ahmet yolu erişilebilir değil. Sıradaki ANI-09.

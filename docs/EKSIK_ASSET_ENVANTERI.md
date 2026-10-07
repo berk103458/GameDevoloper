@@ -368,3 +368,7 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | ID | ROADMAP | Ne | Tür / format | Yer tutucu yolu | Anahtar kelimeler (TR + EN) | Öncelik | Ekleyen |
 |---|---|---|---|---|---|---|---|
 | ANI07-ISINMA | ANI-07 | İki el ateşe uzatılan ısınma döngüsü | glTF / iskelet animasyon klibi | res://src/koy/gorsel/ates_basi_rutini.gd (kol hedefleri; yeni asset dosyası yok) | ateş başı el ısıtma, köylü gece; campfire warm hands villager idle | orta | Codex |
+| ANI08-TEZGAH | ANI-08 | Örs ve fırın ağzı | glTF | res://src/koy/gorsel/zanaat_tezgahi.gd (kur: BoxMesh) | ortaçağ örs demirci ocağı fırın; medieval anvil forge oven | orta | Codex |
+| ANI08-HAREKET | ANI-08 | Çekiç vurma ve fırın küreği döngüsü | glTF / iskelet animasyon klibi | res://src/koy/gorsel/zanaat_tezgahi.gd (kol: mevcut modifier yer tutucusu) | demirci çekiç vurma fırıncı kürek; blacksmith hammer strike baker peel | orta | Codex |
+
+ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.
