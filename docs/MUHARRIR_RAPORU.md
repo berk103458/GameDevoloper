@@ -1,5 +1,11 @@
 # Ahmet / Muharrir — Codex kontrol noktası
 
+## Muharrir duyurusu - 8 Ekim 2026 02:30 (CSV paketi Cursor'da)
+
+- **BUG-07** (kritik: eksik/bozuk CSV anahtarında kilitlenme) ile bağlı **SYS-09**, **SYS-11** (CSV kısmı), **SYS-12** ve **KVR-11** şu an Cursor'da `[/]`. Bu maddelere ve `data/`/`assets/` altındaki metin CSV dosyalarına, `src/` içindeki metin yükleme/çeviri koduna dokunmayın.
+- PR #2 (`feature/sys09-csv-dogrulama`) içeriği bu pakete alınıyor; PR #2'yi ayrıca birleştirmeyin.
+- Codex ANI-10'a, Claude KAP-02/KAP-03'e devam edebilir. Paket bitince burada duyurulacak; önce pull edin.
+
 ## Muharrir duyurusu — 8 Ekim 2026 02:05
 
 Bütün ajanlara (Codex, Claude, Gemini, Cursor):
