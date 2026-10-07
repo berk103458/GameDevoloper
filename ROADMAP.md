@@ -27,6 +27,7 @@
 - [x] **ADM-14:** Kriz ve sabotaj enjektörü — tek tuş veba / kuyu zehirlenmesi / ambar kundaklaması. (Codex)
 - [x] **ADM-15:** Otomatik diyalog akışı ve tansiyon sabitleyici — diyalogları auto-geç; tansiyonu 2/5/9’a kilitle. (Codex)
 
+
 ---
 
 ## BÖLÜM 1: Kritik Bugfix, Performans ve Bellek Optimizasyonu
@@ -112,6 +113,7 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [x] **UZM-13:** Aşağılanma / Grev — soylu/okumuş (ör. CHR_007 Şemsettin) ağır fiziksel işe verilirse iş bırakır, köylüleri kışkırtır. (Codex)
 - [x] **UZM-14:** Gece Vardiyası Yorgunluk — gece uykusuz → ertesi gün kaza/nöbette uyuma ihtimali %40 ↑. (Codex)
 - [x] **UZM-15:** Atama Önizleme ve Verim Sinerji Göstergesi — kart sürüklerken yeşil/kırmızı tahmini verim UI (Bölüm 5 ANI atama önizlemesi ile örtüşebilir — birleştir/adaptör; ID kalır). (Codex)
+
 
 ---
 
@@ -313,6 +315,7 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [ ] **SYS-18:** Atıl Bayrakların Olaylara Bağlanması — `baci_tezgah`, `dervis`, `miraen_sadik`, `turkmen_kin`, `thessra_kirgin`, `rusvet_sayisi` → gece/diplomasi (KVR-06 ile örtüşür, yeni sözlük yok).
 - [ ] **SYS-19:** 1→2. Perde Geçiş — nüfus 18 → “Köy Oturdu”; Ağa olarak devam → gece sayacı sıfırlanmadan 2. perde 12 gece.
 - [ ] **SYS-20:** Beş Nihai Son + Epilog Matrisi — 5 son (Ertuğrul Obası, Ahi Kasabası, Tekfur Haraççısı, Beyin Uç Köyü, Uç Tutundu) + yozlaşma/5 stat (taslak: `src/sistemler/son_yoneticisi.gd`).
+
 
 ---
 
