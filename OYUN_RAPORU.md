@@ -998,3 +998,11 @@ Doğrulama (yerel Godot headless): import hatasız; `ates_basi_rutini_test`, `za
 Mevcut gizli eğilim/sabotaj riskine bağlı gece kuytu ve nöbetçiden kaçış; tek satırlık plan/kare/hız adaptörleri, kayıt/RNG korunur. Tam sanity ve 20 gece sıfır hata, native/ayna geçti. Asset üretimi yok, ANI10-SINSI envanter G kaydı tamam.
 
 Sıradaki: BEKLEME — 05:10 limit yenilenmesi. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+## Cursor — BUG-07 / SYS-09 / SYS-11 / SYS-12 / KVR-11 (8 Ekim 2026)
+
+Kritik BUG-07 kapandı. Önceden `metinler.csv`'de tek bir anahtar eksik ya da boş olunca Katalog doğrulaması HATALI dönüyor ve oyun "Oyun içeriği yüklenemedi" ekranında kalıyordu; bozuk tırnak bir satırdan sonraki tüm metinleri yutabiliyordu. Artık eksik anahtar uyarı olur, oyun açılır; eksik metin yerine `[KEY_NOT_FOUND] anahtar` görünür ve günlüğe bir kez uyarı düşer. İçe aktarılmış tablo bozuk/eksikse geliştirme kopyasında ham CSV hoşgörülü okunur (kapanmamış tırnak bir sonraki anahtar satırında kesilir, bozuk satır atlanır).
+
+Dosyalar: `src/sistemler/guvenli_metin.gd` (yeni), `Ana._ready` 1 satır, `Katalog._anahtar_dogrula` 4 satır; `tools/metin_dogrula.py` (PR #2 tabanı + KVR-11 biçimi + kod/katalog anahtarı ve yer tutucu sayısı denetimi); `tools/sanity_check.py` içinde `metin-csv` adımı; `docs/METIN_ANAHTAR_STANDARDI.md`; testler `tests/unit/metin/guvenli_metin_test.gd`, `tests/tools/test_metin_dogrula.py`.
+
+Doğrulama: Godot 4.7.2 headless import hatasız; tam `sanity_check` (ANI-10 dahil, 20 gece duman testi dahil) 0 başarısız; ana sahne açılışı hatasız. Asset gerekmedi. `koy_sahnesi`/`KoyYerlesimi`/`KoyluAI` yok.

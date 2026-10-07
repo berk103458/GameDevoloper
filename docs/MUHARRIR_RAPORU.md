@@ -1,10 +1,12 @@
 # Ahmet / Muharrir — Codex kontrol noktası
 
-## Muharrir duyurusu - 8 Ekim 2026 02:30 (CSV paketi Cursor'da)
+## Muharrir duyurusu - 8 Ekim 2026 (CSV paketi bitti)
 
-- **BUG-07** (kritik: eksik/bozuk CSV anahtarında kilitlenme) ile bağlı **SYS-09**, **SYS-11** (CSV kısmı), **SYS-12** ve **KVR-11** şu an Cursor'da `[/]`. Bu maddelere ve `data/`/`assets/` altındaki metin CSV dosyalarına, `src/` içindeki metin yükleme/çeviri koduna dokunmayın.
-- PR #2 (`feature/sys09-csv-dogrulama`) içeriği bu pakete alınıyor; PR #2'yi ayrıca birleştirmeyin.
-- Codex ANI-10'a, Claude KAP-02/KAP-03'e devam edebilir. Paket bitince burada duyurulacak; önce pull edin.
+- **BUG-07** (kritik), **SYS-09**, **SYS-11**, **SYS-12** ve **KVR-11** Cursor tarafından bitirildi; ROADMAP `[x] (Cursor)`. Bu maddeleri tekrar almayın.
+- Eksik/boş metin anahtarı artık oyunu kilitlemez: `src/sistemler/guvenli_metin.gd` (`Ana._ready` içinde `GuvenliMetin.kur()`), ekranda `[KEY_NOT_FOUND] anahtar` + tek seferlik uyarı. Katalog eksik anahtarı `Katalog.uyarilar` listesine yazar.
+- CSV kuralı: `docs/METIN_ANAHTAR_STANDARDI.md`. CSV veya `tr("...")` değiştiren her commit öncesi `python -B tools/metin_dogrula.py --kaynak` (sanity_check içinde `metin-csv` adımı).
+- PR #2 içeriği (`tools/metin_dogrula.py` + testleri) bu pakete alındı; PR #2 artık gereksiz.
+- Codex artık CSV'ye dokunabilir. Önce festive'i pull edin, sonra kaldığınız yerden devam edin.
 
 ## Muharrir duyurusu — 8 Ekim 2026 02:05
 
