@@ -150,8 +150,8 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [x] **ANI-06:** Değirmen Çarkı ve Çuval Taşıma Hareketi — Çark/pervane dönüşü; değirmenci çuvalla sundurma. (Codex)
 - [x] **ANI-07:** Akşam Ateş Başı Toplanma Ritüeli — Gece boşta kalan köylülerin meydan ateşi etrafında ısınması. (Codex)
 - [x] **ANI-08:** Zanaatkar Tezgâh Animasyonları — Örs/çekiç, fırın küreği vb. döngüsel hareketler. (Codex)
-- [/] **ANI-09:** Hava Durumuna Göre Karakter Tepkileri — Yağmurda saçak altı; karda yavaş/büzülmüş yürüyüş.
-- [ ] **ANI-10:** Sabotajcıların Gece Gölgeli Sinsi Davranışı — Ateşten uzak, kuytu bekleme; nöbetçi yaklaşınca yön değiştirme.
+- [x] **ANI-09:** Hava Durumuna Göre Karakter Tepkileri — Yağmurda saçak altı; karda yavaş/büzülmüş yürüyüş. (Codex)
+- [/] **ANI-10:** Sabotajcıların Gece Gölgeli Sinsi Davranışı — Ateşten uzak, kuytu bekleme; nöbetçi yaklaşınca yön değiştirme. (Codex)
 
 - [ ] **ANI-11:** Zanaat Araçları Dinamik Kemik Soketi (`BoneAttachment3D`) — el kemiklerine alet; mola/uykuda stok (taslak: `src/dunya/karakter_ekipman_yoneticisi.gd`).
 - [ ] **ANI-12:** Bekleme Animasyonu Desenkronizasyonu — idle offset 0.1–1.5s + 3 idle varyasyon.

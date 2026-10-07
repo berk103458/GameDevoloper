@@ -264,3 +264,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - ANI-07: [Ateş başı ritüeli](ates-basi-ritueli.md) — mevcut ateş, ayrı A* durakları, gerçek iskelette ısınma.
 
 - ANI-08: [Zanaat tezgâhı](zanaat-tezgahi.md) — gerçek reçete koşulları, mevcut el soketi, kutu yer tutucuları.
+
+- ANI-09: [Karakter hava tepkileri](karakter-hava.md) — mevcut iklimde yağmur/kar; A* saçak, yürüyüş hızı, aynı gövde modifieri.

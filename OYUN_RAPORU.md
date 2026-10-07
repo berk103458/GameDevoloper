@@ -970,3 +970,10 @@ Sıradaki: ANI-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Gerçek fiziksel çalışan/reçete/girdi/ambar koşullarıyla örs çekiç ve fırın küreği döngüleri; mevcut modifier/el soketi, tek noktada düz kutu yer tutucular. 17 ilgili kontrol ve 20 gece; son alet açı düzeltmesi native/ayna sahnesinde geçti. Envanter G güncel, asset üretilmedi/indirilmedi.
 
 Sıradaki: ANI-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-09 (8 Ekim 2026)
+
+Mevcut iklim sözleşmesine yağmur; aynı A* ile erişilebilir düz kutu saçağa sığınma, muhafız görevini koruma, kar fırtınasında görsel hız ×0.72 ve mevcut modifierde hafif büzülme. Ekonomi/RNG değişmez. Tam 144 kontrol ve izole 20 gece sıfır başarısız; native ve ayna geçti. Envanter G/VFX-YAGMUR güncel; asset üretilmedi/indirilmedi.
+
+Sıradaki: ANI-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

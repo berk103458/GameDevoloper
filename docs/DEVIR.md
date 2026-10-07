@@ -141,3 +141,8 @@ Ateş başı ritüeli ROADMAP [x] (Codex). 15 ilgili kontrol ve 20 gece: sıfır
 
 
 ANI-08: ROADMAP [x] (Codex), 17 kontrol/20 gece ve native/ayna geçti. Asset üretimi/indirme yok; envanter G ve ANI-ALET mevcut kaydı tamam. KAP-02/03 sahipsiz [ ] yapıldı, BUG-03/15 tekrar alınmadı. Kaynak/ds ayna eşitlenip festive normal commit/push; Ahmet yolu erişilebilir değil. Sıradaki ANI-09.
+
+
+## ANI-09 yayın kontrol noktası — 8 Ekim 2026
+
+Tam sanity work/sanity_ani09: 144 kontrol, sıfır başarısız; izole 20 gece dahil. Native yağmur/kar, kaynak ve ayna sahne/import geçti. Gerçek hız testi render zamanlamasına değil aynı süreli tween adımına dayanır. Yeni asset dosyası yok, envanter G ve VFX-YAGMUR kayıtları güncel. Yağmur mevcut admin/iklim kayıt alanını kullanır, rastgele hava takvimi/VFX MEV paketidir. KAP-02/03 [ ], BUG-03/15 Cursor [x] korunur. İki ds kopyası eşitlenir; Ahmet yolu burada yok. Sıradaki ANI-10.

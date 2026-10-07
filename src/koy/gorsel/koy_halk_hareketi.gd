@@ -18,6 +18,7 @@ func eylem(id: int) -> String:
 	if d.is_empty(): return "Durum yok"
 	if int(d.adim) < d.yol.size(): return "Yürüyor"
 	var k := sahne.yonetim.koylu(id)
+	if d.get("siginma", false): return "Yağmurdan saçak altında korunuyor"
 	if d.get("ates_basi", false): return "Ateş başında ısınıyor"
 	if d.get("degirmenci", false): return String(d.get("degirmenci_ad", "Öğütme bekliyor"))
 	if d.get("coban", false): return String(d.get("coban_ad", "Sürü yolu kapalı"))
@@ -228,6 +229,24 @@ func _planla(id: int) -> void:
 			d.bak = ates.bak
 			d.ates_basi = true
 			d.is = false
+	d.siginma = false
+	var hava := KarakterHavaTepkisi.hedef(self, k, bas)
+	if not hava.is_empty():
+		son = hava.son
+		d.bak = hava.bak
+		d.siginma = true
+		d.is = false
+		d.ates_basi = false
+		d.oduncu = false
+		d.sulama = false
+		d.degirmenci = false
+		d.coban = false
+		d.zanaat = false
+		OduncuRutini.esya(f, sahne.yonetim, id, false, 0)
+		SulamaRutini.esya(f, false, 0)
+		DegirmenHareketi.esya(f, false, false)
+		ZanaatTezgahi.esya(f, "")
+	if f.duzeltici() != null: f.duzeltici().hava_egimi = KarakterHavaTepkisi.egim(sahne.yonetim)
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false
@@ -244,7 +263,7 @@ func _planla(id: int) -> void:
 
 func _adim(id: int) -> void:
 	var fark := sin(float(id) * 2.4) * float(_ayar.hiz_farki)
-	modeller[id].yuru(_durum[id].yol[_durum[id].adim], float(_ayar.yurume_hizi) * (1.0 + fark))
+	modeller[id].yuru(_durum[id].yol[_durum[id].adim], float(_ayar.yurume_hizi) * (1.0 + fark) * KarakterHavaTepkisi.hiz(sahne.yonetim))
 
 func _konum(h: Vector2i) -> Vector3:
 	return sahne.alan_merkezi(h, Vector2i.ONE)

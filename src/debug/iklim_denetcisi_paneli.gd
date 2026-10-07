@@ -33,7 +33,7 @@ func _ready() -> void:
 	for ad in ["Takvimden", "İlkbahar", "Yaz", "Sonbahar", "Kış"]: mevsim.add_item(ad)
 	satir.add_child(mevsim)
 	hava = OptionButton.new()
-	for ad in ["Normal", "Kar fırtınası", "Kuraklık"]: hava.add_item(ad)
+	for ad in ["Normal", "Kar fırtınası", "Kuraklık", "Yağmur"]: hava.add_item(ad)
 	satir.add_child(hava)
 	uygula = Button.new()
 	uygula.text = "İklimi uygula"
@@ -72,7 +72,7 @@ func _process(delta: float) -> void:
 
 func yenile() -> void:
 	var o: Oturum = baglam.get("oturum") if is_instance_valid(baglam) else null
-	durum.text = "Oturum yok" if o == null else "%s · %s · Gıda ×%.1f / Odun ×%.1f" % [["İlkbahar", "Yaz", "Sonbahar", "Kış"][o.yonetim.mevsim()], ["Normal", "Kar fırtınası", "Kuraklık"][IklimDeneyi.HAVALAR.find(IklimDeneyi.hava(o.yonetim))], IklimDeneyi.gida_carpani(o.yonetim), IklimDeneyi.odun_carpani(o.yonetim)]
+	durum.text = "Oturum yok" if o == null else "%s · %s · Gıda ×%.1f / Odun ×%.1f" % [["İlkbahar", "Yaz", "Sonbahar", "Kış"][o.yonetim.mevsim()], ["Normal", "Kar fırtınası", "Kuraklık", "Yağmur"][IklimDeneyi.HAVALAR.find(IklimDeneyi.hava(o.yonetim))], IklimDeneyi.gida_carpani(o.yonetim), IklimDeneyi.odun_carpani(o.yonetim)]
 	uygula.disabled = not ZamanMakinesi.uygun(baglam)
 	sifirla.disabled = uygula.disabled
 

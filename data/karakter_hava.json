@@ -1,0 +1,19 @@
+{
+  "kar_hiz": 0.72,
+  "kar_egim": 0.16,
+  "sacak_turleri": [
+    "kulube",
+    "atolye",
+    "demirhane",
+    "hizarhane",
+    "odunluk",
+    "firin"
+  ],
+  "sacak_boy": [
+    2.4,
+    0.12,
+    2.0
+  ],
+  "sacak_yukseklik": 2.4,
+  "sacak_renk": "#705942"
+}

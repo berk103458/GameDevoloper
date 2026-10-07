@@ -300,7 +300,7 @@ Kapı alev/duman `src/dunya/alev.gdshader`, `duman.gdshader`. Düşük profilde 
 | ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
 |---|---|---|---|---|---|
 | VFX-KAR | MEV-04 / ADM-12 | shader var, doku yok | öneri `assets/art/fx/fx_snow_01.png` | kar tanesi, soft white, 64px | ileri |
-| VFX-YAGMUR | MEV, tarla olayı | ses var, damla dokusu yok | `fx_rain_streak_01.png` | ince yağmur çizgisi | ileri |
+| VFX-YAGMUR | MEV, ANI-09, tarla olayı | ses var, damla dokusu yok | `fx_rain_streak_01.png` | ince yağmur çizgisi | ileri |
 | VFX-KIVILCIM | ANI-15, BUG-10 | shader | `fx_spark_01.png` | kıvılcım, ember | ileri |
 | VFX-SIS | MEV-09 kapı görüşü | sis parametresi var | isteğe bağlı `fx_fog_noise.png` | tipi, sis, blizzard | ileri |
 
@@ -370,5 +370,9 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | ANI07-ISINMA | ANI-07 | İki el ateşe uzatılan ısınma döngüsü | glTF / iskelet animasyon klibi | res://src/koy/gorsel/ates_basi_rutini.gd (kol hedefleri; yeni asset dosyası yok) | ateş başı el ısıtma, köylü gece; campfire warm hands villager idle | orta | Codex |
 | ANI08-TEZGAH | ANI-08 | Örs ve fırın ağzı | glTF | res://src/koy/gorsel/zanaat_tezgahi.gd (kur: BoxMesh) | ortaçağ örs demirci ocağı fırın; medieval anvil forge oven | orta | Codex |
 | ANI08-HAREKET | ANI-08 | Çekiç vurma ve fırın küreği döngüsü | glTF / iskelet animasyon klibi | res://src/koy/gorsel/zanaat_tezgahi.gd (kol: mevcut modifier yer tutucusu) | demirci çekiç vurma fırıncı kürek; blacksmith hammer strike baker peel | orta | Codex |
+| ANI09-SACAK | ANI-09 | Yağmurdan korunma saçağı | glTF | res://src/koy/gorsel/karakter_hava_tepkisi.gd (sacak_kur: düz BoxMesh) | ortaçağ ev saçağı yağmur barınağı; medieval eaves rain shelter | orta | Codex |
+| ANI09-BUZULME | ANI-09 | Soğukta büzülmüş yürüyüş | glTF / iskelet animasyon klibi | res://src/dunya/durus_duzeltici.gd (hava_egimi: mevcut modifier yer tutucusu) | soğuk köylü büzülmüş yürüme; cold villager hunched walk | orta | Codex |
 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.
+
+ANI-09 yağmur efekti mevcut VFX-YAGMUR satırında; yeni doku/ses/parçacık/klip üretilmedi veya indirilmedi. Hava denetçisi yağmur seçimini mevcut kayıt içinde korur; rastgele yağış takvimi MEV paketine aittir.
