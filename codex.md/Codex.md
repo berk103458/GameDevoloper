@@ -104,3 +104,7 @@ EKO-12. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
+
+
+## Son yayın / yeni kalıcı talimatlar
+EKO-10 ve EKO-11 `[x] (Codex)`, festive'e entegre ve push edildi; yayımlanan kod kontrol noktası 3424234. GitHub varsayılan dalı festive. Kaynak ve ds GitHub kopyası aynı HEAD; çalışma dalı artık festive. Ahmet'in ajan düzeni `codex.md/SOUL.md` ve AGENTS.md'ye kaydedildi. Claude devri iptal; otomasyon PAUSED. Sıradaki EKO-12 incelemesi başladı, henüz kod yazılmadı. Ahmet'in yeni Windows kopyası bu makinede mevcut değil; full pull uygulanamadı.

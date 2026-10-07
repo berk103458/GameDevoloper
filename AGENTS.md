@@ -88,3 +88,8 @@ Proje reposunda codex.md adlı bir klaösr ekle. Basitçe kendini tanıt. Ardın
 Ayrıca roadmap üzerinde çalışmayı bitirdiğin, kapanmış adımları işaretle ve yapanın sen olduğun parantez açarak o adımın sonunda belirt.
 
 **Dosya yönlendirme (Muharrir hariç):** Claude → `CLAUDE.md`; Codex → `codex.md/` (ör. `codex.md/Codex.md`); Gemini → `GEMINI.md`. Muharrir bu günlük kuralının dışında; isteğe bağlı tutabilir (`codex.md/Muharrir.md`).
+
+
+## Güncel ajan düzeni — Ahmet, 7 Ekim 2026
+
+İşe başlamadan `codex.md/SOUL.md` kalıcı kurallarını oku. Tek ana çalışma dalı festive; mevcut mimari ve HUD genişletilir, eski koy_sahnesi/statik KoyYerlesimi/full-RTS dosyaları untracked bile oluşturulmaz. Doğrulanmış paket bitince anlamlı mesajla commit/push yapılır; olgunlaşmamış WIP remote'a zorlanmaz. Tamamlanan feature/PR festive'e alınır; açık/draft biriktirilmez. ROADMAP `[x] (Codex)`, kendi status dosyası ve OYUN_RAPORU güncel tutulur. Her değişiklik ds GitHub kopyasına eşitlenir. Commit sonrası Ahmet'in `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` kopyası erişilebiliyorsa tüm dallar fetch ve güvenli fast-forward ile güncellenir; yol erişilemiyorsa bunu raporla, güncellendi deme. Büyük paket/ihlal riski/commit Ahmet–Muharrir raporuna yazılır. Claude'a görev devri iptal kararı geçerlidir.

@@ -853,3 +853,8 @@ Sıradaki: EKO-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Kişisel kese HUD eklendi; gerçek rüşvet sinyali, kamu/kişisel ayrımı, eşya adedi, JSON geri dönüşü ve salt okunur çizim UI testinde geçti. Native ekran büyük bakiyeyi okunur gösterdi; çift kasa ve HUD regresyonları geçti. İki eski SVG UTF-8 kodlaması düzeltildi.
 
 Sıradaki: EKO-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — Ajan düzeni kalıcı kayıt (7 Ekim 2026)
+
+Ahmet talimatları codex.md/SOUL.md ve AGENTS.md içine kaydedildi. Festive tek çalışma dalı; olgun paket commit/push, güncel ROADMAP/status ve Ahmet–Muharrir raporu. Yeni Ahmet Windows yolu bu makinede yok; full pull uygulandı denmedi. Claude görev devri iptal kararı korunur.
