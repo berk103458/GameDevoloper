@@ -39,6 +39,7 @@ var yakinlik := 0.0
 var gunduz := true
 
 var kamera: Camera3D
+var _kamera_gecisi: KapiKameraGecisi
 var manzara: KapiManzarasi
 var cerceve: KapiCercevesi
 var _okuz: Node3D
@@ -78,6 +79,9 @@ func _ready() -> void:
 	kamera.fov = GORUS
 	add_child(kamera)
 	kamera.look_at(Vector3(0.0, 1.35, -6.0))
+	_kamera_gecisi = KapiKameraGecisi.new()
+	_kamera_gecisi.kamera = kamera
+	add_child(_kamera_gecisi)
 	_ortam_ayarla()
 
 
@@ -278,10 +282,7 @@ var _bakis := BAKIS_KAPI
 
 ## Kamerayı kuyruğa çevirip yakınlaştırır (true) ya da kapıya döndürür (false).
 func kuyruga_bak(evet: bool) -> void:
-	var t := create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-	t.tween_method(_bakis_ayarla, _bakis, BAKIS_KUYRUK if evet else BAKIS_KAPI, 0.6)
-	t.tween_property(kamera, "fov", 28.0 if evet else GORUS, 0.6)
-	await t.finished
+	await _kamera_gecisi.kuyruk(_bakis_ayarla, _bakis, BAKIS_KUYRUK if evet else BAKIS_KAPI, 28.0 if evet else GORUS)
 
 
 func _bakis_ayarla(v: Vector3) -> void:
@@ -405,9 +406,7 @@ func heybe_koy() -> void:
 
 ## Karar anında kadraj daralır (kamera görüş açısı sert adımlarla).
 func daralt(icerden: bool) -> void:
-	for i in range(1, 4):
-		kamera.fov = GORUS - (i if icerden else 3 - i) * 3.0
-		await get_tree().create_timer(1.0 / 12.0).timeout
+	await _kamera_gecisi.karar(icerden, GORUS, _bakis_ayarla, BAKIS_KAPI)
 
 
 ## Sinematik gece ışığı (Forward+): HDRI gökyüzü, ay ışığı, hacimsel sis (meşale ışığı sisin içinde huzme yapar),

@@ -10,6 +10,20 @@ var _ayar: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://d
 var _durum: Dictionary = {}
 var _bekleyen: Array[int] = []
 
+## Salt okunur debug gözlemi; rota/animasyon veya kalıcı model ilerletilmez.
+func eylem(id: int) -> String:
+	if not modeller.has(id): return "Sahne sınırı dışında"
+	if _bekleyen.has(id): return "Rota bekliyor"
+	var d: Dictionary = _durum.get(id, {})
+	if d.is_empty(): return "Durum yok"
+	if int(d.adim) < d.yol.size(): return "Yürüyor"
+	var k := sahne.yonetim.koylu(id)
+	if faz_adi == &"gece": return "Ev önünde" if k != null and k.ev >= 0 else "Meydanda"
+	if faz_adi != &"gunduz": return "Meydanda"
+	if d.dinlen: return "Dinleniyor"
+	if d.is: return "Çalışıyor"
+	return "Nöbette" if k != null and k.is_yeri == KoyYonetimi.MUHAFIZ else "Boşta"
+
 ## Mevcut modelleri korur, ayrılan köylüleri siler, değişen atama ve engellere yeni rota kurar.
 func yenile() -> void:
 	rotaci.kur(sahne.yonetim.izgara, float(_ayar.zemin_maliyeti))

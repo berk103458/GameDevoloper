@@ -11,15 +11,20 @@ var oturum: Oturum
 var _ekran: Control
 var _kapi: KapiEkrani
 var _ust: Control
+var _kapi_yukleniyor := false
 
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_eylemleri_kur()
+	var admin := AdminHud.new()
+	admin.baglam = self
+	add_child(admin)
 	TranslationServer.set_locale("tr")
 	ayarlar = Ayarlar.new()
 	ayarlar.yukle()
 	ayarlar.uygula()
+	var giris_kaynaklari := await VarlikYuklemePaneli.hazirla(self, GirisVarliklari.menu())
 	ayarlar.degisti.connect(func(_a: StringName) -> void: theme = Tema.olustur(ayarlar))
 	theme = Tema.olustur(ayarlar)
 	_imleci_kur()
@@ -29,6 +34,7 @@ func _ready() -> void:
 		_hata_goster()
 		return
 	ana_menu()
+	await VarlikYuklemePaneli.bitir(self, giris_kaynaklari)
 	Ses.dongu_baslat()
 
 
@@ -67,7 +73,11 @@ func devam_et() -> void:
 	_kapiya_git()
 
 
-func _kapiya_git() -> void:
+func _kapiya_git(snapshot: Dictionary = {}) -> void:
+	if _kapi_yukleniyor:
+		return
+	_kapi_yukleniyor = true
+	var giris_kaynaklari := await VarlikYuklemePaneli.hazirla(self, GirisVarliklari.kapi())
 	_kapi = KapiEkrani.new()
 	_kapi.oturum = oturum
 	_kapi.ayarlar = ayarlar
@@ -75,7 +85,12 @@ func _kapiya_git() -> void:
 	_kapi.oturum_bitti.connect(func(_k: int) -> void: _son_goster(&"halk_kirildi"))
 	_kapi.duraklat_istendi.connect(_duraklat)
 	_goster(_kapi)
-	_kapi.gece_baslat()
+	if snapshot.is_empty():
+		_kapi.gece_baslat()
+	else:
+		await KapiAnlikGoruntusu.goster(_kapi, snapshot)
+	await VarlikYuklemePaneli.bitir(self, giris_kaynaklari)
+	_kapi_yukleniyor = false
 
 
 ## Kapı nöbeti bitti (Faz 1 → Faz 2): kayıt, sonra köy yönetimi.
@@ -177,11 +192,16 @@ func _bilgi(baslik: String, metin: String, dugmeler: Array, sayi: int = -1, arka
 
 
 func _goster(e: Control) -> void:
+	Ses.efektleri_temizle()
 	_ust_kapat()
 	if _ekran != null:
 		_ekran.queue_free()
 	_ekran = e
 	add_child(e)
+	var grafik := GrafikProfiliAdaptoru.new()
+	grafik.ayarlar = ayarlar
+	grafik.hedef = e
+	e.add_child(grafik)
 	# Köyde gece ortamı (cırcır, rüzgâr, uzak köpek); başka her yerde kapı meşalesi. Olay müziği ekranla biter.
 	if e is KoyEkrani:
 		e.ortam_baslat()

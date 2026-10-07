@@ -1,0 +1,62 @@
+{
+  "kirec_kuyusu": {
+    "kategori": "uretim",
+    "boyut": [
+      2,
+      2
+    ],
+    "maliyet": {
+      "odun": 6,
+      "tas": 4
+    },
+    "slot": 2,
+    "insa_gun": 2,
+    "kurulabilir": true,
+    "uzmanlik": "tasci",
+    "receteler": {
+      "kirec": {
+        "girdi": {
+          "tas": 2,
+          "odun": 1
+        },
+        "uretim": {
+          "kirec": 2.0
+        }
+      },
+      "harc": {
+        "girdi": {
+          "kirec": 2,
+          "tas": 2
+        },
+        "uretim": {
+          "harc": 4.0
+        }
+      }
+    }
+  },
+  "tas_ev": {
+    "kategori": "barinma",
+    "boyut": [
+      2,
+      2
+    ],
+    "maliyet": {
+      "odun": 4,
+      "tas": 18,
+      "harc": 6
+    },
+    "yatak": 6,
+    "insa_gun": 3,
+    "kurulabilir": true
+  },
+  "sur_malzeme": {
+    "2": {
+      "tas": 16,
+      "harc": 8
+    },
+    "3": {
+      "tas": 24,
+      "harc": 12
+    }
+  }
+}

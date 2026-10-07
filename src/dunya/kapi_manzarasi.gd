@@ -580,6 +580,7 @@ func _yanan_koy_kur(soner := false) -> void:
 	var sutun := 1 + int(siddet * 3.0)
 	for k in sutun:
 		var d := MeshInstance3D.new()
+		d.set_meta(GrafikProfiliAdaptoru.EFEKT, true)
 		var q := QuadMesh.new()
 		var boy := 45.0 + siddet * 40.0 - k * 6.0
 		q.size = Vector2(boy * 0.8, boy)
@@ -608,6 +609,7 @@ func _yanan_koy_kur(soner := false) -> void:
 ## Meşaleler (KapiCercevesi) ve uzak yangınlar kullanır; birkaç dil yan yana konarak daha büyük ateş olur.
 static func alev(boy: float, parlaklik: float = 2.5, tohum: float = 0.0) -> MeshInstance3D:
 	var m := MeshInstance3D.new()
+	m.set_meta(GrafikProfiliAdaptoru.EFEKT, true)
 	var q := QuadMesh.new()
 	q.size = Vector2(boy * 0.62, boy)
 	q.center_offset = Vector3(0, boy * 0.42, 0)

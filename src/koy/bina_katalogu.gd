@@ -15,6 +15,15 @@ func _init(yol: String = YOL) -> void:
 	for k in v:
 		if not String(k).begins_with("_"):
 			turler[String(k)] = v[k]
+	turler.merge(MeslekYapilari.ekler(turler), false)
+	turler.merge(DegirmenUretimi.ekler(turler), false)
+	turler.merge(Sifahane.ekler(), false)
+	OdunZinciri.uygula(turler)
+	CekiLojistigi.katalog_ekle(turler)
+	TahilZinciri.ekle(turler)
+	HarcZinciri.ekle(turler)
+	DemirZinciri.ekle(turler)
+	MuhafizMaasi.ekle(turler)
 	# Kaynak CHR konumları ayrı türdür; mevcut yapı verileri ezilmez.
 	turler.merge(preload("res://src/koy/chr_bina_sozlugu.gd").katalog_ekleri(), false)
 
@@ -52,7 +61,7 @@ func yatak(tur: String) -> int:
 
 
 func receteler(tur: String) -> Dictionary:
-	return veri(tur).get("receteler", {})
+	return TahilZinciri.tarifler(tur, OdunZinciri.tarifler(tur, veri(tur).get("receteler", {})))
 
 
 ## Kategoriye göre tür adları (arayüz menüsü).

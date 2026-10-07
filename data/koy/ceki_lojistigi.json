@@ -1,0 +1,30 @@
+{
+  "fiyat": {
+    "okuz": 40,
+    "inek": 35
+  },
+  "ahir": {
+    "kategori": "uretim",
+    "boyut": [
+      2,
+      2
+    ],
+    "maliyet": {
+      "odun": 12,
+      "tas": 8
+    },
+    "slot": 0,
+    "insa_gun": 2,
+    "kurulabilir": true
+  },
+  "ahir_yer": 2,
+  "gece_zamani": 1.0,
+  "elle": {
+    "kapasite": 3,
+    "sure": 1.0
+  },
+  "hayvan": {
+    "kapasite": 9,
+    "sure": 0.5
+  }
+}

@@ -10,22 +10,28 @@
 
 ## BÖLÜM 0: Geliştirici Admin Paneli ve Hızlı Test Araçları
 
-- [ ] **ADM-01:** Global Debug Overlay Altyapısı (`src/debug/admin_hud.gd`) — F1 veya ~ (Tilde) tuşuyla her sahnede açılıp kapanabilen, oyunu dondurmadan bağımsız CanvasLayer katmanında çalışan konsol çatısı.
-- [ ] **ADM-02:** Tek Tıkla Sahne Atlama (Kapı → Köy Geçişi) — Kapı sorgu döngüsünü tamamen bypass ederek o günün kuyruğunu rastgele sonuçlandırıp doğrudan `KoyYonetimSahnesi`'ne geçiş butonu.
-- [ ] **ADM-03:** Zaman Makinesi (+1 Gün / +5 Gün / Gece Sonu Tetikleyici) — `gece_sonu()` hesaplamalarını anında çalıştırıp rapor üreten ve gün sayacını 1, 5 veya 10 gün ileri saran simülasyon kontrolü.
-- [ ] **ADM-04:** Kaynak ve Stat Enjektörü — Köy Akçesi, Muhafız Akçesi, Erzak, Odun, Taş, Demir ve 5 ana statı (Refah, Erzak, Güvenlik, Moral, Sağlık) anında artıran/azaltan sayısal arayüz.
-- [ ] **ADM-05:** NPC Doğrudan Çağırma (Instant Spawn Selector) — Açılır listeden CHR_001–CHR_030 veya Gezgin Tüccarlara kadar istenen karakteri seçip kapı önüne sıradaki kişi olarak ışınlama aracı.
-- [ ] **ADM-06:** Bayrak ve İpucu Değiştirici (Flag & Clue Inspector) — Aktif `Flag_*` ve `Clue_*` anahtarlarını listeleyen, çalışma anında bayrakları açıp kapatmaya izin veren denetim paneli.
-- [ ] **ADM-07:** Donanım ve Bellek Performans Monitörü — Canlı FPS, Frame Time (ms), Draw Call sayısı, VRAM ve RAM kullanımını ekranda gösteren hafif performans barı.
-- [ ] **ADM-08:** Bina Seviye ve Durum Manipülatörü — Köydeki tüm binaları anında inşa etme, seviye atlatma veya hasarlı/yanmış duruma getirme kısayolları.
-- [ ] **ADM-09:** Otomatik Senaryo Koşucusu (Scenario Runner) — "10 Gün Kıtlık", "Gece Haydut Baskını", "Veba Salgını" gibi uç durum senaryolarını tek tuşla tetikleyen test otomasyonu.
-- [ ] **ADM-10:** Save / State Anlık Görüntü (Snapshot) Aracı — Mevcut oyun durumunu geçici bir slota kaydedip tek tuşla o ana geri dönmeyi sağlayan debug save/load desteği.
+- [x] **ADM-01:** Global Debug Overlay Altyapısı (`src/debug/admin_hud.gd`) — F1 veya ~ (Tilde) tuşuyla her sahnede açılıp kapanabilen, oyunu dondurmadan bağımsız CanvasLayer katmanında çalışan konsol çatısı. (Codex)
+- [x] **ADM-02:** Tek Tıkla Sahne Atlama (Kapı → Köy Geçişi) — Kapı sorgu döngüsünü tamamen bypass ederek o günün kuyruğunu rastgele sonuçlandırıp doğrudan `KoyYonetimSahnesi`'ne geçiş butonu. (Codex)
+- [x] **ADM-03:** Zaman Makinesi (+1 Gün / +5 Gün / Gece Sonu Tetikleyici) — `gece_sonu()` hesaplamalarını anında çalıştırıp rapor üreten ve gün sayacını 1, 5 veya 10 gün ileri saran simülasyon kontrolü. (Codex)
+- [x] **ADM-04:** Kaynak ve Stat Enjektörü — Köy Akçesi, Muhafız Akçesi, Erzak, Odun, Taş, Demir ve 5 ana statı (Refah, Erzak, Güvenlik, Moral, Sağlık) anında artıran/azaltan sayısal arayüz. (Codex)
+- [x] **ADM-05:** NPC Doğrudan Çağırma (Instant Spawn Selector) — Açılır listeden CHR_001–CHR_030 veya Gezgin Tüccarlara kadar istenen karakteri seçip kapı önüne sıradaki kişi olarak ışınlama aracı. (Codex)
+- [x] **ADM-06:** Bayrak ve İpucu Değiştirici (Flag & Clue Inspector) — Aktif `Flag_*` ve `Clue_*` anahtarlarını listeleyen, çalışma anında bayrakları açıp kapatmaya izin veren denetim paneli. (Codex)
+- [x] **ADM-07:** Donanım ve Bellek Performans Monitörü — Canlı FPS, Frame Time (ms), Draw Call sayısı, VRAM ve RAM kullanımını ekranda gösteren hafif performans barı. (Codex)
+- [x] **ADM-08:** Bina Seviye ve Durum Manipülatörü — Köydeki tüm inşaatları anında tamamlama ve bina/sur seviye atlatma kısayolları. Ahmet kararı: normal binada üretim ×(1+0.25×(N−1)); yatak/depo tabanı her ek seviyede +%20, yukarı yuvarla. Hasarlı/yanmış durum **yalnız surda**; normal binada hasar alanı yok. (Codex)
+- [x] **ADM-09:** Otomatik Senaryo Koşucusu (Scenario Runner) — "10 Gün Kıtlık", "Gece Haydut Baskını", "Veba Salgını" gibi uç durum senaryolarını tek tuşla tetikleyen test otomasyonu. (Codex)
+- [x] **ADM-10:** Save / State Anlık Görüntü (Snapshot) Aracı — Mevcut oyun durumunu geçici bir slota kaydedip tek tuşla o ana geri dönmeyi sağlayan debug save/load desteği. Köy ve kapı sorgusunda model/RNG, kuyruk/heybe/CHR durumu ve kamera korunur; açık rapor/olay/animasyon önce tamamlanmalı. (Codex)
+
+- [x] **ADM-11:** Çift kasa ve rüşvet arayüzü — `koy_akce` / `muhafiz_akce` bakiyelerini ayrı ayrı değiştir; rüşvet kesesi ekle veya sıfırla (taslak: `src/debug/kasa_denetleyici.gd`). (Codex)
+- [x] **ADM-12:** Mevsim ve hava durumunu anında tetikleme — mevsim + kar fırtınası/kuraklık; zemin shader ve tüketim çarpanı testi. (Codex)
+- [x] **ADM-13:** Canlı köylü ve zanaat denetçisi — atanan bina, anlık eylem, zanaat verimi canlı tablo. (Codex)
+- [x] **ADM-14:** Kriz ve sabotaj enjektörü — tek tuş veba / kuyu zehirlenmesi / ambar kundaklaması. (Codex)
+- [x] **ADM-15:** Otomatik diyalog akışı ve tansiyon sabitleyici — diyalogları auto-geç; tansiyonu 2/5/9’a kilitle. (Codex)
 
 ---
 
 ## BÖLÜM 1: Kritik Bugfix, Performans ve Bellek Optimizasyonu
 
-- [!] **BUG-01:** Menü ve Kapı Sahnesi Giriş Takılmaları (Shader & Asset Hitching) — `src/cekirdek/varlik_onbellek.gd` kurularak modeller, materyaller ve fontlar arka planda (`ResourceLoader.load_threaded_request`) yüklenerek ana iş parçacığı rahatlatılacak.
+- [x] **BUG-01:** Menü ve Kapı Sahnesi Giriş Takılmaları (Shader & Asset Hitching) — `src/cekirdek/varlik_onbellek.gd` kurularak modeller, materyaller ve fontlar arka planda (`ResourceLoader.load_threaded_request`) yüklenerek ana iş parçacığı rahatlatılacak. (Codex)
 - [x] **BUG-02:** Sıra Atlama Rüşvetinde Kuyruk Senkronizasyon Hatası — Rüşvetle öne geçmek isteyen NPC'nin kuyruk listesinde `erase` ve `push_front` ile en başa taşınması ve hemen kapı çizgisine yürümesi. **≡ KAP-15** — ayrı paket değil; KAP-15 bu maddeye referans verir. (Codex)
 - [!] **BUG-03:** Rüşvet Kabul ve Ret Repliklerinin Sessiz Kalması — Rüşvet kabul veya reddedildiğinde diyalog kutusuna uygun ses ve CSV repliğinin düşmemesi sorunu çözülecek.
 - [x] **BUG-04:** Kapı Sahnesinde Işık ve Gölge Optimizasyonu — Meşale ışıklarındaki dinamik gölge haritası boyutu düşürülecek, gereksiz mesafe kontrolleri LOD ile optimize edilecek. (Codex)
@@ -34,12 +40,12 @@
 - [!] **BUG-07:** CSV Sözdizimi ve Tırnak Hataları Fallback Mekanizması — Eksik anahtar durumunda oyunun kilitlenmesi önlenecek, ekrana güvenli `[KEY_NOT_FOUND]` basılarak çalışmaya devam edilecek. **≡ SYS-09** (metinler.csv doğrulama / isimlendirme birleşik paket).
 - [x] **BUG-08:** Gece Sonu Hesaplamasında Çift Sayım Bug'ı — UI hızlandırma (2x) açıkken gün bitişine basıldığında tüketim fonksiyonunun iki kez tetiklenmesi engellenecek. (Codex)
 - [x] **BUG-09:** Animasyon Oynatıcısında Eksik Klip Çökmesi — Bir modelde istenen animasyon yoksa sessizce varsayılan idle klibine geri dönen koruma bloğu yazılacak. (Codex)
-- [!] **BUG-10:** Düşük Donanım Grafik Ayarları Profili — Düşük grafik modunda partiküllerin (meşale kıvılcımı, duman) kapatılması ve 3B çözünürlük ölçeğinin ayarlanabilmesi.
+- [x] **BUG-10:** Düşük Donanım Grafik Ayarları Profili — Düşük grafik modunda partiküllerin (meşale kıvılcımı, duman) kapatılması ve 3B çözünürlük ölçeğinin ayarlanabilmesi. (Codex)
 
 - [x] **BUG-11:** `gece_sonu` Çift Tetik Koruması — Gün bitişinde buton `disabled` + hız 1x; **BUG-08 hâlâ açık**; BUG-11 onun düzeltme/koruma alt adımı (ayrı numara). (Codex)
 - [x] **BUG-12:** `_klip_onbellek` `has()` / idle Fallback — Eksik animasyon klipinde `has()` kontrolü ve idle'a düşme (**taslak yol notu** OK; KarakterModel üzerinde). (Codex)
-- [!] **BUG-13:** Kapı Kamera FOV Sabitleme — Kapı sahnesinde FOV kayması/zoom drift'inin sabitlenmesi.
-- [!] **BUG-14:** `Ses.oynat` Havuz Temizliği — Ses oynatıcı havuzunun sahne geçişlerinde temizlenmesi / sızıntı önleme.
+- [x] **BUG-13:** Kapı Kamera FOV Sabitleme — Kapı sahnesinde FOV kayması/zoom drift'inin sabitlenmesi. (Codex)
+- [x] **BUG-14:** `Ses.oynat` Havuz Temizliği — Ses oynatıcı havuzunun sahne geçişlerinde temizlenmesi / sızıntı önleme. (Codex)
 - [!] **BUG-15:** Heybe `mouse_filter = STOP` — Heybe paneli açıkken tıklamanın 3B sahneye sızmasını engelleme.
 
 ---
@@ -90,29 +96,35 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 
 ## BÖLÜM 3: Karakter Yetenek, Meslek Sinerjisi ve Kişilik Dinamikleri
 
-- [ ] **UZM-01:** Karakter Zanaat Sınıflandırması (`ZanaatTuru` Enum) — Çiftçi, Bostancı, Çoban, Değirmenci, Kalaycı, Cerrah, Demirci, Asker, Tellal, Kâtip gibi net zanaat rollerinin kodlanması.
-- [ ] **UZM-02:** İkili Pasif Özellik Matrisi (Trait Sistemi) — Her karaktere atanmış güçlü ve zayıf yönler (ör. "Gece Nöbetçisi", "Ağır Yük Ustası", "Hırsızlığa Meyilli", "Korkak").
-- [ ] **UZM-03:** Bina–Meslek Uyumluluk Çarpanı — Bostancının Bostanda çalışması: +%60 verim; Demircide: −%50 verim ve alet kırma riski.
-- [ ] **UZM-04:** Usta–Çırak Eğitim Sinerjisi — Usta zanaatkarın (ör. Osman Dayı) yanına yerleştirilen vasıfsız köylünün 5 gün sonra yarı-usta seviyesine yükselmesi.
-- [ ] **UZM-05:** Çapraz Çalışma Sakatlanma ve Kaza Riski — Askerin tarlada tırpanla bacağını kesmesi veya çiftçinin kışlada nöbet tutarken uyuyakalması gibi uyumsuzluk kazaları.
-- [ ] **UZM-06:** Köylü Kişisel Memnuniyet ve İsyan Eşiği — Sevdiği işte çalışan köylünün Moral sağlaması; zorla kışlaya yazılan zanaatkarın sabotaj ihtimalinin artması.
-- [ ] **UZM-07:** Sosyal Çatışma ve Kan Davası Dinamiği — Düşman köy/aşiretten iki kişinin aynı binaya atanması → üretim durması ve kavga olayları.
-- [ ] **UZM-08:** Yaşlılık ve Çocuk Rol Kısıtlamaları — Yaşlıların ağır fiziksel iş yapamaması; Değirmende danışmanlık/denetim bonusu.
-- [ ] **UZM-09:** Gizli Eğilimler (Hidden Alignment) — İçeri sızan haydutların iş başında gibi görünüp geceleri erzak çalması.
-- [ ] **UZM-10:** Köylü Kartı UI ve Görev Atama Ekranı — Köylüye tıklanınca yetenekler, geçmiş ve en verimli binaları gösteren yönetim kartı.
+- [x] **UZM-01:** Karakter Zanaat Sınıflandırması (`ZanaatTuru` Enum) — Çiftçi, Bostancı, Çoban, Değirmenci, Kalaycı, Cerrah, Demirci, Asker, Tellal, Kâtip gibi net zanaat rollerinin kodlanması. (Codex)
+- [x] **UZM-02:** İkili Pasif Özellik Matrisi (Trait Sistemi) — Her karaktere atanmış güçlü ve zayıf yönler (ör. "Gece Nöbetçisi", "Ağır Yük Ustası", "Hırsızlığa Meyilli", "Korkak"). (Codex)
+- [x] **UZM-03:** Bina–Meslek Uyumluluk Çarpanı — Bostancının Bostanda çalışması: +%60 verim; Demircide: −%50 verim ve alet kırma riski. (Codex)
+- [x] **UZM-04:** Usta–Çırak Eğitim Sinerjisi — Usta zanaatkarın (ör. Osman Dayı) yanına yerleştirilen vasıfsız köylünün 5 gün sonra yarı-usta seviyesine yükselmesi. (Codex)
+- [x] **UZM-05:** Çapraz Çalışma Sakatlanma ve Kaza Riski — Askerin tarlada tırpanla bacağını kesmesi veya çiftçinin kışlada nöbet tutarken uyuyakalması gibi uyumsuzluk kazaları. (Codex)
+- [x] **UZM-06:** Köylü Kişisel Memnuniyet ve İsyan Eşiği — Sevdiği işte çalışan köylünün Moral sağlaması; zorla kışlaya yazılan zanaatkarın sabotaj ihtimalinin artması. (Codex)
+- [x] **UZM-07:** Sosyal Çatışma ve Kan Davası Dinamiği — Düşman köy/aşiretten iki kişinin aynı binaya atanması → üretim durması ve kavga olayları. (Codex)
+- [x] **UZM-08:** Yaşlılık ve Çocuk Rol Kısıtlamaları — Yaşlıların ağır fiziksel iş yapamaması; Değirmende danışmanlık/denetim bonusu. (Codex)
+- [x] **UZM-09:** Gizli Eğilimler (Hidden Alignment) — İçeri sızan haydutların iş başında gibi görünüp geceleri erzak çalması. (Codex)
+- [x] **UZM-10:** Köylü Kartı UI ve Görev Atama Ekranı — Köylüye tıklanınca yetenekler, geçmiş ve en verimli binaları gösteren yönetim kartı. (Codex)
+
+- [x] **UZM-11:** Köylü Deneyim ve Ustalık Seviye Atlama — her 5 gün XP; Çırak→Kalfa→Usta; bina üretim çarpanı ↑ (taslak: `src/koy/koylu_gelisim_yoneticisi.gd`). (Codex)
+- [x] **UZM-12:** Zanaat Kazası ve Alet Kırma Riski — uyumsuz işte acemi → alet kırma/yanık; geçici üretim duruşu + Şifahane ihtiyacı. (Codex)
+- [x] **UZM-13:** Aşağılanma / Grev — soylu/okumuş (ör. CHR_007 Şemsettin) ağır fiziksel işe verilirse iş bırakır, köylüleri kışkırtır. (Codex)
+- [x] **UZM-14:** Gece Vardiyası Yorgunluk — gece uykusuz → ertesi gün kaza/nöbette uyuma ihtimali %40 ↑. (Codex)
+- [x] **UZM-15:** Atama Önizleme ve Verim Sinerji Göstergesi — kart sürüklerken yeşil/kırmızı tahmini verim UI (Bölüm 5 ANI atama önizlemesi ile örtüşebilir — birleştir/adaptör; ID kalır). (Codex)
 
 ---
 
 ## BÖLÜM 4: Derin Ekonomi, Üretim Zincirleri ve Çift Kasa Sistemi
 
 - [x] **EKO-01:** Çift Kasa Mimarisi (`Oturum.gd`) — `koy_akce` (kamu) ile `muhafiz_akce` (kişisel gizli kese) kesin ayrımı. (Codex)
-- [ ] **EKO-02:** Odun ve Kereste Üretim Zinciri — Orman → Tomruk → Hızar/Bıçkıhane → Kalas (inşaat) ve Odun (yakıt).
-- [ ] **EKO-03:** Çeki Hayvanı Lojistik Çarpanı — Öküz/İnek varken taşıma kapasitesi ×3, süre yarıya iner.
-- [ ] **EKO-04:** Tahıl, Un ve Ekmek Döngüsü — Tarla/Bostan (buğday) → Değirmen (un) → Köy Fırını (ekmek/erzak); unsuz fırın çalışamaz.
-- [ ] **EKO-05:** Taş Ocağı, Kireç ve Harç Üretimi — Sur/taş binalar için ham taş ve kireç kuyusunda harç.
-- [ ] **EKO-06:** Demir Madenciliği, Ocak ve Alet Aşınması — Demirci alet üretir; alet yoksa üretim hızı %70 düşer.
-- [ ] **EKO-07:** Asker Maaşları ve Kamu İsyan Eşiği — Kışladaki askerler her gece 1 akçe; ödenmezse güvenlik çöker, rüşvete yönelim.
-- [ ] **EKO-08:** Köy Pazarı Vergilendirme Oranları — Düşük/Orta/Ağır vergi (ağır akçe getirir, Moral ve Refahı ezer).
+- [x] **EKO-02:** Odun ve Kereste Üretim Zinciri — Orman → Tomruk → Hızar/Bıçkıhane → Kalas (inşaat) ve Odun (yakıt). (Codex)
+- [x] **EKO-03:** Çeki Hayvanı Lojistik Çarpanı — Öküz/İnek varken taşıma kapasitesi ×3, süre yarıya iner. (Codex)
+- [x] **EKO-04:** Tahıl, Un ve Ekmek Döngüsü — Tarla/Bostan (buğday) → Değirmen (un) → Köy Fırını (ekmek/erzak); unsuz fırın çalışamaz. (Codex)
+- [x] **EKO-05:** Taş Ocağı, Kireç ve Harç Üretimi — Sur/taş binalar için ham taş ve kireç kuyusunda harç. (Codex)
+- [x] **EKO-06:** Demir Madenciliği, Ocak ve Alet Aşınması — Demirci alet üretir; alet yoksa üretim hızı %70 düşer. (Codex)
+- [x] **EKO-07:** Asker Maaşları ve Kamu İsyan Eşiği — Kışladaki askerler her gece 1 akçe; ödenmezse güvenlik çöker, rüşvete yönelim. (Codex)
+- [/] **EKO-08:** Köy Pazarı Vergilendirme Oranları — Düşük/Orta/Ağır vergi (ağır akçe getirir, Moral ve Refahı ezer).
 - [ ] **EKO-09:** Dinamik Tüketim Dengesi (Nüfus × İklim) — Her canlı: 1 Erzak/gece; soğukta +1 Odun; karşılanamazsa donma/açlık ölümleri. **Not (Gemini):** BEKLEMEDE — satır/dosya kanıtsız; yanlış kısmi kilit yok (`[x]` verilmedi). **≡ MEV-02 / MEV-11**.
 - [ ] **EKO-10:** İflas ve Hazine Çöküşü Olayları — Köy Akçesi 3 gece üst üste <0 → tefeci baskını ve kamu mallarına el koyma.
 
@@ -137,6 +149,13 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **ANI-09:** Hava Durumuna Göre Karakter Tepkileri — Yağmurda saçak altı; karda yavaş/büzülmüş yürüyüş.
 - [ ] **ANI-10:** Sabotajcıların Gece Gölgeli Sinsi Davranışı — Ateşten uzak, kuytu bekleme; nöbetçi yaklaşınca yön değiştirme.
 
+- [ ] **ANI-11:** Zanaat Araçları Dinamik Kemik Soketi (`BoneAttachment3D`) — el kemiklerine alet; mola/uykuda stok (taslak: `src/dunya/karakter_ekipman_yoneticisi.gd`).
+- [ ] **ANI-12:** Bekleme Animasyonu Desenkronizasyonu — idle offset 0.1–1.5s + 3 idle varyasyon.
+- [ ] **ANI-13:** Köy İçi 3B Zemin Navigasyonu (`NavigationRegion3D`) — patika/kapı; bina içinden geçme yok.
+- [ ] **ANI-14:** Köylü Takip Kamerası ve Yüzen Durum Kartı — tıkla odak + isim/zanaat billboard.
+- [ ] **ANI-15:** Atölye Duman ve Kıvılcım Partikülleri (LOD) — duman/kıvılcım/su damlası, düşük donanım.
+Not: ANI-04↔EKO-03, ANI-08↔UZM-01..05 konsolidasyon.
+
 ---
 
 ## BÖLÜM 6: Gezgin Tüccarlar, Hayvan Pazarı ve Sipariş Sözleşmeleri
@@ -151,6 +170,13 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [ ] **TUC-08:** Gezgin Silah Tüccarı (Karaborsa) — Zırh/yay/kalkan; kaçak tutsak satın alma teklifi.
 - [ ] **TUC-09:** Dinamik Fiyatlandırma ve Kıtlık Enflasyonu — Kışta odun/erzak ×3; yazda ucuzlama.
 - [ ] **TUC-10:** Pazar Yeri Alışveriş Arayüzü (Trade UI) — Ambar fazlası → köy veya muhafız akçesi.
+
+- [ ] **TUC-11:** Muhafız Kişisel Karaborsa ve Kaçak Mal Alışverişi — nadir/yasaklı eşya yalnızca `muhafiz_akce` ile; muhafız odası envanterine (taslak: `src/koy/ticaret/karaborsa_adaptoru.gd`).
+- [ ] **TUC-12:** Kapıda Tüccardan Geçiş Bacı ve Rüşvet Alma — resmi kayıt yerine şahsi `muhafiz_akce` hızlı giriş rüşveti → pazara anında geçiş.
+- [ ] **TUC-13:** Zanaat Sözleşmesinden Muhafız Komisyonu Aşırma — Work Order tesliminde kamudan gizlice %10–%20 komisyon şahsi keseye.
+- [ ] **TUC-14:** Canlı Hayvan Takas ve Sürüye Katılım — `koy_akce` ile inek/öküz → Ahır/Ağıl kapasitesi + 3B sahne + lojistik/üretim çarpanı.
+- [ ] **TUC-15:** Tüccar Kervanına Koruma Muhafızı Kiralama — kışladan geçici koruma; peşin akçe köye; kiralanan süre Güvenlik geçici düşer.
+Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhafiz_akce`.
 
 ---
 
@@ -278,12 +304,20 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 
 - [ ] **SYS-11:** Ajan Pre-Merge `sanity_check` Paketi (`tools/sanity_check.py` — **taslak hedef yol**) — Commit öncesi CSV/anahtar/script tarama tek komut; SYS-06 ile tamamlayıcı.
 - [ ] **SYS-12:** Runtime `[KEY_NOT_FOUND]` / `MISSING_KEY` Gösterimi — **≡ BUG-07 / SYS-09**; eksik metin anahtarında güvenli ekran metni.
-- [ ] **SYS-13:** `memory_free` / Düşük Donanım Bellek Paketi — **taslak hedef**; düşük VRAM/RAM profilinde cache temizliği (BUG-10 ile ilişkili).
+- [x] **SYS-13:** `memory_free` / Düşük Donanım Bellek Paketi — **taslak hedef**; düşük VRAM/RAM profilinde cache temizliği (BUG-10 ile ilişkili). (Codex)
 - [x] **SYS-14:** `KAYIT_SURUMU` Adım Adım Migration — SYS-01 tamamlayıcı; sürüm N→N+1 alan göç fonksiyonları (satır kanıtsız uyarı geçerli). (Codex)
 - [x] **SYS-15:** `otomatik_oyuncu` Sabit 20 Tur Kilidi — SYS-10 tamamlayıcı; headless duman testinde tur sayısının sabitlenmesi. (Codex)
+
+- [ ] **SYS-16:** Adsız Diyalog Sırası Kayıt Kalıcılığı — `mevcut_diyalog_indeksi` → `user://kayit.json`; Devam kaldığı yerden.
+- [ ] **SYS-17:** `diyalog_01_20.json` Mantık Düzeltmeleri — diyalog_08’e ret; 13/14/16/17 “sabah kervanla giderim” → yerleşik köylü.
+- [ ] **SYS-18:** Atıl Bayrakların Olaylara Bağlanması — `baci_tezgah`, `dervis`, `miraen_sadik`, `turkmen_kin`, `thessra_kirgin`, `rusvet_sayisi` → gece/diplomasi (KVR-06 ile örtüşür, yeni sözlük yok).
+- [ ] **SYS-19:** 1→2. Perde Geçiş — nüfus 18 → “Köy Oturdu”; Ağa olarak devam → gece sayacı sıfırlanmadan 2. perde 12 gece.
+- [ ] **SYS-20:** Beş Nihai Son + Epilog Matrisi — 5 son (Ertuğrul Obası, Ahi Kasabası, Tekfur Haraççısı, Beyin Uç Köyü, Uç Tutundu) + yozlaşma/5 stat (taslak: `src/sistemler/son_yoneticisi.gd`).
 
 ---
 
 **Gemini döngü 1–7 birikimi (2026-10-06):** KAP/KVR/EKO/SYS/BUG/CAS/ODA +11…15 eklendi; örtüşmeler (KAP-15≡BUG-02, BUG-07≡SYS-09, ODA-02≡EKO-01/EKO-11) notlandı; kanıtsız path = taslak hedef; kanıtsız `[x]` yok.
 
 **Gemini döngü 8–10 birikimi (2026-10-06):** MEV/HAR/KRI +11…15 eklendi; örtüşmeler (MEV-02≡EKO-09 / MEV-11; KRI-14↔KRI-06; KRI-15↔KRI-03) notlandı; HAR-15 [ ] BEKLEMEDE ("kodda var" geri çekildi); kanıtsız path = taslak hedef; kanıtsız `[x]` yok.
+
+**Gemini döngü 11–15 birikimi (2026-10-07):** ADM/TUC/UZM/ANI/SYS-16…20 eklendi; UZM-15↔ANI atama önizlemesi konsolidasyon notu; ANI-04↔EKO-03, ANI-08↔UZM-01..05; TUC↔EKO-01/EKO-11 çift kasa; SYS-18↔KVR-06; Ahmet 15’te dur (tur 16 YOK); kanıtsız path = taslak hedef; kanıtsız `[x]` yok.

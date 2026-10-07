@@ -222,7 +222,9 @@ func gece_baslat() -> void:
 	var adlar: Array[String] = []
 	for g in _kuyruk:
 		adlar.append(_model_adi(g))
+	var kuyruk_kaynaklari := await VarlikYuklemePaneli.hazirla(self, GirisVarliklari.karakterler(adlar))
 	sahne.kuyruk_doldur(adlar)
+	await VarlikYuklemePaneli.bitir(self, kuyruk_kaynaklari)
 	_gece_gelen = 0
 	_kayit.clear()
 	_yaz("[color=#B8C2CC][b]%s[/b][/color]" % (tr("anlati.gece.basladi") % oturum.gosterilen_gece()))
@@ -533,6 +535,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	_bolum.text = ""
 	Ses.cal(&"sfx_onay")
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar), is_yeri)
+	set_meta(&"sonuclanan_gelen", _gelen)
 	if anahtar == "rusvet" or anahtar == "elkoy":
 		Ses.cal(&"sfx_kese")
 	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)

@@ -30,4 +30,5 @@ static func kesme(ust: Node, sure: float = 0.25) -> void:
 	ortu.mouse_filter = Control.MOUSE_FILTER_STOP
 	ust.add_child(ortu)
 	await ust.get_tree().create_timer(sure).timeout
-	ortu.queue_free()
+	if is_instance_valid(ortu):
+		ortu.queue_free()

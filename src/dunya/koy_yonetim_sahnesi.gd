@@ -75,6 +75,10 @@ func _process(delta: float) -> void:
 	if _ates_isigi != null:
 		_ates_isigi.light_energy = atmosfer.ates_gucu * (0.85 + 0.15 * sin(_zaman * 9.0) * sin(_zaman * 3.1))
 	# Strateji kamerası (18.5): WASD kaydırır, Q/E döndürür; tekerlek `yakinlas` ile.
+	# Ana viewporttaki konsol/SpinBox metni yazılırken kamera tuşlarını alma.
+	var odak := get_tree().root.gui_get_focus_owner()
+	if odak is LineEdit or odak is TextEdit:
+		return
 	var ileri := Vector3(-sin(deg_to_rad(yon)), 0, -cos(deg_to_rad(yon)))
 	var sag := Vector3(-ileri.z, 0, ileri.x)
 	var hiz := uzaklik * 0.9 * delta
@@ -190,6 +194,7 @@ func yenile() -> void:
 		_yapilar.add_child(n)
 	_sur_kur()
 	halk_hareketi.yenile()
+	IklimGorseli.uygula(self)
 
 
 func _meydan_kur() -> void:
@@ -231,6 +236,7 @@ func _sur_kur() -> void:
 	var kp := kapi_noktasi()
 	var kapi_x := kp.x
 	var kapi := Dunya3B.nesne("kapi", 3.6 + yonetim.sur_seviye * 0.5, "yapi")
+	SurHasarGorseli.uygula(kapi, yonetim.sur_hasar)
 	kapi.position = Vector3(kapi_x, 0, kp.y)
 	_yapilar.add_child(kapi)
 	Dunya3B.mesale_kur(_yapilar, kapi.position + Vector3(-2.6, 0, 0.4), 2.0, 8.0)
@@ -250,6 +256,7 @@ func _sur_kur() -> void:
 			if absf(p.x - kapi_x) < 3.0 and absf(p.z - uc.z) < 0.5:
 				continue
 			var parca := Dunya3B.nesne("kazik_cit", boy)
+			SurHasarGorseli.uygula(parca, yonetim.sur_hasar)
 			parca.position = p
 			var d := (c - a).normalized()
 			parca.rotation.y = atan2(d.x, d.z) + PI * 0.5
@@ -270,9 +277,9 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 			n.add_child(Dunya3B.nesne("cadir", 2.3, "yapi"))
 		"kulube":
 			n.add_child(Dunya3B.nesne("ev", 2.9, "yapi"))
-		"tarla":
+		"tarla", "bostan":
 			_tarla(n, en, derin)
-		"hizarhane":
+		"hizarhane", "odunluk":
 			_sundurma(n, en * 0.8, derin * 0.7, 2.6)
 			var kutuk := Pbr.model("dead_tree_trunk_02")
 			if kutuk != null:
@@ -293,7 +300,7 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 			_kutu(n, Vector3(0.08, 1.6, 0.08), Vector3(en * 0.35, 0.8, -derin * 0.3), Pbr.malzeme("bark_willow", 1.0))
 			_kutu(n, Vector3(0.08, 1.6, 0.08), Vector3(en * 0.35, 0.8, derin * 0.3), Pbr.malzeme("bark_willow", 1.0))
 			_kutu(n, Vector3(0.06, 0.06, derin * 0.6), Vector3(en * 0.35, 1.5, 0), Pbr.malzeme("bark_willow", 1.0))
-		"atolye":
+		"atolye", "demirhane":
 			_sundurma(n, en * 0.85, derin * 0.75, 2.4)
 			var sandik := Pbr.model("wooden_crate_01")
 			if sandik != null:

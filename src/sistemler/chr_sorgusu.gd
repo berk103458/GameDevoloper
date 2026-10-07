@@ -13,7 +13,7 @@ var ipuclari: Dictionary:
 var bayraklar: Dictionary = {}
 var tansiyon: int = 2:
 	set(deger):
-		tansiyon = clampi(deger, 0, 10)
+		tansiyon = DiyalogDeneyi.tansiyon(self, deger)
 var dugum_id: StringName = &"00"
 var tecrube: int = 0
 var kurallar: Resource = preload("res://data/chr_runtime/sorgu_kurallari.tres")

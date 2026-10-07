@@ -3,6 +3,7 @@
 // kalkar; kapıdan güneye giden toprak yol analitik çizilir. Yükseklik formülü KoyArazisi.yukseklik() ile aynıdır.
 // Hedef: Forward+. Bütçe: parça başı 8 doku + 1 maske + 2 gürültü örneği (1K–2K dokular, ~30 MB VRAM).
 shader_type spatial;
+uniform float kar_ortusu : hint_range(0.0, 1.0) = 0.0;
 render_mode diffuse_burley, specular_schlick_ggx;
 
 group_uniforms dokular;
@@ -95,7 +96,7 @@ void fragment() {
 	nm = mix(nm, texture(normal_toprak, p / 4.0).rgb, toprak);
 	nm = mix(nm, texture(normal_patika, p / 4.0).rgb, patika);
 	nm = mix(nm, texture(normal_camur, p / 5.0).rgb, camur);
-	ALBEDO = renk;
+	ALBEDO = mix(renk, vec3(0.88, 0.93, 0.98), kar_ortusu);
 	NORMAL_MAP = nm;
 	NORMAL_MAP_DEPTH = 0.8;
 	// Çamurlu yerler ıslak parlar.

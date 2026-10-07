@@ -105,8 +105,8 @@ func _insa_ve_uretim() -> void:
 	_esit("yuva dolu", y.ata(fazla.id, b.id), false)
 	var once := y.kaynaklar.miktar("gida")
 	var r := y.gece()
-	_esit("üç çiftçi 6 gıda üretti", int(r["uretim"].get("gida", 0)), 6)
-	_esit("dört kişi 4 yedi", y.kaynaklar.miktar("gida"), once + 6 - 4)
+	_esit("üç uyumlu çiftçi 9 gıda + 0.6 kesir üretti", int(r["uretim"].get("gida", 0)), 9)
+	_esit("dört kişi 4 yedi", y.kaynaklar.miktar("gida"), once + 9 - 4)
 	# Yıkım: harcananın yarısı döner.
 	var odun := y.kaynaklar.miktar("odun")
 	y.bina_yik(b.id)

@@ -8,11 +8,14 @@ signal degisti(anahtar: StringName)
 const VARSAYILAN := {
 	&"ses_ana": 8, &"ses_muzik": 7, &"ses_efekt": 8,
 	&"ekran_modu": &"tam_ekran", &"metin_olcegi": 100, &"belirme_hizi": &"normal",
+	&"grafik_profili": &"normal", &"cozunurluk_3d": 100,
 }
 const GECERLI := {
 	&"ekran_modu": [&"pencere", &"tam_ekran"],
 	&"metin_olcegi": [100, 125, 150],
 	&"belirme_hizi": [&"normal", &"hizli", &"aninda"],
+	&"grafik_profili": [&"normal", &"dusuk"],
+	&"cozunurluk_3d": [50, 67, 75, 85, 100],
 }
 const CARPAN := {&"normal": 1.0, &"hizli": 0.5, &"aninda": 0.0}
 const BUSLAR := {&"ses_ana": "Master", &"ses_muzik": "Muzik", &"ses_efekt": "Efekt"}
@@ -64,6 +67,8 @@ func ayarla(anahtar: StringName, deger: Variant) -> void:
 	if not _gecerli(anahtar, deger):
 		return
 	degerler[anahtar] = deger
+	if anahtar == &"grafik_profili":
+		degerler[&"cozunurluk_3d"] = 75 if deger == &"dusuk" else 100
 	uygula()
 	degisti.emit(anahtar)
 

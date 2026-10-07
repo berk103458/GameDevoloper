@@ -221,3 +221,16 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [ ] Her biten tasarım belgesi için `/design-review`
 - [ ] MVP tasarımları bitince `/gate-check technical-setup`
 - [ ] En riskli sistemleri (Sohbet, Karar, Karakter kadrosu) `/prototype` ile erkenden dene
+
+## Derin ekonomi uzantıları
+
+- EKO-03 [Çeki lojistiği](ceki-lojistigi.md): uygulandı; ANI-04/TUC-02 ayrı paket.
+- EKO-04 [Tahıl zinciri](tahil-zinciri.md): uygulandı; gerçek gece, UI ve kayıt kontrolleri geçti.
+
+- [Taş/kireç/harç zinciri](harc-zinciri.md): EKO-05 gerçek üretim, taş ev ve son sur taksiti malzemeleri.
+
+- [Demir ve alet zinciri](demir-alet-zinciri.md): EKO-06 madencilik, ocak ve aletsiz verim/aşınma.
+
+- [Muhafız maaşları](muhafiz-maaslari.md): EKO-07 kamu maaşı/borç, kışla ve güvenlik/rüşvet riski.
+
+- [Vergi politikası](vergi-politikasi.md): EKO-08 aktif; Refah kararı bekliyor.

@@ -138,6 +138,11 @@ func obje_ipucu(sira: int) -> StringName:
 @export var tehlikeli: bool = false
 ## Zanaat yeteneği 1–10 (köyde üretim formülü); 0 = kimlikten türetilir.
 @export var zanaat: int = 0
+## UZM-01: gerçek birincil meslek; kaynak Tag_Array sınıfı değiştirilmez.
+var zanaat_turu: int:
+	get: return ZanaatTuru.coz(id, sinif)
+var pasif_ozellikler: Dictionary:
+	get: return PasifOzellikler.cift(id, sinif)
 ## Kapıda açılmazsa köye gizli taşınan gerçekler (`casus_suphesi`, `hirsiz`, `hasta`, `usta_ciftci` …).
 @export var gizli_bayraklar: PackedStringArray = []
 

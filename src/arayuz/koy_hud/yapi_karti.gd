@@ -2,7 +2,7 @@
 class_name YapiKarti
 extends Button
 
-const IKONLAR := {"cadir": "cadir", "kulube": "kulube", "tarla": "gida", "hizarhane": "odun", "tas_ocagi": "tas", "avci": "avci", "atolye": "alet", "ambar": "ambar"}
+const IKONLAR := {"cadir": "cadir", "kulube": "kulube", "tarla": "gida", "hizarhane": "odun", "odunluk": "tomruk", "tas_ocagi": "tas", "kirec_kuyusu": "kirec", "tas_ev": "kulube", "avci": "avci", "atolye": "alet", "ambar": "ambar"}
 
 ## Kartı güncel simülasyon verisiyle kurar; satın alma kuralı oyunun kaynaklarına dayanır.
 func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
@@ -22,7 +22,7 @@ func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	add_theme_stylebox_override("disabled", stil)
 	var m := y.katalog.maliyet(tur)
 	disabled = not y.kaynaklar.yeterli(_malzeme(m)) or y.akce < int(m.get("akce", 0))
-	tooltip_text = tr("koy.yapi.%s_aciklama" % tur)
+	tooltip_text = MeslekYapilari.aciklama(tur)
 	var v := VBoxContainer.new()
 	v.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	v.offset_left = 14
@@ -35,7 +35,7 @@ func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	baslik.add_theme_constant_override("separation", 10)
 	v.add_child(baslik)
 	baslik.add_child(KaynakGostergesi.ikon(IKONLAR.get(tur, "kulube"), 38))
-	var ad := _etiket(tr("koy.yapi." + tur), ayarlar.boyut(20))
+	var ad := _etiket(MeslekYapilari.ad(tur), ayarlar.boyut(20))
 	ad.add_theme_font_override("font", Tema.koy_baslik_fontu())
 	baslik.add_child(ad)
 	var maliyet := HBoxContainer.new()

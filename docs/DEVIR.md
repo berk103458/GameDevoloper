@@ -1,0 +1,110 @@
+# Codex ↔ Claude proje devri
+
+Kullanıcının 7 Ekim 2026 talimatı: Codex kullanım limitinde %5 kalınca Claude devralır. Codex limiti yenilenince Codex görevi tekrar alır. Bu bir proje kuralıdır; AGENTS.md her iki kopyada geçerlidir.
+
+## Güncel sahiplik
+
+- Sorumlu: Codex. Limit yenilendi; önceki Claude devri erişim nedeniyle gerçekleşmedi. Her iki kopyanın 380 dosyalık kontrol noktası birebir doğrulandı, bağımsız değişiklik yok. CLI giriş yok / aktif CLI ajan yok; Claude devraldı kabul edilmedi.
+- Son canlı limit gözlemi (7 Ekim 2026): kısa dönem %32 kullanılmış (%68 kalan), haftalık %29 kullanılmış (%71 kalan). Devir eşiğine ulaşılmadı.
+- Gözlenen yeni 5 saatlik reset: Unix 1791398546; haftalık reset: Unix 1791948615. Eşik her paket/kontrol noktasında canlı araçla tekrar doğrulanır.
+- Son kapanan madde: EKO-07. Gerçek kışla/kamu maaşı/borç, etkin savunma kaybı ve usulsüz geçiş riski; native UI/görsel, ayna import/birim/UI ve tam sanity work/sanity_eko07 (20 gece dahil) 0 başarısız. Son genişletilmiş bordro/atama birimleri iki kopyada geçti. Canlı test süreci yok. Sıradaki EKO-08; mevcut haftalık 1 işçi/3 usta kamu vergisi ve vergi_muaf çıkışı okundu. VergiPolitikasi/pazar kodu eklendi; EKO-08 ilerleme notundaki Refah kararı ve tam doğrulama bekleniyor.
+- İzleme: bu sohbete bağlı `gamedevoloper-limit-ve-claude-devri` otomasyonu ACTIVE oluşturuldu; 10 dakikada bir limit ve devir durumunu kontrol eder. Değişmeyen durumda sessizdir. ROADMAP paket başlarında ve güvenli kontrol noktalarında canlı limit ayrıca kontrol edilir.
+- Çalışma dalı: feature/kvr-runtime; önceki yayımlanan HEAD 29a3a6a. Kontrol edilen festive ucu 018f4c9; dallar ayrışmış olduğundan ff-only pull uygulanamadı. Yerel geliştirmeleri ezme, rebase/force-push yapma.
+- Kopyalar: `C:\Users\ds\Documents\Codex\2026-10-06\c\GameDevoloper` ve `C:\Users\ds\Documents\GitHub\GameDevoloper`.
+- Değişiklikler yerel ve uncommitted. Ahmet açıkça commit demeden stage/commit/push yok. Her değişikliği iki kopyaya güvenli eşitle; bağımsız değişiklikleri koru.
+- KAP-01 kilitli, KAP-02/03 başka ajana ait; SYS-09 PR #2 birleşmeden CSV değiştirme. Yeni dosya + ince adaptör; paralel çekirdek yazımı yok.
+
+## Claude'a iletilecek devir mesajı
+
+Codex kullanım limitinde %5 kaldı. GameDevoloper projesinin geliştirme sorumluluğunu geçici olarak sana devrediyorum. Önce AGENTS.md, ROADMAP.md, codex.md/Codex.md, OYUN_RAPORU.md ve bu güncel devir notunu oku. Tamamlanan/yürüyen işi doğrula; sıradaki çakışmasız ROADMAP maddesine devam et. **Codex kullanım limiti yenilendiğinde görevi Codex yeniden devralacak; o zamana kadar çalışmayı sürdür.** Bu yüzden son durumunu, testlerini ve sıradaki adımı CLAUDE.md ile bu notta güncel tut. Ahmet açıkça commit demeden stage/commit/push yapma; iki yerel kopyayı eşitle, sırları koru. Codex geri alırken devam eden işlemini güvenli bir noktada tamamla ve son brifingi ver. Aynı çekirdek dosyalara eşzamanlı yazmayalım.
+
+## Devir doğrulaması
+
+Devir sırasında canlı Claude oturumu/mesaj kanalı ve teslim kanıtı kaydedilir. Hazır metin bulunması, mesajın gönderilmiş veya görevin kabul edilmiş olduğu anlamına gelmez. Reset sonrası tekrar devralma da güncel Claude brifingi ve çalışma durumuyla doğrulanır.
+
+## Son güvenli kontrol noktası / devir engeli
+
+- Claude Code `auth status`: `loggedIn: false`, `authMethod: none`; aktif CLI ajan listesi boş. Kullanıcıya `claude auth login` ile giriş talebi iletildi; giriş onayı henüz gelmedi.
+- Claude masaüstü açık, fakat mevcut erişilebilirlik ağacı içerik göstermiyor; ekran yakalama ilk denemede `FrameArrived timed out`, pencere yeniden seçilerek son denemede `window capture timed out` döndü. Mesaj yazılmadı/gönderilmedi, devir kabulü yok.
+- Devir için yukarıdaki mesaj hazırdır. Açık Claude kanalına iletilince teslim/yanıt kanıtını bu notta kaydet; limit yenilendiğinde görevi Codex’in tekrar alacağını açıkça belirt.
+- EKO-02 inceleme notu: mevcut `data/koy/binalar.json` hızar tarifleri odun üretimi ve odun→kereste; yeni tomruk zinciri henüz yok. `src/koy/kaynaklar.gd` TURLER, `src/koy/bina_katalogu.gd` uzantıları, `src/koy/koy_yonetimi.gd:_uret` ve `src/arayuz/koy_ekrani.gd` tarif UI incelendi. Kalas/inşaat için mevcut `kereste` kayıt alanını uyumlu koru; yeni zinciri sadece isim değiştirerek tamamlanmış sayma. CSV’ye dokunma.
+
+## EKO-02 ilerleme
+
+Yeni src/koy/odun_zinciri.gd ve tomruk ikonu; katalogda orman kampı, hızarın mevcut odun/kereste tariflerine tomruk girdisi adaptörü. Kalas mevcut kereste stok alanını kullanır. Denge varsayımı: 3 tomruk/kişi; 2 tomruk → 1 kalas veya 3 yakacak. Girdisiz eski hızar üretimi kaldırıldı; stoklar/kayıt kimlikleri korunur. Çocuk/ağır iş ve grev listeleri orman kampını kapsar. İki ilgili eski testin malzeme fikstürüne tomruk eklendi. tests/unit/kvr/odun_zinciri_test.gd gerçek geceler, eksik girdi, çocuk reddi ve JSON uyumunu geçti. Madde kapanmadan UI ve tam regresyon doğrulanmalı.
+
+## EKO-02 kapanışı
+
+Ham hızar katalog verisinin korunması ilk regresyonda iki hatayı ortaya çıkardı; tarifler BinaKatalogu.receteler → OdunZinciri.tarifler adaptörüne taşındı, başarısız iki kontrol tekrar geçti. Son tam koşu 0 hata. Native screenshot work/eko02_zincir.png incelendi. Her iki kopya güvenli eşitlenir, yeni madde EKO-03 [/] kalır. Claude teslimi hâlâ yok; reset sonrası Codex sorumlu.
+
+## Claude güncel durum sorusu — 7 Ekim 2026
+
+Kullanıcının “Claude nerede kaldığını sor sonra devam et” talimatıyla mevcut Claude Desktop / GameDevoloper bulut oturumuna durum sorusu yazıldı. Kullanıcı Gönder’e bastığını bildirdi; erişilebilirlik ağacında yeni “You said: Berk’in talimatıyla güncel durumunu soruyorum…” mesajı ve “running / Working…” görüldü. Gönderim doğrulandı; güncel yanıt henüz yok. Eski 1ef0830 brifingi yeni durum kabul edilmedi. Claude’a aktif iş/dosya sahipliği, dal/HEAD, yerel değişiklikler, testler ve EKO-03 hayvan/lojistik altyapısı soruldu. Ahmet commit demeden stage/commit/push yasağı ve CSV koruması iletildi. Yanıt gelmeden çekirdek dosyalara yeni geliştirme yazılmaz.
+
+Yerel fetch başarılı; festive ff-only pull dal ayrışması nedeniyle uygulanamadı. 308 intended dosya iki kopyada eşitlendi, bağımsız değişiklik ezilmedi. EKO-03 salt okuma incelemesi: kalıcı hayvan sahipliği/taşıma modeli yok; kapıdaki öküz dekor, KoyHalkHareketi yalnız görsel rutin. Bu madde henüz tamamlanmış değildir.
+
+## Claude brifingi alındı / Codex devam ediyor — 7 Ekim 2026
+
+Yeni Claude yanıtı gerçek oturumda okundu: kod yazmayı bıraktı, yürüyen iş veya kod değişikliği yok; yalnız üç bulut hook günlüğü değişmiş. Son işi İş 1 arazi/orman/atmosfer, bildirdiği dal festive @1ef0830; bu commit yerel HEAD’in atası olarak doğrulandı. Claude’un origin aynı iddiası yerel canlı fetch ile uyuşmuyor: origin festive 018f4c9, yerel feature HEAD 29a3a6a; ff-only uygulanamaz. Claude’un yanlış SYS-09 repo bağlantısı kullanılmadı; gerçek PR GameDevoloper #2 koruması geçerli. Claude eski 8/8 test sonucunu bildirdi, EKO-02 üzerinde test çalıştırmadığını açıkça belirtti. Yerel doğrulamalar ayrı tutulur. Sorumlu Codex; çekirdek dosyada paralel ajan yazımı yok.
+
+EKO-03 ilk uygulama: CekiLojistigi (hayvan sahipliği, kamu kasasından kervan günü alım, hazır ahırda 2 yer, tomruk bekleyen yük/sefer zaman bütçesi, geriye uyumlu JSON), CekiHayvaniPaneli (pazar alım ve kapasite/süre). Varsayımlar: manuel 3 yük/1 gece, hayvan 9 yük/0.5 gece; fiyat öküz 40, inek 35 akçe. Etki üretimi veya inşaatı çarpmaz; sadece tomruk sevkiyatını sınırlar. TUC-02 özel celep takvimi ve ANI-04 görsel rota bu pakette tamamlanmış sayılmaz. Import, yeni birim ve native RTX3060 UI geçti; screenshot work/eko03_lojistik.png incelendi. Tam sanity devam ediyor; madde henüz kapanmadı.
+
+## EKO-03 kapanışı
+
+Tam sanity work/sanity_eko03: 0 başarısız, 20 gece ve yeni UI dahil; son eklenen gerçek gece birim kontrolü source ve aynada tekrar geçti. Native Vulkan ekran görüntüsü incelendi. ROADMAP EKO-03 [x] (Codex), EKO-04 [/] olarak güncellendi. Sorumlu Codex; Claude açık kod işi olmadığını doğruladı. Son canlı kullanım kısa dönem %35 kullanılmış (%65 kalan), haftalık %21 kullanılmış (%79 kalan); resetler 1791380275 / 1791948615. Stage/commit/push yok. EKO-04 tahıl/un/ekmek zinciri için mevcut öğütme tarifleri ve gıda tüketim modeli okunuyor.
+
+## EKO-04 ilerleme
+
+TahilZinciri yeni buğday/un stoklarını ve seçilebilir tarla/bostan hasadı, değirmen un tarifini, Köy Fırını’nı ekler. Eski gıda/ogutme tarifleri korunur; fırın unsuz çalışmaz. Yeni stok ikon/HUD ve fırın girdi bilgisi eklenir. Varsayımlar design/gdd/tahil-zinciri.md’de. Gerçek gece ve eksik un/JSON birimi, native Vulkan UI seçimi/görüntü geçti; tam sanity work/sanity_eko04 devam ediyor. İlk UI koşusunda tek tarif maliyeti görünmüyordu; bilgi metni eklenip aynı test geçti. Madde henüz kapanmadı.
+
+## EKO-04 kapanışı
+
+ROADMAP [x] (Codex), günlük ve OYUN_RAPORU güncellendi. Eski öğütme/erzak yolu uyum için korunur; yeni zincir gerçek UI tarif seçimiyle çalışır. EKO-05 [/] aktiftir; mevcut taş maliyetleri katalog maliyet erişiminde, sur taksiti son seviye artışı KoyYonetimi.sur_taksit_ode içindedir. Harç bağımlılığının başlangıç inşaatını kilitlememesi için kireç kuyusunun harç gerektirmeden kurulması ve eski kayıtların boş yeni stokları yönetmesi incelenir. Stage/commit/push yok.
+
+
+## EKO-05 doğrulama sürüyor — 7 Ekim 2026
+
+Codex sorumlu. HarcZinciri/data/koy/harc_zinciri.json: kireç kuyusunda gerçek taş/yakacak→kireç→harç, harçlı Taş Ev, taş sur seviye 2/3 son taksitinde atomik malzeme tüketimi. İlk ahşap sur ve eski yapı maliyetleri korunur. Girdi yokluğu/başlangıç kilidi, gerçek iki gece, taş ev reddi/tüketim/yıkım iadesi, son taksit başarısızlığında model bütünlüğü, üçüncü sur, eski/yeni JSON birimi iki kopyada geçti. Native Vulkan gerçek tarif/sur UI ve ayna headless UI geçti; work/eko05_harc.png incelendi. Tam tools/sanity_check.py work/sanity_eko05 hâlâ çalışıyor; son gözlenen çıktı admin_kaynak_kontrol PASS, hata yok. ROADMAP kapanmadı. 346 intended dosya eşitlendi; iki indeks boş, CSV korunuyor. Son canlı limit kısa dönem %22 kullanılmış (%78 kalan), haftalık %27 kullanılmış (%73 kalan), resetler 1791398546 / 1791948615. Stage/commit/push yok.
+
+
+## EKO-05 kapanışı
+
+HarcZinciri ve dış JSON denge verisiyle ham taş/yakacak→kireç→harç; harç gerektirmeyen Kireç Kuyusu ve harçlı altı yataklı Taş Ev eklendi. Mevcut ham taş, eski ahşap yapı maliyetleri ve kayıt kimlikleri korunur. Taş sur seviye 2/3 son taksiti gerçek taş/harç tüketir; eksik malzemede kasa, ödenmiş taksit ve seviye korunur. UI bütün taksitlerde bedeli açıklar, eksik son taksiti engeller; model tekrar denetler. Yeni stok/HUD/SVG, tarif seçimi, ağır iş/grev adaptörleri; özel sanat yerine mevcut genel yapı görünümü. Gerçek iki gece, girdisizlik, taş ev bedeli/yıkım iadesi, erken/son/azami taksit, eski-yeni JSON, native Vulkan gerçek UI/görsel ve ayna import/birim/UI geçti. Tam sanity work/sanity_eko05 ve 20 gece: 0 başarısız; ek üçüncü sur/iade birimi iki kopyada tekrar geçti. CSV değişmedi; stage/commit/push yok.
+
+ROADMAP [x] (Codex), Codex günlüğü ve OYUN_RAPORU güncellendi. EKO-06 [/] aktiftir. Yeni demir madeni, ocakta işleme ve alet aşınması gerçek üretim ile denetçi/atama önizlemesine ortak bağlanmalı; mevcut demir stoğu işlenmiş demir kimliği olarak korunmalı. Henüz EKO-06 kodu yazılmadı. Sorumlu Codex; Claude önceki brifingde açık kod işi olmadığını doğruladı.
+
+
+## EKO-06 kapanışı
+
+DemirZinciri ve dış JSON denge verisiyle yeni Demir Madeni cevher çıkarır, Demir Ocağı cevher+yakacakla mevcut demir stoğuna işler; mevcut demirhane/atölye alet üretir. Alet gereken gerçek üretim stok sıfırken ×0.30; gerçek çalışan başına 0.1 kesirli aşınma birikir, tam olunca bir alet tüketir. Yeni üretilen alete geçmiş kullanım borcu yok; duruş/girdisizlik/dolu ambar/boşta iş aşındırmaz. Optional doğrulanmış JSON aşınma alanı, eski demir/alet kimlikleri korunur. Aynı verim formülü gerçek üretim, denetçi ve salt okunur atama önizlemesinde; yeni cevher/demir HUD ikonları, ocak girdi ve aletsiz uyarısı, ağır iş/grev adaptörleri. Gerçek gece zinciri, %70 düşüş/üretim kesri, aşınma/alet tükenmesi, eski-yeni-bozuk JSON ve gözlemde model/RNG korunumu; native Vulkan UI/görsel, ayna import/birim/UI geçti. İlk native koşuda eksik demir SVG bulundu, eklendi ve yeniden sıfır hatayla geçti. Tam sanity work/sanity_eko06 ve 20 gece 0 başarısız; genişletilmiş son birim iki kopyada tekrar geçti. Özel sanat yerine mevcut genel yapı görseli; EKO-13 ayrı paket. CSV değişmedi; stage/commit/push yok.
+
+ROADMAP EKO-06 [x] (Codex), günlük ve OYUN_RAPORU güncellendi; EKO-07 [/] aktif. Mevcut modelde muhafız başına gece 1 akçe ve ödeme yoksa görevi bırakma zaten var; gerçek güvenlik kaybı ve rüşvet yönelimi için yeni uzantı gerekir. Kullanım eşiğine ulaşılmadı, Codex sorumlu.
+
+
+## EKO-07 kapanışı
+
+MuhafizMaasi dış JSON verisiyle gerçek kurulabilir kışla; kışla çalışanları ve eski muhafız görevi aynı küresel yuva/maaş/savunma sözleşmesinde. Kişi başı mevcut 1 kamu akçesi ve eski maaş borcu birlikte ödenir. Ödenmezse mevcut moral kaybı, gerçek görev bırakma/etkin savunma kaybı ve +10 asayiş; %25 nöbet hattı usulsüz geçişi gizli 2 akçe ledgerı/+8 asayiş üretir, kamu veya oyuncu kişisel kasasına gelir yazmaz, rapor anonimdir. Borçlu yeniden atama savunmayı açmaz; kamu borcu+cari maaş ödenince toparlanır. Optional doğrulanmış JSON bordro, tekrar gece koruması; eski kayıtta borç uydurulmaz. Gerçek savunma kışla kartı/maaş açıklaması; atama önizlemesinde salt okunur etkin nöbet farkı/borç uyarısı. Gerçek gece/maaş, kişisel kasa ayrımı, rüşvet dalı, kayıt, çocuk/yuva sınırı, ödeme ile toparlanma; native Vulkan UI/görsel, ayna import/birim/UI geçti. Tam sanity work/sanity_eko07 ve 20 gece: 0 başarısız; son genişletilmiş bordro ve atama birimleri iki kopyada tekrar geçti. Kışla özel sanat yerine mevcut genel yapı görseli, rüşvet geçişi kapı kuyruğunu değiştirmez; gerçek etkisi asayiş/baskın hesabında. CSV değişmedi; stage/commit/push yok.
+
+ROADMAP [x] (Codex), günlük ve OYUN_RAPORU güncellendi; EKO-08 [/] aktif. Vergi oranları haftalık kamu vergisine ve gerçek pazar UI seçimine bağlanmalı, vergi_muaf/isyan çıkışı korunmalı. ADM-04 Refah eşlemesi kamu akçesidir; ağır verginin ayrı refah etkisi bu eşlemeyle çelişmeden açık tasarlanmalıdır.
+
+
+## EKO-08 ilerleme — 7 Ekim 2026
+Codex sorumlu. VergiPolitikasi ve dış JSON oranları, gerçek haftalık kamu tahsilatı, Moral etkisi, muafiyet ve aynı gece tekrar koruması; pazar düğmeleri ve optional kayıt uzantısı eklendi. Eski orta oran korunur. Birim eski/yeni/bozuk JSON, gelir/Moral ve salt okunur gözlem kontrolü source/aynada geçti. Native RTX3060 pazar düğmesi ve ekran görüntüsü work/eko08_vergi.png doğrulandı. 378 intended dosya iki kopyada eşitlendi. Tam sanity work/sanity_eko08 canlı süreçte; son gözlem diyalog_deneyi_test PASS, kapanış yok. Kullanıcının Refah eşlemesi sorusuna yanıt bekleniyor: önceki ADM-04 kamu akçesi kararına karşı ağır verginin Refahı azaltması çelişiyor. Bu sözleşme değiştirilmedi. ROADMAP EKO-08 [/] kalır. Son canlı kullanım kısa dönem %27, haftalık %28 kullanılmış; resetler 1791398546 / 1791948615, devir eşiğine ulaşılmadı. Stage/commit/push yok; CSV korunuyor. Festive fetch başarılı, ff-only pull dal ayrışması nedeniyle uygulanamadı.
+
+
+## EKO-08 doğrulama kontrol noktası
+Tam sanity work/sanity_eko08, bütün birimler/gerçek UI senaryoları ve 20 gece: 0 başarısız. Son genişletilmiş gerçek gece/vergi raporu birimi iki kopyada ayrıca geçti; düşük/orta/ağır gerçek pazar düğmelerinin kendi oranını seçmesi ve ayna UI tekrar geçti. Native ekran work/eko08_vergi.png incelendi. Canlı test süreci kalmadı. 379 intended dosya iki kopyada eşit. EKO-08 [/] ve Refah kararı beklemede: mevcut Refah=kamu akçesi sözleşmesi korunuyor, ağır verginin istenen Refah kaybı henüz uygulanmadı. Sıradaki EKO-09 henüz başlatılmadı. CSV ve indeksler korunuyor; stage/commit/push yok.
+
+
+## EKO-09 ön inceleme — EKO-08 kapanmadan bağımsız kanıt
+EKO-08 hâlâ [/] ve kullanıcı Refah kararı bekleniyor. EKO-09 henüz kapanmadı veya ürün kodu değişmedi. Mevcut KoyYonetimi._tuket kişi başı gida_kisi (varsayılan 1) ile Erzak tüketir; soğuk odunu _hane_sayisi × kis_odun_hane × IklimDeneyi.odun_carpani üzerinden hesaplar. Bu, EKO-09 kişi başı +1 Odun tarifinden farklıdır; MEV-11 ise mevcut hane tarifini kullanır. Eksik yakacak bütün köylülere soguk_saglik kaybı, açlık son gelenlere ac bayrağı ve aclik_saglik kaybı verir; _saglik_ve_moral sağlık sıfırında gerçek nüfustan çıkarıp rapora ölüm yazar. Yeni tests/unit/kvr/tuketim_olum_test.gd gerçek gece açlık/donma ölümü, üç kişi üç Erzak ve kayıt restore sonrası aynı ölüm/tüketim/RNG sonucunu doğrular. Source birim geçti. Gelecek EKO-09 uygulaması bu doğrulanan ölüm/kayıt davranışını korumalı; kişi/hane odun sözleşmesi açıklığa kavuşturulmadan madde tamamlanmış sayılmaz. CSV, ürün çekirdeği ve indeksler değiştirilmedi; commit/push yok.
+
+EKO-09 ön doğrulama son durumu: tüketim/ölüm birimi source ve aynada geçti; 380 intended dosya eşitlendi. Canlı test süreci yok. EKO-08 Refah kararı bekliyor, EKO-09 ürün kodu başlamadı.
+
+
+## Karar bekleyen engel — EKO-08
+Üç ardışık geliştirme turunda aynı Refah sözleşmesi çelişkisi çözülemedi; kullanıcı yanıtı gelmedi. Bağımsız vergi/Moral/pazar/kayıt uygulaması ve tam regresyon ile EKO-09 ölüm ön doğrulaması tamamlandı. Sıralı ürün geliştirmesinin sonraki gerekli adımı kullanıcının Refah kararını gerektiriyor: Refah köylü ekonomik durumu olarak yeniden tanımlanacak mı, yoksa önceki Refah=kamu akçesi kararı korunup EKO-08 gereksinimi değişecek mi? Yanıt olmadan iki sözleşmeden birini sessizce değiştirme. Goal blocked olarak kaydedilir; EKO-08 [/] kalır, hiçbir madde tamamlanmış sayılmaz. Canlı test veya Claude kod işi yok; Codex sorumlu. Limit kısa dönem %35 / haftalık %29 kullanılmış, eşik yok. Son kontrol noktası 380 intended dosya, source/ayna testleri ve yerel eşitleme; stage/commit/push ve CSV değişikliği yok.
+
+
+## Kullanıcı yeni yetkisi — 7 Ekim 2026
+Kullanıcı tüm projeyi Codex’in otonom geliştirmesini, rutin kararlar için duraksamamasını ve şu ana kadarki bütün Codex işini GitHub’a pushlamasını açıkça istedi. Önceki commit bekleme şartı bu yayın için kaldırıldı. 380 dosyalık değişiklik kümesi eşitleme manifestiyle birebir uyuşuyor, dışarıda bağımsız değişiklik yok; source/ayna HEAD 29a3a6a. Son tam sanity EKO-08 0 hata/20 gece, son tüketim ölüm birimi iki kopyada geçti. EKO-08 hâlâ aktif; yayın tamamlanmış özellikler ile bu açık geliştirme kontrol noktasını birlikte içerir, Refah bitmiş sayılmaz. Açık karar Codex tarafından köylü ekonomik Refahını kamu hazinesinden ayrı ele alarak çözülecek; mevcut kamu/kişisel kasalar korunacak. Commit/push bu kontrol noktası için şimdi uygulanır, teslim kanıtı yayın sonrası doğrulanır.

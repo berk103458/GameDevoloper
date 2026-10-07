@@ -36,7 +36,9 @@ func _ready() -> void:
 	_ortam = _oynatici("Efekt")
 	_ortam_yedek = _oynatici("Efekt")
 	for i in ES_ZAMANLI:
-		_efektler.append(_oynatici("Efekt"))
+		var o := _oynatici("Efekt")
+		o.finished.connect(EfektHavuzuTemizligi.biteni_birak.bind(o))
+		_efektler.append(o)
 
 
 ## Oyundan çıkış: önce sesleri susturur, ses sunucusunun çalanları bırakmasını bekler, sonra çıkar.
@@ -163,6 +165,12 @@ func _gecis(eski: AudioStreamPlayer, yeni: AudioStreamPlayer, ad: StringName, db
 ## Bir efekt çalar.
 func cal(ad: StringName, db: float = 0.0) -> void:
 	oynat(ad, db)
+
+
+## Sahneye ait kısa sesleri durdurur; sabit havuz ve arka plan döngüleri korunur.
+func efektleri_temizle() -> void:
+	EfektHavuzuTemizligi.temizle(_efektler, _onbellek)
+	_sira = 0
 
 ## Başlamayan ses false döner; eski cal API'si bu güvenli yolu kullanır.
 func oynat(ad: StringName, db: float = 0.0) -> bool:

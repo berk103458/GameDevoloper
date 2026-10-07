@@ -492,3 +492,332 @@ Sıradaki: BUG-12. İlgili kontroller ve yerel eşitleme sonrası otomatik commi
 BUG-09 ile aynı koruma: klip eşlemesi has_animation ile doğrulanır; eksik dosya negatif önbelleğe alınır, bozuk cache değeri Animation olarak dönmez. _klip_onbellek adı/API korunur ve eksik hareket idle fallbacke gider.
 
 Sıradaki: BUG-10. İlgili kontroller ve yerel eşitleme sonrası otomatik commit/push uygulanır.
+---
+
+## Yenilik notu — Gemini döngü 11–15 ROADMAP genişletmesi
+
+**Güncellendi:** ROADMAP.md — Gemini döngü 11–15 birikimi (2026-10-07 Europe/Istanbul).
+- Yeni: ADM/TUC/UZM/ANI **+11…15** ve SYS-16…20 (taslak hedef yollar notlu); hepsi `[ ]` BEKLEMEDE.
+- UZM-15: Gemini A örtüşme notu — Bölüm 5 ANI atama önizlemesi ile birleştir/adaptör; ID silinmedi.
+- Örtüşme: ANI-04↔EKO-03, ANI-08↔UZM-01..05; TUC↔EKO-01/EKO-11 çift kasa; SYS-18↔KVR-06.
+- Ahmet kararı: **15’te duruldu** — tur 16 YOK.
+- WIP (festive+keen) bu committe **yok**.
+
+
+## Codex — BUG-10 (7 Ekim 2026)
+
+Grafik ayarlarına Normal/Düşük profil ve %50–100 bağımsız 3B ölçek eklendi; ana/alt viewport canlı güncellenir, 2B arayüz ölçeği korunur. Düşük mod CPU/GPU partikülleri ve gerçek shader alev/duman katmanlarını kapatır; normalde asıl emisyon/katmanlar döner, gündüz görünürlüğü korunur. Geç ekleme, disk roundtrip, UI seçim/varsayılan ve bağlantı temizliği testleri geçti; native ayar ekranı görüntüsü kontrol edildi.
+
+Sıradaki: BUG-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — BUG-13 (7 Ekim 2026)
+
+Gerçek kapı sahnesinde kuyruk tweeni ile karar dönüşü çakışınca FOV 46 yerine 28 kalıyordu; yeniden üretildi. Kamera geçişlerinin tek sahibi son istekte eski tween/adımları iptal eder, iptal edilen await askıda kalmaz; kuyruk 28, karar 37 ve normal 46 hedefleri korunur. Çakışma, geri dönüş, bakış hedefi, sahne kapanışı ve korumalı API testleri geçti. BUG-10 sonrası tam sanity: 0 başarısız.
+
+Sıradaki: BUG-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — BUG-14 (7 Ekim 2026)
+
+Sahne geçişinde kısa ses havuzu stop/stream=null ile temizlenir, sıra sıfırlanır ve ses cache referansları bırakılır; sabit altı oynatıcı yeniden kullanılır. Bitmiş efekt streami bırakılır; çalan yeni efekt, müzik ve ortam döngüleri korunur. Sekiz geçiş, havuz boyutu, yeniden kullanım ve referans temizliği testi ile headless import geçti.
+
+Sıradaki: SYS-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — SYS-13 (7 Ekim 2026)
+
+Düşük grafik profiline memory_free adaptörü bağlandı; sahne girişinde/profil değişiminde statik model, malzeme, klip, şekil ve sanat cache referansları bırakılır. Yalnız cachete tutulan Resource serbest kalır; aktif gerçek Meshy karakterinin animasyonları/malzeme kaynakları korunur ve sonraki model yüklemesi çalışır. Tekrarlı temizlik, zayıf referans, canlı model ve grafik regresyon testleri geçti; ölçülmemiş RAM/VRAM tasarrufu miktarı iddia edilmiyor.
+
+Sıradaki: BUG-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — son doğrulama (7 Ekim 2026)
+
+BUG-10 sonrası tam sanity 0 başarısız; sonraki kamera/ses/bellek değişiklikleri kendi testleri, gerçek sıra atlama ve Meshy karakter ömrü (orphan=0), final headless import ve API denetimi ile doğrulandı. Son kullanıcı talimatı: Ahmet commit demeden stage/commit/push yok. BUG-15 başka ajanın aktif heybe paketiyle çakıştığı için açık bırakıldı; BUG-01 giriş yüklemeleri incelemesi sıradaki iştir.
+
+
+## Codex — BUG-01 (7 Ekim 2026)
+
+Menü/kapı font, model, PBR doku ve shader kaynakları en çok dört load_threaded_request ile hazırlanır; get yalnız LOADED durumunda çağrılır. Gece kuyruğunun gerçek model/klipleri ayrı batch alır; yükleme katmanı girdiyi engeller, sahne ilk iki çizimi örtü altında yapar ve batch referansları sonra bırakılır. Eksik/mükerrer dosya, ana kare döngüsü, gerçek Ana menü→kapı, native görüntü/kapanış, 20 gece ve tam sanity kontrolleri geçti (0 başarısız). Bu optimizasyon her GPUda sıfır takılma/FPS artışı garantisi değildir; kapanışta silinen kesme örtüsü erişimi de korundu.
+
+Sıradaki: ADM-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-01 (7 Ekim 2026)
+
+Global AdminHud CanvasLayer F1/~ ile açılır, ESC ile kapanır; oyun pause/hızını değiştirmez. Kapalıyken işlem yapmaz; açıkken oturum günü ve iki kasayı okur, yardim/durum/temizle komutları ile 100 satır sınırlı geçmiş sunar. Tuş tekrarı, klavye odağı, kare ilerleme, gerçek menü→kapı kalıcılığı, native görüntü/kapanış ve API testleri geçti. BUG-01 sonrası tam sanity 0 başarısız; ilk GPU pipeline hazırlığı için örtü altında iki çizim adımı ve ilgili geçiş testi de doğrulandı.
+
+Sıradaki: ADM-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-02 (7 Ekim 2026)
+
+Konsola Kapıyı bitir→Köy düğmesi ve ayrı atlama adaptörü eklendi. Aktif/bekleyen tekil ziyaretler gerçek Oturum.karar_ver ile rastgele kabul/ret alır; panik kabul edilmez, sonuc uygulanmış Gelen referansı tekrar sayılmaz. Gerçek Ana._koye_git güvenli kayıt ve KoyYonetimSahnesi akışını kullanır; gün/gece tüketimi değişmez. Düğme, aynı nesne tekrarları, karar animasyonu sırasında atlama, tekrar engeli, test slotu, native köy görüntüsü ve API kontrolleri geçti.
+
+Sıradaki: ADM-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-03 (7 Ekim 2026)
+
+Konsola +1/+5/+10 gün gece-sonu kontrolü ve ayrı ZamanMakinesi eklendi. Her gece gerçek üretim/tüketim/kadro APIleri çalışır, raporlar tutulur; olaylar geçerli seçeneklerden rastgele çözülür, mini oyun simülasyonu 0 puan alır. Terminal sonuçta veya geçerli olay seçeneği kalmadığında gerçek ilerleme sayısıyla durur; son/olay ekranı korunur. 1/5/10 doğrudan gece çağrılarıyla tüm kayıt/RNG eşitliği, toplam 16 gün gerçek düğme/kayıt, 2x hız, rapor kilidi, terminal/pending UI ve native görüntü testleri geçti.
+
+Sıradaki: ADM-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-04 (7 Ekim 2026)
+
+İki kasa ve gıda/odun/taş/demir için sayısal artı/eksi enjektör eklendi; kapasite ve sıfır sınırları korunur. Ahmet kararıyla beş stat mevcut modele eşlendi: Refah=kamu akçesi (alias), Erzak=gıda (alias), Güvenlik=100−asayiş riski; Moral/Sağlık her köylüye sınırlı delta, arayüzde ortalama. Boş köyde sahte değer yazılmaz; rapor/olay kilidi ve gerçek güvenli kayıt kullanılır. Model, gerçek düğme/SpinBox girişi, kayıt roundtrip, headless/native ve korumalı API kontrolleri geçti; native panel incelendi. Metin odağında köy kamera kısayolları durur, atmosfer işlemeye devam eder.
+
+Sıradaki: ADM-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-05 (7 Ekim 2026)
+
+Global konsola katalog kimliklerinden NPC seçici eklendi; CHR_001–030 çağrılabilir. Yeni Gelen kuyruğun önüne alınır, zaten bekleyen kişi referansı taşınır; aktif sorgu/model, eski sıra, ziyaret/karar/gün/RNG korunur. Gerçek 3B kuyruk APIsi kullanılır; yükleme/heybe/karar animasyonu sırasında çağrı kilitli. Gezgin tüccar TUC-01 uygulaması gelene kadar açıklamayla devre dışı. Gerçek düğme, 30 kimlik, tekrar/taşıma, model eşleşmesi, modelin kapıda yeniden kullanılması, headless/native ve yükleme sırasında sahne kapanışı kontrolleri geçti. Kapanış testinin bulduğu yükleme etiketi callbacki WeakRef ile düzeltildi; varlık regresyonu geçti. ADM-04 tam sanity: 0 başarısız.
+
+Sıradaki: ADM-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-06 (7 Ekim 2026)
+
+Global Flag/Clue denetçisi aktif CHR ziyaretinin tanımlı Flag anahtarlarını açıp kapatır; Clue kayıtları canlı salt okunur listelenir. CHR Resource, diğer ziyaret ve kilitli JSON diyalog motoru değişmez; bu geçici ziyaret durumu kayda kalıcı diye sunulmaz. Eski ziyaret callbacki yeni sorguya uygulanmaz; kalıcı panik kilidi salt okunur korunur. Açıkken 0.5 saniyede değişiklik denetlenir, kapalıyken process yok; konsol kapanınca panel de kapanır. Model izolasyonu, gerçek checkbox aç/kapat, keşif listesi, stale callback, headless/native görüntü ve API kontrolleri geçti.
+
+Sıradaki: ADM-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-07 (7 Ekim 2026)
+
+Konsola Godot Performance tabanlı FPS, TIME_PROCESS kare ms, son kare Draw Call, statik Godot RAM ve renderer VRAM şeridi eklendi. RAM süreç RSSsi/VRAM kart toplamı gibi sunulmaz; tooltip ölçüm kapsamını açıklar. Headless veya desteklenmeyen grafik/bellek sayaçlarında ölçüm yok gösterilir. Açıkken gerçek zamanla en çok 0.5 saniyede örneklenir; oyun hızı sorgu sıklığını artırmaz, konsol kapalıyken process yok. Gerçek sayaç, headless yokluk, örnekleme sınırı, aç/kapat, konsol regresyonu ve native görüntü kontrolleri geçti. API tanımları resmi Godot Performance dokümanından doğrulandı.
+
+Sıradaki: ADM-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+### ADM-07 ek doğrulama
+
+Native sayaçlar gerçek değerlerle güncellendi. Aralıklı dummy renderer doku hatası sonrası headless threaded batch tek isteğe sınırlandı; gerçek renderer dört isteği korur. Üç ardışık menü→kapı ve varlık regresyonu doğrulandı.
+
+
+## Codex — ADM-08 (7 Ekim 2026)
+
+İnşaat tamamlama, normal bina/sur seviye atlatma ve yalnız sur için sağlam/hasarlı/yanmış kısayolları eklendi. Ahmet kuralı gerçek modele bağlandı: üretim ×(1+0.25×(N−1)); yatak/depo tabanı +%20/ek seviye, yukarı yuvarlama. Normal binada hasar yok; sur hasarı 0/50/100 savunma payını düşürür ve gerçek 3B görünümü değiştirir. Eski kayıt seviye 1/hasar 0 açılır, yeni alanlar normal güvenli kayıtla korunur. Gerçek üretim/kesir artığı, kapasite/barınma, düğmeler, sur/bina kimlik ayrımı, rapor kilidi, native görüntü ve tüm sanity (20 gece dahil) geçti: 0 başarısız. İki yerel kopya eşitlendi; commit yok.
+
+Sıradaki: ADM-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-09 (7 Ekim 2026)
+
+Üç senaryo gerçek gece döngüsünü çalıştırıyor; kıtlık üretim sonrası gıdayı tüketiyor, baskın tek gecelik ayarla zorlanıyor, veba hasta bayrağı ve sağlık düşüşü stres önayarı (bulaşma/tedavi KRI kapsamı). Model, gerçek UI, native görüntü ve tam sanity/20 gece geçti.
+
+Sıradaki: ADM-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-10 (7 Ekim 2026)
+
+Köy ve kapı sorgusu ayrı atomik JSON snapshot ile geri yükleniyor. Model/RNG, diyalog önbelleği, köy kamerası; kapıda aktif gelen, gerçek bekleyen kuyruk, legacy sorular/ilk karar onayı, konuşma kaydı, heybe eşya/alinan/astar durumu, CHR bayrak/ipucu/tansiyon/düğüm/deneme/64-bit zar ve tek replik durumu korunur. Restore yeni ziyaret/karar/gece üretmez; gerçek modeller doğru sırada kurulur. Açık rapor/olay/inceleme ve yürüyüş önce tamamlanmalı. Normal slot yazılamazsa mevcut oturum korunur. Köy RNG JSON hassasiyet kaybı metinle giderildi; eski sayısal kayıt okunur. Model, gelecek dört gece, yedek/bozuk slot, CHR ve legacy gerçek UI/native, mirror UI ve tam sanity/20 gece geçti: 0 başarısız. Önceki köy-only kapanışı bu turda yeniden açılıp kapı kapsamı tamamlandı.
+
+Sıradaki: ADM-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-11 (7 Ekim 2026)
+
+Kasalar paneli: köy ve muhafız bakiyesi ayrı ayarlanır, kişisel keseye akçe eklenir, kese sıfırlama kişisel akçe ve eşyaları temizler. Kamu kasası, geçmiş rüşvet kararları, kadro, kaynaklar, gün ve tüm RNG korunur. Kararlı köy/kapıda gerçek HUD ve güvenli kayıt güncellenir; rapor/olay/heybe/geçiş kilidi doğrudan sinyalle aşılamaz. Girdi 0–1.000.000, toplama 64-bit taşma korumalı; canlı göstergeler yazılmakta olan girdiyi ezmez. Kapalı panel işlemez, konsolla kapanır. Gerçek rüşvet kararı üstüne model/JSON kontrolleri, gerçek SpinBox/düğme/kayıt/kapı/köy testleri, native görüntü, mirror import/UI ve tüm sanity/20 gece geçti: 0 başarısız. CSV değişmedi; commit yok.
+
+Sıradaki: ADM-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-12 (7 Ekim 2026)
+
+İklim denetçisi: otomatik/4 mevsim ve normal/kar fırtınası/kuraklık; gün/RNG ve ortak ayarlar değişmeden zorlanır, doğal takvime reset. Önayar güvenli kayıt ve snapshot'ta korunur; eski kayıtta doğal iklim. Debug denge: kuraklık gıda ×1.5 (yukarı yuvarla), fırtına odun ×2; fırtına mevcut soğuk/tarla kaydırması ve eksik yakacak hasarını çalıştırır. Arazi/çimen kar shaderı, shader ile 600 yağış tanesi ve yoğun sis; düşük profilde dekoratif yağış kapalı. Normalde eski tüketim ve görünüm korunur. Gerçek gece tüketimi/soğuk/tarla, JSON, UI/shader/yağış/HUD/rapor kilidi/reset, native görüntü, mirror import/UI ve tam sanity/20 gece geçti: 0 başarısız. MEV paketleri kapatılmadı; CSV değişmedi, commit yok.
+
+Sıradaki: ADM-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-13 (7 Ekim 2026)
+
+Canlı köylü/zanaat denetçisi: tüm köylüler, gerçek bina ataması ve hareket rutini; üretimle ortak stat/bayrak/açlık/seviye formülü, brüt/gece ve stok/kış/inşaat engelleri. Salt okunur Tree 500 ms yenilenir, kapalıyken işlemez; model/RNG/kayıt korunur. Birim, headless ve native UI, yerel mirror UI ve kapsamlı sanity (20 gece dahil) sıfır hata.
+
+Sıradaki: ADM-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-14 (7 Ekim 2026)
+
+Kriz enjektörü: tek tuş veba (hasta, sağlık −40), köy kuyusu zehri (3 gerçek gece −25 sağlık/hasta), ambar kundaklama (her stok %50 kayıp, yukarı yuvarla). Debug denge varsayımları panelde açık; gün/RNG/kasalar/binalar korunur, normal binaya hasar alanı yok. Zehir süresi güvenli kayıt ve snapshot modelinde korunur; eski kayıtta 0, hatalı alanlar reddedilir. Ölüm/üretim/iyileşme normal gece modelinden; KRI bulaşma/karantina/dezenfeksiyon paketleri kapatılmadı. Rapor/geçiş kilidi, kapalı işlem hijyeni, headless/native gerçek düğmeler, mirror import/UI ve tüm sanity (20 gece dahil) geçti: 0 başarısız; CSV değişmedi.
+
+Sıradaki: ADM-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — ADM-15 (7 Ekim 2026)
+
+Diyalog debug paneli: CHR gerçek düğmelerini ve eski soru API akışını 500 ms arayla yürütür; denenmemiş ilk açık geçiş, döngü/kapalı clue/karar ekranı duruşu, 64 adım sınırı. Karar, gün ve kasa uygulanmaz; ziyaret/modal/stale callback korunur. Ziyaret tansiyonu doğal/2/5/9: ince setter adaptörü ile seçim deltasından önce kilit, 9 mevcut kalıcı panik; kapatma/ayrılma debug kilidini çözer ama panik bayrağını geri almaz. Kaynak JSON, KAP-01 ve CSV değişmedi. Birim, gerçek otomatik UI/düğme/döngü/eski akış, native görüntü, mirror import/UI ve kapsamlı sanity (20 gece dahil) 0 başarısız. SYS-09 bekleyen CSV maddeleri ve diğer ajan heybe işi atlanarak UZM-01 sırada.
+
+Sıradaki: UZM-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-01 (7 Ekim 2026)
+
+ZanaatTuru.Tur: 22 sabit kimlikli meslek (Çiftçi/Bostancı/Çoban/Değirmenci/Kalaycı/Cerrah/Demirci/Asker/Tellal/Kâtip ve kaynak rolleri). 30 CHR birincil gerçek uzmanlığı Bölüm 1 Gerçek_Kimlik üzerinden açık eşleme; maske/suç eğilimi meslek sayılmaz, tanımsız roller Belirsiz. Eski sinif ve zanaat/stat 1–10 ayrı korunur; KarakterVerisi getter, Koylu zanaat_turu ve ince kabul adaptörü, JSON kayıtlarında kararlı enum anahtarı; eski/hatalı kayıtta kimlik/sınıf fallback. Gerçek kapı kabulü cerrah rolünü taşır; köylü denetçisi meslek ve beceriyi birlikte gösterir. Üretim dengesi bu pakette değişmedi (UZM-03). 30 profil, gerçek karar, enum/JSON/eski kayıt, native görüntü, mirror import/unit/UI ve tüm sanity/20 gece 0 başarısız; CSV değişmedi, commit yok.
+
+Sıradaki: UZM-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-02 (7 Ekim 2026)
+
+PasifOzellikler: 30 CHR için Gerçek_Kimlik/geçmiş/postür/davranışa dayalı açık güçlü-zayıf çift matrisi; Gece nöbetçisi/Ağır yük ustası/Hırsızlığa meyilli/Korkak dahil ayrık kataloglar. KarakterVerisi getter ve gerçek köylü kabulünde bağımsız kopya, üretilen köylüde deterministik kişisel çift (RNG tüketmez). Kalıcı JSON/oturum kaydı, eski kayıt fallback ve bozuk matris reddi; kaynak Flag/Clue/JSON/CSV değiştirilmez. Debug köylü tablosunda ayrı güçlü/zayıf sütunlar, yatay taşma düzeltilip native görüntü doğrulandı. Trait verisi bu pakette; meslek çarpanları UZM-03 ve kaza/tutum tüketicileri ilgili paketlerde. 30 profil/kopya ayrımı/gerçek karar/deterministik çeşitlilik/eski-yeni kayıt, native ve mirror import/unit/UI, tüm sanity ve 20 gece 0 başarısız.
+
+Sıradaki: UZM-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-03 (7 Ekim 2026)
+
+MeslekUyumu: uygun meslek/bina ×1.6, uyumsuz ×0.5; belirsiz/genel esnaf nötr, Haydarın kaynak döküm uzmanlığı ayrı korunur. Çarpan gerçek üretim + seviye/flag/açlık formülüne ve salt okunur denetçi önizlemesine ortak bağlandı. Uyumsuz üretimde kişi/gece %10 (denge varsayımı) en çok 1 alet kırılması gerçek model RNGsi ve gece raporunda; alet/girdi yok veya ambar doluysa risk zarı atılmaz. Bostan ve Demirhane artık ayrı kurulabilir üretim türü; Tarla/Atölye bedel-reçete tabanını yeni katalog adaptörüyle kullanır, eski türler ezilmez. Eski tarla/atölye görselleri ince alias, bina adı/açıklaması CSVye dokunmadan okunur. Güncellenen üretim beklentileri ve gerçek stok/kesir/input/alet-RNG/restore/ikinci uzmanlık unit testi, yeni iki bina ve risk tooltip UI, native görüntü, mirror import/unit/UI geçti. Kapsamlı sanity (20 gece dahil) 0 başarısız + ek yeni UI/son risk sınır testi geçti; CSV değişmedi, commit yok.
+
+Sıradaki: UZM-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-04 (7 Ekim 2026)
+
+Usta–çırak eğitimi gerçek ortak üretimden gece başına bir kez ilerler; beş gecede beceri en az 6 ve öğrenilen meslek uygulanır, tam ustalık verilmez. Osman Dayı kaynak ustalığı tanınır; hastalık/girdisizlik/isyan/çalışmama ilerletmez, usta veya bina değişimi yarım sayacı sıfırlar. Sayaç güvenli JSON yüklemeyle korunur ve canlı denetçi ipucunda görünür. Tam sanity 0 hata, beş gerçek gece/kayıt/tek terfi birim testi, native Tree ve ayna import/birim/UI kontrolleri geçti.
+
+Sıradaki: UZM-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-05 (7 Ekim 2026)
+
+IsKazalari yeni dosyası gerçek gece üretimi ve nöbetten uyumsuzluk kazası üretir. Denge varsayımı: fiili uyumsuz üretimde %8, −20 sağlık ve sonraki üç gece mevcut agir_yarali verimi; uyumsuz nöbette %10, −3 moral/+5 asayiş ve o gece etkin muhafız gücü kaybı. Görev yuvası/sayısı/maaş korunur; savunma, husumet ve asayiş yalnız etkin muhafız sayısını kullanır. Geçici kaza güvenli JSON/RNG ile korunur; eski kayıt boş, bozuk süre reddedilir, kaynak yaralı bayrakları silinmez. Çalışmama/isyan/uyumlu işte kaza zarı yok. Gerçek sakatlanma, üç gece, nöbet, maaş, savunma, JSON/RNG ve native canlı tablo testleri; ayna import/birim/UI ve tam sanity (20 gece dahil) geçti: 0 hata. UZM-12 iş duruşu/Şifahane ve UZM-14 yorgunluk ayrı bekleyen paketlerdir; CSV değişmedi.
+
+Sıradaki: UZM-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-06 (7 Ekim 2026)
+
+IsMemnuniyeti yeni dosyası mevcut meslek/atama/moral/pasif veriden kişisel memnuniyet ve isyan eşiği türetir; yeni zorunlu kayıt alanı yok. Denge: fiili uyumlu iş/nöbet +2 moral, uyumsuz −2; nötr/bosta işte bonus yok. Eşik 20, öfkeli/inatçı/kibirli 30, aksi halde dayanıklı 10. Eşik altındaki uyumsuz çalışan kendi üretimini ve etkin nöbetini reddeder; yuva/maaş korunur. Sağlıklı aktif uyumsuz işte sabotaj %2, eşik altında %12, zorla nöbette iki kat; olay en çok 1 alet veya 3 gıda, +3 asayiş/−2 sadakat. Türev UI bilgisi salt okunur; ana köy isyan akışı korunur. Gerçek gece üretim/iş reddi/ambar/moral/eşik/sabotaj, JSON-RNG replay, native canlı Tree ve ayna import/birim/UI testleri; tam sanity (20 gece dahil) 0 hata. CSV değişmedi. Kullanıcı yeni limit devir/geri alma talimatı AGENTS.md ve docs/DEVIR.md olarak iki kopyaya yazıldı.
+
+Sıradaki: UZM-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-07 (7 Ekim 2026)
+
+KanDavasi yeni dosyası açık grup/düşman grup ilişkilerini simetrik değerlendirir; farklı fraksiyon tek başına düşman değildir. Kaynak CHR001/004 aile intikamı ve CHR005 kan davası, CHR007 sancak divanına köy adaptörüyle bağlandı; CHR sözleşmesi değişmedi. Aynı hazır binadaki düşmanlar tüm üretimi durdurur; girdi/alet tüketimi ve üretim risk zarları çalışmaz. Denge: bina/gece tek %20 kavga zarı; her ilgili kişi en çok bir kez −5 sağlık/−4 moral, köy +5 asayiş; gerçek gece raporu. Kişileri ayırınca üretim döner; normal bina bilgi paneli çözümü açıklar ve eski bekliyor alanını doğru filtreler. İlişki optional JSON/old-save fallback; RNG ve sonraki gece replay korunur. Gerçek kapı kabulleri, 3 çalışan/2 çift/tek hasar, genel köy ilişkisi, bozuk kayıt, ayırma, atölyede gerçek girdilerin korunması; native bina paneli/Tree ve ayna import/unit/UI geçti. Tam sanity (20 gece dahil) 0 hata + son girdili atölye ek testi iki kopyada geçti. CSV ve indeksler korunuyor.
+
+Sıradaki: UZM-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-08 (7 Ekim 2026)
+
+YasRolleri kaynakta yaşlı CHR003/008/013 ve şecerede çocuk CHR006 ayrımını taşır; Genç etiketi çocuk yapılmaz. Optional yaş grubu JSON ve eski/hatalı alan fallback; yeni zorunlu CHR alanı yok. Çocuk/yaşlı ağır fiziksel iş ve nöbet kısıtları gerçek atama, üretim, kış kaydırması/bahar dönüşü, inşaat yardımı ve etkin savunmada uygulanır. Nitelikli yaşlı (Osman tarla/Haydar döküm) ağır işi yapmadan usta danışman olur; kendi girdisi/çıktısı yok, yalnız yanındaki fiili üretim gecesi çırak eğitimine sayılır. Sağlıklı yaşlı değirmen danışmanı binaya bir kez %15 üretim bonusu verir; hasta/aç danışman veya ikinci danışman ek bonus sağlamaz. Değirmen yeni ince katalog adaptörüyle kurulabilir; toplu gıda modelinde geçici 2 ham erzak → 3 temel işlenmiş erzak reçetesi (ayrı buğday/un zinciri EKOya bırakıldı); mevcut katalog ezilmedi, özel değirmen görseli eklenmedi ve mevcut genel yapı görseli kullanılır. Salt okunur canlı rol/üretim önizlemesi; gerçek öğütme girdisi, 4.8→5.52 brüt/kesir, yaş blokları/JSON, danışman ile eski beş gece çırak eğitimi, headless/native yeni UI ve ayna import/unit/UI geçti. Tam sanity, yeni yaş UI ve 20 gece dahil 0 hata; CSV değişmedi.
+
+Sıradaki: UZM-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-09 (7 Ekim 2026)
+
+GizliEgilimler yeni dosyası kaynak CHR haydutlarını ve ihtiyaç koşullu fırsatçılığı mevcut gece döngüsüne ince adaptörle bağlar. Gündüz gerçek üretim sürer; gece %20 haydut/%35 aç veya düşük sadakatli fırsatçı girişimi, etkin nöbetçi yakalaması ve çalışanın örtüsü uygulanır. Kayıp kişi/gece en çok 3 mevcut erzak; yakalanmayan fail raporda anonim, yakalanan açık hirsiz kanıtı ve adlandırılmış rapor üretir. Özel sayaçlar JSON/RNG replay ile korunur, bozuk/eski kayıt kaynak varsayılanına döner; yeni CHR025/028/030 hikâyeleri eski hirsiz bayraklarıyla ezilmez. Gizli bilgi yalnız DEBUG denetçisinde; oyuncu bilgisi açık kanıtla sınırlı. Gerçek kapı kabulü/gece üretim-ambar-tüketim/yakalama, tek erzak ve hastalık sınırları, native canlı Tree, ayna import/birim/UI ve tüm sanity (20 gece dahil) 0 hata. CSV değişmedi; stage/commit/push yok.
+
+Sıradaki: UZM-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-10 (7 Ekim 2026)
+
+KoyluKartiVerisi/KoyluKarti ve KoyluSecimi yeni dosyaları, mevcut KoyEkrani üzerinde ince adaptörlerle figür tıklaması, nüfus listesi ve yapı çalışanlarından gerçek köylü kartı açar. Mevcut zanaat/beceri, moral/sağlık/sadakat, güçlü/zayıf yön, köye geliş günü ve eğitim geçmişi gösterilir; gizli bayrak/özel hırsızlık sayaçları oyuncuya sızmaz. Uzmanlığa uygun bina önerileri ve meslek uyumuna göre sıralı gerçek yapı seçenekleri, danışman rolü, inşaat/yaş/dolu yuva engelleri; gerçek ata/muhafiz_ata/bosalt API, tıklama anında yeniden doğrulama ve kayıt/yüklemede kalıcılık. Bina adı fallback mevcut CHR sözlüğünü kullanır, CSV değişmez. Yerleşim kipleri korunur; sahne dışında kalan köylülere nüfus listesinden erişilir. Birim/native figür girdi+düğme/UI ve ayna testleri geçti. Tam sanity tek ad eşleme tür hatası buldu; düzeltildi, son import/kart birim/UI yeniden kontrolü 0 hata, tam pakette diğer tüm kontroller ve 20 gece geçti. Her iki indeks boş; stage/commit/push yok.
+
+Sıradaki: UZM-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-11 (7 Ekim 2026)
+
+KoyluGelisimYoneticisi yeni dosyası gerçek gece üretim kayıtlarını kullanır; sağlıklı/fiili/fiziksel/mesleğe uygun çalışma her gece 1 XP, her 5 gece Kalfa ve ardından Usta kademesi kazandırır. Denge varsayımı: kazanılmış Kalfa +%10/Usta +%20 kişisel üretim çarpanı; kaynak beceri statı ezilmez, kaynak ustalar tanınır ve mevcut eski kayıt üretimi ilk gün değişmez. Kazanılmış ustalık usta-çırak öğretmen API sine bağlanır; UZM04 beş ortak gece eğitimi korunur. Deneyim meslek bazında optional JSON kayıt, doğrulanan tam sayılar ve aynı-gece koruması; uyumsuz/boşta/hasta/eksik girdi/dolu ambar deneyim kazandırmaz. Gerçek 10 gece terfi, kesir artığıyla gerçek 3.52 üretim, JSON/RNG replay, tam ambar ve demir girdi yokluğu, eski kayıt ve bozuk veri, native canlı kart ve ayna kontrolleri geçti. Tam sanity (yeni gelişim UI ve 20 gece dahil) 0 hata. Belgeler/iki kopya eşitlendi; CSV değişmedi, stage/commit/push yok.
+
+Sıradaki: UZM-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-12 (7 Ekim 2026)
+
+ZanaatKazalari ve Sifahane yeni dosyaları mevcut alet kırma (%10)/iş kazası (%8) zarlarına ince adaptörle bağlandı; ek veya çift kaza zarı yok. Uyumsuz aceminin kırık aleti ve ocak yanığı sonraki bir fiili üretim gecesini durdurur; duruşta reçete girdisi/üretim/XP yok. Ocak yanığı mevcut -20 sağlık/yaralı etkisini kullanır ve ayrı tedavi ihtiyacı taşır. Şifahane yeni kurulabilir hizmet türü: iki iş yuvası, cerrah/otacı başına gecede bir yanık tedavisi, hasta başına 2 erzak; hazır bina/sağlıklı uygun çalışan/çatışmasız/isyan dışı koşulları ve gerçek stok harcaması. Tedavi +20 sağlık ve yalnız bu kazaya ait yaralı bayrağını temizler; kaynak yaralı bayrakları korunur. Optional doğrulanmış JSON kaza kaydı, gece raporu, canlı köylü kartı ve debug duruş bilgisi. Gerçek ocak yanığı/sonraki üretim-girdi duruşu/alet kırma, yetersiz erzak ve isyan tedavi engeli, gerçek Şifahane iyileşmesi, JSON RNG replay, native kart ve ayna kontrolleri; tam sanity (yeni kaza UI/20 gece dahil) 0 hata. Şifahane özel sanat yerine mevcut genel bina görünümü kullanır. CSV değişmedi; stage/commit/push yok.
+
+Sıradaki: UZM-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-13 (7 Ekim 2026)
+
+MeslekGrevi yeni dosyası kaynak CHR007 Şemsettin/kâtip veya açık/gizli soylu-okumuş niteliğinin mesleğe uygun olmayan ağır fiziksel işte yüksek moralde dahi grevini gerçek gece döngüsüne bağlar. Uygun uzmanlık/yaşlı danışman, nöbet ve fiziksel olmayan işler hariç; uygun göreve aktarım veya boşaltma grevi bitirir. Grev üretim/reçete girdisi/XP yi durdurur; denge varsayımı gecede grevci -5 moral/-2 sadakat/+3 asayiş, aynı işyerindeki sağlıklı diğer köylüye -2 moral (çok grevcide bir kez). Mevcut kişisel iş reddi API genişletilir; grev ikinci sabotaj zarı veya çift moral cezası üretmez, genel isyan sırasında ikinci grev cezası yok. Optional doğrulanmış JSON gece geçmişi ve aynı gece koruması; kartta grev açıklaması/atama önuyarısı, debugda gerçek duruş. Gerçek kapı kabulü/gece üretim-girdi-XP duruşu, aynı işyerinde sınırlı/dedup kışkırtma, JSON RNG replay, salt okunur gözlem, uygun görevle çözüm, native Şemsettin kartı ve ayna testleri; tam sanity (grev UI ve 20 gece dahil) 0 hata. CSV değişmedi; stage/commit/push yok.
+
+Sıradaki: UZM-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — UZM-14 (7 Ekim 2026)
+
+NobetYorgunlugu yeni dosyası son gerçek uyanık nöbet gecesini optional JSON alanıyla kaydeder. Ertesi gün mevcut kaza/uyuklama olasılığı ×1.40: uyumsuz yaralanma %8→%11.2, nöbet uyuklaması %10→%14; sıfır riskli uyumlu iş/nöbet davranışı korunur. Nöbetsiz dinlenme gecesinden sonra etki takvimle sona erer; uyuyakalan veya önceki uyuklama süresi o gece devam eden kişi yeni uykusuz vardiya sayılmaz. Sağlık/yaş/iş reddi/duruş koşulları ve gerçek nöbet adayları mevcut API lerden; ek RNG veya kalıcı üretim cezası yok. Kart/debug yorgunluğu ve güncel riski gösterir. Gerçek nöbet ve artırılmış aralıktaki zarla uyuklama/etkin muhafız kaybı, nöbet sonrası yanlış işte gerçek yaralanma, JSON RNG replay, dinlenme/eski-bozuk kayıt ve salt okunur gözlem; native canlı yorgunluk/dinlenme kartı ve ayna testleri geçti. Tam sanity (yorgunluk UI ve 20 gece dahil) 0 hata. CSV değişmedi; stage/commit/push yok.
+
+Sıradaki: UZM-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+- 7 Ekim 2026: Kullanım %5 kalınca Claude’a devretme ve limit yenilendiğinde Codex’in görevi geri alma kuralı AGENTS.md içinde kalıcı olarak doğrulandı; canlı kalan oran %10/%86, devir henüz yapılmadı.
+
+
+## Codex — UZM-15 (7 Ekim 2026)
+
+Kart sürüklerken izole model kopyasında gerçek üretim formülüyle yeşil/kırmızı brüt bina verimi, uyum ve danışman sinerjisi önizlenir; canlı RNG/stok/atama değişmez. Bırakma gerçek ata API ile koşulları yeniden denetler; boş hedef ve sonradan kullanılamaz olan bina görevi değiştirmez, kart geri açılır. Birim, gerçek native GUI ve GitHub yerel kopyası kontrolleri geçti; tam sanity ve 20 gece: 0 başarısız. Brüt tahmin net stok/olay sonucu olarak sunulmaz.
+
+Sıradaki: EKO-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+## Codex — EKO-02 devam ediyor (7 Ekim 2026)
+
+Limit yenilendi; Claude devri erişim nedeniyle gerçekleşmedi. Orman kampı 3 tomruk/kişi üretir; hızar 2 tomruğu 1 kalas (mevcut kereste alanı) veya 3 yakacak oduna işler. Eski tarif kimlikleri ve stoklar korunur; tomruksuz hızar durur. Gerçek gece üretim/girdi, JSON ve çocuk reddi testi geçti; native HUD/sürükleme regresyonu geçti. UI zincir kabulü ve tam sanity tamamlanmadan ROADMAP maddesi kapatılmaz. Stage/commit/push yok.
+
+
+## Codex — EKO-02 (7 Ekim 2026)
+
+Orman Kampı gerçek katalogdan kurulup çalışan başına 3 tomruk üretir; hızarın mevcut tarif kimlikleri 2 tomruğu 1 kalasa (kereste stok alanı) veya 3 yakacak oduna işler. Ham katalog verisi tarif erişim adaptörüyle korunur; tomruksuz üretim durur. Tomruk HUD/ikon, kamp inşaat kartı, ağır iş yaş/grev adaptörleri eklendi; CSV değişmedi. Gerçek gece, eksik girdi, çocuk reddi, eski/yeni JSON, native Vulkan UI/görsel ve ayna kontrolleri geçti; düzeltilmiş tam sanity/20 gece 0 başarısız. Miktarlar açık denge varsayımıdır; ağaç tükenmesi ve öküz lojistiği sonraki paketlerdir.
+
+Sıradaki: EKO-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — EKO-03 (7 Ekim 2026)
+
+Claude güncel brifingi alındı: açık kod işi yok. Yeni CekiLojistigi hayvan sahipliği, hazır ahır kapasitesi, kervan günü kamu kasasından alım ve tomruk sevkiyat kuyruğunu yönetir. Sefer yükü 3→9, süre 1→0.5 gece; üretim/inşaat çarpılmaz, yük ambar doluyken veya zaman yetmeyince korunur. Eski/yeni JSON, gerçek gece karşılaştırması, alım sınırları, native Vulkan pazar UI/görüntü ve ayna kontrolleri geçti; tam sanity/20 gece 0 hata. ANI-04 görsel rota ve TUC-02 özel celep ayrı paketlerdir; CSV değişmedi.
+
+Sıradaki: EKO-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — EKO-04 (7 Ekim 2026)
+
+TahilZinciri ve dış JSON denge verisiyle tarla/bostan buğday hasadı, değirmende un, Köy Fırınında un+odundan ekmek/erzak zinciri eklendi. Eski erzak/ogutme tarifleri ve gida stok kimliği korunur; unsuz fırın odun da tüketmez. Buğday/un ambar ve HUD ikonları, gerçek tarif seçim UI ve fırın girdi bilgisi eklendi. Gerçek gece, eksik girdi, eski/yeni JSON, native Vulkan UI/görüntü ve ayna kontrolleri geçti; tam sanity/20 gece 0 hata. Lojistik denge değerleri de JSON dosyasına taşındı, sayı türü düzeltildi; ilgili birim ve UI regresyonları tekrar geçti. CSV değiştirilmedi.
+
+Sıradaki: EKO-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — EKO-05 (7 Ekim 2026)
+
+HarcZinciri ve dış JSON denge verisiyle ham taş/yakacak→kireç→harç; harç gerektirmeyen Kireç Kuyusu ve harçlı altı yataklı Taş Ev eklendi. Mevcut ham taş, eski ahşap yapı maliyetleri ve kayıt kimlikleri korunur. Taş sur seviye 2/3 son taksiti gerçek taş/harç tüketir; eksik malzemede kasa, ödenmiş taksit ve seviye korunur. UI bütün taksitlerde bedeli açıklar, eksik son taksiti engeller; model tekrar denetler. Yeni stok/HUD/SVG, tarif seçimi, ağır iş/grev adaptörleri; özel sanat yerine mevcut genel yapı görünümü. Gerçek iki gece, girdisizlik, taş ev bedeli/yıkım iadesi, erken/son/azami taksit, eski-yeni JSON, native Vulkan gerçek UI/görsel ve ayna import/birim/UI geçti. Tam sanity work/sanity_eko05 ve 20 gece: 0 başarısız; ek üçüncü sur/iade birimi iki kopyada tekrar geçti. CSV değişmedi; stage/commit/push yok.
+
+Sıradaki: EKO-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — EKO-06 (7 Ekim 2026)
+
+DemirZinciri ve dış JSON denge verisiyle yeni Demir Madeni cevher çıkarır, Demir Ocağı cevher+yakacakla mevcut demir stoğuna işler; mevcut demirhane/atölye alet üretir. Alet gereken gerçek üretim stok sıfırken ×0.30; gerçek çalışan başına 0.1 kesirli aşınma birikir, tam olunca bir alet tüketir. Yeni üretilen alete geçmiş kullanım borcu yok; duruş/girdisizlik/dolu ambar/boşta iş aşındırmaz. Optional doğrulanmış JSON aşınma alanı, eski demir/alet kimlikleri korunur. Aynı verim formülü gerçek üretim, denetçi ve salt okunur atama önizlemesinde; yeni cevher/demir HUD ikonları, ocak girdi ve aletsiz uyarısı, ağır iş/grev adaptörleri. Gerçek gece zinciri, %70 düşüş/üretim kesri, aşınma/alet tükenmesi, eski-yeni-bozuk JSON ve gözlemde model/RNG korunumu; native Vulkan UI/görsel, ayna import/birim/UI geçti. İlk native koşuda eksik demir SVG bulundu, eklendi ve yeniden sıfır hatayla geçti. Tam sanity work/sanity_eko06 ve 20 gece 0 başarısız; genişletilmiş son birim iki kopyada tekrar geçti. Özel sanat yerine mevcut genel yapı görseli; EKO-13 ayrı paket. CSV değişmedi; stage/commit/push yok.
+
+Sıradaki: EKO-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## Codex — EKO-07 (7 Ekim 2026)
+
+MuhafizMaasi dış JSON verisiyle gerçek kurulabilir kışla; kışla çalışanları ve eski muhafız görevi aynı küresel yuva/maaş/savunma sözleşmesinde. Kişi başı mevcut 1 kamu akçesi ve eski maaş borcu birlikte ödenir. Ödenmezse mevcut moral kaybı, gerçek görev bırakma/etkin savunma kaybı ve +10 asayiş; %25 nöbet hattı usulsüz geçişi gizli 2 akçe ledgerı/+8 asayiş üretir, kamu veya oyuncu kişisel kasasına gelir yazmaz, rapor anonimdir. Borçlu yeniden atama savunmayı açmaz; kamu borcu+cari maaş ödenince toparlanır. Optional doğrulanmış JSON bordro, tekrar gece koruması; eski kayıtta borç uydurulmaz. Gerçek savunma kışla kartı/maaş açıklaması; atama önizlemesinde salt okunur etkin nöbet farkı/borç uyarısı. Gerçek gece/maaş, kişisel kasa ayrımı, rüşvet dalı, kayıt, çocuk/yuva sınırı, ödeme ile toparlanma; native Vulkan UI/görsel, ayna import/birim/UI geçti. Tam sanity work/sanity_eko07 ve 20 gece: 0 başarısız; son genişletilmiş bordro ve atama birimleri iki kopyada tekrar geçti. Kışla özel sanat yerine mevcut genel yapı görseli, rüşvet geçişi kapı kuyruğunu değiştirmez; gerçek etkisi asayiş/baskın hesabında. CSV değişmedi; stage/commit/push yok.
+
+Sıradaki: EKO-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; commit talimatına kadar stage/commit/push yapılmaz.
+
+
+## EKO-08 ilerleme — 7 Ekim 2026
+Codex sorumlu. VergiPolitikasi ve dış JSON oranları, gerçek haftalık kamu tahsilatı, Moral etkisi, muafiyet ve aynı gece tekrar koruması; pazar düğmeleri ve optional kayıt uzantısı eklendi. Eski orta oran korunur. Birim eski/yeni/bozuk JSON, gelir/Moral ve salt okunur gözlem kontrolü source/aynada geçti. Native RTX3060 pazar düğmesi ve ekran görüntüsü work/eko08_vergi.png doğrulandı. 378 intended dosya iki kopyada eşitlendi. Tam sanity work/sanity_eko08 canlı süreçte; son gözlem diyalog_deneyi_test PASS, kapanış yok. Kullanıcının Refah eşlemesi sorusuna yanıt bekleniyor: önceki ADM-04 kamu akçesi kararına karşı ağır verginin Refahı azaltması çelişiyor. Bu sözleşme değiştirilmedi. ROADMAP EKO-08 [/] kalır. Son canlı kullanım kısa dönem %27, haftalık %28 kullanılmış; resetler 1791398546 / 1791948615, devir eşiğine ulaşılmadı. Stage/commit/push yok; CSV korunuyor. Festive fetch başarılı, ff-only pull dal ayrışması nedeniyle uygulanamadı.
+
+
+## EKO-08 doğrulama kontrol noktası
+Tam sanity work/sanity_eko08, bütün birimler/gerçek UI senaryoları ve 20 gece: 0 başarısız. Son genişletilmiş gerçek gece/vergi raporu birimi iki kopyada ayrıca geçti; düşük/orta/ağır gerçek pazar düğmelerinin kendi oranını seçmesi ve ayna UI tekrar geçti. Native ekran work/eko08_vergi.png incelendi. Canlı test süreci kalmadı. 379 intended dosya iki kopyada eşit. EKO-08 [/] ve Refah kararı beklemede: mevcut Refah=kamu akçesi sözleşmesi korunuyor, ağır verginin istenen Refah kaybı henüz uygulanmadı. Sıradaki EKO-09 henüz başlatılmadı. CSV ve indeksler korunuyor; stage/commit/push yok.
+
+
+## EKO-09 ön inceleme — EKO-08 kapanmadan bağımsız kanıt
+EKO-08 hâlâ [/] ve kullanıcı Refah kararı bekleniyor. EKO-09 henüz kapanmadı veya ürün kodu değişmedi. Mevcut KoyYonetimi._tuket kişi başı gida_kisi (varsayılan 1) ile Erzak tüketir; soğuk odunu _hane_sayisi × kis_odun_hane × IklimDeneyi.odun_carpani üzerinden hesaplar. Bu, EKO-09 kişi başı +1 Odun tarifinden farklıdır; MEV-11 ise mevcut hane tarifini kullanır. Eksik yakacak bütün köylülere soguk_saglik kaybı, açlık son gelenlere ac bayrağı ve aclik_saglik kaybı verir; _saglik_ve_moral sağlık sıfırında gerçek nüfustan çıkarıp rapora ölüm yazar. Yeni tests/unit/kvr/tuketim_olum_test.gd gerçek gece açlık/donma ölümü, üç kişi üç Erzak ve kayıt restore sonrası aynı ölüm/tüketim/RNG sonucunu doğrular. Source birim geçti. Gelecek EKO-09 uygulaması bu doğrulanan ölüm/kayıt davranışını korumalı; kişi/hane odun sözleşmesi açıklığa kavuşturulmadan madde tamamlanmış sayılmaz. CSV, ürün çekirdeği ve indeksler değiştirilmedi; commit/push yok.
+
+
+## Kullanıcı yeni yetkisi — 7 Ekim 2026
+Kullanıcı tüm projeyi Codex’in otonom geliştirmesini, rutin kararlar için duraksamamasını ve şu ana kadarki bütün Codex işini GitHub’a pushlamasını açıkça istedi. Önceki commit bekleme şartı bu yayın için kaldırıldı. 380 dosyalık değişiklik kümesi eşitleme manifestiyle birebir uyuşuyor, dışarıda bağımsız değişiklik yok; source/ayna HEAD 29a3a6a. Son tam sanity EKO-08 0 hata/20 gece, son tüketim ölüm birimi iki kopyada geçti. EKO-08 hâlâ aktif; yayın tamamlanmış özellikler ile bu açık geliştirme kontrol noktasını birlikte içerir, Refah bitmiş sayılmaz. Açık karar Codex tarafından köylü ekonomik Refahını kamu hazinesinden ayrı ele alarak çözülecek; mevcut kamu/kişisel kasalar korunacak. Commit/push bu kontrol noktası için şimdi uygulanır, teslim kanıtı yayın sonrası doğrulanır.

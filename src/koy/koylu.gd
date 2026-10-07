@@ -14,6 +14,18 @@ var sinif: StringName = &"ciftci"
 var portre: String = ""
 ## Zanaat yeteneği 1–10 (formül F4).
 var stat: int = 5
+## UZM-01: birincil meslek; `stat` beceri, `sinif` eski grup olarak kalır.
+var zanaat_turu: int = ZanaatTuru.Tur.BELIRSIZ
+var pasif_ozellikler: Dictionary = PasifOzellikler.cift(&"", &"ciftci")
+var egitim: Dictionary = {}
+var gelisim: Dictionary = {}
+var grev: Dictionary = {}
+var yorgunluk: Dictionary = {}
+var is_kazasi: Dictionary = {}
+var zanaat_kazasi: Dictionary = {}
+var toplumsal_bag: Dictionary = {"grup": "", "dusman_gruplar": []}
+var yas_grubu: StringName = &"yetiskin"
+var gizli_egilim: Dictionary = {"tur": "yok", "calinan": 0, "son_gece": 0, "yakalanma": false}
 ## Açık bayraklar: `usta_ciftci`, `somurulmus`, `tembel` …
 var bayraklar: PackedStringArray = []
 var gizli_bayraklar: PackedStringArray = []
@@ -51,7 +63,7 @@ func bayrak_ac(b: String) -> void:
 
 ## Usta mı: açık bir `usta_*` bayrağı var ya da yeteneği 7 ve üstü.
 func usta_mi() -> bool:
-	if stat >= 7:
+	if stat >= 7 or KoyluGelisimYoneticisi.usta(self):
 		return true
 	for b in bayraklar:
 		if b.begins_with("usta_"):
@@ -60,9 +72,10 @@ func usta_mi() -> bool:
 
 
 func kaydet() -> Dictionary:
-	return {"id": id, "ad": ad, "adli_id": String(adli_id), "sinif": String(sinif), "portre": portre, "stat": stat,
+	return {"id": id, "ad": ad, "adli_id": String(adli_id), "sinif": String(sinif), "portre": portre, "stat": stat, "zanaat_turu": ZanaatTuru.anahtar(zanaat_turu),
 		"bayraklar": Array(bayraklar), "gizli": Array(gizli_bayraklar), "moral": moral, "saglik": saglik,
-		"sadakat": sadakat, "is_yeri": is_yeri, "kis_oncesi": kis_oncesi_is, "ev": ev, "ac": ac, "giris": giris_gunu}
+		"sadakat": sadakat, "is_yeri": is_yeri, "kis_oncesi": kis_oncesi_is, "ev": ev, "ac": ac, "giris": giris_gunu,
+		"pasif_ozellikler": pasif_ozellikler.duplicate(true), "egitim": egitim.duplicate(true), "gelisim": gelisim.duplicate(true), "grev": grev.duplicate(true), "yorgunluk": yorgunluk.duplicate(true), "is_kazasi": is_kazasi.duplicate(true), "zanaat_kazasi": zanaat_kazasi.duplicate(true), "toplumsal_bag": toplumsal_bag.duplicate(true), "yas_grubu": String(yas_grubu), "gizli_egilim": gizli_egilim.duplicate(true)}
 
 
 static func kayittan(v: Dictionary) -> Koylu:
@@ -73,8 +86,19 @@ static func kayittan(v: Dictionary) -> Koylu:
 	k.sinif = StringName(v.get("sinif", "ciftci"))
 	k.portre = String(v.get("portre", ""))
 	k.stat = int(v.get("stat", 5))
+	k.zanaat_turu = ZanaatTuru.oku(v.get("zanaat_turu"), ZanaatTuru.coz(k.adli_id, k.sinif))
+	k.pasif_ozellikler = PasifOzellikler.oku(v.get("pasif_ozellikler"), PasifOzellikler.cift(k.adli_id, k.sinif, k.id))
+	k.egitim = CirakEgitimi.oku(v.get("egitim"))
+	k.gelisim = KoyluGelisimYoneticisi.oku(v.get("gelisim"))
+	k.grev = MeslekGrevi.oku(v.get("grev"))
+	k.yorgunluk = NobetYorgunlugu.oku(v.get("yorgunluk"))
+	k.is_kazasi = IsKazalari.oku(v.get("is_kazasi"))
+	k.zanaat_kazasi = ZanaatKazalari.oku(v.get("zanaat_kazasi"))
+	k.toplumsal_bag = KanDavasi.oku(v.get("toplumsal_bag"), KanDavasi.kaynak(k.adli_id))
+	k.yas_grubu = YasRolleri.oku(v.get("yas_grubu"), k.adli_id)
 	k.bayraklar = PackedStringArray(v.get("bayraklar", []))
 	k.gizli_bayraklar = PackedStringArray(v.get("gizli", []))
+	k.gizli_egilim = GizliEgilimler.oku(v.get("gizli_egilim"), k)
 	k.moral = int(v.get("moral", 60))
 	k.saglik = int(v.get("saglik", 100))
 	k.sadakat = int(v.get("sadakat", 60))

@@ -1,0 +1,54 @@
+{
+  "firin": {
+    "kategori": "uretim",
+    "boyut": [
+      2,
+      2
+    ],
+    "maliyet": {
+      "odun": 8,
+      "tas": 6
+    },
+    "slot": 2,
+    "insa_gun": 2,
+    "kurulabilir": true,
+    "uzmanlik": "firinci",
+    "receteler": {
+      "ekmek": {
+        "girdi": {
+          "un": 2,
+          "odun": 1
+        },
+        "uretim": {
+          "gida": 4.0
+        }
+      }
+    }
+  },
+  "tarifler": {
+    "tarla": {
+      "bugday": {
+        "uretim": {
+          "bugday": 3.0
+        }
+      }
+    },
+    "bostan": {
+      "bugday": {
+        "uretim": {
+          "bugday": 3.0
+        }
+      }
+    },
+    "degirmen": {
+      "un": {
+        "girdi": {
+          "bugday": 2
+        },
+        "uretim": {
+          "un": 2.0
+        }
+      }
+    }
+  }
+}

@@ -25,6 +25,7 @@ var _yon := 0
 var _imlec := Vector2i(-1, -1)
 var _secili_bina := -1
 var _vp: SubViewport
+var _atama_alani: KoyAtamaAlani
 var _kap: SubViewportContainer
 var _alt: PanelContainer
 var _kategori_satiri: HBoxContainer
@@ -72,6 +73,9 @@ func _ready() -> void:
 	hud.bagla(oturum)
 	_alt_panel_kur()
 	_bilgi_kur()
+	_atama_alani = KoyAtamaAlani.new()
+	_atama_alani.ekran = self
+	add_child(_atama_alani)
 	_bant = PanelContainer.new()
 	_bant.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
 	_bant.position.y = 110
@@ -180,11 +184,20 @@ func _yapi_satirini_ciz() -> void:
 
 ## Savunma: sur taksiti (5.5) ve muhafızlar (12.3).
 func _savunma_satiri() -> void:
+	for tur in _y.katalog.kategoridekiler("savunma"):
+		var kart := YapiKarti.new()
+		_yapi_satiri.add_child(kart)
+		kart.kur(tur, _y, ayarlar)
+		kart.pressed.connect(func() -> void: _kip_sec("insa", tur))
 	var t := _y.sur_taksiti()
 	var b := _dugme(tr("koy.sur.taksit") % [_y.sur_seviye + 1, _y.sur_taksit_odenen, _y.a.sur_taksit, t] if t > 0 else tr("koy.sur.azami"), _yapi_satiri)
 	b.custom_minimum_size = Vector2(340, 82)
-	b.disabled = t < 0 or not _y.kilitli_harcanabilir(t)
+	b.disabled = t < 0 or not _y.kilitli_harcanabilir(t) or not _y.kaynaklar.yeterli(HarcZinciri.sur_malzeme(_y))
 	b.tooltip_text = tr("koy.sur.rezerv") % _y.a.rezerv
+	var malzeme_metni := HarcZinciri.sur_aciklama(_y)
+	if not malzeme_metni.is_empty():
+		b.text += "\n" + malzeme_metni
+		b.tooltip_text += "\n" + malzeme_metni
 	b.pressed.connect(func() -> void:
 		if _y.sur_taksit_ode():
 			Ses.cal(&"sfx_insaat")
@@ -192,6 +205,7 @@ func _savunma_satiri() -> void:
 	)
 	var m := Label.new()
 	m.text = tr("koy.muhafiz.durum") % [_y.muhafiz_sayisi(), _y.a.muhafiz_azami, _y.a.muhafiz_maas * 7]
+	m.tooltip_text = MuhafizMaasi.metin(_y)
 	m.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.KUCUK_PX))
 	_yapi_satiri.add_child(m)
 
@@ -222,6 +236,11 @@ func _dunya_girdisi(olay: InputEvent) -> void:
 			MOUSE_BUTTON_RIGHT:
 				_kip_sec("")
 			MOUSE_BUTTON_LEFT:
+				if kip.is_empty():
+					var kisi := KoyluSecimi.sec(sahne3b, _vp_konum(olay.position))
+					if kisi >= 0:
+						KoyluKarti.ac(self, kisi)
+						return
 				_imlec = sahne3b.isaret(_vp_konum(olay.position))
 				_tikla()
 
@@ -356,12 +375,15 @@ func _bilgi_goster() -> void:
 	_bilgi.visible = b != null
 	if b == null:
 		return
-	_etiket(_bilgi_icerik, tr("koy.yapi." + b.tur), Tema.BASLIK_PX)
+	_etiket(_bilgi_icerik, MeslekYapilari.ad(b.tur), Tema.BASLIK_PX)
+	_etiket(_bilgi_icerik, "Seviye %d · Üretim ×%.2f" % [b.seviye, b.uretim_carpani()], Tema.KUCUK_PX)
 	if not b.hazir():
 		_etiket(_bilgi_icerik, tr("koy.bilgi.iskele") % b.insa_kalan, Tema.KUCUK_PX)
-	elif b.bekliyor != "":
-		_etiket(_bilgi_icerik, tr("koy.bekliyor." + b.bekliyor), Tema.KUCUK_PX).add_theme_color_override("font_color", Hud.UYARI)
-	var yatak := _y.katalog.yatak(b.tur)
+	elif KanDavasi.engel(_y, b.id):
+		_etiket(_bilgi_icerik, KanDavasi.DURUS_METNI, Tema.KUCUK_PX).add_theme_color_override("font_color", Hud.UYARI)
+	elif b.bekliyor != "" and b.bekliyor != "kan_davasi":
+		_etiket(_bilgi_icerik, "Taşıma seferi bekleniyor" if b.bekliyor == "tasima" else tr("koy.bekliyor." + b.bekliyor), Tema.KUCUK_PX).add_theme_color_override("font_color", Hud.UYARI)
+	var yatak := b.yatak(_y.katalog)
 	if yatak > 0:
 		var oturan := 0
 		for k in _y.koylular:
@@ -369,11 +391,15 @@ func _bilgi_goster() -> void:
 				oturan += 1
 		_etiket(_bilgi_icerik, tr("koy.bilgi.yatak") % [oturan, yatak], Tema.KUCUK_PX)
 	var r := _y.katalog.receteler(b.tur)
+	if b.tur == "muhafiz_kislasi": _etiket(_bilgi_icerik, MuhafizMaasi.metin(_y), Tema.KUCUK_PX)
+	if b.tur == "demir_ocagi": _etiket(_bilgi_icerik, DemirZinciri.ad("koy.recete.demir"), Tema.KUCUK_PX)
+	if DemirZinciri.carpan(_y, b.tur) < 1.0: _etiket(_bilgi_icerik, "Alet yok · üretim −%70", Tema.KUCUK_PX)
+	if b.tur == "firin": _etiket(_bilgi_icerik, DemirZinciri.ad("koy.recete.ekmek"), Tema.KUCUK_PX)
 	if r.size() > 1:
 		var satir := HBoxContainer.new()
 		_bilgi_icerik.add_child(satir)
 		for ad in r:
-			var d := _dugme(tr("koy.recete." + String(ad)), satir)
+			var d := _dugme(DemirZinciri.ad("koy.recete." + String(ad)), satir)
 			d.toggle_mode = true
 			d.set_pressed_no_signal(b.recete == ad)
 			d.pressed.connect(func() -> void:
@@ -416,6 +442,8 @@ func _koylu_satiri(k: Koylu, b: KoyBinasi) -> void:
 		_etiket(v, ", ".join(bayrak), Tema.KUCUK_PX).add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
 	var satir := HBoxContainer.new()
 	v.add_child(satir)
+	var kart := _dugme("Köylü kartı", satir)
+	kart.pressed.connect(func() -> void: KoyluKarti.ac(self, k.id))
 	var cikar := _dugme(tr("koy.bilgi.cikar"), satir)
 	cikar.pressed.connect(func() -> void:
 		_y.bosalt(k.id)
@@ -468,6 +496,8 @@ func _nufus_ac() -> void:
 		var bayrak: PackedStringArray = []
 		for f in k.bayraklar:
 			bayrak.append(tr("koy.bayrak." + f))
+		var kisi_karti := _dugme(k.ad + " · Köylü kartı", ic)
+		kisi_karti.pressed.connect(func() -> void: KoyluKarti.ac(self, k.id))
 		_etiket(ic, "%-22s %-18s %s %3d   %s %3d   %s %d   %s" % [k.ad, _is_adi(k), tr("koy.bilgi.moral"), k.moral,
 			tr("koy.bilgi.saglik"), k.saglik, tr("koy.bilgi.stat"), k.stat, ", ".join(bayrak)], Tema.KUCUK_PX)
 	var kapat := _dugme(tr("arayuz.olay.devam"), v)
@@ -479,7 +509,7 @@ func _is_adi(k: Koylu) -> String:
 	if k.is_yeri == KoyYonetimi.MUHAFIZ:
 		return tr("koy.is.muhafiz")
 	var b := _y.bina(k.is_yeri)
-	return tr("koy.yapi." + b.tur) if b != null else tr("koy.is.bosta")
+	return MeslekYapilari.ad(b.tur) if b != null else tr("koy.is.bosta")
 
 
 # ── Pazar: tezgâh ve kervan (5.1, 5.2) ────────────────────────────────────────────────────────────
@@ -526,6 +556,8 @@ func _pazar_ac() -> void:
 			)
 	else:
 		_etiket(v, tr("koy.pazar.kervan_yok") % (_y.a.kervan_araligi - 1 - _y.gun % _y.a.kervan_araligi), Tema.KUCUK_PX)
+	CekiHayvaniPaneli.ekle(self, v)
+	VergiPaneli.ekle(self, v)
 	var kapat := _dugme(tr("arayuz.olay.devam"), v)
 	kapat.pressed.connect(_kart_kapat)
 	kapat.grab_focus.call_deferred()

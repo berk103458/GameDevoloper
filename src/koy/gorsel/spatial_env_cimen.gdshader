@@ -3,6 +3,7 @@
 // değişir, örnekler yeniden dizilmez.
 // Hedef: Forward+. Bütçe: tutam başı 5 üçgen, köşe başı 1 maske örneği, parça başı doku yok; ~6000 tutam. Kök (UV.y = 0) yerde sabit, uç (UV.y = 1) rüzgârla salınır.
 shader_type spatial;
+uniform float kar_ortusu : hint_range(0.0, 1.0) = 0.0;
 render_mode cull_disabled, diffuse_burley;
 
 group_uniforms maske;
@@ -36,6 +37,7 @@ void fragment() {
 	vec3 yesil = mix(dip_renk, uc_renk, uc);
 	vec3 kuru = mix(dip_renk * 1.2, kuru_renk, uc);
 	ALBEDO = mix(yesil, kuru, clamp(kuruluk + (renk_k - 0.5) * 0.5, 0.0, 1.0));
+	ALBEDO = mix(ALBEDO, vec3(0.88, 0.93, 0.98), kar_ortusu);
 	ROUGHNESS = 0.9;
 	SPECULAR = 0.25;
 	BACKLIGHT = vec3(0.25, 0.3, 0.15);

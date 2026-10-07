@@ -1,0 +1,68 @@
+{
+  "yapilar": {
+    "demir_madeni": {
+      "kategori": "uretim",
+      "boyut": [
+        2,
+        2
+      ],
+      "maliyet": {
+        "odun": 8,
+        "tas": 4,
+        "alet": 1
+      },
+      "slot": 2,
+      "insa_gun": 2,
+      "kurulabilir": true,
+      "uzmanlik": "madenci",
+      "receteler": {
+        "cevher": {
+          "uretim": {
+            "cevher": 3.0
+          }
+        }
+      }
+    },
+    "demir_ocagi": {
+      "kategori": "uretim",
+      "boyut": [
+        2,
+        2
+      ],
+      "maliyet": {
+        "odun": 8,
+        "tas": 6,
+        "harc": 2
+      },
+      "slot": 2,
+      "insa_gun": 2,
+      "kurulabilir": true,
+      "uzmanlik": "demirci",
+      "receteler": {
+        "demir": {
+          "girdi": {
+            "cevher": 2,
+            "odun": 1
+          },
+          "uretim": {
+            "demir": 2.0
+          }
+        }
+      }
+    }
+  },
+  "alet_gereken": [
+    "tarla",
+    "bostan",
+    "odunluk",
+    "hizarhane",
+    "tas_ocagi",
+    "kirec_kuyusu",
+    "demir_madeni",
+    "demir_ocagi",
+    "demirhane",
+    "atolye"
+  ],
+  "aletsiz_carpan": 0.3,
+  "asinma_calisma": 0.1
+}

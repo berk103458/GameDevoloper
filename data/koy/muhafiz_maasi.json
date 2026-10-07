@@ -1,0 +1,23 @@
+{
+  "kisla": {
+    "kategori": "savunma",
+    "boyut": [
+      2,
+      2
+    ],
+    "maliyet": {
+      "odun": 10,
+      "tas": 6,
+      "kereste": 4
+    },
+    "slot": 2,
+    "insa_gun": 2,
+    "kurulabilir": true,
+    "uzmanlik": "asker"
+  },
+  "moral_kaybi": 10,
+  "asayis_kaybi": 10,
+  "rusvet_riski": 0.25,
+  "rusvet_akce": 2,
+  "rusvet_asayis": 8
+}

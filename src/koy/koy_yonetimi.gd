@@ -21,6 +21,7 @@ var koylular: Array[Koylu] = []
 var binalar: Array[KoyBinasi] = []
 var izgara: Izgara
 var husumet := Husumet.new()
+var lojistik := CekiLojistigi.new()
 var akce: int = 0
 ## Oyunun günü (0'dan).
 var gun: int = 0
@@ -34,9 +35,20 @@ var kabul_sayisi: int = 0
 var ret_sayisi: int = 0
 var agalik: bool = false
 var sur_seviye: int = 0
+## Hasar yalnız sura aittir: 0 sağlam, 50 hasarlı, 100 yanmış/işlevsiz.
+var sur_hasar: int = 0:
+	set(v):
+		sur_hasar = clampi(v, 0, 100)
 var sur_taksit_odenen: int = 0
+## Kesirli alet aşınması; yalnız gerçek üretimden, optional JSON alanı.
+var alet_asinma: float = 0.0
+## Optional kişi bazlı kamu maaşı borcu ve gizli rüşvet ledgerı.
+var maas_durumu: Dictionary = {}
 ## Bu hafta vergi alınmayacak (isyan çıkışı).
 var vergi_muaf: bool = false
+## Eski kayıtlar orta vergiyle başlar; tahsilat tarihi tekrar ödemeyi önler.
+var vergi_orani: String = "orta"
+var son_vergi_gece: int = -1
 ## Tekfur: haraç bekliyor mu, kaç baskı savuşturuldu, baskı gücü.
 var harac_bekliyor: bool = false
 var tekfur_baski: int = 0
@@ -69,11 +81,11 @@ func nufus() -> int:
 
 
 func mevsim() -> int:
-	return Takvim.mevsim(gun, a.mevsim_gun)
+	return IklimDeneyi.mevsim(self, Takvim.mevsim(gun, a.mevsim_gun))
 
 
 func kis_mi() -> bool:
-	return Takvim.kis_mi(gun, a.mevsim_gun)
+	return mevsim() == 3 or IklimDeneyi.hava(self) == "kar_firtinasi"
 
 
 func koylu(id: int) -> Koylu:
@@ -102,8 +114,15 @@ func calisanlar(bina_id: int) -> Array[Koylu]:
 func muhafiz_sayisi() -> int:
 	var n := 0
 	for k in koylular:
-		if k.is_yeri == MUHAFIZ:
+		if MuhafizMaasi.aday(k, self):
 			n += 1
+	return n
+
+
+func etkin_muhafiz_sayisi() -> int:
+	var n := 0
+	for k in koylular:
+		if MuhafizMaasi.aday(k, self) and not MuhafizMaasi.borclu(k, self) and k.yas_grubu == &"yetiskin" and not IsKazalari.uyuyor(k) and not IsMemnuniyeti.isyanci(k, self): n += 1
 	return n
 
 
@@ -119,7 +138,7 @@ func yatak_kapasitesi() -> int:
 	var n := 0
 	for b in binalar:
 		if b.hazir():
-			n += katalog.yatak(b.tur)
+			n += b.yatak(katalog)
 	return n
 
 
@@ -159,10 +178,15 @@ func kabul(v: Dictionary, harc: bool = false, rusvet: int = 0, zengin: bool = fa
 	k.ad = String(v.get("ad", ""))
 	k.adli_id = StringName(v.get("adli_id", ""))
 	k.sinif = StringName(v.get("sinif", "ciftci"))
+	k.zanaat_turu = ZanaatTuru.oku(v.get("zanaat_turu"), ZanaatTuru.coz(k.adli_id, k.sinif))
+	k.pasif_ozellikler = PasifOzellikler.oku(v.get("pasif_ozellikler"), PasifOzellikler.cift(k.adli_id, k.sinif, k.id))
+	k.toplumsal_bag = KanDavasi.oku(v.get("toplumsal_bag"), KanDavasi.kaynak(k.adli_id))
+	k.yas_grubu = YasRolleri.oku(v.get("yas_grubu"), k.adli_id)
 	k.portre = String(v.get("portre", ""))
 	k.stat = clampi(int(v.get("stat", 5)), 1, 10)
 	k.bayraklar = PackedStringArray(v.get("bayraklar", []))
 	k.gizli_bayraklar = PackedStringArray(v.get("gizli", []))
+	k.gizli_egilim = GizliEgilimler.oku(v.get("gizli_egilim"), k)
 	k.moral = a.baslangic_moral
 	k.sadakat = a.baslangic_sadakat
 	k.giris_gunu = gun
@@ -282,6 +306,8 @@ func ata(koylu_id: int, bina_id: int) -> bool:
 	var b := bina(bina_id)
 	if k == null or b == null or not b.hazir() or katalog.slot(b.tur) == 0:
 		return false
+	if not YasRolleri.atanabilir(k, b.tur): return false
+	if b.tur == "muhafiz_kislasi" and (k.yas_grubu != &"yetiskin" or (not MuhafizMaasi.aday(k, self) and muhafiz_sayisi() >= a.muhafiz_azami)): return false
 	if calisanlar(bina_id).size() >= katalog.slot(b.tur) and k.is_yeri != bina_id:
 		return false
 	k.is_yeri = bina_id
@@ -291,7 +317,8 @@ func ata(koylu_id: int, bina_id: int) -> bool:
 ## Köylüyü muhafız yapar (en çok `muhafiz_azami`).
 func muhafiz_ata(koylu_id: int) -> bool:
 	var k := koylu(koylu_id)
-	if k == null or (k.is_yeri != MUHAFIZ and muhafiz_sayisi() >= a.muhafiz_azami):
+	if k != null and k.yas_grubu != &"yetiskin": return false
+	if k == null or (not MuhafizMaasi.aday(k, self) and muhafiz_sayisi() >= a.muhafiz_azami):
 		return false
 	k.is_yeri = MUHAFIZ
 	return true
@@ -379,6 +406,8 @@ func sur_taksit_ode() -> bool:
 	var t := sur_taksiti()
 	if t < 0 or not kilitli_harcanabilir(t):
 		return false
+	if not kaynaklar.harca(HarcZinciri.sur_malzeme(self)):
+		return false
 	akce -= t
 	sur_taksit_odenen += 1
 	if sur_taksit_odenen >= a.sur_taksit:
@@ -438,9 +467,9 @@ func harac_reddet() -> void:
 func savunma_gucu() -> int:
 	var asker := 0
 	for k in koylular:
-		if k.sinif == &"asker":
+		if k.sinif == &"asker" and k.yas_grubu == &"yetiskin" and not IsKazalari.uyuyor(k) and not IsMemnuniyeti.isyanci(k, self):
 			asker += 1
-	return sur_seviye * 2 + muhafiz_sayisi() + asker / 2
+	return BinaSeviyesi.sur_gucu(sur_seviye, sur_hasar) + etkin_muhafiz_sayisi() + asker / 2
 
 
 func tekfur_gucu() -> int:
@@ -459,17 +488,30 @@ func gece() -> Dictionary:
 		_kis_kaydirmasi()
 	else:
 		_bahar_donusu()
+	var calismalar := {}
+	KanDavasi.gece(self, olaylar)
+	MeslekGrevi.gece(self, olaylar)
 	if isyan_kalan < 0:
-		_uret(rapor["uretim"], olaylar)
+		_uret(rapor["uretim"], olaylar, calismalar)
 	else:
 		olaylar.append({"anahtar": "koy.olay.isyan_uretim_yok"})
+	GeceDeneyi.uretimin_ardindan(self)
+	KoyluGelisimYoneticisi.gece(self, calismalar, olaylar)
+	CirakEgitimi.gece(self, calismalar, olaylar)
+	var uyanik_nobet := NobetYorgunlugu.nobetciler(self)
+	IsKazalari.gece(self, calismalar, olaylar)
+	ZanaatKazalari.gece(self, olaylar)
+	NobetYorgunlugu.gece(self, uyanik_nobet)
 	_insaat()
 	_barindir()
+	GizliEgilimler.gece(self, calismalar, olaylar)
 	_tuket(rapor["tuketim"], olaylar)
+	KrizEnjektoru.gece(self, olaylar)
 	_saglik_ve_moral(rapor["olenler"], olaylar)
+	IsMemnuniyeti.gece(self, calismalar, olaylar)
 	_akce(olaylar)
 	_husumet(olaylar)
-	asayis_riski = maxi(0, asayis_riski - a.asayis_sonum - muhafiz_sayisi() * a.muhafiz_asayis)
+	asayis_riski = maxi(0, asayis_riski - a.asayis_sonum - etkin_muhafiz_sayisi() * a.muhafiz_asayis)
 	_isyan(olaylar)
 	_asamalar(olaylar)
 	_son_denetimi()
@@ -501,7 +543,7 @@ func _kis_kaydirmasi() -> void:
 		k.kis_oncesi_is = k.is_yeri
 		k.is_yeri = BOSTA
 		for h in binalar:
-			if h.hazir() and katalog.slot(h.tur) > calisanlar(h.id).size() and not bool(katalog.veri(h.tur).get("kis_durur", false)):
+			if h.hazir() and katalog.slot(h.tur) > calisanlar(h.id).size() and YasRolleri.atanabilir(k, h.tur) and not bool(katalog.veri(h.tur).get("kis_durur", false)):
 				k.is_yeri = h.id
 				break
 
@@ -514,15 +556,20 @@ func _bahar_donusu() -> void:
 		var eski := k.kis_oncesi_is
 		k.kis_oncesi_is = -1
 		var b := bina(eski)
-		if b != null and calisanlar(eski).size() < katalog.slot(b.tur):
+		if b != null and YasRolleri.atanabilir(k, b.tur) and calisanlar(eski).size() < katalog.slot(b.tur):
 			k.is_yeri = eski
 
 
-func _uret(uretim: Dictionary, olaylar: Array[Dictionary]) -> void:
+func _uret(uretim: Dictionary, olaylar: Array[Dictionary], calismalar: Dictionary = {}) -> void:
+	lojistik.gece_basla(self, uretim)
 	for b in binalar:
 		b.bekliyor = ""
-		if not b.hazir() or b.recete == "":
+		if not b.hazir():
 			continue
+		if KanDavasi.engel(self, b.id):
+			b.bekliyor = "kan_davasi"
+			continue
+		if b.recete == "": continue
 		if kis_mi() and bool(katalog.veri(b.tur).get("kis_durur", false)):
 			b.bekliyor = "kis"
 			continue
@@ -531,16 +578,31 @@ func _uret(uretim: Dictionary, olaylar: Array[Dictionary]) -> void:
 		var cikti: Dictionary = r.get("uretim", {})
 		var uzmanlik := String(katalog.veri(b.tur).get("uzmanlik", ""))
 		for k in calisanlar(b.id):
+			if not YasRolleri.fiziksel(k, b.tur): continue
+			if ZanaatKazalari.durur(k):
+				olaylar.append({"anahtar": "Köylü %s zanaat kazası nedeniyle bu gece üretemedi.", "deger": [k.ad]})
+				continue
+			if MeslekGrevi.aktif(k, self): continue
+			if IsMemnuniyeti.isyanci(k, self):
+				olaylar.append({"anahtar": "Köylü %d uyumsuz işini kişisel isyan eşiğinde reddetti.", "deger": [k.id]})
+				continue
+			var ambar_yeri_var := kaynaklar.toplam() < kaynaklar.kapasite
+			var alet_kullanildi := kaynaklar.miktar("alet") > 0
 			if not girdi.is_empty() and not kaynaklar.harca(girdi):
 				b.bekliyor = "girdi"
 				break
-			var c := Uretim.bilesik_carpan(k.bayraklar + k.gizli_bayraklar, uzmanlik, a.flag_carpanlari, a.carpan_alt, a.carpan_ust)
-			if k.ac:
-				c *= a.aclik_verim
+			var c := Uretim.koylu_carpani(k, uzmanlik, a, b.tur) * YasRolleri.carpan(self, b) * DemirZinciri.carpan(self, b.tur)
 			var bonus := a.kritik_bonus if k.moral > a.kritik_moral else 0.0
 			for t in cikti:
-				var miktar := Uretim.gunluk(float(cikti[t]), k.stat, c)
+				var miktar := Uretim.gunluk(float(cikti[t]), k.stat, c) * b.uretim_carpani()
 				_ambara(b, t, miktar, miktar * bonus, uretim, olaylar)
+			if not cikti.is_empty() and ambar_yeri_var: MeslekUyumu.alet_denetimi(self, k, b, olaylar)
+			if not cikti.is_empty() and ambar_yeri_var:
+				calismalar[k.id] = b.id
+				if alet_kullanildi: DemirZinciri.calisildi(self, b.tur)
+		# Usta danışman yalnız yanında gerçekten üretim yapıldıysa eğitim gecesi kazanır.
+		if b.id in calismalar.values():
+			for danisman in YasRolleri.danismanlar(self, b): calismalar[danisman.id] = b.id
 
 
 ## Üretimi ambara yazar; ambar doluysa üretim durur, kritik bonus ise tezgâh fiyatından akçeye döner (11.5).
@@ -549,15 +611,15 @@ func _ambara(b: KoyBinasi, tur: String, miktar: float, bonus: float, uretim: Dic
 	var toplam := float(_artik.get(anahtar, 0.0)) + miktar
 	var tam := int(toplam)
 	_artik[anahtar] = toplam - tam
-	var giren := kaynaklar.ekle(tur, tam)
+	var giren := lojistik.teslim(self, b.id, tam) if tur == "tomruk" else kaynaklar.ekle(tur, tam)
 	uretim[tur] = int(uretim.get(tur, 0)) + giren
 	if giren < tam:
-		b.bekliyor = "ambar_dolu"
+		b.bekliyor = "tasima" if tur == "tomruk" and kaynaklar.toplam() < kaynaklar.kapasite else "ambar_dolu"
 	if bonus > 0.0:
 		var bonus_tam := int(round(bonus))
-		var bonus_giren := kaynaklar.ekle(tur, bonus_tam)
+		var bonus_giren := lojistik.teslim(self, b.id, bonus_tam) if tur == "tomruk" else kaynaklar.ekle(tur, bonus_tam)
 		uretim[tur] = int(uretim.get(tur, 0)) + bonus_giren
-		var tasan := bonus_tam - bonus_giren
+		var tasan := 0 if tur == "tomruk" else bonus_tam - bonus_giren
 		if tasan > 0:
 			var para := int(tasan * float(a.kervan_fiyat.get(tur, 0.0)) * a.tezgah_orani)
 			if para > 0:
@@ -566,7 +628,7 @@ func _ambara(b: KoyBinasi, tur: String, miktar: float, bonus: float, uretim: Dic
 
 
 func _insaat() -> void:
-	var yardim := bostakiler().size() / maxi(1, a.insa_yardim_bolen)
+	var yardim := bostakiler().filter(func(k: Koylu) -> bool: return k.yas_grubu == &"yetiskin").size() / maxi(1, a.insa_yardim_bolen)
 	for b in binalar:
 		if b.insa_kalan > 0:
 			b.insa_kalan = maxi(0, b.insa_kalan - 1 - yardim)
@@ -577,7 +639,7 @@ func _ambar_kapasitesi() -> void:
 	var k := a.ambar_taban_kapasite
 	for b in binalar:
 		if b.hazir():
-			k += int(katalog.veri(b.tur).get("kapasite", 0))
+			k += b.depo_kapasitesi(katalog)
 	kaynaklar.kapasite = k
 
 
@@ -593,7 +655,7 @@ func _barindir() -> void:
 		if k.ev >= 0:
 			continue
 		for b in binalar:
-			if b.hazir() and katalog.yatak(b.tur) > int(dolu.get(b.id, 0)):
+			if b.hazir() and b.yatak(katalog) > int(dolu.get(b.id, 0)):
 				k.ev = b.id
 				dolu[b.id] = int(dolu.get(b.id, 0)) + 1
 				break
@@ -611,18 +673,19 @@ func _hane_sayisi() -> int:
 
 
 func _tuket(tuketim: Dictionary, olaylar: Array[Dictionary]) -> void:
-	var gerek := nufus() * a.gida_kisi
+	var kisi_gida := a.gida_kisi * IklimDeneyi.gida_carpani(self)
+	var gerek := ceili(nufus() * kisi_gida)
 	var yenen := kaynaklar.azalt("gida", gerek)
 	tuketim["gida"] = yenen
 	var ac_sayisi := 0
 	if yenen < gerek:
-		ac_sayisi = int(ceil(float(gerek - yenen) / a.gida_kisi))
+		ac_sayisi = ceili(float(gerek - yenen) / kisi_gida)
 		olaylar.append({"anahtar": "koy.olay.aclik", "deger": [ac_sayisi]})
 	# Açlık önce en son gelenlere düşer (en eski köylüler payını önce alır).
 	for i in koylular.size():
 		koylular[i].ac = i >= koylular.size() - ac_sayisi
 	if kis_mi():
-		var odun := _hane_sayisi() * a.kis_odun_hane
+		var odun := ceili(_hane_sayisi() * a.kis_odun_hane * IklimDeneyi.odun_carpani(self))
 		var yakilan := kaynaklar.azalt("odun", odun)
 		tuketim["odun"] = yakilan
 		if yakilan < odun:
@@ -658,27 +721,12 @@ func _saglik_ve_moral(olenler: Array, olaylar: Array[Dictionary]) -> void:
 
 
 func _akce(olaylar: Array[Dictionary]) -> void:
-	var maas := muhafiz_sayisi() * a.muhafiz_maas
-	if maas > 0:
-		if akce >= maas:
-			akce -= maas
-		else:
-			# Ödenmeyen muhafız görevi bırakır.
-			for k in koylular:
-				if k.is_yeri == MUHAFIZ:
-					k.is_yeri = BOSTA
-					k.moral = maxi(0, k.moral - 10)
-			olaylar.append({"anahtar": "koy.olay.maas_yok"})
-	if Takvim.hafta_basi(gun + 1, a.mevsim_gun) and not vergi_muaf:
-		var vergi := 0
-		for k in koylular:
-			vergi += a.vergi_usta if k.usta_mi() else a.vergi_isci
-		akce += vergi
-		olaylar.append({"anahtar": "koy.olay.vergi", "deger": [vergi]})
+	MuhafizMaasi.ode(self, olaylar)
+	VergiPolitikasi.tahsil(self, olaylar)
 
 
 func _husumet(olaylar: Array[Dictionary]) -> void:
-	match husumet.gece(a, muhafiz_sayisi(), _rng):
+	match husumet.gece(a, etkin_muhafiz_sayisi(), _rng):
 		"sizma":
 			var g := kaynaklar.azalt("gida", maxi(3, kaynaklar.miktar("gida") / 6))
 			var al := kaynaklar.azalt("alet", 1)
@@ -770,15 +818,21 @@ func kaydet() -> Dictionary:
 	for x in binalar:
 		b.append(x.kaydet())
 	return {"surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
-		"husumet": husumet.kaydet(), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
+		"vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "husumet": husumet.kaydet(), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
-		"sur": sur_seviye, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
+		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
-		"tezgah": _tezgah_bugun, "rng": _rng.state}
+		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self)}
 
 
 static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary) -> KoyYonetimi:
 	var y := KoyYonetimi.new(ayarlar, katalog_)
+	IklimDeneyi.yukle(y, v.get("iklim_deneyi", {}))
+	KrizEnjektoru.yukle(y, v.get("debug_kuyu_zehri", 0))
+	VergiPolitikasi.yukle(y, v.get("vergi_politikasi", {}))
+	y.maas_durumu = MuhafizMaasi.oku(v.get("maas_durumu", {}))
+	y.alet_asinma = DemirZinciri.asinma_oku(v.get("alet_asinma", 0.0))
+	y.lojistik = CekiLojistigi.kayittan(v.get("lojistik", {}))
 	y.kaynaklar = Kaynaklar.kayittan(v.get("kaynaklar", {}))
 	for x in v.get("koylular", []):
 		y.koylular.append(Koylu.kayittan(x))
@@ -798,6 +852,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	y.ret_sayisi = int(v.get("ret", 0))
 	y.agalik = bool(v.get("agalik", false))
 	y.sur_seviye = int(v.get("sur", 0))
+	y.sur_hasar = int(v.get("sur_hasar", 0))
 	y.sur_taksit_odenen = int(v.get("sur_taksit", 0))
 	y.vergi_muaf = bool(v.get("vergi_muaf", false))
 	y.harac_bekliyor = bool(v.get("harac", false))
@@ -808,6 +863,6 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	y._artik = v.get("artik", {})
 	y._tezgah_bugun = int(v.get("tezgah", 0))
 	if v.has("rng"):
-		y._rng.state = int(v["rng"])
+		y._rng.state = String(v["rng"]).to_int() if v["rng"] is String else int(v["rng"])
 	y._ambar_kapasitesi()
 	return y

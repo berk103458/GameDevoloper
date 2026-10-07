@@ -20,7 +20,7 @@ func _initialize() -> void:
 				_kontrol(katalog.var_mi(tur), "CHR hedefi katalogda var: " + tur)
 	var yonetim := KoyYonetimi.new(KoyAyarlari.new(), katalog)
 	var kaynak_once := yonetim.kaydet()
-	_kontrol(not yonetim.bina_kur("sifahane", Vector2i(5, 5))["olur"], "Henüz inşa sistemi olmayan hedef bedelsiz kurulmaz")
+	_kontrol(not yonetim.bina_kur("agil", Vector2i(5, 5))["olur"], "Henüz inşa sistemi olmayan hedef bedelsiz kurulmaz")
 	_kontrol(yonetim.kaydet() == kaynak_once, "Reddedilen hedef kurulumu yan etkisiz")
 	print("CHR BİNA SÖZLÜĞÜ: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
 	quit(hata)

@@ -117,7 +117,7 @@ func maske_guncelle() -> void:
 	yaz.call(m.position + Vector2i(0, 1), 1, 0.5)
 	for b in y.binalar:
 		var boy := b.boyut(y.katalog)
-		var tarla := b.tur == "tarla"
+		var tarla := b.tur in ["tarla", "bostan"]
 		for i in range(-1, boy.x + 1):
 			for j in range(-1, boy.y + 1):
 				var h := b.hucre + Vector2i(i, j)

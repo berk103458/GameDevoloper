@@ -77,6 +77,9 @@ func _ready() -> void:
 	k.pressed.connect(_kapat)
 	alt.add_child(k)
 	dikey.add_child(alt)
+	var grafik := GrafikAyarlariPaneli.new()
+	grafik.ayarlar = ayarlar
+	add_child(grafik)
 	_yenile()
 	ilk.grab_focus.call_deferred()
 
