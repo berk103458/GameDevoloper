@@ -121,3 +121,6 @@ Kişi başı soğuk yakacak hesabı TuketimDengesi / MevsimTuketimAdaptoru üzer
 
 ## Claude devri iptal — güncel kullanıcı talimatı
 Kullanıcı “Claude’a iş aktarma, sen devam et” dedi. Codex tek sorumlu olarak otonom geliştirmeye devam eder. Eski %5 eşiğinde Claude’a mesaj/devir ve reset sonrası geri alma kuralları kaldırıldı; bu dosyanın önceki devir bölümleri tarihsel kayıttır, çalıştırılmayacak. gamedevoloper-limit-ve-claude-devri otomasyonu PAUSED yapıldı. EKO-09 tam sanity 0 başarısız ve 20 gece geçti; son aynı ev/boş köy birimi source/aynada tekrar geçti. Sıradaki kapanış ve GitHub yayınıdır.
+
+## EKO-10 uygulama / doğrulama
+Kamu erişimcisi signed açık taşır; özel kese/stoklar sıfır alt sınırını korur. IflasYoneticisi üç negatif kapanışta bir kez kamu malına iadesiz el koyar. En yeni yapı gerçek ızgara/iş/barınak/üretim artığıyla birlikte çıkar; yapı yoksa konfigürasyon kamu stoğundan alır, kişisel keseye dokunmaz, borcu silmez. Optional doğrulanmış JSON ve gerçek rapor/HUD metin adaptörü. İlk restore kontrolünde kaldırılmış yapının kesirli üretim artığı bulundu; ortak çıkarma temizliğiyle düzeltildi. Genişletilmiş kaynak/el koyma/restore birimi ve eski harç-yıkım kontrolü geçti. Native gerçek gece düğmesi/rapor work/eko10_iflas.png incelendi. Tam sanity henüz yapılmadan madde kapanmaz. Claude devri iptal, Codex sorumlu.

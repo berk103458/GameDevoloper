@@ -118,7 +118,8 @@ func guncelle() -> void:
 		_onceki_gun = y.gun
 		for t in STOKLAR:
 			_onceki[t] = k.miktar(t)
-	_akce.guncelle(y.akce, int(_net.get("akce", 0)))
+	_akce.guncelle(y.akce, int(_net.get("akce", 0)), y.akce < 0)
+	_akce.tooltip_text = IflasYoneticisi.tip(y)
 	for t in STOKLAR:
 		var l: KaynakGostergesi = _stok_etiketleri[t]
 		l.guncelle(k.miktar(t), int(_net.get(t, 0)), t == "gida" and y.gida_gunu() < 2.0 and y.nufus() > 0)

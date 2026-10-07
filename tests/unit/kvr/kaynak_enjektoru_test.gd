@@ -12,7 +12,7 @@ func _initialize() -> void:
 		var r := KaynakEnjektoru.degistir(o, alan, 7)
 		_kontrol(r["sonra"] == 17 and o.get(alan) == 17, "Gerçek kasa artırılır")
 		r = KaynakEnjektoru.degistir(o, alan, -100)
-		_kontrol(r["sonra"] == 0 and r["fark"] == -17, "Kasa eksiye düşmez; gerçek delta raporlanır")
+		_kontrol(r["sonra"] == (-83 if alan == "koy_akce" else 0) and r["fark"] == (-100 if alan == "koy_akce" else -17), "Kamu açığı taşır; kişisel kese sıfır sınırını korur")
 	for alan in ["gida", "odun", "tas", "demir"]:
 		y.kaynaklar.stok[alan] = 5
 		var r := KaynakEnjektoru.degistir(o, alan, 3)

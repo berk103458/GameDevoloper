@@ -45,11 +45,12 @@ var gun: int:
 var perde: int:
 	get:
 		return 2 if yonetim.agalik else 1
+## Kamu bakiyesi EKO-10 kapsamında negatif borç/açık taşıyabilir; kişisel kese ayrıdır.
 var koy_akce: int:
 	get:
 		return yonetim.akce
 	set(v):
-		yonetim.akce = maxi(0, v)
+		yonetim.akce = v
 ## Eski UI/köy API'si kamu kasasının takma adıdır.
 var akce: int:
 	get:
@@ -440,7 +441,7 @@ func olay_uygula(olay: OlayVerisi, i: int, puan: int = -1) -> Dictionary:
 	ambar -= int(g.get("ambar", 0))
 	if e.has("bar"):
 		_bar_uygula(PackedInt32Array(e["bar"]))
-	akce = maxi(0, akce + int(e.get("akce", 0)))
+	akce += int(e.get("akce", 0))
 	ambar = maxi(0, ambar + int(e.get("ambar", 0)))
 	sonraki_gelen_ek += int(e.get("sonraki_gelen", 0))
 	var nufus: Dictionary = e.get("nufus", {})

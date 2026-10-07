@@ -640,8 +640,7 @@ func _geceye_gec() -> void:
 	_etiket(v, tr("koy.rapor.akce") % [int(r["akce_once"]), int(r["akce"])], Tema.KUCUK_PX)
 	_etiket(v, tr("koy.rapor.huzur") % int(r["huzur"]), Tema.KUCUK_PX)
 	for o in r["olaylar"]:
-		var d: Array = o.get("deger", [])
-		var l := _etiket(v, (tr(o["anahtar"]) % d) if not d.is_empty() else tr(o["anahtar"]), Tema.KUCUK_PX)
+		var l := _etiket(v, IflasYoneticisi.olay_metin(o), Tema.KUCUK_PX)
 		l.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		l.custom_minimum_size.x = 900

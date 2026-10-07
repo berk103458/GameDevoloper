@@ -49,6 +49,8 @@ var vergi_muaf: bool = false
 ## Eski kayıtlar orta vergiyle başlar; tahsilat tarihi tekrar ödemeyi önler.
 var vergi_orani: String = "orta"
 var son_vergi_gece: int = -1
+## EKO-10: doğrulanmış optional kamu açığı geçmişi.
+var iflas_durumu: Dictionary = IflasYoneticisi.oku({})
 ## Tekfur: haraç bekliyor mu, kaç baskı savuşturuldu, baskı gücü.
 var harac_bekliyor: bool = false
 var tekfur_baski: int = 0
@@ -266,19 +268,30 @@ func bina_kur(tur: String, hucre: Vector2i, yon: int = 0) -> Dictionary:
 
 ## Yapıyı yıkar: harcanan malzemenin yarısı ambara döner; çalışanlar boşa, oturanlar evsiz kalır.
 func bina_yik(id: int) -> bool:
+	return _bina_cikar(id, true)
+
+## EKO-10: kamu malını iadesiz çıkarır; çalışan/barınak/ızgara temizliği yıkımla ortaktır.
+func bina_el_koy(id: int) -> bool:
+	return _bina_cikar(id, false)
+
+func _bina_cikar(id: int, iade: bool) -> bool:
 	var b := bina(id)
 	if b == null:
 		return false
-	for t in b.harcanan:
-		if t == "akce":
-			akce += int(int(b.harcanan[t]) * a.yikim_iade)
-		else:
-			kaynaklar.ekle(t, int(int(b.harcanan[t]) * a.yikim_iade))
+	if iade:
+		for t in b.harcanan:
+			if t == "akce":
+				akce += int(int(b.harcanan[t]) * a.yikim_iade)
+			else:
+				kaynaklar.ekle(t, int(int(b.harcanan[t]) * a.yikim_iade))
 	for k in koylular:
 		if k.is_yeri == id:
 			k.is_yeri = BOSTA
+		if k.kis_oncesi_is == id: k.kis_oncesi_is = -1
 		if k.ev == id:
 			k.ev = -1
+	for anahtar in _artik.keys():
+		if String(anahtar).begins_with(str(id) + ":"): _artik.erase(anahtar)
 	izgara.kaldir(id)
 	binalar.erase(b)
 	_ambar_kapasitesi()
@@ -514,6 +527,7 @@ func gece() -> Dictionary:
 	asayis_riski = maxi(0, asayis_riski - a.asayis_sonum - etkin_muhafiz_sayisi() * a.muhafiz_asayis)
 	_isyan(olaylar)
 	_asamalar(olaylar)
+	IflasYoneticisi.gece(self, olaylar)
 	_son_denetimi()
 	rapor["akce"] = akce
 	rapor["huzur"] = huzur()
@@ -819,7 +833,7 @@ func kaydet() -> Dictionary:
 	for x in binalar:
 		b.append(x.kaydet())
 	return {"surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
-		"vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "husumet": husumet.kaydet(), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
+		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "husumet": husumet.kaydet(), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
@@ -830,6 +844,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	var y := KoyYonetimi.new(ayarlar, katalog_)
 	IklimDeneyi.yukle(y, v.get("iklim_deneyi", {}))
 	KrizEnjektoru.yukle(y, v.get("debug_kuyu_zehri", 0))
+	y.iflas_durumu = IflasYoneticisi.oku(v.get("iflas", {}))
 	VergiPolitikasi.yukle(y, v.get("vergi_politikasi", {}))
 	y.maas_durumu = MuhafizMaasi.oku(v.get("maas_durumu", {}))
 	y.alet_asinma = DemirZinciri.asinma_oku(v.get("alet_asinma", 0.0))
