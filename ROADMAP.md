@@ -237,9 +237,9 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **ODA-07:** Sancak Müfettişi Teftiş Baskını — Gizli kasa bulunursa azil/idam riski. (Codex)
 - [x] **ODA-08:** Oda Geliştirmeleri — Muhafız akçesiyle yatak/askılık/kütüphane → yorgunluk silme. (Codex)
 - [x] **ODA-09:** Vicdan Azabı ve Gece Kabusları — Haksız ret/ölüm → rüya/algı bozukluğu. (Codex)
-- [/] **ODA-10:** Oyun Sonu Muhafız Kaderi (Epilogue) — Köyden bağımsız: kaçak Venedik veya adil kahraman. (Codex)
+- [x] **ODA-10:** Oyun Sonu Muhafız Kaderi (Epilogue) — Köyden bağımsız: kaçak Venedik veya adil kahraman. (Codex)
 
-- [ ] **ODA-11:** Rüşvet → `muhafiz_akce` Oda Kasası Yazımı (`src/dunya/muhafiz_odasi.gd` — **taslak hedef yol**) — Kapı rüşvetinin gizli kasaya işlenmesi; **≡ EKO-01 / EKO-11**.
+- [/] **ODA-11:** Rüşvet → `muhafiz_akce` Oda Kasası Yazımı (`src/dunya/muhafiz_odasi.gd` — **taslak hedef yol**) — Kapı rüşvetinin gizli kasaya işlenmesi; **≡ EKO-01 / EKO-11**. (Codex)
 - [ ] **ODA-12:** Yozlaşma Skoru Runtime (`src/sistemler/yozlasma.gd` — **taslak hedef yol**) — Adalet↔yozlaşma terazisinin oturum alanı.
 - [ ] **ODA-13:** Müfettiş Teftiş Save-Slot Taraması — Gizli kasa içeriğinin teftiş olayında save/state üzerinden kontrolü.
 - [ ] **ODA-14:** Oda UI Kese Göstergesi — ODA-02 yüzeyi + EKO-11 `kese_gostergesi` (**taslak hedef yol**) köy/oda ortak gösterge.

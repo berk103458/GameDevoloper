@@ -117,13 +117,14 @@ func _son_goster(son: StringName) -> void:
 	Ses.cal(&"sfx_bar_kirildi" if son != &"zafer" else &"sfx_gece_bitti")
 	var y := oturum.yonetim
 	var son_metni := SancakTeftisi.son_metni(son)
-	var metin := String(son_metni.metin) + "\n\n" + tr("arayuz.son.istatistik") % [y.gun, y.kabul_sayisi, y.ret_sayisi, y.nufus()]
+	var metin := MuhafizEpilogu.metin(oturum, son, String(son_metni.metin)) + "\n\n" + tr("arayuz.son.istatistik") % [y.gun, y.kabul_sayisi, y.ret_sayisi, y.nufus()]
 	var e := _bilgi(String(son_metni.baslik), metin, [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
 		oturum.gun, "3d_koy")
 	e.oturum = oturum
 	e.secildi.connect(_son_secimi)
 	_goster(e)
 	OdaTeftisNotu.son_kur(e, son)
+	MuhafizEpiloguSunumu.kur(e)
 
 
 func _perde_gecisi() -> void:

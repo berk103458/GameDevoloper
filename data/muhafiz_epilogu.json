@@ -1,0 +1,40 @@
+{
+  "kahraman_adalet": 80,
+  "kahraman_yoz_azami": 20,
+  "kacak_yoz": 70,
+  "kacak_akce": 50,
+  "okuma_renk": "181c22",
+  "okuma_sag": 0.55,
+  "ust_bosluk": 90,
+  "metin_px": 24,
+  "baslik_px": 38,
+  "gun_px": 40,
+  "ayrim_px": 16,
+  "dallar": {
+    "adil_kahraman": {
+      "baslik": "Adil kahraman",
+      "metin": "Kapıdaki adaletin köyün akıbetinden ayrı hatırlanır. Halk seni adil bir muhafız olarak anar."
+    },
+    "venedik_kacagi": {
+      "baslik": "Venedik kaçağı",
+      "metin": "Yozlaşma izlerini geride bırakıp kişisel kesenle Venedik yoluna düşersin. Köyün kaderi başka, seninki kaçak bir hayattır."
+    },
+    "parasiz_surgun": {
+      "baslik": "Parasız sürgün",
+      "metin": "Yozlaşman ağır, kişisel kesen kaçışa yetmez. Görev sonrası yersiz yurtsuz bir hayata savrulursun."
+    },
+    "evine_donus": {
+      "baslik": "Evine dönüş",
+      "metin": "Nöbet bitti. Büyük bir kahramanlık veya kaçak serveti bırakmadan, kararlarının hatırasıyla evine dönersin."
+    },
+    "azil": {
+      "baslik": "Azledilen muhafız",
+      "metin": "Teftiş hükmü kesindir. Gizli kasa seni kaçışa taşımaz; adın azledilen muhafız olarak kalır."
+    },
+    "idam": {
+      "baslik": "İdam hükmü",
+      "metin": "Teftişte verilen idam hükmü kişisel hikâyeni bitirir. Servetin bu hükmü değiştiremez."
+    }
+  },
+  "alt_bosluk": 90
+}

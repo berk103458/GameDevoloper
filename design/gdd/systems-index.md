@@ -376,3 +376,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Oda geliştirmeleri](oda-gelistirmeleri.md) — ODA-08, tek kişisel yorgunluk ve günlük dinlenme, mevcut sorguda etkin tecrübe.
 
 - [Muhafız vicdanı](muhafiz-vicdani.md) — ODA-09, gerçek ret/ölüm, tek kabus/yorgunluk ve rüya kutusu.
+
+- [Muhafız epilogu](muhafiz-epilogu.md) — ODA-10, mevcut terazi/kasa ile aynı son ekranında bağımsız kader.

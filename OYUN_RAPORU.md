@@ -1432,3 +1432,10 @@ Sıradaki: ODA-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Gercek haksiz ret ve gece olumunden tek vicdan/kabus makbuzu; ayni yorgunluk ve acik ruya kutusu, Clue/kimlik yok; 65 kontrol final native/ayna gecti. G ODA09-KABUS kayitli, asset uretilmedi.
 
 Sıradaki: ODA-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-10 (8 Ekim 2026)
+
+Saf tek epilogue: mevcut terazi/kisisel kasa, koyden bagimsiz kader, teftis onceligi; 67 regresyon ve final150/native/ayna gecti. Asset gerekmedi.
+
+Sıradaki: ODA-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
