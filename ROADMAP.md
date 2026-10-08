@@ -172,8 +172,8 @@ Not: ANI-04↔EKO-03, ANI-08↔UZM-01..05 konsolidasyon.
 - [x] **TUC-06:** Sözleşme Teslimatı ve İtibar Skoru — Zamanında teslim → sadakat + sonraki nadir ürünler. (Codex)
 - [x] **TUC-07:** Sipariş İhlali ve Ceza Faizi — Gecikme → tüccar terk + Refah düşüşü. (Codex)
 - [x] **TUC-08:** Gezgin Silah Tüccarı (Karaborsa) — Zırh/yay/kalkan; kaçak tutsak satın alma teklifi. (Codex)
-- [/] **TUC-09:** Dinamik Fiyatlandırma ve Kıtlık Enflasyonu — Kışta odun/erzak ×3; yazda ucuzlama. (Codex)
-- [ ] **TUC-10:** Pazar Yeri Alışveriş Arayüzü (Trade UI) — Ambar fazlası → köy veya muhafız akçesi.
+- [x] **TUC-09:** Dinamik Fiyatlandırma ve Kıtlık Enflasyonu — Kışta odun/erzak ×3; yazda ucuzlama. (Codex)
+- [/] **TUC-10:** Pazar Yeri Alışveriş Arayüzü (Trade UI) — Ambar fazlası → köy veya muhafız akçesi. (Codex)
 
 - [ ] **TUC-11:** Muhafız Kişisel Karaborsa ve Kaçak Mal Alışverişi — nadir/yasaklı eşya yalnızca `muhafiz_akce` ile; muhafız odası envanterine (taslak: `src/koy/ticaret/karaborsa_adaptoru.gd`).
 - [ ] **TUC-12:** Kapıda Tüccardan Geçiş Bacı ve Rüşvet Alma — resmi kayıt yerine şahsi `muhafiz_akce` hızlı giriş rüşveti → pazara anında geçiş.

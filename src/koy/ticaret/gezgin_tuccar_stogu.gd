@@ -10,6 +10,7 @@ static func urunler(y: KoyYonetimi) -> Dictionary:
  if d.aktif and SiparisIhlali.terk(y, d.tuccar.id): return {}
  var urun: Dictionary = AYAR.get(d.tuccar.id, {}).duplicate(true) if d.aktif else {}
  urun.merge(SiparisTeslimati.nadir(y, d), false)
+ for tur in urun: urun[tur].fiyat = ceili(float(urun[tur].fiyat) * TicaretFiyatlari.carpan(y, tur))
  return urun
 ## Aynı ziyaretin iki gününde ortak stok; yeni varışta taban stok.
 func kalan(y: KoyYonetimi, tur: String) -> int:

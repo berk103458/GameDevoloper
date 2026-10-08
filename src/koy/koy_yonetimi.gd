@@ -364,7 +364,7 @@ func surgun(koylu_id: int) -> bool:
 ## Köy tezgâhında anında satış (5.1): kervan fiyatının `tezgah_orani`'ndan, günde en çok `tezgah_gunluk_azami` akçe.
 ## Döner: {satilan, akce}. Yalnız tam akçeye denk gelen kadar satılır.
 func tezgah_sat(tur: String, adet: int) -> Dictionary:
-	var fiyat := float(a.kervan_fiyat.get(tur, 0.0)) * a.tezgah_orani
+	var fiyat := TicaretFiyatlari.sat_birim(self, tur) * a.tezgah_orani
 	if fiyat <= 0.0:
 		return {"satilan": 0, "akce": 0}
 	var kalan := a.tezgah_gunluk_azami - _tezgah_bugun
@@ -383,7 +383,7 @@ func tezgah_sat(tur: String, adet: int) -> Dictionary:
 func kervana_sat(tur: String, adet: int) -> Dictionary:
 	if not kervan_gunu():
 		return {"satilan": 0, "akce": 0}
-	var fiyat := float(a.kervan_fiyat.get(tur, 0.0))
+	var fiyat := TicaretFiyatlari.sat_birim(self, tur)
 	var adet_ := mini(adet, kaynaklar.miktar(tur))
 	var kazanc := int(adet_ * fiyat)
 	if kazanc <= 0:
@@ -399,10 +399,8 @@ func kervandan_al(tur: String, adet: int) -> bool:
 	if GezginTuccarStogu.urunler(self).has(tur): return gezgin_ticaret.al(self, tur, adet)
 	if not kervan_gunu() or not a.kervan_satis.has(tur):
 		return false
-	var fiyat := float(a.kervan_satis[tur])
-	if tur == "alet" and "demirci" in husumet.tekfura_gecenler:
-		fiyat *= 1.5
-	var bedel := ceili(fiyat * adet)
+	if adet <= 0: return false
+	var bedel := TicaretFiyatlari.bedel(self, tur, adet)
 	if akce < bedel or kaynaklar.bos_yer() < adet:
 		return false
 	akce -= bedel

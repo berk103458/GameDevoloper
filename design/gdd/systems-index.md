@@ -294,3 +294,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Sipariş ihlali ve ceza faizi](siparis-ihlali.md) — TUC-07, tek defter ve kamu borcu.
 
 - [Gezgin silah tüccarı ve karaborsa](silah-karaborsasi.md) — TUC-08, mevcut ambar ve nüfus.
+
+- [Mevsimsel ticaret fiyatları](ticaret-fiyatlari.md) — TUC-09, ortak tahsilat/gösterim.

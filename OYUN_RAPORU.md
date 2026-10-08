@@ -1097,3 +1097,10 @@ Sıradaki: TUC-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Silah tuccari zirh/yay/kalkan ve tek ziyaretlik kac ak tutsak teklifi; mevcut ambar, kamu kasasi, kabul/barinma yolu. 26 kontrol, native ve ayna UI gecti; G TUC08 ikon ihtiyaclari kayitli.
 
 Sıradaki: TUC-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-09 (8 Ekim 2026)
+
+Ortak mevsim fiyati: odun/erzak kis x3 yaz x0.75; UI ve kamu tahsilati ayni, Tekfur alet farki korunur. 27 kontrol native yaz/kis ve ayna UI gecti; asset gerekmedi.
+
+Sıradaki: TUC-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

@@ -520,6 +520,7 @@ func _pazar_ac() -> void:
 	var v := _kart_ac(tr("koy.pazar.baslik"))
 	v = PazarKartKaydirma.kur(self, v)
 	GezginTuccarPazarAdaptoru.pazar(self, v)
+	TicaretFiyatPaneli.ekle(self, v)
 	_etiket(v, tr("koy.pazar.tezgah") % [int(_y.a.tezgah_orani * 100), _y.a.tezgah_gunluk_azami], Tema.KUCUK_PX)
 	for t in ["odun", "tas", "gida", "kereste", "kurk"]:
 		var satir := HBoxContainer.new()
@@ -550,7 +551,8 @@ func _pazar_ac() -> void:
 		var satir := HBoxContainer.new()
 		v.add_child(satir)
 		for t in _y.a.kervan_satis:
-			var d := _dugme(tr("koy.pazar.al") % [10, tr("koy.kaynak." + String(t)), ceili(float(_y.a.kervan_satis[t]) * 10)], satir)
+			var d := _dugme(tr("koy.pazar.al") % [10, tr("koy.kaynak." + String(t)), TicaretFiyatlari.bedel(_y, String(t), 10)], satir)
+			d.name = "kervan_al_" + String(t)
 			d.pressed.connect(func() -> void:
 				if _y.kervandan_al(String(t), 10):
 					Ses.cal(&"sfx_kese")

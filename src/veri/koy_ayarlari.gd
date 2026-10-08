@@ -33,7 +33,7 @@ extends Resource
 ## Ham maddelerin kervan fiyatı (akçe / birim).
 @export var kervan_fiyat: Dictionary = {"gida": 0.25, "odun": 0.25, "tas": 0.34, "kereste": 1.0, "alet": 3.0, "kurk": 2.0}
 ## Kervanın sattıkları (akçe / birim).
-@export var kervan_satis: Dictionary = {"demir": 2.0, "alet": 5.0, "gida": 0.5}
+@export var kervan_satis: Dictionary = {"demir": 2.0, "alet": 5.0, "gida": 0.5, "odun": 0.5}
 ## Köy tezgâhı kervan fiyatının bu oranından alır; günde en çok bu kadar akçe öder.
 @export var tezgah_orani: float = 0.6
 @export var tezgah_gunluk_azami: int = 4

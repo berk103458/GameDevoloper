@@ -1,0 +1,14 @@
+{
+  "mevsim_carpani": [
+    1.0,
+    0.75,
+    1.0,
+    3.0
+  ],
+  "urunler": [
+    "odun",
+    "gida",
+    "bugday",
+    "un"
+  ]
+}

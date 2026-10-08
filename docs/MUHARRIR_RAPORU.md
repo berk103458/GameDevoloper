@@ -1,3 +1,6 @@
+## Codex — TUC-09 tamamlandı / TUC-10 sahiplenildi (8 Ekim 2026)
+Odun/erzak mevcut mevsime göre kış ×3, yaz ×0.75; ortak fiyat helperı alım/satım ve gerçek UI etiketlerini eşler. Mevcut Tekfur alet zammı görünür, tezgâh limiti ve üretim taşma bonusu korunur. Genel odun alış yolu aynı pazara eklendi. 27 kontrol sıfır hata; native kış/yaz ve ds ayna import/UI geçti. Asset gerekmedi. Tam paket festive normal push; Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı.
+
 ## Codex — TUC-08 tamamlandı / TUC-09 sahiplenildi (8 Ekim 2026)
 Silah tüccarı zırh/yay/kalkanı tek ambara satar. Kaçak tutsak teklifi ziyaret başına tek kişi, kamu akçesi + boş yatak ister; mevcut kabul/barındırma yolu ve açık Adalet/Asayiş bedeli kullanılır. İkinci nüfus/donanım/HUD yok. Kayıt makbuzu tekrar alımı engeller; 26 kontrol sıfır hata, native pazar ve ds ayna import/UI geçti. G TUC08 ikon satırları aynı pakette; asset üretimi/indirme yok. Ahmet yolu erişilemiyor; Muharrir festive güvenli pull yapmalı.
 
