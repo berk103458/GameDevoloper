@@ -1,3 +1,6 @@
+## Codex — TUC-08 tamamlandı / TUC-09 sahiplenildi (8 Ekim 2026)
+Silah tüccarı zırh/yay/kalkanı tek ambara satar. Kaçak tutsak teklifi ziyaret başına tek kişi, kamu akçesi + boş yatak ister; mevcut kabul/barındırma yolu ve açık Adalet/Asayiş bedeli kullanılır. İkinci nüfus/donanım/HUD yok. Kayıt makbuzu tekrar alımı engeller; 26 kontrol sıfır hata, native pazar ve ds ayna import/UI geçti. G TUC08 ikon satırları aynı pakette; asset üretimi/indirme yok. Ahmet yolu erişilemiyor; Muharrir festive güvenli pull yapmalı.
+
 ## Codex — TUC-07 tamamlandı / TUC-08 sahiplenildi (8 Ekim 2026)
 Vade sonrası tek ihlal, Refah -3, tüccara özgü kalıcı borç ve gecelik faiz; mevcut sözleşme defterinden kısmi/tam kamu ödemesi. Asgari sekiz gün ve borç kapatılmadan aynı tüccarda ticaret/teklif yok. Yeni cezaya geçmiş faiz uygulanmaz. 23 kontrol sıfır hata; native defter ve ds ayna import/UI geçti. Asset gerekmedi; G tablosunda yeni ihtiyaç yok. Tam paket festive normal push; Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı.
 

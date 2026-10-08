@@ -1,0 +1,14 @@
+{
+  "fiyat": 30,
+  "stok": 1,
+  "adalet_kaybi": 5,
+  "asayis_artis": 5,
+  "kisi": {
+    "ad": "Kaçak tutsak",
+    "sinif": "ciftci",
+    "stat": 4,
+    "bayraklar": [
+      "eski_tutsak"
+    ]
+  }
+}

@@ -44,5 +44,22 @@
       "fiyat": 6,
       "stok": 8
     }
+  },
+  "silah_tuccari": {
+    "zirh": {
+      "ad": "Zırh",
+      "fiyat": 24,
+      "stok": 4
+    },
+    "yay": {
+      "ad": "Yay",
+      "fiyat": 12,
+      "stok": 6
+    },
+    "kalkan": {
+      "ad": "Kalkan",
+      "fiyat": 10,
+      "stok": 6
+    }
   }
 }

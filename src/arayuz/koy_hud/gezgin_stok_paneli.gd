@@ -4,6 +4,7 @@ extends RefCounted
 ## Geçerli uzman ürünlerini mevcut pazar kartına tek satın alma satırı olarak bağlar.
 static func ekle(e: KoyEkrani, ust: Control) -> void:
  var y := e._y
+ SilahKaraborsaPaneli.ekle(e, ust)
  var urunler := GezginTuccarStogu.urunler(y)
  if urunler.is_empty(): return
  e._etiket(ust, "Uzman stoğu · konaklama boyunca ortak miktar", Tema.KUCUK_PX)

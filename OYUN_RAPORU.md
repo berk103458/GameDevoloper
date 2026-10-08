@@ -1090,3 +1090,10 @@ Sıradaki: TUC-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Siparis ihlali, tek Refah kaybi, kalici tuccar borcu, faiz ve mevcut defterden kisim/tam kamu odemesi; 23 kontrol native ve ayna UI gecti, asset gerekmedi.
 
 Sıradaki: TUC-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-08 (8 Ekim 2026)
+
+Silah tuccari zirh/yay/kalkan ve tek ziyaretlik kac ak tutsak teklifi; mevcut ambar, kamu kasasi, kabul/barinma yolu. 26 kontrol, native ve ayna UI gecti; G TUC08 ikon ihtiyaclari kayitli.
+
+Sıradaki: TUC-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

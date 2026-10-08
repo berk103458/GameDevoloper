@@ -4,7 +4,7 @@
 class_name Hud
 extends PanelContainer
 
-const STOKLAR: Array[String] = ["gida", "odun", "tas", "kereste", "alet", "tomruk", "bugday", "un", "kirec", "harc", "cevher", "demir", "civi", "tirpan", "balta", "afyon", "sargi", "kece", "kumas"]
+const STOKLAR: Array[String] = ["gida", "odun", "tas", "kereste", "alet", "tomruk", "bugday", "un", "kirec", "harc", "cevher", "demir", "civi", "tirpan", "balta", "afyon", "sargi", "kece", "kumas", "zirh", "yay", "kalkan"]
 const UYARI := Color("#C4843A")
 ## Asayiş riski bu değerin üstündeyse kritik sayılır.
 const ASAYIS_KRITIK := 60

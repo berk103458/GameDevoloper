@@ -46,6 +46,7 @@ static func kayittan(v: Variant) -> GezginTuccarStogu:
    for tur in uzman:
     var n: Variant = v.alinan.get(tur, 0)
     if (n is int or n is float) and is_finite(float(n)) and float(n) > 0 and floor(float(n)) == float(n): s.alinan[tur] = int(minf(float(n), float(uzman[tur].stok)))
+ SilahKaraborsasi.makbuz(v.get("alinan"), s)
  return s
 ## Mevcut kaynak adı adaptöründeki yeni stok etiketleri.
 static func ad(anahtar: String) -> String:

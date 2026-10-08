@@ -292,3 +292,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - TUC-06: [Sipariş teslimatı](siparis-teslimati.md) — tek kamu ödülü, tüccara özgü itibar ve sonraki sadakat stoğu.
 
 - [Sipariş ihlali ve ceza faizi](siparis-ihlali.md) — TUC-07, tek defter ve kamu borcu.
+
+- [Gezgin silah tüccarı ve karaborsa](silah-karaborsasi.md) — TUC-08, mevcut ambar ve nüfus.

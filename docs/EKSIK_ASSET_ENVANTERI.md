@@ -379,6 +379,9 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | TUC04-SARGI | TUC-04 | Sargı stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | şifahane bez sargı; medieval linen bandage icon | orta | Codex |
 | TUC04-KECE | TUC-04 | Keçe stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | yün keçe kumaş; medieval wool felt icon | orta | Codex |
 | TUC04-KUMAS | TUC-04 | Kumaş stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | dokuma kumaş rulosu; medieval woven cloth roll icon | orta | Codex |
+| TUC08-ZIRH | TUC-08 | Zırh stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ zırh; medieval armor icon | orta | Codex |
+| TUC08-YAY | TUC-08 | Yay stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ yay; medieval bow icon | orta | Codex |
+| TUC08-KALKAN | TUC-08 | Kalkan stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ kalkan; medieval shield icon | orta | Codex |
 | TUC03-CIVI | TUC-03 | Çivi stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ çivi; medieval iron nail icon | orta | Codex |
 | TUC03-TIRPAN | TUC-03 | Tırpan stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | tırpan tarım aleti; medieval scythe tool icon | orta | Codex |
 | TUC03-BALTA | TUC-03 | Balta stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | balta oduncu aleti; medieval wood axe icon | orta | Codex |
