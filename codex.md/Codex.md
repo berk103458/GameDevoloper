@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 55b8bc5 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 55b8bc5. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: a08951a (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: a08951a. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -167,15 +167,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - ODA-04: Pure justice/corruption view from existing bribe, embezzlement and unpaid injustice receipts; 40 checks and native/mirror passed, actual decisions and repair/JSON boundaries verified; asset gerekmedi.
 - ODA-05: Permanent Goz Yumma and Harac Kesme choices extend the existing purse; 42 checks plus 2 insolvency checks passed, native/mirror and actual night/ledger/JSON/overflow verified; asset gerekmedi.
 - ODA-06: Ayni kalici yetenek agacinda Keskin Bakis/Gonul Bagi: kisisel odeme, gercek CHR/heybe incelemesi ve adalet/yozlasma kosullu mevcut isyan esigi; 57 kontrol onarim tekrar/native/ayna gecti. Asset gerekmedi.
+- ODA-07: Gercek kisisel kasa ve yozlasmadan tek gece teftisi; integer zar/JSON, temiz/bos/bulunamadi/azil/idam, mevcut terminal ve gece raporu/Ana son ekrani; 59+5 kontrol final native/ayna gecti. Asset gerekmedi.
 
 ## Sonraki çalışma
-ODA-07. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+ODA-08. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -250,5 +253,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## ODA-06 doğrulaması / ODA-07 planı
-ODA06 57 genel kontrol: ilk CHR standalone adaptör hatası onarıldı; import/CHR sorgu/gerçek kapı/adalet UI tekrarları sıfır hata. Final birim/headless/native ve ds ayna import/UI geçti. Tek yetenek ağacı ve kişisel bedel, Keskin Bakış mevcut CHR nişan kartı/eski heybe astarı; kaynak/tansiyon/para/RNG korunur. Gönül Bağı mevcut isyan eşiği: güncel adalet/yozlaşma, tam Oturum gecesi/JSON/legacy/kriz firarı testi geçti; ikinci kayıt/motor yok. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit55b8bc5, aynı SHA temiz ikinci import/headless/native menü sıfır hata. ODA-07 [/] (Codex), gerçek kişisel kasa ve mevcut skor üzerinden teftiş, aynı sabah raporu/son ekranına ince uzantı planı. KAP-02/03 ve CSV Cursor kapalı, tekrar alınmadı. İki ds kopyası eşit; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
+
+## ODA-07 doğrulaması / ODA-08 planı
+ODA07 59 regresyon + final5 açılış/API/gece/iflas kontrolü sıfır hata; final birim/headless/native ve ds ayna import/UI geçti. Tek gerçek kasa/yozlaşma teftişi, 6/11/... geceler, tek integer zar/makbuz; temiz kişisel gelir/kamu, boş/satılmış/yalnız eşya, bulunamama/reload/azil/idam ve mevcut terminal koruması geçti. Gerçek kapalı kasa→gece raporu→aynı Ana son ekranı çalışıyor; opak okuma zemini yalnız teftişte, zafer ekranı korunur. Para/eşya ikinci kez silinmez. Asset gerekmedi, G kontrol edildi; CHR007/CSV değişmedi. Kontrol edilen son commit a08951a. ODA-08 [/] (Codex), aynı oda/kişisel kese üzerinden veri ayarlı tek geliştirme/yorgunluk uzantısı planı. İki ds kopyası eşit; Ahmet yolu erişilemiyor, Muharrir güvenli festive pull yapmalı.

@@ -370,3 +370,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Yozlaşma yetenekleri](yozlasma-yetenekleri.md) — ODA-05, tek kalıcı seçim, kişisel rüşvet bonusu ve günlük gerçek esnaf tahsilatı.
 
 - [Adalet yetenekleri](adalet-yetenekleri.md) — ODA-06, aynı seçim ağacı, mevcut heybe keşfi ve isyan eşiği.
+
+- [Sancak teftişi](sancak-teftisi.md) — ODA-07, mevcut kişisel kasa/yozlaşma, tek gece makbuzu ve aynı terminal akışı.

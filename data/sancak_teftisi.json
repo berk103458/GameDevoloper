@@ -1,0 +1,10 @@
+{
+  "ilk_gece": 6,
+  "aralik": 5,
+  "yozlasma_esigi": 20,
+  "idam_esigi": 70,
+  "bulma_olasiligi": 0.5,
+  "zar_cozunurlugu": 10000,
+  "son_okuma_sag": 0.55,
+  "son_okuma_renk": "181c22"
+}

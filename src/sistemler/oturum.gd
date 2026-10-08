@@ -25,6 +25,8 @@ var muhafiz_esyalari: Array[Dictionary] = []
 var kasa_transferleri: Dictionary = {"son_zimmet": -1, "kurtarma_toplam": 0, "zimmet_toplam": 0}
 ## ODA-05 optional tek seçim/gece makbuzu; eski kayıtta boş yetenekler.
 var muhafiz_yetenekleri: Dictionary = {"alinan": [], "son_harac_gece": -1, "harac_toplam": 0}
+## ODA-07 optional tek teftiş sonucu; mevcut kasa/skor kopyalanıp işletilmez.
+var sancak_teftisi: Dictionary = {}
 var yeni_binalar: Array[Dictionary] = []
 ## Olayların bıraktığı işaretler (kararların uzun vadeli izleri).
 var bayraklar: Dictionary = {}
@@ -255,6 +257,7 @@ func gece_sonu() -> Dictionary:
 	MuhafizAdaletYetenekleri.bagla(self)
 	var r := yonetim.gece()
 	MuhafizYetenekleri.rapora_ekle(r, harac)
+	SancakTeftisi.gece(self, r)
 	_koy_esitle()
 	kadro.gece_bitti()
 	var sonuc := {"olaylar": r["olaylar"], "kirilan": -1, "rusvet_harcandi": -1, "son": StringName(r["son"]),
@@ -691,6 +694,7 @@ func kaydet() -> Dictionary:
 		"muhafiz_tecrubesi": muhafiz_tecrubesi,
 		"muhafiz_akce": muhafiz_akce, "muhafiz_esyalari": muhafiz_esyalari.duplicate(true),
 		"kasa_transferleri": kasa_transferleri.duplicate(true),
+		"sancak_teftisi": SancakTeftisi.oku(sancak_teftisi),
 		"muhafiz_yetenekleri": MuhafizYetenekleri.oku(muhafiz_yetenekleri),
 		"mevsim": yonetim.mevsim(), "yeni_binalar": yeni_binalar.duplicate(true),
 		"koy_yonetimi": yonetim.kaydet(),
@@ -725,6 +729,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.muhafiz_tecrubesi = maxi(0, int(veri.get("muhafiz_tecrubesi", 0)))
 	o.muhafiz_akce = maxi(0, int(veri.get("muhafiz_akce", 0)))
 	o.kasa_transferleri = KasaTransferi.oku(veri.get("kasa_transferleri"))
+	o.sancak_teftisi = SancakTeftisi.oku(veri.get("sancak_teftisi"))
 	o.muhafiz_yetenekleri = MuhafizYetenekleri.oku(veri.get("muhafiz_yetenekleri"))
 	MuhafizAdaletYetenekleri.bagla(o)
 	o.muhafiz_esyalari = preload("res://src/sistemler/cift_kasa_dagitimi.gd").esyalari_yukle(veri.get("muhafiz_esyalari", []))
