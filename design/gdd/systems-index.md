@@ -284,3 +284,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - TUC-02: [Celep Hamdullah](celep-hamdullah.md) — tek hayvan kaydı, uzman takvimi ve ahır/ağıl alımı.
 
 - TUC-03: [Nalbur stoğu](nalbur-stogu.md) — ziyaretlik sonlu ürün, tek ambar ve mevcut kaynak HUD.
+
+- TUC-04: [Kumaşçı ve Aktar](kumas-aktar.md) — ortak stoktan mevcut tedavi desteği ve oyuncu kontrollü Refah dağıtımı.

@@ -560,6 +560,7 @@ func _pazar_ac() -> void:
 	else:
 		_etiket(v, tr("koy.pazar.kervan_yok") % (_y.a.kervan_araligi - 1 - _y.gun % _y.a.kervan_araligi), Tema.KUCUK_PX)
 	GezginStokPaneli.ekle(self, v)
+	KumasAktarPaneli.ekle(self, v)
 	CekiHayvaniPaneli.ekle(self, v)
 	VergiPaneli.ekle(self, v)
 	KasaTransferPaneli.ekle(self, v)

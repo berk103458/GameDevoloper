@@ -1,0 +1,4 @@
+{
+ "tedavi": {"maliyet": {"afyon": 1, "sargi": 1}, "saglik": 5},
+ "luks": {"kece": {"refah": 3}, "kumas": {"refah": 5}}
+}

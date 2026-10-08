@@ -14,7 +14,7 @@ static func ekle(e: KoyEkrani, ust: Control) -> void:
   var u: Dictionary = urunler[t]
   var d := e._dugme("%s %d · %d akçe" % [u.ad, y.gezgin_ticaret.kalan(y, t), u.fiyat], h)
   d.name = "gezgin_al_" + t
-  d.tooltip_text = "Bir adet al; gösterilen stok bu ziyaretin iki gününde ortaktır."
+  d.tooltip_text = "Bir adet al; gösterilen stok bu ziyaretin iki gününde ortaktır. " + String(u.get("aciklama", ""))
   d.disabled = not y.gezgin_ticaret.alinabilir(y, t, 1)
   d.pressed.connect(func() -> void:
    if y.gezgin_ticaret.al(y, t, 1):

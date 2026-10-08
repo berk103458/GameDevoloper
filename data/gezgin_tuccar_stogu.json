@@ -1,8 +1,48 @@
 {
- "nalbur": {
-  "demir": {"ad": "Demir", "fiyat": 2, "stok": 20},
-  "civi": {"ad": "Çivi", "fiyat": 2, "stok": 30},
-  "tirpan": {"ad": "Tırpan", "fiyat": 6, "stok": 6},
-  "balta": {"ad": "Balta", "fiyat": 5, "stok": 6}
- }
+  "nalbur": {
+    "demir": {
+      "ad": "Demir",
+      "fiyat": 2,
+      "stok": 20
+    },
+    "civi": {
+      "ad": "Çivi",
+      "fiyat": 2,
+      "stok": 30
+    },
+    "tirpan": {
+      "ad": "Tırpan",
+      "fiyat": 6,
+      "stok": 6
+    },
+    "balta": {
+      "ad": "Balta",
+      "fiyat": 5,
+      "stok": 6
+    }
+  },
+  "kumasci_aktar": {
+    "afyon": {
+      "ad": "Afyon",
+      "fiyat": 4,
+      "stok": 8,
+      "aciklama": "Şifahane tedavisi sonrası bir afyon + bir sargı ek 5 sağlık sağlar."
+    },
+    "sargi": {
+      "ad": "Sargı",
+      "fiyat": 2,
+      "stok": 12,
+      "aciklama": "Şifahane tedavisi sonrası bir afyon + bir sargı ek 5 sağlık sağlar."
+    },
+    "kece": {
+      "ad": "Keçe",
+      "fiyat": 4,
+      "stok": 8
+    },
+    "kumas": {
+      "ad": "Kumaş",
+      "fiyat": 6,
+      "stok": 8
+    }
+  }
 }

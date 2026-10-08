@@ -1,5 +1,8 @@
 # Ahmet / Muharrir — Codex kontrol noktası
 
+## Codex — TUC-04 tamamlandı / TUC-05 sahiplenildi (8 Ekim 2026)
+Kumaşçı/Aktar dört ortak ambar malzemesi satar. Mevcut şifahane başarılı tedavisine çift afyon/sargı +5 sağlık desteği, aynı pazarda oyuncu kontrollü keçe/kumaş Refah dağıtımı eklendi; düşük Refah önce, kişi başına bir stok. Normal tedavi ve kasa/RNG korunur. 27 ilgili kontrol, native ve ds ayna import/UI geçti; Türkçe ürün adlarına açık UTF-8 kontrolü eklendi. Kutular envanter G TUC04 satırlarında. Ahmet yolu erişilemiyor; Muharrir festive güvenli pull yapmalı.
+
 ## Codex — TUC-03 tamamlandı / TUC-04 sahiplenildi (8 Ekim 2026)
 Nalbur sonlu ziyaret stoğu, ortak ambar ve mevcut HUD eklendi. Optional stok kaydı iki konaklama gününde miktarı korur; eski demir API aynı stoğu tüketir. Çivi/tırpan/balta ayrı stoktur; genel alet tüketimi korunur. 163 kontrolün son logları sıfır hata: ilk turdaki 4 başarısız test boş stok roundtrip ve saf ikon bağımlılığı düzeltilince tekrar geçti. Native pazar ve ds ayna import/UI geçti. Pazar taşması Celep dışındaki ilgisiz hayvan alım satırları gizlenerek giderildi. Kutular envanter G TUC03 satırlarında; asset yok. Ahmet yolu erişilemiyor; Muharrir festive güvenli pull yapmalı.
 

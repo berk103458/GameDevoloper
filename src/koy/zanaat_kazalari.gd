@@ -33,6 +33,7 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 		if k.zanaat_kazasi.is_empty() or not k.zanaat_kazasi.tedavi or int(k.zanaat_kazasi.son_gece) == y.gun or k.saglik <= 0: continue
 		if not y.kaynaklar.harca({"gida": 2}): break
 		k.saglik = mini(100, k.saglik + IsKazalari.SAGLIK_KAYBI)
+		KumasAktarDestegi.tedavi(y, k, olaylar)
 		# Yalnız bu kazanın sahip olduğu bayrak temizlenir.
 		if k.is_kazasi.get("tur") == "yaralanma" and k.is_kazasi.get("bayrak_eklendi", false):
 			k.bayraklar.erase("agir_yarali")

@@ -1062,3 +1062,10 @@ Sıradaki: TUC-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Nalbur ziyaretlik demir/civi/tirpan/balta stogu; tek kasa/ambar ve mevcut HUD. Kalan stok optional kayitta korunur; eski demir API ayni siniri kullanir. 163 kontrol son log denetiminde sifir hata (ilk turda yakalanan dort test duzeltme sonrasi tekrar gecti), native ve ayna UI gecti. Ikonlar envanter G TUC03 satirlarinda.
 
 Sıradaki: TUC-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-04 (8 Ekim 2026)
+
+Kumasci/Aktar mevcut ziyaret stogunda afyon/sargi/kece/kumas satar; tek ambar/HUD. Sifahane basarili tedavisine cift malzeme +5 saglik; oyuncu kontrollu luks dagitimi dusuk Refah once. 27 ilgili kontrol, native ve ayna UI gecti; UTF-8 isim kontrolu eklendi. Ikonlar envanter G TUC04 satirlarinda.
+
+Sıradaki: TUC-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
