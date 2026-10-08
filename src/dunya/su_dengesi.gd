@@ -66,4 +66,4 @@ static func gece(y: KoyYonetimi, tuketim: Dictionary, olaylar: Array[Dictionary]
  return rapor
 ## Aynı kaynak kartında arz/rezerv/ihtiyaç açıklaması.
 static func tip(y: KoyYonetimi) -> String:
- return "Su rezervi · Gecelik ihtiyaç: %d · kalan kuyu akışı: %d. Yaz/kuraklık tüketimi ×%d. Pazarda kuyudan rezerv ayırabilirsin." % [gerek(y),taze(y),int(AYAR.yaz_carpani)]
+ return "Su rezervi · Gecelik ihtiyaç: %d · kalan kuyu akışı: %d. Yaz/kuraklık tüketimi ×%d. Pazarda kuyudan rezerv ayırabilirsin." % [gerek(y),taze(y),int(AYAR.yaz_carpani)] + KuyuZehirleme.tip(y)

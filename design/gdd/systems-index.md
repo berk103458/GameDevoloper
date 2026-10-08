@@ -340,3 +340,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Köy içi gece takip motoru](casus-gece-takibi.md) — CAS-01, gizli niyet ve gözlenen mevcut fiilin tek kaydı.
 
 - [Gece devriyesi ve suçüstü tutanağı](casus-devriyesi.md) — CAS-02, mevcut meşale ve tek olay kartında gerçek fiil gözlemi.
+
+- [Kuyu zehirleme ve sabah tespiti](kuyu-zehirleme.md) — CAS-03, CHR gecikmeli kaynak sonucu tek gerçek kuyu/sağlık fiili.

@@ -1,3 +1,6 @@
+## Codex — CAS-03 kapandı / CAS-04 sahiplenildi (8 Ekim 2026)
+50 kontrol sıfır hata; final kışla/kısmi taze su birim testi, native gerçek sabah raporu ve ds ayna import/unit/UI geçti. CHR002/009 kaynak tur/karar/stat ve kapı sır snapshotu; aynı kuyu/sağlık/ambar fiili yalnız bir kez. KVR −4 sağlık sınırı GDD; niyet fail kanıtı değil, gerçek zehir CAS02 tutanağına bağlanır. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit46538fe; CAS-04 [/] (Codex). Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
+
 ## Codex — CAS-02 kapandı / CAS-03 sahiplenildi (8 Ekim 2026)
 43 kontrol sıfır hata; native gerçek tutanak kartı ve ds ayna import/unit/UI geçti. Etkin mevcut nöbet/meşale gerçek fiili gözler; niyet suç değil. Tek pending tutanak aynı olay kartı, kayıt/tekrar/iki seçim/çift tıklama ve stok/kamu koruması. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit2c9ea3b; CAS-03 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli festive pull yapmalı.
 

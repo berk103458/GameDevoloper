@@ -1260,3 +1260,10 @@ Sıradaki: CAS-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Existing paid healthy night guard observes actual CAS ledger acts; one persistent report uses the same event card, intent excluded, no repeated loss, JSON and double-click safe; 43 checks, native and mirror passed; asset gerekmedi.
 
 Sıradaki: CAS-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-03 (8 Ekim 2026)
+
+CHR002/009 source tur/decision/stat poisoning uses actual fresh well water and existing health/food/morale once; admission secret snapshot prevents it, public symptoms hide culprit, CAS patrol observes real act; 50 checks plus native/mirror passed; asset gerekmedi.
+
+Sıradaki: CAS-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

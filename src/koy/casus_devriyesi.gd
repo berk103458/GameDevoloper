@@ -38,7 +38,7 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
   d.bekliyor = true
   d.secim = -1
   y.set_meta(META,d)
-  olaylar.append({"anahtar":"Meşaleli devriye %s kişisini suçüstü gördü; %s tutanağı hazır.","deger":[k.ad,"hırsızlık" if x.durum == "hirsizlik" else "sabotaj"]})
+  olaylar.append({"anahtar":"Meşaleli devriye %s kişisini suçüstü gördü; %s tutanağı hazır.","deger":[k.ad,"zehirleme" if x.durum == "zehirleme" else "hırsızlık" if x.durum == "hirsizlik" else "sabotaj"]})
   return
 ## Aynı mevcut olay kartı; tutanak çözülene kadar yenisi üretilmez.
 static func olay(o: Oturum) -> OlayVerisi:

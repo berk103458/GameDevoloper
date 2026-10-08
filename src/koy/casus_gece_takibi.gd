@@ -6,6 +6,9 @@ const META := "casus_gece_takibi"
 ## Hazır hedef ve gerçek yaşayan köylü: meslek görevi/CHR metni ezilmez; sağlıklı nöbetçi hariç.
 static func plan(y: KoyYonetimi, k: Koylu) -> Dictionary:
  if y.son != "" or k == null or not CirakEgitimi.saglam(k) or IsKazalari.uyuyor(k) or MuhafizMaasi.aday(k, y) or KervanKorumasi.disarida(y, k.id): return {}
+ return hedef(y,k)
+## Aynı gerçek hedef seçimi; çağıran fiil motoru kendi kaynak/sağlık koşulunu doğrular.
+static func hedef(y: KoyYonetimi,k: Koylu) -> Dictionary:
  var tur := String(AYAR.profiller.get(String(k.adli_id), ""))
  if tur.is_empty(): return {}
  var binalar := y.binalar.duplicate()
@@ -21,7 +24,7 @@ static func oku(v: Variant) -> Dictionary:
  d.son_gece = KurtBaskini.oku(v.get("son_gece", -1))
  if not v.get("izler") is Array: return d
  for x in v.izler:
-  if not x is Dictionary or x.get("hedef") not in AYAR.hedefler or x.get("durum") not in ["hedef", "hirsizlik", "sabotaj"] or not x.get("goruldu") is bool: continue
+  if not x is Dictionary or x.get("hedef") not in AYAR.hedefler or x.get("durum") not in ["hedef", "hirsizlik", "sabotaj", "zehirleme"] or not x.get("goruldu") is bool: continue
   var g := KurtBaskini.oku(x.get("gun", -1))
   var k := KurtBaskini.oku(x.get("kisi", -1))
   var b := KurtBaskini.oku(x.get("bina", -1))
@@ -45,7 +48,7 @@ static func gece(y: KoyYonetimi) -> void:
   if not p.is_empty(): kaydet(y, k, String(p.hedef), int(p.bina), "hedef", "", 0, false)
 ## Var olan hırsızlık/sabotaj sonucunu kaydeder; suçun kendisi ve RNG mevcut motorlarda kalır.
 static func kaydet(y: KoyYonetimi, k: Koylu, hedef: String, bina: int, fiil: String, kaynak: String, kayip: int, goruldu: bool) -> void:
- if k == null or hedef not in AYAR.hedefler or fiil not in ["hedef", "hirsizlik", "sabotaj"]: return
+ if k == null or hedef not in AYAR.hedefler or fiil not in ["hedef", "hirsizlik", "sabotaj", "zehirleme"]: return
  var d := durum(y)
  var satir := {"gun":y.gun,"kisi":k.id,"bina":bina,"hedef":hedef,"durum":fiil,"kaynak":kaynak,"kayip":maxi(0,kayip),"goruldu":goruldu}
  for i in d.izler.size():
