@@ -1239,3 +1239,10 @@ Sıradaki: MEV-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Shared hay stock from wheat harvest and existing market; once per cold night actual base/owned animal death, production/haul/resale and same herd arrays reflect loss. 98 regression checks plus final unit/native UI and mirror checks passed; G MEV14-SAMAN placeholder registered.
 
 Sıradaki: MEV-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-15 (8 Ekim 2026)
+
+Storm narrows existing visible gate queue to 1 or 0; all visitors retained in order, waiting NPC stress uses CHR tension/panic. 33 regression checks plus final native and mirror import/unit/UI passed. No assets needed; G checked. MEV-14 clean committed opening cb22bf4 recorded.
+
+Sıradaki: CAS-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

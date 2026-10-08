@@ -117,6 +117,7 @@ func gelen_yaklas(model_adi: String) -> void:
 		_kuyruk_adlari.pop_front()
 		_kuyruk_yerleri.pop_back()
 	if bastaki == null:
+		KapiFirtinaKuyrugu.uzaktakini_al(self)
 		bastaki = Dunya3B.karakter(model_adi)
 		bastaki.position = BASLANGIC + Vector3(0, KapiManzarasi.yukseklik(BASLANGIC.x, BASLANGIC.z), 0)
 		add_child(bastaki)
@@ -141,7 +142,7 @@ func kuyruk_doldur(adlar: Array) -> void:
 	_bekleyenler.clear()
 	for i in adlar.size():
 		var ad := String(adlar[i])
-		if i >= KUYRUK_GORUNEN:
+		if i >= KapiFirtinaKuyrugu.kapasite(self):
 			_bekleyenler.append(ad)
 			continue
 		var k := Dunya3B.karakter(ad)
@@ -173,7 +174,7 @@ func kuyruk_sayilari() -> Vector2i:
 ## Kuyruğu ilerletir: her kişi kendi yerine yürür, öndekinden biraz sonra (dalga). Eksik yer varsa uzakta bekleyen
 ## biri sisin içinden çıkıp sonuna katılır.
 func _kuyruk_ilerle() -> void:
-	while _kuyruktakiler.size() < KUYRUK_GORUNEN and not _bekleyenler.is_empty():
+	while _kuyruktakiler.size() < KapiFirtinaKuyrugu.kapasite(self) and not _bekleyenler.is_empty():
 		var ad: String = _bekleyenler.pop_front()
 		var k := Dunya3B.karakter(ad)
 		k.position = kuyruk_yeri(_kuyruktakiler.size() + KATILMA_UZAKLIGI)

@@ -201,13 +201,13 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **MEV-12:** Mevsim / Takvim HUD (`src/arayuz/koy_hud/mevsim_takvim.gd` — **taslak hedef yol**) — Güncel mevsim, yıl günü ve kısa hava durumu göstergesi. (Codex)
 - [x] **MEV-13:** Soğuk Salgın Baskısı — Sert kışta hastalık riski ↑ → şifahane doluluk ve iş gücü düşüşü (KRI/saglik bağının mevsim tetikleyicisi; **taslak**). (Codex)
 - [x] **MEV-14:** Kış Ahır / Ağıl Saman İhtiyacı — Ortak saman ambarı/hasat/pazar; tek kış gecesi gerçek sürü ölümü, üretim/çeki kaybı ve kayıt. (Codex)
-- [/] **MEV-15:** Fırtınada Kapı Kuyruk Daralması — Tipi/fırtınada kuyruk kapasitesi 3→1/0; kalan NPC'lerde gerginlik ↑ (MEV-09 tamamlayıcı; **taslak**). (Codex)
+- [x] **MEV-15:** Fırtınada Kapı Kuyruk Daralması — Tipide görünür bekleme1/ağır tipide0; aynı ziyaret listesi, kalan gerçek NPC tansiyon/panik baskısı (MEV-09 tamamlayıcı). (Codex)
 
 ---
 
 ## BÖLÜM 8: [Yeni Özellik 2] Casus Soruşturması, Sabotaj ve Divan Yargılaması
 
-- [ ] **CAS-01:** Köy İçi Gece Sabotaj Takip Motoru — Şüphelilerin gece ambar/kuyu/cephanelik bayrakları.
+- [/] **CAS-01:** Köy İçi Gece Sabotaj Takip Motoru — Şüphelilerin gece ambar/kuyu/cephanelik bayrakları. (Codex)
 - [ ] **CAS-02:** Gece Devriyesi ve Şüpheli Yakalama Mini-Olayı — Fenerle suçüstü yakalama şansı.
 - [ ] **CAS-03:** Kuyu Zehirleme ve Salgın Tespiti — CHR_002/009 içeri alınmışsa banotu + sabah zehir.
 - [ ] **CAS-04:** Ambar Kundaklaması ve Yangın Söndürme Krizi — CHR_001/006; su zinciri.

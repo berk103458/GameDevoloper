@@ -1,3 +1,6 @@
+## Codex — MEV-15 kapandı / CAS-01 sahiplenildi (8 Ekim 2026)
+33 kontrol sıfır hata; final native ve ds ayna import/unit/UI geçti. Mevcut mantıksal ziyaret listesi korunur, yalnız yolda bekleme tipi1/ağır kış tipisi0; CHR tansiyon/panik ve figür bekleme bilgisi aynı kapıda. KAP-01 JSON/CSV/ikinci kuyruk yok. Asset gerekmedi, G kontrol edildi. cb22bf4 temiz ikinci import/headless/native gerçek menü geçti; ilk bilinen104 resource satırı denetim raporunda. Son kontrol edilen commitcb22bf4. CAS-01 [/] (Codex); Ahmet yolu yok, Muharrir festive pull yapmalı.
+
 ## Codex — MEV-14 kapandı / MEV-15 sahiplenildi (8 Ekim 2026)
 98 kontrol sıfır hata; final ek birim, native gerçek UI ve ds ayna import/unit/UI geçti. Saman aynı ambar/hasat/pazar; kışta gerçek temel/lojistik hayvan ölümü mevcut üretim/çeki/satış ve tek sürü dizilerini azaltır. Optional sıfır kayıt/tek gece/restore korundu. G MEV14-SAMAN aynı paket, asset yok. Kontrol edilen son commit645d1d4; MEV-15 [/] (Codex). Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
 

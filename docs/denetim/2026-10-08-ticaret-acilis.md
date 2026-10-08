@@ -29,3 +29,6 @@ Git archive yalnız commitli dosyalar, .godot/untracked yok. İlk import: 104 re
 
 ## MEV-10…13 commitli açılış kanıtı — 7532a23
 Git archive yalnız commitli dosyalar, önbellek/untracked yok. İlk import: 104 resource ERROR, 0 SCRIPT ERROR (bilinen çıkarılma sırası). İkinci import: 0 hata. Headless ve native gerçek Ana/Ses/menü bağımlılık testi GEÇTİ. MEV-13 91 regresyon da sıfır hata. Ahmet Windows yolu erişilemiyor, cihazında doğrulandı denmez.
+
+## MEV-14 commitli açılış kanıtı — cb22bf4
+Git archive cb22bf4, yalnız commitli kaynaklar; .godot/untracked yok. İlk import bilinen104 resource hata satırı, sıfır SCRIPT ERROR. İkinci import sıfır hata; headless/native gerçek Ana/Ses/menü bağımlılık testi geçti. Yerel kanıt work/cb22bf4_{first,second,menu,native_menu}.log ve cb22bf4_clean_summary.json. Ahmet yolu erişilemiyor; ilk import hatasız diye sunulmaz.

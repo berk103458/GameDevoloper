@@ -334,3 +334,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Soğuk hastalık baskısı](kis-hastaligi.md) — MEV-13, mevcut üretim/sağlık ve ortak şifahane slotu.
 
 - [Kış samanı ve sürü kaybı](saman-bakimi.md) — MEV-14, tek ortak ambar ve mevcut gerçek hayvan sayaçları.
+
+- [Fırtınada kapı bekleyişi](kapi-firtina-kuyrugu.md) — MEV-15, aynı gelen listesi ve tansiyon motoru.

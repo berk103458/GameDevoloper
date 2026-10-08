@@ -212,6 +212,7 @@ func _model_adi(g: Gelen) -> String:
 ## Defterdeki bilgi satırı: kaçıncı gece, kaçıncı gelen, sırada kaç kişi.
 func _bilgi_yaz() -> void:
 	_bilgi.text = tr("arayuz.kapi.bilgi") % [oturum.gosterilen_gece(), _gece_gelen, _kuyruk.size()]
+	KapiFirtinaKuyrugu.bilgi(oturum, _gelen, _bilgi)
 
 
 ## Yeni geceyi başlatır: kuyruk kurulur, ilk gelen kapıya yürür.
@@ -223,6 +224,7 @@ func gece_baslat() -> void:
 	for g in _kuyruk:
 		adlar.append(_model_adi(g))
 	var kuyruk_kaynaklari := await VarlikYuklemePaneli.hazirla(self, GirisVarliklari.karakterler(adlar))
+	KapiFirtinaKuyrugu.kur(oturum, sahne)
 	sahne.kuyruk_doldur(adlar)
 	await VarlikYuklemePaneli.bitir(self, kuyruk_kaynaklari)
 	_gece_gelen = 0
@@ -245,6 +247,7 @@ func _siradaki() -> void:
 		gece_bitti.emit({})
 		return
 	_gelen = _kuyruk.pop_front()
+	KapiFirtinaKuyrugu.beklet(oturum, _kuyruk, _gece_gelen + 1)
 	if _chr_muzik != null:
 		_chr_muzik.durdur()
 	_sorulan = []
@@ -567,7 +570,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	_adim_sesi(8)
 	await sahne.gelen_git(sonuc["kaldi"], _gelen.tehlikeli or not _gelen.adli)
 	# İki gelen arasında sırada bir şey olabilir.
-	var so := oturum.sira_olayi_sec(_kuyruk.size())
+	var so := KapiFirtinaKuyrugu.sira_olayi(oturum, sahne, _kuyruk.size())
 	if so != null and await _sira_olayi(so):
 		return
 	_siradaki()

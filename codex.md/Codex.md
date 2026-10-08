@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 645d1d4 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 645d1d4. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: cb22bf4 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: cb22bf4. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -145,15 +145,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - MEV-12: Existing HUD season label now shows year/day and short weather; no second panel or clock. Actual HUD boundaries, five weather presets, forced calendar distinction, restore and no side effects; 21 checks passed, native and mirror UI passed; asset gerekmedi.
 - MEV-13: Severe winter adds one bounded cold patient using existing negative production flag and health. Burns/cold share persisted daily Sifahane staff slots; own flag cleanup and no double treatment. 91 checks passed, final native readable patient card and mirror import/unit/UI passed; asset gerekmedi.
 - MEV-14: Shared hay stock from wheat harvest and existing market; once per cold night actual base/owned animal death, production/haul/resale and same herd arrays reflect loss. 98 regression checks plus final unit/native UI and mirror checks passed; G MEV14-SAMAN placeholder registered.
+- MEV-15: Storm narrows existing visible gate queue to 1 or 0; all visitors retained in order, waiting NPC stress uses CHR tension/panic. 33 regression checks plus final native and mirror import/unit/UI passed. No assets needed; G checked. MEV-14 clean committed opening cb22bf4 recorded.
 
 ## Sonraki çalışma
-MEV-15. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+CAS-01. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -271,5 +274,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## MEV-14 doğrulama
-98 kontrol sıfır hata; final genişletilmiş birim ve native mevcut bina/pazar/HUD/sürü testi geçti. İki ds kopyası import/unit/UI ile doğrulandı. Tek ortak saman, gerçek ölüm ve üretim/çeki/satış kaybı, JSON/tekrar/eski/sıfır sürü korunur. G MEV14-SAMAN aynı pakette; asset üretilmedi/indirilmedi. Kontrol edilen son commit645d1d4. MEV-15 [/] (Codex); Ahmet yolu erişilemiyor. Yenilenme doğrulandı, devam otomasyonu PAUSED.
+
+## MEV-15 doğrulaması
+33 kontrol sıfır hata; final native gerçek model/kapı/sıra/tansiyon, ds ayna import/unit/UI geçti. Tipi1/ağır kış tipisi0 görünür sıra, mevcut tüm ziyaretler/kimlikler ve uzak sıra tüketimi korundu. Aynı adım tansiyon tekrar koruması; mevcut panik/kilit. Asset gerekmedi, G kontrol edildi; KAP-01 JSON/CSV değişmez. Son kontrol edilen commitcb22bf4, temiz ikinci import/headless/native menü raporda; ilk bilinen resource sırası ayrı. Sıradaki CAS-01 [/] (Codex). Ahmet yolu erişilemiyor.

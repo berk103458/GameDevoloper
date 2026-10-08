@@ -5,9 +5,9 @@ Güncel 7 Ekim 2026 talimatı: Claude’a görev devri iptal. Codex otonom geli�
 ## Güncel sahiplik
 
 - Sorumlu Codex; Claude devri iptal, mesaj/geri alma yok.
-- 8 Ekim 2026 son tamamlanan MEV-13; önce TUC-12–15 ve MEV-01–10/12 kapandı. MEV-11 EKO-09 ortak hesabıyla zaten kapalı.
-- Son geliştirme MEV-14; kontrol edilen son commit645d1d4, önceki denetim checkpoint4c8495e, festive. 91 MEV-13 kontrolü geçti; yalnız commitli temiz ikinci import + headless/native gerçek menü geçti. İlk 104 resource satırı denetim raporunda, sıfır SCRIPT ERROR.
-- Sıradaki MEV-15 [/] (Codex); MEV-14 98 kontrol/final birim/native/ayna geçti. Güncel ayrıntı codex.md/Codex.md ve ROADMAP.md.
+- 8 Ekim 2026 son tamamlanan MEV-15; önce TUC-12–15 ve MEV-01–10/12 kapandı. MEV-11 EKO-09 ortak hesabıyla zaten kapalı.
+- Son geliştirme MEV-15; kontrol edilen son commitcb22bf4, önceki denetim checkpoint4c8495e, festive. 91 MEV-13 kontrolü geçti; yalnız commitli temiz ikinci import + headless/native gerçek menü geçti. İlk 104 resource satırı denetim raporunda, sıfır SCRIPT ERROR.
+- Sıradaki CAS-01 [/] (Codex); MEV-14 98, MEV-15 33 kontrol/final native/ayna geçti. cb22bf4 temiz ikinci import/headless/native menü geçti. Güncel ayrıntı codex.md/Codex.md ve ROADMAP.md.
 - İki ds kopyası bağımsız iş ve sırları koruyarak eşitlendi. Ahmet Windows yolu bu makinede yok; Muharrir güvenli pull yapmalı.
 - 8 Ekim 15:12 İstanbul canlı primary.usedPercent=0, ordinaryUsageAllowed=true doğrulandı; haftalık %85, engel yok. MEV-14 geliştirmesi başladı; aynı devam otomasyonu PAUSED. Festive güvenli pull 807c395, Claude devri yok.
 - Otomatik olgun paket commit/push yetkili; normal festive push, force-push yok. SYS-09 Cursor tarafından birleşti; CSV ancak güncel standart ve kaynak doğrulamasıyla.
