@@ -1,10 +1,10 @@
 # Cursor — Çalışma günlüğü (Kapı Muhafızı)
 
 ## Kimlik
-Cursor — Godot doğrulama ve ince adaptör. Bu turda ROADMAP boşluk doğrulaması: KAP-02, KAP-03, MEV-01, BUG-11, TUC-11, TUC-14.
+Cursor — Godot doğrulama ve ince adaptör. Bu turda KAP-02, KAP-03, BUG-11 ve TUC-11/14 notu.
 
 ## Şu an üzerinde çalışılan
-Altı madde kapatıldı veya notlandı. Yeni dosya ve ikinci sistem yok. TUC-12 ve Codex CAS dosyalarına dokunulmadı.
+KAP-02 ve KAP-03 `[x] (Cursor)`. BUG-11 eski notu düzeltildi. TUC-11/14 notları duruyor. MEV-01 satırına yazılmadı. Yeni dosya ve ikinci sistem yok. TUC/MEV/CAS kaynak dosyalarına dokunulmadı.
 
 ## Sonraki plan
 Festive PR. Yeni özellik yok. ODA-01 açılınca TUC-11 tekrar yazılmaz.
@@ -13,7 +13,7 @@ Festive PR. Yeni özellik yok. ODA-01 açılınca TUC-11 tekrar yazılmaz.
 - Dal: `cursor/roadmap-gap-verify-0b16`, taban `claude/festive-volta-li1sfm` (`59cbcc5`). Kilit `29a71c6`.
 - KAP-02 `[x] (Cursor)`: `tansiyon_yoneticisi.gd` yok. Aralık ve `tansiyon_delta` `ChrSorgusu` içinde; gösterge KAP-12. KAP-11 `ipucu_yoneticisi.gd` duruyor.
 - KAP-03 `[x] (Cursor)`: panel `src/arayuz/heybe_paneli.gd`. Kart açılışta 0.3→1. İpucu kartı KAP-14. BUG-15 testi `tests/unit/heybe/heybe_tik_test.gd`.
-- MEV-01 `[x] (Codex)` doğrulandı: `Takvim` → `MevsimYoneticisi`; Admin etkin mevsimi zorlar, günü ezmez; TUC-09 `y.mevsim()` aynı etkin mevsimi kullanır. Kalan kod farkı yok.
+- MEV-01 festive `59cbcc5` üzerinde zaten `[x] (Codex)`. Satır geri alındı; üzerine yazılmadı. MEV/TUC/CAS kaynak dosyalarına dokunulmadı.
 - BUG-11 notu: "BUG-08 hâlâ açık" silindi. BUG-08 kapalı.
 - TUC-14 notu: TUC-02 alış bitti; TUC-14 aynı `lojistik.hayvanlar` kaydının geri satışı ve çarpanı. İkinci sürü yok.
 - TUC-11 notu: kaçak mal pazar kartı envanteri. 3B oda ODA-01 `[ ]`; bağımlılık yazıldı.
