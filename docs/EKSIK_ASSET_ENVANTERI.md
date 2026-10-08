@@ -402,6 +402,11 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | MEV14-SAMAN | MEV-14 | Saman balyası kaynak ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (sarı ColorRect; data/saman_bakimi.json ikon_renk) | saman balyası yem kaynak ikonu; hay bale livestock feed resource icon | orta | Codex |
 | CAS05-DIVAN | CAS-05 | Meydan divan masası ve oturma sıraları | glTF | res://src/koy/gorsel/divan_meydani.gd (kur/_kutu: geçici BoxMesh masa/iki sıra) | medieval village court judge table benches; köy divanı masa sıralar | orta | Codex |
 | CAS07-ZINDAN | CAS-07 | Kapı zindan hücresi kapısı | glTF | res://src/koy/gorsel/divan_zindan_gorseli.gd (kur: BoxMesh kapı işareti) | medieval gate jail cell door; kapı zindan hücresi kapı | orta | Codex |
+| ODA01-ICMEKAN | ODA-01 | Oda zemin ve duvarları | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | muhafız odası iç mekan; medieval guard room interior | orta | Codex |
+| ODA01-YATAK | ODA-01 | Muhafız yatağı | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | ahşap ortaçağ yatağı; medieval wooden bed | orta | Codex |
+| ODA01-MASA | ODA-01 | Muhafız masası | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | muhafız ahşap masa; medieval guard desk | orta | Codex |
+| ODA01-MESALE | ODA-01 | Oda meşalesi | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | duvar meşale lambası; medieval wall torch | orta | Codex |
+| ODA01-KASA | ODA-01 | Gizli zemin kasası | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | gizli döşeme kasa; concealed floor strongbox | orta | Codex |
 
 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.

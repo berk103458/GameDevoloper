@@ -1,0 +1,13 @@
+{
+  "kamera": [8, 9, 11],
+  "kamera_boyutu": 12,
+  "parcalar": [
+    {"ad":"zemin", "boyut":[8,0.2,7], "yer":[0,-0.1,0], "renk":"554738"},
+    {"ad":"arka_duvar", "boyut":[8,2.8,0.2], "yer":[0,1.4,-3.5], "renk":"736858"},
+    {"ad":"yan_duvar", "boyut":[0.2,2.8,7], "yer":[-4,1.4,0], "renk":"736858"},
+    {"ad":"yatak", "etiket":"Yatak", "boyut":[1.7,0.6,2.6], "yer":[-2.5,0.3,-1.3], "renk":"9b8467"},
+    {"ad":"masa", "etiket":"Masa", "boyut":[2,0.9,1.2], "yer":[1,0.45,-1.7], "renk":"704b30"},
+    {"ad":"mesale", "etiket":"Meşale", "boyut":[0.2,1.3,0.2], "yer":[3,0.65,-2.8], "renk":"d99b3e"},
+    {"ad":"gizli_kasa", "etiket":"Zemin kasası", "boyut":[0.8,0.12,0.6], "yer":[0,0.06,1.5], "renk":"3b3024"}
+  ]
+}

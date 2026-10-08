@@ -12,7 +12,7 @@ static func kur(e: KoyEkrani,v: VBoxContainer) -> void:
  b.pressed.connect(func() -> void: ac(e))
 ## Aynı gece/olay modalı sırasında veya ikinci divanda giriş yok. Hız/pausa/kamera kapanışta geri gelir.
 static func ac(e: KoyEkrani) -> DivanEkrani:
- if e._gece_kilidi.kilitli() or e._ust_kart != null or e.has_node("DivanEkrani") or e.oturum.yonetim.son != "": return null
+ if e._gece_kilidi.kilitli() or e._ust_kart != null or e.has_node("DivanEkrani") or e.has_node("MuhafizOdasiEkrani") or e.oturum.yonetim.son != "": return null
  var eski_hiz := 0 if e.get_tree().paused else int(Engine.time_scale)
  e._hiz_sec(0)
  var s := e.sahne3b

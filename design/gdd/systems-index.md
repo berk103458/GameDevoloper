@@ -358,3 +358,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kundaklama Clue/Flag sözleşmesi](kundak-clue-sozlesmesi.md) — CAS-13, ortak helper ve mevcut bina kartında gerçek bulunan yük.
 
 - [Divan kanıt kartları](divan-kanit-kartlari.md) — CAS-14, aynı listede kaynak açıklaması ve mevcut sunma işlemi.
+
+- [Muhafız odası](muhafiz-odasi.md) — ODA-01, bağımsız kutu iç mekân ve mevcut köyden ince modal bağlantısı.

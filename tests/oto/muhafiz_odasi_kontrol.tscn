@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/oto/muhafiz_odasi_kontrol.gd" id="1"]
+[node name="MuhafizOdasiKontrol" type="Node"]
+script = ExtResource("1")

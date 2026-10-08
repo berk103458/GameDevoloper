@@ -1,3 +1,6 @@
+## Codex — ODA-01 kapandı / ODA-02 sahiplenildi (8 Ekim 2026)
+ODA01 36 kontrol sıfır hata; final gerçek fiziksel P/1/Escape tuşlu headless/native ve ds ayna import/UI geçti. Tek oda sahnesi, kendi World3D ve JSON kutu parçalar; köy yalnız bir helper çağrısı. Aynı yükseklikte yan yana divan/oda düğmeleri, karşılıklı modal kilit. Hız/duraklama geri dönüşü, kaynak/kasa/kişisel envanter/kayıt/RNG ve köy kamerası korunur. G ODA01-ICMEKAN/YATAK/MASA/MESALE/KASA doğrulandı; asset üretimi/indirme yok. Kontrol edilen son commit 4155203. ODA-02 [/] (Codex), mevcut kişisel kesenin oda kasası yüzeyi, ikinci ekonomi yok. Ahmet yolu erişilemiyor; iki ds kopyası eşit, Muharrir güvenli festive pull yapmalı.
+
 ## Codex — CAS-15 kapandı / ODA-01 sahiplenildi (8 Ekim 2026)
 CAS15 tek Clue→Divan sözleşmesi gerçek dosyalı sahiplik tablosuyla belgelendi; ikinci keşif/depo/veri alanı eklenmedi. Tüm30 CHR kabul/JSON, tekrar/foreign ilerleme koruması, açılış kaynak denetimi ve CSV kaynak doğrulaması geçti. Asset gerekmedi, envanter G kontrol edildi. Kontrol edilen son commit 820c6b8; KAP-02/03 ve BUG-07 Cursor kapalı. ODA-01 [/] (Codex): mevcut köyden açılan kutu iç mekân; mevcut kişisel kese/kaçak envanteri salt okunur, oda ekonomi işlemleri sonraki maddeler. İki ds kopyası eşitlendi; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
 
