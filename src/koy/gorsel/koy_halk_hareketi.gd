@@ -252,6 +252,7 @@ func _planla(id: int) -> void:
 		ZanaatTezgahi.esya(f, "")
 	son = SinsiGeceRutini.planla(self, k, bas, son)
 	if f.duzeltici() != null: f.duzeltici().hava_egimi = KarakterHavaTepkisi.egim(sahne.yonetim)
+	son = KervanKorumaGorseli.hedef(self, k, d, bas, son)
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false

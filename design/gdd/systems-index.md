@@ -306,3 +306,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Sipariş muhafız komisyonu](siparis-komisyonu.md) — TUC-13, mevcut teslimat ve zimmet.
 
 - [Canlı hayvan takası](canli-hayvan-takasi.md) — TUC-14, aynı sürü/kayıt ve sınırlı üretim katkısı.
+
+- [Kervan koruması](kervan-korumasi.md) — TUC-15, süreli aynı kışla görevi ve geçici güvenlik katkısı.

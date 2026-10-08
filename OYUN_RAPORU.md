@@ -1141,3 +1141,10 @@ Sıradaki: TUC-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Canli hayvan kamu geri satisi; mevcut kayit/barinak/ceki, tek uretim carpani ve satin alinan koc ayni coban surusunde. 54 kontrol final unit native ve ayna UI gecti. G TUC02-OKUZ/INEK/KOC TUC14 icin guncel; asset uretilmedi.
 
 Sıradaki: TUC-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-15 (8 Ekim 2026)
+
+Mevcut kislada sureli kervan korumasi: tek kamu pesinati, ayni kisi/atama/bordro, yerel etkin nobet ve gecici Guvenlik azalmasi. 68 kontrol final unit native ve ayna UI gecti; asset gerekmedi.
+
+Sıradaki: MEV-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

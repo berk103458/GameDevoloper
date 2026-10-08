@@ -1,3 +1,6 @@
+## Codex — TUC-15 tamamlandı / MEV-01 sahiplenildi (8 Ekim 2026)
+Hazır kışla nöbetçisi üç gün kervan koruması, ziyaret başına tek 12 kamu akçesi peşinatı. Aynı kişi/kışla/bordro korunur; etkin yerel savunma ve geçici Güvenlik -5, dönüşte aynı görev yüzeyi. koy_halk_hareketi yalnız tek helper çağrısı; kiralık figür köyde devriye çizmez. 68 kontrol, final unit, native görev/dönüş ve ds ayna import/UI geçti. Asset gerekmedi; G kontrol edildi. Tam paket normal festive push. TUC-14 04f9896 yalnız commitli temiz menü denetimi geçti, bilinen ilk import sırası raporda. Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı. MEV-01 [/] (Codex).
+
 ## Codex — TUC-14 tamamlandı / TUC-15 sahiplenildi (8 Ekim 2026)
 Mevcut Celep hayvan kaydından kamu geri satış (yarım fiyat), barınan öküz tarla/bostan ve inek/koç ağıl üretim desteği (üst ×1.5). Satın alınan koç aynı çoban sürüsü/yol dizisine katılır; satışta tek hayvan ve üç dizi birlikte küçülür. Çekirdeklerde yalnız ince çağrılar; koy_halk_hareketi değişmedi. 54 kontrol, final unit, native pazar/sürü ve ds ayna import/UI geçti. G TUC02-OKUZ/INEK/KOC aynı pakette TUC-14 için güncel; yalnız düz kutu, asset üretimi/indirme yok. Tam paket normal festive push. Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı. TUC-15 [/] (Codex).
 

@@ -278,7 +278,7 @@ func gosterge(i: int) -> int:
 		2:
 			return clampi(akce / 5, 0, 10)
 		3:
-			return (100 - yonetim.asayis_riski) / 10
+			return KervanKorumasi.guvenlik(yonetim) / 10
 	return 0
 
 

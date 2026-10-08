@@ -179,14 +179,14 @@ Not: ANI-04↔EKO-03, ANI-08↔UZM-01..05 konsolidasyon.
 - [x] **TUC-12:** Kapıda Tüccardan Geçiş Bacı ve Rüşvet Alma — resmi kayıt yerine şahsi `muhafiz_akce` hızlı giriş rüşveti → pazara anında geçiş. (Codex)
 - [x] **TUC-13:** Zanaat Sözleşmesinden Muhafız Komisyonu Aşırma — Work Order tesliminde kamudan gizlice %10–%20 komisyon şahsi keseye. (Codex)
 - [x] **TUC-14:** Canlı Hayvan Takas ve Sürüye Katılım — `koy_akce` ile inek/öküz → Ahır/Ağıl kapasitesi + 3B sahne + lojistik/üretim çarpanı. (Codex)
-- [/] **TUC-15:** Tüccar Kervanına Koruma Muhafızı Kiralama — kışladan geçici koruma; peşin akçe köye; kiralanan süre Güvenlik geçici düşer. (Codex)
+- [x] **TUC-15:** Tüccar Kervanına Koruma Muhafızı Kiralama — kışladan geçici koruma; peşin akçe köye; kiralanan süre Güvenlik geçici düşer. (Codex)
 Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhafiz_akce`.
 
 ---
 
 ## BÖLÜM 7: [Yeni Özellik 1] Mevsimler, Hava Durumu ve Kış Felaketi
 
-- [ ] **MEV-01:** 4 Mevsim Döngü Motoru (`src/dunya/mevsim_yoneticisi.gd`) — Her mevsim 7 gün; 28 günlük yıl.
+- [/] **MEV-01:** 4 Mevsim Döngü Motoru (`src/dunya/mevsim_yoneticisi.gd`) — Her mevsim 7 gün; 28 günlük yıl. (Codex)
 - [ ] **MEV-02:** Kış Soğuğu ve Don Mekaniği — Fazladan odun; biterse 1–3 köylü donar. **≡ EKO-09** (mevsim çarpanı / gece_sonu odun tüketimi; MEV-11 adaptör yüzeyi).
 - [ ] **MEV-03:** Donmuş Toprak ve Tarımsal Felç — Kışın bostan/tarla üretimi durur; yalnızca ambar.
 - [ ] **MEV-04:** Dinamik Kar Yağışı ve Zemin Kar Örtüsü Shader'ı — Zemin ve çatılarda kademeli kar.

@@ -27,6 +27,7 @@ var siparisler := SiparisSozlesmeleri.new()
 var tuccar_itibari: Dictionary = {}
 var tuccar_cezasi: Dictionary = {}
 var tuccar_girisi: Dictionary = {}
+var kervan_koruma: Dictionary = {}
 var akce: int = 0
 ## Oyunun günü (0'dan).
 var gun: int = 0
@@ -129,7 +130,7 @@ func muhafiz_sayisi() -> int:
 func etkin_muhafiz_sayisi() -> int:
 	var n := 0
 	for k in koylular:
-		if MuhafizMaasi.aday(k, self) and not MuhafizMaasi.borclu(k, self) and k.yas_grubu == &"yetiskin" and not IsKazalari.uyuyor(k) and not IsMemnuniyeti.isyanci(k, self): n += 1
+		if not KervanKorumasi.disarida(self, k.id) and MuhafizMaasi.aday(k, self) and not MuhafizMaasi.borclu(k, self) and k.yas_grubu == &"yetiskin" and not IsKazalari.uyuyor(k) and not IsMemnuniyeti.isyanci(k, self): n += 1
 	return n
 
 
@@ -322,6 +323,7 @@ func recete_sec(bina_id: int, recete: String) -> bool:
 
 ## Köylüyü bir yapının iş yuvasına atar (yapı hazır ve yuva boş olmalı).
 func ata(koylu_id: int, bina_id: int) -> bool:
+	if KervanKorumasi.disarida(self, koylu_id): return false
 	var k := koylu(koylu_id)
 	var b := bina(bina_id)
 	if k == null or b == null or not b.hazir() or katalog.slot(b.tur) == 0:
@@ -336,6 +338,7 @@ func ata(koylu_id: int, bina_id: int) -> bool:
 
 ## Köylüyü muhafız yapar (en çok `muhafiz_azami`).
 func muhafiz_ata(koylu_id: int) -> bool:
+	if KervanKorumasi.disarida(self, koylu_id): return false
 	var k := koylu(koylu_id)
 	if k != null and k.yas_grubu != &"yetiskin": return false
 	if k == null or (not MuhafizMaasi.aday(k, self) and muhafiz_sayisi() >= a.muhafiz_azami):
@@ -345,6 +348,7 @@ func muhafiz_ata(koylu_id: int) -> bool:
 
 
 func bosalt(koylu_id: int) -> void:
+	if KervanKorumasi.disarida(self, koylu_id): return
 	var k := koylu(koylu_id)
 	if k != null:
 		k.is_yeri = BOSTA
@@ -841,7 +845,7 @@ func kaydet() -> Dictionary:
 	for x in binalar:
 		b.append(x.kaydet())
 	return {"surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
-		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "tuccar_girisi": tuccar_girisi.duplicate(true), "husumet": husumet.kaydet(), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
+		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "tuccar_girisi": tuccar_girisi.duplicate(true), "kervan_koruma": kervan_koruma.duplicate(true), "husumet": husumet.kaydet(), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
@@ -862,6 +866,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	y.tuccar_itibari = SiparisTeslimati.oku(v.get("tuccar_itibari", {}))
 	y.tuccar_cezasi = SiparisIhlali.oku(v.get("tuccar_cezasi", {}))
 	y.tuccar_girisi = TuccarKapiGecisi.oku(v.get("tuccar_girisi", {}))
+	y.kervan_koruma = KervanKorumasi.oku(v.get("kervan_koruma", {}))
 	y.kaynaklar = Kaynaklar.kayittan(v.get("kaynaklar", {}))
 	for x in v.get("koylular", []):
 		y.koylular.append(Koylu.kayittan(x))

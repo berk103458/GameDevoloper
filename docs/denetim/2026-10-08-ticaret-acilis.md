@@ -14,3 +14,6 @@ Ahmet yolu C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi bu makinede yok
 
 ## TUC-12 / 6904f14 yalnız commitli kontrol
 Git archive 6904f14 ile .godot/untracked içermeyen yeni kopya. İlk import: 104 resource hata satırı, sıfır SCRIPT ERROR; önceki çeviri/glTF materializasyon sırası aynı. İkinci import sıfır hata. Headless ve native tests/oto/acilis_bagimlilik_kontrol.tscn gerçek Ana/Ses/menü ve bağımlılık kontrolü geçti. Yerel kanıt work/tuc12_clean_first.log, tuc12_clean_second.log, tuc12_clean_menu.log, tuc12_clean_native_menu.log. İlk import hatasız diye sunulmaz; Ahmet kopyası erişilemiyor.
+
+## TUC-14 / 04f9896 yalnız commitli kontrol
+Git archive 04f9896 ile .godot/untracked içermeyen kopya. İlk import 104 resource hata satırı ve sıfır SCRIPT ERROR: bilinen çeviri/glTF materializasyon sırası. İkinci import sıfır hata; headless/native gerçek Ana/Ses/menü bağımlılık testi geçti. Kanıt work/tuc14_clean_first.log, tuc14_clean_second.log, tuc14_clean_menu.log, tuc14_clean_native_menu.log. İlk import hatasız diye sunulmaz; Ahmet yolu erişilemiyor.

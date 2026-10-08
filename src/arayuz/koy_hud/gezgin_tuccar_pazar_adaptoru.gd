@@ -12,4 +12,5 @@ static func pazar(e: KoyEkrani, kok: VBoxContainer) -> Label:
  l.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
  SiparisIhlalPaneli.durum(e, l)
  SiparisSozlesmePaneli.kapi(e, kok, l)
+ KervanKorumaPaneli.ekle(e, kok)
  return l

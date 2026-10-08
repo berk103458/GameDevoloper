@@ -8,7 +8,7 @@ static func oku(o: Oturum, alan: String) -> int:
 	match alan:
 		"Refah": return EkonomikRefah.oku(o.yonetim)
 		"Erzak": return o.ambar
-		"Guvenlik": return 100 - o.yonetim.asayis_riski
+		"Guvenlik": return KervanKorumasi.guvenlik(o.yonetim)
 		"Moral", "Saglik":
 			if o.yonetim.koylular.is_empty():
 				return 100
