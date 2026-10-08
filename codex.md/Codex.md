@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 7532a23 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 9bc0a58. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: 4c8495e (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 9bc0a58. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -272,3 +272,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 ## MEV-14 başlangıç incelemesi
 7532a23 yalnız commitli temiz ikinci import/headless/native menü geçti; ilk resource sırası raporda. MEV-14 [/] (Codex), henüz mekanik kodu yazılmadı. Aynı lojistik hayvan sayacı korunacak; başlangıç dört ağıl koyununun gerçek kayıp sayısı optional kayıtla tutulmalı, sıfır sürü güvenle görselleştirilmeli. Saman ortak ambar türü ve tahıl hasadı yan ürünü olarak tasarlanacak; tek gecelik yem/kayıp makbuzu, üretim/çeki ve aynı sürü dizilerine ince bağlantı gerekiyor. Asset üretimi/indirme yok; yeni saman ikon ihtiyacı G tablosuna kapanış paketinde yazılacak. Tamamlanan işler remote ve iki ds kopyasında; Ahmet yolu yok.
+
+## Tam yenilenme devam kaydı
+Canlı son ölçüm primary.usedPercent=94, ordinaryUsageAllowed=true; limitin tükendiği iddia edilmez. Büyük MEV-14 yem/sürü paketi koduna girmeden temiz kontrol noktasında bırakıldı. Kullanıcının yüzde100 kullanılabilir hak koşuluyla aynı gamedevoloper-05-10-devam otomasyonu ACTIVE, 8 Ekim 15:12 İstanbul kontrolü; canlı reset15:11:23. Görev ancak usedPercent=0 ve kullanım izni doğrulanınca otomatik sürer; Claude devri/reset kredisi yok. Bu tur 16 madde kapandı (TUC-12–15, MEV-01–10/12/13), son denetim checkpoint4c8495e.

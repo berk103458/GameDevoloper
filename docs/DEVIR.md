@@ -6,9 +6,10 @@ Güncel 7 Ekim 2026 talimatı: Claude’a görev devri iptal. Codex otonom geli�
 
 - Sorumlu Codex; Claude devri iptal, mesaj/geri alma yok.
 - 8 Ekim 2026 son tamamlanan MEV-13; önce TUC-12–15 ve MEV-01–10/12 kapandı. MEV-11 EKO-09 ortak hesabıyla zaten kapalı.
-- Son geliştirmenin yayımlanan HEAD'i 7532a23, festive. 91 MEV-13 kontrolü geçti; yalnız commitli temiz ikinci import + headless/native gerçek menü geçti. İlk 104 resource satırı denetim raporunda, sıfır SCRIPT ERROR.
+- Son geliştirme 7532a23, denetim checkpoint 4c8495e, festive. 91 MEV-13 kontrolü geçti; yalnız commitli temiz ikinci import + headless/native gerçek menü geçti. İlk 104 resource satırı denetim raporunda, sıfır SCRIPT ERROR.
 - Sıradaki MEV-14 [/] (Codex): inceleme/tasarım başladı, henüz mekanik kodu yok. Güncel ayrıntı codex.md/Codex.md ve ROADMAP.md.
 - İki ds kopyası bağımsız iş ve sırları koruyarak eşitlendi. Ahmet Windows yolu bu makinede yok; Muharrir güvenli pull yapmalı.
+- Tam yenilenme devam otomasyonu aynı gamedevoloper-05-10-devam ACTIVE; 8 Ekim 15:12 İstanbul canlı primary.usedPercent=0 ve kullanım izni kontrolü. Son ölçüm %94 kullanılmış, henüz tükenmiş değil; MEV-14 kodu başlanmadı. Claude devri yok.
 - Otomatik olgun paket commit/push yetkili; normal festive push, force-push yok. SYS-09 Cursor tarafından birleşti; CSV ancak güncel standart ve kaynak doğrulamasıyla.
 - Asset üretimi/indirme yok; yeni dosya + ince adaptör, eski koy_sahnesi/ikinci HUD yok.
 

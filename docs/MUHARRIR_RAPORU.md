@@ -1,3 +1,6 @@
+## Codex — tam yenilenme devam zamanlaması (8 Ekim 2026)
+Bu tur 16 ROADMAP maddesi kapandı: TUC-12–15 ve MEV-01–10/12/13. Tamamlanan tüm kod festive/iki ds kopyasında; son denetim checkpoint4c8495e. Canlı son kullanım %94, kullanım izni açık; tükenmiş limit iddiası yok. MEV-14 inceleme aşaması, kod yok; büyük yem/sürü paketi yarım bırakılmadan kullanıcı yüzde100 hak koşuluyla aynı devam otomasyonu15:12 İstanbul kontrolüne ACTIVE yapıldı (canlı reset15:11:23). Yenilenme gerçekten doğrulanınca kaldığı yerden; Claude devri/kredi kullanımı yok. Asset gerekmedi. Ahmet yolu erişilemiyor.
+
 ## Codex — MEV-13 temiz açılış kontrol noktası (8 Ekim 2026)
 7532a23 yalnız commitli, önbelleksiz git archive: ilk 104 resource ERROR/0 SCRIPT ERROR; ikinci import sıfır hata. Headless/native gerçek Ana/Ses/menü geçti; denetim raporu güncel. DEVIR sahiplik kaydındaki eski ANI/EKO güncel başlığı düzeltildi; tarihsel Claude kayıtları uygulanmaz. MEV-14 incelemede, kod yazılmadı; tamamlandı denmez. Asset gerekmedi. Ahmet yolu erişilemiyor; iki ds kopyası/remote güncel.
 
