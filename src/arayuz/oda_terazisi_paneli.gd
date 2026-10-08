@@ -1,0 +1,23 @@
+## ODA-04: aynı oda listesinde salt okunur kişisel terazi; köy adalet HUD'ı çoğaltılmaz.
+class_name OdaTerazisiPaneli
+extends RefCounted
+## Güncel makbuzlar okunur; ekran gösterimi oyun state'ine yazmaz.
+static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
+ var d:=MuhafizTerazisi.durum(e.oturum)
+ var n:=VBoxContainer.new()
+ n.name="oda_terazisi"
+ n.add_theme_constant_override("separation",8)
+ v.add_child(n)
+ var l:=Label.new()
+ l.name="terazi_unvan"
+ l.text="%s\nAdalet %d · Yozlaşma %d"%[d.unvan,d.adalet,d.yozlasma]
+ l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+ n.add_child(l)
+ var p:=ProgressBar.new()
+ p.name="terazi_denge"
+ p.max_value=100
+ p.value=float(d.denge)
+ p.show_percentage=false
+ p.custom_minimum_size.y=20
+ p.tooltip_text="Sol: yozlaşmış derebeyi. Sağ: adil muhafız.\nRüşvet: %d karar · Zimmet: %d akçe · Onarılmamış haksız karar: %d"%[d.rusvet,d.zimmet,d.haksizlik]
+ n.add_child(p)

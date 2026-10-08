@@ -56,6 +56,7 @@ func _ready() -> void:
  bilgi.text="Yatak, masa, meşale ve zemin kasası.\n\nBurası muhafızın kişisel alanıdır. Köyün kamu kasası ve ambarı mevcut köy ekranında kalır."
  bilgi.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
  icerik.add_child(bilgi)
+ OdaTerazisiPaneli.kur(self,icerik)
  OdaKasasiPaneli.kur(self,icerik)
  OdaEnvanterSergisi.kur(self,icerik)
  var b:=Button.new()

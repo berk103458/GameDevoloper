@@ -1,3 +1,6 @@
+## Codex — ODA-04 kapandı / ODA-05 sahiplenildi (8 Ekim 2026)
+ODA04 40 kontrol sıfır hata; gerçek rüşvet/zimmet ve haksız hüküm/tazmin makbuzları, büyük/bozuk sınırlar, JSON ve saf tekrar okuma, native oda ve ds ayna import/UI geçti. Kişisel para varlığı suç değil; harcama geçmiş makbuzu silmez. Terazi mevcut adaleti değiştirmez; JSON denge varsayımı kayıtlı. İkinci skor/makbuz/HUD yok. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit b5da3c5. ODA-05 [/] (Codex), aynı oda yüzeyinden rüşvet bonusu ve günlük esnaf haraç dalı; kalıcı yetenek/tek gece makbuzu ve ince Oturum bağlantısı planı. Ahmet yolu erişilemiyor; iki ds kopyası eşit, Muharrir güvenli festive pull yapmalı.
+
 ## Codex — ODA-03 kapandı / ODA-04 sahiplenildi (8 Ekim 2026)
 ODA03 38 kontrol sıfır hata; final gerçek CHR rüşvet hediyesi, JSON birebir envanter, sıfır/satılmış eşya, büyük adet/uzun liste, native ve ds ayna import/UI geçti. Tek Oturum.muhafiz_esyalari; pozitif kayda tek satır, en çok8 masa kutusu, adet başına model yok. Oda paneli kaydırılabilir, dönüş düğmesi sabit; ham Clue kimliği UI metnine çıkmaz. G ODA03-ESYA doğrulandı, asset üretimi/indirme yok. Kontrol edilen son commit fccda0a. ODA-04 [/] (Codex), mevcut adalet/rüşvet/zimmet/haksızlık makbuzlarına bağlı salt okunur terazi. Ahmet yolu erişilemiyor; iki ds kopyası eşit, Muharrir güvenli festive pull yapmalı.
 

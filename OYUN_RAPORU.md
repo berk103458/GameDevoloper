@@ -1390,3 +1390,10 @@ Sıradaki: ODA-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Existing personal inventory rendered as read-only room rows and bounded table boxes; 38 checks and final native/mirror, real CHR gift, JSON, empty and long-list tests passed; asset needs in G.
 
 Sıradaki: ODA-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-04 (8 Ekim 2026)
+
+Pure justice/corruption view from existing bribe, embezzlement and unpaid injustice receipts; 40 checks and native/mirror passed, actual decisions and repair/JSON boundaries verified; asset gerekmedi.
+
+Sıradaki: ODA-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

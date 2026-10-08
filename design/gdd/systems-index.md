@@ -364,3 +364,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Gizli zemin kasası](oda-kasasi.md) — ODA-02, mevcut EKO kişisel kesenin aynı oda yüzeyi.
 
 - [Kişisel eşya sergisi](oda-envanter-sergisi.md) — ODA-03, tek Oturum envanteri, sınırlı kutu önizleme ve kaydırılabilir oda listesi.
+
+- [Muhafız terazisi](muhafiz-terazisi.md) — ODA-04, mevcut adalet/rüşvet/zimmet/haksızlık makbuzlarından saf görünüm.
