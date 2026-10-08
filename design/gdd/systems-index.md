@@ -274,3 +274,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - ANI-12: [Bekleme çeşitliliği](bekleme-cesitliligi.md) — kimlikten faz ofseti ve mevcut modifierde üç idle yer tutucusu.
 
 - ANI-13: [Köy zemin navigasyonu](koy-zemin-navigasyonu.md) — patika A* sırası, bina dışı NavigationRegion3D koridorları.
+
+- ANI-14: [Köylü takibi](koylu-takibi.md) — aynı kamera, mevcut köylü kartı seçimi ve tek billboard durum etiketi.

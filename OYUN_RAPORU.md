@@ -1027,3 +1027,10 @@ Sıradaki: ANI-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Mevcut patika A* sırası bina/arazi dışı NavigationRegion3D koridorlarına bağlandı; async hazırlık ve güncel güvenli rota yedeği, gerçek kapı/engel sorgusu ve kayıt/RNG korunumu doğrulandı. Asset gerekmedi.
 
 Sıradaki: ANI-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-14 (8 Ekim 2026)
+
+Mevcut köylü kartı seçimine aynı strateji kamerasıyla takip ve tek Label3D ad/zanaat/eylem etiketi bağlandı; WASD/sağ tık/yapı kipi iptali, zoom, figür kaybı, gizli bilgi ve kayıt/RNG korunumu doğrulandı. Asset gerekmedi.
+
+Sıradaki: ANI-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

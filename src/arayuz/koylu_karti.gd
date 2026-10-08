@@ -4,6 +4,7 @@ extends RefCounted
 static func ac(ekran: KoyEkrani, id: int) -> void:
 	var k := ekran.oturum.yonetim.koylu(id)
 	if k == null: return
+	KoyluTakibi.sec(ekran.sahne3b, id)
 	var y := ekran.oturum.yonetim
 	var v := ekran._kart_ac(k.ad + " · Köylü kartı")
 	var kulp := KoyluSuruklemeKulpu.new()

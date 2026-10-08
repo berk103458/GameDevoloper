@@ -211,6 +211,7 @@ func _savunma_satiri() -> void:
 
 
 func _kip_sec(k: String, tur: String = "") -> void:
+	KoyluTakibi.kip(sahne3b, k)
 	kip = k
 	_insa_turu = tur
 	_yon = 0
@@ -234,6 +235,7 @@ func _dunya_girdisi(olay: InputEvent) -> void:
 			MOUSE_BUTTON_WHEEL_DOWN:
 				sahne3b.yakinlas(-1.0)
 			MOUSE_BUTTON_RIGHT:
+				KoyluTakibi.temizle(sahne3b)
 				_kip_sec("")
 			MOUSE_BUTTON_LEFT:
 				if kip.is_empty():

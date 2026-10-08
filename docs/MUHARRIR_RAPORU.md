@@ -136,3 +136,9 @@ ANI-12 [x] (Codex); 27 ilgili kontrol/20 gece, native altı köylü ve ds ayna g
 ANI-13: tam sanity 154 kontrol, 0 hata (20 gece dahil); gerçek Vulkan ve GitHub klasöründe navigasyon UI geçti. Yeni engel gerçek server haritasından çıktı; geçersiz eski rota reddedildi. Asset gerekmedi. İki ds kopyası eşitlenir; Ahmet Windows yolu bu makinede yok, güncellendi iddiası yok. Sıradaki ANI-14 [/] (Codex).
 
 Paket: src/koy/gorsel/koy_zemin_navigasyonu.gd, data/koy_zemin_navigasyonu.json ve iki satırlık halk hareket adaptörü; testler, GDD/status dahil. Tek NavigationRegion3D; ayrı RTS/HUD yok. Olgun paket festive normal push; rapor repo üzerinden erişilebilir.
+
+## Codex — ANI-14 (8 Ekim 2026)
+
+ANI-14: 20 ilgili kontrol, 0 hata (20 gece dahil); Vulkan görüntüsü ve GitHub kopyasında takip UI geçti. Eski figür/kart/sürükle-atama yolu korundu; çekirdeğe sadece tek satırlık bağlantılar. Asset gerekmedi. İki ds kopyası eşitlenir; Ahmet Windows yolu burada yok. ANI-15 [/] (Codex) sıradaki.
+
+Paket: src/koy/gorsel/koylu_takibi.gd, data/koylu_takibi.json, mevcut kart/köy ekranına ince adaptörler; test, GDD ve raporlar dahil. İkinci kamera/HUD ve eski RTS yok. Native kanıt work/ani14_takip.png (yerel). Festive normal push; rapor repo üzerinden erişilebilir.
