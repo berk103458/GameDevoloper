@@ -243,13 +243,13 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **ODA-12:** Yozlaşma Skoru Runtime (`src/sistemler/yozlasma.gd` — **taslak hedef yol**) — Adalet↔yozlaşma terazisinin oturum alanı. (Codex)
 - [x] **ODA-13:** Müfettiş Teftiş Save-Slot Taraması — Gizli kasa içeriğinin teftiş olayında save/state üzerinden kontrolü. (Codex)
 - [x] **ODA-14:** Oda UI Kese Göstergesi — ODA-02 yüzeyi + EKO-11 `kese_gostergesi` (**taslak hedef yol**) köy/oda ortak gösterge. (Codex)
-- [/] **ODA-15:** Epilogue Dal Seçici — Yozlaşma/adalet skoruna göre oyun sonu kader dalları (ODA-10 tamamlayıcı). (Codex)
+- [x] **ODA-15:** Epilogue Dal Seçici — Yozlaşma/adalet skoruna göre oyun sonu kader dalları (ODA-10 tamamlayıcı). (Codex)
 
 ---
 
 ## BÖLÜM 10: [Yeni Özellik 4] Bölge Haritası, Dış Tehditler ve Haraç Diplomasisi
 
-- [ ] **HAR-01:** Stratejik Çevre Haritası UI (`src/arayuz/harita_ekrani.gd`) — Taşlık Hisar, Karaboran, Tekfur, göç yolları.
+- [/] **HAR-01:** Stratejik Çevre Haritası UI (`src/arayuz/harita_ekrani.gd`) — Taşlık Hisar, Karaboran, Tekfur, göç yolları. (Codex)
 - [ ] **HAR-02:** Kösedağ Moğol Akın Kolu Tehdit Sayacı — Ufukta yaklaşan öncü; kalan gün.
 - [ ] **HAR-03:** Bizans Tekfuru Haraç Heyeti — Her 6 günde altın/buğday; yoksa saldırı hazırlığı.
 - [ ] **HAR-04:** Selçuklu Sancak Beyi Asker Toplama Fermanı — Levent talebi; iş gücü vs. isyancı.

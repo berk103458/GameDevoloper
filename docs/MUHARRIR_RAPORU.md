@@ -1,3 +1,6 @@
+## Codex — ODA-15 kapandı / HAR-01 sahiplenildi (8 Ekim 2026)
+Altı source/API/epilogue/terazi/teftiş/gerçek Ana son UI kontrolü geçti. Tek MuhafizEpilogu.durum, gerçek terazi/kasa; köy sonucundan bağımsızlık, eşikler/teftiş önceliği/JSON/purity ve yüzde150 yazı ölçeği. ODA01–15 kapalı; ikinci seçici/kayıt/HUD yok. HAR-01 [/] (Codex), mevcut köyden açılan salt okunur çevre haritası planı; mekanik henüz yazılmadı, sonraki diplomasi/tehdit maddeleri bitmiş sayılmaz. Asset gerekmedi, envanter G kontrol edildi. İki ds kopyası eşit; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
+
 ## Codex — ODA-14 kapandı / ODA-15 sahiplenildi (8 Ekim 2026)
 Altı gerçek çift kasa/ortak kese/oda kasası/yetenek/geliştirme/API kontrolü geçti. Mevcut Hud ve OdaKasasiPaneli aynı KeseGostergesi sınıfını tek muhafiz_akce kaynağıyla kullanır; giriş/harcama/kapak/JSON güncellemesi korundu. Core/kod/CSV değişmedi. ODA-15 mevcut ODA10 MuhafizEpilogu seçicisinin tamamlayıcı sözleşme denetimi; ikinci seçici yok. Asset gerekmedi, envanter G kontrol edildi. İki ds kopyası eşit; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
 

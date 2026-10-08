@@ -1467,3 +1467,10 @@ Sıradaki: ODA-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Mevcut ortak KeseGostergesi, tek bakiye/oda-koy yenilemesi; 6 birim/UI/API kontrolu gecti. Ikinci HUD yok; asset gerekmedi.
 
 Sıradaki: ODA-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-15 (8 Ekim 2026)
+
+ODA10 tek kader secicisinin tamamlayici denetimi; 6 kaynak/API/birim/gercek son UI gecti. Ikinci secici yok; asset gerekmedi.
+
+Sıradaki: HAR-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
