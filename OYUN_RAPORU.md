@@ -1477,3 +1477,10 @@ Sıradaki: HAR-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 
 ## Codex — HAR-01 inceleme checkpoint
 ODA01–15 tamam ve push; harita henüz mekanik olarak yapılmadı. Yukarıdaki plan codex.md/Codex.md; asset gerekmedi (yalnız inceleme).
+
+
+## Codex — HAR-01 (8 Ekim 2026)
+
+Tek salt okunur cevre haritasi, dort bolge/gercek Tekfur sayaci; 70 regresyon ve final150/native/ayna gecti. Kasa/kamera/RNG/modal korunur; G HAR01-HARITA.
+
+Sıradaki: HAR-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

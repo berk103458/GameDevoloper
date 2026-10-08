@@ -386,3 +386,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Teftiş save/state sözleşmesi](teftis-kayit-sozlesmesi.md) — ODA-13, yüklenen tek state, izole slot ve güvenli yedek denetimi.
 
 - [Ortak kişisel kese göstergesi](oda-kese-gosterge-sozlesmesi.md) — ODA-14, mevcut EKO11/ODA02 tek bakiye ve ortak sınıf.
+
+- [Şematik çevre haritası](cevre-haritasi.md) — HAR-01, mevcut köyden tek modal ve dört salt okunur bölge.

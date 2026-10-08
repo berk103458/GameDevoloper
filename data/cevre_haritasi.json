@@ -1,0 +1,61 @@
+{
+  "arka": "181c22",
+  "harita_renk": "252b30",
+  "yol_renk": "6c7167",
+  "nokta_genislik": 220,
+  "nokta_yukseklik": 72,
+  "bolgeler": [
+    {
+      "id": "hisar",
+      "ad": "Taşlık Hisar",
+      "x": 0.28,
+      "y": 0.58,
+      "renk": "777b6d",
+      "metin": "Kapısını koruduğun yerleşim. Çevredeki yollar burada birleşir."
+    },
+    {
+      "id": "karaboran",
+      "ad": "Karaboran",
+      "x": 0.22,
+      "y": 0.2,
+      "renk": "6e5650",
+      "metin": "Dağ hattı ve eşkıya güzergâhı. Yol güvenliği köyün dışındaki tehlikelerle bağlantılıdır."
+    },
+    {
+      "id": "tekfur",
+      "ad": "Tekfur Hisarı",
+      "x": 0.75,
+      "y": 0.3,
+      "renk": "66576e",
+      "metin": "Tekfurun kuvvetlerinin geldiği hisar. Köyde yaşanan baskılar ve savunmalar aşağıda gösterilir."
+    },
+    {
+      "id": "goc_yolu",
+      "ad": "Göç yolları",
+      "x": 0.73,
+      "y": 0.76,
+      "renk": "716b53",
+      "metin": "Göçmen ve ticaret kafilelerinin köye ulaştığı yollar."
+    }
+  ],
+  "yollar": [
+    [
+      0.28,
+      0.58,
+      0.22,
+      0.2
+    ],
+    [
+      0.28,
+      0.58,
+      0.75,
+      0.3
+    ],
+    [
+      0.28,
+      0.58,
+      0.73,
+      0.76
+    ]
+  ]
+}

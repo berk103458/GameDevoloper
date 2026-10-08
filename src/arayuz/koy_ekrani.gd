@@ -150,6 +150,7 @@ func _alt_panel_kur() -> void:
 	nufus.pressed.connect(_nufus_ac)
 	DivanBaglantisi.kur(self, sag)
 	MuhafizOdasiBaglantisi.kur(self, sag)
+	HaritaBaglantisi.kur(self, sag)
 	var hizlar := HBoxContainer.new()
 	hizlar.add_theme_constant_override("separation", 4)
 	sag.add_child(hizlar)

@@ -249,8 +249,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 
 ## BÖLÜM 10: [Yeni Özellik 4] Bölge Haritası, Dış Tehditler ve Haraç Diplomasisi
 
-- [/] **HAR-01:** Stratejik Çevre Haritası UI (`src/arayuz/harita_ekrani.gd`) — Taşlık Hisar, Karaboran, Tekfur, göç yolları. (Codex)
-- [ ] **HAR-02:** Kösedağ Moğol Akın Kolu Tehdit Sayacı — Ufukta yaklaşan öncü; kalan gün.
+- [x] **HAR-01:** Stratejik Çevre Haritası UI (`src/arayuz/harita_ekrani.gd`) — Taşlık Hisar, Karaboran, Tekfur, göç yolları. (Codex)
+- [/] **HAR-02:** Kösedağ Moğol Akın Kolu Tehdit Sayacı — Ufukta yaklaşan öncü; kalan gün. (Codex)
 - [ ] **HAR-03:** Bizans Tekfuru Haraç Heyeti — Her 6 günde altın/buğday; yoksa saldırı hazırlığı.
 - [ ] **HAR-04:** Selçuklu Sancak Beyi Asker Toplama Fermanı — Levent talebi; iş gücü vs. isyancı.
 - [ ] **HAR-05:** Göç Kervanlarını Köye Çekme — Eşkıya temizliği → kervan uğrama ↑.

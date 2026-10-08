@@ -18,7 +18,7 @@ static func kur(e: KoyEkrani,v: VBoxContainer) -> void:
 
 ## Köyü duraklatır, bağımsız dünya açar; kapanışta yalnız önceki hız/duraklama geri gelir.
 static func ac(e: KoyEkrani) -> MuhafizOdasiEkrani:
- if e._gece_kilidi.kilitli() or e._ust_kart!=null or e.has_node("DivanEkrani") or e.has_node("MuhafizOdasiEkrani") or e.oturum.yonetim.son!="": return null
+ if e._gece_kilidi.kilitli() or e._ust_kart!=null or e.has_node("DivanEkrani") or e.has_node("MuhafizOdasiEkrani") or e.has_node("HaritaEkrani") or e.oturum.yonetim.son!="": return null
  var hiz:=0 if e.get_tree().paused else int(Engine.time_scale)
  e._hiz_sec(0)
  var d:=MuhafizOdasiEkrani.new()

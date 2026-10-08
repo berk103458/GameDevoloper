@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 1d71951 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 1d71951. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: cc404fc (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: cc404fc. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -176,15 +176,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - ODA-13: Gercek iki izole save/state ve yedek tam gece teftisi; 6 import/API/birim/UI kontrolu ve ayna gecti. Tek state kaynagi, ikinci slot motoru yok; asset gerekmedi.
 - ODA-14: Mevcut ortak KeseGostergesi, tek bakiye/oda-koy yenilemesi; 6 birim/UI/API kontrolu gecti. Ikinci HUD yok; asset gerekmedi.
 - ODA-15: ODA10 tek kader secicisinin tamamlayici denetimi; 6 kaynak/API/birim/gercek son UI gecti. Ikinci secici yok; asset gerekmedi.
+- HAR-01: Tek salt okunur cevre haritasi, dort bolge/gercek Tekfur sayaci; 70 regresyon ve final150/native/ayna gecti. Kasa/kamera/RNG/modal korunur; G HAR01-HARITA.
 
 ## Sonraki çalışma
-HAR-01. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+HAR-02. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -286,8 +289,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## ODA-15 doğrulaması / HAR-01 planı
-Altı source/API/epilogue/terazi/teftiş/gerçek Ana son UI kontrolü geçti. Tek MuhafizEpilogu.durum, gerçek terazi/kasa; köy sonucundan bağımsızlık, eşikler/teftiş önceliği/JSON/purity ve yüzde150 yazı ölçeği. ODA01–15 kapalı; ikinci seçici/kayıt/HUD yok. HAR-01 [/] (Codex), mevcut köyden açılan salt okunur çevre haritası planı; mekanik henüz yazılmadı, sonraki diplomasi/tehdit maddeleri bitmiş sayılmaz. Asset gerekmedi, envanter G kontrol edildi. İki ds kopyası eşit; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
 
-## HAR-01 inceleme ve devam kontrol noktası
-HAR-01 inceleme kontrol noktası: festive1d71951 güvenli pull. KoyEkrani sağ eylem grubunda mevcut DivanBaglantisi/MuhafizOdasiBaglantisi modal/hız protokolü kullanılacak; HaritaBaglantisi yeni helper ve tek kur çağrısı. Harita yeni HaritaEkrani, veri ayarlı şematik ColorRect kutuları/etiketleri: Taşlık Hisar, Karaboran, Tekfur, göç yolu. Gerçek coğrafya/mesafe veya HAR02–15 için uydurma sayaç/olay yok; mevcut köy/tekfur durumunu salt okunur göster. HAR01 mekanik henüz yazılmadı, [/] Codex. HAR02–15 hâlâ bekleyen. Asset üretme/indirme yok; ihtiyaç varsa aynı pakette envanter G harita görseli, yoksa asset gerekmedi. ODA01–15 commit/push kapalı, ODA10 67+final kontroller ve ODA11–15 altışar kontrol geçti; ODA13 aynada da yeni slot testi. Güncel amaç haritadır; Claude devri yok. Aynı devam otomasyonu canlı primary=0/ordinaryAllowed doğrulamasıyla 8 Ekim22:39 İstanbul kontrolüne güncellendi; son canlı reset22:38:56. Reset kredisi/model değiştirme yok. İki ds kopyası eşit; Ahmet yolu erişilemiyor.
+## HAR-01 doğrulaması / HAR-02 planı
+HAR01 70 regresyon sıfır hata; final birim/headless/native ve ds ayna import/UI geçti. Mevcut köy grubunda tek harita düğmesi; dört bölge/gerçek Tekfur sayacı, tek bilgi alanı, şematik kutu/şerit ve source kopya/JSON. Karşılıklı modal, klavye P/1 bloklama, Esc/geri, eski0/2 hız, olay/terminal reddi ve kasa/kamera/RNG korundu. HAR01-HARITA envanter G içinde; asset üretimi/indirme yok. Kontrol edilen son commitcc404fc. Canlı22:39 primary0 ordinaryAllowed=true ve haftalık16 engel yokla başlandı; aynı devam otomasyonu PAUSED. HAR-02 [/] (Codex), gerçek gün üzerinden dış JSON ayarlı Moğol öncü uyarı sayacı; savaşı/terminali/haraç paketini bu maddeye katma. İki ds kopyası eşit; Ahmet yolu erişilemiyor, Muharrir güvenli festive pull yapmalı.
