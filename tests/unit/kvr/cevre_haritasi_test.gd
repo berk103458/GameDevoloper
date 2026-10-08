@@ -6,6 +6,7 @@ func _initialize() -> void:
  var once:=JSON.stringify(o.kaydet())
  var rng:=o._rng.state
  assert(CevreHaritasi.bolgeler().size()==4)
+ assert(CevreHaritasi.bilgi(o,"hisar").metin.contains("Gün: 1"))
  for id in ["hisar","karaboran","tekfur","goc_yolu"]:
   var d:=CevreHaritasi.bilgi(o,id)
   assert(not d.is_empty() and not String(d.ad).is_empty() and not String(d.metin).is_empty())

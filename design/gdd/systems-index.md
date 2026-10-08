@@ -396,3 +396,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Sancak asker toplama fermanı](sancak-asker-talebi.md) — HAR-04, mevcut kartta gerçek iş gücü/açık iş reddi seçimi.
 
 - [Göç yolu güvenliği](goc-yolu-guvenligi.md) — HAR-05, gerçek husumet temizliği ve aynı kuyruğa ek ziyaret.
+
+- [Gözcü kulesi ve erken uyarı](gozcu-kulesi.md) — HAR-06, mevcut maliyetli tür ve saf ertesi gün öngörüsü.

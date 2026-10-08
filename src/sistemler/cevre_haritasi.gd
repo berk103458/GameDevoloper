@@ -11,7 +11,7 @@ static func bilgi(o: Oturum,id: String) -> Dictionary:
  for b in AYAR.bolgeler:
   if String(b.id)!=id: continue
   var s:=String(b.metin)
-  if id=="hisar": s+="\n\nGün: %d · Nüfus: %d\n\n"%[o.gun,o.yonetim.nufus()]+MogolOncusu.metin(o)
+  if id=="hisar": s+="\n\nGün: %d · Nüfus: %d\n\n"%[o.gosterilen_gece(),o.yonetim.nufus()]+MogolOncusu.metin(o)+"\n\n"+GozcuOngoru.metin(o)
   elif id=="tekfur": s+="\n\nTekfur baskısı: %d\nSavuşturulan baskın: %d"%[o.yonetim.tekfur_baski,o.yonetim.savusturulan]
   elif id=="goc_yolu": s+="\n\n"+GocYoluGuvenligi.tip(o)
   return {"ad":String(b.ad),"metin":s}

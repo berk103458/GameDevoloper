@@ -34,7 +34,7 @@ func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	var baslik := HBoxContainer.new()
 	baslik.add_theme_constant_override("separation", 10)
 	v.add_child(baslik)
-	baslik.add_child(KaynakGostergesi.ikon(IKONLAR.get(tur, "kulube"), 38))
+	baslik.add_child(GozcuKulesiGorseli.ikon(38) if tur==GozcuKulesi.TUR else KaynakGostergesi.ikon(IKONLAR.get(tur, "kulube"), 38))
 	var ad := _etiket(MeslekYapilari.ad(tur), ayarlar.boyut(20))
 	ad.add_theme_font_override("font", Tema.koy_baslik_fontu())
 	baslik.add_child(ad)

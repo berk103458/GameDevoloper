@@ -275,6 +275,9 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 	if not b.hazir():
 		_iskele(n, en, derin)
 		return n
+	if b.tur==GozcuKulesi.TUR:
+		GozcuKulesiGorseli.kur(n)
+		return n
 	match b.tur:
 		"cadir":
 			n.add_child(Dunya3B.nesne("cadir", 2.3, "yapi"))

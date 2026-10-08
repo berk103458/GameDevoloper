@@ -1,0 +1,13 @@
+{
+  "ad": "Gözcü Kulesi",
+  "aciklama": "Tek sağlıklı yetişkin gözcü atanırsa Harita / Hisar bilgisinde ertesi günün isim ve sınıf öngörüsü açılır. Gece/olay kararları öngörüyü değiştirebilir.",
+  "yapi": {"kategori":"savunma","kurulabilir":true,"boyut":[2,2],"maliyet":{"odun":8,"tas":4,"kereste":2,"akce":10},"slot":1,"insa_gun":2},
+  "saglik_min": 50,
+  "kutu_boyut": [1.8,5.0,1.8],
+  "renk": "75664d",
+  "baslik": "Gözcü öngörüsü · %d. gün",
+  "kapali": "Gözcü öngörüsü kapalı: hazır kuleye sağlıklı yetişkin gözcü atayın.",
+  "not": "Gece/olay kararları ve sonraki gelişmeler öngörüyü değiştirebilir. İsim/sınıf yalnız yol gözlemidir; gizli bayrak, heybe veya suç kanıtı değildir.",
+  "belirsiz": "Gece gelişmeleri nedeniyle yol öngörüsü üretilemedi.",
+  "azami_aday": 8
+}

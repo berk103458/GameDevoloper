@@ -1512,3 +1512,10 @@ Sıradaki: HAR-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 91 checks passed; native/mirror same market and queue; asset gerekmedi
 
 Sıradaki: HAR-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — HAR-06 (8 Ekim 2026)
+
+99 regression checks; final real tower and next-day public-name forecast unit/headless/native/mirror PASS; BoxMesh/ColorRect placeholders recorded in G; actual day1 label verified.
+
+Sıradaki: HAR-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

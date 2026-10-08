@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: b54c558 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: b54c558. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: eeae06a (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: eeae06a. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -181,15 +181,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - HAR-03: 74 checks passed; same six-night public wheat tribute; native/mirror verified; HAR03-HEYET inventory
 - HAR-04: 80 checks passed plus actual native gate; full intended package; asset gerekmedi
 - HAR-05: 91 checks passed; native/mirror same market and queue; asset gerekmedi
+- HAR-06: 99 regression checks; final real tower and next-day public-name forecast unit/headless/native/mirror PASS; BoxMesh/ColorRect placeholders recorded in G; actual day1 label verified.
 
 ## Sonraki çalışma
-HAR-06. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+HAR-07. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -306,5 +309,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## HAR-05 doğrulaması / HAR-06 planı
-HAR-05 kapandı: 91 regresyon sıfır hata; birim/headless/native pazar+harita, ds ayna import/UI geçti. Gerçek husumet sızma eşiğinde en güçlü2 etkin muhafız; toplam stat10 başarılı, kişi başı5 sağlık bedeli, aynı gün soyut görev. Başarı husumet20/asayiş5 azalır, başarısız asayiş3 artar; dış JSON varsayımı. Para ve görev RNG korunur, çocuk/zindan/dış görev ve tekrar/JSON/terminal/bozuk makbuz engellendi. Başarı aynı mevcut kuyruğa iki ayrı gün birer normal göç figürü ekler; gerçek heybe/kabul/ret, otomatik kabul/ikinci kuyruk/savaş döngüsü yok. HAR14 özel tüccar akışı henüz kapanmadı. Pazar tek eylem/gerçek güç ve sonuç; mevcut göç yolu bilgi alanı saf. Asset gerekmedi, G kontrol edildi; mevcut figür/kart kullanılır, asset üretilmedi/indirilmedi. Kontrol edilen son commit b54c558. HAR-06 [/] (Codex): mevcut chr_hedef nobetci_kulesi türünü ince katalog adaptörüyle gerçek maliyetli/slotlu yapı yap; tek kutu yer tutucu ve G. Gerçek sağlıklı gözcüyle ertesi gün isim/sınıf öngörüsü salt okunur izole runtime üzerinden; kaynak RNG/kuyruk/defter/resource ve gizli bilgiyi koru, gece/olay kararları öngörüyü değiştirebilir diye belirt. Mekanik henüz yazılmadı. İki ds kopyası eşit; Ahmet yolu erişilemiyor, Muharrir güvenli festive pull yapmalı.
+
+## HAR-06 doğrulaması / HAR-07 planı
+HAR-06 kapandı: 99 regresyon sıfır hata; final birim/headless/native kule+harita, gün1 harita kontrolü ve ds ayna import/UI geçti. Var olan nobetci_kulesi gerçek maliyet8odun4tas2kereste10akçe/2gece/tek gözcü slotu ile kurulabilir. Tamamlanmış kulede yetişkin sağlıklı, zindanda/dış görevde/uykuda/isyan halinde olmayan gerçek çalışan şartı. İzole JSON runtime + özel ayar Resource kopyaları gerçek ertesi gece/kuyruğu simüle eder; yalnız isim/sınıf gösterir. Kaynak RNG, kayıt, katalog ve iki kasa korunur; tekrar/JSON aynı sonuç, gerçek ertesi kuyruk eşleşmesi geçti. Gece seçimleri sonucu değiştirebilir uyarısı görünür; HAR13 ek kafile özeti kapanmadı. Tek BoxMesh/ColorRect yer tutucu; HAR06-KULE/HAR06-IKON envanter G aynı pakette doğrulandı, asset üretilmedi/indirilmedi. Harita gün numarası kullanıcıdaki1 tabanına düzeltildi. Önceki temiz commit eeae06a ilk104 resource/0SCRIPT, ikinci0 ve headless/native gerçek menü0; denetim raporunda. Kontrol edilen son commit eeae06a. HAR-07 [/] (Codex): dış JSON denge ile mevcut Pazar kartında tek oba ittifakı adaptörü; buğday karşılığı mevcut beygir lojistik/barınak kaydı veya gerçek asker köylü, atomik kapasite/yatak kontrolü, mevcut bayrakta ittifak ve günlük makbuz. İkinci hayvan/para/nüfus motoru veya üreme mekaniği uydurma. Mekanik henüz yazılmadı. İki ds kopyası eşit; Ahmet yolu erişilemiyor, Muharrir güvenli festive pull yapmalı.
