@@ -1302,3 +1302,10 @@ Sıradaki: CAS-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 31 checks; actual third-night single shared raid, JSON and duplicate protection, native/mirror passed; asset gerekmedi.
 
 Sıradaki: CAS-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-09 (8 Ekim 2026)
+
+33 checks plus final actual-night unit; anonymous allegation is not guilt, immutable secrets/RNG/resources, one pending card, JSON/UI/native/mirror passed; asset gerekmedi.
+
+Sıradaki: CAS-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

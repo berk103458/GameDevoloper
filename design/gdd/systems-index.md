@@ -351,3 +351,4 @@ Döngü yok. Dikkat edilen yakın döngüler:
 
 - [Üçlü divan hükmü](divan-hukmu.md) — CAS-07, tek makbuz ve gerçek nüfus sonuçları.
 - [Karaboran intikam baskını](karaboran-intikami.md) — CAS-08, zindan hükmünün üçüncü gecesinde tek ortak husumet sonucu.
+- [Fısıltı gazetesi ve imzasız pusula](fisilti-gazetesi.md) — CAS-09, mevcut sabah kartında kanıt sayılmayan iddia.

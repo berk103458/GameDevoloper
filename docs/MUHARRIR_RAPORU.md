@@ -1,3 +1,6 @@
+## Codex — CAS-09 kapandı / CAS-10 sahiplenildi (8 Ekim 2026)
+33 kontrol sıfır hata ve final gerçek Oturum.gece_sonu birim kontrolü; native imzasız iddia/arşiv ve ds ayna import/unit/UI geçti. Tek pending, iki seçim/çift tıklama/JSON/bozuk kayıt, suçüstü önceliği; gizli kimlik/fiil metne sızmaz, masum söylenti kanıt/divan adayı değildir. Kasa/stok/RNG/kişi korundu. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commitbe86e32; CAS-10 [/] (Codex), kanıtsız hükmün ayrı görünür haksızlık sonucu planı. Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
+
 ## Codex — CAS-08 kapandı / CAS-09 sahiplenildi (8 Ekim 2026)
 31 kontrol sıfır hata; gerçek üçüncü gece tek ortak baskın, iki önceki gece etkisiz, kayıt dönüşü/teslim sonrası tekrar/ölüm/başka kişi/karar/terminal reddi. Native sabah raporu ve ds ayna import/unit/UI geçti. Aynı gecede doğal ikinci baskın yok; husumet sönümü/eski stok/yaralanma sonucu korundu. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commitc6666a1; CAS-09 [/] (Codex), imzasız söylenti gerçek suç kanıtı olmayacak. Ahmet yolu yok, Muharrir güvenli festive pull yapmalı. c6666a1 yalnız commitli temiz ikinci import/headless/native menü sıfır hata; ilk bilinen104 resource ERROR,0 SCRIPT raporda.
 
