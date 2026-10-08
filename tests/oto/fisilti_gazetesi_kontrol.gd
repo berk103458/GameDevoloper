@@ -31,7 +31,7 @@ func _ready() -> void:
   get_viewport().get_texture().get_image().save_png(dizin.path_join("cas09_pusula.png"))
  al.pressed.emit()
  await get_tree().process_frame
- assert(not FisiltiGazetesi.durum(y).bekliyor and y.akce == kamu and y.kaynaklar.kaydet() == stok and CasusGeceTakibi.acik_izler(y).is_empty() and DivanOturumu.adaylar(y).is_empty() and k.ad=="Masum komşu")
+ assert(not FisiltiGazetesi.durum(y).bekliyor and y.akce == kamu and y.kaynaklar.kaydet() == stok and CasusGeceTakibi.acik_izler(y).is_empty() and not DivanHukmu.verildi(y,k.id) and k.ad=="Masum komşu")
  var once := JSON.stringify(o.kaydet())
  assert(not o.olay_uygula(olay,0).ok and JSON.stringify(o.kaydet()) == once)
  ana.kayit.sil()

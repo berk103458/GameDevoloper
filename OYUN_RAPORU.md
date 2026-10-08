@@ -1309,3 +1309,10 @@ Sıradaki: CAS-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 33 checks plus final actual-night unit; anonymous allegation is not guilt, immutable secrets/RNG/resources, one pending card, JSON/UI/native/mirror passed; asset gerekmedi.
 
 Sıradaki: CAS-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-10 (8 Ekim 2026)
+
+35 checks plus final native/pose/clue regressions; unjust rumor jail, documented sibling departure, public compensation and JSON release passed; asset gerekmedi.
+
+Sıradaki: CAS-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

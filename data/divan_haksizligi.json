@@ -1,0 +1,8 @@
+{
+  "moral": -20,
+  "adalet": -15,
+  "tazminat": 10,
+  "onarim_moral": 5,
+  "onarim_adalet": 5,
+  "aile_ciftleri": [["chr_001", "chr_004"]]
+}

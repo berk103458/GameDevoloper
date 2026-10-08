@@ -216,9 +216,9 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **CAS-07:** Üçlü Yargı Kararı: Zindan, Sürgün, İnfaz — Asayiş↑ Moral↓ tradeoff. (Codex)
 - [x] **CAS-08:** Çete İntikam Baskını Tetikleyicisi — CHR_004 zindanda → 3 gece sonra Karaboran baskını. (Codex)
 - [x] **CAS-09:** Köylü İhbar Mektupları ve Fısıltı Gazetesi — Sabah imzasız şüphe pusulaları. (Codex)
-- [/] **CAS-10:** Sahte Suçlama ve Haksız Yargı Tazminatı — Masum zindan → aile terk + Moral çöküşü. (Codex)
+- [x] **CAS-10:** Sahte Suçlama ve Haksız Yargı Tazminatı — Masum zindan → aile terk + Moral çöküşü. (Codex)
 
-- [ ] **CAS-11:** `Clue_*` → Divan Kanıt Listesi Bağlayıcı (`src/kapi/divan_kanit.gd` — **taslak hedef yol**) — Kapı sorgu ipuçlarını divan yargılamasına taşıyan köprü.
+- [/] **CAS-11:** `Clue_*` → Divan Kanıt Listesi Bağlayıcı (`src/kapi/divan_kanit.gd` — **taslak hedef yol**) — Kapı sorgu ipuçlarını divan yargılamasına taşıyan köprü. (Codex)
 - [ ] **CAS-12:** Kuyu Zehirleme Clue/Flag Tetikleyici — CHR_002/009 içeri alındığında banotu + sabah zehir olayını `Flag_*`/`Clue_*` sözleşmesine bağlama.
 - [ ] **CAS-13:** Ambar Kundaklama Clue/Flag Tetikleyici — CHR_001/006 kundak riskini mevcut Clue/Flag sözleşmesine bağlama.
 - [ ] **CAS-14:** Divan Kanıt Sunum UI — Kapıda toplanan `Clue_*` kartlarının divan sahnesinde gösterimi (CAS-05/`divan_ekrani` — **taslak hedef**).

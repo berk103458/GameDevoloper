@@ -81,8 +81,9 @@ func _goster(id: int) -> void:
   metin += "• %d. gece · %s · %s · kayıp %d %s\n" % [int(x.gun)+1,{"hirsizlik":"Hırsızlık","sabotaj":"Sabotaj","zehirleme":"Zehirleme","kundaklama":"Kundaklama"}.get(String(x.durum),"Fiil"),{"ambar":"Ambar","kuyu":"Kuyu","cephanelik":"Cephanelik"}.get(String(x.hedef),"Hedef"),int(x.kayip),{"gida":"erzak","saglik":"toplam sağlık","alet":"alet"}.get(String(x.kaynak),String(x.kaynak))]
  DivanSorguPaneli.kur(self,_liste,id)
  DivanHukumPaneli.kur(self,_liste,id)
+ DivanHaksizlikPaneli.kur(self,_liste,id)
  kisi_secildi.emit(id)
- _bilgi.text = metin+"\nTutanak incelemesi; henüz hüküm verilmedi."
+ _bilgi.text = metin+"\n"+DivanHaksizlikPaneli.aciklama(y,id)
 ## Divan modalında köy kısayolları ve kamera hareketi tüketilir; Escape geri döner.
 func _unhandled_input(e: InputEvent) -> void:
  if e is InputEventKey:

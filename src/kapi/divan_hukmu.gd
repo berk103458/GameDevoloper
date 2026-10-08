@@ -32,12 +32,13 @@ static func kalan(y: KoyYonetimi) -> int:
 ## Canlı kişi, gerçek açık fiil, bir hüküm; dış görev ve dolu hücre güvenli reddedilir.
 static func uygun(o: Oturum,id: int,karar: String) -> bool:
  var y:=o.yonetim
- return karar in KARARLAR and y.son=="" and not verildi(y,id) and y.koylu(id)!=null and y.koylu(id).saglik>0 and not KervanKorumasi.disarida(y,id) and not DivanOturumu.izler(y,id).is_empty() and (karar!="zindan" or kalan(y)>0)
+ return karar in KARARLAR and y.son=="" and not verildi(y,id) and y.koylu(id)!=null and y.koylu(id).saglik>0 and not KervanKorumasi.disarida(y,id) and (not DivanOturumu.izler(y,id).is_empty() or (karar=="zindan" and DivanHaksizligi.suphe(y,id))) and (karar!="zindan" or kalan(y)>0)
 ## Gerçek tek karar; kamu/kişisel para ve kaynak RNG değişmez. Tek sosyal denge delta.
 static func uygula(o: Oturum,id: int,karar: String) -> bool:
  if not uygun(o,id,karar): return false
  var y:=o.yonetim
  var k:=y.koylu(id)
+ var haksiz:=karar=="zindan" and DivanOturumu.izler(y,id).is_empty()
  var d:=durum(y)
  d[str(id)]={"gun":y.gun,"karar":karar,"adli_id":String(k.adli_id)}
  y.set_meta(META,d)
@@ -58,13 +59,14 @@ static func uygula(o: Oturum,id: int,karar: String) -> bool:
  if int(pending.kisi)==id:
   pending.bekliyor=false
   y.set_meta(CasusDevriyesi.META,pending)
+ DivanHaksizligi.uygula(o,k,haksiz)
  o._koy_esitle()
  return true
 ## Restore'da tutsak bayrağı tek hüküm kaydından türetilir; sahte/eksik bayrak aktif hücre yaratmaz.
 static func kayit_esitle(y: KoyYonetimi) -> void:
  var d:=durum(y)
  for k in y.koylular:
-  if d.get(str(k.id),{}).get("karar","")=="zindan":
+  if d.get(str(k.id),{}).get("karar","")=="zindan" and not DivanHaksizligi.odendi(y,k.id):
    k.bayrak_ekle(FLAG)
    k.is_yeri=KoyYonetimi.BOSTA
    k.kis_oncesi_is=-1

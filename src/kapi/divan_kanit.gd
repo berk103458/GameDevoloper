@@ -58,7 +58,7 @@ static func yeterli(k: Koylu,d: Dictionary) -> bool:
  return v != null and String(k.adli_id) in CasusGeceTakibi.AYAR.profiller and d.sunulan.size()>=int(AYAR.gerekli_ipucu) and String(v.obje_ipucu(2)) in d.sunulan
 ## Gözlenmiş gerçek fiil + eşleşen bulunan/sunulan kaynak kanıt; otomatik niyet itirafı veya RNG yok.
 static func sorgula(y: KoyYonetimi,id: int) -> bool:
- if not id in DivanOturumu.adaylar(y): return false
+ if not id in DivanOturumu.adaylar(y) or DivanOturumu.izler(y,id).is_empty(): return false
  var k := y.koylu(id)
  var d := durum(k)
  if d.itiraf or not yeterli(k,d): return false
