@@ -35,6 +35,7 @@ func eylem(id: int) -> String:
 ## Mevcut modelleri korur, ayrılan köylüleri siler, değişen atama ve engellere yeni rota kurar.
 func yenile() -> void:
 	rotaci.kur(sahne.yonetim.izgara, float(_ayar.zemin_maliyeti))
+	KoyZeminNavigasyonu.yenile(self)
 	var kalan := {}
 	for k in sahne.yonetim.koylular.slice(0, KoyYonetimSahnesi.AZAMI_KOYLU):
 		kalan[k.id] = true
@@ -254,9 +255,7 @@ func _planla(id: int) -> void:
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false
-	d.yol = []
-	for h in hucreler:
-		d.yol.append(_konum(h))
+	d.yol = KoyZeminNavigasyonu.yol(self, hucreler)
 	if not d.yol.is_empty() and not d.ates_basi:
 		# Küçük, hücre içinde kalan durak farkı: aynı durakta üst üste binmeyi azaltır.
 		d.yol[-1] += Vector3((id % 3 - 1) * float(_ayar.durak_araligi), 0, ((id / 3) % 3 - 1) * float(_ayar.durak_araligi))

@@ -1020,3 +1020,10 @@ Sıradaki: ANI-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 0.1–1.5 saniye kararlı idle ofseti ve mevcut modifierde üç profil; gerçek son kemik pozu farkı doğrulandı. 27 kontrol/20 gece, native/ayna geçti. Yeni klip üretilmedi; G tablosu ANI12-IDLE.
 
 Sıradaki: ANI-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-13 (8 Ekim 2026)
+
+Mevcut patika A* sırası bina/arazi dışı NavigationRegion3D koridorlarına bağlandı; async hazırlık ve güncel güvenli rota yedeği, gerçek kapı/engel sorgusu ve kayıt/RNG korunumu doğrulandı. Asset gerekmedi.
+
+Sıradaki: ANI-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

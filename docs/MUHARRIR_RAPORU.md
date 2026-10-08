@@ -130,3 +130,9 @@ Canlı limit yenilendi; 1e200ce iki ds kopyaya pull edildi, sahiplik fe3e508 fes
 ## ANI-12 kapanış — 8 Ekim 2026
 
 ANI-12 [x] (Codex); 27 ilgili kontrol/20 gece, native altı köylü ve ds ayna geçti. KarakterBeklemeCesitliligi + JSON ile 0.1–1.5 saniye faz ve üç idle profil; mevcut DurusDuzeltici ince açı adaptörü, halk kurulumunda tek satır. Son iskelet sinyalinde pozlar farklı, gece profil korunur, kapı modelinin eski profil formülü korunur. Asset üretimi/indirme yok; G tablosunda ANI12-IDLE. İlk sahne testi tipi ve geçici modifier pozunun okuma anı düzeltildi, final import/runtime hata yok. İki ds kopya eşitlenir; Ahmet yolu burada yok. ANI-13 sahiplenilir, yayından sonra başlanır; Cursor CSV/BUG paketleri korunur.
+
+## Codex — ANI-13 (8 Ekim 2026)
+
+ANI-13: tam sanity 154 kontrol, 0 hata (20 gece dahil); gerçek Vulkan ve GitHub klasöründe navigasyon UI geçti. Yeni engel gerçek server haritasından çıktı; geçersiz eski rota reddedildi. Asset gerekmedi. İki ds kopyası eşitlenir; Ahmet Windows yolu bu makinede yok, güncellendi iddiası yok. Sıradaki ANI-14 [/] (Codex).
+
+Paket: src/koy/gorsel/koy_zemin_navigasyonu.gd, data/koy_zemin_navigasyonu.json ve iki satırlık halk hareket adaptörü; testler, GDD/status dahil. Tek NavigationRegion3D; ayrı RTS/HUD yok. Olgun paket festive normal push; rapor repo üzerinden erişilebilir.

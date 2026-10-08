@@ -155,8 +155,8 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 
 - [x] **ANI-11:** Zanaat Araçları Dinamik Kemik Soketi (`BoneAttachment3D`) — el kemiklerine alet; mola/uykuda stok (taslak: `src/dunya/karakter_ekipman_yoneticisi.gd`). (Codex)
 - [x] **ANI-12:** Bekleme Animasyonu Desenkronizasyonu — idle offset 0.1–1.5s + 3 idle varyasyon. (Codex)
-- [/] **ANI-13:** Köy İçi 3B Zemin Navigasyonu (`NavigationRegion3D`) — patika/kapı; bina içinden geçme yok. (Codex)
-- [ ] **ANI-14:** Köylü Takip Kamerası ve Yüzen Durum Kartı — tıkla odak + isim/zanaat billboard.
+- [x] **ANI-13:** Köy İçi 3B Zemin Navigasyonu (`NavigationRegion3D`) — patika/kapı; bina içinden geçme yok. (Codex)
+- [/] **ANI-14:** Köylü Takip Kamerası ve Yüzen Durum Kartı — tıkla odak + isim/zanaat billboard. (Codex)
 - [ ] **ANI-15:** Atölye Duman ve Kıvılcım Partikülleri (LOD) — duman/kıvılcım/su damlası, düşük donanım.
 Not: ANI-04↔EKO-03, ANI-08↔UZM-01..05 konsolidasyon.
 

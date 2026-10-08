@@ -272,3 +272,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - ANI-11: [Karakter ekipman soketi](karakter-ekipman.md) — mevcut zanaat aleti, tek BoneAttachment3D ve salt görsel stok.
 
 - ANI-12: [Bekleme çeşitliliği](bekleme-cesitliligi.md) — kimlikten faz ofseti ve mevcut modifierde üç idle yer tutucusu.
+
+- ANI-13: [Köy zemin navigasyonu](koy-zemin-navigasyonu.md) — patika A* sırası, bina dışı NavigationRegion3D koridorları.
