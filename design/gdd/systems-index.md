@@ -308,3 +308,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Canlı hayvan takası](canli-hayvan-takasi.md) — TUC-14, aynı sürü/kayıt ve sınırlı üretim katkısı.
 
 - [Kervan koruması](kervan-korumasi.md) — TUC-15, süreli aynı kışla görevi ve geçici güvenlik katkısı.
+
+- [Dört mevsim döngüsü](mevsim-dongusu.md) — MEV-01, mevcut oyun günü ve Takvim uyum adaptörü.

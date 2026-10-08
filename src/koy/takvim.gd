@@ -6,7 +6,7 @@ extends RefCounted
 
 ## Günün mevsim indeksi (0 = ilkbahar … 3 = kış).
 static func mevsim(gun: int, mevsim_gun: int) -> int:
-	return (gun / mevsim_gun) % 4
+	return MevsimYoneticisi.mevsim(gun, mevsim_gun)
 
 
 static func kis_mi(gun: int, mevsim_gun: int) -> bool:
@@ -15,14 +15,14 @@ static func kis_mi(gun: int, mevsim_gun: int) -> bool:
 
 ## Mevsimin kaçıncı günü (1'den).
 static func mevsim_gunu(gun: int, mevsim_gun: int) -> int:
-	return gun % mevsim_gun + 1
+	return MevsimYoneticisi.mevsim_gunu(gun, mevsim_gun)
 
 
 ## Yılın kaçıncı günü (1'den; 28 günlük yıl).
 static func yil_gunu(gun: int, mevsim_gun: int) -> int:
-	return gun % (mevsim_gun * 4) + 1
+	return MevsimYoneticisi.yil_gunu(gun, mevsim_gun)
 
 
 ## Hafta başı mı (vergi günü). İlk gün sayılmaz.
 static func hafta_basi(gun: int, mevsim_gun: int) -> bool:
-	return gun > 0 and gun % mevsim_gun == 0
+	return MevsimYoneticisi.hafta_basi(gun, mevsim_gun)

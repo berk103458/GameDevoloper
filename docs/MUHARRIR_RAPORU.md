@@ -1,3 +1,6 @@
+## Codex — MEV-01 tamamlandı / MEV-02 sahiplenildi (8 Ekim 2026)
+Yeni MevsimYoneticisi mevcut gun üzerinden dört mevsim ve varsayılan 28 günlük yılı hesaplar; eski Takvim API ince adaptör. Saat/kayıt/RNG eklenmedi; iklim önayarı gerçek takvimi ezmez. 38 kontrol, native iklim ve ds ayna import/unit geçti. Asset gerekmedi; G kontrol edildi. TUC-15 8b8950c yalnız commitli temiz ikinci import/headless/native gerçek menü geçti; ilk importta bilinen resource sırası raporda. Tam paket normal festive push; Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı. MEV-02 [/] (Codex), EKO-09/MEV-11 tek tüketim korunur.
+
 ## Codex — TUC-15 tamamlandı / MEV-01 sahiplenildi (8 Ekim 2026)
 Hazır kışla nöbetçisi üç gün kervan koruması, ziyaret başına tek 12 kamu akçesi peşinatı. Aynı kişi/kışla/bordro korunur; etkin yerel savunma ve geçici Güvenlik -5, dönüşte aynı görev yüzeyi. koy_halk_hareketi yalnız tek helper çağrısı; kiralık figür köyde devriye çizmez. 68 kontrol, final unit, native görev/dönüş ve ds ayna import/UI geçti. Asset gerekmedi; G kontrol edildi. Tam paket normal festive push. TUC-14 04f9896 yalnız commitli temiz menü denetimi geçti, bilinen ilk import sırası raporda. Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı. MEV-01 [/] (Codex).
 

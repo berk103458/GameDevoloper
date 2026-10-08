@@ -17,3 +17,6 @@ Git archive 6904f14 ile .godot/untracked içermeyen yeni kopya. İlk import: 104
 
 ## TUC-14 / 04f9896 yalnız commitli kontrol
 Git archive 04f9896 ile .godot/untracked içermeyen kopya. İlk import 104 resource hata satırı ve sıfır SCRIPT ERROR: bilinen çeviri/glTF materializasyon sırası. İkinci import sıfır hata; headless/native gerçek Ana/Ses/menü bağımlılık testi geçti. Kanıt work/tuc14_clean_first.log, tuc14_clean_second.log, tuc14_clean_menu.log, tuc14_clean_native_menu.log. İlk import hatasız diye sunulmaz; Ahmet yolu erişilemiyor.
+
+## TUC-15 / 8b8950c yalnız commitli kontrol
+Git archive 8b8950c ile .godot/untracked içermeyen kopya. İlk import 104 resource hata satırı ve sıfır SCRIPT ERROR: bilinen çeviri/glTF materializasyon sırası. İkinci import sıfır hata; headless/native gerçek Ana/Ses/menü bağımlılık denetimi geçti. Kanıt work/tuc15_clean_first.log, tuc15_clean_second.log, tuc15_clean_menu.log, tuc15_clean_native_menu.log. İlk import hatasız diye sunulmaz; Ahmet yolu erişilemiyor.

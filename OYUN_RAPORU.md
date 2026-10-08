@@ -1148,3 +1148,10 @@ Sıradaki: TUC-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Mevcut kislada sureli kervan korumasi: tek kamu pesinati, ayni kisi/atama/bordro, yerel etkin nobet ve gecici Guvenlik azalmasi. 68 kontrol final unit native ve ayna UI gecti; asset gerekmedi.
 
 Sıradaki: MEV-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-01 (8 Ekim 2026)
+
+Dort mevsim/yedi gun ve 28 gunluk yil tek MevsimYoneticisi hesabi; eski Takvim API ince adaptor, gercek gun ve Admin iklimi ayri. 38 kontrol native iklim ve ayna unit gecti; asset gerekmedi.
+
+Sıradaki: MEV-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
