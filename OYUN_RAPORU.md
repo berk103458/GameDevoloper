@@ -1446,3 +1446,10 @@ Sıradaki: ODA-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 EKO01/11 ve ODA02 tek rusvet/kasa sozlesmesi; 6 kaynak/API/gercek kasa/gosterge kontrolu gecti. Ikinci kasa yazilmadi; asset gerekmedi.
 
 Sıradaki: ODA-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-12 (8 Ekim 2026)
+
+Mevcut MuhafizTerazisi tek runtime, kalici makbuzlardan turetim; 6 birim/UI/API kontrolu gecti. Ikinci alan/HUD yok; asset gerekmedi.
+
+Sıradaki: ODA-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

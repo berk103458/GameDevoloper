@@ -1,3 +1,6 @@
+## Codex — ODA-12 kapandı / ODA-13 sahiplenildi (8 Ekim 2026)
+Mevcut tek MuhafizTerazisi runtime sözleşmesi ve tüm tüketiciler denetlendi. Altı terazi/yetenek/adalet/teftiş/oda/API kontrolü geçti; gerçek makbuzlar, tazmin, JSON, bozuk veri, saf okuma. Tek skor kaydedilmez, kalıcı kaynaklardan türetilir; core/kod/CSV değişmedi. ODA-13 mevcut save/state teftiş sözleşmesinin snapshot doğrulamasını inceleyecek; başka kayıt dosyalarını tarayarak güncel oturumu suçlama yok. Asset gerekmedi, envanter G kontrol edildi. İki ds kopyası eşit; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
+
 ## Codex — ODA-11 kapandı / ODA-12 sahiplenildi (8 Ekim 2026)
 Mevcut Oturum karar_ver → cift_kasa_dagitimi → tek muhafiz_akce/esyalari → OdaKasasiPaneli/KeseGostergesi sözleşmesi denetlendi. Altı kontrol geçti; gerçek CHR4+klasik3=7, eşya2, kamu/ambar/JSON ve yetenek bonusu. Core/kod/CSV değiştirilmedi. ODA-12 mevcut MuhafizTerazisi tek runtime skor sözleşmesini denetleyecek, ikinci yozlaşma alanı yazılmayacak. Asset gerekmedi, envanter G kontrol edildi. İki ds kopyası eşit; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
 

@@ -380,3 +380,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Muhafız epilogu](muhafiz-epilogu.md) — ODA-10, mevcut terazi/kasa ile aynı son ekranında bağımsız kader.
 
 - [Rüşvet → oda kasası sözleşmesi](oda-rusvet-kasa-sozlesmesi.md) — ODA-11, mevcut EKO01/11 ve ODA02 tek muhasebe denetimi.
+
+- [Tek yozlaşma runtime sözleşmesi](yozlasma-runtime-sozlesmesi.md) — ODA-12, mevcut tek terazi ve kalıcı kaynak makbuzları.

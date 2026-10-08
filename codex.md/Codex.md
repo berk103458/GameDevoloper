@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: fefae75 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: fefae75. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: b372881 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: b372881. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -172,15 +172,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - ODA-09: Gercek haksiz ret ve gece olumunden tek vicdan/kabus makbuzu; ayni yorgunluk ve acik ruya kutusu, Clue/kimlik yok; 65 kontrol final native/ayna gecti. G ODA09-KABUS kayitli, asset uretilmedi.
 - ODA-10: Saf tek epilogue: mevcut terazi/kisisel kasa, koyden bagimsiz kader, teftis onceligi; 67 regresyon ve final150/native/ayna gecti. Asset gerekmedi.
 - ODA-11: EKO01/11 ve ODA02 tek rusvet/kasa sozlesmesi; 6 kaynak/API/gercek kasa/gosterge kontrolu gecti. Ikinci kasa yazilmadi; asset gerekmedi.
+- ODA-12: Mevcut MuhafizTerazisi tek runtime, kalici makbuzlardan turetim; 6 birim/UI/API kontrolu gecti. Ikinci alan/HUD yok; asset gerekmedi.
 
 ## Sonraki çalışma
-ODA-12. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+ODA-13. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -270,5 +273,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## ODA-11 doğrulaması / ODA-12 planı
-Mevcut Oturum karar_ver → cift_kasa_dagitimi → tek muhafiz_akce/esyalari → OdaKasasiPaneli/KeseGostergesi sözleşmesi denetlendi. Altı kontrol geçti; gerçek CHR4+klasik3=7, eşya2, kamu/ambar/JSON ve yetenek bonusu. Core/kod/CSV değiştirilmedi. ODA-12 mevcut MuhafizTerazisi tek runtime skor sözleşmesini denetleyecek, ikinci yozlaşma alanı yazılmayacak. Asset gerekmedi, envanter G kontrol edildi. İki ds kopyası eşit; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
+
+## ODA-12 doğrulaması / ODA-13 planı
+Mevcut tek MuhafizTerazisi runtime sözleşmesi ve tüm tüketiciler denetlendi. Altı terazi/yetenek/adalet/teftiş/oda/API kontrolü geçti; gerçek makbuzlar, tazmin, JSON, bozuk veri, saf okuma. Tek skor kaydedilmez, kalıcı kaynaklardan türetilir; core/kod/CSV değişmedi. ODA-13 mevcut save/state teftiş sözleşmesinin snapshot doğrulamasını inceleyecek; başka kayıt dosyalarını tarayarak güncel oturumu suçlama yok. Asset gerekmedi, envanter G kontrol edildi. İki ds kopyası eşit; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
