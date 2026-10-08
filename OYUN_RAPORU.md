@@ -1330,3 +1330,12 @@ Sıradaki: CAS-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 37 checks; exact poison Clue/4Flag contract, discovered-load-only hint, rawFlag/legacy/JSON and native/mirror passed; asset gerekmedi.
 
 Sıradaki: CAS-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+## Muharrir — local full pull + PR #9 hazirlik (8 Ekim 2026, TR)
+
+- Dal: `claude/festive-volta-li1sfm`
+- Onceki HEAD (onceki ozet): `59cbcc5`; bu turda origin'den CAS-07..12 fast-forward ile alindi
+- Festive (merge oncesi): `6da34ad`
+- Alinan: `git fetch --all --prune` + `git merge --ff-only origin/claude/festive-volta-li1sfm` (CAS-07..CAS-12, conflict yok)
+- Onceki pull ozeti (59cbcc5'e kadar ANI/TUC/MEV/CAS-01..06) korundu; WIP / `_tmp_*` / stash dokunulmadi; reset/force yok
+- Siradaki is: PR #9 (`cursor/roadmap-gap-verify-0b16`) merge — sadece ROADMAP.md, codex.md/Cursor.md, docs/MUHARRIR_RAPORU.md; CAS koduna dokunulmaz
