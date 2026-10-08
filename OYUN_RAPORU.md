@@ -1339,3 +1339,12 @@ Sıradaki: CAS-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 - Alinan: `git fetch --all --prune` + `git merge --ff-only origin/claude/festive-volta-li1sfm` (CAS-07..CAS-12, conflict yok)
 - Onceki pull ozeti (59cbcc5'e kadar ANI/TUC/MEV/CAS-01..06) korundu; WIP / `_tmp_*` / stash dokunulmadi; reset/force yok
 - Siradaki is: PR #9 (`cursor/roadmap-gap-verify-0b16`) merge — sadece ROADMAP.md, codex.md/Cursor.md, docs/MUHARRIR_RAPORU.md; CAS koduna dokunulmaz
+
+## Muharrir — PR #9 merge tamam (8 Ekim 2026, TR)
+
+- Merge commit: festive uzerinde `merge(PR-9): ROADMAP gap verify KAP-02/03`
+- Festive once: `6da34ad` (CAS-12); sonra muharrir pull ozeti + PR #9 merge
+- Degisen dosyalar (PR): ROADMAP.md, codex.md/Cursor.md, docs/MUHARRIR_RAPORU.md
+- KAP-02 / KAP-03: ROADMAP `[x] (Cursor)`
+- `python -B tools/metin_dogrula.py --kaynak` PASS
+- WIP / `_tmp_*` / stash (godot-import-noise) dokunulmadi; force yok
