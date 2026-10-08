@@ -22,6 +22,7 @@ var binalar: Array[KoyBinasi] = []
 var izgara: Izgara
 var husumet := Husumet.new()
 var lojistik := CekiLojistigi.new()
+var gezgin_ticaret := GezginTuccarStogu.new()
 var akce: int = 0
 ## Oyunun günü (0'dan).
 var gun: int = 0
@@ -391,6 +392,7 @@ func kervana_sat(tur: String, adet: int) -> Dictionary:
 
 ## Kervandan alış (demir, alet, kışlık tahıl). Tekfur'a geçen bir usta varsa o mal daha pahalıdır (3.5).
 func kervandan_al(tur: String, adet: int) -> bool:
+	if GezginTuccarStogu.urunler(self).has(tur): return gezgin_ticaret.al(self, tur, adet)
 	if not kervan_gunu() or not a.kervan_satis.has(tur):
 		return false
 	var fiyat := float(a.kervan_satis[tur])
@@ -835,7 +837,7 @@ func kaydet() -> Dictionary:
 	for x in binalar:
 		b.append(x.kaydet())
 	return {"surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
-		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "husumet": husumet.kaydet(), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
+		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "husumet": husumet.kaydet(), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
@@ -851,6 +853,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	y.maas_durumu = MuhafizMaasi.oku(v.get("maas_durumu", {}))
 	y.alet_asinma = DemirZinciri.asinma_oku(v.get("alet_asinma", 0.0))
 	y.lojistik = CekiLojistigi.kayittan(v.get("lojistik", {}))
+	y.gezgin_ticaret = GezginTuccarStogu.kayittan(v.get("gezgin_ticaret", {}))
 	y.kaynaklar = Kaynaklar.kayittan(v.get("kaynaklar", {}))
 	for x in v.get("koylular", []):
 		y.koylular.append(Koylu.kayittan(x))

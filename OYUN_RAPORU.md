@@ -1055,3 +1055,10 @@ Sıradaki: TUC-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Celep konaklamasinda okuz/inek/beygir ahira, koc agila; mevcut lojistik kaydi ve tek pazar korunur. Kapasite/kasa/uzman/kayit ve dort gercek UI islemi gecti. Eksik modeller envanter G TUC02 satirlarinda.
 
 Sıradaki: TUC-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-03 (8 Ekim 2026)
+
+Nalbur ziyaretlik demir/civi/tirpan/balta stogu; tek kasa/ambar ve mevcut HUD. Kalan stok optional kayitta korunur; eski demir API ayni siniri kullanir. 163 kontrol son log denetiminde sifir hata (ilk turda yakalanan dort test duzeltme sonrasi tekrar gecti), native ve ayna UI gecti. Ikonlar envanter G TUC03 satirlarinda.
+
+Sıradaki: TUC-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

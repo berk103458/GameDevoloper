@@ -1,0 +1,8 @@
+{
+ "nalbur": {
+  "demir": {"ad": "Demir", "fiyat": 2, "stok": 20},
+  "civi": {"ad": "Çivi", "fiyat": 2, "stok": 30},
+  "tirpan": {"ad": "Tırpan", "fiyat": 6, "stok": 6},
+  "balta": {"ad": "Balta", "fiyat": 5, "stok": 6}
+ }
+}

@@ -1,5 +1,8 @@
 # Ahmet / Muharrir — Codex kontrol noktası
 
+## Codex — TUC-03 tamamlandı / TUC-04 sahiplenildi (8 Ekim 2026)
+Nalbur sonlu ziyaret stoğu, ortak ambar ve mevcut HUD eklendi. Optional stok kaydı iki konaklama gününde miktarı korur; eski demir API aynı stoğu tüketir. Çivi/tırpan/balta ayrı stoktur; genel alet tüketimi korunur. 163 kontrolün son logları sıfır hata: ilk turdaki 4 başarısız test boş stok roundtrip ve saf ikon bağımlılığı düzeltilince tekrar geçti. Native pazar ve ds ayna import/UI geçti. Pazar taşması Celep dışındaki ilgisiz hayvan alım satırları gizlenerek giderildi. Kutular envanter G TUC03 satırlarında; asset yok. Ahmet yolu erişilemiyor; Muharrir festive güvenli pull yapmalı.
+
 ## Codex — TUC-02 tamamlandı / TUC-03 sahiplenildi (8 Ekim 2026)
 Celep konaklamasında mevcut tek pazar ve lojistik kaydından dört canlı hayvan alınır; ahır ortak kapasitesi ve ek ağıl koç yeri uygulanır. Beygir mevcut çeki seferine katılır, koç katılmaz. 20 kontrol sıfır hata; native ve ds ayna import/UI geçti. Düz kutular merkezi helperda, gerçek modeller envanter G TUC02 satırlarında. Ahmet yolu erişilemiyor; Muharrir festive güvenli pull yapmalı.
 

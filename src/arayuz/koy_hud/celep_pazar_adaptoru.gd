@@ -3,6 +3,7 @@ class_name CelepPazarAdaptoru
 extends RefCounted
 static func ekle(e: KoyEkrani, ust: Control) -> void:
  var y := e.oturum.yonetim
+ if not CelepHamdullah.geldi(y): return
  e._etiket(ust, "Koç: %d / %d ek ağıl yeri · Celep konaklamasında alım" % [CelepHamdullah.sayi(y.lojistik, "koc"), CelepHamdullah.kapasite(y, "koc")], Tema.KUCUK_PX)
  var satir := HBoxContainer.new()
  ust.add_child(satir)

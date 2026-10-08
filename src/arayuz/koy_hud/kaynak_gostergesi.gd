@@ -45,7 +45,7 @@ func guncelle(miktar: int, net: int, kritik: bool = false) -> void:
 ## Hazır lisanslı SVG ikonunu belirtilen boyutta kurar.
 static func ikon(tur: String, boy: int) -> TextureRect:
 	var r := TextureRect.new()
-	r.texture = load("res://assets/ui/koy/%s.svg" % tur)
+	if not GezginStokIkonu.ikon(r, tur): r.texture = load("res://assets/ui/koy/%s.svg" % tur)
 	r.custom_minimum_size = Vector2(boy, boy)
 	r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED

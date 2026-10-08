@@ -282,3 +282,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - TUC-01: [Gezgin tüccar takvimi](gezgin-tuccar-takvimi.md) — mevcut kervan, dört gün varış ve iki gün konaklama.
 
 - TUC-02: [Celep Hamdullah](celep-hamdullah.md) — tek hayvan kaydı, uzman takvimi ve ahır/ağıl alımı.
+
+- TUC-03: [Nalbur stoğu](nalbur-stogu.md) — ziyaretlik sonlu ürün, tek ambar ve mevcut kaynak HUD.

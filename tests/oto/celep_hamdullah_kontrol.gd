@@ -53,7 +53,7 @@ func _ready() -> void:
  await get_tree().process_frame
  for tur in CelepHamdullah.AYAR.hayvanlar:
   var d := _dugme(e, "%s al · %d akçe" % [CelepHamdullah.AYAR.hayvanlar[tur].ad, CekiLojistigi.FIYAT[tur]])
-  _kontrol(d != null and d.disabled, "Nalbur gününde hayvan düğmesi kapalı")
+  _kontrol(d == null, "Nalbur gününde ilgisiz hayvan düğmesi gösterilmez")
  ana.kayit.sil()
  ana.queue_free()
  await get_tree().process_frame
