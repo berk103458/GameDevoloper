@@ -350,3 +350,4 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Divanda kanıt sunma ve sorgulama](divan-kanit-sorgusu.md) — CAS-06, gerçek kapı Clue kaydının tek kalıcı devamı ve gerçek fiil sorgusu.
 
 - [Üçlü divan hükmü](divan-hukmu.md) — CAS-07, tek makbuz ve gerçek nüfus sonuçları.
+- [Karaboran intikam baskını](karaboran-intikami.md) — CAS-08, zindan hükmünün üçüncü gecesinde tek ortak husumet sonucu.

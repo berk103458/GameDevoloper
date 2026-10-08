@@ -1295,3 +1295,10 @@ Sıradaki: CAS-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 65 checks; one court verdict, jail capacity and consumption, exile/execution actual population, JSON/UI/native/mirror passed; G CAS07-ZINDAN registered.
 
 Sıradaki: CAS-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-08 (8 Ekim 2026)
+
+31 checks; actual third-night single shared raid, JSON and duplicate protection, native/mirror passed; asset gerekmedi.
+
+Sıradaki: CAS-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
