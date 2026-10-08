@@ -1246,3 +1246,10 @@ Sıradaki: MEV-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Storm narrows existing visible gate queue to 1 or 0; all visitors retained in order, waiting NPC stress uses CHR tension/panic. 33 regression checks plus final native and mirror import/unit/UI passed. No assets needed; G checked. MEV-14 clean committed opening cb22bf4 recorded.
 
 Sıradaki: CAS-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-01 (8 Ekim 2026)
+
+Persist bounded hidden night target/actual-action ledger; existing theft and work-sabotage hooks add no extra RNG/damage. Intent is not evidence, only observed real acts exposed. 41 regression checks, final actual-sabotage unit and mirror import/unit passed; asset gerekmedi, G checked.
+
+Sıradaki: CAS-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

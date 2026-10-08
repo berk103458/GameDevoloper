@@ -49,6 +49,7 @@ static func gece(y: KoyYonetimi, calismalar: Dictionary, olaylar: Array[Dictiona
 		var kayip := y.kaynaklar.azalt(kaynak, 1 if kaynak == "alet" else 3)
 		y.asayis_riski = mini(100, y.asayis_riski + 3)
 		k.sadakat = maxi(0, k.sadakat - 2)
+		CasusGeceTakibi.kaydet(y, k, "cephanelik" if kaynak == "alet" else "ambar", -1, "sabotaj", kaynak, kayip, false)
 		olaylar.append({"anahtar": "Köylü %d iş uyumsuzluğu nedeniyle sabotaj yaptı: %d %s kayıp.", "deger": [k.id, kayip, kaynak]})
 
 static func metin(k: Koylu, y: KoyYonetimi) -> String:

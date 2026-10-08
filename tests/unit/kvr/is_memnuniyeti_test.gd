@@ -39,6 +39,7 @@ func _initialize() -> void:
 	_kontrol(rapor["uretim"].is_empty() and k.moral == 17, "İsyancı kendi üretimini durdurur, uyumsuz iş morali azalır")
 	_kontrol(rapor["olaylar"].any(func(e: Dictionary) -> bool: return e["anahtar"].contains("sabotaj yaptı")) and y.kaynaklar.miktar("gida") == once - 3 - int(rapor["tuketim"]["gida"]) - int(rapor.ziyan.bozulma.get("gida", 0)), "Gerçek gece sabotajı gerçek ambar ve rapora işler")
 	_kontrol(k.sadakat == 58, "Sabotaj kişisel sadakati azaltır")
+	_kontrol(CasusGeceTakibi.durum(y).izler.any(func(x: Dictionary) -> bool: return x.kisi == k.id and x.durum == "sabotaj" and x.hedef == "ambar" and x.kaynak == "gida" and x.kayip == 3 and not x.goruldu), "CAS-01 aynı gerçek sabotajı ek stok kaybı/kanıt yaratmadan takip eder")
 	k.pasif_ozellikler["zayif"] = ["inatci"]
 	_kontrol(IsMemnuniyeti.esik(k) == 30, "İnatçı kişisel eşik 30")
 	k.pasif_ozellikler = {"guclu": ["dayanikli"], "zayif": ["korkak"]}

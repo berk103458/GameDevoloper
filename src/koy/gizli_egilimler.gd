@@ -36,10 +36,12 @@ static func gece(y: KoyYonetimi, calismalar: Dictionary, olaylar: Array[Dictiona
 		if y._rng.randf() < yakalama:
 			k.gizli_egilim["yakalanma"] = true
 			k.bayrak_ac("hirsiz")
+			CasusGeceTakibi.kaydet(y, k, "ambar", -1, "hirsizlik", "gida", 0, true)
 			olaylar.append({"anahtar": "Köylü %s gece erzak çalarken yakalandı; ambar korundu.", "deger": [k.ad]})
 		else:
 			var kayip := y.kaynaklar.azalt("gida", ERZAK)
 			k.gizli_egilim["calinan"] += kayip
+			CasusGeceTakibi.kaydet(y, k, "ambar", -1, "hirsizlik", "gida", kayip, false)
 			olaylar.append({"anahtar": "Gece ambardan %d erzak eksildi; kimin aldığı görülmedi.", "deger": [kayip]})
 static func oyuncu_metin(k: Koylu) -> String:
 	return "Hırsızlık açığa çıktı" if k.bayrak_var("hirsiz") else "Gizli eğilimler bilinmiyor"

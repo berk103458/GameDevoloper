@@ -1,3 +1,6 @@
+## Codex — CAS-01 kapandı / CAS-02 sahiplenildi (8 Ekim 2026)
+41 kontrol sıfır hata; final gerçek sabotaj birim assertionu ve ds ayna import/unit geçti. Gizli hedef/fiil geçmişi mevcut geceye bağlandı; yeni hasar/zar yok, niyet kanıt değil. Gerçek hırsızlık gözlemi ayrı, kayıt/tekrar/sınır ve masum kaynak korundu. Asset gerekmedi, G kontrol edildi. Son kontrol edilen commit119a91f; CAS-02 [/] (Codex). Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
+
 ## Codex — MEV-15 kapandı / CAS-01 sahiplenildi (8 Ekim 2026)
 33 kontrol sıfır hata; final native ve ds ayna import/unit/UI geçti. Mevcut mantıksal ziyaret listesi korunur, yalnız yolda bekleme tipi1/ağır kış tipisi0; CHR tansiyon/panik ve figür bekleme bilgisi aynı kapıda. KAP-01 JSON/CSV/ikinci kuyruk yok. Asset gerekmedi, G kontrol edildi. cb22bf4 temiz ikinci import/headless/native gerçek menü geçti; ilk bilinen104 resource satırı denetim raporunda. Son kontrol edilen commitcb22bf4. CAS-01 [/] (Codex); Ahmet yolu yok, Muharrir festive pull yapmalı.
 

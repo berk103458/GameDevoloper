@@ -1,0 +1,28 @@
+{
+  "gecmis_gece": 7,
+  "iz_azami": 100,
+  "hedefler": {
+    "ambar": [
+      "ambar",
+      "degirmen"
+    ],
+    "kuyu": [
+      "su_kuyusu",
+      "su_arki",
+      "sifahane"
+    ],
+    "cephanelik": [
+      "muhafiz_kislasi"
+    ]
+  },
+  "profiller": {
+    "chr_001": "ambar",
+    "chr_002": "kuyu",
+    "chr_004": "cephanelik",
+    "chr_005": "cephanelik",
+    "chr_006": "ambar",
+    "chr_009": "kuyu",
+    "chr_010": "cephanelik"
+  },
+  "meydan_kuyusu": true
+}

@@ -336,3 +336,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kış samanı ve sürü kaybı](saman-bakimi.md) — MEV-14, tek ortak ambar ve mevcut gerçek hayvan sayaçları.
 
 - [Fırtınada kapı bekleyişi](kapi-firtina-kuyrugu.md) — MEV-15, aynı gelen listesi ve tansiyon motoru.
+
+- [Köy içi gece takip motoru](casus-gece-takibi.md) — CAS-01, gizli niyet ve gözlenen mevcut fiilin tek kaydı.
