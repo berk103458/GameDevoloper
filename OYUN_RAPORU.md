@@ -1013,3 +1013,10 @@ Doğrulama: Godot 4.7.2 headless import hatasız; tam `sanity_check` (ANI-10 dah
 Mevcut zanaat aletleri tek gerçek BoneAttachment3D soketinde; mola/gecede aynı nesne görsel stokta, geri dönüşte yeniden kullanılır. 26 kontrol/20 gece ve native/ayna geçti; G tablosu ANI11-ALET mevcut ihtiyacı referanslıyor, asset üretimi yok. Halk hareketine yeni mantık eklenmedi.
 
 Sıradaki: ANI-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-12 (8 Ekim 2026)
+
+0.1–1.5 saniye kararlı idle ofseti ve mevcut modifierde üç profil; gerçek son kemik pozu farkı doğrulandı. 27 kontrol/20 gece, native/ayna geçti. Yeni klip üretilmedi; G tablosu ANI12-IDLE.
+
+Sıradaki: ANI-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

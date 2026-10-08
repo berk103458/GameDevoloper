@@ -125,3 +125,8 @@ ANI-10 [x] (Codex); tam 146 kontrol ve 20 gece sıfır hata; native gece ve ds a
 ## ANI-11 kapanış — 8 Ekim 2026
 
 Canlı limit yenilendi; 1e200ce iki ds kopyaya pull edildi, sahiplik fe3e508 festive yayını sonrası ANI-11 geliştirildi. 26 kontrol/20 gece, native çekiç/kürek ve ds ayna hatasız geçti. İlk soket ağaca giriş sıralaması hatası giderildi, final import/runtime hatasız. Yeni KarakterEkipmanYoneticisi mevcut ZanaatTezgahi aletini tek BoneAttachment3D ile taşır, aynı nesneyi molada/gecede gizli görsel stokta saklar; ekonomik stok/RNG/kayıt değişmez. Eski ElEsyasi/CHR API korundu, halk hareketi dosyasına yeni mantık eklenmedi. G envanter ANI11-ALET eski ANI-ALET ihtiyacını referanslar; asset üretilmedi/indirilmedi. ANI-11 [x] (Codex); sıradaki ANI-12 sahiplenilir, yayından sonra başlanır. Ahmet yolu bu makinede yok.
+
+
+## ANI-12 kapanış — 8 Ekim 2026
+
+ANI-12 [x] (Codex); 27 ilgili kontrol/20 gece, native altı köylü ve ds ayna geçti. KarakterBeklemeCesitliligi + JSON ile 0.1–1.5 saniye faz ve üç idle profil; mevcut DurusDuzeltici ince açı adaptörü, halk kurulumunda tek satır. Son iskelet sinyalinde pozlar farklı, gece profil korunur, kapı modelinin eski profil formülü korunur. Asset üretimi/indirme yok; G tablosunda ANI12-IDLE. İlk sahne testi tipi ve geçici modifier pozunun okuma anı düzeltildi, final import/runtime hata yok. İki ds kopya eşitlenir; Ahmet yolu burada yok. ANI-13 sahiplenilir, yayından sonra başlanır; Cursor CSV/BUG paketleri korunur.

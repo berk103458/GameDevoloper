@@ -11,6 +11,8 @@ extends SkeletonModifier3D
 var bekleme: float = 0.0
 ## Karakterler aynı anda nefes almasın.
 var faz: float = 0.0
+## ANI-12: -1 eski profil; köy modeli üç idle yer tutucusundan birini alır.
+var bekleme_varyanti := -1
 ## ANI-09: salt görsel hava büzülmesi; mevcut modifier içinde uygulanır.
 var hava_egimi := 0.0
 
@@ -205,9 +207,10 @@ func _duygu_govde(sk: Skeleton3D) -> void:
 ## Durma: nefes (gövde), yavaş ağırlık aktarma (kalça), ara sıra bakış (baş). Hepsi küçük açılar.
 func _nefes(sk: Skeleton3D) -> void:
 	var t := _zaman + faz
-	var nefes := sin(t * TAU / 3.6) * deg_to_rad(1.6) * bekleme
-	var agirlik := sin(t * TAU / 7.0) * deg_to_rad(1.8) * bekleme
-	var bakis := (sin(t * 0.37) * 0.7 + sin(t * 0.13 + 1.0) * 0.3) * deg_to_rad(9.0) * bekleme
+	var aci := KarakterBeklemeCesitliligi.acilar(t, bekleme, bekleme_varyanti)
+	var nefes := aci.x
+	var agirlik := aci.y
+	var bakis := aci.z
 	_dondur_global(sk, _k["Spine01"], Vector3.RIGHT, -nefes)
 	_dondur_global(sk, _k["Hips"], Vector3.BACK, agirlik)
 	_dondur_global(sk, _k["Spine"], Vector3.BACK, -agirlik * 0.8)

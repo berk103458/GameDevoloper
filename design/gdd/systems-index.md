@@ -270,3 +270,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - ANI-10: [Sinsi gece](sinsi-gece.md) — salt görsel kuytu/kaçış; mevcut A* ve riskler.
 
 - ANI-11: [Karakter ekipman soketi](karakter-ekipman.md) — mevcut zanaat aleti, tek BoneAttachment3D ve salt görsel stok.
+
+- ANI-12: [Bekleme çeşitliliği](bekleme-cesitliligi.md) — kimlikten faz ofseti ve mevcut modifierde üç idle yer tutucusu.

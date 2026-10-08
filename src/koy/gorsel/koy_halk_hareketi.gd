@@ -46,6 +46,7 @@ func yenile() -> void:
 			var h := rotaci.yakin(m.position + Vector2i(k.id % m.size.x, (k.id / m.size.x) % m.size.y))
 			f.position = _konum(h)
 			modeller[k.id] = f
+			KarakterBeklemeCesitliligi.uygula(f, k.id)
 			_durum[k.id] = {"yol": [], "adim": 0, "bekle": 0.0, "dinlen": false, "is": false, "bak": f.position, "devriye_i": k.id, "devriye": false}
 		_iste(k.id)
 	for id in modeller.keys():
