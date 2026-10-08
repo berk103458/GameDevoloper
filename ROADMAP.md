@@ -189,8 +189,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **MEV-01:** 4 Mevsim Döngü Motoru (`src/dunya/mevsim_yoneticisi.gd`) — Her mevsim 7 gün; 28 günlük yıl. (Codex)
 - [x] **MEV-02:** Kış Soğuğu ve Don Mekaniği — Fazladan odun; biterse 1–3 köylü donar. **≡ EKO-09** (mevsim çarpanı / gece_sonu odun tüketimi; MEV-11 adaptör yüzeyi). (Codex)
 - [x] **MEV-03:** Donmuş Toprak ve Tarımsal Felç — Kışın bostan/tarla üretimi durur; yalnızca ambar. (Codex)
-- [/] **MEV-04:** Dinamik Kar Yağışı ve Zemin Kar Örtüsü Shader'ı — Zemin ve çatılarda kademeli kar. (Codex)
-- [ ] **MEV-05:** Çatı Çökmesi ve Kar Temizleme Rutini — Ağır karda çökme riski; kürekle çatı kürüme.
+- [x] **MEV-04:** Dinamik Kar Yağışı ve Zemin Kar Örtüsü Shader'ı — Zemin ve çatılarda kademeli kar. (Codex)
+- [/] **MEV-05:** Çatı Çökmesi ve Kar Temizleme Rutini — Ağır karda çökme riski; kürekle çatı kürüme. (Codex)
 - [ ] **MEV-06:** İlkbahar Taşkınları ve Su Bendi Kırılması — Kar erimesi, kuyu kireci, bent onarım olayı.
 - [ ] **MEV-07:** Yaz Kuraklığı ve Yangın Riski — Su tüketimi ×2; meşaleden kuru ota kıvılcım riski.
 - [ ] **MEV-08:** Sonbahar Hasat Şenliği ve Moral Dopingi — Ambar doluysa şenlik → Moral zirve.

@@ -1169,3 +1169,10 @@ Sıradaki: MEV-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Existing field and garden winter production verified, spring assignment return and save parity; 13 checks passed, asset gerekmedi.
 
 Sıradaki: MEV-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-04 (8 Ekim 2026)
+
+Natural winter snow ramp, shared ground/roof shader cover, single box precipitation; 11 regressions plus new UI passed; G inventory recorded.
+
+Sıradaki: MEV-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

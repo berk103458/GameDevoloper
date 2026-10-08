@@ -1,3 +1,6 @@
+## Codex — MEV-04 tamamlandı / MEV-05 sahiplenildi (8 Ekim 2026)
+11 regresyon + yeni headless/native kar UI geçti; ds ayna import/UI geçti. Normal kışta %15→%85 zemin/çatı örtüsü, tek mevcut yağış düğümü; Admin fırtına ve düşük profil korunur. G MEV04-KAR aynı pakette: kutu tanecik, asset üretimi/indirme yok. Kontrol edilen son commit 9c75efe. MEV-05 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
+
 ## Codex — MEV-03 tamamlandı / MEV-04 sahiplenildi (8 Ekim 2026)
 13 kontrol sıfır hata; ds ayna import/unit geçti. Tarla ve bostan mevcut kis_durur ile kışın durur, aynı gece ambar tüketir; kayıt eşitliği ve bahar görev/üretim dönüşü doğrulandı. Çekirdek üretim değiştirilmedi. G envanteri kontrol edildi: asset gerekmedi. Kontrol edilen son commit 7ba99fa. MEV-04 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
 

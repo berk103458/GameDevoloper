@@ -314,3 +314,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kış soğuğu ve donma](donma-mekanigi.md) — MEV-02, tek yakacak hesabı ve sınırlı sağlık eşiği.
 
 - [Donmuş toprak](donmus-toprak.md) — MEV-03, mevcut tarım duruşu ve bahar dönüşünün kabul kanıtı.
+
+- [Mevsim kar örtüsü](mevsim-kar-ortusu.md) — MEV-04, mevcut yağış ve kademeli zemin/çatı karı.
