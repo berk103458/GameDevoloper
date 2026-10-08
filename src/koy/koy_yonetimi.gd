@@ -511,6 +511,7 @@ func gece() -> Dictionary:
 		_kis_kaydirmasi()
 	else:
 		_bahar_donusu()
+	CatiKarBakimi.gece(self, olaylar)
 	var calismalar := {}
 	KanDavasi.gece(self, olaylar)
 	MeslekGrevi.gece(self, olaylar)

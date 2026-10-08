@@ -1176,3 +1176,10 @@ Sıradaki: MEV-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Natural winter snow ramp, shared ground/roof shader cover, single box precipitation; 11 regressions plus new UI passed; G inventory recorded.
 
 Sıradaki: MEV-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-05 (8 Ekim 2026)
+
+Heavy snow roof load and idle adult clearing, existing removal and equipment APIs; 52 regressions plus final UI/equipment passed, G inventory recorded.
+
+Sıradaki: MEV-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

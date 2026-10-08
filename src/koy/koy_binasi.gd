@@ -19,6 +19,8 @@ var recete: String = ""
 var bekliyor: String = ""
 ## Kurulurken harcanan malzeme (yıkımda yarısı geri gelir).
 var harcanan: Dictionary = {}
+## MEV-05: yalnız kar birikimi; genel hasar alanı yoktur.
+var cati_kar: Dictionary = CatiKarBakimi.oku({})
 
 
 func boyut(katalog: BinaKatalogu) -> Vector2i:
@@ -49,7 +51,7 @@ func hucreler(katalog: BinaKatalogu) -> Array[Vector2i]:
 
 
 func kaydet() -> Dictionary:
-	return {"id": id, "tur": tur, "x": hucre.x, "y": hucre.y, "yon": yon, "insa": insa_kalan, "seviye": seviye, "recete": recete, "harcanan": harcanan.duplicate()}
+	return {"id": id, "tur": tur, "x": hucre.x, "y": hucre.y, "yon": yon, "insa": insa_kalan, "seviye": seviye, "recete": recete, "harcanan": harcanan.duplicate(), "cati_kar": cati_kar.duplicate()}
 
 
 static func kayittan(v: Dictionary) -> KoyBinasi:
@@ -62,4 +64,5 @@ static func kayittan(v: Dictionary) -> KoyBinasi:
 	b.seviye = int(v.get("seviye", 1))
 	b.recete = String(v.get("recete", ""))
 	b.harcanan = v.get("harcanan", {})
+	b.cati_kar = CatiKarBakimi.oku(v.get("cati_kar", {}))
 	return b

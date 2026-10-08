@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 9c75efe (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 9c75efe. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: b063046 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: b063046. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -136,15 +136,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - MEV-02: Single winter fuel accounting, capped cold threshold, existing resource tooltip; 42 checks passed, asset gerekmedi.
 - MEV-03: Existing field and garden winter production verified, spring assignment return and save parity; 13 checks passed, asset gerekmedi.
 - MEV-04: Natural winter snow ramp, shared ground/roof shader cover, single box precipitation; 11 regressions plus new UI passed; G inventory recorded.
+- MEV-05: Heavy snow roof load and idle adult clearing, existing removal and equipment APIs; 52 regressions plus final UI/equipment passed, G inventory recorded.
 
 ## Sonraki çalışma
-MEV-05. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+MEV-06. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -235,5 +238,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## MEV-04 doğrulaması / MEV-05 aktif
-11 regresyon + yeni headless/native kar UI geçti; ds ayna import/UI geçti. Normal kışta %15→%85 zemin/çatı örtüsü, tek mevcut yağış düğümü; Admin fırtına ve düşük profil korunur. G MEV04-KAR aynı pakette: kutu tanecik, asset üretimi/indirme yok. Kontrol edilen son commit 9c75efe. MEV-05 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
+
+## MEV-05 doğrulaması / MEV-06 aktif
+52 regresyon (donma UI final tekrar geçti) ve son ekipman/zanaat/açılış/native çatı UI geçti; ds ayna import/UI geçti. Ağır kar yükü, sağlıklı boş yetişkinle erişilebilir çatı temizliği; mevcut iadesiz kaldırma, kişi ölümü/yıkım iadesi yok. Normal bina hasarı eklenmedi. koy_halk_hareketi yalnız tek helper çağrısı, kürek mevcut ekipman soketi/stoku. G MEV05-KUREK aynı pakette, asset üretimi/indirme yok. Kontrol edilen son commit b063046. MEV-06 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.

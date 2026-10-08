@@ -396,6 +396,7 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | ANI15-SU | ANI-15 | Sulama su damlası sprite | PNG / parçacık | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: mavi BoxMesh) | sulama su damlası; irrigation water droplet particle | orta | Codex |
 
 | MEV04-KAR | MEV-04 (VFX-KAR mevcut ihtiyaç) | İsteğe bağlı yumuşak kar tanesi | PNG / parçacık atlası | res://src/debug/iklim_gorseli.gd (tek BoxMesh yağış); res://src/koy/gorsel/cati_kar_ortusu.gdshader (üst yüzey renk geçişi) | yumuşak kar tanesi çatı kar; soft snowflake roof snow overlay | düşük | Codex |
+| MEV05-KUREK | MEV-05 | Kar küreme küreği ve temizlik klibi | glTF / iskelet klibi | res://src/koy/gorsel/cati_kar_rutini.gd (tek RightHand soketi, düz BoxMesh sap/ağız) | kar küreme çatı küreği; roof snow clearing shovel animation | orta | Codex |
 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.
 

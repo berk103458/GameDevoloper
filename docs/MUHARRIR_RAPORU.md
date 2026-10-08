@@ -1,3 +1,6 @@
+## Codex — MEV-05 tamamlandı / MEV-06 sahiplenildi (8 Ekim 2026)
+52 regresyon (donma UI final tekrar geçti) ve son ekipman/zanaat/açılış/native çatı UI geçti; ds ayna import/UI geçti. Ağır kar yükü, sağlıklı boş yetişkinle erişilebilir çatı temizliği; mevcut iadesiz kaldırma, kişi ölümü/yıkım iadesi yok. Normal bina hasarı eklenmedi. koy_halk_hareketi yalnız tek helper çağrısı, kürek mevcut ekipman soketi/stoku. G MEV05-KUREK aynı pakette, asset üretimi/indirme yok. Kontrol edilen son commit b063046. MEV-06 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
+
 ## Codex — MEV-04 tamamlandı / MEV-05 sahiplenildi (8 Ekim 2026)
 11 regresyon + yeni headless/native kar UI geçti; ds ayna import/UI geçti. Normal kışta %15→%85 zemin/çatı örtüsü, tek mevcut yağış düğümü; Admin fırtına ve düşük profil korunur. G MEV04-KAR aynı pakette: kutu tanecik, asset üretimi/indirme yok. Kontrol edilen son commit 9c75efe. MEV-05 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
 
