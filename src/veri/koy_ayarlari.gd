@@ -110,8 +110,9 @@ extends Resource
 @export var emniyet_nufus: int = 5
 @export var emniyet_gun: int = 4
 @export var kirilma_nufus: int = 3
-@export var harac_araligi: int = 7
+@export var harac_araligi: int = 6
 @export var harac_akce: int = 10
+## HAR-03 buğday miktarı; eski Resource alan adı/API korunur.
 @export var harac_gida: int = 20
 ## Tekfur'un baskısı her reddedilen haraçta artar; bu kadar baskı savuşturulunca zafer.
 @export var zafer_bask_sayisi: int = 3

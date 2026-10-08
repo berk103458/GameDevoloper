@@ -1491,3 +1491,10 @@ Sıradaki: HAR-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 72 checks passed; native and mirror verified; asset gerekmedi
 
 Sıradaki: HAR-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — HAR-03 (8 Ekim 2026)
+
+74 checks passed; same six-night public wheat tribute; native/mirror verified; HAR03-HEYET inventory
+
+Sıradaki: HAR-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

@@ -390,3 +390,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Şematik çevre haritası](cevre-haritasi.md) — HAR-01, mevcut köyden tek modal ve dört salt okunur bölge.
 
 - [Moğol öncü tehdidi](mogol-oncusu.md) — HAR-02, gerçek gün kalan süre ve tek typed gece uyarısı.
+
+- [Tekfur haraç heyeti](tekfur-harac-heyeti.md) — HAR-03, mevcut altı günlük bant ve kamu akçesi/buğday ödemesi.

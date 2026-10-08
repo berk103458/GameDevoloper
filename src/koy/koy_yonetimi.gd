@@ -474,12 +474,7 @@ func elebasi_surgun() -> bool:
 # ── Tekfur ────────────────────────────────────────────────────────────────────────────────────────
 
 func harac_ode() -> bool:
-	if not harac_bekliyor or akce < a.harac_akce or kaynaklar.miktar("gida") < a.harac_gida:
-		return false
-	akce -= a.harac_akce
-	kaynaklar.azalt("gida", a.harac_gida)
-	harac_bekliyor = false
-	return true
+	return TekfurHaracHeyeti.ode(self)
 
 
 func harac_reddet() -> void:
@@ -826,9 +821,9 @@ func _asamalar(olaylar: Array[Dictionary]) -> void:
 		if savusturulan >= a.zafer_bask_sayisi:
 			son = SON_ZAFER
 			return
-	if (gun + 1) % a.harac_araligi == 0:
+	if (gun + 1) % maxi(1,a.harac_araligi) == 0:
 		harac_bekliyor = true
-		olaylar.append({"anahtar": "koy.olay.harac", "deger": [a.harac_akce, a.harac_gida]})
+		olaylar.append(TekfurHaracHeyeti.olay(self))
 
 
 func _son_denetimi() -> void:

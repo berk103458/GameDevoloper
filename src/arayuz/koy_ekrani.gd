@@ -595,8 +595,8 @@ func _bant_ciz() -> void:
 		return
 	var v := VBoxContainer.new()
 	_bant.add_child(v)
-	var satir := HBoxContainer.new()
 	if _y.isyan_kalan >= 0:
+		var satir := HBoxContainer.new()
 		_etiket(v, tr("koy.isyan.bant") % _y.isyan_kalan, Tema.KUCUK_PX).add_theme_color_override("font_color", Hud.UYARI)
 		v.add_child(satir)
 		var as_ := _dugme(tr("koy.isyan.as") % (_y.nufus() * _y.a.as_dagit_gida), satir)
@@ -617,21 +617,7 @@ func _bant_ciz() -> void:
 				_yenile()
 		)
 	if _y.harac_bekliyor:
-		_etiket(v, tr("koy.harac.bant") % [_y.a.harac_akce, _y.a.harac_gida], Tema.KUCUK_PX).add_theme_color_override("font_color", Hud.UYARI)
-		var h := HBoxContainer.new()
-		v.add_child(h)
-		var ode := _dugme(tr("koy.harac.ode"), h)
-		ode.pressed.connect(func() -> void:
-			if _y.harac_ode():
-				Ses.cal(&"sfx_kese")
-				_yenile()
-		)
-		var red := _dugme(tr("koy.harac.reddet"), h)
-		red.pressed.connect(func() -> void:
-			_y.harac_reddet()
-			Ses.cal(&"sfx_saldiri", -6.0)
-			_yenile()
-		)
+		TekfurHeyetiPaneli.kur(self,v)
 
 
 # ── Gece (Faz 3) ve rapor kartı (14.3–14.4) ───────────────────────────────────────────────────────

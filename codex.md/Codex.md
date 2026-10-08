@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: eeeb29d (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: eeeb29d. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: 5cb4ad8 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 5cb4ad8. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -178,15 +178,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - ODA-15: ODA10 tek kader secicisinin tamamlayici denetimi; 6 kaynak/API/birim/gercek son UI gecti. Ikinci secici yok; asset gerekmedi.
 - HAR-01: Tek salt okunur cevre haritasi, dort bolge/gercek Tekfur sayaci; 70 regresyon ve final150/native/ayna gecti. Kasa/kamera/RNG/modal korunur; G HAR01-HARITA.
 - HAR-02: 72 checks passed; native and mirror verified; asset gerekmedi
+- HAR-03: 74 checks passed; same six-night public wheat tribute; native/mirror verified; HAR03-HEYET inventory
 
 ## Sonraki çalışma
-HAR-03. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+HAR-04. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -294,5 +297,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## HAR-02 doğrulaması / HAR-03 planı
-HAR02 72 regresyon sıfır hata; birim/headless/native gerçek25. gece sabah ve harita, ds ayna import/UI geçti. Gerçek gün kalan30 varsayımı dış JSON;5/2/0 tek typed uyarı, optional defter/JSON/legacy/bozuk sayı/terminal/negatif süre ve kasa/stok/RNG korundu. İlk eşik testi JSON float/int üyelik farkında başarısız oldu, tam sayı normalizasyonu düzeltildi ve tekrar geçti. Savaş/hasar/terminal/heyet sırası henüz bu madde değil. Asset gerekmedi, G kontrol edildi; mevcut HAR01 kutu/metin yüzeyi. Kontrol edilen son commiteeeb29d; aynı SHA yalnız commitli temiz ilk4/ikinci100 resource ERROR,0 SCRIPT; üçüncü0 ve gerçek headless/native menü0, denetim raporunda. HAR-03 [/] (Codex), mevcut Tekfur baskı mekanizmasına tek haraç heyeti/ödeme makbuzu adaptörü inceleme planı; ikinci baskın motoru yazma. İki ds kopyası eşit; Ahmet yolu erişilemiyor, Muharrir güvenli festive pull yapmalı.
+
+## HAR-03 doğrulaması / HAR-04 planı
+HAR-03 kapandı: 74 regresyon sıfır hata; birim/headless/native ve ds ayna import/UI geçti. Mevcut haraç talebi varsayılan6 gerçek gece;10 kamu akçesi/20 buğday, eski harac_gida export API adı korunur. Aynı harac_bekliyor/tekfur_baski ve mevcut savunma, yeni para/savaş/heyet kuyruğu yok. Eksik kaynak atomik ret, tekrar/JSON/terminal, kişisel kese/gıda/RNG ve mevcut auto oyuncu doğrulandı. Tek ColorRect mevcut bantta; HAR03-HEYET envanter G doğrulandı, asset üretilmedi/indirilmedi. İlk UI testinde mevcut isyan satırı haraç-only durumda orphan node idi; şart içine taşındı, tekrar headless/native warning sıfır. Kontrol edilen son commit5cb4ad8. HAR-04 [/] (Codex): mevcut OlayVerisi kartında dış JSON ayarlı Sancak asker talebi; yetişkin uygun iş gücü/gerçek açık kişisel isyancı aday ayrımı, hastalar/çocuklar/zindan/dış müfreze hariç. Gizli suçtan isyancı uydurma veya ikinci olay HUD yok. İki ds kopyası eşit; Ahmet yolu erişilemiyor, Muharrir güvenli festive pull yapmalı.

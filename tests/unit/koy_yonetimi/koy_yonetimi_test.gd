@@ -270,6 +270,7 @@ func _tekfur() -> void:
 	y.a.ambar_taban_kapasite = 10000
 	y.kaynaklar.kapasite = 10000
 	y.kaynaklar.ekle("gida", 2000)
+	y.kaynaklar.ekle("bugday", 200)
 	y.gece()
 	_esit("ağalık", y.agalik, true)
 	while not y.harac_bekliyor:
