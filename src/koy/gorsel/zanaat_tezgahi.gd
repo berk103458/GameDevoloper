@@ -7,6 +7,7 @@ var _eski: Dictionary = {}
 var _tur := ""
 var _uc: Node3D
 var _karakter: KarakterModel
+var _ekipman: KarakterEkipmanYoneticisi
 ## Mevcut hazır zanaat binasının fiziksel gündüz çalışanı.
 static func aday(y: KoyYonetimi, k: Koylu, faz: StringName) -> bool:
  if k == null or faz != &"gunduz": return false
@@ -52,6 +53,7 @@ func _kur(f: KarakterModel, tur: String) -> bool:
  alet.dik = true
  add_child(alet)
  _uc = Node3D.new()
+ _uc.name = "alet_uc"
  alet.add_child(_uc)
  var sap := _kutu(AYAR.sap_boy, Color(AYAR.ahsap))
  sap.position.y = -float(AYAR.sap_boy[1]) / 2
@@ -60,8 +62,14 @@ func _kur(f: KarakterModel, tur: String) -> bool:
  var bas := _kutu(AYAR.kurek_boy if pisir else AYAR.cekic_boy, Color(AYAR.ahsap if pisir else AYAR.demir))
  bas.position.y = -float(AYAR.sap_boy[1])
  _uc.add_child(bas)
- alet.bagla(f, sk, true, f.duzeltici())
+ _ekipman = KarakterEkipmanYoneticisi.al(f)
+ if _ekipman == null: return false
+ alet = _ekipman.tak(tur, alet, self)
+ _uc = alet.get_node("alet_uc")
+ _uc.transform = Transform3D.IDENTITY
  return true
+func _exit_tree() -> void:
+ if is_instance_valid(_ekipman): _ekipman.depoladir(self)
 func _process(_delta: float) -> void:
  if _karakter == null or _uc == null: return
  var d := _karakter.duzeltici()

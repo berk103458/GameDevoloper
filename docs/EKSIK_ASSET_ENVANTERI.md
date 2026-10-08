@@ -320,7 +320,7 @@ Varlık adı öneridir. Kod bu yolları henüz yüklemez. Öncelik sütunu ileri
 | ID | ROADMAP | Ne | Format | Anahtar kelimeler |
 |---|---|---|---|---|
 | ANI-SILAH | ANI-01, ANI-11 | Kılıç, kalkan, mızrak, meşale soketi | glTF, el kemiği | curved sabre, round shield, spear, torch, BoneAttachment |
-| ANI-ALET | ANI-03, ANI-08 | Kova, orak, balta, örs çekici, fırın küreği | glTF | yoke, sickle, axe, peel |
+| ANI-ALET | ANI-03, ANI-08, ANI-11 | Kova, orak, balta, örs çekici, fırın küreği | glTF | yoke, sickle, axe, peel |
 | ANI-HAYVAN-SURU | ANI-04, ANI-05 | Öküz yürüyüş, koyun otlama | glTF klip | ox walk, sheep graze |
 | TUC-TACIR | TUC-01…04, 08 | Celep, nalbur, kumaşçı, aktar, silah tüccarı | `karakter/<ad>_yuru.glb` | livestock dealer, black-market arms, felt merchant |
 | TUC-HAYVAN | TUC-02, TUC-14 | İnek, koç, beygir | glTF | cow, ram, riding horse |
@@ -373,6 +373,7 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | ANI09-SACAK | ANI-09 | Yağmurdan korunma saçağı | glTF | res://src/koy/gorsel/karakter_hava_tepkisi.gd (sacak_kur: düz BoxMesh) | ortaçağ ev saçağı yağmur barınağı; medieval eaves rain shelter | orta | Codex |
 | ANI09-BUZULME | ANI-09 | Soğukta büzülmüş yürüyüş | glTF / iskelet animasyon klibi | res://src/dunya/durus_duzeltici.gd (hava_egimi: mevcut modifier yer tutucusu) | soğuk köylü büzülmüş yürüme; cold villager hunched walk | orta | Codex |
 | ANI10-SINSI | ANI-10 | Sinsi yürüyüş ve temkinli kuytu bekleyiş | glTF / iskelet animasyon klibi | res://src/koy/gorsel/sinsi_gece_rutini.gd + koy_halk_hareketi.gd (_adim: mevcut yürüyüş yavaşlatılır) | gece sinsi köylü temkinli yürüyüş; night villager stealth cautious walk idle | orta | Codex |
+| ANI11-ALET | ANI-11 (ANI-ALET mevcut ihtiyaç) | Gerçek çekiç ve fırın küreği; sokete hazır tutma noktası | glTF | res://src/koy/gorsel/zanaat_tezgahi.gd (_kur: mevcut düz kutular); res://src/dunya/karakter_ekipman_yoneticisi.gd (tak: tek soket) | ortaçağ çekiç fırın küreği el soketi; medieval hammer baker peel hand grip socket | orta | Codex |
 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.
 

@@ -120,3 +120,8 @@ ANI-09 temiz commit denetimi: c7572f8 arşivi, ilk/ikinci import geçici bağım
 ## ANI-10 kapanış ve duraklama — 8 Ekim 2026
 
 ANI-10 [x] (Codex); tam 146 kontrol ve 20 gece sıfır hata; native gece ve ds ayna geçti. Mantık yeni SinsiGeceRutini dosyasında; halk hareketinde tek satırlık adaptör çağrıları. Gizli kimlik, kayıt/RNG ve ekonomik hesaplar korunur. Asset üretilmedi/indirilmedi; G tablosunda ANI10-SINSI. 608855e iki ds kopyaya pull edildi. Muharrir ANI-07/08/09 Ahmet makinesinde geçtiğini bildirdi; bu makineden Ahmet yolu erişilemiyor. Kapanış paketi normal festive commit/push. Kullanıcı emriyle duruldu; ANI-11 henüz alınmadı. 05:10 limit yenilenince tek devam turunda önce pull/duyuru/sahiplik kontrolü yapılır; BUG-07 CSV paketi Cursor adına korunur.
+
+
+## ANI-11 kapanış — 8 Ekim 2026
+
+Canlı limit yenilendi; 1e200ce iki ds kopyaya pull edildi, sahiplik fe3e508 festive yayını sonrası ANI-11 geliştirildi. 26 kontrol/20 gece, native çekiç/kürek ve ds ayna hatasız geçti. İlk soket ağaca giriş sıralaması hatası giderildi, final import/runtime hatasız. Yeni KarakterEkipmanYoneticisi mevcut ZanaatTezgahi aletini tek BoneAttachment3D ile taşır, aynı nesneyi molada/gecede gizli görsel stokta saklar; ekonomik stok/RNG/kayıt değişmez. Eski ElEsyasi/CHR API korundu, halk hareketi dosyasına yeni mantık eklenmedi. G envanter ANI11-ALET eski ANI-ALET ihtiyacını referanslar; asset üretilmedi/indirilmedi. ANI-11 [x] (Codex); sıradaki ANI-12 sahiplenilir, yayından sonra başlanır. Ahmet yolu bu makinede yok.

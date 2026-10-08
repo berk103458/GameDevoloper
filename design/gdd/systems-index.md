@@ -268,3 +268,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - ANI-09: [Karakter hava tepkileri](karakter-hava.md) — mevcut iklimde yağmur/kar; A* saçak, yürüyüş hızı, aynı gövde modifieri.
 
 - ANI-10: [Sinsi gece](sinsi-gece.md) — salt görsel kuytu/kaçış; mevcut A* ve riskler.
+
+- ANI-11: [Karakter ekipman soketi](karakter-ekipman.md) — mevcut zanaat aleti, tek BoneAttachment3D ve salt görsel stok.

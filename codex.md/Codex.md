@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 608855e (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 608855e. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: fe3e508 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: fe3e508. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -112,15 +112,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - ANI-08: Gerçek fiziksel çalışan/reçete/girdi/ambar koşullarıyla örs çekiç ve fırın küreği döngüleri; mevcut modifier/el soketi, tek noktada düz kutu yer tutucular. 17 ilgili kontrol ve 20 gece; son alet açı düzeltmesi native/ayna sahnesinde geçti. Envanter G güncel, asset üretilmedi/indirilmedi.
 - ANI-09: Mevcut iklim sözleşmesine yağmur; aynı A* ile erişilebilir düz kutu saçağa sığınma, muhafız görevini koruma, kar fırtınasında görsel hız ×0.72 ve mevcut modifierde hafif büzülme. Ekonomi/RNG değişmez. Tam 144 kontrol ve izole 20 gece sıfır başarısız; native ve ayna geçti. Envanter G/VFX-YAGMUR güncel; asset üretilmedi/indirilmedi.
 - ANI-10: Mevcut gizli eğilim/sabotaj riskine bağlı gece kuytu ve nöbetçiden kaçış; tek satırlık plan/kare/hız adaptörleri, kayıt/RNG korunur. Tam sanity ve 20 gece sıfır hata, native/ayna geçti. Asset üretimi yok, ANI10-SINSI envanter G kaydı tamam.
+- ANI-11: Mevcut zanaat aletleri tek gerçek BoneAttachment3D soketinde; mola/gecede aynı nesne görsel stokta, geri dönüşte yeniden kullanılır. 26 kontrol/20 gece ve native/ayna geçti; G tablosu ANI11-ALET mevcut ihtiyacı referanslıyor, asset üretimi yok. Halk hareketine yeni mantık eklenmedi.
 
 ## Sonraki çalışma
-BEKLEME — 05:10 limit yenilenmesi. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. SYS-09 PR #2 birleşmeden CSV değiştirilmez. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+ANI-12. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -139,12 +142,7 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## Kullanıcı talimatıyla duraklama — 8 Ekim 2026
 
-ANI-10 kapandı; yeni maddeye başlanmadı, ANI-11 [ ] kalır. Kontrol edilen son commit: 608855e (festive); ANI-10 kapanış paketi normal commit/push ile yayımlanır. 146 sanity kontrolü/20 gece sıfır hata; son ince adaptör düzenlemesi birim/native/ayna sahnesinde tekrar geçti. 05:10 Europe/Istanbul tek devam otomasyonu; canlı limit reseti 05:10:41. Devamda önce pull/duyuru/ROADMAP, Cursor ve Claude sahipli maddeler atlanır; BUG-07 CSV paketi SYS-09/SYS-12/KVR-11/SYS-11 Cursor sorumluluğunda. Sıradaki uygun madde (normalde ANI-11) ancak o turda sahiplenilip commit edilir.
+## ANI-11 kapanış / ANI-12 sahiplik
 
-Kontrol edilen son commit: `8f00e9f`; gelen `1e898fd` BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor sahipliği dosya ezmeden korundu. ANI-10 özellik commit ve entegrasyonu tamam; yeni maddeye başlanmadı.
-
-## ANI-11 sahiplik — 8 Ekim 2026 05:11
-
-Canlı 5 saatlik limit yenilendi (%0 kullanılmış). Kontrol edilen son commit: `1e200ce` (festive); iki ds kopyaya güvenli pull alındı. ANI-10 [x] korunur; ANI-11 [/] (Codex) üstlenildi, bu sahiplik commitinden sonra kod çalışması başlayacak. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor [x], tekrar alınmaz. Güncel CSV standardı docs/METIN_ANAHTAR_STANDARDI.md; bu paket CSV değiştirmez. Plan: mevcut zanaat aletine BoneAttachment3D soketi ve salt görsel saklama; ikinci HUD/iş/ekonomi sistemi yok. Sahiplik belgesi için asset gerekmedi.
+Kontrol edilen son commit: fe3e508; 26 ilgili kontrol ve 20 gece sıfır hata, son native/ayna geçti. ANI-11 [x], envanter G doğrulandı. ANI-12 [/] (Codex) bu commit ile üstlenilir; sonraki çalışma ancak yayın sonrası başlar. Alet görselleri mevcut ANI08 kutuları; yeni asset yok. Ahmet yolu burada erişilemiyor; Muharrir önceki ANI07/08/09 yerel onayını bildirdi. Bekleme/duraklama 05:10 limit yenilenmesiyle sona erdi. CSV paketi Cursor [x] korunur.

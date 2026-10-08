@@ -1006,3 +1006,10 @@ Kritik BUG-07 kapandı. Önceden `metinler.csv`'de tek bir anahtar eksik ya da b
 Dosyalar: `src/sistemler/guvenli_metin.gd` (yeni), `Ana._ready` 1 satır, `Katalog._anahtar_dogrula` 4 satır; `tools/metin_dogrula.py` (PR #2 tabanı + KVR-11 biçimi + kod/katalog anahtarı ve yer tutucu sayısı denetimi); `tools/sanity_check.py` içinde `metin-csv` adımı; `docs/METIN_ANAHTAR_STANDARDI.md`; testler `tests/unit/metin/guvenli_metin_test.gd`, `tests/tools/test_metin_dogrula.py`.
 
 Doğrulama: Godot 4.7.2 headless import hatasız; tam `sanity_check` (ANI-10 dahil, 20 gece duman testi dahil) 0 başarısız; ana sahne açılışı hatasız. Asset gerekmedi. `koy_sahnesi`/`KoyYerlesimi`/`KoyluAI` yok.
+
+
+## Codex — ANI-11 (8 Ekim 2026)
+
+Mevcut zanaat aletleri tek gerçek BoneAttachment3D soketinde; mola/gecede aynı nesne görsel stokta, geri dönüşte yeniden kullanılır. 26 kontrol/20 gece ve native/ayna geçti; G tablosu ANI11-ALET mevcut ihtiyacı referanslıyor, asset üretimi yok. Halk hareketine yeni mantık eklenmedi.
+
+Sıradaki: ANI-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
