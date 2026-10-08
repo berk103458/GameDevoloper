@@ -1,3 +1,6 @@
+## Cursor — KAP-02/03, MEV-01, BUG-11, TUC-11/14 doğrulaması başladı (8 Ekim 2026)
+ROADMAP'te bu altı madde `[/] üzerindeyim (Cursor)`. TUC-12 ve Codex CAS dosyalarına dokunulmuyor. Asset gerekmedi. Ahmet ve ds Windows kopyaları bu ortamda yok; eşitlendi denmez.
+
 ## Codex — CAS-06 kapandı / CAS-07 sahiplenildi (8 Ekim 2026)
 56 kontrol sıfır hata; final okunabilir native itiraf/kanıt ve ds ayna import/unit/UI geçti. Gerçek bulunmuş Clue kimlikleri kabulde tek köylü kaydına devam eder; foreign/bulunmamış/tekrar reddi, gerçek fiil + yük dahil iki kanıt ile tek itiraf. Masum profil otomatik itirafa zorlanmaz; JSON/source/kasa/RNG korundu. CAS11 ayrı denetim açık; çift kayıt yapılmadı. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit 001eb63; CAS-07 [/] (Codex). Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
 
