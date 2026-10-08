@@ -6,7 +6,6 @@ ROADMAP kilidi açıldı. MEV-01 sonradan liste dışına alındı ve satırı g
 
 ## Codex — CAS-10 kapandı / CAS-11 sahiplenildi (8 Ekim 2026)
 35 kontrol sıfır hata, final native ve poz/Clue regresyonları; ds ayna import/unit/final UI geçti. Arşiv söylentisi ayrı kanıtsız dava, yalnız haksız zindan seçeneği; gerçek gözlem yoksa kapı Clue bile sahte itiraf yaratmaz. Şecere001/004 kardeşi gerçek nüfustan ayrılır; fraksiyon/ev aile sayılmaz. Tek moral/adalet kaybı, kamu10 tam tazmin/tahliye, eksik kasa/çift ödeme reddi ve JSON yeniden hapsetmeme. Mevcut tutuklu figürü duruşmada görünür, kapanışta görünüm/poz geri gelir. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit33e4a44; CAS-11 [/] (Codex), mevcut CAS06 köprüsünün tüm CHR/source/JSON sözleşme denetimi. Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
->>>>>>> origin/claude/festive-volta-li1sfm
 
 ## Codex — CAS-09 kapandı / CAS-10 sahiplenildi (8 Ekim 2026)
 33 kontrol sıfır hata ve final gerçek Oturum.gece_sonu birim kontrolü; native imzasız iddia/arşiv ve ds ayna import/unit/UI geçti. Tek pending, iki seçim/çift tıklama/JSON/bozuk kayıt, suçüstü önceliği; gizli kimlik/fiil metne sızmaz, masum söylenti kanıt/divan adayı değildir. Kasa/stok/RNG/kişi korundu. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commitbe86e32; CAS-10 [/] (Codex), kanıtsız hükmün ayrı görünür haksızlık sonucu planı. Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
