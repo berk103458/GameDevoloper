@@ -1474,3 +1474,6 @@ Sıradaki: ODA-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 ODA10 tek kader secicisinin tamamlayici denetimi; 6 kaynak/API/birim/gercek son UI gecti. Ikinci secici yok; asset gerekmedi.
 
 Sıradaki: HAR-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+## Codex — HAR-01 inceleme checkpoint
+ODA01–15 tamam ve push; harita henüz mekanik olarak yapılmadı. Yukarıdaki plan codex.md/Codex.md; asset gerekmedi (yalnız inceleme).
