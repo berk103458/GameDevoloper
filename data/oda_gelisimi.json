@@ -1,0 +1,55 @@
+{
+  "karar_yorgunluk": 2,
+  "gece_yorgunluk": 10,
+  "yorgunluk_azami": 100,
+  "tecrube_ceza_aralik": 20,
+  "yatak": {
+    "ad": "Rahat yatak",
+    "bedel": 20,
+    "dinlenme": 5,
+    "on_kosul": "",
+    "renk": "c1ab83"
+  },
+  "askilik": {
+    "ad": "Donanım askılığı",
+    "bedel": 15,
+    "dinlenme": 10,
+    "on_kosul": "yatak",
+    "parca": {
+      "ad": "askilik",
+      "etiket": "Askılık",
+      "boyut": [
+        0.3,
+        1.5,
+        0.8
+      ],
+      "yer": [
+        -3,
+        0.75,
+        1.3
+      ],
+      "renk": "806348"
+    }
+  },
+  "kutuphane": {
+    "ad": "Muhafız kütüphanesi",
+    "bedel": 25,
+    "dinlenme": 15,
+    "on_kosul": "yatak",
+    "parca": {
+      "ad": "kutuphane",
+      "etiket": "Kütüphane",
+      "boyut": [
+        1.1,
+        1.7,
+        0.5
+      ],
+      "yer": [
+        -2.8,
+        0.85,
+        -2.8
+      ],
+      "renk": "594d40"
+    }
+  }
+}

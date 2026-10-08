@@ -372,3 +372,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Adalet yetenekleri](adalet-yetenekleri.md) — ODA-06, aynı seçim ağacı, mevcut heybe keşfi ve isyan eşiği.
 
 - [Sancak teftişi](sancak-teftisi.md) — ODA-07, mevcut kişisel kasa/yozlaşma, tek gece makbuzu ve aynı terminal akışı.
+
+- [Oda geliştirmeleri](oda-gelistirmeleri.md) — ODA-08, tek kişisel yorgunluk ve günlük dinlenme, mevcut sorguda etkin tecrübe.

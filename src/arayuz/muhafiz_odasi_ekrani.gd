@@ -60,6 +60,7 @@ func _ready() -> void:
  OdaKasasiPaneli.kur(self,icerik)
  OdaYetenekPaneli.kur(self,icerik)
  OdaTeftisNotu.kur(oturum,icerik)
+ OdaGelistirmePaneli.kur(self,icerik)
  OdaEnvanterSergisi.kur(self,icerik)
  var b:=Button.new()
  b.name="oda_kapat"

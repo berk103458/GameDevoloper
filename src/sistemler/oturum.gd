@@ -27,6 +27,8 @@ var kasa_transferleri: Dictionary = {"son_zimmet": -1, "kurtarma_toplam": 0, "zi
 var muhafiz_yetenekleri: Dictionary = {"alinan": [], "son_harac_gece": -1, "harac_toplam": 0}
 ## ODA-07 optional tek teftiş sonucu; mevcut kasa/skor kopyalanıp işletilmez.
 var sancak_teftisi: Dictionary = {}
+## ODA-08 optional kişisel oda geliştirmeleri/yorgunluk; köy statı değildir.
+var oda_gelisimi: Dictionary = {}
 var yeni_binalar: Array[Dictionary] = []
 ## Olayların bıraktığı işaretler (kararların uzun vadeli izleri).
 var bayraklar: Dictionary = {}
@@ -244,6 +246,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 		kadro.sonuc(gelen.id, kaldi, &"kabul" if karar == &"harc" else karar, gun)
 	ek["kaldi"] = kaldi
 	muhafiz_tecrubesi += 1
+	MuhafizOdaGelisimi.karar(self)
 	return ek
 
 
@@ -253,6 +256,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 func gece_sonu() -> Dictionary:
 	var bilanco_once := GeceBilancosu.fotograf(self)
 	var agalik_once := yonetim.agalik
+	MuhafizOdaGelisimi.gece(self)
 	var harac := MuhafizYetenekleri.harac(self)
 	MuhafizAdaletYetenekleri.bagla(self)
 	var r := yonetim.gece()
@@ -694,6 +698,7 @@ func kaydet() -> Dictionary:
 		"muhafiz_tecrubesi": muhafiz_tecrubesi,
 		"muhafiz_akce": muhafiz_akce, "muhafiz_esyalari": muhafiz_esyalari.duplicate(true),
 		"kasa_transferleri": kasa_transferleri.duplicate(true),
+		"oda_gelisimi": MuhafizOdaGelisimi.oku(oda_gelisimi),
 		"sancak_teftisi": SancakTeftisi.oku(sancak_teftisi),
 		"muhafiz_yetenekleri": MuhafizYetenekleri.oku(muhafiz_yetenekleri),
 		"mevsim": yonetim.mevsim(), "yeni_binalar": yeni_binalar.duplicate(true),
@@ -729,6 +734,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.muhafiz_tecrubesi = maxi(0, int(veri.get("muhafiz_tecrubesi", 0)))
 	o.muhafiz_akce = maxi(0, int(veri.get("muhafiz_akce", 0)))
 	o.kasa_transferleri = KasaTransferi.oku(veri.get("kasa_transferleri"))
+	o.oda_gelisimi = MuhafizOdaGelisimi.oku(veri.get("oda_gelisimi"))
 	o.sancak_teftisi = SancakTeftisi.oku(veri.get("sancak_teftisi"))
 	o.muhafiz_yetenekleri = MuhafizYetenekleri.oku(veri.get("muhafiz_yetenekleri"))
 	MuhafizAdaletYetenekleri.bagla(o)

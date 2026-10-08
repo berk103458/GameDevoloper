@@ -1418,3 +1418,10 @@ Sıradaki: ODA-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Gercek kisisel kasa ve yozlasmadan tek gece teftisi; integer zar/JSON, temiz/bos/bulunamadi/azil/idam, mevcut terminal ve gece raporu/Ana son ekrani; 59+5 kontrol final native/ayna gecti. Asset gerekmedi.
 
 Sıradaki: ODA-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-08 (8 Ekim 2026)
+
+Tek kisisel oda/yorgunluk kaydi; gercek karar ve gece, etkin CHR tecrubesi, kisisel yatak/askilik/kutuphane ve gunluk dinlenme; 63 kontrol final gece/native/ayna gecti. G uc model ihtiyaci kayitli, asset uretilmedi.
+
+Sıradaki: ODA-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

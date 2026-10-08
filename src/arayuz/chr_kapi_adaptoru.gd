@@ -13,7 +13,7 @@ static func diyalog_goster(ekran: Control, gelen: Gelen, secenekler: VBoxContain
 	var sorgu := gelen.chr_sorgusu()
 	if sorgu == null:
 		return false
-	sorgu.tecrube = ekran.oturum.muhafiz_tecrubesi
+	sorgu.tecrube = MuhafizOdaGelisimi.etkin_tecrube(ekran.oturum)
 	ekran.call("_chr_tansiyon_degisti", sorgu.tansiyon)
 	var animasyon := Callable(ekran, "_chr_tansiyon_degisti")
 	if not sorgu.tansiyon_degisti.is_connected(animasyon):
