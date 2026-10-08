@@ -324,3 +324,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Yaz su dengesi ve kıvılcım](yaz-su-yangin.md) — MEV-07, aynı kuyu/ambar/pazar ve iadesiz yapı kaybı.
 
 - [Hasat şenliği](hasat-senligi.md) — MEV-08, dolu erzak ambarında yıllık mevcut moral dopingi.
+
+- [Kapı görüşü](kapi-gorusu.md) — MEV-09, mevcut CHR görsel izinde tipi/sis bulanıklığı.

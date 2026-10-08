@@ -48,7 +48,7 @@ func _ready() -> void:
 	panel.baglam = ana
 	ana.add_child(panel)
 	panel.ac(true)
-	kontrol(panel.hava.item_count == 4 and panel.hava.selected == 3, "Mevcut denetçide yağmur seçimi")
+	kontrol(panel.hava.item_count == IklimDeneyi.HAVALAR.size() and panel.hava.selected == 3 and panel.hava.get_item_text(4) == "Sis", "Mevcut denetçide yağmur seçimi")
 	panel.ac(false)
 	await _goruntu(s, f, "ani09_yagmur.png")
 	IklimDeneyi.degistir(ana.oturum, 0, "normal")

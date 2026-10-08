@@ -2,7 +2,7 @@
 class_name IklimDeneyi
 extends RefCounted
 const META := &"debug_iklim_deneyi"
-const HAVALAR := ["normal", "kar_firtinasi", "kuraklik", "yagmur"]
+const HAVALAR := ["normal", "kar_firtinasi", "kuraklik", "yagmur", "sis"]
 
 static func ayar(y: KoyYonetimi) -> Dictionary:
 	return y.get_meta(META).duplicate(true) if y.has_meta(META) else {}

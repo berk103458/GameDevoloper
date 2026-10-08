@@ -43,5 +43,6 @@ static func inceleme_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxContain
 		panel.name = "ChrInceleme"
 		panel.sorgu = sorgu
 		ekran.add_child(panel)
+		KapiGorusAdaptoru.bagla(panel, ekran)
 	)
 	return dugme

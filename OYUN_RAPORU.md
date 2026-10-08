@@ -1204,3 +1204,10 @@ Sıradaki: MEV-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Full autumn granary with actual food triggers one annual harvest feast after daily morale costs; existing night report and moral HUD reach 100. Save, repeat, starvation rejection and real UI verified; 62 checks passed, mirror/native passed; asset gerekmedi.
 
 Sıradaki: MEV-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-09 (8 Ekim 2026)
+
+Storm/fog blur only existing CHR visual clue portrait; buttons and text stay readable, evidence unlock unchanged. 69 regression checks: two compatibility failures corrected and final CHR/weather reruns passed; native and mirror UI passed; asset gerekmedi.
+
+Sıradaki: MEV-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

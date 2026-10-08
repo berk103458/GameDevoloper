@@ -1,3 +1,6 @@
+## Codex — MEV-09 tamamlandı / MEV-10 sahiplenildi (8 Ekim 2026)
+69 regresyonda ilk CHR bağımsız host ve hava seçenek sayısı hataları düzeltildi; final CHR/yağmur ve yeni gerçek kapı UI tekrarları geçti. Native portre/uyarı ve ds ayna import/UI/CHR geçti. Tipi/sis yalnız görsel iz portresini bulanıklaştırır; metin, kanıt kilidi ve kararlar korunur. Asset gerekmedi, G kontrol edildi. Son kontrol edilen commit 61163f6. MEV-10 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
+
 ## Codex — MEV-08 tamamlandı / MEV-09 sahiplenildi (8 Ekim 2026)
 62 kontrol sıfır hata; native hasat raporu ve ds ayna import/UI geçti. Gıda içeren dolu sonbahar ambarı yılda tek şenlik, mevcut Moral/Huzur 100; tüketim sonrası aynı gece. Taşla dolu aç ambar, tekrar ve eski kayıt korundu. Asset gerekmedi, G kontrol edildi. Son kontrol edilen commit 6541a26; MEV-09 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
 
