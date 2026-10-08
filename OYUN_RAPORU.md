@@ -1041,3 +1041,10 @@ Sıradaki: ANI-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Duman/kıvılcım/su CPUParticles3D mekanikleri hazır bina/gerçek çalışma varışına bağlandı; uzaklık LOD, düşük grafik katmanı, reçete girdisi/gece kapanışı ve kova akışı kaynağı doğrulandı. Yeni asset yok; düz BoxMesh yer tutucuları ve eksik efektler envanter G ANI15-DUMAN/KIVILCIM/SU.
 
 Sıradaki: TUC-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-01 (8 Ekim 2026)
+
+Mevcut kervan 4 gun varis/2 gun konaklama; dort uzman, tek pazar satiri ve kayit gununden saf takvim. 15 kontrol, native ve ayna UI gecti; asset gerekmedi.
+
+Sıradaki: TUC-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

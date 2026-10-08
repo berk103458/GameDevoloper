@@ -159,8 +159,9 @@ func emniyet_acik() -> bool:
 	return en_yuksek_nufus >= a.emniyet_nufus and gun >= a.emniyet_gun
 
 
+## Mevcut ticaret API'si: uzman tüccarın iki günlük konaklama aralığı.
 func kervan_gunu() -> bool:
-	return gun % a.kervan_araligi == a.kervan_araligi - 1
+	return GezginTuccarTakvimi.durum(gun, a.kervan_araligi).aktif
 
 
 ## Ambarda kaç günlük gıda var (uyarı için).

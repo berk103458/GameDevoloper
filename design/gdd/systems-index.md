@@ -278,3 +278,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - ANI-14: [Köylü takibi](koylu-takibi.md) — aynı kamera, mevcut köylü kartı seçimi ve tek billboard durum etiketi.
 
 - ANI-15: [Atölye parçacıkları](atolye-parcaciklari.md) — mevcut çalışma varışı, düşük CPU bütçesi, uzaklık LOD ve mevcut düşük grafik profili.
+
+- TUC-01: [Gezgin tüccar takvimi](gezgin-tuccar-takvimi.md) — mevcut kervan, dört gün varış ve iki gün konaklama.

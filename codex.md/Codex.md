@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 9fc8675 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 9fc8675. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: 3b93bf0 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 3b93bf0. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -117,15 +117,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - ANI-13: Mevcut patika A* sırası bina/arazi dışı NavigationRegion3D koridorlarına bağlandı; async hazırlık ve güncel güvenli rota yedeği, gerçek kapı/engel sorgusu ve kayıt/RNG korunumu doğrulandı. Asset gerekmedi.
 - ANI-14: Mevcut köylü kartı seçimine aynı strateji kamerasıyla takip ve tek Label3D ad/zanaat/eylem etiketi bağlandı; WASD/sağ tık/yapı kipi iptali, zoom, figür kaybı, gizli bilgi ve kayıt/RNG korunumu doğrulandı. Asset gerekmedi.
 - ANI-15: Duman/kıvılcım/su CPUParticles3D mekanikleri hazır bina/gerçek çalışma varışına bağlandı; uzaklık LOD, düşük grafik katmanı, reçete girdisi/gece kapanışı ve kova akışı kaynağı doğrulandı. Yeni asset yok; düz BoxMesh yer tutucuları ve eksik efektler envanter G ANI15-DUMAN/KIVILCIM/SU.
+- TUC-01: Mevcut kervan 4 gun varis/2 gun konaklama; dort uzman, tek pazar satiri ve kayit gununden saf takvim. 15 kontrol, native ve ayna UI gecti; asset gerekmedi.
 
 ## Sonraki çalışma
-TUC-01. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+TUC-02. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -159,6 +162,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## ANI-15 kapanış doğrulaması
 
-ANI-15: 23 ilgili kontrol, 0 hata (20 gece dahil); Vulkan üç görüntü ve GitHub kopyası import/UI geçti. Düşük grafik profili mevcut GrafikProfiliAdaptoru ile emisyonu kapatır; normal profile dönüş, mesafe bütçesi, reçete ve gerçek kova akışı kaynağı doğrulandı. Asset üretilmedi/indirilmedi, envanter G ANI15-DUMAN/KIVILCIM/SU kontrol edildi. İki ds kopyası eşitlenir; Ahmet Windows yolu burada yok. TUC-01 [/] (Codex) sıradaki.
+## TUC-01 kapanış kanıtı
+15 ilgili kontrol sıfır hata; native pazar ve ds ayna import/UI geçti. Asset gerekmedi. TUC-02 [/] (Codex) sahiplenildi. Ahmet Windows yolu bu makinede yok.

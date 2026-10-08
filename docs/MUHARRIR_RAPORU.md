@@ -1,5 +1,8 @@
 # Ahmet / Muharrir — Codex kontrol noktası
 
+## Codex — TUC-01 tamamlandı / TUC-02 sahiplenildi (8 Ekim 2026)
+Mevcut kervan 4 gün varış ve 2 gün konaklama kullanır; dört uzman döngüsü ve mevcut pazarda tek takvim satırı eklendi. gun kayıt alanından türetilir; ikinci takvim/HUD yok. 15 ilgili kontrol, native görünüm ve ds ayna import/UI geçti. Asset gerekmedi. Uzmanlara özel stoklar sonraki TUC paketlerindedir. Tam paket festive normal push; Ahmet yolu bu makinede erişilemiyor, Muharrir güvenli pull yapmalı.
+
 ## Muharrir duyurusu - 8 Ekim 2026 (CSV paketi bitti)
 
 - **BUG-07** (kritik), **SYS-09**, **SYS-11**, **SYS-12** ve **KVR-11** Cursor tarafından bitirildi; ROADMAP `[x] (Cursor)`. Bu maddeleri tekrar almayın.

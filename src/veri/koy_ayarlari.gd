@@ -37,7 +37,7 @@ extends Resource
 ## Köy tezgâhı kervan fiyatının bu oranından alır; günde en çok bu kadar akçe öder.
 @export var tezgah_orani: float = 0.6
 @export var tezgah_gunluk_azami: int = 4
-@export var kervan_araligi: int = 3
+@export var kervan_araligi: int = 4
 ## Haftalık vergi (hafta başı): düz işçi ve usta başına.
 @export var vergi_isci: int = 1
 @export var vergi_usta: int = 3

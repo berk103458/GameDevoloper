@@ -518,6 +518,7 @@ func _is_adi(k: Koylu) -> String:
 
 func _pazar_ac() -> void:
 	var v := _kart_ac(tr("koy.pazar.baslik"))
+	GezginTuccarPazarAdaptoru.pazar(self, v)
 	_etiket(v, tr("koy.pazar.tezgah") % [int(_y.a.tezgah_orani * 100), _y.a.tezgah_gunluk_azami], Tema.KUCUK_PX)
 	for t in ["odun", "tas", "gida", "kereste", "kurk"]:
 		var satir := HBoxContainer.new()

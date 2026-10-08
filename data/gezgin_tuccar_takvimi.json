@@ -1,0 +1,25 @@
+{
+  "konaklama": 2,
+  "uzmanlar": [
+    {
+      "id": "celep_hamdullah",
+      "ad": "Celep Hamdullah",
+      "uzmanlik": "Canlı hayvan"
+    },
+    {
+      "id": "nalbur",
+      "ad": "Nalbur",
+      "uzmanlik": "Maden ve alet"
+    },
+    {
+      "id": "kumasci_aktar",
+      "ad": "Kumaşçı ve Aktar",
+      "uzmanlik": "Kumaş ve şifalı malzemeler"
+    },
+    {
+      "id": "silah_tuccari",
+      "ad": "Silah Tüccarı",
+      "uzmanlik": "Silah ve zırh"
+    }
+  ]
+}

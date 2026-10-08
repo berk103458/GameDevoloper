@@ -58,7 +58,7 @@ Kapıda verdiğin her karar köyde bir yüz, bir iş, bir kin olarak geri döner
 
 ### Akçe (5)
 - **Tezgâh**: kervan fiyatının %60'ı, günde en çok 4 akçe.
-- **Kervan**: 3 günde bir; tam fiyatla alır; demir, alet ve kışlık tahıl satar.
+- **Kervan**: 4 günde bir, 2 gün konaklama ([TUC-01](gezgin-tuccar-takvimi.md)); tam fiyatla alır; demir, alet ve kışlık tahıl satar.
 - **Haftalık vergi**: hafta başı işçi 1, usta 3 akçe. **Muhafız**: günde 1 akçe (haftada 7).
 - **Rezerv**: son 5 akçe savunma ve lüks harcamalara kilitli.
 - **Sur taksiti**: sur seviyesinin bedeli 4 taksitte ödenir; son taksitte sur yükselir (Tester A "sur tuzağı").
