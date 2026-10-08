@@ -23,3 +23,6 @@ Git archive 8b8950c ile .godot/untracked içermeyen kopya. İlk import 104 resou
 
 ## MEV-05 / 237786a yalnız commitli kontrol
 Git archive 237786a, .godot/untracked yok. İlk import bilinen 104 resource hata satırı, sıfır SCRIPT ERROR; ikinci import sıfır hata. Headless/native gerçek Ana/Ses/menü geçti. Kanıt work/mev05_clean_first.log, mev05_clean_second.log, mev05_clean_menu.log, mev05_clean_native_menu.log. Ahmet yolu erişilemiyor; ilk import hatasız diye sunulmaz.
+
+## MEV-06…09 commitli açılış kanıtı — 343a79d
+Git archive yalnız commitli dosyalar, .godot/untracked yok. İlk import: 104 resource ERROR satırı, 0 SCRIPT ERROR (bilinen glTF/çeviri çıkarılma sırası). İkinci import: 0 hata. Headless ve native acilis_bagimlilik_kontrol gerçek Ana/Ses/menü GEÇTİ. Ahmet Windows yolu bu makinede yok; onun cihazında doğrulandı denmez.

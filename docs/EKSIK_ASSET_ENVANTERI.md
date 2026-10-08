@@ -398,6 +398,7 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | MEV04-KAR | MEV-04 (VFX-KAR mevcut ihtiyaç) | İsteğe bağlı yumuşak kar tanesi | PNG / parçacık atlası | res://src/debug/iklim_gorseli.gd (tek BoxMesh yağış); res://src/koy/gorsel/cati_kar_ortusu.gdshader (üst yüzey renk geçişi) | yumuşak kar tanesi çatı kar; soft snowflake roof snow overlay | düşük | Codex |
 | MEV05-KUREK | MEV-05 | Kar küreme küreği ve temizlik klibi | glTF / iskelet klibi | res://src/koy/gorsel/cati_kar_rutini.gd (tek RightHand soketi, düz BoxMesh sap/ağız) | kar küreme çatı küreği; roof snow clearing shovel animation | orta | Codex |
 | MEV07-SU | MEV-07 | Su rezervi kaynak ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (mavi ColorRect) | su testisi kaynak ikonu; water reserve resource icon medieval | orta | Codex |
+| MEV10-KURT | MEV-10 | Kurt modeli, yürüyüş ve kaçış klibi | glTF / iskelet klibi | res://src/koy/gorsel/kurt_surusu.gd (_kur: tek BoxMesh) | kış kurt sürüsü; winter wolf pack walk flee | orta | Codex |
 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.
 

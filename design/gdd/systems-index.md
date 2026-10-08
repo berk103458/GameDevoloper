@@ -326,3 +326,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Hasat şenliği](hasat-senligi.md) — MEV-08, dolu erzak ambarında yıllık mevcut moral dopingi.
 
 - [Kapı görüşü](kapi-gorusu.md) — MEV-09, mevcut CHR görsel izinde tipi/sis bulanıklığı.
+
+- [Kış kurt baskını](kurt-baskini.md) — MEV-10, tek gerçek gece ve mevcut ağıl nöbeti.

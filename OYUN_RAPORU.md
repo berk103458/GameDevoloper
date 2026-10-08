@@ -1211,3 +1211,10 @@ Sıradaki: MEV-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Storm/fog blur only existing CHR visual clue portrait; buttons and text stay readable, evidence unlock unchanged. 69 regression checks: two compatibility failures corrected and final CHR/weather reruns passed; native and mirror UI passed; asset gerekmedi.
 
 Sıradaki: MEV-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-10 (8 Ekim 2026)
+
+Winter wolf raids use existing granary and effective guards; three BoxMesh wolves follow same A* and retreat from torch patrols. 79 regression checks, final gate-test audio cleanup corrected and rerun passed; native/mirror wolf UI passed. G MEV10-KURT recorded; clean committed 343a79d opening passed after known first resource import.
+
+Sıradaki: MEV-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

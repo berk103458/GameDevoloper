@@ -4,7 +4,7 @@ extends RefCounted
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/muhafiz_devriyesi.json"))
 ## Kapı, hazır kışlalar ve işlevli sur kulelerinin kararlı hücre sırası.
 static func duraklar(y: KoyYonetimi) -> Array[Dictionary]:
- var s: Array[Dictionary] = []
+ var s: Array[Dictionary] = KurtBaskini.duraklar(y)
  var m := y.a.meydan
  s.append({"hucre": Vector2i(m.position.x + m.size.x / 2, y.a.izgara_boyut.y - 1), "ad": "Kapıda nöbet"})
  for b in y.binalar:

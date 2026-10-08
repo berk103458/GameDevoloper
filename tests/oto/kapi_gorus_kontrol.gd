@@ -53,4 +53,4 @@ func _ready() -> void:
 	kok.queue_free()
 	await get_tree().process_frame
 	print("KAPI GÖRÜŞÜ UI: GEÇTİ")
-	get_tree().quit(0)
+	await Ses.cik(0)

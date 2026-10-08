@@ -512,6 +512,7 @@ func gece() -> Dictionary:
 	else:
 		_bahar_donusu()
 	rapor["tuketim"]["su"] = YazYanginRiski.gece(self, olaylar)
+	rapor["tuketim"]["gida"] = KurtBaskini.gece(self, olaylar)
 	CatiKarBakimi.gece(self, olaylar)
 	var calismalar := {}
 	KanDavasi.gece(self, olaylar)
@@ -709,7 +710,7 @@ func _tuket(tuketim: Dictionary, olaylar: Array[Dictionary]) -> void:
 	var kisi_gida := float(ihtiyac.kisi_gida)
 	var gerek := int(ihtiyac.gida)
 	var yenen := kaynaklar.azalt("gida", gerek)
-	tuketim["gida"] = yenen
+	tuketim["gida"] = int(tuketim.get("gida", 0)) + yenen
 	var ac_sayisi := 0
 	if yenen < gerek:
 		ac_sayisi = ceili(float(gerek - yenen) / kisi_gida)
@@ -854,7 +855,7 @@ func kaydet() -> Dictionary:
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
-		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self), "hasat_senligi_yili": HasatSenligi.son_yil(self)}
+		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self), "hasat_senligi_yili": HasatSenligi.son_yil(self), "kurt_baskini_son_gece": KurtBaskini.oku(get_meta(KurtBaskini.META, -1))}
 
 
 static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary) -> KoyYonetimi:
@@ -864,6 +865,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	IlkbaharTaskini.yukle(y, v.get("ilkbahar_taskini", {}))
 	SuDengesi.yukle(y, v.get("su_doldurma", {}))
 	y.set_meta(HasatSenligi.META, HasatSenligi.oku(v.get("hasat_senligi_yili", 0)))
+	y.set_meta(KurtBaskini.META, KurtBaskini.oku(v.get("kurt_baskini_son_gece", -1)))
 	y.iflas_durumu = IflasYoneticisi.oku(v.get("iflas", {}))
 	VergiPolitikasi.yukle(y, v.get("vergi_politikasi", {}))
 	y.maas_durumu = MuhafizMaasi.oku(v.get("maas_durumu", {}))

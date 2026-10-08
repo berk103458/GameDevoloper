@@ -57,6 +57,7 @@ func yenile() -> void:
 			_durum.erase(id)
 	MuhafizDonanimi.yenile(self)
 	CobanSurusu.yenile(self)
+	KurtSurusu.yenile(self)
 
 ## Gece eve; akşam meydana; gündüz iş ve kısa dinlenme döngüsüne geçer.
 func faz(ad: StringName) -> void:
@@ -66,6 +67,7 @@ func faz(ad: StringName) -> void:
 		_iste(id)
 	MuhafizDonanimi.yenile(self)
 	CobanSurusu.yenile(self)
+	KurtSurusu.yenile(self)
 
 func _iste(id: int) -> void:
 	if not _bekleyen.has(id):
