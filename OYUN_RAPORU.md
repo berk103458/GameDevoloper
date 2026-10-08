@@ -1127,3 +1127,10 @@ TUC-11 kapanışında 33 kontrol, native/ayna UI geçti; G TUC11 ihtiyaçları k
 Tek ziyaretlik tuccar kapi makbuzu; resmi bac kamuya, hizli giris rusveti kisisel keseye. Ret/bekleme ticareti kapatir; nufus ve CHR korunur. Tam sanity, final unit, native ve ayna UI gecti; asset gerekmedi.
 
 Sıradaki: TUC-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-13 (8 Ekim 2026)
+
+Mevcut sozlesme tesliminde yuzde 10/20 kisisel komisyon; ayni zimmet siniri ve sosyal bedel, tek stok/odul/itibar. 44 kontrol, native ve ayna UI gecti; asset gerekmedi.
+
+Sıradaki: TUC-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

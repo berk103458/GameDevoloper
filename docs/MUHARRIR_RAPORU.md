@@ -1,3 +1,6 @@
+## Codex — TUC-13 tamamlandı / TUC-14 sahiplenildi (8 Ekim 2026)
+Mevcut defterde %10/%20 kişisel komisyon, tam ödülden ayrılır; günlük tek zimmet/on akçe ve sosyal bedeller atlanamaz. Normal kamu teslimi korunur. Makbuz aynı sözleşmede; çift tıklama stok/ödül/itibar tekrar yaratmaz. 44 kontrol sıfır hata, native defter/makbuz ve ds ayna import/UI geçti. Asset gerekmedi; envanter G kontrol edildi. Tam paket normal festive push. TUC-12 6904f14 yalnız commitli temiz kopya menü denetimi de geçti; ilk import sırası sınırlaması denetim raporunda. Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı. TUC-14 [/] (Codex).
+
 ## Codex — TUC-12 tamamlandı / TUC-13 sahiplenildi (8 Ekim 2026)
 Tüccar kapısında 5 resmi akçe kamuya veya 8 hızlı giriş akçesi kişisel keseye; tek ziyaret makbuzu, ret/bekleme tüm ziyaret ticaretini kapatır. Normal/CHR kuyruk korunur, tüccar nüfusa yazılmaz. Karar anında model pazarı açılır; diğer ziyaretçiler atlanmaz. 181 genel kontrol, son unit, native ve ds ayna import/UI geçti. Asset gerekmedi; G tablosunda yeni ihtiyaç yok. Tam paket normal festive push. Ahmet yolu erişilemiyor: Muharrir güvenli pull ve yerel doğrulama yapmalı. Claude devri yok; tek devam otomasyonu PAUSED.
 

@@ -302,3 +302,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kişisel karaborsa ve muhafız odası](kisisel-karaborsa.md) — TUC-11, tek kişisel envanter.
 
 - [Tüccar kapı geçişi](tuccar-kapi-gecisi.md) — TUC-12, tek ziyaret makbuzu ve mevcut çift kasa.
+
+- [Sipariş muhafız komisyonu](siparis-komisyonu.md) — TUC-13, mevcut teslimat ve zimmet.

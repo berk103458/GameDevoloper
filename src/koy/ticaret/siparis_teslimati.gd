@@ -40,5 +40,6 @@ static func oku(v: Variant) -> Dictionary:
  return r
 ## Teslim tarihi kayıt dönüşünde korunur; eski bekleyen kayıt şekli değişmez.
 static func kayit_alanlari(v: Dictionary, hedef: Dictionary) -> void:
+ SiparisKomisyonu.kayit(v, hedef)
  var n: Variant = v.get("teslim_gunu")
  if hedef.durum == "teslim" and (n is int or n is float) and is_finite(float(n)) and floor(float(n)) == float(n) and float(n) >= int(hedef.kabul_gunu) and float(n) <= int(hedef.vade): hedef.teslim_gunu = int(n)

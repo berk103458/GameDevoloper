@@ -11,3 +11,6 @@ Yerel kanıtlar (scratch): work/fc98a7c_clean_import.log, fc98a7c_clean_second_i
 TUC-11 ayrıca kendi import/birim/gerçek UI, native oda ve ds ayna import/UI kontrollerinden geçer; makbuz alanları mevcut kişisel eşya loaderında tek adaptörle normalleştirilir. Yeni ikon ihtiyaçları envanter G TUC11-MUHUR/IKSIR satırlarıdır.
 
 Ahmet yolu C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi bu makinede yoktur. İki ds checkout eşitlenir; Muharrir festive güvenli pull sonrası kendi yerel kontrolünü yapmalıdır.
+
+## TUC-12 / 6904f14 yalnız commitli kontrol
+Git archive 6904f14 ile .godot/untracked içermeyen yeni kopya. İlk import: 104 resource hata satırı, sıfır SCRIPT ERROR; önceki çeviri/glTF materializasyon sırası aynı. İkinci import sıfır hata. Headless ve native tests/oto/acilis_bagimlilik_kontrol.tscn gerçek Ana/Ses/menü ve bağımlılık kontrolü geçti. Yerel kanıt work/tuc12_clean_first.log, tuc12_clean_second.log, tuc12_clean_menu.log, tuc12_clean_native_menu.log. İlk import hatasız diye sunulmaz; Ahmet kopyası erişilemiyor.
