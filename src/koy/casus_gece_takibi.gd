@@ -24,7 +24,7 @@ static func oku(v: Variant) -> Dictionary:
  d.son_gece = KurtBaskini.oku(v.get("son_gece", -1))
  if not v.get("izler") is Array: return d
  for x in v.izler:
-  if not x is Dictionary or x.get("hedef") not in AYAR.hedefler or x.get("durum") not in ["hedef", "hirsizlik", "sabotaj", "zehirleme"] or not x.get("goruldu") is bool: continue
+  if not x is Dictionary or x.get("hedef") not in AYAR.hedefler or x.get("durum") not in ["hedef", "hirsizlik", "sabotaj", "zehirleme", "kundaklama"] or not x.get("goruldu") is bool: continue
   var g := KurtBaskini.oku(x.get("gun", -1))
   var k := KurtBaskini.oku(x.get("kisi", -1))
   var b := KurtBaskini.oku(x.get("bina", -1))
@@ -48,7 +48,7 @@ static func gece(y: KoyYonetimi) -> void:
   if not p.is_empty(): kaydet(y, k, String(p.hedef), int(p.bina), "hedef", "", 0, false)
 ## Var olan hırsızlık/sabotaj sonucunu kaydeder; suçun kendisi ve RNG mevcut motorlarda kalır.
 static func kaydet(y: KoyYonetimi, k: Koylu, hedef: String, bina: int, fiil: String, kaynak: String, kayip: int, goruldu: bool) -> void:
- if k == null or hedef not in AYAR.hedefler or fiil not in ["hedef", "hirsizlik", "sabotaj", "zehirleme"]: return
+ if k == null or hedef not in AYAR.hedefler or fiil not in ["hedef", "hirsizlik", "sabotaj", "zehirleme", "kundaklama"]: return
  var d := durum(y)
  var satir := {"gun":y.gun,"kisi":k.id,"bina":bina,"hedef":hedef,"durum":fiil,"kaynak":kaynak,"kayip":maxi(0,kayip),"goruldu":goruldu}
  for i in d.izler.size():
@@ -63,3 +63,16 @@ static func kaydet(y: KoyYonetimi, k: Koylu, hedef: String, bina: int, fiil: Str
 ## CAS/Divan yalnız gözlenen gerçek fiilleri kanıt sayabilir; niyet tek başına suç kanıtı değildir.
 static func acik_izler(y: KoyYonetimi) -> Array:
  return durum(y).izler.filter(func(x: Dictionary) -> bool: return x.goruldu and x.durum != "hedef")
+
+## Kapı kararının aynı CHR bayrak snapshotu; kaynak verisi değişmez.
+static func kapi_bilgisi(g: Gelen,karar: StringName) -> Dictionary:
+ var s := g.chr_sorgusu()
+ var cozuldu: bool = s != null and (bool(s.bayraklar.get("Flag_Sir_Tamamen_Cozuldu",false)) or bool(s.bayraklar.get("Flag_Yol_Sirri_Acik",false)))
+ return {"karar":"kabul" if karar == &"harc" else String(karar),"cozuldu":cozuldu,"uygulandi":-1}
+## Dar fiil adaptörleri sözleşmenin karar/tur/stat alanını aynı değişmez kaynakta bulur.
+static func gecikmeli(k: Koylu,karar: String,stat: String) -> Dictionary:
+ var v := load("res://data/chr_runtime/%s.tres" % String(k.adli_id).to_upper()) as KarakterVerisi
+ if v == null: return {}
+ for e in v.gecikmeli_etkiler:
+  if e.get("karar","") == karar and int(e.get("stat_etkisi",{}).get(stat,0)) < 0: return e.duplicate(true)
+ return {}

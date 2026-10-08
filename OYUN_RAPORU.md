@@ -1267,3 +1267,10 @@ Sıradaki: CAS-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 CHR002/009 source tur/decision/stat poisoning uses actual fresh well water and existing health/food/morale once; admission secret snapshot prevents it, public symptoms hide culprit, CAS patrol observes real act; 50 checks plus native/mirror passed; asset gerekmedi.
 
 Sıradaki: CAS-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-04 (8 Ekim 2026)
+
+CHR001/006 source arson targets/timing use one shared existing fire outcome; same reserve water prevents loss, otherwise no-refund real building cleanup and source stock/stats; 52 checks, native and mirror passed, clean eb7e127 opening verified; asset gerekmedi.
+
+Sıradaki: CAS-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

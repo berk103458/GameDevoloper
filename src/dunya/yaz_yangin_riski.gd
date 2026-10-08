@@ -20,11 +20,18 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> int:
  y.set_meta(SuDengesi.META,makbuz)
  if y._rng.randi_range(1,100)>int(SuDengesi.AYAR.kivilcim_yuzde): return 0
  var b := aday[0]
+ return int(sondur(y,b,olaylar,"Meşale kıvılcımı").su)
+## Aynı yangın sonucu tüm kaynaklarda; yalnız ambarda önceden ayrılmış su, iadesiz gerçek bina kaybı.
+static func sondur(y: KoyYonetimi,b: KoyBinasi,olaylar: Array[Dictionary],sebep: String) -> Dictionary:
+ var r := {"su":0,"kurtuldu":false,"kaybedildi":false}
+ if b == null or y.bina(b.id) != b or not b.hazir(): return r
  var su := int(SuDengesi.AYAR.sondurme_su)
  if y.kaynaklar.miktar("su")>=su:
   y.kaynaklar.azalt("su",su)
-  olaylar.append({"anahtar":"Meşale kıvılcımı kuru otu tutuşturdu; %d su rezerviyle yangın söndürüldü.","deger":[su]})
-  return su
+  r.su = su
+  r.kurtuldu = true
+  olaylar.append({"anahtar":"%s: %d su rezerviyle yangın söndürüldü; %s (#%d) kurtarıldı.","deger":[sebep,su,MeslekYapilari.ad(b.tur),b.id]})
  elif y.bina_el_koy(b.id):
-  olaylar.append({"anahtar":"Meşaleden kuru ota yangın sıçradı; su rezervi yoktu, %s (#%d) kaybedildi.","deger":[MeslekYapilari.ad(b.tur),b.id]})
- return 0
+  r.kaybedildi = true
+  olaylar.append({"anahtar":"%s: su rezervi yoktu, %s (#%d) kaybedildi.","deger":[sebep,MeslekYapilari.ad(b.tur),b.id]})
+ return r

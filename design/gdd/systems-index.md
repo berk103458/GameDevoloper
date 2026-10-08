@@ -342,3 +342,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Gece devriyesi ve suçüstü tutanağı](casus-devriyesi.md) — CAS-02, mevcut meşale ve tek olay kartında gerçek fiil gözlemi.
 
 - [Kuyu zehirleme ve sabah tespiti](kuyu-zehirleme.md) — CAS-03, CHR gecikmeli kaynak sonucu tek gerçek kuyu/sağlık fiili.
+
+- [Ambar kundaklaması ve suyla söndürme](ambar-kundaklamasi.md) — CAS-04, kaynak fiili aynı yangın/rezerv/iadesiz yapı akışında.

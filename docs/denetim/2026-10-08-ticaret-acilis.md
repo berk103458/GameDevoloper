@@ -32,3 +32,6 @@ Git archive yalnız commitli dosyalar, önbellek/untracked yok. İlk import: 104
 
 ## MEV-14 commitli açılış kanıtı — cb22bf4
 Git archive cb22bf4, yalnız commitli kaynaklar; .godot/untracked yok. İlk import bilinen104 resource hata satırı, sıfır SCRIPT ERROR. İkinci import sıfır hata; headless/native gerçek Ana/Ses/menü bağımlılık testi geçti. Yerel kanıt work/cb22bf4_{first,second,menu,native_menu}.log ve cb22bf4_clean_summary.json. Ahmet yolu erişilemiyor; ilk import hatasız diye sunulmaz.
+
+## CAS-01…03 commitli açılış kanıtı — eb7e127
+Git archive yalnız commitli kaynaklar; .godot/untracked yok. İlk import bilinen104 resource ERROR, sıfır SCRIPT ERROR. İkinci import sıfır hata; headless/native gerçek Ana/Ses/menü geçti. Yerel kanıt work/eb7e127_{first,second,menu,native_menu}.log ve eb7e127_clean_summary.json. Ahmet yolu erişilemiyor; ilk import hatasız diye sunulmaz.

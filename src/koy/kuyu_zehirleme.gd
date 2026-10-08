@@ -22,18 +22,12 @@ static func durum(y: KoyYonetimi) -> Dictionary:
 ## Gerçek kapı kararının CHR bayrakları; tam çözüm ve yol sırrı tohum/zehirin alınmasını sağlar.
 static func kabul(y: KoyYonetimi,k: Koylu,g: Gelen,karar: StringName) -> void:
  if String(k.adli_id) not in AYAR.profiller: return
- var s := g.chr_sorgusu()
- var cozuldu: bool = s != null and (bool(s.bayraklar.get("Flag_Sir_Tamamen_Cozuldu",false)) or bool(s.bayraklar.get("Flag_Yol_Sirri_Acik",false)))
  var d := durum(y)
- d.kisiler[str(k.id)] = {"karar":"kabul" if karar == &"harc" else String(karar),"cozuldu":cozuldu,"uygulandi":-1}
+ d.kisiler[str(k.id)] = CasusGeceTakibi.kapi_bilgisi(g,karar)
  y.set_meta(META,d)
 ## Sadece bu maddenin kaynak kabul/rüşvet zehir olayı; genel gecikmeli olayları veya KAP-01'i yeniden yazmaz.
 static func kaynak(k: Koylu,karar: String) -> Dictionary:
- var v := load("res://data/chr_runtime/%s.tres" % String(k.adli_id).to_upper()) as KarakterVerisi
- if v == null: return {}
- for e in v.gecikmeli_etkiler:
-  if e.get("karar","") == karar and int(e.get("stat_etkisi",{}).get("Saglik",0)) < 0: return e.duplicate(true)
- return {}
+ return CasusGeceTakibi.gecikmeli(k,karar,"Saglik")
 ## Gerçek gece su raporu sonrası, sağlık/ölüm fazı öncesi; kaynak stat sınırı ve tek makbuz.
 static func gece(y: KoyYonetimi,su: Dictionary,olaylar: Array[Dictionary]) -> void:
  var d := durum(y)

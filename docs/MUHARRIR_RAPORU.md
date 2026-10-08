@@ -1,3 +1,6 @@
+## Codex — CAS-04 kapandı / CAS-05 sahiplenildi (8 Ekim 2026)
+52 kontrol sıfır hata; native gerçek söndürme raporu ve ds ayna import/unit/UI geçti. CHR001/006 gerçek hedef/tur, ortak YazYanginRiski.sondur ve su rezervi; eksik suda iadesiz bina/işçi/ev/ızgara temizliği, kaynak stat/erzak tek kayıp. Normal bina hasar alanı/ikinci yangın sistemi yok. Asset gerekmedi, G kontrol edildi. eb7e127 temiz ikinci import/headless/native menü geçti; ilk bilinen104 resource satırı raporda. Kontrol edilen son commiteb7e127; CAS-05 [/] (Codex). Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
+
 ## Codex — CAS-03 kapandı / CAS-04 sahiplenildi (8 Ekim 2026)
 50 kontrol sıfır hata; final kışla/kısmi taze su birim testi, native gerçek sabah raporu ve ds ayna import/unit/UI geçti. CHR002/009 kaynak tur/karar/stat ve kapı sır snapshotu; aynı kuyu/sağlık/ambar fiili yalnız bir kez. KVR −4 sağlık sınırı GDD; niyet fail kanıtı değil, gerçek zehir CAS02 tutanağına bağlanır. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit46538fe; CAS-04 [/] (Codex). Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
 
