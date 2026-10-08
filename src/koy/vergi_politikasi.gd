@@ -10,7 +10,8 @@ static func sec(y: KoyYonetimi, oran: String) -> bool:
 ## Eski işçi/usta tabanını seçilen dış denge oranıyla çarpar, toplamı yukarı yuvarlar.
 static func bedel(y: KoyYonetimi) -> int:
 	var taban := 0
-	for k in y.koylular: taban += y.a.vergi_usta if k.usta_mi() else y.a.vergi_isci
+	for k in y.koylular:
+		if not DivanHukmu.zindanda(k): taban += y.a.vergi_usta if k.usta_mi() else y.a.vergi_isci
 	return ceili(taban * float(AYAR[y.vergi_orani].carpan))
 ## Yalnız gerçek vergi gecesinde ve muafiyet dışında; aynı gece bir kez uygular.
 static func tahsil(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:

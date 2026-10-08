@@ -213,8 +213,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **CAS-04:** Ambar Kundaklaması ve Yangın Söndürme Krizi — CHR_001/006; su zinciri. (Codex)
 - [x] **CAS-05:** Muhafız Divanı / Mahkeme Sahnesi (`src/kapi/divan_ekrani.tscn`) — Meydanda yargılama. (Codex)
 - [x] **CAS-06:** Kanıt Sunma ve Sorgulama — Kapı `Clue_*` + suç aletleri → itiraf. (Codex)
-- [/] **CAS-07:** Üçlü Yargı Kararı: Zindan, Sürgün, İnfaz — Asayiş↑ Moral↓ tradeoff. (Codex)
-- [ ] **CAS-08:** Çete İntikam Baskını Tetikleyicisi — CHR_004 zindanda → 3 gece sonra Karaboran baskını.
+- [x] **CAS-07:** Üçlü Yargı Kararı: Zindan, Sürgün, İnfaz — Asayiş↑ Moral↓ tradeoff. (Codex)
+- [/] **CAS-08:** Çete İntikam Baskını Tetikleyicisi — CHR_004 zindanda → 3 gece sonra Karaboran baskını. (Codex)
 - [ ] **CAS-09:** Köylü İhbar Mektupları ve Fısıltı Gazetesi — Sabah imzasız şüphe pusulaları.
 - [ ] **CAS-10:** Sahte Suçlama ve Haksız Yargı Tazminatı — Masum zindan → aile terk + Moral çöküşü.
 

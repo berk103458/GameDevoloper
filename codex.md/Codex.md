@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 001eb63 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 001eb63. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: 59cbcc5 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 59cbcc5. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -152,15 +152,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - CAS-04: CHR001/006 source arson targets/timing use one shared existing fire outcome; same reserve water prevents loss, otherwise no-refund real building cleanup and source stock/stats; 52 checks, native and mirror passed, clean eb7e127 opening verified; asset gerekmedi.
 - CAS-05: Existing square court scene reads only observed CAS acts, one modal and one existing selected figure with temporary box table/benches; pause/camera/pose restore, source evidence not duplicated; 54 checks plus final native/headless/mirror stage test passed, G CAS05-DIVAN.
 - CAS-06: Actual discovered source Clue IDs continue once in villager save; same court presents only found own clues, two independent pieces incl cargo plus observed act permit one confession; no source/CSV/RNG/cash mutation; 56 checks, final native/mirror passed; asset gerekmedi.
+- CAS-07: 65 checks; one court verdict, jail capacity and consumption, exile/execution actual population, JSON/UI/native/mirror passed; G CAS07-ZINDAN registered.
 
 ## Sonraki çalışma
-CAS-07. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+CAS-08. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -190,5 +193,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## CAS-06 doğrulaması
-56 kontrol sıfır hata; final okunabilir native itiraf/kanıt ve ds ayna import/unit/UI geçti. Gerçek bulunmuş Clue kimlikleri kabulde tek köylü kaydına devam eder; foreign/bulunmamış/tekrar reddi, gerçek fiil + yük dahil iki kanıt ile tek itiraf. Masum profil otomatik itirafa zorlanmaz; JSON/source/kasa/RNG korundu. CAS11 ayrı denetim açık; çift kayıt yapılmadı. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit 001eb63; CAS-07 [/] (Codex). Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
+
+## CAS-07 doğrulaması / CAS-08 planı
+65 kontrol sıfır hata; native üç hüküm ve ds ayna import/unit/UI geçti. Tek hüküm makbuzu, hücre kapasitesi2, tutsak iş/suç/vergi reddi ve gerçek gıda; sürgün/infaz mevcut nüfus/kadrodan çıkar. Kervan görseli tutukluyu yeniden görünür yapmaz. Kasa/stok/RNG, JSON ve kapanış kamera/hız korundu. G CAS07-ZINDAN doğrulandı; asset üretimi yok. Kontrol edilen son commit59cbcc5; CAS-08 [/] (Codex), CHR004 hükmünden üçüncü gece aynı husumet baskın sonucu planı. Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.

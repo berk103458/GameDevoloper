@@ -13,6 +13,7 @@ static func danisman(k: Koylu, tur: String) -> bool:
 	if k.yas_grubu != &"yasli": return false
 	return tur == "degirmen" or (tur in AGIR and CirakEgitimi.usta(k) and MeslekUyumu.carpan(k, tur) > 1.0)
 static func atanabilir(k: Koylu, tur: String) -> bool:
+	if DivanHukmu.zindanda(k): return false
 	if k.yas_grubu == &"cocuk": return tur in COCUK_HAFIF
 	if k.yas_grubu == &"yasli": return tur not in AGIR or danisman(k, tur)
 	return true

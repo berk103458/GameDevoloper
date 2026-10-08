@@ -17,7 +17,7 @@ static func adaylar(y: KoyYonetimi) -> Array[int]:
  if y.son != "": return ids
  for x in CasusGeceTakibi.acik_izler(y):
   var k := y.koylu(int(x.kisi))
-  if k != null and k.saglik > 0 and not k.id in ids: ids.append(k.id)
+  if k != null and k.saglik > 0 and not DivanHukmu.verildi(y,k.id) and not k.id in ids: ids.append(k.id)
  ids.sort()
  return ids
 ## Aynı yaşayan kişinin açık kayıtları kopya; gizli hedefler bu ekrana girmez.

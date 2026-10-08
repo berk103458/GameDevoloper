@@ -196,6 +196,7 @@ func yenile() -> void:
 	OduncuRutini.orman_kur(self, _yapilar)
 	MuhafizDevriyesi.kule_kur(self, _yapilar)
 	halk_hareketi.yenile()
+	DivanZindanGorseli.kur(self, _yapilar)
 	IklimGorseli.uygula(self)
 
 

@@ -1288,3 +1288,10 @@ Sıradaki: CAS-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Actual discovered source Clue IDs continue once in villager save; same court presents only found own clues, two independent pieces incl cargo plus observed act permit one confession; no source/CSV/RNG/cash mutation; 56 checks, final native/mirror passed; asset gerekmedi.
 
 Sıradaki: CAS-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-07 (8 Ekim 2026)
+
+65 checks; one court verdict, jail capacity and consumption, exile/execution actual population, JSON/UI/native/mirror passed; G CAS07-ZINDAN registered.
+
+Sıradaki: CAS-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

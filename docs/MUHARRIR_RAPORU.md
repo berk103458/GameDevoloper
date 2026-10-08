@@ -1,3 +1,6 @@
+## Codex — CAS-07 kapandı / CAS-08 sahiplenildi (8 Ekim 2026)
+65 kontrol sıfır hata; native üç hüküm ve ds ayna import/unit/UI geçti. Tek hüküm makbuzu, hücre kapasitesi2, tutsak iş/suç/vergi reddi ve gerçek gıda; sürgün/infaz mevcut nüfus/kadrodan çıkar. Kervan görseli tutukluyu yeniden görünür yapmaz. Kasa/stok/RNG, JSON ve kapanış kamera/hız korundu. G CAS07-ZINDAN doğrulandı; asset üretimi yok. Kontrol edilen son commit59cbcc5; CAS-08 [/] (Codex), CHR004 hükmünden üçüncü gece aynı husumet baskın sonucu planı. Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
+
 ## Codex — CAS-06 kapandı / CAS-07 sahiplenildi (8 Ekim 2026)
 56 kontrol sıfır hata; final okunabilir native itiraf/kanıt ve ds ayna import/unit/UI geçti. Gerçek bulunmuş Clue kimlikleri kabulde tek köylü kaydına devam eder; foreign/bulunmamış/tekrar reddi, gerçek fiil + yük dahil iki kanıt ile tek itiraf. Masum profil otomatik itirafa zorlanmaz; JSON/source/kasa/RNG korundu. CAS11 ayrı denetim açık; çift kayıt yapılmadı. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit 001eb63; CAS-07 [/] (Codex). Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
 

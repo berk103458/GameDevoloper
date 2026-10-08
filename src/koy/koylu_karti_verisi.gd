@@ -27,7 +27,7 @@ static func ata(y: KoyYonetimi, kisi: int, hedef: int) -> bool:
 	return y.ata(kisi, hedef)
 static func ozet(y: KoyYonetimi, k: Koylu) -> String:
 	var acik: Array[String] = []
-	for f in k.bayraklar: acik.append("Kış hastası" if f == KisHastaligi.FLAG else TranslationServer.translate("koy.bayrak." + f))
+	for f in k.bayraklar: acik.append("Zindanda" if f == DivanHukmu.FLAG else "Kış hastası" if f == KisHastaligi.FLAG else TranslationServer.translate("koy.bayrak." + f))
 	return "%s · beceri %d/10\nMoral %d · Sağlık %d · Sadakat %d · Refah %d/100\nKöye geliş: %d. gün · Köyde %d gün\nGüçlü yön: %s\nZayıf yön: %s\n%s\n%s\nAçık bilgiler: %s\n%s" % [ZanaatTuru.ad(k.zanaat_turu), k.stat, k.moral, k.saglik, k.sadakat, k.refah, k.giris_gunu + 1, maxi(0, y.gun - k.giris_gunu), PasifOzellikler.metin(k.pasif_ozellikler, true), PasifOzellikler.metin(k.pasif_ozellikler, false), YasRolleri.metin(k, y), CirakEgitimi.metin(k), ", ".join(acik) if not acik.is_empty() else "Henüz yok", GizliEgilimler.oyuncu_metin(k)]
 static func uygun_turler(k: Koylu) -> String:
 	var adlar: Array[String] = []

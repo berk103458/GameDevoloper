@@ -40,7 +40,7 @@ static func gece(y: KoyYonetimi,su: Dictionary,olaylar: Array[Dictionary]) -> vo
   if x.cozuldu or x.karar == "kisla" or int(x.uygulandi) >= 0: continue
   var e := kaynak(k,String(x.karar))
   if e.is_empty() or y.gun-k.giris_gunu+1 < int(e.tur_offset): continue
-  if k.saglik <= 0 or k.ac or KisHastaligi.hasta(k) or "hasta" in k.bayraklar or "agir_yarali" in k.bayraklar+k.gizli_bayraklar or IsKazalari.uyuyor(k) or MuhafizMaasi.aday(k,y) or KervanKorumasi.disarida(y,k.id): continue
+  if DivanHukmu.zindanda(k) or k.saglik <= 0 or k.ac or KisHastaligi.hasta(k) or "hasta" in k.bayraklar or "agir_yarali" in k.bayraklar+k.gizli_bayraklar or IsKazalari.uyuyor(k) or MuhafizMaasi.aday(k,y) or KervanKorumasi.disarida(y,k.id): continue
   # CHR002 eski gizli hasta etiketi banotu deri nişanıdır; kapıdaki fiziksel sır fırsatı kalıcı kapatmaz.
   var p := CasusGeceTakibi.hedef(y,k)
   if p.is_empty() or p.hedef != "kuyu": continue
