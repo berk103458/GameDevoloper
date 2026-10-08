@@ -392,3 +392,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Moğol öncü tehdidi](mogol-oncusu.md) — HAR-02, gerçek gün kalan süre ve tek typed gece uyarısı.
 
 - [Tekfur haraç heyeti](tekfur-harac-heyeti.md) — HAR-03, mevcut altı günlük bant ve kamu akçesi/buğday ödemesi.
+
+- [Sancak asker toplama fermanı](sancak-asker-talebi.md) — HAR-04, mevcut kartta gerçek iş gücü/açık iş reddi seçimi.

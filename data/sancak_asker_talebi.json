@@ -1,0 +1,15 @@
+{
+  "ilk_gece": 8,
+  "aralik_gece": 12,
+  "levent": 2,
+  "koyde_kalan_min": 1,
+  "saglik_min": 50,
+  "ret_asayis": 5,
+  "baslik": "Sancak Beyi · asker toplama fermanı",
+  "metin": "Sancak Beyi %d levent ister. Gönderilenler köyden kalıcı ayrılır; iş gücü ve savunma azalabilir. Adlı hikâye kişileri, çocuklar, hastalar, tutuklular ve dış görevdekiler gönderilmez. İş reddi isyancılığı suç hükmü değildir.\nUygun iş gücü: %s\nAçık iş reddi adayları: %s",
+  "secenekler": ["Uygun iş gücünden levent gönder", "Açık iş reddi adaylarından levent gönder", "Fermanı reddet · asayiş riski +5"],
+  "haber": "Sancak Beyinin asker toplama fermanı geldi; mevcut olay kartında iş gücü veya açık iş reddi adayları seçilebilir.",
+  "sonuc": "Sancak ordusuna gönderilen leventler: %s. İş gücü/nüfus köyden ayrıldı; kişisel kese ve kamu kasası değişmedi.",
+  "ret_metin": "Ferman reddedildi; köylüler kaldı, asayiş riski %d arttı.",
+  "bos_metin": "uygun aday yok"
+}
