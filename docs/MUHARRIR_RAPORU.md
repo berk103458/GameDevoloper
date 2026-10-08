@@ -1,3 +1,6 @@
+## Codex — CAS-13 kapandı / CAS-14 sahiplenildi (8 Ekim 2026)
+38 kontrol ve final yanlışClue güvenli red birimi; eski CAS04 birim, native gerçek söndürme/bina ipucu ve ds ayna import/unit/UI geçti. CHR001/006 kaynak üçClue/dörtFlag readonly/JSON; aynı CAS12 helperi, tek DivanKanit keşif kaynağı. Tam/yol ve eski çözüm korundu, Clue tek başına yangını önlemez; aynı10su/fiil/stat makbuzu. Aynı bina kartında gerçek bulunan yük sayısı, fail/gizli niyet yok. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit6da34ad; CAS-14 [/] (Codex), aynı divan sorgu listesindeki kanıtların kart sunumu. Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
+
 ## Codex — CAS-12 kapandı / CAS-13 sahiplenildi (8 Ekim 2026)
 37 kontrol sıfır hata; eski CAS03 birim, native gerçek sabah raporu ve ds ayna import/unit/UI geçti. CHR002/009 kaynak nişan/yük/görsel Clue birebir, dört kaynak bool Flag snapshotu readonly/JSON. Gerçek bulunan yük tek DivanKanit kaynağı; su tooltipi ipucu sayısını okur, kimlik/fiil uydurmaz. Tam/yol çözümü ve eski cozuldu korunur, Clue tek başına zehri önlemez; yanlış kaynak Clue güvenli reddedilir. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commitf7d91c3; CAS-13 [/] (Codex), aynı helper ile kundak kaynak sözleşmesi. Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
 

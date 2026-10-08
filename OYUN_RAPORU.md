@@ -1330,3 +1330,10 @@ Sıradaki: CAS-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 37 checks; exact poison Clue/4Flag contract, discovered-load-only hint, rawFlag/legacy/JSON and native/mirror passed; asset gerekmedi.
 
 Sıradaki: CAS-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-13 (8 Ekim 2026)
+
+38 checks plus final wrong-Clue guard; exact fire Clue/4Flag and shared water, same building card, JSON/native/mirror passed; asset gerekmedi.
+
+Sıradaki: CAS-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

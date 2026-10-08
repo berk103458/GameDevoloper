@@ -8,5 +8,17 @@
     "ateşe",
     "yangın"
   ],
-  "azami_kayit": 100
+  "azami_kayit": 100,
+  "clue_sozlesmesi": {
+    "chr_001": {
+      "nisan": "Clue_CHR001_KavliCakmak",
+      "yuk": "Clue_CHR001_KatranliBez",
+      "gorsel": "Clue_Görsel_CHR001_KukurtYanigi"
+    },
+    "chr_006": {
+      "nisan": "Clue_CHR006_KatranMatarasi",
+      "yuk": "Clue_CHR006_FitilYumagi",
+      "gorsel": "Clue_Görsel_CHR006_ZiftLekesi"
+    }
+  }
 }

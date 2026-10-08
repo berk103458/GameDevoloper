@@ -388,6 +388,7 @@ func _bilgi_goster() -> void:
 		_etiket(_bilgi_icerik, "Taşıma seferi bekleniyor" if b.bekliyor == "tasima" else tr("koy.bekliyor." + b.bekliyor), Tema.KUCUK_PX).add_theme_color_override("font_color", Hud.UYARI)
 	CatiKarBilgisi.ekle(_y, b, _bilgi_icerik)
 	SamanBilgisi.ekle(_y, b, _bilgi_icerik)
+	KundakClueBilgisi.ekle(_y, b, _bilgi_icerik)
 	var yatak := b.yatak(_y.katalog)
 	if yatak > 0:
 		var oturan := 0

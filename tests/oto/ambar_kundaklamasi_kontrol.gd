@@ -28,11 +28,15 @@ func _ready() -> void:
  var b := kur(y)
  assert(b != null)
  var g := o._adli_gelen(&"chr_001")
+ g.chr_sorgusu().obje_incele(2)
  o.karar_ver(g,&"kabul")
  y.gun = 3
  y.kaynaklar.ekle("su",10)
  ana._koye_git()
  var e: KoyEkrani = ana._ekran
+ e._secili_bina=b.id
+ e._bilgi_goster()
+ assert(e._bilgi_icerik.find_children("kundak_clue_bilgisi","Label",true,false)[0].text.contains("ipucu: 1"))
  e._gece_dugmesi.pressed.emit()
  await get_tree().process_frame
  assert(y.bina(b.id)!=null and y.kaynaklar.miktar("su")==0 and not AmbarKundaklamasi.durum(y).kisiler.is_empty())
