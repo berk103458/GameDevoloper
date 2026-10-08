@@ -117,6 +117,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 		if g.secenekler.has("kabul") and not g.zengin(ayarlar.zengin_esigi) and not g.secenekler.has("harc"):
 			g.secenekler.insert(g.secenekler.find("kabul") + 1, "harc")
 			g.etkiler[&"harc"] = g.etkiler.get(&"kabul", PackedInt32Array())
+	TuccarKapiGecisi.ekle(self, sonuc)
 	return sonuc
 
 
@@ -165,6 +166,7 @@ func ziyaret_basladi(gelen: Gelen) -> void:
 ## Kararlar: `kabul`, `harc` (yoksuldan zorla geçiş akçesi), `rusvet` (teklifini alıp içeri), `kisla` (asker, muhafız),
 ## `ret`, `elkoy` (astardan çıkanlara el konur, geri çevrilir; yalnız yalan yakalanınca).
 func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> Dictionary:
+	if TuccarKapiGecisi.ilgilenir(gelen): return TuccarKapiGecisi.karar(self, gelen, karar)
 	var sorgu := gelen.chr_sorgusu()
 	if sorgu != null and not sorgu.karar_acik(karar):
 		return {"engellendi": true, "kaldi": false, "kirilan": -1}

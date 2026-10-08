@@ -6,7 +6,7 @@ var sozlesmeler: Dictionary = {}
 ## Mevcut ziyaretin değiştirilemeyen teklif kopyası; başka RNG veya takvim yok.
 static func teklif(y: KoyYonetimi) -> Dictionary:
  var d := GezginTuccarTakvimi.durum(y.gun, y.a.kervan_araligi)
- if not d.aktif or not AYAR.teklifler.has(d.tuccar.id) or SiparisIhlali.terk(y, d.tuccar.id): return {}
+ if TuccarKapiGecisi.engel(y) or not d.aktif or not AYAR.teklifler.has(d.tuccar.id) or SiparisIhlali.terk(y, d.tuccar.id): return {}
  var t: Dictionary = AYAR.teklifler[d.tuccar.id].duplicate(true)
  t.adet = int(t.adet)
  t.odul = int(t.odul)

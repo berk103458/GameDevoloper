@@ -395,6 +395,7 @@ func _esya_yazisi(e: Dictionary, adet: int) -> String:
 
 ## Karar düğmesinin yazısı; rüşvette miktar görünür.
 func _karar_etiketi(anahtar: String) -> String:
+	if TuccarKapiGecisi.ilgilenir(_gelen): return TuccarKapiPaneli.etiket(anahtar)
 	var sorgu := _gelen.chr_sorgusu()
 	if anahtar == "ret" and sorgu != null and sorgu.bayraklar["Flag_Kilitlendi"]:
 		return "Zorunlu ret"
@@ -483,6 +484,7 @@ func _karar_goster() -> void:
 
 ## Karar satırının altındaki küçük, tarafsız bilgi (sonucu söylemez).
 func _karar_alt_yazi(anahtar: String) -> String:
+	if TuccarKapiGecisi.ilgilenir(_gelen): return TuccarKapiPaneli.alt(_gelen, anahtar)
 	var sorgu := _gelen.chr_sorgusu()
 	if anahtar == "rusvet" and sorgu != null:
 		return ", ".join(sorgu.karakter.karar_verisi(&"rusvet").get("esyalar", []))
@@ -540,11 +542,12 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 		Ses.cal(&"sfx_kese")
 	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)
 	var replik := preload("res://src/kapi/karar_replik_adaptoru.gd")
-	if replik.ilgilendirir(anahtar):
+	if TuccarKapiPaneli.sonuc(self, _gelen, sonuc): pass
+	elif replik.ilgilendirir(anahtar):
 		_karar_replik_dusur(replik, anahtar)
 	else:
 		_yaz(tr("anlati.sonuc." + anahtar) % tr(_gelen.ad_anahtari))
-	if sonuc["kaldi"]:
+	if sonuc["kaldi"] and not sonuc.get("tuccar", false):
 		_yaz("[i]%s[/i]" % (tr("anlati.koy.yazildi") % tr(_gelen.ad_anahtari)))
 	if sonuc.get("harc", false):
 		_yaz("[i][color=#C4843A]%s[/color][/i]" % (tr("anlati.harc") % oturum.yonetim.a.harc_akce))

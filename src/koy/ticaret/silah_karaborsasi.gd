@@ -5,7 +5,7 @@ static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("r
 ## Teklif yalnız Silah tüccarı konaklamasında ve ambargo yokken açıktır.
 static func geldi(y: KoyYonetimi) -> bool:
  var d := GezginTuccarTakvimi.durum(y.gun, y.a.kervan_araligi)
- return d.aktif and d.tuccar.id == "silah_tuccari" and not SiparisIhlali.terk(y, "silah_tuccari")
+ return not TuccarKapiGecisi.engel(y) and d.aktif and d.tuccar.id == "silah_tuccari" and not SiparisIhlali.terk(y, "silah_tuccari")
 ## Barınak, kamu kasası ve aynı konaklamanın tek kişi stoğu doğrulanır.
 static func alinabilir(y: KoyYonetimi) -> bool:
  var d := GezginTuccarTakvimi.durum(y.gun, y.a.kervan_araligi)

@@ -1,3 +1,6 @@
+## Codex — TUC-12 tamamlandı / TUC-13 sahiplenildi (8 Ekim 2026)
+Tüccar kapısında 5 resmi akçe kamuya veya 8 hızlı giriş akçesi kişisel keseye; tek ziyaret makbuzu, ret/bekleme tüm ziyaret ticaretini kapatır. Normal/CHR kuyruk korunur, tüccar nüfusa yazılmaz. Karar anında model pazarı açılır; diğer ziyaretçiler atlanmaz. 181 genel kontrol, son unit, native ve ds ayna import/UI geçti. Asset gerekmedi; G tablosunda yeni ihtiyaç yok. Tam paket normal festive push. Ahmet yolu erişilemiyor: Muharrir güvenli pull ve yerel doğrulama yapmalı. Claude devri yok; tek devam otomasyonu PAUSED.
+
 ## Codex — TUC-11 tamamlandı / kontrol noktası (8 Ekim 2026)
 Yasak mühür/kaçak iksir yalnız kişisel akçeden mevcut muhafiz_esyalari listesine; aynı pazardan oda görünümü. Ziyaret makbuzu ikinci gün/kayıtta korunur; kamu/ambar/RNG sabit. 33 kontrol sıfır hata; native oda ve ds ayna import/UI geçti. G TUC11-MUHUR/IKSIR aynı pakette; asset üretimi/indirme yok. TUC-12 [ ] ve başlanmadı. Canlı kullanım %95; yarım paket bırakmadan kontrol noktası, Claude devri yok.
 

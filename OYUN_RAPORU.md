@@ -1120,3 +1120,10 @@ Kisisel karaborsa ve ayni muhafiz oda envanteri; kamu/ambar ayrimi, ziyaret makb
 Sıradaki: TUC-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
 
 TUC-11 kapanışında 33 kontrol, native/ayna UI geçti; G TUC11 ihtiyaçları kaydedildi. TUC-12 henüz alınmadı. Canlı kullanım %95 kontrol noktası; Claude devri yok. Yalnız commitli temiz açılış denetimi ve ilk materializasyon sınırlaması docs/denetim/2026-10-08-ticaret-acilis.md içindedir.
+
+
+## Codex — TUC-12 (8 Ekim 2026)
+
+Tek ziyaretlik tuccar kapi makbuzu; resmi bac kamuya, hizli giris rusveti kisisel keseye. Ret/bekleme ticareti kapatir; nufus ve CHR korunur. Tam sanity, final unit, native ve ayna UI gecti; asset gerekmedi.
+
+Sıradaki: TUC-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

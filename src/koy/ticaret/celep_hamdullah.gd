@@ -5,7 +5,7 @@ static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("r
 ## Yalnız Celep'in iki günlük konaklamasında canlı hayvan alınabilir.
 static func geldi(y: KoyYonetimi) -> bool:
  var d := GezginTuccarTakvimi.durum(y.gun, y.a.kervan_araligi)
- return d.aktif and d.tuccar.id == AYAR.tuccar and not SiparisIhlali.terk(y, d.tuccar.id)
+ return not TuccarKapiGecisi.engel(y) and d.aktif and d.tuccar.id == AYAR.tuccar and not SiparisIhlali.terk(y, d.tuccar.id)
 ## Koç ağılda, üç çeki türü ortak ahır kapasitesinde yer tutar.
 static func barinak(tur: String) -> String:
  return String(AYAR.hayvanlar.get(tur, {}).get("barinak", ""))

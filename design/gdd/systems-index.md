@@ -300,3 +300,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Pazar satışında kasa hedefi](pazar-satisi.md) — TUC-10, mevcut çift kasa/zimmet.
 
 - [Kişisel karaborsa ve muhafız odası](kisisel-karaborsa.md) — TUC-11, tek kişisel envanter.
+
+- [Tüccar kapı geçişi](tuccar-kapi-gecisi.md) — TUC-12, tek ziyaret makbuzu ve mevcut çift kasa.

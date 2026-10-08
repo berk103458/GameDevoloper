@@ -6,6 +6,7 @@ var varis := -1
 var alinan: Dictionary = {}
 ## Geçerli uzman ürünleri; panel okumaları kaydı değiştirmez.
 static func urunler(y: KoyYonetimi) -> Dictionary:
+ if TuccarKapiGecisi.engel(y): return {}
  var d := GezginTuccarTakvimi.durum(y.gun, y.a.kervan_araligi)
  if d.aktif and SiparisIhlali.terk(y, d.tuccar.id): return {}
  var urun: Dictionary = AYAR.get(d.tuccar.id, {}).duplicate(true) if d.aktif else {}
