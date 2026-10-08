@@ -23,6 +23,8 @@ var muhafiz_tecrubesi: int = 0
 var mogol_oncusu: Dictionary = {}
 ## HAR-04 optional ferman/seçim makbuzu; tek OlayVerisi akışı.
 var sancak_asker_talebi: Dictionary = {}
+## HAR-05 optional yol görevi/ek ziyaret makbuzu; nüfus eski kuyruğa bağlıdır.
+var goc_yolu_guvenligi: Dictionary = {}
 var muhafiz_akce: int = 0
 var muhafiz_esyalari: Array[Dictionary] = []
 ## EKO-14 optional transfer özeti; iki mevcut kasanın bakiyesi ayrı kalır.
@@ -124,6 +126,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 			sonuc.append(_adli_gelen(id))
 		else:
 			sonuc.append(_figur_gelen())
+	GocYoluGuvenligi.ziyaret(self, sonuc)
 	for g in sonuc:
 		g.heybe = heybe_uret(g.sinif)
 		if g.secenekler.has("kabul") and not g.zengin(ayarlar.zengin_esigi) and not g.secenekler.has("harc"):
@@ -717,6 +720,7 @@ func kaydet() -> Dictionary:
 		"sancak_teftisi": SancakTeftisi.oku(sancak_teftisi),
 		"mogol_oncusu": MogolOncusu.oku(mogol_oncusu),
 		"sancak_asker_talebi": SancakAskerTalebi.oku(sancak_asker_talebi),
+		"goc_yolu_guvenligi": GocYoluGuvenligi.oku(goc_yolu_guvenligi),
 		"muhafiz_yetenekleri": MuhafizYetenekleri.oku(muhafiz_yetenekleri),
 		"mevsim": yonetim.mevsim(), "yeni_binalar": yeni_binalar.duplicate(true),
 		"koy_yonetimi": yonetim.kaydet(),
@@ -756,6 +760,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.sancak_teftisi = SancakTeftisi.oku(veri.get("sancak_teftisi"))
 	o.mogol_oncusu = MogolOncusu.oku(veri.get("mogol_oncusu"))
 	o.sancak_asker_talebi = SancakAskerTalebi.oku(veri.get("sancak_asker_talebi"))
+	o.goc_yolu_guvenligi = GocYoluGuvenligi.oku(veri.get("goc_yolu_guvenligi"))
 	o.muhafiz_yetenekleri = MuhafizYetenekleri.oku(veri.get("muhafiz_yetenekleri"))
 	MuhafizAdaletYetenekleri.bagla(o)
 	o.muhafiz_esyalari = preload("res://src/sistemler/cift_kasa_dagitimi.gd").esyalari_yukle(veri.get("muhafiz_esyalari", []))

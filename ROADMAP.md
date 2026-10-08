@@ -253,8 +253,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **HAR-02:** Kösedağ Moğol Akın Kolu Tehdit Sayacı — Ufukta yaklaşan öncü; kalan gün. (Codex)
 - [x] **HAR-03:** Bizans Tekfuru Haraç Heyeti — Her 6 günde altın/buğday; yoksa saldırı hazırlığı. (Codex)
 - [x] **HAR-04:** Selçuklu Sancak Beyi Asker Toplama Fermanı — Levent talebi; iş gücü vs. isyancı. (Codex)
-- [/] **HAR-05:** Göç Kervanlarını Köye Çekme — Eşkıya temizliği → kervan uğrama ↑. (Codex)
-- [ ] **HAR-06:** Gözcü Kulesi ve Erken Uyarı — Kapıya kimin geleceğini 1 gün önce öğrenme.
+- [x] **HAR-05:** Göç Kervanlarını Köye Çekme — Eşkıya temizliği → kervan uğrama ↑. (Codex)
+- [/] **HAR-06:** Gözcü Kulesi ve Erken Uyarı — Kapıya kimin geleceğini 1 gün önce öğrenme. (Codex)
 - [ ] **HAR-07:** Ertuğrul Obası ile İttifak ve At Takası — Buğday ↔ damızlık at / alp.
 - [ ] **HAR-08:** Dağdaki Çeteye Rüşvet / Anlaşma — Aylık 10 akçe → ambar/sürü dokunulmazlığı.
 - [ ] **HAR-09:** Haberci Güvercin ve Ulak Sistemi — Harita krizlerinin köye anlatı sahneleri.

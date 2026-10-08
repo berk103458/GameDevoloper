@@ -394,3 +394,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Tekfur haraç heyeti](tekfur-harac-heyeti.md) — HAR-03, mevcut altı günlük bant ve kamu akçesi/buğday ödemesi.
 
 - [Sancak asker toplama fermanı](sancak-asker-talebi.md) — HAR-04, mevcut kartta gerçek iş gücü/açık iş reddi seçimi.
+
+- [Göç yolu güvenliği](goc-yolu-guvenligi.md) — HAR-05, gerçek husumet temizliği ve aynı kuyruğa ek ziyaret.

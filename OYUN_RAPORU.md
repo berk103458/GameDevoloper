@@ -1505,3 +1505,10 @@ Sıradaki: HAR-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 80 checks passed plus actual native gate; full intended package; asset gerekmedi
 
 Sıradaki: HAR-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — HAR-05 (8 Ekim 2026)
+
+91 checks passed; native/mirror same market and queue; asset gerekmedi
+
+Sıradaki: HAR-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

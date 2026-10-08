@@ -1,0 +1,15 @@
+{
+  "mufreze_adet": 2,
+  "guc_esik": 10,
+  "saglik_min": 50,
+  "gorev_saglik": 5,
+  "husumet_azalt": 20,
+  "basari_asayis_azalt": 5,
+  "basarisiz_asayis_artir": 3,
+  "goc_ziyareti": 2,
+  "dugme": "Göç yolunu eşkıyadan temizle · 2 muhafız",
+  "kafile_acilis": "Göç yolundan geliyoruz. Yolun temizlendiğini duyunca bu hisara uğramaya karar verdik.",
+  "basari_metin": "Müfreze göç yolundaki eşkıya baskısını azalttı; iki ayrı gün ek göç ziyareti hakkı kazanıldı.",
+  "basarisiz_metin": "Müfrezenin gücü eşkıyayı dağıtmaya yetmedi; ek göç ziyareti kazanılmadı.",
+  "tip": "Göç yolu · husumet %d · uygun muhafız %d · bekleyen ek göç ziyareti %d. Görev aynı gün soyutlanır; her muhafızın sağlığı %d azalır. Müfreze gücü %d/%d, para alınmaz."
+}
