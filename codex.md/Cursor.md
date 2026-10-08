@@ -4,13 +4,20 @@
 Cursor — Godot doğrulama ve ince adaptör. Bu turda ROADMAP boşluk doğrulaması: KAP-02, KAP-03, MEV-01, BUG-11, TUC-11, TUC-14.
 
 ## Şu an üzerinde çalışılan
-KAP-02, KAP-03, MEV-01, BUG-11, TUC-11, TUC-14 `[/] üzerindeyim (Cursor)`. TUC-12 ve Codex'in CAS dosyalarına dokunulmuyor. Yeni özellik yok.
+Altı madde kapatıldı veya notlandı. Yeni dosya ve ikinci sistem yok. TUC-12 ve Codex CAS dosyalarına dokunulmadı.
 
 ## Sonraki plan
-Kod kanıtını yazıp maddeleri `[x] (Cursor)` kapatmak veya kalan gerçek eksiği ROADMAP notuna işlemek.
+Festive PR. Yeni özellik yok. ODA-01 açılınca TUC-11 tekrar yazılmaz.
 
 ## Güncel durum
-- Dal: `cursor/roadmap-gap-verify-0b16`, taban `claude/festive-volta-li1sfm` (`59cbcc5`). Kilit commit'i bu turda push edilir. Kod henüz değişmedi.
+- Dal: `cursor/roadmap-gap-verify-0b16`, taban `claude/festive-volta-li1sfm` (`59cbcc5`). Kilit `29a71c6`.
+- KAP-02 `[x] (Cursor)`: `tansiyon_yoneticisi.gd` yok. Aralık ve `tansiyon_delta` `ChrSorgusu` içinde; gösterge KAP-12. KAP-11 `ipucu_yoneticisi.gd` duruyor.
+- KAP-03 `[x] (Cursor)`: panel `src/arayuz/heybe_paneli.gd`. Kart açılışta 0.3→1. İpucu kartı KAP-14. BUG-15 testi `tests/unit/heybe/heybe_tik_test.gd`.
+- MEV-01 `[x] (Codex)` doğrulandı: `Takvim` → `MevsimYoneticisi`; Admin etkin mevsimi zorlar, günü ezmez; TUC-09 `y.mevsim()` aynı etkin mevsimi kullanır. Kalan kod farkı yok.
+- BUG-11 notu: "BUG-08 hâlâ açık" silindi. BUG-08 kapalı.
+- TUC-14 notu: TUC-02 alış bitti; TUC-14 aynı `lojistik.hayvanlar` kaydının geri satışı ve çarpanı. İkinci sürü yok.
+- TUC-11 notu: kaçak mal pazar kartı envanteri. 3B oda ODA-01 `[ ]`; bağımlılık yazıldı.
+- Asset gerekmedi. `C:\Users\ds\Documents\GitHub\GameDevoloper` ve Ahmet `Kapı_Muhafizi` bu ortamda yok; eşitlendi denmez.
 - Önceki BUG-15 dalı `cursor/bug-15-heybe-click-3e1a` → PR #8, taban `ec23ee9` tarihsel kayıttır.
 - `src/arayuz/heybe_paneli.gd` satır 34: `mouse_filter = Control.MOUSE_FILTER_STOP`. İlk çocuk `ColorRect` de varsayılan STOP. Üretim koduna satır eklenmedi.
 - Kanıt: `tests/unit/heybe/heybe_tik_test.gd` (Godot 4.7.2 headless). Tık `(400, 400)`, panel dikdörtgeni kapıdaki `_dunya` ile aynı `(0, 92, 1140×988)`.

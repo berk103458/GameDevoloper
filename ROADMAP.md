@@ -45,7 +45,7 @@
 - [x] **BUG-09:** Animasyon Oynatıcısında Eksik Klip Çökmesi — Bir modelde istenen animasyon yoksa sessizce varsayılan idle klibine geri dönen koruma bloğu yazılacak. (Codex)
 - [x] **BUG-10:** Düşük Donanım Grafik Ayarları Profili — Düşük grafik modunda partiküllerin (meşale kıvılcımı, duman) kapatılması ve 3B çözünürlük ölçeğinin ayarlanabilmesi. (Codex)
 
-- [/] **BUG-11:** `gece_sonu` Çift Tetik Koruması — Gün bitişinde buton `disabled` + hız 1x; **BUG-08 hâlâ açık**; BUG-11 onun düzeltme/koruma alt adımı (ayrı numara). üzerindeyim (Cursor)
+- [x] **BUG-11:** `gece_sonu` Çift Tetik Koruması — Gün bitişinde buton `disabled` + hız 1x. BUG-08 kapalı; BUG-11 onun düzeltme/koruma alt adımıdır (ayrı numara, aynı kilit). Eski "BUG-08 hâlâ açık" notu kaldırıldı. (Codex; not Cursor)
 - [x] **BUG-12:** `_klip_onbellek` `has()` / idle Fallback — Eksik animasyon klipinde `has()` kontrolü ve idle'a düşme (**taslak yol notu** OK; KarakterModel üzerinde). (Codex)
 - [x] **BUG-13:** Kapı Kamera FOV Sabitleme — Kapı sahnesinde FOV kayması/zoom drift'inin sabitlenmesi. (Codex)
 - [x] **BUG-14:** `Ses.oynat` Havuz Temizliği — Ses oynatıcı havuzunun sahne geçişlerinde temizlenmesi / sızıntı önleme. (Codex)
@@ -56,8 +56,8 @@
 ## BÖLÜM 2: Kapı Sorgusu, Tansiyon ve 2D Heybe Clue Motoru
 
 - [x] **KAP-01:** JSON Diyalog Ağacı İskeleti (KİLİTLİ)
-- [/] **KAP-02:** Tansiyon Durum Makinesi (`src/kapi/tansiyon_yoneticisi.gd`) — 0–3 Sakin, 4–7 Gergin, 8–10 Panik aralıklarının diyalog seçimlerindeki tansiyon çarpanlarıyla (+/−) güncellenmesi. üzerindeyim (Cursor)
-- [/] **KAP-03:** 2D Heybe Paneli Arayüzü (`src/arayuz/kapi/heybe_paneli.gd`) — Karakterin yanında açılan, tıklandığında büyüyen ve ipucu kartı açan 2D eşya/nişan vitrini. üzerindeyim (Cursor)
+- [x] **KAP-02:** Tansiyon Durum Makinesi (`src/kapi/tansiyon_yoneticisi.gd`) — 0–3 Sakin, 4–7 Gergin, 8–10 Panik aralıklarının diyalog seçimlerindeki tansiyon çarpanlarıyla (+/−) güncellenmesi. Ayrı dosya yok; ikinci sistem yazılmadı. Aralıklar ve `tansiyon_delta` güncellemesi `ChrSorgusu` içinde, gösterge KAP-12 `src/arayuz/kapi/tansiyon_gostergesi.gd`. KAP-11 `src/kapi/ipucu_yoneticisi.gd` duruyor. (Cursor)
+- [x] **KAP-03:** 2D Heybe Paneli Arayüzü (`src/arayuz/kapi/heybe_paneli.gd`) — Karakterin yanında açılan, tıklandığında büyüyen ve ipucu kartı açan 2D eşya/nişan vitrini. Panel `src/arayuz/heybe_paneli.gd` (taslak `kapi/` yolu kullanılmadı); açılışta kart 0.3→1 büyür. İpucu kartı KAP-14 `esya_detay_karti`. BUG-15 testi `tests/unit/heybe/heybe_tik_test.gd`. İkinci panel yazılmadı. (Cursor)
 - [x] **KAP-04:** Obje 1 (Nişan / Mühür) Etkileşimi — Karakterin taşıdığı rozet, mühür, berat veya fermanın incelenmesi ve ilgili `Clue_*` anahtarının hafızaya atılması. (Codex)
 - [x] **KAP-05:** Obje 2 (Yük / Çuval) Etkileşimi — Saman altı, gizli bölme veya sahte taban kontrolleriyle kaçak eşya tespit mekanizması. (Codex)
 - [x] **KAP-06:** Görsel Hata (Yara / İz) İnceleme Alanı — Karakterin modelindeki fiziksel çelişkilerin (harç kireci, zincir yarası, süt lekesi) 2D görsel portre üzerinden tıklanması. (Codex)
@@ -175,10 +175,10 @@ Not: ANI-04↔EKO-03, ANI-08↔UZM-01..05 konsolidasyon.
 - [x] **TUC-09:** Dinamik Fiyatlandırma ve Kıtlık Enflasyonu — Kışta odun/erzak ×3; yazda ucuzlama. (Codex)
 - [x] **TUC-10:** Pazar Yeri Alışveriş Arayüzü (Trade UI) — Ambar fazlası → köy veya muhafız akçesi. (Codex)
 
-- [/] **TUC-11:** Muhafız Kişisel Karaborsa ve Kaçak Mal Alışverişi — nadir/yasaklı eşya yalnızca `muhafiz_akce` ile; muhafız odası envanterine (taslak: `src/koy/ticaret/karaborsa_adaptoru.gd`). üzerindeyim (Cursor)
+- [x] **TUC-11:** Muhafız Kişisel Karaborsa ve Kaçak Mal Alışverişi — nadir/yasaklı eşya yalnızca `muhafiz_akce` ile; muhafız odası envanterine (taslak: `src/koy/ticaret/karaborsa_adaptoru.gd`). (Codex) Kaçak mal `muhafiz_esyalari` ve pazar kartı `KisiselKaraborsaPaneli` ("Muhafız odası"). 3B oda sahnesi yok; bağımlılık **ODA-01** hâlâ `[ ]`. Oda mekanı bu maddeyi yeniden açmaz. (Cursor not)
 - [x] **TUC-12:** Kapıda Tüccardan Geçiş Bacı ve Rüşvet Alma — resmi kayıt yerine şahsi `muhafiz_akce` hızlı giriş rüşveti → pazara anında geçiş. (Codex)
 - [x] **TUC-13:** Zanaat Sözleşmesinden Muhafız Komisyonu Aşırma — Work Order tesliminde kamudan gizlice %10–%20 komisyon şahsi keseye. (Codex)
-- [/] **TUC-14:** Canlı Hayvan Takas ve Sürüye Katılım — `koy_akce` ile inek/öküz → Ahır/Ağıl kapasitesi + 3B sahne + lojistik/üretim çarpanı. üzerindeyim (Cursor)
+- [x] **TUC-14:** Canlı Hayvan Takas ve Sürüye Katılım — `koy_akce` ile inek/öküz → Ahır/Ağıl kapasitesi + 3B sahne + lojistik/üretim çarpanı. (Codex) TUC-02 satın alma (`CelepHamdullah`, aynı `lojistik.hayvanlar`) bitmiştir. TUC-14 o kaydın kamu geri satışı ve üretim çarpanıdır (`CanliHayvanTakasi`); ikinci sürü veya ikinci alış yazılmayacak. (Cursor not)
 - [x] **TUC-15:** Tüccar Kervanına Koruma Muhafızı Kiralama — kışladan geçici koruma; peşin akçe köye; kiralanan süre Güvenlik geçici düşer. (Codex)
 Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhafiz_akce`.
 
@@ -186,7 +186,7 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 
 ## BÖLÜM 7: [Yeni Özellik 1] Mevsimler, Hava Durumu ve Kış Felaketi
 
-- [/] **MEV-01:** 4 Mevsim Döngü Motoru (`src/dunya/mevsim_yoneticisi.gd`) — Her mevsim 7 gün; 28 günlük yıl. üzerindeyim (Cursor)
+- [x] **MEV-01:** 4 Mevsim Döngü Motoru (`src/dunya/mevsim_yoneticisi.gd`) — Her mevsim 7 gün; 28 günlük yıl. (Codex) `Takvim` ince adaptör olarak `MevsimYoneticisi`'ne gider. Admin `IklimDeneyi` etkin mevsimi zorlar, takvim gününü ezmez (`takvim_mevsimi` / `zorlanmis`). TUC-09 fiyatı `y.mevsim()` ile aynı etkin mevsimi kullanır. Kalan kod farkı yok. (Cursor doğruladı)
 - [x] **MEV-02:** Kış Soğuğu ve Don Mekaniği — Fazladan odun; biterse 1–3 köylü donar. **≡ EKO-09** (mevsim çarpanı / gece_sonu odun tüketimi; MEV-11 adaptör yüzeyi). (Codex)
 - [x] **MEV-03:** Donmuş Toprak ve Tarımsal Felç — Kışın bostan/tarla üretimi durur; yalnızca ambar. (Codex)
 - [x] **MEV-04:** Dinamik Kar Yağışı ve Zemin Kar Örtüsü Shader'ı — Zemin ve çatılarda kademeli kar. (Codex)
@@ -228,7 +228,7 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 
 ## BÖLÜM 9: [Yeni Özellik 3] Muhafızın Odası, Kişisel Kasa ve Yozlaşma Ağacı
 
-- [ ] **ODA-01:** Muhafız Odası 3B/2.5B İç Mekan (`src/dunya/muhafiz_odasi.tscn`) — Yatak, masa, meşale, gizli kasa.
+- [ ] **ODA-01:** Muhafız Odası 3B/2.5B İç Mekan (`src/dunya/muhafiz_odasi.tscn`) — Yatak, masa, meşale, gizli kasa. TUC-11 kaçak envanteri pazar kartındadır; oda sahnesi bu maddeye bağlıdır, TUC-11 tekrarlanmaz.
 - [ ] **ODA-02:** Gizli Zemin Kasası (Rüşvet Deposu) — Rüşvet akçesi ve kaçak eşya; denetçiden gizli. **≡ EKO-01 / EKO-11** — `muhafiz_akce` çift kasa + kişisel kese HUD ile örtüşür; ayrı ekonomi paketi değil, ODA yüzeyi.
 - [ ] **ODA-03:** Muhafız Kişisel Envanteri — CHR rüşvet eşyalarının sergilenmesi.
 - [ ] **ODA-04:** Yozlaşma vs. Adalet Terazisi — "Adil Muhafız" ↔ "Yozlaşmış Derebeyi".

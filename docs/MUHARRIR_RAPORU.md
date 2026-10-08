@@ -1,3 +1,6 @@
+## Cursor — KAP-02/03 kapandı; MEV-01, BUG-11, TUC-11/14 notlandı (8 Ekim 2026)
+Yeni dosya yok, ikinci sistem yok, asset gerekmedi. KAP-02 tansiyonu `ChrSorgusu` + KAP-12; KAP-03 paneli `src/arayuz/heybe_paneli.gd`, BUG-15 testi duruyor. MEV-01 takvim/Admin/TUC-09 aynı etkin mevsimde, kalan kod farkı yok. BUG-11'deki "BUG-08 hâlâ açık" notu silindi. TUC-14, bitmiş TUC-02 kaydının geri satışı; tekrar alış yazılmayacak. TUC-11 kaçak envanteri pazar kartı; 3B oda ODA-01'e bağlı ve hâlâ açık. TUC-12 ve Codex CAS dosyalarına dokunulmadı. Dal `cursor/roadmap-gap-verify-0b16`. Ahmet ve ds Windows kopyaları bu ortamda yok; eşitlendi denmez. Muharrir güvenli festive pull yapmalı.
+
 ## Cursor — KAP-02/03, MEV-01, BUG-11, TUC-11/14 doğrulaması başladı (8 Ekim 2026)
 ROADMAP'te bu altı madde `[/] üzerindeyim (Cursor)`. TUC-12 ve Codex CAS dosyalarına dokunulmuyor. Asset gerekmedi. Ahmet ve ds Windows kopyaları bu ortamda yok; eşitlendi denmez.
 
