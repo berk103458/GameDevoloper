@@ -1281,3 +1281,10 @@ Sıradaki: CAS-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Existing square court scene reads only observed CAS acts, one modal and one existing selected figure with temporary box table/benches; pause/camera/pose restore, source evidence not duplicated; 54 checks plus final native/headless/mirror stage test passed, G CAS05-DIVAN.
 
 Sıradaki: CAS-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-06 (8 Ekim 2026)
+
+Actual discovered source Clue IDs continue once in villager save; same court presents only found own clues, two independent pieces incl cargo plus observed act permit one confession; no source/CSV/RNG/cash mutation; 56 checks, final native/mirror passed; asset gerekmedi.
+
+Sıradaki: CAS-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

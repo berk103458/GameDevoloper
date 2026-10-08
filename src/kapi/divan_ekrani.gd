@@ -54,7 +54,9 @@ func _ready() -> void:
  kapat.grab_focus.call_deferred()
 ## Yenileme aynı canlı kaynak üzerinde; ek açık kanıt uydurmaz veya ceza uygulamaz.
 func yenile() -> void:
- for c in _liste.get_children(): c.queue_free()
+ for c in _liste.get_children():
+  _liste.remove_child(c)
+  c.queue_free()
  var y := oturum.yonetim
  var ids := DivanOturumu.adaylar(y)
  for id in ids:
@@ -77,6 +79,7 @@ func _goster(id: int) -> void:
  var metin := "%s\nGözlenen fiiller:\n" % k.ad
  for x in DivanOturumu.izler(y,id):
   metin += "• %d. gece · %s · %s · kayıp %d %s\n" % [int(x.gun)+1,{"hirsizlik":"Hırsızlık","sabotaj":"Sabotaj","zehirleme":"Zehirleme","kundaklama":"Kundaklama"}.get(String(x.durum),"Fiil"),{"ambar":"Ambar","kuyu":"Kuyu","cephanelik":"Cephanelik"}.get(String(x.hedef),"Hedef"),int(x.kayip),{"gida":"erzak","saglik":"toplam sağlık","alet":"alet"}.get(String(x.kaynak),String(x.kaynak))]
+ DivanSorguPaneli.kur(self,_liste,id)
  kisi_secildi.emit(id)
  _bilgi.text = metin+"\nTutanak incelemesi; henüz hüküm verilmedi."
 ## Divan modalında köy kısayolları ve kamera hareketi tüketilir; Escape geri döner.

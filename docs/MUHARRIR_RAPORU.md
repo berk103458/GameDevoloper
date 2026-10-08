@@ -1,3 +1,6 @@
+## Codex — CAS-06 kapandı / CAS-07 sahiplenildi (8 Ekim 2026)
+56 kontrol sıfır hata; final okunabilir native itiraf/kanıt ve ds ayna import/unit/UI geçti. Gerçek bulunmuş Clue kimlikleri kabulde tek köylü kaydına devam eder; foreign/bulunmamış/tekrar reddi, gerçek fiil + yük dahil iki kanıt ile tek itiraf. Masum profil otomatik itirafa zorlanmaz; JSON/source/kasa/RNG korundu. CAS11 ayrı denetim açık; çift kayıt yapılmadı. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit 001eb63; CAS-07 [/] (Codex). Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
+
 ## Codex — CAS-05 kapandı / CAS-06 sahiplenildi (8 Ekim 2026)
 54 kontrol sıfır hata; final sahne/kişi pozu restore headless/native ve ds ayna import/unit/UI geçti. Aynı meydanda tek divan, var olan kişi ve kutu masa/sıralar; gizli fiil/niyet görüntülenmez, ikinci kanıt deposu/HUD yok. Hız/kamera/rota/poz korundu, ceza henüz verilmez. G CAS05-DIVAN doğrulandı; asset üretimi yok. Kontrol edilen son commit e7dabe6; CAS-06 [/] (Codex). Ahmet yolu erişilemiyor, Muharrir güvenli festive pull yapmalı.
 

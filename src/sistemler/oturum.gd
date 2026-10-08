@@ -230,6 +230,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 		ek["koylu_id"] = k.id
 		KuyuZehirleme.kabul(yonetim, k, gelen, karar)
 		AmbarKundaklamasi.kabul(yonetim, k, gelen, karar)
+		DivanKanit.devral(k, gelen)
 	else:
 		akce += rusvet_akce
 		yonetim.ret(tr_gelen(gelen), not gelen.kusurlu(), _usta_uzmanlik(gelen))
