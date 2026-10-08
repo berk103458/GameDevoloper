@@ -15,6 +15,7 @@ func _ready() -> void:
  var o := ana.oturum
  var y := o.yonetim
  var g := o._adli_gelen(&"chr_002")
+ g.chr_sorgusu().obje_incele(2)
  var rr := o.karar_ver(g,&"kabul")
  var k := y.koylu(rr.koylu_id)
  y.gun = 2
@@ -31,6 +32,7 @@ func _ready() -> void:
    bulundu = true
    assert(not l.text.contains(k.ad))
  assert(bulundu and SuDengesi.tip(y).contains("1 kişi") and CasusGeceTakibi.acik_izler(y).is_empty())
+ assert(SuDengesi.tip(y).contains("keşfedilmiş zehir malzemesi yük ipucu: 1"))
  var once := JSON.stringify(o.kaydet())
  e._gece_dugmesi.pressed.emit()
  assert(JSON.stringify(o.kaydet()) == once)

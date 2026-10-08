@@ -37,12 +37,14 @@ static func durum(k: Koylu) -> Dictionary:
  return oku(k,k.get_meta(META,{}))
 ## Ziyaret bitince mevcut IpucuYoneticisi kimlikleri köylü kaydında devam eder; kaynak/kapı sorgusu değiştirilmez.
 static func devral(k: Koylu,g: Gelen) -> void:
+ if k==null or g==null or not g.adli or g.id!=k.adli_id: return
  var s := g.chr_sorgusu()
  if s == null: return
- var ids: Array = []
+ var d:=durum(k)
+ var izin:=ipuclari(k)
  for id in s.ipuclari:
-  if s.ipuclari[id] == true: ids.append(String(id))
- k.set_meta(META,oku(k,{"ipuclar":ids}))
+  if s.ipuclari[id] == true and izin.has(String(id)) and String(id) not in d.ipuclar: d.ipuclar.append(String(id))
+ k.set_meta(META,oku(k,d))
 ## Kapıda bulunan gerçek kanıt yalnız mevcut duruşmada sunulur; tekrar tek kimliktir.
 static func sun(y: KoyYonetimi,id: int,clue: String) -> bool:
  if not id in DivanOturumu.adaylar(y): return false

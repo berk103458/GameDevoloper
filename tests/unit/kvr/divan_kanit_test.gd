@@ -26,6 +26,13 @@ func _initialize() -> void:
  var rng:=y._rng.state
  assert(DivanKanit.sun(y,k.id,String(v.obje_ipucu(2))) and DivanKanit.sorgula(y,k.id))
  assert(not DivanKanit.sorgula(y,k.id) and DivanKanit.durum(k).itiraf and y.akce==akce and y.kaynaklar.kaydet()==stok and y._rng.state==rng and var_to_str(v)==kaynak_once and s.ipuclari.size()==2)
+ var ilerleme:=DivanKanit.durum(k)
+ DivanKanit.devral(k,g)
+ assert(DivanKanit.durum(k)==ilerleme)
+ var foreign:=o._adli_gelen(&"chr_009")
+ foreign.chr_sorgusu().obje_incele(1)
+ DivanKanit.devral(k,foreign)
+ assert(DivanKanit.durum(k)==ilerleme)
  var z:=KoyYonetimi.kayittan(kat.koy_ayarlari,kat.binalar,JSON.parse_string(JSON.stringify(y.kaydet())))
  assert(DivanKanit.durum(z.koylu(k.id))==DivanKanit.durum(k))
  var eski:=Koylu.kayittan({"id":5,"adli_id":"chr_001"})

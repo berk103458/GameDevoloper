@@ -1316,3 +1316,17 @@ Sıradaki: CAS-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 35 checks plus final native/pose/clue regressions; unjust rumor jail, documented sibling departure, public compensation and JSON release passed; asset gerekmedi.
 
 Sıradaki: CAS-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-11 (8 Ekim 2026)
+
+36 checks plus final 30-CHR/repeat/foreign/native/mirror; canonical Clue continuation preserves court progress and source; asset gerekmedi.
+
+Sıradaki: CAS-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-12 (8 Ekim 2026)
+
+37 checks; exact poison Clue/4Flag contract, discovered-load-only hint, rawFlag/legacy/JSON and native/mirror passed; asset gerekmedi.
+
+Sıradaki: CAS-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
