@@ -286,3 +286,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - TUC-03: [Nalbur stoğu](nalbur-stogu.md) — ziyaretlik sonlu ürün, tek ambar ve mevcut kaynak HUD.
 
 - TUC-04: [Kumaşçı ve Aktar](kumas-aktar.md) — ortak stoktan mevcut tedavi desteği ve oyuncu kontrollü Refah dağıtımı.
+
+- TUC-05: [Sipariş sözleşmeleri](siparis-sozlesmeleri.md) — mevcut ziyaretten teklif, kabul ve kalıcı tek defter.

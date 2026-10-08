@@ -1069,3 +1069,10 @@ Sıradaki: TUC-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Kumasci/Aktar mevcut ziyaret stogunda afyon/sargi/kece/kumas satar; tek ambar/HUD. Sifahane basarili tedavisine cift malzeme +5 saglik; oyuncu kontrollu luks dagitimi dusuk Refah once. 27 ilgili kontrol, native ve ayna UI gecti; UTF-8 isim kontrolu eklendi. Ikonlar envanter G TUC04 satirlarinda.
 
 Sıradaki: TUC-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-05 (8 Ekim 2026)
+
+Mevcut ziyaretlerden deterministik siparis teklifi, yedi gun vade ve kalici tek sozlesme defteri. Gercek UI kabul, tekrar/uc acik siniri ve stok/kasa/RNG korunumu; 20 ilgili kontrol, native uzun pazar/defter ve ayna UI gecti. asset gerekmedi.
+
+Sıradaki: TUC-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

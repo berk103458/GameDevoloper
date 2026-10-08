@@ -1,0 +1,10 @@
+{
+ "azami_aktif": 3,
+ "sure": 7,
+ "teklifler": {
+  "celep_hamdullah": {"urun": "un", "adet": 12, "odul": 24},
+  "nalbur": {"urun": "kereste", "adet": 10, "odul": 30},
+  "kumasci_aktar": {"urun": "gida", "adet": 20, "odul": 18},
+  "silah_tuccari": {"urun": "demir", "adet": 8, "odul": 28}
+ }
+}

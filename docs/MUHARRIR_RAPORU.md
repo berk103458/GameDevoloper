@@ -1,5 +1,8 @@
 # Ahmet / Muharrir — Codex kontrol noktası
 
+## Codex — TUC-05 tamamlandı / TUC-06 sahiplenildi (8 Ekim 2026)
+Mevcut ziyaret başına bir üretim siparişi, kabul gününden yedi günlük vade ve kalıcı sözleşme defteri eklendi. Kabul stok/kasa/RNG harcamaz; aynı ziyaret tekrar kabulü ve üç açık sınırı korunur. Defter aynı kart altyapısında, pazar durum satırında LinkButton bağlantısı uzun Aktar kartını büyütmez. 20 ilgili kontrol, native pazar/defter ve ds ayna import/UI geçti. asset gerekmedi. Teslim/itibar TUC-06, ihlal/faiz TUC-07 henüz kapanmadı. Ahmet yolu erişilemiyor; Muharrir festive güvenli pull yapmalı.
+
 ## Codex — TUC-04 tamamlandı / TUC-05 sahiplenildi (8 Ekim 2026)
 Kumaşçı/Aktar dört ortak ambar malzemesi satar. Mevcut şifahane başarılı tedavisine çift afyon/sargı +5 sağlık desteği, aynı pazarda oyuncu kontrollü keçe/kumaş Refah dağıtımı eklendi; düşük Refah önce, kişi başına bir stok. Normal tedavi ve kasa/RNG korunur. 27 ilgili kontrol, native ve ds ayna import/UI geçti; Türkçe ürün adlarına açık UTF-8 kontrolü eklendi. Kutular envanter G TUC04 satırlarında. Ahmet yolu erişilemiyor; Muharrir festive güvenli pull yapmalı.
 
