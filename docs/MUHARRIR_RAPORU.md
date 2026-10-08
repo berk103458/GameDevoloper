@@ -1,3 +1,9 @@
+## Cursor — KAP-02/03 kapandı; BUG-11 ve TUC notları (8 Ekim 2026)
+Festive `6da34ad` alındı (CAS-07..12). MEV-01 `[x] (Codex)` satırına yazılmadı. Yeni dosya yok, ikinci sistem yok, asset gerekmedi. MEV/TUC/CAS kaynak dosyalarına dokunulmadı. KAP-02 tansiyonu `ChrSorgusu` + KAP-12; KAP-03 paneli `src/arayuz/heybe_paneli.gd`, BUG-15 testi duruyor. BUG-11'deki "BUG-08 hâlâ açık" notu silindi. TUC-14, bitmiş TUC-02 kaydının geri satışı; tekrar alış yazılmayacak. TUC-11 kaçak envanteri pazar kartı; 3B oda ODA-01'e bağlı ve hâlâ açık. Godot 4.7.2: ilk import 104 `ERROR:` ve 0 `SCRIPT ERROR`. `f3ef5c4` tam sanity 230 kontrol, 0 başarısız. `6da34ad` sonrası import 0 hata; yeni Clue/zehir birimleri ve kuyu UI geçti. Dal `cursor/roadmap-gap-verify-0b16`. Ahmet ve ds Windows kopyaları bu ortamda yok; eşitlendi denmez. Muharrir güvenli festive pull yapmalı.
+
+## Cursor — KAP-02/03, MEV-01, BUG-11, TUC-11/14 doğrulaması başladı (8 Ekim 2026)
+ROADMAP kilidi açıldı. MEV-01 sonradan liste dışına alındı ve satırı geri kondu. Asset gerekmedi. Ahmet ve ds Windows kopyaları bu ortamda yok; eşitlendi denmez.
+
 ## Codex — CAS-12 kapandı / CAS-13 sahiplenildi (8 Ekim 2026)
 37 kontrol sıfır hata; eski CAS03 birim, native gerçek sabah raporu ve ds ayna import/unit/UI geçti. CHR002/009 kaynak nişan/yük/görsel Clue birebir, dört kaynak bool Flag snapshotu readonly/JSON. Gerçek bulunan yük tek DivanKanit kaynağı; su tooltipi ipucu sayısını okur, kimlik/fiil uydurmaz. Tam/yol çözümü ve eski cozuldu korunur, Clue tek başına zehri önlemez; yanlış kaynak Clue güvenli reddedilir. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commitf7d91c3; CAS-13 [/] (Codex), aynı helper ile kundak kaynak sözleşmesi. Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
 
