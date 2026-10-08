@@ -25,3 +25,4 @@ data/fisilti_gazetesi.json aralık ve üç imzasız iddia. Asset gerekmedi; mevc
 
 ## Acceptance Criteria
 Masum mevcut isim için pusula, gizli kimlik/fiilden bağımsız aynı metin, kasa/stok/RNG/kişi/gerçek kanıt koruması. Tek pending/gece/çift seçim, iki seçim, bozuk kayıt ve JSON pending restore; gerçek suçüstü önceliği, boş nüfus/terminal reddi. Native/headless mevcut arşiv düğmesi, ilgili CAS/kayıt/gece ve 20 gece regresyonu, iki ds kopyası.
+CAS-10 genişletmesi: arşiv seçimi artık ayrı kanıtsız duruşma adaylığı açabilir; pusula fiil/itiraf veya otomatik hüküm değildir. Bedel önceden gösterilen haksız zindan ve onarım CAS10 helperindedir.

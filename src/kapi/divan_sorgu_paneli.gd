@@ -34,7 +34,7 @@ static func kur(e: DivanEkrani,v: VBoxContainer,id: int) -> void:
  sorgu.name = "divan_sorgula"
  sorgu.text = "Tutanaktaki fiili kabul ediyorum." if d.itiraf else "Sunulan kanıtlarla sorgula"
  sorgu.tooltip_text = "Gözlenmiş fiil, en az iki bağımsız kanıt ve kapıda bulunmuş yük/suç aleti gerekir."
- sorgu.disabled = d.itiraf or not DivanKanit.yeterli(k,d)
+ sorgu.disabled = d.itiraf or not DivanKanit.yeterli(k,d) or DivanOturumu.izler(y,id).is_empty()
  if d.itiraf: sorgu.add_theme_color_override("font_disabled_color",Renkler.KUL)
  sorgu.custom_minimum_size.y = 42
  n.add_child(sorgu)
