@@ -11,7 +11,7 @@ Festive PR. Yeni özellik yok. ODA-01 açılınca TUC-11 tekrar yazılmaz.
 
 ## Güncel durum
 - Dal: `cursor/roadmap-gap-verify-0b16`, taban festive `6da34ad` (CAS-07..12 alındı). Kilit `29a71c6`. CAS-13 Codex'te `[/]`; dokunulmadı.
-- Test: Godot 4.7.2 `ed1daf0bf`. İlk import 104 `ERROR:`, 0 `SCRIPT ERROR`. `f3ef5c4` tam sanity 230 `PASS`, 0 başarısız (`metin-csv` ve 20 gece dahil). `6da34ad` yeni birim testleri bu nottan sonra koşulur.
+- Test: Godot 4.7.2 `ed1daf0bf`. İlk import 104 `ERROR:`, 0 `SCRIPT ERROR`. `f3ef5c4` tam sanity 230 `PASS`, 0 başarısız (`metin-csv` ve 20 gece dahil). `6da34ad` sonrası import 0 hata; `divan_kanit_sozlesme`, `zehir_clue_sozlesmesi`, `divan_kanit`, `kuyu_zehirleme` birimleri ve kuyu UI geçti. `metin-csv` geçti.
 - KAP-02 `[x] (Cursor)`: `tansiyon_yoneticisi.gd` yok. Aralık ve `tansiyon_delta` `ChrSorgusu` içinde; gösterge KAP-12. KAP-11 `ipucu_yoneticisi.gd` duruyor.
 - KAP-03 `[x] (Cursor)`: panel `src/arayuz/heybe_paneli.gd`. Kart açılışta 0.3→1. İpucu kartı KAP-14. BUG-15 testi `tests/unit/heybe/heybe_tik_test.gd`.
 - MEV-01 festive `59cbcc5` üzerinde zaten `[x] (Codex)`. Satır geri alındı; üzerine yazılmadı. MEV/TUC/CAS kaynak dosyalarına dokunulmadı.
