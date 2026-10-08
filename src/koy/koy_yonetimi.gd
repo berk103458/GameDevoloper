@@ -530,6 +530,7 @@ func gece() -> Dictionary:
 	_insaat()
 	_barindir()
 	GizliEgilimler.gece(self, calismalar, olaylar)
+	var hasat := HasatSenligi.hazir(self)
 	_tuket(rapor["tuketim"], olaylar)
 	rapor["su"] = SuDengesi.gece(self, rapor["tuketim"], olaylar)
 	rapor["ziyan"] = AmbarBakimi.gece(kaynaklar, gun, olaylar)
@@ -540,6 +541,7 @@ func gece() -> Dictionary:
 	_akce(olaylar)
 	_husumet(olaylar)
 	asayis_riski = maxi(0, asayis_riski - a.asayis_sonum - etkin_muhafiz_sayisi() * a.muhafiz_asayis)
+	HasatSenligi.uygula(self, hasat, olaylar)
 	_isyan(olaylar)
 	_asamalar(olaylar)
 	IflasYoneticisi.gece(self, olaylar)
@@ -852,7 +854,7 @@ func kaydet() -> Dictionary:
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
-		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self)}
+		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self), "hasat_senligi_yili": HasatSenligi.son_yil(self)}
 
 
 static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary) -> KoyYonetimi:
@@ -861,6 +863,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	KrizEnjektoru.yukle(y, v.get("debug_kuyu_zehri", 0))
 	IlkbaharTaskini.yukle(y, v.get("ilkbahar_taskini", {}))
 	SuDengesi.yukle(y, v.get("su_doldurma", {}))
+	y.set_meta(HasatSenligi.META, HasatSenligi.oku(v.get("hasat_senligi_yili", 0)))
 	y.iflas_durumu = IflasYoneticisi.oku(v.get("iflas", {}))
 	VergiPolitikasi.yukle(y, v.get("vergi_politikasi", {}))
 	y.maas_durumu = MuhafizMaasi.oku(v.get("maas_durumu", {}))

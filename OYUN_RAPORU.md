@@ -1197,3 +1197,10 @@ Sıradaki: MEV-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Shared well flow and reserve accounting, summer water x2, bounded spark/fire loss; 58 checks plus final overflow/rain/Admin resource passed; G inventory recorded.
 
 Sıradaki: MEV-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-08 (8 Ekim 2026)
+
+Full autumn granary with actual food triggers one annual harvest feast after daily morale costs; existing night report and moral HUD reach 100. Save, repeat, starvation rejection and real UI verified; 62 checks passed, mirror/native passed; asset gerekmedi.
+
+Sıradaki: MEV-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

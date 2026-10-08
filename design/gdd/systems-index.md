@@ -322,3 +322,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [İlkbahar taşkını](ilkbahar-taskini.md) — MEV-06, mevcut sağlık ve olay kartında bent/kuyu onarımı.
 
 - [Yaz su dengesi ve kıvılcım](yaz-su-yangin.md) — MEV-07, aynı kuyu/ambar/pazar ve iadesiz yapı kaybı.
+
+- [Hasat şenliği](hasat-senligi.md) — MEV-08, dolu erzak ambarında yıllık mevcut moral dopingi.

@@ -1,3 +1,6 @@
+## Codex — MEV-08 tamamlandı / MEV-09 sahiplenildi (8 Ekim 2026)
+62 kontrol sıfır hata; native hasat raporu ve ds ayna import/UI geçti. Gıda içeren dolu sonbahar ambarı yılda tek şenlik, mevcut Moral/Huzur 100; tüketim sonrası aynı gece. Taşla dolu aç ambar, tekrar ve eski kayıt korundu. Asset gerekmedi, G kontrol edildi. Son kontrol edilen commit 6541a26; MEV-09 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
+
 ## Codex — MEV-07 tamamlandı / MEV-08 sahiplenildi (8 Ekim 2026)
 58 kontrol sıfır hata; son su taşma/yağmur unit ve Admin kaynak UI geçti, native pazar ve ds ayna import/UI geçti. Su tek ambar türü; kuyu 20/gün, ayrılan rezerv aynı gün arzdan düşer, yaz/kuraklık ×2. Kuru ot kıvılcımı gecede tek risk, 10 rezervle söndürme veya mevcut iadesiz kayıp. Normal bina hasarı/ikinci HUD/ateş yok. G MEV07-SU aynı pakette: mavi kutu ikon, üretim/indirme yok. Kontrol edilen son commit 844571e. MEV-08 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
 
