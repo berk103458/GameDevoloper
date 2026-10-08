@@ -1,0 +1,11 @@
+{
+  "baslik": "Ertuğrul Obası · buğday ittifakı",
+  "at_bugday": 20,
+  "alp_bugday": 30,
+  "alp_stat": 6,
+  "alp_ad": "Obadan gelen alp",
+  "ittifak_bayragi": "ertugrul_obasi_ittifaki",
+  "at_dugme": "20 buğday ↔ damızlık at",
+  "alp_dugme": "30 buğday ↔ alp",
+  "aciklama": "İlk başarılı takas ittifakı kurar. Gün başına tek takas. At hazır ahırda ortak yer ister; alp için tüm nüfusa yetecek hazır yatak gerekir. At takası sürüyü kendiliğinden çoğaltmaz."
+}

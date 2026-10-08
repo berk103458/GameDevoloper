@@ -25,6 +25,7 @@ var mogol_oncusu: Dictionary = {}
 var sancak_asker_talebi: Dictionary = {}
 ## HAR-05 optional yol görevi/ek ziyaret makbuzu; nüfus eski kuyruğa bağlıdır.
 var goc_yolu_guvenligi: Dictionary = {}
+var oba_ittifaki: Dictionary = {}
 var muhafiz_akce: int = 0
 var muhafiz_esyalari: Array[Dictionary] = []
 ## EKO-14 optional transfer özeti; iki mevcut kasanın bakiyesi ayrı kalır.
@@ -721,6 +722,7 @@ func kaydet() -> Dictionary:
 		"mogol_oncusu": MogolOncusu.oku(mogol_oncusu),
 		"sancak_asker_talebi": SancakAskerTalebi.oku(sancak_asker_talebi),
 		"goc_yolu_guvenligi": GocYoluGuvenligi.oku(goc_yolu_guvenligi),
+		"oba_ittifaki": ObaIttifaki.oku(oba_ittifaki),
 		"muhafiz_yetenekleri": MuhafizYetenekleri.oku(muhafiz_yetenekleri),
 		"mevsim": yonetim.mevsim(), "yeni_binalar": yeni_binalar.duplicate(true),
 		"koy_yonetimi": yonetim.kaydet(),
@@ -761,6 +763,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.mogol_oncusu = MogolOncusu.oku(veri.get("mogol_oncusu"))
 	o.sancak_asker_talebi = SancakAskerTalebi.oku(veri.get("sancak_asker_talebi"))
 	o.goc_yolu_guvenligi = GocYoluGuvenligi.oku(veri.get("goc_yolu_guvenligi"))
+	o.oba_ittifaki = ObaIttifaki.oku(veri.get("oba_ittifaki"))
 	o.muhafiz_yetenekleri = MuhafizYetenekleri.oku(veri.get("muhafiz_yetenekleri"))
 	MuhafizAdaletYetenekleri.bagla(o)
 	o.muhafiz_esyalari = preload("res://src/sistemler/cift_kasa_dagitimi.gd").esyalari_yukle(veri.get("muhafiz_esyalari", []))

@@ -14,4 +14,5 @@ static func pazar(e: KoyEkrani, kok: VBoxContainer) -> Label:
  SiparisSozlesmePaneli.kapi(e, kok, l)
  KervanKorumaPaneli.ekle(e, kok)
  GocYoluPaneli.ekle(e, kok)
+ ObaIttifakPaneli.ekle(e, kok)
  return l

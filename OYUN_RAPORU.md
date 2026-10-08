@@ -1519,3 +1519,10 @@ Sıradaki: HAR-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 99 regression checks; final real tower and next-day public-name forecast unit/headless/native/mirror PASS; BoxMesh/ColorRect placeholders recorded in G; actual day1 label verified.
 
 Sıradaki: HAR-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — HAR-07 (8 Ekim 2026)
+
+107 regression checks PASS; final real Pazar trade unit/headless/native/mirror with same-scene horse and alp refresh; public wheat and existing records, no new assets required; G verified.
+
+Sıradaki: HAR-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

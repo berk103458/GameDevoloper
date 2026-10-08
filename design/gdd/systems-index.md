@@ -398,3 +398,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Göç yolu güvenliği](goc-yolu-guvenligi.md) — HAR-05, gerçek husumet temizliği ve aynı kuyruğa ek ziyaret.
 
 - [Gözcü kulesi ve erken uyarı](gozcu-kulesi.md) — HAR-06, mevcut maliyetli tür ve saf ertesi gün öngörüsü.
+
+- [Ertuğrul Obası ittifakı](oba-ittifaki.md) — HAR-07, aynı Pazar ve gerçek buğday/at/alp takası.
