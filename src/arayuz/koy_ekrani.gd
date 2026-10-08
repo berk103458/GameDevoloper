@@ -511,6 +511,7 @@ func _nufus_ac() -> void:
 
 
 func _is_adi(k: Koylu) -> String:
+	if DivanHukmu.zindanda(k): return "Zindanda"
 	if k.is_yeri == KoyYonetimi.MUHAFIZ:
 		return tr("koy.is.muhafiz")
 	var b := _y.bina(k.is_yeri)

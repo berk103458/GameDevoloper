@@ -1,0 +1,18 @@
+{
+  "zindan_kapasite": 2,
+  "zindan": {
+    "ad": "Zindan",
+    "asayis": -5,
+    "moral": -2
+  },
+  "surgun": {
+    "ad": "Sürgün",
+    "asayis": -3,
+    "moral": -3
+  },
+  "infaz": {
+    "ad": "İnfaz",
+    "asayis": -8,
+    "moral": -6
+  }
+}

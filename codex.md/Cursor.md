@@ -10,7 +10,8 @@ KAP-02 ve KAP-03 `[x] (Cursor)`. BUG-11 eski notu düzeltildi. TUC-11/14 notlar�
 Festive PR. Yeni özellik yok. ODA-01 açılınca TUC-11 tekrar yazılmaz.
 
 ## Güncel durum
-- Dal: `cursor/roadmap-gap-verify-0b16`, taban `claude/festive-volta-li1sfm` (`59cbcc5`). Kilit `29a71c6`.
+- Dal: `cursor/roadmap-gap-verify-0b16`, taban festive `33e4a44` (CAS-07..09 alındı). Kilit `29a71c6`. CAS-10 Codex'te `[/]`; dokunulmadı.
+- Test: Godot 4.7.2 `ed1daf0bf`. İlk `sanity_check.py` yalnız headless importta düştü (104 `ERROR:`, 0 `SCRIPT ERROR`, bilinen ilk glTF/çeviri sırası). İkinci tam koşu 222 `PASS`, 0 başarısız (`metin-csv` dahil, 20 gece dahil). Bu koşu `59cbcc5` ağacıydı; `33e4a44` birleşmesinden sonra sanity yeniden koşulacak.
 - KAP-02 `[x] (Cursor)`: `tansiyon_yoneticisi.gd` yok. Aralık ve `tansiyon_delta` `ChrSorgusu` içinde; gösterge KAP-12. KAP-11 `ipucu_yoneticisi.gd` duruyor.
 - KAP-03 `[x] (Cursor)`: panel `src/arayuz/heybe_paneli.gd`. Kart açılışta 0.3→1. İpucu kartı KAP-14. BUG-15 testi `tests/unit/heybe/heybe_tik_test.gd`.
 - MEV-01 festive `59cbcc5` üzerinde zaten `[x] (Codex)`. Satır geri alındı; üzerine yazılmadı. MEV/TUC/CAS kaynak dosyalarına dokunulmadı.

@@ -348,3 +348,7 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Muhafız Divanı / meydan duruşması](muhafiz-divani.md) — CAS-05, mevcut tek meydanda gözlenmiş fiil inceleme sahnesi.
 
 - [Divanda kanıt sunma ve sorgulama](divan-kanit-sorgusu.md) — CAS-06, gerçek kapı Clue kaydının tek kalıcı devamı ve gerçek fiil sorgusu.
+
+- [Üçlü divan hükmü](divan-hukmu.md) — CAS-07, tek makbuz ve gerçek nüfus sonuçları.
+- [Karaboran intikam baskını](karaboran-intikami.md) — CAS-08, zindan hükmünün üçüncü gecesinde tek ortak husumet sonucu.
+- [Fısıltı gazetesi ve imzasız pusula](fisilti-gazetesi.md) — CAS-09, mevcut sabah kartında kanıt sayılmayan iddia.

@@ -401,6 +401,7 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | MEV10-KURT | MEV-10 | Kurt modeli, yürüyüş ve kaçış klibi | glTF / iskelet klibi | res://src/koy/gorsel/kurt_surusu.gd (_kur: tek BoxMesh) | kış kurt sürüsü; winter wolf pack walk flee | orta | Codex |
 | MEV14-SAMAN | MEV-14 | Saman balyası kaynak ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (sarı ColorRect; data/saman_bakimi.json ikon_renk) | saman balyası yem kaynak ikonu; hay bale livestock feed resource icon | orta | Codex |
 | CAS05-DIVAN | CAS-05 | Meydan divan masası ve oturma sıraları | glTF | res://src/koy/gorsel/divan_meydani.gd (kur/_kutu: geçici BoxMesh masa/iki sıra) | medieval village court judge table benches; köy divanı masa sıralar | orta | Codex |
+| CAS07-ZINDAN | CAS-07 | Kapı zindan hücresi kapısı | glTF | res://src/koy/gorsel/divan_zindan_gorseli.gd (kur: BoxMesh kapı işareti) | medieval gate jail cell door; kapı zindan hücresi kapı | orta | Codex |
 
 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.

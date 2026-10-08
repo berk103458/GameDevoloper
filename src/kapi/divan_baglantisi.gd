@@ -35,5 +35,6 @@ static func ac(e: KoyEkrani) -> DivanEkrani:
    s.uzaklik = uzaklik
    s._kamera_yerlestir()
    e._hiz_sec(eski_hiz)
+   if d.get_meta("hukum_verildi",false): e._yenile()
  )
  return d

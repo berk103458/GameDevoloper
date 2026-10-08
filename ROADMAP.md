@@ -213,10 +213,10 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **CAS-04:** Ambar Kundaklaması ve Yangın Söndürme Krizi — CHR_001/006; su zinciri. (Codex)
 - [x] **CAS-05:** Muhafız Divanı / Mahkeme Sahnesi (`src/kapi/divan_ekrani.tscn`) — Meydanda yargılama. (Codex)
 - [x] **CAS-06:** Kanıt Sunma ve Sorgulama — Kapı `Clue_*` + suç aletleri → itiraf. (Codex)
-- [/] **CAS-07:** Üçlü Yargı Kararı: Zindan, Sürgün, İnfaz — Asayiş↑ Moral↓ tradeoff. (Codex)
-- [ ] **CAS-08:** Çete İntikam Baskını Tetikleyicisi — CHR_004 zindanda → 3 gece sonra Karaboran baskını.
-- [ ] **CAS-09:** Köylü İhbar Mektupları ve Fısıltı Gazetesi — Sabah imzasız şüphe pusulaları.
-- [ ] **CAS-10:** Sahte Suçlama ve Haksız Yargı Tazminatı — Masum zindan → aile terk + Moral çöküşü.
+- [x] **CAS-07:** Üçlü Yargı Kararı: Zindan, Sürgün, İnfaz — Asayiş↑ Moral↓ tradeoff. (Codex)
+- [x] **CAS-08:** Çete İntikam Baskını Tetikleyicisi — CHR_004 zindanda → 3 gece sonra Karaboran baskını. (Codex)
+- [x] **CAS-09:** Köylü İhbar Mektupları ve Fısıltı Gazetesi — Sabah imzasız şüphe pusulaları. (Codex)
+- [/] **CAS-10:** Sahte Suçlama ve Haksız Yargı Tazminatı — Masum zindan → aile terk + Moral çöküşü. (Codex)
 
 - [ ] **CAS-11:** `Clue_*` → Divan Kanıt Listesi Bağlayıcı (`src/kapi/divan_kanit.gd` — **taslak hedef yol**) — Kapı sorgu ipuçlarını divan yargılamasına taşıyan köprü.
 - [ ] **CAS-12:** Kuyu Zehirleme Clue/Flag Tetikleyici — CHR_002/009 içeri alındığında banotu + sabah zehir olayını `Flag_*`/`Clue_*` sözleşmesine bağlama.

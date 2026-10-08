@@ -374,6 +374,8 @@ func olay_sec() -> OlayVerisi:
 	if taskin != null: return taskin
 	var tutanak := CasusDevriyesi.olay(self)
 	if tutanak != null: return tutanak
+	var pusula := FisiltiGazetesi.olay(self)
+	if pusula != null: return pusula
 	if _rng.randf() >= ayarlar.olay_olasiligi:
 		return null
 	var adaylar: Array[OlayVerisi] = []
@@ -424,6 +426,7 @@ func sira_olayi_sec(kuyruk: int) -> OlayVerisi:
 func secenek_olur(olay: OlayVerisi, i: int) -> bool:
 	if IlkbaharTaskini.tanimli(olay): return IlkbaharTaskini.uygun(self, olay, i)
 	if CasusDevriyesi.tanimli(olay): return CasusDevriyesi.uygun(self, olay, i)
+	if FisiltiGazetesi.tanimli(olay): return FisiltiGazetesi.uygun(self, olay, i)
 	var e: Dictionary = olay.secenek_etkileri[i]
 	var g: Dictionary = e.get("gerekli", {})
 	if akce < int(g.get("akce", 0)) or ambar < int(g.get("ambar", 0)):
@@ -445,6 +448,7 @@ func secenek_olur(olay: OlayVerisi, i: int) -> bool:
 func olay_uygula(olay: OlayVerisi, i: int, puan: int = -1) -> Dictionary:
 	if IlkbaharTaskini.tanimli(olay): return IlkbaharTaskini.uygula(self, olay, i)
 	if CasusDevriyesi.tanimli(olay): return CasusDevriyesi.uygula(self, olay, i)
+	if FisiltiGazetesi.tanimli(olay): return FisiltiGazetesi.uygula(self, olay, i)
 	var e: Dictionary = olay.secenek_etkileri[i]
 	if puan >= 0 and e.has("oyun"):
 		var odul: Dictionary = e.get("oyun_odul", {})
