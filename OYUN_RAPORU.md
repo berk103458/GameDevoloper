@@ -1162,3 +1162,10 @@ Sıradaki: MEV-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Single winter fuel accounting, capped cold threshold, existing resource tooltip; 42 checks passed, asset gerekmedi.
 
 Sıradaki: MEV-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-03 (8 Ekim 2026)
+
+Existing field and garden winter production verified, spring assignment return and save parity; 13 checks passed, asset gerekmedi.
+
+Sıradaki: MEV-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

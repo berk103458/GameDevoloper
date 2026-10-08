@@ -1,3 +1,6 @@
+## Codex — MEV-03 tamamlandı / MEV-04 sahiplenildi (8 Ekim 2026)
+13 kontrol sıfır hata; ds ayna import/unit geçti. Tarla ve bostan mevcut kis_durur ile kışın durur, aynı gece ambar tüketir; kayıt eşitliği ve bahar görev/üretim dönüşü doğrulandı. Çekirdek üretim değiştirilmedi. G envanteri kontrol edildi: asset gerekmedi. Kontrol edilen son commit 7ba99fa. MEV-04 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
+
 ## Codex — MEV-02 tamamlandı / MEV-03 sahiplenildi (8 Ekim 2026)
 42 kontrol sıfır hata; native yakacak uyarısı ve ds ayna import/UI geçti. Tek EKO-09/MEV-11 yakacak hesabı, sağlık eşiğinde en çok üç donma adayı; gerçek ölüm mevcut sağlık fazında. G envanteri kontrol edildi: asset gerekmedi. Kontrol edilen son commit f851d2b. MEV-03 [/] (Codex). Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı.
 
