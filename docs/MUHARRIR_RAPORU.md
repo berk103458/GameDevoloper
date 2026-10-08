@@ -1,3 +1,6 @@
+## Codex — CAS-02 kapandı / CAS-03 sahiplenildi (8 Ekim 2026)
+43 kontrol sıfır hata; native gerçek tutanak kartı ve ds ayna import/unit/UI geçti. Etkin mevcut nöbet/meşale gerçek fiili gözler; niyet suç değil. Tek pending tutanak aynı olay kartı, kayıt/tekrar/iki seçim/çift tıklama ve stok/kamu koruması. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit2c9ea3b; CAS-03 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli festive pull yapmalı.
+
 ## Codex — CAS-01 kapandı / CAS-02 sahiplenildi (8 Ekim 2026)
 41 kontrol sıfır hata; final gerçek sabotaj birim assertionu ve ds ayna import/unit geçti. Gizli hedef/fiil geçmişi mevcut geceye bağlandı; yeni hasar/zar yok, niyet kanıt değil. Gerçek hırsızlık gözlemi ayrı, kayıt/tekrar/sınır ve masum kaynak korundu. Asset gerekmedi, G kontrol edildi. Son kontrol edilen commit119a91f; CAS-02 [/] (Codex). Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
 

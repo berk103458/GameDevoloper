@@ -1253,3 +1253,10 @@ Sıradaki: CAS-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Persist bounded hidden night target/actual-action ledger; existing theft and work-sabotage hooks add no extra RNG/damage. Intent is not evidence, only observed real acts exposed. 41 regression checks, final actual-sabotage unit and mirror import/unit passed; asset gerekmedi, G checked.
 
 Sıradaki: CAS-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-02 (8 Ekim 2026)
+
+Existing paid healthy night guard observes actual CAS ledger acts; one persistent report uses the same event card, intent excluded, no repeated loss, JSON and double-click safe; 43 checks, native and mirror passed; asset gerekmedi.
+
+Sıradaki: CAS-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

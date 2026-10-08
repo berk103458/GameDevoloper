@@ -208,8 +208,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 ## BÖLÜM 8: [Yeni Özellik 2] Casus Soruşturması, Sabotaj ve Divan Yargılaması
 
 - [x] **CAS-01:** Köy İçi Gece Sabotaj Takip Motoru — Şüphelilerin gece ambar/kuyu/cephanelik bayrakları. (Codex)
-- [/] **CAS-02:** Gece Devriyesi ve Şüpheli Yakalama Mini-Olayı — Fenerle suçüstü yakalama şansı. (Codex)
-- [ ] **CAS-03:** Kuyu Zehirleme ve Salgın Tespiti — CHR_002/009 içeri alınmışsa banotu + sabah zehir.
+- [x] **CAS-02:** Gece Devriyesi ve Şüpheli Yakalama Mini-Olayı — Fenerle suçüstü yakalama şansı. (Codex)
+- [/] **CAS-03:** Kuyu Zehirleme ve Salgın Tespiti — CHR_002/009 içeri alınmışsa banotu + sabah zehir. (Codex)
 - [ ] **CAS-04:** Ambar Kundaklaması ve Yangın Söndürme Krizi — CHR_001/006; su zinciri.
 - [ ] **CAS-05:** Muhafız Divanı / Mahkeme Sahnesi (`src/kapi/divan_ekrani.tscn`) — Meydanda yargılama.
 - [ ] **CAS-06:** Kanıt Sunma ve Sorgulama — Kapı `Clue_*` + suç aletleri → itiraf.

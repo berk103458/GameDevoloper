@@ -338,3 +338,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Fırtınada kapı bekleyişi](kapi-firtina-kuyrugu.md) — MEV-15, aynı gelen listesi ve tansiyon motoru.
 
 - [Köy içi gece takip motoru](casus-gece-takibi.md) — CAS-01, gizli niyet ve gözlenen mevcut fiilin tek kaydı.
+
+- [Gece devriyesi ve suçüstü tutanağı](casus-devriyesi.md) — CAS-02, mevcut meşale ve tek olay kartında gerçek fiil gözlemi.
