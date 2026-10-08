@@ -1,3 +1,6 @@
+## Codex — MEV-13 temiz açılış kontrol noktası (8 Ekim 2026)
+7532a23 yalnız commitli, önbelleksiz git archive: ilk 104 resource ERROR/0 SCRIPT ERROR; ikinci import sıfır hata. Headless/native gerçek Ana/Ses/menü geçti; denetim raporu güncel. DEVIR sahiplik kaydındaki eski ANI/EKO güncel başlığı düzeltildi; tarihsel Claude kayıtları uygulanmaz. MEV-14 incelemede, kod yazılmadı; tamamlandı denmez. Asset gerekmedi. Ahmet yolu erişilemiyor; iki ds kopyası/remote güncel.
+
 ## Codex — MEV-13 tamamlandı / MEV-14 sahiplenildi (8 Ekim 2026)
 91 kontrol sıfır hata; final native hasta kartı ve ds ayna import/unit/UI geçti. Sert kışta gecede en çok bir hasta, mevcut olumsuz üretim ve sağlık; yanık öncelikli aynı Şifahane çalışan slotu. Tek gıda tedavi, kayıt/tekrar/süre ve yabancı hasta bayrağı korunur. CSV/ikinci hastane/HUD yok; asset gerekmedi, G kontrol edildi. Son kontrol edilen commit 9bc0a58. MEV-14 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir pull yapmalı.
 

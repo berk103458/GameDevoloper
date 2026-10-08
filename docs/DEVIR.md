@@ -4,13 +4,13 @@ Güncel 7 Ekim 2026 talimatı: Claude’a görev devri iptal. Codex otonom geli�
 
 ## Güncel sahiplik
 
-- Sorumlu: Codex. Claude görev devri kullanıcı tarafından iptal edildi; mesaj, limit devri ve geri alma yapılmaz.
-- Otomasyon: `gamedevoloper-limit-ve-claude-devri` PAUSED; eski prosedürler aşağıda yalnız tarihsel kayıttır.
-- Son tamamlanan madde: ANI-05 (çoban/sürü). Önceki EKO-11 kaydı tarihsel; güncel paket/test ayrıntıları codex.md/Codex.md ve docs/MUHARRIR_RAPORU.md. Sıradaki ANI-06; Codex sorumluluğu devam eder.
-- Doğrulama: work/sanity_eko10 tam koşu 0 başarısız, 20 gece dahil; kaynak native UI ve ayna birim/UI kontrolleri geçti. Çalışan test süreci yok.
-- Sıradaki: EKO-12 ambar kapasitesi/ziyan. Feature geçmişi festive ana dala birleştirildi; GitHub varsayılanı festive.
-- Son yayımlanan HEAD: 00040db (festive + feature); EKO-11 yayına hazırlanıyor. Commit/push kullanıcı tarafından yetkilendirildi.
-- İki yerel kopya bağımsız çalışmaları ve sırları koruyarak eşitlenir. Force-push yapılmaz. SYS-09 PR #2 birleşmeden CSV değiştirilmez.
+- Sorumlu Codex; Claude devri iptal, mesaj/geri alma yok.
+- 8 Ekim 2026 son tamamlanan MEV-13; önce TUC-12–15 ve MEV-01–10/12 kapandı. MEV-11 EKO-09 ortak hesabıyla zaten kapalı.
+- Son geliştirmenin yayımlanan HEAD'i 7532a23, festive. 91 MEV-13 kontrolü geçti; yalnız commitli temiz ikinci import + headless/native gerçek menü geçti. İlk 104 resource satırı denetim raporunda, sıfır SCRIPT ERROR.
+- Sıradaki MEV-14 [/] (Codex): inceleme/tasarım başladı, henüz mekanik kodu yok. Güncel ayrıntı codex.md/Codex.md ve ROADMAP.md.
+- İki ds kopyası bağımsız iş ve sırları koruyarak eşitlendi. Ahmet Windows yolu bu makinede yok; Muharrir güvenli pull yapmalı.
+- Otomatik olgun paket commit/push yetkili; normal festive push, force-push yok. SYS-09 Cursor tarafından birleşti; CSV ancak güncel standart ve kaynak doğrulamasıyla.
+- Asset üretimi/indirme yok; yeni dosya + ince adaptör, eski koy_sahnesi/ikinci HUD yok.
 
 ## Tarihsel devir kayıtları (uygulanmaz)
 

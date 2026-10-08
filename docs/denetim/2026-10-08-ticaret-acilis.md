@@ -26,3 +26,6 @@ Git archive 237786a, .godot/untracked yok. İlk import bilinen 104 resource hata
 
 ## MEV-06…09 commitli açılış kanıtı — 343a79d
 Git archive yalnız commitli dosyalar, .godot/untracked yok. İlk import: 104 resource ERROR satırı, 0 SCRIPT ERROR (bilinen glTF/çeviri çıkarılma sırası). İkinci import: 0 hata. Headless ve native acilis_bagimlilik_kontrol gerçek Ana/Ses/menü GEÇTİ. Ahmet Windows yolu bu makinede yok; onun cihazında doğrulandı denmez.
+
+## MEV-10…13 commitli açılış kanıtı — 7532a23
+Git archive yalnız commitli dosyalar, önbellek/untracked yok. İlk import: 104 resource ERROR, 0 SCRIPT ERROR (bilinen çıkarılma sırası). İkinci import: 0 hata. Headless ve native gerçek Ana/Ses/menü bağımlılık testi GEÇTİ. MEV-13 91 regresyon da sıfır hata. Ahmet Windows yolu erişilemiyor, cihazında doğrulandı denmez.
