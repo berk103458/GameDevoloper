@@ -23,7 +23,7 @@ static func sayi(l: CekiLojistigi, tur: String) -> int:
  return n
 ## Tek işlemin hem UI hem ekonomi katmanında yeniden doğrulanan koşulu.
 static func alinabilir(y: KoyYonetimi, tur: String) -> bool:
- return AYAR.hayvanlar.has(tur) and CekiLojistigi.FIYAT.has(tur) and geldi(y) and sayi(y.lojistik, tur) < kapasite(y, tur) and y.akce >= int(CekiLojistigi.FIYAT[tur])
+ return y.son == "" and AYAR.hayvanlar.has(tur) and CekiLojistigi.FIYAT.has(tur) and geldi(y) and sayi(y.lojistik, tur) < kapasite(y, tur) and y.akce >= int(CekiLojistigi.FIYAT[tur])
 ## Taşıma bonusu veren türleri aynı lojistik sayacından hesaplar.
 static func ceki_sayisi(l: CekiLojistigi) -> int:
  var n := 0

@@ -7,6 +7,7 @@ static func kur(s: KoyYonetimSahnesi, n: Node3D, b: KoyBinasi) -> void:
  var i := 0
  var cfg: Dictionary = CelepHamdullah.AYAR.gorsel
  for tur in CelepHamdullah.barindir(s.yonetim, b.id):
+  if CanliHayvanSurusu.surude(s.yonetim, b.id, tur): continue
   if i >= int(cfg.azami): break
   var m := _yer_tutucu(tur)
   m.position = Vector3((i - 0.5) * float(cfg.aralik), float(cfg.boyut[1]) / 2.0, 0)

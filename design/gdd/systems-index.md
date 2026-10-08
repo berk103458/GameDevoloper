@@ -304,3 +304,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Tüccar kapı geçişi](tuccar-kapi-gecisi.md) — TUC-12, tek ziyaret makbuzu ve mevcut çift kasa.
 
 - [Sipariş muhafız komisyonu](siparis-komisyonu.md) — TUC-13, mevcut teslimat ve zimmet.
+
+- [Canlı hayvan takası](canli-hayvan-takasi.md) — TUC-14, aynı sürü/kayıt ve sınırlı üretim katkısı.

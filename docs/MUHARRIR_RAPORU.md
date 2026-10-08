@@ -1,3 +1,6 @@
+## Codex — TUC-14 tamamlandı / TUC-15 sahiplenildi (8 Ekim 2026)
+Mevcut Celep hayvan kaydından kamu geri satış (yarım fiyat), barınan öküz tarla/bostan ve inek/koç ağıl üretim desteği (üst ×1.5). Satın alınan koç aynı çoban sürüsü/yol dizisine katılır; satışta tek hayvan ve üç dizi birlikte küçülür. Çekirdeklerde yalnız ince çağrılar; koy_halk_hareketi değişmedi. 54 kontrol, final unit, native pazar/sürü ve ds ayna import/UI geçti. G TUC02-OKUZ/INEK/KOC aynı pakette TUC-14 için güncel; yalnız düz kutu, asset üretimi/indirme yok. Tam paket normal festive push. Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı. TUC-15 [/] (Codex).
+
 ## Codex — TUC-13 tamamlandı / TUC-14 sahiplenildi (8 Ekim 2026)
 Mevcut defterde %10/%20 kişisel komisyon, tam ödülden ayrılır; günlük tek zimmet/on akçe ve sosyal bedeller atlanamaz. Normal kamu teslimi korunur. Makbuz aynı sözleşmede; çift tıklama stok/ödül/itibar tekrar yaratmaz. 44 kontrol sıfır hata, native defter/makbuz ve ds ayna import/UI geçti. Asset gerekmedi; envanter G kontrol edildi. Tam paket normal festive push. TUC-12 6904f14 yalnız commitli temiz kopya menü denetimi de geçti; ilk import sırası sınırlaması denetim raporunda. Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı. TUC-14 [/] (Codex).
 

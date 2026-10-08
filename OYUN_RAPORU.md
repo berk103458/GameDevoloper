@@ -1134,3 +1134,10 @@ Sıradaki: TUC-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Mevcut sozlesme tesliminde yuzde 10/20 kisisel komisyon; ayni zimmet siniri ve sosyal bedel, tek stok/odul/itibar. 44 kontrol, native ve ayna UI gecti; asset gerekmedi.
 
 Sıradaki: TUC-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-14 (8 Ekim 2026)
+
+Canli hayvan kamu geri satisi; mevcut kayit/barinak/ceki, tek uretim carpani ve satin alinan koc ayni coban surusunde. 54 kontrol final unit native ve ayna UI gecti. G TUC02-OKUZ/INEK/KOC TUC14 icin guncel; asset uretilmedi.
+
+Sıradaki: TUC-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

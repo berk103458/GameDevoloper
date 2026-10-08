@@ -69,6 +69,7 @@ static func yenile(h: KoyHalkHareketi) -> void:
     s.koyunlar.append(n)
     s.adimlar.append(0)
     s.yollar.append([])
+  CanliHayvanSurusu.yenile(s)
   s._kapi(s.coban_id >= 0 and (h.faz_adi == &"gunduz" or not s.kapali))
 ## Çobanın hedefini ve mevcut A* grafiğini paylaşır; sürü yoldayken faz değişimi güvenlidir.
 static func plan(h: KoyHalkHareketi, k: Koylu, rota: Array) -> void:

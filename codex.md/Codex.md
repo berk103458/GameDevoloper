@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 6904f14 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 6904f14. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: 9d8a74f (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 9d8a74f. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -130,15 +130,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - TUC-11: Kisisel karaborsa ve ayni muhafiz oda envanteri; kamu/ambar ayrimi, ziyaret makbuzu, 33 kontrol native ve ayna UI gecti. G TUC11 ikonlari kayitli.
 - TUC-12: Tek ziyaretlik tuccar kapi makbuzu; resmi bac kamuya, hizli giris rusveti kisisel keseye. Ret/bekleme ticareti kapatir; nufus ve CHR korunur. Tam sanity, final unit, native ve ayna UI gecti; asset gerekmedi.
 - TUC-13: Mevcut sozlesme tesliminde yuzde 10/20 kisisel komisyon; ayni zimmet siniri ve sosyal bedel, tek stok/odul/itibar. 44 kontrol, native ve ayna UI gecti; asset gerekmedi.
+- TUC-14: Canli hayvan kamu geri satisi; mevcut kayit/barinak/ceki, tek uretim carpani ve satin alinan koc ayni coban surusunde. 54 kontrol final unit native ve ayna UI gecti. G TUC02-OKUZ/INEK/KOC TUC14 icin guncel; asset uretilmedi.
 
 ## Sonraki çalışma
-TUC-14. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+TUC-15. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -211,5 +214,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## TUC-13 doğrulama / TUC-14 aktif
-44 kontrol sıfır hata, native defter/makbuz ve ds ayna import/UI geçti. Kontrol edilen son commit 6904f14. TUC-14 [/] (Codex), yeni kod yayın sonrası başlar. G tablosu kontrol edildi: TUC-13 asset gerekmedi. TUC-12 yalnız commitli temiz kopya ikinci import ve gerçek native/headless menü geçti; ilk materializasyon 104 resource hatası ve sıfır script hatası, ayrıntı denetim raporunda. Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı. Claude devri yok.
+
+## TUC-14 yayın doğrulaması / TUC-15 aktif
+54 kontrol sıfır hata, son bitmiş oyun unit, native pazar/sürü ve ds ayna import/UI geçti. Kontrol edilen son commit 9d8a74f. G TUC02-OKUZ/INEK/KOC TUC-14 için güncellendi; düz kutu yer tutucu, asset üretimi/indirme yok. TUC-15 [/] (Codex), yeni kod yayın sonrası başlar. Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
