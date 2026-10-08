@@ -382,3 +382,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Rüşvet → oda kasası sözleşmesi](oda-rusvet-kasa-sozlesmesi.md) — ODA-11, mevcut EKO01/11 ve ODA02 tek muhasebe denetimi.
 
 - [Tek yozlaşma runtime sözleşmesi](yozlasma-runtime-sozlesmesi.md) — ODA-12, mevcut tek terazi ve kalıcı kaynak makbuzları.
+
+- [Teftiş save/state sözleşmesi](teftis-kayit-sozlesmesi.md) — ODA-13, yüklenen tek state, izole slot ve güvenli yedek denetimi.
