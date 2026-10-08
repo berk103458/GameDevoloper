@@ -20,6 +20,7 @@ static func kabul(y: KoyYonetimi,k: Koylu,g: Gelen,karar: StringName) -> void:
  if String(k.adli_id) not in AYAR.profiller: return
  var d := durum(y)
  d.kisiler[str(k.id)] = CasusGeceTakibi.kapi_bilgisi(g,karar)
+ d.kisiler[str(k.id)]["bayraklar"] = SabotajClueSozlesmesi.kapidan(g)
  y.set_meta(META,d)
 ## Gerçek kaynak yangın sonucu; CHR001 rüşvetindeki odun çürümesi yangın diye uydurulmaz.
 static func kaynak(k: Koylu,karar: String) -> Dictionary:
@@ -37,7 +38,8 @@ static func gece(y: KoyYonetimi,olaylar: Array[Dictionary]) -> int:
  for k in y.koylular:
   if String(k.adli_id) not in AYAR.profiller: continue
   var x: Dictionary = d.kisiler.get(str(k.id),{"karar":"kabul","cozuldu":"sabotajci" in k.bayraklar or "casus" in k.bayraklar,"uygulandi":-1})
-  if x.cozuldu or x.karar == "kisla" or x.uygulandi >= 0 or not CirakEgitimi.saglam(k) or IsKazalari.uyuyor(k) or MuhafizMaasi.aday(k,y) or KervanKorumasi.disarida(y,k.id): continue
+  if not SabotajClueSozlesmesi.kaynak_uygun(k,AYAR.clue_sozlesmesi): continue
+  if SabotajClueSozlesmesi.guvene_alindi(x) or x.karar == "kisla" or x.uygulandi >= 0 or not CirakEgitimi.saglam(k) or IsKazalari.uyuyor(k) or MuhafizMaasi.aday(k,y) or KervanKorumasi.disarida(y,k.id): continue
   var e := kaynak(k,String(x.karar))
   if e.is_empty() or y.gun-k.giris_gunu+1 < int(e.tur_offset): continue
   var hedefler := preload("res://src/koy/chr_bina_sozlugu.gd").turler(String(e.hedef_bina))

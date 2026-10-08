@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: f7d91c3 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: f7d91c3. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: 6da34ad (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 6da34ad. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -158,15 +158,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - CAS-10: 35 checks plus final native/pose/clue regressions; unjust rumor jail, documented sibling departure, public compensation and JSON release passed; asset gerekmedi.
 - CAS-11: 36 checks plus final 30-CHR/repeat/foreign/native/mirror; canonical Clue continuation preserves court progress and source; asset gerekmedi.
 - CAS-12: 37 checks; exact poison Clue/4Flag contract, discovered-load-only hint, rawFlag/legacy/JSON and native/mirror passed; asset gerekmedi.
+- CAS-13: 38 checks plus final wrong-Clue guard; exact fire Clue/4Flag and shared water, same building card, JSON/native/mirror passed; asset gerekmedi.
 
 ## Sonraki çalışma
-CAS-13. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+CAS-14. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -214,5 +217,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## CAS-12 doğrulaması / CAS-13 planı
-37 kontrol sıfır hata; eski CAS03 birim, native gerçek sabah raporu ve ds ayna import/unit/UI geçti. CHR002/009 kaynak nişan/yük/görsel Clue birebir, dört kaynak bool Flag snapshotu readonly/JSON. Gerçek bulunan yük tek DivanKanit kaynağı; su tooltipi ipucu sayısını okur, kimlik/fiil uydurmaz. Tam/yol çözümü ve eski cozuldu korunur, Clue tek başına zehri önlemez; yanlış kaynak Clue güvenli reddedilir. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commitf7d91c3; CAS-13 [/] (Codex), aynı helper ile kundak kaynak sözleşmesi. Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
+
+## CAS-13 doğrulaması / CAS-14 planı
+38 kontrol ve final yanlışClue güvenli red birimi; eski CAS04 birim, native gerçek söndürme/bina ipucu ve ds ayna import/unit/UI geçti. CHR001/006 kaynak üçClue/dörtFlag readonly/JSON; aynı CAS12 helperi, tek DivanKanit keşif kaynağı. Tam/yol ve eski çözüm korundu, Clue tek başına yangını önlemez; aynı10su/fiil/stat makbuzu. Aynı bina kartında gerçek bulunan yük sayısı, fail/gizli niyet yok. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commit6da34ad; CAS-14 [/] (Codex), aynı divan sorgu listesindeki kanıtların kart sunumu. Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.

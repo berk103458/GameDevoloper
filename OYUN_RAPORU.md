@@ -1331,6 +1331,13 @@ Sıradaki: CAS-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 
 Sıradaki: CAS-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
 
+
+## Codex — CAS-13 (8 Ekim 2026)
+
+38 checks plus final wrong-Clue guard; exact fire Clue/4Flag and shared water, same building card, JSON/native/mirror passed; asset gerekmedi.
+
+Sıradaki: CAS-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
 ## Muharrir — local full pull + PR #9 hazirlik (8 Ekim 2026, TR)
 
 - Dal: `claude/festive-volta-li1sfm`
@@ -1343,8 +1350,8 @@ Sıradaki: CAS-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 ## Muharrir — PR #9 merge tamam (8 Ekim 2026, TR)
 
 - Merge commit: festive uzerinde `merge(PR-9): ROADMAP gap verify KAP-02/03`
-- Festive once: `6da34ad` (CAS-12); sonra muharrir pull ozeti + PR #9 merge
+- Festive once: `6da34ad` (CAS-12); sonra muharrir pull ozeti + PR #9 merge; push oncesi CAS-13 (`1ae259d`) birlestirildi
 - Degisen dosyalar (PR): ROADMAP.md, codex.md/Cursor.md, docs/MUHARRIR_RAPORU.md
-- KAP-02 / KAP-03: ROADMAP `[x] (Cursor)`
+- KAP-02 / KAP-03: ROADMAP `[x] (Cursor)`; CAS-13 `[x] (Codex)`; CAS-14 Codex'te
 - `python -B tools/metin_dogrula.py --kaynak` PASS
 - WIP / `_tmp_*` / stash (godot-import-noise) dokunulmadi; force yok
