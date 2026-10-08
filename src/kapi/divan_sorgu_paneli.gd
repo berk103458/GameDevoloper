@@ -20,16 +20,7 @@ static func kur(e: DivanEkrani,v: VBoxContainer,id: int) -> void:
  n.add_child(bilgi)
  var kaynak := DivanKanit.ipuclari(k)
  for clue in d.ipuclar:
-  var b := Button.new()
-  b.text = "%s · %s" % [String(kaynak[clue].baslik),"sunuldu" if clue in d.sunulan else "sun"]
-  b.tooltip_text = String(kaynak[clue].aciklama)
-  b.custom_minimum_size.y = 42
-  b.disabled = clue in d.sunulan or d.itiraf
-  if clue in d.sunulan: b.add_theme_color_override("font_disabled_color",Renkler.KUL)
-  n.add_child(b)
-  b.pressed.connect(func() -> void:
-   if DivanKanit.sun(y,id,String(clue)): e._goster(id)
-  )
+  DivanKanitKarti.ekle(e,n,id,String(clue),kaynak[clue],d)
  var sorgu := Button.new()
  sorgu.name = "divan_sorgula"
  sorgu.text = "Tutanaktaki fiili kabul ediyorum." if d.itiraf else "Sunulan kanıtlarla sorgula"

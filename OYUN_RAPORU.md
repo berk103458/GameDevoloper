@@ -1355,3 +1355,10 @@ Sıradaki: CAS-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 - KAP-02 / KAP-03: ROADMAP `[x] (Cursor)`; CAS-13 `[x] (Codex)`; CAS-14 Codex'te
 - `python -B tools/metin_dogrula.py --kaynak` PASS
 - WIP / `_tmp_*` / stash (godot-import-noise) dokunulmadi; force yok
+
+
+## Codex — CAS-14 (8 Ekim 2026)
+
+Existing court list displays only discovered source Clue cards and uses the existing submit operation; 39 checks passed, native and mirror UI passed; asset gerekmedi.
+
+Sıradaki: CAS-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

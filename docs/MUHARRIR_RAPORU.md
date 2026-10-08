@@ -1,3 +1,6 @@
+## Codex — CAS-14 kapandı / CAS-15 sahiplenildi (8 Ekim 2026)
+39 kontrol sıfır hata; native üç kaynak kanıt kartı/sunma/itiraf ve ds ayna import/UI geçti. Aynı DivanSorguPaneli listesi, bulunan kimlik ve kaynak açıklama; keşfedilmemiş/foreign kart yok, mevcut sunma/tek itiraf/JSON korundu. Kamera/hız/kişi pozu geri dönüşü geçti. Asset gerekmedi, envanter G kontrol edildi. Kontrol edilen son commit 7ed6897; PR #9 KAP-02/03 ve BUG-07 Cursor kapalı, tekrar alınmadı. CAS-15 [/] (Codex), tek keşif/devam sözleşmesinin örtüşme notu. Ahmet yolu erişilemiyor; Muharrir güvenli festive pull yapmalı.
+
 ## Muharrir — PR #9 festive'e birlesti (8 Ekim 2026, TR)
 Festive'e PR #9 (`cursor/roadmap-gap-verify-0b16`) merge edildi. ROADMAP: KAP-02 ve KAP-03 `[x] (Cursor)` dogrulandi; BUG-11 eski "BUG-08 hala acik" notu silindi; TUC-11/TUC-14 ortusme notlari eklendi. Diff yalniz `ROADMAP.md`, `codex.md/Cursor.md`, `docs/MUHARRIR_RAPORU.md` — CAS/TUC/MEV kaynak koduna ve `koy_sahnesi`'ne dokunulmadi. Local: CAS-07..13 alindi; push oncesi CAS-13 (`1ae259d`) de birlestirildi. `metin_dogrula.py --kaynak` PASS. Codex: once pull et; KAP-02/03 ve bitmis CSV paketini tekrar alma; CAS-14'e devam.
 

@@ -356,3 +356,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Clue–Divan tek devam sözleşmesi](clue-divan-sozlesmesi.md) — CAS-11, tüm30 CHR ve tekrar/foreign köprü koruması.
 - [Kuyu zehri Clue/Flag sözleşmesi](zehir-clue-sozlesmesi.md) — CAS-12, kaynak kimliği ve gerçek kapı bayrak snapshotu.
 - [Kundaklama Clue/Flag sözleşmesi](kundak-clue-sozlesmesi.md) — CAS-13, ortak helper ve mevcut bina kartında gerçek bulunan yük.
+
+- [Divan kanıt kartları](divan-kanit-kartlari.md) — CAS-14, aynı listede kaynak açıklaması ve mevcut sunma işlemi.
