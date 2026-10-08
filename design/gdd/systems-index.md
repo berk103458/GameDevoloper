@@ -384,3 +384,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Tek yozlaşma runtime sözleşmesi](yozlasma-runtime-sozlesmesi.md) — ODA-12, mevcut tek terazi ve kalıcı kaynak makbuzları.
 
 - [Teftiş save/state sözleşmesi](teftis-kayit-sozlesmesi.md) — ODA-13, yüklenen tek state, izole slot ve güvenli yedek denetimi.
+
+- [Ortak kişisel kese göstergesi](oda-kese-gosterge-sozlesmesi.md) — ODA-14, mevcut EKO11/ODA02 tek bakiye ve ortak sınıf.

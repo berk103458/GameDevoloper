@@ -1,3 +1,6 @@
+## Codex — ODA-14 kapandı / ODA-15 sahiplenildi (8 Ekim 2026)
+Altı gerçek çift kasa/ortak kese/oda kasası/yetenek/geliştirme/API kontrolü geçti. Mevcut Hud ve OdaKasasiPaneli aynı KeseGostergesi sınıfını tek muhafiz_akce kaynağıyla kullanır; giriş/harcama/kapak/JSON güncellemesi korundu. Core/kod/CSV değişmedi. ODA-15 mevcut ODA10 MuhafizEpilogu seçicisinin tamamlayıcı sözleşme denetimi; ikinci seçici yok. Asset gerekmedi, envanter G kontrol edildi. İki ds kopyası eşit; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
+
 ## Codex — ODA-13 kapandı / ODA-14 sahiplenildi (8 Ekim 2026)
 Altı kontrol ve ds ayna import/yeni slot birimi geçti. Gerçek iki izole GuvenliKayit yaz/oku, yüklenen dolu kişisel kasa+makbuz tam gece azil; meşru zengin ayrı slot temiz. Terminal yeniden yükleme zar/olay tekrarlamaz; disk/sözlük değişmez. Bozuk ana aynı sağlam yedekten teftişe bağlandı, warning beklenen; gerçek savegame kullanılmadı. Üretim kodu/sürüm/CSV değişmedi. ODA-14 mevcut oda/köy KeseGostergesi sözleşmesi denetimi; ikinci panel yok. Asset gerekmedi, envanter G kontrol edildi. İki ds kopyası eşit; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
 

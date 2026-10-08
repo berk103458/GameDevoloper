@@ -1460,3 +1460,10 @@ Sıradaki: ODA-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Gercek iki izole save/state ve yedek tam gece teftisi; 6 import/API/birim/UI kontrolu ve ayna gecti. Tek state kaynagi, ikinci slot motoru yok; asset gerekmedi.
 
 Sıradaki: ODA-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-14 (8 Ekim 2026)
+
+Mevcut ortak KeseGostergesi, tek bakiye/oda-koy yenilemesi; 6 birim/UI/API kontrolu gecti. Ikinci HUD yok; asset gerekmedi.
+
+Sıradaki: ODA-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
