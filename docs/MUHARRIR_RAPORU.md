@@ -1,3 +1,6 @@
+## Codex — CAS-12 kapandı / CAS-13 sahiplenildi (8 Ekim 2026)
+37 kontrol sıfır hata; eski CAS03 birim, native gerçek sabah raporu ve ds ayna import/unit/UI geçti. CHR002/009 kaynak nişan/yük/görsel Clue birebir, dört kaynak bool Flag snapshotu readonly/JSON. Gerçek bulunan yük tek DivanKanit kaynağı; su tooltipi ipucu sayısını okur, kimlik/fiil uydurmaz. Tam/yol çözümü ve eski cozuldu korunur, Clue tek başına zehri önlemez; yanlış kaynak Clue güvenli reddedilir. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commitf7d91c3; CAS-13 [/] (Codex), aynı helper ile kundak kaynak sözleşmesi. Ahmet yolu yok; Muharrir güvenli festive pull yapmalı.
+
 ## Codex — CAS-11 kapandı / CAS-12 sahiplenildi (8 Ekim 2026)
 36 kontrol ve final30CHR/tekrar/foreign/native/ayna geçti. Mevcut DivanKanit tek köprüsü; tekrar ziyaret ilerlemeyi/itirafı sıfırlamaz, foreign ziyaret kaydı ezmez. Tüm30 gerçek kabul/JSON, eski/bozuk kaynak, readonly CHR/bayrak ve kasa/stok/RNG. Asset gerekmedi, G kontrol edildi. Kontrol edilen son commitf3ef5c4; CAS-12 [/] (Codex), mevcut zehir kaynak sonucunu Clue/Flag sözleşmesiyle bağlama. Ahmet yolu yok; Muharrir güvenli festive pull yapmalı. f3ef5c4 temiz arşiv ilk4 ve ikinci100 resource ERROR/0 SCRIPT; üçüncü import exit0/0 hata, gerçek headless/native menü0 hata. İkinci import hatasız diye raporlanmadı.
 

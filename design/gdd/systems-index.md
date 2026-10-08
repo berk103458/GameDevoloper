@@ -354,3 +354,4 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Fısıltı gazetesi ve imzasız pusula](fisilti-gazetesi.md) — CAS-09, mevcut sabah kartında kanıt sayılmayan iddia.
 - [Haksız yargı ve tazminat](divan-haksizligi.md) — CAS-10, ayrı kanıtsız dava ve tek kamu onarımı.
 - [Clue–Divan tek devam sözleşmesi](clue-divan-sozlesmesi.md) — CAS-11, tüm30 CHR ve tekrar/foreign köprü koruması.
+- [Kuyu zehri Clue/Flag sözleşmesi](zehir-clue-sozlesmesi.md) — CAS-12, kaynak kimliği ve gerçek kapı bayrak snapshotu.

@@ -3,5 +3,17 @@
     "chr_002",
     "chr_009"
   ],
-  "azami_kayit": 100
+  "azami_kayit": 100,
+  "clue_sozlesmesi": {
+    "chr_002": {
+      "nisan": "Clue_CHR002_SahteMuska",
+      "yuk": "Clue_CHR002_KaraTohum",
+      "gorsel": "Clue_Görsel_CHR002_BanotuYarasi"
+    },
+    "chr_009": {
+      "nisan": "Clue_CHR009_EngerekZehri",
+      "yuk": "Clue_CHR009_ZehirliKina",
+      "gorsel": "Clue_Görsel_CHR009_KesikKulak"
+    }
+  }
 }

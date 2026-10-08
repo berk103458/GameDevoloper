@@ -14,6 +14,7 @@ static func oku(v: Variant) -> Dictionary:
   var x: Variant = v.kisiler[id]
   if not id is String or not id.is_valid_int() or int(id) < 1 or not x is Dictionary or x.get("karar") not in ["kabul","rusvet","kisla"] or not x.get("cozuldu") is bool: continue
   d.kisiler[id] = {"karar":String(x.karar),"cozuldu":x.cozuldu,"uygulandi":KurtBaskini.oku(x.get("uygulandi",-1))}
+  if x.has("bayraklar"): d.kisiler[id]["bayraklar"] = SabotajClueSozlesmesi.bayrak_oku(x.bayraklar)
   if d.kisiler.size() >= int(AYAR.azami_kayit): break
  return d
 ## Kopya sorgu; gizli kişilerin adları UI metnine taşınmaz.
@@ -24,6 +25,7 @@ static func kabul(y: KoyYonetimi,k: Koylu,g: Gelen,karar: StringName) -> void:
  if String(k.adli_id) not in AYAR.profiller: return
  var d := durum(y)
  d.kisiler[str(k.id)] = CasusGeceTakibi.kapi_bilgisi(g,karar)
+ d.kisiler[str(k.id)]["bayraklar"] = SabotajClueSozlesmesi.kapidan(g)
  y.set_meta(META,d)
 ## Sadece bu maddenin kaynak kabul/rüşvet zehir olayı; genel gecikmeli olayları veya KAP-01'i yeniden yazmaz.
 static func kaynak(k: Koylu,karar: String) -> Dictionary:
@@ -37,7 +39,8 @@ static func gece(y: KoyYonetimi,su: Dictionary,olaylar: Array[Dictionary]) -> vo
  for k in y.koylular:
   if String(k.adli_id) not in AYAR.profiller: continue
   var x: Dictionary = d.kisiler.get(str(k.id),{"karar":"kabul","cozuldu":"sabotajci" in k.bayraklar or "casus" in k.bayraklar,"uygulandi":-1})
-  if x.cozuldu or x.karar == "kisla" or int(x.uygulandi) >= 0: continue
+  if not SabotajClueSozlesmesi.kaynak_uygun(k,AYAR.clue_sozlesmesi): continue
+  if SabotajClueSozlesmesi.guvene_alindi(x) or x.karar == "kisla" or int(x.uygulandi) >= 0: continue
   var e := kaynak(k,String(x.karar))
   if e.is_empty() or y.gun-k.giris_gunu+1 < int(e.tur_offset): continue
   if DivanHukmu.zindanda(k) or k.saglik <= 0 or k.ac or KisHastaligi.hasta(k) or "hasta" in k.bayraklar or "agir_yarali" in k.bayraklar+k.gizli_bayraklar or IsKazalari.uyuyor(k) or MuhafizMaasi.aday(k,y) or KervanKorumasi.disarida(y,k.id): continue
@@ -68,4 +71,8 @@ static func gece(y: KoyYonetimi,su: Dictionary,olaylar: Array[Dictionary]) -> vo
 ## Aynı su kartı: belirtiler halka açık, şüpheli kimliği yalnız suçüstü tutanağında.
 static func tip(y: KoyYonetimi) -> String:
  var d := durum(y)
- return "\nSon kuyu zehirlenmesi tespiti: %d. gün · %d kişi. Sağlık raporu tek başına fail kanıtı değildir." % [int(d.tespit_gunu)+1,int(d.icenen)] if d.tespit_gunu >= 0 else ""
+ var bilinen := 0
+ for k in y.koylular:
+  if SabotajClueSozlesmesi.bulunan_yuk(k,AYAR.clue_sozlesmesi): bilinen += 1
+ var bilgi := "\nKapıda keşfedilmiş zehir malzemesi yük ipucu: %d. İpucu tek başına gece failinin gözlemi değildir." % bilinen if bilinen > 0 else ""
+ return bilgi + ("\nSon kuyu zehirlenmesi tespiti: %d. gün · %d kişi. Sağlık raporu tek başına fail kanıtı değildir." % [int(d.tespit_gunu)+1,int(d.icenen)] if d.tespit_gunu >= 0 else "")
