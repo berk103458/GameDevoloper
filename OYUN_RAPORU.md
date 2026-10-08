@@ -1439,3 +1439,10 @@ Sıradaki: ODA-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Saf tek epilogue: mevcut terazi/kisisel kasa, koyden bagimsiz kader, teftis onceligi; 67 regresyon ve final150/native/ayna gecti. Asset gerekmedi.
 
 Sıradaki: ODA-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-11 (8 Ekim 2026)
+
+EKO01/11 ve ODA02 tek rusvet/kasa sozlesmesi; 6 kaynak/API/gercek kasa/gosterge kontrolu gecti. Ikinci kasa yazilmadi; asset gerekmedi.
+
+Sıradaki: ODA-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
