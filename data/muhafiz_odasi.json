@@ -1,6 +1,8 @@
 {
   "kamera": [8, 9, 11],
   "kamera_boyutu": 12,
+  "kasa_acik_aci": -65,
+  "kasa_acik_y": 0.3,
   "parcalar": [
     {"ad":"zemin", "boyut":[8,0.2,7], "yer":[0,-0.1,0], "renk":"554738"},
     {"ad":"arka_duvar", "boyut":[8,2.8,0.2], "yer":[0,1.4,-3.5], "renk":"736858"},

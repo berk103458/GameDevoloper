@@ -229,8 +229,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 ## BÖLÜM 9: [Yeni Özellik 3] Muhafızın Odası, Kişisel Kasa ve Yozlaşma Ağacı
 
 - [x] **ODA-01:** Muhafız Odası 3B/2.5B İç Mekan (`src/dunya/muhafiz_odasi.tscn`) — Yatak, masa, meşale, gizli kasa. TUC-11 kaçak envanteri pazar kartındadır; oda sahnesi bu maddeye bağlıdır, TUC-11 tekrarlanmaz. (Codex)
-- [/] **ODA-02:** Gizli Zemin Kasası (Rüşvet Deposu) — Rüşvet akçesi ve kaçak eşya; denetçiden gizli. **≡ EKO-01 / EKO-11** — `muhafiz_akce` çift kasa + kişisel kese HUD ile örtüşür; ayrı ekonomi paketi değil, ODA yüzeyi. (Codex)
-- [ ] **ODA-03:** Muhafız Kişisel Envanteri — CHR rüşvet eşyalarının sergilenmesi.
+- [x] **ODA-02:** Gizli Zemin Kasası (Rüşvet Deposu) — Rüşvet akçesi ve kaçak eşya; denetçiden gizli. **≡ EKO-01 / EKO-11** — `muhafiz_akce` çift kasa + kişisel kese HUD ile örtüşür; ayrı ekonomi paketi değil, ODA yüzeyi. (Codex)
+- [/] **ODA-03:** Muhafız Kişisel Envanteri — CHR rüşvet eşyalarının sergilenmesi. (Codex)
 - [ ] **ODA-04:** Yozlaşma vs. Adalet Terazisi — "Adil Muhafız" ↔ "Yozlaşmış Derebeyi".
 - [ ] **ODA-05:** Yozlaşma Yetenek Ağacı — Göz Yumma (+%50 rüşvet); Haraç Kesme (günlük esnaf).
 - [ ] **ODA-06:** Adalet Yetenek Ağacı — Keskin Bakış (heybe); Gönül Bağı (isyan≈0).

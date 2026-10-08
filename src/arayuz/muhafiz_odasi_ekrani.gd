@@ -47,6 +47,7 @@ func _ready() -> void:
  bilgi.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
  bilgi.size_flags_vertical=Control.SIZE_EXPAND_FILL
  v.add_child(bilgi)
+ OdaKasasiPaneli.kur(self,v)
  var b:=Button.new()
  b.name="oda_kapat"
  b.text="Köye dön"

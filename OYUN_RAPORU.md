@@ -1376,3 +1376,10 @@ Sıradaki: ODA-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Independent box-placeholder room opened from the existing village actions; 36 checks and final physical-key native/headless/mirror tests passed; ODA01 asset needs recorded in inventory G.
 
 Sıradaki: ODA-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-02 (8 Ekim 2026)
+
+Room stash reads the existing personal purse and item count without transfers or duplicate storage; 37 checks and final zero/restore/native/mirror UI passed; asset gerekmedi.
+
+Sıradaki: ODA-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

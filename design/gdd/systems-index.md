@@ -360,3 +360,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Divan kanıt kartları](divan-kanit-kartlari.md) — CAS-14, aynı listede kaynak açıklaması ve mevcut sunma işlemi.
 
 - [Muhafız odası](muhafiz-odasi.md) — ODA-01, bağımsız kutu iç mekân ve mevcut köyden ince modal bağlantısı.
+
+- [Gizli zemin kasası](oda-kasasi.md) — ODA-02, mevcut EKO kişisel kesenin aynı oda yüzeyi.
