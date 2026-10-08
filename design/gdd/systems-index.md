@@ -310,3 +310,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kervan koruması](kervan-korumasi.md) — TUC-15, süreli aynı kışla görevi ve geçici güvenlik katkısı.
 
 - [Dört mevsim döngüsü](mevsim-dongusu.md) — MEV-01, mevcut oyun günü ve Takvim uyum adaptörü.
+
+- [Kış soğuğu ve donma](donma-mekanigi.md) — MEV-02, tek yakacak hesabı ve sınırlı sağlık eşiği.

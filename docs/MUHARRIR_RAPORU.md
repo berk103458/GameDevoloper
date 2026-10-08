@@ -1,3 +1,6 @@
+## Codex — MEV-02 tamamlandı / MEV-03 sahiplenildi (8 Ekim 2026)
+42 kontrol sıfır hata; native yakacak uyarısı ve ds ayna import/UI geçti. Tek EKO-09/MEV-11 yakacak hesabı, sağlık eşiğinde en çok üç donma adayı; gerçek ölüm mevcut sağlık fazında. G envanteri kontrol edildi: asset gerekmedi. Kontrol edilen son commit f851d2b. MEV-03 [/] (Codex). Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı.
+
 ## Codex — MEV-01 tamamlandı / MEV-02 sahiplenildi (8 Ekim 2026)
 Yeni MevsimYoneticisi mevcut gun üzerinden dört mevsim ve varsayılan 28 günlük yılı hesaplar; eski Takvim API ince adaptör. Saat/kayıt/RNG eklenmedi; iklim önayarı gerçek takvimi ezmez. 38 kontrol, native iklim ve ds ayna import/unit geçti. Asset gerekmedi; G kontrol edildi. TUC-15 8b8950c yalnız commitli temiz ikinci import/headless/native gerçek menü geçti; ilk importta bilinen resource sırası raporda. Tam paket normal festive push; Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı. MEV-02 [/] (Codex), EKO-09/MEV-11 tek tüketim korunur.
 

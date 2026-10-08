@@ -716,8 +716,7 @@ func _tuket(tuketim: Dictionary, olaylar: Array[Dictionary]) -> void:
 		var yakilan := kaynaklar.azalt("odun", odun)
 		tuketim["odun"] = yakilan
 		if yakilan < odun:
-			for k in koylular:
-				k.saglik -= a.soguk_saglik
+			DonmaYoneticisi.soguk(self)
 			olaylar.append({"anahtar": "koy.olay.soguk", "deger": [a.soguk_saglik]})
 
 

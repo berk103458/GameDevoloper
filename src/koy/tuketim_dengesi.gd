@@ -9,4 +9,4 @@ static func gerek(y: KoyYonetimi) -> Dictionary:
 static func tip(y: KoyYonetimi, tur: String) -> String:
 	var ihtiyac := int(gerek(y).get(tur, 0))
 	var ad := "Erzak" if tur == "gida" else "Odun"
-	return "%s · Gecelik ihtiyaç: %d (nüfus: %d)\n%s" % [ad, ihtiyac, y.nufus(), "Karşılanamayan ihtiyaç sağlık kaybı ve ölüme yol açabilir." if ihtiyac > 0 else ("Canlı nüfus olmadığı için tüketim yok." if y.nufus() == 0 else "Mevcut iklimde yakacak ihtiyacı yok.")]
+	return ("%s · Gecelik ihtiyaç: %d (nüfus: %d)\n%s" % [ad, ihtiyac, y.nufus(), "Karşılanamayan ihtiyaç sağlık kaybı ve ölüme yol açabilir." if ihtiyac > 0 else ("Canlı nüfus olmadığı için tüketim yok." if y.nufus() == 0 else "Mevcut iklimde yakacak ihtiyacı yok.")]) + DonmaYoneticisi.tip(y, tur)

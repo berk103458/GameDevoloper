@@ -1155,3 +1155,10 @@ Sıradaki: MEV-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Dort mevsim/yedi gun ve 28 gunluk yil tek MevsimYoneticisi hesabi; eski Takvim API ince adaptor, gercek gun ve Admin iklimi ayri. 38 kontrol native iklim ve ayna unit gecti; asset gerekmedi.
 
 Sıradaki: MEV-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-02 (8 Ekim 2026)
+
+Single winter fuel accounting, capped cold threshold, existing resource tooltip; 42 checks passed, asset gerekmedi.
+
+Sıradaki: MEV-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
