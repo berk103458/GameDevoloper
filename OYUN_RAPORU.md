@@ -1484,3 +1484,10 @@ ODA01–15 tamam ve push; harita henüz mekanik olarak yapılmadı. Yukarıdaki 
 Tek salt okunur cevre haritasi, dort bolge/gercek Tekfur sayaci; 70 regresyon ve final150/native/ayna gecti. Kasa/kamera/RNG/modal korunur; G HAR01-HARITA.
 
 Sıradaki: HAR-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — HAR-02 (8 Ekim 2026)
+
+72 checks passed; native and mirror verified; asset gerekmedi
+
+Sıradaki: HAR-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

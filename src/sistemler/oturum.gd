@@ -19,6 +19,8 @@ var kadro: KarakterKadrosu
 var yonetim: KoyYonetimi
 var tohum: int = 0
 var muhafiz_tecrubesi: int = 0
+## HAR-02 optional tek gece uyarı defteri; kalan süre gerçek günden türetilir.
+var mogol_oncusu: Dictionary = {}
 var muhafiz_akce: int = 0
 var muhafiz_esyalari: Array[Dictionary] = []
 ## EKO-14 optional transfer özeti; iki mevcut kasanın bakiyesi ayrı kalır.
@@ -266,6 +268,7 @@ func gece_sonu() -> Dictionary:
 	MuhafizYetenekleri.rapora_ekle(r, harac)
 	MuhafizVicdani.gece(self, r)
 	SancakTeftisi.gece(self, r)
+	MogolOncusu.gece(self, r)
 	_koy_esitle()
 	kadro.gece_bitti()
 	var sonuc := {"olaylar": r["olaylar"], "kirilan": -1, "rusvet_harcandi": -1, "son": StringName(r["son"]),
@@ -705,6 +708,7 @@ func kaydet() -> Dictionary:
 		"muhafiz_vicdani": MuhafizVicdani.oku(muhafiz_vicdani),
 		"oda_gelisimi": MuhafizOdaGelisimi.oku(oda_gelisimi),
 		"sancak_teftisi": SancakTeftisi.oku(sancak_teftisi),
+		"mogol_oncusu": MogolOncusu.oku(mogol_oncusu),
 		"muhafiz_yetenekleri": MuhafizYetenekleri.oku(muhafiz_yetenekleri),
 		"mevsim": yonetim.mevsim(), "yeni_binalar": yeni_binalar.duplicate(true),
 		"koy_yonetimi": yonetim.kaydet(),
@@ -742,6 +746,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.muhafiz_vicdani = MuhafizVicdani.oku(veri.get("muhafiz_vicdani"))
 	o.oda_gelisimi = MuhafizOdaGelisimi.oku(veri.get("oda_gelisimi"))
 	o.sancak_teftisi = SancakTeftisi.oku(veri.get("sancak_teftisi"))
+	o.mogol_oncusu = MogolOncusu.oku(veri.get("mogol_oncusu"))
 	o.muhafiz_yetenekleri = MuhafizYetenekleri.oku(veri.get("muhafiz_yetenekleri"))
 	MuhafizAdaletYetenekleri.bagla(o)
 	o.muhafiz_esyalari = preload("res://src/sistemler/cift_kasa_dagitimi.gd").esyalari_yukle(veri.get("muhafiz_esyalari", []))

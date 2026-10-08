@@ -388,3 +388,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Ortak kişisel kese göstergesi](oda-kese-gosterge-sozlesmesi.md) — ODA-14, mevcut EKO11/ODA02 tek bakiye ve ortak sınıf.
 
 - [Şematik çevre haritası](cevre-haritasi.md) — HAR-01, mevcut köyden tek modal ve dört salt okunur bölge.
+
+- [Moğol öncü tehdidi](mogol-oncusu.md) — HAR-02, gerçek gün kalan süre ve tek typed gece uyarısı.
