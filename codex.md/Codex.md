@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: fc98a7c (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: fc98a7c. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: 56975d5 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: fc98a7c. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -209,3 +209,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 Önbelleksiz yalnız commitli fc98a7c snapshot denetimi: ilk materializasyon importunda henüz oluşmamış çeviri/JPG resource hataları vardı, script hatası sıfır. İkinci import, headless gerçek menü ve native gerçek menü geçti. Ayrıntı docs/denetim/2026-10-08-ticaret-acilis.md. İlk import hatasız diye sunulmaz. Ahmet yolu erişilemiyor; iki ds kopya eşitlenir, Muharrir güvenli pull yapmalı.
 
 Canlı limitin bildirilen yenilenmesi: 2026-10-08T10:11:03+03:00 (Europe/Istanbul).
+
+## 10:11 devam — TUC-12 aktif
+Canlı 5 saatlik pencere %0 kullanılmış ve kullanım açık; festive güvenli pull ile güncel. TUC-12 [/] (Codex) sahiplenildi. Tek devam otomasyonu PAUSED; Claude devri yok. Yeni dosya + ince kapı/pazar adaptörü, mevcut çift kasa korunur. Asset gerekmedi (sahiplenme, henüz kod yok).
