@@ -386,6 +386,7 @@ func _bilgi_goster() -> void:
 	elif b.bekliyor != "" and b.bekliyor != "kan_davasi":
 		_etiket(_bilgi_icerik, "Taşıma seferi bekleniyor" if b.bekliyor == "tasima" else tr("koy.bekliyor." + b.bekliyor), Tema.KUCUK_PX).add_theme_color_override("font_color", Hud.UYARI)
 	CatiKarBilgisi.ekle(_y, b, _bilgi_icerik)
+	SamanBilgisi.ekle(_y, b, _bilgi_icerik)
 	var yatak := b.yatak(_y.katalog)
 	if yatak > 0:
 		var oturan := 0
@@ -568,6 +569,7 @@ func _pazar_ac() -> void:
 			)
 	else:
 		_etiket(v, tr("koy.pazar.kervan_yok") % (_y.a.kervan_araligi - 1 - _y.gun % _y.a.kervan_araligi), Tema.KUCUK_PX)
+	SamanBilgisi.pazar(self, v)
 	GezginStokPaneli.ekle(self, v)
 	KumasAktarPaneli.ekle(self, v)
 	CekiHayvaniPaneli.ekle(self, v)

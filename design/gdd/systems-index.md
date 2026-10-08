@@ -332,3 +332,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Mevsim takvim HUD](mevsim-takvim.md) — MEV-12, mevcut tek etikette yıl günü/hava.
 
 - [Soğuk hastalık baskısı](kis-hastaligi.md) — MEV-13, mevcut üretim/sağlık ve ortak şifahane slotu.
+
+- [Kış samanı ve sürü kaybı](saman-bakimi.md) — MEV-14, tek ortak ambar ve mevcut gerçek hayvan sayaçları.

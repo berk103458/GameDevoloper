@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 4c8495e (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 9bc0a58. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: 645d1d4 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 645d1d4. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -144,15 +144,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - MEV-10: Winter wolf raids use existing granary and effective guards; three BoxMesh wolves follow same A* and retreat from torch patrols. 79 regression checks, final gate-test audio cleanup corrected and rerun passed; native/mirror wolf UI passed. G MEV10-KURT recorded; clean committed 343a79d opening passed after known first resource import.
 - MEV-12: Existing HUD season label now shows year/day and short weather; no second panel or clock. Actual HUD boundaries, five weather presets, forced calendar distinction, restore and no side effects; 21 checks passed, native and mirror UI passed; asset gerekmedi.
 - MEV-13: Severe winter adds one bounded cold patient using existing negative production flag and health. Burns/cold share persisted daily Sifahane staff slots; own flag cleanup and no double treatment. 91 checks passed, final native readable patient card and mirror import/unit/UI passed; asset gerekmedi.
+- MEV-14: Shared hay stock from wheat harvest and existing market; once per cold night actual base/owned animal death, production/haul/resale and same herd arrays reflect loss. 98 regression checks plus final unit/native UI and mirror checks passed; G MEV14-SAMAN placeholder registered.
 
 ## Sonraki çalışma
-MEV-14. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+MEV-15. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -267,14 +270,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## MEV-13 doğrulaması
-91 kontrol sıfır hata; final native okunur hasta kartı ve ds ayna import/unit/UI geçti. Sert kış, mevcut iş gücü/sağlık ve yanıkla ortak kalıcı şifahane slotu; kayıt/tekrar/süre/yalnız kendi bayrağı temizliği. G kontrol edildi, asset gerekmedi. Kontrol edilen son commit 9bc0a58; MEV-14 [/] (Codex). Ahmet yolu erişilemiyor.
 
-## MEV-14 başlangıç incelemesi
-7532a23 yalnız commitli temiz ikinci import/headless/native menü geçti; ilk resource sırası raporda. MEV-14 [/] (Codex), henüz mekanik kodu yazılmadı. Aynı lojistik hayvan sayacı korunacak; başlangıç dört ağıl koyununun gerçek kayıp sayısı optional kayıtla tutulmalı, sıfır sürü güvenle görselleştirilmeli. Saman ortak ambar türü ve tahıl hasadı yan ürünü olarak tasarlanacak; tek gecelik yem/kayıp makbuzu, üretim/çeki ve aynı sürü dizilerine ince bağlantı gerekiyor. Asset üretimi/indirme yok; yeni saman ikon ihtiyacı G tablosuna kapanış paketinde yazılacak. Tamamlanan işler remote ve iki ds kopyasında; Ahmet yolu yok.
-
-## Tam yenilenme devam kaydı
-Canlı son ölçüm primary.usedPercent=94, ordinaryUsageAllowed=true; limitin tükendiği iddia edilmez. Büyük MEV-14 yem/sürü paketi koduna girmeden temiz kontrol noktasında bırakıldı. Kullanıcının yüzde100 kullanılabilir hak koşuluyla aynı gamedevoloper-05-10-devam otomasyonu ACTIVE, 8 Ekim 15:12 İstanbul kontrolü; canlı reset15:11:23. Görev ancak usedPercent=0 ve kullanım izni doğrulanınca otomatik sürer; Claude devri/reset kredisi yok. Bu tur 16 madde kapandı (TUC-12–15, MEV-01–10/12/13), son denetim checkpoint4c8495e.
-
-## 8 Ekim 15:12 gerçek devam
-Canlı primary.usedPercent=0, ordinaryUsageAllowed=true; haftalık %85 kullanım engel değil. Festive iki ds kopyasında güvenli fetch/pull ile 807c395 güncel; MEV-14 mevcut sahipliğiyle geliştirme başladı. Aynı devam otomasyonu PAUSED, Claude devri yok. Ahmet yolu erişilemiyor.
+## MEV-14 doğrulama
+98 kontrol sıfır hata; final genişletilmiş birim ve native mevcut bina/pazar/HUD/sürü testi geçti. İki ds kopyası import/unit/UI ile doğrulandı. Tek ortak saman, gerçek ölüm ve üretim/çeki/satış kaybı, JSON/tekrar/eski/sıfır sürü korunur. G MEV14-SAMAN aynı pakette; asset üretilmedi/indirilmedi. Kontrol edilen son commit645d1d4. MEV-15 [/] (Codex); Ahmet yolu erişilemiyor. Yenilenme doğrulandı, devam otomasyonu PAUSED.

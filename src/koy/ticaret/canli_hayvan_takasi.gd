@@ -20,7 +20,7 @@ static func carpan(y: KoyYonetimi, b: KoyBinasi, urun: String) -> float:
   bonus = barinan(y, "okuz") * float(AYAR.tarla_okuz_bonus)
  if b.tur == "agil" and urun == "gida":
   bonus = barinan(y, "inek") * float(AYAR.agil_inek_bonus) + CelepHamdullah.barindir(y, b.id).count("koc") * float(AYAR.agil_koc_bonus)
- return clampf(1.0 + bonus, 1.0, float(AYAR.carpan_ust))
+ return clampf(SamanBakimi.uretim(b) + bonus, 0.0, float(AYAR.carpan_ust)) if b.tur == "agil" and urun == "gida" else clampf(1.0 + bonus, 1.0, float(AYAR.carpan_ust))
 ## Canlı hayvan geri satışı yalnız mevcut Celep ziyareti ve kamu kasasıdır.
 static func fiyat(tur: String) -> int:
  return floori(float(CekiLojistigi.FIYAT.get(tur, 0)) * float(AYAR.geri_satis_orani))

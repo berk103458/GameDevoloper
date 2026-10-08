@@ -1,3 +1,6 @@
+## Codex — MEV-14 kapandı / MEV-15 sahiplenildi (8 Ekim 2026)
+98 kontrol sıfır hata; final ek birim, native gerçek UI ve ds ayna import/unit/UI geçti. Saman aynı ambar/hasat/pazar; kışta gerçek temel/lojistik hayvan ölümü mevcut üretim/çeki/satış ve tek sürü dizilerini azaltır. Optional sıfır kayıt/tek gece/restore korundu. G MEV14-SAMAN aynı paket, asset yok. Kontrol edilen son commit645d1d4; MEV-15 [/] (Codex). Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
+
 ## Codex — tam yenilenme devam zamanlaması (8 Ekim 2026)
 Bu tur 16 ROADMAP maddesi kapandı: TUC-12–15 ve MEV-01–10/12/13. Tamamlanan tüm kod festive/iki ds kopyasında; son denetim checkpoint4c8495e. Canlı son kullanım %94, kullanım izni açık; tükenmiş limit iddiası yok. MEV-14 inceleme aşaması, kod yok; büyük yem/sürü paketi yarım bırakılmadan kullanıcı yüzde100 hak koşuluyla aynı devam otomasyonu15:12 İstanbul kontrolüne ACTIVE yapıldı (canlı reset15:11:23). Yenilenme gerçekten doğrulanınca kaldığı yerden; Claude devri/kredi kullanımı yok. Asset gerekmedi. Ahmet yolu erişilemiyor.
 

@@ -61,7 +61,7 @@ static func yenile(h: KoyHalkHareketi) -> void:
    s.bina_id = int(id)
    s.coban_id = int(secilen[id])
    h.add_child(s)
-   for i in int(AYAR.koyun_sayisi):
+   for i in SamanBakimi.taban(h.sahne.yonetim.bina(s.bina_id)):
     var n := koyun()
     s.add_child(n)
     var b := h.sahne.yonetim.bina(s.bina_id)
