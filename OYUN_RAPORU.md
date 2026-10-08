@@ -1083,3 +1083,10 @@ Sıradaki: TUC-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Tam siparis teslimi tek kamu odulu ve tuccara ozgu itibar verir; cift odul engeli, vade ve sonraki sadakat stogu korundu. Mevcut pazar/defter icerigi sinirli kaydirma, sabit kapanis ve kisa icerikte dogal boy kullanir. 23 kontrol, native ve ayna UI gecti; asset gerekmedi.
 
 Sıradaki: TUC-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-07 (8 Ekim 2026)
+
+Siparis ihlali, tek Refah kaybi, kalici tuccar borcu, faiz ve mevcut defterden kisim/tam kamu odemesi; 23 kontrol native ve ayna UI gecti, asset gerekmedi.
+
+Sıradaki: TUC-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

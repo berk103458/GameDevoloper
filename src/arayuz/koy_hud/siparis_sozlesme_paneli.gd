@@ -32,5 +32,6 @@ static func ac(e: KoyEkrani) -> void:
  for s in y.siparisler.sozlesmeler.values():
   e._etiket(v, "%s · %d %s · %d. güne kadar · %d akçe · %s" % [s.ad, s.adet, GezginTuccarStogu.ad("koy.kaynak." + s.urun), s.vade, s.odul, s.durum], Tema.KUCUK_PX)
   SiparisTeslimPaneli.ekle(e, v, s)
+ SiparisIhlalPaneli.ekle(e, v)
  var kapat := PazarKartKaydirma.dugme(e, v, "Pazara dön")
  kapat.pressed.connect(func() -> void: e._pazar_ac())

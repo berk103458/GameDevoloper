@@ -7,6 +7,7 @@ var alinan: Dictionary = {}
 ## Geçerli uzman ürünleri; panel okumaları kaydı değiştirmez.
 static func urunler(y: KoyYonetimi) -> Dictionary:
  var d := GezginTuccarTakvimi.durum(y.gun, y.a.kervan_araligi)
+ if d.aktif and SiparisIhlali.terk(y, d.tuccar.id): return {}
  var urun: Dictionary = AYAR.get(d.tuccar.id, {}).duplicate(true) if d.aktif else {}
  urun.merge(SiparisTeslimati.nadir(y, d), false)
  return urun

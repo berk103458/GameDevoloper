@@ -25,6 +25,7 @@ var lojistik := CekiLojistigi.new()
 var gezgin_ticaret := GezginTuccarStogu.new()
 var siparisler := SiparisSozlesmeleri.new()
 var tuccar_itibari: Dictionary = {}
+var tuccar_cezasi: Dictionary = {}
 var akce: int = 0
 ## Oyunun günü (0'dan).
 var gun: int = 0
@@ -164,7 +165,8 @@ func emniyet_acik() -> bool:
 
 ## Mevcut ticaret API'si: uzman tüccarın iki günlük konaklama aralığı.
 func kervan_gunu() -> bool:
-	return GezginTuccarTakvimi.durum(gun, a.kervan_araligi).aktif
+	var d := GezginTuccarTakvimi.durum(gun, a.kervan_araligi)
+	return d.aktif and not SiparisIhlali.terk(self, d.tuccar.id)
 
 
 ## Ambarda kaç günlük gıda var (uyarı için).
@@ -539,6 +541,7 @@ func gece() -> Dictionary:
 	rapor["huzur"] = huzur()
 	rapor["son"] = son
 	gun += 1
+	SiparisIhlali.gece(self, olaylar)
 	_tezgah_bugun = 0
 	_bugun_zengin_kabul = false
 	_bugun_usta_ret = false
@@ -839,7 +842,7 @@ func kaydet() -> Dictionary:
 	for x in binalar:
 		b.append(x.kaydet())
 	return {"surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
-		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "husumet": husumet.kaydet(), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
+		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "husumet": husumet.kaydet(), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
@@ -858,6 +861,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	y.gezgin_ticaret = GezginTuccarStogu.kayittan(v.get("gezgin_ticaret", {}))
 	y.siparisler = SiparisSozlesmeleri.kayittan(v.get("siparisler", {}))
 	y.tuccar_itibari = SiparisTeslimati.oku(v.get("tuccar_itibari", {}))
+	y.tuccar_cezasi = SiparisIhlali.oku(v.get("tuccar_cezasi", {}))
 	y.kaynaklar = Kaynaklar.kayittan(v.get("kaynaklar", {}))
 	for x in v.get("koylular", []):
 		y.koylular.append(Koylu.kayittan(x))

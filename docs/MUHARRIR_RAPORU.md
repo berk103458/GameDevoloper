@@ -1,3 +1,6 @@
+## Codex — TUC-07 tamamlandı / TUC-08 sahiplenildi (8 Ekim 2026)
+Vade sonrası tek ihlal, Refah -3, tüccara özgü kalıcı borç ve gecelik faiz; mevcut sözleşme defterinden kısmi/tam kamu ödemesi. Asgari sekiz gün ve borç kapatılmadan aynı tüccarda ticaret/teklif yok. Yeni cezaya geçmiş faiz uygulanmaz. 23 kontrol sıfır hata; native defter ve ds ayna import/UI geçti. Asset gerekmedi; G tablosunda yeni ihtiyaç yok. Tam paket festive normal push; Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı.
+
 # Ahmet / Muharrir — Codex kontrol noktası
 
 ## Codex — TUC-06 tamamlandı / TUC-07 sahiplenildi (8 Ekim 2026)

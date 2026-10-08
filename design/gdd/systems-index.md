@@ -290,3 +290,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - TUC-05: [Sipariş sözleşmeleri](siparis-sozlesmeleri.md) — mevcut ziyaretten teklif, kabul ve kalıcı tek defter.
 
 - TUC-06: [Sipariş teslimatı](siparis-teslimati.md) — tek kamu ödülü, tüccara özgü itibar ve sonraki sadakat stoğu.
+
+- [Sipariş ihlali ve ceza faizi](siparis-ihlali.md) — TUC-07, tek defter ve kamu borcu.

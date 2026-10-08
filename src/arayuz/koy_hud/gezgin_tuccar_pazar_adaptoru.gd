@@ -9,5 +9,6 @@ static func pazar(e: KoyEkrani, kok: VBoxContainer) -> Label:
  var l := e._etiket(kok, metin, Tema.KUCUK_PX)
  l.name = "gezgin_tuccar_durumu"
  l.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
+ SiparisIhlalPaneli.durum(e, l)
  SiparisSozlesmePaneli.kapi(e, kok, l)
  return l
