@@ -218,8 +218,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **CAS-09:** Köylü İhbar Mektupları ve Fısıltı Gazetesi — Sabah imzasız şüphe pusulaları. (Codex)
 - [x] **CAS-10:** Sahte Suçlama ve Haksız Yargı Tazminatı — Masum zindan → aile terk + Moral çöküşü. (Codex)
 
-- [/] **CAS-11:** `Clue_*` → Divan Kanıt Listesi Bağlayıcı (`src/kapi/divan_kanit.gd` — **taslak hedef yol**) — Kapı sorgu ipuçlarını divan yargılamasına taşıyan köprü. (Codex)
-- [ ] **CAS-12:** Kuyu Zehirleme Clue/Flag Tetikleyici — CHR_002/009 içeri alındığında banotu + sabah zehir olayını `Flag_*`/`Clue_*` sözleşmesine bağlama.
+- [x] **CAS-11:** `Clue_*` → Divan Kanıt Listesi Bağlayıcı (`src/kapi/divan_kanit.gd` — **taslak hedef yol**) — Kapı sorgu ipuçlarını divan yargılamasına taşıyan köprü. (Codex)
+- [/] **CAS-12:** Kuyu Zehirleme Clue/Flag Tetikleyici — CHR_002/009 içeri alındığında banotu + sabah zehir olayını `Flag_*`/`Clue_*` sözleşmesine bağlama. (Codex)
 - [ ] **CAS-13:** Ambar Kundaklama Clue/Flag Tetikleyici — CHR_001/006 kundak riskini mevcut Clue/Flag sözleşmesine bağlama.
 - [ ] **CAS-14:** Divan Kanıt Sunum UI — Kapıda toplanan `Clue_*` kartlarının divan sahnesinde gösterimi (CAS-05/`divan_ekrani` — **taslak hedef**).
 - [ ] **CAS-15:** Clue→Divan Örtüşme Notu — KAP ipucu motoru ile CAS kanıt sunumu tek veri sözleşmesi; çift kayıt yok.
