@@ -1,5 +1,8 @@
 # Ahmet / Muharrir — Codex kontrol noktası
 
+## Codex — TUC-02 tamamlandı / TUC-03 sahiplenildi (8 Ekim 2026)
+Celep konaklamasında mevcut tek pazar ve lojistik kaydından dört canlı hayvan alınır; ahır ortak kapasitesi ve ek ağıl koç yeri uygulanır. Beygir mevcut çeki seferine katılır, koç katılmaz. 20 kontrol sıfır hata; native ve ds ayna import/UI geçti. Düz kutular merkezi helperda, gerçek modeller envanter G TUC02 satırlarında. Ahmet yolu erişilemiyor; Muharrir festive güvenli pull yapmalı.
+
 ## Codex — TUC-01 tamamlandı / TUC-02 sahiplenildi (8 Ekim 2026)
 Mevcut kervan 4 gün varış ve 2 gün konaklama kullanır; dört uzman döngüsü ve mevcut pazarda tek takvim satırı eklendi. gun kayıt alanından türetilir; ikinci takvim/HUD yok. 15 ilgili kontrol, native görünüm ve ds ayna import/UI geçti. Asset gerekmedi. Uzmanlara özel stoklar sonraki TUC paketlerindedir. Tam paket festive normal push; Ahmet yolu bu makinede erişilemiyor, Muharrir güvenli pull yapmalı.
 

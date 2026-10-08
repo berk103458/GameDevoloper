@@ -323,6 +323,7 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 			_kutu(n, Vector3(en * 0.8, 1.5, derin * 0.8), Vector3(0, 0.75, 0), Pbr.malzeme("medieval_wood", 2.0))
 	ZanaatTezgahi.kur(n, b.tur, en, derin)
 	AtolyeParcaciklari.kur(self, n, b)
+	CelepHayvanGorseli.kur(self, n, b)
 	KarakterHavaTepkisi.sacak_kur(self, n, b)
 	return n
 

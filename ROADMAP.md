@@ -165,8 +165,8 @@ Not: ANI-04↔EKO-03, ANI-08↔UZM-01..05 konsolidasyon.
 ## BÖLÜM 6: Gezgin Tüccarlar, Hayvan Pazarı ve Sipariş Sözleşmeleri
 
 - [x] **TUC-01:** Gezgin Tüccar Takvimi ve Varış Mantığı — Her 4 günde bir uzman tüccar; 2 gün pazar konaklaması. (Codex)
-- [/] **TUC-02:** Celep Hamdullah (Canlı Hayvan Tüccarı) — Öküz, inek, koç, beygir → Ahır/Ağıl. (Codex)
-- [ ] **TUC-03:** Nalbur ve Maden Tüccarı — Demir, çivi, tırpan, balta stoğu.
+- [x] **TUC-02:** Celep Hamdullah (Canlı Hayvan Tüccarı) — Öküz, inek, koç, beygir → Ahır/Ağıl. (Codex)
+- [/] **TUC-03:** Nalbur ve Maden Tüccarı — Demir, çivi, tırpan, balta stoğu. (Codex)
 - [ ] **TUC-04:** Kumaşçı ve Aktar — Şifahane (afyon, sargı); Refah (keçe, kumaş).
 - [ ] **TUC-05:** Zanaat Sipariş Sözleşmeleri (Work Orders) — "Haftaya 12 çuval un…" teklifleri sözleşme paneline.
 - [ ] **TUC-06:** Sözleşme Teslimatı ve İtibar Skoru — Zamanında teslim → sadakat + sonraki nadir ürünler.

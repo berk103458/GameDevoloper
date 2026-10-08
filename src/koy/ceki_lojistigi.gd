@@ -5,7 +5,7 @@ class_name CekiLojistigi
 extends RefCounted
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/koy/ceki_lojistigi.json"))
 static var FIYAT: Dictionary = AYAR.fiyat
-var hayvanlar: Dictionary = {"okuz": 0, "inek": 0}
+var hayvanlar: Dictionary = {"okuz": 0, "inek": 0, "beygir": 0, "koc": 0}
 var bekleyen: Dictionary = {}
 var _zaman: Dictionary = {}
 ## Hazır ahır türünü kataloğa ekler; CHR placeholderı ile aynı kimliği korur.
@@ -20,7 +20,7 @@ func kapasite(y: KoyYonetimi) -> int:
 	return n
 ## Kalıcı kayıttaki toplam çeki hayvanı sayısı.
 func sayi() -> int:
-	return int(hayvanlar.get("okuz", 0)) + int(hayvanlar.get("inek", 0))
+	return CelepHamdullah.ceki_sayisi(self)
 ## Kullanılabilir ahır ve en az bir kayıtlı çeki hayvanı var mı?
 func etkin(y: KoyYonetimi) -> bool:
 	return sayi() > 0 and kapasite(y) > 0
@@ -30,7 +30,7 @@ func sefer(y: KoyYonetimi) -> Dictionary:
 	return {"kapasite": int(s.kapasite), "sure": float(s.sure)}
 ## Kervan günü, kamu kasası ve ahır yeri birlikte doğrulanır.
 func alinabilir(y: KoyYonetimi, tur: String) -> bool:
-	return FIYAT.has(tur) and y.kervan_gunu() and sayi() < kapasite(y) and y.akce >= int(FIYAT[tur])
+	return CelepHamdullah.alinabilir(y, tur)
 ## Koşulları tekrar denetleyerek kamu kasasından tek hayvan alır.
 func al(y: KoyYonetimi, tur: String) -> bool:
 	if not alinabilir(y, tur): return false

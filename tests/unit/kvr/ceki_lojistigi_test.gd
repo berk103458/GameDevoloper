@@ -11,7 +11,7 @@ func _initialize() -> void:
 	var kamp := _kur(y, "odunluk")
 	var ahir := _kur(y, "ahir")
 	while not y.kervan_gunu(): y.gun += 1
-	_kontrol(not y.lojistik.al(y, "koc"), "Bilinmeyen tür alınmaz")
+	_kontrol(not y.lojistik.al(y, "ejderha"), "Bilinmeyen tür alınmaz")
 	ahir.insa_kalan = 1
 	_kontrol(not y.lojistik.al(y, "okuz"), "Bitmemiş ahır hayvan alamaz")
 	ahir.insa_kalan = 0

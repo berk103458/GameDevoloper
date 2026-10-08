@@ -1,7 +1,9 @@
 {
   "fiyat": {
     "okuz": 40,
-    "inek": 35
+    "inek": 35,
+    "beygir": 50,
+    "koc": 25
   },
   "ahir": {
     "kategori": "uretim",
