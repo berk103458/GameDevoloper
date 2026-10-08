@@ -169,8 +169,8 @@ Not: ANI-04↔EKO-03, ANI-08↔UZM-01..05 konsolidasyon.
 - [x] **TUC-03:** Nalbur ve Maden Tüccarı — Demir, çivi, tırpan, balta stoğu. (Codex)
 - [x] **TUC-04:** Kumaşçı ve Aktar — Şifahane (afyon, sargı); Refah (keçe, kumaş). (Codex)
 - [x] **TUC-05:** Zanaat Sipariş Sözleşmeleri (Work Orders) — "Haftaya 12 çuval un…" teklifleri sözleşme paneline. (Codex)
-- [/] **TUC-06:** Sözleşme Teslimatı ve İtibar Skoru — Zamanında teslim → sadakat + sonraki nadir ürünler. (Codex)
-- [ ] **TUC-07:** Sipariş İhlali ve Ceza Faizi — Gecikme → tüccar terk + Refah düşüşü.
+- [x] **TUC-06:** Sözleşme Teslimatı ve İtibar Skoru — Zamanında teslim → sadakat + sonraki nadir ürünler. (Codex)
+- [/] **TUC-07:** Sipariş İhlali ve Ceza Faizi — Gecikme → tüccar terk + Refah düşüşü. (Codex)
 - [ ] **TUC-08:** Gezgin Silah Tüccarı (Karaborsa) — Zırh/yay/kalkan; kaçak tutsak satın alma teklifi.
 - [ ] **TUC-09:** Dinamik Fiyatlandırma ve Kıtlık Enflasyonu — Kışta odun/erzak ×3; yazda ucuzlama.
 - [ ] **TUC-10:** Pazar Yeri Alışveriş Arayüzü (Trade UI) — Ambar fazlası → köy veya muhafız akçesi.

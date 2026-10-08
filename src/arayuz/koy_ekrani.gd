@@ -518,6 +518,7 @@ func _is_adi(k: Koylu) -> String:
 
 func _pazar_ac() -> void:
 	var v := _kart_ac(tr("koy.pazar.baslik"))
+	v = PazarKartKaydirma.kur(self, v)
 	GezginTuccarPazarAdaptoru.pazar(self, v)
 	_etiket(v, tr("koy.pazar.tezgah") % [int(_y.a.tezgah_orani * 100), _y.a.tezgah_gunluk_azami], Tema.KUCUK_PX)
 	for t in ["odun", "tas", "gida", "kereste", "kurk"]:
@@ -564,7 +565,7 @@ func _pazar_ac() -> void:
 	CekiHayvaniPaneli.ekle(self, v)
 	VergiPaneli.ekle(self, v)
 	KasaTransferPaneli.ekle(self, v)
-	var kapat := _dugme(tr("arayuz.olay.devam"), v)
+	var kapat := PazarKartKaydirma.dugme(self, v, tr("arayuz.olay.devam"))
 	kapat.pressed.connect(_kart_kapat)
 	kapat.grab_focus.call_deferred()
 

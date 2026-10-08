@@ -46,4 +46,5 @@ static func kayittan(v: Variant) -> SiparisSozlesmeleri:
    if not (n is int or n is float) or not is_finite(float(n)) or float(n) < 1 or float(n) > 1000000 or floor(float(n)) != float(n): olur = false
   if not olur or int(d.vade) < int(d.kabul_gunu): continue
   s.sozlesmeler[key] = {"id": d.id, "tuccar": d.tuccar, "ad": d.ad, "urun": d.urun, "adet": int(d.adet), "odul": int(d.odul), "kabul_gunu": int(d.kabul_gunu), "vade": int(d.vade), "durum": d.durum}
+  SiparisTeslimati.kayit_alanlari(d, s.sozlesmeler[key])
  return s

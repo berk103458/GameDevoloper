@@ -18,6 +18,7 @@ static func kapi(e: KoyEkrani, ust: VBoxContainer, etiket: Label) -> void:
 static func ac(e: KoyEkrani) -> void:
  var y := e._y
  var v := e._kart_ac("Sipariş sözleşmeleri")
+ v = PazarKartKaydirma.kur(e, v)
  var t := SiparisSozlesmeleri.teklif(y)
  if not t.is_empty():
   e._etiket(v, "%s: %d %s · %d gün içinde · %d akçe" % [t.ad, t.adet, GezginTuccarStogu.ad("koy.kaynak." + t.urun), SiparisSozlesmeleri.AYAR.sure, t.odul], Tema.KUCUK_PX)
@@ -30,5 +31,6 @@ static func ac(e: KoyEkrani) -> void:
  e._etiket(v, "Açık siparişler: %d / %d" % [y.siparisler.aktif_sayisi(), SiparisSozlesmeleri.AYAR.azami_aktif], Tema.KUCUK_PX)
  for s in y.siparisler.sozlesmeler.values():
   e._etiket(v, "%s · %d %s · %d. güne kadar · %d akçe · %s" % [s.ad, s.adet, GezginTuccarStogu.ad("koy.kaynak." + s.urun), s.vade, s.odul, s.durum], Tema.KUCUK_PX)
- var kapat := e._dugme("Pazara dön", v)
+  SiparisTeslimPaneli.ekle(e, v, s)
+ var kapat := PazarKartKaydirma.dugme(e, v, "Pazara dön")
  kapat.pressed.connect(func() -> void: e._pazar_ac())

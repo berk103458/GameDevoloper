@@ -7,7 +7,9 @@ var alinan: Dictionary = {}
 ## Geçerli uzman ürünleri; panel okumaları kaydı değiştirmez.
 static func urunler(y: KoyYonetimi) -> Dictionary:
  var d := GezginTuccarTakvimi.durum(y.gun, y.a.kervan_araligi)
- return AYAR.get(d.tuccar.id, {}) if d.aktif else {}
+ var urun: Dictionary = AYAR.get(d.tuccar.id, {}).duplicate(true) if d.aktif else {}
+ urun.merge(SiparisTeslimati.nadir(y, d), false)
+ return urun
 ## Aynı ziyaretin iki gününde ortak stok; yeni varışta taban stok.
 func kalan(y: KoyYonetimi, tur: String) -> int:
  var urun: Dictionary = urunler(y).get(tur, {})
@@ -39,14 +41,14 @@ static func kayittan(v: Variant) -> GezginTuccarStogu:
  var g: Variant = v.get("varis", -1)
  if (g is int or g is float) and is_finite(float(g)) and float(g) >= -1 and float(g) <= 1000000000 and floor(float(g)) == float(g): s.varis = int(g)
  if v.get("alinan") is Dictionary:
-  for uzman in AYAR.values():
+  for uzman in AYAR.values() + SiparisTeslimati.AYAR.nadir.values():
    for tur in uzman:
     var n: Variant = v.alinan.get(tur, 0)
     if (n is int or n is float) and is_finite(float(n)) and float(n) > 0 and floor(float(n)) == float(n): s.alinan[tur] = int(minf(float(n), float(uzman[tur].stok)))
  return s
 ## Mevcut kaynak adı adaptöründeki yeni stok etiketleri.
 static func ad(anahtar: String) -> String:
- for uzman in AYAR.values():
+ for uzman in AYAR.values() + SiparisTeslimati.AYAR.nadir.values():
   for tur in uzman:
    if anahtar == "koy.kaynak." + tur: return String(uzman[tur].ad)
  return HarcZinciri.ad(anahtar)

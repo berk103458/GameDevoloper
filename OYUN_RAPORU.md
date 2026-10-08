@@ -1076,3 +1076,10 @@ Sıradaki: TUC-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Mevcut ziyaretlerden deterministik siparis teklifi, yedi gun vade ve kalici tek sozlesme defteri. Gercek UI kabul, tekrar/uc acik siniri ve stok/kasa/RNG korunumu; 20 ilgili kontrol, native uzun pazar/defter ve ayna UI gecti. asset gerekmedi.
 
 Sıradaki: TUC-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-06 (8 Ekim 2026)
+
+Tam siparis teslimi tek kamu odulu ve tuccara ozgu itibar verir; cift odul engeli, vade ve sonraki sadakat stogu korundu. Mevcut pazar/defter icerigi sinirli kaydirma, sabit kapanis ve kisa icerikte dogal boy kullanir. 23 kontrol, native ve ayna UI gecti; asset gerekmedi.
+
+Sıradaki: TUC-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

@@ -1,0 +1,11 @@
+{
+ "itibar_artisi": 10,
+ "itibar_esigi": 10,
+ "itibar_ust": 100,
+ "nadir": {
+  "celep_hamdullah": {"bugday": {"ad": "Buğday", "fiyat": 2, "stok": 2, "aciklama": "Sadakat ürünü; yalnız başarılı siparişten sonraki ziyarette."}},
+  "nalbur": {"cevher": {"ad": "Demir cevheri", "fiyat": 3, "stok": 2, "aciklama": "Sadakat ürünü; yalnız başarılı siparişten sonraki ziyarette."}},
+  "kumasci_aktar": {"kurk": {"ad": "Kürk", "fiyat": 8, "stok": 2, "aciklama": "Sadakat ürünü; yalnız başarılı siparişten sonraki ziyarette."}},
+  "silah_tuccari": {"cevher": {"ad": "Demir cevheri", "fiyat": 3, "stok": 2, "aciklama": "Sadakat ürünü; yalnız başarılı siparişten sonraki ziyarette."}}
+ }
+}
