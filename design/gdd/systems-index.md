@@ -374,3 +374,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Sancak teftişi](sancak-teftisi.md) — ODA-07, mevcut kişisel kasa/yozlaşma, tek gece makbuzu ve aynı terminal akışı.
 
 - [Oda geliştirmeleri](oda-gelistirmeleri.md) — ODA-08, tek kişisel yorgunluk ve günlük dinlenme, mevcut sorguda etkin tecrübe.
+
+- [Muhafız vicdanı](muhafiz-vicdani.md) — ODA-09, gerçek ret/ölüm, tek kabus/yorgunluk ve rüya kutusu.

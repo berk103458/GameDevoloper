@@ -236,8 +236,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **ODA-06:** Adalet Yetenek Ağacı — Keskin Bakış (heybe); Gönül Bağı (isyan≈0). (Codex)
 - [x] **ODA-07:** Sancak Müfettişi Teftiş Baskını — Gizli kasa bulunursa azil/idam riski. (Codex)
 - [x] **ODA-08:** Oda Geliştirmeleri — Muhafız akçesiyle yatak/askılık/kütüphane → yorgunluk silme. (Codex)
-- [/] **ODA-09:** Vicdan Azabı ve Gece Kabusları — Haksız ret/ölüm → rüya/algı bozukluğu. (Codex)
-- [ ] **ODA-10:** Oyun Sonu Muhafız Kaderi (Epilogue) — Köyden bağımsız: kaçak Venedik veya adil kahraman.
+- [x] **ODA-09:** Vicdan Azabı ve Gece Kabusları — Haksız ret/ölüm → rüya/algı bozukluğu. (Codex)
+- [/] **ODA-10:** Oyun Sonu Muhafız Kaderi (Epilogue) — Köyden bağımsız: kaçak Venedik veya adil kahraman. (Codex)
 
 - [ ] **ODA-11:** Rüşvet → `muhafiz_akce` Oda Kasası Yazımı (`src/dunya/muhafiz_odasi.gd` — **taslak hedef yol**) — Kapı rüşvetinin gizli kasaya işlenmesi; **≡ EKO-01 / EKO-11**.
 - [ ] **ODA-12:** Yozlaşma Skoru Runtime (`src/sistemler/yozlasma.gd` — **taslak hedef yol**) — Adalet↔yozlaşma terazisinin oturum alanı.

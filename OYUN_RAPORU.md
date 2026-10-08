@@ -1425,3 +1425,10 @@ Sıradaki: ODA-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Tek kisisel oda/yorgunluk kaydi; gercek karar ve gece, etkin CHR tecrubesi, kisisel yatak/askilik/kutuphane ve gunluk dinlenme; 63 kontrol final gece/native/ayna gecti. G uc model ihtiyaci kayitli, asset uretilmedi.
 
 Sıradaki: ODA-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-09 (8 Ekim 2026)
+
+Gercek haksiz ret ve gece olumunden tek vicdan/kabus makbuzu; ayni yorgunluk ve acik ruya kutusu, Clue/kimlik yok; 65 kontrol final native/ayna gecti. G ODA09-KABUS kayitli, asset uretilmedi.
+
+Sıradaki: ODA-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

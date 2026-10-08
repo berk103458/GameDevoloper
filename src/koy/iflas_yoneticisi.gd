@@ -30,6 +30,7 @@ static func tip(y: KoyYonetimi) -> String:
 	return "Kamu akçesi: %d\nÜst üste eksi geceler: %d/%d. Tefeci baskını kamu varlığına el koyar; kişisel kese korunur." % [y.akce, y.iflas_durumu.eksi_gece, int(AYAR.eksi_gece_esigi)]
 ## Yeni iflas olayının CSV kilidiyle uyumlu ince metin adaptörü; diğer olaylar eski çeviriyi kullanır.
 static func olay_metin(e: Dictionary) -> String:
+	if e.has("muhafiz_kabus"): return MuhafizVicdani.olay_metin(e.muhafiz_kabus)
 	if e.has("sancak_teftisi"): return SancakTeftisi.olay_metin(e.sancak_teftisi)
 	if e.has("muhafiz_harac"): return MuhafizYetenekleri.olay_metin(e.muhafiz_harac)
 	if e.get("anahtar") == "koy.olay.ambar_ziyan": return AmbarBakimi.olay_metin(e)

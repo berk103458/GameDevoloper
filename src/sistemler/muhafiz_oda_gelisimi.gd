@@ -34,6 +34,13 @@ static func al(o: Oturum,id: String) -> bool:
  o.oda_gelisimi=d
  return true
 
+## Pozitif kişisel yorgunluk ekler; kabus aynı alanı kullanır, ikinci yorgunluk yok.
+static func yor(o: Oturum,miktar: int) -> void:
+ if o.yonetim.son!="": return
+ var d:=oku(o.oda_gelisimi)
+ d.yorgunluk=clampi(int(d.yorgunluk)+maxi(0,miktar),0,int(AYAR.yorgunluk_azami))
+ o.oda_gelisimi=d
+
 ## Kabul edilen gerçek muhafız kararı, sınırlı kişisel yorgunluk ekler.
 static func karar(o: Oturum) -> void:
  if o.yonetim.son!="": return

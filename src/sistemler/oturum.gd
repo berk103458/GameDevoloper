@@ -29,6 +29,8 @@ var muhafiz_yetenekleri: Dictionary = {"alinan": [], "son_harac_gece": -1, "hara
 var sancak_teftisi: Dictionary = {}
 ## ODA-08 optional kişisel oda geliştirmeleri/yorgunluk; köy statı değildir.
 var oda_gelisimi: Dictionary = {}
+## ODA-09 optional kişisel vicdan/gece makbuzu; kanıt veya köy statı değildir.
+var muhafiz_vicdani: Dictionary = {}
 var yeni_binalar: Array[Dictionary] = []
 ## Olayların bıraktığı işaretler (kararların uzun vadeli izleri).
 var bayraklar: Dictionary = {}
@@ -247,6 +249,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	ek["kaldi"] = kaldi
 	muhafiz_tecrubesi += 1
 	MuhafizOdaGelisimi.karar(self)
+	MuhafizVicdani.karar(self, gelen, karar)
 	return ek
 
 
@@ -261,6 +264,7 @@ func gece_sonu() -> Dictionary:
 	MuhafizAdaletYetenekleri.bagla(self)
 	var r := yonetim.gece()
 	MuhafizYetenekleri.rapora_ekle(r, harac)
+	MuhafizVicdani.gece(self, r)
 	SancakTeftisi.gece(self, r)
 	_koy_esitle()
 	kadro.gece_bitti()
@@ -698,6 +702,7 @@ func kaydet() -> Dictionary:
 		"muhafiz_tecrubesi": muhafiz_tecrubesi,
 		"muhafiz_akce": muhafiz_akce, "muhafiz_esyalari": muhafiz_esyalari.duplicate(true),
 		"kasa_transferleri": kasa_transferleri.duplicate(true),
+		"muhafiz_vicdani": MuhafizVicdani.oku(muhafiz_vicdani),
 		"oda_gelisimi": MuhafizOdaGelisimi.oku(oda_gelisimi),
 		"sancak_teftisi": SancakTeftisi.oku(sancak_teftisi),
 		"muhafiz_yetenekleri": MuhafizYetenekleri.oku(muhafiz_yetenekleri),
@@ -734,6 +739,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.muhafiz_tecrubesi = maxi(0, int(veri.get("muhafiz_tecrubesi", 0)))
 	o.muhafiz_akce = maxi(0, int(veri.get("muhafiz_akce", 0)))
 	o.kasa_transferleri = KasaTransferi.oku(veri.get("kasa_transferleri"))
+	o.muhafiz_vicdani = MuhafizVicdani.oku(veri.get("muhafiz_vicdani"))
 	o.oda_gelisimi = MuhafizOdaGelisimi.oku(veri.get("oda_gelisimi"))
 	o.sancak_teftisi = SancakTeftisi.oku(veri.get("sancak_teftisi"))
 	o.muhafiz_yetenekleri = MuhafizYetenekleri.oku(veri.get("muhafiz_yetenekleri"))

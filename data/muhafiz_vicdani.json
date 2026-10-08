@@ -1,0 +1,23 @@
+{
+  "ret_yuk": 30,
+  "olum_yuk": 20,
+  "gece_sonum": 5,
+  "kabus_esigi": 40,
+  "kabus_yorgunluk": 10,
+  "yuk_azami": 100,
+  "golge": {
+    "ad": "kabus_golgesi",
+    "etiket": "Rüya gölgesi",
+    "boyut": [
+      0.4,
+      1.5,
+      0.4
+    ],
+    "yer": [
+      2.5,
+      0.75,
+      1.5
+    ],
+    "renk": "343039"
+  }
+}
