@@ -1,0 +1,99 @@
+{
+  "kontrol_araligi": 0.25,
+  "yakin_mesafe": 30.0,
+  "uzak_mesafe": 65.0,
+  "orta_carpan": 0.5,
+  "fixed_fps": 20,
+  "turler": {
+    "demirhane": [
+      "duman",
+      "kivilcim"
+    ],
+    "atolye": [
+      "kivilcim"
+    ],
+    "civi_ocagi": [
+      "kivilcim"
+    ],
+    "tamir_sundurmasi": [
+      "kivilcim"
+    ],
+    "firin": [
+      "duman"
+    ],
+    "tarla": [
+      "su"
+    ],
+    "bostan": [
+      "su"
+    ]
+  },
+  "efektler": {
+    "duman": {
+      "adet": 18,
+      "sure": 2.0,
+      "hiz": [
+        0.6,
+        1.2
+      ],
+      "yayilim": 18,
+      "yercekimi": 0.2,
+      "boy": [
+        0.13,
+        0.13,
+        0.13
+      ],
+      "renk": "#77777760",
+      "yukseklik": 2.7,
+      "yon": [
+        0,
+        1,
+        0
+      ]
+    },
+    "kivilcim": {
+      "adet": 10,
+      "sure": 0.45,
+      "hiz": [
+        1.5,
+        2.4
+      ],
+      "yayilim": 65,
+      "yercekimi": -3.0,
+      "boy": [
+        0.025,
+        0.025,
+        0.1
+      ],
+      "renk": "#ffb54d",
+      "yukseklik": 0.8,
+      "yon": [
+        0,
+        1,
+        0
+      ]
+    },
+    "su": {
+      "adet": 12,
+      "sure": 0.6,
+      "hiz": [
+        0.3,
+        0.6
+      ],
+      "yayilim": 25,
+      "yercekimi": -1.0,
+      "boy": [
+        0.04,
+        0.07,
+        0.04
+      ],
+      "renk": "#82b7cc",
+      "yukseklik": 0.5,
+      "yon": [
+        0,
+        -1,
+        0
+      ]
+    }
+  }
+}

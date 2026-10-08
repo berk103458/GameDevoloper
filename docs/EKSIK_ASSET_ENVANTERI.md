@@ -375,6 +375,10 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | ANI10-SINSI | ANI-10 | Sinsi yürüyüş ve temkinli kuytu bekleyiş | glTF / iskelet animasyon klibi | res://src/koy/gorsel/sinsi_gece_rutini.gd + koy_halk_hareketi.gd (_adim: mevcut yürüyüş yavaşlatılır) | gece sinsi köylü temkinli yürüyüş; night villager stealth cautious walk idle | orta | Codex |
 | ANI11-ALET | ANI-11 (ANI-ALET mevcut ihtiyaç) | Gerçek çekiç ve fırın küreği; sokete hazır tutma noktası | glTF | res://src/koy/gorsel/zanaat_tezgahi.gd (_kur: mevcut düz kutular); res://src/dunya/karakter_ekipman_yoneticisi.gd (tak: tek soket) | ortaçağ çekiç fırın küreği el soketi; medieval hammer baker peel hand grip socket | orta | Codex |
 | ANI12-IDLE | ANI-12 | Üç doğal bekleme döngüsü (nefes / ağırlık aktarma / çevreye bakış) | glTF / iskelet animasyon klibi | res://src/dunya/karakter_bekleme_cesitliligi.gd (acilar: mevcut modifier yer tutucusu) | köylü doğal bekleme nefes ağırlık bakış; villager idle breathing weight shift look around | orta | Codex |
+| ANI15-DUMAN | ANI-15 | Fırın/demirhane yumuşak duman atlası | PNG / parçacık atlası | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: gri saydam BoxMesh) | fırın baca duman atlası; oven chimney smoke puff atlas | orta | Codex |
+| ANI15-KIVILCIM | ANI-15 | Örs kıvılcım sprite | PNG / parçacık | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: turuncu BoxMesh) | demirci örs kıvılcım; blacksmith anvil spark sprite | orta | Codex |
+| ANI15-SU | ANI-15 | Sulama su damlası sprite | PNG / parçacık | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: mavi BoxMesh) | sulama su damlası; irrigation water droplet particle | orta | Codex |
+
 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.
 

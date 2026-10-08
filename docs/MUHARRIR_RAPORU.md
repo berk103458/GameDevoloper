@@ -142,3 +142,9 @@ Paket: src/koy/gorsel/koy_zemin_navigasyonu.gd, data/koy_zemin_navigasyonu.json 
 ANI-14: 20 ilgili kontrol, 0 hata (20 gece dahil); Vulkan görüntüsü ve GitHub kopyasında takip UI geçti. Eski figür/kart/sürükle-atama yolu korundu; çekirdeğe sadece tek satırlık bağlantılar. Asset gerekmedi. İki ds kopyası eşitlenir; Ahmet Windows yolu burada yok. ANI-15 [/] (Codex) sıradaki.
 
 Paket: src/koy/gorsel/koylu_takibi.gd, data/koylu_takibi.json, mevcut kart/köy ekranına ince adaptörler; test, GDD ve raporlar dahil. İkinci kamera/HUD ve eski RTS yok. Native kanıt work/ani14_takip.png (yerel). Festive normal push; rapor repo üzerinden erişilebilir.
+
+## Codex — ANI-15 (8 Ekim 2026)
+
+ANI-15: 23 ilgili kontrol, 0 hata (20 gece dahil); Vulkan üç görüntü ve GitHub kopyası import/UI geçti. Düşük grafik profili mevcut GrafikProfiliAdaptoru ile emisyonu kapatır; normal profile dönüş, mesafe bütçesi, reçete ve gerçek kova akışı kaynağı doğrulandı. Asset üretilmedi/indirilmedi, envanter G ANI15-DUMAN/KIVILCIM/SU kontrol edildi. İki ds kopyası eşitlenir; Ahmet Windows yolu burada yok. TUC-01 [/] (Codex) sıradaki.
+
+Paket: src/koy/gorsel/atolye_parcaciklari.gd, data/atolye_parcaciklari.json ve KoyYonetimSahnesi._bina_dugumu tek satırlık adaptörü; test, GDD, envanter ve raporlar dahil. Ekonomiyi ilerleten ikinci sistem/HUD yok. Tek yer tutucu değişim noktası _yer_tutucu. Festive normal push; rapor repo üzerinden erişilebilir.

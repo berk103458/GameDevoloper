@@ -1034,3 +1034,10 @@ Sıradaki: ANI-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Mevcut köylü kartı seçimine aynı strateji kamerasıyla takip ve tek Label3D ad/zanaat/eylem etiketi bağlandı; WASD/sağ tık/yapı kipi iptali, zoom, figür kaybı, gizli bilgi ve kayıt/RNG korunumu doğrulandı. Asset gerekmedi.
 
 Sıradaki: ANI-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ANI-15 (8 Ekim 2026)
+
+Duman/kıvılcım/su CPUParticles3D mekanikleri hazır bina/gerçek çalışma varışına bağlandı; uzaklık LOD, düşük grafik katmanı, reçete girdisi/gece kapanışı ve kova akışı kaynağı doğrulandı. Yeni asset yok; düz BoxMesh yer tutucuları ve eksik efektler envanter G ANI15-DUMAN/KIVILCIM/SU.
+
+Sıradaki: TUC-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

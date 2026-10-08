@@ -276,3 +276,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - ANI-13: [Köy zemin navigasyonu](koy-zemin-navigasyonu.md) — patika A* sırası, bina dışı NavigationRegion3D koridorları.
 
 - ANI-14: [Köylü takibi](koylu-takibi.md) — aynı kamera, mevcut köylü kartı seçimi ve tek billboard durum etiketi.
+
+- ANI-15: [Atölye parçacıkları](atolye-parcaciklari.md) — mevcut çalışma varışı, düşük CPU bütçesi, uzaklık LOD ve mevcut düşük grafik profili.

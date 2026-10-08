@@ -157,14 +157,14 @@ Amaç: CHR_001–030 sayfalarındaki tüm kurgusal verilerin kodda tek bir stand
 - [x] **ANI-12:** Bekleme Animasyonu Desenkronizasyonu — idle offset 0.1–1.5s + 3 idle varyasyon. (Codex)
 - [x] **ANI-13:** Köy İçi 3B Zemin Navigasyonu (`NavigationRegion3D`) — patika/kapı; bina içinden geçme yok. (Codex)
 - [x] **ANI-14:** Köylü Takip Kamerası ve Yüzen Durum Kartı — tıkla odak + isim/zanaat billboard. (Codex)
-- [/] **ANI-15:** Atölye Duman ve Kıvılcım Partikülleri (LOD) — duman/kıvılcım/su damlası, düşük donanım. (Codex)
+- [x] **ANI-15:** Atölye Duman ve Kıvılcım Partikülleri (LOD) — duman/kıvılcım/su damlası, düşük donanım. (Codex)
 Not: ANI-04↔EKO-03, ANI-08↔UZM-01..05 konsolidasyon.
 
 ---
 
 ## BÖLÜM 6: Gezgin Tüccarlar, Hayvan Pazarı ve Sipariş Sözleşmeleri
 
-- [ ] **TUC-01:** Gezgin Tüccar Takvimi ve Varış Mantığı — Her 4 günde bir uzman tüccar; 2 gün pazar konaklaması.
+- [/] **TUC-01:** Gezgin Tüccar Takvimi ve Varış Mantığı — Her 4 günde bir uzman tüccar; 2 gün pazar konaklaması. (Codex)
 - [ ] **TUC-02:** Celep Hamdullah (Canlı Hayvan Tüccarı) — Öküz, inek, koç, beygir → Ahır/Ağıl.
 - [ ] **TUC-03:** Nalbur ve Maden Tüccarı — Demir, çivi, tırpan, balta stoğu.
 - [ ] **TUC-04:** Kumaşçı ve Aktar — Şifahane (afyon, sargı); Refah (keçe, kumaş).
