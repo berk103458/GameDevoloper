@@ -40,3 +40,8 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
    for kayit in e.oturum.muhafiz_esyalari: adet+=maxi(0,int(kayit.get("adet",0)))
    esya.text="Kişisel eşya: %d adet"%adet
  )
+
+## Aynı açık kasadaki mevcut göstergeler yeni kişisel bakiyeyi okur.
+static func guncelle(e: MuhafizOdasiEkrani) -> void:
+ var kese:=e.find_children("oda_kese","VBoxContainer",true,false)[0] as KeseGostergesi
+ kese.guncelle(e.oturum)

@@ -1397,3 +1397,10 @@ Sıradaki: ODA-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Pure justice/corruption view from existing bribe, embezzlement and unpaid injustice receipts; 40 checks and native/mirror passed, actual decisions and repair/JSON boundaries verified; asset gerekmedi.
 
 Sıradaki: ODA-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-05 (8 Ekim 2026)
+
+Permanent Goz Yumma and Harac Kesme choices extend the existing purse; 42 checks plus 2 insolvency checks passed, native/mirror and actual night/ledger/JSON/overflow verified; asset gerekmedi.
+
+Sıradaki: ODA-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

@@ -58,6 +58,7 @@ func _ready() -> void:
  icerik.add_child(bilgi)
  OdaTerazisiPaneli.kur(self,icerik)
  OdaKasasiPaneli.kur(self,icerik)
+ OdaYetenekPaneli.kur(self,icerik)
  OdaEnvanterSergisi.kur(self,icerik)
  var b:=Button.new()
  b.name="oda_kapat"

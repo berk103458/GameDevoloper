@@ -366,3 +366,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kişisel eşya sergisi](oda-envanter-sergisi.md) — ODA-03, tek Oturum envanteri, sınırlı kutu önizleme ve kaydırılabilir oda listesi.
 
 - [Muhafız terazisi](muhafiz-terazisi.md) — ODA-04, mevcut adalet/rüşvet/zimmet/haksızlık makbuzlarından saf görünüm.
+
+- [Yozlaşma yetenekleri](yozlasma-yetenekleri.md) — ODA-05, tek kalıcı seçim, kişisel rüşvet bonusu ve günlük gerçek esnaf tahsilatı.

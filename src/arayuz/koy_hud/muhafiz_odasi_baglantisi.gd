@@ -26,6 +26,8 @@ static func ac(e: KoyEkrani) -> MuhafizOdasiEkrani:
  d.oturum=e.oturum
  e.add_child(d)
  d.tree_exiting.connect(func() -> void:
-  if is_instance_valid(e) and e.is_inside_tree() and not e.is_queued_for_deletion(): e._hiz_sec(hiz)
+  if is_instance_valid(e) and e.is_inside_tree() and not e.is_queued_for_deletion():
+   e._hiz_sec(hiz)
+   e.hud.guncelle()
  )
  return d

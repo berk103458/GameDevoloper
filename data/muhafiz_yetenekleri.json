@@ -1,0 +1,8 @@
+{
+  "goz_yumma": {"ad":"Göz Yumma", "bedel":10, "tecrube":4, "yozlasma":20, "on_kosul":"", "aciklama":"Rüşvet akçesi +%50 (aşağı yuvarlanır); eşya miktarı değişmez."},
+  "harac_kesme": {"ad":"Haraç Kesme", "bedel":15, "tecrube":8, "yozlasma":20, "on_kosul":"goz_yumma", "aciklama":"Hazır işyerinde çalışan yetişkin esnaf başına günlük 1 kişisel akçe; esnaf morali −3, adalet −2."},
+  "rusvet_bonus_oran":0.5,
+  "harac_kisi_akce":1,
+  "harac_moral":-3,
+  "harac_adalet":-2
+}
