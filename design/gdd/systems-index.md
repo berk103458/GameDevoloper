@@ -330,3 +330,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kış kurt baskını](kurt-baskini.md) — MEV-10, tek gerçek gece ve mevcut ağıl nöbeti.
 
 - [Mevsim takvim HUD](mevsim-takvim.md) — MEV-12, mevcut tek etikette yıl günü/hava.
+
+- [Soğuk hastalık baskısı](kis-hastaligi.md) — MEV-13, mevcut üretim/sağlık ve ortak şifahane slotu.

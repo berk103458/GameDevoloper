@@ -1225,3 +1225,10 @@ Sıradaki: MEV-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Existing HUD season label now shows year/day and short weather; no second panel or clock. Actual HUD boundaries, five weather presets, forced calendar distinction, restore and no side effects; 21 checks passed, native and mirror UI passed; asset gerekmedi.
 
 Sıradaki: MEV-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-13 (8 Ekim 2026)
+
+Severe winter adds one bounded cold patient using existing negative production flag and health. Burns/cold share persisted daily Sifahane staff slots; own flag cleanup and no double treatment. 91 checks passed, final native readable patient card and mirror import/unit/UI passed; asset gerekmedi.
+
+Sıradaki: MEV-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

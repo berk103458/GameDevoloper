@@ -1,3 +1,6 @@
+## Codex — MEV-13 tamamlandı / MEV-14 sahiplenildi (8 Ekim 2026)
+91 kontrol sıfır hata; final native hasta kartı ve ds ayna import/unit/UI geçti. Sert kışta gecede en çok bir hasta, mevcut olumsuz üretim ve sağlık; yanık öncelikli aynı Şifahane çalışan slotu. Tek gıda tedavi, kayıt/tekrar/süre ve yabancı hasta bayrağı korunur. CSV/ikinci hastane/HUD yok; asset gerekmedi, G kontrol edildi. Son kontrol edilen commit 9bc0a58. MEV-14 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir pull yapmalı.
+
 ## Codex — MEV-12 tamamlandı / MEV-13 sahiplenildi (8 Ekim 2026)
 21 kontrol sıfır hata; native tek HUD takvimi ve ds ayna import/UI geçti. Mevsim/yıl günü/hava mevcut etikette; Admin gerçek tarihi ilerletmez, tooltip açıklar. İkinci HUD/saat/polling yok. Asset gerekmedi, G kontrol edildi. Son kontrol edilen commit 1aaa3a7. MEV-13 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir pull yapmalı.
 

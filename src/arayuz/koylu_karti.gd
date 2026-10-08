@@ -22,6 +22,7 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	var bilgi := ekran._etiket(ic, KoyluKartiVerisi.ozet(y, k), Tema.KUCUK_PX)
 	bilgi.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, KoyluGelisimYoneticisi.metin(k), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	ekran._etiket(ic, KisHastaligi.metin(k, y), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, ZanaatKazalari.metin(k), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, MeslekGrevi.metin(k, y), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, NobetYorgunlugu.metin(k, y), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

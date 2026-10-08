@@ -11,4 +11,4 @@ static func tedavi_kapasitesi(y: KoyYonetimi, bina_id: int = -1) -> int:
 		if b.tur != "sifahane" or not b.hazir() or KanDavasi.engel(y, b.id): continue
 		for k in y.calisanlar(b.id):
 			if k.zanaat_turu in [ZanaatTuru.Tur.CERRAH, ZanaatTuru.Tur.OTACI] and YasRolleri.atanabilir(k, b.tur) and CirakEgitimi.saglam(k) and not IsMemnuniyeti.isyanci(k, y) and not ZanaatKazalari.durur(k): n += 1
-	return n
+	return SifahaneKontenjani.kalan(y, n)

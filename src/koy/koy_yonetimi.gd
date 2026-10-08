@@ -514,6 +514,7 @@ func gece() -> Dictionary:
 	rapor["tuketim"]["su"] = YazYanginRiski.gece(self, olaylar)
 	rapor["tuketim"]["gida"] = KurtBaskini.gece(self, olaylar)
 	CatiKarBakimi.gece(self, olaylar)
+	KisHastaligi.gece(self, olaylar)
 	var calismalar := {}
 	KanDavasi.gece(self, olaylar)
 	MeslekGrevi.gece(self, olaylar)
@@ -527,6 +528,7 @@ func gece() -> Dictionary:
 	var uyanik_nobet := NobetYorgunlugu.nobetciler(self)
 	IsKazalari.gece(self, calismalar, olaylar)
 	ZanaatKazalari.gece(self, olaylar)
+	KisHastaligi.tedavi(self, olaylar)
 	NobetYorgunlugu.gece(self, uyanik_nobet)
 	_insaat()
 	_barindir()
@@ -855,7 +857,7 @@ func kaydet() -> Dictionary:
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
-		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self), "hasat_senligi_yili": HasatSenligi.son_yil(self), "kurt_baskini_son_gece": KurtBaskini.oku(get_meta(KurtBaskini.META, -1))}
+		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self), "hasat_senligi_yili": HasatSenligi.son_yil(self), "kurt_baskini_son_gece": KurtBaskini.oku(get_meta(KurtBaskini.META, -1)), "kis_hastaligi_son_gece": KisHastaligi.gece_oku(get_meta(KisHastaligi.META, -1)), "sifahane_kontenjani": SifahaneKontenjani.durum(self)}
 
 
 static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary) -> KoyYonetimi:
@@ -866,6 +868,8 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	SuDengesi.yukle(y, v.get("su_doldurma", {}))
 	y.set_meta(HasatSenligi.META, HasatSenligi.oku(v.get("hasat_senligi_yili", 0)))
 	y.set_meta(KurtBaskini.META, KurtBaskini.oku(v.get("kurt_baskini_son_gece", -1)))
+	y.set_meta(KisHastaligi.META, KisHastaligi.gece_oku(v.get("kis_hastaligi_son_gece", -1)))
+	y.set_meta(SifahaneKontenjani.META, SifahaneKontenjani.oku(v.get("sifahane_kontenjani", {})))
 	y.iflas_durumu = IflasYoneticisi.oku(v.get("iflas", {}))
 	VergiPolitikasi.yukle(y, v.get("vergi_politikasi", {}))
 	y.maas_durumu = MuhafizMaasi.oku(v.get("maas_durumu", {}))

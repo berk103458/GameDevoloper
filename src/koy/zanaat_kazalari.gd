@@ -39,6 +39,7 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 			k.bayraklar.erase("agir_yarali")
 			k.is_kazasi.clear()
 		k.zanaat_kazasi.clear()
+		SifahaneKontenjani.kullan(y)
 		kapasite -= 1
 		olaylar.append({"anahtar": "Şifahane köylü %s ocak yanığını tedavi etti; 2 erzak kullanıldı.", "deger": [k.ad]})
 static func metin(k: Koylu) -> String:

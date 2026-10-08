@@ -10,7 +10,7 @@ static func koylu_carpani(k: Koylu, uzmanlik: String, a: KoyAyarlari, bina_turu:
 	return c * a.aclik_verim if k.ac else c
 
 ## Olumsuz bayraklar (çarpan `olumsuz`).
-const OLUMSUZ: Array[String] = ["tembel", "agir_yarali", "hasta"]
+const OLUMSUZ: Array[String] = ["tembel", "agir_yarali", "hasta", KisHastaligi.FLAG]
 
 
 ## Bir çalışanın bayraklarından bileşik çarpan. `uzmanlik`: yapının istediği uzmanlık (`ciftci` → `usta_ciftci`).
