@@ -15,7 +15,7 @@ func kur(tur: String, punto: int) -> void:
 	v.add_theme_constant_override("separation", 0)
 	add_child(v)
 	var ad := Label.new()
-	ad.text = DemirZinciri.ad("koy.kaynak." + tur)
+	ad.text = "Su" if tur == "su" else DemirZinciri.ad("koy.kaynak." + tur)
 	ad.add_theme_font_size_override("font_size", punto)
 	ad.add_theme_color_override("font_color", BRONZ)
 	v.add_child(ad)
@@ -33,7 +33,7 @@ func kur(tur: String, punto: int) -> void:
 
 ## Kaynak kartının erişilebilir açıklamasını kurar.
 func tip_bildir(tur: String) -> void:
-	tooltip_text = DemirZinciri.ad("koy.kaynak." + tur)
+	tooltip_text = "Su" if tur == "su" else DemirZinciri.ad("koy.kaynak." + tur)
 
 ## Stok, net değişim ve kritik durum rengini günceller.
 func guncelle(miktar: int, net: int, kritik: bool = false) -> void:

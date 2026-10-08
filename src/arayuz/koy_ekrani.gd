@@ -521,6 +521,7 @@ func _pazar_ac() -> void:
 	var v := _kart_ac(tr("koy.pazar.baslik"))
 	v = PazarKartKaydirma.kur(self, v)
 	GezginTuccarPazarAdaptoru.pazar(self, v)
+	SuRezervPaneli.ekle(self, v)
 	TicaretFiyatPaneli.ekle(self, v)
 	PazarSatisPaneli.hedef(self, v)
 	_etiket(v, tr("koy.pazar.tezgah") % [int(_y.a.tezgah_orani * 100), _y.a.tezgah_gunluk_azami], Tema.KUCUK_PX)

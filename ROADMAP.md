@@ -192,8 +192,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **MEV-04:** Dinamik Kar Yağışı ve Zemin Kar Örtüsü Shader'ı — Zemin ve çatılarda kademeli kar. (Codex)
 - [x] **MEV-05:** Çatı Çökmesi ve Kar Temizleme Rutini — Ağır karda çökme riski; kürekle çatı kürüme. (Codex)
 - [x] **MEV-06:** İlkbahar Taşkınları ve Su Bendi Kırılması — Kar erimesi, kuyu kireci, bent onarım olayı. (Codex)
-- [/] **MEV-07:** Yaz Kuraklığı ve Yangın Riski — Su tüketimi ×2; meşaleden kuru ota kıvılcım riski. (Codex)
-- [ ] **MEV-08:** Sonbahar Hasat Şenliği ve Moral Dopingi — Ambar doluysa şenlik → Moral zirve.
+- [x] **MEV-07:** Yaz Kuraklığı ve Yangın Riski — Su tüketimi ×2; meşaleden kuru ota kıvılcım riski. (Codex)
+- [/] **MEV-08:** Sonbahar Hasat Şenliği ve Moral Dopingi — Ambar doluysa şenlik → Moral zirve. (Codex)
 - [ ] **MEV-09:** Fırtınalı Günlerde Kapı Görüşünün Kapanması — Tipi/sis → 2D ipuçları bulanık.
 - [ ] **MEV-10:** Kış Kurt Sürüsü Saldırıları — Aç kurtlar ağıla; muhafız meşale/mızrak nöbeti.
 

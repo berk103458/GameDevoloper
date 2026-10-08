@@ -3,7 +3,7 @@ class_name Kaynaklar
 extends RefCounted
 
 ## Ambarın tuttuğu türler (sıra arayüzdeki sıradır).
-const TURLER: Array[String] = ["gida", "odun", "tas", "kereste", "alet", "kurk", "demir", "tomruk", "bugday", "un", "kirec", "harc", "cevher", "civi", "tirpan", "balta", "afyon", "sargi", "kece", "kumas", "zirh", "yay", "kalkan"]
+const TURLER: Array[String] = ["gida", "odun", "tas", "kereste", "alet", "kurk", "demir", "tomruk", "bugday", "un", "kirec", "harc", "cevher", "civi", "tirpan", "balta", "afyon", "sargi", "kece", "kumas", "zirh", "yay", "kalkan", "su"]
 
 var stok: Dictionary = {}
 var bakim: Dictionary = {"artik": {}, "tasma": {}, "son_gece": -1}

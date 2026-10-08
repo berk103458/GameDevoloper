@@ -1,3 +1,6 @@
+## Codex — MEV-07 tamamlandı / MEV-08 sahiplenildi (8 Ekim 2026)
+58 kontrol sıfır hata; son su taşma/yağmur unit ve Admin kaynak UI geçti, native pazar ve ds ayna import/UI geçti. Su tek ambar türü; kuyu 20/gün, ayrılan rezerv aynı gün arzdan düşer, yaz/kuraklık ×2. Kuru ot kıvılcımı gecede tek risk, 10 rezervle söndürme veya mevcut iadesiz kayıp. Normal bina hasarı/ikinci HUD/ateş yok. G MEV07-SU aynı pakette: mavi kutu ikon, üretim/indirme yok. Kontrol edilen son commit 844571e. MEV-08 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
+
 ## Codex — MEV-06 tamamlandı / MEV-07 sahiplenildi (8 Ekim 2026)
 56 kontrol sıfır hata; native mevcut olay kartı ve ds ayna import/UI geçti. İkinci yıl ilk bahar kar erimesi, kırık bent/kirli kuyu; 4 taş+2 kireçle atomik onarım, ertelemede sonraki gece tekrar teklif. Çift/eski kart ve eksik kaynak etkisiz; normal bina hasarı/ikinci HUD yok. G kontrol edildi: asset gerekmedi. Kontrol edilen son commit 237786a. MEV-05 yalnız commitli ikinci import/headless/native menü de geçti; bilinen ilk resource sırası denetim raporunda. MEV-07 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
 

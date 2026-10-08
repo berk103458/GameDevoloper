@@ -320,3 +320,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Çatı kar bakımı](cati-kar-bakimi.md) — MEV-05, ağır kar yükü, boş iş gücü ve aynı bina kaldırma API.
 
 - [İlkbahar taşkını](ilkbahar-taskini.md) — MEV-06, mevcut sağlık ve olay kartında bent/kuyu onarımı.
+
+- [Yaz su dengesi ve kıvılcım](yaz-su-yangin.md) — MEV-07, aynı kuyu/ambar/pazar ve iadesiz yapı kaybı.

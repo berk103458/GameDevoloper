@@ -511,6 +511,7 @@ func gece() -> Dictionary:
 		_kis_kaydirmasi()
 	else:
 		_bahar_donusu()
+	rapor["tuketim"]["su"] = YazYanginRiski.gece(self, olaylar)
 	CatiKarBakimi.gece(self, olaylar)
 	var calismalar := {}
 	KanDavasi.gece(self, olaylar)
@@ -530,6 +531,7 @@ func gece() -> Dictionary:
 	_barindir()
 	GizliEgilimler.gece(self, calismalar, olaylar)
 	_tuket(rapor["tuketim"], olaylar)
+	rapor["su"] = SuDengesi.gece(self, rapor["tuketim"], olaylar)
 	rapor["ziyan"] = AmbarBakimi.gece(kaynaklar, gun, olaylar)
 	IlkbaharTaskini.gece(self, olaylar)
 	KrizEnjektoru.gece(self, olaylar)
@@ -850,7 +852,7 @@ func kaydet() -> Dictionary:
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
-		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self)}
+		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self)}
 
 
 static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary) -> KoyYonetimi:
@@ -858,6 +860,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	IklimDeneyi.yukle(y, v.get("iklim_deneyi", {}))
 	KrizEnjektoru.yukle(y, v.get("debug_kuyu_zehri", 0))
 	IlkbaharTaskini.yukle(y, v.get("ilkbahar_taskini", {}))
+	SuDengesi.yukle(y, v.get("su_doldurma", {}))
 	y.iflas_durumu = IflasYoneticisi.oku(v.get("iflas", {}))
 	VergiPolitikasi.yukle(y, v.get("vergi_politikasi", {}))
 	y.maas_durumu = MuhafizMaasi.oku(v.get("maas_durumu", {}))

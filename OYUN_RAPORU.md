@@ -1190,3 +1190,10 @@ Sıradaki: MEV-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Spring melt breaks the existing water barrier; shared stone/lime repair and deferred event; 56 checks passed, asset gerekmedi.
 
 Sıradaki: MEV-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-07 (8 Ekim 2026)
+
+Shared well flow and reserve accounting, summer water x2, bounded spark/fire loss; 58 checks plus final overflow/rain/Admin resource passed; G inventory recorded.
+
+Sıradaki: MEV-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
