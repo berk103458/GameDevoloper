@@ -521,6 +521,7 @@ func _pazar_ac() -> void:
 	v = PazarKartKaydirma.kur(self, v)
 	GezginTuccarPazarAdaptoru.pazar(self, v)
 	TicaretFiyatPaneli.ekle(self, v)
+	PazarSatisPaneli.hedef(self, v)
 	_etiket(v, tr("koy.pazar.tezgah") % [int(_y.a.tezgah_orani * 100), _y.a.tezgah_gunluk_azami], Tema.KUCUK_PX)
 	for t in ["odun", "tas", "gida", "kereste", "kurk"]:
 		var satir := HBoxContainer.new()
@@ -528,9 +529,10 @@ func _pazar_ac() -> void:
 		_etiket(satir, "%s: %d" % [tr("koy.kaynak." + t), _y.kaynaklar.miktar(t)], Tema.KUCUK_PX).custom_minimum_size.x = 260
 		for adet in [5, 20]:
 			var d := _dugme(tr("koy.pazar.sat") % adet, satir)
-			d.disabled = _y.kaynaklar.miktar(t) <= 0
+			d.name = "pazar_tezgah_%s_%d" % [t, adet]
+			d.disabled = not PazarSatisi.uygun(oturum, t, adet, false, PazarSatisPaneli.kisisel(self))
 			d.pressed.connect(func() -> void:
-				var r := _y.tezgah_sat(t, adet)
+				var r := PazarSatisi.uygula(oturum, t, adet, false, PazarSatisPaneli.kisisel(self))
 				if r["akce"] > 0:
 					Ses.cal(&"sfx_kese")
 				_kart_kapat()
@@ -539,8 +541,10 @@ func _pazar_ac() -> void:
 			)
 		if _y.kervan_gunu():
 			var k := _dugme(tr("koy.pazar.kervana") % 20, satir)
+			k.name = "pazar_kervan_" + t
+			k.disabled = not PazarSatisi.uygun(oturum, t, 20, true, PazarSatisPaneli.kisisel(self))
 			k.pressed.connect(func() -> void:
-				if _y.kervana_sat(t, 20)["akce"] > 0:
+				if PazarSatisi.uygula(oturum, t, 20, true, PazarSatisPaneli.kisisel(self))["akce"] > 0:
 					Ses.cal(&"sfx_kese")
 				_kart_kapat()
 				_pazar_ac()

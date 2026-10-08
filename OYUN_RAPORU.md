@@ -1104,3 +1104,10 @@ Sıradaki: TUC-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Ortak mevsim fiyati: odun/erzak kis x3 yaz x0.75; UI ve kamu tahsilati ayni, Tekfur alet farki korunur. 27 kontrol native yaz/kis ve ayna UI gecti; asset gerekmedi.
 
 Sıradaki: TUC-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-10 (8 Ekim 2026)
+
+Tek pazarda kamu/kisisel satis hedefi; mevcut zimmet limit ve sosyal bedeli. 31 kontrol, native ve ayna UI gecti; asset gerekmedi.
+
+Sıradaki: TUC-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

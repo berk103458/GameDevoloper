@@ -14,8 +14,13 @@ static func oku(v: Variant) -> Dictionary:
 static func uygun(o: Oturum, tur: String, adet: int) -> bool:
  if adet <= 0 or adet > 1000000000 or o.yonetim.son != "": return false
  if tur == "kurtarma": return o.koy_akce < 0 and o.koy_akce + adet <= 0 and o.muhafiz_akce >= adet and int(o.kasa_transferleri.kurtarma_toplam) <= 1000000000 - adet
- if tur == "zimmet": return o.muhafiz_akce <= 9223372036854775807 - adet and o.koy_akce >= adet and adet <= int(AYAR.gunluk_zimmet_azami) and int(o.kasa_transferleri.son_zimmet) != o.gun and int(o.kasa_transferleri.zimmet_toplam) <= 1000000000 - adet
+ if tur == "zimmet": return _zimmet_uygun(o, adet, o.koy_akce)
  return false
+## Satıştan gelecek kamu gelirini aynı zimmet sınırlarıyla önceden denetler.
+static func gelir_uygun(o: Oturum, adet: int) -> bool:
+ return adet > 0 and adet <= int(AYAR.gunluk_zimmet_azami) and o.yonetim.son == "" and o.koy_akce <= 9223372036854775807 - adet and _zimmet_uygun(o, adet, o.koy_akce + adet)
+static func _zimmet_uygun(o: Oturum, adet: int, kamu: int) -> bool:
+ return o.muhafiz_akce <= 9223372036854775807 - adet and kamu >= adet and adet <= int(AYAR.gunluk_zimmet_azami) and int(o.kasa_transferleri.son_zimmet) != o.gun and int(o.kasa_transferleri.zimmet_toplam) <= 1000000000 - adet
 ## Pazarın kurtarma miktarı; aşırı negatif kamu bakiyesinde de taşma üretmez.
 static func kurtarma_adedi(o: Oturum) -> int:
  if o.koy_akce >= 0: return 0

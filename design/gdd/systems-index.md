@@ -296,3 +296,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Gezgin silah tüccarı ve karaborsa](silah-karaborsasi.md) — TUC-08, mevcut ambar ve nüfus.
 
 - [Mevsimsel ticaret fiyatları](ticaret-fiyatlari.md) — TUC-09, ortak tahsilat/gösterim.
+
+- [Pazar satışında kasa hedefi](pazar-satisi.md) — TUC-10, mevcut çift kasa/zimmet.

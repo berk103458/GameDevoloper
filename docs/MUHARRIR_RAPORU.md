@@ -1,3 +1,6 @@
+## Codex — TUC-10 tamamlandı / TUC-11 sahiplenildi (8 Ekim 2026)
+Mevcut pazarın satış düğmeleri tek kamu/kişisel hedef seçimi kullanır. Kişisel gelir mevcut KasaTransferi zimmet kaydı, günlük sınır ve sosyal bedelinden kaçamaz. Önizleme gerçek satışla eşleşir; başarısız yön stok/kasa değiştirmez. 31 kontrol sıfır hata; native pazar ve ds ayna import/UI geçti. Asset gerekmedi. Tam paket festive normal push; Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı.
+
 ## Codex — TUC-09 tamamlandı / TUC-10 sahiplenildi (8 Ekim 2026)
 Odun/erzak mevcut mevsime göre kış ×3, yaz ×0.75; ortak fiyat helperı alım/satım ve gerçek UI etiketlerini eşler. Mevcut Tekfur alet zammı görünür, tezgâh limiti ve üretim taşma bonusu korunur. Genel odun alış yolu aynı pazara eklendi. 27 kontrol sıfır hata; native kış/yaz ve ds ayna import/UI geçti. Asset gerekmedi. Tam paket festive normal push; Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı.
 

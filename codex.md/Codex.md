@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 3634388 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 3634388. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: bf32668 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: bf32668. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -126,15 +126,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - TUC-07: Siparis ihlali, tek Refah kaybi, kalici tuccar borcu, faiz ve mevcut defterden kisim/tam kamu odemesi; 23 kontrol native ve ayna UI gecti, asset gerekmedi.
 - TUC-08: Silah tuccari zirh/yay/kalkan ve tek ziyaretlik kac ak tutsak teklifi; mevcut ambar, kamu kasasi, kabul/barinma yolu. 26 kontrol, native ve ayna UI gecti; G TUC08 ikon ihtiyaclari kayitli.
 - TUC-09: Ortak mevsim fiyati: odun/erzak kis x3 yaz x0.75; UI ve kamu tahsilati ayni, Tekfur alet farki korunur. 27 kontrol native yaz/kis ve ayna UI gecti; asset gerekmedi.
+- TUC-10: Tek pazarda kamu/kisisel satis hedefi; mevcut zimmet limit ve sosyal bedeli. 31 kontrol, native ve ayna UI gecti; asset gerekmedi.
 
 ## Sonraki çalışma
-TUC-10. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+TUC-11. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 sahipsiz [ ] durumuna alınmıştır; üstlenince ad yazılır. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -195,5 +198,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## TUC-09 yayın kontrol noktası
-27 ilgili kontrol sıfır hata; native kış/yaz pazar ve ds ayna import/UI geçti. Asset gerekmedi; G tablosu yeni ihtiyaç gerektirmedi. Üretim taşma bonusu eski dengeyi korur. Tam paket festive normal push ve iki ds kopya eşitleme; Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı. TUC-10 sahiplenildi.
+
+## TUC-10 yayın kontrol noktası
+31 ilgili kontrol sıfır hata; native kişisel hedefli pazar ve ds ayna import/UI geçti. Asset gerekmedi; G tablosu yeni ihtiyaç gerektirmedi. Kamu satışı korunur, kişisel yön mevcut zimmet gün/sınır/bedelini kullanır. Tam paket festive normal push ve iki ds kopya eşitleme; Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı. TUC-11 sahiplenildi.
