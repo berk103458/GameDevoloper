@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-8 Ekim 2026. Kontrol edilen son commit: 6bfae9e (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 6bfae9e. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+8 Ekim 2026. Kontrol edilen son commit: fccda0a (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: fccda0a. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -163,15 +163,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - CAS-15: Documented existing KAP discovery to village proof continuation ownership; all 30 CHR, repeated/foreign admission, startup source and CSV checks passed; asset gerekmedi.
 - ODA-01: Independent box-placeholder room opened from the existing village actions; 36 checks and final physical-key native/headless/mirror tests passed; ODA01 asset needs recorded in inventory G.
 - ODA-02: Room stash reads the existing personal purse and item count without transfers or duplicate storage; 37 checks and final zero/restore/native/mirror UI passed; asset gerekmedi.
+- ODA-03: Existing personal inventory rendered as read-only room rows and bounded table boxes; 38 checks and final native/mirror, real CHR gift, JSON, empty and long-list tests passed; asset needs in G.
 
 ## Sonraki çalışma
-ODA-03. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+ODA-04. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -234,5 +237,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## ODA-02 doğrulaması / ODA-03 planı
-ODA02 37 kontrol sıfır hata; final sıfır/JSON restore, gerçek CHR ve heybe rüşvet gelirleri, native kasa ve ds ayna import/UI geçti. Aynı KeseGostergesi/tek Oturum.muhafiz_akce ve muhafiz_esyalari; aç/kapat yalnız kapak ve bilgi görünümüdür, stok/kamu/kayıt/RNG değişmez. Asset gerekmedi, G ODA01-KASA mevcut ihtiyaç doğrulandı. 6bfae9e yalnız commitli temiz ilk104 resource/0 SCRIPT, ikinci import/headless/native gerçek menü sıfır hata; denetim raporu güncel. Kontrol edilen son commit 6bfae9e. ODA-03 [/] (Codex), aynı envanterin odada kişisel eşya sergisi. Ahmet yolu yok; iki ds kopyası eşit, Muharrir güvenli festive pull yapmalı.
+
+## ODA-03 doğrulaması / ODA-04 planı
+ODA03 38 kontrol sıfır hata; final gerçek CHR rüşvet hediyesi, JSON birebir envanter, sıfır/satılmış eşya, büyük adet/uzun liste, native ve ds ayna import/UI geçti. Tek Oturum.muhafiz_esyalari; pozitif kayda tek satır, en çok8 masa kutusu, adet başına model yok. Oda paneli kaydırılabilir, dönüş düğmesi sabit; ham Clue kimliği UI metnine çıkmaz. G ODA03-ESYA doğrulandı, asset üretimi/indirme yok. Kontrol edilen son commit fccda0a. ODA-04 [/] (Codex), mevcut adalet/rüşvet/zimmet/haksızlık makbuzlarına bağlı salt okunur terazi. Ahmet yolu erişilemiyor; iki ds kopyası eşit, Muharrir güvenli festive pull yapmalı.

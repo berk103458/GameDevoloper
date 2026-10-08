@@ -42,12 +42,22 @@ func _ready() -> void:
  baslik.text="Muhafızın Odası"
  baslik.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
  v.add_child(baslik)
+ var kaydir:=ScrollContainer.new()
+ kaydir.name="oda_kaydir"
+ kaydir.size_flags_vertical=Control.SIZE_EXPAND_FILL
+ kaydir.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+ kaydir.follow_focus=true
+ v.add_child(kaydir)
+ var icerik:=VBoxContainer.new()
+ icerik.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ icerik.add_theme_constant_override("separation",18)
+ kaydir.add_child(icerik)
  var bilgi:=Label.new()
  bilgi.text="Yatak, masa, meşale ve zemin kasası.\n\nBurası muhafızın kişisel alanıdır. Köyün kamu kasası ve ambarı mevcut köy ekranında kalır."
  bilgi.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
- bilgi.size_flags_vertical=Control.SIZE_EXPAND_FILL
- v.add_child(bilgi)
- OdaKasasiPaneli.kur(self,v)
+ icerik.add_child(bilgi)
+ OdaKasasiPaneli.kur(self,icerik)
+ OdaEnvanterSergisi.kur(self,icerik)
  var b:=Button.new()
  b.name="oda_kapat"
  b.text="Köye dön"

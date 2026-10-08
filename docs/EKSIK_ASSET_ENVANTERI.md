@@ -407,6 +407,7 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | ODA01-MASA | ODA-01 | Muhafız masası | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | muhafız ahşap masa; medieval guard desk | orta | Codex |
 | ODA01-MESALE | ODA-01 | Oda meşalesi | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | duvar meşale lambası; medieval wall torch | orta | Codex |
 | ODA01-KASA | ODA-01 / ODA-02 | Gizli zemin kasası | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | gizli döşeme kasa; concealed floor strongbox | orta | Codex |
+| ODA03-ESYA | ODA-03 | Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri) | glTF / set | res://src/arayuz/oda_envanter_sergisi.gd (_kutu: masa üstü BoxMesh, UI düz ColorRect; data/muhafiz_odasi.json) | rüşvet kişisel eşya mühür şişe; medieval bribe personal inventory seal bottle props | orta | Codex |
 
 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.

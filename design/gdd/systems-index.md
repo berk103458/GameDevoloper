@@ -362,3 +362,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Muhafız odası](muhafiz-odasi.md) — ODA-01, bağımsız kutu iç mekân ve mevcut köyden ince modal bağlantısı.
 
 - [Gizli zemin kasası](oda-kasasi.md) — ODA-02, mevcut EKO kişisel kesenin aynı oda yüzeyi.
+
+- [Kişisel eşya sergisi](oda-envanter-sergisi.md) — ODA-03, tek Oturum envanteri, sınırlı kutu önizleme ve kaydırılabilir oda listesi.

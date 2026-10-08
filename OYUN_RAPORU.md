@@ -1383,3 +1383,10 @@ Sıradaki: ODA-02. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Room stash reads the existing personal purse and item count without transfers or duplicate storage; 37 checks and final zero/restore/native/mirror UI passed; asset gerekmedi.
 
 Sıradaki: ODA-03. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-03 (8 Ekim 2026)
+
+Existing personal inventory rendered as read-only room rows and bounded table boxes; 38 checks and final native/mirror, real CHR gift, JSON, empty and long-list tests passed; asset needs in G.
+
+Sıradaki: ODA-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
