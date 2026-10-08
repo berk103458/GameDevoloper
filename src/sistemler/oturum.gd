@@ -252,6 +252,7 @@ func gece_sonu() -> Dictionary:
 	var bilanco_once := GeceBilancosu.fotograf(self)
 	var agalik_once := yonetim.agalik
 	var harac := MuhafizYetenekleri.harac(self)
+	MuhafizAdaletYetenekleri.bagla(self)
 	var r := yonetim.gece()
 	MuhafizYetenekleri.rapora_ekle(r, harac)
 	_koy_esitle()
@@ -725,6 +726,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.muhafiz_akce = maxi(0, int(veri.get("muhafiz_akce", 0)))
 	o.kasa_transferleri = KasaTransferi.oku(veri.get("kasa_transferleri"))
 	o.muhafiz_yetenekleri = MuhafizYetenekleri.oku(veri.get("muhafiz_yetenekleri"))
+	MuhafizAdaletYetenekleri.bagla(o)
 	o.muhafiz_esyalari = preload("res://src/sistemler/cift_kasa_dagitimi.gd").esyalari_yukle(veri.get("muhafiz_esyalari", []))
 	o.yeni_binalar.assign(veri.get("yeni_binalar", []))
 	o._koy_esitle()

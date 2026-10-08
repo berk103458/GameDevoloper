@@ -1404,3 +1404,10 @@ Sıradaki: ODA-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Permanent Goz Yumma and Harac Kesme choices extend the existing purse; 42 checks plus 2 insolvency checks passed, native/mirror and actual night/ledger/JSON/overflow verified; asset gerekmedi.
 
 Sıradaki: ODA-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — ODA-06 (8 Ekim 2026)
+
+Ayni kalici yetenek agacinda Keskin Bakis/Gonul Bagi: kisisel odeme, gercek CHR/heybe incelemesi ve adalet/yozlasma kosullu mevcut isyan esigi; 57 kontrol onarim tekrar/native/ayna gecti. Asset gerekmedi.
+
+Sıradaki: ODA-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

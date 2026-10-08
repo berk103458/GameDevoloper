@@ -233,8 +233,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **ODA-03:** Muhafız Kişisel Envanteri — CHR rüşvet eşyalarının sergilenmesi. (Codex)
 - [x] **ODA-04:** Yozlaşma vs. Adalet Terazisi — "Adil Muhafız" ↔ "Yozlaşmış Derebeyi". (Codex)
 - [x] **ODA-05:** Yozlaşma Yetenek Ağacı — Göz Yumma (+%50 rüşvet); Haraç Kesme (günlük esnaf). (Codex)
-- [/] **ODA-06:** Adalet Yetenek Ağacı — Keskin Bakış (heybe); Gönül Bağı (isyan≈0). (Codex)
-- [ ] **ODA-07:** Sancak Müfettişi Teftiş Baskını — Gizli kasa bulunursa azil/idam riski.
+- [x] **ODA-06:** Adalet Yetenek Ağacı — Keskin Bakış (heybe); Gönül Bağı (isyan≈0). (Codex)
+- [/] **ODA-07:** Sancak Müfettişi Teftiş Baskını — Gizli kasa bulunursa azil/idam riski. (Codex)
 - [ ] **ODA-08:** Oda Geliştirmeleri — Muhafız akçesiyle yatak/askılık/kütüphane → yorgunluk silme.
 - [ ] **ODA-09:** Vicdan Azabı ve Gece Kabusları — Haksız ret/ölüm → rüya/algı bozukluğu.
 - [ ] **ODA-10:** Oyun Sonu Muhafız Kaderi (Epilogue) — Köyden bağımsız: kaçak Venedik veya adil kahraman.

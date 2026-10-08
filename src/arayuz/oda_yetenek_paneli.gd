@@ -15,7 +15,7 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
  v.add_child(n)
  v.move_child(n,indeks)
  var l:=Label.new()
- l.text="Yozlaşma yetenek ağacı"
+ l.text="Muhafız yetenek ağacı"
  n.add_child(l)
  for id in MuhafizYetenekleri.YETENEKLER:
   var a: Dictionary=MuhafizYetenekleri.AYAR[id]
@@ -23,9 +23,10 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
   b.name="yetenek_"+id
   b.text=String(a.ad)+(" · açıldı" if MuhafizYetenekleri.var_mi(e.oturum,id) else " · %d kişisel akçe"%int(a.bedel))
   b.disabled=not MuhafizYetenekleri.alinabilir(e.oturum,id)
-  if MuhafizYetenekleri.var_mi(e.oturum,id): b.add_theme_color_override("font_disabled_color",Renkler.KUL)
+  b.add_theme_color_override("font_disabled_color",Renkler.KUL if MuhafizYetenekleri.var_mi(e.oturum,id) else Color("94999e"))
   b.custom_minimum_size.y=48
-  b.tooltip_text="%s\nEn az %d tecrübe ve %d yozlaşma. Önceki yetenek: %s."%[a.aciklama,a.tecrube,a.yozlasma,"yok" if String(a.on_kosul).is_empty() else String(MuhafizYetenekleri.AYAR[a.on_kosul].ad)]
+  var kosul: String="En az %d adalet; en çok %d yozlaşma."%[int(a.adalet),int(a.yozlasma_azami)] if a.has("adalet") else "En az %d yozlaşma."%int(a.yozlasma)
+  b.tooltip_text="%s\nEn az %d tecrübe. %s Önceki yetenek: %s."%[a.aciklama,a.tecrube,kosul,"yok" if String(a.on_kosul).is_empty() else String(MuhafizYetenekleri.AYAR[a.on_kosul].ad)]
   n.add_child(b)
   var aciklama:=Label.new()
   aciklama.text=String(a.aciklama)

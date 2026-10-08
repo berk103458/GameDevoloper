@@ -343,6 +343,7 @@ func _heybe_ac() -> void:
 	_secenekler.visible = false
 	_eylemler.visible = false
 	sahne.heybe_koy()
+	if MuhafizAdaletYetenekleri.heybe_incele(oturum, _gelen.heybe): _heybe_degisti()
 	_heybe_paneli = HeybePaneli.new()
 	_heybe_paneli.heybe = _gelen.heybe
 	_heybe_paneli.ayarlar = ayarlar

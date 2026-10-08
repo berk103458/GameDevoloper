@@ -2,7 +2,7 @@
 class_name MuhafizYetenekleri
 extends RefCounted
 static var AYAR: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/muhafiz_yetenekleri.json"))
-const YETENEKLER: Array[String]=["goz_yumma","harac_kesme"]
+const YETENEKLER: Array[String]=["goz_yumma","harac_kesme","keskin_bakis","gonul_bagi"]
 const AKCE_AZAMI:=9223372036854775807
 
 ## Eski/bozuk optional kaydı doğrular; ikinci yetenek önkoşulsuz yüklenmez.
@@ -27,7 +27,7 @@ static func var_mi(o: Oturum,id: String) -> bool:
 static func alinabilir(o: Oturum,id: String) -> bool:
  if id not in YETENEKLER or o.yonetim.son!="" or var_mi(o,id): return false
  var a: Dictionary=AYAR[id]
- return o.muhafiz_akce>=int(a.bedel) and o.muhafiz_tecrubesi>=int(a.tecrube) and int(MuhafizTerazisi.durum(o).yozlasma)>=int(a.yozlasma) and (String(a.on_kosul).is_empty() or var_mi(o,String(a.on_kosul)))
+ return o.muhafiz_akce>=int(a.bedel) and o.muhafiz_tecrubesi>=int(a.tecrube) and int(MuhafizTerazisi.durum(o).yozlasma)>=int(a.get("yozlasma",0)) and int(MuhafizTerazisi.durum(o).yozlasma)<=int(a.get("yozlasma_azami",100)) and o.yonetim.adalet>=int(a.get("adalet",0)) and (String(a.on_kosul).is_empty() or var_mi(o,String(a.on_kosul)))
 
 ## Tam kişisel bedel tek tahsilat; kamu/stok/RNG veya başka makbuz değişmez.
 static func al(o: Oturum,id: String) -> bool:
@@ -36,6 +36,7 @@ static func al(o: Oturum,id: String) -> bool:
  o.muhafiz_akce-=int(AYAR[id].bedel)
  d.alinan.append(id)
  o.muhafiz_yetenekleri=d
+ MuhafizAdaletYetenekleri.bagla(o)
  return true
 
 ## Mevcut dağıtımın kopyasına yalnız akçe bonusu; eşya ve kaynak Resource readonly.

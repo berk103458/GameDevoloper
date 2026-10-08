@@ -368,3 +368,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Muhafız terazisi](muhafiz-terazisi.md) — ODA-04, mevcut adalet/rüşvet/zimmet/haksızlık makbuzlarından saf görünüm.
 
 - [Yozlaşma yetenekleri](yozlasma-yetenekleri.md) — ODA-05, tek kalıcı seçim, kişisel rüşvet bonusu ve günlük gerçek esnaf tahsilatı.
+
+- [Adalet yetenekleri](adalet-yetenekleri.md) — ODA-06, aynı seçim ağacı, mevcut heybe keşfi ve isyan eşiği.

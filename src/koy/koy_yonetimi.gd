@@ -783,14 +783,15 @@ func _husumet(olaylar: Array[Dictionary]) -> void:
 
 
 func _isyan(olaylar: Array[Dictionary]) -> void:
+	var esik := MuhafizAdaletYetenekleri.isyan_esigi(self, a.isyan_esigi)
 	if koylular.is_empty():
 		return
 	if isyan_kalan < 0:
-		if huzur() <= a.isyan_esigi:
+		if huzur() <= esik:
 			isyan_kalan = a.isyan_gun
 			olaylar.append({"anahtar": "koy.olay.isyan_basladi", "deger": [a.isyan_gun]})
 		return
-	if huzur() > a.isyan_esigi:
+	if huzur() > esik:
 		isyan_kalan = -1
 		olaylar.append({"anahtar": "koy.olay.isyan_bitti"})
 		return
