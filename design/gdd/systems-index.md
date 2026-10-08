@@ -344,3 +344,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kuyu zehirleme ve sabah tespiti](kuyu-zehirleme.md) — CAS-03, CHR gecikmeli kaynak sonucu tek gerçek kuyu/sağlık fiili.
 
 - [Ambar kundaklaması ve suyla söndürme](ambar-kundaklamasi.md) — CAS-04, kaynak fiili aynı yangın/rezerv/iadesiz yapı akışında.
+
+- [Muhafız Divanı / meydan duruşması](muhafiz-divani.md) — CAS-05, mevcut tek meydanda gözlenmiş fiil inceleme sahnesi.

@@ -1,3 +1,6 @@
+## Codex — CAS-05 kapandı / CAS-06 sahiplenildi (8 Ekim 2026)
+54 kontrol sıfır hata; final sahne/kişi pozu restore headless/native ve ds ayna import/unit/UI geçti. Aynı meydanda tek divan, var olan kişi ve kutu masa/sıralar; gizli fiil/niyet görüntülenmez, ikinci kanıt deposu/HUD yok. Hız/kamera/rota/poz korundu, ceza henüz verilmez. G CAS05-DIVAN doğrulandı; asset üretimi yok. Kontrol edilen son commit e7dabe6; CAS-06 [/] (Codex). Ahmet yolu erişilemiyor, Muharrir güvenli festive pull yapmalı.
+
 ## Codex — CAS-04 kapandı / CAS-05 sahiplenildi (8 Ekim 2026)
 52 kontrol sıfır hata; native gerçek söndürme raporu ve ds ayna import/unit/UI geçti. CHR001/006 gerçek hedef/tur, ortak YazYanginRiski.sondur ve su rezervi; eksik suda iadesiz bina/işçi/ev/ızgara temizliği, kaynak stat/erzak tek kayıp. Normal bina hasar alanı/ikinci yangın sistemi yok. Asset gerekmedi, G kontrol edildi. eb7e127 temiz ikinci import/headless/native menü geçti; ilk bilinen104 resource satırı raporda. Kontrol edilen son commiteb7e127; CAS-05 [/] (Codex). Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
 

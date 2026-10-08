@@ -1274,3 +1274,10 @@ Sıradaki: CAS-04. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 CHR001/006 source arson targets/timing use one shared existing fire outcome; same reserve water prevents loss, otherwise no-refund real building cleanup and source stock/stats; 52 checks, native and mirror passed, clean eb7e127 opening verified; asset gerekmedi.
 
 Sıradaki: CAS-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-05 (8 Ekim 2026)
+
+Existing square court scene reads only observed CAS acts, one modal and one existing selected figure with temporary box table/benches; pause/camera/pose restore, source evidence not duplicated; 54 checks plus final native/headless/mirror stage test passed, G CAS05-DIVAN.
+
+Sıradaki: CAS-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
