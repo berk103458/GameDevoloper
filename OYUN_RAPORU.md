@@ -1362,3 +1362,10 @@ Sıradaki: CAS-14. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Existing court list displays only discovered source Clue cards and uses the existing submit operation; 39 checks passed, native and mirror UI passed; asset gerekmedi.
 
 Sıradaki: CAS-15. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — CAS-15 (8 Ekim 2026)
+
+Documented existing KAP discovery to village proof continuation ownership; all 30 CHR, repeated/foreign admission, startup source and CSV checks passed; asset gerekmedi.
+
+Sıradaki: ODA-01. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

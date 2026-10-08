@@ -222,13 +222,13 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **CAS-12:** Kuyu Zehirleme Clue/Flag Tetikleyici — CHR_002/009 içeri alındığında banotu + sabah zehir olayını `Flag_*`/`Clue_*` sözleşmesine bağlama. (Codex)
 - [x] **CAS-13:** Ambar Kundaklama Clue/Flag Tetikleyici — CHR_001/006 kundak riskini mevcut Clue/Flag sözleşmesine bağlama. (Codex)
 - [x] **CAS-14:** Divan Kanıt Sunum UI — Kapıda toplanan `Clue_*` kartlarının divan sahnesinde gösterimi (CAS-05/`divan_ekrani` — **taslak hedef**). (Codex)
-- [/] **CAS-15:** Clue→Divan Örtüşme Notu — KAP ipucu motoru ile CAS kanıt sunumu tek veri sözleşmesi; çift kayıt yok. (Codex)
+- [x] **CAS-15:** Clue→Divan Örtüşme Notu — KAP ipucu motoru ile CAS kanıt sunumu tek veri sözleşmesi; çift kayıt yok. (Codex)
 
 ---
 
 ## BÖLÜM 9: [Yeni Özellik 3] Muhafızın Odası, Kişisel Kasa ve Yozlaşma Ağacı
 
-- [ ] **ODA-01:** Muhafız Odası 3B/2.5B İç Mekan (`src/dunya/muhafiz_odasi.tscn`) — Yatak, masa, meşale, gizli kasa. TUC-11 kaçak envanteri pazar kartındadır; oda sahnesi bu maddeye bağlıdır, TUC-11 tekrarlanmaz.
+- [/] **ODA-01:** Muhafız Odası 3B/2.5B İç Mekan (`src/dunya/muhafiz_odasi.tscn`) — Yatak, masa, meşale, gizli kasa. TUC-11 kaçak envanteri pazar kartındadır; oda sahnesi bu maddeye bağlıdır, TUC-11 tekrarlanmaz. (Codex)
 - [ ] **ODA-02:** Gizli Zemin Kasası (Rüşvet Deposu) — Rüşvet akçesi ve kaçak eşya; denetçiden gizli. **≡ EKO-01 / EKO-11** — `muhafiz_akce` çift kasa + kişisel kese HUD ile örtüşür; ayrı ekonomi paketi değil, ODA yüzeyi.
 - [ ] **ODA-03:** Muhafız Kişisel Envanteri — CHR rüşvet eşyalarının sergilenmesi.
 - [ ] **ODA-04:** Yozlaşma vs. Adalet Terazisi — "Adil Muhafız" ↔ "Yozlaşmış Derebeyi".

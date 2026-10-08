@@ -1,3 +1,6 @@
+## Codex — CAS-15 kapandı / ODA-01 sahiplenildi (8 Ekim 2026)
+CAS15 tek Clue→Divan sözleşmesi gerçek dosyalı sahiplik tablosuyla belgelendi; ikinci keşif/depo/veri alanı eklenmedi. Tüm30 CHR kabul/JSON, tekrar/foreign ilerleme koruması, açılış kaynak denetimi ve CSV kaynak doğrulaması geçti. Asset gerekmedi, envanter G kontrol edildi. Kontrol edilen son commit 820c6b8; KAP-02/03 ve BUG-07 Cursor kapalı. ODA-01 [/] (Codex): mevcut köyden açılan kutu iç mekân; mevcut kişisel kese/kaçak envanteri salt okunur, oda ekonomi işlemleri sonraki maddeler. İki ds kopyası eşitlendi; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.
+
 ## Codex — CAS-14 kapandı / CAS-15 sahiplenildi (8 Ekim 2026)
 39 kontrol sıfır hata; native üç kaynak kanıt kartı/sunma/itiraf ve ds ayna import/UI geçti. Aynı DivanSorguPaneli listesi, bulunan kimlik ve kaynak açıklama; keşfedilmemiş/foreign kart yok, mevcut sunma/tek itiraf/JSON korundu. Kamera/hız/kişi pozu geri dönüşü geçti. Asset gerekmedi, envanter G kontrol edildi. Kontrol edilen son commit 7ed6897; PR #9 KAP-02/03 ve BUG-07 Cursor kapalı, tekrar alınmadı. CAS-15 [/] (Codex), tek keşif/devam sözleşmesinin örtüşme notu. Ahmet yolu erişilemiyor; Muharrir güvenli festive pull yapmalı.
 

@@ -353,7 +353,7 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Karaboran intikam baskını](karaboran-intikami.md) — CAS-08, zindan hükmünün üçüncü gecesinde tek ortak husumet sonucu.
 - [Fısıltı gazetesi ve imzasız pusula](fisilti-gazetesi.md) — CAS-09, mevcut sabah kartında kanıt sayılmayan iddia.
 - [Haksız yargı ve tazminat](divan-haksizligi.md) — CAS-10, ayrı kanıtsız dava ve tek kamu onarımı.
-- [Clue–Divan tek devam sözleşmesi](clue-divan-sozlesmesi.md) — CAS-11, tüm30 CHR ve tekrar/foreign köprü koruması.
+- [Clue–Divan tek devam sözleşmesi](clue-divan-sozlesmesi.md) — CAS-11/CAS-15, tüm30 CHR ve tek keşif/devam sahiplik sözleşmesi.
 - [Kuyu zehri Clue/Flag sözleşmesi](zehir-clue-sozlesmesi.md) — CAS-12, kaynak kimliği ve gerçek kapı bayrak snapshotu.
 - [Kundaklama Clue/Flag sözleşmesi](kundak-clue-sozlesmesi.md) — CAS-13, ortak helper ve mevcut bina kartında gerçek bulunan yük.
 
