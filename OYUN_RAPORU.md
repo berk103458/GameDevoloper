@@ -1183,3 +1183,10 @@ Sıradaki: MEV-05. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Heavy snow roof load and idle adult clearing, existing removal and equipment APIs; 52 regressions plus final UI/equipment passed, G inventory recorded.
 
 Sıradaki: MEV-06. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-06 (8 Ekim 2026)
+
+Spring melt breaks the existing water barrier; shared stone/lime repair and deferred event; 56 checks passed, asset gerekmedi.
+
+Sıradaki: MEV-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

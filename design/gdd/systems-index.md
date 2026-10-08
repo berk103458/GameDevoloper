@@ -318,3 +318,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Mevsim kar örtüsü](mevsim-kar-ortusu.md) — MEV-04, mevcut yağış ve kademeli zemin/çatı karı.
 
 - [Çatı kar bakımı](cati-kar-bakimi.md) — MEV-05, ağır kar yükü, boş iş gücü ve aynı bina kaldırma API.
+
+- [İlkbahar taşkını](ilkbahar-taskini.md) — MEV-06, mevcut sağlık ve olay kartında bent/kuyu onarımı.

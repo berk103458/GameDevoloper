@@ -1,3 +1,6 @@
+## Codex — MEV-06 tamamlandı / MEV-07 sahiplenildi (8 Ekim 2026)
+56 kontrol sıfır hata; native mevcut olay kartı ve ds ayna import/UI geçti. İkinci yıl ilk bahar kar erimesi, kırık bent/kirli kuyu; 4 taş+2 kireçle atomik onarım, ertelemede sonraki gece tekrar teklif. Çift/eski kart ve eksik kaynak etkisiz; normal bina hasarı/ikinci HUD yok. G kontrol edildi: asset gerekmedi. Kontrol edilen son commit 237786a. MEV-05 yalnız commitli ikinci import/headless/native menü de geçti; bilinen ilk resource sırası denetim raporunda. MEV-07 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
+
 ## Codex — MEV-05 tamamlandı / MEV-06 sahiplenildi (8 Ekim 2026)
 52 regresyon (donma UI final tekrar geçti) ve son ekipman/zanaat/açılış/native çatı UI geçti; ds ayna import/UI geçti. Ağır kar yükü, sağlıklı boş yetişkinle erişilebilir çatı temizliği; mevcut iadesiz kaldırma, kişi ölümü/yıkım iadesi yok. Normal bina hasarı eklenmedi. koy_halk_hareketi yalnız tek helper çağrısı, kürek mevcut ekipman soketi/stoku. G MEV05-KUREK aynı pakette, asset üretimi/indirme yok. Kontrol edilen son commit b063046. MEV-06 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir güvenli pull yapmalı.
 

@@ -531,6 +531,7 @@ func gece() -> Dictionary:
 	GizliEgilimler.gece(self, calismalar, olaylar)
 	_tuket(rapor["tuketim"], olaylar)
 	rapor["ziyan"] = AmbarBakimi.gece(kaynaklar, gun, olaylar)
+	IlkbaharTaskini.gece(self, olaylar)
 	KrizEnjektoru.gece(self, olaylar)
 	_saglik_ve_moral(rapor["olenler"], olaylar)
 	IsMemnuniyeti.gece(self, calismalar, olaylar)
@@ -849,13 +850,14 @@ func kaydet() -> Dictionary:
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
-		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self)}
+		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self)}
 
 
 static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary) -> KoyYonetimi:
 	var y := KoyYonetimi.new(ayarlar, katalog_)
 	IklimDeneyi.yukle(y, v.get("iklim_deneyi", {}))
 	KrizEnjektoru.yukle(y, v.get("debug_kuyu_zehri", 0))
+	IlkbaharTaskini.yukle(y, v.get("ilkbahar_taskini", {}))
 	y.iflas_durumu = IflasYoneticisi.oku(v.get("iflas", {}))
 	VergiPolitikasi.yukle(y, v.get("vergi_politikasi", {}))
 	y.maas_durumu = MuhafizMaasi.oku(v.get("maas_durumu", {}))

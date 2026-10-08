@@ -367,6 +367,8 @@ func tr_ad(sinif: StringName) -> String:
 
 ## Bu gece sonu için uygun bir olay (ağırlıklı rastgele) ya da null.
 func olay_sec() -> OlayVerisi:
+	var taskin := IlkbaharTaskini.olay(self)
+	if taskin != null: return taskin
 	if _rng.randf() >= ayarlar.olay_olasiligi:
 		return null
 	var adaylar: Array[OlayVerisi] = []
@@ -415,6 +417,7 @@ func sira_olayi_sec(kuyruk: int) -> OlayVerisi:
 
 ## Bir seçeneğin gereklilikleri karşılanıyor mu.
 func secenek_olur(olay: OlayVerisi, i: int) -> bool:
+	if IlkbaharTaskini.tanimli(olay): return IlkbaharTaskini.uygun(self, olay, i)
 	var e: Dictionary = olay.secenek_etkileri[i]
 	var g: Dictionary = e.get("gerekli", {})
 	if akce < int(g.get("akce", 0)) or ambar < int(g.get("ambar", 0)):
@@ -434,6 +437,7 @@ func secenek_olur(olay: OlayVerisi, i: int) -> bool:
 ## `puan`: seçenek bir mini oyun açtıysa (`oyun`) alınan puan; ödül `oyun_odul` × puan, puan ≥ `oyun_esik`
 ## ise `oyun_basari` etkisi de uygulanır (design/gdd/koy-mini-oyunlari.md). −1 = oyun oynanmadı.
 func olay_uygula(olay: OlayVerisi, i: int, puan: int = -1) -> Dictionary:
+	if IlkbaharTaskini.tanimli(olay): return IlkbaharTaskini.uygula(self, olay, i)
 	var e: Dictionary = olay.secenek_etkileri[i]
 	if puan >= 0 and e.has("oyun"):
 		var odul: Dictionary = e.get("oyun_odul", {})
