@@ -10,6 +10,7 @@ static func esyalari_yukle(kayit: Array) -> Array[Dictionary]:
 		esya["adet"] = maxi(0, int(esya.get("adet", 1)))
 		if esya.has("deger"):
 			esya["deger"] = maxi(0, int(esya["deger"]))
+		KaraborsaAdaptoru.kayit(esya)
 		esyalar.append(esya)
 	return esyalar
 

@@ -1,0 +1,14 @@
+{
+  "yasak_muhur": {
+    "ad": "Yasak mühür",
+    "fiyat": 15,
+    "stok": 1,
+    "aciklama": "Kayıtsız mühür; muhafız odasında saklanır."
+  },
+  "kacak_iksir": {
+    "ad": "Kaçak iksir",
+    "fiyat": 12,
+    "stok": 2,
+    "aciklama": "Kaçak şişe; muhafız odasında saklanır."
+  }
+}

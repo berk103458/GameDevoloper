@@ -1,3 +1,8 @@
+## Codex — TUC-11 tamamlandı / kontrol noktası (8 Ekim 2026)
+Yasak mühür/kaçak iksir yalnız kişisel akçeden mevcut muhafiz_esyalari listesine; aynı pazardan oda görünümü. Ziyaret makbuzu ikinci gün/kayıtta korunur; kamu/ambar/RNG sabit. 33 kontrol sıfır hata; native oda ve ds ayna import/UI geçti. G TUC11-MUHUR/IKSIR aynı pakette; asset üretimi/indirme yok. TUC-12 [ ] ve başlanmadı. Canlı kullanım %95; yarım paket bırakmadan kontrol noktası, Claude devri yok.
+
+Yalnız commitli fc98a7c önbelleksiz denetiminde ilk import çeviri/glTF çıktılarını materialize ederken resource hataları verdi; script hatası yok. İkinci import ve headless/native gerçek menü geçti. Kanıt docs/denetim/2026-10-08-ticaret-acilis.md. İlk import sıfır hata iddiası yok. Ahmet yolu erişilemiyor; Muharrir festive güvenli pull ve yerel doğrulama yapmalı.
+
 ## Codex — TUC-10 tamamlandı / TUC-11 sahiplenildi (8 Ekim 2026)
 Mevcut pazarın satış düğmeleri tek kamu/kişisel hedef seçimi kullanır. Kişisel gelir mevcut KasaTransferi zimmet kaydı, günlük sınır ve sosyal bedelinden kaçamaz. Önizleme gerçek satışla eşleşir; başarısız yön stok/kasa değiştirmez. 31 kontrol sıfır hata; native pazar ve ds ayna import/UI geçti. Asset gerekmedi. Tam paket festive normal push; Ahmet yolu erişilemiyor, Muharrir güvenli pull yapmalı.
 

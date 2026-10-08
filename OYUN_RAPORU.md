@@ -1111,3 +1111,12 @@ Sıradaki: TUC-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Tek pazarda kamu/kisisel satis hedefi; mevcut zimmet limit ve sosyal bedeli. 31 kontrol, native ve ayna UI gecti; asset gerekmedi.
 
 Sıradaki: TUC-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — TUC-11 (8 Ekim 2026)
+
+Kisisel karaborsa ve ayni muhafiz oda envanteri; kamu/ambar ayrimi, ziyaret makbuzu, 33 kontrol native ve ayna UI gecti. G TUC11 ikonlari kayitli.
+
+Sıradaki: TUC-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+TUC-11 kapanışında 33 kontrol, native/ayna UI geçti; G TUC11 ihtiyaçları kaydedildi. TUC-12 henüz alınmadı. Canlı kullanım %95 kontrol noktası; Claude devri yok. Yalnız commitli temiz açılış denetimi ve ilk materializasyon sınırlaması docs/denetim/2026-10-08-ticaret-acilis.md içindedir.

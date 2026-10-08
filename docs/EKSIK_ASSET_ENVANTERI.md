@@ -379,6 +379,8 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | TUC04-SARGI | TUC-04 | Sargı stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | şifahane bez sargı; medieval linen bandage icon | orta | Codex |
 | TUC04-KECE | TUC-04 | Keçe stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | yün keçe kumaş; medieval wool felt icon | orta | Codex |
 | TUC04-KUMAS | TUC-04 | Kumaş stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | dokuma kumaş rulosu; medieval woven cloth roll icon | orta | Codex |
+| TUC11-MUHUR | TUC-11 | Yasak mühür oda envanteri ikonu | SVG / PNG | res://src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd (ac: düz ColorRect) | yasak mühür; forbidden medieval seal icon | orta | Codex |
+| TUC11-IKSIR | TUC-11 | Kaçak iksir oda envanteri ikonu | SVG / PNG | res://src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd (ac: düz ColorRect) | kaçak iksir; contraband potion bottle icon | orta | Codex |
 | TUC08-ZIRH | TUC-08 | Zırh stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ zırh; medieval armor icon | orta | Codex |
 | TUC08-YAY | TUC-08 | Yay stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ yay; medieval bow icon | orta | Codex |
 | TUC08-KALKAN | TUC-08 | Kalkan stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ kalkan; medieval shield icon | orta | Codex |
