@@ -1,3 +1,6 @@
+## Codex — MEV-12 tamamlandı / MEV-13 sahiplenildi (8 Ekim 2026)
+21 kontrol sıfır hata; native tek HUD takvimi ve ds ayna import/UI geçti. Mevsim/yıl günü/hava mevcut etikette; Admin gerçek tarihi ilerletmez, tooltip açıklar. İkinci HUD/saat/polling yok. Asset gerekmedi, G kontrol edildi. Son kontrol edilen commit 1aaa3a7. MEV-13 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir pull yapmalı.
+
 ## Codex — MEV-10 tamamlandı / MEV-12 sahiplenildi (8 Ekim 2026)
 79 kontrol; kapı testinin ses çıkış temizliği düzeltildi, final tekrar geçti. Native kutu kurt/A* geri çekilme ve ds ayna import/UI geçti. Etkin mevcut muhafız ağıl korur; korunmayanda aynı ambardan yem, tek gece/restore/rapor. Temel sürü/normal bina hasarı/özel kasa değişmez; denge varsayımı GDD’de. G MEV10-KURT aynı pakette, asset üretimi/indirme yok. 343a79d temiz ikinci import ve gerçek menüler geçti, ilk 104 resource satırı raporda. MEV-11 zaten kapalı; MEV-12 [/] (Codex). Ahmet yolu erişilemiyor; Muharrir pull yapmalı.
 

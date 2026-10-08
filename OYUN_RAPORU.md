@@ -1218,3 +1218,10 @@ Sıradaki: MEV-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Winter wolf raids use existing granary and effective guards; three BoxMesh wolves follow same A* and retreat from torch patrols. 79 regression checks, final gate-test audio cleanup corrected and rerun passed; native/mirror wolf UI passed. G MEV10-KURT recorded; clean committed 343a79d opening passed after known first resource import.
 
 Sıradaki: MEV-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — MEV-12 (8 Ekim 2026)
+
+Existing HUD season label now shows year/day and short weather; no second panel or clock. Actual HUD boundaries, five weather presets, forced calendar distinction, restore and no side effects; 21 checks passed, native and mirror UI passed; asset gerekmedi.
+
+Sıradaki: MEV-13. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

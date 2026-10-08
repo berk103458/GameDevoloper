@@ -328,3 +328,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kapı görüşü](kapi-gorusu.md) — MEV-09, mevcut CHR görsel izinde tipi/sis bulanıklığı.
 
 - [Kış kurt baskını](kurt-baskini.md) — MEV-10, tek gerçek gece ve mevcut ağıl nöbeti.
+
+- [Mevsim takvim HUD](mevsim-takvim.md) — MEV-12, mevcut tek etikette yıl günü/hava.

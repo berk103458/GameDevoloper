@@ -141,7 +141,7 @@ func guncelle() -> void:
 	_asayis.text = tr("arayuz.hud.asayis") % y.asayis_riski
 	_asayis.add_theme_color_override("font_color", UYARI if y.asayis_riski >= ASAYIS_KRITIK else Renkler.KUL)
 	_gun.text = tr("arayuz.hud.gun") % (y.gun + 1)
-	_mevsim.text = tr("arayuz.hud.mevsim") % [tr("koy.mevsim." + y.a.mevsimler[y.mevsim()]), Takvim.mevsim_gunu(y.gun, y.a.mevsim_gun), y.a.mevsim_gun]
+	MevsimTakvim.guncelle(_mevsim, y)
 	_nufus.text = tr("arayuz.hud.nufus") % [y.nufus(), y.yatak_kapasitesi(), k.toplam(), k.kapasite]
 
 

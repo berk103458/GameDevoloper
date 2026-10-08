@@ -198,8 +198,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **MEV-10:** Kış Kurt Sürüsü Saldırıları — Aç kurtlar ağıla; muhafız meşale/mızrak nöbeti. (Codex)
 
 - [x] **MEV-11:** `gece_sonu` Mevsim Odun Tüketim Adaptörü (`src/dunya/mevsim_tuketim_adaptoru.gd`) — Soğukta kişi başına +1 odun; karşılanamazsa sağlık kaybıyla donma (EKO-09 ortak hesabı). **≡ MEV-02 / EKO-09** (ayrı ekonomi paketi değil; mevsim yüzeyi). (Codex; EKO-09)
-- [/] **MEV-12:** Mevsim / Takvim HUD (`src/arayuz/koy_hud/mevsim_takvim.gd` — **taslak hedef yol**) — Güncel mevsim, yıl günü ve kısa hava durumu göstergesi. (Codex)
-- [ ] **MEV-13:** Soğuk Salgın Baskısı — Sert kışta hastalık riski ↑ → şifahane doluluk ve iş gücü düşüşü (KRI/saglik bağının mevsim tetikleyicisi; **taslak**).
+- [x] **MEV-12:** Mevsim / Takvim HUD (`src/arayuz/koy_hud/mevsim_takvim.gd` — **taslak hedef yol**) — Güncel mevsim, yıl günü ve kısa hava durumu göstergesi. (Codex)
+- [/] **MEV-13:** Soğuk Salgın Baskısı — Sert kışta hastalık riski ↑ → şifahane doluluk ve iş gücü düşüşü (KRI/saglik bağının mevsim tetikleyicisi; **taslak**). (Codex)
 - [ ] **MEV-14:** Kış Ahır / Ağıl Saman İhtiyacı — Saman yoksa hayvan ölümü; ambar/sürü kaybı olayı (**taslak**).
 - [ ] **MEV-15:** Fırtınada Kapı Kuyruk Daralması — Tipi/fırtınada kuyruk kapasitesi 3→1/0; kalan NPC'lerde gerginlik ↑ (MEV-09 tamamlayıcı; **taslak**).
 
