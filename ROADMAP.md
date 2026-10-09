@@ -8,6 +8,28 @@
 
 **Doküman notu (Cursor, 7 Ekim 2026):** Eksik asset envanteri çıkarıldı: `docs/EKSIK_ASSET_ENVANTERI.md`. Oyun özelliği kapatılmadı; görsel, ses ve model üretilmedi.
 
+## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)
+
+**Görev düzeni (kullanıcı talimatı, 9 Ekim 2026):** Claude Code proje yöneticisidir; Codex uygulayıcıdır. Codex limiti dolunca maddeyi Claude kendisi yazar. Eski "Claude devri iptal" kuralının yerine geçer (bkz. `AGENTS.md`).
+
+**Her madde için zorunlu akış:** başlarken ROADMAP `[/]` + kim çalışıyor → hemen push · Codex/Claude uygular (yeni dosya + ince adaptör) · Claude diff incelemesi · `tools/sanity_check.py` tam paket 0 hata · Godot görünür pencerede oyunda inceleme · `[x]` + kim yaptı · commit/push · kanonik kopya = ayna = GitHub ve ROADMAP doğrulaması.
+
+**Kopyalar:** kanonik `C:\Users\ds\Documents\Codex\2026-10-06\c\GameDevoloper` · ayna `C:\Users\ds\Documents\GitHub\GameDevoloper` · dal `claude/festive-volta-li1sfm`.
+
+| Madde | Ne yapıldı | Kim | Commit | Ana dosyalar | Doğrulama |
+|---|---|---|---|---|---|
+| HAR-12 | Tekfur/Moğol heyeti kapı kuyruğu başında, dinlemeden geçilemez; ödeme yalnız kamu akçesi+buğday | Codex yazdı · Claude doğruladı | `3411594` | `src/sistemler/diplomatik_heyet.gd`, `src/arayuz/heyet_kapi_paneli.gd` | sanity 275/0 |
+| HAR-13 | Gözcü öngörüsünde ertesi gün kafile özeti (yolcu/tüccar/heyet), Harita › Hisar | Codex yazdı · Claude doğruladı | `f21177d` | `src/sistemler/gozcu_kafile_ozeti.gd` | sanity 277/0 · görünür Godot |
+| HAR-14 | Pusu (göç yolu) temizliği sonrası 3 gün esnaf ağırlığı +1 (tavan 3); tekrar bonus yok | Codex yazdı · Claude doğruladı | `90a9b8e` | `src/koy/ticaret/pusu_ticaret_akisi.gd` | sanity 279/0 · görünür Godot |
+| HAR-15 | Konuşlanmış muhafız → Güvenlik: kişi başı ⌊(beceri+rol)×sağlık/100⌋ − nöbet payı, tavan +20 | Codex yazdı · Claude doğruladı | `d12a577` | `src/koy/savunma_guvenligi.gd` | sanity 281/0 · görünür Godot |
+| KRI-01 | Hasta sığınmacıdan ortak binada veba/humma bulaşması; gizli kuluçka, Şifahane tedavisi, kartta belirti | Codex başlattı · limit doldu · Claude tamamladı | `cfbb668` | `src/koy/saglik_yoneticisi.gd` | sanity 283/0 · görünür Godot |
+| KRI-02 | Şifahane karantinası: 2 gün, temas/çalışma engeli, atama korunur, gizli hasta ifşa edilmez | Codex yazdı · Claude doğruluyor | — | `src/koy/karantina_yoneticisi.gd`, `src/arayuz/koy_hud/karantina_paneli.gd` | `[/]` sanity sürüyor |
+<!-- PANO_TABLO_SON -->
+
+**Sıradaki:** KRI-02 kapanışı → KRI-03 (hekim/ilaç) → … → KRI-15 → SYS-16 … SYS-20.
+
+Ayrıntılı günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md`.
+
 ---
 
 ## BÖLÜM 0: Geliştirici Admin Paneli ve Hızlı Test Araçları
