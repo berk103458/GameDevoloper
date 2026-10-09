@@ -2,6 +2,7 @@
 
 KRI-03 hekim/ilaç uzantısı: [Hekim yetkinliği ve ilaç üretimi](hekim-ilac.md).
 KRI-04 su kaynaklı tifo uzantısı: [Kuyu kirlenmesi ve kireçleme](kuyu-kirliligi.md). Tifo aynı enfeksiyon/hasar/tedavi motorunu kullanır; kişiler arasında bulaşmaz. Temas ve su vakaları gecelik iki yeni vaka sınırını paylaşır.
+KRI-05 ölüm/yas uzantısı: [Toplu mezar ve cenaze töreni](cenaze-yasi.md). Salgın töreni yaşayan katılımcılara mevcut temas kapısıyla ortak temas ekler; üç temas/iki yeni vaka, karantina ve aynı RNG korunur. Ölü kaynak ve ikinci bulaşma sistemi yoktur.
 
 **Durum:** Uygulandı (Codex başlattı, limit dolunca Claude tamamladı) · 9 Ekim 2026
 **Dosya:** `src/koy/saglik_yoneticisi.gd` (`SaglikYoneticisi`)

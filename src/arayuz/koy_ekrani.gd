@@ -91,6 +91,7 @@ func _ready() -> void:
 	_ipucu.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	add_child(_ipucu)
 	_yenile()
+	CenazeRaporu.yukleme_karti(self)
 
 ## Ana ekran ses adaptörü; ışığın ilk gunduz fazıyla aynı başlar.
 func ortam_baslat() -> void:
@@ -630,6 +631,7 @@ func _bant_ciz() -> void:
 # ── Gece (Faz 3) ve rapor kartı (14.3–14.4) ───────────────────────────────────────────────────────
 
 func _geceye_gec() -> void:
+	if CenazeYasi.bekliyor(_y): return
 	if not _gece_kilidi.al():
 		return
 	_gece_dugmesi.disabled = true
@@ -652,16 +654,19 @@ func _geceye_gec() -> void:
 	_etiket(v, tr("koy.rapor.uretim") % (", ".join(parca) if not parca.is_empty() else "—"), Tema.KUCUK_PX)
 	var tuk: Dictionary = r["tuketim"]
 	_etiket(v, tr("koy.rapor.tuketim") % [int(tuk.get("gida", 0)), int(tuk.get("odun", 0))], Tema.KUCUK_PX)
-	_etiket(v, tr("koy.rapor.akce") % [int(r["akce_once"]), int(r["akce"])], Tema.KUCUK_PX)
-	_etiket(v, tr("koy.rapor.huzur") % int(r["huzur"]), Tema.KUCUK_PX)
+	_etiket(v, tr("koy.rapor.akce") % [int(r["akce_once"]), int(r["akce"])], Tema.KUCUK_PX).name = "gece_akce"
+	_etiket(v, tr("koy.rapor.huzur") % int(r["huzur"]), Tema.KUCUK_PX).name = "gece_huzur"
 	for o in r["olaylar"]:
 		var l := _etiket(v, IflasYoneticisi.olay_metin(o), Tema.KUCUK_PX)
+		if o.get("cenaze_yasi", false): l.name = "gece_yas"
 		l.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		l.custom_minimum_size.x = 900
 	var tamam := _dugme(tr("koy.rapor.sabah"), v)
+	CenazeRaporu.ekle(self, v, tamam, r, sonuc)
 	tamam.grab_focus.call_deferred()
 	tamam.pressed.connect(func() -> void:
+		if CenazeYasi.bekliyor(_y): return
 		_kart_kapat()
 		if sonuc["son"] != &"":
 			oturum_bitti.emit(sonuc["son"])

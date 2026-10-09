@@ -1,8 +1,15 @@
+## Claude — KRI-05 kapandı / KRI-06 sırada (9 Ekim 2026)
+Ölüm olan gecenin raporunda Toplu mezar / Cenaze töreni seçimi (seçilmeden sabaha geçilmez; otomatik oyuncuda ücretsiz toplu mezar). Yas: ölü başına −3 moral, tavan −12, 2 gün, yığılmaz, kesilen miktar geri verilir. Tören: ölü başına 2 erzak + 2 akçe (tavan 6), yası yarıya indirir, katılanlar o gün −%10 üretim, salgında katılımcılar arası temas KRI-01 kapısıyla. Salgında toplu mezar kuyu kirliliği (KRI-04). Mezar kutu yer tutucu. Doğrulama: tam sanity 291 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset: kutu yer tutucu (envanter KRI05-MEZAR). Ahmet kopyası (C:/Users/Ahmet/...) bu makinede yok; güncellenmedi — Muharrir/Ahmet güvenli pull yapmalı.
+
+## Claude — kural uyum düzeltmesi (9 Ekim 2026)
+- **KRI-03 asset kaydı:** `0a808a2` commit başlığında yanlışlıkla "asset gerekmedi" yazıldı. Doğrusu: ilaç kaynak ikonu kutu yer tutucu, `docs/EKSIK_ASSET_ENVANTERI.md` G tablosunda `KRI03-ILAC` olarak kayıtlı (aynı commit'te). Force-push yetkisi olmadığından commit mesajı değiştirilmedi; ROADMAP/pano/rapor düzeltildi.
+- **Ahmet kopyası:** `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` bu makinede yok; HAR-12…KRI-04 commitleri sonrası Ahmet kopyası **güncellenmedi**. Muharrir/Ahmet güvenli pull yapmalı. Bundan sonraki her kapanışta bu not yazılır.
+
 ## Claude — KRI-04 kapandı / KRI-05 sırada (9 Ekim 2026)
 Taşkın, CAS kuyu sabotajı, debug enjektörü veya hasta yoğunluğu (≥3 kişi ve ≥%25) kuyuyu 3 gece kirletir; kirli kuyudan taze su içenlerde %25 tifo (KRI-01 motorunda su kaynaklı, kişiler arası bulaşmaz, gece 2 vaka sınırı paylaşılır); meydan kuyusu/su binası bilgisinden ve pazardan 2 kireçle acil dezenfeksiyon; fail kimliği ifşa edilmez. Doğrulama: tam sanity 289 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
 
 ## Claude — KRI-03 kapandı / KRI-04 sırada (9 Ekim 2026)
-Şifahanede çalışan yetkin hekim (CHR_008 otacı Dudu / CHR_003 cerrah Haydar; adsız usta cerrah/otacı) bulaşıcı hastalık sağlık kaybını ×0,20 yapar (veba −12→−2); Şifahaneye ilaç reçetesi (1 afyon + 1 su), ilaçla tedavi +25 sağlık, ilaç yoksa eski 2 erzak/+10. BİLİNEN SORUN (eski, KRI-03 dışı): bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378 esnaf→demirci), CHR_008 'usta demirci' görünüyor. Doğrulama: tam sanity 287 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
+Şifahanede çalışan yetkin hekim (CHR_008 otacı Dudu / CHR_003 cerrah Haydar; adsız usta cerrah/otacı) bulaşıcı hastalık sağlık kaybını ×0,20 yapar (veba −12→−2); Şifahaneye ilaç reçetesi (1 afyon + 1 su), ilaçla tedavi +25 sağlık, ilaç yoksa eski 2 erzak/+10. BİLİNEN SORUN (eski, KRI-03 dışı): bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378 esnaf→demirci), CHR_008 'usta demirci' görünüyor. Doğrulama: tam sanity 287 PASS / 0 hata / 20 gece; görünür Godot incelemesi; kutu yer tutucu (envanter KRI03-ILAC).
 
 ## Claude — KRI-02 kapandı / KRI-03 sırada (9 Ekim 2026)
 Şifahane karantinası: köylü kartından 2 gün (1 erzak, kişisel moral −2), kontenjan işler Şifahane hekimine bağlı 2–4; karantinadaki kişi bulaştırmaz/bulaşmaz, çalışmaz, maaş/inşaat/savunmaya sayılmaz, iş/ev ataması korunur, süre sonunda döner; gizli kuluçka ifşa edilmez. Doğrulama: tam sanity 285 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.

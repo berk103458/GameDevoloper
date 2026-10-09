@@ -63,6 +63,7 @@ def checks(godot, root):
         yield scene, [godot, "--headless", "--path", str(root), f"tests/oto/{scene}.tscn"], "GEÇTİ"
     yield "hekim_ilac_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/hekim_ilac_kontrol.tscn"], "GEÇTİ"
     yield "kuyu_kirliligi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/kuyu_kirliligi_kontrol.tscn"], "GEÇTİ"
+    yield "cenaze_yasi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/cenaze_yasi_kontrol.tscn"], "GEÇTİ"
     yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
 
 

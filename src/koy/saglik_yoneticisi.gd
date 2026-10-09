@@ -73,7 +73,7 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> int:
 		var temas := 0
 		for aday in kisiler:
 			if yeni >= AZAMI_YENI or temas >= AZAMI_TEMAS: break
-			if aday == kaynak or hasta(aday) or denenen.has(aday.id) or not temas_edebilir(y, aday) or not ortak_bina(y, kaynak, aday): continue
+			if aday == kaynak or hasta(aday) or denenen.has(aday.id) or not temas_edebilir(y, aday) or not (ortak_bina(y, kaynak, aday) or CenazeYasi.ortak_toren(y, kaynak, aday)): continue
 			denenen[aday.id] = true
 			temas += 1
 			if y._rng.randi_range(1, 100) > int(AYAR[kaynak.enfeksiyon.tur].risk): continue

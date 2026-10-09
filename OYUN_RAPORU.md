@@ -1,5 +1,8 @@
 # Kapı Muhafızı — Oyun Raporu (yerel)
 
+## 9 Ekim 2026 — KRI-05 uygulama (Codex; Claude yönetimi)
+Mevcut tek ölüm taraması/olenler üzerinden aynı gece raporuna cenaze seçimi: ücretsiz Toplu mezar veya en fazla6 erzak+6 kamu akçesiyle Cenaze töreni. Ölüm sayısı×3/tavan12 geçici moral kaybı iki gün sürer, yığılmaz; tören yeni kaybı yarıya indirir, gerçek kesinti makbuzuyla süre sonunda iade edilir. Tören en fazla6 yetişkinde yalnız bir gece üretim×0,9; salgın teması mevcut KRI-01 kapı/üç temas/iki vaka/aynı RNG yolundadır. Salgın toplu mezarı mevcut KRI-04 kirlet API'sini kullanır; normal kıtlık/donma mezarı kirletmez. Optional pending/aktif/bitmiş kayıt legacy güvenli; rapor/HUD/bilanço ve tek BoxMesh mezar güncellenir. Yeni helper/panel/görsel, birim ve gerçek ölüm→rapor seçimi→iki gün→GuvenliKayit sahnesi sanity listesinde. Tasarım design/gdd/cenaze-yasi.md; test kanıtı codex.md/Codex.md ve work/kri05/. KRI05-MEZAR asset envanterinde; asset üretilmedi/indirilmedi. ROADMAP `[/]` korunur; yalnız kanonik kopya, ayna/commit/push/.import değişikliği yok. Kapanış Claude Code incelemesindedir.
+
 ## 9 Ekim 2026 — KRI-03 uygulama (Codex; Claude yönetimi)
 Mevcut Şifahanede çalışan CHR_003/008 veya adsız usta cerrah/otacı, bulaşıcı hastalık hasarına tek ×0,20 çarpan uygular; ölüm mevcut sağlık taramasında kalır. Mevcut reçeteden 1 afyon+1 su ile ilaç üretimi; bulaşıcı tedavide 1 ilaç/+25 sağlık, ilaçsız eski 2 erzak/+10 sağlık. Yanık/kış/salgın kotası ortaktır. Kart ve Şifahane bilgisi etkinlik/stoğu gösterir, gizli kimlik veya kuluçka açılmaz. Yeni HekimIlac/HekimIlacBilgisi + ince adaptörler, birim ve gerçek kart/reçete/gece/sabah/kayıt/karantina otomasyonu sanity listesinde. Tasarım: design/gdd/hekim-ilac.md; test kanıtı codex.md/Codex.md ve work/kri03/. İlaç ikonu mevcut ColorRect; KRI03-ILAC envanteri güncel, asset üretilmedi. ROADMAP `[/]` değiştirilmedi; kullanıcı talimatıyla yalnız kanonik kopya, ayna/commit/push/.import değişikliği yok.
 
@@ -1635,3 +1638,11 @@ Taşkın, CAS kuyu sabotajı, debug enjektörü veya hasta yoğunluğu (≥3 ki�
 Doğrulama (Claude): tam sanity 289 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
 
 Sıradaki: KRI-05. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+
+## Codex + Claude — KRI-05 (9 Ekim 2026)
+
+Ölüm olan gecenin raporunda Toplu mezar / Cenaze töreni seçimi (seçilmeden sabaha geçilmez; otomatik oyuncuda ücretsiz toplu mezar). Yas: ölü başına −3 moral, tavan −12, 2 gün, yığılmaz, kesilen miktar geri verilir. Tören: ölü başına 2 erzak + 2 akçe (tavan 6), yası yarıya indirir, katılanlar o gün −%10 üretim, salgında katılımcılar arası temas KRI-01 kapısıyla. Salgında toplu mezar kuyu kirliliği (KRI-04). Mezar kutu yer tutucu.
+Doğrulama (Claude): tam sanity 291 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset: kutu yer tutucu (envanter KRI05-MEZAR).
+
+Sıradaki: KRI-06. Görev düzeni: Claude yönetir/doğrular, Codex uygular.

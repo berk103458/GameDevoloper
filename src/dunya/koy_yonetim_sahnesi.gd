@@ -186,6 +186,7 @@ func yenile() -> void:
 	arazi.maske_guncelle()
 	arazi.kuruluk_ayarla(KURULUK[clampi(yonetim.mevsim(), 0, KURULUK.size() - 1)])
 	_meydan_kur()
+	CenazeMezari.kur(self, _yapilar)
 	for b in yonetim.binalar:
 		var n := _bina_dugumu(b)
 		n.position = alan_merkezi(b.hucre, b.boyut(yonetim.katalog))
