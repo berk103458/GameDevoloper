@@ -1,3 +1,6 @@
+## Claude — HAR-14 kapandı / HAR-15 sırada (9 Ekim 2026)
+Başarılı göç yolu (pusu) temizliği sonrası 3 gün boyunca esnaf seçim ağırlığı +1 (tavan 3); mevcut HAR-11 ağırlıklarına ince adaptör, ikinci takvim yok, aynı temizlik iki kez bonus vermez, kayıtta optional alan; pazar/harita/gözcü özetinde görünür. Doğrulama: tam sanity 279 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
+
 ## Claude — HAR-13 kapandı / HAR-14 sırada (9 Ekim 2026)
 Gözcü öngörüsü ertesi günün kafile özetini (yolcu/tüccar/heyet sayısı ve öncelikli heyetler) mevcut Hisar bilgi alanında gösterir; aynı izole kuyruktan üretilir, RNG/stok/kasa/makbuz değişmez, gizli CHR verisi gösterilmez. Doğrulama: tam sanity 277 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
 

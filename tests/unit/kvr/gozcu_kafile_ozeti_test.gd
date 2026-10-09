@@ -67,7 +67,7 @@ func _initialize() -> void:
 	gizli.adli=true; gizli.id=&"chr_002"; gizli.ad_anahtari="GIZLI_KIMLIK"
 	gizli.tehlikeli=true; gizli.gizli_bayraklar=PackedStringArray(["GIZLI_NIYET"])
 	var guvenli := OZET.kuyruktan([gizli])
-	dene(guvenli=={"toplam":1,"yolcu":1,"tuccar":0,"heyetler":[]} and not JSON.stringify(guvenli).contains("GIZLI") and not OZET.metin(guvenli).contains("chr_"),"Gizli CHR kimliği/niyeti/sorgusu dışarı çıkmaz")
+	dene(guvenli=={"toplam":1,"yolcu":1,"tuccar":0,"ticaret_yolcusu":0,"heyetler":[]} and not JSON.stringify(guvenli).contains("GIZLI") and not OZET.metin(guvenli).contains("chr_"),"Gizli CHR kimliği/niyeti/sorgusu dışarı çıkmaz")
 	dene(not gizli._chr_kontrol_edildi,"Özet CHR sorgusunu açmaz")
 	dene(OZET.kuyruktan([]).toplam==0 and OZET.metin(OZET.kuyruktan([])).contains("ziyareti yok"),"Gerçek boş kuyruk açıkça belirtilir")
 	d.ozet.heyetler.clear()

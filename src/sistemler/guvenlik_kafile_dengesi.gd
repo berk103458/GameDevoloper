@@ -1,6 +1,7 @@
 ## HAR-11: mevcut uygun kadro ve adsız sınıf seçiminin Güvenlik ağırlıkları.
 class_name GuvenlikKafileDengesi
 extends RefCounted
+const TICARET_AKISI = preload("res://src/koy/ticaret/pusu_ticaret_akisi.gd")
 static var AYAR: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/guvenlik_kafile_dengesi.json"))
 ## Gerçek CAS profil kümesi; seçim riski oyuncuya suç kanıtı/kimlik açıklaması değildir.
 static func adli_agirliklar(o: Oturum,ids: Array[StringName]) -> Array[float]:
@@ -10,13 +11,14 @@ static func adli_agirliklar(o: Oturum,ids: Array[StringName]) -> Array[float]:
   var n:=1.0
   if guvenlik<int(AYAR.dusuk_esik) and String(id) in AYAR.risk_profilleri: n=float(AYAR.risk_agirlik)
   elif guvenlik>int(AYAR.yuksek_esik) and o.katalog.karakter(id).sinif==StringName(AYAR.ticaret_sinifi): n=float(AYAR.ticaret_agirlik)
-  w.append(n)
+  w.append(TICARET_AKISI.agirlik(o,o.katalog.karakter(id).sinif,n))
  return w
 ## KAP01 hazır diyalog sırası korunur; yalnız eski rastgele şablon sınıfları.
 static func sinif_agirliklar(o: Oturum) -> Array[float]:
  var w: Array[float]=[]
  for s in Katalog.SINIFLAR:
-  w.append(float(AYAR.ticaret_agirlik) if o.gosterge(3)>int(AYAR.yuksek_esik) and s==StringName(AYAR.ticaret_sinifi) else 1.0)
+  var taban := float(AYAR.ticaret_agirlik) if o.gosterge(3)>int(AYAR.yuksek_esik) and s==StringName(AYAR.ticaret_sinifi) else 1.0
+  w.append(TICARET_AKISI.agirlik(o,s,taban))
  return w
 ## Ağırlıklı olasılık aralığı; oyun state/RNG değiştirmez. Son sınıf üst sınırı karşılar.
 static func aralik(w: Array[float],zar: float) -> int:

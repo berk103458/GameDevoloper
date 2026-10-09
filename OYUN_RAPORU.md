@@ -1,5 +1,8 @@
 # Kapı Muhafızı — Oyun Raporu (yerel)
 
+## 9 Ekim 2026 — HAR-14 uygulama (Codex; Claude yönetimi)
+Başarılı HAR-05 temizliği mevcut HAR-11 esnaf ağırlığına sonraki üç gün +1 (tavan3) verir; tek optional kayıt, mükerrer başarı koruması ve sınırlı yenileme. Mevcut uzman takvimi/kapı makbuzu korunur; HAR-13 normal ticaret yolcusunu ayrıca gösterir. Yeni helper/veri, minimal adaptörler, birim ve gerçek UI akış sahnesi; ayrıntı design/gdd/pusu-ticaret-akisi.md ve codex.md/Codex.md. Asset gerekmedi. ROADMAP `[/]`; bu görev yalnız kanonik kopyada, commit/push/ayna/`.import` yazımı olmadan teslim edilir. Aşağıdaki eski rapor tarihsel bağlamdır.
+
 **Dal:** `claude/festive-volta-li1sfm` @ `de421a6` (origin ile eşit)
 **Tarih:** 6 Ekim 2026 ~21:30 Europe/Istanbul
 **Güncel talimat:** Değişiklikler iki yerel kopyada biriktirilir; Ahmet commit demeden stage/commit/push yapılmaz. Aşağıdaki önceki ortam raporu tarihsel bağlamdır.
@@ -1569,3 +1572,11 @@ Gözcü öngörüsü ertesi günün kafile özetini (yolcu/tüccar/heyet sayıs�
 Doğrulama (Claude): tam sanity 277 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
 
 Sıradaki: HAR-14. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+
+## Codex + Claude — HAR-14 (9 Ekim 2026)
+
+Başarılı göç yolu (pusu) temizliği sonrası 3 gün boyunca esnaf seçim ağırlığı +1 (tavan 3); mevcut HAR-11 ağırlıklarına ince adaptör, ikinci takvim yok, aynı temizlik iki kez bonus vermez, kayıtta optional alan; pazar/harita/gözcü özetinde görünür.
+Doğrulama (Claude): tam sanity 279 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
+
+Sıradaki: HAR-15. Görev düzeni: Claude yönetir/doğrular, Codex uygular.

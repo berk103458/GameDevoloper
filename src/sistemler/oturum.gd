@@ -729,6 +729,7 @@ func kaydet() -> Dictionary:
 		"mogol_oncusu": MogolOncusu.oku(mogol_oncusu),
 		"sancak_asker_talebi": SancakAskerTalebi.oku(sancak_asker_talebi),
 		"goc_yolu_guvenligi": GocYoluGuvenligi.oku(goc_yolu_guvenligi),
+		"pusu_ticaret_akisi": preload("res://src/koy/ticaret/pusu_ticaret_akisi.gd").durum(self),
 		"oba_ittifaki": ObaIttifaki.oku(oba_ittifaki),
 		"haberci_agi": HaberciAgi.oku(haberci_agi), "diplomatik_heyet": DiplomatikHeyet.durum(self),
 		"muhafiz_yetenekleri": MuhafizYetenekleri.oku(muhafiz_yetenekleri),
@@ -771,6 +772,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.mogol_oncusu = MogolOncusu.oku(veri.get("mogol_oncusu"))
 	o.sancak_asker_talebi = SancakAskerTalebi.oku(veri.get("sancak_asker_talebi"))
 	o.goc_yolu_guvenligi = GocYoluGuvenligi.oku(veri.get("goc_yolu_guvenligi"))
+	o.set_meta(&"har14_ticaret_akisi", preload("res://src/koy/ticaret/pusu_ticaret_akisi.gd").oku(veri.get("pusu_ticaret_akisi")))
 	o.oba_ittifaki = ObaIttifaki.oku(veri.get("oba_ittifaki"))
 	o.haberci_agi = HaberciAgi.oku(veri.get("haberci_agi"))
 	o.set_meta(DiplomatikHeyet.META, DiplomatikHeyet.oku(veri.get("diplomatik_heyet")))

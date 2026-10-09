@@ -1,6 +1,7 @@
 ## HAR-05: mevcut husumeti gerçek muhafızlarla azaltır; aynı kuyruğa ek göç ziyareti.
 class_name GocYoluGuvenligi
 extends RefCounted
+const TICARET_AKISI = preload("res://src/koy/ticaret/pusu_ticaret_akisi.gd")
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/goc_yolu_guvenligi.json"))
 ## Optional görev/ziyaret makbuzu; kayıt ikinci nüfus veya tehdit üretmez.
 static func oku(v: Variant) -> Dictionary:
@@ -47,6 +48,7 @@ static func temizle(o: Oturum) -> Dictionary:
 		o.yonetim.asayis_riski=mini(100,o.yonetim.asayis_riski+int(AYAR.basarisiz_asayis_artir))
 		r.metin=String(AYAR.basarisiz_metin)
 	o.goc_yolu_guvenligi=d
+	if r.basari: TICARET_AKISI.basari(o)
 	return r
 ## Başarı makbuzuyla her gerçek gün bir normal Gelen; kabul/ret ve heybe eski kuyruğa bırakılır.
 static func ziyaret(o: Oturum,kuyruk: Array[Gelen]) -> void:
@@ -67,6 +69,8 @@ static func tip(o: Oturum) -> String:
 	for k in a.slice(0,int(AYAR.mufreze_adet)): guc+=k.stat
 	var s := String(AYAR.tip)%[o.yonetim.husumet.puan,a.size(),int(d.bekleyen),int(AYAR.gorev_saglik),guc,int(AYAR.guc_esik)]
 	if d.sonuc!="": s+="\n"+String(AYAR.basari_metin if d.sonuc=="basari" else AYAR.basarisiz_metin)
+	var ticaret := TICARET_AKISI.tip(o)
+	if not ticaret.is_empty(): s+="\n"+ticaret
 	return s
 static func _tam(v: Variant,ust: int) -> int:
 	if (v is int or v is float) and is_finite(float(v)) and floor(float(v))==float(v) and float(v)>=0 and float(v)<=ust: return int(v)

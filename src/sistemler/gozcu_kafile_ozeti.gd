@@ -3,7 +3,7 @@ extends RefCounted
 
 ## Tüm kuyruk sayılır; CHR kimliği, niyet, heybe ve sorgu verisi okunmaz.
 static func kuyruktan(liste: Array[Gelen]) -> Dictionary:
-	var d := {"toplam":liste.size(), "yolcu":0, "tuccar":0, "heyetler":[]}
+	var d := {"toplam":liste.size(), "yolcu":0, "tuccar":0, "ticaret_yolcusu":0, "heyetler":[]}
 	for g in liste:
 		var b := DiplomatikHeyet.bilet(g)
 		if not b.is_empty():
@@ -13,6 +13,7 @@ static func kuyruktan(liste: Array[Gelen]) -> Dictionary:
 			d.tuccar += 1
 		else:
 			d.yolcu += 1
+			if g.sinif == StringName(GuvenlikKafileDengesi.AYAR.ticaret_sinifi): d.ticaret_yolcusu += 1
 	return d
 
 static func metin(d: Dictionary) -> String:
@@ -22,5 +23,6 @@ static func metin(d: Dictionary) -> String:
 		"Kafile özeti: %d kapı ziyareti" % int(d.toplam),
 		"Yolcu: %d · Gezgin tüccar: %d · Heyet: %d" % [int(d.yolcu), int(d.tuccar), d.heyetler.size()]
 	])
+	if int(d.get("ticaret_yolcusu",0)) > 0: satirlar.append("Yolcuların içinde ticaret yolcusu (esnaf): %d" % int(d.ticaret_yolcusu))
 	for ad in d.heyetler: satirlar.append("Öncelikli heyet: " + String(ad))
 	return "\n".join(satirlar)
