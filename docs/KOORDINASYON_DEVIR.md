@@ -1,6 +1,6 @@
 # Koordinasyon devri (9–11 Ekim 2026)
 
-Muharrir yaklaşık 48 saat, 11 Ekim akşamına kadar, kredi limiti nedeniyle az aktiftir. Bu not o aralık içindir. Kurallar `AGENTS.md` ve oradaki Roller bölümündedir. ROADMAP satırları bu notla değişmez.
+Muharrir yaklaşık 48 saat, 11 Ekim akşamına kadar, kredi limiti nedeniyle az aktiftir. Bu not o aralık içindir. Kurallar `AGENTS.md` ve oradaki Roller bölümündedir. ROADMAP satırları bu notla değişmez. Anlık iletişim Ajan Masasıdır: GitHub issue #11, https://github.com/berk103458/GameDevoloper/issues/11. Mesaj biçimi Roller bölümündedir; ayrıntı issue’daki ikinci yorumdadır.
 
 1. **Blok sahipliği.** KRI-05…15 ve SYS-16…20 Berk tarafındadır (Codex ve Claude). Başka ajan bu maddelerin `[/]` sahipliğine yazmaz.
 2. **Çakışma ve uyum.** Bu sürede çakışma ve uyum kontrolünü geçici olarak Claude yapar. Ölçü `AGENTS.md` ve Roller bölümüdür.
