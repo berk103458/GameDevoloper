@@ -1,0 +1,16 @@
+{
+  "dusuk_esik": 4,
+  "yuksek_esik": 7,
+  "risk_agirlik": 3.0,
+  "ticaret_agirlik": 2.0,
+  "ticaret_sinifi": "esnaf",
+  "risk_profilleri": [
+    "chr_001",
+    "chr_002",
+    "chr_004",
+    "chr_005",
+    "chr_006",
+    "chr_009",
+    "chr_010"
+  ]
+}

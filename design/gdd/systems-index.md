@@ -406,3 +406,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Haberci güvercin ve ulak](haberci-agi.md) — HAR-09, gerçek açık kriz raporları aynı olay kartında yazılı anlatı.
 
 - [Savunma taktik konuşlanması — HAR-10](savunma-konuslanmasi.md): mevcut muhafız/kart/devriye; HAR15 formülü ayrı.
+
+- [Güvenlik ve kafile dengesi — HAR-11](guvenlik-kafile-dengesi.md): gerçek uygun kadro/sınıf seçiminde ağırlık; KAP01/tüccar takvimi korunur.

@@ -260,8 +260,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **HAR-09:** Haberci Güvercin ve Ulak Sistemi — Harita krizlerinin köye anlatı sahneleri. (Codex)
 - [x] **HAR-10:** 2. Perde Savunma Savaşı Taktik Konuşlanması — Sur okçu / kapı mızraklı yerleştirme. (Codex)
 
-- [/] **HAR-11:** Güvenlik Eşiği Kafile / Çete Dengesi — Güvenlik <4 → casus/çete uğrama ↑; Güvenlik >7 → tüccar uğrama ↑ (**taslak**; kapı kuyruğu + Güvenlik bağ). (Codex)
-- [ ] **HAR-12:** Tekfur / Moğol Heyeti Kuyruk Başı Zorunlu — Diplomatik/askeri heyetler kapı kuyruğunda öne alınır; atlanamaz (**taslak**).
+- [x] **HAR-11:** Güvenlik Eşiği Kafile / Çete Dengesi — Güvenlik <4 → casus/çete uğrama ↑; Güvenlik >7 → tüccar uğrama ↑ (**taslak**; kapı kuyruğu + Güvenlik bağ). (Codex)
+- [/] **HAR-12:** Tekfur / Moğol Heyeti Kuyruk Başı Zorunlu — Diplomatik/askeri heyetler kapı kuyruğunda öne alınır; atlanamaz (**taslak**). (Codex)
 - [ ] **HAR-13:** Gözcü Ertesi Gün Kafile Önizleme — HAR-06 tamamlayıcı: ertesi günün kafile/heyet özeti HUD/harita notu (**taslak hedef**).
 - [ ] **HAR-14:** Müfreze Pusu Temizliği → Tüccar Akışı ↑ — HAR-05 tamamlayıcı: başarılı pusu temizliği sonrası tüccar uğrama artışı (**taslak**).
 - [ ] **HAR-15:** 2. Perde Savunma Formülü → Güvenlik — HAR-10 tamamlayıcı; savunma konuşlanmasının Güvenlik skoruna etkisi. **Not (Gemini):** [ ] **BEKLEMEDE** — formül kanıtsız/taslak; "kodda var" geri çekildi.

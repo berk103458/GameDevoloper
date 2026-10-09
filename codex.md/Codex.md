@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-9 Ekim 2026. Kontrol edilen son commit: 4a8293b (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 4a8293b. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+9 Ekim 2026. Kontrol edilen son commit: ed67391 (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: ed67391. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -186,15 +186,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - HAR-08: 109 regression checks PASS; real Cete Pazar unit/headless/native/mirror, public payment and existing loot protection; no new assets required; G verified.
 - HAR-09: 111 regression checks PASS; actual night public reports to same event card unit/headless/native/mirror; bounded receipts, original priorities; ColorRect placeholders in G.
 - HAR-10: Tactical placement of real guards via existing villager card, patrol and sockets; bounded optional ledger, constraints, 123 regressions and final native/mirror passed; box placeholders inventoried; HAR15 formula unchanged.
+- HAR-11: Security thresholds weight only existing eligible CHR and fallback class; neutral RNG preserved, 40 relevant regressions and native/mirror passed; asset gerekmedi.
 
 ## Sonraki çalışma
-HAR-11. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+HAR-12. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -326,5 +329,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## HAR-10 doğrulaması / HAR-11 planı (9 Ekim2026)
-HAR-10 kapandı: 123 regresyon sıfır hata, import/birim/gerçek köylü kartı headless/native ve ds ayna geçti. İkinci perde gerçek muhafızın aynı köylü kartında Devriye/Kapı mızraklısı/Sur okçusu; kapı2,sur4 ve sağlık50 dış JSON denge varsayımları. Optional sınırlı64 metadata/save/load; eski devriye API optional kişi argümanıyla korunur, aynı A* ve mevcut zemindeki iç kule/kapı hedefi; dikey sur tırmanışı/teleport yok. Yaş/hastalık/zindan/borç/dış görev/uyuklama/isyan/terminal/surhasarı süzülür; pasif atama saklanır, dönüşte kararlı ID kontenjanı, Devriye temizler. İş/nüfus/kasa/RNG ve mevcut savunma_gucu değişmez; HAR15 formülü henüz tamamlanmadı. Gerçek el soketinde tek düz kutu taktik yay/mızrak; rol kalkınca eski silah döner, çift NPC/donanım/HUD yok. koy_halk_hareketi yalnız çağrı bağlantıları; KarakterModel/Oturum/Ses/CSV değişmedi. G HAR10-YAY/HAR10-MIZRAK aynı pakette doğrulandı; asset üretimi/indirme yok. İlk testin isyan fixtureı sinif yerine gerçek zanaat_turu ile düzeltildi; üretim kuralı değiştirilmedi. İlk sahne testi Variant inference parse nedeniyle timeout oldu; açık Variant tipiyle düzeltildi, başarısız sayıldı. Native screenshot scroll testi yalnız gerçek ancestor üzerinde düzeltildi, final0ERROR/0SCRIPT. Kontrol edilen son commit4a8293b. HAR-11 [/] (Codex): mevcut 0–10 Güvenlik göstergesi (KervanKorumasi.guvenlik/10), <4 gerçek uygun casus/çete CHR seçim ağırlığı artışı; >7 mevcut esnaf/tüccar adayları artışı. Aynı uygunlar/dönüş/iste/kapı kuyruk API; kaynak CHR profilleri dış konfigürasyon, gizli kimlik kanıt/UI olmaz. Normal4–7 RNG akışı korunur; hazır JSON diyalog KAP01 ve uzman tüccar takvimi değişmez. Yeni helper+ince seçim adaptörü; mekanik henüz yazılmadı. İki ds kopyası eşit; Ahmet yolu erişilemiyor, Muharrir güvenli festive pull yapmalı.
+
+## HAR-11 doğrulaması / HAR-12 planı (9 Ekim2026)
+HAR-11 kapandı: 40 ilgili kaynak/API/CSV salt okuma/birim/kadro/kayıt/gerçek kapı/tüccar/öngörü/kervan20gece kontrolü0 hata; gerçek native CHR kapı+Gözcü ve ds ayna import/birim/öngörü geçti. Mevcut Oturum.gosterge(3)0–10 Güvenlik<4 gerçek CAS profilli uygun CHR ağırlık3, >7 esnaf ağırlık2 dış JSON varsayımı; kesin varış veya suç kanıtı değil. Esnaf mevcut ticaret sınıfı eşlemesidir, her esnaf uzman tüccar değildir. Kadro erkengece/dönüş/istendi/tekrarsız pop/iste korunur; orta4–7 aynı eski randi_range ve RNG akışı tam eşit. Ağırlıklı tek mevcut RNG zar; JSON devam aynı. Hazır KAP01 JSON sıra/uzman tüccar takvimi/geçiş makbuzu/GocYolu ziyareti/çete saldırısı/Güvenlik statı değişmez, Otu yalnız seçimde iki helper bağlantısı. Gizli CHR kimliği oyuncuya gösterilmez. Test fixtureında Variant açık tip ve Gelen.id gerçek API düzeltildi; üretim API uydurulmadı. Asset gerekmedi; G envanter kontrol edildi. Kontrol edilen son commited67391. HAR10 yalnız commitli temiz ilk104 resource/0SCRIPT (başarı sayılmadı), ikinci0 ve gerçek headless/native Ana/Ses menü0; denetim raporuna kaydedildi. HAR-12 [/] (Codex): gerçek Tekfur bekleyen haraç/Moğol uyarı eşiği için aynı Gelen kuyruğunda önce heyet, sonra uzman/normal ziyaretçi; sınırlı optional ziyaret makbuzu ve aynı gerçek karar/kapı API. Heyet dinleme ve gerçek mevcut Tekfur ödeme politikası; yeni savaş/hasar/para motoru yok. Yeni helper+ince panel/queue/karar/sıra atlama/fırtına adaptörleri; ayrı HUD ve CSV yok. Geçersiz/bayat/yeniden dinleme atomik ret, normal ziyaret/kasa/RNG korunur; mekanik henüz yazılmadı. İki ds kopyası eşit; Ahmet yolu yok, Muharrir güvenli festive pull yapmalı.

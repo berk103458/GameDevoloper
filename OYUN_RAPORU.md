@@ -1547,3 +1547,10 @@ Sıradaki: HAR-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Tactical placement of real guards via existing villager card, patrol and sockets; bounded optional ledger, constraints, 123 regressions and final native/mirror passed; box placeholders inventoried; HAR15 formula unchanged.
 
 Sıradaki: HAR-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — HAR-11 (8 Ekim 2026)
+
+Security thresholds weight only existing eligible CHR and fallback class; neutral RNG preserved, 40 relevant regressions and native/mirror passed; asset gerekmedi.
+
+Sıradaki: HAR-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

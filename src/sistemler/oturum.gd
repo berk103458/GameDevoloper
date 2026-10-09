@@ -123,7 +123,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 	var sonuc: Array[Gelen] = []
 	for i in sayi:
 		if not uygun.is_empty() and _rng.randf() < ayarlar.adli_olasiligi:
-			var id: StringName = uygun.pop_at(_rng.randi_range(0, uygun.size() - 1))
+			var id: StringName = uygun.pop_at(GuvenlikKafileDengesi.adli_indeks(self, uygun))
 			kadro.iste(id, gun)
 			sonuc.append(_adli_gelen(id))
 		else:
@@ -674,8 +674,7 @@ func _json_sorular(g: Gelen, liste: Array, ust: int) -> void:
 
 
 func _figur_sablon() -> Gelen:
-	var siniflar := Katalog.SINIFLAR
-	var sablon := katalog.sinif(siniflar[_rng.randi_range(0, siniflar.size() - 1)])
+	var sablon := katalog.sinif(GuvenlikKafileDengesi.sinif_sec(self))
 	var ornek := kadro.figur_ornegi(sablon)
 	var cesit: int = ornek["cesit"]
 	var g := Gelen.new()
