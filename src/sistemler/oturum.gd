@@ -26,6 +26,7 @@ var sancak_asker_talebi: Dictionary = {}
 ## HAR-05 optional yol görevi/ek ziyaret makbuzu; nüfus eski kuyruğa bağlıdır.
 var goc_yolu_guvenligi: Dictionary = {}
 var oba_ittifaki: Dictionary = {}
+var haberci_agi: Dictionary = {}
 var muhafiz_akce: int = 0
 var muhafiz_esyalari: Array[Dictionary] = []
 ## EKO-14 optional transfer özeti; iki mevcut kasanın bakiyesi ayrı kalır.
@@ -276,6 +277,7 @@ func gece_sonu() -> Dictionary:
 	SancakTeftisi.gece(self, r)
 	MogolOncusu.gece(self, r)
 	SancakAskerTalebi.gece(self, r)
+	HaberciAgi.gece(self, r)
 	_koy_esitle()
 	kadro.gece_bitti()
 	var sonuc := {"olaylar": r["olaylar"], "kirilan": -1, "rusvet_harcandi": -1, "son": StringName(r["son"]),
@@ -405,6 +407,8 @@ func olay_sec() -> OlayVerisi:
 	if pusula != null: return pusula
 	var ferman := SancakAskerTalebi.olay(self)
 	if ferman != null: return ferman
+	var haber := HaberciAgi.olay(self)
+	if haber != null: return haber
 	if _rng.randf() >= ayarlar.olay_olasiligi:
 		return null
 	var adaylar: Array[OlayVerisi] = []
@@ -453,6 +457,7 @@ func sira_olayi_sec(kuyruk: int) -> OlayVerisi:
 
 ## Bir seçeneğin gereklilikleri karşılanıyor mu.
 func secenek_olur(olay: OlayVerisi, i: int) -> bool:
+	if HaberciAgi.tanimli(olay): return HaberciAgi.uygun(self, olay, i)
 	if SancakAskerTalebi.tanimli(olay): return SancakAskerTalebi.uygun(self, olay, i)
 	if IlkbaharTaskini.tanimli(olay): return IlkbaharTaskini.uygun(self, olay, i)
 	if CasusDevriyesi.tanimli(olay): return CasusDevriyesi.uygun(self, olay, i)
@@ -476,6 +481,7 @@ func secenek_olur(olay: OlayVerisi, i: int) -> bool:
 ## `puan`: seçenek bir mini oyun açtıysa (`oyun`) alınan puan; ödül `oyun_odul` × puan, puan ≥ `oyun_esik`
 ## ise `oyun_basari` etkisi de uygulanır (design/gdd/koy-mini-oyunlari.md). −1 = oyun oynanmadı.
 func olay_uygula(olay: OlayVerisi, i: int, puan: int = -1) -> Dictionary:
+	if HaberciAgi.tanimli(olay): return HaberciAgi.uygula(self, olay, i)
 	if SancakAskerTalebi.tanimli(olay): return SancakAskerTalebi.uygula(self, olay, i)
 	if IlkbaharTaskini.tanimli(olay): return IlkbaharTaskini.uygula(self, olay, i)
 	if CasusDevriyesi.tanimli(olay): return CasusDevriyesi.uygula(self, olay, i)
@@ -723,6 +729,7 @@ func kaydet() -> Dictionary:
 		"sancak_asker_talebi": SancakAskerTalebi.oku(sancak_asker_talebi),
 		"goc_yolu_guvenligi": GocYoluGuvenligi.oku(goc_yolu_guvenligi),
 		"oba_ittifaki": ObaIttifaki.oku(oba_ittifaki),
+		"haberci_agi": HaberciAgi.oku(haberci_agi),
 		"muhafiz_yetenekleri": MuhafizYetenekleri.oku(muhafiz_yetenekleri),
 		"mevsim": yonetim.mevsim(), "yeni_binalar": yeni_binalar.duplicate(true),
 		"koy_yonetimi": yonetim.kaydet(),
@@ -764,6 +771,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.sancak_asker_talebi = SancakAskerTalebi.oku(veri.get("sancak_asker_talebi"))
 	o.goc_yolu_guvenligi = GocYoluGuvenligi.oku(veri.get("goc_yolu_guvenligi"))
 	o.oba_ittifaki = ObaIttifaki.oku(veri.get("oba_ittifaki"))
+	o.haberci_agi = HaberciAgi.oku(veri.get("haberci_agi"))
 	o.muhafiz_yetenekleri = MuhafizYetenekleri.oku(veri.get("muhafiz_yetenekleri"))
 	MuhafizAdaletYetenekleri.bagla(o)
 	o.muhafiz_esyalari = preload("res://src/sistemler/cift_kasa_dagitimi.gd").esyalari_yukle(veri.get("muhafiz_esyalari", []))

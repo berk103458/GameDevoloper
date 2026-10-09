@@ -402,3 +402,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Ertuğrul Obası ittifakı](oba-ittifaki.md) — HAR-07, aynı Pazar ve gerçek buğday/at/alp takası.
 
 - [Dağ çetesiyle süreli anlaşma](cete-anlasmasi.md) — HAR-08, mevcut ganimet kaybında kamu ödemeli süreli koruma.
+
+- [Haberci güvercin ve ulak](haberci-agi.md) — HAR-09, gerçek açık kriz raporları aynı olay kartında yazılı anlatı.

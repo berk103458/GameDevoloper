@@ -1,0 +1,27 @@
+{
+  "baslik": "%s · çevreden haber",
+  "secenek": "Haberi okudum",
+  "sonuc": "Haber kayda geçti. Kararı ilgili köy veya harita eyleminden verebilirsin.",
+  "giris": {
+    "guvercin": "Hisarın burcuna konan güvercinin ayağındaki mühürlü kâğıdı açtın.",
+    "ulak": "Yol tozu içindeki ulak kapıda durup gördüklerini aktardı."
+  },
+  "kanallar": {
+    "guvercin": {
+      "ad": "Güvercin",
+      "renk": "8b9aab"
+    },
+    "ulak": {
+      "ad": "Ulak",
+      "renk": "a88d66"
+    }
+  },
+  "kaynaklar": {
+    "mogol": "guvercin",
+    "tekfur": "ulak",
+    "cete": "ulak"
+  },
+  "cete_metin": "Çevrede çete hareketi bildirildi. Son olayda ambardan alınan: %d gıda, %d diğer malzeme. Bu haber tek başına bir kişinin suçuna kanıt değildir.",
+  "azami_metin": 4096,
+  "kutu_px": 40
+}

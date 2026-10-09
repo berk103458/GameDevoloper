@@ -4,7 +4,7 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
-9 Ekim 2026. Kontrol edilen son commit: 044a1fd (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: 044a1fd. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
+9 Ekim 2026. Kontrol edilen son commit: eb9b57c (festive); çalışma dalı claude/festive-volta-li1sfm; önceki özellik geçmişi ana dala birleştirildi. GitHub varsayılan dalı festive olarak güncellendi. Claude devri iptal; Codex sorumlu. Önceki yayımlanan commit: eb9b57c. Her tur başında festive güncellemeleri kontrol edilir. Tamamlanan geliştirmeler ilgili kontrollerden sonra iki yerel kopyada eşitlenir. Kullanıcının 7 Ekim son talimatıyla otonom geliştirme ve şu ana kadarki çalışmaların commit/push yayını yetkilendirildi. Başka ortamın festive+keen WIP'i bu çalışmaya alınmadı.
 
 ## Kapanan maddeler
 - KVR-01: KarakterVerisi: entity_id, ad, sinif, fraksiyon, en_erken_tur sözleşmesi; eski id/en_erken_gece adaptörleri korunuyor. KVR Resource roundtrip ve mevcut 30 karakter regresyon testi başarılı.
@@ -184,15 +184,18 @@ Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalı�
 - HAR-06: 99 regression checks; final real tower and next-day public-name forecast unit/headless/native/mirror PASS; BoxMesh/ColorRect placeholders recorded in G; actual day1 label verified.
 - HAR-07: 107 regression checks PASS; final real Pazar trade unit/headless/native/mirror with same-scene horse and alp refresh; public wheat and existing records, no new assets required; G verified.
 - HAR-08: 109 regression checks PASS; real Cete Pazar unit/headless/native/mirror, public payment and existing loot protection; no new assets required; G verified.
+- HAR-09: 111 regression checks PASS; actual night public reports to same event card unit/headless/native/mirror; bounded receipts, original priorities; ColorRect placeholders in G.
 
 ## Sonraki çalışma
-HAR-09. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
+HAR-10. İlk öncelik paketi (KVR-01…10 → KAP-04…10 → EKO-01 → SYS-01/02) tamamlandı. Kullanıcının dur talimatına kadar çakışmasız bekleyen ROADMAP maddeleri sırayla sürdürülür. KAP-01 kilitli; KAP-02/03 PR #9 ile [x] (Cursor); tekrar alınmaz. BUG-07/SYS-09/SYS-11/SYS-12/KVR-11 Cursor tarafından kapandı; tekrar alınmaz. CSV değişikliği docs/METIN_ANAHTAR_STANDARDI.md ve metin_dogrula.py --kaynak kontrolüne uyar. CHR sayfaları ve isimleri kaynak sözleşmeye göre korunur.
 
 ## Doğrulama ve kayıt
 Her madde ilgili testler geçince ROADMAP'te [x] (Codex) olarak kapanır; OYUN_RAPORU güncellenir. Tamamlanan paketler iki kopyaya eşitlenir; yayın kullanıcının son yetkisine göre yapılır. SYS-09 ayrı özellik dalı/PR #2 olarak korunur.
 
 ## Cursor — eksik asset envanteri, 7 Ekim 2026
 Festive `ec23ee9` üzerinde yalnız tarama. Çıktı `docs/EKSIK_ASSET_ENVANTERI.md`. Görsel/ses/model üretilmedi; KAP-02/03, EKO-14, BUG-03 ve SYS-09 CSV’ye dokunulmadı. Windows ds ve Ahmet kopyaları bu ortamda yok; eşitlendi denmez.
+
+
 
 
 
@@ -318,5 +321,6 @@ Ahmet `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi` ve ds yerel kopyal
 
 
 
-## HAR-08 doğrulaması / HAR-09 planı (9 Ekim2026)
-HAR-08 kapandı: 109 regresyon sıfır hata; birim/headless/native gerçek Pazar anlaşma düğmesi ve ds ayna import/UI geçti. Dış JSON kamu10 akçe/30gerçek gece aylık soyutlama, başlangıç dahil bitiş hariç. Aktifken tekrar ödeme/uzatma yok; süre bitince oyuncu seçimiyle yenilenir, otomatik ücret yok. Aynı husumet baskını gıda/odun ve sızma gıda/alet ganimeti0; mevcut yaralanma/moral/asayiş/husumet/RNG akışı korunur. Sürü mevcut kaydı korunur; eski baskın zaten sürü sayısını azaltmıyordu, yeni saldırı motoru kurulmadı. Kurt/hastalık/sabotaj/yangın ve normal tüketim korunmaz; HUD bunu açıklar. İki kasa ayrımı/atomik eksik ödeme/terminal/JSON/legacy/bozuk sonsuz süre/29–30–60 sınırı ve normal kayıp karşılaştırması geçti. İlk unit fixture kayıtta gerçek depo kapasitesinden büyük stok kullanıyordu; fixture145 gerçek150 altında düzeltildi, üretim kodunu geçici yama ile bozmadı. Asset gerekmedi; aynı yazılı Pazar, G kontrol edildi, üretim/indirme yok. Kontrol edilen son commit044a1fd. HAR-09 [/] (Codex): gerçek gece raporundaki Moğol/Tekfur/çete harita krizi haberlerini aynı OlayVerisi kartında güvercin/ulak yazılı anlatısıyla göster; mevcut yüksek öncelikli taşkın/casus/ferman korunur. Sınırlı optional haber makbuzu, aynı kaynakta son haberle birleştirme ve gerçek okuma/JSON/tekrar doğrulaması; gizli CHR/kanıt/kasa/RNG veya ikinci kapı kuyruğu yok. Tek kutu anlatı adaptörü/G envanteri, ayrı HUD/gün motoru yok. Mekanik henüz yazılmadı. İki ds kopyası eşit; Ahmet yolu erişilemiyor, Muharrir güvenli festive pull yapmalı.
+
+## HAR-09 doğrulaması / HAR-10 planı (9 Ekim2026)
+HAR-09 kapandı: 111 regresyon sıfır hata; gerçek gece/kart birim/headless/native ve ds ayna import/UI geçti. Gerçek Moğol5/2/0 raporu güvercin; Tekfur haraç ve çete açık kayıp raporu ulak. Optional defter kaynak başına en yeni bekleyen haber (azami3), tek gerçek gece toplama, aynı OlayVerisi okuma/sonuç/devam sinyali; ikinci HUD/kapı kuyruğu yok. Taşkın/casus/fısıltı/ferman önceliği korunur. Kasa/RNG/kriz çözümü/gizli CHR veya kanıt değişmez; eski/foreign/bayatlattırılan/terminal/yanlış seçenek ret, JSON/legacy/bozuk kayıt/gizli rapor elenmesi geçti. Gerçek25.gün Moğol ve ikinci perde6.gün Tekfur raporu doğrulandı; ilk Tekfur testinde agalik önkoşulu eksikti, fixture düzeltildi, üretim kuralı değiştirilmedi. Tek ColorRect ve etiket; HAR09-GUVERCIN/HAR09-ULAK G aynı pakette doğrulandı, asset üretimi/indirme yok. Kontrol edilen son commiteb9b57c. Önceki HAR08 commitli temiz ilk4 resource/0SCRIPT,ikinci100 resource/0SCRIPT; başarı sayılmadı. Üçüncü import0 ve final gerçek headless/native menü0, denetim raporunda. HAR-10 [/] (Codex): ikinci perde gerçek etkin muhafızları mevcut köylü kartında kapı mızraklı/sur okçu/devriye olarak yerleştir; aynı A* kapı/iç kule durakları, yeni NPC/hareket motoru yok. Sınırlı optional y metadata/save/load, MuhafizDevriyesi id parametresi+helper ve koy_halk_hareketi yalnız tek çağrı bağlantıları. Tek kutu görev donanımı ve G envanteri; zindan/dış görev/borç/hasta/isyan/çocuk/terminal/sur hasarı korunur. HAR15 savunma formülü henüz kapanmış sayılmayacak. Mekanik henüz yazılmadı. İki ds kopyası eşit; Ahmet yolu erişilemiyor, Muharrir güvenli festive pull yapmalı.

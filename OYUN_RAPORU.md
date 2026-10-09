@@ -1533,3 +1533,10 @@ Sıradaki: HAR-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 109 regression checks PASS; real Cete Pazar unit/headless/native/mirror, public payment and existing loot protection; no new assets required; G verified.
 
 Sıradaki: HAR-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — HAR-09 (8 Ekim 2026)
+
+111 regression checks PASS; actual night public reports to same event card unit/headless/native/mirror; bounded receipts, original priorities; ColorRect placeholders in G.
+
+Sıradaki: HAR-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

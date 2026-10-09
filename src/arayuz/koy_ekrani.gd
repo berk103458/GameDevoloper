@@ -676,6 +676,7 @@ func _olay_goster(olay: OlayVerisi, sonuc: Dictionary) -> void:
 	if olay.muzik != &"":
 		Ses.muzik_cal(olay.muzik)
 	var v := _kart_ac(tr(olay.baslik_anahtari))
+	HaberciAnlatiPaneli.ekle(self, v, olay)
 	var m := _etiket(v, tr(olay.metin_anahtari), Tema.GOVDE_PX)
 	m.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	m.custom_minimum_size.x = 900
