@@ -1,3 +1,6 @@
+## Claude — HAR-13 kapandı / HAR-14 sırada (9 Ekim 2026)
+Gözcü öngörüsü ertesi günün kafile özetini (yolcu/tüccar/heyet sayısı ve öncelikli heyetler) mevcut Hisar bilgi alanında gösterir; aynı izole kuyruktan üretilir, RNG/stok/kasa/makbuz değişmez, gizli CHR verisi gösterilmez. Doğrulama: tam sanity 277 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
+
 ## Claude — HAR-12 kapandı / HAR-13 sırada (9 Ekim2026)
 HAR-12 Codex uygulaması Claude tarafından doğrulandı: birim+headless UI ve tam sanity 275 PASS / 0 hata / 20 gece; kod yeniden yazılmadı, asset gerekmedi. Yeni görev düzeni (kullanıcı talimatı, 9 Ekim): Codex yönlendirir/inceler, Claude uygular.
 

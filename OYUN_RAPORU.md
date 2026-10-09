@@ -1561,3 +1561,11 @@ Sıradaki: HAR-12. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 Codex'in yazdığı HAR-12 paketi yeniden yazılmadan doğrulandı: Moğol (5/2/0 uyarı) ve Ağalık Tekfur heyeti aynı Gelen kuyruğunun başına kararlı sırayla eklenir; dinlemeden ileri/klavye/sıra rüşveti/sıra olayı ile geçilemez; ödeme yalnız kamu akçesi + buğday; nüfus/kadro/kese/RNG değişmez; makbuz kayıt ve snapshot'ta korunur. Birim + headless UI ve tam sanity (275 PASS, 0 hata, 20 gece) geçti. Bilinen `boulder_01.gltf` UID uyarısı sürüyor (fallback, hata değil). Asset gerekmedi.
 
 Sıradaki: HAR-13 (Gözcü ertesi gün kafile/heyet önizlemesi). Görev düzeni: Codex yönlendirir, Claude uygular.
+
+
+## Codex + Claude — HAR-13 (9 Ekim 2026)
+
+Gözcü öngörüsü ertesi günün kafile özetini (yolcu/tüccar/heyet sayısı ve öncelikli heyetler) mevcut Hisar bilgi alanında gösterir; aynı izole kuyruktan üretilir, RNG/stok/kasa/makbuz değişmez, gizli CHR verisi gösterilmez.
+Doğrulama (Claude): tam sanity 277 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
+
+Sıradaki: HAR-14. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
