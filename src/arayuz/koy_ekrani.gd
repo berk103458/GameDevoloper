@@ -92,6 +92,7 @@ func _ready() -> void:
 	add_child(_ipucu)
 	_yenile()
 	CenazeRaporu.yukleme_karti(self)
+	CinarMeclisPaneli.yukleme(self)
 
 ## Ana ekran ses adaptörü; ışığın ilk gunduz fazıyla aynı başlar.
 func ortam_baslat() -> void:
@@ -632,6 +633,7 @@ func _bant_ciz() -> void:
 # ── Gece (Faz 3) ve rapor kartı (14.3–14.4) ───────────────────────────────────────────────────────
 
 func _geceye_gec() -> void:
+	if CinarMeclisPaneli._bekliyor(self): return
 	if CenazeYasi.bekliyor(_y): return
 	if not _gece_kilidi.al():
 		return

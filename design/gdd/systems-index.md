@@ -412,3 +412,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Zorunlu heyet bildirisi — HAR-12](diplomatik-heyet.md): gerçek Tekfur/Moğol kaynakları aynı Gelen ve kapı kuyruğunda.
 
 - [Kıtlık isyanı ve ambar kapısı — KRI-06](kitlik-isyani.md): iki sıfır erzak gecesinde mevcut isyan tetikleyicisi, tavanlı yağma, tek Güvenlik ve taş/kereste onarımı; Claude incelemesi bekleniyor.
+
+- [Çınar altı köy meclisi — KRI-07](cinar-alti-meclisi.md): aktif krizde anonim deterministik halk oyu, mevcut kriz API'leri, uygulama/ret ve optional karar makbuzu; Claude incelemesi bekleniyor.
