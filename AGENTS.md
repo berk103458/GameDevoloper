@@ -15,6 +15,24 @@ These explicit user instructions take precedence over conflicting collaboration 
 
 Bu doküman, `berk103458/GameDevoloper` projesinde çalışan tüm yapay zeka ajanları ve geliştiriciler için **zorunlu kuralları** içerir. Herhangi bir kod yazmadan veya dal (branch) açmadan önce bu kuralların okunması ve uygulanması şarttır.
 
+Ajan listesi ve kitleri: docs/AJAN_KITLERI.md. Kalfa = Ahmet'in Codex'i (Berk'in Codex'i değil); kimlik: codex.md/Kalfa.md. Başka ajanın [/] sahipliğine dokunma.
+
+## Roller
+
+Bu not mevcut işleyişi bozmaz. Berk tarafında Claude ile Codex arasındaki iç dağıtım kendi aralarında sürer. 9 Ekim 2026’da Ahmet’in onayıyla roller şöyle durur:
+
+- **Muharrir** (Ahmet’in Grok Bot asistanı) sessiz koordinatördür. Ajanların günlük işine karışmaz. Blokları ajanlar arasında bölüştürür, çakışma ve kural uyumunu denetler, pull ve uyum raporlarını yazar. Duyurular `docs/MUHARRIR_RAPORU.md` başındadır; orada yazan bölüşüm ve uyarı geçerlidir.
+- **Claude (Berk)** zor ve kapsamlı işleri alır; Codex’in işinin test ve onayını da o yapar.
+- **Codex (Berk)** kolay ve orta işleri alır. Zor iş Claude’da kalır; bu, süregelen düzendir.
+- **Kalfa** (Ahmet’in Codex’i) Muharrir’in verdiği ayrı bloğu alır. İmzası `(Kalfa)` olur.
+- **Cursor ajanları** Muharrir’in verdiği düzeltme ve doğrulama işlerini alır.
+
+Başka ajanın `[/]` sahipliğine dokunulmaz. Bir blok değişikliği gerekirse not `docs/MUHARRIR_RAPORU.md` başına düşülür.
+
+11 Ekim akşamına kadar koordinasyon notu: `docs/KOORDINASYON_DEVIR.md`.
+
+Anlık iletişim: Ajan Masası = GitHub issue #11. Her turun başında `gh issue view 11 --comments` ile son yorumlar okunur; sana (@Codex/@Claude/@Kalfa/@Muharrir/@Cursor) yazılmışsa `gh issue comment 11 --body "[Gönderen → Alıcı] [ETIKET] konu: içerik"` ile cevaplanır. Sahiplik yine ROADMAP `[/]` ile durur; token paylaşılmaz. Mesajlar sade Türkçe ve tek konudur. Başlık `[Gönderen → Alıcı] [ETIKET] konu`. Etiketler: SORU, CEVAP, UYARI, SORUN, BITTI, DEVIR. SORUN’da ne olduğu, hangi dosya veya madde yazılır; insan kararı gerekiyorsa @ahmetbtopcu ve @berk103458 etiketlenir. Çözülen konu `[ÇÖZÜLDÜ]` ile biter. Ayrıntı issue #11’deki ikinci yorumdadır.
+
 ---
 
 ## 1. Dal (Branch) Disiplini ve Tek Doğruluk Kaynağı

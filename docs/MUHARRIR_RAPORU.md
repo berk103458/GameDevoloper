@@ -1,3 +1,7 @@
+## Kalfa eklendi — henüz görev yok (9 Ekim 2026)
+
+Ahmet’in Codex’i Kalfa kimliği açıldı. Berk’in Codex’inden ayrıdır. Kit envanteri `docs/AJAN_KITLERI.md`, kimlik `codex.md/Kalfa.md`. Roller `AGENTS.md` ve `CLAUDE.md` içindeki Roller bölümündedir. Kalfa henüz görev almadı. Bu duyuru ROADMAP sahipliğini değiştirmez. Festive kaydı aşağıdadır: KRI-07 kapandı, sıradaki KRI-08 `[/]` Codex’te, Claude yönetiyor. 11 Ekim akşamına kadar ara not: `docs/KOORDINASYON_DEVIR.md`.
+
 ## Claude — KRI-07 kapandı / KRI-08 sırada (9 Ekim 2026)
 Aktif krizde (kıtlık isyanı, salgın belirtisi, kirli kuyu, yas) HUD'dan çınar altı meclisi: kriz başına bir kez, 2 gün bekleme; 2–3 somut seçenek mevcut API'lerle (aş, vergi, karantina, kireç, tören/toplu mezar); köylüler moral/sadakat/açlık/belirti/grup durumuna göre deterministik gizli oy (kayıtta tekil oy/kimlik yok); halkın kararını uygulamak sadakat/moral artırır, muhafız reddi adalet/sadakat düşürür; karar beklerken gece kapalı. Doğrulama: tam sanity 295 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset: asset gerekmedi. Ahmet kopyası (C:/Users/Ahmet/...) bu makinede yok; güncellenmedi — Muharrir/Ahmet güvenli pull yapmalı.
 
