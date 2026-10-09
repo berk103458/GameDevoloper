@@ -26,9 +26,10 @@ static func calistir(o: Oturum, id: String, tohum: int = 0) -> Dictionary:
 			y.husumet.puan = maxi(y.husumet.puan, y.a.baskin_esigi + y.a.husumet_sonum)
 			hazirlik["husumet"] = y.husumet.puan
 		"veba":
-			# Sağlık/üretim stres girdisi; bulaşma ve tedavi sistemi KRI paketindedir.
+			# Eski stres hasarı korunur; sonraki gerçek geceler tek KRI-01 motorunda.
 			for k in y.koylular:
-				k.bayrak_ekle("hasta")
+				SaglikYoneticisi.enfekte(y, k, "veba")
+				k.bayrak_ac("hasta")
 				k.saglik = maxi(0, k.saglik - 40)
 			hazirlik["hasta_koylu"] = y.koylular.size()
 	var sonuc := ZamanMakinesi.ilerlet(o, 10 if id == "kitlik_10" else 1, tohum)

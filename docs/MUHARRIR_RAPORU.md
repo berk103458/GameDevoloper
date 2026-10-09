@@ -1,3 +1,6 @@
+## Claude — KRI-01 kapandı / KRI-02 sırada (9 Ekim 2026)
+Kapıdan kabul edilen hasta sığınmacı gizli humma/veba kaydı getirir; ortak hazır binada gece bulaşma (kaynak başına 3 temas, gece en çok 2 yeni vaka, mevcut RNG), gece sağlık kaybı, doğal veya Şifahane (ortak kontenjan) iyileşmesi; belirti açılınca köylü kartında görünür. Codex başlattı, limit dolunca Claude tamamladı. Doğrulama: tam sanity 283 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
+
 ## Claude — HAR-15 kapandı / KRI-01 sırada (9 Ekim 2026)
 Ağalıkta gerçek konuşlanmış muhafızların savunma hazırlığı tek Güvenlik hesabına eklenir: kişi başı floor((beceri+rol payı[devriye 1/kapı 3/sur 4])×sağlık/100) − mevcut nöbet payı, toplam tavan +20; yaralı/zindanda/kervandakiler sayılmaz, çift sayım yok. Köylü kartında görünür (not: satır kartın alt kısmında, kaydırma gerekir). Doğrulama: tam sanity 281 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
 

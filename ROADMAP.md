@@ -269,7 +269,7 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 
 ## BÖLÜM 11: [Yeni Özellik 5] Salgın Hastalık, Şifahane ve Toplumsal Krizler
 
-- [ ] **KRI-01:** Veba ve Humma Bulaşma Motoru (`src/koy/saglik_yoneticisi.gd`) — Hasta sığınmacı enfeksiyon riski.
+- [x] **KRI-01:** Veba ve Humma Bulaşma Motoru (`src/koy/saglik_yoneticisi.gd`) — Hasta sığınmacı enfeksiyon riski. tam sanity 283 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex başlattı; Claude tamamladı)
 - [ ] **KRI-02:** Şifahane Karantina Koğuşu — Şüpheliler 2 gün karantina.
 - [ ] **KRI-03:** Hekim Yetkinliği ve İlaç Üretimi — CHR_008/003 şifahanedeyse ölüm %80↓.
 - [ ] **KRI-04:** Su Kuyusu Kirlenmesi ve Kireçleme — Tifo riski; acil dezenfeksiyon.

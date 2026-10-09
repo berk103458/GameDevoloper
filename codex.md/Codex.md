@@ -4,6 +4,12 @@
 Codex — Godot kodu, veri sözleşmeleri, araçlar ve testler üzerinde çalışan ajan.
 
 ## Güncel durum
+9 Ekim 2026 **KRI-01 — Claude devraldı ve tamamladı:** Codex 5 saatlik limiti doldu (17:58 sıfırlanır). Claude: birim testteki iki kurulum hatası düzeltildi (geçersiz kervan makbuzu; OlayVerisi Resource referans karşılaştırması), köylü kartına açık belirti satırı (`SaglikYoneticisi.metin`, kuluçka ifşa edilmez), gerçek akış testi `saglik_salgini_kontrol`, GDD `design/gdd/saglik-salgini.md`.
+
+9 Ekim 2026 **KRI-01 nerede kaldı — 2 / motor bağlandı:** `src/koy/saglik_yoneticisi.gd` eklendi; kabul bayraklarından gizli humma/veba kaydı, hazır ortak bina/mesken teması, kaynak başına 3 aday ve gece en çok 2 yeni hasta, tek yönetim RNG'si ve aynı-gece zincirleme engeli. Koylu optional `enfeksiyon`, yönetim optional gece makbuzu; sağlık kaybı ev iyileşmesinden sonra mevcut ölüm taramasında. Yanık→kış→bulaşıcı hasta aynı Şifahane kontenjanını kullanır. ADM-14/09 veba mevcut −40 stres hasarını koruyarak motora bağlandı; kuyu zehri enfeksiyon oluşturmaz ve yabancı hasta bayrağının sahipliğini korur. Sonraki adım: parse + kayıt/temas/iyileşme/ölüm/gerçek kapı-gece otomasyon testleri, tasarım notu. Henüz doğrulanmadı; ROADMAP `[/]`, asset gerekmedi.
+
+9 Ekim 2026 **KRI-01 nerede kaldı — 1 / altyapı incelemesi:** Claude Code proje yöneticisi, Codex uygulayıcı. Son commit `d12a577` (HAR-15). ROADMAP KRI-01 `[/] (Codex)`; yalnız kanonik kopya, commit/push/ayna/`.import` yok. Mevcut Şifahane, ortak tedavi kontenjanı, kış hastalığı, ADM-14/09, kuyu sabotajı, Gelen bayrak aktarımı ve gece sağlık/ölüm yolu okundu. Yeni kayıt optional olacak; mevcut yönetim RNG'si kullanılacak. CHR_002 eski hasta etiketi zehir malzemesidir, otomatik enfeksiyon sayılmayacak. Sonraki adım: yeni motor + ince kabul/gece/kayıt/ADM adaptörleri, sonra testler. Asset gerekmedi. Başlangıçtaki `.import` değişiklikleri ve `work/` kullanıcı/önceki işidir; korunacak.
+
 9 Ekim 2026 HAR-15 uygulaması ve hedefli doğrulaması teslim edildi; Claude Code proje yöneticisi, Codex uygulayıcı. Kontrol edilen son commit **90a9b8e (HAR-14)**; dal `claude/festive-volta-li1sfm`. ROADMAP **`[/] (Codex)`** kaldı; sonraki adım Claude'un incelemesi/kapanışı. Yalnız kanonik kopyada çalışıldı; `[x]`, commit/push, ayna veya `.import` yazımı yapılmadı. **Asset gerekmedi**; mevcut envanter ve HAR-10 yer tutucuları kontrol edildi, yeni ihtiyaç yok.
 
 ### HAR-15 uygulama ve yerel doğrulama

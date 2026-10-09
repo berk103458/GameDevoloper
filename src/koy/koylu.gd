@@ -24,6 +24,7 @@ var yorgunluk: Dictionary = {}
 var is_kazasi: Dictionary = {}
 var zanaat_kazasi: Dictionary = {}
 var kis_hastaligi: Dictionary = {}
+var enfeksiyon: Dictionary = {}
 var toplumsal_bag: Dictionary = {"grup": "", "dusman_gruplar": []}
 var yas_grubu: StringName = &"yetiskin"
 var gizli_egilim: Dictionary = {"tur": "yok", "calinan": 0, "son_gece": 0, "yakalanma": false}
@@ -75,7 +76,7 @@ func usta_mi() -> bool:
 
 
 func kaydet() -> Dictionary:
-	return {"id": id, "ad": ad, "adli_id": String(adli_id), "sinif": String(sinif), "portre": portre, "stat": stat, "zanaat_turu": ZanaatTuru.anahtar(zanaat_turu),
+	return {"enfeksiyon": enfeksiyon.duplicate(true), "id": id, "ad": ad, "adli_id": String(adli_id), "sinif": String(sinif), "portre": portre, "stat": stat, "zanaat_turu": ZanaatTuru.anahtar(zanaat_turu),
 		"bayraklar": Array(bayraklar), "gizli": Array(gizli_bayraklar), "moral": moral, "refah": refah, "saglik": saglik,
 		"sadakat": sadakat, "is_yeri": is_yeri, "kis_oncesi": kis_oncesi_is, "ev": ev, "ac": ac, "giris": giris_gunu,
 		"pasif_ozellikler": pasif_ozellikler.duplicate(true), "egitim": egitim.duplicate(true), "gelisim": gelisim.duplicate(true), "grev": grev.duplicate(true), "yorgunluk": yorgunluk.duplicate(true), "is_kazasi": is_kazasi.duplicate(true), "zanaat_kazasi": zanaat_kazasi.duplicate(true), "kis_hastaligi": kis_hastaligi.duplicate(true), "toplumsal_bag": toplumsal_bag.duplicate(true), "yas_grubu": String(yas_grubu), "gizli_egilim": gizli_egilim.duplicate(true), "divan_kanit": DivanKanit.durum(self)}
@@ -98,10 +99,12 @@ static func kayittan(v: Dictionary) -> Koylu:
 	k.is_kazasi = IsKazalari.oku(v.get("is_kazasi"))
 	k.zanaat_kazasi = ZanaatKazalari.oku(v.get("zanaat_kazasi"))
 	k.kis_hastaligi = KisHastaligi.oku(v.get("kis_hastaligi"))
+	k.enfeksiyon = SaglikYoneticisi.oku(v.get("enfeksiyon"))
 	k.toplumsal_bag = KanDavasi.oku(v.get("toplumsal_bag"), KanDavasi.kaynak(k.adli_id))
 	k.yas_grubu = YasRolleri.oku(v.get("yas_grubu"), k.adli_id)
 	k.bayraklar = PackedStringArray(v.get("bayraklar", []))
 	k.gizli_bayraklar = PackedStringArray(v.get("gizli", []))
+	if SaglikYoneticisi.hasta(k) and "hasta" not in k.bayraklar + k.gizli_bayraklar: k.gizli_bayraklar.append("hasta")
 	if k.kis_hastaligi.is_empty(): k.bayraklar.erase(KisHastaligi.FLAG)
 	else: k.bayrak_ekle(KisHastaligi.FLAG)
 	k.gizli_egilim = GizliEgilimler.oku(v.get("gizli_egilim"), k)

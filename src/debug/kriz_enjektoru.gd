@@ -15,7 +15,8 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 	var n := kalan(y)
 	if n == 0: return
 	for k in y.koylular:
-		k.bayrak_ekle("hasta")
+		if SaglikYoneticisi.hasta(k): k.enfeksiyon.hasta_sahibi = false
+		k.bayrak_ac("hasta")
 		k.saglik = maxi(0, k.saglik - 25)
 	olaylar.append({"anahtar": "Debug: Zehirli kuyu; köylü başına −25 sağlık.", "deger": []})
 	if n == 1: y.remove_meta(META)
@@ -32,7 +33,8 @@ static func tetikle(o: Oturum, id: String) -> Dictionary:
 	match id:
 		"veba":
 			for k in y.koylular:
-				k.bayrak_ekle("hasta")
+				SaglikYoneticisi.enfekte(y, k, "veba")
+				k.bayrak_ac("hasta")
 				k.saglik = maxi(0, k.saglik - 40)
 			mesaj = "%d köylü: hasta bayrağı, −40 sağlık. Ölüm kontrolü gerçek gece sonunda." % y.koylular.size()
 		"kuyu":

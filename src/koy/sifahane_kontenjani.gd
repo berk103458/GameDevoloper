@@ -1,4 +1,4 @@
-## Şifahane tek gecelik çalışan kontenjanını yanık ve kış hastası paylaşır.
+## Şifahane tek gecelik çalışan kontenjanını yanık, kış ve bulaşıcı hasta paylaşır.
 class_name SifahaneKontenjani
 extends RefCounted
 const META := &"sifahane_kontenjani"

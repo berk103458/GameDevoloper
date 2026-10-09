@@ -200,6 +200,7 @@ func kabul(v: Dictionary, harc: bool = false, rusvet: int = 0, zengin: bool = fa
 	k.moral = a.baslangic_moral
 	k.sadakat = a.baslangic_sadakat
 	k.giris_gunu = gun
+	SaglikYoneticisi.kabul(self, k)
 	if harc:
 		akce += a.harc_akce
 		k.bayrak_ekle("somurulmus")
@@ -513,6 +514,7 @@ func gece() -> Dictionary:
 	rapor["tuketim"]["saman"] = SamanBakimi.gece(self, olaylar)
 	CatiKarBakimi.gece(self, olaylar)
 	KisHastaligi.gece(self, olaylar)
+	SaglikYoneticisi.gece(self, olaylar)
 	var calismalar := {}
 	KanDavasi.gece(self, olaylar)
 	MeslekGrevi.gece(self, olaylar)
@@ -528,6 +530,7 @@ func gece() -> Dictionary:
 	IsKazalari.gece(self, calismalar, olaylar)
 	ZanaatKazalari.gece(self, olaylar)
 	KisHastaligi.tedavi(self, olaylar)
+	SaglikYoneticisi.tedavi(self, olaylar)
 	NobetYorgunlugu.gece(self, uyanik_nobet)
 	_insaat()
 	_barindir()
@@ -751,6 +754,7 @@ func _saglik_ve_moral(olenler: Array, olaylar: Array[Dictionary]) -> void:
 			k.moral -= a.guvensiz_moral
 		if adaletsiz:
 			k.moral -= a.adaletsiz_moral
+		SaglikYoneticisi.saglik_kaybi(self, k)
 		k.saglik = clampi(k.saglik, 0, 100)
 		k.moral = clampi(k.moral, 0, 100)
 	for k in koylular.duplicate():
@@ -854,7 +858,7 @@ func kaydet() -> Dictionary:
 	var b: Array = []
 	for x in binalar:
 		b.append(x.kaydet())
-	return {"surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
+	return {"salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
 		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "tuccar_girisi": tuccar_girisi.duplicate(true), "kervan_koruma": kervan_koruma.duplicate(true), "husumet": husumet.kaydet(), "cete_anlasmasi": CeteAnlasmasi.durum(self), "savunma_konuslanmasi": SavunmaKonuslanmasi.durum(self), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
@@ -864,6 +868,7 @@ func kaydet() -> Dictionary:
 
 static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary) -> KoyYonetimi:
 	var y := KoyYonetimi.new(ayarlar, katalog_)
+	y.set_meta(SaglikYoneticisi.META, KisHastaligi.gece_oku(v.get("salgin_son_gece", -1)))
 	IklimDeneyi.yukle(y, v.get("iklim_deneyi", {}))
 	KrizEnjektoru.yukle(y, v.get("debug_kuyu_zehri", 0))
 	IlkbaharTaskini.yukle(y, v.get("ilkbahar_taskini", {}))

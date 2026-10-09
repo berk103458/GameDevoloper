@@ -22,7 +22,7 @@ func _ready() -> void:
 	baslik.text = "Kriz ve sabotaj enjektörü · debug denge varsayımları"
 	v.add_child(baslik)
 	var aciklama := Label.new()
-	aciklama.text = "Veba: herkese hasta + −40 sağlık. Kuyu: 3 gece boyunca −25 sağlık + hasta.\nKundak: her ambar stok türünden %50 kayıp, yukarı yuvarla; bina hasarı yok.\nGün ilerlemez. Normal üretim/iyileşme/ölüm gece sonunda çalışır.\nBulaşma, karantina ve dezenfeksiyon KRI paketinde geliştirilir."
+	aciklama.text = "Veba: herkese enfeksiyon + −40 sağlık; sonraki gecelerde bulaşma ve Şifahane tedavisi. Kuyu: 3 gece boyunca −25 sağlık + hasta.\nKundak: her ambar stok türünden %50 kayıp, yukarı yuvarla; bina hasarı yok.\nGün ilerlemez. Normal üretim/iyileşme/ölüm gece sonunda çalışır.\nKarantina ve dezenfeksiyon sonraki KRI maddeleridir."
 	aciklama.add_theme_font_size_override("font_size", 18)
 	v.add_child(aciklama)
 	var h := HBoxContainer.new()

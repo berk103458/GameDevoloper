@@ -14,7 +14,7 @@ func _ready() -> void:
 	secim.add_item("Veba Salgını — stres deneyi")
 	secim.set_item_tooltip(0, "En çok 10 gerçek gece: her üretim sonrası gıda kaybı; açlık/ölüm/isyan normal modelden. Terminal sonuçta durur.")
 	secim.set_item_tooltip(1, "1 gerçek gece: Husumet baskını kesin tetiklenir; hasar ve yağma mevcut modelden.")
-	secim.set_item_tooltip(2, "Herkese hasta bayrağı ve −40 sağlık, ardından 1 gerçek gece. Bulaşma/tedavi sistemi KRI kapsamındadır.")
+	secim.set_item_tooltip(2, "Herkese veba enfeksiyonu ve −40 sağlık, ardından 1 gerçek gece: bulaşma, Şifahane tedavisi ve sağlık/ölüm hesabı çalışır.")
 	add_child(secim)
 	baslat = Button.new()
 	baslat.text = "Senaryoyu çalıştır"

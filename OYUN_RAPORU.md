@@ -1591,3 +1591,11 @@ Ağalıkta gerçek konuşlanmış muhafızların savunma hazırlığı tek Güve
 Doğrulama (Claude): tam sanity 281 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
 
 Sıradaki: KRI-01. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+
+## Codex + Claude — KRI-01 (9 Ekim 2026)
+
+Kapıdan kabul edilen hasta sığınmacı gizli humma/veba kaydı getirir; ortak hazır binada gece bulaşma (kaynak başına 3 temas, gece en çok 2 yeni vaka, mevcut RNG), gece sağlık kaybı, doğal veya Şifahane (ortak kontenjan) iyileşmesi; belirti açılınca köylü kartında görünür. Codex başlattı, limit dolunca Claude tamamladı.
+Doğrulama (Claude): tam sanity 283 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
+
+Sıradaki: KRI-02. Görev düzeni: Claude yönetir/doğrular, Codex uygular.

@@ -35,9 +35,9 @@ func _initialize() -> void:
 	r = SenaryoKosucusu.calistir(veba, "veba", 14)
 	_kontrol(r["gecen"] == 1 and r["hazirlik"]["hasta_koylu"] == 2, "Salgın stres girdisi gerçek köylülere")
 	for k in veba.yonetim.koylular:
-		_kontrol("hasta" in k.bayraklar and k.saglik == 65, "−40 sağlık ve normal ev iyileşmesi +5")
+		_kontrol("hasta" in k.bayraklar and k.saglik == 53 and SaglikYoneticisi.hasta(k), "−40 stres, ev +5 ve KRI-01 veba −12")
 	var geri := Oturum.kayittan(katalog, JSON.parse_string(JSON.stringify(veba.kaydet())))
-	_kontrol("hasta" in geri.yonetim.koylular[0].bayraklar and geri.yonetim.koylular[0].saglik == 65, "Senaryo sonuçları normal kayıtta korunur")
+	_kontrol("hasta" in geri.yonetim.koylular[0].bayraklar and geri.yonetim.koylular[0].saglik == 53 and SaglikYoneticisi.hasta(geri.yonetim.koylular[0]), "Senaryo enfeksiyonu normal kayıtta korunur")
 	var terminal := _oturum()
 	terminal.yonetim.koylular[0].saglik = 1
 	terminal.yonetim.koylular[1].saglik = 1
