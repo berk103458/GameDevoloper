@@ -135,6 +135,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 			g.secenekler.insert(g.secenekler.find("kabul") + 1, "harc")
 			g.etkiler[&"harc"] = g.etkiler.get(&"kabul", PackedInt32Array())
 	TuccarKapiGecisi.ekle(self, sonuc)
+	DiplomatikHeyet.ekle(self, sonuc)
 	return sonuc
 
 
@@ -183,6 +184,7 @@ func ziyaret_basladi(gelen: Gelen) -> void:
 ## Kararlar: `kabul`, `harc` (yoksuldan zorla geçiş akçesi), `rusvet` (teklifini alıp içeri), `kisla` (asker, muhafız),
 ## `ret`, `elkoy` (astardan çıkanlara el konur, geri çevrilir; yalnız yalan yakalanınca).
 func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> Dictionary:
+	if DiplomatikHeyet.ilgilenir(gelen): return DiplomatikHeyet.karar(self, gelen, karar)
 	if TuccarKapiGecisi.ilgilenir(gelen): return TuccarKapiGecisi.karar(self, gelen, karar)
 	var sorgu := gelen.chr_sorgusu()
 	if sorgu != null and not sorgu.karar_acik(karar):
@@ -728,7 +730,7 @@ func kaydet() -> Dictionary:
 		"sancak_asker_talebi": SancakAskerTalebi.oku(sancak_asker_talebi),
 		"goc_yolu_guvenligi": GocYoluGuvenligi.oku(goc_yolu_guvenligi),
 		"oba_ittifaki": ObaIttifaki.oku(oba_ittifaki),
-		"haberci_agi": HaberciAgi.oku(haberci_agi),
+		"haberci_agi": HaberciAgi.oku(haberci_agi), "diplomatik_heyet": DiplomatikHeyet.durum(self),
 		"muhafiz_yetenekleri": MuhafizYetenekleri.oku(muhafiz_yetenekleri),
 		"mevsim": yonetim.mevsim(), "yeni_binalar": yeni_binalar.duplicate(true),
 		"koy_yonetimi": yonetim.kaydet(),
@@ -771,6 +773,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.goc_yolu_guvenligi = GocYoluGuvenligi.oku(veri.get("goc_yolu_guvenligi"))
 	o.oba_ittifaki = ObaIttifaki.oku(veri.get("oba_ittifaki"))
 	o.haberci_agi = HaberciAgi.oku(veri.get("haberci_agi"))
+	o.set_meta(DiplomatikHeyet.META, DiplomatikHeyet.oku(veri.get("diplomatik_heyet")))
 	o.muhafiz_yetenekleri = MuhafizYetenekleri.oku(veri.get("muhafiz_yetenekleri"))
 	MuhafizAdaletYetenekleri.bagla(o)
 	o.muhafiz_esyalari = preload("res://src/sistemler/cift_kasa_dagitimi.gd").esyalari_yukle(veri.get("muhafiz_esyalari", []))

@@ -4,6 +4,7 @@ extends RefCounted
 static func uygula(ekran: KapiEkrani, anahtar: String, etki: Dictionary) -> bool:
 	if anahtar != "atlama" or etki.get("geri", false):
 		return false
+	if DiplomatikHeyet.gecis_engeli(ekran.oturum, ekran._gelen) or DiplomatikHeyet.kilitli(ekran.oturum, ekran._kuyruk): return false
 	var sahne := ekran.sahne
 	var indeks := sahne._kuyruktakiler.size() - 1
 	if indeks < 1 or indeks >= ekran._kuyruk.size() or sahne._kuyruk_adlari.size() != indeks + 1:

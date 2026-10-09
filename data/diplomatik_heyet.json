@@ -1,0 +1,23 @@
+{
+  "oncelik": [
+    "mogol",
+    "tekfur"
+  ],
+  "portre": "soldier_01",
+  "heyetler": {
+    "mogol": {
+      "ad": "Moğol öncü heyeti",
+      "giris": "Moğol öncü heyeti, sınır haberini doğrudan muhafıza iletmek için sıranın başına geldi."
+    },
+    "tekfur": {
+      "ad": "Tekfur haraç heyeti",
+      "giris": "Tekfurun haraç heyeti, bekleyen resmi talebi bildirmek için sıranın başına geldi."
+    }
+  },
+  "dinle": "Heyeti dinle",
+  "ode": "Resmi haraç talebini öde",
+  "dinle_alt": "Heyeti dinlemek talebi çözmez; köylü kabulü veya kişisel gelir değildir.",
+  "sonuc_dinle": "Heyetin bildirisi dinlendi. Kaynak kriz kendi mevcut kurallarıyla sürer.",
+  "sonuc_ode": "Tekfurun bekleyen haraç talebi kamu akçesi ve buğdayla ödendi.",
+  "sonuc_ret": "Heyet işlemi geçersiz veya daha önce tamamlandı."
+}

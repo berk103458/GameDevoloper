@@ -86,15 +86,15 @@ elsewhere in the repo, so they are restated here rather than lost:
 Claude — kod / entegrasyon ajanı (Godot GDScript, festive dalı).
 
 ### Şu an üzerinde çalışılan
-ROADMAP commit `4f7c460` sonrası. Aktif işaretli: **KAP-02** (tansiyon durum makinesi), **KAP-03** (heybe paneli). Bu turda yalnızca proje kural / günlüğü dokümanları.
+HAR-12 doğrulandı ve kapatıldı (9 Ekim 2026). Görev düzeni: Codex yönlendirir/inceler, Claude uygular (kullanıcı talimatı).
 
 ### Sonraki plan
-Ahmet yönlendirdiğinde KAP-02/03 koduna devam; festive+keen WIP’i ayrı, bilinçli commit ile almak.
+HAR-13 — Gözcü ertesi gün kafile/heyet önizlemesi: mevcut `GozcuOngoru` ve harita bilgi alanı genişletilir; RNG/stok/kasa/makbuz değişmez, gizli CHR kimliği gösterilmez, ikinci öngörü/HUD yok.
 
 ### Güncel durum
-- HEAD festive; ROADMAP `4f7c460` push’lu.
-- festive+keen WIP **unstaged** olabilir (HUD, koy görsel, metinler.csv vb.) — dokunulmadı.
-- Günlük dosyaları: `CLAUDE.md` (bu dosya), `codex.md/`, `GEMINI.md`.
+- Kanonik kopya `C:\Users\ds\Documents\Codex\2026-10-06\c\GameDevoloper`, ayna `C:\Users\ds\Documents\GitHub\GameDevoloper`; dal `claude/festive-volta-li1sfm`, HEAD `e95e1dc` (HAR-11).
+- HAR-12: birim + headless UI geçti; tam sanity 275 PASS / 0 hata / 20 gece (`work/claude_har12/`). Kod yeniden yazılmadı; asset gerekmedi.
+- Commit/push kullanıcı onayı bekliyor. `.import` farkları pakete dahil edilmez.
 
 ### Kural
 Bu projede her çalıştığında **önce** bu dosyayı ve `AGENTS.md`’yi oku. Her **commit** ve **pull** sonrası bu dosyadaki durum bölümünü güncelle. ROADMAP’te kapattığın adımları `[x]` yap ve satır sonuna `(Claude)` yaz.

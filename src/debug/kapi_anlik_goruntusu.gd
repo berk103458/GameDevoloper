@@ -13,6 +13,7 @@ static func gelen_kaydet(g: Gelen) -> Dictionary:
 	v["heybe"] = null
 	if g.heybe != null:
 		v["heybe"] = {"esyalar": g.heybe.esyalar.duplicate(true), "teklif": g.heybe.teklif, "astar_yoklandi": g.heybe.astar_yoklandi, "soruldu": g.heybe.soruldu}
+	v["diplomatik_heyet"] = DiplomatikHeyet.bilet(g)
 	v["chr_kontrol_edildi"] = g._chr_kontrol_edildi
 	v["chr"] = null
 	var s: ChrSorgusu = g._chr_sorgusu
@@ -96,6 +97,9 @@ static func gelen_yukle(v: Dictionary, katalog: Katalog) -> Gelen:
 		s._son_konusulan = StringName(c["son_konusulan"])
 	else:
 		g._chr_kontrol_edildi = bool(v.get("chr_kontrol_edildi", false))
+	var heyet := DiplomatikHeyet.bilet_oku(v.get("diplomatik_heyet"))
+	if v.has("diplomatik_heyet") and v.diplomatik_heyet != {} and heyet.is_empty(): return null
+	if not heyet.is_empty(): g.set_meta(DiplomatikHeyet.META, heyet)
 	return g
 
 static func kaydet(e: Node) -> Dictionary:

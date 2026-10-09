@@ -408,3 +408,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Savunma taktik konuşlanması — HAR-10](savunma-konuslanmasi.md): mevcut muhafız/kart/devriye; HAR15 formülü ayrı.
 
 - [Güvenlik ve kafile dengesi — HAR-11](guvenlik-kafile-dengesi.md): gerçek uygun kadro/sınıf seçiminde ağırlık; KAP01/tüccar takvimi korunur.
+
+- [Zorunlu heyet bildirisi — HAR-12](diplomatik-heyet.md): gerçek Tekfur/Moğol kaynakları aynı Gelen ve kapı kuyruğunda.

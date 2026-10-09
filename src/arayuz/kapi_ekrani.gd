@@ -236,6 +236,7 @@ func gece_baslat() -> void:
 
 
 func _siradaki() -> void:
+	if DiplomatikHeyet.gecis_engeli(oturum, _gelen): return
 	if _kuyruk.is_empty():
 		_ad.text = ""
 		_sinif.text = ""
@@ -399,6 +400,7 @@ func _esya_yazisi(e: Dictionary, adet: int) -> String:
 
 ## Karar düğmesinin yazısı; rüşvette miktar görünür.
 func _karar_etiketi(anahtar: String) -> String:
+	if DiplomatikHeyet.ilgilenir(_gelen): return HeyetKapiPaneli.etiket(anahtar)
 	if TuccarKapiGecisi.ilgilenir(_gelen): return TuccarKapiPaneli.etiket(anahtar)
 	var sorgu := _gelen.chr_sorgusu()
 	if anahtar == "ret" and sorgu != null and sorgu.bayraklar["Flag_Kilitlendi"]:
@@ -475,6 +477,7 @@ func _karar_goster() -> void:
 		b.punto = ayarlar.boyut(30)
 		b.alt_yazi = _karar_alt_yazi(anahtar)
 		preload("res://src/arayuz/chr_kapi_adaptoru.gd").karar_kilidi(b, chr, StringName(anahtar))
+		HeyetKapiPaneli.kilit(b, oturum, _gelen, anahtar)
 		b.pressed.connect(_karar_bas.bind(anahtar))
 		_karar_dugmeleri.append(b)
 	# Eylemler (defterin altı) hemen görünür; yalnız kararlar sırayla belirir.
@@ -488,6 +491,7 @@ func _karar_goster() -> void:
 
 ## Karar satırının altındaki küçük, tarafsız bilgi (sonucu söylemez).
 func _karar_alt_yazi(anahtar: String) -> String:
+	if DiplomatikHeyet.ilgilenir(_gelen): return HeyetKapiPaneli.alt(oturum, anahtar)
 	if TuccarKapiGecisi.ilgilenir(_gelen): return TuccarKapiPaneli.alt(_gelen, anahtar)
 	var sorgu := _gelen.chr_sorgusu()
 	if anahtar == "rusvet" and sorgu != null:
@@ -533,6 +537,7 @@ func _karar_birak() -> void:
 
 
 func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
+	if DiplomatikHeyet.ilgilenir(_gelen) and not DiplomatikHeyet.karar_olur(oturum, _gelen, StringName(anahtar)): return
 	var sorgu := _gelen.chr_sorgusu()
 	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)):
 		return
@@ -546,7 +551,8 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 		Ses.cal(&"sfx_kese")
 	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)
 	var replik := preload("res://src/kapi/karar_replik_adaptoru.gd")
-	if TuccarKapiPaneli.sonuc(self, _gelen, sonuc): pass
+	if HeyetKapiPaneli.sonuc(self, _gelen, sonuc): pass
+	elif TuccarKapiPaneli.sonuc(self, _gelen, sonuc): pass
 	elif replik.ilgilendirir(anahtar):
 		_karar_replik_dusur(replik, anahtar)
 	else:
@@ -571,7 +577,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	_adim_sesi(8)
 	await sahne.gelen_git(sonuc["kaldi"], _gelen.tehlikeli or not _gelen.adli)
 	# İki gelen arasında sırada bir şey olabilir.
-	var so := KapiFirtinaKuyrugu.sira_olayi(oturum, sahne, _kuyruk.size())
+	var so := KapiFirtinaKuyrugu.sira_olayi(oturum, sahne, _kuyruk.size(), _kuyruk)
 	if so != null and await _sira_olayi(so):
 		return
 	_siradaki()

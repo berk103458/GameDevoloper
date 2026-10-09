@@ -1,8 +1,10 @@
-# Codex proje durum kaydı (Claude devri iptal)
+# Proje durum kaydı (Codex yönlendirir, Claude uygular)
 
 Güncel 7 Ekim 2026 talimatı: Claude’a görev devri iptal. Codex otonom geliştirmeye devam eder; önceki devir prosedürleri tarihsel kayıttır.
 
 ## Güncel sahiplik
+
+- 9 Ekim 2026 kullanıcı talimatı: eski "Claude devri iptal" kararı yerine Codex yönlendirme/inceleme, Claude uygulama yapar. HAR-12 Claude doğrulamasıyla kapandı (tam sanity 275 PASS / 0 hata / 20 gece); sıradaki HAR-13.
 
 - Sorumlu Codex; Claude devri iptal, mesaj/geri alma yok.
 - 9 Ekim 2026 son tamamlanan HAR-11; önce TUC-12–15 ve MEV-01–10/12 kapandı. MEV-11 EKO-09 ortak hesabıyla zaten kapalı.
