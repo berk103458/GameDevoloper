@@ -1,3 +1,6 @@
+## Claude — KRI-03 kapandı / KRI-04 sırada (9 Ekim 2026)
+Şifahanede çalışan yetkin hekim (CHR_008 otacı Dudu / CHR_003 cerrah Haydar; adsız usta cerrah/otacı) bulaşıcı hastalık sağlık kaybını ×0,20 yapar (veba −12→−2); Şifahaneye ilaç reçetesi (1 afyon + 1 su), ilaçla tedavi +25 sağlık, ilaç yoksa eski 2 erzak/+10. BİLİNEN SORUN (eski, KRI-03 dışı): bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378 esnaf→demirci), CHR_008 'usta demirci' görünüyor. Doğrulama: tam sanity 287 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
+
 ## Claude — KRI-02 kapandı / KRI-03 sırada (9 Ekim 2026)
 Şifahane karantinası: köylü kartından 2 gün (1 erzak, kişisel moral −2), kontenjan işler Şifahane hekimine bağlı 2–4; karantinadaki kişi bulaştırmaz/bulaşmaz, çalışmaz, maaş/inşaat/savunmaya sayılmaz, iş/ev ataması korunur, süre sonunda döner; gizli kuluçka ifşa edilmez. Doğrulama: tam sanity 285 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
 

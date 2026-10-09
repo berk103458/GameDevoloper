@@ -86,14 +86,14 @@ elsewhere in the repo, so they are restated here rather than lost:
 Claude — kod / entegrasyon ajanı (Godot GDScript, festive dalı).
 
 ### Şu an üzerinde çalışılan
-KRI-02 kapatıldı (9 Ekim 2026). Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+KRI-03 kapatıldı (9 Ekim 2026). Görev düzeni: Claude yönetir/doğrular, Codex uygular.
 
 ### Sonraki plan
-KRI-03 — Codex'e verilir; sanity + görünür Godot incelemesi + commit/push + iki kopya/remote/ROADMAP doğrulaması.
+KRI-04 — Codex'e verilir; sanity + görünür Godot incelemesi + commit/push + iki kopya/remote/ROADMAP doğrulaması.
 
 ### Güncel durum
 - Kanonik `C:\Users\ds\Documents\Codex\2026-10-06\c\GameDevoloper`, ayna `C:\Users\ds\Documents\GitHub\GameDevoloper`; dal `claude/festive-volta-li1sfm`.
-- KRI-02: tam sanity 285 PASS / 0 hata / 20 gece. `.import` ve `work/` pakete dahil edilmez.
+- KRI-03: tam sanity 287 PASS / 0 hata / 20 gece. `.import` ve `work/` pakete dahil edilmez.
 
 ### Kural
 Bu projede her çalıştığında **önce** bu dosyayı ve `AGENTS.md`’yi oku. Her **commit** ve **pull** sonrası bu dosyadaki durum bölümünü güncelle. ROADMAP’te kapattığın adımları `[x]` yap ve satır sonuna `(Claude)` yaz.

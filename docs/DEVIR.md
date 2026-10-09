@@ -4,6 +4,7 @@ Güncel 7 Ekim 2026 talimatı: Claude’a görev devri iptal. Codex otonom geli�
 
 ## Güncel sahiplik
 
+- 9 Ekim 2026: KRI-03 kapandı (tam sanity 287 PASS / 0 hata / 20 gece); sıradaki KRI-04. Claude yönetir/doğrular, Codex uygular.
 - 9 Ekim 2026: KRI-02 kapandı (tam sanity 285 PASS / 0 hata / 20 gece); sıradaki KRI-03. Claude yönetir/doğrular, Codex uygular.
 - 9 Ekim 2026: KRI-01 kapandı (tam sanity 283 PASS / 0 hata / 20 gece); sıradaki KRI-02. Claude yönetir/doğrular, Codex uygular.
 - 9 Ekim 2026: HAR-15 kapandı (tam sanity 281 PASS / 0 hata / 20 gece); sıradaki KRI-01. Claude yönetir/doğrular, Codex uygular.

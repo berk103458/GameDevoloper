@@ -26,6 +26,7 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	var salgin := SaglikYoneticisi.metin(k, y)
 	if not salgin.is_empty(): ekran._etiket(ic, salgin, Tema.KUCUK_PX).name = "salgin_bilgisi"
 	KarantinaPaneli.ekle(ekran, ic, k)
+	HekimIlacBilgisi.ekle(y, ic)
 	ekran._etiket(ic, ZanaatKazalari.metin(k), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, MeslekGrevi.metin(k, y), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, NobetYorgunlugu.metin(k, y), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

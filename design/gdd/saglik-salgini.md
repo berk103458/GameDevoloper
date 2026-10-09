@@ -1,5 +1,7 @@
 # KRI-01 — Veba ve Humma Bulaşma Motoru
 
+KRI-03 hekim/ilaç uzantısı: [Hekim yetkinliği ve ilaç üretimi](hekim-ilac.md).
+
 **Durum:** Uygulandı (Codex başlattı, limit dolunca Claude tamamladı) · 9 Ekim 2026
 **Dosya:** `src/koy/saglik_yoneticisi.gd` (`SaglikYoneticisi`)
 

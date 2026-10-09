@@ -629,6 +629,7 @@ func _uret(uretim: Dictionary, olaylar: Array[Dictionary], calismalar: Dictionar
 		var uzmanlik := String(katalog.veri(b.tur).get("uzmanlik", ""))
 		for k in calisanlar(b.id):
 			if KarantinaYoneticisi.aktif(k): continue
+			if b.tur == "sifahane" and not Sifahane.hekim_calismaya_uygun(self, k, b): continue
 			if not YasRolleri.fiziksel(k, b.tur): continue
 			if ZanaatKazalari.durur(k):
 				olaylar.append({"anahtar": "Köylü %s zanaat kazası nedeniyle bu gece üretemedi.", "deger": [k.ad]})

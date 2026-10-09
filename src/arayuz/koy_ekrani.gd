@@ -391,6 +391,7 @@ func _bilgi_goster() -> void:
 	CatiKarBilgisi.ekle(_y, b, _bilgi_icerik)
 	SamanBilgisi.ekle(_y, b, _bilgi_icerik)
 	KundakClueBilgisi.ekle(_y, b, _bilgi_icerik)
+	if b.tur == "sifahane": HekimIlacBilgisi.ekle(_y, _bilgi_icerik, b.id)
 	var yatak := b.yatak(_y.katalog)
 	if yatak > 0:
 		var oturan := 0

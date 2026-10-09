@@ -20,4 +20,5 @@ static func asinma_oku(v: Variant) -> float:
 	return float(v) if (v is int or v is float) and is_finite(float(v)) and float(v) >= 0.0 and float(v) < 1.0 else 0.0
 ## CSV koruması boyunca yeni oyuncu etiketlerini verir.
 static func ad(anahtar: String) -> String:
+	if anahtar in ["koy.kaynak.ilac", "koy.recete.ilac", "koy.recete.bakim"]: return {"koy.kaynak.ilac": "İlaç", "koy.recete.ilac": "İlaç · 1 afyon + 1 su", "koy.recete.bakim": "Bakım · ilaç üretimi kapalı"}[anahtar]
 	return {"koy.kaynak.su": "Su", "koy.kaynak.cevher": "Demir cevheri", "koy.yapi.demir_madeni": "Demir Madeni", "koy.yapi.demir_ocagi": "Demir Ocağı", "koy.yapi.demir_madeni_aciklama": "Ham demir cevheri çıkarır; aletsiz verimi %70 azalır.", "koy.yapi.demir_ocagi_aciklama": "İki cevher ve bir yakacak odunundan işlenmiş demir üretir.", "koy.recete.cevher": "Ham demir cevheri", "koy.recete.demir": "Demir · 2 cevher + 1 odun"}.get(anahtar, GezginTuccarStogu.ad(anahtar))

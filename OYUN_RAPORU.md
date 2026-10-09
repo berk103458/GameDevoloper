@@ -1,5 +1,8 @@
 # Kapı Muhafızı — Oyun Raporu (yerel)
 
+## 9 Ekim 2026 — KRI-03 uygulama (Codex; Claude yönetimi)
+Mevcut Şifahanede çalışan CHR_003/008 veya adsız usta cerrah/otacı, bulaşıcı hastalık hasarına tek ×0,20 çarpan uygular; ölüm mevcut sağlık taramasında kalır. Mevcut reçeteden 1 afyon+1 su ile ilaç üretimi; bulaşıcı tedavide 1 ilaç/+25 sağlık, ilaçsız eski 2 erzak/+10 sağlık. Yanık/kış/salgın kotası ortaktır. Kart ve Şifahane bilgisi etkinlik/stoğu gösterir, gizli kimlik veya kuluçka açılmaz. Yeni HekimIlac/HekimIlacBilgisi + ince adaptörler, birim ve gerçek kart/reçete/gece/sabah/kayıt/karantina otomasyonu sanity listesinde. Tasarım: design/gdd/hekim-ilac.md; test kanıtı codex.md/Codex.md ve work/kri03/. İlaç ikonu mevcut ColorRect; KRI03-ILAC envanteri güncel, asset üretilmedi. ROADMAP `[/]` değiştirilmedi; kullanıcı talimatıyla yalnız kanonik kopya, ayna/commit/push/.import değişikliği yok.
+
 ## 9 Ekim 2026 — KRI-02 uygulama (Codex; Claude yönetimi)
 Mevcut Şifahane içinde iki gecelik oyuncu karantinası; köylü kartından giriş/erken çıkış, iki yönde SaglikYoneticisi.temas_edebilir engeli ve otomatik dönüş. İş/ev ataması korunur, izolasyonda çalışma ve etkin nöbet durur. İşler Şifahane başına seviye1=2, seviye2–3=3, seviye4+=4 yer; giriş 1 erzak/kişisel moral −2, RNG çekilmez. Gizli kuluçkadan teşhis/etiket türetilmez; optional kayıt legacy güvenli. Yeni yardımcı/panel/rutin + ince adaptörler, birim ve gerçek kart/gece/sabah/kayıt otomasyonu, sanity sahne listesi. Tasarım: design/gdd/saglik-salgini.md; kanıt/güncel doğrulama: codex.md/Codex.md. Asset gerekmedi. ROADMAP `[/]`; kullanıcı talimatıyla yalnız kanonik kopya, commit/push/ayna/.import değişikliği yok.
 
@@ -1610,3 +1613,11 @@ Sıradaki: KRI-02. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
 Doğrulama (Claude): tam sanity 285 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
 
 Sıradaki: KRI-03. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+
+## Codex + Claude — KRI-03 (9 Ekim 2026)
+
+Şifahanede çalışan yetkin hekim (CHR_008 otacı Dudu / CHR_003 cerrah Haydar; adsız usta cerrah/otacı) bulaşıcı hastalık sağlık kaybını ×0,20 yapar (veba −12→−2); Şifahaneye ilaç reçetesi (1 afyon + 1 su), ilaçla tedavi +25 sağlık, ilaç yoksa eski 2 erzak/+10. BİLİNEN SORUN (eski, KRI-03 dışı): bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378 esnaf→demirci), CHR_008 'usta demirci' görünüyor.
+Doğrulama (Claude): tam sanity 287 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
+
+Sıradaki: KRI-04. Görev düzeni: Claude yönetir/doğrular, Codex uygular.

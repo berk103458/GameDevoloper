@@ -420,6 +420,7 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | ODA08-ASKILIK | ODA-08 | Donanım askılığı | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: MuhafizOdasi._kutu; data/oda_gelisimi.json askilik.parca) | muhafız zırh askılığı; medieval guard armor rack | orta | Codex |
 | ODA08-KUTUPHANE | ODA-08 | Muhafız kütüphanesi | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: MuhafizOdasi._kutu; data/oda_gelisimi.json kutuphane.parca) | muhafız kitap rafı; medieval guard bookshelf | orta | Codex |
 | ODA03-ESYA | ODA-03 | Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri) | glTF / set | res://src/arayuz/oda_envanter_sergisi.gd (_kutu: masa üstü BoxMesh, UI düz ColorRect; data/muhafiz_odasi.json) | rüşvet kişisel eşya mühür şişe; medieval bribe personal inventory seal bottle props | orta | Codex |
+| KRI03-ILAC | KRI-03 / KRI-15 | İlaç şişesi kaynak ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: tek düz renk ColorRect; İlaç etiketi) | ilaç şişesi şifahane; medieval medicine bottle infirmary resource icon | orta | Codex |
 
 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.

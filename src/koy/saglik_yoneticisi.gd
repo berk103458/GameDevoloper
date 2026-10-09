@@ -86,17 +86,18 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 static func saglik_kaybi(y: KoyYonetimi, k: Koylu) -> void:
 	if not hasta(k) or int(k.enfeksiyon.son_gece) != y.gun or int(k.enfeksiyon.hasar_gecesi) == y.gun or KervanKorumasi.disarida(y, k.id): return
 	k.enfeksiyon.hasar_gecesi = y.gun
-	k.saglik -= int(AYAR[k.enfeksiyon.tur].kayip)
+	k.saglik -= HekimIlac.hastalik_kaybi(y, int(AYAR[k.enfeksiyon.tur].kayip))
 
 ## Yanık/kış tedavisinden kalan gerçek kontenjan; ikinci Şifahane yok.
 static func tedavi(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 	for k in y.koylular:
 		if not hasta(k) or not temas_edebilir(y, k): continue
-		if Sifahane.tedavi_kapasitesi(y) <= 0 or not y.kaynaklar.harca({"gida": 2}): break
+		var bedel := HekimIlac.tedavi_bedeli(y)
+		if Sifahane.tedavi_kapasitesi(y) <= 0 or not y.kaynaklar.harca(bedel): break
 		SifahaneKontenjani.kullan(y)
-		k.saglik = mini(100, k.saglik + 10)
+		k.saglik = mini(100, k.saglik + (HekimIlac.ILAC_SAGLIK if bedel.has("ilac") else 10))
 		iyilestir(k)
-		olaylar.append({"anahtar": "Şifahane %s bulaşıcı hastalığını tedavi etti; 2 erzak kullanıldı.", "deger": [k.ad]})
+		olaylar.append({"anahtar": "Şifahane %s bulaşıcı hastalığını tedavi etti; 1 ilaç kullanıldı (+25 sağlık)." if bedel.has("ilac") else "Şifahane %s bulaşıcı hastalığını tedavi etti; 2 erzak kullanıldı.", "deger": [k.ad]})
 
 static func iyilestir(k: Koylu) -> void:
 	if not hasta(k): return
