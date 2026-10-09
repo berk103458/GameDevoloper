@@ -400,3 +400,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Gözcü kulesi ve erken uyarı](gozcu-kulesi.md) — HAR-06, mevcut maliyetli tür ve saf ertesi gün öngörüsü.
 
 - [Ertuğrul Obası ittifakı](oba-ittifaki.md) — HAR-07, aynı Pazar ve gerçek buğday/at/alp takası.
+
+- [Dağ çetesiyle süreli anlaşma](cete-anlasmasi.md) — HAR-08, mevcut ganimet kaybında kamu ödemeli süreli koruma.

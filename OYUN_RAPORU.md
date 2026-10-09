@@ -1526,3 +1526,10 @@ Sıradaki: HAR-07. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 107 regression checks PASS; final real Pazar trade unit/headless/native/mirror with same-scene horse and alp refresh; public wheat and existing records, no new assets required; G verified.
 
 Sıradaki: HAR-08. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — HAR-08 (8 Ekim 2026)
+
+109 regression checks PASS; real Cete Pazar unit/headless/native/mirror, public payment and existing loot protection; no new assets required; G verified.
+
+Sıradaki: HAR-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

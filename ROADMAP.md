@@ -256,8 +256,8 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **HAR-05:** Göç Kervanlarını Köye Çekme — Eşkıya temizliği → kervan uğrama ↑. (Codex)
 - [x] **HAR-06:** Gözcü Kulesi ve Erken Uyarı — Kapıya kimin geleceğini 1 gün önce öğrenme. (Codex)
 - [x] **HAR-07:** Ertuğrul Obası ile İttifak ve At Takası — Buğday ↔ damızlık at / alp. (Codex)
-- [/] **HAR-08:** Dağdaki Çeteye Rüşvet / Anlaşma — Aylık 10 akçe → ambar/sürü dokunulmazlığı. (Codex)
-- [ ] **HAR-09:** Haberci Güvercin ve Ulak Sistemi — Harita krizlerinin köye anlatı sahneleri.
+- [x] **HAR-08:** Dağdaki Çeteye Rüşvet / Anlaşma — Aylık 10 akçe → ambar/sürü dokunulmazlığı. (Codex)
+- [/] **HAR-09:** Haberci Güvercin ve Ulak Sistemi — Harita krizlerinin köye anlatı sahneleri. (Codex)
 - [ ] **HAR-10:** 2. Perde Savunma Savaşı Taktik Konuşlanması — Sur okçu / kapı mızraklı yerleştirme.
 
 - [ ] **HAR-11:** Güvenlik Eşiği Kafile / Çete Dengesi — Güvenlik <4 → casus/çete uğrama ↑; Güvenlik >7 → tüccar uğrama ↑ (**taslak**; kapı kuyruğu + Güvenlik bağ).
