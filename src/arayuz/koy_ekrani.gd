@@ -397,6 +397,7 @@ func _bilgi_goster() -> void:
 	CatiKarBilgisi.ekle(_y, b, _bilgi_icerik)
 	SamanBilgisi.ekle(_y, b, _bilgi_icerik)
 	KundakClueBilgisi.ekle(_y, b, _bilgi_icerik)
+	AmbarKapisiPaneli.ekle(self, b)
 	if b.tur == "sifahane": HekimIlacBilgisi.ekle(_y, _bilgi_icerik, b.id)
 	if b.tur in ["su_kuyusu", "su_arki"]: KuyuKireclemePaneli.ekle(self, _bilgi_icerik, b.id)
 	var yatak := b.yatak(_y.katalog)
@@ -759,6 +760,7 @@ func _kart_ac(baslik: String) -> VBoxContainer:
 	_ust_kart = PanelContainer.new()
 	_ust_kart.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	add_child(_ust_kart)
+	AmbarKapisiPaneli.kart_durumu(self)
 	var kenar := MarginContainer.new()
 	for y in ["margin_left", "margin_right", "margin_top", "margin_bottom"]:
 		kenar.add_theme_constant_override(y, 30)
@@ -778,6 +780,7 @@ func _kart_kapat() -> void:
 	if _ust_kart != null and is_instance_valid(_ust_kart):
 		_ust_kart.queue_free()
 	_ust_kart = null
+	AmbarKapisiPaneli.kart_durumu(self)
 
 
 func _etiket(ust: Control, metin: String, punto: int) -> Label:

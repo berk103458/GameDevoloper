@@ -410,3 +410,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Güvenlik ve kafile dengesi — HAR-11](guvenlik-kafile-dengesi.md): gerçek uygun kadro/sınıf seçiminde ağırlık; KAP01/tüccar takvimi korunur.
 
 - [Zorunlu heyet bildirisi — HAR-12](diplomatik-heyet.md): gerçek Tekfur/Moğol kaynakları aynı Gelen ve kapı kuyruğunda.
+
+- [Kıtlık isyanı ve ambar kapısı — KRI-06](kitlik-isyani.md): iki sıfır erzak gecesinde mevcut isyan tetikleyicisi, tavanlı yağma, tek Güvenlik ve taş/kereste onarımı; Claude incelemesi bekleniyor.

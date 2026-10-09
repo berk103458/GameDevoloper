@@ -2,6 +2,9 @@
 class_name Kaynaklar
 extends RefCounted
 
+## KRI-06: yalnız gerçekten ambara giren erzak kıtlık serisini keser.
+signal erzak_geldi
+
 ## Ambarın tuttuğu türler (sıra arayüzdeki sıradır).
 const TURLER: Array[String] = ["gida", "odun", "tas", "kereste", "alet", "kurk", "demir", "tomruk", "bugday", "un", "kirec", "harc", "cevher", "civi", "tirpan", "balta", "afyon", "sargi", "kece", "kumas", "zirh", "yay", "kalkan", "su", "saman", "ilac"]
 
@@ -43,6 +46,7 @@ func dolu_mu() -> bool:
 func ekle(tur: String, adet: int) -> int:
 	var sigan := mini(maxi(adet, 0), bos_yer())
 	stok[tur] = miktar(tur) + sigan
+	if tur == "gida" and sigan > 0: erzak_geldi.emit()
 	return sigan
 
 

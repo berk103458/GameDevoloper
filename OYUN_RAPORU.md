@@ -1646,3 +1646,19 @@ Sıradaki: KRI-05. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
 Doğrulama (Claude): tam sanity 291 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset: kutu yer tutucu (envanter KRI05-MEZAR).
 
 Sıradaki: KRI-06. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+## Codex uygulaması — KRI-06 (9 Ekim 2026, Claude incelemesi bekliyor)
+
+İki ardışık gece erzak 0 → mevcut isyanın kıtlık tetikleyicisi, kırık ortak ambar kapısı, yiyecek dışı stoktan deterministik yağma (tür başına 5 / toplam 20 tavan; tek mevcut Güvenlikle azaltılır), −8 moral/huzur etkisi. Aynı kıtlık tekrar yağmalanmaz; gerçek erzak girişi sayacı anında sıfırlar. Onarım: 4 taş + 6 kereste; bu yapılana kadar kapasite %80 ve yerel ambar koruması Güvenlikten 20 düşük. Dolu ambardaki EKO-12 taşması yağmadan ayrı rapor/bilanço kalemidir. HUD/bina kartı ve gece raporu, optional/legacy kayıt, KRI-14 için kitlik_tetiklendi sinyali hazır. Açık raporda gündüz onarımı kilitlidir.
+
+Yeni KitlikIsyani + AmbarKapisiPaneli; mevcut çekirdeğe ince adaptörler. Birim ve gerçek iki gece/sabah/onarım/GuvenliKayit sahnesi sanity listesinde. İstenen tüketim, iflas, mevcut isyan/memnuniyet, ambar, kundak, cenaze, muhafız/devriye, Güvenlik ve 20 gece headless kontrolleri geçti. Tasarım: design/gdd/kitlik-isyani.md; ayrıntı ve kanıt codex.md/Codex.md, work/kri06/.
+
+Asset gerekmedi; envanter kontrol edildi. ROADMAP [/] değişmedi. Kullanıcının bu paket talimatıyla yalnız kanonik kopya; commit/push/ayna/.import değişikliği yok. Claude'un tam sanity/görünür oyun incelemesi ve kapanışı bekleniyor; KRI-07 alınmadı.
+
+
+## Codex + Claude — KRI-06 (9 Ekim 2026)
+
+Erzak 2 gece üst üste 0 → mevcut isyan akışında kıtlık isyanı: ambar kapısı kırılır, gıda dışı stoktan tavanlı yağma (tür başı 5, toplam 20; Güvenlik yağmayı azaltır), moral −8, kapı 4 taş + 6 kereste ile onarılana kadar ambar kapasitesi −%20; erzak gelince seri sıfırlanır; KRI-14 için kitlik_tetiklendi sinyali. Claude düzeltmesi: ambar_kapisi_paneli.gd KoyEkrani statik tipini kaldırdı (hud.gd → Ses autoload derleme hatası, hud_islem_test FAIL idi).
+Doğrulama (Claude): tam sanity 293 PASS / 0 hata / 20 gece (ilk koşu 1 FAIL, düzeltildi); Godot görünür pencerede incelendi. Asset: asset gerekmedi.
+
+Sıradaki: KRI-07. Görev düzeni: Claude yönetir/doğrular, Codex uygular.

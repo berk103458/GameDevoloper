@@ -3,6 +3,9 @@
 class_name KoyYonetimi
 extends RefCounted
 
+## KRI-14 bu tek tetikleyiciye bağlanabilir; gece/yağmayı tekrar çalıştırmaz.
+signal kitlik_tetiklendi(rapor: Dictionary)
+
 const KAYIT_SURUMU := 1
 ## Sonlar.
 const SON_YOK := ""
@@ -16,7 +19,12 @@ const MUHAFIZ := -2
 
 var a: KoyAyarlari
 var katalog: BinaKatalogu
-var kaynaklar: Kaynaklar
+var kaynaklar: Kaynaklar:
+	set(v):
+		var bag := _erzak_geldi
+		if kaynaklar != null and kaynaklar.erzak_geldi.is_connected(bag): kaynaklar.erzak_geldi.disconnect(bag)
+		kaynaklar = v
+		if kaynaklar != null and not kaynaklar.erzak_geldi.is_connected(bag): kaynaklar.erzak_geldi.connect(bag)
 var koylular: Array[Koylu] = []
 var binalar: Array[KoyBinasi] = []
 var izgara: Izgara
@@ -83,6 +91,9 @@ func _init(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, tohum: int = 1) -> void
 
 
 # ── Sorgular ──────────────────────────────────────────────────────────────────────────────────────
+
+func _erzak_geldi() -> void:
+	KitlikIsyani.erzak_geldi(self)
 
 func nufus() -> int:
 	return koylular.size()
@@ -563,6 +574,7 @@ func gece() -> Dictionary:
 	asayis_riski = maxi(0, asayis_riski - a.asayis_sonum - etkin_muhafiz_sayisi() * a.muhafiz_asayis)
 	HasatSenligi.uygula(self, hasat, olaylar)
 	_isyan(olaylar)
+	KitlikIsyani.raporla(self, rapor)
 	_asamalar(olaylar)
 	IflasYoneticisi.gece(self, olaylar)
 	_son_denetimi()
@@ -697,7 +709,7 @@ func _ambar_kapasitesi() -> void:
 	for b in binalar:
 		if b.hazir():
 			k += b.depo_kapasitesi(katalog)
-	kaynaklar.kapasite = k
+	kaynaklar.kapasite = KitlikIsyani.kapasite(self, k)
 
 
 ## Evsizleri boş yataklara yerleştirir (9.3).
@@ -800,6 +812,7 @@ func _husumet(olaylar: Array[Dictionary]) -> void:
 
 
 func _isyan(olaylar: Array[Dictionary]) -> void:
+	if KitlikIsyani.gece(self, olaylar): return
 	var esik := MuhafizAdaletYetenekleri.isyan_esigi(self, a.isyan_esigi)
 	if koylular.is_empty():
 		return
@@ -875,7 +888,7 @@ func kaydet() -> Dictionary:
 	var b: Array = []
 	for x in binalar:
 		b.append(x.kaydet())
-	return {"cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
+	return {"kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
 		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "tuccar_girisi": tuccar_girisi.duplicate(true), "kervan_koruma": kervan_koruma.duplicate(true), "husumet": husumet.kaydet(), "cete_anlasmasi": CeteAnlasmasi.durum(self), "savunma_konuslanmasi": SavunmaKonuslanmasi.durum(self), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
@@ -952,5 +965,6 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	KarantinaYoneticisi.esitle(y)
 	KuyuKirliligi.yukle(y, v.get("kuyu_kirliligi", {}))
 	CenazeYasi.yukle(y, v.get("cenaze_yasi", {}))
+	KitlikIsyani.yukle(y, v.get("kitlik_isyani", {}))
 	y._ambar_kapasitesi()
 	return y
