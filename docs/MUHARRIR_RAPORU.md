@@ -1,3 +1,7 @@
+## Kalfa eklendi — henüz görev yok (9 Ekim 2026)
+
+Ahmet’in Codex’i Kalfa kimliği açıldı. Berk’in Codex’inden ayrıdır. Kit envanteri `docs/AJAN_KITLERI.md`, kimlik `codex.md/Kalfa.md`. Roller `AGENTS.md` ve `CLAUDE.md` içindeki Roller bölümündedir. Kalfa henüz görev almadı. ROADMAP sahipliği bu duyuruyla değişmedi; KRI-07 `[/]` Codex’te duruyor, Claude yönetiyor. 11 Ekim akşamına kadar ara not: `docs/KOORDINASYON_DEVIR.md`.
+
 ## Claude — KRI-06 kapandı / KRI-07 sırada (9 Ekim 2026)
 Erzak 2 gece üst üste 0 → mevcut isyan akışında kıtlık isyanı: ambar kapısı kırılır, gıda dışı stoktan tavanlı yağma (tür başı 5, toplam 20; Güvenlik yağmayı azaltır), moral −8, kapı 4 taş + 6 kereste ile onarılana kadar ambar kapasitesi −%20; erzak gelince seri sıfırlanır; KRI-14 için kitlik_tetiklendi sinyali. Claude düzeltmesi: ambar_kapisi_paneli.gd KoyEkrani statik tipini kaldırdı (hud.gd → Ses autoload derleme hatası, hud_islem_test FAIL idi). Doğrulama: tam sanity 293 PASS / 0 hata / 20 gece (ilk koşu 1 FAIL, düzeltildi); görünür Godot incelemesi; asset: asset gerekmedi. Ahmet kopyası (C:/Users/Ahmet/...) bu makinede yok; güncellenmedi — Muharrir/Ahmet güvenli pull yapmalı.
 
