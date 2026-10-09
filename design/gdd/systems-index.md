@@ -404,3 +404,5 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Dağ çetesiyle süreli anlaşma](cete-anlasmasi.md) — HAR-08, mevcut ganimet kaybında kamu ödemeli süreli koruma.
 
 - [Haberci güvercin ve ulak](haberci-agi.md) — HAR-09, gerçek açık kriz raporları aynı olay kartında yazılı anlatı.
+
+- [Savunma taktik konuşlanması — HAR-10](savunma-konuslanmasi.md): mevcut muhafız/kart/devriye; HAR15 formülü ayrı.

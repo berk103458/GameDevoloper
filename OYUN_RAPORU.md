@@ -1540,3 +1540,10 @@ Sıradaki: HAR-09. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayı
 111 regression checks PASS; actual night public reports to same event card unit/headless/native/mirror; bounded receipts, original priorities; ColorRect placeholders in G.
 
 Sıradaki: HAR-10. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.
+
+
+## Codex — HAR-10 (8 Ekim 2026)
+
+Tactical placement of real guards via existing villager card, patrol and sockets; bounded optional ledger, constraints, 123 regressions and final native/mirror passed; box placeholders inventoried; HAR15 formula unchanged.
+
+Sıradaki: HAR-11. İlgili kontroller sonrası iki yerel kopya eşitlenir; yayın kullanıcının son yetkisine göre yapılır.

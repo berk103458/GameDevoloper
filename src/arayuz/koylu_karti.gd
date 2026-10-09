@@ -35,6 +35,7 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 		d.set_meta("hedef", s.id)
 		d.disabled = not s.neden.is_empty() or k.is_yeri == s.id
 		d.pressed.connect(func() -> void: _ata(ekran, id, s.id))
+	KonuslanmaPaneli.ekle(ekran, ic, k)
 	var muhafiz := ekran._dugme("Muhafız görevi", ic)
 	muhafiz.set_meta("hedef", KoyYonetimi.MUHAFIZ)
 	muhafiz.disabled = k.yas_grubu != &"yetiskin" or k.is_yeri == KoyYonetimi.MUHAFIZ or y.muhafiz_sayisi() >= y.a.muhafiz_azami

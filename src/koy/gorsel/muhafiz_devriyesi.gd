@@ -18,7 +18,9 @@ static func kuleler(y: KoyYonetimi) -> Array[Vector2i]:
  var b := y.a.izgara_boyut - Vector2i.ONE
  return [Vector2i.ZERO, Vector2i(b.x, 0), b, Vector2i(0, b.y)]
 ## Erişilmeyen durakları atlar; tümü kopuksa boş sonuçla mevcut yerde bekler.
-static func hedef(y: KoyYonetimi, r: KoyRotasi, bas: Vector2i, sira: int) -> Dictionary:
+static func hedef(y: KoyYonetimi, r: KoyRotasi, bas: Vector2i, sira: int, kisi: int = -1) -> Dictionary:
+ var taktik := SavunmaKonuslanmasi.hedef(y, r, bas, kisi, sira)
+ if not taktik.is_empty(): return taktik
  var ds := duraklar(y)
  for i in ds.size():
   var d: Dictionary = ds[posmod(sira + i, ds.size())]

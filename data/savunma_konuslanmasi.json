@@ -1,0 +1,28 @@
+{
+  "azami_kayit": 64,
+  "asgari_saglik": 50,
+  "roller": {
+    "kapi": {
+      "ad": "Kapıda mızraklı",
+      "nobet": "Kapı mızraklısı",
+      "kontenjan": 2,
+      "boyut": [
+        0.055,
+        1.9,
+        0.055
+      ],
+      "renk": "#80623d"
+    },
+    "sur": {
+      "ad": "Sur okçu",
+      "nobet": "Sur okçusu",
+      "kontenjan": 4,
+      "boyut": [
+        0.06,
+        1.05,
+        0.12
+      ],
+      "renk": "#ae8556"
+    }
+  }
+}

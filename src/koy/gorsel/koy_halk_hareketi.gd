@@ -56,6 +56,7 @@ func yenile() -> void:
 			modeller.erase(id)
 			_durum.erase(id)
 	MuhafizDonanimi.yenile(self)
+	KonuslanmaDonanimi.yenile(self)
 	CobanSurusu.yenile(self)
 	KurtSurusu.yenile(self)
 
@@ -66,6 +67,7 @@ func faz(ad: StringName) -> void:
 		_durum[id].dinlen = false
 		_iste(id)
 	MuhafizDonanimi.yenile(self)
+	KonuslanmaDonanimi.yenile(self)
 	CobanSurusu.yenile(self)
 	KurtSurusu.yenile(self)
 
@@ -160,7 +162,7 @@ func _planla(id: int) -> void:
 		d.bak = _konum(son) + Vector3.FORWARD * -sahne.HUCRE
 	d.devriye = MuhafizMaasi.aday(k, sahne.yonetim)
 	if d.devriye:
-		var nobet := MuhafizDevriyesi.hedef(sahne.yonetim, rotaci, bas, int(d.devriye_i))
+		var nobet := MuhafizDevriyesi.hedef(sahne.yonetim, rotaci, bas, int(d.devriye_i), id)
 		d.is = false
 		d.dinlen = false
 		son = bas if nobet.is_empty() else nobet.son
