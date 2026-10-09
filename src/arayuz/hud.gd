@@ -139,6 +139,7 @@ func guncelle() -> void:
 	_ambar_bar.value = k.toplam()
 	_ambar_bar.tooltip_text = (tr("koy.hud.ambar") % [k.toplam(), k.kapasite]) + "\n" + AmbarBakimi.tip()
 	AmbarKapisiPaneli.hud(self, y)
+	CinarMeclisPaneli.hud(self, y)
 	_adalet.text = tr("arayuz.hud.adalet") % y.adalet
 	_asayis.text = tr("arayuz.hud.asayis") % y.asayis_riski
 	_asayis.add_theme_color_override("font_color", UYARI if y.asayis_riski >= ASAYIS_KRITIK else Renkler.KUL)

@@ -1662,3 +1662,14 @@ Erzak 2 gece üst üste 0 → mevcut isyan akışında kıtlık isyanı: ambar k
 Doğrulama (Claude): tam sanity 293 PASS / 0 hata / 20 gece (ilk koşu 1 FAIL, düzeltildi); Godot görünür pencerede incelendi. Asset: asset gerekmedi.
 
 Sıradaki: KRI-07. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+## 9 Ekim 2026 — KRI-07 uygulama notu (Codex, Claude incelemesi bekliyor)
+Çınar altı meclisi mevcut HUD'dan aktif kıtlık isyanı, açık salgın belirtisi, kirli kuyu ve yas için toplanır. 2–3 somut seçenek mevcut aş/vergi/karantina/kireç/cenaze API'lerini kullanır. Moral, sadakat, açık etkilenme ve aynı toplumsal grubun açık sıkıntıları deterministik oy üretir; yalnız toplam oy dağılımı gösterilir, kimlik/gizli eğilim/RNG yok. Uygulama +4 sadakat/+3 moral, muhafız reddi −5 adalet/−6 sadakat. Kriz başına bir kez, genel 2 gün bekleme, bedel anında kontrol ve optional/legacy güvenli kayıt. KRI-06 erzak sayacı sıfırlansa da aktif kıtlık kaynaklı isyan dönemi sürer; aş kararı için erzak tedarik edilebilir. Yeni dosya + ince HUD/köy/gece/kayıt adaptörü; HUD bağımlılığında statik KoyEkrani/autoload tipi yok. Yeni birim ve gerçek GuvenliKayit/oy/uygulama-ret/kıtlık sahnesi sanity listesinde. Tasarım: design/gdd/cinar-alti-meclisi.md. Asset gerekmedi; mevcut HUD/Button/Label kullanıldı, envanter kontrol edildi. ROADMAP [/] korunur; kapanış, commit/push/ayna yapılmadı.
+
+
+## Codex + Claude — KRI-07 (9 Ekim 2026)
+
+Aktif krizde (kıtlık isyanı, salgın belirtisi, kirli kuyu, yas) HUD'dan çınar altı meclisi: kriz başına bir kez, 2 gün bekleme; 2–3 somut seçenek mevcut API'lerle (aş, vergi, karantina, kireç, tören/toplu mezar); köylüler moral/sadakat/açlık/belirti/grup durumuna göre deterministik gizli oy (kayıtta tekil oy/kimlik yok); halkın kararını uygulamak sadakat/moral artırır, muhafız reddi adalet/sadakat düşürür; karar beklerken gece kapalı.
+Doğrulama (Claude): tam sanity 295 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset: asset gerekmedi.
+
+Sıradaki: KRI-08. Görev düzeni: Claude yönetir/doğrular, Codex uygular.

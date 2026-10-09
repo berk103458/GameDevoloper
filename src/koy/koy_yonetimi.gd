@@ -517,6 +517,7 @@ func tekfur_gucu() -> int:
 ## Günü kapatır: üretim, inşaat, tüketim, sağlık ve moral, akçe, husumet, asayiş, isyan, aşamalar, son.
 ## Döner: rapor {gun, uretim, tuketim, akce_once, akce, olaylar: [{anahtar, deger}], olenler, huzur, son}.
 func gece() -> Dictionary:
+	CinarAltiMeclisi.esitle(self)
 	var olaylar: Array[Dictionary] = []
 	KarantinaYoneticisi.esitle(self, olaylar)
 	CenazeYasi.gece_baslat(self, olaylar)
@@ -582,6 +583,7 @@ func gece() -> Dictionary:
 	rapor["huzur"] = huzur()
 	rapor["son"] = son
 	gun += 1
+	CinarAltiMeclisi.esitle(self)
 	KarantinaYoneticisi.esitle(self, olaylar)
 	SiparisIhlali.gece(self, olaylar)
 	_tezgah_bugun = 0
@@ -888,7 +890,7 @@ func kaydet() -> Dictionary:
 	var b: Array = []
 	for x in binalar:
 		b.append(x.kaydet())
-	return {"kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
+	return {"cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
 		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "tuccar_girisi": tuccar_girisi.duplicate(true), "kervan_koruma": kervan_koruma.duplicate(true), "husumet": husumet.kaydet(), "cete_anlasmasi": CeteAnlasmasi.durum(self), "savunma_konuslanmasi": SavunmaKonuslanmasi.durum(self), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
@@ -966,5 +968,6 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	KuyuKirliligi.yukle(y, v.get("kuyu_kirliligi", {}))
 	CenazeYasi.yukle(y, v.get("cenaze_yasi", {}))
 	KitlikIsyani.yukle(y, v.get("kitlik_isyani", {}))
+	CinarAltiMeclisi.yukle(y, v.get("cinar_alti_meclisi", {}))
 	y._ambar_kapasitesi()
 	return y
