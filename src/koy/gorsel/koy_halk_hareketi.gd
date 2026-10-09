@@ -19,6 +19,7 @@ func eylem(id: int) -> String:
 	if int(d.adim) < d.yol.size(): return "Yürüyor"
 	var k := sahne.yonetim.koylu(id)
 	if d.get("siginma", false): return "Yağmurdan saçak altında korunuyor"
+	if d.get("karantina", false): return "Şifahane karantinasında"
 	if d.get("sinsi", false): return "Tenhada bekliyor"
 	if d.get("ates_basi", false): return "Ateş başında ısınıyor"
 	if d.get("degirmenci", false): return String(d.get("degirmenci_ad", "Öğütme bekliyor"))
@@ -258,6 +259,7 @@ func _planla(id: int) -> void:
 	if f.duzeltici() != null: f.duzeltici().hava_egimi = KarakterHavaTepkisi.egim(sahne.yonetim)
 	son = CatiKarRutini.hedef(self, k, d, bas, son)
 	son = KervanKorumaGorseli.hedef(self, k, d, bas, son)
+	son = KarantinaRutini.hedef(self, k, d, bas, son)
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false

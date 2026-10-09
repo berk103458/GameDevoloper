@@ -20,6 +20,7 @@ static func oku(v: Variant, k: Koylu) -> Dictionary:
 		if (not n is int and not n is float) or not is_finite(float(n)) or float(n) != floor(float(n)) or float(n) < 0 or float(n) > 1000000000: return kaynak(k)
 	return {"tur": v["tur"], "calinan": int(v["calinan"]), "son_gece": int(v["son_gece"]), "yakalanma": v["yakalanma"]}
 static func risk(k: Koylu) -> float:
+	if KarantinaYoneticisi.aktif(k): return 0.0
 	if DivanHukmu.zindanda(k): return 0.0
 	if k.saglik <= 0 or "hasta" in k.bayraklar + k.gizli_bayraklar or "agir_yarali" in k.bayraklar + k.gizli_bayraklar: return 0.0
 	var tur := String(k.gizli_egilim.get("tur", "yok"))

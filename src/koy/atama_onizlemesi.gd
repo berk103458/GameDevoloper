@@ -56,6 +56,7 @@ static func brut(y: KoyYonetimi, b: KoyBinasi) -> Dictionary:
 	var recete: Dictionary = y.katalog.receteler(b.tur).get(b.recete, {})
 	if not y.kaynaklar.yeterli(recete.get("girdi", {})) or y.kaynaklar.toplam() >= y.kaynaklar.kapasite: return r
 	for k in y.calisanlar(b.id):
+		if KarantinaYoneticisi.aktif(k): continue
 		if not YasRolleri.fiziksel(k, b.tur) or IsMemnuniyeti.isyanci(k, y) or ZanaatKazalari.durur(k): continue
 		var c := Uretim.koylu_carpani(k, String(v.get("uzmanlik", "")), y.a, b.tur) * YasRolleri.carpan(y, b) * DemirZinciri.carpan(y, b.tur)
 		for tur in recete.get("uretim", {}):

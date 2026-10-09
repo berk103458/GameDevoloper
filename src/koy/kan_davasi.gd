@@ -29,7 +29,7 @@ static func dusman(a: Koylu, b: Koylu) -> bool:
 
 static func ciftler(y: KoyYonetimi, bina: int) -> Array[Dictionary]:
 	var sonuc: Array[Dictionary] = []
-	var isci := y.calisanlar(bina)
+	var isci := y.calisanlar(bina).filter(func(k: Koylu) -> bool: return not KarantinaYoneticisi.aktif(k))
 	for i in isci.size():
 		for j in range(i + 1, isci.size()):
 			if dusman(isci[i], isci[j]): sonuc.append({"ilk": isci[i], "ikinci": isci[j]})

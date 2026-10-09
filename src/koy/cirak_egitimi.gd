@@ -21,6 +21,7 @@ static func usta(k: Koylu) -> bool:
 	return false
 
 static func saglam(k: Koylu) -> bool:
+	if KarantinaYoneticisi.aktif(k): return false
 	return not DivanHukmu.zindanda(k) and not KisHastaligi.hasta(k) and not k.ac and k.saglik > 0 and "hasta" not in k.bayraklar + k.gizli_bayraklar and "agir_yarali" not in k.bayraklar + k.gizli_bayraklar
 
 static func gece(y: KoyYonetimi, calismalar: Dictionary, olaylar: Array[Dictionary]) -> void:

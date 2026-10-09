@@ -130,6 +130,7 @@ func muhafiz_sayisi() -> int:
 func etkin_muhafiz_sayisi() -> int:
 	var n := 0
 	for k in koylular:
+		if KarantinaYoneticisi.aktif(k): continue
 		if not KervanKorumasi.disarida(self, k.id) and MuhafizMaasi.aday(k, self) and not MuhafizMaasi.borclu(k, self) and k.yas_grubu == &"yetiskin" and not IsKazalari.uyuyor(k) and not IsMemnuniyeti.isyanci(k, self): n += 1
 	return n
 
@@ -324,6 +325,7 @@ func recete_sec(bina_id: int, recete: String) -> bool:
 
 ## Köylüyü bir yapının iş yuvasına atar (yapı hazır ve yuva boş olmalı).
 func ata(koylu_id: int, bina_id: int) -> bool:
+	if KarantinaYoneticisi.aktif(koylu(koylu_id)): return false
 	if KervanKorumasi.disarida(self, koylu_id): return false
 	var k := koylu(koylu_id)
 	var b := bina(bina_id)
@@ -339,6 +341,7 @@ func ata(koylu_id: int, bina_id: int) -> bool:
 
 ## Köylüyü muhafız yapar (en çok `muhafiz_azami`).
 func muhafiz_ata(koylu_id: int) -> bool:
+	if KarantinaYoneticisi.aktif(koylu(koylu_id)): return false
 	if KervanKorumasi.disarida(self, koylu_id): return false
 	var k := koylu(koylu_id)
 	if DivanHukmu.zindanda(k): return false
@@ -350,6 +353,7 @@ func muhafiz_ata(koylu_id: int) -> bool:
 
 
 func bosalt(koylu_id: int) -> void:
+	if KarantinaYoneticisi.aktif(koylu(koylu_id)): return
 	if KervanKorumasi.disarida(self, koylu_id): return
 	var k := koylu(koylu_id)
 	if k != null:
@@ -487,6 +491,7 @@ func harac_reddet() -> void:
 func savunma_gucu() -> int:
 	var asker := 0
 	for k in koylular:
+		if KarantinaYoneticisi.aktif(k): continue
 		if k.sinif == &"asker" and k.yas_grubu == &"yetiskin" and not IsKazalari.uyuyor(k) and not IsMemnuniyeti.isyanci(k, self):
 			asker += 1
 	return BinaSeviyesi.sur_gucu(sur_seviye, sur_hasar) + etkin_muhafiz_sayisi() + asker / 2
@@ -502,6 +507,7 @@ func tekfur_gucu() -> int:
 ## Döner: rapor {gun, uretim, tuketim, akce_once, akce, olaylar: [{anahtar, deger}], olenler, huzur, son}.
 func gece() -> Dictionary:
 	var olaylar: Array[Dictionary] = []
+	KarantinaYoneticisi.esitle(self, olaylar)
 	var rapor := {"gun": gun, "uretim": {}, "tuketim": {}, "akce_once": akce, "olaylar": olaylar, "olenler": []}
 	_iltimas_denetimi(olaylar)
 	if kis_mi():
@@ -559,6 +565,7 @@ func gece() -> Dictionary:
 	rapor["huzur"] = huzur()
 	rapor["son"] = son
 	gun += 1
+	KarantinaYoneticisi.esitle(self, olaylar)
 	SiparisIhlali.gece(self, olaylar)
 	_tezgah_bugun = 0
 	_bugun_zengin_kabul = false
@@ -578,6 +585,7 @@ func _iltimas_denetimi(olaylar: Array[Dictionary]) -> void:
 func _kis_kaydirmasi() -> void:
 	# Kışın tarlalar donar: çiftçiler kışın da çalışan bir yapıya (boş yuva) ya da inşaata geçer (8.5).
 	for k in koylular:
+		if KarantinaYoneticisi.aktif(k): continue
 		var b := bina(k.is_yeri)
 		if b == null or not bool(katalog.veri(b.tur).get("kis_durur", false)):
 			continue
@@ -592,6 +600,7 @@ func _kis_kaydirmasi() -> void:
 ## Kış bitti: kaydırılanlar eski yapılarına döner (yapı duruyorsa ve yuva boşsa).
 func _bahar_donusu() -> void:
 	for k in koylular:
+		if KarantinaYoneticisi.aktif(k): continue
 		if k.kis_oncesi_is < 0:
 			continue
 		var eski := k.kis_oncesi_is
@@ -619,6 +628,7 @@ func _uret(uretim: Dictionary, olaylar: Array[Dictionary], calismalar: Dictionar
 		var cikti: Dictionary = r.get("uretim", {})
 		var uzmanlik := String(katalog.veri(b.tur).get("uzmanlik", ""))
 		for k in calisanlar(b.id):
+			if KarantinaYoneticisi.aktif(k): continue
 			if not YasRolleri.fiziksel(k, b.tur): continue
 			if ZanaatKazalari.durur(k):
 				olaylar.append({"anahtar": "Köylü %s zanaat kazası nedeniyle bu gece üretemedi.", "deger": [k.ad]})
@@ -669,7 +679,7 @@ func _ambara(b: KoyBinasi, tur: String, miktar: float, bonus: float, uretim: Dic
 
 
 func _insaat() -> void:
-	var yardim := bostakiler().filter(func(k: Koylu) -> bool: return k.yas_grubu == &"yetiskin").size() / maxi(1, a.insa_yardim_bolen)
+	var yardim := bostakiler().filter(func(k: Koylu) -> bool: return k.yas_grubu == &"yetiskin" and not KarantinaYoneticisi.aktif(k)).size() / maxi(1, a.insa_yardim_bolen)
 	for b in binalar:
 		if b.insa_kalan > 0:
 			b.insa_kalan = maxi(0, b.insa_kalan - 1 - yardim)
@@ -697,6 +707,7 @@ func _barindir() -> void:
 		if DivanHukmu.zindanda(k): continue
 		if k.ev >= 0:
 			continue
+		if KarantinaYoneticisi.aktif(k): continue # Evsiz kişinin ataması da izolasyonda korunur.
 		for b in binalar:
 			if b.hazir() and b.yatak(katalog) > int(dolu.get(b.id, 0)):
 				k.ev = b.id
@@ -932,5 +943,6 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	if v.has("rng"):
 		y._rng.state = String(v["rng"]).to_int() if v["rng"] is String else int(v["rng"])
 	DivanHukmu.kayit_esitle(y)
+	KarantinaYoneticisi.esitle(y)
 	y._ambar_kapasitesi()
 	return y

@@ -1,3 +1,6 @@
+## Claude — KRI-02 kapandı / KRI-03 sırada (9 Ekim 2026)
+Şifahane karantinası: köylü kartından 2 gün (1 erzak, kişisel moral −2), kontenjan işler Şifahane hekimine bağlı 2–4; karantinadaki kişi bulaştırmaz/bulaşmaz, çalışmaz, maaş/inşaat/savunmaya sayılmaz, iş/ev ataması korunur, süre sonunda döner; gizli kuluçka ifşa edilmez. Doğrulama: tam sanity 285 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
+
 ## Claude — KRI-01 kapandı / KRI-02 sırada (9 Ekim 2026)
 Kapıdan kabul edilen hasta sığınmacı gizli humma/veba kaydı getirir; ortak hazır binada gece bulaşma (kaynak başına 3 temas, gece en çok 2 yeni vaka, mevcut RNG), gece sağlık kaybı, doğal veya Şifahane (ortak kontenjan) iyileşmesi; belirti açılınca köylü kartında görünür. Codex başlattı, limit dolunca Claude tamamladı. Doğrulama: tam sanity 283 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
 

@@ -9,6 +9,7 @@ var cuval: ElEsyasi
 var _eski: Dictionary = {}
 ## Yalnız gerçek fiziksel çalışan; yaşlı danışman veya grev/kaza çuval taşımaz.
 static func aday(y: KoyYonetimi, k: Koylu, faz: StringName) -> bool:
+ if KarantinaYoneticisi.aktif(k): return false
  if k == null or faz != &"gunduz": return false
  var b := y.bina(k.is_yeri)
  return b != null and b.hazir() and b.tur == "degirmen" and YasRolleri.fiziksel(k, b.tur) and not ZanaatKazalari.durur(k) and not MeslekGrevi.aktif(k, y) and not IsMemnuniyeti.isyanci(k, y)

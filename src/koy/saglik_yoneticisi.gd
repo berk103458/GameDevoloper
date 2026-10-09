@@ -37,9 +37,9 @@ static func enfekte(y: KoyYonetimi, k: Koylu, tur: String = "humma") -> bool:
 	if sahip: k.gizli_bayraklar.append("hasta")
 	return true
 
-## Gelecek karantina adaptörü bu tek temas kapısına bağlanabilir.
+## Karantina ve dış görev dahil iki yönde bulaşmanın tek temas kapısı.
 static func temas_edebilir(y: KoyYonetimi, k: Koylu) -> bool:
-	return k.saglik > 0 and not DivanHukmu.zindanda(k) and not KervanKorumasi.disarida(y, k.id)
+	return k.saglik > 0 and not KarantinaYoneticisi.aktif(k) and not DivanHukmu.zindanda(k) and not KervanKorumasi.disarida(y, k.id)
 
 static func ortak_bina(y: KoyYonetimi, a: Koylu, b: Koylu) -> bool:
 	for id in [a.ev, a.is_yeri]:
@@ -109,4 +109,4 @@ static func iyilestir(k: Koylu) -> void:
 static func metin(k: Koylu, y: KoyYonetimi) -> String:
 	if not hasta(k) or "hasta" not in k.bayraklar: return ""
 	var ad := "Veba" if k.enfeksiyon.tur == "veba" else "Humma"
-	return "%s belirtisi: en geç %d gün · bulaşıcı · Şifahane boş kontenjanı %d" % [ad, maxi(0, int(k.enfeksiyon.bitis) - y.gun), Sifahane.tedavi_kapasitesi(y)]
+	return "%s belirtisi: en geç %d gün · %s · Şifahane boş kontenjanı %d" % [ad, maxi(0, int(k.enfeksiyon.bitis) - y.gun), "karantinada temas engelli" if KarantinaYoneticisi.aktif(k) else "bulaşıcı", Sifahane.tedavi_kapasitesi(y)]

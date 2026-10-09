@@ -17,6 +17,7 @@ static func ode(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 	var bedel := 0
 	for k in y.koylular:
 		if not aday(k, y): continue
+		if KarantinaYoneticisi.aktif(k): continue # Atama/borç korunur; çalışılmayan gece yeni ücret yok.
 		var d: Dictionary = y.maas_durumu.get(str(k.id), {})
 		if int(d.get("son_gece", -1)) == y.gun: continue
 		adaylar.append(k)

@@ -6,7 +6,8 @@ static func secenekler(y: KoyYonetimi, k: Koylu) -> Array[Dictionary]:
 	for b in y.binalar:
 		if y.katalog.slot(b.tur) <= 0: continue
 		var neden := ""
-		if not b.hazir(): neden = "İnşaat tamamlanmadı"
+		if KarantinaYoneticisi.aktif(k): neden = "Karantinada; atama korunuyor"
+		elif not b.hazir(): neden = "İnşaat tamamlanmadı"
 		elif not YasRolleri.atanabilir(k, b.tur): neden = "Yaş grubu uygun değil"
 		elif b.tur == "muhafiz_kislasi" and not MuhafizMaasi.aday(k, y) and y.muhafiz_sayisi() >= y.a.muhafiz_azami: neden = "Muhafız sınırı dolu"
 		elif k.is_yeri != b.id and y.calisanlar(b.id).size() >= y.katalog.slot(b.tur): neden = "İş yuvaları dolu"
@@ -20,6 +21,7 @@ static func secenekler(y: KoyYonetimi, k: Koylu) -> Array[Dictionary]:
 	return sonuc
 static func ata(y: KoyYonetimi, kisi: int, hedef: int) -> bool:
 	if y.koylu(kisi) == null: return false
+	if KarantinaYoneticisi.aktif(y.koylu(kisi)): return false
 	if hedef == KoyYonetimi.BOSTA:
 		y.bosalt(kisi)
 		return true

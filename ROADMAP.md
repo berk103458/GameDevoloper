@@ -23,10 +23,10 @@
 | HAR-14 | Pusu (göç yolu) temizliği sonrası 3 gün esnaf ağırlığı +1 (tavan 3); tekrar bonus yok | Codex yazdı · Claude doğruladı | `90a9b8e` | `src/koy/ticaret/pusu_ticaret_akisi.gd` | sanity 279/0 · görünür Godot |
 | HAR-15 | Konuşlanmış muhafız → Güvenlik: kişi başı ⌊(beceri+rol)×sağlık/100⌋ − nöbet payı, tavan +20 | Codex yazdı · Claude doğruladı | `d12a577` | `src/koy/savunma_guvenligi.gd` | sanity 281/0 · görünür Godot |
 | KRI-01 | Hasta sığınmacıdan ortak binada veba/humma bulaşması; gizli kuluçka, Şifahane tedavisi, kartta belirti | Codex başlattı · limit doldu · Claude tamamladı | `cfbb668` | `src/koy/saglik_yoneticisi.gd` | sanity 283/0 · görünür Godot |
-| KRI-02 | Şifahane karantinası: 2 gün, temas/çalışma engeli, atama korunur, gizli hasta ifşa edilmez | Codex yazdı · Claude doğruluyor | — | `src/koy/karantina_yoneticisi.gd`, `src/arayuz/koy_hud/karantina_paneli.gd` | `[/]` sanity sürüyor |
+| KRI-02 | Şifahane karantinası: 2 gün, temas/çalışma engeli, atama korunur, gizli hasta ifşa edilmez | Codex yazdı · Claude doğruladı | kapanış commit'i | `src/koy/karantina_yoneticisi.gd`, `src/arayuz/koy_hud/karantina_paneli.gd` | sanity 285/0 · görünür Godot |
 <!-- PANO_TABLO_SON -->
 
-**Sıradaki:** KRI-02 kapanışı → KRI-03 (hekim/ilaç) → … → KRI-15 → SYS-16 … SYS-20.
+**Sıradaki:** KRI-03 (hekim yetkinliği/ilaç) → … → KRI-15 → SYS-16 … SYS-20.
 
 Ayrıntılı günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md`.
 
@@ -292,7 +292,7 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 ## BÖLÜM 11: [Yeni Özellik 5] Salgın Hastalık, Şifahane ve Toplumsal Krizler
 
 - [x] **KRI-01:** Veba ve Humma Bulaşma Motoru (`src/koy/saglik_yoneticisi.gd`) — Hasta sığınmacı enfeksiyon riski. tam sanity 283 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex başlattı; Claude tamamladı)
-- [/] **KRI-02:** Şifahane Karantina Koğuşu — Şüpheliler 2 gün karantina. (Codex yazdı; Claude doğruluyor)
+- [x] **KRI-02:** Şifahane Karantina Koğuşu — Şüpheliler 2 gün karantina. tam sanity 285 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex; doğrulama Claude)
 - [ ] **KRI-03:** Hekim Yetkinliği ve İlaç Üretimi — CHR_008/003 şifahanedeyse ölüm %80↓.
 - [ ] **KRI-04:** Su Kuyusu Kirlenmesi ve Kireçleme — Tifo riski; acil dezenfeksiyon.
 - [ ] **KRI-05:** Toplu Mezar ve Cenaze Töreni — Moral 2 gün sarsılır.

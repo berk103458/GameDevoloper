@@ -1,5 +1,8 @@
 # Kapı Muhafızı — Oyun Raporu (yerel)
 
+## 9 Ekim 2026 — KRI-02 uygulama (Codex; Claude yönetimi)
+Mevcut Şifahane içinde iki gecelik oyuncu karantinası; köylü kartından giriş/erken çıkış, iki yönde SaglikYoneticisi.temas_edebilir engeli ve otomatik dönüş. İş/ev ataması korunur, izolasyonda çalışma ve etkin nöbet durur. İşler Şifahane başına seviye1=2, seviye2–3=3, seviye4+=4 yer; giriş 1 erzak/kişisel moral −2, RNG çekilmez. Gizli kuluçkadan teşhis/etiket türetilmez; optional kayıt legacy güvenli. Yeni yardımcı/panel/rutin + ince adaptörler, birim ve gerçek kart/gece/sabah/kayıt otomasyonu, sanity sahne listesi. Tasarım: design/gdd/saglik-salgini.md; kanıt/güncel doğrulama: codex.md/Codex.md. Asset gerekmedi. ROADMAP `[/]`; kullanıcı talimatıyla yalnız kanonik kopya, commit/push/ayna/.import değişikliği yok.
+
 ## 9 Ekim 2026 — HAR-15 uygulama (Codex; Claude yönetimi)
 Gerçek kapı/sur/devriye muhafızının stat/sağlığı üzerinden ağalıkta en çok20/100 canlı Güvenlik katkısı; mevcut gece temel nöbet payı çıkarılır. Tek `KervanKorumasi.guvenlik` adaptörü, yeni kayıt alanı/RNG yok; kervanda, zindanda ve yaralı kişi katkısız. Mevcut köylü kartında Güvenlik ve katkı, kiralama bilgi notunda yerel katkının kalkması görünür. Tasarım: design/gdd/savunma-guvenligi.md; birim ve gerçek UI testi, sanity sahne kaydı. Asset gerekmedi. ROADMAP `[/] (Codex)`; Claude kapanış incelemesini bekler. Kanonik kopya dışında yazım, commit/push ve `.import` değişikliği yapılmaz. Ayrıntılı test kanıtı codex.md/Codex.md.
 
@@ -1599,3 +1602,11 @@ Kapıdan kabul edilen hasta sığınmacı gizli humma/veba kaydı getirir; ortak
 Doğrulama (Claude): tam sanity 283 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
 
 Sıradaki: KRI-02. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+
+## Codex + Claude — KRI-02 (9 Ekim 2026)
+
+Şifahane karantinası: köylü kartından 2 gün (1 erzak, kişisel moral −2), kontenjan işler Şifahane hekimine bağlı 2–4; karantinadaki kişi bulaştırmaz/bulaşmaz, çalışmaz, maaş/inşaat/savunmaya sayılmaz, iş/ev ataması korunur, süre sonunda döner; gizli kuluçka ifşa edilmez.
+Doğrulama (Claude): tam sanity 285 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
+
+Sıradaki: KRI-03. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
