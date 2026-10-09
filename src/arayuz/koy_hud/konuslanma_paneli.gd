@@ -7,6 +7,7 @@ static func ekle(e: KoyEkrani,ic: VBoxContainer,k: Koylu) -> void:
  if not y.agalik or (not MuhafizMaasi.aday(k,y) and not SavunmaKonuslanmasi.durum(y).has(str(k.id))): return
  var rol: String=SavunmaKonuslanmasi.durum(y).get(str(k.id),"")
  e._etiket(ic,"Taktik konuşlanma: "+("Devriye" if rol.is_empty() else String(SavunmaKonuslanmasi.AYAR.roller[rol].ad))+ (" · şu an etkin değil" if not rol.is_empty() and SavunmaKonuslanmasi.etkin(y,k.id).is_empty() else ""),Tema.KUCUK_PX)
+ e._etiket(ic,KervanKorumasi.SAVUNMA_GUVENLIGI.metin(y),Tema.KUCUK_PX).name="savunma_guvenligi_bilgisi"
  for r in ["","kapi","sur"]:
   var b:=e._dugme("Devriye" if r.is_empty() else String(SavunmaKonuslanmasi.AYAR.roller[r].ad),ic)
   b.set_meta("konuslanma",r)

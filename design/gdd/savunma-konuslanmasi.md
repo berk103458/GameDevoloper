@@ -10,7 +10,7 @@ Kapı hattını mızraklılarla ve sur iç köşe duraklarını okçularla tutma
 Yetişkin, sağlıklı, çalışan gerçek muhafız gerekir. Mevcut kışla görevlisi de uygundur. Zindan, hasta/aç/yaralı, borçlu, dış görev, uyuklayan ve iş isyanı etkin katılımı engeller. Kapı iki; sur dört slot. Sur için işlevli sur gerekir. Geçici pasif kayıt saklanır; dönüşte ID sırası kontenjanı süzer. Devriye seçimi pasif veya terminal kaydı da temizler.
 
 ## Formulas
-Konuşlanma savunma_gucu / Güvenlik / kasa / RNG değiştirmez; HAR-15 formülü ayrı bekleyen madde. Kapı mevcut meydan x merkezi + slot, son ızgara y; sur mevcut dört köşe. Aynı A* en yakın geçilir hücre ve gerçek yol doğrulaması; kopuk hedef eski devriye politikasına düşer. Zemindeki iç kule durakları kullanılır; dikey sur tırmanışı veya teleport eklenmez.
+HAR-10 kendi içinde savunma_gucu / asayiş / kasa / RNG değiştirmez. HAR-15'in Güvenlik katkısı [savunma-guvenligi.md](savunma-guvenligi.md) belgesindeki tek mevcut Güvenlik adaptöründe hesaplanır; burada ikinci bonus yok. Kapı mevcut meydan x merkezi + slot, son ızgara y; sur mevcut dört köşe. Aynı A* en yakın geçilir hücre ve gerçek yol doğrulaması; kopuk hedef eski devriye politikasına düşer. Zemindeki iç kule durakları kullanılır; dikey sur tırmanışı veya teleport eklenmez.
 
 ## Edge Cases
 İlk perde, dolu slot, bilinmeyen/ölü ID, bozuk rol ve terminal yeni atama atomik ret. Optional defter en çok64 kanonik pozitif ID; legacy boş, JSON rol korunur. Aşırı kayıt deterministik kesilir, ghost NPC yaratılmaz. Hasarlı sur okçuyu pasifleştirir, kapı sürer. Rol değişimi eski taktik çocuğunu hemen ayırır; ikinci silah/HUD yok. Gerçek el kemiği yoksa sahte kemiğe donanım takılmaz.

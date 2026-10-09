@@ -1,6 +1,7 @@
 ## TUC-15: aynı köylü/kışla kaydının süreli kervan görevi.
 class_name KervanKorumasi
 extends RefCounted
+const SAVUNMA_GUVENLIGI = preload("res://src/koy/savunma_guvenligi.gd")
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/kervan_korumasi.json"))
 ## Gün mevcut oyun saatinden; süresi dolunca atama değiştirmeden köye döner.
 static func disarida(y: KoyYonetimi, id: int) -> bool:
@@ -12,9 +13,9 @@ static func sayi(y: KoyYonetimi) -> int:
  for k in y.koylular:
   if disarida(y, k.id): n += 1
  return n
-## Temel asayişe dokunmayan geçici güvenlik katkısı; dönüşte kendiliğinden kalkar.
+## Tek Güvenlik hesabı: temel asayiş + HAR-15 hazırlık − geçici dış görev kaybı.
 static func guvenlik(y: KoyYonetimi) -> int:
- return clampi(100 - y.asayis_riski - sayi(y) * int(AYAR.guvenlik_kaybi), 0, 100)
+ return clampi(100 - y.asayis_riski + SAVUNMA_GUVENLIGI.katkisi(y) - sayi(y) * int(AYAR.guvenlik_kaybi), 0, 100)
 ## Kışlanın gerçekten etkin, borçsuz ve boşta kiralanabilir yetişkin nöbetçisi.
 static func aday(y: KoyYonetimi, id: int) -> bool:
  var k := y.koylu(id)

@@ -1,3 +1,6 @@
+## Claude — HAR-15 kapandı / KRI-01 sırada (9 Ekim 2026)
+Ağalıkta gerçek konuşlanmış muhafızların savunma hazırlığı tek Güvenlik hesabına eklenir: kişi başı floor((beceri+rol payı[devriye 1/kapı 3/sur 4])×sağlık/100) − mevcut nöbet payı, toplam tavan +20; yaralı/zindanda/kervandakiler sayılmaz, çift sayım yok. Köylü kartında görünür (not: satır kartın alt kısmında, kaydırma gerekir). Doğrulama: tam sanity 281 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
+
 ## Claude — HAR-14 kapandı / HAR-15 sırada (9 Ekim 2026)
 Başarılı göç yolu (pusu) temizliği sonrası 3 gün boyunca esnaf seçim ağırlığı +1 (tavan 3); mevcut HAR-11 ağırlıklarına ince adaptör, ikinci takvim yok, aynı temizlik iki kez bonus vermez, kayıtta optional alan; pazar/harita/gözcü özetinde görünür. Doğrulama: tam sanity 279 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
 

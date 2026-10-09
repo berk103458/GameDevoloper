@@ -86,14 +86,14 @@ elsewhere in the repo, so they are restated here rather than lost:
 Claude — kod / entegrasyon ajanı (Godot GDScript, festive dalı).
 
 ### Şu an üzerinde çalışılan
-HAR-14 kapatıldı (9 Ekim 2026). Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+HAR-15 kapatıldı (9 Ekim 2026). Görev düzeni: Claude yönetir/doğrular, Codex uygular.
 
 ### Sonraki plan
-HAR-15 — Codex'e verilir; sanity + görünür Godot incelemesi + commit/push + iki kopya/remote/ROADMAP doğrulaması.
+KRI-01 — Codex'e verilir; sanity + görünür Godot incelemesi + commit/push + iki kopya/remote/ROADMAP doğrulaması.
 
 ### Güncel durum
 - Kanonik `C:\Users\ds\Documents\Codex\2026-10-06\c\GameDevoloper`, ayna `C:\Users\ds\Documents\GitHub\GameDevoloper`; dal `claude/festive-volta-li1sfm`.
-- HAR-14: tam sanity 279 PASS / 0 hata / 20 gece. `.import` ve `work/` pakete dahil edilmez.
+- HAR-15: tam sanity 281 PASS / 0 hata / 20 gece. `.import` ve `work/` pakete dahil edilmez.
 
 ### Kural
 Bu projede her çalıştığında **önce** bu dosyayı ve `AGENTS.md`’yi oku. Her **commit** ve **pull** sonrası bu dosyadaki durum bölümünü güncelle. ROADMAP’te kapattığın adımları `[x]` yap ve satır sonuna `(Claude)` yaz.

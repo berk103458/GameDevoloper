@@ -12,7 +12,7 @@ static func ekle(e: KoyEkrani, ust: Control) -> void:
    var d := e._dugme("%s kervana kirala · %d kamu akçesi" % [k.ad, int(KervanKorumasi.AYAR.pesin_akce)], ust)
    d.name = "kervan_koruma_" + str(id)
    d.disabled = not KervanKorumasi.uygun(y, id)
-   d.tooltip_text = "%d gün yerel savunma/asayiş nöbetine katılmaz; geçici Güvenlik -%d. Aynı nüfus, atama ve bordro kalır." % [int(KervanKorumasi.AYAR.sure_gun), int(KervanKorumasi.AYAR.guvenlik_kaybi)]
+   d.tooltip_text = "%d gün yerel savunma/asayiş nöbetine katılmaz; savunma hazırlığı katkısı kalkar, ayrıca geçici Güvenlik -%d. Aynı nüfus, atama ve bordro kalır." % [int(KervanKorumasi.AYAR.sure_gun), int(KervanKorumasi.AYAR.guvenlik_kaybi)]
    d.pressed.connect(func() -> void:
     if KervanKorumasi.kirala(y, id):
      e.sahne3b.yenile()

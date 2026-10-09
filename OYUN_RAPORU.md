@@ -1,5 +1,8 @@
 # Kapı Muhafızı — Oyun Raporu (yerel)
 
+## 9 Ekim 2026 — HAR-15 uygulama (Codex; Claude yönetimi)
+Gerçek kapı/sur/devriye muhafızının stat/sağlığı üzerinden ağalıkta en çok20/100 canlı Güvenlik katkısı; mevcut gece temel nöbet payı çıkarılır. Tek `KervanKorumasi.guvenlik` adaptörü, yeni kayıt alanı/RNG yok; kervanda, zindanda ve yaralı kişi katkısız. Mevcut köylü kartında Güvenlik ve katkı, kiralama bilgi notunda yerel katkının kalkması görünür. Tasarım: design/gdd/savunma-guvenligi.md; birim ve gerçek UI testi, sanity sahne kaydı. Asset gerekmedi. ROADMAP `[/] (Codex)`; Claude kapanış incelemesini bekler. Kanonik kopya dışında yazım, commit/push ve `.import` değişikliği yapılmaz. Ayrıntılı test kanıtı codex.md/Codex.md.
+
 ## 9 Ekim 2026 — HAR-14 uygulama (Codex; Claude yönetimi)
 Başarılı HAR-05 temizliği mevcut HAR-11 esnaf ağırlığına sonraki üç gün +1 (tavan3) verir; tek optional kayıt, mükerrer başarı koruması ve sınırlı yenileme. Mevcut uzman takvimi/kapı makbuzu korunur; HAR-13 normal ticaret yolcusunu ayrıca gösterir. Yeni helper/veri, minimal adaptörler, birim ve gerçek UI akış sahnesi; ayrıntı design/gdd/pusu-ticaret-akisi.md ve codex.md/Codex.md. Asset gerekmedi. ROADMAP `[/]`; bu görev yalnız kanonik kopyada, commit/push/ayna/`.import` yazımı olmadan teslim edilir. Aşağıdaki eski rapor tarihsel bağlamdır.
 
@@ -1580,3 +1583,11 @@ Başarılı göç yolu (pusu) temizliği sonrası 3 gün boyunca esnaf seçim a�
 Doğrulama (Claude): tam sanity 279 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
 
 Sıradaki: HAR-15. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+
+## Codex + Claude — HAR-15 (9 Ekim 2026)
+
+Ağalıkta gerçek konuşlanmış muhafızların savunma hazırlığı tek Güvenlik hesabına eklenir: kişi başı floor((beceri+rol payı[devriye 1/kapı 3/sur 4])×sağlık/100) − mevcut nöbet payı, toplam tavan +20; yaralı/zindanda/kervandakiler sayılmaz, çift sayım yok. Köylü kartında görünür (not: satır kartın alt kısmında, kaydırma gerekir).
+Doğrulama (Claude): tam sanity 281 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
+
+Sıradaki: KRI-01. Görev düzeni: Claude yönetir/doğrular, Codex uygular.

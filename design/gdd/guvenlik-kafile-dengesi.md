@@ -12,6 +12,8 @@ Güvenlik<4: gerçek CAS profilli CHR adayları ağırlık3, diğerleri1. Güven
 ## Formulas
 Ağırlıklı aday olasılığı w_i/toplam(w); risk +iki sıradan aday örneğinde3/5, esnaf +iki sınıfta2/4. Aynı kategori ağırlıkları eşitse eski tek randi_range aynen kullanılır; Güvenlik4–7 eski RNG akışı tam eşittir. Ağırlıklı durumda mevcut Oturum._rng tek randf; RNG mevcut kayıt içinde deterministik devam eder. Güvenlik = mevcut Oturum.gosterge(3), KervanKorumasi.guvenlik /10; ayrı stat veya baz asayiş değişimi yok.
 
+HAR-15 bu aynı Güvenlik kaynağına yalnız ağalıkta sınırlı savunma hazırlığı ekler; formül ve çift sayım önleme [savunma-guvenligi.md](savunma-guvenligi.md). HAR-11 eşikleri/ağırlıkları veya RNG çekim sayısı değiştirilmez.
+
 ## Edge Cases
 Uygun risk adayı yoksa kişi zorla çağrılmaz. Hazır KAP01 JSON diyalog listesi tüketilme sırasıyla kalır; güvenlik etkisi onun ardından rastgele sınıf fallback'ında ve gerçek adlı kadroda. Esnaf mevcut oyunun ticaret sınıfı eşlemesidir; her esnaf ziyaretçisi uzman tüccar değildir. Gezgin uzman takvimi, geçiş bacı/rüşvet/ret makbuzu ve özel GocYolu ziyareti değiştirilmez. HAR14 ayrı tüccar akışı paketidir. Çete baskını/husumet/yaralanma veya savunma formülü yeniden kurulmaz.
 
