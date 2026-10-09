@@ -2,7 +2,7 @@
 class_name SaglikYoneticisi
 extends RefCounted
 const META := &"salgin_son_gece"
-static var AYAR: Dictionary = {"veba": {"sure": 6, "risk": 30, "kayip": 12}, "humma": {"sure": 4, "risk": 20, "kayip": 8}}
+static var AYAR: Dictionary = {"veba": {"sure": 6, "risk": 30, "kayip": 12}, "humma": {"sure": 4, "risk": 20, "kayip": 8}, "tifo": {"sure": 5, "risk": 25, "kayip": 10}}
 const AZAMI_TEMAS := 3
 const AZAMI_YENI := 2
 
@@ -49,8 +49,8 @@ static func ortak_bina(y: KoyYonetimi, a: Koylu, b: Koylu) -> bool:
 	return false
 
 ## Başlangıç fotoğrafı: yeni hasta aynı gecede zincirleme kaynak olamaz.
-static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
-	if y.son != &"" or KisHastaligi.gece_oku(y.get_meta(META, -1)) == y.gun: return
+static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> int:
+	if y.son != &"" or KisHastaligi.gece_oku(y.get_meta(META, -1)) == y.gun: return 0
 	var kaynaklar: Array[Koylu] = []
 	for k in y.koylular:
 		if not hasta(k): continue
@@ -60,8 +60,9 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 		k.enfeksiyon.son_gece = y.gun
 		if not temas_edebilir(y, k): continue
 		k.bayrak_ac("hasta")
+		if k.enfeksiyon.tur == "tifo": continue # Yalnız kirli kuyu suyu; temas bulaşması yok.
 		kaynaklar.append(k)
-	if kaynaklar.is_empty(): return
+	if kaynaklar.is_empty(): return 0
 	y.set_meta(META, y.gun)
 	kaynaklar.sort_custom(func(a: Koylu, b: Koylu) -> bool: return a.id < b.id)
 	var kisiler := y.koylular.duplicate()
@@ -81,6 +82,7 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 				aday.bayrak_ac("hasta")
 				yeni += 1
 	if yeni > 0: olaylar.append({"anahtar": "Köyde %d yeni hastalık belirtisi görüldü; Şifahane tedavisi bekleniyor.", "deger": [yeni]})
+	return yeni # KRI-04 aynı gecenin iki vaka sınırından kalan yeri kullanır.
 
 ## Ev iyileşmesinden sonra, mevcut tek ölüm kontrolünden önce çağrılır.
 static func saglik_kaybi(y: KoyYonetimi, k: Koylu) -> void:
@@ -97,7 +99,7 @@ static func tedavi(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 		SifahaneKontenjani.kullan(y)
 		k.saglik = mini(100, k.saglik + (HekimIlac.ILAC_SAGLIK if bedel.has("ilac") else 10))
 		iyilestir(k)
-		olaylar.append({"anahtar": "Şifahane %s bulaşıcı hastalığını tedavi etti; 1 ilaç kullanıldı (+25 sağlık)." if bedel.has("ilac") else "Şifahane %s bulaşıcı hastalığını tedavi etti; 2 erzak kullanıldı.", "deger": [k.ad]})
+		olaylar.append({"anahtar": "Şifahane %s hastalığını tedavi etti; 1 ilaç kullanıldı (+25 sağlık)." if bedel.has("ilac") else "Şifahane %s hastalığını tedavi etti; 2 erzak kullanıldı.", "deger": [k.ad]})
 
 static func iyilestir(k: Koylu) -> void:
 	if not hasta(k): return
@@ -109,5 +111,6 @@ static func iyilestir(k: Koylu) -> void:
 ## Köylü kartı satırı; belirti açılmadan (gizli kuluçka) hastalık ifşa edilmez.
 static func metin(k: Koylu, y: KoyYonetimi) -> String:
 	if not hasta(k) or "hasta" not in k.bayraklar: return ""
-	var ad := "Veba" if k.enfeksiyon.tur == "veba" else "Humma"
-	return "%s belirtisi: en geç %d gün · %s · Şifahane boş kontenjanı %d" % [ad, maxi(0, int(k.enfeksiyon.bitis) - y.gun), "karantinada temas engelli" if KarantinaYoneticisi.aktif(k) else "bulaşıcı", Sifahane.tedavi_kapasitesi(y)]
+	var ad: String = {"veba": "Veba", "humma": "Humma", "tifo": "Tifo"}.get(k.enfeksiyon.tur, "Hastalık")
+	var yol := "su kaynaklı · kişiler arasında bulaşmaz" if k.enfeksiyon.tur == "tifo" else "bulaşıcı"
+	return "%s belirtisi: en geç %d gün · %s · Şifahane boş kontenjanı %d" % [ad, maxi(0, int(k.enfeksiyon.bitis) - y.gun), "karantinada temas engelli · " + yol if KarantinaYoneticisi.aktif(k) else yol, Sifahane.tedavi_kapasitesi(y)]

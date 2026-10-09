@@ -302,6 +302,7 @@ func _tikla() -> void:
 		_:
 			var b := _bina_altinda(_imlec)
 			_secili_bina = b.id if b != null else -1
+			if b == null and _imlec == KuyuKireclemePaneli.hucre(self): _secili_bina = KuyuKireclemePaneli.MEYDAN_KUYUSU
 			sahne3b.secim_goster(b)
 			_bilgi_goster()
 
@@ -375,8 +376,12 @@ func _bilgi_kur() -> void:
 
 func _bilgi_goster() -> void:
 	for c in _bilgi_icerik.get_children():
+		_bilgi_icerik.remove_child(c) # Yenilenen bilgi düğmelerinin adları aynı karede serbest kalır.
 		c.queue_free()
 	var b := _y.bina(_secili_bina)
+	if _secili_bina == KuyuKireclemePaneli.MEYDAN_KUYUSU:
+		KuyuKireclemePaneli.bilgi(self)
+		return
 	_bilgi.visible = b != null
 	if b == null:
 		return
@@ -392,6 +397,7 @@ func _bilgi_goster() -> void:
 	SamanBilgisi.ekle(_y, b, _bilgi_icerik)
 	KundakClueBilgisi.ekle(_y, b, _bilgi_icerik)
 	if b.tur == "sifahane": HekimIlacBilgisi.ekle(_y, _bilgi_icerik, b.id)
+	if b.tur in ["su_kuyusu", "su_arki"]: KuyuKireclemePaneli.ekle(self, _bilgi_icerik, b.id)
 	var yatak := b.yatak(_y.katalog)
 	if yatak > 0:
 		var oturan := 0
@@ -737,6 +743,7 @@ func _yenile() -> void:
 	hud.guncelle()
 	_yapi_satirini_ciz()
 	_bant_ciz()
+	if _secili_bina == KuyuKireclemePaneli.MEYDAN_KUYUSU: _bilgi_goster()
 	if _secili_bina >= 0:
 		sahne3b.secim_goster(_y.bina(_secili_bina))
 		_bilgi_goster()

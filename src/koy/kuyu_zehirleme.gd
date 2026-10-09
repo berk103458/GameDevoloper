@@ -48,6 +48,7 @@ static func gece(y: KoyYonetimi,su: Dictionary,olaylar: Array[Dictionary]) -> vo
   var p := CasusGeceTakibi.hedef(y,k)
   if p.is_empty() or p.hedef != "kuyu": continue
   x.uygulandi = y.gun
+  KuyuKirliligi.kirlet(y) # Aynı gerçek kuyu kaynağı; CAS kimlik/tutanak sözleşmesi korunur.
   d.kisiler[str(k.id)] = x
   # Aynı gerçek kuyu akışını içenler; depoda önce ayrılmış su bu fiilden etkilenmez.
   var ihtiyac := maxi(1,SuDengesi.gerek(y)/maxi(1,y.nufus()))

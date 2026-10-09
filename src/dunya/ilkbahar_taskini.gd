@@ -28,6 +28,7 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
   r.hasar = true
   olaylar.append({"anahtar":"Kar erimesi su bendini kırdı; kuyu suyu kirlendi. Taş ve kireçle onarım gerekli.","deger":[]})
  if r.hasar:
+  KuyuKirliligi.kirlet(y) # Kırık bent yeni kirlenmeyi besler; onarım ayrı kalır.
   for k in y.koylular: k.saglik = maxi(0, k.saglik - int(AYAR.kirli_su_saglik))
   olaylar.append({"anahtar":"Kırık bent/kirli kuyu: kişi başına −%d sağlık.","deger":[int(AYAR.kirli_su_saglik)]})
  y.set_meta(META, r)
@@ -59,6 +60,7 @@ static func uygula(o: Oturum, e: OlayVerisi, i: int) -> Dictionary:
  if i == 0:
   if not o.yonetim.kaynaklar.harca(AYAR.onarim): return sonuc
   r.hasar = false
+  KuyuKirliligi.temizle(o.yonetim) # Onarım bedelindeki kireç ikinci kez harcanmaz.
   sonuc.sonuc_anahtari = "Su bendi onarıldı; kuyu kireçle temizlendi. Kirli su sağlık kaybı durdu."
  else:
   for k in o.yonetim.koylular: k.moral = maxi(0, k.moral - int(AYAR.ertele_moral))

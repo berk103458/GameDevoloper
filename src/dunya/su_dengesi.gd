@@ -32,7 +32,7 @@ static func taze(y: KoyYonetimi) -> int:
  return maxi(0, int(AYAR.kuyu_gunluk) - (int(r.adet) if int(r.gun)==y.gun else 0))
 ## Mevcut ortak ambara tek parti; günlük kuyu sınırı, kamu akçesi ve kapasite ön kontrolü.
 static func doldurabilir(y: KoyYonetimi) -> bool:
- return y.son == "" and y.nufus()>0 and taze(y)>=int(AYAR.doldurma_parti) and y.akce>=int(AYAR.doldurma_akce) and y.kaynaklar.bos_yer()>=int(AYAR.doldurma_parti)
+ return y.son == "" and not KuyuKirliligi.kirli(y) and y.nufus()>0 and taze(y)>=int(AYAR.doldurma_parti) and y.akce>=int(AYAR.doldurma_akce) and y.kaynaklar.bos_yer()>=int(AYAR.doldurma_parti)
 ## Başarı tek kamu tahsilatı ve tek ortak rezerv eklemesidir.
 static func doldur(y: KoyYonetimi) -> bool:
  if not doldurabilir(y): return false
@@ -66,4 +66,4 @@ static func gece(y: KoyYonetimi, tuketim: Dictionary, olaylar: Array[Dictionary]
  return rapor
 ## Aynı kaynak kartında arz/rezerv/ihtiyaç açıklaması.
 static func tip(y: KoyYonetimi) -> String:
- return "Su rezervi · Gecelik ihtiyaç: %d · kalan kuyu akışı: %d. Yaz/kuraklık tüketimi ×%d. Pazarda kuyudan rezerv ayırabilirsin." % [gerek(y),taze(y),int(AYAR.yaz_carpani)] + KuyuZehirleme.tip(y)
+ return "Su rezervi · Gecelik ihtiyaç: %d · kalan kuyu akışı: %d. Yaz/kuraklık tüketimi ×%d. Pazarda kuyudan rezerv ayırabilirsin." % [gerek(y),taze(y),int(AYAR.yaz_carpani)] + "\n" + KuyuKirliligi.metin(y) + KuyuZehirleme.tip(y)

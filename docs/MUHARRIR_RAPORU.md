@@ -1,3 +1,6 @@
+## Claude — KRI-04 kapandı / KRI-05 sırada (9 Ekim 2026)
+Taşkın, CAS kuyu sabotajı, debug enjektörü veya hasta yoğunluğu (≥3 kişi ve ≥%25) kuyuyu 3 gece kirletir; kirli kuyudan taze su içenlerde %25 tifo (KRI-01 motorunda su kaynaklı, kişiler arası bulaşmaz, gece 2 vaka sınırı paylaşılır); meydan kuyusu/su binası bilgisinden ve pazardan 2 kireçle acil dezenfeksiyon; fail kimliği ifşa edilmez. Doğrulama: tam sanity 289 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
+
 ## Claude — KRI-03 kapandı / KRI-04 sırada (9 Ekim 2026)
 Şifahanede çalışan yetkin hekim (CHR_008 otacı Dudu / CHR_003 cerrah Haydar; adsız usta cerrah/otacı) bulaşıcı hastalık sağlık kaybını ×0,20 yapar (veba −12→−2); Şifahaneye ilaç reçetesi (1 afyon + 1 su), ilaçla tedavi +25 sağlık, ilaç yoksa eski 2 erzak/+10. BİLİNEN SORUN (eski, KRI-03 dışı): bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378 esnaf→demirci), CHR_008 'usta demirci' görünüyor. Doğrulama: tam sanity 287 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset gerekmedi.
 

@@ -29,6 +29,8 @@ Köylü kartı ve Şifahane bilgisinde etkin hekim, hastalık sağlık kaybı az
 
 ## Kayıt ve doğrulama
 
+KRI-04 [tifo](kuyu-kirliligi.md) da aynı hastalık kaybı/ilaç tedavisi API'sini kullanır: yetkin hekim 10→2 sağlık kaybı, aynı 1 ilaç/+25 veya 2 erzak/+10 ve ortak kontenjan. Kireç su kaynağını temizler; hasta tedavisi veya yeni ilaç reçetesi değildir.
+
 Yeni köylü/yönetim kaydı veya kayıt sürümü yoktur. Mevcut stok ve bina reçetesi ilaç bilgisini saklar; legacy stokta ilaç eksikse0, bozuk miktar mevcut kaynak yükleyicisiyle güvenli0 olur. Hekim etkisi yüklenen gerçek atamadan yeniden türetilir; kalıcı gizli bonus bayrağı yoktur. Hastalık/karantina/ortak kontenjan optional kayıtları korunur.
 
 `tests/unit/kvr/hekim_ilac_test.gd`: gerçek CHR kabulü/ataması, legacy ustalık, çalışamayan hekim, tek hasar makbuzu/ölüm yolu, üretim, ortak kota, ilaç/erzak tedavisi, yetersiz kaynak, gizlilik, kapasite düşüşü ve JSON gece/RNG eşitliği.

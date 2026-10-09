@@ -25,10 +25,10 @@
 | KRI-01 | Hasta sığınmacıdan ortak binada veba/humma bulaşması; gizli kuluçka, Şifahane tedavisi, kartta belirti | Codex başlattı · limit doldu · Claude tamamladı | `cfbb668` | `src/koy/saglik_yoneticisi.gd` | sanity 283/0 · görünür Godot |
 | KRI-02 | Şifahane karantinası: 2 gün, temas/çalışma engeli, atama korunur, gizli hasta ifşa edilmez | Codex yazdı · Claude doğruladı | `109491d` | `src/koy/karantina_yoneticisi.gd`, `src/arayuz/koy_hud/karantina_paneli.gd` | sanity 285/0 · görünür Godot |
 | KRI-03 | Yetkin hekim → bulaşıcı hastalık sağlık kaybı −%80; Şifahane ilaç reçetesi (1 afyon+1 su), ilaçla +25 sağlık | Codex yazdı · Claude doğruladı | `0a808a2` | `src/koy/hekim_ilac.gd`, `src/arayuz/koy_hud/hekim_ilac_bilgisi.gd` | sanity 287/0 · görünür Godot |
-| KRI-04 | Su kuyusu kirlenmesi ve kireçleme — tifo riski; acil dezenfeksiyon | Codex yazıyor | — | — | `[/]` başladı |
+| KRI-04 | Kirli kuyu (taşkın/sabotaj/hasta yoğunluğu) → su kaynaklı tifo %25; 2 kireçle acil dezenfeksiyon | Codex yazdı · Claude doğruladı | kapanış commit'i | `src/koy/kuyu_kirliligi.gd`, `src/arayuz/koy_hud/kuyu_kirecleme_paneli.gd` | sanity 289/0 · görünür Godot |
 <!-- PANO_TABLO_SON -->
 
-**Sıradaki:** KRI-04 (Codex yazıyor) → KRI-05 … KRI-15 → SYS-16 … SYS-20. Bilinen eski sorun: bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378).
+**Sıradaki:** KRI-05 (toplu mezar/cenaze) → … → KRI-15 → SYS-16 … SYS-20. Bilinen eski sorun: bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378).
 
 Ayrıntılı günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md`.
 
@@ -296,7 +296,7 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **KRI-01:** Veba ve Humma Bulaşma Motoru (`src/koy/saglik_yoneticisi.gd`) — Hasta sığınmacı enfeksiyon riski. tam sanity 283 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex başlattı; Claude tamamladı)
 - [x] **KRI-02:** Şifahane Karantina Koğuşu — Şüpheliler 2 gün karantina. tam sanity 285 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex; doğrulama Claude)
 - [x] **KRI-03:** Hekim Yetkinliği ve İlaç Üretimi — CHR_008/003 şifahanedeyse ölüm %80↓. tam sanity 287 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex; doğrulama Claude)
-- [/] **KRI-04:** Su Kuyusu Kirlenmesi ve Kireçleme — Tifo riski; acil dezenfeksiyon. (Codex yazıyor; Claude yönetiyor)
+- [x] **KRI-04:** Su Kuyusu Kirlenmesi ve Kireçleme — Tifo riski; acil dezenfeksiyon. tam sanity 289 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex; doğrulama Claude)
 - [ ] **KRI-05:** Toplu Mezar ve Cenaze Töreni — Moral 2 gün sarsılır.
 - [ ] **KRI-06:** Kıtlık İsyanı ve Ambar Yağması — Erzak 2 gün 0 → ambar kapısı kırılır.
 - [ ] **KRI-07:** Çınar Altı Köy Meclisi — Krizde halk oylaması.

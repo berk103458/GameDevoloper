@@ -40,6 +40,7 @@ static func tetikle(o: Oturum, id: String) -> Dictionary:
 		"kuyu":
 			if kalan(y) > 0: return {"ok": false, "neden": "Kuyu zaten zehirli; süre üstüne eklenmedi."}
 			y.set_meta(META, 3)
+			KuyuKirliligi.kirlet(y)
 			mesaj = "Köy suyu zehirli: sonraki 3 gece kişi başına −25 sağlık + hasta bayrağı."
 		"kundak":
 			if y.kaynaklar.toplam() == 0: return {"ok": false, "neden": "Ambar boş; kundaklamanın stok hedefi yok."}

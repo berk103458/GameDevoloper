@@ -1,6 +1,7 @@
 # KRI-01 — Veba ve Humma Bulaşma Motoru
 
 KRI-03 hekim/ilaç uzantısı: [Hekim yetkinliği ve ilaç üretimi](hekim-ilac.md).
+KRI-04 su kaynaklı tifo uzantısı: [Kuyu kirlenmesi ve kireçleme](kuyu-kirliligi.md). Tifo aynı enfeksiyon/hasar/tedavi motorunu kullanır; kişiler arasında bulaşmaz. Temas ve su vakaları gecelik iki yeni vaka sınırını paylaşır.
 
 **Durum:** Uygulandı (Codex başlattı, limit dolunca Claude tamamladı) · 9 Ekim 2026
 **Dosya:** `src/koy/saglik_yoneticisi.gd` (`SaglikYoneticisi`)

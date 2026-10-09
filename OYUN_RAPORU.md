@@ -1621,3 +1621,17 @@ Sıradaki: KRI-03. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
 Doğrulama (Claude): tam sanity 287 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
 
 Sıradaki: KRI-04. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+## Codex — KRI-04 uygulaması (9 Ekim 2026; Claude incelemesi bekleniyor)
+
+Mevcut tek kuyu kaynağında üç gecelik kirlenme; gerçek CAS sabotajı, debug kuyusu, kırık bent ve açık hasta yoğunluğu eşik geçişi bağlı. Tifo aynı sağlık motorunda su kaynaklıdır, kişiler arası bulaşmaz; temas/su gecelik iki yeni vaka sınırını paylaşır. Meydan kuyu tıklaması mevcut bina bilgisinde durumu ve 2 kireçle acil dezenfeksiyonu açar; hasta kartında açık tifo belirtisi görünür. Önce ayrılmış su korunur, kirli kuyudan yeni rezerv ayrılmaz. Bent onarımı ve CAS kanıt/ifşa kuralları korunur; kireç hastayı iyileştirmez. Optional/legacy kayıt, birim ve gerçek gece/kart/kayıt otomasyonu eklendi; GDD design/gdd/kuyu-kirliligi.md. Asset gerekmedi.
+
+KRI-04 ROADMAP [/] kalır; kapanış yetkisi Claude Code'da. Bu teslimde yalnız kanonik kopya; commit/push/ayna/.import yok. Son headless kanıt ve “KRI-04 nerede kaldı” notları codex.md/Codex.md ve work/kri04/ içinde.
+
+
+## Codex + Claude — KRI-04 (9 Ekim 2026)
+
+Taşkın, CAS kuyu sabotajı, debug enjektörü veya hasta yoğunluğu (≥3 kişi ve ≥%25) kuyuyu 3 gece kirletir; kirli kuyudan taze su içenlerde %25 tifo (KRI-01 motorunda su kaynaklı, kişiler arası bulaşmaz, gece 2 vaka sınırı paylaşılır); meydan kuyusu/su binası bilgisinden ve pazardan 2 kireçle acil dezenfeksiyon; fail kimliği ifşa edilmez.
+Doğrulama (Claude): tam sanity 289 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset gerekmedi.
+
+Sıradaki: KRI-05. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
