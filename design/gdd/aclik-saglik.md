@@ -25,3 +25,6 @@ Erzak dibe vurduğunda köy yalnız aç kalmaz; zayıflayan beden hastalığa da
 
 ## Acceptance Criteria
 Birim: `tests/unit/kvr/aclik_saglik_test.gd`; akış: `tests/oto/aclik_saglik_kontrol.gd` (gerçek köy ekranı gecesi, rapor, GuvenliKayit, tok gece).
+
+## Codex kanonik doğrulaması
+tam sanity 319 PASS / 0 hata / 20 gece; aynı kanonik kaynaklarda birim ve gerçek HUD/gece/rapor/GuvenliKayit akışı geçti. Loglar: `work/kri12/sanity_ozet.log`, `final_results.json`; tüm kaynak hash değerleri sabit. Uygulama ve yukarıdaki denge kararı Claude'a aittir; bu tur oyun kodu değiştirilmedi. Asset gerekmedi.
