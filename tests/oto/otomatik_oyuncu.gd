@@ -7,6 +7,7 @@ var rng := RandomNumberGenerator.new()
 var _cekilen := {}
 var _klasor := "user://oto"
 var _kabul_orani := 0.75
+var _kilit_sayaci := 0
 
 
 func _ready() -> void:
@@ -118,6 +119,19 @@ func _dongu() -> void:
 		elif ekran is KapiEkrani:
 			var k := ekran as KapiEkrani
 			var d := _dugmeler(k._secenekler)
+			if d.is_empty() and k.evre == &"sohbet":
+				# CHR sorgusunda tüm cevaplar ipucu kilitliyse önce incele (nişan/yük, yüz); o da yoksa karara geç.
+				var incele := _dugmeler(k._eylemler)
+				if not incele.is_empty():
+					incele[rng.randi_range(0, incele.size() - 1)].pressed.emit()
+				await get_tree().create_timer(0.8).timeout
+				_kilit_sayaci += 1
+				if _kilit_sayaci > 6:
+					print("SOHBET_KILIDI: aktif cevap yok, inceleme sonrası da açılmadı -> karara geçildi")
+					_kilit_sayaci = 0
+					k._karar_goster()
+				continue
+			_kilit_sayaci = 0
 			if d.is_empty():
 				continue
 			if k.evre == &"sohbet":
