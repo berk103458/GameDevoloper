@@ -30,11 +30,11 @@
 | KRI-06 | Erzak 2 gece 0 → kıtlık isyanı: ambar kapısı kırılır, tavanlı yağma, moral −8, onarıma kadar kapasite −%20 | Codex yazdı · Claude düzeltti/doğruladı | `0fbfd00` | `src/koy/kitlik_isyani.gd`, `src/arayuz/koy_hud/ambar_kapisi_paneli.gd` | sanity 293/0 (1. koşu 1 FAIL → düzeltildi) · görünür Godot |
 | KRI-07 | Krizde HUD'dan çınar altı meclisi; deterministik gizli oy, halkın kararını uygula/reddet | Codex yazdı (bellek kesintisinden sonra tamamladı) · Claude doğruladı | `a2f1116` | `src/koy/cinar_alti_meclisi.gd`, `src/arayuz/koy_hud/cinar_meclis_paneli.gd` | sanity 295/0 · görünür Godot |
 | KRI-08 | Krizde masum şifacı/yabancıya söylenti; Koru / Gerçek sebebi göster / Göz yum / Sürgün; haksızlığın adalet/vicdan/hekim bedeli | Codex yazdı (otonom) · Claude entegre etti/doğruladı | `faff1d7` | `src/koy/batil_inanc_histerisi.gd`, `src/arayuz/koy_hud/histeri_paneli.gd` | sanity 297/0 · görünür Godot |
-| KRI-09 | Ağır krizde düşük sadakatli adsız levent firarı; tek Güvenlik/gece raporu ve kalıcı dönem kilidi | Codex yazdı | yayın betiği | `src/koy/levent_firari.gd`, `data/koy/levent_firari.json` | Claude test bekliyor · tam sanity 299 PASS / 0 hata / 20 gece · asset gerekmedi |
-| KRI-10 | Örtüşen krizlerin kapanışında tek Sadakat/Refah bonusu, 7 gün bekleme ve kalıcı dönem kilidi | Codex yazdı | yayın betiği | `src/koy/kriz_kenetlenmesi.gd`, `data/koy/kriz_kenetlenmesi.json` | Claude test bekliyor · tam sanity 302 PASS / 0 hata / 20 gece · asset gerekmedi |
+| KRI-09 | Ağır krizde düşük sadakatli adsız levent firarı; tek Güvenlik/gece raporu ve kalıcı dönem kilidi | Codex yazdı | yayın betiği | `src/koy/levent_firari.gd`, `data/koy/levent_firari.json` | Claude test ✔ (302/0, görünür Godot) · tam sanity 299 PASS / 0 hata / 20 gece · asset gerekmedi |
+| KRI-10 | Örtüşen krizlerin kapanışında tek Sadakat/Refah bonusu, 7 gün bekleme ve kalıcı dönem kilidi | Codex yazdı | yayın betiği | `src/koy/kriz_kenetlenmesi.gd`, `data/koy/kriz_kenetlenmesi.json` | Claude test ✔ (302/0, görünür Godot) · tam sanity 302 PASS / 0 hata / 20 gece · asset gerekmedi |
 <!-- PANO_TABLO_SON -->
 
-**Sıradaki:** KRI-11 (yayın sonrası) → KRI-12 … KRI-15 → SYS-16 … SYS-20. KRI-10 Claude test bekliyor; yayın betiği commit/push/ayna eşitlemesini yapar. Bilinen eski sorun: bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378). Ahmet kopyası bu makinede yok; güncellenmedi.
+**Sıradaki:** KRI-11 (yayın sonrası) → KRI-12 … KRI-15 → SYS-16 … SYS-20. KRI-09/KRI-10 Claude testinden geçti. Codex limiti 15 Ekim 17:38'e kadar dolu; KRI-11 yarım. Eski uzmanlık sorunu (BUG-0001) `f6e3b55` ile düzeltildi. Ahmet kopyası bu makinede yok; güncellenmedi.
 
 Ayrıntılı günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md`.
 

@@ -58,10 +58,15 @@ Assert sayıları test dosyalarındaki `_kontrol/dene/assert` çağrılarıdır 
 - **ADV-02 (ADM-14 debug):** "Kuyu zehri" debug enjektörü herkese açık `hasta` bayrağı verir; bu, Şifahane hekimini de çalışamaz kılar (KRI-08 vitrininde `hekim etkin: false`). Debug aracı için beklenen davranış; gerçek KRI-04 kirlenmesinde tifo yalnız su içenlere ve olasılıkla düşer.
 - **ADV-03 (eski kayıt):** BUG-0001 düzeltmesi yeni kabulleri düzeltir; eski kayıtlarda zaten `usta_demirci` almış CHR köylülerinin bayrağı göç ettirilmez (kayıt göçü ayrı karar ister).
 
+- **ADV-04 (KRI-09, süreç):** Codex KRI-09 commit'inde sanity altyapısını da değiştirdi (`python_test_runner.py`, `acilis_denetimi.py --filesystem`, `api_sozlesmesi.py --manifest` + `api_sozlesmesi_baseline.json`, sanity kilidi). İncelendi: hata yakalama zayıflamadı (manifest bildirimi birebir karşılaştırır, dosya sistemi taraması izlenmeyen yeni dosyaları da kapsar). Not: korumalı API'de bilinçli bir değişiklik artık manifestin de güncellenmesini ister.
+- **ADV-05 (KRI-10, tasarım):** Kenetlenme bonusu, belirtisiz (gizli kuluçkadaki) bir enfeksiyon varken de verilmez. Kim olduğu söylenmez ama "bonus gelmedi" dolaylı ipucu olabilir; tasarım kararı olarak Berk'e bırakıldı.
+
 ## Otonom döngüden gelecek maddeler (KRI-09 … SYS-20)
 
 Bu bölüm her yeni madde yayınlandıkça aynı kontrol listesiyle doldurulur.
 
 | Madde | Commit | Birim/Akış | Tam sanity | Görünür Godot | Bulgu |
 |---|---|---|---|---|---|
-| KRI-09 | — | — | — | — | Codex'te (otonom v2) |
+| KRI-09 | `e0fde8c` | 43 / 17 assert, kayıt ✔ | 302/0 | ✔ 6 köylüden düşük sadakatli 4 leventten tavan 3'ü kaçtı, sadık levent kaldı; Güvenlik 92→56; 2. kriz gecesinde ikinci dalga yok; kartta chr_/Clue_ sızıntısı yok | ADEQUATE · ADV-04 |
+| KRI-10 | `5e16532` | 36 / 17 assert, kayıt ✔ | 302/0 | ✔ Kireçle temizlik + iyileşme gecesi tek "Toplumsal kenetlenme": Sadakat 50→58, Refah 40→50; makbuz kapandı | ADEQUATE · ADV-05 |
+| KRI-11 … SYS-20 | — | — | — | — | Codex limiti 15 Ekim 17:38'e kadar doldu; KRI-11 Codex'te yarım (yerelde `[/]`) |
