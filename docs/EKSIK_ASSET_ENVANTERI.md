@@ -454,3 +454,10 @@ SYS-18 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut gece raporu satırı ve g
 SYS-19 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut perde geçiş kartı ve gece raporu satırı.
 
 SYS-20 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut son ekranı (BilgiEkrani) metni kullanılır; son başına özel görsel ileride istenirse ayrı envanter kaydı açılır.
+
+TESTER karakter muayenesi (Claude, 11 Ekim 2026 — `tests/oto/karakter_muayene.tscn`, plan `docs/tester/TESTER_GELISIM_PLANI.md`): eksik hareket klipleri. Yer tutucu: prosedürel bekleme (DurusDuzeltici) — klip yoksa karakter bekle pozunda kalır.
+| Asset | Tür | Hangi modeller | Yer tutucu | Arama (TR/EN) | Öncelik |
+|---|---|---|---|---|---|
+| `<ad>_gergin.glb` | 3B animasyon klibi | chr_001…chr_030 (hiçbirinde yok) | bekle pozu | gergin bekleme / nervous idle | Orta |
+| `<ad>_ofke.glb` / `<ad>_panik.glb` | 3B animasyon klibi | chr_002/003/008/011–030'da öfke yok; chr_001/004–007/009/010'da panik yok | bekle pozu | öfke, panik / angry, panic | Düşük |
+| `<ad>_konus/sevinc/ofke/panik/gergin.glb` | 3B animasyon klibi | adlı karakterler ve sınıf modelleri (aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf, asker, ciftci, ciftci_kadin, esnaf) — yalnız bekle/yürü var | bekle pozu | konuşma jesti / talking gesture | Orta |
