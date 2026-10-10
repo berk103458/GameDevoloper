@@ -768,7 +768,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 		o._rng_donus.state = String(r[1]).to_int()
 		o._rng_ad.state = String(r[2]).to_int()
 		o._rng_heybe.state = String(r[3]).to_int()
-	o._gemini_sira = int(veri.get("diyalog_sira", 0))
+	o._gemini_sira = preload("res://src/sistemler/diyalog_sirasi.gd").oku(veri.get("diyalog_sira"))
 	o.muhafiz_tecrubesi = maxi(0, int(veri.get("muhafiz_tecrubesi", 0)))
 	o.muhafiz_akce = maxi(0, int(veri.get("muhafiz_akce", 0)))
 	o.kasa_transferleri = KasaTransferi.oku(veri.get("kasa_transferleri"))
