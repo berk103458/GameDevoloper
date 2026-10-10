@@ -46,6 +46,25 @@ Kısaca: **Bulgu "bozuk" der. Öneri "kötü" der. Gelişim raporu "nereye gidiy
 - Kanonik kopya: `C:\Users\ds\Documents\Codex\2026-10-06\c\GameDevoloper`. Ayna: `C:\Users\ds\Documents\GitHub\GameDevoloper`. GitHub: `berk103458/GameDevoloper`, dal `claude/festive-volta-li1sfm`.
 - **Tester kendi çalışma kopyasında çalışır**, kanonik klasöre yazmaz. Önerilen kopya: `C:\Users\ds\Documents\Codex\tester-ajan` (git worktree). Her tur başında `git pull --ff-only`.
 
+### Yerel klasörler ve repo — oyun nerede, kim nerede çalışır
+| Yer | Ne | Kim yazar |
+| --- | --- | --- |
+| `https://github.com/berk103458/GameDevoloper` dal `claude/festive-volta-li1sfm` | **Tek doğruluk kaynağı.** Her şey sonunda buraya gelir. | Claude yayınlar |
+| `C:\Users\ds\Documents\Codex\2026-10-06\c\GameDevoloper` | **Kanonik kopya.** Codex ve Claude oyun kodunu burada geliştirir. | Codex (düzeltme), Claude (commit/push) |
+| `C:\Users\ds\Documents\GitHub\GameDevoloper` | **Ayna.** Her push sonrası GitHub'dan eşitlenir. | Kimse elle yazmaz |
+| `C:\Users\ds\Documents\Codex\tester-ajan` | **Senin kopyan.** Oyunu buradan açar, test eder, raporlarını buraya yazarsın. | **Tester** (yalnız `docs/tester/`, `codex.md/Tester.md`, `work/tester/`) |
+| `C:\Users\ds\Documents\Codex\tester-wt` | Claude'un eski test worktree'si. | Dokunma |
+| `C:\Users\ds\Desktop\Godot_v4.7.2-stable_win64.exe\` | Godot motoru (klasör adı `.exe` ile biter; içinde konsol ve pencereli exe). | — |
+
+Akış: **Codex düzeltir (kanonik) → Claude test edip GitHub'a push eder → senin kopyan tur başında GitHub'dan çekilir → sen test edersin → raporların yayın betiğiyle GitHub'a gider → Claude okur, Codex'e düzeltme verir.** Her şey aynı repo ve aynı daldadır; bu yüzden her tur başında `git log --oneline -15` ile en son ne değiştiğini görürsün.
+
+Nerede ne yapıldığını bulmak için:
+- **ROADMAP.md** → her maddenin sahibi, dosyası, test sonucu (pano tablosu en üstte).
+- **OYUN_RAPORU.md** → en yeni girişler üstte; her maddenin oyuna ne getirdiği.
+- **docs/denetim/** → denetim ve hata (BUG-xxxx) raporları.
+- **codex.md/Codex.md**, **CLAUDE.md** → ajanların günlükleri.
+- `git log --stat -- <dosya>` → bir dosyayı kim, ne zaman değiştirdi.
+
 ### Klasör haritası
 | Yol | İçerik |
 | --- | --- |
@@ -198,9 +217,23 @@ Sayıları **ölçerek** yaz. "Daha iyi gibi" demek yerine "ortalama gece 15 →
 
 ---
 
-## 6. Claude ile iletişim
+## 6. Raporu repoya yükleme ve Claude ile iletişim
 
-1. Raporları `docs/tester/` dosyalarına yaz. Commit mesajı: `tester: tur N — X bulgu, Y öneri` (sadece `docs/tester/` ve `codex.md/Tester.md`). Push öncesi `git pull --rebase`.
+**Test ettiğin her şeyin raporu olur.** Her tur için ayrı bir tur raporu dosyası açarsın: `docs/tester/turlar/TUR-NNN.md` (ör. `TUR-001.md`). İçinde:
+- tarih, test ettiğin commit (`git log -1 --format=%h`), turun süresi;
+- **test edilenler listesi**: her biri için ne denendi, nasıl (elle / admin / otomatik oyuncu / sanity / akış testi), sonuç (GEÇTİ / BULGU TST-xxxx / ÖLÇÜLMEDİ);
+- kullanılan tohumlar ve komutlar;
+- kanıt dosyalarının yolları (`work/tester/turNNN/...`);
+- tur sonu özeti (SKILL.md'deki kalıp).
+Bulgular ayrıca `BULGULAR.md`'ye, öneriler `DEGISIKLIK_ONERILERI.md`'ye, gidişat `GELISIM_RAPORU.md`'ye işlenir.
+
+**Yükleme:** Senin ortamın git'e yazamaz; bu normaldir. Turun en son adımı olarak `work/tester/tur_hazir.json` dosyasını yaz:
+```json
+{"tur": 3, "commit": "3e23cd3", "rapor": "docs/tester/turlar/TUR-003.md", "yeni_bulgu": ["TST-0004"], "p0": false, "ozet": "tek satır"}
+```
+Claude'un yayın betiği bu dosyayı görünce yalnızca `docs/tester/` ve `codex.md/Tester.md` değişikliklerini `tester: tur N — X bulgu, Y öneri` mesajıyla commit eder, GitHub'a push eder ve kanonik kopya ile aynayı günceller. `tur_hazir.json` yoksa o turun raporu yüklenmez, bu yüzden yazmayı unutma. `p0: true` ise Claude hemen uyarılır.
+
+1. Raporların tek kaynağı `docs/tester/` dosyalarıdır.
 2. **Ajan Masası** (GitHub issue #11): `[Tester → Claude] [SORUN] TST-0007 P1: kısa başlık` biçiminde yaz. Etiketler: SORU, CEVAP, UYARI, SORUN, BITTI. P0'ı **hemen** bildir; P1–P3'ü tur sonunda topluca bildir.
 3. Claude bir bulguyu kapatınca durumunu `DÜZELTİLDİ (commit abc123)` yapar. Sen sonraki turda **yeniden test edersin**: geçiyorsa `DOĞRULANDI`, geçmiyorsa `YENİDEN AÇILDI` yazarsın.
 4. Bir şeyin hata mı yoksa tasarım gereği mi olduğundan emin değilsen önce GDD'ye bak. Hâlâ belirsizse `[SORU]` ile sor. Tahmin yürütüp kesin hüküm verme.
@@ -214,3 +247,14 @@ Sayıları **ölçerek** yaz. "Daha iyi gibi" demek yerine "ortalama gece 15 →
 - "Testi geçirmek" için hiçbir dosyayı değiştirme.
 - Gördüğünü yaz; görmediğini "doğrulanmadı" diye işaretle.
 - Türkçe, sade, kısa yaz.
+
+---
+
+## 8. Sık sorulanlar (Tur 1'deki soruların cevapları)
+
+- **Kopyam güncel değil, `git fetch` yapamıyorum.** Normal: ortamın ağa ve `.git`'e yazamaz. Tester döngüsü her turdan **önce** kopyanı GitHub'dan çeker (`git pull --ff-only`). Tur başında `git log -1` ile commit'i rapora yaz; bir dosya yoksa "bu commit'te yok" diye not düş, uydurma.
+- **BUG ve TST nerede tutulur?** `BUG-xxxx` = Claude/Codex denetim kayıtları (`docs/denetim/`). `TST-xxxx` = **senin** bulguların (`docs/tester/BULGULAR.md`). Senin bulgun Claude tarafından denetime alınırsa yanına BUG numarası yazılır.
+- **Koşusuz (eğitim/okuma) turunda sanity/commit alanı?** Zorunlu değil; "ölçülmedi" yaz. Commit alanına test ettiğin kopyanın `git log -1 --format=%h` değerini yine yaz.
+- **`work/tester/` git'e girer mi?** Hayır, `.gitignore`'da `/work/tester/` var. Kanıtların orada kalır; rapora yolunu yazarsın.
+- **Birden fazla tester olursa TST çakışması?** Şu an tek tester var. İkincisi gelirse önek alır (ör. `TST-B-0001`); karar Claude'undur.
+- **Hangi skill'i kullanayım?** Senin Codex ortamında skill `kapi-tester` olarak kurulu (`$CODEX_HOME/skills/kapi-tester/SKILL.md`); içerik repodaki `.claude/skills/kapi-tester/SKILL.md` ile aynıdır. İkisi ayrışırsa repodaki geçerlidir.

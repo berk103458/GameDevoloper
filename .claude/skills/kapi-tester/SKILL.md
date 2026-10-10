@@ -32,6 +32,11 @@ user-invocable: true
 5. P0 bulgu (çökme, kayıt bozulması, sanity FAIL) hemen Ajan Masası'na (issue #11) `[Tester → Claude] [SORUN]` olarak yazılır.
 6. Commit sadece rapor dosyalarını içerir. Mesaj kalıbı: `tester: tur N — X bulgu, Y öneri`. Force-push yapılmaz.
 
+## Tur sonu yükleme (zorunlu)
+
+1. `docs/tester/turlar/TUR-NNN.md` dosyasını yaz. İçinde test edilenlerin hepsi, her birinin sonucu, komutlar ve kanıt yolları olsun (rehber §6).
+2. En son adım olarak `work/tester/tur_hazir.json` dosyasını yaz: `{"tur", "commit", "rapor", "yeni_bulgu", "p0", "ozet"}`. Yayın betiği bu dosyayı görünce raporları GitHub'a yükler. Dosya yoksa tur yüklenmez.
+
 ## Tur sonu çıktısı (Claude'a)
 
 ```
