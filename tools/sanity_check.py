@@ -101,6 +101,7 @@ def checks(godot, root):
     yield "hastalik_teshis_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/hastalik_teshis_kontrol.tscn"], "GEÇTİ"
     yield "aclik_saglik_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/aclik_saglik_kontrol.tscn"], "GEÇTİ"
     yield "sifahane_triyaj_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/sifahane_triyaj_kontrol.tscn"], "GEÇTİ"
+    yield "kitlik_nobeti_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/kitlik_nobeti_kontrol.tscn"], "GEÇTİ"
     yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
 
 

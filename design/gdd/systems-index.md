@@ -420,3 +420,4 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kapıda hastalık teşhis ibresi — KRI-11](kapi-hastalik-teshisi.md): açık belirti incelemesiyle ziyaretin tek ipucu servisi, karantina şartıyla mevcut kabul, gizli kuluçka korunması; Claude test bekliyor.
 - [Açlık–sağlık çaprazı — KRI-12](aclik-saglik.md): gece başında erzak <3 iken herkes ek −1 sağlık, temas bulaşma riski ×2; mevcut gece/sağlık/rapor genişletmesi (Claude).
 - [Şifahane yatak + triyaj — KRI-13](sifahane-triyaj.md): tedavi en ağır hastadan; yataklar doluyken açıkta bekleyen hasta −3 sağlık, köy moral −2; mevcut karantina/tedavi genişletmesi (Claude).
+- [Kıtlıkta nöbetçi ambara — KRI-14](kitlik-nobeti.md): erzak tükenince nöbetçi uyarısı; KRI-06 yağma gecesinde arbede, nöbetçi başına %25 geri alım, moral bedeli (Claude).

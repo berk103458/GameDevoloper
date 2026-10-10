@@ -6,6 +6,7 @@ extends RefCounted
 const LEVENT_FIRARI = preload("res://src/koy/levent_firari.gd")
 const ACLIK_SAGLIK = preload("res://src/koy/aclik_saglik.gd")
 const SIFAHANE_TRIYAJ = preload("res://src/koy/sifahane_triyaj.gd")
+const KITLIK_NOBETI = preload("res://src/koy/kitlik_nobeti.gd")
 const KRIZ_KENETLENMESI = preload("res://src/koy/kriz_kenetlenmesi.gd")
 
 ## KRI-14 bu tek tetikleyiciye bağlanabilir; gece/yağmayı tekrar çalıştırmaz.
@@ -584,6 +585,7 @@ func gece() -> Dictionary:
 	asayis_riski = maxi(0, asayis_riski - a.asayis_sonum - etkin_muhafiz_sayisi() * a.muhafiz_asayis)
 	HasatSenligi.uygula(self, hasat, olaylar)
 	_isyan(olaylar)
+	KITLIK_NOBETI.gece(self, olaylar)
 	LEVENT_FIRARI.gece(self, olaylar)
 	KitlikIsyani.raporla(self, rapor)
 	_asamalar(olaylar)
