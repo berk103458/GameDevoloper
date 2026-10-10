@@ -28,4 +28,4 @@ static func saglik_kaybi(y: KoyYonetimi, k: Koylu) -> void:
 ## Gece raporu satırı (mevcut olay metni adaptörü üzerinden).
 static func olay_metin(e: Dictionary) -> String:
 	var d: Dictionary = e.aclik_saglik
-	return "Açlık ve hastalık · ambarda yalnız %d erzak var (eşik %d). Bu gece her köylü ek %d sağlık kaybeder; salgın bulaşma riski ×%d." % [d.erzak, d.esik, d.kayip, d.carpan]
+	return "Açlık ve hastalık · ambarda %d erzak kaldı (eşik %d). Bu gece her köylü ek %d sağlık kaybeder; salgın bulaşma riski ×%d." % [d.erzak, d.esik, d.kayip, d.carpan]
