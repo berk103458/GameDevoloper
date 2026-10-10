@@ -13,8 +13,17 @@ ROOT = Path(__file__).resolve().parents[1]
 TEXT = {".gd", ".tscn", ".tres", ".csv", ".json", ".godot", ".cfg", ".uid"}
 DEPENDENCIES = "EfektHavuzuTemizligi Sanat Pbr Dunya3B KarakterModel DurusDuzeltici KapiManzarasi Katalog Oturum KoyEkrani KapiEkrani Tema VarlikYuklemePaneli GuvenliKayit Ayarlar AdminHud GrafikProfiliAdaptoru KapiAnlikGoruntusu BilgiEkrani MenuEkrani".split()
 
-def scan(root):
-    paths = [Path(n) for n in subprocess.check_output(["git", "ls-files", "-z"], cwd=root).decode().split("\0") if n]
+def scan(root, filesystem=False):
+    if filesystem:
+        # Sandbox yayını betiğe bırakır: yeni kaynaklar dahil, git çalıştırmadan.
+        paths = []
+        for directory in ("src", "data", "assets", "tests", "addons"):
+            base = root / directory
+            if base.is_dir():
+                paths.extend(p.relative_to(root) for p in base.rglob("*") if p.is_file() and p.suffix in TEXT)
+        paths.append(Path("project.godot"))
+    else:
+        paths = [Path(n) for n in subprocess.check_output(["git", "ls-files", "-z"], cwd=root).decode().split("\0") if n]
     classes, uids = collections.defaultdict(list), collections.defaultdict(list)
     report = {"errors": [], "bom": [], "nested_projects": []}
     for relative in paths:
@@ -82,9 +91,12 @@ def scan(root):
 def main():
     cli = argparse.ArgumentParser(description=__doc__)
     cli.add_argument("--report", type=Path)
+    cli.add_argument("--filesystem", action="store_true", help="Yeni kaynakları da git komutu çalıştırmadan denetler")
     cli.add_argument("--remote-check", action="store_true", help="Yerel kritik dosyaları fetch edilmiş origin/festive ile karşılaştırır; değiştirmez")
     args = cli.parse_args()
-    report = scan(ROOT)
+    if args.filesystem and args.remote_check:
+        cli.error("--filesystem ile --remote-check birlikte kullanılamaz")
+    report = scan(ROOT, filesystem=args.filesystem)
     if args.remote_check:
         ref = "origin/claude/festive-volta-li1sfm"
         critical = ["src/sistemler/ses.gd", "src/arayuz/ana.gd", "project.godot"]

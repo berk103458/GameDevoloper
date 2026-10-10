@@ -1,0 +1,21 @@
+{
+  "src/dunya/karakter_model.gd": {
+    "func:kur": "funckur(model:Node3D,ad:String=\"\")->void",
+    "func:yuru": "funcyuru(hedef:Vector3,hiz:float=YURUME_HIZI)->void",
+    "var:_klip_onbellek": "staticvar_klip_onbellek:Dictionary"
+  },
+  "src/arayuz/koy_ekrani.gd": {
+    "signal:devam_istendi": "signaldevam_istendi(rapor:Dictionary)",
+    "signal:oturum_bitti": "signaloturum_bitti(son:StringName)"
+  },
+  "src/sistemler/oturum.gd": {
+    "func:gece_sonu": "funcgece_sonu()->Dictionary",
+    "var:akce": "varakce:int",
+    "const:KAYIT_SURUMU": "constKAYIT_SURUMU"
+  },
+  "src/koy/guvenli_kayit.gd": {
+    "func:yaz": "funcyaz(veri:Dictionary)->bool",
+    "func:oku": "funcoku()->Dictionary",
+    "func:sil": "funcsil()->void"
+  }
+}

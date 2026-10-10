@@ -429,3 +429,6 @@ ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk
 ANI-09 yağmur efekti mevcut VFX-YAGMUR satırında; yeni doku/ses/parçacık/klip üretilmedi veya indirilmedi. Hava denetçisi yağmur seçimini mevcut kayıt içinde korur; rastgele yağış takvimi MEV paketine aittir.
 
 KRI-08 (Codex, 9 Ekim 2026 gece): asset gerekmedi. Histeri mevcut karakter/bina görünümü, sabah fısıltı kartı ve `src/arayuz/koy_hud/histeri_paneli.gd` Button/Label arayüzünü kullanır; yeni görsel, ses, model veya yer tutucu ihtiyacı yok. G tablosuna yeni asset ID'si gerekmez.
+
+KRI-09 (Codex, 10 Ekim 2026): asset gerekmedi. Firar mevcut nüfus/model yenilemesi, gece raporu ve HUD Güvenlik/asayiş göstergesini kullanır; yeni görsel, ses, model, animasyon veya yer tutucu ihtiyacı yok. G tablosuna yeni asset ID'si gerekmez.
+

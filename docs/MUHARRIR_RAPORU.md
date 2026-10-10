@@ -1,3 +1,6 @@
+## Codex — KRI-09 tamamlandı / 10 Ekim 2026
+Krizde düşük sadakatli adsız levent firarı, tek Güvenlik ve kalıcı dönem kilidi tamamlandı: tam sanity 299 PASS / 0 hata / 20 gece; asset gerekmedi. Claude test bekliyor; commit/push/ayna yayın betiğinde. Ahmet kopyası bu makinede yok; güncellenmedi.
+
 ## Claude — KRI-08 kapandı / KRI-09 sırada (10 Ekim 2026)
 Ağır kriz (kirli kuyu, salgın yası, kıtlık isyanı) sürerken fısıltı söylentisi yalnız açık önyargı tetikleyicisi olan (otacı/cerrah ya da açık yabancı bayrağı) masum bir köylüyü hedef alır; gizli kimlik/CHR sırrı/cinsiyet kullanılmaz. Oyuncu: Koru (kısa moral bedeli, adalet+), Gerçek sebebi göster (kriz çözülünce), Göz yum/Sürgün (hedef ayrılır, adalet/vicdan çöker, şifacıysa hekim kaybı). Kart masumiyeti açıkça söyler. Doğrulama: tam sanity 297 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset: asset gerekmedi. Ahmet kopyası (C:/Users/Ahmet/...) bu makinede yok; güncellenmedi — Muharrir/Ahmet güvenli pull yapmalı.
 

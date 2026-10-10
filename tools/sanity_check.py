@@ -6,6 +6,7 @@ isolated CHR/village UI scenarios. Logs go to work/sanity (gitignored).
 """
 from __future__ import annotations
 import argparse
+from contextlib import contextmanager
 import os
 from pathlib import Path
 import re
@@ -16,6 +17,34 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 ERROR = re.compile(r"SCRIPT ERROR|Parse Error|(?:^|\n)ERROR:|Failed to load script|\bKALDI\b")
+
+
+@contextmanager
+def runner_lock(path):
+    """One full suite per checkout; duplicate automation must not spawn Godot."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a+b") as handle:
+        if handle.tell() == 0:
+            handle.write(b"0")
+            handle.flush()
+        handle.seek(0)
+        if os.name == "nt":
+            import msvcrt
+            try:
+                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+            except OSError as error:
+                raise BlockingIOError("Another sanity runner is active") from error
+        else:
+            import fcntl
+            fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        try:
+            yield
+        finally:
+            handle.seek(0)
+            if os.name == "nt":
+                msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
 
 
 def run(command, root, timeout, env=None):
@@ -53,9 +82,9 @@ def find_godot(explicit=None):
 def checks(godot, root):
     yield "chr-source", [sys.executable, "-B", "tools/chr_parser.py", "--check"], None
     yield "metin-csv", [sys.executable, "-B", "tools/metin_dogrula.py", "--kaynak"], None
-    yield "python-tests", [sys.executable, "-B", "-m", "unittest", "discover", "-s", "tests/tools"], None
-    yield "startup-source", [sys.executable, "-B", "tools/acilis_denetimi.py"], None
-    yield "protected-api", [sys.executable, "-B", "tools/api_sozlesmesi.py"], None
+    yield "python-tests", [sys.executable, "-B", "tools/python_test_runner.py"], None
+    yield "startup-source", [sys.executable, "-B", "tools/acilis_denetimi.py", "--filesystem"], None
+    yield "protected-api", [sys.executable, "-B", "tools/api_sozlesmesi.py", "--manifest", "tools/api_sozlesmesi_baseline.json"], None
     yield "headless-import", [godot, "--headless", "--path", str(root), "--editor", "--import", "--quit"], None
     for script in sorted((root / "tests/unit").rglob("*test.gd")):
         yield script.stem, [godot, "--headless", "--path", str(root), "-s", str(script)], "GEÇTİ"
@@ -67,6 +96,7 @@ def checks(godot, root):
     yield "kitlik_isyani_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/kitlik_isyani_kontrol.tscn"], "GEÇTİ"
     yield "cinar_alti_meclisi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/cinar_alti_meclisi_kontrol.tscn"], "GEÇTİ"
     yield "batil_inanc_histerisi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/batil_inanc_histerisi_kontrol.tscn"], "GEÇTİ"
+    yield "levent_firari_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/levent_firari_kontrol.tscn"], "GEÇTİ"
     yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
 
 
@@ -96,4 +126,9 @@ def main():
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        with runner_lock(ROOT / "work/sanity_runner.lock"):
+            raise SystemExit(main())
+    except BlockingIOError as error:
+        print(str(error))
+        raise SystemExit(2)

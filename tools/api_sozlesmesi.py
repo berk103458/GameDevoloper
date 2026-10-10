@@ -1,5 +1,6 @@
 """Audit protected GDScript API declarations against a Git baseline."""
 import argparse
+import json
 from pathlib import Path
 import re
 import subprocess
@@ -39,7 +40,7 @@ def normalize(text):
 
 
 def declaration(source, kind, name):
-    start = re.search(r"^\s*(?:static\s+)?" + kind + r"\s+" + re.escape(name) + r"\b", source, re.M)
+    start = re.search(r"^[ \t]*(?:static[ \t]+)?" + kind + r"[ \t]+" + re.escape(name) + r"\b", source, re.M)
     if not start:
         return None
     if kind in ("var", "const"):
@@ -101,17 +102,23 @@ def differences(old, new, kind, name):
 def main():
     cli = argparse.ArgumentParser(description=__doc__)
     cli.add_argument("--base", default="HEAD")
+    cli.add_argument("--manifest", type=Path, help="Git çalıştırmadan sabit API imza manifestine karşı denetler")
     args = cli.parse_args()
+    manifest = json.loads(args.manifest.read_text(encoding="utf-8")) if args.manifest else None
     errors = []
     for relative, contracts in CONTRACTS.items():
         try:
-            old = subprocess.check_output(["git", "show", f"{args.base}:{relative}"], cwd=ROOT, stderr=subprocess.PIPE).decode("utf-8")
+            old = None if manifest is not None else subprocess.check_output(["git", "show", f"{args.base}:{relative}"], cwd=ROOT, stderr=subprocess.PIPE).decode("utf-8")
             new = (ROOT / relative).read_text(encoding="utf-8-sig")
         except (subprocess.CalledProcessError, OSError) as error:
             errors.append(f"{relative}: {error}")
             continue
         for kind, name in contracts:
-            problem = differences(old, new, kind, name)
+            if manifest is not None:
+                expected = manifest.get(relative, {}).get(f"{kind}:{name}")
+                problem = None if expected is not None and declaration(new, kind, name) == expected else f"Missing/changed manifest contract: {kind} {name}"
+            else:
+                problem = differences(old, new, kind, name)
             if problem:
                 errors.append(f"{relative}: {problem}")
     for error in errors:
