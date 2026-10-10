@@ -11,7 +11,9 @@ static func aday(y: KoyYonetimi, k: Koylu, faz: StringName) -> bool:
 static func nobetciler(h: KoyHalkHareketi) -> Array[Vector3]:
  var sonuc: Array[Vector3] = []
  for id in h.modeller:
-  if MuhafizMaasi.aday(h.sahne.yonetim.koylu(id), h.sahne.yonetim): sonuc.append(h.modeller[id].position)
+  var k: Koylu = h.sahne.yonetim.koylu(id)
+  # Levent gönderilen/ölen köylünün modeli sahnede bir süre kalabilir; kaydı yoksa nöbetçi sayılmaz.
+  if k != null and MuhafizMaasi.aday(k, h.sahne.yonetim): sonuc.append(h.modeller[id].position)
  return sonuc
 ## Devriye yaklaşınca, mevcut kaçış hedefi de riskliyse bütçeli rota kuyruğuna al.
 static func tehdit(h: KoyHalkHareketi, id: int) -> bool:
