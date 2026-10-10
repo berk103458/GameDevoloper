@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Söz Ağacı — Kapı Muhafızı diyalog şablonu</title>
+<style>
+  :root {
+    --zemin: #16130f;
+    --panel: #201b15;
+    --panel2: #2a231b;
+    --cizgi: #3d3327;
+    --yazi: #e9dfcc;
+    --soluk: #a39580;
+    --altin: #d6a85a;
+    --kirmizi: #c25b4a;
+    --yesil: #7fa865;
+    --mavi: #6f9fc4;
+    --mor: #a58bc9;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--zemin); color: var(--yazi); font: 15px/1.5 Georgia, "Times New Roman", serif; }
+  header { display: flex; align-items: center; gap: 16px; padding: 10px 18px; border-bottom: 1px solid var(--cizgi); background: #1b1712; }
+  header h1 { font-size: 18px; margin: 0; color: var(--altin); font-weight: normal; letter-spacing: .5px; }
+  header .alt { color: var(--soluk); font-size: 13px; }
+  nav { margin-left: auto; display: flex; gap: 6px; }
+  button { font: inherit; color: var(--yazi); background: var(--panel2); border: 1px solid var(--cizgi); border-radius: 4px; padding: 6px 12px; cursor: pointer; }
+  button:hover:not(:disabled) { border-color: var(--altin); }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  nav button.etkin { background: var(--altin); color: #1b1712; border-color: var(--altin); }
+  main { height: calc(100% - 52px); }
+  .sekme { display: none; height: 100%; }
+  .sekme.etkin { display: flex; }
+
+  /* ---------- OYNA ---------- */
+  #oyna aside { width: 320px; flex: none; overflow-y: auto; border-right: 1px solid var(--cizgi); padding: 14px; background: var(--panel); }
+  aside h3 { margin: 14px 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--altin); font-weight: normal; }
+  aside h3:first-child { margin-top: 0; }
+  .alan { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 5px 0; font-size: 14px; }
+  .alan select, .alan input[type=range] { width: 150px; }
+  select { font: inherit; background: var(--panel2); color: var(--yazi); border: 1px solid var(--cizgi); border-radius: 4px; padding: 2px 4px; }
+  .cubuk { height: 10px; background: #0f0d0a; border: 1px solid var(--cizgi); border-radius: 5px; overflow: hidden; margin-top: 3px; }
+  .cubuk > div { height: 100%; transition: width .3s, background .3s; }
+  .liste { margin: 0; padding-left: 16px; font-size: 13px; color: var(--soluk); }
+  .liste li { margin: 2px 0; }
+  .liste.bos::before { content: "—"; margin-left: -16px; }
+  .etiket { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 3px; background: var(--panel2); border: 1px solid var(--cizgi); color: var(--soluk); margin: 1px 2px 1px 0; }
+
+  #sohbet { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  #kayit { flex: 1; overflow-y: auto; padding: 18px 28px; }
+  .satir { margin: 0 0 10px; max-width: 760px; }
+  .satir .kim { font-size: 12px; color: var(--soluk); text-transform: uppercase; letter-spacing: 1px; }
+  .satir.karakter .m { color: var(--yazi); font-size: 16px; }
+  .satir.karakter .kim { color: var(--altin); }
+  .satir.anlati .m { color: var(--soluk); font-style: italic; }
+  .satir.muhafiz { margin-left: 60px; }
+  .satir.muhafiz .kim { color: var(--mavi); }
+  .satir.muhafiz .m { color: #c9dbe9; }
+  .satir.sezgi .m { color: var(--mor); font-style: italic; }
+  .satir.sezgi .kim { color: var(--mor); }
+  .satir.es .kim { color: var(--yesil); }
+  .satir.sira .m { color: #d4b28c; }
+  .satir.beyan .m, .satir.hatirla .m, .satir.zar .m, .satir.sistem .m { font-size: 13px; display: inline-block; padding: 3px 10px; border-radius: 3px; }
+  .satir.beyan .m { background: #232c22; color: #b9d3a8; border-left: 3px solid var(--yesil); }
+  .satir.hatirla .m { background: #2f2418; color: var(--altin); border-left: 3px solid var(--altin); }
+  .satir.zar .m { background: #1f2630; color: #bcd3e6; border-left: 3px solid var(--mavi); }
+  .satir.zar.basarisiz .m { background: #301e1b; color: #e6b8af; border-left-color: var(--kirmizi); }
+  .satir.sistem .m { background: #301e1b; color: #e6b8af; border-left: 3px solid var(--kirmizi); }
+  .ayrac { border-top: 1px dashed var(--cizgi); margin: 14px 0 10px; max-width: 760px; font-size: 11px; color: #6d604f; padding-top: 2px; }
+
+  #secimler { border-top: 1px solid var(--cizgi); padding: 12px 28px 16px; background: var(--panel); max-height: 48%; overflow-y: auto; }
+  .secim { display: block; width: 100%; max-width: 760px; text-align: left; margin: 0 0 6px; padding: 8px 12px; }
+  .secim .ust { display: flex; gap: 10px; align-items: baseline; }
+  .secim .no { color: var(--altin); min-width: 18px; }
+  .secim .meta { display: block; margin: 3px 0 0 28px; font-size: 12px; color: var(--soluk); }
+  .secim .meta .neden { display: block; color: #8d8170; font-style: italic; }
+  .secim.kilitli { opacity: .55; border-style: dashed; cursor: not-allowed; }
+  .secim.kilitli .no { color: var(--soluk); }
+  .secim.zarli { border-left: 3px solid var(--mavi); }
+  .secim.teksans { border-left: 3px solid var(--kirmizi); }
+  .ust-arac { display: flex; gap: 14px; align-items: center; font-size: 13px; color: var(--soluk); margin-bottom: 8px; max-width: 760px; }
+  .ust-arac label { cursor: pointer; }
+
+  #zarPanel { max-width: 760px; background: #1c2129; border: 1px solid #34404f; border-radius: 6px; padding: 12px 16px; }
+  #zarPanel table { border-collapse: collapse; font-size: 14px; margin: 6px 0 10px; }
+  #zarPanel td { padding: 2px 14px 2px 0; }
+  #zarPanel td.s { text-align: right; color: var(--altin); }
+  #zarPanel .toplam td { border-top: 1px solid #34404f; font-weight: bold; }
+  .zarYuz { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 10px; background: var(--yazi); color: #1b1712; font-size: 28px; font-weight: bold; margin-right: 12px; vertical-align: middle; }
+  .zarYuz.donuyor { animation: don .12s linear infinite; }
+  @keyframes don { from { transform: rotate(-8deg); } to { transform: rotate(8deg); } }
+
+  .sonuc { max-width: 760px; background: var(--panel2); border: 1px solid var(--altin); border-radius: 6px; padding: 12px 16px; margin-top: 10px; }
+  .sonuc h4 { margin: 0 0 6px; color: var(--altin); font-weight: normal; }
+
+  #toast { position: fixed; right: 20px; bottom: 20px; background: #2f2418; border: 1px solid var(--altin); color: var(--altin); padding: 8px 14px; border-radius: 4px; opacity: 0; transition: opacity .3s; pointer-events: none; }
+  #toast.gor { opacity: 1; }
+
+  /* ---------- AĞAÇ ---------- */
+  #agac { position: relative; }
+  #agacKap { flex: 1; overflow: auto; position: relative; background: radial-gradient(circle at 1px 1px, #2a241c 1px, transparent 0) 0 0/22px 22px; cursor: grab; }
+  #agacKap.surukle { cursor: grabbing; }
+  #agacSvg { display: block; }
+  .dg rect.kart { fill: var(--panel2); stroke: var(--cizgi); stroke-width: 1.2; rx: 6; }
+  .dg:hover rect.kart { stroke: var(--soluk); }
+  .dg.gidildi rect.kart { stroke: var(--altin); stroke-width: 2; }
+  .dg.simdi rect.kart { stroke: #fff; stroke-width: 3; }
+  .dg.secili rect.kart { fill: #3a3022; }
+  .dg text { fill: var(--yazi); font: 13px Georgia, serif; pointer-events: none; }
+  .dg text.evre { fill: var(--soluk); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
+  .dg text.geri { fill: var(--soluk); font-size: 10px; }
+  .dg rect.serit { rx: 2; }
+  path.k { fill: none; stroke: #5a4d3c; stroke-width: 1.4; opacity: .55; }
+  path.k.basari { stroke: var(--yesil); }
+  path.k.basarisiz { stroke: var(--kirmizi); stroke-dasharray: 5 3; }
+  path.k.devam { stroke-dasharray: 2 3; }
+  path.k.gidildi { stroke: var(--altin); opacity: 1; stroke-width: 2.2; }
+  path.k.vurgu { opacity: 1; stroke-width: 2.6; stroke: #fff; }
+  path.k.vurgu.basari { stroke: var(--yesil); }
+  path.k.vurgu.basarisiz { stroke: var(--kirmizi); }
+  path.k.soluk { opacity: .12; }
+  text.klabel { fill: #fff; font: 11px Georgia, serif; paint-order: stroke; stroke: #16130f; stroke-width: 4px; pointer-events: none; }
+  #detay { width: 420px; flex: none; overflow-y: auto; border-left: 1px solid var(--cizgi); padding: 14px 16px; background: var(--panel); }
+  #detay h2 { margin: 0 0 2px; font-size: 18px; color: var(--altin); font-weight: normal; }
+  #detay .kimlik { color: var(--soluk); font-size: 12px; margin-bottom: 10px; }
+  #detay h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--altin); font-weight: normal; margin: 14px 0 6px; }
+  .dsatir { font-size: 13px; margin: 0 0 6px; padding-left: 8px; border-left: 2px solid var(--cizgi); }
+  .dsatir .kim { color: var(--soluk); font-size: 11px; text-transform: uppercase; }
+  .dsec { background: var(--panel2); border: 1px solid var(--cizgi); border-radius: 5px; padding: 8px 10px; margin-bottom: 8px; font-size: 13px; }
+  .dsec .metin { font-size: 14px; }
+  .dsec .yon { margin: 4px 0; }
+  .dsec .yon a { color: var(--altin); cursor: pointer; text-decoration: underline; }
+  .dsec .yon .bas { color: var(--yesil); }
+  .dsec .yon .bsz { color: var(--kirmizi); }
+  .dsec .kural { color: var(--soluk); }
+  .dsec .neden { color: #b8a98f; font-style: italic; margin-top: 3px; }
+  .lejant { position: absolute; left: 12px; bottom: 12px; background: rgba(32,27,21,.94); border: 1px solid var(--cizgi); border-radius: 5px; padding: 8px 10px; font-size: 12px; color: var(--soluk); }
+  .lejant span.r { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin: 0 4px 0 10px; vertical-align: middle; }
+  .lejant span.r:first-child { margin-left: 0; }
+  .lejant .cz { display: inline-block; width: 22px; border-top: 2px solid; margin: 0 4px 3px 10px; vertical-align: middle; }
+  .agacArac { position: absolute; right: 436px; top: 10px; display: flex; gap: 6px; }
+
+  /* ---------- ŞABLON ---------- */
+  #sablon { overflow: auto; padding: 18px 28px; display: none; flex-direction: column; }
+  #sablon.etkin { display: block; }
+  #sablon h2 { color: var(--altin); font-weight: normal; margin: 0 0 6px; }
+  #sablon p { max-width: 900px; color: var(--soluk); }
+  #sablon table { border-collapse: collapse; margin: 8px 0 18px; font-size: 13px; max-width: 1100px; }
+  #sablon th, #sablon td { border: 1px solid var(--cizgi); padding: 5px 9px; text-align: left; vertical-align: top; }
+  #sablon th { background: var(--panel2); color: var(--altin); font-weight: normal; }
+  #sablon code { font: 12px Consolas, monospace; color: #e7c98f; }
+  #json { width: 100%; max-width: 1100px; height: 380px; background: #0f0d0a; color: #d7cbb4; border: 1px solid var(--cizgi); font: 12px Consolas, monospace; padding: 10px; }
+  #dogrulama { font-size: 13px; margin: 8px 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Söz Ağacı</h1>
+  <span class="alt" id="sahneAdi"></span>
+  <nav>
+    <button data-sekme="oyna" class="etkin">Oyna</button>
+    <button data-sekme="agac">Ağaç</button>
+    <button data-sekme="sablon">Şablon</button>
+  </nav>
+</header>
+<main>
+  <section class="sekme etkin" id="oyna">
+    <aside>
+      <h3>Bağlam (dünyanın durumu)</h3>
+      <div class="alan"><span>Mevsim</span><select id="bMevsim"><option value="yaz">Yaz</option><option value="kis">Kış</option></select></div>
+      <div class="alan"><span>Eşin mesleği</span><select id="bEs"></select></div>
+      <div class="alan"><span>Muhafız tecrübesi <b id="bTecrubeYazi"></b></span><input type="range" id="bTecrube" min="0" max="5" step="1" value="2" /></div>
+      <div class="alan"><label><input type="checkbox" id="bSifahane" /> Köyde şifahane var</label></div>
+      <div class="alan"><label><input type="checkbox" id="bHaber" checked /> Sivas'ın düştüğü duyuldu</label></div>
+      <div class="alan"><label><input type="checkbox" id="bAsker" /> Yanında asker var</label></div>
+      <button id="basaDon" style="width:100%;margin-top:6px">Baştan başla</button>
+
+      <h3>Tansiyon <span id="tansiyonYazi"></span></h3>
+      <div class="cubuk"><div id="tansiyonCubuk"></div></div>
+      <h3>Sıra sabrı <span id="sabirYazi"></span></h3>
+      <div class="cubuk"><div id="sabirCubuk"></div></div>
+
+      <h3>Beyan defteri</h3>
+      <ul class="liste" id="beyanlar"></ul>
+      <h3>İpuçları</h3>
+      <ul class="liste" id="ipuclari"></ul>
+      <h3>Hatırlanacaklar</h3>
+      <ul class="liste" id="hatirlananlar"></ul>
+      <h3>Dedikodu</h3>
+      <ul class="liste" id="dedikodular"></ul>
+      <h3>Bayraklar</h3>
+      <div id="bayraklar"></div>
+    </aside>
+    <div id="sohbet">
+      <div id="kayit"></div>
+      <div id="secimler"></div>
+    </div>
+  </section>
+
+  <section class="sekme" id="agac">
+    <div id="agacKap"><svg id="agacSvg"></svg></div>
+    <div class="agacArac">
+      <button id="agacSigdir">Sığdır</button>
+      <button id="agacBuyut">+</button>
+      <button id="agacKucult">−</button>
+    </div>
+    <div class="lejant" id="lejant"></div>
+    <div id="detay"></div>
+  </section>
+
+  <section class="sekme" id="sablon">
+    <h2>Şablon</h2>
+    <p>Bu sayfadaki sahne, söz sisteminin (ROADMAP 2, DIY-01a) önerilen veri biçimiyle yazıldı. Yeni bir karakter için aynı alanlar doldurulur; motor ve ağaç görünümü dosyayı olduğu gibi okur. Alanlar:</p>
+    <table>
+      <tr><th>Alan</th><th>Ne işe yarar</th><th>Örnek</th></tr>
+      <tr><td><code>karakter</code></td><td>Kimlik, ses kartı (nasıl konuştuğu), sırrı, zar türü ve sorgu değeri (ZAR-01/02)</td><td><code>zar: "d6", sorgu_degeri: 2</code></td></tr>
+      <tr><td><code>baslangic</code></td><td>Başlangıç düğümü, tansiyon ve sıra sabrı</td><td><code>{dugum:"varis", tansiyon:4, sabir:10}</code></td></tr>
+      <tr><td><code>ipuclari</code></td><td>İpucu kimliği → görünen adı</td><td><code>carik: "Heybede küçük bir çarık"</code></td></tr>
+      <tr><td><code>kurallar</code></td><td>Tansiyon kademeleri ve ekleri, kaçış eşiği, sabır bitince olan olay</td><td><code>Sakin 0–3 +0, Gergin 4–7 +1, Panik 8–10 +2</code></td></tr>
+      <tr><td><code>degistiriciler</code></td><td>Zar öncesi gerekli sayıyı değiştiren durumlar (ZAR-04)</td><td><code>{ad:"Ekmek verdin", kosul:{bayrak:"ekmek_verildi"}, deger:-1, yaklasim:["ikna"]}</code></td></tr>
+      <tr><td><code>dugumler.*.evre</code></td><td>varis, selam, ikram, konular, konu, heybe, yuzlesme, sir, ikilem, karar, son</td><td><code>"yuzlesme"</code></td></tr>
+      <tr><td><code>satirlar[]</code></td><td>Konuşan (<code>k</code>), metin (<code>m</code>), isteğe bağlı koşul, etki ve varyantlar. Tutan varyantlardan en çok koşullu olan seçilir (DIY-09)</td><td><code>{k:"sezgi", kosul:{tecrube_min:2}, m:"…"}</code></td></tr>
+      <tr><td><code>secenekler[]</code></td><td>Muhafızın sözü (<code>metin</code>), <code>hedef</code> ya da <code>zar</code>, <code>kosul</code>, <code>etki</code>, <code>tukenir</code> (bir kez sorulur), <code>neden</code> (yazar notu, oyunda görünmez)</td><td><code>{metin:"Kim yaktı?", hedef:"k_nereden_2", etki:{tansiyon:1}}</code></td></tr>
+      <tr><td><code>zar</code></td><td>Yaklaşım, tür (<code>tekrar</code> / <code>tek_sans</code>, ZAR-05), başarı ve başarısızlık hedefi, isteğe bağlı ayrı etki</td><td><code>{yaklasim:"ikna", tur:"tekrar", basari:"sir_acildi", basarisiz:"yuzles_inkar"}</code></td></tr>
+      <tr><td><code>sonraki</code></td><td>Seçeneksiz düğümde tek "Devam" geçişi</td><td><code>"konular"</code></td></tr>
+      <tr><td><code>son</code>, <code>sonuc</code></td><td>Bitiş düğümü ve oyuna etkisinin özeti</td><td><code>son:true</code></td></tr>
+      <tr><th colspan="3">Koşullar (<code>kosul</code>)</th></tr>
+      <tr><td colspan="3"><code>ipucu</code>, <code>beyan</code>, <code>bayrak</code>, <code>bayrak_yok</code>, <code>tansiyon_min</code>, <code>tansiyon_max</code>, <code>sabir_max</code>, <code>tecrube_min</code>, <code>es_meslek</code>, <code>baglam:{mevsim, sifahane, haber_sivas, asker}</code>. Hepsi birlikte tutmalıdır.</td></tr>
+      <tr><th colspan="3">Etkiler (<code>etki</code>)</th></tr>
+      <tr><td colspan="3"><code>tansiyon</code>, <code>sabir</code>, <code>beyan:{id, metin}</code>, <code>ipucu</code>, <code>bayrak</code>, <code>kaynak:{gida, tohum}</code>, <code>hatirla</code> (DIY-14), <code>dedikodu</code> (DIY-13), <code>karar</code>.</td></tr>
+    </table>
+    <div id="dogrulama"></div>
+    <p>
+      <button id="indir">Bu sahneyi JSON olarak indir</button>
+      <button id="bosIndir">Boş şablonu indir</button>
+    </p>
+    <textarea id="json" readonly></textarea>
+  </section>
+</main>
+<div id="toast"></div>
+
+<script src="sahne_recber.js"></script>
+<script src="motor.js"></script>
+<script src="arayuz.js"></script>
+</body>
+</html>
