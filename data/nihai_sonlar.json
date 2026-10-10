@@ -1,0 +1,18 @@
+{
+  "esik": {"yozlasma": 60, "guvenlik_bey": 70, "muhafiz_bey": 3, "refah_ahi": 60, "adalet_ahi": 50, "yuksek": 65, "dusuk": 35},
+  "sonlar": {
+    "tekfur_haraccisi": {"baslik": "Tekfur Haraççısı", "metin": "Köy ayakta kaldı ama kapının anahtarı Tekfur'un kesesinde. Her hasatta haraç yolu kuruldu; uç, bağımsızlığını akçeyle satın aldı."},
+    "ertugrul_obasi": {"baslik": "Ertuğrul Obası", "metin": "Obanın atları ve alpleri köyün çayırında. Kapıdan girenler bir obaya karıştı; uç, kılıçla değil kan bağıyla tutundu."},
+    "beyin_uc_koyu": {"baslik": "Beyin Uç Köyü", "metin": "Sancak beyinin fermanı köyün kapısına çakıldı. Leventler beyin sancağı altında; köy artık beyliğin sınır karakolu."},
+    "ahi_kasabasi": {"baslik": "Ahi Kasabası", "metin": "Tezgâhlar kuruldu, terazi doğru tartıyor. Ahi kardeşliği çarşıyı tuttu; köy, zanaatla büyüyen bir kasabaya döndü."},
+    "uc_tutundu": {"baslik": "Uç Tutundu", "metin": "Ne Tekfur'a boyun eğildi ne bir beye bağlanıldı. Kapı ayakta, köy ayakta; uç kendi kendine tutundu."}
+  },
+  "gostergeler": {
+    "huzur": {"ad": "Huzur", "yuksek": "Halk geceleri kapısını kilitlemeden uyuyor.", "orta": "Huzur kırılgan; bir kıtlık her şeyi bozabilir.", "dusuk": "Köyde her gece bir kavga, her sabah bir şikâyet."},
+    "adalet": {"ad": "Adalet", "yuksek": "Divanın sözü terazi gibi; kimse haksızlıktan söz etmiyor.", "orta": "Divan çoğu zaman doğruyu buldu, bazen bulamadı.", "dusuk": "Haksız hükümler köyün hafızasında yara gibi duruyor."},
+    "refah": {"ad": "Refah", "yuksek": "Ambar dolu, kesede akçe var.", "orta": "Karın doyuyor ama bir kötü hasat yeter.", "dusuk": "Köy elden ağza yaşıyor."},
+    "guvenlik": {"ad": "Güvenlik", "yuksek": "Surlar ve nöbet hattı yolları korur.", "orta": "Nöbet tutuluyor ama gediği bilen biliyor.", "dusuk": "Kapı her gece eşkıyaya açık sayılır."},
+    "nufus": {"ad": "Nüfus", "yuksek": "Ocaklar çoğaldı; uç kalabalık bir yurt oldu.", "orta": "Köy ayakta kalacak kadar kalabalık.", "dusuk": "Birkaç ocak kaldı; köy adını zor taşıyor."},
+    "yozlasma": {"ad": "Yozlaşma", "yuksek": "Muhafızın kesesi köyden ağır; herkes biliyor.", "orta": "Bazı rüşvetler unutulmadı.", "dusuk": "Muhafızın eli temiz kaldı."}
+  }
+}

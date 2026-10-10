@@ -426,3 +426,4 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Diyalog mantık düzeltmeleri — SYS-17](diyalog-sirasi-kaydi.md): diyalog_08'e Ret; 13/14/16/17 kabul yanıtları yerleşik köylü (sabah gitmez); mantık testi (Claude).
 - [Atıl bayraklar — SYS-18](atil-bayraklar.md): baci_tezgah/dervis/miraen_sadik/turkmen_kin/thessra_kirgin/rusvet_sayisi gece-hafta sonuçları, tek rapor satırı (Claude).
 - [1→2. perde geçişi — SYS-19](perde-gecisi.md): nüfus 18'de Köy oturdu; gün sıfırlanmadan 2. perde 12 gece sayacı ve son; kayıt alanı (Claude).
+- [Beş nihai son + epilog — SYS-20](nihai-sonlar.md): zafer → Tekfur Haraççısı / Ertuğrul Obası / Beyin Uç Köyü / Ahi Kasabası / Uç Tutundu; 5 gösterge + yozlaşma epilog matrisi (Claude).

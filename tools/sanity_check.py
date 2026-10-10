@@ -104,6 +104,7 @@ def checks(godot, root):
     yield "kitlik_nobeti_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/kitlik_nobeti_kontrol.tscn"], "GEÇTİ"
     yield "sifali_ot_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/sifali_ot_kontrol.tscn"], "GEÇTİ"
     yield "diyalog_sirasi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/diyalog_sirasi_kontrol.tscn"], "GEÇTİ"
+    yield "nihai_son_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/nihai_son_kontrol.tscn"], "GEÇTİ"
     yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
 
 

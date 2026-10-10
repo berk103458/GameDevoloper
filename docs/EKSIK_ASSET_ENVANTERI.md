@@ -452,3 +452,5 @@ SYS-17 (Claude, 10 Ekim 2026): asset gerekmedi. Yalnız diyalog JSON metin/mant�
 SYS-18 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut gece raporu satırı ve göstergeler.
 
 SYS-19 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut perde geçiş kartı ve gece raporu satırı.
+
+SYS-20 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut son ekranı (BilgiEkrani) metni kullanılır; son başına özel görsel ileride istenirse ayrı envanter kaydı açılır.

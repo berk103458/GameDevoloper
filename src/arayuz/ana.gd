@@ -116,7 +116,7 @@ func _son_goster(son: StringName) -> void:
 	kayit.sil()
 	Ses.cal(&"sfx_bar_kirildi" if son != &"zafer" else &"sfx_gece_bitti")
 	var y := oturum.yonetim
-	var son_metni := SancakTeftisi.son_metni(son)
+	var son_metni := preload("res://src/sistemler/nihai_son.gd").son_metni(oturum, son, SancakTeftisi.son_metni(son))
 	var metin := MuhafizEpilogu.metin(oturum, son, String(son_metni.metin)) + "\n\n" + tr("arayuz.son.istatistik") % [y.gun, y.kabul_sayisi, y.ret_sayisi, y.nufus()]
 	var e := _bilgi(String(son_metni.baslik), metin, [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
 		oturum.gun, "3d_koy")
