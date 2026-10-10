@@ -375,6 +375,10 @@ func _uzmanlik_bayragi(g: Gelen) -> PackedStringArray:
 func _usta_uzmanlik(g: Gelen) -> String:
 	if g.stat < 7:
 		return ""
+	# UZM-01 gerçek zanaatı olan CHR, eski üçlü sınıftan usta sayılmaz (otacı Dudu "usta_demirci" olmaz).
+	var kimlik := String(g.id).to_lower()
+	if ZanaatTuru.CHR.has(kimlik):
+		return {ZanaatTuru.Tur.CERRAH: "cerrah", ZanaatTuru.Tur.OTACI: "cerrah", ZanaatTuru.Tur.DEMIRCI: "demirci", ZanaatTuru.Tur.CIFTCI: "ciftci", ZanaatTuru.Tur.COBAN: "coban"}.get(ZanaatTuru.CHR[kimlik], "")
 	return {&"ciftci": "ciftci", &"esnaf": "demirci", &"asker": "avci"}.get(g.sinif, "")
 
 
