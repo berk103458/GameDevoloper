@@ -36,7 +36,8 @@ func _ready() -> void:
 	g.ad_anahtari = "İlaç bekleyen"
 	g.gizli_bayraklar = ["humma"]
 	var hasta := y.koylu(o.karar_ver(g, &"kabul").koylu_id)
-	hasta.saglik = 40
+	# KRI-13 triyajı tek kontenjanı en düşük sağlıklıya verir: ilaç bekleyen en ağır hastadır.
+	hasta.saglik = 4
 	g = Gelen.new()
 	g.ad_anahtari = "Kritik hasta"
 	g.gizli_bayraklar = ["veba"]
@@ -75,7 +76,7 @@ func _ready() -> void:
 	e._gece_dugmesi.pressed.emit()
 	await get_tree().process_frame
 	_kontrol(y.gun == gun + 1 and y.kaynaklar.miktar("afyon") == 1, "Gerçek gece mevcut üretimi çalıştırır")
-	_kontrol(not SaglikYoneticisi.hasta(hasta) and hasta.saglik == 65, "Üretilen ilaç aynı gecede tedavi edilir")
+	_kontrol(not SaglikYoneticisi.hasta(hasta) and hasta.saglik == 29, "Üretilen ilaç aynı gecede tedavi edilir (triyaj: en ağır hasta önce)")
 	var kalan_ilac := y.kaynaklar.miktar("ilac")
 	_kontrol(y.koylu(kritik.id) != null and kritik.saglik == 6 and SaglikYoneticisi.hasta(kritik) and SifahaneKontenjani.durum(y).kullanilan == 1, "Ortak kontenjan sonrası kritik hastada hekim hasarı 12→2")
 	_kontrol(_metin(e._ust_kart).contains("1 ilaç"), "Gerçek rapor ilaç tüketimini gösterir")
@@ -100,9 +101,11 @@ func _ready() -> void:
 	_kontrol(KarantinaYoneticisi.aktif(hekim) and not HekimIlac.etkin(y) and _metin(e._ust_kart).contains("etkin değil"), "Karantinadaki hekimde hizmet ve kart etkisi durur")
 	e._kart_kapat()
 	await get_tree().process_frame
+	# KRI-15: açık salgında boştaki vasıfsız köylü ot (afyon) toplar; ilaç üretimi yine durur.
+	var ot := KoyYonetimi.SIFALI_OT.toplayicilar(y).size() * int(KoyYonetimi.SIFALI_OT.AYAR.kisi_basina_ot)
 	e._gece_dugmesi.pressed.emit()
 	await get_tree().process_frame
-	_kontrol(y.koylu(kritik.id) == null and y.kaynaklar.miktar("afyon") == 1 and y.kaynaklar.miktar("ilac") == kalan_ilac, "Hekim durunca gerçek gece üretim yok, mevcut tek ölüm yolu")
+	_kontrol(y.koylu(kritik.id) == null and y.kaynaklar.miktar("afyon") == 1 + ot and y.kaynaklar.miktar("ilac") == kalan_ilac, "Hekim durunca gerçek gece üretim yok, mevcut tek ölüm yolu")
 	ana.kayit.sil()
 	ana.queue_free()
 	await get_tree().process_frame

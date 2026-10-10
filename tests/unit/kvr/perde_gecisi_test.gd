@@ -54,9 +54,10 @@ func _initialize() -> void:
 	var v := l.kaydet()
 	v.koy_yonetimi.erase("perde2_baslangic")
 	var lg := Oturum.kayittan(kat, v)
-	dene(PERDE.baslangic(lg.yonetim) == 30 and lg.gece_sonu().son == &"", "Legacy kayıt anında bitmez")
+	dene(PERDE.baslangic(lg.yonetim) == -1, "Legacy kayıt: başlangıç sonraki gece")
+	dene(lg.gece_sonu().son == &"" and PERDE.baslangic(lg.yonetim) == lg.yonetim.gun, "Legacy kayıt anında bitmez, sonraki gece başlar")
 	# Bozuk/ileri tarih.
 	v.koy_yonetimi["perde2_baslangic"] = 99999
-	dene(PERDE.baslangic(Oturum.kayittan(kat, v).yonetim) == 30, "İleri tarih reddedilir")
+	dene(PERDE.baslangic(Oturum.kayittan(kat, v).yonetim) == -1, "İleri tarih reddedilir")
 	print("PERDE GECISI: GEÇTİ" if hata == 0 else "PERDE GECISI: KALDI")
 	quit(hata)

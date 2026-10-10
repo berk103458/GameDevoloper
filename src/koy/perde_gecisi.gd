@@ -19,13 +19,11 @@ static func isaretle(y: KoyYonetimi, olaylar: Array[Dictionary], hedef: int) -> 
 	y.set_meta(META, y.gun + 1)
 	olaylar.append({"anahtar": "perde_gecisi", "perde_gecisi": {"tur": "basladi", "hedef": hedef, "gun": y.gun + 1}})
 
-## Optional/legacy kayıt: agalik açık ama alan yoksa yükleme günü başlangıç olur (anında bitmez).
+## Optional/legacy kayıt: geçerli başlangıç korunur; alan yok/bozuk/ileri tarih -1 olur ve
+## agalik açıksa sonraki gece isaretle ile başlar (kesintisiz oyunla aynı rapor/JSON; anında bitmez).
 static func yukle(y: KoyYonetimi, v: Variant) -> void:
-	if not y.agalik:
-		y.set_meta(META, -1)
-		return
-	var n := int(v) if (v is int or v is float) and is_finite(float(v)) and float(v) >= 0 and float(v) <= y.gun + 1 else y.gun
-	y.set_meta(META, n)
+	var gecerli: bool = y.agalik and (v is int or v is float) and is_finite(float(v)) and float(v) == floor(float(v)) and float(v) >= 0 and float(v) <= y.gun + 1
+	y.set_meta(META, int(v) if gecerli else -1)
 
 ## Oturum.gece_sonu içinde: 2. perde hedef geceye ulaştıysa mevcut "zafer" sonu (SYS-20 sonu seçer).
 static func denetle(y: KoyYonetimi, r: Dictionary, hedef: int) -> void:

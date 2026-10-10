@@ -205,7 +205,8 @@ func _tuketim_ve_kis() -> void:
 	var y := _koy(2)
 	y.kaynaklar.azalt("gida", 1000)
 	y.gece()
-	_esit("açlık sağlık", y.koylular[0].saglik, 100 - _a.aclik_saglik)
+	# KRI-12: erzak <3 gecesinde açlığa ek çapraz sağlık kaybı da uygulanır.
+	_esit("açlık sağlık", y.koylular[0].saglik, 100 - _a.aclik_saglik - int(KoyYonetimi.ACLIK_SAGLIK.AYAR.saglik_kaybi))
 	_esit("aç işaretli", y.koylular[0].ac, true)
 	var z := _koy(2)
 	z.gun = 21
