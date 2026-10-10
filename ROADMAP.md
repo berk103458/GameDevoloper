@@ -33,9 +33,18 @@
 | KRI-09 | Ağır krizde düşük sadakatli adsız levent firarı; tek Güvenlik/gece raporu ve kalıcı dönem kilidi | Codex yazdı | yayın betiği | `src/koy/levent_firari.gd`, `data/koy/levent_firari.json` | Claude test ✔ (302/0, görünür Godot) · tam sanity 299 PASS / 0 hata / 20 gece · asset gerekmedi |
 | KRI-10 | Örtüşen krizlerin kapanışında tek Sadakat/Refah bonusu, 7 gün bekleme ve kalıcı dönem kilidi | Codex yazdı | yayın betiği | `src/koy/kriz_kenetlenmesi.gd`, `data/koy/kriz_kenetlenmesi.json` | Claude test ✔ (302/0, görünür Godot) · tam sanity 302 PASS / 0 hata / 20 gece · asset gerekmedi |
 | KRI-11 | Kapıda açık belirtiler → ziyaret ipucu, enfeksiyon şüphesi ibresi ve kabulde mevcut karantina şartı | Codex başlattı · Claude tamamladı | (bu commit) | `src/kapi/hastalik_teshis_adaptoru.gd`, `data/kapi_hastalik_teshisi.json` | Claude test ✔ (304/0, görsel) · asset gerekmedi |
+| KRI-12 | Erzak <3 gecesinde herkes ek −1 sağlık, temas bulaşma riski ×2 | Claude yazdı | Claude | `src/koy/aclik_saglik.gd` | Claude test ✔ · tam sanity 319 PASS / 0 hata / 20 gece · asset gerekmedi |
+| KRI-13 | Triyaj: tedavi en ağır hastadan; yataklar doluyken açıkta bekleyen −3 sağlık, köy moral −2 | Claude yazdı | Claude | `src/koy/sifahane_triyaj.gd` | Claude test ✔ · tam sanity 319 PASS / 0 hata / 20 gece · asset gerekmedi |
+| KRI-14 | Erzak tükenince nöbetçi ambara yönelir; KRI-06 yağma gecesi arbede, %25/nöbetçi geri alım, moral bedeli | Claude yazdı | Claude | `src/koy/kitlik_nobeti.gd` | Claude test ✔ · tam sanity 319 PASS / 0 hata / 20 gece · asset gerekmedi |
+| KRI-15 | Açık salgında boştaki vasıfsız ≤3 köylü gece 1'er afyon (ilaç girdisi) toplar | Claude yazdı | Claude | `src/koy/sifali_ot.gd` | Claude test ✔ · tam sanity 319 PASS / 0 hata / 20 gece · asset gerekmedi |
+| SYS-16 | Adsız diyalog sırası diyalog_sira alanıyla güvenli kayıt; Devam kaldığı yerden; negatif indeks reddi | Claude yazdı | Claude | `src/sistemler/diyalog_sirasi.gd` | Claude test ✔ · tam sanity 319 PASS / 0 hata / 20 gece · asset gerekmedi |
+| SYS-17 | diyalog_08'e Ret; 13/14/16/17 kabul yanıtları yerleşik köylü | Claude yazdı | Claude | `data/diyalog/diyalog_01_20.json` | Claude test ✔ · tam sanity 319 PASS / 0 hata / 20 gece · asset gerekmedi |
+| SYS-18 | baci_tezgah/dervis/miraen_sadik/turkmen_kin/thessra_kirgin/rusvet_sayisi gece-hafta sonuçları | Claude yazdı | Claude | `src/sistemler/atil_bayraklar.gd` | Claude test ✔ · tam sanity 319 PASS / 0 hata / 20 gece · asset gerekmedi |
+| SYS-19 | Nüfus 18 Köy oturdu; gün sıfırlanmadan 2. perde 12 gece sayacı ve son | Claude yazdı | Claude | `src/koy/perde_gecisi.gd` | Claude test ✔ · tam sanity 319 PASS / 0 hata / 20 gece · asset gerekmedi |
+| SYS-20 | Zafer → 5 nihai son; 5 gösterge + yozlaşma epilog matrisi | Claude yazdı | Claude | `src/sistemler/nihai_son.gd` | Claude test ✔ · tam sanity 319 PASS / 0 hata / 20 gece · asset gerekmedi |
 <!-- PANO_TABLO_SON -->
 
-**Sıradaki:** KRI-12 … KRI-15 → SYS-16 … SYS-20 (Claude yazıyor; Codex limiti 15 Ekim 17:38'e kadar dolu). KRI-09/KRI-10/KRI-11 Claude testinden geçti. Eski uzmanlık sorunu (BUG-0001) `f6e3b55` ile düzeltildi. Ahmet kopyası bu makinede yok; güncellenmedi.
+**Sıradaki:** ROADMAP'te açık madde kalmadı (KRI-12 … SYS-20 Claude, 10 Ekim 2026). Codex limiti 15 Ekim'de yenilenince Codex öz denetimi ve Claude son denetimi.
 
 Ayrıntılı günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md`.
 
@@ -312,11 +321,10 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **KRI-10:** Krizden Çıkış ve Toplumsal Kenetlenme Bonusu — Bütün örtüşen krizler bitince yerel yaşayan/tok halka tek Sadakat +8/Refah +10 (tavan100); 7 gün tekrar bekleme, terminal/kuluçka/histeri/optional kayıt kapıları. tam sanity 302 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex)
 
 - [x] **KRI-11:** Kapıda Bulaşıcı Hastalık Teşhis İbresi (`src/kapi/hastalik_teshis_adaptoru.gd` — **taslak hedef yol**) — Portre/heybede irin, kanlı öksürük, ateş → `ipucu_yoneticisi` enfeksiyon şüphesi + karantina şartı. tam sanity 304 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex başlattı; Claude tamamladı)
-- [ ] **KRI-12:** Açlık–Sağlık Çapraz (`src/koy/kriz_yoneticisi.gd` — **taslak hedef yol**) — Erzak <3 iken Sağlık her gece −1 ekstra; salgın yayılma ×2.
-- [ ] **KRI-13:** Şifahane Yatak Kapasitesi + Triyaj — Yatak dolunca Moral/Sağlık günlük çöker (**taslak**).
-- [ ] **KRI-14:** Erzak Bitince Kışla Nöbetçisi Ambara — Erzak tükenince nöbetçi ambara yönelir; arbede olursa Moral kaybı (**taslak**; KRI-06 kıtlık/yağma ile ilişkili — birleştir notu: tetikleyici yüzeyi).
-- [ ] **KRI-15:** Salgında Vasıfsız Köylü Şifalı Ot Toplama — Salgın sırasında vasıfsız köylü ot toplar → ilaç üretim hızı ↑ (**taslak**; KRI-03 hekim/ilaç tamamlayıcı).
-
+- [x] **KRI-12:** Açlık–Sağlık Çapraz (`src/koy/kriz_yoneticisi.gd` — **taslak hedef yol**) — Erzak <3 iken Sağlık her gece −1 ekstra; salgın yayılma ×2. tam sanity 319 PASS / 0 hata / 20 gece; asset gerekmedi. (Claude)
+- [x] **KRI-13:** Şifahane Yatak Kapasitesi + Triyaj — Yatak dolunca Moral/Sağlık günlük çöker (**taslak**). tam sanity 319 PASS / 0 hata / 20 gece; asset gerekmedi. (Claude)
+- [x] **KRI-14:** Erzak Bitince Kışla Nöbetçisi Ambara — Erzak tükenince nöbetçi ambara yönelir; arbede olursa Moral kaybı (**taslak**; KRI-06 kıtlık/yağma ile ilişkili — birleştir notu: tetikleyici yüzeyi). tam sanity 319 PASS / 0 hata / 20 gece; asset gerekmedi. (Claude)
+- [x] **KRI-15:** Salgında Vasıfsız Köylü Şifalı Ot Toplama — Salgın sırasında vasıfsız köylü ot toplar → ilaç üretim hızı ↑ (**taslak**; KRI-03 hekim/ilaç tamamlayıcı). tam sanity 319 PASS / 0 hata / 20 gece; asset gerekmedi. (Claude)
 ---
 
 ## BÖLÜM 12: Güvenli Kayıt (Migration), Ses ve Doğrulama (Sanity Check)
@@ -342,13 +350,11 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **SYS-14:** `KAYIT_SURUMU` Adım Adım Migration — SYS-01 tamamlayıcı; sürüm N→N+1 alan göç fonksiyonları (satır kanıtsız uyarı geçerli). (Codex)
 - [x] **SYS-15:** `otomatik_oyuncu` Sabit 20 Tur Kilidi — SYS-10 tamamlayıcı; headless duman testinde tur sayısının sabitlenmesi. (Codex)
 
-- [ ] **SYS-16:** Adsız Diyalog Sırası Kayıt Kalıcılığı — `mevcut_diyalog_indeksi` → `user://kayit.json`; Devam kaldığı yerden.
-- [ ] **SYS-17:** `diyalog_01_20.json` Mantık Düzeltmeleri — diyalog_08’e ret; 13/14/16/17 “sabah kervanla giderim” → yerleşik köylü.
-- [ ] **SYS-18:** Atıl Bayrakların Olaylara Bağlanması — `baci_tezgah`, `dervis`, `miraen_sadik`, `turkmen_kin`, `thessra_kirgin`, `rusvet_sayisi` → gece/diplomasi (KVR-06 ile örtüşür, yeni sözlük yok).
-- [ ] **SYS-19:** 1→2. Perde Geçiş — nüfus 18 → “Köy Oturdu”; Ağa olarak devam → gece sayacı sıfırlanmadan 2. perde 12 gece.
-- [ ] **SYS-20:** Beş Nihai Son + Epilog Matrisi — 5 son (Ertuğrul Obası, Ahi Kasabası, Tekfur Haraççısı, Beyin Uç Köyü, Uç Tutundu) + yozlaşma/5 stat (taslak: `src/sistemler/son_yoneticisi.gd`).
-
-
+- [x] **SYS-16:** Adsız Diyalog Sırası Kayıt Kalıcılığı — `mevcut_diyalog_indeksi` → `user://kayit.json`; Devam kaldığı yerden. tam sanity 319 PASS / 0 hata / 20 gece; asset gerekmedi. (Claude)
+- [x] **SYS-17:** `diyalog_01_20.json` Mantık Düzeltmeleri — diyalog_08’e ret; 13/14/16/17 “sabah kervanla giderim” → yerleşik köylü. tam sanity 319 PASS / 0 hata / 20 gece; asset gerekmedi. (Claude)
+- [x] **SYS-18:** Atıl Bayrakların Olaylara Bağlanması — `baci_tezgah`, `dervis`, `miraen_sadik`, `turkmen_kin`, `thessra_kirgin`, `rusvet_sayisi` → gece/diplomasi (KVR-06 ile örtüşür, yeni sözlük yok). tam sanity 319 PASS / 0 hata / 20 gece; asset gerekmedi. (Claude)
+- [x] **SYS-19:** 1→2. Perde Geçiş — nüfus 18 → “Köy Oturdu”; Ağa olarak devam → gece sayacı sıfırlanmadan 2. perde 12 gece. tam sanity 319 PASS / 0 hata / 20 gece; asset gerekmedi. (Claude)
+- [x] **SYS-20:** Beş Nihai Son + Epilog Matrisi — 5 son (Ertuğrul Obası, Ahi Kasabası, Tekfur Haraççısı, Beyin Uç Köyü, Uç Tutundu) + yozlaşma/5 stat (taslak: `src/sistemler/son_yoneticisi.gd`). tam sanity 319 PASS / 0 hata / 20 gece; asset gerekmedi. (Claude)
 ---
 
 **Gemini döngü 1–7 birikimi (2026-10-06):** KAP/KVR/EKO/SYS/BUG/CAS/ODA +11…15 eklendi; örtüşmeler (KAP-15≡BUG-02, BUG-07≡SYS-09, ODA-02≡EKO-01/EKO-11) notlandı; kanıtsız path = taslak hedef; kanıtsız `[x]` yok.

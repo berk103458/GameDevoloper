@@ -4,6 +4,7 @@ Güncel 7 Ekim 2026 talimatı: Claude’a görev devri iptal. Codex otonom geli�
 
 ## Güncel sahiplik
 
+- 10 Ekim 2026: KRI-11 (Codex başlattı, Claude tamamladı) ve KRI-12 … SYS-20 (Claude) kapandı; tam sanity 319/0. ROADMAP'te açık madde yok.
 - 10 Ekim 2026: KRI-11 kapandı (tam sanity 304 PASS / 0 hata / 20 gece); sıradaki KRI-12. Claude yönetir/doğrular, Codex uygular.
 - 10 Ekim 2026: KRI-10 tamamlandı (tam sanity 302 PASS / 0 hata / 20 gece; asset gerekmedi); Claude test bekliyor, yayın betiği bekleniyor; sonraki KRI-11 bu tur alınmadı.
 

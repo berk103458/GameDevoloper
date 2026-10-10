@@ -1,3 +1,6 @@
+## Claude — KRI-12 … SYS-20 kapandı; ROADMAP tamam (10 Ekim 2026)
+KRI-12 açlık–sağlık çaprazı, KRI-13 Şifahane triyajı/yatak çöküşü, KRI-14 kıtlıkta nöbetçi ambara, KRI-15 salgında şifalı ot, SYS-16 diyalog sırası kaydı, SYS-17 diyalog mantığı, SYS-18 atıl bayraklar, SYS-19 2. perde 12 gece, SYS-20 beş nihai son + epilog. Codex limiti 15 Ekim'e kadar dolu olduğundan Claude yazdı; tam sanity 319 PASS / 0 hata / 20 gece; görünür Godot vitrini (KRI-12/13/15 rapor satırları, SYS-20 son ekranı). Asset gerekmedi. Test raporu: docs/denetim/2026-10-10-claude-test-raporu.md. Ahmet kopyası (C:/Users/Ahmet/...) bu makinede yok; güncellenmedi — Muharrir/Ahmet güvenli pull yapmalı.
+
 ## Claude — KRI-11 kapandı / KRI-12 sırada (10 Ekim 2026)
 KRI-11: kapıda yüz/heybe incelemesiyle açık hastalık belirtisi (irin, kanlı öksürük, ateş) mevcut IpucuYoneticisi'ne şüphe olarak düşer; kabul yolları karantina şartına bağlanır (KRI-02). Gizli kuluçka ifşa edilmez. Codex yazdı, Codex limiti dolunca Claude tam sanity ve görsel incelemeyle tamamladı. Doğrulama: tam sanity 304 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset: asset gerekmedi. Ahmet kopyası (C:/Users/Ahmet/...) bu makinede yok; güncellenmedi — Muharrir/Ahmet güvenli pull yapmalı.
 

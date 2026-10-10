@@ -52,6 +52,11 @@ Assert sayıları test dosyalarındaki `_kontrol/dene/assert` çağrılarıdır 
 | BUG-0005 | S2 (süreç) | KRI-08 | Codex sandbox `.git` yazamıyor/ağa çıkamıyor; otonom döngü bunu algılamadan 16 turda aynı paketi tekrar doğruladı, Codex limiti boşa gitti, raporlara tekrar eden notlar yazıldı | Düzeltildi | Döngü v2: Codex `work/yayin_hazir.json` bırakır, betik sanity logunu doğrulayıp yayınlar; 2 boş turda durur. Tekrar eden notlar birleştirildi · `faff1d7` |
 | BUG-0006 | S3 (altyapı) | KRI-07 | Yeni `class_name` sonrası editör import'u koşulmadan `-s` testi `Identifier not declared` verip kapanmadan asılı kalıyor | Açıklandı | Akış kuralı: yeni sınıftan sonra önce `--editor --import`; sanity zaten import ile başlar |
 
+| BUG-0007 | S3 | SYS-16 | Bozuk/negatif `diyalog_sira` kaydı `_gemini[-1]` ile listenin sonundan diyalog okuturdu | Düzeltildi | `src/sistemler/diyalog_sirasi.gd` doğrulama · `f350af5` |
+| BUG-0008 | S3 (regresyon) | KRI-13/15 | Triyaj ve ot toplama `hekim_ilac_kontrol` eski tedavi sırası/afyon varsayımını bozdu (tam sanity yakaladı) | Düzeltildi | Test senaryosu yeni davranışa göre · `6ea6972` |
+| BUG-0009 | S2 (regresyon) | SYS-19 | Başlangıçsız agalik kaydı yüklemede farklı başlıyordu → kayıt devamı JSON eşitliği bozuldu (`levent_firari` testleri) | Düzeltildi | Geçersiz başlangıç −1, sonraki gece işaretlenir · `6ea6972` |
+| BUG-0010 | S3 | SYS-20 | Güvenlik çoğu oyunda yüksek olduğundan "Beyin Uç Köyü" diğer sonları eziyordu (akış testi yakaladı) | Düzeltildi | Bey sonu: ferman ya da Güvenlik ≥70 + ≥3 etkin nöbetçi · `4981688` |
+
 ## Açık öneriler (hata değil)
 
 - **ADV-01 (HAR-15, UX):** "Güvenlik … savunma hazırlığı +N" satırı köylü kartının alt kısmında; kaydırmadan görünmüyor. Kartın üst bölümüne taşınması önerilir.
@@ -59,6 +64,8 @@ Assert sayıları test dosyalarındaki `_kontrol/dene/assert` çağrılarıdır 
 - **ADV-03 (eski kayıt):** BUG-0001 düzeltmesi yeni kabulleri düzeltir; eski kayıtlarda zaten `usta_demirci` almış CHR köylülerinin bayrağı göç ettirilmez (kayıt göçü ayrı karar ister).
 
 - **ADV-04 (KRI-09, süreç):** Codex KRI-09 commit'inde sanity altyapısını da değiştirdi (`python_test_runner.py`, `acilis_denetimi.py --filesystem`, `api_sozlesmesi.py --manifest` + `api_sozlesmesi_baseline.json`, sanity kilidi). İncelendi: hata yakalama zayıflamadı (manifest bildirimi birebir karşılaştırır, dosya sistemi taraması izlenmeyen yeni dosyaları da kapsar). Not: korumalı API'de bilinçli bir değişiklik artık manifestin de güncellenmesini ister.
+- **ADV-06 (KRI-11, UX):** "Teşhis ibresi" satırı her incelemede (yüz, heybe) konuşma kaydına tekrar yazılıyor; bilgi doğru, yalnız tekrar ediyor.
+- **ADV-07 (SYS-18/20, tasarım):** Atıl bayrak sonuçları ve nihai son eşikleri `data/atil_bayraklar.json` / `data/nihai_sonlar.json` içinde; denge için Berk'in gözden geçirmesi önerilir.
 - **ADV-05 (KRI-10, tasarım):** Kenetlenme bonusu, belirtisiz (gizli kuluçkadaki) bir enfeksiyon varken de verilmez. Kim olduğu söylenmez ama "bonus gelmedi" dolaylı ipucu olabilir; tasarım kararı olarak Berk'e bırakıldı.
 
 ## Otonom döngüden gelecek maddeler (KRI-09 … SYS-20)
@@ -69,4 +76,15 @@ Bu bölüm her yeni madde yayınlandıkça aynı kontrol listesiyle doldurulur.
 |---|---|---|---|---|---|
 | KRI-09 | `e0fde8c` | 43 / 17 assert, kayıt ✔ | 302/0 | ✔ 6 köylüden düşük sadakatli 4 leventten tavan 3'ü kaçtı, sadık levent kaldı; Güvenlik 92→56; 2. kriz gecesinde ikinci dalga yok; kartta chr_/Clue_ sızıntısı yok | ADEQUATE · ADV-04 |
 | KRI-10 | `5e16532` | 36 / 17 assert, kayıt ✔ | 302/0 | ✔ Kireçle temizlik + iyileşme gecesi tek "Toplumsal kenetlenme": Sadakat 50→58, Refah 40→50; makbuz kapandı | ADEQUATE · ADV-05 |
-| KRI-11 … SYS-20 | — | — | — | — | Codex limiti 15 Ekim 17:38'e kadar doldu; KRI-11 Codex'te yarım (yerelde `[/]`) |
+| KRI-11 | `c1b0fec` | birim + kapı akışı, kayıt ✔ | 304/0 | ✔ Codex ekranları: belirti, teşhis ibresi, kabulde karantina şartı | Codex başlattı, Claude tamamladı · ADV-06 |
+| KRI-12 | `acbf185` | 8 / 4 assert, kayıt ✔ | 319/0 | ✔ "Açlık ve hastalık" rapor satırı | ADEQUATE · metin düzeltildi (`54f9f08`) |
+| KRI-13 | `81a7d96` | 15 / 7 assert, kayıt ✔ | 319/0 | ✔ "Şifahane dolu" satırı, triyaj | ADEQUATE · BUG-0008 |
+| KRI-14 | `6ebb1b0` | 10 / 6 assert, kayıt ✔ | 319/0 | akış testi (uyarı → arbede) | ADEQUATE |
+| KRI-15 | `8afee73` | 10 / 4 assert, kayıt ✔ | 319/0 | ✔ "Şifalı ot" satırı | ADEQUATE · BUG-0008 |
+| SYS-16 | `f350af5` | 8 / 2 assert, kayıt ✔ | 319/0 | akış testi (gerçek Devam) | ADEQUATE · BUG-0007 |
+| SYS-17 | `31ccc4f` | mantık testi | 319/0 | — (veri) | ADEQUATE |
+| SYS-18 | `00866b7` | 12 assert, kayıt ✔ | 319/0 | — (rapor satırı birim testte) | ADEQUATE |
+| SYS-19 | `f8bb296` | 10 assert, kayıt ✔ | 319/0 | — (mevcut perde kartı) | ADEQUATE · BUG-0009 |
+| SYS-20 | `4981688` | 18 / 3 assert | 319/0 | ✔ Son ekranı "Ahi Kasabası" + epilog | ADEQUATE · BUG-0010 |
+
+KRI-12 … SYS-20: Codex limiti 15 Ekim 17:38'e kadar dolduğu için Claude yazdı (kullanıcı kararı: "Codex limiti bitince Claude çalışır"). Dokuz madde ayrı commit'lerdir; tam sanity birleşik son durumda koşuldu (iki tur: ilki 4 regresyon yakaladı, düzeltmeden sonra 319/0).

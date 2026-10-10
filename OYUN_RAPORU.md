@@ -1695,3 +1695,9 @@ KRI-11: kapıda yüz/heybe incelemesiyle açık hastalık belirtisi (irin, kanl�
 Doğrulama (Claude): tam sanity 304 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset: asset gerekmedi.
 
 Sıradaki: KRI-12. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+## Claude — KRI-12 … SYS-20 (10 Ekim 2026)
+
+KRI-12 açlık–sağlık çaprazı, KRI-13 Şifahane triyajı/yatak çöküşü, KRI-14 kıtlıkta nöbetçi ambara, KRI-15 salgında şifalı ot, SYS-16 diyalog sırası kaydı, SYS-17 diyalog mantığı, SYS-18 atıl bayraklar, SYS-19 2. perde 12 gece, SYS-20 beş nihai son + epilog. Codex limiti 15 Ekim'e kadar dolu olduğundan Claude yazdı; tam sanity 319 PASS / 0 hata / 20 gece; görünür Godot vitrini (KRI-12/13/15 rapor satırları, SYS-20 son ekranı). Asset gerekmedi.
+
+ROADMAP'te açık madde kalmadı. Sıradaki: Codex limiti yenilenince öz denetim + Claude son denetimi.
