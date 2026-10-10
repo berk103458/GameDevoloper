@@ -50,6 +50,20 @@ Durum: kod kaynağından **izlendi/doğrulandı**; oyunda **yeniden üretme dene
 - **Duraklatma kısayolu:** rehber §3.1 "Seçim yokken Esc/P duraklatma" der; `OYNA.md` de aynı. Tutarlı, sorun yok — yalnız kapı önceliği net.
 - **Rehberde tutarlılık:** ana sahne rehberde `res://src/arayuz/ana.tscn`, oyun dosyasında `ana.gd` `class_name Ana` ve tek autoload `Ses` — doğruladım.
 
+
+### Tur 2 (11 Ekim 2026) — BUG-0016 doğrulama + sürekli oyun analizi
+- **Commit:** 5396fae (tek yeni commit). Ortam: 7/24 oyun (oyna_surekli) + Codex sanity aynı makinede; hiçbir Godot işlemi adıyla kapatılmadı.
+- **BUG-0016 (5396fae) → DOĞRULANDI:** `tests/unit/kvr/chr_kilit_cikisi_test.gd` GEÇTİ (0 hata); fix sonrası oyun 109'da `SOHBET_KILIDI`/KILIT yok (fix öncesi 106/107/108'de vardı). Nüans: `SOHBET_KILIDI` otomatik oyuncunun kendi yedeği; asıl kanıt birim testi.
+- **Sanity:** `python -B tools/sanity_check.py` → harness `315 failed` (YANILTICI). Neden: sandbox Godot'un Windows sertifika deposunu engelliyor, her başlangıçta `ERROR: Failed to read the root certificate store` basılıyor; regex bunu hata sayıyor. **Loglardan gerçek sonuç: 320 log → 314 `GEÇTİ`, 0 `KALDI`, 0 gerçek SCRIPT/parse hatası → etkin 320/320 PASS.** 20-night-smoke GEÇTİ, bellek 68.9→69.5 MB.
+- **Yeni bulgular:** TST-0001 (P2, [HATA]) `KoyNufusu.sayi()` eksik sınıf anahtarında SCRIPT ERROR (oyun 107, 60 hata, `koy_nufusu.gd:28`); TST-0002 (P2, [ARAYUZ]/[DIYALOG]) 6 metin anahtarı eksik → her oyunda `[KEY_NOT_FOUND]` uyarısı (`koy.kaynak.tomruk/un/harc/kirec`, `koy.yapi.tas_ev[_aciklama]`).
+- **Yeni öneriler:** ONR-001 (başarısız ikna cevabının kalıcı kapanması + ekranda açıklanmaması), ONR-002 (KoyNufusu sınıf sözlüğü/API savunmasızlığı = TST-0001 kökü).
+- **Sürekli oyun:** Son turdan beri tamamlanan 2 oyun (106, 108) — ikisi de yenilgi; ort. son gün ~10,5; huzur düşüşü/villa isyanı (108, huzur 6) izlenecek [DENGE] sinyali. 0 DONMA.
+- **TST-0003 (P1, [HATA]):** HEAD'de (5396fae) oyun 112'de gece rutini her karede SCRIPT ERROR: ... 'is_yeri' on a base object of type 'Nil' (is_kazalari.gd:18; sinsi_gece_rutini.gd:14 nobetciler null koruması yok). 500+ hata, sürüyor.
+- **Denge sinyali:** Tamamlanan 5/5 oyun yenilgi (zafer 0/5); ort. son gün ≈ 11,2.
+- **Ölçülmeyen:** Pencereli elle CHR ikna-fail ekran görüntüsü (tur bütçesi).
+- Detay: `docs/tester/turlar/TUR-002.md`; bulgular `docs/tester/BULGULAR.md`; öneriler `docs/tester/DEGISIKLIK_ONERILERI.md`.
+
 ## Tur kayıtları
 <!-- Tur N · tarih · commit · test edilen · bulgu/öneri sayısı -->
 - Tur 1 (eğitim) · 11 Ekim 2026 · commit 5c9a5b1 (değişmedi) · yalnız okuma + kaynak izleme · bulgu 0, öneri 0
+- Tur 2 · 11 Ekim 2026 · commit 5396fae · BUG-0016 doğrulama, sürekli oyun analizi, sanity, 4 görsel · bulgu 3, öneri 2
