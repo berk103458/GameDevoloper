@@ -724,6 +724,7 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 ## Gün sonu kaydı için sözlük (oturum + köy yönetimi).
 func kaydet() -> Dictionary:
 	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
+		"faz": preload("res://src/sistemler/oturum_fazi.gd").durum(self),
 		"bayraklar": bayraklar.keys().map(func(x): return String(x)),
 		"rusvet_sayisi": int(bayraklar.get(&"rusvet_sayisi", 0)),
 		"gorulen_olaylar": gorulen_olaylar.keys().map(func(x): return String(x)),
@@ -755,6 +756,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 		push_error("Kayıt sürümü uyuşmuyor")
 		return null
 	var o := Oturum.new(katalog_, String(veri["tohum"]).to_int())
+	preload("res://src/sistemler/oturum_fazi.gd").ayarla(o, preload("res://src/sistemler/oturum_fazi.gd").oku(veri.get("faz")))
 	o.yonetim = KoyYonetimi.kayittan(katalog_.koy_ayarlari, katalog_.binalar, veri["koy_yonetimi"])
 	o.sonraki_gelen_ek = int(veri.get("sonraki_gelen_ek", 0))
 	for b in veri.get("bayraklar", []):

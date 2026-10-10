@@ -22,7 +22,7 @@ static func son(o: Oturum, s: StringName) -> String:
 	var haraca_boyun := y.agalik and y.tekfur_baski == 0 and y.savusturulan == 0 and KoyYonetimi.PERDE_GECISI.gece(y) >= y.a.harac_araligi
 	if int(g.yozlasma) >= int(e.yozlasma) or haraca_boyun: return "tekfur_haraccisi"
 	if ObaIttifaki.muttefik(o): return "ertugrul_obasi"
-	if int(SancakAskerTalebi.oku(o.sancak_asker_talebi).secim) in [0, 1] or (int(g.guvenlik) >= int(e.guvenlik_bey) and y.etkin_muhafiz_sayisi() >= int(e.muhafiz_bey)): return "beyin_uc_koyu"
+	if SancakAskerTalebi.oku(o.sancak_asker_talebi).levent_gonderildi or (int(g.guvenlik) >= int(e.guvenlik_bey) and y.etkin_muhafiz_sayisi() >= int(e.muhafiz_bey)): return "beyin_uc_koyu"
 	if int(g.refah) >= int(e.refah_ahi) and int(g.adalet) >= int(e.adalet_ahi): return "ahi_kasabasi"
 	return "uc_tutundu"
 

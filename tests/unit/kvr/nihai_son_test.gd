@@ -35,7 +35,7 @@ func _initialize() -> void:
 	dene(NIHAI.son(a, &"zafer") == "ahi_kasabasi", "Ahi Kasabası")
 	# Beyin Uç Köyü: sancak fermanına levent verildi.
 	var b := hazir()
-	b.sancak_asker_talebi = {"son_gece": 3, "gun": 3, "bekliyor": false, "secim": 0, "gonderilen": []}
+	b.sancak_asker_talebi = {"son_gece": 8, "gun": 8, "bekliyor": false, "secim": 0, "gonderilen": [1, 2]}
 	dene(NIHAI.son(b, &"zafer") == "beyin_uc_koyu", "Beyin Uç Köyü")
 	# Ertuğrul Obası: oba ittifakı (Ahi koşulundan önce gelir).
 	var e := hazir()

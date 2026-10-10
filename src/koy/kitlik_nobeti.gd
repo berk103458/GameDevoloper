@@ -1,6 +1,6 @@
 ## KRI-14: erzak tükenince kışla nöbetçileri ambara yönelir. KRI-06 kıtlık isyanının açık
 ## yüzeyine (durum().kitlik_gece_sayisi + o gecenin kitlik_isyani olayı) bağlanır; ikinci
-## kıtlık/yağma motoru değildir. RNG yok; kayıt gerekmez (KRI-06 makbuzu yeterli).
+## kıtlık/yağma motoru değildir. RNG yok; gün kilidi mevcut KRI-06 makbuzunda saklanır.
 extends RefCounted
 
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/koy/kitlik_nobeti.json"))
@@ -24,8 +24,10 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 	if yagma_olayi.is_empty():
 		var d := KitlikIsyani.durum(y)
 		if int(d.son_gece) == y.gun and int(d.kitlik_gece_sayisi) == 1 and not d.tetiklendi:
+			if not preload("res://src/koy/kitlik_nobet_makbuzu.gd").al(y): return
 			olaylar.append({"anahtar": "kitlik_nobeti", "kitlik_nobeti": {"tur": "uyari", "nobetci": nob.size()}})
 		return
+	if not preload("res://src/koy/kitlik_nobet_makbuzu.gd").al(y, yagma_olayi): return
 	var oran := minf(1.0, nob.size() * float(AYAR.nobetci_basina_geri_alma))
 	var geri := {}
 	var yagma: Dictionary = yagma_olayi.kitlik_isyani.yagma

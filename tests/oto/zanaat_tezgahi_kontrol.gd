@@ -30,7 +30,7 @@ func _ready() -> void:
 		kontrol(y.recete_sec(b.id, "alet" if tur == "demirhane" else "ekmek"), "Gerçek reçete")
 		bs.append(b)
 		ids.append(k.id)
-	var once := JSON.stringify(ana.oturum.kaydet())
+	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
 	ana._koye_git()
 	await get_tree().process_frame
 	var s: KoyYonetimSahnesi = ana._ekran.sahne3b

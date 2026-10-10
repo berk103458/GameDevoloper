@@ -19,7 +19,7 @@ func _ready() -> void:
  var k := y.kabul({"ad":"Kürekçi", "sinif":"ciftci", "stat":5})
  y.gun = 27
  b.cati_kar.yuk = 2.0
- var once := JSON.stringify(ana.oturum.kaydet())
+ var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
  ana._koye_git()
  var s: KoyYonetimSahnesi = ana._ekran.sahne3b
  var h := s.halk_hareketi

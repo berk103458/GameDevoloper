@@ -1,6 +1,7 @@
 ## KRI-12: açlık–sağlık çaprazı; ikinci açlık/salgın motoru değildir.
 ## Gece başında ambarda erzak eşiğin altındaysa o gece herkes ek sağlık kaybeder
-## ve mevcut SaglikYoneticisi temas bulaşma riski katlanır. RNG çekim sayısı değişmez.
+## ve mevcut SaglikYoneticisi temas bulaşma riski katlanır. Yeni RNG çağrısı eklenmez;
+## iki yeni vaka sınırına daha erken varılınca mevcut döngü daha az zar çekebilir.
 extends RefCounted
 
 const META := &"aclik_saglik_gecesi"

@@ -16,10 +16,11 @@ static func _tam(v: Variant, alt: int, ust: int, varsayilan: int) -> int:
 
 ## Optional/legacy JSON; yalnız doğrulanmış geçmiş, kapı hasarı bağımsız kalıcıdır.
 static func oku(v: Variant) -> Dictionary:
-	var d := {"kitlik_gece_sayisi": 0, "tetiklendi": false, "kapi_kirik": false, "son_gece": -1}
+	var d := {"kitlik_gece_sayisi": 0, "tetiklendi": false, "kapi_kirik": false, "son_gece": -1, "nobet_son_gece": -1}
 	if not v is Dictionary: return d
 	d.kitlik_gece_sayisi = _tam(v.get("kitlik_gece_sayisi"), 0, ESIK, 0)
 	d.son_gece = _tam(v.get("son_gece"), -1, 1000000000, -1)
+	d.nobet_son_gece = _tam(v.get("nobet_son_gece"), -1, 1000000000, -1)
 	d.tetiklendi = v.get("tetiklendi") is bool and v.tetiklendi and d.kitlik_gece_sayisi == ESIK
 	d.kapi_kirik = v.get("kapi_kirik") is bool and v.kapi_kirik
 	return d
@@ -30,6 +31,7 @@ static func durum(y: KoyYonetimi) -> Dictionary:
 static func yukle(y: KoyYonetimi, v: Variant) -> void:
 	var d := oku(v)
 	if int(d.son_gece) > y.gun: d = oku({})
+	if int(d.nobet_son_gece) > y.gun: d.nobet_son_gece = -1
 	y.set_meta(META, d)
 	if y.kaynaklar.miktar("gida") > 0: erzak_geldi(y)
 

@@ -16,7 +16,7 @@ func _ready() -> void:
  var y := ana.oturum.yonetim
  var k := y.kabul({"ad": "Ali", "sinif": "ciftci", "gizli": ["haydut"]})
  var ikinci := y.kabul({"ad": "Ayşe", "sinif": "ciftci"})
- var once := JSON.stringify(ana.oturum.kaydet())
+ var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
  ana._koye_git()
  await get_tree().process_frame
  var e := ana._ekran as KoyEkrani

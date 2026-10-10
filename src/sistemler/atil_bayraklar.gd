@@ -48,6 +48,9 @@ static func gece(o: RefCounted, r: Dictionary) -> void:
 			satirlar.append("Kapıda %d rüşvetin adı çıktı: asayiş riski +%d." % [rusvet, artis])
 	if not satirlar.is_empty():
 		r.olaylar.append({"anahtar": "atil_bayrak", "atil_bayrak": {"satirlar": satirlar}})
+	# BUG-0011: geç etkilerden sonra mevcut raporun kapanışını güncelle.
+	r["akce"] = y.akce
+	r["huzur"] = y.huzur()
 
 static func olay_metin(e: Dictionary) -> String:
 	return "Eski kararların izi · " + " ".join(e.atil_bayrak.satirlar)

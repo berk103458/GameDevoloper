@@ -28,7 +28,7 @@ func _ready() -> void:
 		var k := y.kabul({"sinif": "ciftci", "stat": 5})
 		kontrol(y.ata(k.id, kamp.id), "Oduncu ataması")
 	y.lojistik.hayvanlar.okuz = 1
-	var once := JSON.stringify(ana.oturum.kaydet())
+	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
 	ana._koye_git()
 	await get_tree().process_frame
 	var s: KoyYonetimSahnesi = ana._ekran.sahne3b

@@ -22,7 +22,7 @@ func _ready() -> void:
 	var k := y.kabul({"ad":"Nöbetçi", "sinif":"ciftci", "stat":5})
 	y.gun = 21
 	y.muhafiz_ata(k.id)
-	var once := JSON.stringify(ana.oturum.kaydet())
+	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
 	ana._koye_git()
 	await get_tree().process_frame
 	var s: KoyYonetimSahnesi = ana._ekran.sahne3b

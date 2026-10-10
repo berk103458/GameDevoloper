@@ -71,7 +71,10 @@ func devam_et() -> void:
 		ana_menu()
 		return
 	oturum = o
-	_kapiya_git()
+	if preload("res://src/sistemler/oturum_fazi.gd").durum(o) == "koy":
+		_koye_git()
+	else:
+		_kapiya_git()
 
 
 func _kapiya_git(snapshot: Dictionary = {}) -> void:
@@ -96,6 +99,7 @@ func _kapiya_git(snapshot: Dictionary = {}) -> void:
 
 ## Kapı nöbeti bitti (Faz 1 → Faz 2): kayıt, sonra köy yönetimi.
 func _koye_git(_rapor: Dictionary = {}) -> void:
+	preload("res://src/sistemler/oturum_fazi.gd").ayarla(oturum, "koy")
 	kayit.yaz(oturum.kaydet())
 	var koy := KoyEkrani.new()
 	koy.oturum = oturum
@@ -103,6 +107,7 @@ func _koye_git(_rapor: Dictionary = {}) -> void:
 	koy.oturum_bitti.connect(_son_goster)
 	koy.devam_istendi.connect(func(rapor: Dictionary) -> void:
 		# Gece çözüldü ve olay seçildi: kayıt, sonra yeni gün (Ağalıkta önce geçiş kartı).
+		preload("res://src/sistemler/oturum_fazi.gd").ayarla(oturum, "kapi")
 		kayit.yaz(oturum.kaydet())
 		if rapor.get("perde_degisti", false):
 			_perde_gecisi()

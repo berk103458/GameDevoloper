@@ -18,7 +18,7 @@ func _ready() -> void:
  var b := kur(y)
  assert(b != null)
  y.gun = 21
- var once := JSON.stringify(ana.oturum.kaydet())
+ var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
  ana._koye_git()
  var s: KoyYonetimSahnesi = ana._ekran.sahne3b
  await get_tree().process_frame

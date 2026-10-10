@@ -4,7 +4,7 @@ extends RefCounted
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/sancak_asker_talebi.json"))
 ## Optional ferman makbuzu; kayıt isyancı veya köylü üretmez.
 static func oku(v: Variant) -> Dictionary:
-	var d := {"son_gece":-1,"gun":-1,"bekliyor":false,"secim":-1,"gonderilen":[]}
+	var d := {"son_gece":-1,"gun":-1,"bekliyor":false,"secim":-1,"gonderilen":[],"levent_gonderildi":false}
 	if not v is Dictionary: return d
 	for a in ["son_gece","gun","secim"]: d[a] = KurtBaskini.oku(v.get(a,-1))
 	if d.secim > 2: d.secim = -1
@@ -14,6 +14,7 @@ static func oku(v: Variant) -> Dictionary:
 		for x in ids:
 			var id := KurtBaskini.oku(x)
 			if id>0 and not id in d.gonderilen and d.gonderilen.size()<int(AYAR.levent): d.gonderilen.append(id)
+	d.levent_gonderildi = preload("res://src/sistemler/levent_gonderim_gecmisi.gd").oku(v, d, int(AYAR.levent), int(AYAR.ilk_gece))
 	return d
 ## Aynı gerçek gece bir kez ferman; bekleyen seçim diğer olayları ezmez.
 static func gece(o: Oturum, r: Dictionary) -> void:
@@ -70,6 +71,7 @@ static func uygula(o: Oturum,e: OlayVerisi,i: int) -> Dictionary:
 		for k in a:
 			d.gonderilen.append(k.id)
 			o.yonetim.koylular.erase(k)
+		d.levent_gonderildi = true
 		o._koy_esitle()
 	d.bekliyor = false
 	d.secim = i

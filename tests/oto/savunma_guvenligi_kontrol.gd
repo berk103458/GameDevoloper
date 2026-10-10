@@ -35,7 +35,7 @@ func _ready() -> void:
 	k.saglik = 100
 	k.moral = 100
 	assert(y.muhafiz_ata(k.id))
-	var once := JSON.stringify(o.kaydet())
+	var once := JSON.stringify(o.kaydet().merged({"faz": "koy"}, true))
 	ana._koye_git()
 	await get_tree().process_frame
 	var e := ana._ekran as KoyEkrani

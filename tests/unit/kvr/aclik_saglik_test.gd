@@ -1,4 +1,4 @@
-## KRI-12: erzak eşiğin altındayken gece ek sağlık kaybı ve salgın riski ×2; RNG çekimi değişmez.
+## KRI-12: erzak eşiğin altındayken gece ek sağlık kaybı ve salgın riski ×2; ek RNG çağrısı yok.
 extends SceneTree
 const ACLIK = preload("res://src/koy/aclik_saglik.gd")
 var hata := 0

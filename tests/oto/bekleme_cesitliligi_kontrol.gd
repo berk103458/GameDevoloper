@@ -15,7 +15,7 @@ func _ready() -> void:
 	add_child(ana)
 	var y := ana.oturum.yonetim
 	for i in 6: y.kabul({"sinif": "ciftci", "stat": 5})
-	var once := JSON.stringify(ana.oturum.kaydet())
+	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
 	ana._koye_git()
 	await get_tree().process_frame
 	var s: KoyYonetimSahnesi = ana._ekran.sahne3b

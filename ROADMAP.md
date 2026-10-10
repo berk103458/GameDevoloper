@@ -44,7 +44,7 @@
 | SYS-20 | Zafer → 5 nihai son; 5 gösterge + yozlaşma epilog matrisi | Claude yazdı | Claude | `src/sistemler/nihai_son.gd` | Claude test ✔ · tam sanity 319 PASS / 0 hata / 20 gece · asset gerekmedi |
 <!-- PANO_TABLO_SON -->
 
-**Sıradaki:** ROADMAP'te açık madde kalmadı (KRI-12 … SYS-20 Claude, 10 Ekim 2026). Codex limiti 15 Ekim'de yenilenince Codex öz denetimi ve Claude son denetimi.
+**Sıradaki:** BUG-0011…0015 düzeltmeleri (Codex, öz denetim 2026-10-11) → ADM-16 Oyun Köprüsü `[/]` (Codex; limit biterse Claude). Tester (DeepSeek/EVREN) 7/24 döngüde; raporlar `docs/tester/`.
 
 Ayrıntılı günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md`.
 
@@ -68,6 +68,7 @@ Ayrıntılı günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `OYUN_RAPORU.md`, `d
 - [x] **ADM-13:** Canlı köylü ve zanaat denetçisi — atanan bina, anlık eylem, zanaat verimi canlı tablo. (Codex)
 - [x] **ADM-14:** Kriz ve sabotaj enjektörü — tek tuş veba / kuyu zehirlenmesi / ambar kundaklaması. (Codex)
 - [x] **ADM-15:** Otomatik diyalog akışı ve tansiyon sabitleyici — diyalogları auto-geç; tansiyonu 2/5/9’a kilitle. (Codex)
+- [/] **ADM-16:** Oyun Köprüsü (Tester Bridge) — `bridge/godot/bridge.gd` şablonunu oyuna bağla: yalnız `--bridge-port <n>` (ya da `BRIDGE_PORT`) verilince açılan localhost TCP köprüsü (normal oyunda kapalı, autoload eklenmez; ince adaptör `src/debug/oyun_koprusu.gd`). Komutlar: `ping`, `get_state` (ekran/faz, gün, barlar, akçe/erzak, kapıdaki kişi + seçenekler, köy özeti, son rapor), `kapi_karar` (kabul/ret/rüşvet/kışla), `soru_sor`, `koy_eylem` (bina kur, köylü ata), `gece_bitir`, `devam`, `screenshot`, `kaydet`/`yukle`, `quit`; gerçek UI yolunu kullanır (oyuncunun yapabildiğinin dışına çıkmaz). Python istemcisi + `tools/tester_oyuncu.py` (bir politika ile tam oyun oynar, JSONL durum dökümü). Tester 7/24 kendi kararlarıyla oynar. (Codex — devam ediyor)
 
 
 ---
