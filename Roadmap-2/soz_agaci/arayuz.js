@@ -1,5 +1,6 @@
 (function () {
   const { SozMotoru, kenarlar, dogrula, ES_MESLEKLERI, YAKLASIMLAR } = window.SozMotoruApi;
+  const { metinler, denetle, KURALLAR } = window.Yapaylik;
   const sahne = Object.values(window.SAHNELER)[0];
   const $ = (id) => document.getElementById(id);
   const el = (tag, cls, html) => {
@@ -35,6 +36,9 @@
       case "bayrak_yok": return dizi(v).map((x) => "Bayrak yok: " + x);
       case "tansiyon_min": return ["Tansiyon ≥ " + v];
       case "tansiyon_max": return ["Tansiyon ≤ " + v];
+      case "guven_min": return ["Güven ≥ " + v];
+      case "guven_max": return ["Güven ≤ " + v];
+      case "soylenen": return dizi(v).map((x) => "Sen söyledin: " + x);
       case "sabir_max": return ["Sabır ≤ " + v];
       case "tecrube_min": return ["Muhafız tecrübesi ≥ " + v];
       case "es_meslek": return ["Eşin mesleği: " + dizi(v).map((x) => ES_MESLEKLERI[x] || x).join(" / ")];
@@ -50,7 +54,9 @@
     const p = [];
     const isaret = (n) => (n > 0 ? "+" + n : "−" + Math.abs(n));
     if (e.tansiyon) p.push("Tansiyon " + isaret(e.tansiyon));
+    if (e.guven) p.push("Güven " + isaret(e.guven));
     if (e.sabir) p.push("Sabır " + isaret(e.sabir));
+    dizi(e.soylenen).forEach((x) => p.push("Söylediğin kayda geçer: " + x.id));
     dizi(e.beyan).forEach((b) => p.push("Beyan: " + b.id));
     dizi(e.ipucu).forEach((x) => p.push("İpucu: " + ipucuAd(x)));
     dizi(e.bayrak).forEach((x) => p.push("Bayrak: " + x));
@@ -65,8 +71,6 @@
   // ---------------- motor ve bağlam ----------------
   const baglam = { mevsim: "yaz", es_meslek: "sifaci", tecrube: 2, sifahane: false, haber_sivas: true, asker: false };
   const motor = new SozMotoru(sahne, baglam);
-  let cizilenLog = 0;
-  let sonDugumLog = null;
   let zarBekleyen = null;
   let yazarModu = true;
   let kilitliGoster = true;
@@ -91,9 +95,7 @@
   function yenidenBasla(dugum) {
     zarBekleyen = null;
     motor.sifirla(dugum);
-    $("kayit").innerHTML = "";
-    cizilenLog = 0;
-    sonDugumLog = null;
+    gosterilenHatirla = 0;
     ciz();
   }
 
@@ -106,28 +108,35 @@
     toast.z = setTimeout(() => t.classList.remove("gor"), 2600);
   }
 
+  const KONUSAN = new Set(["karakter", "muhafiz", "anlati", "sezgi", "es", "sira"]);
+  let gosterilenHatirla = 0;
+
   function logCiz() {
     const kap = $("kayit");
     const log = motor.s.log;
-    for (; cizilenLog < log.length; cizilenLog++) {
-      const x = log[cizilenLog];
-      if (x.dugum !== sonDugumLog && x.k !== "muhafiz" && x.k !== "zar") {
-        sonDugumLog = x.dugum;
+    kap.innerHTML = "";
+    let sonDugum = null;
+    for (const x of log) {
+      if (x.dugum !== sonDugum && x.k !== "muhafiz" && x.k !== "zar") {
+        sonDugum = x.dugum;
         const d = sahne.dugumler[x.dugum];
-        kap.append(el("div", "ayrac", kacis((EVRE_AD[d.evre] || d.evre) + " · " + d.baslik)));
+        if (d) kap.append(el("div", "ayrac", kacis((EVRE_AD[d.evre] || d.evre) + " · " + d.baslik)));
       }
-      const s = el("div", "satir " + x.k + (x.k === "zar" && !x.basari ? " basarisiz" : ""));
+      const isaret = x.id && inceleme[x.id] ? " i-" + inceleme[x.id].durum : "";
+      const s = el("div", "satir " + x.k + (x.k === "zar" && !x.basari ? " basarisiz" : "") + (x.kesme ? " kesen" : "") + isaret);
       const kim = KIM[x.k];
-      if (kim) s.append(el("div", "kim", kacis(kim)));
+      if (kim) s.append(el("div", "kim", kacis(kim) + (x.kesme ? " · sözünü keser" : "")));
       let m = x.m;
       if (x.k === "beyan") m = "Beyan defterine yazıldı: " + m;
-      if (x.k === "hatirla") {
-        m = "Bu hatırlanacak. (" + x.not + ")";
-        toast(x.not);
-      }
-      s.append(el("div", "m", kacis(m)));
+      if (x.k === "hatirla") m = "Bu hatırlanacak. (" + x.not + ")";
+      if (x.kesildi && x.k === "karakter") m = m.replace(/[.…]+$/, "") + "—";
+      const mEl = el("div", "m", kacis(m));
+      if (x.id && KONUSAN.has(x.k)) mEl.append(isaretDugmeleri(x.id, () => logCiz()));
+      s.append(mEl);
       kap.append(s);
     }
+    const hat = log.filter((x) => x.k === "hatirla");
+    for (; gosterilenHatirla < hat.length; gosterilenHatirla++) toast(hat[gosterilenHatirla].not);
     kap.scrollTop = kap.scrollHeight;
   }
 
@@ -139,6 +148,11 @@
     const tc = $("tansiyonCubuk");
     tc.style.width = Math.min(100, (s.tansiyon / ust) * 100) + "%";
     tc.style.background = kd.ek === 0 ? "var(--yesil)" : kd.ek === 1 ? "var(--altin)" : "var(--kirmizi)";
+    const gu = sahne.kurallar.guven_ust || 10;
+    $("guvenYazi").textContent = s.guven + " / " + gu;
+    const gc = $("guvenCubuk");
+    gc.style.width = Math.min(100, (s.guven / gu) * 100) + "%";
+    gc.style.background = "var(--mor)";
     $("sabirYazi").textContent = Math.max(0, s.sabir) + " / " + sahne.baslangic.sabir;
     const sc = $("sabirCubuk");
     sc.style.width = Math.max(0, (s.sabir / sahne.baslangic.sabir) * 100) + "%";
@@ -152,6 +166,7 @@
     liste("beyanlar", s.beyan.map((b) => b.metin));
     liste("ipuclari", s.ipucu.map(ipucuAd));
     liste("hatirlananlar", s.hatirla);
+    liste("soylenenler", s.soylenen.map((x) => x.metin));
     liste("dedikodular", s.dedikodu);
     const kaynak = Object.entries(s.kaynak).map(([r, n]) => r + " " + (n > 0 ? "+" : "") + n);
     $("bayraklar").innerHTML = s.bayrak.concat(kaynak).map((b) => '<span class="etiket">' + kacis(b) + "</span>").join("") || '<span class="etiket">—</span>';
@@ -203,12 +218,15 @@
       let html = '<span class="ust"><span class="no">' + numara + '</span><span>' + kacis(sec.metin) + "</span></span>";
       const meta = [];
       if (sec.zar) meta.push("Zar: " + zarYazi(sec.zar));
+      if (sec.kesme) meta.push("Sözünü keser");
+      if (sec.kesilir) meta.push("Sözün kesilir");
       if (!x.acik) meta.push(x.kullanildi ? "Kilitli: bir kez sorulur, soruldu" : "Kilitli: " + eksikYazi(x.eksik).join(", "));
       if (yazarModu) {
         if (sec.zar) meta.push("→ başarı: " + dugumAd(sec.zar.basari) + " · başarısız: " + dugumAd(sec.zar.basarisiz));
         else meta.push("→ " + dugumAd(sec.hedef));
         meta.push(...etkiYazi(sec.etki));
         if (sec.tukenir) meta.push("bir kez");
+        if (sec.tepki) meta.push("Tepki: " + sec.tepki.map((t) => t.m).join(" "));
       }
       if (meta.length || (yazarModu && sec.neden)) {
         html += '<span class="meta">' + meta.map(kacis).join(" · ") + (yazarModu && sec.neden ? '<span class="neden">' + kacis(sec.neden) + "</span>" : "") + "</span>";
@@ -473,6 +491,9 @@
         h += '<div class="kural">Görünür: ' + kacis(kos.length ? kos.join(", ") : "her zaman") + (sec.tukenir ? " · bir kez" : "") + "</div>";
         const et = etkiYazi(sec.etki);
         if (et.length) h += '<div class="kural">Etki: ' + kacis(et.join(", ")) + "</div>";
+        if (sec.kesme) h += '<div class="kural">Söz kesme: muhafız karakterin sözünü keser.</div>';
+        if (sec.kesilir) h += '<div class="kural">Karakter sözü keser; ekranda "' + kacis(sec.kesilir) + '—" görünür.</div>';
+        for (const t of sec.tepki || []) h += '<div class="kural">Tepki (' + kacis(KIM[t.k] || t.k || "anlatı") + "): " + kacis(t.m) + "</div>";
         if (sec.neden) h += '<div class="neden">' + kacis(sec.neden) + "</div>";
         h += "</div>";
       });
@@ -530,6 +551,16 @@
   };
 
   // ---------------- şablon sekmesi ----------------
+  $("kapsamTara").onclick = () => {
+    const r = kapsamTara(3000);
+    const sonlar = Object.entries(r.sonlar).sort((a, b) => b[1] - a[1]).map(([k, v]) => kacis(dugumAd(k)) + " %" + ((v / r.n) * 100).toFixed(1)).join(" · ");
+    $("kapsamSonuc").innerHTML =
+      "<b>" + r.n + "</b> rastgele oynanış (bağlam her seferinde değişir). " +
+      (r.gorulmeyen.length ? '<span style="color:var(--kirmizi)">Hiç görünmeyen ' + r.gorulmeyen.length + " satır:</span><br>" + r.gorulmeyen.map((x) => kacis(x.id + " — " + x.m)).join("<br>") : '<span style="color:var(--yesil)">Bütün satırlar en az bir kez göründü.</span>') +
+      (r.dugumGorulmeyen.length ? '<br><span style="color:var(--kirmizi)">Ulaşılmayan düğüm: ' + r.dugumGorulmeyen.join(", ") + "</span>" : "") +
+      '<br><span style="color:var(--soluk)">Sonların dağılımı: ' + sonlar + "</span>";
+  };
+
   function sablonCiz() {
     $("json").value = JSON.stringify(sahne, null, 2);
     const hatalar = dogrula(sahne);
@@ -567,6 +598,150 @@
       },
     });
 
+  // ---------------- inceleme ----------------
+  const DURUMLAR = { dogal: "Doğal", yapay: "Yapay", yeniden: "Yeniden yaz" };
+  const ANAHTAR = "soz_inceleme_" + sahne.id;
+  let inceleme = {};
+  try {
+    inceleme = JSON.parse(localStorage.getItem(ANAHTAR) || "{}");
+  } catch (e) {
+    inceleme = {};
+  }
+  const tumMetin = metinler(sahne);
+  const metinById = Object.fromEntries(tumMetin.map((x) => [x.id, x]));
+  const kaydet = () => {
+    try {
+      localStorage.setItem(ANAHTAR, JSON.stringify(inceleme));
+    } catch (e) {}
+  };
+  function isaretle(id, durum, not) {
+    const eski = inceleme[id] || {};
+    const yeni = Object.assign({}, eski, { metin: metinById[id] ? metinById[id].m : eski.metin, zaman: new Date().toISOString() });
+    if (durum !== undefined) yeni.durum = eski.durum === durum ? null : durum;
+    if (not !== undefined) yeni.not = not;
+    if (!yeni.durum && !yeni.not) delete inceleme[id];
+    else inceleme[id] = yeni;
+    kaydet();
+  }
+  function isaretDugmeleri(id, sonra) {
+    const kap = el("span", "isaret");
+    const cur = inceleme[id] && inceleme[id].durum;
+    for (const [d, ad] of Object.entries({ dogal: "✓", yapay: "✗", yeniden: "✎" })) {
+      const b = el("button", "ib " + d + (cur === d ? " secik" : ""), ad);
+      b.title = DURUMLAR[d];
+      b.onclick = (e) => {
+        e.stopPropagation();
+        isaretle(id, d);
+        sonra();
+      };
+      kap.append(b);
+    }
+    return kap;
+  }
+
+  let incelemeFiltre = "hepsi";
+  function incelemeCiz() {
+    const den = denetle(sahne);
+    const kap = $("incelemeListe");
+    const say = { dogal: 0, yapay: 0, yeniden: 0, bos: 0, uyari: Object.keys(den.satirlar).length };
+    for (const x of tumMetin) {
+      const d = inceleme[x.id] && inceleme[x.id].durum;
+      if (d) say[d]++;
+      else say.bos++;
+    }
+    $("incelemeOzet").innerHTML =
+      "<b>" + tumMetin.length + "</b> satır · " +
+      '<span class="ozet dogal">✓ ' + say.dogal + " doğal</span> · " +
+      '<span class="ozet yapay">✗ ' + say.yapay + " yapay</span> · " +
+      '<span class="ozet yeniden">✎ ' + say.yeniden + " yeniden yaz</span> · " +
+      say.bos + " işaretsiz · " + say.uyari + " denetim uyarısı" +
+      (den.sahne.length ? '<br><span style="color:var(--kirmizi)">Sahne: ' + den.sahne.map((u) => kacis(KURALLAR[u.kural] + " (" + u.deger + ")")).join(" · ") + "</span>" : "") +
+      '<br><span style="color:var(--soluk)">Ölçüm: ' + den.olcum.replik + " replik, konuşma işareti %" + Math.round(den.olcum.dolgu_orani * 100) + ", üç nokta %" + Math.round(den.olcum.uc_nokta_orani * 100) + "</span>";
+    kap.innerHTML = "";
+    let sonDugum = null;
+    for (const x of tumMetin) {
+      const i = inceleme[x.id] || {};
+      const uy = den.satirlar[x.id] || [];
+      const degisti = i.metin && i.metin !== x.m;
+      if (incelemeFiltre === "bos" && i.durum) continue;
+      if (incelemeFiltre === "sorunlu" && i.durum !== "yapay" && i.durum !== "yeniden") continue;
+      if (incelemeFiltre === "uyari" && !uy.length) continue;
+      if (incelemeFiltre === "notlu" && !i.not) continue;
+      if (incelemeFiltre === "konusma" && !["karakter", "es", "sira", "muhafiz"].includes(x.k)) continue;
+      if (x.dugum !== sonDugum) {
+        sonDugum = x.dugum;
+        const d = sahne.dugumler[x.dugum];
+        kap.append(el("div", "igrup", kacis(d ? (EVRE_AD[d.evre] || d.evre) + " · " + d.baslik : "Sıra sabrı olayı") + ' <span class="iid">' + kacis(x.dugum) + "</span>"));
+      }
+      const row = el("div", "isatir" + (i.durum ? " i-" + i.durum : ""));
+      const tur = { satir: "", varyant: "varyant", secenek: "senin seçeneğin", tepki: "tepki" }[x.tur];
+      let h = '<div class="ikim">' + kacis(KIM[x.k] || (x.k === "anlati" ? "Anlatı" : x.k)) + (tur ? ' <span class="etiket">' + tur + "</span>" : "") + "</div>";
+      h += '<div class="imetin">' + kacis(x.m);
+      if (x.kosul) h += ' <span class="etiket">' + kacis(kosulYazi(x.kosul).join(", ")) + "</span>";
+      for (const k of uy) h += ' <span class="uyari" title="' + kacis(KURALLAR[k]) + '">' + kacis(k.replace(/_/g, " ")) + "</span>";
+      if (degisti) h += ' <span class="uyari" title="İşaretlendikten sonra metin değişti">metin değişti</span>';
+      h += "</div>";
+      row.innerHTML = h;
+      const sag = el("div", "isag");
+      sag.append(isaretDugmeleri(x.id, incelemeCiz));
+      const not = el("input");
+      not.placeholder = "not…";
+      not.value = i.not || "";
+      not.onchange = () => (isaretle(x.id, undefined, not.value.trim()), incelemeCiz());
+      sag.append(not);
+      row.append(sag);
+      kap.append(row);
+    }
+  }
+  $("incelemeFiltre").onchange = (e) => ((incelemeFiltre = e.target.value), incelemeCiz());
+  $("incelemeDisa").onclick = () =>
+    indir("inceleme_" + sahne.id + ".json", {
+      sahne: sahne.id,
+      surum: sahne.surum,
+      tarih: new Date().toISOString(),
+      isaretler: tumMetin
+        .filter((x) => inceleme[x.id])
+        .map((x) => Object.assign({ id: x.id, dugum: x.dugum, konusan: x.k, metin: x.m }, { durum: inceleme[x.id].durum || null, not: inceleme[x.id].not || "" })),
+    });
+  $("incelemeIce").onchange = (e) => {
+    const f = e.target.files[0];
+    if (!f) return;
+    f.text().then((t) => {
+      const v = JSON.parse(t);
+      for (const x of v.isaretler || []) inceleme[x.id] = { durum: x.durum, not: x.not, metin: x.metin, zaman: v.tarih };
+      kaydet();
+      incelemeCiz();
+    });
+  };
+  $("incelemeTemizle").onclick = () => {
+    if (!confirm("Bütün işaretler ve notlar silinsin mi?")) return;
+    inceleme = {};
+    kaydet();
+    incelemeCiz();
+  };
+
+  // ---------------- kapsam ----------------
+  function kapsamTara(n) {
+    const meslekler = Object.keys(ES_MESLEKLERI);
+    const gorulen = new Set(), dugum = new Set(), sonlar = {};
+    for (let k = 0; k < n; k++) {
+      const b = { mevsim: k % 2 ? "kis" : "yaz", es_meslek: meslekler[k % meslekler.length], tecrube: k % 6, sifahane: k % 4 === 0, haber_sivas: k % 3 === 0, asker: k % 5 === 0 };
+      const m = new SozMotoru(sahne, b);
+      let adim = 0;
+      while (!m.s.bitti && adim++ < 300) {
+        const a = m.secenekler().filter((x) => x.acik);
+        if (!a.length) break;
+        const x = a[Math.floor(Math.random() * a.length)];
+        const r = m.sec(x.i);
+        if (r && r.zar) m.zarAt(x.i);
+      }
+      m.s.log.forEach((l) => l.id && gorulen.add(l.id));
+      m.s.yol.forEach((y) => dugum.add(y));
+      sonlar[m.s.dugum] = (sonlar[m.s.dugum] || 0) + 1;
+    }
+    return { gorulmeyen: tumMetin.filter((x) => !gorulen.has(x.id)), dugumGorulmeyen: Object.keys(sahne.dugumler).filter((x) => !dugum.has(x)), sonlar, n };
+  }
+
   // ---------------- sekmeler ----------------
   function sekmeAc(ad) {
     document.querySelectorAll("nav button").forEach((b) => b.classList.toggle("etkin", b.dataset.sekme === ad));
@@ -577,6 +752,7 @@
       detayCiz();
     }
     if (ad === "sablon") sablonCiz();
+    if (ad === "inceleme") incelemeCiz();
   }
   document.querySelectorAll("nav button").forEach((b) => (b.onclick = () => sekmeAc(b.dataset.sekme)));
 
