@@ -436,3 +436,5 @@ KRI-10 (Codex, 10 Ekim 2026): asset gerekmedi. Kenetlenme mevcut gece raporu Lab
 
 KRI-11 (Codex, 10 Ekim 2026): asset gerekmedi. Teşhis ibresi mevcut yüz/CHR portresi ve heybe incelemesine Button/Label metniyle bağlanır; açık belirtiler veri üzerinden açıklanır. Yeni görsel, ses, model, animasyon veya yer tutucu üretilmedi/indirilmedi. G tablosu kontrol edildi; yeni asset ID'si gerekmez.
 
+
+KRI-12 (Claude, 10 Ekim 2026): asset gerekmedi. Etki mevcut gece raporu satırı ve köylü sağlık değerini kullanır; yeni görsel, ses, model veya yer tutucu yok.

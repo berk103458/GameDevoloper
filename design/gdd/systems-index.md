@@ -418,3 +418,4 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Krizde levent firarı — KRI-09](levent-firari.md): düşük sadakatli adsız yetişkin asker, dönem başına tek sınırlı dalga, mevcut Güvenlik/nüfus/gece raporu ve optional kilit; Claude test bekliyor.
 - [Krizden çıkış ve kenetlenme — KRI-10](kriz-kenetlenmesi.md): bütün örtüşen krizlerin tek dönem kapanışında Sadakat/Refah, gece ve optional kayıt kilidi; Claude test bekliyor.
 - [Kapıda hastalık teşhis ibresi — KRI-11](kapi-hastalik-teshisi.md): açık belirti incelemesiyle ziyaretin tek ipucu servisi, karantina şartıyla mevcut kabul, gizli kuluçka korunması; Claude test bekliyor.
+- [Açlık–sağlık çaprazı — KRI-12](aclik-saglik.md): gece başında erzak <3 iken herkes ek −1 sağlık, temas bulaşma riski ×2; mevcut gece/sağlık/rapor genişletmesi (Claude).

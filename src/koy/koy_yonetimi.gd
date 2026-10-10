@@ -4,6 +4,7 @@ class_name KoyYonetimi
 extends RefCounted
 
 const LEVENT_FIRARI = preload("res://src/koy/levent_firari.gd")
+const ACLIK_SAGLIK = preload("res://src/koy/aclik_saglik.gd")
 const KRIZ_KENETLENMESI = preload("res://src/koy/kriz_kenetlenmesi.gd")
 
 ## KRI-14 bu tek tetikleyiciye bağlanabilir; gece/yağmayı tekrar çalıştırmaz.
@@ -537,6 +538,7 @@ func gece() -> Dictionary:
 	rapor["tuketim"]["saman"] = SamanBakimi.gece(self, olaylar)
 	CatiKarBakimi.gece(self, olaylar)
 	KisHastaligi.gece(self, olaylar)
+	ACLIK_SAGLIK.baslat(self, olaylar)
 	var salgin_yeni := SaglikYoneticisi.gece(self, olaylar)
 	var calismalar := {}
 	KanDavasi.gece(self, olaylar)
@@ -793,6 +795,7 @@ func _saglik_ve_moral(olenler: Array, olaylar: Array[Dictionary]) -> void:
 		if adaletsiz:
 			k.moral -= a.adaletsiz_moral
 		SaglikYoneticisi.saglik_kaybi(self, k)
+		ACLIK_SAGLIK.saglik_kaybi(self, k)
 		k.saglik = clampi(k.saglik, 0, 100)
 		k.moral = clampi(k.moral, 0, 100)
 	for k in koylular.duplicate():

@@ -31,6 +31,7 @@ static func tip(y: KoyYonetimi) -> String:
 ## Yeni iflas olayının CSV kilidiyle uyumlu ince metin adaptörü; diğer olaylar eski çeviriyi kullanır.
 static func olay_metin(e: Dictionary) -> String:
 	if e.has("kriz_kenetlenmesi"): return KoyYonetimi.KRIZ_KENETLENMESI.olay_metin(e)
+	if e.has("aclik_saglik"): return KoyYonetimi.ACLIK_SAGLIK.olay_metin(e)
 	if e.has("levent_firari"): return KoyYonetimi.LEVENT_FIRARI.olay_metin(e)
 	if e.has("kitlik_isyani"): return KitlikIsyani.olay_metin(e)
 	if e.has("tekfur_harac"): return TekfurHaracHeyeti.metin(e.tekfur_harac)
