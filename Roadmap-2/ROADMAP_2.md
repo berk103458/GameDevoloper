@@ -236,6 +236,16 @@ Amaç: üç ayrı diyalog yolunu (adlı karakter sohbeti `SohbetVerisi`, adsız 
   - Bağımlılık: DIY-02, YAZ-06. Boyut: L.
   - Dosya: `Oturum`, `chr_kapi_adaptoru.gd`, `kapi_ekrani.gd` yönlendirmesi (çekirdek, minimal); karakter başına geçiş tablosu `data/soz/gecis.json`.
   - Asset: asset gerekmedi.
+- [ ] **DIY-17:** Güven ve korku ayrı ölçülür.
+  - Kabul: tansiyon (korku) yanında ikinci değer olarak güven (0–10). İkram, karşılık verme ve dinleme güveni artırır; sert soru, heybeyi izinsiz karıştırma ve söz kesme düşürür. Güven satır koşulu (`guven_min/max`) ve zar değiştiricisidir (yüksek güven ikna −1, düşük güven +1). Güvenle açılan sır tam açılır; korkuyla (zar, gözdağı) açılan sır eksik açılır ve muhafız kalanını gözle doğrulamak zorunda kalır. Güven yeterince yükselince karakter kendiliğinden söze girer (zarsız itiraf). Prototip: `Roadmap-2/soz_agaci` (Yusuf: `sir_acildi` ve `sir_acildi_korku`, `itiraf`). Test: aynı sırrın iki açılışı farklı bilgi bırakır; güven ≥ 7 olmadan itiraf seçeneği görünmez.
+  - Bağımlılık: DIY-02, DIY-09, ZAR-04. Boyut: M.
+  - Dosya: `src/soz/` durum nesnesi; sorgu paneline ikinci çubuk.
+  - Asset: asset gerekmedi.
+- [ ] **DIY-18:** Söz kesme, karşı soru ve muhafızın beyanı.
+  - Kabul: (a) Muhafız uzun anlatıyı kesebilir (`kesme`): karakterin son repliği yarıda kalır, sabır kazanılır, güven düşer, kaçan bilgi bir daha gelmez. (b) Karakter muhafızın sözünü kesebilir (`kesilir`): muhafızın cümlesi yarıda kalır, cevabın aceleciliği sezgi satırı ve ipucu üretir. (c) Karakter de soru sorar; muhafızın verdiği cevap `soylenen` olarak kaydedilir ve sonraki satırlarda karşılık bulur ("Berat dedin ya…"). (d) Seçimden hemen sonra kısa tepki (`tepki`). Arayüzde kesilen cümle "—" ile biter. Test: kesilen anlatının devam düğümüne bir daha ulaşılamaz; `soylenen` koşullu varyant yalnız o cevap verilmişse seçilir.
+  - Bağımlılık: DIY-02, DIY-09. Boyut: M.
+  - Dosya: `src/soz/` motor; sorgu paneli satır çizimi.
+  - Asset: asset gerekmedi.
 
 ## BÖLÜM 17: Görünür Zar ve Sorgu Dengesi (Faz 2)
 
@@ -303,12 +313,12 @@ Amaç: üç ayrı diyalog yolunu (adlı karakter sohbeti `SohbetVerisi`, adsız 
   - Dosya: yeni `docs/dunya_kitabi/*.md`.
   - Asset: asset gerekmedi.
 - [ ] **YAZ-02:** Üslup rehberi — dönem dili, yaşayan dil.
-  - Kabul: `docs/dunya_kitabi/USLUP.md`: hitaplar (ağam, beğim, bacı, ahi baba, efendi, ana, kardaş), selamlaşma, yemin ve dua kalıpları, ağız farkları (Türkmen, Rum, Ahi, derviş, levent), yasak kelime listesi (anakronizm ve modern deyim), cümle uzunluğu ölçüsü (selam ≤ 2 cümle; ilk cevaplar kısa). Doğrulayıcı yasak kelimeleri tarar (YAZ-07).
+  - Kabul: `docs/dunya_kitabi/USLUP.md` (taslak: `Roadmap-2/USLUP_REHBERI.md`): hitaplar (ağam, beğim, bacı, ahi baba, efendi, ana, kardaş), selamlaşma, yemin ve dua kalıpları, ağız farkları (Türkmen, Rum, Ahi, derviş, levent), yasak kelime listesi (anakronizm ve modern deyim), cümle uzunluğu ölçüsü (selam ≤ 2 cümle; ilk cevaplar kısa). Kelimeden çok **cümle yapısı**: yapay metnin kalıpları (vecize karşıtlığı, "X değil Y", üçlü sıra, gerekçe bağlacı, soruya tam oturan cevap, tekdüze ritim, güzel kapanış) ve halk ağzının yapıları (devrik cümle, aktarılan söz, soruya soru, dolgu sözler, yarım bırakma, kendini düzeltme, yan cevap). Yöntem: özet → sesli doğaçlama → biçime sokma → denetim → inceleme. Doğrulayıcı yasak kelimeleri ve yapı kurallarını tarar (YAZ-07).
   - Bağımlılık: YAZ-01. Boyut: M.
   - Dosya: yeni `docs/dunya_kitabi/USLUP.md`, `data/soz/yasak_kelimeler.txt`.
   - Asset: asset gerekmedi.
 - [ ] **YAZ-03:** Karakter ses kartı — her karakter için.
-  - Kabul: her CHR ve adlı karakter için tek kart: kökeni, konuşma tarzı, ağzı, sözlü tik, yalan söyleme biçimi (sapma, aşırı ayrıntı, soruya soru, susma), korktuğu şey, istediği şey, sır ve nedeni. 30 CHR + 40 adlı karakter kartı doğrulayıcıdan geçer.
+  - Kabul: her CHR ve adlı karakter için tek kart: önce insan eliyle yazılmış "kim bu insan" paragrafı; kökeni, ağzı, konuşma alışkanlıkları (sıfat değil somut alışkanlık: "soruya önce yarım cevap verir, sonra düzeltir"), yalan söyleme biçimi (sapma, aşırı ayrıntı, soruya soru, susma), korktuğu şey, istediği şey, hikâye çekirdeği (YAZ-09), varsa sır ve nedeni, diğer karakterlerle bağları. 30 CHR + 40 adlı karakter kartı doğrulayıcıdan geçer.
   - Bağımlılık: YAZ-01. Boyut: L (içerik).
   - Dosya: yeni `data/soz/ses_kartlari/*.json`.
   - Asset: asset gerekmedi.
@@ -328,7 +338,7 @@ Amaç: üç ayrı diyalog yolunu (adlı karakter sohbeti `SohbetVerisi`, adsız 
   - Dosya: `data/soz/*.json`.
   - Asset: asset gerekmedi.
 - [ ] **YAZ-07:** Söz doğrulayıcı ve önizleme aracı.
-  - Kabul: `tools/soz_dogrula.py` sanity'ye girer: şema, kopuk düğüm, ulaşılamayan dal, eksik metin anahtarı, yasak kelime, selam kuralı, tek şanslık kontrol yeri. Oyun içi debug önizleyicisi (ADM paneli): karakter seç, bağlamı ayarla (mevsim, kriz, tansiyon, hafıza), ağacı yürüt. Kayda yazmaz.
+  - Kabul: `tools/soz_dogrula.py` sanity'ye girer: şema, kopuk düğüm, ulaşılamayan dal, eksik metin anahtarı, yasak kelime, selam kuralı, tek şanslık kontrol yeri, yapaylık kuralları (prototip: `Roadmap-2/soz_agaci/yapaylik.js`, 14 kural; uyarı verir, karar vermez). Oyun içi debug önizleyicisi (ADM paneli): karakter seç, bağlamı ayarla (mevsim, kriz, tansiyon, hafıza), ağacı yürüt. Kayda yazmaz.
   - Bağımlılık: DIY-01. Boyut: M.
   - Dosya: yeni `tools/soz_dogrula.py`, `src/debug/soz_onizleme.gd`; `tools/sanity_check.py` tek satır; ADM paneline tek düğme.
   - Asset: asset gerekmedi.
@@ -336,6 +346,16 @@ Amaç: üç ayrı diyalog yolunu (adlı karakter sohbeti `SohbetVerisi`, adsız 
   - Kabul: kabul edilen karakterle köyde konuşulabilir (köylü kartından); konular: iş, aile, dert, dedikodu; kapıdaki hafıza devam eder. Her CHR için en az 3 köy satırı.
   - Bağımlılık: YAZ-06, DIY-13. Boyut: M.
   - Dosya: yeni `src/arayuz/koy_hud/koylu_sohbeti.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **YAZ-09:** Hikâye çekirdekleri ve kadro özgünlük denetimi.
+  - Kabul: `Roadmap-2/OZGUNLUK.md` esas alınır. Şablon zorunlu evre dayatmaz (yalnız varış ve karar). Her karakterin `cekirdek` alanı (dürüst, koruma yalanı, yanlış anlaşılma, bilmediği, abartma, başkasının sırrı, pazarlık, itiraf etmek isteyen, dinlenmek isteyen, tehlikeli yalan, hafif) ve yedi eksenli benzersizlik matrisi var. Kadro denetimi: dürüst + dinlenmek isteyen ≈ %40; başka hiçbir çekirdek %15'i, hiçbir sahne biçimi %30'u geçmez; dört eksende aynı iki karakter uyarı; kadronun yarısından fazlası "sır" evresini kullanıyorsa uyarı. Karakterler arası bağlar (`baglar`) hafıza ve dedikoduya bağlanır. Test: denetim örnek kadroda kotayı doğru sayar; gerekçe notu uyarıyı geçirir.
+  - Bağımlılık: YAZ-03, YAZ-07. Boyut: M.
+  - Dosya: yeni `tools/soz_kadro_denetimi.py`; `data/soz/kadro.json`.
+  - Asset: asset gerekmedi.
+- [ ] **YAZ-10:** İnceleme modu ve kapsam taraması.
+  - Kabul: önizleme aracında her satır ✓ doğal / ✗ yapay / ✎ yeniden yaz olarak işaretlenir, not alınır; işaretler dışa ve içe aktarılır (JSON), metin değişince "metin değişti" uyarısı çıkar. Kapsam taraması binlerce rastgele oynanışta hiç görünmeyen satırı ve ulaşılmayan düğümü listeler. Bir sahne ancak ✗ ve ✎ işareti kalmayınca ve kapsamda görünmeyen satır yokken onaya gider. Prototip: `Roadmap-2/soz_agaci` İnceleme sekmesi ve Şablon sekmesindeki kapsam düğmesi.
+  - Bağımlılık: YAZ-07. Boyut: S.
+  - Dosya: `src/debug/soz_onizleme.gd`; `tools/soz_dogrula.py --kapsam`.
   - Asset: asset gerekmedi.
 
 ## BÖLÜM 20: İş Gücü, Meslek Uyarısı ve Geçici İşler (Faz 4)
@@ -465,7 +485,7 @@ Amaç: üç ayrı diyalog yolunu (adlı karakter sohbeti `SohbetVerisi`, adsız 
 1. **Faz 0:** BUG-16 … BUG-25 (oyun kilitlerini ve yanlış olayları kapat).
 2. **Faz 1:** ACL, KAP-16 … KAP-19; paralelde ARY-01 (şablon kararı insan beklediği için erken başlar).
 3. **Faz 2:** DIY, ZAR, CAT (motor). Paralelde YAZ-01 … YAZ-03 (dünya kitabı ve ses kartları motoru beklemez).
-4. **Faz 3:** YAZ-04 … YAZ-08 (pilot → onay → toplu yazım).
+4. **Faz 3:** YAZ-04 … YAZ-10 (pilot → inceleme → onay → toplu yazım; kadro denetimi her dalgada).
 5. **Faz 4:** ISG, YAP, YSM.
 6. **Faz 5:** DNY.
 7. **Faz 6:** ARY-02 … ARY-04 (seçilen şablonla yayılım).
@@ -477,3 +497,5 @@ Amaç: üç ayrı diyalog yolunu (adlı karakter sohbeti `SohbetVerisi`, adsız 
 3. **ACL-02:** Eşin mesleğini oyuncu seçer, ama yalnız eşe uygun listeden (demirci, taşçı, asker vb. yok).
 4. **YAP-04:** "Şematik" yerine "usta defteri / yapı resmi".
 5. **DIY-16:** Eski diyaloglar taşınmaz, baştan yazılır. Önce profesyonel oyunların mantığı incelenir, kendi stilimizle motor kurulur (DIY-01).
+6. **YAZ-02:** Doğallık kelimeden değil cümle yapısından gelir. Metin önce sesli doğaçlamayla çıkar, sonra yapaylık denetimi ve satır satır inceleme yapılır (YAZ-10).
+7. **YAZ-09:** Şablon bir dilbilgisidir, içerik kalıbı değil. Her karakterin sırrı olmaz; hikâye çekirdekleri kadroya kotayla dağıtılır.
