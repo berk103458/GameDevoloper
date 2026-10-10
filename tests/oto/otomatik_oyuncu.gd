@@ -82,6 +82,8 @@ func _dongu() -> void:
 		elif ekran is KoyEkrani:
 			var koy := ekran as KoyEkrani
 			await get_tree().create_timer(1.0).timeout
+			if not is_instance_valid(koy):
+				continue  # Beklerken ekran değişti (ör. perde geçişi); yeni ekranla devam.
 			var kart := koy._ust_kart
 			if kart != null and is_instance_valid(kart) and not kart.is_queued_for_deletion():
 				# Rapor, olay ya da olay sonucu kartı: seçeneklerden birine (mini oyunu da oyna).
@@ -111,7 +113,8 @@ func _dongu() -> void:
 				print("GECE_SINIRI")
 				Ses.cik()
 				return
-			koy._geceye_gec()
+			if is_instance_valid(koy):
+				koy._geceye_gec()
 		elif ekran is KapiEkrani:
 			var k := ekran as KapiEkrani
 			var d := _dugmeler(k._secenekler)
