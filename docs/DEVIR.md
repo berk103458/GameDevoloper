@@ -4,6 +4,8 @@ Güncel 7 Ekim 2026 talimatı: Claude’a görev devri iptal. Codex otonom geli�
 
 ## Güncel sahiplik
 
+- 10 Ekim 2026: KRI-10 tamamlandı (tam sanity 302 PASS / 0 hata / 20 gece; asset gerekmedi); Claude test bekliyor, yayın betiği bekleniyor; sonraki KRI-11 bu tur alınmadı.
+
 - 10 Ekim 2026: KRI-09 tamamlandı (tam sanity 299 PASS / 0 hata / 20 gece; asset gerekmedi); Claude test bekliyor, yayın betiği bekleniyor; sonraki KRI-10 bu tur alınmadı.
 
 - 10 Ekim 2026: KRI-08 kapandı (tam sanity 297 PASS / 0 hata / 20 gece); sıradaki KRI-09. Claude yönetir/doğrular, Codex uygular.

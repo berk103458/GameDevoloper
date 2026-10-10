@@ -432,3 +432,5 @@ KRI-08 (Codex, 9 Ekim 2026 gece): asset gerekmedi. Histeri mevcut karakter/bina 
 
 KRI-09 (Codex, 10 Ekim 2026): asset gerekmedi. Firar mevcut nüfus/model yenilemesi, gece raporu ve HUD Güvenlik/asayiş göstergesini kullanır; yeni görsel, ses, model, animasyon veya yer tutucu ihtiyacı yok. G tablosuna yeni asset ID'si gerekmez.
 
+KRI-10 (Codex, 10 Ekim 2026): asset gerekmedi. Kenetlenme mevcut gece raporu Label alanı, köylü kartı ve tek ekonomik Refah değerini kullanır; yeni görsel, ses, model, animasyon veya yer tutucu ihtiyacı yok. G tablosu kontrol edildi; yeni asset ID'si gerekmez.
+

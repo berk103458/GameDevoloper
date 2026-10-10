@@ -4,6 +4,7 @@ class_name KoyYonetimi
 extends RefCounted
 
 const LEVENT_FIRARI = preload("res://src/koy/levent_firari.gd")
+const KRIZ_KENETLENMESI = preload("res://src/koy/kriz_kenetlenmesi.gd")
 
 ## KRI-14 bu tek tetikleyiciye bağlanabilir; gece/yağmayı tekrar çalıştırmaz.
 signal kitlik_tetiklendi(rapor: Dictionary)
@@ -519,6 +520,7 @@ func tekfur_gucu() -> int:
 ## Günü kapatır: üretim, inşaat, tüketim, sağlık ve moral, akçe, husumet, asayiş, isyan, aşamalar, son.
 ## Döner: rapor {gun, uretim, tuketim, akce_once, akce, olaylar: [{anahtar, deger}], olenler, huzur, son}.
 func gece() -> Dictionary:
+	KRIZ_KENETLENMESI.baslat(self)
 	CinarAltiMeclisi.esitle(self)
 	var olaylar: Array[Dictionary] = []
 	KarantinaYoneticisi.esitle(self, olaylar)
@@ -583,6 +585,7 @@ func gece() -> Dictionary:
 	_asamalar(olaylar)
 	IflasYoneticisi.gece(self, olaylar)
 	_son_denetimi()
+	KRIZ_KENETLENMESI.bitir(self, olaylar)
 	rapor["akce"] = akce
 	rapor["huzur"] = huzur()
 	rapor["son"] = son
@@ -894,7 +897,7 @@ func kaydet() -> Dictionary:
 	var b: Array = []
 	for x in binalar:
 		b.append(x.kaydet())
-	return {"levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
+	return {"kriz_kenetlenmesi": KRIZ_KENETLENMESI.durum(self), "levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
 		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "tuccar_girisi": tuccar_girisi.duplicate(true), "kervan_koruma": kervan_koruma.duplicate(true), "husumet": husumet.kaydet(), "cete_anlasmasi": CeteAnlasmasi.durum(self), "savunma_konuslanmasi": SavunmaKonuslanmasi.durum(self), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
@@ -973,6 +976,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	CenazeYasi.yukle(y, v.get("cenaze_yasi", {}))
 	KitlikIsyani.yukle(y, v.get("kitlik_isyani", {}))
 	LEVENT_FIRARI.yukle(y, v.get("levent_firari", {}))
+	KRIZ_KENETLENMESI.yukle(y, v.get("kriz_kenetlenmesi", {}))
 	CinarAltiMeclisi.yukle(y, v.get("cinar_alti_meclisi", {}))
 	FisiltiGazetesi.HISTERI.yukle(y, v.get("batil_inanc_histerisi", {}))
 	y._ambar_kapasitesi()

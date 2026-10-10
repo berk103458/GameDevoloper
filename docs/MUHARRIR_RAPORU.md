@@ -1,3 +1,6 @@
+## Codex — KRI-10 tamamlandı / 10 Ekim 2026
+Bütün krizler atlatılınca tek Sadakat/Refah bonusu ve kalıcı dönem kilidi tamamlandı: tam sanity 302 PASS / 0 hata / 20 gece; asset gerekmedi. Claude test bekliyor; commit/push/ayna yayın betiğinde. Ahmet kopyası bu makinede yok; güncellenmedi.
+
 ## Codex — KRI-09 tamamlandı / 10 Ekim 2026
 Krizde düşük sadakatli adsız levent firarı, tek Güvenlik ve kalıcı dönem kilidi tamamlandı: tam sanity 299 PASS / 0 hata / 20 gece; asset gerekmedi. Claude test bekliyor; commit/push/ayna yayın betiğinde. Ahmet kopyası bu makinede yok; güncellenmedi.
 

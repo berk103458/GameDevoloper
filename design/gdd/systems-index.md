@@ -416,3 +416,4 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Çınar altı köy meclisi — KRI-07](cinar-alti-meclisi.md): aktif krizde anonim deterministik halk oyu, mevcut kriz API'leri, uygulama/ret ve optional karar makbuzu; Claude incelemesi bekleniyor.
 - [Batıl inanç histerisi — KRI-08](batil-inanc-histerisi.md): ağır krizde açık meslek/yabancı bilgisiyle masum hedef, koruma/gerçek sebep ve haksız ayrılığın adalet-vicdan-hekim bedeli; mevcut fısıltı/meclis/kayıt genişletmesi, Claude incelemesi bekleniyor.
 - [Krizde levent firarı — KRI-09](levent-firari.md): düşük sadakatli adsız yetişkin asker, dönem başına tek sınırlı dalga, mevcut Güvenlik/nüfus/gece raporu ve optional kilit; Claude test bekliyor.
+- [Krizden çıkış ve kenetlenme — KRI-10](kriz-kenetlenmesi.md): bütün örtüşen krizlerin tek dönem kapanışında Sadakat/Refah, gece ve optional kayıt kilidi; Claude test bekliyor.

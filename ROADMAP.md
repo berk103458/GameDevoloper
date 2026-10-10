@@ -31,9 +31,10 @@
 | KRI-07 | Krizde HUD'dan çınar altı meclisi; deterministik gizli oy, halkın kararını uygula/reddet | Codex yazdı (bellek kesintisinden sonra tamamladı) · Claude doğruladı | `a2f1116` | `src/koy/cinar_alti_meclisi.gd`, `src/arayuz/koy_hud/cinar_meclis_paneli.gd` | sanity 295/0 · görünür Godot |
 | KRI-08 | Krizde masum şifacı/yabancıya söylenti; Koru / Gerçek sebebi göster / Göz yum / Sürgün; haksızlığın adalet/vicdan/hekim bedeli | Codex yazdı (otonom) · Claude entegre etti/doğruladı | `faff1d7` | `src/koy/batil_inanc_histerisi.gd`, `src/arayuz/koy_hud/histeri_paneli.gd` | sanity 297/0 · görünür Godot |
 | KRI-09 | Ağır krizde düşük sadakatli adsız levent firarı; tek Güvenlik/gece raporu ve kalıcı dönem kilidi | Codex yazdı | yayın betiği | `src/koy/levent_firari.gd`, `data/koy/levent_firari.json` | Claude test bekliyor · tam sanity 299 PASS / 0 hata / 20 gece · asset gerekmedi |
+| KRI-10 | Örtüşen krizlerin kapanışında tek Sadakat/Refah bonusu, 7 gün bekleme ve kalıcı dönem kilidi | Codex yazdı | yayın betiği | `src/koy/kriz_kenetlenmesi.gd`, `data/koy/kriz_kenetlenmesi.json` | Claude test bekliyor · tam sanity 302 PASS / 0 hata / 20 gece · asset gerekmedi |
 <!-- PANO_TABLO_SON -->
 
-**Sıradaki:** KRI-10 (yayın sonrası) → KRI-11 … KRI-15 → SYS-16 … SYS-20. KRI-09 Claude test bekliyor; yayın betiği commit/push/ayna eşitlemesini yapar. Bilinen eski sorun: bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378). Ahmet kopyası bu makinede yok; güncellenmedi.
+**Sıradaki:** KRI-11 (yayın sonrası) → KRI-12 … KRI-15 → SYS-16 … SYS-20. KRI-10 Claude test bekliyor; yayın betiği commit/push/ayna eşitlemesini yapar. Bilinen eski sorun: bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378). Ahmet kopyası bu makinede yok; güncellenmedi.
 
 Ayrıntılı günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md`.
 
@@ -307,7 +308,7 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **KRI-07:** Çınar Altı Köy Meclisi — Krizde halk oylaması. tam sanity 295 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex; doğrulama Claude)
 - [x] **KRI-08:** Batıl İnanç ve Cadı Avı Histerisi — Yabancı kadın (ör. Dudu) hedefi. tam sanity 297 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex; doğrulama Claude)
 - [x] **KRI-09:** Kaçak Leventlerin Köyü Terk Etmesi — Ağır krizde düşük sadakatli adsız yetişkin askerlerden dönem başına en fazla3 firar; kişi başına asayiş riski +12 ve gerçek nöbet/savunma kaybı, mevcut Güvenlik/rapor/optional kayıt. tam sanity 299 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex)
-- [ ] **KRI-10:** Krizden Çıkış ve Toplumsal Kenetlenme Bonusu — Atlatınca sadakat + Refah patlaması.
+- [x] **KRI-10:** Krizden Çıkış ve Toplumsal Kenetlenme Bonusu — Bütün örtüşen krizler bitince yerel yaşayan/tok halka tek Sadakat +8/Refah +10 (tavan100); 7 gün tekrar bekleme, terminal/kuluçka/histeri/optional kayıt kapıları. tam sanity 302 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex)
 
 - [ ] **KRI-11:** Kapıda Bulaşıcı Hastalık Teşhis İbresi (`src/kapi/hastalik_teshis_adaptoru.gd` — **taslak hedef yol**) — Portre/heybede irin, kanlı öksürük, ateş → `ipucu_yoneticisi` enfeksiyon şüphesi + karantina şartı.
 - [ ] **KRI-12:** Açlık–Sağlık Çapraz (`src/koy/kriz_yoneticisi.gd` — **taslak hedef yol**) — Erzak <3 iken Sağlık her gece −1 ekstra; salgın yayılma ×2.
