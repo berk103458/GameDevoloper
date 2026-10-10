@@ -424,3 +424,4 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Salgında şifalı ot — KRI-15](sifali-ot.md): açık salgında boştaki vasıfsız en çok 3 köylü gece 1'er afyon (ilaç girdisi) toplar; mevcut stok/reçete genişletmesi (Claude).
 - [Adsız diyalog sırası kaydı — SYS-16](diyalog-sirasi-kaydi.md): mevcut diyalog_sira alanı doğrulamalı okuma, Devam kaldığı diyalogdan; regresyon testleri (Claude).
 - [Diyalog mantık düzeltmeleri — SYS-17](diyalog-sirasi-kaydi.md): diyalog_08'e Ret; 13/14/16/17 kabul yanıtları yerleşik köylü (sabah gitmez); mantık testi (Claude).
+- [Atıl bayraklar — SYS-18](atil-bayraklar.md): baci_tezgah/dervis/miraen_sadik/turkmen_kin/thessra_kirgin/rusvet_sayisi gece-hafta sonuçları, tek rapor satırı (Claude).

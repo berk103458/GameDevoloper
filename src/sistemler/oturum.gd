@@ -282,6 +282,7 @@ func gece_sonu() -> Dictionary:
 	MogolOncusu.gece(self, r)
 	SancakAskerTalebi.gece(self, r)
 	HaberciAgi.gece(self, r)
+	preload("res://src/sistemler/atil_bayraklar.gd").gece(self, r)
 	_koy_esitle()
 	kadro.gece_bitti()
 	var sonuc := {"olaylar": r["olaylar"], "kirilan": -1, "rusvet_harcandi": -1, "son": StringName(r["son"]),
