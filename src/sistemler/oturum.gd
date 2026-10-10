@@ -275,6 +275,7 @@ func gece_sonu() -> Dictionary:
 	MuhafizOdaGelisimi.gece(self)
 	var harac := MuhafizYetenekleri.harac(self)
 	MuhafizAdaletYetenekleri.bagla(self)
+	yonetim.perde2_hedef = ayarlar.perde2_hedef_gece
 	var r := yonetim.gece()
 	MuhafizYetenekleri.rapora_ekle(r, harac)
 	MuhafizVicdani.gece(self, r)
@@ -283,6 +284,7 @@ func gece_sonu() -> Dictionary:
 	SancakAskerTalebi.gece(self, r)
 	HaberciAgi.gece(self, r)
 	preload("res://src/sistemler/atil_bayraklar.gd").gece(self, r)
+	KoyYonetimi.PERDE_GECISI.denetle(yonetim, r, ayarlar.perde2_hedef_gece)
 	_koy_esitle()
 	kadro.gece_bitti()
 	var sonuc := {"olaylar": r["olaylar"], "kirilan": -1, "rusvet_harcandi": -1, "son": StringName(r["son"]),

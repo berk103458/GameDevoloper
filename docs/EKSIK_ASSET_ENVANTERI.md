@@ -450,3 +450,5 @@ SYS-16 (Claude, 10 Ekim 2026): asset gerekmedi. Yalnız kayıt doğrulaması ve 
 SYS-17 (Claude, 10 Ekim 2026): asset gerekmedi. Yalnız diyalog JSON metin/mantık düzeltmesi; metinler.csv değişmedi.
 
 SYS-18 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut gece raporu satırı ve göstergeler.
+
+SYS-19 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut perde geçiş kartı ve gece raporu satırı.

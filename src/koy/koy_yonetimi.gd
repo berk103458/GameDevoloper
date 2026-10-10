@@ -8,6 +8,7 @@ const ACLIK_SAGLIK = preload("res://src/koy/aclik_saglik.gd")
 const SIFAHANE_TRIYAJ = preload("res://src/koy/sifahane_triyaj.gd")
 const KITLIK_NOBETI = preload("res://src/koy/kitlik_nobeti.gd")
 const SIFALI_OT = preload("res://src/koy/sifali_ot.gd")
+const PERDE_GECISI = preload("res://src/koy/perde_gecisi.gd")
 const KRIZ_KENETLENMESI = preload("res://src/koy/kriz_kenetlenmesi.gd")
 
 ## KRI-14 bu tek tetikleyiciye bağlanabilir; gece/yağmayı tekrar çalıştırmaz.
@@ -55,6 +56,8 @@ var en_yuksek_nufus: int = 0
 var kabul_sayisi: int = 0
 var ret_sayisi: int = 0
 var agalik: bool = false
+## SYS-19: Oturum OyunAyarlari.perde2_hedef_gece'yi aktarır (-1: varsayılan 12).
+var perde2_hedef: int = -1
 var sur_seviye: int = 0
 ## Hasar yalnız sura aittir: 0 sağlam, 50 hasarlı, 100 yanmış/işlevsiz.
 var sur_hasar: int = 0:
@@ -591,6 +594,7 @@ func gece() -> Dictionary:
 	LEVENT_FIRARI.gece(self, olaylar)
 	KitlikIsyani.raporla(self, rapor)
 	_asamalar(olaylar)
+	PERDE_GECISI.isaretle(self, olaylar, 12 if perde2_hedef < 0 else perde2_hedef)
 	IflasYoneticisi.gece(self, olaylar)
 	_son_denetimi()
 	KRIZ_KENETLENMESI.bitir(self, olaylar)
@@ -906,7 +910,7 @@ func kaydet() -> Dictionary:
 	var b: Array = []
 	for x in binalar:
 		b.append(x.kaydet())
-	return {"kriz_kenetlenmesi": KRIZ_KENETLENMESI.durum(self), "levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
+	return {"perde2_baslangic": PERDE_GECISI.baslangic(self), "kriz_kenetlenmesi": KRIZ_KENETLENMESI.durum(self), "levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
 		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "tuccar_girisi": tuccar_girisi.duplicate(true), "kervan_koruma": kervan_koruma.duplicate(true), "husumet": husumet.kaydet(), "cete_anlasmasi": CeteAnlasmasi.durum(self), "savunma_konuslanmasi": SavunmaKonuslanmasi.durum(self), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
@@ -966,6 +970,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	y.kabul_sayisi = int(v.get("kabul", 0))
 	y.ret_sayisi = int(v.get("ret", 0))
 	y.agalik = bool(v.get("agalik", false))
+	PERDE_GECISI.yukle(y, v.get("perde2_baslangic"))
 	y.sur_seviye = int(v.get("sur", 0))
 	y.sur_hasar = int(v.get("sur_hasar", 0))
 	y.sur_taksit_odenen = int(v.get("sur_taksit", 0))
