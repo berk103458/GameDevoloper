@@ -29,6 +29,7 @@ func guncelle() -> void:
 	if sorgu.replik_baslat():
 		preload("res://src/sistemler/chr_sorgu_sesi.gd").cal(sorgu.karakter, replik.text)
 	var secenekler: Array = dugum.get("secenekler", [])
+	var acik_var := false
 	for i in secenekler.size():
 		var secenek: Dictionary = secenekler[i]
 		var b := Button.new()
@@ -37,6 +38,7 @@ func guncelle() -> void:
 		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		b.custom_minimum_size.y = 80
 		b.disabled = not sorgu.secenek_acik(secenek, i)
+		acik_var = acik_var or not b.disabled
 		if not secenek.get("gerekli_ipuclari", []).is_empty():
 			b.tooltip_text = "Önce nişan, yük veya fiziksel izi incele" if b.disabled else "Bulunan kanıtla yüzleş"
 			if not b.disabled:
@@ -46,6 +48,15 @@ func guncelle() -> void:
 				guncelle()
 		)
 		add_child(b)
+	if not secenekler.is_empty() and not acik_var:
+		# Tüm cevaplar denenmiş ya da ipucu kilitli: oyuncu sıkışmasın, kanıt aramadan karara geçebilsin.
+		var cikis := Button.new()
+		cikis.name = "KilitliKarar"
+		cikis.text = "Kararını ver"
+		cikis.tooltip_text = "Söylenecek söz kalmadı; ipucu bulursan yüzleşebilirsin."
+		cikis.custom_minimum_size.y = 70
+		cikis.pressed.connect(func() -> void: karar_istendi.emit())
+		add_child(cikis)
 	if secenekler.is_empty():
 		var karar := Button.new()
 		var gecis_var: bool = not dugum.get("gecisler", []).is_empty()

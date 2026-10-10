@@ -88,3 +88,9 @@ Bu bölüm her yeni madde yayınlandıkça aynı kontrol listesiyle doldurulur.
 | SYS-20 | `4981688` | 18 / 3 assert | 319/0 | ✔ Son ekranı "Ahi Kasabası" + epilog | ADEQUATE · BUG-0010 |
 
 KRI-12 … SYS-20: Codex limiti 15 Ekim 17:38'e kadar dolduğu için Claude yazdı (kullanıcı kararı: "Codex limiti bitince Claude çalışır"). Dokuz madde ayrı commit'lerdir; tam sanity birleşik son durumda koşuldu (iki tur: ilki 4 regresyon yakaladı, düzeltmeden sonra 319/0).
+
+## 11 Ekim 2026 — 7/24 oynanıştan çıkan oyun hatası (Claude)
+
+| ID | Önem | Madde | Bulgu | Düzeltme |
+|---|---|---|---|---|
+| BUG-0016 | P1 · [DONMA] | KAP/CHR sorgusu | 7/24 otomatik oynanışta (oyun 103, 106, 107, 108) CHR sorgusunda kapı kilitlendi: başarısız ikna/blöf denemesi cevabı kalıcı kapatıyor (`chr_sorgusu.gd:46`), kalan cevap ipucu istiyor; panel "Kararını ver"i yalnız hiç seçenek yokken gösterdiğinden (`chr_diyalog_paneli.gd`) inceleme ipucu vermezse oyuncu kapıda sıkışıyordu. | DÜZELTİLDİ (Claude): hiçbir cevap açık değilken `KilitliKarar` "Kararını ver" çıkışı; ipucu bulunursa kanıtlı cevap yine açılır. Regresyon: `tests/unit/kvr/chr_kilit_cikisi_test.gd`. chr_sorgu_test, chr_kapi_kontrol, hastalik_teshis_kontrol GEÇTİ. Tester doğrulaması bekleniyor. |
