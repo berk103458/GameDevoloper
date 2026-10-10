@@ -258,3 +258,45 @@ Claude'un yayın betiği bu dosyayı görünce yalnızca `docs/tester/` ve `code
 - **`work/tester/` git'e girer mi?** Hayır, `.gitignore`'da `/work/tester/` var. Kanıtların orada kalır; rapora yolunu yazarsın.
 - **Birden fazla tester olursa TST çakışması?** Şu an tek tester var. İkincisi gelirse önek alır (ör. `TST-B-0001`); karar Claude'undur.
 - **Hangi skill'i kullanayım?** Senin Codex ortamında skill `kapi-tester` olarak kurulu (`$CODEX_HOME/skills/kapi-tester/SKILL.md`); içerik repodaki `.claude/skills/kapi-tester/SKILL.md` ile aynıdır. İkisi ayrışırsa repodaki geçerlidir.
+
+---
+
+## 9. Kurulu skill'lerin (`$CODEX_HOME/skills/`)
+
+| Skill | Ne zaman |
+| --- | --- |
+| `kapi-tester` | Her tur. Ana iş akışın. |
+| `bug-reproduction-brief` | Kararsız ya da tek seferlik bir hatayı en küçük, kanıtlı tekrar adımına indirmek için. TST yazmadan önce. |
+| `soak-test` | Uzun oynanış turlarında (boş saatlik tur) yavaş sızıntı, bellek artışı, geç ortaya çıkan kenar durumu gözlemi. |
+| `balance-check` | `data/` sayılarında aşırı uç, bozuk ilerleme, hep kazanan strateji. Sonuçlar **ONR** önerisi olur, kod değişmez. |
+| `regression-suite` | Düzeltilmiş BUG/TST'lerin testi var mı, GDD kritik yolları kapsanıyor mu. Eksikler ONR olarak yazılır. |
+| `test-gap-audit` | Salt okunur test boşluğu denetimi. Haftada bir yeter. |
+| `godot` | Godot 4 komut satırı, sahne çalıştırma, headless kullanım başvurusu. |
+
+Bu skill'ler genel amaçlıdır. İçlerinde "kullanıcıya sor", "Agent başlat", "AskUserQuestion", "sprint'e ata" ya da "dosyayı düzelt" gibi adımlar görürsen **atla**. Sorunu tur raporuna "Claude'a soru" olarak yaz. Bu rehberin kuralları (kod değiştirmeme, yalnız `docs/tester/` yazma) her skill'in önündedir.
+
+---
+
+## 10. Rapor kategorileri — sadece hata değil, oyunda değişmesi gereken HER ŞEY
+
+Oynadığın her oyunda aşağıdaki gözlüklerle bak ve her bulguya bir **kategori** yaz (BULGULAR ve DEGISIKLIK_ONERILERI başlığında, ör. `TST-0004 · P1 · [DONMA] · KRI-11 · ...`):
+
+| Kategori | Ne ararsın | Nereye |
+| --- | --- | --- |
+| `[HATA]` | Çökme, SCRIPT ERROR, yanlış sayı, kayıt bozulması | BULGULAR |
+| `[DONMA]` | Oyun ilerlemiyor, düğme yok/pasif, oyuncu kilitleniyor (softlock) | BULGULAR (çoğu P0/P1) |
+| `[TASARIM]` | Mekanik anlamsız, karar ağırlıksız, bir sistem hiç devreye girmiyor, döngü sıkıcı, oyuncu ne yapacağını anlamıyor | DEGISIKLIK_ONERILERI |
+| `[DENGE]` | Kaynak hep sıfır (ör. odun 1. günden 0), bir son hiç gelmiyor/hep geliyor, bir strateji hep kazanıyor | DEGISIKLIK_ONERILERI (sayıyla) |
+| `[CEVRE]` | 3B sahne/çevre: yanlış mevsim görseli, havada/iç içe nesne, kayan karakter, yanlış ışık, boş/çirkin alan | BULGULAR (görsel) veya ONR |
+| `[DIYALOG]` | Konuşmada mantık hatası, karakterin söylediği durumla çelişiyor, tekrar eden replik, yazım hatası, `[KEY_NOT_FOUND]`, İngilizce kalıntı | BULGULAR (P2) |
+| `[ARAYUZ]` | Okunmayan yazı, taşan metin, üst üste binen panel, anlaşılmayan düğme, eksik geri bildirim | BULGULAR veya ONR |
+| `[PERFORMANS]` | FPS düşüşü, uzun yükleme, bellek artışı | BULGULAR |
+
+Ekran görüntülerini (`work/tester/oyunlar/foto_<tohum>/`, donmalarda `donma_<tohum>.png`) **açıp bak**; çevre, arayüz ve diyalog bulgularının çoğu oradan çıkar. Görsel bulguya görüntünün yolunu ekle.
+
+## 11. Anlık olay akışı (Claude ile)
+
+- Sürekli oyun bekçisi şu olayları `~/.codex-tester/olaylar.log`'a yazar: `DONMA`, `HATA`, `KILIT`, `BITTI`. **Claude bu dosyayı canlı izler**; donma/hata olduğu an düzeltir ve push eder.
+- Push gelince döngün otomatik yeni tur başlatır: o turda Claude'un düzeltmesini **doğrula** (aynı tohumla tekrar oynat), sonucu `DOĞRULANDI` / `YENİDEN AÇILDI` diye yaz.
+- Senin görevin olayların **kök nedenini ve oyun tarafını** incelemek: bekçi "donma" der, sen "neden, hangi ekran, oyuncu da kilitlenir mi, tasarım sorunu mu" diye cevaplarsın.
+- Örnek (11 Ekim): CHR sorgusunda (Halil) iki cevap da ipucu kilitliydi, "Kararını ver" düğmesi yoktu; otomatik oyuncu dondu. Claude oyuncuyu düzeltti; **senin işin**: gerçek oyuncu inceleme yaptıktan sonra da ipucu bulunamazsa kilitlenir mi? Bu bir `[DONMA]`/`[TASARIM]` bulgusu olabilir — doğrula ve yaz.
