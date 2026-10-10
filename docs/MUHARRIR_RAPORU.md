@@ -1,6 +1,3 @@
-## Cursor — ROADMAP 2 atölyesi kuruldu (10 Ekim 2026)
-ROADMAP 2 atölyesi kuruldu, personalar docs/roadmap2/ altında; henüz madde yok, eski ROADMAP aynen geçerli. Yazar Muse Spark, eleştirmen Gemini; süreç `docs/roadmap2/SUREC.md` (varsayılan 10 tur, Ahmet "dur" derse keser). Ahmet'in playtest listesi boş şablon: `docs/roadmap2/AHMET_EKSIKLER.md`. Kod, CSV ve `ROADMAP.md` değişmedi; asset gerekmedi.
-
 ## Claude — KRI-12 … SYS-20 kapandı; ROADMAP tamam (10 Ekim 2026)
 KRI-12 açlık–sağlık çaprazı, KRI-13 Şifahane triyajı/yatak çöküşü, KRI-14 kıtlıkta nöbetçi ambara, KRI-15 salgında şifalı ot, SYS-16 diyalog sırası kaydı, SYS-17 diyalog mantığı, SYS-18 atıl bayraklar, SYS-19 2. perde 12 gece, SYS-20 beş nihai son + epilog. Codex limiti 15 Ekim'e kadar dolu olduğundan Claude yazdı; tam sanity 319 PASS / 0 hata / 20 gece; görünür Godot vitrini (KRI-12/13/15 rapor satırları, SYS-20 son ekranı). Asset gerekmedi. Test raporu: docs/denetim/2026-10-10-claude-test-raporu.md. Ahmet kopyası (C:/Users/Ahmet/...) bu makinede yok; güncellenmedi — Muharrir/Ahmet güvenli pull yapmalı.
 

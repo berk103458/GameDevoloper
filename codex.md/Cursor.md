@@ -27,10 +27,6 @@ Festive PR. Yeni özellik yok. ODA-01 açılınca TUC-11 tekrar yazılmaz.
 - Kapı sahnesinin kendisi tıklamayı `TextureRect` (`MOUSE_FILTER_IGNORE`) üzerinden SubViewport'a iletmez. Test, Godot'nun gerçek 3B tık yolu olan `SubViewportContainer` ile de aynı örtüyü doğrular.
 - Bu makinede `C:\Users\ds\Documents\GitHub\GameDevoloper` ve Ahmet'in `Kapı_Muhafizi` kopyası yok; eşitlendi veya fast-forward yapıldı denmez.
 
-## ROADMAP 2 atölyesi (10 Ekim 2026)
-
-Dal `cursor/roadmap2-atolye-cbf1`, taban festive `2fa512e`. Yalnız doküman: `docs/roadmap2/` altında `PERSONA_SPARK_YAZAR.md`, `PERSONA_GEMINI_ELESTIRMEN.md`, `SUREC.md`, `DIYALOG_ODAK.md`, `AHMET_EKSIKLER.md` (boş şablon), `turlar/TUR_SABLON.md`. ROADMAP 2 maddesi yazılmadı; `ROADMAP.md`, kod ve CSV değişmedi. Muharrir duyurusu eklendi. Ajan Masası issue #11 bu ortamda bulunamadı (gh "issue yok"). Asset gerekmedi.
-
 ## BUG-07 paketi (8 Ekim 2026)
 
 Durum: BUG-07, SYS-09, SYS-11, SYS-12, KVR-11 `[x] (Cursor)`. Başlarken ROADMAP'te `[/] üzerindeyim (Cursor)` kilidi `1e898fd` ile push edildi.
