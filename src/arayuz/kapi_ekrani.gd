@@ -279,6 +279,7 @@ func _sohbet_goster() -> void:
 	_temizle()
 	_bolum.text = tr("arayuz.kapi.sorular")
 	if preload("res://src/arayuz/chr_kapi_adaptoru.gd").diyalog_goster(self, _gelen, _secenekler, _eylemler):
+		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").eylem(self, _gelen, _eylemler)
 		return
 	var dugmeler: Array[Button] = []
 	for i in _gelen.sorular.size():
@@ -301,6 +302,7 @@ func _sohbet_goster() -> void:
 	var k := _dugme(tr("arayuz.sohbet.karar_ver"), _eylemler)
 	k.ikon = MenuSatiri.Ikon.KAPI
 	k.pressed.connect(_karar_goster)
+	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").eylem(self, _gelen, _eylemler)
 	_sirayla_goster(dugmeler)
 
 
@@ -352,6 +354,7 @@ func _heybe_ac() -> void:
 	_heybe_paneli.beyan_metni = _beyan_metni()
 	_heybe_paneli.position = _dunya.position
 	add_child(_heybe_paneli)
+	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").heybe_bagla(_heybe_paneli, self, _gelen)
 	_heybe_paneli.degisti.connect(_heybe_degisti)
 	await _heybe_paneli.kapandi
 	_heybe_paneli.queue_free()
@@ -478,6 +481,7 @@ func _karar_goster() -> void:
 		b.alt_yazi = _karar_alt_yazi(anahtar)
 		preload("res://src/arayuz/chr_kapi_adaptoru.gd").karar_kilidi(b, chr, StringName(anahtar))
 		HeyetKapiPaneli.kilit(b, oturum, _gelen, anahtar)
+		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kilit(b, oturum, _gelen, StringName(anahtar))
 		b.pressed.connect(_karar_bas.bind(anahtar))
 		_karar_dugmeleri.append(b)
 	# Eylemler (defterin altı) hemen görünür; yalnız kararlar sırayla belirir.
@@ -486,6 +490,7 @@ func _karar_goster() -> void:
 	if oturum.perde == 1 and _sorulan.size() < mini(_gelen.soru_siniri(oturum.ayarlar.azami_soru), _gelen.sorular.size()):
 		var g := _dugme(tr("arayuz.kapi.sohbete_don"), _eylemler)
 		g.pressed.connect(_sohbet_goster)
+	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").eylem(self, _gelen, _eylemler)
 	_sirayla_goster(_karar_dugmeleri)
 
 
@@ -506,6 +511,7 @@ func _karar_alt_yazi(anahtar: String) -> String:
 ## İki adımlı onay: ilk basış seçer, aynı karara ikinci basış verir.
 ## Kabul ve rüşvette ardından iş yeri seçilir.
 func _karar_bas(anahtar: String) -> void:
+	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	var sorgu := _gelen.chr_sorgusu()
 	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)):
 		return
@@ -537,6 +543,7 @@ func _karar_birak() -> void:
 
 
 func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
+	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	if DiplomatikHeyet.ilgilenir(_gelen) and not DiplomatikHeyet.karar_olur(oturum, _gelen, StringName(anahtar)): return
 	var sorgu := _gelen.chr_sorgusu()
 	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)):
@@ -546,6 +553,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	_bolum.text = ""
 	Ses.cal(&"sfx_onay")
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar), is_yeri)
+	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").sonuc_yaz(self, sonuc)
 	set_meta(&"sonuclanan_gelen", _gelen)
 	if anahtar == "rusvet" or anahtar == "elkoy":
 		Ses.cal(&"sfx_kese")

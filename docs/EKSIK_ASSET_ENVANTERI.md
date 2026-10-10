@@ -434,3 +434,5 @@ KRI-09 (Codex, 10 Ekim 2026): asset gerekmedi. Firar mevcut nüfus/model yenilem
 
 KRI-10 (Codex, 10 Ekim 2026): asset gerekmedi. Kenetlenme mevcut gece raporu Label alanı, köylü kartı ve tek ekonomik Refah değerini kullanır; yeni görsel, ses, model, animasyon veya yer tutucu ihtiyacı yok. G tablosu kontrol edildi; yeni asset ID'si gerekmez.
 
+KRI-11 (Codex, 10 Ekim 2026): asset gerekmedi. Teşhis ibresi mevcut yüz/CHR portresi ve heybe incelemesine Button/Label metniyle bağlanır; açık belirtiler veri üzerinden açıklanır. Yeni görsel, ses, model, animasyon veya yer tutucu üretilmedi/indirilmedi. G tablosu kontrol edildi; yeni asset ID'si gerekmez.
+

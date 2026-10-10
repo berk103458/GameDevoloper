@@ -1,3 +1,6 @@
+## Claude — KRI-11 kapandı / KRI-12 sırada (10 Ekim 2026)
+KRI-11: kapıda yüz/heybe incelemesiyle açık hastalık belirtisi (irin, kanlı öksürük, ateş) mevcut IpucuYoneticisi'ne şüphe olarak düşer; kabul yolları karantina şartına bağlanır (KRI-02). Gizli kuluçka ifşa edilmez. Codex yazdı, Codex limiti dolunca Claude tam sanity ve görsel incelemeyle tamamladı. Doğrulama: tam sanity 304 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset: asset gerekmedi. Ahmet kopyası (C:/Users/Ahmet/...) bu makinede yok; güncellenmedi — Muharrir/Ahmet güvenli pull yapmalı.
+
 ## Codex — KRI-10 tamamlandı / 10 Ekim 2026
 Bütün krizler atlatılınca tek Sadakat/Refah bonusu ve kalıcı dönem kilidi tamamlandı: tam sanity 302 PASS / 0 hata / 20 gece; asset gerekmedi. Claude test bekliyor; commit/push/ayna yayın betiğinde. Ahmet kopyası bu makinede yok; güncellenmedi.
 

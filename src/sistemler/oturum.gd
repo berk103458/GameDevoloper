@@ -189,6 +189,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	var sorgu := gelen.chr_sorgusu()
 	if sorgu != null and not sorgu.karar_acik(karar):
 		return {"engellendi": true, "kaldi": false, "kirilan": -1}
+	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(self, gelen, karar).is_empty(): return {"engellendi": true, "kaldi": false, "kirilan": -1}
 	if sorgu != null and sorgu.bayraklar["Flag_Sir_Tamamen_Cozuldu"]:
 		for bayrak in gelen.gizli_bayraklar:
 			if not bayrak in gelen.acik_bayraklar:
@@ -251,6 +252,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 		KuyuZehirleme.kabul(yonetim, k, gelen, karar)
 		AmbarKundaklamasi.kabul(yonetim, k, gelen, karar)
 		DivanKanit.devral(k, gelen)
+		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kabul(self, gelen, k, ek)
 	else:
 		akce += rusvet_akce
 		yonetim.ret(tr_gelen(gelen), not gelen.kusurlu(), _usta_uzmanlik(gelen))

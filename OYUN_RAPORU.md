@@ -1687,3 +1687,11 @@ Ağır kriz (kirli kuyu, salgın yası, kıtlık isyanı) sürerken fısıltı s
 Doğrulama (Claude): tam sanity 297 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset: asset gerekmedi.
 
 Sıradaki: KRI-09. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+
+## Codex + Claude — KRI-11 (10 Ekim 2026)
+
+KRI-11: kapıda yüz/heybe incelemesiyle açık hastalık belirtisi (irin, kanlı öksürük, ateş) mevcut IpucuYoneticisi'ne şüphe olarak düşer; kabul yolları karantina şartına bağlanır (KRI-02). Gizli kuluçka ifşa edilmez. Codex yazdı, Codex limiti dolunca Claude tam sanity ve görsel incelemeyle tamamladı.
+Doğrulama (Claude): tam sanity 304 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset: asset gerekmedi.
+
+Sıradaki: KRI-12. Görev düzeni: Claude yönetir/doğrular, Codex uygular.

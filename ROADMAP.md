@@ -32,9 +32,10 @@
 | KRI-08 | Krizde masum şifacı/yabancıya söylenti; Koru / Gerçek sebebi göster / Göz yum / Sürgün; haksızlığın adalet/vicdan/hekim bedeli | Codex yazdı (otonom) · Claude entegre etti/doğruladı | `faff1d7` | `src/koy/batil_inanc_histerisi.gd`, `src/arayuz/koy_hud/histeri_paneli.gd` | sanity 297/0 · görünür Godot |
 | KRI-09 | Ağır krizde düşük sadakatli adsız levent firarı; tek Güvenlik/gece raporu ve kalıcı dönem kilidi | Codex yazdı | yayın betiği | `src/koy/levent_firari.gd`, `data/koy/levent_firari.json` | Claude test ✔ (302/0, görünür Godot) · tam sanity 299 PASS / 0 hata / 20 gece · asset gerekmedi |
 | KRI-10 | Örtüşen krizlerin kapanışında tek Sadakat/Refah bonusu, 7 gün bekleme ve kalıcı dönem kilidi | Codex yazdı | yayın betiği | `src/koy/kriz_kenetlenmesi.gd`, `data/koy/kriz_kenetlenmesi.json` | Claude test ✔ (302/0, görünür Godot) · tam sanity 302 PASS / 0 hata / 20 gece · asset gerekmedi |
+| KRI-11 | Kapıda açık belirtiler → ziyaret ipucu, enfeksiyon şüphesi ibresi ve kabulde mevcut karantina şartı | Codex başlattı · Claude tamamladı | (bu commit) | `src/kapi/hastalik_teshis_adaptoru.gd`, `data/kapi_hastalik_teshisi.json` | Claude test ✔ (304/0, görsel) · asset gerekmedi |
 <!-- PANO_TABLO_SON -->
 
-**Sıradaki:** KRI-11 (yayın sonrası) → KRI-12 … KRI-15 → SYS-16 … SYS-20. KRI-09/KRI-10 Claude testinden geçti. Codex limiti 15 Ekim 17:38'e kadar dolu; KRI-11 yarım. Eski uzmanlık sorunu (BUG-0001) `f6e3b55` ile düzeltildi. Ahmet kopyası bu makinede yok; güncellenmedi.
+**Sıradaki:** KRI-12 … KRI-15 → SYS-16 … SYS-20 (Claude yazıyor; Codex limiti 15 Ekim 17:38'e kadar dolu). KRI-09/KRI-10/KRI-11 Claude testinden geçti. Eski uzmanlık sorunu (BUG-0001) `f6e3b55` ile düzeltildi. Ahmet kopyası bu makinede yok; güncellenmedi.
 
 Ayrıntılı günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md`.
 
@@ -310,7 +311,7 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **KRI-09:** Kaçak Leventlerin Köyü Terk Etmesi — Ağır krizde düşük sadakatli adsız yetişkin askerlerden dönem başına en fazla3 firar; kişi başına asayiş riski +12 ve gerçek nöbet/savunma kaybı, mevcut Güvenlik/rapor/optional kayıt. tam sanity 299 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex)
 - [x] **KRI-10:** Krizden Çıkış ve Toplumsal Kenetlenme Bonusu — Bütün örtüşen krizler bitince yerel yaşayan/tok halka tek Sadakat +8/Refah +10 (tavan100); 7 gün tekrar bekleme, terminal/kuluçka/histeri/optional kayıt kapıları. tam sanity 302 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex)
 
-- [ ] **KRI-11:** Kapıda Bulaşıcı Hastalık Teşhis İbresi (`src/kapi/hastalik_teshis_adaptoru.gd` — **taslak hedef yol**) — Portre/heybede irin, kanlı öksürük, ateş → `ipucu_yoneticisi` enfeksiyon şüphesi + karantina şartı.
+- [x] **KRI-11:** Kapıda Bulaşıcı Hastalık Teşhis İbresi (`src/kapi/hastalik_teshis_adaptoru.gd` — **taslak hedef yol**) — Portre/heybede irin, kanlı öksürük, ateş → `ipucu_yoneticisi` enfeksiyon şüphesi + karantina şartı. tam sanity 304 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex başlattı; Claude tamamladı)
 - [ ] **KRI-12:** Açlık–Sağlık Çapraz (`src/koy/kriz_yoneticisi.gd` — **taslak hedef yol**) — Erzak <3 iken Sağlık her gece −1 ekstra; salgın yayılma ×2.
 - [ ] **KRI-13:** Şifahane Yatak Kapasitesi + Triyaj — Yatak dolunca Moral/Sağlık günlük çöker (**taslak**).
 - [ ] **KRI-14:** Erzak Bitince Kışla Nöbetçisi Ambara — Erzak tükenince nöbetçi ambara yönelir; arbede olursa Moral kaybı (**taslak**; KRI-06 kıtlık/yağma ile ilişkili — birleştir notu: tetikleyici yüzeyi).

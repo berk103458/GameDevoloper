@@ -45,5 +45,6 @@ static func inceleme_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxContain
 		ekran.add_child(panel)
 		MuhafizAdaletYetenekleri.chr_incele(ekran.get("oturum") as Oturum, panel)
 		KapiGorusAdaptoru.bagla(panel, ekran)
+		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").chr_bagla(panel, ekran, gelen)
 	)
 	return dugme

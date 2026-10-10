@@ -14,6 +14,7 @@ static func gelen_kaydet(g: Gelen) -> Dictionary:
 	if g.heybe != null:
 		v["heybe"] = {"esyalar": g.heybe.esyalar.duplicate(true), "teklif": g.heybe.teklif, "astar_yoklandi": g.heybe.astar_yoklandi, "soruldu": g.heybe.soruldu}
 	v["diplomatik_heyet"] = DiplomatikHeyet.bilet(g)
+	v["hastalik_teshisi"] = preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kaydet(g)
 	v["chr_kontrol_edildi"] = g._chr_kontrol_edildi
 	v["chr"] = null
 	var s: ChrSorgusu = g._chr_sorgusu
@@ -100,6 +101,7 @@ static func gelen_yukle(v: Dictionary, katalog: Katalog) -> Gelen:
 	var heyet := DiplomatikHeyet.bilet_oku(v.get("diplomatik_heyet"))
 	if v.has("diplomatik_heyet") and v.diplomatik_heyet != {} and heyet.is_empty(): return null
 	if not heyet.is_empty(): g.set_meta(DiplomatikHeyet.META, heyet)
+	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").yukle(g, v.get("hastalik_teshisi"))
 	return g
 
 static func kaydet(e: Node) -> Dictionary:

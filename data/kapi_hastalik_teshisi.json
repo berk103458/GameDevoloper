@@ -1,0 +1,12 @@
+{
+  "belirtiler": {
+    "belirti_irin": {"kaynak": "portre", "ipucu": "Clue_Enfeksiyon_Irin", "metin": "Yarada irin görülüyor."},
+    "belirti_kanli_oksuruk": {"kaynak": "heybe", "ipucu": "Clue_Enfeksiyon_KanliOksuruk", "metin": "Öksürürken kullandığı bezde taze kan görülüyor."},
+    "belirti_ates": {"kaynak": "portre", "ipucu": "Clue_Enfeksiyon_Ates", "metin": "Yüzünde ateş ve titreme belirtisi var."},
+    "veba": {"kaynak": "portre", "ipucu": "Clue_Enfeksiyon_Irin", "metin": "Şişmiş yarada irin görülüyor."},
+    "humma": {"kaynak": "portre", "ipucu": "Clue_Enfeksiyon_Ates", "metin": "Yüzünde ateş ve titreme belirtisi var."},
+    "hasta": {"kaynak": "portre", "ipucu": "Clue_Enfeksiyon_Ates", "metin": "Açık hastalık belirtisi var; sebebi henüz bilinmiyor."}
+  },
+  "bulasici_olmayan_hasta": ["chr_002"],
+  "kabul_kararlari": ["kabul", "harc", "rusvet", "kisla"]
+}
