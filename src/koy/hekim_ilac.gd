@@ -37,4 +37,4 @@ static func tedavi_bedeli(y: KoyYonetimi) -> Dictionary:
 
 static func metin(y: KoyYonetimi, bina_id: int = -1) -> String:
 	var yetkin_hekim := etkin(y, bina_id)
-	return "Yetkin hekim: %s · bulaşıcı hastalık sağlık kaybı %s\nİlaç stoğu %d · bulaşıcı hastalık tedavisi: 1 ilaç / +25 sağlık; ilaç yoksa 2 erzak / +10 sağlık\nİlaç reçetesi: 1 afyon + 1 su; üretim beceri ve bina verimine bağlı" % ["etkin" if yetkin_hekim else "etkin değil", "−%80" if yetkin_hekim else "normal", y.kaynaklar.miktar("ilac")]
+	return "Yetkin hekim: %s · bulaşıcı hastalık sağlık kaybı %s\nİlaç stoğu %d · bulaşıcı hastalık tedavisi: 1 ilaç / +25 sağlık; ilaç yoksa 2 erzak / +10 sağlık\nİlaç reçetesi: 1 afyon + 1 su; üretim beceri ve bina verimine bağlı · salgında boştaki vasıfsız köylü afyon (şifalı ot) toplar" % ["etkin" if yetkin_hekim else "etkin değil", "−%80" if yetkin_hekim else "normal", y.kaynaklar.miktar("ilac")]

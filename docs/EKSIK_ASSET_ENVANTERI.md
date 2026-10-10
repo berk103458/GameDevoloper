@@ -442,3 +442,5 @@ KRI-12 (Claude, 10 Ekim 2026): asset gerekmedi. Etki mevcut gece raporu satırı
 KRI-13 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut gece raporu satırı ve Şifahane/karantina görünümü kullanılır.
 
 KRI-14 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut gece raporu satırı ve ambar/muhafız göstergeleri kullanılır.
+
+KRI-15 (Claude, 10 Ekim 2026): asset gerekmedi. Ot mevcut afyon stoğu/ikonudur; gece raporu satırı kullanılır.

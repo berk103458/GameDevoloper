@@ -7,6 +7,7 @@ const LEVENT_FIRARI = preload("res://src/koy/levent_firari.gd")
 const ACLIK_SAGLIK = preload("res://src/koy/aclik_saglik.gd")
 const SIFAHANE_TRIYAJ = preload("res://src/koy/sifahane_triyaj.gd")
 const KITLIK_NOBETI = preload("res://src/koy/kitlik_nobeti.gd")
+const SIFALI_OT = preload("res://src/koy/sifali_ot.gd")
 const KRIZ_KENETLENMESI = preload("res://src/koy/kriz_kenetlenmesi.gd")
 
 ## KRI-14 bu tek tetikleyiciye bağlanabilir; gece/yağmayı tekrar çalıştırmaz.
@@ -545,6 +546,7 @@ func gece() -> Dictionary:
 	var calismalar := {}
 	KanDavasi.gece(self, olaylar)
 	MeslekGrevi.gece(self, olaylar)
+	SIFALI_OT.gece(self, olaylar)
 	if isyan_kalan < 0:
 		_uret(rapor["uretim"], olaylar, calismalar)
 	else:

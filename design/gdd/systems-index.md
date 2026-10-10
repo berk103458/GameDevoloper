@@ -421,3 +421,4 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Açlık–sağlık çaprazı — KRI-12](aclik-saglik.md): gece başında erzak <3 iken herkes ek −1 sağlık, temas bulaşma riski ×2; mevcut gece/sağlık/rapor genişletmesi (Claude).
 - [Şifahane yatak + triyaj — KRI-13](sifahane-triyaj.md): tedavi en ağır hastadan; yataklar doluyken açıkta bekleyen hasta −3 sağlık, köy moral −2; mevcut karantina/tedavi genişletmesi (Claude).
 - [Kıtlıkta nöbetçi ambara — KRI-14](kitlik-nobeti.md): erzak tükenince nöbetçi uyarısı; KRI-06 yağma gecesinde arbede, nöbetçi başına %25 geri alım, moral bedeli (Claude).
+- [Salgında şifalı ot — KRI-15](sifali-ot.md): açık salgında boştaki vasıfsız en çok 3 köylü gece 1'er afyon (ilaç girdisi) toplar; mevcut stok/reçete genişletmesi (Claude).
