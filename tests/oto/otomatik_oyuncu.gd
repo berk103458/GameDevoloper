@@ -8,6 +8,7 @@ var _cekilen := {}
 var _klasor := "user://oto"
 var _kabul_orani := 0.75
 var _kilit_sayaci := 0
+var _son_imza := ""
 
 
 func _ready() -> void:
@@ -54,6 +55,13 @@ func _dongu() -> void:
 		var ekran: Control = ana._ust if ana._ust != null else ana._ekran
 		if ekran == null:
 			continue
+		# Nabız: ekran/evre/gelen değişince bir satır; 7/24 bekçisi uzun süre nabız yoksa donma sayar.
+		var imza := "%s %s" % [ekran.get_class(), ekran.get_instance_id()]
+		if ekran is KapiEkrani:
+			imza += " %s %s" % [(ekran as KapiEkrani).evre, (ekran as KapiEkrani)._gelen]
+		if imza != _son_imza:
+			_son_imza = imza
+			print("NABIZ ", Time.get_ticks_msec() / 1000, "s ", imza)
 		if ekran is BilgiEkrani:
 			var e := ekran as BilgiEkrani
 			if not menu_gecildi:
