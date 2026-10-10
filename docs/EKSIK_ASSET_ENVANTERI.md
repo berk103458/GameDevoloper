@@ -446,3 +446,5 @@ KRI-14 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut gece raporu satırı ve a
 KRI-15 (Claude, 10 Ekim 2026): asset gerekmedi. Ot mevcut afyon stoğu/ikonudur; gece raporu satırı kullanılır.
 
 SYS-16 (Claude, 10 Ekim 2026): asset gerekmedi. Yalnız kayıt doğrulaması ve test.
+
+SYS-17 (Claude, 10 Ekim 2026): asset gerekmedi. Yalnız diyalog JSON metin/mantık düzeltmesi; metinler.csv değişmedi.

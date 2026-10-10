@@ -318,18 +318,21 @@
       ]
     ],
     "secenekler": [
+      "ret",
       "kabul",
       "rusvet"
     ],
     "esik": [
       0,
+      0,
       1
     ],
     "yanitlar": {
+      "ret": "Peki muhafız. Kapı dibinde iğnemi çıkarır, sabaha kadar elime geçen çarığı onarırım. Gün ağarınca başka bir ocağın kapısını çalarım.",
       "kabul": "Hızır yoldaşın olsun, içeri alıver beni.",
       "rusvet": "Eski çarığını onarırım, yeter ki geç de bana."
     },
-    "not": "Önce Kabul. Bir cevap sonra Rüşvet. Ret ve Kışla yok.",
+    "not": "Ret ve Kabul baştan. Bir cevap sonra Rüşvet. Kışla yok.",
     "acilis": "İp eğirir, deri delerim. Malım yok ama ellerim var. Bir ocağın kenarı yeter."
   },
   {
@@ -531,7 +534,7 @@
     ],
     "yanitlar": {
       "ret": "Şu kapı eşiğindeki taşın dibine büzülürüm. Keçiyi göğsüme sarar, üstüme yırtık keçemi çekerim. Gözümü yummadan sabahı beklerim. Başka gidecek yönüm yok.",
-      "kabul": "Hayvan bir avuç kuru saman koklasın yeter. Avlunun en dar köşesine ilişirim. Ortalığı kirletmem, kimseye yük olmam. Sabah olunca ilk kervanla çıkarım."
+      "kabul": "Hayvan bir avuç kuru saman koklasın yeter. Ağılınızın bir köşesini bana verin; sürünüzü kendi sürüm gibi güderim. Bu oğlak burada büyüsün, ben de burada kök salayım. Kimseye yük olmam."
     },
     "not": "Ret, Kabul",
     "acilis": "Çobanım. Sürüyü dağa saldım, bu topal oğlağı bırakamadım. Onun için de bir çatı ararım."
@@ -571,7 +574,7 @@
       0
     ],
     "yanitlar": {
-      "kabul": "Kapı aralığından sundurmanın altına girsem yeter. Keseyi yastık yapar, samanların üstünde uzanırım. Sabah gün doğarken kervan toplanırsa onlara katılırım. Çıt çıkarmadan vaktimi beklerim.",
+      "kabul": "Kapı aralığından sundurmanın altına girsem yeter. Keseyi yastık yapar, samanların üstünde uzanırım. Kervan yolu bitti; bundan sonra tuzumu bu köyün ambarına, emeğimi bu köyün pazarına veririm.",
       "rusvet": "Beni içeri sal muhafız, şu kesenin ağzını açayım. Avucuna iki tutam has ak tuz dökeyim, etinizi tuzlarsınız. Uç yerinde böyle tuz zor bulunur. Kimseye bir kelime etmem.",
       "ret": "Hava karardı, kapı önünde açıkta kalamam. Yoldaki çapulcular bu keseyi görse boğazıma çöker. Karşıki kayaların arasına saklanıp şafağa kadar beklerim. Yükümü kaptırırsam elim boş kalırım."
     },
@@ -656,7 +659,7 @@
     ],
     "yanitlar": {
       "ret": "Kervansarayın dış duvarının dibine büzülürüm. Fidanı toprağa gömer, kökünü nemli tutmaya çalışırım. Geceyi taşların arasında geçiririm. Sabah olunca yukarı köylere doğru yürürüm.",
-      "kabul": "Avluya geçer, su kuyusunun yanında sessizce otururum. Fidanın köküne bir avuç su döker, kendim de bir yudum içerim. Kimseye zararım dokunmaz, yük olmam. Sabah kervanla birlikte çıkar giderim.",
+      "kabul": "Avluya geçer, su kuyusunun yanında sessizce otururum. Fidanın köküne bir avuç su döker, kendim de bir yudum içerim. Bu asmayı sizin yamacınıza dikerim; üç yıl sonra üzümünü bu köy yer. Artık buralıyım.",
       "rusvet": "Muhafız, kuşağımdaki şu iki aşı çeliğine bak. Biri has ballı incir, biri çekirdeksiz üzüm dalıdır. Buralarda kimsede bulunmaz, bahçene diksen iki yıla meyve verir. Geçir beni içeri, ikisini de sana bırakayım."
     },
     "not": "Ret, Kabul, Rüşvet",
@@ -699,7 +702,7 @@
     "yanitlar": {
       "rusvet": "Muhafız gardaş, kuşağımdaki şu ağır pirinç dirhemi görüyorsun. Has dökümdür, çarşıda tartıya koysan hatırı sayılır akçe eder. Kemerine iliştir, senin hakkın olsun. Yeter ki kapıdaki sürgüyü arala.",
       "ret": "Dışarıda bu sakat ayakla fazla yürüyemem. Kapının yanındaki sundurma direğine yaslanır beklerim. Eşkıya gelirse terazimi toprağa gömerim. Sabah kapı açılana kadar buradan ayrılmam.",
-      "kabul": "Samanlığın bir kenarına ilişir, ayağımı sararım. Terazimi torbama koyar, kimsenin işine karışmam. Gece boyunca bir lokma ekmek kemirir yatarım. Sabah erkenden yoluma koyulurum."
+      "kabul": "Samanlığın bir kenarına ilişir, ayağımı sararım. Terazimi torbama koyar, kimsenin işine karışmam. Ayağım iyileşince köyün pazarında tartı tutarım; doğru tartı bir köye bereket getirir. Gidecek başka yerim yok."
     },
     "not": "Rüşvet, Ret, Kabul",
     "acilis": "Kantarcıyım; tartarım. Terazim doğru tartar, ben de doğru söylerim. Pazarın varsa sana lazımım."

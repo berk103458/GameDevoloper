@@ -10,3 +10,8 @@
 
 ## Acceptance Criteria
 Birim: `tests/unit/kvr/diyalog_sirasi_test.gd`; akış: `tests/oto/diyalog_sirasi_kontrol.gd` (gerçek köye geçiş kaydı → yeni Ana "Devam").
+
+## SYS-17 — diyalog_01_20 mantık düzeltmeleri
+- `diyalog_08` (dikici): Ret seçeneği eklendi (eşik 0) ve yanıtı yazıldı; Rüşvet bir cevap sonra açılır.
+- `diyalog_13/14/16/17`: kabul yanıtları "sabah kervanla giderim" diyordu; kabul edilen kişi köye yerleşik köylü olarak katıldığı için yanıtlar köyde kalmayı anlatacak biçimde yeniden yazıldı. Ret yanıtlarındaki "sabah yoluma giderim" doğru olduğu için korundu.
+- Test: `tests/unit/kvr/diyalog_mantigi_test.gd` (seçenek/eşik/yanıt uyumu, kabulde gitme ifadesi yok, kapıda diyalog_08 Ret).
