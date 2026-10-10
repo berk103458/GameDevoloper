@@ -121,6 +121,7 @@ static func secenekler(y: KoyYonetimi, tur: String) -> Array[String]:
 static func puan(y: KoyYonetimi, k: Koylu, tur: String, secim: String) -> int:
 	var ihtiyac := (100 - clampi(k.moral, 0, 100)) / 5
 	var guven := clampi(k.sadakat, 0, 100) / 10 + y.adalet / 20
+	guven -= preload("res://src/koy/batil_inanc_histerisi.gd").oy_cezasi(y, k)
 	var grup_ac := 0
 	var grup_hasta := 0
 	var grup := String(k.toplumsal_bag.get("grup", ""))

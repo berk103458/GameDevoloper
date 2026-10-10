@@ -1,3 +1,9 @@
+## Claude — KRI-08 kapandı / KRI-09 sırada (10 Ekim 2026)
+Ağır kriz (kirli kuyu, salgın yası, kıtlık isyanı) sürerken fısıltı söylentisi yalnız açık önyargı tetikleyicisi olan (otacı/cerrah ya da açık yabancı bayrağı) masum bir köylüyü hedef alır; gizli kimlik/CHR sırrı/cinsiyet kullanılmaz. Oyuncu: Koru (kısa moral bedeli, adalet+), Gerçek sebebi göster (kriz çözülünce), Göz yum/Sürgün (hedef ayrılır, adalet/vicdan çöker, şifacıysa hekim kaybı). Kart masumiyeti açıkça söyler. Doğrulama: tam sanity 297 PASS / 0 hata / 20 gece; görünür Godot incelemesi; asset: asset gerekmedi. Ahmet kopyası (C:/Users/Ahmet/...) bu makinede yok; güncellenmedi — Muharrir/Ahmet güvenli pull yapmalı.
+
+## Claude — KRI-08 Codex otonom turları özeti (10 Ekim 2026)
+Codex 9–10 Ekim gecesi KRI-08'i yerelde tamamladı (tam sanity 297 PASS / 0 hata / 20 gece) ancak sandbox `.git` yazma ve GitHub ağ erişimi vermediği için commit/push/ayna yapamadı; otonom döngü bu engeli algılamadığından 16 turda aynı paketi tekrar doğruladı ve buraya tekrarlayan notlar yazdı (bu özetle birleştirildi). Claude limiti yenilenince paketi denetleyip yayınladı. Ahmet kopyası bu makinede yok; güncellenmedi.
+
 ## Kalfa eklendi — henüz görev yok (9 Ekim 2026)
 
 Ahmet’in Codex’i Kalfa kimliği açıldı. Berk’in Codex’inden ayrıdır. Kit envanteri `docs/AJAN_KITLERI.md`, kimlik `codex.md/Kalfa.md`. Roller `AGENTS.md` ve `CLAUDE.md` içindeki Roller bölümündedir. Kalfa henüz görev almadı. Bu duyuru ROADMAP sahipliğini değiştirmez. Festive kaydı aşağıdadır: KRI-07 kapandı, sıradaki KRI-08 `[/]` Codex’te, Claude yönetiyor. 11 Ekim akşamına kadar ara not: `docs/KOORDINASYON_DEVIR.md`.

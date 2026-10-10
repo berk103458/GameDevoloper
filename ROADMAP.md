@@ -29,10 +29,10 @@
 | KRI-05 | Ölüm gecesi raporunda Toplu mezar / Cenaze töreni seçimi; 2 günlük tavanlı yas; tören yası yarıya indirir | Codex yazdı · Claude doğruladı | `88d8a9a` | `src/koy/cenaze_yasi.gd`, `src/arayuz/koy_hud/cenaze_raporu.gd`, `src/koy/gorsel/cenaze_mezari.gd` | sanity 291/0 · görünür Godot · kutu yer tutucu (KRI05-MEZAR) |
 | KRI-06 | Erzak 2 gece 0 → kıtlık isyanı: ambar kapısı kırılır, tavanlı yağma, moral −8, onarıma kadar kapasite −%20 | Codex yazdı · Claude düzeltti/doğruladı | `0fbfd00` | `src/koy/kitlik_isyani.gd`, `src/arayuz/koy_hud/ambar_kapisi_paneli.gd` | sanity 293/0 (1. koşu 1 FAIL → düzeltildi) · görünür Godot |
 | KRI-07 | Krizde HUD'dan çınar altı meclisi; deterministik gizli oy, halkın kararını uygula/reddet | Codex yazdı (bellek kesintisinden sonra tamamladı) · Claude doğruladı | `a2f1116` | `src/koy/cinar_alti_meclisi.gd`, `src/arayuz/koy_hud/cinar_meclis_paneli.gd` | sanity 295/0 · görünür Godot |
-| KRI-08 | Batıl inanç ve cadı avı histerisi — krizde yabancı/şifacı kadın (ör. Dudu) hedef alınır; oyuncu önleyebilir | Codex yazıyor | — | — | `[/]` başladı |
+| KRI-08 | Krizde masum şifacı/yabancıya söylenti; Koru / Gerçek sebebi göster / Göz yum / Sürgün; haksızlığın adalet/vicdan/hekim bedeli | Codex yazdı (otonom) · Claude entegre etti/doğruladı | kapanış commit'i | `src/koy/batil_inanc_histerisi.gd`, `src/arayuz/koy_hud/histeri_paneli.gd` | sanity 297/0 · görünür Godot |
 <!-- PANO_TABLO_SON -->
 
-**Sıradaki:** KRI-08 (Codex yazıyor) → KRI-09 … KRI-15 → SYS-16 … SYS-20. Bilinen eski sorun: bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378). Ahmet kopyası bu makinede yok (güncellenmedi).
+**Sıradaki:** KRI-09 (Codex, otonom döngü v2) → KRI-10 … KRI-15 → SYS-16 … SYS-20. Bilinen eski sorun: bina çalışan satırında uzmanlık sınıftan türetiliyor (oturum.gd:378). Ahmet kopyası bu makinede yok (güncellenmedi).
 
 Ayrıntılı günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `OYUN_RAPORU.md`, `docs/MUHARRIR_RAPORU.md`.
 
@@ -304,7 +304,7 @@ Not: EKO-01/EKO-11 çift kasa — resmi alım `koy_akce`, rüşvet/kaçak `muhaf
 - [x] **KRI-05:** Toplu Mezar ve Cenaze Töreni — Moral 2 gün sarsılır. tam sanity 291 PASS / 0 hata / 20 gece; kutu yer tutucu (envanter KRI05-MEZAR). (Codex; doğrulama Claude)
 - [x] **KRI-06:** Kıtlık İsyanı ve Ambar Yağması — Erzak 2 gün 0 → ambar kapısı kırılır. tam sanity 293 PASS / 0 hata / 20 gece (ilk koşu 1 FAIL, düzeltildi); asset gerekmedi. (Codex; doğrulama Claude)
 - [x] **KRI-07:** Çınar Altı Köy Meclisi — Krizde halk oylaması. tam sanity 295 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex; doğrulama Claude)
-- [/] **KRI-08:** Batıl İnanç ve Cadı Avı Histerisi — Yabancı kadın (ör. Dudu) hedefi. (Codex yazıyor; Claude yönetiyor)
+- [x] **KRI-08:** Batıl İnanç ve Cadı Avı Histerisi — Yabancı kadın (ör. Dudu) hedefi. tam sanity 297 PASS / 0 hata / 20 gece; asset gerekmedi. (Codex; doğrulama Claude)
 - [ ] **KRI-09:** Kaçak Leventlerin Köyü Terk Etmesi — Krizde firar → Güvenlik çöker.
 - [ ] **KRI-10:** Krizden Çıkış ve Toplumsal Kenetlenme Bonusu — Atlatınca sadakat + Refah patlaması.
 

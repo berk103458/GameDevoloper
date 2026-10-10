@@ -1673,3 +1673,11 @@ Aktif krizde (kıtlık isyanı, salgın belirtisi, kirli kuyu, yas) HUD'dan çı
 Doğrulama (Claude): tam sanity 295 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset: asset gerekmedi.
 
 Sıradaki: KRI-08. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
+
+
+## Codex + Claude — KRI-08 (10 Ekim 2026)
+
+Ağır kriz (kirli kuyu, salgın yası, kıtlık isyanı) sürerken fısıltı söylentisi yalnız açık önyargı tetikleyicisi olan (otacı/cerrah ya da açık yabancı bayrağı) masum bir köylüyü hedef alır; gizli kimlik/CHR sırrı/cinsiyet kullanılmaz. Oyuncu: Koru (kısa moral bedeli, adalet+), Gerçek sebebi göster (kriz çözülünce), Göz yum/Sürgün (hedef ayrılır, adalet/vicdan çöker, şifacıysa hekim kaybı). Kart masumiyeti açıkça söyler.
+Doğrulama (Claude): tam sanity 297 PASS / 0 hata / 20 gece; Godot görünür pencerede incelendi. Asset: asset gerekmedi.
+
+Sıradaki: KRI-09. Görev düzeni: Claude yönetir/doğrular, Codex uygular.

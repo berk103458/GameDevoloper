@@ -11,6 +11,10 @@ spec.loader.exec_module(sanity)
 
 
 class RunnerTest(unittest.TestCase):
+    def test_success_marker_with_parse_error_fails(self):
+        ok, _ = sanity.run([sys.executable, "-c", "print('GEÇTİ\\n  Parse Error: broken')"], ROOT, 5)
+        self.assertFalse(ok)
+
     def test_exit_zero_with_script_error_fails(self):
         ok, output = sanity.run([sys.executable, "-c", "print('SCRIPT ERROR: broken')"], ROOT, 5)
         self.assertFalse(ok)

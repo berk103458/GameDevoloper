@@ -15,7 +15,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-ERROR = re.compile(r"(?:^|\n)(?:SCRIPT ERROR:|ERROR:)|Failed to load script|\bKALDI\b")
+ERROR = re.compile(r"SCRIPT ERROR|Parse Error|(?:^|\n)ERROR:|Failed to load script|\bKALDI\b")
 
 
 def run(command, root, timeout, env=None):
@@ -66,6 +66,7 @@ def checks(godot, root):
     yield "cenaze_yasi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/cenaze_yasi_kontrol.tscn"], "GEÇTİ"
     yield "kitlik_isyani_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/kitlik_isyani_kontrol.tscn"], "GEÇTİ"
     yield "cinar_alti_meclisi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/cinar_alti_meclisi_kontrol.tscn"], "GEÇTİ"
+    yield "batil_inanc_histerisi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/batil_inanc_histerisi_kontrol.tscn"], "GEÇTİ"
     yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
 
 

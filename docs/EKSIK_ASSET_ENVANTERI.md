@@ -427,3 +427,5 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.
 
 ANI-09 yağmur efekti mevcut VFX-YAGMUR satırında; yeni doku/ses/parçacık/klip üretilmedi veya indirilmedi. Hava denetçisi yağmur seçimini mevcut kayıt içinde korur; rastgele yağış takvimi MEV paketine aittir.
+
+KRI-08 (Codex, 9 Ekim 2026 gece): asset gerekmedi. Histeri mevcut karakter/bina görünümü, sabah fısıltı kartı ve `src/arayuz/koy_hud/histeri_paneli.gd` Button/Label arayüzünü kullanır; yeni görsel, ses, model veya yer tutucu ihtiyacı yok. G tablosuna yeni asset ID'si gerekmez.

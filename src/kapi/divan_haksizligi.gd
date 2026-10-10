@@ -15,6 +15,13 @@ static func oku(v: Variant) -> Dictionary:
  return r
 static func durum(y: KoyYonetimi) -> Dictionary:
  return oku(y.get_meta(META,{}))
+## Ortak haksızlık makbuzu; kayıt suç isnadı veya zindan hükmü yaratmaz.
+static func kaydet(y: KoyYonetimi,id: int) -> bool:
+ var d:=durum(y)
+ if d.has(str(id)): return false
+ d[str(id)]={"gun":y.gun,"odendi":false}
+ y.set_meta(META,d)
+ return true
 ## Arşivlenmiş güncel imzasız iddia; kişi hayatta, hüküm yok. İddia fiile dönüştürülmez.
 static func suphe(y: KoyYonetimi,id: int) -> bool:
  var d:=FisiltiGazetesi.durum(y)
@@ -32,10 +39,7 @@ static func aile(y: KoyYonetimi,k: Koylu) -> Array[Koylu]:
 static func uygula(o: Oturum,k: Koylu,haksiz: bool) -> void:
  if not haksiz: return
  var y:=o.yonetim
- var d:=durum(y)
- if d.has(str(k.id)): return
- d[str(k.id)]={"gun":y.gun,"odendi":false}
- y.set_meta(META,d)
+ if not kaydet(y,k.id): return
  for a in aile(y,k):
   y.koylular.erase(a)
   if o.kadro.durumlar.has(a.adli_id): o.kadro.durumlar[a.adli_id]["durum"]=&"kalici_ayrildi"

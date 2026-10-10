@@ -10,6 +10,12 @@ static func oku(v: Variant) -> Dictionary:
   var n: Variant=v.get(key)
   if (n is int or n is float) and is_finite(float(n)) and floor(float(n))==float(n) and float(n)>=(-1 if key in ["son_gece","son_kabus"] else 0) and float(n)<=(int(AYAR.yuk_azami) if key=="yuk" else 1000000000): d[key]=int(n)
  return d
+## KRI-08 gibi gerçekleşmiş haksızlık: aynı vicdan yükü, ayrı sayaç yok.
+static func haksizlik(o,miktar: int) -> void:
+ var d:=oku(o.muhafiz_vicdani)
+ d.haksiz_ret=mini(1000000000,int(d.haksiz_ret)+1)
+ d.yuk=clampi(int(d.yuk)+maxi(0,miktar),0,int(AYAR.yuk_azami))
+ o.muhafiz_vicdani=d
 ## Mevcut ret işleminin aynı kusurlu() ölçütü; engellenmiş karar bu çağrıya ulaşmaz.
 static func karar(o: Oturum,g: Gelen,karar_: StringName) -> void:
  if o.yonetim.son!="" or karar_ not in [&"ret",&"elkoy"] or g.kusurlu(): return

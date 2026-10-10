@@ -1,5 +1,7 @@
 # Çınar altı köy meclisi — KRI-07
 
+KRI-08 genişletmesi: aktif batıl inanç histerisi güven puanını seviye×8 azaltır; mağdur ve aynı açık toplumsal gruptaki seçmenler bu cezadan muaftır. Mevcut seçenek listesi, anonim oy kaydı ve önceden verilmiş oylar değişmez; meclise sürgün oyu eklenmez. Ayrıntı: [Batıl inanç histerisi](batil-inanc-histerisi.md).
+
 Uygulama: Codex; proje yöneticisi ve kapanış incelemesi: Claude Code. ROADMAP mevcut `[/]` işaretinde kalır.
 
 Köy HUD'undaki **Çınar altı meclisi** düğmesi aktif krizleri ve son meclisin sonucunu açar. Ayrı olay/RNG kuyruğu yoktur: OlayVerisi, Oturum.olay_sec ve mevcut gece olay kartları aynı davranışı korur. Açık rapor/olay/gece geçişinde meclis düğmesi kilitlidir. Oy sonuç kartı mevcut KoyEkrani kart yardımcılarını kullanır; HUD'dan yüklenen panel yalnız Node ile çalışır, KoyEkrani veya Ses autoload'una statik bağımlılık kurmaz.

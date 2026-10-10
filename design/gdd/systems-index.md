@@ -414,3 +414,4 @@ Döngü yok. Dikkat edilen yakın döngüler:
 - [Kıtlık isyanı ve ambar kapısı — KRI-06](kitlik-isyani.md): iki sıfır erzak gecesinde mevcut isyan tetikleyicisi, tavanlı yağma, tek Güvenlik ve taş/kereste onarımı; Claude incelemesi bekleniyor.
 
 - [Çınar altı köy meclisi — KRI-07](cinar-alti-meclisi.md): aktif krizde anonim deterministik halk oyu, mevcut kriz API'leri, uygulama/ret ve optional karar makbuzu; Claude incelemesi bekleniyor.
+- [Batıl inanç histerisi — KRI-08](batil-inanc-histerisi.md): ağır krizde açık meslek/yabancı bilgisiyle masum hedef, koruma/gerçek sebep ve haksız ayrılığın adalet-vicdan-hekim bedeli; mevcut fısıltı/meclis/kayıt genişletmesi, Claude incelemesi bekleniyor.
