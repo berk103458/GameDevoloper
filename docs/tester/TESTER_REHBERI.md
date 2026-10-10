@@ -300,3 +300,40 @@ Ekran görüntülerini (`work/tester/oyunlar/foto_<tohum>/`, donmalarda `donma_<
 - Push gelince döngün otomatik yeni tur başlatır: o turda Claude'un düzeltmesini **doğrula** (aynı tohumla tekrar oynat), sonucu `DOĞRULANDI` / `YENİDEN AÇILDI` diye yaz.
 - Senin görevin olayların **kök nedenini ve oyun tarafını** incelemek: bekçi "donma" der, sen "neden, hangi ekran, oyuncu da kilitlenir mi, tasarım sorunu mu" diye cevaplarsın.
 - Örnek (11 Ekim): CHR sorgusunda (Halil) iki cevap da ipucu kilitliydi, "Kararını ver" düğmesi yoktu; otomatik oyuncu dondu. Claude oyuncuyu düzeltti; **senin işin**: gerçek oyuncu inceleme yaptıktan sonra da ipucu bulunamazsa kilitlenir mi? Bu bir `[DONMA]`/`[TASARIM]` bulgusu olabilir — doğrula ve yaz.
+
+---
+
+## 12. Oyuncu gibi düşün — A'dan Z'ye her şeyi test et
+
+Sen bu oyunu **haftalardır oynayan, her köşesini bilen, her şeyi sorgulayan bir oyuncusun.** Sadece "çöktü mü?" diye bakmazsın. Her gördüğün şeyi şu sorularla tartarsın: "Bu mantıklı mı? Neden oldu? Ben oyuncu olsam ne hissederdim? Bunu daha önce gördüm mü?" Kontrol listesi aşağıda. Her turda **en az iki bölümü** derinlemesine işle, sırayla dön; bir haftada hepsi bitmiş olsun.
+
+### 12.1 Olaylar neye göre çıkıyor? (olay–koşul mantığı)
+Her olayın bir **tetikleme koşulu** vardır. Senin işin, olayın metninin varsaydığı durumla gerçek durumun uyuşup uyuşmadığını bulmak.
+- **Nerede tanımlı:** gece olayları `data/olaylar/*.tres` (`kosullar`, `agirlik`, `tek_sefer`), sıra olayları `data/sira_olaylari/*.tres`, sistem olayları `src/` içinde `olay()` fonksiyonu olan sınıflar (`CasusDevriyesi`, `FisiltiGazetesi`, `SancakAskerTalebi`, `HaberciAgi` …; `src/sistemler/oturum.gd` olay seçimi). Koşul kontrolü `Oturum._kosul_tutar` (gece_min/max, perde, koyde, ayrildi, bayrak, nufus_min, sinif_min, yapi_min, ambar_max, akce_min, tarla_ekili_min, bar_min).
+- **Yöntem:** Her olay için (1) metni oku (`data/metin/metinler.csv` → `olay.<id>.metin` ve seçenekleri), (2) metnin varsaydığı her şeyi listele ("okçularımız" → asker var; "pazardaki" → pazar binası var; "Miraen" → Miraen köyde ve canlı), (3) `kosullar` bu varsayımları garanti ediyor mu, karşılaştır. Garanti etmiyorsa `[TASARIM]`/`[HATA]` bulgusu.
+- **Oyun içinde doğrula:** Oyun logunda her olay/kartta `OLAY ...` (metin) ve hemen ardından `DURUM ...` satırı var: gece, perde, `koy_sinif` (eski nüfus sayacı) ve `yonetim_sinif` (köydeki gerçek köylüler), akçe, ambar, yapı sayısı. **Örnek:** okçuluk olayı (`okculuk`, koşul `sinif_min asker ≥2`) çıktığında DURUM'da `yonetim_sinif` içinde asker 2'den azsa → askerler olmadan okçu olayı çıkmış demektir, bulgu.
+- **Bilinen şüpheler (önce bunları araştır):**
+  1. `sira_olayi_sec` sıra olaylarında yalnız `kuyruk_min`'e bakıyor; başka koşul denetlenmiyor.
+  2. `koy_sinif` (Oturum.koy) ile `yonetim_sinif` (KoyYonetimi.koylular) ayrışabilir: ölüm, firar, sürgün, zindan, dış görev sonrası iki sayı aynı mı? Ayrışırsa olaylar yanlış sayıya göre çıkar.
+  3. `tek_sefer` olmayan olaylar aynı oyunda kaç kez tekrar ediyor? Rahatsız edici sıklıkta mı?
+  4. Ölmüş/ayrılmış adlı karakterle ilgili olay sonradan yine çıkıyor mu?
+
+### 12.2 Konuşmalar ve metin (DİYALOG)
+- **Kaynaklar:** kapı sohbetleri `data/sohbetler/*.tres`, adsız diyaloglar `data/diyalog/diyalog_01_20.json`, adlı karakter (CHR) sorgu ağaçları `karakterler/` + `data/chr_runtime/`, tüm metinler `data/metin/metinler.csv` (~1700 satır). Turda bir dilim oku (ör. 150 satır), hepsini sırayla bitir.
+- **Neye bakarsın:**
+  - **Yazım/Türkçe:** yazım hatası, eksik/yanlış harf (ı/i, ş/s, ğ/g), yanlış ek, devrik ya da bozuk cümle, makine çevirisi kokan ifade, İngilizce kalıntı, `[KEY_NOT_FOUND]`, `%d`/`%s` kalıntısı, çift boşluk, kesik cümle.
+  - **Saçma/uydurma:** bağlamla ilgisiz, anlamsız, çelişkili ya da gereksiz uzun/tekrar eden cümle; karakterin kişiliğine uymayan konuşma; dönemine (13. yy Anadolu) uymayan kelime.
+  - **Kısalık:** konuşma neden kısa kalıyor? Kaç soru sorulabiliyor (`azami_soru`), her karakterin kaç sorusu var, takip soruları (`soru_ust`) açılıyor mu, CHR ağacı kaç düğüm? Oyuncu için yetersiz derinlik varsa `[TASARIM]` önerisi yaz (sayılarla: "chr_007'nin 3 sorusu var, 2'si sorulabiliyor, hiç takip sorusu yok").
+  - **Tutarlılık:** karakter aynı gün içinde kendisiyle çelişiyor mu? Cevap, sorulan soruyla uyuşuyor mu? Kabul/ret sonrası metin doğru kişiyi/durumu anlatıyor mu?
+- Her dil bulgusunda **tam metni ve anahtarını** yaz (ör. `olay.okculuk.metin`), düzeltilmiş önerini ekle. CSV'yi **sen değiştirmezsin**.
+
+### 12.3 Animasyon ve 3B sahne (CEVRE)
+- **Araçlar:** oyun ekran görüntüleri (`foto_<tohum>/`), donma anı (`donma_<tohum>.png`), model önizleme sahnesi `tests/oto/model_onizleme.tscn`, kapı/köy fotoğraf sahneleri (§3.4). Pencereli açarken **daima** `--audio-driver Dummy`.
+- **Neye bakarsın:** T-pozu ya da animasyonsuz donuk karakter; ayakların yerde kayması (yürürken yer değiştirmeden adım ya da adımsız kayma); havada duran ya da yere gömülü karakter/nesne; iç içe geçen modeller; yanlış yöne bakarak yürüme; animasyon geçişinde zıplama/titreme; elde tutulan eşyanın (el eşyası) elden kopuk durması; mevsimle uyuşmayan görsel (yazın kar, kışta yeşil); gece/gündüz ışığı hatası; kaybolan/yanıp sönen nesne; kameranın nesne içinde kalması; aynı modelin farklı kişiler için tekrar kullanılıp karıştırılması.
+- Kaynak: `src/dunya/` (`karakter_model.gd`, `guvenli_karakter_animasyonu.gd`, `durus_duzeltici.gd`, `el_esyasi.gd`). Hata gördüğün görüntünün yolunu ve hangi karakter/ekran olduğunu yaz.
+
+### 12.4 A'dan Z'ye oyuncu yolu (her ekranda)
+Ana menü → ayarlar (her ayar gerçekten etkili mi?) → yeni oyun → kapı (gelen, sohbet, heybe/inceleme, karar, rüşvet, kışla, sıra olayları) → köy (inşa, atama, yol, yık, pazar, nüfus, divan, muhafız odası, harita) → gece raporu ve kartlar (mini oyunlar dahil) → mevsimler → krizler (kıtlık, salgın, isyan, yangın) → 2. perde → sonlar (5 nihai son + kırılma sonları) → kaydet/devam/yükle. Her adımda: **anlaşılıyor mu, geri bildirim var mı, sayı doğru mu, metin doğru mu, görsel doğru mu, mantıklı mı?**
+
+### 12.5 Uzun oyun gözlemi
+Uzun süre oynayan oyuncu tekrarı, bıkkınlığı ve dengesizliği fark eder. Oyun kayıtlarından (`ozet.tsv`, `OLAY`/`DURUM`/`gün` satırları) ölç: oyun kaç günde bitiyor, hangi son ne sıklıkla geliyor, aynı olay kaç kez tekrar ediyor, hangi kaynak sürekli 0 (ör. odun 1. günden 0), akçe/ambar eğrisi, nüfus 2. perdeye kaç günde ulaşıyor. Örnek gözlem (11 Ekim, oyun 106): kabul %90 ile oyun 7. gecede "Tekfur'un akıncıları" ile bitti — 2. perde çok erken ve çok çabuk mu kaybediliyor? Bunlar `[DENGE]`/`[TASARIM]` önerisi olur.
