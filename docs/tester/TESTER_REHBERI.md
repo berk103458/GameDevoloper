@@ -337,3 +337,33 @@ Ana menü → ayarlar (her ayar gerçekten etkili mi?) → yeni oyun → kapı (
 
 ### 12.5 Uzun oyun gözlemi
 Uzun süre oynayan oyuncu tekrarı, bıkkınlığı ve dengesizliği fark eder. Oyun kayıtlarından (`ozet.tsv`, `OLAY`/`DURUM`/`gün` satırları) ölç: oyun kaç günde bitiyor, hangi son ne sıklıkla geliyor, aynı olay kaç kez tekrar ediyor, hangi kaynak sürekli 0 (ör. odun 1. günden 0), akçe/ambar eğrisi, nüfus 2. perdeye kaç günde ulaşıyor. Örnek gözlem (11 Ekim, oyun 106): kabul %90 ile oyun 7. gecede "Tekfur'un akıncıları" ile bitti — 2. perde çok erken ve çok çabuk mu kaybediliyor? Bunlar `[DENGE]`/`[TASARIM]` önerisi olur.
+
+---
+
+## 13. Ayrıntılı muayene — karakter, harita/çevre, Türkçe, asset (oyun sonu değil, en ince ayrıntı)
+
+Oyun sonuna bakmak yetmez. Her turda aşağıdaki **dört muayeneden en az birini** derinlemesine yap, sırayla dön. Her biri ayrı bir rapor bölümü olarak tur raporuna girer; bulgular BULGULAR / DEGISIKLIK_ONERILERI'ye kategoriyle yazılır.
+
+### 13.1 Karakter muayenesi (yürüyüş, eller, kollar, duruş, el eşyası)
+**Araç:** `tests/oto/karakter_muayene.tscn` — her modeli oyundaki gibi kurar, her hareketini (bekle, yürü, konuş, sevinç, öfke, panik, gergin) önden ve yandan 3'er karede çeker; karakter başına TEK temas sayfası (`<ad>.jpg`, satır = hareket, sol 3 sütun önden, sağ 3 sütun yandan) ve sayısal ölçüm (`muayene.json`).
+```
+KLASOR=C:\...\tester-ajan\work\tester\muayene [MODELLER=chr_001,aydogdu] <godot_console> --path . --audio-driver Dummy --windowed tests/oto/karakter_muayene.tscn
+```
+(44 modelin hepsi ~10 dk; pencere açılır, sesi yok.) **Önce `muayene.json`'u oku** (her modelin `uyarilar`, `eksik` hareketleri, `hareketler.<ad>.ayak_y/el_aci/el_y/boy` aralıkları, `kemikler`). Sayısal uyarısı olan modellerin sayfasına bak (turda en fazla 4 sayfa).
+- **Ölçüm eşikleri:** `ayak_y` > 0.08 havada, < −0.08 gömülü; `el_aci` > 0.45 T/A-pozu şüphesi (bekle/yürü); `el_y` > 0.35 kollar havada; `boy` < 1.2 ya da > 2.3 ölçek şüphesi (çocuk karakter mi? GDD/CHR'den doğrula).
+- **Gözle bak:** kollar gövdeye girmiş mi, eller bilekten kırık/ters mi, parmaklar yamuk mu; yürürken ayak kayıyor mu (yerinde yürümede ayaklar ileri-geri gidip gelmeli); diz/dirsek ters kırılıyor mu; **el eşyası** (yay, sopa, sepet) gövdeden/bacaktan geçiyor mu (11 Ekim örneği: Aydoğdu'nun yayı yandan bakışta bacağın ve gövdenin içinden geçiyor); kıyafet parçası (çizme/pantolon) arasında boşluk ya da kopukluk var mı; yüz/saç bozuk mu; iki karakter birbirinin aynısı mı.
+- **Eksik hareket:** `eksik` listesi — ör. tüm CHR modellerinde `gergin` yok, adlı karakterlerin çoğunda yalnız bekle/yürü var. Oyunda bu hareketler çağrılıyorsa karakter donuk kalır → `[CEVRE]`/`[TASARIM]` önerisi (eksik asset envanterine girer).
+
+### 13.2 Harita ve çevre muayenesi
+**Araçlar:** köy fotoğrafı `tests/oto/koy_foto.tscn` (`GUN`, `KIP=bilgi|insa|rapor|bos`, `FAZ=gunduz|aksam|gece`, `KAMERA=uzak`), kapı fotoğrafı `tests/oto/kapi_foto.tscn` (`GECE`, `PERDE`, `SUR`, `BEKLE`, `ARAYUZ=0` arayüzsüz), 7/24 oyunların `foto_<tohum>/` görüntüleri. Pencereli + `--audio-driver Dummy`.
+- **Neye bakarsın:** havada duran/yere gömülü bina, ağaç, kaya, çit; iç içe geçen nesneler; zemin dokusunda dikiş/kırık; yanlış mevsim (yazın kar, kışta yeşil yaprak); gece/gündüz/akşam ışığı mantıklı mı, meşale/ateş ışığı var mı; uzak kamerada boş/yarım kalmış alanlar; yol ile bina hizası; **kutu/kapsül yer tutucular** (asset kuralı gereği geçici `BoxMesh`/`CapsuleMesh` — hangileri hâlâ kutu, oyuncuya çirkin görünüyor mu?).
+- Her bulgu: ekran görüntüsü yolu + ne/nerede (ör. "kapı sahnesi, gece 5, sağ arka: kaya havada").
+
+### 13.3 Türkçe ve metin muayenesi (gerçekten doğal Türkçe mi?)
+- **Kaynak:** `data/metin/metinler.csv` (~1700 satır), `data/sohbetler/*.tres`, `data/diyalog/diyalog_01_20.json`, `karakterler/*.md`. Her turda bir **dilim** (ör. 150 satır) oku, kaldığın satırı tur raporuna yaz, sonraki turda devam et; böylece bütün metin taranır.
+- **Bak:** yazım (ı/i, ş/s, ğ/g, ç/c, ö/o, ü/u), ek ve ünlü uyumu, büyük/küçük harf, noktalama; **çeviri kokan** cümle (İngilizce yapısında kurulmuş, "yapmak" fiilini zorlayan, devrik değil bozuk dizilim); anlamsız/saçma ya da yapay zekâ üretimi gibi duran boş laf; aynı cümlenin farklı yerlerde tekrar etmesi; döneme (13. yy Anadolu uç beyliği) uymayan kelime (ör. modern terimler); karakter ağzına uymayan dil; `%d`, `%s`, `[KEY_NOT_FOUND]`, çift boşluk, kesik cümle.
+- Her bulguda: **anahtar + tam metin + önerdiğin doğal Türkçe hâli**. CSV'yi değiştirmezsin.
+
+### 13.4 Asset muayenesi (düzeltilmesi/eklenmesi gereken asset'ler)
+- `docs/EKSIK_ASSET_ENVANTERI.md` zaten bilinen eksikleri listeler; senin işin **oyunda gerçekten göze batanları** sıralamak: hangi yer tutucu (kutu/kapsül/düz renk) oyuncunun en çok gördüğü yerde, hangi model bozuk (13.1), hangi doku düşük çözünürlüklü/esnemiş, hangi ses eksik (log'da sessiz çağrı).
+- Çıktı: tur raporunda "Asset öncelik listesi" tablosu (asset · nerede görünüyor · sorun · öncelik · kanıt görüntüsü). Asset **üretmez/indirmezsin** (asset kuralı); sadece raporlarsın.
