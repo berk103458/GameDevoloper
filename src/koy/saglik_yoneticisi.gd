@@ -92,7 +92,7 @@ static func saglik_kaybi(y: KoyYonetimi, k: Koylu) -> void:
 
 ## Yanık/kış tedavisinden kalan gerçek kontenjan; ikinci Şifahane yok.
 static func tedavi(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
-	for k in y.koylular:
+	for k in KoyYonetimi.SIFAHANE_TRIYAJ.sira(y): # KRI-13 triyaj: en ağır hasta önce
 		if not hasta(k) or not temas_edebilir(y, k): continue
 		var bedel := HekimIlac.tedavi_bedeli(y)
 		if Sifahane.tedavi_kapasitesi(y) <= 0 or not y.kaynaklar.harca(bedel): break

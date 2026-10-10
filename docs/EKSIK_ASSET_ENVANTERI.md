@@ -438,3 +438,5 @@ KRI-11 (Codex, 10 Ekim 2026): asset gerekmedi. Teşhis ibresi mevcut yüz/CHR po
 
 
 KRI-12 (Claude, 10 Ekim 2026): asset gerekmedi. Etki mevcut gece raporu satırı ve köylü sağlık değerini kullanır; yeni görsel, ses, model veya yer tutucu yok.
+
+KRI-13 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut gece raporu satırı ve Şifahane/karantina görünümü kullanılır.
