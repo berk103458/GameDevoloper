@@ -28,6 +28,34 @@ func _ready() -> void:
 	_dongu()
 
 
+## Tester mantık denetimi için: olay/kart metni + o anki köy durumu (iki nüfus kaynağı birlikte).
+## "Olay neye göre çıktı, koşulu gerçekten tutuyor muydu?" sorusu bu satırlardan cevaplanır.
+func _olay_yaz(tur: String, kok: Node) -> void:
+	var yazilar: PackedStringArray = []
+	for c in kok.find_children("*", "", true, false):
+		var t := ""
+		if c is Label: t = (c as Label).text
+		elif c is RichTextLabel: t = (c as RichTextLabel).get_parsed_text()
+		elif c is Button: t = "[" + (c as Button).text + "]"
+		t = t.strip_edges().replace("\n", " ")
+		if t != "": yazilar.append(t)
+	print("OLAY ", tur, " | ", " / ".join(yazilar).left(600))
+	var o := ana.oturum
+	if o == null:
+		return
+	var siniflar := {}
+	for s in o.koy.sayilar:
+		siniflar[s] = o.koy.sayi(s)
+	var y := o.yonetim
+	var yon := {}
+	if y != null:
+		for k in y.koylular:
+			yon[k.sinif] = int(yon.get(k.sinif, 0)) + 1
+	print("DURUM gece=", o.gun, " perde=", o.perde, " koy_toplam=", o.koy.toplam(), " koy_sinif=", siniflar,
+		" yonetim_nufus=", y.nufus() if y != null else -1, " yonetim_sinif=", yon, " akce=", o.akce, " ambar=", o.ambar,
+		" yapi=", y.binalar.size() if y != null else -1)
+
+
 func _foto(ad: String) -> void:
 	if _cekilen.has(ad) or DisplayServer.get_name() == "headless":
 		_cekilen[ad] = true
@@ -97,6 +125,7 @@ func _dongu() -> void:
 			if kart != null and is_instance_valid(kart) and not kart.is_queued_for_deletion():
 				# Rapor, olay ya da olay sonucu kartı: seçeneklerden birine (mini oyunu da oyna).
 				await _foto("04_kart")
+				_olay_yaz("KART", kart)
 				var secim := _dugmeler(kart)
 				if not secim.is_empty():
 					secim[rng.randi_range(0, secim.size() - 1)].pressed.emit()
@@ -158,6 +187,7 @@ func _dongu() -> void:
 				d[rng.randi_range(0, d.size() - 1)].pressed.emit()
 			elif k.evre == &"sira":
 				await _foto("03c_sira_olayi")
+				_olay_yaz("SIRA_OLAYI", k)
 				d[rng.randi_range(0, d.size() - 1)].pressed.emit()
 	print("ZAMAN ASIMI")
 	Ses.cik()
