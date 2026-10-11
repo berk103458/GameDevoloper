@@ -122,3 +122,6 @@ Açılış/eksik commit vakasında kalıcı denetim: tools/acilis_denetimi.py (U
 - Yer tutucuyu gerçek asset gelince tek yerden değiştirilebilecek şekilde kur (tek sahne/kaynak yolu veya sabit), kodun içine dağıtma.
 - İhtiyaç duyduğun her asseti `docs/EKSIK_ASSET_ENVANTERI.md` dosyasına ekle: hangi ROADMAP maddesi için, asset adı ve türü, şu an kullanılan yer tutucunun yolu, arama anahtar kelimeleri (TR+EN), öncelik, ekleyen ajan.
 - **ROADMAP'te bir sonraki adıma geçmeden önce**, bitirdiğin adımın eksik assetlerinin bu dosyaya yazıldığını doğrula ve aynı commit'e dahil et. Asset gerektirmiyorsa commit mesajında veya status dosyanda "asset gerekmedi" yaz. Envanter güncellenmeden adım `[x]` sayılmaz.
+
+## ROADMAP 2 (11 Ekim 2026)
+Aktif i? listesi k?k dizindeki `ROADMAP_2.md`dir; `ROADMAP.md` (ROADMAP 1) tamamland? ve yaln?z okuma referans?d?r. Sahiplik ve s?ra kurallar? `ROADMAP_2.md` ba??ndaki AJAN ?LERLEME PANOSU'ndad?r.

@@ -1,0 +1,519 @@
+# BÖLÜM 32 — Denge yeniden ayarı ve ekonomi ölçümü
+
+Faz 4'ün sonu. Ölçülen sistemler duruyor: çift kasa (EKO-01), tüketim (EKO-09), fiyat (TUC-09), açılış (BUG-21, BUG-22), yaşam barı (YSM), geçici iş (ISG), zar (ZAR), yozlaşma (ODA-04, ODA-12), krizler (KRI), beş son (SYS-20). Bu bölüm onları yeniden kurmaz. Sayıları tek tabloda toplar, ölçer, sapınca tabloyu değiştirir. Kodda yeni sabit yoktur.
+
+Tester planındaki TST-04 ve TST-05 burada tanımlanmaz ve kopyalanmaz. Ölçüm onların persona kimliğini okur.
+
+Odun darlığı (BUG-0018) ayrı bir odun sistemi değildir. BUG-22 tablosunun odun satırıdır.
+
+Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var olan bir formülü ikinci kez yazacağı için konmadı.
+
+## 32.1 Tek ayar tablosu
+
+- [ ] **DEN-01:** Denge sayıları tek dosyadadır.
+  - Ne: zar eşiği, açılış stoku, fiyat çarpanı, kriz aralığı ve zorluk çarpanı `data/ayarlar/denge.json` içindedir. Bu sayılar `.gd` dosyasında sabit değildir.
+  - Kabul: zar eşiği, açılış stoku, fiyat çarpanı, kriz aralığı ve zorluk çarpanı `data/ayarlar/denge.json` içindedir. Bu sayılar `.gd` dosyasında sabit değildir. Test: dosyada olmayan bir denge sayısı tarama ile 0 bulunur.
+  - Bağımlılık: yok. Boyut: M.
+  - Dosya: `data/ayarlar/denge.json`. Okuyanlar mevcut sistemlere tek satır.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-02:** Tablo sürümü kayıtla birlikte durur.
+  - Ne: denge dosyasının sürümü KAY-04 içeriğinden ayrıdır. Eski kayıt yeni tabloyla açılır. Kayıt, tabloyu içine gömmez.
+  - Kabul: denge dosyasının sürümü KAY-04 içeriğinden ayrıdır. Eski kayıt yeni tabloyla açılır. Kayıt, tabloyu içine gömmez. Test: tablo sürümü artınca köylü sayısı değişmez.
+  - Bağımlılık: KAY-04, DEN-01. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-03:** Aralık dışındaki tablo değeri oyunu açmaz.
+  - Ne: doğrulama, her anahtarın alt ve üst sınırına bakar. Sınır dışı değer kırpılmaz. Katalog hatalı olur.
+  - Kabul: doğrulama, her anahtarın alt ve üst sınırına bakar. Sınır dışı değer kırpılmaz. Katalog hatalı olur. Test: negatif fiyat çarpanı, açılış hatası.
+  - Bağımlılık: DEN-01. Boyut: S.
+  - Dosya: `tools/denge_dogrula.py`. Sanity'ye tek satır.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-04:** Zorluk, tabloyu çarpar, ikinci tablo açmaz.
+  - Ne: kolay, olağan ve sıkı yalnız çarpandır. Anahtarlar üç kez yazılmaz.
+  - Kabul: kolay, olağan ve sıkı yalnız çarpandır. Anahtarlar üç kez yazılmaz. Test: olağanda çarpan 1, diğer iki çarpan dosyada.
+  - Bağımlılık: DEN-01. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json` içindeki `zorluk`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-05:** Ölçüm raporu gece hesabını ikinci kez çalıştırmaz.
+  - Ne: rapor, `gece_sonu()` dönüşünü okur. Yeni bir tüketim fonksiyonu yok.
+  - Kabul: rapor, `gece_sonu()` dönüşünü okur. Yeni bir tüketim fonksiyonu yok. Test: bir gecede tüketim fonksiyonu bir kez çağrılır.
+  - Bağımlılık: EKO-15, DEN-01. Boyut: S.
+  - Dosya: `src/sistemler/denge_olcumu.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-06:** Rapor oyuncuya açılmaz.
+  - Ne: ölçüm geliştirme günlüğündedir. Kapı ve köy HUD'unda denge sayısı görünmez.
+  - Kabul: ölçüm geliştirme günlüğündedir. Kapı ve köy HUD'unda denge sayısı görünmez. Test: oyuncu arayüzünde "denge" anahtarı 0.
+  - Bağımlılık: DEN-05. Boyut: S.
+  - Dosya: `src/sistemler/denge_olcumu.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-07:** Tablo anahtarı Türkçe harf taşımaz.
+  - Ne: anahtar ASCII snake_case'dir. İçerik hattındaki id kuralı geçerlidir.
+  - Kabul: anahtar ASCII snake_case'dir. İçerik hattındaki id kuralı geçerlidir. Test: `odun_carpani` geçer, `odun çarpanı` reddedilir.
+  - Bağımlılık: DEN-03. Boyut: S.
+  - Dosya: `tools/denge_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-08:** Eksik anahtar, kod içi yedek sayı kullanmaz.
+  - Ne: anahtar yoksa oyun açılmaz. Sessiz varsayılan yoktur.
+  - Kabul: anahtar yoksa oyun açılmaz. Sessiz varsayılan yoktur. Test: silinmiş `baslangic_odun`, açılış hatası.
+  - Bağımlılık: DEN-03. Boyut: S.
+  - Dosya: `tools/denge_dogrula.py`.
+  - Asset: asset gerekmedi.
+
+## 32.2 Açılış stoku ve odun
+
+- [ ] **DEN-09:** Açılış stoku BUG-22 tablosudur.
+  - Ne: ikinci bir başlangıç dosyası yok. `denge.json` BUG-22'nin okuduğu sayıları gösterir.
+  - Kabul: ikinci bir başlangıç dosyası yok. `denge.json` BUG-22'nin okuduğu sayıları gösterir. Test: iki dosyada farklı odun sayısı varsa doğrulayıcı hata verir.
+  - Bağımlılık: BUG-22, DEN-01. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json`, `data/ayarlar/koy.tres`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-10:** Odun darlığı ölçülür.
+  - Ne: BUG-0018, ilk 10 gecede odunun sıfıra düşüp ateşin kesildiği koşudur. Beş açılış sırasının (BUG-22) hiçbiri bu koşula girmez.
+  - Kabul: BUG-0018, ilk 10 gecede odunun sıfıra düşüp ateşin kesildiği koşudur. Beş açılış sırasının (BUG-22) hiçbiri bu koşula girmez. Test: beş sıra, 10 gece, odun 0 gün sayısı 0.
+  - Bağımlılık: BUG-22, EKO-02, MEV-11. Boyut: M.
+  - Dosya: `tests/oto/acilis_denge_kontrol.tscn` genişler.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-11:** Taş yatağı ikinci kez yazılmaz.
+  - Ne: 20 taş ve kurtarıcı yatak BUG-21'dir. Bu bölüm o sayıyı ölçer, yeni yatak eklemez.
+  - Kabul: 20 taş ve kurtarıcı yatak BUG-21'dir. Bu bölüm o sayıyı ölçer, yeni yatak eklemez. Test: yatak sayısı oyun başında 1, kurtarıcı tavanı 3.
+  - Bağımlılık: BUG-21. Boyut: S.
+  - Dosya: `tests/oto/acilis_denge_kontrol.tscn`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-12:** Kış açılışı yaz açılışından ayrı ölçülür.
+  - Ne: MEV-01 kışında ilk 10 gecenin odun dibi yazdaki dibin altındadır. Altında kalması tabloda yazılı bir farktır.
+  - Kabul: MEV-01 kışında ilk 10 gecenin odun dibi yazdaki dibin altındadır. Altında kalması tabloda yazılı bir farktır. Test: iki mevsim, fark tabloya uyar.
+  - Bağımlılık: MEV-11, DEN-10. Boyut: M.
+  - Dosya: `data/ayarlar/denge.json` `kis_odun_farki`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-13:** İlk hafta erzak, nüfus çarpı gece artı paydır.
+  - Ne: açılış erzağı, evdeki kişi sayısı çarpı 7 artı tablodaki paydır. Pay kodda sabit değildir.
+  - Kabul: açılış erzağı, evdeki kişi sayısı çarpı 7 artı tablodaki paydır. Pay kodda sabit değildir. Test: 2 kişilik açılışta erzak formüle eşittir.
+  - Bağımlılık: ACL-01, EKO-09. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-14:** Açılışta akçe iki kasada da tablodadır.
+  - Ne: köy akçesi ve muhafız akçesi ayrı satırdır. Göç onları birbirine katmaz (KAY-45).
+  - Kabul: köy akçesi ve muhafız akçesi ayrı satırdır. Göç onları birbirine katmaz (KAY-45). Test: iki satır, toplam kodda yazılmaz.
+  - Bağımlılık: EKO-01, DEN-01. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-15:** Hızarhane, iki çadır ve tarla sırası kilitlenmez.
+  - Ne: BUG-22'nin bu sırası 10 gün içinde taş ocağına gider. Odun o sırada 0 olmaz (DEN-10).
+  - Kabul: BUG-22'nin bu sırası 10 gün içinde taş ocağına gider. Odun o sırada 0 olmaz (DEN-10). Test: tek senaryo, iki koşul.
+  - Bağımlılık: DEN-10, BUG-21. Boyut: S.
+  - Dosya: `tests/oto/acilis_denge_kontrol.tscn`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-16:** Açılış ölçümü 20 geceyi geçer.
+  - Ne: beş sıra 20 gece çökmeden biter. Bu, BUG-22 kabulünün ölçüm kopyasıdır. Yeni otomatik oyuncu yazılmaz.
+  - Kabul: beş sıra 20 gece çökmeden biter. Bu, BUG-22 kabulünün ölçüm kopyasıdır. Yeni otomatik oyuncu yazılmaz. Test: mevcut senaryo yeşil.
+  - Bağımlılık: BUG-22. Boyut: S.
+  - Dosya: `tests/oto/acilis_denge_kontrol.tscn`.
+  - Asset: asset gerekmedi.
+
+## 32.3 Zarın ekonomiye yazılması
+
+- [ ] **DEN-17:** Zar formülü ZAR-01'de kalır.
+  - Ne: denge dosyası eşikleri okur, formülü yeniden yazmaz.
+  - Kabul: denge dosyası eşikleri okur, formülü yeniden yazmaz. Test: dosyadaki eşik ile `sorgu_kurallari.tres` aynı sayıdır. Farklıysa doğrulayıcı hata verir.
+  - Bağımlılık: ZAR-01, DEN-03. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json`, `data/chr_runtime/sorgu_kurallari.tres`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-18:** Başarılı ikna, rüşveti azaltan bir çarpan değildir.
+  - Ne: zar sonucu kasaya yazılmaz. Kasa, karar matrisinden yazar (KOP-10).
+  - Kabul: zar sonucu kasaya yazılmaz. Kasa, karar matrisinden yazar (KOP-10). Test: 100 başarılı zar, kasa yalnız matris kadar değişir.
+  - Bağımlılık: KOP-10, ZAR-01. Boyut: S.
+  - Dosya: `src/sistemler/denge_olcumu.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-19:** Kaçan kişinin ekonomik bedeli ölçülür.
+  - Ne: ZAR-03 kaçışı, o kişinin kabul matrisindeki erzak satırının tersi değildir. Bedel, tablodaki tek satırdır: kaçan kişi başına dedikodu, kasa değil.
+  - Kabul: ZAR-03 kaçışı, o kişinin kabul matrisindeki erzak satırının tersi değildir. Bedel, tablodaki tek satırdır: kaçan kişi başına dedikodu, kasa değil. Test: kaçışta `muhafiz_akce` değişmez.
+  - Bağımlılık: ZAR-03, DIY-13. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-20:** d6 ve d12 aynı ekonomik kapıyı kullanır.
+  - Ne: yüzün türü zorluğu değiştirir, kasaya ayrı çarpan yazmaz.
+  - Kabul: yüzün türü zorluğu değiştirir, kasaya ayrı çarpan yazmaz. Test: aynı karar, iki zar türü, kasa farkı 0.
+  - Bağımlılık: ZAR-01, DEN-18. Boyut: S.
+  - Dosya: `tests/unit/denge/zar_kasa_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-21:** Değiştirici listesi ekonomi üretmez.
+  - Ne: ZAR-04 değiştiricisi yalnız gereken sayıyı değiştirir. Akçe satırı yoktur.
+  - Kabul: ZAR-04 değiştiricisi yalnız gereken sayıyı değiştirir. Akçe satırı yoktur. Test: asker yanındayken kasa aynı kararda aynıdır.
+  - Bağımlılık: ZAR-04. Boyut: S.
+  - Dosya: `tests/unit/denge/zar_kasa_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-22:** Yüz başarısız zarın gece raporu tek satırdır.
+  - Ne: rapor, o gecenin başarısız zar sayısını yazar. Her zar için ayrı ekonomik satır açmaz.
+  - Kabul: rapor, o gecenin başarısız zar sayısını yazar. Her zar için ayrı ekonomik satır açmaz. Test: 3 başarısızlık, raporda bir sayı.
+  - Bağımlılık: EKO-15, ZAR-01. Boyut: S.
+  - Dosya: `src/sistemler/denge_olcumu.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-23:** Tansiyon eki üç kademedir.
+  - Ne: sakin, gergin, panik ekleri ZAR-01 kararındaki 0, 1, 2'dir. Denge dosyası bu üç sayıyı tekrar tanımlamaz, okur.
+  - Kabul: sakin, gergin, panik ekleri ZAR-01 kararındaki 0, 1, 2'dir. Denge dosyası bu üç sayıyı tekrar tanımlamaz, okur. Test: dosyada ikinci bir ek anahtarı yoktur.
+  - Bağımlılık: ZAR-01, DEN-17. Boyut: S.
+  - Dosya: `tools/denge_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-24:** Ölçüm, 10.000 atışın dağılım kapısını yeniden koymaz.
+  - Ne: ZAR-01'in ±%2 testi durur. Bu bölüm o testi çağırır, eşiği değiştirmez.
+  - Kabul: ZAR-01'in ±%2 testi durur. Bu bölüm o testi çağırır, eşiği değiştirmez. Test: mevcut zar testi yeşil.
+  - Bağımlılık: ZAR-01. Boyut: S.
+  - Dosya: mevcut zar testi.
+  - Asset: asset gerekmedi.
+
+## 32.4 Yaşam barı ve üretim
+
+- [ ] **DEN-25:** Açlık kademesi YSM-02'dir.
+  - Ne: yüzde 20, yüzde 50 ve yatar eşikleri o maddeden okunur. Denge dosyası aynı sayıyı ikinci kez yazarsa doğrulayıcı hata verir.
+  - Kabul: yüzde 20, yüzde 50 ve yatar eşikleri o maddeden okunur. Denge dosyası aynı sayıyı ikinci kez yazarsa doğrulayıcı hata verir. Test: tek eşik kaynağı.
+  - Bağımlılık: YSM-02, DEN-03. Boyut: S.
+  - Dosya: `tools/denge_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-26:** İki günü aşan açlık üretimi sıfırlar.
+  - Ne: YSM-02'nin yatar hali, o gecenin üretim satırında 0 yazar. İkinci bir ceza çarpanı eklenmez.
+  - Kabul: YSM-02'nin yatar hali, o gecenin üretim satırında 0 yazar. İkinci bir ceza çarpanı eklenmez. Test: 3. aç gün, üretim 0.
+  - Bağımlılık: YSM-02. Boyut: S.
+  - Dosya: `tests/unit/denge/aclik_uretim_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-27:** Erzak eşiği KRI-12 ile aynıdır.
+  - Ne: erzak 3 gecenin altına inince sağlık eşiği KRI-12'dedir. Denge bunu ölçer, eşiği kopyalamaz.
+  - Kabul: erzak 3 gecenin altına inince sağlık eşiği KRI-12'dedir. Denge bunu ölçer, eşiği kopyalamaz. Test: eşik sayısı bir.
+  - Bağımlılık: KRI-12, YSM-01. Boyut: S.
+  - Dosya: `tools/denge_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-28:** Yataksız uyku YSM-03'tür.
+  - Ne: açıkta kalanın yorgunluğu yarım düşer. Bu bölüm yeni bir uyku formülü yazmaz.
+  - Kabul: açıkta kalanın yorgunluğu yarım düşer. Bu bölüm yeni bir uyku formülü yazmaz. Test: yataklı ve yataksız fark, YSM-03 kabulüne uyar.
+  - Bağımlılık: YSM-03, ACL-05. Boyut: S.
+  - Dosya: `tests/unit/denge/aclik_uretim_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-29:** Yirmi günlük aç köy ölçülür.
+  - Ne: erzak 0 ile başlayan 20 gecede ölüm sayısı tablodaki alt ve üst sınırın içindedir. Sınır dosyadadır.
+  - Kabul: erzak 0 ile başlayan 20 gecede ölüm sayısı tablodaki alt ve üst sınırın içindedir. Sınır dosyadadır. Test: 20 gece, sayı aralıkta.
+  - Bağımlılık: EKO-09, YSM-02, DEN-01. Boyut: M.
+  - Dosya: `data/ayarlar/denge.json` `aclik_olum_aralik`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-30:** Tok köyde üretim taban çizgidir.
+  - Ne: erzak bolken 20 gecenin üretimi, aç köy ölçüsünün üstündedir. İki ölçüm aynı tohumdadır.
+  - Kabul: erzak bolken 20 gecenin üretimi, aç köy ölçüsünün üstündedir. İki ölçüm aynı tohumdadır. Test: tok üretim > aç üretim.
+  - Bağımlılık: DEN-29. Boyut: S.
+  - Dosya: `tests/unit/denge/aclik_uretim_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-31:** Bar, ikinci gece hesabı açmaz.
+  - Ne: YSM-01, KRI-12 hesabını okur. Denge raporu da onu okur.
+  - Kabul: YSM-01, KRI-12 hesabını okur. Denge raporu da onu okur. Test: sağlık fonksiyonu gecede bir kez.
+  - Bağımlılık: YSM-01, DEN-05. Boyut: S.
+  - Dosya: `src/sistemler/denge_olcumu.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-32:** Ölüm, cenaze sistemine gider.
+  - Ne: açlıktan ölen kişi KRI-05 kuyruğuna yazılır. Bu bölüm ayrı mezar açmaz.
+  - Kabul: açlıktan ölen kişi KRI-05 kuyruğuna yazılır. Bu bölüm ayrı mezar açmaz. Test: ölüm sayısı ile cenaze kuyruğu eşit.
+  - Bağımlılık: KRI-05, DEN-29. Boyut: S.
+  - Dosya: `tests/unit/denge/aclik_uretim_test.gd`.
+  - Asset: asset gerekmedi.
+
+## 32.5 Meslek ve boşta kalan
+
+- [ ] **DEN-33:** Meslek uyarısı ISG-01'dir.
+  - Ne: atölyesiz kumaşçı uyarısı o maddede kalır. Denge, uyarının göründüğü gece sayısını ölçer. Yeni uyarı metni yazmaz.
+  - Kabul: atölyesiz kumaşçı uyarısı o maddede kalır. Denge, uyarının göründüğü gece sayısını ölçer. Yeni uyarı metni yazmaz. Test: atölyesiz 10 gece, uyarı en az 1.
+  - Bağımlılık: ISG-01. Boyut: S.
+  - Dosya: `src/sistemler/denge_olcumu.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-34:** Geçici işin verimi tablodadır.
+  - Ne: ISG-02 verimleri `gecici_isler.json` içindedir. `denge.json` aynı sayıyı kopyalamaz, yolu yazar.
+  - Kabul: ISG-02 verimleri `gecici_isler.json` içindedir. `denge.json` aynı sayıyı kopyalamaz, yolu yazar. Test: kopya sayı varsa hata.
+  - Bağımlılık: ISG-02, DEN-03. Boyut: S.
+  - Dosya: `tools/denge_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-35:** Boşta üç gün, terk isteği ISG-03'tür.
+  - Ne: eşik o maddede kalır. Ölçüm, 20 gecede terk isteği sayısının aralıkta olduğunu söyler. Aralık dosyadadır.
+  - Kabul: eşik o maddede kalır. Ölçüm, 20 gecede terk isteği sayısının aralıkta olduğunu söyler. Aralık dosyadadır. Test: 3 kişilik boş köy, sayı aralıkta.
+  - Bağımlılık: ISG-03, DEN-01. Boyut: M.
+  - Dosya: `data/ayarlar/denge.json` `bosta_terk_aralik`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-36:** Nitelikli iş, geçici işten çok üretir.
+  - Ne: atölyeli kumaşçının gecelik çıktısı, aynı kişinin geçici iş çıktısının üstündedir. Fark tabloda bir orandır.
+  - Kabul: atölyeli kumaşçının gecelik çıktısı, aynı kişinin geçici iş çıktısının üstündedir. Fark tabloda bir orandır. Test: oran tutulur.
+  - Bağımlılık: ISG-01, ISG-02, UZM-03. Boyut: M.
+  - Dosya: `data/ayarlar/denge.json`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-37:** Eşin mesleği demirhaneye yazılmaz.
+  - Ne: ACL-02 listesi dışındaki meslek hâlâ reddedilir. Denge bu listeyi genişletmez.
+  - Kabul: ACL-02 listesi dışındaki meslek hâlâ reddedilir. Denge bu listeyi genişletmez. Test: demirci reddi durur.
+  - Bağımlılık: ACL-02. Boyut: S.
+  - Dosya: mevcut ACL-02 testi.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-38:** Meslek değişiminin bir günlük kaybı durur.
+  - Ne: ACL-02'deki 1 gün verimsizlik ölçülür, uzatılmaz.
+  - Kabul: ACL-02'deki 1 gün verimsizlik ölçülür, uzatılmaz. Test: değişim günü üretim, ertesi günden düşüktür.
+  - Bağımlılık: ACL-02. Boyut: S.
+  - Dosya: `tests/unit/denge/meslek_verim_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-39:** Çırak beş günde yarım usta olur.
+  - Ne: UZM-04 süresi değişmez. Ölçüm, 5. günde verimin ara basamakta olduğunu doğrular.
+  - Kabul: UZM-04 süresi değişmez. Ölçüm, 5. günde verimin ara basamakta olduğunu doğrular. Test: 4. gün ara basamak değil, 5. gün odur.
+  - Bağımlılık: UZM-04. Boyut: S.
+  - Dosya: `tests/unit/denge/meslek_verim_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-40:** Boştaki vasıfsız, salgında ot toplar.
+  - Ne: KRI-15 kuralı durur. Denge, salgınsız günde ot toplanmadığını ölçer.
+  - Kabul: KRI-15 kuralı durur. Denge, salgınsız günde ot toplanmadığını ölçer. Test: salgın yok, afyon 0.
+  - Bağımlılık: KRI-15. Boyut: S.
+  - Dosya: `tests/unit/denge/meslek_verim_test.gd`.
+  - Asset: asset gerekmedi.
+
+## 32.6 Rüşvet ve yozlaşma
+
+- [ ] **DEN-41:** Rüşvet kişisel kasaya gider.
+  - Ne: EKO-01 ayrımı durur. Ölçüm, rüşvetin köy akçesine yazılmadığını 20 kararda doğrular.
+  - Kabul: EKO-01 ayrımı durur. Ölçüm, rüşvetin köy akçesine yazılmadığını 20 kararda doğrular. Test: köy akçesi sabit, kişisel kasa artar.
+  - Bağımlılık: EKO-01, KOP-10. Boyut: S.
+  - Dosya: `tests/unit/denge/rusvet_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-42:** Rüşvetin akçe tavanı matriste kalır.
+  - Ne: KVR kıskacı −4…+4 stat içindir. Akçe tavanı karakter matrisindedir, denge dosyasında ikinci tavan yoktur.
+  - Kabul: KVR kıskacı −4…+4 stat içindir. Akçe tavanı karakter matrisindedir, denge dosyasında ikinci tavan yoktur. Test: matris 3 ise kasa +3, dosyada ayrı tavan anahtarı yok.
+  - Bağımlılık: KOP-10, DEN-08. Boyut: S.
+  - Dosya: `tools/denge_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-43:** Yozlaşma skoru ODA-12'dir.
+  - Ne: rüşvet skoru o sisteme yazar. Yeni terazi açılmaz.
+  - Kabul: rüşvet skoru o sisteme yazar. Yeni terazi açılmaz. Test: bir rüşvet, skor bir kez artar.
+  - Bağımlılık: ODA-12. Boyut: S.
+  - Dosya: `tests/unit/denge/rusvet_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-44:** Yirmi rüşvet, müfettiş eşiğine gider.
+  - Ne: ODA-07 eşiği değişmez. Ölçüm, tablodaki rüşvet sayısında teftiş bayrağının açıldığını söyler. Sayı dosyadadır ve ODA eşiğiyle aynı olmalıdır. Farklıysa hata.
+  - Kabul: ODA-07 eşiği değişmez. Ölçüm, tablodaki rüşvet sayısında teftiş bayrağının açıldığını söyler. Sayı dosyadadır ve ODA eşiğiyle aynı olmalıdır. Farklıysa hata. Test: eşik eşitliği.
+  - Bağımlılık: ODA-07, DEN-03. Boyut: M.
+  - Dosya: `tools/denge_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-45:** Adil uçta rüşvet reddi kasayı büyütmez.
+  - Ne: ret, kişisel kasaya 0 yazar. Ölçüm bunu 20 rette doğrular.
+  - Kabul: ret, kişisel kasaya 0 yazar. Ölçüm bunu 20 rette doğrular. Test: kasa deltası 0.
+  - Bağımlılık: DEN-41. Boyut: S.
+  - Dosya: `tests/unit/denge/rusvet_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-46:** Haraç yeteneği ODA-05'tir.
+  - Ne: günlük esnaf haraç o yetenekte kalır. Denge yeni bir vergi icat etmez.
+  - Kabul: günlük esnaf haraç o yetenekte kalır. Denge yeni bir vergi icat etmez. Test: yetenek kapalıyken haraç 0.
+  - Bağımlılık: ODA-05. Boyut: S.
+  - Dosya: `tests/unit/denge/rusvet_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-47:** Rüşvet ekonomisi 28 günde aralıktadır.
+  - Ne: olağan zorlukta, rüşveti kabul eden otomatik oyuncunun kişisel kasası tablodaki alt ve üst sınırdadır.
+  - Kabul: olağan zorlukta, rüşveti kabul eden otomatik oyuncunun kişisel kasası tablodaki alt ve üst sınırdadır. Test: 28 gece, kasa aralıkta.
+  - Bağımlılık: DEN-04, DEN-41. Boyut: M.
+  - Dosya: `data/ayarlar/denge.json` `rusvet_kasa_aralik`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-48:** Rüşveti reddeden oyuncu aynı 28 günde iflas etmez.
+  - Ne: ret oyuncusunun köy akçesi 3 gece üst üste eksi olmaz (EKO-10 eşiği).
+  - Kabul: ret oyuncusunun köy akçesi 3 gece üst üste eksi olmaz (EKO-10 eşiği). Test: 28 gece, iflas olayı 0.
+  - Bağımlılık: EKO-10, DEN-47. Boyut: M.
+  - Dosya: `tests/oto/denge_persona.tscn`.
+  - Asset: asset gerekmedi.
+
+## 32.7 Fiyat eğrisi
+
+- [ ] **DEN-49:** Fiyat TUC-09'dur.
+  - Ne: kış çarpanı o maddede kalır. Denge dosyası aynı çarpanı kopyalamaz.
+  - Kabul: kış çarpanı o maddede kalır. Denge dosyası aynı çarpanı kopyalamaz. Test: tek kış çarpanı.
+  - Bağımlılık: TUC-09, DEN-03. Boyut: S.
+  - Dosya: `tools/denge_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-50:** Kış odunu yaz odunundan pahalıdır.
+  - Ne: ölçülen fiyat, TUC-09 çarpanına uyar. Sapma yüzde 0'dır, çünkü çarpan tek kaynaktır.
+  - Kabul: ölçülen fiyat, TUC-09 çarpanına uyar. Sapma yüzde 0'dır, çünkü çarpan tek kaynaktır. Test: kış fiyatı = yaz fiyatı çarpı çarpan.
+  - Bağımlılık: TUC-09, MEV-01. Boyut: S.
+  - Dosya: `tests/unit/denge/fiyat_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-51:** Erzak bitince fiyat tavandadır.
+  - Ne: tavan TUC-09 tablosundadır. Bu bölüm tavanı yükseltmez.
+  - Kabul: tavan TUC-09 tablosundadır. Bu bölüm tavanı yükseltmez. Test: erzak 0, fiyat tavan, tavanın üstü yok.
+  - Bağımlılık: TUC-09. Boyut: S.
+  - Dosya: `tests/unit/denge/fiyat_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-52:** Oyuncu satışı iki kasaya ayrı yazılır.
+  - Ne: TUC-10 resmi satış köy akçesine, kişisel satış muhafız akçesine gider. Ölçüm karışmayı 10 satışta arar.
+  - Kabul: TUC-10 resmi satış köy akçesine, kişisel satış muhafız akçesine gider. Ölçüm karışmayı 10 satışta arar. Test: karışma 0.
+  - Bağımlılık: TUC-10, EKO-01. Boyut: S.
+  - Dosya: `tests/unit/denge/fiyat_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-53:** Sözleşme cezası TUC-07'dir.
+  - Ne: gecikme faizi o maddede kalır. Denge faizi ikinci kez tanımlamaz.
+  - Kabul: gecikme faizi o maddede kalır. Denge faizi ikinci kez tanımlamaz. Test: tek faiz anahtarı.
+  - Bağımlılık: TUC-07, DEN-03. Boyut: S.
+  - Dosya: `tools/denge_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-54:** Yirmi sekiz günde tüccar iflası aralıktadır.
+  - Ne: olağan oyunda EKO-10 iflası tablodaki alt ve üst sayıdadır. Alt sınır 0 olabilir.
+  - Kabul: olağan oyunda EKO-10 iflası tablodaki alt ve üst sayıdadır. Alt sınır 0 olabilir. Test: 28 gece, sayı aralıkta.
+  - Bağımlılık: EKO-10, TUC-09. Boyut: M.
+  - Dosya: `data/ayarlar/denge.json` `iflas_aralik`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-55:** Fiyat, gece raporunda kaynağıyla durur.
+  - Ne: EKO-15 bilançosu kış çarpanını ayrı satır yazar. Yeni bilanço yoktur.
+  - Kabul: EKO-15 bilançosu kış çarpanını ayrı satır yazar. Yeni bilanço yoktur. Test: kış gecesinde satır var, yaz gecesinde yok.
+  - Bağımlılık: EKO-15, TUC-09. Boyut: S.
+  - Dosya: mevcut bilanço.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-56:** Karaborsa fiyatı kişisel kasadadır.
+  - Ne: TUC-11 alışı `muhafiz_akce` düşer. Köy akçesi düşmez.
+  - Kabul: TUC-11 alışı `muhafiz_akce` düşer. Köy akçesi düşmez. Test: bir alış, iki kasa.
+  - Bağımlılık: TUC-11. Boyut: S.
+  - Dosya: `tests/unit/denge/fiyat_test.gd`.
+  - Asset: asset gerekmedi.
+
+## 32.8 Kriz sıklığı
+
+- [ ] **DEN-57:** Kriz listesi KRI maddeleridir.
+  - Ne: salgın, kıtlık, kundak, zehir, isyan ayrı sistem olarak durur. Denge yalnız aralık yazar: 28 günde en az ve en çok kaç kriz.
+  - Kabul: salgın, kıtlık, kundak, zehir, isyan ayrı sistem olarak durur. Denge yalnız aralık yazar: 28 günde en az ve en çok kaç kriz. Test: aralık dosyada, kriz kodu dosyada değil.
+  - Bağımlılık: DEN-01. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json` `kriz_aralik`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-58:** İlk 14 gün tehdit BUG-18'dir.
+  - Ne: pusu, çete, casus ve sabotaj o günden önce 0'dır. Denge bu kapıyı gevşetmez.
+  - Kabul: pusu, çete, casus ve sabotaj o günden önce 0'dır. Denge bu kapıyı gevşetmez. Test: 13. gün tehdit 0.
+  - Bağımlılık: BUG-18. Boyut: S.
+  - Dosya: mevcut BUG-18 testi.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-59:** 28 günde kriz sayısı aralıktadır.
+  - Ne: olağan zorluk, sabit tohumla 28 gecede kriz sayısı alt ve üst arasındadır.
+  - Kabul: olağan zorluk, sabit tohumla 28 gecede kriz sayısı alt ve üst arasındadır. Test: 20 tohumun en az 16'sı aralıkta.
+  - Bağımlılık: DEN-57, DEN-04. Boyut: M.
+  - Dosya: `tests/oto/denge_kriz.tscn`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-60:** İki kriz aynı gece tek rapordadır.
+  - Ne: KRI-10 üst üste binmeyi zaten bilir. Ölçüm, aynı gecede iki kriz satırının tek raporda durduğunu söyler. Yeni birleştirici yok.
+  - Kabul: KRI-10 üst üste binmeyi zaten bilir. Ölçüm, aynı gecede iki kriz satırının tek raporda durduğunu söyler. Yeni birleştirici yok. Test: iki kriz, rapor başlığı bir.
+  - Bağımlılık: KRI-10. Boyut: S.
+  - Dosya: `tests/oto/denge_kriz.tscn`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-61:** Kıtlık, erzak 0 ile ölçülür.
+  - Ne: KRI-06 iki gece 0 kuralı değişmez. Ölçüm, eşiğin bir geceye inmediğini doğrular.
+  - Kabul: KRI-06 iki gece 0 kuralı değişmez. Ölçüm, eşiğin bir geceye inmediğini doğrular. Test: 1 gece 0, isyan yok. 2 gece 0, isyan var.
+  - Bağımlılık: KRI-06. Boyut: S.
+  - Dosya: `tests/oto/denge_kriz.tscn`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-62:** Salgın, kapı teşhisi olmadan kendiliğinden başlamaz.
+  - Ne: KRI-01 ve KRI-11 durur. Denge, teşhis kapalı bir kayıtta 28 günde salgın 0 ölçer.
+  - Kabul: KRI-01 ve KRI-11 durur. Denge, teşhis kapalı bir kayıtta 28 günde salgın 0 ölçer. Test: teşhissiz 28 gece.
+  - Bağımlılık: KRI-01, KRI-11. Boyut: M.
+  - Dosya: `tests/oto/denge_kriz.tscn`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-63:** Sıkı zorluk kriz aralığını yükseltir.
+  - Ne: DEN-04 çarpanı alt ve üst sınırı birlikte kaydırır. Olağanın üst sınırı, sıkının alt sınırından büyüktür.
+  - Kabul: DEN-04 çarpanı alt ve üst sınırı birlikte kaydırır. Olağanın üst sınırı, sıkının alt sınırından büyüktür. Test: iki aralık kesişmez.
+  - Bağımlılık: DEN-04, DEN-57. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-64:** Kriz ölçümü Moğol sayacını ilerletmez.
+  - Ne: HAR-02 kendi günündedir. Kriz sayacı ona yazmaz.
+  - Kabul: HAR-02 kendi günündedir. Kriz sayacı ona yazmaz. Test: 28 gece kriz ölçümü, Moğol kalan günü takvim kadar azalır, fazlası yok.
+  - Bağımlılık: HAR-02, DEN-59. Boyut: S.
+  - Dosya: `tests/oto/denge_kriz.tscn`.
+  - Asset: asset gerekmedi.
+
+## 32.9 Zorluk
+
+- [ ] **DEN-65:** Üç zorluk vardır.
+  - Ne: kolay, olağan, sıkı. Dördüncü ad yazılırsa doğrulayıcı hata verir.
+  - Kabul: kolay, olağan, sıkı. Dördüncü ad yazılırsa doğrulayıcı hata verir. Test: üç anahtar.
+  - Bağımlılık: DEN-04. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-66:** Zorluk yeni oyunda seçilir.
+  - Ne: seçim açılıştadır. Kayıtta tek alan. Yüklemede değişmez.
+  - Kabul: seçim açılıştadır. Kayıtta tek alan. Yüklemede değişmez. Test: sıkı kayıt, yüklemede sıkı.
+  - Bağımlılık: DEN-65, KAY-03. Boyut: S.
+  - Dosya: `src/sistemler/acilis_senaryosu.gd` tek alan.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-67:** Zorluk zar formülünü değiştirmez.
+  - Ne: ZAR-01 eşikleri üç zorlukta da aynıdır. Zorluk gelen sayısını, kriz aralığını ve fiyat çarpanını değiştirir.
+  - Kabul: ZAR-01 eşikleri üç zorlukta da aynıdır. Zorluk gelen sayısını, kriz aralığını ve fiyat çarpanını değiştirir. Test: gerekli zar sayısı iki zorlukta eşit.
+  - Bağımlılık: ZAR-01, DEN-65. Boyut: S.
+  - Dosya: `tests/unit/denge/zorluk_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-68:** Kolay, ilk 10 günde odun bitirmez.
+  - Ne: DEN-10 koşulu kolayda da 0'dır. Kolay, odunu sonsuz yapmaz.
+  - Kabul: DEN-10 koşulu kolayda da 0'dır. Kolay, odunu sonsuz yapmaz. Test: 10 gece, odun dibi 0 değil.
+  - Bağımlılık: DEN-10, DEN-65. Boyut: S.
+  - Dosya: `tests/oto/acilis_denge_kontrol.tscn`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-69:** Sıkı, açılış erzağını payın altına indirir.
+  - Ne: DEN-13 payı sıkıda çarpanla küçülür. Pay 1 gecenin altına inmez.
+  - Kabul: DEN-13 payı sıkıda çarpanla küçülür. Pay 1 gecenin altına inmez. Test: sıkı erzak, olağandan küçük, 1 geceden büyük.
+  - Bağımlılık: DEN-13, DEN-04. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-70:** Olağan, ölçümün referansıdır.
+  - Ne: DEN-47, DEN-54 ve DEN-59 olağanda koşar. Kolay ve sıkı ayrı aralık taşır.
+  - Kabul: DEN-47, DEN-54 ve DEN-59 olağanda koşar. Kolay ve sıkı ayrı aralık taşır. Test: üç aralık dosyada.
+  - Bağımlılık: DEN-65. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-71:** Zorluk, son kimliğini değiştirmez.
+  - Ne: SYS-20 beş sonu üç zorlukta da aynı kimliklerdir. Sıkı altıncı son açmaz.
+  - Kabul: SYS-20 beş sonu üç zorlukta da aynı kimliklerdir. Sıkı altıncı son açmaz. Test: son kümesi eşit.
+  - Bağımlılık: SYS-20, DEN-65. Boyut: S.
+  - Dosya: `tests/unit/denge/zorluk_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-72:** Zorluk menüsü Bölüm 35 ve 43'e kalır.
+  - Ne: bu bölüm seçimin verisini yazar. Yazı boyutu, sekme ve panel burada yoktur.
+  - Kabul: bu bölüm seçimin verisini yazar. Yazı boyutu, sekme ve panel burada yoktur. Test: bu dosyada arayüz maddesi 0.
+  - Bağımlılık: DEN-66. Boyut: S.
+  - Dosya: `data/ayarlar/denge.json`.
+  - Asset: asset gerekmedi.
+
+## 32.10 Son dağılımı ve persona
+
+- [ ] **DEN-73:** Beş sonun hedef aralığı vardır.
+  - Ne: 100 otomatik oyun, her son tablodaki alt ve üst yüzde arasındadır. Yüzdelerin toplamı 100'dür. Altıncı son 0'dır.
+  - Kabul: 100 otomatik oyun, her son tablodaki alt ve üst yüzde arasındadır. Yüzdelerin toplamı 100'dür. Altıncı son 0'dır. Test: toplam 100, altıncı 0.
+  - Bağımlılık: SYS-20, DEN-01. Boyut: M.
+  - Dosya: `data/ayarlar/denge.json` `son_aralik`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-74:** İflas ve yıkım ayrı sayılır.
+  - Ne: EKO-10 iflası bir son değildir. Son dağılımına karışmaz.
+  - Kabul: EKO-10 iflası bir son değildir. Son dağılımına karışmaz. Test: iflaslı oyun, son kimliği hâlâ beşten biridir veya oyun sürmektedir.
+  - Bağımlılık: EKO-10, DEN-73. Boyut: S.
+  - Dosya: `tests/oto/denge_persona.tscn`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-75:** TST-04 personası burada tanımlanmaz.
+  - Ne: ölçüm, Tester TST-04 kimliğini okur. O maddenin adımları bu dosyada yoktur. Kimlik yoksa ölçüm durur, uydurma persona yazılmaz.
+  - Kabul: ölçüm, Tester TST-04 kimliğini okur. O maddenin adımları bu dosyada yoktur. Kimlik yoksa ölçüm durur, uydurma persona yazılmaz. Test: kimlik listesi TST dosyasıyla aynıdır.
+  - Bağımlılık: DEN-05. Boyut: S.
+  - Dosya: `src/sistemler/denge_olcumu.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-76:** TST-05 sonuç ölçüsü burada tanımlanmaz.
+  - Ne: son dağılımı TST-05'in sayacını okur. İkinci bir son sayacı yazılmaz.
+  - Kabul: son dağılımı TST-05'in sayacını okur. İkinci bir son sayacı yazılmaz. Test: sayaç bir.
+  - Bağımlılık: DEN-73, SYS-20. Boyut: S.
+  - Dosya: `src/sistemler/denge_olcumu.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-77:** Dört oyuncu tipi dört dağılım verir.
+  - Ne: tipler DEN-75 kimlikleridir. Rüşvetçi, reddeden, aç ve tok ayrı 28 gece koşar. Dörder dağılım tabloda ayrı satırdır.
+  - Kabul: tipler DEN-75 kimlikleridir. Rüşvetçi, reddeden, aç ve tok ayrı 28 gece koşar. Dörder dağılım tabloda ayrı satırdır. Test: dört satır, birbirinin kopyası değil.
+  - Bağımlılık: DEN-75, DEN-47, DEN-48. Boyut: L.
+  - Dosya: `tests/oto/denge_persona.tscn`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-78:** Aynı tohum aynı sonu verir.
+  - Ne: persona ve zorluk sabitse 2 koşu aynı son kimliğindedir.
+  - Kabul: persona ve zorluk sabitse 2 koşu aynı son kimliğindedir. Test: çift koşu.
+  - Bağımlılık: DEN-73, KAY-19. Boyut: S.
+  - Dosya: `tests/oto/denge_persona.tscn`.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-79:** Ölçüm 100 oyunu bir gecede bitirir.
+  - Ne: headless paket, SYS-10 dumanının üstüne 100 kısa oyun ekler. Süre raporda. Yeni tavan uydurulmaz. Paket kırmızıysa birleşme yok.
+  - Kabul: headless paket, SYS-10 dumanının üstüne 100 kısa oyun ekler. Süre raporda. Yeni tavan uydurulmaz. Paket kırmızıysa birleşme yok. Test: 100 koşu biter.
+  - Bağımlılık: SYS-10, DEN-73. Boyut: M.
+  - Dosya: `tools/sanity_check.py` tek satır.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-80:** Sapma, tabloyu kendisi değiştirmez.
+  - Ne: aralık dışındaki ölçüm rapor yazar. `denge.json` oyun sırasında yazılmaz. Değişiklik insan eliyledir.
+  - Kabul: aralık dışındaki ölçüm rapor yazar. `denge.json` oyun sırasında yazılmaz. Değişiklik insan eliyledir. Test: sapmalı koşu, dosya baytı aynı.
+  - Bağımlılık: DEN-06, DEN-73. Boyut: S.
+  - Dosya: `src/sistemler/denge_olcumu.gd`.
+  - Asset: asset gerekmedi.

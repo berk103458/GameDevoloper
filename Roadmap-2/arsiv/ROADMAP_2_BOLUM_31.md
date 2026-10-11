@@ -1,0 +1,471 @@
+# BÖLÜM 31 — Kayıt uyumu, göç ve doğrulama
+
+Faz 2. Hafıza, güven ve korku kayda yazılır yazılmaz bu bölüm de yazılır. Söz dosyaları köye girmeden önce eski kayıt açılabilmelidir.
+
+Zemin: atomik kayıt SYS-02, sürüm göçü SYS-01 ve SYS-14, adsız diyalog sırası SYS-16, metin anahtarı SYS-09, yirmi gece dumanı SYS-10, sanity SYS-06 ve SYS-11. Bunlar yeniden kurulmaz. Bu bölüm onların üstüne Söz alanlarını ekler. Hızlı kayıt ve kayıt yuvası Bölüm 35'tedir. Burada açılmaz. Ses yoktur. Asset gerekmez.
+
+Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir.
+
+## 31.1 Sürüm kapısı
+
+- [ ] **KAY-01:** Kayıt sürümü tek sayıdır ve dosyanın başında durur.
+  - Ne: sürüm alanı yoksa yükleme durur, köy uydurulmaz.
+  - Kabul: sürüm alanı yoksa yükleme durur, köy uydurulmaz. Test: alansız dosya reddedilir, yedek durur.
+  - Bağımlılık: SYS-01. Boyut: S.
+  - Dosya: `src/sistemler/guvenli_kayit.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-02:** Gelecek sürüm açılmaz.
+  - Ne: dosyadaki sürüm, oyunun bildiği sürümden büyükse yükleme reddedilir. Eski dosya ezilmez.
+  - Kabul: dosyadaki sürüm, oyunun bildiği sürümden büyükse yükleme reddedilir. Eski dosya ezilmez. Test: sürüm +1 dosya.
+  - Bağımlılık: KAY-01, SYS-14. Boyut: S.
+  - Dosya: `src/sistemler/guvenli_kayit.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-03:** Göç tek basamaklıdır.
+  - Ne: N'den N+2'ye atlanmaz. Ara adım fonksiyonu çalışır.
+  - Kabul: N'den N+2'ye atlanmaz. Ara adım fonksiyonu çalışır. Test: iki basamaklı fixtür, ara fonksiyon bir kez çağrılır.
+  - Bağımlılık: KAY-01. Boyut: M.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd` (yeni). `guvenli_kayit.gd` tek çağrı.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-04:** İçerik sürümü ile kayıt sürümü ayrıdır.
+  - Ne: `icerik_surumu` artınca kişi hafızası silinmez. Kayıt sürümü artınca katalog baştan kurulmaz.
+  - Kabul: `icerik_surumu` artınca kişi hafızası silinmez. Kayıt sürümü artınca katalog baştan kurulmaz. Test: iki sayaç bağımsız.
+  - Bağımlılık: KAY-01. Boyut: S.
+  - Dosya: `data/ayarlar/icerik.tres` okunur, yazılmaz.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-05:** Göç yarıda kalırsa ana dosya değişmez.
+  - Ne: göç fonksiyonu hata verirse `bak.tmp` geri gelir. SYS-02 yolu ikinci kez yazılmaz.
+  - Kabul: göç fonksiyonu hata verirse `bak.tmp` geri gelir. SYS-02 yolu ikinci kez yazılmaz. Test: göç ortasında fırlatılan hata, ana dosyanın sağladığı baytı korur.
+  - Bağımlılık: SYS-02, KAY-03. Boyut: S.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-06:** Göç oyuncuya bir satır yazar.
+  - Ne: başarılı göçte gece raporunda tek satır: hangi sürümden hangi sürüme. Satır dünya kitabı ağzında değildir, düzdür.
+  - Kabul: başarılı göçte gece raporunda tek satır: hangi sürümden hangi sürüme. Satır dünya kitabı ağzında değildir, düzdür. Test: metin anahtarı tabloda vardır.
+  - Bağımlılık: KAY-03, SYS-09. Boyut: S.
+  - Dosya: `data/metin/metinler.csv` tek satır.
+  - Asset: asset gerekmedi.
+
+## 31.2 Söz alanlarının kayda girmesi
+
+- [ ] **KAY-07:** Güven ve korku kişi kaydındadır.
+  - Ne: DIY-17 değerleri optional alandır. Eski kayıtta alan yoktur. Yeni kayıtta 0–10 dışına çıkmaz.
+  - Kabul: DIY-17 değerleri optional alandır. Eski kayıtta alan yoktur. Yeni kayıtta 0–10 dışına çıkmaz. Test: ikiz yüklemede iki sayı aynı.
+  - Bağımlılık: DIY-17, KAY-03. Boyut: M.
+  - Dosya: `src/soz/kisi_hafizasi.gd` kayıt adaptörü.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-08:** Beyanlar ziyaret sonunda kişiye yazılır.
+  - Ne: DIY-06 defteri gece kapanınca kişi kimliğinin altında durur. Aynı beyan iki kez yazılmaz.
+  - Kabul: DIY-06 defteri gece kapanınca kişi kimliğinin altında durur. Aynı beyan iki kez yazılmaz. Test: aynı id ikinci yazımda liste uzamaz.
+  - Bağımlılık: DIY-06, DIY-11. Boyut: M.
+  - Dosya: `src/soz/beyan_defteri.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-09:** Verilen sözler süreleriyle durur.
+  - Ne: DYL-05 kaydı gün, tür ve tutuldu bilgisini taşır. Açık söz en çok 5'tir. Altıncı kayıtta yoksa yükleme onu düşürmez, günlük yazar.
+  - Kabul: DYL-05 kaydı gün, tür ve tutuldu bilgisini taşır. Açık söz en çok 5'tir. Altıncı kayıtta yoksa yükleme onu düşürmez, günlük yazar. Test: süre günü kaydet-yükle ile kaymaz.
+  - Bağımlılık: DYL-05. Boyut: M.
+  - Dosya: `src/soz/verilen_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-10:** Muhafızın yalanı kayıtta `dogru: false` taşır.
+  - Ne: DYL-04 kaydı yüklemede kaybolmaz. Ortaya çıkmış yalan bir daha gizlenmez.
+  - Kabul: DYL-04 kaydı yüklemede kaybolmaz. Ortaya çıkmış yalan bir daha gizlenmez. Test: bayrak ikizde aynı.
+  - Bağımlılık: DYL-04. Boyut: S.
+  - Dosya: `src/soz/yalan_denetimi.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-11:** Grup itibarı kayıttadır.
+  - Ne: DIY-12 altı grup, her biri −10…+10. Eksik grup 0 sayılır, diğerleri bozulmaz.
+  - Kabul: DIY-12 altı grup, her biri −10…+10. Eksik grup 0 sayılır, diğerleri bozulmaz. Test: Türkmen −3 yüklemede −3.
+  - Bağımlılık: DIY-12. Boyut: S.
+  - Dosya: `src/sistemler/grup_itibari.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-12:** Dedikodu kuyruğu yaşıyla durur.
+  - Ne: DIY-13 kaydı kaç gece önce doğduğunu yazar. Yüklemede yaş artmaz. Tanık biti korunur.
+  - Kabul: DIY-13 kaydı kaç gece önce doğduğunu yazar. Yüklemede yaş artmaz. Tanık biti korunur. Test: tanıksız kayıt yüklemede hâlâ yayılmaz.
+  - Bağımlılık: DIY-13, KOP-05. Boyut: M.
+  - Dosya: `src/sistemler/dedikodu.gd`.
+  - Asset: asset gerekmedi.
+
+## 31.3 Bozuk ve eksik alan
+
+- [ ] **KAY-13:** Eksik güven sıfırdır, hikâye uydurulmaz.
+  - Ne: alan yoksa güven 0, korku o ziyaretin başlangıç tansiyonudur. Kişi kendiliğinden itiraf etmez.
+  - Kabul: alan yoksa güven 0, korku o ziyaretin başlangıç tansiyonudur. Kişi kendiliğinden itiraf etmez. Test: alansız kayıtta itiraf seçeneği kapalı.
+  - Bağımlılık: KAY-07. Boyut: S.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-14:** Sayı taşan alan kıskaçlanır ve günlüğe düşer.
+  - Ne: güven 40 ise 10 olur. Süre −3 ise 0 olur. Köy barları bu kıskaçtan etkilenmez.
+  - Kabul: güven 40 ise 10 olur. Süre −3 ise 0 olur. Köy barları bu kıskaçtan etkilenmez. Test: taşan fixtür açılır, günlükte bir satır.
+  - Bağımlılık: KAY-13. Boyut: S.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-15:** Bilinmeyen kişi kimliği o kaydı düşürür, köyü düşürmez.
+  - Ne: hafızada katalogda olmayan id varsa o kişi atlanır, diğer köylüler durur. Sessiz silme yoktur, geliştirme günlüğüne yazılır.
+  - Kabul: hafızada katalogda olmayan id varsa o kişi atlanır, diğer köylüler durur. Sessiz silme yoktur, geliştirme günlüğüne yazılır. Test: sahte id, köylü sayısı aynı.
+  - Bağımlılık: KAY-08. Boyut: S.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-16:** Bilinmeyen çekirdek, tohumu yeniden çekmez.
+  - Ne: DYL-10 varyantı kayıtta yoksa o oyunda varyant seçilmez. Yeni tohum atılmaz.
+  - Kabul: DYL-10 varyantı kayıtta yoksa o oyunda varyant seçilmez. Yeni tohum atılmaz. Test: aynı tohum, varyantsız kayıt, yüklemede hâlâ varyantsız.
+  - Bağımlılık: DYL-10. Boyut: S.
+  - Dosya: `src/soz/cekirdek_secici.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-17:** Tipi yanlış alan göçü durdurur.
+  - Ne: güven dizesi ("yüksek") gelirse göç hata verir, yedek yüklenir. Kıskaç uygulanmaz.
+  - Kabul: güven dizesi ("yüksek") gelirse göç hata verir, yedek yüklenir. Kıskaç uygulanmaz. Test: tipi bozuk fixtür.
+  - Bağımlılık: KAY-05. Boyut: S.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-18:** Söz listesi dizi değilse boş dizi olur.
+  - Ne: alan sözlük gelirse boş liste yazılır, oyun açılır, o kişinin sözü yok sayılır.
+  - Kabul: alan sözlük gelirse boş liste yazılır, oyun açılır, o kişinin sözü yok sayılır. Test: çökme yok.
+  - Bağımlılık: KAY-09. Boyut: S.
+  - Dosya: `src/soz/verilen_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-61:** Aynı kişi hafızada iki kez duruyorsa tek kayıt kalır.
+  - Ne: mükerrer id birleştirilir. Ziyaret sayısı büyük olan kalır. Öteki düşer, günlüğe yazılır. Köylü ikiye bölünmez.
+  - Kabul: mükerrer id birleştirilir. Ziyaret sayısı büyük olan kalır. Öteki düşer, günlüğe yazılır. Köylü ikiye bölünmez. Test: iki kayıt, tek köylü.
+  - Bağımlılık: KAY-15. Boyut: S.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-62:** Kimliksiz beyan satırı düşer, defter durur.
+  - Ne: beyan dizisinde `id` boşsa yalnız o satır atılır. Diğer beyanlar kalır.
+  - Kabul: beyan dizisinde `id` boşsa yalnız o satır atılır. Diğer beyanlar kalır. Test: üç satırdan biri boş, yüklemede iki satır.
+  - Bağımlılık: KAY-08. Boyut: S.
+  - Dosya: `src/soz/beyan_defteri.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-63:** Bayrak bool değilse yanlış sayılır.
+  - Ne: `Flag_Sir_Tamamen_Cozuldu` dize veya sayı gelirse false yazılır, günlüğe düşer. Sır kendiliğinden açılmaz.
+  - Kabul: `Flag_Sir_Tamamen_Cozuldu` dize veya sayı gelirse false yazılır, günlüğe düşer. Sır kendiliğinden açılmaz. Test: "evet" değeri itirafı açmaz.
+  - Bağımlılık: KAY-17. Boyut: S.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-64:** Kesik dosya kayıt değildir.
+  - Ne: JSON ayrışmayan dosya yüklenmez. Göç başlamaz. Sağlam yedek varsa o açılır. Yedek de yoksa oyuncu yeni oyuna zorlanmaz, hata görür.
+  - Kabul: JSON ayrışmayan dosya yüklenmez. Göç başlamaz. Sağlam yedek varsa o açılır. Yedek de yoksa oyuncu yeni oyuna zorlanmaz, hata görür. Test: yarım kesilmiş dosya.
+  - Bağımlılık: SYS-02, KAY-05. Boyut: S.
+  - Dosya: `src/sistemler/guvenli_kayit.gd`.
+  - Asset: asset gerekmedi.
+
+## 31.4 Kayıt ikizi
+
+- [ ] **KAY-19:** Aynı tohum, kaydet-yükle, kapıdaki kişi aynıdır.
+  - Ne: gece sonu kayıt, yükle, ertesi sabah kuyruğun ilk kimliği aynı.
+  - Kabul: gece sonu kayıt, yükle, ertesi sabah kuyruğun ilk kimliği aynı. Test: sabit tohum.
+  - Bağımlılık: KAY-03, KAP-16. Boyut: M.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-20:** Kayıtlı zar yeniden atılmaz.
+  - Ne: DYL-16 altınındaki zar değeri yüklemede aynı kalır. Yeni atış yoktur.
+  - Kabul: DYL-16 altınındaki zar değeri yüklemede aynı kalır. Yeni atış yoktur. Test: zar 4 kayıtlı, yüklemede 4.
+  - Bağımlılık: ZAR-01, DYL-16. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-21:** Güven, korku ve itibar ikizde birebirdir.
+  - Ne: KAY-07 ve KAY-11 alanları yüklemede aynı sayıdır.
+  - Kabul: KAY-07 ve KAY-11 alanları yüklemede aynı sayıdır. Test: altı grup ve bir kişi.
+  - Bağımlılık: KAY-07, KAY-11. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-22:** Açık sözün hatırlatma günü kaymaz.
+  - Ne: "yarın" sözü yüklemeden sonra hâlâ yarındır, bugün olmaz.
+  - Kabul: "yarın" sözü yüklemeden sonra hâlâ yarındır, bugün olmaz. Test: gün sayacı eşit.
+  - Bağımlılık: KAY-09. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-23:** Dedikodunun yaşı kaymaz.
+  - Ne: 2 gece önce doğan kayıt, yüklemede hâlâ 2 gece öncedir.
+  - Kabul: 2 gece önce doğan kayıt, yüklemede hâlâ 2 gece öncedir. Test: yaş alanı eşit.
+  - Bağımlılık: KAY-12. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-24:** Altın oynanış, kayıtlı bağlamla aynı satırları verir.
+  - Ne: DYL-16 dosyası yüklenmiş bir kaydın bağlamıyla bir kez daha oynar. Satır kimlikleri birebirdir.
+  - Kabul: DYL-16 dosyası yüklenmiş bir kaydın bağlamıyla bir kez daha oynar. Satır kimlikleri birebirdir. Test: Yusuf için en az bir altın kayıt.
+  - Bağımlılık: DYL-16, KAY-19. Boyut: M.
+  - Dosya: `tests/unit/soz/altin_oynanis_test.gd`.
+  - Asset: asset gerekmedi.
+
+## 31.5 Kapı ve köy birlikte açılır
+
+- [ ] **KAY-25:** Yarım kuyruk köylüyü silmez.
+  - Ne: köy kaydı sağlam, kapı kuyruğu yarım ise kuyruk o sabah yeniden kurulur. Köylü sayısı değişmez.
+  - Kabul: köy kaydı sağlam, kapı kuyruğu yarım ise kuyruk o sabah yeniden kurulur. Köylü sayısı değişmez. Test: yarım kuyruk fixtürü.
+  - Bağımlılık: KAY-15. Boyut: M.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-26:** Açık sorgu aynı düğümden devam eder.
+  - Ne: kayıt, düğüm kimliğini ve seçilmiş konuları yazar. Yüklemede selam yeniden okunmaz.
+  - Kabul: kayıt, düğüm kimliğini ve seçilmiş konuları yazar. Yüklemede selam yeniden okunmaz. Test: düğüm id eşit.
+  - Bağımlılık: DIY-02. Boyut: M.
+  - Dosya: `src/soz/soz_motoru.gd` kayıt alanı.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-27:** Eski diyalog sırası silinmez, yeni motorda okunmaz.
+  - Ne: SYS-16 `diyalog_sira` dosyada kalır. Kişi yeni motora geçmişse bu sayı yok sayılır. Geçmemiş kişi eski yerinden devam eder.
+  - Kabul: SYS-16 `diyalog_sira` dosyada kalır. Kişi yeni motora geçmişse bu sayı yok sayılır. Geçmemiş kişi eski yerinden devam eder. Test: geçiş tablosundaki kişi ile tabloda olmayan kişi.
+  - Bağımlılık: SYS-16, DIY-16. Boyut: S.
+  - Dosya: `data/soz/gecis.json` okunur.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-28:** Eşin mesleği ve muhafızın geçmişi göçte durur.
+  - Ne: ACL-02 ve ACL-06 alanları yeni sürümde aynıdır. Göç onları varsayılana çekmez.
+  - Kabul: ACL-02 ve ACL-06 alanları yeni sürümde aynıdır. Göç onları varsayılana çekmez. Test: iki alan eşit.
+  - Bağımlılık: ACL-02, ACL-06. Boyut: S.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-29:** Yatak ve açıkta kalan sayısı durur.
+  - Ne: ACL-05 sayıları yüklemede aynıdır. Göç kimseyi içeri veya dışarı almaz.
+  - Kabul: ACL-05 sayıları yüklemede aynıdır. Göç kimseyi içeri veya dışarı almaz. Test: açıkta kalan sayısı eşit.
+  - Bağımlılık: ACL-05. Boyut: S.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-30:** Gece ortasında söz kaydı yazılmaz.
+  - Ne: sorgu sürerken otomatik kayıt yoktur. Kayıt gece sonunda ve menüdedir. Hızlı kayıt Bölüm 35'e kalır.
+  - Kabul: sorgu sürerken otomatik kayıt yoktur. Kayıt gece sonunda ve menüdedir. Hızlı kayıt Bölüm 35'e kalır. Test: sorgu ortasında kayıt dosyasının saati değişmez.
+  - Bağımlılık: KAY-26. Boyut: S.
+  - Dosya: `src/sistemler/guvenli_kayit.gd`.
+  - Asset: asset gerekmedi.
+
+## 31.6 Diyalog verisi doğrulayıcısı
+
+- [ ] **KAY-31:** Söz doğrulayıcısı ikinci araç değildir.
+  - Ne: YAZ-07 `tools/soz_dogrula.py` tek kapıdır. Bu bölüm ona kayıt uyumu kuralları ekler. Yeni betik açılmaz.
+  - Kabul: YAZ-07 `tools/soz_dogrula.py` tek kapıdır. Bu bölüm ona kayıt uyumu kuralları ekler. Yeni betik açılmaz. Test: betik adı biricik.
+  - Bağımlılık: YAZ-07. Boyut: S.
+  - Dosya: `tools/soz_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-32:** Kayıtta geçen her kişi katalogdadır.
+  - Ne: doğrulayıcı, kayıt fixtüründeki kimlikleri katalogla karşılar. Eksik kimlik hata.
+  - Kabul: doğrulayıcı, kayıt fixtüründeki kimlikleri katalogla karşılar. Eksik kimlik hata. Test: sahte id, çıkış kodu 1.
+  - Bağımlılık: KAY-15, KAY-31. Boyut: S.
+  - Dosya: `tools/soz_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-33:** Eksik metin anahtarı kaydı açar, doğrulayıcıyı kırmaz.
+  - Ne: SYS-09 `[KEY_NOT_FOUND]` oyunda durur. Doğrulayıcı bunu içerik hatası sayar, kayıt göçünü durdurmaz.
+  - Kabul: SYS-09 `[KEY_NOT_FOUND]` oyunda durur. Doğrulayıcı bunu içerik hatası sayar, kayıt göçünü durdurmaz. Test: anahtarsız satır, göç başarılı, doğrulayıcı hatalı.
+  - Bağımlılık: SYS-09, KAY-31. Boyut: S.
+  - Dosya: `tools/soz_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-34:** Kayıtlı kadroda çekirdek kotası sayılır.
+  - Ne: YAZ-09 kotası, o kayıttaki varyantlara bakar. Yüzde 40 sınırı sapmışsa uyarı, yükleme durmaz.
+  - Kabul: YAZ-09 kotası, o kayıttaki varyantlara bakar. Yüzde 40 sınırı sapmışsa uyarı, yükleme durmaz. Test: tek çekirdekli fixtür uyarı verir.
+  - Bağımlılık: YAZ-09. Boyut: S.
+  - Dosya: `tools/soz_kadro_denetimi.py`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-35:** Yasak kelime yüklemeyi kesmez.
+  - Ne: YAZ-02 listesi içerik aracını keser. Oyuncunun kaydı açılır.
+  - Kabul: YAZ-02 listesi içerik aracını keser. Oyuncunun kaydı açılır. Test: yasaklı kelime içeren kayıt açılır.
+  - Bağımlılık: YAZ-02. Boyut: S.
+  - Dosya: `tools/soz_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-36:** Kopuk düğüm, kayıtlı ziyareti düşürmez.
+  - Ne: kişinin son düğümü şemada yoksa ziyaret selama döner, kişi silinmez. Geliştirme günlüğüne yazılır.
+  - Kabul: kişinin son düğümü şemada yoksa ziyaret selama döner, kişi silinmez. Geliştirme günlüğüne yazılır. Test: silinmiş düğüm id.
+  - Bağımlılık: KAY-26, KAY-31. Boyut: S.
+  - Dosya: `src/soz/soz_motoru.gd`.
+  - Asset: asset gerekmedi.
+
+## 31.7 Sanity genişlemesi
+
+- [ ] **KAY-37:** Sanity göç testini çağırır.
+  - Ne: `tools/sanity_check.py` tam paket, KAY-03 fixtürünü çalıştırır. Yeni paket yazılmaz, tek satır eklenir.
+  - Kabul: `tools/sanity_check.py` tam paket, KAY-03 fixtürünü çalıştırır. Yeni paket yazılmaz, tek satır eklenir. Test: sanity listesinde göç adı vardır.
+  - Bağımlılık: SYS-11, KAY-03. Boyut: S.
+  - Dosya: `tools/sanity_check.py`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-38:** Sanity söz şemasını çağırır.
+  - Ne: YAZ-07 sanity'ye girer. Şema hatası tam paketi kırar.
+  - Kabul: YAZ-07 sanity'ye girer. Şema hatası tam paketi kırar. Test: kopuk düğüm, sanity hatalı.
+  - Bağımlılık: YAZ-07, KAY-31. Boyut: S.
+  - Dosya: `tools/sanity_check.py`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-39:** Sanity altın oynanışı çağırır.
+  - Ne: DYL-16 kayıtları tam pakettedir. Bir oynanış saparsa paket hatalı.
+  - Kabul: DYL-16 kayıtları tam pakettedir. Bir oynanış saparsa paket hatalı. Test: bilerek bozulan etki.
+  - Bağımlılık: DYL-16. Boyut: S.
+  - Dosya: `tools/sanity_check.py`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-40:** Tam paket sıfır hata kuralı durur.
+  - Ne: yeni testler uyarıyla geçmez. Hata varsa paket hatalı.
+  - Kabul: yeni testler uyarıyla geçmez. Hata varsa paket hatalı. Test: kasıtlı bir göç hatası paketi kırar.
+  - Bağımlılık: SYS-06. Boyut: S.
+  - Dosya: `tools/sanity_check.py`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-41:** Yirmi gece, göçmüş kayıtla da koşar.
+  - Ne: SYS-10 dumanı, KAY-03'ten çıkmış bir kayıtla 20 gece çökmez. İkinci duman aracı yazılmaz.
+  - Kabul: SYS-10 dumanı, KAY-03'ten çıkmış bir kayıtla 20 gece çökmez. İkinci duman aracı yazılmaz. Test: 20 gece, bellek sınırı SYS-10 ile aynı.
+  - Bağımlılık: SYS-10, KAY-03. Boyut: M.
+  - Dosya: `tests/oto/` mevcut duman.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-42:** Doğrulama ilkinde durmaz.
+  - Ne: üç hatalı kayıt alanı tek listede toplanır. İçerik hattındaki kural burada da geçerlidir.
+  - Kabul: üç hatalı kayıt alanı tek listede toplanır. İçerik hattındaki kural burada da geçerlidir. Test: üç hata, üç satır.
+  - Bağımlılık: KAY-31. Boyut: S.
+  - Dosya: `tools/soz_dogrula.py`.
+  - Asset: asset gerekmedi.
+
+## 31.8 Regresyon
+
+- [ ] **KAY-43:** Sürüm 3 kaydı yeni sürümde açılır.
+  - Ne: chr-runtime notundaki oturum sürüm 3 fixtürü göçer. Köy, kadro ve rastgelelik durur.
+  - Kabul: chr-runtime notundaki oturum sürüm 3 fixtürü göçer. Köy, kadro ve rastgelelik durur. Test: köylü sayısı eşit.
+  - Bağımlılık: KAY-03, SYS-14. Boyut: M.
+  - Dosya: `tests/unit/kvr/kayit_gocu_test.gd` genişler.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-44:** Dört barlı sürüm 1 kaydı hâlâ reddedilir.
+  - Ne: SYS-14'ün reddi bozulmaz. Göç onu Söz kaydına çevirmez.
+  - Kabul: SYS-14'ün reddi bozulmaz. Göç onu Söz kaydına çevirmez. Test: v1 dosya reddedilir.
+  - Bağımlılık: SYS-14. Boyut: S.
+  - Dosya: `tests/unit/kvr/kayit_gocu_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-45:** Kişisel kasa göçte yer değiştirmez.
+  - Ne: `muhafiz_akce` ve köy akçesi sayıları aynı kalır. Söz göçü transfer yapmaz.
+  - Kabul: `muhafiz_akce` ve köy akçesi sayıları aynı kalır. Söz göçü transfer yapmaz. Test: iki kasa eşit.
+  - Bağımlılık: EKO-01, KAY-03. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-46:** Mevsim günü kaymaz.
+  - Ne: MEV-01 günü ve mevsimi yüklemede aynıdır. Söz göçü takvimi ilerletmez.
+  - Kabul: MEV-01 günü ve mevsimi yüklemede aynıdır. Söz göçü takvimi ilerletmez. Test: gün eşit.
+  - Bağımlılık: MEV-01. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-47:** Nihai son kimliği beş değerden biri kalır.
+  - Ne: SYS-20 kimliği göçte değişmez. Altıncı son yazılmaz.
+  - Kabul: SYS-20 kimliği göçte değişmez. Altıncı son yazılmaz. Test: kimlik kümesi aynı.
+  - Bağımlılık: SYS-20. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-48:** Adsız diyalog sırası eski kayıtta kalır.
+  - Ne: SYS-16 sayısı göçten sonra dosyada durur.
+  - Kabul: SYS-16 sayısı göçten sonra dosyada durur. Test: sayı eşit.
+  - Bağımlılık: KAY-27. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-65:** Karantina kaydı göçte sıfırlanmaz.
+  - Ne: KRI-02 kalan gün ve kişi kimliği yüklemede aynıdır. Söz göçü hastayı iyileştirmez.
+  - Kabul: KRI-02 kalan gün ve kişi kimliği yüklemede aynıdır. Söz göçü hastayı iyileştirmez. Test: kalan gün eşit.
+  - Bağımlılık: KRI-02, KAY-03. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-66:** Bina ilerlemesi kaymaz.
+  - Ne: inşaatın kalan günü ve seviye göçte aynıdır. Yeni bina belirmez.
+  - Kabul: inşaatın kalan günü ve seviye göçte aynıdır. Yeni bina belirmez. Test: bir yarımbina, kalan gün eşit.
+  - Bağımlılık: KAY-03. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-67:** Adalet ve yozlaşma terazisi kaymaz.
+  - Ne: ODA-12 skoru göçte değişmez. Söz alanları teraziyi yeniden hesaplamaz.
+  - Kabul: ODA-12 skoru göçte değişmez. Söz alanları teraziyi yeniden hesaplamaz. Test: skor eşit.
+  - Bağımlılık: ODA-12, KAY-03. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-68:** Moğol sayacı ve mevsim sayacı birbirine karışmaz.
+  - Ne: HAR-02 kalan günü ile MEV-01 günü göçte yer değiştirmez.
+  - Kabul: HAR-02 kalan günü ile MEV-01 günü göçte yer değiştirmez. Test: iki sayaç ayrı ayrı eşit.
+  - Bağımlılık: HAR-02, KAY-46. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+
+## 31.9 Performans bütçesi
+
+- [ ] **KAY-49:** Göç bir saniyenin altındadır.
+  - Ne: MVP boy kayıtta göç + doğrulama 1 saniyeden kısadır. Ölçü, içerik hattındaki açılış ölçüsüyle aynıdır. İkinci ölçü uydurulmaz.
+  - Kabul: MVP boy kayıtta göç + doğrulama 1 saniyeden kısadır. Ölçü, içerik hattındaki açılış ölçüsüyle aynıdır. İkinci ölçü uydurulmaz. Test: süre satırı raporda.
+  - Bağımlılık: KAY-03. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-50:** Kişi başına kayıt üst sınırı vardır.
+  - Ne: beyan listesi kişi başı en çok 40 satır. Aşan satır yazılmaz, günlük uyarır. Oyun açılır.
+  - Kabul: beyan listesi kişi başı en çok 40 satır. Aşan satır yazılmaz, günlük uyarır. Oyun açılır. Test: 41. satır düşer.
+  - Bağımlılık: KAY-08. Boyut: S.
+  - Dosya: `src/soz/kisi_hafizasi.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-51:** Yükleme bütün söz dosyalarını açmaz.
+  - Ne: o gecenin kişileri okunur. Katalogdaki öteki söz dosyaları o yüklemede açılmaz.
+  - Kabul: o gecenin kişileri okunur. Katalogdaki öteki söz dosyaları o yüklemede açılmaz. Test: açılan dosya sayısı kuyruk uzunluğunu geçmez.
+  - Bağımlılık: DIY-02. Boyut: M.
+  - Dosya: `src/soz/soz_motoru.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-52:** Üç yıl aç-kapa bellek tavanını aşmaz.
+  - Ne: 3 yıl simülasyonunda kayıt aç-kapa sonrası bellek artışı SYS-10 tavanının içindedir. Yeni tavan uydurulmaz.
+  - Kabul: 3 yıl simülasyonunda kayıt aç-kapa sonrası bellek artışı SYS-10 tavanının içindedir. Yeni tavan uydurulmaz. Test: rapor satırı.
+  - Bağımlılık: SYS-10, DNY-01. Boyut: M.
+  - Dosya: `tests/oto/` duman genişler.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-53:** Doğrulayıcı otuz CHR'yi tek koşuda bitirir.
+  - Ne: 30 CHR + adlı karakterler tek süreçte doğrulanır. Süre raporda.
+  - Kabul: 30 CHR + adlı karakterler tek süreçte doğrulanır. Süre raporda. Test: koşu hatasız biter.
+  - Bağımlılık: KAY-31. Boyut: S.
+  - Dosya: `tools/soz_dogrula.py`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-54:** On beş altın oynanışın toplam süresi tavandadır.
+  - Ne: DYL-16 Yusuf paketi 15 oynanışı tek testte biter. Süre raporda, kapı yoktur.
+  - Kabul: DYL-16 Yusuf paketi 15 oynanışı tek testte biter. Süre raporda, kapı yoktur. Test: 15/15.
+  - Bağımlılık: DYL-16. Boyut: S.
+  - Dosya: `tests/unit/soz/altin_oynanis_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-69:** Gece sonu kayıt yazması bir saniyenin altındadır.
+  - Ne: göç süresi (KAY-49) ile yazma süresi ayrı ölçülür. Yazma 1 saniyeyi geçerse rapor satırı hatalıdır. Oyun kilitlenmez.
+  - Kabul: göç süresi (KAY-49) ile yazma süresi ayrı ölçülür. Yazma 1 saniyeyi geçerse rapor satırı hatalıdır. Oyun kilitlenmez. Test: MVP kayıtta yazma süresi.
+  - Bağımlılık: KAY-49, SYS-02. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-70:** Dedikodu listesi büyümez.
+  - Ne: kayıtta en çok 80 dedikodu satırı durur. En eski satır düşer. Düşen satır yayılmamış bir olayı geri getirmez.
+  - Kabul: kayıtta en çok 80 dedikodu satırı durur. En eski satır düşer. Düşen satır yayılmamış bir olayı geri getirmez. Test: 81. satır yazılmaz.
+  - Bağımlılık: KAY-12, KAY-50. Boyut: S.
+  - Dosya: `src/sistemler/dedikodu.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-71:** Göç, oyun karesinde çalışmaz.
+  - Ne: göç yükleme adımındadır. Kapı veya köy sahnesi açıkken göç fonksiyonu çağrılmaz.
+  - Kabul: göç yükleme adımındadır. Kapı veya köy sahnesi açıkken göç fonksiyonu çağrılmaz. Test: sahnedeyken çağrı geliştirme hatasıdır.
+  - Bağımlılık: KAY-03. Boyut: S.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-72:** Yüz tohumluk ikiz tek koşuda biter.
+  - Ne: KAY-19 ölçüsü 100 tohumda da kapı kimliğini tutar. Süre raporda yazılır, yeni bir geçme kapısı uydurulmaz. Sapma varsa o tohumun numarası listededir.
+  - Kabul: KAY-19 ölçüsü 100 tohumda da kapı kimliğini tutar. Süre raporda yazılır, yeni bir geçme kapısı uydurulmaz. Sapma varsa o tohumun numarası listededir. Test: 100 tohum, sapma listesi boş.
+  - Bağımlılık: KAY-19. Boyut: M.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+
+## 31.10 Geri alma
+
+- [ ] **KAY-55:** Başarısız göç yedeği geri getirir.
+  - Ne: oyuncu kısa bir hata görür. Ana dosya göç öncesidir.
+  - Kabul: oyuncu kısa bir hata görür. Ana dosya göç öncesidir. Test: hatalı göçten sonra sürüm numarası eskisidir.
+  - Bağımlılık: KAY-05, SYS-02. Boyut: S.
+  - Dosya: `src/sistemler/guvenli_kayit.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-56:** Yedek, ikinci bir başarısız göçte ezilmez.
+  - Ne: `bak.tmp` sağlamsa yeni bozuk dosya onun üstüne yazılmaz. SYS-02 kuralı durur.
+  - Kabul: `bak.tmp` sağlamsa yeni bozuk dosya onun üstüne yazılmaz. SYS-02 kuralı durur. Test: iki hatalı deneme, yedek baytı aynı.
+  - Bağımlılık: SYS-02. Boyut: S.
+  - Dosya: `src/sistemler/guvenli_kayit.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-57:** Geri alınan sürüm yeni alanı yok sayar, silmez.
+  - Ne: oyun eski sürümle açılırsa güven alanı okunmaz. Dosyadan da silinmez. Tekrar yeni sürüme geçince alan durur.
+  - Kabul: oyun eski sürümle açılırsa güven alanı okunmaz. Dosyadan da silinmez. Tekrar yeni sürüme geçince alan durur. Test: alan baytı yerinde.
+  - Bağımlılık: KAY-07, KAY-55. Boyut: M.
+  - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-58:** Söz alanları tek bayrakla kapanır.
+  - Ne: `data/ayarlar` içinde bir bayrak kapalıysa göç Söz alanlarını yazmaz, eski yol durur. Bayrak açıksa KAY-07…12 yazılır.
+  - Kabul: `data/ayarlar` içinde bir bayrak kapalıysa göç Söz alanlarını yazmaz, eski yol durur. Bayrak açıksa KAY-07…12 yazılır. Test: kapalı bayrakta dosyada güven alanı yoktur.
+  - Bağımlılık: KAY-07. Boyut: S.
+  - Dosya: `data/ayarlar/oyun.tres`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-59:** Göç tek komutla koşar.
+  - Ne: geliştirici kaydı el ile düzenlemez. Bir test komutu fixtürü göçtürür.
+  - Kabul: geliştirici kaydı el ile düzenlemez. Bir test komutu fixtürü göçtürür. Test: komut çıkış kodu 0.
+  - Bağımlılık: KAY-03. Boyut: S.
+  - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
+  - Asset: asset gerekmedi.
+- [ ] **KAY-60:** Sürüm atlaması bu dosyada yazılı onay ister.
+  - Ne: ara adım silinmeden sürüm atlanmaz. Atlama kararı bu bölümün sonuna bir satır olarak yazılır. Satır yoksa KAY-03 atlamayı reddeder.
+  - Kabul: ara adım silinmeden sürüm atlanmaz. Atlama kararı bu bölümün sonuna bir satır olarak yazılır. Satır yoksa KAY-03 atlamayı reddeder. Test: onaysız atlama hatası.
+  - Bağımlılık: KAY-03. Boyut: S.
+  - Dosya: `ROADMAP_2_BOLUM_31.md` karar satırı, kod `kayit_gocu_soz.gd`.
+  - Asset: asset gerekmedi.
+
+Onay satırı henüz yok. Sürüm atlanmaz.

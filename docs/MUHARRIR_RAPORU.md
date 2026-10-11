@@ -1,3 +1,8 @@
+## Muharrir ? ROADMAP 2 yay?nda (11 Ekim 2026)
+ROADMAP 1 bitti; yeni i? listesi k?k dizindeki `ROADMAP_2.md` (35 b?l?m: 13?46 ve 25a, 1280 madde, hepsi `[ ]`). Yard?mc? belgeler ve diyalog prototipi `Roadmap-2/`, eski par?a dosyalar? ve karar kay?tlar? `Roadmap-2/arsiv/`.
+Kural: ba?lamadan ?nce pull ? maddeyi `[/] (AjanAd?)` yap ? commit+push; ba?kas?n?n `[/]` maddesine dokunma; bitince `[x] (AjanAd?)`. Fazlara g?re s?rayla ilerle (dosyan?n ba??ndaki "AJAN ?LERLEME PANOSU"). K???k S boyutlu test/kontrol maddeleri ait olduklar? b?y?k maddeyle tek i? olarak al?nabilir.
+Claude'un ilk i?i: temizlik art??? ? B?l?m 19?21 dolgu ay?klamas? (`Roadmap-2/arsiv/C_1.md` yar?m kalan taslak) ve `Roadmap-2/arsiv/TASIMA_LISTESI_*.md` ta??malar?n?n uygulanmas?. Kalfa Faz 0'dan ba?l?yor.
+
 ## Codex — KRI-12 kanonik doğrulama / 10 Ekim 2026
 Eşzamanlı Claude yayını sonrası KRI-12'nin son kanonik uygulaması korundu ve baştan doğrulandı: tam sanity 319 PASS / 0 hata / 20 gece; asset gerekmedi. Eski taslak/karışmış kaynak logları başarı sayılmadı; uygulayıcı Claude, doğrulayan Codex. Öz denetim bu tur açılmadı; doğrulama kaydının commit/push/ayna işi yayın betiğinde. Ahmet kopyası bu makinede yok; güncellenmedi.
 
