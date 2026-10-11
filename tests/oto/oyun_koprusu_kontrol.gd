@@ -18,6 +18,19 @@ func _ready() -> void:
 	add_child(kopru)
 	assert((await kopru.run_command("get_state"))["ekran"] == "menu")
 	assert(not (await kopru.run_command("yeni_oyun", {"tohum": 11})).has("error"))
+	# ACL-01: yeni oyunun ilk günü köydedir. Kapıya model günü atlayarak
+	# değil, gerçek gece ve rapor/olay düğmelerini köprüden kullanarak gideriz.
+	var acilis := kopru.get_state()
+	assert(acilis.ekran == "koy" and acilis.koy.nufus == 2 and acilis.koy.yatak == 4)
+	assert(not (await kopru.run_command("gece_bitir")).has("error"))
+	for _i in 100:
+		await get_tree().create_timer(0.08).timeout
+		var adim := kopru.get_state()
+		if adim.ekran == "kapi": break
+		if not adim.hazir: continue
+		assert(adim.ekran == "rapor")
+		assert(not (await kopru.run_command("devam", {"indeks": 0})).has("error"))
+	assert(ana._ekran is KapiEkrani and ana.oturum.gun == 1)
 	var karar_sayisi := 0
 	var nokta_alindi := false
 	for _i in 1000:

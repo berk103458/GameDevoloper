@@ -1,0 +1,9 @@
+{
+  "ev_turu": "kulube",
+  "muhafiz": {"ad": "acilis.kisi.muhafiz", "sinif": "ciftci", "portre": "farmer_01", "stat": 5},
+  "es": {"ad": "acilis.kisi.es", "sinif": "ciftci", "portre": "farmer_02", "stat": 5},
+  "yer_tutucu": {
+    "muhafiz": {"renk": "#6994b2", "etiket": "acilis.kisi.muhafiz"},
+    "es": {"renk": "#c8a477", "etiket": "acilis.kisi.es"}
+  }
+}

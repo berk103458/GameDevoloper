@@ -115,6 +115,7 @@ func gosterilen_gece() -> int:
 
 ## Bu gecenin varış listesi.
 func gece_kuyrugu() -> Array[Gelen]:
+	if preload("res://src/sistemler/acilis_senaryosu.gd").kapi_kapali(self): return []
 	koy.bu_gece_girenler = []
 	var sayi := ayarlar.gece_basina_gelen if perde == 1 else ayarlar.perde2_gece_basina_gelen
 	sayi = maxi(1, sayi + sonraki_gelen_ek)
@@ -727,6 +728,7 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 ## Gün sonu kaydı için sözlük (oturum + köy yönetimi).
 func kaydet() -> Dictionary:
 	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
+		"acilis_hanesi": preload("res://src/sistemler/acilis_senaryosu.gd").durum(self),
 		"faz": preload("res://src/sistemler/oturum_fazi.gd").durum(self),
 		"bayraklar": bayraklar.keys().map(func(x): return String(x)),
 		"rusvet_sayisi": int(bayraklar.get(&"rusvet_sayisi", 0)),
@@ -794,5 +796,6 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	MuhafizAdaletYetenekleri.bagla(o)
 	o.muhafiz_esyalari = preload("res://src/sistemler/cift_kasa_dagitimi.gd").esyalari_yukle(veri.get("muhafiz_esyalari", []))
 	o.yeni_binalar.assign(veri.get("yeni_binalar", []))
+	preload("res://src/sistemler/acilis_senaryosu.gd").yukle(o, veri.get("acilis_hanesi"))
 	o._koy_esitle()
 	return o

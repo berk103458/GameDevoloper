@@ -49,6 +49,7 @@ func yenile() -> void:
 			f.position = _konum(h)
 			modeller[k.id] = f
 			KarakterBeklemeCesitliligi.uygula(f, k.id)
+			preload("res://src/koy/gorsel/acilis_hane_gorunumu.gd").kur(f, k)
 			_durum[k.id] = {"yol": [], "adim": 0, "bekle": 0.0, "dinlen": false, "is": false, "bak": f.position, "devriye_i": k.id, "devriye": false}
 		_iste(k.id)
 	for id in modeller.keys():

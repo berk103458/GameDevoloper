@@ -423,6 +423,8 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | KRI03-ILAC | KRI-03 / KRI-15 | İlaç şişesi kaynak ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: tek düz renk ColorRect; İlaç etiketi) | ilaç şişesi şifahane; medieval medicine bottle infirmary resource icon | orta | Codex |
 | KRI05-MEZAR | KRI-05 | Toplu mezar ve cenaze töreni mezar işareti | glTF | res://src/koy/gorsel/cenaze_mezari.gd (kur: tek düz renk BoxMesh + kısa etiket) | toplu mezar cenaze köy yas; medieval village mass grave funeral burial marker | orta | Codex |
 | BUG21-TASYATAGI | BUG-21 | Kazılabilir başlangıç ve kurtarıcı taş yatağı modeli | glTF / 3B model | res://src/koy/gorsel/tas_yatagi_gorseli.gd (kur: düz gri BoxMesh öbeği) | taş yatağı kaya öbeği taş toplama; stone deposit rock pile gathering | yüksek | Codex |
+| ACL01-MUHAFIZ | ACL-01 | 13. yy Anadolu muhafız gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci modeli, mavi renk ve Muhafız etiketi; tek ayar data/acilis.json | Anadolu muhafız Selçuklu köylü; Anatolian medieval Seljuk guard villager | orta | Kalfa |
+| ACL01-ES | ACL-01 | Muhafızın eşi gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci_kadin modeli, toprak rengi ve Eş etiketi; tek ayar data/acilis.json | Anadolu köylü kadın Selçuklu eş; Anatolian medieval female villager spouse | orta | Kalfa |
 
 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.

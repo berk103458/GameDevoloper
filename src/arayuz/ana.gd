@@ -63,7 +63,8 @@ func ana_menu() -> void:
 func yeni_oyun(tohum: int = 0) -> void:
 	kayit.sil()
 	oturum = Oturum.new(katalog, tohum)
-	_kapiya_git()
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum)
+	_koye_git()
 
 
 func devam_et() -> void:
@@ -79,6 +80,9 @@ func devam_et() -> void:
 
 
 func _kapiya_git(snapshot: Dictionary = {}) -> void:
+	if preload("res://src/sistemler/acilis_senaryosu.gd").kapi_kapali(oturum):
+		if not _ekran is KoyEkrani: _koye_git()
+		return
 	if _kapi_yukleniyor:
 		return
 	_kapi_yukleniyor = true

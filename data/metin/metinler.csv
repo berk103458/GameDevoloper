@@ -1799,3 +1799,8 @@ olay.sira_bayilma.rapor_yardim,Yere düşen {kisi} su ve ekmekle toparlandı; ya
 arayuz.ayarlar.kamera_eksen_ters,Kamera: eksen ters
 arayuz.ayarlar.kamera_eksen.acik,Açık
 arayuz.ayarlar.kamera_eksen.kapali,Kapalı
+acilis.kisi.muhafiz,Muhafız
+acilis.kisi.es,Eş
+acilis.kapi.kapali,Kapı kapalı
+koy.bayrak.acl01_muhafiz,Muhafız
+koy.bayrak.acl01_es,Muhafızın eşi
