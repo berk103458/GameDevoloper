@@ -177,7 +177,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.10 Kapanış
 
-- [x] **BUG-25:** (Kalfa) Kapı meşaleleri ve kuyu modeli onarımı.
+- [/] **BUG-25:** (Kalfa) Kapı meşaleleri ve kuyu modeli onarımı.
   - Ne: Kapıdaki iki meşalenin alev soketi ile ışık noktası aynı yerdedir. Kuyu tabanı zemine oturur ve tepesi bir köylünün boyunu geçmez. Yeni heykel üretilmez; duran modelin konumu, ölçeği ve malzemesi düzeltilir. Köyde ikinci bir meşale sınıfı açılmaz. Kuyu suyu kirletme hesabı değişmez.
   - Kurallar:
     1. İki meşalenin alev soketi ile ışık noktası aynı konumdadır.
