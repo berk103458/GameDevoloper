@@ -142,3 +142,5 @@ TEK-13/14/15: 5 hedefli kontrol geçti; tam beş cache/sayı sözleşmesi, üç 
 TEK-13/14/15 nihai tam sanity 343 PASS / 0 hata / 20 gece. Test paketi olgun; uygulama commit, pull/merge ve kapanış sırası. Oyun src/data diff 0, asset gerekmedi; ds ayna yok.
 
 TEK-13/14/15 test paketi a33c874: beş cache dönüş anahtarı/sayıları, gerçek Ana._goster yolunda üç düşük profil geçişi, ertelenmiş karelerde ikinci temizlik olmaması, aktif kliplerin korunması, kapalı performans şeridi ve aynı gerçek ses havuzu doğrulandı. Oyun src/data diff 0; ikinci önbellek/havuz/motor yok. 5 hedefli kontrol + tek tam UTF-8 sanity 343 PASS / 0 hata / 20 gece. Pull güncel, ek merge gerekmedi. Kanıt docs/denetim/TEK-13-14-15-bellek-efekt.md. Asset gerekmedi; ds ayna yok, eşitlenemedi. Sonraki hazır boş Faz 0 teknik borç TEK-16; TEK-17 KLT-10 bekler. BUG-22 ACL-01 bağımlılığı sürüyor.
+
+TEK-16: pull d18e781 güncel, TEK-01 testx tarafından kapalı. Son tam 343/0/20 gece loglarında SCRIPT ERROR sayımı yapılacak; aynı kaynak/test/ayar ağacına ait temiz koşu kanıtı korunur. Hata bütçesi/istisnası değiştirilmez, asset gerekmedi.
