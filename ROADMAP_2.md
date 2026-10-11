@@ -6728,19 +6728,19 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.3 Bellek ve önbellek
 
-- [ ] **TEK-13:** `memory_free` ikinci önbellek açmaz.
+- [/] **TEK-13:** (Kalfa) `memory_free` ikinci önbellek açmaz.
   - Ne: beş önbellek listesi `dusuk_bellek_profili.gd` içindedir. Yeni sistem kendi önbelleğini bu listeye eklemeden biriktirmez.
   - Kabul: `memory_free` dönüş sözlüğünde beş anahtar. Test: birim.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `src/dunya/dusuk_bellek_profili.gd`.
   - Asset: asset gerekmedi.
-- [ ] **TEK-14:** Düşük profil `memory_free` çağırır, şeridi çağırmaz.
+- [/] **TEK-14:** (Kalfa) Düşük profil `memory_free` çağırır, şeridi çağırmaz.
   - Ne: `grafik_profili == dusuk` iken sahne geçişinde `memory_free` bir kez; `PerformansSeridi.ac(true)` oyuncuda 0.
   - Kabul: düşük profilde çağrı 1, şerit görünür 0. Test: profil değiştir.
   - Bağımlılık: TEK-13. Boyut: S.
   - Dosya: `grafik_profili_adaptoru.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **TEK-15:** Efekt havuzu temizliği durur.
+- [/] **TEK-15:** (Kalfa) Efekt havuzu temizliği durur.
   - Ne: `efekt_havuzu_temizligi.gd` ve `ana.gd _goster` içindeki `Ses.efektleri_temizle()` yerinde kalır. İkinci havuz yok.
   - Kabul: sahne geçişinde çift temizlik çağrısı 1 (mevcut tek çağrı). Test: tarama.
   - Bağımlılık: yok. Boyut: S.
