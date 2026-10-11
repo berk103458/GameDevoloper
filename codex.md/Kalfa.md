@@ -88,3 +88,7 @@ BUG-18 koşusu sırasında f314e57 güvenli fast-forward ile alındı; yalnız T
 ## BUG-18 kapanışı — 11 Ekim 2026 (Kalfa)
 
 Son pull f314e57; sahiplik ee0112e. Tehdit başlangıcı JSON'da 14; mevcut tamamlanan gün okunur, doğal riskli adaylar ve sabotaj/baskın tetikleri erken çalışmaz. Normal husumet sönümü sürer. Moğol/resmi bildiri/heyet engellenmez; debug izni geçici ve kayda yazılmaz, eski gün geri sarılmaz. 29 hedefli kontrol + nihai UTF-8 tam sanity 330 PASS / 0 hata / 20 gece (work/sanity-bug18-final-2). API/import/CSV ve Python denetimleri geçti. Kaynak zaman/ganimet fixtureları bağımsız denetlendi; mevcut sonuç/RNG iddiaları korundu. Asset gerekmedi; ds ayna hâlâ yok, eşitlenemedi. Sonraki iş BUG-19; önce pull ve sahiplik push.
+
+## BUG-19 sahipliği — 11 Ekim 2026 (Kalfa)
+
+Pull kontrolü a636768; BUG-18 push edildi. Beş sıra olayının metni canlandırılan gerçek sıra modelinin cinsiyet/yaşını okuyacak; eksik bilgiye kişi/cinsiyet tahmini yapılmayacak, biri denecek. Yeni helper + ince sahne/UI adaptörü ve CSV anahtarları; boş sıra olay başlatmaz. Hedefli 100 deneme ve gerçek sıra sahnesi, kapanış öncesi UTF-8 tam sanity. Asset gerekmedi; ds ayna yok.

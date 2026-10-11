@@ -95,7 +95,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.4 Sıra olayı
 
-- [ ] **BUG-19:** Sıra olaylarında cinsiyet ve yaş uyumu — metin, sahnedeki gerçek modele göre yazılır.
+- [/] **BUG-19:** (Kalfa) Sıra olaylarında cinsiyet ve yaş uyumu — metin, sahnedeki gerçek modele göre yazılır.
   - Ne: Sırada bayılan kişi erkekse oyuncu "yaşlı bir kadın" cümlesini görmez. Beş sıra olayı (`sira_atlama`, `sira_bayilma`, `sira_kavga`, `sira_panik`, `sira_vazgecen`) seçilen modelin cinsiyetini ve yaş grubunu okur; metin `{kisi}` kalıbıdır ve kadın, adam, çocuk, yaşlı için ayrı çeviri anahtarı vardır. Modelde cinsiyet yoksa metin "biri" der. Çocuk modele yaşlı anahtarı verilmez.
   - Kabul: Beş olayın her birinde 100 denemede metindeki kişi sözcüğü modelin cinsiyeti ve yaşıyla birebir uyar (`tests/unit/kapi/sira_olayi_kisisi_test.gd`). Eksik cinsiyette "biri" 1 kez, yanlış cinsiyet 0 kez çıkar. Sabit "yaşlı bir kadın" satırı `data/sira_olaylari/` altında 0 kalır. Ek şart: sırada kimse yoksa olay başlamaz; bu kapı BUG-16 nüfus koşuludur. Ek şart: çocuk modelde yaşlı anahtarı 100 denemede 0 kez seçilir.
   - Bağımlılık: yok. Boyut: M.
