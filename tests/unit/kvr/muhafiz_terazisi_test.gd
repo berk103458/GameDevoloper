@@ -24,6 +24,10 @@ func _initialize() -> void:
  dene(MuhafizTerazisi.durum(geri)==d,"Tam JSON aynı kaynaklardan aynı terazi")
  var h:=Oturum.new(kat,35)
  var y:=h.yonetim
+ var bina:=KoyBinasi.new()
+ bina.id=17
+ bina.tur="ambar"
+ y.binalar.append(bina)
  var rr:=h.karar_ver(h._adli_gelen(&"chr_001"),&"kabul")
  var id:=int(rr.koylu_id)
  FisiltiGazetesi.gece(y,[])

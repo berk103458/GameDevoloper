@@ -75,7 +75,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.2 Fısıltı
 
-- [/] **BUG-17:** (Kalfa) Fısıltı gazetesi yer bilgisi — pusula yalnız köyde var olan bir yeri anar.
+- [x] **BUG-17:** (Kalfa) Fısıltı gazetesi yer bilgisi — pusula yalnız köyde var olan bir yeri anar.
   - Ne: Sabah pusulası oyuncuya "dün ambar tarafındaydı" demez; ambar yoksa o kalıp hiç basılmaz. `data/fisilti_gazetesi.json` içindeki sabit yer adı `{yer}` olur ve `{yer}` yalnız o gece ayakta duran binalardan seçilir. Uygun bina yoksa pusula o gece yazılmaz. Gece içinde yanan bina sabah seçilmez. Kişi adı `{yer}` yerine geçmez.
   - Kabul: Binasız köyde 30 gecede yer pusulası 0 satırdır. Ambar ayaktayken en az bir denemede pusula metninde "ambar" geçer. Olmayan bir bina adı 30 gecede 0 kez görünür (`tests/unit/kapi/fisilti_yer_test.gd`). Ek şart: ölü ya da köyden ayrılmış kişinin adı pusulada basılmaz; bu süzgeç SOY-45 ile aynı kayıttır, ikinci liste tutulmaz.
   - Bağımlılık: BUG-16. Boyut: S.

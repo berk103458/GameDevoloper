@@ -15,6 +15,10 @@ func _ready() -> void:
  add_child(ana)
  var o:=ana.oturum
  var y:=o.yonetim
+ var bina:=KoyBinasi.new()
+ bina.id=17
+ bina.tur="ambar"
+ y.binalar.append(bina)
  var k:=y.kabul({"ad":"Masum komşu","adli_id":"chr_003"})
  FisiltiGazetesi.gece(y,[])
  assert(o.olay_uygula(o.olay_sec(),0).ok)

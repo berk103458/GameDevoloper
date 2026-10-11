@@ -2,6 +2,7 @@
 class_name FisiltiGazetesi
 extends RefCounted
 const HISTERI = preload("res://src/koy/batil_inanc_histerisi.gd")
+const YER = preload("res://src/kapi/fisilti_yeri.gd")
 const META := "fisilti_gazetesi"
 static var AYAR: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/fisilti_gazetesi.json"))
 ## Optional gün/kişi pusulası; kanıt ya da CHR gizli kimliği kopyalanmaz.
@@ -20,10 +21,13 @@ static func gece(y: KoyYonetimi,olaylar: Array[Dictionary]) -> void:
  if y.son!="" or d.son_gece==y.gun: return
  d.son_gece=y.gun
  y.set_meta(META,d)
- if d.bekliyor or y.gun%maxi(1,int(AYAR.aralik_gece))!=0: return
+ if d.bekliyor and (not YER.kisi_uygun(y,y.koylu(int(d.kisi))) or YER.sec(y).is_empty()):
+  d.bekliyor=false
+  y.set_meta(META,d)
+ if d.bekliyor or y.gun%maxi(1,int(AYAR.aralik_gece))!=0 or YER.sec(y).is_empty(): return
  var adaylar: Array[Koylu]=[]
  for k in y.koylular:
-  if k.saglik>0 and k.yas_grubu!=&"cocuk" and not DivanHukmu.zindanda(k) and not KervanKorumasi.disarida(y,k.id): adaylar.append(k)
+  if YER.kisi_uygun(y,k): adaylar.append(k)
  if adaylar.is_empty(): return
  adaylar.sort_custom(func(a: Koylu,b: Koylu) -> bool: return a.id<b.id)
  var s:=y.gun/maxi(1,int(AYAR.aralik_gece))
@@ -41,10 +45,12 @@ static func olay(o: Oturum) -> OlayVerisi:
  var d:=durum(o.yonetim)
  if not d.bekliyor or o.yonetim.son!="": return null
  var k:=o.yonetim.koylu(int(d.kisi))
+ var yer: String=YER.sec(o.yonetim)
+ if not YER.kisi_uygun(o.yonetim,k) or yer.is_empty(): return null
  var e:=OlayVerisi.new()
  e.id=StringName("cas09_pusula_%d_%d"%[int(d.gun),int(d.kisi)])
  e.baslik_anahtari="Fısıltı gazetesi · imzasız pusula"
- e.metin_anahtari="İmzasız iddia: “%s”\nBu bir söylentidir; suçüstü gözlemi veya divan kanıtı değildir." % (String(AYAR.pusulalar[int(d.metin)]) % (k.ad if k!=null else "köyden ayrılmış kişi"))
+ e.metin_anahtari="İmzasız iddia: “%s”\nBu bir söylentidir; suçüstü gözlemi veya divan kanıtı değildir." % ((String(AYAR.pusulalar[int(d.metin)]) % k.ad).replace("{yer}",yer))
  e.secenek_anahtarlari=PackedStringArray(["Pusulayı arşivle · kanıt bekle","Söylentiyi reddet"])
  e.secenek_etkileri=[{},{}]
  return e

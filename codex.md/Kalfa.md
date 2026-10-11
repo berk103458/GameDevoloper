@@ -60,3 +60,15 @@ Sahiplik commit: 88ad820. Yeni olay_on_kosulu denetçisi mevcut seçiciye/katalo
 ## BUG-17 sahipliği — 11 Ekim 2026 (Kalfa)
 
 Pull kontrolü: 968c83e. BUG-16 kapandı ve push edildi. BUG-17 sabah pusulasında gerçek bina ve yaşayan kişi süzgeci; mevcut FisiltiGazetesi kaydı genişletilir, ikinci liste yok. Hedefli yer testi ve kapanış öncesi tek tam sanity. Asset gerekmedi; ds ayna erişilemiyor.
+
+## BUG-17 sırasında pull — 11 Ekim 2026 (Kalfa)
+
+ffe2e4b güvenli fast-forward ile alındı. Claude'un ROADMAP 2 temizliği ve Tester raporları korundu; oyun kaynaklarında uzak değişiklik yok. BUG-17 sahipliği Kalfa'da, hedefli fısıltı/divan/muhafız testleri geçti; tek tam sanity sürüyor. Arşiv temizliği üzerinde yerel düzenleme yapılmadı. Asset gerekmedi; ds ayna yolu yok.
+
+## BUG-17 doğrulama düzeltmesi — 11 Ekim 2026 (Kalfa)
+
+İlk tam koşuda iki sahnenin kayıt eşitliği kaldı; diğer kontroller ve 20 gece geçti. Tani çıktısı levent_firari_kontrol farkının yalnız gorulen_olaylar ve RNG olduğunu doğruladı: UI olay seçicisini atlayan alt sınıf kullanıyor, restore gerçek Oturum kullanıyordu. İki fixture gerçek Oturum ve ortak sıfır olay olasılığına geçirildi; ölüm/ödül ve tam kayıt eşitliği iddiaları korunarak iki hedefli sahne geçti. Başarısız loglar work/sanity içinde korunuyor; nihai tam koşu work/sanity-bug17-final içinde. Ajan Masası'na sorun ve çözüm yazıldı. Oyun motorundaki kayıt/RNG akışı bu fixture düzeltmesi için değiştirilmedi.
+
+## BUG-17 kapanışı — 11 Ekim 2026 (Kalfa)
+
+Sahiplik 5f5ce8a; son pull 6f95634 (yalnız Tester raporları değişmişti). Pusulada {yer} yalnız mevcut hazır binadan seçilir; binasız köy, yanan/yıkılan bina ve ölen/ayrılan kişi kart üretmez. Mevcut kişi/bina kaydı ve FisiltiGazetesi kaydı kullanıldı, ikinci liste/sayaç/RNG eklenmedi. Hedefli 30 gece yer testi, fısıltı/divan/muhafız kontrolleri ve iki kayıt sahnesi geçti. Nihai UTF-8 tam sanity 329 PASS / 0 hata / 20 gece (work/sanity-bug17-final). Asset gerekmedi. ds ayna yolu yok; eşitlenemedi. Sonraki iş BUG-18, önce pull ve sahiplik push.

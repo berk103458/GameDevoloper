@@ -7,6 +7,7 @@ func _initialize() -> void:
  kat.yukle()
  var o:=Oturum.new(kat,92)
  var y:=o.yonetim
+ hazir_yer(y)
  var k:=y.kabul({"ad":"Masum köylü","adli_id":"chr_003"})
  var stok:=y.kaynaklar.kaydet()
  var rng:=y._rng.state
@@ -37,6 +38,8 @@ func _initialize() -> void:
  # Gizli kimlik/fiil değişse de aynı isim ve gün aynı iddiayı üretir.
  var a:=Oturum.new(kat,1)
  var b:=Oturum.new(kat,2)
+ hazir_yer(a.yonetim)
+ hazir_yer(b.yonetim)
  var ak:=a.yonetim.kabul({"ad":"Aynı isim"})
  var bk:=b.yonetim.kabul({"ad":"Aynı isim","adli_id":"chr_009","gizli_bayraklar":["haydut"]})
  CasusGeceTakibi.kaydet(b.yonetim,bk,"kuyu",-1,"zehirleme","saglik",4,false)
@@ -49,6 +52,7 @@ func _initialize() -> void:
  FisiltiGazetesi.gece(bos.yonetim,[])
  dene(FisiltiGazetesi.olay(bos)==null,"Nüfus yoksa uydurma kişi yok")
  var gercek:=Oturum.new(kat,5)
+ hazir_yer(gercek.yonetim)
  gercek.yonetim.kabul({"ad":"Sabah komşusu"})
  var rapor:=gercek.gece_sonu()
  dene(FisiltiGazetesi.tanimli(rapor.olay) and FisiltiGazetesi.durum(gercek.yonetim).gun==0,"Gerçek gece sonu aynı sabah olay kartına bağlanır")
@@ -56,3 +60,9 @@ func _initialize() -> void:
  dene(FisiltiGazetesi.olay(o)==null,"Terminal kart yok")
  print("FISILTI GAZETESİ: GEÇTİ" if hata==0 else "FISILTI GAZETESİ: KALDI")
  quit(hata)
+
+func hazir_yer(y: KoyYonetimi) -> void:
+ var bina:=KoyBinasi.new()
+ bina.id=17
+ bina.tur="ambar"
+ y.binalar.append(bina)

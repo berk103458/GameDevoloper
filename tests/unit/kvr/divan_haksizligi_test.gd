@@ -7,6 +7,10 @@ func _initialize() -> void:
  kat.yukle()
  var o:=Oturum.new(kat,35)
  var y:=o.yonetim
+ var bina:=KoyBinasi.new()
+ bina.id=17
+ bina.tur="ambar"
+ y.binalar.append(bina)
  var g:=o._adli_gelen(&"chr_001")
  g.chr_sorgusu().obje_incele(1)
  g.chr_sorgusu().obje_incele(2)

@@ -1,3 +1,7 @@
+## Kalfa — BUG-17 tamamlandı (11 Ekim 2026)
+
+Fısıltı pusulası hazır bina ve yaşayan mevcut kişi kaydını okur; binasız köyde yer pusulası yok, yok olan bina ve ayrılan/ölen kişi anılmaz. {yer} kalıpları ve ince yer adaptörü; ikinci kişi listesi/RNG/kayıt alanı yok. Hedefli testler ve nihai tam sanity 329 PASS / 0 hata / 20 gece. İlk koşuda kalan iki UI fixture, restore ile aynı gerçek Oturum seçicisini kullanacak şekilde düzeltildi; kayıt/RNG eşitliği korunuyor. Asset gerekmedi. ds ayna yok; eşitlenemedi.
+
 ## Kalfa — BUG-16 tamamlandı (11 Ekim 2026)
 
 Gece kartları mevcut bina, nüfus ve yaş koşullarından geçer; bilinmeyen koşul içerik hatasıdır. 34 kart tarandı, eksik koşullar tamamlandı. Mevcut seçici/RNG/kayıt korunur. Hedefli regresyon + tam sanity 328 PASS / 0 hata / 20 gece. Kanıt: docs/denetim/BUG-16-olay-on-kosullari.md. Asset gerekmedi. ds ayna bu bilgisayarda yok; eşitlenemedi.

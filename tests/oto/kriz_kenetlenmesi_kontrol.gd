@@ -1,15 +1,16 @@
 ## Gerçek gece → kuyu dezenfeksiyonu → kenetlenme raporu → sabah/kart/kayıt.
 extends Node
 const KENET = preload("res://src/koy/kriz_kenetlenmesi.gd")
-class OlaysizOturum extends Oturum:
-	func olay_sec() -> OlayVerisi: return null
 class TestAna extends Ana:
 	func _ready() -> void:
 		set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		ayarlar = Ayarlar.new("user://unused_kri10.cfg")
 		katalog = Katalog.new()
 		katalog.yukle()
-		oturum = OlaysizOturum.new(katalog, 310)
+		# UI ve restore aynı gerçek seçiciyi/RNG akışını kullanır; rastgele kart kapalıdır.
+		katalog.ayarlar = katalog.ayarlar.duplicate(true)
+		katalog.ayarlar.olay_olasiligi = 0.0
+		oturum = Oturum.new(katalog, 310)
 		kayit = GuvenliKayit.new("user://test_kri10_ui.json")
 		theme = Tema.olustur(ayarlar)
 var hata := 0

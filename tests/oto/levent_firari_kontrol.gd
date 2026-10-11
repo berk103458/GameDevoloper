@@ -1,15 +1,16 @@
 ## Gerçek gece düğmesi → firar raporu → sabah → model/HUD → güvenli kayıt.
 extends Node
 const FIRAR = preload("res://src/koy/levent_firari.gd")
-class OlaysizOturum extends Oturum:
-	func olay_sec() -> OlayVerisi: return null
 class TestAna extends Ana:
 	func _ready() -> void:
 		set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		ayarlar = Ayarlar.new("user://unused_kri09.cfg")
 		katalog = Katalog.new()
 		katalog.yukle()
-		oturum = OlaysizOturum.new(katalog, 309)
+		# UI ve restore aynı gerçek seçiciyi/RNG akışını kullanır; rastgele kart kapalıdır.
+		katalog.ayarlar = katalog.ayarlar.duplicate(true)
+		katalog.ayarlar.olay_olasiligi = 0.0
+		oturum = Oturum.new(katalog, 309)
 		kayit = GuvenliKayit.new("user://test_kri09_ui.json")
 		theme = Tema.olustur(ayarlar)
 var hata := 0
