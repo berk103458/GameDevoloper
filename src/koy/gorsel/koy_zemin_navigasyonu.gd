@@ -20,7 +20,7 @@ static func yenile(h: KoyHalkHareketi) -> void:
  n._onceki_bolge = NavigationServer3D.region_get_iteration_id(n.get_rid())
  n._bekliyor = true
  n.set_physics_process(true)
- var mesh := koridor(h.sahne.yonetim.izgara, h.sahne.HUCRE, h.sahne.hucre_kosesi(Vector2i.ZERO))
+ var mesh := koridor(h.rotaci._izgara, h.sahne.HUCRE, h.sahne.hucre_kosesi(Vector2i.ZERO))
  mesh.cell_size = NavigationServer3D.map_get_cell_size(n.get_navigation_map())
  mesh.cell_height = NavigationServer3D.map_get_cell_height(n.get_navigation_map())
  n.navigation_layers = int(AYAR.navigation_layers)

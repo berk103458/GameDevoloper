@@ -146,7 +146,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.8 Kapı çift işlem
 
-- [/] **BUG-23:** (Codex) Çiftçi tarla üstünde çalışır — iş noktası tarla alanının içinde.
+- [x] **BUG-23:** (Codex) Çiftçi tarla üstünde çalışır — iş noktası tarla alanının içinde.
   - Ne: Çalışma saatinde çiftçi tarla dikdörtgeninin içinde durur. Birden çok çiftçi aynı noktaya yığılmaz; noktalar tarlanın içinde dağılır. Tarla yoksa kişi dünya orijinine ışınlanmaz ve iş iptali uyarıdır, betik hatası değildir. Gece uyku noktası tarla olmaz.
   - Kurallar:
     1. Çalışma saatinde iş noktası tarla dikdörtgeninin içindedir.
