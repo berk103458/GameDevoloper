@@ -1796,3 +1796,6 @@ olay.sira_bayilma.sonuc_toparlanma,Yere düşen {kisi} soluklanıp ayağa kalkt�
 olay.sira_bayilma.rapor_toparlanma,Yere düşen {kisi} soluklanıp ayağa kalktı ve sırasına döndü.
 olay.sira_bayilma.sonuc_yardim,Yere düşen {kisi} su ve ekmekle toparlandı; yardım ambardan karşılandı.
 olay.sira_bayilma.rapor_yardim,Yere düşen {kisi} su ve ekmekle toparlandı; yardım ambardan karşılandı.
+arayuz.ayarlar.kamera_eksen_ters,Kamera: eksen ters
+arayuz.ayarlar.kamera_eksen.acik,Açık
+arayuz.ayarlar.kamera_eksen.kapali,Kapalı

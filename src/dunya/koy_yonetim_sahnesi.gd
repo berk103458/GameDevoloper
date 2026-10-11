@@ -68,6 +68,7 @@ func _ready() -> void:
 	_kamera_yerlestir()
 	yenile()
 	faz(&"gunduz", 0.0)
+	KameraSurukleme.kur(self)
 
 
 func _process(delta: float) -> void:

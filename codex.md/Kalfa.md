@@ -114,3 +114,5 @@ BUG-20 nihai tek tam UTF-8 sanity: 338 PASS / 0 hata / 20 gece; work/sanity-bug2
 ## BUG-20 kapanışı ve entegrasyon — 11 Ekim 2026 (Kalfa)
 
 Uygulama f4c19bc öncesi tek tam sanity 338/0/20 gece. Sonraki üç festive commit çakışmasız merge edildi; yeni tarla ve navigasyonla 10 hedefli kontrol geçti. Tam koşu merge öncesi uygulamaya aittir; yeni festive'nin tümüne yeni tam koşu iddiası yok. Başka ajan imzaları/kuralları korundu. Asset gerekmedi; ds ayna tekrar kontrol edildi, yok. Kapanış push sonrası BUG-25 için pull/sahiplik yapılır.
+
+BUG-20 push yarışı: b023973 kamera kapanışı pull ile alındı; CSV'de sıra sonucu/kamera ekleri birlikte korundu. Ek 7 hedefli kontrol 0 hata (CSV/kaynak/import, kamera/sonuç birimleri, gerçek sonuç/köy sahneleri). BUG-24 Codex imzası ve TEK sahiplikleri korundu. Force/reset yok; tam koşu uygulama f4c19bc'ye ait 338/0/20 gece, iki merge sonrası 10+7 hedefli kontrol. Asset gerekmedi.

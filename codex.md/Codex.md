@@ -30,6 +30,28 @@ sürümüyle aynı. Yeni yardımcı dosyanın aktarım denemesi AccessDenied ver
 bu oturumun yazılabilir kökü dışında olduğundan ayna eşitlenemedi. Yalnız görev
 dosyalarını içeren aktarım paketi: work/bug23/transfer.zip ve files.json.
 gh komutu ortamda bulunmadığından issue #11 okunamadı; dış mesaj gönderilmedi.
+## BUG-24 — Orta tuşla köy kamerasını sürükleme / 11 Ekim 2026
+
+Yeni KameraSurukleme + KoyYonetimSahnesi'nde tek bağlantı. Son iki imleç
+konumunun zemin projeksiyonu, denge.json hız çarpanı, gerçek ızgarada kamera
+odağı sınırı, ANI-14'ü aynı olayda bırakma, panel/duraklat/odak kaybında iptal.
+Varsayılan el yönü; optional boolean eksen ters Ayarlar kaydı ve menü seçimi;
+CSV'ye yalnız üç yeni anahtar. Asset gerekmedi. ROADMAP değiştirilmedi;
+commit/push ve .git işlemi yapılmadı. Tam sanity çalıştırılmadı.
+
+Godot 4.7.2: son importta parse/script hatası yok; kamera birimi 33 kontrol,
+koylu_takibi_kontrol, kapi_kamera, grafik_profili ve dusuk_bellek geçti.
+Metin doğrulaması ve Python 45 test geçti. koy_hareket_kontrol: 1 başarısız
+dinlenme iddiası; user:// tanı koşusunda kamera bileşeni yok, köylü sulama
+adımı 0'da (bekleme 1,968 sn; kendi eşiği 3 sn), test 2 sn'de genel dinlenme
+bekliyor. Mevcut hareket/test kodu değiştirilmedi; sonraki iş bu fixture'ın
+ANI-03 ile uyumunu ayrı kapsamda düzeltmek. İlk yeni test autoload yükleme
+sırası hatası ve kenara ulaşmayan test girdisi düzeltildi; son birim geçti.
+
+Kanıt: work/bug24/logs/, results.json; APPDATA/LOCALAPPDATA mutlak work/ad/bug24
+yollarında. Sertifika deposu hatası mevcut TST-0011 ortam istisnasıdır.
+Zorunlu ds GitHub aynası yazılabilir kökün dışında, eşitlenemedi; bağımsız
+CSV değişikliklerini koruyan aktarım paketi work/bug24/transfer/ altında.
 
 ## ADM-16 — Oyun Köprüsü / 11 Ekim 2026
 

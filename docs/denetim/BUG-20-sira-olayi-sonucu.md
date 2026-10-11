@@ -11,3 +11,5 @@ Birim test: 1000 tohumlu zar 149/265/258/328; her sapma yüzde3'ün altında. D�
 Asset gerekmedi; mevcut model ve cenaze yer tutucusu kullanılır. `res://work` test yolu yok; aynı anda tek tam sanity. ds ayna yolu bu bilgisayarda yok, eşitlenemedi. Başka ajanın sahipliği ve arşiv klasörü değişmedi.
 
 Festive entegrasyonu: f4c19bc sonrası yeni asset kuralı ve BUG-23 tarla çalışması çakışmasız merge edildi. Sonraki 10 hedefli kontrol geçti: CSV/kaynak/API/import, tarla ve kişi/sonuç birimleri, gerçek sıra sonucu/navigasyon/köylü takip sahneleri. 338 kontrol tam koşusu merge öncesi uygulamaya aittir; son festive'nin tümüne yeni tam koşu iddiası yok.
+
+Push yarışı entegrasyonu: b023973 BUG-24 kamera kapanışı da alındı. CSV sonundaki sıra sonucu ve kamera ayarı ekleri birlikte korundu. Ek 7 hedefli kontrol 0 hata: CSV/kaynak/import, kamera/sonuç birimleri ve gerçek sonuç/köy sahneleri. Reset/force yok. Merge sonrası doğrulama toplam 10+7 hedefli kontroldür.
