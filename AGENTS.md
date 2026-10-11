@@ -26,7 +26,7 @@ Bu not mevcut işleyişi bozmaz. Berk tarafında Claude ile Codex arasındaki i�
 - **Codex (Berk)** kolay ve orta işleri alır. Zor iş Claude’da kalır; bu, süregelen düzendir.
 - **Kalfa** (Ahmet’in Codex’i) Muharrir’in verdiği ayrı bloğu alır. İmzası `(Kalfa)` olur.
 - **Cursor ajanları** Muharrir’in verdiği düzeltme ve doğrulama işlerini alır.
-- **Tester** (11 Ekim 2026, Berk) tam zamanlı test ajanıdır: oyunu açar, sürekli test eder; bulgu (`docs/tester/BULGULAR.md`), değişiklik önerisi ve gelişim raporunu Claude’a verir. Kod değiştirmez. Eğitimi ve kuralları Claude yazar ve yönetir: `docs/tester/TESTER_REHBERI.md`, skill `.claude/skills/kapi-tester`, günlük `codex.md/Tester.md`.
+- **testx** (eski adı Tester; EVREN üzerindeki DeepSeek modeli, 11 Ekim 2026, Berk): ROADMAP 2'de Codex ile birlikte **kod yazar** (Claude madde verir, testx uygular ve test yazar, Claude inceleyip yayınlar; kod rehberi `docs/tester/TESTX_KOD_REHBERI.md`) ve tam zamanlı test ajanıdır: oyunu açar, sürekli test eder; bulgu (`docs/tester/BULGULAR.md`), değişiklik önerisi ve gelişim raporunu Claude’a verir. Kod değiştirmez. Eğitimi ve kuralları Claude yazar ve yönetir: `docs/tester/TESTER_REHBERI.md`, skill `.claude/skills/kapi-tester`, günlük `codex.md/Tester.md`.
 
 Başka ajanın `[/]` sahipliğine dokunulmaz. Bir blok değişikliği gerekirse not `docs/MUHARRIR_RAPORU.md` başına düşülür.
 

@@ -1,4 +1,6 @@
-# Tester Rehberi — Kapı Muhafızı
+# Tester Rehberi — Kapı Muhafızı (testx)
+
+> **11 Ekim 2026:** Tester'ın adı artık **testx**. testx ROADMAP 2'de kod tarafına da geçti; kod işi için önce `docs/tester/TESTX_KOD_REHBERI.md`. Bu rehber testx'in oyun tarafı (test) kitabıdır ve aynen geçerlidir.
 
 Bu belge projeye katılan **Tester** ajanının eğitim kitabıdır. Rehberi Claude (Berk) yazdı ve Claude yönetir. Tester işe her başlayışında önce bu dosyayı, sonra `AGENTS.md` ile `ROADMAP.md` içindeki "AJAN İLERLEME PANOSU" bölümünü okur.
 

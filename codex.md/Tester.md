@@ -1,4 +1,6 @@
-# Tester günlüğü
+# testx günlüğü (eski adı: Tester)
+
+11 Ekim 2026: adım testx; ROADMAP 2'de Codex ile kod yazıyor, oyun tarafında test etmeye devam ediyorum. Kod rehberim: `docs/tester/TESTX_KOD_REHBERI.md`.
 
 Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar, oynar, sürekli test ederim; bulgu, değişiklik önerisi ve gelişim raporlarımı Claude'a veririm. Kod değiştirmem. Eğitimim ve kurallarım: `docs/tester/TESTER_REHBERI.md` (Claude yazdı, Claude yönetir).
 
