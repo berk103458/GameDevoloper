@@ -6,7 +6,28 @@ Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar,
 - Göreve başlama: 11 Ekim 2026 — **Tur 1 (eğitim)** tamamlandı.
 - Çalışma kopyası: `C:\Users\ds\Documents\Codex\tester-ajan` (git worktree, dal `claude/festive-volta-li1sfm`, commit `5c9a5b1`).
 - Eğitim turu kuralı: kod (`src/`, `data/`, `tests/`, `tools/`, `ROADMAP.md`) değiştirilmedi; commit/push yapılmadı. Yalnız `docs/tester/` ve bu günlük yazıldı.
-- Güncel: **Tur 6** tamamlandı (11 Ekim 2026, commit `6ce5f62`; yeni kod commit'i yok, son kod `062185b`). Rapor: `docs/tester/turlar/TUR-006.md`.
+- Güncel: **Tur 7** tamamlandı (11 Ekim 2026, commit `8acb352`). Rapor: `docs/tester/turlar/TUR-007.md`.
+
+## Tur 7 — 11 Ekim 2026 (commit 8acb352)
+
+### Ne yaptım
+- **Sanity:** etkin **327 log / 0 KALDI / 0 SCRIPT ERROR** (harness "322 failed" = ortam sertifika yanlış negatifi). Import exit 0, 0 SCRIPT/Parse; 102 ERROR = TST-0005 yetim `.import`.
+- **8acb352 doğrulaması (TST-0010):** `src/veri/oyun_ayarlari.gd:39` = 12; `.tres:24` = 12; yeni `OyunAyarlari` varsayılanı = 12 → tek değer, `.tres` okunamazsa sessizce 10'a düşmez. `perde_gecisi_test`, `nihai_son_test`, oto `nihai_son_kontrol` GEÇTİ → **TST-0010 DOĞRULANDI**.
+- **BUG-0016 DOĞRULANDI:** `chr_kilit_cikisi_test` GEÇTİ; KILIT/`SOHBET_KILIDI` yalnız 106/107/108 (fix öncesi); 109–149'da 0. Tasarım sorusu (kalıcı kapanma açıklanmıyor) **ONR-001**'e kod kanıtıyla işlendi (`chr_sorgusu.gd:69-71`).
+- **TST-0004 sadeleştirildi:** ana kayıt başlığı/önceliği düzeltildi (P1→P2, strateji tuzağı S3, BUG-0018); ONR-003/004 kopya değil, ona bağlı.
+- **TST-0009 kimlik çözüldü:** "beyaz küre" = **dokusuz çadır modeli** (`cadir.glb`); `assets/model/**` altında hiç `.jpg` yok.
+- **7/24 (145–149):** hata 0, DONMA 0. 145 Azil g16 · 146 Azil g6 · 147/148/149 → **3/3 g19 Tekfur** (ONR-010 sürüyor). 43 tamamlanan: Tekfur 19 · İsyan 11 · Azil 11 · **Zafer 2/43 (%4,7)**; ort. son gün 13,12. 2. perdeye giren 36/36 `sur=0`.
+- **Türkçe dilim 4** (satır 451–600): temiz. Kaldığım satır **600**.
+- **Rastgele bölüm (BÖLÜM 6):** 16 akış + 13 birim GEÇTİ; regresyon yok.
+- **Kendi koşularım:** oto 802 (0.9) İsyan g14, 803 (0.35) Azil g16. Persona2 (odun zinciri + sur) 611 → tekfur g13, 612 → tekfur g7. Açılış 20 odun/5 taş doğrulandı.
+
+### Yeni/kapatılan
+- Yeni: **ONR-012 (Düşük, [ARAYUZ] "Geceye geç" kontrast, doğrulanmadı)**.
+- Doğrulanan: **TST-0010**, **BUG-0016**. Yeniden açılan: yok.
+- Açık: P0 0 · P1 0 · P2 3 (TST-0002/0004/0007) · P3 5 (TST-0001/0005/0006/0008/0009).
+
+### Sonraki tur odağı
+- Türkçe dilim 5 (601–750); TST-0002 `[KEY_NOT_FOUND]` ekran görüntüsü; TST-0005/TST-0009 doku eksikliği; ONR-005/006/010 uygulanınca zafer oranını yeniden ölç.
 
 ## Tur 6 — 11 Ekim 2026 (commit 6ce5f62; yeni kod commit'i yok)
 

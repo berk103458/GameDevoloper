@@ -4,6 +4,17 @@ Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md
 
 <!-- En yeni giriş buraya -->
 
+## 2026-10-11 · Tur 7 · commit 8acb352
+- **Sağlık:** Etkin sanity **327 log / 0 KALDI / 0 SCRIPT ERROR** (harness "322 failed" = ortam sertifika hatası, yanlış negatif — tur 3–6 ile aynı). Import exit 0, 0 SCRIPT/Parse; 102 ERROR satırı tamamı TST-0005 yetim `.import`. `perde_gecisi_test` + `nihai_son_test` + oto `nihai_son_kontrol` + `chr_kilit_cikisi_test` GEÇTİ. BÖLÜM 6 regresyonu: **16 akış + 13 birim GEÇTİ**.
+- **Bu turda giren kod:** `8acb352` — tek satır: `src/veri/oyun_ayarlari.gd` `perde2_hedef_gece` 10 → **12** (TST-0010).
+- **Doğrulanan:** **TST-0010 DOĞRULANDI** (sınıf varsayılanı / `.tres` / yeni kaynak üçü de 12; `.tres` okunamazsa artık sessizce 10'a düşmez) · **BUG-0016 DOĞRULANDI** (KILIT/`SOHBET_KILIDI` yalnız fix öncesi 106/107/108'de; 109–149'da 0).
+- **Kimlik çözüldü:** TST-0009 "beyaz küre" = **dokusuz çadır modeli** (`cadir.glb`); `assets/model/**` altında **hiç `.jpg` yok** → tüm modeller dokusuz. Yani TST-0005'in oyun içi etkisi görsel.
+- **7/24 (tur 6 sonrası, 145–149):** hata 0, DONMA 0. 145 Azil g16 · 146 Azil g6 · **147/148/149 → 3/3 `g19 Tekfur`** (TST-0010 düzeltmesinden sonra da "zafer gecesi = ölüm gecesi" çakışması sürüyor).
+- **Denge eğrisi (43 tamamlanan, 101–149):** Tekfur 19 · İsyan 11 · Azil 11 · **Zafer 2** → zafer **2/43 = %4,7**; ortalama son gün **13,12** (min 5, max 18). 2. perdeye giren **36/36 oyun `sur=0`** ile giriyor; girişte asker ort. 6,6. İlk akın gücü 4 (baskı 1); savunma çoğu oyunda < güç.
+- **Oynanış hissi:** Akt-1 sağlıklı. Akt-2 hâlâ "hazırlık" fırsatı vermiyor: gıda g6–8'de 0, akın g7 civarı. Sur taksiti 6–7 gece kazandırıyor ama zafer yok → gerçekçi oyuncu için zafer fiilen ulaşılamıyor (ONR-005/006/010).
+- **Açık bulgu:** P0 0 · P1 0 · P2 3 (TST-0002, 0004, 0007) · P3 5 (TST-0001, 0005, 0006, 0008, 0009). Kapanan: TST-0010 (DOĞRULANDI), TST-0003 (DOĞRULANDI). Yeni öneri: **ONR-012** ([ARAYUZ] "Geceye geç" kontrast, doğrulanmadı).
+- **Bir sonraki tur odağı:** Türkçe dilim 5 (601–750); ONR-005/006/010 uygulanınca zafer oranını yeniden ölç; TST-0002 `[KEY_NOT_FOUND]` ekran görüntüsü; TST-0005/TST-0009 doku eksikliği (asset envanteri); karakter muayenesi varyantı (kıyafet/el eşyası).
+
 ## 2026-10-11 · Tur 6 · commit 6ce5f62 (yeni kod commit'i yok; son kod 062185b)
 - **Sağlık:** Etkin sanity **327 log / 0 KALDI / 321 GEÇTİ / 0 SCRIPT ERROR** (harness "322 failed" = ortam sertifika hatası, yanlış negatif — tur 3–5 ile aynı). Import 0 SCRIPT/Parse; 103 ERROR satırı tamamı TST-0005 yetim `.import`. BÖLÜM 11 regresyonu: **13 akış + 18 birim testi GEÇTİ**. `chr_kilit_cikisi_test` GEÇTİ.
 - **Bu turda giren kod:** yok (HEAD = tur 5 tester commit'i 6ce5f62).

@@ -5,12 +5,12 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 
 | Kimlik | Öncelik | Madde | Başlık | Durum |
 | --- | --- | --- | --- | --- |
-| TST-0010 | P3 | SYS-19 | 2. perde hedef gecesi kod varsayılanı (10) ile etkin kaynak (`oyun.tres`=12) uyuşmuyor; kaynak yoksa hedef sessizce 10'a düşer | AÇIK |
+| TST-0010 | P3 | SYS-19 | 2. perde hedef gecesi kod varsayılanı (10) ile etkin kaynak (`oyun.tres`=12) uyuşmuyor; kaynak yoksa hedef sessizce 10'a düşer | DOĞRULANDI (8acb352) |
 | TST-0005 | P3 | ENVIRONMENT/asset | 43 orphan `.import` (jpg yok) import sırasında 86 ERROR satırı üretiyor | AÇIK |
 | TST-0006 | P3 | [DIYALOG] metin | metinler.csv: 'Halkaya  +1' ve 'Tam isabet  +2' çift boşluk; tekfur saldırısı için iki ayrı anahtar | AÇIK |
 | TST-0007 | P2 | [CEVRE] chr_011 | chr_011 kukuleta/pelerin mesh'i ölçüsüz; gövdeyi küre gibi sarıyor (el_aci 0.69) | AÇIK |
 | TST-0008 | P3 | [CEVRE] modeller | chr_009/chr_021 ayak ~9 cm havada; Aydoğdu yayı bacak/gövdeye giriyor | AÇIK |
-| TST-0009 | P3 | [CEVRE] köy sahnesi | Meydan yakınında kocaman beyaz küresel yer tutucu mesh (kimliği doğrulanmadı) | AÇIK |
+| TST-0009 | P3 | [CEVRE]/asset | Çadır modeli (`cadir.glb`) dokusuz → beyaz küre gibi; `assets/model/**` altında hiç `.jpg` yok (TST-0005 etkisi) | AÇIK |
 | TST-0004 | P2 | SYS-19/DENGE | Otomatik oyuncu odun zincirini kurmuyor; çadır/tarla önce kurulursa odun geri dönüşsüz biter (oyuncu uyarılmıyor) | AÇIK (strateji tuzağı S3; BUG-0018) |
 | TST-0003 | P1 | — | Sinsi gece rutini: koylu(id) null iken is_yeri erişimi; her karede SCRIPT ERROR | DOĞRULANDI (254202d) |
 | TST-0002 | P2 | — | 6 metin anahtarı eksik; her oyunda [KEY_NOT_FOUND] uyarısı | AÇIK |
@@ -27,17 +27,20 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 
 
 ### TST-0010 · P3 · SYS-19 · 2. perde hedef gecesi: kod varsayılanı 10, etkin kaynak 12 (sessiz yarıya inme riski)
-- **Durum:** AÇIK
+- **Durum:** DOĞRULANDI (8acb352)
 - **Commit:** 6ce5f62 (kod 062185b)
 - **Adımlar:** 1) `Select-String perde2_hedef_gece src/veri/oyun_ayarlari.gd` → `@export var perde2_hedef_gece: int = 10` 2) aynı anahtar `data/ayarlar/oyun.tres:24` → `perde2_hedef_gece = 12` 3) kod yorumları: `src/koy/perde_gecisi.gd:3` ve `src/koy/koy_yonetimi.gd:59` "(varsayılan) 12" der.
 - **Beklenen:** Tek bir doğruluk kaynağı; kod varsayılanı ile etkin ayar aynı olmalı (veya varsayılan 12 olmalı).
 - **Gerçek:** GDScript varsayılanı 10, `.tres` etkin değeri 12. Rehber §2 de "12 gece" der. Normal oyunda `.tres` yüklendiği için etkin değer 12; ancak `oyun.tres` herhangi bir nedenle okunamazsa hedef **sessizce 10'a** düşer (oyuncu ve rapor fark etmez). Ayrıca iki yerde 12/10 karışıklığı ileride yanlış test/madde beklentisi üretir.
 - **Tekrar:** 2/2 (statik, deterministik).
+
+- **Tur 7 doğrulama (commit 8acb352):** `src/veri/oyun_ayarlari.gd:39` artık `@export var perde2_hedef_gece: int = 12`; `data/ayarlar/oyun.tres:24` = 12; `src/koy/perde_gecisi.gd:3` ve `src/koy/koy_yonetimi.gd:59` yorumları da 12 der. Sınıf varsayılanı / `.tres` etkin değeri / bellek içi yeni OyunAyarlari üçü de 12 → tek değer; .tres okunamazsa artık sessizce 10 değerine düşmez. `perde_gecisi_test` (tam 12 gece + ayar==12 kontrolü), `nihai_son_test`, oto `nihai_son_kontrol` GEÇTİ. Kanıt: work/tester/tur7/tst0010.log, perde_gecisi.log, nihai_son_kontrol.log.
+
 - **Kanıt:** `src/veri/oyun_ayarlari.gd:39`, `data/ayarlar/oyun.tres:24`, `src/koy/perde_gecisi.gd:3`, `src/koy/koy_yonetimi.gd:59`; deneyim: persona/otomatik koşularda 2. perde hedefi pratikte 12 görüldü (oyun 124 g18 zafer).
 - **Öneri:** Varsayılanı 12 yap ya da tek kaynak kullan; yorumları ayarla eşitle.
 
 
-### TST-0009 · P3 · [CEVRE] · Köy sahnesinde büyük beyaz küresel yer tutucu (kimliği doğrulanmadı)
+### TST-0009 · P3 · [CEVRE]/asset · Köy sahnesinde beyaz çadır modeli dokusuz (küre gibi görünen yer tutucu) — kimlik çözüldü
 - **Durum:** AÇIK
 - **Commit:** 39847ea
 - **Adımlar:** 1) `CIKTI=work/tester/tur5/koy_gunduz.png GUN=6 KIP=bilgi FAZ=gunduz godot --path . --windowed --audio-driver Dummy tests/oto/koy_foto.tscn` 2) aynısı `FAZ=gece KIP=insa` 3) küçültülmüş `work/tester/tur5/v_koy_gunduz.jpg`, `v_koy_gece.jpg`.
@@ -46,6 +49,7 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 - **Tekrar:** 2/2 (gündüz + gece aynı yerde).
 - **Kanıt:** `work/tester/tur5/koy_gunduz.png`, `koy_gece.png`, `v_koy_gunduz.jpg`, `v_koy_gece.jpg`.
 - **Öneri:** Kürenin hangi nesne/bina olduğu belirlenip ölçeği düzeltilsin; gerekirse `docs/EKSIK_ASSET_ENVANTERI.md`'ye "köy yerleşimi küresel yer tutucu (Yüksek)" eklenir (envanteri Claude ekler; tester yazmaz).
+- **Tur 7 güncelleme — kimlik ÇÖZÜLDÜ:** Beyaz küre = **çadır (`res://assets/model/yapi/cadir.glb`)**, dokusu eksik olduğu için **tek renk beyaz** görünüyor. `Dunya3B._yol` yapıyı `assets/model/yapi/<ad>.glb`'den yükler; `cadir.glb.import` `cadir_0.jpg` dokusuna bağlı ama `assets/model/**` altında **tek bir `.jpg` yok (sayı: 0)** → tüm yapı/nesne/karakter modelleri dokusuz (düz renk/beyaz). Bu, TST-0005'in (43 yetim `.import`) oyun içi etkisidir. Ekran görüntüsünde ayrıca meydan yakınındaki **parlak mavi kutu**, inşa hayaleti (`KIP=insa` `_hayalet_guncelle`) olduğu için bulgu değildir. Ölçek/konum sorunu yok; sorun dokunun eksikliği. Kanıt: `work/tester/tur7/v_koy_gunduz_insa.jpg`, `work/tester/tur7/koy_gunduz_insa.png`, `assets/model/yapi/` (yalnız `.import`, `.jpg` yok).
 
 ### TST-0007 · P2 · [CEVRE] · chr_011 kukuleta/pelerin mesh'i ölçüsüz (gövdeyi küre gibi sarıyor)
 - **Durum:** AÇIK
@@ -73,6 +77,7 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 ### BUG-0016 / BUG-0017 · not (Tur 4) — tekrar DOĞRULANDI
 - **BUG-0016 (5396fae):** fix sonrası oyunlar 109–123'te KILIT olayı ve `SOHBET_KILIDI` = 0 (KILIT yalnız fix öncesi 106/107/108'de). `chr_kilit_cikisi_test` tekrar GEÇTİ (0 hata).
 - **BUG-0017 (254202d):** oyunlar 113–123'te `is_yeri` SCRIPT ERROR = **0** (11/11). 
+- **Tur 7 (BUG-0016 DOĞRULANDI):** `chr_kilit_cikisi_test` → "CHR KILIT CIKISI: GEÇTİ (0 hata)". `olaylar.log` KILIT toplam 3 (106/107/108, fix öncesi b9865ba/df55a1b); `SOHBET_KILIDI` yalnız 106/107/108; **109–149 arası 0**. Fix 5396fae (01:53:44) sonrası yeni kilit/softlock **yok**. Tasarım adaleti sorusu (yanlışlıkla tüketilen cevabın geri dönüşü, "tek şans" uyarısı) → **ONR-001**'e kod kanıtı eklendi (`chr_sorgusu.gd:69-71`, `chr_diyalog_paneli.gd:40`).
 ### TST-0006 · P3 · [DIYALOG]/metin · metinler.csv: çift boşluk ve yinelenen Tekfur saldırı metni
 - **Durum:** AÇIK
 - **Commit:** 0ac499c
@@ -82,6 +87,7 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 - **Tekrar:** 2/2 (dosya okuması, statik).
 - **Kanıt:** `data/metin/metinler.csv:111,116,33,340`; dilim notu work/tester/tur4/metin_ilk150.txt.
 - **Öneri:** Çift boşlukları tek boşluğa indir; `anlati.saldiri.guc` kullanılmıyorsa kaldır, kullanılıyorsa `koy.olay.tekfur_baskini` ile birleştir (metin tutarlılığı). CSV'yi tester değiştirmez.
+- **Tur 7 dilim notu:** `metinler.csv` satır 451–600 tarandı — **temiz** (çift boşluk 0, format kalıntısı 0, `KEY_NOT_FOUND` 0). Tek küçük imla: `olay.nogay_haber.metin` "Nogay geceyarısı yanına geldi" → TDK **"gece yarısı"** (ayrı). Sonraki dilim: satır 601–750.
 ### TST-0005 · P3 · [ÇEVRE]/asset · 43 yetim `.import` dosyası import sırasında 86 ERROR satırı üretiyor
 - **Durum:** AÇIK (önceden var olan repo artefaktı)
 - **Commit:** 34d36f7
@@ -95,8 +101,9 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 - **Tur 4 notu (0ac499c):** Hâlâ 43 yetim `.import` var; bu tur import logunda `_yuru_Image_0.jpg` geçen **124 satır**, toplam **140 ERROR satırı** (`work/tester/tur4/sanity_import.log`). Durum **AÇIK**.
 
 
-### TST-0004 · P1 · [DENGE] · Zafer sonu ulaşılamıyor — EKO-02 tomruk zinciri köyü odun kilitine sokuyor
+### TST-0004 · P2 · SYS-19/DENGE · Ana kayıt · Otomatik oyuncu odun zincirini kurmuyor; çadır/tarla önce kurulursa odun geri dönüşsüz biter (oyuncu uyarılmıyor)
 - **Durum:** AÇIK
+- **Tur 7 güncelleme (ana kayıt):** Başlık ve öncelik düzeltildi (P1 → P2). Kök neden **kesin kilit DEĞİL**, **strateji tuzağı (S3)**: açılış stoğu 20 odun / 5 taş; Orman Kampı (+odunluk) + Hızarhane önce kurulursa zincir başlar. Sorun, otomatik oyuncunun/oyuncunun önce çadır/tarla kurup odunu geri dönüşsüz tüketmesi ve oyunun bunu **uyarmaması**. Kanıt: ADM-16 köprü durum dökümü (`get_state` ambar.odun=20, tas=5, gün 0); tur 6 ölçümü 36/36 oyun 2. perdeye `odun=0, sur=0, yapı=5` ile giriyor. BUG-0018 (denetim 062185b) iddiası buna göre düzeltildi. **Bu kayıt tek ana kayıttır; ONR-003 ve ONR-004 ona bağlıdır (kopya değil, aynı kök neden).**
 - **Commit:** 34d36f7 (oyun 108–116 + tur 3 koşuları)
 - **Adımlar:** 1) Otomatik oyuncu, herhangi bir kabul oranı (0.1–0.98) 2) Oyunu sonuna kadar oyna. 3) Ayrıca `tools/denge/koy_benzetimi.gd` (kendi mantığı) 5 tohumla.
 - **Beklenen:** 2. perdeye (nüfus 18) ulaşan bir köy, doğru bina/iş dağılımıyla 12 gece dayanıp zafer (Uç Tutundu vb.) alabilmeli.
