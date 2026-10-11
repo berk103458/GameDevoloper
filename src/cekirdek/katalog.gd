@@ -141,6 +141,7 @@ func _dogrula() -> void:
 		for a in s.soru_anahtarlari + s.cevap_anahtarlari:
 			_anahtar_dogrula(a, "sohbet %s" % s.id)
 	for o: OlayVerisi in _olaylar.values():
+		hatalar.append_array(preload("res://src/sistemler/olay_on_kosulu.gd").dogrula(o.kosullar))
 		_anahtar_dogrula(o.baslik_anahtari, "olay %s" % o.id)
 		_anahtar_dogrula(o.metin_anahtari, "olay %s" % o.id)
 		if o.secenek_anahtarlari.size() != o.secenek_etkileri.size() or o.secenek_anahtarlari.is_empty():

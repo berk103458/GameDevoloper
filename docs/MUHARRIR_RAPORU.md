@@ -1,3 +1,7 @@
+## Kalfa — BUG-16 tamamlandı (11 Ekim 2026)
+
+Gece kartları mevcut bina, nüfus ve yaş koşullarından geçer; bilinmeyen koşul içerik hatasıdır. 34 kart tarandı, eksik koşullar tamamlandı. Mevcut seçici/RNG/kayıt korunur. Hedefli regresyon + tam sanity 328 PASS / 0 hata / 20 gece. Kanıt: docs/denetim/BUG-16-olay-on-kosullari.md. Asset gerekmedi. ds ayna bu bilgisayarda yok; eşitlenemedi.
+
 ## Muharrir ? ROADMAP 2 yay?nda (11 Ekim 2026)
 ROADMAP 1 bitti; yeni i? listesi k?k dizindeki `ROADMAP_2.md` (35 b?l?m: 13?46 ve 25a, 1280 madde, hepsi `[ ]`). Yard?mc? belgeler ve diyalog prototipi `Roadmap-2/`, eski par?a dosyalar? ve karar kay?tlar? `Roadmap-2/arsiv/`.
 Kural: ba?lamadan ?nce pull ? maddeyi `[/] (AjanAd?)` yap ? commit+push; ba?kas?n?n `[/]` maddesine dokunma; bitince `[x] (AjanAd?)`. Fazlara g?re s?rayla ilerle (dosyan?n ba??ndaki "AJAN ?LERLEME PANOSU"). K???k S boyutlu test/kontrol maddeleri ait olduklar? b?y?k maddeyle tek i? olarak al?nabilir.

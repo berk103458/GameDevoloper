@@ -65,7 +65,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.1 Olay koşulu
 
-- [/] **BUG-16:** (Kalfa) Olay ön koşul denetimi — bina, nüfus ve yaş grubu koşulu sağlanmayan olay tetiklenmez.
+- [x] **BUG-16:** (Kalfa) Olay ön koşul denetimi — bina, nüfus ve yaş grubu koşulu sağlanmayan olay tetiklenmez.
   - Ne: Gece kartı, metninde geçen bina köyde yoksa, istenen yaş grubu yoksa ya da nüfus eşiği tutmuyorsa oyuncuya hiç açılmaz. Seçici `OlayVerisi.kosullar` içindeki `bina_var`, `nufus_en_az`, `cocuk_var` ve `yas_grubu` anahtarlarını okur; koşul tutmayan kartın ağırlığı sıfır olur ve yerini koşulu tutan bir kart alır. Havuz boşsa o gece kart çıkmaz, köy fazı yine açılır.
   - Kabul: Ambar yokken ambar adı geçen kart 100 gecede 0 kez seçilir (`tests/unit/olay/on_kosul_test.gd`). Tarama listesinde her `data/olaylar/*.tres` için bir satır vardır; imzasız bina adı 1 doğrulama hatası verir. Tanınmayan koşul anahtarı sessizce yok sayılmaz, aynı test 1 hata yazar. Nüfus eşiği sayı olarak `.gd` dosyasına gömülmez; `nufus_en_az` yalnız `.tres` içindedir. Ek şart: `olay_on_kosulu.gd` `koy_sahnesi` import etmez. Ek şart: yarım kalmış kayıtta olay ertesi gece yeniden koşula bakar, zorla bitirilmez. Ek şart: aynı tohumla iki koşu aynı olay kimliğini seçer.
   - Bağımlılık: yok. Boyut: M.

@@ -543,6 +543,7 @@ func olay_uygula(olay: OlayVerisi, i: int, puan: int = -1) -> Dictionary:
 
 
 func _kosul_tutar(k: Dictionary) -> bool:
+	if not preload("res://src/sistemler/olay_on_kosulu.gd").uygun(self, k): return false
 	if gun < int(k.get("gece_min", 0)) or gun > int(k.get("gece_max", 9999)):
 		return false
 	if k.has("perde") and perde != int(k["perde"]):

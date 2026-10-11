@@ -50,3 +50,8 @@ Küçük işlerde yalnız ilgili birim veya sahne testi çalıştırılır. Tam 
 ## ROADMAP 2 başlangıcı — 11 Ekim 2026 (Kalfa)
 
 Kontrol edilen festive commit: 0530d05. Muharrir Faz 0 görevini verdi. BUG-16 olay ön koşul denetimi sahipleniliyor; sonraki adım mevcut olay seçicisini incelemek, hedefli test ve kapanış öncesi UTF-8 tam sanity. Asset gerekmedi. ds çalışma ve GitHub ayna yolları bu bilgisayarda bulunmuyor; eşitlendi iddiası yok. Yerel untracked dosyalar korunur.
+
+
+## BUG-16 kapanışı — 11 Ekim 2026 (Kalfa)
+
+Sahiplik commit: 88ad820. Yeni olay_on_kosulu denetçisi mevcut seçiciye/kataloğa birer satırla bağlandı. Bina/nüfus/çocuk/yaş koşulları, bilinmeyen koşul hatası, 34 kartın bina taraması ve 13 kartın koşul düzeltmesi tamamlandı. Hedefli test: 100 gecede ambarsız kart 0, hazır bina/yaş, boş havuz, kayıt sonrası yeniden denetim ve aynı RNG kimliği. Python 40 test; tam sanity 328 PASS / 0 hata / 20 gece. Asset gerekmedi. Sonraki iş BUG-17, önce pull ve sahiplik push. ds ayna yolu yok; eşitlenemedi.

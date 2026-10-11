@@ -1,3 +1,7 @@
+## Kalfa — BUG-16 tamamlandı (11 Ekim 2026)
+
+Gece kartları mevcut bina, nüfus ve yaş koşullarından geçer; bilinmeyen koşul içerik hatasıdır. 34 kart tarandı, eksik koşullar tamamlandı. Mevcut seçici/RNG/kayıt korunur. Hedefli regresyon + tam sanity 328 PASS / 0 hata / 20 gece. Kanıt: docs/denetim/BUG-16-olay-on-kosullari.md. Asset gerekmedi. ds ayna bu bilgisayarda yok; eşitlenemedi.
+
 # Kapı Muhafızı — Oyun Raporu (yerel)
 
 ## 10 Ekim 2026 — KRI-12 kanonik doğrulama (Codex)
