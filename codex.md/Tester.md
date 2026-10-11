@@ -6,7 +6,26 @@ Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar,
 - Göreve başlama: 11 Ekim 2026 — **Tur 1 (eğitim)** tamamlandı.
 - Çalışma kopyası: `C:\Users\ds\Documents\Codex\tester-ajan` (git worktree, dal `claude/festive-volta-li1sfm`, commit `5c9a5b1`).
 - Eğitim turu kuralı: kod (`src/`, `data/`, `tests/`, `tools/`, `ROADMAP.md`) değiştirilmedi; commit/push yapılmadı. Yalnız `docs/tester/` ve bu günlük yazıldı.
-- Güncel: **Tur 9** tamamlandı (11 Ekim 2026, commit `6202f96`; TST-0011 düzeltmesi). Rapor: `docs/tester/turlar/TUR-009.md`. **Sanity: 0 failed.**
+- Güncel: **Tur 10** tamamlandı (11 Ekim 2026, commit `ffe2e4b`; yeni oyun kodu yok, doküman commit'i). Rapor: `docs/tester/turlar/TUR-010.md`. **Tam sanity 328 PASS / 0 FAIL -> `Sanity: 0 failed`.**
+
+
+## Tur 10 — 11 Ekim 2026 (commit ffe2e4b; yeni oyun kodu yok)
+
+### Ne yaptım
+- **ffe2e4b denetimi (betikle):** ROADMAP_2 **1064 madde**, **kopya kimlik 0**, bölüm 19–21 = **84**, diff'te **50 yeni "Ek şart"**, SİL kimliği hedefleyen içerik atfı **0**. Tek not: 16 bölüm başındaki "Yeni maddeler X … Y" aralık etiketinin ucu silinmiş kimlik (ör. BUG-26/BUG-105) -> **ONR-014 (Düşük, doküman)**.
+- **Tam sanity (§3.5):** **328 PASS / 0 FAIL / 328 log -> `Sanity: 0 failed`**; `SCRIPT ERROR|Parse Error|Failed to load|KALDI` = 0. **TST-0011 DOĞRULANDI.**
+- **TST-0010 DOĞRULANDI (tekrar):** `perde_gecisi_test` + `nihai_son_test` + `nihai_son_kontrol` PASS; `oyun_ayarlari.gd:39 = 12`, `oyun.tres:24 = 12`.
+- **BUG-0016 DOĞRULANDI (tekrar):** `chr_kilit_cikisi_test` GEÇTİ; `SOHBET_KILIDI` yalnız 106/107/108 (fix öncesi), 109–178'de 0. **BUG-0017/TST-0003 DOĞRULANDI (tekrar):** `is_yeri` yalnız oyun_112 (511), sonrası 0.
+- **7/24 (tur 9 sonrası):** **74 tamamlanan** oyun; Tekfur 30 · İsyan 21 · Azil 21 · **zafer 2/74 = %2,7**; ort. son gün 12,89; son günü **g18 olan 17 oyunun 17'si Tekfur**. 2. perdeye giren **64/64 oyun `sur=0 + odun=0`**; huzur eğimi **−4,18/gece**. HATA/DONMA/KILIT yeni 0.
+- **Karakter muayenesi (6 model, regresyon):** TST-0007/0008 değişmedi — chr_011 pelerin dev torba (el_aci 0,69), chr_009/chr_021 ayak 0,09 m havada, aydogdu yay-bacak. yusuf 1,17 m = kasıtlı çocuk (ONR-011 yanlış pozitif).
+- **Türkçe dilim 7 (901–1050):** temiz; c3≡c5 çift metni (30 karakter) ve TST-0006 çift boşluğu (2 satır) sürüyor. Kaldığım satır **1050**.
+
+### Yeni/kapatılan
+- Yeni bulgu: **0**. Yeni öneri: **ONR-014 (Düşük, doküman)**. Doğrulanan: TST-0011, TST-0010, BUG-0016, BUG-0017/TST-0003. Yeniden açılan: yok.
+- Açık: P0 0 · P1 0 · P2 3 (TST-0002/0004/0007) · P3 5 (TST-0001/0005/0006/0008/0009) = toplam 8. (TST-0010/0011 DOĞRULANDI.)
+
+### Sonraki tur odağı
+- Pencereli zafer denemesi + "bu geceyi atlatırsan tutundun" uyarısı (ONR-010/005/006); sancak teftişi uyarı yüzeyi (ONR-007); Türkçe dilim 8 (1051–1200); TST-0002 için görünür `[KEY_NOT_FOUND]` üretme denemesi; ONR-004 uygulanınca `odunluk` ile zafer ölçümü.
 
 
 ## Tur 9 — 11 Ekim 2026 (commit 6202f96; TST-0011 düzeltmesi)

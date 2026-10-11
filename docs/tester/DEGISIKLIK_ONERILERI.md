@@ -18,8 +18,16 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 | ONR-011 | Düşük | [TASARIM] test aracı | Karakter muayene aracı çocuk modelini (yusuf 1.17 m) "ölçek hatası" diye işaretliyor: yanlış pozitif | YENİ |
 | ONR-013 | Yüksek | [DENGE] su | Kuyu arzı 20/gün sabit; 2. perde nüfusunda ihtiyaç 23–58 → yapısal su açığı, −3 sağlık/gece | YENİ |
 | ONR-012 | Düşük | [ARAYUZ] köy ekranı | "Geceye geç" düğmesi düşük kontrastlı okunuyor (doğrulanmadı) | YENİ |
+| ONR-014 | Düşük | ROADMAP 2 (doküman) | Bölüm başlarındaki "Yeni maddeler X … Y" aralık etiketleri ayıklanan kimlikleri gösteriyor | YENİ |
 
 ---
+
+### ONR-014 · Düşük · ROADMAP 2 (doküman) · Aralık etiketleri silinen kimlikleri gösteriyor
+- **Gözlem:** Ayıklama sonrası birçok bölüm başında "X … Y" türü aralık etiketi kaldı; bazı uçlar KARAR_KAYDI'nda SİL kararı verilmiş kimlikler (ör. `BUG-26 … BUG-105` satırında BUG-26 ve BUG-105 SİL; aynı durum ACL-86, KAP-20/KAP-99, ARY-06/ARY-85, DIY-98, ZAR-07/ZAR-86, CAT-84, DYL-17, YAZ-11/YAZ-90, ISG-83, YAP-86). Toplam 16 aralık ucu silinmiş kimlik.
+- **Neden önemli:** Okuyucu "Yeni maddeler BUG-26 … BUG-105" deyip BUG-26'yı arar ama ROADMAP_2'de artık yok. Kimlik/atıf sayımı yapan bir betik bu uçları "hayalet kimlik" sayar.
+- **Not:** Bu yalnız etiket/aralık cümlesi; metin içi içerik atfı değil. `ffe2e4b` commit iddiası "silinen kimliğe atıf 0" **içerik atıflarında doğrudur** (SİL kimliği hedefleyen 0 satır); yalnız bu aralık etiketleri için küçük bir tutarsızlık kalır.
+- **Öneri:** Aralık cümlelerini "yeni maddeler (numaralar seyrek; bazıları ayıklandı)" ya da gerçekten var olan ilk/son kimlikle yaz; ya da ayıklanan uçları etiketten çıkar. Karar Muharrir/Claude'un.
+- **Kanıt:** `work/tester/tur10/karar_denetim.py` (16 uç listesi), `Roadmap-2/arsiv/KARAR_KAYDI.md`, `ROADMAP_2.md` satır 64, 195, 298, 391, 415, 701, 807, 890, 911, 1257, 1493.
 
 ### ONR-013 · Yüksek · [DENGE] · Su: kuyu günlük arzı (20) 2. perde nüfusuna yetmiyor, yaz ×2 ile açık büyüyor
 - **Gözlem:** 45/45 oyunda `Su ihtiyacı …; kuyu 20, rezerv 0, eksik …` satırında **eksik>0** (ihtiyaç 23–58). Kuyu günlük arzı sabit **20** (`data/yaz_su_yangin.json`: kuyu_gunluk=20, kisi_su=1, yaz_carpani=2). Nüfus 18+ iken ihtiyaç ≥18; yaz/kuraklık ×2 ile 36–58'e çıkıyor ama arz 20'de sabit; ikinci kuyu/su yapısı yok, rezerv ayırmak da günlük toplamı 20'nin üstüne çıkarmıyor.
@@ -48,6 +56,7 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 - **Tur 7 ölçümü:** 2. perdeye giren **36/36 oyun `sur=0`** ile girdi; girişte asker ort. **6,6** (3–10). İlk akın gücü 4 (baskı 1) / 6 (baskı 2); gözlenen savunmalar 2–7. Sur taksiti ödeyen persona (611) g13'e kadar dayandı, 2. akın (güç 6) yendi → hazırlık penceresi hâlâ yok. 8acb352 sonrası 147/148/149 → 3/3 `g19 Tekfur`.
 - **Tur 8 sayıları:** 2. perdeye giren **50 oyunun 50'si sur=0**; açılış ortalama gün **6,2**; savunma gücü 1–4, ilk Tekfur gücü **4** (sonra 6). 23 Tekfur sonunun 14'ü g19'a kadar dayanıp yine düşüyor.
 - **Tur 9 sayıları:** 2. perdeye giren **58/58 oyun sur=0 ve odun=0**; açılış ort. huzur 53,3 · gıda 5,6 · akçe 22,9 · yapı 5,0 · nüfus 18,7. Gözlenen savunma 1–7 (çoğu 2), saldırı gücü 4/6. Son günü g19 olan **15 oyunun 15'i Tekfur** — 12 geceyi dolduran oyuncu tam zafer gecesi akınla ölüyor.
+- **Tur 10 sayıları (74 tamamlanan oyun):** 2. perdeye giren **64/64 oyun sur=0 ve odun=0** ile giriyor; ortalama giriş: huzur **53,1** · gıda **5,5** · odun **0,0** · gün **6,2**. Gözlenen savunma 1-7 (çoğu 2); ilk Tekfur gücü 4 (baskı 1) / 6 (baskı 2). Son günü g18 (zafer gecesi) olan **17 oyunun 17'si Tekfur** — akın, zafer denetiminden önce çözülüyor (ONR-010). Kanıt: `work/tester/tur10/perde2.py`, `work/tester/tur10/denge10c.py`.
 
 ### ONR-006 · Yüksek · [DENGE] · 2. perde huzur çöküşü: gıda 0 → gecelik −10…−19 → İsyan
 - **Gözlem:** 2. perde başladıktan sonra gıda **1–3 gece içinde** 0'a düşüyor ve huzur gece başına ~10–19 puan eriyor; `isyan_esigi=10` altına inince 3 gecelik sayaç başlıyor → İsyan sonu.
@@ -62,6 +71,7 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 - **Tur 7 ölçümü:** 43 tamamlanan oyunda gıda gün 6–8'de 0; huzur gece başına ~10–19 eriyor (örnek 145: g7 hz39/gd0 → g14 hz10 → g15 hz6 → Azil g16). İsyan 11/43; düşük/orta kabul → İsyan/Azil, yüksek kabul → Tekfur.
 - **Tur 8 sayıları:** 2. perdede huzur **52,9 → 21,8**, ortalama **−4,03/gece**. 2. perde başında gıda **5,2**; üretim +4…+6/gece, tüketim 18–23/gece. Kök: yeni tarla kurulamıyor (odun 0, hızarhane girdisi tomruk; tomruk yalnız Orman Kampı'ndan).
 - **Tur 9 sayıları:** 58 oyun: 2. perdede gecelik huzur **−4,19**; 2. perde sonu ortalama huzur **21,9** (min 4, max 72). Girişte **gıda ort. 5,6** → 1–3 gecede 0; açlık (16–26 kişi), su açığı (eksik 36–38 → −3 sağlık) ve yas (−12 moral) zinciri. Örnek 167: g7 hz50 → g19 hz14.
+- **Tur 10 sayıları:** 2. perdede huzur eğimi ortalama **−4,18/gece** (2. perdeye giren 64 oyun); girişte gıda ortalama **5,5** → 1-3 gecede 0; aç köylüye `aclik_moral=15`. Eğri örnekleri (tur 10): oyun_172 g6 hz69 → g12 düşüş (−8,5/gece); oyun_177 g6 hz54 → g12 hz4 (−7,0/gece). Kanıt: `work/tester/tur10/perde2.py`.
 
 ### ONR-007 · Orta · [DENGE]/[TASARIM] · 6. gece %50 olasılıklı azil, erken ve RNG tabanlı terminal son
 - **Gözlem:** Sancak teftişi `ilk_gece=6, aralik=5`, `bulma_olasiligi=0.50`: yozlaşma ≥20 ve kişisel kasa dolu ise **6. gecede** %50 olasılıkla anında "Muhafız azledildi" (terminal son). Oyun 109, 120, 122 bu şekilde bitti; köy sağlıklıydı (109: huzur 54, perde 1, koy 15) ve akçe 1 ile "ekonomi çöktü" görüntüsü veriyordu.
@@ -123,6 +133,7 @@ usvet_agirlik=5 → **4 rüşvet = yozlaşma 20**; teftiş takvimi/riski oyunda 
 - **Kanıt:** `src/sistemler/oturum.gd:277-288` (sıra), `src/koy/perde_gecisi.gd:denetle`, `src/koy/koy_yonetimi.gd:860-884` (`_asamalar`), `work/tester/oyunlar/oyun_136.log` (g19), `work/tester/tur6/oto_701.log`.
 - **Tur 7 ek kanıtı:** TST-0010 düzeltmesinden (8acb352) sonraki 7/24 oyunları **147 (g19 Tekfur), 148 (g19 Tekfur), 149 (g19 Tekfur)** — yani 8acb352 üzerinde 3/3 oyun tam **g19'da** Tekfur ile bitti. Düzeltme davranışı değiştirmedi (hedef 12 gece hâlâ doğru) ama "zafer gecesi = ölüm gecesi" çakışması sürüyor; zafer hâlâ 2/43 (%4,7).
 - **Tur 9 sayıları (66 oyun):** ağalık otomatik koşularda ort. **gün 6** açılıyor (58 oyunun ilk nüfus≥18 günü ort. 6,2) → perde2_baslangic=7 → 12. perde gecesi = **mutlak 19. gece**; **g18 son günlü 15 oyunun 15'i Tekfur**. Zafere ulaşan 2 oyunda ağalık **gün 5**'te açılmış (zafer gecesi 18, akın yok). Kaynak sırası doğrulandı: oturum.gd:277-287 önce yonetim.gece() (içinde _asamalar → son=tekfur), sonra denetle (if y.son != ": return).
+- **Tur 10 sayıları (74 oyun):** ağalık yine erken; **g18'de biten 17 oyunun 17'si Tekfur** (zafer gecesi = ölüm gecesi). Zafer **2/74 = %2,7**. Kanıt: `work/tester/tur10/denge10c.py`.
 
 - **Tur 8 kanıtı:** 23 Tekfur sonunun **14'ü tam g19**'da (2. perde başlangıcı g6–7 → **12–13 gece** dayanılmış). Kod sırası: `_asamalar` (saldırı, `src/koy/koy_yonetimi.gd:860-883`) → `PERDE_GECISI.isaretle` (:597) → `PerdeGecisi.denetle` (Oturum.gece_sonu); ölümcül akın `son=tekfur` yazdığı için zafer denetimi erken dönüyor. 12 gece dolduğu hâlde zafer gelmiyor.
 

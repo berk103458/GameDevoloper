@@ -21,6 +21,14 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 
 <!-- Bulgular buradan aşağı, en yenisi üstte -->
 
+### Tur 10 doğrulama özeti · commit ffe2e4b · (TST-0011, TST-0010, BUG-0016, BUG-0017/TST-0003)
+- **TST-0011 — DOĞRULANDI (tekrar, tur 10):** Tam sanity (`work/tester/tur10/sanity`) son satırı **`Sanity: 0 failed. No staging/commit/push.`**, **328 PASS / 0 FAIL / 328 log**; `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0. Artık elle "etkin sanity" ayıklaması gerekmedi. Kanıt: `work/tester/tur10/sanity_run.log`.
+- **TST-0010 — DOĞRULANDI (tekrar, tur 10):** `perde_gecisi_test` → "PERDE GEÇİŞİ: GEÇTİ"; `nihai_son_test` ve `nihai_son_kontrol` PASS. Statik: `src/veri/oyun_ayarlari.gd:39 = 12`, `data/ayarlar/oyun.tres:24 = 12` → tek doğruluk kaynağı. Kanıt: `work/tester/tur10/sanity/perde_gecisi_test.log`.
+- **BUG-0016 — DOĞRULANDI (tekrar, tur 10):** `chr_kilit_cikisi_test` → "CHR KILIT CIKISI: GEÇTİ (0 hata)". `SOHBET_KILIDI` yalnız oyun_106/107/108 (fix 5396fae öncesi); 109–178'de 0; `olaylar.log`'da yeni KILIT olayı yok.
+- **BUG-0017 / TST-0003 — DOĞRULANDI (tekrar, tur 10):** `is_yeri` SCRIPT ERROR yalnız oyun_112 (511 hata, fix 254202d öncesi); 113–178'in tamamında 0.
+- **TST-0007 / TST-0008 — hâlâ AÇIK (regresyon yok, sorun sürüyor):** Karakter muayenesi (tur 10, 6 model) aynı sayısal uyarıları verdi — chr_011 `bekle` el_aci 0,69 / `yuru` 0,61 (T/A-pozu), chr_009 `konus`+`ofke` ayak 0,09 m havada, chr_021 `bekle` 0,46 + `yuru` ayak 0,09 m + `yuru` el_aci 0,49, aydogdu `bekle` 0,50. **Görsel:** `chr_011.jpg` — pelerin/kukuleta hâlâ gövdeyi dev bir torba gibi sarıyor; `aydogdu.jpg` — yay alt ucu yürüme (yan) karelerinde bacağın önüne giriyor. Kanıt: `work/tester/tur10/muayene/`.
+- **TST-0006 — hâlâ AÇIK:** `metinler.csv`'de `arayuz.oyun.kenar` ve `arayuz.oyun.tam` değerlerinde çift boşluk sürüyor (tur 10 taraması: 1743 satırda 2 çift boşluk, ikisi de bu).
+
 ### TST-0011 · P2 · [HATA] · Test aracı · sanity_check.py ortam sertifika satırını "ERROR:" sayıp 322 adımı FAIL ediyor (yanlış negatif)
 - **Durum:** DOĞRULANDI (6202f96) — tur 9
 - **Commit:** d2f3b65

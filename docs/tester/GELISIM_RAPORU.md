@@ -3,6 +3,17 @@
 Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md` §5. Sayılar ölçülerek yazılır.
 
 <!-- En yeni giriş buraya -->
+
+## 2026-10-11 · Tur 10 · commit ffe2e4b
+- **Sağlık:** **Tam sanity `Sanity: 0 failed`** (328 PASS / 0 FAIL / 328 log) — TST-0011 düzeltmesi bu ortamda da çalışıyor (**DOĞRULANDI**); import exit 0. `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0.
+- **Bu turda giren kod:** yok (tur 9 = aa3099a). Son commit **ffe2e4b** yalnız doküman: `ROADMAP_2.md` (–1643 satır) + `Roadmap-2/arsiv/KARAR_KAYDI.md` (+314). Oyun kodu değişmedi.
+- **ffe2e4b iddia denetimi (betikle):** ROADMAP_2 **1064 madde**, **kopya kimlik 0**; bölüm 19–21 = **36+26+22 = 84** (203->84 doğru); diff'te "+…Ek şart" satırı **50** (doğru); SİL kimliği hedefleyen içerik atfı **0**. Not: 16 bölüm başı "Yeni maddeler X … Y" **aralık etiketi** ucu silinmiş kimlik (ör. BUG-26/BUG-105) -> **ONR-014 (Düşük, doküman)**. Kanıt: `work/tester/tur10/karar_denetim*.py`.
+- **Doğrulanan:** **TST-0011** (6202f96, tam sanity) · **TST-0010** (`perde_gecisi_test`+`nihai_son_test`+`nihai_son_kontrol` PASS) · **BUG-0016** (`chr_kilit_cikisi_test` GEÇTİ; `SOHBET_KILIDI` yalnız 106-108) · **BUG-0017/TST-0003** (`is_yeri` yalnız oyun_112).
+- **Denge eğrisi (74 tamamlanan oyun, 7/24 kesintisiz):** Tekfur **30** · İsyan **21** · Azil **21** · **zafer 2/74 = %2,7**. Ortalama son gün **12,89**; **son günü g18 olan 17 oyunun 17'si Tekfur**. 2. perdeye giren **64/64 oyun sur=0 + odun=0**; girişte huzur 53,1 · gıda 5,5 · gün 6,2; 2. perde huzur eğimi **−4,18/gece** (ONR-005/006/010/013).
+- **Muayene:** Karakter regresyonu (6 model) TST-0007/0008'i **değişmeden** doğruladı (chr_011 pelerin dev torba; chr_009/chr_021 ayak 0,09 m havada; aydogdu yay-bacak). Türkçe **dilim 7 (901–1050)** temiz; c3≡c5 çift metni (30 karakter) sürüyor -> `[SORU]`. Sıradaki dilim **1051–1200**.
+- **Açık bulgu:** P0 0 · P1 0 · **P2 3** (TST-0002/0004/0007) · **P3 5** (TST-0001/0005/0006/0008/0009) -> toplam **8 açık**. Kapanan (DOĞRULANDI): TST-0011, TST-0010. Yeni bulgu **0**. Yeni öneri **ONR-014** (Düşük).
+- **Bir sonraki tur odağı:** pencereli zafer denemesi + "bu geceyi atlatırsan tutundun" uyarısı (ONR-010/005/006); sancak teftişi uyarı yüzeyi (ONR-007); Türkçe dilim 8 (1051–1200); TST-0002 için görünür `[KEY_NOT_FOUND]` üretme denemesi; ONR-004 uygulanınca `odunluk` ile zafer ölçümü.
+
 ## 2026-10-11 · Tur 9 · commit 6202f96
 - **Sağlık:** **Tam sanity Sanity: 0 failed** (327 PASS / 0 FAIL / 329 log) — tur 3–8'deki "322 failed" yanlış negatifi **TST-0011 düzeltmesiyle kapandı** ve **DOĞRULANDI**. Import exit 0, 0 SCRIPT/Parse; 102 ERROR satırı tamamı TST-0005 yetim .import. 13 kenar senaryosuyla cert-satırı istisnasının yalnız o satırı yok saydığı kanıtlandı (gerçek ERROR:/SCRIPT ERROR/KALDI/Parse Error hepsi hâlâ FAIL).
 - **Bu turda giren kod:** 6202f96 fix(TST-0011) — 	ools/sanity_check.py + 	ests/tools/test_sanity_check.py (2 yeni python testi). Tur 8: rapor commit'i.
