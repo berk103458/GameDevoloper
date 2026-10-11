@@ -8,7 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-Muharrir’in ROADMAP 2 devri sürüyor. BUG-16…20/25 ve TEK-08/13/14/15/16/18 tamamlandı (Kalfa). Son yön: eldeki TEK-19/20 yükleme kontrolü kapanınca yeni Bölüm 41 maddesi alınmadan Faz 1 ACL-01'e geçilir; ardından ACL ve KAP-16…19 sırası izlenir. BUG-22 ACL-01'i bekler. Başka ajan sahipliklerine dokunulmaz. Her maddeden önce pull, sahiplik commit+push; hedefli testler ve olgun paket öncesi tek tam UTF-8 sanity. Commit mesajları Türkçe, madde kodları, (Kalfa) ve asset gerekmedi notu korunur.
+BUG-16…20/25, TEK-08/13/14/15/16/18/19/20 ve ACL-01 tamamlandı (Kalfa). Ahmet’in 12 Ekim 2026 son yönü: ACL-01 commit/push ile kapandıktan sonra yeni görev alınmayacak; görev bekleniyor. Başka ajan sahiplikleri korunur. Windows Python koşularında PYTHONUTF8=1; hedefli testler ve olgun uygulama commit’i öncesi tek tam sanity. Commit mesajları Türkçe, madde kodları, (Kalfa) ve asset gerekmedi notu korunur.
 
 ## Roller
 
@@ -179,3 +179,6 @@ ACL-01 ilk tam koşu köprü fikstürünün eski kapıdan açılış varsayımı
 
 
 Nihai tek tam UTF-8 sanity: 347 PASS / 0 başarısız kontrol / 20 gece. work/sanity-acl01-final-3 altındaki 347 logda SCRIPT ERROR, Parse Error, Failed to load script, ERROR ve KALDI: 0. Gerçek açılış, köprü ve legacy kayıt sahneleri geçti. Önceki başarısız/kesilmiş koşular korunur. Yeni asset gerekmedi; iki yer tutucu envanterde. ds çalışma kopyası/ayna yok, eşitlenemedi. Ahmet’in son yönü: ACL-01 kapandıktan sonra yeni görev alınmayacak.
+
+
+ACL-01 uygulama cbf04c0: yeni oyun mevcut köyde bir hazır ev, iki kişi ve dört yatakla açılır. İlk gün Kapı kapalı, kuyruk yok; bedel kesilmez, yıkım kaynak yaratmaz. Eski kayıt faz/günü korunur; eksik hane/eş kimliği yalnız kuruluş bayrağından türetilir. Gerçek açılış/kart/legacy ve köprü akışı, görünür sahne ve hedefli kontroller geçti. Nihai tek tam UTF-8 sanity 347 PASS / 0 hata / 20 gece; 347 logda hata satırı 0. Önceki başarısız/kesilmiş loglar korunur. Pull güncel, merge gerekmedi. Mevcut modeller renk/isimli yer tutucu; ACL01-MUHAFIZ/ES envanterde. Yeni asset gerekmedi; üretim/indirme yok. ds çalışma kopyası/ayna bulunamadı, eşitlenemedi. Ahmet’in 12 Ekim son yönüyle ACL-01 kapanışından sonra yeni görev alınmayacak.

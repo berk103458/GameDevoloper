@@ -1,3 +1,7 @@
+## Kalfa — ACL-01 tamamlandı (12 Ekim 2026)
+
+ACL-01 uygulama cbf04c0: yeni oyun mevcut köyde bir hazır ev, iki kişi ve dört yatakla açılır. İlk gün Kapı kapalı, kuyruk yok; bedel kesilmez, yıkım kaynak yaratmaz. Eski kayıt faz/günü korunur; eksik hane/eş kimliği yalnız kuruluş bayrağından türetilir. Gerçek açılış/kart/legacy ve köprü akışı, görünür sahne ve hedefli kontroller geçti. Nihai tek tam UTF-8 sanity 347 PASS / 0 hata / 20 gece; 347 logda hata satırı 0. Önceki başarısız/kesilmiş loglar korunur. Pull güncel, merge gerekmedi. Mevcut modeller renk/isimli yer tutucu; ACL01-MUHAFIZ/ES envanterde. Yeni asset gerekmedi; üretim/indirme yok. ds çalışma kopyası/ayna bulunamadı, eşitlenemedi. Ahmet’in 12 Ekim son yönüyle ACL-01 kapanışından sonra yeni görev alınmayacak.
+
 ## Kalfa — TEK-19/20 tamamlandı (11 Ekim 2026)
 
 TEK-19/20 uygulama 0e6b81e: gerçek ilk menü tıklaması, sıfır panel, iki çağrıda tek kapı ekranı ve bitişte false yükleme bayrağı. Kıtlık fikstürü karakter yüklemesi tamamlanmadan köye dönüyordu; tüm yükleme panelleri beklenir, üç hedefli tekrar temiz. Oyun src/data değişmedi. Nihai tek tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece. İlk başarısız loglar korunur; pull güncel, merge gerekmedi. Asset gerekmedi; ds ayna yok, eşitlenemedi. Muharrir yönü: yeni TEK alınmadan Faz 1 ACL-01 sırada.
