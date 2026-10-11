@@ -6656,7 +6656,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `src/koy/koy_nufusu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **TEK-02:** TST-0005 — 43 yetim `.import`.
+- [/] **TEK-02:** (testx) TST-0005 — 43 yetim `.import`.
   - Ne: eski: TST-0005. `assets/model/karakter/*_yuru_Image_0.jpg.import` var, `.jpg` yok; headless import ERROR üretir. Karşılığı olmayan `.import` silinir. Yeni jpg üretilmez, mesh'e dokunulmaz.
   - Kabul: yetim `.import` sayısı 0; import logunda `_yuru_Image_0.jpg` ERROR 0. Test: import log sayımı.
   - Bağımlılık: yok. Boyut: S.
