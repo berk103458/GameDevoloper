@@ -6770,13 +6770,13 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.5 Yükleme katmanı
 
-- [ ] **TEK-19:** Yükleme paneli bitince input'u bırakır.
+- [/] **TEK-19:** (Kalfa) Yükleme paneli bitince input'u bırakır.
   - Ne: `VarlikYuklemePaneli._input` her olayı yer (`set_input_as_handled`). `bitir` düğümü ağaçtan çıkarır; sonraki karede tıklama oyuna gider.
   - Kabul: `bitir` sonrası panel çocuğu 0, ilk tıklama menüye ulaşır. Test: akış.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `src/arayuz/varlik_yukleme_paneli.gd`.
   - Asset: asset gerekmedi.
-- [ ] **TEK-20:** Çift kapı yüklemesi engeli durur.
+- [/] **TEK-20:** (Kalfa) Çift kapı yüklemesi engeli durur.
   - Ne: `ana.gd _kapi_yukleniyor` (satır 80–97) ikinci `_kapiya_git` çağrısını yutar. Bayrak `bitir` sonrası false olur; takılı true kalırsa kapı bir daha açılmaz — test bunu yakalar.
   - Kabul: art arda iki çağrıda ekran 1; bitişte bayrak false. Test: birim.
   - Bağımlılık: TEK-19. Boyut: S.
