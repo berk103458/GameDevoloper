@@ -51,7 +51,7 @@ Claude: diff'i inceler → kendi sanity'sini koşar → commit "(testx)" → [x]
 - **Kayıt uyumu:** kayda yeni alan **isteğe bağlı** (optional) eklenir; eski kayıtta alan yoksa varsayılanla açılır, çökmez, uydurma değer üretmez. Her yeni kayıt alanı için "eski kayıt" testi yaz. `KAYIT_SURUMU` değişmez.
 - **Gece raporu satırı:** `IflasYoneticisi.olay_metin` ile, olay **Dictionary** olarak.
 - **Rastgelelik:** `Oturum`/`KoyYonetimi`'nin tohumlu RNG'si; `randf()` / `randi()` (genel RNG) oyun mantığında yasak — aynı tohum aynı sonucu vermeli (maddeler "ikiz/aynı tohum" testi ister).
-- **Asset:** üretme/indirme yok. Kutu/kapsül/düz renk yer tutucu; ihtiyacı `docs/EKSIK_ASSET_ENVANTERI.md`'ye yaz. Gerekmiyorsa `teslim.json` → `"asset": "asset gerekmedi"`.
+- **Asset:** **Asset kuralı (Berk, 11 Ekim 2026):** (1) Asset **üretilmez** (yapay zekâ ile görsel/ses/model/doku üretmek, script ile sentezlemek yok). (2) İnternette oyunumuza **uygun ve lisansı açık** bir asset bulunursa eklenebilir: yalnız CC0 / kamu malı ya da atıfla serbest (CC-BY) lisanslar; kaynak bağlantısı, yazar ve lisans `docs/EKSIK_ASSET_ENVANTERI.md`'deki ilgili satıra yazılır (atıf gerektiren lisansta atıf metni de). Ticari kullanımı yasak, belirsiz ya da "yalnız kişisel" lisanslı asset alınmaz; lisansı doğrulayamıyorsan alma. Dönem ve üsluba uymayan (modern, çizgi film, uyumsuz stil) asset alınmaz. (3) Uygun asset bulunamazsa yer tutucu kullanılır (3B: düz renk `BoxMesh`/`CapsuleMesh`; 2B: düz renk kutu) ve **oyunda kısa bir isim etiketiyle görünür**; gereken asset `docs/EKSIK_ASSET_ENVANTERI.md`'ye (madde, ad, tür, yer tutucu yolu, TR+EN arama kelimeleri, öncelik, ekleyen) yazılır. Yer tutucu tek yerden değiştirilebilir kurulur. Asset gerekmiyorsa `teslim.json` → `"asset": "asset gerekmedi"`; eklediysen `"asset": "eklendi: <ad> · <lisans> · <kaynak>"`.
 
 ## 3. GDScript (Godot 4.7.2) — bu projede ısıran tuzaklar
 
@@ -98,6 +98,8 @@ python -B tools/metin_dogrula.py                                     # CSV
 python -B tools/python_test_runner.py                                # python
 python -B tools/sanity_check.py --godot $G --logs work/testx/sanity  # TAM (teslimden önce)
 ```
+**Bellek kuralı (11 Ekim):** makinede aynı anda yalnız **bir** tam sanity koşar (iki tam sanity birlikte belleği bitirdi, işler durduruldu). Sen teslimden önce import + hedefli testleri koşarsın; tam sanity'yi `gorev.md`'de "SANITY SENDE" yazıyorsa koşarsın, yoksa Claude sırayla koşar. Testlerin dosya yolu `res://work/...` olmasın: temiz kopyada `work/` yoktur, test düşer (ADM-16 akış testi bu yüzden kırıldı) — test kayıtları `user://` altına.
+
 Kayıt dosyası testlerin `user://`'ını bozmasın: komutlardan önce `APPDATA` ve `LOCALAPPDATA`'yı **mutlak** yolla `work/testx/appdata` altına yönlendir (göreli yol kayıt yazımını kırar). Pencereli Godot açarsan `--audio-driver Dummy`. Başka Godot süreçlerini ADIYLA kapatma — yalnız kendi PID'ini.
 
 ## 6. Kalite çıtası (Claude'un teslim kontrol listesi)

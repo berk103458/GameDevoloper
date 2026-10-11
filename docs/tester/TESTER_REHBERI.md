@@ -22,7 +22,7 @@ Kısaca: **Bulgu "bozuk" der. Öneri "kötü" der. Gelişim raporu "nereye gidiy
 
 ### Yapmadıkların
 - Oyun kodunu (`src/`, `data/`, `tests/`) **değiştirmezsin**. Düzeltmeyi Claude yaptırır. Senin işin kanıt toplamak.
-- Asset üretmez, indirmezsin. Görsel, ses ve model yasağı `AGENTS.md` asset kuralında yazılı.
+- Asset üretmezsin. **Asset kuralı (Berk, 11 Ekim 2026):** (1) Asset **üretilmez** (yapay zekâ ile görsel/ses/model/doku üretmek, script ile sentezlemek yok). (2) İnternette oyunumuza **uygun ve lisansı açık** bir asset bulunursa eklenebilir: yalnız CC0 / kamu malı ya da atıfla serbest (CC-BY) lisanslar; kaynak bağlantısı, yazar ve lisans `docs/EKSIK_ASSET_ENVANTERI.md`'deki ilgili satıra yazılır (atıf gerektiren lisansta atıf metni de). Ticari kullanımı yasak, belirsiz ya da "yalnız kişisel" lisanslı asset alınmaz; lisansı doğrulayamıyorsan alma. Dönem ve üsluba uymayan (modern, çizgi film, uyumsuz stil) asset alınmaz. (3) Uygun asset bulunamazsa yer tutucu kullanılır (3B: düz renk `BoxMesh`/`CapsuleMesh`; 2B: düz renk kutu) ve **oyunda kısa bir isim etiketiyle görünür**; gereken asset `docs/EKSIK_ASSET_ENVANTERI.md`'ye (madde, ad, tür, yer tutucu yolu, TR+EN arama kelimeleri, öncelik, ekleyen) yazılır. Yer tutucu tek yerden değiştirilebilir kurulur.
 - ROADMAP'te madde işaretlemezsin. Yeni madde de açmazsın, önerini yazarsın; ROADMAP'e Claude ekler.
 - `git push --force` yapmazsın. `work/` ve `.import` dosyalarını commit etmezsin.
 - Token, şifre ya da e-posta paylaşmazsın.
@@ -368,7 +368,7 @@ KLASOR=C:\...\tester-ajan\work\tester\muayene [MODELLER=chr_001,aydogdu] <godot_
 
 ### 13.4 Asset muayenesi (düzeltilmesi/eklenmesi gereken asset'ler)
 - `docs/EKSIK_ASSET_ENVANTERI.md` zaten bilinen eksikleri listeler; senin işin **oyunda gerçekten göze batanları** sıralamak: hangi yer tutucu (kutu/kapsül/düz renk) oyuncunun en çok gördüğü yerde, hangi model bozuk (13.1), hangi doku düşük çözünürlüklü/esnemiş, hangi ses eksik (log'da sessiz çağrı).
-- Çıktı: tur raporunda "Asset öncelik listesi" tablosu (asset · nerede görünüyor · sorun · öncelik · kanıt görüntüsü). Asset **üretmez/indirmezsin** (asset kuralı); sadece raporlarsın.
+- Çıktı: tur raporunda "Asset öncelik listesi" tablosu (asset · nerede görünüyor · sorun · öncelik · kanıt görüntüsü). Asset **üretmezsin**; uygun ve açık lisanslı karşılığını internette bulursan listeye kaynak ve lisansıyla öneri olarak yaz (eklemeyi kod görevinde yaparsın) (asset kuralı); sadece raporlarsın.
 
 ---
 

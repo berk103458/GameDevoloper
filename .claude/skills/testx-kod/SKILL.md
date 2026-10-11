@@ -26,7 +26,7 @@ user-invocable: true
 
 ## Sert kurallar
 
-- git commit/push, ROADMAP işaretleme, `project.godot`, yeni autoload, `koy_sahnesi`, asset üretme: **YOK**.
+- git commit/push, ROADMAP işaretleme, `project.godot`, yeni autoload, `koy_sahnesi`, asset ÜRETME: **YOK** (açık lisanslı uygun asset ekleme ve isim etiketli yer tutucu kuralı: rehber §2).
 - Başka ajanın `[/]` maddesine ve görev dışı dosyalara dokunma.
 - Testi geçirmek için testi gevşetme. Ölçmediğin şeyi "GEÇTİ" yazma.
 - Godot'u adıyla kapatma. Pencereli açarsan `--audio-driver Dummy` kullan.
