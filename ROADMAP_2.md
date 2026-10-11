@@ -6749,7 +6749,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.4 Hata bütçesi
 
-- [/] **TEK-16:** (Kalfa) Sanity SCRIPT ERROR bütçesi 0'dır.
+- [x] **TEK-16:** (Kalfa) Sanity SCRIPT ERROR bütçesi 0'dır.
   - Ne: `tools/sanity_check.py` turunda SCRIPT ERROR satırı 0. TEK-01 kapanmadan bu madde kapanmaz.
   - Kabul: temiz turda SCRIPT ERROR 0. Test: sanity.
   - Bağımlılık: TEK-01. Boyut: S.
