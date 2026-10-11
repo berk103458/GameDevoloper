@@ -5,6 +5,7 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 
 | Kimlik | Öncelik | Madde | Başlık | Durum |
 | --- | --- | --- | --- | --- |
+| TST-0012 | P2 | [ARAYUZ]/[DIYALOG] | Gece raporunda gorunur `[KEY_NOT_FOUND] koy.kaynak.tomruk` (odunluk/tomruk uretimi olunca) | AÇIK |
 | TST-0011 | P2 | [HATA] test aracı | sanity_check.py ortam sertifika satırını ERROR sayıp 322 adımı FAIL ediyor (yanlış negatif) | DOĞRULANDI (6202f96) |
 | TST-0010 | P3 | SYS-19 | 2. perde hedef gecesi kod varsayılanı (10) ile etkin kaynak (`oyun.tres`=12) uyuşmuyor; kaynak yoksa hedef sessizce 10'a düşer | DOĞRULANDI (8acb352) |
 | TST-0005 | P3 | ENVIRONMENT/asset | 43 orphan `.import` (jpg yok) import sırasında 86 ERROR satırı üretiyor | AÇIK |
@@ -14,12 +15,37 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 | TST-0009 | P3 | [CEVRE]/asset | Çadır modeli (`cadir.glb`) dokusuz → beyaz küre gibi; `assets/model/**` altında hiç `.jpg` yok (TST-0005 etkisi) | AÇIK |
 | TST-0004 | P2 | SYS-19/DENGE | Otomatik oyuncu odun zincirini kurmuyor; çadır/tarla önce kurulursa odun geri dönüşsüz biter (oyuncu uyarılmıyor) | AÇIK (strateji tuzağı S3; BUG-0018) |
 | TST-0003 | P1 | — | Sinsi gece rutini: koylu(id) null iken is_yeri erişimi; her karede SCRIPT ERROR | DOĞRULANDI (254202d) |
-| TST-0002 | P2 | — | 6 metin anahtarı eksik; her oyunda [KEY_NOT_FOUND] uyarısı | AÇIK |
+| TST-0002 | P2 | — | 7 metin anahtarı eksik; uyarı + **gorunur** [KEY_NOT_FOUND] (tomruk vb.) | AÇIK (P3→P2, tur 13) |
 | TST-0001 | P3 | — | KoyNufusu.sayi() eksik sınıf anahtarında SCRIPT ERROR (tetikleyen: test aracının kendi kodu; oyun bu sınıfları sorgulamıyor) | AÇIK (Claude P2→P3) |
 
 ---
 
 <!-- Bulgular buradan aşağı, en yenisi üstte -->
+
+### Tur 13 doğrulama özeti · commit ee474a3 · (TST-0011, TST-0010, BUG-0016, BUG-0017/TST-0003) · yeni bulgu 1 (TST-0012)
+- **TST-0011 — DOĞRULANDI (tur 13):** Tam sanity son satırı **`Sanity: 0 failed. No staging/commit/push.`**, **330 PASS / 0 FAIL / 330 log**; log taraması `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0. Yok sayılan tek satır sertifika deposu (325 kez). Kanıt: `work/tester/tur13/sanity_run.log`.
+- **TST-0010 — DOĞRULANDI (tur 13):** `perde_gecisi_test`, `nihai_son_test`, `nihai_son_kontrol` PASS; `src/veri/oyun_ayarlari.gd:39 = 12`, `data/ayarlar/oyun.tres:24 = 12`.
+- **BUG-0016 — DOĞRULANDI (tur 13):** `chr_kilit_cikisi_test` PASS; `SOHBET_KILIDI`/`KILIT` yalnız fix öncesi oyun_106/107/108, 109+ sıfır.
+- **BUG-0017 / TST-0003 — DOĞRULANDI (tur 13):** `is_yeri` SCRIPT ERROR yalnız oyun_112 (fix öncesi); 113+ sıfır.
+- **TST-0002 — GÜÇLENDİ/DOĞRULANDI (tur 13):** İlk kez **görünür** `[KEY_NOT_FOUND]` yakalandı (aşağıda TST-0012). Eksik anahtar listesi 7'ye çıktı (`koy.kaynak.tomruk` eklendi).
+
+### TST-0012 · P2 · [ARAYUZ]/[DIYALOG] · Gece raporunda görünür `[KEY_NOT_FOUND] koy.kaynak.tomruk` (odunluk/tomruk üretimi olunca)
+- **Durum:** AÇIK
+- **Commit:** ee474a3
+- **Adımlar:** 1) Tohum 504, kabul 0.6, insan stratejisi (odunluk + hızarhane + sur kurar) — `work/tester/tur13/stratejist.gd` 2) 8. gece raporunu oku.
+- **Beklenen:** Gece raporunda kaynak adı okunur ("Tomruk +1"), `[KEY_NOT_FOUND]` görünmez (TST-0002 beklentisi).
+- **Gerçek:** Rapor satırı **birebir**: `Üretim: +1 [KEY_NOT_FOUND] koy.kaynak.tomruk, +5 Gıda` (oyun_504, 8–12. gece). `metinler.csv`'de `koy.kaynak.tomruk` anahtarı **yok** (yalnız `koy.kaynak.tas` var, satır 308).
+- **Tekrar:** 3/3 (aynı oturumda 8, 9, 11, 12. gece raporlarının hepsi).
+- **Kanıt:** `work/tester/tur13/stratejist_504.log`; metin anahtar taraması `work/tester/tur13/metin_tara.py`.
+- **Neden tur 8–12'de görünmedi:** 7/24 otomatik oyuncu `odunluk` kurmadığı için tomruk hiç üretilmedi; etiketsiz kaynak rapora düşmedi. `odunluk` kurulunca (bu tur) görünür oldu.
+- **Öneri:** `data/metin/metinler.csv`'ye `koy.kaynak.tomruk,Tomruk` (ve `un`/`kirec`/`harc`) satırlarını ekle; ayrıca garanti için `GuvenliMetin.metin` eksik anahtarda `[KEY_NOT_FOUND]` yerine ham anahtarsız güvenli varsayılan döndürsün. CSV'yi tester değiştirmez.
+
+### Tur 13 denge özeti (7/24 + kendi koşularım)
+- 100 kayıt / 94 tamamlanan; son dağılımı Tekfur **42** · İsyan **26** · Azil **24** · **zafer 2 (%2,1)**. Ortalama son gün 13,1. **28 oyun tam g18'de Tekfur** (=12 perde-2 gecesini doldurup zafer gecesinde akına takılanlar → ONR-010).
+- 84 perde-2 oyununun **84'ünde `sur=0`, `odun=0`**; perde-2 huzur **44 → 17,2**, gece başına **−3,48**; gıda gün 6,86'da 0; su ~%53 gecede eksik.
+- Azil son günleri yalnız **g5/g10/g15** (teftiş geceleri) → ekonomi değil, teftiş+RNG (ONR-007).
+- Stratejist oyuncu sur=1 kurdu, Tekfur'u tuttu, yine gıda çöküşünden İsyan g16 ile kaybetti.
+
 
 ### Tur 12 doğrulama özeti · commit a636768 · (BUG-18, TST-0011, TST-0010, BUG-0016, BUG-0017/TST-0003) · yeni bulgu 0
 - **BUG-18 — DOĞRULANDI (ROADMAP_2 §13.3, a636768, Kalfa):** Doğal tehditler (pusucu/çete/casus/sabotaj/baskın) veri ayarlı `tehdit_baslangic_gunu=14` kapısına bağlı; `Oturum.gun` tamamlanan gün okunur, ikinci sayaç/kayıt yok. Bağımsız 14 kenar grubu geçti: sınır 12/13 kapalı 14/15 açık · gun 0/7/13 gerçek kuyrukta tehdit 0 · gun 15 tehdit >0 · legacy kayıt gun=25 geri sarılmaz · JSON ayarı 0/−3(clamp)/999 koda gömülü değil · `sec` sıfır havuz RNG harcamaz, `aralik` üst sınır sıfır ağırlığı seçmez · gun13 baskın denemesi 0 olay + sönüm sürer + RNG sabit · gun14 baskın kurulur · gun13 kundaklama/kuyu/casus 0 makbuz + kayıt sabit · gun5 debug kundak takvimi/Moğol'u ilerletmez · DEBUG_BASKIN meta kayda yazılmaz, bitince kapı kapanır · ilk gün resmi ulak+heyet engellenmez · gun13→14 gerçek gece Moğol ilerler · profil süzgeci. Kalfa'nın `tehdit_takvimi_test` sanity içinde GEÇTİ. Kanıt: `work/tester/tur12/probe_tehdit.log`, `sanity/tehdit_takvimi_test.log`.

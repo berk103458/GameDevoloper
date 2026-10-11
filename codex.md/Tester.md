@@ -6,8 +6,28 @@ Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar,
 - Göreve başlama: 11 Ekim 2026 — **Tur 1 (eğitim)** tamamlandı.
 - Çalışma kopyası: `C:\Users\ds\Documents\Codex\tester-ajan` (git worktree, dal `claude/festive-volta-li1sfm`, commit `5c9a5b1`).
 - Eğitim turu kuralı: kod (`src/`, `data/`, `tests/`, `tools/`, `ROADMAP.md`) değiştirilmedi; commit/push yapılmadı. Yalnız `docs/tester/` ve bu günlük yazıldı.
-- Güncel: **Tur 12** tamamlandı (11 Ekim 2026, commit `a636768`; fix(BUG-18)). Rapor: `docs/tester/turlar/TUR-012.md`. **Tam sanity 330 PASS / 0 FAIL -> `Sanity: 0 failed`.** BUG-18 DOĞRULANDI.
+- Güncel: **Tur 13** tamamlandı (11 Ekim 2026, commit `ee474a3`; yeni kod yok). Rapor: `docs/tester/turlar/TUR-013.md`. **Tam sanity 330 PASS / 0 FAIL -> `Sanity: 0 failed`.** TST-0011/TST-0010/BUG-0016/BUG-0017 DOĞRULANDI. Yeni bulgu 1 (TST-0012).
 
+
+
+## Tur 13 — 11 Ekim 2026 (commit ee474a3; yeni kod yok)
+
+### Ne yaptım
+- **TAM sanity (§3.5):** **330 PASS / 0 FAIL / 330 log -> `Sanity: 0 failed`**; log taraması `SCRIPT ERROR|Parse Error|Failed to load script|KALDI` = 0; yok sayılan tek satır sertifika deposu (325). **TST-0011 DOĞRULANDI** (elle ayıklama gerekmiyor).
+- **TST-0010 DOĞRULANDI (tekrar):** `perde_gecisi_test`+`nihai_son_test`+`nihai_son_kontrol` PASS; `oyun_ayarlari.gd:39 = 12`, `oyun.tres:24 = 12`. **BUG-0016 DOĞRULANDI:** `chr_kilit_cikisi_test` PASS; `KILIT`/`SOHBET_KILIDI` yalnız 106/107/108. **BUG-0017/TST-0003 DOĞRULANDI:** `is_yeri` yalnız oyun_112.
+- **Kendi otomatik koşularım:** 501 (0,2) Azil g5 · 502 (0,6) Tekfur g18 · 503 (0,95) Tekfur g18 — 0 hata, donma yok.
+- **Stratejist oyuncu (insan stratejisi, `work/tester/tur13/stratejist.gd`):** odunluk+hızarhane+sur+kışla kurar; **sur=1** gün 7'de kuruldu, Tekfur tutuldu, ama **gıda gün 7'de 0 -> İsyan g16**. Yani savunma yetmiyor, gıda/su öldürüyor.
+- **GÖRÜNÜR `[KEY_NOT_FOUND]` yakalandı:** gece raporunda `Üretim: +1 [KEY_NOT_FOUND] koy.kaynak.tomruk, +5 Gıda` -> **TST-0012 (P2)**; **TST-0002 P2'ye yükseltildi** (eksik anahtar 7).
+- **Rastgele ROADMAP bölümü regresyonu:** `random.seed(1307)` -> **BÖLÜM 11 (KRI-01…15)**: 13 akış sahnesi **13/13 GEÇTİ**, regresyon yok.
+- **Türkçe dilim 10 (1351–1500):** temiz; c3≡c5 çift metni 30/30 CHR'de sürüyor; `cebe yamağı` dönem terimi (hata değil). Kaldığım satır **1500**.
+- **Denge:** 100 kayıt / 94 tamamlanan; zafer **2 (%2,1)**; Tekfur 42 · İsyan 26 · Azil 24; 84/84 perde-2 `sur=0, odun=0`; huzur 44→17,2 (gece −3,48); **28 oyun tam g18'de Tekfur**; azil yalnız g5/g10/g15.
+
+### Yeni/kapatılan
+- Yeni bulgu: **1 (TST-0012, P2)**. Yeni öneri: **1 (ONR-015, Yüksek)**; ONR-004/005/010/013'e tur 13 sayıları eklendi. Doğrulanan: TST-0011, TST-0010, BUG-0016, BUG-0017/TST-0003. Yeniden açılan: yok.
+- Açık: P0 0 · P1 0 · P2 4 (TST-0002/0004/0007/0012) · P3 5 (TST-0001/0005/0006/0008/0009) = toplam 9.
+
+### Sonraki tur odağı
+- ONR-010 zafer-gecesi çakışması; ONR-006/013/015 gıda-su dengesi; TST-0007/0008/0009 asset öncelik listesi; Türkçe dilim 11 (1501–1650).
 
 ## Tur 12 — 11 Ekim 2026 (commit a636768; fix(BUG-18))
 

@@ -4,6 +4,17 @@ Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md
 
 <!-- En yeni giriş buraya -->
 
+## 2026-10-11 · Tur 13 · commit ee474a3 (yeni kod yok)
+- **Sağlık:** **Tam sanity `Sanity: 0 failed`** (330 PASS / 0 FAIL / 330 log) — TST-0011 bu ortamda **DOĞRULANDI**; import exit 0. Log taraması `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0. Kendi 3 otomatik koşum (501/502/503) 0 hata, donma yok.
+- **Bu turda giren kod:** yok (HEAD = tur 12 yayını). Bu yüzden ağırlık tam oyun + regresyon + denge ölçümü.
+- **Doğrulanan:** TST-0011 · TST-0010 · BUG-0016 · BUG-0017/TST-0003 — hepsi hâlâ geçiyor.
+- **İyileşen:** yok (kod değişmedi). **Regresyon:** BÖLÜM 11 (KRI-01…15) 13 akış GEÇTİ; bozulma yok.
+- **Kötüleşen / yeni:** TST-0012 (P2) — **görünür `[KEY_NOT_FOUND] koy.kaynak.tomruk`** gece raporunda (odunluk kurulunca). TST-0002 P2'ye yükseltildi (eksik anahtar 7).
+- **Oynanış hissi:** Odun zinciri kurulmazsa köy kilitleniyor (hizarhane 2 tomruk ister; tomruk yalnız odunluk'tan). İnsan stratejisiyle odunluk+sur kurulabiliyor (sur=1 gün 7) ama perde-2 gıdaçöküşü öldürüyor.
+- **Denge eğrisi:** 100 kayıt / 94 tamamlanan. Zafer **2 (%2,1)**; Tekfur 42 · İsyan 26 · Azil 24. 84/84 perde-2 oyunu `sur=0, odun=0`; huzur **44→17,2** (gece **−3,48**); **28 oyun tam g18'de Tekfur** (ONR-010). Azil sonları yalnız g5/g10/g15 (teftiş geceleri).
+- **Açık bulgu:** P0 0 · P1 0 · P2 4 (TST-0002, TST-0004, TST-0007, **TST-0012**) · P3 5 (TST-0001, TST-0005, TST-0006, TST-0008, TST-0009). **Yeni bulgu 1.**
+- **Bir sonraki tur odağı:** (1) ONR-010 zafer-gecesi çakışması (sıra/saat); (2) ONR-006/013/015 gıda-su dengesi — kaç gece hazırlık gerekir; (3) TST-0007/0008/0009 asset öncelik listesi; (4) Türkçe dilim 11 (1501–1650); (5) C3≡C5 metin tekrarı için Claude yanıtı.
+
 ## 2026-10-11 · Tur 12 · commit a636768
 - **Sağlık:** **Tam sanity `Sanity: 0 failed`** (330 PASS / 0 FAIL / 330 log) — TST-0011 ortamda doğrulandı (**DOĞRULANDI**), elle ayıklama gerekmiyor; import exit 0. Log taraması `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0. Karakter muayenesi + köy/kapı fotoğrafları pencereli/Dummy ile geçti. Donma/hata 0.
 - **Bu turda giren kod:** `a636768` fix(BUG-18) — Kalfa. Doğal tehditler (pusucu/çete/casus/sabotaj/baskın) veri ayarlı `tehdit_baslangic_gunu=14` kapısına bağlandı (yeni `src/sistemler/tehdit_takvimi.gd`; `GuvenlikKafileDengesi`/`Oturum.gece_kuyrugu`/`KoyYonetimi._husumet` + sabotaj tetikleyicilerine tek satır).
