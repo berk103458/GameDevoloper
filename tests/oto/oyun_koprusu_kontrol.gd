@@ -10,9 +10,9 @@ func _ready() -> void:
 	while ana.katalog == null or ana._ekran == null:
 		await get_tree().process_frame
 	assert(ana.find_children("*", "OyunKoprusu", true, false).is_empty())
-	ana.kayit = GuvenliKayit.new("res://work/adm16/test_save.json")
+	ana.kayit = GuvenliKayit.new("user://test_kopru_save.json")
 	for c in ana.get_children():
-		if c is AdminHud: c.anlik_goruntu.arac.slot = GuvenliKayit.new("res://work/adm16/test_snapshot.json")
+		if c is AdminHud: c.anlik_goruntu.arac.slot = GuvenliKayit.new("user://test_kopru_snapshot.json")
 	kopru = OyunKoprusu.new()
 	kopru.ana = ana
 	add_child(kopru)
