@@ -1,8 +1,16 @@
-﻿# Oyun Gelişim Raporu (Tester)
+# Oyun Gelişim Raporu (Tester)
 
 Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md` §5. Sayılar ölçülerek yazılır.
 
 <!-- En yeni giriş buraya -->
+## 2026-10-11 · Tur 11 · commit ed34d70
+- **Sağlık:** **Tam sanity `Sanity: 0 failed`** (329 PASS / 0 FAIL / 329 log) — TST-0011 düzeltmesi bu ortamda da çalışıyor (**DOĞRULANDI**); import exit 0. Log taraması `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0 (yalnız sertifika satırı yok sayıldı). Muayene + in-game fısıltı koşusu pencereli/Dummy ile geçti. Donma/hata 0.
+- **Bu turda giren kod:** `ed34d70` fix(BUG-17) — Kalfa. Fısıltı pusulası artık yalnız **mevcut hazır bina** ve **yaşayan kişi** kaydını okur (`src/kapi/fisilti_yeri.gd` ince adaptör; `data/fisilti_gazetesi.json` `{yer}` kalıbı). İkinci liste/RNG/sayaç yok.
+- **Doğrulanan:** **BUG-17** (8 kenar senaryosu: binasız 30 gece 0 · inşa halindeki bina · katalog dışı tür · çocuk/zindan/kervan dışlaması · sabah yıkılan bina · `{yer}` artığı yok). **TST-0011** · **TST-0010** · **BUG-0016** · **BUG-0017/TST-0003** (tur 10 ile aynı). Yeni bulgu **0**; yeniden açılan **0**.
+- **Denge eğrisi (85 kayıt · tamamlanan 79 · 7/24 kesintisiz):** Tekfur **34** · Muhafız azledildi **22** · İsyan **21** · zafer **2/79 = %2,5** (Uç Tutundu 1, Beyin Uç Köyü 1). Ortalama son gün **12,97** (medyan 14). Son turdan beri yeni DONMA/KILIT/HATA **yok**; `donma_*.png` 0. ONR-005/006/007/010/013 geçerli.
+- **Muayene:** Karakter regresyonu (6 model) TST-0007/0008'i **değişmeden** doğruladı (chr_011 pelerin dev torba; chr_009/chr_021 ayak 0,09 m havada; aydogdu yay-bacak). Türkçe **dilim 8 (1051–1200)** temiz; `chr_012` "Hatice kızı" = patronimik, çelişki değil; c3≡c5 çift metni (30 karakter) sürüyor -> `[SORU]`, yeni kayıt yok. Sıradaki dilim **1201–1350**.
+- **Açık bulgu:** P0 0 · P1 0 · **P2 3** (TST-0002/0004/0007) · **P3 5** (TST-0001/0005/0006/0008/0009) -> toplam **8 açık**. Kapanan (DOĞRULANDI): TST-0011, TST-0010, TST-0003, BUG-0016, **BUG-17**.
+- **Bir sonraki tur odağı:** zafer ulaşılabilirliği ve 2. perde savunma ölümcüllüğü (ONR-005/006/010 — pencereli zafer denemesi); Türkçe dilim 9 (1201–1350); TST-0007/0008 için kalan muayene sayfaları; TST-0002 görünür `[KEY_NOT_FOUND]` üretme denemesi.
 
 ## 2026-10-11 · Tur 10 · commit ffe2e4b
 - **Sağlık:** **Tam sanity `Sanity: 0 failed`** (328 PASS / 0 FAIL / 328 log) — TST-0011 düzeltmesi bu ortamda da çalışıyor (**DOĞRULANDI**); import exit 0. `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0.

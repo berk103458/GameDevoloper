@@ -1,4 +1,4 @@
-﻿# Tester günlüğü
+# Tester günlüğü
 
 Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar, oynar, sürekli test ederim; bulgu, değişiklik önerisi ve gelişim raporlarımı Claude'a veririm. Kod değiştirmem. Eğitimim ve kurallarım: `docs/tester/TESTER_REHBERI.md` (Claude yazdı, Claude yönetir).
 
@@ -6,8 +6,26 @@ Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar,
 - Göreve başlama: 11 Ekim 2026 — **Tur 1 (eğitim)** tamamlandı.
 - Çalışma kopyası: `C:\Users\ds\Documents\Codex\tester-ajan` (git worktree, dal `claude/festive-volta-li1sfm`, commit `5c9a5b1`).
 - Eğitim turu kuralı: kod (`src/`, `data/`, `tests/`, `tools/`, `ROADMAP.md`) değiştirilmedi; commit/push yapılmadı. Yalnız `docs/tester/` ve bu günlük yazıldı.
-- Güncel: **Tur 10** tamamlandı (11 Ekim 2026, commit `ffe2e4b`; yeni oyun kodu yok, doküman commit'i). Rapor: `docs/tester/turlar/TUR-010.md`. **Tam sanity 328 PASS / 0 FAIL -> `Sanity: 0 failed`.**
+- Güncel: **Tur 11** tamamlandı (11 Ekim 2026, commit `ed34d70`; fix(BUG-17)). Rapor: `docs/tester/turlar/TUR-011.md`. **Tam sanity 329 PASS / 0 FAIL -> `Sanity: 0 failed`.** BUG-17 DOĞRULANDI.
 
+
+## Tur 11 — 11 Ekim 2026 (commit ed34d70; fix(BUG-17))
+
+### Ne yaptım
+- **ed34d70 / BUG-17 DOĞRULANDI:** Fısıltı pusulası yalnız **mevcut hazır bina** ve **yaşayan kişi** kaydını okur. Bağımsız 8 kenar senaryosu geçti (binasız 30 gece 0 · inşa halindeki bina · katalog dışı tür · çocuk/zindan/kervan dışlaması · sabah yıkılan bina · `{yer}` artığı yok). Kalfa'nın `fisilti_yer_test` sanity içinde GEÇTİ. İkincil görsel: kart "dün **ambar** tarafındaydı".
+- **TAM sanity (§3.5):** **329 PASS / 0 FAIL / 329 log -> `Sanity: 0 failed`**; log taraması `SCRIPT ERROR|Parse Error|Failed to load script|KALDI` = 0; yok sayılan tek satır sertifika deposu (324). **TST-0011 DOĞRULANDI** (elle ayıklama gerekmiyor).
+- **TST-0010 DOĞRULANDI (tekrar):** `perde_gecisi_test` + `nihai_son_test` + `nihai_son_kontrol` PASS; `oyun_ayarlari.gd:39 = 12`, `oyun.tres perde2_hedef_gece = 12`.
+- **BUG-0016 DOĞRULANDI (tekrar):** `chr_kilit_cikisi_test` GEÇTİ; `SOHBET_KILIDI`/`KILIT` yalnız 106/107/108 (fix öncesi), 109–185'te 0. **BUG-0017/TST-0003 DOĞRULANDI (tekrar):** `is_yeri` yalnız oyun_112; sonrası 0.
+- **7/24:** **85 kayıt, tamamlanan 79**; Tekfur 34 · azil 22 · İsyan 21 · **zafer 2/79 = %2,5**; ort. son gün **12,97** (medyan 14). Donma 0; son turdan beri yeni DONMA/KILIT/HATA yok.
+- **Karakter muayenesi (6 model, regresyon):** TST-0007/0008 değişmedi — chr_011 pelerin dev torba (0,69/0,61), chr_009/chr_021 ayak 0,09 m havada, aydogdu yay-bacak. yusuf 1,17 m = kasıtlı çocuk.
+- **Türkçe dilim 8 (1051–1200):** temiz; `chr_012` "Hatice kızı" = patronimik, çelişki değil. c3≡c5 çift metni sürüyor -> `[SORU]`. Kaldığım satır **1200**.
+
+### Yeni/kapatılan
+- Yeni bulgu: **0**. Yeni öneri: **0**. Doğrulanan: **BUG-17**, TST-0011, TST-0010, BUG-0016, BUG-0017/TST-0003. Yeniden açılan: yok.
+- Açık: P0 0 · P1 0 · P2 3 (TST-0002/0004/0007) · P3 5 (TST-0001/0005/0006/0008/0009) = toplam 8.
+
+### Sonraki tur odağı
+- Zafer ulaşılabilirliği + 2. perde savunma ölümcüllüğü (ONR-005/006/010 — pencereli zafer denemesi); Türkçe dilim 9 (1201–1350); TST-0007/0008 kalan muayene sayfaları; TST-0002 görünür `[KEY_NOT_FOUND]` üretme denemesi.
 
 ## Tur 10 — 11 Ekim 2026 (commit ffe2e4b; yeni oyun kodu yok)
 

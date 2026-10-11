@@ -1,4 +1,4 @@
-﻿# Tester Bulguları
+# Tester Bulguları
 
 Kural ve kalıp: `docs/tester/TESTER_REHBERI.md` §5. Numara TST-0001'den artar; yeni bulgu **en üste** eklenir.
 Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. Öncelik P0–P3.
@@ -21,6 +21,13 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 
 <!-- Bulgular buradan aşağı, en yenisi üstte -->
 
+### Tur 11 doğrulama özeti · commit ed34d70 · (BUG-17, TST-0011, TST-0010, BUG-0016, BUG-0017/TST-0003)
+- **BUG-17 — DOĞRULANDI (ROADMAP_2 §13.2, ed34d70):** Fısıltı pusulası yalnız **mevcut hazır bina** ve **yaşayan kişi** kaydını okur. Bağımsız 8 kenar senaryosu (binasız köy 30 gece 0 · inşa halindeki bina seçilmez · katalog dışı tür seçilmez · çocuk/zindandaki/kervandaki kişi aday olmaz · sabah yıkılan bina kart üretmez · metinde `{yer}` düz metin kalmaz, yalnız "ambar" anılır) hepsi geçti. Kalfa'nın `fisilti_yer_test` sanity içinde GEÇTİ. İkincil in-game görsel: kart "…dün **ambar** tarafındaydı…". Kanıt: `work/tester/tur11/probe_fisilti.log`, `work/tester/tur11/fisilti_ui/`.
+- **TST-0011 — DOĞRULANDI (tekrar, tur 11):** Tam sanity son satırı **`Sanity: 0 failed. No staging/commit/push.`**, **329 PASS / 0 FAIL / 329 log**; log taraması `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0. Yok sayılan tek satır sertifika deposu (324 kez). Kanıt: `work/tester/tur11/sanity_run.log`.
+- **TST-0010 — DOĞRULANDI (tekrar, tur 11):** `perde_gecisi_test` "PERDE GEÇİŞİ: GEÇTİ"; `nihai_son_test` ve `nihai_son_kontrol` PASS. Statik: `src/veri/oyun_ayarlari.gd:39 = 12`, `data/ayarlar/oyun.tres perde2_hedef_gece = 12`. Kanıt: `work/tester/tur11/sanity/perde_gecisi_test.log`.
+- **BUG-0016 — DOĞRULANDI (tekrar, tur 11):** `chr_kilit_cikisi_test` "CHR KILIT CIKISI: GEÇTİ (0 hata)"; `SOHBET_KILIDI` ve `KILIT` olayı yalnız fix öncesi oyun_106/107/108; 109–185'te 0.
+- **BUG-0017 / TST-0003 — DOĞRULANDI (tekrar, tur 11):** `is_yeri` SCRIPT ERROR yalnız oyun_112 (fix öncesi); 113–185'te 0.
+- **TST-0007 / TST-0008 — hâlâ AÇIK (regresyon yok):** 6 model muayenesi tur 10 sayılarını birebir tekrarladı (chr_011 0,69/0,61 · aydogdu 0,50 · chr_009 0,09 m · chr_021 0,46/0,09/0,49 · yusuf 1,17 m). Görsel: chr_011 pelerin dev torba; aydogdu yayı bacağın önünde. Kanıt: `work/tester/tur11/muayene/`.
 ### Tur 10 doğrulama özeti · commit ffe2e4b · (TST-0011, TST-0010, BUG-0016, BUG-0017/TST-0003)
 - **TST-0011 — DOĞRULANDI (tekrar, tur 10):** Tam sanity (`work/tester/tur10/sanity`) son satırı **`Sanity: 0 failed. No staging/commit/push.`**, **328 PASS / 0 FAIL / 328 log**; `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0. Artık elle "etkin sanity" ayıklaması gerekmedi. Kanıt: `work/tester/tur10/sanity_run.log`.
 - **TST-0010 — DOĞRULANDI (tekrar, tur 10):** `perde_gecisi_test` → "PERDE GEÇİŞİ: GEÇTİ"; `nihai_son_test` ve `nihai_son_kontrol` PASS. Statik: `src/veri/oyun_ayarlari.gd:39 = 12`, `data/ayarlar/oyun.tres:24 = 12` → tek doğruluk kaynağı. Kanıt: `work/tester/tur10/sanity/perde_gecisi_test.log`.
