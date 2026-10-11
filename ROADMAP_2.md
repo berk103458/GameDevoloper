@@ -6695,7 +6695,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KRI-04. Boyut: S.
   - Dosya: `src/debug/` kuyu enjektörü.
   - Asset: asset gerekmedi.
-- [/] **TEK-08:** (Kalfa) ADV-05 karar olarak kalır, yeni bonus yoktur.
+- [x] **TEK-08:** (Kalfa) ADV-05 karar olarak kalır, yeni bonus yoktur.
   - Ne: eski: ADV-05. Kenetlenme bonusu gizli kuluçkada verilmez. Bu bir borç kapatma değil, yazılı karardır: dolaylı ipucu kabul. Kod değişmez, `docs/denetim` notu "karar" olur.
   - Kabul: bonus formülü diff'i 0. Test: tarama.
   - Bağımlılık: KRI-10. Boyut: S.
