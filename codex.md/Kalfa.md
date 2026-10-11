@@ -100,3 +100,7 @@ Sahiplik e32dda5. Beş sıra olayı gerçek kuyruk modelinin cinsiyet/yaş metad
 ## BUG-19 kapanışı ve festive merge — 11 Ekim 2026 (Kalfa)
 
 Uygulama d1e851e: tek tam sanity 331/0/20 gece. Festive'deki 14 commit merge ile alındı; CSV sonundaki farklı anahtarlar birlikte korundu. Untracked iki UID zaten aynı içerikteydi; yerel kopyaları work/bug19-pull-untracked-uids altında saklandı. Merge sonrası 11 hedefli kontrol geçti; yeni köprü/taş yatağı/nüfus akışı dahil. Tam koşu merge öncesi uygulamaya aittir, tüm yeni festive için tam koşu iddiası yok. Asset gerekmedi. ds ayna yolu yok. BUG-19 kapanış/push sonrası ilk boş Faz 0 maddesi BUG-20 sahiplenilir; BUG-21/23/24 ve TEK sahiplikleri korunur. Yeni kullanıcı kuralı: asset üretmek yasak, hazır CC0/CC-BY asset ancak kaynak/lisans kaydıyla; testlerde res://work yolu yok, aynı anda tek tam sanity.
+
+## BUG-20 sahipliği — 11 Ekim 2026 (Kalfa)
+
+Pull: 1032861. BUG-19 kapandı. BUG-20 sıra bayılma seçiminin gerçek sonuçları: veri ayarlı ölüm/sakatlık/ayrılma/toparlanma, gerçek yardım bedeli, mevcut cenaze ve gece raporu, aynı Gelen ile sakatlık kabulü. Yeni yardımcı + ince adaptör; asset gerekmedi. Sahiplik commit/push sonrası uygulama. Diğer ajanın BUG-23/24 ve TEK işlerine dokunulmaz; BUG-22 ACL-01 bekler.
