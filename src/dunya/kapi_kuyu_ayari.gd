@@ -17,5 +17,10 @@ static func sokete_bagla(isik: OmniLight3D, alev: Node3D) -> void:
 	isik.set_meta("alev_soketi", soket)
 
 static func kuyu() -> Node3D:
-	# Yükleyici tek malzeme atar; yenilemede iki ardışık RID oluşturulup bırakılmaz.
-	return Dunya3B.nesne("kuyu", float(AYAR.kuyu_yukseklik), "", Color(String(AYAR.kuyu_tas_rengi)))
+	# Köy yenilemeleri aynı malzemeyi tutar; mevcut memory_free listesinde Pbr zaten vardır.
+	var renk := Color(String(AYAR.kuyu_tas_rengi))
+	var anahtar := "kapi_kuyu_duz|" + renk.to_html()
+	if not Pbr._onbellek.has(anahtar):
+		Pbr._onbellek[anahtar] = Dunya3B.duz_malzeme(renk)
+	var mat: Material = Pbr._onbellek[anahtar]
+	return Dunya3B.nesne("kuyu", float(AYAR.kuyu_yukseklik), "", renk, mat)

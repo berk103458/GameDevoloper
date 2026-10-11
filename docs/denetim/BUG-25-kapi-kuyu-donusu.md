@@ -17,3 +17,13 @@ Yerel ds çalışma kopyası ve GitHub aynası bu bilgisayarda yok; eşitlenemed
 Nihai tam UTF-8 sanity: **342 PASS / 0 hata / 20 gece**, `work/sanity-bug25-final-2`. Malzeme düzeltmesi sonrası çınar üç hedefli tekrar + nihai tam koşuda geçti; 5 ek hedefli kontrol geçti.
 
 Uygulama commit 06cb592 sonrası festive merge çakışmasız alındı. testx yetim import temizliği ve Codex sahiplikleri korundu. Merge sonrası 9 hedefli kontrol geçti: yetim import unittest, headless import, yeni birim/gerçek sahne, animasyon fallback, çınar, sulama, gerçek CHR kapı ve açılış bağımlılıkları. Kanıt `work/bug25-merge-target`. Tam sanity birleşimden önceki uygulamaya aittir.
+
+## Aralıklı malzeme RID takibi — 11 Ekim 2026 (Kalfa)
+
+TEK-18 tam koşusunda kriz sahnesinin oyun iddiaları geçti ancak kuyu malzemesi RID/null hatası tekrarlandı. Önceki tek atama düzeltmesi aralıklı sorunu tamamen gidermemiş; BUG-25 kendi sahipliği 962dd34 ile yeniden açıldı. TEK-18 koşusu başarısız sayıldı, kapanmadı; hata regex istisnası eklenmedi.
+
+Yeni ömür testi önce 200 yenilemede 200 ayrı material bulup kırmızı oldu. Kuyu rengi mevcut Pbr._onbellek içine tek renk anahtarıyla konur; yeni statik önbellek açılmaz. Dunya3B.nesne geriye uyumlu isteğe bağlı Material alır ve mevcut mesh üzerine tek kez atar. Sonuç 200 yenilemede 1 material; memory_free yine beş cachei temizler, aktif kuyu kendi güçlü referansıyla malzemesini korur, sonraki kuyu temizlenmiş cachete yeni malzeme alır. Kuyu taban/tepe ve diğer model renkleri korundu. Hedefli ömür/ölçü/düşük bellek/gerçek geçiş kontrolleri geçti; kriz ve çınar tekrarları sürüyor.
+
+Takip hedefli sonuç: ömür/ölçü/düşük bellek/gerçek geçiş 4 kontrol; kriz 3 ve çınar 3 tekrarı; korumalı API, bozuk cfg/menü ve headless import geçti. Kanıt work/bug25-rid-target. Yeni nihai tam koşu gerekirdi ve başlatılıyor. Önceki aralıklı hata genellenerek istisna sayılmadı.
+
+Nihai tam UTF-8 sanity **345 PASS / 0 beklenmeyen hata / 20 gece**, `work/sanity-tek18-bug25-final-2`. Kuyu ömür testi, çınar ve kriz gerçek sahneleri, düşük bellek geçişi ve negatif cfg/menü testi aynı koşuda geçti. Negatif fikstürün iki kasıtlı config kaydı ayrıca `work/tek18-negative-final-2/expected-config-errors.log` içinde; script hatası yok. Genel hata regex/istisnaları değişmedi.
