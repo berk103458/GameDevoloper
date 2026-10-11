@@ -72,3 +72,7 @@ ffe2e4b güvenli fast-forward ile alındı. Claude'un ROADMAP 2 temizliği ve Te
 ## BUG-17 kapanışı — 11 Ekim 2026 (Kalfa)
 
 Sahiplik 5f5ce8a; son pull 6f95634 (yalnız Tester raporları değişmişti). Pusulada {yer} yalnız mevcut hazır binadan seçilir; binasız köy, yanan/yıkılan bina ve ölen/ayrılan kişi kart üretmez. Mevcut kişi/bina kaydı ve FisiltiGazetesi kaydı kullanıldı, ikinci liste/sayaç/RNG eklenmedi. Hedefli 30 gece yer testi, fısıltı/divan/muhafız kontrolleri ve iki kayıt sahnesi geçti. Nihai UTF-8 tam sanity 329 PASS / 0 hata / 20 gece (work/sanity-bug17-final). Asset gerekmedi. ds ayna yolu yok; eşitlenemedi. Sonraki iş BUG-18, önce pull ve sahiplik push.
+
+## BUG-18 sahipliği — 11 Ekim 2026 (Kalfa)
+
+Pull kontrolü ed34d70; BUG-17 push edildi. BUG-18 için veri ayarlı tehdit başlangıcı, mevcut adlı aday/ağırlık akışı ve baskın/sabotaj tetiklerine ince adaptör. Gerçek gün kaydı okunur; Moğol, ulak ve diplomatik heyet ayrı kalır, debug doğal takvimi artırmaz. Önce sınır/kayıt testleri, sonra ilişkili regresyonlar; kapanış öncesi tek UTF-8 tam sanity. Asset gerekmedi; ds ayna yok.
