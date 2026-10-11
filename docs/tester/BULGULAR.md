@@ -1,4 +1,4 @@
-# Tester Bulguları
+﻿# Tester Bulguları
 
 Kural ve kalıp: `docs/tester/TESTER_REHBERI.md` §5. Numara TST-0001'den artar; yeni bulgu **en üste** eklenir.
 Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. Öncelik P0–P3.
@@ -20,6 +20,17 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 ---
 
 <!-- Bulgular buradan aşağı, en yenisi üstte -->
+
+### Tur 12 doğrulama özeti · commit a636768 · (BUG-18, TST-0011, TST-0010, BUG-0016, BUG-0017/TST-0003) · yeni bulgu 0
+- **BUG-18 — DOĞRULANDI (ROADMAP_2 §13.3, a636768, Kalfa):** Doğal tehditler (pusucu/çete/casus/sabotaj/baskın) veri ayarlı `tehdit_baslangic_gunu=14` kapısına bağlı; `Oturum.gun` tamamlanan gün okunur, ikinci sayaç/kayıt yok. Bağımsız 14 kenar grubu geçti: sınır 12/13 kapalı 14/15 açık · gun 0/7/13 gerçek kuyrukta tehdit 0 · gun 15 tehdit >0 · legacy kayıt gun=25 geri sarılmaz · JSON ayarı 0/−3(clamp)/999 koda gömülü değil · `sec` sıfır havuz RNG harcamaz, `aralik` üst sınır sıfır ağırlığı seçmez · gun13 baskın denemesi 0 olay + sönüm sürer + RNG sabit · gun14 baskın kurulur · gun13 kundaklama/kuyu/casus 0 makbuz + kayıt sabit · gun5 debug kundak takvimi/Moğol'u ilerletmez · DEBUG_BASKIN meta kayda yazılmaz, bitince kapı kapanır · ilk gün resmi ulak+heyet engellenmez · gun13→14 gerçek gece Moğol ilerler · profil süzgeci. Kalfa'nın `tehdit_takvimi_test` sanity içinde GEÇTİ. Kanıt: `work/tester/tur12/probe_tehdit.log`, `sanity/tehdit_takvimi_test.log`.
+- **TST-0011 — DOĞRULANDI (tekrar, tur 12):** Tam sanity son satırı **`Sanity: 0 failed. No staging/commit/push.`**, **330 PASS / 0 FAIL / 330 log**; log taraması `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0. Yok sayılan tek satır sertifika deposu (325 kez). Elle ayıklama gerekmiyor. Kanıt: `work/tester/tur12/sanity_run.log`.
+- **TST-0010 — DOĞRULANDI (tekrar, tur 12):** `perde_gecisi_test`, `nihai_son_test`, `nihai_son_kontrol` PASS; `src/veri/oyun_ayarlari.gd:39 = 12`, `data/ayarlar/oyun.tres:24 = 12`. Kanıt: `work/tester/tur12/sanity/perde_gecisi_test.log`.
+- **BUG-0016 — DOĞRULANDI (tekrar, tur 12):** `chr_kilit_cikisi_test` GEÇTİ (kilitli cevapta "Kararını ver" çıkışı var, `karar_istendi` yayar); `SOHBET_KILIDI`/`KILIT` yalnız fix öncesi oyun_106/107/108, 109–192'de 0.
+- **BUG-0017 / TST-0003 — DOĞRULANDI (tekrar, tur 12):** `is_yeri` SCRIPT ERROR yalnız oyun_112 (511 kez, fix 254202d öncesi commit 5396fae); 113–192'de 0. `ozet.tsv` hata sütunu yalnız 101/102/103/105/107 (CIKIS_127, elle kapatıldı) ve 112 sıfır dışı.
+- **TST-0007 / TST-0008 — hâlâ AÇIK (regresyon yok):** 6 model muayenesi tur 10/11 sayılarını birebir tekrarladı (chr_011 0,69/0,61 · aydogdu 0,50 · chr_009 0,09 m · chr_021 0,46/0,09/0,49 · yusuf 1,17 m). Görsel: chr_011 pelerin dev torba; aydogdu yayı bacağın önünde. Kanıt: `work/tester/tur12/muayene/`.
+- **TST-0009 — hâlâ AÇIK (görünürlük):** Köy inşa görünümünde dokusuz **beyaz küre çadır** oyuncunun ana bakış alanında net. Asset öncelik listesinde üstte. Kanıt: `work/tester/tur12/koy_insa_small.jpg`.
+- **Yeni bulgu: 0.** Türkçe dilim 9 (1201–1350) temiz; çift metin `c3≡c5` bilinen `[SORU]`.
+
 
 ### Tur 11 doğrulama özeti · commit ed34d70 · (BUG-17, TST-0011, TST-0010, BUG-0016, BUG-0017/TST-0003)
 - **BUG-17 — DOĞRULANDI (ROADMAP_2 §13.2, ed34d70):** Fısıltı pusulası yalnız **mevcut hazır bina** ve **yaşayan kişi** kaydını okur. Bağımsız 8 kenar senaryosu (binasız köy 30 gece 0 · inşa halindeki bina seçilmez · katalog dışı tür seçilmez · çocuk/zindandaki/kervandaki kişi aday olmaz · sabah yıkılan bina kart üretmez · metinde `{yer}` düz metin kalmaz, yalnız "ambar" anılır) hepsi geçti. Kalfa'nın `fisilti_yer_test` sanity içinde GEÇTİ. İkincil in-game görsel: kart "…dün **ambar** tarafındaydı…". Kanıt: `work/tester/tur11/probe_fisilti.log`, `work/tester/tur11/fisilti_ui/`.
@@ -197,6 +208,7 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 - **Tahmin:** `sinsi_gece_rutini.nobetciler` (satır 11–15) `h.sahne.yonetim.koylu(id)` sonucunu null denetlemeden `MuhafizMaasi.aday(k, y)`'ye veriyor; `sinif` adayında (`sinsi_gece_rutini.aday`, satır 7) null koruması VAR ama `nobetciler` yolunda yok. `nobetciler` içinde `koylu(id)` null ise `continue` eklemek yeterli görünüyor.
 
 - **Tur 6 notu (Claude kararı):** Tetikleyen satır tester aracının kendi DURUM çıktısıydı; oyun bu sınıfları (zanaatkar/dervis) kendisi sorgulamıyor → **P2→P3**. Savunmasız API önerisi **ONR-002** olarak Codex kuyruğunda. TST-0002 de Codex kuyruğunda.
+
 
 
 

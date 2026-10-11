@@ -1,8 +1,19 @@
-# Oyun Gelişim Raporu (Tester)
+﻿# Oyun Gelişim Raporu (Tester)
 
 Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md` §5. Sayılar ölçülerek yazılır.
 
 <!-- En yeni giriş buraya -->
+
+## 2026-10-11 · Tur 12 · commit a636768
+- **Sağlık:** **Tam sanity `Sanity: 0 failed`** (330 PASS / 0 FAIL / 330 log) — TST-0011 ortamda doğrulandı (**DOĞRULANDI**), elle ayıklama gerekmiyor; import exit 0. Log taraması `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0. Karakter muayenesi + köy/kapı fotoğrafları pencereli/Dummy ile geçti. Donma/hata 0.
+- **Bu turda giren kod:** `a636768` fix(BUG-18) — Kalfa. Doğal tehditler (pusucu/çete/casus/sabotaj/baskın) veri ayarlı `tehdit_baslangic_gunu=14` kapısına bağlandı (yeni `src/sistemler/tehdit_takvimi.gd`; `GuvenlikKafileDengesi`/`Oturum.gece_kuyrugu`/`KoyYonetimi._husumet` + sabotaj tetikleyicilerine tek satır).
+- **İyileşen:** İlk 14 gün doğal sabotaj/baskın/çete gelmez; oyuncu köyü ve kapıyı tehditsiz öğrenir. Ulağın ilk gün gelişi ve diplomatik heyet engellenmez; HAR-02 (Moğol) sayacı işlemeye devam eder. Debug tehdit çağrısı takvimi ilerletmez; 14 günü geçmiş eski kayıt geri sarılmaz. **BUG-18 DOĞRULANDI** (14 bağımsız kenar grubu).
+- **Kötüleşen / regresyon:** Yok. TST-0007/0008/0009 sürüyor (düzeltme gelmedi).
+- **Oynanış hissi:** Otomatik oyuncu turda değişmedi; köy kurma döngüsü hâlâ odun/gıda sıfırlanıp 5 yapıda donuyor. 2. perde savunma arayışı yok → her perde-2 oyunu `sur=0` ile giriyor.
+- **Denge eğrisi:** 92 kayıt · 86 tamamlanan. Son dağılımı: Tekfur **37** · azil **24** (hepsi teftiş gecesi g5/g10/g15) · İsyan **23** · **zafer 2 (%2,3)**. Ortalama son gün **12,92** (medyan 14). Perde-2: **75/75 oyun `sur=0`**, yapı ≤5, **odun gün 1,1'de 0**; ilk Tekfur gücü 5,2 / savunma 2,9. (Önceki tur 11: zafer 2/79 = %2,5, ort. son gün 12,97 — değişim yok.)
+- **Açık bulgu:** P0 0 · P1 0 · P2 3 (TST-0002, TST-0004, TST-0007) · P3 5 (TST-0001, TST-0005, TST-0006, TST-0008, TST-0009). **Yeni bulgu 0.**
+- **Bir sonraki tur odağı:** (1) Zafer ulaşılabilirliği — ONR-004 (otomatik oyuncu savunma kursun) / ONR-005 / ONR-010 ölçümü; (2) Türkçe dilim 10 (1351–1500); (3) TST-0007/0008/0009 asset öncelik listesi.
+
 ## 2026-10-11 · Tur 11 · commit ed34d70
 - **Sağlık:** **Tam sanity `Sanity: 0 failed`** (329 PASS / 0 FAIL / 329 log) — TST-0011 düzeltmesi bu ortamda da çalışıyor (**DOĞRULANDI**); import exit 0. Log taraması `SCRIPT ERROR / Parse Error / Failed to load script / KALDI` = 0 (yalnız sertifika satırı yok sayıldı). Muayene + in-game fısıltı koşusu pencereli/Dummy ile geçti. Donma/hata 0.
 - **Bu turda giren kod:** `ed34d70` fix(BUG-17) — Kalfa. Fısıltı pusulası artık yalnız **mevcut hazır bina** ve **yaşayan kişi** kaydını okur (`src/kapi/fisilti_yeri.gd` ince adaptör; `data/fisilti_gazetesi.json` `{yer}` kalıbı). İkinci liste/RNG/sayaç yok.
@@ -28,7 +39,8 @@ Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md
 - **Doğrulanan:** **TST-0011** (6202f96) · **TST-0010** (8acb352, tekrar). **BUG-0016 / BUG-0017 (TST-0003)** fix sonrası yeni KILIT/is_yeri kaydı 0 → durum korunuyor.
 - **Denge eğrisi (66 tamamlanan oyun, 7/24 döngü kesintisiz):** zafer **2/66 = %3,0** (tur 8 %3,2). Dağılım: Tekfur **28** · İsyan **18** · Azil **18** · Uç Tutundu 1 · Beyin Uç Köyü 1. Ortalama son gün **12,56**; son günler **g5:10** (hepsi teftiş gecesi azli) ve **g18:15** (hepsi Tekfur).
 - **Yeni ölçüm — zafer fiilen imkânsız:** ağalık ort. **gün 6** açılıyor → 12. perde gecesi = **19. gece** → o gece Tekfur akını önce çözülüyor: **son günü g18 olan 15 oyunun 15'i Tekfur**. Zafere ulaşan 2 oyunda ağalık gün 5'te açılmıştı. Yani zafer "ağalığı 5. günde açma" şansına bağlı (ONR-010 güçlendirildi, kaynak sırası oturum.gd:277-287 ile doğrulandı).
-- **Yeni ölçüm — azil ekonomik değil:** 18 azilin **tamamı** teftiş gecelerinde (6/11/16); kök usvet_agirlik=5 → 4 rüşvet = yozlaşma 20 + dolu kişisel kasa → %50. Teftiş takvimi/riski oyunda hiç görünmüyor (ONR-007 güçlendirildi).
+- **Yeni ölçüm — azil ekonomik değil:** 18 azilin **tamamı** teftiş gecelerinde (6/11/16); kök 
+usvet_agirlik=5 → 4 rüşvet = yozlaşma 20 + dolu kişisel kasa → %50. Teftiş takvimi/riski oyunda hiç görünmüyor (ONR-007 güçlendirildi).
 - **Yeni ölçüm:** 2. perdeye giren **58/58 oyun sur=0 + odun=0**; 2. perde huzuru **−4,19/gece**, sonu **21,9** (ONR-005/006/013 tur 9 sayılarıyla güncellendi).
 - **TST-0002 derinleşti:** 6 eksik anahtarın uyarısı her oyunda sürüyor ama görünür etiketler (yapı kartları "TAŞ EV", üst kaynak şeridi Tomruk/Buğday/Un/Kireç/Harç, gece raporu kartı) **doğru Türkçe** — uyarı, adaptör zincirlerindeki **eager varsayılan** yüzünden çoğunlukla yanlış alarm. Görünür [KEY_NOT_FOUND] yakalanamadı → P2→P3 önerisi + iki yönlü düzeltme.
 - **Kendi koşularım:** 901 (0,30) İsyan g14 · 902 (0,70) Azil g11 · 903 (0,95) Tekfur g13 — SCRIPT ERROR/KILIT/NaN/eksi stok **0**. **Regresyon:** BÖLÜM 9 (ODA) 14 akış GEÇTİ; BÖLÜM 6 (TUC) 12 akış + 13 birim GEÇTİ (sanity). **Türkçe dilim 6 (751–900) temiz**; sonraki dilim **901–1050**.
@@ -125,5 +137,6 @@ Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md
 - **Açık bulgu:** P0 0 · P1 0 · P2 0 · P3 0 (bu turda TST numarası açılmadı; bulgu listesi boş)
 - **Kaynak koddan izlenen:** BUG-0013 — kayıttan **Devam** köy yerine kapıyı açıyor. Kök neden `src/arayuz/ana.gd` `devam_et()` (satır 68–74): kayıt yüklendikten sonra koşulsuz `_kapiya_git()` çağrılıyor; `Oturum.kaydet()` (satır 725–747) kaydın hangi fazda olduğunu tutmuyor. Ayrıntı: `codex.md/Tester.md`.
 - **Bir sonraki tur odağı:** TST-0003 (P1, gece rutini null köylü) düzeltmesini doğrula; TST-0002'nin `[KEY_NOT_FOUND]` gösterdiği ekranı görüntüyle kesinleştir; TST-0001'in oynanış etkisi (`sayi()` çağrıları); pencereli elle CHR ikna-fail doğrulaması; düşük kabul ile zafer/denge eğrisi.
+
 
 

@@ -6,8 +6,28 @@ Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar,
 - Göreve başlama: 11 Ekim 2026 — **Tur 1 (eğitim)** tamamlandı.
 - Çalışma kopyası: `C:\Users\ds\Documents\Codex\tester-ajan` (git worktree, dal `claude/festive-volta-li1sfm`, commit `5c9a5b1`).
 - Eğitim turu kuralı: kod (`src/`, `data/`, `tests/`, `tools/`, `ROADMAP.md`) değiştirilmedi; commit/push yapılmadı. Yalnız `docs/tester/` ve bu günlük yazıldı.
-- Güncel: **Tur 11** tamamlandı (11 Ekim 2026, commit `ed34d70`; fix(BUG-17)). Rapor: `docs/tester/turlar/TUR-011.md`. **Tam sanity 329 PASS / 0 FAIL -> `Sanity: 0 failed`.** BUG-17 DOĞRULANDI.
+- Güncel: **Tur 12** tamamlandı (11 Ekim 2026, commit `a636768`; fix(BUG-18)). Rapor: `docs/tester/turlar/TUR-012.md`. **Tam sanity 330 PASS / 0 FAIL -> `Sanity: 0 failed`.** BUG-18 DOĞRULANDI.
 
+
+## Tur 12 — 11 Ekim 2026 (commit a636768; fix(BUG-18))
+
+### Ne yaptım
+- **a636768 / BUG-18 DOĞRULANDI:** Doğal tehditler (pusucu/çete/casus/sabotaj/baskın) veri ayarlı `tehdit_baslangic_gunu=14` kapısına bağlı; `Oturum.gun` tamamlanan gün okunur. Bağımsız **14 kenar grubu** geçti (sınır 12/13 kapalı 14/15 açık · gun 0/7/13 tehdit 0 · gun15 tehdit>0 · legacy gun25 geri sarılmaz · JSON ayarı 0/−3/999 · `sec` sıfır havuz RNG harcamaz · `aralik` üst sınır · gun13 baskın yok+sönüm sürer · gun14 baskın olur · gun13 sabotaj makbuz yok · debug takvimi ilerletmez · DEBUG_BASKIN kayda yazılmaz · ilk gün ulak+heyet engellenmez · gun13→14 Moğol ilerler · profil süzgeci). Kalfa'nın `tehdit_takvimi_test` sanity içinde GEÇTİ.
+- **TAM sanity (§3.5):** **330 PASS / 0 FAIL / 330 log -> `Sanity: 0 failed`**; log taraması `SCRIPT ERROR|Parse Error|Failed to load script|KALDI` = 0; yok sayılan tek satır sertifika deposu (325). **TST-0011 DOĞRULANDI** (elle ayıklama gerekmiyor).
+- **TST-0010 DOĞRULANDI (tekrar):** `perde_gecisi_test` + `nihai_son_test` + `nihai_son_kontrol` PASS; `oyun_ayarlari.gd:39 = 12`, `oyun.tres:24 = 12`.
+- **BUG-0016 DOĞRULANDI (tekrar):** `chr_kilit_cikisi_test` GEÇTİ; `SOHBET_KILIDI`/`KILIT` yalnız 106/107/108 (fix öncesi), 109–192'de 0. **BUG-0017/TST-0003 DOĞRULANDI (tekrar):** `is_yeri` yalnız oyun_112 (511, fix öncesi); 113–192'de 0.
+- **7/24:** **92 kayıt, tamamlanan 86**; Tekfur 37 · azil 24 (hepsi teftiş geceleri g5/g10/g15) · İsyan 23 · **zafer 2/86 = %2,3**; ort. son gün **12,92** (medyan 14). **Perde-2: 75/75 oyun `sur=0`, yapı ≤5, odun gün 1,1'de 0**; ilk Tekfur gücü 5,2 / savunma 2,9. Donma 0; yeni oyunlar (186–192) hata=0.
+- **Karakter muayenesi (6 model, regresyon):** TST-0007/0008 değişmedi — chr_011 pelerin dev torba (0,69/0,61), chr_009/chr_021 ayak 0,09 m havada, aydogdu yay-bacak. yusuf 1,17 m = kasıtlı çocuk.
+- **Çevre (13.2):** köy inşa görünümünde **beyaz küre çadır (TST-0009)** ana bakış alanında net; gece kapı sahnesi sağlam.
+- **Türkçe dilim 9 (1201–1350):** temiz (chr_018–024 sohbet); c3≡c5 çift metni sürüyor -> `[SORU]`. Kaldığım satır **1350**.
+
+### Yeni/kapatılan
+- Yeni bulgu: **0**. Yeni öneri: **0** (mevcut ONR-004/005/006/007'ye tur 12 sayıları eklendi). Doğrulanan: **BUG-18**, TST-0011, TST-0010, BUG-0016, BUG-0017/TST-0003. Yeniden açılan: yok.
+- Açık: P0 0 · P1 0 · P2 3 (TST-0002/0004/0007) · P3 5 (TST-0001/0005/0006/0008/0009) = toplam 8.
+- Ek düzeltme: `DEGISIKLIK_ONERILERI.md` ONR-007 içinde eski bir metin bozulması (`rusvet` -> `usvet` + satır kırılması) onarıldı.
+
+### Sonraki tur odağı
+- Zafer ulaşılabilirliği (ONR-004 otomatik oyuncu savunma kursun / ONR-005 / ONR-010); Türkçe dilim 10 (1351–1500); TST-0007/0008/0009 asset öncelik listesi.
 
 ## Tur 11 — 11 Ekim 2026 (commit ed34d70; fix(BUG-17))
 
@@ -50,7 +70,8 @@ Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar,
 
 ### Ne yaptım
 - **Tam sanity (§3.5):** Sanity: 0 failed — **327 PASS / 0 FAIL / 329 log**. Tur 3–8'deki "322 failed" yanlış negatifi bitti. Import exit 0; 102 ERROR = TST-0005 yetim .import.
-- **TST-0011 DOĞRULANDI:** cert-satırı istisnası (	ools/sanity_check.py:18-20, un() satır 62) yalnız o satırı yok sayıyor. 13 kenar senaryosu (CRLF'li, sonda boşluklu, iki kez, cert+gerçek ERROR, aynı satırda cert+gerçek hata, noktasız benzer satır, gerçek hata önce, SCRIPT ERROR/KALDI/Parse Error) → 9/9 doğru. Kanıt: `work/tester/tur9/tst0011_kenar*.log`.
+- **TST-0011 DOĞRULANDI:** cert-satırı istisnası (	ools/sanity_check.py:18-20, 
+un() satır 62) yalnız o satırı yok sayıyor. 13 kenar senaryosu (CRLF'li, sonda boşluklu, iki kez, cert+gerçek ERROR, aynı satırda cert+gerçek hata, noktasız benzer satır, gerçek hata önce, SCRIPT ERROR/KALDI/Parse Error) → 9/9 doğru. Kanıt: `work/tester/tur9/tst0011_kenar*.log`.
 - **TST-0010 DOĞRULANDI (tekrar):** kod varsayılanı 12 / .tres 12; perde_gecisi_test, 
 ihai_son_test, oto 
 ihai_son_kontrol GEÇTİ.
