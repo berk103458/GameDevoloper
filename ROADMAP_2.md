@@ -7,7 +7,7 @@ Bu dosya ROADMAP 2’nin tek ve geçerli kopyasıdır (11 Ekim 2026, Muharrir bi
 - **Sahiplik:** Bir maddeye başlamadan önce `git pull`, sonra maddeyi `[/] (AjanAdı)` yap, commit + push et. Başka ajanın `[/]` işaretlediği maddeye DOKUNMA. Bitince `[x] (AjanAdı)`.
 - **Sıra:** Aşağıdaki "Önerilen uygulama sırası" fazlarına göre ilerle. Faz 0 bitmeden Faz 1’e geçme (paralel çalışan ajanlar aynı fazın farklı maddelerini alır).
 - **Küçük maddeler:** Boyutu S olan ve tek satırlık test/kontrol niteliğindeki maddeler, aynı alt başlıktaki ait oldukları büyük maddeyle birlikte tek iş olarak alınabilir; o zaman hepsi aynı commit’te `[x]` yapılır ve commit mesajında kimlikler listelenir.
-- **Asset:** Üretme/indirme yok; kutu yer tutucu kullan, gereken asset `docs/EKSIK_ASSET_ENVANTERI.md` ve ARY-05 listesine.
+- **Asset:** Üretme yok. Uygun ve açık lisanslı (CC0/CC-BY) asset internetten eklenebilir, kaynak+lisans envantere (AGENTS.md asset kuralı, Berk 11 Ekim). Bulunamazsa isim etiketli kutu yer tutucu kullan, gereken asset `docs/EKSIK_ASSET_ENVANTERI.md` ve ARY-05 listesine.
 - **Mimari:** festive tek ana dal; yeni dosya + ince adaptör; `koy_sahnesi` yasak; ROADMAP 1 sistemleri yeniden kurulmaz, adaptörle okunur.
 - **İlk iş (Claude):** `Roadmap-2/arsiv/` altındaki temizlik artığı — Bölüm 19–21 dolgu ayıklaması ve TASIMA_LISTESI dosyalarının uygulanması. Ayrıntı: Ajan Masası (#11).
 
@@ -51,7 +51,7 @@ Parça A: acil kilitler, açılış, kapı akışı, arayüz. Oyun kodu bu dosya
 
 **Madde biçimi:** Amaç, numaralı Kurallar, Uç durumlar, ölçülebilir Kabul ve test, Bağımlılık, Boyut, Dosya, Asset.
 
-**Ortak kurallar:** yeni dosya + ince adaptör; çekirdekte minimal ekleme; `koy_sahnesi` / statik `KoyYerlesimi` yok; ajan asset üretmez ve indirmez. ROADMAP 1 bitmiştir. Salgın, mevsim motoru, tüccar, divan mahkemesi, yozlaşma ağacı, bölge haritası, çift kasa, cenaze töreni, gözcü kulesi, heybe ve ipucu motoru, tansiyon aralıkları ve üretim zinciri burada yeniden kurulmaz. Madde onları okur.
+**Ortak kurallar:** yeni dosya + ince adaptör; çekirdekte minimal ekleme; `koy_sahnesi` / statik `KoyYerlesimi` yok; ajan asset üretmez (uygun ve açık lisanslı asset kaynak ve lisansıyla eklenebilir; AGENTS.md asset kuralı). ROADMAP 1 bitmiştir. Salgın, mevsim motoru, tüccar, divan mahkemesi, yozlaşma ağacı, bölge haritası, çift kasa, cenaze töreni, gözcü kulesi, heybe ve ipucu motoru, tansiyon aralıkları ve üretim zinciri burada yeniden kurulmaz. Madde onları okur.
 
 Boş günün köyde keyif olması SEV-01'dir (Parça C). Bu parça boş günü yalnız üretir.
 
@@ -901,7 +901,7 @@ Parça C: yazım, iş, yapı bilgisi, yaşam barı, dünya zamanı, sevilen yüz
 
 **Madde biçimi:** `- [ ] **ÖNEK-NN:** Başlık — amaç.` Altında: **Amaç**, **Kurallar**, **Uç durumlar**, **Kabul** (ölçülebilir test), **Bağımlılık**, **Boyut**, **Dosya**, **Asset**.
 
-**Ortak kurallar:** yeni dosya + ince adaptör; çekirdekte minimal ekleme; `koy_sahnesi` / statik `KoyYerlesimi` yok; ajan asset üretmez ve indirmez, gereken asset satıra yazılır, yerine kutu veya düz renk konur. ROADMAP 1'de biten makine (salgın, mevsim, tüccar, divan mahkemesi, yozlaşma ağacı, bölge haritası, çift kasa, cenaze, gözcü kulesi, heybe ve ipucu motoru, tansiyon aralıkları, üretim zinciri) yeniden kurulmaz. Varsa adaptör yazılır.
+**Ortak kurallar:** yeni dosya + ince adaptör; çekirdekte minimal ekleme; `koy_sahnesi` / statik `KoyYerlesimi` yok; ajan asset üretmez (uygun ve açık lisanslı asset kaynak ve lisansıyla eklenebilir; AGENTS.md asset kuralı), gereken asset satıra yazılır, yerine kutu veya düz renk konur. ROADMAP 1'de biten makine (salgın, mevsim, tüccar, divan mahkemesi, yozlaşma ağacı, bölge haritası, çift kasa, cenaze, gözcü kulesi, heybe ve ipucu motoru, tansiyon aralıkları, üretim zinciri) yeniden kurulmaz. Varsa adaptör yazılır.
 
 Alınmayacaklar (ayrı sistem olmaz): kalp puanı, hediye takvimi, romans, seslendirme, ikinci harita.
 
@@ -8810,7 +8810,7 @@ Parça B: söz motoru, zar, kapı kavgası, diyalog eylemleri, köprüler. Bu do
 
 **Madde biçimi:** `- [ ] **ÖNEK-NN:** Başlık — amaç.` Altında: **Amaç**, **Kurallar**, **Uç durumlar**, **Kabul** (ölçülebilir test), **Bağımlılık**, **Boyut**, **Dosya**, **Asset**.
 
-**Ortak kurallar:** yeni dosya + ince adaptör; çekirdekte minimal ekleme; `koy_sahnesi` / statik `KoyYerlesimi` yok; ajan asset üretmez ve indirmez, gereken asset satıra yazılır, yerine kutu veya düz renk konur. ROADMAP 1'de biten makine (salgın, mevsim, tüccar, divan mahkemesi, yozlaşma ağacı, bölge haritası, çift kasa, cenaze, gözcü kulesi, heybe ve ipucu motoru, tansiyon aralıkları, üretim zinciri) yeniden kurulmaz. Varsa adaptör yazılır.
+**Ortak kurallar:** yeni dosya + ince adaptör; çekirdekte minimal ekleme; `koy_sahnesi` / statik `KoyYerlesimi` yok; ajan asset üretmez (uygun ve açık lisanslı asset kaynak ve lisansıyla eklenebilir; AGENTS.md asset kuralı), gereken asset satıra yazılır, yerine kutu veya düz renk konur. ROADMAP 1'de biten makine (salgın, mevsim, tüccar, divan mahkemesi, yozlaşma ağacı, bölge haritası, çift kasa, cenaze, gözcü kulesi, heybe ve ipucu motoru, tansiyon aralıkları, üretim zinciri) yeniden kurulmaz. Varsa adaptör yazılır.
 
 
 | Kaynak | Ne yapıyor | Bizdeki karşılığı |
