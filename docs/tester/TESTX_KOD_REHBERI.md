@@ -25,6 +25,7 @@ Claude: diff'i inceler → kendi sanity'sini koşar → commit "(testx)" → [x]
 - **Sen git commit/push yapamazsın** (sandbox). Bu normal; yayını Claude yapar.
 - **Başka ajanın `[/]` maddesine dokunmazsın.** Kalfa Faz 0'da çalışıyor; Codex de ayrı maddeler alır. Yalnız `gorev.md`'de sana verilen madde.
 - **Kapsamı genişletmezsin.** Maddede yazmayan özellik yok. "Şunu da ekleyeyim" yok; gerekiyorsa `teslim.json` → `oneriler` alanına yaz.
+- **Silme ve geri dönüşü zor değişiklikler (TEK-02 dersi, 11 Ekim):** maddenin "Ne" ve "Dosya" alanında yazılanın dışındaki hiçbir dosyayı silme. "Kaynağı yok" ≠ "kullanılmıyor": TEK-02'de 226 `.import` silindi, 182'si Godot önbelleğine yönlendiren dosyalardı; `kapi.glb` yüklenemedi ve kapı sahnesi çöktü. Silmeden önce ve sonra en az bir gerçek oyun akış testi (ör. `tests/oto/oyun_koprusu_kontrol.tscn`) koş; farkı `teslim.json`'a yaz.
 - Belirsizlik: önce maddenin "Uç durumlar"ı, sonra `design/gdd/`, sonra `ROADMAP.md`. Hâlâ belirsizse **varsayım yapma**, `teslim.json` → `sorular` alanına yaz ve o kısmı yazmadan bırak.
 
 ### teslim.json (zorunlu, EN SON adım)
