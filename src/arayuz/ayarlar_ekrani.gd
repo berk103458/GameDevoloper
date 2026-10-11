@@ -11,6 +11,7 @@ const SATIRLAR := [
 	[&"ekran_modu", "arayuz.ayarlar.ekran_modu"],
 	[&"metin_olcegi", "arayuz.ayarlar.metin_olcegi"],
 	[&"belirme_hizi", "arayuz.ayarlar.belirme_hizi"],
+	[&"kamera_eksen_ters", "arayuz.ayarlar.kamera_eksen_ters"],
 ]
 
 var ayarlar: Ayarlar
@@ -86,7 +87,9 @@ func _ready() -> void:
 
 func _degistir(a: StringName, yon: int) -> void:
 	var v: Variant = ayarlar.al(a)
-	if Ayarlar.GECERLI.has(a):
+	if a == &"kamera_eksen_ters":
+		ayarlar.ayarla(a, not bool(v))
+	elif Ayarlar.GECERLI.has(a):
 		var liste: Array = Ayarlar.GECERLI[a]
 		var i := (liste.find(v) + yon + liste.size()) % liste.size()
 		ayarlar.ayarla(a, liste[i])
@@ -100,6 +103,8 @@ func _yenile() -> void:
 		var v: Variant = ayarlar.al(a)
 		var l: Label = _degerler[a]
 		match a:
+			&"kamera_eksen_ters":
+				l.text = tr("arayuz.ayarlar.kamera_eksen.acik") if v else tr("arayuz.ayarlar.kamera_eksen.kapali")
 			&"ekran_modu":
 				l.text = tr("arayuz.ayarlar.ekran." + String(v))
 			&"belirme_hizi":

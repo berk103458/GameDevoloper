@@ -1786,3 +1786,6 @@ koy.tas_yatagi.kaz,Kazıya işçi ata · %d işçi
 koy.tas_yatagi.birak,Kazıyı bırak
 koy.tas_yatagi.kazi,Taş yatağından %d taş çıkarıldı; kaldı: %d.
 koy.tas_yatagi.kurtarici,Köy kenarında %d taşlık yeni bir taş yatağı bulundu.
+arayuz.ayarlar.kamera_eksen_ters,Kamera: eksen ters
+arayuz.ayarlar.kamera_eksen.acik,Açık
+arayuz.ayarlar.kamera_eksen.kapali,Kapalı

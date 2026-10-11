@@ -9,6 +9,7 @@ const VARSAYILAN := {
 	&"ses_ana": 8, &"ses_muzik": 7, &"ses_efekt": 8,
 	&"ekran_modu": &"tam_ekran", &"metin_olcegi": 100, &"belirme_hizi": &"normal",
 	&"grafik_profili": &"normal", &"cozunurluk_3d": 100,
+	&"kamera_eksen_ters": false,
 }
 const GECERLI := {
 	&"ekran_modu": [&"pencere", &"tam_ekran"],
@@ -106,6 +107,8 @@ func uygula() -> void:
 
 
 func _gecerli(a: StringName, v: Variant) -> bool:
+	if a == &"kamera_eksen_ters":
+		return v is bool
 	if a in [&"ses_ana", &"ses_muzik", &"ses_efekt"]:
 		return (v is int or v is float) and v == floorf(v) and v >= 0 and v <= 10
 	if GECERLI.has(a):
