@@ -36,7 +36,7 @@ extends Resource
 @export var oturma_esigi: int = 12
 @export var perde2_gece_basina_gelen: int = 2
 ## İkinci perdede bu kadar gece dayanılırsa son tetiklenir.
-@export var perde2_hedef_gece: int = 10
+@export var perde2_hedef_gece: int = 12
 ## Saldırı gücü = taban + perde2 gecesi / artış_aralığı.
 @export var saldiri_taban: int = 1
 @export var saldiri_artis_araligi: int = 2
