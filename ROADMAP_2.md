@@ -115,7 +115,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.6 Kamera, meşale, kuyu
 
-- [ ] **BUG-21:** Taş kilidi — başlangıç taş yatağı ve kurtarıcı kaynak.
+- [x] **BUG-21:** (Codex) Taş kilidi — başlangıç taş yatağı ve kurtarıcı kaynak.
   - Ne: Yeni oyunda köy kenarında kazılabilir bir taş yatağı durur; toplam 20 taş, işçi başı günde 4. Kaynak satırı "Taş yatağı: 20 taştan N kaldı" yazar. Taş bitmiş, taş ocağı yok ve ocağı o sabah kurmak mümkün değilse boş bir hücreye 10 taşlık yatak düşer; oyun bunu bir kez söyler ve oyun başına en çok 3 kez yapar. Oyuncu taşı bekletiyorsa yatak düşmez. Eski kayda yatak zorla eklenmez.
   - Kurallar:
     1. Yeni oyunda köy kenarında kazılabilir bir taş yatağı vardır. Toplam 20 taş, işçi başı günde 4.
@@ -146,7 +146,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.8 Kapı çift işlem
 
-- [ ] **BUG-23:** Çiftçi tarla üstünde çalışır — iş noktası tarla alanının içinde.
+- [/] **BUG-23:** (Codex) Çiftçi tarla üstünde çalışır — iş noktası tarla alanının içinde.
   - Ne: Çalışma saatinde çiftçi tarla dikdörtgeninin içinde durur. Birden çok çiftçi aynı noktaya yığılmaz; noktalar tarlanın içinde dağılır. Tarla yoksa kişi dünya orijinine ışınlanmaz ve iş iptali uyarıdır, betik hatası değildir. Gece uyku noktası tarla olmaz.
   - Kurallar:
     1. Çalışma saatinde iş noktası tarla dikdörtgeninin içindedir.
@@ -161,7 +161,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.9 Bilinen borç sınırı
 
-- [ ] **BUG-24:** Kamera orta tuşla sürükleme — strateji oyunlarındaki gibi harita kaydırma.
+- [/] **BUG-24:** (Codex) Kamera orta tuşla sürükleme — strateji oyunlarındaki gibi harita kaydırma.
   - Ne: Köy ekranında tekerlek yakınlaştırır, orta tuş haritayı kaydırır. Kaydırma hızı denge dosyasındadır; piksel sabiti koda yazılmaz. Kamera harita kenarını aşmaz. Takip kamerası sürükleme başlayınca bırakılır. Duraklat menüsü ya da bir panel açıkken orta tuş dünyayı oynatmaz. Kapı sahnesinde bu kaydırma çalışmaz.
   - Kurallar:
     1. Kaydırma yalnız köy ekranındadır. Kapı sahnesi kaymaz.
@@ -6650,13 +6650,13 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.1 Açık bulgular — kimlik durur
 
-- [ ] **TEK-01:** TST-0001 — `KoyNufusu.sayi` eksik sınıf anahtarında SCRIPT ERROR.
+- [x] **TEK-01:** (testx) TST-0001 — `KoyNufusu.sayi` eksik sınıf anahtarında SCRIPT ERROR.
   - Ne: eski: TST-0001. `sayi()` olmayan sınıf anahtarında hata basmaz, 0 döner ve bir kez `push_warning` yazar.
   - Kabul: eksik anahtarda SCRIPT ERROR 0, dönüş 0. Test: birim.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `src/koy/koy_nufusu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **TEK-02:** TST-0005 — 43 yetim `.import`.
+- [/] **TEK-02:** (testx) TST-0005 — 43 yetim `.import`.
   - Ne: eski: TST-0005. `assets/model/karakter/*_yuru_Image_0.jpg.import` var, `.jpg` yok; headless import ERROR üretir. Karşılığı olmayan `.import` silinir. Yeni jpg üretilmez, mesh'e dokunulmaz.
   - Kabul: yetim `.import` sayısı 0; import logunda `_yuru_Image_0.jpg` ERROR 0. Test: import log sayımı.
   - Bağımlılık: yok. Boyut: S.

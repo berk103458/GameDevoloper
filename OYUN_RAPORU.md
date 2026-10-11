@@ -12,6 +12,19 @@ Gece kartları mevcut bina, nüfus ve yaş koşullarından geçer; bilinmeyen ko
 
 # Kapı Muhafızı — Oyun Raporu (yerel)
 
+## 11 Ekim 2026 — ADM-16 Oyun Köprüsü (Codex)
+`OyunKoprusu` + Ana'da tek satır adaptör: yalnız `--` sonrasında `--bridge-port`
+veya BRIDGE_PORT ile localhost TCP. Gerçek UI üzerinden kapı/sohbet, köy inşa,
+atama/çıkarma/yıkım, gece/rapor/olay/mini oyun, mevcut kayıt noktası ve çıkış;
+salt okunur oyuncu durumu ve pencereli screenshot. Kaynak/NPC/zaman hilesi yok.
+Python tester üç politika, JSONL/özet, ayrı kayıt alanı, zaman aşımı ve süreç
+temizliği; kayıp yanıt mutasyonu tekrarlamaz. GDD ve Tester §10 sözleşmesi eklendi.
+Tam sanity 329 PASS / 0 başarısız / 20 gece model dumanı; Python 39 kontrol ve
+gerçek köprü UI kabulü geçti. Son headless TCP: tohum 11, temkinli, 10 gece,
+0 hata, 1849 adım; gece sınırı, son yok. Asset gerekmedi. Kanıt work/adm16/.
+ROADMAP/CSV/project.godot değişmedi, commit/push ve .git yazımı yok. Zorunlu ds
+aynaya yazma oturumda engelli; aktarım paketi/manifest hazır, eşitlendi denmiyor.
+
 ## 10 Ekim 2026 — KRI-12 kanonik doğrulama (Codex)
 Bu tur ilk açık KRI-12 üzerinde başladı; Codex taslağı beklerken Claude KRI-12 … SYS-20 paketini kanonik kopyaya yayımladı. Claude'un `aclik_saglik.gd` uygulaması ve diğer tamamlanan maddeleri korundu. Seçilen KRI-12 için son kanonik paket baştan doğrulandı: tam sanity 319 PASS / 0 hata / 20 gece; yeni `aclik_saglik_test` ve gerçek HUD/gece/rapor/GuvenliKayit akışı dahil, tüm nihai loglar hata taramasından temiz, 2702 kaynak/metadata hash değeri sabit. Eski 306 kontrol taslağı/süreç çakışması/yayın sırasında değişen kaynak logları ayrı saklandı, başarı kanıtı sayılmadı. KRI-12'nin mevcut tasarımı gece başı erzak fotoğrafını kullanır, kirli su tifosu ayrı kalır; GDD'de açıklanmıştır. Oyun kodu bu doğrulamada değişmedi; asset gerekmedi, G envanteri kontrol edildi. Claude uygulayıcı olarak korunur; Codex kanonik doğrulamayı yaptı. Öz denetim bu tur açılmadı. Yayın/ayna betikte.
 

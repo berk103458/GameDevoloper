@@ -1,4 +1,6 @@
-# Tester Rehberi — Kapı Muhafızı
+# Tester Rehberi — Kapı Muhafızı (testx)
+
+> **11 Ekim 2026:** Tester'ın adı artık **testx**. testx ROADMAP 2'de kod tarafına da geçti; kod işi için önce `docs/tester/TESTX_KOD_REHBERI.md`. Bu rehber testx'in oyun tarafı (test) kitabıdır ve aynen geçerlidir.
 
 Bu belge projeye katılan **Tester** ajanının eğitim kitabıdır. Rehberi Claude (Berk) yazdı ve Claude yönetir. Tester işe her başlayışında önce bu dosyayı, sonra `AGENTS.md` ile `ROADMAP.md` içindeki "AJAN İLERLEME PANOSU" bölümünü okur.
 
@@ -20,7 +22,7 @@ Kısaca: **Bulgu "bozuk" der. Öneri "kötü" der. Gelişim raporu "nereye gidiy
 
 ### Yapmadıkların
 - Oyun kodunu (`src/`, `data/`, `tests/`) **değiştirmezsin**. Düzeltmeyi Claude yaptırır. Senin işin kanıt toplamak.
-- Asset üretmez, indirmezsin. Görsel, ses ve model yasağı `AGENTS.md` asset kuralında yazılı.
+- Asset üretmezsin. **Asset kuralı (Berk, 11 Ekim 2026):** (1) Asset **üretilmez** (yapay zekâ ile görsel/ses/model/doku üretmek, script ile sentezlemek yok). (2) İnternette oyunumuza **uygun ve lisansı açık** bir asset bulunursa eklenebilir: yalnız CC0 / kamu malı ya da atıfla serbest (CC-BY) lisanslar; kaynak bağlantısı, yazar ve lisans `docs/EKSIK_ASSET_ENVANTERI.md`'deki ilgili satıra yazılır (atıf gerektiren lisansta atıf metni de). Ticari kullanımı yasak, belirsiz ya da "yalnız kişisel" lisanslı asset alınmaz; lisansı doğrulayamıyorsan alma. Dönem ve üsluba uymayan (modern, çizgi film, uyumsuz stil) asset alınmaz. (3) Uygun asset bulunamazsa yer tutucu kullanılır (3B: düz renk `BoxMesh`/`CapsuleMesh`; 2B: düz renk kutu) ve **oyunda kısa bir isim etiketiyle görünür**; gereken asset `docs/EKSIK_ASSET_ENVANTERI.md`'ye (madde, ad, tür, yer tutucu yolu, TR+EN arama kelimeleri, öncelik, ekleyen) yazılır. Yer tutucu tek yerden değiştirilebilir kurulur.
 - ROADMAP'te madde işaretlemezsin. Yeni madde de açmazsın, önerini yazarsın; ROADMAP'e Claude ekler.
 - `git push --force` yapmazsın. `work/` ve `.import` dosyalarını commit etmezsin.
 - Token, şifre ya da e-posta paylaşmazsın.
@@ -366,4 +368,45 @@ KLASOR=C:\...\tester-ajan\work\tester\muayene [MODELLER=chr_001,aydogdu] <godot_
 
 ### 13.4 Asset muayenesi (düzeltilmesi/eklenmesi gereken asset'ler)
 - `docs/EKSIK_ASSET_ENVANTERI.md` zaten bilinen eksikleri listeler; senin işin **oyunda gerçekten göze batanları** sıralamak: hangi yer tutucu (kutu/kapsül/düz renk) oyuncunun en çok gördüğü yerde, hangi model bozuk (13.1), hangi doku düşük çözünürlüklü/esnemiş, hangi ses eksik (log'da sessiz çağrı).
-- Çıktı: tur raporunda "Asset öncelik listesi" tablosu (asset · nerede görünüyor · sorun · öncelik · kanıt görüntüsü). Asset **üretmez/indirmezsin** (asset kuralı); sadece raporlarsın.
+- Çıktı: tur raporunda "Asset öncelik listesi" tablosu (asset · nerede görünüyor · sorun · öncelik · kanıt görüntüsü). Asset **üretmezsin**; uygun ve açık lisanslı karşılığını internette bulursan listeye kaynak ve lisansıyla öneri olarak yaz (eklemeyi kod görevinde yaparsın) (asset kuralı); sadece raporlarsın.
+
+---
+
+## 14. Oyun köprüsü ile oynama (ADM-16)
+
+ADM-16, tester'ın kendi kararlarını gerçek oyuncu UI yoluyla göndermesini sağlar.
+Normal oyunda kapalıdır; `godot --path . --audio-driver Dummy -- --bridge-port 9316`
+veya `BRIDGE_PORT=9316` ile localhost üzerinde açılır. Komut sözleşmesi ve JSON
+örnekleri: [design/gdd/oyun-koprusu.md](../../design/gdd/oyun-koprusu.md).
+
+```powershell
+python -B tools/tester_oyuncu.py --godot <godot_console> --headless --tohum 11 --politika temkinli --gece 10 --cikti work/tester/oyun_11.jsonl
+```
+
+`--politika rastgele|temkinli|rusvetci`; `--headless` çıkarılırsa pencereli.
+`--zaman-asimi 1800` oyun süresi sınırıdır. Her adımın durumu, gönderilen eylem ve
+hatası JSONL'e; Godot konsolu `.godot.log`, özet `.ozet.json` dosyasına gider.
+Araç kendi oyununu başlatır ve sonunda temizler; insan kayıtları ayrı tutulur.
+
+Kendi kararlarınla oynama yöntemi:
+
+1. `Bridge(port=9316).call("get_state")` ile ekran, kişi, görünen ipuçları,
+   etkin seçenekler, kasalar, kaynaklar ve köyü oku.
+2. `hazir=true`, `mesgul=false` olduğunda karar ver. Kapıda görünen konuşma ve
+   ipuçlarını değerlendir; köyde nüfus/üretim/maliyetlere göre plan yap. İndeksler
+   son UI listesindeki sıfır tabanlı indekslerdir.
+3. `soru_sor(indeks=...)`, `devam(indeks=...,alan="eylem")`,
+   `kapi_karar(karar="kabul|ret|rusvet|kisla")`,
+   `koy_eylem(tur="insa",bina="tarla",hucre=[x,y])`,
+   `koy_eylem(tur="ata|kaldir",koylu=id,bina=id)` veya `gece_bitir` gönder.
+   `koy_eylem(tur="kaldir",bina=id)` bina yıkar; köylü belirtilirse işten çıkarır.
+4. Rapor/olay seçeneklerini `devam(indeks=...)` ile kendin seç; mini oyunda her
+   `devam` bir gerçek basıştır. Durumu yeniden oku. Animasyonda bekle. Son ekranı
+   veya kendi gece sınırında özet/bulgu yaz.
+
+Diğer komutlar: `ping`, `yeni_oyun(tohum=...)` (menü/son), `kaydet`, `yukle`
+(mevcut UI kayıt noktası), `screenshot(yol="work/tester/kapi.png")` (pencereli),
+`quit`. Hata açıklamasını kaydet; kayıp yanıt sonrası eylemi körlemesine tekrar
+etme. Dört bar mevcut 0–10 göstergedir; CHR sohbeti soru kotası yerine dallanan
+seçenekler kullandığı için kalan soru hakkı `-1` olur. Bu araç bir örnek politikadır;
+tester her adımda get_state çıktısını okuyup tamamen farklı karar verebilir.

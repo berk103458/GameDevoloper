@@ -5,6 +5,7 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 
 | Kimlik | Etki | Alan | Başlık | Durum |
 | --- | --- | --- | --- | --- |
+| ONR-015 | Yüksek | [DENGE] 2. perde | İki bağımsız strateji de kaybediyor: savunma kurulunca ölüm gıda/suya kayıyor; zafer %2,1 | YENİ |
 | ONR-003 | Yüksek | Ekonomi / denge | Odun zinciri (EKO-02) köyü kilitleyip zaferi ulaşılamaz kılıyor | YENİ |
 | ONR-004 | Yüksek | Test araçları | Otomatik oyuncu + denge benzetimi EKO-02 öncesi stratejide kalmış | YENİ |
 | ONR-005 | Yüksek | [DENGE] 2. perde / savunma | 2. perde geçişi savunma hazırlığı olmadan ölüm | YENİ |
@@ -21,6 +22,13 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 | ONR-014 | Düşük | ROADMAP 2 (doküman) | Bölüm başlarındaki "Yeni maddeler X … Y" aralık etiketleri ayıklanan kimlikleri gösteriyor | YENİ |
 
 ---
+
+### ONR-015 · Yüksek · [DENGE] 2. perde · İki bağımsız strateji de kaybediyor; savunma kurulunca ölüm gıda/suya kayıyor
+- **Gözlem:** Tur 13'te (1) referans otomatik oyuncu (tohum 501/502/503: 0,2/0,6/0,95) 0/3 kazandı; (2) insan gibi oynayan **stratejist** araç (`odunluk→hızarhane→sur→muhafız kışlası` kurar) **sur=1**'i gün 7'de kurdu, Tekfur akınını **tuttu**, ama **gıda gün 7'de 0** olduğu için her gece 16–18 kişi aç yattı, huzur çöktü ve **İsyan (g16)** ile kaybetti. Yani savunma kurulunca ölüm kapısı kapanmıyor, **gıda/suya kayıyor**.
+- **Sayılar:** 100 kayıt / 94 tamamlanan; zafer **2 (%2,1)**. 84 perde-2 oyununun **84'ünde `sur=0`, `odun=0`**; perde-2 huzur **44 → 17,2**, gece başına **−3,48**; 90 perde-2 oyununda **1031 gece** "ambarda gıda yetmedi" (~%66) ve **832 gece** su eksiği (~%53).
+- **Neden önemli:** Oyuncu doğru stratejiyi (savunma) uygulasa bile kaybediyor; kazanmanın görünür bir yolu yok. İki ayrı kök (savunma yokluğu + gıda/su yapısal açığı) üst üste gelince zafer fiilen ulaşılamaz kalıyor.
+- **Öneri:** Perde-2'de (a) gıda üretimini nüfusla ölçekle (tarla/avcı slot ve üretim çarpanı) ya da tüketimi yumuşat; (b) su arzı tavanını nüfusa bağla (ONR-013); (c) Tekfur akını ile zafer gecesini ayır (ONR-010); (d) perde-2'ye girerken oyuncuya bir hazırlık gecesi/ipucu ver (ONR-005). Hedef: en az bir strateji kontrollü biçimde zafere ulaşsın.
+- **Kanıt:** `work/tester/tur13/stratejist_504.log`, `oto_501/502/503.log`, `denge13.py`, `denge_egri13.py`, `denge_olay13.py`, `denge_son13.py`.
 
 ### ONR-014 · Düşük · ROADMAP 2 (doküman) · Aralık etiketleri silinen kimlikleri gösteriyor
 - **Gözlem:** Ayıklama sonrası birçok bölüm başında "X … Y" türü aralık etiketi kaldı; bazı uçlar KARAR_KAYDI'nda SİL kararı verilmiş kimlikler (ör. `BUG-26 … BUG-105` satırında BUG-26 ve BUG-105 SİL; aynı durum ACL-86, KAP-20/KAP-99, ARY-06/ARY-85, DIY-98, ZAR-07/ZAR-86, CAT-84, DYL-17, YAZ-11/YAZ-90, ISG-83, YAP-86). Toplam 16 aralık ucu silinmiş kimlik.
@@ -57,6 +65,8 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 - **Tur 8 sayıları:** 2. perdeye giren **50 oyunun 50'si sur=0**; açılış ortalama gün **6,2**; savunma gücü 1–4, ilk Tekfur gücü **4** (sonra 6). 23 Tekfur sonunun 14'ü g19'a kadar dayanıp yine düşüyor.
 - **Tur 9 sayıları:** 2. perdeye giren **58/58 oyun sur=0 ve odun=0**; açılış ort. huzur 53,3 · gıda 5,6 · akçe 22,9 · yapı 5,0 · nüfus 18,7. Gözlenen savunma 1–7 (çoğu 2), saldırı gücü 4/6. Son günü g19 olan **15 oyunun 15'i Tekfur** — 12 geceyi dolduran oyuncu tam zafer gecesi akınla ölüyor.
 - **Tur 10 sayıları (74 tamamlanan oyun):** 2. perdeye giren **64/64 oyun sur=0 ve odun=0** ile giriyor; ortalama giriş: huzur **53,1** · gıda **5,5** · odun **0,0** · gün **6,2**. Gözlenen savunma 1-7 (çoğu 2); ilk Tekfur gücü 4 (baskı 1) / 6 (baskı 2). Son günü g18 (zafer gecesi) olan **17 oyunun 17'si Tekfur** — akın, zafer denetiminden önce çözülüyor (ONR-010). Kanıt: `work/tester/tur10/perde2.py`, `work/tester/tur10/denge10c.py`.
+- **Tur 13 sayıları (94 tamamlanan, 84 perde-2):** 84/84 `sur=0` **ve `odun=0`** ile giriyor (yapı 5); perde-2 huzur **44→17,2**, gece **−3,48**; gıda gün **6,86**'da, odun gün **1,13**'te 0. **28 oyun tam g18'de Tekfur** (=12 perde-2 gecesini doldurup zafer gecesinde akına takılanlar). Stratejist oyuncu sur=1 kurup Tekfur'u tuttu ama **İsyan g16** ile kaybetti (gıda 0). Kanıt: `work/tester/tur13/denge_egri13.py`, `stratejist_504.log`.
+- **Tur 12 sayıları (86 tamamlanan oyun, 75 perde-2):** 2. perdeye giren **75/75 oyun `sur=0`** ile giriyor (benzersiz sur değeri `[0]`) ve `yapı` en fazla **3 veya 5** (hiç büyümüyor); **odun ortalama gün 1,1'de 0'a düşüyor**, gıda gün 6,8'de. İlk Tekfur saldırısı ort. **güç 5,2 / savunma 2,9**; örneklenen 19 saldırının 14'ünde güç > savunma. Kod: `tekfur_gucu()=2+baskı×2` (`src/koy/koy_yonetimi.gd:521`), `savunma_gucu()=sur(0)+muhafız+asker/2` (`:512`); otomatik oyuncu `_koy_yonet` yalnız cadır/tarla/hızarhane/avcı kurar, **sur/kışla/asker yok** (`tests/oto/otomatik_oyuncu.gd:198-240`). Kanıt: `work/tester/tur12/denge_kurve.py`, `denge_final.py`.
 
 ### ONR-006 · Yüksek · [DENGE] · 2. perde huzur çöküşü: gıda 0 → gecelik −10…−19 → İsyan
 - **Gözlem:** 2. perde başladıktan sonra gıda **1–3 gece içinde** 0'a düşüyor ve huzur gece başına ~10–19 puan eriyor; `isyan_esigi=10` altına inince 3 gecelik sayaç başlıyor → İsyan sonu.
@@ -72,6 +82,7 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 - **Tur 8 sayıları:** 2. perdede huzur **52,9 → 21,8**, ortalama **−4,03/gece**. 2. perde başında gıda **5,2**; üretim +4…+6/gece, tüketim 18–23/gece. Kök: yeni tarla kurulamıyor (odun 0, hızarhane girdisi tomruk; tomruk yalnız Orman Kampı'ndan).
 - **Tur 9 sayıları:** 58 oyun: 2. perdede gecelik huzur **−4,19**; 2. perde sonu ortalama huzur **21,9** (min 4, max 72). Girişte **gıda ort. 5,6** → 1–3 gecede 0; açlık (16–26 kişi), su açığı (eksik 36–38 → −3 sağlık) ve yas (−12 moral) zinciri. Örnek 167: g7 hz50 → g19 hz14.
 - **Tur 10 sayıları:** 2. perdede huzur eğimi ortalama **−4,18/gece** (2. perdeye giren 64 oyun); girişte gıda ortalama **5,5** → 1-3 gecede 0; aç köylüye `aclik_moral=15`. Eğri örnekleri (tur 10): oyun_172 g6 hz69 → g12 düşüş (−8,5/gece); oyun_177 g6 hz54 → g12 hz4 (−7,0/gece). Kanıt: `work/tester/tur10/perde2.py`.
+- **Tur 12 sayıları:** perde-2 oyunlarında huzur giriş ort. **44,8** (min 8, max 76) → sona kadar eriyor; 2. perde girişinde gıda zaten düşük, gıda gün 6,8'de 0 → açlık/yas/su zinciri. Örnek oyun_189 (Tekfur g18→g19): g8 hz59 → g14 hz21 → g19 hz20. Kanıt: `work/tester/tur12/denge_kurve.py`.
 
 ### ONR-007 · Orta · [DENGE]/[TASARIM] · 6. gece %50 olasılıklı azil, erken ve RNG tabanlı terminal son
 - **Gözlem:** Sancak teftişi `ilk_gece=6, aralik=5`, `bulma_olasiligi=0.50`: yozlaşma ≥20 ve kişisel kasa dolu ise **6. gecede** %50 olasılıkla anında "Muhafız azledildi" (terminal son). Oyun 109, 120, 122 bu şekilde bitti; köy sağlıklıydı (109: huzur 54, perde 1, koy 15) ve akçe 1 ile "ekonomi çöktü" görüntüsü veriyordu.
@@ -80,8 +91,8 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 - **Kanıt:** `data/sancak_teftisi.json`; `src/sistemler/sancak_teftisi.gd:36-44`; `work/tester/oyunlar/oyun_109.log` (SON: Muhafız azledildi gun=6 huzur=54 akce=1).
 - **Tur 6 ölçümü:** azil 9/38 (%24); üçü tam **g6** (109 akçe1, 120 akçe16, 138 akçe12), dördü g10–16; kendi koşum tohum 702 (kabul 0.35) → `SON: Muhafız azledildi gun=6`. İlk teftiş gece 6, aralık 5, yozlaşma≥20 + dolu kasa + %50 (`data/sancak_teftisi.json`). Erken ekonomik çöküş değil, rüşvet kaynaklı yozlaşma + RNG terminal son; oyuncu 2. perdeyi görmeden bitebiliyor.
 - **Tur 8 sayıları:** 56 tamamlanan oyunun **14'ü azil**; **6'sı tam g6'da** ve köy sağlıklı (huzur 23–54, koy 14–18). Kök: `data/sancak_teftisi.json` ilk_gece=6, yozlasma_esigi=20; her rüşvet +5 yozlaşma (`data/muhafiz_terazisi.json`) → 4 rüşvet = eşik → g6 teftişinde %50 azil/idam. Oyuncuya eşik uyarısı yok.
-- **Tur 9 sayıları:** 66 tamamlanan oyunun **18'i azil (%27)** ve **tamamı** tam teftiş gecelerinde: son günü g5:10, g10:5, g15:3 (=6/11/16. geceler). Oyun 169 raporu: *"Sancak müfettişi gizli kasayı buldu. Muhafız görevden azledildi."* Kamu akçesi çöküşü değil: 
-usvet_agirlik=5 → **4 rüşvet = yozlaşma 20**; teftiş takvimi/riski oyunda hiçbir yerde görünmüyor (oda ekranı yok).
+- **Tur 9 sayıları:** 66 tamamlanan oyunun **18'i azil (%27)** ve **tamamı** tam teftiş gecelerinde: son günü g5:10, g10:5, g15:3 (=6/11/16. geceler). Oyun 169 raporu: *"Sancak müfettişi gizli kasayı buldu. Muhafız görevden azledildi."* Kamu akçesi çöküşü değil: rusvet_agirlik=5 → **4 rüşvet = yozlaşma 20**; teftiş takvimi/riski oyunda hiçbir yerde görünmüyor (oda ekranı yok).
+- **Tur 12 sayıları:** 86 tamamlanan oyunun **24'ü azil**; son günler yalnız teftiş gecelerinde: **g5 ×12, g10 ×6, g15 ×6** (=6/11/16. geceler). Açılış/ekonomi çöküşü değil: oyun_187 azil g6'da **akçe 2**, huzur 53 (ekonomi sağlıklı). Kanıt: `work/tester/tur12/denge_final.py`.
 
 ### ONR-008 · Orta · [CEVRE]/asset · Eksik hareket klipleri (gergin/ofke/panik/konus/sevinc)
 - **Gözlem:** Karakter muayenesinde (44 model) `gergin` **44/44 modelde yok**; `ofke` 37/44; `panik` 21/44; `konus` ve `sevinc` 14/44 modelde yok. **14 adlı/kutu modelde yalnız bekle+yürü var** (asker, aydogdu, ayse_baci, ciftci, ciftci_kadin, esnaf, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf). CHR_001–030'da en az bekle/yürü/konuş/sevinc/öfke/panik karışımı var; adlı karakterlerin çoğu donuk.
@@ -103,6 +114,8 @@ usvet_agirlik=5 → **4 rüşvet = yozlaşma 20**; teftiş takvimi/riski oyunda 
 - **Tur 5 notu (kopya kontrolü):** Ayrı kök neden değil; **TST-0004** kök nedenine bağlıdır. Tur 5 ölçümü: `_koy_yonet` hâlâ `odunluk` kurmuyor → 7/24 oyunlarında gün 0'da odun 20→7, gün 1'de 0.
 
 - **Tur 8 kanıtı (daha geniş):** Araç stratejisi yalnız `odunluk` (Orman Kampı) değil, **savunma ayağında da eksik**: `tests/oto/otomatik_oyuncu.gd:198-240` `_koy_yonet` yalnız cadir/tarla/hizarhane/avci kurar; `sur_taksit`, kışla askeri yoktur. Sonuç: 50/50 oyunda 2. perdeye `sur=0`, `odun=0`, `yapı=5` ile giriliyor (work/tester/tur8/denge2.py).
+- **Tur 12 sayıları:** 75/75 perde-2 oyunu `sur=0`; otomatik oyuncu sürekli koşuda `yapı` en fazla 3–5'te donuyor, savunma aramıyor; zafer **2/86 = %2,3**. "Oyun mu dengesiz, araç mı yetersiz" ayrımı için araç savunma aramalı (sur/kışla/asker); aksi hâlde zafer ulaşılabilirliği ölçülemiyor. Kanıt: `work/tester/tur12/denge_final.py`.
+- **Tur 13 ölçümü (kök kanıt):** `hizarhane`'in `odun` tarifi artık girdi **2 tomruk** ister (`src/koy/odun_zinciri.gd`), tomruk **yalnız** `odunluk`'tan gelir. 100/100 oyunda görünür "Üretim: … odun" = **0** ve "Tüketilen: 0 odun" — yani odun hiç üretilmiyor. Stratejist araç `odunluk` kurunca odun üretimi başladı (odun 0→2, gün 5). Yani araç odunsuz kalmasının tek nedeni `odunluk`'un kurulmamasıdır — öneri aynen geçerli. Kanıt: `work/tester/tur13/stratejist_504.log`, `denge_egri13.py`.
 
 ### ONR-001 · Orta · Kapı / CHR sorgusu · Başarısız ikna denemesi cevabı kalıcı kapatıyor, oyuncuya açıklanmıyor
 - **Gözlem:** CHR sorgusunda bir cevap denendikten sonra kalıcı kapanıyor (`sorgu._denemeler`). Tüm cevaplar kapanıp kalanlar ipucu kilitli olunca oyuncu kapıda sıkışıyordu (BUG-0016). Claude "Kararını ver" çıkışı ekledi; ancak bir cevabın neden kapandığı ekranda yazmıyor — buton yalnız pasif, tooltip "Önce nişan, yük veya fiziksel izi incele" iken görünür. Oyuncu bir cevabı yanlışlıkla tüketirse geri dönüşü yok.
@@ -134,6 +147,7 @@ usvet_agirlik=5 → **4 rüşvet = yozlaşma 20**; teftiş takvimi/riski oyunda 
 - **Tur 7 ek kanıtı:** TST-0010 düzeltmesinden (8acb352) sonraki 7/24 oyunları **147 (g19 Tekfur), 148 (g19 Tekfur), 149 (g19 Tekfur)** — yani 8acb352 üzerinde 3/3 oyun tam **g19'da** Tekfur ile bitti. Düzeltme davranışı değiştirmedi (hedef 12 gece hâlâ doğru) ama "zafer gecesi = ölüm gecesi" çakışması sürüyor; zafer hâlâ 2/43 (%4,7).
 - **Tur 9 sayıları (66 oyun):** ağalık otomatik koşularda ort. **gün 6** açılıyor (58 oyunun ilk nüfus≥18 günü ort. 6,2) → perde2_baslangic=7 → 12. perde gecesi = **mutlak 19. gece**; **g18 son günlü 15 oyunun 15'i Tekfur**. Zafere ulaşan 2 oyunda ağalık **gün 5**'te açılmış (zafer gecesi 18, akın yok). Kaynak sırası doğrulandı: oturum.gd:277-287 önce yonetim.gece() (içinde _asamalar → son=tekfur), sonra denetle (if y.son != ": return).
 - **Tur 10 sayıları (74 oyun):** ağalık yine erken; **g18'de biten 17 oyunun 17'si Tekfur** (zafer gecesi = ölüm gecesi). Zafer **2/74 = %2,7**. Kanıt: `work/tester/tur10/denge10c.py`.
+- **Tur 13 sayıları:** **28 oyun tam g18'de Tekfur** (94 tamamlanan) — 12 perde-2 gecesini doldurup zafer gecesinde akına takılanlar. Zafer **2/94 = %2,1**, ikisi de g17. Stratejist araç (sur=1 kurdu) Tekfur'u tuttu ama gıda çöküşünden İsyan ile oldu → akın/zafere ek olarak gıda/su kapısı da var (ONR-015). Kanıt: `work/tester/tur13/denge_son13.py`, `stratejist_504.log`.
 
 - **Tur 8 kanıtı:** 23 Tekfur sonunun **14'ü tam g19**'da (2. perde başlangıcı g6–7 → **12–13 gece** dayanılmış). Kod sırası: `_asamalar` (saldırı, `src/koy/koy_yonetimi.gd:860-883`) → `PERDE_GECISI.isaretle` (:597) → `PerdeGecisi.denetle` (Oturum.gece_sonu); ölümcül akın `son=tekfur` yazdığı için zafer denetimi erken dönüyor. 12 gece dolduğu hâlde zafer gelmiyor.
 

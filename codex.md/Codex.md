@@ -1,5 +1,44 @@
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
+## ADM-16 — Oyun Köprüsü / 11 Ekim 2026
+
+Berk tarafındaki Codex olarak bu tur kullanıcının açık ADM-16 uygulama görevini
+aldım. AGENTS.md, SOUL.md, koordinasyon/rapor notları, ROADMAP ADM-16 satırı ve
+istenen bridge/UI/admin/otomatik oyuncu dosyaları okundu. `gh` bu ortamda yok;
+issue #11 okunamadı, dış mesaj gönderilmedi. Kullanıcının bu tur talimatıyla
+ROADMAP değiştirilmedi; commit/push yapılmadı, .git'e dokunulmadı.
+
+Yeni `OyunKoprusu` + Ana'da tek satır bağlantı; yalnız kullanıcı argümanı
+`--bridge-port` veya BRIDGE_PORT ile localhost TCP. Durum, gerçek UI düğmeleriyle
+kapı/sohbet/köy/gece/rapor/mini oyun, mevcut kayıt noktası, screenshot ve çıkış.
+Python tester üç politika, JSONL/özet, ayrı insan-kayıt alanı, süre sınırı/süreç
+temizliği; istemci kayıp yanıtta mutasyon tekrarlamaz. MCP komut sarmalayıcıları,
+birim/gerçek akış/Python testleri ve GDD/Tester §10 belgesi eklendi. Asset gerekmedi.
+project.godot, metinler.csv ve diğer çekirdek dosyalar değiştirilmedi.
+
+Doğrulama: tam sanity 329 PASS / 0 başarısız / 20 gece model dumanı; bütün loglar
+script/parse ve diğer fatal hatalar yönünden tarandı (yalnız root certificate
+store istisnası). Son kaynaklarda import exit 0, Python 39 kontrol ve köprü birimi
+geçti; gerçek UI akışı kayıt sürekliliği, kapı kararları, inşa/yıkım, taşan hücre
+reddi, gece kilidi, rapor tutarlılığı ve azil son kimliğini doğruladı. Ayrı TCP
+kontrolünde gerçek atama/çıkarma ve bozuk args reddi geçti. İlk politika denemesi
+CHR ilk-seçenek döngüsünde takıldı, kontrollü kapatıldı; seçenek dolaşımı ve
+planlanan yatak/üretim önceliği düzeltildi. Son kaynaklarla headless TCP tester:
+tohum 11, temkinli, 10 gece, 0 hata, 1849 adım; gece sınırında durdu, son yok.
+Kanıt: work/adm16/sanity/, oyun_11_kabul.jsonl ve oyun_11_kabul.ozet.json.
+
+Ortam notu: Godot APPDATA çalışma içindeki work/adm16 alanına yönlendirildi;
+root certificate store hatası kullanıcı talimatıyla yok sayılıyor, başka hatalar
+yok sayılmıyor. Geçici override.cfg kaldırıldı. Zorunlu ds GitHub aynası bu oturumun
+yazılabilir kökleri dışında: aktarım yapılamadı, yapıldı denmiyor; dosya manifesti
+work/adm16/files.json. Kaynak bazlı aktarım paketi work/adm16/adm16-package.zip,
+minimal yama work/adm16/transfer.patch; ayna başlangıç içerikleriyle karşılaştırma
+bağımsız çakışma göstermedi. Uygulama ve doğrulama hazır; kalan iş yazma izinli
+oturumda zorunlu ayna aktarımı ve Claude'un ROADMAP işaretlemesi. Codex bu tur
+işaretleme/yayın yapmadı. Ahmet kopyasına erişim/yayın bu görevin kapsamında yapılmadı.
+## BUG-21 — 11 Ekim 2026
+Codex (Berk): atanmış taş kilidi maddesi üzerinde çalışıyorum. Yeni yatak/kurtarıcı modülleri, optional kayıt, mevcut taş kartına kazı ataması ve gri kutu yer tutucu; kabul testleri ve tam sanity sırada. ROADMAP işaretleme ve commit/push kullanıcı talimatıyla yapılmayacak.
+
 ## Güncel durum — KRI-08 / 10 Ekim 2026
 ### KRI-08 nerede kaldı — bu oturum / yayın erişimi değişmedi
 Son devam kontrolü: Bu tur da 26 dosya manifestle birebir eşleşti; final_audit.py önceki 297 logda hata bulmadı, 20 gece başarı işareti doğrulandı. Kaynak/test değişmedi; tam sanity yeniden koşulmadı. Yeni GitHub sorgusu aynı proxy bağlantı hatasıyla sonuçlandı. Açık oturum izinlerinde kanonik .git ve ayna salt okunur; yayın/ayna aşaması hâlâ yapılamıyor. Güncel not bu bölüme işlendi; KRI-09 alınmadı.

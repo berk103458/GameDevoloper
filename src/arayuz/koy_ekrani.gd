@@ -524,6 +524,7 @@ func _nufus_ac() -> void:
 
 
 func _is_adi(k: Koylu) -> String:
+	if k.is_yeri == TasYatagi.IS_YERI: return tr("koy.tas_yatagi.ad")
 	if DivanHukmu.zindanda(k): return "Zindanda"
 	if k.is_yeri == KoyYonetimi.MUHAFIZ:
 		return tr("koy.is.muhafiz")
@@ -749,6 +750,7 @@ func _olay_sec(olay: OlayVerisi, i: int, gece: Dictionary) -> void:
 func _yenile() -> void:
 	sahne3b.yenile()
 	hud.guncelle()
+	TasYatagiPaneli.yenile(self)
 	_yapi_satirini_ciz()
 	_bant_ciz()
 	if _secili_bina == KuyuKireclemePaneli.MEYDAN_KUYUSU: _bilgi_goster()

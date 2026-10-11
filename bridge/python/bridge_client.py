@@ -32,33 +32,31 @@ class Bridge:
         self._file = self._sock.makefile("rw", encoding="utf-8", newline="\n")
 
     def close(self):
+        if self._file:
+            self._file.close()
         if self._sock:
-            try:
-                self._sock.close()
-            finally:
-                self._sock = None
-                self._file = None
+            self._sock.close()
+        self._sock = None
+        self._file = None
 
     def call(self, cmd, **args):
         with self._lock:
-            for attempt in (1, 2):
-                try:
-                    if self._sock is None:
-                        self._connect()
-                    self._id += 1
-                    self._file.write(json.dumps({"id": self._id, "cmd": cmd, "args": args}) + "\n")
-                    self._file.flush()
-                    line = self._file.readline()
-                    if not line:
-                        raise ConnectionError("bridge closed the connection")
-                    break
-                except (OSError, ConnectionError):
-                    self.close()
-                    if attempt == 2:
-                        raise BridgeError(
-                            f"game bridge not reachable on {self.host}:{self.port}; is the game running?"
-                        )
-        msg = json.loads(line)
+            try:
+                if self._sock is None:
+                    self._connect()
+                self._id += 1
+                self._file.write(json.dumps({"id": self._id, "cmd": cmd, "args": args}) + "\n")
+                self._file.flush()
+                line = self._file.readline()
+                if not line:
+                    raise ConnectionError("bridge closed the connection")
+                msg = json.loads(line)
+                if msg.get("id") != self._id:
+                    raise ValueError("bridge response id mismatch")
+            except (OSError, ValueError) as error:
+                self.close()
+                # A lost reply can follow an applied action. Never replay a mutation.
+                raise BridgeError(f"bridge {self.host}:{self.port}: {error}; command was not retried") from error
         if not msg.get("ok"):
             raise BridgeError(msg.get("error", "unknown bridge error"))
         return msg["result"]

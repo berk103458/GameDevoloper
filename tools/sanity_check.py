@@ -89,6 +89,8 @@ def checks(godot, root):
     yield "startup-source", [sys.executable, "-B", "tools/acilis_denetimi.py", "--filesystem"], None
     yield "protected-api", [sys.executable, "-B", "tools/api_sozlesmesi.py", "--manifest", "tools/api_sozlesmesi_baseline.json"], None
     yield "headless-import", [godot, "--headless", "--path", str(root), "--editor", "--import", "--quit"], None
+    # oyun_koprusu_test.gd and tests/tools/test_tester_oyuncu.py are discovered below.
+    yield "oyun_koprusu_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/oyun_koprusu_kontrol.tscn"], "GEÇTİ"
     # BUG-0011..15: oturum_fazi, levent_gonderim_gecmisi, atil_bayrak_kapanis,
     # kitlik_nobet_tekrar, aclik_saglik_rng_sinir unit tests are included by discovery.
     for script in sorted((root / "tests/unit").rglob("*test.gd")):
@@ -112,6 +114,7 @@ def checks(godot, root):
     yield "nihai_son_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/nihai_son_kontrol.tscn"], "GEÇTİ"
     for scene in ("levent_final_kontrol", "atil_bayrak_kapanis_kontrol"):
         yield scene, [godot, "--headless", "--path", str(root), f"tests/oto/{scene}.tscn"], "GEÇTİ"
+    yield "tas_yatagi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/tas_yatagi_kontrol.tscn"], "GEÇTİ"
     yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
 
 

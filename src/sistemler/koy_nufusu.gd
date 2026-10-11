@@ -24,7 +24,16 @@ func toplam() -> int:
 	return int(sayilar[&"asker"]) + int(sayilar[&"esnaf"]) + int(sayilar[&"ciftci"])
 
 
+## Eksik sınıf anahtarında anahtar başına bir kez uyarı basıldığını işaretler.
+var _uyarilan_siniflar: Dictionary = {}
+
+
 func sayi(sinif: StringName) -> int:
+	if not sayilar.has(sinif):
+		if not _uyarilan_siniflar.has(sinif):
+			_uyarilan_siniflar[sinif] = true
+			push_warning("KoyNufusu.sayi(): tanınmayan sınıf anahtarı: %s" % sinif)
+		return 0
 	return int(sayilar[sinif])
 
 
