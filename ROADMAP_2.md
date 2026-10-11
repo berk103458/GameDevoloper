@@ -6761,7 +6761,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KLT-10. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **TEK-18:** Push_error katalogu kilitlemez.
+- [/] **TEK-18:** (Kalfa) Push_error katalogu kilitlemez.
   - Ne: `GuvenliMetin` ve `Ayarlar.yukle` bozuk dosyada oyunu açar, varsayılana döner (`ayarlar.gd:38–49`). Bu davranış bozulmaz.
   - Kabul: bozuk `ayarlar.cfg` ile menü açılır. Test: birim.
   - Bağımlılık: yok. Boyut: S.

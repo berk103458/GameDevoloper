@@ -146,3 +146,5 @@ TEK-13/14/15 test paketi a33c874: beş cache dönüş anahtarı/sayıları, ger�
 TEK-16: pull d18e781 güncel, TEK-01 testx tarafından kapalı. Son tam 343/0/20 gece loglarında SCRIPT ERROR sayımı yapılacak; aynı kaynak/test/ayar ağacına ait temiz koşu kanıtı korunur. Hata bütçesi/istisnası değiştirilmez, asset gerekmedi.
 
 TEK-16: TEK-01 kapalı; son tam UTF-8 sanity 343 PASS / 0 hata / 20 gece loglarında SCRIPT ERROR 0, Parse Error 0, Failed to load script 0, ERROR 0, KALDI 0. Kaynak/test/ayar ağacı a33c874 ile aynı; yalnız belge için aynı tam koşu tekrarlanmadı. Hata toleransı/istisnası eklenmedi, ikinci doğrulayıcı yok. Kanıt docs/denetim/TEK-16-sanity-hata-butcesi.md. Asset gerekmedi; ds ayna erişilemiyor, eşitlenemedi. TEK-17 KLT-10 bekler; sıradaki hazır aday TEK-18.
+
+TEK-18: pull db2fafe güncel; bozuk ayar yüklemesinde varsayılanlarla gerçek menü kabul testi. Kullanıcı ayarına dokunmadan pid ile adlandırılmış user:// test cfg kullanılır. Beklenen hata kayıtları ayrı çocuk süreçte yakalanıp kesin doğrulanır; genel sanity hata bütçesi değişmez. Oyun src/data değişmez, asset gerekmedi.
