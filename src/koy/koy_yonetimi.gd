@@ -36,6 +36,8 @@ var kaynaklar: Kaynaklar:
 var koylular: Array[Koylu] = []
 var binalar: Array[KoyBinasi] = []
 var izgara: Izgara
+## BUG-21 optional kaynak; eski kayıt null ile sürer.
+var tas_yatagi: TasYatagi
 var husumet := Husumet.new()
 var lojistik := CekiLojistigi.new()
 var gezgin_ticaret := GezginTuccarStogu.new()
@@ -98,6 +100,7 @@ func _init(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, tohum: int = 1) -> void
 	akce = a.akce_baslangic
 	_rng = RandomNumberGenerator.new()
 	_rng.seed = tohum
+	tas_yatagi = TasYatagi.yeni(self, tohum)
 
 
 # ── Sorgular ──────────────────────────────────────────────────────────────────────────────────────
@@ -346,6 +349,7 @@ func recete_sec(bina_id: int, recete: String) -> bool:
 
 ## Köylüyü bir yapının iş yuvasına atar (yapı hazır ve yuva boş olmalı).
 func ata(koylu_id: int, bina_id: int) -> bool:
+	if bina_id == TasYatagi.IS_YERI: return TasYatagi.ata(self, koylu_id)
 	if KarantinaYoneticisi.aktif(koylu(koylu_id)): return false
 	if KervanKorumasi.disarida(self, koylu_id): return false
 	var k := koylu(koylu_id)
@@ -552,6 +556,7 @@ func gece() -> Dictionary:
 	SIFALI_OT.gece(self, olaylar)
 	if isyan_kalan < 0:
 		_uret(rapor["uretim"], olaylar, calismalar)
+		if tas_yatagi != null: tas_yatagi.gece(self, rapor["uretim"], olaylar, calismalar)
 	else:
 		olaylar.append({"anahtar": "koy.olay.isyan_uretim_yok"})
 	SamanBakimi.hasat(self, rapor)
@@ -602,6 +607,7 @@ func gece() -> Dictionary:
 	rapor["huzur"] = huzur()
 	rapor["son"] = son
 	gun += 1
+	KaynakKurtarici.sabah(self, olaylar)
 	CinarAltiMeclisi.esitle(self)
 	KarantinaYoneticisi.esitle(self, olaylar)
 	SiparisIhlali.gece(self, olaylar)
@@ -913,7 +919,7 @@ func kaydet() -> Dictionary:
 	var b: Array = []
 	for x in binalar:
 		b.append(x.kaydet())
-	return {"perde2_baslangic": PERDE_GECISI.baslangic(self), "kriz_kenetlenmesi": KRIZ_KENETLENMESI.durum(self), "levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
+	return {"tas_yatagi": tas_yatagi.kaydet() if tas_yatagi != null else null, "perde2_baslangic": PERDE_GECISI.baslangic(self), "kriz_kenetlenmesi": KRIZ_KENETLENMESI.durum(self), "levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
 		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "tuccar_girisi": tuccar_girisi.duplicate(true), "kervan_koruma": kervan_koruma.duplicate(true), "husumet": husumet.kaydet(), "cete_anlasmasi": CeteAnlasmasi.durum(self), "savunma_konuslanmasi": SavunmaKonuslanmasi.durum(self), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
@@ -923,6 +929,7 @@ func kaydet() -> Dictionary:
 
 static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary) -> KoyYonetimi:
 	var y := KoyYonetimi.new(ayarlar, katalog_)
+	TasYatagi.yukle(y, null)
 	y.set_meta(SaglikYoneticisi.META, KisHastaligi.gece_oku(v.get("salgin_son_gece", -1)))
 	IklimDeneyi.yukle(y, v.get("iklim_deneyi", {}))
 	KrizEnjektoru.yukle(y, v.get("debug_kuyu_zehri", 0))
@@ -996,5 +1003,6 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	KRIZ_KENETLENMESI.yukle(y, v.get("kriz_kenetlenmesi", {}))
 	CinarAltiMeclisi.yukle(y, v.get("cinar_alti_meclisi", {}))
 	FisiltiGazetesi.HISTERI.yukle(y, v.get("batil_inanc_histerisi", {}))
+	TasYatagi.yukle(y, v.get("tas_yatagi"))
 	y._ambar_kapasitesi()
 	return y

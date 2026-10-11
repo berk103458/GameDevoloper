@@ -36,6 +36,8 @@ minimal yama work/adm16/transfer.patch; ayna başlangıç içerikleriyle karşı
 bağımsız çakışma göstermedi. Uygulama ve doğrulama hazır; kalan iş yazma izinli
 oturumda zorunlu ayna aktarımı ve Claude'un ROADMAP işaretlemesi. Codex bu tur
 işaretleme/yayın yapmadı. Ahmet kopyasına erişim/yayın bu görevin kapsamında yapılmadı.
+## BUG-21 — 11 Ekim 2026
+Codex (Berk): atanmış taş kilidi maddesi üzerinde çalışıyorum. Yeni yatak/kurtarıcı modülleri, optional kayıt, mevcut taş kartına kazı ataması ve gri kutu yer tutucu; kabul testleri ve tam sanity sırada. ROADMAP işaretleme ve commit/push kullanıcı talimatıyla yapılmayacak.
 
 ## Güncel durum — KRI-08 / 10 Ekim 2026
 ### KRI-08 nerede kaldı — bu oturum / yayın erişimi değişmedi

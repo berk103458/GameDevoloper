@@ -1774,3 +1774,9 @@ koy.yapi.odunluk,Orman Kampı
 koy.yapi.odunluk_aciklama,Oduncular ormandan tomruk getirir; hızar 2 tomruğu kalasa veya yakacak oduna işler.
 koy.yapi.tas_ev,Taş Ev
 koy.yapi.tas_ev_aciklama,Altı yataklı taş ev; taş ve harçla örülür.
+koy.tas_yatagi.ad,Taş yatağı
+koy.tas_yatagi.bilgi,Taş yatağı: %d taştan %d kaldı
+koy.tas_yatagi.kaz,Kazıya işçi ata · %d işçi
+koy.tas_yatagi.birak,Kazıyı bırak
+koy.tas_yatagi.kazi,Taş yatağından %d taş çıkarıldı; kaldı: %d.
+koy.tas_yatagi.kurtarici,Köy kenarında %d taşlık yeni bir taş yatağı bulundu.

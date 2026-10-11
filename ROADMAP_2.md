@@ -115,7 +115,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.6 Kamera, meşale, kuyu
 
-- [/] **BUG-21:** (Codex) Taş kilidi — başlangıç taş yatağı ve kurtarıcı kaynak.
+- [x] **BUG-21:** (Codex) Taş kilidi — başlangıç taş yatağı ve kurtarıcı kaynak.
   - Ne: Yeni oyunda köy kenarında kazılabilir bir taş yatağı durur; toplam 20 taş, işçi başı günde 4. Kaynak satırı "Taş yatağı: 20 taştan N kaldı" yazar. Taş bitmiş, taş ocağı yok ve ocağı o sabah kurmak mümkün değilse boş bir hücreye 10 taşlık yatak düşer; oyun bunu bir kez söyler ve oyun başına en çok 3 kez yapar. Oyuncu taşı bekletiyorsa yatak düşmez. Eski kayda yatak zorla eklenmez.
   - Kurallar:
     1. Yeni oyunda köy kenarında kazılabilir bir taş yatağı vardır. Toplam 20 taş, işçi başı günde 4.

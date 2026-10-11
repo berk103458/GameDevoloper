@@ -13,6 +13,7 @@ static func esik(k: Koylu) -> int:
 	return TABAN_ESIK
 
 static func gorev(k: Koylu, y: KoyYonetimi) -> String:
+	if k.is_yeri == TasYatagi.IS_YERI: return "tas_ocagi"
 	if k.is_yeri == KoyYonetimi.MUHAFIZ: return "muhafiz_kislasi"
 	var b := y.bina(k.is_yeri)
 	return b.tur if b != null and b.hazir() else ""
