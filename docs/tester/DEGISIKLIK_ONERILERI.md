@@ -1,4 +1,4 @@
-﻿# Değişiklik Önerileri (Tester)
+# Değişiklik Önerileri (Tester)
 
 Hata olmayan ama değişmesi gereken yerler. Kalıp: `docs/tester/TESTER_REHBERI.md` §5. Numara ONR-001'den artar.
 Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) / UYGULANDI. Karar Claude'undur.
@@ -13,6 +13,7 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 | ONR-008 | Orta | [CEVRE]/asset | Eksik hareket klipleri: gergin 44/44, ofke 37/44, panik 21/44 yok | YENİ |
 | ONR-001 | Orta | Kapı / CHR sorgusu | Başarısız ikna cevabı kalıcı kapanıyor, oyuncuya açıklanmıyor | YENİ |
 | ONR-002 | Orta | Nüfus / sınıf sözlüğü | KoyNufusu sınıf sözlüğü eksik, API savunmasız | YENİ |
+| ONR-009 | Orta | [TASARIM]/[DENGE] zafer | Zafer, köy isyan/açlık içindeyken bile "saat doldu" ile geliyor (oyun 124) | YENİ |
 
 ---
 
@@ -22,6 +23,7 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 - **Neden önemli:** 2. perde "hazırlık yap" fırsatı vermeden erken ölümle bitiyor; duvar/muhafız kurmak odun kilidi yüzünden (ONR-003) mümkün değil. Zafer fiilen ulaşılamaz.
 - **Öneri:** (a) Haraç isteği ile ilk akın arasına en az 1–2 gece hazırlık koy (gecikme), (b) 2. perde başlangıcında köyü savunmaya yönlendiren açık ipucu/hedef metni ver, (c) duvar/muhafız kurulabiliyorsa (odun kilidi çözülünce) `savunma_gucu` ölçeklensin; ilk akın gücü (4) mevcut ekonomide savunulabilir olsun.
 - **Kanıt:** `work/tester/oyunlar/oyun_113.log` (g5–g7), `oyun_118.log` (g7–g19), `oyun_110.log:396`, `oyun_115.log`; `src/koy/koy_yonetimi.gd:521,860-881`; `src/veri/koy_ayarlari.gd:113,118`.
+- **Tur 5 ölçümü (sayılar):** Tohum 302, kabul 0.95 → 2. perde **gece 6** açıldı; haraç **10 akçe + 20 buğday** istendi, ödenemedi → baskı 1 → **gece 7** saldırı: **"güçleri 4, savunman 2"** → ölüm. Persona (bilinçli "önce odun zinciri") tohum 201/202/203: üçünde de gece 7 ölüm. Formül: `tekfur_gucu() = 2 + baskı×2 = 4`; duvarsız köyde `savunma_gucu() = sur(0) + muhafız + asker/2 ≈ 2`. 106–135 arası 29 oyunda **zafer 1** (oyun 124).
 
 ### ONR-006 · Yüksek · [DENGE] · 2. perde huzur çöküşü: gıda 0 → gecelik −10…−19 → İsyan
 - **Gözlem:** 2. perde başladıktan sonra gıda **1–3 gece içinde** 0'a düşüyor ve huzur gece başına ~10–19 puan eriyor; `isyan_esigi=10` altına inince 3 gecelik sayaç başlıyor → İsyan sonu.
@@ -30,6 +32,7 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 - **Neden önemli:** 2. perde bir "dayanma" perdesi olacakken hızlı bir moral erimesine dönüşüyor; oyuncu toparlanma fırsatı bulamıyor.
 - **Öneri:** (a) Önce odun/ekonomi kilidini çöz (ONR-003) ki tarla kurulup gıda üretilebilsin, (b) kıtlıkta açlık moral cezasını kademelendir (ilk gece hafif, sonra ağırlaşsın), (c) 2. perde başında ambarda en az birkaç günlük erzak garantisi (başlangıç stok) ver. Hedef: doğru oynayan köy 2. perdede moral erimesini yavaşlatabilsin.
 - **Kanıt:** `work/tester/oyunlar/oyun_110/112/114/116.log`; özet eğri `work/tester/tur4/huzur.py`; `src/veri/koy_ayarlari.gd:97-98,107`.
+- **Tur 5 ölçümü:** Persona koşularında gıda **gece 5'te 0** (nüfus 18 gece 6'da); gıda üretimi nüfus artışına yetişmiyor (tarla odunsuz kurulamıyor). Otomatik oyuncu tohum 301 (kabul 0.2): gün 12'de huzur 13, odun/gıda 0.
 
 ### ONR-007 · Orta · [DENGE]/[TASARIM] · 6. gece %50 olasılıklı azil, erken ve RNG tabanlı terminal son
 - **Gözlem:** Sancak teftişi `ilk_gece=6, aralik=5`, `bulma_olasiligi=0.50`: yozlaşma ≥20 ve kişisel kasa dolu ise **6. gecede** %50 olasılıkla anında "Muhafız azledildi" (terminal son). Oyun 109, 120, 122 bu şekilde bitti; köy sağlıklıydı (109: huzur 54, perde 1, koy 15) ve akçe 1 ile "ekonomi çöktü" görüntüsü veriyordu.
@@ -46,12 +49,14 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 - **Neden önemli:** Oyunun kazanma yolu (2. perde 12 gece / 3 baskın savuşturma) fiilen kapanıyor; denge eğrisi hep yenilgiye gidiyor.
 - **Öneri:** (a) `odunluk` maliyetini odunsuz/tomruk ağırlıklı yap; (b) başlangıç odununu artır (ör. 26–30); (c) `hizarhane` tarifine "tomruk olmadan düşük verimli odun" seçeneği ekle; (d) meydan çevresinde en az iki boş 2×2 + yol ağını başlangıçtan ver. Hedef: doğru stratejiyle zafer ölçülebilir olsun.
 - **Kanıt:** `work/tester/tur3/denge_ek.gd`, `work/tester/tur3/hizar_tani.gd`, `work/tester/oyunlar/oyun_108..116.log`; TST-0004.
+- **Tur 5 notu (kopya kontrolü):** Bu öneri ayrı bir kök neden DEĞİL; **TST-0004 (ana kayıt)** ile aynı nedeni anlatır. Ana kayıt TST-0004'tür; ONR-003/ONR-004 ona bağlıdır.
 
 ### ONR-004 · Yüksek · Test araçları · Otomatik oyuncu + denge benzetimi EKO-02 öncesi stratejide kalmış
 - **Gözlem:** `tests/oto/otomatik_oyuncu.gd:_koy_yonet` ve `tools/denge/koy_benzetimi.gd` yalnız cadir/kulube/tarla/hizarhane/avci kurar; `odunluk` (orman kampı) hiç kurulmaz. EKO-02'den sonra bu strateji köyü odunsuz bırakır.
 - **Neden önemli:** 7/24 döngünün tüm oyunları ve denge benzetimi bu yüzden yenilgiye gidiyor; "oyun mu dengesiz, araç mı yanlış" ayrımı yapılamıyor, zafer yolu ölçülemiyor.
 - **Öneri:** `_koy_yonet`/`_insa_et`'e `odunluk` ekle (önce kur, işçi ata), sıra odunluk→tarla→hizarhane; `koy_benzetimi.gd` de güncellensin. Ardından zafer oranını yeniden ölç.
 - **Kanıt:** `tests/oto/otomatik_oyuncu.gd`, `tools/denge/koy_benzetimi.gd`, `work/tester/tur3/denge_ek.gd`.
+- **Tur 5 notu (kopya kontrolü):** Ayrı kök neden değil; **TST-0004** kök nedenine bağlıdır. Tur 5 ölçümü: `_koy_yonet` hâlâ `odunluk` kurmuyor → 7/24 oyunlarında gün 0'da odun 20→7, gün 1'de 0.
 
 ### ONR-001 · Orta · Kapı / CHR sorgusu · Başarısız ikna denemesi cevabı kalıcı kapatıyor, oyuncuya açıklanmıyor
 - **Gözlem:** CHR sorgusunda bir cevap denendikten sonra kalıcı kapanıyor (`sorgu._denemeler`). Tüm cevaplar kapanıp kalanlar ipucu kilitli olunca oyuncu kapıda sıkışıyordu (BUG-0016). Claude "Kararını ver" çıkışı ekledi; ancak bir cevabın neden kapandığı ekranda yazmıyor — buton yalnız pasif, tooltip "Önce nişan, yük veya fiziksel izi incele" iken görünür. Oyuncu bir cevabı yanlışlıkla tüketirse geri dönüşü yok.
@@ -65,3 +70,9 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 - **Neden önemli:** Arayüz ve bina/nüfus sistemleri beş sınıfı gösterirken alt katman üç sınıf varsayıyor; sayı yanlış raporlanabilir ya da sinir bozucu hata spam'i oluşur.
 - **Öneri:** Varsayılan sözlüğe beş sınıfı da ekle (0 ile) veya `sayi()`/`cikar()`/`ekle()` içinde `.get(sinif, 0)` kullan.
 - **Kanıt:** `src/sistemler/koy_nufusu.gd:7,16,24,28,33,35`; `src/sistemler/oturum.gd:335`; `work/tester/oyunlar/oyun_107.log`.
+
+### ONR-009 · Orta · [TASARIM]/[DENGE] · Zafer, köy isyan/açlık içindeyken bile "saat doldu" ile geliyor
+- **Gözlem:** Zafer yalnız 2. perdede 12 gece dayanınca (`src/koy/perde_gecisi.gd:denetle`) ya da N baskı savuşturunca gelir; köyün **iç durumu** (isyan, açlık, ölüm) zaferi engellemiyor. Oyun 124: 2. perde gece 6→18; gece 17–18'de "Köy isyanda!", "Kıtlık isyanı: ambar kapısı kırıldı", 20+ kişi aç yattı, ölümler — ama gece 18'de saat dolunca **Uç Tutundu (zafer)** verildi. İsyan sonu 3 gece gerektirdiği için henüz tetiklenmemişti.
+- **Neden önemli:** "Uç kendi kendine tutundu" zafer metni, isyan ve açlık içindeki bir köy için anlamsız/çelişkili görünüyor; oyuncuya "kötü oynadım ama kazandım" hissi verebilir. Ayrıca tek zafer vakası, oyunun değil saatin sonucu.
+- **Öneri:** Zafer koşuluna iç durum eşiği ekle (ör. huzur ≥ X ve isyan yok); isyan/açlık sürerken saat dolarsa "kırılma" sonu ver. Böylece zafer gerçekten "tutunma" anlamına gelsin.
+- **Kanıt:** `work/tester/oyunlar/oyun_124.log` (gece 17–18 kartları + `SON: Uç Tutundu gun=18`), `src/koy/perde_gecisi.gd`, `data/nihai_sonlar.json`.

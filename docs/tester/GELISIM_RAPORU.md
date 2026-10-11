@@ -1,8 +1,17 @@
-﻿# Oyun Gelişim Raporu (Tester)
+# Oyun Gelişim Raporu (Tester)
 
 Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md` §5. Sayılar ölçülerek yazılır.
 
 <!-- En yeni giriş buraya -->
+## 2026-10-11 · Tur 5 · commit 39847ea (yeni kod commit'i yok; son kod 062185b)
+- **Sağlık:** Sanity harness'ı ortam sertifika hatası yüzünden çok sayıda "FAIL" yazıyor (**yanlış negatif** — aynı test doğrudan koşulunca GEÇTİ). Doğrudan GEÇTİ: BÖLÜM 2 regresyonu 12 birim + 5 akış testi, `chr_kilit_cikisi_test`, `odun_zinciri_test`.
+- **Bu turda giren kod:** yok (yalnız denetim commit'i 0ac499c; kod 062185b). Oyun kodu değişmedi.
+- **Doğrulanan:** BUG-0016 ve BUG-0017 **sürüyor** (oyunlar 124–135'te KILIT/SOHBET_KILIDI 0, `is_yeri` SCRIPT ERROR 0, DONMA 0). BUG-0018/TST-0004 açılış stoğu **ÖLÇÜLDÜ** (20 odun / 5 taş) — "≈9 odun / kesin kilit" iddiası çürütüldü; **strateji tuzağı (S3)** olarak güncellendi.
+- **Düzeltme (Tur 4'ün eksik sayımı):** Tur 4 "zafer 0" demişti → oyun **124 = ZAFER ("Uç Tutundu")**. 106–135: **zafer 1/29 = %3,4**, ortalama son gün **13,4**.
+- **Denge eğrisi (29 tamamlanan oyun, 106–135):** Tekfur 13 · İsyan 10 · Muhafız azledildi 5 · zafer 1.
+- **Oynanış hissi:** Akt-1 sağlıklı. **2. perde** gece 6'da açılıyor; haraç (10 akçe + 20 buğday) ödenemeyince **gece 7** saldırısı: **"güçleri 4, savunman 2"** → ölüm. Persona (bilinçli "önce odun zinciri") tohum 201/202/203'te 3/3 gece 7 ölümü; gıda gece 5'te 0. Tek zafer, köy isyan/açlık içindeyken **saat dolduğu için** geldi → ONR-009.
+- **Açık bulgu:** P0 0 · P1 0 · P2 3 (TST-0001, TST-0002, TST-0004) · P3 3 (TST-0005, TST-0006, TST-0009). TST-0004 P1→P2 düştü (artık kesin kilit değil, strateji tuzağı).
+- **Bir sonraki tur odağı:** ONR-005/ONR-009 (2. perde hazırlık penceresi + zafer koşulu) uygulanınca zafer oranını yeniden ölç; ONR-004 (araç `odunluk` kursun) sonrası denge eğrisi; TST-0002 `[KEY_NOT_FOUND]` ekranını görüntüyle kesinleştir; TST-0009 beyaz küre kimliği.
 
 ## 2026-10-11 · Tur 4 · commit 0ac499c (kod: 160ef54)
 - **Sağlık:** Etkin sanity **327/327 PASS** (harness "322 failed" = yalnız ortam sertifika hatası; gerçek `KALDI` 0, `SCRIPT ERROR` 0, `Parse Error` 0). `20-night-smoke` GEÇTİ, bellek 69.06→69.72 MB (sızıntı yok). BÖLÜM 7 (mevsim/kış) 5 akış testi **GEÇTİ**; 5 kvr birim testi (perde_gecisi, sancak_teftisi, savunma_guvenligi, tekfur_harac_heyeti, odun_zinciri) **GEÇTİ**; `chr_kilit_cikisi_test` **GEÇTİ (0 hata)**.

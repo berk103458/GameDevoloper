@@ -1,4 +1,4 @@
-﻿# Tester Bulguları
+# Tester Bulguları
 
 Kural ve kalıp: `docs/tester/TESTER_REHBERI.md` §5. Numara TST-0001'den artar; yeni bulgu **en üste** eklenir.
 Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. Öncelik P0–P3.
@@ -9,7 +9,8 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 | TST-0006 | P3 | [DIYALOG] metin | metinler.csv: 'Halkaya  +1' ve 'Tam isabet  +2' çift boşluk; tekfur saldırısı için iki ayrı anahtar | AÇIK |
 | TST-0007 | P2 | [CEVRE] chr_011 | chr_011 kukuleta/pelerin mesh'i ölçüsüz; gövdeyi küre gibi sarıyor (el_aci 0.69) | AÇIK |
 | TST-0008 | P3 | [CEVRE] modeller | chr_009/chr_021 ayak ~9 cm havada; Aydoğdu yayı bacak/gövdeye giriyor | AÇIK |
-| TST-0004 | P1 | SYS-19/DENGE | Zafer sonu ulaşılamıyor: EKO-02 tomruk zinciri sonrası köy odun üretemiyor, kıtlıkla çöküyor | AÇIK |
+| TST-0009 | P3 | [CEVRE] köy sahnesi | Meydan yakınında kocaman beyaz küresel yer tutucu mesh (kimliği doğrulanmadı) | AÇIK |
+| TST-0004 | P2 | SYS-19/DENGE | Otomatik oyuncu odun zincirini kurmuyor; çadır/tarla önce kurulursa odun geri dönüşsüz biter (oyuncu uyarılmıyor) | AÇIK (strateji tuzağı S3; BUG-0018) |
 | TST-0003 | P1 | — | Sinsi gece rutini: koylu(id) null iken is_yeri erişimi; her karede SCRIPT ERROR | DOĞRULANDI (254202d) |
 | TST-0002 | P2 | — | 6 metin anahtarı eksik; her oyunda [KEY_NOT_FOUND] uyarısı | AÇIK |
 | TST-0001 | P2 | — | KoyNufusu.sayi() eksik sınıf anahtarında SCRIPT ERROR | AÇIK |
@@ -17,6 +18,16 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 ---
 
 <!-- Bulgular buradan aşağı, en yenisi üstte -->
+
+### TST-0009 · P3 · [CEVRE] · Köy sahnesinde büyük beyaz küresel yer tutucu (kimliği doğrulanmadı)
+- **Durum:** AÇIK
+- **Commit:** 39847ea
+- **Adımlar:** 1) `CIKTI=work/tester/tur5/koy_gunduz.png GUN=6 KIP=bilgi FAZ=gunduz godot --path . --windowed --audio-driver Dummy tests/oto/koy_foto.tscn` 2) aynısı `FAZ=gece KIP=insa` 3) küçültülmüş `work/tester/tur5/v_koy_gunduz.jpg`, `v_koy_gece.jpg`.
+- **Beklenen:** Köy yerleşiminde yapı/nesne ölçüsünde yer tutucular (asset kuralı: kutu/kapsül/düz renk) göze aşırı batmayacak ölçekte (boxsız `.glb` yoksa `BoxMesh`).
+- **Gerçek:** Yerleşim kenarında, meydana yakın **kocaman beyaz/pürüzsüz bir küre** duruyor (gündüz beyaz, gece koyu gri; ~2 ızgara hücresi). `Dunya3B.nesne` yalnız `BoxMesh` yer tutucu kullanıyor; küre büyük olasılıkla bir `.glb` modeli. Kod taramasıyla kimlik kesinleşmedi.
+- **Tekrar:** 2/2 (gündüz + gece aynı yerde).
+- **Kanıt:** `work/tester/tur5/koy_gunduz.png`, `koy_gece.png`, `v_koy_gunduz.jpg`, `v_koy_gece.jpg`.
+- **Öneri:** Kürenin hangi nesne/bina olduğu belirlenip ölçeği düzeltilsin; gerekirse `docs/EKSIK_ASSET_ENVANTERI.md`'ye "köy yerleşimi küresel yer tutucu (Yüksek)" eklenir (envanteri Claude ekler; tester yazmaz).
 
 ### TST-0007 · P2 · [CEVRE] · chr_011 kukuleta/pelerin mesh'i ölçüsüz (gövdeyi küre gibi sarıyor)
 - **Durum:** AÇIK

@@ -1,4 +1,4 @@
-﻿# Tester günlüğü
+# Tester günlüğü
 
 Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar, oynar, sürekli test ederim; bulgu, değişiklik önerisi ve gelişim raporlarımı Claude'a veririm. Kod değiştirmem. Eğitimim ve kurallarım: `docs/tester/TESTER_REHBERI.md` (Claude yazdı, Claude yönetir).
 
@@ -6,6 +6,30 @@ Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar,
 - Göreve başlama: 11 Ekim 2026 — **Tur 1 (eğitim)** tamamlandı.
 - Çalışma kopyası: `C:\Users\ds\Documents\Codex\tester-ajan` (git worktree, dal `claude/festive-volta-li1sfm`, commit `5c9a5b1`).
 - Eğitim turu kuralı: kod (`src/`, `data/`, `tests/`, `tools/`, `ROADMAP.md`) değiştirilmedi; commit/push yapılmadı. Yalnız `docs/tester/` ve bu günlük yazıldı.
+- Güncel: **Tur 5** tamamlandı (11 Ekim 2026, commit `39847ea`; kod commit'i `062185b`). Rapor: `docs/tester/turlar/TUR-005.md`.
+
+## Tur 5 — 11 Ekim 2026 (commit 39847ea)
+
+### Ne yaptım
+- **Açılış stoğu ÖLÇÜMÜ:** `work/tester/tur5/olcum.gd` → gün 0: akçe 10, gıda 30, **odun 20, taş 5**, kereste 4, alet 2. BUG-0018 düzeltmesi (20 odun/5 taş) doğrulandı; tur 3'ün "≈9 odun/kesin kilit" iddiası çürütüldü → **strateji tuzağı (S3)**.
+- **TST-0004 güncellendi** (P1→P2, yeni başlık); ONR-003/ONR-004 kopya kontrolü yapıldı, TST-0004 ana kayda bağlandı.
+- **Zafer bulundu:** oyun **124 = "Uç Tutundu" (zafer)**. Tur 4'ün "zafer 0"u eksikti. 106–135: **zafer 1/29 (%3,4)**, ortalama son gün 13,4.
+- **Persona oynanışı** (bilinçli "önce odun zinciri"): tohum 201/202/203'te üçü de **gece 7'de Tekfur** ile öldü; gıda gece 5'te 0.
+- **Otomatik oyuncu** (headless): tohum 302/kabul 0.95 → "güçleri 4, savunman 2" gece 7 ölümü; tohum 301/kabul 0.2 → gece 13 Tekfur.
+- **Regresyon (BÖLÜM 2):** 12 birim + 5 akış testi GEÇTİ; `chr_kilit_cikisi_test` GEÇTİ. Regresyon yok.
+- **Çevre muayenesi (§13.2):** köy sahnesinde **kocaman beyaz küre** (yeni bulgu TST-0009); kapı sahnesinde kış ortamı + "Yaz" etiketi uyuşmazlığı.
+- **Türkçe dilim 2** (satır 151–300): yazım hatası yok; "Uç tutundu" dizi çakışması notu. Kaldığım satır **300**.
+- **Sanity:** import temiz; harness FAIL'leri ortam sertifika hatası (yanlış negatif) — 327 logun 0'ında "KALDI".
+
+### Yeni/kapatılan
+- Yeni: **TST-0009 (P3, [CEVRE])**, **ONR-009 ([TASARIM]/[DENGE] zafer koşulu)**.
+- Doğrulanan: BUG-0016, BUG-0017, BUG-0018 (ölçüm). Yeniden açılan: yok.
+- Açık: P0 0 · P1 0 · P2 3 (TST-0001/0002/0004) · P3 3 (TST-0005/0006/0009).
+
+### Sonraki tur odağı
+- ONR-004 (araç `odunluk` kursun) ve ONR-005/ONR-009 uygulanınca **zafer oranını yeniden ölç**.
+- TST-0002 `[KEY_NOT_FOUND]` ekranını görüntüyle kesinleştir; TST-0009 beyaz kürenin kimliği.
+- Türkçe dilim 3 (satır 301'den).
 
 ## Tur 1 (eğitim) — 11 Ekim 2026
 
@@ -44,7 +68,7 @@ Durum: kod kaynağından **izlendi/doğrulandı**; oyunda **yeniden üretme dene
 ### Rehberde anlaşılmayan / eksik bulduğum noktalar
 - **Denetim dosyası bu kopyada yok:** `docs/denetim/2026-10-11-codex-oz-denetim.md` (BUG-0013'ün künyesi) commit `5c9a5b1` ağacında bulunmuyor; `docs/denetim/` altında yalnız 4 rapor var. `git fetch` engelli (ağ kısıtlı + `.git/FETCH_HEAD` izin reddi), bu yüzden BUG-0013 metnini kaynağından okuyamadım. → BUG-0013 künye metni nerede tutulacak, rehber bunu netleştirmeli.
 - **Eğitim turunda "ölçülmedi" alanları:** rehber §5 gelişim kalıbı `commit X → Y` ve `sanity PASS/FAIL` bekliyor; tur hiç koşu yapmadan geçtiğinde bu alanların zorunlu mu, "ölçülmedi" yazılır mı belirsiz.
-- **Kanıt klasörü git durumu:** `work/tester/tur<N>/` klasörünün `.gitignore`da olduğu doğrulanmadı; rehber "git'e girmez" diyor ama teyit edemedim.
+- **Kanıt klasörü git durumu:** `work/tester/tur<N>/` klasörünün `.gitignore'da olduğu doğrulanmadı; rehber "git'e girmez" diyor ama teyit edemedim.
 - **TST numarası çakışması:** "TST-0001'den artar" kuralı; birden fazla Tester kopyası/paralel koşu olursa aynı numaranın iki kez alınması nasıl önlenir?
 - **Skill sahipliği:** `kapi-tester` skill'i `.claude/skills/` altında (Claude tarafı). Ben Codex tester olarak bu skill'i çağırmayı bilmiyorum; rehber hangi ajanın hangi skill kopyasını kullanacağını yazmıyor.
 - **Duraklatma kısayolu:** rehber §3.1 "Seçim yokken Esc/P duraklatma" der; `OYNA.md` de aynı. Tutarlı, sorun yok — yalnız kapı önceliği net.
