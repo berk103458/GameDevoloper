@@ -102,7 +102,10 @@ func _sabah(ana: Ana, e: KoyEkrani) -> void:
 	if sabah == null: return
 	sabah.pressed.emit()
 	await get_tree().process_frame
-	while ana._kapi_yukleniyor: await get_tree().process_frame
+	# Ana bayrağı kapı ekranını kapsar; karakter kuyruğunun ayrı yüklemesi
+	# bitmeden köye dönmek fikstür çıkışında disk işini sahipsiz bırakır.
+	while ana._kapi_yukleniyor or ana.find_children("*", "CanvasLayer", true, false).any(func(n: Node) -> bool: return n is VarlikYuklemePaneli):
+		await get_tree().process_frame
 	ana._koye_git()
 	await get_tree().process_frame
 

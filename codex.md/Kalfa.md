@@ -8,7 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-Muharrir’in ROADMAP 2 devri sürüyor. BUG-16…20 ve BUG-25, TEK-08/13/14/15 tamamlandı (Kalfa). Faz 0 ile başlayan Bölüm 41 teknik borcu sırayla yürür; BUG-22 ACL-01 bekler. Başka ajan sahipliklerine dokunulmaz. Sonraki hazır boş madde TEK-19; önce pull, sahiplik commit+push. Hedefli testler, olgun paket öncesi tek tam UTF-8 sanity, anlamlı (Kalfa) commit/push.
+Muharrir’in ROADMAP 2 devri sürüyor. BUG-16…20/25 ve TEK-08/13/14/15/16/18 tamamlandı (Kalfa). Son yön: eldeki TEK-19/20 yükleme kontrolü kapanınca yeni Bölüm 41 maddesi alınmadan Faz 1 ACL-01'e geçilir; ardından ACL ve KAP-16…19 sırası izlenir. BUG-22 ACL-01'i bekler. Başka ajan sahipliklerine dokunulmaz. Her maddeden önce pull, sahiplik commit+push; hedefli testler ve olgun paket öncesi tek tam UTF-8 sanity. Commit mesajları Türkçe, madde kodları, (Kalfa) ve asset gerekmedi notu korunur.
 
 ## Roller
 
@@ -160,3 +160,9 @@ BUG-25 takip + TEK-18 nihai tam 345 PASS / 0 beklenmeyen hata / 20 gece. Materia
 BUG-25 takip ve TEK-18 uygulama dd8f487. Aralıklı kuyu Material RID hatası için mevcut Pbr cachede aynı renkte tek malzeme paylaşılır: 200 yenilemede 200→1; memory_free yine beş cachei temizler, aktif kuyu korunur. Kriz/çınar üçer hedefli tekrar ve nihai tam koşuda geçti. Bozuk pid adlı ayrı test cfg sonrası tüm varsayılanlar ve gerçek menü açık; negatif çocuk süreçte tam iki kasıtlı config kaydı doğrulanır, genel hata bütçesi değişmez. Ömür/ölçü/bellek/geçiş 4 kontrol, kriz/çınar 6 tekrar, API/negatif cfg/import geçti. Nihai tek tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece. Önceki başarısız koşu kanıt olarak korunur; pull güncel, merge gerekmedi. Kanıt docs/denetim/BUG-25-kapi-kuyu-donusu.md ve TEK-18-bozuk-ayar-menu.md. Asset gerekmedi; ds ayna yok, eşitlenemedi. Sonraki hazır aday TEK-19/20 yükleme kontrolü; faz döngüsü sorusu Ajan Masası’nda.
 
 TEK-19/20: pull 44cadd1 güncel; aynı yükleme alt başlığında bağlı iki S kontrol birlikte alınır. Mevcut giriş akışı testine ilk gerçek menü tıklaması, panel sayısı 0, tek kapı ekranı ve bitişte serbest bayrak kanıtı eklenecek. Kullanıcı kaydı/ayarı yazılmaz; oyun API/source yeniden yazılmaz. TEK-21 YER-02 bekler. Asset gerekmedi.
+
+TEK-19/20: hedefli gerçek giriş sahnesi geçti; panel sayısı sıfır, ilk gerçek fare tıklaması ayar ekranına ulaşır, iki kapı çağrısı tek ekran kurar, bitişte yükleme bayrağı false. Üretim kaynakları/API değişmez. Kullanıcı ayarı ve kaydı yazılmaz. Commit öncesi tek tam UTF-8 sanity work/sanity-tek19-20-final sürüyor. Asset gerekmedi; ds ayna erişilemiyor.
+
+Muharrir yönü alındı: BUG-25/TEK-18 kapalı; önceden alınmış TEK-19/20 bitince yeni TEK alınmadan ACL-01'e geçilir. Commit mesajları Türkçe, madde kimlikleri ve asset gerekmedi korunur. TEK-19/20 ilk tam koşusu kıtlık fikstürünün yarım kalan karakter yüklemesi yüzünden çıkış sızıntısıyla kaldı; fikstür Ana bayrağına ek tüm yükleme panellerini bekler. Üç hedefli tekrar geçti; yeni nihai tam koşu work/sanity-tek19-20-final-2 sürüyor. Oyun src/data değişmedi.
+
+TEK-19/20 nihai tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece; giriş ve kıtlık geçişi temiz. İlk başarısız loglar korunur. Uygulama commit, pull ve kapanış yapılır; yeni TEK alınmaz, ACL-01 sırada. Asset gerekmedi; ds ayna erişilemiyor.
