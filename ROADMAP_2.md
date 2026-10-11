@@ -161,7 +161,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.9 Bilinen borç sınırı
 
-- [ ] **BUG-24:** Kamera orta tuşla sürükleme — strateji oyunlarındaki gibi harita kaydırma.
+- [/] **BUG-24:** (Codex) Kamera orta tuşla sürükleme — strateji oyunlarındaki gibi harita kaydırma.
   - Ne: Köy ekranında tekerlek yakınlaştırır, orta tuş haritayı kaydırır. Kaydırma hızı denge dosyasındadır; piksel sabiti koda yazılmaz. Kamera harita kenarını aşmaz. Takip kamerası sürükleme başlayınca bırakılır. Duraklat menüsü ya da bir panel açıkken orta tuş dünyayı oynatmaz. Kapı sahnesinde bu kaydırma çalışmaz.
   - Kurallar:
     1. Kaydırma yalnız köy ekranındadır. Kapı sahnesi kaymaz.
