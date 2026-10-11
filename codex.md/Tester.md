@@ -67,3 +67,23 @@ Durum: kod kaynağından **izlendi/doğrulandı**; oyunda **yeniden üretme dene
 <!-- Tur N · tarih · commit · test edilen · bulgu/öneri sayısı -->
 - Tur 1 (eğitim) · 11 Ekim 2026 · commit 5c9a5b1 (değişmedi) · yalnız okuma + kaynak izleme · bulgu 0, öneri 0
 - Tur 2 · 11 Ekim 2026 · commit 5396fae · BUG-0016 doğrulama, sürekli oyun analizi, sanity, 4 görsel · bulgu 3, öneri 2
+## Tur 3 — 11 Ekim 2026 (commit 34d36f7 / kod 254202d)
+
+### Durum
+- **Ana odak:** ÖNCELİKLİ DENGE SORUSU (2. perde huzur çöküşü, zafer ulaşılabilirliği, erken ekonomi) + baştan sona oyunlar + rastgele regresyon.
+- **Sağlık:** etkin sanity 320/320 PASS (harness 315 FAIL = ortam sertifika hatası). BÖLÜM 6: 9 kvr testi GEÇTİ.
+- **Yeni bulgu:** TST-0004 (P1, [DENGE]) zafer sonu ulaşılamıyor. Doğrulanan: BUG-0016, TST-0003.
+- **Yeni öneri:** ONR-003, ONR-004. Kod/test/data değiştirilmedi.
+
+### Tur 3 özeti
+- **Denge kök nedeni:** EKO-02 (`src/koy/odun_zinciri.gd`) `hizarhane`'yi "2 tomruk → 3 odun" yaptı; tomruk yalnız `odunluk`'tan gelir ama otomatik oyuncu ve `koy_benzetimi.gd` `odunluk` kurmuyor → **odun 1. günden sonra 0** → köy 5 yapıda donuyor → gıda 0 → `aclik_moral=15` ile huzur çöküşü → İsyan/Tekfur. 22/22 gözlem yenilgi, zafer 0.
+- **Deneyler:** `work/tester/tur3/denge_ek.gd` (düzeltilmiş strateji — odunluk kur) ve `hizar_tani.gd` (hizarhane yerleşimi). Düzeltmede bile hizarhane yerleşemedi (2×2 + yol komşuluğu).
+- **Koşular:** 201/202/203 (headless, kabul 0.95/0.5/0.1) + 301 (pencereli, --audio-driver Dummy). Hepsi İsyan/azil ile bitti.
+- **Rastgele bölüm:** BÖLÜM 6 (tüccar/pazar/sipariş) — regresyon yok.
+- **Kısıt:** Gerçek elle GUI oynaması yapılamadı; pencereli otomatik koşu + 1 ekran görüntüsü kullanıldı. TST-0002 `[KEY_NOT_FOUND]` ekranı netleşmedi.
+
+### Sonraki tur planı
+1. ONR-004 uygulanınca (otomatik oyuncu `odunluk`) zafer oranını yeniden ölç.
+2. TST-0002'nin `[KEY_NOT_FOUND]` gösterdiği ekranı görüntüyle kesinleştir.
+3. TST-0001 (KoyNufusu) tekrarını ara; pencereli elle CHR ikna-fail ekranı.
+4. `koy_benzetimi.gd` zafer eşiğini test et.

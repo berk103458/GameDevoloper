@@ -5,13 +5,44 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 
 | Kimlik | Öncelik | Madde | Başlık | Durum |
 | --- | --- | --- | --- | --- |
-| TST-0003 | P1 | — | Sinsi gece rutini: koylu(id) null iken is_yeri erişimi; her karede SCRIPT ERROR | AÇIK |
+| TST-0005 | P3 | ENVIRONMENT/asset | 43 orphan `.import` (jpg yok) import sırasında 86 ERROR satırı üretiyor | AÇIK |
+| TST-0004 | P1 | SYS-19/DENGE | Zafer sonu ulaşılamıyor: EKO-02 tomruk zinciri sonrası köy odun üretemiyor, kıtlıkla çöküyor | AÇIK |
+| TST-0003 | P1 | — | Sinsi gece rutini: koylu(id) null iken is_yeri erişimi; her karede SCRIPT ERROR | DOĞRULANDI (254202d) |
 | TST-0002 | P2 | — | 6 metin anahtarı eksik; her oyunda [KEY_NOT_FOUND] uyarısı | AÇIK |
 | TST-0001 | P2 | — | KoyNufusu.sayi() eksik sınıf anahtarında SCRIPT ERROR | AÇIK |
 
 ---
 
 <!-- Bulgular buradan aşağı, en yenisi üstte -->
+
+### TST-0005 · P3 · [ÇEVRE]/asset · 43 yetim `.import` dosyası import sırasında 86 ERROR satırı üretiyor
+- **Durum:** AÇIK (önceden var olan repo artefaktı)
+- **Commit:** 34d36f7
+- **Adımlar:** 1) `godot --headless --editor --import --quit --path .` (headless import) 2) `work/tester/tur3/sanity/headless-import.log` içinde `Failed loading resource: ..._yuru_Image_0.jpg` satırlarını ara.
+- **Beklenen:** Import hatasız/uyarısız tamamlanmalı (kabul kriteri: SCRIPT ERROR / "Failed to load script" yok).
+- **Gerçek:** `assets/model/karakter/` altında **43 adet `*_yuru_Image_0.jpg.import`** var ama karşılık gelen `.jpg` **yok** (görüntü .glb içine gömülü). Godot her biri için `ERROR: Failed loading resource` + `ERROR: Failed to load` + `WARNING: glTF ... loaded directly instead` basıyor → logda **86 ERROR satırı** (ör. `chr_024_yuru_Image_0.jpg`).
+- **Etki:** Zararsız (Godot gömülü görüntüye düşüyor, model yükleniyor) ama log spam'i gerçek hataları gölgeleyebilir ve "import hatasız" kabul kriterini kirletir.
+- **Tekrar:** Import önbelleği yeniden kurulunca görünür (tur 2 logunda önbellek taze olduğu için yoktu; tur 3'te 86).
+- **Kanıt:** `work/tester/tur3/sanity/headless-import.log` (86 satır); `Get-ChildItem assets/model/karakter -Filter '*_yuru_Image_0.jpg.import'` (43 dosya, .jpg yok).
+- **Öneri:** Karşılığı olmayan 43 `.import` dosyasını sil (asset üretmeden; yalnız yetim meta dosyaları), veya glTF ayarında gömülü görüntü yolu düzeltilsin. Karar Claude/Codex'in.
+
+
+### TST-0004 · P1 · [DENGE] · Zafer sonu ulaşılamıyor — EKO-02 tomruk zinciri köyü odun kilitine sokuyor
+- **Durum:** AÇIK
+- **Commit:** 34d36f7 (oyun 108–116 + tur 3 koşuları)
+- **Adımlar:** 1) Otomatik oyuncu, herhangi bir kabul oranı (0.1–0.98) 2) Oyunu sonuna kadar oyna. 3) Ayrıca `tools/denge/koy_benzetimi.gd` (kendi mantığı) 5 tohumla.
+- **Beklenen:** 2. perdeye (nüfus 18) ulaşan bir köy, doğru bina/iş dağılımıyla 12 gece dayanıp zafer (Uç Tutundu vb.) alabilmeli.
+- **Gerçek:** 14/14 sürekli oyun + 5 tohum benzetim + 3 tur içi koşu + 1 pencereli koşu — **hiç zafer yok**. Tüm oyunlar g6–g19'da İsyan/Tekfur/azil ile bitiyor. Kök neden: `src/koy/odun_zinciri.gd` (EKO-02) `hizarhane` tarifini **2 tomruk → 3 odun** yaptı (girdi tomruk zorunlu); tomruk yalnız `odunluk` yapısından geliyor. Otomatik oyuncu ve `koy_benzetimi` `odunluk` kurmadığı için **odun 1. günden sonra sürekli 0**; köy ~5 yapıda donuyor, yeni tarla kurulamıyor, gıda nüfusa yetişmiyor.
+- **Mekanizma (huzur eğrisi):** gıda 0 → `_saglik_ve_moral` aç köylüye `aclik_moral=15` ceza (−13…−15/gece) → huzur 60–70'ten tek haneliye iniyor → `isyan_esigi=10` altında 3 gece → İsyan sonu. Oyunlarda gıda g6–g8'de 0 oluyor; huzur g10–g12'de ≤5.
+- **Tekrar:** 22/22 gözlem (14 kayıtlı oyun + 8 tur 3 koşusu) yenilgi. Zafer 0.
+- **Kanıt:** `work/tester/oyunlar/oyun_108..116.log` (hepsinde `odun=0`), `work/tester/tur3/denge_ek.gd` (+tanı `hizar_tani.gd`), `work/tester/tur3/oto_201..203.log`, `work/tester/tur3/oto_301.log`.
+- **Tahmin:** Strateji test araçları EKO-02 öncesine ait; güncellenince ya da odun zinciri (odunluk maliyeti/başlangıç odunu) ayarlanınca zafer ölçülebilir olur. Ayrıntı: ONR-003, ONR-004.
+
+### TST-0003 doğrulaması · commit 254202d · **DOĞRULANDI**
+- **Künye:** `sinsi_gece_rutini.gd` nobetçi yolunda ölmüş/ayrılmış (null) köylü için `is_yeri` erişimi her karede `SCRIPT ERROR` basıyordu (tur 2, oyun 112: 511 hata). Fix commit **254202d** (BUG-0017).
+- **Kanıt:** fix sonrası oyunlar **113/114/115/116** loglarında `is_yeri` SCRIPT ERROR = **0** (`work/tester/oyunlar/oyun_11[3-6].log`). → **DOĞRULANDI**.
+- **Not:** `codex.md/Tester.md` ve önceki tur raporlarında geçen 112 hata spam'i tekrar gözlenmedi.
+
 
 
 ### TST-0002 · P2 · [ARAYUZ]/[DIYALOG] · Altı metin anahtarı eksik; her oyunda [KEY_NOT_FOUND] uyarısı
