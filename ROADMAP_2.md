@@ -6707,7 +6707,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: DEN-01. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **TEK-10:** Üç gecelik performans ölçümü.
+- [/] **TEK-10:** (Codex) Üç gecelik performans ölçümü.
   - Ne: `PerformansSeridi.oku()` üç gece boyunca gece başına bir satır yazar: fps ortanca, kare_ms en yüksek, `memory_free` öncesi RAM. Hedef (öneri, `data/teknik.json`): ortanca fps ≥ 30, kare_ms tavanı dosyada. Otomatik profil değiştirmez (AYR düşük profil satırı ayrıdır).
   - Kabul: üç gece sonunda satır 3; eşik altı bir uyarı, crash yok. Test: `tests/oto` koşusu.
   - Bağımlılık: yok. Boyut: M.
