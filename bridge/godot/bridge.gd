@@ -93,7 +93,11 @@ func _handle(peer: StreamPeerTCP, line: String) -> void:
 		id = int(id)
 	var args = msg.get("args", {})
 	if not (args is Dictionary):
-		args = {}
+		_send(peer, {"id": id, "ok": false, "error": "args must be an object"})
+		return
+	if not msg.get("cmd") is String:
+		_send(peer, {"id": id, "ok": false, "error": "cmd must be a string"})
+		return
 	_busy += 1
 	var result = await handler.run_command(str(msg.get("cmd", "")), args)
 	_busy -= 1

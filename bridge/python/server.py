@@ -81,7 +81,48 @@ def rng_sample(n: int = 4, reseed: bool = False) -> str:
 @mcp.tool(description="Save a PNG from the player camera viewport. path is relative to the game repo (e.g. "
         "shots/test.png) or absolute. Returns the path and size; open the file with Read.")
 def screenshot(path: str = "shots/screenshot.png") -> str:
-    return _call("screenshot", path=path)
+    return _call("screenshot", yol=path)
+
+
+@mcp.tool(description="Choose an available gate decision from get_state: kabul, ret, rusvet or kisla. Uses the player's two-click confirmation.")
+def kapi_karar(karar: str) -> str:
+    return _call("kapi_karar", karar=karar)
+
+
+@mcp.tool(description="Press a visible dialogue option. indeks is its zero-based index in the latest get_state UI list.")
+def soru_sor(indeks: int) -> str:
+    return _call("soru_sor", indeks=indeks)
+
+
+@mcp.tool(description="Village UI action: tur insa (bina type, hucre [x,y], yon 0/1), ata or kaldir (koylu and bina IDs). Costs and player restrictions apply.")
+def koy_eylem(tur: str, bina: Any, koylu: Optional[int] = None,
+              hucre: Optional[list[int]] = None, yon: int = 0) -> str:
+    return _call("koy_eylem", **_args(tur=tur, bina=bina, koylu=koylu, hucre=hucre, yon=yon))
+
+
+@mcp.tool(description="Press the village night-end button once. Read the report and choose the next action yourself.")
+def gece_bitir() -> str:
+    return _call("gece_bitir")
+
+
+@mcp.tool(description="Press a visible report/event/dialogue option. indeks comes from get_state. alan eylem selects the gate's bottom actions; in a minigame this sends one player tap.")
+def devam(indeks: int = 0, alan: str = "secenek") -> str:
+    return _call("devam", indeks=indeks, alan=alan)
+
+
+@mcp.tool(description="Start a seeded game from the menu or ending screen. Seed 0 uses the game's random seed.")
+def yeni_oyun(tohum: int = 0) -> str:
+    return _call("yeni_oyun", tohum=tohum)
+
+
+@mcp.tool(description="Take the existing UI save checkpoint of the current gate/village. Finish reports or transitions first.")
+def kaydet() -> str:
+    return _call("kaydet")
+
+
+@mcp.tool(description="Return to the existing UI save checkpoint, preserving the gate queue and dialogue.")
+def yukle() -> str:
+    return _call("yukle")
 
 
 @mcp.tool(description="Set the game window size for a capture, size [w, h] in pixels. Omit size to read it.")

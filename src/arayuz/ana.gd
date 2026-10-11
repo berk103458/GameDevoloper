@@ -37,6 +37,7 @@ func _ready() -> void:
 	ana_menu()
 	await VarlikYuklemePaneli.bitir(self, giris_kaynaklari)
 	Ses.dongu_baslat()
+	preload("res://src/debug/oyun_koprusu.gd").bagla(self)
 
 
 ## Ana menüyü gösterir.
