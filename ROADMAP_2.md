@@ -177,7 +177,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.10 Kapanış
 
-- [/] **BUG-25:** (Kalfa) Kapı meşaleleri ve kuyu modeli onarımı.
+- [x] **BUG-25:** (Kalfa) Kapı meşaleleri ve kuyu modeli onarımı.
   - Ne: Kapıdaki iki meşalenin alev soketi ile ışık noktası aynı yerdedir. Kuyu tabanı zemine oturur ve tepesi bir köylünün boyunu geçmez. Yeni heykel üretilmez; duran modelin konumu, ölçeği ve malzemesi düzeltilir. Köyde ikinci bir meşale sınıfı açılmaz. Kuyu suyu kirletme hesabı değişmez.
   - Kurallar:
     1. İki meşalenin alev soketi ile ışık noktası aynı konumdadır.
@@ -6656,7 +6656,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `src/koy/koy_nufusu.gd`.
   - Asset: asset gerekmedi.
-- [/] **TEK-02:** (testx) TST-0005 — 43 yetim `.import`.
+- [x] **TEK-02:** (testx) TST-0005 — 43 yetim `.import`.
   - Ne: eski: TST-0005. `assets/model/karakter/*_yuru_Image_0.jpg.import` var, `.jpg` yok; headless import ERROR üretir. Karşılığı olmayan `.import` silinir. Yeni jpg üretilmez, mesh'e dokunulmaz.
   - Kabul: yetim `.import` sayısı 0; import logunda `_yuru_Image_0.jpg` ERROR 0. Test: import log sayımı.
   - Bağımlılık: yok. Boyut: S.
@@ -6680,7 +6680,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KAY-04. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu.gd` tek adım.
   - Asset: asset gerekmedi.
-- [ ] **TEK-06:** ADM-16 kapanış ölçütü, komut listesi yeniden yazılmaz.
+- [/] **TEK-06:** (Codex) ADM-16 kapanış ölçütü, komut listesi yeniden yazılmaz.
   - Ne: `ROADMAP.md` ADM-16 `[/]` durur. Bu madde köprüyü ikinci kez tasarlamaz. Kapanış: normal oyunda port yokken `oyun_koprusu.gd` süreç açmaz; `--bridge-port` ile `ping` döner. Komut kümesi o maddenin listesidir.
   - Kabul: portsuz açılışta dinleyen soket 0. Test: iki açılış.
   - Bağımlılık: ADM-16. Boyut: S.
@@ -6719,7 +6719,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: TEK-10, SRM-05. Boyut: S.
   - Dosya: `performans_gunlugu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **TEK-12:** ADV-04 — manifest bilinçli API değişince güncellenir.
+- [/] **TEK-12:** (Codex) ADV-04 — manifest bilinçli API değişince güncellenir.
   - Ne: eski: ADV-04. `tools/api_sozlesmesi.py` baseline ile birebir bakar. Korumalı imza değişince baseline aynı commit'te güncellenir; sessiz sapma sanity'yi geçmez.
   - Kabul: imza değişip baseline eskiyse sanity kırmızı. Test: araç. Ek şart: Kapı ekranına `eylem_bitti` sinyali eklenmez.
   - Bağımlılık: yok. Boyut: S.

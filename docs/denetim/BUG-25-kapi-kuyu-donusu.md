@@ -15,3 +15,5 @@ Yerel ds çalışma kopyası ve GitHub aynası bu bilgisayarda yok; eşitlenemed
 İlk tam koşu `work/sanity-bug25-final`: yalnız çınar sahnesi renderer malzeme RID hatası verdi; 20 gece geçti. Başarı sayılmadı. Adaptörün ikinci malzeme ataması kaldırıldı; mevcut nesne yükleyicisine geriye uyumlu isteğe bağlı renk parametresi eklendi, malzeme tek kez atanır. Yeni önbellek veya renderer hata istisnası eklenmedi. Hedefli tekrar ve yeni nihai tam koşu gereklidir.
 
 Nihai tam UTF-8 sanity: **342 PASS / 0 hata / 20 gece**, `work/sanity-bug25-final-2`. Malzeme düzeltmesi sonrası çınar üç hedefli tekrar + nihai tam koşuda geçti; 5 ek hedefli kontrol geçti.
+
+Uygulama commit 06cb592 sonrası festive merge çakışmasız alındı. testx yetim import temizliği ve Codex sahiplikleri korundu. Merge sonrası 9 hedefli kontrol geçti: yetim import unittest, headless import, yeni birim/gerçek sahne, animasyon fallback, çınar, sulama, gerçek CHR kapı ve açılış bağımlılıkları. Kanıt `work/bug25-merge-target`. Tam sanity birleşimden önceki uygulamaya aittir.
