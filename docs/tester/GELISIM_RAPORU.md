@@ -3,6 +3,19 @@
 Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md` §5. Sayılar ölçülerek yazılır.
 
 <!-- En yeni giriş buraya -->
+
+## 2026-10-11 · Tur 6 · commit 6ce5f62 (yeni kod commit'i yok; son kod 062185b)
+- **Sağlık:** Etkin sanity **327 log / 0 KALDI / 321 GEÇTİ / 0 SCRIPT ERROR** (harness "322 failed" = ortam sertifika hatası, yanlış negatif — tur 3–5 ile aynı). Import 0 SCRIPT/Parse; 103 ERROR satırı tamamı TST-0005 yetim `.import`. BÖLÜM 11 regresyonu: **13 akış + 18 birim testi GEÇTİ**. `chr_kilit_cikisi_test` GEÇTİ.
+- **Bu turda giren kod:** yok (HEAD = tur 5 tester commit'i 6ce5f62).
+- **Doğrulanan:** BUG-0016 (KILIT 0, 5396fae sonrası) · BUG-0017/TST-0003 (`is_yeri` 0, 254202d sonrası) · TST-0008/0007 karakter ölçümleri (Aydoğdu yayı, chr_009/021 ayak, chr_011 pelerin) · yusuf = kasıtlı çocuk (hata değil).
+- **Tur 5 sonrası 7/24 (8 oyun: 136–144):** DONMA 0, HATA 0; 136 Tekfur g19, 137 Tekfur g13, 138 Azil g6, 139 Azil g11, 140 İsyan g14, 141 Azil g6, 142 Tekfur g7, **143 ZAFER g18 (Beyin Uç Köyü)**, 144 Azil g16.
+- **Denge eğrisi (38 tamamlanan, 101–144):** Tekfur 16 · İsyan 11 · Azil 9 · **Zafer 2** → zafer **2/38 = %5,3**; ortalama son gün **12,89**. İki zafer de g18 (124 huzur6 isyanda; 143 huzur14 temiz). Kabul 0.98 → Tekfur 5/Zafer 1; düşük/orta kabul → İsyan/Azil.
+- **Kritik denge bulgusu (yeni):** 2. perdeye geçen **36 oyunun hepsi `sur=0, odun=0`** ile giriyor; 9 oyun tam **g19'da (zafer gecesi)** Tekfur ile bitti. Kod sırası gereği akın, zafer denetiminden önce çözülüyor → **zafer gecesi = ölüm gecesi** (ONR-010). Kendi koşumum tohum 701 (kabul 0.9) da g19 Tekfur. Bilinçli persona (odun zinciri): 3/3 g7 ölüm; sur taksiti ödeyen persona g13'e dek dayandı ama 2. akın (güç 6) yendi → zafer gerçekçi oyuncu için ulaşılamıyor.
+- **Erken azil:** azil 9/38 (%24), dördü g6 → rüşvet kaynaklı yozlaşma + RNG (ONR-007).
+- **Oynanış hissi:** Kapı/Akt-1 sağlıklı ve hatasız. Akt-2 "hazırlık yap" fırsatı vermiyor: gıda g6–8'de 0, akın g6–7'de geliyor; oyuncu neden çöktüğünü göremiyor.
+- **Açık bulgu:** P0 0 · P1 0 · P2 3 (TST-0001, 0002, 0004) · P3 5 (TST-0005, 0006, 0007, 0008, 0009, 0010). Yeni: **TST-0010** (perde2 hedef 10 vs 12). Yeni öneri: **ONR-010** (zafer/ölüm çakışması), **ONR-011** (muayene aracı çocuk yanlış pozitifi).
+- **Bir sonraki tur odağı:** ONR-005/006/010 uygulanınca zafer oranını yeniden ölç; ONR-004 (araç `odunluk`) sonrası denge; Türkçe dilim 4 (451+); TST-0002 `[KEY_NOT_FOUND]` ekran görüntüsü; TST-0009 beyaz kürenin kimliği (görsel: çadır/yurt domuna benziyor).
+
 ## 2026-10-11 · Tur 5 · commit 39847ea (yeni kod commit'i yok; son kod 062185b)
 - **Sağlık:** Sanity harness'ı ortam sertifika hatası yüzünden çok sayıda "FAIL" yazıyor (**yanlış negatif** — aynı test doğrudan koşulunca GEÇTİ). Doğrudan GEÇTİ: BÖLÜM 2 regresyonu 12 birim + 5 akış testi, `chr_kilit_cikisi_test`, `odun_zinciri_test`.
 - **Bu turda giren kod:** yok (yalnız denetim commit'i 0ac499c; kod 062185b). Oyun kodu değişmedi.

@@ -6,7 +6,29 @@ Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar,
 - Göreve başlama: 11 Ekim 2026 — **Tur 1 (eğitim)** tamamlandı.
 - Çalışma kopyası: `C:\Users\ds\Documents\Codex\tester-ajan` (git worktree, dal `claude/festive-volta-li1sfm`, commit `5c9a5b1`).
 - Eğitim turu kuralı: kod (`src/`, `data/`, `tests/`, `tools/`, `ROADMAP.md`) değiştirilmedi; commit/push yapılmadı. Yalnız `docs/tester/` ve bu günlük yazıldı.
-- Güncel: **Tur 5** tamamlandı (11 Ekim 2026, commit `39847ea`; kod commit'i `062185b`). Rapor: `docs/tester/turlar/TUR-005.md`.
+- Güncel: **Tur 6** tamamlandı (11 Ekim 2026, commit `6ce5f62`; yeni kod commit'i yok, son kod `062185b`). Rapor: `docs/tester/turlar/TUR-006.md`.
+
+## Tur 6 — 11 Ekim 2026 (commit 6ce5f62; yeni kod commit'i yok)
+
+### Ne yaptım
+- **Sanity:** etkin **327 log / 0 KALDI / 321 GEÇTİ / 0 SCRIPT ERROR** (harness "322 failed" = ortam sertifika yanlış negatifi). Import 0 SCRIPT/Parse.
+- **7/24 oyunlar (101–144):** 44 kayıt, 38 tamamlanan → Tekfur 16 · İsyan 11 · Azil 9 · **Zafer 2/38 (%5,3)**; ort. son gün 12,89. Tur 5 sonrası 8 oyun (136–144), DONMA/HATA 0.
+- **DENGE (Claude soruları):** (a) 2. perde huzur eğrisi gıda g6–8'de 0 → huzur −10…−19/gece. (b) Zafer 2/38; **kritik:** 36/36 oyun 2. perdeye `sur=0, odun=0` ile giriyor, 9 oyun tam **g19 (zafer gecesi)** öldü → kod sırası: akın, zafer denetiminden önce çözülüyor (**ONR-010**). Persona 3/3 g7 ölüm; sur ödeyen persona g13'e dek. (c) erken azil 9/38, dördü g6 = rüşvet yozlaşması + RNG.
+- **BUG-0016 DOĞRULANDI:** `chr_kilit_cikisi_test` GEÇTİ; KILIT yalnız 106/107/108 (fix öncesi); 109–144'te 0.
+- **BUG-0017/TST-0003 DOĞRULANDI:** `is_yeri` hatası yalnız oyun_112 (511, fix öncesi); sonrasında 0.
+- **Karakter muayenesi (44 model):** Aydoğdu yayı, chr_009/021 ayak ~9 cm, chr_011 pelerin → doğrulandı; **yusuf 1.17 m = kasıtlı çocuk** (Claude gözlemi çürütüldü) → ONR-011.
+- **Türkçe dilim 3** (satır 301–450): çift boşluk 0, KEY_NOT_FOUND 0. Kaldığım satır **450**.
+- **Rastgele bölüm (BÖLÜM 11):** 13 akış + 18 birim testi GEÇTİ; regresyon yok.
+- **Kendi koşularım:** oto 701 (0.9) g19 Tekfur (zafer gecesi ölümü), 702 (0.35) g6 azil.
+
+### Yeni/kapatılan
+- Yeni: **TST-0010 (P3, perde2 hedef 10 vs 12)**, **ONR-010 (Yüksek)**, **ONR-011 (Düşük)**. ONR-005/006/007 tur 6 sayılarıyla güncellendi.
+- Doğrulanan: BUG-0016, BUG-0017/TST-0003, TST-0007/0008. Yeniden açılan: yok.
+- Açık: P0 0 · P1 0 · P2 3 (TST-0001/0002/0004) · P3 5 (TST-0005/0006/0007/0008/0009/0010).
+
+### Sonraki tur odağı
+- ONR-005/006/010 uygulanınca zafer oranını yeniden ölç; ONR-004 (`odunluk`) sonrası denge.
+- Türkçe dilim 4 (451+); TST-0002 `[KEY_NOT_FOUND]` ekran görüntüsü; TST-0009 beyaz küre kimliği.
 
 ## Tur 5 — 11 Ekim 2026 (commit 39847ea)
 

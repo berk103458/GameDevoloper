@@ -5,6 +5,7 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 
 | Kimlik | Öncelik | Madde | Başlık | Durum |
 | --- | --- | --- | --- | --- |
+| TST-0010 | P3 | SYS-19 | 2. perde hedef gecesi kod varsayılanı (10) ile etkin kaynak (`oyun.tres`=12) uyuşmuyor; kaynak yoksa hedef sessizce 10'a düşer | AÇIK |
 | TST-0005 | P3 | ENVIRONMENT/asset | 43 orphan `.import` (jpg yok) import sırasında 86 ERROR satırı üretiyor | AÇIK |
 | TST-0006 | P3 | [DIYALOG] metin | metinler.csv: 'Halkaya  +1' ve 'Tam isabet  +2' çift boşluk; tekfur saldırısı için iki ayrı anahtar | AÇIK |
 | TST-0007 | P2 | [CEVRE] chr_011 | chr_011 kukuleta/pelerin mesh'i ölçüsüz; gövdeyi küre gibi sarıyor (el_aci 0.69) | AÇIK |
@@ -13,11 +14,28 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 | TST-0004 | P2 | SYS-19/DENGE | Otomatik oyuncu odun zincirini kurmuyor; çadır/tarla önce kurulursa odun geri dönüşsüz biter (oyuncu uyarılmıyor) | AÇIK (strateji tuzağı S3; BUG-0018) |
 | TST-0003 | P1 | — | Sinsi gece rutini: koylu(id) null iken is_yeri erişimi; her karede SCRIPT ERROR | DOĞRULANDI (254202d) |
 | TST-0002 | P2 | — | 6 metin anahtarı eksik; her oyunda [KEY_NOT_FOUND] uyarısı | AÇIK |
-| TST-0001 | P2 | — | KoyNufusu.sayi() eksik sınıf anahtarında SCRIPT ERROR | AÇIK |
+| TST-0001 | P3 | — | KoyNufusu.sayi() eksik sınıf anahtarında SCRIPT ERROR (tetikleyen: test aracının kendi kodu; oyun bu sınıfları sorgulamıyor) | AÇIK (Claude P2→P3) |
 
 ---
 
 <!-- Bulgular buradan aşağı, en yenisi üstte -->
+
+### Tur 6 doğrulama özeti · commit 6ce5f62 · (BUG-0016, BUG-0017/TST-0003, TST-0004)
+- **BUG-0016 — DOĞRULANDI (tur 6):** `chr_kilit_cikisi_test.gd` → "CHR KILIT CIKISI: GEÇTİ (0 hata)". `~/.codex-tester/olaylar.log`'da KILIT yalnız 106/107/108 (fix öncesi); 5396fae sonrası 0. Loglarda `SOHBET_KILIDI` yalnız 106(2)/107(1)/108(3); 109–140'ta 0. Pencereli elle ekran görüntüsü ÖLÇÜLMEDİ.
+- **BUG-0017 / TST-0003 — DOĞRULANDI (tur 6):** `key 'is_yeri'` SCRIPT ERROR toplam 511, tamamı oyun_112 (fix 254202d öncesi); 113–140'ta 0.
+- **TST-0004 (BUG-0018, S3 strateji tuzağı) — sürüyor:** Açılış stoğu 20 odun/5 taş (tur 5 ölçümü). Tur 6: 2. perdeye geçen 36 oyunun HEPSİ `odun=0, sur=0, yapı=5` ile girer; odun gün 1'de 0'a düşer. Persona (bilinçli "önce odun zinciri") tohum 601/602/603 → 3/3 g7 Tekfur ölümü. ONR-003/004 aynı kök nedene bağlı (kopya değil).
+
+
+### TST-0010 · P3 · SYS-19 · 2. perde hedef gecesi: kod varsayılanı 10, etkin kaynak 12 (sessiz yarıya inme riski)
+- **Durum:** AÇIK
+- **Commit:** 6ce5f62 (kod 062185b)
+- **Adımlar:** 1) `Select-String perde2_hedef_gece src/veri/oyun_ayarlari.gd` → `@export var perde2_hedef_gece: int = 10` 2) aynı anahtar `data/ayarlar/oyun.tres:24` → `perde2_hedef_gece = 12` 3) kod yorumları: `src/koy/perde_gecisi.gd:3` ve `src/koy/koy_yonetimi.gd:59` "(varsayılan) 12" der.
+- **Beklenen:** Tek bir doğruluk kaynağı; kod varsayılanı ile etkin ayar aynı olmalı (veya varsayılan 12 olmalı).
+- **Gerçek:** GDScript varsayılanı 10, `.tres` etkin değeri 12. Rehber §2 de "12 gece" der. Normal oyunda `.tres` yüklendiği için etkin değer 12; ancak `oyun.tres` herhangi bir nedenle okunamazsa hedef **sessizce 10'a** düşer (oyuncu ve rapor fark etmez). Ayrıca iki yerde 12/10 karışıklığı ileride yanlış test/madde beklentisi üretir.
+- **Tekrar:** 2/2 (statik, deterministik).
+- **Kanıt:** `src/veri/oyun_ayarlari.gd:39`, `data/ayarlar/oyun.tres:24`, `src/koy/perde_gecisi.gd:3`, `src/koy/koy_yonetimi.gd:59`; deneyim: persona/otomatik koşularda 2. perde hedefi pratikte 12 görüldü (oyun 124 g18 zafer).
+- **Öneri:** Varsayılanı 12 yap ya da tek kaynak kullan; yorumları ayarla eşitle.
+
 
 ### TST-0009 · P3 · [CEVRE] · Köy sahnesinde büyük beyaz küresel yer tutucu (kimliği doğrulanmadı)
 - **Durum:** AÇIK
@@ -107,6 +125,7 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 - **Öneri (düzeltme):** 6 satırı `metinler.csv`'ye ekle (Anahtar,Metin) — ör. `koy.kaynak.tomruk,Tomruk`.
 
 ### TST-0001 · P2 · [HATA] · KoyNufusu.sayi() eksik sınıf anahtarında SCRIPT ERROR üretiyor
+- **Durum:** AÇIK (P3 — Tur 6, Claude kararı)
 - **Durum:** AÇIK
 - **Commit:** b9865ba (oyun 107). Kod yolu HEAD 5396fae'de değişmedi (`src/sistemler/koy_nufusu.gd` aynı); oyun 109'da ilgili sınıflar (zanaatkar/dervis) çıkmadığı için tekrarlamadı.
 - **Adımlar:** 1) Otomatik oyuncu, TOHUM=107, kabul 0.98 (`work/tester/oyunlar/oyun_107.log`) 2) Oyun ilerlerken test aracı her olay/kartta DURUM satırı basar → `KoyNufusu.sayi()` çağrılır.
@@ -132,3 +151,5 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 - **Tekrar:** Tutarlı (olaylar.log: sayi=460→464→511 ve artıyor; aynı tohum/harita gece fazında sürüyor).
 - **Kanıt:** `work/tester/oyunlar/oyun_112.log` (satır 311’den itibaren), `~/.codex-tester/olaylar.log` HATA tohum=112.
 - **Tahmin:** `sinsi_gece_rutini.nobetciler` (satır 11–15) `h.sahne.yonetim.koylu(id)` sonucunu null denetlemeden `MuhafizMaasi.aday(k, y)`'ye veriyor; `sinif` adayında (`sinsi_gece_rutini.aday`, satır 7) null koruması VAR ama `nobetciler` yolunda yok. `nobetciler` içinde `koylu(id)` null ise `continue` eklemek yeterli görünüyor.
+
+- **Tur 6 notu (Claude kararı):** Tetikleyen satır tester aracının kendi DURUM çıktısıydı; oyun bu sınıfları (zanaatkar/dervis) kendisi sorgulamıyor → **P2→P3**. Savunmasız API önerisi **ONR-002** olarak Codex kuyruğunda. TST-0002 de Codex kuyruğunda.
