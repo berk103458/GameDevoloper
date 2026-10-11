@@ -2,6 +2,7 @@
 class_name GuvenlikKafileDengesi
 extends RefCounted
 const TICARET_AKISI = preload("res://src/koy/ticaret/pusu_ticaret_akisi.gd")
+const TEHDIT = preload("res://src/sistemler/tehdit_takvimi.gd")
 static var AYAR: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/guvenlik_kafile_dengesi.json"))
 ## Gerçek CAS profil kümesi; seçim riski oyuncuya suç kanıtı/kimlik açıklaması değildir.
 static func adli_agirliklar(o: Oturum,ids: Array[StringName]) -> Array[float]:
@@ -11,7 +12,7 @@ static func adli_agirliklar(o: Oturum,ids: Array[StringName]) -> Array[float]:
   var n:=1.0
   if guvenlik<int(AYAR.dusuk_esik) and String(id) in AYAR.risk_profilleri: n=float(AYAR.risk_agirlik)
   elif guvenlik>int(AYAR.yuksek_esik) and o.katalog.karakter(id).sinif==StringName(AYAR.ticaret_sinifi): n=float(AYAR.ticaret_agirlik)
-  w.append(TICARET_AKISI.agirlik(o,o.katalog.karakter(id).sinif,n))
+  w.append(TEHDIT.agirlik(o.gun,id,TICARET_AKISI.agirlik(o,o.katalog.karakter(id).sinif,n)))
  return w
 ## KAP01 hazır diyalog sırası korunur; yalnız eski rastgele şablon sınıfları.
 static func sinif_agirliklar(o: Oturum) -> Array[float]:
@@ -28,10 +29,16 @@ static func aralik(w: Array[float],zar: float) -> int:
  for i in w.size():
   if kalan<w[i]: return i
   kalan-=w[i]
- return w.size()-1
+ for i in range(w.size()-1,-1,-1):
+  if w[i]>0.0: return i
+ return -1
 ## Tümü eşitse eski tek randi_range aynen; ağırlıklı seçim aynı kayıtlı RNG'den tek zar.
 static func sec(rng: RandomNumberGenerator,w: Array[float]) -> int:
  if w.is_empty(): return -1
+ var pozitif:=false
+ for n in w:
+  if n>0.0: pozitif=true
+ if not pozitif: return -1
  var esit:=true
  for n in w:
   if n!=w[0]: esit=false

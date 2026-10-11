@@ -30,6 +30,7 @@ static func kaynak(k: Koylu,karar: String) -> Dictionary:
  return {}
 ## Üretim öncesi hazır kaynak binası; aynı rezervle söndürme, kaynak statlar yalnız söndürülmeyende.
 static func gece(y: KoyYonetimi,olaylar: Array[Dictionary]) -> int:
+ if not preload("res://src/sistemler/tehdit_takvimi.gd").acik(y.gun): return 0
  var d := durum(y)
  if y.son != "" or d.son_gece == y.gun: return 0
  d.son_gece = y.gun

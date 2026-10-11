@@ -29,6 +29,7 @@ static func risk(k: Koylu) -> float:
 	return 0.0
 static func gece(y: KoyYonetimi, calismalar: Dictionary, olaylar: Array[Dictionary]) -> void:
 	for k in y.koylular:
+		if not preload("res://src/sistemler/tehdit_takvimi.gd").profil_uygun(y.gun, k.adli_id): continue
 		var r := risk(k)
 		if r == 0.0 or y.kaynaklar.miktar("gida") <= 0: continue
 		if y._rng.randf() >= r: continue

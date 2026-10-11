@@ -20,6 +20,8 @@ func rngler(o: Oturum) -> Array:
 	return [o._rng.state,o._rng_donus.state,o._rng_ad.state,o._rng_heybe.state,o.yonetim._rng.state]
 
 func _initialize() -> void:
+	# HAR-14 ağırlık/RNG testi; alışma kapısı ayrı tehdit_takvimi_test içindedir.
+	preload("res://src/sistemler/tehdit_takvimi.gd").AYAR.tehdit_baslangic_gunu = 0
 	var kat := Katalog.new(); kat.yukle()
 	var o := hazir(kat)
 	var rng := rngler(o)

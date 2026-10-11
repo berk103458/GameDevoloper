@@ -3,6 +3,8 @@ var hata:=0
 func dene(v: bool,s: String) -> void:
  if not v: hata+=1; push_error(s)
 func _initialize() -> void:
+ # Kaynak ipucu/zehir testi; alışma kapısı ayrı tehdit_takvimi_test içindedir.
+ preload("res://src/sistemler/tehdit_takvimi.gd").AYAR.tehdit_baslangic_gunu = 0
  var kat:=Katalog.new()
  kat.yukle()
  for adli in [&"chr_002",&"chr_009"]:

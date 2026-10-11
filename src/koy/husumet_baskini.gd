@@ -3,6 +3,7 @@ class_name HusumetBaskini
 extends RefCounted
 ## Aynı stok kaybı, iki mevcut kişi yaralanma zarı ve sosyal sonuç.
 static func uygula(y: KoyYonetimi,olaylar: Array[Dictionary]) -> void:
+ if not preload("res://src/sistemler/tehdit_takvimi.gd").baskin_acik(y): return
  var ganimet:=CeteAnlasmasi.baskin(y,olaylar)
  var g:=ganimet[0]
  var o:=ganimet[1]

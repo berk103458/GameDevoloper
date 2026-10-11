@@ -2,6 +2,8 @@ extends SceneTree
 var hata := 0
 var kat: Katalog
 func _initialize() -> void:
+	# Kaynak kuyu/CAS testi; alışma kapısı ayrı tehdit_takvimi_test içindedir.
+	preload("res://src/sistemler/tehdit_takvimi.gd").AYAR.tehdit_baslangic_gunu = 0
 	kat = Katalog.new()
 	kat.yukle()
 	_su_ve_rng()

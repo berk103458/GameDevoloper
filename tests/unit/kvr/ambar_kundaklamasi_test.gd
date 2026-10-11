@@ -25,6 +25,8 @@ func dene(v: bool,ad: String) -> void:
   hata += 1
   push_error(ad)
 func _initialize() -> void:
+ # Kaynak tur-offset/yangın testi; alışma kapısı ayrı tehdit_takvimi_test içindedir.
+ preload("res://src/sistemler/tehdit_takvimi.gd").AYAR.tehdit_baslangic_gunu = 0
  var kat := Katalog.new()
  kat.yukle()
  for id in [&"chr_001",&"chr_006"]:

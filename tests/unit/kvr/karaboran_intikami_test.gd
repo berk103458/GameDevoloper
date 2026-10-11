@@ -17,6 +17,8 @@ func baskin(r: Dictionary) -> int:
   if x.anahtar=="koy.olay.baskin": n+=1
  return n
 func _initialize() -> void:
+ # Kaynak hüküm tur-offset testi; alışma kapısı ayrı tehdit_takvimi_test içindedir.
+ preload("res://src/sistemler/tehdit_takvimi.gd").AYAR.tehdit_baslangic_gunu = 0
  var kat:=Katalog.new()
  kat.yukle()
  var o:=kur(kat)

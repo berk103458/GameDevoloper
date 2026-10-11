@@ -1,3 +1,7 @@
+## Kalfa — BUG-18 tamamlandı (11 Ekim 2026)
+
+Tehdit başlangıcı JSON'da 14; mevcut gün, HAR-11 risk profilleri ve doğal sabotaj/baskın tetikleri ince adaptörle okunur. Erken doğal tehdit/fiil makbuzu yok; husumet sönümü ve Moğol/resmi bildiri/heyet sürer. Debug baskın izni geçici, kayda yazılmaz; eski gün geri sarılmaz. 29 hedefli kontrol + nihai UTF-8 tam sanity 330 PASS / 0 hata / 20 gece. Mevcut kaynak tur-offset/ganimet/RNG test iddiaları korundu. Kanıt: docs/denetim/BUG-18-tehdit-takvimi.md. Asset gerekmedi; ds ayna yok, eşitlenemedi.
+
 ## Kalfa — BUG-17 tamamlandı (11 Ekim 2026)
 
 Fısıltı pusulası hazır bina ve yaşayan mevcut kişi kaydını okur; binasız köyde yer pusulası yok, yok olan bina ve ayrılan/ölen kişi anılmaz. {yer} kalıpları ve ince yer adaptörü; ikinci kişi listesi/RNG/kayıt alanı yok. Hedefli testler ve nihai tam sanity 329 PASS / 0 hata / 20 gece. İlk koşuda kalan iki UI fixture, restore ile aynı gerçek Oturum seçicisini kullanacak şekilde düzeltildi; kayıt/RNG eşitliği korunuyor. Asset gerekmedi. ds ayna yok; eşitlenemedi.

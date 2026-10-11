@@ -32,6 +32,7 @@ static func kaynak(k: Koylu,karar: String) -> Dictionary:
  return CasusGeceTakibi.gecikmeli(k,karar,"Saglik")
 ## Gerçek gece su raporu sonrası, sağlık/ölüm fazı öncesi; kaynak stat sınırı ve tek makbuz.
 static func gece(y: KoyYonetimi,su: Dictionary,olaylar: Array[Dictionary]) -> void:
+ if not preload("res://src/sistemler/tehdit_takvimi.gd").acik(y.gun): return
  var d := durum(y)
  if y.son != "" or d.son_gece == y.gun: return
  d.son_gece = y.gun

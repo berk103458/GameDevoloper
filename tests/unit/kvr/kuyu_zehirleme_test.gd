@@ -7,6 +7,8 @@ func gelen(id: StringName) -> Gelen:
  g.gizli_bayraklar = ["sabotajci","hasta"] if id == &"chr_002" else ["casus"]
  return g
 func _initialize() -> void:
+ # Kaynak tur-offset/zehir testi; alışma kapısı ayrı tehdit_takvimi_test içindedir.
+ preload("res://src/sistemler/tehdit_takvimi.gd").AYAR.tehdit_baslangic_gunu = 0
  var kat := Katalog.new()
  kat.yukle()
  var o := Oturum.new(kat,56)

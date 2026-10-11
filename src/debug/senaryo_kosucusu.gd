@@ -2,6 +2,7 @@
 class_name SenaryoKosucusu
 extends RefCounted
 const KIMLIKLER := ["kitlik_10", "baskin", "veba"]
+const TEHDIT = preload("res://src/sistemler/tehdit_takvimi.gd")
 
 static func calistir(o: Oturum, id: String, tohum: int = 0) -> Dictionary:
 	if o == null or id not in KIMLIKLER or o.yonetim.son != "" or o.yonetim.koylular.is_empty():
@@ -21,6 +22,7 @@ static func calistir(o: Oturum, id: String, tohum: int = 0) -> Dictionary:
 			)
 		"baskin":
 			# Yalnız bu gece gerçek Husumet zarı kesin baskın verir; kaynak ayarlar korunur.
+			y.set_meta(TEHDIT.DEBUG_BASKIN, true)
 			y.a = ayarlar.duplicate(true)
 			y.a.baskin_zar = 1.0 + y.muhafiz_sayisi() * y.a.muhafiz_zar_indirimi
 			y.husumet.puan = maxi(y.husumet.puan, y.a.baskin_esigi + y.a.husumet_sonum)
@@ -36,6 +38,7 @@ static func calistir(o: Oturum, id: String, tohum: int = 0) -> Dictionary:
 	# Terminal sonuç/bekleyen olay dahil tüm normal dönüşlerde deney ve ayar geri alınır.
 	if y.has_meta(GeceDeneyi.META):
 		y.remove_meta(GeceDeneyi.META)
+	if id == "baskin": y.remove_meta(TEHDIT.DEBUG_BASKIN)
 	y.a = ayarlar
 	sonuc["senaryo"] = id
 	sonuc["hazirlik"] = hazirlik

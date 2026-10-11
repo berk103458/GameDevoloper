@@ -119,7 +119,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 	var sayi := ayarlar.gece_basina_gelen if perde == 1 else ayarlar.perde2_gece_basina_gelen
 	sayi = maxi(1, sayi + sonraki_gelen_ek)
 	sonraki_gelen_ek = 0
-	var uygun := kadro.uygunlar(gun)
+	var uygun := preload("res://src/sistemler/tehdit_takvimi.gd").adaylar(gun, kadro.uygunlar(gun))
 	var sonuc: Array[Gelen] = []
 	for i in sayi:
 		if not uygun.is_empty() and _rng.randf() < ayarlar.adli_olasiligi:

@@ -6,7 +6,7 @@ func _initialize() -> void:
  var kat:=Katalog.new()
  kat.yukle()
  var o:=Oturum.new(kat,1911)
- o.yonetim.gun=8
+ o.yonetim.gun=15 # HAR-11 ağırlıklarını alışma süresi bittikten sonra denetle.
  var ids: Array[StringName]=[&"chr_001",&"chr_003",&"chr_021"]
  for guvenlik in [3,4,7,8]:
   o.yonetim.asayis_riski=100-guvenlik*10

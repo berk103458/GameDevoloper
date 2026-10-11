@@ -85,7 +85,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.3 Tehdit takvimi
 
-- [/] **BUG-18:** (Kalfa) Tehdit alışma süresi — pusucu, çete, casus ve sabotaj ilk N gün gelmez.
+- [x] **BUG-18:** (Kalfa) Tehdit alışma süresi — pusucu, çete, casus ve sabotaj ilk N gün gelmez.
   - Ne: Oyuncu ilk iki haftayı kapıyı ve köyü öğrenerek geçirir; pusucu, çete ve sabotaj o sürede kapıya düşmez. Süre `tehdit_baslangic_gunu` ayarındadır, öneri 14 gündür ve koda gömülmez. Moğol sayacı (HAR-02) bu sürede de artar. Sancak ulağı ve diplomatik heyet bu listenin dışındadır. Süre dolmadan debug ile çağrılan tehdit takvimi "doğal geliş" saymaz. Kayıt 14 günü geçmişse takvim geriye sarılmaz.
   - Kabul: 13. günde pusucu, çete ve sabotaj gelişi 0; aynı günde HAR-02 sayacı yine artar. Ulağın ilk gün gelişi engellenmez. 15. günde bu üç tehdidin ağırlığı taban değere döner (`tests/unit/sistemler/tehdit_takvimi_test.gd` dört iddiayı ayrı koşar). Ek şart: süre dolmadan debug ile çağrılan tehdit takvim sayacını artırmaz. Ek şart: 14 günü geçmiş eski kayıt açılınca `tehdit_baslangic_gunu` başa alınmaz.
   - Bağımlılık: yok. Boyut: S.

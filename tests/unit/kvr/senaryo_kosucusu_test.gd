@@ -30,7 +30,7 @@ func _initialize() -> void:
 	var zar := asil.baskin_zar
 	r = SenaryoKosucusu.calistir(baskin, "baskin", 14)
 	_kontrol(r["gecen"] == 1 and _olay_var(r["raporlar"][0]["rapor"], "koy.olay.baskin"), "Gerçek husumet baskını kesin oluşur")
-	_kontrol(baskin.yonetim.a == asil and asil.baskin_zar == zar, "Baskın olasılığı kaynak ayarda değişmez")
+	_kontrol(baskin.yonetim.a == asil and asil.baskin_zar == zar and not baskin.yonetim.has_meta(preload("res://src/sistemler/tehdit_takvimi.gd").DEBUG_BASKIN), "Baskın olasılığı kaynak ayarda değişmez; geçici debug izni temizlenir")
 	var veba := _oturum()
 	r = SenaryoKosucusu.calistir(veba, "veba", 14)
 	_kontrol(r["gecen"] == 1 and r["hazirlik"]["hasta_koylu"] == 2, "Salgın stres girdisi gerçek köylülere")

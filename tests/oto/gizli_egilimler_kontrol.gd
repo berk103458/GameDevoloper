@@ -10,6 +10,8 @@ class TestAna extends Ana:
 		theme = Tema.olustur(ayarlar)
 var hata := 0
 func _ready() -> void:
+	# Gizli fiil arayüzü; alışma süresi ayrı testte.
+	preload("res://src/sistemler/tehdit_takvimi.gd").AYAR.tehdit_baslangic_gunu = 0
 	get_tree().create_timer(60.0).timeout.connect(func() -> void: get_tree().quit(1))
 	var ana := TestAna.new()
 	add_child(ana)

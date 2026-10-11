@@ -76,3 +76,15 @@ Sahiplik 5f5ce8a; son pull 6f95634 (yalnız Tester raporları değişmişti). Pu
 ## BUG-18 sahipliği — 11 Ekim 2026 (Kalfa)
 
 Pull kontrolü ed34d70; BUG-17 push edildi. BUG-18 için veri ayarlı tehdit başlangıcı, mevcut adlı aday/ağırlık akışı ve baskın/sabotaj tetiklerine ince adaptör. Gerçek gün kaydı okunur; Moğol, ulak ve diplomatik heyet ayrı kalır, debug doğal takvimi artırmaz. Önce sınır/kayıt testleri, sonra ilişkili regresyonlar; kapanış öncesi tek UTF-8 tam sanity. Asset gerekmedi; ds ayna yok.
+
+## BUG-18 hedefli doğrulama — 11 Ekim 2026 (Kalfa)
+
+Sahiplik ee0112e; pull hâlâ güncel. Yeni test önce erken geliş/fiil hatalarını gösterdi, adaptörden sonra geçti. Varsayılan 14, gerçek gün kaydından okunur; HAR-11 risk profilleri yeniden kopyalanmadı. Aday/ağırlık, doğal sabotaj/hırsızlık/baskın kapıları; erken husumet sönümü devam eder. Geçici debug baskın izni kayda girmez ve koşu sonunda temizlenir. CAS kaynak tur-offset fixtureları yeni alışma kapısından bağımsız koşar; iddialar korunur. 27 hedefli birim/sahne kontrolü geçti (work/bug18-target-final). Tasarım/kanıt docs/denetim/BUG-18-tehdit-takvimi.md; kapanış öncesi tek UTF-8 tam sanity başlıyor. Asset gerekmedi; ds ayna yok.
+
+İlk tam koşu erken durduruldu: hedefli taramada atlanan HAR-08 çete anlaşması fixture'ı da ilk günde baskın üretmek istiyordu. Kaynak süre/ganimet testi alışma ayarından ayrıldı, iddiaları korundu. Çete birim ve gerçek UI testi geçti; hedefli toplam 29. Baskın çağrı noktaları yeniden tarandı. İlk kısa koşu work/sanity-bug18-final içinde saklandı; nihai koşu work/sanity-bug18-final-2 içinde çalışıyor.
+
+BUG-18 koşusu sırasında f314e57 güvenli fast-forward ile alındı; yalnız Tester belgeleri değişmişti, oyun kaynaklarına uzak değişiklik yok. TUR-011, yayımlanan BUG-17'yi bağımsız kenar senaryolarıyla doğruladı. Tester dosyalarına yerel düzenleme yapılmadı; BUG-18 nihai koşusu sürüyor.
+
+## BUG-18 kapanışı — 11 Ekim 2026 (Kalfa)
+
+Son pull f314e57; sahiplik ee0112e. Tehdit başlangıcı JSON'da 14; mevcut tamamlanan gün okunur, doğal riskli adaylar ve sabotaj/baskın tetikleri erken çalışmaz. Normal husumet sönümü sürer. Moğol/resmi bildiri/heyet engellenmez; debug izni geçici ve kayda yazılmaz, eski gün geri sarılmaz. 29 hedefli kontrol + nihai UTF-8 tam sanity 330 PASS / 0 hata / 20 gece (work/sanity-bug18-final-2). API/import/CSV ve Python denetimleri geçti. Kaynak zaman/ganimet fixtureları bağımsız denetlendi; mevcut sonuç/RNG iddiaları korundu. Asset gerekmedi; ds ayna hâlâ yok, eşitlenemedi. Sonraki iş BUG-19; önce pull ve sahiplik push.

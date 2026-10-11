@@ -12,6 +12,8 @@ func kur(y: KoyYonetimi,tur: String) -> KoyBinasi:
     return b
  return null
 func _initialize() -> void:
+ # Kaynak ipucu/fiil testi; alışma kapısı ayrı tehdit_takvimi_test içindedir.
+ preload("res://src/sistemler/tehdit_takvimi.gd").AYAR.tehdit_baslangic_gunu = 0
  var kat:=Katalog.new()
  kat.yukle()
  for adli in [&"chr_001",&"chr_006"]:

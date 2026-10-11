@@ -5,6 +5,7 @@ static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("r
 const META := "casus_gece_takibi"
 ## Hazır hedef ve gerçek yaşayan köylü: meslek görevi/CHR metni ezilmez; sağlıklı nöbetçi hariç.
 static func plan(y: KoyYonetimi, k: Koylu) -> Dictionary:
+ if not preload("res://src/sistemler/tehdit_takvimi.gd").acik(y.gun): return {}
  if y.son != "" or k == null or not CirakEgitimi.saglam(k) or IsKazalari.uyuyor(k) or MuhafizMaasi.aday(k, y) or KervanKorumasi.disarida(y, k.id): return {}
  return hedef(y,k)
 ## Aynı gerçek hedef seçimi; çağıran fiil motoru kendi kaynak/sağlık koşulunu doğrular.
@@ -38,6 +39,7 @@ static func durum(y: KoyYonetimi) -> Dictionary:
  return oku(y.get_meta(META, {}))
 ## Gecede tek plan kaydı; yalnız hazır hedefler, yeni maliyet/hasar/zar yok.
 static func gece(y: KoyYonetimi) -> void:
+ if not preload("res://src/sistemler/tehdit_takvimi.gd").acik(y.gun): return
  var d := durum(y)
  if y.son != "" or d.son_gece == y.gun: return
  d.son_gece = y.gun

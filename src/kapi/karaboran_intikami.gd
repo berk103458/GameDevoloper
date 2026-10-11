@@ -16,6 +16,7 @@ static func durum(y: KoyYonetimi) -> Array[int]:
  return oku(y.get_meta(META,[]))
 ## Hüküm gecesi ilk gece; yaşayan gerçek tutuklu yoksa tetik yok. Zar/stok burada değişmez.
 static func tetikle(y: KoyYonetimi,olaylar: Array[Dictionary]) -> String:
+ if not preload("res://src/sistemler/tehdit_takvimi.gd").acik(y.gun): return ""
  if y.son!="": return ""
  var makbuz:=durum(y)
  for k in y.koylular:

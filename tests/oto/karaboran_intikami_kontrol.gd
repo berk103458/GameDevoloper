@@ -9,6 +9,8 @@ class TestAna extends Ana:
   kayit=GuvenliKayit.new("user://test_karaboran_ui.json")
   theme=Tema.olustur(ayarlar)
 func _ready() -> void:
+ # CAS hüküm tur-offset arayüzü; alışma süresi ayrı testte.
+ preload("res://src/sistemler/tehdit_takvimi.gd").AYAR.tehdit_baslangic_gunu = 0
  get_tree().create_timer(45.0).timeout.connect(func() -> void: get_tree().quit(1))
  var ana:=TestAna.new()
  add_child(ana)

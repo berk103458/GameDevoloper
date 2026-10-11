@@ -821,6 +821,9 @@ func _akce(olaylar: Array[Dictionary]) -> void:
 
 
 func _husumet(olaylar: Array[Dictionary]) -> void:
+	if not preload("res://src/sistemler/tehdit_takvimi.gd").baskin_acik(self):
+		husumet.puan = maxi(0, husumet.puan - a.husumet_sonum)
+		return
 	var sonuc := KaraboranIntikami.tetikle(self, olaylar)
 	if sonuc.is_empty(): sonuc = husumet.gece(a, etkin_muhafiz_sayisi(), _rng)
 	else: husumet.puan = maxi(0, husumet.puan - a.husumet_sonum)

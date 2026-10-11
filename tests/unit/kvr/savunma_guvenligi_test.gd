@@ -11,6 +11,7 @@ func _initialize() -> void:
 	var kat := Katalog.new()
 	kat.yukle()
 	var o := Oturum.new(kat, 1915)
+	o.gun = 15 # HAR-11 eşikleri tehdit alışma süresi sonrasında.
 	var y := o.yonetim
 	y.a = y.a.duplicate(true)
 	y.a.muhafiz_azami = 20
