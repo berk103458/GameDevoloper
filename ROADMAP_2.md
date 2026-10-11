@@ -177,7 +177,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.10 Kapanış
 
-- [/] **BUG-25:** (Kalfa) Kapı meşaleleri ve kuyu modeli onarımı.
+- [x] **BUG-25:** (Kalfa) Kapı meşaleleri ve kuyu modeli onarımı.
   - Ne: Kapıdaki iki meşalenin alev soketi ile ışık noktası aynı yerdedir. Kuyu tabanı zemine oturur ve tepesi bir köylünün boyunu geçmez. Yeni heykel üretilmez; duran modelin konumu, ölçeği ve malzemesi düzeltilir. Köyde ikinci bir meşale sınıfı açılmaz. Kuyu suyu kirletme hesabı değişmez.
   - Kurallar:
     1. İki meşalenin alev soketi ile ışık noktası aynı konumdadır.
@@ -6761,7 +6761,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KLT-10. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [/] **TEK-18:** (Kalfa) Push_error katalogu kilitlemez.
+- [x] **TEK-18:** (Kalfa) Push_error katalogu kilitlemez.
   - Ne: `GuvenliMetin` ve `Ayarlar.yukle` bozuk dosyada oyunu açar, varsayılana döner (`ayarlar.gd:38–49`). Bu davranış bozulmaz.
   - Kabul: bozuk `ayarlar.cfg` ile menü açılır. Test: birim.
   - Bağımlılık: yok. Boyut: S.

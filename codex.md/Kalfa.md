@@ -8,7 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-Muharrir’in ROADMAP 2 devri sürüyor. BUG-16…20 ve BUG-25, TEK-08/13/14/15 tamamlandı (Kalfa). Faz 0 ile başlayan Bölüm 41 teknik borcu sırayla yürür; BUG-22 ACL-01 bekler. Başka ajan sahipliklerine dokunulmaz. Sonraki hazır boş madde TEK-18; önce pull, sahiplik commit+push. Hedefli testler, olgun paket öncesi tek tam UTF-8 sanity, anlamlı (Kalfa) commit/push.
+Muharrir’in ROADMAP 2 devri sürüyor. BUG-16…20 ve BUG-25, TEK-08/13/14/15 tamamlandı (Kalfa). Faz 0 ile başlayan Bölüm 41 teknik borcu sırayla yürür; BUG-22 ACL-01 bekler. Başka ajan sahipliklerine dokunulmaz. Sonraki hazır boş madde TEK-19; önce pull, sahiplik commit+push. Hedefli testler, olgun paket öncesi tek tam UTF-8 sanity, anlamlı (Kalfa) commit/push.
 
 ## Roller
 
@@ -39,7 +39,7 @@ Push sonrası kısa duyuru `docs/MUHARRIR_RAPORU.md` başına yazılır. Bu dosy
 
 ## Güncel durum
 
-11 Ekim 2026: TEK-13/14/15 uygulama a33c874; nihai tek tam UTF-8 sanity 343 PASS / 0 hata / 20 gece, 5 hedefli kontrol. BUG-25 kapanış f41e1b8, TEK-08 kapanış 9cf9185. Pull güncel; reset/force yok. Asset gerekmedi. ds çalışma kopyası/ayna erişilemiyor; eşitlenemedi.
+11 Ekim 2026: BUG-25 takip + TEK-18 uygulama dd8f487; nihai tek tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece. Material ömür 200→1, mevcut beş cache, aktif kaynak korunur. TEK-08/13/14/15/16 kapandı; sıradaki TEK-19/20. Pull güncel, reset/force yok. Asset gerekmedi. ds çalışma kopyası/ayna erişilemiyor; eşitlenemedi.
 
 ## Windows UTF-8 ve test çalışma kuralı — 10 Ekim 2026 (Kalfa)
 
@@ -156,3 +156,5 @@ BUG-25 takip düzeltmesi: TEK-18 tam koşusunda kriz sahnesinin oyun iddiaları 
 BUG-25 takip: 200 yenilemede 200→1 Material; mevcut Pbr cache, beş cache temizliği ve aktif kuyu referansı. Ömür/ölçü/düşük bellek/gerçek geçiş 4 kontrol, kriz 3 + çınar 3, API/negatif cfg/import geçti. Material isteğe bağlı beşinci parametre eski çağrıları korur. BUG-25 ve TEK-18 kapanışları için tek yeni nihai tam UTF-8 koşu başlıyor; source sabit. Asset gerekmedi.
 
 BUG-25 takip + TEK-18 nihai tam 345 PASS / 0 beklenmeyen hata / 20 gece. Material ömür 200→1, mevcut beş cache, aktif referans korunumu; kriz/çınar tekrarlar ve tam koşuda geçti. Negatif cfg/gerçek menü geçti, iki kasıtlı config kaydı ayrı; genel hata bütçesi değişmedi. Uygulama commit, pull ve kapanış sırası. Asset gerekmedi; ds ayna yok.
+
+BUG-25 takip ve TEK-18 uygulama dd8f487. Aralıklı kuyu Material RID hatası için mevcut Pbr cachede aynı renkte tek malzeme paylaşılır: 200 yenilemede 200→1; memory_free yine beş cachei temizler, aktif kuyu korunur. Kriz/çınar üçer hedefli tekrar ve nihai tam koşuda geçti. Bozuk pid adlı ayrı test cfg sonrası tüm varsayılanlar ve gerçek menü açık; negatif çocuk süreçte tam iki kasıtlı config kaydı doğrulanır, genel hata bütçesi değişmez. Ömür/ölçü/bellek/geçiş 4 kontrol, kriz/çınar 6 tekrar, API/negatif cfg/import geçti. Nihai tek tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece. Önceki başarısız koşu kanıt olarak korunur; pull güncel, merge gerekmedi. Kanıt docs/denetim/BUG-25-kapi-kuyu-donusu.md ve TEK-18-bozuk-ayar-menu.md. Asset gerekmedi; ds ayna yok, eşitlenemedi. Sonraki hazır aday TEK-19/20 yükleme kontrolü; faz döngüsü sorusu Ajan Masası’nda.
