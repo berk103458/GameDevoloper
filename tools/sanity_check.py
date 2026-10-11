@@ -17,6 +17,9 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 ERROR = re.compile(r"SCRIPT ERROR|Parse Error|(?:^|\n)ERROR:|Failed to load script|\bKALDI\b")
+# Kısıtlı ajan ortamlarında (Codex/Tester sandbox) Godot sistem sertifika deposunu okuyamaz; oyunla ilgisiz
+# bu tek satır hata sayılmaz (TST-0011). Başka hiçbir ERROR satırı bu istisnaya girmez.
+ORTAM_GURULTUSU = re.compile(r"(?m)^ERROR: Failed to read the root certificate store\.[ \t]*\r?$")
 
 
 @contextmanager
@@ -56,7 +59,7 @@ def run(command, root, timeout, env=None):
                                    env={**os.environ, **env} if env else None, **options)
         stdout, stderr = process.communicate(timeout=timeout)
         output = stdout + stderr
-        return process.returncode == 0 and not ERROR.search(output), output
+        return process.returncode == 0 and not ERROR.search(ORTAM_GURULTUSU.sub("", output)), output
     except (subprocess.TimeoutExpired, OSError) as error:
         if process is not None and process.poll() is None:
             if os.name == "nt":

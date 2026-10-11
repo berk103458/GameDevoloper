@@ -39,6 +39,16 @@ class RunnerTest(unittest.TestCase):
         ok, _ = sanity.run([sys.executable, "-c", "import time; time.sleep(2)"], ROOT, 0.1)
         self.assertFalse(ok)
 
+    def test_sandbox_certificate_noise_is_ignored(self):
+        kod = "print('ERROR: Failed to read the root certificate store.'); print('GEÇTİ')"
+        ok, _ = sanity.run([sys.executable, "-c", kod], ROOT, 5)
+        self.assertTrue(ok)
+
+    def test_other_errors_still_fail_next_to_certificate_noise(self):
+        kod = "print('ERROR: Failed to read the root certificate store.'); print('ERROR: gercek hata')"
+        ok, _ = sanity.run([sys.executable, "-c", kod], ROOT, 5)
+        self.assertFalse(ok)
+
     def test_good_output_passes(self):
         ok, _ = sanity.run([sys.executable, "-c", "print('GEÇTİ')"], ROOT, 5)
         self.assertTrue(ok)
