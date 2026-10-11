@@ -542,3 +542,317 @@ Kapsam: `ROADMAP_2_A.md`, `ROADMAP_2_B.md`, `ROADMAP_2_C.md`, `ROADMAP_2_BOLUM_2
 | DYL-27 | TAŞI | DYL-03 | Yeminin zar açmaması DYL-03 kabulünde. |
 | DYL-28 | SİL | DYL-04 | Tanıklı yalanın dedikoduya düşmesi DYL-04 kural 4. |
 | DYL-29 | SİL | DIY-15 | Yalan tonunun etkiyi değiştirmemesi DIY-15. |
+
+## Bölüm 19–21 ayıklaması (Claude, 11 Ekim 2026)
+
+Kaynak: `ROADMAP_2.md` (0530d05) bölüm 19–21, 203 madde; temiz taslak `Roadmap-2/arsiv/C_1.md` (19.1–21.8). Taslağın tuttuğu 84 madde aynen alındı; 21.9 ve 21.10 taslakta yoktu, iki alt başlığın maddeleri aşağıda karara bağlandı ve boş kalan başlıklar düştü. Taslakta taşınmamış yedi koşul elle Ek şart olarak eklendi (ISG-48, ISG-52, ISG-53, YAP-41, YAP-65, YAP-69, YAP-83). Sonuç: 203 → 84 madde.
+
+| Kimlik | Karar | Hedef | Gerekçe |
+|---|---|---|---|
+| YAZ-01 | TUT | | Dünya kitabının on dört dosyası ve kaynak kuralı repoda yok; yazım hattının ilk girdisi. |
+| YAZ-02 | TUT | | `data/soz/yasak_kelimeler.txt` ve üslup kapısı henüz yok. |
+| YAZ-03 | TUT | | Yetmiş ses kartı ve alan şeması yazılmadı. |
+| YAZ-04 | TUT | | `tools/soz_yazim/` ve imza kapısı yok; üretim ile oyunu ayıran tek madde. |
+| YAZ-05 | TUT | | Üç pilot sahnesi toplu yazımdan önce onay noktası; dosyalar yok. |
+| YAZ-06 | TUT | | Yedi dalgalık kadro yazımı; en büyük içerik işi. |
+| YAZ-07 | TUT | | `tools/soz_dogrula.py` ve ADM önizleme düğmesi yok. |
+| YAZ-08 | TUT | | Köylü kartından açılan köy satırları kodda yok. |
+| YAZ-09 | TUT | | Çekirdek ve hitap kotasını sayan kadro denetimi yok. |
+| YAZ-10 | TUT | | İnceleme işaretleri ve `--kapsam` taraması yok. |
+| YAZ-11 | SİL | YAZ-01 | On dört dosya sayısı YAZ-01 kural 1'in son cümlesi. |
+| YAZ-12 | SİL | YAZ-01 | Kaynaksız dosyanın onaylanmaması YAZ-01 kural 2. |
+| YAZ-13 | SİL | YAZ-01 | Kitabın kural makinesi yazmaması YAZ-01 kural 3. |
+| YAZ-14 | SİL | YAZ-01 | Çelişen iki dosyanın oyuna girmemesi YAZ-01 uç durumu ve kabulünde. |
+| YAZ-15 | SİL | YAZ-01 | Coğrafyada olmayan şehrin hata vermesi YAZ-01 kabulünün son iddiası. |
+| YAZ-16 | TUT | | Kitabın dışa aktarım paketinde olmaması ayrı bir KLT-22 taramasıdır; YAZ-01 bunu ölçmüyor. |
+| YAZ-17 | SİL | YAZ-01 | İki isim onayı YAZ-01 kural 4. |
+| YAZ-18 | TAŞI | YAZ-01 | Kayıtta kitap sürüm alanı olmaması YAZ-01 Ek şartı oldu. |
+| YAZ-19 | TAŞI | YAZ-02 | İkinci üslup dosyasının reddi YAZ-02 Ek şartı oldu. |
+| YAZ-20 | TUT | | KLT-04 ile aynı yasak listeyi çağırma bağı; liste tekliğini koruyan ayrı tarama. |
+| YAZ-21 | TUT | | İki ağızda aynı iskelet uyarısı YAZ-09 sayımının dışında bir inceleme işi. |
+| YAZ-22 | TUT | | `hitap_puani` alanının açılmamasını tarayan ayrı kontrol; romans/puan sızıntısını kapatır. |
+| YAZ-23 | TAŞI | YAZ-02 | Doğaçlama taslağının dışa aktarımda olmaması YAZ-02 Ek şartı oldu. |
+| YAZ-24 | TUT | | `ogretici.` anahtarlarını üslup kapısına sokan bağ OGR-09'a dayanır; YAZ-02'de yok. |
+| YAZ-25 | TUT | | Teknik ayar anahtarlarını üslup taramasından çıkaran istisna; yoksa yanlış hata üretir. |
+| YAZ-26 | TUT | | Karakter ağzında yıl sayısı yasağı yeni bir doğrulayıcı kuralıdır. |
+| YAZ-30 | TUT | | Kart onayından önce DYL-11 kör okuma skoru şartı ayrı bir kapı. |
+| YAZ-31 | TAŞI | YAZ-03 | Eş kartında yasak meslek kuralı YAZ-03 Ek şartı oldu. |
+| YAZ-32 | SİL | YAZ-03 | Adsızın kart sayısına girmemesi YAZ-03 uç durumunun ilk cümlesi. |
+| YAZ-33 | TUT | | Örnek cümlesi boş kartın reddi DYL-14 bağıyla ayrı alan kontrolü. |
+| YAZ-34 | TAŞI | YAZ-03 | Ses kartının `kayit.json`'a girmemesi YAZ-03 Ek şartı oldu. |
+| YAZ-35 | TUT | | HAT belgesindeki adım sırasının atlanmaması KLT-01 kapısına bağlı ayrı iş. |
+| YAZ-36 | TAŞI | YAZ-04 | İstem yolunun `res://` dışında kalması YAZ-04 Ek şartı oldu. |
+| YAZ-37 | TAŞI | YAZ-04 | `tools/soz_kapi.py` tek kapı aracı YAZ-04 Ek şartı oldu. |
+| YAZ-38 | SİL | YAZ-04 | İmzasız dosyanın kopyalanmaması YAZ-04 kural 3. |
+| YAZ-39 | TUT | | Eski diyaloğun DYL-13 kaydı olmadan "taşındı" sayılmaması DIY-16 ile kesişen ayrı kapı. |
+| YAZ-40 | SİL | YAZ-04 | Üretimin oyun sürecinde çağrılmaması YAZ-04 kural 4. |
+| YAZ-41 | TAŞI | YAZ-04 | Reddedilen dosyanın komşuyu düşürmemesi YAZ-04 Ek şartı oldu. |
+| YAZ-43 | SİL | YAZ-05 | Pilotun üç kişi olması YAZ-05 kural 1. |
+| YAZ-44 | TAŞI | YAZ-09 | Pilotun kota paydasına girmesi YAZ-09 Ek şartı oldu. |
+| YAZ-45 | TUT | | Üç pilot kimliğinin DYL-16 `--check` listesine bağlanması ayrı fixture işi. |
+| YAZ-46 | SİL | YAZ-01 | Pilot şehir adı da coğrafya kabulüne tabi; YAZ-01 son iddiası kapsar. |
+| YAZ-47 | TUT | | Pilotta zorunlu `sira` alanının olmaması şema kontrolü (KLT-03); YAZ-05'teki "en çok bir sır" kuralından ayrı. |
+| YAZ-48 | TAŞI | YAZ-05 | Pilotta ses dosyası yolu olmaması YAZ-05 Ek şartı oldu. |
+| YAZ-49 | TAŞI | YAZ-08 | Pilot için ayrı köy sahnesi olmaması YAZ-08 Ek şartı oldu. |
+| YAZ-51 | SİL | YAZ-06 | Kadro listesi dışında dosya üretilmemesi YAZ-06 kural 2. |
+| YAZ-52 | SİL | YAZ-06 | Adsız şablonun kişi dosyası sayılmaması YAZ-06 kural 3. |
+| YAZ-53 | TAŞI | YAZ-06 | Eski CSV anahtarının silinmemesi YAZ-06 Ek şartı oldu. |
+| YAZ-54 | SİL | YAZ-06 | Kartsız kişinin üretilmemesi YAZ-06 kural 2'nin ikinci cümlesi. |
+| YAZ-55 | SİL | YAZ-09 | Kota aşımını hata sayıyordu; YAZ-09 kotayı uyarı ve gerekçe notuyla yönetir. Çelişki, taslağın kararı korundu. |
+| YAZ-58 | TAŞI | YAZ-06 | Yarım paketin yüklenmemesi YAZ-06 Ek şartı oldu. |
+| YAZ-59 | SİL | YAZ-07 | Önizlemenin yalnız ADM panelinde olması YAZ-07 kural 3–4. |
+| YAZ-61 | TAŞI | YAZ-07 | Önizlemede düz gömülü cümle olmaması YAZ-07 Ek şartı oldu. |
+| YAZ-62 | SİL | YAZ-07 | Önizlemenin kayda yazmaması YAZ-07 kural 3 ve kabulü. |
+| YAZ-63 | TAŞI | YAZ-08 | Kapı düğüm kimliğinin köyde tekrar etmemesi YAZ-08 Ek şartı oldu. |
+| YAZ-64 | TAŞI | YAZ-08 | Günde tek konu YAZ-08 Ek şartı oldu. |
+| YAZ-65 | TUT | | Köy satırının SOY-46 söylentisini okuması dedikodu bağının tek yeri. |
+| YAZ-66 | TAŞI | YAZ-08 | Ayrı sohbet sahnesi açılmaması YAZ-08 kural 1 ve `koy_sahnesi` Ek şartında. |
+| YAZ-67 | SİL | YAZ-09 | Çekirdek kotası YAZ-09 kural 2. |
+| YAZ-68 | SİL | YAZ-09 | Dinleyici kotasını ayrı sütun istiyordu; YAZ-09 kural 2 "dürüst + dinlenmek isteyen" birlikte sayar. Çelişki, taslağın kararı korundu. |
+| YAZ-70 | TUT | | Kota raporunun turda tek satır olması KLT-18 rapor biçimi; YAZ-09'da yok. |
+| YAZ-71 | SİL | YAZ-10 | Her satırın işaret alması ve atlananın listelenmesi YAZ-10 kural 1 ve 3. |
+| YAZ-72 | SİL | YAZ-10 | Taramanın oyuncuya çıkmaması YAZ-10 kural 3. |
+| YAZ-73 | SİL | YAZ-20 | İncelemenin yasak listeyi USLUP'tan okuması YAZ-20'nin tek liste kuralı. |
+| YAZ-74 | TUT | | İnceleme sonucunun HAT.md kutusuna yazılması dosyanın hazır sayılma şartı. |
+| YAZ-75 | TUT | | Anahtar biçimi YER-02 standardına bağlı; metin doğrulayıcısına yeni kural. |
+| YAZ-76 | TUT | | `%s`/`%d` sayısının kodla eşitliği yeni araç kuralı. |
+| YAZ-77 | TUT | | Boş Türkçe hücrenin hata olması YER-04 ile kesişen doğrulama. |
+| YAZ-78 | TUT | | TST-0006 çift boşluk kuralını `sohbet.` önekine genişletir. |
+| YAZ-79 | TUT | | Kişi adının ikinci dilde aynı kalması YER-17 uyarısı. |
+| YAZ-80 | TUT | | `CHR_XXX_DUGUM_YY` biçimini koruyan ret kuralı. |
+| YAZ-81 | TUT | | Yetim anahtarın silinmeden listelenmesi; temizlik ile silme ayrılır. |
+| YAZ-83 | TUT | | YAZ içeriğinin DIY-02 motoruna girmesi, ikinci motor açılmasını engeller. |
+| YAZ-84 | SİL | YAZ-02 | Ses dosyası eklenmemesi YAZ-02 uç durumunda ve YAZ-05 Ek şartında. |
+| YAZ-87 | TUT | | Kayıtta konuşmanın anahtar olarak durması KAY-04 göçüyle bağlı. |
+| YAZ-89 | TUT | | Eski kaydın söz dosyası olmadan açılması göç güvencesi. |
+| YAZ-90 | SİL | | Beş iddia kendi maddelerinin kabulünde: 14 dosya YAZ-01, pilotsuz kopya YAZ-05, düz cümle YAZ-07, çalışma anında istem YAZ-04. "Kota aşımı red" YAZ-09 ile çeliştiği için alınmadı. |
+| ISG-01 | TUT | | Kabul panelindeki meslek uyarısı ve `meslek_binalari.json` yok. |
+| ISG-02 | TUT | | Geçici işler havuzu ve `gecici_isler.json` yok. |
+| ISG-03 | TUT | | "Boşta: N kişi" HUD satırı ve boşta bedeli yok. |
+| ISG-05 | SİL | ISG-01 | Meslek listesinin eşleme dosyasından okunması ISG-01 kural 1. |
+| ISG-07 | TAŞI | ISG-01 | Eşe uyarı çıkmaması ISG-01 Ek şartı oldu. |
+| ISG-09 | SİL | ISG-01 | Uyarının kabulü kapatmaması ISG-01 "Ne" metninde yazılı. |
+| ISG-11 | TAŞI | ISG-01 | Uyarının kayda yazılmaması ISG-01 Ek şartı oldu. |
+| ISG-12 | SİL | ISG-02 | Havuzun ISG-02 olduğunu söyleyen madde ISG-02'nin kendisi. |
+| ISG-13 | TUT | | Havuzun bina şartı BUG-16 koşul okumasına bağlı ayrı kontrol. |
+| ISG-14 | TAŞI | ISG-02 | Aynı kişiye ikinci iş yazılmaması ISG-02 Ek şartı oldu. |
+| ISG-15 | TAŞI | ISG-02 | Yaralının yazılmaması ISG-02 Ek şartında (çocuk, yaralı, nöbetçi). |
+| ISG-16 | TAŞI | ISG-02 | Nöbetçinin yazılmaması ISG-02 Ek şartında. |
+| ISG-18 | TAŞI | ISG-02 | Havuz sırasının kayda girmemesi ISG-02 Ek şartı oldu. |
+| ISG-20 | SİL | ISG-03 | Bedelin veri dosyasında olması ISG-03 kural 2. |
+| ISG-21 | TAŞI | ISG-03 | Günde tek düşüş ISG-03 Ek şartı oldu. |
+| ISG-22 | SİL | ISG-03 | İşteki kişinin sayılmaması ISG-03 kural 1 ve 4. |
+| ISG-24 | SİL | ISG-03 | HUD'da tek satır ISG-03 kural 1. |
+| ISG-25 | TUT | | Bedel ölçümünün DEN satırı olması denge bandına bağlı ayrı ölçüm. |
+| ISG-26 | TAŞI | ISG-03 | Kış çarpanının mevsim kaydından okunması ISG-03 Ek şartı oldu. |
+| ISG-27 | TAŞI | ISG-03 | Açlık çubuğuyla birleşmemesi ISG-03 Ek şartı oldu. |
+| ISG-28 | TAŞI | ISG-02 | Atamanın sürükleme kulpundan yapılması ISG-02 Ek şartı oldu. |
+| ISG-30 | TUT | | Yanlış binaya bırakılan kişinin geri dönmesi atama arayüzünün yeni kuralı. |
+| ISG-32 | TUT | | Duraklatta atamanın uygulanmaması zaman denetimiyle kesişen ayrı kural. |
+| ISG-33 | TUT | | Atama ipucunun bir kez çıkması OGR öğretici bağı. |
+| ISG-35 | TUT | | Klavyeyle atama GIR erişilebilirlik işi; fareyi şart olmaktan çıkarır. |
+| ISG-36 | SİL | | Çalışansız üretim olmaması duran üretim hesabının mevcut davranışı; yeni iş değil. |
+| ISG-37 | TUT | | Ustasız çırağın yarım üretimi TEZ-07 bağı. |
+| ISG-38 | TUT | | Grevdeki kişinin işten düşmesi `meslek_grevi.gd` ile havuz arasındaki bağ. |
+| ISG-39 | TUT | | Grev eşiğinin SOY-34'ten okunması ikinci eşiği engeller. |
+| ISG-40 | TUT | | Sağlık 0 iken üretimin 0 olması KRI bağı. |
+| ISG-41 | SİL | | Açlık verimi YSM-02'nin işi; burada tekrar ediliyordu. |
+| ISG-42 | SİL | | Mevsim verimi MEV maddelerinde; ISG-03 Ek şartı kış çarpanını zaten mevsim kaydına bağlıyor. |
+| ISG-43 | TUT | | Üretim ölçümünün DEN'de durması denge bandı. |
+| ISG-44 | TUT | | İş yerinin ızgarada olması BUG-23 testine bağlı. |
+| ISG-45 | TUT | | Bina yokken yer tutucu iş açılmaması BUG-16 koşuluna bağlı. |
+| ISG-46 | SİL | | Kapasite bina kataloğundaki `slot` alanıdır (`data/koy/binalar.json`); yeni kural değil. |
+| ISG-47 | SİL | ISG-02 | Sayıların kod sabiti olmaması ISG-02 kural 2. |
+| ISG-48 | TAŞI | ISG-02 | Yıkılan binanın işçisinin hatasız boşa düşmesi ISG-02'ye Ek şart olarak eklendi. |
+| ISG-51 | TAŞI | ISG-02 | Boş yuvanın sabah dolmaması ISG-02 Ek şartı oldu. |
+| ISG-52 | TAŞI | ISG-02 | Kartta ham anahtar görünmemesi ISG-02'ye Ek şart olarak eklendi. |
+| ISG-53 | TAŞI | ISG-03 | "Boşta" sözcüğünün CSV anahtarından gelmesi ISG-03'e Ek şart olarak eklendi. |
+| ISG-56 | TUT | | İş ikonunun `Sanat` kaynağından gelmesi GRV-27 bağı. |
+| ISG-57 | TUT | | İkon yokken harf yer tutucusu; asset kuralının uygulaması. |
+| ISG-60 | TUT | | Atamanın kişi kaydında durması kayıt şemasının kararı. |
+| ISG-61 | TUT | | Yüklemenin atamayı ikinci kez üretmemesi çift ürün hatasını kapatır. |
+| ISG-62 | TUT | | Eski kayıtta iş alanı yoksa açılış göç kuralı. |
+| ISG-63 | TAŞI | ISG-02 | Aynı tohumda aynı geçici iş kimliği ISG-02 Ek şartı oldu. |
+| ISG-67 | TUT | | Otuz günlük boşta oranı bandı DEN ölçümü. |
+| ISG-69 | SİL | ISG-02 | İkinci meslek ağacı yasağı bölüm girişinde ve ISG-02 Ek şartında (yeni meslek sınıfı adı yok). |
+| ISG-73 | TUT | | Çırak yaşının UZM-04'ten okunması; ISG yaş icat etmez. |
+| ISG-74 | TAŞI | ISG-02 | Yeni sınıf adı yasağı ISG-02 Ek şartı oldu. |
+| ISG-75 | TAŞI | ISG-02 | `muhafiz_maas` ile karışmama ISG-02 Ek şartı oldu. |
+| ISG-76 | TAŞI | ISG-01 | Uyarının köy ekranında tekrar basılmaması ISG-01 Ek şartı oldu. |
+| ISG-77 | TUT | | Ayarlar menüsünden iş atanmaması AYR ile sınır. |
+| ISG-78 | TUT | | Tezgâh yüzünün TEZ'de kalması sipariş cümlesini ayırır. |
+| ISG-79 | SİL | | Yapı kilidi YAP-01'in işi; burada yalnız gönderme yapıyordu. |
+| ISG-80 | TUT | | Divanın iş cezası yazmaması CAS üçlü kararıyla sınır. |
+| ISG-83 | SİL | | Altı iddia ISG-01…03 kabullerinde ve Ek şartlarında; ayrı kapanış testi tekrar olurdu. |
+| YAP-01 | TUT | | `data/koy/yapi_kademeleri.json` ve kilit menüsü yok. |
+| YAP-02 | TUT | | Bilgi bayrağı ve üç kaynak kodda yok. |
+| YAP-03 | TUT | | `data/ustalar.json` ve usta pazarlığı yok. |
+| YAP-04 | TUT | | Defter ve yapı resmi ganimeti yok. |
+| YAP-05 | TUT | | Çözümleme odası ve `usta_defterleri.json` yok. |
+| YAP-06 | TUT | | `data/ozel_esyalar.json` yok. |
+| YAP-08 | SİL | YAP-01 | "Kademe UZM seviyesidir" diyordu; YAP-01 kural 3 kademeyi kişinin UZM seviyesinden açıkça ayırır. Çelişki. |
+| YAP-09 | TAŞI | YAP-01 | Bedelin `.gd` sabiti olmaması YAP-01 Ek şartı oldu. |
+| YAP-10 | TAŞI | YAP-01 | Yetmeyen bedelde kapalı düğme YAP-01 Ek şartı oldu. |
+| YAP-11 | TAŞI | YAP-01 | Kademe atlanmaması YAP-01 Ek şartı oldu. |
+| YAP-12 | TAŞI | YAP-01 | Yıkımın kademeyi sıfırlaması YAP-01 Ek şartı oldu. |
+| YAP-14 | TAŞI | YAP-01 | Kademe ikonu üretilmemesi YAP-01 Ek şartı oldu. |
+| YAP-15 | SİL | YAP-02 | Üç kaynak YAP-02 kural 1. |
+| YAP-16 | SİL | YAP-02 | Geçmişin yapı açması YAP-02 kural 1 ve uç durumu. |
+| YAP-17 | SİL | YAP-02 | Çırağın bilgiyi tutması YAP-02 kural 3 ve Ek şartı. |
+| YAP-18 | SİL | YAP-01 | Bilgisiz düğmenin gri durup sebep yazması YAP-01 kural 2. |
+| YAP-19 | SİL | YAP-02 | Bilginin kalıcılığı YAP-02 kural 3. |
+| YAP-20 | TUT | | Bilgi alanının kayıtta optional olması göç güvencesi. |
+| YAP-24 | TUT | | Ustanın adlı dosya olması KOP-10 adsız havuzuyla sınır. |
+| YAP-25 | SİL | YAP-03 | Reddedilen ustanın bilgi getirmemesi YAP-03 uç durumu. |
+| YAP-26 | SİL | YAP-02 | Usta ölünce ayaktaki yapının durması YAP-02 kural 2. |
+| YAP-27 | TAŞI | YAP-03 | İkinci ziyarette bilgi deltasının sıfır olması YAP-03 Ek şartı oldu. |
+| YAP-28 | TUT | | Usta çocuğunun çıraklığı UZM-04 yaşına bağlı ayrı kural. |
+| YAP-29 | TUT | | Ustanın nöbet tutmaması NBT ile sınır. |
+| YAP-32 | TAŞI | YAP-04 | Defterin yeni eşya sınıfı açmaması YAP-04 Ek şartı oldu. |
+| YAP-33 | SİL | YAP-04 | Aynı defterin ikinci kilit açmaması YAP-04 kural 3. |
+| YAP-34 | TAŞI | YAP-04 | Defter için png üretilmemesi YAP-04 Ek şartı oldu. |
+| YAP-35 | SİL | YAP-04 | Yapı resminin aynı ganimet akışından gelmesi YAP-04 kural 1. |
+| YAP-36 | SİL | YAP-04 | Tablo dışı ganimetin defter üretmemesi YAP-04 uç durumu. |
+| YAP-37 | TUT | | Defter sözünün DYL-08 ile dönmesi ikinci dönüş motorunu engeller. |
+| YAP-38 | TUT | | Defter alanının kayıtta optional olması göç güvencesi. |
+| YAP-40 | TUT | | Çözümleme işçisinin yetişkin olması çocuk işi yasağı. |
+| YAP-41 | TAŞI | YAP-05 | İşçi işten alınınca sayacın durması YAP-05'e Ek şart olarak eklendi. |
+| YAP-42 | SİL | YAP-05 | Sürenin dosyada olması YAP-05 kural 2. |
+| YAP-43 | TAŞI | YAP-05 | Tek satır bildirim YAP-05 Ek şartı oldu. |
+| YAP-44 | TAŞI | YAP-05 | İkinci akçe düşüşü olmaması YAP-05 Ek şartı oldu. |
+| YAP-45 | TAŞI | YAP-05 | Ayrı kış araştırma sayısı olmaması YAP-05 Ek şartı oldu. |
+| YAP-46 | TUT | | Çözümleme ölçümünün DEN satırı olması denge bandı. |
+| YAP-47 | SİL | YAP-06 | Özel eşyanın YAP-06 listesinde olması YAP-06 kural 1. |
+| YAP-48 | SİL | YAP-06 | Eşyanın bir kez etkilemesi YAP-06 uç durumu (çarpan bir kez). |
+| YAP-49 | TAŞI | YAP-06 | Çocuk heybesinin ayrı kayıt açmaması YAP-06 Ek şartı oldu. |
+| YAP-50 | TAŞI | YAP-06 | Eşya ikonu için png üretilmemesi YAP-06 Ek şartı oldu. |
+| YAP-51 | TUT | | Eşya açıklamasının CSV anahtarı olması düz cümleyi engeller. |
+| YAP-52 | TAŞI | YAP-06 | Satıştan sonra kademenin açık kalması YAP-06 Ek şartı oldu. |
+| YAP-53 | TUT | | Kavga ganimetinin eşya kaynağı olması CAT ile bağ. |
+| YAP-54 | TUT | | Nadir eşyanın DEN bandına sokulmaması ölçüm kararı. |
+| YAP-55 | TUT | | Yapı kartının tema zemini GRV dosya maddesi. |
+| YAP-56 | SİL | YAP-01 | Kilit sebebinin görünmesi YAP-01 kural 2. |
+| YAP-58 | TAŞI | YAP-01 | Kilitli yapıda hayalet yerleşim olmaması YAP-01 Ek şartı oldu. |
+| YAP-59 | TAŞI | YAP-01 | Kart metninin kayması YAP-01 Ek şartı oldu. |
+| YAP-60 | TUT | | Eksik anahtarda kartın açık kalması hata dayanıklılığı. |
+| YAP-61 | TUT | | Kartın köy hızına dokunmaması zaman denetimi sınırı. |
+| YAP-62 | TUT | | Kartın 3B modeli değiştirmemesi SAH sınırı. |
+| YAP-63 | SİL | | Kurulumda kaynak düşmesi duran inşaat maliyetinin mevcut davranışı. |
+| YAP-64 | TAŞI | YAP-01 | İşçisiz inşaatın ilerlememesi YAP-01 Ek şartı oldu. |
+| YAP-65 | TAŞI | YAP-01 | Yarım inşaatın yüklemeden sonra aynı yerden sürmesi YAP-01'e Ek şart olarak eklendi. |
+| YAP-66 | SİL | | Yıkım iadesi duran `yik` kuralıdır; ikinci oran açılmıyor. |
+| YAP-67 | TAŞI | YAP-01 | İnşaatın kış çarpanını mevsimden okuması YAP-01 Ek şartı oldu. |
+| YAP-68 | TAŞI | YAP-01 | Hasta işçide inşaatın durması YAP-01 Ek şartı oldu. |
+| YAP-69 | TAŞI | YAP-01 | Sur taksitinin kademeden bağımsızlığı YAP-01'e Ek şart olarak eklendi. |
+| YAP-70 | TUT | | İnşaat süresi bandının DEN ölçümü. |
+| YAP-72 | TAŞI | YAP-01 | Yeni bina kimliği olmaması YAP-01 Ek şartında. |
+| YAP-78 | TAŞI | YAP-01 | Aynı tohumda aynı kilit listesi YAP-01 Ek şartında. |
+| YAP-79 | TAŞI | YAP-04 | "Şematik" sözcüğünün oyuncu metninde olmaması YAP-04 Ek şartında. |
+| YAP-82 | TAŞI | YAP-01 | Divanın kademe açmaması YAP-01 Ek şartında. |
+| YAP-83 | TAŞI | YAP-01 | Kapı kararının bina kurmaması YAP-01'e Ek şart olarak eklendi. |
+| YAP-85 | TAŞI | YAP-01 | Olay kartının kademe açmaması YAP-01 Ek şartında. |
+| YAP-86 | SİL | | Altı iddia YAP-01…06 kabullerinde ve Ek şartlarında; ayrı kapanış testi tekrar olurdu. |
+
+## Taşıma listeleri uygulandı (Claude, 11 Ekim 2026)
+
+Kaynak: `Roadmap-2/arsiv/TASIMA_LISTESI_{B,C2,26,27,28,29,30}.md`, 97 satır. Her satırın cümlesi hedef maddenin Kabul satırına "Ek şart:" olarak eklendi, kaynak madde `ROADMAP_2.md`'den silindi. Bağımlılık taramasında silinen kimliklere atıf kalmadı. ROADMAP 1 hedefli 9 satırda ROADMAP 1 değiştirilmedi.
+
+| Kimlik | Karar | Hedef | Not |
+|---|---|---|---|
+| NBT-20 | SİL | GIR-08 | Listede eklenecek cümle yok; kaynak silindi. |
+| NBT-30 | TAŞI | SAB-01 | Kabul satırına Ek şart: Sabah defteri nöbetin görülenler listesini ikinci kez basmaz; nöbeti anarsa bunu tek satır |
+| NBT-38 | SİL | OMR-45 | Listede eklenecek cümle yok; kaynak silindi. |
+| NBT-39 | TAŞI | GIR-08 | Kabul satırına Ek şart: Nöbet atama kartı açıkken Esc seçimi yuvaya yazmaz. |
+| NBT-42 | SİL | DIY-13 | Listede eklenecek cümle yok; kaynak silindi. |
+| NBT-79 | TAŞI | DEN-05 | Kabul satırına Ek şart: Nöbet maaşı ölçümü denge raporunun bir satırıdır; maaş formülü bu satırda değişmez. |
+| MCL-23 | TAŞI | GIR-08 | Kabul satırına Ek şart: Çınar meclisi oy düğmesi duraklat menüsü açıkken sadakat ve moral farkı yazmaz. |
+| MCL-26 | TAŞI | DEN-05 | Kabul satırına Ek şart: Çınar meclisinin oy farkı denge formülünü değiştirmez; ölçüm yeni bir tüketim fonksiyonu a |
+| MCL-55 | TAŞI | SAB-01 | Kabul satırına Ek şart: Çınar meclisi sabah defterine cümle yazmaz; sabah satırının kaynağı CAS-07 hükmüdür. |
+| MCL-59 | SİL | OMR-44 | Listede eklenecek cümle yok; kaynak silindi. |
+| MCL-60 | TAŞI | OMR-44 | Kabul satırına Ek şart: Aynı gecede köy şikâyeti ile dış hat konusu birlikte açılmaz; dış hat varsa konuşulan konu |
+| MCL-61 | TAŞI | OMR-24 | Kabul satırına Ek şart: Dış hat yüzü çınarın altında durmaz; mecliste yalnız adı anılır, modeli kapıda kalır. |
+| MCL-62 | TAŞI | SOY-16 | Kabul satırına Ek şart: Çınar meclisi kamuoyu değerini tek başına değiştirmez; düşüş divan hükmü veya süre dolumud |
+| MCL-69 | TAŞI | GRV-15 | Kabul satırına Ek şart: Çınar meclisi şikâyet satırı kaydırılır; uzun metinde kesilen glif kalmaz. |
+| MCL-72 | TAŞI | TEK-24 | Kabul satırına Ek şart: Çınar meclisi paneli açıkken oyun hızı değişmez; panel kapanınca hız kaldığı değere döner. |
+| MCL-76 | TAŞI | NBT-03 | Kabul satırına Ek şart: Çınar meclisi açıkken nöbet devri aynı gece yazılır; meclis devri kesmez. |
+| MCL-81 | TAŞI | ISG-02 | Kabul satırına Ek şart: Çınar meclisi gecesinde geçici iş ve bina üretimi kesilmez; iş o gece biter. |
+| MCL-82 | TAŞI | NBT-01 | Kabul satırına Ek şart: Çınar meclisi nöbetçi maaşını değiştirmez. |
+| SAB-17 | TAŞI | KAY-04 | Kabul satırına Ek şart: Eski kayıtta sabah defteri satırı yoksa satır boş sayılır ve oyun açılır. |
+| SAB-18 | TAŞI | TEK-22 | Kabul satırına Ek şart: Sabah defteri satırı yazılırken `time_scale` değişmez. |
+| SAB-25 | TAŞI | HAN-07 | Kabul satırına Ek şart: Hüküm sabahı eşin üretim satırını ikinci kez basmaz. |
+| SAB-42 | TAŞI | KAY-04 | Kabul satırına Ek şart: Eski kayıtta sabah gün sayacı yoksa sayaç 0 sayılır ve yükleme onu artırmaz. |
+| SAB-55 | TAŞI | NBT-07 | Kabul satırına Ek şart: Hüküm sabahı nöbet raporunun iki satırını tam liste diye basmaz. |
+| SAB-56 | TAŞI | MCL-05 | Kabul satırına Ek şart: Hüküm sabahı meclis sahnesini açmaz. |
+| SAB-57 | TAŞI | ZAR-01 | Kabul satırına Ek şart: Hüküm sabahı zar atışı yazmaz. |
+| SAB-62 | TAŞI | YSM-02 | Kabul satırına Ek şart: Zindan payı bitince yeni hastalık açılmaz; sağlık düşüşü yalnız açlık kademesindedir. |
+| SAB-64 | TAŞI | DEN-05 | Kabul satırına Ek şart: Zindan ekmek payı denge formülünü değiştirmez; ölçüm mevcut gece raporunu okur. |
+| SAB-68 | SİL | KAP-16 | Listede eklenecek cümle yok; kaynak silindi. |
+| SAB-69 | TAŞI | ACL-02 | Kabul satırına Ek şart: Eş sürgün yoluna yazılırsa hane uyarısı çıkar ve köy kaydı silinmez. |
+| SAB-78 | TAŞI | GRV-15 | Kabul satırına Ek şart: Hüküm sabahı paneli uzun satırda glif kesmez, kaydırır. |
+| TEZ-14 | TAŞI | HAN-07 | Kabul satırına Ek şart: Eşin meslek çıktısı dört tezgâh sabahına yazılmaz; tezgâh ikinci meslek sınıfı açmaz. |
+| TEZ-37 | SİL | YAZ-21 | Listede eklenecek cümle yok; kaynak silindi. |
+| TEZ-38 | SİL | YAZ-26 | Listede eklenecek cümle yok; kaynak silindi. |
+| TEZ-40 | SİL | SAB-01 | Listede eklenecek cümle yok; kaynak silindi. |
+| TEZ-41 | SİL | DIY-13 | Listede eklenecek cümle yok; kaynak silindi. |
+| TEZ-47 | SİL | DEN-05 | Listede eklenecek cümle yok; kaynak silindi. |
+| TEZ-58 | SİL | DEN-05 | Listede eklenecek cümle yok; kaynak silindi. |
+| TEZ-70 | TAŞI | GRV-15 | Kabul satırına Ek şart: Tezgâh sabah satırı köy panelinde kesilmez; 400 karakterlik denemede son satır kayarak oku |
+| TEZ-72 | TAŞI | GIR-08 | Kabul satırına Ek şart: Esc tezgâh teslimini onaylamaz; ücret ve parça o tuşla yazılmaz. |
+| TEZ-89 | SİL | OZL-30 | Listede eklenecek cümle yok; kaynak silindi. |
+| YIL-34 | SİL | DEN-05 | Listede eklenecek cümle yok; kaynak silindi. |
+| YIL-62 | SİL | SAB-01 | Listede eklenecek cümle yok; kaynak silindi. |
+| YIL-69 | TAŞI | GRV-15 | Kabul satırına Ek şart: Yıl cümlesi köy satırında kesilmez; 400 karakterlik denemede son satır kayarak okunur. |
+| YIL-71 | TAŞI | GIR-08 | Kabul satırına Ek şart: Esc yıl cümlesini kapatır, moral ve erzak yazmaz. |
+| YIL-81 | SİL | DEN-05 | Listede eklenecek cümle yok; kaynak silindi. |
+| DYL-73 | SİL | ARY-02 | Listede eklenecek cümle yok; kaynak silindi. |
+| DYL-76 | TAŞI | GIR-06 | Kabul satırına Ek şart: Kapıdaki sorgu eylemleri ok tuşuyla seçilir; bu iş yeni oyun kolu şartı açmaz. |
+| DYL-77 | TAŞI | KAP-39 | Kabul satırına Ek şart: Heybe açıkken sorgu eylemi seçilmez; panel kapanınca aynı düğme durur. |
+| DYL-78 | SİL | KAP-16 | Listede eklenecek cümle yok; kaynak silindi. |
+| DYL-81 | TAŞI | KAY-04 | Kabul satırına Ek şart: Eski kayıtta eylem listesi yoksa liste boş sayılır. |
+| DYL-82 | TAŞI | KAY-04 | Kabul satırına Ek şart: Kayıt yüklenince aynı kapı eylemi ikinci kez uygulanmaz. |
+| DYL-85 | TAŞI | DEN-05 | Kabul satırına Ek şart: Ölçüm raporunda her sorgu eyleminin kullanım sayısı bir satırdır; gece formülü değişmez. |
+| DYL-89 | TAŞI | TEK-12 | Kabul satırına Ek şart: Kapı ekranına `eylem_bitti` sinyali eklenmez. |
+| DYL-95 | SİL | KLT-23 | Listede eklenecek cümle yok; kaynak silindi. |
+| YSM-37 | TAŞI | TEK-03 | Kabul satırına Ek şart: Yaşam satırları güvenlik satırını ilk ekrandan düşürmez. |
+| YSM-38 | SİL | ARY-02 | Listede eklenecek cümle yok; kaynak silindi. |
+| YSM-42 | SİL | TEK-22 | Listede eklenecek cümle yok; kaynak silindi. |
+| YSM-51 | TAŞI | DEN-05 | Kabul satırına Ek şart: Aç kişi oranı gece ölçümüne bir satır eklenir; denge hesabı ikinci kez çalışmaz. |
+| YSM-60 | TAŞI | DIY-09 | Kabul satırına Ek şart: Aç kişinin söz bağlamına aclik anahtarı yazılır; motor ikinci cümle üretmez. |
+| YSM-62 | SİL | DIY-13 | Listede eklenecek cümle yok; kaynak silindi. |
+| YSM-63 | TAŞI | SAB-01 | Kabul satırına Ek şart: Ölüm sabah defterine tek satır yazılır; ikinci ölüm cümlesi açılmaz. |
+| YSM-66 | TAŞI | ZAR-04 | Kabul satırına Ek şart: Yorgunluk yaklaşım eki varsa yalnız zar değiştirici tablosundadır; yaşam kodu iç ek yazmaz |
+| DNY-13 | SİL | OMR-37 | Listede eklenecek cümle yok; kaynak silindi. |
+| DNY-15 | SİL | OMR-36 | Listede eklenecek cümle yok; kaynak silindi. |
+| DNY-19 | TAŞI | SOY-13 | Kabul satırına Ek şart: Haber satırı kamuoyu barını tek başına değiştirmez. |
+| DNY-28 | SİL | DEN-05 | Listede eklenecek cümle yok; kaynak silindi. |
+| DNY-32 | TAŞI | DIY-09 | Kabul satırına Ek şart: Dünya işareti söz bağlamına dunya öneki ve olay kimliği olarak girer; motor yeni cümle üre |
+| DNY-35 | SİL | OMR-50 | Listede eklenecek cümle yok; kaynak silindi. |
+| DNY-44 | SİL | SRM-07 | Listede eklenecek cümle yok; kaynak silindi. |
+| DNY-46 | SİL | GRV-15 | Listede eklenecek cümle yok; kaynak silindi. |
+| DNY-47 | SİL | TEK-22 | Listede eklenecek cümle yok; kaynak silindi. |
+| DNY-51 | SİL | SOY-31 | Listede eklenecek cümle yok; kaynak silindi. |
+| DNY-58 | SİL | YIL-01 | Listede eklenecek cümle yok; kaynak silindi. |
+| DNY-59 | TAŞI | DEN-01 | Kabul satırına Ek şart: Olay olasılığı dünya işaretini silmez. |
+| DNY-67 | SİL | DEN-05 | Listede eklenecek cümle yok; kaynak silindi. |
+| DNY-76 | SİL | OZL-25 | Listede eklenecek cümle yok; kaynak silindi. |
+| DNY-81 | TAŞI | NBT-06 | Kabul satırına Ek şart: Nöbet ekranı çizelge işaretine yazmaz. |
+| SEV-11 | SİL | ZAR-01 | Listede eklenecek cümle yok; kaynak silindi. |
+| SEV-12 | TAŞI | KAY-04 | Kabul satırına Ek şart: Boş gün kayıtta bos türüyle durur; alan yoksa o gün yok sayılır. |
+| SEV-21 | SİL | DIY-02 | Listede eklenecek cümle yok; kaynak silindi. |
+| SEV-46 | TAŞI | DIY-03 | Kabul satırına Ek şart: Bağ için söz dalı yoksa doğrulayıcı hata yazmaz. |
+| SEV-54 | SİL | YER-17 | Listede eklenecek cümle yok; kaynak silindi. |
+| SEV-68 | SİL | GRV-15 | Listede eklenecek cümle yok; kaynak silindi. |
+| SEV-69 | SİL | GIR-08 | Listede eklenecek cümle yok; kaynak silindi. |
+| SEV-70 | TAŞI | TEK-22 | Kabul satırına Ek şart: Boş günde hız köy ekranının seçimidir; kapı kilidi uygulanmaz. |
+| SEV-74 | SİL | KAP-16 | Listede eklenecek cümle yok; kaynak silindi. |
+| SEV-78 | SİL | DEN-05 | Listede eklenecek cümle yok; kaynak silindi. |
+| NBT-69 | TAŞI | YSM-03 | Listede hedef YSM-24 yazıyordu, böyle madde yok; NBT-69'un kendi bağımlılığı YSM-03 (gece evde uyku). Ek şart YSM-03'e yazıldı. |
+| DNY-80 | TAŞI | DNY-01 | Hedef CAS-07 ROADMAP 1'de (salt okunur); cümle çizelge işaretini tanımlayan DNY-01'e Ek şart olarak yazıldı. |
+| NBT-81 | SİL | ROADMAP 1 EKO-07 | Hedef ROADMAP 1'de (salt okunur) ve listede eklenecek cümle yok; kaynak silindi. |
+| SAB-15 | SİL | ROADMAP 1 SYS-09 | Hedef ROADMAP 1'de (salt okunur) ve listede eklenecek cümle yok; kaynak silindi. |
+| SAB-80 | SİL | ROADMAP 1 SYS-09 | Hedef ROADMAP 1'de (salt okunur) ve listede eklenecek cümle yok; kaynak silindi. |
+| YSM-41 | SİL | ROADMAP 1 SYS-09 | Hedef ROADMAP 1'de (salt okunur) ve listede eklenecek cümle yok; kaynak silindi. |
+| YSM-67 | SİL | ROADMAP 1 UZM-08 | Hedef ROADMAP 1'de (salt okunur) ve listede eklenecek cümle yok; kaynak silindi. |
+| YSM-80 | SİL | ROADMAP 1 CAS-07 | Hedef ROADMAP 1'de (salt okunur) ve listede eklenecek cümle yok; kaynak silindi. |
+| DNY-49 | SİL | ROADMAP 1 SYS-09 | Hedef ROADMAP 1'de (salt okunur) ve listede eklenecek cümle yok; kaynak silindi. |
+| SEV-71 | SİL | ROADMAP 1 SYS-09 | Hedef ROADMAP 1'de (salt okunur) ve listede eklenecek cümle yok; kaynak silindi. |
