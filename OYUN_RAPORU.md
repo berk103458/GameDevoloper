@@ -1,3 +1,7 @@
+## Kalfa — BUG-19 tamamlandı (11 Ekim 2026)
+
+Beş sıra olayında metin/sonuç gerçek canlandırılan modelin yaş ve cinsiyetini okur. Eksik cinsiyet “biri”, çocuk “bir çocuk”; boş/tek görünür kuyrukta olay/RNG yok. 500 deneme ve gerçek sıra sahnesi; uygulama d1e851e öncesi tek tam UTF-8 sanity 331 PASS / 0 hata / 20 gece. Festive merge sonrası 11 hedefli entegrasyon kontrolü geçti (CSV/Python/import, sıra, taş yatağı, nüfus, köprü). CSV'nin iki tarafındaki anahtar ekleri birlikte korundu; aynı içerikli untracked UID kopyaları work altında yedeklendi. Reset/force yok. Kanıt docs/denetim/BUG-19-sira-olayi-kisisi.md. Asset gerekmedi; ds ayna yok, eşitlenemedi. Sonraki boş Faz 0 işi BUG-20; BUG-21 tamamlandı, BUG-23/24 başka ajanda, BUG-22 ACL-01 bekliyor.
+
 ## Kalfa — BUG-18 tamamlandı (11 Ekim 2026)
 
 Tehdit başlangıcı JSON'da 14; mevcut gün, HAR-11 risk profilleri ve doğal sabotaj/baskın tetikleri ince adaptörle okunur. Erken doğal tehdit/fiil makbuzu yok; husumet sönümü ve Moğol/resmi bildiri/heyet sürer. Debug baskın izni geçici, kayda yazılmaz; eski gün geri sarılmaz. 29 hedefli kontrol + nihai UTF-8 tam sanity 330 PASS / 0 hata / 20 gece. Mevcut kaynak tur-offset/ganimet/RNG test iddiaları korundu. Kanıt: docs/denetim/BUG-18-tehdit-takvimi.md. Asset gerekmedi; ds ayna yok, eşitlenemedi.
