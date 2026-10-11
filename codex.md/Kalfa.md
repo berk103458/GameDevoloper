@@ -8,7 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-Muharrir'in 11 Ekim devri: ROADMAP_2.md faz sırası sürer. BUG-16…20 tamamlandı (Kalfa). Yeni boş Faz 0 adayı BUG-25, önce pull ve sahiplik push. BUG-21/23 Codex tarafından bitti; BUG-24 ve TEK sahipliklerine dokunulmaz, BUG-22 ACL-01 bekler. Her maddeden önce pull/sahiplik commit+push; hedefli test ve kapanış öncesi tek UTF-8 tam sanity.
+Muharrir’in ROADMAP 2 devri sürüyor. BUG-16…20 ve BUG-25, TEK-08/13/14/15 tamamlandı (Kalfa). Faz 0 ile başlayan Bölüm 41 teknik borcu sırayla yürür; BUG-22 ACL-01 bekler. Başka ajan sahipliklerine dokunulmaz. Sonraki hazır boş madde TEK-16; önce pull, sahiplik commit+push. Hedefli testler, olgun paket öncesi tek tam UTF-8 sanity, anlamlı (Kalfa) commit/push.
 
 ## Roller
 
@@ -39,7 +39,7 @@ Push sonrası kısa duyuru `docs/MUHARRIR_RAPORU.md` başına yazılır. Bu dosy
 
 ## Güncel durum
 
-11 Ekim 2026: BUG-20 uygulama f4c19bc. Tek tam sanity 338 PASS / 0 hata / 20 gece; merge sonrası 10 hedefli kontrol 0 hata. BUG-19 kapanış 1032861. Festive merge ile alınır, reset/force yok. ds ayna bu bilgisayarda yok; eşitlenemedi. Asset gerekmedi. Sonraki boş madde pull sonrası kontrol edilir.
+11 Ekim 2026: TEK-13/14/15 uygulama a33c874; nihai tek tam UTF-8 sanity 343 PASS / 0 hata / 20 gece, 5 hedefli kontrol. BUG-25 kapanış f41e1b8, TEK-08 kapanış 9cf9185. Pull güncel; reset/force yok. Asset gerekmedi. ds çalışma kopyası/ayna erişilemiyor; eşitlenemedi.
 
 ## Windows UTF-8 ve test çalışma kuralı — 10 Ekim 2026 (Kalfa)
 
@@ -140,3 +140,5 @@ TEK-13/14/15: pull 9cf9185 güncel; aynı 41.3 alt başlığındaki S boyutlu me
 TEK-13/14/15: 5 hedefli kontrol geçti; tam beş cache/sayı sözleşmesi, üç gerçek düşük profil geçişi, aynı ses havuzu ve kapalı performans şeridi. Oyun src/data diff 0; yalnız test ve sanity sahne listesi genişletildi. Yeni kaynak/cache/asset yok. Nihai tam UTF-8 koşu başlıyor.
 
 TEK-13/14/15 nihai tam sanity 343 PASS / 0 hata / 20 gece. Test paketi olgun; uygulama commit, pull/merge ve kapanış sırası. Oyun src/data diff 0, asset gerekmedi; ds ayna yok.
+
+TEK-13/14/15 test paketi a33c874: beş cache dönüş anahtarı/sayıları, gerçek Ana._goster yolunda üç düşük profil geçişi, ertelenmiş karelerde ikinci temizlik olmaması, aktif kliplerin korunması, kapalı performans şeridi ve aynı gerçek ses havuzu doğrulandı. Oyun src/data diff 0; ikinci önbellek/havuz/motor yok. 5 hedefli kontrol + tek tam UTF-8 sanity 343 PASS / 0 hata / 20 gece. Pull güncel, ek merge gerekmedi. Kanıt docs/denetim/TEK-13-14-15-bellek-efekt.md. Asset gerekmedi; ds ayna yok, eşitlenemedi. Sonraki hazır boş Faz 0 teknik borç TEK-16; TEK-17 KLT-10 bekler. BUG-22 ACL-01 bağımlılığı sürüyor.

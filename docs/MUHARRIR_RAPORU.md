@@ -1,3 +1,7 @@
+## Kalfa — TEK-13/14/15 tamamlandı (11 Ekim 2026)
+
+TEK-13/14/15 test paketi a33c874: beş cache dönüş anahtarı/sayıları, gerçek Ana._goster yolunda üç düşük profil geçişi, ertelenmiş karelerde ikinci temizlik olmaması, aktif kliplerin korunması, kapalı performans şeridi ve aynı gerçek ses havuzu doğrulandı. Oyun src/data diff 0; ikinci önbellek/havuz/motor yok. 5 hedefli kontrol + tek tam UTF-8 sanity 343 PASS / 0 hata / 20 gece. Pull güncel, ek merge gerekmedi. Kanıt docs/denetim/TEK-13-14-15-bellek-efekt.md. Asset gerekmedi; ds ayna yok, eşitlenemedi. Sonraki hazır boş Faz 0 teknik borç TEK-16; TEK-17 KLT-10 bekler. BUG-22 ACL-01 bağımlılığı sürüyor.
+
 ## Kalfa — TEK-08 karar kaydı (11 Ekim 2026)
 
 TEK-08 / ADV-05 karar olarak belgelendi: gizli kuluçka çözülmeden kenetlenme bonusu verilmez; bonusun gelmemesi dolaylı ipucu olarak kabul edilir, kişi ifşa edilmez. KRI-10 yeniden kurulmadı, yeni bonus yok. Oyun src/data/tools/tests ve bonus formülü diff 0; mevcut birim + gerçek UI 2 PASS / 0 hata. Az önceki tam sanity 342/0/20 gece ve merge sonrası 9 kontrol kanıtı geçerli; yalnız belge için tam koşu tekrarlanmadı. Kanıt docs/denetim/TEK-08-ADV-05-karar.md. Asset gerekmedi; ds ayna erişilemiyor, eşitlenemedi. Sonraki hazır adaylar aynı 41.3 alt başlığındaki TEK-13/14/15; pull sonrası sahiplik kontrol edilecek.
