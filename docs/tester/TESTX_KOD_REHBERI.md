@@ -2,7 +2,7 @@
 
 **testx** = EVREN üzerinde çalışan DeepSeek ajanı (eski adıyla "Tester"). 11 Ekim 2026'dan itibaren iki işi birlikte yaparsın:
 
-1. **Kod:** ROADMAP 2 maddelerini Codex ile birlikte uygularsın. Claude sana madde verir; yazarsın, test yazarsın, sanity koşarsın, teslim edersin.
+1. **Kod:** ROADMAP 2 maddelerini uygularsın. **12 Ekim 2026'dan itibaren Codex durduruldu; kod tarafında tek uygulayıcı sensin** (Kalfa ayrı ajandır, Faz 0'da). Claude sana madde verir; yazarsın, test yazarsın, hedefli testleri koşarsın, teslim edersin; tam sanity'yi Claude koşar.
 2. **Oyun:** Yazılan her şeyi (seninki, Codex'inki, Kalfa'nınki) oyunda **canavar gibi** test edersin. `TESTER_REHBERI.md` §10–§14 aynen geçerlidir.
 
 Yöneten Claude'dur. Bu rehber `AGENTS.md`'nin altındadır; çelişirse `AGENTS.md` geçerlidir.
@@ -17,7 +17,7 @@ Claude: maddeyi seçer → ROADMAP_2.md'de "[/] (testx)" yapar → push
 testx:  kopyan GitHub'dan güncellenmiş gelir → gorev.md'yi oku → maddenin tam metnini (Amaç, Kurallar,
         Uç durumlar, Kabul, Bağımlılık, Dosya, Asset) ROADMAP_2.md'den oku → bağımlı maddeleri ve
         ROADMAP 1'deki ilgili sistemi (ROADMAP.md + design/gdd/) oku → kodu yaz → testleri yaz →
-        hedefli testleri koş → TAM sanity koş → work/testx/teslim.json yaz
+        ETKİLENEN TEST TARAMASI (aşağıda) → hedefli testleri koş → work/testx/teslim.json yaz
 Claude: diff'i inceler → kendi sanity'sini koşar → commit "(testx)" → [x] (testx) → push
         → sorun varsa gorev.md'ye "DÜZELT:" notu yazar, sen düzeltirsin
 ```
@@ -26,6 +26,7 @@ Claude: diff'i inceler → kendi sanity'sini koşar → commit "(testx)" → [x]
 - **Başka ajanın `[/]` maddesine dokunmazsın.** Kalfa Faz 0'da çalışıyor; Codex de ayrı maddeler alır. Yalnız `gorev.md`'de sana verilen madde.
 - **Kapsamı genişletmezsin.** Maddede yazmayan özellik yok. "Şunu da ekleyeyim" yok; gerekiyorsa `teslim.json` → `oneriler` alanına yaz.
 - **Silme ve geri dönüşü zor değişiklikler (TEK-02 dersi, 11 Ekim):** maddenin "Ne" ve "Dosya" alanında yazılanın dışındaki hiçbir dosyayı silme. "Kaynağı yok" ≠ "kullanılmıyor": TEK-02'de 226 `.import` silindi, 182'si Godot önbelleğine yönlendiren dosyalardı; `kapi.glb` yüklenemedi ve kapı sahnesi çöktü. Silmeden önce ve sonra en az bir gerçek oyun akış testi (ör. `tests/oto/oyun_koprusu_kontrol.tscn`) koş; farkı `teslim.json`'a yaz.
+- **Etkilenen test taraması (TEK-07 dersi, 12 Ekim):** bir fonksiyonun/sınıfın **davranışını** değiştirdiysen (ör. `KrizEnjektoru.gece` artık herkese `hasta` vermiyor), eski davranışı bekleyen testler kırılır. Teslimden önce değiştirdiğin her sınıf/fonksiyon adını `rg -n "<Ad>" tests/` ile ara ve çıkan **bütün** testleri koş. TEK-07'de bu yapılmadı; `saglik_yoneticisi_test` yalnız Claude'un tam sanity'sinde yakalandı. Eskiyen bir iddiayı bulursan testi silme/gevşetme: iddianın korumak istediği **kuralı** bul ve onu yeni davranışla sınayacak şekilde güncelle; gerekçeyi `teslim.json` → `notlar`'a yaz.
 - Belirsizlik: önce maddenin "Uç durumlar"ı, sonra `design/gdd/`, sonra `ROADMAP.md`. Hâlâ belirsizse **varsayım yapma**, `teslim.json` → `sorular` alanına yaz ve o kısmı yazmadan bırak.
 
 ### teslim.json (zorunlu, EN SON adım)
@@ -85,6 +86,7 @@ func _kontrol(olur: bool, mesaj: String) -> void:
 - **Akış testi** (gerçek UI yolu): `tests/oto/<ad>_kontrol.gd` + `.tscn`, `extends Node`; gerçek `Ana`/`Oturum` kurar, ekranı sürer, sonda `GEÇTİ`/`KALDI` basar. Örnek `tests/oto/sinsi_gece_kontrol.gd`. **`tools/sanity_check.py`'deki listeye adını eklemen gerekir** (otomatik bulunmaz).
 - **Her Kabul iddiası bir `_kontrol` satırıdır.** Maddenin "Kabul" cümlelerini tek tek teste çevir; `teslim.json` → `kabul_kontrol`'de eşle.
 - Eski kayıt, aynı tohum (ikiz), sıfır/boş durum, sınır değer — maddede yazıyorsa test et.
+- **Bilinen ortam sorunu (BUG-0020, açık):** `.godot` önbelleği sıfırdan kurulmuş bir kopyada `kuyu_kirliligi_kontrol`, `kitlik_isyani_kontrol`, `kriz_kenetlenmesi_kontrol`, `diyalog_sirasi_kontrol` GEÇTİ bastığı hâlde çıkışta 6 satır `RID allocations ... leaked at exit` verir. Bunu senin maddene ait sanma, ama kendi testinde yeni bir `leaked`/`still in use` satırı görürsen o senindir.
 - Çıkışta `ERROR: N resources still in use` çıkarsa sanity bunu hata sayar: nesneleri `free()`/`null`la, sonda `await process_frame` ×2 + kısa `create_timer`.
 - Testi geçirmek için kodu değil **testi** gevşetmek yasak.
 
@@ -99,7 +101,7 @@ python -B tools/metin_dogrula.py                                     # CSV
 python -B tools/python_test_runner.py                                # python
 python -B tools/sanity_check.py --godot $G --logs work/testx/sanity  # TAM (teslimden önce)
 ```
-**Bellek kuralı (11 Ekim):** makinede aynı anda yalnız **bir** tam sanity koşar (iki tam sanity birlikte belleği bitirdi, işler durduruldu). Sen teslimden önce import + hedefli testleri koşarsın; tam sanity'yi `gorev.md`'de "SANITY SENDE" yazıyorsa koşarsın, yoksa Claude sırayla koşar. Testlerin dosya yolu `res://work/...` olmasın: temiz kopyada `work/` yoktur, test düşer (ADM-16 akış testi bu yüzden kırıldı) — test kayıtları `user://` altına.
+**Bellek kuralı (11–12 Ekim):** makinede aynı anda yalnız **bir** tam sanity koşar (iki tam sanity birlikte belleği bitirdi, işler durduruldu). Sen de aynı anda **tek bir Godot süreci** çalıştır: testleri arka arkaya koş, paralel/arka planda Godot başlatma; her test bitmeden sonrakini açma. Sen teslimden önce import + hedefli testleri koşarsın; tam sanity'yi `gorev.md`'de "SANITY SENDE" yazıyorsa koşarsın, yoksa Claude sırayla koşar. Testlerin dosya yolu `res://work/...` olmasın: temiz kopyada `work/` yoktur, test düşer (ADM-16 akış testi bu yüzden kırıldı) — test kayıtları `user://` altına.
 
 Kayıt dosyası testlerin `user://`'ını bozmasın: komutlardan önce `APPDATA` ve `LOCALAPPDATA`'yı **mutlak** yolla `work/testx/appdata` altına yönlendir (göreli yol kayıt yazımını kırar). Pencereli Godot açarsan `--audio-driver Dummy`. Başka Godot süreçlerini ADIYLA kapatma — yalnız kendi PID'ini.
 
@@ -109,7 +111,7 @@ Kayıt dosyası testlerin `user://`'ını bozmasın: komutlardan önce `APPDATA`
 - [ ] Kodda sabit denge sayısı ve düz Türkçe cümle yok
 - [ ] Kayıt alanı optional + eski kayıt testi
 - [ ] Tohumlu RNG; aynı tohum aynı sonuç
-- [ ] Import temiz, hedefli testler GEÇTİ, **tam sanity "0 failed"**
+- [ ] Import temiz, hedefli testler + etkilenen test taraması GEÇTİ (tam sanity'yi Claude koşar; yeni düşüş = teslim reddi)
 - [ ] `teslim.json` eksiksiz; asset durumu yazılı
 - [ ] Kapsam dışı hiçbir şey yok
 

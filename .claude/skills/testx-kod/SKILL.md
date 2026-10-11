@@ -21,7 +21,7 @@ user-invocable: true
 3. `work/testx/teslim.json` dosyasını erken yaz (`"durum": "yarim"`).
 4. Mantığı **yeni dosyada** yaz. Çekirdeğe yalnız ince adaptör ekle. Veri `data/`'ya, metin CSV'ye (anahtar bazlı) girer.
 5. Kabul iddialarının her biri bir `_kontrol` olacak şekilde birim testi yaz. Gerekiyorsa akış testi yaz ve onu `tools/sanity_check.py` listesine ekle.
-6. Testleri şu sırayla koş: import → hedefli testler → `metin_dogrula` (CSV'ye dokunduysan) → **tam sanity**. "0 failed" değilse teslim etme. Hatayı düzelt ya da `durum: yarim` ile nedenini yaz.
+6. Testleri şu sırayla, **tek tek** (aynı anda tek Godot) koş: import → hedefli testler → **etkilenen test taraması** (değiştirdiğin her sınıf/fonksiyon adı için `rg -n "<Ad>" tests/`, çıkan bütün testler) → `metin_dogrula` (CSV'ye dokunduysan) → `python -B tools/python_test_runner.py`. Tam sanity'yi yalnız `gorev.md` "SANITY SENDE" diyorsa koş; yoksa Claude koşar. Biri düşüyorsa teslim etme: düzelt ya da `durum: yarim` ile nedenini yaz.
 7. `teslim.json` dosyasını tamamla (`"durum": "bitti"`). Kapsam dışı fikirlerini `oneriler`'e, belirsizlikleri `sorular`'a yaz.
 
 ## Sert kurallar
