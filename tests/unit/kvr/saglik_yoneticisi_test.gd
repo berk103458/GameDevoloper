@@ -162,10 +162,11 @@ func _saglik_ve_tedavi() -> void:
 	dene(oluy.koylu(hasta.id) == null and r.rapor.olenler == ["Son Hasta"] and r.rapor.olaylar.any(func(d: Dictionary) -> bool: return d.anahtar == "koy.olay.olum"), "1 sağlık ev +5 ile dirilmez; mevcut ölüm yolu")
 	var zehir := hazir()
 	var z := zehir.yonetim.kabul({"gizli":["humma"]})
-	KrizEnjektoru.tetikle(zehir, "kuyu")
-	KrizEnjektoru.gece(zehir.yonetim, [])
+	# TEK-07: debug kuyu zehri artık herkese "hasta" vermez; kural (dış kaynaklı bayrak korunur) doğrudan sınanır.
+	z.enfeksiyon.hasta_sahibi = false
+	z.bayrak_ac("hasta")
 	SaglikYoneticisi.iyilestir(z)
-	dene(z.bayrak_var("hasta"), "Sonradan gelen kuyu zehri bayrağı hastalık iyileşmesiyle silinmez")
+	dene(z.bayrak_var("hasta"), "Sonradan gelen dış kaynaklı hasta bayrağı hastalık iyileşmesiyle silinmez")
 
 func hazir() -> Oturum:
 	var o := Oturum.new(kat, 222)

@@ -54,6 +54,18 @@ static func incele(g: Gelen, kaynak: String) -> String:
 static func metin(g: Gelen) -> String:
 	return "Teşhis ibresi: enfeksiyon şüphesi · kesin teşhis değil · kabulde karantina şartı" if not kaydet(g).is_empty() else "Teşhis ibresi: enfeksiyon şüphesi saptanmadı"
 
+## TEK-04: yalnız aynı ibre satırını süz; yeni bulgu ve inceleme metni korunur.
+## Kayıt ziyaret başında temizlenir; ayrı ziyaret kilidi/kayıt alanı tutulmaz.
+static func kayit_metni(kayit: RichTextLabel, yazi: String) -> String:
+	var bilinen := kayit.get_parsed_text().split("\n")
+	var satirlar: Array[String] = []
+	for satir in yazi.split("\n"):
+		if satir.begins_with("Teşhis ibresi:"):
+			if satir in bilinen: continue
+			bilinen.append(satir)
+		satirlar.append(satir)
+	return "\n".join(satirlar)
+
 ## Karar öncesi atomik kilit: tüm kabul yolları/klavye/debug aynı kurala uyar.
 static func neden(o: RefCounted, g: Gelen, karar: StringName) -> String:
 	if g == null or String(karar) not in AYAR.kabul_kararlari or belirtiler(g).is_empty(): return ""

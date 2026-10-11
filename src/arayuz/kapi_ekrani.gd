@@ -711,6 +711,7 @@ func _tumunu_goster() -> void:
 
 
 func _yaz(s: String) -> void:
+	s = preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kayit_metni(_kayit, s)
 	_kayit.append_text(s + "\n")
 
 

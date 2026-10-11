@@ -41,6 +41,7 @@ func _ready() -> void:
 	await get_tree().create_timer(0.8).timeout
 	(e._heybe_paneli.get_node("HastalikHeybeIncele") as Button).pressed.emit()
 	_kontrol(T.kaydet(g).size() == 2 and (e._heybe_paneli.get_node("HastalikIbre") as Label).text.contains("kan"), "Heybe düğmesi kanlı öksürük ipucunu keşfeder")
+	_kontrol(e._kayit.get_parsed_text().count("Teşhis ibresi:") == 1, "TEK-04: yüz ve heybe incelemesi aynı ibreyi kayda yalnız bir kez yazar")
 	await _foto("kri11_heybe")
 	e._heybe_paneli.kapandi.emit()
 	await get_tree().process_frame

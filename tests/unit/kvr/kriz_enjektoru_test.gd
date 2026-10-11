@@ -22,17 +22,18 @@ func _initialize() -> void:
 	for tur in stok:
 		_kontrol(y.kaynaklar.miktar(tur) == int(stok[tur]) - ceili(int(stok[tur]) * 0.5), "Her tür stok yarıya düşer: " + tur)
 	_kontrol(y.binalar == binalar and y.a == ayar and o.gun == gun and y._rng.state == rng and o.muhafiz_akce == kasa, "Bina hasarı/paylaşılan ayar/gün/RNG/kişisel kasa korunur")
-	# Zehirli ve temiz kopyada aynı gerçek gece: fark yalnız zehir hasarıdır.
+	# Önceden vebalı köylüye debug ikinci hastalık/hasar eklemez.
 	var temiz := Oturum.kayittan(kat, once)
-	temiz.yonetim.remove_meta(KrizEnjektoru.META)
+	KuyuKirliligi.temizle(temiz.yonetim)
 	for i in 3:
 		for oturum in [geri, temiz]:
 			oturum.yonetim.kaynaklar.ekle("gida", 10)
 		var r := geri.yonetim.gece()
 		temiz.yonetim.gece()
 		_kontrol(KrizEnjektoru.kalan(geri.yonetim) == 2 - i and r["olaylar"].any(func(e: Dictionary) -> bool: return e["anahtar"].begins_with("Debug: Zehirli")), "Gerçek gece zehri uygular ve süreyi azaltır")
-		if i == 0: _kontrol(geri.yonetim.koylular[0].saglik == temiz.yonetim.koylular[0].saglik - 25, "Zehir hasarı normal gece iyileşmesine eklenir")
-	_kontrol(geri.yonetim.koylular.is_empty() and temiz.yonetim.koylular.size() == 1, "Ölüm gerçek gece sağlık denetiminden gelir")
+		_kontrol(geri.yonetim.koylular.size() == temiz.yonetim.koylular.size(), "Debug toplu hasar/ölüm üretmez")
+		if not geri.yonetim.koylular.is_empty():
+			_kontrol(geri.yonetim.koylular[0].saglik == temiz.yonetim.koylular[0].saglik and geri.yonetim.koylular[0].enfeksiyon == temiz.yonetim.koylular[0].enfeksiyon, "Mevcut veba ve gerçek gece sağlık kaybı korunur")
 	var eski := once.duplicate(true)
 	eski["koy_yonetimi"].erase("debug_kuyu_zehri")
 	_kontrol(KrizEnjektoru.kalan(Oturum.kayittan(kat, eski).yonetim) == 0, "Eski kayıt zehirsiz açılır")

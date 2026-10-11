@@ -1,5 +1,39 @@
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
+## TEK-04 / TEK-07 — 11 Ekim 2026
+
+Berk tarafındaki Codex: aynı ziyaretin yüz/heybe/CHR incelemelerinde aynı teşhis
+ibresi konuşma kaydına bir kez yazılır; değişen ibre ve bulgu metinleri korunur.
+Mevcut teşhis adaptörüne süzgeç, KapiEkrani._yaz'a tek satır eklendi. Debug kuyu
+enjektörünün herkese hasta/−25 sağlık verme yolu kaldırıldı; gerçek gece akışında
+zaten çağrılan KRI-04 KuyuKirliligi, su raporu + köyün tohumlu RNG'siyle tifo
+olasılığını ve iki vaka sınırını uygular. İkinci zehir/RNG mantığı kurulmadı;
+hekim gerçek tifo alabilir, sağlıklı ve hizmete uygun hekim etkin kalır. Debug
+paneli açıklaması güncellendi; veba/kundak, kayıt süresi ve kireçle temizlik sürer.
+
+Kabul → test: teshis_ibresi_tek_satir_test 8 kontrol (yüz/heybe, CHR, tekrar,
+değişen ibre, yeni kayıt); hastalik_teshis_kontrol gerçek ekranda iki inceleme →
+ibre 1. kuyu_enjektoru_hekim_test 672 kontrol / 20 tohum (su içmeyende hastalık
+yok, sağlıklı hekim etkin, aynı tohum aynı model/RNG, doğal KRI-04 ile eşitlik,
+su içen hekimde gerçek tifo kapısı, rezervle 3 gerçek gece ve süre sonu).
+hastalik_teshis_test, kriz_enjektoru_test, kuyu_kirliligi_test, hekim_ilac_test,
+hastalik_teshis_kontrol, admin_kriz_kontrol, kuyu_zehirleme_kontrol GEÇTİ.
+Nihai Godot 4.7.2 import exit 0 / script-parse hatası 0; Python runner 45 test OK.
+İlk test yedekleri yanlışlıkla Godot sınıf taramasına girdi; görev work klasörü
+.gdignore ile dışlandı, yeniden importla sınıf yolları düzeltildi, başarısız
+koşu başarı sayılmadı. İlk import eksik JPG referansları bildirdi; nihai importta
+yok. Ortamın mevcut root certificate store hatası proje istisnasıyla ayrıldı.
+Kanıt: work/tek04-07/*.log; APPDATA/LOCALAPPDATA mutlak work/ad/tek04-07 altında.
+
+Asset gerekmedi. Kullanıcı talimatıyla tam sanity, ROADMAP işaretleme ve
+commit/push yapılmadı; .git'e dokunulmadı. gh ortamda yok, issue #11 okunamadı.
+Zorunlu ds GitHub aynası yazılabilir kök dışında olduğundan eşitlenemedi;
+başlangıçta mevcut görev dosyaları aynayla aynıydı. Yalnız bu görevin 11 dosyasını
+(iki yeni testin UID'leri dahil) içeren aktarım paketi work/tek04-07/transfer.zip,
+başlangıç sürümüne karşı minimal yama transfer.patch, hash manifesti files.json.
+Sonraki adım Claude'un incelemesi ve sırayla tam sanity; ayna aktarımı yazma
+yetkisi olan oturumda tamamlanmalıdır.
+
 ## BUG-23 — Tarla içinde iş noktası / 11 Ekim 2026
 
 Berk tarafındaki Codex: BUG-23 uygulandı; kullanıcı talimatıyla ROADMAP_2.md

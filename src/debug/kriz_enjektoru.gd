@@ -14,11 +14,8 @@ static func yukle(y: KoyYonetimi, v: Variant) -> void:
 static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 	var n := kalan(y)
 	if n == 0: return
-	for k in y.koylular:
-		if SaglikYoneticisi.hasta(k): k.enfeksiyon.hasta_sahibi = false
-		k.bayrak_ac("hasta")
-		k.saglik = maxi(0, k.saglik - 25)
-	olaylar.append({"anahtar": "Debug: Zehirli kuyu; köylü başına −25 sağlık.", "deger": []})
+	# TEK-07: sonraki KuyuKirliligi.gece gerçek su raporu ve köy RNG'siyle işler.
+	olaylar.append({"anahtar": "Debug: Zehirli kuyu; taze su içenlerde olasılıkla tifo.", "deger": []})
 	if n == 1: y.remove_meta(META)
 	else: y.set_meta(META, n - 1)
 
@@ -41,7 +38,7 @@ static func tetikle(o: Oturum, id: String) -> Dictionary:
 			if kalan(y) > 0: return {"ok": false, "neden": "Kuyu zaten zehirli; süre üstüne eklenmedi."}
 			y.set_meta(META, 3)
 			KuyuKirliligi.kirlet(y)
-			mesaj = "Köy suyu zehirli: sonraki 3 gece kişi başına −25 sağlık + hasta bayrağı."
+			mesaj = "Köy suyu zehirli: sonraki 3 gece taze kuyu suyu içenlerde tifo riski %%%d. Kireçle dezenfekte edilebilir." % int(SaglikYoneticisi.AYAR.tifo.risk)
 		"kundak":
 			if y.kaynaklar.toplam() == 0: return {"ok": false, "neden": "Ambar boş; kundaklamanın stok hedefi yok."}
 			for tur in y.kaynaklar.kaydet()["stok"]:

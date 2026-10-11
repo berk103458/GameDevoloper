@@ -6668,7 +6668,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-02. Boyut: S.
   - Dosya: `src/arayuz/koylu_karti.gd`.
   - Asset: asset gerekmedi.
-- [/] **TEK-04:** (Codex) ADV-06 — teşhis ibresi bir kez yazılır.
+- [x] **TEK-04:** (Codex) ADV-06 — teşhis ibresi bir kez yazılır.
   - Ne: eski: ADV-06. Yüz ve heybe incelemesinde aynı ibre satırı konuşma kaydına ikinci kez eklenmez.
   - Kabul: aynı incelemede ibre satırı 1. Test: iki inceleme.
   - Bağımlılık: yok. Boyut: S.
@@ -6689,7 +6689,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.2 Ölçüm — üç gece
 
-- [/] **TEK-07:** (Codex) ADV-02 — kuyu zehri enjektörü hekimi hasta etmez.
+- [x] **TEK-07:** (Codex) ADV-02 — kuyu zehri enjektörü hekimi hasta etmez.
   - Ne: eski: ADV-02. Debug "kuyu zehri" herkese `hasta` vermez; KRI-04 gibi yalnız su içenlere ve olasılıkla düşer. Hekim `hekim etkin` yanlış pozitif almaz.
   - Kabul: enjektör sonrası hekim `hasta` değilse `hekim etkin` true. Test: birim.
   - Bağımlılık: KRI-04. Boyut: S.
