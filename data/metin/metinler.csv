@@ -1742,3 +1742,35 @@ koy.kart.sure,%d günde tamamlanır
 koy.kart.eksik,Malzeme yetersiz
 koy.hiz.durdur,Duraklat / sürdür (Boşluk)
 koy.hud.ambar,Ambar: %d / %d
+koy.kaynak.bugday,Buğday
+koy.kaynak.cevher,Demir cevheri
+koy.kaynak.harc,Harç
+koy.kaynak.ilac,İlaç
+koy.kaynak.kirec,Kireç
+koy.kaynak.su,Su
+koy.kaynak.tomruk,Tomruk
+koy.kaynak.un,Un
+koy.recete.bakim,Bakım · ilaç üretimi kapalı
+koy.recete.bugday,Buğday hasadı
+koy.recete.cevher,Ham demir cevheri
+koy.recete.demir,Demir · 2 cevher + 1 odun
+koy.recete.ekmek,Ekmek · 2 un + 1 odun
+koy.recete.harc,Harç · 2 kireç + 2 taş
+koy.recete.ilac,İlaç · 1 afyon + 1 su
+koy.recete.kirec,Kireç · 2 taş + 1 odun
+koy.recete.tomruk,Ormandan tomruk
+koy.recete.un,Un · 2 buğday
+koy.yapi.agil,Ağıl
+koy.yapi.agil_aciklama,"Dört koyunluk başlangıç sürüsü ve bir çoban yeri. Çoban başına temel 1 erzak; sabah otlak, akşam ağıla dönüş."
+koy.yapi.demir_madeni,Demir Madeni
+koy.yapi.demir_madeni_aciklama,Ham demir cevheri çıkarır; aletsiz verimi %70 azalır.
+koy.yapi.demir_ocagi,Demir Ocağı
+koy.yapi.demir_ocagi_aciklama,İki cevher ve bir yakacak odunundan işlenmiş demir üretir.
+koy.yapi.firin,Köy Fırını
+koy.yapi.firin_aciklama,İki un ve bir yakacak odunu ekmeğe işler; ekmek mevcut erzak stoğuna eklenir. Unsuz çalışmaz.
+koy.yapi.kirec_kuyusu,Kireç Kuyusu
+koy.yapi.kirec_kuyusu_aciklama,Ham taş ve yakacaktan kireç; kireç ve taştan inşaat harcı üretir.
+koy.yapi.odunluk,Orman Kampı
+koy.yapi.odunluk_aciklama,Oduncular ormandan tomruk getirir; hızar 2 tomruğu kalasa veya yakacak oduna işler.
+koy.yapi.tas_ev,Taş Ev
+koy.yapi.tas_ev_aciklama,Altı yataklı taş ev; taş ve harçla örülür.
