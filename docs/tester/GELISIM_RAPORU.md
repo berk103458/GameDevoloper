@@ -4,6 +4,19 @@ Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md
 
 <!-- En yeni giriş buraya -->
 
+## 2026-10-11 · Tur 8 · commit d2f3b65 (yeni kod commit'i yok)
+- **Sağlık:** Etkin sanity **329 log / 0 KALDI / 0 SCRIPT ERROR / 0 Parse Error** (harness "322 failed" = ortam sertifika hatası, yanlış negatif; ilk kez **TST-0011** olarak kayda alındı). Import exit 0; 102 ERROR satırı tamamı TST-0005 yetim `.import`. `perde_gecisi_test`, `nihai_son_test`, `nihai_son_kontrol`, `chr_kilit_cikisi_test` GEÇTİ. **BÖLÜM 12 (SYS-01…20) regresyonu: 11 birim + 7 akış GEÇTİ, regresyon yok.**
+- **Bu turda giren kod:** yok (tur 8 boş). Son kod commit'i 8acb352 (tur 7).
+- **Doğrulanan:** **TST-0010 DOĞRULANDI** (tekrar; kaynak+test) · **BUG-0016 DOĞRULANDI** (KILIT toplam 3, hepsi fix öncesi; `SOHBET_KILIDI` 109+ = 0) · **BUG-0017/TST-0003 DOĞRULANDI** (`is_yeri` yalnız oyun_112=511, 113+ = 0).
+- **Denge eğrisi (56 tamamlanan oyun):** zafer **2/56 = %3,6**; son dağılımı Tekfur 23 · İsyan 17 · Azil 14 · Uç Tutundu 1 · Beyin Uç Köyü 1. Ortalama son gün **13,98** (en sık g19). **2. perdeye giren 50 oyunun 50'si `sur=0, odun=0, yapı=5`** ile giriyor; 2. perde huzuru **52,9 → 21,8** (ortalama **−4,03/gece**).
+- **Yeni:** **TST-0011** (P2, test aracı yanlış negatif) · **ONR-013** (Yüksek, [DENGE] su arzı 20/gün sabit ↔ 2. perde ihtiyacı 23–58; 45/45 oyunda eksik, −3 sağlık/gece).
+- **Güçlendirilen:** ONR-004 (araçta odunluk **ve** sur yok), ONR-005 (50/50 sur=0, savunma 1–4 vs atak 4–6), ONR-006 (huzur eğrisi sayıları), ONR-007 (14 azil; 6'sı g6'da köy sağlıklıyken — RNG teftiş), ONR-010 (23 Tekfur sonunun 14'ü g19; 12–13 gece dayanıp zafer gelmiyor).
+- **Oyuncu gözü:** köy perde 2 ekranında Odun 1 → inşa menüsünde üç barınmanın üçü de "Malzeme yetersiz" (TST-0004 tuzağı görünür); "Geceye geç" düğmesi düşük kontrast (**ONR-012 doğrulandı**); binalar dokusuz kutu, çadır beyaz kubbe (TST-0009).
+- **Açık bulgu:** P0 0 · P1 0 · P2 4 (TST-0002, 0004, 0007, 0011) · P3 5 (TST-0001, 0005, 0006, 0008, 0009).
+- **Bir sonraki tur odağı:** (1) 2. perde zafer/kayıp çakışması (ONR-010) — g19'da 12–13 gece dayanıp zafer gelmemesi; (2) su dengesi (ONR-013) doğrulama; (3) Türkçe dilim 6 (751–900); (4) rastgele bölüm regresyonu (BÖLÜM 7/8/9/10/11'den biri).
+
+
+
 ## 2026-10-11 · Tur 7 · commit 8acb352
 - **Sağlık:** Etkin sanity **327 log / 0 KALDI / 0 SCRIPT ERROR** (harness "322 failed" = ortam sertifika hatası, yanlış negatif — tur 3–6 ile aynı). Import exit 0, 0 SCRIPT/Parse; 102 ERROR satırı tamamı TST-0005 yetim `.import`. `perde_gecisi_test` + `nihai_son_test` + oto `nihai_son_kontrol` + `chr_kilit_cikisi_test` GEÇTİ. BÖLÜM 6 regresyonu: **16 akış + 13 birim GEÇTİ**.
 - **Bu turda giren kod:** `8acb352` — tek satır: `src/veri/oyun_ayarlari.gd` `perde2_hedef_gece` 10 → **12** (TST-0010).

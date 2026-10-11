@@ -1,4 +1,4 @@
-# Tester günlüğü
+﻿# Tester günlüğü
 
 Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar, oynar, sürekli test ederim; bulgu, değişiklik önerisi ve gelişim raporlarımı Claude'a veririm. Kod değiştirmem. Eğitimim ve kurallarım: `docs/tester/TESTER_REHBERI.md` (Claude yazdı, Claude yönetir).
 
@@ -6,7 +6,32 @@ Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar,
 - Göreve başlama: 11 Ekim 2026 — **Tur 1 (eğitim)** tamamlandı.
 - Çalışma kopyası: `C:\Users\ds\Documents\Codex\tester-ajan` (git worktree, dal `claude/festive-volta-li1sfm`, commit `5c9a5b1`).
 - Eğitim turu kuralı: kod (`src/`, `data/`, `tests/`, `tools/`, `ROADMAP.md`) değiştirilmedi; commit/push yapılmadı. Yalnız `docs/tester/` ve bu günlük yazıldı.
-- Güncel: **Tur 7** tamamlandı (11 Ekim 2026, commit `8acb352`). Rapor: `docs/tester/turlar/TUR-007.md`.
+- Güncel: **Tur 8** tamamlandı (11 Ekim 2026, commit `d2f3b65`; yeni kod commit'i yok). Rapor: `docs/tester/turlar/TUR-008.md`.
+
+
+## Tur 8 — 11 Ekim 2026 (commit d2f3b65; yeni kod commit'i yok)
+
+### Ne yaptım
+- **Sanity:** etkin **329 log / 0 KALDI / 0 SCRIPT ERROR / 0 Parse Error** (harness "322 failed" = ortam sertifika hatası → ilk kez **TST-0011** olarak kayda alındı). Import exit 0; 102 ERROR = TST-0005 yetim `.import`.
+- **TST-0010 DOĞRULANDI (tekrar):** `oyun_ayarlari.gd:39`=12, `oyun.tres:24`=12, perde_gecisi/koy_yonetimi yorumları 12; `perde_gecisi_test` + `nihai_son_test` + oto `nihai_son_kontrol` GEÇTİ.
+- **BUG-0016 DOĞRULANDI:** `chr_kilit_cikisi_test` GEÇTİ; KILIT toplam 3 (106/107/108, hepsi 5396fae öncesi); `SOHBET_KILIDI` 109+ = 0.
+- **BUG-0017/TST-0003 DOĞRULANDI:** `is_yeri` yalnız oyun_112 (511, 254202d öncesi); 113+ = 0.
+- **7/24 (tur 7 sonrası, 147–164):** 62 log / 56 tamamlanan; **zafer 2/56 = %3,6**; Tekfur 23 · İsyan 17 · Azil 14 · Uç Tutundu 1 · Beyin Uç Köyü 1; ort. son gün 13,98 (en sık g19). HATA/DONMA/KILIT yeni kayıt 0.
+- **DENGE (Claude a/b/c):** (a) 2. perde huzur **52,9 → 21,8**, ortalama −4,03/gece; kök gıda (üretim +4…+6 vs tüketim 18–23) çünkü tarla kurulamıyor (odun 0). (b) 50/50 oyun 2. perdeye `sur=0, odun=0, yapı=5` ile giriyor; savunma 1–4 vs Tekfur 4–6; **23 Tekfur sonunun 14'ü tam g19** (12–13 gece dayanıp zafer gelmiyor → ONR-010). (c) azil ekonomi değil teftiş: 14 azilin 6'sı g6'da ve köy sağlıklı; 4 rüşvet → yozlaşma 20 → g6 teftişi %50.
+- **YENİ su bulgusu:** 45/45 oyunda su eksik>0 (ihtiyaç 23–58, kuyu sabit 20/gün; yaz ×2) → **ONR-013**.
+- **Türkçe dilim 5** (satır 601–750): temiz; kaldığım satır **750**. TST-0006 ve TST-0002 hâlâ AÇIK (tur 8 kanıtlandı).
+- **Rastgele bölüm (BÖLÜM 12, SYS-01…20):** 11 birim + 7 akış GEÇTİ; regresyon yok (kayit_gocu, atomik_kayit, ses, tansiyon_muzigi, guvenli_metin, perde_gecisi, nihai_son, goc_yolu, diyalog_sirasi, acilis_bagimlilik, 20-night-smoke).
+- **Kendi koşularım:** oto 901 (0,30) Azil g11 · 902 (0,70) İsyan g18 · 903 (0,95) Tekfur g13 · pencereli 904 (0,50) **Tekfur g19** — dördü de SCRIPT/KILIT/ASIMI 0.
+- **Oyuncu gözü:** perde 2 köy ekranında Odun 1 → üç barınmanın üçü de "Malzeme yetersiz" (TST-0004 tuzağı); "Geceye geç" düşük kontrast (**ONR-012 doğrulandı**); mevsim etiketi `Yaz · 1/7 · Açık` doğru (yaz ×2 su çarpanı 2. perdeye denk geliyor).
+
+### Yeni/kapatılan
+- Yeni: **TST-0011** (P2, test aracı yanlış negatif), **ONR-013** (Yüksek, [DENGE] su).
+- Doğrulanan: **TST-0010**, **BUG-0016**, **BUG-0017/TST-0003**. Yeniden açılan: yok.
+- Güçlendirilen: ONR-004/005/006/007/010 (sayısal kanıt), ONR-012 (görsel).
+- Açık: P0 0 · P1 0 · P2 4 (TST-0002/0004/0007/0011) · P3 5 (TST-0001/0005/0006/0008/0009).
+
+### Sonraki tur odağı
+- ONR-010 zafer/akın çakışması (g19) derinleştirme; ONR-013 su doğrulama; Türkçe dilim 6 (751–900); rastgele bölüm (BÖLÜM 7/8/9/10/11'den biri); TST-0002 `[KEY_NOT_FOUND]` ekran görüntüsü.
 
 ## Tur 7 — 11 Ekim 2026 (commit 8acb352)
 
@@ -171,3 +196,4 @@ Durum: kod kaynağından **izlendi/doğrulandı**; oyunda **yeniden üretme dene
 - **Türkçe dilim:** satır 2–150; 1 yeni bulgu (çift boşluk + yinelenen tekfur metni, TST-0006). Kaldığım satır: **150** (sonraki tur 151’den).
 - **Sürekli oyun:** 24 oyun (101–123); sonlar Tekfur 9 · İsyan 5 · azil 3 · zafer 0; ortalama son gün ≈ 11,4; DONMA 0, KILIT 0 (fix sonrası), yeni HATA 0.
 - Detay: `docs/tester/turlar/TUR-004.md`.
+

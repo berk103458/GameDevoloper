@@ -16,10 +16,18 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 | ONR-009 | Orta | [TASARIM]/[DENGE] zafer | Zafer, köy isyan/açlık içindeyken bile "saat doldu" ile geliyor (oyun 124) | YENİ |
 | ONR-010 | Yüksek | [DENGE]/[TASARIM] zafer | 2. perdenin 12. gecesi ile Tekfur akını aynı geceye denk gelince oyuncu kaybediyor (zafer verilmiyor) | YENİ |
 | ONR-011 | Düşük | [TASARIM] test aracı | Karakter muayene aracı çocuk modelini (yusuf 1.17 m) "ölçek hatası" diye işaretliyor: yanlış pozitif | YENİ |
+| ONR-013 | Yüksek | [DENGE] su | Kuyu arzı 20/gün sabit; 2. perde nüfusunda ihtiyaç 23–58 → yapısal su açığı, −3 sağlık/gece | YENİ |
 | ONR-012 | Düşük | [ARAYUZ] köy ekranı | "Geceye geç" düğmesi düşük kontrastlı okunuyor (doğrulanmadı) | YENİ |
 
 ---
 
+### ONR-013 · Yüksek · [DENGE] · Su: kuyu günlük arzı (20) 2. perde nüfusuna yetmiyor, yaz ×2 ile açık büyüyor
+- **Gözlem:** 45/45 oyunda `Su ihtiyacı …; kuyu 20, rezerv 0, eksik …` satırında **eksik>0** (ihtiyaç 23–58). Kuyu günlük arzı sabit **20** (`data/yaz_su_yangin.json`: kuyu_gunluk=20, kisi_su=1, yaz_carpani=2). Nüfus 18+ iken ihtiyaç ≥18; yaz/kuraklık ×2 ile 36–58'e çıkıyor ama arz 20'de sabit; ikinci kuyu/su yapısı yok, rezerv ayırmak da günlük toplamı 20'nin üstüne çıkarmıyor.
+- **Neden önemli:** Eksik kalan kişiler her gece **−3 sağlık** (`src/dunya/su_dengesi.gd:60`) → ölüm → CenazeYasi moral −12 → huzur çöküşünü hızlandırıyor (ONR-006 ile aynı yöne iter). Oyuncunun çözebileceği bir yüzeyi yok (yapısal arz tavanı).
+- **Öneri:** (a) kuyu arzını nüfus/yapı seviyesine bağla (ör. `kuyu_gunluk = 10 + nufus/2`, tavan ~40) ya da ikinci su yapısı ekle; (b) yaz ×2 çarpanını 2. perde öncesi uygulama ya da rezerv kapasitesini büyüt; (c) eksik su sağlık cezasını (−3) yumuşat. Hedef: 2. perdede su açığı oyuncunun kapatabildiği bir sorun olsun.
+- **Kanıt:** `work/tester/tur8/su.py` + `denge2.py` (45/45 eksik>0); `work/tester/oyunlar/oyun_158.log` (eksik 3), `oyun_161.log` (eksik 38), `oyun_151.log`; `data/yaz_su_yangin.json`; `src/dunya/su_dengesi.gd:58-61`.
+
+---
 ### ONR-012 · Düşük · [ARAYUZ] · Köy ekranı "Geceye geç" düğmesi düşük kontrastlı görünüyor
 - **Gözlem:** Köy ekranında sağ paneldeki "Geceye geç" düğmesi metni, aynı paneldeki "Pazar" ve "Nüfus (P)" düğmelerine göre belirgin düşük kontrastlı (koyu yeşilimsi metin/koyu zemin). "Pazar"/"Nüfus" parlak beyaz okunurken "Geceye geç" zor seçiliyor.
 - **Neden önemli:** Geceyi bitiren ana eylem; oyuncunun en sık bastığı düğme. Okunmazsa oyuncu "geceyi nasıl bitireceğim" diye arar.
@@ -37,6 +45,8 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 
 - **Tur 6 ölçümü (44 kayıt, 38 tamamlanan):** 2. perdeye geçen 36 oyunun HEPSİ `sur=0, odun=0, yapı=5` ile girdi; ilk akın gücü 4 (baskı1) ya da 6 (baskı2), savunma 2–7. Persona (tohum 601/602/603) 3/3 g7'de öldü; kişisel not: sur taksiti ödeyen persona (601) g13'e kadar dayandı ama 2. akın (güç 6) onu da yendi → hazırlık penceresi yok. Kod: `tekfur_gucu()=2+baskı*2`, `savunma_gucu()=sur(0)+muhafız+asker/2`.
 - **Tur 7 ölçümü:** 2. perdeye giren **36/36 oyun `sur=0`** ile girdi; girişte asker ort. **6,6** (3–10). İlk akın gücü 4 (baskı 1) / 6 (baskı 2); gözlenen savunmalar 2–7. Sur taksiti ödeyen persona (611) g13'e kadar dayandı, 2. akın (güç 6) yendi → hazırlık penceresi hâlâ yok. 8acb352 sonrası 147/148/149 → 3/3 `g19 Tekfur`.
+- **Tur 8 sayıları:** 2. perdeye giren **50 oyunun 50'si sur=0**; açılış ortalama gün **6,2**; savunma gücü 1–4, ilk Tekfur gücü **4** (sonra 6). 23 Tekfur sonunun 14'ü g19'a kadar dayanıp yine düşüyor.
+
 ### ONR-006 · Yüksek · [DENGE] · 2. perde huzur çöküşü: gıda 0 → gecelik −10…−19 → İsyan
 - **Gözlem:** 2. perde başladıktan sonra gıda **1–3 gece içinde** 0'a düşüyor ve huzur gece başına ~10–19 puan eriyor; `isyan_esigi=10` altına inince 3 gecelik sayaç başlıyor → İsyan sonu.
 - **Gece gece eğri (oyun logu `gün N … huzur=` satırları):** 110: g7 hz21 → g11 hz5 → g12 hz4 (İsyan g13). 112: g6 hz37 → g10 hz11 → g11 hz3 (İsyan g14). 114: g8 hz21 → g9 hz10 → g10 hz1 (İsyan g12). 116: g6 hz45 → g11 hz16 → g15 hz8 (İsyan g17). Tüm 2. perde oyunlarında `gida=0 odun=0 sur=0`.
@@ -48,12 +58,16 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 
 - **Tur 6 ölçümü (gece gece eğri):** gıda 0'a gün 6–8'de düşüyor; huzur gece başına ~10–19 eriyip 10–30 bandına oturuyor; `isyan_esigi=10`, `isyan_gun=3`. Örnek (140): g5 hz47→g6 hz51→g7 hz45/gd0→g8 hz29→g9 hz16→g10 hz12→İsyan g14. İsyan 11/34 (%32). Öne çıkan: düşük/orta kabulde İsyan, yüksek kabulde Tekfur.
 - **Tur 7 ölçümü:** 43 tamamlanan oyunda gıda gün 6–8'de 0; huzur gece başına ~10–19 eriyor (örnek 145: g7 hz39/gd0 → g14 hz10 → g15 hz6 → Azil g16). İsyan 11/43; düşük/orta kabul → İsyan/Azil, yüksek kabul → Tekfur.
+- **Tur 8 sayıları:** 2. perdede huzur **52,9 → 21,8**, ortalama **−4,03/gece**. 2. perde başında gıda **5,2**; üretim +4…+6/gece, tüketim 18–23/gece. Kök: yeni tarla kurulamıyor (odun 0, hızarhane girdisi tomruk; tomruk yalnız Orman Kampı'ndan).
+
 ### ONR-007 · Orta · [DENGE]/[TASARIM] · 6. gece %50 olasılıklı azil, erken ve RNG tabanlı terminal son
 - **Gözlem:** Sancak teftişi `ilk_gece=6, aralik=5`, `bulma_olasiligi=0.50`: yozlaşma ≥20 ve kişisel kasa dolu ise **6. gecede** %50 olasılıkla anında "Muhafız azledildi" (terminal son). Oyun 109, 120, 122 bu şekilde bitti; köy sağlıklıydı (109: huzur 54, perde 1, koy 15) ve akçe 1 ile "ekonomi çöktü" görüntüsü veriyordu.
 - **Neden önemli:** (a) Bu son **ekonomi çöküşü değil**, rüşvet/yozlaşma teftişi; ama düşük kamu akçesiyle aynı ana denk gelince "erken ekonomi çöküşü" izlenimi yaratıyor. (b) Tek atışlık %50 RNG, oyunun ilk teftişinde oyuncuyu oyundan koparabiliyor; oyuncu yozlaşmayı geç fark ederse geri dönüşü yok.
 - **Öneri:** (a) 6. geceden önce oyuncuya yozlaşma uyarısı ver ("Teftiş yaklaşıyor; kasa/yozlaşma riski"), (b) ilk teftişte bulunma olasılığını düşür (ör. 0.25) veya ilk sonuç "uyarı" olsun, ikinci teftişte azil. Oyun dengesi kararı Claude/Codex'in.
 - **Kanıt:** `data/sancak_teftisi.json`; `src/sistemler/sancak_teftisi.gd:36-44`; `work/tester/oyunlar/oyun_109.log` (SON: Muhafız azledildi gun=6 huzur=54 akce=1).
 - **Tur 6 ölçümü:** azil 9/38 (%24); üçü tam **g6** (109 akçe1, 120 akçe16, 138 akçe12), dördü g10–16; kendi koşum tohum 702 (kabul 0.35) → `SON: Muhafız azledildi gun=6`. İlk teftiş gece 6, aralık 5, yozlaşma≥20 + dolu kasa + %50 (`data/sancak_teftisi.json`). Erken ekonomik çöküş değil, rüşvet kaynaklı yozlaşma + RNG terminal son; oyuncu 2. perdeyi görmeden bitebiliyor.
+- **Tur 8 sayıları:** 56 tamamlanan oyunun **14'ü azil**; **6'sı tam g6'da** ve köy sağlıklı (huzur 23–54, koy 14–18). Kök: `data/sancak_teftisi.json` ilk_gece=6, yozlasma_esigi=20; her rüşvet +5 yozlaşma (`data/muhafiz_terazisi.json`) → 4 rüşvet = eşik → g6 teftişinde %50 azil/idam. Oyuncuya eşik uyarısı yok.
+
 ### ONR-008 · Orta · [CEVRE]/asset · Eksik hareket klipleri (gergin/ofke/panik/konus/sevinc)
 - **Gözlem:** Karakter muayenesinde (44 model) `gergin` **44/44 modelde yok**; `ofke` 37/44; `panik` 21/44; `konus` ve `sevinc` 14/44 modelde yok. **14 adlı/kutu modelde yalnız bekle+yürü var** (asker, aydogdu, ayse_baci, ciftci, ciftci_kadin, esnaf, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf). CHR_001–030'da en az bekle/yürü/konuş/sevinc/öfke/panik karışımı var; adlı karakterlerin çoğu donuk.
 - **Neden önemli:** Oyunda bu hareketler çağrılırsa (kriz, kutlama, gece rutini) karakter donuk/hareketsiz kalır ya da fallback'e düşer; oyuncu gözüyle "kukla" hissi artar. `gergin` hiçbir modelde olmadığı için bu durum tüm oyunda geçerli.
@@ -72,6 +86,8 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 - **Öneri:** `_koy_yonet`/`_insa_et`'e `odunluk` ekle (önce kur, işçi ata), sıra odunluk→tarla→hizarhane; `koy_benzetimi.gd` de güncellensin. Ardından zafer oranını yeniden ölç.
 - **Kanıt:** `tests/oto/otomatik_oyuncu.gd`, `tools/denge/koy_benzetimi.gd`, `work/tester/tur3/denge_ek.gd`.
 - **Tur 5 notu (kopya kontrolü):** Ayrı kök neden değil; **TST-0004** kök nedenine bağlıdır. Tur 5 ölçümü: `_koy_yonet` hâlâ `odunluk` kurmuyor → 7/24 oyunlarında gün 0'da odun 20→7, gün 1'de 0.
+
+- **Tur 8 kanıtı (daha geniş):** Araç stratejisi yalnız `odunluk` (Orman Kampı) değil, **savunma ayağında da eksik**: `tests/oto/otomatik_oyuncu.gd:198-240` `_koy_yonet` yalnız cadir/tarla/hizarhane/avci kurar; `sur_taksit`, kışla askeri yoktur. Sonuç: 50/50 oyunda 2. perdeye `sur=0`, `odun=0`, `yapı=5` ile giriliyor (work/tester/tur8/denge2.py).
 
 ### ONR-001 · Orta · Kapı / CHR sorgusu · Başarısız ikna denemesi cevabı kalıcı kapatıyor, oyuncuya açıklanmıyor
 - **Gözlem:** CHR sorgusunda bir cevap denendikten sonra kalıcı kapanıyor (`sorgu._denemeler`). Tüm cevaplar kapanıp kalanlar ipucu kilitli olunca oyuncu kapıda sıkışıyordu (BUG-0016). Claude "Kararını ver" çıkışı ekledi; ancak bir cevabın neden kapandığı ekranda yazmıyor — buton yalnız pasif, tooltip "Önce nişan, yük veya fiziksel izi incele" iken görünür. Oyuncu bir cevabı yanlışlıkla tüketirse geri dönüşü yok.
@@ -101,6 +117,10 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 - **Öneri:** Zafer denetimini akından **önce** yap (gece sayacı hedefe ulaştıysa akın uygulanmasın) ya da aynı gece çakışırsa zaferi önceliğe al; en azından oyuncuya "bu geceyi atlatırsan tutundun" uyarısı ver.
 - **Kanıt:** `src/sistemler/oturum.gd:277-288` (sıra), `src/koy/perde_gecisi.gd:denetle`, `src/koy/koy_yonetimi.gd:860-884` (`_asamalar`), `work/tester/oyunlar/oyun_136.log` (g19), `work/tester/tur6/oto_701.log`.
 - **Tur 7 ek kanıtı:** TST-0010 düzeltmesinden (8acb352) sonraki 7/24 oyunları **147 (g19 Tekfur), 148 (g19 Tekfur), 149 (g19 Tekfur)** — yani 8acb352 üzerinde 3/3 oyun tam **g19'da** Tekfur ile bitti. Düzeltme davranışı değiştirmedi (hedef 12 gece hâlâ doğru) ama "zafer gecesi = ölüm gecesi" çakışması sürüyor; zafer hâlâ 2/43 (%4,7).
+
+- **Tur 8 kanıtı:** 23 Tekfur sonunun **14'ü tam g19**'da (2. perde başlangıcı g6–7 → **12–13 gece** dayanılmış). Kod sırası: `_asamalar` (saldırı, `src/koy/koy_yonetimi.gd:860-883`) → `PERDE_GECISI.isaretle` (:597) → `PerdeGecisi.denetle` (Oturum.gece_sonu); ölümcül akın `son=tekfur` yazdığı için zafer denetimi erken dönüyor. 12 gece dolduğu hâlde zafer gelmiyor.
+
+- **Tur 8 ek kanıt:** Pencereli oyun (tohum 904, kabul 0,5) `SON: Tekfur'un akıncıları gun=19 perde=2 koy=20 huzur=22 akce=127` — 2. perde g6–7'de başladı, **12–13 gece dayanıldı**, akçe 127 olduğu hâlde zafer gelmedi. 56 oyunda 23 Tekfur sonunun **14'ü g19**.
 
 ### ONR-011 · Düşük · [TASARIM] · Karakter muayene aracı çocuk modelini yanlış işaretliyor
 - **Gözlem:** `tests/oto/karakter_muayene.tscn` yusuf modelini "baş yüksekliği olağandışı (1.17 m) — ölçek hatası" diye uyarıyor. Ama yusuf **kasıtlı çocuk**: `data/chr_runtime/CHR_012.tres` "üç yaşındaki yetim oğlu Yusuf". `data/karakterler/yusuf.tres`'te `cocuk` bayrağı yok, araç da bilemiyor.

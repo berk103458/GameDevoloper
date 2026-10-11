@@ -5,6 +5,7 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 
 | Kimlik | Öncelik | Madde | Başlık | Durum |
 | --- | --- | --- | --- | --- |
+| TST-0011 | P2 | [HATA] test aracı | sanity_check.py ortam sertifika satırını ERROR sayıp 322 adımı FAIL ediyor (yanlış negatif) | AÇIK |
 | TST-0010 | P3 | SYS-19 | 2. perde hedef gecesi kod varsayılanı (10) ile etkin kaynak (`oyun.tres`=12) uyuşmuyor; kaynak yoksa hedef sessizce 10'a düşer | DOĞRULANDI (8acb352) |
 | TST-0005 | P3 | ENVIRONMENT/asset | 43 orphan `.import` (jpg yok) import sırasında 86 ERROR satırı üretiyor | AÇIK |
 | TST-0006 | P3 | [DIYALOG] metin | metinler.csv: 'Halkaya  +1' ve 'Tam isabet  +2' çift boşluk; tekfur saldırısı için iki ayrı anahtar | AÇIK |
@@ -19,6 +20,19 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 ---
 
 <!-- Bulgular buradan aşağı, en yenisi üstte -->
+
+### TST-0011 · P2 · [HATA] · Test aracı · sanity_check.py ortam sertifika satırını "ERROR:" sayıp 322 adımı FAIL ediyor (yanlış negatif)
+- **Durum:** AÇIK
+- **Commit:** d2f3b65
+- **Adımlar:** 1) `python -B tools/sanity_check.py --godot <konsol> --logs work/tester/tur8/sanity` 2) son satır `Sanity: 322 failed` 3) tüm loglar taranır.
+- **Beklenen:** Her adım gerçek sonucuna göre PASS/FAIL olmalı; ortam/bilgisayar hatası test sonucu sayılmamalı.
+- **Gerçek:** Her Godot koşusu `ERROR: Failed to read the root certificate store.` (`platform/windows/os_windows.cpp:2582`, makine sertifika deposu) basıyor. `tools/sanity_check.py:21` deseni `ERROR = re.compile(r"SCRIPT ERROR|Parse Error|(?:^|\n)ERROR:|Failed to load script|\bKALDI\b")` bu satırla eşleşiyor → **322 adım yanlışlıkla "başarısız"** sayılıyor. Oysa loglarda gerçek sonuç **GEÇTİ**: `nihai_son_kontrol.log` → `NIHAI SON UI: GEÇTİ`, `20-night-smoke.log` → `20 GECE DUMAN: GEÇTİ`, `kayit_gocu_test.log` → `KAYIT GÖÇÜ: GEÇTİ (0 hata)`. Log taraması: **329 log / KALDI 0 / SCRIPT ERROR 0 / Parse Error 0 / Failed to load 0**.
+- **Etki:** Her turda **sahte P0 sinyali**; "Sanity: X failed" sayısı gerçek durumu yansıtmıyor ve gerçek bir KALDI/SCRIPT ERROR çıkarsa gürültü içinde kaybolabilir. Tur 3–8 boyunca 6 tur böyle raporlandı.
+- **Tekrar:** 6/6 tur (tur 3, 4, 5, 6, 7, 8) — deterministik, ortam kaynaklı.
+- **Kanıt:** `work/tester/tur8/sanity/sanity_run.log` (son satır), `work/tester/tur8/sanity/nihai_son_kontrol.log`, `.../20-night-smoke.log`, `.../kayit_gocu_test.log`; `tools/sanity_check.py:21`.
+- **Öneri (düzeltme):** Bilinen ortam satırını dışla; ör. deseni `(?:^|\n)ERROR: (?!Failed to read the root certificate store)` yap ya da koşu çıktısından bu satırı önce süz. Ardından sanity çıktısı gerçek PASS/FAIL verir ve `Sanity: 0 failed` beklenen son olur.
+
+
 
 ### Tur 6 doğrulama özeti · commit 6ce5f62 · (BUG-0016, BUG-0017/TST-0003, TST-0004)
 - **BUG-0016 — DOĞRULANDI (tur 6):** `chr_kilit_cikisi_test.gd` → "CHR KILIT CIKISI: GEÇTİ (0 hata)". `~/.codex-tester/olaylar.log`'da KILIT yalnız 106/107/108 (fix öncesi); 5396fae sonrası 0. Loglarda `SOHBET_KILIDI` yalnız 106(2)/107(1)/108(3); 109–140'ta 0. Pencereli elle ekran görüntüsü ÖLÇÜLMEDİ.
