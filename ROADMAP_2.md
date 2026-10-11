@@ -6650,7 +6650,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.1 Açık bulgular — kimlik durur
 
-- [/] **TEK-01:** (testx) TST-0001 — `KoyNufusu.sayi` eksik sınıf anahtarında SCRIPT ERROR.
+- [x] **TEK-01:** (testx) TST-0001 — `KoyNufusu.sayi` eksik sınıf anahtarında SCRIPT ERROR.
   - Ne: eski: TST-0001. `sayi()` olmayan sınıf anahtarında hata basmaz, 0 döner ve bir kez `push_warning` yazar.
   - Kabul: eksik anahtarda SCRIPT ERROR 0, dönüş 0. Test: birim.
   - Bağımlılık: yok. Boyut: S.
