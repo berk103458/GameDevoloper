@@ -29,7 +29,7 @@ Blok gelince, yazmadan önce:
 3. Sahiplenilen madde `[/] (Kalfa)` olur. Kapanış `[x] (Kalfa)` olur. Başka imzanın kapalı maddesi yeniden açılmaz.
 4. Yeni iş yeni dosya ve ince adaptördür. Çekirdek dosya toptan yazılmaz.
 5. `koy_sahnesi`, statik `KoyYerlesimi` ve eski full-RTS yolu üretilmez. Yol `KoyYonetimSahnesi` + `KoyYonetimi` kalır.
-6. Asset üretilmez ve indirilmez. Yer tutucu kutu veya düz renktir; ihtiyaç `docs/EKSIK_ASSET_ENVANTERI.md` G tablosuna aynı kapanışta yazılır. Asset gerekmiyorsa commit başlığında «asset gerekmedi» durur.
+6. Asset üretilmez. 11 Ekim Berk/Ahmet güncellemesiyle uygun CC0/kamu malı/CC-BY hazır asset kaynak, yazar ve lisans kaydıyla eklenebilir. Bulunamazsa isim etiketli kutu veya düz renk kullanılır; ihtiyaç `docs/EKSIK_ASSET_ENVANTERI.md` G tablosuna aynı kapanışta yazılır. Asset gerekmiyorsa commit başlığında «asset gerekmedi» durur.
 
 ## Doğrulama ve duyuru
 
@@ -120,3 +120,9 @@ BUG-20 push yarışı: b023973 kamera kapanışı pull ile alındı; CSV'de sır
 ## BUG-25 sahipliği — 11 Ekim 2026 (Kalfa)
 
 Pull: ebb4c33. BUG-20 kapandı ve push edildi. İlk boş, bağımlılığı hazır Faz 0 işi BUG-25: mevcut iki meşalenin alev/ışık soketi ve kuyu zemin/yükseklik dönüşü. Model üretilmez; mevcut nesneler ve ışık/gece görüşü korunur. Hedefli gerçek sahne ölçümü ve görünür doğrulama, kapanış öncesi tek tam sanity. Gereken asset varsa envanter; aksi halde asset gerekmedi. BUG-22 ACL-01 bekler; TEK sahipliklerine dokunulmaz. ds ayna yok.
+
+## BUG-25 uygulaması — 11 Ekim 2026 (Kalfa)
+
+Sahiplik 9d51959 push edildi. İki kapı ışığı ve alev ortak Marker3D soketinde; JSON sahne ayarı. Mevcut kuyu modeli 1,20 m, taban sıfır ve nötr taş malzemesi. Gerçek çiftçi baş kemiği 1,45 m; iskeletli mesh ham AABB yanlış boy referansıdır. Su/ekonomi/RNG sistemleri değiştirilmez. Hedefli ve görünür sahne doğrulaması sürüyor; tam sanity henüz başlamadı. Asset gerekmedi. ds ayna erişilemiyor; eşitlenemedi.
+
+BUG-25: nihai tam UTF-8 sanity 342 PASS / 0 hata / 20 gece. İlk koşunun renderer hatası tek malzeme atamasıyla düzeltildi; çınar üç tekrar ve tam koşuda geçti. Uygulama commit ve festive merge sırası başlıyor. Asset gerekmedi, ds ayna yok.

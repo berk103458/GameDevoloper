@@ -206,7 +206,7 @@ func yenile() -> void:
 func _meydan_kur() -> void:
 	var m := yonetim.a.meydan
 	var orta := alan_merkezi(m.position, m.size)
-	var kuyu := Dunya3B.nesne("kuyu", 1.6)
+	var kuyu := KapiKuyuAyari.kuyu()
 	kuyu.position = SulamaRutini.kuyu_konumu(self)
 	_yapilar.add_child(kuyu)
 	# Meydan ateşi (9.1: akşam köylüler kandil ve ateş başında).

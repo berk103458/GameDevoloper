@@ -101,8 +101,9 @@ static func mesale_kur(kok: Node3D, konum: Vector3, guc: float = 2.6, menzil: fl
 
 
 ## Statik model: tabanı y=0'a oturtulmuş, verilen yüksekliğe ölçeklenmiş. Model yoksa düz kutu.
-static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "") -> Node3D:
+static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "", renk: Variant = null) -> Node3D:
 	var yol := _yol(ad, tur)
+	var nesne_rengi: Color = renk if renk is Color else NESNE_RENK.get(ad, Renkler.AHSAP)
 	var kap := Node3D.new()
 	kap.name = ad
 	if yol == "":
@@ -111,7 +112,7 @@ static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "") -> Node3
 		b.size = Vector3(1, maxf(yukseklik, 0.5), 1)
 		m.mesh = b
 		m.position.y = b.size.y / 2.0
-		m.material_override = duz_malzeme(NESNE_RENK.get(ad, Renkler.AHSAP))
+		m.material_override = duz_malzeme(nesne_rengi)
 		kap.add_child(m)
 		return kap
 	var n: Node3D = (_sahne(yol)).instantiate()
@@ -122,8 +123,8 @@ static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "") -> Node3
 		olcek = yukseklik / kutu.size.y
 	n.scale = Vector3.ONE * olcek
 	n.position = Vector3(-(kutu.position.x + kutu.size.x / 2.0) * olcek, -kutu.position.y * olcek, -(kutu.position.z + kutu.size.z / 2.0) * olcek)
-	if NESNE_RENK.has(ad):
-		var mat := duz_malzeme(NESNE_RENK[ad])
+	if NESNE_RENK.has(ad) or renk is Color:
+		var mat := duz_malzeme(nesne_rengi)
 		for mi in n.find_children("*", "MeshInstance3D", true, false):
 			(mi as MeshInstance3D).material_override = mat
 	return kap

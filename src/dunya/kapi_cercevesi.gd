@@ -231,7 +231,7 @@ func _mesale(konum: Vector3, yan: float) -> void:
 	add_child(sepet)
 	# Alev: parçacık (yumuşak, titreşen); sepetin içinde küçük kor.
 	var alev := Node3D.new()
-	alev.position = konum + Vector3(0, 0.05, 0)
+	alev.position = KapiKuyuAyari.alev_konumu(konum)
 	add_child(alev)
 	for k in 2:
 		var dil := KapiManzarasi.alev(0.42 - k * 0.12, 3.0 - k * 0.6, yan * 5.0 + k * 2.3)
@@ -258,10 +258,10 @@ func _mesale(konum: Vector3, yan: float) -> void:
 	isik.shadow_enabled = true
 	# Hacimsel siste hafif sıcak hale: kamera ışığa çok yakın, tam güçte sis küresi ekranı kaplar.
 	isik.light_volumetric_fog_energy = 0.12
-	isik.position = konum + Vector3(yan * -0.3, 0.5, -0.5)
 	isik.set_meta("taban", 1.9)
 	isik.set_meta("alev", alev)
 	add_child(isik)
+	KapiKuyuAyari.sokete_bagla(isik, alev)
 	isiklar.append(isik)
 
 
