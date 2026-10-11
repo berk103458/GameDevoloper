@@ -136,3 +136,7 @@ TEK-08: pull güncel f41e1b8; ilk hazır boş Faz 0 teknik borç. ADV-05 dolayl�
 TEK-08 / ADV-05 karar olarak belgelendi: gizli kuluçka çözülmeden kenetlenme bonusu verilmez; bonusun gelmemesi dolaylı ipucu olarak kabul edilir, kişi ifşa edilmez. KRI-10 yeniden kurulmadı, yeni bonus yok. Oyun src/data/tools/tests ve bonus formülü diff 0; mevcut birim + gerçek UI 2 PASS / 0 hata. Az önceki tam sanity 342/0/20 gece ve merge sonrası 9 kontrol kanıtı geçerli; yalnız belge için tam koşu tekrarlanmadı. Kanıt docs/denetim/TEK-08-ADV-05-karar.md. Asset gerekmedi; ds ayna erişilemiyor, eşitlenemedi. Sonraki hazır adaylar aynı 41.3 alt başlığındaki TEK-13/14/15; pull sonrası sahiplik kontrol edilecek.
 
 TEK-13/14/15: pull 9cf9185 güncel; aynı 41.3 alt başlığındaki S boyutlu mevcut bellek/efekt kontrol maddeleri birlikte alındı. Beş cache sözleşmesi, düşük profil sahne geçişi ve tek mevcut efekt temizliği doğrulanacak. İkinci önbellek/havuz/performans motoru yok. Asset gerekmedi; ds ayna erişilemiyor.
+
+TEK-13/14/15: 5 hedefli kontrol geçti; tam beş cache/sayı sözleşmesi, üç gerçek düşük profil geçişi, aynı ses havuzu ve kapalı performans şeridi. Oyun src/data diff 0; yalnız test ve sanity sahne listesi genişletildi. Yeni kaynak/cache/asset yok. Nihai tam UTF-8 koşu başlıyor.
+
+TEK-13/14/15 nihai tam sanity 343 PASS / 0 hata / 20 gece. Test paketi olgun; uygulama commit, pull/merge ve kapanış sırası. Oyun src/data diff 0, asset gerekmedi; ds ayna yok.

@@ -12,7 +12,10 @@ func _calistir() -> void:
 	Pbr._onbellek["test_aktif"] = aktif.material_override
 	root.add_child(aktif)
 	var zayif := _yalniz_cache()
+	var beklenen := {"sanat": Sanat._onbellek.size(), "malzeme": Pbr._onbellek.size(), "model": Dunya3B._onbellek.size(), "klip": KarakterModel._klip_onbellek.size(), "sekil": DurusDuzeltici._sekil_onbellek.size()}
 	var bilgi := DusukBellekProfili.memory_free()
+	_kontrol(bilgi.size() == 5 and bilgi == beklenen, "Beş önbelleğin tam sözleşmesi ve temizleme öncesi sayıları")
+	_kontrol(Sanat._onbellek.is_empty() and DurusDuzeltici._sekil_onbellek.is_empty() and KapiManzarasi._gurultu == null, "Görsel/şekil/gürültü referansları da bırakılır")
 	_kontrol(bilgi["malzeme"] >= 2 and bilgi["model"] > 0, "Gerçek cache girişleri raporlanır")
 	_kontrol(zayif.get_ref() == null, "Yalnız cachein tuttuğu Resource bırakılır")
 	_kontrol(is_instance_valid(aktif.material_override) and karakter._oynatici.get_animation_list().size() == klip_sayisi, "Aktif sahnenin malzeme/animasyonları korunur")
