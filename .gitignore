@@ -36,3 +36,9 @@ assets/ph/model/island_tree_02/
 # Local sanity-check logs
 /work/sanity/
 /work/tester/
+
+# TEK-02: Godot, *_yuru.glb içindeki gömülü dokuyu import sırasında dışarı çıkarır; türetilmiş ara ürün, depoya girmez.
+/assets/model/karakter/*_yuru_Image_0.jpg
+/assets/model/karakter/*_yuru_Image_0.jpg.import
+/assets/model/karakter/*_yuru_texture_0.png
+/assets/model/karakter/*_yuru_texture_0.png.import
