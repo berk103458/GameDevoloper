@@ -294,16 +294,17 @@ func _bakis_ayarla(v: Vector3) -> void:
 ## Sıra olayı canlandırması (ilk aşama): olay oynar. `anahtar`: atlama, kavga, bayilma, vazgecme, panik.
 func sira_olayi_baslat(anahtar: String) -> void:
 	var n := _kuyruktakiler.size()
-	if n < 2:
+	var kisi_i := SiraOlayiKisisi.indeks(anahtar, n)
+	if kisi_i < 0:
 		return
 	await kuyruga_bak(true)
 	match anahtar:
 		"atlama":
-			var k := _kuyruktakiler[n - 1]
+			var k := _kuyruktakiler[kisi_i]
 			await k.yuru(Vector3(0.9, 0, -9.6), 3.4)
 			k.bak(kamera.position)
 		"kavga":
-			var a := _kuyruktakiler[0]
+			var a := _kuyruktakiler[kisi_i]
 			var b := _kuyruktakiler[1]
 			a.bak(b.position)
 			b.bak(a.position)
@@ -316,15 +317,15 @@ func sira_olayi_baslat(anahtar: String) -> void:
 				t.chain().tween_property(a, "position", _kuyruk_yerleri[0], 0.25)
 				await get_tree().create_timer(0.9).timeout
 		"bayilma":
-			var k := _kuyruktakiler[mini(2, n - 1)]
+			var k := _kuyruktakiler[kisi_i]
 			var t := create_tween()
 			t.tween_property(k, "rotation:x", deg_to_rad(-82.0), 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 			await t.finished
 		"vazgecme":
-			var k := _kuyruktakiler[n - 1]
+			var k := _kuyruktakiler[kisi_i]
 			await k.yuru(k.position + Vector3(0.3, 0, -4.5), 2.4)
 		"panik":
-			_kuyruktakiler[n - 1].duygu(&"ofke")
+			_kuyruktakiler[kisi_i].duygu(&"ofke")
 			for k in _kuyruktakiler:
 				k.bak(k.position + Vector3(0, 0, -10))
 			await get_tree().create_timer(1.2).timeout
@@ -333,19 +334,20 @@ func sira_olayi_baslat(anahtar: String) -> void:
 ## Sıra olayının ikinci aşaması: seçilen seçeneğe göre biter. `etki`: seçeneğin etki sözlüğü.
 func sira_olayi_bitir(anahtar: String, etki: Dictionary) -> void:
 	var n := _kuyruktakiler.size()
-	if n < 2:
+	var kisi_i := SiraOlayiKisisi.indeks(anahtar, n)
+	if kisi_i < 0:
 		return
 	var geri: bool = etki.get("geri", false)
 	match anahtar:
 		"atlama":
 			if geri:
-				await _kuyruktakiler[n - 1].yuru(_kuyruk_yerleri[n - 1], 2.0)
-				_kuyruktakiler[n - 1].bak(Vector3(0, 0, 10))
+				await _kuyruktakiler[kisi_i].yuru(_kuyruk_yerleri[kisi_i], 2.0)
+				_kuyruktakiler[kisi_i].bak(Vector3(0, 0, 10))
 		"kavga":
 			_kuyruktakiler[0].bak(Vector3(0, 0, 10))
 			_kuyruktakiler[1].bak(Vector3(0, 0, 10))
 		"bayilma":
-			var k := _kuyruktakiler[mini(2, n - 1)]
+			var k := _kuyruktakiler[kisi_i]
 			if etki.get("bar", [0])[0] > 0:
 				var t := create_tween()
 				t.tween_property(k, "rotation:x", 0.0, 0.6).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
@@ -356,14 +358,14 @@ func sira_olayi_bitir(anahtar: String, etki: Dictionary) -> void:
 				t.tween_property(k, "position:x", k.position.x - 2.4, 1.2)
 				await t.finished
 		"vazgecme":
-			var k := _kuyruktakiler[n - 1]
+			var k := _kuyruktakiler[kisi_i]
 			if geri:
-				await k.yuru(_kuyruk_yerleri[n - 1], 1.6)
+				await k.yuru(_kuyruk_yerleri[kisi_i], 1.6)
 				k.bak(Vector3(0, 0, 10))
 			else:
-				_kuyruktakiler.remove_at(n - 1)
-				_kuyruk_yerleri.remove_at(n - 1)
-				_kuyruk_adlari.remove_at(n - 1)
+				_kuyruktakiler.remove_at(kisi_i)
+				_kuyruk_yerleri.remove_at(kisi_i)
+				_kuyruk_adlari.remove_at(kisi_i)
 				# Boşalan yere uzakta bekleyen biri gelir; vazgeçen yola dönüp sise karışır.
 				_kuyruk_ilerle()
 				_belir(k, 0.0)

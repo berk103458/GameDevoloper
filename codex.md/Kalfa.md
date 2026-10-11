@@ -8,7 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-Görev bekliyor. Muharrir ayrı bir blok verene kadar ROADMAP maddesi alınmaz. 9 Ekim 2026 itibarıyla KRI-07 `[/]` Berk’in Codex’indedir ve Claude yönetir (`ROADMAP.md`). Bu sahipliğe dokunulmaz.
+Muharrir'in 11 Ekim devri: ROADMAP_2.md Faz 0 sırasıyla ilerler. BUG-16, BUG-17 ve BUG-18 tamamlandı; BUG-19 Kalfa sahipliğinde doğrulanıyor. Her maddeden önce pull/sahiplik commit+push; başka ajanın [/] maddesine dokunulmaz.
 
 ## Roller
 
@@ -92,3 +92,7 @@ Son pull f314e57; sahiplik ee0112e. Tehdit başlangıcı JSON'da 14; mevcut tama
 ## BUG-19 sahipliği — 11 Ekim 2026 (Kalfa)
 
 Pull kontrolü a636768; BUG-18 push edildi. Beş sıra olayının metni canlandırılan gerçek sıra modelinin cinsiyet/yaşını okuyacak; eksik bilgiye kişi/cinsiyet tahmini yapılmayacak, biri denecek. Yeni helper + ince sahne/UI adaptörü ve CSV anahtarları; boş sıra olay başlatmaz. Hedefli 100 deneme ve gerçek sıra sahnesi, kapanış öncesi UTF-8 tam sanity. Asset gerekmedi; ds ayna yok.
+
+## BUG-19 uygulaması — 11 Ekim 2026 (Kalfa)
+
+Sahiplik e32dda5. Beş sıra olayı gerçek kuyruk modelinin cinsiyet/yaş metadatasını okur. Metin ve animasyon ortak indeks kullanır; kapsül/bilinmeyen cinsiyet “biri”, çocuk “bir çocuk”. Model cinsiyeti mevcut tools/model/chr_istemleri.py tanımlarından veri olarak alındı; bu araç çalıştırılmadı, asset üretilmedi. Yaş kaynağı mevcut YasRolleri. CSV anahtar bazında değişti. 500 deneme, kuyruk/çeviri hedefli testleri ve gerçek sahne geçti. Nihai UTF-8 tam sanity 331 PASS / 0 hata / 20 gece (work/sanity-bug19-final). Muharrir son talimatı: önce uygulama commit, sonra merge pull, ardından ROADMAP kapanışı/push. Asset gerekmedi. ds ayna yolu tekrar kontrol edildi, mevcut değil; eşitlenemedi.

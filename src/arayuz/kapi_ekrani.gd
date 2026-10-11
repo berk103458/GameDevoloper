@@ -603,6 +603,10 @@ func _karar_replik_dusur(adaptoru: GDScript, anahtar: String) -> void:
 
 ## Sıra olayı: kuyrukta olan canlandırılır, bekçi seçer, sonucu oynar. Bar kırıldıysa true.
 func _sira_olayi(o: OlayVerisi) -> bool:
+	var anahtar := String(o.kosullar.get("canlandirma", ""))
+	var model := SiraOlayiKisisi.sec(sahne, anahtar)
+	if model == null: return false
+	var kisi := GuvenliMetin.metin(SiraOlayiKisisi.anahtar(model))
 	evre = &"sira"
 	_temizle()
 	_kayit.clear()
@@ -614,8 +618,7 @@ func _sira_olayi(o: OlayVerisi) -> bool:
 	Ses.cal(&"sfx_olay")
 	if o.ses != &"":
 		Ses.cal(o.ses, -3.0)
-	_yaz("[i]%s[/i]" % tr(o.metin_anahtari))
-	var anahtar := String(o.kosullar.get("canlandirma", ""))
+	_yaz("[i]%s[/i]" % SiraOlayiKisisi.metin(o.metin_anahtari, kisi))
 	await sahne.sira_olayi_baslat(anahtar)
 	_sira_satirlari = []
 	for i in o.secenek_anahtarlari.size():
@@ -629,7 +632,7 @@ func _sira_olayi(o: OlayVerisi) -> bool:
 	_temizle()
 	var etki: Dictionary = o.secenek_etkileri[i]
 	var sonuc := oturum.olay_uygula(o, i)
-	_yaz(tr(sonuc["sonuc_anahtari"]))
+	_yaz(SiraOlayiKisisi.metin(sonuc["sonuc_anahtari"], kisi))
 	if int(etki.get("kuyruk", 0)) < 0 and _kuyruk.size() > 0:
 		# Sahnede kuyruktan ayrılan, görünen kuyruğun sonundaki kişidir; gecenin listesinden de o çıkar.
 		_kuyruk.remove_at(mini(_kuyruk.size(), KapiSahnesi.KUYRUK_GORUNEN) - 1)

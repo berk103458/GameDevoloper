@@ -39,5 +39,6 @@ static func bilgi(o: Oturum, g: Gelen, l: Label) -> void:
  l.text += " · Tipi sırası %d · bekleme +%d" % [sinir(o.yonetim), int(d.get("toplam", 0))]
 ## Görünür iki kişi gerektiren sıra olayları daralmada üretilmez; olay RNG'si de çekilmez.
 static func sira_olayi(o: Oturum, s: Node, n: int, kuyruk: Array[Gelen] = []) -> OlayVerisi:
+ if n < 2 or (s is KapiSahnesi and s._kuyruktakiler.size() < 2): return null
  if DiplomatikHeyet.kilitli(o, kuyruk): return null
  return null if kapasite(s) < 2 else o.sira_olayi_sec(n)

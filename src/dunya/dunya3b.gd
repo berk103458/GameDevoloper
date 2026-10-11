@@ -188,6 +188,7 @@ static func karakter(ad: String) -> KarakterModel:
 	var yol := _yol(ad + "_yuru", "karakter")
 	if yol != "":
 		k.kur((_sahne(yol)).instantiate(), ad)
+		SiraOlayiKisisi.model_kur(k, ad)
 		_el_esyalari_tak(k, ad)
 	else:
 		k.kur(null)

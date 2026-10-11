@@ -21,6 +21,14 @@ func _ready() -> void:
 		ekran._kuyruk.append(g)
 		adlar.append(ekran._model_adi(g))
 	sahne.kuyruk_doldur(adlar)
+	# BUG-19: gerçek yüklenmiş kuyruk modelleri, metin ve canlandırma aynı nesneye bağlı.
+	for anahtar in ["atlama", "bayilma", "kavga", "panik", "vazgecme"]:
+		var i := SiraOlayiKisisi.indeks(anahtar, sahne._kuyruktakiler.size())
+		var secilen := SiraOlayiKisisi.sec(sahne, anahtar)
+		assert(secilen == sahne._kuyruktakiler[i])
+		assert(secilen.get_meta("cinsiyet", "") == SiraOlayiKisisi.BILGI[sahne._kuyruk_adlari[i]])
+		assert(not GuvenliMetin.metin(SiraOlayiKisisi.anahtar(secilen)).contains("KEY_NOT_FOUND"))
+
 	var aday: Gelen = ekran._kuyruk[KapiSahnesi.KUYRUK_GORUNEN - 1]
 	var model: KarakterModel = sahne._kuyruktakiler[KapiSahnesi.KUYRUK_GORUNEN - 1]
 	var eski_sira := ekran._kuyruk.duplicate()
