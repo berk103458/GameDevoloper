@@ -40,3 +40,13 @@ Push sonrası kısa duyuru `docs/MUHARRIR_RAPORU.md` başına yazılır. Bu dosy
 ## Güncel durum
 
 9 Ekim 2026. Kimlik ve kit envanteri yazıldı. Görev bekliyor. 11 Ekim akşamına kadar yalnız kurulum ve sanity; not `docs/KOORDINASYON_DEVIR.md`. Oyun kodu, CSV ve ROADMAP maddesi değişmedi. Asset gerekmedi.
+
+## Windows UTF-8 ve test çalışma kuralı — 10 Ekim 2026 (Kalfa)
+
+Muharrir'in talimatı: Windows'ta Python araçlarını her zaman `PYTHONUTF8=1` ile çalıştır. PowerShell oturumunda `$env:PYTHONUTF8='1'` ayarlanır; gerekirse çıktı için `$env:PYTHONIOENCODING='utf-8'` kullanılır. İlk kurulum koşusunda varsayılan cp1252 kodlaması Türkçe `ı` ve `İ` karakterlerinde hata verdi. UTF-8 ortamıyla CSV doğrulaması ve 28 Python testi geçti.
+
+Küçük işlerde yalnız ilgili birim veya sahne testi çalıştırılır. Tam sanity yalnız commit/push öncesi bir kez çalıştırılır; mevcut kurulum koşusunun tamamlanması Ahmet tarafından ayrıca istendi. Bu not commit edilmez; bir sonraki görevle birlikte commit edilir. ROADMAP maddesi alınmadı; görev bekleniyor. Asset gerekmedi.
+
+## ROADMAP 2 başlangıcı — 11 Ekim 2026 (Kalfa)
+
+Kontrol edilen festive commit: 0530d05. Muharrir Faz 0 görevini verdi. BUG-16 olay ön koşul denetimi sahipleniliyor; sonraki adım mevcut olay seçicisini incelemek, hedefli test ve kapanış öncesi UTF-8 tam sanity. Asset gerekmedi. ds çalışma ve GitHub ayna yolları bu bilgisayarda bulunmuyor; eşitlendi iddiası yok. Yerel untracked dosyalar korunur.
