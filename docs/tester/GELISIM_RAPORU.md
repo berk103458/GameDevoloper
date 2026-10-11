@@ -1,8 +1,20 @@
-# Oyun Gelişim Raporu (Tester)
+﻿# Oyun Gelişim Raporu (Tester)
 
 Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md` §5. Sayılar ölçülerek yazılır.
 
 <!-- En yeni giriş buraya -->
+## 2026-10-11 · Tur 9 · commit 6202f96
+- **Sağlık:** **Tam sanity Sanity: 0 failed** (327 PASS / 0 FAIL / 329 log) — tur 3–8'deki "322 failed" yanlış negatifi **TST-0011 düzeltmesiyle kapandı** ve **DOĞRULANDI**. Import exit 0, 0 SCRIPT/Parse; 102 ERROR satırı tamamı TST-0005 yetim .import. 13 kenar senaryosuyla cert-satırı istisnasının yalnız o satırı yok saydığı kanıtlandı (gerçek ERROR:/SCRIPT ERROR/KALDI/Parse Error hepsi hâlâ FAIL).
+- **Bu turda giren kod:** 6202f96 fix(TST-0011) — 	ools/sanity_check.py + 	ests/tools/test_sanity_check.py (2 yeni python testi). Tur 8: rapor commit'i.
+- **Doğrulanan:** **TST-0011** (6202f96) · **TST-0010** (8acb352, tekrar). **BUG-0016 / BUG-0017 (TST-0003)** fix sonrası yeni KILIT/is_yeri kaydı 0 → durum korunuyor.
+- **Denge eğrisi (66 tamamlanan oyun, 7/24 döngü kesintisiz):** zafer **2/66 = %3,0** (tur 8 %3,2). Dağılım: Tekfur **28** · İsyan **18** · Azil **18** · Uç Tutundu 1 · Beyin Uç Köyü 1. Ortalama son gün **12,56**; son günler **g5:10** (hepsi teftiş gecesi azli) ve **g18:15** (hepsi Tekfur).
+- **Yeni ölçüm — zafer fiilen imkânsız:** ağalık ort. **gün 6** açılıyor → 12. perde gecesi = **19. gece** → o gece Tekfur akını önce çözülüyor: **son günü g18 olan 15 oyunun 15'i Tekfur**. Zafere ulaşan 2 oyunda ağalık gün 5'te açılmıştı. Yani zafer "ağalığı 5. günde açma" şansına bağlı (ONR-010 güçlendirildi, kaynak sırası oturum.gd:277-287 ile doğrulandı).
+- **Yeni ölçüm — azil ekonomik değil:** 18 azilin **tamamı** teftiş gecelerinde (6/11/16); kök usvet_agirlik=5 → 4 rüşvet = yozlaşma 20 + dolu kişisel kasa → %50. Teftiş takvimi/riski oyunda hiç görünmüyor (ONR-007 güçlendirildi).
+- **Yeni ölçüm:** 2. perdeye giren **58/58 oyun sur=0 + odun=0**; 2. perde huzuru **−4,19/gece**, sonu **21,9** (ONR-005/006/013 tur 9 sayılarıyla güncellendi).
+- **TST-0002 derinleşti:** 6 eksik anahtarın uyarısı her oyunda sürüyor ama görünür etiketler (yapı kartları "TAŞ EV", üst kaynak şeridi Tomruk/Buğday/Un/Kireç/Harç, gece raporu kartı) **doğru Türkçe** — uyarı, adaptör zincirlerindeki **eager varsayılan** yüzünden çoğunlukla yanlış alarm. Görünür [KEY_NOT_FOUND] yakalanamadı → P2→P3 önerisi + iki yönlü düzeltme.
+- **Kendi koşularım:** 901 (0,30) İsyan g14 · 902 (0,70) Azil g11 · 903 (0,95) Tekfur g13 — SCRIPT ERROR/KILIT/NaN/eksi stok **0**. **Regresyon:** BÖLÜM 9 (ODA) 14 akış GEÇTİ; BÖLÜM 6 (TUC) 12 akış + 13 birim GEÇTİ (sanity). **Türkçe dilim 6 (751–900) temiz**; sonraki dilim **901–1050**.
+- **Açık bulgu:** P0 0 · P1 0 · P2 3 (TST-0002, 0004, 0007) · P3 5 (TST-0001, 0005, 0006, 0008, 0009). **Kapanan: TST-0011 (DOĞRULANDI)**. Yeni bulgu: **0**.
+- **Bir sonraki tur odağı:** (1) ONR-010 zafer-gecesi çakışması için oyuncu gözüyle (elle/pencereli) zafer denemesi ve "bu geceyi atlatırsan tutundun" uyarısının varlığını ölç; (2) sancak teftişi uyarı yüzeyi (ONR-007) için oda ekranında teftiş takvimi var mı kontrolü; (3) Türkçe dilim 7 (901–1050); (4) karakter muayenesi tekrarı (chr_011/Aydoğdu regresyonu); (5) TST-0002 için pazar/rapor satırlarında 	r("koy.kaynak.tomruk") görünür çıkışını üretmeye çalış.
 
 ## 2026-10-11 · Tur 8 · commit d2f3b65 (yeni kod commit'i yok)
 - **Sağlık:** Etkin sanity **329 log / 0 KALDI / 0 SCRIPT ERROR / 0 Parse Error** (harness "322 failed" = ortam sertifika hatası, yanlış negatif; ilk kez **TST-0011** olarak kayda alındı). Import exit 0; 102 ERROR satırı tamamı TST-0005 yetim `.import`. `perde_gecisi_test`, `nihai_son_test`, `nihai_son_kontrol`, `chr_kilit_cikisi_test` GEÇTİ. **BÖLÜM 12 (SYS-01…20) regresyonu: 11 birim + 7 akış GEÇTİ, regresyon yok.**
@@ -94,3 +106,5 @@ Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md
 - **Açık bulgu:** P0 0 · P1 0 · P2 0 · P3 0 (bu turda TST numarası açılmadı; bulgu listesi boş)
 - **Kaynak koddan izlenen:** BUG-0013 — kayıttan **Devam** köy yerine kapıyı açıyor. Kök neden `src/arayuz/ana.gd` `devam_et()` (satır 68–74): kayıt yüklendikten sonra koşulsuz `_kapiya_git()` çağrılıyor; `Oturum.kaydet()` (satır 725–747) kaydın hangi fazda olduğunu tutmuyor. Ayrıntı: `codex.md/Tester.md`.
 - **Bir sonraki tur odağı:** TST-0003 (P1, gece rutini null köylü) düzeltmesini doğrula; TST-0002'nin `[KEY_NOT_FOUND]` gösterdiği ekranı görüntüyle kesinleştir; TST-0001'in oynanış etkisi (`sayi()` çağrıları); pencereli elle CHR ikna-fail doğrulaması; düşük kabul ile zafer/denge eğrisi.
+
+

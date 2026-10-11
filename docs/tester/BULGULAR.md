@@ -1,11 +1,11 @@
-# Tester Bulguları
+﻿# Tester Bulguları
 
 Kural ve kalıp: `docs/tester/TESTER_REHBERI.md` §5. Numara TST-0001'den artar; yeni bulgu **en üste** eklenir.
 Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. Öncelik P0–P3.
 
 | Kimlik | Öncelik | Madde | Başlık | Durum |
 | --- | --- | --- | --- | --- |
-| TST-0011 | P2 | [HATA] test aracı | sanity_check.py ortam sertifika satırını ERROR sayıp 322 adımı FAIL ediyor (yanlış negatif) | AÇIK |
+| TST-0011 | P2 | [HATA] test aracı | sanity_check.py ortam sertifika satırını ERROR sayıp 322 adımı FAIL ediyor (yanlış negatif) | DOĞRULANDI (6202f96) |
 | TST-0010 | P3 | SYS-19 | 2. perde hedef gecesi kod varsayılanı (10) ile etkin kaynak (`oyun.tres`=12) uyuşmuyor; kaynak yoksa hedef sessizce 10'a düşer | DOĞRULANDI (8acb352) |
 | TST-0005 | P3 | ENVIRONMENT/asset | 43 orphan `.import` (jpg yok) import sırasında 86 ERROR satırı üretiyor | AÇIK |
 | TST-0006 | P3 | [DIYALOG] metin | metinler.csv: 'Halkaya  +1' ve 'Tam isabet  +2' çift boşluk; tekfur saldırısı için iki ayrı anahtar | AÇIK |
@@ -22,13 +22,14 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 <!-- Bulgular buradan aşağı, en yenisi üstte -->
 
 ### TST-0011 · P2 · [HATA] · Test aracı · sanity_check.py ortam sertifika satırını "ERROR:" sayıp 322 adımı FAIL ediyor (yanlış negatif)
-- **Durum:** AÇIK
+- **Durum:** DOĞRULANDI (6202f96) — tur 9
 - **Commit:** d2f3b65
 - **Adımlar:** 1) `python -B tools/sanity_check.py --godot <konsol> --logs work/tester/tur8/sanity` 2) son satır `Sanity: 322 failed` 3) tüm loglar taranır.
 - **Beklenen:** Her adım gerçek sonucuna göre PASS/FAIL olmalı; ortam/bilgisayar hatası test sonucu sayılmamalı.
 - **Gerçek:** Her Godot koşusu `ERROR: Failed to read the root certificate store.` (`platform/windows/os_windows.cpp:2582`, makine sertifika deposu) basıyor. `tools/sanity_check.py:21` deseni `ERROR = re.compile(r"SCRIPT ERROR|Parse Error|(?:^|\n)ERROR:|Failed to load script|\bKALDI\b")` bu satırla eşleşiyor → **322 adım yanlışlıkla "başarısız"** sayılıyor. Oysa loglarda gerçek sonuç **GEÇTİ**: `nihai_son_kontrol.log` → `NIHAI SON UI: GEÇTİ`, `20-night-smoke.log` → `20 GECE DUMAN: GEÇTİ`, `kayit_gocu_test.log` → `KAYIT GÖÇÜ: GEÇTİ (0 hata)`. Log taraması: **329 log / KALDI 0 / SCRIPT ERROR 0 / Parse Error 0 / Failed to load 0**.
 - **Etki:** Her turda **sahte P0 sinyali**; "Sanity: X failed" sayısı gerçek durumu yansıtmıyor ve gerçek bir KALDI/SCRIPT ERROR çıkarsa gürültü içinde kaybolabilir. Tur 3–8 boyunca 6 tur böyle raporlandı.
 - **Tekrar:** 6/6 tur (tur 3, 4, 5, 6, 7, 8) — deterministik, ortam kaynaklı.
+- **Tur 9 doğrulama (commit 6202f96) → DOĞRULANDI:** `tools/sanity_check.py:18-20` yalnız `(?m)^ERROR: Failed to read the root certificate store\.[ \t]*\r?$` satırını siliyor (`run()` satır 62). Tam sanity: **327 PASS / 0 FAIL / 329 log** → son satır **`Sanity: 0 failed. No staging/commit/push.`** (tur 3–8'de 322 failed). Bağımsız kenar denemem (`work/tester/tur9/tst0011_kenar.py`, `tst0011_kenar2.py`): cert satırı CRLF'li / sonda boşluklu / iki kez olsa da PASS; cert + gerçek `ERROR:` (ayrı satır), aynı satırda cert+gerçek hata, noktasız benzer satır, gerçek hata ÖNCE, `SCRIPT ERROR`, `KALDI`, `Parse Error` → hepsi **FAIL** (9/9 doğru). Artık elle "etkin sanity" ayıklaması gerekmiyor. Kanıt: `work/tester/tur9/sanity/sanity_run.log`, `tst0011_kenar.log`, `tst0011_kenar2.log`.
 - **Kanıt:** `work/tester/tur8/sanity/sanity_run.log` (son satır), `work/tester/tur8/sanity/nihai_son_kontrol.log`, `.../20-night-smoke.log`, `.../kayit_gocu_test.log`; `tools/sanity_check.py:21`.
 - **Öneri (düzeltme):** Bilinen ortam satırını dışla; ör. deseni `(?:^|\n)ERROR: (?!Failed to read the root certificate store)` yap ya da koşu çıktısından bu satırı önce süz. Ardından sanity çıktısı gerçek PASS/FAIL verir ve `Sanity: 0 failed` beklenen son olur.
 
@@ -65,6 +66,8 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 - **Öneri:** Kürenin hangi nesne/bina olduğu belirlenip ölçeği düzeltilsin; gerekirse `docs/EKSIK_ASSET_ENVANTERI.md`'ye "köy yerleşimi küresel yer tutucu (Yüksek)" eklenir (envanteri Claude ekler; tester yazmaz).
 - **Tur 7 güncelleme — kimlik ÇÖZÜLDÜ:** Beyaz küre = **çadır (`res://assets/model/yapi/cadir.glb`)**, dokusu eksik olduğu için **tek renk beyaz** görünüyor. `Dunya3B._yol` yapıyı `assets/model/yapi/<ad>.glb`'den yükler; `cadir.glb.import` `cadir_0.jpg` dokusuna bağlı ama `assets/model/**` altında **tek bir `.jpg` yok (sayı: 0)** → tüm yapı/nesne/karakter modelleri dokusuz (düz renk/beyaz). Bu, TST-0005'in (43 yetim `.import`) oyun içi etkisidir. Ekran görüntüsünde ayrıca meydan yakınındaki **parlak mavi kutu**, inşa hayaleti (`KIP=insa` `_hayalet_guncelle`) olduğu için bulgu değildir. Ölçek/konum sorunu yok; sorun dokunun eksikliği. Kanıt: `work/tester/tur7/v_koy_gunduz_insa.jpg`, `work/tester/tur7/koy_gunduz_insa.png`, `assets/model/yapi/` (yalnız `.import`, `.jpg` yok).
 
+- **Tur 9 ekran kanıtı (6202f96):** `work/tester/oyunlar/foto_175/05_koy_perde2.png` (2. perde, gün 10) köyün ortasında **iki büyük dokusuz beyaz çadır kubbe**; binalar düz renkli kutu. Ölçek/konum sorunu yok, sorun dokunun yokluğu (TST-0005 etkisi). Kanıt: `work/tester/tur9/v_f175_koy_perde2.jpg`.
+
 ### TST-0007 · P2 · [CEVRE] · chr_011 kukuleta/pelerin mesh'i ölçüsüz (gövdeyi küre gibi sarıyor)
 - **Durum:** AÇIK
 - **Commit:** 0ac499c
@@ -87,6 +90,8 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 
 ### TST-0004 · not (Tur 4, commit 0ac499c) — BUG-0018 ile özdeş, DOĞRULANDI
 - **Doğrulama:** `git show --stat 0ac499c` yalnız denetim dosyasına BUG-0018 satırı ekliyor (oyun kodu değişmedi). BUG-0018 ile TST-0004 **aynı kök neden** (EKO-02 odun kilidi). Tur 4 kanıtı: 2. perdeye ulaşan **tüm** oyunlarda `odun=0, sur=0, yapı=5`; 24 oyunda **zafer 0**; ortalama son gün ≈ 11,4. İddia + kanıt birebir uyuşuyor. Durum **AÇIK** kalır (ROADMAP 2, düzeltilmedi).
+
+- **Tur 9 ölçümü (66 tamamlanan oyun, denge9b.py):** 2. perdeye giren **58/58 oyun odun=0 ve sur=0** ile giriyor (ortalama açılış: gıda 5,6 · akçe 22,9 · yapı 5,0 · nüfus 18,7). Yani odun zinciri hiçbir otomatik koşuda kurulmuyor; sur hiç yükselmiyor. Otomatik oyuncu tarafı ONR-004'ün konusu; oyuncu tarafı tuzak (S3) sürüyor.
 
 ### BUG-0016 / BUG-0017 · not (Tur 4) — tekrar DOĞRULANDI
 - **BUG-0016 (5396fae):** fix sonrası oyunlar 109–123'te KILIT olayı ve `SOHBET_KILIDI` = 0 (KILIT yalnız fix öncesi 106/107/108'de). `chr_kilit_cikisi_test` tekrar GEÇTİ (0 hata).
@@ -144,6 +149,9 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 - **Kanıt:** `work/tester/oyunlar/oyun_109.log`, `work/tester/oyunlar/oyun_107.log`; `data/metin/metinler.csv` (anahtarlar grep ile YOK).
 - **Not:** `work/tester/oyunlar/foto_109/04_kart.png` üst kaynak şeridinde "Tomruk/Buğday/Un/Kireç/Harç" okunaklı görünüyor; `[KEY_NOT_FOUND]` başka bir alt panelde/ipucunda çıkıyor olabilir — hangi ekranda göründüğü ek görüntüyle kesinleştirilmeli.
 - **Öneri (düzeltme):** 6 satırı `metinler.csv`'ye ekle (Anahtar,Metin) — ör. `koy.kaynak.tomruk,Tomruk`.
+- **Tur 9 derinleştirme (commit 6202f96):** 6 uyarı **hâlâ her oyunda** basılıyor (oyun 160–173; logda 430 `[KEY_NOT_FOUND]` satırının tamamı uyarı metninin kendisi). Çağrı yığını (oyun_169.log:113-120): `koy_ekrani.gd:186 _yapi_satirini_ciz → koy_hud/yapi_karti.gd:38 kur → MeslekYapilari.ad → DemirZinciri.ad → GezginTuccarStogu.ad → HarcZinciri.ad → TahilZinciri.ad → OdunZinciri.ad → CobanSurusu.ad → guvenli_metin.gd:225`.
+- **Yeni ölçüm (önemli):** oyunun kendi koduyla (`GuvenliMetin.metin`) 6 anahtar tam olarak `[KEY_NOT_FOUND] koy.yapi.tas_ev` biçiminde dönüyor (`work/tester/tur9/metin_probe.log`), **ama görünür etiketler doğru**: `work/tester/tur9/koy_insa.png` (Buğday Tarlası, Hızarhane, Taş Ocağı, Avcı Kulübesi, Atölye) ve `work/tester/oyunlar/foto_175/05_koy_perde2.png` (**TAŞ EV** kartı okunur) + üst şeritte **Tomruk/Buğday/Un/Kireç/Harç** doğru; gece raporu kartı da temiz. Sebep: bu etiketler `<Zincir>.ad()` adaptör sözlüklerinden çözülüyor; uyarıyı doğuran şey `.get(anahtar, <sonraki zincir>.ad(anahtar))` varsayılanının **isteksiz (eager) değerlendirilmesi** — yani uyarı bugün **çoğunlukla yanlış alarm**.
+- **Sonuç / öneri güncellemesi:** (a) 6 satır CSV'ye eklenirse hem uyarı hem yanlış alarm biter (en basit çözüm), (b) ayrıca adaptör zincirlerindeki eager varsayılan `if not anahtar in sozluk: return <sonraki>.ad(anahtar)` biçimine çevrilirse yeni anahtar eklendiğinde sahte uyarı üretilmez. **Görünür `[KEY_NOT_FOUND]` bu turda yakalanamadı → etki "uyarı gürültüsü" olarak sınırlı; `tr("koy.kaynak."+t)` kullanan pazar/gece raporu satırlarında tomruk/un/harç/kireç üretilirse çıkabilir (ÖLÇÜLMEDİ).** Öncelik P2→**P3** önerisi.
 
 ### TST-0001 · P2 · [HATA] · KoyNufusu.sayi() eksik sınıf anahtarında SCRIPT ERROR üretiyor
 - **Durum:** AÇIK (P3 — Tur 6, Claude kararı)
@@ -174,3 +182,9 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 - **Tahmin:** `sinsi_gece_rutini.nobetciler` (satır 11–15) `h.sahne.yonetim.koylu(id)` sonucunu null denetlemeden `MuhafizMaasi.aday(k, y)`'ye veriyor; `sinif` adayında (`sinsi_gece_rutini.aday`, satır 7) null koruması VAR ama `nobetciler` yolunda yok. `nobetciler` içinde `koylu(id)` null ise `continue` eklemek yeterli görünüyor.
 
 - **Tur 6 notu (Claude kararı):** Tetikleyen satır tester aracının kendi DURUM çıktısıydı; oyun bu sınıfları (zanaatkar/dervis) kendisi sorgulamıyor → **P2→P3**. Savunmasız API önerisi **ONR-002** olarak Codex kuyruğunda. TST-0002 de Codex kuyruğunda.
+
+
+
+
+
+

@@ -6,9 +6,32 @@ Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar,
 - Göreve başlama: 11 Ekim 2026 — **Tur 1 (eğitim)** tamamlandı.
 - Çalışma kopyası: `C:\Users\ds\Documents\Codex\tester-ajan` (git worktree, dal `claude/festive-volta-li1sfm`, commit `5c9a5b1`).
 - Eğitim turu kuralı: kod (`src/`, `data/`, `tests/`, `tools/`, `ROADMAP.md`) değiştirilmedi; commit/push yapılmadı. Yalnız `docs/tester/` ve bu günlük yazıldı.
-- Güncel: **Tur 8** tamamlandı (11 Ekim 2026, commit `d2f3b65`; yeni kod commit'i yok). Rapor: `docs/tester/turlar/TUR-008.md`.
+- Güncel: **Tur 9** tamamlandı (11 Ekim 2026, commit `6202f96`; TST-0011 düzeltmesi). Rapor: `docs/tester/turlar/TUR-009.md`. **Sanity: 0 failed.**
 
 
+## Tur 9 — 11 Ekim 2026 (commit 6202f96; TST-0011 düzeltmesi)
+
+### Ne yaptım
+- **Tam sanity (§3.5):** Sanity: 0 failed — **327 PASS / 0 FAIL / 329 log**. Tur 3–8'deki "322 failed" yanlış negatifi bitti. Import exit 0; 102 ERROR = TST-0005 yetim .import.
+- **TST-0011 DOĞRULANDI:** cert-satırı istisnası (	ools/sanity_check.py:18-20, un() satır 62) yalnız o satırı yok sayıyor. 13 kenar senaryosu (CRLF'li, sonda boşluklu, iki kez, cert+gerçek ERROR, aynı satırda cert+gerçek hata, noktasız benzer satır, gerçek hata önce, SCRIPT ERROR/KALDI/Parse Error) → 9/9 doğru. Kanıt: `work/tester/tur9/tst0011_kenar*.log`.
+- **TST-0010 DOĞRULANDI (tekrar):** kod varsayılanı 12 / .tres 12; perde_gecisi_test, 
+ihai_son_test, oto 
+ihai_son_kontrol GEÇTİ.
+- **7/24 (tur 8 sonrası, 170–173):** 66 tamamlanan oyun; **zafer 2/66 = %3,0**; Tekfur 28 · İsyan 18 · Azil 18 · Uç Tutundu 1 · Beyin Uç Köyü 1; ort. son gün 12,56; KILIT/DONMA yeni 0.
+- **DENGE:** (a) 58/58 oyun 2. perdeye sur=0+odun=0 ile giriyor; huzur **−4,19/gece**, sonu 21,9. (b) ağalık ort. gün 6 → 12. perde gecesi = 19. gece; **g19'da biten 15 oyunun 15'i Tekfur** → zafer "ağalığı gün 5'te aç" şansına bağlı (ONR-010). (c) 18 azilin tamamı teftiş gecelerinde (6/11/16); kök rüşvet ağırlığı (4 rüşvet = yozlaşma 20) + dolu kişisel kasa; ekonomi değil (ONR-007).
+- **TST-0002 derinleşti:** 6 eksik anahtarın uyarısı her oyunda sürüyor; çağrı yığını koy_ekrani.gd:186 → yapi_karti.gd:38 → ad() zinciri → guvenli_metin.gd:225. **Görünür etiketler doğru** (TAŞ EV kartı, Tomruk/Buğday/Un/Kireç/Harç, gece raporu) → uyarı çoğunlukla yanlış alarm (eager varsayılan); görünür [KEY_NOT_FOUND] yakalanamadı → P2→P3 önerisi. Kanıt: `work/tester/tur9/metin_probe.log`, `koy_insa.png`, `foto_175/05_koy_perde2.png`.
+- **Türkçe dilim 6 (satır 751–900):** temiz; sonraki dilim **901–1050**. Ek gözlem: sohbet.<ad>.c3 ≡ c5 (30/40) → Claude'a `[SORU]` (kasıtlı mı?).
+- **Rastgele bölüm (BÖLÜM 9, ODA):** 14 akış sahnesi kendi elimle GEÇTİ; BÖLÜM 6 (TUC) da sanity'de 12 akış + 13 birim PASS.
+- **Kendi koşularım:** 901 (0,30) İsyan g14 · 902 (0,70) Azil g11 · 903 (0,95) Tekfur g13 — SCRIPT ERROR/KILIT/NaN/eksi stok 0.
+- **Kural uyumu:** kod dosyalarına dokunulmadı; hiçbir Godot işlemi adıyla kapatılmadı (7/24 döngü kesintisiz); açılan görsel 4 (hepsi önce küçültüldü); gh kurulu olmadığı için Ajan Masası okunamadı → not düşüldü.
+
+### Yeni/kapatılan
+- Yeni bulgu: **0**. Kapanan: **TST-0011 DOĞRULANDI** (+ TST-0010 tekrar). Yeniden açılan: yok.
+- Yeni öneri: yok (ONR-007 ve ONR-010 güçlendirildi; ONR-005/006/013 tur 9 sayılarıyla güncellendi).
+- Açık: P0 0 · P1 0 · P2 3 (TST-0002, 0004, 0007) · P3 5.
+
+### Sonraki tur odağı
+- ONR-010 için elle/pencereli zafer denemesi + "bu geceyi atlatırsan tutundun" uyarısı var mı; teftiş takvimi görünürlüğü (ONR-007); Türkçe dilim 7 (901–1050); karakter muayenesi tekrarı; TST-0002 görünür çıktı üretme denemesi.
 ## Tur 8 — 11 Ekim 2026 (commit d2f3b65; yeni kod commit'i yok)
 
 ### Ne yaptım
@@ -196,4 +219,5 @@ Durum: kod kaynağından **izlendi/doğrulandı**; oyunda **yeniden üretme dene
 - **Türkçe dilim:** satır 2–150; 1 yeni bulgu (çift boşluk + yinelenen tekfur metni, TST-0006). Kaldığım satır: **150** (sonraki tur 151’den).
 - **Sürekli oyun:** 24 oyun (101–123); sonlar Tekfur 9 · İsyan 5 · azil 3 · zafer 0; ortalama son gün ≈ 11,4; DONMA 0, KILIT 0 (fix sonrası), yeni HATA 0.
 - Detay: `docs/tester/turlar/TUR-004.md`.
+
 
