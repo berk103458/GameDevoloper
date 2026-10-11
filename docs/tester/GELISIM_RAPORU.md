@@ -1,8 +1,20 @@
-# Oyun Gelişim Raporu (Tester)
+﻿# Oyun Gelişim Raporu (Tester)
 
 Her tur/gün sonunda en üste bir giriş. Kalıp: `docs/tester/TESTER_REHBERI.md` §5. Sayılar ölçülerek yazılır.
 
 <!-- En yeni giriş buraya -->
+
+## 2026-10-11 · Tur 4 · commit 0ac499c (kod: 160ef54)
+- **Sağlık:** Etkin sanity **327/327 PASS** (harness "322 failed" = yalnız ortam sertifika hatası; gerçek `KALDI` 0, `SCRIPT ERROR` 0, `Parse Error` 0). `20-night-smoke` GEÇTİ, bellek 69.06→69.72 MB (sızıntı yok). BÖLÜM 7 (mevsim/kış) 5 akış testi **GEÇTİ**; 5 kvr birim testi (perde_gecisi, sancak_teftisi, savunma_guvenligi, tekfur_harac_heyeti, odun_zinciri) **GEÇTİ**; `chr_kilit_cikisi_test` **GEÇTİ (0 hata)**.
+- **Bu turda giren kod:** yalnız `0ac499c` (denetim dosyası +1 satır: BUG-0018 kaydı). Oyun kodu değişmedi.
+- **Doğrulanan:** BUG-0018/TST-0004 (odun kilidi) kanıtla **DOĞRULANDI**; BUG-0017 (TST-0003) 113–123'te `is_yeri` hata=0 → **DOĞRULANDI**; BUG-0016 5396fae sonrası KILIT/SOHBET_KILIDI yok → **DOĞRULANDI**.
+- **İyileşen:** Hata/softlock tarafı temiz: son 11 oyunda (113–123) SCRIPT ERROR 0, DONMA 0, KILIT 0.
+- **Kötüleşen / regresyon:** Kod regresyonu yok. **Denge hâlâ çökük:** 24 oyunda (101–123) zafer 0.
+- **Denge eğrisi (ölçülmüş):** Tamamlanan 17 oyun; sonlar **Tekfur 9 · İsyan 5 · Muhafız azledildi 3 · zafer 0**; ortalama son gün **≈ 11,4**. 2. perde (nüfus 18) g5–g8'de açılıyor; hepsinde `odun=0, sur=0, yapı=5`. 2. perde girişi ile ilk Tekfur akını arası çok kısa: haraç `(gün+1)%6==0` gününde isteniyor, cevapsız → ret → `tekfur_gucu=2+2×1=4`; duvarsız köyde `savunma ≈ asker/2 = 2–3` → **g7'de ölüm** (106/113/117/123). En iyi oyun 118 (akçe 102) 2. perdede 11 gece dayanıp g19'da düştü.
+- **Yeni kategori bulgusu:** [CEVRE] karakter muayenesi — 44 modelin ölçümleri + eksik hareketler (aşağıda Adım 5). [DIYALOG] metinler.csv çift boşluk (TST-0006).
+- **Açık bulgu:** P0 0 · P1 1 (TST-0004) · P2 2 (TST-0001, TST-0002) · P3 2 (TST-0005, TST-0006).
+- **Bir sonraki tur odağı:** ONR-004 (araçlar `odunluk` kursun) uygulanınca zafer oranını ölç; 2. perde geçişine hazırlık penceresi (ONR-005) ve huzur eğrisi (ONR-006) dengesi; TST-0002 `[KEY_NOT_FOUND]` ekranını görüntüyle kesinleştir.
+
 
 ## 2026-10-11 · Tur 3 · commit 34d36f7 (kod: 254202d)
 - **Sağlık:** Etkin sanity **320/320 PASS** (harness "315 failed" = yalnız ortam sertifika hatası; gerçek `KALDI` 0, `SCRIPT ERROR` 0). BÖLÜM 6 (tüccar/pazar/sipariş) 9 kvr birim testi **GEÇTİ**. 20-gece duman: GEÇTİ, bellek 68.9→69.6 MB (sızıntı yok).

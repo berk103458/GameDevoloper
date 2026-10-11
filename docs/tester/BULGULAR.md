@@ -1,4 +1,4 @@
-# Tester Bulguları
+﻿# Tester Bulguları
 
 Kural ve kalıp: `docs/tester/TESTER_REHBERI.md` §5. Numara TST-0001'den artar; yeni bulgu **en üste** eklenir.
 Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. Öncelik P0–P3.
@@ -6,6 +6,9 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 | Kimlik | Öncelik | Madde | Başlık | Durum |
 | --- | --- | --- | --- | --- |
 | TST-0005 | P3 | ENVIRONMENT/asset | 43 orphan `.import` (jpg yok) import sırasında 86 ERROR satırı üretiyor | AÇIK |
+| TST-0006 | P3 | [DIYALOG] metin | metinler.csv: 'Halkaya  +1' ve 'Tam isabet  +2' çift boşluk; tekfur saldırısı için iki ayrı anahtar | AÇIK |
+| TST-0007 | P2 | [CEVRE] chr_011 | chr_011 kukuleta/pelerin mesh'i ölçüsüz; gövdeyi küre gibi sarıyor (el_aci 0.69) | AÇIK |
+| TST-0008 | P3 | [CEVRE] modeller | chr_009/chr_021 ayak ~9 cm havada; Aydoğdu yayı bacak/gövdeye giriyor | AÇIK |
 | TST-0004 | P1 | SYS-19/DENGE | Zafer sonu ulaşılamıyor: EKO-02 tomruk zinciri sonrası köy odun üretemiyor, kıtlıkla çöküyor | AÇIK |
 | TST-0003 | P1 | — | Sinsi gece rutini: koylu(id) null iken is_yeri erişimi; her karede SCRIPT ERROR | DOĞRULANDI (254202d) |
 | TST-0002 | P2 | — | 6 metin anahtarı eksik; her oyunda [KEY_NOT_FOUND] uyarısı | AÇIK |
@@ -15,6 +18,41 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 
 <!-- Bulgular buradan aşağı, en yenisi üstte -->
 
+### TST-0007 · P2 · [CEVRE] · chr_011 kukuleta/pelerin mesh'i ölçüsüz (gövdeyi küre gibi sarıyor)
+- **Durum:** AÇIK
+- **Commit:** 0ac499c
+- **Adımlar:** 1) `KLASOR=work/tester/muayene godot --path . --audio-driver Dummy --windowed tests/oto/karakter_muayene.tscn` 2) `work/tester/muayene/chr_011.jpg` temas sayfasını aç (hareketler: bekle/yürü/…).
+- **Beklenen:** Pelerin/kukuleta omuz ve gövdeye oturur; baş ve gövde ölçüsünde kıyafet (GDD: karakter giysisi gövdeye sarılır).
+- **Gerçek:** Kahverengi pelerin mesh'i başın çok üstüne taşarak gövdeyi kocaman şişkin bir küre gibi sarıyor; kollar pelerinin içinde kayboluyor. Ölçüm: `el_aci` 0.69 (bekle) / 0.64 (yürü) — setin en yükseği (eşik 0.45). Yürümede pelerin gövdeden kopuk/şişkin kalıyor.
+- **Tekrar:** 1/1 görsel (tutarlı, statik model).
+- **Kanıt:** `work/tester/muayene/chr_011.jpg`, `work/tester/muayene/muayene.json` (chr_011.uyarilar).
+- **Öneri:** chr_011 kıyafet/kukuleta mesh'i gövde ölçüsüne göre yeniden ölçeklendirilsin (asset üretmeden mevcut mesh düzeltmesi). Asset envanterine "chr_011 pelerin (Yüksek)" olarak girer.
+
+### TST-0008 · P3 · [CEVRE] · Modellerde ayak havada ve el eşyası çakışması
+- **Durum:** AÇIK
+- **Commit:** 0ac499c
+- **Adımlar:** 1) Karakter muayenesi 2) `work/tester/muayene/chr_009.jpg`, `chr_021.jpg`, `aydogdu.jpg` sayfaları + `muayene.json`.
+- **Beklenen:** Konuşma/öfke/yürüme kliplerinde ayaklar yere basar (ayak_y ≈ 0); el eşyası (yay) gövdeye/bacağa girmez.
+- **Gerçek:** chr_009 — `konus`/`ofke` kliplerinde ayaklar yerden kopuk (en alt 0.09 m); chr_021 — `yuru` 0.09 m havada. Aydoğdu — yan bakışta yay, bacak ve gövde silüetinin içinden geçiyor (el eşyası çakışması, Claude 11 Ekim gözlemi doğrulandı).
+- **Tekrar:** 3/3 (muayene.json ölçümü + görsel).
+- **Kanıt:** `work/tester/muayene/chr_009.jpg`, `work/tester/muayene/chr_021.jpg`, `work/tester/muayene/aydogdu.jpg`, `work/tester/muayene/muayene.json`.
+- **Öneri:** İlgili kliplerde ayak kökünü zemine sabitle (root motion/ayak hedefi); Aydoğdu yayının tutuş açısını/uzunluğunu gövde-bacak çakışmayacak şekilde ayarla.
+
+### TST-0004 · not (Tur 4, commit 0ac499c) — BUG-0018 ile özdeş, DOĞRULANDI
+- **Doğrulama:** `git show --stat 0ac499c` yalnız denetim dosyasına BUG-0018 satırı ekliyor (oyun kodu değişmedi). BUG-0018 ile TST-0004 **aynı kök neden** (EKO-02 odun kilidi). Tur 4 kanıtı: 2. perdeye ulaşan **tüm** oyunlarda `odun=0, sur=0, yapı=5`; 24 oyunda **zafer 0**; ortalama son gün ≈ 11,4. İddia + kanıt birebir uyuşuyor. Durum **AÇIK** kalır (ROADMAP 2, düzeltilmedi).
+
+### BUG-0016 / BUG-0017 · not (Tur 4) — tekrar DOĞRULANDI
+- **BUG-0016 (5396fae):** fix sonrası oyunlar 109–123'te KILIT olayı ve `SOHBET_KILIDI` = 0 (KILIT yalnız fix öncesi 106/107/108'de). `chr_kilit_cikisi_test` tekrar GEÇTİ (0 hata).
+- **BUG-0017 (254202d):** oyunlar 113–123'te `is_yeri` SCRIPT ERROR = **0** (11/11). 
+### TST-0006 · P3 · [DIYALOG]/metin · metinler.csv: çift boşluk ve yinelenen Tekfur saldırı metni
+- **Durum:** AÇIK
+- **Commit:** 0ac499c
+- **Adımlar:** 1) `data/metin/metinler.csv` ilk 150 satırı (§13.3 dilim: satır 2–150) oku 2) çift boşluk ve aynı olayın iki anahtarını ara.
+- **Beklenen:** Metinlerde tek boşluk; bir olayın tek kanonik anahtarı olur (yazım denetimi: tools/metin_dogrula.py).
+- **Gerçek:** İki satırda çift boşluk: `arayuz.oyun.kenar` = "Halkaya  +1", `arayuz.oyun.tam` = "Tam isabet  +2". Ayrıca Tekfur saldırısı için iki ayrı anahtar: `anlati.saldiri.guc` = "Tekfur'un adamları: güç %d. Köyün savunması: %d." (satır 33) ve kullanılan `koy.olay.tekfur_baskini` = "Tekfur'un akıncıları geldi: güçleri %d, savunman %d." (satır 340). `anlati.saldiri.guc` kod ile çağrılıyor mu belirsiz (yetim/legacy olabilir).
+- **Tekrar:** 2/2 (dosya okuması, statik).
+- **Kanıt:** `data/metin/metinler.csv:111,116,33,340`; dilim notu work/tester/tur4/metin_ilk150.txt.
+- **Öneri:** Çift boşlukları tek boşluğa indir; `anlati.saldiri.guc` kullanılmıyorsa kaldır, kullanılıyorsa `koy.olay.tekfur_baskini` ile birleştir (metin tutarlılığı). CSV'yi tester değiştirmez.
 ### TST-0005 · P3 · [ÇEVRE]/asset · 43 yetim `.import` dosyası import sırasında 86 ERROR satırı üretiyor
 - **Durum:** AÇIK (önceden var olan repo artefaktı)
 - **Commit:** 34d36f7
@@ -25,6 +63,7 @@ Durumlar: AÇIK → DÜZELTİLDİ (commit) → DOĞRULANDI / YENİDEN AÇILDI. �
 - **Tekrar:** Import önbelleği yeniden kurulunca görünür (tur 2 logunda önbellek taze olduğu için yoktu; tur 3'te 86).
 - **Kanıt:** `work/tester/tur3/sanity/headless-import.log` (86 satır); `Get-ChildItem assets/model/karakter -Filter '*_yuru_Image_0.jpg.import'` (43 dosya, .jpg yok).
 - **Öneri:** Karşılığı olmayan 43 `.import` dosyasını sil (asset üretmeden; yalnız yetim meta dosyaları), veya glTF ayarında gömülü görüntü yolu düzeltilsin. Karar Claude/Codex'in.
+- **Tur 4 notu (0ac499c):** Hâlâ 43 yetim `.import` var; bu tur import logunda `_yuru_Image_0.jpg` geçen **124 satır**, toplam **140 ERROR satırı** (`work/tester/tur4/sanity_import.log`). Durum **AÇIK**.
 
 
 ### TST-0004 · P1 · [DENGE] · Zafer sonu ulaşılamıyor — EKO-02 tomruk zinciri köyü odun kilitine sokuyor

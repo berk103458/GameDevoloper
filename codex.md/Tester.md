@@ -1,4 +1,4 @@
-# Tester günlüğü
+﻿# Tester günlüğü
 
 Ben **Tester**: Kapı Muhafızı'nın tam zamanlı test ajanıyım. Oyunu açar, oynar, sürekli test ederim; bulgu, değişiklik önerisi ve gelişim raporlarımı Claude'a veririm. Kod değiştirmem. Eğitimim ve kurallarım: `docs/tester/TESTER_REHBERI.md` (Claude yazdı, Claude yönetir).
 
@@ -67,6 +67,8 @@ Durum: kod kaynağından **izlendi/doğrulandı**; oyunda **yeniden üretme dene
 <!-- Tur N · tarih · commit · test edilen · bulgu/öneri sayısı -->
 - Tur 1 (eğitim) · 11 Ekim 2026 · commit 5c9a5b1 (değişmedi) · yalnız okuma + kaynak izleme · bulgu 0, öneri 0
 - Tur 2 · 11 Ekim 2026 · commit 5396fae · BUG-0016 doğrulama, sürekli oyun analizi, sanity, 4 görsel · bulgu 3, öneri 2
+- Tur 3 · 11 Ekim 2026 · commit 34d36f7 (kod 254202d) · denge soruşturması, BÖLÜM 6 regresyon, sanity · bulgu 1, öneri 2
+- Tur 4 · 11 Ekim 2026 · commit 0ac499c (kod 160ef54) · BUG-0018 doğrulama, 2. perde denge, karakter muayenesi (44 model), Türkçe dilim, BÖLÜM 7 regresyon · bulgu 1, öneri 3
 ## Tur 3 — 11 Ekim 2026 (commit 34d36f7 / kod 254202d)
 
 ### Durum
@@ -87,3 +89,18 @@ Durum: kod kaynağından **izlendi/doğrulandı**; oyunda **yeniden üretme dene
 2. TST-0002'nin `[KEY_NOT_FOUND]` gösterdiği ekranı görüntüyle kesinleştir.
 3. TST-0001 (KoyNufusu) tekrarını ara; pencereli elle CHR ikna-fail ekranı.
 4. `koy_benzetimi.gd` zafer eşiğini test et.
+
+## Tur 4 — 11 Ekim 2026 (commit 0ac499c / kod 160ef54)
+
+### Durum
+- **Ana odak:** (1) yeni commit `0ac499c` (BUG-0018 kaydı) doğrulaması, (2) ÖNCELİKLİ DENGE SORUSU devamı (2. perde savunma hazırlığı, ilk Tekfur gücü, huzur eğrisi, erken azil), (3) ilk **karakter muayenesi** (44 model, rehber §13.1), (4) Türkçe dilim (§13.3 ilk 150 satır), (5) BUG-0016/BUG-0017 sürdürme, (6) BÖLÜM 7 regresyon.
+- **Yeni bulgu:** TST-0006 (P3, [DIYALOG]/metin). **Yeni öneri:** ONR-005, ONR-006, ONR-007.
+- **Doğrulanan:** BUG-0018/TST-0004 (odun kilidi, kanıtla), BUG-0017/TST-0003, BUG-0016.
+- **Kod/test/data değiştirilmedi.**
+
+### Tur 4 özeti
+- **DENGE yanıtları:** (a) 2. perde huzur eğrisi: gıda 1–3 gecede 0, huzur −10…−19/gece (110/112/114/116 örnekleri). (b) Zafer ulaşılamaz: 2. perde girişinde `sur=0 odun=0 yapı=5`, savunma ≈2–3; ilk akın gücü 4 (haraç `(gün+1)%6==0` → cevapsız ret → baski=1 → `2+2×1`), 106/113/117/123 g7'de düştü. (c) 6. gece azil = **Sancak teftişi** (ilk_gece=6, %50), ekonomi çöküşü değil (oyun 109: huzur 54 sağlıklı).
+- **Karakter muayenesi:** `work/tester/muayene/` — 44 model, `muayene.json` + temas sayfaları; uyarı/açıklama Adım 5'te (TUR-004).
+- **Türkçe dilim:** satır 2–150; 1 yeni bulgu (çift boşluk + yinelenen tekfur metni, TST-0006). Kaldığım satır: **150** (sonraki tur 151’den).
+- **Sürekli oyun:** 24 oyun (101–123); sonlar Tekfur 9 · İsyan 5 · azil 3 · zafer 0; ortalama son gün ≈ 11,4; DONMA 0, KILIT 0 (fix sonrası), yeni HATA 0.
+- Detay: `docs/tester/turlar/TUR-004.md`.

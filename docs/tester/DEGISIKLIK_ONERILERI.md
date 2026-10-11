@@ -1,4 +1,4 @@
-# Değişiklik Önerileri (Tester)
+﻿# Değişiklik Önerileri (Tester)
 
 Hata olmayan ama değişmesi gereken yerler. Kalıp: `docs/tester/TESTER_REHBERI.md` §5. Numara ONR-001'den artar.
 Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) / UYGULANDI. Karar Claude'undur.
@@ -7,12 +7,40 @@ Durumlar: YENİ → ROADMAP'E ALINDI (madde kimliği) / REDDEDİLDİ (gerekçe) 
 | --- | --- | --- | --- | --- |
 | ONR-003 | Yüksek | Ekonomi / denge | Odun zinciri (EKO-02) köyü kilitleyip zaferi ulaşılamaz kılıyor | YENİ |
 | ONR-004 | Yüksek | Test araçları | Otomatik oyuncu + denge benzetimi EKO-02 öncesi stratejide kalmış | YENİ |
+| ONR-005 | Yüksek | [DENGE] 2. perde / savunma | 2. perde geçişi savunma hazırlığı olmadan ölüm | YENİ |
+| ONR-006 | Yüksek | [DENGE] 2. perde / huzur | 2. perde huzur çöküşü: gıda 0 → huzur gecelik −10…−19 → İsyan | YENİ |
+| ONR-007 | Orta | [DENGE]/[TASARIM] Sancak teftişi | 6. gece %50 olasılıklı azil, erken ve RNG tabanlı terminal son | YENİ |
+| ONR-008 | Orta | [CEVRE]/asset | Eksik hareket klipleri: gergin 44/44, ofke 37/44, panik 21/44 yok | YENİ |
 | ONR-001 | Orta | Kapı / CHR sorgusu | Başarısız ikna cevabı kalıcı kapanıyor, oyuncuya açıklanmıyor | YENİ |
 | ONR-002 | Orta | Nüfus / sınıf sözlüğü | KoyNufusu sınıf sözlüğü eksik, API savunmasız | YENİ |
 
 ---
 
+### ONR-005 · Yüksek · [DENGE] · 2. perde geçişi savunma hazırlığı olmadan ölüm
+- **Gözlem:** 2. perdeye geçen köy hiçbir savunma hazırlığı yapmadan Tekfur saldırısıyla karşılaşıyor. Oyunda 2. perde, nüfus 18'de (kabul oranından bağımsız) açılıyor; o sırada `sur=0`, `odun=0` (bkz. TST-0004/ONR-003), `yapı=5`. `savunma_gucu() = sur_gucu(0,0) + etkin_muhafiz + asker/2` → duvarsız köyde yalnız `asker/2` (≈2–3). Sıradaki olay: `harac_araligi=6` gereği `(gün+1)%6==0` gününde haraç istenir; cevapsız bırakılırsa otomatik reddedilir → `tekfur_baski=1` → **aynı/ertesi gece** `tekfur_gucu()=2+1×2=4` ile ilk akın gelir. 4 > 2–3 → köy 2. perdenin 1.–2. gecesinde düşer.
+- **Kanıt (oyun logları):** 106/113/117 (kabul 0.90/0.98/0.75): 2. perde g5–g6'da başlar, `sur=0 odun=0`, oyun **g7'de** "Tekfur'un akıncıları" ile biter. 110: ilk akın "güçleri 4, savunman 7" (büyük köy kurtuldu); 115: "güçleri 6, savunman 5" → g19 düştü. 118 (en iyi oyun, akçe 102): g7'de 2. perde, 11 gece dayandı, **g19'da** akınla düştü (zafer için g20 gerekiyordu).
+- **Neden önemli:** 2. perde "hazırlık yap" fırsatı vermeden erken ölümle bitiyor; duvar/muhafız kurmak odun kilidi yüzünden (ONR-003) mümkün değil. Zafer fiilen ulaşılamaz.
+- **Öneri:** (a) Haraç isteği ile ilk akın arasına en az 1–2 gece hazırlık koy (gecikme), (b) 2. perde başlangıcında köyü savunmaya yönlendiren açık ipucu/hedef metni ver, (c) duvar/muhafız kurulabiliyorsa (odun kilidi çözülünce) `savunma_gucu` ölçeklensin; ilk akın gücü (4) mevcut ekonomide savunulabilir olsun.
+- **Kanıt:** `work/tester/oyunlar/oyun_113.log` (g5–g7), `oyun_118.log` (g7–g19), `oyun_110.log:396`, `oyun_115.log`; `src/koy/koy_yonetimi.gd:521,860-881`; `src/veri/koy_ayarlari.gd:113,118`.
 
+### ONR-006 · Yüksek · [DENGE] · 2. perde huzur çöküşü: gıda 0 → gecelik −10…−19 → İsyan
+- **Gözlem:** 2. perde başladıktan sonra gıda **1–3 gece içinde** 0'a düşüyor ve huzur gece başına ~10–19 puan eriyor; `isyan_esigi=10` altına inince 3 gecelik sayaç başlıyor → İsyan sonu.
+- **Gece gece eğri (oyun logu `gün N … huzur=` satırları):** 110: g7 hz21 → g11 hz5 → g12 hz4 (İsyan g13). 112: g6 hz37 → g10 hz11 → g11 hz3 (İsyan g14). 114: g8 hz21 → g9 hz10 → g10 hz1 (İsyan g12). 116: g6 hz45 → g11 hz16 → g15 hz8 (İsyan g17). Tüm 2. perde oyunlarında `gida=0 odun=0 sur=0`.
+- **Mekanizma:** `koy_yonetimi.gd:_saglik_ve_moral` → aç köylüye `aclik_moral=15` ceza. Gıda üretimi nüfus artışına yetişmiyor (tarla kurulamıyor: odun 0 → ONR-003). Yani huzur çöküşü = kıtlık zinciri.
+- **Neden önemli:** 2. perde bir "dayanma" perdesi olacakken hızlı bir moral erimesine dönüşüyor; oyuncu toparlanma fırsatı bulamıyor.
+- **Öneri:** (a) Önce odun/ekonomi kilidini çöz (ONR-003) ki tarla kurulup gıda üretilebilsin, (b) kıtlıkta açlık moral cezasını kademelendir (ilk gece hafif, sonra ağırlaşsın), (c) 2. perde başında ambarda en az birkaç günlük erzak garantisi (başlangıç stok) ver. Hedef: doğru oynayan köy 2. perdede moral erimesini yavaşlatabilsin.
+- **Kanıt:** `work/tester/oyunlar/oyun_110/112/114/116.log`; özet eğri `work/tester/tur4/huzur.py`; `src/veri/koy_ayarlari.gd:97-98,107`.
+
+### ONR-007 · Orta · [DENGE]/[TASARIM] · 6. gece %50 olasılıklı azil, erken ve RNG tabanlı terminal son
+- **Gözlem:** Sancak teftişi `ilk_gece=6, aralik=5`, `bulma_olasiligi=0.50`: yozlaşma ≥20 ve kişisel kasa dolu ise **6. gecede** %50 olasılıkla anında "Muhafız azledildi" (terminal son). Oyun 109, 120, 122 bu şekilde bitti; köy sağlıklıydı (109: huzur 54, perde 1, koy 15) ve akçe 1 ile "ekonomi çöktü" görüntüsü veriyordu.
+- **Neden önemli:** (a) Bu son **ekonomi çöküşü değil**, rüşvet/yozlaşma teftişi; ama düşük kamu akçesiyle aynı ana denk gelince "erken ekonomi çöküşü" izlenimi yaratıyor. (b) Tek atışlık %50 RNG, oyunun ilk teftişinde oyuncuyu oyundan koparabiliyor; oyuncu yozlaşmayı geç fark ederse geri dönüşü yok.
+- **Öneri:** (a) 6. geceden önce oyuncuya yozlaşma uyarısı ver ("Teftiş yaklaşıyor; kasa/yozlaşma riski"), (b) ilk teftişte bulunma olasılığını düşür (ör. 0.25) veya ilk sonuç "uyarı" olsun, ikinci teftişte azil. Oyun dengesi kararı Claude/Codex'in.
+- **Kanıt:** `data/sancak_teftisi.json`; `src/sistemler/sancak_teftisi.gd:36-44`; `work/tester/oyunlar/oyun_109.log` (SON: Muhafız azledildi gun=6 huzur=54 akce=1).
+### ONR-008 · Orta · [CEVRE]/asset · Eksik hareket klipleri (gergin/ofke/panik/konus/sevinc)
+- **Gözlem:** Karakter muayenesinde (44 model) `gergin` **44/44 modelde yok**; `ofke` 37/44; `panik` 21/44; `konus` ve `sevinc` 14/44 modelde yok. **14 adlı/kutu modelde yalnız bekle+yürü var** (asker, aydogdu, ayse_baci, ciftci, ciftci_kadin, esnaf, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf). CHR_001–030'da en az bekle/yürü/konuş/sevinc/öfke/panik karışımı var; adlı karakterlerin çoğu donuk.
+- **Neden önemli:** Oyunda bu hareketler çağrılırsa (kriz, kutlama, gece rutini) karakter donuk/hareketsiz kalır ya da fallback'e düşer; oyuncu gözüyle "kukla" hissi artar. `gergin` hiçbir modelde olmadığı için bu durum tüm oyunda geçerli.
+- **Öneri:** (a) Hangi hareketlerin kod tarafından gerçekten çağrıldığını çıkar (animasyon çağrı listesi); çağrılan ama olmayanlar için klip ekle ya da doğru fallback eşle. (b) Eksik klipler `docs/EKSIK_ASSET_ENVANTERI.md`'ye girsin (öncelik: `gergin` > `ofke` > `panik`). Asset üretmeden yalnız envanter/karar.
+- **Kanıt:** `work/tester/muayene/muayene.json` (her modelin `eksik` listesi), `work/tester/tur4/muayene_ozet.py`.
 ### ONR-003 · Yüksek · Ekonomi / denge · Odun zinciri (EKO-02) köyü kilitleyip zaferi ulaşılamaz kılıyor
 - **Gözlem:** EKO-02 (`src/koy/odun_zinciri.gd`) `hizarhane`'yi "2 tomruk → 3 odun / 1 kereste" yaptı; tomruk yalnız `odunluk` yapısından geliyor. Pratikte bir kilit oluşuyor: `hizarhane` kurmak odun ister (6 odun), odun üretmek `hizarhane` ister; başlangıç odunu (20) çadır+odunluk+tarla ile tükenince köy odun üretemez. 22/22 oyunda `odun=0` (g1'den sonra). Sonuç: köy ~5 yapıda donar, tarla eklenemez, gıda 0, huzur 60→tek haneli, isyan.
 - **Neden önemli:** Oyunun kazanma yolu (2. perde 12 gece / 3 baskın savuşturma) fiilen kapanıyor; denge eğrisi hep yenilgiye gidiyor.
