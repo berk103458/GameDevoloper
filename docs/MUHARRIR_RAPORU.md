@@ -1,3 +1,7 @@
+## Kalfa — TEK-19/20 tamamlandı (11 Ekim 2026)
+
+TEK-19/20 uygulama 0e6b81e: gerçek ilk menü tıklaması, sıfır panel, iki çağrıda tek kapı ekranı ve bitişte false yükleme bayrağı. Kıtlık fikstürü karakter yüklemesi tamamlanmadan köye dönüyordu; tüm yükleme panelleri beklenir, üç hedefli tekrar temiz. Oyun src/data değişmedi. Nihai tek tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece. İlk başarısız loglar korunur; pull güncel, merge gerekmedi. Asset gerekmedi; ds ayna yok, eşitlenemedi. Muharrir yönü: yeni TEK alınmadan Faz 1 ACL-01 sırada.
+
 ## Kalfa — BUG-25 takip ve TEK-18 tamamlandı (11 Ekim 2026)
 
 BUG-25 takip ve TEK-18 uygulama dd8f487. Aralıklı kuyu Material RID hatası için mevcut Pbr cachede aynı renkte tek malzeme paylaşılır: 200 yenilemede 200→1; memory_free yine beş cachei temizler, aktif kuyu korunur. Kriz/çınar üçer hedefli tekrar ve nihai tam koşuda geçti. Bozuk pid adlı ayrı test cfg sonrası tüm varsayılanlar ve gerçek menü açık; negatif çocuk süreçte tam iki kasıtlı config kaydı doğrulanır, genel hata bütçesi değişmez. Ömür/ölçü/bellek/geçiş 4 kontrol, kriz/çınar 6 tekrar, API/negatif cfg/import geçti. Nihai tek tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece. Önceki başarısız koşu kanıt olarak korunur; pull güncel, merge gerekmedi. Kanıt docs/denetim/BUG-25-kapi-kuyu-donusu.md ve TEK-18-bozuk-ayar-menu.md. Asset gerekmedi; ds ayna yok, eşitlenemedi. Sonraki hazır aday TEK-19/20 yükleme kontrolü; faz döngüsü sorusu Ajan Masası’nda.

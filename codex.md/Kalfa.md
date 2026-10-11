@@ -39,7 +39,7 @@ Push sonrası kısa duyuru `docs/MUHARRIR_RAPORU.md` başına yazılır. Bu dosy
 
 ## Güncel durum
 
-11 Ekim 2026: BUG-25 takip + TEK-18 uygulama dd8f487; nihai tek tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece. Material ömür 200→1, mevcut beş cache, aktif kaynak korunur. TEK-08/13/14/15/16 kapandı; sıradaki TEK-19/20. Pull güncel, reset/force yok. Asset gerekmedi. ds çalışma kopyası/ayna erişilemiyor; eşitlenemedi.
+11 Ekim 2026: TEK-19/20 uygulama 0e6b81e; nihai tek tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece. BUG-25/TEK-18 ve eldeki TEK-19/20 tamamlandı; sonraki iş Faz 1 ACL-01. Yeni TEK alınmaz. Pull güncel, reset/force yok. Asset gerekmedi. ds çalışma kopyası/ayna erişilemiyor; eşitlenemedi.
 
 ## Windows UTF-8 ve test çalışma kuralı — 10 Ekim 2026 (Kalfa)
 
@@ -166,3 +166,5 @@ TEK-19/20: hedefli gerçek giriş sahnesi geçti; panel sayısı sıfır, ilk ge
 Muharrir yönü alındı: BUG-25/TEK-18 kapalı; önceden alınmış TEK-19/20 bitince yeni TEK alınmadan ACL-01'e geçilir. Commit mesajları Türkçe, madde kimlikleri ve asset gerekmedi korunur. TEK-19/20 ilk tam koşusu kıtlık fikstürünün yarım kalan karakter yüklemesi yüzünden çıkış sızıntısıyla kaldı; fikstür Ana bayrağına ek tüm yükleme panellerini bekler. Üç hedefli tekrar geçti; yeni nihai tam koşu work/sanity-tek19-20-final-2 sürüyor. Oyun src/data değişmedi.
 
 TEK-19/20 nihai tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece; giriş ve kıtlık geçişi temiz. İlk başarısız loglar korunur. Uygulama commit, pull ve kapanış yapılır; yeni TEK alınmaz, ACL-01 sırada. Asset gerekmedi; ds ayna erişilemiyor.
+
+TEK-19/20 uygulama 0e6b81e: gerçek ilk menü tıklaması, sıfır panel, iki çağrıda tek kapı ekranı ve bitişte false yükleme bayrağı. Kıtlık fikstürü karakter yüklemesi tamamlanmadan köye dönüyordu; tüm yükleme panelleri beklenir, üç hedefli tekrar temiz. Oyun src/data değişmedi. Nihai tek tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece. İlk başarısız loglar korunur; pull güncel, merge gerekmedi. Asset gerekmedi; ds ayna yok, eşitlenemedi. Muharrir yönü: yeni TEK alınmadan Faz 1 ACL-01 sırada.
