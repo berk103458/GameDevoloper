@@ -1,3 +1,7 @@
+## Kalfa — Faz 1 ACL-01 sahipliği (11 Ekim 2026)
+
+ACL-01 sahipliği: pull 4a5cdfb güncel. Muharrir yönüyle Faz 1 kapısı ACL-01 alınır; yeni TEK maddesi alınmaz. Yeni oyun bir hazır dört yataklı ev ve iki kişiyle mevcut köy ekranına gider; ilk gün kapalı kapı/kuyruk yok. Eski kayıt fazı ve günü korunur, hane kimliği eksikse yalnız açılış işareti bulunan kayıttan türetilir. Yeni dosya + ince adaptör; ev içi/ikinci harita/ekonomi yok. Asset üretilmez; mevcut köylü modelleri renk/isimli yer tutucu, ACL01-MUHAFIZ ve ACL01-ES envantere yazılacak. ds ayna erişilemiyor.
+
 ## Kalfa — TEK-19/20 tamamlandı (11 Ekim 2026)
 
 TEK-19/20 uygulama 0e6b81e: gerçek ilk menü tıklaması, sıfır panel, iki çağrıda tek kapı ekranı ve bitişte false yükleme bayrağı. Kıtlık fikstürü karakter yüklemesi tamamlanmadan köye dönüyordu; tüm yükleme panelleri beklenir, üç hedefli tekrar temiz. Oyun src/data değişmedi. Nihai tek tam UTF-8 sanity 345 PASS / 0 beklenmeyen hata / 20 gece. İlk başarısız loglar korunur; pull güncel, merge gerekmedi. Asset gerekmedi; ds ayna yok, eşitlenemedi. Muharrir yönü: yeni TEK alınmadan Faz 1 ACL-01 sırada.

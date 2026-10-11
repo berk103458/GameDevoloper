@@ -201,7 +201,7 @@ ACL-01 … ACL-06 gövdesi durur. Yeni maddeler ACL-07 … ACL-86. İkinci hane 
 
 ### 14.1 Köyden açılış
 
-- [ ] **ACL-01:** Oyun köy ekranından başlar — tek ev, muhafız ve eşi.
+- [/] **ACL-01:** (Kalfa) Oyun köy ekranından başlar — tek ev, muhafız ve eşi.
   - Ne: Yeni oyunda haritada bir hazır ev, muhafız ve eşi vardır; yatak 4'tür ve evin maliyeti yeniden kesilmez. Kapı ilk gün kapalıdır, HUD bunu yazar, kuyruk kurulmaz. `ana.gd` yalnız yeni oyunu bu sahneye yollar. Eski kayıt kaldığı sahneye döner. Eş kimliği kayıtta yoksa kuruluştan türetilir, oyun çökmez.
   - Kurallar:
     1. Yeni oyunda haritada 1 hazır ev vardır. Yatak 4. Evin maliyeti başlangıçtan tekrar kesilmez (BUG-22).
