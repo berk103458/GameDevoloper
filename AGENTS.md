@@ -116,8 +116,9 @@ Ayrıca roadmap üzerinde çalışmayı bitirdiğin, kapanmış adımları işar
 
 Açılış/eksik commit vakasında kalıcı denetim: tools/acilis_denetimi.py (UID dahil) ve tests/oto/acilis_bagimlilik_kontrol.tscn; büyük paket/parse hatasında yalnız commitli dosyalardan önbelleksiz import + gerçek menü kontrolü. Ahmet/Muharrir raporu docs/denetim/2026-10-07-acilis.md. Yerel hata kodu festive ile uyuşmuyorsa bağımsız diff korunur; eski keen alanları için sahte stub/ikinci sistem yazılmaz.
 
-## Asset kuralı: üretme yok, kutu yer tutucu + envanter (Ahmet, 8 Ekim 2026)
-- Hiçbir ajan asset üretmez ve indirmez: görsel, doku, 3B model, ses, müzik, animasyon dosyası yok (AI generate, script ile sentez, dış kaynaktan indirme dahil).
+## Asset kuralı: üretme yok, kutu yer tutucu + envanter (Ahmet, 8 Ekim 2026; Berk güncellemesi 11 Ekim 2026)
+- Hiçbir ajan asset **üretmez**: görsel, doku, 3B model, ses, müzik, animasyon dosyası yok (AI generate, script ile sentez dahil).
+- **Güncelleme (Berk, 11 Ekim 2026):** İnternette oyuna **uygun ve lisansı açık** bir asset bulunursa eklenebilir. Yalnız CC0 / kamu malı ya da atıfla serbest (CC-BY) lisanslar. Kaynak bağlantısı, yazar ve lisans (atıf gerekiyorsa atıf metni) `docs/EKSIK_ASSET_ENVANTERI.md`'deki ilgili satıra yazılır. Ticari kullanımı yasak, "yalnız kişisel" ya da lisansı doğrulanamayan asset alınmaz. Döneme (13. yy Anadolu) ve oyunun üslubuna uymayan asset alınmaz. Uygun asset bulunamazsa aşağıdaki yer tutucu kuralı aynen geçerlidir; yer tutucu oyunda kısa bir isim etiketiyle görünür.
 - Mekaniği yine de eksiksiz tamamla: assetin yerine basit yer tutucu kullan. 3B'de `BoxMesh`/`CapsuleMesh` gibi düz renkli temel şekil, 2B'de düz renkli `ColorRect`/kutu ve kısa etiket, seste sessiz/boş çağrı. Örnek: koyun bakımı mekaniği yapıyorsan koyun modeli üretme; koyun yerine bir kutu koy ve mekaniği kutu üzerinden çalıştır.
 - Yer tutucuyu gerçek asset gelince tek yerden değiştirilebilecek şekilde kur (tek sahne/kaynak yolu veya sabit), kodun içine dağıtma.
 - İhtiyaç duyduğun her asseti `docs/EKSIK_ASSET_ENVANTERI.md` dosyasına ekle: hangi ROADMAP maddesi için, asset adı ve türü, şu an kullanılan yer tutucunun yolu, arama anahtar kelimeleri (TR+EN), öncelik, ekleyen ajan.

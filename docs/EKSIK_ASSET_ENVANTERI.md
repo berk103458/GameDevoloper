@@ -9,7 +9,7 @@ Bu belge üretim brief’idir. Aynı dosya adı konunca oyun yolu değişmez; ye
 
 ## Ajanlar için kullanım (Ahmet kuralı, 8 Ekim 2026)
 
-Ajanlar asset üretmez ve indirmez (bkz. `AGENTS.md` → "Asset kuralı"). Mekaniği kutu/düz renk yer tutucuyla bitir, ihtiyaç duyduğun asseti bu dosyaya yaz.
+Ajanlar asset üretmez (bkz. `AGENTS.md` → "Asset kuralı"). 11 Ekim 2026'dan itibaren (Berk): uygun ve açık lisanslı (CC0/CC-BY) asset internetten eklenebilir; satırına kaynak bağlantısı, yazar ve lisans yazılır. Mekaniği kutu/düz renk yer tutucuyla bitir, ihtiyaç duyduğun asseti bu dosyaya yaz.
 
 - Yeni satırı en alttaki **"G. Ajan eklemeleri"** tablosuna ekle; mevcut A–D bölümlerini yeniden yazma.
 - Sütunlar: `ID` (ör. `ANI05-KOYUN`) · `ROADMAP` (madde kodu) · `Ne` (asset adı) · `Tür / format` (glTF, PNG, WAV, OGG, animasyon klibi…) · `Yer tutucu yolu` (kodun şu an yüklediği yer tutucu: kutu sahnesi, sabit veya `BoxMesh` kuran scriptin `res://` yolu) · `Anahtar kelimeler (TR + EN)` · `Öncelik` (yukarıdaki tablo: kritik / yüksek / orta / düşük / ileri) · `Ekleyen` (Codex, Claude, Cursor, Gemini…).

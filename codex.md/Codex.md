@@ -1,5 +1,36 @@
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
+## BUG-23 — Tarla içinde iş noktası / 11 Ekim 2026
+
+Berk tarafındaki Codex: BUG-23 uygulandı; kullanıcı talimatıyla ROADMAP_2.md
+işareti değiştirilmedi, commit/push yapılmadı, .git'e dokunulmadı. Asset gerekmedi.
+Yeni TarlaIsNoktalari; halk hareketinde üç satırlık adaptör, ANI-13'te tek satır.
+Hazır tarla/bostan hücreleri yalnız gezinme kopyasında açılır; yerleşim doluluğu,
+diğer yapılar ve arazi engelleri korunur. İş durakları bina/çalışan kimliği sırasıyla
+dikdörtgen içinde ayrılır, RNG tüketilmez. Sulamanın kuyu/mola aşamaları korunur.
+Eksik tarla uyarı ve iş iptali üretir; eski nokta (yoksa mevcut konum) korunur.
+Eve bitişik tarla uyku durağı olamaz; hasat şenliği iş noktasını değiştirmez.
+Yeni ağ yok: mevcut A* ve ANI-13 aynı gezinme kopyasını okur; sync sırasında
+güncel A* yolu aynı karede tarla içine ulaşır.
+
+Doğrulama (Godot 4.7.2 ed1daf0bf): import exit 0; yeni birim testi 759 kontrol,
+20 tohum / 80 çalışan varışı, tarla dışında 0, koordinat çakışması 0. Çoklu tarla,
+aynı tohum, kayıt/RNG değişmezliği, gerçek NavigationServer3D erişimi, tek bölge,
+kuyu/mola, gece, MEV-08 ve eksik/geçersiz tarla ataması aynı testte geçti.
+sulama_rutini_kontrol, oduncu_rutini_kontrol, zemin_navigasyonu_kontrol,
+koylu_takibi_kontrol: dördü exit 0 / GEÇTİ. Python runner: 45 test / OK.
+Son birim/akış loglarında SCRIPT ERROR veya parse hatası yok; ortamın mevcut
+"Failed to read the root certificate store" hatası ayrı not edildi. Tam sanity
+koşulmadı; sonraki adım Claude'un sırayla tam sanity ve incelemesidir.
+APPDATA/LOCALAPPDATA mutlak work/ad/bug23 yollarındadır; test kayıtları user://.
+Kanıt: work/bug23/*.log. Yeni dosyaların .gd.uid eşlikçileri dahil edildi.
+
+Zorunlu ds GitHub aynası mevcut; değişen iki mevcut kod dosyası başlangıç
+sürümüyle aynı. Yeni yardımcı dosyanın aktarım denemesi AccessDenied verdi;
+bu oturumun yazılabilir kökü dışında olduğundan ayna eşitlenemedi. Yalnız görev
+dosyalarını içeren aktarım paketi: work/bug23/transfer.zip ve files.json.
+gh komutu ortamda bulunmadığından issue #11 okunamadı; dış mesaj gönderilmedi.
+
 ## ADM-16 — Oyun Köprüsü / 11 Ekim 2026
 
 Berk tarafındaki Codex olarak bu tur kullanıcının açık ADM-16 uygulama görevini
