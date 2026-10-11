@@ -347,16 +347,7 @@ func sira_olayi_bitir(anahtar: String, etki: Dictionary) -> void:
 			_kuyruktakiler[0].bak(Vector3(0, 0, 10))
 			_kuyruktakiler[1].bak(Vector3(0, 0, 10))
 		"bayilma":
-			var k := _kuyruktakiler[kisi_i]
-			if etki.get("bar", [0])[0] > 0:
-				var t := create_tween()
-				t.tween_property(k, "rotation:x", 0.0, 0.6).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-				await t.finished
-				k.bak(Vector3(0, 0, 10))
-			else:
-				var t := create_tween()
-				t.tween_property(k, "position:x", k.position.x - 2.4, 1.2)
-				await t.finished
+			await SiraOlayiSonucu.canlandir(self, kisi_i, etki)
 		"vazgecme":
 			var k := _kuyruktakiler[kisi_i]
 			if geri:

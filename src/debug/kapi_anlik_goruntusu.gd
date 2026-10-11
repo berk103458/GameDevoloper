@@ -14,6 +14,7 @@ static func gelen_kaydet(g: Gelen) -> Dictionary:
 	if g.heybe != null:
 		v["heybe"] = {"esyalar": g.heybe.esyalar.duplicate(true), "teklif": g.heybe.teklif, "astar_yoklandi": g.heybe.astar_yoklandi, "soruldu": g.heybe.soruldu}
 	v["diplomatik_heyet"] = DiplomatikHeyet.bilet(g)
+	v["sira_sonucu"] = g.get_meta(SiraOlayiSonucu.META, {}).duplicate()
 	v["hastalik_teshisi"] = preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kaydet(g)
 	v["chr_kontrol_edildi"] = g._chr_kontrol_edildi
 	v["chr"] = null
@@ -102,6 +103,8 @@ static func gelen_yukle(v: Dictionary, katalog: Katalog) -> Gelen:
 	if v.has("diplomatik_heyet") and v.diplomatik_heyet != {} and heyet.is_empty(): return null
 	if not heyet.is_empty(): g.set_meta(DiplomatikHeyet.META, heyet)
 	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").yukle(g, v.get("hastalik_teshisi"))
+	var sira: Variant = v.get("sira_sonucu")
+	if sira is Dictionary and sira.get("sonuc") in SiraOlayiSonucu.TURLER: g.set_meta(SiraOlayiSonucu.META, {"sonuc": String(sira.sonuc)})
 	return g
 
 static func kaydet(e: Node) -> Dictionary:

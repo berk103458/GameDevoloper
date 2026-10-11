@@ -184,6 +184,7 @@ func ziyaret_basladi(gelen: Gelen) -> void:
 ## Kararlar: `kabul`, `harc` (yoksuldan zorla geçiş akçesi), `rusvet` (teklifini alıp içeri), `kisla` (asker, muhafız),
 ## `ret`, `elkoy` (astardan çıkanlara el konur, geri çevrilir; yalnız yalan yakalanınca).
 func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> Dictionary:
+	if not SiraOlayiSonucu.neden(gelen).is_empty(): return {"engellendi": true, "kaldi": false, "kirilan": -1}
 	if DiplomatikHeyet.ilgilenir(gelen): return DiplomatikHeyet.karar(self, gelen, karar)
 	if TuccarKapiGecisi.ilgilenir(gelen): return TuccarKapiGecisi.karar(self, gelen, karar)
 	var sorgu := gelen.chr_sorgusu()
@@ -249,6 +250,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 		if karar == &"kisla":
 			yonetim.muhafiz_ata(k.id)
 		ek["koylu_id"] = k.id
+		SiraOlayiSonucu.kabul(gelen, k)
 		KuyuZehirleme.kabul(yonetim, k, gelen, karar)
 		AmbarKundaklamasi.kabul(yonetim, k, gelen, karar)
 		DivanKanit.devral(k, gelen)

@@ -1,0 +1,9 @@
+{
+  "agirliklar": {
+    "olum": 0.15,
+    "sakatlik": 0.25,
+    "ayrilma": 0.25,
+    "toparlanma": 0.35
+  },
+  "sakat_saglik": 35
+}

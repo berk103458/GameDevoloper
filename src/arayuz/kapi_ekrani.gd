@@ -605,7 +605,7 @@ func _karar_replik_dusur(adaptoru: GDScript, anahtar: String) -> void:
 func _sira_olayi(o: OlayVerisi) -> bool:
 	var anahtar := String(o.kosullar.get("canlandirma", ""))
 	var model := SiraOlayiKisisi.sec(sahne, anahtar)
-	if model == null: return false
+	if model == null or not SiraOlayiSonucu.baslayabilir(self, o, model): return false
 	var kisi := GuvenliMetin.metin(SiraOlayiKisisi.anahtar(model))
 	evre = &"sira"
 	_temizle()
@@ -630,13 +630,15 @@ func _sira_olayi(o: OlayVerisi) -> bool:
 	_sirayla_goster(_sira_satirlari)
 	var i: int = await _sira_secildi
 	_temizle()
-	var etki: Dictionary = o.secenek_etkileri[i]
-	var sonuc := oturum.olay_uygula(o, i)
+	var sonuc := SiraOlayiSonucu.uygula(self, o, i, model)
+	if sonuc.get("engellendi", false): return false
+	var etki: Dictionary = sonuc.etki
 	_yaz(SiraOlayiKisisi.metin(sonuc["sonuc_anahtari"], kisi))
 	if int(etki.get("kuyruk", 0)) < 0 and _kuyruk.size() > 0:
 		# Sahnede kuyruktan ayrılan, görünen kuyruğun sonundaki kişidir; gecenin listesinden de o çıkar.
 		_kuyruk.remove_at(mini(_kuyruk.size(), KapiSahnesi.KUYRUK_GORUNEN) - 1)
 		_bilgi_yaz()
+	_bilgi_yaz()
 	hud.guncelle()
 	if await preload("res://src/kapi/sira_atlama_adaptoru.gd").uygula(self, anahtar, etki):
 		hud.guncelle()

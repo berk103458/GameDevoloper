@@ -104,3 +104,9 @@ Uygulama d1e851e: tek tam sanity 331/0/20 gece. Festive'deki 14 commit merge ile
 ## BUG-20 sahipliği — 11 Ekim 2026 (Kalfa)
 
 Pull: 1032861. BUG-19 kapandı. BUG-20 sıra bayılma seçiminin gerçek sonuçları: veri ayarlı ölüm/sakatlık/ayrılma/toparlanma, gerçek yardım bedeli, mevcut cenaze ve gece raporu, aynı Gelen ile sakatlık kabulü. Yeni yardımcı + ince adaptör; asset gerekmedi. Sahiplik commit/push sonrası uygulama. Diğer ajanın BUG-23/24 ve TEK işlerine dokunulmaz; BUG-22 ACL-01 bekler.
+
+## BUG-20 uygulaması ve hedefli doğrulama — 11 Ekim 2026 (Kalfa)
+
+Sahiplik 781d88f. Sonuç JSON'u ve yeni yardımcı mevcut gerçek kuyruk kişisini okur: ölüm/ayrılma listeden çıkar, sakat kabul 35 sağlık, yardım mevcut 1 erzak. Çift seçim/ikinci bayılma kilidi, optional pending gece raporu ve Gelen snapshot makbuzu var. Ölüm adı mevcut sağlık taraması sonrası olenler listesine girer; duran CenazeYasi çağrısı bir kez çalışır. 1000 zar 149/265/258/328, tüm sapmalar yüzde3 altında. Beş sonuç gerçek UI düğmeleriyle geçti; toplam 17 hedefli kontrol 0 hata (kaynak/API, kayıt/bilanço/cenaze, sıra/snapshot ve iki kriz sahnesi dahil). Sonraki adım tek tam UTF-8 sanity. Asset gerekmedi; ds ayna yok, eşitlenemedi. Testlerde res://work yok.
+
+BUG-20 nihai tek tam UTF-8 sanity: 338 PASS / 0 hata / 20 gece; work/sanity-bug20-final. Uygulama commit sonrası yeni festive commitler merge ile alınacak. Asset gerekmedi.
