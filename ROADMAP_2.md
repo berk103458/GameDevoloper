@@ -105,7 +105,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.5 Açılış kaynak kilidi
 
-- [/] **BUG-20:** (Kalfa) Sıra olayı seçimlerinin gerçek sonucu — yardım edilmeyen kişi ölebilir, sakatlanabilir, terk edebilir.
+- [x] **BUG-20:** (Kalfa) Sıra olayı seçimlerinin gerçek sonucu — yardım edilmeyen kişi ölebilir, sakatlanabilir, terk edebilir.
   - Ne: "Sıra yürüsün" seçilince yere düşen kişi yerinde kalmaz; `data/sira_olaylari/sonuclar.json` ölüm, sakatlık, sıradan ayrılma ya da toparlanmadan birini seçer ve gece raporu bunu tek satır yazar. Yardım düğmesi erzak ya da akçe ister; kaynak yetmezse düğme kapalı kalır. Ölüm duran cenaze akışını (KRI-05) bir kez çağırır. Sakat kalan kişi kabul edilirse düşük sağlıkla içeri girer; terk eden kişi köylü olmaz.
   - Kabul: "Sıra yürüsün" dört sonuçtan birini üretir ve raporda görünür. Yardım gerçek kaynak düşer. Ölüm KRI-05'i bir kez çağırır. Test: 1000 zar, oran sapması %3'ün altında. Kaynaksız köyde yardım düğmesi kapalı.
   - Bağımlılık: BUG-19. Boyut: M.

@@ -8,7 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-Muharrir'in 11 Ekim devri: ROADMAP_2.md Faz 0 sırasıyla ilerler. BUG-16, BUG-17 ve BUG-18 tamamlandı; BUG-19 Kalfa sahipliğinde doğrulanıyor. Her maddeden önce pull/sahiplik commit+push; başka ajanın [/] maddesine dokunulmaz.
+Muharrir'in 11 Ekim devri: ROADMAP_2.md faz sırası sürer. BUG-16…20 tamamlandı (Kalfa). Yeni boş Faz 0 adayı BUG-25, önce pull ve sahiplik push. BUG-21/23 Codex tarafından bitti; BUG-24 ve TEK sahipliklerine dokunulmaz, BUG-22 ACL-01 bekler. Her maddeden önce pull/sahiplik commit+push; hedefli test ve kapanış öncesi tek UTF-8 tam sanity.
 
 ## Roller
 
@@ -39,7 +39,7 @@ Push sonrası kısa duyuru `docs/MUHARRIR_RAPORU.md` başına yazılır. Bu dosy
 
 ## Güncel durum
 
-9 Ekim 2026. Kimlik ve kit envanteri yazıldı. Görev bekliyor. 11 Ekim akşamına kadar yalnız kurulum ve sanity; not `docs/KOORDINASYON_DEVIR.md`. Oyun kodu, CSV ve ROADMAP maddesi değişmedi. Asset gerekmedi.
+11 Ekim 2026: BUG-20 uygulama f4c19bc. Tek tam sanity 338 PASS / 0 hata / 20 gece; merge sonrası 10 hedefli kontrol 0 hata. BUG-19 kapanış 1032861. Festive merge ile alınır, reset/force yok. ds ayna bu bilgisayarda yok; eşitlenemedi. Asset gerekmedi. Sonraki boş madde pull sonrası kontrol edilir.
 
 ## Windows UTF-8 ve test çalışma kuralı — 10 Ekim 2026 (Kalfa)
 
@@ -110,3 +110,7 @@ Pull: 1032861. BUG-19 kapandı. BUG-20 sıra bayılma seçiminin gerçek sonuçl
 Sahiplik 781d88f. Sonuç JSON'u ve yeni yardımcı mevcut gerçek kuyruk kişisini okur: ölüm/ayrılma listeden çıkar, sakat kabul 35 sağlık, yardım mevcut 1 erzak. Çift seçim/ikinci bayılma kilidi, optional pending gece raporu ve Gelen snapshot makbuzu var. Ölüm adı mevcut sağlık taraması sonrası olenler listesine girer; duran CenazeYasi çağrısı bir kez çalışır. 1000 zar 149/265/258/328, tüm sapmalar yüzde3 altında. Beş sonuç gerçek UI düğmeleriyle geçti; toplam 17 hedefli kontrol 0 hata (kaynak/API, kayıt/bilanço/cenaze, sıra/snapshot ve iki kriz sahnesi dahil). Sonraki adım tek tam UTF-8 sanity. Asset gerekmedi; ds ayna yok, eşitlenemedi. Testlerde res://work yok.
 
 BUG-20 nihai tek tam UTF-8 sanity: 338 PASS / 0 hata / 20 gece; work/sanity-bug20-final. Uygulama commit sonrası yeni festive commitler merge ile alınacak. Asset gerekmedi.
+
+## BUG-20 kapanışı ve entegrasyon — 11 Ekim 2026 (Kalfa)
+
+Uygulama f4c19bc öncesi tek tam sanity 338/0/20 gece. Sonraki üç festive commit çakışmasız merge edildi; yeni tarla ve navigasyonla 10 hedefli kontrol geçti. Tam koşu merge öncesi uygulamaya aittir; yeni festive'nin tümüne yeni tam koşu iddiası yok. Başka ajan imzaları/kuralları korundu. Asset gerekmedi; ds ayna tekrar kontrol edildi, yok. Kapanış push sonrası BUG-25 için pull/sahiplik yapılır.
