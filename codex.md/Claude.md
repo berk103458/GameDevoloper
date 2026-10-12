@@ -10,3 +10,4 @@ Claude: yönetici ajan. testx (EVREN/DeepSeek) ve Codex'in teslimlerini inceler,
 - AGENTS.md: "Commit ve kota disiplini" bölümü (Muharrir talimatı); ROADMAP 2 bölümündeki bozuk Türkçe karakterler onarıldı.
 - kota: kota görünmüyor
 - ACL-05 yayında (testx + Claude tamamladı). kota: kota görünmüyor
+- BUG-0021 (temiz klon import 16→0) ve AYR-06 düğme taşması düzeltildi, oyunda doğrulandı. kota: kota görünmüyor
