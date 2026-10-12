@@ -266,7 +266,7 @@ ACL-01 … ACL-06 gövdesi durur. Yeni maddeler ACL-07 … ACL-86. İkinci hane 
 
 ### 14.5 Yatak
 
-- [/] **ACL-05:** (testx) Barınak kapasitesi kabul sınırı — yer yokken kabul edileni oyuncu bilir.
+- [x] **ACL-05:** (testx) Barınak kapasitesi kabul sınırı — yer yokken kabul edileni oyuncu bilir.
   - Ne: Karar panelinde "Yatak: dolu/toplam" yazar; muhafız ve eş bu sayıya dahildir. Yatak yetmezse oyuncu "Yatacak yer yok; açıkta kalır" uyarısını görür ve kabul düğmesi açık kalır. Açıkta kalan kişi kayda yazılır. Kapasite sayısı koda gömülmez. Yatak akçe üretmez.
   - Kurallar:
     1. Karar panelinde "Yatak: dolu/toplam" görünür. Muhafız ve eş sayılır.
