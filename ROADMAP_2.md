@@ -416,7 +416,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.1 Şema — düğüm dosyası reddi
 
-- [ ] **DIY-01:** Söz motoru tasarım belgesi — profesyonel oyunların mantığı ve "Kapı usulü".
+- [/] **DIY-01:** (Claude) Söz motoru tasarım belgesi — profesyonel oyunların mantığı ve "Kapı usulü".
   - Ne: `docs/SOZ_TASARIMI.md` yedi oyunun ne yaptığını, neyin alınacağını ve neyin alınmayacağını ayrı başlıklarda yazar. Alınan her mekanik bir DIY veya ZAR maddesine bağlanır. Kapı usulü selamı, eşiği, heybeden sürüklenen soruyu, susmayı ve beyan defterini bu belgede sabitler. Belge Ahmet onaylamadan şemaya geçilmez.
   - Kurallar:
     1. `docs/SOZ_TASARIMI.md` iki bölümden oluşur: İnceleme ve Kapı usulü. Üçüncü bölüm açılmaz.
@@ -535,7 +535,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.5 Beyan ve çelişki işareti
 
-- [ ] **DIY-08:** Bağlam sorgusu — dünyanın durumu tek sözlükte.
+- [/] **DIY-08:** (testx) Bağlam sorgusu — dünyanın durumu tek sözlükte.
   - Ne: Konuşma başında gün, mevsim, binalar, nüfus, terazi, yatak ve salgın tek sözlükte toplanır. Sözlük salt okunurdur; olmayan bina `false` döner. Ziyaret içinde dikilen bina aynı konuşmada görünmez. Kayıt yüklenince sözlük kayıttan değil canlı yöneticilerden kurulur.
   - Kurallar:
     1. Konuşma başında tek sözlük üretilir: gün, mevsim, hava, açık krizler, köydeki binalar, nüfus, muhafız terazisi, itibar, önceki ziyaretler, dünya olayları, yatak doluluk, salgın bayrağı, tipi ve ışık.
@@ -2866,7 +2866,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
 
 ### 31.1 Sürüm kapısı
 
-- [ ] **KAY-01:** Kayıt sürümü tek sayıdır ve dosyanın başında durur.
+- [/] **KAY-01:** (testx) Kayıt sürümü tek sayıdır ve dosyanın başında durur.
   - Ne: sürüm alanı yoksa yükleme durur, köy uydurulmaz.
   - Kabul: sürüm alanı yoksa yükleme durur, köy uydurulmaz. Test: alansız dosya reddedilir, yedek durur.
   - Bağımlılık: SYS-01. Boyut: S.
@@ -6662,7 +6662,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `assets/model/karakter/*.import` (yalnız yetim meta).
   - Asset: asset gerekmedi.
-- [/] **TEK-03:** (testx) ADV-01 — güvenlik satırı kartta görünür.
+- [ ] **TEK-03:** ADV-01 — güvenlik satırı kartta görünür.
   - Ne: eski: ADV-01. "Güvenlik … savunma hazırlığı +N" `koylu_karti.gd` içinde kaydırmadan görünen üst bloktadır.
   - Kabul: 1080p ve metin ölçeği 150'de satır ilk ekrandadır. Test: kart açılışı, kaydırma 0. Ek şart: Yaşam satırları güvenlik satırını ilk ekrandan düşürmez.
   - Bağımlılık: ARY-02. Boyut: S.
@@ -6674,7 +6674,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: teşhis yazan kapi paneli (ince adaptör, tek satır).
   - Asset: asset gerekmedi.
-- [/] **TEK-05:** (testx) ADV-03 — eski `usta_demirci` bayrağı göçer.
+- [ ] **TEK-05:** ADV-03 — eski `usta_demirci` bayrağı göçer.
   - Ne: eski: ADV-03. BUG-0001 yeni kabulleri düzeltir; eski kayıttaki CHR bayrağı Bölüm 31 göç adımına bir satır olarak girer. İkinci göç motoru yok.
   - Kabul: bayraklı eski kayıt açılınca göç sonrası bayrak doğru sınıfta 1. Test: KAY zinciri.
   - Bağımlılık: KAY-04. Boyut: S.
