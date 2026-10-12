@@ -5766,7 +5766,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.2 Sıra olayları — kapıda, kuyrukta
 
-- [ ] **OZL-06:** Beş sıra olayı BUG-19/20 ile bağlanır, altıncı tür açılmaz.
+- [x] **OZL-06:** (Claude) Beş sıra olayı BUG-19/20 ile bağlanır, altıncı tür açılmaz.
   - Ne: `sira_atlama`, `sira_bayilma`, `sira_kavga`, `sira_panik`, `sira_vazgecen` durur. Yeni sıra kartı bu bölümde yazılmaz.
   - Kabul: `data/sira_olaylari/` dosya sayısı 5. Test: sayım.
   - Bağımlılık: BUG-19, BUG-20. Boyut: S.
@@ -5907,7 +5907,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.9 Görünürlük ve yazım
 
-- [ ] **OZL-26:** Kart metni `olay.` anahtarıdır (SYS-09).
+- [x] **OZL-26:** (Claude) Kart metni `olay.` anahtarıdır (SYS-09).
   - Ne: yeni ve eski kartların `baslik_anahtari` / `metin_anahtari` / `secenek_anahtarlari` `olay.` önekine uyar; düz Türkçe `.tres` içinde yok.
   - Kabul: `tools/metin_dogrula.py --kaynak` olay katalogu 0 eksik. Test: araç.
   - Bağımlılık: SYS-09. Boyut: S.
@@ -5952,7 +5952,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **OZL-33:** 34 eski kart silinmez, id değişmez.
+- [x] **OZL-33:** (Claude) 34 eski kart silinmez, id değişmez.
   - Ne: rename / delete yok; koşul alanı eklenebilir (BUG-16).
   - Kabul: 34 id listesi bu dosyanın zeminindedir; silinen 0. Test: sayım.
   - Bağımlılık: yok. Boyut: S.
@@ -6970,7 +6970,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.4 İstatistik — başarım sistemi yok
 
-- [ ] **SRM-10:** Son ekranı sayaçları duran alanlardır.
+- [x] **SRM-10:** (Claude) Son ekranı sayaçları duran alanlardır.
   - Ne: gün, kabul, ret, nüfus (`ana.gd:125`). Başka alan eklenmez: zafer sayısı, ölüm, rüşvet. Onlar yoksa satır da yok.
   - Kabul: format argümanı 4. Test: `tr` yer tutucu sayısı.
   - Bağımlılık: yok. Boyut: S.
