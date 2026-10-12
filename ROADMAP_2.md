@@ -266,7 +266,7 @@ ACL-01 … ACL-06 gövdesi durur. Yeni maddeler ACL-07 … ACL-86. İkinci hane 
 
 ### 14.5 Yatak
 
-- [ ] **ACL-05:** Barınak kapasitesi kabul sınırı — yer yokken kabul edileni oyuncu bilir.
+- [/] **ACL-05:** (testx) Barınak kapasitesi kabul sınırı — yer yokken kabul edileni oyuncu bilir.
   - Ne: Karar panelinde "Yatak: dolu/toplam" yazar; muhafız ve eş bu sayıya dahildir. Yatak yetmezse oyuncu "Yatacak yer yok; açıkta kalır" uyarısını görür ve kabul düğmesi açık kalır. Açıkta kalan kişi kayda yazılır. Kapasite sayısı koda gömülmez. Yatak akçe üretmez.
   - Kurallar:
     1. Karar panelinde "Yatak: dolu/toplam" görünür. Muhafız ve eş sayılır.
@@ -350,7 +350,7 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
   - Dosya: yeni `src/koy/yetim_bakimi.gd`; `Koylu.yas_grubu` geçişine adaptör.
   - Asset: KAP-17 çocuk modeli. Yeni satır yok.
 
-- [ ] **KAP-39:** Heybe açıkken soru seçilmez
+- [/] **KAP-39:** (testx) Heybe açıkken soru seçilmez
   - Ne: Heybe paneli açıkken oyuncu yeni bir soru seçemez ve soru hakkı düşmez. Panel kapanınca kalan hak aynı sayıda durur. Karar düğmesi de bu sırada etki yazmaz.
   - Kabul: Heybe açıkken soru düğmesine basmak hak sayısını değiştirmez ve yeni dal açmaz (`tests/unit/kapi/heybe_kilit_test.gd`). Panel kapanınca hak, açılmadan önceki değerle aynıdır. Ek şart: Heybe açıkken sorgu eylemi seçilmez; panel kapanınca aynı düğme durur.
   - Bağımlılık: yok. Boyut: S.
@@ -374,14 +374,14 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ---
 
-- [ ] **KAP-45:** Karar bir kez uygulanır
+- [/] **KAP-45:** (testx) Karar bir kez uygulanır
   - Ne: Oyuncu kabul ya da ret düğmesine art arda bassa bile gece sonu etkisi bir kez yazılır. Bar kırılınca `oturum_bitti` bir kez gider; ikinci kırılma ikinci sinyal üretmez. Heybe açıkken bu düğmeler de etki yazmaz.
   - Kabul: Aynı karara iki tıkta bar deltası 1'dir (`tests/unit/kapi/karar_bir_kez_test.gd`). Bar sıfıra inince `oturum_bitti` 1 kez yayılır.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `src/arayuz/kapi_ekrani.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **KAP-48:** Rüşvet hakkı ayardadır
+- [/] **KAP-48:** (testx) Rüşvet hakkı ayardadır
   - Ne: Kapı, rüşvet düğmesini `oyun_ayarlari.gd` içindeki `rusvet_hakki` değerine göre kapatır. Alan bugün yalnız tanımlı, kapı onu okumuyor. Ayar 1 iken ikinci rüşvet denemesi düğmeyi kapalı bırakır. Sayı kapi ekranının içine gömülmez.
   - Kabul: `rusvet_hakki` 1 iken ikinci rüşvet denemesinde düğme kapalıdır ve gece sonuna ikinci rüşvet yazılmaz (`tests/unit/kapi/rusvet_hakki_test.gd`). Alan `src/veri/oyun_ayarlari.gd` dışında ikinci bir 3 sabiti olarak durmaz.
   - Bağımlılık: yok. Boyut: S.
