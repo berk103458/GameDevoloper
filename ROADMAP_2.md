@@ -1722,7 +1722,7 @@ YSM-01 … YSM-03 gövdesi durur. Yeni maddeler YSM-04 … YSM-83. İkinci açl�
 
 ### 22.1 Üç değer
 
-- [ ] **YSM-01:** Köylü başına açlık, yorgunluk, moral barı.
+- [/] **YSM-01:** (testx) Köylü başına açlık, yorgunluk, moral barı.
   - Ne: Her köylünün kendi açlık sayacı, yorgunluk kaydı ve moral sayısı vardır; köy ortalaması ikinci çubuk açmaz. Açlık, üst üste erzak payı alınamayan gece sayısıdır ve pay EKO-09'un kişi başı gece 1 erzakıdır. Yorgunluk UZM-14 gece vardiyası kaydıdır; gece uykusu aynı kaydı düşürür. Moral UZM-06 memnuniyetidir, ikinci bir moral sayısı yoktur. Üç değer köylü kartında ve ANI-14 yüzen kartında okunur. Erzak 3'ün altındaki sağlık düşüşü KRI-12'dedir; bu madde o eşiği yeniden yazmaz. Eş aynı üç alanı kullanır, dördüncü şerit açılmaz.
   - Kabul: Erzaksız bir geceden sonra o köylünün açlık sayısı 1 artar; pay düşünce sayaç 0'a döner (`tests/unit/koy/yasam_test.gd`). Yüzen kartta çizilen yaşam değeri 3'tür. Ölen kişide bar çizilmez. Değer kaydı olmayan eski kayıtta açlık 0'dan başlar ve bir sonraki sabah dolar. KRI-12 sağlık düşüşü, bar çiziliyken de çizilmezken de aynı kalır. Ek şart: Kişi morali halk, ordu, soylu veya tüccar barına yazılmaz; `barlar.gd` dört bar olarak kalır. Ek şart: Köy HUD'unda kişi barı ve ortalama çubuk açılmaz. Ek şart: Üç değer kişi kaydındadır; ayrı `yasam.json` kökü yazılmaz. Ek şart: Yükleme aynı gecenin açlık artışını ve yorgunluk düşüşünü ikinci kez uygulamaz. Ek şart: Aynı tohumla iki koşu, aynı kişide aynı açlık artışını ve aynı yorgunluk düşüşünü yazar. Ek şart: Tek kişinin açlığı, yorgunluğu veya morali bir köy barını kırmaz. Ek şart: Olay kartı açlık sayacına yazmaz; sayaç yalnız gece payından artar. Ek şart: Kapı kabulü açlık sayacını o anda değiştirmez; pay hesabı gece çözümündedir. Ek şart: Oyuncunun açlık alanı yoktur; muhafız yorgunluğu UZM-14 kaydıdır. Ek şart: Moral 0 kişiyi köyden kaçırmaz; kaçış mevcut sağlık eşiğindedir. Ek şart: `yasam_barlari.gd` `koy_sahnesi` import etmez, ikinci harita açmaz, kalp alanı yazmaz ve hediye moral sayısını doldurmaz.
   - Bağımlılık: yok. Boyut: M.
@@ -3344,7 +3344,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.1 Tek ayar tablosu
 
-- [ ] **DEN-01:** Denge sayıları tek dosyadadır.
+- [/] **DEN-01:** (testx) Denge sayıları tek dosyadadır.
   - Ne: zar eşiği, açılış stoku, fiyat çarpanı, kriz aralığı ve zorluk çarpanı `data/ayarlar/denge.json` içindedir. Bu sayılar `.gd` dosyasında sabit değildir.
   - Kabul: zar eşiği, açılış stoku, fiyat çarpanı, kriz aralığı ve zorluk çarpanı `data/ayarlar/denge.json` içindedir. Bu sayılar `.gd` dosyasında sabit değildir. Test: dosyada olmayan bir denge sayısı tarama ile 0 bulunur. Ek şart: Olay olasılığı dünya işaretini silmez.
   - Bağımlılık: yok. Boyut: M.
