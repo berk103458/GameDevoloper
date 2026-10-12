@@ -5316,7 +5316,7 @@ Kimlikler HAN-01 … HAN-52. Asset üretilmez; ocak görseli DYL-07 envanterinde
 
 ### 36.10 Sınırlar ve kapanış
 
-- [ ] **HAN-47:** Kalp puanı, romans, hediye yok.
+- [x] **HAN-47:** (Claude — kapsam bekçisi) Kalp puanı, romans, hediye yok.
   - Ne: hane sözlüğünde `sevgi`, `kalp`, `hediye`, `iliski` anahtarı yoktur; eş morali YSM-01 köylü barıdır.
   - Kabul: `rg -i 'kalp|hediye|romans|iliski' src/koy/hane*.gd` → 0. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -5334,7 +5334,7 @@ Kimlikler HAN-01 … HAN-52. Asset üretilmez; ocak görseli DYL-07 envanterinde
   - Bağımlılık: ACL-01. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **HAN-50:** Hane sahnesi yoktur.
+- [x] **HAN-50:** (Claude — kapsam bekçisi) Hane sahnesi yoktur.
   - Ne: ev içi 3B sahne, oda kamerası veya ayrı ekran açılmaz; hane HUD satırı ve akşam kadrajıdır (DYL-07 `DYL07-OCAK`).
   - Kabul: `hane_sahnesi`, `ev_ici` adlı sahne 0. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -5573,7 +5573,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-12, SOY-29. Boyut: S.
   - Dosya: yeni: `src/arayuz/koy_hud/kamuoyu_seridi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-31:** Köylü üstü baloncuk yok.
+- [x] **SOY-31:** (Claude — kapsam bekçisi) Köylü üstü baloncuk yok.
   - Ne: 3B köylülerin üstünde söylenti baloncuğu çizilmez; ağ metinle okunur (Bölüm 44 sınırı).
   - Kabul: `koy/gorsel/` içinde söylenti çizimi 0. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -5693,7 +5693,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-01. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **SOY-49:** Söylenti seslendirilmez, baloncuk çizilmez.
+- [x] **SOY-49:** (Claude — kapsam bekçisi) Söylenti seslendirilmez, baloncuk çizilmez.
   - Ne: ses dosyası ve 3B baloncuk yok (SOY-31).
   - Kabul: `assets/ses/` sayısı değişmez. Test: sayım.
   - Bağımlılık: yok. Boyut: S.
@@ -5883,7 +5883,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: NBT-09, OZL-01. Boyut: S.
   - Dosya: olay seçicine tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OZL-23:** Gözcü kulesi gece olayı üretmez.
+- [x] **OZL-23:** (Claude — kapsam bekçisi) Gözcü kulesi gece olayı üretmez.
   - Ne: duran gözcü kulesi (R1) yalnız görüş mesafesidir; "kuleden görülen olay" diye kart yazılmaz.
   - Kabul: `olaylar/` içinde `kule` id 0. Test: sayım.
   - Bağımlılık: yok. Boyut: S.
@@ -5919,7 +5919,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: YAZ-10. Boyut: S.
   - Dosya: CSV satırları.
   - Asset: asset gerekmedi.
-- [ ] **OZL-28:** Kart HUD'u `BilgiEkrani` kadrajıdır, yeni sahne değildir.
+- [x] **OZL-28:** (Claude — kapsam bekçisi) Kart HUD'u `BilgiEkrani` kadrajıdır, yeni sahne değildir.
   - Ne: gece kartı duran bilgi/olay kadrajında açılır; 3B tören sahnesi yok (SAH sınırı).
   - Kabul: `olay_sahnesi.tscn` 0. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -5940,13 +5940,13 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `tools/api_sozlesmesi_baseline.json`.
   - Asset: asset gerekmedi.
-- [ ] **OZL-31:** Ses ve müzik üretilmez.
+- [x] **OZL-31:** (Claude — kapsam bekçisi) Ses ve müzik üretilmez.
   - Ne: şemadaki `ses` / `muzik` alanları boş kalabilir; yeni wav/ogg yok. R2 seslendirme yasağı.
   - Kabul: `assets/ses/` sayısı değişmez. Test: sayım.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **OZL-32:** İkinci harita ve gece haritası yoktur.
+- [x] **OZL-32:** (Claude — kapsam bekçisi) İkinci harita ve gece haritası yoktur.
   - Ne: bölge haritası (R1) durur; "gece dışarı çık" haritası açılmaz.
   - Kabul: `gece_haritasi` 0. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -6136,7 +6136,7 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
   - Bağımlılık: YIL-01. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-22:** Son ekranı defteri açmaz.
+- [x] **HFZ-22:** (Claude — kapsam bekçisi) Son ekranı defteri açmaz.
   - Ne: `ana.gd _son_goster` epilog + dört istatistiktir; defter son ekranına gömülmez. İstatistik genişlemesi SRM-08'dedir.
   - Kabul: son ekranında `HafizaDefteriEkrani` 0. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -6196,7 +6196,7 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
 
 ### 39.10 Sınırlar ve kapanış
 
-- [ ] **HFZ-30:** İlişki barı, kalp, hediye yok.
+- [x] **HFZ-30:** (Claude — kapsam bekçisi) İlişki barı, kalp, hediye yok.
   - Ne: karar kaydı yasağı; defter sayısal "sevgi" göstermez.
   - Kabul: `kalp|romans|hediye` anahtarı 0. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -6545,7 +6545,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: YAZ-09. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **KLT-21:** Hitap türü kota notudur, sistem değildir.
+- [x] **KLT-21:** (Claude — kapsam bekçisi) Hitap türü kota notudur, sistem değildir.
   - Ne: karar kaydı 10; `hitap` alanı oyun mekaniği açmaz.
   - Kabul: `hitap_puani` 0. Test: tarama. Taşınan: KLT-63: Hitap puanı alanı açılmaz.
   - Bağımlılık: yok. Boyut: S.
