@@ -13,7 +13,7 @@ SPEC.loader.exec_module(MODULE)
 class TranslationCSVTest(unittest.TestCase):
     def test_valid_keys_and_quoted_multiline_text(self):
         text = ('keys,tr,en\n'
-                'arayuz.menu,"Bir, iki",Menu\n'
+                'arayuz.menu.baslik,"Bir, iki",Menu\n'
                 'CHR_001_DUGUM_00_REPLIK,"Birinci\nikinci",Reply\n'
                 'CHR_030_DUGUM_03_SEC_2_METIN,"""Alıntı""",Choice\n'
                 'CLUE_CHR015_BENT_CAPASI_BASLIK,Çapa,Hoe\n'
@@ -21,7 +21,7 @@ class TranslationCSVTest(unittest.TestCase):
         self.assertEqual(MODULE.validate_text(text), [])
 
     def test_bom(self):
-        self.assertEqual(MODULE.validate_text('\ufeffkeys,tr\na.b,A\n'), [])
+        self.assertEqual(MODULE.validate_text('\ufeffkeys,tr\na.b.c,A\n'), [])
 
     def test_duplicates(self):
         self.assertTrue(any('duplicate key' in e for e in MODULE.validate_text('keys,tr\na,A\na,B\n')))
@@ -61,6 +61,13 @@ class TranslationCSVTest(unittest.TestCase):
         for key in ('Arayuz.menu', 'arayuz', 'arayuz..menu', 'arayuz.menu-yeni', '1.arayuz'):
             with self.subTest(key=key):
                 self.assertTrue(any('KVR-11' in e for e in MODULE.validate_text(f'keys,tr\n{key},Metin\n')))
+
+    def test_yer02_new_two_part_key_one_error(self):
+        hatalar = MODULE.validate_text('keys,tr\narayuz.yeni,Metin\n')
+        self.assertEqual(1, len(hatalar), hatalar)
+        self.assertIn('YER-02', hatalar[0])
+        # YER-02 öncesi iki parçalı anahtar korunur; üç parçalı yeni anahtar geçer.
+        self.assertEqual([], MODULE.validate_text('keys,tr\nbar.halk,Halk\narayuz.yeni.ad,Metin\n'))
 
     def test_source_cross_check(self):
         with tempfile.TemporaryDirectory() as tmp:

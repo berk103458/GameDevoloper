@@ -24,6 +24,10 @@ LITERAL_CALL = re.compile(r"""\b(?:tr|atr|TranslationServer\.translate)\(\s*"([^
 FORMAT_CALL = re.compile(r"""\b(?:tr|TranslationServer\.translate)\(\s*"([^"+%\\]+)"\s*\)\s*%\s*(\[?)""")
 TRES_FIELD = re.compile(r"^(\w*anahtar\w*|ad_havuzu)\s*=\s*(.*)$", re.M)
 TRES_SKIP_FIELDS = {"animasyon_anahtarlari"}
+# YER-02: yeni anahtar alan.alt.ad (en az üç parça); YER-02 öncesi iki parçalı anahtarlar dosyada korunur.
+_ESKI = Path(__file__).resolve().parent / "metin_eski_iki_parcali.txt"
+ESKI_IKI_PARCALI = frozenset(s.strip() for s in _ESKI.read_text(encoding="utf-8").splitlines()
+                             if s.strip() and not s.startswith("#")) if _ESKI.is_file() else frozenset()
 
 
 def validate_text(text: str) -> list[str]:
@@ -63,6 +67,8 @@ def validate_text(text: str) -> list[str]:
                 errors.append(f"line {line}: SYS-09 key format invalid: {key!r}")
             elif key and not key.startswith(("CHR_", "CLUE_")) and not DOTTED_KEY.fullmatch(key):
                 errors.append(f"line {line}: KVR-11 key format invalid (lower-case dotted): {key!r}")
+            elif key.count(".") == 1 and not key.startswith(("CHR_", "CLUE_")) and key not in ESKI_IKI_PARCALI:
+                errors.append(f"line {line}: YER-02 new key must be alan.alt.ad (three parts): {key!r}")
             if turkish is not None and turkish < len(row) and not row[turkish].strip():
                 errors.append(f"line {line}: empty Turkish translation for {key!r}")
     except csv.Error as exc:

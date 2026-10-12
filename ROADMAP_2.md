@@ -8637,7 +8637,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: GRV-25. Boyut: S.
   - Dosya: yeni: `src/arayuz/dil_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **YER-02:** Anahtar ve yer tutucu kuralı standarttadır.
+- [x] **YER-02:** (Claude) Anahtar ve yer tutucu kuralı standarttadır.
   - Ne: `docs/METIN_ANAHTAR_STANDARDI.md` tek kural belgesidir. Yeni anahtar `alan.alt.ad` biçimindedir. `%s` / `%d` sayısı `tr()` argümanıyla aynıdır. Bu bölüm ikinci standart açmaz. TEK-21 ve GIR-03 bu kurala uyar.
   - Kabul: biçimsiz anahtar `metin_dogrula.py` ile 1 hata. Test: mevcut araç.
   - Bağımlılık: SYS-09. Boyut: S.

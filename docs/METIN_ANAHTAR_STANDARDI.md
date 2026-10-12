@@ -8,6 +8,9 @@ Tek metin tablosu: `data/metin/metinler.csv` (UTF-8, ilk satır `keys,tr`). Godo
 - **Noktalı küçük harf** (mevcut tüm satırlar): `alan.alt_alan.ad` — yalnızca `a-z`, `0-9`, `_`
   ve nokta; ilk parça harfle başlar, boş parça yok. Örnek: `arayuz.hud.gun`, `koy.bayrak.vergi_isyani`,
   `arayuz.son.kirildi.0`.
+- **Yeni anahtar en az üç parçadır (YER-02):** `alan.alt.ad`. YER-02 öncesinden kalan iki parçalı anahtarlar
+  (`bar.halk`, `esya.akce` …) `tools/metin_eski_iki_parcali.txt` listesinde korunur; listeye yeni ad eklenmez.
+  Yeni iki parçalı anahtar `metin_dogrula.py` ile 1 hata verir. Bu belge tek standarttır; ikinci standart açılmaz.
 - Üst alanlar: `arayuz` (menü/HUD/düğme), `anlati` (günlük ve anlatı satırları), `koy` (köy yönetimi),
   `sohbet` (kapı diyalogları), `olay` (olay kartları), `sablon` (sınıf şablonları), `karakter`
   (karakter adları), `heybe`, `esya`, `bar`, `bitki`. Yeni üst alan açarken buraya ekleyin.
