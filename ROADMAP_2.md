@@ -6812,13 +6812,13 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.7 Kayıt yazımı
 
-- [ ] **TEK-25:** Atomik yazım SYS-02'dir.
+- [/] **TEK-25:** (testx) Atomik yazım SYS-02'dir.
   - Ne: yarıda kesilen `kayit.json` bir sonraki açılışta ya tamdır ya yok hükmündedir. Bu madde `atomik_json_kaydi.gd` gövdesini değiştirmez; kesik dosya testini ekler.
   - Kabul: yarı yazılmış dosyada `devam_et` menüye döner, çökmez (`ana.gd:68–71`). Test: kesik dosya.
   - Bağımlılık: SYS-02. Boyut: S.
   - Dosya: `tests/unit` kayıt.
   - Asset: asset gerekmedi.
-- [ ] **TEK-26:** Tek kayıt dosyası durur.
+- [/] **TEK-26:** (testx) Tek kayıt dosyası durur.
   - Ne: yuva Bölüm 35'tedir. Burada ikinci `user://` kayıt yolu açılmaz.
   - Kabul: `kayit_deposu.gd` yol sayısı 1. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -6827,13 +6827,13 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.8 Debug sınırı
 
-- [ ] **TEK-27:** Admin HUD oyuncu sürümünde doğmaz.
+- [/] **TEK-27:** (testx) Admin HUD oyuncu sürümünde doğmaz.
   - Ne: `ana.gd:20 AdminHud.new()` SRM-05 kapalıyken eklenmez. Debug araçları (`gece_deneyi.gd`, enjektörler) aynı bayrağın ardındadır.
   - Kabul: kapalı sürümde `AdminHud` çocuk sayısı 0. Test: açılış.
   - Bağımlılık: SRM-05. Boyut: S.
   - Dosya: `src/arayuz/ana.gd` tek koşul.
   - Asset: asset gerekmedi.
-- [ ] **TEK-28:** F1 ve `~` yalnız adminde.
+- [/] **TEK-28:** (testx) F1 ve `~` yalnız adminde.
   - Ne: `admin_hud.gd` kısayolları HUD yokken hiçbir şeyi açmaz.
   - Kabul: HUD'suz sahnede F1 etkisi 0. Test: girdi.
   - Bağımlılık: TEK-27. Boyut: S.
