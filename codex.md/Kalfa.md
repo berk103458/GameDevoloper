@@ -8,7 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-12 Ekim Muharrir UI görsel yön görevi tamamlandı: docs/arayuz/UI_ASSET_PROMPTLARI.md. İki yön, kaynaklı altı oyun dersi, 2×57 parça/114 hazır prompt; oyun kodu ve ARY-01 sahipliği korunur. Yeni ROADMAP maddesi alınmadı; görev bekleniyor. Windows Python için PYTHONUTF8=1.
+12 Ekim aktif iş: mevcut gece_kapisi kaynaklarının alfa hazırlığı ve bütün 2D envanter prompt paketi. 27 PNG ve 311 satırlık üretim listesi tamam; tek tam sanity geçti. Doğrulanmış paket commit/push ile kapanır. Yeni ROADMAP maddesi alınmaz; Windows Python PYTHONUTF8=1.
 
 ## Roller
 
@@ -195,3 +195,7 @@ UI görsel yön araştırması: pull 82d4531, son pull güncel. Çini/Parşömen
 ## Nano Banana araştırması ve tekli promptlar — 12 Ekim 2026 (Kalfa)
 
 Pull 4425a1e güncel. Kullanıcının son yönü: önce internet araştırması, sonra yeni prompt. Google resmi belgeleri, geliştiricinin Nano Banana 2 sabit ana resim örneği, video/kare ve Spine2D deneyimleri incelendi. Model resmi ile alfa/ölçü/motor hazırlığı ayrıldı; kesin alfa garantisi iddia edilmiyor. Yeni 23 JPEG/22 benzersiz kaynak açılarak incelendi, tümü RGB; 18 saydam beklenen kaynakta alfa yok. loading_bg iki kopya aynı; loading_fill dosya adı bulunamadı. Yeni JPEGler değiştirilmedi, önceki PNG adayları korunur. docs/arayuz/NANO_BANANA_OYUN_ASSET_ARASTIRMASI.md kaynaklı rapor; GEMINI_TEKLI_URETIM_PROMPTLARI.md 57 slot/51 tekli statik prompt/6 türetme tarifi ve 4 isteğe bağlı animasyon promptu. Eski iki rehbere yeni sürüm bağlantısı eklendi. Katalog/UTF-8/link ve git diff kontrolü yapılır; belge işi için oyun sanity tekrarlanmaz. Oyun/ARY-01/ROADMAP değişmedi; yeni asset gerekmedi. Yeni kaynakların alfa/import hazırlığı ve tüm envanterin UI_ASSET_PROMPTLARI_2 paketi henüz tamamlanmadı. ds çalışma ve ayna yolları yok, eşitlenemedi.
+
+## Alfa hazırlama ve envanter prompt paketi — 12 Ekim 2026 (Kalfa)
+
+12 Ekim 2026 (Kalfa): pull 87399f3 ve son pull güncel. 27 kullanılabilir PNG, gerçek alfa/16px pay ve 9-slice hazırlığı tamam; ham 29+29 JPEG ve önceki üç aday PNG _inceleme altında korunur. Godot 4.7.2 boş TEMP projesinde 27/27 yükleme/boyut/alfa ve iki ölçüde 9-slice renderı geçti. Dört buton ve checkbox aynı temel şekilden türetildi. Beş yeniden üretim (sorgu, harita, amblem, mühür, tutma imleci), 25 hiç teslim edilmemiş UI promptu, 281 envanter promptu hazır; tekli kopyalama listesi 311 satırdır. 88 kaynak ID prompt hazır/Ahmet üretecek durumunda, açık görsel kuyruğu 114 3D satır/grup; ses ayrı kalır. YAP06 henüz tanımsız türlerde ortak ikon briefi, özgül sekiz eşya tamamlandı sayılmaz. Saydam kaynak istemi #00FF00 yeşil; temizleme kullanıcı izniyle mevcut yerel Pillow/NumPy/SciPy/OpenCV üzerinden, rembg/model indirme veya yeni AI resim üretimi yapılmadı. Aktif oyuna tema entegrasyonu ayrı ARY işi; oyun kodu, ROADMAP ve başka ajan sahipliği değişmedi. Hedefli üç alfa + altı envanter testi, hash/boyut/şekil/311 liste kapsamı geçti. Tek tam UTF-8 sanity tamamlandı: 368 PASS / 0 başarısız kontrol / 20 gece; loglar work/sanity_ui_alfa_20261012. Kanıt docs/arayuz/GECE_KAPISI_ALFA_KABUL.md; üretim UI_ASSET_PROMPTLARI_2.md ve GEMINI_SIRADAKI_URETIM_LISTESI.md. Yeni ROADMAP görevi alınmaz.

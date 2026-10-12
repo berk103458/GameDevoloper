@@ -1,0 +1,872 @@
+[
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/1.jpg",
+    "name": "main_menu_bg.png",
+    "size": [
+      1920,
+      1080
+    ],
+    "method": "neutral",
+    "opaque": true,
+    "sha256": "bc3eee436744f0625a7523d431c72a57867f1c59270af917ec0f8e96fd4f404c",
+    "output_sha256": "610735178ff9980fee189c09f3ff87128b36b409ec8fe0df0e5012f30f7e1c65",
+    "padding": 0,
+    "mode": "RGB"
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/4.jpg",
+    "name": "loading_bg.png",
+    "size": [
+      1920,
+      1080
+    ],
+    "method": "neutral",
+    "opaque": true,
+    "sha256": "d7857a9c591cfa8105299db70bd30588c113654302755ef8b7928018bfe73545",
+    "output_sha256": "53e934275fc5f5570c74817d192b9bd81679caf7322004096d3e34262341425a",
+    "padding": 0,
+    "mode": "RGB"
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/5.jpg",
+    "name": "dialogue_panel.png",
+    "size": [
+      1536,
+      768
+    ],
+    "method": "magenta",
+    "corner": {
+      "source": [
+        205,
+        205
+      ],
+      "target": [
+        96,
+        96
+      ]
+    },
+    "slice": [
+      112,
+      112,
+      112,
+      112
+    ],
+    "sha256": "2b88d24de8a34cce12e1d926c9246aa2671e0769c6f42c96264d56a64c7b19dd",
+    "output_sha256": "67014ea126e81038bd022000d1ea75c150cb2c91fcda38b79cc0cc609b69e33a",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      1520,
+      752
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/6.jpg",
+    "name": "button_normal.png",
+    "size": [
+      768,
+      192
+    ],
+    "method": "magenta",
+    "corner": {
+      "source": [
+        235,
+        235
+      ],
+      "target": [
+        48,
+        48
+      ]
+    },
+    "slice": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "sha256": "dcbd7dd1fcf583653b896dcaa2bfe35e1730e52456b67069f464b483e3174d72",
+    "output_sha256": "971ff31aae0439c92f6ff4ce85a97490a7e53763689dfdbdf38938e3e35fbe5c",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      752,
+      176
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/10.jpg",
+    "name": "villager_card.png",
+    "size": [
+      768,
+      1024
+    ],
+    "method": "magenta",
+    "corner": {
+      "source": [
+        290,
+        290
+      ],
+      "target": [
+        128,
+        128
+      ]
+    },
+    "slice": [
+      144,
+      144,
+      144,
+      144
+    ],
+    "sha256": "cec6a14d21a8ba1fea5c8e8837acad4bd94289f0435095734ee6102747d32882",
+    "output_sha256": "f9a440390b9d2c8c40856020dcfaec2d3603530d491a508a251a963100ab8998",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      752,
+      1008
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/portrait_frame.jpg",
+    "name": "portrait_frame.png",
+    "size": [
+      512,
+      640
+    ],
+    "method": "neutral",
+    "hole": true,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "roi": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "radius": 0,
+    "window": [
+      0.125,
+      0.097,
+      0.875,
+      0.905
+    ],
+    "sha256": "194d5c2478c94ced564a7aee6887056125f30ab57e727d0bfdc33f813a850a28",
+    "output_sha256": "d19351676666238ee35d89e0e363ccea2973b774ff406125da3afd1f299d23bf",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      22,
+      496,
+      618
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/settings_panel.jpg",
+    "name": "settings_panel.png",
+    "size": [
+      1536,
+      1536
+    ],
+    "method": "neutral",
+    "hole": false,
+    "slice": [
+      192,
+      192,
+      192,
+      192
+    ],
+    "sha256": "9dcf9c51a8621ceb94aa082dd2066e2b05d788e5ce8ee6a654cab7ff8739b861",
+    "output_sha256": "ce767a43a221d487279b20b7ac5f45d8278c5cfc2755c643725e483b54faf4e1",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      22,
+      1520,
+      1514
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/tooltip_panel.jpg",
+    "name": "tooltip_panel.png",
+    "size": [
+      768,
+      384
+    ],
+    "method": "neutral",
+    "hole": false,
+    "slice": [
+      72,
+      72,
+      72,
+      72
+    ],
+    "roi": [
+      0.051,
+      0.104,
+      0.821,
+      0.894
+    ],
+    "radius": 24,
+    "sha256": "6580a162bb6c75c07bef8b122a6dedf5cfa77f2b3ce86aadcd1dfbad2f4144ef",
+    "output_sha256": "66090a8391110a7b643da89b8360c5625901d567d539462b8bdb5471f0fc3cad",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      37,
+      16,
+      731,
+      368
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/hud_strip.jpg",
+    "name": "hud_strip.png",
+    "size": [
+      2048,
+      192
+    ],
+    "method": "neutral",
+    "hole": false,
+    "slice": [
+      80,
+      64,
+      80,
+      64
+    ],
+    "roi": [
+      0.021,
+      0.396,
+      0.979,
+      0.606
+    ],
+    "radius": 0,
+    "corner": {
+      "source": [
+        180,
+        100
+      ],
+      "target": [
+        64,
+        48
+      ]
+    },
+    "sha256": "3f71604f9151374f3fe028cd8184af9a6b14fdc6cdf7e76ff207c3b13b1cf28c",
+    "output_sha256": "a92148242c7184de45535d0412ddc5be9a85faa9de5a8c6ef1a5d0beb5bb8775",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      2032,
+      176
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/Refer to this file by its name verbatim-2.jpg",
+    "name": "scrollbar_track.png",
+    "size": [
+      48,
+      768
+    ],
+    "method": "neutral",
+    "hole": false,
+    "slice": [
+      20,
+      24,
+      20,
+      24
+    ],
+    "roi": [
+      0.446,
+      0.018,
+      0.554,
+      0.997
+    ],
+    "radius": 18,
+    "sha256": "975be69389e3bbd8394be6d93a5b27c730a96b07f3d74d912f9ef0cbf9f9286d",
+    "output_sha256": "492ee6a115b53ea2876c6cb3b0ece1483a768981de0b0f173fea7ec423d84d14",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      32,
+      752
+    ],
+    "corner": {
+      "source": [
+        60,
+        150
+      ],
+      "target": [
+        4,
+        8
+      ]
+    }
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/Refer to this file by its name verbatim-5.jpg",
+    "name": "slider_thumb.png",
+    "size": [
+      96,
+      128
+    ],
+    "method": "neutral",
+    "hole": false,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "d64829ae026704668b2afc70875f43b921532d3b1ac744a235f92314e93ef38e",
+    "output_sha256": "97cad227d12007b9d93fbcde95335f2697020ff865a8aa4f9178731e79d2d698",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      17,
+      16,
+      79,
+      112
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/paket_20261012/Refer to this file by its name verbatim-6.jpg",
+    "name": "scrollbar_thumb.png",
+    "size": [
+      48,
+      192
+    ],
+    "method": "neutral",
+    "hole": false,
+    "slice": [
+      20,
+      32,
+      20,
+      32
+    ],
+    "sha256": "1b92e4c4436b5983bdcc06858ac3e7f9911526552ad8eecbf5d7dc47536c0552",
+    "output_sha256": "deecc592570aefb3c149d51faa6f69aea0a04b4801d6ac7e2916c9b2ce64a0a4",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      32,
+      176
+    ],
+    "corner": {
+      "source": [
+        80,
+        400
+      ],
+      "target": [
+        4,
+        16
+      ]
+    }
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/checkbox_off.jpg",
+    "name": "checkbox_off.png",
+    "size": [
+      96,
+      96
+    ],
+    "method": "neutral",
+    "hole": false,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "roi": [
+      0.391,
+      0.306,
+      0.607,
+      0.694
+    ],
+    "radius": 22,
+    "sha256": "776d543bcdae8f64e095a362539549722d02485e2ad4dc5c78b6e4941dd737c2",
+    "output_sha256": "d48f626bbd7c402539a0dd4005b97b3f50b7c48152572630780395a278d610fa",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      80,
+      80
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/tab_normal.jpg",
+    "name": "tab_normal.png",
+    "size": [
+      384,
+      160
+    ],
+    "method": "neutral",
+    "hole": false,
+    "slice": [
+      64,
+      48,
+      64,
+      48
+    ],
+    "sha256": "03cf0968ba6c912445070c01fc666a2787f6c9133a9c5b2551a44bdeb8e4ab8d",
+    "output_sha256": "bbae426a734c57257e3493dcc562edb3a8cc11501227523a1d09d3f46e0f4d05",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      36,
+      368,
+      123
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/ornament_corner.jpg",
+    "name": "ornament_corner.png",
+    "size": [
+      256,
+      256
+    ],
+    "method": "neutral",
+    "hole": false,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "roi": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "polygon": [
+      [
+        0.106,
+        0.106
+      ],
+      [
+        0.822,
+        0.105
+      ],
+      [
+        0.826,
+        0.113
+      ],
+      [
+        0.699,
+        0.274
+      ],
+      [
+        0.273,
+        0.278
+      ],
+      [
+        0.273,
+        0.663
+      ],
+      [
+        0.128,
+        0.787
+      ],
+      [
+        0.105,
+        0.787
+      ]
+    ],
+    "reject_neutral_above": 170,
+    "sha256": "5c4fbd7ff4d41d285ed0a981cdafcb775ebdbdf26e0ec2017b15ac6aaaef67b6",
+    "output_sha256": "d4d27cb7acbf24e98f941b5b57c3401c81013defbc4ef385be0d3b5de3d95a92",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      22,
+      240,
+      234
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/cursor_arrow.jpg",
+    "name": "cursor_arrow.png",
+    "size": [
+      128,
+      128
+    ],
+    "method": "neutral",
+    "hole": false,
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "5cd63021656cd91aa316a52dfeeb13241731503c38a9788a9164f758751a9137",
+    "output_sha256": "df62d750e2907bff80869335efe7ce8eca0a7b8f10faf3cefc6dbee218b62663",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      18,
+      16,
+      110,
+      112
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/slider_track.jpg",
+    "name": "slider_track.png",
+    "size": [
+      768,
+      64
+    ],
+    "method": "neutral",
+    "hole": false,
+    "slice": [
+      32,
+      24,
+      32,
+      24
+    ],
+    "corner": {
+      "source": [
+        100,
+        70
+      ],
+      "target": [
+        16,
+        8
+      ]
+    },
+    "sha256": "160b9b5c0a4efa2ee425159fef237c17ced7718d0ace68be6c75485661068c11",
+    "output_sha256": "570c0b12be0e3e47c56408ed4919f842bf90626515d4edeb93d163982d044d48",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      752,
+      48
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/cursor_point.jpg",
+    "name": "cursor_point.png",
+    "size": [
+      128,
+      128
+    ],
+    "method": "neutral",
+    "pre_roi": [
+      0,
+      0,
+      1,
+      0.76
+    ],
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "9192bb8632320facbde7f2a539c095b4bfcbbddd2ab719548129accadee4bc8c",
+    "output_sha256": "d6701cf1f49a9f59570c168856f2bc5884f179bcf0d65bdacb6af736240e5cd2",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      28,
+      16,
+      99,
+      112
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/ornament_divider.jpg",
+    "name": "ornament_divider.png",
+    "size": [
+      1024,
+      96
+    ],
+    "method": "neutral",
+    "pre_roi": [
+      0,
+      0.35,
+      1,
+      0.63
+    ],
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "9780549b949ff5b055b04e4f44d9cc4b2bec65e87db9199966bc675c8dd242d8",
+    "output_sha256": "c4e2bb38a6039eed3a25bdbe267f54452aad59dcc825eb455fd83bdbfd32a493",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      188,
+      16,
+      836,
+      80
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/button_normal.png",
+    "name": "button_hover.png",
+    "derived": "state",
+    "brightness": 1.17,
+    "desaturate": false,
+    "size": [
+      768,
+      192
+    ],
+    "slice": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "sha256": "971ff31aae0439c92f6ff4ce85a97490a7e53763689dfdbdf38938e3e35fbe5c",
+    "output_sha256": "a61841adedb857ea45dd04f8163c198966dc1f03b0ce5d6eb065e13f05d229e3",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      752,
+      176
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/button_normal.png",
+    "name": "button_pressed.png",
+    "derived": "state",
+    "brightness": 0.78,
+    "desaturate": false,
+    "size": [
+      768,
+      192
+    ],
+    "slice": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "sha256": "971ff31aae0439c92f6ff4ce85a97490a7e53763689dfdbdf38938e3e35fbe5c",
+    "output_sha256": "33cfc0fb21cc68bc51661eab19d2ef0b96f64a8458cc4351e1adaf4b622c2856",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      752,
+      176
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/button_normal.png",
+    "name": "button_disabled.png",
+    "derived": "state",
+    "brightness": 0.6,
+    "desaturate": true,
+    "size": [
+      768,
+      192
+    ],
+    "slice": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "sha256": "971ff31aae0439c92f6ff4ce85a97490a7e53763689dfdbdf38938e3e35fbe5c",
+    "output_sha256": "2cf5428370fbef941eda881ea9ab975fbeaf5b74c95b8d301604518a3817e619",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      752,
+      176
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/tab_normal.png",
+    "name": "tab_selected.png",
+    "derived": "state",
+    "brightness": 1.2,
+    "desaturate": false,
+    "size": [
+      384,
+      160
+    ],
+    "slice": [
+      64,
+      48,
+      64,
+      48
+    ],
+    "sha256": "bbae426a734c57257e3493dcc562edb3a8cc11501227523a1d09d3f46e0f4d05",
+    "output_sha256": "c567cbe2ee76d3c464a8eca3d384413480209ec43ecc72c163699949b34c0ba9",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      36,
+      368,
+      123
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/button_normal.png",
+    "name": "focus_ring.png",
+    "derived": "outline",
+    "size": [
+      768,
+      192
+    ],
+    "slice": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "sha256": "971ff31aae0439c92f6ff4ce85a97490a7e53763689dfdbdf38938e3e35fbe5c",
+    "output_sha256": "a6b4e3346b7c01b624a9a0362d782023e7a41990583903470675e03c4e54bb31",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      752,
+      176
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/checkbox_off.png",
+    "detail_source": "assets/ui/atmosfer/gece_kapisi/_inceleme/checkbox_tick_donor.png",
+    "name": "checkbox_on.png",
+    "derived": "checkmark",
+    "size": [
+      96,
+      96
+    ],
+    "slice": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "d48f626bbd7c402539a0dd4005b97b3f50b7c48152572630780395a278d610fa",
+    "output_sha256": "0f00069b161a5a8888d26c76a11b9260096eb55510a828a1785f05557d895bbd",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      80,
+      80
+    ],
+    "detail_sha256": "6f0a63ed527327f3ac2715ab9f5298c939359bf8b6e9ec0e84bb9556e28ed62e"
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/slider_track.png",
+    "name": "loading_track.png",
+    "size": [
+      1024,
+      96
+    ],
+    "method": "alpha",
+    "corner": {
+      "source": [
+        16,
+        8
+      ],
+      "target": [
+        16,
+        16
+      ]
+    },
+    "slice": [
+      32,
+      32,
+      32,
+      32
+    ],
+    "sha256": "570c0b12be0e3e47c56408ed4919f842bf90626515d4edeb93d163982d044d48",
+    "output_sha256": "a43be82cfad579ea48d960eca9e8179a9fd798827159a2da1897696542b66f8e",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      1008,
+      80
+    ]
+  },
+  {
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/loading_fill.jpg",
+    "name": "loading_fill.png",
+    "size": [
+      1024,
+      96
+    ],
+    "method": "neutral",
+    "roi": [
+      0.13,
+      0.478,
+      0.86,
+      0.519
+    ],
+    "radius": 18,
+    "corner": {
+      "source": [
+        30,
+        16
+      ],
+      "target": [
+        16,
+        16
+      ]
+    },
+    "slice": [
+      32,
+      32,
+      32,
+      32
+    ],
+    "tint": [
+      "#6F4325",
+      "#C88A43"
+    ],
+    "sha256": "d60bb435e02bb33b88e208dbd551fb94644536654b6fc6c7f612f651acf9669c",
+    "output_sha256": "db09c3dfe11f23b5ceb3d2eeae3c047eb8eaa77094043324103c4934a0b460b6",
+    "padding": 16,
+    "mode": "RGBA",
+    "object_bbox": [
+      16,
+      16,
+      1008,
+      80
+    ]
+  }
+]

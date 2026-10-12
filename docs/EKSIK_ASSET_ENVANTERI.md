@@ -1,5 +1,7 @@
 # Kapı Muhafızı — Eksik asset envanteri
 
+**12 Ekim 2026 güncellemesi (Kalfa):** 27 temiz UI PNG; 5 yeniden üretim; 281 envanter + 25 eksik UI tekli prompt. Saydam kaynak #00FF00, alfa sonradan temizlenir. Görsel açık kuyruğu 114 3D satır/gruptur; ayrıntılar aşağıdaki “12 Ekim 2D üretim hazırlığı” ve `arayuz/GECE_KAPISI_ALFA_KABUL.md` içinde. Eski tarama tarihi aşağıda tarihsel kaynak olarak korunur.
+
 **Tarih:** 7 Ekim 2026  
 **Dal tabanı:** `claude/festive-volta-li1sfm` @ `ec23ee9` (`feat(EKO-13): expose tool wear and verify last-tool production`)  
 **Yapan:** Cursor — yalnız tarama. Görsel, ses, model üretilmedi; oyun kodu değiştirilmedi.  
@@ -31,6 +33,7 @@ Ajanlar asset üretmez (bkz. `AGENTS.md` → "Asset kuralı"). 11 Ekim 2026'dan 
 | placeholder | Dosya var; prosedürel yer tutucu veya düz renk/kutu |
 | yarım | Dosya veya sistem var; dönem, isim veya kapsam uymuyor |
 | bozuk yol | Kodun aradığı `res://` yolu diskte yok |
+| prompt hazır, Ahmet üretecek | Tekli üretim briefi hazır; kaynak görsel, alfa hazırlığı ve oyun entegrasyonu teslim bekliyor |
 
 | Öncelik | Anlam |
 |---|---|
@@ -74,12 +77,12 @@ Bunlar gerçek dosya. Yeniden üretme brief’i değiller.
 
 | ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
 |---|---|---|---|---|---|
-| UI-KARAR-KABUL | Kapı kabul düğmesi. `kapi_ekrani.gd` `icon_decision_accept_48`. KAP-13. | placeholder | `res://assets/art/ui/icon_decision_accept_48.png` | açık kapı, kabul, open wooden gate, frontier night, ink icon, 48px | kritik |
-| UI-KARAR-RET | Ret ve el koyma. `reject`. | placeholder | `res://assets/art/ui/icon_decision_reject_48.png` | kapalı kapı, sürgü, barred gate, reject, ink icon | kritik |
-| UI-KARAR-RUSVET | Rüşvet ve harç. `bribe`. | placeholder | `res://assets/art/ui/icon_decision_bribe_48.png` | deri kese, sikke, coin pouch, bribe, no numerals | kritik |
-| UI-KARAR-KISLA | Kışla / zindan. `barracks`. | placeholder | `res://assets/art/ui/icon_decision_barracks_48.png` | mızrak, yuvarlak kalkan, spear shield, barracks | kritik |
-| UI-KESE-DOLU | Rüşvet şeridi. `icon_bribe_pouch_full_48`. | placeholder | `res://assets/art/ui/icon_bribe_pouch_full_48.png` | dolu kese, bağcık, full leather pouch, ash tie | kritik |
-| UI-IMLEC | Menü ve kapı imleci, ok ve el aynı doku. `ana.gd`. | placeholder | `res://assets/art/ui/ui_cursor_arrow_32.png` | kül ok, sol üst uç, mouse arrow, 32px, ink outline | kritik |
+| UI-KARAR-KABUL | Kapı kabul düğmesi. `kapi_ekrani.gd` `icon_decision_accept_48`. KAP-13. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/icon_decision_accept_48.png` | açık kapı, kabul, open wooden gate, frontier night, ink icon, 48px | kritik |
+| UI-KARAR-RET | Ret ve el koyma. `reject`. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/icon_decision_reject_48.png` | kapalı kapı, sürgü, barred gate, reject, ink icon | kritik |
+| UI-KARAR-RUSVET | Rüşvet ve harç. `bribe`. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/icon_decision_bribe_48.png` | deri kese, sikke, coin pouch, bribe, no numerals | kritik |
+| UI-KARAR-KISLA | Kışla / zindan. `barracks`. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/icon_decision_barracks_48.png` | mızrak, yuvarlak kalkan, spear shield, barracks | kritik |
+| UI-KESE-DOLU | Rüşvet şeridi. `icon_bribe_pouch_full_48`. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/icon_bribe_pouch_full_48.png` | dolu kese, bağcık, full leather pouch, ash tie | kritik |
+| UI-IMLEC | Menü ve kapı imleci, ok ve el aynı doku. `ana.gd`. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/ui_cursor_arrow_32.png` | kül ok, sol üst uç, mouse arrow, 32px, ink outline | kritik |
 
 Not: Ayrı el imleci yok. `CURSOR_POINTING_HAND` aynı oku kullanır. İstenirse `ui_cursor_hand_32.png`, 32×32 PNG.
 
@@ -89,9 +92,9 @@ Not: Ayrı el imleci yok. `CURSOR_POINTING_HAND` aynı oku kullanır. İstenirse
 
 | ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
 |---|---|---|---|---|---|
-| ENV-MENU | Başlık / bilgi varsayılanı. 1920×1080. | placeholder | `res://assets/art/env/env_menu_bg.png` | gece uç, kapalı kapı, tek meşale, title screen, no text, cold blue | kritik |
-| ENV-KAPI | Kapı bilgi kadrajı. 1140×1000. | placeholder | `res://assets/art/env/env_gate_scene_bg.png` | içeriden palisat, toprak yol, uzak kuyruk, papers-please framing, night | yüksek |
-| ENV-KOY-2D | Köy bilgi kadrajı. 1920×1000. Sahne 3B olduğu için ikincil. | placeholder | `res://assets/art/env/env_village_bg.png` | küçük kervansaray, pazar örtüsü, gece, no people | orta |
+| ENV-MENU | Başlık / bilgi varsayılanı. 1920×1080. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/env/env_menu_bg.png` | gece uç, kapalı kapı, tek meşale, title screen, no text, cold blue | kritik |
+| ENV-KAPI | Kapı bilgi kadrajı. 1140×1000. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/env/env_gate_scene_bg.png` | içeriden palisat, toprak yol, uzak kuyruk, papers-please framing, night | yüksek |
+| ENV-KOY-2D | Köy bilgi kadrajı. 1920×1000. Sahne 3B olduğu için ikincil. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/env/env_village_bg.png` | küçük kervansaray, pazar örtüsü, gece, no people | orta |
 
 ### A3. Kapı ve menü sesi — hepsi placeholder
 
@@ -120,7 +123,7 @@ Menü `Ses.dongu_baslat` → `muzik_gece_dongu` + `ortam_mesale_dongu`. Kapı ka
 | ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
 |---|---|---|---|---|---|
 | KAPI-3D-IC | Bekçi kadrajı. `KapiCercevesi` seviye 0 kütük kutuları; seviye 1+ `Pbr.model("large_castle_door")`. `kapi.glb` köyde, kapı sahnesinin iç yüzünde değil. | yarım | Mevcut: `assets/ph/model/large_castle_door/large_castle_door.gltf`. Beklenen: `assets/model/yapi/kapi_ic.glb` | 13. yy Anadolu uç palisat, içeriden iki kanat, kazık, meşale kolu, no castle portcullis, no gothic, PBR glTF | kritik |
-| KAPI-DEMIR | Kapı kuşağı düz `StandardMaterial3D`, doku yok. | placeholder | doku yok; hedef `assets/ph/doku/wrought_iron/` veya kapı GLB içi | dövme demir, mat, wrought iron strap, rough | orta |
+| KAPI-DEMIR | Kapı kuşağı düz `StandardMaterial3D`, doku yok. | prompt hazır, Ahmet üretecek (teslim bekliyor) | doku yok; hedef `assets/ph/doku/wrought_iron/` veya kapı GLB içi | dövme demir, mat, wrought iron strap, rough | orta |
 
 ---
 
@@ -134,10 +137,10 @@ Adlı kartlar da yer tutucu: `miraen`, `sorhan`, `thessra`, `karaca_usta`, `aydo
 
 | ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
 |---|---|---|---|---|---|
-| PORTRE-SINIF-4 | Sınıf kartı, kapı inceleme. | placeholder | `char_soldier_01_neutral_card.png`, `char_farmer_01_neutral_card.png`, `char_farmer_02_neutral_card.png`, `char_craftsman_01_neutral_card.png` | Selçuklu uç, yorgun, kalın mürekkep, tek imza siluet, reigns-scale bust, no text, magenta key | yüksek |
-| PORTRE-ADLI-6 | Eski adlı kadro kartı. | placeholder | `char_{miraen,sorhan,thessra,karaca_usta,aydogdu,saruca_hatun}_neutral_card.png` | aynı stil; Miraen kuyruklu keçe külah + kırık kın, Sorhan yular, Thessra başörtüsü ve kutu, Karaca deri tomar + kuşak, Aydoğdu yay, Saruca üçgen başörtüsü | yüksek |
-| PORTRE-CHR-30 | Kişiye özel iz. Kod yolu yok; portre kökü sınıf. | yok | öneri: `assets/art/char/char_chr_XXX_neutral_card.png` | CHR sayfasındaki görsel hata, wound, lime, chain scar, milk stain, unique bust | yüksek |
-| KOY-FIGUR-2D | `Sanat.koy_figuru` hiç çağrılmıyor. Köy 3B. | placeholder, atıl | `char_*_idle_village.png` 56×120 | küçük köy silueti, idle village | düşük |
+| PORTRE-SINIF-4 | Sınıf kartı, kapı inceleme. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `char_soldier_01_neutral_card.png`, `char_farmer_01_neutral_card.png`, `char_farmer_02_neutral_card.png`, `char_craftsman_01_neutral_card.png` | Selçuklu uç, yorgun, kalın mürekkep, tek imza siluet, reigns-scale bust, no text, magenta key | yüksek |
+| PORTRE-ADLI-6 | Eski adlı kadro kartı. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `char_{miraen,sorhan,thessra,karaca_usta,aydogdu,saruca_hatun}_neutral_card.png` | aynı stil; Miraen kuyruklu keçe külah + kırık kın, Sorhan yular, Thessra başörtüsü ve kutu, Karaca deri tomar + kuşak, Aydoğdu yay, Saruca üçgen başörtüsü | yüksek |
+| PORTRE-CHR-30 | Kişiye özel iz. Kod yolu yok; portre kökü sınıf. | prompt hazır, Ahmet üretecek (teslim bekliyor) | öneri: `assets/art/char/char_chr_XXX_neutral_card.png` | CHR sayfasındaki görsel hata, wound, lime, chain scar, milk stain, unique bust | yüksek |
+| KOY-FIGUR-2D | `Sanat.koy_figuru` hiç çağrılmıyor. Köy 3B. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `char_*_idle_village.png` 56×120 | küçük köy silueti, idle village | düşük |
 
 ### B2. Heybe ve nişan görseli — placeholder
 
@@ -145,9 +148,9 @@ Adlı kartlar da yer tutucu: `miraen`, `sorhan`, `thessra`, `karaca_usta`, `aydo
 
 | ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
 |---|---|---|---|---|---|
-| HEYBE-11 | Heybe kartı simgesi. | placeholder | öneri `assets/art/icons/icon_esya_<id>_64.png` | mürekkep ikon, 64px, deri, çuval, ekmek, ok, hançer, ilaç şişesi, yüzük, no text | yüksek |
-| NISAN-30 | CHR Obje_1 mühür/ferman/rozet. KAP-04. | yok | öneri `assets/art/icons/icon_clue_chr_XXX_obje1.png` | nişan, mühür, berat, ferman, wax seal, charter, Seljuk frontier | yüksek |
-| YUK-30 | CHR Obje_2 çuval/gizli bölme. KAP-05. | yok | öneri `assets/art/icons/icon_clue_chr_XXX_obje2.png` | çuval, saman altı, false bottom, smuggled goods | yüksek |
+| HEYBE-11 | Heybe kartı simgesi. | prompt hazır, Ahmet üretecek (teslim bekliyor) | öneri `assets/art/icons/icon_esya_<id>_64.png` | mürekkep ikon, 64px, deri, çuval, ekmek, ok, hançer, ilaç şişesi, yüzük, no text | yüksek |
+| NISAN-30 | CHR Obje_1 mühür/ferman/rozet. KAP-04. | prompt hazır, Ahmet üretecek (teslim bekliyor) | öneri `assets/art/icons/icon_clue_chr_XXX_obje1.png` | nişan, mühür, berat, ferman, wax seal, charter, Seljuk frontier | yüksek |
+| YUK-30 | CHR Obje_2 çuval/gizli bölme. KAP-05. | prompt hazır, Ahmet üretecek (teslim bekliyor) | öneri `assets/art/icons/icon_clue_chr_XXX_obje2.png` | çuval, saman altı, false bottom, smuggled goods | yüksek |
 
 ### B3. El eşyası — prosedürel kutu, GLB yok
 
@@ -199,7 +202,7 @@ Olay kişilerinin modeli yok. Olay kartı metin (`koy_ekrani.gd`). Köy kalabal�
 | KAR-HABERCI | Ahi / Ertuğrul haberi | yok | `haberci_yuru.glb` | tozlu binici kaftanı, mesaj tüpü | orta |
 | KAR-BEY | `bey_daveti` | yok | `bey_yuru.glb` | kürklü börk, kuşak, eğri kılıç | düşük |
 | KAR-COCUK | Saruca, Sorhan, kalabalık | yok | `cocuk_yuru.glb` | 7 yaş, uzun tunik, yalınayak | orta |
-| KAR-TEKFUR-ASKER | Uzak siluet. 2D `crowd_tekfur_spear_01_far.png` atıl. | placeholder 2D, 3B yok | `tekfur_askeri_yuru.glb` veya siluet şerit | konik miğfer, uzun kalkan, mızrak, soğuk mavi siluet | orta |
+| KAR-TEKFUR-ASKER | Uzak siluet. 2D `crowd_tekfur_spear_01_far.png` atıl. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `tekfur_askeri_yuru.glb` veya siluet şerit | konik miğfer, uzun kalkan, mızrak, soğuk mavi siluet | orta |
 
 ---
 
@@ -243,12 +246,12 @@ Olay kişilerinin modeli yok. Olay kartı metin (`koy_ekrani.gd`). Köy kalabal�
 
 | ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
 |---|---|---|---|---|---|
-| IKN-KURK | Avcı üretimi ve ambar bozulma sırası (`kaynaklar.gd`, `ambar_bakimi.json`). HUD şeridinde yok; pazar metinle yazar. | yok | `res://assets/ui/koy/kurk.svg` | kürk, post, fur pelt, bronze tint, CC-uyumlu tek renk SVG | yüksek |
-| IKN-YAPI | Yapı kartı. Hepsi kulübeye düşmesin. | yok | `firin.svg`, `degirmen.svg`, `sifahane.svg`, `ahir.svg`, `agil.svg`, `demirhane.svg`, `kislasi.svg`, `maden.svg`, `ocak.svg`, `kirec_kuyusu` zaten `kirec.svg` | fırın, çark, yatak, ahır, örs, kışla, maden, tek renk SVG 32–48 | orta |
-| IKN-UYARI | Görsel plan yolu. Güncel HUD yüklemiyor. | yok | `res://assets/arayuz/ikonlar/uyari_isci_yok.png`, `uyari_hammadde_yok.png`, `uyari_ambar_dolu.png` | uyarı, meşale rengi, no red cross, worker, raw material, full barn | düşük |
-| IKN-BAR | Sanat kitabı çatlayan levha. KAP-12 `ProgressBar` kullanır; PNG yüklenmez. | placeholder, atıl | `assets/art/ui/ui_bar_segment_{full,empty,cracked_01,cracked_02}.png` | taş levha, çatlak, ink slab, 22×30 | düşük |
-| IKN-KESE-BOS | Dosya var, kod yüklemez. | placeholder, atıl | `icon_bribe_pouch_empty_48.png` | boş kese, kesik çizgi | düşük |
-| IKN-MESALE-2D | Köy 3B meşale kullanır. | placeholder, atıl | `assets/art/fx/fx_torch_village_01.png`, `fx_torchlight_patch_village_01.png` | düz alev, amber leke, no glow | düşük |
+| IKN-KURK | Avcı üretimi ve ambar bozulma sırası (`kaynaklar.gd`, `ambar_bakimi.json`). HUD şeridinde yok; pazar metinle yazar. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/ui/koy/kurk.svg` | kürk, post, fur pelt, bronze tint, CC-uyumlu tek renk SVG | yüksek |
+| IKN-YAPI | Yapı kartı. Hepsi kulübeye düşmesin. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `firin.svg`, `degirmen.svg`, `sifahane.svg`, `ahir.svg`, `agil.svg`, `demirhane.svg`, `kislasi.svg`, `maden.svg`, `ocak.svg`, `kirec_kuyusu` zaten `kirec.svg` | fırın, çark, yatak, ahır, örs, kışla, maden, tek renk SVG 32–48 | orta |
+| IKN-UYARI | Görsel plan yolu. Güncel HUD yüklemiyor. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/arayuz/ikonlar/uyari_isci_yok.png`, `uyari_hammadde_yok.png`, `uyari_ambar_dolu.png` | uyarı, meşale rengi, no red cross, worker, raw material, full barn | düşük |
+| IKN-BAR | Sanat kitabı çatlayan levha. KAP-12 `ProgressBar` kullanır; PNG yüklenmez. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `assets/art/ui/ui_bar_segment_{full,empty,cracked_01,cracked_02}.png` | taş levha, çatlak, ink slab, 22×30 | düşük |
+| IKN-KESE-BOS | Dosya var, kod yüklemez. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `icon_bribe_pouch_empty_48.png` | boş kese, kesik çizgi | düşük |
+| IKN-MESALE-2D | Köy 3B meşale kullanır. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `assets/art/fx/fx_torch_village_01.png`, `fx_torchlight_patch_village_01.png` | düz alev, amber leke, no glow | düşük |
 
 ### C3. Köy ve olay sesi — placeholder, dosya var
 
@@ -299,17 +302,17 @@ Kapı alev/duman `src/dunya/alev.gdshader`, `duman.gdshader`. Düşük profilde 
 
 | ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
 |---|---|---|---|---|---|
-| VFX-KAR | MEV-04 / ADM-12 | shader var, doku yok | öneri `assets/art/fx/fx_snow_01.png` | kar tanesi, soft white, 64px | ileri |
-| VFX-YAGMUR | MEV, ANI-09, tarla olayı | ses var, damla dokusu yok | `fx_rain_streak_01.png` | ince yağmur çizgisi | ileri |
-| VFX-KIVILCIM | ANI-15, BUG-10 | shader | `fx_spark_01.png` | kıvılcım, ember | ileri |
-| VFX-SIS | MEV-09 kapı görüşü | sis parametresi var | isteğe bağlı `fx_fog_noise.png` | tipi, sis, blizzard | ileri |
+| VFX-KAR | MEV-04 / ADM-12 | prompt hazır, Ahmet üretecek (teslim bekliyor) | öneri `assets/art/fx/fx_snow_01.png` | kar tanesi, soft white, 64px | ileri |
+| VFX-YAGMUR | MEV, ANI-09, tarla olayı | prompt hazır, Ahmet üretecek (teslim bekliyor) | `fx_rain_streak_01.png` | ince yağmur çizgisi | ileri |
+| VFX-KIVILCIM | ANI-15, BUG-10 | prompt hazır, Ahmet üretecek (teslim bekliyor) | `fx_spark_01.png` | kıvılcım, ember | ileri |
+| VFX-SIS | MEV-09 kapı görüşü | prompt hazır, Ahmet üretecek (teslim bekliyor) | isteğe bağlı `fx_fog_noise.png` | tipi, sis, blizzard | ileri |
 
 ### C6. Palet ve logo
 
 | ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
 |---|---|---|---|---|---|
-| PALET | Sanat kitabı 8.13 | yok | `assets/palette/palette.gpl`, `.ase`, `palette_swatch.png` | 7 hex swatch | düşük |
-| LOGO | Menü adı düz metin. `project.godot` ikon yok. | yok | `assets/art/ui/logo_kapi_muhafizi.png`, `icon.png` | kelimesiz damga veya sade yazı, gece, meşale, 512 ve 1024 | düşük |
+| PALET | Sanat kitabı 8.13 | prompt hazır, Ahmet üretecek (teslim bekliyor) | `assets/palette/palette.gpl`, `.ase`, `palette_swatch.png` | 7 hex swatch | düşük |
+| LOGO | Menü adı düz metin. `project.godot` ikon yok. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `assets/art/ui/logo_kapi_muhafizi.png`, `icon.png` | kelimesiz damga veya sade yazı, gece, meşale, 512 ve 1024 | düşük |
 
 ---
 
@@ -324,21 +327,21 @@ Varlık adı öneridir. Kod bu yolları henüz yüklemez. Öncelik sütunu ileri
 | ANI-HAYVAN-SURU | ANI-04, ANI-05 | Öküz yürüyüş, koyun otlama | glTF klip | ox walk, sheep graze |
 | TUC-TACIR | TUC-01…04, 08 | Celep, nalbur, kumaşçı, aktar, silah tüccarı | `karakter/<ad>_yuru.glb` | livestock dealer, black-market arms, felt merchant |
 | TUC-HAYVAN | TUC-02, TUC-14 | İnek, koç, beygir | glTF | cow, ram, riding horse |
-| TUC-UI | TUC-05, TUC-10 | Sözleşme ve pazar paneli ikonları | SVG/PNG 48 | contract, price, caravan |
-| MEV-ZEMIN | MEV-04, MEV-05 | Kar örtüsü, çatı karı, kürek | shader + PNG; `kurek.glb` | snow overlay, roof snow, shovel |
-| MEV-AFET | MEV-06, MEV-07, MEV-10 | Su bendi, yangın, kurt sürüsü | glTF + PNG | flood, wildfire, wolf pack |
-| MEV-SENLIK | MEV-08 | Hasat şenliği bezeme | PNG/glTF | harvest fair, davul |
-| MEV-HUD | MEV-12 | Mevsim ikonu dört adet | `assets/ui/koy/mevsim_{ilkbahar,yaz,sonbahar,kis}.svg` | season icon, bronze |
-| CAS-DIVAN | CAS-05, CAS-14 | Divan sahnesi, kanıt kartı | `src` sahne ayrı; görsel `assets/art/ui/divan_kart.png` | court, evidence card |
+| TUC-UI | TUC-05, TUC-10 | Sözleşme ve pazar paneli ikonları — prompt hazır, Ahmet üretecek | SVG/PNG 48 | contract, price, caravan |
+| MEV-ZEMIN | MEV-04, MEV-05 | Kar örtüsü, çatı karı, kürek — prompt hazır, Ahmet üretecek; 3D geometri açık | shader + PNG; `kurek.glb` | snow overlay, roof snow, shovel |
+| MEV-AFET | MEV-06, MEV-07, MEV-10 | Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF + PNG | flood, wildfire, wolf pack |
+| MEV-SENLIK | MEV-08 | Hasat şenliği bezeme — prompt hazır, Ahmet üretecek | PNG/glTF | harvest fair, davul |
+| MEV-HUD | MEV-12 | Mevsim ikonu dört adet — prompt hazır, Ahmet üretecek | `assets/ui/koy/mevsim_{ilkbahar,yaz,sonbahar,kis}.svg` | season icon, bronze |
+| CAS-DIVAN | CAS-05, CAS-14 | Divan sahnesi, kanıt kartı — prompt hazır, Ahmet üretecek | `src` sahne ayrı; görsel `assets/art/ui/divan_kart.png` | court, evidence card |
 | CAS-GECE | CAS-02, CAS-04 | Fener, yangın kovası | glTF | lantern, bucket chain |
 | ODA-ODA | ODA-01, ODA-08 | Muhafız odası, yatak, masa, kasa, kütüphane | `assets/model/yapi/muhafiz_odasi.glb` + prop | guard room, hidden floor chest, bed |
-| ODA-UI | ODA-04…06, ODA-15 | Terazi, yetenek, epilog | PNG 1920×1080 | justice scale, corruption, epilogue Venice / hero |
-| HAR-HARITA | HAR-01 | Taşlık Hisar, Karaboran, Tekfur, göç yolu | `assets/art/env/harita_uc.png` | strategic map, no modern border, parchment ink |
-| HAR-SAVAS | HAR-10 | Okçu / mızraklı yerleştirme ikonları | PNG 64 | archer slot, spear slot |
-| KRI-HASTA | KRI-01, KRI-11 | Ateş, irin, öksürük portre varyantı | PNG kart üstü leke | fever, plague, quarantine |
+| ODA-UI | ODA-04…06, ODA-15 | Terazi, yetenek, epilog — prompt hazır, Ahmet üretecek | PNG 1920×1080 | justice scale, corruption, epilogue Venice / hero |
+| HAR-HARITA | HAR-01 | Taşlık Hisar, Karaboran, Tekfur, göç yolu — prompt hazır, Ahmet üretecek | `assets/art/env/harita_uc.png` | strategic map, no modern border, parchment ink |
+| HAR-SAVAS | HAR-10 | Okçu / mızraklı yerleştirme ikonları — prompt hazır, Ahmet üretecek | PNG 64 | archer slot, spear slot |
+| KRI-HASTA | KRI-01, KRI-11 | Ateş, irin, öksürük portre varyantı — prompt hazır, Ahmet üretecek | PNG kart üstü leke | fever, plague, quarantine |
 | KRI-MEZAR | KRI-05 | Toplu mezar, yazısız taş | glTF | unmarked grave |
-| SYS-SON | SYS-19, SYS-20 | Beş son + epilog karesi | PNG 1920×1080 | Ertuğrul obası, Ahi, Tekfur haraç, beyin uç köyü, uç tutundu |
-| SYS-PROLOG | eski eksik listesi | Kösedağ, kaçış, kapı, 3–4 kare | PNG | prologue, no caption baked in |
+| SYS-SON | SYS-19, SYS-20 | Beş son + epilog karesi — prompt hazır, Ahmet üretecek | PNG 1920×1080 | Ertuğrul obası, Ahi, Tekfur haraç, beyin uç köyü, uç tutundu |
+| SYS-PROLOG | eski eksik listesi | Kösedağ, kaçış, kapı, 3–4 kare — prompt hazır, Ahmet üretecek | PNG | prologue, no caption baked in |
 
 EKO-14 ve EKO-15 yeni ikon şart koşmuyor: çift kasa ve bilanço mevcut `akce.svg` ve metinle gidebilir. Ayrı zimmet ikonu istenirse `assets/ui/koy/zimmet.svg`.
 
@@ -375,39 +378,39 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | ANI10-SINSI | ANI-10 | Sinsi yürüyüş ve temkinli kuytu bekleyiş | glTF / iskelet animasyon klibi | res://src/koy/gorsel/sinsi_gece_rutini.gd + koy_halk_hareketi.gd (_adim: mevcut yürüyüş yavaşlatılır) | gece sinsi köylü temkinli yürüyüş; night villager stealth cautious walk idle | orta | Codex |
 | ANI11-ALET | ANI-11 (ANI-ALET mevcut ihtiyaç) | Gerçek çekiç ve fırın küreği; sokete hazır tutma noktası | glTF | res://src/koy/gorsel/zanaat_tezgahi.gd (_kur: mevcut düz kutular); res://src/dunya/karakter_ekipman_yoneticisi.gd (tak: tek soket) | ortaçağ çekiç fırın küreği el soketi; medieval hammer baker peel hand grip socket | orta | Codex |
 | ANI12-IDLE | ANI-12 | Üç doğal bekleme döngüsü (nefes / ağırlık aktarma / çevreye bakış) | glTF / iskelet animasyon klibi | res://src/dunya/karakter_bekleme_cesitliligi.gd (acilar: mevcut modifier yer tutucusu) | köylü doğal bekleme nefes ağırlık bakış; villager idle breathing weight shift look around | orta | Codex |
-| TUC04-AFYON | TUC-04 | Afyon stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ şifahane afyon; medieval apothecary poppy medicine icon | orta | Codex |
-| TUC04-SARGI | TUC-04 | Sargı stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | şifahane bez sargı; medieval linen bandage icon | orta | Codex |
-| TUC04-KECE | TUC-04 | Keçe stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | yün keçe kumaş; medieval wool felt icon | orta | Codex |
-| TUC04-KUMAS | TUC-04 | Kumaş stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | dokuma kumaş rulosu; medieval woven cloth roll icon | orta | Codex |
-| TUC11-MUHUR | TUC-11 | Yasak mühür oda envanteri ikonu | SVG / PNG | res://src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd (ac: düz ColorRect) | yasak mühür; forbidden medieval seal icon | orta | Codex |
-| TUC11-IKSIR | TUC-11 | Kaçak iksir oda envanteri ikonu | SVG / PNG | res://src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd (ac: düz ColorRect) | kaçak iksir; contraband potion bottle icon | orta | Codex |
-| TUC08-ZIRH | TUC-08 | Zırh stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ zırh; medieval armor icon | orta | Codex |
-| TUC08-YAY | TUC-08 | Yay stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ yay; medieval bow icon | orta | Codex |
-| TUC08-KALKAN | TUC-08 | Kalkan stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ kalkan; medieval shield icon | orta | Codex |
-| TUC03-CIVI | TUC-03 | Çivi stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ çivi; medieval iron nail icon | orta | Codex |
-| TUC03-TIRPAN | TUC-03 | Tırpan stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | tırpan tarım aleti; medieval scythe tool icon | orta | Codex |
-| TUC03-BALTA | TUC-03 | Balta stok ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | balta oduncu aleti; medieval wood axe icon | orta | Codex |
+| TUC04-AFYON | TUC-04 | Afyon stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ şifahane afyon; medieval apothecary poppy medicine icon | orta | Codex |
+| TUC04-SARGI | TUC-04 | Sargı stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | şifahane bez sargı; medieval linen bandage icon | orta | Codex |
+| TUC04-KECE | TUC-04 | Keçe stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | yün keçe kumaş; medieval wool felt icon | orta | Codex |
+| TUC04-KUMAS | TUC-04 | Kumaş stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | dokuma kumaş rulosu; medieval woven cloth roll icon | orta | Codex |
+| TUC11-MUHUR | TUC-11 | Yasak mühür oda envanteri ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd (ac: düz ColorRect) | yasak mühür; forbidden medieval seal icon | orta | Codex |
+| TUC11-IKSIR | TUC-11 | Kaçak iksir oda envanteri ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd (ac: düz ColorRect) | kaçak iksir; contraband potion bottle icon | orta | Codex |
+| TUC08-ZIRH | TUC-08 | Zırh stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ zırh; medieval armor icon | orta | Codex |
+| TUC08-YAY | TUC-08 | Yay stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ yay; medieval bow icon | orta | Codex |
+| TUC08-KALKAN | TUC-08 | Kalkan stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ kalkan; medieval shield icon | orta | Codex |
+| TUC03-CIVI | TUC-03 | Çivi stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ çivi; medieval iron nail icon | orta | Codex |
+| TUC03-TIRPAN | TUC-03 | Tırpan stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | tırpan tarım aleti; medieval scythe tool icon | orta | Codex |
+| TUC03-BALTA | TUC-03 | Balta stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | balta oduncu aleti; medieval wood axe icon | orta | Codex |
 | TUC02-OKUZ | TUC-02 / TUC-14 | Öküz barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | öküz çeki hayvanı; medieval draft ox | orta | Codex |
 | TUC02-INEK | TUC-02 / TUC-14 | İnek barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | inek ahır; medieval stable cow | orta | Codex |
 | TUC02-BEYGIR | TUC-02 / HAR-07 | Beygir barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | beygir yük atı; medieval pack horse | orta | Codex |
 | TUC02-KOC | TUC-02 / TUC-14 | Koç barınak ve sürü modeli | glTF | res://src/koy/gorsel/canli_hayvan_surusu.gd → res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | koç ağıl; medieval sheep ram pen | orta | Codex |
-| ANI15-DUMAN | ANI-15 | Fırın/demirhane yumuşak duman atlası | PNG / parçacık atlası | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: gri saydam BoxMesh) | fırın baca duman atlası; oven chimney smoke puff atlas | orta | Codex |
-| ANI15-KIVILCIM | ANI-15 | Örs kıvılcım sprite | PNG / parçacık | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: turuncu BoxMesh) | demirci örs kıvılcım; blacksmith anvil spark sprite | orta | Codex |
-| ANI15-SU | ANI-15 | Sulama su damlası sprite | PNG / parçacık | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: mavi BoxMesh) | sulama su damlası; irrigation water droplet particle | orta | Codex |
-| HAR01-HARITA | HAR-01 | Çevre haritası bölge çizimi ve hisar/yol sembolleri | PNG / SVG | res://src/arayuz/harita_ekrani.gd; data/cevre_haritasi.json düz renk kutu/şerit | ortaçağ çevre hisar göç yolu haritası / medieval regional fortress migration route map | orta | Codex |
-| HAR03-HEYET | HAR-03 | Tekfur haraç heyeti simgesi | PNG / SVG | res://src/arayuz/koy_hud/tekfur_heyeti_paneli.gd; data/tekfur_harac_heyeti.json (tek ColorRect kutu/etiket) | Bizans Tekfur haraç elçisi; Byzantine tribute envoy medieval | orta | Codex |
+| ANI15-DUMAN | ANI-15 | Fırın/demirhane yumuşak duman atlası — prompt hazır, Ahmet üretecek | PNG / parçacık atlası | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: gri saydam BoxMesh) | fırın baca duman atlası; oven chimney smoke puff atlas | orta | Codex |
+| ANI15-KIVILCIM | ANI-15 | Örs kıvılcım sprite — prompt hazır, Ahmet üretecek | PNG / parçacık | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: turuncu BoxMesh) | demirci örs kıvılcım; blacksmith anvil spark sprite | orta | Codex |
+| ANI15-SU | ANI-15 | Sulama su damlası sprite — prompt hazır, Ahmet üretecek | PNG / parçacık | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: mavi BoxMesh) | sulama su damlası; irrigation water droplet particle | orta | Codex |
+| HAR01-HARITA | HAR-01 | Çevre haritası bölge çizimi ve hisar/yol sembolleri — prompt hazır, Ahmet üretecek | PNG / SVG | res://src/arayuz/harita_ekrani.gd; data/cevre_haritasi.json düz renk kutu/şerit | ortaçağ çevre hisar göç yolu haritası / medieval regional fortress migration route map | orta | Codex |
+| HAR03-HEYET | HAR-03 | Tekfur haraç heyeti simgesi — prompt hazır, Ahmet üretecek | PNG / SVG | res://src/arayuz/koy_hud/tekfur_heyeti_paneli.gd; data/tekfur_harac_heyeti.json (tek ColorRect kutu/etiket) | Bizans Tekfur haraç elçisi; Byzantine tribute envoy medieval | orta | Codex |
 | HAR06-KULE | HAR-06 | Gözcü kulesi yapı modeli | glTF | res://src/koy/gorsel/gozcu_kulesi_gorseli.gd; data/gozcu_kulesi.json (tek düz renk BoxMesh) | ortaçağ gözcü kule; medieval watchtower lookout | orta | Codex |
-| HAR06-IKON | HAR-06 | Gözcü kulesi yapı kartı simgesi | SVG / PNG | res://src/koy/gorsel/gozcu_kulesi_gorseli.gd ikon (tek ColorRect) | gözcü kulesi inşa ikonu; watchtower construction icon | orta | Codex |
-| HAR09-GUVERCIN | HAR-09 | Haberci güvercin anlatı görseli | PNG / glTF | res://src/arayuz/koy_hud/haberci_anlati_paneli.gd (mevcut kartta tek ColorRect ve etiket) | mühürlü güvercin haberi; medieval messenger pigeon sealed letter | orta | Codex |
-| HAR09-ULAK | HAR-09 | Ulak anlatı görseli | PNG / glTF | res://src/arayuz/koy_hud/haberci_anlati_paneli.gd (mevcut kartta tek ColorRect ve etiket) | ortaçağ ulak haberci; medieval dusty courier messenger | orta | Codex |
+| HAR06-IKON | HAR-06 | Gözcü kulesi yapı kartı simgesi — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/koy/gorsel/gozcu_kulesi_gorseli.gd ikon (tek ColorRect) | gözcü kulesi inşa ikonu; watchtower construction icon | orta | Codex |
+| HAR09-GUVERCIN | HAR-09 | Haberci güvercin anlatı görseli — prompt hazır, Ahmet üretecek | PNG / glTF | res://src/arayuz/koy_hud/haberci_anlati_paneli.gd (mevcut kartta tek ColorRect ve etiket) | mühürlü güvercin haberi; medieval messenger pigeon sealed letter | orta | Codex |
+| HAR09-ULAK | HAR-09 | Ulak anlatı görseli — prompt hazır, Ahmet üretecek | PNG / glTF | res://src/arayuz/koy_hud/haberci_anlati_paneli.gd (mevcut kartta tek ColorRect ve etiket) | ortaçağ ulak haberci; medieval dusty courier messenger | orta | Codex |
 | HAR10-YAY | HAR-10 | Sur okçusu el yayı | glTF | res://src/koy/gorsel/konuslanma_donanimi.gd + data/savunma_konuslanmasi.json (tek düz BoxMesh, gerçek el soketi) | ortaçağ yay okçu; medieval archer bow hand prop | orta | Codex |
 | HAR10-MIZRAK | HAR-10 | Kapı mızraklısı görev mızrağı | glTF | res://src/koy/gorsel/konuslanma_donanimi.gd + data/savunma_konuslanmasi.json (tek düz BoxMesh, mevcut muhafız) | kapı muhafızı mızrak; medieval gate guard spear hand prop | orta | Codex |
 
-| MEV04-KAR | MEV-04 (VFX-KAR mevcut ihtiyaç) | İsteğe bağlı yumuşak kar tanesi | PNG / parçacık atlası | res://src/debug/iklim_gorseli.gd (tek BoxMesh yağış); res://src/koy/gorsel/cati_kar_ortusu.gdshader (üst yüzey renk geçişi) | yumuşak kar tanesi çatı kar; soft snowflake roof snow overlay | düşük | Codex |
+| MEV04-KAR | MEV-04 (VFX-KAR mevcut ihtiyaç) | İsteğe bağlı yumuşak kar tanesi — prompt hazır, Ahmet üretecek | PNG / parçacık atlası | res://src/debug/iklim_gorseli.gd (tek BoxMesh yağış); res://src/koy/gorsel/cati_kar_ortusu.gdshader (üst yüzey renk geçişi) | yumuşak kar tanesi çatı kar; soft snowflake roof snow overlay | düşük | Codex |
 | MEV05-KUREK | MEV-05 | Kar küreme küreği ve temizlik klibi | glTF / iskelet klibi | res://src/koy/gorsel/cati_kar_rutini.gd (tek RightHand soketi, düz BoxMesh sap/ağız) | kar küreme çatı küreği; roof snow clearing shovel animation | orta | Codex |
-| MEV07-SU | MEV-07 | Su rezervi kaynak ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (mavi ColorRect) | su testisi kaynak ikonu; water reserve resource icon medieval | orta | Codex |
+| MEV07-SU | MEV-07 | Su rezervi kaynak ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (mavi ColorRect) | su testisi kaynak ikonu; water reserve resource icon medieval | orta | Codex |
 | MEV10-KURT | MEV-10 | Kurt modeli, yürüyüş ve kaçış klibi | glTF / iskelet klibi | res://src/koy/gorsel/kurt_surusu.gd (_kur: tek BoxMesh) | kış kurt sürüsü; winter wolf pack walk flee | orta | Codex |
-| MEV14-SAMAN | MEV-14 | Saman balyası kaynak ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (sarı ColorRect; data/saman_bakimi.json ikon_renk) | saman balyası yem kaynak ikonu; hay bale livestock feed resource icon | orta | Codex |
+| MEV14-SAMAN | MEV-14 | Saman balyası kaynak ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (sarı ColorRect; data/saman_bakimi.json ikon_renk) | saman balyası yem kaynak ikonu; hay bale livestock feed resource icon | orta | Codex |
 | CAS05-DIVAN | CAS-05 | Meydan divan masası ve oturma sıraları | glTF | res://src/koy/gorsel/divan_meydani.gd (kur/_kutu: geçici BoxMesh masa/iki sıra) | medieval village court judge table benches; köy divanı masa sıralar | orta | Codex |
 | CAS07-ZINDAN | CAS-07 | Kapı zindan hücresi kapısı | glTF | res://src/koy/gorsel/divan_zindan_gorseli.gd (kur: BoxMesh kapı işareti) | medieval gate jail cell door; kapı zindan hücresi kapı | orta | Codex |
 | ODA01-ICMEKAN | ODA-01 | Oda zemin ve duvarları | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | muhafız odası iç mekan; medieval guard room interior | orta | Codex |
@@ -420,7 +423,7 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | ODA08-ASKILIK | ODA-08 | Donanım askılığı | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: MuhafizOdasi._kutu; data/oda_gelisimi.json askilik.parca) | muhafız zırh askılığı; medieval guard armor rack | orta | Codex |
 | ODA08-KUTUPHANE | ODA-08 | Muhafız kütüphanesi | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: MuhafizOdasi._kutu; data/oda_gelisimi.json kutuphane.parca) | muhafız kitap rafı; medieval guard bookshelf | orta | Codex |
 | ODA03-ESYA | ODA-03 | Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri) | glTF / set | res://src/arayuz/oda_envanter_sergisi.gd (_kutu: masa üstü BoxMesh, UI düz ColorRect; data/muhafiz_odasi.json) | rüşvet kişisel eşya mühür şişe; medieval bribe personal inventory seal bottle props | orta | Codex |
-| KRI03-ILAC | KRI-03 / KRI-15 | İlaç şişesi kaynak ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: tek düz renk ColorRect; İlaç etiketi) | ilaç şişesi şifahane; medieval medicine bottle infirmary resource icon | orta | Codex |
+| KRI03-ILAC | KRI-03 / KRI-15 | İlaç şişesi kaynak ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: tek düz renk ColorRect; İlaç etiketi) | ilaç şişesi şifahane; medieval medicine bottle infirmary resource icon | orta | Codex |
 | KRI05-MEZAR | KRI-05 | Toplu mezar ve cenaze töreni mezar işareti | glTF | res://src/koy/gorsel/cenaze_mezari.gd (kur: tek düz renk BoxMesh + kısa etiket) | toplu mezar cenaze köy yas; medieval village mass grave funeral burial marker | orta | Codex |
 
 
@@ -462,6 +465,14 @@ TESTER karakter muayenesi (Claude, 11 Ekim 2026 — `tests/oto/karakter_muayene.
 | `<ad>_ofke.glb` / `<ad>_panik.glb` | 3B animasyon klibi | chr_002/003/008/011–030'da öfke yok; chr_001/004–007/009/010'da panik yok | bekle pozu | öfke, panik / angry, panic | Düşük |
 | `<ad>_konus/sevinc/ofke/panik/gergin.glb` | 3B animasyon klibi | adlı karakterler ve sınıf modelleri (aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf, asker, ciftci, ciftci_kadin, esnaf) — yalnız bekle/yürü var | bekle pozu | konuşma jesti / talking gesture | Orta |
 
+## 12 Ekim 2D üretim hazırlığı — Kalfa
+
+**281 envanter promptu** UI_ASSET_PROMPTLARI_2.md içinde; mevcut UI kataloğundaki 25 hiç teslim edilmemiş parça ayrıca tekli listede. Saydam kaynaklar düz #00FF00 yeşil zemin, alfa sonradan Pillow/OpenCV ile hazırlanır. Prompt kapsamındaki satırlar **prompt hazır, Ahmet üretecek** oldu; bu ifade dosyanın geldiği veya oyun entegrasyonunun bittiği anlamına gelmez. Karakter yüzleri, iki eşya ve görsel ipucu için CHR belgeleri temel alındı.
+
+Görsel atama kuyruğunda **114 açık 3D satır/grup** kaldı: [döküm](arayuz/ACIK_3D_ASSETLER.md). Ses/müzik ayrı ses kuyruğunda korunur. Font mevcut lisanslı kaynakla sürer, SVG/ICO ve PBR dönüşümü doğrulama ister. YAP06-ESYA henüz tanımlanmamış türlerde genel ikon briefidir; sekiz özgül eşya tamamlandı sayılmaz.
+
+Kopyala-yapıştır sırası: [Gemini sıradaki üretim listesi](arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md). ARY-05 ve SRM-18 madde sahipliği değiştirilmedi.
+
 ## H. ROADMAP 2 (ARY-05)
 
 ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik burada **bir kez** durur; kimliği yol haritasında olmayan satır ve ikinci satır hatadır. Liste ses dosyası istemez; bu bölümde wav satırı yoktur. Bu madde dosya üretmez. Satırlar madde kapandıkça güncellenir; kodlanmamış maddenin yer tutucusu "planlı" yazar. `BUG21-TASYATAGI`, `ACL01-MUHAFIZ`, `ACL01-ES` G bölümünden buraya taşındı. Denetim: `tests/tools/test_asset_envanteri.py`.
@@ -473,39 +484,39 @@ ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik bura
 | BUG25-KUYU | BUG-25 | Köy kuyusu gerçek modeli (gerekirse) | glTF / 3B model | res://assets/model/nesne/kuyu.glb (duran modelin düzeltilmiş hali) | taş köy kuyusu; medieval stone village well | orta | Claude |
 | ACL01-MUHAFIZ | ACL-01 | 13. yy Anadolu muhafız gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci modeli, mavi renk ve Muhafız etiketi; tek ayar data/acilis.json | Anadolu muhafız Selçuklu köylü; Anatolian medieval Seljuk guard villager | orta | Kalfa |
 | ACL01-ES | ACL-01 | Muhafızın eşi gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci_kadin modeli, toprak rengi ve Eş etiketi; tek ayar data/acilis.json | Anadolu köylü kadın Selçuklu eş; Anatolian medieval female villager spouse | orta | Kalfa |
-| ACL04-ARASAHNE | ACL-04 | Sancak Beyi ulağı ara sahne arka planı | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + metin (ARY-04 çerçevesi) | ulak berat ara sahne akşam; medieval courier cutscene dusk | yüksek | Claude |
+| ACL04-ARASAHNE | ACL-04 | Sancak Beyi ulağı ara sahne arka planı — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + metin (ARY-04 çerçevesi) | ulak berat ara sahne akşam; medieval courier cutscene dusk | yüksek | Claude |
 | KAP17-COCUK | KAP-17 | Çocuk köylü modeli | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli, küçük ölçek + renk farkı | Anadolu köylü çocuk; medieval anatolian peasant child | yüksek | Claude |
 | KAP17-YASLI | KAP-17 | Yaşlı köylü modeli | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli, renk farkı + yavaş yürüyüş | Anadolu yaşlı köylü; medieval anatolian elder peasant | yüksek | Claude |
-| ZAR01-ZAR | ZAR-01 | Görünür zar (d6, d12) | PNG / SVG + 3B isteğe bağlı | planlı — madde kodlanınca: düz renk kutu + sayı | kemik zar d6 d12; medieval bone dice d6 d12 | yüksek | Claude |
+| ZAR01-ZAR | ZAR-01 | Görünür zar (d6, d12) — prompt hazır, Ahmet üretecek | PNG / SVG + 3B isteğe bağlı | planlı — madde kodlanınca: düz renk kutu + sayı | kemik zar d6 d12; medieval bone dice d6 d12 | yüksek | Claude |
 | CAT02-KAVGA | CAT-02 | Kapıda kavga canlandırması | glTF / iskelet animasyon klibi | planlı — madde kodlanınca: kamera sarsıntısı + metin | kapı itişme kavga; medieval gate scuffle brawl animation | orta | Claude |
 | ISG02-ALETLER | ISG-02 | Geçici işlere özel el aletleri | glTF | planlı — madde kodlanınca: ANI-11 kutu soketi (düz BoxMesh) | ortaçağ el aleti kürek tırpan; medieval hand tools set | orta | Claude |
 | YAP03-USTALAR | YAP-03 | Kapıdan gelen usta modelleri | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli + renk farkı + etiket | Selçuklu usta zanaatkâr; seljuk master craftsman | orta | Claude |
-| YAP04-DEFTER | YAP-04 | Usta defteri ikonu | SVG / PNG | planlı — madde kodlanınca: düz ColorRect + etiket | usta defteri kitap; medieval master's notebook icon | orta | Claude |
+| YAP04-DEFTER | YAP-04 | Usta defteri ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | planlı — madde kodlanınca: düz ColorRect + etiket | usta defteri kitap; medieval master's notebook icon | orta | Claude |
 | YAP05-ODA | YAP-05 | Çözümleme odası modeli | glTF / 3B model | planlı — madde kodlanınca: düz renk BoxMesh + etiket | araştırma odası masa; medieval study workshop room | orta | Claude |
-| YAP06-ESYA | YAP-06 | Özel eşya ikonları | SVG / PNG | planlı — madde kodlanınca: düz ColorRect + etiket | özel eşya ikon; medieval special item icons | orta | Claude |
-| YSM01-IKON | YSM-01 | Açlık, yorgunluk, moral bar ikonları | SVG / PNG | planlı — madde kodlanınca: düz ColorRect | açlık yorgunluk moral ikon; hunger fatigue morale icons | yüksek | Claude |
-| ARY01-* | ARY-01 | Görsel dil şablonları: doku, çerçeve, yazı tipi | PNG / SVG / font | planlı — madde kodlanınca: StyleBoxFlat | Selçuklu çini çerçeve parşömen; seljuk tile frame parchment UI | yüksek | Claude |
-| ARY03-* | ARY-03 | Ekran arka planları (sorgu, seçim, köy HUD) | PNG 1920×1080 | planlı — madde kodlanınca: düz renk | uç kapısı gece arka plan; frontier gate night background | orta | Claude |
-| ARY03-HARITA | GRV-05 / ARY-03 | Harita ekranı arka planı | PNG / SVG | res://src/arayuz/harita_ekrani.gd (düz renk) | ortaçağ Anadolu harita parşömen; medieval anatolia parchment map | orta | Claude |
-| ARY04-YUKLEME-01 | ARY-04 | Yükleme görseli 1 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
-| ARY04-YUKLEME-02 | ARY-04 | Yükleme görseli 2 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
-| ARY04-YUKLEME-03 | ARY-04 | Yükleme görseli 3 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
-| ARY04-YUKLEME-04 | ARY-04 | Yükleme görseli 4 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
-| ARY04-YUKLEME-05 | ARY-04 | Yükleme görseli 5 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
-| ARY04-YUKLEME-06 | ARY-04 | Yükleme görseli 6 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
-| ARY04-YUKLEME-07 | ARY-04 | Yükleme görseli 7 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
-| ARY04-YUKLEME-08 | ARY-04 | Yükleme görseli 8 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
-| DYL02-AYRINTI-* | DYL-02 | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi | glTF / doku | planlı — madde kodlanınca: modelin bölgesinde düz renkli küçük kutu + gözlem metni | yamalı çarık nasırlı el yara; patched sandals calloused hands wound | yüksek | Claude |
+| YAP06-ESYA | YAP-06 | Özel eşya ikonları — prompt hazır, Ahmet üretecek; ortak ikon, türler YAP-06 tanımını bekler | SVG / PNG | planlı — madde kodlanınca: düz ColorRect + etiket | özel eşya ikon; medieval special item icons | orta | Claude |
+| YSM01-IKON | YSM-01 | Açlık, yorgunluk, moral bar ikonları — prompt hazır, Ahmet üretecek | SVG / PNG | planlı — madde kodlanınca: düz ColorRect | açlık yorgunluk moral ikon; hunger fatigue morale icons | yüksek | Claude |
+| ARY01-* | ARY-01 | Görsel dil şablonları: doku, çerçeve, yazı tipi — prompt hazır, Ahmet üretecek; çerçeve: mevcut UI paketi; font mevcut lisanslı kaynak | PNG / SVG / font | planlı — madde kodlanınca: StyleBoxFlat | Selçuklu çini çerçeve parşömen; seljuk tile frame parchment UI | yüksek | Claude |
+| ARY03-* | ARY-03 | Ekran arka planları (sorgu, seçim, köy HUD) — prompt hazır, Ahmet üretecek; sorgu: mevcut UI yeniden üretim listesi | PNG 1920×1080 | planlı — madde kodlanınca: düz renk | uç kapısı gece arka plan; frontier gate night background | orta | Claude |
+| ARY03-HARITA | GRV-05 / ARY-03 | Harita ekranı arka planı — prompt hazır, Ahmet üretecek | PNG / SVG | res://src/arayuz/harita_ekrani.gd (düz renk) | ortaçağ Anadolu harita parşömen; medieval anatolia parchment map | orta | Claude |
+| ARY04-YUKLEME-01 | ARY-04 | Yükleme görseli 1 — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-02 | ARY-04 | Yükleme görseli 2 — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-03 | ARY-04 | Yükleme görseli 3 — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-04 | ARY-04 | Yükleme görseli 4 — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-05 | ARY-04 | Yükleme görseli 5 — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-06 | ARY-04 | Yükleme görseli 6 — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-07 | ARY-04 | Yükleme görseli 7 — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-08 | ARY-04 | Yükleme görseli 8 — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| DYL02-AYRINTI-* | DYL-02 | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: modelin bölgesinde düz renkli küçük kutu + gözlem metni | yamalı çarık nasırlı el yara; patched sandals calloused hands wound | yüksek | Claude |
 | DYL03-YEMIN | DYL-03 | Yemin nesneleri (dünya kitabına göre) | glTF | planlı — madde kodlanınca: düz renk kutu + etiket | yemin ekmek tuz kitap; oath bread salt holy book | orta | Claude |
-| DYL07-OCAK | DYL-07 | Ocak başı ara sahne arka planı | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + metin, ARY-04 çerçevesi | ocak başı akşam ev içi; hearth evening cottage interior | orta | Claude |
+| DYL07-OCAK | DYL-07 | Ocak başı ara sahne arka planı — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + metin, ARY-04 çerçevesi | ocak başı akşam ev içi; hearth evening cottage interior | orta | Claude |
 | DYL09-DENETCI | DYL-09 | Beyin denetçisi modeli | glTF / 3B model | planlı — madde kodlanınca: mevcut köylü modeli + renk farkı | Selçuklu bey denetçi memur; seljuk inspector official | orta | Claude |
 | SEV03-IZ | SEV-03 | Kişisel iz | glTF | planlı — madde kodlanınca: düz renk küçük kutu | kişisel eşya hatıra; personal keepsake trinket | düşük | Claude |
-| SAB03-ORTU | SAB-03 | Kapalı iş yeri örtüsü | glTF / doku | planlı — madde kodlanınca: düz renk bez, ANI-08 düğümü üstünde | kapalı tezgâh örtü bez; covered workshop cloth | düşük | Claude |
-| TEZ01-ORTU | TEZ-01 | Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) | glTF / doku | planlı — madde kodlanınca: düz renk | tezgâh örtüsü ağıl değirmen demirhane; workshop cover sheepfold mill forge | düşük | Claude |
+| SAB03-ORTU | SAB-03 | Kapalı iş yeri örtüsü — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: düz renk bez, ANI-08 düğümü üstünde | kapalı tezgâh örtü bez; covered workshop cloth | düşük | Claude |
+| TEZ01-ORTU | TEZ-01 | Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: düz renk | tezgâh örtüsü ağıl değirmen demirhane; workshop cover sheepfold mill forge | düşük | Claude |
 | TEZ03-HAM | TEZ-03 | Ham blok | glTF | planlı — madde kodlanınca: düz renk küp, örtünün üstünde | ham malzeme blok; raw material block | düşük | Claude |
 | TEZ04-IZ | TEZ-04 | İz bloğu | glTF | planlı — madde kodlanınca: aynı küp, bir kenarı koyu | işlenmiş iz blok; worked material block | düşük | Claude |
 | TEZ05-BICIM | TEZ-05 | Biçim bloğu | glTF | planlı — madde kodlanınca: küp, etikette işin adı | biçimlenmiş parça; shaped workpiece | düşük | Claude |
 | TEZ06-AGIZ | TEZ-06 | Ağız bloğu | glTF | planlı — madde kodlanınca: küp, bir ucu açık renk | bıçak ağzı kenar; blade edge workpiece | düşük | Claude |
-| TEZ07-TITREME | TEZ-07 | Çırak titreme çizgisi | doku / çizgi | planlı — madde kodlanınca: blok üstünde eğri tek çizgi | titrek çizgi kusur; shaky line flaw mark | düşük | Claude |
+| TEZ07-TITREME | TEZ-07 | Çırak titreme çizgisi — prompt hazır, Ahmet üretecek | doku / çizgi | planlı — madde kodlanınca: blok üstünde eğri tek çizgi | titrek çizgi kusur; shaky line flaw mark | düşük | Claude |
 | TEZ08-PARCA | TEZ-08 | Teslim parçası | glTF | planlı — madde kodlanınca: düz renk, yüzde küçük kutu | bitmiş zanaat parçası; finished craft piece | düşük | Claude |
-| SRM18-IKON | SRM-18 | Pencere ve dosya ikonu | ICO / PNG | planlı — madde kodlanınca: Godot varsayılan ikonu | kapı muhafızı oyun ikonu; game app icon gate | düşük | Claude |
+| SRM18-IKON | SRM-18 | Pencere ve dosya ikonu — prompt hazır, Ahmet üretecek | ICO / PNG | planlı — madde kodlanınca: Godot varsayılan ikonu | kapı muhafızı oyun ikonu; game app icon gate | düşük | Claude |

@@ -1,0 +1,118 @@
+# Açık 3D asset satırları / grupları (Kalfa)
+
+12 Ekim 2026: **114 açık 3D satır/grup**. Bu sayı tek tek model ya da animasyon dosyası sayısı değildir; bir satırda birden çok model/klip olabilir, farklı kullanım satırları aynı modeli gerektirebilir. Sayım envanterdeki ihtiyaç durumudur, disk yeniden model kalite denetimi değildir. Mevcut `var` satırları ve PNG ile çözülebilen isteğe bağlı glTF alternatifleri sayılmaz. Doku promptu hazırlamak bağlı 3D geometriyi kapatmaz.
+
+- **KAPI-3D-IC** — Bekçi kadrajı. `KapiCercevesi` seviye 0 kütük kutuları; seviye 1+ `Pbr.model("large_castle_door")`. `kapi.glb` köyde, kapı sahnesinin iç yüzünde değil.; hedef Mevcut: `assets/ph/model/large_castle_door/large_castle_door.gltf`. Beklenen: `assets/model/yapi/kapi_ic.glb`.
+- **EL-TORBA** — chr_002; keten torba, linen sack.
+- **EL-SEPET** — chr_003; hasır sepet, wicker basket.
+- **EL-CEKIC** — chr_003; küçük çekiç, hand hammer.
+- **EL-KAMCI** — chr_004; at kamçısı, horse whip.
+- **EL-KURK** — chr_004; kürk bohça, fur bundle.
+- **EL-HEYBE** — chr_005, 009, 010; çift göz heybe, saddlebags.
+- **EL-SEPET-BUYUK** — chr_006, 012; büyük sepet.
+- **EL-SANDIK** — chr_007; küçük sandık, small chest.
+- **EL-ASA** — chr_008; ahşap asa, staff.
+- **EL-DEGNEK** — chr_013; eğri değnek, cane.
+- **EL-ODUN** — chr_001; iki odun, firewood.
+- **chr_001, 004, 005, 006, 007, 009, 010** — eksik klipler: panik, gergin.
+- **chr_002, 003, 008, 011–030** — eksik klipler: ofke, gergin.
+- **asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf** — eksik klipler: altı duygu klibinin hepsi.
+- **KAR-CAVUS** — `miraen_cavus`; hedef `assets/model/karakter/cavus_yuru.glb`.
+- **KAR-TAHSILDAR** — `vergi_tahsildari`; hedef `tahsildar_yuru.glb`.
+- **KAR-ELCI** — `tekfur_elcisi`; hedef `tekfur_elcisi_yuru.glb`.
+- **KAR-DERVIS** — `dervis`; hedef `dervis_yuru.glb`.
+- **KAR-HABERCI** — Ahi / Ertuğrul haberi; hedef `haberci_yuru.glb`.
+- **KAR-BEY** — `bey_daveti`; hedef `bey_yuru.glb`.
+- **KAR-COCUK** — Saruca, Sorhan, kalabalık; hedef `cocuk_yuru.glb`.
+- **KAR-TEKFUR-ASKER** — Uzak siluet. 2D `crowd_tekfur_spear_01_far.png` atıl.; hedef `tekfur_askeri_yuru.glb` veya siluet şerit.
+- **YAPI-tarla, bostan** — düzlem + kutu sap; hedef isteğe bağlı `yapi/tarla.glb`.
+- **YAPI-hizarhane** — sundurma kutusu + `dead_tree_trunk_02`; hedef `yapi/hizarhane.glb`.
+- **YAPI-odunluk** — aynı sundurma; hedef `yapi/orman_kampi.glb`.
+- **YAPI-tas_ocagi** — Poly Haven kaya; hedef `yapi/tas_ocagi.glb`.
+- **YAPI-avci** — çadır + sırık; hedef `yapi/avci.glb`.
+- **YAPI-atolye, demirhane** — sundurma + sandık; hedef `yapi/demirhane.glb`.
+- **YAPI-ambar** — `kervansaray.glb`; hedef `yapi/ambar.glb`.
+- **YAPI-firin** — ahşap kutu; hedef `yapi/firin.glb`.
+- **YAPI-degirmen** — kutu; hedef `yapi/degirmen.glb`.
+- **YAPI-sifahane** — kutu; hedef `yapi/sifahane.glb`.
+- **YAPI-ahir** — kutu; hedef `yapi/ahir.glb`.
+- **YAPI-agil** — CHR hedefi, kurulamaz, görsel yok; hedef `yapi/agil.glb`.
+- **YAPI-kirec_kuyusu** — kutu; hedef `yapi/kirec_kuyusu.glb`.
+- **YAPI-tas_ev** — kutu, ikon kulübe; hedef `yapi/tas_ev.glb`.
+- **YAPI-demir_madeni** — kutu; hedef `yapi/demir_madeni.glb`.
+- **YAPI-demir_ocagi** — kutu; hedef `yapi/demir_ocagi.glb`.
+- **YAPI-muhafiz_kislasi** — kutu; hedef `yapi/muhafiz_kislasi.glb`.
+- **YAPI-gozetleme_kulesi** — menü `model_var_mi` ile atlar; hedef `assets/model/yapi/gozetleme_kulesi.glb`.
+- **YAPI-pazar_tezgahi** — GLB var, sahne kurmuyor; hedef `assets/model/yapi/pazar_tezgahi.glb`.
+- **YAPI-sur 2–3** — kazık çit ölçeklenir, `SurHasarGorseli`; hedef `yapi/sur_tas.glb`, `yapi/burc.glb`.
+- **HYV-AT** — Sorhan, Nogay, kervan, TUC, HAR-07; hedef `assets/model/nesne/at.glb`.
+- **HYV-KOYUN** — Ağıl, ANI-05, TUC-02; hedef `koyun.glb`.
+- **HYV-KECI** — Yusuf olayı; hedef `keci.glb`.
+- **HYV-DEVE** — Kervan; hedef `deve.glb`.
+- **HYV-KOPEK** — Gece köy; hedef `kopek.glb`.
+- **PROP-ORS** — Demirhane izi; hedef `nesne/ors.glb`.
+- **PROP-TEZGAH** — Ayşe / bez; hedef `nesne/dokuma_tezgahi.glb`.
+- **PROP-AGAC-2** — Tek `agac.glb`; hedef `agac_02.glb`, `kaya_02.glb`.
+- **ANI-SILAH** — Kılıç, kalkan, mızrak, meşale soketi; glTF, el kemiği.
+- **ANI-ALET** — Kova, orak, balta, örs çekici, fırın küreği; glTF.
+- **ANI-HAYVAN-SURU** — Öküz yürüyüş, koyun otlama; glTF klip.
+- **TUC-TACIR** — Celep, nalbur, kumaşçı, aktar, silah tüccarı; `karakter/<ad>_yuru.glb`.
+- **TUC-HAYVAN** — İnek, koç, beygir; glTF.
+- **MEV-ZEMIN** — Kar örtüsü, çatı karı, kürek — prompt hazır, Ahmet üretecek; 3D geometri açık; shader + PNG; `kurek.glb`.
+- **MEV-AFET** — Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF + PNG.
+- **CAS-GECE** — Fener, yangın kovası; glTF.
+- **ODA-ODA** — Muhafız odası, yatak, masa, kasa, kütüphane; `assets/model/yapi/muhafiz_odasi.glb` + prop.
+- **KRI-MEZAR** — Toplu mezar, yazısız taş; glTF.
+- **ANI07-ISINMA** — İki el ateşe uzatılan ısınma döngüsü; glTF / iskelet animasyon klibi.
+- **ANI08-TEZGAH** — Örs ve fırın ağzı; glTF.
+- **ANI08-HAREKET** — Çekiç vurma ve fırın küreği döngüsü; glTF / iskelet animasyon klibi.
+- **ANI09-SACAK** — Yağmurdan korunma saçağı; glTF.
+- **ANI09-BUZULME** — Soğukta büzülmüş yürüyüş; glTF / iskelet animasyon klibi.
+- **ANI10-SINSI** — Sinsi yürüyüş ve temkinli kuytu bekleyiş; glTF / iskelet animasyon klibi.
+- **ANI11-ALET** — Gerçek çekiç ve fırın küreği; sokete hazır tutma noktası; glTF.
+- **ANI12-IDLE** — Üç doğal bekleme döngüsü (nefes / ağırlık aktarma / çevreye bakış); glTF / iskelet animasyon klibi.
+- **TUC02-OKUZ** — Öküz barınak modeli; glTF.
+- **TUC02-INEK** — İnek barınak modeli; glTF.
+- **TUC02-BEYGIR** — Beygir barınak modeli; glTF.
+- **TUC02-KOC** — Koç barınak ve sürü modeli; glTF.
+- **HAR06-KULE** — Gözcü kulesi yapı modeli; glTF.
+- **HAR10-YAY** — Sur okçusu el yayı; glTF.
+- **HAR10-MIZRAK** — Kapı mızraklısı görev mızrağı; glTF.
+- **MEV05-KUREK** — Kar küreme küreği ve temizlik klibi; glTF / iskelet klibi.
+- **MEV10-KURT** — Kurt modeli, yürüyüş ve kaçış klibi; glTF / iskelet klibi.
+- **CAS05-DIVAN** — Meydan divan masası ve oturma sıraları; glTF.
+- **CAS07-ZINDAN** — Kapı zindan hücresi kapısı; glTF.
+- **ODA01-ICMEKAN** — Oda zemin ve duvarları; glTF.
+- **ODA01-YATAK** — Muhafız yatağı; glTF.
+- **ODA01-MASA** — Muhafız masası; glTF.
+- **ODA01-MESALE** — Oda meşalesi; glTF.
+- **ODA01-KASA** — Gizli zemin kasası; glTF.
+- **ODA09-KABUS** — Rüya gölgesi figürü; glTF.
+- **ODA08-YATAK** — Rahat muhafız yatağı; glTF.
+- **ODA08-ASKILIK** — Donanım askılığı; glTF.
+- **ODA08-KUTUPHANE** — Muhafız kütüphanesi; glTF.
+- **ODA03-ESYA** — Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri); glTF / set.
+- **KRI05-MEZAR** — Toplu mezar ve cenaze töreni mezar işareti; glTF.
+- **BUG21-TASYATAGI** — Kazılabilir başlangıç ve kurtarıcı taş yatağı modeli; glTF / 3B model.
+- **BUG25-MESALE** — Kapı meşalesi gerçek modeli (gerekirse); glTF / 3B model.
+- **BUG25-KUYU** — Köy kuyusu gerçek modeli (gerekirse); glTF / 3B model.
+- **ACL01-MUHAFIZ** — 13. yy Anadolu muhafız gövdesi; glTF / 3B model.
+- **ACL01-ES** — Muhafızın eşi gövdesi; glTF / 3B model.
+- **KAP17-COCUK** — Çocuk köylü modeli; glTF / 3B model.
+- **KAP17-YASLI** — Yaşlı köylü modeli; glTF / 3B model.
+- **CAT02-KAVGA** — Kapıda kavga canlandırması; glTF / iskelet animasyon klibi.
+- **ISG02-ALETLER** — Geçici işlere özel el aletleri; glTF.
+- **YAP03-USTALAR** — Kapıdan gelen usta modelleri; glTF / 3B model.
+- **YAP05-ODA** — Çözümleme odası modeli; glTF / 3B model.
+- **DYL02-AYRINTI-*** — Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku.
+- **DYL03-YEMIN** — Yemin nesneleri (dünya kitabına göre); glTF.
+- **DYL09-DENETCI** — Beyin denetçisi modeli; glTF / 3B model.
+- **SEV03-IZ** — Kişisel iz; glTF.
+- **SAB03-ORTU** — Kapalı iş yeri örtüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku.
+- **TEZ01-ORTU** — Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku.
+- **TEZ03-HAM** — Ham blok; glTF.
+- **TEZ04-IZ** — İz bloğu; glTF.
+- **TEZ05-BICIM** — Biçim bloğu; glTF.
+- **TEZ06-AGIZ** — Ağız bloğu; glTF.
+- **TEZ08-PARCA** — Teslim parçası; glTF.
+- **B4-ILERI-KLIPLER** — kos, otur, orak, cekic, nobet, saldir, dus, yagmur_yuru, kar_yuru — bir ileri 3D klip grubu.
