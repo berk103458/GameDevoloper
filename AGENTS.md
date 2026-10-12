@@ -125,4 +125,11 @@ Açılış/eksik commit vakasında kalıcı denetim: tools/acilis_denetimi.py (U
 - **ROADMAP'te bir sonraki adıma geçmeden önce**, bitirdiğin adımın eksik assetlerinin bu dosyaya yazıldığını doğrula ve aynı commit'e dahil et. Asset gerektirmiyorsa commit mesajında veya status dosyanda "asset gerekmedi" yaz. Envanter güncellenmeden adım `[x]` sayılmaz.
 
 ## ROADMAP 2 (11 Ekim 2026)
-Aktif i? listesi k?k dizindeki `ROADMAP_2.md`dir; `ROADMAP.md` (ROADMAP 1) tamamland? ve yaln?z okuma referans?d?r. Sahiplik ve s?ra kurallar? `ROADMAP_2.md` ba??ndaki AJAN ?LERLEME PANOSU'ndad?r.
+Aktif iş listesi kök dizindeki `ROADMAP_2.md`dir; `ROADMAP.md` (ROADMAP 1) tamamlandı ve yalnız okuma referansıdır. Sahiplik ve sıra kuralları `ROADMAP_2.md` başındaki AJAN İLERLEME PANOSU'ndadır.
+
+## Commit ve kota disiplini (Muharrir, 12 Ekim 2026)
+Bu kural bütün ajanlar için geçerlidir: Claude, Kalfa, Codex, testx ve sonradan katılan her ajan.
+
+1. **Commit sıklığı:** Çalışırken en geç **1 saatte bir** ya da **her madde bittiğinde** commit at ve `claude/festive-volta-li1sfm`e push et. Uzun süre commit'siz çalışma; iş yarım kalsa bile `WIP: ...` başlıklı bir commit at. (Sandbox'ı git'e izin vermeyen ajanlar — ör. testx — teslimini `work/testx/teslim.json` ile verir; yayınlayan ajan aynı kurala uyar.)
+2. **Kota satırı:** Her commit'ten sonra `codex.md/<AjanAdı>.md` günlüğüne, iş bitince de Ajan Masası'na (GitHub issue #11) kalan kotanı yaz. Örnek: `kota: %40 kaldı`. Kotanı göremiyorsan `kota görünmüyor` yaz.
+3. **Kota azalınca:** Kotan **%15'in altına** düştüğünde yeni işe başlama. Elindeki işi commit'le ve push et; bitiremediğin `[/]` maddelerini `[ ]` yap ve maddenin yanına ya da Ajan Masası'na `kota bitti, bırakıldı` notu düş.
