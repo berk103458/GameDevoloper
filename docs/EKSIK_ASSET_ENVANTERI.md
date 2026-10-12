@@ -1,479 +1,501 @@
 # Kapı Muhafızı — Eksik asset envanteri
 
-**12 Ekim 2026 güncellemesi (Kalfa):** 27 temiz UI PNG; 5 yeniden üretim; 281 envanter + 25 eksik UI tekli prompt. Saydam kaynak #00FF00, alfa sonradan temizlenir. Görsel açık kuyruğu 114 3D satır/gruptur; ayrıntılar aşağıdaki “12 Ekim 2D üretim hazırlığı” ve `arayuz/GECE_KAPISI_ALFA_KABUL.md` içinde. Eski tarama tarihi aşağıda tarihsel kaynak olarak korunur.
+12 Ekim 2026 (Kalfa). **Aktif görsel ihtiyaçları 2D ve 3D olarak ayrılmıştır.** Mekanikler asset beklemez: isim etiketli kutu / ColorRect / BoxMesh yer tutucuyla tamamlanır. Assetler üretim tamamlandıktan sonra ayrı entegrasyon paketinde eklenir; hazır prompt, teslim veya oyun kabulü değildir.
 
-**Tarih:** 7 Ekim 2026  
-**Dal tabanı:** `claude/festive-volta-li1sfm` @ `ec23ee9` (`feat(EKO-13): expose tool wear and verify last-tool production`)  
-**Yapan:** Cursor — yalnız tarama. Görsel, ses, model üretilmedi; oyun kodu değiştirilmedi.  
-**Eski liste:** `production/eksikler/` 4 Ekim notlarıdır. O tarihten sonra yürüyüş GLB’leri, duygu klipleri, CHR foley ve ekonomi SVG’leri geldi. Bu dosya güncel taramanın kaydıdır.
+## Yeni ihtiyaç ekleme kuralı
 
-Bu belge üretim brief’idir. Aynı dosya adı konunca oyun yolu değişmez; yeni ad önerilen yerlerde kod henüz o yolu yüklemez.
+- Önce mevcut ihtiyacı kullan; aynı model/portre için tekrar kuyruk açma. ROADMAP kodu, yer tutucu `res://` yolu, öncelik ve ekleyen ajan kaydı korunur.
+- **2D:** aşağıdaki 2D bölümüne dosya adı, nihai piksel ölçüsü, saydamlık ve tek resimlik İngilizce Nano Banana promptunu aynı commit'te ekle. Ortak gece_kapisi stilini kullan; saydam kaynakta düz **#00FF00** zemin, `no text`. Gerçek alfa sonradan temizlenir; modelden saydamlık beklenmez. Prompt metni aşağıdaki bağlantılı katalogda tutulur; yeni kayıtla katalog da güncellenir.
+- **3D:** 3D bölümüne kısa tanım ve metreyle ölçü yaz. Ölçü sırası genişlik × yükseklik × derinlik; 1 Godot birimi = 1 metre. Animasyon mevcut rig ölçeğini korur. Buradaki ölçüler üretim hedefi / başlangıç zarfıdır; ölçülmüş mevcut model boyutu değildir. Yapı, hayvan ve prop sahnede sonradan doğrulanır.
+- Yeni mekanik kapanırken envanter ve prompt birlikte güncellenir; ihtiyaç yoksa `asset gerekmedi` yazılır. Asset eksikliği ROADMAP maddesini bekletmez.
+- Önceki kaynak taraması, arama sözcükleri, öncelikler, yollar ve ajan imzaları [kaynak kaydında](asset_envanteri/2026-10-12-kaynak-taramasi.md) korunur. Bu belge aktif kuyruktur; kaynak kaydına yeni ihtiyaç eklenmez. En alttaki H tablosu ARY-05 kimlik izleme kaydıdır, ikinci üretim kuyruğu değildir.
 
-## Ajanlar için kullanım (Ahmet kuralı, 8 Ekim 2026)
+## 2D assetler — prompt hazır, Ahmet üretecek
 
-Ajanlar asset üretmez (bkz. `AGENTS.md` → "Asset kuralı"). 11 Ekim 2026'dan itibaren (Berk): uygun ve açık lisanslı (CC0/CC-BY) asset internetten eklenebilir; satırına kaynak bağlantısı, yazar ve lisans yazılır. Mekaniği kutu/düz renk yer tutucuyla bitir, ihtiyaç duyduğun asseti bu dosyaya yaz.
+**281 envanter parçası + 57 mevcut UI yuvası.** Aynı ihtiyacın değişik boyutları ayrı dosyadır; kaynak kimliği birden çok parçaya bağlanabilir. YAP06'nın henüz tanımlanmamış sekiz eşya türü ortak ikonla özgül olarak tamamlanmış sayılmaz. Karışık doku/model ihtiyaçlarının dokusu burada, geometrisi 3D bölümündedir.
 
-- Yeni satırı en alttaki **"G. Ajan eklemeleri"** tablosuna ekle; mevcut A–D bölümlerini yeniden yazma.
-- Sütunlar: `ID` (ör. `ANI05-KOYUN`) · `ROADMAP` (madde kodu) · `Ne` (asset adı) · `Tür / format` (glTF, PNG, WAV, OGG, animasyon klibi…) · `Yer tutucu yolu` (kodun şu an yüklediği yer tutucu: kutu sahnesi, sabit veya `BoxMesh` kuran scriptin `res://` yolu) · `Anahtar kelimeler (TR + EN)` · `Öncelik` (yukarıdaki tablo: kritik / yüksek / orta / düşük / ileri) · `Ekleyen` (Codex, Claude, Cursor, Gemini…).
-- Aynı asset zaten A–D'de varsa yeni satır açma; o satırın ROADMAP sütununa madde kodunu ekle.
-- ROADMAP'te sonraki maddeye geçmeden önce bu tabloyu aynı commit'te güncelle. Asset gerekmediyse commit mesajına veya status dosyana "asset gerekmedi" yaz.
+Üretim için [311 satırlık sıradaki liste](arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md): 5 yeniden üretim + 25 teslim edilmemiş UI + 281 envanter resmi. Alfa hazırlığı biten 27 PNG üretim beklerken saklanır; tekrar üretilmez ve henüz oyun entegrasyonu kabulü sayılmaz. [Kabul kanıtı](arayuz/GECE_KAPISI_ALFA_KABUL.md).
 
-## Nasıl tarandı
+### Envanterin tekli 2D parçaları
 
-- `ROADMAP.md` açık maddeleri (ANI, TUC, MEV, CAS, ODA, HAR, KRI, SYS-16…20, EKO-14/15).
-- Yüklenen yollar: `Sanat`, `Ses`, `Dunya3B`, `Pbr`, `GirisVarliklari`, `KaynakGostergesi`, `EsyaSimgesi`, `KarakterModel`, `KapiCercevesi`, `KoyYonetimSahnesi._bina_dugumu`, olay `.tres` `ses`/`muzik` alanları.
-- Disk: `assets/art`, `assets/ses`, `assets/model`, `assets/ui/koy`, `assets/font`, `assets/ph`, `assets/palette`.
-- Yer tutucu üreticiler: `tools/art/uret_yer_tutucu.py`, `tools/art/gemini_uret.py`, `tools/ses/ses_uret.py`.
+Her satırdaki prompt bağlantısı tam İngilizce metin, kaynak konu ve notları açar. Tüm satırların durumu: **prompt hazır, Ahmet üretecek**. ROADMAP / yer tutucu / öncelik / ekleyen bilgisi kaynak kimliğiyle tarihsel taramadan izlenir.
 
-## Durum ve öncelik
-
-| Durum | Anlam |
-|---|---|
-| yok | Beklenen dosya diskte yok |
-| placeholder | Dosya var; prosedürel yer tutucu veya düz renk/kutu |
-| yarım | Dosya veya sistem var; dönem, isim veya kapsam uymuyor |
-| bozuk yol | Kodun aradığı `res://` yolu diskte yok |
-| prompt hazır, Ahmet üretecek | Tekli üretim briefi hazır; kaynak görsel, alfa hazırlığı ve oyun entegrasyonu teslim bekliyor |
-
-| Öncelik | Anlam |
-|---|---|
-| kritik | Menü veya kapı gecesi bu varlık olmadan düzgün açılmaz / okunmaz |
-| yüksek | Kapı sorgu, heybe, diyalog, köy HUD şu an oynanırken görünür |
-| orta | Köy sahnesi ve ekonomi; oyun açılır, kimlik zayıf kalır |
-| düşük | Kullanılmayan dosya, mağaza, ince cila |
-| ileri | ROADMAP maddesi kodlanmadı; varlık şimdiden planlanır |
-
-Anahtar kelimeler Türkçe + İngilizce, üretim araması içindir: dönem, ruh hali, kullanım.
-
-## Özet
-
-| Öncelik | Ne eksik |
-|---|---|
-| kritik | Kapı karar ikonları, imleç ve bilgi arka planları yer tutucu PNG. Kapı/menü müziği ve SFX prosedürel WAV. Kapı kanadı Avrupa kalesi PBR + kutu; Selçuklu uç kapısı değil. |
-| yüksek | 44 yürüyen modelde `gergin` klibi yok. CHR’lerin yarısında `ofke` veya `panik` yok. 14 adlı/sınıf modelinde duygu klibi yok. CHR poz anahtarları `Idle`/`Stressed`/`Panic` dosyaya bağlı değil. Heybe ve el eşyası çizim/kutu. 30 CHR’nin ayrı portresi yok. Köyde yeni yapılar genel ahşap kutu. |
-| orta | Kürk SVG yok. Yapı kartı ikonları kulübeye düşüyor. Ambar kervansaray modeli. Gözetleme kulesi yok. Hayvan, olay kişisi, çocuk modeli yok. |
-| düşük | Çatlayan bar PNG’leri, meşale FX, kalabalık silueti kod tarafından yüklenmiyor. Palet dosyası, logo, pencere simgesi yok. |
-| ileri | ANI silah/rutin, TUC tüccar/hayvan, MEV kar/yağmur, CAS divan, ODA oda, HAR harita, KRI salgın, SYS son ekranları. |
-
-## Oyunda olup bu listede “eksik” sayılmayanlar
-
-Bunlar gerçek dosya. Yeniden üretme brief’i değiller.
-
-- Font: `assets/font/Alegreya-wght.ttf`, `Alegreya-Italic-wght.ttf`, `Cinzel-wght.ttf`.
-- Gök: `assets/ph/gok/satara_night_no_lamps_4k.hdr`, `kloofendal_48d_partly_cloudy_puresky_2k.hdr`, `kloppenheim_06_puresky_2k.hdr`.
-- Kapı PBR: `medieval_wood`, `bark_willow`, `castle_wall_varriation`, `brown_mud_rocks_01`, `snow_02`, `aerial_rocks_02`, `snow_field_aerial`, `muddy_tracks` ve glTF varil, sandık, kaya, kütük, kuru dal, `large_castle_door`.
-- Yürüyüş: `assets/model/karakter/*_yuru.glb` — 30 CHR + 14 adlı/sınıf (her biri yaklaşık 2,5–5 MB).
-- Köy GLB: `yapi/cadir`, `ev`, `kapi`, `kervansaray`, `pazar_tezgahi`; `nesne/agac`, `araba`, `cuval_yigini`, `kaya`, `kazik_cit`, `kuyu`, `mesale`, `okuz`.
-- HUD SVG (CC BY, `assets/ui/koy/`): `akce`, `gida`, `odun`, `tas`, `kereste`, `alet`, `cadir`, `kulube`, `ambar`, `avci`, `tomruk`, `bugday`, `un`, `kirec`, `harc`, `cevher`, `demir`.
-- `Hud.STOKLAR` bu SVG’leri yükler. Kürk şeritte yok.
-
----
-
-## A. Kritik — menü ve kapı
-
-### A1. Kapıda yüklenen 2D ikonlar — placeholder
-
-Üretici: `tools/art/uret_yer_tutucu.py`. Boyutlar `tools/art/gemini_uret.py` tablosuyla aynı. 48×48 ikonlar 440–843 bayt; illüstrasyon değil, düz palet lekesi. Format: PNG, ikili alfa, palet 7 hex (`#0D0F14` `#4A6B8A` `#3D2E24` `#C4843A` `#06070A` `#B8C2CC` `#24364A`).
-
-| ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|
-| UI-KARAR-KABUL | Kapı kabul düğmesi. `kapi_ekrani.gd` `icon_decision_accept_48`. KAP-13. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/icon_decision_accept_48.png` | açık kapı, kabul, open wooden gate, frontier night, ink icon, 48px | kritik |
-| UI-KARAR-RET | Ret ve el koyma. `reject`. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/icon_decision_reject_48.png` | kapalı kapı, sürgü, barred gate, reject, ink icon | kritik |
-| UI-KARAR-RUSVET | Rüşvet ve harç. `bribe`. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/icon_decision_bribe_48.png` | deri kese, sikke, coin pouch, bribe, no numerals | kritik |
-| UI-KARAR-KISLA | Kışla / zindan. `barracks`. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/icon_decision_barracks_48.png` | mızrak, yuvarlak kalkan, spear shield, barracks | kritik |
-| UI-KESE-DOLU | Rüşvet şeridi. `icon_bribe_pouch_full_48`. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/icon_bribe_pouch_full_48.png` | dolu kese, bağcık, full leather pouch, ash tie | kritik |
-| UI-IMLEC | Menü ve kapı imleci, ok ve el aynı doku. `ana.gd`. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/ui/ui_cursor_arrow_32.png` | kül ok, sol üst uç, mouse arrow, 32px, ink outline | kritik |
-
-Not: Ayrı el imleci yok. `CURSOR_POINTING_HAND` aynı oku kullanır. İstenirse `ui_cursor_hand_32.png`, 32×32 PNG.
-
-### A2. Bilgi ekranı arka planları — placeholder
-
-`bilgi_ekrani.gd` `3d_*` değilse `assets/art/env/<ad>.png` yükler. Perde ve sonlar çoğu zaman `3d_koy` / `3d_kapi` kullanır; varsayılan hâlâ `env_menu_bg`.
-
-| ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|
-| ENV-MENU | Başlık / bilgi varsayılanı. 1920×1080. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/env/env_menu_bg.png` | gece uç, kapalı kapı, tek meşale, title screen, no text, cold blue | kritik |
-| ENV-KAPI | Kapı bilgi kadrajı. 1140×1000. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/env/env_gate_scene_bg.png` | içeriden palisat, toprak yol, uzak kuyruk, papers-please framing, night | yüksek |
-| ENV-KOY-2D | Köy bilgi kadrajı. 1920×1000. Sahne 3B olduğu için ikincil. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/art/env/env_village_bg.png` | küçük kervansaray, pazar örtüsü, gece, no people | orta |
-
-### A3. Kapı ve menü sesi — hepsi placeholder
-
-`tools/ses/ses_uret.py`: 44,1 kHz, 16-bit, mono WAV. Aynı adla gerçek kayıt konur. Betik yeniden çalışırsa kaydın üstüne yazar.
-
-Menü `Ses.dongu_baslat` → `muzik_gece_dongu` + `ortam_mesale_dongu`. Kapı kararı `sfx_onay`, `sfx_kese`, `sfx_kapi_acilir` / `sfx_kapi_kapanir`, `sfx_adim`, `sfx_secim`, `sfx_olay`. Tansiyon katmanı `muzik_chr_sakin|gergin|panik` (`tansiyon_muzigi.gd`, SYS-03).
-
-| ID | Ne için | Durum | Yol | Süre tahmini | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|---|
-| SES-MUZIK-GECE | Varsayılan döngü. Menü, kapı, köy dönüşü. | placeholder | `assets/ses/muzik_gece_dongu.wav` | 60–90 sn dikişsiz | ney, kopuz, hicaz, lonely frontier night, no percussion lead | kritik |
-| SES-ORTAM-MESALE | Kapı ortamı. | placeholder | `assets/ses/ortam_mesale_dongu.wav` | 20–40 sn döngü | meşale çıtırtısı, hafif rüzgâr, torch crackle, wind | kritik |
-| SES-MUZIK-SAKIN | Tansiyon 0–3. | placeholder | `assets/ses/muzik_chr_sakin.wav` | 15–30 sn | ney, kopuz, calm interrogation | yüksek |
-| SES-MUZIK-GERGIN | Tansiyon 4–7. | placeholder | `assets/ses/muzik_chr_gergin.wav` | 15–30 sn | yaylı, tense strings, no jump scare | yüksek |
-| SES-MUZIK-PANIK | Tansiyon 8–10. | placeholder | `assets/ses/muzik_chr_panik.wav` | 15–30 sn | kudüm, davul, panic pulse, low drum | yüksek |
-| SES-KAPI-AC | Kabul, içeri. | placeholder | `assets/ses/sfx_kapi_acilir.wav` | 0,8–1,5 sn | ağır ahşap gıcırtı, sürgü, heavy timber gate | kritik |
-| SES-KAPI-KAPA | Ret. | placeholder | `assets/ses/sfx_kapi_kapanir.wav` | 0,8–1,2 sn | kapı çarpma, bar drop, wood thud | kritik |
-| SES-KESE | Rüşvet, heybe, pazar. | placeholder | `assets/ses/sfx_kese.wav` | 0,3–0,6 sn | deri kese, sikke, coin pouch foley | kritik |
-| SES-ADIM | Kuyruk adımı. | placeholder | `assets/ses/sfx_adim.wav` | 0,2–0,4 sn, 2–3 varyant | toprak, çarık, dirt footstep | yüksek |
-| SES-SECIM | Odak. | placeholder | `assets/ses/sfx_secim.wav` | ~0,06 sn | kısa tahta tık, UI tick | yüksek |
-| SES-ONAY | Karar onayı. | placeholder | `assets/ses/sfx_onay.wav` | ~0,15 sn | alçak onay, no fanfare | yüksek |
-| SES-OLAY | Olay kartı. | placeholder | `assets/ses/sfx_olay.wav` | ~1 sn | nötr stinger, good or bad işaret yok | yüksek |
-| SES-FOLEY-6 | Replik foley. KAP-10. `chr_sorgu_sesi.gd`. | placeholder | `sfx_chr_kabza`, `sfx_chr_bebek`, `sfx_chr_kagit`, `sfx_chr_metal`, `sfx_chr_sikke`, `sfx_chr_deri` | ~0,3 sn | kılıç kabzası, bebek soluğu, parşömen, çapa/zincir, sikke, deri sürtünme | yüksek |
-
-### A4. Kapı gövdesi — yarım
-
-| ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|
-| KAPI-3D-IC | Bekçi kadrajı. `KapiCercevesi` seviye 0 kütük kutuları; seviye 1+ `Pbr.model("large_castle_door")`. `kapi.glb` köyde, kapı sahnesinin iç yüzünde değil. | yarım | Mevcut: `assets/ph/model/large_castle_door/large_castle_door.gltf`. Beklenen: `assets/model/yapi/kapi_ic.glb` | 13. yy Anadolu uç palisat, içeriden iki kanat, kazık, meşale kolu, no castle portcullis, no gothic, PBR glTF | kritik |
-| KAPI-DEMIR | Kapı kuşağı düz `StandardMaterial3D`, doku yok. | prompt hazır, Ahmet üretecek (teslim bekliyor) | doku yok; hedef `assets/ph/doku/wrought_iron/` veya kapı GLB içi | dövme demir, mat, wrought iron strap, rough | orta |
-
----
-
-## B. Yüksek — sorgu, heybe, karakter
-
-### B1. Portre ve görsel iz — placeholder, sınıf tekrarı
-
-`chr_inceleme_paneli.gd` eski `.tres` `portre` alanıyla `Sanat.portre` çağırır: `res://assets/art/char/char_<portre>_neutral_card.png` (600×760). CHR_001–030 çoğu `soldier_01` / `farmer_01` / `farmer_02` / `craftsman_01`. Aynı yüz onlarca kişide tekrarlar. Fiziksel iz (yara, kireç, süt) portrede yok; tıklama metin açar (KAP-06).
-
-Adlı kartlar da yer tutucu: `miraen`, `sorhan`, `thessra`, `karaca_usta`, `aydogdu`, `saruca_hatun`.
-
-| ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|
-| PORTRE-SINIF-4 | Sınıf kartı, kapı inceleme. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `char_soldier_01_neutral_card.png`, `char_farmer_01_neutral_card.png`, `char_farmer_02_neutral_card.png`, `char_craftsman_01_neutral_card.png` | Selçuklu uç, yorgun, kalın mürekkep, tek imza siluet, reigns-scale bust, no text, magenta key | yüksek |
-| PORTRE-ADLI-6 | Eski adlı kadro kartı. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `char_{miraen,sorhan,thessra,karaca_usta,aydogdu,saruca_hatun}_neutral_card.png` | aynı stil; Miraen kuyruklu keçe külah + kırık kın, Sorhan yular, Thessra başörtüsü ve kutu, Karaca deri tomar + kuşak, Aydoğdu yay, Saruca üçgen başörtüsü | yüksek |
-| PORTRE-CHR-30 | Kişiye özel iz. Kod yolu yok; portre kökü sınıf. | prompt hazır, Ahmet üretecek (teslim bekliyor) | öneri: `assets/art/char/char_chr_XXX_neutral_card.png` | CHR sayfasındaki görsel hata, wound, lime, chain scar, milk stain, unique bust | yüksek |
-| KOY-FIGUR-2D | `Sanat.koy_figuru` hiç çağrılmıyor. Köy 3B. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `char_*_idle_village.png` 56×120 | küçük köy silueti, idle village | düşük |
-
-### B2. Heybe ve nişan görseli — placeholder
-
-`EsyaSimgesi` kodla çizer (`esya_simgesi.gd`: “Sanat gelirse aynı id ile doku”). Bilinen id: `akce`, `arpa`, `tohum`, `ekmek`, `tuz`, `kumas`, `bakir`, `ok`, `hancer`, `ilac`, `yuzuk`. Tanınmayan id gri daire. KAP-03 paneli ve KAP-14 kartı metin; eşya PNG’si yok.
-
-| ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|
-| HEYBE-11 | Heybe kartı simgesi. | prompt hazır, Ahmet üretecek (teslim bekliyor) | öneri `assets/art/icons/icon_esya_<id>_64.png` | mürekkep ikon, 64px, deri, çuval, ekmek, ok, hançer, ilaç şişesi, yüzük, no text | yüksek |
-| NISAN-30 | CHR Obje_1 mühür/ferman/rozet. KAP-04. | prompt hazır, Ahmet üretecek (teslim bekliyor) | öneri `assets/art/icons/icon_clue_chr_XXX_obje1.png` | nişan, mühür, berat, ferman, wax seal, charter, Seljuk frontier | yüksek |
-| YUK-30 | CHR Obje_2 çuval/gizli bölme. KAP-05. | prompt hazır, Ahmet üretecek (teslim bekliyor) | öneri `assets/art/icons/icon_clue_chr_XXX_obje2.png` | çuval, saman altı, false bottom, smuggled goods | yüksek |
-
-### B3. El eşyası — prosedürel kutu, GLB yok
-
-`ElEsyasi` ve `data/el_esyalari.json`. Hepsi kutu/silindir. Format hedefi: glTF, avuçta ~0,2–1,5 m, düşük poligon.
-
-| ID | Kimde | Anahtar kelimeler | Öncelik |
-|---|---|---|---|
-| EL-TORBA | chr_002 | keten torba, linen sack | orta |
-| EL-SEPET | chr_003 | hasır sepet, wicker basket | orta |
-| EL-CEKIC | chr_003 | küçük çekiç, hand hammer | orta |
-| EL-KAMCI | chr_004 | at kamçısı, horse whip | orta |
-| EL-KURK | chr_004 | kürk bohça, fur bundle | orta |
-| EL-HEYBE | chr_005, 009, 010 | çift göz heybe, saddlebags | yüksek |
-| EL-SEPET-BUYUK | chr_006, 012 | büyük sepet | orta |
-| EL-SANDIK | chr_007 | küçük sandık, small chest | orta |
-| EL-ASA | chr_008 | ahşap asa, staff | orta |
-| EL-DEGNEK | chr_013 | eğri değnek, cane | orta |
-| EL-ODUN | chr_001 | iki odun, firewood | orta |
-
-JSON’daki diğer türler (`testi`, `kova`, `capa`, `kazma`, `kilic_bez`, `cuval`, `bohca`, `kile`, `kalbur`, `kabak`, `cubuk`) aynı dosyada tanımlı; atanmış karakter satırı yoksa sahnede görünmez. Yine de heybe/el hattı için aynı glTF ailesi.
-
-### B4. Animasyon klipleri — yarım
-
-`KarakterModel.HAREKETLER`: `bekle`, `konus`, `sevinc`, `ofke`, `panik`, `gergin`. Dosya: `assets/model/hareket/<ad>_<hareket>.res`. Yürüyüş klibi GLB’nin içinde. Eksik klip idle’a düşer (BUG-09/12); oyun çökmez, poz eksik kalır.
-
-CHR kaynak anahtarları `Idle` / `Stressed` / `Panic` (`karakter_verisi.gd`). Bu üç adla `.res` yok. `tansiyon_animasyonu()` sahne oynatıcısına bağlı değil. Stressed karşılığı dosyada `gergin` olmalı; o dosya hiçbir modelde yok.
-
-| Grup | Var | Yok | Öncelik |
-|---|---|---|---|
-| chr_001, 004, 005, 006, 007, 009, 010 | bekle, konus, sevinc, ofke | panik, gergin | yüksek |
-| chr_002, 003, 008, 011–030 | bekle, konus, sevinc, panik | ofke, gergin | yüksek |
-| asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | yalnız `*_yuru.glb` | altı duygu klibinin hepsi | yüksek |
-
-Beklenen ad: `assets/model/hareket/<model>_<hareket>.res` (Animation, aynı iskelet, iz eşiği 0,8).  
-Anahtar kelimeler: idle breath, talk gesture, joy, anger, panic draw, stressed fidget, Anatolian frontier clothes, no Mixamo T-pose leftover.
-
-İleri klipler (ANI, henüz kod yok): `kos`, `otur`, `orak`, `cekic`, `nobet`, `saldir`, `dus`, `yagmur_yuru`, `kar_yuru`. glTF klip veya `.res`.
-
-### B5. Kapı kuyruğu çeşitliliği
-
-Olay kişilerinin modeli yok. Olay kartı metin (`koy_ekrani.gd`). Köy kalabalığı sınıf modellerine düşer.
-
-| ID | Ne için | Durum | Beklenen | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|
-| KAR-CAVUS | `miraen_cavus` | yok | `assets/model/karakter/cavus_yuru.glb` | Selçuklu çavuş, lamel yelek, keçe börk, gürz | orta |
-| KAR-TAHSILDAR | `vergi_tahsildari` | yok | `tahsildar_yuru.glb` | vergi defteri, sikke kesesi, ince kaftan | orta |
-| KAR-ELCI | `tekfur_elcisi` | yok | `tekfur_elcisi_yuru.glb` | Bizans uç elçisi, mühürlü tomar, kısa pelerin | orta |
-| KAR-DERVIS | `dervis` | yok | `dervis_yuru.glb` | sikke külah, hırka, keşkül, asa | orta |
-| KAR-HABERCI | Ahi / Ertuğrul haberi | yok | `haberci_yuru.glb` | tozlu binici kaftanı, mesaj tüpü | orta |
-| KAR-BEY | `bey_daveti` | yok | `bey_yuru.glb` | kürklü börk, kuşak, eğri kılıç | düşük |
-| KAR-COCUK | Saruca, Sorhan, kalabalık | yok | `cocuk_yuru.glb` | 7 yaş, uzun tunik, yalınayak | orta |
-| KAR-TEKFUR-ASKER | Uzak siluet. 2D `crowd_tekfur_spear_01_far.png` atıl. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `tekfur_askeri_yuru.glb` veya siluet şerit | konik miğfer, uzun kalkan, mızrak, soğuk mavi siluet | orta |
-
----
-
-## C. Orta — köy sahnesi, ekonomi UI, ortam sesi
-
-### C1. Yapı görselleri
-
-`koy_yonetim_sahnesi.gd` `_bina_dugumu`. Katalog `model` alanı yalnız çadır ve kulübede yazılı; sahne onu okumaz, `match` kullanır.
-
-| Tür | Şu an | Durum | Beklenen dosya | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|
-| cadir | `yapi/cadir.glb` | var (dönem kontrolü ayrı) | aynı yol | keçi kılı kara çadır, Turkmen yurt, not camping tent | orta |
-| kulube | `yapi/ev.glb` | var | aynı | toprak dam, kerpiç, mud-brick hut | orta |
-| tarla, bostan | düzlem + kutu sap | placeholder | isteğe bağlı `yapi/tarla.glb` | karık, ekin, furrowed field | düşük |
-| hizarhane | sundurma kutusu + `dead_tree_trunk_02` | placeholder | `yapi/hizarhane.glb` | hızar, sundurma, saw pit | orta |
-| odunluk | aynı sundurma | placeholder | `yapi/orman_kampi.glb` | orman kampı, tomruk, wood camp | orta |
-| tas_ocagi | Poly Haven kaya | yarım | `yapi/tas_ocagi.glb` | açık ocak, kama, quarry | orta |
-| avci | çadır + sırık | yarım | `yapi/avci.glb` | avcı çadırı, kurutma sırığı | düşük |
-| atolye, demirhane | sundurma + sandık | placeholder | `yapi/demirhane.glb` | örs, körük, anvil, no fantasy forge | yüksek |
-| ambar | `kervansaray.glb` | yarım | `yapi/ambar.glb` | tahıl ambarı, barn, not caravanserai | yüksek |
-| firin | ahşap kutu | placeholder | `yapi/firin.glb` | tandır, kubbesiz toprak fırın | yüksek |
-| degirmen | kutu | placeholder | `yapi/degirmen.glb` | su değirmeni, çark, mill wheel | yüksek |
-| sifahane | kutu | placeholder | `yapi/sifahane.glb` | küçük şifahane, iki yatak, healer hut | yüksek |
-| ahir | kutu | placeholder | `yapi/ahir.glb` | ahır, yemlik, ox stable | yüksek |
-| agil | CHR hedefi, kurulamaz, görsel yok | yok | `yapi/agil.glb` | ağıl, taş çevirme, sheep pen | ileri |
-| kirec_kuyusu | kutu | placeholder | `yapi/kirec_kuyusu.glb` | kireç kuyusu, lime pit | orta |
-| tas_ev | kutu, ikon kulübe | placeholder | `yapi/tas_ev.glb` | yığma taş ev, six beds, rubble stone | orta |
-| demir_madeni | kutu | placeholder | `yapi/demir_madeni.glb` | açık maden ağzı, ore pit | orta |
-| demir_ocagi | kutu | placeholder | `yapi/demir_ocagi.glb` | eritme ocağı, bloomery | orta |
-| muhafiz_kislasi | kutu | placeholder | `yapi/muhafiz_kislasi.glb` | nöbet barakası, mızrak sehpası, not castle | yüksek |
-| gozetleme_kulesi | menü `model_var_mi` ile atlar | yok | `assets/model/yapi/gozetleme_kulesi.glb` | dört direkli ahşap kule, merdiven, watchtower | orta |
-| pazar_tezgahi | GLB var, sahne kurmuyor | yarım | `assets/model/yapi/pazar_tezgahi.glb` | saz çatı, çuval, market stall | orta |
-| kuyu | `nesne/kuyu.glb` sahnede ayrı | var | aynı | taş kuyu, çıkrık | düşük |
-| sur 2–3 | kazık çit ölçeklenir, `SurHasarGorseli` | yarım | `yapi/sur_tas.glb`, `yapi/burc.glb` | kaba taş sur, mazgal, no castle crenellation fantasy | orta |
-
-İskele (inşaat) kasıtlı kutu. Ayrı model şart değil.
-
-### C2. İkonlar
-
-`YapiKarti.IKONLAR` dışı türler `kulube.svg` alır: bostan, demirhane, değirmen, şifahane, fırın, ahır, kışla, demir madeni, demir ocağı. `KaynakGostergesi.ikon` `res://assets/ui/koy/<tur>.svg` yükler. Eksik dosya Godot’ta hatalı doku basar.
-
-| ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|
-| IKN-KURK | Avcı üretimi ve ambar bozulma sırası (`kaynaklar.gd`, `ambar_bakimi.json`). HUD şeridinde yok; pazar metinle yazar. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/ui/koy/kurk.svg` | kürk, post, fur pelt, bronze tint, CC-uyumlu tek renk SVG | yüksek |
-| IKN-YAPI | Yapı kartı. Hepsi kulübeye düşmesin. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `firin.svg`, `degirmen.svg`, `sifahane.svg`, `ahir.svg`, `agil.svg`, `demirhane.svg`, `kislasi.svg`, `maden.svg`, `ocak.svg`, `kirec_kuyusu` zaten `kirec.svg` | fırın, çark, yatak, ahır, örs, kışla, maden, tek renk SVG 32–48 | orta |
-| IKN-UYARI | Görsel plan yolu. Güncel HUD yüklemiyor. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `res://assets/arayuz/ikonlar/uyari_isci_yok.png`, `uyari_hammadde_yok.png`, `uyari_ambar_dolu.png` | uyarı, meşale rengi, no red cross, worker, raw material, full barn | düşük |
-| IKN-BAR | Sanat kitabı çatlayan levha. KAP-12 `ProgressBar` kullanır; PNG yüklenmez. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `assets/art/ui/ui_bar_segment_{full,empty,cracked_01,cracked_02}.png` | taş levha, çatlak, ink slab, 22×30 | düşük |
-| IKN-KESE-BOS | Dosya var, kod yüklemez. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `icon_bribe_pouch_empty_48.png` | boş kese, kesik çizgi | düşük |
-| IKN-MESALE-2D | Köy 3B meşale kullanır. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `assets/art/fx/fx_torch_village_01.png`, `fx_torchlight_patch_village_01.png` | düz alev, amber leke, no glow | düşük |
-
-### C3. Köy ve olay sesi — placeholder, dosya var
-
-Olay `.tres` eşlemesi dolu dosyalara gidiyor (`sfx_kurt`, `sfx_kavga`, `sfx_ruzgar`, `sfx_ok`, `sfx_oksuruk`, `sfx_yagmur`, `sfx_hasat`, `sfx_kalabalik`, `sfx_cekirge`, `sfx_kervan`, `muzik_dugun_dongu`). Eksik yol yok. Hepsi sentez.
-
-| ID | Yol | Ne için | Anahtar kelimeler | Öncelik |
+| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Hazır prompt |
 |---|---|---|---|---|
-| SES-KOY-GUNDUZ | `ortam_koy_gunduz.wav` | SYS-04 gündüz | çekiç, koyun, su, distant hammer, sheep, stream | yüksek |
-| SES-KOY-GECE | `ortam_koy_gece.wav` | SYS-04 gece | meşale, kurt, baykuş, owl, wolf far | yüksek |
-| SES-KOY-ESKI | `ortam_koy_dongu.wav` | Eski tek döngü, test hâlâ arar | genel köy gece | düşük |
-| SES-DUGUN | `muzik_dugun_dongu.wav` | `dugun.tres`, `bebek.tres` | davul, zurna, 9/8, wedding, no lyrics | yüksek |
-| SES-INSAAT | `sfx_insaat.wav` | İnşaat | tokmak, timber mallet | orta |
-| SES-HASAT | `sfx_hasat.wav` | Harman, gece raporu | orak, sap, sickle | orta |
-| SES-EKIM | `sfx_ekim.wav` | Ekim | tohum, toprak | orta |
-| SES-KURT | `sfx_kurt.wav` | Kurt olayı | uzak uluma, wolf howl | orta |
-| SES-YAGMUR | `sfx_yagmur.wav` | Tarla yağmuru | yağmur, çatı, rain on earth | orta |
-| SES-RUZGAR | `sfx_ruzgar.wav` | Kuraklık, don | bozkır rüzgârı | orta |
-| SES-KERVAN | `sfx_kervan.wav` | Kervan | çan, teker, camel bell | orta |
-| SES-OK | `sfx_ok.wav` | Okçuluk | yay, ok, bow release | orta |
-| SES-OKSURUK | `sfx_oksuruk.wav` | Salgın | öksürük, cough | orta |
-| SES-CEKIRGE | `sfx_cekirge.wav` | Çekirge | çekirge, locust | düşük |
-| SES-KAVGA | `sfx_kavga.wav` | Hırsızlık | bağırış, scuffle, no gore | orta |
-| SES-KALABALIK | `sfx_kalabalik.wav` | Pazar, yangın | pazar uğultusu, crowd murmur | orta |
-| SES-SALDIRI | `sfx_saldiri.wav` | Baskın | kısa nara, attack sting | orta |
-| SES-GECE-BITTI | `sfx_gece_bitti.wav` | Gün kapanışı | alçak kapanış, night end | orta |
-| SES-BAR | `sfx_bar_catlak.wav`, `sfx_bar_kirildi.wav` | Bar çatlak / kırık | taş çatlak, crack, break | orta |
-| SES-AT | `sfx_at_nali.wav` | At nalı (dosya var) | nalı, hoof | düşük |
+| `UI-KARAR-KABUL` | `assets/art/ui/icon_decision_accept_48.png` | 48×48 | RGBA; düz #00FF00 | [Prompt 001](arayuz/UI_ASSET_PROMPTLARI_2.md#001--assetsartuiicon_decision_accept_48png) |
+| `UI-KARAR-RET` | `assets/art/ui/icon_decision_reject_48.png` | 48×48 | RGBA; düz #00FF00 | [Prompt 002](arayuz/UI_ASSET_PROMPTLARI_2.md#002--assetsartuiicon_decision_reject_48png) |
+| `UI-KARAR-RUSVET` | `assets/art/ui/icon_decision_bribe_48.png` | 48×48 | RGBA; düz #00FF00 | [Prompt 003](arayuz/UI_ASSET_PROMPTLARI_2.md#003--assetsartuiicon_decision_bribe_48png) |
+| `UI-KARAR-KISLA` | `assets/art/ui/icon_decision_barracks_48.png` | 48×48 | RGBA; düz #00FF00 | [Prompt 004](arayuz/UI_ASSET_PROMPTLARI_2.md#004--assetsartuiicon_decision_barracks_48png) |
+| `UI-KESE-DOLU` | `assets/art/ui/icon_bribe_pouch_full_48.png` | 48×48 | RGBA; düz #00FF00 | [Prompt 005](arayuz/UI_ASSET_PROMPTLARI_2.md#005--assetsartuiicon_bribe_pouch_full_48png) |
+| `IKN-KESE-BOS` | `assets/art/ui/icon_bribe_pouch_empty_48.png` | 48×48 | RGBA; düz #00FF00 | [Prompt 006](arayuz/UI_ASSET_PROMPTLARI_2.md#006--assetsartuiicon_bribe_pouch_empty_48png) |
+| `UI-IMLEC` | `assets/art/ui/ui_cursor_arrow_32.png` | 32×32 | RGBA; düz #00FF00 | [Prompt 007](arayuz/UI_ASSET_PROMPTLARI_2.md#007--assetsartuiui_cursor_arrow_32png) |
+| `UI-IMLEC` | `assets/art/ui/ui_cursor_hand_32.png` | 32×32 | RGBA; düz #00FF00 | [Prompt 008](arayuz/UI_ASSET_PROMPTLARI_2.md#008--assetsartuiui_cursor_hand_32png) |
+| `ENV-MENU` | `assets/art/env/env_menu_bg.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 009](arayuz/UI_ASSET_PROMPTLARI_2.md#009--assetsartenvenv_menu_bgpng) |
+| `ENV-KAPI` | `assets/art/env/env_gate_scene_bg.png` | 1140×1000 | Opak RGB; tam sahne/doku | [Prompt 010](arayuz/UI_ASSET_PROMPTLARI_2.md#010--assetsartenvenv_gate_scene_bgpng) |
+| `ENV-KOY-2D` | `assets/art/env/env_village_bg.png` | 1920×1000 | Opak RGB; tam sahne/doku | [Prompt 011](arayuz/UI_ASSET_PROMPTLARI_2.md#011--assetsartenvenv_village_bgpng) |
+| `PORTRE-ADLI-6` | `assets/art/char/char_miraen_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 012](arayuz/UI_ASSET_PROMPTLARI_2.md#012--assetsartcharchar_miraen_neutral_cardpng) |
+| `KOY-FIGUR-2D` | `assets/art/char/char_miraen_idle_village.png` | 56×120 | RGBA; düz #00FF00 | [Prompt 013](arayuz/UI_ASSET_PROMPTLARI_2.md#013--assetsartcharchar_miraen_idle_villagepng) |
+| `PORTRE-ADLI-6` | `assets/art/char/char_sorhan_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 014](arayuz/UI_ASSET_PROMPTLARI_2.md#014--assetsartcharchar_sorhan_neutral_cardpng) |
+| `KOY-FIGUR-2D` | `assets/art/char/char_sorhan_idle_village.png` | 56×120 | RGBA; düz #00FF00 | [Prompt 015](arayuz/UI_ASSET_PROMPTLARI_2.md#015--assetsartcharchar_sorhan_idle_villagepng) |
+| `PORTRE-ADLI-6` | `assets/art/char/char_thessra_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 016](arayuz/UI_ASSET_PROMPTLARI_2.md#016--assetsartcharchar_thessra_neutral_cardpng) |
+| `KOY-FIGUR-2D` | `assets/art/char/char_thessra_idle_village.png` | 56×120 | RGBA; düz #00FF00 | [Prompt 017](arayuz/UI_ASSET_PROMPTLARI_2.md#017--assetsartcharchar_thessra_idle_villagepng) |
+| `PORTRE-ADLI-6` | `assets/art/char/char_karaca_usta_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 018](arayuz/UI_ASSET_PROMPTLARI_2.md#018--assetsartcharchar_karaca_usta_neutral_cardpng) |
+| `KOY-FIGUR-2D` | `assets/art/char/char_karaca_usta_idle_village.png` | 56×120 | RGBA; düz #00FF00 | [Prompt 019](arayuz/UI_ASSET_PROMPTLARI_2.md#019--assetsartcharchar_karaca_usta_idle_villagepng) |
+| `PORTRE-ADLI-6` | `assets/art/char/char_aydogdu_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 020](arayuz/UI_ASSET_PROMPTLARI_2.md#020--assetsartcharchar_aydogdu_neutral_cardpng) |
+| `KOY-FIGUR-2D` | `assets/art/char/char_aydogdu_idle_village.png` | 56×120 | RGBA; düz #00FF00 | [Prompt 021](arayuz/UI_ASSET_PROMPTLARI_2.md#021--assetsartcharchar_aydogdu_idle_villagepng) |
+| `PORTRE-ADLI-6` | `assets/art/char/char_saruca_hatun_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 022](arayuz/UI_ASSET_PROMPTLARI_2.md#022--assetsartcharchar_saruca_hatun_neutral_cardpng) |
+| `KOY-FIGUR-2D` | `assets/art/char/char_saruca_hatun_idle_village.png` | 56×120 | RGBA; düz #00FF00 | [Prompt 023](arayuz/UI_ASSET_PROMPTLARI_2.md#023--assetsartcharchar_saruca_hatun_idle_villagepng) |
+| `PORTRE-SINIF-4` | `assets/art/char/char_soldier_01_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 024](arayuz/UI_ASSET_PROMPTLARI_2.md#024--assetsartcharchar_soldier_01_neutral_cardpng) |
+| `KOY-FIGUR-2D` | `assets/art/char/char_soldier_01_idle_village.png` | 56×120 | RGBA; düz #00FF00 | [Prompt 025](arayuz/UI_ASSET_PROMPTLARI_2.md#025--assetsartcharchar_soldier_01_idle_villagepng) |
+| `PORTRE-SINIF-4` | `assets/art/char/char_farmer_01_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 026](arayuz/UI_ASSET_PROMPTLARI_2.md#026--assetsartcharchar_farmer_01_neutral_cardpng) |
+| `KOY-FIGUR-2D` | `assets/art/char/char_farmer_01_idle_village.png` | 56×120 | RGBA; düz #00FF00 | [Prompt 027](arayuz/UI_ASSET_PROMPTLARI_2.md#027--assetsartcharchar_farmer_01_idle_villagepng) |
+| `PORTRE-SINIF-4` | `assets/art/char/char_farmer_02_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 028](arayuz/UI_ASSET_PROMPTLARI_2.md#028--assetsartcharchar_farmer_02_neutral_cardpng) |
+| `KOY-FIGUR-2D` | `assets/art/char/char_farmer_02_idle_village.png` | 56×120 | RGBA; düz #00FF00 | [Prompt 029](arayuz/UI_ASSET_PROMPTLARI_2.md#029--assetsartcharchar_farmer_02_idle_villagepng) |
+| `PORTRE-SINIF-4` | `assets/art/char/char_craftsman_01_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 030](arayuz/UI_ASSET_PROMPTLARI_2.md#030--assetsartcharchar_craftsman_01_neutral_cardpng) |
+| `KOY-FIGUR-2D` | `assets/art/char/char_craftsman_01_idle_village.png` | 56×120 | RGBA; düz #00FF00 | [Prompt 031](arayuz/UI_ASSET_PROMPTLARI_2.md#031--assetsartcharchar_craftsman_01_idle_villagepng) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_001_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 032](arayuz/UI_ASSET_PROMPTLARI_2.md#032--assetsartcharchar_chr_001_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_001_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 033](arayuz/UI_ASSET_PROMPTLARI_2.md#033--assetsarticonsicon_clue_chr_001_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_001_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 034](arayuz/UI_ASSET_PROMPTLARI_2.md#034--assetsarticonsicon_clue_chr_001_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_002_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 035](arayuz/UI_ASSET_PROMPTLARI_2.md#035--assetsartcharchar_chr_002_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_002_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 036](arayuz/UI_ASSET_PROMPTLARI_2.md#036--assetsarticonsicon_clue_chr_002_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_002_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 037](arayuz/UI_ASSET_PROMPTLARI_2.md#037--assetsarticonsicon_clue_chr_002_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_003_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 038](arayuz/UI_ASSET_PROMPTLARI_2.md#038--assetsartcharchar_chr_003_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_003_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 039](arayuz/UI_ASSET_PROMPTLARI_2.md#039--assetsarticonsicon_clue_chr_003_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_003_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 040](arayuz/UI_ASSET_PROMPTLARI_2.md#040--assetsarticonsicon_clue_chr_003_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_004_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 041](arayuz/UI_ASSET_PROMPTLARI_2.md#041--assetsartcharchar_chr_004_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_004_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 042](arayuz/UI_ASSET_PROMPTLARI_2.md#042--assetsarticonsicon_clue_chr_004_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_004_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 043](arayuz/UI_ASSET_PROMPTLARI_2.md#043--assetsarticonsicon_clue_chr_004_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_005_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 044](arayuz/UI_ASSET_PROMPTLARI_2.md#044--assetsartcharchar_chr_005_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_005_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 045](arayuz/UI_ASSET_PROMPTLARI_2.md#045--assetsarticonsicon_clue_chr_005_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_005_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 046](arayuz/UI_ASSET_PROMPTLARI_2.md#046--assetsarticonsicon_clue_chr_005_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_006_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 047](arayuz/UI_ASSET_PROMPTLARI_2.md#047--assetsartcharchar_chr_006_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_006_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 048](arayuz/UI_ASSET_PROMPTLARI_2.md#048--assetsarticonsicon_clue_chr_006_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_006_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 049](arayuz/UI_ASSET_PROMPTLARI_2.md#049--assetsarticonsicon_clue_chr_006_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_007_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 050](arayuz/UI_ASSET_PROMPTLARI_2.md#050--assetsartcharchar_chr_007_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_007_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 051](arayuz/UI_ASSET_PROMPTLARI_2.md#051--assetsarticonsicon_clue_chr_007_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_007_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 052](arayuz/UI_ASSET_PROMPTLARI_2.md#052--assetsarticonsicon_clue_chr_007_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_008_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 053](arayuz/UI_ASSET_PROMPTLARI_2.md#053--assetsartcharchar_chr_008_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_008_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 054](arayuz/UI_ASSET_PROMPTLARI_2.md#054--assetsarticonsicon_clue_chr_008_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_008_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 055](arayuz/UI_ASSET_PROMPTLARI_2.md#055--assetsarticonsicon_clue_chr_008_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_009_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 056](arayuz/UI_ASSET_PROMPTLARI_2.md#056--assetsartcharchar_chr_009_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_009_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 057](arayuz/UI_ASSET_PROMPTLARI_2.md#057--assetsarticonsicon_clue_chr_009_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_009_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 058](arayuz/UI_ASSET_PROMPTLARI_2.md#058--assetsarticonsicon_clue_chr_009_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_010_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 059](arayuz/UI_ASSET_PROMPTLARI_2.md#059--assetsartcharchar_chr_010_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_010_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 060](arayuz/UI_ASSET_PROMPTLARI_2.md#060--assetsarticonsicon_clue_chr_010_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_010_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 061](arayuz/UI_ASSET_PROMPTLARI_2.md#061--assetsarticonsicon_clue_chr_010_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_011_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 062](arayuz/UI_ASSET_PROMPTLARI_2.md#062--assetsartcharchar_chr_011_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_011_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 063](arayuz/UI_ASSET_PROMPTLARI_2.md#063--assetsarticonsicon_clue_chr_011_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_011_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 064](arayuz/UI_ASSET_PROMPTLARI_2.md#064--assetsarticonsicon_clue_chr_011_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_012_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 065](arayuz/UI_ASSET_PROMPTLARI_2.md#065--assetsartcharchar_chr_012_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_012_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 066](arayuz/UI_ASSET_PROMPTLARI_2.md#066--assetsarticonsicon_clue_chr_012_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_012_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 067](arayuz/UI_ASSET_PROMPTLARI_2.md#067--assetsarticonsicon_clue_chr_012_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_013_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 068](arayuz/UI_ASSET_PROMPTLARI_2.md#068--assetsartcharchar_chr_013_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_013_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 069](arayuz/UI_ASSET_PROMPTLARI_2.md#069--assetsarticonsicon_clue_chr_013_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_013_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 070](arayuz/UI_ASSET_PROMPTLARI_2.md#070--assetsarticonsicon_clue_chr_013_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_014_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 071](arayuz/UI_ASSET_PROMPTLARI_2.md#071--assetsartcharchar_chr_014_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_014_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 072](arayuz/UI_ASSET_PROMPTLARI_2.md#072--assetsarticonsicon_clue_chr_014_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_014_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 073](arayuz/UI_ASSET_PROMPTLARI_2.md#073--assetsarticonsicon_clue_chr_014_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_015_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 074](arayuz/UI_ASSET_PROMPTLARI_2.md#074--assetsartcharchar_chr_015_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_015_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 075](arayuz/UI_ASSET_PROMPTLARI_2.md#075--assetsarticonsicon_clue_chr_015_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_015_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 076](arayuz/UI_ASSET_PROMPTLARI_2.md#076--assetsarticonsicon_clue_chr_015_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_016_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 077](arayuz/UI_ASSET_PROMPTLARI_2.md#077--assetsartcharchar_chr_016_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_016_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 078](arayuz/UI_ASSET_PROMPTLARI_2.md#078--assetsarticonsicon_clue_chr_016_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_016_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 079](arayuz/UI_ASSET_PROMPTLARI_2.md#079--assetsarticonsicon_clue_chr_016_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_017_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 080](arayuz/UI_ASSET_PROMPTLARI_2.md#080--assetsartcharchar_chr_017_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_017_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 081](arayuz/UI_ASSET_PROMPTLARI_2.md#081--assetsarticonsicon_clue_chr_017_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_017_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 082](arayuz/UI_ASSET_PROMPTLARI_2.md#082--assetsarticonsicon_clue_chr_017_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_018_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 083](arayuz/UI_ASSET_PROMPTLARI_2.md#083--assetsartcharchar_chr_018_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_018_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 084](arayuz/UI_ASSET_PROMPTLARI_2.md#084--assetsarticonsicon_clue_chr_018_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_018_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 085](arayuz/UI_ASSET_PROMPTLARI_2.md#085--assetsarticonsicon_clue_chr_018_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_019_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 086](arayuz/UI_ASSET_PROMPTLARI_2.md#086--assetsartcharchar_chr_019_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_019_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 087](arayuz/UI_ASSET_PROMPTLARI_2.md#087--assetsarticonsicon_clue_chr_019_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_019_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 088](arayuz/UI_ASSET_PROMPTLARI_2.md#088--assetsarticonsicon_clue_chr_019_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_020_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 089](arayuz/UI_ASSET_PROMPTLARI_2.md#089--assetsartcharchar_chr_020_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_020_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 090](arayuz/UI_ASSET_PROMPTLARI_2.md#090--assetsarticonsicon_clue_chr_020_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_020_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 091](arayuz/UI_ASSET_PROMPTLARI_2.md#091--assetsarticonsicon_clue_chr_020_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_021_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 092](arayuz/UI_ASSET_PROMPTLARI_2.md#092--assetsartcharchar_chr_021_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_021_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 093](arayuz/UI_ASSET_PROMPTLARI_2.md#093--assetsarticonsicon_clue_chr_021_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_021_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 094](arayuz/UI_ASSET_PROMPTLARI_2.md#094--assetsarticonsicon_clue_chr_021_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_022_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 095](arayuz/UI_ASSET_PROMPTLARI_2.md#095--assetsartcharchar_chr_022_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_022_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 096](arayuz/UI_ASSET_PROMPTLARI_2.md#096--assetsarticonsicon_clue_chr_022_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_022_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 097](arayuz/UI_ASSET_PROMPTLARI_2.md#097--assetsarticonsicon_clue_chr_022_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_023_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 098](arayuz/UI_ASSET_PROMPTLARI_2.md#098--assetsartcharchar_chr_023_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_023_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 099](arayuz/UI_ASSET_PROMPTLARI_2.md#099--assetsarticonsicon_clue_chr_023_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_023_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 100](arayuz/UI_ASSET_PROMPTLARI_2.md#100--assetsarticonsicon_clue_chr_023_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_024_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 101](arayuz/UI_ASSET_PROMPTLARI_2.md#101--assetsartcharchar_chr_024_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_024_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 102](arayuz/UI_ASSET_PROMPTLARI_2.md#102--assetsarticonsicon_clue_chr_024_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_024_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 103](arayuz/UI_ASSET_PROMPTLARI_2.md#103--assetsarticonsicon_clue_chr_024_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_025_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 104](arayuz/UI_ASSET_PROMPTLARI_2.md#104--assetsartcharchar_chr_025_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_025_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 105](arayuz/UI_ASSET_PROMPTLARI_2.md#105--assetsarticonsicon_clue_chr_025_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_025_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 106](arayuz/UI_ASSET_PROMPTLARI_2.md#106--assetsarticonsicon_clue_chr_025_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_026_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 107](arayuz/UI_ASSET_PROMPTLARI_2.md#107--assetsartcharchar_chr_026_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_026_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 108](arayuz/UI_ASSET_PROMPTLARI_2.md#108--assetsarticonsicon_clue_chr_026_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_026_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 109](arayuz/UI_ASSET_PROMPTLARI_2.md#109--assetsarticonsicon_clue_chr_026_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_027_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 110](arayuz/UI_ASSET_PROMPTLARI_2.md#110--assetsartcharchar_chr_027_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_027_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 111](arayuz/UI_ASSET_PROMPTLARI_2.md#111--assetsarticonsicon_clue_chr_027_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_027_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 112](arayuz/UI_ASSET_PROMPTLARI_2.md#112--assetsarticonsicon_clue_chr_027_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_028_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 113](arayuz/UI_ASSET_PROMPTLARI_2.md#113--assetsartcharchar_chr_028_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_028_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 114](arayuz/UI_ASSET_PROMPTLARI_2.md#114--assetsarticonsicon_clue_chr_028_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_028_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 115](arayuz/UI_ASSET_PROMPTLARI_2.md#115--assetsarticonsicon_clue_chr_028_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_029_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 116](arayuz/UI_ASSET_PROMPTLARI_2.md#116--assetsartcharchar_chr_029_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_029_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 117](arayuz/UI_ASSET_PROMPTLARI_2.md#117--assetsarticonsicon_clue_chr_029_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_029_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 118](arayuz/UI_ASSET_PROMPTLARI_2.md#118--assetsarticonsicon_clue_chr_029_obje2png) |
+| `PORTRE-CHR-30` | `assets/art/char/char_chr_030_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 119](arayuz/UI_ASSET_PROMPTLARI_2.md#119--assetsartcharchar_chr_030_neutral_cardpng) |
+| `NISAN-30` | `assets/art/icons/icon_clue_chr_030_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 120](arayuz/UI_ASSET_PROMPTLARI_2.md#120--assetsarticonsicon_clue_chr_030_obje1png) |
+| `YUK-30` | `assets/art/icons/icon_clue_chr_030_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 121](arayuz/UI_ASSET_PROMPTLARI_2.md#121--assetsarticonsicon_clue_chr_030_obje2png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_akce_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 122](arayuz/UI_ASSET_PROMPTLARI_2.md#122--assetsarticonsicon_esya_akce_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_arpa_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 123](arayuz/UI_ASSET_PROMPTLARI_2.md#123--assetsarticonsicon_esya_arpa_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_tohum_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 124](arayuz/UI_ASSET_PROMPTLARI_2.md#124--assetsarticonsicon_esya_tohum_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_ekmek_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 125](arayuz/UI_ASSET_PROMPTLARI_2.md#125--assetsarticonsicon_esya_ekmek_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_tuz_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 126](arayuz/UI_ASSET_PROMPTLARI_2.md#126--assetsarticonsicon_esya_tuz_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_kumas_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 127](arayuz/UI_ASSET_PROMPTLARI_2.md#127--assetsarticonsicon_esya_kumas_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_bakir_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 128](arayuz/UI_ASSET_PROMPTLARI_2.md#128--assetsarticonsicon_esya_bakir_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_ok_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 129](arayuz/UI_ASSET_PROMPTLARI_2.md#129--assetsarticonsicon_esya_ok_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_hancer_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 130](arayuz/UI_ASSET_PROMPTLARI_2.md#130--assetsarticonsicon_esya_hancer_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_ilac_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 131](arayuz/UI_ASSET_PROMPTLARI_2.md#131--assetsarticonsicon_esya_ilac_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_yuzuk_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 132](arayuz/UI_ASSET_PROMPTLARI_2.md#132--assetsarticonsicon_esya_yuzuk_64png) |
+| `IKN-KURK` | `assets/ui/koy/gece_kapisi/kurk.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 133](arayuz/UI_ASSET_PROMPTLARI_2.md#133--assetsuikoygece_kapisikurkpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/firin.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 134](arayuz/UI_ASSET_PROMPTLARI_2.md#134--assetsuikoygece_kapisifirinpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/degirmen.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 135](arayuz/UI_ASSET_PROMPTLARI_2.md#135--assetsuikoygece_kapisidegirmenpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/sifahane.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 136](arayuz/UI_ASSET_PROMPTLARI_2.md#136--assetsuikoygece_kapisisifahanepng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/ahir.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 137](arayuz/UI_ASSET_PROMPTLARI_2.md#137--assetsuikoygece_kapisiahirpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/agil.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 138](arayuz/UI_ASSET_PROMPTLARI_2.md#138--assetsuikoygece_kapisiagilpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/demirhane.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 139](arayuz/UI_ASSET_PROMPTLARI_2.md#139--assetsuikoygece_kapisidemirhanepng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/kislasi.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 140](arayuz/UI_ASSET_PROMPTLARI_2.md#140--assetsuikoygece_kapisikislasipng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/maden.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 141](arayuz/UI_ASSET_PROMPTLARI_2.md#141--assetsuikoygece_kapisimadenpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/ocak.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 142](arayuz/UI_ASSET_PROMPTLARI_2.md#142--assetsuikoygece_kapisiocakpng) |
+| `IKN-UYARI` | `assets/arayuz/ikonlar/uyari_isci_yok.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 143](arayuz/UI_ASSET_PROMPTLARI_2.md#143--assetsarayuzikonlaruyari_isci_yokpng) |
+| `IKN-UYARI` | `assets/arayuz/ikonlar/uyari_hammadde_yok.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 144](arayuz/UI_ASSET_PROMPTLARI_2.md#144--assetsarayuzikonlaruyari_hammadde_yokpng) |
+| `IKN-UYARI` | `assets/arayuz/ikonlar/uyari_ambar_dolu.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 145](arayuz/UI_ASSET_PROMPTLARI_2.md#145--assetsarayuzikonlaruyari_ambar_dolupng) |
+| `IKN-BAR` | `assets/art/ui/ui_bar_segment_full.png` | 22×30 | RGBA; düz #00FF00 | [Prompt 146](arayuz/UI_ASSET_PROMPTLARI_2.md#146--assetsartuiui_bar_segment_fullpng) |
+| `IKN-BAR` | `assets/art/ui/ui_bar_segment_empty.png` | 22×30 | RGBA; düz #00FF00 | [Prompt 147](arayuz/UI_ASSET_PROMPTLARI_2.md#147--assetsartuiui_bar_segment_emptypng) |
+| `IKN-BAR` | `assets/art/ui/ui_bar_segment_cracked_01.png` | 22×30 | RGBA; düz #00FF00 | [Prompt 148](arayuz/UI_ASSET_PROMPTLARI_2.md#148--assetsartuiui_bar_segment_cracked_01png) |
+| `IKN-BAR` | `assets/art/ui/ui_bar_segment_cracked_02.png` | 22×30 | RGBA; düz #00FF00 | [Prompt 149](arayuz/UI_ASSET_PROMPTLARI_2.md#149--assetsartuiui_bar_segment_cracked_02png) |
+| `IKN-MESALE-2D` | `assets/art/fx/fx_torch_village_01.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 150](arayuz/UI_ASSET_PROMPTLARI_2.md#150--assetsartfxfx_torch_village_01png) |
+| `IKN-MESALE-2D` | `assets/art/fx/fx_torchlight_patch_village_01.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 151](arayuz/UI_ASSET_PROMPTLARI_2.md#151--assetsartfxfx_torchlight_patch_village_01png) |
+| `KAR-TEKFUR-ASKER` | `assets/art/char/crowd_tekfur_spear_01_far.png` | 420×80 | RGBA; düz #00FF00 | [Prompt 152](arayuz/UI_ASSET_PROMPTLARI_2.md#152--assetsartcharcrowd_tekfur_spear_01_farpng) |
+| `VFX-KAR`, `MEV04-KAR` | `assets/art/fx/fx_snow_01.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 153](arayuz/UI_ASSET_PROMPTLARI_2.md#153--assetsartfxfx_snow_01png) |
+| `VFX-YAGMUR` | `assets/art/fx/fx_rain_streak_01.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 154](arayuz/UI_ASSET_PROMPTLARI_2.md#154--assetsartfxfx_rain_streak_01png) |
+| `VFX-KIVILCIM`, `ANI15-KIVILCIM` | `assets/art/fx/fx_spark_01.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 155](arayuz/UI_ASSET_PROMPTLARI_2.md#155--assetsartfxfx_spark_01png) |
+| `VFX-SIS` | `assets/art/fx/fx_fog_noise.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 156](arayuz/UI_ASSET_PROMPTLARI_2.md#156--assetsartfxfx_fog_noisepng) |
+| `ANI15-DUMAN` | `assets/art/fx/fx_smoke_01.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 157](arayuz/UI_ASSET_PROMPTLARI_2.md#157--assetsartfxfx_smoke_01png) |
+| `ANI15-SU` | `assets/art/fx/fx_water_drop_01.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 158](arayuz/UI_ASSET_PROMPTLARI_2.md#158--assetsartfxfx_water_drop_01png) |
+| `LOGO` | `assets/art/ui/logo_kapi_muhafizi.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 159](arayuz/UI_ASSET_PROMPTLARI_2.md#159--assetsartuilogo_kapi_muhafizipng) |
+| `LOGO`, `SRM18-IKON` | `assets/ui/atmosfer/gece_kapisi/app_icon.png` | 1024×1024 | RGBA; düz #00FF00 | [Prompt 160](arayuz/UI_ASSET_PROMPTLARI_2.md#160--assetsuiatmosfergece_kapisiapp_iconpng) |
+| `PALET` | `assets/palette/palette_swatch.png` | 1024×192 | Opak RGB; tam sahne/doku | [Prompt 161](arayuz/UI_ASSET_PROMPTLARI_2.md#161--assetspalettepalette_swatchpng) |
+| `TUC-UI` | `assets/art/icons/icon_trade_contract.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 162](arayuz/UI_ASSET_PROMPTLARI_2.md#162--assetsarticonsicon_trade_contractpng) |
+| `TUC-UI` | `assets/art/icons/icon_trade_price.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 163](arayuz/UI_ASSET_PROMPTLARI_2.md#163--assetsarticonsicon_trade_pricepng) |
+| `TUC-UI` | `assets/art/icons/icon_trade_caravan.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 164](arayuz/UI_ASSET_PROMPTLARI_2.md#164--assetsarticonsicon_trade_caravanpng) |
+| `MEV-HUD` | `assets/ui/koy/gece_kapisi/mevsim_ilkbahar.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 165](arayuz/UI_ASSET_PROMPTLARI_2.md#165--assetsuikoygece_kapisimevsim_ilkbaharpng) |
+| `MEV-HUD` | `assets/ui/koy/gece_kapisi/mevsim_yaz.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 166](arayuz/UI_ASSET_PROMPTLARI_2.md#166--assetsuikoygece_kapisimevsim_yazpng) |
+| `MEV-HUD` | `assets/ui/koy/gece_kapisi/mevsim_sonbahar.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 167](arayuz/UI_ASSET_PROMPTLARI_2.md#167--assetsuikoygece_kapisimevsim_sonbaharpng) |
+| `MEV-HUD` | `assets/ui/koy/gece_kapisi/mevsim_kis.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 168](arayuz/UI_ASSET_PROMPTLARI_2.md#168--assetsuikoygece_kapisimevsim_kispng) |
+| `CAS-DIVAN` | `assets/art/ui/divan_kart.png` | 768×1024 | RGBA; düz #00FF00 | [Prompt 169](arayuz/UI_ASSET_PROMPTLARI_2.md#169--assetsartuidivan_kartpng) |
+| `ODA-UI` | `assets/art/icons/icon_oda_terazi.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 170](arayuz/UI_ASSET_PROMPTLARI_2.md#170--assetsarticonsicon_oda_terazipng) |
+| `ODA-UI` | `assets/art/icons/icon_oda_yetenek.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 171](arayuz/UI_ASSET_PROMPTLARI_2.md#171--assetsarticonsicon_oda_yetenekpng) |
+| `ODA-UI` | `assets/art/icons/icon_oda_yozlasma.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 172](arayuz/UI_ASSET_PROMPTLARI_2.md#172--assetsarticonsicon_oda_yozlasmapng) |
+| `ODA-UI` | `assets/art/env/oda_epilog.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 173](arayuz/UI_ASSET_PROMPTLARI_2.md#173--assetsartenvoda_epilogpng) |
+| `HAR-HARITA`, `HAR01-HARITA`, `ARY03-HARITA` | `assets/art/env/harita_uc.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 174](arayuz/UI_ASSET_PROMPTLARI_2.md#174--assetsartenvharita_ucpng) |
+| `HAR01-HARITA` | `assets/art/icons/icon_map_hisar.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 175](arayuz/UI_ASSET_PROMPTLARI_2.md#175--assetsarticonsicon_map_hisarpng) |
+| `HAR01-HARITA` | `assets/art/icons/icon_map_yol.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 176](arayuz/UI_ASSET_PROMPTLARI_2.md#176--assetsarticonsicon_map_yolpng) |
+| `HAR01-HARITA` | `assets/art/icons/icon_map_tekfur.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 177](arayuz/UI_ASSET_PROMPTLARI_2.md#177--assetsarticonsicon_map_tekfurpng) |
+| `HAR01-HARITA` | `assets/art/icons/icon_map_goc.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 178](arayuz/UI_ASSET_PROMPTLARI_2.md#178--assetsarticonsicon_map_gocpng) |
+| `HAR-SAVAS` | `assets/art/icons/icon_savunma_okcu_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 179](arayuz/UI_ASSET_PROMPTLARI_2.md#179--assetsarticonsicon_savunma_okcu_64png) |
+| `HAR-SAVAS` | `assets/art/icons/icon_savunma_mizrakli_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 180](arayuz/UI_ASSET_PROMPTLARI_2.md#180--assetsarticonsicon_savunma_mizrakli_64png) |
+| `KRI-HASTA` | `assets/art/fx/portrait_symptom_ates.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 181](arayuz/UI_ASSET_PROMPTLARI_2.md#181--assetsartfxportrait_symptom_atespng) |
+| `KRI-HASTA` | `assets/art/fx/portrait_symptom_irin.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 182](arayuz/UI_ASSET_PROMPTLARI_2.md#182--assetsartfxportrait_symptom_irinpng) |
+| `KRI-HASTA` | `assets/art/fx/portrait_symptom_oksuruk.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 183](arayuz/UI_ASSET_PROMPTLARI_2.md#183--assetsartfxportrait_symptom_oksurukpng) |
+| `SYS-SON` | `assets/art/env/son_tekfur_haraccisi.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 184](arayuz/UI_ASSET_PROMPTLARI_2.md#184--assetsartenvson_tekfur_haraccisipng) |
+| `SYS-SON` | `assets/art/env/son_ertugrul_obasi.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 185](arayuz/UI_ASSET_PROMPTLARI_2.md#185--assetsartenvson_ertugrul_obasipng) |
+| `SYS-SON` | `assets/art/env/son_beyin_uc_koyu.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 186](arayuz/UI_ASSET_PROMPTLARI_2.md#186--assetsartenvson_beyin_uc_koyupng) |
+| `SYS-SON` | `assets/art/env/son_ahi_kasabasi.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 187](arayuz/UI_ASSET_PROMPTLARI_2.md#187--assetsartenvson_ahi_kasabasipng) |
+| `SYS-SON` | `assets/art/env/son_uc_tutundu.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 188](arayuz/UI_ASSET_PROMPTLARI_2.md#188--assetsartenvson_uc_tutundupng) |
+| `SYS-SON` | `assets/art/env/son_epilog.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 189](arayuz/UI_ASSET_PROMPTLARI_2.md#189--assetsartenvson_epilogpng) |
+| `SYS-PROLOG` | `assets/art/env/prolog_01.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 190](arayuz/UI_ASSET_PROMPTLARI_2.md#190--assetsartenvprolog_01png) |
+| `SYS-PROLOG` | `assets/art/env/prolog_02.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 191](arayuz/UI_ASSET_PROMPTLARI_2.md#191--assetsartenvprolog_02png) |
+| `SYS-PROLOG` | `assets/art/env/prolog_03.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 192](arayuz/UI_ASSET_PROMPTLARI_2.md#192--assetsartenvprolog_03png) |
+| `SYS-PROLOG` | `assets/art/env/prolog_04.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 193](arayuz/UI_ASSET_PROMPTLARI_2.md#193--assetsartenvprolog_04png) |
+| `MEV-ZEMIN` | `assets/art/textures/gece_kapisi/snow_ground_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 194](arayuz/UI_ASSET_PROMPTLARI_2.md#194--assetsarttexturesgece_kapisisnow_ground_albedopng) |
+| `MEV-ZEMIN` | `assets/art/textures/gece_kapisi/snow_roof_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 195](arayuz/UI_ASSET_PROMPTLARI_2.md#195--assetsarttexturesgece_kapisisnow_roof_albedopng) |
+| `MEV-AFET` | `assets/art/textures/gece_kapisi/flood_water_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 196](arayuz/UI_ASSET_PROMPTLARI_2.md#196--assetsarttexturesgece_kapisiflood_water_albedopng) |
+| `MEV-AFET` | `assets/art/textures/gece_kapisi/burnt_ground_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 197](arayuz/UI_ASSET_PROMPTLARI_2.md#197--assetsarttexturesgece_kapisiburnt_ground_albedopng) |
+| `KAPI-DEMIR` | `assets/art/textures/gece_kapisi/iron_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 198](arayuz/UI_ASSET_PROMPTLARI_2.md#198--assetsarttexturesgece_kapisiiron_albedopng) |
+| `ARY01-*` | `assets/art/textures/gece_kapisi/timber_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 199](arayuz/UI_ASSET_PROMPTLARI_2.md#199--assetsarttexturesgece_kapisitimber_albedopng) |
+| `ARY01-*` | `assets/art/textures/gece_kapisi/paper_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 200](arayuz/UI_ASSET_PROMPTLARI_2.md#200--assetsarttexturesgece_kapisipaper_albedopng) |
+| `SAB03-ORTU` | `assets/art/textures/gece_kapisi/cloth_cover_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 201](arayuz/UI_ASSET_PROMPTLARI_2.md#201--assetsarttexturesgece_kapisicloth_cover_albedopng) |
+| `TEZ01-ORTU` | `assets/art/textures/gece_kapisi/tez_agil_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 202](arayuz/UI_ASSET_PROMPTLARI_2.md#202--assetsarttexturesgece_kapisitez_agil_albedopng) |
+| `TEZ01-ORTU` | `assets/art/textures/gece_kapisi/tez_degirmen_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 203](arayuz/UI_ASSET_PROMPTLARI_2.md#203--assetsarttexturesgece_kapisitez_degirmen_albedopng) |
+| `TEZ01-ORTU` | `assets/art/textures/gece_kapisi/tez_demir_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 204](arayuz/UI_ASSET_PROMPTLARI_2.md#204--assetsarttexturesgece_kapisitez_demir_albedopng) |
+| `TEZ01-ORTU` | `assets/art/textures/gece_kapisi/tez_bez_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 205](arayuz/UI_ASSET_PROMPTLARI_2.md#205--assetsarttexturesgece_kapisitez_bez_albedopng) |
+| `DYL02-AYRINTI-*` | `assets/art/inspect/carik.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 206](arayuz/UI_ASSET_PROMPTLARI_2.md#206--assetsartinspectcarikpng) |
+| `DYL02-AYRINTI-*` | `assets/art/inspect/el.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 207](arayuz/UI_ASSET_PROMPTLARI_2.md#207--assetsartinspectelpng) |
+| `DYL02-AYRINTI-*` | `assets/art/inspect/yara.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 208](arayuz/UI_ASSET_PROMPTLARI_2.md#208--assetsartinspectyarapng) |
+| `DYL02-AYRINTI-*` | `assets/art/inspect/yanik.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 209](arayuz/UI_ASSET_PROMPTLARI_2.md#209--assetsartinspectyanikpng) |
+| `TEZ07-TITREME` | `assets/art/textures/gece_kapisi/shaky_line.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 210](arayuz/UI_ASSET_PROMPTLARI_2.md#210--assetsarttexturesgece_kapisishaky_linepng) |
+| `MEV-SENLIK` | `assets/art/decor/harvest_bunting.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 211](arayuz/UI_ASSET_PROMPTLARI_2.md#211--assetsartdecorharvest_buntingpng) |
+| `MEV-SENLIK` | `assets/art/decor/harvest_grain_wreath.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 212](arayuz/UI_ASSET_PROMPTLARI_2.md#212--assetsartdecorharvest_grain_wreathpng) |
+| `MEV-SENLIK` | `assets/art/decor/harvest_cloth_banner.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 213](arayuz/UI_ASSET_PROMPTLARI_2.md#213--assetsartdecorharvest_cloth_bannerpng) |
+| `TUC04-AFYON` | `assets/art/icons/icon_stok_afyon.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 214](arayuz/UI_ASSET_PROMPTLARI_2.md#214--assetsarticonsicon_stok_afyonpng) |
+| `TUC04-SARGI` | `assets/art/icons/icon_stok_sargi.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 215](arayuz/UI_ASSET_PROMPTLARI_2.md#215--assetsarticonsicon_stok_sargipng) |
+| `TUC04-KECE` | `assets/art/icons/icon_stok_kece.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 216](arayuz/UI_ASSET_PROMPTLARI_2.md#216--assetsarticonsicon_stok_kecepng) |
+| `TUC04-KUMAS` | `assets/art/icons/icon_stok_kumas_stok.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 217](arayuz/UI_ASSET_PROMPTLARI_2.md#217--assetsarticonsicon_stok_kumas_stokpng) |
+| `TUC11-MUHUR` | `assets/art/icons/icon_stok_yasak_muhur.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 218](arayuz/UI_ASSET_PROMPTLARI_2.md#218--assetsarticonsicon_stok_yasak_muhurpng) |
+| `TUC11-IKSIR` | `assets/art/icons/icon_stok_kacak_iksir.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 219](arayuz/UI_ASSET_PROMPTLARI_2.md#219--assetsarticonsicon_stok_kacak_iksirpng) |
+| `TUC08-ZIRH` | `assets/art/icons/icon_stok_zirh.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 220](arayuz/UI_ASSET_PROMPTLARI_2.md#220--assetsarticonsicon_stok_zirhpng) |
+| `TUC08-YAY` | `assets/art/icons/icon_stok_yay.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 221](arayuz/UI_ASSET_PROMPTLARI_2.md#221--assetsarticonsicon_stok_yaypng) |
+| `TUC08-KALKAN` | `assets/art/icons/icon_stok_kalkan.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 222](arayuz/UI_ASSET_PROMPTLARI_2.md#222--assetsarticonsicon_stok_kalkanpng) |
+| `TUC03-CIVI` | `assets/art/icons/icon_stok_civi.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 223](arayuz/UI_ASSET_PROMPTLARI_2.md#223--assetsarticonsicon_stok_civipng) |
+| `TUC03-TIRPAN` | `assets/art/icons/icon_stok_tirpan.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 224](arayuz/UI_ASSET_PROMPTLARI_2.md#224--assetsarticonsicon_stok_tirpanpng) |
+| `TUC03-BALTA` | `assets/art/icons/icon_stok_balta.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 225](arayuz/UI_ASSET_PROMPTLARI_2.md#225--assetsarticonsicon_stok_baltapng) |
+| `MEV07-SU` | `assets/art/icons/icon_stok_su.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 226](arayuz/UI_ASSET_PROMPTLARI_2.md#226--assetsarticonsicon_stok_supng) |
+| `MEV14-SAMAN` | `assets/art/icons/icon_stok_saman.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 227](arayuz/UI_ASSET_PROMPTLARI_2.md#227--assetsarticonsicon_stok_samanpng) |
+| `KRI03-ILAC` | `assets/art/icons/icon_stok_ilac_stok.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 228](arayuz/UI_ASSET_PROMPTLARI_2.md#228--assetsarticonsicon_stok_ilac_stokpng) |
+| `HAR03-HEYET` | `assets/art/icons/icon_stok_heyet.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 229](arayuz/UI_ASSET_PROMPTLARI_2.md#229--assetsarticonsicon_stok_heyetpng) |
+| `HAR06-IKON` | `assets/art/icons/icon_stok_gozcu_kulesi.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 230](arayuz/UI_ASSET_PROMPTLARI_2.md#230--assetsarticonsicon_stok_gozcu_kulesipng) |
+| `HAR09-GUVERCIN` | `assets/art/cards/guvercin.png` | 512×640 | RGBA; düz #00FF00 | [Prompt 231](arayuz/UI_ASSET_PROMPTLARI_2.md#231--assetsartcardsguvercinpng) |
+| `HAR09-ULAK` | `assets/art/cards/ulak.png` | 512×640 | RGBA; düz #00FF00 | [Prompt 232](arayuz/UI_ASSET_PROMPTLARI_2.md#232--assetsartcardsulakpng) |
+| `ACL04-ARASAHNE` | `assets/art/env/acilis_ulak.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 233](arayuz/UI_ASSET_PROMPTLARI_2.md#233--assetsartenvacilis_ulakpng) |
+| `ZAR01-ZAR` | `assets/art/ui/zar_d6.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 234](arayuz/UI_ASSET_PROMPTLARI_2.md#234--assetsartuizar_d6png) |
+| `ZAR01-ZAR` | `assets/art/ui/zar_d12.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 235](arayuz/UI_ASSET_PROMPTLARI_2.md#235--assetsartuizar_d12png) |
+| `YAP04-DEFTER` | `assets/art/icons/icon_usta_defteri.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 236](arayuz/UI_ASSET_PROMPTLARI_2.md#236--assetsarticonsicon_usta_defteripng) |
+| `YAP06-ESYA` | `assets/art/icons/icon_ozel_esya.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 237](arayuz/UI_ASSET_PROMPTLARI_2.md#237--assetsarticonsicon_ozel_esyapng) |
+| `YSM01-IKON` | `assets/art/icons/icon_yasam_aclik.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 238](arayuz/UI_ASSET_PROMPTLARI_2.md#238--assetsarticonsicon_yasam_aclikpng) |
+| `YSM01-IKON` | `assets/art/icons/icon_yasam_yorgunluk.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 239](arayuz/UI_ASSET_PROMPTLARI_2.md#239--assetsarticonsicon_yasam_yorgunlukpng) |
+| `YSM01-IKON` | `assets/art/icons/icon_yasam_moral.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 240](arayuz/UI_ASSET_PROMPTLARI_2.md#240--assetsarticonsicon_yasam_moralpng) |
+| `ARY03-*` | `assets/art/env/secim_bg.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 241](arayuz/UI_ASSET_PROMPTLARI_2.md#241--assetsartenvsecim_bgpng) |
+| `ARY03-*` | `assets/art/env/koy_hud_bg.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 242](arayuz/UI_ASSET_PROMPTLARI_2.md#242--assetsartenvkoy_hud_bgpng) |
+| `ARY04-YUKLEME-01` | `assets/art/env/yukleme_01.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 243](arayuz/UI_ASSET_PROMPTLARI_2.md#243--assetsartenvyukleme_01png) |
+| `ARY04-YUKLEME-02` | `assets/art/env/yukleme_02.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 244](arayuz/UI_ASSET_PROMPTLARI_2.md#244--assetsartenvyukleme_02png) |
+| `ARY04-YUKLEME-03` | `assets/art/env/yukleme_03.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 245](arayuz/UI_ASSET_PROMPTLARI_2.md#245--assetsartenvyukleme_03png) |
+| `ARY04-YUKLEME-04` | `assets/art/env/yukleme_04.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 246](arayuz/UI_ASSET_PROMPTLARI_2.md#246--assetsartenvyukleme_04png) |
+| `ARY04-YUKLEME-05` | `assets/art/env/yukleme_05.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 247](arayuz/UI_ASSET_PROMPTLARI_2.md#247--assetsartenvyukleme_05png) |
+| `ARY04-YUKLEME-06` | `assets/art/env/yukleme_06.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 248](arayuz/UI_ASSET_PROMPTLARI_2.md#248--assetsartenvyukleme_06png) |
+| `ARY04-YUKLEME-07` | `assets/art/env/yukleme_07.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 249](arayuz/UI_ASSET_PROMPTLARI_2.md#249--assetsartenvyukleme_07png) |
+| `ARY04-YUKLEME-08` | `assets/art/env/yukleme_08.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 250](arayuz/UI_ASSET_PROMPTLARI_2.md#250--assetsartenvyukleme_08png) |
+| `DYL07-OCAK` | `assets/art/env/ocak_arasahne.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 251](arayuz/UI_ASSET_PROMPTLARI_2.md#251--assetsartenvocak_arasahnepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_001_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 252](arayuz/UI_ASSET_PROMPTLARI_2.md#252--assetsartinspectchr_001_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_002_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 253](arayuz/UI_ASSET_PROMPTLARI_2.md#253--assetsartinspectchr_002_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_003_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 254](arayuz/UI_ASSET_PROMPTLARI_2.md#254--assetsartinspectchr_003_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_004_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 255](arayuz/UI_ASSET_PROMPTLARI_2.md#255--assetsartinspectchr_004_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_005_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 256](arayuz/UI_ASSET_PROMPTLARI_2.md#256--assetsartinspectchr_005_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_006_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 257](arayuz/UI_ASSET_PROMPTLARI_2.md#257--assetsartinspectchr_006_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_007_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 258](arayuz/UI_ASSET_PROMPTLARI_2.md#258--assetsartinspectchr_007_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_008_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 259](arayuz/UI_ASSET_PROMPTLARI_2.md#259--assetsartinspectchr_008_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_009_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 260](arayuz/UI_ASSET_PROMPTLARI_2.md#260--assetsartinspectchr_009_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_010_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 261](arayuz/UI_ASSET_PROMPTLARI_2.md#261--assetsartinspectchr_010_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_011_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 262](arayuz/UI_ASSET_PROMPTLARI_2.md#262--assetsartinspectchr_011_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_012_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 263](arayuz/UI_ASSET_PROMPTLARI_2.md#263--assetsartinspectchr_012_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_013_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 264](arayuz/UI_ASSET_PROMPTLARI_2.md#264--assetsartinspectchr_013_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_014_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 265](arayuz/UI_ASSET_PROMPTLARI_2.md#265--assetsartinspectchr_014_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_015_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 266](arayuz/UI_ASSET_PROMPTLARI_2.md#266--assetsartinspectchr_015_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_016_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 267](arayuz/UI_ASSET_PROMPTLARI_2.md#267--assetsartinspectchr_016_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_017_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 268](arayuz/UI_ASSET_PROMPTLARI_2.md#268--assetsartinspectchr_017_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_018_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 269](arayuz/UI_ASSET_PROMPTLARI_2.md#269--assetsartinspectchr_018_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_019_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 270](arayuz/UI_ASSET_PROMPTLARI_2.md#270--assetsartinspectchr_019_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_020_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 271](arayuz/UI_ASSET_PROMPTLARI_2.md#271--assetsartinspectchr_020_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_021_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 272](arayuz/UI_ASSET_PROMPTLARI_2.md#272--assetsartinspectchr_021_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_022_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 273](arayuz/UI_ASSET_PROMPTLARI_2.md#273--assetsartinspectchr_022_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_023_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 274](arayuz/UI_ASSET_PROMPTLARI_2.md#274--assetsartinspectchr_023_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_024_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 275](arayuz/UI_ASSET_PROMPTLARI_2.md#275--assetsartinspectchr_024_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_025_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 276](arayuz/UI_ASSET_PROMPTLARI_2.md#276--assetsartinspectchr_025_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_026_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 277](arayuz/UI_ASSET_PROMPTLARI_2.md#277--assetsartinspectchr_026_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_027_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 278](arayuz/UI_ASSET_PROMPTLARI_2.md#278--assetsartinspectchr_027_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_028_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 279](arayuz/UI_ASSET_PROMPTLARI_2.md#279--assetsartinspectchr_028_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_029_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 280](arayuz/UI_ASSET_PROMPTLARI_2.md#280--assetsartinspectchr_029_tracepng) |
+| `PORTRE-CHR-30` | `assets/art/inspect/chr_030_trace.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 281](arayuz/UI_ASSET_PROMPTLARI_2.md#281--assetsartinspectchr_030_tracepng) |
 
-Henüz kodun aramadığı sesler (ileri): `muzik_menu`, `muzik_perde2_dongu`, `muzik_saldiri`, `muzik_son_*` (beş son), `ortam_kis_dongu`, `ortam_pazar`, `sfx_yangin`, `sfx_keci`, `sfx_koyun`, `sfx_tekfur_boru`. WAV, aynı klasör.
+### Mevcut arayüz yuvaları
 
-### C4. Hayvan ve prop
+Her yuva [tekli UI kataloğunda](arayuz/GEMINI_TEKLI_URETIM_PROMPTLARI.md) kendi hazır promptuna veya aynı temelden türetme talimatına sahiptir. Yeni şekil üreterek buton ailesi bozulmaz.
 
-| ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|
-| HYV-OKUZ | Kapı kağnısı. Dosya var. | var | `assets/model/nesne/okuz.glb` | öküz, yoke | — |
-| HYV-AT | Sorhan, Nogay, kervan, TUC, HAR-07 | yok | `assets/model/nesne/at.glb` | steppe horse, felt saddle, idle | ileri |
-| HYV-KOYUN | Ağıl, ANI-05, TUC-02 | yok | `koyun.glb` | yün, sheep, low poly | ileri |
-| HYV-KECI | Yusuf olayı | yok | `keci.glb` | kara keçi, goat | orta |
-| HYV-DEVE | Kervan | yok | `deve.glb` | yüklü deve, camel bales | düşük |
-| HYV-KOPEK | Gece köy | yok | `kopek.glb` | kangal, lying dog | düşük |
-| PROP-ORS | Demirhane izi | yok | `nesne/ors.glb` | örs, kütük, anvil | orta |
-| PROP-TEZGAH | Ayşe / bez | yok | `nesne/dokuma_tezgahi.glb` | kilim tezgâhı, loom | düşük |
-| PROP-AGAC-2 | Tek `agac.glb` | yarım | `agac_02.glb`, `kaya_02.glb` | servi, kuru meşe, ikinci kaya | düşük |
-
-### C5. VFX
-
-Kapı alev/duman `src/dunya/alev.gdshader`, `duman.gdshader`. Düşük profilde kapanır (BUG-10). Ayrı sprite sheet yok. Kar/yağmur ADM-12 deneyinde shader + 600 tane; mevsim paketi (MEV-04) için ayrı doku şart değil, parçacık dokusu istenirse:
-
-| ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|
-| VFX-KAR | MEV-04 / ADM-12 | prompt hazır, Ahmet üretecek (teslim bekliyor) | öneri `assets/art/fx/fx_snow_01.png` | kar tanesi, soft white, 64px | ileri |
-| VFX-YAGMUR | MEV, ANI-09, tarla olayı | prompt hazır, Ahmet üretecek (teslim bekliyor) | `fx_rain_streak_01.png` | ince yağmur çizgisi | ileri |
-| VFX-KIVILCIM | ANI-15, BUG-10 | prompt hazır, Ahmet üretecek (teslim bekliyor) | `fx_spark_01.png` | kıvılcım, ember | ileri |
-| VFX-SIS | MEV-09 kapı görüşü | prompt hazır, Ahmet üretecek (teslim bekliyor) | isteğe bağlı `fx_fog_noise.png` | tipi, sis, blizzard | ileri |
-
-### C6. Palet ve logo
-
-| ID | Ne için | Durum | Yol | Anahtar kelimeler | Öncelik |
-|---|---|---|---|---|---|
-| PALET | Sanat kitabı 8.13 | prompt hazır, Ahmet üretecek (teslim bekliyor) | `assets/palette/palette.gpl`, `.ase`, `palette_swatch.png` | 7 hex swatch | düşük |
-| LOGO | Menü adı düz metin. `project.godot` ikon yok. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `assets/art/ui/logo_kapi_muhafizi.png`, `icon.png` | kelimesiz damga veya sade yazı, gece, meşale, 512 ve 1024 | düşük |
-
----
-
-## D. İleri — kodlanmamış ROADMAP
-
-Varlık adı öneridir. Kod bu yolları henüz yüklemez. Öncelik sütunu ileri.
-
-| ID | ROADMAP | Ne | Format | Anahtar kelimeler |
+| No | Nihai dosya | Boyut | Saydamlık | Hazırlık / durum |
 |---|---|---|---|---|
-| ANI-SILAH | ANI-01, ANI-11 | Kılıç, kalkan, mızrak, meşale soketi | glTF, el kemiği | curved sabre, round shield, spear, torch, BoneAttachment |
-| ANI-ALET | ANI-03, ANI-08, ANI-11 | Kova, orak, balta, örs çekici, fırın küreği | glTF | yoke, sickle, axe, peel |
-| ANI-HAYVAN-SURU | ANI-04, ANI-05 | Öküz yürüyüş, koyun otlama | glTF klip | ox walk, sheep graze |
-| TUC-TACIR | TUC-01…04, 08 | Celep, nalbur, kumaşçı, aktar, silah tüccarı | `karakter/<ad>_yuru.glb` | livestock dealer, black-market arms, felt merchant |
-| TUC-HAYVAN | TUC-02, TUC-14 | İnek, koç, beygir | glTF | cow, ram, riding horse |
-| TUC-UI | TUC-05, TUC-10 | Sözleşme ve pazar paneli ikonları — prompt hazır, Ahmet üretecek | SVG/PNG 48 | contract, price, caravan |
-| MEV-ZEMIN | MEV-04, MEV-05 | Kar örtüsü, çatı karı, kürek — prompt hazır, Ahmet üretecek; 3D geometri açık | shader + PNG; `kurek.glb` | snow overlay, roof snow, shovel |
-| MEV-AFET | MEV-06, MEV-07, MEV-10 | Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF + PNG | flood, wildfire, wolf pack |
-| MEV-SENLIK | MEV-08 | Hasat şenliği bezeme — prompt hazır, Ahmet üretecek | PNG/glTF | harvest fair, davul |
-| MEV-HUD | MEV-12 | Mevsim ikonu dört adet — prompt hazır, Ahmet üretecek | `assets/ui/koy/mevsim_{ilkbahar,yaz,sonbahar,kis}.svg` | season icon, bronze |
-| CAS-DIVAN | CAS-05, CAS-14 | Divan sahnesi, kanıt kartı — prompt hazır, Ahmet üretecek | `src` sahne ayrı; görsel `assets/art/ui/divan_kart.png` | court, evidence card |
-| CAS-GECE | CAS-02, CAS-04 | Fener, yangın kovası | glTF | lantern, bucket chain |
-| ODA-ODA | ODA-01, ODA-08 | Muhafız odası, yatak, masa, kasa, kütüphane | `assets/model/yapi/muhafiz_odasi.glb` + prop | guard room, hidden floor chest, bed |
-| ODA-UI | ODA-04…06, ODA-15 | Terazi, yetenek, epilog — prompt hazır, Ahmet üretecek | PNG 1920×1080 | justice scale, corruption, epilogue Venice / hero |
-| HAR-HARITA | HAR-01 | Taşlık Hisar, Karaboran, Tekfur, göç yolu — prompt hazır, Ahmet üretecek | `assets/art/env/harita_uc.png` | strategic map, no modern border, parchment ink |
-| HAR-SAVAS | HAR-10 | Okçu / mızraklı yerleştirme ikonları — prompt hazır, Ahmet üretecek | PNG 64 | archer slot, spear slot |
-| KRI-HASTA | KRI-01, KRI-11 | Ateş, irin, öksürük portre varyantı — prompt hazır, Ahmet üretecek | PNG kart üstü leke | fever, plague, quarantine |
-| KRI-MEZAR | KRI-05 | Toplu mezar, yazısız taş | glTF | unmarked grave |
-| SYS-SON | SYS-19, SYS-20 | Beş son + epilog karesi — prompt hazır, Ahmet üretecek | PNG 1920×1080 | Ertuğrul obası, Ahi, Tekfur haraç, beyin uç köyü, uç tutundu |
-| SYS-PROLOG | eski eksik listesi | Kösedağ, kaçış, kapı, 3–4 kare — prompt hazır, Ahmet üretecek | PNG | prologue, no caption baked in |
+| 01 | `assets/ui/atmosfer/gece_kapisi/main_menu_bg.png` | 1920×1080 | Opak RGB | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 02 | `assets/ui/atmosfer/gece_kapisi/interrogation_bg.png` | 1920×1080 | Opak RGB | prompt hazır, Ahmet üretecek; Tek resim |
+| 03 | `assets/ui/atmosfer/gece_kapisi/map_bg.png` | 1920×1080 | Opak RGB | prompt hazır, Ahmet üretecek; Tek resim |
+| 04 | `assets/ui/atmosfer/gece_kapisi/loading_bg.png` | 1920×1080 | Opak RGB | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 05 | `assets/ui/atmosfer/gece_kapisi/dialogue_panel.png` | 1536×768 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 06 | `assets/ui/atmosfer/gece_kapisi/button_normal.png` | 768×192 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 07 | `assets/ui/atmosfer/gece_kapisi/button_hover.png` | 768×192 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Aynı temelden türet |
+| 08 | `assets/ui/atmosfer/gece_kapisi/button_pressed.png` | 768×192 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Aynı temelden türet |
+| 09 | `assets/ui/atmosfer/gece_kapisi/button_disabled.png` | 768×192 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Aynı temelden türet |
+| 10 | `assets/ui/atmosfer/gece_kapisi/villager_card.png` | 768×1024 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 11 | `assets/ui/atmosfer/gece_kapisi/portrait_frame.png` | 512×640 | RGBA; dışı ve merkezi saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 12 | `assets/ui/atmosfer/gece_kapisi/settings_panel.png` | 1536×1536 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 13 | `assets/ui/atmosfer/gece_kapisi/tooltip_panel.png` | 768×384 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 14 | `assets/ui/atmosfer/gece_kapisi/hud_strip.png` | 2048×192 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 15 | `assets/ui/atmosfer/gece_kapisi/focus_ring.png` | 768×192 | RGBA; dışı ve merkezi saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Aynı temelden türet |
+| 16 | `assets/ui/atmosfer/gece_kapisi/tab_normal.png` | 384×160 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 17 | `assets/ui/atmosfer/gece_kapisi/tab_selected.png` | 384×160 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Aynı temelden türet |
+| 18 | `assets/ui/atmosfer/gece_kapisi/checkbox_off.png` | 96×96 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 19 | `assets/ui/atmosfer/gece_kapisi/checkbox_on.png` | 96×96 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Aynı temelden türet |
+| 20 | `assets/ui/atmosfer/gece_kapisi/slider_track.png` | 768×64 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 21 | `assets/ui/atmosfer/gece_kapisi/slider_thumb.png` | 96×128 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 22 | `assets/ui/atmosfer/gece_kapisi/scrollbar_track.png` | 48×768 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 23 | `assets/ui/atmosfer/gece_kapisi/scrollbar_thumb.png` | 48×192 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 24 | `assets/ui/atmosfer/gece_kapisi/loading_track.png` | 1024×96 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 25 | `assets/ui/atmosfer/gece_kapisi/loading_fill.png` | 1024×96 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 26 | `assets/ui/atmosfer/gece_kapisi/ornament_corner.png` | 256×256 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 27 | `assets/ui/atmosfer/gece_kapisi/ornament_divider.png` | 1024×96 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 28 | `assets/ui/atmosfer/gece_kapisi/ornament_emblem.png` | 512×512 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 29 | `assets/ui/atmosfer/gece_kapisi/ornament_seal.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 30 | `assets/ui/atmosfer/gece_kapisi/cursor_arrow.png` | 128×128 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 31 | `assets/ui/atmosfer/gece_kapisi/cursor_point.png` | 128×128 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
+| 32 | `assets/ui/atmosfer/gece_kapisi/cursor_grab.png` | 128×128 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 33 | `assets/ui/atmosfer/gece_kapisi/cursor_busy.png` | 128×128 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 34 | `assets/ui/atmosfer/gece_kapisi/icon_akce.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 35 | `assets/ui/atmosfer/gece_kapisi/icon_erzak.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 36 | `assets/ui/atmosfer/gece_kapisi/icon_odun.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 37 | `assets/ui/atmosfer/gece_kapisi/icon_tas.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 38 | `assets/ui/atmosfer/gece_kapisi/icon_demir.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 39 | `assets/ui/atmosfer/gece_kapisi/icon_bez.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 40 | `assets/ui/atmosfer/gece_kapisi/icon_alet.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 41 | `assets/ui/atmosfer/gece_kapisi/icon_nufus.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 42 | `assets/ui/atmosfer/gece_kapisi/icon_yatak.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 43 | `assets/ui/atmosfer/gece_kapisi/icon_saglik.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 44 | `assets/ui/atmosfer/gece_kapisi/icon_moral.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 45 | `assets/ui/atmosfer/gece_kapisi/icon_guvenlik.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 46 | `assets/ui/atmosfer/gece_kapisi/icon_adalet.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 47 | `assets/ui/atmosfer/gece_kapisi/icon_gun.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 48 | `assets/ui/atmosfer/gece_kapisi/icon_kabul.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 49 | `assets/ui/atmosfer/gece_kapisi/icon_ret.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 50 | `assets/ui/atmosfer/gece_kapisi/icon_uyari.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 51 | `assets/ui/atmosfer/gece_kapisi/icon_kilit.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 52 | `assets/ui/atmosfer/gece_kapisi/icon_geri.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 53 | `assets/ui/atmosfer/gece_kapisi/icon_kapat.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 54 | `assets/ui/atmosfer/gece_kapisi/icon_ayarlar.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 55 | `assets/ui/atmosfer/gece_kapisi/icon_kaydet.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 56 | `assets/ui/atmosfer/gece_kapisi/icon_harita.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 57 | `assets/ui/atmosfer/gece_kapisi/icon_diyalog.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
 
-EKO-14 ve EKO-15 yeni ikon şart koşmuyor: çift kasa ve bilanço mevcut `akce.svg` ve metinle gidebilir. Ayrı zimmet ikonu istenirse `assets/ui/koy/zimmet.svg`.
+## 3D assetler — açık üretim ihtiyaçları
 
----
+**114 satır/grup**, tek tek model dosyası sayısı değildir. Bir grup birden çok model/klip içerebilir. Kimlik / kısa tanım / ölçü aşağıdadır; eski yer tutucu, format, öncelik ve ajan kaydı kaynak taramasında korunur. 2D doku promptu bağlı geometriyi kapatmaz.
 
-## E. Bilinçli olarak yazılmayanlar
+| ID / grup | Kısa tanım | Hedef ölçü (metre) |
+|---|---|---|
+| `KAPI-3D-IC` | Bekçi kadrajı. `KapiCercevesi` seviye 0 kütük kutuları; seviye 1+ `Pbr.model("large_castle_door")`. `kapi.glb` köyde, kapı sahnesinin iç yüzünde değil. | 4,0 × 4,0 × 0,35 m; kanat başına 2,0 m |
+| `EL-TORBA` | chr_002; keten torba, linen sack. | 0,35 × 0,50 × 0,20 m |
+| `EL-SEPET` | chr_003; hasır sepet, wicker basket. | 0,45 × 0,40 × 0,35 m |
+| `EL-CEKIC` | chr_003; küçük çekiç, hand hammer. | 0,12 × 0,35 × 0,06 m |
+| `EL-KAMCI` | chr_004; at kamçısı, horse whip. | 0,10 × 0,80 × 0,10 m |
+| `EL-KURK` | chr_004; kürk bohça, fur bundle. | 0,45 × 0,30 × 0,30 m |
+| `EL-HEYBE` | chr_005, 009, 010; çift göz heybe, saddlebags. | 0,65 × 0,40 × 0,25 m |
+| `EL-SEPET-BUYUK` | chr_006, 012; büyük sepet. | 0,65 × 0,60 × 0,45 m |
+| `EL-SANDIK` | chr_007; küçük sandık, small chest. | 0,60 × 0,35 × 0,35 m |
+| `EL-ASA` | chr_008; ahşap asa, staff. | 0,06 × 1,60 × 0,06 m |
+| `EL-DEGNEK` | chr_013; eğri değnek, cane. | 0,08 × 1,00 × 0,08 m |
+| `EL-ODUN` | chr_001; iki odun, firewood. | 0,25 × 0,60 × 0,20 m |
+| `chr_001, 004, 005, 006, 007, 009, 010` | eksik klipler: panik, gergin. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `chr_002, 003, 008, 011–030` | eksik klipler: ofke, gergin. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf` | eksik klipler: altı duygu klibinin hepsi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `KAR-CAVUS` | `miraen_cavus` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-TAHSILDAR` | `vergi_tahsildari` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-ELCI` | `tekfur_elcisi` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-DERVIS` | `dervis` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-HABERCI` | Ahi / Ertuğrul haberi | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-BEY` | `bey_daveti` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-COCUK` | Saruca, Sorhan, kalabalık | 0,40 × 1,15 × 0,30 m |
+| `KAR-TEKFUR-ASKER` | Uzak siluet. 2D `crowd_tekfur_spear_01_far.png` atıl. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `YAPI-tarla, bostan` | düzlem + kutu sap | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-hizarhane` | sundurma kutusu + `dead_tree_trunk_02` | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-odunluk` | aynı sundurma | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-tas_ocagi` | Poly Haven kaya | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-avci` | çadır + sırık | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-atolye, demirhane` | sundurma + sandık | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-ambar` | `kervansaray.glb` | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-firin` | ahşap kutu | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-degirmen` | kutu | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-sifahane` | kutu | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-ahir` | kutu | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-agil` | CHR hedefi, kurulamaz, görsel yok | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-kirec_kuyusu` | kutu | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-tas_ev` | kutu, ikon kulübe | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-demir_madeni` | kutu | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-demir_ocagi` | kutu | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-muhafiz_kislasi` | kutu | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `YAPI-gozetleme_kulesi` | menü `model_var_mi` ile atlar | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
+| `YAPI-pazar_tezgahi` | GLB var, sahne kurmuyor | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-sur 2–3` | kazık çit ölçeklenir, `SurHasarGorseli` | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
+| `HYV-AT` | Sorhan, Nogay, kervan, TUC, HAR-07 | 0,80 × 1,60 × 2,30 m; deve yüksekliği 2,10 m |
+| `HYV-KOYUN` | Ağıl, ANI-05, TUC-02 | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
+| `HYV-KECI` | Yusuf olayı | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
+| `HYV-DEVE` | Kervan | 0,80 × 1,60 × 2,30 m; deve yüksekliği 2,10 m |
+| `HYV-KOPEK` | Gece köy | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
+| `PROP-ORS` | Demirhane izi | 0,50 × 0,75 × 0,35 m; kütük dahil |
+| `PROP-TEZGAH` | Ayşe / bez | 1,50 × 1,60 × 0,60 m |
+| `PROP-AGAC-2` | Tek `agac.glb` | Ağaç 2,0 × 5,0 × 2,0 m; kaya 1,2 × 0,8 × 1,0 m |
+| `ANI-SILAH` | Kılıç, kalkan, mızrak, meşale soketi; glTF, el kemiği. | Kılıç 0,08 × 0,85 × 0,04 m; kalkan çapı 0,60 m; mızrak boyu 2,0 m; alet boyu 0,35–1,20 m |
+| `ANI-ALET` | Kova, orak, balta, örs çekici, fırın küreği; glTF. | Kova 0,30 × 0,35 × 0,30 m; orak 0,40 m; balta 0,60 m; çekiç 0,35 m; kürek 1,20 m |
+| `ANI-HAYVAN-SURU` | Öküz yürüyüş, koyun otlama; glTF klip. | Mevcut öküz ve koyun riginde yürüyüş/otlama klibi; model ölçeği korunur |
+| `TUC-TACIR` | Celep, nalbur, kumaşçı, aktar, silah tüccarı; `karakter/<ad>_yuru.glb`. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `TUC-HAYVAN` | İnek, koç, beygir; glTF. | İnek 0,85 × 1,45 × 2,20 m; koç 0,55 × 0,85 × 1,10 m; beygir 0,80 × 1,60 × 2,30 m |
+| `MEV-ZEMIN` | Kar örtüsü, çatı karı, kürek — prompt hazır, Ahmet üretecek; 3D geometri açık; shader + PNG; `kurek.glb`. | Kürek 0,25 × 1,20 × 0,08 m; kar geometri katmanı mevcut çatı/zemin zarfında |
+| `MEV-AFET` | Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF + PNG. | Bent modülü 3,0 × 0,8 × 0,6 m; kurt 0,45 × 0,8 × 1,1 m |
+| `CAS-GECE` | Fener, yangın kovası; glTF. | Açık kandil 0,18 × 0,08 × 0,12 m; kova 0,30 × 0,35 × 0,30 m |
+| `ODA-ODA` | Muhafız odası, yatak, masa, kasa, kütüphane; `assets/model/yapi/muhafiz_odasi.glb` + prop. | Oda 4,0 × 2,8 × 4,0 m; yatak 0,9 × 0,5 × 2,0 m; masa 1,2 × 0,75 × 0,7 m |
+| `KRI-MEZAR` | Toplu mezar, yazısız taş; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |
+| `ANI07-ISINMA` | İki el ateşe uzatılan ısınma döngüsü; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `ANI08-TEZGAH` | Örs ve fırın ağzı; glTF. | Örs/kütük 0,50 × 0,75 × 0,35 m; fırın ağzı 0,80 × 0,70 × 0,40 m |
+| `ANI08-HAREKET` | Çekiç vurma ve fırın küreği döngüsü; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `ANI09-SACAK` | Yağmurdan korunma saçağı; glTF. | 2,00 × 0,25 × 1,20 m; taşıyıcı ev kenarına uygun |
+| `ANI09-BUZULME` | Soğukta büzülmüş yürüyüş; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `ANI10-SINSI` | Sinsi yürüyüş ve temkinli kuytu bekleyiş; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `ANI11-ALET` | Gerçek çekiç ve fırın küreği; sokete hazır tutma noktası; glTF. | Çekiç 0,12 × 0,35 × 0,06 m; kürek 0,20 × 1,20 × 0,06 m |
+| `ANI12-IDLE` | Üç doğal bekleme döngüsü (nefes / ağırlık aktarma / çevreye bakış); glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `TUC02-OKUZ` | Öküz barınak modeli; glTF. | 0,85 × 1,45 × 2,20 m; ayak tabanı y=0 |
+| `TUC02-INEK` | İnek barınak modeli; glTF. | 0,85 × 1,45 × 2,20 m; ayak tabanı y=0 |
+| `TUC02-BEYGIR` | Beygir barınak modeli; glTF. | 0,80 × 1,60 × 2,30 m |
+| `TUC02-KOC` | Koç barınak ve sürü modeli; glTF. | 0,55 × 0,85 × 1,10 m |
+| `HAR06-KULE` | Gözcü kulesi yapı modeli; glTF. | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
+| `HAR10-YAY` | Sur okçusu el yayı; glTF. | 0,08 × 1,10 × 0,35 m |
+| `HAR10-MIZRAK` | Kapı mızraklısı görev mızrağı; glTF. | 0,06 × 2,00 × 0,06 m |
+| `MEV05-KUREK` | Kar küreme küreği ve temizlik klibi; glTF / iskelet klibi. | 0,25 × 1,20 × 0,08 m |
+| `MEV10-KURT` | Kurt modeli, yürüyüş ve kaçış klibi; glTF / iskelet klibi. | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
+| `CAS05-DIVAN` | Meydan divan masası ve oturma sıraları; glTF. | Masa 2,00 × 0,80 × 1,00 m; oturak 0,50 × 0,45 × 0,50 m |
+| `CAS07-ZINDAN` | Kapı zindan hücresi kapısı; glTF. | Parmaklık modülü 1,50 × 2,00 × 0,10 m |
+| `ODA01-ICMEKAN` | Oda zemin ve duvarları; glTF. | 4,0 × 2,8 × 4,0 m; mevcut oda tabanı y=0 |
+| `ODA01-YATAK` | Muhafız yatağı; glTF. | 0,90 × 0,50 × 2,00 m |
+| `ODA01-MASA` | Muhafız masası; glTF. | 1,20 × 0,75 × 0,70 m |
+| `ODA01-MESALE` | Oda meşalesi; glTF. | 0,12 × 0,60 × 0,12 m |
+| `ODA01-KASA` | Gizli zemin kasası; glTF. | 0,60 × 0,40 × 0,40 m |
+| `ODA09-KABUS` | Rüya gölgesi figürü; glTF. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `ODA08-YATAK` | Rahat muhafız yatağı; glTF. | 1,10 × 0,55 × 2,00 m |
+| `ODA08-ASKILIK` | Donanım askılığı; glTF. | 0,60 × 1,60 × 0,40 m |
+| `ODA08-KUTUPHANE` | Muhafız kütüphanesi; glTF. | 1,00 × 1,80 × 0,35 m |
+| `ODA03-ESYA` | Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri); glTF / set. | Mühür 0,05 × 0,06 × 0,05 m; iksir 0,06 × 0,15 × 0,06 m; hediye zarfı 0,30 m |
+| `KRI05-MEZAR` | Toplu mezar ve cenaze töreni mezar işareti; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |
+| `BUG21-TASYATAGI` | Kazılabilir başlangıç ve kurtarıcı taş yatağı modeli; glTF / 3B model. | 3,0 × 0,6 × 2,0 m; açık taş yatağı |
+| `BUG25-MESALE` | Kapı meşalesi gerçek modeli (gerekirse); glTF / 3B model. | 0,12 × 0,60 × 0,12 m; mevcut sokete uygun |
+| `BUG25-KUYU` | Köy kuyusu gerçek modeli (gerekirse); glTF / 3B model. | 1,20 × 1,20 × 1,20 m; taban y=0, mevcut kuyu yüksekliği korunur |
+| `ACL01-MUHAFIZ` | 13. yy Anadolu muhafız gövdesi; glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `ACL01-ES` | Muhafızın eşi gövdesi; glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAP17-COCUK` | Çocuk köylü modeli; glTF / 3B model. | 0,40 × 1,15 × 0,30 m |
+| `KAP17-YASLI` | Yaşlı köylü modeli; glTF / 3B model. | 0,55 × 1,65 × 0,40 m |
+| `CAT02-KAVGA` | Kapıda kavga canlandırması; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `ISG02-ALETLER` | Geçici işlere özel el aletleri; glTF. | Kılıç 0,08 × 0,85 × 0,04 m; kalkan çapı 0,60 m; mızrak boyu 2,0 m; alet boyu 0,35–1,20 m |
+| `YAP03-USTALAR` | Kapıdan gelen usta modelleri; glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `YAP05-ODA` | Çözümleme odası modeli; glTF / 3B model. | 4,0 × 2,8 × 4,0 m |
+| `DYL02-AYRINTI-*` | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | Çarık 0,12 × 0,08 × 0,28 m; el/yara/giysi mevcut karakter rigine bağlı, ölçek değişmez |
+| `DYL03-YEMIN` | Yemin nesneleri (dünya kitabına göre); glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `DYL09-DENETCI` | Beyin denetçisi modeli; glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `SEV03-IZ` | Kişisel iz; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `SAB03-ORTU` | Kapalı iş yeri örtüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | 1,50 × 1,00 × 0,80 m; örtü aynı taşıyıcının zarfına oturur |
+| `TEZ01-ORTU` | Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | 1,50 × 1,00 × 0,80 m; örtü aynı taşıyıcının zarfına oturur |
+| `TEZ03-HAM` | Ham blok; glTF. | 0,30 × 0,30 × 0,30 m |
+| `TEZ04-IZ` | İz bloğu; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `TEZ05-BICIM` | Biçim bloğu; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `TEZ06-AGIZ` | Ağız bloğu; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `TEZ08-PARCA` | Teslim parçası; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `B4-ILERI-KLIPLER` | kos, otur, orak, cekic, nobet, saldir, dus, yagmur_yuru, kar_yuru — bir ileri 3D klip grubu. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 
-- KAP-02, KAP-03, EKO-14, BUG-03 ve SYS-09 (`metinler.csv`) bu turda değiştirilmedi. BUG-03 rüşvet repliği sessizliği kod/CSV işidir; `sfx_kese.wav` diskte var.
-- `koy_sahnesi` / `KoyYerlesimi` yok ve eklenmedi.
-- `production/eksikler/01` “yalnız yürüme klibi var” der. CHR modellerinde dört duygu klibi vardır; eksik olan `gergin` ve modele göre `ofke` veya `panik`.
-- `production/eksikler/02` “15 wav” der. Şu an 39 wav var; hepsi hâlâ sentez.
-- İskelet `.glb` ve `*_Image_0.jpg` için `.import` artığı görülebilir. Oynatıcı `*_yuru.glb` ve `hareket/*.res` yükler. Bu artıklar ayrı “bozuk oynanış yolu” sayılmadı.
+## Ses ve diğer görsel dışı ihtiyaçlar
 
-## F. Üretim sırası (kısa)
-
-1. Kapı karar ikonları, imleç, kapı/menü WAV (gerçek kayıt, aynı ad).
-2. Selçuklu kapı iç modeli; `large_castle_door` yedeğe kalsın.
-3. Her CHR için `gergin` + eksik `ofke` veya `panik`.
-4. Heybe/nişan PNG ve kişiye özel portre (KAP-06 izi okunur olsun).
-5. Ambar, fırın, değirmen, şifahane, ahır, kışla, demirhane GLB; `kurk.svg`.
-6. İleri paketler ancak ilgili ROADMAP maddesi açılınca.
-
-## G. Ajan eklemeleri
-
-Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en altta.
-
-| ID | ROADMAP | Ne | Tür / format | Yer tutucu yolu | Anahtar kelimeler (TR + EN) | Öncelik | Ekleyen |
-|---|---|---|---|---|---|---|---|
-| ANI07-ISINMA | ANI-07 | İki el ateşe uzatılan ısınma döngüsü | glTF / iskelet animasyon klibi | res://src/koy/gorsel/ates_basi_rutini.gd (kol hedefleri; yeni asset dosyası yok) | ateş başı el ısıtma, köylü gece; campfire warm hands villager idle | orta | Codex |
-| ANI08-TEZGAH | ANI-08 | Örs ve fırın ağzı | glTF | res://src/koy/gorsel/zanaat_tezgahi.gd (kur: BoxMesh) | ortaçağ örs demirci ocağı fırın; medieval anvil forge oven | orta | Codex |
-| ANI08-HAREKET | ANI-08 | Çekiç vurma ve fırın küreği döngüsü | glTF / iskelet animasyon klibi | res://src/koy/gorsel/zanaat_tezgahi.gd (kol: mevcut modifier yer tutucusu) | demirci çekiç vurma fırıncı kürek; blacksmith hammer strike baker peel | orta | Codex |
-| ANI09-SACAK | ANI-09 | Yağmurdan korunma saçağı | glTF | res://src/koy/gorsel/karakter_hava_tepkisi.gd (sacak_kur: düz BoxMesh) | ortaçağ ev saçağı yağmur barınağı; medieval eaves rain shelter | orta | Codex |
-| ANI09-BUZULME | ANI-09 | Soğukta büzülmüş yürüyüş | glTF / iskelet animasyon klibi | res://src/dunya/durus_duzeltici.gd (hava_egimi: mevcut modifier yer tutucusu) | soğuk köylü büzülmüş yürüme; cold villager hunched walk | orta | Codex |
-| ANI10-SINSI | ANI-10 | Sinsi yürüyüş ve temkinli kuytu bekleyiş | glTF / iskelet animasyon klibi | res://src/koy/gorsel/sinsi_gece_rutini.gd + koy_halk_hareketi.gd (_adim: mevcut yürüyüş yavaşlatılır) | gece sinsi köylü temkinli yürüyüş; night villager stealth cautious walk idle | orta | Codex |
-| ANI11-ALET | ANI-11 (ANI-ALET mevcut ihtiyaç) | Gerçek çekiç ve fırın küreği; sokete hazır tutma noktası | glTF | res://src/koy/gorsel/zanaat_tezgahi.gd (_kur: mevcut düz kutular); res://src/dunya/karakter_ekipman_yoneticisi.gd (tak: tek soket) | ortaçağ çekiç fırın küreği el soketi; medieval hammer baker peel hand grip socket | orta | Codex |
-| ANI12-IDLE | ANI-12 | Üç doğal bekleme döngüsü (nefes / ağırlık aktarma / çevreye bakış) | glTF / iskelet animasyon klibi | res://src/dunya/karakter_bekleme_cesitliligi.gd (acilar: mevcut modifier yer tutucusu) | köylü doğal bekleme nefes ağırlık bakış; villager idle breathing weight shift look around | orta | Codex |
-| TUC04-AFYON | TUC-04 | Afyon stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ şifahane afyon; medieval apothecary poppy medicine icon | orta | Codex |
-| TUC04-SARGI | TUC-04 | Sargı stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | şifahane bez sargı; medieval linen bandage icon | orta | Codex |
-| TUC04-KECE | TUC-04 | Keçe stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | yün keçe kumaş; medieval wool felt icon | orta | Codex |
-| TUC04-KUMAS | TUC-04 | Kumaş stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | dokuma kumaş rulosu; medieval woven cloth roll icon | orta | Codex |
-| TUC11-MUHUR | TUC-11 | Yasak mühür oda envanteri ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd (ac: düz ColorRect) | yasak mühür; forbidden medieval seal icon | orta | Codex |
-| TUC11-IKSIR | TUC-11 | Kaçak iksir oda envanteri ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd (ac: düz ColorRect) | kaçak iksir; contraband potion bottle icon | orta | Codex |
-| TUC08-ZIRH | TUC-08 | Zırh stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ zırh; medieval armor icon | orta | Codex |
-| TUC08-YAY | TUC-08 | Yay stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ yay; medieval bow icon | orta | Codex |
-| TUC08-KALKAN | TUC-08 | Kalkan stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ kalkan; medieval shield icon | orta | Codex |
-| TUC03-CIVI | TUC-03 | Çivi stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | ortaçağ çivi; medieval iron nail icon | orta | Codex |
-| TUC03-TIRPAN | TUC-03 | Tırpan stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | tırpan tarım aleti; medieval scythe tool icon | orta | Codex |
-| TUC03-BALTA | TUC-03 | Balta stok ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: düz ColorRect) | balta oduncu aleti; medieval wood axe icon | orta | Codex |
-| TUC02-OKUZ | TUC-02 / TUC-14 | Öküz barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | öküz çeki hayvanı; medieval draft ox | orta | Codex |
-| TUC02-INEK | TUC-02 / TUC-14 | İnek barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | inek ahır; medieval stable cow | orta | Codex |
-| TUC02-BEYGIR | TUC-02 / HAR-07 | Beygir barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | beygir yük atı; medieval pack horse | orta | Codex |
-| TUC02-KOC | TUC-02 / TUC-14 | Koç barınak ve sürü modeli | glTF | res://src/koy/gorsel/canli_hayvan_surusu.gd → res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | koç ağıl; medieval sheep ram pen | orta | Codex |
-| ANI15-DUMAN | ANI-15 | Fırın/demirhane yumuşak duman atlası — prompt hazır, Ahmet üretecek | PNG / parçacık atlası | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: gri saydam BoxMesh) | fırın baca duman atlası; oven chimney smoke puff atlas | orta | Codex |
-| ANI15-KIVILCIM | ANI-15 | Örs kıvılcım sprite — prompt hazır, Ahmet üretecek | PNG / parçacık | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: turuncu BoxMesh) | demirci örs kıvılcım; blacksmith anvil spark sprite | orta | Codex |
-| ANI15-SU | ANI-15 | Sulama su damlası sprite — prompt hazır, Ahmet üretecek | PNG / parçacık | res://src/koy/gorsel/atolye_parcaciklari.gd (_yer_tutucu: mavi BoxMesh) | sulama su damlası; irrigation water droplet particle | orta | Codex |
-| HAR01-HARITA | HAR-01 | Çevre haritası bölge çizimi ve hisar/yol sembolleri — prompt hazır, Ahmet üretecek | PNG / SVG | res://src/arayuz/harita_ekrani.gd; data/cevre_haritasi.json düz renk kutu/şerit | ortaçağ çevre hisar göç yolu haritası / medieval regional fortress migration route map | orta | Codex |
-| HAR03-HEYET | HAR-03 | Tekfur haraç heyeti simgesi — prompt hazır, Ahmet üretecek | PNG / SVG | res://src/arayuz/koy_hud/tekfur_heyeti_paneli.gd; data/tekfur_harac_heyeti.json (tek ColorRect kutu/etiket) | Bizans Tekfur haraç elçisi; Byzantine tribute envoy medieval | orta | Codex |
-| HAR06-KULE | HAR-06 | Gözcü kulesi yapı modeli | glTF | res://src/koy/gorsel/gozcu_kulesi_gorseli.gd; data/gozcu_kulesi.json (tek düz renk BoxMesh) | ortaçağ gözcü kule; medieval watchtower lookout | orta | Codex |
-| HAR06-IKON | HAR-06 | Gözcü kulesi yapı kartı simgesi — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/koy/gorsel/gozcu_kulesi_gorseli.gd ikon (tek ColorRect) | gözcü kulesi inşa ikonu; watchtower construction icon | orta | Codex |
-| HAR09-GUVERCIN | HAR-09 | Haberci güvercin anlatı görseli — prompt hazır, Ahmet üretecek | PNG / glTF | res://src/arayuz/koy_hud/haberci_anlati_paneli.gd (mevcut kartta tek ColorRect ve etiket) | mühürlü güvercin haberi; medieval messenger pigeon sealed letter | orta | Codex |
-| HAR09-ULAK | HAR-09 | Ulak anlatı görseli — prompt hazır, Ahmet üretecek | PNG / glTF | res://src/arayuz/koy_hud/haberci_anlati_paneli.gd (mevcut kartta tek ColorRect ve etiket) | ortaçağ ulak haberci; medieval dusty courier messenger | orta | Codex |
-| HAR10-YAY | HAR-10 | Sur okçusu el yayı | glTF | res://src/koy/gorsel/konuslanma_donanimi.gd + data/savunma_konuslanmasi.json (tek düz BoxMesh, gerçek el soketi) | ortaçağ yay okçu; medieval archer bow hand prop | orta | Codex |
-| HAR10-MIZRAK | HAR-10 | Kapı mızraklısı görev mızrağı | glTF | res://src/koy/gorsel/konuslanma_donanimi.gd + data/savunma_konuslanmasi.json (tek düz BoxMesh, mevcut muhafız) | kapı muhafızı mızrak; medieval gate guard spear hand prop | orta | Codex |
-
-| MEV04-KAR | MEV-04 (VFX-KAR mevcut ihtiyaç) | İsteğe bağlı yumuşak kar tanesi — prompt hazır, Ahmet üretecek | PNG / parçacık atlası | res://src/debug/iklim_gorseli.gd (tek BoxMesh yağış); res://src/koy/gorsel/cati_kar_ortusu.gdshader (üst yüzey renk geçişi) | yumuşak kar tanesi çatı kar; soft snowflake roof snow overlay | düşük | Codex |
-| MEV05-KUREK | MEV-05 | Kar küreme küreği ve temizlik klibi | glTF / iskelet klibi | res://src/koy/gorsel/cati_kar_rutini.gd (tek RightHand soketi, düz BoxMesh sap/ağız) | kar küreme çatı küreği; roof snow clearing shovel animation | orta | Codex |
-| MEV07-SU | MEV-07 | Su rezervi kaynak ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (mavi ColorRect) | su testisi kaynak ikonu; water reserve resource icon medieval | orta | Codex |
-| MEV10-KURT | MEV-10 | Kurt modeli, yürüyüş ve kaçış klibi | glTF / iskelet klibi | res://src/koy/gorsel/kurt_surusu.gd (_kur: tek BoxMesh) | kış kurt sürüsü; winter wolf pack walk flee | orta | Codex |
-| MEV14-SAMAN | MEV-14 | Saman balyası kaynak ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (sarı ColorRect; data/saman_bakimi.json ikon_renk) | saman balyası yem kaynak ikonu; hay bale livestock feed resource icon | orta | Codex |
-| CAS05-DIVAN | CAS-05 | Meydan divan masası ve oturma sıraları | glTF | res://src/koy/gorsel/divan_meydani.gd (kur/_kutu: geçici BoxMesh masa/iki sıra) | medieval village court judge table benches; köy divanı masa sıralar | orta | Codex |
-| CAS07-ZINDAN | CAS-07 | Kapı zindan hücresi kapısı | glTF | res://src/koy/gorsel/divan_zindan_gorseli.gd (kur: BoxMesh kapı işareti) | medieval gate jail cell door; kapı zindan hücresi kapı | orta | Codex |
-| ODA01-ICMEKAN | ODA-01 | Oda zemin ve duvarları | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | muhafız odası iç mekan; medieval guard room interior | orta | Codex |
-| ODA01-YATAK | ODA-01 | Muhafız yatağı | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | ahşap ortaçağ yatağı; medieval wooden bed | orta | Codex |
-| ODA01-MASA | ODA-01 | Muhafız masası | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | muhafız ahşap masa; medieval guard desk | orta | Codex |
-| ODA01-MESALE | ODA-01 | Oda meşalesi | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | duvar meşale lambası; medieval wall torch | orta | Codex |
-| ODA01-KASA | ODA-01 / ODA-02 | Gizli zemin kasası | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | gizli döşeme kasa; concealed floor strongbox | orta | Codex |
-| ODA09-KABUS | ODA-09 | Rüya gölgesi figürü | glTF | res://src/arayuz/oda_vicdan_paneli.gd (kur: MuhafizOdasi._kutu; data/muhafiz_vicdani.json golge) | rüya gölge figür; nightmare shadow figure | düşük | Codex |
-| ODA08-YATAK | ODA-08 | Rahat muhafız yatağı | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: mevcut yatak kutusu renk değişimi; data/oda_gelisimi.json) | rahat muhafız yatağı; medieval guard comfortable bed | orta | Codex |
-| ODA08-ASKILIK | ODA-08 | Donanım askılığı | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: MuhafizOdasi._kutu; data/oda_gelisimi.json askilik.parca) | muhafız zırh askılığı; medieval guard armor rack | orta | Codex |
-| ODA08-KUTUPHANE | ODA-08 | Muhafız kütüphanesi | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: MuhafizOdasi._kutu; data/oda_gelisimi.json kutuphane.parca) | muhafız kitap rafı; medieval guard bookshelf | orta | Codex |
-| ODA03-ESYA | ODA-03 | Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri) | glTF / set | res://src/arayuz/oda_envanter_sergisi.gd (_kutu: masa üstü BoxMesh, UI düz ColorRect; data/muhafiz_odasi.json) | rüşvet kişisel eşya mühür şişe; medieval bribe personal inventory seal bottle props | orta | Codex |
-| KRI03-ILAC | KRI-03 / KRI-15 | İlaç şişesi kaynak ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: tek düz renk ColorRect; İlaç etiketi) | ilaç şişesi şifahane; medieval medicine bottle infirmary resource icon | orta | Codex |
-| KRI05-MEZAR | KRI-05 | Toplu mezar ve cenaze töreni mezar işareti | glTF | res://src/koy/gorsel/cenaze_mezari.gd (kur: tek düz renk BoxMesh + kısa etiket) | toplu mezar cenaze köy yas; medieval village mass grave funeral burial marker | orta | Codex |
-
-
-ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.
-
-ANI-09 yağmur efekti mevcut VFX-YAGMUR satırında; yeni doku/ses/parçacık/klip üretilmedi veya indirilmedi. Hava denetçisi yağmur seçimini mevcut kayıt içinde korur; rastgele yağış takvimi MEV paketine aittir.
-
-KRI-08 (Codex, 9 Ekim 2026 gece): asset gerekmedi. Histeri mevcut karakter/bina görünümü, sabah fısıltı kartı ve `src/arayuz/koy_hud/histeri_paneli.gd` Button/Label arayüzünü kullanır; yeni görsel, ses, model veya yer tutucu ihtiyacı yok. G tablosuna yeni asset ID'si gerekmez.
-
-KRI-09 (Codex, 10 Ekim 2026): asset gerekmedi. Firar mevcut nüfus/model yenilemesi, gece raporu ve HUD Güvenlik/asayiş göstergesini kullanır; yeni görsel, ses, model, animasyon veya yer tutucu ihtiyacı yok. G tablosuna yeni asset ID'si gerekmez.
-
-KRI-10 (Codex, 10 Ekim 2026): asset gerekmedi. Kenetlenme mevcut gece raporu Label alanı, köylü kartı ve tek ekonomik Refah değerini kullanır; yeni görsel, ses, model, animasyon veya yer tutucu ihtiyacı yok. G tablosu kontrol edildi; yeni asset ID'si gerekmez.
-
-KRI-11 (Codex, 10 Ekim 2026): asset gerekmedi. Teşhis ibresi mevcut yüz/CHR portresi ve heybe incelemesine Button/Label metniyle bağlanır; açık belirtiler veri üzerinden açıklanır. Yeni görsel, ses, model, animasyon veya yer tutucu üretilmedi/indirilmedi. G tablosu kontrol edildi; yeni asset ID'si gerekmez.
-
-
-KRI-12 (Claude, 10 Ekim 2026): asset gerekmedi. Etki mevcut gece raporu satırı ve köylü sağlık değerini kullanır; yeni görsel, ses, model veya yer tutucu yok.
-
-KRI-13 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut gece raporu satırı ve Şifahane/karantina görünümü kullanılır.
-
-KRI-14 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut gece raporu satırı ve ambar/muhafız göstergeleri kullanılır.
-
-KRI-15 (Claude, 10 Ekim 2026): asset gerekmedi. Ot mevcut afyon stoğu/ikonudur; gece raporu satırı kullanılır.
-
-SYS-16 (Claude, 10 Ekim 2026): asset gerekmedi. Yalnız kayıt doğrulaması ve test.
-
-SYS-17 (Claude, 10 Ekim 2026): asset gerekmedi. Yalnız diyalog JSON metin/mantık düzeltmesi; metinler.csv değişmedi.
-
-SYS-18 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut gece raporu satırı ve göstergeler.
-
-SYS-19 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut perde geçiş kartı ve gece raporu satırı.
-
-SYS-20 (Claude, 10 Ekim 2026): asset gerekmedi. Mevcut son ekranı (BilgiEkrani) metni kullanılır; son başına özel görsel ileride istenirse ayrı envanter kaydı açılır.
-
-TESTER karakter muayenesi (Claude, 11 Ekim 2026 — `tests/oto/karakter_muayene.tscn`, plan `docs/tester/TESTER_GELISIM_PLANI.md`): eksik hareket klipleri. Yer tutucu: prosedürel bekleme (DurusDuzeltici) — klip yoksa karakter bekle pozunda kalır.
-| Asset | Tür | Hangi modeller | Yer tutucu | Arama (TR/EN) | Öncelik |
-|---|---|---|---|---|---|
-| `<ad>_gergin.glb` | 3B animasyon klibi | chr_001…chr_030 (hiçbirinde yok) | bekle pozu | gergin bekleme / nervous idle | Orta |
-| `<ad>_ofke.glb` / `<ad>_panik.glb` | 3B animasyon klibi | chr_002/003/008/011–030'da öfke yok; chr_001/004–007/009/010'da panik yok | bekle pozu | öfke, panik / angry, panic | Düşük |
-| `<ad>_konus/sevinc/ofke/panik/gergin.glb` | 3B animasyon klibi | adlı karakterler ve sınıf modelleri (aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf, asker, ciftci, ciftci_kadin, esnaf) — yalnız bekle/yürü var | bekle pozu | konuşma jesti / talking gesture | Orta |
-
-## 12 Ekim 2D üretim hazırlığı — Kalfa
-
-**281 envanter promptu** UI_ASSET_PROMPTLARI_2.md içinde; mevcut UI kataloğundaki 25 hiç teslim edilmemiş parça ayrıca tekli listede. Saydam kaynaklar düz #00FF00 yeşil zemin, alfa sonradan Pillow/OpenCV ile hazırlanır. Prompt kapsamındaki satırlar **prompt hazır, Ahmet üretecek** oldu; bu ifade dosyanın geldiği veya oyun entegrasyonunun bittiği anlamına gelmez. Karakter yüzleri, iki eşya ve görsel ipucu için CHR belgeleri temel alındı.
-
-Görsel atama kuyruğunda **114 açık 3D satır/grup** kaldı: [döküm](arayuz/ACIK_3D_ASSETLER.md). Ses/müzik ayrı ses kuyruğunda korunur. Font mevcut lisanslı kaynakla sürer, SVG/ICO ve PBR dönüşümü doğrulama ister. YAP06-ESYA henüz tanımlanmamış türlerde genel ikon briefidir; sekiz özgül eşya tamamlandı sayılmaz.
-
-Kopyala-yapıştır sırası: [Gemini sıradaki üretim listesi](arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md). ARY-05 ve SRM-18 madde sahipliği değiştirilmedi.
+Ses/müzik, font ve GPL/ASE palet dosyaları 2D resim değildir; Nano Banana ile üretilmez, 3D kuyruğuna da sokulmaz. Ses ihtiyaçları kaynak taramasının A3 ve C3 bölümlerinde korunur. Mevcut fontlar ve teslim edilmiş modeller yeniden eksik sayılmaz. Lisans/kaynak kayıtları silinmemiştir.
 
 ## H. ROADMAP 2 (ARY-05)
+
+Kimlik izleme tablosu: önceki ARY-05/SRM-18 kaynak satırları korunur. Aktif üretim türü, dosya, ölçü ve prompt yukarıdaki 2D / 3D bölümünde bulunur. Yeni ihtiyaç aynı tip bölümüne eklenir; ROADMAP Asset satırına eklenen kimliğin bu izleme tablosu da korunur.
 
 ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik burada **bir kez** durur; kimliği yol haritasında olmayan satır ve ikinci satır hatadır. Liste ses dosyası istemez; bu bölümde wav satırı yoktur. Bu madde dosya üretmez. Satırlar madde kapandıkça güncellenir; kodlanmamış maddenin yer tutucusu "planlı" yazar. `BUG21-TASYATAGI`, `ACL01-MUHAFIZ`, `ACL01-ES` G bölümünden buraya taşındı. Denetim: `tests/tools/test_asset_envanteri.py`.
 

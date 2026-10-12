@@ -1,5 +1,7 @@
 # Açık 3D asset satırları / grupları (Kalfa)
 
+Aktif 3D tanım ve ölçü tablosu: [ana envanter](../EKSIK_ASSET_ENVANTERI.md#3d-assetler--açık-üretim-ihtiyaçları). Bu belge önceki ayrıntılı tanımların izleme görünümüdür; yeni ihtiyaç ana envantere yazılır.
+
 12 Ekim 2026: **114 açık 3D satır/grup**. Bu sayı tek tek model ya da animasyon dosyası sayısı değildir; bir satırda birden çok model/klip olabilir, farklı kullanım satırları aynı modeli gerektirebilir. Sayım envanterdeki ihtiyaç durumudur, disk yeniden model kalite denetimi değildir. Mevcut `var` satırları ve PNG ile çözülebilen isteğe bağlı glTF alternatifleri sayılmaz. Doku promptu hazırlamak bağlı 3D geometriyi kapatmaz.
 
 - **KAPI-3D-IC** — Bekçi kadrajı. `KapiCercevesi` seviye 0 kütük kutuları; seviye 1+ `Pbr.model("large_castle_door")`. `kapi.glb` köyde, kapı sahnesinin iç yüzünde değil.; hedef Mevcut: `assets/ph/model/large_castle_door/large_castle_door.gltf`. Beklenen: `assets/model/yapi/kapi_ic.glb`.

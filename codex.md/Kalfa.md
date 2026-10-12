@@ -8,7 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-12 Ekim aktif iş: mevcut gece_kapisi kaynaklarının alfa hazırlığı ve bütün 2D envanter prompt paketi. 27 PNG ve 311 satırlık üretim listesi tamam; tek tam sanity geçti. Doğrulanmış paket commit/push ile kapanır. Yeni ROADMAP maddesi alınmaz; Windows Python PYTHONUTF8=1.
+12 Ekim aktif iş: envanterin 2D/3D ayrımı ve yeni üretim sonu entegrasyon kuralı. Ardından Muharrir talimatıyla Faz 1 sıradaki boş/hazır madde alınır. Windows Python PYTHONUTF8=1.
 
 ## Roller
 
@@ -199,3 +199,9 @@ Pull 4425a1e güncel. Kullanıcının son yönü: önce internet araştırması,
 ## Alfa hazırlama ve envanter prompt paketi — 12 Ekim 2026 (Kalfa)
 
 12 Ekim 2026 (Kalfa): pull 87399f3 ve son pull güncel. 27 kullanılabilir PNG, gerçek alfa/16px pay ve 9-slice hazırlığı tamam; ham 29+29 JPEG ve önceki üç aday PNG _inceleme altında korunur. Godot 4.7.2 boş TEMP projesinde 27/27 yükleme/boyut/alfa ve iki ölçüde 9-slice renderı geçti. Dört buton ve checkbox aynı temel şekilden türetildi. Beş yeniden üretim (sorgu, harita, amblem, mühür, tutma imleci), 25 hiç teslim edilmemiş UI promptu, 281 envanter promptu hazır; tekli kopyalama listesi 311 satırdır. 88 kaynak ID prompt hazır/Ahmet üretecek durumunda, açık görsel kuyruğu 114 3D satır/grup; ses ayrı kalır. YAP06 henüz tanımsız türlerde ortak ikon briefi, özgül sekiz eşya tamamlandı sayılmaz. Saydam kaynak istemi #00FF00 yeşil; temizleme kullanıcı izniyle mevcut yerel Pillow/NumPy/SciPy/OpenCV üzerinden, rembg/model indirme veya yeni AI resim üretimi yapılmadı. Aktif oyuna tema entegrasyonu ayrı ARY işi; oyun kodu, ROADMAP ve başka ajan sahipliği değişmedi. Hedefli üç alfa + altı envanter testi, hash/boyut/şekil/311 liste kapsamı geçti. Tek tam UTF-8 sanity tamamlandı: 368 PASS / 0 başarısız kontrol / 20 gece; loglar work/sanity_ui_alfa_20261012. Kanıt docs/arayuz/GECE_KAPISI_ALFA_KABUL.md; üretim UI_ASSET_PROMPTLARI_2.md ve GEMINI_SIRADAKI_URETIM_LISTESI.md. Yeni ROADMAP görevi alınmaz.
+
+## 12 Ekim — Envanter 2D / 3D düzeni (Kalfa)
+
+Pull 75dbf1d. 281 envanter promptu + 57 UI yuvası ayrı 2D tabloları; 114 açık 3D gruba metreyle hedef ölçü. Eski tarama, kaynak yolları, öncelikler, lisans ve imzalar docs/asset_envanteri/2026-10-12-kaynak-taramasi.md içinde kayıpsız korunur. Ses görsel üretim kuyruğu dışında. Mekanikler isim etiketli kutu ile kapanır, asset entegrasyonu üretim sonunda; yeni 2D brief aynı maddeyle yazılır. Kota: haftalık %47 kaldı; kısa dönem %98 kaldı. ds ayna yolları yok; önceki açık kullanıcı izniyle atlandı. Asset gerekmedi; yalnız belge ve katalog düzeni, oyun kodu değişmedi.
+
+Doğrulama: 6 envanter testi PASS; 281 prompt bağlantısı, 57 UI yuvası, 114 ölçülü 3D grup ve önceki kaynak metninin birebir korunması kontrol edildi. git diff --check temiz. Yalnız belge/katalog değiştiğinden oyun tam sanity tekrarlanmadı; son oyun paketi 368/0/20 gece. Sonraki hazır aday ACL-04; ACL-03 ACL-02/DYL-07 bekliyor, testx sahipliklerine dokunulmaz.

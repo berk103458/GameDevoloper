@@ -2,7 +2,7 @@
 
 12 Ekim 2026. Her prompt tek resim içindir. Saydam parçalarda düz **#00FF00** yeşil zemin; gerçek alfa, kırpma ve 16px dış pay indirme sonrası hazırlanır. 64px ve daha küçük eski motor yuvalarında bu pay içerik alanını aşırı küçülttüğünden istisna satırda açıklanır. Nihai ölçüler model çıktısının kesin ölçüsü değildir. Raster PNG, SVG/font/glTF yerine uzantı değiştirerek kullanılamaz; mevcut yükleyiciye ince adaptör ayrı entegrasyon işidir.
 
-Kaynak: docs/EKSIK_ASSET_ENVANTERI.md A–D/G/H, ARY-05/SRM-18 ve karakterler/CHR_001…030.md. 3D model/iskelet klibi, ses ve font bu üretime dahil değildir. 2D prompt hazır olması teslim veya oyun entegrasyonu anlamına gelmez. Atıl/ileri parçalar açıkça işaretlidir; üretim önceliği etkin UI, sonra karakter/ikon, sonra isteğe bağlı kaynaktır.
+Kaynak: docs/asset_envanteri/2026-10-12-kaynak-taramasi.md A–D/G/H; aktif kuyruk docs/EKSIK_ASSET_ENVANTERI.md 2D/3D bölümleri, ARY-05/SRM-18 ve karakterler/CHR_001…030.md. 3D model/iskelet klibi, ses ve font bu üretime dahil değildir. 2D prompt hazır olması teslim veya oyun entegrasyonu anlamına gelmez. Atıl/ileri parçalar açıkça işaretlidir; üretim önceliği etkin UI, sonra karakter/ikon, sonra isteğe bağlı kaynaktır.
 
 **281 yeni tekli prompt.** Mevcut 57 UI slotu ayrı GEMINI_TEKLI_URETIM_PROMPTLARI.md kataloğudur, burada sayılmaz.
 

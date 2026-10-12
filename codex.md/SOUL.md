@@ -21,3 +21,7 @@ Kaynak: Ahmet'in 7 Ekim 2026 açık talimatı. Bu dosya kalıcı proje hafızas�
 - Ahmet/Muharrir, 8 Ekim asset kuralı: asset üretimi/indirme yok; mekanik basit kutu/düz renk yer tutucuyla tamamlanır. Eksik gerçek asset docs/EKSIK_ASSET_ENVANTERI.md G tablosuna kapanış commitinde kaydedilir; yeni asset gerekmiyorsa commit başlığında "asset gerekmedi" belirtilir. BUG-03/15 Cursor tarafından kapandı, tekrar alınmaz. KAP-02/03 sahipsizse [ ] kalır; üstlenince ad yazılır.
 
 - 8 Ekim Muharrir talimatı: yeni rutin mantığı koy_halk_hareketi.gd içine eklenmez; yeni rutin dosyasına tek satırlık adaptör çağrılarıyla bağlanır. Status kontrol edilen son commit bilgisini taşır, boş başlık bırakılmaz.
+
+## Güncel asset teslim kuralı — 12 Ekim 2026 (Ahmet/Muharrir)
+
+Önceki ekleme/üretim sırası yerine: üretim tamamlanana kadar mekanikler isim etiketli kutu yer tutucuyla bitirilir; asset beklenmez. Assetler üretim sonunda ayrı entegrasyonla eklenir. docs/EKSIK_ASSET_ENVANTERI.md aktif 2D / 3D başlıklarıdır; eski G tablosuna ekleme yönlendirmesi geçersizdir. Her yeni 2D ihtiyacı için aynı maddede gece_kapisi stilinde tekli İngilizce Nano Banana promptu, dosya adı, boyut ve saydamlık hazırlanır; saydam kaynak düz #00FF00 yeşildir. 3D için kısa tanım ve metreyle ölçü yeterlidir.

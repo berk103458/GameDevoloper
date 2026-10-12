@@ -5,6 +5,7 @@ Bu dosya ROADMAP 2’nin tek ve geçerli kopyasıdır (11 Ekim 2026, Muharrir bi
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)
 
 - **Sahiplik:** Bir maddeye başlamadan önce `git pull`, sonra maddeyi `[/] (AjanAdı)` yap, commit + push et. Başka ajanın `[/]` işaretlediği maddeye DOKUNMA. Bitince `[x] (AjanAdı)`.
+- **Asset teslimi (Ahmet/Muharrir, 12 Ekim):** Mekanik isim etiketli kutuyla biter, asset beklenmez. Envanter 2D/3D ayrılır: 2D için aynı maddede gece_kapisi tekli prompt + dosya/ölçü/saydamlık (saydam kaynak #00FF00), 3D için kısa tanım + metreyle ölçü. Asset entegrasyonu üretim bitince yapılır; önceki erken ekleme izninin sırasını bu kural değiştirir.
 - **Sıra:** Aşağıdaki "Önerilen uygulama sırası" fazlarına göre ilerle. Faz 0 bitmeden Faz 1’e geçme (paralel çalışan ajanlar aynı fazın farklı maddelerini alır).
 - **Küçük maddeler:** Boyutu S olan ve tek satırlık test/kontrol niteliğindeki maddeler, aynı alt başlıktaki ait oldukları büyük maddeyle birlikte tek iş olarak alınabilir; o zaman hepsi aynı commit’te `[x]` yapılır ve commit mesajında kimlikler listelenir.
 - **Asset:** Üretme yok. Uygun ve açık lisanslı (CC0/CC-BY) asset internetten eklenebilir, kaynak+lisans envantere (AGENTS.md asset kuralı, Berk 11 Ekim). Bulunamazsa isim etiketli kutu yer tutucu kullan, gereken asset `docs/EKSIK_ASSET_ENVANTERI.md` ve ARY-05 listesine.

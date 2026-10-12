@@ -133,3 +133,7 @@ Bu kural bütün ajanlar için geçerlidir: Claude, Kalfa, Codex, testx ve sonra
 1. **Commit sıklığı:** Çalışırken en geç **1 saatte bir** ya da **her madde bittiğinde** commit at ve `claude/festive-volta-li1sfm`e push et. Uzun süre commit'siz çalışma; iş yarım kalsa bile `WIP: ...` başlıklı bir commit at. (Sandbox'ı git'e izin vermeyen ajanlar — ör. testx — teslimini `work/testx/teslim.json` ile verir; yayınlayan ajan aynı kurala uyar.)
 2. **Kota satırı:** Her commit'ten sonra `codex.md/<AjanAdı>.md` günlüğüne, iş bitince de Ajan Masası'na (GitHub issue #11) kalan kotanı yaz. Örnek: `kota: %40 kaldı`. Kotanı göremiyorsan `kota görünmüyor` yaz.
 3. **Kota azalınca:** Kotan **%15'in altına** düştüğünde yeni işe başlama. Elindeki işi commit'le ve push et; bitiremediğin `[/]` maddelerini `[ ]` yap ve maddenin yanına ya da Ajan Masası'na `kota bitti, bırakıldı` notu düş.
+
+## Güncel asset teslim kuralı — 12 Ekim 2026 (Ahmet/Muharrir)
+
+Önceki ekleme/üretim sırası yerine: üretim tamamlanana kadar mekanikler isim etiketli kutu yer tutucuyla bitirilir; asset beklenmez. Assetler üretim sonunda ayrı entegrasyonla eklenir. docs/EKSIK_ASSET_ENVANTERI.md aktif 2D / 3D başlıklarıdır; eski G tablosuna ekleme yönlendirmesi geçersizdir. Her yeni 2D ihtiyacı için aynı maddede gece_kapisi stilinde tekli İngilizce Nano Banana promptu, dosya adı, boyut ve saydamlık hazırlanır; saydam kaynak düz #00FF00 yeşildir. 3D için kısa tanım ve metreyle ölçü yeterlidir.

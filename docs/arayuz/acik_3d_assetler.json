@@ -2,571 +2,685 @@
   {
     "id": "KAPI-3D-IC",
     "section": "### A4. Kapı gövdesi — yarım",
-    "description": "| KAPI-3D-IC | Bekçi kadrajı. `KapiCercevesi` seviye 0 kütük kutuları; seviye 1+ `Pbr.model(\"large_castle_door\")`. `kapi.glb` köyde, kapı sahnesinin iç yüzünde değil. | yarım | Mevcut: `assets/ph/model/large_castle_door/large_castle_door.gltf`. Beklenen: `assets/model/yapi/kapi_ic.glb` | 13. yy Anadolu uç palisat, içeriden iki kanat, kazık, meşale kolu, no castle portcullis, no gothic, PBR glTF | kritik |"
+    "description": "| KAPI-3D-IC | Bekçi kadrajı. `KapiCercevesi` seviye 0 kütük kutuları; seviye 1+ `Pbr.model(\"large_castle_door\")`. `kapi.glb` köyde, kapı sahnesinin iç yüzünde değil. | yarım | Mevcut: `assets/ph/model/large_castle_door/large_castle_door.gltf`. Beklenen: `assets/model/yapi/kapi_ic.glb` | 13. yy Anadolu uç palisat, içeriden iki kanat, kazık, meşale kolu, no castle portcullis, no gothic, PBR glTF | kritik |",
+    "dimensions": "4,0 × 4,0 × 0,35 m; kanat başına 2,0 m"
   },
   {
     "id": "EL-TORBA",
     "section": "### B3. El eşyası — prosedürel kutu, GLB yok",
-    "description": "| EL-TORBA | chr_002 | keten torba, linen sack | orta |"
+    "description": "| EL-TORBA | chr_002 | keten torba, linen sack | orta |",
+    "dimensions": "0,35 × 0,50 × 0,20 m"
   },
   {
     "id": "EL-SEPET",
     "section": "### B3. El eşyası — prosedürel kutu, GLB yok",
-    "description": "| EL-SEPET | chr_003 | hasır sepet, wicker basket | orta |"
+    "description": "| EL-SEPET | chr_003 | hasır sepet, wicker basket | orta |",
+    "dimensions": "0,45 × 0,40 × 0,35 m"
   },
   {
     "id": "EL-CEKIC",
     "section": "### B3. El eşyası — prosedürel kutu, GLB yok",
-    "description": "| EL-CEKIC | chr_003 | küçük çekiç, hand hammer | orta |"
+    "description": "| EL-CEKIC | chr_003 | küçük çekiç, hand hammer | orta |",
+    "dimensions": "0,12 × 0,35 × 0,06 m"
   },
   {
     "id": "EL-KAMCI",
     "section": "### B3. El eşyası — prosedürel kutu, GLB yok",
-    "description": "| EL-KAMCI | chr_004 | at kamçısı, horse whip | orta |"
+    "description": "| EL-KAMCI | chr_004 | at kamçısı, horse whip | orta |",
+    "dimensions": "0,10 × 0,80 × 0,10 m"
   },
   {
     "id": "EL-KURK",
     "section": "### B3. El eşyası — prosedürel kutu, GLB yok",
-    "description": "| EL-KURK | chr_004 | kürk bohça, fur bundle | orta |"
+    "description": "| EL-KURK | chr_004 | kürk bohça, fur bundle | orta |",
+    "dimensions": "0,45 × 0,30 × 0,30 m"
   },
   {
     "id": "EL-HEYBE",
     "section": "### B3. El eşyası — prosedürel kutu, GLB yok",
-    "description": "| EL-HEYBE | chr_005, 009, 010 | çift göz heybe, saddlebags | yüksek |"
+    "description": "| EL-HEYBE | chr_005, 009, 010 | çift göz heybe, saddlebags | yüksek |",
+    "dimensions": "0,65 × 0,40 × 0,25 m"
   },
   {
     "id": "EL-SEPET-BUYUK",
     "section": "### B3. El eşyası — prosedürel kutu, GLB yok",
-    "description": "| EL-SEPET-BUYUK | chr_006, 012 | büyük sepet | orta |"
+    "description": "| EL-SEPET-BUYUK | chr_006, 012 | büyük sepet | orta |",
+    "dimensions": "0,65 × 0,60 × 0,45 m"
   },
   {
     "id": "EL-SANDIK",
     "section": "### B3. El eşyası — prosedürel kutu, GLB yok",
-    "description": "| EL-SANDIK | chr_007 | küçük sandık, small chest | orta |"
+    "description": "| EL-SANDIK | chr_007 | küçük sandık, small chest | orta |",
+    "dimensions": "0,60 × 0,35 × 0,35 m"
   },
   {
     "id": "EL-ASA",
     "section": "### B3. El eşyası — prosedürel kutu, GLB yok",
-    "description": "| EL-ASA | chr_008 | ahşap asa, staff | orta |"
+    "description": "| EL-ASA | chr_008 | ahşap asa, staff | orta |",
+    "dimensions": "0,06 × 1,60 × 0,06 m"
   },
   {
     "id": "EL-DEGNEK",
     "section": "### B3. El eşyası — prosedürel kutu, GLB yok",
-    "description": "| EL-DEGNEK | chr_013 | eğri değnek, cane | orta |"
+    "description": "| EL-DEGNEK | chr_013 | eğri değnek, cane | orta |",
+    "dimensions": "0,08 × 1,00 × 0,08 m"
   },
   {
     "id": "EL-ODUN",
     "section": "### B3. El eşyası — prosedürel kutu, GLB yok",
-    "description": "| EL-ODUN | chr_001 | iki odun, firewood | orta |"
+    "description": "| EL-ODUN | chr_001 | iki odun, firewood | orta |",
+    "dimensions": "0,25 × 0,60 × 0,20 m"
   },
   {
     "id": "chr_001, 004, 005, 006, 007, 009, 010",
     "section": "### B4. Animasyon klipleri — yarım",
-    "description": "| chr_001, 004, 005, 006, 007, 009, 010 | bekle, konus, sevinc, ofke | panik, gergin | yüksek |"
+    "description": "| chr_001, 004, 005, 006, 007, 009, 010 | bekle, konus, sevinc, ofke | panik, gergin | yüksek |",
+    "dimensions": "Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez)"
   },
   {
     "id": "chr_002, 003, 008, 011–030",
     "section": "### B4. Animasyon klipleri — yarım",
-    "description": "| chr_002, 003, 008, 011–030 | bekle, konus, sevinc, panik | ofke, gergin | yüksek |"
+    "description": "| chr_002, 003, 008, 011–030 | bekle, konus, sevinc, panik | ofke, gergin | yüksek |",
+    "dimensions": "Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez)"
   },
   {
     "id": "asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf",
     "section": "### B4. Animasyon klipleri — yarım",
-    "description": "| asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | yalnız `*_yuru.glb` | altı duygu klibinin hepsi | yüksek |"
+    "description": "| asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | yalnız `*_yuru.glb` | altı duygu klibinin hepsi | yüksek |",
+    "dimensions": "Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez)"
   },
   {
     "id": "KAR-CAVUS",
     "section": "### B5. Kapı kuyruğu çeşitliliği",
-    "description": "| KAR-CAVUS | `miraen_cavus` | yok | `assets/model/karakter/cavus_yuru.glb` | Selçuklu çavuş, lamel yelek, keçe börk, gürz | orta |"
+    "description": "| KAR-CAVUS | `miraen_cavus` | yok | `assets/model/karakter/cavus_yuru.glb` | Selçuklu çavuş, lamel yelek, keçe börk, gürz | orta |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "KAR-TAHSILDAR",
     "section": "### B5. Kapı kuyruğu çeşitliliği",
-    "description": "| KAR-TAHSILDAR | `vergi_tahsildari` | yok | `tahsildar_yuru.glb` | vergi defteri, sikke kesesi, ince kaftan | orta |"
+    "description": "| KAR-TAHSILDAR | `vergi_tahsildari` | yok | `tahsildar_yuru.glb` | vergi defteri, sikke kesesi, ince kaftan | orta |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "KAR-ELCI",
     "section": "### B5. Kapı kuyruğu çeşitliliği",
-    "description": "| KAR-ELCI | `tekfur_elcisi` | yok | `tekfur_elcisi_yuru.glb` | Bizans uç elçisi, mühürlü tomar, kısa pelerin | orta |"
+    "description": "| KAR-ELCI | `tekfur_elcisi` | yok | `tekfur_elcisi_yuru.glb` | Bizans uç elçisi, mühürlü tomar, kısa pelerin | orta |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "KAR-DERVIS",
     "section": "### B5. Kapı kuyruğu çeşitliliği",
-    "description": "| KAR-DERVIS | `dervis` | yok | `dervis_yuru.glb` | sikke külah, hırka, keşkül, asa | orta |"
+    "description": "| KAR-DERVIS | `dervis` | yok | `dervis_yuru.glb` | sikke külah, hırka, keşkül, asa | orta |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "KAR-HABERCI",
     "section": "### B5. Kapı kuyruğu çeşitliliği",
-    "description": "| KAR-HABERCI | Ahi / Ertuğrul haberi | yok | `haberci_yuru.glb` | tozlu binici kaftanı, mesaj tüpü | orta |"
+    "description": "| KAR-HABERCI | Ahi / Ertuğrul haberi | yok | `haberci_yuru.glb` | tozlu binici kaftanı, mesaj tüpü | orta |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "KAR-BEY",
     "section": "### B5. Kapı kuyruğu çeşitliliği",
-    "description": "| KAR-BEY | `bey_daveti` | yok | `bey_yuru.glb` | kürklü börk, kuşak, eğri kılıç | düşük |"
+    "description": "| KAR-BEY | `bey_daveti` | yok | `bey_yuru.glb` | kürklü börk, kuşak, eğri kılıç | düşük |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "KAR-COCUK",
     "section": "### B5. Kapı kuyruğu çeşitliliği",
-    "description": "| KAR-COCUK | Saruca, Sorhan, kalabalık | yok | `cocuk_yuru.glb` | 7 yaş, uzun tunik, yalınayak | orta |"
+    "description": "| KAR-COCUK | Saruca, Sorhan, kalabalık | yok | `cocuk_yuru.glb` | 7 yaş, uzun tunik, yalınayak | orta |",
+    "dimensions": "0,40 × 1,15 × 0,30 m"
   },
   {
     "id": "KAR-TEKFUR-ASKER",
     "section": "### B5. Kapı kuyruğu çeşitliliği",
-    "description": "| KAR-TEKFUR-ASKER | Uzak siluet. 2D `crowd_tekfur_spear_01_far.png` atıl. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `tekfur_askeri_yuru.glb` veya siluet şerit | konik miğfer, uzun kalkan, mızrak, soğuk mavi siluet | orta |"
+    "description": "| KAR-TEKFUR-ASKER | Uzak siluet. 2D `crowd_tekfur_spear_01_far.png` atıl. | prompt hazır, Ahmet üretecek (teslim bekliyor) | `tekfur_askeri_yuru.glb` veya siluet şerit | konik miğfer, uzun kalkan, mızrak, soğuk mavi siluet | orta |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "YAPI-tarla, bostan",
     "section": "### C1. Yapı görselleri",
-    "description": "| tarla, bostan | düzlem + kutu sap | placeholder | isteğe bağlı `yapi/tarla.glb` | karık, ekin, furrowed field | düşük |"
+    "description": "| tarla, bostan | düzlem + kutu sap | placeholder | isteğe bağlı `yapi/tarla.glb` | karık, ekin, furrowed field | düşük |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-hizarhane",
     "section": "### C1. Yapı görselleri",
-    "description": "| hizarhane | sundurma kutusu + `dead_tree_trunk_02` | placeholder | `yapi/hizarhane.glb` | hızar, sundurma, saw pit | orta |"
+    "description": "| hizarhane | sundurma kutusu + `dead_tree_trunk_02` | placeholder | `yapi/hizarhane.glb` | hızar, sundurma, saw pit | orta |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-odunluk",
     "section": "### C1. Yapı görselleri",
-    "description": "| odunluk | aynı sundurma | placeholder | `yapi/orman_kampi.glb` | orman kampı, tomruk, wood camp | orta |"
+    "description": "| odunluk | aynı sundurma | placeholder | `yapi/orman_kampi.glb` | orman kampı, tomruk, wood camp | orta |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-tas_ocagi",
     "section": "### C1. Yapı görselleri",
-    "description": "| tas_ocagi | Poly Haven kaya | yarım | `yapi/tas_ocagi.glb` | açık ocak, kama, quarry | orta |"
+    "description": "| tas_ocagi | Poly Haven kaya | yarım | `yapi/tas_ocagi.glb` | açık ocak, kama, quarry | orta |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-avci",
     "section": "### C1. Yapı görselleri",
-    "description": "| avci | çadır + sırık | yarım | `yapi/avci.glb` | avcı çadırı, kurutma sırığı | düşük |"
+    "description": "| avci | çadır + sırık | yarım | `yapi/avci.glb` | avcı çadırı, kurutma sırığı | düşük |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-atolye, demirhane",
     "section": "### C1. Yapı görselleri",
-    "description": "| atolye, demirhane | sundurma + sandık | placeholder | `yapi/demirhane.glb` | örs, körük, anvil, no fantasy forge | yüksek |"
+    "description": "| atolye, demirhane | sundurma + sandık | placeholder | `yapi/demirhane.glb` | örs, körük, anvil, no fantasy forge | yüksek |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-ambar",
     "section": "### C1. Yapı görselleri",
-    "description": "| ambar | `kervansaray.glb` | yarım | `yapi/ambar.glb` | tahıl ambarı, barn, not caravanserai | yüksek |"
+    "description": "| ambar | `kervansaray.glb` | yarım | `yapi/ambar.glb` | tahıl ambarı, barn, not caravanserai | yüksek |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-firin",
     "section": "### C1. Yapı görselleri",
-    "description": "| firin | ahşap kutu | placeholder | `yapi/firin.glb` | tandır, kubbesiz toprak fırın | yüksek |"
+    "description": "| firin | ahşap kutu | placeholder | `yapi/firin.glb` | tandır, kubbesiz toprak fırın | yüksek |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-degirmen",
     "section": "### C1. Yapı görselleri",
-    "description": "| degirmen | kutu | placeholder | `yapi/degirmen.glb` | su değirmeni, çark, mill wheel | yüksek |"
+    "description": "| degirmen | kutu | placeholder | `yapi/degirmen.glb` | su değirmeni, çark, mill wheel | yüksek |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-sifahane",
     "section": "### C1. Yapı görselleri",
-    "description": "| sifahane | kutu | placeholder | `yapi/sifahane.glb` | küçük şifahane, iki yatak, healer hut | yüksek |"
+    "description": "| sifahane | kutu | placeholder | `yapi/sifahane.glb` | küçük şifahane, iki yatak, healer hut | yüksek |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-ahir",
     "section": "### C1. Yapı görselleri",
-    "description": "| ahir | kutu | placeholder | `yapi/ahir.glb` | ahır, yemlik, ox stable | yüksek |"
+    "description": "| ahir | kutu | placeholder | `yapi/ahir.glb` | ahır, yemlik, ox stable | yüksek |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-agil",
     "section": "### C1. Yapı görselleri",
-    "description": "| agil | CHR hedefi, kurulamaz, görsel yok | yok | `yapi/agil.glb` | ağıl, taş çevirme, sheep pen | ileri |"
+    "description": "| agil | CHR hedefi, kurulamaz, görsel yok | yok | `yapi/agil.glb` | ağıl, taş çevirme, sheep pen | ileri |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-kirec_kuyusu",
     "section": "### C1. Yapı görselleri",
-    "description": "| kirec_kuyusu | kutu | placeholder | `yapi/kirec_kuyusu.glb` | kireç kuyusu, lime pit | orta |"
+    "description": "| kirec_kuyusu | kutu | placeholder | `yapi/kirec_kuyusu.glb` | kireç kuyusu, lime pit | orta |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-tas_ev",
     "section": "### C1. Yapı görselleri",
-    "description": "| tas_ev | kutu, ikon kulübe | placeholder | `yapi/tas_ev.glb` | yığma taş ev, six beds, rubble stone | orta |"
+    "description": "| tas_ev | kutu, ikon kulübe | placeholder | `yapi/tas_ev.glb` | yığma taş ev, six beds, rubble stone | orta |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-demir_madeni",
     "section": "### C1. Yapı görselleri",
-    "description": "| demir_madeni | kutu | placeholder | `yapi/demir_madeni.glb` | açık maden ağzı, ore pit | orta |"
+    "description": "| demir_madeni | kutu | placeholder | `yapi/demir_madeni.glb` | açık maden ağzı, ore pit | orta |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-demir_ocagi",
     "section": "### C1. Yapı görselleri",
-    "description": "| demir_ocagi | kutu | placeholder | `yapi/demir_ocagi.glb` | eritme ocağı, bloomery | orta |"
+    "description": "| demir_ocagi | kutu | placeholder | `yapi/demir_ocagi.glb` | eritme ocağı, bloomery | orta |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-muhafiz_kislasi",
     "section": "### C1. Yapı görselleri",
-    "description": "| muhafiz_kislasi | kutu | placeholder | `yapi/muhafiz_kislasi.glb` | nöbet barakası, mızrak sehpası, not castle | yüksek |"
+    "description": "| muhafiz_kislasi | kutu | placeholder | `yapi/muhafiz_kislasi.glb` | nöbet barakası, mızrak sehpası, not castle | yüksek |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "YAPI-gozetleme_kulesi",
     "section": "### C1. Yapı görselleri",
-    "description": "| gozetleme_kulesi | menü `model_var_mi` ile atlar | yok | `assets/model/yapi/gozetleme_kulesi.glb` | dört direkli ahşap kule, merdiven, watchtower | orta |"
+    "description": "| gozetleme_kulesi | menü `model_var_mi` ile atlar | yok | `assets/model/yapi/gozetleme_kulesi.glb` | dört direkli ahşap kule, merdiven, watchtower | orta |",
+    "dimensions": "3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m"
   },
   {
     "id": "YAPI-pazar_tezgahi",
     "section": "### C1. Yapı görselleri",
-    "description": "| pazar_tezgahi | GLB var, sahne kurmuyor | yarım | `assets/model/yapi/pazar_tezgahi.glb` | saz çatı, çuval, market stall | orta |"
+    "description": "| pazar_tezgahi | GLB var, sahne kurmuyor | yarım | `assets/model/yapi/pazar_tezgahi.glb` | saz çatı, çuval, market stall | orta |",
+    "dimensions": "6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır"
   },
   {
     "id": "YAPI-sur 2–3",
     "section": "### C1. Yapı görselleri",
-    "description": "| sur 2–3 | kazık çit ölçeklenir, `SurHasarGorseli` | yarım | `yapi/sur_tas.glb`, `yapi/burc.glb` | kaba taş sur, mazgal, no castle crenellation fantasy | orta |"
+    "description": "| sur 2–3 | kazık çit ölçeklenir, `SurHasarGorseli` | yarım | `yapi/sur_tas.glb`, `yapi/burc.glb` | kaba taş sur, mazgal, no castle crenellation fantasy | orta |",
+    "dimensions": "3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m"
   },
   {
     "id": "HYV-AT",
     "section": "### C4. Hayvan ve prop",
-    "description": "| HYV-AT | Sorhan, Nogay, kervan, TUC, HAR-07 | yok | `assets/model/nesne/at.glb` | steppe horse, felt saddle, idle | ileri |"
+    "description": "| HYV-AT | Sorhan, Nogay, kervan, TUC, HAR-07 | yok | `assets/model/nesne/at.glb` | steppe horse, felt saddle, idle | ileri |",
+    "dimensions": "0,80 × 1,60 × 2,30 m; deve yüksekliği 2,10 m"
   },
   {
     "id": "HYV-KOYUN",
     "section": "### C4. Hayvan ve prop",
-    "description": "| HYV-KOYUN | Ağıl, ANI-05, TUC-02 | yok | `koyun.glb` | yün, sheep, low poly | ileri |"
+    "description": "| HYV-KOYUN | Ağıl, ANI-05, TUC-02 | yok | `koyun.glb` | yün, sheep, low poly | ileri |",
+    "dimensions": "0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne"
   },
   {
     "id": "HYV-KECI",
     "section": "### C4. Hayvan ve prop",
-    "description": "| HYV-KECI | Yusuf olayı | yok | `keci.glb` | kara keçi, goat | orta |"
+    "description": "| HYV-KECI | Yusuf olayı | yok | `keci.glb` | kara keçi, goat | orta |",
+    "dimensions": "0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne"
   },
   {
     "id": "HYV-DEVE",
     "section": "### C4. Hayvan ve prop",
-    "description": "| HYV-DEVE | Kervan | yok | `deve.glb` | yüklü deve, camel bales | düşük |"
+    "description": "| HYV-DEVE | Kervan | yok | `deve.glb` | yüklü deve, camel bales | düşük |",
+    "dimensions": "0,80 × 1,60 × 2,30 m; deve yüksekliği 2,10 m"
   },
   {
     "id": "HYV-KOPEK",
     "section": "### C4. Hayvan ve prop",
-    "description": "| HYV-KOPEK | Gece köy | yok | `kopek.glb` | kangal, lying dog | düşük |"
+    "description": "| HYV-KOPEK | Gece köy | yok | `kopek.glb` | kangal, lying dog | düşük |",
+    "dimensions": "0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne"
   },
   {
     "id": "PROP-ORS",
     "section": "### C4. Hayvan ve prop",
-    "description": "| PROP-ORS | Demirhane izi | yok | `nesne/ors.glb` | örs, kütük, anvil | orta |"
+    "description": "| PROP-ORS | Demirhane izi | yok | `nesne/ors.glb` | örs, kütük, anvil | orta |",
+    "dimensions": "0,50 × 0,75 × 0,35 m; kütük dahil"
   },
   {
     "id": "PROP-TEZGAH",
     "section": "### C4. Hayvan ve prop",
-    "description": "| PROP-TEZGAH | Ayşe / bez | yok | `nesne/dokuma_tezgahi.glb` | kilim tezgâhı, loom | düşük |"
+    "description": "| PROP-TEZGAH | Ayşe / bez | yok | `nesne/dokuma_tezgahi.glb` | kilim tezgâhı, loom | düşük |",
+    "dimensions": "1,50 × 1,60 × 0,60 m"
   },
   {
     "id": "PROP-AGAC-2",
     "section": "### C4. Hayvan ve prop",
-    "description": "| PROP-AGAC-2 | Tek `agac.glb` | yarım | `agac_02.glb`, `kaya_02.glb` | servi, kuru meşe, ikinci kaya | düşük |"
+    "description": "| PROP-AGAC-2 | Tek `agac.glb` | yarım | `agac_02.glb`, `kaya_02.glb` | servi, kuru meşe, ikinci kaya | düşük |",
+    "dimensions": "Ağaç 2,0 × 5,0 × 2,0 m; kaya 1,2 × 0,8 × 1,0 m"
   },
   {
     "id": "ANI-SILAH",
     "section": "## D. İleri — kodlanmamış ROADMAP",
-    "description": "| ANI-SILAH | ANI-01, ANI-11 | Kılıç, kalkan, mızrak, meşale soketi | glTF, el kemiği | curved sabre, round shield, spear, torch, BoneAttachment |"
+    "description": "| ANI-SILAH | ANI-01, ANI-11 | Kılıç, kalkan, mızrak, meşale soketi | glTF, el kemiği | curved sabre, round shield, spear, torch, BoneAttachment |",
+    "dimensions": "Kılıç 0,08 × 0,85 × 0,04 m; kalkan çapı 0,60 m; mızrak boyu 2,0 m; alet boyu 0,35–1,20 m"
   },
   {
     "id": "ANI-ALET",
     "section": "## D. İleri — kodlanmamış ROADMAP",
-    "description": "| ANI-ALET | ANI-03, ANI-08, ANI-11 | Kova, orak, balta, örs çekici, fırın küreği | glTF | yoke, sickle, axe, peel |"
+    "description": "| ANI-ALET | ANI-03, ANI-08, ANI-11 | Kova, orak, balta, örs çekici, fırın küreği | glTF | yoke, sickle, axe, peel |",
+    "dimensions": "Kova 0,30 × 0,35 × 0,30 m; orak 0,40 m; balta 0,60 m; çekiç 0,35 m; kürek 1,20 m"
   },
   {
     "id": "ANI-HAYVAN-SURU",
     "section": "## D. İleri — kodlanmamış ROADMAP",
-    "description": "| ANI-HAYVAN-SURU | ANI-04, ANI-05 | Öküz yürüyüş, koyun otlama | glTF klip | ox walk, sheep graze |"
+    "description": "| ANI-HAYVAN-SURU | ANI-04, ANI-05 | Öküz yürüyüş, koyun otlama | glTF klip | ox walk, sheep graze |",
+    "dimensions": "Mevcut öküz ve koyun riginde yürüyüş/otlama klibi; model ölçeği korunur"
   },
   {
     "id": "TUC-TACIR",
     "section": "## D. İleri — kodlanmamış ROADMAP",
-    "description": "| TUC-TACIR | TUC-01…04, 08 | Celep, nalbur, kumaşçı, aktar, silah tüccarı | `karakter/<ad>_yuru.glb` | livestock dealer, black-market arms, felt merchant |"
+    "description": "| TUC-TACIR | TUC-01…04, 08 | Celep, nalbur, kumaşçı, aktar, silah tüccarı | `karakter/<ad>_yuru.glb` | livestock dealer, black-market arms, felt merchant |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "TUC-HAYVAN",
     "section": "## D. İleri — kodlanmamış ROADMAP",
-    "description": "| TUC-HAYVAN | TUC-02, TUC-14 | İnek, koç, beygir | glTF | cow, ram, riding horse |"
+    "description": "| TUC-HAYVAN | TUC-02, TUC-14 | İnek, koç, beygir | glTF | cow, ram, riding horse |",
+    "dimensions": "İnek 0,85 × 1,45 × 2,20 m; koç 0,55 × 0,85 × 1,10 m; beygir 0,80 × 1,60 × 2,30 m"
   },
   {
     "id": "MEV-ZEMIN",
     "section": "## D. İleri — kodlanmamış ROADMAP",
-    "description": "| MEV-ZEMIN | MEV-04, MEV-05 | Kar örtüsü, çatı karı, kürek — prompt hazır, Ahmet üretecek; 3D geometri açık | shader + PNG; `kurek.glb` | snow overlay, roof snow, shovel |"
+    "description": "| MEV-ZEMIN | MEV-04, MEV-05 | Kar örtüsü, çatı karı, kürek — prompt hazır, Ahmet üretecek; 3D geometri açık | shader + PNG; `kurek.glb` | snow overlay, roof snow, shovel |",
+    "dimensions": "Kürek 0,25 × 1,20 × 0,08 m; kar geometri katmanı mevcut çatı/zemin zarfında"
   },
   {
     "id": "MEV-AFET",
     "section": "## D. İleri — kodlanmamış ROADMAP",
-    "description": "| MEV-AFET | MEV-06, MEV-07, MEV-10 | Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF + PNG | flood, wildfire, wolf pack |"
+    "description": "| MEV-AFET | MEV-06, MEV-07, MEV-10 | Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF + PNG | flood, wildfire, wolf pack |",
+    "dimensions": "Bent modülü 3,0 × 0,8 × 0,6 m; kurt 0,45 × 0,8 × 1,1 m"
   },
   {
     "id": "CAS-GECE",
     "section": "## D. İleri — kodlanmamış ROADMAP",
-    "description": "| CAS-GECE | CAS-02, CAS-04 | Fener, yangın kovası | glTF | lantern, bucket chain |"
+    "description": "| CAS-GECE | CAS-02, CAS-04 | Fener, yangın kovası | glTF | lantern, bucket chain |",
+    "dimensions": "Açık kandil 0,18 × 0,08 × 0,12 m; kova 0,30 × 0,35 × 0,30 m"
   },
   {
     "id": "ODA-ODA",
     "section": "## D. İleri — kodlanmamış ROADMAP",
-    "description": "| ODA-ODA | ODA-01, ODA-08 | Muhafız odası, yatak, masa, kasa, kütüphane | `assets/model/yapi/muhafiz_odasi.glb` + prop | guard room, hidden floor chest, bed |"
+    "description": "| ODA-ODA | ODA-01, ODA-08 | Muhafız odası, yatak, masa, kasa, kütüphane | `assets/model/yapi/muhafiz_odasi.glb` + prop | guard room, hidden floor chest, bed |",
+    "dimensions": "Oda 4,0 × 2,8 × 4,0 m; yatak 0,9 × 0,5 × 2,0 m; masa 1,2 × 0,75 × 0,7 m"
   },
   {
     "id": "KRI-MEZAR",
     "section": "## D. İleri — kodlanmamış ROADMAP",
-    "description": "| KRI-MEZAR | KRI-05 | Toplu mezar, yazısız taş | glTF | unmarked grave |"
+    "description": "| KRI-MEZAR | KRI-05 | Toplu mezar, yazısız taş | glTF | unmarked grave |",
+    "dimensions": "2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m"
   },
   {
     "id": "ANI07-ISINMA",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ANI07-ISINMA | ANI-07 | İki el ateşe uzatılan ısınma döngüsü | glTF / iskelet animasyon klibi | res://src/koy/gorsel/ates_basi_rutini.gd (kol hedefleri; yeni asset dosyası yok) | ateş başı el ısıtma, köylü gece; campfire warm hands villager idle | orta | Codex |"
+    "description": "| ANI07-ISINMA | ANI-07 | İki el ateşe uzatılan ısınma döngüsü | glTF / iskelet animasyon klibi | res://src/koy/gorsel/ates_basi_rutini.gd (kol hedefleri; yeni asset dosyası yok) | ateş başı el ısıtma, köylü gece; campfire warm hands villager idle | orta | Codex |",
+    "dimensions": "Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez)"
   },
   {
     "id": "ANI08-TEZGAH",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ANI08-TEZGAH | ANI-08 | Örs ve fırın ağzı | glTF | res://src/koy/gorsel/zanaat_tezgahi.gd (kur: BoxMesh) | ortaçağ örs demirci ocağı fırın; medieval anvil forge oven | orta | Codex |"
+    "description": "| ANI08-TEZGAH | ANI-08 | Örs ve fırın ağzı | glTF | res://src/koy/gorsel/zanaat_tezgahi.gd (kur: BoxMesh) | ortaçağ örs demirci ocağı fırın; medieval anvil forge oven | orta | Codex |",
+    "dimensions": "Örs/kütük 0,50 × 0,75 × 0,35 m; fırın ağzı 0,80 × 0,70 × 0,40 m"
   },
   {
     "id": "ANI08-HAREKET",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ANI08-HAREKET | ANI-08 | Çekiç vurma ve fırın küreği döngüsü | glTF / iskelet animasyon klibi | res://src/koy/gorsel/zanaat_tezgahi.gd (kol: mevcut modifier yer tutucusu) | demirci çekiç vurma fırıncı kürek; blacksmith hammer strike baker peel | orta | Codex |"
+    "description": "| ANI08-HAREKET | ANI-08 | Çekiç vurma ve fırın küreği döngüsü | glTF / iskelet animasyon klibi | res://src/koy/gorsel/zanaat_tezgahi.gd (kol: mevcut modifier yer tutucusu) | demirci çekiç vurma fırıncı kürek; blacksmith hammer strike baker peel | orta | Codex |",
+    "dimensions": "Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez)"
   },
   {
     "id": "ANI09-SACAK",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ANI09-SACAK | ANI-09 | Yağmurdan korunma saçağı | glTF | res://src/koy/gorsel/karakter_hava_tepkisi.gd (sacak_kur: düz BoxMesh) | ortaçağ ev saçağı yağmur barınağı; medieval eaves rain shelter | orta | Codex |"
+    "description": "| ANI09-SACAK | ANI-09 | Yağmurdan korunma saçağı | glTF | res://src/koy/gorsel/karakter_hava_tepkisi.gd (sacak_kur: düz BoxMesh) | ortaçağ ev saçağı yağmur barınağı; medieval eaves rain shelter | orta | Codex |",
+    "dimensions": "2,00 × 0,25 × 1,20 m; taşıyıcı ev kenarına uygun"
   },
   {
     "id": "ANI09-BUZULME",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ANI09-BUZULME | ANI-09 | Soğukta büzülmüş yürüyüş | glTF / iskelet animasyon klibi | res://src/dunya/durus_duzeltici.gd (hava_egimi: mevcut modifier yer tutucusu) | soğuk köylü büzülmüş yürüme; cold villager hunched walk | orta | Codex |"
+    "description": "| ANI09-BUZULME | ANI-09 | Soğukta büzülmüş yürüyüş | glTF / iskelet animasyon klibi | res://src/dunya/durus_duzeltici.gd (hava_egimi: mevcut modifier yer tutucusu) | soğuk köylü büzülmüş yürüme; cold villager hunched walk | orta | Codex |",
+    "dimensions": "Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez)"
   },
   {
     "id": "ANI10-SINSI",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ANI10-SINSI | ANI-10 | Sinsi yürüyüş ve temkinli kuytu bekleyiş | glTF / iskelet animasyon klibi | res://src/koy/gorsel/sinsi_gece_rutini.gd + koy_halk_hareketi.gd (_adim: mevcut yürüyüş yavaşlatılır) | gece sinsi köylü temkinli yürüyüş; night villager stealth cautious walk idle | orta | Codex |"
+    "description": "| ANI10-SINSI | ANI-10 | Sinsi yürüyüş ve temkinli kuytu bekleyiş | glTF / iskelet animasyon klibi | res://src/koy/gorsel/sinsi_gece_rutini.gd + koy_halk_hareketi.gd (_adim: mevcut yürüyüş yavaşlatılır) | gece sinsi köylü temkinli yürüyüş; night villager stealth cautious walk idle | orta | Codex |",
+    "dimensions": "Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez)"
   },
   {
     "id": "ANI11-ALET",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ANI11-ALET | ANI-11 (ANI-ALET mevcut ihtiyaç) | Gerçek çekiç ve fırın küreği; sokete hazır tutma noktası | glTF | res://src/koy/gorsel/zanaat_tezgahi.gd (_kur: mevcut düz kutular); res://src/dunya/karakter_ekipman_yoneticisi.gd (tak: tek soket) | ortaçağ çekiç fırın küreği el soketi; medieval hammer baker peel hand grip socket | orta | Codex |"
+    "description": "| ANI11-ALET | ANI-11 (ANI-ALET mevcut ihtiyaç) | Gerçek çekiç ve fırın küreği; sokete hazır tutma noktası | glTF | res://src/koy/gorsel/zanaat_tezgahi.gd (_kur: mevcut düz kutular); res://src/dunya/karakter_ekipman_yoneticisi.gd (tak: tek soket) | ortaçağ çekiç fırın küreği el soketi; medieval hammer baker peel hand grip socket | orta | Codex |",
+    "dimensions": "Çekiç 0,12 × 0,35 × 0,06 m; kürek 0,20 × 1,20 × 0,06 m"
   },
   {
     "id": "ANI12-IDLE",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ANI12-IDLE | ANI-12 | Üç doğal bekleme döngüsü (nefes / ağırlık aktarma / çevreye bakış) | glTF / iskelet animasyon klibi | res://src/dunya/karakter_bekleme_cesitliligi.gd (acilar: mevcut modifier yer tutucusu) | köylü doğal bekleme nefes ağırlık bakış; villager idle breathing weight shift look around | orta | Codex |"
+    "description": "| ANI12-IDLE | ANI-12 | Üç doğal bekleme döngüsü (nefes / ağırlık aktarma / çevreye bakış) | glTF / iskelet animasyon klibi | res://src/dunya/karakter_bekleme_cesitliligi.gd (acilar: mevcut modifier yer tutucusu) | köylü doğal bekleme nefes ağırlık bakış; villager idle breathing weight shift look around | orta | Codex |",
+    "dimensions": "Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez)"
   },
   {
     "id": "TUC02-OKUZ",
     "section": "## G. Ajan eklemeleri",
-    "description": "| TUC02-OKUZ | TUC-02 / TUC-14 | Öküz barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | öküz çeki hayvanı; medieval draft ox | orta | Codex |"
+    "description": "| TUC02-OKUZ | TUC-02 / TUC-14 | Öküz barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | öküz çeki hayvanı; medieval draft ox | orta | Codex |",
+    "dimensions": "0,85 × 1,45 × 2,20 m; ayak tabanı y=0"
   },
   {
     "id": "TUC02-INEK",
     "section": "## G. Ajan eklemeleri",
-    "description": "| TUC02-INEK | TUC-02 / TUC-14 | İnek barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | inek ahır; medieval stable cow | orta | Codex |"
+    "description": "| TUC02-INEK | TUC-02 / TUC-14 | İnek barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | inek ahır; medieval stable cow | orta | Codex |",
+    "dimensions": "0,85 × 1,45 × 2,20 m; ayak tabanı y=0"
   },
   {
     "id": "TUC02-BEYGIR",
     "section": "## G. Ajan eklemeleri",
-    "description": "| TUC02-BEYGIR | TUC-02 / HAR-07 | Beygir barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | beygir yük atı; medieval pack horse | orta | Codex |"
+    "description": "| TUC02-BEYGIR | TUC-02 / HAR-07 | Beygir barınak modeli | glTF | res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | beygir yük atı; medieval pack horse | orta | Codex |",
+    "dimensions": "0,80 × 1,60 × 2,30 m"
   },
   {
     "id": "TUC02-KOC",
     "section": "## G. Ajan eklemeleri",
-    "description": "| TUC02-KOC | TUC-02 / TUC-14 | Koç barınak ve sürü modeli | glTF | res://src/koy/gorsel/canli_hayvan_surusu.gd → res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | koç ağıl; medieval sheep ram pen | orta | Codex |"
+    "description": "| TUC02-KOC | TUC-02 / TUC-14 | Koç barınak ve sürü modeli | glTF | res://src/koy/gorsel/canli_hayvan_surusu.gd → res://src/koy/gorsel/celep_hayvan_gorseli.gd (_yer_tutucu: düz renk BoxMesh; mevcut öküz modeli sonraki asset incelemesinde değerlendirilebilir) | koç ağıl; medieval sheep ram pen | orta | Codex |",
+    "dimensions": "0,55 × 0,85 × 1,10 m"
   },
   {
     "id": "HAR06-KULE",
     "section": "## G. Ajan eklemeleri",
-    "description": "| HAR06-KULE | HAR-06 | Gözcü kulesi yapı modeli | glTF | res://src/koy/gorsel/gozcu_kulesi_gorseli.gd; data/gozcu_kulesi.json (tek düz renk BoxMesh) | ortaçağ gözcü kule; medieval watchtower lookout | orta | Codex |"
+    "description": "| HAR06-KULE | HAR-06 | Gözcü kulesi yapı modeli | glTF | res://src/koy/gorsel/gozcu_kulesi_gorseli.gd; data/gozcu_kulesi.json (tek düz renk BoxMesh) | ortaçağ gözcü kule; medieval watchtower lookout | orta | Codex |",
+    "dimensions": "3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m"
   },
   {
     "id": "HAR10-YAY",
     "section": "## G. Ajan eklemeleri",
-    "description": "| HAR10-YAY | HAR-10 | Sur okçusu el yayı | glTF | res://src/koy/gorsel/konuslanma_donanimi.gd + data/savunma_konuslanmasi.json (tek düz BoxMesh, gerçek el soketi) | ortaçağ yay okçu; medieval archer bow hand prop | orta | Codex |"
+    "description": "| HAR10-YAY | HAR-10 | Sur okçusu el yayı | glTF | res://src/koy/gorsel/konuslanma_donanimi.gd + data/savunma_konuslanmasi.json (tek düz BoxMesh, gerçek el soketi) | ortaçağ yay okçu; medieval archer bow hand prop | orta | Codex |",
+    "dimensions": "0,08 × 1,10 × 0,35 m"
   },
   {
     "id": "HAR10-MIZRAK",
     "section": "## G. Ajan eklemeleri",
-    "description": "| HAR10-MIZRAK | HAR-10 | Kapı mızraklısı görev mızrağı | glTF | res://src/koy/gorsel/konuslanma_donanimi.gd + data/savunma_konuslanmasi.json (tek düz BoxMesh, mevcut muhafız) | kapı muhafızı mızrak; medieval gate guard spear hand prop | orta | Codex |"
+    "description": "| HAR10-MIZRAK | HAR-10 | Kapı mızraklısı görev mızrağı | glTF | res://src/koy/gorsel/konuslanma_donanimi.gd + data/savunma_konuslanmasi.json (tek düz BoxMesh, mevcut muhafız) | kapı muhafızı mızrak; medieval gate guard spear hand prop | orta | Codex |",
+    "dimensions": "0,06 × 2,00 × 0,06 m"
   },
   {
     "id": "MEV05-KUREK",
     "section": "## G. Ajan eklemeleri",
-    "description": "| MEV05-KUREK | MEV-05 | Kar küreme küreği ve temizlik klibi | glTF / iskelet klibi | res://src/koy/gorsel/cati_kar_rutini.gd (tek RightHand soketi, düz BoxMesh sap/ağız) | kar küreme çatı küreği; roof snow clearing shovel animation | orta | Codex |"
+    "description": "| MEV05-KUREK | MEV-05 | Kar küreme küreği ve temizlik klibi | glTF / iskelet klibi | res://src/koy/gorsel/cati_kar_rutini.gd (tek RightHand soketi, düz BoxMesh sap/ağız) | kar küreme çatı küreği; roof snow clearing shovel animation | orta | Codex |",
+    "dimensions": "0,25 × 1,20 × 0,08 m"
   },
   {
     "id": "MEV10-KURT",
     "section": "## G. Ajan eklemeleri",
-    "description": "| MEV10-KURT | MEV-10 | Kurt modeli, yürüyüş ve kaçış klibi | glTF / iskelet klibi | res://src/koy/gorsel/kurt_surusu.gd (_kur: tek BoxMesh) | kış kurt sürüsü; winter wolf pack walk flee | orta | Codex |"
+    "description": "| MEV10-KURT | MEV-10 | Kurt modeli, yürüyüş ve kaçış klibi | glTF / iskelet klibi | res://src/koy/gorsel/kurt_surusu.gd (_kur: tek BoxMesh) | kış kurt sürüsü; winter wolf pack walk flee | orta | Codex |",
+    "dimensions": "0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne"
   },
   {
     "id": "CAS05-DIVAN",
     "section": "## G. Ajan eklemeleri",
-    "description": "| CAS05-DIVAN | CAS-05 | Meydan divan masası ve oturma sıraları | glTF | res://src/koy/gorsel/divan_meydani.gd (kur/_kutu: geçici BoxMesh masa/iki sıra) | medieval village court judge table benches; köy divanı masa sıralar | orta | Codex |"
+    "description": "| CAS05-DIVAN | CAS-05 | Meydan divan masası ve oturma sıraları | glTF | res://src/koy/gorsel/divan_meydani.gd (kur/_kutu: geçici BoxMesh masa/iki sıra) | medieval village court judge table benches; köy divanı masa sıralar | orta | Codex |",
+    "dimensions": "Masa 2,00 × 0,80 × 1,00 m; oturak 0,50 × 0,45 × 0,50 m"
   },
   {
     "id": "CAS07-ZINDAN",
     "section": "## G. Ajan eklemeleri",
-    "description": "| CAS07-ZINDAN | CAS-07 | Kapı zindan hücresi kapısı | glTF | res://src/koy/gorsel/divan_zindan_gorseli.gd (kur: BoxMesh kapı işareti) | medieval gate jail cell door; kapı zindan hücresi kapı | orta | Codex |"
+    "description": "| CAS07-ZINDAN | CAS-07 | Kapı zindan hücresi kapısı | glTF | res://src/koy/gorsel/divan_zindan_gorseli.gd (kur: BoxMesh kapı işareti) | medieval gate jail cell door; kapı zindan hücresi kapı | orta | Codex |",
+    "dimensions": "Parmaklık modülü 1,50 × 2,00 × 0,10 m"
   },
   {
     "id": "ODA01-ICMEKAN",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ODA01-ICMEKAN | ODA-01 | Oda zemin ve duvarları | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | muhafız odası iç mekan; medieval guard room interior | orta | Codex |"
+    "description": "| ODA01-ICMEKAN | ODA-01 | Oda zemin ve duvarları | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | muhafız odası iç mekan; medieval guard room interior | orta | Codex |",
+    "dimensions": "4,0 × 2,8 × 4,0 m; mevcut oda tabanı y=0"
   },
   {
     "id": "ODA01-YATAK",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ODA01-YATAK | ODA-01 | Muhafız yatağı | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | ahşap ortaçağ yatağı; medieval wooden bed | orta | Codex |"
+    "description": "| ODA01-YATAK | ODA-01 | Muhafız yatağı | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | ahşap ortaçağ yatağı; medieval wooden bed | orta | Codex |",
+    "dimensions": "0,90 × 0,50 × 2,00 m"
   },
   {
     "id": "ODA01-MASA",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ODA01-MASA | ODA-01 | Muhafız masası | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | muhafız ahşap masa; medieval guard desk | orta | Codex |"
+    "description": "| ODA01-MASA | ODA-01 | Muhafız masası | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | muhafız ahşap masa; medieval guard desk | orta | Codex |",
+    "dimensions": "1,20 × 0,75 × 0,70 m"
   },
   {
     "id": "ODA01-MESALE",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ODA01-MESALE | ODA-01 | Oda meşalesi | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | duvar meşale lambası; medieval wall torch | orta | Codex |"
+    "description": "| ODA01-MESALE | ODA-01 | Oda meşalesi | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | duvar meşale lambası; medieval wall torch | orta | Codex |",
+    "dimensions": "0,12 × 0,60 × 0,12 m"
   },
   {
     "id": "ODA01-KASA",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ODA01-KASA | ODA-01 / ODA-02 | Gizli zemin kasası | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | gizli döşeme kasa; concealed floor strongbox | orta | Codex |"
+    "description": "| ODA01-KASA | ODA-01 / ODA-02 | Gizli zemin kasası | glTF | res://src/dunya/muhafiz_odasi.tscn → muhafiz_odasi.gd (_kutu: düz BoxMesh; data/muhafiz_odasi.json) | gizli döşeme kasa; concealed floor strongbox | orta | Codex |",
+    "dimensions": "0,60 × 0,40 × 0,40 m"
   },
   {
     "id": "ODA09-KABUS",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ODA09-KABUS | ODA-09 | Rüya gölgesi figürü | glTF | res://src/arayuz/oda_vicdan_paneli.gd (kur: MuhafizOdasi._kutu; data/muhafiz_vicdani.json golge) | rüya gölge figür; nightmare shadow figure | düşük | Codex |"
+    "description": "| ODA09-KABUS | ODA-09 | Rüya gölgesi figürü | glTF | res://src/arayuz/oda_vicdan_paneli.gd (kur: MuhafizOdasi._kutu; data/muhafiz_vicdani.json golge) | rüya gölge figür; nightmare shadow figure | düşük | Codex |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "ODA08-YATAK",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ODA08-YATAK | ODA-08 | Rahat muhafız yatağı | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: mevcut yatak kutusu renk değişimi; data/oda_gelisimi.json) | rahat muhafız yatağı; medieval guard comfortable bed | orta | Codex |"
+    "description": "| ODA08-YATAK | ODA-08 | Rahat muhafız yatağı | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: mevcut yatak kutusu renk değişimi; data/oda_gelisimi.json) | rahat muhafız yatağı; medieval guard comfortable bed | orta | Codex |",
+    "dimensions": "1,10 × 0,55 × 2,00 m"
   },
   {
     "id": "ODA08-ASKILIK",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ODA08-ASKILIK | ODA-08 | Donanım askılığı | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: MuhafizOdasi._kutu; data/oda_gelisimi.json askilik.parca) | muhafız zırh askılığı; medieval guard armor rack | orta | Codex |"
+    "description": "| ODA08-ASKILIK | ODA-08 | Donanım askılığı | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: MuhafizOdasi._kutu; data/oda_gelisimi.json askilik.parca) | muhafız zırh askılığı; medieval guard armor rack | orta | Codex |",
+    "dimensions": "0,60 × 1,60 × 0,40 m"
   },
   {
     "id": "ODA08-KUTUPHANE",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ODA08-KUTUPHANE | ODA-08 | Muhafız kütüphanesi | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: MuhafizOdasi._kutu; data/oda_gelisimi.json kutuphane.parca) | muhafız kitap rafı; medieval guard bookshelf | orta | Codex |"
+    "description": "| ODA08-KUTUPHANE | ODA-08 | Muhafız kütüphanesi | glTF | res://src/arayuz/oda_gelistirme_paneli.gd (gorsel: MuhafizOdasi._kutu; data/oda_gelisimi.json kutuphane.parca) | muhafız kitap rafı; medieval guard bookshelf | orta | Codex |",
+    "dimensions": "1,00 × 1,80 × 0,35 m"
   },
   {
     "id": "ODA03-ESYA",
     "section": "## G. Ajan eklemeleri",
-    "description": "| ODA03-ESYA | ODA-03 | Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri) | glTF / set | res://src/arayuz/oda_envanter_sergisi.gd (_kutu: masa üstü BoxMesh, UI düz ColorRect; data/muhafiz_odasi.json) | rüşvet kişisel eşya mühür şişe; medieval bribe personal inventory seal bottle props | orta | Codex |"
+    "description": "| ODA03-ESYA | ODA-03 | Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri) | glTF / set | res://src/arayuz/oda_envanter_sergisi.gd (_kutu: masa üstü BoxMesh, UI düz ColorRect; data/muhafiz_odasi.json) | rüşvet kişisel eşya mühür şişe; medieval bribe personal inventory seal bottle props | orta | Codex |",
+    "dimensions": "Mühür 0,05 × 0,06 × 0,05 m; iksir 0,06 × 0,15 × 0,06 m; hediye zarfı 0,30 m"
   },
   {
     "id": "KRI05-MEZAR",
     "section": "## G. Ajan eklemeleri",
-    "description": "| KRI05-MEZAR | KRI-05 | Toplu mezar ve cenaze töreni mezar işareti | glTF | res://src/koy/gorsel/cenaze_mezari.gd (kur: tek düz renk BoxMesh + kısa etiket) | toplu mezar cenaze köy yas; medieval village mass grave funeral burial marker | orta | Codex |"
+    "description": "| KRI05-MEZAR | KRI-05 | Toplu mezar ve cenaze töreni mezar işareti | glTF | res://src/koy/gorsel/cenaze_mezari.gd (kur: tek düz renk BoxMesh + kısa etiket) | toplu mezar cenaze köy yas; medieval village mass grave funeral burial marker | orta | Codex |",
+    "dimensions": "2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m"
   },
   {
     "id": "BUG21-TASYATAGI",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| BUG21-TASYATAGI | BUG-21 | Kazılabilir başlangıç ve kurtarıcı taş yatağı modeli | glTF / 3B model | res://src/koy/gorsel/tas_yatagi_gorseli.gd (kur: düz gri BoxMesh öbeği) | taş yatağı kaya öbeği taş toplama; stone deposit rock pile gathering | yüksek | Codex |"
+    "description": "| BUG21-TASYATAGI | BUG-21 | Kazılabilir başlangıç ve kurtarıcı taş yatağı modeli | glTF / 3B model | res://src/koy/gorsel/tas_yatagi_gorseli.gd (kur: düz gri BoxMesh öbeği) | taş yatağı kaya öbeği taş toplama; stone deposit rock pile gathering | yüksek | Codex |",
+    "dimensions": "3,0 × 0,6 × 2,0 m; açık taş yatağı"
   },
   {
     "id": "BUG25-MESALE",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| BUG25-MESALE | BUG-25 | Kapı meşalesi gerçek modeli (gerekirse) | glTF / 3B model | res://assets/model/nesne/mesale.glb (duran modelin düzeltilmiş hali) | kapı meşalesi duvar; medieval gate wall torch | orta | Claude |"
+    "description": "| BUG25-MESALE | BUG-25 | Kapı meşalesi gerçek modeli (gerekirse) | glTF / 3B model | res://assets/model/nesne/mesale.glb (duran modelin düzeltilmiş hali) | kapı meşalesi duvar; medieval gate wall torch | orta | Claude |",
+    "dimensions": "0,12 × 0,60 × 0,12 m; mevcut sokete uygun"
   },
   {
     "id": "BUG25-KUYU",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| BUG25-KUYU | BUG-25 | Köy kuyusu gerçek modeli (gerekirse) | glTF / 3B model | res://assets/model/nesne/kuyu.glb (duran modelin düzeltilmiş hali) | taş köy kuyusu; medieval stone village well | orta | Claude |"
+    "description": "| BUG25-KUYU | BUG-25 | Köy kuyusu gerçek modeli (gerekirse) | glTF / 3B model | res://assets/model/nesne/kuyu.glb (duran modelin düzeltilmiş hali) | taş köy kuyusu; medieval stone village well | orta | Claude |",
+    "dimensions": "1,20 × 1,20 × 1,20 m; taban y=0, mevcut kuyu yüksekliği korunur"
   },
   {
     "id": "ACL01-MUHAFIZ",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| ACL01-MUHAFIZ | ACL-01 | 13. yy Anadolu muhafız gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci modeli, mavi renk ve Muhafız etiketi; tek ayar data/acilis.json | Anadolu muhafız Selçuklu köylü; Anatolian medieval Seljuk guard villager | orta | Kalfa |"
+    "description": "| ACL01-MUHAFIZ | ACL-01 | 13. yy Anadolu muhafız gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci modeli, mavi renk ve Muhafız etiketi; tek ayar data/acilis.json | Anadolu muhafız Selçuklu köylü; Anatolian medieval Seljuk guard villager | orta | Kalfa |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "ACL01-ES",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| ACL01-ES | ACL-01 | Muhafızın eşi gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci_kadin modeli, toprak rengi ve Eş etiketi; tek ayar data/acilis.json | Anadolu köylü kadın Selçuklu eş; Anatolian medieval female villager spouse | orta | Kalfa |"
+    "description": "| ACL01-ES | ACL-01 | Muhafızın eşi gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci_kadin modeli, toprak rengi ve Eş etiketi; tek ayar data/acilis.json | Anadolu köylü kadın Selçuklu eş; Anatolian medieval female villager spouse | orta | Kalfa |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "KAP17-COCUK",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| KAP17-COCUK | KAP-17 | Çocuk köylü modeli | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli, küçük ölçek + renk farkı | Anadolu köylü çocuk; medieval anatolian peasant child | yüksek | Claude |"
+    "description": "| KAP17-COCUK | KAP-17 | Çocuk köylü modeli | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli, küçük ölçek + renk farkı | Anadolu köylü çocuk; medieval anatolian peasant child | yüksek | Claude |",
+    "dimensions": "0,40 × 1,15 × 0,30 m"
   },
   {
     "id": "KAP17-YASLI",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| KAP17-YASLI | KAP-17 | Yaşlı köylü modeli | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli, renk farkı + yavaş yürüyüş | Anadolu yaşlı köylü; medieval anatolian elder peasant | yüksek | Claude |"
+    "description": "| KAP17-YASLI | KAP-17 | Yaşlı köylü modeli | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli, renk farkı + yavaş yürüyüş | Anadolu yaşlı köylü; medieval anatolian elder peasant | yüksek | Claude |",
+    "dimensions": "0,55 × 1,65 × 0,40 m"
   },
   {
     "id": "CAT02-KAVGA",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| CAT02-KAVGA | CAT-02 | Kapıda kavga canlandırması | glTF / iskelet animasyon klibi | planlı — madde kodlanınca: kamera sarsıntısı + metin | kapı itişme kavga; medieval gate scuffle brawl animation | orta | Claude |"
+    "description": "| CAT02-KAVGA | CAT-02 | Kapıda kavga canlandırması | glTF / iskelet animasyon klibi | planlı — madde kodlanınca: kamera sarsıntısı + metin | kapı itişme kavga; medieval gate scuffle brawl animation | orta | Claude |",
+    "dimensions": "Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez)"
   },
   {
     "id": "ISG02-ALETLER",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| ISG02-ALETLER | ISG-02 | Geçici işlere özel el aletleri | glTF | planlı — madde kodlanınca: ANI-11 kutu soketi (düz BoxMesh) | ortaçağ el aleti kürek tırpan; medieval hand tools set | orta | Claude |"
+    "description": "| ISG02-ALETLER | ISG-02 | Geçici işlere özel el aletleri | glTF | planlı — madde kodlanınca: ANI-11 kutu soketi (düz BoxMesh) | ortaçağ el aleti kürek tırpan; medieval hand tools set | orta | Claude |",
+    "dimensions": "Kılıç 0,08 × 0,85 × 0,04 m; kalkan çapı 0,60 m; mızrak boyu 2,0 m; alet boyu 0,35–1,20 m"
   },
   {
     "id": "YAP03-USTALAR",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| YAP03-USTALAR | YAP-03 | Kapıdan gelen usta modelleri | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli + renk farkı + etiket | Selçuklu usta zanaatkâr; seljuk master craftsman | orta | Claude |"
+    "description": "| YAP03-USTALAR | YAP-03 | Kapıdan gelen usta modelleri | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli + renk farkı + etiket | Selçuklu usta zanaatkâr; seljuk master craftsman | orta | Claude |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "YAP05-ODA",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| YAP05-ODA | YAP-05 | Çözümleme odası modeli | glTF / 3B model | planlı — madde kodlanınca: düz renk BoxMesh + etiket | araştırma odası masa; medieval study workshop room | orta | Claude |"
+    "description": "| YAP05-ODA | YAP-05 | Çözümleme odası modeli | glTF / 3B model | planlı — madde kodlanınca: düz renk BoxMesh + etiket | araştırma odası masa; medieval study workshop room | orta | Claude |",
+    "dimensions": "4,0 × 2,8 × 4,0 m"
   },
   {
     "id": "DYL02-AYRINTI-*",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| DYL02-AYRINTI-* | DYL-02 | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: modelin bölgesinde düz renkli küçük kutu + gözlem metni | yamalı çarık nasırlı el yara; patched sandals calloused hands wound | yüksek | Claude |"
+    "description": "| DYL02-AYRINTI-* | DYL-02 | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: modelin bölgesinde düz renkli küçük kutu + gözlem metni | yamalı çarık nasırlı el yara; patched sandals calloused hands wound | yüksek | Claude |",
+    "dimensions": "Çarık 0,12 × 0,08 × 0,28 m; el/yara/giysi mevcut karakter rigine bağlı, ölçek değişmez"
   },
   {
     "id": "DYL03-YEMIN",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| DYL03-YEMIN | DYL-03 | Yemin nesneleri (dünya kitabına göre) | glTF | planlı — madde kodlanınca: düz renk kutu + etiket | yemin ekmek tuz kitap; oath bread salt holy book | orta | Claude |"
+    "description": "| DYL03-YEMIN | DYL-03 | Yemin nesneleri (dünya kitabına göre) | glTF | planlı — madde kodlanınca: düz renk kutu + etiket | yemin ekmek tuz kitap; oath bread salt holy book | orta | Claude |",
+    "dimensions": "0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı"
   },
   {
     "id": "DYL09-DENETCI",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| DYL09-DENETCI | DYL-09 | Beyin denetçisi modeli | glTF / 3B model | planlı — madde kodlanınca: mevcut köylü modeli + renk farkı | Selçuklu bey denetçi memur; seljuk inspector official | orta | Claude |"
+    "description": "| DYL09-DENETCI | DYL-09 | Beyin denetçisi modeli | glTF / 3B model | planlı — madde kodlanınca: mevcut köylü modeli + renk farkı | Selçuklu bey denetçi memur; seljuk inspector official | orta | Claude |",
+    "dimensions": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0"
   },
   {
     "id": "SEV03-IZ",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| SEV03-IZ | SEV-03 | Kişisel iz | glTF | planlı — madde kodlanınca: düz renk küçük kutu | kişisel eşya hatıra; personal keepsake trinket | düşük | Claude |"
+    "description": "| SEV03-IZ | SEV-03 | Kişisel iz | glTF | planlı — madde kodlanınca: düz renk küçük kutu | kişisel eşya hatıra; personal keepsake trinket | düşük | Claude |",
+    "dimensions": "0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı"
   },
   {
     "id": "SAB03-ORTU",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| SAB03-ORTU | SAB-03 | Kapalı iş yeri örtüsü — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: düz renk bez, ANI-08 düğümü üstünde | kapalı tezgâh örtü bez; covered workshop cloth | düşük | Claude |"
+    "description": "| SAB03-ORTU | SAB-03 | Kapalı iş yeri örtüsü — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: düz renk bez, ANI-08 düğümü üstünde | kapalı tezgâh örtü bez; covered workshop cloth | düşük | Claude |",
+    "dimensions": "1,50 × 1,00 × 0,80 m; örtü aynı taşıyıcının zarfına oturur"
   },
   {
     "id": "TEZ01-ORTU",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| TEZ01-ORTU | TEZ-01 | Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: düz renk | tezgâh örtüsü ağıl değirmen demirhane; workshop cover sheepfold mill forge | düşük | Claude |"
+    "description": "| TEZ01-ORTU | TEZ-01 | Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: düz renk | tezgâh örtüsü ağıl değirmen demirhane; workshop cover sheepfold mill forge | düşük | Claude |",
+    "dimensions": "1,50 × 1,00 × 0,80 m; örtü aynı taşıyıcının zarfına oturur"
   },
   {
     "id": "TEZ03-HAM",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| TEZ03-HAM | TEZ-03 | Ham blok | glTF | planlı — madde kodlanınca: düz renk küp, örtünün üstünde | ham malzeme blok; raw material block | düşük | Claude |"
+    "description": "| TEZ03-HAM | TEZ-03 | Ham blok | glTF | planlı — madde kodlanınca: düz renk küp, örtünün üstünde | ham malzeme blok; raw material block | düşük | Claude |",
+    "dimensions": "0,30 × 0,30 × 0,30 m"
   },
   {
     "id": "TEZ04-IZ",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| TEZ04-IZ | TEZ-04 | İz bloğu | glTF | planlı — madde kodlanınca: aynı küp, bir kenarı koyu | işlenmiş iz blok; worked material block | düşük | Claude |"
+    "description": "| TEZ04-IZ | TEZ-04 | İz bloğu | glTF | planlı — madde kodlanınca: aynı küp, bir kenarı koyu | işlenmiş iz blok; worked material block | düşük | Claude |",
+    "dimensions": "0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı"
   },
   {
     "id": "TEZ05-BICIM",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| TEZ05-BICIM | TEZ-05 | Biçim bloğu | glTF | planlı — madde kodlanınca: küp, etikette işin adı | biçimlenmiş parça; shaped workpiece | düşük | Claude |"
+    "description": "| TEZ05-BICIM | TEZ-05 | Biçim bloğu | glTF | planlı — madde kodlanınca: küp, etikette işin adı | biçimlenmiş parça; shaped workpiece | düşük | Claude |",
+    "dimensions": "0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı"
   },
   {
     "id": "TEZ06-AGIZ",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| TEZ06-AGIZ | TEZ-06 | Ağız bloğu | glTF | planlı — madde kodlanınca: küp, bir ucu açık renk | bıçak ağzı kenar; blade edge workpiece | düşük | Claude |"
+    "description": "| TEZ06-AGIZ | TEZ-06 | Ağız bloğu | glTF | planlı — madde kodlanınca: küp, bir ucu açık renk | bıçak ağzı kenar; blade edge workpiece | düşük | Claude |",
+    "dimensions": "0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı"
   },
   {
     "id": "TEZ08-PARCA",
     "section": "## H. ROADMAP 2 (ARY-05)",
-    "description": "| TEZ08-PARCA | TEZ-08 | Teslim parçası | glTF | planlı — madde kodlanınca: düz renk, yüzde küçük kutu | bitmiş zanaat parçası; finished craft piece | düşük | Claude |"
+    "description": "| TEZ08-PARCA | TEZ-08 | Teslim parçası | glTF | planlı — madde kodlanınca: düz renk, yüzde küçük kutu | bitmiş zanaat parçası; finished craft piece | düşük | Claude |",
+    "dimensions": "0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı"
   },
   {
     "id": "B4-ILERI-KLIPLER",
     "section": "### B4. Animasyon klipleri",
-    "description": "kos, otur, orak, cekic, nobet, saldir, dus, yagmur_yuru, kar_yuru — bir ileri 3D klip grubu"
+    "description": "kos, otur, orak, cekic, nobet, saldir, dus, yagmur_yuru, kar_yuru — bir ileri 3D klip grubu",
+    "dimensions": "Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez)"
   }
 ]
