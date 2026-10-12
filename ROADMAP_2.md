@@ -304,7 +304,7 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ### 15.1 Gelen sayısı
 
-- [ ] **KAP-16:** Değişken gelen sayısı, boş gün ve sayfadaki bar eşiği.
+- [/] **KAP-16:** (testx) Değişken gelen sayısı, boş gün ve sayfadaki bar eşiği.
   - Ne: Her gece kapıya gelen kişi sayısı sabit 3 olmaktan çıkar; köyün refahı, güvenliği, yatağı, mevsimi ve dünya olayı `data/gelen_akisi.json` üzerinden sayıyı belirler. 28 günde en az 4 gece kapı açık kalır ama kimse gelmez. Perde 2, perde 1 formülünü kullanmaz; `perde2_gece_basina_gelen` okunur. Aynı kadro kimliği bir gecede bir kez gelir. Ayrılmış ya da ölü kimlik kuyruğa yazılmaz. Tavan dolunca fazla kişi ertesi güne kalmaz. Fadime sayfasındaki "Moral < 6" gibi bar cümlesi ya canlı barla değerlendirilir ya sayfadan silinir.
   - Kurallar:
     1. `gece_basina_gelen = 3` sabiti kalkar. Günlük sayı köy çekiciliği (refah, güvenlik, yatak), mevsim ve dünya olayından gelir. Mevsim motoru (MEV) okunur, yeniden yazılmaz. Kışın sayı düşer, çünkü duran mevsim çarpanı okunur.
