@@ -4655,7 +4655,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: ARY-02. Boyut: M.
   - Dosya: yeni: `src/arayuz/ayarlar/ayar_sekmeleri.gd`, `oyun_sekmesi.gd`, `goruntu_sekmesi.gd`, `okuma_sekmesi.gd`, `ses_sekmesi.gd`; `ayarlar_ekrani.gd` tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-02:** (testx) Ek anahtarlar ayrı dosyadan kaydolur.
+- [x] **AYR-02:** (testx) Ek anahtarlar ayrı dosyadan kaydolur.
   - Ne: bu bölümün yeni anahtarları (`VARSAYILAN` ve `GECERLI` listeleri) `ayarlar_ek.gd` içinde durur ve açılışta `Ayarlar.degerler`'e birleştirilir; `ayarlar.gd` değişmez.
   - Kabul: `ayarlar.gd` diff 0; `ayarlar.al(&"yeni_anahtar")` çalışır. Test: birim.
   - Bağımlılık: yok. Boyut: S.
@@ -4679,7 +4679,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd` `sekme_sifirla(sekme)`.
   - Asset: asset gerekmedi.
-- [/] **AYR-06:** (testx) Ayarlar oyun içinden ve menüden aynı ekrandır.
+- [x] **AYR-06:** (testx) Ayarlar oyun içinden ve menüden aynı ekrandır.
   - Ne: Esc menüsü (`menu` eylemi) ve ana menü (`menu_ekrani.gd arayuz.menu.ayarlar`) aynı `AyarlarEkrani` örneğini açar; köy hızı açılışta saklanır, kapanışta geri gelir (`harita_baglantisi.gd:17` kalıbı).
   - Kabul: oyun içinde açılıp kapanınca `Engine.time_scale` eşit. Test: birim.
   - Bağımlılık: yok. Boyut: S.
@@ -4931,7 +4931,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-44:** (testx) Geçersiz değer varsayılana düşer, loglanır.
+- [x] **AYR-44:** (testx) Geçersiz değer varsayılana düşer, loglanır.
   - Ne: `_gecerli` reddettiği değer için tek satır log; oyun çökmez.
   - Kabul: bozuk cfg ile açılış, log 1. Test: birim.
   - Bağımlılık: yok. Boyut: S.
