@@ -16,7 +16,8 @@ static func ekle(y: KoyYonetimi, ebeveyn: Control, k: Koylu) -> void:
 	baslik.add_theme_font_size_override("font_size", Tema.KUCUK_PX)
 	ebeveyn.add_child(baslik)
 	for anahtar in YasamBarlari.DEGERLER:
-		ebeveyn.add_child(_satir(anahtar, d))
+		if d.has(anahtar):
+			ebeveyn.add_child(_satir(anahtar, d))
 
 ## İkon (yer tutucu), ad ve bar tek satırda; her değer kendi barında okunur.
 static func _satir(anahtar: String, d: Dictionary) -> Control:

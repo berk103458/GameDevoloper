@@ -171,6 +171,14 @@ func _oyuncu_ve_moral() -> void:
 	for p in y.get_property_list():
 		adlar.append(p.name)
 	dene(not ("aclik" in adlar), "Oyuncunun açlık alanı yoktur")
+	# Gerçek kural: ACL-01 muhafızının (oyuncu) kartında açlık alanı yok, aç gecede sayaç artmaz.
+	var oyuncu := hazir(0, 556)
+	var m := oyuncu.koylular[0]
+	m.bayrak_ac(YASAM.OYUNCU_BAYRAGI)
+	oyuncu.gece()
+	dene(not YASAM.oku(m, oyuncu).has("aclik") and m.aclik == 0, "Muhafızın açlık alanı yok, aç gecede sayaç 0")
+	dene(YASAM.oku(m, oyuncu).has("yorgunluk") and YASAM.oku(m, oyuncu).has("moral"), "Muhafızda yorgunluk ve moral durur")
+	dene(YASAM.oku(oyuncu.koylular[1], oyuncu).has("aclik") if oyuncu.koylular.size() > 1 else true, "Sıradan köylüde açlık alanı durur")
 	var k := y.koylular[0]
 	k.yorgunluk = {"son_gece": y.gun - 1}
 	dene(bool(YASAM.oku(k, y).yorgunluk), "Yorgunluk UZM-14 gece vardiyası kaydından okunur")
