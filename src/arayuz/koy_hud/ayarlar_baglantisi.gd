@@ -6,14 +6,18 @@ extends RefCounted
 
 
 ## Köy eylem sütununa tek "Ayarlar" düğmesi ekler; düğme aynı ekranı açar.
-static func kur(e: KoyEkrani, v: VBoxContainer) -> void:
-	if v.get_node_or_null("ayarlar_ac") != null:
+static func kur(e: KoyEkrani, v: Container) -> void:
+	if not v.find_children("ayarlar_ac", "Button", true, false).is_empty():
 		return
+	# Divan/Oda/Harita satırına girer (harita_baglantisi kalıbı); sütunun altına yeni satır açmaz,
+	# yoksa ekranın alt kenarından taşar (Claude oyunda gördü).
+	var oda := v.find_children("oda_ac", "Button", true, false)
+	var hedef: Node = oda[0].get_parent() if not oda.is_empty() else v
 	var b := Button.new()
 	b.name = "ayarlar_ac"
 	b.text = String(TranslationServer.translate("arayuz.menu.ayarlar"))
 	b.custom_minimum_size.y = 42
-	v.add_child(b)
+	hedef.add_child(b)
 	b.pressed.connect(func() -> void: ac(e))
 
 
