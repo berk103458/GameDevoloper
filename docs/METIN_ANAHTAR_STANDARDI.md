@@ -48,3 +48,14 @@ uyuşmazlığı.
 - Her durum bir kez `push_warning` ile günlüğe yazılır; eksikler `GuvenliMetin.eksikler` listesindedir.
 - Düz metinler, sayılar ve dosya adları çeviriden etkilenmez.
 - Test: `tests/unit/metin/guvenli_metin_test.gd`, `tests/tools/test_metin_dogrula.py`.
+
+## 5. Yetim anahtarlar (KLT-11)
+
+Kodda ve katalogda kullanılmayan ama SYS-09 gereği silinmeyen satırlar. Metinleri, yerini tutan anahtarla
+eşitlenir ki iki satır çelişmesin.
+
+| Yetim | Yerini tutan | Not |
+|---|---|---|
+| `anlati.saldiri.guc` | `koy.olay.tekfur_baskini` | Tekfur baskını raporu; metin eşit |
+
+Türkçe metinde çift boşluk `metin_dogrula.py` ile hatadır (tüm önekler, `sohbet.` dahil).

@@ -28,7 +28,7 @@ anlati.maas_ambar,"Askerin hakkı ödendi: −%d akçe, kalanı ambardan −%d �
 anlati.maas_yok,Askerlere verecek akçe yok. Kışlada homurtu var.
 anlati.rusvet.harcandi,%s kırılmak üzereydi. Bir kese el altından gitti.
 anlati.saldiri.agir,Tekfur'un adamları köyün kıyısını yaktı.
-anlati.saldiri.guc,Tekfur'un adamları: güç %d. Köyün savunması: %d.
+anlati.saldiri.guc,"Tekfur'un akıncıları geldi: güçleri %d, savunman %d."
 anlati.saldiri.kayip,Saldırıda köyden biri öldü.
 anlati.saldiri.puskurtuldu,"Tekfur'un adamları surun dibine kadar geldi, geri döndü."
 anlati.sonuc.elkoy,Saklananlara el konuldu. %s yoluna döndü.
@@ -108,12 +108,12 @@ arayuz.oyun.harman.baslik,Harman
 arayuz.oyun.harman.ipucu,Daralan halka düvenin çemberine oturduğu anda Boşluk'a bas ya da tıkla.
 arayuz.oyun.isabet,İsabet
 arayuz.oyun.iska,Iska
-arayuz.oyun.kenar,Halkaya  +1
+arayuz.oyun.kenar,Halkaya +1
 arayuz.oyun.ok,Ok %d / %d
 arayuz.oyun.okculuk.baslik,Okçuluk
 arayuz.oyun.okculuk.ipucu,Nişangâh hedefin ortasından geçerken Boşluk'a bas ya da tıkla.
 arayuz.oyun.puan,Puan %d / %d
-arayuz.oyun.tam,Tam isabet  +2
+arayuz.oyun.tam,Tam isabet +2
 arayuz.oyun.vurus,Vuruş %d / %d
 arayuz.perde.baslik,Köy oturdu.
 arayuz.perde.devam,Ağa olarak devam et

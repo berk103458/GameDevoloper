@@ -71,6 +71,8 @@ def validate_text(text: str) -> list[str]:
                 errors.append(f"line {line}: YER-02 new key must be alan.alt.ad (three parts): {key!r}")
             if turkish is not None and turkish < len(row) and not row[turkish].strip():
                 errors.append(f"line {line}: empty Turkish translation for {key!r}")
+            elif turkish is not None and turkish < len(row) and "  " in row[turkish]:
+                errors.append(f"line {line}: KLT-11 double space in Turkish text for {key!r}")
     except csv.Error as exc:
         errors.append(f"line {reader.line_num}: malformed CSV: {exc}")
     return errors

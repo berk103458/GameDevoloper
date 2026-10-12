@@ -125,6 +125,16 @@ def checks(godot, root):
     yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
 
 
+# KLT-10: temiz turda çalışma anı eksik anahtar listesi (GuvenliMetin.eksikler) boştur; 20 gece dumanı
+# "eksik anahtar" uyarısı yazarsa adım düşer. Eksik anahtar listesi tektir (KLT-41): GuvenliMetin'in uyarısı.
+EKSIK_ANAHTAR = re.compile(r"Metin tablosu: eksik anahtar (\S+?);")
+
+
+def eksik_anahtar_hatasi(name, output):
+    """20 gece dumanında görülen eksik anahtarlar; başka adımlarda boş."""
+    return sorted(set(EKSIK_ANAHTAR.findall(output))) if name == "20-night-smoke" else []
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--godot")
@@ -142,6 +152,10 @@ def main():
         if marker and marker not in output:
             ok = False
             output += "\nMissing completion marker: " + marker
+        eksik = eksik_anahtar_hatasi(name, output)
+        if eksik:
+            ok = False
+            output += "\nKLT-10 eksik anahtar: " + ", ".join(eksik)
         (args.logs / (name + ".log")).write_text(output, encoding="utf-8")
         print(("PASS " if ok else "FAIL ") + name, flush=True)
         if not ok:

@@ -6385,13 +6385,13 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.4 Metin anahtarı ve CSV
 
-- [ ] **KLT-10:** TST-0002 altı eksik anahtar kapanır.
+- [x] **KLT-10:** (Claude) TST-0002 altı eksik anahtar kapanır.
   - Ne: eski: TST-0002. `metin_dogrula.py --kaynak` 0 eksik anahtar olmadan bu madde açık kalır. Yeni sistem değil, açık bulgu.
   - Kabul: `GuvenliMetin.eksikler` uzunluğu 0 (temiz tur). Test: araç. Taşınan: KLT-41: Eksik anahtar listesi tektir.
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `data/metin/metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-11:** TST-0006 çift boşluk ve tekfur ikizi.
+- [x] **KLT-11:** (Claude) TST-0006 çift boşluk ve tekfur ikizi.
   - Ne: eski: TST-0006. `arayuz.oyun.kenar`, `arayuz.oyun.tam` tek boşluk; `anlati.saldiri.guc` ya yetimdir (kaldır) ya `koy.olay.tekfur_baskini` ile birleşir. Anahtar silme SYS-09 kuralına aykırıysa yetim belgelenir, metin eşitlenir.
   - Kabul: iki satırda çift boşluk 0; iki metin çelişmez. Test: `metin_dogrula.py` kural + inceleme. Taşınan: KLT-42: Çift boşluk sohbet önekine de bakar.
   - Bağımlılık: SYS-09. Boyut: S.
@@ -6404,19 +6404,19 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Dosya: `metin_dogrula.py`.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-43:** Yer tutucu fazlası hatadır
+- [x] **KLT-43:** (Claude) Yer tutucu fazlası hatadır
   - Ne: Yer tutucu fazlası hatadır. Kod argümanından fazla `%s` 1 hata.
   - Kabul: Hata 1. Test: araç.
   - Bağımlılık: YER-02. Boyut: S.
   - Dosya: `tools/metin_dogrula.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-44:** Mükerrer anahtar hatadır
+- [x] **KLT-44:** (Claude) Mükerrer anahtar hatadır
   - Ne: Mükerrer anahtar hatadır. Aynı anahtar iki satır 1 hata. Silme yok, ikincisi red.
   - Kabul: Hata 1. Test: araç.
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `tools/metin_dogrula.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-45:** Tırnak kırığı satırı yutar
+- [x] **KLT-45:** (Claude) Tırnak kırığı satırı yutar
   - Ne: Tırnak kırığı satırı yutar. Standart §2. Kırık tırnak 1 hata, sonraki anahtar kurtulur.
   - Kabul: Hata 1, sonraki anahtar durur. Test: fixtures.
   - Bağımlılık: SYS-09. Boyut: S.

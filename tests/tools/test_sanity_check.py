@@ -58,6 +58,13 @@ class RunnerTest(unittest.TestCase):
         self.assertTrue(ok)
         self.assertIn("GEÇTİ", output)
 
+    def test_klt10_missing_key_in_20_night_smoke_fails(self):
+        uyari = "WARNING: Metin tablosu: eksik anahtar koy.kaynak.tomruk; ekranda [KEY_NOT_FOUND] gösteriliyor\n20 GECE DUMAN: GEÇTİ"
+        self.assertEqual(["koy.kaynak.tomruk"], sanity.eksik_anahtar_hatasi("20-night-smoke", uyari))
+        self.assertEqual([], sanity.eksik_anahtar_hatasi("20-night-smoke", "20 GECE DUMAN: GEÇTİ"))
+        # Birim testleri kasıtlı eksik anahtar dener (guvenli_metin_test); kural yalnız temiz turdadır.
+        self.assertEqual([], sanity.eksik_anahtar_hatasi("guvenli_metin_test", uyari))
+
     def test_good_output_passes(self):
         ok, _ = sanity.run([sys.executable, "-c", "print('GEÇTİ')"], ROOT, 5)
         self.assertTrue(ok)

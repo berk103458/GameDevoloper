@@ -69,6 +69,35 @@ class TranslationCSVTest(unittest.TestCase):
         # YER-02 öncesi iki parçalı anahtar korunur; üç parçalı yeni anahtar geçer.
         self.assertEqual([], MODULE.validate_text('keys,tr\nbar.halk,Halk\narayuz.yeni.ad,Metin\n'))
 
+    def test_klt11_double_space_one_error(self):
+        for key in ('arayuz.oyun.kenar', 'sohbet.kurt.1.giris'):
+            with self.subTest(key=key):
+                hatalar = MODULE.validate_text(f'keys,tr\n{key},Halkaya  +1\n')
+                self.assertEqual(1, len(hatalar), hatalar)
+                self.assertIn('KLT-11', hatalar[0])
+
+    def test_klt44_duplicate_key_exactly_one_error(self):
+        hatalar = MODULE.validate_text('keys,tr\narayuz.a.b,Bir\narayuz.a.b,Iki\narayuz.c.d,Uc\n')
+        self.assertEqual(1, len(hatalar), hatalar)
+        self.assertIn("first at line 2", hatalar[0])
+
+    def test_klt45_broken_quote_one_error(self):
+        # Araç kırık tırnağı 1 hata sayar; sonraki anahtarın kurtulması çalışma anı okuyucusundadır
+        # (tests/unit/metin/guvenli_metin_test.gd: "Kapanmamış tırnak sonraki satırları yutmaz").
+        hatalar = MODULE.validate_text('keys,tr\narayuz.a.b,"kapanmayan\narayuz.c.d,Saglam\n')
+        self.assertEqual(1, len(hatalar), hatalar)
+        self.assertIn('malformed CSV', hatalar[0])
+
+    def test_klt43_placeholder_surplus_one_error(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'src').mkdir()
+            (root / 'data').mkdir()
+            (root / 'src/a.gd').write_text('func f():\n\tvar a = tr("arayuz.iki.yer") % 5\n', encoding='utf-8')
+            hatalar = MODULE.validate_sources(root, {'arayuz.iki.yer': '%s ve %s'})
+            self.assertEqual(1, len(hatalar), hatalar)
+            self.assertIn('gets 1 argument(s) but text has 2', hatalar[0])
+
     def test_source_cross_check(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
