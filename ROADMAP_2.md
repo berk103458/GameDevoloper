@@ -4264,7 +4264,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
 
 ### 34.1 Omurga belgesi — üç perde, bir kapı
 
-- [ ] **OMR-01:** Omurga tek belgede durur.
+- [x] **OMR-01:** (Claude) Omurga tek belgede durur.
   - Ne: perde 1 (kapı açılır, köy kurulur, 18 nüfus), perde 2 (ağalık, 12 gece, dış baskı) ve kapanış (beş son) tek belgede; her perdenin sorusu, baskısı ve kapanış koşulu kod referansıyla yazılır.
   - Kabul: belgede `perde_gecisi.gd`, `nihai_son.gd`, `oyun.tres` alanları adlarıyla geçer; kodda olmayan koşul yoktur. Test: insan okuması + referans taraması.
   - Bağımlılık: yok. Boyut: S.
