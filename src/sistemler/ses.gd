@@ -46,6 +46,8 @@ func _ready() -> void:
 ## AudioStreamPlaybackWAV sızıntısı bildirir (QA A-002, A-003). Pencere kapatma da buradan geçer.
 func cik(kod: int = 0) -> void:
 	await sustur()
+	# Uçuştaki varlık yüklemeleri (load_threaded_request) kapanış anında sızıntı verir; bitmesini bekle.
+	await VarlikAkisDenetimi.bosalana_kadar(get_tree())
 	_onbellekleri_bosalt()
 	get_tree().quit(kod)
 

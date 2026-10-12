@@ -212,6 +212,8 @@ func _goster(e: Control) -> void:
 		_ekran.queue_free()
 	_ekran = e
 	add_child(e)
+	if e is KoyEkrani or e is KapiEkrani:
+		preload("res://src/debug/performans_gunlugu.gd").bagla(self, oturum)
 	var grafik := GrafikProfiliAdaptoru.new()
 	grafik.ayarlar = ayarlar
 	grafik.hedef = e

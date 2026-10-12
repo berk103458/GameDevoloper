@@ -24,6 +24,7 @@ static func hazirla(kok: Node, yollar: Array[String]) -> VarlikOnbellek:
 	zemin.add_child(yazi)
 	kok.add_child(katman)
 	var kaynak := VarlikOnbellek.new()
+	kaynak.akis_is = VarlikAkisDenetimi.basla()
 	kaynak.katman = weakref(katman)
 	var yazi_ref: WeakRef = weakref(yazi)
 	var guncelle := func(biten: int, toplam: int) -> void:
@@ -50,3 +51,4 @@ static func bitir(kok: Node, kaynak: VarlikOnbellek) -> void:
 	if is_instance_valid(katman):
 		katman.queue_free()
 	kaynak.bosalt()
+	VarlikAkisDenetimi.bitir(kaynak.akis_is)

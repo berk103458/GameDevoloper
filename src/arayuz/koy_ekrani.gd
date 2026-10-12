@@ -643,6 +643,7 @@ func _geceye_gec() -> void:
 	_hiz_sec(1)
 	Ses.cal(&"sfx_gece_bitti")
 	var once := _y.kaynaklar.stok.duplicate()
+	preload("res://src/debug/performans_gunlugu.gd").gece_bitir(self, _y.gun + 1)
 	var sonuc := oturum.gece_sonu()
 	_yenile()
 	# Gece hesaplaşması karanlıkta: rapor kartı ay ışığına dönen köyün üstünde açılır.

@@ -74,6 +74,8 @@ class RunnerTest(unittest.TestCase):
         self.assertIn("--filesystem", commands["startup-source"])
         self.assertIn("--manifest", commands["protected-api"])
         self.assertIn("tests/oto/levent_firari_kontrol.tscn", commands["levent_firari_kontrol"])
+        self.assertIn("tests/oto/performans_gunlugu_kontrol.tscn", commands["performans_gunlugu_kontrol"])
+        self.assertIn("performans_gunlugu_test", commands)
         self.assertIn("20-night-smoke", commands)
 
 

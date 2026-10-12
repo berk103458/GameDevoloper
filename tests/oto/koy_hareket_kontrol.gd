@@ -11,11 +11,15 @@ func _dene() -> void:
 	katalog.yukle()
 	var o := Oturum.new(katalog, 21)
 	var y := o.yonetim
-	var k := y.kabul({"ad": "Test köylü", "sinif": "ciftci"})
+	# ANI-10 (sinsi gece): uyumsuz meslek sabotaj riski doğurup gece hedefini değiştirir. Bu test
+	# yalnız genel iş/dinlenme/gece-eve-dönüş döngüsünü sınadığı için zanaat türü nötr (belirsiz) seçilir.
+	var k := y.kabul({"ad": "Test köylü", "sinif": "ciftci", "zanaat_turu": "BELIRSIZ"})
 	var m := y.a.meydan
 	var b := KoyBinasi.new()
 	b.id = 700
-	b.tur = "tarla"
+	# ANI-03 (8 Ekim): tarla işçisi gündüz sulama rutinine girer ve iş/dinlenme döngüsünü sulama
+	# yönetir. Genel döngü yalnız özel rutini olmayan işyerinde işler; bu yüzden işyeri "ambar".
+	b.tur = "ambar"
 	b.hucre = m.end + Vector2i(2, 0)
 	y.binalar.append(b)
 	y.izgara.yerlestir(b.id, b.hucreler(y.katalog))
@@ -27,6 +31,9 @@ func _dene() -> void:
 	y.izgara.yerlestir(ev.id, ev.hucreler(y.katalog))
 	k.is_yeri = b.id
 	k.ev = ev.id
+	# ANI-10 (gizli eğilim): eğilimi olan köylü gece eve değil tenha bir noktaya gider. Bu test genel
+	# gündüz iş/dinlenme ve gece eve dönüş döngüsünü sınar; sinsi rutininin kendi testi var.
+	k.gizli_egilim = {"tur": "yok"}
 	var durum_once := JSON.stringify(y.kaydet())
 	var s := KoyYonetimSahnesi.new()
 	s.yonetim = y

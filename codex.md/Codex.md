@@ -33,6 +33,43 @@ başlangıçta mevcut görev dosyaları aynayla aynıydı. Yalnız bu görevin 1
 başlangıç sürümüne karşı minimal yama transfer.patch, hash manifesti files.json.
 Sonraki adım Claude'un incelemesi ve sırayla tam sanity; ayna aktarımı yazma
 yetkisi olan oturumda tamamlanmalıdır.
+## TEK-10 — Üç gecelik performans günlüğü / 11 Ekim 2026
+
+Berk tarafındaki Codex: TEK-10 uygulandı. Asset gerekmedi. Kullanıcı talimatıyla
+ROADMAP işareti değiştirilmedi; commit/push ve .git işlemi yapılmadı.
+PerformansGunlugu, PerformansSeridi.oku() ile karelerden FPS frekansı ve kare_ms
+azamisini toplar. İlk üç gece için user://performans_<oturum>.jsonl dosyasına
+gece, fps_ortanca, kare_ms_azami, bellek_mb yazar; RAM Godot statik ayırmasıdır
+(MiB), bilinmeyen ölçüm null. Gece RAM'i gece hesabı/sonraki memory_free öncesinde
+okunur; günlük memory_free çağırmaz ve grafik profilini değiştirmez. Ana'da iki,
+KoyEkrani'nda bir satır adaptör; kapı/köy ekranları aynı oturum sayacını paylaşır.
+Üç gece sonunda örnekleme durur; çift gece geçişi ikinci satır oluşturmaz.
+Eşikler teknik.json: FPS ortanca en az 30, kare süresi tavanı 100 ms (öneri).
+Eksik/bozuk ana dosya/alan için teknik_varsayilan.json kullanılır; kodda eşik
+sabiti yok. Eşik ihlalinde konsol loguna tek JSON uyarısı; oyuncuya UI satırı yok.
+Açma bayrağı etkin: debug veya kullanıcı argümanı --perf-log; TEK-11'in oyuncu
+export doğrulaması/SRM-05 kapsamı uygulanmadı, madde kapanmadı.
+
+Godot 4.7.2 ed1daf0bf: son import exit 0, parse/script hatası yok; yeni birim
+21 kontrol / GEÇTİ (tek/çift/frekans ortancası, azami, RAM, bozuk/eksik ayar,
+gece sıfırlama, tekrar/dördüncü gece, eşik sınırları). Gerçek oyun akışı 50
+kontrol / GEÇTİ: gece düğmesi, Oturum.gece_sonu, rapor/sabah, gerçek kapıya dönüş
+ve gece_bitti sinyali; 3 JSONL satırı, tek yüksek-eşik uyarısı, profil/cache
+korunur, crash yok; bitmiş gece raporu sonraki geceye örnek taşımaz.
+Rasgele gece kartları test kataloğunda kapalıdır; headless
+FPS başarım eşiğine bağlanmadı. PerformansSeridi birimi GEÇTİ; python -B
+tools/python_test_runner.py 45 test / OK. Tam sanity koşulmadı. Bilinen ortam
+sertifika deposu hatası dışında test loglarında hata yok. Sanity listesine yeni
+akış eklendi; birim otomatik keşfediliyor, Python liste denetimi güncellendi.
+APPDATA/LOCALAPPDATA mutlak C:/Users/ds/Documents/Codex/codex-wt2/work/ad/tek10;
+kanıt work/tek10/*.log, JSONL user:// altında. Sonraki iş Claude'un sırayla
+incelemesi; TEK-11 export denetimi bu görevin dışında.
+
+Zorunlu ds GitHub aynası mevcut; ana.gd, koy_ekrani.gd, sanity_check.py ve bu
+status başlangıç kopyaları aynayla aynı. Oturumun yazma izni yalnız codex-wt2
+olduğundan ayna eşitlenemedi. Görev dosyaları ve mevcut dosyalar için yama:
+work/tek10/transfer.zip; liste/ayna karşılaştırması work/tek10/files.json.
+gh bulunmadığından issue #11 okunamadı; dış mesaj gönderilmedi.
 
 ## BUG-23 — Tarla içinde iş noktası / 11 Ekim 2026
 

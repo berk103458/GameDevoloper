@@ -113,6 +113,7 @@ def checks(godot, root):
     yield "kitlik_nobeti_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/kitlik_nobeti_kontrol.tscn"], "GEÇTİ"
     yield "sifali_ot_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/sifali_ot_kontrol.tscn"], "GEÇTİ"
     yield "diyalog_sirasi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/diyalog_sirasi_kontrol.tscn"], "GEÇTİ"
+    yield "koy_hareket_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/koy_hareket_kontrol.tscn"], "GEÇTİ"
     yield "nihai_son_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/nihai_son_kontrol.tscn"], "GEÇTİ"
     for scene in ("levent_final_kontrol", "atil_bayrak_kapanis_kontrol"):
         yield scene, [godot, "--headless", "--path", str(root), f"tests/oto/{scene}.tscn"], "GEÇTİ"
@@ -125,6 +126,7 @@ def checks(godot, root):
     yield "duraklat_menu_kayit_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/duraklat_menu_kayit_kontrol.tscn"], "GEÇTİ"
     yield "kesik_kayit_devam_kontrol", [sys.executable, "-B", str(root / "tests/oto/kesik_kayit_devam_kontrol.py"), godot], "GEÇTİ"
     yield "acilis_koy_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/acilis_koy_kontrol.tscn"], "GEÇTİ"
+    yield "performans_gunlugu_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/performans_gunlugu_kontrol.tscn"], "GEÇTİ"
     yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
 
 

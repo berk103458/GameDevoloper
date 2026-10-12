@@ -8,6 +8,14 @@ var kaynaklar: Dictionary = {}
 var hatalar: Array[String] = []
 var istek_sayisi := 0
 var katman: WeakRef
+## `VarlikAkisDenetimi` kimliği: uçuştaki zincir defterinden düşmek için (bkz. o dosya).
+var akis_is := 0
+
+
+## Kaynakları tutan zincir koparsa (bitir() çağrılmadan nesne silinirse) defter kendiliğinden düşer.
+func _notification(ne: int) -> void:
+	if ne == NOTIFICATION_PREDELETE:
+		VarlikAkisDenetimi.bitir(akis_is)
 
 func yukle(agac: SceneTree, yollar: Array[String]) -> void:
 	var sirada: Array[String] = []
