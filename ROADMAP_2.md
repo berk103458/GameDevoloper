@@ -4333,7 +4333,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OGR-01. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tek koşul.
   - Asset: asset gerekmedi.
-- [ ] **OMR-12:** Geçiş geri alınmaz, kayıt geçişi korur.
+- [x] **OMR-12:** (Claude) Geçiş geri alınmaz, kayıt geçişi korur.
   - Ne: `perde_gecisi.yukle` legacy davranışı (alan yoksa sonraki gece başlar) belgelenir ve test edilir; omurga buna dokunmaz.
   - Kabul: `tests/unit/kvr/` mevcut perde testi referansla belgede. Test: var olan test geçer.
   - Bağımlılık: yok. Boyut: S.
@@ -4558,7 +4558,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
 
 ### 34.9 Yeniden oynanabilirlik
 
-- [ ] **OMR-46:** Beş son beş farklı ilk aile değildir.
+- [x] **OMR-46:** (Claude) Beş son beş farklı ilk aile değildir.
   - Ne: açılış (ACL-04) sabittir; omurga dallanması oyuncunun kararlarındadır. Madde sınır koyar: `omurga.json` açılışı okumaz.
   - Kabul: tarama. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -4591,7 +4591,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
 
 ### 34.10 Sınırlar ve kapanış
 
-- [ ] **OMR-51:** Üçüncü perde yoktur.
+- [x] **OMR-51:** (Claude) Üçüncü perde yoktur.
   - Ne: `perde2_hedef_gece` dolunca oyun biter; omurga üçüncü perde, ikinci harita veya yeni son açmaz.
   - Kabul: `nihai_sonlar.json sonlar` sayısı sabit (5 + kayıp sonları). Test: sayım.
   - Bağımlılık: yok. Boyut: S.
@@ -7003,7 +7003,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **SRM-15:** `Ses.cik` oyunu kapatır.
+- [x] **SRM-15:** (Claude) `Ses.cik` oyunu kapatır.
   - Ne: menü çıkışı bugünkü `Ses.cik()` yoludur. İkinci kapatma fonksiyonu yok.
   - Kabul: çıkış çağrısı 1. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -7316,7 +7316,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-05. Boyut: S.
   - Dosya: `docs/EKSIK_ASSET_ENVANTERI.md`.
   - Asset: iki envanter satırı. Yer tutucu: tema rengi.
-- [ ] **GRV-27:** Portre ve ikon `Sanat`'tan gelir.
+- [x] **GRV-27:** (Claude) Portre ve ikon `Sanat`'tan gelir.
   - Ne: `sanat.gd` `portre` / `doku` durur. Panel kendi `load` yolunu açmaz.
   - Kabul: `src/arayuz` içinde `load("res://assets` tarama, `Sanat.` dışı 0 (istisna belgede). Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -7325,13 +7325,13 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 43.10 Sınırlar ve kapanış
 
-- [ ] **GRV-28:** Oynanış bu bölümden değişmez.
+- [x] **GRV-28:** (Claude — TEK-12 protected-api) Oynanış bu bölümden değişmez.
   - Ne: kabul, ret, hız, fiyat, divan hükmü aynı fonksiyonlardır. Yalnız çizim kaynağı değişir.
   - Kabul: `api_sozlesmesi.py` oyun kuralları farkı 0. Test: araç.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: baseline.
   - Asset: asset gerekmedi.
-- [ ] **GRV-29:** 3B cila Bölüm 44'tür.
+- [x] **GRV-29:** (Claude) 3B cila Bölüm 44'tür.
   - Ne: kamera, animasyon, pelerin, ayak (TST-0007/0008) burada yoktur.
   - Kabul: `src/koy/gorsel/` diff'i bu bölümden 0. Test: tarama.
   - Bağımlılık: SAH. Boyut: S.
@@ -8538,7 +8538,7 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: GIR-02. Boyut: S.
   - Dosya: `koy_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GIR-18:** Orta tuş BUG-24'te kalır.
+- [x] **GIR-18:** (Claude) Orta tuş BUG-24'te kalır.
   - Ne: kamera orta tuşu bu dosyada yeniden tanımlanmaz.
   - Kabul: bu bölümde orta tuş maddesi 1'dir ve o da budur (iş yok). Test: sayım.
   - Bağımlılık: BUG-24. Boyut: S.
@@ -8583,7 +8583,7 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: SRM-05. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **GIR-24:** Gamepad glyph çizilmez.
+- [x] **GIR-24:** (Claude) Gamepad glyph çizilmez.
   - Ne: düğme ikonu üretilmez. Metin "A", "B", "Start" yeter. İhtiyaç doğarsa ARY-05, bu madde dosya koymaz.
   - Kabul: yeni png 0. Test: sayım.
   - Bağımlılık: yok. Boyut: S.
@@ -8709,7 +8709,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.5 Font
 
-- [ ] **YER-12:** Alegreya Türkçe glifleri taşır.
+- [x] **YER-12:** (Claude) Alegreya Türkçe glifleri taşır.
   - Ne: `ı İ ş ğ ü ö ç` gövde puntosunda `.` kutusuna düşmez. Ölçüm `tema.gd` fontu ile bir test dizesidir. Yeni font indirilmez.
   - Kabul: yedi karakterde `get_char_size` 0 değil. Test: birim.
   - Bağımlılık: yok. Boyut: S.
@@ -8724,13 +8724,13 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.6 Çoğul ve biçim
 
-- [ ] **YER-14:** Çoğul eki ayrı anahtardır, motor değildir.
+- [x] **YER-14:** (Claude) Çoğul eki ayrı anahtardır, motor değildir.
   - Ne: Türkçe ek uyumu için `tr()` içinde ek üretilmez. Gerekirse `...tek` / `...cok` iki anahtar. Yeni i18n kütüphanesi yok.
   - Kabul: `src/` içinde çoğul fonksiyonu 0. Test: tarama.
   - Bağımlılık: YER-02. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **YER-15:** Sayı biçimi Türkçe kalır.
+- [x] **YER-15:** (Claude) Sayı biçimi Türkçe kalır.
   - Ne: binlik ayırıcı ve ondalık için ikinci bir biçimleyici yok. Akçe ve kaynak etiketleri bugünkü `tr` kalıbındadır.
   - Kabul: `Locale` sayı formatı değiştiren satır 0. Test: tarama.
   - Bağımlılık: yok. Boyut: S.

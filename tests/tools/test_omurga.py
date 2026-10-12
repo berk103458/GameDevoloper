@@ -28,7 +28,7 @@ class OmurgaTest(unittest.TestCase):
             self.assertIn("oyun.tres::" + alan, BELGE)
 
     def test_bes_son_ve_iki_perde(self):
-        self.assertEqual(3, len(re.findall(r"^## ", BELGE, re.M)))
+        self.assertEqual(4, len(re.findall(r"^## ", BELGE, re.M)))  # perde 1, perde 2, kapanış, sınırlar
         for son in ("tekfur_haraccisi", "ertugrul_obasi", "beyin_uc_koyu", "ahi_kasabasi", "uc_tutundu"):
             self.assertIn("nihai_sonlar.json::" + son, BELGE)
 

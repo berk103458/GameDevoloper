@@ -20,6 +20,12 @@ IHLAL = {
     "OZL-28": ("src/arayuz/olay_sahnesi.tscn", "[gd_scene]\n"),
     "OZL-32": ("src/dunya/gece_haritasi.gd", "extends Node\n"),
     "HFZ-22": ("src/arayuz/ana.gd", "func _son_goster():\n\tHafizaDefteriEkrani.new()\n"),
+    "SRM-15": ("src/arayuz/menu_cikis.gd", "func cik():\n\tget_tree().quit()\n"),
+    "GRV-27": ("src/arayuz/panel.gd", 'var t := load("res://assets/art/ui/x.png")\n'),
+    "YER-14": ("src/sistemler/ek.gd", "static func cogul_ek(s):\n\treturn s\n"),
+    "YER-15": ("src/sistemler/dil.gd", 'func _ready():\n\tTranslationServer.set_locale("en")\n'),
+    "OMR-46": ("data/omurga.json", '{"acilis": "ACL-04"}'),
+    "OMR-51": ("data/nihai_sonlar.json", '{"sonlar": {"altinci": {}}}'),
 }
 
 
@@ -35,6 +41,21 @@ class KapsamBekcisiTest(unittest.TestCase):
         ihlal = arac.tek_dokunmaz_ihlalleri([k for k in kayitlar if "TEK-" in k[1]])
         self.assertEqual(["abc1234 src/koy/odun_zinciri.gd"], ihlal["TEK-33"])
         self.assertEqual([], ihlal["TEK-30"])
+
+    def test_gir18_ikinci_orta_tus_maddesi_yakalanir(self):
+        temiz = "## BÖLÜM 45\n- [ ] **GIR-18:** Orta tuş BUG-24'te kalır.\n## BÖLÜM 46\n"
+        self.assertEqual([], arac.gir18_orta_tus(temiz))
+        bozuk = temiz.replace("## BÖLÜM 46", "- [ ] **GIR-40:** Orta tuş ile döndürme.\n## BÖLÜM 46")
+        self.assertEqual(1, len(arac.gir18_orta_tus(bozuk)))
+
+    def test_grv27_belgelenmis_istisna_gecer(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            kok = Path(tmp)
+            (kok / "src/arayuz").mkdir(parents=True)
+            (kok / "docs/arayuz").mkdir(parents=True)
+            (kok / "src/arayuz/tema.gd").write_text('var f := load("res://assets/font/a.ttf")\n', encoding="utf-8")
+            (kok / "docs/arayuz/YUKLEME_ISTISNALARI.md").write_text("| `src/arayuz/tema.gd` | font | tema |\n", encoding="utf-8")
+            self.assertEqual([], arac.denetle(kok)["GRV-27"])
 
     def test_tek32_chr011_baska_maddede_yakalanir(self):
         temiz = "## BÖLÜM 41\n- [ ] **TEK-32:** Model ölçüsü\n  - Ne: chr_011 Bölüm 44.\n## BÖLÜM 42\n"

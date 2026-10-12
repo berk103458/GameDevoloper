@@ -41,3 +41,9 @@ Yalnız zafer beş sondan birine ayrılır; kayıp sonları kendi başlık ve me
 5. **Uç Tutundu** (`data/nihai_sonlar.json::uc_tutundu`): yukarıdakilerin hiçbiri değilse.
 
 Her sona, kayıp sonları dahil, `src/sistemler/nihai_son.gd::epilog` altı göstergenin değerini ve kademesini (`data/nihai_sonlar.json::yuksek`, `data/nihai_sonlar.json::dusuk`) ekler. Son ekranı `src/sistemler/nihai_son.gd::son_metni` adaptörüyle mevcut başlık/metin sözleşmesini korur.
+
+## Sınırlar
+
+- **Eski kayıtta geçiş (OMR-12):** 2. perdenin başlangıç günü kayıtta yoksa ya da bozuksa `src/koy/perde_gecisi.gd::yukle` onu boşaltır ve geçiş sonraki gece yeniden işaretlenir; oyun anında bitmez. Omurga bu davranışa dokunmaz. Mevcut test: `tests/unit/kvr/perde_gecisi_test.gd` (eski kayıt satırları).
+- **Açılış sabittir (OMR-46):** açılış ACL-01/ACL-04'tür; omurganın dallanması oyuncunun kararlarındadır. Omurga verisi açılışı okumaz.
+- **Üçüncü perde yoktur (OMR-51):** 2. perde hedef gecesi dolunca oyun biter. Omurga üçüncü perde, ikinci harita ya da yeni son açmaz; `data/nihai_sonlar.json::sonlar` beş sondur, kayıp sonları sabittir.

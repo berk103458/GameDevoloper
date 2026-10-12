@@ -119,7 +119,63 @@ def srm22_24_magaza(root):
     return ihlal
 
 
+def srm15_tek_cikis(root):
+    """SRM-15: oyunu kapatan tek çağrı `Ses.cik` içindeki `get_tree().quit`; ikinci kapatma yolu yok."""
+    cagrilar = [(_rel(root, p), no) for p in _gd(root) for no, s in enumerate(p.read_text(encoding="utf-8").splitlines(), 1)
+                if re.search(r"\.quit\(", s.split("#", 1)[0])]
+    return [f"{d}:{n}" for d, n in cagrilar if d != "src/sistemler/ses.gd"] + ([] if len(cagrilar) <= 1 else [f"{len(cagrilar)} quit çağrısı"])
+
+
+def grv27_sanat_disi_yukleme(root):
+    """GRV-27: src/arayuz içinde load("res://assets…") yalnız Sanat'ta ya da belgelenmiş istisnada."""
+    belge = root / "docs/arayuz/YUKLEME_ISTISNALARI.md"
+    istisna = set(re.findall(r"^\| `(src/[^`]+)` \|", belge.read_text(encoding="utf-8"), re.M)) if belge.is_file() else set()
+    istisna.add("src/arayuz/sanat.gd")
+    return [_rel(root, p) for p in _gd(root, "src/arayuz") if _rel(root, p) not in istisna
+            and re.search(r'load\("res://assets', _kod(p.read_text(encoding="utf-8")))]
+
+
+def yer14_cogul(root):
+    """YER-14: çoğul eki motoru yok; src'de çoğul/plural fonksiyonu 0."""
+    return [_rel(root, p) for p in _gd(root) if re.search(r"func\s+\w*(cogul|plural)", p.read_text(encoding="utf-8"), re.I)]
+
+
+def yer15_locale(root):
+    """YER-15: sayı biçimi Türkçe kalır; tek locale çağrısı ana.gd'deki set_locale("tr")."""
+    bulunan = [(_rel(root, p), s.strip()) for p in _gd(root) for s in _kod(p.read_text(encoding="utf-8")).splitlines() if "set_locale" in s]
+    return [f"{d}: {s}" for d, s in bulunan if (d, s) != ("src/arayuz/ana.gd", 'TranslationServer.set_locale("tr")')]
+
+
+def omr46_omurga_acilis(root):
+    """OMR-46: omurga verisi açılışı okumaz."""
+    veri = root / "data/omurga.json"
+    return ["data/omurga.json"] if veri.is_file() and re.search(r"acilis|ACL-", veri.read_text(encoding="utf-8"), re.I) else []
+
+
+def omr51_bes_son(root):
+    """OMR-51: beş nihai son sabit; üçüncü perde/yeni son yok."""
+    veri = root / "data/nihai_sonlar.json"
+    if not veri.is_file():
+        return []
+    sonlar = json.loads(veri.read_text(encoding="utf-8")).get("sonlar", {})
+    return [] if len(sonlar) == 5 else [f"nihai son sayısı {len(sonlar)}"]
+
+
+def gir18_orta_tus(roadmap: str) -> list:
+    """GIR-18: girdi bölümünde orta tuş maddesi tektir (GIR-18)."""
+    bolum = roadmap.split("## BÖLÜM 45", 1)[1].split("\n## ", 1)[0] if "## BÖLÜM 45" in roadmap else ""
+    maddeler = re.findall(r"^- \[[ /x]\] \*\*(GIR-\d+):\*\*([^\n]*)", bolum, re.M)
+    orta = [m for m, baslik in maddeler if re.search(r"orta tuş", baslik, re.I)]
+    return [] if len(orta) <= 1 else [f"orta tuş maddeleri: {orta}"]
+
+
 KURALLAR = {
+    "SRM-15": srm15_tek_cikis,
+    "GRV-27": grv27_sanat_disi_yukleme,
+    "YER-14": yer14_cogul,
+    "YER-15": yer15_locale,
+    "OMR-46": omr46_omurga_acilis,
+    "OMR-51": omr51_bes_son,
     "SRM-16": srm16_steam,
     "YER-20": yer20_ikinci_tarayici,
     "SRM-22/23/24": srm22_24_magaza,
@@ -137,10 +193,12 @@ KURALLAR = {
 
 # Bölüm 41 (TEK) sınırları: bu bölümün commit'leri şu dosyalara dokunmaz (git geçmişi taraması).
 TEK_DOKUNMAZ = {"TEK-30": "src/dunya/donma_yoneticisi.gd", "TEK-33": "src/koy/odun_zinciri.gd"}
+# Bölüm sınırları (önek → yasak yol deseni): GRV commit'i src/koy/gorsel'e dokunmaz (GRV-29); GIR commit'i png eklemez (GIR-24).
+ONEK_DOKUNMAZ = {"GRV-29": ("GRV", r"^src/koy/gorsel/"), "GIR-24": ("GIR", r"\.png$")}
 
 
-def tek_commit_dosyalari(root: Path) -> list:
-    """[(commit, konu, dosya)] — konusu TEK-n içeren commit'lerin dokunduğu dosyalar; git yoksa boş."""
+def tek_commit_dosyalari(root: Path, onek: str = "TEK") -> list:
+    """[(commit, konu, dosya)] — konusu <onek>-n içeren commit'lerin dokunduğu dosyalar; git yoksa boş."""
     import subprocess
     try:
         cikti = subprocess.run(["git", "log", "--format=@@%h %s", "--name-only", "HEAD"], cwd=root,
@@ -151,7 +209,7 @@ def tek_commit_dosyalari(root: Path) -> list:
     for satir in cikti.splitlines():
         if satir.startswith("@@"):
             konu = satir[2:]
-        elif satir.strip() and konu and re.search(r"\bTEK-\d+", konu):
+        elif satir.strip() and konu and re.search(r"\b" + onek + r"-\d+", konu):
             sonuc.append((konu.split(" ", 1)[0], konu, satir.strip()))
     return sonuc
 
@@ -176,8 +234,12 @@ def tek32_chr011(roadmap: str) -> list:
 def denetle(root: Path = ROOT) -> dict:
     sonuc = {ad: kural(root) for ad, kural in KURALLAR.items()}
     sonuc.update(tek_dokunmaz_ihlalleri(tek_commit_dosyalari(root)))
+    for madde, (onek, desen) in ONEK_DOKUNMAZ.items():
+        sonuc[madde] = [f"{c} {d}" for c, _, d in tek_commit_dosyalari(root, onek) if re.search(desen, d)]
     roadmap = root / "ROADMAP_2.md"
-    sonuc["TEK-32"] = tek32_chr011(roadmap.read_text(encoding="utf-8")) if roadmap.is_file() else []
+    metin = roadmap.read_text(encoding="utf-8") if roadmap.is_file() else ""
+    sonuc["TEK-32"] = tek32_chr011(metin)
+    sonuc["GIR-18"] = gir18_orta_tus(metin)
     return sonuc
 
 
