@@ -422,9 +422,6 @@ Kullanım kuralı dosyanın başında. Her satır bir eksik asset; en yenisi en 
 | ODA03-ESYA | ODA-03 | Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri) | glTF / set | res://src/arayuz/oda_envanter_sergisi.gd (_kutu: masa üstü BoxMesh, UI düz ColorRect; data/muhafiz_odasi.json) | rüşvet kişisel eşya mühür şişe; medieval bribe personal inventory seal bottle props | orta | Codex |
 | KRI03-ILAC | KRI-03 / KRI-15 | İlaç şişesi kaynak ikonu | SVG / PNG | res://src/arayuz/koy_hud/gezgin_stok_ikonu.gd (ikon: tek düz renk ColorRect; İlaç etiketi) | ilaç şişesi şifahane; medieval medicine bottle infirmary resource icon | orta | Codex |
 | KRI05-MEZAR | KRI-05 | Toplu mezar ve cenaze töreni mezar işareti | glTF | res://src/koy/gorsel/cenaze_mezari.gd (kur: tek düz renk BoxMesh + kısa etiket) | toplu mezar cenaze köy yas; medieval village mass grave funeral burial marker | orta | Codex |
-| BUG21-TASYATAGI | BUG-21 | Kazılabilir başlangıç ve kurtarıcı taş yatağı modeli | glTF / 3B model | res://src/koy/gorsel/tas_yatagi_gorseli.gd (kur: düz gri BoxMesh öbeği) | taş yatağı kaya öbeği taş toplama; stone deposit rock pile gathering | yüksek | Codex |
-| ACL01-MUHAFIZ | ACL-01 | 13. yy Anadolu muhafız gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci modeli, mavi renk ve Muhafız etiketi; tek ayar data/acilis.json | Anadolu muhafız Selçuklu köylü; Anatolian medieval Seljuk guard villager | orta | Kalfa |
-| ACL01-ES | ACL-01 | Muhafızın eşi gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci_kadin modeli, toprak rengi ve Eş etiketi; tek ayar data/acilis.json | Anadolu köylü kadın Selçuklu eş; Anatolian medieval female villager spouse | orta | Kalfa |
 
 
 ANI-08 ANI-ALET mevcut satırı kullanır; örs/fırın/çekiç/kürek düz renk kutu yer tutucularının tek değişim noktası `res://src/koy/gorsel/zanaat_tezgahi.gd` → kur/_kur, denge `data/zanaat_tezgahi.json`. Yeni asset dosyası üretilmedi/indirilmedi.
@@ -464,3 +461,51 @@ TESTER karakter muayenesi (Claude, 11 Ekim 2026 — `tests/oto/karakter_muayene.
 | `<ad>_gergin.glb` | 3B animasyon klibi | chr_001…chr_030 (hiçbirinde yok) | bekle pozu | gergin bekleme / nervous idle | Orta |
 | `<ad>_ofke.glb` / `<ad>_panik.glb` | 3B animasyon klibi | chr_002/003/008/011–030'da öfke yok; chr_001/004–007/009/010'da panik yok | bekle pozu | öfke, panik / angry, panic | Düşük |
 | `<ad>_konus/sevinc/ofke/panik/gergin.glb` | 3B animasyon klibi | adlı karakterler ve sınıf modelleri (aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf, asker, ciftci, ciftci_kadin, esnaf) — yalnız bekle/yürü var | bekle pozu | konuşma jesti / talking gesture | Orta |
+
+## H. ROADMAP 2 (ARY-05)
+
+ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik burada **bir kez** durur; kimliği yol haritasında olmayan satır ve ikinci satır hatadır. Liste ses dosyası istemez; bu bölümde wav satırı yoktur. Bu madde dosya üretmez. Satırlar madde kapandıkça güncellenir; kodlanmamış maddenin yer tutucusu "planlı" yazar. `BUG21-TASYATAGI`, `ACL01-MUHAFIZ`, `ACL01-ES` G bölümünden buraya taşındı. Denetim: `tests/tools/test_asset_envanteri.py`.
+
+| ID | ROADMAP | Ne | Tür / format | Yer tutucu yolu | Anahtar kelimeler (TR + EN) | Öncelik | Ekleyen |
+|---|---|---|---|---|---|---|---|
+| BUG21-TASYATAGI | BUG-21 | Kazılabilir başlangıç ve kurtarıcı taş yatağı modeli | glTF / 3B model | res://src/koy/gorsel/tas_yatagi_gorseli.gd (kur: düz gri BoxMesh öbeği) | taş yatağı kaya öbeği taş toplama; stone deposit rock pile gathering | yüksek | Codex |
+| BUG25-MESALE | BUG-25 | Kapı meşalesi gerçek modeli (gerekirse) | glTF / 3B model | res://assets/model/nesne/mesale.glb (duran modelin düzeltilmiş hali) | kapı meşalesi duvar; medieval gate wall torch | orta | Claude |
+| BUG25-KUYU | BUG-25 | Köy kuyusu gerçek modeli (gerekirse) | glTF / 3B model | res://assets/model/nesne/kuyu.glb (duran modelin düzeltilmiş hali) | taş köy kuyusu; medieval stone village well | orta | Claude |
+| ACL01-MUHAFIZ | ACL-01 | 13. yy Anadolu muhafız gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci modeli, mavi renk ve Muhafız etiketi; tek ayar data/acilis.json | Anadolu muhafız Selçuklu köylü; Anatolian medieval Seljuk guard villager | orta | Kalfa |
+| ACL01-ES | ACL-01 | Muhafızın eşi gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci_kadin modeli, toprak rengi ve Eş etiketi; tek ayar data/acilis.json | Anadolu köylü kadın Selçuklu eş; Anatolian medieval female villager spouse | orta | Kalfa |
+| ACL04-ARASAHNE | ACL-04 | Sancak Beyi ulağı ara sahne arka planı | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + metin (ARY-04 çerçevesi) | ulak berat ara sahne akşam; medieval courier cutscene dusk | yüksek | Claude |
+| KAP17-COCUK | KAP-17 | Çocuk köylü modeli | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli, küçük ölçek + renk farkı | Anadolu köylü çocuk; medieval anatolian peasant child | yüksek | Claude |
+| KAP17-YASLI | KAP-17 | Yaşlı köylü modeli | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli, renk farkı + yavaş yürüyüş | Anadolu yaşlı köylü; medieval anatolian elder peasant | yüksek | Claude |
+| ZAR01-ZAR | ZAR-01 | Görünür zar (d6, d12) | PNG / SVG + 3B isteğe bağlı | planlı — madde kodlanınca: düz renk kutu + sayı | kemik zar d6 d12; medieval bone dice d6 d12 | yüksek | Claude |
+| CAT02-KAVGA | CAT-02 | Kapıda kavga canlandırması | glTF / iskelet animasyon klibi | planlı — madde kodlanınca: kamera sarsıntısı + metin | kapı itişme kavga; medieval gate scuffle brawl animation | orta | Claude |
+| ISG02-ALETLER | ISG-02 | Geçici işlere özel el aletleri | glTF | planlı — madde kodlanınca: ANI-11 kutu soketi (düz BoxMesh) | ortaçağ el aleti kürek tırpan; medieval hand tools set | orta | Claude |
+| YAP03-USTALAR | YAP-03 | Kapıdan gelen usta modelleri | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli + renk farkı + etiket | Selçuklu usta zanaatkâr; seljuk master craftsman | orta | Claude |
+| YAP04-DEFTER | YAP-04 | Usta defteri ikonu | SVG / PNG | planlı — madde kodlanınca: düz ColorRect + etiket | usta defteri kitap; medieval master's notebook icon | orta | Claude |
+| YAP05-ODA | YAP-05 | Çözümleme odası modeli | glTF / 3B model | planlı — madde kodlanınca: düz renk BoxMesh + etiket | araştırma odası masa; medieval study workshop room | orta | Claude |
+| YAP06-ESYA | YAP-06 | Özel eşya ikonları | SVG / PNG | planlı — madde kodlanınca: düz ColorRect + etiket | özel eşya ikon; medieval special item icons | orta | Claude |
+| YSM01-IKON | YSM-01 | Açlık, yorgunluk, moral bar ikonları | SVG / PNG | planlı — madde kodlanınca: düz ColorRect | açlık yorgunluk moral ikon; hunger fatigue morale icons | yüksek | Claude |
+| ARY01-* | ARY-01 | Görsel dil şablonları: doku, çerçeve, yazı tipi | PNG / SVG / font | planlı — madde kodlanınca: StyleBoxFlat | Selçuklu çini çerçeve parşömen; seljuk tile frame parchment UI | yüksek | Claude |
+| ARY03-* | ARY-03 | Ekran arka planları (sorgu, seçim, köy HUD) | PNG 1920×1080 | planlı — madde kodlanınca: düz renk | uç kapısı gece arka plan; frontier gate night background | orta | Claude |
+| ARY03-HARITA | GRV-05 / ARY-03 | Harita ekranı arka planı | PNG / SVG | res://src/arayuz/harita_ekrani.gd (düz renk) | ortaçağ Anadolu harita parşömen; medieval anatolia parchment map | orta | Claude |
+| ARY04-YUKLEME-01 | ARY-04 | Yükleme görseli 1 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-02 | ARY-04 | Yükleme görseli 2 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-03 | ARY-04 | Yükleme görseli 3 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-04 | ARY-04 | Yükleme görseli 4 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-05 | ARY-04 | Yükleme görseli 5 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-06 | ARY-04 | Yükleme görseli 6 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-07 | ARY-04 | Yükleme görseli 7 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| ARY04-YUKLEME-08 | ARY-04 | Yükleme görseli 8 | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + satır | uç köyü yükleme ekranı; frontier village loading screen | orta | Claude |
+| DYL02-AYRINTI-* | DYL-02 | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi | glTF / doku | planlı — madde kodlanınca: modelin bölgesinde düz renkli küçük kutu + gözlem metni | yamalı çarık nasırlı el yara; patched sandals calloused hands wound | yüksek | Claude |
+| DYL03-YEMIN | DYL-03 | Yemin nesneleri (dünya kitabına göre) | glTF | planlı — madde kodlanınca: düz renk kutu + etiket | yemin ekmek tuz kitap; oath bread salt holy book | orta | Claude |
+| DYL07-OCAK | DYL-07 | Ocak başı ara sahne arka planı | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + metin, ARY-04 çerçevesi | ocak başı akşam ev içi; hearth evening cottage interior | orta | Claude |
+| DYL09-DENETCI | DYL-09 | Beyin denetçisi modeli | glTF / 3B model | planlı — madde kodlanınca: mevcut köylü modeli + renk farkı | Selçuklu bey denetçi memur; seljuk inspector official | orta | Claude |
+| SEV03-IZ | SEV-03 | Kişisel iz | glTF | planlı — madde kodlanınca: düz renk küçük kutu | kişisel eşya hatıra; personal keepsake trinket | düşük | Claude |
+| SAB03-ORTU | SAB-03 | Kapalı iş yeri örtüsü | glTF / doku | planlı — madde kodlanınca: düz renk bez, ANI-08 düğümü üstünde | kapalı tezgâh örtü bez; covered workshop cloth | düşük | Claude |
+| TEZ01-ORTU | TEZ-01 | Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) | glTF / doku | planlı — madde kodlanınca: düz renk | tezgâh örtüsü ağıl değirmen demirhane; workshop cover sheepfold mill forge | düşük | Claude |
+| TEZ03-HAM | TEZ-03 | Ham blok | glTF | planlı — madde kodlanınca: düz renk küp, örtünün üstünde | ham malzeme blok; raw material block | düşük | Claude |
+| TEZ04-IZ | TEZ-04 | İz bloğu | glTF | planlı — madde kodlanınca: aynı küp, bir kenarı koyu | işlenmiş iz blok; worked material block | düşük | Claude |
+| TEZ05-BICIM | TEZ-05 | Biçim bloğu | glTF | planlı — madde kodlanınca: küp, etikette işin adı | biçimlenmiş parça; shaped workpiece | düşük | Claude |
+| TEZ06-AGIZ | TEZ-06 | Ağız bloğu | glTF | planlı — madde kodlanınca: küp, bir ucu açık renk | bıçak ağzı kenar; blade edge workpiece | düşük | Claude |
+| TEZ07-TITREME | TEZ-07 | Çırak titreme çizgisi | doku / çizgi | planlı — madde kodlanınca: blok üstünde eğri tek çizgi | titrek çizgi kusur; shaky line flaw mark | düşük | Claude |
+| TEZ08-PARCA | TEZ-08 | Teslim parçası | glTF | planlı — madde kodlanınca: düz renk, yüzde küçük kutu | bitmiş zanaat parçası; finished craft piece | düşük | Claude |
+| SRM18-IKON | SRM-18 | Pencere ve dosya ikonu | ICO / PNG | planlı — madde kodlanınca: Godot varsayılan ikonu | kapı muhafızı oyun ikonu; game app icon gate | düşük | Claude |
