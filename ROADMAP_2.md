@@ -1722,7 +1722,7 @@ YSM-01 … YSM-03 gövdesi durur. Yeni maddeler YSM-04 … YSM-83. İkinci açl�
 
 ### 22.1 Üç değer
 
-- [/] **YSM-01:** (testx) Köylü başına açlık, yorgunluk, moral barı.
+- [x] **YSM-01:** (testx) Köylü başına açlık, yorgunluk, moral barı.
   - Ne: Her köylünün kendi açlık sayacı, yorgunluk kaydı ve moral sayısı vardır; köy ortalaması ikinci çubuk açmaz. Açlık, üst üste erzak payı alınamayan gece sayısıdır ve pay EKO-09'un kişi başı gece 1 erzakıdır. Yorgunluk UZM-14 gece vardiyası kaydıdır; gece uykusu aynı kaydı düşürür. Moral UZM-06 memnuniyetidir, ikinci bir moral sayısı yoktur. Üç değer köylü kartında ve ANI-14 yüzen kartında okunur. Erzak 3'ün altındaki sağlık düşüşü KRI-12'dedir; bu madde o eşiği yeniden yazmaz. Eş aynı üç alanı kullanır, dördüncü şerit açılmaz.
   - Kabul: Erzaksız bir geceden sonra o köylünün açlık sayısı 1 artar; pay düşünce sayaç 0'a döner (`tests/unit/koy/yasam_test.gd`). Yüzen kartta çizilen yaşam değeri 3'tür. Ölen kişide bar çizilmez. Değer kaydı olmayan eski kayıtta açlık 0'dan başlar ve bir sonraki sabah dolar. KRI-12 sağlık düşüşü, bar çiziliyken de çizilmezken de aynı kalır. Ek şart: Kişi morali halk, ordu, soylu veya tüccar barına yazılmaz; `barlar.gd` dört bar olarak kalır. Ek şart: Köy HUD'unda kişi barı ve ortalama çubuk açılmaz. Ek şart: Üç değer kişi kaydındadır; ayrı `yasam.json` kökü yazılmaz. Ek şart: Yükleme aynı gecenin açlık artışını ve yorgunluk düşüşünü ikinci kez uygulamaz. Ek şart: Aynı tohumla iki koşu, aynı kişide aynı açlık artışını ve aynı yorgunluk düşüşünü yazar. Ek şart: Tek kişinin açlığı, yorgunluğu veya morali bir köy barını kırmaz. Ek şart: Olay kartı açlık sayacına yazmaz; sayaç yalnız gece payından artar. Ek şart: Kapı kabulü açlık sayacını o anda değiştirmez; pay hesabı gece çözümündedir. Ek şart: Oyuncunun açlık alanı yoktur; muhafız yorgunluğu UZM-14 kaydıdır. Ek şart: Moral 0 kişiyi köyden kaçırmaz; kaçış mevcut sağlık eşiğindedir. Ek şart: `yasam_barlari.gd` `koy_sahnesi` import etmez, ikinci harita açmaz, kalp alanı yazmaz ve hediye moral sayısını doldurmaz.
   - Bağımlılık: yok. Boyut: M.
@@ -2321,7 +2321,7 @@ Kimlik numaraları yeniden sıralanmaz. `src/koy/kapi_nobeti.gd` henüz yoktur.
 
 ### 26.1 Nöbetçinin kimliği ve kapıya etkisi
 
-- [/] **NBT-01:** (testx) Kapıda tek yuva.
+- [x] **NBT-01:** (testx) Kapıda tek yuva.
   - Ne: Direğin üstündeki ad, yuvaya yazılmış köylünün kayıtlı adıdır. Kapıda ikinci yuva yoktur; ANI-02 rotası kapıya uğradığında orada bu kişi durur.
   - Kurallar:
     1. Kapıda tek nöbet yuvası vardır. Yuvaya köyde yaşayan bir kişinin kimliği yazılır.
@@ -2469,7 +2469,7 @@ Kimlik aralığı MCL-01 … MCL-90'tır. Numaralar yeniden sıralanmaz.
 
 ### 27.1 Konuşan ve şikâyetin adı
 
-- [/] **MCL-01:** (testx) Çınarın altında konuşan, içeri alınan kişidir.
+- [x] **MCL-01:** (testx) Çınarın altında konuşan, içeri alınan kişidir.
   - Ne: Krizli gecede içeri alınmış ve o gece köyde yaşayan en çok üç kişi çınarın altında konuşur. Kapı kuyruğundaki, ret yemiş veya ölü kimlik satıra yazılmaz; adlı kimse yoksa oylama adsız tek satırla açılır.
   - Kabul: Krizsiz gecede konuşmacı sayısı 0'dır. Krizli gecede konuşanların hepsi köy kaydındadır ve sayı 3'ü geçmez. Ret yemiş bir kimlik satırda 0 kez durur (`tests/unit/koy/meclis_sesi_test.gd`). Ek şart: `meclis` adlı yeni sahne açılmaz ve wav dosyası eklenmez. Ek şart: `meclis_sesi.gd` ile KRI-07 paneli dışında üçüncü bir meclis dosyası açılmaz.
   - Bağımlılık: yok. Boyut: S.
@@ -2666,7 +2666,7 @@ Yerler döneme uygundur: ağıl, değirmen, demirhane, bez. Kalp puanı, romans,
 
 ### 29.1 Yer ve yüz
 
-- [/] **TEZ-01:** (testx) Dört tezgâhın yeri
+- [x] **TEZ-01:** (testx) Dört tezgâhın yeri
   - Ne: Oyuncu sabah köyde ağılı, değirmeni, demirhaneyi ve bez tezgâhını ayrı iş yerleri olarak görür; her yer ANI-08 düğümüdür, düğümü olmayan yer iş almaz. Aynı anda bir tezgâhta bir görünür iş durur; yer kaydı düğüm kimliğidir, düz ad yazılmaz.
   - Kabul: Düğümü olan dört yerde açık iş 1, düğümü olmayan ya da ızgara hücresinin dışındaki yerde iş 0'dır (`tests/unit/koy/tezgahta_gun_test.gd`). `tezgahta_gun.gd` YAP kademesi yazmaz, EKO-04 un sayısı bu maddeden değişmez ve `koy_sahnesi` import etmez. Ek şart: iş köy ekranında durur, yeni sahne ve yeni meslek açılmaz. Ek şart: kış için beşinci yer açılmaz, mevsim MEV-01'den okunur. Ek şart: SEV-01 boş gününde açık sabah satırı silinmez.
   - Bağımlılık: ANI-08. Boyut: S.
@@ -3656,19 +3656,19 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: TUC-09, DEN-03. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [/] **DEN-50:** (testx) Kış odunu yaz odunundan pahalıdır.
+- [x] **DEN-50:** (testx) Kış odunu yaz odunundan pahalıdır.
   - Ne: ölçülen fiyat, TUC-09 çarpanına uyar. Sapma yüzde 0'dır, çünkü çarpan tek kaynaktır.
   - Kabul: ölçülen fiyat, TUC-09 çarpanına uyar. Sapma yüzde 0'dır, çünkü çarpan tek kaynaktır. Test: kış fiyatı = yaz fiyatı çarpı çarpan.
   - Bağımlılık: TUC-09, MEV-01. Boyut: S.
   - Dosya: `tests/unit/denge/fiyat_test.gd`.
   - Asset: asset gerekmedi.
-- [/] **DEN-51:** (testx) Erzak bitince fiyat tavandadır.
+- [x] **DEN-51:** (testx) Erzak bitince fiyat tavandadır.
   - Ne: tavan TUC-09 tablosundadır. Bu bölüm tavanı yükseltmez.
   - Kabul: tavan TUC-09 tablosundadır. Bu bölüm tavanı yükseltmez. Test: erzak 0, fiyat tavan, tavanın üstü yok.
   - Bağımlılık: TUC-09. Boyut: S.
   - Dosya: `tests/unit/denge/fiyat_test.gd`.
   - Asset: asset gerekmedi.
-- [/] **DEN-52:** (testx) Oyuncu satışı iki kasaya ayrı yazılır.
+- [x] **DEN-52:** (testx) Oyuncu satışı iki kasaya ayrı yazılır.
   - Ne: TUC-10 resmi satış köy akçesine, kişisel satış muhafız akçesine gider. Ölçüm karışmayı 10 satışta arar.
   - Kabul: TUC-10 resmi satış köy akçesine, kişisel satış muhafız akçesine gider. Ölçüm karışmayı 10 satışta arar. Test: karışma 0.
   - Bağımlılık: TUC-10, EKO-01. Boyut: S.
@@ -3686,13 +3686,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: EKO-10, TUC-09. Boyut: M.
   - Dosya: `data/ayarlar/denge.json` `iflas_aralik`.
   - Asset: asset gerekmedi.
-- [/] **DEN-55:** (testx) Fiyat, gece raporunda kaynağıyla durur.
+- [x] **DEN-55:** (testx) Fiyat, gece raporunda kaynağıyla durur.
   - Ne: EKO-15 bilançosu kış çarpanını ayrı satır yazar. Yeni bilanço yoktur.
   - Kabul: EKO-15 bilançosu kış çarpanını ayrı satır yazar. Yeni bilanço yoktur. Test: kış gecesinde satır var, yaz gecesinde yok.
   - Bağımlılık: EKO-15, TUC-09. Boyut: S.
   - Dosya: mevcut bilanço.
   - Asset: asset gerekmedi.
-- [/] **DEN-56:** (testx) Karaborsa fiyatı kişisel kasadadır.
+- [x] **DEN-56:** (testx) Karaborsa fiyatı kişisel kasadadır.
   - Ne: TUC-11 alışı `muhafiz_akce` düşer. Köy akçesi düşmez.
   - Kabul: TUC-11 alışı `muhafiz_akce` düşer. Köy akçesi düşmez. Test: bir alış, iki kasa.
   - Bağımlılık: TUC-11. Boyut: S.
