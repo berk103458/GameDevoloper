@@ -217,7 +217,7 @@ ACL-01 … ACL-06 gövdesi durur. Yeni maddeler ACL-07 … ACL-86. İkinci hane 
 
 ### 14.2 Eş ve meslek
 
-- [ ] **ACL-02:** Eş — oynanabilir ama sıradan köylü değil.
+- [/] **ACL-02:** (testx) Eş — oynanabilir ama sıradan köylü değil.
   - Ne: Eş köylü listesinde ayrı satırdadır; kışla, kervan, sürgün ve divan düğmeleri onda kapalıdır ve kapı kuyruğuna yazılmaz. Meslek yalnız `data/hane_esi.json` listesinden seçilir: dokumacı, ebe, fırıncı, bostancı, sütçü, yün eğirici; okuryazar geçmişte kâtiplik açılır. Demirci, taşçı, oduncu, asker ve madenci listede yoktur. Meslek değişince bir gün verimsiz çalışır. Ölümde yeni son yazılmaz, duran epilog ağır yas olarak açılır.
   - Kurallar:
     1. Eş köylü listesinde ayrı satırdadır. Kışla, kervan, sürgün ve divan düğmeleri onda kapalıdır.

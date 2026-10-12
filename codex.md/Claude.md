@@ -9,3 +9,4 @@ Claude: yönetici ajan. testx (EVREN/DeepSeek) ve Codex'in teslimlerini inceler,
 - **Sabah (oyunda doğrulama):** Oyunu pencereli açıp köylü kartı, gece raporu ve çınar meclisini görüntüyle kontrol ettim; iki hata buldum ve düzelttim: YSM-01 muhafız (oyuncu) kartında açlık alanı vardı (81c1216); MCL-01 konuşanlar arasında kurucu hane (Muhafız, Eş) çıkıyordu (2fad63d).
 - AGENTS.md: "Commit ve kota disiplini" bölümü (Muharrir talimatı); ROADMAP 2 bölümündeki bozuk Türkçe karakterler onarıldı.
 - kota: kota görünmüyor
+- ACL-05 yayında (testx + Claude tamamladı). kota: kota görünmüyor
