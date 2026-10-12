@@ -45,6 +45,8 @@ var kis_oncesi_is: int = -1
 var ev: int = -1
 ## Dün aç kaldı mı (bugünkü verim düşer).
 var ac: bool = false
+## YSM-01: üst üste erzak payı alınamayan gece sayısı (kişi kaydında tutulur).
+var aclik: int = 0
 ## Kabul edildiği gün.
 var giris_gunu: int = 0
 
@@ -79,7 +81,7 @@ func usta_mi() -> bool:
 func kaydet() -> Dictionary:
 	return {"karantina": karantina.duplicate(true), "enfeksiyon": enfeksiyon.duplicate(true), "id": id, "ad": ad, "adli_id": String(adli_id), "sinif": String(sinif), "portre": portre, "stat": stat, "zanaat_turu": ZanaatTuru.anahtar(zanaat_turu),
 		"bayraklar": Array(bayraklar), "gizli": Array(gizli_bayraklar), "moral": moral, "refah": refah, "saglik": saglik,
-		"sadakat": sadakat, "is_yeri": is_yeri, "kis_oncesi": kis_oncesi_is, "ev": ev, "ac": ac, "giris": giris_gunu,
+		"sadakat": sadakat, "is_yeri": is_yeri, "kis_oncesi": kis_oncesi_is, "ev": ev, "ac": ac, "aclik": aclik, "giris": giris_gunu,
 		"pasif_ozellikler": pasif_ozellikler.duplicate(true), "egitim": egitim.duplicate(true), "gelisim": gelisim.duplicate(true), "grev": grev.duplicate(true), "yorgunluk": yorgunluk.duplicate(true), "is_kazasi": is_kazasi.duplicate(true), "zanaat_kazasi": zanaat_kazasi.duplicate(true), "kis_hastaligi": kis_hastaligi.duplicate(true), "toplumsal_bag": toplumsal_bag.duplicate(true), "yas_grubu": String(yas_grubu), "gizli_egilim": gizli_egilim.duplicate(true), "divan_kanit": DivanKanit.durum(self)}
 
 
@@ -118,6 +120,7 @@ static func kayittan(v: Dictionary) -> Koylu:
 	k.kis_oncesi_is = int(v.get("kis_oncesi", -1))
 	k.ev = int(v.get("ev", -1))
 	k.ac = bool(v.get("ac", false))
+	k.aclik = maxi(0, int(v.get("aclik", 0)))
 	k.giris_gunu = int(v.get("giris", 0))
 	k.set_meta(DivanKanit.META, DivanKanit.oku(k,v.get("divan_kanit",{})))
 	return k

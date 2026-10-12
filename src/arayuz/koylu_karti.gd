@@ -30,6 +30,7 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	ekran._etiket(ic, ZanaatKazalari.metin(k), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, MeslekGrevi.metin(k, y), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, NobetYorgunlugu.metin(k, y), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	YasamBarlariPaneli.ekle(y, ic, k)
 	var uygun := ekran._etiket(ic, "En uygun yapılar: " + KoyluKartiVerisi.uygun_turler(k), Tema.KUCUK_PX)
 	uygun.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, "Mevcut görev: " + ekran._is_adi(k), Tema.KUCUK_PX)

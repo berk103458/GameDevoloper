@@ -64,6 +64,8 @@ func guncelle() -> void:
   return
  etiket.global_position = f.global_position + Vector3.UP * float(AYAR.etiket_yukseklik)
  etiket.text = "%s · %s\n%s" % [TranslationServer.translate(k.ad), ZanaatTuru.ad(k.zanaat_turu), sahne.halk_hareketi.eylem(kisi)]
+ var yasam := YasamBarlari.metin(k, sahne.yonetim)
+ if not yasam.is_empty(): etiket.text += "\n" + yasam
  etiket.visible = not sahne.kamera.is_position_behind(etiket.global_position)
  if takip:
   sahne.hedef = f.position
