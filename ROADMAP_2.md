@@ -3169,7 +3169,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-03, SYS-14. Boyut: M.
   - Dosya: `tests/unit/kvr/kayit_gocu_test.gd` genişler.
   - Asset: asset gerekmedi.
-- [ ] **KAY-44:** Dört barlı sürüm 1 kaydı hâlâ reddedilir.
+- [/] **KAY-44:** (testx) Dört barlı sürüm 1 kaydı hâlâ reddedilir.
   - Ne: SYS-14'ün reddi bozulmaz. Göç onu Söz kaydına çevirmez.
   - Kabul: SYS-14'ün reddi bozulmaz. Göç onu Söz kaydına çevirmez. Test: v1 dosya reddedilir.
   - Bağımlılık: SYS-14. Boyut: S.
@@ -3295,7 +3295,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-05, SYS-02. Boyut: S.
   - Dosya: `src/sistemler/guvenli_kayit.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-56:** Yedek, ikinci bir başarısız göçte ezilmez.
+- [/] **KAY-56:** (testx) Yedek, ikinci bir başarısız göçte ezilmez.
   - Ne: `bak.tmp` sağlamsa yeni bozuk dosya onun üstüne yazılmaz. SYS-02 kuralı durur.
   - Kabul: `bak.tmp` sağlamsa yeni bozuk dosya onun üstüne yazılmaz. SYS-02 kuralı durur. Test: iki hatalı deneme, yedek baytı aynı.
   - Bağımlılık: SYS-02. Boyut: S.
