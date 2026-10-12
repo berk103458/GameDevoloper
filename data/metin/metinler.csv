@@ -77,6 +77,8 @@ arayuz.is.tarla,Tarlaya yaz
 arayuz.is.uygun,%s işi
 arayuz.kapi.bilgi,%d. gün · %d. gelen · sırada %d kişi
 arayuz.kapi.karar,Karar
+arayuz.kapi.yatak_satiri,Yatak: %d/%d
+arayuz.kapi.yatak_uyari,Yatacak yer yok; açıkta kalır.
 arayuz.kapi.sira,Sırada
 arayuz.kapi.sohbete_don,Sohbete dön
 arayuz.kapi.sorular,Sorular

@@ -213,6 +213,7 @@ func _model_adi(g: Gelen) -> String:
 func _bilgi_yaz() -> void:
 	_bilgi.text = tr("arayuz.kapi.bilgi") % [oturum.gosterilen_gece(), _gece_gelen, _kuyruk.size()]
 	KapiFirtinaKuyrugu.bilgi(oturum, _gelen, _bilgi)
+	_bilgi.text += "\n" + preload("res://src/kapi/barinak_uyarisi.gd").metin(oturum.yonetim)
 
 
 ## Yeni geceyi başlatır: kuyruk kurulur, ilk gelen kapıya yürür.
