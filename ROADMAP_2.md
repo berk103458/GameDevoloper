@@ -4203,7 +4203,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
 
 ### 33.10 Sınırlar ve kapanış
 
-- [ ] **OGR-52:** Öğretici ayrı sahne açmaz.
+- [x] **OGR-52:** (Claude) Öğretici ayrı sahne açmaz.
   - Ne: `tutorial`, `ogretici_sahne` adlı sahne yoktur; her şey canlı oyunda olur.
   - Kabul: `rg -l 'ogretici_sahne|tutorial' src` → 0. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -4227,7 +4227,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: SRM-05. Boyut: S.
   - Dosya: `tools/metin_dogrula.py` tek kural.
   - Asset: asset gerekmedi.
-- [ ] **OGR-56:** İlk saat metinleri İngilizce sütuna hazır anahtarlardır.
+- [x] **OGR-56:** (Claude) İlk saat metinleri İngilizce sütuna hazır anahtarlardır.
   - Ne: `ogretici.` anahtarları Bölüm 46 ikinci sütun kuralına uyar; metin içinde tuş adı ve sayı yer tutucuyla (`%s`, `%d`) gelir.
   - Kabul: sabit tuş adı içeren `ogretici.` satırı 0. Test: tarama.
   - Bağımlılık: YER-02. Boyut: S.
@@ -4609,7 +4609,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-02…05. Boyut: S.
   - Dosya: yeni: `data/omurga.json`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-54:** Omurga metinleri ikinci sütuna hazır.
+- [x] **OMR-54:** (Claude) Omurga metinleri ikinci sütuna hazır.
   - Ne: tüm omurga metinleri `metinler.csv` anahtarıdır (Bölüm 46).
   - Kabul: `omurga*.gd`, `dis_hat_kapisi.gd` içinde Türkçe sabit 0. Test: tarama.
   - Bağımlılık: YER-02. Boyut: S.
@@ -4976,7 +4976,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: GIR-01, YER-01. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/ayar_sekmeleri.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-51:** Ayar metinleri ikinci sütuna hazırdır.
+- [x] **AYR-51:** (Claude) Ayar metinleri ikinci sütuna hazırdır.
   - Ne: tüm `arayuz.ayarlar.*` anahtarları Bölüm 46 kuralına uyar.
   - Kabul: sekme dosyalarında Türkçe sabit 0. Test: tarama.
   - Bağımlılık: YER-02. Boyut: S.
@@ -6524,7 +6524,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KLT-18. Boyut: S.
   - Dosya: `docs/tester/`
   - Asset: asset gerekmedi.
-- [ ] **KLT-59:** Tester metin silmez
+- [x] **KLT-59:** (Claude) Tester metin silmez
   - Ne: Tester metin silmez. CSV yaması tester işi değildir.
   - Kabul: Yazım 0. Test: tarama.
   - Bağımlılık: TST-0006. Boyut: S.
@@ -8652,7 +8652,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.2 İkinci sütun — altyapı, çeviri değil
 
-- [ ] **YER-04:** CSV ikinci dil sütununu kabul eder, doldurmayı beklemez.
+- [x] **YER-04:** (Claude) CSV ikinci dil sütununu kabul eder, doldurmayı beklemez.
   - Ne: başlık `keys,tr` durur. İsteğe bağlı üçüncü sütun `en` eklenebilir; hücre boşsa o satır `tr`'ye düşer. Boş `tr` hâlâ hatadır (standart §2). Bu madde İngilizce cümle yazmaz.
   - Kabul: `en` boş bir satırda oyun Türkçe metni gösterir; `tr` boşsa doğrulayıcı hata. Test: iki satır.
   - Bağımlılık: YER-02. Boyut: M.

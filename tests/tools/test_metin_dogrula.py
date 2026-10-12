@@ -126,3 +126,17 @@ class TranslationCSVTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class YerelSutunTest(unittest.TestCase):
+    """YER-04: başlık keys,tr durur; isteğe bağlı en sütunu boş kalabilir, boş tr hâlâ hatadır."""
+
+    def test_bos_en_gecer_bos_tr_hata(self):
+        self.assertEqual([], MODULE.validate_text('keys,tr,en\narayuz.menu.baslik,Uçta bir kapı.,\n'))
+        hatalar = MODULE.validate_text('keys,tr,en\narayuz.menu.baslik,,A gate\n')
+        self.assertEqual(1, len(hatalar), hatalar)
+        self.assertIn('empty Turkish', hatalar[0])
+
+    def test_depo_basligi_keys_tr(self):
+        ilk = PATH.parents[1].joinpath('data/metin/metinler.csv').read_text(encoding='utf-8-sig').splitlines()[0]
+        self.assertTrue(ilk.startswith('keys,tr'))

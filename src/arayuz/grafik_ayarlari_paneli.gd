@@ -11,17 +11,17 @@ func _ready() -> void:
 	custom_minimum_size = Vector2(540, 0)
 	add_theme_constant_override("separation", 20)
 	var baslik := Label.new()
-	baslik.text = "Grafik"
+	baslik.text = tr("arayuz.ayarlar.grafik.baslik")
 	baslik.add_theme_font_size_override("font_size", 36)
 	add_child(baslik)
-	_profil = _secici("Grafik profili", ["Normal", "Düşük"])
+	_profil = _secici(tr("arayuz.ayarlar.grafik.profil"), [tr("arayuz.ayarlar.grafik.normal"), tr("arayuz.ayarlar.grafik.dusuk")])
 	_profil.item_selected.connect(func(i: int) -> void:
 		ayarlar.ayarla(&"grafik_profili", Ayarlar.GECERLI[&"grafik_profili"][i]))
-	_olcek = _secici("3B çözünürlük", ["%50", "%67", "%75", "%85", "%100"])
+	_olcek = _secici(tr("arayuz.ayarlar.grafik.cozunurluk"), ["%50", "%67", "%75", "%85", "%100"])
 	_olcek.item_selected.connect(func(i: int) -> void:
 		ayarlar.ayarla(&"cozunurluk_3d", Ayarlar.GECERLI[&"cozunurluk_3d"][i]))
 	var notu := Label.new()
-	notu.text = "Düşük profil duman ve alev efektlerini kapatır.\n3B ölçek arayüzün netliğini değiştirmez."
+	notu.text = tr("arayuz.ayarlar.grafik.not")
 	notu.add_theme_font_size_override("font_size", 22)
 	add_child(notu)
 	ayarlar.degisti.connect(_yenile)

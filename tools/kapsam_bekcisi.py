@@ -181,7 +181,54 @@ def han49_es_yurutme(root):
             and re.search(r"\.yuru\(", _kod(p.read_text(encoding="utf-8")))]
 
 
+TURKCE_HARF = re.compile(r"[çğıöşüÇĞİÖŞÜ]")
+TURKCE_CUMLE = re.compile(r"^[A-Za-zÇĞİÖŞÜçğıöşü]{2,} [a-zçğıöşü]{2,}")
+
+
+def turkce_sabitler(metin: str) -> list:
+    """GDScript kodundaki (yorum dışı) düz Türkçe dize sabitleri."""
+    kod = "\n".join("" if s.strip().startswith("#") else s.split(" #", 1)[0] for s in metin.splitlines())
+    return [d for d in re.findall(r'"([^"\n]*)"', kod) if TURKCE_HARF.search(d) or TURKCE_CUMLE.search(d)]
+
+
+def _turkce_sabit_dosyalari(root, desenler):
+    return [f"{_rel(root, p)}: {t[:30]}" for p in _gd(root) if any(re.search(d, _rel(root, p)) for d in desenler)
+            for t in turkce_sabitler(p.read_text(encoding="utf-8"))]
+
+
+def ayr51_ayar_metni(root):
+    """AYR-51: ayarlar ekranı ve sekme dosyalarında Türkçe sabit 0 (metin arayuz.ayarlar.* anahtarıdır)."""
+    return _turkce_sabit_dosyalari(root, [r"^src/arayuz/ayarlar_ekrani\.gd$", r"^src/arayuz/grafik_ayarlari_paneli\.gd$",
+                                          r"^src/arayuz/.*sekme.*\.gd$"])
+
+
+def omr54_omurga_metni(root):
+    """OMR-54: omurga*.gd ve dis_hat_kapisi.gd içinde Türkçe sabit 0."""
+    return _turkce_sabit_dosyalari(root, [r"/omurga[^/]*\.gd$", r"/dis_hat_kapisi\.gd$"])
+
+
+def ogr52_ogretici_sahnesi(root):
+    """OGR-52: `rg -l 'ogretici_sahne|tutorial' src` → 0."""
+    if not (root / "src").is_dir():
+        return []
+    return [_rel(root, p) for p in sorted((root / "src").rglob("*")) if p.is_file() and re.search(
+        r"ogretici_sahne|tutorial", p.name + "\n" + (p.read_text(encoding="utf-8", errors="replace") if p.suffix in (".gd", ".tscn") else ""), re.I)]
+
+
+def ogr56_ogretici_tus(root):
+    """OGR-56: ogretici. satırlarında sabit tuş adı yok; tuş %s ile gelir."""
+    csv_yol = root / "data/metin/metinler.csv"
+    if not csv_yol.is_file():
+        return []
+    return [s.split(",", 1)[0] for s in csv_yol.read_text(encoding="utf-8-sig").splitlines()
+            if s.startswith("ogretici.") and re.search(r"\b(F\d{1,2}|Esc|Ctrl|Shift|Alt|Space|Boşluk|Enter|Sol tık|Sağ tık)\b", s.split(",", 1)[-1])]
+
+
 KURALLAR = {
+    "AYR-51": ayr51_ayar_metni,
+    "OMR-54": omr54_omurga_metni,
+    "OGR-52": ogr52_ogretici_sahnesi,
+    "OGR-56": ogr56_ogretici_tus,
     "HAN-49": han49_es_yurutme,
     "SRM-15": srm15_tek_cikis,
     "GRV-27": grv27_sanat_disi_yukleme,
@@ -249,6 +296,10 @@ def denetle(root: Path = ROOT) -> dict:
     sonuc.update(tek_dokunmaz_ihlalleri(tek_commit_dosyalari(root)))
     for madde, (onek, desen) in ONEK_DOKUNMAZ.items():
         sonuc[madde] = [f"{c} {d}" for c, _, d in tek_commit_dosyalari(root, onek) if re.search(desen, d)]
+    # KLT-59: tester metin silmez/yazmaz — tester commit'i (konusu "(testx)", "tester" ya da "TUR-") metinler.csv'ye dokunmaz.
+    sonuc["KLT-59"] = [f"{c} {d}" for c, k, d in tek_commit_dosyalari(root, "TUR")
+                       + [x for x in tek_commit_dosyalari(root, r"[A-Z]{3}") if re.search(r"\(testx\)|tester", x[1], re.I)]
+                       if d == "data/metin/metinler.csv"]
     roadmap = root / "ROADMAP_2.md"
     metin = roadmap.read_text(encoding="utf-8") if roadmap.is_file() else ""
     sonuc["TEK-32"] = tek32_chr011(metin)

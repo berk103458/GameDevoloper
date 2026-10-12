@@ -1804,3 +1804,10 @@ acilis.kisi.es,Eş
 acilis.kapi.kapali,Kapı kapalı
 koy.bayrak.acl01_muhafiz,Muhafız
 koy.bayrak.acl01_es,Muhafızın eşi
+arayuz.ayarlar.grafik.baslik,Grafik
+arayuz.ayarlar.grafik.profil,Grafik profili
+arayuz.ayarlar.grafik.normal,Normal
+arayuz.ayarlar.grafik.dusuk,Düşük
+arayuz.ayarlar.grafik.cozunurluk,3B çözünürlük
+arayuz.ayarlar.grafik.not,"Düşük profil duman ve alev efektlerini kapatır.
+3B ölçek arayüzün netliğini değiştirmez."
