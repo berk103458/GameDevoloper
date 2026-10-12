@@ -59,3 +59,11 @@ eşitlenir ki iki satır çelişmesin.
 | `anlati.saldiri.guc` | `koy.olay.tekfur_baskini` | Tekfur baskını raporu; metin eşit |
 
 Türkçe metinde çift boşluk `metin_dogrula.py` ile hatadır (tüm önekler, `sohbet.` dahil).
+
+## 6. Çeviri dışı istisnalar (YER-09)
+
+Bu liste kapalıdır; başka düz metin eklenmez.
+
+| Yer | Metin | Neden |
+|---|---|---|
+| `src/arayuz/ana.gd` `_hata_goster` | "Oyun içeriği yüklenemedi." | Metin tablosunun kendisi bozuk olabilir; hata ekranı tabloya güvenmez. |

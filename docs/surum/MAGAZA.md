@@ -19,3 +19,7 @@ Köyün sonu senin kararlarından çıkar:
 ## Dürüst satır
 
 Seslendirme yoktur; konuşmalar yazılıdır. Tek harita vardır: kapı ve onun ardındaki köy.
+
+## Kayıt
+
+Oyun tek kayıt dosyası tutar: `user://kayit.json`. Ayarlar `user://ayarlar.cfg` dosyasındadır.

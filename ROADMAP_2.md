@@ -1166,14 +1166,14 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: yeni `tools/soz_kadro_denetimi.py`; `data/soz/kadro.json`.
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-75:** Anahtar biçimi standarttır
+- [x] **YAZ-75:** (Claude — YER-02 kuralı) Anahtar biçimi standarttır
   - Ne: Noktalı küçük harf. YER-02. İkinci standart yok.
   - Kabul: Biçimsiz 1 hata. Test: metin_dogrula.
   - Bağımlılık: YER-02 Boyut: S.
   - Dosya: `tools/metin_dogrula.py`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-76:** Yer tutucu sayısı kodla eşittir
+- [x] **YAZ-76:** (Claude — KLT-43 kuralı) Yer tutucu sayısı kodla eşittir
   - Ne: Yer tutucu sayısı kodla eşittir. `%s` `%d` farkı 1 hata.
   - Kabul: Yer tutucu sayısı kodla eşittir. Fark 1. Test: araç.
   - Bağımlılık: SYS-09. Boyut: S.
@@ -1187,7 +1187,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: `data/metin/metinler.csv`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-78:** Çift boşluk diyalog satırında da aranır
+- [x] **YAZ-78:** (Claude — KLT-11 kuralı) Çift boşluk diyalog satırında da aranır
   - Ne: TST-0006 kuralı `sohbet.` önekine de bakar.
   - Kabul: Çift boşluk 1. Test: KLT-11.
   - Bağımlılık: KLT-11 Boyut: S.
@@ -1201,14 +1201,14 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: `data/metin/metinler.csv`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-80:** CHR anahtar biçimi korunur
+- [x] **YAZ-80:** (Claude — SYS-09 biçim testi) CHR anahtar biçimi korunur
   - Ne: `CHR_XXX_DUGUM_YY` standardı. Yeni biçim reddedilir.
   - Kabul: Yeni biçim 1 hata. Test: standart.
   - Bağımlılık: SYS-09 Boyut: S.
   - Dosya: `docs/METIN_ANAHTAR_STANDARDI.md`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-81:** Yetim anahtar silinmeden belgelenir
+- [x] **YAZ-81:** (Claude) Yetim anahtar silinmeden belgelenir
   - Ne: Kullanılmayan anahtar listeye yazılır, CSV'den bu maddede silinmez.
   - Kabul: Silinen 0, liste 1. Test: diff.
   - Bağımlılık: SYS-09 Boyut: S.
@@ -6278,7 +6278,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KLT-01. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-29:** Kapı anahtar silmez
+- [x] **KLT-29:** (Claude) Kapı anahtar silmez
   - Ne: Kapı anahtar silmez. CSV'den satır silinmez.
   - Kabul: Silinen 0. Test: diff.
   - Bağımlılık: SYS-09. Boyut: S.
@@ -6919,7 +6919,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
   - Bağımlılık: SRM-01. Boyut: S.
   - Dosya: `project.godot`; `metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **SRM-03:** Godot 4.7 dışına çıkılmaz.
+- [x] **SRM-03:** (Claude) Godot 4.7 dışına çıkılmaz.
   - Ne: `config/features` 4.7 kalır. Sürüm notu 4.7.2 çalıştırma sürümünü belgeler (`docs/` bir satır). Motor yükseltilmez.
   - Kabul: features içinde `4.7` durur. Test: dosya.
   - Bağımlılık: yok. Boyut: S.
@@ -7012,7 +7012,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.6 Mağaza metni — SDK yok
 
-- [ ] **SRM-16:** Steamworks bu sürüme girmez.
+- [x] **SRM-16:** (Claude) Steamworks bu sürüme girmez.
   - Ne: depoda Steam API yoktur. Başarım, bulut kayıt, atölye eklenmez. Kayıt `user://` kalır.
   - Kabul: `steam` geçen script 0. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
@@ -7054,7 +7054,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
   - Bağımlılık: SRM-05. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **SRM-22:** Kayıt yolu belgede bir satırdır.
+- [x] **SRM-22:** (Claude) Kayıt yolu belgede bir satırdır.
   - Ne: `user://kayit.json` ve `user://ayarlar.cfg`. Bulut kopyası yoktur.
   - Kabul: MAGAZA.md'de yol 1, bulut sözü 0. Test: dosya.
   - Bağımlılık: SRM-17. Boyut: S.
@@ -7063,13 +7063,13 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.9 İçerik sınırı
 
-- [ ] **SRM-23:** Sürüm notu seslendirme vaat etmez.
+- [x] **SRM-23:** (Claude) Sürüm notu seslendirme vaat etmez.
   - Ne: mağaza ve menü "sesli diyalog" demez. Efekt ve müzik duran `Ses` autoload'ıdır, yeni dosya yok.
   - Kabul: `seslendirme` vaadi 0. Test: metin tarama.
   - Bağımlılık: SRM-17. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **SRM-24:** İkinci harita vaadi yoktur.
+- [x] **SRM-24:** (Claude) İkinci harita vaadi yoktur.
   - Ne: bölge haritası (R1 `harita_ekrani.gd`) tek haritadır. Mağaza "dünya haritası" diye ikinci bir oyun alanı yazmaz.
   - Kabul: MAGAZA.md'de ikinci harita 0. Test: dosya.
   - Bağımlılık: SRM-17. Boyut: S.
@@ -8688,7 +8688,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.4 Düz metin istisnaları
 
-- [ ] **YER-09:** Katalog hata metni kodda kalır.
+- [x] **YER-09:** (Claude) Katalog hata metni kodda kalır.
   - Ne: `ana.gd:222–226` "Oyun içeriği yüklenemedi" kasten çeviri dışıdır (tablo bozuk olabilir). İstisna listesi standart belgesine bir satır olarak yazılır. Başka düz metin bu istisnaya eklenmez.
   - Kabul: istisna listesinde 1 satır. Test: belge.
   - Bağımlılık: YER-02. Boyut: S.
@@ -8769,7 +8769,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.9 Tester
 
-- [ ] **YER-20:** TST-0002 bu kapıda da görünür.
+- [x] **YER-20:** (Claude) TST-0002 bu kapıda da görünür.
   - Ne: eksik anahtar KLT-10 ile kapanır. Yerelleştirme aracı aynı `metin_dogrula.py` çıktısını okur, ikinci tarayıcı yazmaz.
   - Kabul: yeni `metin_tarayici` dosyası 0. Test: sayım.
   - Bağımlılık: KLT-10. Boyut: S.
@@ -8784,7 +8784,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.10 Sınırlar ve kapanış
 
-- [ ] **YER-22:** Çalışma anında çeviri hizmeti yoktur.
+- [x] **YER-22:** (Claude) Çalışma anında çeviri hizmeti yoktur.
   - Ne: HTTP çeviri, model çağrısı, otomatik satır üretimi yok (KLT-23 ile aynı sınır).
   - Kabul: `src/arayuz/dil_sekmesi.gd` içinde ağ çağrısı 0. Test: tarama.
   - Bağımlılık: KLT-23. Boyut: S.

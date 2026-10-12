@@ -90,7 +90,39 @@ def hfz22_son_defter(root):
     return ["src/arayuz/ana.gd"] if ana.is_file() and "HafizaDefteriEkrani" in _kod(ana.read_text(encoding="utf-8")) else []
 
 
+def srm16_steam(root):
+    """SRM-16: Steamworks bu sürüme girmez; `steam` geçen betik (src/tools/bridge .gd/.py) 0."""
+    return [_rel(root, p) for d in ("src", "tools", "bridge") if (root / d).is_dir() for p in sorted((root / d).rglob("*"))
+            if p.suffix in (".gd", ".py") and p.name != "kapsam_bekcisi.py" and re.search(r"steam", p.read_text(encoding="utf-8", errors="replace"), re.I)]
+
+
+def yer20_ikinci_tarayici(root):
+    """YER-20: ikinci metin tarayıcısı yok; yerelleştirme metin_dogrula.py çıktısını okur."""
+    return [_rel(root, p) for p in sorted(root.rglob("metin_tarayici*")) if ".godot" not in p.parts]
+
+
+def srm22_24_magaza(root):
+    """SRM-22/23/24: MAGAZA.md'de kayıt yolu bir kez, bulut sözü, seslendirme vaadi ve ikinci harita 0."""
+    sayfa = root / "docs/surum/MAGAZA.md"
+    if not sayfa.is_file():
+        return []
+    metin = sayfa.read_text(encoding="utf-8")
+    ihlal = []
+    if metin.count("user://kayit.json") != 1:
+        ihlal.append("kayıt yolu tam bir kez değil")
+    if re.search(r"bulut|cloud", metin, re.I):
+        ihlal.append("bulut sözü")
+    if re.search(r"sesli diyalog|seslendirilmiş|seslendirme (vardır|içerir)", metin, re.I):
+        ihlal.append("seslendirme vaadi")
+    if re.search(r"dünya haritası|ikinci harita|haritalar", metin, re.I):
+        ihlal.append("ikinci harita")
+    return ihlal
+
+
 KURALLAR = {
+    "SRM-16": srm16_steam,
+    "YER-20": yer20_ikinci_tarayici,
+    "SRM-22/23/24": srm22_24_magaza,
     "HAN-47": han47_hane_romans,
     "HFZ-30": hfz30_kalp_anahtari,
     "KLT-21": klt21_hitap_puani,
