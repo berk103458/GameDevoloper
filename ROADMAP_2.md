@@ -912,7 +912,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.1 Dünya kitabı
 
-- [ ] **YAZ-01:** Dünya kitabı — dönem bilgisi.
+- [/] **YAZ-01:** (Claude — yazıldı, Ahmet + anlatı yönetmeni onayı bekliyor) Dünya kitabı — dönem bilgisi.
   - Ne: Oyuncu bu kitabı görmez; yazar ve doğrulayıcı görür. `docs/dunya_kitabi/` altında on dört konu dosyası durur: tarih, uç düzeni, Türkmen göçü, Bizans ve Rum köylüler, Ermeni ve Süryani toplulukları, Ahi, dervişler, ticaret ve kervansaray, köy ekonomisi, meslekler, giyim, yemek, inanç ve yemin, coğrafya. Her dosyada oyun metninin kullanacağı olgular ve boş olmayan bir `## Kaynaklar` listesi vardır. Anlatı yönetmeni ile Ahmet'in adları dosyanın sonunda durur. Kitap, salgın, mevsim, tüccar, divan, yozlaşma, bölge haritası, çift kasa, cenaze veya üretim için ikinci kural yazmaz.
   - Kurallar:
     1. `docs/dunya_kitabi/` altında konu başına bir dosya durur. Konu listesi şudur: tarih (Babai İsyanı 1240, Kösedağ 1243, sonrası Moğol tahakkümü), Selçuklu uç düzeni, Türkmen boyları ve göç, Bizans uç beyleri ve Rum köylüler, Ermeni ve Süryani toplulukları, Ahi teşkilatı, dervişler, ticaret yolları ve kervansaraylar, köy ekonomisi, meslekler, giyim, yemek, inanç ve yemin kalıpları, coğrafya (Sivas, Erzincan, Kayseri, Konya, Malatya). Bu 14 dosya kapanış sayısıdır.
