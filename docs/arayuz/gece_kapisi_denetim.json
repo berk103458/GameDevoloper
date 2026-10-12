@@ -1,0 +1,437 @@
+[
+  {
+    "original": "button_disabled.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/button_disabled.jpg",
+    "sha256": "a13708e47740d6e5b567eec9ffdc36531167e3bb1a4e479e216046766b4ef515",
+    "size": [
+      4128,
+      1024
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-09",
+    "name": "button_disabled.png",
+    "usable": null,
+    "issue": "Dama ve solda hayalet parça var. Sağ taraf fazla sıcak/parlak; tutarlı pasif görünüm ve sınırdaki silik çentik yok.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "button_hover.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/button_hover.jpg",
+    "sha256": "5534cd4563051bb3ee29dca17e3f0dcc278820d0828fb20445167e5f41969111",
+    "size": [
+      4128,
+      1024
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-07",
+    "name": "button_hover.png",
+    "usable": null,
+    "issue": "Dama resme çizilmiş. Normal halle şekil, konum ve ahşap tonu aynı değil; yalnız kenar ışığı değişmiş bir referans düzenlemesi değil.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "button_normal.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/button_normal.jpg",
+    "sha256": "3f5d5901bf061ce98f77e800a152b23e30a437053998400c89ed8e7c86a0c92c",
+    "size": [
+      4128,
+      1024
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-06",
+    "name": "button_normal.png",
+    "usable": null,
+    "issue": "Düz gri zemin opak. Nesne geniş tuvalin ortasında küçük kalıyor; 16 px dış pay yok. Dört halin ortak ana şekli yeniden kurulmalı.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "button_pressed.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/button_pressed.jpg",
+    "sha256": "3921cc18d9258b1fbf576555b127d852b427ff7f30120c70bea7a7a275456817",
+    "size": [
+      4128,
+      1024
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-08",
+    "name": "button_pressed.png",
+    "usable": null,
+    "issue": "Dama resme çizilmiş; solda hayalet/uzamış parça var. Köşe ve sınır normalle uyuşmuyor; içe basılmış hal net değil.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "checkbox_off.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/checkbox_off.jpg",
+    "sha256": "776d543bcdae8f64e095a362539549722d02485e2ad4dc5c78b6e4941dd737c2",
+    "size": [
+      2752,
+      1536
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-18",
+    "name": "checkbox_off.png",
+    "usable": null,
+    "issue": "Kare nesne yatay büyük tuvalde küçük kalmış. İşaretli halle dış sınır/ölçek uyuşmuyor; gerçek alfa yok.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "checkbox_on.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/checkbox_on.jpg",
+    "sha256": "6613c527425d21e91b4b95e600afbf6bbb3933c0f71f9ef836566b12cf6b428a",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-19",
+    "name": "checkbox_on.png",
+    "usable": null,
+    "issue": "İşaret okunur fakat büyük dama tuvali opak; boş halle aynı gövde ve ölçek değil.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "cursor_arrow.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/cursor_arrow.jpg",
+    "sha256": "5cd63021656cd91aa316a52dfeeb13241731503c38a9788a9164f758751a9137",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-30",
+    "name": "cursor_arrow.png",
+    "usable": null,
+    "issue": "Ok okunur; dama opak. Uç hedef 8,8 etkin noktasında değil, tuval ortasında; küçültmek tek başına çözmez.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "cursor_grab.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/cursor_grab.jpg",
+    "sha256": "5616a39b42cd30c1de5bbe486829b3cd06983296f464f1d6a3911c620ea9360c",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-32",
+    "name": "cursor_grab.png",
+    "usable": null,
+    "issue": "El silueti var fakat altta renk örnekleri sızmış. Dama opak; kavrama merkezi ve hedef boyut yanlış.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "cursor_point.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/cursor_point.jpg",
+    "sha256": "9192bb8632320facbde7f2a539c095b4bfcbbddd2ab719548129accadee4bc8c",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-31",
+    "name": "cursor_point.png",
+    "usable": null,
+    "issue": "El silueti var fakat altta beş büyük palet dairesi var. Dama opak; parmak etkin noktası yanlış.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "dialogue_panel.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/dialogue_panel.jpg",
+    "sha256": "e76c3534cf91383163362f311bcaf08ec49f630031006c4ba317bf292ff4e62b",
+    "size": [
+      2752,
+      1536
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-05",
+    "name": "dialogue_panel.png",
+    "usable": null,
+    "issue": "Damalı dış zemin resme çizilmiş; gerçek alfa yok. 2:1 yerine yaklaşık 1,79:1. Büyük köşe süsleri hedef kesim paylarını aşabilir; doğrudan 9-slice kullanılamaz.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "focus_ring.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/hud_strip_variant.jpg",
+    "sha256": "a50e41af12b391a49e4c8016de2c15ebc5f390dd669d26a5b2ebd68f9724c576",
+    "size": [
+      2816,
+      1536
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-15",
+    "name": "focus_ring.png",
+    "usable": null,
+    "issue": "Yanlış parça: içi dolu ahşap HUD şeridi çizilmiş; odak için boş merkezli ince halka değil. Dama zemini opak.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "hud_strip.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/dialogue_panel_variant.jpg",
+    "sha256": "b12d83d78d6abc2d4f3211dbd4f594de0eaae994bf24eb333a0528be5ec35f2d",
+    "size": [
+      2912,
+      1440
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-14",
+    "name": "hud_strip.png",
+    "usable": null,
+    "issue": "Uzun ince şerit yerine geniş panel çizilmiş. Hedef oran 10,67:1, kaynak yaklaşık 2,02:1. İri süslü köşeler ve opak dama var.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "interrogation_bg.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/interrogation_bg.jpg",
+    "sha256": "698397ffe9ee903d5697413f5d1d3bb59c552e841bea3a5ab48209c54039d965",
+    "size": [
+      2752,
+      1536
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-02",
+    "name": "interrogation_bg.png",
+    "usable": "assets/ui/atmosfer/gece_kapisi/interrogation_bg.png",
+    "issue": "Boş sorgu mekânı ve sakin sağ sütun kullanılabilir. 4K değil; hedef 16:9 oranına çok yakın. Geçici arka plan adayı.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "loading_fill.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/loading_fill.jpg",
+    "sha256": "d60bb435e02bb33b88e208dbd551fb94644536654b6fc6c7f612f651acf9669c",
+    "size": [
+      2752,
+      1536
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-25",
+    "name": "loading_fill.png",
+    "usable": null,
+    "issue": "Dolgu yerine çerçeveli tam çubuk çizilmiş. Altta renk örnekleri var; gerçek alfa ve doğru ince çubuk oranı yok.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "loading_track.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/loading_track.jpg",
+    "sha256": "e6a9d96b6021888bc97aa5c1651f5c4ff42f55dcc6cda875a8c6c79b18392323",
+    "size": [
+      2752,
+      1536
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-24",
+    "name": "loading_track.png",
+    "usable": null,
+    "issue": "Boş kanal okunur fakat altta renk örnekleri ve opak dama var. Hedef 10,67:1 oranı yok.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "main_menu_bg.png",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/main_menu_bg.jpg",
+    "sha256": "f03752491d19dd690188d0209f301cdf8793b1e5a516eaeb0e7f39c414512315",
+    "size": [
+      2752,
+      1536
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-01",
+    "name": "main_menu_bg.png",
+    "usable": "assets/ui/atmosfer/gece_kapisi/main_menu_bg.png",
+    "issue": "Sol üstte resme gömülü sert siyah dikdörtgen var; doğal karanlık yerine arayüz yer tutucusu gibi duruyor. 4K değil. Geçici arka plan adayı, nihai sanat onayı değil. Kaynak .png uzantılı olmasına rağmen JPEG içeriyordu; gerçek PNG dönüşümü yapıldı.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "map.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/map_bg.jpg",
+    "sha256": "282f41c7c3504cd692fbbe4316e4ec9942fc65011c2f643cce9276ebc2384231",
+    "size": [
+      2752,
+      1536
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-03",
+    "name": "map_bg.png",
+    "usable": "assets/ui/atmosfer/gece_kapisi/map_bg.png",
+    "issue": "Doğru parça map_bg; açık kâğıt harita diğerlerinden daha aydınlık, ahşap/demir çerçeve stil bağı kuruyor. Gerçek rota verisine eşlenmiş değil; 4K değil. Geçici dekoratif arka plan adayı.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "ornament_corner.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/ornament_corner.jpg",
+    "sha256": "5c4fbd7ff4d41d285ed0a981cdafcb775ebdbdf26e0ec2017b15ac6aaaef67b6",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-26",
+    "name": "ornament_corner.png",
+    "usable": null,
+    "issue": "Doğru L biçimli süs, fakat dama opak. 256×256 kaynak/yerleşim payı değil; sabit boyutta kullanılmalı.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "ornament_divider.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/ornament_divider.jpg",
+    "sha256": "9780549b949ff5b055b04e4f44d9cc4b2bec65e87db9199966bc675c8dd242d8",
+    "size": [
+      2752,
+      1536
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-27",
+    "name": "ornament_divider.png",
+    "usable": null,
+    "issue": "Bölücü okunur fakat altta palet kareleri var. Dama opak; 1024×96 ince tuval oranı yok.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "ornament_emblem.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/ornament_emblem.jpg",
+    "sha256": "e5edb9faa24aef88e945ad8d452faf9fb1ff33212b28febf8f7d6a44835a9d86",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-28",
+    "name": "ornament_emblem.png",
+    "usable": null,
+    "issue": "Kandil/kemer amblemi doğru içerik; dama opak, nihai 512×512 değil.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "ornament_seal.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/ornament_seal.jpg",
+    "sha256": "8d9c094767f1ff4e402c94a7fab3cea5711c5903730f807c5770d16d4817f3e8",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-29",
+    "name": "ornament_seal.png",
+    "usable": null,
+    "issue": "Yazısız mühür doğru içerik; dama opak, nihai 256×256 değil.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "portrait_frame.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/portrait_frame.jpg",
+    "sha256": "c324e9e23508ffae93bd67907931bd42202ba66c8fc9ee25c1744a5f790cdb20",
+    "size": [
+      1856,
+      2304
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-11",
+    "name": "portrait_frame.png",
+    "usable": null,
+    "issue": "Hem dış zemindeki hem orta penceredeki dama çizilmiş; portre deliği saydam değil. Oran hedefe yakın, ölçü yanlış. İç ve dış maske yeniden hazırlanmalı.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "scrollbar_thumb.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/scrollbar_track_variant.jpg",
+    "sha256": "b7d12a085f94a4682cdd061bc0fe79938e13ae6a1e6e2b7b1bffd3b7595286d6",
+    "size": [
+      1024,
+      4128
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-23",
+    "name": "scrollbar_thumb.png",
+    "usable": null,
+    "issue": "Tutamaç yerine uzun oyuk kanal/track gibi görünüyor. Uç başlıkları büyük; opak dama var. Kısa sürükleme tutamacı yeniden üretilmeli.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "settings_panel.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/settings_panel.jpg",
+    "sha256": "31f40ec40079826a3d8ad73bfd7c9fa6f3121038bd63a420fb01292622c3cee6",
+    "size": [
+      1792,
+      2400
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-12",
+    "name": "settings_panel.png",
+    "usable": null,
+    "issue": "Kare panel yerine dikey panel üretilmiş. Dama ve iri köşeler var; hedef 80 px kesim bandı doğrulanamıyor.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "slider_thumb.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/slider_thumb.jpg",
+    "sha256": "c3be27b35c53f4d4451cd9158dd6587cef5131a9fe3ed5342d176a8a4bc5089c",
+    "size": [
+      1792,
+      2400
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-21",
+    "name": "slider_thumb.png",
+    "usable": null,
+    "issue": "Dikey tutamaç tanınır; büyük dış boşluk ve opak dama var. 96×128 nihai ölçü değil.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "slider_track.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/slider_track.jpg",
+    "sha256": "160b9b5c0a4efa2ee425159fef237c17ced7718d0ace68be6c75485661068c11",
+    "size": [
+      2752,
+      1536
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-20",
+    "name": "slider_track.png",
+    "usable": null,
+    "issue": "Kanal büyük yatay tuvalin ortasında küçük kalmış; hedef 12:1 kaynak sınırları yok. Dama opak.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "tab_normal.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/tab_normal.jpg",
+    "sha256": "03cf0968ba6c912445070c01fc666a2787f6c9133a9c5b2551a44bdeb8e4ab8d",
+    "size": [
+      3200,
+      1312
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-16",
+    "name": "tab_normal.png",
+    "usable": null,
+    "issue": "Sekme dili tanınır; opak dama ve büyük dış boşluk var. Yan kanatlar hedef kesim bantlarını aşabilir.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "tab_selected.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/tab_selected.jpg",
+    "sha256": "8ccf4da50e826c0de9ca05e1b6c1bf7fc9538ed2018454999b8832dadeceac55",
+    "size": [
+      3200,
+      1312
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-17",
+    "name": "tab_selected.png",
+    "usable": null,
+    "issue": "Sıcak seçili kenar anlaşılır, normal sekmeyle butonlardan daha tutarlı. Yine gerçek alfa ve sabit kesim payı yok.",
+    "source_format": "JPEG"
+  },
+  {
+    "original": "tooltip_panel.jpg",
+    "source": "assets/ui/atmosfer/gece_kapisi/_inceleme/tooltip_panel.jpg",
+    "sha256": "6c31c0f4551988fc8b345b697aabf1e8e8b36506cd015b35f243e7abdd1a6ce9",
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "slot": "gece_kapisi-13",
+    "name": "tooltip_panel.png",
+    "usable": null,
+    "issue": "2:1 küçük panel yerine kare tuvalde dikey panel var. Dört köşede gereğinden büyük/farklı süsler; gerçek alfa yok.",
+    "source_format": "JPEG"
+  }
+]
