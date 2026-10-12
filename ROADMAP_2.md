@@ -6848,7 +6848,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: TEK-10. Boyut: M.
   - Dosya: `data/teknik.json`.
   - Asset: asset gerekmedi.
-- [ ] **TEK-30:** Soğuk ölüm bu bölümün işi değildir.
+- [x] **TEK-30:** (Claude — kapsam bekçisi) Soğuk ölüm bu bölümün işi değildir.
   - Ne: `donma_yoneticisi.gd` MEV-02'dir. Kare takılması veya bellek için ona satır eklenmez.
   - Kabul: dosya diff'i 0. Test: tarama.
   - Bağımlılık: MEV-02. Boyut: S.
@@ -6863,13 +6863,13 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KAY-04. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **TEK-32:** Model ölçüsü burada yoktur.
+- [x] **TEK-32:** (Claude — kapsam bekçisi) Model ölçüsü burada yoktur.
   - Ne: TST-0007 (chr_011 pelerin) ve TST-0008 (ayak, Aydoğdu yayı) Bölüm 44 maddesidir. Asset üretilmez.
   - Kabul: bu dosyada `chr_011` düzeltme adımı 0. Test: sayım.
   - Bağımlılık: SAH. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **TEK-33:** Odun kilidi burada yoktur.
+- [x] **TEK-33:** (Claude — kapsam bekçisi) Odun kilidi burada yoktur.
   - Ne: TST-0004 / BUG-0018 Bölüm 32 odun satırıdır.
   - Kabul: `odun_zinciri.gd` bu bölümden değişmez. Test: tarama.
   - Bağımlılık: DEN. Boyut: S.

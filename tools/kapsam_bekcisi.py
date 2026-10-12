@@ -103,9 +103,50 @@ KURALLAR = {
     "HFZ-22": hfz22_son_defter,
 }
 
+# Bölüm 41 (TEK) sınırları: bu bölümün commit'leri şu dosyalara dokunmaz (git geçmişi taraması).
+TEK_DOKUNMAZ = {"TEK-30": "src/dunya/donma_yoneticisi.gd", "TEK-33": "src/koy/odun_zinciri.gd"}
+
+
+def tek_commit_dosyalari(root: Path) -> list:
+    """[(commit, konu, dosya)] — konusu TEK-n içeren commit'lerin dokunduğu dosyalar; git yoksa boş."""
+    import subprocess
+    try:
+        cikti = subprocess.run(["git", "log", "--format=@@%h %s", "--name-only", "HEAD"], cwd=root,
+                               capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=60).stdout
+    except (OSError, subprocess.SubprocessError):
+        return []
+    sonuc, konu = [], None
+    for satir in cikti.splitlines():
+        if satir.startswith("@@"):
+            konu = satir[2:]
+        elif satir.strip() and konu and re.search(r"\bTEK-\d+", konu):
+            sonuc.append((konu.split(" ", 1)[0], konu, satir.strip()))
+    return sonuc
+
+
+def tek_dokunmaz_ihlalleri(kayitlar: list) -> dict:
+    return {madde: [f"{c} {dosya}" for c, _, d in kayitlar if d == dosya] for madde, dosya in TEK_DOKUNMAZ.items()}
+
+
+def tek32_chr011(roadmap: str) -> list:
+    """TEK-32: Bölüm 41'de chr_011 düzeltme adımı yok; chr_011 yalnız TEK-32'nin kendi satırlarında geçer."""
+    bolum = roadmap.split("## BÖLÜM 41", 1)[1].split("\n## ", 1)[0] if "## BÖLÜM 41" in roadmap else ""
+    ihlal, madde = [], None
+    for satir in bolum.splitlines():
+        m = re.match(r"- \[[ /x]\] \*\*(TEK-\d+):", satir)
+        if m:
+            madde = m.group(1)
+        if "chr_011" in satir and madde != "TEK-32":
+            ihlal.append(f"{madde}: {satir.strip()[:60]}")
+    return ihlal
+
 
 def denetle(root: Path = ROOT) -> dict:
-    return {ad: kural(root) for ad, kural in KURALLAR.items()}
+    sonuc = {ad: kural(root) for ad, kural in KURALLAR.items()}
+    sonuc.update(tek_dokunmaz_ihlalleri(tek_commit_dosyalari(root)))
+    roadmap = root / "ROADMAP_2.md"
+    sonuc["TEK-32"] = tek32_chr011(roadmap.read_text(encoding="utf-8")) if roadmap.is_file() else []
+    return sonuc
 
 
 def main() -> int:

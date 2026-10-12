@@ -25,7 +25,22 @@ IHLAL = {
 
 class KapsamBekcisiTest(unittest.TestCase):
     def test_depo_temiz(self):
-        self.assertEqual({ad: [] for ad in arac.KURALLAR}, arac.denetle())
+        sonuc = arac.denetle()
+        self.assertEqual({k: [] for k in sonuc}, sonuc)
+        self.assertTrue({"TEK-30", "TEK-32", "TEK-33"} <= set(sonuc))
+
+    def test_tek_commiti_dokunmaz_dosyaya_dokununca_yakalanir(self):
+        kayitlar = [("abc1234", "abc1234 fix(TEK-29): bellek", "src/koy/odun_zinciri.gd"),
+                    ("def5678", "def5678 feat(MEV-02): donma", "src/dunya/donma_yoneticisi.gd")]
+        ihlal = arac.tek_dokunmaz_ihlalleri([k for k in kayitlar if "TEK-" in k[1]])
+        self.assertEqual(["abc1234 src/koy/odun_zinciri.gd"], ihlal["TEK-33"])
+        self.assertEqual([], ihlal["TEK-30"])
+
+    def test_tek32_chr011_baska_maddede_yakalanir(self):
+        temiz = "## BÖLÜM 41\n- [ ] **TEK-32:** Model ölçüsü\n  - Ne: chr_011 Bölüm 44.\n## BÖLÜM 42\n"
+        self.assertEqual([], arac.tek32_chr011(temiz))
+        bozuk = temiz.replace("## BÖLÜM 42", "- [ ] **TEK-35:** chr_011 pelerini düzelt.\n## BÖLÜM 42")
+        self.assertEqual(1, len(arac.tek32_chr011(bozuk)))
 
     def test_her_kural_ihlali_yakalar_digerleri_temiz_kalir(self):
         for ad, (yol, icerik) in IHLAL.items():
