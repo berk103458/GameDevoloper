@@ -27,6 +27,8 @@ static func konusanlar(y: KoyYonetimi, adaylar: Array = []) -> Array[String]:
 		if adlar.size() >= EN_COK: break
 		var k := y.koylu(id)
 		if k == null or k.saglik <= 0: continue
+		# Kapıdan içeri alınmamış kurucu hane (ACL-01 muhafızı = oyuncu, eşi) çınar altında konuşmaz.
+		if k.bayrak_var("acl01_muhafiz") or k.bayrak_var("acl01_es"): continue
 		adlar.append(k.ad)
 	return adlar
 

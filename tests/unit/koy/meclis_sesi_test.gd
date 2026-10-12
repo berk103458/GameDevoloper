@@ -16,6 +16,7 @@ func _kisi(y: KoyYonetimi, ad: String) -> Koylu:
 func _calistir() -> void:
 	_krizsiz()
 	_krizli()
+	_kurucu_hane()
 	_adsiz()
 	_sahne_yok()
 	await process_frame
@@ -29,6 +30,18 @@ func _krizsiz() -> void:
 	_kontrol(not MeclisSesi.kriz_var_mi(y), "Krizsiz gece: kriz kapısı kapalı")
 	_kontrol(MeclisSesi.konusanlar(y).is_empty(), "Krizsiz gecede konuşmacı sayısı 0")
 	_kontrol(not MeclisSesi.adsiz_mi(y), "Krizsiz gecede adsız satır açılmaz")
+
+func _kurucu_hane() -> void:
+	# Oyunda görülen hata: konuşanlar 'Muhafız, Eş' yazıyordu; kurucu hane kapıdan alınmadı.
+	var y := _y()
+	var m := _kisi(y, "Muhafız")
+	m.bayrak_ac("acl01_muhafiz")
+	var e := _kisi(y, "Eş")
+	e.bayrak_ac("acl01_es")
+	_kisi(y, "Gelen")
+	KuyuKirliligi.kirlet(y)
+	var adlar := MeclisSesi.konusanlar(y)
+	_kontrol(adlar == ["Gelen"], "Kurucu hane konuşmaz, kapıdan alınan konuşur: " + str(adlar))
 
 func _krizli() -> void:
 	var y := _y()
