@@ -3656,19 +3656,19 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: TUC-09, DEN-03. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-50:** Kış odunu yaz odunundan pahalıdır.
+- [/] **DEN-50:** (testx) Kış odunu yaz odunundan pahalıdır.
   - Ne: ölçülen fiyat, TUC-09 çarpanına uyar. Sapma yüzde 0'dır, çünkü çarpan tek kaynaktır.
   - Kabul: ölçülen fiyat, TUC-09 çarpanına uyar. Sapma yüzde 0'dır, çünkü çarpan tek kaynaktır. Test: kış fiyatı = yaz fiyatı çarpı çarpan.
   - Bağımlılık: TUC-09, MEV-01. Boyut: S.
   - Dosya: `tests/unit/denge/fiyat_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-51:** Erzak bitince fiyat tavandadır.
+- [/] **DEN-51:** (testx) Erzak bitince fiyat tavandadır.
   - Ne: tavan TUC-09 tablosundadır. Bu bölüm tavanı yükseltmez.
   - Kabul: tavan TUC-09 tablosundadır. Bu bölüm tavanı yükseltmez. Test: erzak 0, fiyat tavan, tavanın üstü yok.
   - Bağımlılık: TUC-09. Boyut: S.
   - Dosya: `tests/unit/denge/fiyat_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-52:** Oyuncu satışı iki kasaya ayrı yazılır.
+- [/] **DEN-52:** (testx) Oyuncu satışı iki kasaya ayrı yazılır.
   - Ne: TUC-10 resmi satış köy akçesine, kişisel satış muhafız akçesine gider. Ölçüm karışmayı 10 satışta arar.
   - Kabul: TUC-10 resmi satış köy akçesine, kişisel satış muhafız akçesine gider. Ölçüm karışmayı 10 satışta arar. Test: karışma 0.
   - Bağımlılık: TUC-10, EKO-01. Boyut: S.
@@ -3686,13 +3686,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: EKO-10, TUC-09. Boyut: M.
   - Dosya: `data/ayarlar/denge.json` `iflas_aralik`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-55:** Fiyat, gece raporunda kaynağıyla durur.
+- [/] **DEN-55:** (testx) Fiyat, gece raporunda kaynağıyla durur.
   - Ne: EKO-15 bilançosu kış çarpanını ayrı satır yazar. Yeni bilanço yoktur.
   - Kabul: EKO-15 bilançosu kış çarpanını ayrı satır yazar. Yeni bilanço yoktur. Test: kış gecesinde satır var, yaz gecesinde yok.
   - Bağımlılık: EKO-15, TUC-09. Boyut: S.
   - Dosya: mevcut bilanço.
   - Asset: asset gerekmedi.
-- [ ] **DEN-56:** Karaborsa fiyatı kişisel kasadadır.
+- [/] **DEN-56:** (testx) Karaborsa fiyatı kişisel kasadadır.
   - Ne: TUC-11 alışı `muhafiz_akce` düşer. Köy akçesi düşmez.
   - Kabul: TUC-11 alışı `muhafiz_akce` düşer. Köy akçesi düşmez. Test: bir alış, iki kasa.
   - Bağımlılık: TUC-11. Boyut: S.
