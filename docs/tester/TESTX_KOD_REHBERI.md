@@ -88,6 +88,8 @@ func _kontrol(olur: bool, mesaj: String) -> void:
 - Eski kayıt, aynı tohum (ikiz), sıfır/boş durum, sınır değer — maddede yazıyorsa test et.
 - **Bilinen ortam sorunu (BUG-0020, açık):** `.godot` önbelleği sıfırdan kurulmuş bir kopyada `kuyu_kirliligi_kontrol`, `kitlik_isyani_kontrol`, `kriz_kenetlenmesi_kontrol`, `diyalog_sirasi_kontrol` GEÇTİ bastığı hâlde çıkışta 6 satır `RID allocations ... leaked at exit` verir. Bunu senin maddene ait sanma, ama kendi testinde yeni bir `leaked`/`still in use` satırı görürsen o senindir.
 - Çıkışta `ERROR: N resources still in use` çıkarsa sanity bunu hata sayar: nesneleri `free()`/`null`la, sonda `await process_frame` ×2 + kısa `create_timer`.
+- **Bitiş işareti tam olarak `GEÇTİ`'dir** (Ç ve İ ile). `GECTI` yazan test kendi içinde geçse bile sanity "Missing completion marker" ile düşer (12 Ekim: 4 test bu yüzden düştü). Teslimden önce çıktıda `GEÇTİ` dizesini ara.
+- Kaynak dosyayı karakter sayarak (`substr(i - 40, …)`) tarayan test yazma; satır sonu CRLF/LF farkıyla kırılır. Satır ya da regex bazlı tara.
 - Testi geçirmek için kodu değil **testi** gevşetmek yasak.
 
 ## 5. Komutlar
