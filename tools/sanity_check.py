@@ -121,6 +121,7 @@ def checks(godot, root):
     yield "kapi_kuyu_donusu_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/kapi_kuyu_donusu_kontrol.tscn"], "GEÇTİ"
     yield "bellek_sahne_gecisi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/bellek_sahne_gecisi_kontrol.tscn"], "GEÇTİ"
     yield "ayarlar_bozuk_menu_kontrol", [sys.executable, "-B", str(root / "tests/oto/ayarlar_bozuk_menu_kontrol.py"), godot], "GEÇTİ"
+    yield "kesik_kayit_devam_kontrol", [sys.executable, "-B", str(root / "tests/oto/kesik_kayit_devam_kontrol.py"), godot], "GEÇTİ"
     yield "acilis_koy_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/acilis_koy_kontrol.tscn"], "GEÇTİ"
     yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
 
