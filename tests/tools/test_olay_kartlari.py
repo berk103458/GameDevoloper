@@ -50,12 +50,13 @@ class OlayKartlariTest(unittest.TestCase):
         self.assertEqual(4, len(re.findall(r"%(?!%)[-+ 0#]*\d*(?:\.\d+)?[sdif]", metin)))
 
 
-if __name__ == "__main__":
-    unittest.main()
-
 
 class RoadmapKimlikTest(unittest.TestCase):
     def test_klt24_dyl_11_16_durur(self):
         roadmap = (ROOT / "ROADMAP_2.md").read_text(encoding="utf-8")
         for n in range(11, 17):
             self.assertEqual(1, len(re.findall(rf"^- \[[ /x]\] \*\*DYL-{n}:\*\*", roadmap, re.M)), f"DYL-{n}")
+
+
+if __name__ == "__main__":
+    unittest.main()
