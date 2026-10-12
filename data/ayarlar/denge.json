@@ -1,5 +1,20 @@
 {
   "kamera_surukleme": {
     "hiz": 1.0
+  },
+  "kriz_araligi": {
+    "meclis_bekleme_gun": 2
+  },
+  "acilis_stoku": {
+    "kaynak": "res://data/ayarlar/koy.tres"
+  },
+  "fiyat_carpani": {
+    "kaynak": "res://data/ticaret_fiyatlari.json"
+  },
+  "zar_esigi": {
+    "sistem_yok": true
+  },
+  "zorluk_carpani": {
+    "sistem_yok": true
   }
 }

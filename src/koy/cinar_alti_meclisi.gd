@@ -3,7 +3,9 @@ class_name CinarAltiMeclisi
 extends RefCounted
 
 const META := &"cinar_alti_meclisi"
-const BEKLEME := 2
+static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/ayarlar/denge.json"))
+## DEN-01: meclis bekleme aralığı denge tablosundan okunur; kodda sabit değildir.
+static func bekleme() -> int: return int(AYAR.kriz_araligi.meclis_bekleme_gun)
 const TUR := ["kitlik", "salgin", "kuyu", "yas"]
 const AD := {"kitlik": "Kıtlık isyanı", "salgin": "Salgın belirtileri", "kuyu": "Kirli kuyu", "yas": "Köy yası"}
 const SECENEK := {"as": "Ambarı aç, aş dağıt", "vergi": "Bu hafta vergiyi kaldır", "karantina": "Belirtili köylüler için karantinayı genişlet", "kirec": "Kuyuyu 2 kireçle dezenfekte et", "toren": "Cenaze töreni düzenle", "toplu_mezar": "Ücretsiz toplu mezar"}
@@ -90,7 +92,7 @@ static func esitle(y: KoyYonetimi) -> void:
 	if not d.oylama.is_empty() and d.oylama.karar == "":
 		var o: Dictionary = d.oylama
 		var i: Dictionary = d.izler.get(o.tur, {})
-		if y.son != "" or not i.get("aktif", false) or int(i.get("sira", -1)) != int(o.sira) or y.gun < int(o.gun) or y.gun >= int(o.gun) + BEKLEME: d.oylama.karar = "suresi_doldu"
+		if y.son != "" or not i.get("aktif", false) or int(i.get("sira", -1)) != int(o.sira) or y.gun < int(o.gun) or y.gun >= int(o.gun) + bekleme(): d.oylama.karar = "suresi_doldu"
 	y.set_meta(META, d)
 
 static func yukle(y: KoyYonetimi, v: Variant) -> void:
@@ -145,7 +147,7 @@ static func toplanma_nedeni(y: KoyYonetimi, tur: String) -> String:
 	var d := durum(y)
 	if not d.oylama.is_empty() and d.oylama.karar == "": return "Önce bekleyen meclis kararını tamamla"
 	if d.izler.get(tur, {}).get("toplandi", false): return "Bu kriz için meclis zaten toplandı"
-	if int(d.son_gun) >= 0 and y.gun < int(d.son_gun) + BEKLEME: return "Meclis için %d gün bekle" % (int(d.son_gun) + BEKLEME - y.gun)
+	if int(d.son_gun) >= 0 and y.gun < int(d.son_gun) + bekleme(): return "Meclis için %d gün bekle" % (int(d.son_gun) + bekleme() - y.gun)
 	return ""
 
 static func topla(y: KoyYonetimi, tur: String) -> bool:
@@ -201,7 +203,7 @@ static func bedel_metni(y: KoyYonetimi, secim: String) -> String:
 static func karar_nedeni(y: KoyYonetimi, gun: int, tur: String, sira: int, uygula: bool) -> String:
 	var o: Dictionary = durum(y).oylama
 	if o.is_empty() or o.karar != "" or o.gun != gun or o.tur != tur or o.sira != sira: return "Bu oylama artık karar beklemiyor"
-	if y.son != "" or y.gun < gun or y.gun >= gun + BEKLEME or not _krizler(y).has(tur): return "Kriz veya meclis süresi sona erdi"
+	if y.son != "" or y.gun < gun or y.gun >= gun + bekleme() or not _krizler(y).has(tur): return "Kriz veya meclis süresi sona erdi"
 	var i: Dictionary = durum(y).izler.get(tur, {})
 	if not i.get("aktif", false) or int(i.get("sira", -1)) != sira or int(i.get("iz", -2)) != int(_krizler(y)[tur]): return "Kriz dönemi değişti"
 	return islem_nedeni(y, o.secenekler[o.kazanan]) if uygula else ""
