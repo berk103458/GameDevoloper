@@ -11,8 +11,12 @@ func _ready() -> void:
 		await get_tree().process_frame
 	assert(ana.find_children("*", "OyunKoprusu", true, false).is_empty())
 	ana.kayit = GuvenliKayit.new("user://test_kopru_save.json")
-	for c in ana.get_children():
-		if c is AdminHud: c.anlik_goruntu.arac.slot = GuvenliKayit.new("user://test_kopru_snapshot.json")
+	# TEK-27: AdminHud oyuncu surumunde dogmaz; kopru kaydet/yukle snapshot aracini test kendisi saglar.
+	var test_admin := AdminHud.new()
+	test_admin.baglam = ana
+	ana.add_child(test_admin)
+	test_admin.anlik_goruntu.arac.slot = GuvenliKayit.new("user://test_kopru_snapshot.json")
+	test_admin.anlik_goruntu.arac.slot.sil()
 	kopru = OyunKoprusu.new()
 	kopru.ana = ana
 	add_child(kopru)
@@ -93,8 +97,8 @@ func _ready() -> void:
 	assert((await kopru.run_command("gece_bitir")).has("error"))
 	assert(ana.oturum.kaydet() == kayit)
 	ana.kayit.sil()
-	for c in ana.get_children():
-		if c is AdminHud: c.anlik_goruntu.arac.slot.sil()
+	test_admin.anlik_goruntu.arac.slot.sil()
+	test_admin.free()
 	# Son sinyali fikstürü: azil, yönetimin boş son alanıyla karıştırılmamalı.
 	ana._ekran.oturum_bitti.emit(&"azil")
 	s = kopru.get_state()

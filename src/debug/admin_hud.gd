@@ -2,6 +2,10 @@
 class_name AdminHud
 extends CanvasLayer
 
+## SRM-04 / TEK-27: oyuncu surumu kriteri tek yerde. Gelistirici acilisi `--debug-arac` ile acilir; bayraksiz surecte oyuncu surumudur ve hicbir debug araci kurulmaz. Godot kullanici argumanlari `--` ayiricisindan sonra okunur (godot ... -- --debug-arac).
+static func arac_acik(argumanlar: PackedStringArray = OS.get_cmdline_user_args()) -> bool:
+	return argumanlar.has("--debug-arac")
+
 const SATIR_SINIRI := 100
 var baglam: Node
 var panel: PanelContainer
@@ -193,6 +197,8 @@ func _ready() -> void:
 	ac(false)
 
 func _input(olay: InputEvent) -> void:
+	if not arac_acik():
+		return
 	if not olay is InputEventKey or not olay.pressed or olay.echo:
 		return
 	if olay.keycode in [KEY_F1, KEY_QUOTELEFT] or olay.unicode == 126:

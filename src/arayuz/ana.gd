@@ -17,9 +17,10 @@ var _kapi_yukleniyor := false
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_eylemleri_kur()
-	var admin := AdminHud.new()
-	admin.baglam = self
-	add_child(admin)
+	if AdminHud.arac_acik():
+		var admin := AdminHud.new()
+		admin.baglam = self
+		add_child(admin)
 	TranslationServer.set_locale("tr")
 	GuvenliMetin.kur()  # BUG-07: eksik metin anahtarı kilitlemez
 	ayarlar = Ayarlar.new()

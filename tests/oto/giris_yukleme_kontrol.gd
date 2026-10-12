@@ -25,7 +25,12 @@ func _calistir() -> void:
 		# Ayar değiştirme/kapatma çağrısı yazmaz; doğrudan menüye dönülür.
 		ana.ana_menu()
 		await get_tree().process_frame
-	var admin: AdminHud = ana.find_children("*", "CanvasLayer", true, false).filter(func(n: Node) -> bool: return n is AdminHud)[0]
+	var admin: AdminHud = null
+	var adaylar := ana.find_children("*", "CanvasLayer", true, false).filter(func(n: Node) -> bool: return n is AdminHud)
+	if not adaylar.is_empty():
+		admin = adaylar[0]
+	# TEK-27: oyuncu surumunde (--debug-arac yokken) AdminHud dogmaz.
+	_kontrol((admin != null) == AdminHud.arac_acik(), "AdminHud varligi kriterle ayni")
 	print("MENÜ HAZIR ms: ", Time.get_ticks_msec() - baslangic)
 	await _foto("bug01_menu")
 	ana.oturum = Oturum.new(ana.katalog, 84)
@@ -46,13 +51,15 @@ func _calistir() -> void:
 		await get_tree().process_frame
 	_kontrol(giris_sayisi.adet == 1 and ana.get_children().filter(func(n: Node) -> bool: return n is KapiEkrani).size() == 1, "İki eşzamanlı çağrı tek gerçek kapı ekranı kurar")
 	_kontrol(not ana._kapi_yukleniyor, "Panel bitişinde kapı yükleme kilidi false")
-	_kontrol(is_instance_valid(admin) and admin.get_parent() == ana, "Global konsol menü→kapı geçişinde korunur")
+	if AdminHud.arac_acik():
+		_kontrol(is_instance_valid(admin) and admin.get_parent() == ana, "Global konsol menü→kapı geçişinde korunur")
 	print("KAPI HAZIR ms: ", Time.get_ticks_msec() - baslangic)
 	await get_tree().create_timer(0.5).timeout
 	await _foto("bug01_kapi")
-	admin.ac(true)
-	admin._komut("durum")
-	_kontrol(admin.durum.text.contains("Köy akçesi") and not get_tree().paused, "Gerçek kapı oturumu konsolda okunur; oyun durmaz")
+	if AdminHud.arac_acik():
+		admin.ac(true)
+		admin._komut("durum")
+		_kontrol(admin.durum.text.contains("Köy akçesi") and not get_tree().paused, "Gerçek kapı oturumu konsolda okunur; oyun durmaz")
 	await _foto("adm01_konsol")
 	ana.free()
 	await get_tree().process_frame

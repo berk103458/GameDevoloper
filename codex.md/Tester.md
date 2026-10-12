@@ -300,4 +300,14 @@ Durum: kod kaynağından **izlendi/doğrulandı**; oyunda **yeniden üretme dene
 - **Sürekli oyun:** 24 oyun (101–123); sonlar Tekfur 9 · İsyan 5 · azil 3 · zafer 0; ortalama son gün ≈ 11,4; DONMA 0, KILIT 0 (fix sonrası), yeni HATA 0.
 - Detay: `docs/tester/turlar/TUR-004.md`.
 
-
+## Kod gorevi TEK-27 + TEK-28 - 12 Ekim 2026 (testx-b)
+### Ne yaptim
+- **TEK-27 (Admin HUD oyuncu surumunde dogmaz):** oyuncu surumu kriteri **tek yerde** tanimlandi: `AdminHud.arac_acik()` (`src/debug/admin_hud.gd`). Gelistirici acilisi `--debug-arac` ile acilir (SRM-04); bayraksiz surec = oyuncu surumu. `ana.gd:20` kurulumu `if AdminHud.arac_acik():` kapisi ardinda (3 satir ince adaptor).
+- **TEK-28 (F1 ve ~ yalniz adminde):** `admin_hud.gd _input` basina `if not arac_acik(): return` eklendi; AdminHud yokken F1/~ hicbir seyi acmaz.
+- Yeni testler: `tests/unit/kvr/admin_hud_oyuncu_test.gd` (TEK-27 kriter + kapili kurulum), `tests/unit/kvr/admin_hud_kisayol_test.gd` (TEK-28). `admin_hud_test.gd` kriter-farkinda yeniden yazildi.
+- Etkilenen test taramasi (TEK-07 dersi): `AdminHud` gecen tum testler tarandi. `giris_yukleme_kontrol.gd` (HUD opsiyonel) ve `oyun_koprusu_kontrol.gd` (kopru kaydet/yukle snapshot aracini test kendisi kurar) guncellendi; diger admin testleri kendi AdminHud'unu kurar.
+### Sonuclar
+- Hedefli testler: `admin_hud_test` GECTI, `admin_hud_oyuncu_test` GECTI, `admin_hud_kisayol_test` GECTI, `admin_atlama_kontrol` GECTI, `admin_kriz/bayrak/snapshot` GECTI, `giris_yukleme_kontrol` GECTI (bayrakli/bayraksiz), `oyun_koprusu_kontrol` GECTI (bayrakli/bayraksiz; sifir `still in use`). Tum kosular headless, tek Godot sureci.
+- Onemli ortam notu: `-s` betik modunda autoload yok; o yuzden birim testleri `Ana` ornegi kullanamaz, kriter/kaynak dogrulamasi + `AdminHud` ornegi ile sinirlidir. Tam spawn iddiasi oto akis testinde dogrulanir.
+### Teslim
+- `work/testx/teslim.json`. TAM sanity KOSULMADI (gorev: "TAM sanity KOSMA"). Commit/push yapilmadi.
