@@ -169,7 +169,20 @@ def gir18_orta_tus(roadmap: str) -> list:
     return [] if len(orta) <= 1 else [f"orta tuş maddeleri: {orta}"]
 
 
+# HAN-49: oyuncu eşi yönetmez; karakter yürütme (`.yuru(`) yalnız bu sahnelerde ve köylü rutinindedir.
+YURU_IZINLI = {"src/dunya/kapi_sahnesi.gd", "src/dunya/menu_sahnesi.gd", "src/dunya/kapi_manzarasi.gd",
+               "src/dunya/karakter_model.gd", "src/koy/gorsel/koy_halk_hareketi.gd",
+               "src/kapi/sira_atlama_adaptoru.gd", "src/kapi/sira_olayi_sonucu.gd"}  # kapı kuyruğu gelenleri
+
+
+def han49_es_yurutme(root):
+    """HAN-49: izinli sahneler ve rutin dışında `.yuru(` çağrısı yok (eş sürüklenmez, kapıya gitmez)."""
+    return [_rel(root, p) for p in _gd(root) if _rel(root, p) not in YURU_IZINLI
+            and re.search(r"\.yuru\(", _kod(p.read_text(encoding="utf-8")))]
+
+
 KURALLAR = {
+    "HAN-49": han49_es_yurutme,
     "SRM-15": srm15_tek_cikis,
     "GRV-27": grv27_sanat_disi_yukleme,
     "YER-14": yer14_cogul,
@@ -184,7 +197,7 @@ KURALLAR = {
     "KLT-21": klt21_hitap_puani,
     "HAN-50": han50_hane_sahnesi,
     "SOY-31": soy31_baloncuk,
-    "SOY-49/OZL-31": soy49_ozl31_ses_sayisi,
+    "SOY-49/OZL-31/AYR-49": soy49_ozl31_ses_sayisi,
     "OZL-23": ozl23_kule_olayi,
     "OZL-28": ozl28_olay_sahnesi,
     "OZL-32": ozl32_gece_haritasi,

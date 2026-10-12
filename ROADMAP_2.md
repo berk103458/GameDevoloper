@@ -4964,7 +4964,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-02, AYR-14. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`, `src/arayuz/tema/palet.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-49:** Ses üretimi yok.
+- [x] **AYR-49:** (Claude) Ses üretimi yok.
   - Ne: bu bölüm yeni ses dosyası, bus, seslendirme veya ekran okuyucu sesi eklemez.
   - Kabul: `assets/ses/` dosya sayısı değişmez. Test: sayım.
   - Bağımlılık: yok. Boyut: S.
@@ -5328,7 +5328,7 @@ Kimlikler HAN-01 … HAN-52. Asset üretilmez; ocak görseli DYL-07 envanterinde
   - Bağımlılık: ACL-02. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **HAN-49:** Eş için ikinci oynanabilir gövde yok.
+- [x] **HAN-49:** (Claude) Eş için ikinci oynanabilir gövde yok.
   - Ne: oyuncu eşi yönetmez; eş sürüklenmez, kapıya gitmez (ACL-01 uç durum).
   - Kabul: eşte `yuru()` çağrısı yalnız rutin (`koy_halk_hareketi`). Test: tarama.
   - Bağımlılık: ACL-01. Boyut: S.
@@ -6991,7 +6991,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.5 İlk açılış ve çıkış
 
-- [ ] **SRM-13:** Kayıtsız devam kapalı kalır.
+- [x] **SRM-13:** (Claude) Kayıtsız devam kapalı kalır.
   - Ne: `kayit.var_mi()` false iken devam düğmesi pasif (`ana.gd:50–51`). Test bunu kilitler.
   - Kabul: dosya yokken `pasifler` içinde 1. Test: açılış.
   - Bağımlılık: yok. Boyut: S.

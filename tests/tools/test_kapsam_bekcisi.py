@@ -20,6 +20,7 @@ IHLAL = {
     "OZL-28": ("src/arayuz/olay_sahnesi.tscn", "[gd_scene]\n"),
     "OZL-32": ("src/dunya/gece_haritasi.gd", "extends Node\n"),
     "HFZ-22": ("src/arayuz/ana.gd", "func _son_goster():\n\tHafizaDefteriEkrani.new()\n"),
+    "HAN-49": ("src/koy/gorsel/es_gorunumu.gd", "func git(es):\n\tawait es.yuru(Vector3.ZERO)\n"),
     "SRM-15": ("src/arayuz/menu_cikis.gd", "func cik():\n\tget_tree().quit()\n"),
     "GRV-27": ("src/arayuz/panel.gd", 'var t := load("res://assets/art/ui/x.png")\n'),
     "YER-14": ("src/sistemler/ek.gd", "static func cogul_ek(s):\n\treturn s\n"),
@@ -80,7 +81,7 @@ class KapsamBekcisiTest(unittest.TestCase):
             (kok / "assets/ses").mkdir(parents=True)
             for i in range(arac.SES_TABANI + 1):
                 (kok / f"assets/ses/s{i}.wav").write_bytes(b"")
-            self.assertTrue(arac.denetle(kok)["SOY-49/OZL-31"])
+            self.assertTrue(arac.denetle(kok)["SOY-49/OZL-31/AYR-49"])
 
     def test_hfz30_yorum_ve_diyalog_metnini_saymaz_han47_sayar(self):
         with tempfile.TemporaryDirectory() as tmp:
