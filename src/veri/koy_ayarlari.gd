@@ -12,7 +12,7 @@ extends Resource
 @export var ambar_taban_kapasite: int = 150
 ## Her ambar binası bu kadar kapasite ekler.
 @export var ambar_bina_kapasite: int = 100
-@export var baslangic_kaynak: Dictionary = {"gida": 30, "odun": 20, "tas": 5, "kereste": 4, "alet": 2}
+@export var baslangic_kaynak: Dictionary = {"gida": 30, "odun": 24, "tas": 5, "kereste": 4, "alet": 2}
 
 @export_group("Tüketim")
 ## Kişi başı gecelik gıda.

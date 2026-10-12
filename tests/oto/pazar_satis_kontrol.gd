@@ -17,6 +17,8 @@ func _ready() -> void:
  y.gun = 3
  y.akce = 10
  y.kaynaklar.ekle("kereste", 30)
+ # Başlangıç stokundan bağımsız: kural "20 odun tek satışta 5 akçe" (BUG-22 başlangıç odununu değiştirdi).
+ y.kaynaklar.azalt("odun", y.kaynaklar.miktar("odun") - 20)
  ana._koye_git()
  var e: KoyEkrani = ana._ekran
  e._pazar_ac()

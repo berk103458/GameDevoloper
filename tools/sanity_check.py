@@ -118,6 +118,7 @@ def checks(godot, root):
     for scene in ("levent_final_kontrol", "atil_bayrak_kapanis_kontrol"):
         yield scene, [godot, "--headless", "--path", str(root), f"tests/oto/{scene}.tscn"], "GEÇTİ"
     yield "tas_yatagi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/tas_yatagi_kontrol.tscn"], "GEÇTİ"
+    yield "acilis_denge_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/acilis_denge_kontrol.tscn"], "GEÇTİ"
     yield "sira_olayi_sonucu_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/sira_olayi_sonucu_kontrol.tscn"], "GEÇTİ"
     yield "kapi_kuyu_donusu_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/kapi_kuyu_donusu_kontrol.tscn"], "GEÇTİ"
     yield "bellek_sahne_gecisi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/bellek_sahne_gecisi_kontrol.tscn"], "GEÇTİ"
@@ -153,7 +154,7 @@ def main():
     args.logs.mkdir(parents=True, exist_ok=True)
     failed = []
     for name, command, marker in checks(godot, ROOT):
-        env = {"DUMAN_TESTI_20": "1"} if name == "20-night-smoke" else None
+        env = {"DUMAN_TESTI_20": "1"} if name == "20-night-smoke" else {"DUMAN_TESTI_ACILIS": "1"} if name == "acilis_denge_kontrol" else None
         ok, output = run(command, ROOT, args.timeout, env=env)
         if marker and marker not in output:
             ok = False

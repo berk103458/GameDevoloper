@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource("1")
 kervan_araligi = 4
+baslangic_kaynak = {"gida": 30, "odun": 24, "tas": 5, "kereste": 4, "alet": 2}
