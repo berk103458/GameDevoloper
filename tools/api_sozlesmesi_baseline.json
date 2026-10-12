@@ -5,17 +5,110 @@
     "var:_klip_onbellek": "staticvar_klip_onbellek:Dictionary"
   },
   "src/arayuz/koy_ekrani.gd": {
+    "func:ortam_baslat": "funcortam_baslat()->void",
     "signal:devam_istendi": "signaldevam_istendi(rapor:Dictionary)",
     "signal:oturum_bitti": "signaloturum_bitti(son:StringName)"
   },
   "src/sistemler/oturum.gd": {
+    "const:KAYIT_SURUMU": "constKAYIT_SURUMU",
+    "func:gece_kuyrugu": "funcgece_kuyrugu()->Array[Gelen]",
     "func:gece_sonu": "funcgece_sonu()->Dictionary",
-    "var:akce": "varakce:int",
-    "const:KAYIT_SURUMU": "constKAYIT_SURUMU"
+    "func:gosterge": "funcgosterge(i:int)->int",
+    "func:gosterilen_gece": "funcgosterilen_gece()->int",
+    "func:heybe_uret": "funcheybe_uret(sinif:StringName)->Heybe",
+    "func:karar_ver": "funckarar_ver(gelen:Gelen,karar:StringName,_is_yeri:StringName=&\"\")->Dictionary",
+    "func:kaydet": "funckaydet()->Dictionary",
+    "func:kayittan": "staticfunckayittan(katalog_:Katalog,veri:Dictionary)->Oturum",
+    "func:olay_sec": "funcolay_sec()->OlayVerisi",
+    "func:olay_uygula": "funcolay_uygula(olay:OlayVerisi,i:int,puan:int=-1)->Dictionary",
+    "func:secenek_olur": "funcsecenek_olur(olay:OlayVerisi,i:int)->bool",
+    "func:sira_olayi_sec": "funcsira_olayi_sec(kuyruk:int)->OlayVerisi",
+    "func:tr_ad": "functr_ad(sinif:StringName)->String",
+    "func:tr_gelen": "functr_gelen(g:Gelen)->String",
+    "func:ziyaret_basladi": "funcziyaret_basladi(gelen:Gelen)->void",
+    "var:akce": "varakce:int"
   },
   "src/koy/guvenli_kayit.gd": {
     "func:yaz": "funcyaz(veri:Dictionary)->bool",
     "func:oku": "funcoku()->Dictionary",
     "func:sil": "funcsil()->void"
+  },
+  "src/koy/perde_gecisi.gd": {
+    "func:baslangic": "staticfuncbaslangic(y:KoyYonetimi)->int",
+    "func:denetle": "staticfuncdenetle(y:KoyYonetimi,r:Dictionary,hedef:int)->void",
+    "func:gece": "staticfuncgece(y:KoyYonetimi)->int",
+    "func:isaretle": "staticfuncisaretle(y:KoyYonetimi,olaylar:Array[Dictionary],hedef:int)->void",
+    "func:olay_metin": "staticfuncolay_metin(e:Dictionary)->String",
+    "func:yukle": "staticfuncyukle(y:KoyYonetimi,v:Variant)->void"
+  },
+  "src/sistemler/nihai_son.gd": {
+    "func:epilog": "staticfuncepilog(o:Oturum)->String",
+    "func:gostergeler": "staticfuncgostergeler(o:Oturum)->Dictionary",
+    "func:son": "staticfuncson(o:Oturum,s:StringName)->String",
+    "func:son_metni": "staticfuncson_metni(o:Oturum,s:StringName,eski:Dictionary)->Dictionary"
+  },
+  "src/sistemler/koy_nufusu.gd": {
+    "func:cikar": "funccikar(sinif:StringName,adli_id:StringName=&\"\")->void",
+    "func:cikar_rastgele": "funccikar_rastgele(adet:int,rng:RandomNumberGenerator)->void",
+    "func:ekle": "funcekle(sinif:StringName,adli_id:StringName=&\"\",portre:String=\"\")->void",
+    "func:sayi": "funcsayi(sinif:StringName)->int",
+    "func:toplam": "functoplam()->int",
+    "signal:degisti": "signaldegistivarsayilar:Dictionary={&\"asker\":0,&\"esnaf\":0,&\"ciftci\":0}varadlilar:Array[StringName]=[]"
+  },
+  "src/kapi/fisilti_gazetesi.gd": {
+    "func:durum": "staticfuncdurum(y:KoyYonetimi)->Dictionary",
+    "func:gece": "staticfuncgece(y:KoyYonetimi,olaylar:Array[Dictionary])->void",
+    "func:oku": "staticfuncoku(v:Variant)->Dictionary",
+    "func:olay": "staticfuncolay(o:Oturum)->OlayVerisi",
+    "func:tanimli": "staticfunctanimli(e:OlayVerisi)->bool",
+    "func:uygula": "staticfuncuygula(o:Oturum,e:OlayVerisi,i:int)->Dictionary",
+    "func:uygun": "staticfuncuygun(o:Oturum,e:OlayVerisi,i:int)->bool"
+  },
+  "src/koy/batil_inanc_histerisi.gd": {
+    "func:bekliyor": "staticfuncbekliyor(y:KoyYonetimi)->bool",
+    "func:durum": "staticfuncdurum(y:KoyYonetimi)->Dictionary",
+    "func:gece": "staticfuncgece(y:KoyYonetimi,olaylar:Array[Dictionary])->void",
+    "func:gercek_gosterilebilir": "staticfuncgercek_gosterilebilir(y:KoyYonetimi)->bool",
+    "func:kaldir": "staticfunckaldir(y:KoyYonetimi)->void",
+    "func:kriz": "staticfunckriz(y:KoyYonetimi)->String",
+    "func:metin": "staticfuncmetin(y:KoyYonetimi)->String",
+    "func:oku": "staticfuncoku(v:Variant)->Dictionary",
+    "func:olay": "staticfuncolay(o)->OlayVerisi",
+    "func:onyargi": "staticfunconyargi(k:Koylu)->bool",
+    "func:oy_cezasi": "staticfuncoy_cezasi(y:KoyYonetimi,k:Koylu)->int",
+    "func:tanimli": "staticfunctanimli(e:OlayVerisi)->bool",
+    "func:uygula": "staticfuncuygula(o,e:OlayVerisi,idx:int)->Dictionary",
+    "func:uygun": "staticfuncuygun(o,e:OlayVerisi,idx:int)->bool",
+    "func:yerel": "staticfuncyerel(y:KoyYonetimi,k:Koylu)->bool",
+    "func:yukle": "staticfuncyukle(y:KoyYonetimi,v:Variant)->void"
+  },
+  "src/veri/olay_verisi.gd": {
+    "var:agirlik": "@exportvaragirlik:float",
+    "var:baslik_anahtari": "@exportvarbaslik_anahtari:String",
+    "var:id": "@exportvarid:StringName",
+    "var:kosullar": "@exportvarkosullar:Dictionary",
+    "var:metin_anahtari": "@exportvarmetin_anahtari:String",
+    "var:muzik": "@exportvarmuzik:StringName",
+    "var:secenek_anahtarlari": "@exportvarsecenek_anahtarlari:PackedStringArray",
+    "var:secenek_etkileri": "@exportvarsecenek_etkileri:Array[Dictionary]",
+    "var:ses": "@exportvarses:StringName",
+    "var:tek_sefer": "@exportvartek_sefer:bool"
+  },
+  "src/sistemler/karakter_kadrosu.gd": {
+    "func:figur_ornegi": "funcfigur_ornegi(sablon:SinifSablonu)->Dictionary",
+    "func:gece_bitti": "funcgece_bitti()->void",
+    "func:iste": "funciste(id:StringName,gece:int)->bool",
+    "func:kaydet": "funckaydet()->Dictionary",
+    "func:sonuc": "funcsonuc(id:StringName,kaldi:bool,karar:StringName,gece:int)->void",
+    "func:uygunlar": "funcuygunlar(gece:int)->Array[StringName]",
+    "func:yukle": "funcyukle(veri:Dictionary)->bool",
+    "func:ziyaret_basladi": "funcziyaret_basladi(id:StringName,gece:int)->void"
+  },
+  "src/arayuz/kapi_ekrani.gd": {
+    "func:gece_baslat": "funcgece_baslat()->void",
+    "signal:_sira_secildi": "signal_sira_secildi(i:int)",
+    "signal:duraklat_istendi": "signalduraklat_istendi",
+    "signal:gece_bitti": "signalgece_bitti(rapor:Dictionary)",
+    "signal:oturum_bitti": "signaloturum_bitti(kirilan:int)"
   }
 }

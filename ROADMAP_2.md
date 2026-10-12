@@ -4597,7 +4597,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `design/omurga.md`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-52:** Çekirdek imzalar değişmez.
+- [x] **OMR-52:** (Claude) Çekirdek imzalar değişmez.
   - Ne: `perde_gecisi` statik fonksiyonları, `nihai_son.son/son_metni/gostergeler`, `oturum_bitti(son)` imzaları aynıdır.
   - Kabul: `tools/api_sozlesmesi.py` baseline farkı 0. Test: araç.
   - Bağımlılık: yok. Boyut: S.
@@ -5340,7 +5340,7 @@ Kimlikler HAN-01 … HAN-52. Asset üretilmez; ocak görseli DYL-07 envanterinde
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **HAN-51:** Çekirdek imzalar.
+- [x] **HAN-51:** (Claude) Çekirdek imzalar.
   - Ne: `koy_nufusu.gd`, `oturum.gd`, `koy_ekrani.gd` değişmez; hane kancaları adaptördür.
   - Kabul: `api_sozlesmesi.py` farkı 0. Test: araç.
   - Bağımlılık: yok. Boyut: S.
@@ -5681,7 +5681,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.10 Sınırlar ve kapanış
 
-- [ ] **SOY-47:** Gazete ve dedikodu motoru değişmez.
+- [x] **SOY-47:** (Claude) Gazete ve dedikodu motoru değişmez.
   - Ne: `fisilti_gazetesi.gd`, `dedikodu.gd`, `batil_inanc_histerisi.gd` imzaları aynı; ağ onların kaydını okur, alan ekler.
   - Kabul: `api_sozlesmesi.py` farkı 0. Test: araç.
   - Bağımlılık: yok. Boyut: S.
@@ -5934,7 +5934,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.10 Sınırlar ve kapanış
 
-- [ ] **OZL-30:** `OlayVerisi` alan listesi değişmez.
+- [x] **OZL-30:** (Claude) `OlayVerisi` alan listesi değişmez.
   - Ne: yeni koşul veya etki anahtarı eklenmez; kadı "divan aç" etkisi mevcut `bayrak` / çağrı ile yapılır.
   - Kabul: `olay_verisi.gd` export alanı sayısı bu madde öncesi ile eşit. Test: `api_sozlesmesi.py`.
   - Bağımlılık: yok. Boyut: S.
@@ -6202,7 +6202,7 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-31:** Çekirdek imzalar.
+- [x] **HFZ-31:** (Claude) Çekirdek imzalar.
   - Ne: `oturum.gd`, `karakter_kadrosu.gd`, `kapi_ekrani.gd` değişmez; `ana.gd` yalnız `_duraklat` satırı.
   - Kabul: `api_sozlesmesi.py` farkı yalnız izinli satır. Test: araç.
   - Bağımlılık: yok. Boyut: S.

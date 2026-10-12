@@ -94,3 +94,32 @@ class BaselineAuditTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class GenisSozlesmeTest(unittest.TestCase):
+    """OMR-52, HAN-51, SOY-47, OZL-30, HFZ-31: korunan dosyalar ve maddenin adını verdiği imzalar sözleşmede."""
+
+    def test_madde_imzalari_sozlesmede(self):
+        spec = importlib.util.spec_from_file_location("api_genis", ROOT / "tools/api_sozlesmesi.py")
+        api = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(api)
+        c = {yol: set(liste) for yol, liste in api.CONTRACTS.items()}
+        for ad in ("baslangic", "gece", "isaretle", "yukle", "denetle", "olay_metin"):
+            self.assertIn(("func", ad), c["src/koy/perde_gecisi.gd"])
+        for ad in ("son", "son_metni", "gostergeler"):
+            self.assertIn(("func", ad), c["src/sistemler/nihai_son.gd"])
+        self.assertIn(("signal", "oturum_bitti"), c["src/arayuz/koy_ekrani.gd"])
+        for yol in ("src/sistemler/koy_nufusu.gd", "src/sistemler/oturum.gd", "src/kapi/fisilti_gazetesi.gd",
+                    "src/koy/batil_inanc_histerisi.gd", "src/sistemler/karakter_kadrosu.gd", "src/arayuz/kapi_ekrani.gd"):
+            self.assertTrue(c.get(yol), yol)
+        # OZL-30: olay_verisi.gd export alanı sayısı sabit (10).
+        export = [n for k, n in c["src/veri/olay_verisi.gd"] if k == "var"]
+        self.assertEqual(10, len(export))
+
+    def test_export_alani_eklenince_taban_yakalar(self):
+        spec = importlib.util.spec_from_file_location("api_genis2", ROOT / "tools/api_sozlesmesi.py")
+        api = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(api)
+        kaynak = "@export var id: StringName\n@export var agirlik: float = 1.0\n"
+        self.assertEqual("@exportvarid:StringName", api.declaration(kaynak, "var", "id"))
+        self.assertIsNone(api.declaration(kaynak.replace("var id", "var kimlik"), "var", "id"))

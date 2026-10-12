@@ -8,9 +8,27 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACTS = {
     "src/dunya/karakter_model.gd": [("func", "kur"), ("func", "yuru"), ("var", "_klip_onbellek")],
-    "src/arayuz/koy_ekrani.gd": [("signal", "devam_istendi"), ("signal", "oturum_bitti")],
-    "src/sistemler/oturum.gd": [("func", "gece_sonu"), ("var", "akce"), ("const", "KAYIT_SURUMU")],
+    # HAN-51/OMR-52: genel imzalar değişmez; değişirse taban aynı commit'te güncellenir.
+    "src/arayuz/koy_ekrani.gd": [("func", "ortam_baslat"), ("signal", "devam_istendi"), ("signal", "oturum_bitti")],
+    # HAN-51/HFZ-31: genel imzalar değişmez; değişirse taban aynı commit'te güncellenir.
+    "src/sistemler/oturum.gd": [("const", "KAYIT_SURUMU"), ("func", "gece_kuyrugu"), ("func", "gece_sonu"), ("func", "gosterge"), ("func", "gosterilen_gece"), ("func", "heybe_uret"), ("func", "karar_ver"), ("func", "kaydet"), ("func", "kayittan"), ("func", "olay_sec"), ("func", "olay_uygula"), ("func", "secenek_olur"), ("func", "sira_olayi_sec"), ("func", "tr_ad"), ("func", "tr_gelen"), ("func", "ziyaret_basladi"), ("var", "akce")],
     "src/koy/guvenli_kayit.gd": [("func", "yaz"), ("func", "oku"), ("func", "sil")],
+    # OMR-52: genel imzalar değişmez; değişirse taban aynı commit'te güncellenir.
+    "src/koy/perde_gecisi.gd": [("func", "baslangic"), ("func", "denetle"), ("func", "gece"), ("func", "isaretle"), ("func", "olay_metin"), ("func", "yukle")],
+    # OMR-52: genel imzalar değişmez; değişirse taban aynı commit'te güncellenir.
+    "src/sistemler/nihai_son.gd": [("func", "epilog"), ("func", "gostergeler"), ("func", "son"), ("func", "son_metni")],
+    # HAN-51: genel imzalar değişmez; değişirse taban aynı commit'te güncellenir.
+    "src/sistemler/koy_nufusu.gd": [("func", "cikar"), ("func", "cikar_rastgele"), ("func", "ekle"), ("func", "sayi"), ("func", "toplam"), ("signal", "degisti")],
+    # SOY-47: genel imzalar değişmez; değişirse taban aynı commit'te güncellenir.
+    "src/kapi/fisilti_gazetesi.gd": [("func", "durum"), ("func", "gece"), ("func", "oku"), ("func", "olay"), ("func", "tanimli"), ("func", "uygula"), ("func", "uygun")],
+    # SOY-47: genel imzalar değişmez; değişirse taban aynı commit'te güncellenir.
+    "src/koy/batil_inanc_histerisi.gd": [("func", "bekliyor"), ("func", "durum"), ("func", "gece"), ("func", "gercek_gosterilebilir"), ("func", "kaldir"), ("func", "kriz"), ("func", "metin"), ("func", "oku"), ("func", "olay"), ("func", "onyargi"), ("func", "oy_cezasi"), ("func", "tanimli"), ("func", "uygula"), ("func", "uygun"), ("func", "yerel"), ("func", "yukle")],
+    # OZL-30: genel imzalar değişmez; değişirse taban aynı commit'te güncellenir.
+    "src/veri/olay_verisi.gd": [("var", "agirlik"), ("var", "baslik_anahtari"), ("var", "id"), ("var", "kosullar"), ("var", "metin_anahtari"), ("var", "muzik"), ("var", "secenek_anahtarlari"), ("var", "secenek_etkileri"), ("var", "ses"), ("var", "tek_sefer")],
+    # HFZ-31: genel imzalar değişmez; değişirse taban aynı commit'te güncellenir.
+    "src/sistemler/karakter_kadrosu.gd": [("func", "figur_ornegi"), ("func", "gece_bitti"), ("func", "iste"), ("func", "kaydet"), ("func", "sonuc"), ("func", "uygunlar"), ("func", "yukle"), ("func", "ziyaret_basladi")],
+    # HFZ-31: genel imzalar değişmez; değişirse taban aynı commit'te güncellenir.
+    "src/arayuz/kapi_ekrani.gd": [("func", "gece_baslat"), ("signal", "_sira_secildi"), ("signal", "duraklat_istendi"), ("signal", "gece_bitti"), ("signal", "oturum_bitti")],
 }
 
 
@@ -40,7 +58,7 @@ def normalize(text):
 
 
 def declaration(source, kind, name):
-    start = re.search(r"^[ \t]*(?:static[ \t]+)?" + kind + r"[ \t]+" + re.escape(name) + r"\b", source, re.M)
+    start = re.search(r"^[ \t]*(?:@\w+(?:\([^)\n]*\))?[ \t]+)*(?:static[ \t]+)?" + kind + r"[ \t]+" + re.escape(name) + r"\b", source, re.M)
     if not start:
         return None
     if kind in ("var", "const"):
