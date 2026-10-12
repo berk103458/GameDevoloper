@@ -416,7 +416,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.1 Şema — düğüm dosyası reddi
 
-- [/] **DIY-01:** (Claude) Söz motoru tasarım belgesi — profesyonel oyunların mantığı ve "Kapı usulü".
+- [x] **DIY-01:** (Claude) Söz motoru tasarım belgesi — profesyonel oyunların mantığı ve "Kapı usulü".
   - Ne: `docs/SOZ_TASARIMI.md` yedi oyunun ne yaptığını, neyin alınacağını ve neyin alınmayacağını ayrı başlıklarda yazar. Alınan her mekanik bir DIY veya ZAR maddesine bağlanır. Kapı usulü selamı, eşiği, heybeden sürüklenen soruyu, susmayı ve beyan defterini bu belgede sabitler. Belge Ahmet onaylamadan şemaya geçilmez.
   - Kurallar:
     1. `docs/SOZ_TASARIMI.md` iki bölümden oluşur: İnceleme ve Kapı usulü. Üçüncü bölüm açılmaz.
