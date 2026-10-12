@@ -131,7 +131,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.7 Gece ve kayıt kilidi
 
-- [/] **BUG-22:** (testx) Açılış ekonomisi dengesi — başlangıç stoku ve ilk yapı maliyetleri kilitlenmez.
+- [x] **BUG-22:** (testx) Açılış ekonomisi dengesi — başlangıç stoku ve ilk yapı maliyetleri kilitlenmez.
   - Ne: Yeni oyunda ilk beş yapı sırası taş ve odun yüzünden kilitlenmez. `baslangic_kaynak` ve `binalar.json` maliyetleri tek tabloda yeniden yazılır; sayılar koda gömülmez ve eski kaydın stoku değişmez. Odun sıfırının ayrı bir zinciri bu maddede açılmaz.
   - Kurallar:
     1. `baslangic_kaynak` ve `binalar.json` maliyetleri tek tabloda yeniden yazılır. Maliyet kodun içine gömülmez.
@@ -535,7 +535,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.5 Beyan ve çelişki işareti
 
-- [/] **DIY-08:** (testx) Bağlam sorgusu — dünyanın durumu tek sözlükte.
+- [x] **DIY-08:** (testx) Bağlam sorgusu — dünyanın durumu tek sözlükte.
   - Ne: Konuşma başında gün, mevsim, binalar, nüfus, terazi, yatak ve salgın tek sözlükte toplanır. Sözlük salt okunurdur; olmayan bina `false` döner. Ziyaret içinde dikilen bina aynı konuşmada görünmez. Kayıt yüklenince sözlük kayıttan değil canlı yöneticilerden kurulur.
   - Kurallar:
     1. Konuşma başında tek sözlük üretilir: gün, mevsim, hava, açık krizler, köydeki binalar, nüfus, muhafız terazisi, itibar, önceki ziyaretler, dünya olayları, yatak doluluk, salgın bayrağı, tipi ve ışık.
@@ -1890,7 +1890,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 24.5 Asset envanteri
 
-- [ ] **ARY-05:** ROADMAP 2 asset listesi — yalnız gerekenler.
+- [x] **ARY-05:** (Claude) ROADMAP 2 asset listesi — yalnız gerekenler.
   - Ne: `docs/EKSIK_ASSET_ENVANTERI.md` içinde ROADMAP 2 bölümü, her gereken model için bir satır tutar. Satırda kimlik, tür, yer tutucu yolu ve arama sözcüğü vardır. Kimliği yol haritasında olmayan satır ve aynı kimliğin ikinci satırı hatadır. Liste ses dosyası istemez. Bu madde dosya üretmez.
   - Kurallar:
     1. `docs/EKSIK_ASSET_ENVANTERI.md` içinde ROADMAP 2 bölümü vardır.
@@ -2866,7 +2866,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
 
 ### 31.1 Sürüm kapısı
 
-- [/] **KAY-01:** (testx) Kayıt sürümü tek sayıdır ve dosyanın başında durur.
+- [x] **KAY-01:** (testx) Kayıt sürümü tek sayıdır ve dosyanın başında durur.
   - Ne: sürüm alanı yoksa yükleme durur, köy uydurulmaz.
   - Kabul: sürüm alanı yoksa yükleme durur, köy uydurulmaz. Test: alansız dosya reddedilir, yedek durur.
   - Bağımlılık: SYS-01. Boyut: S.
@@ -3169,7 +3169,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-03, SYS-14. Boyut: M.
   - Dosya: `tests/unit/kvr/kayit_gocu_test.gd` genişler.
   - Asset: asset gerekmedi.
-- [/] **KAY-44:** (testx) Dört barlı sürüm 1 kaydı hâlâ reddedilir.
+- [x] **KAY-44:** (testx) Dört barlı sürüm 1 kaydı hâlâ reddedilir.
   - Ne: SYS-14'ün reddi bozulmaz. Göç onu Söz kaydına çevirmez.
   - Kabul: SYS-14'ün reddi bozulmaz. Göç onu Söz kaydına çevirmez. Test: v1 dosya reddedilir.
   - Bağımlılık: SYS-14. Boyut: S.
@@ -3295,7 +3295,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-05, SYS-02. Boyut: S.
   - Dosya: `src/sistemler/guvenli_kayit.gd`.
   - Asset: asset gerekmedi.
-- [/] **KAY-56:** (testx) Yedek, ikinci bir başarısız göçte ezilmez.
+- [x] **KAY-56:** (testx) Yedek, ikinci bir başarısız göçte ezilmez.
   - Ne: `bak.tmp` sağlamsa yeni bozuk dosya onun üstüne yazılmaz. SYS-02 kuralı durur.
   - Kabul: `bak.tmp` sağlamsa yeni bozuk dosya onun üstüne yazılmaz. SYS-02 kuralı durur. Test: iki hatalı deneme, yedek baytı aynı.
   - Bağımlılık: SYS-02. Boyut: S.
@@ -3344,7 +3344,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.1 Tek ayar tablosu
 
-- [/] **DEN-01:** (testx) Denge sayıları tek dosyadadır.
+- [x] **DEN-01:** (testx) Denge sayıları tek dosyadadır.
   - Ne: zar eşiği, açılış stoku, fiyat çarpanı, kriz aralığı ve zorluk çarpanı `data/ayarlar/denge.json` içindedir. Bu sayılar `.gd` dosyasında sabit değildir.
   - Kabul: zar eşiği, açılış stoku, fiyat çarpanı, kriz aralığı ve zorluk çarpanı `data/ayarlar/denge.json` içindedir. Bu sayılar `.gd` dosyasında sabit değildir. Test: dosyada olmayan bir denge sayısı tarama ile 0 bulunur. Ek şart: Olay olasılığı dünya işaretini silmez.
   - Bağımlılık: yok. Boyut: M.
@@ -6827,13 +6827,13 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.8 Debug sınırı
 
-- [/] **TEK-27:** (testx) Admin HUD oyuncu sürümünde doğmaz.
+- [x] **TEK-27:** (testx) Admin HUD oyuncu sürümünde doğmaz.
   - Ne: `ana.gd:20 AdminHud.new()` SRM-05 kapalıyken eklenmez. Debug araçları (`gece_deneyi.gd`, enjektörler) aynı bayrağın ardındadır.
   - Kabul: kapalı sürümde `AdminHud` çocuk sayısı 0. Test: açılış.
   - Bağımlılık: SRM-05. Boyut: S.
   - Dosya: `src/arayuz/ana.gd` tek koşul.
   - Asset: asset gerekmedi.
-- [/] **TEK-28:** (testx) F1 ve `~` yalnız adminde.
+- [x] **TEK-28:** (testx) F1 ve `~` yalnız adminde.
   - Ne: `admin_hud.gd` kısayolları HUD yokken hiçbir şeyi açmaz.
   - Kabul: HUD'suz sahnede F1 etkisi 0. Test: girdi.
   - Bağımlılık: TEK-27. Boyut: S.
@@ -7024,7 +7024,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `docs/surum/MAGAZA.md`.
   - Asset: asset gerekmedi.
-- [ ] **SRM-18:** İkon üretilmez.
+- [x] **SRM-18:** (Claude) İkon üretilmez.
   - Ne: pencere ikonu yoksa Godot varsayılanı durur. İhtiyaç ARY-05'e `SRM18-IKON` diye yazılır. Dosya indirilmez.
   - Kabul: bu madde png yazmaz. Test: sayım.
   - Bağımlılık: ARY-05. Boyut: S.
