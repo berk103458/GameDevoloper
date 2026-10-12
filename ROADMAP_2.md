@@ -3142,7 +3142,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: DYL-16. Boyut: S.
   - Dosya: `tools/sanity_check.py`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-40:** Tam paket sıfır hata kuralı durur.
+- [x] **KAY-40:** (Claude) Tam paket sıfır hata kuralı durur.
   - Ne: yeni testler uyarıyla geçmez. Hata varsa paket hatalı.
   - Kabul: yeni testler uyarıyla geçmez. Hata varsa paket hatalı. Test: kasıtlı bir göç hatası paketi kırar.
   - Bağımlılık: SYS-06. Boyut: S.
@@ -6573,7 +6573,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: YAZ-01. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **KLT-23:** Çalışma anında model çağrısı yoktur (YAZ ilke).
+- [x] **KLT-23:** (Claude) Çalışma anında model çağrısı yoktur (YAZ ilke).
   - Ne: `src/` içinde HTTP/LLM çağrısı 0 (mevcut köprü localhost hariç, ADM-16).
   - Kabul: tarama 0. Test: `godot_script_taramasi.py` kuralı. Taşınan: KLT-67: HTTP dizesi söz araçlarında yoktur.
   - Bağımlılık: ADM-16. Boyut: S.
@@ -6907,7 +6907,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.1 Kimlik — ad, sürüm, pencere
 
-- [ ] **SRM-01:** Pencere adı oyun adıdır.
+- [x] **SRM-01:** (Claude) Pencere adı oyun adıdır.
   - Ne: `config/name` "GameDevoloper" kalmaz. Ad `arayuz.menu.baslik` ile aynı metinden okunur; `project.godot` adı o metnin düz kopyasıdır (Godot config çeviri fonksiyonu çağırmaz). `OYUN_ADI` boş kalırsa başlık satırı menüdeki `baslik`tır, ikinci marka yok.
   - Kabul: pencere başlığında "GameDevoloper" 0. Test: açılış başlığı.
   - Bağımlılık: yok. Boyut: S.

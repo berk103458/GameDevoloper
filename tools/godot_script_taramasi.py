@@ -24,6 +24,26 @@ def diagnostics(output):
     return errors
 
 
+# KLT-23 / KLT-67: çalışma anında model ya da ağ çağrısı yoktur. src/ içinde HTTP/LLM/soket sınıfı ve
+# http(s) dizesi 0; tek istisna localhost oyun köprüsüdür (ADM-16). Yorum satırları sayılmaz.
+AG_DESENI = re.compile(r"\b(HTTPRequest|HTTPClient|WebSocketPeer|WebSocketMultiplayerPeer|StreamPeerTCP|TCPServer|PacketPeerUDP|UDPServer)\b|https?://")
+AG_ISTISNA = {"src/debug/oyun_koprusu.gd"}
+
+
+def ag_cagrilari(root=ROOT):
+    """src/**/*.gd içinde ağ/model çağrısı satırları: [(dosya, satır, metin)]."""
+    bulunan = []
+    for dosya in sorted((root / "src").rglob("*.gd")):
+        yol = dosya.relative_to(root).as_posix()
+        if yol in AG_ISTISNA:
+            continue
+        for no, satir in enumerate(dosya.read_text(encoding="utf-8", errors="replace").splitlines(), 1):
+            kod = satir.split("#", 1)[0]
+            if AG_DESENI.search(kod):
+                bulunan.append((yol, no, satir.strip()))
+    return bulunan
+
+
 def main():
     cli = argparse.ArgumentParser(description=__doc__)
     cli.add_argument("--godot")
