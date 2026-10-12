@@ -1,0 +1,19 @@
+﻿{
+  "alanlar": [
+    "gun",
+    "mevsim",
+    "mevsim_adi",
+    "hava",
+    "krizler",
+    "bina",
+    "nufus",
+    "terazi",
+    "itibar",
+    "onceki_ziyaret",
+    "dunya_olaylari",
+    "yatak",
+    "salgin",
+    "tipi",
+    "isik"
+  ]
+}
