@@ -31,4 +31,9 @@ static func olustur(o: Oturum, once: Dictionary, rapor: Dictionary) -> Dictionar
   # Gündüz kaybı açılış stoğundan zaten düşülmüştür; bu gece ikinci kez gider yazılmaz.
   var tasma := bildirim + int(y.kaynaklar.bakim.tasma.get(tur, 0)) - int(once.tasma.get(tur, 0))
   stok[tur] = {"once": ilk, "sonra": son, "net": son - ilk, "uretim": u, "tuketim": t, "bozulma": b, "tasma_bildirimi": bildirim, "tasma_gece": tasma, "diger_net": son - ilk - u + t + b + tasma}
- return {"surum": 1, "gun": int(rapor.gun), "kamu": kamu, "kisisel": kisisel, "stok": stok, "alet_asinma": {"once": float(once.asinma), "sonra": y.alet_asinma}, "transfer_ozeti": o.kasa_transferleri.duplicate(true)}
+ var sonuc := {"surum": 1, "gun": int(rapor.gun), "kamu": kamu, "kisisel": kisisel, "stok": stok, "alet_asinma": {"once": float(once.asinma), "sonra": y.alet_asinma}, "transfer_ozeti": o.kasa_transferleri.duplicate(true)}
+ ## DEN-55: fiyat kaynağıyla durur; kış çarpanı ayrı satır, tablo TUC-09'dur ve yeni bilanço yoktur.
+ var mevsim := y.mevsim()
+ if mevsim == MevsimYoneticisi.MEVSIM_SAYISI - 1:
+  sonuc["kis_carpani"] = {"carpan": float(TicaretFiyatlari.AYAR.mevsim_carpani[mevsim]), "mevsim": mevsim, "kaynak": "mevsim_carpani"}
+ return sonuc
