@@ -131,7 +131,7 @@ BUG-16 … BUG-25 gövdesi durur. Yeni maddeler BUG-26 … BUG-105. TEK ve DEN'd
 
 ### 13.7 Gece ve kayıt kilidi
 
-- [ ] **BUG-22:** Açılış ekonomisi dengesi — başlangıç stoku ve ilk yapı maliyetleri kilitlenmez.
+- [/] **BUG-22:** (testx) Açılış ekonomisi dengesi — başlangıç stoku ve ilk yapı maliyetleri kilitlenmez.
   - Ne: Yeni oyunda ilk beş yapı sırası taş ve odun yüzünden kilitlenmez. `baslangic_kaynak` ve `binalar.json` maliyetleri tek tabloda yeniden yazılır; sayılar koda gömülmez ve eski kaydın stoku değişmez. Odun sıfırının ayrı bir zinciri bu maddede açılmaz.
   - Kurallar:
     1. `baslangic_kaynak` ve `binalar.json` maliyetleri tek tabloda yeniden yazılır. Maliyet kodun içine gömülmez.
@@ -6662,7 +6662,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `assets/model/karakter/*.import` (yalnız yetim meta).
   - Asset: asset gerekmedi.
-- [ ] **TEK-03:** ADV-01 — güvenlik satırı kartta görünür.
+- [/] **TEK-03:** (testx) ADV-01 — güvenlik satırı kartta görünür.
   - Ne: eski: ADV-01. "Güvenlik … savunma hazırlığı +N" `koylu_karti.gd` içinde kaydırmadan görünen üst bloktadır.
   - Kabul: 1080p ve metin ölçeği 150'de satır ilk ekrandadır. Test: kart açılışı, kaydırma 0. Ek şart: Yaşam satırları güvenlik satırını ilk ekrandan düşürmez.
   - Bağımlılık: ARY-02. Boyut: S.
@@ -6674,7 +6674,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: teşhis yazan kapi paneli (ince adaptör, tek satır).
   - Asset: asset gerekmedi.
-- [ ] **TEK-05:** ADV-03 — eski `usta_demirci` bayrağı göçer.
+- [/] **TEK-05:** (testx) ADV-03 — eski `usta_demirci` bayrağı göçer.
   - Ne: eski: ADV-03. BUG-0001 yeni kabulleri düzeltir; eski kayıttaki CHR bayrağı Bölüm 31 göç adımına bir satır olarak girer. İkinci göç motoru yok.
   - Kabul: bayraklı eski kayıt açılınca göç sonrası bayrak doğru sınıfta 1. Test: KAY zinciri.
   - Bağımlılık: KAY-04. Boyut: S.
