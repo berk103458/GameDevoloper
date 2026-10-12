@@ -7018,7 +7018,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **SRM-17:** Mağaza metni bu klasörde bir sayfadır, oyuna gömülmez.
+- [x] **SRM-17:** (Claude) Mağaza metni bu klasörde bir sayfadır, oyuna gömülmez.
   - Ne: `docs/surum/MAGAZA.md` (uygulanırken oyun deposunda) kısa paragraf, beş sonun adı, "seslendirme yok / tek harita" dürüst satırı. Oyun bu dosyayı okumaz.
   - Kabul: `res://` altında mağaza md 0. Test: export listesi.
   - Bağımlılık: yok. Boyut: S.
