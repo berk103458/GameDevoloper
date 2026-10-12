@@ -57,6 +57,11 @@ static func ac(e: Node) -> void:
 		return
 	var v: VBoxContainer = e._kart_ac("Çınar altı köy meclisi")
 	_metin(e, v, "Meydan meclisi · Kriz başına bir oylama, arada 2 gün. Oylar temel ihtiyaç, moral, sadakat ve toplumsal bağa göre verilir. Kimlikler ve tekil oylar gösterilmez; karantinadakiler temsil yoluyla katılır.")
+	var konusan := MeclisSesi.konusanlar(y)
+	if not konusan.is_empty():
+		_metin(e, v, GuvenliMetin.metin("koy.meclis.konusanlar") % ", ".join(konusan))
+	elif MeclisSesi.kriz_var_mi(y):
+		_metin(e, v, GuvenliMetin.metin("koy.meclis.konusan_yok"))
 	var krizler := CinarAltiMeclisi._krizler(y)
 	for tur in CinarAltiMeclisi.TUR:
 		if not krizler.has(tur): continue
