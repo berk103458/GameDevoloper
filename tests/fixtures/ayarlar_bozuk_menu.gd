@@ -9,6 +9,7 @@ class MenuAna extends Ana:
 		GuvenliMetin.kur()
 		ayarlar = Ayarlar.new(test_yolu)
 		ayarlar.yukle()
+		AyarlarEk.bagla(ayarlar)
 		katalog = Katalog.new()
 		if katalog.yukle() != Katalog.Durum.HAZIR:
 			return
@@ -33,7 +34,12 @@ func _kos() -> void:
 	add_child(ana)
 	await get_tree().process_frame
 	await get_tree().create_timer(1.2).timeout
-	var olur := ana.ayarlar.degerler == Ayarlar.VARSAYILAN
+	# Bozuk dosyada her ayar varsayılanında: çekirdek anahtarlar ve bölümün ek anahtarları (AYR-02).
+	var olur := ana.ayarlar.degerler.size() == Ayarlar.VARSAYILAN.size() + AyarlarEk.VARSAYILAN.size()
+	for k in Ayarlar.VARSAYILAN:
+		olur = olur and ana.ayarlar.degerler.get(k) == Ayarlar.VARSAYILAN[k]
+	for k in AyarlarEk.VARSAYILAN:
+		olur = olur and ana.ayarlar.degerler.get(k) == AyarlarEk.VARSAYILAN[k]
 	olur = olur and ana._ekran is MenuEkrani and ana._ekran.is_visible_in_tree()
 	olur = olur and ana.katalog.hatalar.is_empty()
 	var dugmeler := ana._ekran.find_children("*", "Button", true, false)

@@ -25,6 +25,7 @@ func _ready() -> void:
 	GuvenliMetin.kur()  # BUG-07: eksik metin anahtarı kilitlemez
 	ayarlar = Ayarlar.new()
 	ayarlar.yukle()
+	AyarlarEk.bagla(ayarlar)  # AYR-02: bölümün ek anahtarları ayrı dosyadan kaydolur
 	ayarlar.uygula()
 	var giris_kaynaklari := await VarlikYuklemePaneli.hazirla(self, GirisVarliklari.menu())
 	ayarlar.degisti.connect(func(_a: StringName) -> void: theme = Tema.olustur(ayarlar))
