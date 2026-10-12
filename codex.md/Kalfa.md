@@ -8,7 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-BUG-16…20/25, TEK-08/13/14/15/16/18/19/20 ve ACL-01 tamamlandı (Kalfa). Ahmet’in 12 Ekim 2026 son yönü: ACL-01 commit/push ile kapandıktan sonra yeni görev alınmayacak; görev bekleniyor. Başka ajan sahiplikleri korunur. Windows Python koşularında PYTHONUTF8=1; hedefli testler ve olgun uygulama commit’i öncesi tek tam sanity. Commit mesajları Türkçe, madde kodları, (Kalfa) ve asset gerekmedi notu korunur.
+12 Ekim Muharrir UI görsel yön görevi tamamlandı: docs/arayuz/UI_ASSET_PROMPTLARI.md. İki yön, kaynaklı altı oyun dersi, 2×57 parça/114 hazır prompt; oyun kodu ve ARY-01 sahipliği korunur. Yeni ROADMAP maddesi alınmadı; görev bekleniyor. Windows Python için PYTHONUTF8=1.
 
 ## Roller
 
@@ -182,3 +182,8 @@ Nihai tek tam UTF-8 sanity: 347 PASS / 0 başarısız kontrol / 20 gece. work/sa
 
 
 ACL-01 uygulama cbf04c0: yeni oyun mevcut köyde bir hazır ev, iki kişi ve dört yatakla açılır. İlk gün Kapı kapalı, kuyruk yok; bedel kesilmez, yıkım kaynak yaratmaz. Eski kayıt faz/günü korunur; eksik hane/eş kimliği yalnız kuruluş bayrağından türetilir. Gerçek açılış/kart/legacy ve köprü akışı, görünür sahne ve hedefli kontroller geçti. Nihai tek tam UTF-8 sanity 347 PASS / 0 hata / 20 gece; 347 logda hata satırı 0. Önceki başarısız/kesilmiş loglar korunur. Pull güncel, merge gerekmedi. Mevcut modeller renk/isimli yer tutucu; ACL01-MUHAFIZ/ES envanterde. Yeni asset gerekmedi; üretim/indirme yok. ds çalışma kopyası/ayna bulunamadı, eşitlenemedi. Ahmet’in 12 Ekim son yönüyle ACL-01 kapanışından sonra yeni görev alınmayacak.
+
+
+12 Ekim 2026 yeni açık asset istisnası: 2D menü görsellerini Ahmet Nano Banana Pro ile üretebilir; önceki üretme yasağının bu kapsamı değişti, 3D üretme yasağı sürer. Bu oturum yalnız üretim rehberi hazırladı.
+
+UI görsel yön araştırması: pull 82d4531, son pull güncel. Çini/Parşömen/Ocak kullanıcı tarafından reddedildi; ARY-01 Claude sahipliği ve seçim dosyası korunur. docs/arayuz/UI_ASSET_PROMPTLARI.md altı oyun için kaynaklı kısa dersler, gece kapısı ve minyatür/tezhip paletleri, her yön için 57 parça ve toplam 114 hazır İngilizce prompt içerir. Her promptta ortak stil cümlesi/no text; her dosyada boyut, alfa ve 9-slice payı vardır. Arka plan, panel, dört buton hali, kart/çerçeve, 24 ikon, süsler, imleç, yükleme ve ayarlar kapsamı doğrulandı. Yalnız belge değişikliği: görsel/oyun kodu/3D üretilmedi, asset gerekmedi; oyun sanity yeniden çalıştırılmadı. 114 prompt, dosya benzersizliği, ölçü ve kesim payı denetimi geçti; git diff --check temiz. Görselleri Ahmet Nano Banana Pro ile üretecek; yeni açık kullanıcı izni 2D menü üretimini serbest bırakır, 3D üretimi yasak kalır. ds çalışma kopyası/ayna yolları yok, eşitlenemedi. Yeni ROADMAP maddesi alınmadı.
