@@ -36,6 +36,18 @@ func _initialize() -> void:
 	_kontrol(kisisel["muhafiz_esyalari"][0]["adet"] == 1, "Adım derin kopyada çalışır")
 	yeni["muhafiz_akce"] = "secret"
 	_kontrol(motor.uygula(yeni, 7).is_empty(), "Hatalı kasa tipi reddediliyor")
+	# KAY-44: dört barlı sürüm 1 kaydı hâlâ reddedilir; göç onu Söz kaydına çevirmez.
+	var v1 := {"surum": 1, "tohum": "7", "kadro": {}, "koy_yonetimi": eski["koy_yonetimi"]}
+	_kontrol(motor.uygula(v1, 7).is_empty(), "Dört barlı sürüm 1 kaydı reddedilir")
+	var v1_donus: Dictionary = motor.uygula(v1, 7)
+	_kontrol(v1_donus.is_empty() and not v1_donus.has("muhafiz_akce"), "Göç v1'i Söz kaydına çevirmez")
+	var slot := GuvenliKayit.new("user://kay44_v1.json")
+	slot.sil()
+	_kontrol(slot.yaz(v1), "v1 dosya diske yazıldı")
+	_kontrol(not slot.oku().is_empty() and motor.uygula(slot.oku(), 7).is_empty(), "v1 dosya diskten reddedilir")
+	var diskte: Variant = JSON.parse_string(FileAccess.get_file_as_string(slot.yol))
+	_kontrol(diskte is Dictionary and int(diskte["surum"]) == 1 and String(diskte["tohum"]) == "7", "Reddedilen v1 dosyası diskte değişmez")
+	slot.sil()
 	print("KAYIT GÖÇÜ: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
 	quit(hata)
 

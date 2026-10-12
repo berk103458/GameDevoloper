@@ -4,7 +4,8 @@ extends RefCounted
 static func yaz(yol: String, veri: Dictionary) -> bool:
 	if veri.is_empty():
 		return false
-	var metin := JSON.stringify(veri)
+	# KAY-01: anahtar sirasi korunur; kayit dosyasi surum alaniyla baslar.
+	var metin := JSON.stringify(veri, "", false)
 	var tmp := yol + ".tmp"
 	var f := FileAccess.open(tmp, FileAccess.WRITE)
 	if f == null:
