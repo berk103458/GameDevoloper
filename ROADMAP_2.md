@@ -6755,7 +6755,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: TEK-01. Boyut: S.
   - Dosya: `tools/sanity_check.py`.
   - Asset: asset gerekmedi.
-- [ ] **TEK-17:** `[KEY_NOT_FOUND]` bütçesi KLT-10'dur.
+- [x] **TEK-17:** (Claude) `[KEY_NOT_FOUND]` bütçesi KLT-10'dur.
   - Ne: metin eksikleri Bölüm 40'dadır. Bu madde ikinci doğrulayıcı yazmaz.
   - Kabul: `metin_dogrula.py` çağrısı `soz_kapi` / mevcut araçta 1, burada 0 yeni araç. Test: sayım.
   - Bağımlılık: KLT-10. Boyut: S.
@@ -6782,7 +6782,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: TEK-19. Boyut: S.
   - Dosya: `src/arayuz/ana.gd` (yalnız test; imza değişmez).
   - Asset: asset gerekmedi.
-- [ ] **TEK-21:** "Hazırlanıyor…" çeviri anahtarına geçer.
+- [x] **TEK-21:** (Claude) "Hazırlanıyor…" çeviri anahtarına geçer.
   - Ne: düz metin `arayuz.yukleme.hazirlaniyor` olur. YER-02 kuralı. Zemin rengi Bölüm 43'ün konusudur, burada değişmez.
   - Kabul: `tr("` dışı düz Türkçe bu dosyada 0 (bilinçli istisna listesi boş). Test: tarama.
   - Bağımlılık: YER-02. Boyut: S.

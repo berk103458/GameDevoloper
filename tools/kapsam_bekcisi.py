@@ -202,6 +202,17 @@ def ayr51_ayar_metni(root):
                                           r"^src/arayuz/.*sekme.*\.gd$"])
 
 
+def tek21_yukleme_metni(root):
+    """TEK-21: yükleme paneli metni çeviri anahtarıdır; dosyada düz Türkçe 0 (istisna listesi boş)."""
+    return _turkce_sabit_dosyalari(root, [r"^src/arayuz/varlik_yukleme_paneli\.gd$"])
+
+
+def tek17_ikinci_dogrulayici(root):
+    """TEK-17: metin eksikleri tek araçtadır (metin_dogrula.py); ikinci metin doğrulayıcı/tarayıcı yok."""
+    return [_rel(root, p) for p in sorted((root / "tools").glob("*.py")) if (root / "tools").is_dir()
+            and re.search(r"metin.*(dogrula|tara)|anahtar.*dogrula", p.stem) and p.name != "metin_dogrula.py"]
+
+
 def omr54_omurga_metni(root):
     """OMR-54: omurga*.gd ve dis_hat_kapisi.gd içinde Türkçe sabit 0."""
     return _turkce_sabit_dosyalari(root, [r"/omurga[^/]*\.gd$", r"/dis_hat_kapisi\.gd$"])
@@ -225,6 +236,8 @@ def ogr56_ogretici_tus(root):
 
 
 KURALLAR = {
+    "TEK-21": tek21_yukleme_metni,
+    "TEK-17": tek17_ikinci_dogrulayici,
     "AYR-51": ayr51_ayar_metni,
     "OMR-54": omr54_omurga_metni,
     "OGR-52": ogr52_ogretici_sahnesi,

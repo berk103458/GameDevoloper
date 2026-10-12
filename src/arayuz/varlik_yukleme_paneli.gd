@@ -16,7 +16,7 @@ static func hazirla(kok: Node, yollar: Array[String]) -> VarlikOnbellek:
 	zemin.mouse_filter = Control.MOUSE_FILTER_STOP
 	katman.add_child(zemin)
 	var yazi := Label.new()
-	yazi.text = "Hazırlanıyor…"
+	yazi.text = TranslationServer.translate("arayuz.yukleme.hazirlaniyor")
 	yazi.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	yazi.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	yazi.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -30,7 +30,7 @@ static func hazirla(kok: Node, yollar: Array[String]) -> VarlikOnbellek:
 	var guncelle := func(biten: int, toplam: int) -> void:
 		var etiket: Object = yazi_ref.get_ref()
 		if is_instance_valid(etiket):
-			etiket.text = "Hazırlanıyor… %d/%d" % [biten, toplam]
+			etiket.text = TranslationServer.translate("arayuz.yukleme.ilerleme") % [biten, toplam]
 	kaynak.ilerledi.connect(guncelle)
 	await agac.process_frame
 	await kaynak.yukle(agac, yollar)

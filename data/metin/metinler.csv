@@ -1811,3 +1811,5 @@ arayuz.ayarlar.grafik.dusuk,Düşük
 arayuz.ayarlar.grafik.cozunurluk,3B çözünürlük
 arayuz.ayarlar.grafik.not,"Düşük profil duman ve alev efektlerini kapatır.
 3B ölçek arayüzün netliğini değiştirmez."
+arayuz.yukleme.hazirlaniyor,Hazırlanıyor…
+arayuz.yukleme.ilerleme,Hazırlanıyor… %d/%d
