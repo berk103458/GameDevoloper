@@ -43,5 +43,54 @@ class ApiTest(unittest.TestCase):
         self.assertIsNotNone(api.differences('\nvar akce: int = 0\n', '\nvar akce: String = ""\n', "var", "akce"))
 
 
+import json
+import shutil
+import subprocess
+import sys
+import tempfile
+
+
+class BaselineAuditTest(unittest.TestCase):
+    """TEK-12: eski/bozuk baseline sessiz gecmez; araci gercek kaynaga dokunmadan kosar."""
+
+    def _kopyala(self, kok):
+        (kok / "tools").mkdir(parents=True, exist_ok=True)
+        shutil.copy(ROOT / "tools/api_sozlesmesi.py", kok / "tools/api_sozlesmesi.py")
+        for relative in api.CONTRACTS:
+            hedef = kok / relative
+            hedef.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(ROOT / relative, hedef)
+        return kok
+
+    def _kos(self, kok):
+        return subprocess.run(
+            [sys.executable, "-B", str(kok / "tools/api_sozlesmesi.py"),
+             "--manifest", str(kok / "tools/api_sozlesmesi_baseline.json")],
+            capture_output=True, text=True, encoding="utf-8", cwd=str(kok))
+
+    def test_broken_baseline_fails_and_correct_baseline_passes(self):
+        gercek = (ROOT / "tools/api_sozlesmesi_baseline.json").read_text(encoding="utf-8")
+        gecici = tempfile.mkdtemp(prefix="api_sozlesmesi_")
+        try:
+            kok = self._kopyala(Path(gecici))
+            kok_baseline = kok / "tools/api_sozlesmesi_baseline.json"
+            kok_baseline.write_text(gercek, encoding="utf-8")
+            iyi = self._kos(kok)
+            self.assertEqual(iyi.returncode, 0, iyi.stdout + iyi.stderr)
+            self.assertIn("PASS", iyi.stdout)
+            bozuk = json.loads(gercek)
+            bozuk["src/dunya/karakter_model.gd"]["func:kur"] = 'funckur(model:Node3D,ad:String="",ek:int=0)->void'
+            kok_baseline.write_text(json.dumps(bozuk), encoding="utf-8")
+            kotu = self._kos(kok)
+            self.assertEqual(kotu.returncode, 1, kotu.stdout + kotu.stderr)
+            self.assertIn("FAIL", kotu.stdout)
+        finally:
+            shutil.rmtree(gecici, ignore_errors=True)
+        self.assertEqual((ROOT / "tools/api_sozlesmesi_baseline.json").read_text(encoding="utf-8"), gercek)
+
+    def test_kapi_ekrani_has_no_eylem_biti_signal(self):
+        kaynak = (ROOT / "src/arayuz/kapi_ekrani.gd").read_text(encoding="utf-8-sig")
+        self.assertNotIn("eylem_bitti", kaynak)
+
 if __name__ == "__main__":
     unittest.main()

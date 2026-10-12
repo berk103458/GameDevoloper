@@ -6680,7 +6680,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KAY-04. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu.gd` tek adım.
   - Asset: asset gerekmedi.
-- [/] **TEK-06:** (testx) ADM-16 kapanış ölçütü, komut listesi yeniden yazılmaz.
+- [x] **TEK-06:** (testx) ADM-16 kapanış ölçütü, komut listesi yeniden yazılmaz.
   - Ne: `ROADMAP.md` ADM-16 `[/]` durur. Bu madde köprüyü ikinci kez tasarlamaz. Kapanış: normal oyunda port yokken `oyun_koprusu.gd` süreç açmaz; `--bridge-port` ile `ping` döner. Komut kümesi o maddenin listesidir.
   - Kabul: portsuz açılışta dinleyen soket 0. Test: iki açılış.
   - Bağımlılık: ADM-16. Boyut: S.
@@ -6719,7 +6719,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: TEK-10, SRM-05. Boyut: S.
   - Dosya: `performans_gunlugu.gd`.
   - Asset: asset gerekmedi.
-- [/] **TEK-12:** (testx) ADV-04 — manifest bilinçli API değişince güncellenir.
+- [x] **TEK-12:** (testx) ADV-04 — manifest bilinçli API değişince güncellenir.
   - Ne: eski: ADV-04. `tools/api_sozlesmesi.py` baseline ile birebir bakar. Korumalı imza değişince baseline aynı commit'te güncellenir; sessiz sapma sanity'yi geçmez.
   - Kabul: imza değişip baseline eskiyse sanity kırmızı. Test: araç. Ek şart: Kapı ekranına `eylem_bitti` sinyali eklenmez.
   - Bağımlılık: yok. Boyut: S.
