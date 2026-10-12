@@ -2321,7 +2321,7 @@ Kimlik numaraları yeniden sıralanmaz. `src/koy/kapi_nobeti.gd` henüz yoktur.
 
 ### 26.1 Nöbetçinin kimliği ve kapıya etkisi
 
-- [ ] **NBT-01:** Kapıda tek yuva.
+- [/] **NBT-01:** (testx) Kapıda tek yuva.
   - Ne: Direğin üstündeki ad, yuvaya yazılmış köylünün kayıtlı adıdır. Kapıda ikinci yuva yoktur; ANI-02 rotası kapıya uğradığında orada bu kişi durur.
   - Kurallar:
     1. Kapıda tek nöbet yuvası vardır. Yuvaya köyde yaşayan bir kişinin kimliği yazılır.
@@ -2469,7 +2469,7 @@ Kimlik aralığı MCL-01 … MCL-90'tır. Numaralar yeniden sıralanmaz.
 
 ### 27.1 Konuşan ve şikâyetin adı
 
-- [ ] **MCL-01:** Çınarın altında konuşan, içeri alınan kişidir.
+- [/] **MCL-01:** (testx) Çınarın altında konuşan, içeri alınan kişidir.
   - Ne: Krizli gecede içeri alınmış ve o gece köyde yaşayan en çok üç kişi çınarın altında konuşur. Kapı kuyruğundaki, ret yemiş veya ölü kimlik satıra yazılmaz; adlı kimse yoksa oylama adsız tek satırla açılır.
   - Kabul: Krizsiz gecede konuşmacı sayısı 0'dır. Krizli gecede konuşanların hepsi köy kaydındadır ve sayı 3'ü geçmez. Ret yemiş bir kimlik satırda 0 kez durur (`tests/unit/koy/meclis_sesi_test.gd`). Ek şart: `meclis` adlı yeni sahne açılmaz ve wav dosyası eklenmez. Ek şart: `meclis_sesi.gd` ile KRI-07 paneli dışında üçüncü bir meclis dosyası açılmaz.
   - Bağımlılık: yok. Boyut: S.
@@ -2666,7 +2666,7 @@ Yerler döneme uygundur: ağıl, değirmen, demirhane, bez. Kalp puanı, romans,
 
 ### 29.1 Yer ve yüz
 
-- [ ] **TEZ-01:** Dört tezgâhın yeri
+- [/] **TEZ-01:** (testx) Dört tezgâhın yeri
   - Ne: Oyuncu sabah köyde ağılı, değirmeni, demirhaneyi ve bez tezgâhını ayrı iş yerleri olarak görür; her yer ANI-08 düğümüdür, düğümü olmayan yer iş almaz. Aynı anda bir tezgâhta bir görünür iş durur; yer kaydı düğüm kimliğidir, düz ad yazılmaz.
   - Kabul: Düğümü olan dört yerde açık iş 1, düğümü olmayan ya da ızgara hücresinin dışındaki yerde iş 0'dır (`tests/unit/koy/tezgahta_gun_test.gd`). `tezgahta_gun.gd` YAP kademesi yazmaz, EKO-04 un sayısı bu maddeden değişmez ve `koy_sahnesi` import etmez. Ek şart: iş köy ekranında durur, yeni sahne ve yeni meslek açılmaz. Ek şart: kış için beşinci yer açılmaz, mevsim MEV-01'den okunur. Ek şart: SEV-01 boş gününde açık sabah satırı silinmez.
   - Bağımlılık: ANI-08. Boyut: S.
