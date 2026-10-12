@@ -1,9 +1,11 @@
 """Runner must reject errors even when a process exits zero."""
 import importlib.util
 from pathlib import Path
+import os
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[2]
 spec = importlib.util.spec_from_file_location("sanity", ROOT / "tools/sanity_check.py")
@@ -48,6 +50,13 @@ class RunnerTest(unittest.TestCase):
         kod = "print('ERROR: Failed to read the root certificate store.'); print('ERROR: gercek hata')"
         ok, _ = sanity.run([sys.executable, "-c", kod], ROOT, 5)
         self.assertFalse(ok)
+
+    def test_python_child_marker_survives_windows_codepage(self):
+        temiz = {k: v for k, v in os.environ.items() if k not in ("PYTHONIOENCODING", "PYTHONUTF8")}
+        with mock.patch.dict(os.environ, temiz, clear=True):
+            ok, output = sanity.run([sys.executable, "-c", "print('BOZUK AYAR MENÜ: GEÇTİ')"], ROOT, 10)
+        self.assertTrue(ok)
+        self.assertIn("GEÇTİ", output)
 
     def test_good_output_passes(self):
         ok, _ = sanity.run([sys.executable, "-c", "print('GEÇTİ')"], ROOT, 5)

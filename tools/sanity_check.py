@@ -56,7 +56,9 @@ def run(command, root, timeout, env=None):
         options = {"creationflags": subprocess.CREATE_NEW_PROCESS_GROUP} if os.name == "nt" else {"start_new_session": True}
         process = subprocess.Popen(command, cwd=root, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                    text=True, encoding="utf-8", errors="replace",
-                                   env={**os.environ, **env} if env else None, **options)
+                                   # Python alt testleri (ör. ayarlar_bozuk_menu_kontrol.py) Windows kod sayfasıyla
+                                   # yazarsa "GEÇTİ" işareti utf-8 okunamaz; çocuk süreçlerin çıktısı utf-8 olur.
+                                   env={**os.environ, "PYTHONIOENCODING": "utf-8", **(env or {})}, **options)
         stdout, stderr = process.communicate(timeout=timeout)
         output = stdout + stderr
         return process.returncode == 0 and not ERROR.search(ORTAM_GURULTUSU.sub("", output)), output
