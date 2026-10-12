@@ -6997,7 +6997,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **SRM-14:** Çıkış kaydı yazmadan menüye döner, duraklatta sorar.
+- [x] **SRM-14:** (Claude) Çıkış kaydı yazmadan menüye döner, duraklatta sorar.
   - Ne: duraklat → menü (`_duraklat` seçenek 2) mevcut kaydı silmez; son ekranı siler (`kayit.sil`). İkisi karışmaz. Yeni onay penceresi açılmaz.
   - Kabul: duraklattan menüye dönünce `kayit.json` durur. Test: akış.
   - Bağımlılık: yok. Boyut: S.
