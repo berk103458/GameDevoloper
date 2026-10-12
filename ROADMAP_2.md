@@ -1829,7 +1829,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 24.1 Şablon seçimi
 
-- [ ] **ARY-01:** Görsel dil için örnek şablonlar — Berk ve Ahmet seçer.
+- [/] **ARY-01:** (Claude — şablonlar hazır, Berk + Ahmet seçimi bekliyor) Görsel dil için örnek şablonlar — Berk ve Ahmet seçer.
   - Ne: Üç şablon, sorgu, harita ve köylü kartı yer tutucusunda açılır; oyun sahneleri bu maddede değişmez. Her şablonda renk, çerçeve, yazı tipi ailesi, dört düğme durumu ve panel dokusu yazılıdır. Seçim `docs/arayuz/SABLONLAR.md` içine iki isimle yazılır. Seçim yoksa `tema.gd` renk değiştirmez ve `src/arayuz/tema/` oluşmaz. Doku ve yazı tipi üretilmez; yer tutucu `StyleBoxFlat`tır. Önizleme `ana.tscn` yerine geçmez.
   - Kurallar:
     1. Üç şablonun her birinde renk, çerçeve, yazı tipi ailesi, düğme durumları (normal, üstünde, basılı, kapalı) ve panel dokusu yazılıdır.

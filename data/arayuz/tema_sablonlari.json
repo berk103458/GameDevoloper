@@ -1,0 +1,165 @@
+{
+  "_not": "ARY-01: üç görsel dil şablonu. Değerler docs/arayuz/SABLONLAR.md ile birebir aynıdır (test sınar). Doku ve yazı tipi üretilmez; yer tutucu StyleBoxFlat. Seçim yapılana kadar oyunun teması (tema.gd) değişmez.",
+  "ornek": {
+    "sorgu_kisi": "Yusuf, Sivas yolundan",
+    "sorgu_soz": "Selamünaleyküm ağam. Bir avuç tohumla geldim, başka bir şeyim yok.",
+    "secenekler": [
+      "Heybene bakayım",
+      "Kim yolladı seni?",
+      "İçeri gel"
+    ],
+    "harita_baslik": "Uç ve çevresi",
+    "harita_yerler": [
+      "Kapı",
+      "Köy",
+      "Tekfur hisarı",
+      "Kervan yolu"
+    ],
+    "kart_ad": "Saruca Hatun",
+    "kart_satirlar": [
+      "Çiftçi · yetişkin",
+      "Sağlık 8/10",
+      "Moral iyi"
+    ]
+  },
+  "sablonlar": [
+    {
+      "kimlik": "cini",
+      "ad": "Çini",
+      "renk": {
+        "zemin": "#0F1C2B",
+        "zemin_metin": "#F2E9D8",
+        "panel": "#16324A",
+        "metin": "#F2E9D8",
+        "vurgu": "#3FA7A3",
+        "cerceve": "#C9A45C"
+      },
+      "cerceve": {
+        "kalinlik": 2,
+        "kose": 6
+      },
+      "yazi": {
+        "baslik": "Cinzel",
+        "govde": "Alegreya"
+      },
+      "dugme": {
+        "normal": {
+          "zemin": "#16324A",
+          "kenar": "#3FA7A3",
+          "metin": "#F2E9D8"
+        },
+        "ustunde": {
+          "zemin": "#1F4560",
+          "kenar": "#C9A45C",
+          "metin": "#FFFFFF"
+        },
+        "basili": {
+          "zemin": "#0B2536",
+          "kenar": "#3FA7A3",
+          "metin": "#C9A45C"
+        },
+        "kapali": {
+          "zemin": "#1A2530",
+          "kenar": "#3A4652",
+          "metin": "#6E7A86"
+        }
+      },
+      "panel": {
+        "doku": "düz renk StyleBoxFlat, altın ince kenar, köşe yuvarlak",
+        "golge": 0
+      }
+    },
+    {
+      "kimlik": "parsomen",
+      "ad": "Parşömen",
+      "renk": {
+        "zemin": "#2A2118",
+        "zemin_metin": "#E8D9B5",
+        "panel": "#E8D9B5",
+        "metin": "#2B1D12",
+        "vurgu": "#8C2F1C",
+        "cerceve": "#5C4326"
+      },
+      "cerceve": {
+        "kalinlik": 3,
+        "kose": 2
+      },
+      "yazi": {
+        "baslik": "Cinzel",
+        "govde": "Alegreya"
+      },
+      "dugme": {
+        "normal": {
+          "zemin": "#DCC9A0",
+          "kenar": "#5C4326",
+          "metin": "#2B1D12"
+        },
+        "ustunde": {
+          "zemin": "#F0E3C4",
+          "kenar": "#8C2F1C",
+          "metin": "#2B1D12"
+        },
+        "basili": {
+          "zemin": "#C9B386",
+          "kenar": "#8C2F1C",
+          "metin": "#8C2F1C"
+        },
+        "kapali": {
+          "zemin": "#BFB39A",
+          "kenar": "#8E8170",
+          "metin": "#7A6E5E"
+        }
+      },
+      "panel": {
+        "doku": "düz renk StyleBoxFlat, kalın kahve kenar, keskin köşe",
+        "golge": 4
+      }
+    },
+    {
+      "kimlik": "ocak",
+      "ad": "Ocak",
+      "renk": {
+        "zemin": "#141210",
+        "zemin_metin": "#EADBC8",
+        "panel": "#1F1A16",
+        "metin": "#EADBC8",
+        "vurgu": "#D9822B",
+        "cerceve": "#6B4A2E"
+      },
+      "cerceve": {
+        "kalinlik": 1,
+        "kose": 10
+      },
+      "yazi": {
+        "baslik": "Alegreya",
+        "govde": "Alegreya"
+      },
+      "dugme": {
+        "normal": {
+          "zemin": "#2A221C",
+          "kenar": "#6B4A2E",
+          "metin": "#EADBC8"
+        },
+        "ustunde": {
+          "zemin": "#3A2C22",
+          "kenar": "#D9822B",
+          "metin": "#FFF1DF"
+        },
+        "basili": {
+          "zemin": "#1A1511",
+          "kenar": "#D9822B",
+          "metin": "#D9822B"
+        },
+        "kapali": {
+          "zemin": "#1C1916",
+          "kenar": "#3A332D",
+          "metin": "#6A615A"
+        }
+      },
+      "panel": {
+        "doku": "düz renk StyleBoxFlat, ince kor kenar, yumuşak köşe",
+        "golge": 8
+      }
+    }
+  ]
+}

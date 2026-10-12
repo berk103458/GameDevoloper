@@ -124,6 +124,7 @@ def checks(godot, root):
     yield "ayarlar_bozuk_menu_kontrol", [sys.executable, "-B", str(root / "tests/oto/ayarlar_bozuk_menu_kontrol.py"), godot], "GEÇTİ"
     yield "devam_pasif_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/devam_pasif_kontrol.tscn"], "GEÇTİ"
     yield "duraklat_menu_kayit_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/duraklat_menu_kayit_kontrol.tscn"], "GEÇTİ"
+    yield "tema_onizleme_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/tema_onizleme_kontrol.tscn"], "GEÇTİ"
     yield "kesik_kayit_devam_kontrol", [sys.executable, "-B", str(root / "tests/oto/kesik_kayit_devam_kontrol.py"), godot], "GEÇTİ"
     yield "acilis_koy_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/acilis_koy_kontrol.tscn"], "GEÇTİ"
     yield "performans_gunlugu_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/performans_gunlugu_kontrol.tscn"], "GEÇTİ"
