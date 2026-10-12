@@ -6595,7 +6595,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.10 Sınırlar ve kapanış
 
-- [ ] **KLT-24:** 25.3 kimlikleri silinmez.
+- [x] **KLT-24:** (Claude) 25.3 kimlikleri silinmez.
   - Ne: DYL-11…16 yerinde; bu bölüm onlara atıf verir.
   - Kabul: B dosyasında DYL-11…16 durur. Test: sayım. Taşınan: KLT-71: DYL-11…16 durur.
   - Bağımlılık: yok. Boyut: S.
