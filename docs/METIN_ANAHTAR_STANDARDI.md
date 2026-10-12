@@ -3,6 +3,12 @@
 Tek metin tablosu: `data/metin/metinler.csv` (UTF-8, ilk satır `keys,tr`). Godot bunu
 `metinler.tr.translation` olarak içe aktarır; kodda `tr("anahtar")` ile okunur.
 
+**BUG-0021:** Üretilen `data/metin/metinler.tr.translation` **depoda tutulur** (`.gitignore` dışında).
+`project.godot` bu dosyayı gösterir ve Godot editörü onu açılışta, CSV içe aktarılmadan **önce**
+yükler; depoda yoksa temiz klonda 4 ERROR satırı çıkar. CSV'ye anahtar ekledikten sonra içe aktarmayı
+çalıştırıp üretilen dosyayı CSV ile **aynı commit'te** yayınlayın; aksi hâlde oyun eski tabloyu kullanır
+(eksik anahtar ham CSV'den okunur ve günlüğe uyarı düşer).
+
 ## 1. Anahtar biçimi
 
 - **Noktalı küçük harf** (mevcut tüm satırlar): `alan.alt_alan.ad` — yalnızca `a-z`, `0-9`, `_`

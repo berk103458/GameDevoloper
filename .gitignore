@@ -1,7 +1,10 @@
 
 # Godot
 .godot/
-data/metin/*.translation
+# BUG-0021: metinler.tr.translation DEPODA kalır. project.godot onu gösterir ve editör
+# onu açılışta (içe aktarma çalışmadan önce) yükler; depoda yoksa temiz klonda 4 ERROR
+# satırı çıkar. Godot dosyayı CSV değişince yeniden üretir; güncel hâli CSV ile aynı
+# commit'te yayınlanır.
 tools/art/ham/
 tools/art/yedek/
 tools/art/gelen/*
