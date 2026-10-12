@@ -205,3 +205,7 @@ Pull 4425a1e güncel. Kullanıcının son yönü: önce internet araştırması,
 Pull 75dbf1d. 281 envanter promptu + 57 UI yuvası ayrı 2D tabloları; 114 açık 3D gruba metreyle hedef ölçü. Eski tarama, kaynak yolları, öncelikler, lisans ve imzalar docs/asset_envanteri/2026-10-12-kaynak-taramasi.md içinde kayıpsız korunur. Ses görsel üretim kuyruğu dışında. Mekanikler isim etiketli kutu ile kapanır, asset entegrasyonu üretim sonunda; yeni 2D brief aynı maddeyle yazılır. Kota: haftalık %47 kaldı; kısa dönem %98 kaldı. ds ayna yolları yok; önceki açık kullanıcı izniyle atlandı. Asset gerekmedi; yalnız belge ve katalog düzeni, oyun kodu değişmedi.
 
 Doğrulama: 6 envanter testi PASS; 281 prompt bağlantısı, 57 UI yuvası, 114 ölçülü 3D grup ve önceki kaynak metninin birebir korunması kontrol edildi. git diff --check temiz. Yalnız belge/katalog değiştiğinden oyun tam sanity tekrarlanmadı; son oyun paketi 368/0/20 gece. Sonraki hazır aday ACL-04; ACL-03 ACL-02/DYL-07 bekliyor, testx sahipliklerine dokunulmaz.
+
+## ACL-04 sahipliği — 12 Ekim 2026 (Kalfa)
+
+Envanter yayını 8020ec4, pull güncel. Kota: haftalık %47 / kısa dönem %98 kaldı. ACL-03 bağımlılıkları hazır değil; ACL-04 ACL-01/BUG-18 tamamlandığı için alınır. İlk akşam ulak + ilk aile, tek kayıtlı tetik, öğretici adımları atlama ve ilk karar kilidi mevcut açılış/kapı/oturum yollarına ince adaptörle bağlanır. ACL04-ARASAHNE 2D promptu hazır, yeni asset eklenmez; isim etiketli yer tutucu. Tarihsel kaynak metninin dört Markdown dış boşluğu temizlendi, bilgi korunur; staged whitespace kontrolü temiz.

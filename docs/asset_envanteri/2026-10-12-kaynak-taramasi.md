@@ -6,9 +6,9 @@ Yeni ihtiyaçları ../EKSIK_ASSET_ENVANTERI.md içindeki 2D / 3D bölümlerine y
 
 **12 Ekim 2026 güncellemesi (Kalfa):** 27 temiz UI PNG; 5 yeniden üretim; 281 envanter + 25 eksik UI tekli prompt. Saydam kaynak #00FF00, alfa sonradan temizlenir. Görsel açık kuyruğu 114 3D satır/gruptur; ayrıntılar aşağıdaki “12 Ekim 2D üretim hazırlığı” ve `arayuz/GECE_KAPISI_ALFA_KABUL.md` içinde. Eski tarama tarihi aşağıda tarihsel kaynak olarak korunur.
 
-**Tarih:** 7 Ekim 2026  
-**Dal tabanı:** `claude/festive-volta-li1sfm` @ `ec23ee9` (`feat(EKO-13): expose tool wear and verify last-tool production`)  
-**Yapan:** Cursor — yalnız tarama. Görsel, ses, model üretilmedi; oyun kodu değiştirilmedi.  
+**Tarih:** 7 Ekim 2026
+**Dal tabanı:** `claude/festive-volta-li1sfm` @ `ec23ee9` (`feat(EKO-13): expose tool wear and verify last-tool production`)
+**Yapan:** Cursor — yalnız tarama. Görsel, ses, model üretilmedi; oyun kodu değiştirilmedi.
 **Eski liste:** `production/eksikler/` 4 Ekim notlarıdır. O tarihten sonra yürüyüş GLB’leri, duygu klipleri, CHR foley ve ekonomi SVG’leri geldi. Bu dosya güncel taramanın kaydıdır.
 
 Bu belge üretim brief’idir. Aynı dosya adı konunca oyun yolu değişmez; yeni ad önerilen yerlerde kod henüz o yolu yüklemez.
@@ -188,7 +188,7 @@ CHR kaynak anahtarları `Idle` / `Stressed` / `Panic` (`karakter_verisi.gd`). Bu
 | chr_002, 003, 008, 011–030 | bekle, konus, sevinc, panik | ofke, gergin | yüksek |
 | asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | yalnız `*_yuru.glb` | altı duygu klibinin hepsi | yüksek |
 
-Beklenen ad: `assets/model/hareket/<model>_<hareket>.res` (Animation, aynı iskelet, iz eşiği 0,8).  
+Beklenen ad: `assets/model/hareket/<model>_<hareket>.res` (Animation, aynı iskelet, iz eşiği 0,8).
 Anahtar kelimeler: idle breath, talk gesture, joy, anger, panic draw, stressed fidget, Anatolian frontier clothes, no Mixamo T-pose leftover.
 
 İleri klipler (ANI, henüz kod yok): `kos`, `otur`, `orak`, `cekic`, `nobet`, `saldir`, `dus`, `yagmur_yuru`, `kar_yuru`. glTF klip veya `.res`.
