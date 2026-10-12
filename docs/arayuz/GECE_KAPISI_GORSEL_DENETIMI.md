@@ -1,5 +1,7 @@
 # Gece kapısı görsel denetimi (Kalfa)
 
+> **12 Ekim araştırma güncellemesi:** Gece kapısı için yeniden üretimde [tekli yeni promptları](GEMINI_TEKLI_URETIM_PROMPTLARI.md) kullan. [Araştırma](NANO_BANANA_OYUN_ASSET_ARASTIRMASI.md) resim üretimi ile gerçek alfa/kesin ölçü/9-slice hazırlamasını ayırır. Bu belgedeki önceki promptlar tarihsel kayıt; modelden tek adımda teknik teslim istemek güvenilir bulunmadı.
+
 12 Ekim 2026 · 29 kaynak dosyanın tamamı tek tek açılarak gözle ve Pillow ile incelendi.
 
 ## Sonuç ve dosya düzeni
