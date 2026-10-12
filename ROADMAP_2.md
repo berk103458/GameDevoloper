@@ -6791,19 +6791,19 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.6 Zaman ölçeği
 
-- [ ] **TEK-22:** Sahne çıkışı hızı sıfırlar.
+- [/] **TEK-22:** (testx) Sahne çıkışı hızı sıfırlar.
   - Ne: `koy_ekrani.gd _exit_tree` `paused = false`, `time_scale = 1`, fizik adımını `_onceki_fizik_adimi` yapar. Test kilitler; kod yeniden yazılmaz.
   - Kabul: hız 3'te menüye dönünce `time_scale` 1 ve `paused` false. Test: akış. Ek şart: Sabah defteri satırı yazılırken `time_scale` değişmez. Ek şart: Boş günde hız köy ekranının seçimidir; kapı kilidi uygulanmaz.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `tests/` akış.
   - Asset: asset gerekmedi.
-- [ ] **TEK-23:** Gece kilidi hızı 1'de tutar.
+- [/] **TEK-23:** (testx) Gece kilidi hızı 1'de tutar.
   - Ne: `_hiz_sec` `_gece_kilidi.kilitli()` iken katı 1 yapar (`gece_gecis_kilidi.gd`). Kilit varken hız 3 seçilemez.
   - Kabul: kilitliyken `time_scale` 1. Test: birim.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **TEK-24:** Defter ve divan hızı geri verir.
+- [/] **TEK-24:** (testx) Defter ve divan hızı geri verir.
   - Ne: HFZ-03 ve `divan_baglantisi.gd` hız saklama kalıbı bozulmaz. İkinci saklama yazılmaz.
   - Kabul: divan aç/kapa sonrası hız aynı. Test: HFZ-03 ile ortak. Ek şart: Çınar meclisi paneli açıkken oyun hızı değişmez; panel kapanınca hız kaldığı değere döner.
   - Bağımlılık: HFZ-03. Boyut: S.
