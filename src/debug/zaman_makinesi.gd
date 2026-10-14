@@ -3,6 +3,7 @@ class_name ZamanMakinesi
 extends RefCounted
 
 static func ilerlet(o: Oturum, adet: int, tohum: int = 0) -> Dictionary:
+	if o != null and preload("res://src/sistemler/kapi_acilis_olayi.gd").gece_engelli(o): return {"ok": false, "neden": "İlk ailenin kararı bekleniyor."}
 	if o == null or adet not in [1, 5, 10] or o.yonetim.son != "":
 		return {"ok": false, "neden": "Canlı oturum ve 1/5/10 günlük adım gerekli."}
 	var rng := RandomNumberGenerator.new()
@@ -43,6 +44,7 @@ static func ilerlet(o: Oturum, adet: int, tohum: int = 0) -> Dictionary:
 static func uygun(ana: Node) -> bool:
 	if not is_instance_valid(ana) or ana.get("oturum") == null:
 		return false
+	if preload("res://src/sistemler/kapi_acilis_olayi.gd").gece_engelli(ana.get("oturum")): return false
 	var ekran: Node = ana.get("_ekran")
 	if not is_instance_valid(ekran) or ekran.get_script() == null or ekran.get_script().get_global_name() != "KoyEkrani":
 		return false

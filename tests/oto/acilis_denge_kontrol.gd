@@ -150,6 +150,8 @@ func _adim(y: KoyYonetimi, adim: String, idx: Array[int]) -> bool:
 
 
 func _gate(o: Oturum) -> void:
+	var ak = preload("res://src/sistemler/kapi_acilis_olayi.gd")
+	if ak.baslat(o): ak.ulak_bitir(o)
 	for g in o.gece_kuyrugu():
 		var chr := g.chr_sorgusu()
 		if chr != null:

@@ -27,6 +27,37 @@ func _ready() -> void:
 	var acilis := kopru.get_state()
 	assert(acilis.ekran == "koy" and acilis.koy.nufus == 2 and acilis.koy.yatak == 4)
 	assert(not (await kopru.run_command("gece_bitir")).has("error"))
+	# ACL-04: ilk akşam önce zorunlu ulak, sonra gerçek sorguda ilk aile.
+	assert(ana._ekran.has_node("KapiAcilisSunumu") and ana.oturum.gun == 0)
+	var baslangic := Time.get_ticks_msec()
+	for _i in 250:
+		await get_tree().create_timer(0.08).timeout
+		if ana._ekran is KapiEkrani and not ana._kapi_yukleniyor and ana._kapi.evre == &"sohbet": break
+	assert(Time.get_ticks_msec() - baslangic < 60000 and ana.oturum.gun == 0)
+	assert(ana.oturum.yonetim.nufus() == 2 and ana._kapi._gelen.id == &"acl04_ilk_aile")
+	var ogretici := ana._kapi.get_node("AcilisOgretici")
+	(ogretici.get_child(1) as Button).pressed.emit()
+	await get_tree().process_frame
+	assert(not ana._kapi.has_node("AcilisOgretici"))
+	assert(ana.oturum.gece_sonu().get("engellendi", false))
+	# Aynı gerçek selam, konu, heybe ve karar düğmeleri; kaynak veya gün hilesi yok.
+	for _i in 2:
+		ana._kapi._tumunu_goster()
+		assert(not (await kopru.run_command("soru_sor", {"indeks": 0})).has("error"))
+		await get_tree().create_timer(0.3).timeout
+	ana._kapi._heybe_ac()
+	await get_tree().process_frame
+	assert(ana._kapi._heybe_paneli != null)
+	ana._kapi._heybe_paneli.kapandi.emit()
+	await get_tree().process_frame
+	ana._kapi._karar_goster()
+	ana._kapi._tumunu_goster()
+	assert(not (await kopru.run_command("kapi_karar", {"karar": "kabul"})).has("error"))
+	for _i in 150:
+		await get_tree().create_timer(0.08).timeout
+		if ana._ekran is KoyEkrani: break
+	assert(ana._ekran is KoyEkrani and ana.oturum.gun == 0 and ana.oturum.yonetim.nufus() == 4)
+	assert(not (await kopru.run_command("gece_bitir")).has("error"))
 	for _i in 100:
 		await get_tree().create_timer(0.08).timeout
 		var adim := kopru.get_state()

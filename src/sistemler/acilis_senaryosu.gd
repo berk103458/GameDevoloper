@@ -69,4 +69,4 @@ static func _kimlik(v: Variant) -> int:
 	return -1
 
 static func kapi_kapali(o: Oturum) -> bool:
-	return durum(o).get("kuruldu", false) and o.gun == 0
+	return durum(o).get("kuruldu", false) and o.gun == 0 and not (o.bayraklar.has(&"acl04_ulak_gecti") and not o.bayraklar.has(&"acl04_aile_karari"))

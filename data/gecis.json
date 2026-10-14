@@ -1,0 +1,8 @@
+{
+  "kapi_acilisi": {
+    "gecici": true,
+    "kaynak": "data/kapi_acilisi.json",
+    "yerine": "Parça B söz motoru hazır olduğunda aynı kapı sohbet adaptörü",
+    "kapsam": "Yalnız ilk akşam iki yetişkinlik sabit aile. Genel aile üretimi/çocuk/ayırma KAP-17 kapsamıdır."
+  }
+}

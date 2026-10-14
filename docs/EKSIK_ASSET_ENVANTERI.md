@@ -16,6 +16,8 @@
 
 Üretim için [311 satırlık sıradaki liste](arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md): 5 yeniden üretim + 25 teslim edilmemiş UI + 281 envanter resmi. Alfa hazırlığı biten 27 PNG üretim beklerken saklanır; tekrar üretilmez ve henüz oyun entegrasyonu kabulü sayılmaz. [Kabul kanıtı](arayuz/GECE_KAPISI_ALFA_KABUL.md).
 
+ACL-04 uygulama notu (14 Ekim, Kalfa): `ACL04-ARASAHNE` için aşağıdaki mevcut 1920×1080 opak `assets/art/env/acilis_ulak.png` promptu kullanılır. Yer tutucu `res://src/arayuz/koy_hud/kapi_acilis_paneli.gd`: koyu ColorRect + «Ulak / ilk aile» isim etiketi. Öncelik yüksek; görsel gelene kadar açılış mekaniği çalışır. Yeni 3D gerekmiyor; ilk aile mevcut yetişkin modelini kullanır, genel çocuk/aile modelleri KAP-17 kuyruğunda kalır.
+
 ### Envanterin tekli 2D parçaları
 
 Her satırdaki prompt bağlantısı tam İngilizce metin, kaynak konu ve notları açar. Tüm satırların durumu: **prompt hazır, Ahmet üretecek**. ROADMAP / yer tutucu / öncelik / ekleyen bilgisi kaynak kimliğiyle tarihsel taramadan izlenir.

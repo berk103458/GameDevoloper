@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="OlayVerisi" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/veri/olay_verisi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"kapi_acilisi"
+baslik_anahtari = "olay.kapi_acilisi.baslik"
+metin_anahtari = "olay.kapi_acilisi.berat"
+kosullar = {"bayrak": ["acl04_yalniz_gecis_sunumu"], "gece_max": 0}
+agirlik = 0.0
+secenek_anahtarlari = PackedStringArray("olay.kapi_acilisi.devam")
+secenek_etkileri = Array[Dictionary]([{}])

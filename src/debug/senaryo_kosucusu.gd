@@ -5,6 +5,7 @@ const KIMLIKLER := ["kitlik_10", "baskin", "veba"]
 const TEHDIT = preload("res://src/sistemler/tehdit_takvimi.gd")
 
 static func calistir(o: Oturum, id: String, tohum: int = 0) -> Dictionary:
+	if o != null and preload("res://src/sistemler/kapi_acilis_olayi.gd").gece_engelli(o): return {"ok": false, "neden": "İlk ailenin kararı bekleniyor."}
 	if o == null or id not in KIMLIKLER or o.yonetim.son != "" or o.yonetim.koylular.is_empty():
 		return {"ok": false, "neden": "Canlı, nüfuslu köy ve tanımlı senaryo gerekli."}
 	var y := o.yonetim

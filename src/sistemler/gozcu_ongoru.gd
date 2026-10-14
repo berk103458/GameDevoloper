@@ -5,6 +5,7 @@ const KAFILE_OZETI = preload("res://src/sistemler/gozcu_kafile_ozeti.gd")
 ## Dönen yalnız public isim/sınıf kopyalarıdır; olay kararları değişirse kesin varış iddiası yoktur.
 static func durum(o: Oturum) -> Dictionary:
 	var d := {"aktif":false,"gun":o.gun+1,"adaylar":[],"ozet":{},"not":String(GozcuKulesi.AYAR.kapali)}
+	if preload("res://src/sistemler/kapi_acilis_olayi.gd").gece_engelli(o): return d
 	if not GozcuKulesi.aktif(o.yonetim): return d
 	d.aktif=true
 	d.not=String(GozcuKulesi.AYAR.not)

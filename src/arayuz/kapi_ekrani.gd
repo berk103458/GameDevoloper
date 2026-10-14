@@ -213,7 +213,7 @@ func _model_adi(g: Gelen) -> String:
 func _bilgi_yaz() -> void:
 	_bilgi.text = tr("arayuz.kapi.bilgi") % [oturum.gosterilen_gece(), _gece_gelen, _kuyruk.size()]
 	KapiFirtinaKuyrugu.bilgi(oturum, _gelen, _bilgi)
-	_bilgi.text += "\n" + preload("res://src/kapi/barinak_uyarisi.gd").metin(oturum.yonetim)
+	_bilgi.text += "\n" + preload("res://src/kapi/barinak_uyarisi.gd").metin(oturum.yonetim, 2 if _gelen != null and _gelen.id == &"acl04_ilk_aile" else 1)
 
 
 ## Yeni geceyi başlatır: kuyruk kurulur, ilk gelen kapıya yürür.
@@ -221,6 +221,7 @@ func gece_baslat() -> void:
 	evre = &"gecis"
 	_temizle()
 	_kuyruk = oturum.gece_kuyrugu()
+	preload("res://src/arayuz/kapi_acilis_ogretici.gd").kur(self)
 	var adlar: Array[String] = []
 	for g in _kuyruk:
 		adlar.append(_model_adi(g))

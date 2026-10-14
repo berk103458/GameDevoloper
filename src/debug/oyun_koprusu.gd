@@ -157,6 +157,7 @@ func get_state() -> Dictionary:
 		r["hazir"] = r.hazir and e.evre in [&"sohbet", &"karar", &"sira", &"is"]
 		r["kisi"] = _kisi(e)
 	if e is KoyEkrani: r["koy"] = _koy_durumu(e)
+	if e is KoyEkrani and e.has_node("KapiAcilisSunumu"): r["hazir"] = false
 	if faz == "son":
 		var kimlik := _son_kimligi if not _son_kimligi.is_empty() else o.yonetim.son
 		if kimlik.is_empty(): kimlik = "halk_kirildi"
@@ -250,15 +251,16 @@ func _devam(args: Dictionary) -> Dictionary:
 func _gece_bitir() -> Dictionary:
 	if not ana._ekran is KoyEkrani or ana._ust != null: return hata("Köy ekranı gerekli.")
 	var k := ana._ekran as KoyEkrani
-	if k._ust_kart != null or k.mini_oyun != null or k._gece_dugmesi.disabled: return hata("Önce açık kartı tamamlayın; gece zaten çözülmüş olabilir.")
+	if k._ust_kart != null or k.mini_oyun != null or k._gece_dugmesi.disabled or k.has_node("KapiAcilisSunumu"): return hata("Önce açık kartı tamamlayın; gece zaten çözülmüş olabilir.")
 	var gun := k.oturum.gun
 	k._gece_dugmesi.pressed.emit()
+	if k.has_node("KapiAcilisSunumu"): return {"ok": true, "acilis": true}
 	return {"ok": true} if k.oturum.gun == gun + 1 else hata("Gece geçişi bekleyen meclis/cenaze nedeniyle kilitli.")
 
 func _koy_eylem(args: Dictionary) -> Dictionary:
 	if not ana._ekran is KoyEkrani or ana._ust != null: return hata("Köy yönetimi gerekli.")
 	var k := ana._ekran as KoyEkrani
-	if k._ust_kart != null or k.mini_oyun != null or k._gece_dugmesi.disabled: return hata("Açık kart/gece kilidi varken köy eylemi yapılamaz.")
+	if k._ust_kart != null or k.mini_oyun != null or k._gece_dugmesi.disabled or k.has_node("KapiAcilisSunumu"): return hata("Açık kart/gece kilidi varken köy eylemi yapılamaz.")
 	var y := k.oturum.yonetim
 	match args.get("tur", ""):
 		"insa":

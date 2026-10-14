@@ -115,6 +115,7 @@ func gosterilen_gece() -> int:
 
 ## Bu gecenin varış listesi.
 func gece_kuyrugu() -> Array[Gelen]:
+	if preload("res://src/sistemler/kapi_acilis_olayi.gd").aile_bekliyor(self): return preload("res://src/sistemler/kapi_acilis_olayi.gd").kuyruk(self)
 	if preload("res://src/sistemler/acilis_senaryosu.gd").kapi_kapali(self): return []
 	koy.bu_gece_girenler = []
 	var sayi := ayarlar.gece_basina_gelen if perde == 1 else ayarlar.perde2_gece_basina_gelen
@@ -185,6 +186,7 @@ func ziyaret_basladi(gelen: Gelen) -> void:
 ## Kararlar: `kabul`, `harc` (yoksuldan zorla geçiş akçesi), `rusvet` (teklifini alıp içeri), `kisla` (asker, muhafız),
 ## `ret`, `elkoy` (astardan çıkanlara el konur, geri çevrilir; yalnız yalan yakalanınca).
 func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> Dictionary:
+	if preload("res://src/sistemler/kapi_acilis_olayi.gd").karar_engelli(self, gelen, karar): return {"engellendi": true, "kaldi": false, "kirilan": -1}
 	if not SiraOlayiSonucu.neden(gelen).is_empty(): return {"engellendi": true, "kaldi": false, "kirilan": -1}
 	if DiplomatikHeyet.ilgilenir(gelen): return DiplomatikHeyet.karar(self, gelen, karar)
 	if TuccarKapiGecisi.ilgilenir(gelen): return TuccarKapiGecisi.karar(self, gelen, karar)
@@ -266,6 +268,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	muhafiz_tecrubesi += 1
 	MuhafizOdaGelisimi.karar(self)
 	MuhafizVicdani.karar(self, gelen, karar)
+	preload("res://src/sistemler/kapi_acilis_olayi.gd").karar_sonrasi(self, gelen, ek)
 	return ek
 
 
@@ -273,6 +276,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 ## son: StringName ("" | halk_kirildi | isyan | tekfur | zafer), perde_degisti (Ağalık bu gece), olay, rapor}.
 ## bilanco: kamu/kişisel açılış-kapanış, gerçek vergi/maaş ve tüm stokların mutabakatı (EKO-15).
 func gece_sonu() -> Dictionary:
+	if preload("res://src/sistemler/kapi_acilis_olayi.gd").gece_engelli(self): return {"engellendi": true, "neden": "İlk ailenin kararı bekleniyor"}
 	var bilanco_once := GeceBilancosu.fotograf(self)
 	var agalik_once := yonetim.agalik
 	MuhafizOdaGelisimi.gece(self)

@@ -209,3 +209,11 @@ Doğrulama: 6 envanter testi PASS; 281 prompt bağlantısı, 57 UI yuvası, 114 
 ## ACL-04 sahipliği — 12 Ekim 2026 (Kalfa)
 
 Envanter yayını 8020ec4, pull güncel. Kota: haftalık %47 / kısa dönem %98 kaldı. ACL-03 bağımlılıkları hazır değil; ACL-04 ACL-01/BUG-18 tamamlandığı için alınır. İlk akşam ulak + ilk aile, tek kayıtlı tetik, öğretici adımları atlama ve ilk karar kilidi mevcut açılış/kapı/oturum yollarına ince adaptörle bağlanır. ACL04-ARASAHNE 2D promptu hazır, yeni asset eklenmez; isim etiketli yer tutucu. Tarihsel kaynak metninin dört Markdown dış boşluğu temizlendi, bilgi korunur; staged whitespace kontrolü temiz.
+
+## ACL-04 hedefli doğrulama — 14 Ekim 2026 (Kalfa)
+
+Yerel ortak kopyaya Muharrir/Antigravity belge commitleri geldi; son baş 33a32e4, korundu. ACL-04 birim, eski kuruluş, barınak, beş sıra × 20 gece denge ve gerçek oyun köprüsü akışı PASS. İlk UI koşusu köprünün anında gün artışı beklentisinde kaldı; açılış sunumunu başarılı bekleme sayan ince adaptör eklendi, normal meclis/cenaze engelleri korunur. Tek tam UTF-8 sanity başlatılıyor. Kota son görünüm: haftalık %47; kısa dönem %98 kaldı. Yeni resim/model/ses eklenmedi; ACL04 promptu mevcut, yer tutucu ve yol envanterde. Tam sanity sürerken başka madde alınmaz.
+
+## ACL-04 saatlik WIP kontrol noktası — 15 Ekim 2026 (Kalfa)
+
+Yönetici zaman atlama/senaryo/gözcü uç durumu testle üretildi ve ince guardlarla düzeltildi; dört hedefli kontrol geçti. Sabit kaynaklarla son tam koşu work/sanity_acl04_20261015_final içinde sürüyor; 141 Python testi ve ACL-04/kuruluş/zaman makinesi dahil bütün birim aşaması PASS. Kapanış henüz yapılmadı, ROADMAP [/] kalır. Saatte bir commit kuralı nedeniyle bu kontrol noktası WIP olarak yayınlanır. Diğer ajanın ZAR-01 çalışma dosyaları (chr_sorgu_kurallari) ve önceden mevcut Godot ayar/import değişiklikleri bu commit dışında kalır. Kota: kısa dönem %60; haftalık %94 kaldı. Asset gerekmedi; envanterde mevcut ACL04 promptu ve isimli kutu yolu kayıtlıdır.

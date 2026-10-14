@@ -637,6 +637,7 @@ func _bant_ciz() -> void:
 func _geceye_gec() -> void:
 	if CinarMeclisPaneli._bekliyor(self): return
 	if CenazeYasi.bekliyor(_y): return
+	if preload("res://src/arayuz/koy_hud/kapi_acilis_paneli.gd").ac(self): return
 	if not _gece_kilidi.al():
 		return
 	_gece_dugmesi.disabled = true
