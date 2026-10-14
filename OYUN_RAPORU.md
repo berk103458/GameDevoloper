@@ -1,3 +1,7 @@
+## Antigravity — Karakter sorgu değeri ve zar türü (15 Ekim 2026)
+
+Adlı karakterlerin profil şablonlarına [Zar] (d6/d12) ve [Sorgu_Değeri] alanları eklendi. 	ools/chr_parser.py doğrulayıcısı d6 için 1–5, d12 için 2–10 sınırlarını denetliyor ve eksik alanda hata veriyor (ZAR-02). 30 CHR profili ve runtime kaynakları güncellendi, 177 Python testi geçti.
+
 ## Antigravity — Zar dağılım testi doğrulaması (15 Ekim 2026)
 
 ZAR-01'deki 10.000 atışlık dağılım testi (	ests/unit/kapi/sorgu_zari_test.gd) aynen korundu ve çağrıldı; yeni bir dağılım kapısı eklenmedi (DEN-24).

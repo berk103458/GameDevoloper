@@ -66,12 +66,39 @@ def parse(path: Path) -> dict:
                 raise SourceError(f"{name} missing {key}")
             result[key] = found[1].strip()
         return result
+    # ZAR-01 / ZAR-02: Zar türü (d6 / d12) ve sorgu_degeri (Bölüm 4)
+    # Varsayılanlar: Asker: d12 / 4, Esnaf: d6 / 3, Çiftçi: d6 / 2
+    sinif_adi = classes[0]
+    varsayilan_zar = "d12" if sinif_adi == "asker" else "d6"
+    varsayilan_deger = {"asker": 4, "esnaf": 3, "ciftci": 2}.get(sinif_adi, 2)
+    zar_match = re.search(r"^\s*-\s*\[Zar\]:\s*(.+)$", text, re.M)
+    deger_match = re.search(r"^\s*-\s*\[Sorgu_De[ğg]eri\]:\s*(.+)$", text, re.M)
+    
+    zar_turu = zar_match[1].strip() if zar_match else varsayilan_zar
+    if zar_turu not in ("d6", "d12"):
+        raise SourceError(f"Zar turu 'd6' veya 'd12' olmalidir; bulunan: {zar_turu}")
+    
+    if deger_match:
+        try:
+            sorgu_degeri = int(deger_match[1].strip())
+        except ValueError:
+            raise SourceError(f"Sorgu_Degeri tam sayi olmalıdır; bulunan: {deger_match[1].strip()}")
+    else:
+        sorgu_degeri = varsayilan_deger
+        # ZAR-02: Eksik alanda sınıfa göre varsayılan yazılır ve doğrulama 1 hata verir
+        raise SourceError(f"missing field [Sorgu_Degeri] (varsayılan: {varsayilan_deger})")
+    
+    if zar_turu == "d6" and not (1 <= sorgu_degeri <= 5):
+        raise SourceError(f"d6 icin Sorgu_Degeri 1-5 araliginda olmalidir; bulunan: {sorgu_degeri}")
+    elif zar_turu == "d12" and not (2 <= sorgu_degeri <= 10):
+        raise SourceError(f"d12 icin Sorgu_Degeri 2-10 araliginda olmalidir; bulunan: {sorgu_degeri}")
+
     data = dict(entity_id=entity, ad=field(text, "Gerçek_Kimlik").split(";")[0], sinif=classes[0], fraksiyon=field(text, "Sadakat_Fraksiyonu"), en_erken_tur=int(first[1]) + 1, spawn_kosulu=spawn,
                 secere_matrisi=parts("Secere_Matrisi", ["Doğum_Yeri", "Aile_Bağı", "Kırılma_Olayı"]),
                 koy_ici_davranis=parts("Köy_içi_Davranış", ["Gündüz_Döngüsü", "Gece_Döngüsü"]),
                 persona_maskesi=field(text, "Persona_Maskesi"), gizlenen_gercek=field(text, "Gizlenen_Gerçek"),
                 gorsel_hata=field(text, "Görsel_Hata"), sir_baglantisi=field(text, "Sır_Bağlantısı"), sfx=field(text, "SFX"),
-                baslangic_tansiyonu=int(field(text, "Başlangıç_Tansiyonu")))
+                baslangic_tansiyonu=int(field(text, "Başlangıç_Tansiyonu")), zar=zar_turu, sorgu_degeri=sorgu_degeri)
     if data["baslangic_tansiyonu"] not in (1, 2, 3):
         raise SourceError("Başlangıç_Tansiyonu must be 1–3")
     for i, name in [(1, "Obje_1_Nişan"), (2, "Obje_2_Yük")]:
