@@ -1,3 +1,7 @@
+## Antigravity — Denge anahtar kuralları (15 Ekim 2026)
+
+Denge tablosundaki anahtarlar artık yalnızca küçük harf, rakam ve alt çizgi taşıyabiliyor; Türkçe harfli ya da boşluklu anahtar denetimde kırmızı çıkıyor. Tablodan bir anahtar silinirse oyun sessizce varsayılan sayı kullanmıyor, açılışta hata veriyor. Tam sanity henüz çalışmadı, hedefli 153 Python testi geçti.
+
 ## Antigravity — Denge tablosu sınırları ve zorluk çarpanı (15 Ekim 2026)
 
 Denge sayılarının geçerli aralığı artık ayrı bir dosyada duruyor ve aralık dışı bir değer denetimi kırmızı yapıyor. Zorluk için kolay 0.8, olağan 1.0, sıkı 1.25 çarpanları tabloya girdi. Oyun açılışında net hata gösterme işi (DEN-03b), Kalfa'nın açılış çalışması bitince yapılacak. Tam sanity henüz çalışmadı, hedefli 146 Python testi geçti.

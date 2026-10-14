@@ -3387,13 +3387,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-05. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [/] **DEN-07:** (Antigravity) Tablo anahtarı Türkçe harf taşımaz.
+- [x] **DEN-07:** (Antigravity) Tablo anahtarı Türkçe harf taşımaz. _(sanity bekliyor)_
   - Ne: anahtar ASCII snake_case'dir. İçerik hattındaki id kuralı geçerlidir.
   - Kabul: anahtar ASCII snake_case'dir. İçerik hattındaki id kuralı geçerlidir. Test: `odun_carpani` geçer, `odun çarpanı` reddedilir.
   - Bağımlılık: DEN-03. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [/] **DEN-08:** (Antigravity) Eksik anahtar, kod içi yedek sayı kullanmaz.
+- [x] **DEN-08:** (Antigravity) Eksik anahtar, kod içi yedek sayı kullanmaz. _(sanity bekliyor)_
   - Ne: anahtar yoksa oyun açılmaz. Sessiz varsayılan yoktur.
   - Kabul: anahtar yoksa oyun açılmaz. Sessiz varsayılan yoktur. Test: silinmiş `baslangic_odun`, açılış hatası.
   - Bağımlılık: DEN-03. Boyut: S.
