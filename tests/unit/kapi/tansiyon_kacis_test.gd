@@ -69,10 +69,12 @@ func _initialize() -> void:
 		gelen.tehlikeli = false
 
 		var ret_once: int = oturum.yonetim.ret_sayisi
+		var akce_once: int = oturum.muhafiz_akce
 		var sonuc := SORGUSARI.karar_uygula(oturum, gelen, "kaçtı")
 		dene(sonuc["karar"] == "kaçtı", "Sonuç kararı 'kaçtı'dır")
 		dene(sonuc["kaldi"] == false, "Kaçan kişi köyde kalmaz (kaldi = false)")
 		dene(oturum.yonetim.ret_sayisi == ret_once, "Ek şart: kaçış ret_sayisi artırmaz (%d == %d)" % [oturum.yonetim.ret_sayisi, ret_once])
+		dene(oturum.muhafiz_akce == akce_once, "DEN-19: kaçışta muhafiz_akce değişmez (%d == %d)" % [oturum.muhafiz_akce, akce_once])
 
 		# 8. Kural 4: Tehlikeli karakter kaçarsa sonraki tehdit, duran tehdit sayacına (asayis_riski) yazar.
 		var tehlikeli_gelen := Gelen.new()

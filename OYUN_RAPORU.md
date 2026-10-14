@@ -1,3 +1,7 @@
+## Antigravity — Kaçan kişinin ekonomik bedeli (15 Ekim 2026)
+
+ZAR-03 kaçışının bedeli data/ayarlar/denge.json tablosunda tek satır olarak (kacan_bedeli.dedikodu: 1, kasa: 0) tanımlandı (DEN-19). Kaçışın kasayı (muhafiz_akce) değiştirmediği ve sınır dosyasında kasanın daima 0 olduğu doğrulandı. Hedefli 180 Python testi ve Godot birim testleri 0 hatayla geçti.
+
 ## Antigravity — Tansiyon kaçış eşiği ve karar akışı (15 Ekim 2026)
 
 Tansiyon 10'u aştığında karakterin kaçması ve kararın 'kaçtı' olması sağlandı (ZAR-03). Eşik data/ayarlar/denge.json tablosundan okunuyor (zar_esigi.tansiyon_kacis_esigi: 10), ret sayacı kaçışta artmıyor ve tehlikeli karakter kaçınca asayiş riski yükseliyor. Hedefli Godot testi (tests/unit/kapi/tansiyon_kacis_test.gd) ve Python denge doğrulaması 0 hatayla geçti.

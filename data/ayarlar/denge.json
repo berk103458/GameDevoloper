@@ -29,5 +29,10 @@
     "acilis_kisi": 2,
     "gece": 7,
     "pay": 16
+  },
+  "kacan_bedeli": {
+    "dedikodu": 1,
+    "kasa": 0
   }
 }
+

@@ -222,6 +222,24 @@ def zar_esigi_hatalari(denge: dict, tres_metni: str) -> list:
         hatalar.append(f"{y}: denge dosyasinda ikinci bir tansiyon ek anahtari olamaz (DEN-23)")
     return hatalar
 
+
+def kacan_bedeli_hatalari(denge: dict) -> list:
+    """DEN-19: ZAR-03 kacisi kabul matrisinin tersi degildir; bedel kacan kisi basina dedikodu, kasa degildir."""
+    hatalar: list = []
+    kb = denge.get("kacan_bedeli") if isinstance(denge, dict) else None
+    if kb is None:
+        return []
+    if not isinstance(kb, dict):
+        return ["kacan_bedeli bir nesne olmali (DEN-19)"]
+    if "dedikodu" not in kb:
+        hatalar.append("kacan_bedeli.dedikodu alani zorunludur (DEN-19)")
+    if "kasa" not in kb:
+        hatalar.append("kacan_bedeli.kasa alani zorunludur (DEN-19)")
+    elif kb["kasa"] != 0:
+        hatalar.append("kacan_bedeli.kasa 0 olmali; kacan kisi kasayi etkilemez (DEN-19)")
+    return hatalar
+
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -240,6 +258,7 @@ def main(argv=None) -> int:
         hatalar += acilis_stoku_hatalari(denge, args.koy.read_text(encoding="utf-8"), ikinci_baslangic_dosyalari(koy=args.koy, denge=args.denge))
         hatalar += ilk_hafta_erzak_hatalari(denge, args.koy.read_text(encoding="utf-8"), args.koy_ayarlari.read_text(encoding="utf-8"))
         hatalar += zar_esigi_hatalari(denge, args.sorgu_kurallari.read_text(encoding="utf-8"))
+        hatalar += kacan_bedeli_hatalari(denge)
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]
     for h in hatalar:
