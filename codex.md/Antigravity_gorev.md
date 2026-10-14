@@ -18,3 +18,53 @@ Bu dosya Muharrir'in (koordinatör) sana iş verdiği kanaldır. Ahmet sana "gö
 Bitirdiğin her maddeyi bu dosyanın altına "Antigravity cevabı" başlığıyla kısaca yaz.
 
 — Muharrir
+
+## TAM YÖNERGELER (eksiksiz uy — Muharrir, 14 Ekim)
+
+### 0. Önce oku
+- AGENTS.md (tüm kurallar), ROADMAP_2.md (özellikle en üstteki AJAN İLERLEME PANOSU), docs/EKSIK_ASSET_ENVANTERI.md, codex.md/Kalfa.md (örnek günlük), GitHub issue #11 "Ajan Masası" (son yorumlar). Kural çelişirse AGENTS.md geçerlidir; emin değilsen sor.
+
+### 1. Soru sorma
+- Emin olmadığın her şeyde (madde ne istiyor, tasarım kararı, risk) TAHMİN ETME, çalışmayı durdurup sor.
+- Soruyu iki yere yaz: (a) Ahmet'e sohbette doğrudan, (b) bu dosyanın altına "Antigravity sorusu" başlığıyla, commit+push. Muharrir cevabı aynı dosyaya yazar.
+- Ahmet veya Berk'in onayı gereken maddeyi (tasarım seçimi, hikâye onayı) kendin kapatma.
+
+### 2. Dal ve senkron
+- Tek dal: claude/festive-volta-li1sfm. Başka dal/PR açma, eski PR'ları (#1,#2,#4,#5) birleştirme.
+- Her maddeden önce ve her push'tan önce git pull. Çakışma çıkarsa başkasının değişikliğini silme; çözemiyorsan dur ve sor.
+- Ahmet'in klasöründe Godot'un kendiliğinden değiştirdiği .import / project.godot dosyalarını commit'leme, sadece kendi işinin dosyalarını git add et (git add -A kullanma).
+
+### 3. Sahiplik
+- Başlamadan: maddeyi [/] (Antigravity) yap, commit ("roadmap-2: XXX-NN [/] (Antigravity)") + push.
+- Başkasının [/] maddesine asla dokunma (şu an: Kalfa ACL-04; testx ACL-02, KAP-16/39/45/48; Claude YAZ-01, ARY-01).
+- Aynı anda en fazla 2 [/]. Bırakırsan [ ] yap ve nedenini not et.
+
+### 4. Kod kuralları
+- Yeni iş yeni dosyada; mevcut sisteme ince adaptörle (tek satır bağlama) tak.
+- koy_sahnesi dosyasına dokunmak YASAK. KoyYerlesimi / KoyluAI gibi çekirdek dosyaları gerekmedikçe değiştirme; gerekirse önce sor.
+- Metinler çeviri anahtarıyla (düz Türkçe gömme yok); denge sayıları data/ altındaki json'larda.
+- Godot 4.7.2.
+
+### 5. Test
+- Bitirmeden önce ilgili testleri ve sanity'yi çalıştır; 0 hata şart. PYTHONUTF8=1 kullan.
+- Aynı anda yalnızca tek bir tam kontrol (full check) çalışabilir; başka ajan çalıştırıyorsa bekle.
+- Testler res://work yolunu kullanmaz.
+- Yeni davranış için test ekle.
+
+### 6. Asset
+- Asset üretimi bitene kadar her madde ASSETSİZ yapılır: isim etiketli kutu/ColorRect yer tutucu.
+- Gereken asset'i docs/EKSIK_ASSET_ENVANTERI.md'ye 2D veya 3D başlığı altına yaz. 2D ise gece_kapisi stilinde hazır Nano Banana promptu ekle (dosya adı, boyut, saydamlık; saydam parçada düz #00FF00 zemin) — örnek docs/arayuz/GEMINI_SIRADAKI_URETIM_LISTESI.md. 3D ise kısa tanım + ölçü.
+- Kendin asset üretme/indirme yok (açık lisanslı indirilecekse kaynak+lisans kaydı şart, önce sor).
+
+### 7. Commit disiplini
+- Türkçe, anlamlı commit; başlıkta madde kodu ve (Antigravity) yazsın; sonunda "asset gerekmedi" veya "yer tutucu: ..." notu.
+  Örnek: "feat(KAP-17): ... (Antigravity); asset gerekmedi"
+- En geç saatte bir commit+push; yarım işse "WIP: ..." commit'i.
+- Bitince ROADMAP'te [x] (Antigravity) yap, ayrı commit + push.
+- Her commit'ten sonra codex.md/Antigravity.md günlüğüne: ne yaptın, test sonucu, "kota: %.. kaldı" ya da "kota görünmüyor".
+- Kotan azaldığını fark edersen yeni işe başlama: commit+push, [/] maddeleri bırak, "kota bitti" notu.
+- OYUN_RAPORU.md'nin başına her bitirdiğin iş için 2-3 cümlelik sade Türkçe not ekle.
+
+### 8. Sıra
+- ROADMAP_2'de Faz sırasıyla ilerle; bağımlılığı bitmemiş maddeyi alma. Kalfa ile aynı alanda (ACL) çakışmamak için tercihen KAP veya DEN bölümünden başla.
+- Bir madde bitince durma, sıradakine geç. Her 3 maddede bir Ahmet'e kısa özet ver.
