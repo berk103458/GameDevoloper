@@ -21,6 +21,9 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 DENGE_YOLU = ROOT / "data/ayarlar/denge.json"
 SINIR_YOLU = ROOT / "data/ayarlar/denge_sinirlari.json"
+KOY_YOLU = ROOT / "data/ayarlar/koy.tres"
+VERI_KOKU = ROOT / "data"
+KOY_RES = "res://data/ayarlar/koy.tres"
 
 # DEN-07: anahtar ASCII snake_case'dir (kucuk harf, rakam, alt cizgi; harfle baslar).
 ANAHTAR_DESENI = re.compile(r"^[a-z][a-z0-9_]*$")
@@ -101,6 +104,56 @@ def dogrula(denge: dict, sinirlar: dict) -> list:
     return hatalar
 
 
+def koy_baslangic_kaynagi(koy_metni: str) -> dict:
+    """koy.tres icindeki `baslangic_kaynak = {...}` satirini {ad: sayi} olarak okur (BUG-22)."""
+    eslesme = re.search(r"^baslangic_kaynak\s*=\s*\{([^}]*)\}", koy_metni, re.MULTILINE)
+    if not eslesme:
+        return {}
+    return {a: int(s) for a, s in re.findall(r'"([a-z_]+)"\s*:\s*(-?\d+)', eslesme.group(1))}
+
+
+def acilis_stoku_hatalari(denge: dict, koy_metni: str, baska_dosyalar: list) -> list:
+    """DEN-09: acilis stoku tek kaynaktan gelir (BUG-22 / koy.tres), ikinci dosya yoktur.
+
+    denge.json yalniz koy.tres'e isaret eder ya da ayni sayilari gosterir; farkli odun sayisi hatadir.
+    `baska_dosyalar`: koy.tres disinda `baslangic_kaynak` iceren veri dosyalarinin adlari.
+    """
+    hatalar: list = []
+    stok = denge.get("acilis_stoku", {}) if isinstance(denge, dict) else {}
+    if not isinstance(stok, dict):
+        return ["acilis_stoku bir nesne olmali"]
+    gercek = koy_baslangic_kaynagi(koy_metni)
+    if not gercek:
+        hatalar.append("koy.tres icinde baslangic_kaynak okunamadi")
+    kaynak = stok.get("kaynak")
+    if kaynak is not None and kaynak != KOY_RES:
+        hatalar.append(f"acilis_stoku.kaynak {KOY_RES} olmali, bulundu: {kaynak}")
+    kopya = stok.get("baslangic_kaynak")
+    if kopya is not None:
+        if not isinstance(kopya, dict):
+            hatalar.append("acilis_stoku.baslangic_kaynak bir nesne olmali")
+        else:
+            for ad in sorted(set(kopya) | set(gercek)):
+                if kopya.get(ad) != gercek.get(ad):
+                    hatalar.append(f"acilis_stoku.{ad}: denge.json {kopya.get(ad)} ama koy.tres {gercek.get(ad)} (ikinci tablo yok)")
+    for dosya in baska_dosyalar:
+        hatalar.append(f"{dosya}: ikinci bir baslangic dosyasi (baslangic_kaynak) olamaz; tek tablo koy.tres")
+    return hatalar
+
+
+def ikinci_baslangic_dosyalari(kok: Path = VERI_KOKU, koy: Path = KOY_YOLU, denge: Path = DENGE_YOLU) -> list:
+    """data/ altinda koy.tres ve denge.json disinda `baslangic_kaynak` iceren dosyalar."""
+    bulunan = []
+    for yol in sorted(kok.rglob("*")):
+        if yol.suffix not in (".json", ".tres", ".cfg") or yol.resolve() in (koy.resolve(), denge.resolve()):
+            continue
+        try:
+            if "baslangic_kaynak" in yol.read_text(encoding="utf-8", errors="ignore"):
+                bulunan.append(yol.relative_to(kok).as_posix())
+        except OSError:
+            pass
+    return bulunan
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -109,9 +162,12 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--denge", type=Path, default=DENGE_YOLU)
     ap.add_argument("--sinirlar", type=Path, default=SINIR_YOLU)
+    ap.add_argument("--koy", type=Path, default=KOY_YOLU)
     args = ap.parse_args(argv)
     try:
-        hatalar = dogrula(yukle(args.denge), yukle(args.sinirlar))
+        denge = yukle(args.denge)
+        hatalar = dogrula(denge, yukle(args.sinirlar))
+        hatalar += acilis_stoku_hatalari(denge, args.koy.read_text(encoding="utf-8"), ikinci_baslangic_dosyalari(koy=args.koy, denge=args.denge))
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]
     for h in hatalar:
