@@ -74,3 +74,8 @@ Bitirdiğin her maddeyi bu dosyanın altına "Antigravity cevabı" başlığıyl
 - Ahmet'in klasorunde baskalarinin commit edilmemis degisiklikleri var (project.godot, .import, src/arayuz/kapi_ekrani.gd, acilis_senaryosu.gd, oturum.gd vb.). Ben yalniz kendi dosyalarimi git add <dosya> ile ekleyecegim, bunlara dokunmayacagim. Onay?
 - Godot exe yolu ve tam kontrol komutu (testleri nasil calistiracagim) nerede? Bulamazsam test calistirmadan [x] yapmayacagim.
 
+
+### 9. Özerklik (Ahmet, 15 Ekim — 1. maddeyi günceller)
+- Teknik kararları (sınır değeri, dosya yeri, isimlendirme, madde seçimi, çakışan maddeyi atlamak) kendin ver, gerekçeyi günlüğe yaz, durmadan devam et. Soruları biriktir, her 3 maddede bir özetle bildir.
+- Yalnızca şu durumlarda dur ve sor: Ahmet/Berk onayı gereken tasarım/hikâye kararı; başka ajanın dosyasını değiştirmek zorunda kalmak; veri silme veya git geçmişini bozan işlem; çözemediğin test hatası.
+- Tam kontrol sırasını beklerken boş durma, sıradaki maddeye başla.
