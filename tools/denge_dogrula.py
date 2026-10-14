@@ -240,6 +240,26 @@ def kacan_bedeli_hatalari(denge: dict) -> list:
     return hatalar
 
 
+def acilis_kasasi_hatalari(denge: dict) -> list:
+    """DEN-14: Acilista koy akcesi ve muhafiz akcesi ayri satirdir.
+
+    Goc onlari birbirine katmaz (KAY-45). Iki satir ayridir; toplam alani yazilmaz.
+    """
+    hatalar: list = []
+    ak = denge.get("acilis_kasasi") if isinstance(denge, dict) else None
+    if ak is None:
+        return []
+    if not isinstance(ak, dict):
+        return ["acilis_kasasi bir nesne olmali (DEN-14)"]
+    if "koy_akce" not in ak:
+        hatalar.append("acilis_kasasi.koy_akce alani zorunludur (DEN-14)")
+    if "muhafiz_akce" not in ak:
+        hatalar.append("acilis_kasasi.muhafiz_akce alani zorunludur (DEN-14)")
+    if "toplam" in ak or "toplam_akce" in ak:
+        hatalar.append("acilis_kasasi icinde toplam alani olamaz; iki kasa ayri satirdir (DEN-14)")
+    return hatalar
+
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -259,6 +279,7 @@ def main(argv=None) -> int:
         hatalar += ilk_hafta_erzak_hatalari(denge, args.koy.read_text(encoding="utf-8"), args.koy_ayarlari.read_text(encoding="utf-8"))
         hatalar += zar_esigi_hatalari(denge, args.sorgu_kurallari.read_text(encoding="utf-8"))
         hatalar += kacan_bedeli_hatalari(denge)
+        hatalar += acilis_kasasi_hatalari(denge)
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]
     for h in hatalar:

@@ -34,6 +34,10 @@
   "kacan_bedeli": {
     "dedikodu": 1,
     "kasa": 0
+  },
+  "acilis_kasasi": {
+    "koy_akce": 10,
+    "muhafiz_akce": 0
   }
 }
 

@@ -24,6 +24,8 @@
   "zar_esigi.zar_panik_alt": {"alt": 1, "ust": 10, "not": "ZAR-01 panik kademesi alt siniri (tansiyon 8-10)."},
   "zar_esigi.tansiyon_kacis_esigi": {"alt": 5, "ust": 15, "not": "ZAR-03 tansiyon kacis esigi; tansiyon bu sayiyi asarsa karakter kacar. Varsayilan 10."},
   "kacan_bedeli.dedikodu": {"alt": 0, "ust": 5, "not": "DEN-19: Kacan kisi basina uretilen dedikodu puani (varsayilan 1)."},
-  "kacan_bedeli.kasa": {"alt": 0, "ust": 0, "not": "DEN-19: Kacan kisi kasayi etkilemez; kasa degisimi daima 0 olmalidir (DEN-19 kuralı)."}
+  "kacan_bedeli.kasa": {"alt": 0, "ust": 0, "not": "DEN-19: Kacan kisi kasayi etkilemez; kasa degisimi daima 0 olmalidir (DEN-19 kuralı)."},
+  "acilis_kasasi.koy_akce": {"alt": 0, "ust": 1000, "not": "DEN-14: Acilis koy akcesi (varsayilan 10, koy_ayarlari.akce_baslangic)."},
+  "acilis_kasasi.muhafiz_akce": {"alt": 0, "ust": 1000, "not": "DEN-14: Acilis muhafiz kisisel kesesi (varsayilan 0)."}
 }
 

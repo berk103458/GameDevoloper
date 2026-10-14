@@ -1,3 +1,7 @@
+## Antigravity — Açılışta akçe iki kasada da tablodadır (15 Ekim 2026)
+
+Açılış köy akçesi (koy_akce: 10) ve muhafız akçesi (muhafiz_akce: 0) `data/ayarlar/denge.json` içinde iki ayrı satır olarak tanımlandı (DEN-14). Göçün veya kodun kasaları birleştirmediği (KAY-45), tabloda veya kodda birleşik bir "toplam" anahtarının yer almadığı Python doğrulaması ve hedefli Godot testiyle (tests/unit/denge/acilis_kasasi_test.gd) kanıtlandı.
+
 ## Antigravity — Başarısız zarların gece raporu tek satırdır (15 Ekim 2026)
 
 O gecenin başarısız zar sayısının gece denge raporunda tek satırda (`basarisiz_zar_sayisi`) toplandığı, 3 veya 100 başarısızlıkta her zar için ayrı masraf/akçe veya bütçe satırı açılmadığı ve ekonomik tüketimlerin değişmediği kanıtlandı (DEN-22). Hedefli Godot testi (tests/unit/denge/denge_zar_raporu_test.gd) 0 hatayla geçti.
