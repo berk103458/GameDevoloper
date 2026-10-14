@@ -3501,7 +3501,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ZAR-01, DEN-17. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-24:** Ölçüm, 10.000 atışın dağılım kapısını yeniden koymaz.
+- [x] **DEN-24:** (Antigravity) Ölçüm, 10.000 atışın dağılım kapısını yeniden koymaz. _(sanity bekliyor)_
   - Ne: ZAR-01'in ±%2 testi durur. Bu bölüm o testi çağırır, eşiği değiştirmez.
   - Kabul: ZAR-01'in ±%2 testi durur. Bu bölüm o testi çağırır, eşiği değiştirmez. Test: mevcut zar testi yeşil.
   - Bağımlılık: ZAR-01. Boyut: S.

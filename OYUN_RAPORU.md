@@ -1,3 +1,7 @@
+## Antigravity — Zar dağılım testi doğrulaması (15 Ekim 2026)
+
+ZAR-01'deki 10.000 atışlık dağılım testi (	ests/unit/kapi/sorgu_zari_test.gd) aynen korundu ve çağrıldı; yeni bir dağılım kapısı eklenmedi (DEN-24).
+
 ## Antigravity — Zar eşikleri ve tansiyon eki doğrulayıcısı (15 Ekim 2026)
 
 Denge tablosundaki zar_esigi ile sorgu_kurallari.tres kaynak değerleri (gergin 4, panik 8) birebir eşleştirildi; farklı bir eşik yazılırsa veya tabloda ikinci bir tansiyon ek kuralı uydurulursa denetim kırmızı çıkıyor (DEN-17, DEN-23). Hedefli 172 Python testi geçti, tam sanity bekliyor.
