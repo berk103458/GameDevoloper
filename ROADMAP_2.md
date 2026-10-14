@@ -3351,7 +3351,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: yok. Boyut: M.
   - Dosya: `data/ayarlar/denge.json`. Okuyanlar mevcut sistemlere tek satır.
   - Asset: asset gerekmedi.
-- [ ] **DEN-02:** Tablo sürümü kayıtla birlikte durur.
+- [/] **DEN-02:** (Antigravity) Tablo sürümü kayıtla birlikte durur.
   - Ne: denge dosyasının sürümü KAY-04 içeriğinden ayrıdır. Eski kayıt yeni tabloyla açılır. Kayıt, tabloyu içine gömmez.
   - Kabul: denge dosyasının sürümü KAY-04 içeriğinden ayrıdır. Eski kayıt yeni tabloyla açılır. Kayıt, tabloyu içine gömmez. Test: tablo sürümü artınca köylü sayısı değişmez.
   - Bağımlılık: KAY-04, DEN-01. Boyut: S.
