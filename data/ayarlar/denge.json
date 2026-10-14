@@ -21,5 +21,10 @@
     "kolay": 0.8,
     "olagan": 1.0,
     "siki": 1.25
+  },
+  "ilk_hafta_erzak": {
+    "acilis_kisi": 2,
+    "gece": 7,
+    "pay": 16
   }
 }

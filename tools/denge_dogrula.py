@@ -24,6 +24,7 @@ SINIR_YOLU = ROOT / "data/ayarlar/denge_sinirlari.json"
 KOY_YOLU = ROOT / "data/ayarlar/koy.tres"
 VERI_KOKU = ROOT / "data"
 KOY_RES = "res://data/ayarlar/koy.tres"
+KOY_AYARLARI_GD = ROOT / "src/veri/koy_ayarlari.gd"
 
 # DEN-07: anahtar ASCII snake_case'dir (kucuk harf, rakam, alt cizgi; harfle baslar).
 ANAHTAR_DESENI = re.compile(r"^[a-z][a-z0-9_]*$")
@@ -154,6 +155,31 @@ def ikinci_baslangic_dosyalari(kok: Path = VERI_KOKU, koy: Path = KOY_YOLU, deng
             pass
     return bulunan
 
+def gida_kisi_degeri(ayar_metni: str) -> int:
+    """koy_ayarlari.gd icindeki kisi basina gece gida tuketimi (`gida_kisi`)."""
+    eslesme = re.search(r"@export\s+var\s+gida_kisi\s*:\s*int\s*=\s*(\d+)", ayar_metni)
+    return int(eslesme.group(1)) if eslesme else 0
+
+
+def ilk_hafta_erzak_hatalari(denge: dict, koy_metni: str, ayar_metni: str) -> list:
+    """DEN-13: acilis erzagi = evdeki kisi * 7 gece * kisi basi tuketim + tablodaki pay.
+
+    `ilk_hafta_erzak` tablosu yoksa denetim atlanir (DEN-08 sayisal anahtarlarda eksikligi zaten yakalar).
+    """
+    tablo = denge.get("ilk_hafta_erzak") if isinstance(denge, dict) else None
+    if tablo is None:
+        return []
+    if not isinstance(tablo, dict) or not all(_sayi(tablo.get(a)) for a in ("acilis_kisi", "gece", "pay")):
+        return ["ilk_hafta_erzak: acilis_kisi, gece ve pay sayi olmali"]
+    kisi_tuketimi = gida_kisi_degeri(ayar_metni)
+    if kisi_tuketimi <= 0:
+        return ["koy_ayarlari.gd icinde gida_kisi okunamadi"]
+    gida = koy_baslangic_kaynagi(koy_metni).get("gida")
+    beklenen = tablo["acilis_kisi"] * tablo["gece"] * kisi_tuketimi + tablo["pay"]
+    if gida != beklenen:
+        return [f"ilk_hafta_erzak: koy.tres gida {gida} ama formul {tablo['acilis_kisi']}*{tablo['gece']}*{kisi_tuketimi}+{tablo['pay']} = {beklenen}"]
+    return []
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -163,11 +189,13 @@ def main(argv=None) -> int:
     ap.add_argument("--denge", type=Path, default=DENGE_YOLU)
     ap.add_argument("--sinirlar", type=Path, default=SINIR_YOLU)
     ap.add_argument("--koy", type=Path, default=KOY_YOLU)
+    ap.add_argument("--koy-ayarlari", type=Path, default=KOY_AYARLARI_GD)
     args = ap.parse_args(argv)
     try:
         denge = yukle(args.denge)
         hatalar = dogrula(denge, yukle(args.sinirlar))
         hatalar += acilis_stoku_hatalari(denge, args.koy.read_text(encoding="utf-8"), ikinci_baslangic_dosyalari(koy=args.koy, denge=args.denge))
+        hatalar += ilk_hafta_erzak_hatalari(denge, args.koy.read_text(encoding="utf-8"), args.koy_ayarlari.read_text(encoding="utf-8"))
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]
     for h in hatalar:
