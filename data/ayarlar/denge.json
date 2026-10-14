@@ -16,5 +16,10 @@
   },
   "zorluk_carpani": {
     "sistem_yok": true
+  },
+  "zorluk": {
+    "kolay": 0.8,
+    "olagan": 1.0,
+    "siki": 1.25
   }
 }
