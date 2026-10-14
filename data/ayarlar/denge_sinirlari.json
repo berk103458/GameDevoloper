@@ -1,0 +1,12 @@
+{
+  "kamera_surukleme.hiz": {
+    "alt": 0.1,
+    "ust": 5.0,
+    "not": "Boyutsuz kamera surukleme carpani (src/dunya/kamera_surukleme.gd). Kod hiz <= 0 degeri gecersiz sayar; 0.1 altinda kamera pratikte kilitlenir, 5.0 ustunde tek hareketle harita boyu kayar. Varsayilan 1.0."
+  },
+  "kriz_araligi.meclis_bekleme_gun": {
+    "alt": 1,
+    "ust": 14,
+    "not": "Meclis oylama penceresi ve bekleme suresi, gun (src/koy/cinar_alti_meclisi.gd bekleme()). 0 olursa pencere hic acilmaz ve oylama aninda 'suresi_doldu' olur; 14 gunden uzunu (iki hafta) bir krizi meclise tasimayi anlamsiz kilar. Mevcut deger 2."
+  }
+}
