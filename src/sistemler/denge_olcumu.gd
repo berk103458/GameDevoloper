@@ -1,0 +1,54 @@
+## DEN-05, DEN-06, DEN-22: Denge ölçümü ve geliştirme günlüğü.
+## Gece hesabını ikinci kez çalıştırmaz; gece_sonu() raporunu salt-okunur okur.
+## Oyuncu arayüzüne (HUD) denge sayısı yansıtılmaz; geliştirme günlüğünde tutulur (DEN-06).
+## O gecenin başarısız zar sayısı tek satırda toplanır (DEN-22).
+class_name DengeOlcumu
+extends RefCounted
+
+## Salt-okunur denge ölçüm raporu üretir.
+## oturum: aktif oturum
+## gece_raporu: oturum.gece_sonu() dönüşü
+## ek_baglam: ek ölçüm girdileri (oy farkı, zindan payı, sorgu eylemleri, başarısız zar sayısı)
+static func olustur(oturum: RefCounted, gece_raporu: Dictionary, ek_baglam: Dictionary = {}) -> Dictionary:
+	var y = oturum.get("yonetim") if oturum != null else null
+	var gun: int = int(gece_raporu.get("gece", oturum.get("gun") if oturum != null else 0))
+
+	# 1. Tüketim mevcut gece raporundan okunur; yeni bir tüketim fonksiyonu çağrılmaz
+	var tuketim_tablosu: Dictionary = gece_raporu.get("tuketim", {})
+	var gida_tuketimi: int = int(tuketim_tablosu.get("gida", 0))
+
+	# 2. Aç kişi oranı: gece raporundan okunur, denge hesabı ikinci kez çalışmaz
+	var nufus: int = int(y.nufus()) if y != null else 0
+	var ac_sayisi: int = int(gece_raporu.get("ac_sayisi", 0))
+	var ac_orani: float = (float(ac_sayisi) / float(nufus)) if nufus > 0 else 0.0
+
+	# 3. Nöbet maaşı ölçümü: denge raporunda tek satırdır, maaş formülü değişmez
+	var bilanco: Dictionary = gece_raporu.get("bilanco", {})
+	var kamu: Dictionary = bilanco.get("kamu", {})
+	var nobet_maasi: int = int(kamu.get("maas", 0))
+
+	# 4. Çınar meclisi oy farkı: denge formülünü değiştirmez, yeni tüketim açmaz
+	var cinar_farki: int = int(ek_baglam.get("cinar_oy_farki", 0))
+
+	# 5. Zindan ekmek payı: denge formülünü değiştirmez, mevcut raporu okur
+	var zindan_ekmek: int = int(ek_baglam.get("zindan_ekmek_payi", 0))
+
+	# 6. Her sorgu eyleminin kullanım sayısı bir satırdır; gece formülü değişmez
+	var sorgu_eylemleri: Dictionary = ek_baglam.get("sorgu_eylemleri", {}).duplicate()
+
+	# 7. DEN-22: O gecenin başarısız zar sayısı tek satırdır; her zar için ayrı ekonomik satır açmaz
+	var basarisiz_zar_sayisi: int = int(ek_baglam.get("basarisiz_zar_sayisi", 0))
+
+	var rapor := {
+		"gun": gun,
+		"gida_tuketimi": gida_tuketimi,
+		"ac_kisi_orani": ac_orani,
+		"nobet_maasi": nobet_maasi,
+		"cinar_oy_farki": cinar_farki,
+		"zindan_ekmek_payi": zindan_ekmek,
+		"sorgu_eylemleri": sorgu_eylemleri,
+		"basarisiz_zar_sayisi": basarisiz_zar_sayisi,
+		"oyuncuya_gorunur": false # DEN-06: oyuncuya açılmaz
+	}
+
+	return rapor

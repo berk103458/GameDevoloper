@@ -1,3 +1,7 @@
+## Antigravity — Ölçüm raporu gece hesabını ikinci kez çalıştırmaz (15 Ekim 2026)
+
+Denge ölçüm raporu `DengeOlcumu.olustur()` ile oluşturuldu (DEN-05). Rapor `gece_sonu()` dönüşünü salt-okunur tüketir, yeni bir tüketim/hesaplama fonksiyonu çalıştırmaz; nöbet maaşı, aç kişi oranı, çınar meclisi oy farkı, zindan ekmek payı ve sorgu eylem sayıları rapor satırları olarak bağlandı. Hedefli Godot testi (tests/unit/denge/denge_olcumu_test.gd) 0 hatayla geçti.
+
 ## Antigravity — Denge tablosu sürümü ve kayıt bağımsızlığı (15 Ekim 2026)
 
 Denge tablosunun sürümü data/ayarlar/denge.json içinde surum: 1 olarak tanımlandı (DEN-02). Kaydın denge tablosunu içine gömmediği, kayıt sürümünden (KAY-04: 3) bağımsız kaldığı ve tablo sürümü artırılsa bile kayıttan yüklenen köylü sayısının değişmediği kanıtlandı. Hedefli Godot testi (tests/unit/denge/tablo_surumu_test.gd) ve Python denetimleri 0 hatayla geçti.

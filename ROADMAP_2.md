@@ -3381,7 +3381,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-01. Boyut: S.
   - Dosya: `data/ayarlar/denge.json` içindeki `zorluk`.
   - Asset: asset gerekmedi.
-- [/] **DEN-05:** (Antigravity) Ölçüm raporu gece hesabını ikinci kez çalıştırmaz.
+- [x] **DEN-05:** (Antigravity) Ölçüm raporu gece hesabını ikinci kez çalıştırmaz. _(sanity bekliyor)_
   - Ne: rapor, `gece_sonu()` dönüşünü okur. Yeni bir tüketim fonksiyonu yok.
   - Kabul: rapor, `gece_sonu()` dönüşünü okur. Yeni bir tüketim fonksiyonu yok. Test: bir gecede tüketim fonksiyonu bir kez çağrılır. Ek şart: Nöbet maaşı ölçümü denge raporunun bir satırıdır; maaş formülü bu satırda değişmez. Ek şart: Çınar meclisinin oy farkı denge formülünü değiştirmez; ölçüm yeni bir tüketim fonksiyonu açmaz. Ek şart: Zindan ekmek payı denge formülünü değiştirmez; ölçüm mevcut gece raporunu okur. Ek şart: Ölçüm raporunda her sorgu eyleminin kullanım sayısı bir satırdır; gece formülü değişmez. Ek şart: Aç kişi oranı gece ölçümüne bir satır eklenir; denge hesabı ikinci kez çalışmaz.
   - Bağımlılık: EKO-15, DEN-01. Boyut: S.
