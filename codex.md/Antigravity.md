@@ -125,3 +125,8 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: tests/unit/kapi/zar_degistirici_test.gd (Godot headless, 0 hata, GEÇTİ).
 - **Sanity bekliyor listesi:** DEN-03, DEN-04, DEN-07, DEN-08, DEN-09, DEN-13, ZAR-01, DEN-17, DEN-23, DEN-24, ZAR-02, ZAR-03, DEN-19, ZAR-04.
 - kota görünmüyor
+
+### 15 Ekim — DEN-21 başladı
+- ROADMAP_2.md'de DEN-21 [/] olarak üstlenildi.
+- Karar: ZAR-04 değiştiricilerinin ekonomi üretmediği, akçe satırı taşımadığı ve asker varlığında kararın kasa etkisinin değişmediği tests/unit/denge/zar_kasa_test.gd ile doğrulanacak.
+- kota görünmüyor
