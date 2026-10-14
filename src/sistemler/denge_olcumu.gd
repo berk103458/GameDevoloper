@@ -72,3 +72,15 @@ static func oyuncu_arayuz_denge_anahtar_sayisi(veri: Variant) -> int:
 			if "denge" in str(eleman).to_lower():
 				sayac += 1
 	return sayac
+
+
+## DEN-22: Yüz başarısız zarın gece raporu tek satırdır.
+## İster 3, ister 100 başarısız zar olsun; raporda zarla ilgili tek bir tamsayı satır yer alır,
+## her zar için ayrı ekonomik satır veya tüketim satırı açılmaz.
+static func zar_rapor_satir_sayisi(rapor: Dictionary) -> int:
+	var sayac: int = 0
+	for k in rapor.keys():
+		if "zar" in str(k).to_lower():
+			sayac += 1
+	return sayac
+

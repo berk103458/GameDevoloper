@@ -3489,7 +3489,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ZAR-04. Boyut: S.
   - Dosya: `tests/unit/denge/zar_kasa_test.gd`.
   - Asset: asset gerekmedi.
-- [/] **DEN-22:** (Antigravity) Yüz başarısız zarın gece raporu tek satırdır.
+- [x] **DEN-22:** (Antigravity) Yüz başarısız zarın gece raporu tek satırdır. _(sanity bekliyor)_
   - Ne: rapor, o gecenin başarısız zar sayısını yazar. Her zar için ayrı ekonomik satır açmaz.
   - Kabul: rapor, o gecenin başarısız zar sayısını yazar. Her zar için ayrı ekonomik satır açmaz. Test: 3 başarısızlık, raporda bir sayı.
   - Bağımlılık: EKO-15, ZAR-01. Boyut: S.

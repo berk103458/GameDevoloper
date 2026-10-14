@@ -1,3 +1,7 @@
+## Antigravity — Başarısız zarların gece raporu tek satırdır (15 Ekim 2026)
+
+O gecenin başarısız zar sayısının gece denge raporunda tek satırda (`basarisiz_zar_sayisi`) toplandığı, 3 veya 100 başarısızlıkta her zar için ayrı masraf/akçe veya bütçe satırı açılmadığı ve ekonomik tüketimlerin değişmediği kanıtlandı (DEN-22). Hedefli Godot testi (tests/unit/denge/denge_zar_raporu_test.gd) 0 hatayla geçti.
+
 ## Antigravity — Rapor oyuncuya açılmaz (15 Ekim 2026)
 
 Denge ölçüm raporunun geliştirme günlüğünde tutulduğu, oyuncuya açık olmadığı (`oyuncuya_gorunur: false`, `oyuncuya_acik_mi() -> false`) ve kapı/köy üst kaynak şeridinde (Hud.STOKLAR) ya da oyuncu arayüzünde "denge" anahtarının yer almadığı (anahtar sayısı 0) doğrulandı (DEN-06). Hedefli Godot testi (tests/unit/denge/denge_hud_test.gd) ve Python testleri 0 hatayla geçti.
