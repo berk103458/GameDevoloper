@@ -13,6 +13,8 @@ extends Resource
 @export var zar_ek_sakin: int = 0
 @export var zar_ek_gergin: int = 1
 @export var zar_ek_panik: int = 2
+## ZAR-03: tansiyon kaçış eşiği; tansiyon bu sayıyı aşarsa karakter kaçar ve karar 'kaçtı' olur.
+@export var tansiyon_kacis_esigi: int = 10
 
 func olasilik(tecrube: int, tansiyon: int) -> float:
 	return clampf(taban_olasilik + maxi(0, tecrube) * tecrube_katkisi - clampi(tansiyon, 0, 10) * tansiyon_cezasi, asgari, azami)

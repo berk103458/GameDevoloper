@@ -16,5 +16,6 @@
   "ilk_hafta_erzak.gece": {"alt": 7, "ust": 7, "not": "DEN-13: ilk hafta = 7 gece; sabit hafta, bu yuzden alt ve ust esit."},
   "ilk_hafta_erzak.pay": {"alt": 0, "ust": 60, "not": "Hafta sonrasi tampon payi, gida birimi. 30 gidalik acilis ve 2 kisi icin 30 = 2*7 + 16; 60 ustu ilk haftayi anlamsiz bollastirir."},
   "zar_esigi.zar_gergin_alt": {"alt": 1, "ust": 10, "not": "ZAR-01 gergin kademesi alt siniri (tansiyon 4-7)."},
-  "zar_esigi.zar_panik_alt": {"alt": 1, "ust": 10, "not": "ZAR-01 panik kademesi alt siniri (tansiyon 8-10)."}
+  "zar_esigi.zar_panik_alt": {"alt": 1, "ust": 10, "not": "ZAR-01 panik kademesi alt siniri (tansiyon 8-10)."},
+  "zar_esigi.tansiyon_kacis_esigi": {"alt": 5, "ust": 15, "not": "ZAR-03 tansiyon kacis esigi; tansiyon bu sayiyi asarsa karakter kacar. Varsayilan 10."}
 }

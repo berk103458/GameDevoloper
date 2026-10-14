@@ -1,3 +1,7 @@
+## Antigravity — Tansiyon kaçış eşiği ve karar akışı (15 Ekim 2026)
+
+Tansiyon 10'u aştığında karakterin kaçması ve kararın 'kaçtı' olması sağlandı (ZAR-03). Eşik data/ayarlar/denge.json tablosundan okunuyor (zar_esigi.tansiyon_kacis_esigi: 10), ret sayacı kaçışta artmıyor ve tehlikeli karakter kaçınca asayiş riski yükseliyor. Hedefli Godot testi (tests/unit/kapi/tansiyon_kacis_test.gd) ve Python denge doğrulaması 0 hatayla geçti.
+
 ## Kalfa — ACL-04 ilk akşam açılışı tamamlandı (15 Ekim 2026)
 
 Kod d34ed91: ilk Geceye geç çağrısı 8 saniyelik zorunlu ulak, sonra mevcut kapıda iki yetişkinlik ilk aile; öğretici atlanır, karar atlanmaz. Kabul iki kişi, ret sıfır kişi; ulak köylü olmaz. Bayraklar mevcut kayıtta korunur; ertesi normal gece sonrası HUD Kapı açık der. Genel aile motoru kurulmadı, geçici sahne data/gecis.json içinde.

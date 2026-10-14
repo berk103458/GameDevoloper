@@ -191,6 +191,9 @@ def sorgu_zar_esikleri(tres_metni: str) -> dict:
     p = re.search(r"zar_panik_alt\s*=\s*(\d+)", tres_metni)
     if p:
         esikler["zar_panik_alt"] = int(p.group(1))
+    k = re.search(r"tansiyon_kacis_esigi\s*=\s*(\d+)", tres_metni)
+    if k:
+        esikler["tansiyon_kacis_esigi"] = int(k.group(1))
     return esikler
 
 
@@ -209,7 +212,7 @@ def zar_esigi_hatalari(denge: dict, tres_metni: str) -> list:
     if kaynak is not None and kaynak != SORGU_KURALLARI_RES:
         hatalar.append(f"zar_esigi.kaynak {SORGU_KURALLARI_RES} olmali, bulundu: {kaynak}")
     gercek_esikler = sorgu_zar_esikleri(tres_metni)
-    for k in ("zar_gergin_alt", "zar_panik_alt"):
+    for k in ("zar_gergin_alt", "zar_panik_alt", "tansiyon_kacis_esigi"):
         if k in zar and k in gercek_esikler:
             if zar[k] != gercek_esikler[k]:
                 hatalar.append(f"zar_esigi.{k}: denge.json {zar[k]} ama sorgu_kurallari.tres {gercek_esikler[k]} (farkli esik olamaz)")

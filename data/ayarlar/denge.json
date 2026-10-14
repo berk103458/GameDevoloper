@@ -14,7 +14,8 @@
   "zar_esigi": {
     "kaynak": "res://data/chr_runtime/sorgu_kurallari.tres",
     "zar_gergin_alt": 4,
-    "zar_panik_alt": 8
+    "zar_panik_alt": 8,
+    "tansiyon_kacis_esigi": 10
   },
   "zorluk_carpani": {
     "sistem_yok": true
