@@ -1,3 +1,7 @@
+## Antigravity — İlk hafta erzağı formülü (15 Ekim 2026)
+
+Açılış erzağı artık evdeki kişi sayısı çarpı yedi gece artı denge tablosundaki pay olarak yazılı; pay kodda sabit değil. İki kişilik açılışta 2×7×1+16 = 30 gıda köy ayarındaki değerle birebir tutuyor, tutmazsa denetim kırmızı çıkıyor. Tam sanity henüz çalışmadı, hedefli 168 Python testi geçti.
+
 ## Antigravity — Açılış stoku tek tablo (15 Ekim 2026)
 
 Köyün açılış stoku yalnızca köy ayar dosyasından geliyor; denge tablosu ya ona işaret ediyor ya da aynı sayıları gösteriyor. İki dosyada farklı odun sayısı olursa ya da ikinci bir başlangıç dosyası açılırsa denetim kırmızı çıkıyor. Tam sanity henüz çalışmadı, hedefli 161 Python testi geçti.
