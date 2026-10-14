@@ -15,15 +15,32 @@ Hatalar:
 from pathlib import Path
 import argparse
 import json
+import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 DENGE_YOLU = ROOT / "data/ayarlar/denge.json"
 SINIR_YOLU = ROOT / "data/ayarlar/denge_sinirlari.json"
 
+# DEN-07: anahtar ASCII snake_case'dir (kucuk harf, rakam, alt cizgi; harfle baslar).
+ANAHTAR_DESENI = re.compile(r"^[a-z][a-z0-9_]*$")
+
 
 def _sayi(deger) -> bool:
     return isinstance(deger, (int, float)) and not isinstance(deger, bool)
+
+
+def anahtar_adlari(veri) -> list:
+    """denge.json icindeki tum nesne anahtarlari (her derinlikte)."""
+    adlar: list = []
+    if isinstance(veri, dict):
+        for k, v in veri.items():
+            adlar.append(str(k))
+            adlar.extend(anahtar_adlari(v))
+    elif isinstance(veri, list):
+        for e in veri:
+            adlar.extend(anahtar_adlari(e))
+    return adlar
 
 
 def sayisal_yapraklar(veri) -> dict:
@@ -51,14 +68,23 @@ def dogrula(denge: dict, sinirlar: dict) -> list:
     """Hata listesi dondurur; bos liste = temiz."""
     hatalar: list = []
     yapraklar = sayisal_yapraklar(denge)
+    for ad in sorted(set(anahtar_adlari(denge))):
+        if not ANAHTAR_DESENI.match(ad):
+            hatalar.append(f"{ad}: anahtar ASCII snake_case degil (kucuk harf, rakam, alt cizgi)")
     if not isinstance(sinirlar, dict):
         return ["denge_sinirlari.json bir nesne olmali"]
     for anahtar in sorted(yapraklar):
         if anahtar not in sinirlar:
             hatalar.append(f"{anahtar}: sayisal anahtarin siniri denge_sinirlari.json icinde yok")
+    if isinstance(sinirlar, dict):
+        for yol in sorted(sinirlar):
+            for parca in yol.replace("[]", "").split("."):
+                if not ANAHTAR_DESENI.match(parca):
+                    hatalar.append(f"{yol}: sinir anahtari ASCII snake_case degil")
+                    break
     for anahtar in sorted(sinirlar):
         if anahtar not in yapraklar:
-            hatalar.append(f"{anahtar}: sinir kaydi var ama denge.json icinde sayisal anahtar yok")
+            hatalar.append(f"{anahtar}: eksik anahtar; sinir kaydi var ama denge.json icinde sayisal anahtar yok (kod ici yedek sayi yok, oyun acilmaz)")
             continue
         kayit = sinirlar[anahtar]
         if not isinstance(kayit, dict) or not _sayi(kayit.get("alt")) or not _sayi(kayit.get("ust")):
