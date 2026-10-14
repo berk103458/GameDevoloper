@@ -3438,7 +3438,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ACL-01, EKO-09. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-14:** Açılışta akçe iki kasada da tablodadır.
+- [/] **DEN-14:** (Antigravity) Açılışta akçe iki kasada da tablodadır.
   - Ne: köy akçesi ve muhafız akçesi ayrı satırdır. Göç onları birbirine katmaz (KAY-45).
   - Kabul: köy akçesi ve muhafız akçesi ayrı satırdır. Göç onları birbirine katmaz (KAY-45). Test: iki satır, toplam kodda yazılmaz.
   - Bağımlılık: EKO-01, DEN-01. Boyut: S.

@@ -189,3 +189,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - **Sanity bekliyor listesi:** DEN-03, DEN-04, DEN-07, DEN-08, DEN-09, DEN-13, ZAR-01, DEN-17, DEN-23, DEN-24, ZAR-02, ZAR-03, DEN-19, ZAR-04, DEN-21, DEN-02, DEN-05, DEN-06, DEN-22.
 - kota görünmüyor
 
+### 15 Ekim — DEN-14 başladı
+- ROADMAP_2.md'de DEN-14 [/] olarak üstlenildi.
+- Karar: data/ayarlar/denge.json içinde açılış kasası iki ayrı satır olarak (koy_akce, muhafiz_akce) tanımlanacak; toplam satırı yazılmayacak ve data/ayarlar/denge_sinirlari.json içine sınırları eklenecek.
+- Test: tools/denge_dogrula.py ve tests/unit/denge/acilis_kasasi_test.gd ile iki kasanın ayrı satırlarda olduğu, toplam alanının bulunmadığı kanıtlanacak.
+- kota görünmüyor
+
+
