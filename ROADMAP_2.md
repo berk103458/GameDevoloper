@@ -3426,7 +3426,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: MEV-11, DEN-10. Boyut: M.
   - Dosya: `data/ayarlar/denge.json` `kis_odun_farki`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-13:** İlk hafta erzak, nüfus çarpı gece artı paydır.
+- [/] **DEN-13:** (Antigravity) İlk hafta erzak, nüfus çarpı gece artı paydır.
   - Ne: açılış erzağı, evdeki kişi sayısı çarpı 7 artı tablodaki paydır. Pay kodda sabit değildir.
   - Kabul: açılış erzağı, evdeki kişi sayısı çarpı 7 artı tablodaki paydır. Pay kodda sabit değildir. Test: 2 kişilik açılışta erzak formüle eşittir.
   - Bağımlılık: ACL-01, EKO-09. Boyut: S.
