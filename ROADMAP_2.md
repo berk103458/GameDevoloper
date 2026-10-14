@@ -3471,7 +3471,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: KOP-10, ZAR-01. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-19:** Kaçan kişinin ekonomik bedeli ölçülür.
+- [/] **DEN-19:** (Antigravity) Kaçan kişinin ekonomik bedeli ölçülür.
   - Ne: ZAR-03 kaçışı, o kişinin kabul matrisindeki erzak satırının tersi değildir. Bedel, tablodaki tek satırdır: kaçan kişi başına dedikodu, kasa değil.
   - Kabul: ZAR-03 kaçışı, o kişinin kabul matrisindeki erzak satırının tersi değildir. Bedel, tablodaki tek satırdır: kaçan kişi başına dedikodu, kasa değil. Test: kaçışta `muhafiz_akce` değişmez.
   - Bağımlılık: ZAR-03, DIY-13. Boyut: S.

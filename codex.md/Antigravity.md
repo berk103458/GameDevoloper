@@ -96,3 +96,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: tests/unit/kapi/tansiyon_kacis_test.gd (Godot headless, 0 hata, GEÇTİ); tools/denge_dogrula.py (GECTI); python test paketi (177 test, OK).
 - **Sanity bekliyor listesi:** DEN-03, DEN-04, DEN-07, DEN-08, DEN-09, DEN-13, ZAR-01, DEN-17, DEN-23, DEN-24, ZAR-02, ZAR-03.
 - kota görünmüyor
+
+### 15 Ekim — DEN-19 başladı
+- ROADMAP_2.md'de DEN-19 [/] olarak üstlenildi.
+- Karar: ZAR-03 kaçışının bedeli data/ayarlar/denge.json içine tek satır olarak (dedikodu, kasa değil) eklenecek (`kacan_bedeli: {dedikodu: 1, kasa: 0}`).
+- Sınırlar: denge_sinirlari.json ile doğrulanacak.
+- Test: kaçışta muhafiz_akce'nin değişmediği doğrulanacak.
+- kota görünmüyor
