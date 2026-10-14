@@ -725,7 +725,7 @@ ZAR-01 … ZAR-06 gövdesi durur. Yeni maddeler ZAR-07 … ZAR-86. İkinci zar s
 
 ### 17.2 Karakter değeri
 
-- [ ] **ZAR-02:** Karakter değeri — kişiye göre taban zorluk.
+- [/] **ZAR-02:** (Antigravity) Karakter değeri — kişiye göre taban zorluk.
   - Ne: Her adlı karakterin `sorgu_degeri` vardır; d6 için 1–5, d12 için 2–10. Alan CHR sayfasının dördüncü bölümündedir ve `chr_parser.py` okur. Eksik alanda sınıfa göre varsayılan yazılır ve doğrulama 1 hata verir. Aynı ziyarette iki atış aynı tabanı kullanır. Adsız figür bu alanı kullanmaz.
   - Kurallar:
     1. Her CHR ve adlı karakterde `sorgu_degeri` vardır. d6 için 1–5, d12 için 2–10.
