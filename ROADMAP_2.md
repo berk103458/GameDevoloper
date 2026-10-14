@@ -3357,7 +3357,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: KAY-04, DEN-01. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [/] **DEN-03:** (Antigravity) Aralık dışındaki tablo değeri oyunu açmaz.
+- [x] **DEN-03:** (Antigravity) Aralık dışındaki tablo değeri oyunu açmaz. _(sanity bekliyor; oyun açılış tarafı DEN-03b)_
   - Ne: doğrulama, her anahtarın alt ve üst sınırına bakar. Sınır dışı değer kırpılmaz. Katalog hatalı olur.
   - Kabul: doğrulama, her anahtarın alt ve üst sınırına bakar. Sınır dışı değer kırpılmaz. Katalog hatalı olur. Test: negatif fiyat çarpanı, açılış hatası.
   - Bağımlılık: DEN-01. Boyut: S.
@@ -3369,7 +3369,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-03. Ön koşul: Kalfa ACL-04'ü bitirmiş olmalı; metinler.csv, project.godot ve açılış dosyaları ACL-04 yarım işinde olduğundan o zamana kadar dokunulmaz. Boyut: S.
   - Dosya: yeni src/sistemler/denge_sinir_denetimi.gd; açılışa tek satır; data/metin/metinler.csv içine bir anahtar.
   - Asset: asset gerekmedi.
-- [/] **DEN-04:** (Antigravity) Zorluk, tabloyu çarpar, ikinci tablo açmaz.
+- [x] **DEN-04:** (Antigravity) Zorluk, tabloyu çarpar, ikinci tablo açmaz. _(sanity bekliyor)_
   - Ne: kolay, olağan ve sıkı yalnız çarpandır. Anahtarlar üç kez yazılmaz.
   - Kabul: kolay, olağan ve sıkı yalnız çarpandır. Anahtarlar üç kez yazılmaz. Test: olağanda çarpan 1, diğer iki çarpan dosyada.
   - Bağımlılık: DEN-01. Boyut: S.
@@ -3387,13 +3387,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-05. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-07:** Tablo anahtarı Türkçe harf taşımaz.
+- [/] **DEN-07:** (Antigravity) Tablo anahtarı Türkçe harf taşımaz.
   - Ne: anahtar ASCII snake_case'dir. İçerik hattındaki id kuralı geçerlidir.
   - Kabul: anahtar ASCII snake_case'dir. İçerik hattındaki id kuralı geçerlidir. Test: `odun_carpani` geçer, `odun çarpanı` reddedilir.
   - Bağımlılık: DEN-03. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-08:** Eksik anahtar, kod içi yedek sayı kullanmaz.
+- [/] **DEN-08:** (Antigravity) Eksik anahtar, kod içi yedek sayı kullanmaz.
   - Ne: anahtar yoksa oyun açılmaz. Sessiz varsayılan yoktur.
   - Kabul: anahtar yoksa oyun açılmaz. Sessiz varsayılan yoktur. Test: silinmiş `baslangic_odun`, açılış hatası.
   - Bağımlılık: DEN-03. Boyut: S.

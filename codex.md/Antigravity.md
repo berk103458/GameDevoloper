@@ -20,3 +20,9 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 ### 15 Ekim — DEN-04 (başladı)
 - Karar: `denge.json`'a `zorluk` {kolay 0.8, olagan 1.0, siki 1.25}. ASCII anahtar (DEN-07 kuralı). Sınırlar: kolay 0.5–1.0, olagan 1.0–1.0, siki 1.0–2.0 (yön ve ekonomiyi kilitlememe gerekçesi). Mevcut yer tutucu `zorluk_carpani.sistem_yok` DEN-01 taramasına bağlı olduğu için silinmedi.
 - Bu madde yalnız veri + test; çarpanı okuyan oyun kodu yazılmadı (maddede yok).
+
+### 15 Ekim — DEN-03 ve DEN-04 kapatıldı (hedefli test)
+- Sanity meşgul olduğundan Muharrir kuralıyla tests/tools (146 test, 0 hata) ile doğrulanıp [x] yapıldı; ROADMAP satırlarında 'sanity bekliyor' notu var.
+- **Sanity bekliyor listesi:** DEN-03, DEN-04. Sanity boşalınca bir kez çalıştırılıp notlar silinecek.
+- kota görünmüyor
+
