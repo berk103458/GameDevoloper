@@ -1,3 +1,7 @@
+## Antigravity — Açılış stoku tek tablo (15 Ekim 2026)
+
+Köyün açılış stoku yalnızca köy ayar dosyasından geliyor; denge tablosu ya ona işaret ediyor ya da aynı sayıları gösteriyor. İki dosyada farklı odun sayısı olursa ya da ikinci bir başlangıç dosyası açılırsa denetim kırmızı çıkıyor. Tam sanity henüz çalışmadı, hedefli 161 Python testi geçti.
+
 ## Antigravity — Denge anahtar kuralları (15 Ekim 2026)
 
 Denge tablosundaki anahtarlar artık yalnızca küçük harf, rakam ve alt çizgi taşıyabiliyor; Türkçe harfli ya da boşluklu anahtar denetimde kırmızı çıkıyor. Tablodan bir anahtar silinirse oyun sessizce varsayılan sayı kullanmıyor, açılışta hata veriyor. Tam sanity henüz çalışmadı, hedefli 153 Python testi geçti.

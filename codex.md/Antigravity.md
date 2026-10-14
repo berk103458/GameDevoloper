@@ -33,3 +33,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - **Sanity bekliyor listesi:** DEN-03, DEN-04, DEN-07, DEN-08.
 - kota görünmüyor
 
+
+### 15 Ekim — DEN-09 kapatıldı (hedefli test)
+- 	ools/denge_dogrula.py: koy_baslangic_kaynagi, acilis_stoku_hatalari, ikinci_baslangic_dosyalari; --koy seçeneği. Test: tests/tools/test_acilis_stoku_tablosu.py. tests/tools 161 test 0 hata.
+- Karar: denge.json ve koy.tres değişmedi; yalnız doğrulayıcı eklendi. Sınır: denge.json'daki acilis_stoku ya kaynak yolu ya da aynı sayılı kopya olabilir.
+- **Sanity bekliyor listesi:** DEN-03, DEN-04, DEN-07, DEN-08, DEN-09.
+- kota görünmüyor
+
