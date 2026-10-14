@@ -708,7 +708,7 @@ ZAR-01 … ZAR-06 gövdesi durur. Yeni maddeler ZAR-07 … ZAR-86. İkinci zar s
 
 ### 17.1 Zarın kendisi
 
-- [/] **ZAR-01:** (Antigravity) Görünür zar — d6 ve d12.
+- [x] **ZAR-01:** (Antigravity) Görünür zar — d6 ve d12. _(sanity bekliyor)_
   - Ne: İkna, blöf, gözdağı ve gönül almada oyuncu atılan zarın sayısını görür. Başarı `zar ≥ gerekli` kuralıdır; gerekli değer karakter değeri artı bir artı tansiyon ekidir. Sakin ek 0, gergin ek 1, panik ek 2'dir. Değer 2 ve sakin iken gerekli 3, panikte 5 olur. d20 reddedilir. Aynı tohum aynı sonucu verir.
   - Kurallar:
     1. İkna, blöf, gözdağı ve gönül alma seçeneklerinde ekranda zar atılır. Karakter verisinde `zar` alanı `d6` veya `d12` olur.

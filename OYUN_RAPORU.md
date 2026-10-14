@@ -1,3 +1,7 @@
+## Antigravity — Görünür zar motoru (15 Ekim 2026)
+
+İkna, blöf ve gözdağı için d6 ve d12 zar mekaniği eklendi (src/kapi/sorgu_zari.gd). Gerekli değer karakter zorluğu, tansiyon eki ve değiştiricilerle hesaplanıyor; d6 için 10.000 atışlık dağılım testi %2 sınırında geçti. Tam sanity henüz çalışmadı, hedefli Godot birim testi ve 168 Python testi geçti.
+
 ## Antigravity — İlk hafta erzağı formülü (15 Ekim 2026)
 
 Açılış erzağı artık evdeki kişi sayısı çarpı yedi gece artı denge tablosundaki pay olarak yazılı; pay kodda sabit değil. İki kişilik açılışta 2×7×1+16 = 30 gıda köy ayarındaki değerle birebir tutuyor, tutmazsa denetim kırmızı çıkıyor. Tam sanity henüz çalışmadı, hedefli 168 Python testi geçti.
