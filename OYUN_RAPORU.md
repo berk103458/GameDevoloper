@@ -1,3 +1,7 @@
+## Antigravity — Rapor oyuncuya açılmaz (15 Ekim 2026)
+
+Denge ölçüm raporunun geliştirme günlüğünde tutulduğu, oyuncuya açık olmadığı (`oyuncuya_gorunur: false`, `oyuncuya_acik_mi() -> false`) ve kapı/köy üst kaynak şeridinde (Hud.STOKLAR) ya da oyuncu arayüzünde "denge" anahtarının yer almadığı (anahtar sayısı 0) doğrulandı (DEN-06). Hedefli Godot testi (tests/unit/denge/denge_hud_test.gd) ve Python testleri 0 hatayla geçti.
+
 ## Antigravity — Ölçüm raporu gece hesabını ikinci kez çalıştırmaz (15 Ekim 2026)
 
 Denge ölçüm raporu `DengeOlcumu.olustur()` ile oluşturuldu (DEN-05). Rapor `gece_sonu()` dönüşünü salt-okunur tüketir, yeni bir tüketim/hesaplama fonksiyonu çalıştırmaz; nöbet maaşı, aç kişi oranı, çınar meclisi oy farkı, zindan ekmek payı ve sorgu eylem sayıları rapor satırları olarak bağlandı. Hedefli Godot testi (tests/unit/denge/denge_olcumu_test.gd) 0 hatayla geçti.

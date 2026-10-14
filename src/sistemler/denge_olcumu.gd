@@ -52,3 +52,23 @@ static func olustur(oturum: RefCounted, gece_raporu: Dictionary, ek_baglam: Dict
 	}
 
 	return rapor
+
+
+## DEN-06: Ölçüm geliştirme günlüğündedir, oyuncu ekranına doğrudan açılmaz.
+static func oyuncuya_acik_mi() -> bool:
+	return false
+
+
+## Oyuncuya yönelik arayüz veya veri sözlüğünde "denge" anahtarı sayısını döner.
+## Kabul gereği oyuncu arayüzünde "denge" anahtarı 0 olmalıdır.
+static func oyuncu_arayuz_denge_anahtar_sayisi(veri: Variant) -> int:
+	var sayac: int = 0
+	if veri is Dictionary:
+		for k in veri.keys():
+			if "denge" in str(k).to_lower():
+				sayac += 1
+	elif veri is Array:
+		for eleman in veri:
+			if "denge" in str(eleman).to_lower():
+				sayac += 1
+	return sayac
