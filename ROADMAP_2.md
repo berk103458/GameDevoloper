@@ -758,7 +758,7 @@ ZAR-01 … ZAR-06 gövdesi durur. Yeni maddeler ZAR-07 … ZAR-86. İkinci zar s
 
 ### 17.4 Yaklaşım
 
-- [ ] **ZAR-04:** Yaklaşım türleri ve değiştiriciler.
+- [/] **ZAR-04:** (Antigravity) Yaklaşım türleri ve değiştiriciler.
   - Ne: Dört yaklaşım vardır: ikna, blöf, gözdağı ve gönül alma. Terazi, grup itibarı, kanıt, asker ve yorgunluk `gerekli` değeri en çok eksi üç ile artı üç arasında değiştirir. Zar atılmadan önce tutan her madde ayrı satırda görünür. Beşinci yaklaşım adı reddedilir. Kalp veya romans eşiği yoktur.
   - Kurallar:
     1. Dört yaklaşım vardır: ikna, blöf, gözdağı, gönül alma. Beşinci tür yazılamaz.
