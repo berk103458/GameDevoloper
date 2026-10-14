@@ -3420,7 +3420,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: BUG-22, EKO-02, MEV-11. Boyut: M.
   - Dosya: `tests/oto/acilis_denge_kontrol.tscn` genişler.
   - Asset: asset gerekmedi.
-- [ ] **DEN-11:** Taş yatağı ikinci kez yazılmaz.
+- [/] **DEN-11:** (Antigravity) Taş yatağı ikinci kez yazılmaz.
   - Ne: 20 taş ve kurtarıcı yatak BUG-21'dir. Bu bölüm o sayıyı ölçer, yeni yatak eklemez.
   - Kabul: 20 taş ve kurtarıcı yatak BUG-21'dir. Bu bölüm o sayıyı ölçer, yeni yatak eklemez. Test: yatak sayısı oyun başında 1, kurtarıcı tavanı 3.
   - Bağımlılık: BUG-21. Boyut: S.

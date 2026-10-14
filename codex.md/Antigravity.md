@@ -202,5 +202,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - **Sanity bekliyor listesi:** DEN-03, DEN-04, DEN-07, DEN-08, DEN-09, DEN-13, ZAR-01, DEN-17, DEN-23, DEN-24, ZAR-02, ZAR-03, DEN-19, ZAR-04, DEN-21, DEN-02, DEN-05, DEN-06, DEN-22, DEN-14.
 - kota görünmüyor
 
+### 15 Ekim — DEN-11 başladı
+- ROADMAP_2.md'de DEN-11 [/] olarak üstlenildi.
+- Karar: 20 taş kapasitesi ve kurtarıcı yatağın BUG-21'de tanımlı olduğu, yeni yatak eklenmediği tests/oto/acilis_denge_kontrol.tscn içine eklenecek kontrolle ölçülecek (yatak sayısı oyun başında 1, kurtarıcı tavanı 3).
+- Test: tests/oto/acilis_denge_kontrol.gd çalıştırılarak doğrulanacak.
+- kota görünmüyor
+
+
 
 
