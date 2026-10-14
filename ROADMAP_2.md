@@ -3483,7 +3483,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ZAR-01, DEN-18. Boyut: S.
   - Dosya: `tests/unit/denge/zar_kasa_test.gd`.
   - Asset: asset gerekmedi.
-- [/] **DEN-21:** (Antigravity) Değiştirici listesi ekonomi üretmez.
+- [x] **DEN-21:** (Antigravity) Değiştirici listesi ekonomi üretmez. _(sanity bekliyor)_
   - Ne: ZAR-04 değiştiricisi yalnız gereken sayıyı değiştirir. Akçe satırı yoktur.
   - Kabul: ZAR-04 değiştiricisi yalnız gereken sayıyı değiştirir. Akçe satırı yoktur. Test: asker yanındayken kasa aynı kararda aynıdır.
   - Bağımlılık: ZAR-04. Boyut: S.

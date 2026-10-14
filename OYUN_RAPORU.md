@@ -1,3 +1,7 @@
+## Antigravity — Değiştirici listesi ekonomi üretmez (15 Ekim 2026)
+
+ZAR-04 değiştiricilerinin yalnızca zar zorluğunu değiştirdiği ve akçe üretmediği doğrulandı (DEN-21). Asker yanındayken ve yokken kapı kararlarının (kabul, ret, rüşvet) kasaya etkisinin birebir aynı olduğu (kasa farkı 0) kanıtlandı. Hedefli Godot birim testi (tests/unit/denge/zar_kasa_test.gd) 0 hatayla geçti.
+
 ## Antigravity — Yaklaşım türleri ve zar değiştiricileri (15 Ekim 2026)
 
 İkna, blöf, gözdağı ve gönül alma yaklaşımları için terazi, kanıt, grup itibarı, asker ve yorgunluk değiştiricileri sisteme bağlandı (ZAR-04). Değiştiriciler data/zar_degistiricileri.json tablosunda tutuluyor, toplam en çok -3 ile +3 arasında kırpılıyor, asker yalnız gözdağını etkiliyor ve beşinci tür ile kalp/romans anahtarları engelleniyor. Hedefli Godot birim testi (tests/unit/kapi/zar_degistirici_test.gd) 0 hatayla geçti.
