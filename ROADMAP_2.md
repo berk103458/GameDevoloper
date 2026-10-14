@@ -741,7 +741,7 @@ ZAR-01 … ZAR-06 gövdesi durur. Yeni maddeler ZAR-07 … ZAR-86. İkinci zar s
 
 ### 17.3 Tansiyon
 
-- [ ] **ZAR-03:** Tansiyon 10'u aşarsa karakter gider.
+- [/] **ZAR-03:** (Antigravity) Tansiyon 10'u aşarsa karakter gider.
   - Ne: Başarısız zar tansiyonu seçenekte yazan kadar artırır; yazılmamışsa bir artar. Tansiyon onu aşarsa karakter kaçar ve karar "kaçtı" olur; ret sayacı artmaz. Konu değişince tansiyon sıfırlanmaz, veda sıfırlar. Menü açıkken değer değişmez. Başarılı zar, tansiyon ondayken karakteri kaçırmaz.
   - Kurallar:
     1. Başarısız zar tansiyonu seçenekte yazan kadar artırır. Yazılmamışsa +1’dir.
