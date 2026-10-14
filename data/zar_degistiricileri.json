@@ -1,0 +1,22 @@
+{
+  "yaklasimlar": [
+    "ikna",
+    "blof",
+    "gozdagi",
+    "gonul_alma"
+  ],
+  "degistiriciler": {
+    "terazi_adil_ikna": -1,
+    "terazi_adil_gonul_alma": -1,
+    "terazi_yoz_gozdagi": -1,
+    "bulunmus_kanit": -1,
+    "yanindaki_asker_gozdagi": -1,
+    "yorgunluk": 1,
+    "itibar_azami": 1,
+    "itibar_asgari": -1
+  },
+  "sinirlar": {
+    "asgari_toplam": -3,
+    "azami_toplam": 3
+  }
+}
