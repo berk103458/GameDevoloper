@@ -3402,7 +3402,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.2 Açılış stoku ve odun
 
-- [ ] **DEN-09:** Açılış stoku BUG-22 tablosudur.
+- [/] **DEN-09:** (Antigravity) Açılış stoku BUG-22 tablosudur.
   - Ne: ikinci bir başlangıç dosyası yok. `denge.json` BUG-22'nin okuduğu sayıları gösterir.
   - Kabul: ikinci bir başlangıç dosyası yok. `denge.json` BUG-22'nin okuduğu sayıları gösterir. Test: iki dosyada farklı odun sayısı varsa doğrulayıcı hata verir.
   - Bağımlılık: BUG-22, DEN-01. Boyut: S.
