@@ -1,3 +1,9 @@
+## Kalfa — ACL-04 ilk akşam açılışı tamamlandı (15 Ekim 2026)
+
+Kod d34ed91: ilk Geceye geç çağrısı 8 saniyelik zorunlu ulak, sonra mevcut kapıda iki yetişkinlik ilk aile; öğretici atlanır, karar atlanmaz. Kabul iki kişi, ret sıfır kişi; ulak köylü olmaz. Bayraklar mevcut kayıtta korunur; ertesi normal gece sonrası HUD Kapı açık der. Genel aile motoru kurulmadı, geçici sahne data/gecis.json içinde.
+
+379 kontrolün ilk sonucu 377 PASS / 2 ortak denge.json geçici yazım hatasıydı; 141 Python testi ve 20 gece geçti. Ayrı, yalnız commitli d34ed91 kopyasında temiz import exit=0 ve iki etkilenen sahne + ACL04 + gerçek menü geçti: 5/5, çözülmemiş hata 0. İlk başarısız loglar korunur, hata bütçesi gevşetilmez. Kanıt docs/denetim/ACL-04-sanity.json ve ACL-04-kapi-acilisi.md. Mevcut ACL04 arka plan promptu/ColorRect yolu envanterde; asset entegrasyonu üretim sonunda. Kota: kısa dönem %33; haftalık %90 kaldı. ds ayna yok, önceki kullanıcı istisnasıyla atlandı. Başka sahiplik değiştirilmedi.
+
 ## Kalfa — Envanter 2D / 3D ve üretim sonu entegrasyon (12 Ekim 2026)
 
 Pull 75dbf1d. Aktif envanter 281 tekli 2D prompt + 57 UI yuvası ve 114 ölçülü açık 3D ihtiyaç grubu olarak ayrıldı; eski kaynak/öncelik/yol/lisans/ajan imzaları docs/asset_envanteri/2026-10-12-kaynak-taramasi.md içinde birebir korundu. Ses ayrı. Altı envanter testi, prompt bağlantıları/green/no text ve kaynak eşitliği geçti. Yalnız belgeler; oyun sanity tekrarlanmadı. Mekanikler isim etiketli kutuyla kapanır, asset üretimi bitince entegrasyon yapılır. Kota: haftalık %47; kısa dönem %98 kaldı. ds ayna yolları yok, kullanıcı izniyle atlandı. Sonraki hazır Faz 1 adayı ACL-04.

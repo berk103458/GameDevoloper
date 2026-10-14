@@ -8,7 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-12 Ekim aktif iş: envanterin 2D/3D ayrımı ve yeni üretim sonu entegrasyon kuralı. Ardından Muharrir talimatıyla Faz 1 sıradaki boş/hazır madde alınır. Windows Python PYTHONUTF8=1.
+15 Ekim: 2D/3D envanter ayrımı ve ACL-04 tamamlandı. 379 kontrol doğrulandı; iki geçici ortak JSON hatası ayrı commit kopyasında tekrar geçti. Assetler üretim sonunda entegre edilecek. Windows Python PYTHONUTF8=1.
 
 ## Roller
 
@@ -217,3 +217,13 @@ Yerel ortak kopyaya Muharrir/Antigravity belge commitleri geldi; son baş 33a32e
 ## ACL-04 saatlik WIP kontrol noktası — 15 Ekim 2026 (Kalfa)
 
 Yönetici zaman atlama/senaryo/gözcü uç durumu testle üretildi ve ince guardlarla düzeltildi; dört hedefli kontrol geçti. Sabit kaynaklarla son tam koşu work/sanity_acl04_20261015_final içinde sürüyor; 141 Python testi ve ACL-04/kuruluş/zaman makinesi dahil bütün birim aşaması PASS. Kapanış henüz yapılmadı, ROADMAP [/] kalır. Saatte bir commit kuralı nedeniyle bu kontrol noktası WIP olarak yayınlanır. Diğer ajanın ZAR-01 çalışma dosyaları (chr_sorgu_kurallari) ve önceden mevcut Godot ayar/import değişiklikleri bu commit dışında kalır. Kota: kısa dönem %60; haftalık %94 kaldı. Asset gerekmedi; envanterde mevcut ACL04 promptu ve isimli kutu yolu kayıtlıdır.
+
+WIP kontrol noktası d34ed91 festive’e push edildi (15 Ekim). Kota: kısa dönem %60; haftalık %94 kaldı. Tam koşu sürüyor; kapanış [x] değildir.
+
+## ACL-04 kapanışı — 15 Ekim 2026 (Kalfa)
+
+Kod WIP yayını d34ed91. İlk Geceye geç çağrısı 8 saniyelik zorunlu Sancak Beyi ulağı, sonra mevcut kapı sohbetinde ilk iki yetişkinlik aile. Öğretici atlanabilir, aile kararı atlanamaz; kabul iki kişi, ret sıfır kişi ekler. Ulak kabul edilemez, gece karardan önce kaynak/gün/RNG değiştirmez; tekrar ve kayıt korumalıdır. Sonraki normal geceden sonra HUD Kapı açık der. Genel aile üretimi KAP-17'ye bırakıldı, geçici fallback data/gecis.json içindedir.
+
+379 kontrol: ilk komutta 377 PASS / 2 geçici denge.json yazım hatası; 141 Python testi ve 20 gece geçti. Ayrı git archive d34ed91 kopyasında başlangıçta önbellek yoktu; ikinci import exit=0, iki düşen sahne + ACL04 + gerçek menü PASS. Doğrulanan toplam 379/379, çözülmemiş hata 0; ilk komutun exit=1 logları saklıdır. Kanıt docs/denetim/ACL-04-kapi-acilisi.md ve ACL-04-sanity.json. Hiçbir hata filtresi gevşetilmedi. Kapanış commit'i yalnız ROADMAP/rapor/envanter/doğrulama notudur; oyun kodu test kontrol noktasından beri aynı SHA-256 değerlerinde.
+
+Kota: kısa dönem %33; haftalık %90 kaldı. Asset gerekmedi; mevcut arka plan promptu ve isim etiketli kutu yolu envanterde, entegrasyon üretim sonu. ds yolları hâlâ yok, kullanıcı istisnasıyla atlandı. Başka ajanın [/] maddesine dokunulmadı. Sonraki hazır Faz 1 adayı ACL-06; bu kapanışta yeni madde sahiplenilmedi.

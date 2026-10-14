@@ -1,3 +1,9 @@
+## Kalfa — ACL-04 ilk akşam açılışı tamamlandı (15 Ekim 2026)
+
+Kod d34ed91: ilk Geceye geç çağrısı 8 saniyelik zorunlu ulak, sonra mevcut kapıda iki yetişkinlik ilk aile; öğretici atlanır, karar atlanmaz. Kabul iki kişi, ret sıfır kişi; ulak köylü olmaz. Bayraklar mevcut kayıtta korunur; ertesi normal gece sonrası HUD Kapı açık der. Genel aile motoru kurulmadı, geçici sahne data/gecis.json içinde.
+
+379 kontrolün ilk sonucu 377 PASS / 2 ortak denge.json geçici yazım hatasıydı; 141 Python testi ve 20 gece geçti. Ayrı, yalnız commitli d34ed91 kopyasında temiz import exit=0 ve iki etkilenen sahne + ACL04 + gerçek menü geçti: 5/5, çözülmemiş hata 0. İlk başarısız loglar korunur, hata bütçesi gevşetilmez. Kanıt docs/denetim/ACL-04-sanity.json ve ACL-04-kapi-acilisi.md. Mevcut ACL04 arka plan promptu/ColorRect yolu envanterde; asset entegrasyonu üretim sonunda. Kota: kısa dönem %33; haftalık %90 kaldı. ds ayna yok, önceki kullanıcı istisnasıyla atlandı. Başka sahiplik değiştirilmedi.
+
 ## Antigravity — Karakter sorgu değeri ve zar türü (15 Ekim 2026)
 
 Adlı karakterlerin profil şablonlarına [Zar] (d6/d12) ve [Sorgu_Değeri] alanları eklendi. 	ools/chr_parser.py doğrulayıcısı d6 için 1–5, d12 için 2–10 sınırlarını denetliyor ve eksik alanda hata veriyor (ZAR-02). 30 CHR profili ve runtime kaynakları güncellendi, 177 Python testi geçti.

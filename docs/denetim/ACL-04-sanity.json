@@ -1,0 +1,49 @@
+{
+  "feature_commit": "d34ed91",
+  "date": "2026-10-15",
+  "full_run": {
+    "checks": 379,
+    "passed": 377,
+    "failed": [
+      "ates_basi_rutini_kontrol",
+      "degirmen_hareketi_kontrol"
+    ],
+    "exit_code": 1,
+    "python_tests": 141,
+    "nights": 20,
+    "logs": "work/sanity_acl04_20261015_final",
+    "logs_manifest_sha256": "4fb7d949a006fe7571c3832b5a0f4d509d8a7d8b688e9f3e9a924d5e9029d701"
+  },
+  "isolated_retry": {
+    "source": "git archive d34ed91",
+    "cache_started_empty": true,
+    "import_attempts": 2,
+    "results": {
+      "headless-import": {
+        "pass": true,
+        "exit_code": 0,
+        "log_sha256": "57a9532f5cd280c78aa02caf7ece2f4265c02a782686f67c128a2806d67b48ad"
+      },
+      "degirmen_hareketi_kontrol": {
+        "pass": true,
+        "log_sha256": "70f48a67632d03050ec8342ddd585909eeb864a25b4ad0e20859492f54e068e3"
+      },
+      "ates_basi_rutini_kontrol": {
+        "pass": true,
+        "log_sha256": "d5b32acb47e7f6dae7fed34b61f11b11d3b6b8112d905567bed672c290d9747c"
+      },
+      "kapi_acilis_olayi_test": {
+        "pass": true,
+        "log_sha256": "eaffeb95e03e9190552d39e59fcd42a3b81faf4dfcf003094b59efa79bdc6502"
+      },
+      "devam_pasif_kontrol": {
+        "pass": true,
+        "log_sha256": "668d3e884170fabbff2084de4658bcd3a27ad36a59d993808988ea885726e500"
+      }
+    },
+    "logs": "work/acl04_frozen_retry"
+  },
+  "final_verified_checks": 379,
+  "remaining_failures": [],
+  "note": "Tam komutun ilk sonucu 377 PASS / 2 FAIL; iki hata ortak denge.json geçici yazımından. Aynı feature commitinin ayrı kopyasında iki sahne ve temiz import/ACL04/gerçek menü geçti. İlk tam komutun exit=1 kaydı saklanır; hata istisnası eklenmedi."
+}

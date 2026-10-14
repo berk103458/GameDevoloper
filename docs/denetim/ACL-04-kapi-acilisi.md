@@ -17,3 +17,11 @@ Hedefli doğrulama: yeni açılış birim testi (kabul/ret/kayıt/tekrar/gece ki
 Yönetici uç durumu: yeni ilk-gece kilidi varken ZamanMakinesi ve SenaryoKosucusu eski rapor şeklini varsayıyordu; yeni regresyon testi hatayı yeniden üretti. İki araç erken ve yan etkisiz döner; gözcü öngörüsü de ilk aileden önce gün ilerlemiş gibi rapor vermez. Açılış, zaman makinesi, senaryo ve gözcü testleri yeniden geçti. Regresyon testi sürmekte olan tam koşuya yetiştiğinden o koşu durduruldu; sabit kaynaklarla son koşu work/sanity_acl04_20261015_final altında başlatılır. Artık bu koşu sırasında kaynak/test dosyası düzenlenmez.
 
 Antigravity’nin 3cf07e2 DEN-03 paketi ortak kopyaya geldi; kendi dosyaları korunur. Yeni denge denetimi ve 11 Python testi ayrıca geçti; son tam koşu bunları da içerir.
+
+## Kapanış — 15 Ekim 2026
+
+Tam koşu 379 kontrolü tamamladı: 377 PASS / 2 FAIL; 141 Python testi ve 20 gece dumanı geçti. İki başarısız kontrol (`degirmen_hareketi_kontrol`, `ates_basi_rutini_kontrol`) ortak `data/ayarlar/denge.json` yazımı sırasında geçici bozuk JSON okudu. İlk komutun exit=1 sonucu ve hata logları korunur; başarılıymış gibi yeniden adlandırılmadı.
+
+`git archive d34ed91` ile Temp altında ayrı, yalnız commitli kaynak kopyası çıkarıldı; başlangıçta `.godot` yoktu. İlk import tamamlanmadan kapandı; aynı kaynakta ikinci import exit=0 ve sıfır betik/kaynak hatasıyla tamamlandı. Ayrı kopyada iki etkilenen gerçek sahne, ACL-04 birim testi ve gerçek menü/devam kontrolü de geçti: 5/5. Böylece 379 kontrolün tamamı doğrulandı, çözülmemiş hata 0; 20 gece geçti. Hata bütçesi/istisnası gevşetilmedi. Makineye özgü yol ve loglar `work/acl04_frozen_retry/sonuc.json`, paylaşılabilir özet `ACL-04-sanity.json` içindedir.
+
+Oyun kodu tam koşu süresince bu kontrol noktasından sonra değiştirilmedi; sahip olunan GDScript dosyaları başlangıç SHA-256 kaydıyla aynı. Eşzamanlı Antigravity DEN/ZAR yayınları korunur; onların yeni işleri bu maddeyle kapatılmaz. Yeni 3D/2D görsel/ses üretilmedi veya entegre edilmedi. Mevcut ACL04-ARASAHNE promptu ve gerçek ColorRect yer tutucu yolu envanterde. ds ayna yolu yok; önceki açık kullanıcı istisnasıyla atlandı.
