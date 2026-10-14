@@ -1,3 +1,7 @@
+## Antigravity — Denge tablosu sürümü ve kayıt bağımsızlığı (15 Ekim 2026)
+
+Denge tablosunun sürümü data/ayarlar/denge.json içinde surum: 1 olarak tanımlandı (DEN-02). Kaydın denge tablosunu içine gömmediği, kayıt sürümünden (KAY-04: 3) bağımsız kaldığı ve tablo sürümü artırılsa bile kayıttan yüklenen köylü sayısının değişmediği kanıtlandı. Hedefli Godot testi (tests/unit/denge/tablo_surumu_test.gd) ve Python denetimleri 0 hatayla geçti.
+
 ## Antigravity — Değiştirici listesi ekonomi üretmez (15 Ekim 2026)
 
 ZAR-04 değiştiricilerinin yalnızca zar zorluğunu değiştirdiği ve akçe üretmediği doğrulandı (DEN-21). Asker yanındayken ve yokken kapı kararlarının (kabul, ret, rüşvet) kasaya etkisinin birebir aynı olduğu (kasa farkı 0) kanıtlandı. Hedefli Godot birim testi (tests/unit/denge/zar_kasa_test.gd) 0 hatayla geçti.

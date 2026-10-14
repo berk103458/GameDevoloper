@@ -1,4 +1,9 @@
 {
+  "surum": {
+    "alt": 1,
+    "ust": 100,
+    "not": "DEN-02: Denge tablosu surumu; pozitif tam sayi."
+  },
   "kamera_surukleme.hiz": {
     "alt": 0.1,
     "ust": 5.0,
