@@ -708,7 +708,7 @@ ZAR-01 … ZAR-06 gövdesi durur. Yeni maddeler ZAR-07 … ZAR-86. İkinci zar s
 
 ### 17.1 Zarın kendisi
 
-- [ ] **ZAR-01:** Görünür zar — d6 ve d12.
+- [/] **ZAR-01:** (Antigravity) Görünür zar — d6 ve d12.
   - Ne: İkna, blöf, gözdağı ve gönül almada oyuncu atılan zarın sayısını görür. Başarı `zar ≥ gerekli` kuralıdır; gerekli değer karakter değeri artı bir artı tansiyon ekidir. Sakin ek 0, gergin ek 1, panik ek 2'dir. Değer 2 ve sakin iken gerekli 3, panikte 5 olur. d20 reddedilir. Aynı tohum aynı sonucu verir.
   - Kurallar:
     1. İkna, blöf, gözdağı ve gönül alma seçeneklerinde ekranda zar atılır. Karakter verisinde `zar` alanı `d6` veya `d12` olur.
@@ -3368,6 +3368,12 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Kabul: aralık dışı değerle açılış 1 hata mesajı verir, mesaj düz Türkçe gömülü değil çeviri anahtarıdır. Test: açılış kontrolü bilerek bozuk tabloyla kırmızı olur. Ek şart: yeni .gd doğrulayıcı yeni dosyadadır; açılışa tek satır çağrı eklenir.
   - Bağımlılık: DEN-03. Ön koşul: Kalfa ACL-04'ü bitirmiş olmalı; metinler.csv, project.godot ve açılış dosyaları ACL-04 yarım işinde olduğundan o zamana kadar dokunulmaz. Boyut: S.
   - Dosya: yeni src/sistemler/denge_sinir_denetimi.gd; açılışa tek satır; data/metin/metinler.csv içine bir anahtar.
+  - Asset: asset gerekmedi.
+- [ ] **DEN-03c:** Denge tablosunu okuyan oyun kodu (zorluk çarpanı, ilk hafta erzak payı).
+  - Ne: DEN-04 zorluk ve DEN-13 ilk_hafta_erzak şu an yalnız veri ve doğrulamadır; oyun kodu bunları okumaz. Bu madde tek bir okuyucu (yeni src/sistemler/denge_tablosu.gd) yazar ve mevcut sistemlere tek satırla bağlar. Tablo yoksa ya da bozuksa oyun açılmaz (DEN-08); kodda yedek sayı olmaz.
+  - Kabul: Zorluk olagan iken hiçbir sayı değişmez; kolay/siki çarpanı tablodan gelir. Açılış erzağı ilk_hafta_erzak formülüyle hesaplanır ve 2 kişilik açılışta 30'dur. Test: 	ests/unit/sistemler/denge_tablosu_test.gd. Ek şart: koy_ayarlari.gd ve kirli listedeki dosyalara dokunmadan önce sahibine sorulur.
+  - Bağımlılık: DEN-04, DEN-13, DEN-03b. Boyut: M.
+  - Dosya: yeni src/sistemler/denge_tablosu.gd; mevcut sistemlere tek satır çağrı.
   - Asset: asset gerekmedi.
 - [x] **DEN-04:** (Antigravity) Zorluk, tabloyu çarpar, ikinci tablo açmaz. _(sanity bekliyor)_
   - Ne: kolay, olağan ve sıkı yalnız çarpandır. Anahtarlar üç kez yazılmaz.
