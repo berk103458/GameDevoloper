@@ -25,6 +25,8 @@ KOY_YOLU = ROOT / "data/ayarlar/koy.tres"
 VERI_KOKU = ROOT / "data"
 KOY_RES = "res://data/ayarlar/koy.tres"
 KOY_AYARLARI_GD = ROOT / "src/veri/koy_ayarlari.gd"
+SORGU_KURALLARI_YOLU = ROOT / "data/chr_runtime/sorgu_kurallari.tres"
+SORGU_KURALLARI_RES = "res://data/chr_runtime/sorgu_kurallari.tres"
 
 # DEN-07: anahtar ASCII snake_case'dir (kucuk harf, rakam, alt cizgi; harfle baslar).
 ANAHTAR_DESENI = re.compile(r"^[a-z][a-z0-9_]*$")
@@ -180,6 +182,43 @@ def ilk_hafta_erzak_hatalari(denge: dict, koy_metni: str, ayar_metni: str) -> li
         return [f"ilk_hafta_erzak: koy.tres gida {gida} ama formul {tablo['acilis_kisi']}*{tablo['gece']}*{kisi_tuketimi}+{tablo['pay']} = {beklenen}"]
     return []
 
+def sorgu_zar_esikleri(tres_metni: str) -> dict:
+    """sorgu_kurallari.tres icindeki zar_gergin_alt ve zar_panik_alt degerlerini okur."""
+    esikler = {}
+    g = re.search(r"zar_gergin_alt\s*=\s*(\d+)", tres_metni)
+    if g:
+        esikler["zar_gergin_alt"] = int(g.group(1))
+    p = re.search(r"zar_panik_alt\s*=\s*(\d+)", tres_metni)
+    if p:
+        esikler["zar_panik_alt"] = int(p.group(1))
+    return esikler
+
+
+def zar_esigi_hatalari(denge: dict, tres_metni: str) -> list:
+    """DEN-17 ve DEN-23: zar formulu ZAR-01'dedir; denge dosyasindaki esik ile sorgu_kurallari.tres aynidir.
+
+    DEN-23: tansiyon eki uc kademedir (sakin, gergin, panik); dosyada ikinci bir ek anahtari yoktur.
+    """
+    hatalar: list = []
+    zar = denge.get("zar_esigi") if isinstance(denge, dict) else None
+    if zar is None or not isinstance(zar, dict):
+        return []
+    if zar.get("sistem_yok"):
+        return []
+    kaynak = zar.get("kaynak")
+    if kaynak is not None and kaynak != SORGU_KURALLARI_RES:
+        hatalar.append(f"zar_esigi.kaynak {SORGU_KURALLARI_RES} olmali, bulundu: {kaynak}")
+    gercek_esikler = sorgu_zar_esikleri(tres_metni)
+    for k in ("zar_gergin_alt", "zar_panik_alt"):
+        if k in zar and k in gercek_esikler:
+            if zar[k] != gercek_esikler[k]:
+                hatalar.append(f"zar_esigi.{k}: denge.json {zar[k]} ama sorgu_kurallari.tres {gercek_esikler[k]} (farkli esik olamaz)")
+    # DEN-23: dosyada ikinci bir ek anahtari yoktur (yalniz zar_esigi grubunda tansiyon esikleri)
+    yasak_ek_anahtarlari = [k for k in denge if "tansiyon_ek" in k or "zar_ek" in k]
+    for y in yasak_ek_anahtarlari:
+        hatalar.append(f"{y}: denge dosyasinda ikinci bir tansiyon ek anahtari olamaz (DEN-23)")
+    return hatalar
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -190,12 +229,14 @@ def main(argv=None) -> int:
     ap.add_argument("--sinirlar", type=Path, default=SINIR_YOLU)
     ap.add_argument("--koy", type=Path, default=KOY_YOLU)
     ap.add_argument("--koy-ayarlari", type=Path, default=KOY_AYARLARI_GD)
+    ap.add_argument("--sorgu-kurallari", type=Path, default=SORGU_KURALLARI_YOLU)
     args = ap.parse_args(argv)
     try:
         denge = yukle(args.denge)
         hatalar = dogrula(denge, yukle(args.sinirlar))
         hatalar += acilis_stoku_hatalari(denge, args.koy.read_text(encoding="utf-8"), ikinci_baslangic_dosyalari(koy=args.koy, denge=args.denge))
         hatalar += ilk_hafta_erzak_hatalari(denge, args.koy.read_text(encoding="utf-8"), args.koy_ayarlari.read_text(encoding="utf-8"))
+        hatalar += zar_esigi_hatalari(denge, args.sorgu_kurallari.read_text(encoding="utf-8"))
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]
     for h in hatalar:

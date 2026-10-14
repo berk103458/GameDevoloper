@@ -3459,7 +3459,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.3 Zarın ekonomiye yazılması
 
-- [/] **DEN-17:** (Antigravity) Zar formülü ZAR-01'de kalır.
+- [x] **DEN-17:** (Antigravity) Zar formülü ZAR-01'de kalır. _(sanity bekliyor)_
   - Ne: denge dosyası eşikleri okur, formülü yeniden yazmaz.
   - Kabul: denge dosyası eşikleri okur, formülü yeniden yazmaz. Test: dosyadaki eşik ile `sorgu_kurallari.tres` aynı sayıdır. Farklıysa doğrulayıcı hata verir.
   - Bağımlılık: ZAR-01, DEN-03. Boyut: S.
@@ -3495,7 +3495,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: EKO-15, ZAR-01. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [/] **DEN-23:** (Antigravity) Tansiyon eki üç kademedir.
+- [x] **DEN-23:** (Antigravity) Tansiyon eki üç kademedir. _(sanity bekliyor)_
   - Ne: sakin, gergin, panik ekleri ZAR-01 kararındaki 0, 1, 2'dir. Denge dosyası bu üç sayıyı tekrar tanımlamaz, okur.
   - Kabul: sakin, gergin, panik ekleri ZAR-01 kararındaki 0, 1, 2'dir. Denge dosyası bu üç sayıyı tekrar tanımlamaz, okur. Test: dosyada ikinci bir ek anahtarı yoktur.
   - Bağımlılık: ZAR-01, DEN-17. Boyut: S.

@@ -12,7 +12,9 @@
     "kaynak": "res://data/ticaret_fiyatlari.json"
   },
   "zar_esigi": {
-    "sistem_yok": true
+    "kaynak": "res://data/chr_runtime/sorgu_kurallari.tres",
+    "zar_gergin_alt": 4,
+    "zar_panik_alt": 8
   },
   "zorluk_carpani": {
     "sistem_yok": true

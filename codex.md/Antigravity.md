@@ -56,3 +56,11 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - yer tutucu: zar görseli ZAR01-ZAR envanterde prompt hazır bekliyor, düz renk kutu + sayı yer tutucu kuralı.
 - kota görünmüyor
 
+
+### 15 Ekim — DEN-17 ve DEN-23 kapatıldı (hedefli test)
+- data/ayarlar/denge.json: zar_esigi alanı sorgu_kurallari.tres kaynağına bağlandı, gergin_alt: 4, panik_alt: 8 eklendi. Sınırlar: denge_sinirlari.json.
+- 	ools/denge_dogrula.py: zar_esigi_hatalari eklendi; tres dosyasındaki eşiklerle birebir uyuşma ve ikinci tansiyon ek anahtarı yasağı doğrulandı.
+- Test: 	ests/tools/test_denge_zar_esigi.py (172 test, 0 hata).
+- **Sanity bekliyor listesi:** DEN-03, DEN-04, DEN-07, DEN-08, DEN-09, DEN-13, ZAR-01, DEN-17, DEN-23.
+- kota görünmüyor
+

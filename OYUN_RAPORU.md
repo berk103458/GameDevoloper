@@ -1,3 +1,7 @@
+## Antigravity — Zar eşikleri ve tansiyon eki doğrulayıcısı (15 Ekim 2026)
+
+Denge tablosundaki zar_esigi ile sorgu_kurallari.tres kaynak değerleri (gergin 4, panik 8) birebir eşleştirildi; farklı bir eşik yazılırsa veya tabloda ikinci bir tansiyon ek kuralı uydurulursa denetim kırmızı çıkıyor (DEN-17, DEN-23). Hedefli 172 Python testi geçti, tam sanity bekliyor.
+
 ## Antigravity — Görünür zar motoru (15 Ekim 2026)
 
 İkna, blöf ve gözdağı için d6 ve d12 zar mekaniği eklendi (src/kapi/sorgu_zari.gd). Gerekli değer karakter zorluğu, tansiyon eki ve değiştiricilerle hesaplanıyor; d6 için 10.000 atışlık dağılım testi %2 sınırında geçti. Tam sanity henüz çalışmadı, hedefli Godot birim testi ve 168 Python testi geçti.
