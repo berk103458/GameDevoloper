@@ -3357,7 +3357,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: KAY-04, DEN-01. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-03:** Aralık dışındaki tablo değeri oyunu açmaz.
+- [/] **DEN-03:** (Antigravity) Aralık dışındaki tablo değeri oyunu açmaz.
   - Ne: doğrulama, her anahtarın alt ve üst sınırına bakar. Sınır dışı değer kırpılmaz. Katalog hatalı olur.
   - Kabul: doğrulama, her anahtarın alt ve üst sınırına bakar. Sınır dışı değer kırpılmaz. Katalog hatalı olur. Test: negatif fiyat çarpanı, açılış hatası.
   - Bağımlılık: DEN-01. Boyut: S.
