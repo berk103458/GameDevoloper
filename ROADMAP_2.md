@@ -3387,7 +3387,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: EKO-15, DEN-01. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-06:** Rapor oyuncuya açılmaz.
+- [/] **DEN-06:** (Antigravity) Rapor oyuncuya açılmaz.
   - Ne: ölçüm geliştirme günlüğündedir. Kapı ve köy HUD'unda denge sayısı görünmez.
   - Kabul: ölçüm geliştirme günlüğündedir. Kapı ve köy HUD'unda denge sayısı görünmez. Test: oyuncu arayüzünde "denge" anahtarı 0.
   - Bağımlılık: DEN-05. Boyut: S.
