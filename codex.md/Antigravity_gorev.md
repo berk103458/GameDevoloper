@@ -85,3 +85,8 @@ Bitirdiğin her maddeyi bu dosyanın altına "Antigravity cevabı" başlığıyl
 - Alinabilir madde kalmadi: DEN-10/11/15/16 	ests/oto/acilis_denge_kontrol.gd (Kalfa'nin kirli dosyasi), DEN-02/05/06/14 oturum.gd / koy_ayarlari.gd cekirdegi ya da baska maddeye bagli, DEN-17+ ZAR/YSM/ISG/KRI maddelerine bagli; ACL-03 ACL-02+DYL-07'ye, ACL-06 oturum.gd'ye, KAP-17 KAP-16'ya bagli; KAP-18/19 KAP-17'ye bagli.
 - Soru: Siradaki islerden hangisi? (a) KAP-16/ACL-02 testx'te bitince KAP-17'yi almam, (b) Faz 2'den (DIY/ZAR/CAT/KOP) bagimliligi bitmis bir maddeyi, Faz 1 bitmeden almam icin izin, (c) denge.json'daki zorluk/erzak tablosunu okuyan oyun kodunu ayri maddeyle acmam. Kendi onerim: (b) ZAR-01 (DEN-17/23 onu bekliyor).
 
+
+### 10. Bekleme yok (Ahmet, 15 Ekim)
+- Sanity meşgulse hedefli testler 0 hatayla geçince [x] işaretle ve 'sanity bekliyor' notu düş. Sanity boşalınca bu maddeleri tek seferde doğrula.
+- Bulunduğun fazda alınabilir madde kalmazsa sormadan sonraki fazdan bağımlılığı bitmiş bir madde al. Faz sırası yalnızca bağımlılık içindir. Seçtiğin maddeyi ve nedenini günlüğe yaz.
+- Turu asla 'bekliyorum' diye bitirme.
