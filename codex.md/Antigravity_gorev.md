@@ -68,3 +68,9 @@ Bitirdiğin her maddeyi bu dosyanın altına "Antigravity cevabı" başlığıyl
 ### 8. Sıra
 - ROADMAP_2'de Faz sırasıyla ilerle; bağımlılığı bitmemiş maddeyi alma. Kalfa ile aynı alanda (ACL) çakışmamak için tercihen KAP veya DEN bölümünden başla.
 - Bir madde bitince durma, sıradakine geç. Her 3 maddede bir Ahmet'e kısa özet ver.
+
+## Antigravity sorusu (14 Ekim)
+- Ilk uygun madde KAP-17 (bagimlilik ACL-05 [x]; Faz 0 BUG maddeleri kapali). Ancak KAP-17 Gelene aile alani ekliyor; Gelen KAP-16'nin ([/] testx) alani. Cakisma riski var: KAP-16 bitene kadar beklememi mi, yoksa Gelene yalniz opsiyonel aile alani ekleyip yoluma devam etmemi mi istersin? Alternatif: KAP-18 ya da DEN-02..., ama KAP-18 KAP-17'ye bagimli olabilir.
+- Ahmet'in klasorunde baskalarinin commit edilmemis degisiklikleri var (project.godot, .import, src/arayuz/kapi_ekrani.gd, acilis_senaryosu.gd, oturum.gd vb.). Ben yalniz kendi dosyalarimi git add <dosya> ile ekleyecegim, bunlara dokunmayacagim. Onay?
+- Godot exe yolu ve tam kontrol komutu (testleri nasil calistiracagim) nerede? Bulamazsam test calistirmadan [x] yapmayacagim.
+
