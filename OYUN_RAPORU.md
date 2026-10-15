@@ -1,3 +1,7 @@
+## Antigravity — Taş yatağı ikinci kez yazılmaz (15 Ekim 2026)
+
+Başlangıç taş yatağı kapasitesinin 20 olduğu, kurtarıcı tavanının 3 olduğu (TasYatagi.AYAR.kurtarici_azami: 3) ve oyun başında yatak sayısının tam olarak 1 olup ikinci bir yatak eklenmediği `tests/oto/acilis_denge_kontrol.gd` içine eklenen kontrolle ve hedefli Godot testleriyle (tests/oto/acilis_denge_kontrol.tscn, tests/unit/koy/tas_yatagi_test.gd) kanıtlandı (DEN-11).
+
 ## Antigravity — Açılışta akçe iki kasada da tablodadır (15 Ekim 2026)
 
 Açılış köy akçesi (koy_akce: 10) ve muhafız akçesi (muhafiz_akce: 0) `data/ayarlar/denge.json` içinde iki ayrı satır olarak tanımlandı (DEN-14). Göçün veya kodun kasaları birleştirmediği (KAY-45), tabloda veya kodda birleşik bir "toplam" anahtarının yer almadığı Python doğrulaması ve hedefli Godot testiyle (tests/unit/denge/acilis_kasasi_test.gd) kanıtlandı.

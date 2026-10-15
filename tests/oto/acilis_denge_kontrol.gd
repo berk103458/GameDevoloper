@@ -36,6 +36,7 @@ func _calistir() -> void:
 	_tablo_kontrolleri(katalog)
 	_acilis_evi_bedava(katalog)
 	_eski_kayit_stoku(katalog)
+	_tas_yatagi_ikinci_kez_yazilmaz(katalog)
 	for i in SIRALAR.size():
 		var r := _oyna(katalog, SIRALAR[i], 4200 + i * 7)
 		_rapor.append(r)
@@ -87,6 +88,22 @@ func _eski_kayit_stoku(k: Katalog) -> void:
 	_kontrol(yeni.kaynaklar.miktar("odun") == int(k.koy_ayarlari.baslangic_kaynak["odun"])
 		and yeni.kaynaklar.miktar("tas") == int(k.koy_ayarlari.baslangic_kaynak["tas"]),
 		"Yeni oyun stoku baslangic_kaynak tablosundan gelir")
+
+
+## DEN-11: 20 taş ve kurtarıcı yatak BUG-21'dir; bu bölüm o sayıyı ölçer, yeni yatak eklemez.
+## Test: yatak sayısı oyun başında 1, kurtarıcı tavanı 3.
+func _tas_yatagi_ikinci_kez_yazilmaz(k: Katalog) -> void:
+	var o := Oturum.new(k, 11)
+	ACILIS.kur(o)
+	_kontrol(o.yonetim.tas_yatagi != null, "DEN-11: Oyun başında taş yatağı mevcuttur")
+	_kontrol(o.yonetim.tas_yatagi.toplam == 20, "DEN-11: Başlangıç taş yatağı kapasitesi 20 taştır (BUG-21)")
+	var yatak_sayisi := 1 if o.yonetim.tas_yatagi != null else 0
+	_kontrol(yatak_sayisi == 1, "DEN-11: Yatak sayısı oyun başında 1'dir, yeni yatak eklenmez")
+	_kontrol(int(TasYatagi.AYAR.get("kurtarici_azami", 0)) == 3, "DEN-11: Kurtarıcı tavanı 3'tür (BUG-21)")
+	o.yonetim = null
+	o.koy = null
+	o.kadro = null
+
 
 
 func _oyna(katalog: Katalog, sira: Dictionary, tohum: int) -> Dictionary:

@@ -208,6 +208,14 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: tests/oto/acilis_denge_kontrol.gd çalıştırılarak doğrulanacak.
 - kota görünmüyor
 
+### 15 Ekim — DEN-11 kapatıldı (hedefli test)
+- tests/oto/acilis_denge_kontrol.gd içine `_tas_yatagi_ikinci_kez_yazilmaz` eklendi.
+- Taş yatağı kapasitesinin 20 olduğu, kurtarıcı tavanının 3 olduğu (TasYatagi.AYAR.kurtarici_azami) ve oyun başında yatak sayısının tam olarak 1 olduğu, ikinci bir yatak eklenmediği doğrulandı.
+- Test: tests/oto/acilis_denge_kontrol.tscn ve tests/unit/koy/tas_yatagi_test.gd (Godot headless, 0 hata, GEÇTİ).
+- **Sanity bekliyor listesi:** DEN-03, DEN-04, DEN-07, DEN-08, DEN-09, DEN-13, ZAR-01, DEN-17, DEN-23, DEN-24, ZAR-02, ZAR-03, DEN-19, ZAR-04, DEN-21, DEN-02, DEN-05, DEN-06, DEN-22, DEN-14, DEN-11.
+- kota görünmüyor
+
+
 
 
 
