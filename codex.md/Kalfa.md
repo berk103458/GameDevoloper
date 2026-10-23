@@ -8,9 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-23 Ekim: Muharrir'in asset paketi araştırması. Festive pull dec58bc güncel; ROADMAP maddesi alınmadı. docs/ASSET_PAKETI_ARASTIRMASI.md içinde çevre 10, karakter 10, animasyon 9, UI 11, ses 12 olmak üzere 52 kategori kaydı / 51 farklı ana kaynak; fiyat, lisans, biçim, Godot yolu, puan, envanter eşleştirmesi ve öncelik seti hazır. Yalnız araştırma/belge; asset indirme/üretim veya oyun entegrasyonu yok. Windows Python PYTHONUTF8=1.
-
-Son denetim: 78 farklı rapor URL'sinin tamamı web aracıyla yeniden açıldı; iki Sketchfab 403 ve eski MoCap erişim hatası ayrı dışlanan adaylarda. Google Fonts/Mixamo JS kabukları resmî lisans/SSS ile tamamlandı; arşiv iç biçimi veya belirli klip kapsamı belirsizse raporda koşullu. 114 3D grup ve 88 2D kaynak kimliği karşılaştırıldı; hiçbir ihtiyaç sırf paket benzeri var diye kapatılmadı. Rapor kategori sayıları/benzersiz ID/yerel bağlantı/kapsam ve boşluk denetimleri yapıldı. Sadece belge değiştiğinden oyun sanity tekrarlanmadı. Asset gerekmedi. İki ds yolu da yok; kullanıcı istisnasıyla ayna atlandı. Yayın kontrol noktasında kota: kısa dönem %86; haftalık %98 kaldı. Sonraki ROADMAP işi bu araştırma görevinde alınmaz.
+23 Ekim — asset araştırması ikinci tur (Kalfa). Pull e98dd7d güncel; ROADMAP maddesi alınmadı. Ana liste 534 teslim gereksinimi; 191 yeni aday + ilk turdan 51 farklı kaynak = 242 değerlendirme. Her kategoride en az 15 yeni aday, içerik/ID eşleştirmesi, 36 alternatif set ve görsel uyum matrisi araştırma belgesine yazıldı. Ortak kaynaklar tek kez sayılır; kısmi temas kapanış değildir. Quaternius ürünlerindeki CC0 ile güncel QAL farkı ve K lisanslarının public repo kısıtları kayda geçti. Yalnız araştırma belgeleri; asset indirme/satın alma, oyun kodu, ROADMAP ve envanter durumu değişmedi. Belge son denetimi sürüyor; yeni iş alınmaz. PYTHONUTF8=1. Kontrol noktası kota: kısa dönem %36, haftalık %90 kaldı (23 Ekim 20:49 UTC sorgusu). Asset gerekmedi.
 
 ## Roller
 
