@@ -23,8 +23,8 @@ P0/P1/P2 ilk saat önceliği kaynak akışından çıkarımdır; oynanmış bir 
 - **Uyarlamayla (u):** kaynak karşılık var; belirtilen retarget, malzeme, biçim, ölçek veya tema işi gerekiyor. Sadece yeniden adlandırarak tarihî rol yaratılmış sayılmaz.
 - Birleşik setlerde aynı ID yalnız bir kez sayılır; tam > uyarlama > kısmi seçilir. Paket sayılarının toplamı birleşik kapsam değildir. Bir ürün iki kategoriyi beslese bile bir kez satın alınır. Bağımsız ürünün bütün modelleri ile ücretsiz alt kümesi karıştırılmaz.
 - Uyum puanı ve az/orta/çok iş sınıfı Kalfa’nın tasarım değerlendirmesidir. Az: seçim, ses seviyesi, basit boyut/malzeme; orta: retarget/atlas/9-slice veya modüler kurulum; çok: yeni kıyafet, ciddi siluet değişimi, motor VFX’sini yeniden kurma, LOD/temas işi.
-- **Kullanılabilir yüzde:** dosya/öğe listesi eksikse payda veya seçilebilir altküme uydurulmadı. “Hesaplanamadı” yazıldı. Tam listesi olan örneklerde açık kesir verildi; bir ürünün bütün arşivini indirip denemeden her satıra sahte %80 yazmak derin analiz olmaz. Bu turda sayfa açıklaması, yayımlanmış dosya/klip listesi ve metinle sunulan önizleme bilgisi okundu; video dinleme, dönen 3D model denemesi, arşiv açma ve Godot import testi yapılmadı.
-- Fiyat `?`: ödeme sayfası/katman görünmedi. Sıfır değildir. Fiyatlar görülen USD tutarıdır; EUR ayrıca belirtilir. Kampanya, vergi, bölge ve koltuk bedeli değişebilir. Set B kalite öncelikli kısa listedir; satın almaya hazır olduğu anlamına gelmez.
+- **Kullanılabilir yüzde:** dosya/öğe listesi eksikse payda veya seçilebilir altküme uydurulmadı. “Hesaplanamadı” yazıldı. Tam listesi olan örneklerde açık kesir verildi; eksik içerik listelerinden kesin kullanılabilir yüzde türetilmedi. Bu turda sayfa açıklaması, yayımlanmış dosya/klip listesi ve metinle sunulan önizleme bilgisi okundu; video dinleme, dönen 3D model denemesi, arşiv açma ve Godot import testi yapılmadı.
+- Fiyat `?`: ödeme sayfası/katman görünmedi. Sıfır değildir. Fiyatlar görülen USD tutarıdır; EUR ve GBP ayrıca belirtilir. Kampanya, vergi, bölge ve koltuk bedeli değişebilir. Set B kalite öncelikli kısa listedir; satın almaya hazır olduğu anlamına gelmez.
 
 ## Lisans bulguları: ilk rapora düzeltme
 
@@ -39,7 +39,7 @@ Quaternius ürün sayfaları CC0 yazmaya devam ediyor; [genel lisans sayfası](h
 
 ## Sayım ve kapsam sonucu
 
-İncelenen yeni aday: **191**; ilk turdan yeniden değerlendirilen **51 farklı kaynak / 52 eski kategori kaydı** (E10=C06 aynı ürün). Toplam **242 farklı ürün/koleksiyon/kaynak**. Font ailesi, tekil doku, tekil model ve hesap içi katalog aşağıda ayrıca tanımlıdır; hepsi çok öğeli paket değildir.
+İncelenen yeni aday: **196**; ilk turdan yeniden değerlendirilen **51 farklı kaynak / 52 eski kategori kaydı** (E10=C06 aynı ürün). Toplam **247 farklı ürün/koleksiyon/kaynak**. Font ailesi, tekil doku, tekil model ve hesap içi katalog aşağıda ayrıca tanımlıdır; hepsi çok öğeli paket değildir.
 
 | Yeni aday kategorisi | Açılan aday |
 |---|---:|
@@ -50,8 +50,8 @@ Quaternius ürün sayfaları CC0 yazmaya devam ediyor; [genel lisans sayfası](h
 | Eşya | 17 |
 | UI | 20 |
 | VFX | 15 |
-| Ortam sesi | 15 |
-| Foley | 15 |
+| Ortam sesi | 18 |
+| Foley | 17 |
 | UI sesi | 15 |
 | Müzik | 15 |
 | Mırıltı | 15 |
@@ -59,23 +59,24 @@ Quaternius ürün sayfaları CC0 yazmaya devam ediyor; [genel lisans sayfası](h
 | Ölçüt | Sayı / oran |
 |---|---:|
 | İhtiyaç ana listesi | 534 |
-| Önerilen karma seçki: potansiyel temas | 116 / 534 = %21.7 |
-| Bunun tam / kısmi / uyarlama ayrımı | 116 (2 tam / 53 kısmi / 61 uyarlamayla) |
-| Kısmi hariç, tam veya uyarlama sonrası kapanmaya aday | 63 / %11.8 |
-| Seçkide yalnız A + mevcut OFL fontları: temas | 62 / %11.6 |
-| Bütün adayların birleşik temas üst sınırı | 186 / %34.8 |
-| Önerilen seçkide tamamen açık | 418 |
-| İncelenen hiçbir adayla eşleşmeyen | 348 |
+| Önerilen karma seçki: potansiyel temas | 120 / 534 = %22.5 |
+| Bunun tam / kısmi / uyarlama ayrımı | 120 (3 tam / 54 kısmi / 63 uyarlamayla) |
+| Kısmi hariç, tam veya uyarlama sonrası kapanmaya aday | 66 / %12.4 |
+| Seçkide yalnız A + mevcut OFL fontları: temas | 65 / %12.2 |
+| A + mevcut fontlar seçkisinin fiyatı | 9.97 USD |
+| Bütün adayların birleşik temas üst sınırı | 190 / %35.6 |
+| Önerilen seçkide tamamen açık | 414 |
+| İncelenen hiçbir adayla eşleşmeyen | 344 |
 | Bu araştırmada indirilen / entegre edilen / fiilen kapatılan | 0 / 0 / 0 |
 
-Karma seçki fiyatı: **243.89 USD + 2.49 GBP**. Bu bir kesin satın alma toplamı değildir: fiyatı/lisansı belirsiz ürünler açıkça bırakılmıştır. Vergi, lisans koltuğu ve bağımsız yüklenici ek bedelleri dahil değildir. Kamuya açık ham repo dağıtım izni K sınıfında varsayılmaz.
+Karma seçki fiyatı: **237.89 USD + 2.49 GBP**. Bu bir kesin satın alma toplamı değildir: fiyatı/lisansı belirsiz ürünler açıkça bırakılmıştır. Vergi, lisans koltuğu ve bağımsız yüklenici ek bedelleri dahil değildir. Kamuya açık ham repo dağıtım izni K sınıfında varsayılmaz.
 
 | Tür | Toplam | Önerilen temas | Tam | Kısmi | Uyarlama | Temas oranı |
 |---|---:|---:|---:|---:|---:|---:|
 | 3D model | 99 | 39 | 0 | 14 | 25 | %39.4 |
 | 2D | 334 | 15 | 0 | 7 | 8 | %4.5 |
 | animasyon | 37 | 17 | 0 | 8 | 9 | %45.9 |
-| ses | 43 | 31 | 2 | 16 | 13 | %72.1 |
+| ses | 43 | 35 | 3 | 17 | 15 | %81.4 |
 | müzik | 13 | 7 | 0 | 7 | 0 | %53.8 |
 | VFX | 8 | 7 | 0 | 1 | 6 | %87.5 |
 
@@ -120,7 +121,7 @@ Kategori-aday açığı yalnız bu kategoride herhangi bir adayla temas eden iht
 | Sıra / aday | İhtiyaç teması: tam / kısmi / uyarlama | Uyum | İş | Lisans | Fiyat |
 |---|---|---:|---|---|---|
 | 1 · [KAR01](#kar01) — Medieval Characters Pack — Low-Poly Rigged Medieval Cast | 7: 0/2/5 | 7/10 | orta | ? Lisans yayımlanmamış | 5 |
-| 2 · [KAR02](#kar02) — LOWPO: Villagers NPC – Low Poly Medieval Character Pack | 4: 0/2/2 | 8/10 | orta | K Unity Standard; koltuk türü koşullu | 9.99 |
+| 2 · [KAR02](#kar02) — Standout 7 — LOWPO Villager NPC (üretici itch sürümü) | 4: 0/2/2 | 8/10 | orta | A CC0 (üretici itch sürümü); Unity mağazası ayrı şartlı | 3.99 |
 | 3 · [KAR03](#kar03) — Medieval Village NPC Pack / 6 Rigged Low-Poly Characters / Animated | 4: 0/2/2 | 7/10 | orta | ? Fab lisans seçimi boş | ? |
 | 4 · [KAR04](#kar04) — Slavic Medieval Villagers — Modular Low Poly Characters | 3: 0/2/1 | 7/10 | çok | K Unity Standard | 7 |
 | 5 · [KAR06](#kar06) — Medieval Pack - Characters | 3: 0/3/0 | 6/10 | çok | K katmana bağlı; doğrulama gerekli | 200 |
@@ -139,9 +140,9 @@ Kategori-aday açığı yalnız bu kategoride herhangi bir adayla temas eden iht
 
 | Set / ürünler | Benzersiz ihtiyaç teması | Fiyat | Kalan kapsam açığı |
 |---|---|---|---|
-| A: [KAR05](#kar05) | 1 (0 tam / 0 kısmi / 1 uyarlamayla) | 0.00 USD | 16 kategori-aday açığı: İHT-0351, İHT-0352, İHT-0353, İHT-0355, İHT-0356, İHT-0357, İHT-0358, İHT-0379, İHT-0390, İHT-0426, İHT-0428, İHT-0431, İHT-0444, İHT-0450, İHT-0455, İHT-0456 |
-| B: [KAR02](#kar02), [KAR03](#kar03), [KAR10](#kar10) | 6 (0 tam / 2 kısmi / 4 uyarlamayla) | 9.99 USD + 2.99 EUR + fiyatı doğrulanamayan KAR03 | 11 kategori-aday açığı: İHT-0351, İHT-0352, İHT-0353, İHT-0355, İHT-0356, İHT-0358, İHT-0379, İHT-0444, İHT-0450, İHT-0455, İHT-0456 |
-| C: [KAR02](#kar02), [KAR05](#kar05) | 5 (0 tam / 2 kısmi / 3 uyarlamayla) | 9.99 USD | 12 kategori-aday açığı: İHT-0351, İHT-0352, İHT-0353, İHT-0355, İHT-0356, İHT-0358, İHT-0379, İHT-0426, İHT-0444, İHT-0450, İHT-0455, İHT-0456 |
+| A: [KAR02](#kar02), [KAR05](#kar05) | 5 (0 tam / 2 kısmi / 3 uyarlamayla) | 3.99 USD | 12 kategori-aday açığı: İHT-0351, İHT-0352, İHT-0353, İHT-0355, İHT-0356, İHT-0358, İHT-0379, İHT-0426, İHT-0444, İHT-0450, İHT-0455, İHT-0456 |
+| B: [KAR02](#kar02), [KAR03](#kar03), [KAR10](#kar10) | 6 (0 tam / 2 kısmi / 4 uyarlamayla) | 3.99 USD + 2.99 EUR + fiyatı doğrulanamayan KAR03 | 11 kategori-aday açığı: İHT-0351, İHT-0352, İHT-0353, İHT-0355, İHT-0356, İHT-0358, İHT-0379, İHT-0444, İHT-0450, İHT-0455, İHT-0456 |
+| C: [KAR02](#kar02), [KAR05](#kar05) | 5 (0 tam / 2 kısmi / 3 uyarlamayla) | 3.99 USD | 12 kategori-aday açığı: İHT-0351, İHT-0352, İHT-0353, İHT-0355, İHT-0356, İHT-0358, İHT-0379, İHT-0426, İHT-0444, İHT-0450, İHT-0455, İHT-0456 |
 
 Kategori-aday açığı yalnız bu kategoride herhangi bir adayla temas eden ihtiyaç evrenine göredir; oyunun bütün eksikleri değildir. Tam oyun açıkları en sondaki listelerdedir. Set kapsamındaki kısmi satırın kalan alt parçaları, bu fark hesabı sıfır olsa bile açık kalır. A seti CC0/CC-BY dışı yeni OFL font tedarikini veya özel lisansı kendiliğinden onaylamaz.
 
@@ -192,7 +193,7 @@ Kategori-aday açığı yalnız bu kategoride herhangi bir adayla temas eden iht
 | 6 · [HYV02](#hyv02) — Animals Asset Pack | 2: 0/0/2 | 7/10 | orta | A CC0 | 0 |
 | 7 · [HYV03](#hyv03) — Farm animals set | 2: 0/2/0 | 6/10 | orta | A CC0 | 0 |
 | 8 · [HYV14](#hyv14) — Low World - Forest Animals Kit - Rigged & Animated | 1: 0/0/1 | 8/10 | az | ? Lisans teyidi gerekli | 9.99 |
-| 9 · [HYV16](#hyv16) — Dylan — Low Poly Camel | 1: 0/1/0 | 8/10 | orta | A CC-BY; sürüm teyidi gerekli | 0 |
+| 9 · [HYV16](#hyv16) — Dylan — Low Poly Camel | 1: 0/1/0 | 8/10 | orta | ? CC-BY beyanı indekslenmiş; dosya/sürüm lisansı teyidi gerekli | 0 |
 | 10 · [HYV04](#hyv04) — Free Wild Animal 3D Models | 1: 0/1/0 | 6/10 | orta | K Craftpix; koşullu | 0 |
 | 11 · [HYV15](#hyv15) — Low Poly PSX Forest Animals v1.2 update! | 1: 0/1/0 | 5/10 | orta | ? Lisans metni yok | 3 |
 | 12 · [HYV08](#hyv08) — Gobkit Free Animal Pack Vol.1 — Rigged Low-Poly Creatures (CC0) | 1: 0/1/0 | 2/10 | çok | A CC0 | 0 |
@@ -205,7 +206,7 @@ Kategori-aday açığı yalnız bu kategoride herhangi bir adayla temas eden iht
 
 | Set / ürünler | Benzersiz ihtiyaç teması | Fiyat | Kalan kapsam açığı |
 |---|---|---|---|
-| A: [HYV02](#hyv02), [HYV03](#hyv03), [HYV16](#hyv16) | 4 (0 tam / 2 kısmi / 2 uyarlamayla) | 0.00 USD | 8 kategori-aday açığı: İHT-0379, İHT-0381, İHT-0389, İHT-0402, İHT-0404, İHT-0405, İHT-0409, İHT-0529 |
+| A: [HYV02](#hyv02), [HYV03](#hyv03) | 3 (0 tam / 1 kısmi / 2 uyarlamayla) | 0.00 USD | 9 kategori-aday açığı: İHT-0379, İHT-0381, İHT-0382, İHT-0389, İHT-0402, İHT-0404, İHT-0405, İHT-0409, İHT-0529 |
 | B: [HYV11](#hyv11), [HYV14](#hyv14), [HYV16](#hyv16) | 10 (0 tam / 4 kısmi / 6 uyarlamayla) | 79.99 USD | 2 kategori-aday açığı: İHT-0383, İHT-0529 |
 | C: [HYV05](#hyv05), [HYV03](#hyv03), [HYV14](#hyv14), [HYV16](#hyv16) | 6 (0 tam / 3 kısmi / 3 uyarlamayla) | 9.99 USD | 6 kategori-aday açığı: İHT-0381, İHT-0383, İHT-0389, İHT-0402, İHT-0405, İHT-0529 |
 
@@ -216,7 +217,7 @@ Kategori-aday açığı yalnız bu kategoride herhangi bir adayla temas eden iht
 
 | Sıra / aday | İhtiyaç teması: tam / kısmi / uyarlama | Uyum | İş | Lisans | Fiyat |
 |---|---|---:|---|---|---|
-| 1 · [ESY16](#esy16) — Sorry, you have been blocked | 17: 0/8/9 | 9/10 | orta | K GDM Pro | 20 |
+| 1 · [ESY16](#esy16) — GameOver Assets — Medieval Stylized 3D Props | 17: 0/8/9 | 9/10 | orta | K GDM Pro | 20 |
 | 2 · [ESY01](#esy01) — KayKit : RPG Tools Bits | 6: 0/4/2 | 8/10 | az | A CC0 | 0 |
 | 3 · [ESY04](#esy04) — KayKit : Fantasy Weapons Bits | 4: 0/1/3 | 7/10 | orta | A CC0 | 0 |
 | 4 · [ESY02](#esy02) — KayKit : Furniture Bits | 4: 0/4/0 | 5/10 | orta | A CC0 | 0 |
@@ -325,20 +326,23 @@ Kategori-aday açığı yalnız bu kategoride herhangi bir adayla temas eden iht
 | 7 · [ORT09](#ort09) — Ambiences | 5: 0/3/2 | 8/10 | az | ? Ayrı PDF lisansı | EUR5 |
 | 8 · [ORT11](#ort11) — Ethereal Solitude - SFX Starter Pack Vol.1 | 5: 0/4/1 | 7/10 | az | K royalty-free; Limen_dev atfı | 0 |
 | 9 · [ORT12](#ort12) — COTTAGE | 3: 0/3/0 | 6/10 | orta | ? Lisans yok | EUR2.99 |
-| 10 · [ORT05](#ort05) — Free City & Nature Sounds | 2: 0/2/0 | 6/10 | orta | ? Ticari kapsam teyidi gerekli | 0 |
-| 11 · [ORT08](#ort08) — Fantasy Sound Pack | 2: 0/2/0 | 6/10 | orta | A CC-BY4 Nathan Gibson | 9.99 |
-| 12 · [ORT14](#ort14) — Free Water Stream Sounds | 1: 0/1/0 | 8/10 | az | A CC-BY4 Gregor Quendel | 0 |
-| 13 · [ORT07](#ort07) — Audio Elk / Ambience Collection | 0: 0/0/0 | 5/10 | orta | S CC-BY-SA4 | 0 |
-| 14 · [ORT03](#ort03) — PSX Ambient Pack | 0: 0/0/0 | 1/10 | çok | K ticari yorum izni | 0 |
-| 15 · [ORT13](#ort13) — Letters & Memories - Royalty Free Ambience and SFX | 0: 0/0/0 | 1/10 | çok | S CC-BY-SA4; ek ifade çelişkili | 0 |
+| 10 · [ORT17](#ort17) — Wolf, Canis Lupus, pack howls, close | 2: 0/1/1 | 9/10 | az | K Zapsplat Standard; atıflı Basic | 0 |
+| 11 · [ORT16](#ort16) — Herd of goats moving and bleating, bells jingling. | 2: 0/1/1 | 8/10 | az | K Zapsplat Standard; atıflı Basic | 0 |
+| 12 · [ORT18](#ort18) — Lamb baaing in a barn. | 2: 0/2/0 | 7/10 | az | K Zapsplat Standard; atıflı Basic | 0 |
+| 13 · [ORT05](#ort05) — Free City & Nature Sounds | 2: 0/2/0 | 6/10 | orta | ? Ticari kapsam teyidi gerekli | 0 |
+| 14 · [ORT08](#ort08) — Fantasy Sound Pack | 2: 0/2/0 | 6/10 | orta | A CC-BY4 Nathan Gibson | 9.99 |
+| 15 · [ORT14](#ort14) — Free Water Stream Sounds | 1: 0/1/0 | 8/10 | az | A CC-BY4 Gregor Quendel | 0 |
+| 16 · [ORT07](#ort07) — Audio Elk / Ambience Collection | 0: 0/0/0 | 5/10 | orta | S CC-BY-SA4 | 0 |
+| 17 · [ORT03](#ort03) — PSX Ambient Pack | 0: 0/0/0 | 1/10 | çok | K ticari yorum izni | 0 |
+| 18 · [ORT13](#ort13) — Letters & Memories - Royalty Free Ambience and SFX | 0: 0/0/0 | 1/10 | çok | S CC-BY-SA4; ek ifade çelişkili | 0 |
 
 **Alternatif setler:** A = önce açık lisans/mevcut kaynak; B = içerik/kalite ağırlıklı; C = daha küçük karma seçim. Her kategoride eksiksiz bir A seti bulunduğu iddia edilmiyor. Özellikle müzikte A seti uygun teslim kapatmıyor; yeni aday adedi uygun aday adedi değildir.
 
 | Set / ürünler | Benzersiz ihtiyaç teması | Fiyat | Kalan kapsam açığı |
 |---|---|---|---|
-| A: [S02](#s02), [ORT14](#ort14) | 5 (1 tam / 4 kısmi / 0 uyarlamayla) | 0.00 USD | 20 kategori-aday açığı: İHT-0464, İHT-0468, İHT-0469, İHT-0471, İHT-0476, İHT-0477, İHT-0478, İHT-0479, İHT-0480, İHT-0485, İHT-0486, İHT-0487, İHT-0489, İHT-0491, İHT-0494, İHT-0495, İHT-0496, İHT-0497, İHT-0511, İHT-0512 |
-| B: [ORT01](#ort01), [ORT06](#ort06), [ORT09](#ort09) | 9 (0 tam / 7 kısmi / 2 uyarlamayla) | 11.99 USD + 5.00 EUR | 16 kategori-aday açığı: İHT-0468, İHT-0469, İHT-0471, İHT-0476, İHT-0477, İHT-0478, İHT-0479, İHT-0480, İHT-0485, İHT-0486, İHT-0487, İHT-0491, İHT-0494, İHT-0495, İHT-0496, İHT-0497 |
-| C: [S02](#s02), [ORT01](#ort01), [ORT04](#ort04) | 9 (1 tam / 6 kısmi / 2 uyarlamayla) | 2.99 USD | 16 kategori-aday açığı: İHT-0464, İHT-0468, İHT-0469, İHT-0476, İHT-0477, İHT-0478, İHT-0479, İHT-0480, İHT-0486, İHT-0487, İHT-0491, İHT-0495, İHT-0496, İHT-0497, İHT-0511, İHT-0512 |
+| A: [S02](#s02), [ORT14](#ort14) | 5 (1 tam / 4 kısmi / 0 uyarlamayla) | 0.00 USD | 23 kategori-aday açığı: İHT-0464, İHT-0468, İHT-0469, İHT-0471, İHT-0476, İHT-0477, İHT-0478, İHT-0479, İHT-0480, İHT-0485, İHT-0486, İHT-0487, İHT-0488, İHT-0489, İHT-0491, İHT-0494, İHT-0495, İHT-0496, İHT-0497, İHT-0511, İHT-0512, İHT-0513, İHT-0514 |
+| B: [ORT01](#ort01), [ORT06](#ort06), [ORT09](#ort09) | 9 (0 tam / 7 kısmi / 2 uyarlamayla) | 11.99 USD + 5.00 EUR | 19 kategori-aday açığı: İHT-0468, İHT-0469, İHT-0471, İHT-0476, İHT-0477, İHT-0478, İHT-0479, İHT-0480, İHT-0485, İHT-0486, İHT-0487, İHT-0488, İHT-0491, İHT-0494, İHT-0495, İHT-0496, İHT-0497, İHT-0513, İHT-0514 |
+| C: [S02](#s02), [ORT01](#ort01), [ORT04](#ort04) | 9 (1 tam / 6 kısmi / 2 uyarlamayla) | 2.99 USD | 19 kategori-aday açığı: İHT-0464, İHT-0468, İHT-0469, İHT-0476, İHT-0477, İHT-0478, İHT-0479, İHT-0480, İHT-0486, İHT-0487, İHT-0488, İHT-0491, İHT-0495, İHT-0496, İHT-0497, İHT-0511, İHT-0512, İHT-0513, İHT-0514 |
 
 Kategori-aday açığı yalnız bu kategoride herhangi bir adayla temas eden ihtiyaç evrenine göredir; oyunun bütün eksikleri değildir. Tam oyun açıkları en sondaki listelerdedir. Set kapsamındaki kısmi satırın kalan alt parçaları, bu fark hesabı sıfır olsa bile açık kalır. A seti CC0/CC-BY dışı yeni OFL font tedarikini veya özel lisansı kendiliğinden onaylamaz.
 
@@ -353,23 +357,25 @@ Kategori-aday açığı yalnız bu kategoride herhangi bir adayla temas eden iht
 | 4 · [FOL06](#fol06) — Charcoal Sample Pack | 2: 0/2/0 | 9/10 | az | K ticari; WangleLine | 0 |
 | 5 · [FOL09](#fol09) — Door SFX | 2: 0/2/0 | 8/10 | az | ? Lisans sorusu açık | 5 |
 | 6 · [FOL15](#fol15) — Household Interior Foley – Free Sound Effects Pack (80+ Sounds) | 2: 0/2/0 | 7/10 | az | K royalty-free | 0 |
-| 7 · [FOL10](#fol10) — Game Footsteps | 1: 0/0/1 | 8/10 | az | K Epic Stock Media; tam EULA teyidi | 23.20 |
-| 8 · [FOL07](#fol07) — Card Sound Effects | 1: 0/1/0 | 7/10 | az | ? Ürün lisansı görünmedi | 9.99 |
-| 9 · [FOL11](#fol11) — Footsteps SFX Free - Walk, Run & Sneak Footstep Sampler | 1: 0/0/1 | 7/10 | az | A CC-BY4 heyheythere | 0 |
-| 10 · [FOL12](#fol12) — Footsteps - Sound Effects Pack | 1: 0/1/0 | 7/10 | az | ? Tam ticari izin arşivde | 0 |
-| 11 · [FOL02](#fol02) — Audio Elk / Foley Sessions Vol. 1 | 1: 0/1/0 | 6/10 | orta | S CC-BY-SA4 | 0 |
-| 12 · [FOL05](#fol05) — The Sounds of the Kitchen - FREE Sample Pack | 1: 0/1/0 | 5/10 | orta | K yazar yorum izni; koşullu | 0 |
-| 13 · [FOL13](#fol13) — Noisevember 24 FREE Sound Pack | 0: 0/0/0 | 3/10 | orta | ? Lisans yok | 0 |
-| 14 · [FOL03](#fol03) — Foley SFX | 0: 0/0/0 | 3/10 | çok | ? Lisans metni ayrıca | 12.96 |
-| 15 · [FOL04](#fol04) — Audio Elk / Foley Sessions - Household Foley Vol. 1 | 0: 0/0/0 | 2/10 | çok | S CC-BY-SA4 | 0 |
+| 7 · [FOL16](#fol16) — Male, single short cough 7 | 1: 1/0/0 | 9/10 | az | K Zapsplat Standard; atıflı Basic | 0 |
+| 8 · [FOL10](#fol10) — Game Footsteps | 1: 0/0/1 | 8/10 | az | K Epic Stock Media; tam EULA teyidi | 23.20 |
+| 9 · [FOL07](#fol07) — Card Sound Effects | 1: 0/1/0 | 7/10 | az | ? Ürün lisansı görünmedi | 9.99 |
+| 10 · [FOL11](#fol11) — Footsteps SFX Free - Walk, Run & Sneak Footstep Sampler | 1: 0/0/1 | 7/10 | az | A CC-BY4 heyheythere | 0 |
+| 11 · [FOL12](#fol12) — Footsteps - Sound Effects Pack | 1: 0/1/0 | 7/10 | az | ? Tam ticari izin arşivde | 0 |
+| 12 · [FOL17](#fol17) — Three month old baby boy breathing fast, babbling with cloth movements | 1: 0/1/0 | 8/10 | orta | K Zapsplat Standard; atıflı Basic | 0 |
+| 13 · [FOL02](#fol02) — Audio Elk / Foley Sessions Vol. 1 | 1: 0/1/0 | 6/10 | orta | S CC-BY-SA4 | 0 |
+| 14 · [FOL05](#fol05) — The Sounds of the Kitchen - FREE Sample Pack | 1: 0/1/0 | 5/10 | orta | K yazar yorum izni; koşullu | 0 |
+| 15 · [FOL13](#fol13) — Noisevember 24 FREE Sound Pack | 0: 0/0/0 | 3/10 | orta | ? Lisans yok | 0 |
+| 16 · [FOL03](#fol03) — Foley SFX | 0: 0/0/0 | 3/10 | çok | ? Lisans metni ayrıca | 12.96 |
+| 17 · [FOL04](#fol04) — Audio Elk / Foley Sessions - Household Foley Vol. 1 | 0: 0/0/0 | 2/10 | çok | S CC-BY-SA4 | 0 |
 
 **Alternatif setler:** A = önce açık lisans/mevcut kaynak; B = içerik/kalite ağırlıklı; C = daha küçük karma seçim. Her kategoride eksiksiz bir A seti bulunduğu iddia edilmiyor. Özellikle müzikte A seti uygun teslim kapatmıyor; yeni aday adedi uygun aday adedi değildir.
 
 | Set / ürünler | Benzersiz ihtiyaç teması | Fiyat | Kalan kapsam açığı |
 |---|---|---|---|
-| A: [S01](#s01), [FOL11](#fol11), [FOL14](#fol14) | 11 (0 tam / 7 kısmi / 4 uyarlamayla) | 0.00 USD | 6 kategori-aday açığı: İHT-0464, İHT-0472, İHT-0473, İHT-0477, İHT-0479, İHT-0480 |
-| B: [FOL09](#fol09), [FOL10](#fol10), [FOL07](#fol07), [FOL06](#fol06) | 6 (0 tam / 5 kısmi / 1 uyarlamayla) | 38.19 USD | 11 kategori-aday açığı: İHT-0472, İHT-0473, İHT-0475, İHT-0478, İHT-0479, İHT-0480, İHT-0485, İHT-0492, İHT-0499, İHT-0500, İHT-0515 |
-| C: [S01](#s01), [FOL11](#fol11), [FOL14](#fol14), [FOL06](#fol06) | 12 (0 tam / 8 kısmi / 4 uyarlamayla) | 0.00 USD | 5 kategori-aday açığı: İHT-0472, İHT-0473, İHT-0477, İHT-0479, İHT-0480 |
+| A: [S01](#s01), [FOL11](#fol11), [FOL14](#fol14) | 11 (0 tam / 7 kısmi / 4 uyarlamayla) | 0.00 USD | 8 kategori-aday açığı: İHT-0464, İHT-0472, İHT-0473, İHT-0476, İHT-0477, İHT-0479, İHT-0480, İHT-0493 |
+| B: [FOL09](#fol09), [FOL10](#fol10), [FOL07](#fol07), [FOL06](#fol06) | 6 (0 tam / 5 kısmi / 1 uyarlamayla) | 38.19 USD | 13 kategori-aday açığı: İHT-0472, İHT-0473, İHT-0475, İHT-0476, İHT-0478, İHT-0479, İHT-0480, İHT-0485, İHT-0492, İHT-0493, İHT-0499, İHT-0500, İHT-0515 |
+| C: [S01](#s01), [FOL11](#fol11), [FOL14](#fol14), [FOL06](#fol06) | 12 (0 tam / 8 kısmi / 4 uyarlamayla) | 0.00 USD | 7 kategori-aday açığı: İHT-0472, İHT-0473, İHT-0476, İHT-0477, İHT-0479, İHT-0480, İHT-0493 |
 
 Kategori-aday açığı yalnız bu kategoride herhangi bir adayla temas eden ihtiyaç evrenine göredir; oyunun bütün eksikleri değildir. Tam oyun açıkları en sondaki listelerdedir. Set kapsamındaki kısmi satırın kalan alt parçaları, bu fark hesabı sıfır olsa bile açık kalır. A seti CC0/CC-BY dışı yeni OFL font tedarikini veya özel lisansı kendiliğinden onaylamaz.
 
@@ -653,20 +659,21 @@ QC Medieval Cast: Full 23; tüccar, demirci, fırıncı, çoban, sütçü, muhaf
 - Pakette kullanılabilir oran: Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok.
 
 <a id="kar02"></a>
-#### KAR02 — [LOWPO: Villagers NPC – Low Poly Medieval Character Pack](https://assetstore.unity.com/packages/3d/characters/lowpo-villagers-npc-low-poly-medieval-character-pack-379078)
+#### KAR02 — [Standout 7 — LOWPO Villager NPC (üretici itch sürümü)](https://standout7.itch.io/villagernpc)
 
-LOWPO Villagers: 7 rigli rol: demirci, avcı, çocuk, çiftçi, oduncu, yaşlı, tüccar; 3 prop çekiç/bıçak/sopa. FBX ve 256² atlas, yaklaşık 1500 poligon; animasyon yok. Single Entity ve Extension Asset alanları çelişkili.
+Üreticinin itch sayfası ayrıca açıldı: Free demirci/avcı/çocuk ve üç prop; Paid 3.99 USD ile çiftçi/oduncu/yaşlı/tüccar ve balta/çapa ekleniyor. Ortak 256² atlas, humanoid rig, animasyon yok. Itch metadata CC0; Unity 9.99 USD özel lisanslı kanalından farklı edinim yolu. Kapsam Paid yedi kişi içindir, ücretsiz üçlüde yaşlı yok. Çocuk rig düzeltmesi 8 Ocak günlüğünde kayıtlı.
 
-- Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 9.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Unity Standard; koltuk türü koşullu**.
-- Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: Koşullu: mesh biçimi ve kaynak ihracı teyit edilmeli.
+- Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 3.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC0 (üretici itch sürümü); Unity mağazası ayrı şartlı**.
+- Biçim: Free FBX; Paid FBX/OBJ/GLB/glTF; Blend Source ayrı. Godot 4: Paid GLB/glTF doğrudan aday; Free FBX ufbx ile import; rig/ölçek/malzeme kabulü gerekli.
 - Stil/uyum: Stilize/low-poly; insan oranı, yaş ve dönem kıyafeti kabulü; **8/10**. Uyarlama işi: **orta**; somut nedeni yukarıdaki içerik sınırında.
 - İhtiyaç teması: **4** = 0 tam + 2 kısmi + 2 uyarlamayla. **Tam:** —. **Kısmi:** İHT-0390, İHT-0431. **Uyarlama:** İHT-0357, İHT-0428.
 - Pakette kullanılabilir oran: Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok.
+- Karşılaştırılan [diğer satış kanalı](https://assetstore.unity.com/packages/3d/characters/lowpo-villagers-npc-low-poly-medieval-character-pack-379078). Aynı ürün ikinci aday olarak sayılmadı.
 
 <a id="kar03"></a>
 #### KAR03 — [Medieval Village NPC Pack | 6 Rigged Low-Poly Characters | Animated](https://www.fab.com/listings/ee501952-95f3-4eb6-a01c-fe7394fd6f64?lang=en)
 
-DayDrift NPC: 6 rigli figür; muhafız, kadın/erkek köylü, demirci, gezgin tüccar, kadın otacı. 9–13 bin üçgen, 2K albedo/normal; Idle/Walk/Run/Attack/Death. FBX/Blend. Mağaza fiyat/lisans seçimi okunamıyor; AI üretimi işaretli.
+DayDrift NPC: 6 rigli figür; muhafız, kadın/erkek köylü, demirci, gezgin tüccar, kadın otacı. 9–13 bin üçgen, 2 K albedo/normal; Idle/Walk/Run/Attack/Death. FBX/Blend. Mağaza fiyat/lisans seçimi okunamıyor; AI üretimi işaretli.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: ? (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Fab lisans seçimi boş**.
 - Biçim: FBX, Blend, PNG. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -710,7 +717,7 @@ Jama Medieval Characters: 3 rigli yaya şövalye, 3 rigli atlı, 1 rigli at; 30 
 <a id="kar07"></a>
 #### KAR07 — [3D Medieval Fantasy Imperial Messenger Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations](https://les2ifsgames.itch.io/3d-medieval-imperial-messenger-character-rigged-pack-3d-model-with-walk-run-jump)
 
-Les2 Imperial Messenger: tek kadın haberci, 50 bin üçgen; FBX/GLB/Blend; walk/run/kick/die/jump. Köy low-poly bütçesine göre ağır; adında messenger olması tarihî giysiyi doğrulamaz.
+Les 2 Imperial Messenger: tek kadın haberci, 50 bin üçgen; FBX/GLB/Blend; walk/run/kick/die/jump. Köy low-poly bütçesine göre ağır; adında messenger olması tarihî giysiyi doğrulamaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: EUR2.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; ham paylaşım yasak**.
 - Biçim: FBX, GLB, Blend. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -721,7 +728,7 @@ Les2 Imperial Messenger: tek kadın haberci, 50 bin üçgen; FBX/GLB/Blend; walk
 <a id="kar08"></a>
 #### KAR08 — [3D Medieval Diplomat of the Kingdom Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations](https://les2ifsgames.itch.io/3d-medieval-diplomat-character-rigged-pack-3d-model-with-walk-run-jump-kick-die)
 
-Les2 Diplomat: tek erkek elçi, 50 bin üçgen ve aynı beş klip. Konuşma/bekleme klibi belirtilmiyor; kıyafet ve LOD gerekir.
+Les 2 Diplomat: tek erkek elçi, 50 bin üçgen ve aynı beş klip. Konuşma/bekleme klibi belirtilmiyor; kıyafet ve LOD gerekir.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: EUR2.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; ham paylaşım yasak**.
 - Biçim: FBX, GLB, Blend. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -732,7 +739,7 @@ Les2 Diplomat: tek erkek elçi, 50 bin üçgen ve aynı beş klip. Konuşma/bekl
 <a id="kar09"></a>
 #### KAR09 — [3D Medieval Royal Tax Collector Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations](https://les2ifsgames.itch.io/3d-medieval-royal-tax-collector-character-rigged-pack-3d-model-with-walk-run-jum)
 
-Les2 Tax Collector: tek tahsildar, 50 bin üçgen ve aynı beş klip. Rol adayını kapatır, Anadolu başlığı/kaftanı ve görüşme pozu uyarlanmalı.
+Les 2 Tax Collector: tek tahsildar, 50 bin üçgen ve aynı beş klip. Rol adayını kapatır, Anadolu başlığı/kaftanı ve görüşme pozu uyarlanmalı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: EUR2.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; ham paylaşım yasak**.
 - Biçim: FBX, GLB, Blend. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -743,7 +750,7 @@ Les2 Tax Collector: tek tahsildar, 50 bin üçgen ve aynı beş klip. Rol adayı
 <a id="kar10"></a>
 #### KAR10 — [3D Medieval Wise Old man Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations](https://les2ifsgames.itch.io/3d-medieval-old-man-character-rigged-pack-3d-model-with-walk-run-jump-kick-die-a)
 
-Les2 Wise Old Man: tek yaşlı, 50 bin üçgen; yaşlı yürüyüşü yerine standart walk/run/kick/die/jump. Yaş görünümü gövde adaylığı sağlar, ses ve yüz jesti sağlamaz.
+Les 2 Wise Old Man: tek yaşlı, 50 bin üçgen; yaşlı yürüyüşü yerine standart walk/run/kick/die/jump. Yaş görünümü gövde adaylığı sağlar, ses ve yüz jesti sağlamaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: EUR2.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; ham paylaşım yasak**.
 - Biçim: FBX, GLB, Blend. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -754,7 +761,7 @@ Les2 Wise Old Man: tek yaşlı, 50 bin üçgen; yaşlı yürüyüşü yerine sta
 <a id="kar11"></a>
 #### KAR11 — [3D Medieval Blacksmith Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations](https://les2ifsgames.itch.io/3d-medieval-blacksmith-character-rigged-pack-3d-model-with-walk-run-jump-kick-di)
 
-Les2 Blacksmith: tek demirci, 50 bin üçgen; çalışma/çekiç klibi yok, yalnız ortak beş hareket. Usta grubunun tek üyesine aday.
+Les 2 Blacksmith: tek demirci, 50 bin üçgen; çalışma/çekiç klibi yok, yalnız ortak beş hareket. Usta grubunun tek üyesine aday.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: EUR2.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; ham paylaşım yasak**.
 - Biçim: FBX, GLB, Blend. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -765,7 +772,7 @@ Les2 Blacksmith: tek demirci, 50 bin üçgen; çalışma/çekiç klibi yok, yaln
 <a id="kar12"></a>
 #### KAR12 — [3D Medieval Priest Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations](https://les2ifsgames.itch.io/3d-priest-character-rigged-pack-3d-model-with-walk-run-jump-kick-die-animations)
 
-Les2 Priest: tek rahip, 50 bin üçgen ve ortak beş klip. Rahip kıyafetini derviş diye kullanmak doğru değil; gövde tamamen yeniden giydirilmedikçe eşleşme yok.
+Les 2 Priest: tek rahip, 50 bin üçgen ve ortak beş klip. Rahip kıyafetini derviş diye kullanmak doğru değil; gövde tamamen yeniden giydirilmedikçe eşleşme yok.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: EUR2.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; ham paylaşım yasak**.
 - Biçim: FBX, GLB, Blend. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -776,7 +783,7 @@ Les2 Priest: tek rahip, 50 bin üçgen ve ortak beş klip. Rahip kıyafetini der
 <a id="kar13"></a>
 #### KAR13 — [3D Medieval Soldier Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations](https://les2ifsgames.itch.io/3d-medieval-soldier-character-rigged-pack-3d-model-with-walk-run-jump-kick-die)
 
-Les2 Soldier: tek asker, 50 bin üçgen, ortak beş klip. Zırh/başlık ve malzeme değiştirme gerekir; özel çavuş rütbesi hazır sayılmaz.
+Les 2 Soldier: tek asker, 50 bin üçgen, ortak beş klip. Zırh/başlık ve malzeme değiştirme gerekir; özel çavuş rütbesi hazır sayılmaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: EUR2.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; ham paylaşım yasak**.
 - Biçim: FBX, GLB, Blend. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -787,7 +794,7 @@ Les2 Soldier: tek asker, 50 bin üçgen, ortak beş klip. Zırh/başlık ve malz
 <a id="kar14"></a>
 #### KAR14 — [3D Medieval Farmer Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations](https://les2ifsgames.itch.io/3d-medieval-farmer-character-rigged-pack-3d-model-with-walk-run-jump-kick-die-an)
 
-Les2 Farmer: tek erkek çiftçi, 50 bin üçgen; orak/tarla işi veya mesleğe özel alet animasyonu yok. Usta/tacir ve eş rollerine uydurulmadı.
+Les 2 Farmer: tek erkek çiftçi, 50 bin üçgen; orak/tarla işi veya mesleğe özel alet animasyonu yok. Usta/tacir ve eş rollerine uydurulmadı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: EUR2.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; ham paylaşım yasak**.
 - Biçim: FBX, GLB, Blend. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -798,7 +805,7 @@ Les2 Farmer: tek erkek çiftçi, 50 bin üçgen; orak/tarla işi veya mesleğe �
 <a id="kar15"></a>
 #### KAR15 — [3D Medieval Fantasy Female Innkeeper Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations](https://les2ifsgames.itch.io/3d-medieval-fantasy-female-innkeeper-character-rigged-pack-3d-model-with-walk-ru)
 
-Les2 Female Innkeeper: tek kadın hancı, 50 bin üçgen; ortak beş klip. Eş gövdesine aday, kıyafet değişimi/LOD ve ayrı diyalog klipleri gerekir.
+Les 2 Female Innkeeper: tek kadın hancı, 50 bin üçgen; ortak beş klip. Eş gövdesine aday, kıyafet değişimi/LOD ve ayrı diyalog klipleri gerekir.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: EUR2.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; ham paylaşım yasak**.
 - Biçim: FBX, GLB, Blend. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -812,7 +819,7 @@ Les2 Female Innkeeper: tek kadın hancı, 50 bin üçgen; ortak beş klip. Eş g
 <a id="anm01"></a>
 #### ANM01 — [Animation Pack - Blacksmith](https://mocapcentral.com/products/mocap-studio-series-blacksmith)
 
-Blacksmith: tam listede 45 benzersiz klip; Anvil 7, Forge 5, GrindingStone 3. Anvil_02_Hit1/03_Hit2 çekiç ihtiyacına aday. Forge, ekmek fırını küreği değildir; ısınma da sayılmaz.
+Blacksmith: tam listede 45 benzersiz klip; Anvil 7, Forge 5, GrindingStone 3. Anvil_02_Hit 1/03_Hit 2 çekiç ihtiyacına aday. Forge, ekmek fırını küreği değildir; ısınma da sayılmaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 39.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K MoCap Central**.
 - Biçim: FBX raw + Unity/UE; 30 FPS, klip listesi ayrı açıldı. Godot 4: FBX varsa SkeletonProfileHumanoid/BoneMap ve retarget; bu tur import yapılmadı.
@@ -872,7 +879,7 @@ Dungeon Life: listede 825; TorchHold 44, StandLook 10, Spear/Guard ve SwordShiel
 <a id="anm06"></a>
 #### ANM06 — [Animation Pack - Fix & Build](https://mocapcentral.com/products/mocap-studio-series-fix-build-pack)
 
-Fix & Build: listede 156; HammerTable, KneelHammer, Pickaxe, Axe, Shovel. Matkap/anahtar/makine işleri elenir. Küreme hareketi model olmadan MEV05 grubunu tam kapatmaz; fırın küreği temasına uyarlama ister.
+Fix & Build: listede 156; HammerTable, KneelHammer, Pickaxe, Axe, Shovel. Matkap/anahtar/makine işleri elenir. Küreme hareketi model olmadan MEV 05 grubunu tam kapatmaz; fırın küreği temasına uyarlama ister.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 44.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K MoCap Central**.
 - Biçim: FBX raw + Unity/UE; 30 FPS, klip listesi ayrı açıldı. Godot 4: FBX varsa SkeletonProfileHumanoid/BoneMap ve retarget; bu tur import yapılmadı.
@@ -992,7 +999,7 @@ Village Life: ürün 314, açılan listede 295 ad; KneesBeg, CarryBasket, CarryI
 <a id="anm16"></a>
 #### ANM16 — [Carnegie Mellon University - CMU Graphics Lab - motion capture library](http://mocap.cs.cmu.edu/)
 
-CMU:2605trial,6kategori23altkategori;ASF/AMC/C3D,haricîBVH dönüşümleri. Ticari bitmiş ürüne izin,hamveri yeniden satılamaz;CC0değil. Parmaklar gerçek yakalanmıyor,el/ayak gürültüsü var;tamdosya taraması yapılmadı.
+CMU:2605 trial,6 kategori 23 altkategori;ASF/AMC/C 3 D,haricîBVH dönüşümleri. Ticari bitmiş ürüne izin,hamveri yeniden satılamaz;CC 0 değil. Parmaklar gerçek yakalanmıyor,el/ayak gürültüsü var;tamdosya taraması yapılmadı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K CMU özel ücretsiz izin**.
 - Biçim: ASF/AMC/C3D; BVH haricî dönüşüm. Godot 4: FBX varsa SkeletonProfileHumanoid/BoneMap ve retarget; bu tur import yapılmadı.
@@ -1003,7 +1010,7 @@ CMU:2605trial,6kategori23altkategori;ASF/AMC/C3D,haricîBVH dönüşümleri. Tic
 <a id="anm17"></a>
 #### ANM17 — [Kaynak](https://actorcore.reallusion.com/3d-motion?asset=studio-mocap-city-life)
 
-ActorCore City Life:travel/chat/walk/interaction yanında telefon;99USD,FBX/BVHticari. İsimli altklipler uygulamada;moderntelefonlar elenir,genelkonuşma/yürüme kısmi.
+ActorCore City Life:travel/chat/walk/interaction yanında telefon;99 USD,FBX/BVHticari. İsimli altklipler uygulamada;moderntelefonlar elenir,genelkonuşma/yürüme kısmi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Reallusion Standard**.
 - Biçim: FBX, BVH. Godot 4: FBX varsa SkeletonProfileHumanoid/BoneMap ve retarget; bu tur import yapılmadı.
@@ -1014,7 +1021,7 @@ ActorCore City Life:travel/chat/walk/interaction yanında telefon;99USD,FBX/BVHt
 <a id="anm18"></a>
 #### ANM18 — [Getting Started: Rokoko Studio Motion Library – Rokoko](https://support.rokoko.com/hc/en-us/articles/4410021327121-Getting-Started-Rokoko-Studio-Motion-Library)
 
-Rokoko Motion Library:güncel destek sayfası binlerceklip,ücretsizörnekler ve3–20USD/klip. FBXyalnıziskelet;gövde dahil değil. Hesap/Studioiçinde ad ve lisans seçimi gerekir;belirli ısınma/yağmur klibi bulunmuş sayılmaz.
+Rokoko Motion Library:güncel destek sayfası binlerceklip,ücretsizörnekler ve 3–20 USD/klip. FBXyalnıziskelet;gövde dahil değil. Hesap/Studioiçinde ad ve lisans seçimi gerekir;belirli ısınma/yağmur klibi bulunmuş sayılmaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: ? (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Rokoko; klip lisansı ayrıca**.
 - Biçim: FBX (iskelet hareketi). Godot 4: FBX varsa SkeletonProfileHumanoid/BoneMap ve retarget; bu tur import yapılmadı.
@@ -1116,7 +1123,7 @@ Gobkit: 10 GLB; fenerbalığı, yarasa, corgi, ördek, suaygırı, denizanası, 
 <a id="hyv09"></a>
 #### HYV09 — [Low Poly Animals](https://mordrag.itch.io/low-poly-animals)
 
-Mordrag Animals: Blend teslimi ve CC0 var, fakat yazılı tür/rig/klip listesi yok. Hayvan adı tahmin edilmedi; kapsama sıfır, tedarik öncesi içerik dökümü istenir.
+Mordrag Animals: Blend teslimi ve CC 0 var, fakat yazılı tür/rig/klip listesi yok. Hayvan adı tahmin edilmedi; kapsama sıfır, tedarik öncesi içerik dökümü istenir.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC0**.
 - Biçim: Blend. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -1182,7 +1189,7 @@ Low World Forest: 8 rigli mesh; kurt 1556 yüz, 36 toplam klip. Kurtta idle/walk
 <a id="hyv15"></a>
 #### HYV15 — [Low Poly PSX Forest Animals v1.2 update!](https://puszke.itch.io/low-poly-ps1-forest-animals)
 
-PS1 Forest: geyik, karaca, tilki ve üç kurt; güncellemeyle kuş/sincap. Rigli FBX/Blend; belirli walk/run klibi listelenmemiş, kurt grubu kısmi.
+PS 1 Forest: geyik, karaca, tilki ve üç kurt; güncellemeyle kuş/sincap. Rigli FBX/Blend; belirli walk/run klibi listelenmemiş, kurt grubu kısmi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 3 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Lisans metni yok**.
 - Biçim: FBX, Blend. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -1193,9 +1200,9 @@ PS1 Forest: geyik, karaca, tilki ve üç kurt; güncellemeyle kuş/sincap. Rigli
 <a id="hyv16"></a>
 #### HYV16 — [Dylan — Low Poly Camel](https://sketchfab.com/3d-models/low-poly-camel-e2571167e3d846e59769b61913f1de64)
 
-Dylan Low Poly Camel:4.2bin üçgen/2.3binvertex,indirilebilir CC Attribution. Rig/klip belirtilmedi; kervan devesi meshine kısmi aday. Sketchfab sayfası açıldı; kaynak indirme biçimi hesap akışında teyit edilmeli.
+Dylan Low Poly Camel:4.2 bin üçgen/2.3 binvertex,indirilebilir CC Attribution. Rig/klip belirtilmedi; kervan devesi meshine kısmi aday. Sketchfab sayfası açıldı; kaynak indirme biçimi hesap akışında teyit edilmeli.
 
-- Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC-BY; sürüm teyidi gerekli**.
+- Kaynak durumu: Doğrudan sınırlı HTML 200; birincil arama içeriği görüldü, son web açılışı 403; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? CC-BY beyanı indekslenmiş; dosya/sürüm lisansı teyidi gerekli**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: Koşullu: mesh biçimi ve kaynak ihracı teyit edilmeli.
 - Stil/uyum: Low-poly/stilize; tür ve klip ayrı kabul; **8/10**. Uyarlama işi: **orta**; somut nedeni yukarıdaki içerik sınırında.
 - İhtiyaç teması: **1** = 0 tam + 1 kısmi + 0 uyarlamayla. **Tam:** —. **Kısmi:** İHT-0382. **Uyarlama:** —.
@@ -1370,9 +1377,9 @@ Stone Well: 998 üçgen, 1024² renk/normal/pürüz haritaları; FBX/OBJ/Blend. 
 - Pakette kullanılabilir oran: Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok.
 
 <a id="esy16"></a>
-#### ESY16 — [Sorry, you have been blocked](https://www.gamedevmarket.net/asset/medieval-stylized-3d-props)
+#### ESY16 — [GameOver Assets — Medieval Stylized 3D Props](https://www.gamedevmarket.net/asset/medieval-stylized-3d-props)
 
-GameOver Medieval Stylized Props:66 mesh; örs,çekiç,balta,kova,un torbası,sandık,masa,sıra,meşale,kuyu,ahşap parçalar. FBX/PNG ve30bonusSFX; sikke/testere/demirci sesleri.20USD ProLicence; kabak/karpuz gibi dönem dışı ürünler seçilmez.
+GameOver Medieval Stylized Props:66 mesh; örs,çekiç,balta,kova,un torbası,sandık,masa,sıra,meşale,kuyu,ahşap parçalar. FBX/PNG ve 30 bonusSFX; sikke/testere/demirci sesleri.20 USD ProLicence; kabak/karpuz gibi dönem dışı ürünler seçilmez.
 
 - Kaynak durumu: Web aracı açıldı; doğrudan HTML 403; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 20 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K GDM Pro**.
 - Biçim: FBX, PNG; bonus SFX biçimi belirtilmemiş. Godot 4: GLB/glTF doğrudan aday; FBX import/Blend→GLB; ölçek, malzeme ve rig kabulü gerekli.
@@ -1452,7 +1459,7 @@ Toffee Mini Medieval:32×32 tek sayfa;Free kişisel, Paid ticari. Öğelerin tam
 <a id="ui06"></a>
 #### UI06 — [Dark Ages UI - Pixel Art Asset Pack](https://hypnobius.itch.io/dark-ages-ui)
 
-Dark Ages UI:25 öğe,4 menü çerçevesi autotile, normal/hover buton, scrollbar/statbar,4 küçük ikon ve süs. PNG32×32;pressed/disabled belirtilmiyor. Ticari izni var, ham paylaşım yasak.
+Dark Ages UI:25 öğe,4 menü çerçevesi autotile, normal/hover buton, scrollbar/statbar,4 küçük ikon ve süs. PNG 32×32;pressed/disabled belirtilmiyor. Ticari izni var, ham paylaşım yasak.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Hypnobius**.
 - Biçim: PNG. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1463,7 +1470,7 @@ Dark Ages UI:25 öğe,4 menü çerçevesi autotile, normal/hover buton, scrollba
 <a id="ui07"></a>
 #### UI07 — [6000 Fantasy Icons](https://poneti.itch.io/6000-fantasy-icons)
 
-Poneti6142:elle boyalı256²PNG;1170meslek/üretim,1715skill,1019silah,1047zırh,500medieval,105yapımalzemesi,537avatar. Büyü/ork/undead elenir;wood/stone/metal/roof/bench sınıfı açık, özgünCHRportreleri değil.
+Poneti 6142:elle boyalı 256²PNG;1170 meslek/üretim,1715 skill,1019 silah,1047 zırh,500 medieval,105 yapımalzemesi,537 avatar. Büyü/ork/undead elenir;wood/stone/metal/roof/bench sınıfı açık, özgünCHRportreleri değil.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 9.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; AI eğitimi yasak**.
 - Biçim: PNG. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1474,7 +1481,7 @@ Poneti6142:elle boyalı256²PNG;1170meslek/üretim,1715skill,1019silah,1047zırh
 <a id="ui08"></a>
 #### UI08 — [5600+ Ultimate Pixel Art Fantasy RPG Icon Pack](https://clockworkraven.itch.io/5600-ultimate-pixel-art-fantasy-rpg-icon-pack)
 
-Clockwork5616:tekil PNG+sheet;malzeme, araç, kürek, kumsaati, odun, deri, cevher vb. Renk varyantları benzersiz nesne sayılmaz;pixel stili boyalı ikonla aynı değil. Özel ticari izin.
+Clockwork 5616:tekil PNG+sheet;malzeme, araç, kürek, kumsaati, odun, deri, cevher vb. Renk varyantları benzersiz nesne sayılmaz;pixel stili boyalı ikonla aynı değil. Özel ticari izin.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 20 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Clockwork Raven**.
 - Biçim: PNG. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1485,7 +1492,7 @@ Clockwork5616:tekil PNG+sheet;malzeme, araç, kürek, kumsaati, odun, deri, cevh
 <a id="ui09"></a>
 #### UI09 — [Free Medieval Fantasy UI Pack](https://kibyra.itch.io/free-medieval-fantasy-ui-pack)
 
-Kibyra208:32×32/64×32 saydamPNG, düğme, menü, ikon, HUD/dekor. Ücretsiz ticari amaCC0değil;tekil dört buton hali ve9-slice listesi yok.
+Kibyra 208:32×32/64×32 saydamPNG, düğme, menü, ikon, HUD/dekor. Ücretsiz ticari amaCC 0 değil;tekil dört buton hali ve 9-slice listesi yok.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ücretsiz ticari**.
 - Biçim: PNG. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1496,7 +1503,7 @@ Kibyra208:32×32/64×32 saydamPNG, düğme, menü, ikon, HUD/dekor. Ücretsiz ti
 <a id="ui10"></a>
 #### UI10 — [Assets: UI RPG Game Interface [Lite Version]](https://wenrexa.itch.io/werdanta03)
 
-Werdanta03:59 saydamPNG ve katmanlı düzenlenebilirPSD;ikon, pencere, switch, panel, bar, menü. MetadataCC0,4.35USDkampanya. Tarihîmalzemeye uyarlama;aktif buton hallerini varsaymadım.
+Werdanta 03:59 saydamPNG ve katmanlı düzenlenebilirPSD;ikon, pencere, switch, panel, bar, menü. MetadataCC 0,4.35 USDkampanya. Tarihîmalzemeye uyarlama;aktif buton hallerini varsaymadım.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 4.35 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC0**.
 - Biçim: PNG, PSD. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1507,7 +1514,7 @@ Werdanta03:59 saydamPNG ve katmanlı düzenlenebilirPSD;ikon, pencere, switch, p
 <a id="ui11"></a>
 #### UI11 — [Fantasy Game UI + icon collection](https://sungraphica.itch.io/fantasy-game-ui-and-icon-collection)
 
-SunGraphica:244altınikon+UI;menü/ayar/mapselector/itemselector/quest. PNG720p/1080p/4K, ikon128–1024;EPS/AI/PDFkaynak. SunGraphicaatıfveözel ticari izin, parlakaltın yeniden boyanmalı.
+SunGraphica:244 altınikon+UI;menü/ayar/mapselector/itemselector/quest. PNG 720 p/1080 p/4 K, ikon 128–1024;EPS/AI/PDFkaynak. SunGraphicaatıfveözel ticari izin, parlakaltın yeniden boyanmalı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K SunGraphica atfı**.
 - Biçim: PNG. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1518,7 +1525,7 @@ SunGraphica:244altınikon+UI;menü/ayar/mapselector/itemselector/quest. PNG720p/
 <a id="ui12"></a>
 #### UI12 — [Fantasy RPG UI Kit — Free](https://anastasiiakud.itch.io/fantasy-game-ui-rpg)
 
-Anastasiia FantasyRPG:87MBZIP, AI-assisted grafik. Açıklama/içerik/lisans yazılı değil;resimden bütün öğeleri ve hakları uydurmadım. Kapsama sıfır.
+Anastasiia FantasyRPG:87 MBZIP, AI-assisted grafik. Açıklama/içerik/lisans yazılı değil;resimden bütün öğeleri ve hakları uydurmadım. Kapsama sıfır.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Lisans ve içerik yok**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1529,7 +1536,7 @@ Anastasiia FantasyRPG:87MBZIP, AI-assisted grafik. Açıklama/içerik/lisans yaz
 <a id="ui13"></a>
 #### UI13 — [Free Fantasy Game GUI](https://pzuh.itch.io/free-fantasy-game-gui)
 
-PzUH FantasyGUI:40++buton, pencere/ikon;CDR, SVG, saydamPNG. Yazar ticari kullanıma yorumda izin veriyor;dört butonhali ve9-slice özel hüküm yok. Renk değiştirmeye uygun vektör taban.
+PzUH FantasyGUI:40++buton, pencere/ikon;CDR, SVG, saydamPNG. Yazar ticari kullanıma yorumda izin veriyor;dört butonhali ve 9-slice özel hüküm yok. Renk değiştirmeye uygun vektör taban.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K yazar ticari izni; koşullu**.
 - Biçim: PNG, SVG. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1540,7 +1547,7 @@ PzUH FantasyGUI:40++buton, pencere/ikon;CDR, SVG, saydamPNG. Yazar ticari kullan
 <a id="ui14"></a>
 #### UI14 — [Pixel Adventure Book UI: Fantasy RPG Kit](https://indigolay.itch.io/pixel-adventure-book-ui-fantasy-rpg-kit)
 
-PixelAdventureBook:183öğe;72UI,96ikon, kalan sayfa bileşenleri.17buton,21control,4panel,8tab;9-slice uygulanmış;PNGkaynak9USDmetni/9.99USDödeme çelişkisi. Unityscript Godot’a taşınmaz.
+PixelAdventureBook:183 öğe;72 UI,96 ikon, kalan sayfa bileşenleri.17 buton,21 control,4 panel,8 tab;9-slice uygulanmış;PNGkaynak 9 USDmetni/9.99 USDödeme çelişkisi. Unityscript Godot’a taşınmaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 9.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; ham paylaşım yasak**.
 - Biçim: PNG. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1551,7 +1558,7 @@ PixelAdventureBook:183öğe;72UI,96ikon, kalan sayfa bileşenleri.17buton,21cont
 <a id="ui15"></a>
 #### UI15 — [Fantasy Map Assets Pack Lite](https://amanz.itch.io/fantasy-map-assets-pack-lite)
 
-FantasyMapLite:paperbase, overlay, topography/water, brush, buildingicons, island/mountain/tree, PSD.512–3840px;CC-BY4. Özgün oyun haritası değil, birleştirme tabanı.
+FantasyMapLite:paperbase, overlay, topography/water, brush, buildingicons, island/mountain/tree, PSD.512–3840 px;CC-BY 4. Özgün oyun haritası değil, birleştirme tabanı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC-BY4 Amanz**.
 - Biçim: PSD. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1562,7 +1569,7 @@ FantasyMapLite:paperbase, overlay, topography/water, brush, buildingicons, islan
 <a id="ui16"></a>
 #### UI16 — [notoserif](https://github.com/google/fonts/tree/main/ofl/notoserif)
 
-Noto Serif: OFL1.1 ve resmî METADATA latin-ext doğrulandı. Değişken TTF, sade/okunaklı gövde alternatifi; gerçek Türkçe glif ve küçük ölçü testi yapılmadı.
+Noto Serif: OFL 1.1 ve resmî METADATA latin-ext doğrulandı. Değişken TTF, sade/okunaklı gövde alternatifi; gerçek Türkçe glif ve küçük ölçü testi yapılmadı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **O OFL1.1**.
 - Biçim: TTF; resmî METADATA/OFL metni açıldı. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1573,7 +1580,7 @@ Noto Serif: OFL1.1 ve resmî METADATA latin-ext doğrulandı. Değişken TTF, sa
 <a id="ui17"></a>
 #### UI17 — [ebgaramond](https://github.com/google/fonts/tree/main/ofl/ebgaramond)
 
-EB Garamond: OFL1.1, Latin-ext ve normal/italik değişken TTF; uzun metne edebî alternatif. Mevcut Alegreya ile birlikte üç gövde fontu karıştırılmaz.
+EB Garamond: OFL 1.1, Latin-ext ve normal/italik değişken TTF; uzun metne edebî alternatif. Mevcut Alegreya ile birlikte üç gövde fontu karıştırılmaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **O OFL1.1**.
 - Biçim: TTF; resmî METADATA/OFL metni açıldı. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1584,7 +1591,7 @@ EB Garamond: OFL1.1, Latin-ext ve normal/italik değişken TTF; uzun metne edeb�
 <a id="ui18"></a>
 #### UI18 — [crimsonpro](https://github.com/google/fonts/tree/main/ofl/crimsonpro)
 
-Crimson Pro: OFL1.1, Latin-ext, 200–900 ağırlık normal/italik TTF. Panel açıklamasında okunaklı aday, oyun fontu değiştirilmedi.
+Crimson Pro: OFL 1.1, Latin-ext, 200–900 ağırlık normal/italik TTF. Panel açıklamasında okunaklı aday, oyun fontu değiştirilmedi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **O OFL1.1**.
 - Biçim: TTF; resmî METADATA/OFL metni açıldı. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1595,7 +1602,7 @@ Crimson Pro: OFL1.1, Latin-ext, 200–900 ağırlık normal/italik TTF. Panel a�
 <a id="ui19"></a>
 #### UI19 — [almendra](https://github.com/google/fonts/tree/main/ofl/almendra)
 
-Almendra: OFL1.1, Latin-ext; süslü tarihî başlık ailesi. Uzun diyalogta değil, tek başlık ailesi olarak denenmeli.
+Almendra: OFL 1.1, Latin-ext; süslü tarihî başlık ailesi. Uzun diyalogta değil, tek başlık ailesi olarak denenmeli.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **O OFL1.1**.
 - Biçim: TTF; resmî METADATA/OFL metni açıldı. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1606,7 +1613,7 @@ Almendra: OFL1.1, Latin-ext; süslü tarihî başlık ailesi. Uzun diyalogta de�
 <a id="ui20"></a>
 #### UI20 — [Metal 032](https://ambientcg.com/view?id=Metal032)
 
-ambientCG Metal032: gri/düz prosedürel PBR, 1K–8K PNG/JPG haritalar. CC0 açık; demirin albedosuna aday, el boyaması ve eskime izi için uyarlama gerekiyor.
+ambientCG Metal 032: gri/düz prosedürel PBR, 1 K–8 K PNG/JPG haritalar. CC 0 açık; demirin albedosuna aday, el boyaması ve eskime izi için uyarlama gerekiyor.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC0**.
 - Biçim: PNG. Godot 4: PNG/SVG→Texture2D/StyleBoxTexture; font TTF/OTF→FontFile; tema ve Türkçe kontrolü gerekli.
@@ -1620,7 +1627,7 @@ ambientCG Metal032: gri/düz prosedürel PBR, 1K–8K PNG/JPG haritalar. CC0 aç
 <a id="vfx01"></a>
 #### VFX01 — [Brackeys' VFX Bundle](https://brackeysgames.itch.io/brackeys-vfx-bundle)
 
-Brackeys VFX: Kenney/Picster/Thomas Iché/CodeManu kaynaklarından dokular, flipbook ve spritesheet; CC0 ve Godot örneği. Alt listesi sayfada yok; duman/kıvılcım şekli tek tek doğrulanmadan hepsi tam sayılmaz.
+Brackeys VFX: Kenney/Picster/Thomas Iché/CodeManu kaynaklarından dokular, flipbook ve spritesheet; CC 0 ve Godot örneği. Alt listesi sayfada yok; duman/kıvılcım şekli tek tek doğrulanmadan hepsi tam sayılmaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC0**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: PNG ise doku/atlas; Unity/Niagara/shader sahnesi Godot 4’te doğrudan çalışmaz.
@@ -1653,7 +1660,7 @@ Smoke FX: sheet/ASE/GIF; duman, ticari değiştirme izni. Sayı ve çözünürl�
 <a id="vfx04"></a>
 #### VFX04 — [1000 Free Game Assets](https://kronbits.itch.io/particle-pack)
 
-Kronbits Particles: 1000 adet 512² parçacık, CC0. Kategori/tekil şekil listesi yok; hepsine yağmur/kar işlevi atamak doğru değil.
+Kronbits Particles: 1000 adet 512² parçacık, CC 0. Kategori/tekil şekil listesi yok; hepsine yağmur/kar işlevi atamak doğru değil.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC0**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: PNG ise doku/atlas; Unity/Niagara/shader sahnesi Godot 4’te doğrudan çalışmaz.
@@ -1752,7 +1759,7 @@ Retro Particles: 46 Niagara, 15 lensflare ve 71 doku; rain/snow/fire/sparks var.
 <a id="vfx13"></a>
 #### VFX13 — [Smoke Particles](https://kenney.nl/assets/smoke-particles)
 
-Kenney Smoke: 70 adet 2D duman/parçacık dosyası; basit ve CC0. Kaynak doku olarak kullanılabilir; Godot'ta emitter/renk ve alfa kurulumu ayrı.
+Kenney Smoke: 70 adet 2 D duman/parçacık dosyası; basit ve CC 0. Kaynak doku olarak kullanılabilir; Godot'ta emitter/renk ve alfa kurulumu ayrı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC0**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: PNG ise doku/atlas; Unity/Niagara/shader sahnesi Godot 4’te doğrudan çalışmaz.
@@ -1854,7 +1861,7 @@ Fantasy Ambiences: 17 loop/53 dk; Forest Day/Night, Village, Windy Forest, Campf
 <a id="ort07"></a>
 #### ORT07 — [Audio Elk | Ambience Collection](https://audioelk.itch.io/free-sounds-ambience-collection)
 
-Audio Elk Ambience: alan kayıtları, ham uzun çekimler; CC-BY-SA4. Bu lisans A listesine girmez. Tekil doğal olay listesi yok, kısmi varsayım bile sayılmadı.
+Audio Elk Ambience: alan kayıtları, ham uzun çekimler; CC-BY-SA 4. Bu lisans A listesine girmez. Tekil doğal olay listesi yok, kısmi varsayım bile sayılmadı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **S CC-BY-SA4**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -1920,7 +1927,7 @@ Cottage: 8 uzun OGG yağmurlu/açık gündüz/gece ve birleşik kırsal/şömine
 <a id="ort13"></a>
 #### ORT13 — [Letters & Memories - Royalty Free Ambience and SFX](https://theturtlebox.itch.io/letters-memories)
 
-Letters Memories: 40 synth pad/loop/one-shot, araba motoru da var; CC-BY-SA4 ve sayfa paylaşım ifadeleri çelişkili. Doğal köy ortamı setine alınmadı.
+Letters Memories: 40 synth pad/loop/one-shot, araba motoru da var; CC-BY-SA 4 ve sayfa paylaşım ifadeleri çelişkili. Doğal köy ortamı setine alınmadı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **S CC-BY-SA4; ek ifade çelişkili**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -1931,7 +1938,7 @@ Letters Memories: 40 synth pad/loop/one-shot, araba motoru da var; CC-BY-SA4 ve 
 <a id="ort14"></a>
 #### ORT14 — [Free Water Stream Sounds](https://gregor-quendel.itch.io/free-water-stream-sounds)
 
-Water Streams: 01–10 adlı 10 WAV dere kaydı; CC-BY4. Köy gündüz su katmanını sağlar; çekiç+koyun+su birleşik ortam grubu tam kapanmaz.
+Water Streams: 01–10 adlı 10 WAV dere kaydı; CC-BY 4. Köy gündüz su katmanını sağlar; çekiç+koyun+su birleşik ortam grubu tam kapanmaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC-BY4 Gregor Quendel**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -1942,12 +1949,45 @@ Water Streams: 01–10 adlı 10 WAV dere kaydı; CC-BY4. Köy gündüz su katman
 <a id="ort15"></a>
 #### ORT15 — [Cozy SFX Complete — 1,305 Cute Game Sound Effects & Seamless Ambience Loops (Free Lite)](https://aquumgifts.itch.io/cozy-sfx-complete)
 
-Cozy Complete: 1305 ses; 151 farm ve338 UI, güncel Farm 22 Ekim. Free Lite 48 seçki, 1305 ücretsiz değil. Farm tools/crops/workshop, weather/nature ve kapı içerikleri var; özel klip dökümü olmadan geniş gruplar kısmi.
+Cozy Complete: 1305 ses; 151 farm ve 338 UI, güncel Farm 22 Ekim. Free Lite 48 seçki, 1305 ücretsiz değil. Farm tools/crops/workshop, weather/nature ve kapı içerikleri var; özel klip dökümü olmadan geniş gruplar kısmi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 4.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; AI-assisted ses**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
 - Stil/uyum: Alan kaydı/katmanlı ortam; synth olanlar ayrıca elendi; **7/10**. Uyarlama işi: **orta**; somut nedeni yukarıdaki içerik sınırında.
 - İhtiyaç teması: **9** = 0 tam + 9 kısmi + 0 uyarlamayla. **Tam:** —. **Kısmi:** İHT-0471, İHT-0477, İHT-0479, İHT-0481, İHT-0485, İHT-0486, İHT-0487, İHT-0489, İHT-0490. **Uyarlama:** —.
+- Pakette kullanılabilir oran: Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok.
+
+<a id="ort16"></a>
+#### ORT16 — [Herd of goats moving and bleating, bells jingling.](https://www.zapsplat.com/music/herd-of-goats-moving-and-bleating-bells-jingling/)
+
+Zapsplat/SmartSound: tek keçi sürüsü kaydı, yürüme/meleme/çan aynı dosyada. Standard License K; Basic MP 3 ile ücretsiz kullanım/atıf, WAV ve Pro seçenek ayrıca. Keçi sesini karşılar; koyun veya kervan çanı diye sayılmaz.
+
+- Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Zapsplat Standard; atıflı Basic**.
+- Biçim: MP3 Basic; WAV Premium (hesap/koltuk koşulu ayrıca). Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
+- Stil/uyum: Alan kaydı/katmanlı ortam; synth olanlar ayrıca elendi; **8/10**. Uyarlama işi: **az**; somut nedeni yukarıdaki içerik sınırında.
+- İhtiyaç teması: **2** = 0 tam + 1 kısmi + 1 uyarlamayla. **Tam:** —. **Kısmi:** İHT-0481. **Uyarlama:** İHT-0513.
+- Pakette kullanılabilir oran: Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok.
+
+<a id="ort17"></a>
+#### ORT17 — [Wolf, Canis Lupus, pack howls, close](https://www.zapsplat.com/music/wolf-canis-lupus-pack-howls-close/)
+
+Zapsplat Canis Lupus: tek yakın kurt sürüsü uluma kaydı. Standard License; sayfadaki ilgili Felix Blume CC 0 önerisi bu kaydın lisansı değildir. Uzak kurt için seviye/filtre/mesafe uyarlaması; MP 3 Basic, WAV Premium.
+
+- Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Zapsplat Standard; atıflı Basic**.
+- Biçim: MP3 Basic; WAV Premium (hesap/koltuk koşulu ayrıca). Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
+- Stil/uyum: Alan kaydı/katmanlı ortam; synth olanlar ayrıca elendi; **9/10**. Uyarlama işi: **az**; somut nedeni yukarıdaki içerik sınırında.
+- İhtiyaç teması: **2** = 0 tam + 1 kısmi + 1 uyarlamayla. **Tam:** —. **Kısmi:** İHT-0482. **Uyarlama:** İHT-0488.
+- Pakette kullanılabilir oran: Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok.
+
+<a id="ort18"></a>
+#### ORT18 — [Lamb baaing in a barn.](https://www.zapsplat.com/music/lamb-baaing-in-a-barn-2/)
+
+Zapsplat: ahırda kuzu melemesi, tek kayıt; Standard License ve Basic MP 3/atıf. Yetişkin koyun sürüsü ortamından farklı; yalnız koyun sesi için kısmi, gündüz ortamına bir katman.
+
+- Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Zapsplat Standard; atıflı Basic**.
+- Biçim: MP3 Basic; WAV Premium (hesap/koltuk koşulu ayrıca). Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
+- Stil/uyum: Alan kaydı/katmanlı ortam; synth olanlar ayrıca elendi; **7/10**. Uyarlama işi: **az**; somut nedeni yukarıdaki içerik sınırında.
+- İhtiyaç teması: **2** = 0 tam + 2 kısmi + 0 uyarlamayla. **Tam:** —. **Kısmi:** İHT-0514, İHT-0481. **Uyarlama:** —.
 - Pakette kullanılabilir oran: Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok.
 
 ### Foley: ürün notları
@@ -1967,7 +2007,7 @@ Cozy Complete: 1305 ses; 151 farm ve338 UI, güncel Farm 22 Ekim. Free Lite 48 s
 <a id="fol02"></a>
 #### FOL02 — [Audio Elk | Foley Sessions Vol. 1](https://audioelk.itch.io/foley-sessions-vol-1)
 
-Foley Sessions 1: 500 benzersiz/1000 iki mikrofon WAV; belt/backpack/gameboy. Yalnız kumaş/deri temasına aday; CC-BY-SA4 nedeniyle A seti dışında.
+Foley Sessions 1: 500 benzersiz/1000 iki mikrofon WAV; belt/backpack/gameboy. Yalnız kumaş/deri temasına aday; CC-BY-SA 4 nedeniyle A seti dışında.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **S CC-BY-SA4**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -1978,7 +2018,7 @@ Foley Sessions 1: 500 benzersiz/1000 iki mikrofon WAV; belt/backpack/gameboy. Ya
 <a id="fol03"></a>
 #### FOL03 — [Foley SFX](https://kronbits.itch.io/foleysfx)
 
-Kronbits Foley: yaklaşık76 WAV ve açık dosya ağacı; mutfak/banyo/mikrodalga/buzdolabı ağırlıklı. Makas/bıçak gibi ham sesler uyarlanabilir; özel envanter ihtiyacı için kanıt yok.
+Kronbits Foley: yaklaşık 76 WAV ve açık dosya ağacı; mutfak/banyo/mikrodalga/buzdolabı ağırlıklı. Makas/bıçak gibi ham sesler uyarlanabilir; özel envanter ihtiyacı için kanıt yok.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 12.96 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Lisans metni ayrıca**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -1989,7 +2029,7 @@ Kronbits Foley: yaklaşık76 WAV ve açık dosya ağacı; mutfak/banyo/mikrodalg
 <a id="fol04"></a>
 #### FOL04 — [Audio Elk | Foley Sessions - Household Foley Vol. 1](https://audioelk.itch.io/sound-pack-foley-sessions-household-foley-vol-1)
 
-Household Foley1: 86 stereo WAV, tesisat/oda tonları. Modern plumbing tarihî kuyunun sesi değildir; aynı ailenin CC-BY-SA4 şartı var.
+Household Foley 1: 86 stereo WAV, tesisat/oda tonları. Modern plumbing tarihî kuyunun sesi değildir; aynı ailenin CC-BY-SA 4 şartı var.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **S CC-BY-SA4**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2022,7 +2062,7 @@ Charcoal: yanık kömür ve üzerine su kaydı, UCS adları. Oyun/müzikte ticar
 <a id="fol07"></a>
 #### FOL07 — [Card Sound Effects](https://gravity-sound.itch.io/card-sound-effects)
 
-Card Foley: 103 WAV, 44.1k/16bit; karıştırma, dağıtma, sürme, katlama. Modern iskambilin sertliği parşömenle aynı değil; kâğıt hareketine kısmi aday.
+Card Foley: 103 WAV, 44.1 k/16 bit; karıştırma, dağıtma, sürme, katlama. Modern iskambilin sertliği parşömenle aynı değil; kâğıt hareketine kısmi aday.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 9.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Ürün lisansı görünmedi**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2033,7 +2073,7 @@ Card Foley: 103 WAV, 44.1k/16bit; karıştırma, dağıtma, sürme, katlama. Mod
 <a id="fol08"></a>
 #### FOL08 — [FOLEY SOUNDS HORROR PACK | 150 foleys and sounds](https://soundsreal.itch.io/horror-sounds-pack-150-free-foleyssounds)
 
-Horror150: açık listede woodcreak/door/chain benzeri fiziksel sesler, ayrıca silah/telefon/monster. Doğal kapı/kâğıt sınırlı; ticari lisans yalnız forum konusu olarak görünüyor.
+Horror 150: açık listede woodcreak/door/chain benzeri fiziksel sesler, ayrıca silah/telefon/monster. Doğal kapı/kâğıt sınırlı; ticari lisans yalnız forum konusu olarak görünüyor.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Ticari izin net değil**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2055,7 +2095,7 @@ Door SFX:120 ses; Wood Door/Dungeon/Chest, ayrıca araba/asansör/fridge. Ahşap
 <a id="fol10"></a>
 #### FOL10 — [Game Footsteps](https://epicstockmedia.itch.io/game-footsteps)
 
-Game Footsteps:1655 ses,22 yüzey/ayakkabı; dirt/snow/wood/cobblestone. Boot ve sneaker ağırlıklı; çarık/toprak adayını uyarlama ile kapatır. 96k/24 WAV, motor için dönüştürme gerekir.
+Game Footsteps:1655 ses,22 yüzey/ayakkabı; dirt/snow/wood/cobblestone. Boot ve sneaker ağırlıklı; çarık/toprak adayını uyarlama ile kapatır. 96 k/24 WAV, motor için dönüştürme gerekir.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 23.20 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Epic Stock Media; tam EULA teyidi**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2066,7 +2106,7 @@ Game Footsteps:1655 ses,22 yüzey/ayakkabı; dirt/snow/wood/cobblestone. Boot ve
 <a id="fol11"></a>
 #### FOL11 — [Footsteps SFX Free - Walk, Run & Sneak Footstep Sampler](https://heyheythere.itch.io/footsteps-sfx-free)
 
-Footsteps Free:30 WAV/OGG; dirt/grass/snow/mud/armour açıkça listeli. CC-BY4; kodla sentez/AI yardımı beyanlı. Lisans uygun ama doğal kayıt kalitesi dinlenmeden kabul edilmez.
+Footsteps Free:30 WAV/OGG; dirt/grass/snow/mud/armour açıkça listeli. CC-BY 4; kodla sentez/AI yardımı beyanlı. Lisans uygun ama doğal kayıt kalitesi dinlenmeden kabul edilmez.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC-BY4 heyheythere**.
 - Biçim: WAV, OGG. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2088,7 +2128,7 @@ Nicola Footsteps:100 WAV/OGG, grass/snow/stone/water/wood. Concrete ve reverbler
 <a id="fol13"></a>
 #### FOL13 — [Noisevember 24 FREE Sound Pack](https://zaimtzm.itch.io/noisevember-24-free-sound-pack)
 
-Noisevember: WAV48k/24, WEAPSwrd/MECHLock/FOODEat ve synth/monster. Kılıç olduğu kabzaya dokunma sesini doğrulamaz; özel ihtiyaca eşleşme yok.
+Noisevember: WAV 48 k/24, WEAPSwrd/MECHLock/FOODEat ve synth/monster. Kılıç olduğu kabzaya dokunma sesini doğrulamaz; özel ihtiyaca eşleşme yok.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Lisans yok**.
 - Biçim: WAV, MP3. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2099,7 +2139,7 @@ Noisevember: WAV48k/24, WEAPSwrd/MECHLock/FOODEat ve synth/monster. Kılıç old
 <a id="fol14"></a>
 #### FOL14 — [Medieval Combat SFX Free - Sword, Bow & Shield Sampler](https://heyheythere.itch.io/medieval-combat-sfx-free)
 
-Medieval Combat Free:30 WAV/OGG; kılıç çekme/kına koyma, yay bırakma, zincir zırh, örs, savaş borusu, kasa kırma ve forge loop. CC-BY4, kodla sentez/AI yardımı. İnsan kavga bağırışı veya ahşap kapı barı değil.
+Medieval Combat Free:30 WAV/OGG; kılıç çekme/kına koyma, yay bırakma, zincir zırh, örs, savaş borusu, kasa kırma ve forge loop. CC-BY 4, kodla sentez/AI yardımı. İnsan kavga bağırışı veya ahşap kapı barı değil.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC-BY4 heyheythere**.
 - Biçim: WAV, OGG. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2110,12 +2150,34 @@ Medieval Combat Free:30 WAV/OGG; kılıç çekme/kına koyma, yay bırakma, zinc
 <a id="fol15"></a>
 #### FOL15 — [Household Interior Foley – Free Sound Effects Pack (80+ Sounds)](https://polarsoundproductions.itch.io/household-interior-foley-free-pack)
 
-Polar Household Free:80+ WAV96k/24, ahşap/gıcırtılı kapı, kilit/anahtar, mobilya. Modern beyaz eşya elenir; 1450 tam koleksiyonun bütün sesleri ücretsiz değildir.
+Polar Household Free:80+ WAV 96 k/24, ahşap/gıcırtılı kapı, kilit/anahtar, mobilya. Modern beyaz eşya elenir; 1450 tam koleksiyonun bütün sesleri ücretsiz değildir.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K royalty-free**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
 - Stil/uyum: Fiziksel kayıt veya belirtilen sentez; malzeme teması; **7/10**. Uyarlama işi: **az**; somut nedeni yukarıdaki içerik sınırında.
 - İhtiyaç teması: **2** = 0 tam + 2 kısmi + 0 uyarlamayla. **Tam:** —. **Kısmi:** İHT-0468, İHT-0469. **Uyarlama:** —.
+- Pakette kullanılabilir oran: Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok.
+
+<a id="fol16"></a>
+#### FOL16 — [Male, single short cough 7](https://www.zapsplat.com/music/male-single-short-cough-7/)
+
+Zapsplat: Male single short cough 7, tek kısa insan öksürüğü. Standard License K; Basic MP 3/atıf, WAV Premium. Salgın öksürük ihtiyacının doğrudan içerik karşılığı; gerçek oyun miks kabulü yapılmadı.
+
+- Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Zapsplat Standard; atıflı Basic**.
+- Biçim: MP3 Basic; WAV Premium (hesap/koltuk koşulu ayrıca). Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
+- Stil/uyum: Fiziksel kayıt veya belirtilen sentez; malzeme teması; **9/10**. Uyarlama işi: **az**; somut nedeni yukarıdaki içerik sınırında.
+- İhtiyaç teması: **1** = 1 tam + 0 kısmi + 0 uyarlamayla. **Tam:** İHT-0493. **Kısmi:** —. **Uyarlama:** —.
+- Pakette kullanılabilir oran: Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok.
+
+<a id="fol17"></a>
+#### FOL17 — [Three month old baby boy breathing fast, babbling with cloth movements](https://www.zapsplat.com/music/three-month-old-baby-boy-breathing-fast-babbling-with-cloth-movements/)
+
+Zapsplat: üç aylık bebek hızlı soluk, heceleme ve kumaş hareketi birlikte. Standard License, Basic MP 3/atıf. Saf bebek soluğu ayrı kanal olarak verilmediğinden temizleme olmadan tam sayılmaz.
+
+- Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Zapsplat Standard; atıflı Basic**.
+- Biçim: MP3 Basic; WAV Premium (hesap/koltuk koşulu ayrıca). Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
+- Stil/uyum: Fiziksel kayıt veya belirtilen sentez; malzeme teması; **8/10**. Uyarlama işi: **orta**; somut nedeni yukarıdaki içerik sınırında.
+- İhtiyaç teması: **1** = 0 tam + 1 kısmi + 0 uyarlamayla. **Tam:** —. **Kısmi:** İHT-0476. **Uyarlama:** —.
 - Pakette kullanılabilir oran: Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok.
 
 ### UI sesi: ürün notları
@@ -2135,7 +2197,7 @@ Pixel UI:165 ses, Square/Saw/Sine Cancel/Cursor/Error/Popup/Select;1650 dosya ç
 <a id="uis02"></a>
 #### UIS02 — [[SFX] Ultimate UI Sound Effect Pack](https://jdsherbert.itch.io/ultimate-ui-sfx-pack)
 
-Ultimate UI:67 benzersiz; Cancel10 Cursor20 Error5 Popup10 Select10 Swipe12. 670 dosya 67 farklı sesin biçimleri; nötr seçki için kısmi aday. Özel lisans public repo ham dosya paylaşımını açıkça yasaklıyor.
+Ultimate UI:67 benzersiz; Cancel 10 Cursor 20 Error 5 Popup 10 Select 10 Swipe 12. 670 dosya 67 farklı sesin biçimleri; nötr seçki için kısmi aday. Özel lisans public repo ham dosya paylaşımını açıkça yasaklıyor.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: GBP4.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K JDSherbert**.
 - Biçim: WAV, OGG, MP3. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2146,7 +2208,7 @@ Ultimate UI:67 benzersiz; Cancel10 Cursor20 Error5 Popup10 Select10 Swipe12. 670
 <a id="uis03"></a>
 #### UIS03 — [Universal UI/Menu Soundpack](https://cyrex-studios.itch.io/universal-ui-soundpack)
 
-Cyrex Universal UI:52 WAV/MP3/OGG; Wood Block/African/Coffee ve modern/retro gruplar. Tahta tık için Wood Block güçlü aday; Nathan Gibson CC-BY4 atfı.
+Cyrex Universal UI:52 WAV/MP 3/OGG; Wood Block/African/Coffee ve modern/retro gruplar. Tahta tık için Wood Block güçlü aday; Nathan Gibson CC-BY 4 atfı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC-BY4 Nathan Gibson**.
 - Biçim: WAV, OGG, MP3. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2179,7 +2241,7 @@ RPG Essentials Free:48 retro SFX; Hover/Confirm/Decline/Denied,4 yüzey adımı 
 <a id="uis06"></a>
 #### UIS06 — [Echoes: Audio Super Kit](https://pizzadoggy.itch.io/echoes-audio-super-kit)
 
-Echoes:yaklaşık500 SFX/ambiyans/OST,2000ler aksiyon/korku; makineler/elektronik baskın. Demo yalnız önizleme; PDF lisansı ve tekil dosyalar ayrıca gerekli, güvenilir kapsam sıfır.
+Echoes:yaklaşık 500 SFX/ambiyans/OST,2000 ler aksiyon/korku; makineler/elektronik baskın. Demo yalnız önizleme; PDF lisansı ve tekil dosyalar ayrıca gerekli, güvenilir kapsam sıfır.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: EUR11.97 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? PDF lisans teyidi gerekli**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2190,7 +2252,7 @@ Echoes:yaklaşık500 SFX/ambiyans/OST,2000ler aksiyon/korku; makineler/elektroni
 <a id="uis07"></a>
 #### UIS07 — [Retro RPG 100 UI Sound Effects](https://leohpaz.itch.io/100-retro-rpg-ui-sound-effects)
 
-Retro RPG100:Hover10 Confirm10 Dialogue10 vb100 retro ses;10 demo dosyası ticari kullanılabilir. 100'ün tamamını free saymadım. Sakin tarihî malzeme hedefiyle zayıf.
+Retro RPG 100:Hover 10 Confirm 10 Dialogue 10 vb 100 retro ses;10 demo dosyası ticari kullanılabilir. 100'ün tamamını free saymadım. Sakin tarihî malzeme hedefiyle zayıf.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 3.49 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Leohpaz**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2201,7 +2263,7 @@ Retro RPG100:Hover10 Confirm10 Dialogue10 vb100 retro ses;10 demo dosyası ticar
 <a id="uis08"></a>
 #### UIS08 — [50 Menu Interface SFX](https://coloralpha.itch.io/50-menu-interface-sfx)
 
-Menu Interface50:50 MP3/WAV/FLAC, retro düğme; CC-BY4. Kullanım hakkı uygun, tahta tınısı teyitsiz; sadece işlevsel UI karşılığı kısmi.
+Menu Interface 50:50 MP 3/WAV/FLAC, retro düğme; CC-BY 4. Kullanım hakkı uygun, tahta tınısı teyitsiz; sadece işlevsel UI karşılığı kısmi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC-BY4 ColorAlpha**.
 - Biçim: WAV, MP3, FLAC. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2212,7 +2274,7 @@ Menu Interface50:50 MP3/WAV/FLAC, retro düğme; CC-BY4. Kullanım hakkı uygun,
 <a id="uis09"></a>
 #### UIS09 — [lolurio's FREE Cozy Game UI SFX Pack](https://lolurio.itch.io/lolurios-free-cozy-ui-sfx)
 
-Lolurio Cozy17:4 menü,4 oyun menüsü,5 feedback,4 extra; marimba, piyano, synth. WAV/OGG, CC-BY4; marimba tık fiziksel hedefe yakın, parlak piyano/synth elenir.
+Lolurio Cozy 17:4 menü,4 oyun menüsü,5 feedback,4 extra; marimba, piyano, synth. WAV/OGG, CC-BY 4; marimba tık fiziksel hedefe yakın, parlak piyano/synth elenir.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC-BY4 Lolurio**.
 - Biçim: WAV, OGG. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2223,7 +2285,7 @@ Lolurio Cozy17:4 menü,4 oyun menüsü,5 feedback,4 extra; marimba, piyano, synt
 <a id="uis10"></a>
 #### UIS10 — [[SFX] Wooden UI Sound Effect Pack](https://jdsherbert.itch.io/wooden-ui-sfx-pack)
 
-Wooden UI30:Cancel10 Cursor5 Error5 Select5 Confirm5;30 benzersiz/600 çıktı. Ahşap sıcak karakteri hedefle en yakın. JDSherbert atfı ve özel ham paylaşım yasağı korunur.
+Wooden UI 30:Cancel 10 Cursor 5 Error 5 Select 5 Confirm 5;30 benzersiz/600 çıktı. Ahşap sıcak karakteri hedefle en yakın. JDSherbert atfı ve özel ham paylaşım yasağı korunur.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: GBP2.49 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K JDSherbert**.
 - Biçim: WAV, OGG, MP3. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2234,7 +2296,7 @@ Wooden UI30:Cancel10 Cursor5 Error5 Select5 Confirm5;30 benzersiz/600 çıktı. 
 <a id="uis11"></a>
 #### UIS11 — [SoupTonic's sound SFX Pack 1 - UI menu sounds](https://souptonic.itch.io/souptonic-sfx-pack-1-ui-sounds)
 
-Souptonic12:enter/exit/select/pause/resume/confirm/cancel vb12 WAV/OGG/MP3;CC-BY4. Retro tını olduğu için işlevsel seçki kısmi, tahta ses diye kabul edilmedi.
+Souptonic 12:enter/exit/select/pause/resume/confirm/cancel vb 12 WAV/OGG/MP 3;CC-BY 4. Retro tını olduğu için işlevsel seçki kısmi, tahta ses diye kabul edilmedi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC-BY4 Souptonic**.
 - Biçim: WAV, OGG, MP3. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2245,7 +2307,7 @@ Souptonic12:enter/exit/select/pause/resume/confirm/cancel vb12 WAV/OGG/MP3;CC-BY
 <a id="uis12"></a>
 #### UIS12 — [User Interface Sound Effects 1 - Universal Sound Effects](https://elvgames.itch.io/user-interface-sound-fx)
 
-ELV UI1:9click, enable/disable, menuopen yanında keypad/robotic/puzzle. Fiziksel tık seçimi kısmi; sci-fi sesler elenir. Atıf zorunlu, AI eğitim ve NFT yasağı var.
+ELV UI 1:9 click, enable/disable, menuopen yanında keypad/robotic/puzzle. Fiziksel tık seçimi kısmi; sci-fi sesler elenir. Atıf zorunlu, AI eğitim ve NFT yasağı var.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 4.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ELVGames/Pegonthetrack**.
 - Biçim: WAV, OGG, MP3. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2256,7 +2318,7 @@ ELV UI1:9click, enable/disable, menuopen yanında keypad/robotic/puzzle. Fizikse
 <a id="uis13"></a>
 #### UIS13 — [User Interface Sound Effects 4 - Universal Sound Effects](https://elvgames.itch.io/user-interface-sound-fx-4)
 
-ELV UI4:40 ses;7click,3error,4bag,5map,4confirm ve typing. UI onay/odak için kısmi; derikese foley diye bag sesini tam saymadım.
+ELV UI 4:40 ses;7 click,3 error,4 bag,5 map,4 confirm ve typing. UI onay/odak için kısmi; derikese foley diye bag sesini tam saymadım.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 3.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ELVGames/Pegonthetrack**.
 - Biçim: WAV, OGG, MP3. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2267,7 +2329,7 @@ ELV UI4:40 ses;7click,3error,4bag,5map,4confirm ve typing. UI onay/odak için k�
 <a id="uis14"></a>
 #### UIS14 — [User Interface Sound Effects 3 - Universal Sound Effects](https://elvgames.itch.io/user-interface-sound-fx-3)
 
-ELV UI3:40 ses;8click, inventory open/close veitem/typing. Onay sesi listelenmiyor; seçim odak adayı kısmi.
+ELV UI 3:40 ses;8 click, inventory open/close veitem/typing. Onay sesi listelenmiyor; seçim odak adayı kısmi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 3.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ELVGames/Pegonthetrack**.
 - Biçim: WAV, OGG, MP3. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2278,7 +2340,7 @@ ELV UI3:40 ses;8click, inventory open/close veitem/typing. Onay sesi listelenmiy
 <a id="uis15"></a>
 #### UIS15 — [User Interface Sound FX - Medieval Collection](https://high-impact-media.itch.io/user-interface-sound-fx-medieval-collection)
 
-Medieval UI Collection:400+click/inventory/equip/scroll/notification;49.99USD. Tekil malzeme listesi ve lisans şartı açık değil; pahalı ürün genel UI işleviyle kısmi.
+Medieval UI Collection:400+click/inventory/equip/scroll/notification;49.99 USD. Tekil malzeme listesi ve lisans şartı açık değil; pahalı ürün genel UI işleviyle kısmi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 49.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Lisans şartı görünmedi**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2292,7 +2354,7 @@ Medieval UI Collection:400+click/inventory/equip/scroll/notification;49.99USD. T
 <a id="muz01"></a>
 #### MUZ01 — [Desert Music Pack [Game Music]](https://kashdanmusic.itch.io/desert-music-pack)
 
-Kashdan Desert:9parça,6loop,3sonlanan;WAV32bit48k. NonCommercial açık;ticari için ayrı sözleşme. Mevcut haliyle öneri ve kapsama dışı.
+Kashdan Desert:9 parça,6 loop,3 sonlanan;WAV 32 bit 48 k. NonCommercial açık;ticari için ayrı sözleşme. Mevcut haliyle öneri ve kapsama dışı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **X yalnız ticari olmayan**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2303,7 +2365,7 @@ Kashdan Desert:9parça,6loop,3sonlanan;WAV32bit48k. NonCommercial açık;ticari 
 <a id="muz02"></a>
 #### MUZ02 — [Resonance Vol. 2: Instruments of the Middle East](https://limitbreakaudio.itch.io/resonance-vol-2-instruments-of-the-middle-east)
 
-Resonance2:10eser+3varyasyon/13cue/72WAV;Contemplation, Midnight, Illicit, ShadowyPursuit vb. Stem var, loop özellikle seamless değil. OrtaDoğu+orkestra+synth;stem ayıklama ve dikiş gerekir.
+Resonance 2:10 eser+3 varyasyon/13 cue/72 WAV;Contemplation, Midnight, Illicit, ShadowyPursuit vb. Stem var, loop özellikle seamless değil. Orta Doğu+orkestra+synth;stem ayıklama ve dikiş gerekir.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 19.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Ürün lisansı ayrıca**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2314,7 +2376,7 @@ Resonance2:10eser+3varyasyon/13cue/72WAV;Contemplation, Midnight, Illicit, Shado
 <a id="muz03"></a>
 #### MUZ03 — [Middle East Instrumental Arabian Soul Music Pack](https://moodfrog.itch.io/middle-east-instrumental-music-pack)
 
-MoodFrog ArabianSoul:başlık etnik ama metin yalnız genel atmosfer ve modernambient diyor. Açıklama free, ödeme9.99USD;çelişki. Liste/enstrüman/biçim yok;yalnız gece/sakin tema kısmi.
+MoodFrog ArabianSoul:başlık etnik ama metin yalnız genel atmosfer ve modernambient diyor. Açıklama free, ödeme 9.99 USD;çelişki. Liste/enstrüman/biçim yok;yalnız gece/sakin tema kısmi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 9.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; fiyat çelişkisi**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2325,7 +2387,7 @@ MoodFrog ArabianSoul:başlık etnik ama metin yalnız genel atmosfer ve modernam
 <a id="muz04"></a>
 #### MUZ04 — [Desert Wasteland & Oasis RPG Music Pack - 23 Traditional Oud Tracks](https://nasserblue.itch.io/desert-wasteland-oasis-rpg-music-pack-23-traditional-oud-tracks)
 
-Nasser Oud:23WAV;BedouinNightfall, CaravanDreams, TraditionalMaqam vb tekil dosyalar listeli. AI-assisted ses. Ticari royalty-free izin ve ham paylaşım yasağı var;ud tınısı ney/kopuzun yerine tam sayılmaz.
+Nasser Oud:23 WAV;BedouinNightfall, CaravanDreams, TraditionalMaqam vb tekil dosyalar listeli. AI-assisted ses. Ticari royalty-free izin ve ham paylaşım yasağı var;ud tınısı ney/kopuzun yerine tam sayılmaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 9.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari; AI-assisted**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2336,7 +2398,7 @@ Nasser Oud:23WAV;BedouinNightfall, CaravanDreams, TraditionalMaqam vb tekil dosy
 <a id="muz05"></a>
 #### MUZ05 — [Medieval Music Pack](https://joelsteudler.itch.io/medieval-music-pack)
 
-Joel Medieval:20parça:5battle4dungeon3field3theme5town;ud yerinelute/viol/shawm/recorder/harpsichord. OGGloop, theme parçalar sonlanır. JSMticari lisansı;zurna/davul9/8düğün değildir.
+Joel Medieval:20 parça:5 battle 4 dungeon 3 field 3 theme 5 town;ud yerinelute/viol/shawm/recorder/harpsichord. OGGloop, theme parçalar sonlanır. JSMticari lisansı;zurna/davul 9/8 düğün değildir.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 19.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K JSM**.
 - Biçim: OGG. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2347,7 +2409,7 @@ Joel Medieval:20parça:5battle4dungeon3field3theme5town;ud yerinelute/viol/shawm
 <a id="muz06"></a>
 #### MUZ06 — [Persian Nights - Battle Music Pack](https://hai-soundworks.itch.io/persian-nights)
 
-PersianNights:15tamWAV/MP3, stem/loop/SFXyok;modernperküsyonbaskın. Gece/kervan/reflectionbölümleri var;kesipdöngülemeişi gerekir. Özgül sonların müziği hazır sayılmaz.
+PersianNights:15 tamWAV/MP 3, stem/loop/SFXyok;modernperküsyonbaskın. Gece/kervan/reflectionbölümleri var;kesipdöngülemeişi gerekir. Özgül sonların müziği hazır sayılmaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 5.99 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K ticari ürün izni**.
 - Biçim: WAV, MP3. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2358,7 +2420,7 @@ PersianNights:15tamWAV/MP3, stem/loop/SFXyok;modernperküsyonbaskın. Gece/kerva
 <a id="muz07"></a>
 #### MUZ07 — [Ethnic Music of Ancient Desert (Egyptian)](https://blackmid.itch.io/ethnic-music-of-ancient-desert)
 
-BLACKMID AncientDesert:10eser,6hareketli4rüyalı;21dkWAV44.1k16. Canlı müzisyen iddiası ve geniş doğu paleti var;parça bazlı enstrüman listesi eksik. YouTube-safe vaat, lisansın yerine geçmez.
+BLACKMID AncientDesert:10 eser,6 hareketli 4 rüyalı;21 dkWAV 44.1 k 16. Canlı müzisyen iddiası ve geniş doğu paleti var;parça bazlı enstrüman listesi eksik. YouTube-safe vaat, lisansın yerine geçmez.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 16.75 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K royalty-free**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2369,7 +2431,7 @@ BLACKMID AncientDesert:10eser,6hareketli4rüyalı;21dkWAV44.1k16. Canlı müzisy
 <a id="muz08"></a>
 #### MUZ08 — [MEDIEVAL BARD MUSIC – Fantasy RPG Soundtracks](https://blackmid.itch.io/medieval-bard-music-fantasy-rpg-soundtracks)
 
-BLACKMID Bard:15canlıloop,45stem,144WAVtoplamı;ud benzeri lute, harp, zither. Sakinhan/köyadayları, Anadolu motifine uyarlama gerekir;çıktıformatkopyalarını ayrı eser saymadım.
+BLACKMID Bard:15 canlıloop,45 stem,144 WAVtoplamı;ud benzeri lute, harp, zither. Sakinhan/köyadayları, Anadolu motifine uyarlama gerekir;çıktıformatkopyalarını ayrı eser saymadım.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 30.15 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K royalty-free**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2391,7 +2453,7 @@ Blessing Dustland:Arabicesintilisaatlikdeğil, kısakoleksiyon;akustik/elektrikp
 <a id="muz10"></a>
 #### MUZ10 — [AridFoothills](https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100437)
 
-AridFoothills:tek3:18eser85bpm;marimba, perküsyon, kontrbas, trombon, tuba, korno. İsmi bozkır olsa da Afrika/bakırüflemeli tını hedefmüziğe uymuyor;CC-BY4olmasına rağmen elendi.
+AridFoothills:tek 3:18 eser 85 bpm;marimba, perküsyon, kontrbas, trombon, tuba, korno. İsmi bozkır olsa da Afrika/bakırüflemeli tını hedefmüziğe uymuyor;CC-BY 4 olmasına rağmen elendi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC-BY4 Kevin MacLeod**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2402,7 +2464,7 @@ AridFoothills:tek3:18eser85bpm;marimba, perküsyon, kontrbas, trombon, tuba, kor
 <a id="muz11"></a>
 #### MUZ11 — [Complete Darbuka Sample Pack](https://abbarasounds.com/sounds/complete-darbuka-sample-pack)
 
-Abbara Darbuka:1787WAV24bit44.1k,60–155bpm;görünen10örnek4/4. Tam müzik değil, beste katmanı. Kudüm/davul ve9/8zurna düğününü tek başına kapatmaz.
+Abbara Darbuka:1787 WAV 24 bit 44.1 k,60–155 bpm;görünen 10 örnek 4/4. Tam müzik değil, beste katmanı. Kudüm/davul ve 9/8 zurna düğününü tek başına kapatmaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 19 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Abbara EULA**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2413,7 +2475,7 @@ Abbara Darbuka:1787WAV24bit44.1k,60–155bpm;görünen10örnek4/4. Tam müzik de
 <a id="muz12"></a>
 #### MUZ12 — [Complete Bowed Tanbur Sample Pack](https://abbarasounds.com/sounds/complete-bowed-tanbur-sample-pack)
 
-Abbara BowedTanbur:254WAV,48k24bit,5makam21ton;10örnek, Sultanıyegâh/Şehnaz. Modernyaylıtanburun tarihî tını ayıklaması gerekir;ney/kopuz veya bitmişloop değildir.
+Abbara BowedTanbur:254 WAV,48 k 24 bit,5 makam 21 ton;10 örnek, Sultanıyegâh/Şehnaz. Modernyaylı tanburun tarihî tını ayıklaması gerekir;ney/kopuz veya bitmişloop değildir.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 28.94 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Abbara EULA**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2424,7 +2486,7 @@ Abbara BowedTanbur:254WAV,48k24bit,5makam21ton;10örnek, Sultanıyegâh/Şehnaz.
 <a id="muz13"></a>
 #### MUZ13 — [Complete Classical Kemençe Sample Pack](https://abbarasounds.com/sounds/complete-classical-kemence-sample-pack)
 
-Abbara Kemençe:656benzersiz771WAV,19makam27ton,48–180bpm. 9/8dahilritimler var;tek başına düğündavulu/zurnası değil. Tam eser değil, kayıt/beste ham maddesi.
+Abbara Kemençe:656 benzersiz 771 WAV,19 makam 27 ton,48–180 bpm. 9/8 dahilritimler var;tek başına düğün davulu/zurnası değil. Tam eser değil, kayıt/beste ham maddesi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 33.45 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Abbara EULA**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2435,7 +2497,7 @@ Abbara Kemençe:656benzersiz771WAV,19makam27ton,48–180bpm. 9/8dahilritimler va
 <a id="muz14"></a>
 #### MUZ14 — [Complete Qanun Sample Pack](https://abbarasounds.com/sounds/complete-qanun-sample-pack)
 
-Abbara Qanun:425WAV,16makam17ton,60–228bpm;9/8Hicazkâr örneği. Dosya başlığı48k, teknikmetin44.1/48k diyor;kanun nekopuzneneydir. Sakin müziğin katmanına aday.
+Abbara Qanun:425 WAV,16 makam 17 ton,60–228 bpm;9/8 Hicazkâr örneği. Dosya başlığı 48 k, teknikmetin 44.1/48 k diyor;kanun ne kopuz ne neydir. Sakin müziğin katmanına aday.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 43.69 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Abbara EULA**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2446,7 +2508,7 @@ Abbara Qanun:425WAV,16makam17ton,60–228bpm;9/8Hicazkâr örneği. Dosya başl�
 <a id="muz15"></a>
 #### MUZ15 — [Medieval Music](https://www.fab.com/listings/9f98ace3-da48-409d-abbf-337189dbd7c2)
 
-Fab MedievalMusic:ücretsiz5parça;Gregorianchant/troubadour/lute/recorder/bagpipe, UEteslimi veAIüretimiişaretli. Kiliseyeözgüchantvebatıfestivalenerjisielendi;hamWAV/lisansseçimitamdoğrulanmadı, kapsama0.
+Fab MedievalMusic:ücretsiz 5 parça;Gregorianchant/troubadour/lute/recorder/bagpipe, UEteslimi veAIüretimiişaretli. Kiliseye özgü ilahi ve Batı festivali enerjisi elendi;hamWAV/lisans seçimi tam doğrulanmadı, kapsama 0.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Fab lisans alanı boş**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2471,7 +2533,7 @@ Super Dialogue:500+ WAV,5 erkek/kadın oyuncu;10 grupta Grunting/Shouting/Damage
 <a id="mir02"></a>
 #### MIR02 — [RPG Voice Starter Pack](https://cicifyre.itch.io/rpg-voice-starter-pack)
 
-Cici RPG Starter:3 kadın ses/90 dosya,30ar; büyü sözcükleri ve attack/damaged/jump/healed tepkileri. CC0 ama konuşma mırıltısı yerine savaş eforu sağlar; çocuk veya yaşlı sesi sayılmaz.
+Cici RPG Starter:3 kadın ses/90 dosya,30 ar; büyü sözcükleri ve attack/damaged/jump/healed tepkileri. CC 0 ama konuşma mırıltısı yerine savaş eforu sağlar; çocuk veya yaşlı sesi sayılmaz.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC0**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2482,7 +2544,7 @@ Cici RPG Starter:3 kadın ses/90 dosya,30ar; büyü sözcükleri ve attack/damag
 <a id="mir03"></a>
 #### MIR03 — [Free Voice Clips Pack (Bright Female)](https://cicifyre.itch.io/free-voice-clips-pack-bright-female)
 
-Cici Bright:72 WAV; İngilizce karşılama/kısa cevaplar ve3gülme. Gülme kısa duygu için aday; bu 72 dosyanın hepsi mırıltı değildir.
+Cici Bright:72 WAV; İngilizce karşılama/kısa cevaplar ve 3 gülme. Gülme kısa duygu için aday; bu 72 dosyanın hepsi mırıltı değildir.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **A CC0**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2504,7 +2566,7 @@ Cici Mature:57 WAV; ah/eh/uh/gasping açıkça var. Mature/tomboy ses yaşlı de
 <a id="mir05"></a>
 #### MIR05 — [Generic Male Voice Pack](https://daniconshow.itch.io/generic-male-voice-pack)
 
-Danicon Male:63 WAV48k/32, duygu sesleri. Ticari kullanım Dan Bosley atfıyla; klip adları açıklamada yok, nötr hece kapsamı kısmi.
+Danicon Male:63 WAV 48 k/32, duygu sesleri. Ticari kullanım Dan Bosley atfıyla; klip adları açıklamada yok, nötr hece kapsamı kısmi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Dan Bosley atfı**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2515,7 +2577,7 @@ Danicon Male:63 WAV48k/32, duygu sesleri. Ticari kullanım Dan Bosley atfıyla; 
 <a id="mir06"></a>
 #### MIR06 — [Voice Over Asset - Female, Mid-Range, American](https://chinomi.itch.io/voice-over-asset-female-mid-range-american)
 
-Chinomi Female:young adult American;hello/yes/no yanı sıraattack/hurt/running pants. WAV44.1k/16 mono. Ticari lisans açık değil; nötr mırıltı yerine efor sesleri kısmi.
+Chinomi Female:young adult American;hello/yes/no yanı sıraattack/hurt/running pants. WAV 44.1 k/16 mono. Ticari lisans açık değil; nötr mırıltı yerine efor sesleri kısmi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Lisans yok**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2526,7 +2588,7 @@ Chinomi Female:young adult American;hello/yes/no yanı sıraattack/hurt/running 
 <a id="mir07"></a>
 #### MIR07 — [Free Generic Female Voice Pack](https://r0o0kie.itch.io/rookie)
 
-Rookie:39 WAV ve her dosyada3take beyanı;greeting/reply/effort/laugh/cry. Ticari izin ve atıf var; sayı ifadesi benzersiz hece sayısı olarak alınmadı.
+Rookie:39 WAV ve her dosyada 3 take beyanı;greeting/reply/effort/laugh/cry. Ticari izin ve atıf var; sayı ifadesi benzersiz hece sayısı olarak alınmadı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Rookie atfı**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2537,7 +2599,7 @@ Rookie:39 WAV ve her dosyada3take beyanı;greeting/reply/effort/laugh/cry. Ticar
 <a id="mir08"></a>
 #### MIR08 — [Jessica's Basic Voice Clips](https://jessicarobo.itch.io/jessicas-basic-voice-clips)
 
-Jessica/Kelarima:OGG ve16bitWAV aynı satırlar; giggle/oh gibi nonverbal altküme, İngilizcegameover/choosecharacter elenir. Güncel açıklama CC-BY4, eski yorumlar BY-SA diyor; güncel arşiv lisansı teyit edilmeli.
+Jessica/Kelarima:OGG ve 16 bitWAV aynı satırlar; giggle/oh gibi nonverbal altküme, İngilizcegameover/choosecharacter elenir. Güncel açıklama CC-BY 4, eski yorumlar BY-SA diyor; güncel arşiv lisansı teyit edilmeli.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **Ç CC-BY4 / eski BY-SA notu**.
 - Biçim: WAV, OGG. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2548,7 +2610,7 @@ Jessica/Kelarima:OGG ve16bitWAV aynı satırlar; giggle/oh gibi nonverbal altkü
 <a id="mir09"></a>
 #### MIR09 — [Humanoids Grunts SFX Pack](https://leohpaz.itch.io/humanoids-grunts-sfx-pack)
 
-Humanoids Grunts:138ses Beast/Demon/Giant/Goblin/Gremlin/Orc/Troll/Undead. İnsan yetişkin/yaşlı/çocuk yok. Fantastik ırk paketi tamamen elendi;0/138uygun.
+Humanoids Grunts:138 ses Beast/Demon/Giant/Goblin/Gremlin/Orc/Troll/Undead. İnsan yetişkin/yaşlı/çocuk yok. Fantastik ırk paketi tamamen elendi;0/138 uygun.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 3.49 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K Leohpaz**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2559,7 +2621,7 @@ Humanoids Grunts:138ses Beast/Demon/Giant/Goblin/Gremlin/Orc/Troll/Undead. İnsa
 <a id="mir10"></a>
 #### MIR10 — [EFFORT SOUNDS (Male) - Audio Pack](https://voicebosch.itch.io/exertion-sounds-male-audio-pack)
 
-VoiceBosch Effort:41erkek efor;zıplama/blok/yumruk/kılıç. CC-BY-SA4 A değildir; diyaloğa nötr mırıltı yerine savaş eforu kısmi.
+VoiceBosch Effort:41 erkek efor;zıplama/blok/yumruk/kılıç. CC-BY-SA 4 A değildir; diyaloğa nötr mırıltı yerine savaş eforu kısmi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **S CC-BY-SA4**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2570,7 +2632,7 @@ VoiceBosch Effort:41erkek efor;zıplama/blok/yumruk/kılıç. CC-BY-SA4 A değil
 <a id="mir11"></a>
 #### MIR11 — [Warrior Voice Pack](https://johncarroll.itch.io/warrior-voice-pack)
 
-Warrior Voice:110+WAV;yorulmuş/öfkeli/mutlu/sorgulayan tepkiler ve savaş. MetadataCC0, açıklama yeniden satış/incorporating yasağı söylüyor; çelişki giderilmeden A sayılmadı.
+Warrior Voice:110+WAV;yorulmuş/öfkeli/mutlu/sorgulayan tepkiler ve savaş. MetadataCC 0, açıklama yeniden satış/incorporating yasağı söylüyor; çelişki giderilmeden A sayılmadı.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **Ç CC0/özel kısıt**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2581,7 +2643,7 @@ Warrior Voice:110+WAV;yorulmuş/öfkeli/mutlu/sorgulayan tepkiler ve savaş. Met
 <a id="mir12"></a>
 #### MIR12 — [Dialogue Sfx](https://ambroggiomusic.itch.io/dialogue-scribble-scrabble-noises-sfx)
 
-Dialogue SFX:15tekli Ah/Huh/Garble/Meh ve retro/honk;Animal Crossing tarzı. İnsan yaş grubu kaydı değil, yüksek/sentetik ses ciddi atmosferi bozar;garble altküme kısmi.
+Dialogue SFX:15 tekli Ah/Huh/Garble/Meh ve retro/honk;Animal Crossing tarzı. İnsan yaş grubu kaydı değil, yüksek/sentetik ses ciddi atmosferi bozar;garble altküme kısmi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K krediyle kullanım**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2592,7 +2654,7 @@ Dialogue SFX:15tekli Ah/Huh/Garble/Meh ve retro/honk;Animal Crossing tarzı. İn
 <a id="mir13"></a>
 #### MIR13 — [[VOX] Male Character Vocal Pack](https://jdsherbert.itch.io/male-character-vox-pack)
 
-Male VOX:23ses;Mhm1, Sigh3, Grunt6, Punch6, Jump3, Die3, Bruh1. Dört nötr Mhm/Sigh dosyası yetişkin mırıltısına en yakın;modern Bruh elenir. Atıf ve özel lisans.
+Male VOX:23 ses;Mhm 1, Sigh 3, Grunt 6, Punch 6, Jump 3, Die 3, Bruh 1. Dört nötr Mhm/Sigh dosyası yetişkin mırıltısına en yakın;modern Bruh elenir. Atıf ve özel lisans.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **K JDSherbert + ATTurtlez**.
 - Biçim: WAV, OGG, MP3. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2603,7 +2665,7 @@ Male VOX:23ses;Mhm1, Sigh3, Grunt6, Punch6, Jump3, Die3, Bruh1. Dört nötr Mhm/
 <a id="mir14"></a>
 #### MIR14 — [RPG Male Vocal](https://konakuma.itch.io/rpg-male-vocal)
 
-Konakuma RPG Male:162soundbite;24grunt,12jump, Japonca/İngilizce barks. Dil içerenler elenir;ticari kullanım ve lisans açıkça adlandırılmamış, ücretsiz sözü yetmez.
+Konakuma RPG Male:162 soundbite;24 grunt,12 jump, Japonca/İngilizce barks. Dil içerenler elenir;ticari kullanım ve lisans açıkça adlandırılmamış, ücretsiz sözü yetmez.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **? Ticari lisans teyidi**.
 - Biçim: İç uzantı belirtilmemiş; arşiv açılmadı. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2614,7 +2676,7 @@ Konakuma RPG Male:162soundbite;24grunt,12jump, Japonca/İngilizce barks. Dil iç
 <a id="mir15"></a>
 #### MIR15 — [Custom Voice Resource - CVR](https://kerstynungervo.itch.io/custom-voice-resource)
 
-Custom Voice Resource:15erkek/kadın tip,100+satır/tip;Follower/Combat/Marriage/ChildInteraction. CC-BY-NC-SA ticari oyuna uygun değil; Child Interaction çocuk seslendirmesi anlamına gelmez. Elendi.
+Custom Voice Resource:15 erkek/kadın tip,100+satır/tip;Follower/Combat/Marriage/ChildInteraction. CC-BY-NC-SA ticari oyuna uygun değil; Child Interaction çocuk seslendirmesi anlamına gelmez. Elendi.
 
 - Kaynak durumu: 200; 23 Ekim 2026’da ürün/üretici metni açıldı. Ücret: 0 (sayısal tutar USD; EUR ayrıca yazılır). Lisans: **X CC-BY-NC-SA**.
 - Biçim: WAV. Godot 4: WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli.
@@ -2630,7 +2692,7 @@ Eski E10 ve C06 aynı Synty ürünüdür; aşağıda yalnız E10 sayılır. İlk
 <a id="a03"></a>
 ### A03 — [KayKit: Character Animations](https://kaylousberg.itch.io/kaykit-character-animations)
 
-FBX/glTF Rig_Medium/Large, hareket/sosyal/silah/araç setleri ve28yeni tool hareketi. Sneaking ve hammering açık; hedef rigde retarget şart. Fırınküreği grup satırı kısmi.
+FBX/glTF Rig_Medium/Large, hareket/sosyal/silah/araç setleri ve 28 yeni tool hareketi. Sneaking ve hammering açık; hedef rigde retarget şart. Fırınküreği grup satırı kısmi.
 
 **9 ihtiyaç** (0 tam / 3 kısmi / 6 uyarlama); **9/10**, iş orta. Tam: —; kısmi: İHT-0399, İHT-0396, İHT-0401; uyarlama: İHT-0444, İHT-0450, İHT-0453, İHT-0455, İHT-0456, İHT-0524.
 
@@ -2640,7 +2702,7 @@ FBX/glTF Rig_Medium/Large, hareket/sosyal/silah/araç setleri ve28yeni tool hare
 <a id="a01"></a>
 ### A01 — [Quaternius: Universal Animation Library](https://quaternius.itch.io/universal-animation-library)
 
-120+ hareket; 8yönlocomotion, jog, sprint, push, crawl, swim, sit, death;RM/NoRM. Free/Pro klip adları ayrışmadığından belirli ücretsiz duygu var denmedi; genel hareketler kısmi.
+120+ hareket; 8 yönlocomotion, jog, sprint, push, crawl, swim, sit, death;RM/NoRM. Free/Pro klip adları ayrışmadığından belirli ücretsiz duygu var denmedi; genel hareketler kısmi.
 
 **5 ihtiyaç** (0 tam / 5 kısmi / 0 uyarlama); **8/10**, iş orta. Tam: —; kısmi: İHT-0444, İHT-0450, İHT-0451, İHT-0456, İHT-0524; uyarlama: —.
 
@@ -2660,7 +2722,7 @@ FBX/glTF Rig_Medium/Large, hareket/sosyal/silah/araç setleri ve28yeni tool hare
 <a id="a06"></a>
 ### A06 — [MoCap Online: Mobility](https://mocaponline.com/products/mobility)
 
-Starter35animasyon/59dosya; Pro527+ toplamıyla karıştırılmaz. Walk/jog/crouch/jump/idle/turn. Çarık/zemin teması ve retarget, yağmur/kar ayrı açık.
+Starter 35 animasyon/59 dosya; Pro 527+ toplamıyla karıştırılmaz. Walk/jog/crouch/jump/idle/turn. Çarık/zemin teması ve retarget, yağmur/kar ayrı açık.
 
 **3 ihtiyaç** (0 tam / 0 kısmi / 3 uyarlama); **8/10**, iş orta. Tam: —; kısmi: —; uyarlama: İHT-0444, İHT-0450, İHT-0524.
 
@@ -2670,7 +2732,7 @@ Starter35animasyon/59dosya; Pro527+ toplamıyla karıştırılmaz. Walk/jog/crou
 <a id="a07"></a>
 ### A07 — [MoCap Online: Park](https://mocaponline.com/products/park)
 
-65dosya;46oturarak19ayakta,35konuşma,8texting4phone örtüşen etiketler. Telefon elenir; konuşma/oturma ihtiyacına aday. Etiketler toplanıp65üzeri benzersiz sayı üretilmedi.
+65 dosya;46 oturarak 19 ayakta,35 konuşma,8 texting 4 phone örtüşen etiketler. Telefon elenir; konuşma/oturma ihtiyacına aday. Etiketler toplanıp 65 üzeri benzersiz sayı üretilmedi.
 
 **2 ihtiyaç** (0 tam / 0 kısmi / 2 uyarlama); **6/10**, iş orta. Tam: —; kısmi: —; uyarlama: İHT-0445, İHT-0451.
 
@@ -2680,7 +2742,7 @@ Starter35animasyon/59dosya; Pro527+ toplamıyla karıştırılmaz. Walk/jog/crou
 <a id="a08"></a>
 ### A08 — [MoCap Online: Bar Drinking](https://mocaponline.com/products/bar)
 
-112bar/restoran dosyası;48bar48masa16ayakta. Bardak/tutuş ve mobilya yüksekliği uyarlanmalı; konuşma ve oturma adayları.
+112 bar/restoran dosyası;48 bar 48 masa 16 ayakta. Bardak/tutuş ve mobilya yüksekliği uyarlanmalı; konuşma ve oturma adayları.
 
 **2 ihtiyaç** (0 tam / 0 kısmi / 2 uyarlama); **5/10**, iş orta. Tam: —; kısmi: —; uyarlama: İHT-0445, İHT-0451.
 
@@ -2690,7 +2752,7 @@ Starter35animasyon/59dosya; Pro527+ toplamıyla karıştırılmaz. Walk/jog/crou
 <a id="a05"></a>
 ### A05 — [MoCap Online: Conversation](https://mocaponline.com/products/convo)
 
-28conversation dosyası:9uzun9loop7jest3yön; konuşma parmak ayrıntılı, FBX. Ayakta konuşma için retarget; özgül duygu adı teyit edilmedi.
+28 conversation dosyası:9 uzun 9 loop 7 jest 3 yön; konuşma parmak ayrıntılı, FBX. Ayakta konuşma için retarget; özgül duygu adı teyit edilmedi.
 
 **1 ihtiyaç** (0 tam / 0 kısmi / 1 uyarlama); **8/10**, iş orta. Tam: —; kısmi: —; uyarlama: İHT-0445.
 
@@ -2700,7 +2762,7 @@ Starter35animasyon/59dosya; Pro527+ toplamıyla karıştırılmaz. Walk/jog/crou
 <a id="a09"></a>
 ### A09 — [MoCap Online: Office / Desk](https://mocaponline.com/products/desk)
 
-35ofis/masa;16oturma10yürüme7ayakta2geçiş. Modern iş eylemleri ayıklanmalı; genel otur-kalk kısmi, tarihî yazma işi kanıtlanmadı.
+35 ofis/masa;16 oturma 10 yürüme 7 ayakta 2 geçiş. Modern iş eylemleri ayıklanmalı; genel otur-kalk kısmi, tarihî yazma işi kanıtlanmadı.
 
 **1 ihtiyaç** (0 tam / 1 kısmi / 0 uyarlama); **3/10**, iş çok. Tam: —; kısmi: İHT-0451; uyarlama: —.
 
@@ -2720,7 +2782,7 @@ Mixamo JS/AdobeID içinde; SSS ücretsiz ticari kullanım ve FBX akışını do�
 <a id="s01"></a>
 ### S01 — [rubberduck: 100 CC0 metal and wood SFX](https://opengameart.org/content/100-cc0-metal-and-wood-sfx)
 
-100metal/wood; wooddoorclosing, cracking, breaking, squeak, woodhammer, metalkey/lock. Ağır kapı/bar/mallet için uyarlama; zincir/derikese/bebek yok.
+100 metal/wood; wooddoorclosing, cracking, breaking, squeak, woodhammer, metalkey/lock. Ağır kapı/bar/mallet için uyarlama; zincir/derikese/bebek yok.
 
 **6 ihtiyaç** (0 tam / 4 kısmi / 2 uyarlama); **9/10**, iş az. Tam: —; kısmi: İHT-0468, İHT-0478, İHT-0499, İHT-0500; uyarlama: İHT-0469, İHT-0485.
 
@@ -2730,7 +2792,7 @@ Mixamo JS/AdobeID içinde; SSS ücretsiz ticari kullanım ve FBX akışını do�
 <a id="s04"></a>
 ### S04 — [artisticdude: RPG Sound Pack](https://opengameart.org/content/rpg-sound-pack)
 
-artisticdude RPG sesleri CC0;coin/UI/metal, çok sayıda monster/magic. Doğal foley yerine oyunlu tını, para/arayüz altkümesi kısmi.
+artisticdude RPG sesleri CC 0;coin/UI/metal, çok sayıda monster/magic. Doğal foley yerine oyunlu tını, para/arayüz altkümesi kısmi.
 
 **3 ihtiyaç** (0 tam / 3 kısmi / 0 uyarlama); **7/10**, iş orta. Tam: —; kısmi: İHT-0472, İHT-0473, İHT-0479; uyarlama: —.
 
@@ -2740,7 +2802,7 @@ artisticdude RPG sesleri CC0;coin/UI/metal, çok sayıda monster/magic. Doğal f
 <a id="s05"></a>
 ### S05 — [Kenney: RPG Audio](https://kenney.nl/assets/rpg-audio)
 
-KenneyRPG50dosya, foley/footstep/weapon. Dosya adları ürünmetninde yok; belirli çarık/toprak veya yay seçimi teyitsiz.
+KenneyRPG 50 dosya, foley/footstep/weapon. Dosya adları ürünmetninde yok; belirli çarık/toprak veya yay seçimi teyitsiz.
 
 **3 ihtiyaç** (0 tam / 3 kısmi / 0 uyarlama); **7/10**, iş orta. Tam: —; kısmi: İHT-0471, İHT-0475, İHT-0492; uyarlama: —.
 
@@ -2750,7 +2812,7 @@ KenneyRPG50dosya, foley/footstep/weapon. Dosya adları ürünmetninde yok; belir
 <a id="s06"></a>
 ### S06 — [Kenney: Impact Sounds](https://kenney.nl/assets/impact-sounds)
 
-KenneyImpact130dosya;impact/foley. Tekil kırılan tahta türü yok; genel darbe sesi kapı barı kırılması diye sayılmadı.
+KenneyImpact 130 dosya;impact/foley. Tekil kırılan tahta türü yok; genel darbe sesi kapı barı kırılması diye sayılmadı.
 
 **0 ihtiyaç** (0 tam / 0 kısmi / 0 uyarlama); **6/10**, iş orta. Tam: —; kısmi: —; uyarlama: —.
 
@@ -2780,7 +2842,7 @@ Tek animasyonlu Avrupa şövalyesi; idle/death/jump/roll/run/walk/attack. Uzak B
 <a id="c04"></a>
 ### C04 — [Quaternius: Ultimate Modular Men Pack — Poly Pizza](https://poly.pizza/bundle/Ultimate-Modular-Men-Pack-ZiH8muWqwQ)
 
-11erkek/24klip; farmer/adventurer/king altkümesi, SWAT/astronot elenir. Bey ve esnaf ancak kıyafet değişimiyle; ana Quaternius lisansı kaynak kökeni nedeniyle ayrıca çelişkili.
+11 erkek/24 klip; farmer/adventurer/king altkümesi, SWAT/astronot elenir. Bey ve esnaf ancak kıyafet değişimiyle; ana Quaternius lisansı kaynak kökeni nedeniyle ayrıca çelişkili.
 
 **3 ihtiyaç** (0 tam / 3 kısmi / 0 uyarlama); **5/10**, iş çok. Tam: —; kısmi: İHT-0356, İHT-0390, İHT-0431; uyarlama: —.
 
@@ -2790,7 +2852,7 @@ Tek animasyonlu Avrupa şövalyesi; idle/death/jump/roll/run/walk/attack. Uzak B
 <a id="c02"></a>
 ### C02 — [Quaternius: Universal Base Characters](https://quaternius.itch.io/universal-base-characters)
 
-6 çıplak/taban gövde, regular/superhero/teen; yaklaşık13k üçgen,20saç. Kostüm teslim etmediğinden roller kısmi. Teen 7yaşındakiçocuk sayılmadı.
+6 çıplak/taban gövde, regular/superhero/teen; yaklaşık 13 k üçgen,20 saç. Kostüm teslim etmediğinden roller kısmi. Teen 7 yaşındakiçocuk sayılmadı.
 
 **2 ihtiyaç** (0 tam / 2 kısmi / 0 uyarlama); **7/10**, iş çok. Tam: —; kısmi: İHT-0426, İHT-0427; uyarlama: —.
 
@@ -2800,7 +2862,7 @@ Tek animasyonlu Avrupa şövalyesi; idle/death/jump/roll/run/walk/attack. Uzak B
 <a id="c03"></a>
 ### C03 — [Quaternius: Ultimate Modular Women Pack](https://quaternius.com/packs/ultimatemodularwomen.html)
 
-10modülerkadın ve24klip beyanı. Modern kıyafetler ayıklanmalı; eş gövdesine uyarlama, hazır Anadolu kostümü değil.
+10 modülerkadın ve 24 klip beyanı. Modern kıyafetler ayıklanmalı; eş gövdesine uyarlama, hazır Anadolu kostümü değil.
 
 **1 ihtiyaç** (0 tam / 0 kısmi / 1 uyarlama); **6/10**, iş orta. Tam: —; kısmi: —; uyarlama: İHT-0427.
 
@@ -2810,7 +2872,7 @@ Tek animasyonlu Avrupa şövalyesi; idle/death/jump/roll/run/walk/attack. Uzak B
 <a id="c05"></a>
 ### C05 — [Quaternius: RPG Character Pack](https://quaternius.com/packs/rpgcharacters.html)
 
-6rigliRPGkarakter;wizard/monk uzun giysi dervişe kanıt değildir. Tarihî elçi gövdesi için kısmi, gerçek dini kıyafet ayrıca gerekir.
+6 rigliRPGkarakter;wizard/monk uzun giysi dervişe kanıt değildir. Tarihî elçi gövdesi için kısmi, gerçek dini kıyafet ayrıca gerekir.
 
 **1 ihtiyaç** (0 tam / 1 kısmi / 0 uyarlama); **4/10**, iş çok. Tam: —; kısmi: İHT-0353; uyarlama: —.
 
@@ -2820,7 +2882,7 @@ Tek animasyonlu Avrupa şövalyesi; idle/death/jump/roll/run/walk/attack. Uzak B
 <a id="c07"></a>
 ### C07 — [KayKit: Adventurers](https://kaylousberg.itch.io/kaykit-adventurers)
 
-5ücretsiz/3Extra karakter ve25+ aksesuar. Knight/rogue vb oyuncak oranlı; elf/druid fantastik parçaları elenir. Uzak asker adayı.
+5 ücretsiz/3 Extra karakter ve 25+ aksesuar. Knight/rogue vb oyuncak oranlı; elf/druid fantastik parçaları elenir. Uzak asker adayı.
 
 **1 ihtiyaç** (0 tam / 1 kısmi / 0 uyarlama); **4/10**, iş çok. Tam: —; kısmi: İHT-0358; uyarlama: —.
 
@@ -2840,7 +2902,7 @@ RigliGLB, Blend veMixamoFBX taban karakter; dönem kostümü yok. Teknik deneme 
 <a id="c09"></a>
 ### C09 — [Quaternius: Ultimate Animated Character Pack](https://quaternius.com/packs/ultimatedanimatedcharacter)
 
-52karışık dönemli rigli karakter; ad listesi mevcut metinde yok. Büyük sayı uygun insan çeşidi kanıtı değil; bu tur yeni ihtiyaç kapatmıyor.
+52 karışık dönemli rigli karakter; ad listesi mevcut metinde yok. Büyük sayı uygun insan çeşidi kanıtı değil; bu tur yeni ihtiyaç kapatmıyor.
 
 **0 ihtiyaç** (0 tam / 0 kısmi / 0 uyarlama); **2/10**, iş çok. Tam: —; kısmi: —; uyarlama: —.
 
@@ -2850,7 +2912,7 @@ RigliGLB, Blend veMixamoFBX taban karakter; dönem kostümü yok. Teknik deneme 
 <a id="s11"></a>
 ### S11 — [Ancient Sounds: Middle Eastern — Free Sample Pack](https://ancient-sounds.com/product/middle-eastern-free-sample-pack/)
 
-AncientSounds24WAVloop, Duduk/Ney/Vocal/Setar/Santur/Kamancheh. Ücretsiz eposta kaydı, royaltyfree. Beste/uzun döngü değil; ney katmanı gece/sakin müziği kısmen destekler.
+AncientSounds 24 WAVloop, Duduk/Ney/Vocal/Setar/Santur/Kamancheh. Ücretsiz eposta kaydı, royaltyfree. Beste/uzun döngü değil; ney katmanı gece/sakin müziği kısmen destekler.
 
 **2 ihtiyaç** (0 tam / 2 kısmi / 0 uyarlama); **8/10**, iş orta. Tam: —; kısmi: İHT-0463, İHT-0465; uyarlama: —.
 
@@ -2860,7 +2922,7 @@ AncientSounds24WAVloop, Duduk/Ney/Vocal/Setar/Santur/Kamancheh. Ücretsiz eposta
 <a id="s09"></a>
 ### S09 — [Abbara: Complete Bendir Sample Pack](https://abbarasounds.com/sounds/complete-bendir-sample-pack)
 
-Bendir938WAV,60–148bpm, görünen4/4ve7/8. Bitmiş müzik değil;bendirparçası, kudüm/davul/zurna9/8teslimi değil. Panik müziğinde kısmi beste katmanı.
+Bendir 938 WAV,60–148 bpm, görünen 4/4 ve 7/8. Bitmiş müzik değil;bendirparçası, kudüm/davul/zurna 9/8 teslimi değil. Panik müziğinde kısmi beste katmanı.
 
 **1 ihtiyaç** (0 tam / 1 kısmi / 0 uyarlama); **8/10**, iş orta. Tam: —; kısmi: İHT-0467; uyarlama: —.
 
@@ -2870,7 +2932,7 @@ Bendir938WAV,60–148bpm, görünen4/4ve7/8. Bitmiş müzik değil;bendirparças
 <a id="s10"></a>
 ### S10 — [Gravity Sound: Character Mumble Voices](https://gravity-sound.itch.io/character-mumble-voices)
 
-GravityMumble288WAV;male/femaleold/adult/young ve giant. Üç yaş ihtiyacına aday;young gerçek çocuk sesi mi açık değil. Dev/komik varyantlar elenir;lisans sayfada ayrıca teyit.
+GravityMumble 288 WAV;male/femaleold/adult/young ve giant. Üç yaş ihtiyacına aday;young gerçek çocuk sesi mi açık değil. Dev/komik varyantlar elenir;lisans sayfada ayrıca teyit.
 
 **3 ihtiyaç** (0 tam / 1 kısmi / 2 uyarlama); **9/10**, iş az. Tam: —; kısmi: İHT-0518; uyarlama: İHT-0516, İHT-0517.
 
@@ -2880,7 +2942,7 @@ GravityMumble288WAV;male/femaleold/adult/young ve giant. Üç yaş ihtiyacına a
 <a id="s12"></a>
 ### S12 — [moodfrog: Character Mumble & Gibberish Dialogue — 60 Sound Effects](https://moodfrog.itch.io/character-mumble-gibberish-sfx-pack)
 
-MoodFrog60one-shot/120WAV+OGG,5kategori,114sn. Mırıltıgibberish ticari ürün izni var;yaşlı/çocuk ayrımı belirtilmemiş, hepsi aynı60tasarımın iki biçimi.
+MoodFrog 60 one-shot/120 WAV+OGG,5 kategori,114 sn. Mırıltıgibberish ticari ürün izni var;yaşlı/çocuk ayrımı belirtilmemiş, hepsi aynı 60 tasarımın iki biçimi.
 
 **3 ihtiyaç** (0 tam / 2 kısmi / 1 uyarlama); **8/10**, iş orta. Tam: —; kısmi: İHT-0517, İHT-0518; uyarlama: İHT-0516.
 
@@ -2890,7 +2952,7 @@ MoodFrog60one-shot/120WAV+OGG,5kategori,114sn. Mırıltıgibberish ticari ürün
 <a id="s08"></a>
 ### S08 — [Sonniss: GameAudioGDC arşivi](https://sonniss.com/gameaudiogdc/)
 
-Sonniss: eski sekiz koleksiyonun görünür yıllık tracklistleri ve25sayfalık PDF açıldı;2025yok,2026ayrısayfa. Zincir, kâğıt, ahşapkapı, demirci, yağmur/rüzgâr, kalabalıkkavga/nara somut dosya adlarıyla görülüyor. Bazı GoogleHTMLlisteleri kısaltılmış;tam arşiv yüzdesi bilinmiyor.
+Sonniss: eski sekiz koleksiyonun görünür yıllık tracklistleri ve 25 sayfalık PDF açıldı;2025 yok,2026 ayrısayfa. Zincir, kâğıt, ahşapkapı, demirci, yağmur/rüzgâr, kalabalıkkavga/nara somut dosya adlarıyla görülüyor. Bazı GoogleHTMLlisteleri kısaltılmış;tam arşiv yüzdesi bilinmiyor.
 
 **16 ihtiyaç** (2 tam / 8 kısmi / 6 uyarlama); **8/10**, iş orta. Tam: İHT-0489, İHT-0490; kısmi: İHT-0468, İHT-0469, İHT-0476, İHT-0481, İHT-0482, İHT-0483, İHT-0491, İHT-0510; uyarlama: İHT-0477, İHT-0478, İHT-0485, İHT-0495, İHT-0496, İHT-0497.
 
@@ -2900,7 +2962,7 @@ Sonniss: eski sekiz koleksiyonun görünür yıllık tracklistleri ve25sayfalık
 <a id="s02"></a>
 ### S02 — [Blender Foundation / Lamoot: Ambient Mountain, River, Wind and Forest and Waterfall](https://opengameart.org/content/ambient-mountain-river-wind-and-forest-and-waterfall)
 
-YoFrankie BlenderFoundation dağ/orman/dere/şelale/rüzgâr. CC-BY3. Doğal rüzgâr tam adayı; gece baykuş/kurt ve gündüz çekiç/koyun birleşimi eksik.
+YoFrankie BlenderFoundation dağ/orman/dere/şelale/rüzgâr. CC-BY 3. Doğal rüzgâr tam adayı; gece baykuş/kurt ve gündüz çekiç/koyun birleşimi eksik.
 
 **5 ihtiyaç** (1 tam / 4 kısmi / 0 uyarlama); **9/10**, iş az. Tam: İHT-0490; kısmi: İHT-0481, İHT-0482, İHT-0483, İHT-0510; uyarlama: —.
 
@@ -2910,7 +2972,7 @@ YoFrankie BlenderFoundation dağ/orman/dere/şelale/rüzgâr. CC-BY3. Doğal rü
 <a id="s03"></a>
 ### S03 — [andersmmg: Ambience — Freesound](https://freesound.org/people/andersmmg/packs/29155/)
 
-Freesound Ambience29155; sayfa JS kabuğu ve hesap arayüzü. Bu tur tekil kayıt lisansları/dosya adları alınamadı; önceki koleksiyon puanı koşulluya düşer.
+Freesound Ambience 29155; sayfa JS kabuğu ve hesap arayüzü. Bu tur tekil kayıt lisansları/dosya adları alınamadı; önceki koleksiyon puanı koşulluya düşer.
 
 **0 ihtiyaç** (0 tam / 0 kısmi / 0 uyarlama); **5/10**, iş orta. Tam: —; kısmi: —; uyarlama: —.
 
@@ -2920,7 +2982,7 @@ Freesound Ambience29155; sayfa JS kabuğu ve hesap arayüzü. Bu tur tekil kayı
 <a id="u08"></a>
 ### U08 — [Kenney: UI Pack — Adventure](https://kenney.nl/assets/ui-pack-adventure)
 
-Adventure UI130dosya;button/panel/slider etiketleri. 4buton hali ve 9-slice ölçüleri teyitsiz; genel panel/kaydırıcı kısmi.
+Adventure UI 130 dosya;button/panel/slider etiketleri. 4 buton hali ve 9-slice ölçüleri teyitsiz; genel panel/kaydırıcı kısmi.
 
 **8 ihtiyaç** (0 tam / 8 kısmi / 0 uyarlama); **6/10**, iş orta. Tam: —; kısmi: İHT-0286, İHT-0287, İHT-0288, İHT-0289, İHT-0290, İHT-0293, İHT-0301, İHT-0302; uyarlama: —.
 
@@ -2930,7 +2992,7 @@ Adventure UI130dosya;button/panel/slider etiketleri. 4buton hali ve 9-slice öl�
 <a id="u03"></a>
 ### U03 — [Game-icons.net koleksiyonu](https://game-icons.net/)
 
-Game-icons SVG koleksiyonu; sanatçı bazlı CC-BY3.0. Kaynak/adalet/kapı ikonlarına genel aday fakat tek tek ikon bağlantıları seçilmediği için 24ikonun hepsi kapanmıyor.
+Game-icons SVG koleksiyonu; sanatçı bazlı CC-BY 3.0. Kaynak/adalet/kapı ikonlarına genel aday fakat tek tek ikon bağlantıları seçilmediği için 24 ikonun hepsi kapanmıyor.
 
 **7 ihtiyaç** (0 tam / 7 kısmi / 0 uyarlama); **8/10**, iş orta. Tam: —; kısmi: İHT-0315, İHT-0317, İHT-0318, İHT-0319, İHT-0321, İHT-0326, İHT-0327; uyarlama: —.
 
@@ -2940,7 +3002,7 @@ Game-icons SVG koleksiyonu; sanatçı bazlı CC-BY3.0. Kaynak/adalet/kapı ikonl
 <a id="u04"></a>
 ### U04 — [Kenney: Fantasy UI Borders](https://kenney-assets.itch.io/fantasy-ui-borders)
 
-130+sprite,9-slice pencereler;CC0. Bütün yükleme/imleç/buton halleri değil; panel/kart çerçevesi yeniden boyama adayı.
+130+sprite,9-slice pencereler;CC 0. Bütün yükleme/imleç/buton halleri değil; panel/kart çerçevesi yeniden boyama adayı.
 
 **5 ihtiyaç** (0 tam / 0 kısmi / 5 uyarlama); **7/10**, iş orta. Tam: —; kısmi: —; uyarlama: İHT-0286, İHT-0291, İHT-0292, İHT-0293, İHT-0294.
 
@@ -2950,7 +3012,7 @@ Game-icons SVG koleksiyonu; sanatçı bazlı CC-BY3.0. Kaynak/adalet/kapı ikonl
 <a id="u10"></a>
 ### U10 — [Buch: Golden UI](https://opengameart.org/content/golden-ui)
 
-GoldenUI CC0;dolgu/slider/scrollbar/button etiketleri var. Parlak altın/piksel dili gece kapısı için ters, bütün UI değişimi yerine sınırlı referans.
+GoldenUI CC 0;dolgu/slider/scrollbar/button etiketleri var. Parlak altın/piksel dili gece kapısı için ters, bütün UI değişimi yerine sınırlı referans.
 
 **4 ihtiyaç** (0 tam / 4 kısmi / 0 uyarlama); **3/10**, iş çok. Tam: —; kısmi: İHT-0301, İHT-0302, İHT-0303, İHT-0304; uyarlama: —.
 
@@ -2960,7 +3022,7 @@ GoldenUI CC0;dolgu/slider/scrollbar/button etiketleri var. Parlak altın/piksel 
 <a id="u02"></a>
 ### U02 — [PINKCANNON: Game wood panel](https://opengameart.org/content/game-wood-panel)
 
-ElboyalıWoodGamePanel.zip, katmanlı kaynak;CC0. Gecekapısının ahşap hissine en yakın;9-slice köşe/kenar, demir çerçeve ve boyut uyarlaması gerekir.
+ElboyalıWoodGamePanel.zip, katmanlı kaynak;CC 0. Gecekapısının ahşap hissine en yakın;9-slice köşe/kenar, demir çerçeve ve boyut uyarlaması gerekir.
 
 **3 ihtiyaç** (0 tam / 0 kısmi / 3 uyarlama); **9/10**, iş orta. Tam: —; kısmi: —; uyarlama: İHT-0286, İHT-0293, İHT-0294.
 
@@ -2970,7 +3032,7 @@ ElboyalıWoodGamePanel.zip, katmanlı kaynak;CC0. Gecekapısının ahşap hissin
 <a id="u07"></a>
 ### U07 — [yd: GUI elements](https://opengameart.org/content/gui-elements)
 
-yd incompleteGUI; map.svg/gui2.svg/Quest.svg/Inventory.svg. Yazar konsept/eksik set diyor; tam oyun arayüzü değildir, menü tabanları kısmi.
+yd incompleteGUI; map.svg/gui 2.svg/Quest.svg/Inventory.svg. Yazar konsept/eksik set diyor; tam oyun arayüzü değildir, menü tabanları kısmi.
 
 **3 ihtiyaç** (0 tam / 3 kısmi / 0 uyarlama); **5/10**, iş çok. Tam: —; kısmi: İHT-0284, İHT-0286, İHT-0293; uyarlama: —.
 
@@ -2980,7 +3042,7 @@ yd incompleteGUI; map.svg/gui2.svg/Quest.svg/Inventory.svg. Yazar konsept/eksik 
 <a id="u09"></a>
 ### U09 — [Kenney: Cursor Pack](https://kenney.nl/assets/cursor-pack)
 
-180imleç dosyası. Tekil point/grab/busy adları ürünmetninde yok; bu ihtiyaçlar doğrudan tam kapanmıyor. Ok imleci için kısmi.
+180 imleç dosyası. Tekil point/grab/busy adları ürünmetninde yok; bu ihtiyaçlar doğrudan tam kapanmıyor. Ok imleci için kısmi.
 
 **2 ihtiyaç** (0 tam / 2 kısmi / 0 uyarlama); **7/10**, iş orta. Tam: —; kısmi: İHT-0007, İHT-0311; uyarlama: —.
 
@@ -2990,7 +3052,7 @@ yd incompleteGUI; map.svg/gui2.svg/Quest.svg/Inventory.svg. Yazar konsept/eksik 
 <a id="u01"></a>
 ### U01 — [Alegreya — Google Fonts](https://fonts.google.com/specimen/Alegreya)
 
-Alegreya zaten depoda, edebî gövde yazısı. OFL1.1 açık font lisansı, CC0 değildir. Mevcut font karşılaştırma tabanıdır.
+Alegreya zaten depoda, edebî gövde yazısı. OFL 1.1 açık font lisansı, CC 0 değildir. Mevcut font karşılaştırma tabanıdır.
 
 **1 ihtiyaç** (0 tam / 0 kısmi / 1 uyarlama); **9/10**, iş az. Tam: —; kısmi: —; uyarlama: İHT-0519.
 
@@ -3000,7 +3062,7 @@ Alegreya zaten depoda, edebî gövde yazısı. OFL1.1 açık font lisansı, CC0 
 <a id="u05"></a>
 ### U05 — [Kenney: Cartography Pack](https://kenney.nl/assets/cartography-pack)
 
-85cartography dosyası; map/town/castle ikonları. Özgün köy/kapı coğrafyasını hazır harita olarak kapatmaz; harita tabanına kısmi.
+85 cartography dosyası; map/town/castle ikonları. Özgün köy/kapı coğrafyasını hazır harita olarak kapatmaz; harita tabanına kısmi.
 
 **1 ihtiyaç** (0 tam / 1 kısmi / 0 uyarlama); **7/10**, iş orta. Tam: —; kısmi: İHT-0284; uyarlama: —.
 
@@ -3020,7 +3082,7 @@ Cinzel mevcut OFL font, Roma yazıtından esin. Başlıklarda alternatif; uzun d
 <a id="u11"></a>
 ### U11 — [ansimuz: Battle Background — Hazy Hills](https://opengameart.org/content/battle-background-hazy-hills-0)
 
-320×208HazyHills piksel arka planı;PNG/PSD+HUD, CC-BY3. Kapı/kandil yok ve 16:9değil; seçilmiş gece kapısı arka planı ihtiyacına karşılık sayılmadı.
+320×208 HazyHills piksel arka planı;PNG/PSD+HUD, CC-BY 3. Kapı/kandil yok ve 16:9 değil; seçilmiş gece kapısı arka planı ihtiyacına karşılık sayılmadı.
 
 **0 ihtiyaç** (0 tam / 0 kısmi / 0 uyarlama); **3/10**, iş çok. Tam: —; kısmi: —; uyarlama: —.
 
@@ -3030,7 +3092,7 @@ Cinzel mevcut OFL font, Roma yazıtından esin. Başlıklarda alternatif; uzun d
 <a id="s07"></a>
 ### S07 — [Kenney: Interface Sounds](https://kenney.nl/assets/interface-sounds)
 
-KenneyInterface100dosya;click/button. Tahta/amber gibi görsel dil sese kanıt değil; nötr odak/onay kısmi.
+KenneyInterface 100 dosya;click/button. Tahta/amber gibi görsel dil sese kanıt değil; nötr odak/onay kısmi.
 
 **2 ihtiyaç** (0 tam / 2 kısmi / 0 uyarlama); **7/10**, iş az. Tam: —; kısmi: İHT-0472, İHT-0473; uyarlama: —.
 
@@ -3162,7 +3224,7 @@ Boyalı gece kapısı UI, piksel UI koleksiyonlarıyla rastgele karıştırılma
 | itch.io | medieval/middle-east/desert/arabic/persian/nomad/caravan/tavern/low-poly/stylized yönlerinde ürünler tarandı; tag sayfası ürün kanıtı yerine geçirilmedi. Yeni adayların birincil sayfaları yukarıda. |
 | [KayKit](https://kaylousberg.itch.io/kaykit-medieval-hexagon), KayKit Bits | Free/Extra/Source farkı ve bilinen model/klip aileleri karşılaştırıldı. KayKit CC0 ile ücretsiz fiyat birbirinden ayrı kontrol edildi. |
 | [Poly Pizza](https://poly.pizza/) | Ana sayfa JS ağırlıklı; ilk turdaki doğrulanmış Modular Men koleksiyonu yeniden açıldı. Arama kabuğundan yeni tür veya lisans uydurulmadı. |
-| [Sketchfab deve](https://sketchfab.com/3d-models/low-poly-camel-e2571167e3d846e59769b61913f1de64) | İndirilebilir CC Attribution model; üçgen ve vertex sayıları görülüyor. Rig/klip/ihracat biçimi teyitsiz. Önceki erişilemeyen modeller yerine gerçek açılan aday. |
+| [Sketchfab deve](https://sketchfab.com/3d-models/low-poly-camel-e2571167e3d846e59769b61913f1de64) | Doğrudan HTML 200 fakat sınırlı; birincil arama görünümü indirilebilir CC Attribution, üçgen ve vertex bilgisi verdi. Son web açılışı 403. Rig/klip/ihracat biçimi teyitsiz; sağlam açık lisanslı alım seti için dosya lisansı ayrıca teyit edilmeli. |
 | [Fab sınırlı ücretsiz](https://www.fab.com/limited-time-free) | 3 Kasım 09:59 ET’ye kadar görünen üç ürün: post-apocalyptic desert, holiday VFX, stone golem. Modern/fantastik içerikler uygun olmadığından bedava diye önerilmedi. Sürekli ücretsiz Medieval Music ayrı açıldı. |
 | Unity Asset Store / Synty | Ham mesh/klip ve motor paketi ayrıldı. Bazı Unity açıklama alanları JS yüzünden boş döndü; teknik ayrıntılarda üretici ürün bilgileri/indekslenmiş açıklama koşullu kullanıldı. Single Entity/Extension alanları çelişirse koltuk varsayılmadı. |
 | [Humble Software](https://www.humblebundle.com/software) | Canlı katalog açıldı; geçmiş bitmiş kampanyaya bugünkü fiyat yazılmadı. Ürün başına lisans şartı değişir; doğrulanmış ihtiyaç kapsamına eklenmedi. |
@@ -3173,8 +3235,8 @@ Boyalı gece kapısı UI, piksel UI koleksiyonlarıyla rastgele karıştırılma
 | [Mixamo SSS](https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html) | Ücretsiz ticari kullanımla hesap içi klip seçimi ayrı. Login yapılmadı; yalvarma/yağmur klibi bulunmuş varsayılmadı. |
 | OpenGameArt / Freesound | OGA ürün ve lisans alanları yeniden okundu. Freesound29155koleksiyonu JS kabuğu döndürdü; her kayıt ayrı lisanslı olduğu için koleksiyona toptan CC0 atanmadı. |
 | [Sonniss arşiv](https://sonniss.com/gameaudiogdc/) ve [2026](https://gdc.sonniss.com/) | 2015–2024arşivindeki bütün görünür tracklist bağlantıları ve2026sayfası açıldı.2025paketi yayımlanmamış;planlanan içerik2026’ya alınmış. Arşiv ZIP’leri indirilmedi. |
-| [Pixabay lisans](https://pixabay.com/service/license-summary/) | Doğrudan403, web aracı lisansı açtı. Özel ticari izin, CC0değil;belirli eser/dosya seçilmediği için kapsama0. ContentIDbelirsizliği ayrı kontrol gerektirir. |
-| [Zapsplat lisans](https://www.zapsplat.com/license-type/standard-license/) | 8Mayıs2026şartları:BasicMP3/atıf, PremiumMP3+WAV/atıfsız;tek kullanıcı ve ham dosya devri kısıtları. A lisansı değildir. Genel kategori başlığından dönemsel ses sayısı türetilmedi. |
+| [Pixabay lisans](https://pixabay.com/service/license-summary/) | Doğrudan403, web aracı lisansı açtı. Özel ticari izin, CC0 değil;belirli eser/dosya seçilmediği için kapsama0. ContentIDbelirsizliği ayrı kontrol gerektirir. |
+| [Zapsplat lisans](https://www.zapsplat.com/license-type/standard-license/) | 8Mayıs2026şartları:BasicMP3/atıf, PremiumMP3+WAV/atıfsız;tek kullanıcı ve ham dosya devri kısıtları. A lisansı değildir. Genel kategori başlığından dönemsel ses sayısı türetilmedi. Son kontrolde keçi/kurt, kuzu, öksürük ve bebek soluğu için beş tekil ürün ayrıca açıldı ve ID ile eşleştirildi; her birinin Standard License alanı ayrı kontrol edildi. |
 | Incompetech / [Musopen](https://musopen.org/music/) | AridFoothills tekil enstrüman listesiyle elendi. Musopen403; eski eserin bestesi kamu malı olsa da modern icra kaydı kendiliğinden kamu malı değildir. Dönem müziği arşivinden izin tahmin edilmedi. |
 | Google Fonts | Dört yeni ailenin resmî OFL.txt ve METADATA.pb dosyaları200ile okundu;Latin-ext işaretleri mevcut. TTF indirilmedi;Türkçe glif/render kontrolü ileri kabul adımı. |
 | [Poly Haven](https://polyhaven.com/textures), [ambientCG](https://ambientcg.com/view?id=Metal032) | Kataloglar JS ağırlıklı. Mevcut PolyHavenHDRI/doku referansları korundu, Metal032ürün veCC0lisansı ayrı açıldı. Fotoğrafik PBR doku boyalı UI’yi otomatik karşılamaz. |
@@ -3183,12 +3245,12 @@ Boyalı gece kapısı UI, piksel UI koleksiyonlarıyla rastgele karıştırılma
 
 [Yayımlanmış 25 sayfalık tracklist](https://cdn.sonniss.com/storage/2025/05/Tracklist-GDC-GameAudio-Giveaway-Sheet1-1.pdf) içinde Battle Crowd grubunun kavga/nara/uğultusu, kâğıt yırtılması, zincir-metal, ahşap kapı, demirci çekiç ve yağmur/rüzgâr kayıtları görüldü. Bebek kaydı adı, bebek **soluğu** tesliminin kanıtı değil. Çağdaş metro/araç/elektrik ve canavar sesleri elendi.
 
-Yıllık Google tracklistleri görünür hücre düzeyinde okundu; bazı HTML görünümleri listeyi kısaltıyor. Örneğin2017listesinde köy etkinliği ve atlar,2020 listesinde deve sesleri var; bunlar kervan çanı/tekerini veya at nalını ayrı bir kayıt olarak doğrulamaz. Kullanılabilir toplam yüzde, bütün yıl arşivlerinin eksiksiz öğe listesi olmadan verilmedi.2026kaynağı ayrı sayfada; eski sekizli arşiv toplamına gizlice eklenmedi. Güncel [Sonniss lisansı](https://sonniss.com/gdc-bundle-license/) K sınıfındadır.
+Yıllık Google tracklistleri görünür hücre düzeyinde okundu; bazı HTML görünümleri listeyi kısaltıyor. Örneğin 2017 listesinde köy etkinliği ve atlar,2020 listesinde deve sesleri var; bunlar kervan çanı/tekerini veya at nalını ayrı bir kayıt olarak doğrulamaz. Kullanılabilir toplam yüzde, bütün yıl arşivlerinin eksiksiz öğe listesi olmadan verilmedi.2026kaynağı ayrı sayfada; eski sekizli arşiv toplamına gizlice eklenmedi. Güncel [Sonniss lisansı](https://sonniss.com/gdc-bundle-license/) K sınıfındadır.
 
 ## Önce ne tedarik edilmeli?
 
 1. **A03 KayKit Character Animations:** ücretsiz CC0 ve ortak hareket/alet kapsamı; önce mevcut karakter rigine uyum sınanmalı. Yeni karakter gövdesi almak şart değil.
-2. **CEV07 Avramania Premium veya CEV04 Slavica:** birini çevre omurgası seç. Avramania’nın12hazır yapısı daha açık döküm veriyor;Slavica daha geniş, customrigveeklisansbelirsizliği var. Birlikte bütün evleri karıştırma.
+2. **CEV07 Avramania Premium veya CEV04 Slavica:** birini çevre omurgası seç. Avramania’nın12hazır yapısı daha açık döküm veriyor;Slavica daha geniş, özel rig ve ek lisans belirsizliği var. Birlikte bütün evleri karıştırma.
 3. **ESY16 GameOver Props:** tek tek adlandırılmış alet/oda/kapı parçaları sayesinde yüksek kapsama;Klisansı ve kaynakrepo dağıtımı ayrıca çözülmeli. ESY01CC0Tools en ucuz ilk alternatifi.
 4. **ANM15 Village Life:** yalvarma ve yük taşıma için somut klip kanıtı. Idle/talk bütünlüğü içinANM09/08alternatifi var;başta beş hareket paketi satın almak zorunlu değil.
 5. **ORT01 + S01:** katmanlı yağmur/rüzgâr ve fiziksel ahşap/metal. Mevcut ses dosyalarıyla tekrar kontrolü sonrası seçilecek; dosya formatı çoğaltmaları benzersiz kayıt sayılmaz.
@@ -3200,13 +3262,13 @@ Müzikte ilk alım yarışına girmek yerine tek bir akustik tema kabulü yapıl
 - **2D:** özgün karakter portresi, CHR belgesi/iz/eldeki nesne yakın planı, gece kapısı/harita/son ekranları ve tutarlı buton halleri mevcut tekli NanoBanana briefleriyle üretilir. Saydam kaynak düz#00FF00, sonradan gerçek alfa/16pxpay/9-slice kabulü. Bu araştırmada yeni görsel üretilmedi.
 - **Model:** derviş, Anadolu çavuşu, bey, özgül kaftan/başlık, örgü heybe, dokuma tezgâhı, mekanik külçe evreleri için mevcut gövde üstünde insan sanatçı uyarlaması veya lisansı açık yeni model araması gerekir. 3Düretim ajan görevi olarak açılmadı;mekanik yer tutucuyla sürebilir.
 - **Animasyon:** sarık düzeltme, yular tutma, koruyucu sepete sarılma ve kanıtı saklama için seçilmiş el/kol katmanı ve nesne teması düzenlemesi;yalnız klip adı benziyor diye kabul yok. Mixamo/ActorCore/Rokoko hesabında bir sonraki seçim bu açık ID’lere göre yapılabilir;bulunmuş klip diye raporlanmadı.
-- **Ses/müzik:** çocuk/yaşlı mırıltısında yaş kaydı doğrulanmış özel paket ya da ses sanatçısı;bebek soluğu, kervançanı, çekirge ve özgül foleyde tekil lisanslı kayıt. Düğün ve farklı sonlar için beste/uyarlama briefi gerekir. Genel grunt, synthvefantastik sesle açıklar gizlenmez.
+- **Ses/müzik:** çocuk/yaşlı mırıltısında yaş kaydı doğrulanmış özel paket ya da ses sanatçısı;bebek soluğu, kervan çanı, çekirge ve özgül foleyde tekil lisanslı kayıt. Düğün ve farklı sonlar için beste/uyarlama briefi gerekir. Genel grunt, synthvefantastik sesle açıklar gizlenmez.
 - **Tanımsız SAH grupları:** klip/eşya türü belirlenmeden paket eşleştirmesi veya yüzde kapanışı yapılamaz. Önce kaynak maddede hangi teslimin istendiği açıklığa kavuşmalı;bu araştırmada ROADMAP değiştirilmedi.
 
 
 ## Önerilen karma setin açık ihtiyaçları
 
-Seçki: [CEV07](#cev07), [CEV01](#cev01), [KAR02](#kar02), [KAR05](#kar05), [A03](#a03), [ANM15](#anm15), [ANM09](#anm09), [HYV05](#hyv05), [HYV03](#hyv03), [HYV14](#hyv14), [HYV16](#hyv16), [ESY16](#esy16), [ESY01](#esy01), [U02](#u02), [U04](#u04), [U03](#u03), [UI20](#ui20), [U01](#u01), [U06](#u06), [VFX02](#vfx02), [VFX07](#vfx07), [VFX13](#vfx13), [VFX15](#vfx15), [S02](#s02), [ORT01](#ort01), [S01](#s01), [S08](#s08), [FOL11](#fol11), [FOL14](#fol14), [FOL06](#fol06), [UIS03](#uis03), [UIS10](#uis10), [MUZ04](#muz04), [MUZ05](#muz05), [S11](#s11), [MIR04](#mir04), [S10](#s10). Birleşik sayı **116 (2 tam / 53 kısmi / 61 uyarlamayla)**. Aynı gereksinim iki pakette görünse de bir kez sayılır. **Kısmi temas kapanış değildir**; aynı şekilde uyarlama teslimi yapılmış değildir.
+Seçki: [CEV07](#cev07), [CEV01](#cev01), [KAR02](#kar02), [KAR05](#kar05), [A03](#a03), [ANM15](#anm15), [ANM09](#anm09), [HYV05](#hyv05), [HYV03](#hyv03), [HYV14](#hyv14), [HYV16](#hyv16), [ESY16](#esy16), [ESY01](#esy01), [U02](#u02), [U04](#u04), [U03](#u03), [UI20](#ui20), [U01](#u01), [U06](#u06), [VFX02](#vfx02), [VFX07](#vfx07), [VFX13](#vfx13), [VFX15](#vfx15), [S02](#s02), [ORT01](#ort01), [S01](#s01), [S08](#s08), [ORT16](#ort16), [ORT17](#ort17), [ORT18](#ort18), [FOL16](#fol16), [FOL17](#fol17), [FOL11](#fol11), [FOL14](#fol14), [FOL06](#fol06), [UIS03](#uis03), [UIS10](#uis10), [MUZ04](#muz04), [MUZ05](#muz05), [S11](#s11), [MIR04](#mir04), [S10](#s10). Birleşik sayı **120 (3 tam / 54 kısmi / 63 uyarlamayla)**. Aynı gereksinim iki pakette görünse de bir kez sayılır. **Kısmi temas kapanış değildir**; aynı şekilde uyarlama teslimi yapılmış değildir.
 
 
 ### Seçkide açık: 3D model (60)
@@ -3224,9 +3286,9 @@ Seçki: [CEV07](#cev07), [CEV01](#cev01), [KAR02](#kar02), [KAR05](#kar05), [A03
 İHT-0389 `ANI-HAYVAN-SURU`, İHT-0394 `ANI07-ISINMA`, İHT-0398 `ANI09-BUZULME`, İHT-0429 `CAT02-KAVGA`, İHT-0446 `ANM-SEVINC`, İHT-0447 `ANM-OFKE`, İHT-0448 `ANM-PANIK`, İHT-0451 `ANM-OTUR`, İHT-0454 `ANM-NOBET`, İHT-0457 `ANM-YAGMUR-YURU`, İHT-0458 `ANM-KAR-YURU`, İHT-0460 `ANM-TEHDIT`, İHT-0461 `SAH-YORGUN-YURU`, İHT-0462 `SAH-KLIP-*`, İHT-0526 `ANM-IZ-SAKLA`, İHT-0527 `ANM-SARIK-DUZELT`, İHT-0528 `ANM-ASA-VUR`, İHT-0529 `ANM-AT-SAH`, İHT-0530 `ANM-ONE-EGIL`, İHT-0534 `ANM-YULAR-TUT`.
 
 
-### Seçkide açık: ses (12)
+### Seçkide açık: ses (8)
 
-İHT-0470 `SES-KESE`, İHT-0480 `SES-FOLEY-DERI`, İHT-0486 `SES-HASAT`, İHT-0487 `SES-EKIM`, İHT-0488 `SES-KURT`, İHT-0493 `SES-OKSURUK`, İHT-0494 `SES-CEKIRGE`, İHT-0498 `SES-GECE-BITTI`, İHT-0501 `SES-AT`, İHT-0511 `ORTAM-PAZAR`, İHT-0513 `SES-KECI`, İHT-0514 `SES-KOYUN`.
+İHT-0470 `SES-KESE`, İHT-0480 `SES-FOLEY-DERI`, İHT-0486 `SES-HASAT`, İHT-0487 `SES-EKIM`, İHT-0494 `SES-CEKIRGE`, İHT-0498 `SES-GECE-BITTI`, İHT-0501 `SES-AT`, İHT-0511 `ORTAM-PAZAR`.
 
 
 ### Seçkide açık: müzik (6)
@@ -3259,9 +3321,9 @@ Burada “yeryüzünde yok” iddiası yoktur. Aşağıdaki ID’ler bu tur aç�
 İHT-0394 `ANI07-ISINMA`, İHT-0398 `ANI09-BUZULME`, İHT-0457 `ANM-YAGMUR-YURU`, İHT-0458 `ANM-KAR-YURU`, İHT-0462 `SAH-KLIP-*`, İHT-0526 `ANM-IZ-SAKLA`, İHT-0527 `ANM-SARIK-DUZELT`, İHT-0528 `ANM-ASA-VUR`, İHT-0530 `ANM-ONE-EGIL`, İHT-0534 `ANM-YULAR-TUT`.
 
 
-### Hiç eşleşmeyen: ses (6)
+### Hiç eşleşmeyen: ses (2)
 
-İHT-0488 `SES-KURT`, İHT-0493 `SES-OKSURUK`, İHT-0498 `SES-GECE-BITTI`, İHT-0501 `SES-AT`, İHT-0513 `SES-KECI`, İHT-0514 `SES-KOYUN`.
+İHT-0498 `SES-GECE-BITTI`, İHT-0501 `SES-AT`.
 
 
 ### Hiç eşleşmeyen: müzik (6)

@@ -10,8 +10,8 @@
     "VFX": 15,
     "Karakter": 15,
     "Müzik": 15,
-    "Ortam sesi": 15,
-    "Foley": 15,
+    "Ortam sesi": 18,
+    "Foley": 17,
     "UI sesi": 15,
     "Mırıltı": 15
   },
@@ -816,8 +816,8 @@
       "id": "ESY16",
       "category": "Eşya",
       "url": "https://www.gamedevmarket.net/asset/medieval-stylized-3d-props",
-      "title": "Sorry, you have been blocked",
-      "facts": "GameOver Medieval Stylized Props:66 mesh; örs,çekiç,balta,kova,un torbası,sandık,masa,sıra,meşale,kuyu,ahşap parçalar. FBX/PNG ve30bonusSFX; sikke/testere/demirci sesleri.20USD ProLicence; kabak/karpuz gibi dönem dışı ürünler seçilmez.",
+      "title": "GameOver Assets — Medieval Stylized 3D Props",
+      "facts": "GameOver Medieval Stylized Props:66 mesh; örs,çekiç,balta,kova,un torbası,sandık,masa,sıra,meşale,kuyu,ahşap parçalar. FBX/PNG ve 30 bonusSFX; sikke/testere/demirci sesleri.20 USD ProLicence; kabak/karpuz gibi dönem dışı ürünler seçilmez.",
       "matches": {
         "t": [],
         "k": [
@@ -1078,7 +1078,7 @@
       "category": "Hayvan",
       "url": "https://mordrag.itch.io/low-poly-animals",
       "title": "Low Poly Animals",
-      "facts": "Mordrag Animals: Blend teslimi ve CC0 var, fakat yazılı tür/rig/klip listesi yok. Hayvan adı tahmin edilmedi; kapsama sıfır, tedarik öncesi içerik dökümü istenir.",
+      "facts": "Mordrag Animals: Blend teslimi ve CC 0 var, fakat yazılı tür/rig/klip listesi yok. Hayvan adı tahmin edilmedi; kapsama sıfır, tedarik öncesi içerik dökümü istenir.",
       "matches": {
         "t": [],
         "k": [],
@@ -1236,7 +1236,7 @@
       "category": "Hayvan",
       "url": "https://puszke.itch.io/low-poly-ps1-forest-animals",
       "title": "Low Poly PSX Forest Animals v1.2 update!",
-      "facts": "PS1 Forest: geyik, karaca, tilki ve üç kurt; güncellemeyle kuş/sincap. Rigli FBX/Blend; belirli walk/run klibi listelenmemiş, kurt grubu kısmi.",
+      "facts": "PS 1 Forest: geyik, karaca, tilki ve üç kurt; güncellemeyle kuş/sincap. Rigli FBX/Blend; belirli walk/run klibi listelenmemiş, kurt grubu kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -1260,7 +1260,7 @@
       "category": "Hayvan",
       "url": "https://sketchfab.com/3d-models/low-poly-camel-e2571167e3d846e59769b61913f1de64",
       "title": "Dylan — Low Poly Camel",
-      "facts": "Dylan Low Poly Camel:4.2bin üçgen/2.3binvertex,indirilebilir CC Attribution. Rig/klip belirtilmedi; kervan devesi meshine kısmi aday. Sketchfab sayfası açıldı; kaynak indirme biçimi hesap akışında teyit edilmeli.",
+      "facts": "Dylan Low Poly Camel:4.2 bin üçgen/2.3 binvertex,indirilebilir CC Attribution. Rig/klip belirtilmedi; kervan devesi meshine kısmi aday. Sketchfab sayfası açıldı; kaynak indirme biçimi hesap akışında teyit edilmeli.",
       "matches": {
         "t": [],
         "k": [
@@ -1270,12 +1270,12 @@
       },
       "score": 8,
       "work": "orta",
-      "license": "A CC-BY; sürüm teyidi gerekli",
+      "license": "? CC-BY beyanı indekslenmiş; dosya/sürüm lisansı teyidi gerekli",
       "price": "0",
       "format": "İç uzantı belirtilmemiş; arşiv açılmadı",
       "godot": "Koşullu: mesh biçimi ve kaynak ihracı teyit edilmeli",
       "style": "Low-poly/stilize; tür ve klip ayrı kabul",
-      "status": 200,
+      "status": "Doğrudan sınırlı HTML 200; birincil arama içeriği görüldü, son web açılışı 403",
       "new": true,
       "useful_share": "Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok."
     },
@@ -1284,7 +1284,7 @@
       "category": "Animasyon",
       "url": "https://mocapcentral.com/products/mocap-studio-series-blacksmith",
       "title": "Animation Pack - Blacksmith",
-      "facts": "Blacksmith: tam listede 45 benzersiz klip; Anvil 7, Forge 5, GrindingStone 3. Anvil_02_Hit1/03_Hit2 çekiç ihtiyacına aday. Forge, ekmek fırını küreği değildir; ısınma da sayılmaz.",
+      "facts": "Blacksmith: tam listede 45 benzersiz klip; Anvil 7, Forge 5, GrindingStone 3. Anvil_02_Hit 1/03_Hit 2 çekiç ihtiyacına aday. Forge, ekmek fırını küreği değildir; ısınma da sayılmaz.",
       "matches": {
         "t": [],
         "k": [
@@ -3986,7 +3986,7 @@
       "category": "Animasyon",
       "url": "https://mocapcentral.com/products/mocap-studio-series-fix-build-pack",
       "title": "Animation Pack - Fix & Build",
-      "facts": "Fix & Build: listede 156; HammerTable, KneelHammer, Pickaxe, Axe, Shovel. Matkap/anahtar/makine işleri elenir. Küreme hareketi model olmadan MEV05 grubunu tam kapatmaz; fırın küreği temasına uyarlama ister.",
+      "facts": "Fix & Build: listede 156; HammerTable, KneelHammer, Pickaxe, Axe, Shovel. Matkap/anahtar/makine işleri elenir. Küreme hareketi model olmadan MEV 05 grubunu tam kapatmaz; fırın küreği temasına uyarlama ister.",
       "matches": {
         "t": [],
         "k": [
@@ -6959,7 +6959,7 @@
       "category": "Animasyon",
       "url": "http://mocap.cs.cmu.edu/",
       "title": "Carnegie Mellon University - CMU Graphics Lab - motion capture library",
-      "facts": "CMU:2605trial,6kategori23altkategori;ASF/AMC/C3D,haricîBVH dönüşümleri. Ticari bitmiş ürüne izin,hamveri yeniden satılamaz;CC0değil. Parmaklar gerçek yakalanmıyor,el/ayak gürültüsü var;tamdosya taraması yapılmadı.",
+      "facts": "CMU:2605 trial,6 kategori 23 altkategori;ASF/AMC/C 3 D,haricîBVH dönüşümleri. Ticari bitmiş ürüne izin,hamveri yeniden satılamaz;CC 0 değil. Parmaklar gerçek yakalanmıyor,el/ayak gürültüsü var;tamdosya taraması yapılmadı.",
       "matches": {
         "t": [],
         "k": [
@@ -6984,7 +6984,7 @@
       "category": "Animasyon",
       "url": "https://actorcore.reallusion.com/3d-motion?asset=studio-mocap-city-life",
       "title": "Kaynak",
-      "facts": "ActorCore City Life:travel/chat/walk/interaction yanında telefon;99USD,FBX/BVHticari. İsimli altklipler uygulamada;moderntelefonlar elenir,genelkonuşma/yürüme kısmi.",
+      "facts": "ActorCore City Life:travel/chat/walk/interaction yanında telefon;99 USD,FBX/BVHticari. İsimli altklipler uygulamada;moderntelefonlar elenir,genelkonuşma/yürüme kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -7009,7 +7009,7 @@
       "category": "Animasyon",
       "url": "https://support.rokoko.com/hc/en-us/articles/4410021327121-Getting-Started-Rokoko-Studio-Motion-Library",
       "title": "Getting Started: Rokoko Studio Motion Library – Rokoko",
-      "facts": "Rokoko Motion Library:güncel destek sayfası binlerceklip,ücretsizörnekler ve3–20USD/klip. FBXyalnıziskelet;gövde dahil değil. Hesap/Studioiçinde ad ve lisans seçimi gerekir;belirli ısınma/yağmur klibi bulunmuş sayılmaz.",
+      "facts": "Rokoko Motion Library:güncel destek sayfası binlerceklip,ücretsizörnekler ve 3–20 USD/klip. FBXyalnıziskelet;gövde dahil değil. Hesap/Studioiçinde ad ve lisans seçimi gerekir;belirli ısınma/yağmur klibi bulunmuş sayılmaz.",
       "matches": {
         "t": [],
         "k": [],
@@ -7157,7 +7157,7 @@
       "category": "UI",
       "url": "https://hypnobius.itch.io/dark-ages-ui",
       "title": "Dark Ages UI - Pixel Art Asset Pack",
-      "facts": "Dark Ages UI:25 öğe,4 menü çerçevesi autotile, normal/hover buton, scrollbar/statbar,4 küçük ikon ve süs. PNG32×32;pressed/disabled belirtilmiyor. Ticari izni var, ham paylaşım yasak.",
+      "facts": "Dark Ages UI:25 öğe,4 menü çerçevesi autotile, normal/hover buton, scrollbar/statbar,4 küçük ikon ve süs. PNG 32×32;pressed/disabled belirtilmiyor. Ticari izni var, ham paylaşım yasak.",
       "matches": {
         "t": [],
         "k": [
@@ -7193,7 +7193,7 @@
       "category": "UI",
       "url": "https://poneti.itch.io/6000-fantasy-icons",
       "title": "6000 Fantasy Icons",
-      "facts": "Poneti6142:elle boyalı256²PNG;1170meslek/üretim,1715skill,1019silah,1047zırh,500medieval,105yapımalzemesi,537avatar. Büyü/ork/undead elenir;wood/stone/metal/roof/bench sınıfı açık, özgünCHRportreleri değil.",
+      "facts": "Poneti 6142:elle boyalı 256²PNG;1170 meslek/üretim,1715 skill,1019 silah,1047 zırh,500 medieval,105 yapımalzemesi,537 avatar. Büyü/ork/undead elenir;wood/stone/metal/roof/bench sınıfı açık, özgünCHRportreleri değil.",
       "matches": {
         "t": [],
         "k": [
@@ -7222,7 +7222,7 @@
       "category": "UI",
       "url": "https://clockworkraven.itch.io/5600-ultimate-pixel-art-fantasy-rpg-icon-pack",
       "title": "5600+ Ultimate Pixel Art Fantasy RPG Icon Pack",
-      "facts": "Clockwork5616:tekil PNG+sheet;malzeme, araç, kürek, kumsaati, odun, deri, cevher vb. Renk varyantları benzersiz nesne sayılmaz;pixel stili boyalı ikonla aynı değil. Özel ticari izin.",
+      "facts": "Clockwork 5616:tekil PNG+sheet;malzeme, araç, kürek, kumsaati, odun, deri, cevher vb. Renk varyantları benzersiz nesne sayılmaz;pixel stili boyalı ikonla aynı değil. Özel ticari izin.",
       "matches": {
         "t": [],
         "k": [
@@ -7251,7 +7251,7 @@
       "category": "UI",
       "url": "https://kibyra.itch.io/free-medieval-fantasy-ui-pack",
       "title": "Free Medieval Fantasy UI Pack",
-      "facts": "Kibyra208:32×32/64×32 saydamPNG, düğme, menü, ikon, HUD/dekor. Ücretsiz ticari amaCC0değil;tekil dört buton hali ve9-slice listesi yok.",
+      "facts": "Kibyra 208:32×32/64×32 saydamPNG, düğme, menü, ikon, HUD/dekor. Ücretsiz ticari amaCC 0 değil;tekil dört buton hali ve 9-slice listesi yok.",
       "matches": {
         "t": [],
         "k": [
@@ -7277,7 +7277,7 @@
       "category": "UI",
       "url": "https://wenrexa.itch.io/werdanta03",
       "title": "Assets: UI RPG Game Interface [Lite Version]",
-      "facts": "Werdanta03:59 saydamPNG ve katmanlı düzenlenebilirPSD;ikon, pencere, switch, panel, bar, menü. MetadataCC0,4.35USDkampanya. Tarihîmalzemeye uyarlama;aktif buton hallerini varsaymadım.",
+      "facts": "Werdanta 03:59 saydamPNG ve katmanlı düzenlenebilirPSD;ikon, pencere, switch, panel, bar, menü. MetadataCC 0,4.35 USDkampanya. Tarihîmalzemeye uyarlama;aktif buton hallerini varsaymadım.",
       "matches": {
         "t": [],
         "k": [
@@ -7307,7 +7307,7 @@
       "category": "UI",
       "url": "https://sungraphica.itch.io/fantasy-game-ui-and-icon-collection",
       "title": "Fantasy Game UI + icon collection",
-      "facts": "SunGraphica:244altınikon+UI;menü/ayar/mapselector/itemselector/quest. PNG720p/1080p/4K, ikon128–1024;EPS/AI/PDFkaynak. SunGraphicaatıfveözel ticari izin, parlakaltın yeniden boyanmalı.",
+      "facts": "SunGraphica:244 altınikon+UI;menü/ayar/mapselector/itemselector/quest. PNG 720 p/1080 p/4 K, ikon 128–1024;EPS/AI/PDFkaynak. SunGraphicaatıfveözel ticari izin, parlakaltın yeniden boyanmalı.",
       "matches": {
         "t": [],
         "k": [
@@ -7337,7 +7337,7 @@
       "category": "UI",
       "url": "https://anastasiiakud.itch.io/fantasy-game-ui-rpg",
       "title": "Fantasy RPG UI Kit — Free",
-      "facts": "Anastasiia FantasyRPG:87MBZIP, AI-assisted grafik. Açıklama/içerik/lisans yazılı değil;resimden bütün öğeleri ve hakları uydurmadım. Kapsama sıfır.",
+      "facts": "Anastasiia FantasyRPG:87 MBZIP, AI-assisted grafik. Açıklama/içerik/lisans yazılı değil;resimden bütün öğeleri ve hakları uydurmadım. Kapsama sıfır.",
       "matches": {
         "t": [],
         "k": [],
@@ -7359,7 +7359,7 @@
       "category": "UI",
       "url": "https://pzuh.itch.io/free-fantasy-game-gui",
       "title": "Free Fantasy Game GUI",
-      "facts": "PzUH FantasyGUI:40++buton, pencere/ikon;CDR, SVG, saydamPNG. Yazar ticari kullanıma yorumda izin veriyor;dört butonhali ve9-slice özel hüküm yok. Renk değiştirmeye uygun vektör taban.",
+      "facts": "PzUH FantasyGUI:40++buton, pencere/ikon;CDR, SVG, saydamPNG. Yazar ticari kullanıma yorumda izin veriyor;dört butonhali ve 9-slice özel hüküm yok. Renk değiştirmeye uygun vektör taban.",
       "matches": {
         "t": [],
         "k": [
@@ -7389,7 +7389,7 @@
       "category": "UI",
       "url": "https://indigolay.itch.io/pixel-adventure-book-ui-fantasy-rpg-kit",
       "title": "Pixel Adventure Book UI: Fantasy RPG Kit",
-      "facts": "PixelAdventureBook:183öğe;72UI,96ikon, kalan sayfa bileşenleri.17buton,21control,4panel,8tab;9-slice uygulanmış;PNGkaynak9USDmetni/9.99USDödeme çelişkisi. Unityscript Godot’a taşınmaz.",
+      "facts": "PixelAdventureBook:183 öğe;72 UI,96 ikon, kalan sayfa bileşenleri.17 buton,21 control,4 panel,8 tab;9-slice uygulanmış;PNGkaynak 9 USDmetni/9.99 USDödeme çelişkisi. Unityscript Godot’a taşınmaz.",
       "matches": {
         "t": [],
         "k": [
@@ -7427,7 +7427,7 @@
       "category": "UI",
       "url": "https://amanz.itch.io/fantasy-map-assets-pack-lite",
       "title": "Fantasy Map Assets Pack Lite",
-      "facts": "FantasyMapLite:paperbase, overlay, topography/water, brush, buildingicons, island/mountain/tree, PSD.512–3840px;CC-BY4. Özgün oyun haritası değil, birleştirme tabanı.",
+      "facts": "FantasyMapLite:paperbase, overlay, topography/water, brush, buildingicons, island/mountain/tree, PSD.512–3840 px;CC-BY 4. Özgün oyun haritası değil, birleştirme tabanı.",
       "matches": {
         "t": [],
         "k": [
@@ -7451,7 +7451,7 @@
       "category": "UI",
       "url": "https://github.com/google/fonts/tree/main/ofl/notoserif",
       "title": "notoserif",
-      "facts": "Noto Serif: OFL1.1 ve resmî METADATA latin-ext doğrulandı. Değişken TTF, sade/okunaklı gövde alternatifi; gerçek Türkçe glif ve küçük ölçü testi yapılmadı.",
+      "facts": "Noto Serif: OFL 1.1 ve resmî METADATA latin-ext doğrulandı. Değişken TTF, sade/okunaklı gövde alternatifi; gerçek Türkçe glif ve küçük ölçü testi yapılmadı.",
       "matches": {
         "t": [],
         "k": [],
@@ -7475,7 +7475,7 @@
       "category": "UI",
       "url": "https://github.com/google/fonts/tree/main/ofl/ebgaramond",
       "title": "ebgaramond",
-      "facts": "EB Garamond: OFL1.1, Latin-ext ve normal/italik değişken TTF; uzun metne edebî alternatif. Mevcut Alegreya ile birlikte üç gövde fontu karıştırılmaz.",
+      "facts": "EB Garamond: OFL 1.1, Latin-ext ve normal/italik değişken TTF; uzun metne edebî alternatif. Mevcut Alegreya ile birlikte üç gövde fontu karıştırılmaz.",
       "matches": {
         "t": [],
         "k": [],
@@ -7499,7 +7499,7 @@
       "category": "UI",
       "url": "https://github.com/google/fonts/tree/main/ofl/crimsonpro",
       "title": "crimsonpro",
-      "facts": "Crimson Pro: OFL1.1, Latin-ext, 200–900 ağırlık normal/italik TTF. Panel açıklamasında okunaklı aday, oyun fontu değiştirilmedi.",
+      "facts": "Crimson Pro: OFL 1.1, Latin-ext, 200–900 ağırlık normal/italik TTF. Panel açıklamasında okunaklı aday, oyun fontu değiştirilmedi.",
       "matches": {
         "t": [],
         "k": [],
@@ -7523,7 +7523,7 @@
       "category": "UI",
       "url": "https://github.com/google/fonts/tree/main/ofl/almendra",
       "title": "almendra",
-      "facts": "Almendra: OFL1.1, Latin-ext; süslü tarihî başlık ailesi. Uzun diyalogta değil, tek başlık ailesi olarak denenmeli.",
+      "facts": "Almendra: OFL 1.1, Latin-ext; süslü tarihî başlık ailesi. Uzun diyalogta değil, tek başlık ailesi olarak denenmeli.",
       "matches": {
         "t": [],
         "k": [],
@@ -7547,7 +7547,7 @@
       "category": "UI",
       "url": "https://ambientcg.com/view?id=Metal032",
       "title": "Metal 032",
-      "facts": "ambientCG Metal032: gri/düz prosedürel PBR, 1K–8K PNG/JPG haritalar. CC0 açık; demirin albedosuna aday, el boyaması ve eskime izi için uyarlama gerekiyor.",
+      "facts": "ambientCG Metal 032: gri/düz prosedürel PBR, 1 K–8 K PNG/JPG haritalar. CC 0 açık; demirin albedosuna aday, el boyaması ve eskime izi için uyarlama gerekiyor.",
       "matches": {
         "t": [],
         "k": [],
@@ -7571,7 +7571,7 @@
       "category": "VFX",
       "url": "https://brackeysgames.itch.io/brackeys-vfx-bundle",
       "title": "Brackeys' VFX Bundle",
-      "facts": "Brackeys VFX: Kenney/Picster/Thomas Iché/CodeManu kaynaklarından dokular, flipbook ve spritesheet; CC0 ve Godot örneği. Alt listesi sayfada yok; duman/kıvılcım şekli tek tek doğrulanmadan hepsi tam sayılmaz.",
+      "facts": "Brackeys VFX: Kenney/Picster/Thomas Iché/CodeManu kaynaklarından dokular, flipbook ve spritesheet; CC 0 ve Godot örneği. Alt listesi sayfada yok; duman/kıvılcım şekli tek tek doğrulanmadan hepsi tam sayılmaz.",
       "matches": {
         "t": [],
         "k": [
@@ -7648,7 +7648,7 @@
       "category": "VFX",
       "url": "https://kronbits.itch.io/particle-pack",
       "title": "1000 Free Game Assets",
-      "facts": "Kronbits Particles: 1000 adet 512² parçacık, CC0. Kategori/tekil şekil listesi yok; hepsine yağmur/kar işlevi atamak doğru değil.",
+      "facts": "Kronbits Particles: 1000 adet 512² parçacık, CC 0. Kategori/tekil şekil listesi yok; hepsine yağmur/kar işlevi atamak doğru değil.",
       "matches": {
         "t": [],
         "k": [
@@ -7867,7 +7867,7 @@
       "category": "VFX",
       "url": "https://kenney.nl/assets/smoke-particles",
       "title": "Smoke Particles",
-      "facts": "Kenney Smoke: 70 adet 2D duman/parçacık dosyası; basit ve CC0. Kaynak doku olarak kullanılabilir; Godot'ta emitter/renk ve alfa kurulumu ayrı.",
+      "facts": "Kenney Smoke: 70 adet 2 D duman/parçacık dosyası; basit ve CC 0. Kaynak doku olarak kullanılabilir; Godot'ta emitter/renk ve alfa kurulumu ayrı.",
       "matches": {
         "t": [],
         "k": [
@@ -7969,9 +7969,9 @@
     {
       "id": "KAR02",
       "category": "Karakter",
-      "url": "https://assetstore.unity.com/packages/3d/characters/lowpo-villagers-npc-low-poly-medieval-character-pack-379078",
-      "title": "LOWPO: Villagers NPC – Low Poly Medieval Character Pack",
-      "facts": "LOWPO Villagers: 7 rigli rol: demirci, avcı, çocuk, çiftçi, oduncu, yaşlı, tüccar; 3 prop çekiç/bıçak/sopa. FBX ve 256² atlas, yaklaşık 1500 poligon; animasyon yok. Single Entity ve Extension Asset alanları çelişkili.",
+      "url": "https://standout7.itch.io/villagernpc",
+      "title": "Standout 7 — LOWPO Villager NPC (üretici itch sürümü)",
+      "facts": "Üreticinin itch sayfası ayrıca açıldı: Free demirci/avcı/çocuk ve üç prop; Paid 3.99 USD ile çiftçi/oduncu/yaşlı/tüccar ve balta/çapa ekleniyor. Ortak 256² atlas, humanoid rig, animasyon yok. Itch metadata CC0; Unity 9.99 USD özel lisanslı kanalından farklı edinim yolu. Kapsam Paid yedi kişi içindir, ücretsiz üçlüde yaşlı yok. Çocuk rig düzeltmesi 8 Ocak günlüğünde kayıtlı.",
       "matches": {
         "t": [],
         "k": [
@@ -7985,21 +7985,24 @@
       },
       "score": 8,
       "work": "orta",
-      "license": "K Unity Standard; koltuk türü koşullu",
-      "price": "9.99",
-      "format": "İç uzantı belirtilmemiş; arşiv açılmadı",
-      "godot": "Koşullu: mesh biçimi ve kaynak ihracı teyit edilmeli",
+      "license": "A CC0 (üretici itch sürümü); Unity mağazası ayrı şartlı",
+      "price": "3.99",
+      "format": "Free FBX; Paid FBX/OBJ/GLB/glTF; Blend Source ayrı",
+      "godot": "Paid GLB/glTF doğrudan aday; Free FBX ufbx ile import; rig/ölçek/malzeme kabulü gerekli",
       "style": "Stilize/low-poly; insan oranı, yaş ve dönem kıyafeti kabulü",
       "status": 200,
       "new": true,
-      "useful_share": "Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok."
+      "useful_share": "Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok.",
+      "secondary_sources": [
+        "https://assetstore.unity.com/packages/3d/characters/lowpo-villagers-npc-low-poly-medieval-character-pack-379078"
+      ]
     },
     {
       "id": "KAR03",
       "category": "Karakter",
       "url": "https://www.fab.com/listings/ee501952-95f3-4eb6-a01c-fe7394fd6f64?lang=en",
       "title": "Medieval Village NPC Pack | 6 Rigged Low-Poly Characters | Animated",
-      "facts": "DayDrift NPC: 6 rigli figür; muhafız, kadın/erkek köylü, demirci, gezgin tüccar, kadın otacı. 9–13 bin üçgen, 2K albedo/normal; Idle/Walk/Run/Attack/Death. FBX/Blend. Mağaza fiyat/lisans seçimi okunamıyor; AI üretimi işaretli.",
+      "facts": "DayDrift NPC: 6 rigli figür; muhafız, kadın/erkek köylü, demirci, gezgin tüccar, kadın otacı. 9–13 bin üçgen, 2 K albedo/normal; Idle/Walk/Run/Attack/Death. FBX/Blend. Mağaza fiyat/lisans seçimi okunamıyor; AI üretimi işaretli.",
       "matches": {
         "t": [],
         "k": [
@@ -8104,7 +8107,7 @@
       "category": "Karakter",
       "url": "https://les2ifsgames.itch.io/3d-medieval-imperial-messenger-character-rigged-pack-3d-model-with-walk-run-jump",
       "title": "3D Medieval Fantasy Imperial Messenger Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations",
-      "facts": "Les2 Imperial Messenger: tek kadın haberci, 50 bin üçgen; FBX/GLB/Blend; walk/run/kick/die/jump. Köy low-poly bütçesine göre ağır; adında messenger olması tarihî giysiyi doğrulamaz.",
+      "facts": "Les 2 Imperial Messenger: tek kadın haberci, 50 bin üçgen; FBX/GLB/Blend; walk/run/kick/die/jump. Köy low-poly bütçesine göre ağır; adında messenger olması tarihî giysiyi doğrulamaz.",
       "matches": {
         "t": [],
         "k": [],
@@ -8128,7 +8131,7 @@
       "category": "Karakter",
       "url": "https://les2ifsgames.itch.io/3d-medieval-diplomat-character-rigged-pack-3d-model-with-walk-run-jump-kick-die",
       "title": "3D Medieval Diplomat of the Kingdom Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations",
-      "facts": "Les2 Diplomat: tek erkek elçi, 50 bin üçgen ve aynı beş klip. Konuşma/bekleme klibi belirtilmiyor; kıyafet ve LOD gerekir.",
+      "facts": "Les 2 Diplomat: tek erkek elçi, 50 bin üçgen ve aynı beş klip. Konuşma/bekleme klibi belirtilmiyor; kıyafet ve LOD gerekir.",
       "matches": {
         "t": [],
         "k": [],
@@ -8152,7 +8155,7 @@
       "category": "Karakter",
       "url": "https://les2ifsgames.itch.io/3d-medieval-royal-tax-collector-character-rigged-pack-3d-model-with-walk-run-jum",
       "title": "3D Medieval Royal Tax Collector Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations",
-      "facts": "Les2 Tax Collector: tek tahsildar, 50 bin üçgen ve aynı beş klip. Rol adayını kapatır, Anadolu başlığı/kaftanı ve görüşme pozu uyarlanmalı.",
+      "facts": "Les 2 Tax Collector: tek tahsildar, 50 bin üçgen ve aynı beş klip. Rol adayını kapatır, Anadolu başlığı/kaftanı ve görüşme pozu uyarlanmalı.",
       "matches": {
         "t": [],
         "k": [],
@@ -8176,7 +8179,7 @@
       "category": "Karakter",
       "url": "https://les2ifsgames.itch.io/3d-medieval-old-man-character-rigged-pack-3d-model-with-walk-run-jump-kick-die-a",
       "title": "3D Medieval Wise Old man Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations",
-      "facts": "Les2 Wise Old Man: tek yaşlı, 50 bin üçgen; yaşlı yürüyüşü yerine standart walk/run/kick/die/jump. Yaş görünümü gövde adaylığı sağlar, ses ve yüz jesti sağlamaz.",
+      "facts": "Les 2 Wise Old Man: tek yaşlı, 50 bin üçgen; yaşlı yürüyüşü yerine standart walk/run/kick/die/jump. Yaş görünümü gövde adaylığı sağlar, ses ve yüz jesti sağlamaz.",
       "matches": {
         "t": [],
         "k": [],
@@ -8200,7 +8203,7 @@
       "category": "Karakter",
       "url": "https://les2ifsgames.itch.io/3d-medieval-blacksmith-character-rigged-pack-3d-model-with-walk-run-jump-kick-di",
       "title": "3D Medieval Blacksmith Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations",
-      "facts": "Les2 Blacksmith: tek demirci, 50 bin üçgen; çalışma/çekiç klibi yok, yalnız ortak beş hareket. Usta grubunun tek üyesine aday.",
+      "facts": "Les 2 Blacksmith: tek demirci, 50 bin üçgen; çalışma/çekiç klibi yok, yalnız ortak beş hareket. Usta grubunun tek üyesine aday.",
       "matches": {
         "t": [],
         "k": [
@@ -8224,7 +8227,7 @@
       "category": "Karakter",
       "url": "https://les2ifsgames.itch.io/3d-priest-character-rigged-pack-3d-model-with-walk-run-jump-kick-die-animations",
       "title": "3D Medieval Priest Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations",
-      "facts": "Les2 Priest: tek rahip, 50 bin üçgen ve ortak beş klip. Rahip kıyafetini derviş diye kullanmak doğru değil; gövde tamamen yeniden giydirilmedikçe eşleşme yok.",
+      "facts": "Les 2 Priest: tek rahip, 50 bin üçgen ve ortak beş klip. Rahip kıyafetini derviş diye kullanmak doğru değil; gövde tamamen yeniden giydirilmedikçe eşleşme yok.",
       "matches": {
         "t": [],
         "k": [],
@@ -8246,7 +8249,7 @@
       "category": "Karakter",
       "url": "https://les2ifsgames.itch.io/3d-medieval-soldier-character-rigged-pack-3d-model-with-walk-run-jump-kick-die",
       "title": "3D Medieval Soldier Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations",
-      "facts": "Les2 Soldier: tek asker, 50 bin üçgen, ortak beş klip. Zırh/başlık ve malzeme değiştirme gerekir; özel çavuş rütbesi hazır sayılmaz.",
+      "facts": "Les 2 Soldier: tek asker, 50 bin üçgen, ortak beş klip. Zırh/başlık ve malzeme değiştirme gerekir; özel çavuş rütbesi hazır sayılmaz.",
       "matches": {
         "t": [],
         "k": [],
@@ -8271,7 +8274,7 @@
       "category": "Karakter",
       "url": "https://les2ifsgames.itch.io/3d-medieval-farmer-character-rigged-pack-3d-model-with-walk-run-jump-kick-die-an",
       "title": "3D Medieval Farmer Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations",
-      "facts": "Les2 Farmer: tek erkek çiftçi, 50 bin üçgen; orak/tarla işi veya mesleğe özel alet animasyonu yok. Usta/tacir ve eş rollerine uydurulmadı.",
+      "facts": "Les 2 Farmer: tek erkek çiftçi, 50 bin üçgen; orak/tarla işi veya mesleğe özel alet animasyonu yok. Usta/tacir ve eş rollerine uydurulmadı.",
       "matches": {
         "t": [],
         "k": [],
@@ -8293,7 +8296,7 @@
       "category": "Karakter",
       "url": "https://les2ifsgames.itch.io/3d-medieval-fantasy-female-innkeeper-character-rigged-pack-3d-model-with-walk-ru",
       "title": "3D Medieval Fantasy Female Innkeeper Character Rigged Pack – 3D Model with Walk, Run, Jump, Kick & Die Animations",
-      "facts": "Les2 Female Innkeeper: tek kadın hancı, 50 bin üçgen; ortak beş klip. Eş gövdesine aday, kıyafet değişimi/LOD ve ayrı diyalog klipleri gerekir.",
+      "facts": "Les 2 Female Innkeeper: tek kadın hancı, 50 bin üçgen; ortak beş klip. Eş gövdesine aday, kıyafet değişimi/LOD ve ayrı diyalog klipleri gerekir.",
       "matches": {
         "t": [],
         "k": [],
@@ -8317,7 +8320,7 @@
       "category": "Müzik",
       "url": "https://kashdanmusic.itch.io/desert-music-pack",
       "title": "Desert Music Pack [Game Music]",
-      "facts": "Kashdan Desert:9parça,6loop,3sonlanan;WAV32bit48k. NonCommercial açık;ticari için ayrı sözleşme. Mevcut haliyle öneri ve kapsama dışı.",
+      "facts": "Kashdan Desert:9 parça,6 loop,3 sonlanan;WAV 32 bit 48 k. NonCommercial açık;ticari için ayrı sözleşme. Mevcut haliyle öneri ve kapsama dışı.",
       "matches": {
         "t": [],
         "k": [],
@@ -8339,7 +8342,7 @@
       "category": "Müzik",
       "url": "https://limitbreakaudio.itch.io/resonance-vol-2-instruments-of-the-middle-east",
       "title": "Resonance Vol. 2: Instruments of the Middle East",
-      "facts": "Resonance2:10eser+3varyasyon/13cue/72WAV;Contemplation, Midnight, Illicit, ShadowyPursuit vb. Stem var, loop özellikle seamless değil. OrtaDoğu+orkestra+synth;stem ayıklama ve dikiş gerekir.",
+      "facts": "Resonance 2:10 eser+3 varyasyon/13 cue/72 WAV;Contemplation, Midnight, Illicit, ShadowyPursuit vb. Stem var, loop özellikle seamless değil. Orta Doğu+orkestra+synth;stem ayıklama ve dikiş gerekir.",
       "matches": {
         "t": [],
         "k": [
@@ -8369,7 +8372,7 @@
       "category": "Müzik",
       "url": "https://moodfrog.itch.io/middle-east-instrumental-music-pack",
       "title": "Middle East Instrumental Arabian Soul Music Pack",
-      "facts": "MoodFrog ArabianSoul:başlık etnik ama metin yalnız genel atmosfer ve modernambient diyor. Açıklama free, ödeme9.99USD;çelişki. Liste/enstrüman/biçim yok;yalnız gece/sakin tema kısmi.",
+      "facts": "MoodFrog ArabianSoul:başlık etnik ama metin yalnız genel atmosfer ve modernambient diyor. Açıklama free, ödeme 9.99 USD;çelişki. Liste/enstrüman/biçim yok;yalnız gece/sakin tema kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -8394,7 +8397,7 @@
       "category": "Müzik",
       "url": "https://nasserblue.itch.io/desert-wasteland-oasis-rpg-music-pack-23-traditional-oud-tracks",
       "title": "Desert Wasteland & Oasis RPG Music Pack - 23 Traditional Oud Tracks",
-      "facts": "Nasser Oud:23WAV;BedouinNightfall, CaravanDreams, TraditionalMaqam vb tekil dosyalar listeli. AI-assisted ses. Ticari royalty-free izin ve ham paylaşım yasağı var;ud tınısı ney/kopuzun yerine tam sayılmaz.",
+      "facts": "Nasser Oud:23 WAV;BedouinNightfall, CaravanDreams, TraditionalMaqam vb tekil dosyalar listeli. AI-assisted ses. Ticari royalty-free izin ve ham paylaşım yasağı var;ud tınısı ney/kopuzun yerine tam sayılmaz.",
       "matches": {
         "t": [],
         "k": [
@@ -8420,7 +8423,7 @@
       "category": "Müzik",
       "url": "https://joelsteudler.itch.io/medieval-music-pack",
       "title": "Medieval Music Pack",
-      "facts": "Joel Medieval:20parça:5battle4dungeon3field3theme5town;ud yerinelute/viol/shawm/recorder/harpsichord. OGGloop, theme parçalar sonlanır. JSMticari lisansı;zurna/davul9/8düğün değildir.",
+      "facts": "Joel Medieval:20 parça:5 battle 4 dungeon 3 field 3 theme 5 town;ud yerinelute/viol/shawm/recorder/harpsichord. OGGloop, theme parçalar sonlanır. JSMticari lisansı;zurna/davul 9/8 düğün değildir.",
       "matches": {
         "t": [],
         "k": [
@@ -8450,7 +8453,7 @@
       "category": "Müzik",
       "url": "https://hai-soundworks.itch.io/persian-nights",
       "title": "Persian Nights - Battle Music Pack",
-      "facts": "PersianNights:15tamWAV/MP3, stem/loop/SFXyok;modernperküsyonbaskın. Gece/kervan/reflectionbölümleri var;kesipdöngülemeişi gerekir. Özgül sonların müziği hazır sayılmaz.",
+      "facts": "PersianNights:15 tamWAV/MP 3, stem/loop/SFXyok;modernperküsyonbaskın. Gece/kervan/reflectionbölümleri var;kesipdöngülemeişi gerekir. Özgül sonların müziği hazır sayılmaz.",
       "matches": {
         "t": [],
         "k": [
@@ -8478,7 +8481,7 @@
       "category": "Müzik",
       "url": "https://blackmid.itch.io/ethnic-music-of-ancient-desert",
       "title": "Ethnic Music of Ancient Desert (Egyptian)",
-      "facts": "BLACKMID AncientDesert:10eser,6hareketli4rüyalı;21dkWAV44.1k16. Canlı müzisyen iddiası ve geniş doğu paleti var;parça bazlı enstrüman listesi eksik. YouTube-safe vaat, lisansın yerine geçmez.",
+      "facts": "BLACKMID AncientDesert:10 eser,6 hareketli 4 rüyalı;21 dkWAV 44.1 k 16. Canlı müzisyen iddiası ve geniş doğu paleti var;parça bazlı enstrüman listesi eksik. YouTube-safe vaat, lisansın yerine geçmez.",
       "matches": {
         "t": [],
         "k": [
@@ -8508,7 +8511,7 @@
       "category": "Müzik",
       "url": "https://blackmid.itch.io/medieval-bard-music-fantasy-rpg-soundtracks",
       "title": "MEDIEVAL BARD MUSIC – Fantasy RPG Soundtracks",
-      "facts": "BLACKMID Bard:15canlıloop,45stem,144WAVtoplamı;ud benzeri lute, harp, zither. Sakinhan/köyadayları, Anadolu motifine uyarlama gerekir;çıktıformatkopyalarını ayrı eser saymadım.",
+      "facts": "BLACKMID Bard:15 canlıloop,45 stem,144 WAVtoplamı;ud benzeri lute, harp, zither. Sakinhan/köyadayları, Anadolu motifine uyarlama gerekir;çıktıformatkopyalarını ayrı eser saymadım.",
       "matches": {
         "t": [],
         "k": [
@@ -8556,7 +8559,7 @@
       "category": "Müzik",
       "url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100437",
       "title": "AridFoothills",
-      "facts": "AridFoothills:tek3:18eser85bpm;marimba, perküsyon, kontrbas, trombon, tuba, korno. İsmi bozkır olsa da Afrika/bakırüflemeli tını hedefmüziğe uymuyor;CC-BY4olmasına rağmen elendi.",
+      "facts": "AridFoothills:tek 3:18 eser 85 bpm;marimba, perküsyon, kontrbas, trombon, tuba, korno. İsmi bozkır olsa da Afrika/bakırüflemeli tını hedefmüziğe uymuyor;CC-BY 4 olmasına rağmen elendi.",
       "matches": {
         "t": [],
         "k": [],
@@ -8578,7 +8581,7 @@
       "category": "Müzik",
       "url": "https://abbarasounds.com/sounds/complete-darbuka-sample-pack",
       "title": "Complete Darbuka Sample Pack",
-      "facts": "Abbara Darbuka:1787WAV24bit44.1k,60–155bpm;görünen10örnek4/4. Tam müzik değil, beste katmanı. Kudüm/davul ve9/8zurna düğününü tek başına kapatmaz.",
+      "facts": "Abbara Darbuka:1787 WAV 24 bit 44.1 k,60–155 bpm;görünen 10 örnek 4/4. Tam müzik değil, beste katmanı. Kudüm/davul ve 9/8 zurna düğününü tek başına kapatmaz.",
       "matches": {
         "t": [],
         "k": [
@@ -8602,7 +8605,7 @@
       "category": "Müzik",
       "url": "https://abbarasounds.com/sounds/complete-bowed-tanbur-sample-pack",
       "title": "Complete Bowed Tanbur Sample Pack",
-      "facts": "Abbara BowedTanbur:254WAV,48k24bit,5makam21ton;10örnek, Sultanıyegâh/Şehnaz. Modernyaylıtanburun tarihî tını ayıklaması gerekir;ney/kopuz veya bitmişloop değildir.",
+      "facts": "Abbara BowedTanbur:254 WAV,48 k 24 bit,5 makam 21 ton;10 örnek, Sultanıyegâh/Şehnaz. Modernyaylı tanburun tarihî tını ayıklaması gerekir;ney/kopuz veya bitmişloop değildir.",
       "matches": {
         "t": [],
         "k": [
@@ -8626,7 +8629,7 @@
       "category": "Müzik",
       "url": "https://abbarasounds.com/sounds/complete-classical-kemence-sample-pack",
       "title": "Complete Classical Kemençe Sample Pack",
-      "facts": "Abbara Kemençe:656benzersiz771WAV,19makam27ton,48–180bpm. 9/8dahilritimler var;tek başına düğündavulu/zurnası değil. Tam eser değil, kayıt/beste ham maddesi.",
+      "facts": "Abbara Kemençe:656 benzersiz 771 WAV,19 makam 27 ton,48–180 bpm. 9/8 dahilritimler var;tek başına düğün davulu/zurnası değil. Tam eser değil, kayıt/beste ham maddesi.",
       "matches": {
         "t": [],
         "k": [
@@ -8650,7 +8653,7 @@
       "category": "Müzik",
       "url": "https://abbarasounds.com/sounds/complete-qanun-sample-pack",
       "title": "Complete Qanun Sample Pack",
-      "facts": "Abbara Qanun:425WAV,16makam17ton,60–228bpm;9/8Hicazkâr örneği. Dosya başlığı48k, teknikmetin44.1/48k diyor;kanun nekopuzneneydir. Sakin müziğin katmanına aday.",
+      "facts": "Abbara Qanun:425 WAV,16 makam 17 ton,60–228 bpm;9/8 Hicazkâr örneği. Dosya başlığı 48 k, teknikmetin 44.1/48 k diyor;kanun ne kopuz ne neydir. Sakin müziğin katmanına aday.",
       "matches": {
         "t": [],
         "k": [
@@ -8674,7 +8677,7 @@
       "category": "Müzik",
       "url": "https://www.fab.com/listings/9f98ace3-da48-409d-abbf-337189dbd7c2",
       "title": "Medieval Music",
-      "facts": "Fab MedievalMusic:ücretsiz5parça;Gregorianchant/troubadour/lute/recorder/bagpipe, UEteslimi veAIüretimiişaretli. Kiliseyeözgüchantvebatıfestivalenerjisielendi;hamWAV/lisansseçimitamdoğrulanmadı, kapsama0.",
+      "facts": "Fab MedievalMusic:ücretsiz 5 parça;Gregorianchant/troubadour/lute/recorder/bagpipe, UEteslimi veAIüretimiişaretli. Kiliseye özgü ilahi ve Batı festivali enerjisi elendi;hamWAV/lisans seçimi tam doğrulanmadı, kapsama 0.",
       "matches": {
         "t": [],
         "k": [],
@@ -8865,7 +8868,7 @@
       "category": "Ortam sesi",
       "url": "https://audioelk.itch.io/free-sounds-ambience-collection",
       "title": "Audio Elk | Ambience Collection",
-      "facts": "Audio Elk Ambience: alan kayıtları, ham uzun çekimler; CC-BY-SA4. Bu lisans A listesine girmez. Tekil doğal olay listesi yok, kısmi varsayım bile sayılmadı.",
+      "facts": "Audio Elk Ambience: alan kayıtları, ham uzun çekimler; CC-BY-SA 4. Bu lisans A listesine girmez. Tekil doğal olay listesi yok, kısmi varsayım bile sayılmadı.",
       "matches": {
         "t": [],
         "k": [],
@@ -9025,7 +9028,7 @@
       "category": "Ortam sesi",
       "url": "https://theturtlebox.itch.io/letters-memories",
       "title": "Letters & Memories - Royalty Free Ambience and SFX",
-      "facts": "Letters Memories: 40 synth pad/loop/one-shot, araba motoru da var; CC-BY-SA4 ve sayfa paylaşım ifadeleri çelişkili. Doğal köy ortamı setine alınmadı.",
+      "facts": "Letters Memories: 40 synth pad/loop/one-shot, araba motoru da var; CC-BY-SA 4 ve sayfa paylaşım ifadeleri çelişkili. Doğal köy ortamı setine alınmadı.",
       "matches": {
         "t": [],
         "k": [],
@@ -9047,7 +9050,7 @@
       "category": "Ortam sesi",
       "url": "https://gregor-quendel.itch.io/free-water-stream-sounds",
       "title": "Free Water Stream Sounds",
-      "facts": "Water Streams: 01–10 adlı 10 WAV dere kaydı; CC-BY4. Köy gündüz su katmanını sağlar; çekiç+koyun+su birleşik ortam grubu tam kapanmaz.",
+      "facts": "Water Streams: 01–10 adlı 10 WAV dere kaydı; CC-BY 4. Köy gündüz su katmanını sağlar; çekiç+koyun+su birleşik ortam grubu tam kapanmaz.",
       "matches": {
         "t": [],
         "k": [
@@ -9071,7 +9074,7 @@
       "category": "Ortam sesi",
       "url": "https://aquumgifts.itch.io/cozy-sfx-complete",
       "title": "Cozy SFX Complete — 1,305 Cute Game Sound Effects & Seamless Ambience Loops (Free Lite)",
-      "facts": "Cozy Complete: 1305 ses; 151 farm ve338 UI, güncel Farm 22 Ekim. Free Lite 48 seçki, 1305 ücretsiz değil. Farm tools/crops/workshop, weather/nature ve kapı içerikleri var; özel klip dökümü olmadan geniş gruplar kısmi.",
+      "facts": "Cozy Complete: 1305 ses; 151 farm ve 338 UI, güncel Farm 22 Ekim. Free Lite 48 seçki, 1305 ücretsiz değil. Farm tools/crops/workshop, weather/nature ve kapı içerikleri var; özel klip dökümü olmadan geniş gruplar kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -9092,6 +9095,83 @@
       "license": "K ticari; AI-assisted ses",
       "price": "4.99",
       "format": "WAV",
+      "godot": "WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli",
+      "style": "Alan kaydı/katmanlı ortam; synth olanlar ayrıca elendi",
+      "status": 200,
+      "new": true,
+      "useful_share": "Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok."
+    },
+    {
+      "id": "ORT16",
+      "category": "Ortam sesi",
+      "url": "https://www.zapsplat.com/music/herd-of-goats-moving-and-bleating-bells-jingling/",
+      "title": "Herd of goats moving and bleating, bells jingling.",
+      "facts": "Zapsplat/SmartSound: tek keçi sürüsü kaydı, yürüme/meleme/çan aynı dosyada. Standard License K; Basic MP 3 ile ücretsiz kullanım/atıf, WAV ve Pro seçenek ayrıca. Keçi sesini karşılar; koyun veya kervan çanı diye sayılmaz.",
+      "matches": {
+        "t": [],
+        "k": [
+          "İHT-0481"
+        ],
+        "u": [
+          "İHT-0513"
+        ]
+      },
+      "score": 8,
+      "work": "az",
+      "license": "K Zapsplat Standard; atıflı Basic",
+      "price": "0",
+      "format": "MP3 Basic; WAV Premium (hesap/koltuk koşulu ayrıca)",
+      "godot": "WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli",
+      "style": "Alan kaydı/katmanlı ortam; synth olanlar ayrıca elendi",
+      "status": 200,
+      "new": true,
+      "useful_share": "Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok."
+    },
+    {
+      "id": "ORT17",
+      "category": "Ortam sesi",
+      "url": "https://www.zapsplat.com/music/wolf-canis-lupus-pack-howls-close/",
+      "title": "Wolf, Canis Lupus, pack howls, close",
+      "facts": "Zapsplat Canis Lupus: tek yakın kurt sürüsü uluma kaydı. Standard License; sayfadaki ilgili Felix Blume CC 0 önerisi bu kaydın lisansı değildir. Uzak kurt için seviye/filtre/mesafe uyarlaması; MP 3 Basic, WAV Premium.",
+      "matches": {
+        "t": [],
+        "k": [
+          "İHT-0482"
+        ],
+        "u": [
+          "İHT-0488"
+        ]
+      },
+      "score": 9,
+      "work": "az",
+      "license": "K Zapsplat Standard; atıflı Basic",
+      "price": "0",
+      "format": "MP3 Basic; WAV Premium (hesap/koltuk koşulu ayrıca)",
+      "godot": "WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli",
+      "style": "Alan kaydı/katmanlı ortam; synth olanlar ayrıca elendi",
+      "status": 200,
+      "new": true,
+      "useful_share": "Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok."
+    },
+    {
+      "id": "ORT18",
+      "category": "Ortam sesi",
+      "url": "https://www.zapsplat.com/music/lamb-baaing-in-a-barn-2/",
+      "title": "Lamb baaing in a barn.",
+      "facts": "Zapsplat: ahırda kuzu melemesi, tek kayıt; Standard License ve Basic MP 3/atıf. Yetişkin koyun sürüsü ortamından farklı; yalnız koyun sesi için kısmi, gündüz ortamına bir katman.",
+      "matches": {
+        "t": [],
+        "k": [
+          "İHT-0514",
+          "İHT-0481"
+        ],
+        "u": []
+      },
+      "score": 7,
+      "work": "az",
+      "license": "K Zapsplat Standard; atıflı Basic",
+      "price": "0",
+      "format": "MP3 Basic; WAV Premium (hesap/koltuk koşulu ayrıca)",
       "godot": "WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli",
       "style": "Alan kaydı/katmanlı ortam; synth olanlar ayrıca elendi",
       "status": 200,
@@ -9131,7 +9211,7 @@
       "category": "Foley",
       "url": "https://audioelk.itch.io/foley-sessions-vol-1",
       "title": "Audio Elk | Foley Sessions Vol. 1",
-      "facts": "Foley Sessions 1: 500 benzersiz/1000 iki mikrofon WAV; belt/backpack/gameboy. Yalnız kumaş/deri temasına aday; CC-BY-SA4 nedeniyle A seti dışında.",
+      "facts": "Foley Sessions 1: 500 benzersiz/1000 iki mikrofon WAV; belt/backpack/gameboy. Yalnız kumaş/deri temasına aday; CC-BY-SA 4 nedeniyle A seti dışında.",
       "matches": {
         "t": [],
         "k": [
@@ -9155,7 +9235,7 @@
       "category": "Foley",
       "url": "https://kronbits.itch.io/foleysfx",
       "title": "Foley SFX",
-      "facts": "Kronbits Foley: yaklaşık76 WAV ve açık dosya ağacı; mutfak/banyo/mikrodalga/buzdolabı ağırlıklı. Makas/bıçak gibi ham sesler uyarlanabilir; özel envanter ihtiyacı için kanıt yok.",
+      "facts": "Kronbits Foley: yaklaşık 76 WAV ve açık dosya ağacı; mutfak/banyo/mikrodalga/buzdolabı ağırlıklı. Makas/bıçak gibi ham sesler uyarlanabilir; özel envanter ihtiyacı için kanıt yok.",
       "matches": {
         "t": [],
         "k": [],
@@ -9177,7 +9257,7 @@
       "category": "Foley",
       "url": "https://audioelk.itch.io/sound-pack-foley-sessions-household-foley-vol-1",
       "title": "Audio Elk | Foley Sessions - Household Foley Vol. 1",
-      "facts": "Household Foley1: 86 stereo WAV, tesisat/oda tonları. Modern plumbing tarihî kuyunun sesi değildir; aynı ailenin CC-BY-SA4 şartı var.",
+      "facts": "Household Foley 1: 86 stereo WAV, tesisat/oda tonları. Modern plumbing tarihî kuyunun sesi değildir; aynı ailenin CC-BY-SA 4 şartı var.",
       "matches": {
         "t": [],
         "k": [],
@@ -9248,7 +9328,7 @@
       "category": "Foley",
       "url": "https://gravity-sound.itch.io/card-sound-effects",
       "title": "Card Sound Effects",
-      "facts": "Card Foley: 103 WAV, 44.1k/16bit; karıştırma, dağıtma, sürme, katlama. Modern iskambilin sertliği parşömenle aynı değil; kâğıt hareketine kısmi aday.",
+      "facts": "Card Foley: 103 WAV, 44.1 k/16 bit; karıştırma, dağıtma, sürme, katlama. Modern iskambilin sertliği parşömenle aynı değil; kâğıt hareketine kısmi aday.",
       "matches": {
         "t": [],
         "k": [
@@ -9272,7 +9352,7 @@
       "category": "Foley",
       "url": "https://soundsreal.itch.io/horror-sounds-pack-150-free-foleyssounds",
       "title": "FOLEY SOUNDS HORROR PACK | 150 foleys and sounds",
-      "facts": "Horror150: açık listede woodcreak/door/chain benzeri fiziksel sesler, ayrıca silah/telefon/monster. Doğal kapı/kâğıt sınırlı; ticari lisans yalnız forum konusu olarak görünüyor.",
+      "facts": "Horror 150: açık listede woodcreak/door/chain benzeri fiziksel sesler, ayrıca silah/telefon/monster. Doğal kapı/kâğıt sınırlı; ticari lisans yalnız forum konusu olarak görünüyor.",
       "matches": {
         "t": [],
         "k": [
@@ -9323,7 +9403,7 @@
       "category": "Foley",
       "url": "https://epicstockmedia.itch.io/game-footsteps",
       "title": "Game Footsteps",
-      "facts": "Game Footsteps:1655 ses,22 yüzey/ayakkabı; dirt/snow/wood/cobblestone. Boot ve sneaker ağırlıklı; çarık/toprak adayını uyarlama ile kapatır. 96k/24 WAV, motor için dönüştürme gerekir.",
+      "facts": "Game Footsteps:1655 ses,22 yüzey/ayakkabı; dirt/snow/wood/cobblestone. Boot ve sneaker ağırlıklı; çarık/toprak adayını uyarlama ile kapatır. 96 k/24 WAV, motor için dönüştürme gerekir.",
       "matches": {
         "t": [],
         "k": [],
@@ -9347,7 +9427,7 @@
       "category": "Foley",
       "url": "https://heyheythere.itch.io/footsteps-sfx-free",
       "title": "Footsteps SFX Free - Walk, Run & Sneak Footstep Sampler",
-      "facts": "Footsteps Free:30 WAV/OGG; dirt/grass/snow/mud/armour açıkça listeli. CC-BY4; kodla sentez/AI yardımı beyanlı. Lisans uygun ama doğal kayıt kalitesi dinlenmeden kabul edilmez.",
+      "facts": "Footsteps Free:30 WAV/OGG; dirt/grass/snow/mud/armour açıkça listeli. CC-BY 4; kodla sentez/AI yardımı beyanlı. Lisans uygun ama doğal kayıt kalitesi dinlenmeden kabul edilmez.",
       "matches": {
         "t": [],
         "k": [],
@@ -9395,7 +9475,7 @@
       "category": "Foley",
       "url": "https://zaimtzm.itch.io/noisevember-24-free-sound-pack",
       "title": "Noisevember 24 FREE Sound Pack",
-      "facts": "Noisevember: WAV48k/24, WEAPSwrd/MECHLock/FOODEat ve synth/monster. Kılıç olduğu kabzaya dokunma sesini doğrulamaz; özel ihtiyaca eşleşme yok.",
+      "facts": "Noisevember: WAV 48 k/24, WEAPSwrd/MECHLock/FOODEat ve synth/monster. Kılıç olduğu kabzaya dokunma sesini doğrulamaz; özel ihtiyaca eşleşme yok.",
       "matches": {
         "t": [],
         "k": [],
@@ -9417,7 +9497,7 @@
       "category": "Foley",
       "url": "https://heyheythere.itch.io/medieval-combat-sfx-free",
       "title": "Medieval Combat SFX Free - Sword, Bow & Shield Sampler",
-      "facts": "Medieval Combat Free:30 WAV/OGG; kılıç çekme/kına koyma, yay bırakma, zincir zırh, örs, savaş borusu, kasa kırma ve forge loop. CC-BY4, kodla sentez/AI yardımı. İnsan kavga bağırışı veya ahşap kapı barı değil.",
+      "facts": "Medieval Combat Free:30 WAV/OGG; kılıç çekme/kına koyma, yay bırakma, zincir zırh, örs, savaş borusu, kasa kırma ve forge loop. CC-BY 4, kodla sentez/AI yardımı. İnsan kavga bağırışı veya ahşap kapı barı değil.",
       "matches": {
         "t": [],
         "k": [
@@ -9449,7 +9529,7 @@
       "category": "Foley",
       "url": "https://polarsoundproductions.itch.io/household-interior-foley-free-pack",
       "title": "Household Interior Foley – Free Sound Effects Pack (80+ Sounds)",
-      "facts": "Polar Household Free:80+ WAV96k/24, ahşap/gıcırtılı kapı, kilit/anahtar, mobilya. Modern beyaz eşya elenir; 1450 tam koleksiyonun bütün sesleri ücretsiz değildir.",
+      "facts": "Polar Household Free:80+ WAV 96 k/24, ahşap/gıcırtılı kapı, kilit/anahtar, mobilya. Modern beyaz eşya elenir; 1450 tam koleksiyonun bütün sesleri ücretsiz değildir.",
       "matches": {
         "t": [],
         "k": [
@@ -9463,6 +9543,54 @@
       "license": "K royalty-free",
       "price": "0",
       "format": "WAV",
+      "godot": "WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli",
+      "style": "Fiziksel kayıt veya belirtilen sentez; malzeme teması",
+      "status": 200,
+      "new": true,
+      "useful_share": "Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok."
+    },
+    {
+      "id": "FOL16",
+      "category": "Foley",
+      "url": "https://www.zapsplat.com/music/male-single-short-cough-7/",
+      "title": "Male, single short cough 7",
+      "facts": "Zapsplat: Male single short cough 7, tek kısa insan öksürüğü. Standard License K; Basic MP 3/atıf, WAV Premium. Salgın öksürük ihtiyacının doğrudan içerik karşılığı; gerçek oyun miks kabulü yapılmadı.",
+      "matches": {
+        "t": [
+          "İHT-0493"
+        ],
+        "k": [],
+        "u": []
+      },
+      "score": 9,
+      "work": "az",
+      "license": "K Zapsplat Standard; atıflı Basic",
+      "price": "0",
+      "format": "MP3 Basic; WAV Premium (hesap/koltuk koşulu ayrıca)",
+      "godot": "WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli",
+      "style": "Fiziksel kayıt veya belirtilen sentez; malzeme teması",
+      "status": 200,
+      "new": true,
+      "useful_share": "Hesaplanamadı: eksiksiz öğe/ad listesi ve kabul edilmiş seçim paydası yok."
+    },
+    {
+      "id": "FOL17",
+      "category": "Foley",
+      "url": "https://www.zapsplat.com/music/three-month-old-baby-boy-breathing-fast-babbling-with-cloth-movements/",
+      "title": "Three month old baby boy breathing fast, babbling with cloth movements",
+      "facts": "Zapsplat: üç aylık bebek hızlı soluk, heceleme ve kumaş hareketi birlikte. Standard License, Basic MP 3/atıf. Saf bebek soluğu ayrı kanal olarak verilmediğinden temizleme olmadan tam sayılmaz.",
+      "matches": {
+        "t": [],
+        "k": [
+          "İHT-0476"
+        ],
+        "u": []
+      },
+      "score": 8,
+      "work": "orta",
+      "license": "K Zapsplat Standard; atıflı Basic",
+      "price": "0",
+      "format": "MP3 Basic; WAV Premium (hesap/koltuk koşulu ayrıca)",
       "godot": "WAV/OGG varsa AudioStream; loop/mono/normalizasyon kabulü gerekli",
       "style": "Fiziksel kayıt veya belirtilen sentez; malzeme teması",
       "status": 200,
@@ -9496,7 +9624,7 @@
       "category": "UI sesi",
       "url": "https://jdsherbert.itch.io/ultimate-ui-sfx-pack",
       "title": "[SFX] Ultimate UI Sound Effect Pack",
-      "facts": "Ultimate UI:67 benzersiz; Cancel10 Cursor20 Error5 Popup10 Select10 Swipe12. 670 dosya 67 farklı sesin biçimleri; nötr seçki için kısmi aday. Özel lisans public repo ham dosya paylaşımını açıkça yasaklıyor.",
+      "facts": "Ultimate UI:67 benzersiz; Cancel 10 Cursor 20 Error 5 Popup 10 Select 10 Swipe 12. 670 dosya 67 farklı sesin biçimleri; nötr seçki için kısmi aday. Özel lisans public repo ham dosya paylaşımını açıkça yasaklıyor.",
       "matches": {
         "t": [],
         "k": [
@@ -9522,7 +9650,7 @@
       "category": "UI sesi",
       "url": "https://cyrex-studios.itch.io/universal-ui-soundpack",
       "title": "Universal UI/Menu Soundpack",
-      "facts": "Cyrex Universal UI:52 WAV/MP3/OGG; Wood Block/African/Coffee ve modern/retro gruplar. Tahta tık için Wood Block güçlü aday; Nathan Gibson CC-BY4 atfı.",
+      "facts": "Cyrex Universal UI:52 WAV/MP 3/OGG; Wood Block/African/Coffee ve modern/retro gruplar. Tahta tık için Wood Block güçlü aday; Nathan Gibson CC-BY 4 atfı.",
       "matches": {
         "t": [],
         "k": [
@@ -9599,7 +9727,7 @@
       "category": "UI sesi",
       "url": "https://pizzadoggy.itch.io/echoes-audio-super-kit",
       "title": "Echoes: Audio Super Kit",
-      "facts": "Echoes:yaklaşık500 SFX/ambiyans/OST,2000ler aksiyon/korku; makineler/elektronik baskın. Demo yalnız önizleme; PDF lisansı ve tekil dosyalar ayrıca gerekli, güvenilir kapsam sıfır.",
+      "facts": "Echoes:yaklaşık 500 SFX/ambiyans/OST,2000 ler aksiyon/korku; makineler/elektronik baskın. Demo yalnız önizleme; PDF lisansı ve tekil dosyalar ayrıca gerekli, güvenilir kapsam sıfır.",
       "matches": {
         "t": [],
         "k": [],
@@ -9621,7 +9749,7 @@
       "category": "UI sesi",
       "url": "https://leohpaz.itch.io/100-retro-rpg-ui-sound-effects",
       "title": "Retro RPG 100 UI Sound Effects",
-      "facts": "Retro RPG100:Hover10 Confirm10 Dialogue10 vb100 retro ses;10 demo dosyası ticari kullanılabilir. 100'ün tamamını free saymadım. Sakin tarihî malzeme hedefiyle zayıf.",
+      "facts": "Retro RPG 100:Hover 10 Confirm 10 Dialogue 10 vb 100 retro ses;10 demo dosyası ticari kullanılabilir. 100'ün tamamını free saymadım. Sakin tarihî malzeme hedefiyle zayıf.",
       "matches": {
         "t": [],
         "k": [
@@ -9646,7 +9774,7 @@
       "category": "UI sesi",
       "url": "https://coloralpha.itch.io/50-menu-interface-sfx",
       "title": "50 Menu Interface SFX",
-      "facts": "Menu Interface50:50 MP3/WAV/FLAC, retro düğme; CC-BY4. Kullanım hakkı uygun, tahta tınısı teyitsiz; sadece işlevsel UI karşılığı kısmi.",
+      "facts": "Menu Interface 50:50 MP 3/WAV/FLAC, retro düğme; CC-BY 4. Kullanım hakkı uygun, tahta tınısı teyitsiz; sadece işlevsel UI karşılığı kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -9671,7 +9799,7 @@
       "category": "UI sesi",
       "url": "https://lolurio.itch.io/lolurios-free-cozy-ui-sfx",
       "title": "lolurio's FREE Cozy Game UI SFX Pack",
-      "facts": "Lolurio Cozy17:4 menü,4 oyun menüsü,5 feedback,4 extra; marimba, piyano, synth. WAV/OGG, CC-BY4; marimba tık fiziksel hedefe yakın, parlak piyano/synth elenir.",
+      "facts": "Lolurio Cozy 17:4 menü,4 oyun menüsü,5 feedback,4 extra; marimba, piyano, synth. WAV/OGG, CC-BY 4; marimba tık fiziksel hedefe yakın, parlak piyano/synth elenir.",
       "matches": {
         "t": [],
         "k": [
@@ -9697,7 +9825,7 @@
       "category": "UI sesi",
       "url": "https://jdsherbert.itch.io/wooden-ui-sfx-pack",
       "title": "[SFX] Wooden UI Sound Effect Pack",
-      "facts": "Wooden UI30:Cancel10 Cursor5 Error5 Select5 Confirm5;30 benzersiz/600 çıktı. Ahşap sıcak karakteri hedefle en yakın. JDSherbert atfı ve özel ham paylaşım yasağı korunur.",
+      "facts": "Wooden UI 30:Cancel 10 Cursor 5 Error 5 Select 5 Confirm 5;30 benzersiz/600 çıktı. Ahşap sıcak karakteri hedefle en yakın. JDSherbert atfı ve özel ham paylaşım yasağı korunur.",
       "matches": {
         "t": [],
         "k": [
@@ -9724,7 +9852,7 @@
       "category": "UI sesi",
       "url": "https://souptonic.itch.io/souptonic-sfx-pack-1-ui-sounds",
       "title": "SoupTonic's sound SFX Pack 1 - UI menu sounds",
-      "facts": "Souptonic12:enter/exit/select/pause/resume/confirm/cancel vb12 WAV/OGG/MP3;CC-BY4. Retro tını olduğu için işlevsel seçki kısmi, tahta ses diye kabul edilmedi.",
+      "facts": "Souptonic 12:enter/exit/select/pause/resume/confirm/cancel vb 12 WAV/OGG/MP 3;CC-BY 4. Retro tını olduğu için işlevsel seçki kısmi, tahta ses diye kabul edilmedi.",
       "matches": {
         "t": [],
         "k": [
@@ -9749,7 +9877,7 @@
       "category": "UI sesi",
       "url": "https://elvgames.itch.io/user-interface-sound-fx",
       "title": "User Interface Sound Effects 1 - Universal Sound Effects",
-      "facts": "ELV UI1:9click, enable/disable, menuopen yanında keypad/robotic/puzzle. Fiziksel tık seçimi kısmi; sci-fi sesler elenir. Atıf zorunlu, AI eğitim ve NFT yasağı var.",
+      "facts": "ELV UI 1:9 click, enable/disable, menuopen yanında keypad/robotic/puzzle. Fiziksel tık seçimi kısmi; sci-fi sesler elenir. Atıf zorunlu, AI eğitim ve NFT yasağı var.",
       "matches": {
         "t": [],
         "k": [
@@ -9773,7 +9901,7 @@
       "category": "UI sesi",
       "url": "https://elvgames.itch.io/user-interface-sound-fx-4",
       "title": "User Interface Sound Effects 4 - Universal Sound Effects",
-      "facts": "ELV UI4:40 ses;7click,3error,4bag,5map,4confirm ve typing. UI onay/odak için kısmi; derikese foley diye bag sesini tam saymadım.",
+      "facts": "ELV UI 4:40 ses;7 click,3 error,4 bag,5 map,4 confirm ve typing. UI onay/odak için kısmi; derikese foley diye bag sesini tam saymadım.",
       "matches": {
         "t": [],
         "k": [
@@ -9800,7 +9928,7 @@
       "category": "UI sesi",
       "url": "https://elvgames.itch.io/user-interface-sound-fx-3",
       "title": "User Interface Sound Effects 3 - Universal Sound Effects",
-      "facts": "ELV UI3:40 ses;8click, inventory open/close veitem/typing. Onay sesi listelenmiyor; seçim odak adayı kısmi.",
+      "facts": "ELV UI 3:40 ses;8 click, inventory open/close veitem/typing. Onay sesi listelenmiyor; seçim odak adayı kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -9824,7 +9952,7 @@
       "category": "UI sesi",
       "url": "https://high-impact-media.itch.io/user-interface-sound-fx-medieval-collection",
       "title": "User Interface Sound FX - Medieval Collection",
-      "facts": "Medieval UI Collection:400+click/inventory/equip/scroll/notification;49.99USD. Tekil malzeme listesi ve lisans şartı açık değil; pahalı ürün genel UI işleviyle kısmi.",
+      "facts": "Medieval UI Collection:400+click/inventory/equip/scroll/notification;49.99 USD. Tekil malzeme listesi ve lisans şartı açık değil; pahalı ürün genel UI işleviyle kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -9876,7 +10004,7 @@
       "category": "Mırıltı",
       "url": "https://cicifyre.itch.io/rpg-voice-starter-pack",
       "title": "RPG Voice Starter Pack",
-      "facts": "Cici RPG Starter:3 kadın ses/90 dosya,30ar; büyü sözcükleri ve attack/damaged/jump/healed tepkileri. CC0 ama konuşma mırıltısı yerine savaş eforu sağlar; çocuk veya yaşlı sesi sayılmaz.",
+      "facts": "Cici RPG Starter:3 kadın ses/90 dosya,30 ar; büyü sözcükleri ve attack/damaged/jump/healed tepkileri. CC 0 ama konuşma mırıltısı yerine savaş eforu sağlar; çocuk veya yaşlı sesi sayılmaz.",
       "matches": {
         "t": [],
         "k": [
@@ -9900,7 +10028,7 @@
       "category": "Mırıltı",
       "url": "https://cicifyre.itch.io/free-voice-clips-pack-bright-female",
       "title": "Free Voice Clips Pack (Bright Female)",
-      "facts": "Cici Bright:72 WAV; İngilizce karşılama/kısa cevaplar ve3gülme. Gülme kısa duygu için aday; bu 72 dosyanın hepsi mırıltı değildir.",
+      "facts": "Cici Bright:72 WAV; İngilizce karşılama/kısa cevaplar ve 3 gülme. Gülme kısa duygu için aday; bu 72 dosyanın hepsi mırıltı değildir.",
       "matches": {
         "t": [],
         "k": [
@@ -9948,7 +10076,7 @@
       "category": "Mırıltı",
       "url": "https://daniconshow.itch.io/generic-male-voice-pack",
       "title": "Generic Male Voice Pack",
-      "facts": "Danicon Male:63 WAV48k/32, duygu sesleri. Ticari kullanım Dan Bosley atfıyla; klip adları açıklamada yok, nötr hece kapsamı kısmi.",
+      "facts": "Danicon Male:63 WAV 48 k/32, duygu sesleri. Ticari kullanım Dan Bosley atfıyla; klip adları açıklamada yok, nötr hece kapsamı kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -9972,7 +10100,7 @@
       "category": "Mırıltı",
       "url": "https://chinomi.itch.io/voice-over-asset-female-mid-range-american",
       "title": "Voice Over Asset - Female, Mid-Range, American",
-      "facts": "Chinomi Female:young adult American;hello/yes/no yanı sıraattack/hurt/running pants. WAV44.1k/16 mono. Ticari lisans açık değil; nötr mırıltı yerine efor sesleri kısmi.",
+      "facts": "Chinomi Female:young adult American;hello/yes/no yanı sıraattack/hurt/running pants. WAV 44.1 k/16 mono. Ticari lisans açık değil; nötr mırıltı yerine efor sesleri kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -9996,7 +10124,7 @@
       "category": "Mırıltı",
       "url": "https://r0o0kie.itch.io/rookie",
       "title": "Free Generic Female Voice Pack",
-      "facts": "Rookie:39 WAV ve her dosyada3take beyanı;greeting/reply/effort/laugh/cry. Ticari izin ve atıf var; sayı ifadesi benzersiz hece sayısı olarak alınmadı.",
+      "facts": "Rookie:39 WAV ve her dosyada 3 take beyanı;greeting/reply/effort/laugh/cry. Ticari izin ve atıf var; sayı ifadesi benzersiz hece sayısı olarak alınmadı.",
       "matches": {
         "t": [],
         "k": [
@@ -10020,7 +10148,7 @@
       "category": "Mırıltı",
       "url": "https://jessicarobo.itch.io/jessicas-basic-voice-clips",
       "title": "Jessica's Basic Voice Clips",
-      "facts": "Jessica/Kelarima:OGG ve16bitWAV aynı satırlar; giggle/oh gibi nonverbal altküme, İngilizcegameover/choosecharacter elenir. Güncel açıklama CC-BY4, eski yorumlar BY-SA diyor; güncel arşiv lisansı teyit edilmeli.",
+      "facts": "Jessica/Kelarima:OGG ve 16 bitWAV aynı satırlar; giggle/oh gibi nonverbal altküme, İngilizcegameover/choosecharacter elenir. Güncel açıklama CC-BY 4, eski yorumlar BY-SA diyor; güncel arşiv lisansı teyit edilmeli.",
       "matches": {
         "t": [],
         "k": [
@@ -10044,7 +10172,7 @@
       "category": "Mırıltı",
       "url": "https://leohpaz.itch.io/humanoids-grunts-sfx-pack",
       "title": "Humanoids Grunts SFX Pack",
-      "facts": "Humanoids Grunts:138ses Beast/Demon/Giant/Goblin/Gremlin/Orc/Troll/Undead. İnsan yetişkin/yaşlı/çocuk yok. Fantastik ırk paketi tamamen elendi;0/138uygun.",
+      "facts": "Humanoids Grunts:138 ses Beast/Demon/Giant/Goblin/Gremlin/Orc/Troll/Undead. İnsan yetişkin/yaşlı/çocuk yok. Fantastik ırk paketi tamamen elendi;0/138 uygun.",
       "matches": {
         "t": [],
         "k": [],
@@ -10066,7 +10194,7 @@
       "category": "Mırıltı",
       "url": "https://voicebosch.itch.io/exertion-sounds-male-audio-pack",
       "title": "EFFORT SOUNDS (Male) - Audio Pack",
-      "facts": "VoiceBosch Effort:41erkek efor;zıplama/blok/yumruk/kılıç. CC-BY-SA4 A değildir; diyaloğa nötr mırıltı yerine savaş eforu kısmi.",
+      "facts": "VoiceBosch Effort:41 erkek efor;zıplama/blok/yumruk/kılıç. CC-BY-SA 4 A değildir; diyaloğa nötr mırıltı yerine savaş eforu kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -10091,7 +10219,7 @@
       "category": "Mırıltı",
       "url": "https://johncarroll.itch.io/warrior-voice-pack",
       "title": "Warrior Voice Pack",
-      "facts": "Warrior Voice:110+WAV;yorulmuş/öfkeli/mutlu/sorgulayan tepkiler ve savaş. MetadataCC0, açıklama yeniden satış/incorporating yasağı söylüyor; çelişki giderilmeden A sayılmadı.",
+      "facts": "Warrior Voice:110+WAV;yorulmuş/öfkeli/mutlu/sorgulayan tepkiler ve savaş. MetadataCC 0, açıklama yeniden satış/incorporating yasağı söylüyor; çelişki giderilmeden A sayılmadı.",
       "matches": {
         "t": [],
         "k": [
@@ -10117,7 +10245,7 @@
       "category": "Mırıltı",
       "url": "https://ambroggiomusic.itch.io/dialogue-scribble-scrabble-noises-sfx",
       "title": "Dialogue Sfx",
-      "facts": "Dialogue SFX:15tekli Ah/Huh/Garble/Meh ve retro/honk;Animal Crossing tarzı. İnsan yaş grubu kaydı değil, yüksek/sentetik ses ciddi atmosferi bozar;garble altküme kısmi.",
+      "facts": "Dialogue SFX:15 tekli Ah/Huh/Garble/Meh ve retro/honk;Animal Crossing tarzı. İnsan yaş grubu kaydı değil, yüksek/sentetik ses ciddi atmosferi bozar;garble altküme kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -10141,7 +10269,7 @@
       "category": "Mırıltı",
       "url": "https://jdsherbert.itch.io/male-character-vox-pack",
       "title": "[VOX] Male Character Vocal Pack",
-      "facts": "Male VOX:23ses;Mhm1, Sigh3, Grunt6, Punch6, Jump3, Die3, Bruh1. Dört nötr Mhm/Sigh dosyası yetişkin mırıltısına en yakın;modern Bruh elenir. Atıf ve özel lisans.",
+      "facts": "Male VOX:23 ses;Mhm 1, Sigh 3, Grunt 6, Punch 6, Jump 3, Die 3, Bruh 1. Dört nötr Mhm/Sigh dosyası yetişkin mırıltısına en yakın;modern Bruh elenir. Atıf ve özel lisans.",
       "matches": {
         "t": [],
         "k": [],
@@ -10165,7 +10293,7 @@
       "category": "Mırıltı",
       "url": "https://konakuma.itch.io/rpg-male-vocal",
       "title": "RPG Male Vocal",
-      "facts": "Konakuma RPG Male:162soundbite;24grunt,12jump, Japonca/İngilizce barks. Dil içerenler elenir;ticari kullanım ve lisans açıkça adlandırılmamış, ücretsiz sözü yetmez.",
+      "facts": "Konakuma RPG Male:162 soundbite;24 grunt,12 jump, Japonca/İngilizce barks. Dil içerenler elenir;ticari kullanım ve lisans açıkça adlandırılmamış, ücretsiz sözü yetmez.",
       "matches": {
         "t": [],
         "k": [
@@ -10189,7 +10317,7 @@
       "category": "Mırıltı",
       "url": "https://kerstynungervo.itch.io/custom-voice-resource",
       "title": "Custom Voice Resource - CVR",
-      "facts": "Custom Voice Resource:15erkek/kadın tip,100+satır/tip;Follower/Combat/Marriage/ChildInteraction. CC-BY-NC-SA ticari oyuna uygun değil; Child Interaction çocuk seslendirmesi anlamına gelmez. Elendi.",
+      "facts": "Custom Voice Resource:15 erkek/kadın tip,100+satır/tip;Follower/Combat/Marriage/ChildInteraction. CC-BY-NC-SA ticari oyuna uygun değil; Child Interaction çocuk seslendirmesi anlamına gelmez. Elendi.",
       "matches": {
         "t": [],
         "k": [],
@@ -10495,7 +10623,7 @@
       "category": "Karakter",
       "url": "https://quaternius.itch.io/universal-base-characters",
       "title": "Quaternius: Universal Base Characters",
-      "facts": "6 çıplak/taban gövde, regular/superhero/teen; yaklaşık13k üçgen,20saç. Kostüm teslim etmediğinden roller kısmi. Teen 7yaşındakiçocuk sayılmadı.",
+      "facts": "6 çıplak/taban gövde, regular/superhero/teen; yaklaşık 13 k üçgen,20 saç. Kostüm teslim etmediğinden roller kısmi. Teen 7 yaşındakiçocuk sayılmadı.",
       "matches": {
         "t": [],
         "k": [
@@ -10520,7 +10648,7 @@
       "category": "Karakter",
       "url": "https://quaternius.com/packs/ultimatemodularwomen.html",
       "title": "Quaternius: Ultimate Modular Women Pack",
-      "facts": "10modülerkadın ve24klip beyanı. Modern kıyafetler ayıklanmalı; eş gövdesine uyarlama, hazır Anadolu kostümü değil.",
+      "facts": "10 modülerkadın ve 24 klip beyanı. Modern kıyafetler ayıklanmalı; eş gövdesine uyarlama, hazır Anadolu kostümü değil.",
       "matches": {
         "t": [],
         "k": [],
@@ -10544,7 +10672,7 @@
       "category": "Karakter",
       "url": "https://poly.pizza/bundle/Ultimate-Modular-Men-Pack-ZiH8muWqwQ",
       "title": "Quaternius: Ultimate Modular Men Pack — Poly Pizza",
-      "facts": "11erkek/24klip; farmer/adventurer/king altkümesi, SWAT/astronot elenir. Bey ve esnaf ancak kıyafet değişimiyle; ana Quaternius lisansı kaynak kökeni nedeniyle ayrıca çelişkili.",
+      "facts": "11 erkek/24 klip; farmer/adventurer/king altkümesi, SWAT/astronot elenir. Bey ve esnaf ancak kıyafet değişimiyle; ana Quaternius lisansı kaynak kökeni nedeniyle ayrıca çelişkili.",
       "matches": {
         "t": [],
         "k": [
@@ -10570,7 +10698,7 @@
       "category": "Karakter",
       "url": "https://quaternius.com/packs/rpgcharacters.html",
       "title": "Quaternius: RPG Character Pack",
-      "facts": "6rigliRPGkarakter;wizard/monk uzun giysi dervişe kanıt değildir. Tarihî elçi gövdesi için kısmi, gerçek dini kıyafet ayrıca gerekir.",
+      "facts": "6 rigliRPGkarakter;wizard/monk uzun giysi dervişe kanıt değildir. Tarihî elçi gövdesi için kısmi, gerçek dini kıyafet ayrıca gerekir.",
       "matches": {
         "t": [],
         "k": [
@@ -10594,7 +10722,7 @@
       "category": "Karakter",
       "url": "https://kaylousberg.itch.io/kaykit-adventurers",
       "title": "KayKit: Adventurers",
-      "facts": "5ücretsiz/3Extra karakter ve25+ aksesuar. Knight/rogue vb oyuncak oranlı; elf/druid fantastik parçaları elenir. Uzak asker adayı.",
+      "facts": "5 ücretsiz/3 Extra karakter ve 25+ aksesuar. Knight/rogue vb oyuncak oranlı; elf/druid fantastik parçaları elenir. Uzak asker adayı.",
       "matches": {
         "t": [],
         "k": [
@@ -10647,7 +10775,7 @@
       "category": "Karakter",
       "url": "https://quaternius.com/packs/ultimatedanimatedcharacter",
       "title": "Quaternius: Ultimate Animated Character Pack",
-      "facts": "52karışık dönemli rigli karakter; ad listesi mevcut metinde yok. Büyük sayı uygun insan çeşidi kanıtı değil; bu tur yeni ihtiyaç kapatmıyor.",
+      "facts": "52 karışık dönemli rigli karakter; ad listesi mevcut metinde yok. Büyük sayı uygun insan çeşidi kanıtı değil; bu tur yeni ihtiyaç kapatmıyor.",
       "matches": {
         "t": [],
         "k": [],
@@ -10693,7 +10821,7 @@
       "category": "Animasyon",
       "url": "https://quaternius.itch.io/universal-animation-library",
       "title": "Quaternius: Universal Animation Library",
-      "facts": "120+ hareket; 8yönlocomotion, jog, sprint, push, crawl, swim, sit, death;RM/NoRM. Free/Pro klip adları ayrışmadığından belirli ücretsiz duygu var denmedi; genel hareketler kısmi.",
+      "facts": "120+ hareket; 8 yönlocomotion, jog, sprint, push, crawl, swim, sit, death;RM/NoRM. Free/Pro klip adları ayrışmadığından belirli ücretsiz duygu var denmedi; genel hareketler kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -10711,7 +10839,7 @@
       "price": "0",
       "format": "FBX, GLB, Blend",
       "godot": "FBX varsa SkeletonProfileHumanoid/BoneMap ve retarget; bu tur import yapılmadı",
-      "style": "Mocap; retarget, el/ayak teması ve tarihî eşya tutuşu",
+      "style": "Stilize humanoid hareket; mocap üretim yöntemi varsayılmadı",
       "status": 200,
       "new": false,
       "useful_share": "Hesaplanamadı: tam dosya/öğe seçimi veya arşiv görülmedi."
@@ -10737,7 +10865,7 @@
       "price": "0",
       "format": "GLB, Blend",
       "godot": "FBX varsa SkeletonProfileHumanoid/BoneMap ve retarget; bu tur import yapılmadı",
-      "style": "Mocap; retarget, el/ayak teması ve tarihî eşya tutuşu",
+      "style": "Stilize humanoid hareket; mocap üretim yöntemi varsayılmadı",
       "status": 200,
       "new": false,
       "useful_share": "Hesaplanamadı: tam dosya/öğe seçimi veya arşiv görülmedi."
@@ -10747,7 +10875,7 @@
       "category": "Animasyon",
       "url": "https://kaylousberg.itch.io/kaykit-character-animations",
       "title": "KayKit: Character Animations",
-      "facts": "FBX/glTF Rig_Medium/Large, hareket/sosyal/silah/araç setleri ve28yeni tool hareketi. Sneaking ve hammering açık; hedef rigde retarget şart. Fırınküreği grup satırı kısmi.",
+      "facts": "FBX/glTF Rig_Medium/Large, hareket/sosyal/silah/araç setleri ve 28 yeni tool hareketi. Sneaking ve hammering açık; hedef rigde retarget şart. Fırınküreği grup satırı kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -10770,7 +10898,7 @@
       "price": "0",
       "format": "FBX, glTF, Blend",
       "godot": "FBX varsa SkeletonProfileHumanoid/BoneMap ve retarget; bu tur import yapılmadı",
-      "style": "Mocap; retarget, el/ayak teması ve tarihî eşya tutuşu",
+      "style": "Stilize humanoid hareket; mocap üretim yöntemi varsayılmadı",
       "status": 200,
       "new": false,
       "useful_share": "Hesaplanamadı: tam dosya/öğe seçimi veya arşiv görülmedi."
@@ -10802,7 +10930,7 @@
       "category": "Animasyon",
       "url": "https://mocaponline.com/products/convo",
       "title": "MoCap Online: Conversation",
-      "facts": "28conversation dosyası:9uzun9loop7jest3yön; konuşma parmak ayrıntılı, FBX. Ayakta konuşma için retarget; özgül duygu adı teyit edilmedi.",
+      "facts": "28 conversation dosyası:9 uzun 9 loop 7 jest 3 yön; konuşma parmak ayrıntılı, FBX. Ayakta konuşma için retarget; özgül duygu adı teyit edilmedi.",
       "matches": {
         "t": [],
         "k": [],
@@ -10826,7 +10954,7 @@
       "category": "Animasyon",
       "url": "https://mocaponline.com/products/mobility",
       "title": "MoCap Online: Mobility",
-      "facts": "Starter35animasyon/59dosya; Pro527+ toplamıyla karıştırılmaz. Walk/jog/crouch/jump/idle/turn. Çarık/zemin teması ve retarget, yağmur/kar ayrı açık.",
+      "facts": "Starter 35 animasyon/59 dosya; Pro 527+ toplamıyla karıştırılmaz. Walk/jog/crouch/jump/idle/turn. Çarık/zemin teması ve retarget, yağmur/kar ayrı açık.",
       "matches": {
         "t": [],
         "k": [],
@@ -10852,7 +10980,7 @@
       "category": "Animasyon",
       "url": "https://mocaponline.com/products/park",
       "title": "MoCap Online: Park",
-      "facts": "65dosya;46oturarak19ayakta,35konuşma,8texting4phone örtüşen etiketler. Telefon elenir; konuşma/oturma ihtiyacına aday. Etiketler toplanıp65üzeri benzersiz sayı üretilmedi.",
+      "facts": "65 dosya;46 oturarak 19 ayakta,35 konuşma,8 texting 4 phone örtüşen etiketler. Telefon elenir; konuşma/oturma ihtiyacına aday. Etiketler toplanıp 65 üzeri benzersiz sayı üretilmedi.",
       "matches": {
         "t": [],
         "k": [],
@@ -10877,7 +11005,7 @@
       "category": "Animasyon",
       "url": "https://mocaponline.com/products/bar",
       "title": "MoCap Online: Bar Drinking",
-      "facts": "112bar/restoran dosyası;48bar48masa16ayakta. Bardak/tutuş ve mobilya yüksekliği uyarlanmalı; konuşma ve oturma adayları.",
+      "facts": "112 bar/restoran dosyası;48 bar 48 masa 16 ayakta. Bardak/tutuş ve mobilya yüksekliği uyarlanmalı; konuşma ve oturma adayları.",
       "matches": {
         "t": [],
         "k": [],
@@ -10902,7 +11030,7 @@
       "category": "Animasyon",
       "url": "https://mocaponline.com/products/desk",
       "title": "MoCap Online: Office / Desk",
-      "facts": "35ofis/masa;16oturma10yürüme7ayakta2geçiş. Modern iş eylemleri ayıklanmalı; genel otur-kalk kısmi, tarihî yazma işi kanıtlanmadı.",
+      "facts": "35 ofis/masa;16 oturma 10 yürüme 7 ayakta 2 geçiş. Modern iş eylemleri ayıklanmalı; genel otur-kalk kısmi, tarihî yazma işi kanıtlanmadı.",
       "matches": {
         "t": [],
         "k": [
@@ -10926,7 +11054,7 @@
       "category": "UI",
       "url": "https://fonts.google.com/specimen/Alegreya",
       "title": "Alegreya — Google Fonts",
-      "facts": "Alegreya zaten depoda, edebî gövde yazısı. OFL1.1 açık font lisansı, CC0 değildir. Mevcut font karşılaştırma tabanıdır.",
+      "facts": "Alegreya zaten depoda, edebî gövde yazısı. OFL 1.1 açık font lisansı, CC 0 değildir. Mevcut font karşılaştırma tabanıdır.",
       "matches": {
         "t": [],
         "k": [],
@@ -10950,7 +11078,7 @@
       "category": "UI",
       "url": "https://opengameart.org/content/game-wood-panel",
       "title": "PINKCANNON: Game wood panel",
-      "facts": "ElboyalıWoodGamePanel.zip, katmanlı kaynak;CC0. Gecekapısının ahşap hissine en yakın;9-slice köşe/kenar, demir çerçeve ve boyut uyarlaması gerekir.",
+      "facts": "ElboyalıWoodGamePanel.zip, katmanlı kaynak;CC 0. Gecekapısının ahşap hissine en yakın;9-slice köşe/kenar, demir çerçeve ve boyut uyarlaması gerekir.",
       "matches": {
         "t": [],
         "k": [],
@@ -10976,7 +11104,7 @@
       "category": "UI",
       "url": "https://game-icons.net/",
       "title": "Game-icons.net koleksiyonu",
-      "facts": "Game-icons SVG koleksiyonu; sanatçı bazlı CC-BY3.0. Kaynak/adalet/kapı ikonlarına genel aday fakat tek tek ikon bağlantıları seçilmediği için 24ikonun hepsi kapanmıyor.",
+      "facts": "Game-icons SVG koleksiyonu; sanatçı bazlı CC-BY 3.0. Kaynak/adalet/kapı ikonlarına genel aday fakat tek tek ikon bağlantıları seçilmediği için 24 ikonun hepsi kapanmıyor.",
       "matches": {
         "t": [],
         "k": [
@@ -11006,7 +11134,7 @@
       "category": "UI",
       "url": "https://kenney-assets.itch.io/fantasy-ui-borders",
       "title": "Kenney: Fantasy UI Borders",
-      "facts": "130+sprite,9-slice pencereler;CC0. Bütün yükleme/imleç/buton halleri değil; panel/kart çerçevesi yeniden boyama adayı.",
+      "facts": "130+sprite,9-slice pencereler;CC 0. Bütün yükleme/imleç/buton halleri değil; panel/kart çerçevesi yeniden boyama adayı.",
       "matches": {
         "t": [],
         "k": [],
@@ -11034,7 +11162,7 @@
       "category": "UI",
       "url": "https://kenney.nl/assets/cartography-pack",
       "title": "Kenney: Cartography Pack",
-      "facts": "85cartography dosyası; map/town/castle ikonları. Özgün köy/kapı coğrafyasını hazır harita olarak kapatmaz; harita tabanına kısmi.",
+      "facts": "85 cartography dosyası; map/town/castle ikonları. Özgün köy/kapı coğrafyasını hazır harita olarak kapatmaz; harita tabanına kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -11082,7 +11210,7 @@
       "category": "UI",
       "url": "https://opengameart.org/content/gui-elements",
       "title": "yd: GUI elements",
-      "facts": "yd incompleteGUI; map.svg/gui2.svg/Quest.svg/Inventory.svg. Yazar konsept/eksik set diyor; tam oyun arayüzü değildir, menü tabanları kısmi.",
+      "facts": "yd incompleteGUI; map.svg/gui 2.svg/Quest.svg/Inventory.svg. Yazar konsept/eksik set diyor; tam oyun arayüzü değildir, menü tabanları kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -11108,7 +11236,7 @@
       "category": "UI",
       "url": "https://kenney.nl/assets/ui-pack-adventure",
       "title": "Kenney: UI Pack — Adventure",
-      "facts": "Adventure UI130dosya;button/panel/slider etiketleri. 4buton hali ve 9-slice ölçüleri teyitsiz; genel panel/kaydırıcı kısmi.",
+      "facts": "Adventure UI 130 dosya;button/panel/slider etiketleri. 4 buton hali ve 9-slice ölçüleri teyitsiz; genel panel/kaydırıcı kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -11139,7 +11267,7 @@
       "category": "UI",
       "url": "https://kenney.nl/assets/cursor-pack",
       "title": "Kenney: Cursor Pack",
-      "facts": "180imleç dosyası. Tekil point/grab/busy adları ürünmetninde yok; bu ihtiyaçlar doğrudan tam kapanmıyor. Ok imleci için kısmi.",
+      "facts": "180 imleç dosyası. Tekil point/grab/busy adları ürünmetninde yok; bu ihtiyaçlar doğrudan tam kapanmıyor. Ok imleci için kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -11164,7 +11292,7 @@
       "category": "UI",
       "url": "https://opengameart.org/content/golden-ui",
       "title": "Buch: Golden UI",
-      "facts": "GoldenUI CC0;dolgu/slider/scrollbar/button etiketleri var. Parlak altın/piksel dili gece kapısı için ters, bütün UI değişimi yerine sınırlı referans.",
+      "facts": "GoldenUI CC 0;dolgu/slider/scrollbar/button etiketleri var. Parlak altın/piksel dili gece kapısı için ters, bütün UI değişimi yerine sınırlı referans.",
       "matches": {
         "t": [],
         "k": [
@@ -11191,7 +11319,7 @@
       "category": "UI",
       "url": "https://opengameart.org/content/battle-background-hazy-hills-0",
       "title": "ansimuz: Battle Background — Hazy Hills",
-      "facts": "320×208HazyHills piksel arka planı;PNG/PSD+HUD, CC-BY3. Kapı/kandil yok ve 16:9değil; seçilmiş gece kapısı arka planı ihtiyacına karşılık sayılmadı.",
+      "facts": "320×208 HazyHills piksel arka planı;PNG/PSD+HUD, CC-BY 3. Kapı/kandil yok ve 16:9 değil; seçilmiş gece kapısı arka planı ihtiyacına karşılık sayılmadı.",
       "matches": {
         "t": [],
         "k": [],
@@ -11213,7 +11341,7 @@
       "category": "Foley",
       "url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
       "title": "rubberduck: 100 CC0 metal and wood SFX",
-      "facts": "100metal/wood; wooddoorclosing, cracking, breaking, squeak, woodhammer, metalkey/lock. Ağır kapı/bar/mallet için uyarlama; zincir/derikese/bebek yok.",
+      "facts": "100 metal/wood; wooddoorclosing, cracking, breaking, squeak, woodhammer, metalkey/lock. Ağır kapı/bar/mallet için uyarlama; zincir/derikese/bebek yok.",
       "matches": {
         "t": [],
         "k": [
@@ -11243,7 +11371,7 @@
       "category": "Ortam sesi",
       "url": "https://opengameart.org/content/ambient-mountain-river-wind-and-forest-and-waterfall",
       "title": "Blender Foundation / Lamoot: Ambient Mountain, River, Wind and Forest and Waterfall",
-      "facts": "YoFrankie BlenderFoundation dağ/orman/dere/şelale/rüzgâr. CC-BY3. Doğal rüzgâr tam adayı; gece baykuş/kurt ve gündüz çekiç/koyun birleşimi eksik.",
+      "facts": "YoFrankie BlenderFoundation dağ/orman/dere/şelale/rüzgâr. CC-BY 3. Doğal rüzgâr tam adayı; gece baykuş/kurt ve gündüz çekiç/koyun birleşimi eksik.",
       "matches": {
         "t": [
           "İHT-0490"
@@ -11272,7 +11400,7 @@
       "category": "Ortam sesi",
       "url": "https://freesound.org/people/andersmmg/packs/29155/",
       "title": "andersmmg: Ambience — Freesound",
-      "facts": "Freesound Ambience29155; sayfa JS kabuğu ve hesap arayüzü. Bu tur tekil kayıt lisansları/dosya adları alınamadı; önceki koleksiyon puanı koşulluya düşer.",
+      "facts": "Freesound Ambience 29155; sayfa JS kabuğu ve hesap arayüzü. Bu tur tekil kayıt lisansları/dosya adları alınamadı; önceki koleksiyon puanı koşulluya düşer.",
       "matches": {
         "t": [],
         "k": [],
@@ -11294,7 +11422,7 @@
       "category": "Foley",
       "url": "https://opengameart.org/content/rpg-sound-pack",
       "title": "artisticdude: RPG Sound Pack",
-      "facts": "artisticdude RPG sesleri CC0;coin/UI/metal, çok sayıda monster/magic. Doğal foley yerine oyunlu tını, para/arayüz altkümesi kısmi.",
+      "facts": "artisticdude RPG sesleri CC 0;coin/UI/metal, çok sayıda monster/magic. Doğal foley yerine oyunlu tını, para/arayüz altkümesi kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -11320,7 +11448,7 @@
       "category": "Foley",
       "url": "https://kenney.nl/assets/rpg-audio",
       "title": "Kenney: RPG Audio",
-      "facts": "KenneyRPG50dosya, foley/footstep/weapon. Dosya adları ürünmetninde yok; belirli çarık/toprak veya yay seçimi teyitsiz.",
+      "facts": "KenneyRPG 50 dosya, foley/footstep/weapon. Dosya adları ürünmetninde yok; belirli çarık/toprak veya yay seçimi teyitsiz.",
       "matches": {
         "t": [],
         "k": [
@@ -11346,7 +11474,7 @@
       "category": "Foley",
       "url": "https://kenney.nl/assets/impact-sounds",
       "title": "Kenney: Impact Sounds",
-      "facts": "KenneyImpact130dosya;impact/foley. Tekil kırılan tahta türü yok; genel darbe sesi kapı barı kırılması diye sayılmadı.",
+      "facts": "KenneyImpact 130 dosya;impact/foley. Tekil kırılan tahta türü yok; genel darbe sesi kapı barı kırılması diye sayılmadı.",
       "matches": {
         "t": [],
         "k": [],
@@ -11368,7 +11496,7 @@
       "category": "UI sesi",
       "url": "https://kenney.nl/assets/interface-sounds",
       "title": "Kenney: Interface Sounds",
-      "facts": "KenneyInterface100dosya;click/button. Tahta/amber gibi görsel dil sese kanıt değil; nötr odak/onay kısmi.",
+      "facts": "KenneyInterface 100 dosya;click/button. Tahta/amber gibi görsel dil sese kanıt değil; nötr odak/onay kısmi.",
       "matches": {
         "t": [],
         "k": [
@@ -11393,7 +11521,7 @@
       "category": "Ortam sesi",
       "url": "https://sonniss.com/gameaudiogdc/",
       "title": "Sonniss: GameAudioGDC arşivi",
-      "facts": "Sonniss: eski sekiz koleksiyonun görünür yıllık tracklistleri ve25sayfalık PDF açıldı;2025yok,2026ayrısayfa. Zincir, kâğıt, ahşapkapı, demirci, yağmur/rüzgâr, kalabalıkkavga/nara somut dosya adlarıyla görülüyor. Bazı GoogleHTMLlisteleri kısaltılmış;tam arşiv yüzdesi bilinmiyor.",
+      "facts": "Sonniss: eski sekiz koleksiyonun görünür yıllık tracklistleri ve 25 sayfalık PDF açıldı;2025 yok,2026 ayrısayfa. Zincir, kâğıt, ahşapkapı, demirci, yağmur/rüzgâr, kalabalıkkavga/nara somut dosya adlarıyla görülüyor. Bazı GoogleHTMLlisteleri kısaltılmış;tam arşiv yüzdesi bilinmiyor.",
       "matches": {
         "t": [
           "İHT-0489",
@@ -11434,7 +11562,7 @@
       "category": "Müzik",
       "url": "https://abbarasounds.com/sounds/complete-bendir-sample-pack",
       "title": "Abbara: Complete Bendir Sample Pack",
-      "facts": "Bendir938WAV,60–148bpm, görünen4/4ve7/8. Bitmiş müzik değil;bendirparçası, kudüm/davul/zurna9/8teslimi değil. Panik müziğinde kısmi beste katmanı.",
+      "facts": "Bendir 938 WAV,60–148 bpm, görünen 4/4 ve 7/8. Bitmiş müzik değil;bendirparçası, kudüm/davul/zurna 9/8 teslimi değil. Panik müziğinde kısmi beste katmanı.",
       "matches": {
         "t": [],
         "k": [
@@ -11458,7 +11586,7 @@
       "category": "Mırıltı",
       "url": "https://gravity-sound.itch.io/character-mumble-voices",
       "title": "Gravity Sound: Character Mumble Voices",
-      "facts": "GravityMumble288WAV;male/femaleold/adult/young ve giant. Üç yaş ihtiyacına aday;young gerçek çocuk sesi mi açık değil. Dev/komik varyantlar elenir;lisans sayfada ayrıca teyit.",
+      "facts": "GravityMumble 288 WAV;male/femaleold/adult/young ve giant. Üç yaş ihtiyacına aday;young gerçek çocuk sesi mi açık değil. Dev/komik varyantlar elenir;lisans sayfada ayrıca teyit.",
       "matches": {
         "t": [],
         "k": [
@@ -11485,7 +11613,7 @@
       "category": "Müzik",
       "url": "https://ancient-sounds.com/product/middle-eastern-free-sample-pack/",
       "title": "Ancient Sounds: Middle Eastern — Free Sample Pack",
-      "facts": "AncientSounds24WAVloop, Duduk/Ney/Vocal/Setar/Santur/Kamancheh. Ücretsiz eposta kaydı, royaltyfree. Beste/uzun döngü değil; ney katmanı gece/sakin müziği kısmen destekler.",
+      "facts": "AncientSounds 24 WAVloop, Duduk/Ney/Vocal/Setar/Santur/Kamancheh. Ücretsiz eposta kaydı, royaltyfree. Beste/uzun döngü değil; ney katmanı gece/sakin müziği kısmen destekler.",
       "matches": {
         "t": [],
         "k": [
@@ -11510,7 +11638,7 @@
       "category": "Mırıltı",
       "url": "https://moodfrog.itch.io/character-mumble-gibberish-sfx-pack",
       "title": "moodfrog: Character Mumble & Gibberish Dialogue — 60 Sound Effects",
-      "facts": "MoodFrog60one-shot/120WAV+OGG,5kategori,114sn. Mırıltıgibberish ticari ürün izni var;yaşlı/çocuk ayrımı belirtilmemiş, hepsi aynı60tasarımın iki biçimi.",
+      "facts": "MoodFrog 60 one-shot/120 WAV+OGG,5 kategori,114 sn. Mırıltıgibberish ticari ürün izni var;yaşlı/çocuk ayrımı belirtilmemiş, hepsi aynı 60 tasarımın iki biçimi.",
       "matches": {
         "t": [],
         "k": [
@@ -11551,6 +11679,7 @@
     ],
     "Karakter": [
       [
+        "KAR02",
         "KAR05"
       ],
       [
@@ -11583,8 +11712,7 @@
     "Hayvan": [
       [
         "HYV02",
-        "HYV03",
-        "HYV16"
+        "HYV03"
       ],
       [
         "HYV11",
@@ -11765,6 +11893,11 @@
     "ORT01",
     "S01",
     "S08",
+    "ORT16",
+    "ORT17",
+    "ORT18",
+    "FOL16",
+    "FOL17",
     "FOL11",
     "FOL14",
     "FOL06",
@@ -11778,10 +11911,10 @@
   ],
   "strict_open_existing_fonts": [
     "CEV01",
+    "KAR02",
     "KAR05",
     "A03",
     "HYV03",
-    "HYV16",
     "ESY01",
     "U02",
     "U04",
@@ -11899,6 +12032,10 @@
       "İHT-0495": "u",
       "İHT-0496": "u",
       "İHT-0497": "u",
+      "İHT-0513": "u",
+      "İHT-0488": "u",
+      "İHT-0514": "k",
+      "İHT-0493": "t",
       "İHT-0471": "u",
       "İHT-0475": "k",
       "İHT-0515": "k",
@@ -11922,6 +12059,10 @@
     "strict": {
       "İHT-0423": "k",
       "İHT-0386": "u",
+      "İHT-0390": "k",
+      "İHT-0431": "k",
+      "İHT-0357": "u",
+      "İHT-0428": "u",
       "İHT-0427": "u",
       "İHT-0399": "k",
       "İHT-0396": "k",
@@ -11934,7 +12075,6 @@
       "İHT-0524": "u",
       "İHT-0380": "k",
       "İHT-0403": "k",
-      "İHT-0382": "k",
       "İHT-0388": "k",
       "İHT-0395": "k",
       "İHT-0400": "k",
@@ -12145,12 +12285,17 @@
       "İHT-0480": "k",
       "İHT-0486": "k",
       "İHT-0487": "k",
+      "İHT-0513": "u",
+      "İHT-0488": "u",
+      "İHT-0514": "k",
       "İHT-0478": "u",
       "İHT-0475": "k",
       "İHT-0499": "k",
       "İHT-0500": "k",
       "İHT-0515": "k",
       "İHT-0492": "u",
+      "İHT-0493": "t",
+      "İHT-0476": "k",
       "İHT-0472": "u",
       "İHT-0473": "u",
       "İHT-0474": "k",
@@ -12166,7 +12311,6 @@
       "İHT-0327": "k",
       "İHT-0007": "k",
       "İHT-0311": "k",
-      "İHT-0476": "k",
       "İHT-0491": "k",
       "İHT-0518": "k",
       "İHT-0517": "u"

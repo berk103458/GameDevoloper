@@ -8,7 +8,11 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-23 Ekim — asset araştırması ikinci tur (Kalfa). Pull e98dd7d güncel; ROADMAP maddesi alınmadı. Ana liste 534 teslim gereksinimi; 191 yeni aday + ilk turdan 51 farklı kaynak = 242 değerlendirme. Her kategoride en az 15 yeni aday, içerik/ID eşleştirmesi, 36 alternatif set ve görsel uyum matrisi araştırma belgesine yazıldı. Ortak kaynaklar tek kez sayılır; kısmi temas kapanış değildir. Quaternius ürünlerindeki CC0 ile güncel QAL farkı ve K lisanslarının public repo kısıtları kayda geçti. Yalnız araştırma belgeleri; asset indirme/satın alma, oyun kodu, ROADMAP ve envanter durumu değişmedi. Belge son denetimi sürüyor; yeni iş alınmaz. PYTHONUTF8=1. Kontrol noktası kota: kısa dönem %36, haftalık %90 kaldı (23 Ekim 20:49 UTC sorgusu). Asset gerekmedi.
+23 Ekim — asset araştırması ikinci tur tamamlandı (Kalfa). İlk pull e98dd7d; kontrol noktası 9529d38 festive'e push edildi; son pull güncel. Ana liste 534 teslim gereksinimi: 99 model grubu, 334 2D yuvası, 37 animasyon, 43 ses, 13 müzik, 8 VFX. Her kategoride en az 15 olmak üzere 196 yeni aday + ilk turdan 51 farklı kaynak = 247 değerlendirme. 36 alternatif set, görsel uyum matrisi, gerçek içerik/klip kanıtları ve açık ID listeleri docs/ASSET_PAKETI_ARASTIRMASI_2.md içinde.
+
+Karma seçki 120 ihtiyaca temas ediyor (%22,5): 3 tam, 63 uyarlama sonrası karşılık adayı, 54 kısmi. Kısmi hariç 66/534 (%12,4) kapanma adayı; fiilî entegrasyon/kapanış 0. Seçkinin yalnız A + mevcut OFL kaynakları 65 ihtiyaca temas ediyor. 344 gereksinim incelenen hiçbir adayla doğrulanmadı. Fiyat 237,89 USD + 2,49 GBP; K ve lisansı belirsiz satırlar satın almaya/ham repoya yüklemeye onay değildir. LOWPO üretici itch sürümünde CC0 ve 3,99 USD yedi kişilik set; Unity kanalı farklı. Quaternius CC0/QAL farkı kayda geçti.
+
+Belge denetimleri geçti: 534 benzersiz ihtiyaç, 247 benzersiz aday URL'si, 12 kategoride 15+ yeni, 36 set, bağımsız birleşim aritmetiği, Markdown bağlantıları ve Türkçe UTF-8. Oyun kodu/asset/ROADMAP/envanter durumu değiştirilmedi; yalnız belge değiştiği için oyun sanity tekrarlanmadı. Asset gerekmedi. İki ds yolu bulunmuyor; kullanıcı istisnasıyla ayna atlandı. Kota: kısa dönem %26; haftalık %88 kaldı (kapanış sorgusu). Yeni iş alınmaz; Ajan Masası'na kapanış özeti gönderilecek.
 
 ## Roller
 
