@@ -1,6 +1,46 @@
 # Cursor — Çalışma günlüğü (Kapı Muhafızı)
 
 ## Kimlik
+Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
+
+## Animasyon — 24 Ekim 2026
+
+Ana kaynak A01 Quaternius UAL Standard. A02 aynı aile, tarım ve kılıç. KayKit A03 duruyor, bağlanmadı. chr_001 Idle görüntüsü: KayKit omuz silkiyor, UAL kolları indiriyor. Tam kabul yok. Butler `C:\Users\Ahmet\bin\butler.exe` v15.32.0. Kota görünmüyor. Çevre seçimi sıradaki.
+
+## Kurulum turu — 24 Ekim 2026
+
+Bu tur yalnız kurulum ve doğrulama. Asset indirilmedi. Oyun kodu değişmedi. Commit yok; bu günlük ilk iş commit’iyle birlikte gidecek. Kota görünmüyor.
+
+### Tamam
+- Kurallar okundu: `AGENTS.md`, `codex.md/SOUL.md`, `ROADMAP.md` / `ROADMAP_2.md` işaretleme panosu, `docs/EKSIK_ASSET_ENVANTERI.md`, `docs/asset_envanteri/IHTIYAC_ANA_LISTESI.md`, `docs/asset_envanteri/UCRETSIZ_ASSET_EKLEME_2026-10-24.md`, `docs/credits/HAZIR_ASSET_ATIFLARI.md`.
+- Dal `claude/festive-volta-li1sfm`. `git pull` ve `git lfs pull` güncel. HEAD `63a8b92`. Git LFS 3.7.1. Stash, reset, checkout, restore yok.
+- `uvx.exe` Winget yolunda yoktu. Gerçek yol: `C:\Users\Ahmet\AppData\Local\Programs\Python\Python312\Scripts\uvx.exe` (uv 0.11.33). `C:\Users\Ahmet\.cursor\mcp.json` içinde yalnız bu yol düzeltildi. Diğer sunuculara ve anahtarlara dokunulmadı.
+- Godot AI eklentisi 3.2.4, resmî `godot-ai-plugin.zip` (SHA-256 `8275d98c66b9932feee2a2a5118768e6699a5827ca798fe6032978845ae16321`, yayın dosyasıyla aynı). `addons/godot_ai/` yerelde. `.git/info/exclude` satırı: `addons/godot_ai/`. Commit edilmedi.
+- Eklenti Project Settings karşılığı olarak yerelde açık: `editor_plugins` ve autoload `_mcp_game_helper`. Bu `project.godot` farkı commit edilmeyecek. Başkasının `run/main_scene` satır kaydırması duruyor.
+- Godot `C:\Users\Ahmet\Desktop\Godot.exe` bu projeyle açık (PID 22744).
+- MCP `user-godot-ai` bağlandı. Oturum `kap-muhafizi@e47f`, proje bu klasör, eklenti ve sunucu 3.2.4, hazır. Sahne ağacı okundu: `res://tests/oto/acilis_bagimlilik_kontrol.tscn` tek düğüm `AcilisDenetimi` (Node). Ardından `res://src/arayuz/ana.tscn` açıldı (`switched: true`). Sahne kaydedilmedi.
+- Godot headless: `4.7.2.stable.official.ed1daf0bf`.
+- Python 3.12.10. `tests/tools` standart kütüphane ve `unittest` kullanıyor; pytest, numpy, requests, PIL yok. Yeni paket kurulmadı.
+- Kısa kuru çalıştırma: `python -B tools/chr_parser.py --check` → 30 sayfa, çıkış 0. `python -B tools/acilis_denetimi.py --filesystem` → `Startup source audit: PASS`. `python -B tools/sanity_check.py -h` yardım basar, test koşmaz.
+
+### Eksik
+- Blender kurulu değil: PATH’te yok, HKLM/HKCU kaldırılan-program kaydında yok, `C:\Program Files\Blender Foundation` yok. Kurulmadı.
+- `C:\Users\ds\Documents\Codex\2026-10-06\c\GameDevoloper` ve `C:\Users\ds\Documents\GitHub\GameDevoloper` bu makinede yok. Eşitlendi denmez.
+- Tam sanity bu turda çalıştırılmadı. Komut iş bitince: `python -B tools/sanity_check.py --godot C:\Users\Ahmet\Desktop\Godot.exe`. Log varsayılanı `work/sanity`. İçinde CHR, CSV, denge, Python testleri, `tools/acilis_denetimi.py --filesystem`, API sözleşmesi, headless import, `tests/unit/**/*test.gd`, `tests/oto/*.tscn` ve `tests/oto/otomatik_oyuncu.tscn` (20 gece) var. Birim örneği: `Godot.exe --headless --path <proje> -s tests/unit/<test>.gd`.
+
+### Dokunulmayanlar
+Başkasının değişmiş dosyaları duruyor: altı `.glb.import`, `project.godot` içindeki eski satır kaydırması, `_tmp_*`, `_doc_*`, `*_CLAUDE.md`, `work/` ve diğer izlenmeyen kopyalar. Silinmedi, commit edilmedi. Editör açılınca yeni izlenmeyen `.uid` dosyaları oluştu (`src/kapi/`, `src/sistemler/denge_olcumu.gd.uid`, `tests/unit/denge/`, `tests/unit/kapi/`). Onlar da commit edilmedi.
+
+### İndirme erişimi
+Beş adres `curl -I` ile HTTP 200: itch.io, kenney.nl, opengameart.org, quaternius.com, ambientcg.com. Bu turda oyun dosyası indirilmedi.
+
+itch.io: sayfa açık. Resmî araç butler. Kurulum: https://itch.io/docs/butler/installing — Windows için https://itchio.itch.io/butler veya kalıcı `https://broth.itch.zone/butler/windows-amd64/LATEST/archive/default`. Sayfadaki indirme bağlantıları süresi dolan adreslerdir. `butler dl <url> <hedef>` verilen adresi indirir, kaldığı yerden sürer ve boyutu doğrular (https://docs.itch.zone/butler/master/utilities.html). Ücretsiz paket için sayfadaki güncel dosya adresini o anda almak gerekir. Hesap isteyen 0 USD “claim” bu turda denenmedi.
+
+### Sonraki plan
+İlk gerçek iş gelince bu günlüğü o commit’e koymak. ROADMAP maddesi bu turda alınmadı. Ajan Masası’nın son yorumları Kalfa → Muharrir; Cursor’a yazı yok, cevap yazılmadı.
+
+## Önceki kayıt
+
 Cursor — Godot doğrulama ve ince adaptör. Bu turda KAP-02, KAP-03, BUG-11 ve TUC-11/14 notu.
 
 ## Şu an üzerinde çalışılan

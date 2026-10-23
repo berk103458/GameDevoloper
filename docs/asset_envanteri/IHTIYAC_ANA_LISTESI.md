@@ -10,6 +10,12 @@ A03 ücretsiz CC0 katmanından **6 kitaplık / 9 klip eklendi**; 8 ihtiyaç **k�
 - İHT-0453 — **eklendi, uyarlama (Kalfa)**; A03; `assets/animasyon/kaykit/tools.res`; aktif oyun kabulü bekliyor.
 - İHT-0455 — **eklendi, uyarlama (Kalfa)**; A03; `assets/animasyon/kaykit/combat_melee.res`; aktif oyun kabulü bekliyor.
 - İHT-0451 — **eklendi, kısmi (Kalfa)**; A03; `assets/animasyon/kaykit/simulation.res`; aktif oyun kabulü bekliyor.
+- İHT-0444, İHT-0456 — **eklendi — uyarlama (Cursor)**; A01 ana kaynak; `assets/animasyon/quaternius/general.res`; chr_001 görüntüsünde KayKit’ten iyi, oyuna bağlanmadı.
+- İHT-0450, İHT-0524 — **eklendi — uyarlama (Cursor)**; A01; `assets/animasyon/quaternius/movement.res`; oyuna bağlanmadı.
+- İHT-0399 — **eklendi — kısmi (Cursor)**; A01; `assets/animasyon/quaternius/movement.res` çömelme; kuytu bekleme açık.
+- İHT-0451 — **eklendi — kısmi (Cursor)**; A01; `assets/animasyon/quaternius/simulation.res`; otur, kalk ve oturma var, oyuna bağlanmadı.
+- İHT-0455 — **eklendi — uyarlama (Cursor)**; A01 `combat.res` ve A02 `ual2_kilic.res`; kılıç, oyuna bağlanmadı.
+- İHT-0452 — **eklendi — uyarlama (Cursor)**; A02; `assets/animasyon/quaternius/ual2_tarim.res`; orak yok, hasat/tohum/sulama.
 
 23 Ekim 2026 · Kaynak festive e98dd7d · **534 numaralı teslim gereksinimi**.
 

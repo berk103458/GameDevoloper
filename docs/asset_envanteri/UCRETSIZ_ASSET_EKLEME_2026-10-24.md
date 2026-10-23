@@ -1,5 +1,15 @@
 # Ücretsiz asset ekleme — 24 Ekim 2026 (Kalfa)
 
+## Animasyon kaynağı — 24 Ekim 2026 (Cursor)
+
+Ana kaynak **A01 Quaternius Universal Animation Library, Standard, 0 USD, CC0**. A02 aynı iskelet ailesinin ikinci ücretsiz kitabıdır ve tarım/kılıç klipleri için ona eklenir. KayKit A03 kitaplıkları duruyor; ana kaynak değil ve ikisi birden karaktere bağlanmadı.
+
+Karşılaştırma `chr_001_yuru.glb` üzerinde, global dinlenme farkıyla, Idle klibinde yapıldı. Editör görüntüsünde KayKit Idle_A omuz silkme gibi kolları yukarı kaldırıyor. UAL Idle_Loop kolları indiriyor, sol ve sağ eller kendi taraflarında kalıyor, ayaklar yerde ama duruş geniş. Bu yüzden UAL daha iyi tutuyor. Tam kabul değil: 44 karaktere bağlanmadı, oyun mantığı değişmedi. Tabanca, büyü, araba, telefon, zombi, ninja ve kayma klipleri alınmadı. A02 ücretsiz katmanda çekiç klibi yok; İHT-0453 KayKit Hammering kaydında kalıyor. İHT-0452 orak değil, hasat/tohum/sulama uyarlaması.
+
+Butler `C:\Users\Ahmet\bin\butler.exe` v15.32.0. Ücretsiz yol: itch sayfasında “No thanks, just take me to the downloads”, sonra yalnız Standard.zip. Ham ZIP TEMP’te.
+
+## Kalfa kaydı
+
 Festive pull güncel (75ae24b). İlk öncelik A03 tamamlanan **tedarik dilimi**: 1 ücretsiz CC0 paket, 6 Godot AnimationLibrary, 9 özgün klip, 8 ihtiyaca kısmi/uyarlama katkısı; **oyunda tamamen kapanan ihtiyaç 0**. Diğer paketler henüz denenmedi; engellendi diye gösterilmedi.
 
 ## Dosyalar ve kapsam
