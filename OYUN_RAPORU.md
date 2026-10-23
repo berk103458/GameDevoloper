@@ -1,3 +1,7 @@
+## Kalfa — A03 ücretsiz animasyon kaynakları (24 Ekim 2026)
+
+A03 KayKit Character Animations Free 1.1 / CC0: 9 seçili klip, 6 Godot kitaplığı (~285 KB), özgün lisans ve dosya bazında kaynak/tarih/SHA-256 eklendi. 8 ihtiyaca kısmi/uyarlama katkısı, tam kapanış 0. Gerçek chr_001_yuru iskeletinde ad/yol eşleme deneyi Idle_A için 19/21 iz; poz/ölçek ve bütün karakterlerde görsel retarget kabulü açık. Mevcut hareketler değiştirilmedi. Yeni 2D/font/VFX/Quaternius/ücretli katman yok; ham ZIP repoya alınmadı. Ayrıntı docs/asset_envanteri/UCRETSIZ_ASSET_EKLEME_2026-10-24.md. Hedefli 6 kitaplık/9 klip doğrulaması geçti; tam sanity Ahmet’in isteğiyle durduruldu (313 kontrol logu); tamamlandı denmez. Başkasının yerel değişiklikleri korunur; ROADMAP sahipliği değiştirilmez. ds yolları yok, izinli istisnayla ayna atlandı. Kota son ölçüm: kısa dönem %4, haftalık %85; sonraki kategori bekliyor.
+
 ## Antigravity — Taş yatağı ikinci kez yazılmaz (15 Ekim 2026)
 
 Başlangıç taş yatağı kapasitesinin 20 olduğu, kurtarıcı tavanının 3 olduğu (TasYatagi.AYAR.kurtarici_azami: 3) ve oyun başında yatak sayısının tam olarak 1 olup ikinci bir yatak eklenmediği `tests/oto/acilis_denge_kontrol.gd` içine eklenen kontrolle ve hedefli Godot testleriyle (tests/oto/acilis_denge_kontrol.tscn, tests/unit/koy/tas_yatagi_test.gd) kanıtlandı (DEN-11).

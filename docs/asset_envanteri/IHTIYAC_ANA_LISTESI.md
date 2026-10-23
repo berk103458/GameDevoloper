@@ -1,5 +1,16 @@
 # İhtiyaç ana listesi — asset araştırması 2. tur (Kalfa)
 
+## 24 Ekim 2026 — A03 animasyon teslimi (Kalfa)
+
+A03 ücretsiz CC0 katmanından **6 kitaplık / 9 klip eklendi**; 8 ihtiyaç **kısmi/uyarlama**, tam kapanış 0. Retarget deneyinde Idle_A 19/21 iz eşleşti; poz ve bütün karakterlerde görsel kabul açık. Mevcut hareketler değiştirilmedi. [Dosya/ID ve kabul kaydı](UCRETSIZ_ASSET_EKLEME_2026-10-24.md).
+
+- İHT-0444, İHT-0456 — **eklendi, uyarlama (Kalfa)**; A03; `assets/animasyon/kaykit/general.res`; aktif oyun kabulü bekliyor.
+- İHT-0450, İHT-0524 — **eklendi, uyarlama (Kalfa)**; A03; `assets/animasyon/kaykit/movement_basic.res`; aktif oyun kabulü bekliyor.
+- İHT-0399 — **eklendi, kısmi (Kalfa)**; A03; `assets/animasyon/kaykit/movement_advanced.res`; aktif oyun kabulü bekliyor.
+- İHT-0453 — **eklendi, uyarlama (Kalfa)**; A03; `assets/animasyon/kaykit/tools.res`; aktif oyun kabulü bekliyor.
+- İHT-0455 — **eklendi, uyarlama (Kalfa)**; A03; `assets/animasyon/kaykit/combat_melee.res`; aktif oyun kabulü bekliyor.
+- İHT-0451 — **eklendi, kısmi (Kalfa)**; A03; `assets/animasyon/kaykit/simulation.res`; aktif oyun kabulü bekliyor.
+
 23 Ekim 2026 · Kaynak festive e98dd7d · **534 numaralı teslim gereksinimi**.
 
 ## Sayım ve öncelik
