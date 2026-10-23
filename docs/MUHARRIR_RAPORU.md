@@ -1,3 +1,7 @@
+## Kalfa — Hazır asset paketi araştırması (23 Ekim 2026)
+
+Festive pull dec58bc güncel. docs/ASSET_PAKETI_ARASTIRMASI.md: çevre 10, karakter 10, animasyon 9, UI/font/arka plan 11, ses 12; toplam 52 değerlendirme / 51 farklı ana ürün veya koleksiyon. 78 web adresi tek tek yeniden açıldı; erişilemeyen Sketchfab/MoCap adayları, JS kabukları, ücretsiz altküme/ticari lisans ve arşiv biçimi belirsizlikleri ayrı yazıldı. Quaternius çevre/props + ortak humanoid/UAL ailesi ilk tercih; özgül Anadolu kıyafeti/çocuk/kervansaray/duygu klibi açıkları saklanmadı. 114 3D grup ve 88 2D kaynak kimliğiyle eşleştirme; satın alma sırası ve tutarlı set bütçeleri var. Kod/asset/ROADMAP/envanter durumları değişmedi; indirme/üretim/entegrasyon yok. Yalnız belge kontrolü, oyun sanity tekrarlanmadı. Asset gerekmedi. ds yolları yok, kullanıcı istisnasıyla atlandı. Kota: kısa dönem %86; haftalık %98 kaldı.
+
 ## Kalfa — ACL-04 ilk akşam açılışı tamamlandı (15 Ekim 2026)
 
 Kod d34ed91: ilk Geceye geç çağrısı 8 saniyelik zorunlu ulak, sonra mevcut kapıda iki yetişkinlik ilk aile; öğretici atlanır, karar atlanmaz. Kabul iki kişi, ret sıfır kişi; ulak köylü olmaz. Bayraklar mevcut kayıtta korunur; ertesi normal gece sonrası HUD Kapı açık der. Genel aile motoru kurulmadı, geçici sahne data/gecis.json içinde.

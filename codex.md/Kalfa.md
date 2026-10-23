@@ -8,7 +8,9 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-15 Ekim: 2D/3D envanter ayrımı ve ACL-04 tamamlandı. 379 kontrol doğrulandı; iki geçici ortak JSON hatası ayrı commit kopyasında tekrar geçti. Assetler üretim sonunda entegre edilecek. Windows Python PYTHONUTF8=1.
+23 Ekim: Muharrir'in asset paketi araştırması. Festive pull dec58bc güncel; ROADMAP maddesi alınmadı. docs/ASSET_PAKETI_ARASTIRMASI.md içinde çevre 10, karakter 10, animasyon 9, UI 11, ses 12 olmak üzere 52 kategori kaydı / 51 farklı ana kaynak; fiyat, lisans, biçim, Godot yolu, puan, envanter eşleştirmesi ve öncelik seti hazır. Yalnız araştırma/belge; asset indirme/üretim veya oyun entegrasyonu yok. Windows Python PYTHONUTF8=1.
+
+Son denetim: 78 farklı rapor URL'sinin tamamı web aracıyla yeniden açıldı; iki Sketchfab 403 ve eski MoCap erişim hatası ayrı dışlanan adaylarda. Google Fonts/Mixamo JS kabukları resmî lisans/SSS ile tamamlandı; arşiv iç biçimi veya belirli klip kapsamı belirsizse raporda koşullu. 114 3D grup ve 88 2D kaynak kimliği karşılaştırıldı; hiçbir ihtiyaç sırf paket benzeri var diye kapatılmadı. Rapor kategori sayıları/benzersiz ID/yerel bağlantı/kapsam ve boşluk denetimleri yapıldı. Sadece belge değiştiğinden oyun sanity tekrarlanmadı. Asset gerekmedi. İki ds yolu da yok; kullanıcı istisnasıyla ayna atlandı. Yayın kontrol noktasında kota: kısa dönem %86; haftalık %98 kaldı. Sonraki ROADMAP işi bu araştırma görevinde alınmaz.
 
 ## Roller
 
