@@ -149,3 +149,19 @@
 - Lisans: **CC0**. Readme atfı zorunlu tutmuyor.
 - Edinim: **24 Ekim 2026**, yalnız ücretsiz zip.
 - Dosyalar: `assets/ses/cici/`. Nefes, iç çekiş, homurtu. İngilizce konuşma yok.
+
+## VFX14 — Kenney Particle Pack
+
+- Yazar: **Kenney Vleugels**, https://kenney.nl
+- Kaynak: https://kenney.nl/assets/particle-pack
+- Lisans: **CC0 1.0**, https://creativecommons.org/publicdomain/zero/1.0/
+- Edinim: **24 Ekim 2026**.
+- Dosyalar: `assets/vfx/kenney/`. Duman, alev, yağmur çizgisi ve ışık. Şimşek dosyaları yok.
+
+## VFX04 — Kronbits particles
+
+- Yazar: **Kronbits**
+- Kaynak: https://kronbits.itch.io/particle-pack
+- Lisans: **CC0**. Ücretsiz zipte ayrı lisans dosyası görülmedi; itch kaydı CC0.
+- Edinim: **24 Ekim 2026**, yalnız ücretsiz zip.
+- Dosyalar: `assets/vfx/kronbits/ates_01.png`. Özgün ad `fire_1.png`. Büyü, namlu ve yıldız yok.

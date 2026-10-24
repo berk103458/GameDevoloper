@@ -1,5 +1,17 @@
 # Ücretsiz asset ekleme — 24 Ekim 2026 (Kalfa)
 
+## VFX — 24 Ekim 2026 (Cursor)
+
+Beş ücretsiz paket bakıldı. Repoda beş PNG, hepsi 512×512. Hedef ikonlar 256×256. Sahneye bağlanmadı. Yeni görüntü üretilmedi.
+
+VFX14 Kenney Particle Pack, CC0: duman, alev, yağmur çizgisi ve yumuşak ışık. `spark` adlı dosyalar şimşek; elektrik olduğu için yok. VFX15 ışık maskeleri sert daire ve pencere; meşale ışığı için yumuşak `light_01` durdu.
+
+VFX04 Kronbits, CC0: renkli ateş topundan bir kare, `ates_01.png`. Kırk ateş karesinin tamamı, duman dizisi, büyü, namlu ve yıldız yok. Kar ve yağmur adlı dosya yok.
+
+VFX01 Brackeys indi. İşe yarar PNG'ler Kenney ile aynı aile. Kalanlar büyü, elektrik, kan, namlu veya TGA. Repoya alınmadı. VFX13 duman flipbook'u açıldı; tek duman pufu yeterli olduğu için yirmi beş kare alınmadı.
+
+Karanlık sahnede beş doku okunuyor. Headless: 5 PNG, 512×512, `SONUC 0`, `SCRIPT ERROR` yok. Kar ve kıvılcım açık.
+
 ## Ses — 24 Ekim 2026 (Cursor)
 
 Ücretsiz sesler `assets/ses/` altında yeni klasörlerde. Mevcut yer tutucu wav dosyalarına ve `Ses` autoload'una dokunulmadı. Yeni ses üretilmedi.

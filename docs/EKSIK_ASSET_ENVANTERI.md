@@ -52,6 +52,10 @@ A03 ücretsiz CC0 katmanından **6 kitaplık / 9 klip eklendi**; 8 ihtiyaç **k�
 - İHT-0500 — **eklendi — uyarlama (Cursor)**; S01 `wood_breaking_01.ogg`.
 - İHT-0515 — **eklendi — uyarlama (Cursor)**; FOL14 `war_horn_01.ogg`.
 - İHT-0516 — **eklendi — kısmi (Cursor)**; MIR04 nefes, iç çekiş ve homurtu; İngilizce konuşma yok.
+- İHT-0157 — **eklendi — uyarlama (Cursor)**; VFX14 `assets/vfx/kenney/smoke_01.png`; 512², hedef 256², sahneye bağlanmadı.
+- İHT-0150 — **eklendi — uyarlama (Cursor)**; VFX14 alev ve VFX04 `ates_01.png`; köy meşalesi ikonu değil.
+- İHT-0154 — **eklendi — uyarlama (Cursor)**; VFX14 `trace_01.png`; tek dikey çizgi, yağmur perdesi değil.
+- İHT-0151 — **eklendi — uyarlama (Cursor)**; VFX14 `isik_01.png`; yumuşak ışık lekesi.
 
 12 Ekim 2026 (Kalfa). **Aktif görsel ihtiyaçları 2D ve 3D olarak ayrılmıştır.** Mekanikler asset beklemez: isim etiketli kutu / ColorRect / BoxMesh yer tutucuyla tamamlanır. Assetler üretim tamamlandıktan sonra ayrı entegrasyon paketinde eklenir; hazır prompt, teslim veya oyun kabulü değildir.
 

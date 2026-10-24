@@ -2066,6 +2066,100 @@
         "İHT-0515"
       ],
       "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/vfx/kenney/smoke_01.png",
+      "package": "VFX14",
+      "source_url": "https://kenney.nl/assets/particle-pack",
+      "author": "Kenney Vleugels",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Creative Commons Zero, CC0.",
+      "download_date": "2026-10-24",
+      "tier": "Free, 0 USD",
+      "sha256": "e8724c219e8d35859167fc0a7e207e13c72ccf0c29704909b9bb3d3dc71c6cf7",
+      "needs": [
+        "İHT-0157"
+      ],
+      "conversion": "512x512 smoke puff. Need icon is 256x256. Not wired."
+    },
+    {
+      "path": "assets/vfx/kenney/flame_01.png",
+      "package": "VFX14",
+      "source_url": "https://kenney.nl/assets/particle-pack",
+      "author": "Kenney Vleugels",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Creative Commons Zero, CC0.",
+      "download_date": "2026-10-24",
+      "tier": "Free, 0 USD",
+      "sha256": "92a70bcb90b1e21c57b2dae42843135703b2e988abee97433f84c3119723d144",
+      "needs": [
+        "İHT-0150"
+      ],
+      "conversion": "512x512 flame shape. Not a village torch icon. Not wired."
+    },
+    {
+      "path": "assets/vfx/kenney/trace_01.png",
+      "package": "VFX14",
+      "source_url": "https://kenney.nl/assets/particle-pack",
+      "author": "Kenney Vleugels",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Creative Commons Zero, CC0.",
+      "download_date": "2026-10-24",
+      "tier": "Free, 0 USD",
+      "sha256": "34de69bc3f665b23fe9bed15f388efd8e8e4dc1a99f2fc5db9ba8715c525711f",
+      "needs": [
+        "İHT-0154"
+      ],
+      "conversion": "One vertical streak. Not a rain sheet. Not wired."
+    },
+    {
+      "path": "assets/vfx/kenney/isik_01.png",
+      "package": "VFX14",
+      "source_url": "https://kenney.nl/assets/particle-pack",
+      "author": "Kenney Vleugels",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Creative Commons Zero, CC0.",
+      "download_date": "2026-10-24",
+      "tier": "Free, 0 USD",
+      "sha256": "caedcc5df5bcac4470244d2520d6a64b45b20c1ccf4d918da516c55e3fa365a6",
+      "needs": [
+        "İHT-0151"
+      ],
+      "conversion": "Soft radial glow from light_01.png. Not wired."
+    },
+    {
+      "path": "assets/vfx/kenney/LICENSE.txt",
+      "package": "VFX14",
+      "source_url": "https://kenney.nl/assets/particle-pack",
+      "author": "Kenney Vleugels",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Creative Commons Zero, CC0.",
+      "download_date": "2026-10-24",
+      "tier": "Free, 0 USD",
+      "sha256": "f9e70b81d8cc07c4e07c9f2eff1d94fd371a06070b18cb67c651c41158ec2975",
+      "needs": [],
+      "conversion": "Original Kenney CC0 license text."
+    },
+    {
+      "path": "assets/vfx/kronbits/ates_01.png",
+      "package": "VFX04",
+      "source_url": "https://kronbits.itch.io/particle-pack",
+      "author": "Kronbits",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0. Kronbits zip had no separate license file; itch metadata says CC0.",
+      "download_date": "2026-10-24",
+      "tier": "Free, 0 USD",
+      "sha256": "df4299dfa12be14c590ac45d259c03cdf450c84946fa306ad1fd88b4a6100e53",
+      "needs": [
+        "İHT-0150"
+      ],
+      "conversion": "Original fire_1.png renamed. Audio/pixels unchanged. One frame of the fire set. Not wired."
     }
   ],
   "checks": {
