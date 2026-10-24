@@ -219,3 +219,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 
 
 
+
+### 24 Ekim — Gece Kapısı UI Üretimi (Başlangıç, Harita Notu ve Kota Durması)
+- `interrogation_bg.png` (dosyası üretildi ve korundu), `env_menu_bg.png`, `env_village_bg.png`, `koy_hud_bg.png` maddeleri 3D sahne kararıyla `[!] (Antigravity) 3D sahne var, gerek yok` olarak işaretlendi.
+- Harita resmi üretildi (`map_bg.png`), kod entegrasyonu bekliyor (`harita_uc.png` de sırası geldiğinde üretilecek).
+- Bitenler (5 kabul + 1 üretilip 3D kararıyla işaretlenen): `map_bg.png`, `ornament_emblem.png`, `cursor_grab.png`, `cursor_busy.png`, `icon_akce.png` (ve `interrogation_bg.png`). Yeşil zeminli ham kopyalar `work/ui_yesil_ham/` altında saklandı, temizlenenler gerçek RGBA + 16px dış pay ile `assets/ui/atmosfer/gece_kapisi/` altına kaydedildi.
+- Atlananlar (5 madde): `ornament_seal.png` (2 denemede de prompttaki timber/iron yüzünden mum mühür yanına anahtar/ip eklendi) ve 3D sahne olan 4 arka plan (`interrogation_bg.png`, `env_menu_bg.png`, `env_village_bg.png`, `koy_hud_bg.png`).
+- Kalan net üretim sayısı: 267 madde.
+- kaldığı yer: madde 8, icon_erzak.png
+- kota: resim üretim kotası doldu (HTTP 429 RESOURCE_EXHAUSTED, ~4 saat 21 dk sonra yenileniyor)
