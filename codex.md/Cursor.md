@@ -13,7 +13,7 @@ Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Curs
 
 ## Çevre — 24 Ekim 2026
 
-Yapı ailesi E02 MegaKit Standard. KayKit hex ve LOKIT yapıları yok. Ölçü: KayKit ev 0,93 m, MegaKit cephe yaklaşık 5,9 m, LOKIT duvar 4,0 m. Mevcut ev ve kapı modelleri duruyor. İHT-0339 açık. Headless: 7 glTF, her birinde mesh 1, SCRIPT ERROR yok. Görsel: E02 etiketleri ve zemin göründü; modül gövdeleri bu karede zeminden ayrışmadı. Tam sanity çalıştırılmadı.
+Yapı ailesi E02 MegaKit Standard. KayKit hex ve LOKIT yapıları yok. Ölçü: KayKit ev 0,93 m, MegaKit cephe yaklaşık 5,9 m, LOKIT duvar 4,0 m. Mevcut ev ve kapı modelleri duruyor. İHT-0339 açık. Headless: 7 glTF, her birinde mesh 1, SCRIPT ERROR yok. Görsel: E02 etiketleri ve zemin göründü; modül gövdeleri bu karede zeminden ayrışmadı. Tam sanity çalıştırılmadı. Commit `8c1df71`, festive'ye push edildi. Sıradaki grup karakter: KAR02, KAR05, C07, C10; henüz başlanmadı.
 
 ## Animasyon — 24 Ekim 2026
 
