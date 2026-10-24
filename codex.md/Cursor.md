@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Karakter — 24 Ekim 2026
+
+KAR02 ücretsiz: demirci 1,80 m ve çocuk 1,27 m glTF, T-pozu, bağlanmadı. Avcı ihtiyaç satırı yok. KAR05, C07, C10 imzalı indirme engellendi, atlandı. Tam sanity yok. Kota görünmüyor.
+
 ## Test kuralı — 24 Ekim 2026 (Ahmet)
 
 - Her pakette yalnız eklenen dosyalar için headless import/parse. `SCRIPT ERROR` ve import hatası yok.

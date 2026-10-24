@@ -1,5 +1,11 @@
 # Ücretsiz asset ekleme — 24 Ekim 2026 (Kalfa)
 
+## Karakter — 24 Ekim 2026 (Cursor)
+
+KAR02 ücretsiz zip yalnız FBX. Demirci ve çocuk Godot 4.7.2 ile glTF'ye çevrildi; yeni geometri üretilmedi. Editörde ikisi de ayakta ve dokulu: demirci 1,80 m, çocuk 1,27 m. T-pozu, oyuna bağlanmadı. Avcı zipte var; karşılık gelen ihtiyaç satırı yok, repoya alınmadı. Ücretli çiftçi, oduncu, yaşlı ve tüccar alınmadı. İHT-0431 ve İHT-0357 uyarlama. İHT-0390 ve İHT-0428 açık.
+
+KAR05, C07 ve C10 bu turda indirilemedi. Ücretsiz sayfa açıldı; imzalı indirme adımı engellendi. Atlandı, dosya eklenmedi.
+
 ## Çevre ailesi — 24 Ekim 2026 (Cursor)
 
 Yapı ailesi **E02 Quaternius Medieval Village MegaKit, Standard, 0 USD, CC0**. KayKit Medieval Hexagon ve LOKIT yapıları eklenmedi.

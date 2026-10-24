@@ -18,6 +18,8 @@ A03 ücretsiz CC0 katmanından **6 kitaplık / 9 klip eklendi**; 8 ihtiyaç **k�
 - İHT-0452 — **eklendi — uyarlama (Cursor)**; A02; `assets/animasyon/quaternius/ual2_tarim.res`; orak yok, hasat/tohum/sulama.
 - İHT-0372 — **eklendi — kısmi (Cursor)**; E02; `assets/cevre/megakit/` duvar, çatı, kapı, pencere, döşeme; sahneye bağlanmadı.
 - İHT-0397 — **eklendi — kısmi (Cursor)**; E02; `assets/cevre/megakit/Overhang_Plaster_Short.gltf`; eve takılmadı.
+- İHT-0431 — **eklendi — uyarlama (Cursor)**; KAR02; `assets/karakter/lowpo/demirci.gltf`; 1,80 m, T-pozu, oyuna bağlanmadı.
+- İHT-0357 — **eklendi — uyarlama (Cursor)**; KAR02; `assets/karakter/lowpo/cocuk.gltf`; 1,27 m, hedef 1,15 m, oyuna bağlanmadı.
 
 23 Ekim 2026 · Kaynak festive e98dd7d · **534 numaralı teslim gereksinimi**.
 

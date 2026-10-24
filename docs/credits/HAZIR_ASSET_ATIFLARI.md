@@ -27,3 +27,12 @@
 - Edinim: **24 Ekim 2026**, yalnız **Standard / 0 USD**. Pro ve Source alınmadı.
 - Gönüllü atıf: “Medieval Village MegaKit — Quaternius, CC0.”
 - Dosyalar: `assets/cevre/megakit/`. Seçilen duvar, çatı, kapı, pencere, saçak ve döşeme. CC0 atıf zorunlu değildir.
+
+## KAR02 — LOWPO Villager NPC, ücretsiz
+
+- Yazar: **Standout 7**
+- Kaynak: https://standout7.itch.io/villagernpc
+- Lisans: **CC0**, araştırma kaydındaki itch metadata. Ücretsiz zipte ayrı lisans dosyası yok.
+- Edinim: **24 Ekim 2026**, yalnız **Villager NPC Free.zip / 0 USD**. Ücretli yedi kişilik katman alınmadı.
+- Gönüllü atıf: “LOWPO Villager NPC — Standout 7, CC0.”
+- Dosyalar: `assets/karakter/lowpo/demirci.gltf`, `cocuk.gltf` ve ortak atlas. Kaynak FBX, Godot ile glTF. Avcı dosyası ihtiyaç satırı olmadığı için yok.

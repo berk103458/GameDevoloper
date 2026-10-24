@@ -671,6 +671,80 @@
         "İHT-0372"
       ],
       "conversion": "Standard glTF secimi; Pro/Source yok; sahneye baglanmadi"
+    },
+    {
+      "path": "assets/karakter/lowpo/cocuk.gltf",
+      "package": "KAR02",
+      "source_url": "https://standout7.itch.io/villagernpc",
+      "author": "Standout 7",
+      "license": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0, itch metadata in arastirma_2_paketler.json. Free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Villager NPC Free, 0 USD",
+      "sha256": "ce5b1dfa8ecf8e8b651fbef5eb4535cf758eec9ca927c037f8e506b740ab2d6b",
+      "needs": [
+        "İHT-0357"
+      ],
+      "conversion": "Godot 4.7.2 FBXDocument to glTF. No new geometry. Hunter not included."
+    },
+    {
+      "path": "assets/karakter/lowpo/cocuk0.bin",
+      "package": "KAR02",
+      "source_url": "https://standout7.itch.io/villagernpc",
+      "author": "Standout 7",
+      "license": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0, itch metadata in arastirma_2_paketler.json. Free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Villager NPC Free, 0 USD",
+      "sha256": "66e85e76c54a648393256256eebb566e70d6279f6ba9b85d3565d8c8bc8dc380",
+      "needs": [],
+      "conversion": "Godot 4.7.2 FBXDocument to glTF. No new geometry. Hunter not included."
+    },
+    {
+      "path": "assets/karakter/lowpo/demirci.gltf",
+      "package": "KAR02",
+      "source_url": "https://standout7.itch.io/villagernpc",
+      "author": "Standout 7",
+      "license": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0, itch metadata in arastirma_2_paketler.json. Free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Villager NPC Free, 0 USD",
+      "sha256": "b71f14096407bbebce8bac32b3423563a29c28fb5aa7e038867b939a55db7c10",
+      "needs": [
+        "İHT-0431"
+      ],
+      "conversion": "Godot 4.7.2 FBXDocument to glTF. No new geometry. Hunter not included."
+    },
+    {
+      "path": "assets/karakter/lowpo/demirci0.bin",
+      "package": "KAR02",
+      "source_url": "https://standout7.itch.io/villagernpc",
+      "author": "Standout 7",
+      "license": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0, itch metadata in arastirma_2_paketler.json. Free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Villager NPC Free, 0 USD",
+      "sha256": "9bc4b56023f8dc682f5cf1e278d1581a2482425d59c9652748e3b4fcf6b75a78",
+      "needs": [],
+      "conversion": "Godot 4.7.2 FBXDocument to glTF. No new geometry. Hunter not included."
+    },
+    {
+      "path": "assets/karakter/lowpo/Villagers_Texture.png",
+      "package": "KAR02",
+      "source_url": "https://standout7.itch.io/villagernpc",
+      "author": "Standout 7",
+      "license": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0, itch metadata in arastirma_2_paketler.json. Free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Villager NPC Free, 0 USD",
+      "sha256": "b13d187e6e9f3f0a864c0b07e0b799217c68e9f9b3a3dc4d315ba6c41586e465",
+      "needs": [],
+      "conversion": "Godot 4.7.2 FBXDocument to glTF. No new geometry. Hunter not included."
     }
   ],
   "checks": {
