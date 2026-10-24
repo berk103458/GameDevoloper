@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Eşya — 24 Ekim 2026
+
+ESY01, ESY02, ESY03, ESY04 ücretsiz KayKit glTF. Alet, kılıç, mızrak, yay, kalkan, yatak, masa, bir odun, bir demir çubuk. Modern, fantastik ve satırsız parçalar yok. Ölçü büyük, bağlanmadı. Yay uzun ekseni X. Headless `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. KAR05, C07, C10 yeniden denenmedi. Hayvan, ses ve VFX yok. Kota görünmüyor.
+
 ## Karakter — 24 Ekim 2026
 
 KAR02 ücretsiz: demirci 1,80 m ve çocuk 1,27 m glTF, T-pozu, bağlanmadı. Avcı ihtiyaç satırı yok. KAR05, C07, C10 imzalı indirme engellendi, atlandı. Tam sanity yok. Kota görünmüyor. Commit `0daf072`.

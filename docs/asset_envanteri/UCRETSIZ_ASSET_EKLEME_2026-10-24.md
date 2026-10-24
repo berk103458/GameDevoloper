@@ -1,5 +1,19 @@
 # Ücretsiz asset ekleme — 24 Ekim 2026 (Kalfa)
 
+## Eşya — 24 Ekim 2026 (Cursor)
+
+Dört ücretsiz KayKit paketi, yalnız Free, CC0. Ham ZIP TEMP’te. Repoda glTF. Yeni geometri yok, oyun mantığına dokunulmadı, yer tutucu değiştirilmedi.
+
+ESY01 alet: çekiç, balta, örs, tokmak, kazma, kürek, maşa, meşale, bıçak, testere, keski. İngiliz anahtarı, tornavida, vida, kalem, matkap, rende, eğe, çivi, fener, büyüteç, plan ve harita alınmadı. Orak, kova ve fırın küreği yok.
+
+ESY04 tarihî silah: kılıç, mızrak, yay, kalkan. Asa, değnek, halbert, yumruk ve fazla kılıç/balta/çekiç/kalkan alınmadı. Okun ihtiyaç satırı yok, alınmadı. Yay uzun ekseni X; dosya döndürülmedi.
+
+ESY02: tek kişilik ahşap yatak ve orta masa. Alçak raf kütüphane değil, sandalye için satır yok; ikisi de yok. Kanepe, koltuk, kaktüs, lamba ve çerçeve alınmadı. İHT-0418 ve İHT-0420 açık.
+
+ESY03: bir odun ve bir demir çubuk. Yakıt varili, bidon, palet, dişli ve maden yığınları alınmadı. Taş yığınının satırı yok.
+
+Gece ışığında, demirci 1,80 m yanında bakıldı. Çekiç, balta, örs, meşale, kılıç, mızrak, kalkan, yatak, masa ve odun okunuyor. Yay yerde. Ölçüler paketin kendi birimi ve ihtiyaç zarfından büyük; tam kapanış yok. Headless: 20 glTF, mesh var, `SONUC 0`, `SCRIPT ERROR` yok. Odun ve demir çubukta UID önbellek uyarısı var; doku metin yoluyla yüklendi, mesh 1.
+
 ## Karakter — 24 Ekim 2026 (Cursor)
 
 KAR02 ücretsiz zip yalnız FBX. Demirci ve çocuk Godot 4.7.2 ile glTF'ye çevrildi; yeni geometri üretilmedi. Editörde ikisi de ayakta ve dokulu: demirci 1,80 m, çocuk 1,27 m. T-pozu, oyuna bağlanmadı. Avcı zipte var; karşılık gelen ihtiyaç satırı yok, repoya alınmadı. Ücretli çiftçi, oduncu, yaşlı ve tüccar alınmadı. İHT-0431 ve İHT-0357 uyarlama. İHT-0390 ve İHT-0428 açık.

@@ -20,6 +20,19 @@ A03 ücretsiz CC0 katmanından **6 kitaplık / 9 klip eklendi**; 8 ihtiyaç **k�
 - İHT-0397 — **eklendi — kısmi (Cursor)**; E02; `assets/cevre/megakit/Overhang_Plaster_Short.gltf`; eve takılmadı.
 - İHT-0431 — **eklendi — uyarlama (Cursor)**; KAR02; `assets/karakter/lowpo/demirci.gltf`; 1,80 m, T-pozu, oyuna bağlanmadı.
 - İHT-0357 — **eklendi — uyarlama (Cursor)**; KAR02; `assets/karakter/lowpo/cocuk.gltf`; 1,27 m, hedef 1,15 m, oyuna bağlanmadı.
+- İHT-0342 — **eklendi — uyarlama (Cursor)**; ESY01; `assets/esya/kaykit_alet/hammer.gltf`; 0,82 m, hedef 0,35 m, bağlanmadı.
+- İHT-0384 — **eklendi — uyarlama (Cursor)**; ESY01; `assets/esya/kaykit_alet/anvil.gltf`; 1,62 × 0,80 × 0,75 m, kütük yok, bağlanmadı.
+- İHT-0388 — **eklendi — kısmi (Cursor)**; ESY01; balta, örs ve çekiç var; kova, orak ve fırın küreği yok.
+- İHT-0395 — **eklendi — kısmi (Cursor)**; ESY01; örs var, fırın ağzı yok.
+- İHT-0400 — **eklendi — kısmi (Cursor)**; ESY01; çekiç var, fırın küreği yok, tutma noktası ayrı değil.
+- İHT-0430 — **eklendi — kısmi (Cursor)**; ESY01 ve ESY04; el aletleri, kılıç, kalkan ve mızrak var, ölçü büyük, bağlanmadı.
+- İHT-0387 — **eklendi — uyarlama (Cursor)**; ESY04 ve ESY01; kılıç, kalkan, mızrak ve meşale var, soket yok, ölçü büyük.
+- İHT-0406 — **eklendi — uyarlama (Cursor)**; ESY04; `bow_A_withString.gltf`; uzun eksen X, 1,96 m, hedef 1,10 m, döndürülmedi.
+- İHT-0407 — **eklendi — uyarlama (Cursor)**; ESY04; `spear_A.gltf`; 3,14 m, hedef 2,00 m.
+- İHT-0413 — **eklendi — uyarlama (Cursor)**; ESY02; `bed_single_A.gltf`; 1,60 × 1,00 × 3,00 m, mavi örtü, bağlanmadı.
+- İHT-0414 — **eklendi — uyarlama (Cursor)**; ESY02; `table_medium.gltf`; 2,00 × 1,00 × 2,00 m, bağlanmadı.
+- İHT-0350 — **eklendi — kısmi (Cursor)**; ESY03; `Wood_Log_A.gltf`; tek odun, hedef iki küçük odun.
+- İHT-0439 — **eklendi — uyarlama (Cursor)**; ESY03; `Iron_Bar.gltf`; 0,40 × 0,25 × 0,80 m çubuk, hedef 0,30 m küp.
 
 23 Ekim 2026 · Kaynak festive e98dd7d · **534 numaralı teslim gereksinimi**.
 
