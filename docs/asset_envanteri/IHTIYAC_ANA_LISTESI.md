@@ -36,6 +36,22 @@ A03 ücretsiz CC0 katmanından **6 kitaplık / 9 klip eklendi**; 8 ihtiyaç **k�
 - İHT-0380 — **eklendi — uyarlama (Cursor)**; HYV03; `assets/hayvan/vertexcat/koyun.gltf`; 0,89 m, hedef 0,80 m, bağlanmadı.
 - İHT-0403 — **eklendi — uyarlama (Cursor)**; HYV03; `assets/hayvan/vertexcat/inek.gltf`; 1,59 × 2,20 m, hedef 1,45 × 2,20 m, bağlanmadı.
 - İHT-0383 — **eklendi — uyarlama (Cursor)**; HYV02; `assets/hayvan/styloo/kopek.glb`; 0,71 m, hedef 0,80 m, bağlanmadı.
+- İHT-0468 — **eklendi — uyarlama (Cursor)**; S01 ve S05; kapı açma, gıcırtı ve kilit, ağır kapı kanıtı yok, bağlanmadı.
+- İHT-0469 — **eklendi — uyarlama (Cursor)**; S01 `wood_slam_01.ogg` 0,38 sn ve S05 kapı kapanışı; hedef 0,8–1,2 sn.
+- İHT-0471 — **eklendi — uyarlama (Cursor)**; FOL11 toprak, ot ve çakıl; kodla sentez, çarık kaydı değil.
+- İHT-0472 — **eklendi — kısmi (Cursor)**; UIS03 `tahta_tik_01.ogg`; tahta ama 1,29 sn, hedef yaklaşık 0,06 sn.
+- İHT-0473 — **eklendi — kısmi (Cursor)**; UIS03 `tahta_tik_02.ogg`; alçak kısa onay değil, 1,29 sn.
+- İHT-0475 — **eklendi — uyarlama (Cursor)**; S04 kılıç kını 0,54 sn ve FOL14 kılıç çekme 2,34 sn.
+- İHT-0478 — **eklendi — kısmi (Cursor)**; S04 zincir zırh ve FOL14 bıçak sürtmesi; zincir sürtünmesinin tamamı değil.
+- İHT-0479 — **eklendi — uyarlama (Cursor)**; S04 iki sikke ve S05 sikke tutuşu.
+- İHT-0470 — **eklendi — kısmi (Cursor)**; S05 `handleCoins.ogg`; deri kese yok.
+- İHT-0481 — **eklendi — kısmi (Cursor)**; ORT14 `dere_01.wav` 41 sn; çekiç ve koyun yok.
+- İHT-0485 — **eklendi — kısmi (Cursor)**; S01 çekiç, S05 keser, FOL14 örs; tek inşaat döngüsü değil.
+- İHT-0492 — **eklendi — uyarlama (Cursor)**; FOL14 `bow_release_01.ogg`.
+- İHT-0499 — **eklendi — uyarlama (Cursor)**; S01 `wood_cracking_01.ogg`.
+- İHT-0500 — **eklendi — uyarlama (Cursor)**; S01 `wood_breaking_01.ogg`.
+- İHT-0515 — **eklendi — uyarlama (Cursor)**; FOL14 `war_horn_01.ogg`.
+- İHT-0516 — **eklendi — kısmi (Cursor)**; MIR04 nefes, iç çekiş ve homurtu; İngilizce konuşma yok.
 
 23 Ekim 2026 · Kaynak festive e98dd7d · **534 numaralı teslim gereksinimi**.
 

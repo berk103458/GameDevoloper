@@ -1,5 +1,21 @@
 # Ücretsiz asset ekleme — 24 Ekim 2026 (Kalfa)
 
+## Ses — 24 Ekim 2026 (Cursor)
+
+Ücretsiz sesler `assets/ses/` altında yeni klasörlerde. Mevcut yer tutucu wav dosyalarına ve `Ses` autoload'una dokunulmadı. Yeni ses üretilmedi.
+
+S01 rubberduck CC0: kapı açma, gıcırtı, kilit, tahta çarpma, çekiç, tahta çatlak ve kırılma. S04 artisticdude CC0: iki sikke, kılıç kını, zincir zırh. S05 Kenney CC0: kapı aç/kapa, gıcırtı, keser, sikke tutuşu. Adım için Kenney'nin etiketsiz adımları durmadı.
+
+ORT14 Gregor Quendel CC-BY 4: on dere kaydından birincisi, 41 sn, `dere_01.wav`. Gündüz köyünün yalnız su katmanı. S02 dağ/rüzgâr arşivi FLAC; repoya ogg/wav dışında dosya girmedi, ffmpeg yok.
+
+FOL11 heyheythere CC-BY 4, kodla sentez: toprak, ot, çakıl adımı. Beton, metal, fayans ve spor ayakkabı yok. FOL14 aynı yazar: yay bırakma, kılıç çekme, zincir, bıçak sürtmesi, örs, savaş borusu. Et darbesi, savurma ve mancınık yok.
+
+UIS03 Cyrex CC-BY 4: iki tahta blok, 1,29 sn. Modern, retro ve soyut grup yok. S07 Kenney arayüz paketi tık, glitch ve bong olduğu için alınmadı. UIS08, UIS09 ve UIS11 retro, piyano veya synth diye durdu; zip açılmadı.
+
+MIR04 Cici Fyre CC0: nefes, iç çekiş, homurtu. İngilizce selamlama, soru ve anime heceleri yok. MIR01, MIR02 ve MIR03 İngilizce konuşma veya büyü sözü diye alınmadı.
+
+Headless: 32 dosya `AudioStream`, `SONUC 0`, `SCRIPT ERROR` yok. Editörde `AudioStreamOggVorbis` ve wav olarak görünüyorlar. Sahneye bağlanmadı.
+
 ## Hayvan — 24 Ekim 2026 (Cursor)
 
 Üç ücretsiz paket bakıldı. Repoda yalnız koyun, inek ve köpek. Oyun mantığına ve mevcut `okuz.glb` dosyasına dokunulmadı. Yer tutucu değişmedi.

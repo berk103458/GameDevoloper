@@ -1539,6 +1539,533 @@
       "sha256": "38bd248576da1d38f014b607baf213f3e4064f33e2a6c000bb583c8b14c2c265",
       "needs": [],
       "conversion": "Texture extracted by Godot from the dog glB."
+    },
+    {
+      "path": "assets/ses/rubberduck/door_open_01.ogg",
+      "package": "S01",
+      "source_url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+      "author": "rubberduck",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page. The zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "58455b99af8f62b10559607435de0f72b9c798ebe085f49101df3c3d9ec043c7",
+      "needs": [
+        "İHT-0468"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/rubberduck/hammer_01.ogg",
+      "package": "S01",
+      "source_url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+      "author": "rubberduck",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page. The zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "ebbeac7365b2b4f4eaa6829a3c09e0be46e20950f8322eb5c72a616679d6c482",
+      "needs": [
+        "İHT-0485"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/rubberduck/lock_open_01.ogg",
+      "package": "S01",
+      "source_url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+      "author": "rubberduck",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page. The zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "f37728690c9559d32527b55e25102a1acb7beafdfab7ad12e099285d13d29e01",
+      "needs": [
+        "İHT-0468"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/rubberduck/wood_breaking_01.ogg",
+      "package": "S01",
+      "source_url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+      "author": "rubberduck",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page. The zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "83a0e17e536a17897d5915e88c9e70d0be06d0a43bb3a38f44314ada46b06a3e",
+      "needs": [
+        "İHT-0500"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/rubberduck/wood_cracking_01.ogg",
+      "package": "S01",
+      "source_url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+      "author": "rubberduck",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page. The zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "ee00fa26ec72a2bd05adc71a4edf6627db2adedc6f0416ef6788c4790c1d2724",
+      "needs": [
+        "İHT-0499"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/rubberduck/wood_hammer_01.ogg",
+      "package": "S01",
+      "source_url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+      "author": "rubberduck",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page. The zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "7af2b82ed659153da6c3dd69024e15bdb3c3c5b101c4086ee2181c1f846fe28a",
+      "needs": [
+        "İHT-0485"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/rubberduck/wood_slam_01.ogg",
+      "package": "S01",
+      "source_url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+      "author": "rubberduck",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page. The zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "a6c0789f549c57bf2022d2bc131b5d78b66c2ea9483d7bf2f6d2d5f74302137c",
+      "needs": [
+        "İHT-0469"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/rubberduck/wood_squeak_01.ogg",
+      "package": "S01",
+      "source_url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+      "author": "rubberduck",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page. The zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "c6c90e02993b2e044937f344351b417aeff6841aa4cd683f208d85ececf23392",
+      "needs": [
+        "İHT-0468"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/kenney_rpg/LICENSE.txt",
+      "package": "S05",
+      "source_url": "https://kenney.nl/assets/rpg-audio",
+      "author": "Kenney Vleugels",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Creative Commons Zero, CC0. http://creativecommons.org/publicdomain/zero/1.0/",
+      "download_date": "2026-10-24",
+      "tier": "CC0 pack, 0 USD",
+      "sha256": "5735dfd72cb64cbbceda4ebc00c380c41ca680edb82ff153aa7c9ab97614c539",
+      "needs": [],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/kenney_rpg/chop.ogg",
+      "package": "S05",
+      "source_url": "https://kenney.nl/assets/rpg-audio",
+      "author": "Kenney Vleugels",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Creative Commons Zero, CC0. http://creativecommons.org/publicdomain/zero/1.0/",
+      "download_date": "2026-10-24",
+      "tier": "CC0 pack, 0 USD",
+      "sha256": "d00c2b3c9fff07e376145c8c8c45c90e5084ec192f6ce0387db233f7b86f1486",
+      "needs": [
+        "İHT-0485"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/kenney_rpg/creak1.ogg",
+      "package": "S05",
+      "source_url": "https://kenney.nl/assets/rpg-audio",
+      "author": "Kenney Vleugels",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Creative Commons Zero, CC0. http://creativecommons.org/publicdomain/zero/1.0/",
+      "download_date": "2026-10-24",
+      "tier": "CC0 pack, 0 USD",
+      "sha256": "8a346186fd297254248cab8e8117060a52a5cf2a84f603153a762108550ea95e",
+      "needs": [
+        "İHT-0468"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/kenney_rpg/doorClose_1.ogg",
+      "package": "S05",
+      "source_url": "https://kenney.nl/assets/rpg-audio",
+      "author": "Kenney Vleugels",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Creative Commons Zero, CC0. http://creativecommons.org/publicdomain/zero/1.0/",
+      "download_date": "2026-10-24",
+      "tier": "CC0 pack, 0 USD",
+      "sha256": "834d29c60a8a8bfb50b158cdb6b7dfa8f02812a408a1ee9703d038dfab0b1aeb",
+      "needs": [
+        "İHT-0469"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/kenney_rpg/doorOpen_1.ogg",
+      "package": "S05",
+      "source_url": "https://kenney.nl/assets/rpg-audio",
+      "author": "Kenney Vleugels",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Creative Commons Zero, CC0. http://creativecommons.org/publicdomain/zero/1.0/",
+      "download_date": "2026-10-24",
+      "tier": "CC0 pack, 0 USD",
+      "sha256": "4ab93bab96522d8eb109ff96dc57cb6765deb02448fe14c10472084be5bb2a0b",
+      "needs": [
+        "İHT-0468"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/kenney_rpg/handleCoins.ogg",
+      "package": "S05",
+      "source_url": "https://kenney.nl/assets/rpg-audio",
+      "author": "Kenney Vleugels",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Creative Commons Zero, CC0. http://creativecommons.org/publicdomain/zero/1.0/",
+      "download_date": "2026-10-24",
+      "tier": "CC0 pack, 0 USD",
+      "sha256": "8a91f969e932df709df80ee124d86a51389eed9b67f22e5e716bc2bbf60d8dab",
+      "needs": [
+        "İHT-0470",
+        "İHT-0479"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/rpg_sound/chainmail1.wav",
+      "package": "S04",
+      "source_url": "https://opengameart.org/content/rpg-sound-pack",
+      "author": "artisticdude",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "44d4d6b0cda8138c9d5545ba4f434f53b7817ba32d98ddfdf5bff6ae7acdefdf",
+      "needs": [
+        "İHT-0478"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/rpg_sound/coin.wav",
+      "package": "S04",
+      "source_url": "https://opengameart.org/content/rpg-sound-pack",
+      "author": "artisticdude",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "ee72adacc8630cb590f22130a9c7c855f6eeb698d9fce6461667255ec45ed184",
+      "needs": [
+        "İHT-0479"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/rpg_sound/coin2.wav",
+      "package": "S04",
+      "source_url": "https://opengameart.org/content/rpg-sound-pack",
+      "author": "artisticdude",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "4147e7fbe404d2cd97ba7b5af61e88ebe4f652626589c4ee9d570595262b8802",
+      "needs": [
+        "İHT-0479"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/rpg_sound/sword-unsheathe.wav",
+      "package": "S04",
+      "source_url": "https://opengameart.org/content/rpg-sound-pack",
+      "author": "artisticdude",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 on the OpenGameArt page.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "2cc0518b65d3a11b4f7cf22a5be6700d36fa1e681491dfb71b87ae5bce2296f6",
+      "needs": [
+        "İHT-0475"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/quendel/dere_01.wav",
+      "package": "ORT14",
+      "source_url": "https://gregor-quendel.itch.io/free-water-stream-sounds",
+      "author": "Gregor Quendel",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0. Attribution required.",
+      "download_date": "2026-10-24",
+      "tier": "Free WAV zip, 0 USD. File 01 of 10.",
+      "sha256": "80f33a48d996cece17e0621199705c3a540bd2328b53ccdb3e8b479d41ef1085",
+      "needs": [
+        "İHT-0481"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/cyrex/tahta_tik_01.ogg",
+      "package": "UIS03",
+      "source_url": "https://cyrex-studios.itch.io/universal-ui-soundpack",
+      "author": "Nathan Gibson / Cyrex Studios",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0 Nathan Gibson. Modern, retro and abstract groups were not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "4f7263f6e997e3f3dc03dc234a697c2237e2d8e383404c0fdb508003d956774a",
+      "needs": [
+        "İHT-0472"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/cyrex/tahta_tik_02.ogg",
+      "package": "UIS03",
+      "source_url": "https://cyrex-studios.itch.io/universal-ui-soundpack",
+      "author": "Nathan Gibson / Cyrex Studios",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0 Nathan Gibson. Modern, retro and abstract groups were not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "e3fb3d2230a74ea792b14500b0207858bd9c795963613ed22fa74c1edf5af67c",
+      "needs": [
+        "İHT-0473"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/cici/ic_cekim.wav",
+      "package": "MIR04",
+      "source_url": "https://cicifyre.itch.io/free-voice-clips-pack-mature-female",
+      "author": "Cici Fyre",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Readme: royalty free, credit appreciated but not required. English speech was not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "4c064ab57e857ecc966fd7a3fb13f98e7c62a4c6cce1f66d4cd519cecf6274f9",
+      "needs": [
+        "İHT-0516"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/cici/mirilti.wav",
+      "package": "MIR04",
+      "source_url": "https://cicifyre.itch.io/free-voice-clips-pack-mature-female",
+      "author": "Cici Fyre",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Readme: royalty free, credit appreciated but not required. English speech was not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "598e7f4f198af0ce8a90e908bdd52f15926f94c01077243a8bf6af8c398649fb",
+      "needs": [
+        "İHT-0516"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/cici/nefes.wav",
+      "package": "MIR04",
+      "source_url": "https://cicifyre.itch.io/free-voice-clips-pack-mature-female",
+      "author": "Cici Fyre",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "Readme: royalty free, credit appreciated but not required. English speech was not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free zip, 0 USD",
+      "sha256": "e20bd1754a0e1a4cd5ad18cdf58e0b0ad5c6618cb9a9a6049ed992791184f47b",
+      "needs": [
+        "İHT-0516"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/heyhey/cakil_01.ogg",
+      "package": "FOL11",
+      "source_url": "https://heyheythere.itch.io/footsteps-sfx-free",
+      "author": "heyheythere",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0. Sounds are synthesised in code, then checked. Concrete, metal, tile and sneakers were not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free sampler, 0 USD",
+      "sha256": "8486b4fe8b5a0b71f3d66c044757f42c3960f90ee5c31b25819f8ba388100670",
+      "needs": [
+        "İHT-0471"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/heyhey/ot_01.ogg",
+      "package": "FOL11",
+      "source_url": "https://heyheythere.itch.io/footsteps-sfx-free",
+      "author": "heyheythere",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0. Sounds are synthesised in code, then checked. Concrete, metal, tile and sneakers were not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free sampler, 0 USD",
+      "sha256": "89d7e050e3131baadcb4e5c44a865a8832aac483246c38c4af7e1cd781507519",
+      "needs": [
+        "İHT-0471"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/heyhey/toprak_01.ogg",
+      "package": "FOL11",
+      "source_url": "https://heyheythere.itch.io/footsteps-sfx-free",
+      "author": "heyheythere",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0. Sounds are synthesised in code, then checked. Concrete, metal, tile and sneakers were not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free sampler, 0 USD",
+      "sha256": "d5acfc526a55cc1f76e5aaf0d52cb53f37504f0480469039da69f8d533bc117f",
+      "needs": [
+        "İHT-0471"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/heyhey_savas/anvil_strike_01.ogg",
+      "package": "FOL14",
+      "source_url": "https://heyheythere.itch.io/medieval-combat-sfx-free",
+      "author": "heyheythere",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0. Sounds are synthesised in code, then checked. Flesh hits, swings and siege machines were not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free sampler, 0 USD",
+      "sha256": "5f6bd9bab23a5caea89ecc896beac4fc026757013c2478ccd6bc5cbbc3e74294",
+      "needs": [
+        "İHT-0485"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/heyhey_savas/blade_scrape_01.ogg",
+      "package": "FOL14",
+      "source_url": "https://heyheythere.itch.io/medieval-combat-sfx-free",
+      "author": "heyheythere",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0. Sounds are synthesised in code, then checked. Flesh hits, swings and siege machines were not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free sampler, 0 USD",
+      "sha256": "effa1fc3f5bf151036ffb0352a9a60ea85a8a4151ed436562db7462ebe2846f3",
+      "needs": [
+        "İHT-0478"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/heyhey_savas/bow_release_01.ogg",
+      "package": "FOL14",
+      "source_url": "https://heyheythere.itch.io/medieval-combat-sfx-free",
+      "author": "heyheythere",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0. Sounds are synthesised in code, then checked. Flesh hits, swings and siege machines were not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free sampler, 0 USD",
+      "sha256": "04411a02b69b2b30a7aa73404db02ffd7b0a430a988f3367911ae05c22b2ca66",
+      "needs": [
+        "İHT-0492"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/heyhey_savas/chainmail_move_01.ogg",
+      "package": "FOL14",
+      "source_url": "https://heyheythere.itch.io/medieval-combat-sfx-free",
+      "author": "heyheythere",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0. Sounds are synthesised in code, then checked. Flesh hits, swings and siege machines were not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free sampler, 0 USD",
+      "sha256": "ac82b04a91e975e821e3d42be716b805b52b7234ac1a71d9a4ee1513adbbf280",
+      "needs": [
+        "İHT-0478"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/heyhey_savas/sword_draw_01.ogg",
+      "package": "FOL14",
+      "source_url": "https://heyheythere.itch.io/medieval-combat-sfx-free",
+      "author": "heyheythere",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0. Sounds are synthesised in code, then checked. Flesh hits, swings and siege machines were not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free sampler, 0 USD",
+      "sha256": "fdb33bbed02d88507f2dfda343f0bcdc9f63ba56589cbe6c0a5deaeedb3bdc60",
+      "needs": [
+        "İHT-0475"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
+    },
+    {
+      "path": "assets/ses/heyhey_savas/war_horn_01.ogg",
+      "package": "FOL14",
+      "source_url": "https://heyheythere.itch.io/medieval-combat-sfx-free",
+      "author": "heyheythere",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_text": "CC BY 4.0. Sounds are synthesised in code, then checked. Flesh hits, swings and siege machines were not kept.",
+      "download_date": "2026-10-24",
+      "tier": "Free sampler, 0 USD",
+      "sha256": "27ca5b36bd88209c0aab508827cb06cdc7bb52475d20474ca7c9c9cc84d0b36a",
+      "needs": [
+        "İHT-0515"
+      ],
+      "conversion": "Original audio kept. Not wired into Ses autoload."
     }
   ],
   "checks": {

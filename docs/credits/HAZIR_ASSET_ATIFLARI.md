@@ -90,3 +90,62 @@
 - Edinim: **24 Ekim 2026**, yalnız **stylooanimalassetpack.zip / 0 USD**. 3 USD blend alınmadı.
 - Gönüllü atıf: “Animals Asset Pack — styloo, CC0.”
 - Dosyalar: `assets/hayvan/styloo/kopek.glb`. Kedi, tavuk, zürafa, kelebek, uğur böceği ve ikinci inek yok.
+
+## S01 — rubberduck metal and wood
+
+- Yazar: **rubberduck**
+- Kaynak: https://opengameart.org/content/100-cc0-metal-and-wood-sfx
+- Lisans: **CC0 1.0**, https://creativecommons.org/publicdomain/zero/1.0/
+- Edinim: **24 Ekim 2026**, ücretsiz zip.
+- Dosyalar: `assets/ses/rubberduck/`. Kapı, çekiç ve tahta kırılması. Yay, metal levha ve zemberek yok.
+
+## S04 — artisticdude RPG Sound Pack
+
+- Yazar: **artisticdude**
+- Kaynak: https://opengameart.org/content/rpg-sound-pack
+- Lisans: **CC0**
+- Edinim: **24 Ekim 2026**, ücretsiz zip.
+- Dosyalar: `assets/ses/rpg_sound/`. Sikke, kılıç kını, zincir. Büyü ve canavar sesi yok.
+
+## S05 — Kenney RPG Audio
+
+- Yazar: **Kenney Vleugels**, https://kenney.nl
+- Kaynak: https://kenney.nl/assets/rpg-audio
+- Lisans: **CC0 1.0**, https://creativecommons.org/publicdomain/zero/1.0/
+- Edinim: **24 Ekim 2026**.
+- Dosyalar: `assets/ses/kenney_rpg/`. Kapı, gıcırtı, keser, sikke. Silah ve elektronik yok.
+
+## ORT14 — Free Water Stream Sounds
+
+- Yazar: **Gregor Quendel**
+- Kaynak: https://gregor-quendel.itch.io/free-water-stream-sounds
+- Lisans: **CC BY 4.0**, https://creativecommons.org/licenses/by/4.0/
+- Edinim: **24 Ekim 2026**, yalnız ücretsiz WAV. Atıf gerekir.
+- Atıf: “Free Water Stream Sounds — Gregor Quendel, CC BY 4.0.”
+- Dosyalar: `assets/ses/quendel/dere_01.wav`. Özgün ad: Gregor Quendel - Free Water Stream Sounds - 01.wav. Ses değiştirilmedi.
+
+## FOL11 ve FOL14 — heyheythere
+
+- Yazar: **heyheythere**
+- Kaynak: https://heyheythere.itch.io/footsteps-sfx-free ve https://heyheythere.itch.io/medieval-combat-sfx-free
+- Lisans: **CC BY 4.0**, https://creativecommons.org/licenses/by/4.0/
+- Edinim: **24 Ekim 2026**, yalnız ücretsiz örnekler. Sesler kodla sentezlenip denetlenmiş; yeni ses üretilmedi.
+- Atıf: “Footsteps SFX Free and Medieval Combat SFX Free — heyheythere, CC BY 4.0.”
+- Dosyalar: `assets/ses/heyhey/` ve `assets/ses/heyhey_savas/`.
+
+## UIS03 — Universal UI Soundpack
+
+- Yazar: **Nathan Gibson / Cyrex Studios**
+- Kaynak: https://cyrex-studios.itch.io/universal-ui-soundpack
+- Lisans: **CC BY 4.0**, https://creativecommons.org/licenses/by/4.0/
+- Edinim: **24 Ekim 2026**, yalnız ücretsiz zip.
+- Atıf: “Universal UI/Menu Soundpack — Nathan Gibson, CC BY 4.0.”
+- Dosyalar: `assets/ses/cyrex/tahta_tik_01.ogg` ve `tahta_tik_02.ogg`. Özgün adlar Wood Block1 ve Wood Block2.
+
+## MIR04 — Cici Fyre mature voice
+
+- Yazar: **Cici Fyre**
+- Kaynak: https://cicifyre.itch.io/free-voice-clips-pack-mature-female
+- Lisans: **CC0**. Readme atfı zorunlu tutmuyor.
+- Edinim: **24 Ekim 2026**, yalnız ücretsiz zip.
+- Dosyalar: `assets/ses/cici/`. Nefes, iç çekiş, homurtu. İngilizce konuşma yok.

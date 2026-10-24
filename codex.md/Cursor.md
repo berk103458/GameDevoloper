@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Ses — 24 Ekim 2026
+
+Kapı, adım, sikke, dere, tahta tık, kılıç, yay, örs, boru ve üç hece. Elektronik arayüz, büyü, et darbesi ve İngilizce konuşma yok. S02 FLAC alınmadı. Ses autoload'una bağlanmadı. Headless `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. VFX yok. Kota görünmüyor.
+
 ## Hayvan — 24 Ekim 2026
 
 HYV03 koyun ve inek, HYV02 köpek. Zürafa, corgi ve egzotik türler yok. HYV08 repoya alınmadı. Ölçü yakın, bağlanmadı. Headless `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. Ses ve VFX yok. Kota görünmüyor.
