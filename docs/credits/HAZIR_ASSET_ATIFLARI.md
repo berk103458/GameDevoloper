@@ -18,3 +18,12 @@
 - Edinim: **24 Ekim 2026**, yalnız **Standard / 0 USD**. Pro ve Source alınmadı.
 - Gönüllü atıf: “Universal Animation Library — Quaternius, CC0.”
 - Dosyalar: `assets/animasyon/quaternius/`. CC0 atıf zorunlu değildir; kaynak izlenebilirliği için tutulur.
+
+## E02 — Quaternius Medieval Village MegaKit
+
+- Yazar: **Quaternius**, https://quaternius.com
+- Kaynak: https://quaternius.itch.io/medieval-village-megakit
+- Lisans: **CC0 1.0**, https://creativecommons.org/publicdomain/zero/1.0/
+- Edinim: **24 Ekim 2026**, yalnız **Standard / 0 USD**. Pro ve Source alınmadı.
+- Gönüllü atıf: “Medieval Village MegaKit — Quaternius, CC0.”
+- Dosyalar: `assets/cevre/megakit/`. Seçilen duvar, çatı, kapı, pencere, saçak ve döşeme. CC0 atıf zorunlu değildir.

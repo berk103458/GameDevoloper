@@ -3,6 +3,18 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Test kuralı — 24 Ekim 2026 (Ahmet)
+
+- Her pakette yalnız eklenen dosyalar için headless import/parse. `SCRIPT ERROR` ve import hatası yok.
+- Godot MCP ile eklenen parçanın sahnesinde görsel kontrol.
+- Birkaç paket grubunda bir ve iş bitince, yalnız dokunulan bölümün hedefli testleri. Köye asset eklendiyse köy ile ilgili `tests/unit`. İlgisiz bölüm test edilmez.
+- Hata çıkarsa yalnız o bölümde düzelt.
+- Tam sanity yalnız Ahmet isterse en sonda bir kez. `tools/sanity_check.py` bu görev boyunca çalıştırılmaz. `work/sanity-cursor-cevre` yarım logu commit edilmez.
+
+## Çevre — 24 Ekim 2026
+
+Yapı ailesi E02 MegaKit Standard. KayKit hex ve LOKIT yapıları yok. Ölçü: KayKit ev 0,93 m, MegaKit cephe yaklaşık 5,9 m, LOKIT duvar 4,0 m. Mevcut ev ve kapı modelleri duruyor. İHT-0339 açık. Headless: 7 glTF, her birinde mesh 1, SCRIPT ERROR yok. Görsel: E02 etiketleri ve zemin göründü; modül gövdeleri bu karede zeminden ayrışmadı. Tam sanity çalıştırılmadı.
+
 ## Animasyon — 24 Ekim 2026
 
 Ana kaynak A01 Quaternius UAL Standard. A02 aynı aile, tarım ve kılıç. KayKit A03 duruyor, bağlanmadı. chr_001 Idle görüntüsü: KayKit omuz silkiyor, UAL kolları indiriyor. Tam kabul yok. Butler `C:\Users\Ahmet\bin\butler.exe` v15.32.0. Kota görünmüyor. Çevre seçimi sıradaki.

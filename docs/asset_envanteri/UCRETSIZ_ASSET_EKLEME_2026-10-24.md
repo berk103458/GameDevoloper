@@ -1,5 +1,13 @@
 # Ücretsiz asset ekleme — 24 Ekim 2026 (Kalfa)
 
+## Çevre ailesi — 24 Ekim 2026 (Cursor)
+
+Yapı ailesi **E02 Quaternius Medieval Village MegaKit, Standard, 0 USD, CC0**. KayKit Medieval Hexagon ve LOKIT yapıları eklenmedi.
+
+Gece ışığında mevcut `ev.glb` ve `kapi.glb` ile yan yana bakıldı. Ham ölçüler: KayKit ev 0,79 × 0,93 × 0,85 m (altıgen masa parçası), KayKit kapı 2,0 × 1,41 m. MegaKit cephe yaklaşık 5,5 × 5,9 × 5,6 m; ev kapısı 1,12 × 2,33 × 0,26 m. LOKIT ahşap duvar 4,82 × 4,0 × 5,0 m, kapı 1,5 × 2,5 m. MegaKit, 6 × 3 × 5 m ev zarfına uyan yürünebilir modül. KayKit yakın planda oyuncak kale gibi duruyor. LOKIT ücretsiz set ayrı bir low-poly aile; tek doku yolu FBX içinde kırık, yapıları karıştırmadım. Doğa parçası bu dilimde alınmadı.
+
+Oyuna bağlanmadı. Mevcut `ev.glb` ve `kapi.glb` yerinde. MegaKit kapısı 4 m kapı kadrajı değil; İHT-0339 açık. İHT-0372 ve İHT-0397 kısmi modül.
+
 ## Animasyon kaynağı — 24 Ekim 2026 (Cursor)
 
 Ana kaynak **A01 Quaternius Universal Animation Library, Standard, 0 USD, CC0**. A02 aynı iskelet ailesinin ikinci ücretsiz kitabıdır ve tarım/kılıç klipleri için ona eklenir. KayKit A03 kitaplıkları duruyor; ana kaynak değil ve ikisi birden karaktere bağlanmadı.
@@ -20,8 +28,8 @@ Festive pull güncel (75ae24b). İlk öncelik A03 tamamlanan **tedarik dilimi**:
 | movement_basic.res | Walking_A, Running_A | İHT-0524, İHT-0450 | eklendi — uyarlama (Kalfa) |
 | movement_advanced.res | Sneaking | İHT-0399 | eklendi — kısmi; kuytu bekleme açık (Kalfa) |
 | tools.res | Hammering | İHT-0453 | eklendi — uyarlama (Kalfa) |
-| combat_melee.res | Melee_1H_Attack_Chop | İHT-0455 | eklendi — uyarlama (Kalfa) |
-| simulation.res | Sit_Chair_Idle | İHT-0451 | eklendi — kısmi; otur/kalk geçişleri açık (Kalfa) |
+| combat_melee.res | Melee_1H_Attack_Chop | İHT-0455 | eklendi — uyarlama (Kalfa); yedek, ana kaynak A01 |
+| simulation.res | Sit_Chair_Idle | İHT-0451 | eklendi — kısmi; otur/kalk geçişleri açık (Kalfa); yedek, ana kaynak A01 |
 
 Kaynak GLB'leri ve 14,9 MB ham ZIP yalnız Windows TEMP altında. Yaklaşık 285 KB kitaplık, özgün lisans ve dosya bazında SHA-256/kaynak/yazar/indirme tarihi teslim kaydında. Bunlar mevcut Godot kaynaklarının seçilerek dönüştürülmesidir; yeni hareket üretilmedi. Yeni 2D, font, VFX, Quaternius ve ücretli dosya yok.
 
