@@ -33,6 +33,9 @@ A03 ücretsiz CC0 katmanından **6 kitaplık / 9 klip eklendi**; 8 ihtiyaç **k�
 - İHT-0414 — **eklendi — uyarlama (Cursor)**; ESY02; `table_medium.gltf`; 2,00 × 1,00 × 2,00 m, bağlanmadı.
 - İHT-0350 — **eklendi — kısmi (Cursor)**; ESY03; `Wood_Log_A.gltf`; tek odun, hedef iki küçük odun.
 - İHT-0439 — **eklendi — uyarlama (Cursor)**; ESY03; `Iron_Bar.gltf`; 0,40 × 0,25 × 0,80 m çubuk, hedef 0,30 m küp.
+- İHT-0380 — **eklendi — uyarlama (Cursor)**; HYV03; `assets/hayvan/vertexcat/koyun.gltf`; 0,89 m, hedef 0,80 m, bağlanmadı.
+- İHT-0403 — **eklendi — uyarlama (Cursor)**; HYV03; `assets/hayvan/vertexcat/inek.gltf`; 1,59 × 2,20 m, hedef 1,45 × 2,20 m, bağlanmadı.
+- İHT-0383 — **eklendi — uyarlama (Cursor)**; HYV02; `assets/hayvan/styloo/kopek.glb`; 0,71 m, hedef 0,80 m, bağlanmadı.
 
 12 Ekim 2026 (Kalfa). **Aktif görsel ihtiyaçları 2D ve 3D olarak ayrılmıştır.** Mekanikler asset beklemez: isim etiketli kutu / ColorRect / BoxMesh yer tutucuyla tamamlanır. Assetler üretim tamamlandıktan sonra ayrı entegrasyon paketinde eklenir; hazır prompt, teslim veya oyun kabulü değildir.
 

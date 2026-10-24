@@ -72,3 +72,21 @@
 - Edinim: **24 Ekim 2026**, yalnız **Free / 0 USD**. Extra ve Source alınmadı. Paket tarihi 03/04/2025.
 - Gönüllü atıf: “KayKit Resource Bits — Kay Lousberg (www.kaylousberg.com), CC0.”
 - Dosyalar: `assets/esya/kaykit_kaynak/` içinde bir odun ve bir demir çubuk. Yakıt, palet ve maden yığını yok.
+
+## HYV03 — Vertexcat Farm animals set
+
+- Yazar: **vertexcat**
+- Kaynak: https://vertexcat.itch.io/farm-animals-set
+- Lisans: **CC0 1.0**, https://creativecommons.org/publicdomain/zero/1.0/
+- Edinim: **24 Ekim 2026**, yalnız **FarmAnimals_v1.1.zip / 0 USD**. Blend dosyası alınmadı. Sayfadaki paket tarihi 15 Ağustos 2017.
+- Gönüllü atıf: “Farm animals set — vertexcat, CC0.”
+- Dosyalar: `assets/hayvan/vertexcat/koyun.gltf` ve `inek.gltf`. Kaynak FBX, Godot ile glTF. Ördek, tavuk ve domuz yok.
+
+## HYV02 — Styloo Animals Asset Pack
+
+- Yazar: **styloo**
+- Kaynak: https://styloo.itch.io/animals
+- Lisans: **CC0 1.0**, itch metadata ve yazarın sayfadaki CC0 notu. Ücretsiz zipte ayrı lisans dosyası yok.
+- Edinim: **24 Ekim 2026**, yalnız **stylooanimalassetpack.zip / 0 USD**. 3 USD blend alınmadı.
+- Gönüllü atıf: “Animals Asset Pack — styloo, CC0.”
+- Dosyalar: `assets/hayvan/styloo/kopek.glb`. Kedi, tavuk, zürafa, kelebek, uğur böceği ve ikinci inek yok.

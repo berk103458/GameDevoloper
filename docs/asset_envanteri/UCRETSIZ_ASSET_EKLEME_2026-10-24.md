@@ -1,5 +1,17 @@
 # Ücretsiz asset ekleme — 24 Ekim 2026 (Kalfa)
 
+## Hayvan — 24 Ekim 2026 (Cursor)
+
+Üç ücretsiz paket bakıldı. Repoda yalnız koyun, inek ve köpek. Oyun mantığına ve mevcut `okuz.glb` dosyasına dokunulmadı. Yer tutucu değişmedi.
+
+HYV03 Vertexcat, Free zip, CC0. Blend kaynak dosyası alınmadı. FBX, Godot 4.7.2 ile glTF'ye çevrildi; yeni geometri yok. Koyun 0,53 × 0,89 × 1,27 m (hedef 0,45 × 0,80 × 1,10). İnek 0,92 × 1,59 × 2,20 m (hedef 0,85 × 1,45 × 2,20). Ördek, tavuk ve domuz için satır yok.
+
+HYV02 Styloo, ücretsiz zip, itch kaydı CC0. Ücretli blend alınmadı. Köpek glb 0,29 × 0,71 × 1,02 m (hedef 0,45 × 0,80 × 1,10). Aynı paketteki inek siyah-beyaz ve 2,07 m; Vertexcat ineği zarfa daha yakın olduğu için o durdu. Kedi, tavuk, zürafa, kelebek ve uğur böceği yok.
+
+HYV08 Gobkit indi. İçinde fener balığı, yarasa, corgi, ördek, su aygırı, denizanası, ornitorenk, gergedan ve köpek balığı var. Dönem köyüne uyan satır yok; corgi köy köpeği değil. Repoya alınmadı.
+
+Gece ışığında, 1,80 m demircinin yanında ayakta duruyorlar. Headless: 3 model, mesh 1, `SONUC 0`, `SCRIPT ERROR` yok. Köpek dokusunda UID önbellek uyarısı olabilir; metin yoluyla yüklenir.
+
 ## Eşya — 24 Ekim 2026 (Cursor)
 
 Dört ücretsiz KayKit paketi, yalnız Free, CC0. Ham ZIP TEMP’te. Repoda glTF. Yeni geometri yok, oyun mantığına dokunulmadı, yer tutucu değiştirilmedi.

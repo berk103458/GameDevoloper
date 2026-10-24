@@ -1435,6 +1435,110 @@
       "sha256": "62a252aba7bc9382effe48d93b976605d8fa70a3a40af7fc52362f5ca89c135b",
       "needs": [],
       "conversion": "Binary or texture shipped with the source glTF. No conversion."
+    },
+    {
+      "path": "assets/hayvan/vertexcat/koyun.gltf",
+      "package": "HYV03",
+      "source_url": "https://vertexcat.itch.io/farm-animals-set",
+      "author": "vertexcat",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 1.0 on the itch page. The free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "FarmAnimals_v1.1.zip, 0 USD. Blend not taken.",
+      "sha256": "538117ad7bd8223a8a6e2c6a5c565ddae73d548e2e673d06cffd58810b1c1bdc",
+      "needs": [
+        "İHT-0380"
+      ],
+      "conversion": "Godot 4.7.2 FBXDocument to glTF. No new geometry. Size 0.53 x 0.89 x 1.27 m, need 0.45 x 0.80 x 1.10 m. Not wired."
+    },
+    {
+      "path": "assets/hayvan/vertexcat/koyun0.bin",
+      "package": "HYV03",
+      "source_url": "https://vertexcat.itch.io/farm-animals-set",
+      "author": "vertexcat",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 1.0 on the itch page. The free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "FarmAnimals_v1.1.zip, 0 USD. Blend not taken.",
+      "sha256": "ac438ce82d2372b0b879d41950dfa552928bcc7016fa482a536a7e39770bc050",
+      "needs": [],
+      "conversion": "Buffer written with the sheep glTF. No new geometry."
+    },
+    {
+      "path": "assets/hayvan/vertexcat/inek.gltf",
+      "package": "HYV03",
+      "source_url": "https://vertexcat.itch.io/farm-animals-set",
+      "author": "vertexcat",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 1.0 on the itch page. The free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "FarmAnimals_v1.1.zip, 0 USD. Blend not taken.",
+      "sha256": "222bff3e95d1434b5684ecc5e85d37904950013e8d4abf18808fcb8149befed3",
+      "needs": [
+        "İHT-0403"
+      ],
+      "conversion": "Godot 4.7.2 FBXDocument to glTF. No new geometry. Size 0.92 x 1.59 x 2.20 m, need 0.85 x 1.45 x 2.20 m. Not wired."
+    },
+    {
+      "path": "assets/hayvan/vertexcat/inek0.bin",
+      "package": "HYV03",
+      "source_url": "https://vertexcat.itch.io/farm-animals-set",
+      "author": "vertexcat",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 1.0 on the itch page. The free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "FarmAnimals_v1.1.zip, 0 USD. Blend not taken.",
+      "sha256": "d8fff4d18f8a8db454ee431f52ac6c6773ac438917229bfdfe9a939e1b5ec715",
+      "needs": [],
+      "conversion": "Buffer written with the cow glTF. No new geometry."
+    },
+    {
+      "path": "assets/hayvan/styloo/kopek.glb",
+      "package": "HYV02",
+      "source_url": "https://styloo.itch.io/animals",
+      "author": "styloo",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 in itch metadata and the author's page note. The free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "stylooanimalassetpack.zip, 0 USD. The 3 USD blend was not taken.",
+      "sha256": "8f54c61237dbef43df022beb250be740ffeb9da931abaa4e0b9ffa2bd860ed1c",
+      "needs": [
+        "İHT-0383"
+      ],
+      "conversion": "Source glB kept. Size 0.29 x 0.71 x 1.02 m, need 0.45 x 0.80 x 1.10 m. Not wired."
+    },
+    {
+      "path": "assets/hayvan/styloo/kopek_dog_color.png",
+      "package": "HYV02",
+      "source_url": "https://styloo.itch.io/animals",
+      "author": "styloo",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 in itch metadata and the author's page note. The free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "stylooanimalassetpack.zip, 0 USD. The 3 USD blend was not taken.",
+      "sha256": "08d0266a9c6e354ca893080110b01d2b4a40fa29d7b3351a0242510151ee4dfb",
+      "needs": [],
+      "conversion": "Texture extracted by Godot from the dog glB."
+    },
+    {
+      "path": "assets/hayvan/styloo/kopek_dog_normal.png",
+      "package": "HYV02",
+      "source_url": "https://styloo.itch.io/animals",
+      "author": "styloo",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_text": "CC0 in itch metadata and the author's page note. The free zip has no separate license file.",
+      "download_date": "2026-10-24",
+      "tier": "stylooanimalassetpack.zip, 0 USD. The 3 USD blend was not taken.",
+      "sha256": "38bd248576da1d38f014b607baf213f3e4064f33e2a6c000bb583c8b14c2c265",
+      "needs": [],
+      "conversion": "Texture extracted by Godot from the dog glB."
     }
   ],
   "checks": {
