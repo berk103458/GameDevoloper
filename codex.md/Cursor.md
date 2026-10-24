@@ -5,7 +5,7 @@ Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Curs
 
 ## Karakter — 24 Ekim 2026
 
-KAR02 ücretsiz: demirci 1,80 m ve çocuk 1,27 m glTF, T-pozu, bağlanmadı. Avcı ihtiyaç satırı yok. KAR05, C07, C10 imzalı indirme engellendi, atlandı. Tam sanity yok. Kota görünmüyor.
+KAR02 ücretsiz: demirci 1,80 m ve çocuk 1,27 m glTF, T-pozu, bağlanmadı. Avcı ihtiyaç satırı yok. KAR05, C07, C10 imzalı indirme engellendi, atlandı. Tam sanity yok. Kota görünmüyor. Commit `0daf072`.
 
 ## Test kuralı — 24 Ekim 2026 (Ahmet)
 
