@@ -72,22 +72,26 @@ static func mesale_kur(kok: Node3D, konum: Vector3, guc: float = 2.6, menzil: fl
 	var alev := Node3D.new()
 	alev.position = konum + Vector3(0, 1.9, 0)
 	kok.add_child(alev)
-	for katman in [[0.11, 0.5, MESALE_ALEV_DIS, 2.2], [0.06, 0.3, MESALE_ALEV_IC, 2.8]]:
-		var mi := MeshInstance3D.new()
-		var koni := CylinderMesh.new()
-		koni.top_radius = 0.0
-		koni.bottom_radius = katman[0]
-		koni.height = katman[1]
-		koni.radial_segments = 8
-		mi.mesh = koni
-		mi.position.y = katman[1] / 2.0
-		var mat := StandardMaterial3D.new()
-		mat.albedo_color = Color.BLACK
-		mat.emission_enabled = true
-		mat.emission = katman[2]
-		mat.emission_energy_multiplier = katman[3]
-		mi.material_override = mat
-		alev.add_child(mi)
+	var hazir_alev := HazirAtesEfektleri.olustur("alev", 0.65, 12)
+	if hazir_alev != null:
+		alev.add_child(hazir_alev)
+	else:
+		for katman in [[0.11, 0.5, MESALE_ALEV_DIS, 2.2], [0.06, 0.3, MESALE_ALEV_IC, 2.8]]:
+			var mi := MeshInstance3D.new()
+			var koni := CylinderMesh.new()
+			koni.top_radius = 0.0
+			koni.bottom_radius = katman[0]
+			koni.height = katman[1]
+			koni.radial_segments = 8
+			mi.mesh = koni
+			mi.position.y = katman[1] / 2.0
+			var mat := StandardMaterial3D.new()
+			mat.albedo_color = Color.BLACK
+			mat.emission_enabled = true
+			mat.emission = katman[2]
+			mat.emission_energy_multiplier = katman[3]
+			mi.material_override = mat
+			alev.add_child(mi)
 	var isik := OmniLight3D.new()
 	isik.light_color = Renkler.MESALE
 	isik.light_energy = guc

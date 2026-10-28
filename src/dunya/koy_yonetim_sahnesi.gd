@@ -223,7 +223,9 @@ func _meydan_kur() -> void:
 		tas.position = Vector3(cos(a), 0.1, sin(a)) * 0.65
 		tas.material_override = Pbr.malzeme("aerial_rocks_02", 1.0)
 		ocak.add_child(tas)
-	var alev := KapiManzarasi.alev(1.1, 1.0, 3)
+	var alev: Node3D = HazirAtesEfektleri.olustur("ocak", 1.1, 24)
+	if alev == null:
+		alev = KapiManzarasi.alev(1.1, 1.0, 3)
 	alev.position.y = 0.5
 	ocak.add_child(alev)
 	_ates_isigi = OmniLight3D.new()

@@ -17,27 +17,41 @@ static func kur(s: KoyYonetimSahnesi, n: Node3D, b: KoyBinasi) -> void:
  var boy := b.boyut(s.yonetim.katalog)
  for tur in AYAR.turler[b.tur]:
   var d: Dictionary = AYAR.efektler[tur]
-  var p := CPUParticles3D.new()
+  var p: GeometryInstance3D
+  if tur == "duman":
+   p = HazirAtesEfektleri.olustur("duman", 1.0, int(d.adet))
+  if p == null:
+   p = CPUParticles3D.new()
+   p.name = tur
+   p.emitting = false
+   p.amount = int(d.adet)
+   p.lifetime = float(d.sure)
+   p.fixed_fps = int(AYAR.fixed_fps)
+   p.direction = Vector3(d.yon[0], d.yon[1], d.yon[2])
+   p.gravity = Vector3.UP * float(d.yercekimi)
+   p.initial_velocity_min = float(d.hiz[0])
+   p.initial_velocity_max = float(d.hiz[1])
+   p.spread = float(d.yayilim)
+   p.color = Color(d.renk)
+   p.local_coords = false
+   p.use_fixed_seed = true
+   p.seed = b.id
+   p.mesh = _yer_tutucu(d)
   p.name = tur
   p.emitting = false
-  p.amount = int(d.adet)
-  p.lifetime = float(d.sure)
-  p.fixed_fps = int(AYAR.fixed_fps)
-  p.direction = Vector3(d.yon[0], d.yon[1], d.yon[2])
-  p.gravity = Vector3.UP * float(d.yercekimi)
-  p.initial_velocity_min = float(d.hiz[0])
-  p.initial_velocity_max = float(d.hiz[1])
-  p.spread = float(d.yayilim)
-  p.color = Color(d.renk)
-  p.local_coords = false
-  p.use_fixed_seed = true
-  p.seed = b.id
-  p.mesh = _yer_tutucu(d)
+  p.set_meta("taban_adet", int(d.adet))
   p.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
   p.visibility_aabb = AABB(Vector3(-3, -2, -3), Vector3(6, 8, 6))
-  p.position = Vector3((boy.x - 1) * s.HUCRE / 2, float(d.yukseklik), boy.y * s.HUCRE / 2)
+  p.position = Vector3(0.5, 3.2, -0.3) if tur == "duman" else Vector3((boy.x - 1) * s.HUCRE / 2, float(d.yukseklik), boy.y * s.HUCRE / 2)
   fx.efektler[tur] = p
   fx.add_child(p)
+ if b.tur in ["demirhane", "firin"]:
+  var ocak := HazirAtesEfektleri.olustur("ocak", 0.6, 12)
+  if ocak != null:
+   ocak.position = Vector3((boy.x - 1) * s.HUCRE / 2, 0.5, boy.y * s.HUCRE / 2)
+   ocak.emitting = false
+   fx.add_child(ocak)
+   fx.efektler["hazir_ocak"] = ocak
  n.add_child(fx)
 
 ## Görsel LOD bütçesi; grafik adaptörünün düşük profilde kapattığı katmanı açmaz.
@@ -69,11 +83,11 @@ func guncelle() -> void:
    else:
     calisiyor = calisiyor or (ZanaatTezgahi.aday(sahne.yonetim, k, sahne.halk_hareketi.faz_adi) and ZanaatTezgahi.aktif(sahne.yonetim, k))
  for tur in efektler:
-  var p: CPUParticles3D = efektler[tur]
+  var p = efektler[tur]
   var oran := katsayi(sahne.kamera.global_position.distance_to(p.global_position), p.layers)
   var aktif := calisiyor and oran > 0 and not sahne.kamera.is_position_behind(p.global_position)
   if oran > 0:
-   var adet := maxi(1, ceili(float(AYAR.efektler[tur].adet) * oran))
+   var adet := maxi(1, ceili(float(p.get_meta("taban_adet", 1)) * oran))
    if p.amount != adet: p.amount = adet
   p.emitting = aktif
   p.visible = aktif

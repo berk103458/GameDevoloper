@@ -1,5 +1,9 @@
 # İhtiyaç ana listesi — asset araştırması 2. tur (Kalfa)
 
+## 28 Ekim — HAE-05 Dokulu GPU meşale, ocak ve baca (Kalfa)
+
+İHT-0150 (uyarlama), İHT-0157 (uyarlama) — **bağlandı (Kalfa)**. src/koy/gorsel/hazir_ates_efektleri.gd: meşalede Kenney alevi, meydan/çalışan ocakta Kronbits ateşi, bacada Kenney dumanı. Her emitörde en çok 32 parçacık, gölge yok; atölye aktifliği/LOD ve düşük grafik profili korunur. Baca MegaKit tuğla modülünden 3,20 m tepeyle kuruldu. hazir_vfx_kontrol, atolye_parcaciklari_kontrol, hazir_koy_yapilari_kontrol ve koy_hareket_kontrol geçti; gerçek Vulkan gece renderı TEMP/kalfa_entegrasyon_20261028/gece_vfx.png. Yağmur/kar, özel kıvılcım ve ışık maskesi bu teslimle tamamlandı sayılmaz; UI/harita/portre değişmedi.
+
 ## 28 Ekim — HAE-04 Hazır Ses bağlantıları ve kısa dere döngüsü (Kalfa)
 
 İHT-0468, İHT-0469, İHT-0471, İHT-0479, İHT-0470 (kısmi), İHT-0481 (kısmi), İHT-0485 (kısmi) — **bağlandı (Kalfa)**. src/ses/hazir_ses_kaynaklari.gd mevcut Ses anahtarlarını hazır kayıtlara yönlendirir. Kapı/kese/sikke mevcut tetiklerde, adım gerçek yer değişiminde, örs mevcut dov çalışma duruşunda. Dere assets/ses/quendel/dere_dongu.ogg 8 sn/57.218 bayt; yumuşak çapraz birleşim, OGG loop=true; özgün WAV korunur. Atıf ve türev kaynak hash kayıtları eklendi. Import, hazir_ses_kontrol, koy_ortam_kontrol, zanaat_tezgahi_kontrol ve ses birim testi geçti; kullanıcı bus/susturma ve müzik anahtarları korundu.

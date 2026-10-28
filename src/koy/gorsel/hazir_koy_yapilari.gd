@@ -24,6 +24,8 @@ static func kur(n: Node3D, tur: String, en: float, derin: float) -> bool:
 	tamam = _parca(kabuk, duvar, Vector3(0.95, 0.2, 0.18), Vector3(0, 1.94, d / 2 - 0.09)) and tamam
 	tamam = _parca(kabuk, "Window_Thin_Round1", Vector3(0.6, 0.9, 0.12), Vector3(-w / 3, 0.9, d / 2)) and tamam
 	tamam = _parca(kabuk, "Roof_RoundTiles_4x6", Vector3(w, 0.86, d), Vector3(0, 2.14, 0)) and tamam
+	if tur in ["demirhane", "firin"]:
+		tamam = _parca(kabuk, "Wall_UnevenBrick_Straight", Vector3(0.35, 0.55, 0.35), Vector3(0.5, 2.65, -0.3)) and tamam
 	if not tamam:
 		kabuk.free()
 		return false

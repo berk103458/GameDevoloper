@@ -11,7 +11,7 @@ func _calistir() -> void:
 		var a := Dunya3B._kutu(n)
 		print(tur, " envelope=", a)
 		assert(absf(a.position.y) < 0.01)
-		assert(a.size.x < 4.0 and a.size.z < 4.0 and a.size.y <= 3.01)
+		assert(a.size.x < 4.0 and a.size.z < 4.0 and a.size.y <= (3.21 if tur == "demirhane" else 3.01))
 		assert(n.get_node_or_null("megakit_yapi/Door_1_Flat") != null)
 		n.free()
 	var n := Node3D.new()

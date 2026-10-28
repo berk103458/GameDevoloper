@@ -61,13 +61,13 @@ func _ready() -> void:
   s.kamera.look_at(fx.global_position)
   fx.guncelle()
   for tur in fx.efektler:
-   var p: CPUParticles3D = fx.efektler[tur]
-   kontrol(p.emitting and p.mesh is BoxMesh and p.fixed_fps == 20, "Çalışma durağında gerçek CPU parçacığı/kutu")
-   kontrol(p.amount == int(AtolyeParcaciklari.AYAR.efektler[tur].adet), "Yakında sınırlı tam bütçe")
+   var p = fx.efektler[tur]
+   kontrol(p.emitting and ((p is GPUParticles3D and p.draw_pass_1 is QuadMesh) or (p is CPUParticles3D and p.mesh is BoxMesh)) and p.fixed_fps == 20, "Çalışma durağında hazır dokulu GPU veya korunmuş CPU parçacığı")
+   kontrol(p.amount == int(p.get_meta("taban_adet", 1)), "Yakında sınırlı tam bütçe")
   s.kamera.position = fx.global_position + Vector3(0, 0, 40)
   s.kamera.look_at(fx.global_position)
   fx.guncelle()
-  for tur in fx.efektler: kontrol(fx.efektler[tur].amount <= ceili(AtolyeParcaciklari.AYAR.efektler[tur].adet * 0.5), "Orta mesafede yarım bütçe")
+  for tur in fx.efektler: kontrol(fx.efektler[tur].amount <= ceili(float(fx.efektler[tur].get_meta("taban_adet", 1)) * 0.5), "Orta mesafede yarım bütçe")
   s.kamera.position = fx.global_position + Vector3(0, 0, 100)
   s.kamera.look_at(fx.global_position)
   fx.guncelle()
