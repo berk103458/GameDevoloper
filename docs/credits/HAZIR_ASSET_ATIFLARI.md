@@ -166,3 +166,7 @@
 - Lisans: **CC0**. Ücretsiz zipte ayrı lisans dosyası görülmedi; itch kaydı CC0.
 - Edinim: **24 Ekim 2026**, yalnız ücretsiz zip.
 - Dosyalar: `assets/vfx/kronbits/ates_01.png`. Özgün ad `fire_1.png`. Büyü, namlu ve yıldız yok.
+
+## 28 Ekim 2026 — LOWPO hareket uyarlaması (Kalfa)
+
+`data/animasyon/ual_referans.json`, Ahmet’in bu konuşmadaki açık onayıyla daha önce indirilmiş yerel dosyalardan çıkarılan sayısal kemik hiyerarşisi/rest referansıdır. Ham GLB/geometri/doku repoya eklenmedi, yeni indirme yapılmadı. A01/A02: Quaternius, CC0 1.0 (repo lisansı `assets/animasyon/quaternius/LICENSE.txt`). A03 yalnız UAL’de olmayan çekiç döngüsü için: Kay Lousberg, CC0 1.0 (`assets/animasyon/kaykit/LICENSE.txt`). Kaynak dosya adları ve SHA-256 değerleri referansın her grubunda saklıdır. Kaynak rest/poz farkı hedef LOWPO’nun rest matrislerine uygulanır; sonuçlar bellek içi AnimationLibrary'dir. LOWPO kaynakları StandOut7’nin ücretsiz KAR02 katmanıdır; önceki atıf/lisans kayıtları korunur.

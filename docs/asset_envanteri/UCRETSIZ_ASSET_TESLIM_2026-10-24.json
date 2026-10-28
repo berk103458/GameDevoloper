@@ -3518,6 +3518,33 @@
         "İHT-0481"
       ],
       "status": "bağlandı (Kalfa), kısmi gündüz dere katmanı; köy çekiç/koyun bütünü değildir"
+    },
+    {
+      "path": "data/animasyon/ual_referans.json",
+      "package": "A01/A02/A03",
+      "authors": [
+        "Quaternius",
+        "Kay Lousberg"
+      ],
+      "source_urls": [
+        "https://quaternius.itch.io/universal-animation-library",
+        "https://quaternius.itch.io/universal-animation-library-2",
+        "https://kaylousberg.itch.io/kaykit-character-animations"
+      ],
+      "license": "CC0-1.0; özgün repo lisansları korunur",
+      "download_date": "2026-10-24",
+      "modified_date": "2026-10-28",
+      "modification": "Ahmet onaylı yerel kaynaklardan yalnız 65+65+23 kemik/rest dönüşümü; ham model yok. Gruplarda özgün dosya SHA-256 ve lisans metni yolu bulunur.",
+      "sha256": "626a2db11eed38fb1cc0ce3766135e26c5090ed7ace4e74f27814a6fe9f7637f",
+      "needs": [
+        "İHT-0357",
+        "İHT-0431",
+        "İHT-0444",
+        "İHT-0445",
+        "İHT-0452",
+        "İHT-0453",
+        "İHT-0524"
+      ]
     }
   ]
 }

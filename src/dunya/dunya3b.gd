@@ -147,6 +147,8 @@ static func boyut(n: Node3D) -> Vector3:
 
 ## Karakter modeli adı: adlı karakter id'si, portre kökü ya da sınıf.
 static func karakter_adi(adli_id: StringName, portre: String, sinif: StringName) -> String:
+	if adli_id == &"chr_006":
+		return String(adli_id)
 	if adli_id != &"" and _yol(String(adli_id) + "_yuru", "karakter") != "":
 		return String(adli_id)
 	if PORTRE_MODEL.has(portre):
@@ -188,8 +190,17 @@ static func _kutu(n: Node) -> AABB:
 
 ## Yürüyen karakter: `<ad>_yuru.glb` (iskelet + yürüme animasyonu); yoksa kapsül.
 static func karakter(ad: String) -> KarakterModel:
+	var hazir := HazirKarakterler.olustur(ad)
+	if hazir != null:
+		hazir.name = ad
+		hazir.set_meta("model_adi", ad)
+		hazir.add_child(preload("res://src/ses/hazir_adim_sesi.gd").new())
+		SiraOlayiKisisi.model_kur(hazir, ad)
+		_el_esyalari_tak(hazir, ad)
+		return hazir
 	var k := KarakterModel.new()
 	k.name = ad
+	k.set_meta("model_adi", ad)
 	k.add_child(preload("res://src/ses/hazir_adim_sesi.gd").new())
 	var yol := _yol(ad + "_yuru", "karakter")
 	if yol != "":

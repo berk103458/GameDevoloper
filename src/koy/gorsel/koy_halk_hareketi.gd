@@ -41,7 +41,7 @@ func yenile() -> void:
 	for k in sahne.yonetim.koylular.slice(0, KoyYonetimSahnesi.AZAMI_KOYLU):
 		kalan[k.id] = true
 		if not modeller.has(k.id):
-			var f := Dunya3B.karakter(Dunya3B.karakter_adi(k.adli_id, k.portre, k.sinif))
+			var f := Dunya3B.karakter(HazirKarakterler.koy_adi(k, Dunya3B.karakter_adi(k.adli_id, k.portre, k.sinif)))
 			sahne._halk.add_child(f)
 			f.set_meta("koylu_id", k.id)
 			var m := sahne.yonetim.a.meydan
@@ -51,6 +51,7 @@ func yenile() -> void:
 			KarakterBeklemeCesitliligi.uygula(f, k.id)
 			preload("res://src/koy/gorsel/acilis_hane_gorunumu.gd").kur(f, k)
 			_durum[k.id] = {"yol": [], "adim": 0, "bekle": 0.0, "dinlen": false, "is": false, "bak": f.position, "devriye_i": k.id, "devriye": false}
+		HazirKarakterler.gorunumu_yenile(self, k)
 		_iste(k.id)
 	for id in modeller.keys():
 		if not kalan.has(id):

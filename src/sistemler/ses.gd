@@ -60,6 +60,7 @@ func _onbellekleri_bosalt() -> void:
 	Dunya3B._onbellek.clear()
 	Dunya3B._el_esyalari.clear()
 	KarakterModel._klip_onbellek.clear()
+	HazirKarakterler._kitaplar.clear()
 	DurusDuzeltici._sekil_onbellek.clear()
 	KapiManzarasi._gurultu = null
 	# Özel fare imleci (ana.gd) Input'ta kalır; Input görüntü sunucusundan sonra kapanır.
