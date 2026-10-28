@@ -239,3 +239,5 @@ HAE-02 açık bırakıldı: kaynak UAL rig/rest metaverisi repoda yok, hatalı L
 ## 28 Ekim — HAE-03 Eşya ve hayvan sahne bağlantıları (Kalfa)
 
 src/koy/gorsel/hazir_esya_hayvan.gd: örs/çekiç tezgâhta, balta oduncuda, kazma/odun mevcut ElEsyasi soketinde; masa/yatak MuhafizOdasi içinde. Sürüde statik koyun, satın alınmış inek, kapı yanında mevcut idle klipli köpek. Kaynak oranları ve y=0 taban denetlendi; gerçek render TEMP/kalfa_entegrasyon_20261028/ilk_gruplar.png. Vertexcat hayvanların yürüme/otlama klibi yok, köpek Kangal değil; öküz, koç/beygir kutuları ve tüm üretim/sayı/rota verisi korunur. Demir çubuğu yalnız dekor, İHT-0439 ham blok kapanmadı. Import, yeni hazır eşya-hayvan testi ve çoban/celep/zanaat/oduncu/hava/oda hedefli testleri geçti. Eski kutu beklentileri gerçek model bağlantısı kontrolüyle güncellendi. Tam sanity yok. Kullanıcı talimatıyla project.godot korunur. Kota sonraki kontrol noktasında ölçülür.
+
+HAE-03 yayın 562519f8. HAE-04 üstlenildi: mevcut Ses anahtarlarını hazır kaynaklara yönlendirme; 23 MB dere WAV’ından yerel PyAV ile 8 sn/22.05 kHz mono Vorbis türevi (57.218 bayt) hazır, henüz commit edilmedi.
