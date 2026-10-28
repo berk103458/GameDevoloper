@@ -245,3 +245,5 @@ HAE-03 yayın 562519f8. HAE-04 üstlenildi: mevcut Ses anahtarlarını hazır ka
 ## 28 Ekim — HAE-04 Hazır Ses bağlantıları ve kısa dere döngüsü (Kalfa)
 
 src/ses/hazir_ses_kaynaklari.gd mevcut Ses anahtarlarını hazır kayıtlara yönlendirir. Kapı/kese/sikke mevcut tetiklerde, adım gerçek yer değişiminde, örs mevcut dov çalışma duruşunda. Dere assets/ses/quendel/dere_dongu.ogg 8 sn/57.218 bayt; yumuşak çapraz birleşim, OGG loop=true; özgün WAV korunur. Atıf ve türev kaynak hash kayıtları eklendi. Import, hazir_ses_kontrol, koy_ortam_kontrol, zanaat_tezgahi_kontrol ve ses birim testi geçti; kullanıcı bus/susturma ve müzik anahtarları korundu. Tam sanity yok. Kullanıcı talimatıyla project.godot korunur. Kota sonraki kontrol noktasında ölçülür.
+
+HAE-04 yayın b373744f. HAE-05 üstlenildi: izinli hazır dokulu GPUParticles3D; mevcut meşale ışığı, meydan ateşi ve atölye aktiflik/LOD akışına ince bağlantı. Yeni asset indirme/2D/UI yok.
