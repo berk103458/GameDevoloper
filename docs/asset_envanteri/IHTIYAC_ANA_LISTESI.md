@@ -1,5 +1,9 @@
 # İhtiyaç ana listesi — asset araştırması 2. tur (Kalfa)
 
+## 28 Ekim — HAE-01 MegaKit köy yapıları (Kalfa)
+
+İHT-0372, İHT-0397 — **bağlandı (Kalfa)**. Hazır kapalı yapı kabuğu src/koy/gorsel/hazir_koy_yapilari.gd ve yağmur saçağı karakter_hava_tepkisi.gd üzerinden bağlandı. Konut 3×3×3 m, diğer kabuk mevcut ızgarada; özgül endüstri içi, tarla, ağıl, iskele ve eski çalışan modeller korunur. Import kurtarma kipinde temiz; hazir_koy_yapilari_kontrol ve koy_hareket_kontrol geçti. İlk importta Cursor karşılaştırma önizlemesinin look_at hatası vardı; kaynak değiştirilmeden editor araçları kapatılarak import ve normal runtime testiyle ayrıştırıldı.
+
 ## 24 Ekim 2026 — A03 animasyon teslimi (Kalfa)
 
 A03 ücretsiz CC0 katmanından **6 kitaplık / 9 klip eklendi**; 8 ihtiyaç **kısmi/uyarlama**, tam kapanış 0. Retarget deneyinde Idle_A 19/21 iz eşleşti; poz ve bütün karakterlerde görsel kabul açık. Mevcut hareketler değiştirilmedi. [Dosya/ID ve kabul kaydı](UCRETSIZ_ASSET_EKLEME_2026-10-24.md).

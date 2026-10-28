@@ -32,6 +32,12 @@ static func hedef(h: KoyHalkHareketi, k: Koylu, bas: Vector2i) -> Dictionary:
 ## Tek değişim noktası: ön durak üzerinde düz renk kutu saçak yer tutucusu.
 static func sacak_kur(s: KoyYonetimSahnesi, n: Node3D, b: KoyBinasi) -> void:
  if b.tur not in AYAR.sacak_turleri: return
+ var hazir := HazirKoyYapilari.sacak(Vector3(AYAR.sacak_boy[0], AYAR.sacak_yukseklik, AYAR.sacak_boy[2]))
+ if hazir != null:
+  hazir.name = "hava_sacagi_hazir"
+  hazir.position = s.alan_merkezi(durak(s.yonetim, b), Vector2i.ONE) - s.alan_merkezi(b.hucre, b.boyut(s.yonetim.katalog))
+  n.add_child(hazir)
+  return
  var m := MeshInstance3D.new()
  m.name = "hava_sacagi_yer_tutucu"
  var kutu := BoxMesh.new()

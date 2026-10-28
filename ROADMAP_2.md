@@ -8993,7 +8993,7 @@ Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı
 
 Yalnız repodaki hazır 3D, animasyon, ses ve VFX kaynakları bağlanır. Mekanik, diyalog, denge ve 2D değişmez. Tam sanity yalnız Ahmet ayrıca isterse çalıştırılır; bölüm hedefli headless import/parse ve sahne testleriyle doğrulanır.
 
-- [/] **HAE-01:** Köyün kutu yapılarını MegaKit modülleriyle değiştir. (Kalfa)
+- [x] **HAE-01:** Köyün kutu yapılarını MegaKit modülleriyle değiştir. (Kalfa)
   - Dosya: `src/koy/gorsel/hazir_koy_yapilari.gd`, `src/dunya/koy_yonetim_sahnesi.gd`.
   - Kabul: hazır konut/kapalı yapı kabuğu ve saçak tek görsel ailede; taban y=0, mevcut ızgara zarfı aşılmaz. İnşaat iskeleleri ve tarla/ağıl mekaniği korunur; eksik özgül yapı etiketlenir. İHT-0372/0397 bağlantısı ve hedefli geometri/yenileme testi.
 - [ ] **HAE-02:** LOWPO demirci/çocuk ve UAL idle/yürüme/iş kliplerini ilgili rollere bağla.
