@@ -78,6 +78,10 @@ func _kur(f: KarakterModel, tur: String) -> bool:
  alet = _ekipman.tak(tur, alet, self)
  _uc = alet.get_node("alet_uc")
  _uc.transform = Transform3D.IDENTITY
+ if AYAR.turler[tur] != "pisir":
+  var ses = preload("res://src/ses/hazir_ors_sesi.gd").new()
+  ses.karakter = f
+  add_child(ses)
  return true
 func _exit_tree() -> void:
  if is_instance_valid(_ekipman): _ekipman.depoladir(self)

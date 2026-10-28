@@ -1,5 +1,9 @@
 # İhtiyaç ana listesi — asset araştırması 2. tur (Kalfa)
 
+## 28 Ekim — HAE-04 Hazır Ses bağlantıları ve kısa dere döngüsü (Kalfa)
+
+İHT-0468, İHT-0469, İHT-0471, İHT-0479, İHT-0470 (kısmi), İHT-0481 (kısmi), İHT-0485 (kısmi) — **bağlandı (Kalfa)**. src/ses/hazir_ses_kaynaklari.gd mevcut Ses anahtarlarını hazır kayıtlara yönlendirir. Kapı/kese/sikke mevcut tetiklerde, adım gerçek yer değişiminde, örs mevcut dov çalışma duruşunda. Dere assets/ses/quendel/dere_dongu.ogg 8 sn/57.218 bayt; yumuşak çapraz birleşim, OGG loop=true; özgün WAV korunur. Atıf ve türev kaynak hash kayıtları eklendi. Import, hazir_ses_kontrol, koy_ortam_kontrol, zanaat_tezgahi_kontrol ve ses birim testi geçti; kullanıcı bus/susturma ve müzik anahtarları korundu.
+
 ## 28 Ekim — HAE-03 Eşya ve hayvan sahne bağlantıları (Kalfa)
 
 İHT-0342, İHT-0350 (kısmi), İHT-0384, İHT-0388 (kısmi), İHT-0413, İHT-0414, İHT-0380, İHT-0403, İHT-0383 (kısmi) — **bağlandı (Kalfa)**. src/koy/gorsel/hazir_esya_hayvan.gd: örs/çekiç tezgâhta, balta oduncuda, kazma/odun mevcut ElEsyasi soketinde; masa/yatak MuhafizOdasi içinde. Sürüde statik koyun, satın alınmış inek, kapı yanında mevcut idle klipli köpek. Kaynak oranları ve y=0 taban denetlendi; gerçek render TEMP/kalfa_entegrasyon_20261028/ilk_gruplar.png. Vertexcat hayvanların yürüme/otlama klibi yok, köpek Kangal değil; öküz, koç/beygir kutuları ve tüm üretim/sayı/rota verisi korunur. Demir çubuğu yalnız dekor, İHT-0439 ham blok kapanmadı. Import, yeni hazır eşya-hayvan testi ve çoban/celep/zanaat/oduncu/hava/oda hedefli testleri geçti. Eski kutu beklentileri gerçek model bağlantısı kontrolüyle güncellendi.

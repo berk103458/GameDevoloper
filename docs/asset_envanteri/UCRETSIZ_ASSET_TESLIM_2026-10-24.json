@@ -3499,5 +3499,25 @@
         "sha256": "506e4ffe4f34f5db8d32553c8b09d576c8393912e894eb75b14752b8ba050f3a"
       }
     ]
-  }
+  },
+  "derived_files": [
+    {
+      "path": "assets/ses/quendel/dere_dongu.ogg",
+      "package": "ORT14",
+      "source_url": "https://gregor-quendel.itch.io/free-water-stream-sounds",
+      "author": "Gregor Quendel",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "download_date": "2026-10-24",
+      "modified_date": "2026-10-28",
+      "modification": "ogg'a çevrildi (Kalfa); 4–13 sn kaynak aralığı; 1 sn doğrusal çapraz geçiş; 8 sn / 22050 Hz mono / Vorbis 48 kbit/sn",
+      "source_path": "assets/ses/quendel/dere_01.wav",
+      "sha256": "f890a68f4151a98491bd710427668b425482014438cd131887765f9ec62176e2",
+      "source_sha256": "80f33a48d996cece17e0621199705c3a540bd2328b53ccdb3e8b479d41ef1085",
+      "needs": [
+        "İHT-0481"
+      ],
+      "status": "bağlandı (Kalfa), kısmi gündüz dere katmanı; köy çekiç/koyun bütünü değildir"
+    }
+  ]
 }

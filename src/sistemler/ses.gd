@@ -204,6 +204,9 @@ func _dongu(o: AudioStreamPlayer, ad: String, db: float = 0.0) -> void:
 		w.loop_begin = 0
 		w.loop_end = int(w.get_length() * w.mix_rate)
 		akis = w
+	elif akis is AudioStreamOggVorbis:
+		akis = akis.duplicate()
+		(akis as AudioStreamOggVorbis).loop = true
 	if akis == null:
 		return
 	o.stream = akis
@@ -214,7 +217,7 @@ func _dongu(o: AudioStreamPlayer, ad: String, db: float = 0.0) -> void:
 func _akis(ad: String) -> AudioStream:
 	if _onbellek.has(ad):
 		return _onbellek[ad]
-	var yol := KOK + ad + ".wav"
+	var yol := HazirSesKaynaklari.yol(ad)
 	var a: AudioStream = load(yol) if ResourceLoader.exists(yol) else null
 	_onbellek[ad] = a
 	return a

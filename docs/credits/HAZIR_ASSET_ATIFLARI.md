@@ -123,6 +123,7 @@
 - Edinim: **24 Ekim 2026**, yalnız ücretsiz WAV. Atıf gerekir.
 - Atıf: “Free Water Stream Sounds — Gregor Quendel, CC BY 4.0.”
 - Dosyalar: `assets/ses/quendel/dere_01.wav`. Özgün ad: Gregor Quendel - Free Water Stream Sounds - 01.wav. Ses değiştirilmedi.
+- Türev: `assets/ses/quendel/dere_dongu.ogg` — **ogg'a çevrildi (Kalfa)**, 28 Ekim 2026. Özgün kaydın 4–13 sn aralığından 1 sn doğrusal çapraz geçişle 8 sn kesintisiz döngü; 22.050 Hz mono Vorbis / 48 kbit/sn, 57.218 bayt. Kaynak WAV korunur; runtime yalnız kısa OGG kullanır. CC BY 4.0 atfı aynen geçerlidir.
 
 ## FOL11 ve FOL14 — heyheythere
 

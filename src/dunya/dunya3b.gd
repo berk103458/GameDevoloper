@@ -186,6 +186,7 @@ static func _kutu(n: Node) -> AABB:
 static func karakter(ad: String) -> KarakterModel:
 	var k := KarakterModel.new()
 	k.name = ad
+	k.add_child(preload("res://src/ses/hazir_adim_sesi.gd").new())
 	var yol := _yol(ad + "_yuru", "karakter")
 	if yol != "":
 		k.kur((_sahne(yol)).instantiate(), ad)

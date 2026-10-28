@@ -9003,7 +9003,7 @@ Yalnız repodaki hazır 3D, animasyon, ses ve VFX kaynakları bağlanır. Mekani
 - [x] **HAE-03:** Örs/alet/masa/yatak/odun ve koyun/inek/köpek sahne bağlantıları.
   - Dosya: `src/koy/gorsel/hazir_esya_hayvan.gd`, mevcut zanaat/hayvan görsel adaptörleri.
   - Kabul: gerçek kullanım noktaları, metre ölçeği, yerde doğru pivot; mevcut öküz dosyası korunur. Mevcut sürü/üretim sayıları değişmez; bulunmayan eşya isim etiketli kalır. Bağlanan İHT'ler iki envantere yazılır.
-- [/] **HAE-04:** Hazır sesleri mevcut Ses üzerinden bağla; dere WAV'ını kısa döngülü OGG'a çevir.
+- [x] **HAE-04:** Hazır sesleri mevcut Ses üzerinden bağla; dere WAV'ını kısa döngülü OGG'a çevir.
   - Dosya: `src/ses/hazir_ses_kaynaklari.gd`, `src/sistemler/ses.gd`, `assets/ses/quendel/dere_dongu.ogg`, `docs/credits/HAZIR_ASSET_ATIFLARI.md`.
   - Kabul: kapı aç/kapa, adım, sikke, dere ve örs doğru tetiklerde; yeni autoload yok. Kısa OGG döngüsünde yumuşak birleşim, atıfta “ogg'a çevrildi (Kalfa)”; bus/susturma/kayıt mantığı korunur.
 - [ ] **HAE-05:** Meşale alevi, baca dumanı ve ocak ateşi GPUParticles3D bağlantıları.
