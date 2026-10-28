@@ -8996,7 +8996,7 @@ Yalnız repodaki hazır 3D, animasyon, ses ve VFX kaynakları bağlanır. Mekani
 - [x] **HAE-01:** Köyün kutu yapılarını MegaKit modülleriyle değiştir. (Kalfa)
   - Dosya: `src/koy/gorsel/hazir_koy_yapilari.gd`, `src/dunya/koy_yonetim_sahnesi.gd`.
   - Kabul: hazır konut/kapalı yapı kabuğu ve saçak tek görsel ailede; taban y=0, mevcut ızgara zarfı aşılmaz. İnşaat iskeleleri ve tarla/ağıl mekaniği korunur; eksik özgül yapı etiketlenir. İHT-0372/0397 bağlantısı ve hedefli geometri/yenileme testi.
-- [ ] **HAE-02:** LOWPO demirci/çocuk ve UAL idle/yürüme/iş kliplerini ilgili rollere bağla.
+- [/] **HAE-02:** LOWPO demirci/çocuk ve UAL idle/yürüme/iş kliplerini ilgili rollere bağla.
   - Engel (Kalfa, 28 Ekim): UAL .res kaynaklarında Skeleton3D/rest pozu yok; önceki karşılaştırma TEMP GLB’sini kullanıyor. Kullanıcı yalnız repo kaynaklarını yetkilendirdi. Eksik rig metaverisi gelmeden LOWPO’ya yanlış poz zorlanmaz; madde açık.
   - Dosya: `src/dunya/hazir_karakterler.gd`, `src/dunya/hazir_karakter_animasyonu.gd`, `src/dunya/dunya3b.gd`, `src/dunya/karakter_model.gd`.
   - Kabul: çocuk 1,15 m, yetişkin 1,80 m; rig/rest pozu dönüşümü, yürüyüş/idle geçişi ve iş hareketi hedefte denenir. UAL ana, A03 yalnız karşılığı yoksa; doğrulanmayan klip zorlanmaz. Mevcut CHR kimliği, rota ve çalışma mantığı korunur. İHT-0357/0431 ve doğrulanan hareketler işaretlenir.
