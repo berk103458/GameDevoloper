@@ -8,11 +8,7 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-24 Ekim — Ahmet/Muharrir onayıyla yalnız ücretsiz A sınıfı 3D/animasyon/ses tedariki başladı (Kalfa). Festive tam fetch/pull güncel: 75ae24b. A03 KayKit Character Animations Free 1.1 (CC0): dokuz gerekli özgün klip altı bağımsız Godot `.res` kitaplığına seçildi; ham ZIP, mankenler, kullanılmayan klipler, ücretli SOURCE ve 2D alınmadı. Dosya bazında URL/yazar/lisans/tarih/SHA-256 ve özgün lisans eklendi. İki envanterde sekiz ihtiyaç kısmi/uyarlama olarak kaydedildi; tam kapanan ihtiyaç sıfır. Idle_A → gerçek chr_001_yuru rig eşleme deneyi 19/21 iz (%90,48), iki handslot karşılıksız. Dinlenme pozu/gövde oranı ve görsel retarget kabulü tamamlanmadığı için mevcut animasyonlar değiştirilmedi; oyun mantığına dokunulmadı.
-
-Hedefli kaynak yükleme, 6 kitaplık/9 klip yeniden okuma, süre/iz ve sonlu anahtar zamanları geçti. Tam UTF-8 sanity Ahmet’in son talimatıyla durduruldu; tamamlandı denmez. 313 kontrol logu oluştu; temiz import ve 186 Python testi (1 atlanan) geçti. Başkasının 6 `.glb.import` ve project.godot değişiklikleri ile untracked dosyalar korunur. ROADMAP sahipliği alınmadı/değişmedi. ds çalışma ve GitHub ayna yolları yok; önceki izinli istisnayla atlandı. Kota son ölçüm: kısa dönem %4, haftalık %85 kaldı. Bu animasyon dilimi yayınlanınca yeni kategoriye başlanmaz; KAR02/KAR05 ve kalan eşya/çevre/hayvan/ses dilimleri bekliyor, engelli olarak gösterilmiyor.
-
-Son yön güncellemesi (24 Ekim, Ahmet/Muharrir): Quaternius ücretsiz sürümleri ve sınırlı VFX01/04/13/14/15 artık izinli. A03 ana kaynak değildir; A01/A02 ile gerçek rig karşılaştırması bekliyor. Çevrede E02 ile KayKit/LOKIT arasından tek aile seçilecek. CC0/QAL özgün lisans metni edinim tarihinde saklanacak. Diğer 2D yasağı ve ücretli katman yasağı sürer. Ayrıntılı izinli kuyruk teslim belgesine işlendi.
+28 Ekim — Hazır asset entegrasyonu başladı (Kalfa). Full fetch/pull --ff-only: e63875d güncel. Ahmet/Muharrir’in açık talimatıyla project.godot ve assets/model altındaki MCP import değişiklikleri restore edildi; izlenmeyen _tmp/_doc/_roadmap ve diğer ajan dosyaları korunur. HAE-01 sahiplenildi: mevcut köy yönetiminde yalnız görsel kabuk, MegaKit tek aile. Ardından HAE-02 karakter/UAL, HAE-03 eşya/hayvan, HAE-04 ses/dere OGG, HAE-05 VFX. Tam sanity yok; bölüm hedefli testler. Kota: kısa dönem %96, haftalık %99 kaldı. ds aynaları yoksa önceki izinli istisnayla atlanacak.
 
 ## Roller
 

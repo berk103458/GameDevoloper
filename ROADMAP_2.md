@@ -8988,3 +8988,23 @@ Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı
   - Asset: asset gerekmedi.
 
 ---
+
+## Hazır asset entegrasyonu — Ahmet/Muharrir, 28 Ekim 2026
+
+Yalnız repodaki hazır 3D, animasyon, ses ve VFX kaynakları bağlanır. Mekanik, diyalog, denge ve 2D değişmez. Tam sanity yalnız Ahmet ayrıca isterse çalıştırılır; bölüm hedefli headless import/parse ve sahne testleriyle doğrulanır.
+
+- [/] **HAE-01:** Köyün kutu yapılarını MegaKit modülleriyle değiştir. (Kalfa)
+  - Dosya: `src/koy/gorsel/hazir_koy_yapilari.gd`, `src/dunya/koy_yonetim_sahnesi.gd`.
+  - Kabul: hazır konut/kapalı yapı kabuğu ve saçak tek görsel ailede; taban y=0, mevcut ızgara zarfı aşılmaz. İnşaat iskeleleri ve tarla/ağıl mekaniği korunur; eksik özgül yapı etiketlenir. İHT-0372/0397 bağlantısı ve hedefli geometri/yenileme testi.
+- [ ] **HAE-02:** LOWPO demirci/çocuk ve UAL idle/yürüme/iş kliplerini ilgili rollere bağla.
+  - Dosya: `src/dunya/hazir_karakterler.gd`, `src/dunya/hazir_karakter_animasyonu.gd`, `src/dunya/dunya3b.gd`, `src/dunya/karakter_model.gd`.
+  - Kabul: çocuk 1,15 m, yetişkin 1,80 m; rig/rest pozu dönüşümü, yürüyüş/idle geçişi ve iş hareketi hedefte denenir. UAL ana, A03 yalnız karşılığı yoksa; doğrulanmayan klip zorlanmaz. Mevcut CHR kimliği, rota ve çalışma mantığı korunur. İHT-0357/0431 ve doğrulanan hareketler işaretlenir.
+- [ ] **HAE-03:** Örs/alet/masa/yatak/odun ve koyun/inek/köpek sahne bağlantıları.
+  - Dosya: `src/koy/gorsel/hazir_esya_hayvan.gd`, mevcut zanaat/hayvan görsel adaptörleri.
+  - Kabul: gerçek kullanım noktaları, metre ölçeği, yerde doğru pivot; mevcut öküz dosyası korunur. Mevcut sürü/üretim sayıları değişmez; bulunmayan eşya isim etiketli kalır. Bağlanan İHT'ler iki envantere yazılır.
+- [ ] **HAE-04:** Hazır sesleri mevcut Ses üzerinden bağla; dere WAV'ını kısa döngülü OGG'a çevir.
+  - Dosya: `src/ses/hazir_ses_kaynaklari.gd`, `src/sistemler/ses.gd`, `assets/ses/quendel/dere_dongu.ogg`, `docs/credits/HAZIR_ASSET_ATIFLARI.md`.
+  - Kabul: kapı aç/kapa, adım, sikke, dere ve örs doğru tetiklerde; yeni autoload yok. Kısa OGG döngüsünde yumuşak birleşim, atıfta “ogg'a çevrildi (Kalfa)”; bus/susturma/kayıt mantığı korunur.
+- [ ] **HAE-05:** Meşale alevi, baca dumanı ve ocak ateşi GPUParticles3D bağlantıları.
+  - Dosya: `src/koy/gorsel/hazir_ates_efektleri.gd`, `src/dunya/dunya3b.gd`, köy/atölye görsel adaptörleri.
+  - Kabul: yalnız mevcut izinli duman/alev/ışık dokuları; sınırlandırılmış parçacık miktarı, doğru yayın alanı, gece okunurluğu ve sahne temizliği. Elektrik/büyü ve 2D UI yok. İHT karşılıkları/testler kaydedilir.
