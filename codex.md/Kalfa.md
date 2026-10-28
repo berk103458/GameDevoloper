@@ -8,7 +8,9 @@ Kalfa, Ahmet’in Windows bilgisayarında Codex Pro ile çalışır. Repo yolu `
 
 ## Görev
 
-28 Ekim — Hazır asset entegrasyonu başladı (Kalfa). Full fetch/pull --ff-only: e63875d güncel. Ahmet/Muharrir’in açık talimatıyla project.godot ve assets/model altındaki MCP import değişiklikleri restore edildi; izlenmeyen _tmp/_doc/_roadmap ve diğer ajan dosyaları korunur. HAE-01 sahiplenildi: mevcut köy yönetiminde yalnız görsel kabuk, MegaKit tek aile. Ardından HAE-02 karakter/UAL, HAE-03 eşya/hayvan, HAE-04 ses/dere OGG, HAE-05 VFX. Tam sanity yok; bölüm hedefli testler. Kota: kısa dönem %96, haftalık %99 kaldı. ds aynaları yoksa önceki izinli istisnayla atlanacak.
+28 Ekim hazır asset entegrasyonu tamamlandı (Kalfa). HAE-01–05 [x], açık [/] yok. Ana yayınlar: df552f11 yapılar; 562519f8 eşya/hayvan; b373744f ses/dere OGG; e6414923 VFX; 452bb671 LOWPO/UAL. 27 İHT bağlantısı, kısmi gruplar tamamen kapanmadı. Ahmet yerel rig referansına onay verdi; yeni indirme/ham model/2D/UI/oyun mekaniği/diyalog/denge değişikliği yok. Çocuk 1,15 m, adsız demirci 1,80 m; UAL ana, yalnız çekiç A03 yedek. Adlı CHR'ler korunur. 16 hedefli test ve headless recovery import geçti; tam sanity çalıştırılmadı. Ayrıntı docs/denetim/HAZIR_ASSET_ENTEGRASYONU_2026-10-28.md.
+
+Son kullanıcı talimatı: görünür Godot penceresi açma; bundan sonra açıkça istenmedikçe yalnız headless hedefli kontrol. project.godot ve assets/model importları temizlendi; ilgisiz untracked dosyalar korundu. ds kopyaları yok, izinli istisnayla atlandı. Kota: kısa dönem %47, haftalık %92 kaldı. Yeni ROADMAP işi alınmadı.
 
 ## Roller
 
@@ -251,3 +253,7 @@ HAE-04 yayın b373744f. HAE-05 üstlenildi: izinli hazır dokulu GPUParticles3D;
 ## 28 Ekim — HAE-05 Dokulu GPU meşale, ocak ve baca (Kalfa)
 
 src/koy/gorsel/hazir_ates_efektleri.gd: meşalede Kenney alevi, meydan/çalışan ocakta Kronbits ateşi, bacada Kenney dumanı. Her emitörde en çok 32 parçacık, gölge yok; atölye aktifliği/LOD ve düşük grafik profili korunur. Baca MegaKit tuğla modülünden 3,20 m tepeyle kuruldu. hazir_vfx_kontrol, atolye_parcaciklari_kontrol, hazir_koy_yapilari_kontrol ve koy_hareket_kontrol geçti; gerçek Vulkan gece renderı TEMP/kalfa_entegrasyon_20261028/gece_vfx.png. Yağmur/kar, özel kıvılcım ve ışık maskesi bu teslimle tamamlandı sayılmaz; UI/harita/portre değişmedi. Tam sanity yok. Kullanıcı talimatıyla project.godot korunur. Kota sonraki kontrol noktasında ölçülür.
+
+## 28 Ekim — HAE-02 LOWPO karakter ve UAL hareket bağlantıları (Kalfa)
+
+src/dunya/hazir_karakterler.gd LOWPO çocuğu 1,15 m ve adsız demirci rolünü 1,80 m kurar. Adlı ustaların kimliği/modeli korunur. UAL A01 idle/yürüme/konuşma, A02 hasat; yalnız UAL'de olmayan çekiç için A03 Hammering. Ahmet yerel referans kullanımını açıkça onayladı: data/animasyon/ual_referans.json yalnız sayısal rig/rest ve kaynak hash, ham model ve yeni indirme yok. Skin bind adları eşlendi, kaynak global rest/poz farkı hedef rest üzerine 30 FPS uyarlandı. Rota yönünde kök hareketi yok. Meslek değişiminde aktör dönüşümü, kayıt/RNG ve rota durumu korunur. Prosedürel düzeltici LOWPO'da ikinci kez uygulanmaz. Hedefli karakter, CHR kapı/sıra sonucu/köy hareket/zanaat/ses testleri geçti. 44 Meshy karakterin tamamı yeniden retarget edildi sayılmaz. Orak aleti ve özgül usta varyantları açık. 452bb671 kod yayını; son talimat: görünür Godot açılmaz. Tam sanity yok. Kullanıcı talimatıyla project.godot korunur. Kota sonraki kontrol noktasında ölçülür.

@@ -35,4 +35,5 @@ static func _yer_tutucu(tur: String) -> Node3D:
  var mat := StandardMaterial3D.new()
  mat.albedo_color = Color(CelepHamdullah.AYAR.hayvanlar[tur].renk)
  n.material_override = mat
+ HazirSahneModeli.etiket(n, String(CelepHamdullah.AYAR.hayvanlar[tur].ad), box.size.y / 2 + 0.25)
  return n

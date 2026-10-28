@@ -1,3 +1,7 @@
+## Kalfa — Hazır asset entegrasyonu tamamlandı (28 Ekim 2026)
+
+HAE-01–05 [x], açık [/] yok. df552f11 MegaKit; 562519f8 eşya/hayvan; b373744f Ses/kısa dere OGG; e6414923 dokulu GPU VFX; 452bb671 LOWPO/UAL. 27 İHT bağlantısı; kısmi gruplar tamamen kapanmadı. UAL ana, yalnız çekiç A03; yerel rig referansı Ahmet onaylı. 16 hedefli test geçti, tam sanity yok. project.godot temiz; 2D, mekanik, diyalog ve denge değişmedi. Eksik fırın/hayvan/özgül yapı görselleri isimli yer tutucuda. Ayrıntı docs/denetim/HAZIR_ASSET_ENTEGRASYONU_2026-10-28.md. ds yolları yok, izinli istisnayla atlandı. Kota %47/%92. Son talimat: görünür Godot açılmaz, yalnız headless.
+
 ## Kalfa — A03 ücretsiz animasyon kaynakları (24 Ekim 2026)
 
 A03 KayKit Character Animations Free 1.1 / CC0: 9 seçili klip, 6 Godot kitaplığı (~285 KB), özgün lisans ve dosya bazında kaynak/tarih/SHA-256 eklendi. 8 ihtiyaca kısmi/uyarlama katkısı, tam kapanış 0. Gerçek chr_001_yuru iskeletinde ad/yol eşleme deneyi Idle_A için 19/21 iz; poz/ölçek ve bütün karakterlerde görsel retarget kabulü açık. Mevcut hareketler değiştirilmedi. Yeni 2D/font/VFX/Quaternius/ücretli katman yok; ham ZIP repoya alınmadı. Ayrıntı docs/asset_envanteri/UCRETSIZ_ASSET_EKLEME_2026-10-24.md. Hedefli 6 kitaplık/9 klip doğrulaması geçti; tam sanity Ahmet’in isteğiyle durduruldu (313 kontrol logu); tamamlandı denmez. Başkasının yerel değişiklikleri korunur; ROADMAP sahipliği değiştirilmez. ds yolları yok, izinli istisnayla ayna atlandı. Kota son ölçüm: kısa dönem %4, haftalık %85; sonraki kategori bekliyor.

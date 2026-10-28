@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-28",
+  "agent": "Kalfa",
+  "tasks": {
+    "HAE-01": "df552f11",
+    "HAE-02": "452bb671",
+    "HAE-03": "562519f8",
+    "HAE-04": "b373744f",
+    "HAE-05": "e6414923"
+  },
+  "linked_need_ids": [
+    "İHT-0150",
+    "İHT-0157",
+    "İHT-0342",
+    "İHT-0350",
+    "İHT-0357",
+    "İHT-0372",
+    "İHT-0380",
+    "İHT-0383",
+    "İHT-0384",
+    "İHT-0388",
+    "İHT-0397",
+    "İHT-0403",
+    "İHT-0413",
+    "İHT-0414",
+    "İHT-0431",
+    "İHT-0444",
+    "İHT-0445",
+    "İHT-0452",
+    "İHT-0453",
+    "İHT-0468",
+    "İHT-0469",
+    "İHT-0470",
+    "İHT-0471",
+    "İHT-0479",
+    "İHT-0481",
+    "İHT-0485",
+    "İHT-0524"
+  ],
+  "note": "27 İHT bağlantısı; kısmi gruplar tamamen kapanmış sayılmaz. Bölüm ayrıntıları aktif envanterlerde.",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "import": "PASS --headless --editor --import --quit --recovery-mode; Cursor yerel önizleme tool hatası normal importtan ayrıştırıldı. Oyun testleri normal runtime kipinde.",
+  "targeted_tests": [
+    {
+      "test": "hazir_koy_yapilari_kontrol",
+      "status": "PASS",
+      "log_sha256": "6c5faec3801b5bf9691553c8581f66745c2ae86f085d8f3c12be17408882005f"
+    },
+    {
+      "test": "hazir_karakter_kontrol",
+      "status": "PASS",
+      "log_sha256": "6f916f29a40036468950ec3e0ce568be9d29bca57cfaa9c6c674f3e1600bcfa8"
+    },
+    {
+      "test": "hazir_esya_hayvan_kontrol",
+      "status": "PASS",
+      "log_sha256": "f201164a800a17370ab0a2879b0c2369ee9ff8a6262205430ba908310124f7e8"
+    },
+    {
+      "test": "hazir_ses_kontrol",
+      "status": "PASS",
+      "log_sha256": "fde2188975a1cfb86547c04976686d0da33319a812b865e3aab1c5254730c901"
+    },
+    {
+      "test": "hazir_vfx_kontrol",
+      "status": "PASS",
+      "log_sha256": "aa4974a3fa9031de872f340ab97740b61c20d476e665df87432f5afed6880c7c"
+    },
+    {
+      "test": "koy_hareket_kontrol",
+      "status": "PASS",
+      "log_sha256": "5d043739248e993b8c315c0e57d720083e370f8734f262945c4a25cfa336e377"
+    },
+    {
+      "test": "karakter_hava_kontrol",
+      "status": "PASS",
+      "log_sha256": "dd5fa4cbe92c818da2f47045337f88aee8d04e38e9e2ea7a4ac78f844589f0df"
+    },
+    {
+      "test": "muhafiz_odasi_kontrol",
+      "status": "PASS",
+      "log_sha256": "3e384239e1fdf3d1895a0eae4b8935418f6c4848c46142dab29d934249006868"
+    },
+    {
+      "test": "zanaat_tezgahi_kontrol",
+      "status": "PASS",
+      "log_sha256": "91ad0ceeb67c7307683be12f034e5df97a2854e2ff885ee928a88b466b4b0621"
+    },
+    {
+      "test": "oduncu_rutini_kontrol",
+      "status": "PASS",
+      "log_sha256": "eda78c5047faed39ea1c0e3515ea31a319e2e4a4c3e09bdfa72904de687c8391"
+    },
+    {
+      "test": "celep_hamdullah_kontrol",
+      "status": "PASS",
+      "log_sha256": "65d23d7f8ccd91a6291770ceaa81aa14036f1e4c9fbbb40b4ae0b9f59d03c717"
+    },
+    {
+      "test": "koy_ortam_kontrol",
+      "status": "PASS",
+      "log_sha256": "b597308062f97b9ce1f1a8bf4bf9dcbdba77d625201f5c90d12d8d7da95f4315"
+    },
+    {
+      "test": "chr_kapi_kontrol",
+      "status": "PASS",
+      "log_sha256": "e094567d37e1759c0ce0412a4deb2d6b18c68dd54e9b64eb0f0308eb1c946a93"
+    },
+    {
+      "test": "sira_olayi_sonucu_kontrol",
+      "status": "PASS",
+      "log_sha256": "c87e075ed88e68f8a3d656c2ee1fed88e4a13f7e0b7353ed7cd592a03e86abd4"
+    },
+    {
+      "test": "atolye_parcaciklari_kontrol",
+      "status": "PASS",
+      "log_sha256": "399ee8d68fd69bee52328ccd0695e40461d5c5585e0dbfe796302a61a5c1b4d3"
+    },
+    {
+      "test": "ses_test",
+      "status": "PASS",
+      "log_sha256": "1c8353e6f469fbc8abbc4c655323f86edd61cd64197e8bf0d0bec95f4b011350"
+    }
+  ],
+  "full_sanity": "Çalıştırılmadı; Ahmet yalnız hedefli test istedi.",
+  "project_godot_clean": true,
+  "mirrors_available": false,
+  "quota_remaining": {
+    "primary": 47,
+    "weekly": 92
+  },
+  "visible_editor_rule": "Son kullanıcı talimatından sonra görünür Godot açılmadı; yalnız headless.",
+  "remaining_placeholders": [
+    "Özgül fırın modeli/ağzı",
+    "Koç ve beygir; bazı barınak kutuları",
+    "Özgül usta varyantları ve diğer adlı CHR hareketleri",
+    "Orak aleti",
+    "Özel kıvılcım dokusu ve bu görev dışı diğer eksik kaynaklar"
+  ]
+}

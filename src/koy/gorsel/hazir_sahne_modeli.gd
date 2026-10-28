@@ -22,3 +22,12 @@ static func al(yol: String, boy: Vector3, orantili: bool = false) -> Node3D:
 	model.scale = oran
 	model.position = -Vector3(a.get_center().x, a.position.y, a.get_center().z) * oran
 	return kok
+
+static func etiket(kok: Node3D, metin: String, y: float) -> void:
+	var l := Label3D.new()
+	l.text = metin + " (yer tutucu)"
+	l.position.y = y
+	l.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	l.font_size = 28
+	l.pixel_size = 0.008
+	kok.add_child(l)

@@ -332,6 +332,7 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 				n.add_child(Dunya3B.nesne("kervansaray", 3.0, "yapi"))
 			_:
 				_kutu(n, Vector3(en * 0.8, 1.5, derin * 0.8), Vector3(0, 0.75, 0), Pbr.malzeme("medieval_wood", 2.0))
+				HazirSahneModeli.etiket(n, b.tur.replace("_", " ").capitalize(), 1.8)
 	HazirEsyaHayvan.bina(n, b.tur, en, derin)
 	ZanaatTezgahi.kur(n, b.tur, en, derin)
 	AtolyeParcaciklari.kur(self, n, b)

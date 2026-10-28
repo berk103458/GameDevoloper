@@ -1,5 +1,9 @@
 # Kapı Muhafızı — Eksik asset envanteri
 
+## 28 Ekim — HAE-02 LOWPO karakter ve UAL hareket bağlantıları (Kalfa)
+
+İHT-0357 (kısmi), İHT-0431 (kısmi), İHT-0444, İHT-0445 (kısmi), İHT-0452 (kısmi), İHT-0453, İHT-0524 — **bağlandı (Kalfa)**. src/dunya/hazir_karakterler.gd LOWPO çocuğu 1,15 m ve adsız demirci rolünü 1,80 m kurar. Adlı ustaların kimliği/modeli korunur. UAL A01 idle/yürüme/konuşma, A02 hasat; yalnız UAL'de olmayan çekiç için A03 Hammering. Ahmet yerel referans kullanımını açıkça onayladı: data/animasyon/ual_referans.json yalnız sayısal rig/rest ve kaynak hash, ham model ve yeni indirme yok. Skin bind adları eşlendi, kaynak global rest/poz farkı hedef rest üzerine 30 FPS uyarlandı. Rota yönünde kök hareketi yok. Meslek değişiminde aktör dönüşümü, kayıt/RNG ve rota durumu korunur. Prosedürel düzeltici LOWPO'da ikinci kez uygulanmaz. Hedefli karakter, CHR kapı/sıra sonucu/köy hareket/zanaat/ses testleri geçti. 44 Meshy karakterin tamamı yeniden retarget edildi sayılmaz. Orak aleti ve özgül usta varyantları açık. 452bb671 kod yayını; son talimat: görünür Godot açılmaz.
+
 ## 28 Ekim — HAE-05 Dokulu GPU meşale, ocak ve baca (Kalfa)
 
 İHT-0150 (uyarlama), İHT-0157 (uyarlama) — **bağlandı (Kalfa)**. src/koy/gorsel/hazir_ates_efektleri.gd: meşalede Kenney alevi, meydan/çalışan ocakta Kronbits ateşi, bacada Kenney dumanı. Her emitörde en çok 32 parçacık, gölge yok; atölye aktifliği/LOD ve düşük grafik profili korunur. Baca MegaKit tuğla modülünden 3,20 m tepeyle kuruldu. hazir_vfx_kontrol, atolye_parcaciklari_kontrol, hazir_koy_yapilari_kontrol ve koy_hareket_kontrol geçti; gerçek Vulkan gece renderı TEMP/kalfa_entegrasyon_20261028/gece_vfx.png. Yağmur/kar, özel kıvılcım ve ışık maskesi bu teslimle tamamlandı sayılmaz; UI/harita/portre değişmedi.
@@ -12,9 +16,9 @@
 
 İHT-0342, İHT-0350 (kısmi), İHT-0384, İHT-0388 (kısmi), İHT-0413, İHT-0414, İHT-0380, İHT-0403, İHT-0383 (kısmi) — **bağlandı (Kalfa)**. src/koy/gorsel/hazir_esya_hayvan.gd: örs/çekiç tezgâhta, balta oduncuda, kazma/odun mevcut ElEsyasi soketinde; masa/yatak MuhafizOdasi içinde. Sürüde statik koyun, satın alınmış inek, kapı yanında mevcut idle klipli köpek. Kaynak oranları ve y=0 taban denetlendi; gerçek render TEMP/kalfa_entegrasyon_20261028/ilk_gruplar.png. Vertexcat hayvanların yürüme/otlama klibi yok, köpek Kangal değil; öküz, koç/beygir kutuları ve tüm üretim/sayı/rota verisi korunur. Demir çubuğu yalnız dekor, İHT-0439 ham blok kapanmadı. Import, yeni hazır eşya-hayvan testi ve çoban/celep/zanaat/oduncu/hava/oda hedefli testleri geçti. Eski kutu beklentileri gerçek model bağlantısı kontrolüyle güncellendi.
 
-## HAE-02 — kaynak rig eksik (28 Ekim, Kalfa)
+## HAE-02 — önceki rig engeli çözüldü (28 Ekim, Kalfa)
 
-İHT-0357/0431/0444/0524: **bağlanmadı**. LOWPO iskeleti var; seçilmiş UAL kitaplıkları kaynak kemik hiyerarşisi/rest dönüşümü içermiyor (metadata boş). Önceki karşılaştırma betiği `assets/animasyon/_karsilastirma/karsilastirma.gd` kaynak iskeleti repoda olmayan TEMP GLB’den okuyor. Gerekli 3D veri: UAL A01/A02 referans Skeleton3D + bone rest/bind pose ve doğru kemik haritası, 1 birim=1 m; yeni görsel üretimi değil özgün kliplerin referansı. Mevcut çalışan karakter/hareketler korunur; çocuk eksikliği mevcut isimli yer tutucuda kalır.
+Tarihsel engel kaydı; Ahmet yerel referans kullanımını onayladı, üstteki HAE-02 teslimi geçerlidir. Önceki durum: İHT-0357/0431/0444/0524 bağlanmamıştı. LOWPO iskeleti var; seçilmiş UAL kitaplıkları kaynak kemik hiyerarşisi/rest dönüşümü içermiyor (metadata boş). Önceki karşılaştırma betiği `assets/animasyon/_karsilastirma/karsilastirma.gd` kaynak iskeleti repoda olmayan TEMP GLB’den okuyor. Gerekli 3D veri: UAL A01/A02 referans Skeleton3D + bone rest/bind pose ve doğru kemik haritası, 1 birim=1 m; yeni görsel üretimi değil özgün kliplerin referansı. Mevcut çalışan karakter/hareketler korunur; çocuk eksikliği mevcut isimli yer tutucuda kalır.
 
 ## 28 Ekim — HAE-01 MegaKit köy yapıları (Kalfa)
 

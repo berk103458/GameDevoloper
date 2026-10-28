@@ -43,6 +43,7 @@ static func kur(n: Node3D, tur: String, en: float, derin: float) -> void:
  mesh.name = "zanaat_tezgahi_yer_tutucu"
  mesh.position = Vector3((en - KoyYonetimSahnesi.HUCRE) / 2, mesh.mesh.size.y / 2, derin / 2)
  n.add_child(mesh)
+ HazirSahneModeli.etiket(mesh, "Fırın" if f else "Örs", mesh.mesh.size.y / 2 + 0.25)
 func _kur(f: KarakterModel, tur: String) -> bool:
  var sks := f.find_children("*", "Skeleton3D", true, false)
  if sks.is_empty(): return false
