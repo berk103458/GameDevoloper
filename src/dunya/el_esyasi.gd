@@ -42,6 +42,13 @@ var dik := false
 static func olustur(tur: String) -> ElEsyasi:
 	var e := ElEsyasi.new()
 	e.name = "esya_" + tur
+	if tur in ["cekic", "kazma", "odun"]:
+		var hazir := HazirEsyaHayvan.esya(tur)
+		if hazir != null:
+			e.add_child(hazir)
+			e.dik = tur != "odun"
+			hazir.position.y = -0.15
+			return e
 	match tur:
 		"torba":
 			e._torba(0.14, 0.24, KETEN.darkened(0.15))

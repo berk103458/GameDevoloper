@@ -195,6 +195,7 @@ func yenile() -> void:
 		n.rotation_degrees.y = 90.0 * b.yon
 		n.set_meta("bina_id", b.id)
 		_yapilar.add_child(n)
+	HazirEsyaHayvan.kopek_kur(_yapilar, Vector3(kapi_noktasi().x + 2.0, 0, kapi_noktasi().y - 2.0))
 	_sur_kur()
 	OduncuRutini.orman_kur(self, _yapilar)
 	MuhafizDevriyesi.kule_kur(self, _yapilar)
@@ -329,6 +330,7 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 				n.add_child(Dunya3B.nesne("kervansaray", 3.0, "yapi"))
 			_:
 				_kutu(n, Vector3(en * 0.8, 1.5, derin * 0.8), Vector3(0, 0.75, 0), Pbr.malzeme("medieval_wood", 2.0))
+	HazirEsyaHayvan.bina(n, b.tur, en, derin)
 	ZanaatTezgahi.kur(n, b.tur, en, derin)
 	AtolyeParcaciklari.kur(self, n, b)
 	CelepHayvanGorseli.kur(self, n, b)

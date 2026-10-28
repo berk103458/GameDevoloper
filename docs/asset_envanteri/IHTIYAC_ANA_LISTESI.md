@@ -1,5 +1,9 @@
 # İhtiyaç ana listesi — asset araştırması 2. tur (Kalfa)
 
+## 28 Ekim — HAE-03 Eşya ve hayvan sahne bağlantıları (Kalfa)
+
+İHT-0342, İHT-0350 (kısmi), İHT-0384, İHT-0388 (kısmi), İHT-0413, İHT-0414, İHT-0380, İHT-0403, İHT-0383 (kısmi) — **bağlandı (Kalfa)**. src/koy/gorsel/hazir_esya_hayvan.gd: örs/çekiç tezgâhta, balta oduncuda, kazma/odun mevcut ElEsyasi soketinde; masa/yatak MuhafizOdasi içinde. Sürüde statik koyun, satın alınmış inek, kapı yanında mevcut idle klipli köpek. Kaynak oranları ve y=0 taban denetlendi; gerçek render TEMP/kalfa_entegrasyon_20261028/ilk_gruplar.png. Vertexcat hayvanların yürüme/otlama klibi yok, köpek Kangal değil; öküz, koç/beygir kutuları ve tüm üretim/sayı/rota verisi korunur. Demir çubuğu yalnız dekor, İHT-0439 ham blok kapanmadı. Import, yeni hazır eşya-hayvan testi ve çoban/celep/zanaat/oduncu/hava/oda hedefli testleri geçti. Eski kutu beklentileri gerçek model bağlantısı kontrolüyle güncellendi.
+
 ## HAE-02 — kaynak rig eksik (28 Ekim, Kalfa)
 
 İHT-0357/0431/0444/0524: **bağlanmadı**. LOWPO iskeleti var; seçilmiş UAL kitaplıkları kaynak kemik hiyerarşisi/rest dönüşümü içermiyor (metadata boş). Önceki karşılaştırma betiği `assets/animasyon/_karsilastirma/karsilastirma.gd` kaynak iskeleti repoda olmayan TEMP GLB’den okuyor. Gerekli 3D veri: UAL A01/A02 referans Skeleton3D + bone rest/bind pose ve doğru kemik haritası, 1 birim=1 m; yeni görsel üretimi değil özgün kliplerin referansı. Mevcut çalışan karakter/hareketler korunur; çocuk eksikliği mevcut isimli yer tutucuda kalır.

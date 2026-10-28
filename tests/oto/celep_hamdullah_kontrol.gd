@@ -37,7 +37,10 @@ func _ready() -> void:
  for n in e.sahne3b.find_children("celep_*", "", true, false):
   if n.has_meta("hayvan_turu"):
    turler[n.get_meta("hayvan_turu")] = true
-   _kontrol(n is MeshInstance3D and n.mesh is BoxMesh, "Merkezi düz kutu yer tutucu")
+   if String(n.get_meta("hayvan_turu")) == "inek":
+    _kontrol(n.get_child_count() == 1 and n.get_child(0).has_meta("asset_yolu"), "İnek hazır modele bağlı")
+   else:
+    _kontrol(n is MeshInstance3D and n.mesh is BoxMesh, "Eksik türün kutu yer tutucusu korunur")
  _kontrol(turler.size() == 4, "Dört satın alınmış tür doğru barınakta görünür")
  var once := JSON.stringify(ana.oturum.kaydet())
  e._pazar_ac()

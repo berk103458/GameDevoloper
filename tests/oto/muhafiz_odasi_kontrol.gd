@@ -30,8 +30,10 @@ func _ready() -> void:
  assert(d!=null and get_tree().paused and d.oda!=null)
  assert(MuhafizOdasiBaglantisi.ac(e)==null and DivanBaglantisi.ac(e)==null)
  assert(d.oda.get_world_3d()!=e.sahne3b.get_world_3d())
- for isim in ["yatak","masa","mesale","gizli_kasa"]:
+ for isim in ["mesale","gizli_kasa"]:
   assert(d.oda.get_node(isim) is MeshInstance3D and d.oda.get_node(isim).mesh is BoxMesh)
+ for isim in ["yatak", "masa"]:
+  assert(d.oda.get_node(isim).has_meta("asset_yolu"))
  var anahtar:=InputEventKey.new()
  anahtar.keycode=KEY_P
  anahtar.physical_keycode=KEY_P

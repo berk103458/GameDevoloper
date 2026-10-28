@@ -14,7 +14,17 @@ static func kur(s: KoyYonetimSahnesi, n: Node3D, b: KoyBinasi) -> void:
   n.add_child(m)
   i += 1
 ## Gerçek model geldiğinde değiştirilecek tek merkez.
-static func _yer_tutucu(tur: String) -> MeshInstance3D:
+static func _yer_tutucu(tur: String) -> Node3D:
+ if tur == "inek":
+  var model := HazirEsyaHayvan.hayvan(tur)
+  if model != null:
+   # Eski çağıran tabanı değil kutu merkezini yerleştirir; merkez ofsetini dengeler.
+   model.position.y = -float(CelepHamdullah.AYAR.gorsel.boyut[1]) / 2
+   var kap := Node3D.new()
+   kap.name = "celep_" + tur
+   kap.set_meta("hayvan_turu", tur)
+   kap.add_child(model)
+   return kap
  var n := MeshInstance3D.new()
  n.name = "celep_" + tur
  n.set_meta("hayvan_turu", tur)

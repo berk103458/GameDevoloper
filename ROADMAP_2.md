@@ -9000,7 +9000,7 @@ Yalnız repodaki hazır 3D, animasyon, ses ve VFX kaynakları bağlanır. Mekani
   - Engel (Kalfa, 28 Ekim): UAL .res kaynaklarında Skeleton3D/rest pozu yok; önceki karşılaştırma TEMP GLB’sini kullanıyor. Kullanıcı yalnız repo kaynaklarını yetkilendirdi. Eksik rig metaverisi gelmeden LOWPO’ya yanlış poz zorlanmaz; madde açık.
   - Dosya: `src/dunya/hazir_karakterler.gd`, `src/dunya/hazir_karakter_animasyonu.gd`, `src/dunya/dunya3b.gd`, `src/dunya/karakter_model.gd`.
   - Kabul: çocuk 1,15 m, yetişkin 1,80 m; rig/rest pozu dönüşümü, yürüyüş/idle geçişi ve iş hareketi hedefte denenir. UAL ana, A03 yalnız karşılığı yoksa; doğrulanmayan klip zorlanmaz. Mevcut CHR kimliği, rota ve çalışma mantığı korunur. İHT-0357/0431 ve doğrulanan hareketler işaretlenir.
-- [/] **HAE-03:** Örs/alet/masa/yatak/odun ve koyun/inek/köpek sahne bağlantıları.
+- [x] **HAE-03:** Örs/alet/masa/yatak/odun ve koyun/inek/köpek sahne bağlantıları.
   - Dosya: `src/koy/gorsel/hazir_esya_hayvan.gd`, mevcut zanaat/hayvan görsel adaptörleri.
   - Kabul: gerçek kullanım noktaları, metre ölçeği, yerde doğru pivot; mevcut öküz dosyası korunur. Mevcut sürü/üretim sayıları değişmez; bulunmayan eşya isim etiketli kalır. Bağlanan İHT'ler iki envantere yazılır.
 - [ ] **HAE-04:** Hazır sesleri mevcut Ses üzerinden bağla; dere WAV'ını kısa döngülü OGG'a çevir.

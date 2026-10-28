@@ -42,7 +42,7 @@ func _ready() -> void:
 		h._process(0.0)
 	f.yurumeyi_durdur()
 	kontrol(f.position.distance_to(h._konum(KarakterHavaTepkisi.durak(y, b))) < s.HUCRE / 2 and h.eylem(k.id).contains("saçak"), "Erişilebilir gerçek saçak altında")
-	kontrol(s.find_children("hava_sacagi_yer_tutucu", "", true, false).size() == 1, "Tek kutu saçak yer tutucusu")
+	kontrol(s.find_children("hava_sacagi_hazir", "", true, false).size() == 1, "Tek hazır MegaKit saçağı")
 	kontrol(JSON.stringify(ana.oturum.kaydet()) == once, "Sığınma kayıt/RNG/stok değiştirmez")
 	var panel := IklimDenetcisiPaneli.new()
 	panel.baglam = ana

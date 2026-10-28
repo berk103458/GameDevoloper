@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/oto/hazir_esya_hayvan_kontrol.gd" id="1"]
+[node name="HazirEsyaHayvanKontrol" type="Node"]
+script = ExtResource("1")

@@ -235,3 +235,7 @@ Hazır kapalı yapı kabuğu src/koy/gorsel/hazir_koy_yapilari.gd ve yağmur sa�
 HAE-01 yayın: df552f11; HAE-02 incelemesi: LOWPO rig var, UAL seçili kitaplıklarında kaynak Skeleton3D/rest metaverisi yok. Ad eşleme tek başına güvenli retarget değildir; kaynak kanıtı denetleniyor. Kota %86/%98 kaldı.
 
 HAE-02 açık bırakıldı: kaynak UAL rig/rest metaverisi repoda yok, hatalı LOWPO hareketi bağlanmadı. HAE-03 eşya ve hayvanlar sahiplenildi; HAE-01 df552f11 yayında.
+
+## 28 Ekim — HAE-03 Eşya ve hayvan sahne bağlantıları (Kalfa)
+
+src/koy/gorsel/hazir_esya_hayvan.gd: örs/çekiç tezgâhta, balta oduncuda, kazma/odun mevcut ElEsyasi soketinde; masa/yatak MuhafizOdasi içinde. Sürüde statik koyun, satın alınmış inek, kapı yanında mevcut idle klipli köpek. Kaynak oranları ve y=0 taban denetlendi; gerçek render TEMP/kalfa_entegrasyon_20261028/ilk_gruplar.png. Vertexcat hayvanların yürüme/otlama klibi yok, köpek Kangal değil; öküz, koç/beygir kutuları ve tüm üretim/sayı/rota verisi korunur. Demir çubuğu yalnız dekor, İHT-0439 ham blok kapanmadı. Import, yeni hazır eşya-hayvan testi ve çoban/celep/zanaat/oduncu/hava/oda hedefli testleri geçti. Eski kutu beklentileri gerçek model bağlantısı kontrolüyle güncellendi. Tam sanity yok. Kullanıcı talimatıyla project.godot korunur. Kota sonraki kontrol noktasında ölçülür.

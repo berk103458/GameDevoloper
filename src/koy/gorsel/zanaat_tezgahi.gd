@@ -33,6 +33,12 @@ static func hedef(h: KoyHalkHareketi, k: Koylu, bas: Vector2i) -> Dictionary:
 static func kur(n: Node3D, tur: String, en: float, derin: float) -> void:
  if not AYAR.turler.has(tur): return
  var f: bool = AYAR.turler[tur] == "pisir"
+ if not f:
+  var ors := HazirEsyaHayvan.esya("ors", Vector3(AYAR.ors_boy[0], AYAR.ors_boy[1], AYAR.ors_boy[2]))
+  if ors != null:
+   ors.position = Vector3((en - KoyYonetimSahnesi.HUCRE) / 2, 0, derin / 2)
+   n.add_child(ors)
+   return
  var mesh := _kutu(AYAR.firin_boy if f else AYAR.ors_boy, Color(AYAR.tugla if f else AYAR.demir))
  mesh.name = "zanaat_tezgahi_yer_tutucu"
  mesh.position = Vector3((en - KoyYonetimSahnesi.HUCRE) / 2, mesh.mesh.size.y / 2, derin / 2)
@@ -55,13 +61,18 @@ func _kur(f: KarakterModel, tur: String) -> bool:
  _uc = Node3D.new()
  _uc.name = "alet_uc"
  alet.add_child(_uc)
- var sap := _kutu(AYAR.sap_boy, Color(AYAR.ahsap))
- sap.position.y = -float(AYAR.sap_boy[1]) / 2
- _uc.add_child(sap)
- var pisir: bool = AYAR.turler[tur] == "pisir"
- var bas := _kutu(AYAR.kurek_boy if pisir else AYAR.cekic_boy, Color(AYAR.ahsap if pisir else AYAR.demir))
- bas.position.y = -float(AYAR.sap_boy[1])
- _uc.add_child(bas)
+ var hazir_cekic := HazirEsyaHayvan.esya("cekic") if AYAR.turler[tur] != "pisir" else null
+ if hazir_cekic != null:
+  hazir_cekic.position.y = -float(AYAR.sap_boy[1])
+  _uc.add_child(hazir_cekic)
+ else:
+  var sap := _kutu(AYAR.sap_boy, Color(AYAR.ahsap))
+  sap.position.y = -float(AYAR.sap_boy[1]) / 2
+  _uc.add_child(sap)
+  var pisir: bool = AYAR.turler[tur] == "pisir"
+  var bas := _kutu(AYAR.kurek_boy if pisir else AYAR.cekic_boy, Color(AYAR.ahsap if pisir else AYAR.demir))
+  bas.position.y = -float(AYAR.sap_boy[1])
+  _uc.add_child(bas)
  _ekipman = KarakterEkipmanYoneticisi.al(f)
  if _ekipman == null: return false
  alet = _ekipman.tak(tur, alet, self)

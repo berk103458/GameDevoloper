@@ -26,6 +26,13 @@ func _ready() -> void:
  kamera.current=true
 
 func _kutu(p: Dictionary) -> void:
+ if String(p.ad) in ["yatak", "masa"]:
+  var hazir := HazirEsyaHayvan.esya(String(p.ad), _vektor(p.boyut))
+  if hazir != null:
+   hazir.name = String(p.ad)
+   hazir.position = _vektor(p.yer) - Vector3(0, float(p.boyut[1]) / 2, 0)
+   add_child(hazir)
+   return
  var n:=MeshInstance3D.new()
  n.name=String(p.ad)
  var m:=BoxMesh.new()

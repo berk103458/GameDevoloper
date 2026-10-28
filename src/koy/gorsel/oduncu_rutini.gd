@@ -71,10 +71,14 @@ func kur(f: KarakterModel) -> void:
    add_child(balta)
    _balta_gorsel = Node3D.new()
    balta.add_child(_balta_gorsel)
-   var boy: Array = AYAR.balta_sap
-   _kutu(_balta_gorsel, Vector3(boy[0], boy[1], boy[2]), Vector3(0, 0.15, 0), Color(AYAR.tomruk_renk))
-   boy = AYAR.balta_bas
-   _kutu(_balta_gorsel, Vector3(boy[0], boy[1], boy[2]), Vector3(0.07, 0.43, 0), Color(AYAR.balta_renk))
+   var hazir_balta := HazirEsyaHayvan.esya("balta")
+   if hazir_balta != null:
+    _balta_gorsel.add_child(hazir_balta)
+   else:
+    var boy: Array = AYAR.balta_sap
+    _kutu(_balta_gorsel, Vector3(boy[0], boy[1], boy[2]), Vector3(0, 0.15, 0), Color(AYAR.tomruk_renk))
+    boy = AYAR.balta_bas
+    _kutu(_balta_gorsel, Vector3(boy[0], boy[1], boy[2]), Vector3(0.07, 0.43, 0), Color(AYAR.balta_renk))
    balta.bagla(f, sk, true, f.duzeltici())
    elle = ElEsyasi.olustur("odun")
    add_child(elle)

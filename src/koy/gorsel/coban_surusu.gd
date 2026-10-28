@@ -139,6 +139,14 @@ func _kapi(acik: bool) -> void:
    if kapi != null: kapi.rotation.y = PI / 2 if acik else 0.0
 ## Prosedürel düşük poligon koyun: dış ölçü/renk ayarları, ek ücretli varlık yoktur.
 static func koyun() -> Node3D:
+ var hazir := HazirEsyaHayvan.hayvan("koyun")
+ if hazir != null:
+  # Vertexcat statik: mevcut rota sürer; baş eğimi için ayrı rig yoktur.
+  var bas_soketi := Node3D.new()
+  bas_soketi.name = "bas"
+  hazir.add_child(bas_soketi)
+  hazir.set_meta("statik_hayvan", true)
+  return hazir
  var n := Node3D.new()
  _top(n, Vector3(0, float(AYAR.govde_y), 0), AYAR.govde_olcek, Color(AYAR.yun_renk))
  var bas := Node3D.new()
