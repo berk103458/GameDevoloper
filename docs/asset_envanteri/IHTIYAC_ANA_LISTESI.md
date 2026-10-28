@@ -1,5 +1,9 @@
 # İhtiyaç ana listesi — asset araştırması 2. tur (Kalfa)
 
+## HAE-02 — kaynak rig eksik (28 Ekim, Kalfa)
+
+İHT-0357/0431/0444/0524: **bağlanmadı**. LOWPO iskeleti var; seçilmiş UAL kitaplıkları kaynak kemik hiyerarşisi/rest dönüşümü içermiyor (metadata boş). Önceki karşılaştırma betiği `assets/animasyon/_karsilastirma/karsilastirma.gd` kaynak iskeleti repoda olmayan TEMP GLB’den okuyor. Gerekli 3D veri: UAL A01/A02 referans Skeleton3D + bone rest/bind pose ve doğru kemik haritası, 1 birim=1 m; yeni görsel üretimi değil özgün kliplerin referansı. Mevcut çalışan karakter/hareketler korunur; çocuk eksikliği mevcut isimli yer tutucuda kalır.
+
 ## 28 Ekim — HAE-01 MegaKit köy yapıları (Kalfa)
 
 İHT-0372, İHT-0397 — **bağlandı (Kalfa)**. Hazır kapalı yapı kabuğu src/koy/gorsel/hazir_koy_yapilari.gd ve yağmur saçağı karakter_hava_tepkisi.gd üzerinden bağlandı. Konut 3×3×3 m, diğer kabuk mevcut ızgarada; özgül endüstri içi, tarla, ağıl, iskele ve eski çalışan modeller korunur. Import kurtarma kipinde temiz; hazir_koy_yapilari_kontrol ve koy_hareket_kontrol geçti. İlk importta Cursor karşılaştırma önizlemesinin look_at hatası vardı; kaynak değiştirilmeden editor araçları kapatılarak import ve normal runtime testiyle ayrıştırıldı.
