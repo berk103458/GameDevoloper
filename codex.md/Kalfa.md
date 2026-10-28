@@ -231,3 +231,5 @@ Kota: kısa dönem %33; haftalık %90 kaldı. Asset gerekmedi; mevcut arka plan 
 ## 28 Ekim — HAE-01 MegaKit köy yapıları (Kalfa)
 
 Hazır kapalı yapı kabuğu src/koy/gorsel/hazir_koy_yapilari.gd ve yağmur saçağı karakter_hava_tepkisi.gd üzerinden bağlandı. Konut 3×3×3 m, diğer kabuk mevcut ızgarada; özgül endüstri içi, tarla, ağıl, iskele ve eski çalışan modeller korunur. Import kurtarma kipinde temiz; hazir_koy_yapilari_kontrol ve koy_hareket_kontrol geçti. İlk importta Cursor karşılaştırma önizlemesinin look_at hatası vardı; kaynak değiştirilmeden editor araçları kapatılarak import ve normal runtime testiyle ayrıştırıldı. Tam sanity yok. Kullanıcı talimatıyla project.godot korunur. Kota sonraki kontrol noktasında ölçülür.
+
+HAE-01 yayın: df552f11; HAE-02 incelemesi: LOWPO rig var, UAL seçili kitaplıklarında kaynak Skeleton3D/rest metaverisi yok. Ad eşleme tek başına güvenli retarget değildir; kaynak kanıtı denetleniyor. Kota %86/%98 kaldı.
