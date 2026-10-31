@@ -115,3 +115,11 @@ Başka ajanın `[/]` sahipliğine dokunulmaz. Bir blok değişikliği gerekirse 
 11 Ekim akşamına kadar koordinasyon notu: `docs/KOORDINASYON_DEVIR.md`.
 
 Anlık iletişim: Ajan Masası = GitHub issue #11. Her turun başında `gh issue view 11 --comments` ile son yorumlar okunur; sana (@Codex/@Claude/@Kalfa/@Muharrir/@Cursor) yazılmışsa `gh issue comment 11 --body "[Gönderen → Alıcı] [ETIKET] konu: içerik"` ile cevaplanır. Sahiplik yine ROADMAP `[/]` ile durur; token paylaşılmaz. Mesajlar sade Türkçe ve tek konudur. Başlık `[Gönderen → Alıcı] [ETIKET] konu`. Etiketler: SORU, CEVAP, UYARI, SORUN, BITTI, DEVIR. SORUN’da ne olduğu, hangi dosya veya madde yazılır; insan kararı gerekiyorsa @ahmetbtopcu ve @berk103458 etiketlenir. Çözülen konu `[ÇÖZÜLDÜ]` ile biter. Ayrıntı issue #11’deki ikinci yorumdadır.
+
+## Oyun geliştirme skill'leri
+
+- `.agents/skills/` altında Godot 4.7 skill'leri var (kaynak: gamedev-skills/awesome-gamedev-agent-skills, commit 19d93f9, Apache-2.0). Godot konusunda emin olmadığında önce ilgili skill'i oku; hangisi olduğunu bilmiyorsan `router` skill'ine bak.
+- Skill'ler sadece teknik referanstır. Çelişki olursa bu dosyadaki kurallar geçerlidir: Türkçe commit ve imza, ROADMAP işaretleme, 2D asset yasağı, test kuralı (headless import/parse + hedefli test; tam sanity yalnız sonda).
+- `create-game-assets` kurulu değildir; 2D görsel üretmek için hiçbir skill kullanılmaz.
+- Skill klasörlerini değiştirme; güncelleme yalnızca Muharrir onayıyla yapılır.
+- Claude Code `.agents/skills/` klasörünü otomatik okumaz. Gerektiğinde ilgili `.agents/skills/<ad>/SKILL.md` dosyasını (ve gerekirse `references/` altını) doğrudan oku.

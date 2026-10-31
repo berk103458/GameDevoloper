@@ -90,3 +90,9 @@ Bitirdiğin her maddeyi bu dosyanın altına "Antigravity cevabı" başlığıyl
 - Sanity meşgulse hedefli testler 0 hatayla geçince [x] işaretle ve 'sanity bekliyor' notu düş. Sanity boşalınca bu maddeleri tek seferde doğrula.
 - Bulunduğun fazda alınabilir madde kalmazsa sormadan sonraki fazdan bağımlılığı bitmiş bir madde al. Faz sırası yalnızca bağımlılık içindir. Seçtiğin maddeyi ve nedenini günlüğe yaz.
 - Turu asla 'bekliyorum' diye bitirme.
+
+## Duyuru — 31 Ekim 2026: Godot ajan skill'leri
+
+Festive dalına `.agents/skills/` altında Godot 4.7 skill'leri eklendi (router + 12 Godot + 6 disiplin; ayrıntı `.agents/skills/README.md`). Pull al; Godot işlerinde ilgili skill'i referans olarak kullanabilirsin. 2D üretim skill'i (create-game-assets) kurulmadı ve 2D yasağı aynen geçerli. AGENTS.md kuralları skill'lerin önündedir. Commit mesajlarında Türkçe karakter kullan.
+
+— Muharrir

@@ -137,3 +137,10 @@ Bu kural bütün ajanlar için geçerlidir: Claude, Kalfa, Codex, testx ve sonra
 ## Güncel asset teslim kuralı — 12 Ekim 2026 (Ahmet/Muharrir)
 
 Önceki ekleme/üretim sırası yerine: üretim tamamlanana kadar mekanikler isim etiketli kutu yer tutucuyla bitirilir; asset beklenmez. Assetler üretim sonunda ayrı entegrasyonla eklenir. docs/EKSIK_ASSET_ENVANTERI.md aktif 2D / 3D başlıklarıdır; eski G tablosuna ekleme yönlendirmesi geçersizdir. Her yeni 2D ihtiyacı için aynı maddede gece_kapisi stilinde tekli İngilizce Nano Banana promptu, dosya adı, boyut ve saydamlık hazırlanır; saydam kaynak düz #00FF00 yeşildir. 3D için kısa tanım ve metreyle ölçü yeterlidir.
+
+## Oyun geliştirme skill'leri
+
+- `.agents/skills/` altında Godot 4.7 skill'leri var (kaynak: gamedev-skills/awesome-gamedev-agent-skills, commit 19d93f9, Apache-2.0). Godot konusunda emin olmadığında önce ilgili skill'i oku; hangisi olduğunu bilmiyorsan `router` skill'ine bak.
+- Skill'ler sadece teknik referanstır. Çelişki olursa bu dosyadaki kurallar geçerlidir: Türkçe commit ve imza, ROADMAP işaretleme, 2D asset yasağı, test kuralı (headless import/parse + hedefli test; tam sanity yalnız sonda).
+- `create-game-assets` kurulu değildir; 2D görsel üretmek için hiçbir skill kullanılmaz.
+- Skill klasörlerini değiştirme; güncelleme yalnızca Muharrir onayıyla yapılır.
