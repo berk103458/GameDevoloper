@@ -5848,7 +5848,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: KAP-19, BUG-16. Boyut: S.
   - Dosya: `data/olaylar/dugun.tres` koşul.
   - Asset: asset gerekmedi.
-- [/] **OZL-16:** `bebek.tres` `cocuk_var` tersine bakmaz, `hane_var` ister. (Antigravity)
+- [x] **OZL-16:** `bebek.tres` `cocuk_var` tersine bakmaz, `hane_var` ister. (Antigravity)
   - Ne: bebek kartı çocuk doğurur; koşul yetişkin çift / hane. KAP-17 çocuk modeli doğumda kullanılır, ikinci model yok.
   - Kabul: hanesiz köyde `bebek` 0. Test: birim.
   - Bağımlılık: KAP-17, BUG-16. Boyut: S.

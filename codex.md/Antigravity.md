@@ -389,3 +389,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `data/olaylar/dugun.tres` içindeki `"yetiskin_hane_min": 2` ve `"yas_grubu": "yetiskin"` koşulunun KAP-19 ve BUG-16 ile bağlandığı ve 3 kişilik köyde 30 gecede `dugun` seçilmediği (`tests/unit/olay/nufus_katmani_test.gd` ve `tests/tools/test_olay_kartlari.py`) doğrulandı.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OZL-16 — `bebek.tres` `cocuk_var` tersine bakmaz, `hane_var` ister (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OZL-16`
+- **Yapılanlar:**
+  - `src/sistemler/olay_on_kosulu.gd` içine `hane_var` koşul denetimi (`gercek_hane_var`) eklendi.
+  - `data/olaylar/bebek.tres` koşulu `"cocuk_var": true` yerine `"hane_var": true` olarak güncellendi.
+- **Asset:** KAP-17 çocuk (yeni satır yok).
+- **Açık kalanlar:** Yok.
