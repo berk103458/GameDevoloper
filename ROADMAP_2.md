@@ -3176,7 +3176,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: SYS-14. Boyut: S.
   - Dosya: `tests/unit/kvr/kayit_gocu_test.gd`.
   - Asset: asset gerekmedi.
-- [/] **KAY-45:** Kişisel kasa göçte yer değiştirmez. (Kalfa)
+- [x] **KAY-45:** Kişisel kasa göçte yer değiştirmez. (Kalfa)
   - Ne: `muhafiz_akce` ve köy akçesi sayıları aynı kalır. Söz göçü transfer yapmaz.
   - Kabul: `muhafiz_akce` ve köy akçesi sayıları aynı kalır. Söz göçü transfer yapmaz. Test: iki kasa eşit.
   - Bağımlılık: EKO-01, KAY-03. Boyut: S.
