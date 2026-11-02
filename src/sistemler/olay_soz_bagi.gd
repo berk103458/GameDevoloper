@@ -171,3 +171,25 @@ static func sira_bagla(kisi: Variant, sira_id: Variant, soruldu_kaydi: Dictionar
 		"dal_sayisi": 1,
 		"dal_anahtari": anahtar,
 	}
+
+
+## OZL-18: Cenaze gecesi HUD `cenaze_raporu.gd` / `CenazeYasi` okunur;
+## Soz baginda `olay.cenaze` anahtari bu rapordan turetilir, yeni panel yok.
+static func cenaze_baglama_yaz(baglam: Dictionary, kaynak: Variant, kisi: Variant = "tanik") -> Dictionary:
+	var kopya := baglam.duplicate(true)
+	if not anan_kisi_uygun_mu(kisi):
+		return kopya
+	var cenaze_var := false
+	if kaynak is Dictionary:
+		var d: Dictionary = kaynak
+		if d.get("cenaze") is Dictionary and not (d["cenaze"] as Dictionary).is_empty():
+			cenaze_var = true
+		elif int(d.get("sayi", 0)) > 0 or d.has("olum_gecesi"):
+			cenaze_var = true
+	elif kaynak is Object:
+		var y: Variant = kaynak.get("yonetim") if "yonetim" in kaynak else kaynak
+		if y != null and not CenazeYasi.durum(y).is_empty():
+			cenaze_var = true
+	if cenaze_var:
+		kopya["olay.cenaze"] = true
+	return kopya

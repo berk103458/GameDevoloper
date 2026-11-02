@@ -406,3 +406,11 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `data/olaylar/cenaze.tres` dosyasının bulunmadığı (0 adet) ve ölümlerin `CenazeYasi` (`KRI-05`) akışına bağlandığı `tests/tools/test_olay_kartlari.py` içine eklendi.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OZL-18 — Cenaze gecesi HUD `cenaze_raporu.gd` okunur (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OZL-18`
+- **Yapılanlar:**
+  - `src/sistemler/olay_soz_bagi.gd` içine `CenazeYasi` ve `cenaze_raporu.gd` çıktısını okuyarak Söz bağlamına `olay.cenaze` anahtarı türeten `cenaze_baglama_yaz` okuyucusu eklendi; yeni panel dosyası açılmadı.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.
