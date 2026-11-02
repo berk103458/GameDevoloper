@@ -18,6 +18,7 @@ var kadro: KarakterKadrosu
 ## Köy yönetimi: ambar, köylüler, yapılar, ekonomi, gece çözümü, sonlar.
 var yonetim: KoyYonetimi
 var tohum: int = 0
+var dedikodu := Dedikodu.new() # KAY-12: mevcut kuyruğun tek oturum nesnesi.
 var grup_itibari := GrupItibari.new() # KAY-11: mevcut altı grubun tek oturum nesnesi.
 var muhafiz_tecrubesi: int = 0
 ## HAR-02 optional tek gece uyarı defteri; kalan süre gerçek günden türetilir.
@@ -287,6 +288,7 @@ func gece_sonu() -> Dictionary:
 	MuhafizAdaletYetenekleri.bagla(self)
 	yonetim.perde2_hedef = ayarlar.perde2_hedef_gece
 	var r := yonetim.gece()
+	dedikodu.gece_ilerlet(gun)
 	preload("res://src/sistemler/kayit_gocu_bildirimi.gd").gece(self, r)
 	MuhafizYetenekleri.rapora_ekle(r, harac)
 	MuhafizVicdani.gece(self, r)
@@ -737,6 +739,7 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 ## Gün sonu kaydı için sözlük (oturum + köy yönetimi).
 func kaydet() -> Dictionary:
 	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
+		"dedikodu": dedikodu.kaydet(),
 		"grup_itibari": grup_itibari.kaydet(),
 		"kayit_gocu_bildirimi": preload("res://src/sistemler/kayit_gocu_bildirimi.gd").durum(self),
 		"aile_kararlari": preload("res://src/kapi/aile_kafilesi.gd").durum(self),
@@ -815,5 +818,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	preload("res://src/sistemler/kayit_gocu_bildirimi.gd").yukle(o, veri.get("kayit_gocu_bildirimi"))
 	var grup_verisi: Variant = veri.get("grup_itibari", {})
 	if not grup_verisi is Dictionary or not o.grup_itibari.yukle(grup_verisi): return null
+	var dedikodu_verisi: Variant = veri.get("dedikodu", {})
+	if not dedikodu_verisi is Dictionary or not o.dedikodu.yukle(dedikodu_verisi): return null
 	o._koy_esitle()
 	return o

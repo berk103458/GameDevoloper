@@ -226,6 +226,8 @@ func yukle(veri: Dictionary) -> bool:
 		for oge in veri["kayitlar"]:
 			if oge is Dictionary:
 				var d: Dictionary = (oge as Dictionary).duplicate(true)
+				# KAY-12: tanık kimliği olmayan satır yüklemede haber uyduramaz.
+				if not d.get("tanik_id") is String or String(d.tanik_id).strip_edges().is_empty(): continue
 				_kayitlar.append(d)
 				var id := String(d.get("olay_id", ""))
 				if not id.is_empty():

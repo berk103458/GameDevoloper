@@ -1,3 +1,11 @@
+## 2 Kasım 2026 — KAY-12 tamamlandı (Kalfa)
+
+Oturum mevcut `Dedikodu` sınıfından tek nesne taşır; kuyruk ve görülen olay kimlikleri aynı sınıfın kaydet/yükle yolu üzerinden optional kök alanında saklanır. Mutlak `kayit_gecesi`/`yayilim_gecesi`, tanık kimliği ve basım/yayılım bitleri korunur. Yükleme takvimi ilerletmez; gerçek gece çözümünde mevcut `gece_ilerlet(gun)` çağrılır. Yaş için ikinci sayaç yok. Eski kayıtta kuyruk boş açılır. Tanık kimliği olmayan bozuk satır yüklemede elenir; kayıt tanıksız habere dönüşmez. Diğer DIY-13/KOP-05 davranışları korunur.
+
+Kanıt: `work/kay12_unit.log` gerçek Oturum JSON ikizi, 4. gece doğan/6. gece yayılacak kayıt 5. gecede yüklenince aynı yaşta/tanıkta; erken yayın 0, gerçek gece çözümünde bir satır, bozuk tanıksız satır 0, eksik optional kuyruk boş, kaynak oturum korunur. `kay12_eski.log` DIY-13 birim; `kay12_kop05.log` tek yazar fısıltı köprüsü; `kay12_grup.log` grup kaydı; `kay12_goc.log` SYS-14 regresyonu. Beş hedefli kontrol ve son recovery headless import (`kay12_import_son.log`) geçti. İlk importun engine MD5 hatalı logu korunur; temiz tekrar son kontrol olarak kullanıldı. Tam sanity/görünür pencere yok.
+
+İnceleme: mevcut nesne ve mevcut mutlak takvim, additive optional kayıt, yükleme ilerletme yapmaz; yeni dedikodu veya Söz motoru yok. Asset gerekmedi; envanter ihtiyacı yok. Söz motoru bekletme kararı sürer, bağımsız kayıt güvenliği ilerler. Ayrı hazırlık kopyası kullanıldı; ana checkout indexi/başka ajan işleri korunur. ds yolları yok, önceki istisnayla eşitlenmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-11 tamamlandı (Kalfa)
 
 Oturum mevcut `GrupItibari` sınıfından tek nesne taşır. `grup_itibari.kaydet()` altı puanı/yazım makbuzlarını kök kayda yazar; yükleme aynı sınıfın mevcut yükleyicisinden geçer. Eksik grup 0 olur, diğer puanlar korunur; alanı olmayan eski kayıt altı sıfır puanla açılır. Mevcut yükleyicinin −10…+10 kıskaçı korunur. Yükleme kaynak oturumu değiştirmez. İkinci itibar tablosu, yeni grup, karar motoru veya Söz şeması kurulmadı. Uygunsuz kök itibar tipi/kabul edilmeyen grup kaydı oturum yüklemesini reddeder.
