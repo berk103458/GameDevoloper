@@ -4355,13 +4355,13 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
 
 ### 34.3 Beş sonun yolu görünür olur
 
-- [ ] **OMR-13:** Son göstergeleri oda ekranında okunur.
+- [/] **OMR-13:** Son göstergeleri oda ekranında okunur. (Antigravity)
   - Ne: `nihai_son.gostergeler(o)` altı değeri perde 2'de muhafız odası terazisi panelinde (`oda_terazisi_paneli.gd` yanında) görünür. Perde 1'de gizlidir.
   - Kabul: perde 2'de altı satır; sayı yerine kademe sözcüğü (`_kademe`: düşük/orta/yüksek). Test: anlık görüntü.
   - Bağımlılık: OMR-04. Boyut: S.
   - Dosya: yeni: `src/arayuz/oda_gidisat_paneli.gd`; `muhafiz_odasi_ekrani.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OMR-14:** Hangi sona yaklaşıldığı tek cümleyle söylenir.
+- [/] **OMR-14:** Hangi sona yaklaşıldığı tek cümleyle söylenir. (Antigravity)
   - Ne: `nihai_son.son(o, &"zafer")` sonucu perde 2 dalga 2'den itibaren oda panelinde "şu an gidişat: …" cümlesiyle görünür. Sayı yok, ad var.
   - Kabul: cümle `nihai_sonlar.json sonlar[n].baslik` ile aynı adı taşır. Test: beş son için beş cümle.
   - Bağımlılık: OMR-13. Boyut: S.
@@ -4451,7 +4451,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: SAB-01. Boyut: S.
   - Dosya: `src/koy/sabah_defteri.gd` tek alan.
   - Asset: asset gerekmedi.
-- [ ] **OMR-28:** Yozlaşma eşiği omurgada görünür.
+- [/] **OMR-28:** Yozlaşma eşiği omurgada görünür. (Antigravity)
   - Ne: `nihai_sonlar.json esik.yozlasma` eşiğine üç kademe kala oda vicdan paneli (`oda_vicdan_paneli.gd`) bir satır düşürür.
   - Kabul: uyarı eşikten önce; eşik değişmez. Test: terazi enjeksiyonu (`stat_enjektoru.gd`).
   - Bağımlılık: ODA-12. Boyut: S.
