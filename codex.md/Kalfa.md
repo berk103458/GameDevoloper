@@ -1,3 +1,7 @@
+## 2 Kasım — DIY-15 başladı (Kalfa)
+
+DIY-14 Antigravity sahipliğinde; bağımlılığı hazır DIY-15 alındı. Mevcut ODA terazi eşikleri ve ACL-06 geçmişinden seçenek tonu seçilecek, etki ortak kalacak. Tonlanmamış mevcut metin nötr kalır; yeni replik/içerik yazılmayacak. DIY-01a onayı henüz yok, ana şema kurulmayacak. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — ZAR-06 tamamlandı (Kalfa)
 
 Zarsız sezgi mevcut CHR sohbet adaptörüne bağlandı. `src/soz/muhafiz_sezgisi.gd` veri dosyasındaki tek tecrübe eşiğini (4) ve ACL-06 geçmişini okur; DYL-02 aynı `esik()/esik_gecti()` erişimini kullanacak. Tüm mevcut 30 derlenmiş CHR için kaynağın `gorsel_hata` metni ve mevcut `gorsel_hata_ipucu` Clue kimliği okunur. Yeni replik, yeni ipucu adı veya sır kimliği uydurulmadı; gelecekte yeni/ dürüst çekirdeklerin sınıflaması DIY-01a onayı ve içerik hattındadır. Liste dışındaki/dürüst karaktere sezgi zorunlu kılınmadı.

@@ -640,7 +640,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
   - Dosya: yeni `src/arayuz/kapi/hatirlanma_notu.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **DIY-15:** Muhafızın sesi — seçenek metni terazi ve geçmişe göre tonlanır.
+- [/] **DIY-15:** (Kalfa) Muhafızın sesi — seçenek metni terazi ve geçmişe göre tonlanır.
   - Ne: Tonlanan her seçenekte adil, sert ve yozlaşmış üç metin vardır; etki sözlüğü üçünde aynıdır. Terazi ortaya yakınsa sert varyant gelir. Geçmişe özel seçenek geçmiş yoksa gizlenir. Boş varyantla sahne yüklenmez. Ton anahtarı yoksa nötr anahtar kullanılır ve ton sonucu değiştirmez.
   - Kurallar:
     1. Tonlanan her seçenekte 3 varyant vardır: adil, sert, yozlaşmış. Mekanik etki üçünde aynıdır. Metin ve karşı tepki farklıdır.
