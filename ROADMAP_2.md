@@ -3032,7 +3032,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-09. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [/] **KAY-23:** Dedikodunun yaşı kaymaz. (Kalfa)
+- [x] **KAY-23:** Dedikodunun yaşı kaymaz. (Kalfa)
   - Ne: 2 gece önce doğan kayıt, yüklemede hâlâ 2 gece öncedir.
   - Kabul: 2 gece önce doğan kayıt, yüklemede hâlâ 2 gece öncedir. Test: yaş alanı eşit.
   - Bağımlılık: KAY-12. Boyut: S.
