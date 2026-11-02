@@ -2885,7 +2885,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-01. Boyut: M.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd` (yeni). `guvenli_kayit.gd` tek çağrı.
   - Asset: asset gerekmedi.
-- [ ] **KAY-04:** İçerik sürümü ile kayıt sürümü ayrıdır.
+- [/] **KAY-04:** İçerik sürümü ile kayıt sürümü ayrıdır. (Antigravity)
   - Ne: `icerik_surumu` artınca kişi hafızası silinmez. Kayıt sürümü artınca katalog baştan kurulmaz.
   - Kabul: `icerik_surumu` artınca kişi hafızası silinmez. Kayıt sürümü artınca katalog baştan kurulmaz. Test: iki sayaç bağımsız. Ek şart: Eski kayıtta sabah defteri satırı yoksa satır boş sayılır ve oyun açılır. Ek şart: Eski kayıtta sabah gün sayacı yoksa sayaç 0 sayılır ve yükleme onu artırmaz. Ek şart: Eski kayıtta eylem listesi yoksa liste boş sayılır. Ek şart: Kayıt yüklenince aynı kapı eylemi ikinci kez uygulanmaz. Ek şart: Boş gün kayıtta bos türüyle durur; alan yoksa o gün yok sayılır.
   - Bağımlılık: KAY-01. Boyut: S.
