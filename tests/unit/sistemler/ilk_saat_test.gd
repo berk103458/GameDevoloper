@@ -5,6 +5,9 @@ const ZarIpucuSinifi = preload("res://src/kapi/zar_ipucu.gd")
 const SonKilidiSinifi = preload("res://src/sistemler/son_kilidi.gd")
 const NihaiSonSinifi = preload("res://src/sistemler/nihai_son.gd")
 const IpucuKaydiSinifi = preload("res://src/sistemler/ipucu_kaydi.gd")
+const IpucuSeridiSinifi = preload("res://src/arayuz/ipucu_seridi.gd")
+const IpucuPaneliSinifi = preload("res://src/debug/ipucu_paneli.gd")
+const YeniDugmeIsaretiSinifi = preload("res://src/arayuz/koy_hud/yeni_dugme_isareti.gd")
 
 var _hata: int = 0
 
@@ -137,6 +140,40 @@ func _initialize() -> void:
 	var iflas_sonuc := ilk.iflas_uyarisi_ipucu(1, 3)
 	_kontrol(int(iflas_sonuc.get("ipucu_sayisi", 0)) == 1 and int(iflas_sonuc.get("kalan_gece", 0)) == 2, "OGR-34: iflastan iki gece once uyari 1 kez gelmeli")
 	_kontrol(int(ilk.iflas_uyarisi_ipucu(2, 3).get("ipucu_sayisi", -1)) == 0, "OGR-34: sonraki eksi gecede tekrar uyari gelmemeli")
+
+	# OGR-08 & OGR-11: IpucuSeridi en cok 90 karakter gosterir, 6 sn durur, koy hizina (Engine.time_scale) dokunmaz
+	var serit := IpucuSeridiSinifi.new()
+	var eski_hiz := Engine.time_scale
+	Engine.time_scale = 2.0
+	var uzun_metin := "Bu ipucu metni doksan karakter sinirini asmak icin bilerek cok uzun yazilmistir ve kirpilmalidir hemen simdi."
+	_kontrol(serit.goster(uzun_metin, "test_ipucu"), "OGR-08: IpucuSeridi goster true donmeli")
+	_kontrol(serit.aktif_metin().length() <= 90, "OGR-08: IpucuSeridi metni <= 90 karakter olmali")
+	_kontrol(is_equal_approx(Engine.time_scale, 2.0), "OGR-11: Ipucu acildiginda Engine.time_scale 2.0 kalmali")
+	serit.kapat()
+	_kontrol(not serit.visible and is_equal_approx(Engine.time_scale, 2.0), "OGR-11: Ipucu kapandiginda Engine.time_scale 2.0 kalmali")
+	Engine.time_scale = eski_hiz
+	serit.free()
+
+	# OGR-12: Debug kapaliyken IpucuPaneli dugme_sayisi 0, acikken 1 ve sifirla calisir
+	var panel_kapali := IpucuPaneliSinifi.new(false)
+	_kontrol(panel_kapali.dugme_sayisi() == 0, "OGR-12: debug kapaliyken dugme 0 olmali")
+	panel_kapali.free()
+	var panel_acik := IpucuPaneliSinifi.new(true)
+	panel_acik.kayit.ipucu_ekle("zar")
+	panel_acik.yenile()
+	_kontrol(panel_acik.dugme_sayisi() == 1 and panel_acik.etiket.text.contains("zar"), "OGR-12: debug acikken dugme 1 ve gorulen ipuclari listelenmeli")
+	panel_acik.hepsini_sifirla()
+	_kontrol(panel_acik.kayit.gorulen_sayisi() == 0, "OGR-12: hepsini_sifirla kaydi temizlemeli")
+	panel_acik.free()
+
+	# OGR-24: Pazar ve divan dugmeleri ilk acilista isaretlenir, girince kalkar, iki kez tiklanmista isaret 0
+	var isaret := YeniDugmeIsaretiSinifi.new()
+	var pazar_ilk := isaret.dugme_etkinlesti("pazar")
+	_kontrol(int(pazar_ilk.get("isaret", 0)) == 1 and isaret.isaret_sayisi("pazar") == 1, "OGR-24: ilk acilista pazar isareti 1 olmali")
+	isaret.dugmeye_girildi("pazar")
+	isaret.dugmeye_girildi("pazar")
+	_kontrol(isaret.isaret_sayisi("pazar") == 0 and int(isaret.dugme_etkinlesti("pazar").get("isaret", -1)) == 0, "OGR-24: iki kez tiklanmis dugmede isaret 0 olmali")
+	isaret.free()
 
 	# Ilk alti gecede (gece 0..5) tum kavramlar tetiklendiginde gosterilen ipucu sayisi kavram sayisiyla esittir
 	ilk.sifirla()

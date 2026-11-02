@@ -29,6 +29,29 @@ def diagnostics(output):
 AG_DESENI = re.compile(r"\b(HTTPRequest|HTTPClient|WebSocketPeer|WebSocketMultiplayerPeer|StreamPeerTCP|TCPServer|PacketPeerUDP|UDPServer)\b|https?://")
 AG_ISTISNA = {"src/debug/oyun_koprusu.gd"}
 
+# OGR-53: Cekirdek dosyalarda ipucu metni (`ogretici.` anahtari) gecmez; yalniz adaptor cagrisi vardir.
+CEKIRDEK_IPUCU_DOSYALARI = (
+    "src/arayuz/ana.gd",
+    "src/arayuz/koy_ekrani.gd",
+    "src/arayuz/hud.gd",
+    "src/arayuz/kapi_ekrani.gd",
+)
+OGRETICI_ANAHTAR_DESENI = re.compile(r"\bogretici\.[a-z0-9_]+")
+
+
+def cekirdek_ipucu_ihlalleri(root=ROOT):
+    """OGR-53: Cekirdek 4 dosyada `ogretici.*` anahtari gecen satirlari doner: [(dosya, satir, metin)]."""
+    ihlaller = []
+    for goreli in CEKIRDEK_IPUCU_DOSYALARI:
+        dosya = root / goreli
+        if not dosya.is_file():
+            continue
+        for no, satir in enumerate(dosya.read_text(encoding="utf-8", errors="replace").splitlines(), 1):
+            kod = satir.split("#", 1)[0]
+            if OGRETICI_ANAHTAR_DESENI.search(kod):
+                ihlaller.append((goreli, no, satir.strip()))
+    return ihlaller
+
 
 def ag_cagrilari(root=ROOT):
     """src/**/*.gd içinde ağ/model çağrısı satırları: [(dosya, satır, metin)]."""

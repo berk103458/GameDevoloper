@@ -125,6 +125,7 @@ func _ready() -> void:
 	dikey.add_child(durum)
 	performans = PerformansSeridi.new()
 	dikey.add_child(performans)
+	IpucuPaneli.kur(dikey)
 	kapi_atla = Button.new()
 	kapi_atla.text = "Kapıyı bitir → Köy"
 	kapi_atla.pressed.connect(_kapi_atla)

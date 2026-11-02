@@ -512,3 +512,13 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   3. `tests/unit/sistemler/ilk_saat_test.gd` güncellendi ve Godot headless ile 0 hata doğrulandı.
   4. Asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+
+## 13 Ekim 2026 — OGR-08, OGR-11, OGR-12, OGR-24, OGR-53 ve OGR-55 (İpucu Şeridi, Debug İpucu Paneli, Düğme İşareti ve Tarama Kuralları)
+- **Ne yapıldı (`OGR-08`, `OGR-11`, `OGR-12`, `OGR-24`, `OGR-53`, `OGR-55`):**
+  1. `src/arayuz/ipucu_seridi.gd` (`IpucuSeridi`, `OGR-08`, `OGR-11`) oluşturuldu: HUD alt-sol köşesinde en çok 90 karakterlik tek satır ipucu 6 saniye veya ilk girdiyle kapanana kadar durur; `Engine.time_scale` değerini değiştirmez.
+  2. `src/debug/ipucu_paneli.gd` (`IpucuPaneli`, `OGR-12`) oluşturuldu ve `src/debug/admin_hud.gd` içine tek satırla bağlandı: yalnız debug açıkken görülen ipuçlarını listeler ve "Hepsini sıfırla" düğmesi sunar.
+  3. `src/arayuz/koy_hud/yeni_dugme_isareti.gd` (`YeniDugmeIsareti`, `OGR-24`) oluşturuldu: pazar ve divan düğmeleri ilk kez açıldığında işaretlenir, girilince işaret kalkar.
+  4. `tools/metin_dogrula.py` içine `ogretici.*` ≤ 90 karakter (`OGR-08`) ve `"F1"` yasağı (`OGR-55`) kuralları eklendi; `tools/godot_script_taramasi.py` içine çekirdek 4 dosyada `ogretici.` anahtarı yasağı (`OGR-53`) eklendi.
+  5. Asset gerekmedi.
+- **Kota:** kota görünmüyor

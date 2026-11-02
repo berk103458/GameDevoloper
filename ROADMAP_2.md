@@ -3928,7 +3928,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: KAY-04. Boyut: S.
   - Dosya: yeni: `src/sistemler/ipucu_kaydi.gd`.
   - Asset: asset gerekmedi.
-- [/] **OGR-08:** İpucu tek satırdır ve ekranın aynı köşesindedir. (Antigravity)
+- [x] **OGR-08:** İpucu tek satırdır ve ekranın aynı köşesindedir. (Antigravity)
   - Ne: ipucu metni en çok 90 karakterdir, HUD'un alt-sol köşesinde 6 saniye durur ya da ilk girdiyle kapanır. Pencere açmaz, oyunu durdurmaz.
   - Kabul: `metinler.csv` `ogretici.*` anahtarlarının hepsi ≤ 90 karakter (`tools/metin_dogrula.py` kuralı). Test: tarama 0 ihlal.
   - Bağımlılık: OGR-07. Boyut: S.
@@ -3946,13 +3946,13 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-07, HFZ-01. Boyut: S.
   - Dosya: `src/sistemler/ipucu_kaydi.gd`.
   - Asset: asset gerekmedi.
-- [/] **OGR-11:** İpucu, köy hızı 0 değilken de gelir, hızı değiştirmez. (Antigravity)
+- [x] **OGR-11:** İpucu, köy hızı 0 değilken de gelir, hızı değiştirmez. (Antigravity)
   - Ne: köy ekranında zaman akarken (`koy_ekrani.gd:342 _hiz_sec`) ipucu `Engine.time_scale`'e dokunmaz.
   - Kabul: ipucu öncesi ve sonrası `time_scale` eşittir. Test: hız 2'de ipucu açılıp kapanınca hız 2.
   - Bağımlılık: OGR-08. Boyut: S.
   - Dosya: `src/arayuz/ipucu_seridi.gd`.
   - Asset: asset gerekmedi.
-- [/] **OGR-12:** Debug HUD'da ipucu akışı izlenir. (Antigravity)
+- [x] **OGR-12:** Debug HUD'da ipucu akışı izlenir. (Antigravity)
   - Ne: `src/debug/admin_hud.gd` (F1) listesine "görülen ipuçları" satırı ve "hepsini sıfırla" düğmesi eklenir. Oyuncu arayüzüne girmez.
   - Kabul: debug kapalıyken düğme 0. Test: `--debug` olmadan açılışta düğme yok.
   - Bağımlılık: OGR-07. Boyut: S.
@@ -4030,7 +4030,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: KAP-16, SEV-01. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [/] **OGR-24:** Pazar ve divan düğmeleri açılınca işaretlenir. (Antigravity)
+- [x] **OGR-24:** Pazar ve divan düğmeleri açılınca işaretlenir. (Antigravity)
   - Ne: pazar (TUC) ve divan (CAS-07) HUD düğmeleri ilk kez etkin olunca kenarında bir kez yanıp sönen işaret ve tek satır.
   - Kabul: ilk açılışta işaret; girince kalkar. Test: iki kez tıklanmış düğmede işaret 0.
   - Bağımlılık: OGR-07. Boyut: S.
@@ -4222,7 +4222,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: yok. Boyut: S.
   - Dosya: tarama `tools/godot_script_taramasi.py` tek kural.
   - Asset: asset gerekmedi.
-- [/] **OGR-53:** Çekirdek dosyalarda ipucu metni yoktur. (Antigravity)
+- [x] **OGR-53:** Çekirdek dosyalarda ipucu metni yoktur. (Antigravity)
   - Ne: `ana.gd`, `koy_ekrani.gd`, `hud.gd`, `kapi_ekrani.gd` içinde `ogretici.` anahtarı geçmez; yalnız adaptör çağrısı vardır.
   - Kabul: dört dosyada `ogretici.` 0. Test: tarama.
   - Bağımlılık: OGR-08. Boyut: S.
@@ -4234,7 +4234,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-25, TST-06. Boyut: S.
   - Dosya: yeni: `tests/oto/ipucu_ikiz_kontrol.tscn`.
   - Asset: asset gerekmedi.
-- [/] **OGR-55:** Admin HUD oyuncuya öğretilmez. (Antigravity)
+- [x] **OGR-55:** Admin HUD oyuncuya öğretilmez. (Antigravity)
   - Ne: F1 / `~` (`src/debug/admin_hud.gd`) hiçbir ipucunda anılmaz; sürüm derlemesinde kapalıdır (Bölüm 42).
   - Kabul: `ogretici.` metinlerinde "F1" 0. Test: tarama.
   - Bağımlılık: SRM-05. Boyut: S.

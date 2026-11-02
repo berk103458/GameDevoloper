@@ -73,6 +73,12 @@ def validate_text(text: str) -> list[str]:
                 errors.append(f"line {line}: empty Turkish translation for {key!r}")
             elif turkish is not None and turkish < len(row) and "  " in row[turkish]:
                 errors.append(f"line {line}: KLT-11 double space in Turkish text for {key!r}")
+            if turkish is not None and turkish < len(row) and key.startswith("ogretici."):
+                tr_text = row[turkish].strip()
+                if len(tr_text) > 90:
+                    errors.append(f"line {line}: OGR-08 ogretici.* text exceeds 90 chars ({len(tr_text)}): {key!r}")
+                if re.search(r"\bF1\b", tr_text, re.IGNORECASE):
+                    errors.append(f"line {line}: OGR-55 ogretici.* text must not mention F1/Admin HUD: {key!r}")
     except csv.Error as exc:
         errors.append(f"line {reader.line_num}: malformed CSV: {exc}")
     return errors
