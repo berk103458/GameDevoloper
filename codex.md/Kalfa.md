@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-65 başladı (Kalfa)
+
+KRI-02 hasta kimliği ve kalan karantina günü mevcut JSON/göçte karşılaştırılacak. Yeni tedavi kuralı yok. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-47 tamamlandı (Kalfa)
 
 SYS-20 beş sonunun girdileri ayrı fikstürlerde kuruldu; güncel JSON yükleme ve gerçek v2–v3 göçü her biri için aynı nihai kimliği verdi. Beş tanım ve izinli küme denetlenir; kayıp sonucu zafer kimliğine dönüşmez. Yeni son/koşul/üretim kodu eklenmedi. Asset gerekmedi. kota görünmüyor.

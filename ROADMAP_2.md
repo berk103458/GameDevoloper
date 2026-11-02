@@ -3200,7 +3200,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-27. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-65:** Karantina kaydı göçte sıfırlanmaz.
+- [/] **KAY-65:** Karantina kaydı göçte sıfırlanmaz. (Kalfa)
   - Ne: KRI-02 kalan gün ve kişi kimliği yüklemede aynıdır. Söz göçü hastayı iyileştirmez.
   - Kabul: KRI-02 kalan gün ve kişi kimliği yüklemede aynıdır. Söz göçü hastayı iyileştirmez. Test: kalan gün eşit.
   - Bağımlılık: KRI-02, KAY-03. Boyut: S.
