@@ -459,3 +459,11 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   3. `tests/unit/sistemler/ilk_saat_test.gd` güncellendi.
   4. Asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+
+## 13 Ekim 2026 — OMR-02, OMR-04, OMR-06 ve OMR-34 (Omurga Dönem ve Dalga Türetimi)
+- **Ne yapıldı (`OMR-02`, `OMR-04`, `OMR-06`, `OMR-34`):**
+  1. `src/sistemler/omurga.gd` (`Omurga`) oluşturuldu: perde 1 için nüfustan üç dönem (`kurulus`, `yerlesme`, `oturma`) türeten `donem(y)` ve perde 2 için `PerdeGecisi.gece(y)` ile `perde2_hedef_gece` sınırlarından 1/2/3 dalgası türeten `dalga(y, hedef_gece)` eklendi.
+  2. `omurga.gd` içinde kayıt (`kaydet`/`yukle`) ve mevsim (`Takvim`) bağımlılığı bulunmadığı `tests/unit/sistemler/omurga_test.gd` ile doğrulandı.
+  3. Asset gerekmedi.
+- **Kota:** kota görünmüyor
