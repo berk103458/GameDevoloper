@@ -4012,7 +4012,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-07. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [ ] **OGR-21:** Taş ve odun kilidi ilk inşa denemesinde uyarır.
+- [/] **OGR-21:** Taş ve odun kilidi ilk inşa denemesinde uyarır. (Antigravity)
   - Ne: BUG-21/BUG-22 düzeltmesinden sonra bile ilk inşa denemesinde kaynak yetmezse ipucu kaynağın nereden geldiğini söyler (taş yatağı, oduncu).
   - Kabul: yetersiz kaynakla ilk denemede bir kez. Test: yeterli kaynakla 0.
   - Bağımlılık: BUG-21, BUG-22. Boyut: S.
