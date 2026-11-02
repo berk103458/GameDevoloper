@@ -5842,7 +5842,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.5 Yaşam olayları — düğün, bebek, cenaze
 
-- [ ] **OZL-15:** `dugun.tres` KAP-19 ve BUG-16 ile bağlanır, tören motoru açılmaz.
+- [/] **OZL-15:** `dugun.tres` KAP-19 ve BUG-16 ile bağlanır, tören motoru açılmaz. (Antigravity)
   - Ne: düğün kartı en az iki yetişkin hane ister (KAP-19 kural 3). Mini oyun, dans veya hediye takvimi yok.
   - Kabul: 3 kişilik köyde 30 gece `dugun` 0. Test: KAP-19 testi ile ortak.
   - Bağımlılık: KAP-19, BUG-16. Boyut: S.
