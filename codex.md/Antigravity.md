@@ -503,3 +503,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   3. `tests/unit/kayit/kay04_icerik_surumu_test.gd` birim testi eklendi.
   4. Asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+
+## 13 Ekim 2026 — OGR-07, OGR-15, OGR-16, OGR-17, OGR-18, OGR-20, OGR-32 ve OGR-34 (İpucu Kaydı ve Bağlamsal İlk Saat Tetikleri)
+- **Ne yapıldı (`OGR-07`, `OGR-15`, `OGR-16`, `OGR-17`, `OGR-18`, `OGR-20`, `OGR-32`, `OGR-34`):**
+  1. `src/sistemler/ipucu_kaydi.gd` (`IpucuKaydi`, `OGR-07`) oluşturuldu: görülen ipuçlarını `ogretici.gorulen` dizisinde kayda yazar ve okur; eski kayıtta alan yoksa çökmeden boş liste kabul eder, `sifirla()` / `yeni_oyun()` ile temizlenir.
+  2. `src/sistemler/ilk_saat.gd` içine `heybe_gizli_esya_ipucu` (`OGR-15`), `tansiyon_gergin_ipucu` (`OGR-16`), `bar_degisim_ipucu` (`OGR-17`), `barinak_dolu_ipucu` (`OGR-18`), `kaynak_eksilis_ipucu` (`OGR-20`), `kitlik_esigi_ipucu` (`OGR-32`) ve `iflas_uyarisi_ipucu` (`OGR-34`) tek seferlik tetik fonksiyonları eklendi.
+  3. `tests/unit/sistemler/ilk_saat_test.gd` güncellendi ve Godot headless ile 0 hata doğrulandı.
+  4. Asset gerekmedi.
+- **Kota:** kota görünmüyor

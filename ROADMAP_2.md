@@ -3922,7 +3922,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
 
 ### 33.2 Bağlamsal ipuçları — bir kez, yerinde, kısa
 
-- [/] **OGR-07:** İpucu kaydı kayıt dosyasındadır. (Antigravity)
+- [x] **OGR-07:** İpucu kaydı kayıt dosyasındadır. (Antigravity)
   - Ne: gösterilen her ipucunun kimliği oyun kaydına `ogretici.gorulen` dizisinde yazılır. Yeni oyunda sıfırlanır; ayarlardan "ipuçlarını sıfırla" ile de sıfırlanır (Bölüm 35).
   - Kabul: kayıt sürümü KAY zincirine uyar; eski kayıtta alan yoksa boş sayılır, oyun çökmez. Test: alan silinmiş kayıt açılır.
   - Bağımlılık: KAY-04. Boyut: S.
@@ -3973,25 +3973,25 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: DIY-07, DIY-08, OGR-07. Boyut: S.
   - Dosya: yeni: `src/kapi/defter_tanitimi.gd`.
   - Asset: asset gerekmedi.
-- [/] **OGR-15:** Heybe ilk kez bir gizli eşyada açılır. (Antigravity)
+- [x] **OGR-15:** Heybe ilk kez bir gizli eşyada açılır. (Antigravity)
   - Ne: heybe arama (R1 heybe, `src/sistemler/heybe.gd`) ilk kez `esya_gizli` (oyun.tres `yuzuk`) taşıyan kişide ipucu alır. Önceki ziyaretlerde heybe düğmesi vardır ama ipucu yoktur.
   - Kabul: ilk gizli eşya ziyaretinde ipucu 1. Test: gizli eşyasız kayıtta ipucu 0.
   - Bağımlılık: OGR-07. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [/] **OGR-16:** Tansiyon göstergesi ilk sarıda açıklanır. (Antigravity)
+- [x] **OGR-16:** Tansiyon göstergesi ilk sarıda açıklanır. (Antigravity)
   - Ne: `src/arayuz/kapi/tansiyon_gostergesi.gd` ilk kez "gergin" kademeye (ZAR-01 +1) geçince tek satır ipucu: zar zorlaştı.
   - Kabul: ipucu kademe geçişinde bir kez. Test: sakin kalan gecede ipucu 0.
   - Bağımlılık: ZAR-01, OGR-07. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [/] **OGR-17:** Bar etkisi ilk hareket eden barda gösterilir. (Antigravity)
+- [x] **OGR-17:** Bar etkisi ilk hareket eden barda gösterilir. (Antigravity)
   - Ne: dört bar (`bar.halk`, `bar.soylular`, `bar.tuccarlar`, `bar.ordu`; `oyun.tres bar_baslangic 6`) ilk kez değişince hangi kararın hangi barı oynattığı tek satırla söylenir.
   - Kabul: ipucu ilk değişimde bir kez; bar adı anahtarla yazılır. Test: bar değişmeyen gecede 0.
   - Bağımlılık: OGR-07. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [/] **OGR-18:** Kabul sınırı (barınak) ilk doluda söylenir. (Antigravity)
+- [x] **OGR-18:** Kabul sınırı (barınak) ilk doluda söylenir. (Antigravity)
   - Ne: ACL-05 barınak kapasitesi ilk kez dolunca ipucu: yer yok, kabul edilen dışarıda kalır. İpucu kararı engellemez.
   - Kabul: ilk dolu anda bir kez. Test: kapasite dolmadan 0.
   - Bağımlılık: ACL-05, OGR-07. Boyut: S.
@@ -4006,7 +4006,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-04. Boyut: S.
   - Dosya: yeni: `src/arayuz/koy_hud/ilk_atama_vurgusu.gd`.
   - Asset: asset gerekmedi (vurgu kod çizimi).
-- [/] **OGR-20:** Kaynak göstergesi ilk eksilişte açıklanır. (Antigravity)
+- [x] **OGR-20:** Kaynak göstergesi ilk eksilişte açıklanır. (Antigravity)
   - Ne: `koy_hud/kaynak_gostergesi.gd` ilk kez bir kaynak düşünce tüketim satırı (EKO-09, `tuketim_dengesi.json`) tek satırla söylenir.
   - Kabul: bir kez. Test: tüketim 0 olan gecede ipucu 0.
   - Bağımlılık: OGR-07. Boyut: S.
@@ -4084,7 +4084,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: DYL-08. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [/] **OGR-32:** Kıtlık eşiği ilk yaklaşmada görünür. (Antigravity)
+- [x] **OGR-32:** Kıtlık eşiği ilk yaklaşmada görünür. (Antigravity)
   - Ne: ambar `ambar_yedek_gece` (oyun.tres = 1) altına ilk inince ipucu ve ambar göstergesinde renk; kıtlık sistemi (KRI) değişmez.
   - Kabul: ilk yaklaşmada bir kez. Test: bol ambarlı kayıtta 0.
   - Bağımlılık: OGR-20. Boyut: S.
@@ -4096,7 +4096,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: SYS-20, OGR-01. Boyut: S.
   - Dosya: yeni: `src/sistemler/son_kilidi.gd`; `nihai_son.gd` tek satır.
   - Asset: asset gerekmedi.
-- [/] **OGR-34:** İflas uyarısı ilk eksi kasada gelir. (Antigravity)
+- [x] **OGR-34:** İflas uyarısı ilk eksi kasada gelir. (Antigravity)
   - Ne: `src/koy/iflas_yoneticisi.gd` (`data/koy/iflas.json`) eşiğinden iki gece önce tek satır uyarı.
   - Kabul: uyarı iflas gecesinden önce; iflas metni değişmez. Test: zaman makinesiyle (`src/debug/zaman_makinesi.gd`) iki gece.
   - Bağımlılık: OGR-07. Boyut: S.

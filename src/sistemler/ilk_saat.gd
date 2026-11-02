@@ -167,6 +167,98 @@ func insa_kaynak_uyarisi(kaynak_yeterli: bool, eksik_kaynak: String = "tas") -> 
 	}
 
 
+## OGR-15: Heybe ilk kez gizli esya (`esya_gizli`) tasiyan kiside ipucu alir.
+func heybe_gizli_esya_ipucu(esya_gizli_var: bool, guncel_gece: int = 2) -> Dictionary:
+	if not esya_gizli_var or _gorulen.has("heybe_gizli_esya"):
+		return {"ipucu_sayisi": 0, "metin": ""}
+	_gorulen["heybe_gizli_esya"] = true
+	tetikle("ilk_gizli_esya", maxi(2, guncel_gece))
+	return {
+		"ipucu_sayisi": 1,
+		"metin": "Şüpheli yolcuda heybe araması gizli eşyayı ortaya çıkarır.",
+	}
+
+
+## OGR-16: Tansiyon gostergesi ilk kez "gergin" kademeye gecince tek satir ipucu: zar zorlasti.
+func tansiyon_gergin_ipucu(kademe: String) -> Dictionary:
+	var norm := kademe.strip_edges().to_lower()
+	if norm != "gergin" or _gorulen.has("tansiyon_gergin"):
+		return {"ipucu_sayisi": 0, "metin": ""}
+	_gorulen["tansiyon_gergin"] = true
+	return {
+		"ipucu_sayisi": 1,
+		"metin": "Ortam gerildi; zar eşiği +1 zorlaştı.",
+	}
+
+
+## OGR-17: Dort bar (`bar.halk`, `bar.soylular`, `bar.tuccarlar`, `bar.ordu`) ilk kez degisince
+## hangi kararin hangi bari oynattigi anahtariyla tek satirda soylenir.
+func bar_degisim_ipucu(bar_anahtari: String, delta: int, guncel_gece: int = 1) -> Dictionary:
+	var temiz := bar_anahtari.strip_edges()
+	if delta == 0 or temiz.is_empty() or _gorulen.has("bar_ilk_degisim"):
+		return {"ipucu_sayisi": 0, "metin": "", "bar_anahtari": ""}
+	var tam_anahtar := temiz if temiz.begins_with("bar.") else "bar." + temiz
+	_gorulen["bar_ilk_degisim"] = true
+	tetikle("ilk_bar_degisimi", maxi(1, guncel_gece))
+	var yon := "yükseldi" if delta > 0 else "geriledi"
+	return {
+		"ipucu_sayisi": 1,
+		"bar_anahtari": tam_anahtar,
+		"metin": "Verdiğin karar %s dengesini etkiledi (%s)." % [tam_anahtar, yon],
+	}
+
+
+## OGR-18: Kabul siniri (barinak kapasitesi) ilk kez dolunca ipucu; karari engellemez.
+func barinak_dolu_ipucu(bos_yatak: int) -> Dictionary:
+	if bos_yatak > 0 or _gorulen.has("barinak_ilk_dolu"):
+		return {"ipucu_sayisi": 0, "metin": "", "engeller": false}
+	_gorulen["barinak_ilk_dolu"] = true
+	return {
+		"ipucu_sayisi": 1,
+		"metin": "Barınakta yer kalmadı; kabul edilen dışarıda geceler.",
+		"engeller": false,
+	}
+
+
+## OGR-20: Kaynak gostergesi ilk kez bir kaynak dusunce tuketim satiri tek satirla soylenir.
+func kaynak_eksilis_ipucu(tuketim_miktari: int, kaynak_adi: String = "erzak") -> Dictionary:
+	if tuketim_miktari <= 0 or _gorulen.has("kaynak_ilk_eksilis"):
+		return {"ipucu_sayisi": 0, "metin": ""}
+	_gorulen["kaynak_ilk_eksilis"] = true
+	var temiz_ad := kaynak_adi.strip_edges()
+	if temiz_ad.is_empty():
+		temiz_ad = "erzak"
+	return {
+		"ipucu_sayisi": 1,
+		"metin": "Köy nüfusu her gece %s tüketir (-%d)." % [temiz_ad, tuketim_miktari],
+	}
+
+
+## OGR-32: Ambar `ambar_yedek_gece` (varsayilan 1) altina ilk inince ipucu ve renk uyarisi.
+func kitlik_esigi_ipucu(ambar_gece: float, ambar_yedek_gece: float = 1.0) -> Dictionary:
+	if ambar_gece >= ambar_yedek_gece or _gorulen.has("kitlik_ilk_yaklasma"):
+		return {"ipucu_sayisi": 0, "metin": "", "renk_uyarisi": false}
+	_gorulen["kitlik_ilk_yaklasma"] = true
+	return {
+		"ipucu_sayisi": 1,
+		"metin": "Ambar yedek gecenin altına indi; kıtlık kapıda.",
+		"renk_uyarisi": true,
+	}
+
+
+## OGR-34: Iflas esiginden iki gece once (orn. esik 3 ise ilk eksi kasada, kalan <= 2 gece) tek satir uyari.
+func iflas_uyarisi_ipucu(eksi_kasa_gece_sayisi: int, iflas_esigi_gece: int = 3) -> Dictionary:
+	var kalan := iflas_esigi_gece - eksi_kasa_gece_sayisi
+	if eksi_kasa_gece_sayisi <= 0 or kalan > 2 or kalan <= 0 or _gorulen.has("iflas_ilk_uyari"):
+		return {"ipucu_sayisi": 0, "metin": ""}
+	_gorulen["iflas_ilk_uyari"] = true
+	return {
+		"ipucu_sayisi": 1,
+		"kalan_gece": kalan,
+		"metin": "Kasa ekside; %d gece içinde düzelmezse iflas gelir." % kalan,
+	}
+
+
 func gorulen_ipuclari() -> Array[String]:
 	var sonuc: Array[String] = []
 	for k in _gorulen.keys():
