@@ -243,3 +243,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: `tests/unit/soz/kisi_hafizasi_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
 - Açık kalan: yok.
 - kota görünmüyor
+
+### 2 Kasım — DIY-12 kapatıldı (hedefli test)
+- `data/gruplar.json` ve `src/sistemler/grup_itibari.gd` (`GrupItibari`): 6 grup (Türkmen, Rum, Ahi, köylü, tüccar, asker) ve -10..+10 itibar sınırları eklendi.
+- Bir ziyarette yalnız karakterin birincil grubuna yazılır; çift grupluda ikinci gruba yazılmaz; grupsuz karakter varsayılan olarak köylü sayılır; sınır dışına taşan yazımlar -10/+10'da kesilir ve kayıtta `"kesildi"` olarak tutulur; yedinci grup ve `kalp`/`romans` anahtarları reddedilir.
+- Test: `tests/unit/sistemler/grup_itibari_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
+- Açık kalan: yok.
+- kota görünmüyor

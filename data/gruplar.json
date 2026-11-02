@@ -1,0 +1,45 @@
+{
+  "asgari_itibar": -10,
+  "azami_itibar": 10,
+  "varsayilan_grup": "koylu",
+  "karar_deltalari": {
+    "kabul": 1,
+    "ret": -1,
+    "rusvet": -1,
+    "kisla": 0,
+    "yardim": 1,
+    "ihbar": -2
+  },
+  "gruplar": [
+    {
+      "id": "turkmen",
+      "ad": "Türkmen",
+      "baslangic": 0
+    },
+    {
+      "id": "rum",
+      "ad": "Rum",
+      "baslangic": 0
+    },
+    {
+      "id": "ahi",
+      "ad": "Ahi",
+      "baslangic": 0
+    },
+    {
+      "id": "koylu",
+      "ad": "Köylü",
+      "baslangic": 0
+    },
+    {
+      "id": "tuccar",
+      "ad": "Tüccar",
+      "baslangic": 0
+    },
+    {
+      "id": "asker",
+      "ad": "Asker",
+      "baslangic": 0
+    }
+  ]
+}
