@@ -434,6 +434,7 @@ func olay_sec() -> OlayVerisi:
 	var adaylar: Array[OlayVerisi] = []
 	var toplam_agirlik := 0.0
 	for o in katalog.olaylar():
+		if not preload("res://src/sistemler/olay_on_kosulu.gd").havuzda(self, o.id): continue
 		if o.tek_sefer and gorulen_olaylar.has(o.id):
 			continue
 		if not _kosul_tutar(o.kosullar):
