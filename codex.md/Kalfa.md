@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-67 başladı (Kalfa)
+
+Gerçek rüşvet/zimmet makbuzlarından hesaplanan mevcut terazi JSON ve göçten sonra karşılaştırılacak. Formül/denge değişmez. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-66 tamamlandı (Kalfa)
 
 Tek yarım kulübe fikstürü, kimlik 7/konum 3,4/seviye 2/kalan inşaat 2 gün/malzeme maliyetiyle gerçek Oturum JSON ve v2–v3 göçünden geçirildi. Bina sayısı bir kaldı; inşaat bitmedi, seviye değişmedi, tüm bina verisi ve kaynak kayıt korundu. Tekrar yüklemede ilerleme yok. Üretim bina/göç kodu değişmedi. Asset gerekmedi. kota görünmüyor.
