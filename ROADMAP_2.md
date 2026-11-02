@@ -610,7 +610,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
   - Dosya: yeni `src/sistemler/grup_itibari.gd`, `data/gruplar.json`.
   - Asset: asset gerekmedi.
 
-- [ ] **DIY-13:** Dedikodu yayılımı — haber gecikmeli dolaşır.
+- [/] **DIY-13:** Dedikodu yayılımı — haber gecikmeli dolaşır. (Antigravity)
   - Ne: Rüşvet, şiddet, aileyi bölme ve haksız ret tanık varsa bir ila üç gece içinde yayılır. Tanık yoksa satır oluşmaz. Aynı olay kimliği ikinci kayıt açmaz. Sabah pusulasına bunu KOP-05 yazar; gazete kendi cümlesini uydurmaz.
   - Kurallar:
     1. Ağır olay türleri veridedir: rüşvet, şiddet, aileyi bölme, haksız ret. Listede olmayan olay dedikodu üretmez.
