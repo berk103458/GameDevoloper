@@ -1,3 +1,7 @@
+## 2 Kasım — ISG-01 başladı (Kalfa)
+
+ISG-02 tablosu bbab61c9 kabulüyle hazır. Gelen kişinin mesleği için hazır yapı yoksa mevcut karar panelinde salt okunur uyarı gösterilecek; kabul kapanmaz, kayıt/tüketim değişmez. Yeni asset gerekmez. Söz motoru beklemede. kota görünmüyor.
+
 ## 2 Kasım 2026 — ISG-02 tamamlandı (Kalfa)
 
 Dokuz geçici iş tek dış tabloda; mevcut köylü kartındaki sekme ve mevcut sürükleme kulpu üzerinden atanır. Kişi tek iş taşır, bina/nöbet ataması bunu bırakır. Çocuk/yaralı/nöbetçi atanmaz; bir erzak payına ikinci bedel eklenmez. Taş mevcut yataktan; inşaat yardımı mevcut hesaptan; su/odun/ot mevcut ambardan geçer. Ot afyon üretmez, kışta 0 verir. Yün için yaşayan ağıl ve hazır ev gerekir; yeni iplik stoğu yerine mevcut kumaş kaynağı kullanılır. Bakım mevcut moral etkisidir, tedavi sayacı değildir. Yorgunluk mevcut kayıttadır. Havuz/sıra kayda gömülmez, kişinin ataması ve gece makbuzu korunur. Aynı tohum iki gece ve gerçek meclis gecesi kontrolleri geçti.

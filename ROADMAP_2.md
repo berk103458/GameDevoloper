@@ -1264,7 +1264,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.1 Kabul uyarısı
 
-- [ ] **ISG-01:** Kabul anında meslek uyarısı.
+- [/] **ISG-01:** Kabul anında meslek uyarısı. (Kalfa)
   - Ne: Oyuncu kapıda birini kabul ederken, mesleğinin binası köyde yoksa karar panelinde bir uyarı satırı görür. Satırda meslek adı, eksik bina, nitelikli iş verilemeyeceği, günde 1 erzak ve geçici işteki verim yazar. Meslek ve bina adları `data/meslek_binalari.json` eşlemesinden gelir. Bina köydeyse veya kişinin mesleği yoksa satır çıkmaz. Uyarı kabulü kapatmaz. Eş bu panelde değildir. Uyarı kayda yazılmaz. Aynı satır köy ekranında ikinci kez basılmaz.
   - Kurallar:
     1. Uyarı karar panelindedir. Metin kalıbı: "Kumaşçı — dokuma tezgâhı yok. Nitelikli iş verilemez; günde 1 erzak yer, geçici işte %X verimle çalışır." Meslek ve bina adları `data/meslek_binalari.json` eşlemesinden gelir.
