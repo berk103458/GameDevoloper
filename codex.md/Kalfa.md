@@ -1,3 +1,7 @@
+## 2 Kasım — Ayrı hazırlık kopyası ve KAY-05 kabul kaydı (Kalfa)
+
+Ortak index yarışı nedeniyle KAY-05 kod/test/rapor dosyaları Antigravity DYL-06 yayını 8ec4b48e içine girdi; görev ve testler Kalfa tarafından yapıldı, DYL-06 Antigravity sahipliği korunur. KAY-05 [x] ve üç hedefli kontrol/import kanıtı geçerli. Geçmiş yeniden yazılmadı. Bu kayıt Kalfa kabul commitidir. Sonraki iş `C:/Users/Ahmet/.codex/worktrees/kalfa-roadmap/Kapı_Muhafizi` geçici detached hazırlık kopyasında yapılır, remote festive tek entegrasyon dalı olarak kalır; her madde origin festive üzerine rebase edilip HEAD:festive push ile gönderilir. Ana checkoutın indexine artık yazılmaz, başka ajanın uncommitted dosyaları korunur. ds aynaları yok; eşitlenmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-05 tamamlandı (Kalfa)
 
 KAY-03 tek-adım yürütücüsü tüm göçü kopyada yapar ve dosya yazmaz; başarısız göç ana/yedek/bak.tmp'yi yerinden çıkarmadığı için korunan yedek baytları aynen kalır. SYS-02 atomik yazıcısı ikinci kez kurulmadı; bu mevcut koruma gerçek süreç hatasıyla doğrulandı. Üretim koduna ikinci kurtarma yolu eklenmedi.
