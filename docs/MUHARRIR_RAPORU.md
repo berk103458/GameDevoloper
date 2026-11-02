@@ -1,3 +1,9 @@
+## 2 Kasım 2026 — KAY-67 tamamlandı (Kalfa)
+
+Gerçek kapı rüşvet kararı ve KasaTransferi zimmet işlemiyle kurulan makbuzlar iki adalet düzeyinde gerçek JSON ve v2–v3 göçünden geçirildi. Adalet/yozlaşma/denge/unvan ile rüşvet/zimmet kaynak sayıları aynı kaldı. Tekrar yükleme puanı çoğaltmaz; kaynak oturum değişmez. Üretim terazi/formül/göç kodu değişmedi. Asset gerekmedi. kota görünmüyor.
+
+Kanıt: work/kay67_ikiz.log ve kay67_terazi.log mevcut terazi regresyonu geçti. Son recovery headless import kay67_import_son.log; ilk cache MD5 logu korunur. Tam sanity/görünür pencere yok. ds yolları yok, eşitlenmedi. Söz motoru beklemede; diğer ajan sahiplikleri korunur.
+
 ## 2 Kasım 2026 — KAY-66 tamamlandı (Kalfa)
 
 Tek yarım kulübe fikstürü, kimlik 7/konum 3,4/seviye 2/kalan inşaat 2 gün/malzeme maliyetiyle gerçek Oturum JSON ve v2–v3 göçünden geçirildi. Bina sayısı bir kaldı; inşaat bitmedi, seviye değişmedi, tüm bina verisi ve kaynak kayıt korundu. Tekrar yüklemede ilerleme yok. Üretim bina/göç kodu değişmedi. Asset gerekmedi. kota görünmüyor.

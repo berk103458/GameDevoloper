@@ -3212,7 +3212,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-03. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [/] **KAY-67:** Adalet ve yozlaşma terazisi kaymaz. (Kalfa)
+- [x] **KAY-67:** Adalet ve yozlaşma terazisi kaymaz. (Kalfa)
   - Ne: ODA-12 skoru göçte değişmez. Söz alanları teraziyi yeniden hesaplamaz.
   - Kabul: ODA-12 skoru göçte değişmez. Söz alanları teraziyi yeniden hesaplamaz. Test: skor eşit.
   - Bağımlılık: ODA-12, KAY-03. Boyut: S.

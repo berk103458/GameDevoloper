@@ -13,6 +13,7 @@ func _initialize() -> void:
 	_sonlar(kat)
 	_karantina(kat)
 	_bina_ilerlemesi(kat)
+	_terazi(kat)
 	var asil := Oturum.new(kat, 3123)
 	asil.yonetim.gun = 8
 	dene(asil.dedikodu.olay_kaydet("iki_gecelik", "rusvet", 6, "tanik_23", 3).olur, "Tanıklı iki gecelik fikstür")
@@ -31,7 +32,7 @@ func _initialize() -> void:
 		dene(o.gun == 9 and o.dedikodu.pusula_satirlari(9).size() == 1, "Gerçek üçüncü gecede tek yayın")
 	# JSON sayıları float açar; karşılaştırmanın iki tarafını aynı sınırdan geçir.
 	dene(JSON.parse_string(JSON.stringify(asil.dedikodu.kaydet())) == a.dedikodu.kaydet() and a.dedikodu.kaydet() == b.dedikodu.kaydet(), "Kayıtsız ve yüklenmiş zaman çizgileri aynı")
-	print("KAYIT İKİZİ (KAY-23/45/46/47/65/66): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47/65/66): KALDI")
+	print("KAYIT İKİZİ (KAY-23/45/46/47/65/66/67): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47/65/66/67): KALDI")
 	quit(hata)
 
 func _kasalar(kat: Katalog) -> void:
@@ -172,3 +173,24 @@ func _bina_ilerlemesi(kat: Katalog) -> void:
 		var ikiz := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(geri.kaydet())))
 		dene(ikiz.yonetim.binalar.size() == 1 and ikiz.yonetim.bina(7).insa_kalan == 2 and ikiz.yonetim.bina(7).seviye == 2, "Tekrar yüklemede bina ilerlemez")
 	dene(b.insa_kalan == 2 and b.seviye == 2, "Kaynak yarım bina korunur")
+
+func _terazi(kat: Katalog) -> void:
+	for adalet in [15, 73]:
+		var o := Oturum.new(kat, 3167)
+		o.yonetim.adalet = adalet
+		o.karar_ver(o._adli_gelen(&"chr_001"), &"rusvet")
+		o.koy_akce = 100
+		dene(KasaTransferi.uygula(o, "zimmet", 5), "Terazi için gerçek zimmet")
+		var once := MuhafizTerazisi.durum(o)
+		dene(once.rusvet == 1 and once.zimmet == 5 and once.yozlasma > 0, "Gerçek makbuzlu terazi fikstürü")
+		var kaynak := JSON.stringify(o.kaydet())
+		for surum in [2, 3]:
+			var veri: Dictionary = JSON.parse_string(kaynak)
+			veri.surum = surum
+			var geri := Oturum.kayittan(kat, veri)
+			dene(geri != null, "Terazi kaydı açılır")
+			if geri == null: continue
+			dene(MuhafizTerazisi.durum(geri) == once, "Adalet/yozlaşma/denge/unvan ve makbuzlar göçte aynı")
+			var ikiz := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(geri.kaydet())))
+			dene(MuhafizTerazisi.durum(ikiz) == once, "Tekrar yüklemede skor çoğalmaz")
+		dene(JSON.stringify(o.kaydet()) == kaynak and MuhafizTerazisi.durum(o) == once, "Kaynak terazi/kayıt korunur")
