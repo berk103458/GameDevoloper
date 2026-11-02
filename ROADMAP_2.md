@@ -790,7 +790,7 @@ ZAR-01 … ZAR-06 gövdesi durur. Yeni maddeler ZAR-07 … ZAR-86. İkinci zar s
 
 ### 17.6 Sezgi
 
-- [/] **ZAR-06:** (Kalfa) Muhafız sezgisi — zarsız pasif kontrol.
+- [x] **ZAR-06:** (Kalfa) Muhafız sezgisi — zarsız pasif kontrol.
   - Ne: Tecrübe ve geçmiş eşiği geçince ek bir satır kendiliğinden görünür; zar atılmaz. Eşik altındayken satır da ipucu da yoktur. Sezgi beyan değildir. Bir ziyarette en çok bir kez açılır. Sır çekirdeğinde her CHR'de en az bir sezgi satırı vardır.
   - Kurallar:
     1. Muhafız tecrübesi ve ACL-06 geçmişi eşiği geçince ek satır kendiliğinden görünür. Zar atılmaz.

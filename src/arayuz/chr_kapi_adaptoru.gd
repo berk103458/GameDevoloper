@@ -14,6 +14,7 @@ static func diyalog_goster(ekran: Control, gelen: Gelen, secenekler: VBoxContain
 	if sorgu == null:
 		return false
 	sorgu.tecrube = MuhafizOdaGelisimi.etkin_tecrube(ekran.oturum)
+	preload("res://src/soz/muhafiz_sezgisi.gd").goster(ekran, gelen)
 	ekran.call("_chr_tansiyon_degisti", sorgu.tansiyon)
 	var animasyon := Callable(ekran, "_chr_tansiyon_degisti")
 	if not sorgu.tansiyon_degisti.is_connected(animasyon):

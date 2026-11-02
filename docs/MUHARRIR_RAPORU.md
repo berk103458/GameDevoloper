@@ -1,3 +1,13 @@
+## 2 Kasım 2026 — ZAR-06 tamamlandı (Kalfa)
+
+Zarsız sezgi mevcut CHR sohbet adaptörüne bağlandı. `src/soz/muhafiz_sezgisi.gd` veri dosyasındaki tek tecrübe eşiğini (4) ve ACL-06 geçmişini okur; DYL-02 aynı `esik()/esik_gecti()` erişimini kullanacak. Tüm mevcut 30 derlenmiş CHR için kaynağın `gorsel_hata` metni ve mevcut `gorsel_hata_ipucu` Clue kimliği okunur. Yeni replik, yeni ipucu adı veya sır kimliği uydurulmadı; gelecekte yeni/ dürüst çekirdeklerin sınıflaması DIY-01a onayı ve içerik hattındadır. Liste dışındaki/dürüst karaktere sezgi zorunlu kılınmadı.
+
+DIY-09 SatirSecici geçmişe özel/genel varyantı seçer. Eşik altında hiçbir satır/ipucu yok; ışık kapalıysa görsel sezgi susar. DIY-08'in mevcut sayısal `isik` değeri bulanıklık yarıçapıdır (0 açık görüş, sis/tipi >0); boolean ışık bağlamında false kapalıdır. Bu mevcut anlam kodda açıkça ayrıldı, ikinci görüş tablosu yazılmadı. Özel geçmiş tutmazsa genel varsa gelir. Satır ziyaret başına bir kez görünür; snapshot görüldü işaretini saklar. Beyan/hafıza/zar atışı üretmez; aynı IpucuYoneticisi'ne mevcut Clue yazılır. Ziyaret dünya bağlamı aynı Gelen üzerinde bir kez tutulur, yüklemede canlı bağlam yeniden kurulur.
+
+Kanıt: `work/zar06_unit.log` eşik-1/eşik, ışık/tipi, geçmiş/genel, RNG/son_zar/deneme değişmezliği, snapshot ve mevcut sır CHR kapsamı; `zar06_panel.log` gerçek CHR adaptöründe otomatik tek satır; `zar06_secici.log` mevcut satır seçici regresyonu; `zar06_aile.log` aile/snapshot regresyonu. Dört hedefli kontrol ve recovery headless import (`zar06_import.log`) geçti. İlk RED eksik sezgiydi; testte statik tiplendirme ve derlenmiş CHR kaynaklarını doğrudan tarama düzeltildi. Tam sanity/görünür pencere yok.
+
+İnceleme: eşiğin tek kaynağı veri, görünüm/Clue orijinal Resource'tan, salt-okunur bağlam; tek ziyaret işareti dışında simülasyona ek yazım yok. Asset gerekmedi, yeni envanter ihtiyacı yok. DIY-01a onayı hâlâ bekliyor; şema/motor sahiplenilmedi. Antigravity DIY-12/13 ve diğer sahiplikler korundu. ds yolları yok, önceki istisnayla eşitlenmedi. kota görünmüyor.
+
 ## 2 Kasım — Toplu durum ve gerçek karar kapısı (Kalfa)
 
 Bu devam diliminde KAP-17 `404c7f4f`, KAP-19 `3bcd2caa` tamamlandı ve festive'e push edildi; ROADMAP [x]. Kalfa'nın açık [/] maddesi yok. KAP-18 DNY-01 bekliyor. Sonraki sıradaki DIY-01a için `docs/SOZ_TASARIMI.md` ve ROADMAP açıkça «Belge Ahmet onaylamadan şemaya geçilmez» diyor; `codex.md/Claude.md` de Ahmet onayını bekliyor kaydı içeriyor. Önceki genel devam talimatı bu somut tasarımın onayı olarak varsayılmadı. Ahmet'e mevcut bitmiş belge için kısa onay sorusu sunuldu; şema/motor sahiplenilmedi. Onay sonrasında güncel sahiplik ve faz sırası yeniden kontrol edilecek. Bağımsız maddeler kapatılmış gibi gösterilmedi.

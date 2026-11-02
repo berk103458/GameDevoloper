@@ -18,6 +18,7 @@ static func gelen_kaydet(g: Gelen) -> Dictionary:
 	v["diplomatik_heyet"] = DiplomatikHeyet.bilet(g)
 	v["sira_sonucu"] = g.get_meta(SiraOlayiSonucu.META, {}).duplicate()
 	v["hastalik_teshisi"] = preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kaydet(g)
+	v["sezgi_goruldu"] = bool(g.get_meta(&"zar06_goruldu", false))
 	v["chr_kontrol_edildi"] = g._chr_kontrol_edildi
 	v["chr"] = null
 	var s: ChrSorgusu = g._chr_sorgusu
@@ -51,6 +52,8 @@ static func gelen_yukle(v: Dictionary, katalog: Katalog) -> Gelen:
 		if not (v.get(alan) is int or v.get(alan) is float): return null
 	if not v.get("tehlikeli") is bool: return null
 	var g := Gelen.new()
+	if not v.get("sezgi_goruldu", false) is bool: return null
+	if v.get("sezgi_goruldu", false): g.set_meta(&"zar06_goruldu", true)
 	g.aile = preload("res://src/kapi/aile_kafilesi.gd").uyeleri_oku(v.get("aile", []))
 	if v.has("aile") and (not v.aile is Array or g.aile.size() != v.aile.size()): return null
 	if not v.get("aile_id", "") is String: return null
