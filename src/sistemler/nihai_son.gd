@@ -15,7 +15,7 @@ static func gostergeler(o: Oturum) -> Dictionary:
 
 ## Yalnız zafer için: öncelik sırasıyla beş sondan biri.
 static func son(o: Oturum, s: StringName) -> String:
-	if s != &"zafer": return ""
+	if s != &"zafer" or preload("res://src/sistemler/son_kilidi.gd").kilitli_mi(o): return ""
 	var y := o.yonetim
 	var g := gostergeler(o)
 	var e: Dictionary = AYAR.esik

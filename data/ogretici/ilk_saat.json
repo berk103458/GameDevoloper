@@ -1,5 +1,6 @@
 {
 	"tehdit_baslangic": "res://data/tehdit_takvimi.json",
+	"son_kilidi_gece": 6,
 	"azami_ipucu": 20,
 	"kavramlar": [
 		{"id": "kapi_sorgusu", "gece_min": 0, "tetik": "kapi_ilk_aile", "atla_gecmis": ["medrese_talebesi", "katip"]},

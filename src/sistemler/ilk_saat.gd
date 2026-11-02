@@ -12,6 +12,7 @@ var _veri: Dictionary = {}
 var _kavramlar: Array[Dictionary] = []
 var _gorulen: Dictionary = {}
 var zar_gosterildi: bool = false
+var perde: int = 1
 
 
 func _init(yol: String = VERI_YOLU) -> void:
@@ -46,6 +47,7 @@ func yukle_dosya(yol: String = VERI_YOLU) -> bool:
 func sifirla() -> void:
 	_gorulen.clear()
 	zar_gosterildi = false
+	perde = 1
 
 
 func kavram_sayisi() -> int:
@@ -54,6 +56,11 @@ func kavram_sayisi() -> int:
 
 func kavramlar() -> Array[Dictionary]:
 	return _kavramlar.duplicate(true)
+
+
+## OGR-33: ilk_saat.json icindeki son_kilidi_gece degerini doner (varsayilan 6).
+func son_kilidi_gece() -> int:
+	return maxi(0, int(_veri.get("son_kilidi_gece", 6)))
 
 
 ## OGR-37: Verilen muhafiz gecmisi icin atlanmayan kavram kimliklerini doner.
@@ -91,7 +98,11 @@ func kavram_acik_mi(kavram_id: String, guncel_gece: int) -> bool:
 
 ## Tetik veya kavram kimligiyle ipucu gostermeyi dener.
 ## Listede olmayan ipucu cikmaz; `gece_min` gelmemisse veya daha once gorulduyse cikmaz.
-func tetikle(anahtar: String, guncel_gece: int, gecmis_id: String = "") -> Dictionary:
+## OMR-11: perde 2'de ipucu sistemi susar (`ilk_saat.json` kavramlarinin hicbiri perde 2'de tetiklenmez).
+func tetikle(anahtar: String, guncel_gece: int, gecmis_id: String = "", perde_no: int = -1) -> Dictionary:
+	var etkin_perde := perde_no if perde_no > 0 else perde
+	if etkin_perde >= 2:
+		return {"gosterildi": false, "sebep": "perde2_sustu"}
 	var temiz := anahtar.strip_edges()
 	if temiz.is_empty():
 		return {"gosterildi": false, "sebep": "bos_anahtar"}

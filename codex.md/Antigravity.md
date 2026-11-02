@@ -467,3 +467,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   2. `omurga.gd` içinde kayıt (`kaydet`/`yukle`) ve mevsim (`Takvim`) bağımlılığı bulunmadığı `tests/unit/sistemler/omurga_test.gd` ile doğrulandı.
   3. Asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+
+## 13 Ekim 2026 — OGR-33 ve OMR-11 (İlk Saatte Son Kilidi ve Perde 2 İpucu Suskunluğu)
+- **Ne yapıldı (`OGR-33`, `OMR-11`):**
+  1. `data/ogretici/ilk_saat.json` içine `"son_kilidi_gece": 6` eklendi ve `src/sistemler/son_kilidi.gd` (`SonKilidi`) oluşturuldu.
+  2. `src/sistemler/nihai_son.gd` içindeki `son(o, s)` fonksiyonuna `SonKilidi.kilitli_mi(o)` tek satır kontrolü eklendi.
+  3. `src/sistemler/ilk_saat.gd` içine perde 2'de (`perde >= 2`) ipucu sistemini susturan koşul eklendi ve `tests/unit/sistemler/ilk_saat_test.gd` güncellendi.
+  4. Asset gerekmedi.
+- **Kota:** kota görünmüyor

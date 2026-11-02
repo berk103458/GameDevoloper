@@ -2,6 +2,8 @@ extends SceneTree
 
 const IlkSaatSinifi = preload("res://src/sistemler/ilk_saat.gd")
 const ZarIpucuSinifi = preload("res://src/kapi/zar_ipucu.gd")
+const SonKilidiSinifi = preload("res://src/sistemler/son_kilidi.gd")
+const NihaiSonSinifi = preload("res://src/sistemler/nihai_son.gd")
 
 var _hata: int = 0
 
@@ -32,6 +34,26 @@ func _initialize() -> void:
 		if not levent_kume.has(id_b):
 			fark += 1
 	_kontrol(fark >= 1, "OGR-37: iki gecmisle ipucu kumesi farki >= 1 olmali")
+
+	# OGR-33: Gece < 6 iken son 0 (en kotu degerlerle gece 5 anlik goruntusu)
+	_kontrol(ilk.son_kilidi_gece() == 6 and SonKilidiSinifi.kilitli_mi(5) and not SonKilidiSinifi.kilitli_mi(6), "OGR-33: son_kilidi_gece 6 olmali ve gece 5 kilitli olmali")
+	var oturum := Oturum.new(Ayarlar.new())
+	oturum.yeni_oyun()
+	oturum.gun = 5
+	oturum.yonetim.gun = 5
+	oturum.yonetim.adalet = 0
+	_kontrol(NihaiSonSinifi.son(oturum, &"zafer").is_empty(), "OGR-33: gece 5 iken en kotu degerlerle bile nihai son 0 (bos) olmali")
+
+	# OMR-11: Gecis sonrasi (perde 2) alti gece ipucu 0
+	ilk.sifirla()
+	ilk.perde = 2
+	var perde2_ipucu := 0
+	for gece in range(0, 6):
+		for k in kavramlar:
+			if bool(ilk.tetikle(String(k.get("tetik", "")), gece).get("gosterildi", false)):
+				perde2_ipucu += 1
+	_kontrol(perde2_ipucu == 0, "OMR-11: perde 2 gecisi sonrasi alti gece ipucu 0 olmali")
+	ilk.sifirla()
 
 	# Listede olmayan ipucu cikmaz
 	var uydurma := ilk.tetikle("uydurma_ipucu", 5)
