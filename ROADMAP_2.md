@@ -3314,7 +3314,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-07. Boyut: S.
   - Dosya: `data/ayarlar/oyun.tres`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-59:** Göç tek komutla koşar.
+- [/] **KAY-59:** Göç tek komutla koşar. (Kalfa)
   - Ne: geliştirici kaydı el ile düzenlemez. Bir test komutu fixtürü göçtürür.
   - Kabul: geliştirici kaydı el ile düzenlemez. Bir test komutu fixtürü göçtürür. Test: komut çıkış kodu 0.
   - Bağımlılık: KAY-03. Boyut: S.
