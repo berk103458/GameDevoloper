@@ -2879,7 +2879,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-01, SYS-14. Boyut: S.
   - Dosya: `src/sistemler/guvenli_kayit.gd`.
   - Asset: asset gerekmedi.
-- [/] **KAY-03:** (Kalfa) Göç tek basamaklıdır.
+- [x] **KAY-03:** (Kalfa) Göç tek basamaklıdır.
   - Ne: N'den N+2'ye atlanmaz. Ara adım fonksiyonu çalışır.
   - Kabul: N'den N+2'ye atlanmaz. Ara adım fonksiyonu çalışır. Test: iki basamaklı fixtür, ara fonksiyon bir kez çağrılır.
   - Bağımlılık: KAY-01. Boyut: M.

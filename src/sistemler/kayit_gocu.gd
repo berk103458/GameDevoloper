@@ -13,17 +13,9 @@ static func uygula(kayit: Dictionary, mevsim_gun: int) -> Dictionary:
 		return {}
 	if not kayit.has("tohum") or not kayit.get("kadro", {}) is Dictionary:
 		return {}
-	var veri := kayit.duplicate(true)
-	while surum < GUNCEL_SURUM:
-		match surum:
-			2:
-				veri = _v2_v3(veri, mevsim_gun)
-			_:
-				return {}
-		# Her adım tam bir sürüm ilerletir; eksik/hatalı zincir yüklenmez.
-		if veri.get("surum", 0) != surum + 1:
-			return {}
-		surum += 1
+	var adimlar := {2: func(v: Dictionary) -> Dictionary: return _v2_v3(v, mevsim_gun)}
+	var veri := preload("res://src/sistemler/kayit_gocu_soz.gd").uygula(kayit, GUNCEL_SURUM, adimlar)
+	if veri.is_empty(): return {}
 	for alan in ["muhafiz_akce", "muhafiz_tecrubesi", "mevsim"]:
 		var deger: Variant = veri.get(alan)
 		if (not deger is int and not deger is float) or float(deger) != floor(float(deger)) or float(deger) < 0:
