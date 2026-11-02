@@ -3182,7 +3182,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: EKO-01, KAY-03. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-46:** Mevsim günü kaymaz.
+- [/] **KAY-46:** Mevsim günü kaymaz. (Kalfa)
   - Ne: MEV-01 günü ve mevsimi yüklemede aynıdır. Söz göçü takvimi ilerletmez.
   - Kabul: MEV-01 günü ve mevsimi yüklemede aynıdır. Söz göçü takvimi ilerletmez. Test: gün eşit.
   - Bağımlılık: MEV-01. Boyut: S.
