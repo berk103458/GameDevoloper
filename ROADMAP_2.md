@@ -3895,7 +3895,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-01, ACL-04. Boyut: S.
   - Dosya: yeni: `src/kapi/ilk_gece_kisiti.gd`; `src/arayuz/kapi_ekrani.gd` tek satır.
   - Asset: asset gerekmedi.
-- [/] **OGR-03:** İkinci gece zar görünür olur. (Antigravity)
+- [x] **OGR-03:** İkinci gece zar görünür olur. (Antigravity)
   - Ne: görünür zar (ZAR-01) ilk kez ikinci gece bir soruda açılır. Oyuncu zarı ilk kez attığında "gerekli = değer + 1 + tansiyon eki" formülü tek satırlık ipucuyla gösterilir.
   - Kabul: ipucu bir kez görünür, `ilk_saat` kaydına `zar_gosterildi` yazılır. Test: aynı kayıtla ikinci açılışta ipucu 0.
   - Bağımlılık: ZAR-01, OGR-01. Boyut: S.

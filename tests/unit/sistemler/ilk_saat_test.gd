@@ -1,6 +1,7 @@
 extends SceneTree
 
 const IlkSaatSinifi = preload("res://src/sistemler/ilk_saat.gd")
+const ZarIpucuSinifi = preload("res://src/kapi/zar_ipucu.gd")
 
 var _hata: int = 0
 
@@ -22,7 +23,17 @@ func _initialize() -> void:
 	var uydurma := ilk.tetikle("uydurma_ipucu", 5)
 	_kontrol(not bool(uydurma.get("gosterildi", true)), "Listede olmayan ipucu cikmamali")
 
+	# OGR-03: Gece 1'de ilk zar atisinda ipucu 1 kez gorunur, `zar_gosterildi` yazilir; ayni kayitla ikinci acilista ipucu 0
+	var zar_ilk := ZarIpucuSinifi.ilk_atis_ipucu(ilk, 1)
+	_kontrol(int(zar_ilk.get("ipucu_sayisi", 0)) == 1 and bool( ilk.zar_gosterildi ), "Ilk zar atisinda ipucu 1 kez gorunmeli ve zar_gosterildi yazilmali")
+	var kayit := ilk.kaydet()
+	var yuklenen := IlkSaatSinifi.new()
+	yuklenen.yukle(kayit)
+	var zar_ikinci := ZarIpucuSinifi.ilk_atis_ipucu(yuklenen, 1)
+	_kontrol(int(zar_ikinci.get("ipucu_sayisi", -1)) == 0, "Ayni kayitla ikinci acilista zar ipucu 0 olmali")
+
 	# Ilk alti gecede (gece 0..5) tum kavramlar tetiklendiginde gosterilen ipucu sayisi kavram sayisiyla esittir
+	ilk.sifirla()
 	var gosterilen := 0
 	for gece in range(0, 6):
 		for k in kavramlar:

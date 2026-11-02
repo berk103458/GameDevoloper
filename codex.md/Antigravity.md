@@ -423,3 +423,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `src/sistemler/ilk_saat.gd` (`IlkSaat`) ve `tests/unit/sistemler/ilk_saat_test.gd` oluşturuldu.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OGR-03 — İkinci gece zar görünür olur (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OGR-03`
+- **Yapılanlar:**
+  - `src/kapi/zar_ipucu.gd` (`ZarIpucu`) oluşturuldu; ikinci gece ilk zar atışında `"gerekli = değer + 1 + tansiyon eki"` ipucunu bir kez gösterip `ilk_saat` kaydına `zar_gosterildi` yazan akış bağlandı.
+  - `src/sistemler/ilk_saat.gd` ve `tests/unit/sistemler/ilk_saat_test.gd` güncellendi.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.

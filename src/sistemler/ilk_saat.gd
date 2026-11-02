@@ -10,6 +10,7 @@ const TEHDIT_YOLU := "res://data/tehdit_takvimi.json"
 var _veri: Dictionary = {}
 var _kavramlar: Array[Dictionary] = []
 var _gorulen: Dictionary = {}
+var zar_gosterildi: bool = false
 
 
 func _init(yol: String = VERI_YOLU) -> void:
@@ -38,6 +39,7 @@ func yukle_dosya(yol: String = VERI_YOLU) -> bool:
 
 func sifirla() -> void:
 	_gorulen.clear()
+	zar_gosterildi = false
 
 
 func kavram_sayisi() -> int:
@@ -79,6 +81,8 @@ func tetikle(anahtar: String, guncel_gece: int) -> Dictionary:
 			if guncel_gece < int(k.get("gece_min", 0)):
 				return {"gosterildi": false, "sebep": "gece_min_gelmedi", "id": id_str}
 			_gorulen[id_str] = true
+			if id_str == "zar":
+				zar_gosterildi = true
 			return {
 				"gosterildi": true,
 				"id": id_str,
@@ -86,6 +90,21 @@ func tetikle(anahtar: String, guncel_gece: int) -> Dictionary:
 				"gece_min": int(k.get("gece_min", 0)),
 			}
 	return {"gosterildi": false, "sebep": "listede_yok"}
+
+
+## OGR-03: Ikinci gece (gece >= 1) ilk zar atisinda ipucu bir kez doner ve `zar_gosterildi = true` yazilir.
+func zar_ipucu_kontrol(guncel_gece: int) -> Dictionary:
+	if guncel_gece < 1 or zar_gosterildi:
+		return {"ipucu_sayisi": 0, "metin": "", "zar_gosterildi": zar_gosterildi}
+	var sonuc := tetikle("ilk_zar_atisi", guncel_gece)
+	if not bool(sonuc.get("gosterildi", false)):
+		return {"ipucu_sayisi": 0, "metin": "", "zar_gosterildi": zar_gosterildi}
+	zar_gosterildi = true
+	return {
+		"ipucu_sayisi": 1,
+		"metin": "gerekli = değer + 1 + tansiyon eki",
+		"zar_gosterildi": true,
+	}
 
 
 func gorulen_ipuclari() -> Array[String]:
@@ -101,14 +120,20 @@ static func koy_acik(kabul_sayisi: int) -> bool:
 
 
 func kaydet() -> Dictionary:
-	return {"gorulen": gorulen_ipuclari()}
+	return {
+		"gorulen": gorulen_ipuclari(),
+		"zar_gosterildi": zar_gosterildi,
+	}
 
 
 func yukle(veri: Dictionary) -> bool:
 	_gorulen.clear()
+	zar_gosterildi = bool(veri.get("zar_gosterildi", false))
 	if veri.get("gorulen") is Array:
 		for id in veri["gorulen"]:
 			var s := String(id).strip_edges()
 			if not s.is_empty():
 				_gorulen[s] = true
+				if s == "zar":
+					zar_gosterildi = true
 	return true
