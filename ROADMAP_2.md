@@ -5746,7 +5746,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.1 Var olan kart — şema aynı, bağ yeni
 
-- [/] **OZL-01:** Olay seçici BUG-16'dan geçer, ikinci seçici yoktur. (Antigravity)
+- [x] **OZL-01:** Olay seçici BUG-16'dan geçer, ikinci seçici yoktur. (Antigravity)
   - Ne: gece sonu kartı mevcut seçiciden gelir; BUG-16 koşulu (`bina_var`, `nufus_en_az`, `cocuk_var`, `yas_grubu`) ve KAP-19 katmanı okunur. Bu bölüm yeni havuz yazmaz.
   - Kabul: `olay_secici` adlı ikinci dosya 0. Test: tarama.
   - Bağımlılık: BUG-16, KAP-19. Boyut: S.
