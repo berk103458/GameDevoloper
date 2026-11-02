@@ -293,3 +293,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: `tests/unit/kapi/siddet_korkusu_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
 - Açık kalan: yok.
 - kota görünmüyor
+
+### 2 Kasım — DYL-06 kapatıldı (hedefli test)
+- `src/soz/dil_engeli.gd` (`DilEngeli`) ve `src/koy/koylu.gd` opsiyonel `diller` alanı eklendi.
+- Ortak dil yokken yalnız `kirik` satırlar gelir; tercüman çağrılınca tam satırlar (veya kendi grubundan köylü tercümanda yumuşatılmış `tercuman` varyantı) gelir; ortak dilde `kirik` satır 0'dır; tercüman köylünün iş gücü 1.0'dan 0.5'e düşer (ikinci çağrı 0'a indirmez); tercüman bayrağı yokken düğme 0'dır; eş tercüman çarpıtmaz.
+- Test: `tests/unit/soz/dil_engeli_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
+- Açık kalan: yok.
+- kota görünmüyor

@@ -2015,7 +2015,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
   - Dosya: yeni `src/soz/verilen_soz.gd`; muhafız defterine liste (oda ekranı adaptörü).
   - Asset: asset gerekmedi.
 
-- [/] **DYL-06:** Dil engeli ve tercüman. (Antigravity)
+- [x] **DYL-06:** Dil engeli ve tercüman. (Antigravity)
   - Ne: Ortak dil yoksa oyuncu kırık Türkçe ya da "Rumca bir şeyler söylüyor" anlatısını görür; yabancı dilde tam cümle yazılmaz. Köyde o dili bilen biri varsa tercüman çağrılır, sabır iki düşer ve o köylü o gün yarım çalışır. Köyde tercüman yoksa düğme görünmez. Tercüman kendi grubuna göre satırı yumuşatabilir; eş tercüman çarpıtmaz. Ayrı bir tercüman motoru açılmaz.
   - Kurallar:
     1. Karakter verisinde `diller`; muhafızın dilleri geçmişinden gelir (ACL-06: medreseli Arapça ve Farsça, levent biraz Rumca). Köylülerin bildiği diller köylü verisinde optional alan.
@@ -2891,7 +2891,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-01. Boyut: S.
   - Dosya: `data/ayarlar/icerik.tres` okunur, yazılmaz.
   - Asset: asset gerekmedi.
-- [/] **KAY-05:** (Kalfa) Göç yarıda kalırsa ana dosya değişmez.
+- [x] **KAY-05:** (Kalfa) Göç yarıda kalırsa ana dosya değişmez.
   - Ne: göç fonksiyonu hata verirse `bak.tmp` geri gelir. SYS-02 yolu ikinci kez yazılmaz.
   - Kabul: göç fonksiyonu hata verirse `bak.tmp` geri gelir. SYS-02 yolu ikinci kez yazılmaz. Test: göç ortasında fırlatılan hata, ana dosyanın sağladığı baytı korur.
   - Bağımlılık: SYS-02, KAY-03. Boyut: S.
