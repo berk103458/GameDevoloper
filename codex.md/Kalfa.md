@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-05 başladı (Kalfa)
+
+KAY-04 mevcut olmayan içerik sürümü dosyası ve Söz kayıt alanları beklediği için kapanmadı. KAY-05: mevcut salt-kopya göç ve SYS-02 dosya koruması, izole alt süreçte gerçek assert hatasıyla doğrulanacak. Ana/yedek/bak.tmp baytları test edilecek, ikinci atomik yazıcı yok. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-03 tamamlandı (Kalfa)
 
 Mevcut SYS-14 `kayit_gocu.gd` tek-adım döngüsünü `src/sistemler/kayit_gocu_soz.gd` yürütücüsüne devreder. İkinci göç/depolama sistemi yok; GuvenliKayit'e ikinci göç çağrısı eklenmedi, mevcut Oturum.kayittan→SYS-14 tek yolu korunur. Gerçek sürüm hâlâ 3; v2→v3 fonksiyonu aynıdır. v1 hâlâ reddedilir, gelecekteki v4 oyun sürümü yaratılmadı. Yalnız test fikstürü N→N+1→N+2 zinciri kurar.

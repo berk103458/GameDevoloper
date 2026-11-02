@@ -2891,7 +2891,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-01. Boyut: S.
   - Dosya: `data/ayarlar/icerik.tres` okunur, yazılmaz.
   - Asset: asset gerekmedi.
-- [ ] **KAY-05:** Göç yarıda kalırsa ana dosya değişmez.
+- [/] **KAY-05:** (Kalfa) Göç yarıda kalırsa ana dosya değişmez.
   - Ne: göç fonksiyonu hata verirse `bak.tmp` geri gelir. SYS-02 yolu ikinci kez yazılmaz.
   - Kabul: göç fonksiyonu hata verirse `bak.tmp` geri gelir. SYS-02 yolu ikinci kez yazılmaz. Test: göç ortasında fırlatılan hata, ana dosyanın sağladığı baytı korur.
   - Bağımlılık: SYS-02, KAY-03. Boyut: S.
