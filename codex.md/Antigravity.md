@@ -398,3 +398,11 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `data/olaylar/bebek.tres` koşulu `"cocuk_var": true` yerine `"hane_var": true` olarak güncellendi.
 - **Asset:** KAP-17 çocuk (yeni satır yok).
 - **Açık kalanlar:** Yok.
+
+### OZL-17 — Ölüm KRI-05'e gider, yeni cenaze kartı yazılmaz (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OZL-17`
+- **Yapılanlar:**
+  - `data/olaylar/cenaze.tres` dosyasının bulunmadığı (0 adet) ve ölümlerin `CenazeYasi` (`KRI-05`) akışına bağlandığı `tests/tools/test_olay_kartlari.py` içine eklendi.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.

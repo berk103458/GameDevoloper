@@ -43,6 +43,10 @@ class OlayKartlariTest(unittest.TestCase):
     def test_ozl14_kis_odun_karti_yoktur(self):
         self.assertNotIn("kis_odun", kartlar())
 
+    def test_ozl17_cenaze_karti_yoktur(self):
+        self.assertFalse((ROOT / "data/olaylar/cenaze.tres").exists())
+        self.assertNotIn("cenaze", kartlar())
+
     def test_srm10_son_istatistigi_dort_alan(self):
         ana = (ROOT / "src/arayuz/ana.gd").read_text(encoding="utf-8")
         m = re.search(r'tr\("arayuz\.son\.istatistik"\) % \[([^\]]*)\]', ana)
