@@ -12,6 +12,7 @@ func _initialize() -> void:
 	_takvim(kat)
 	_sonlar(kat)
 	_karantina(kat)
+	_bina_ilerlemesi(kat)
 	var asil := Oturum.new(kat, 3123)
 	asil.yonetim.gun = 8
 	dene(asil.dedikodu.olay_kaydet("iki_gecelik", "rusvet", 6, "tanik_23", 3).olur, "Tanıklı iki gecelik fikstür")
@@ -30,7 +31,7 @@ func _initialize() -> void:
 		dene(o.gun == 9 and o.dedikodu.pusula_satirlari(9).size() == 1, "Gerçek üçüncü gecede tek yayın")
 	# JSON sayıları float açar; karşılaştırmanın iki tarafını aynı sınırdan geçir.
 	dene(JSON.parse_string(JSON.stringify(asil.dedikodu.kaydet())) == a.dedikodu.kaydet() and a.dedikodu.kaydet() == b.dedikodu.kaydet(), "Kayıtsız ve yüklenmiş zaman çizgileri aynı")
-	print("KAYIT İKİZİ (KAY-23/45/46/47/65): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47/65): KALDI")
+	print("KAYIT İKİZİ (KAY-23/45/46/47/65/66): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47/65/66): KALDI")
 	quit(hata)
 
 func _kasalar(kat: Katalog) -> void:
@@ -142,3 +143,32 @@ func _karantina(kat: Katalog) -> void:
 			dene(hasta.karantina == durum and int(hasta.karantina.bitis) - geri.gun == kalan, "Bir veya iki gün kalan karantina sıfırlanmaz")
 			dene(hasta.saglik == 35 and hasta.enfeksiyon == hastalik and SaglikYoneticisi.hasta(hasta), "Göç hastayı iyileştirmez")
 			dene(not SaglikYoneticisi.temas_edebilir(geri.yonetim, hasta), "Yükleme karantina temas engelini kaldırmaz")
+
+func _bina_ilerlemesi(kat: Katalog) -> void:
+	var o := Oturum.new(kat, 3166)
+	var b := KoyBinasi.new()
+	b.id = 7
+	b.tur = "kulube"
+	b.hucre = Vector2i(3, 4)
+	b.insa_kalan = 2
+	b.seviye = 2
+	b.harcanan = {"odun":8, "tas":4}
+	o.yonetim.binalar.append(b)
+	var once: Dictionary = JSON.parse_string(JSON.stringify(b.kaydet()))
+	for surum in [2, 3]:
+		var veri: Dictionary = JSON.parse_string(JSON.stringify(o.kaydet()))
+		veri.surum = surum
+		var korunmus := veri.duplicate(true)
+		var geri := Oturum.kayittan(kat, veri)
+		dene(geri != null, "Yarım bina kaydı açılır")
+		if geri == null: continue
+		dene(geri.yonetim.binalar.size() == 1, "Göç yeni bina oluşturmaz")
+		var yuklu := geri.yonetim.bina(7)
+		dene(yuklu != null, "Yarım bina kimliği korunur")
+		if yuklu == null: continue
+		dene(yuklu.insa_kalan == 2 and yuklu.seviye == 2 and not yuklu.hazir(), "Göç inşaatı bitirmez, günü/seviyeyi değiştirmez")
+		dene(JSON.parse_string(JSON.stringify(yuklu.kaydet())) == once, "Bina türü/konumu/maliyeti dahil tüm kayıt aynı")
+		dene(veri == korunmus, "Kaynak bina verisi değişmez")
+		var ikiz := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(geri.kaydet())))
+		dene(ikiz.yonetim.binalar.size() == 1 and ikiz.yonetim.bina(7).insa_kalan == 2 and ikiz.yonetim.bina(7).seviye == 2, "Tekrar yüklemede bina ilerlemez")
+	dene(b.insa_kalan == 2 and b.seviye == 2, "Kaynak yarım bina korunur")
