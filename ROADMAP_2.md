@@ -2897,7 +2897,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: SYS-02, KAY-03. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [/] **KAY-06:** (Kalfa) Göç oyuncuya bir satır yazar.
+- [x] **KAY-06:** (Kalfa) Göç oyuncuya bir satır yazar.
   - Ne: başarılı göçte gece raporunda tek satır: hangi sürümden hangi sürüme. Satır dünya kitabı ağzında değildir, düzdür.
   - Kabul: başarılı göçte gece raporunda tek satır: hangi sürümden hangi sürüme. Satır dünya kitabı ağzında değildir, düzdür. Test: metin anahtarı tabloda vardır.
   - Bağımlılık: KAY-03, SYS-09. Boyut: S.

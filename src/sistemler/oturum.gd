@@ -286,6 +286,7 @@ func gece_sonu() -> Dictionary:
 	MuhafizAdaletYetenekleri.bagla(self)
 	yonetim.perde2_hedef = ayarlar.perde2_hedef_gece
 	var r := yonetim.gece()
+	preload("res://src/sistemler/kayit_gocu_bildirimi.gd").gece(self, r)
 	MuhafizYetenekleri.rapora_ekle(r, harac)
 	MuhafizVicdani.gece(self, r)
 	SancakTeftisi.gece(self, r)
@@ -735,6 +736,7 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 ## Gün sonu kaydı için sözlük (oturum + köy yönetimi).
 func kaydet() -> Dictionary:
 	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
+		"kayit_gocu_bildirimi": preload("res://src/sistemler/kayit_gocu_bildirimi.gd").durum(self),
 		"aile_kararlari": preload("res://src/kapi/aile_kafilesi.gd").durum(self),
 		"muhafiz_gecmisi": preload("res://src/sistemler/muhafiz_gecmisi.gd").kimlik(self),
 		"acilis_hanesi": preload("res://src/sistemler/acilis_senaryosu.gd").durum(self),
@@ -808,5 +810,6 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	preload("res://src/sistemler/acilis_senaryosu.gd").yukle(o, veri.get("acilis_hanesi"))
 	preload("res://src/sistemler/muhafiz_gecmisi.gd").yukle(o, veri.get("muhafiz_gecmisi"))
 	preload("res://src/kapi/aile_kafilesi.gd").yukle(o, veri.get("aile_kararlari"))
+	preload("res://src/sistemler/kayit_gocu_bildirimi.gd").yukle(o, veri.get("kayit_gocu_bildirimi"))
 	o._koy_esitle()
 	return o

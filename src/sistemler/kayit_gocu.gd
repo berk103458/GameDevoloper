@@ -27,6 +27,8 @@ static func uygula(kayit: Dictionary, mevsim_gun: int) -> Dictionary:
 		for oge in veri[alan]:
 			if not oge is Dictionary:
 				return {}
+	if surum < GUNCEL_SURUM:
+		veri["kayit_gocu_bildirimi"] = {"kaynak":surum, "hedef":GUNCEL_SURUM, "bekliyor":true}
 	return veri
 
 static func _v2_v3(veri: Dictionary, mevsim_gun: int) -> Dictionary:

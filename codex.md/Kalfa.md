@@ -1,3 +1,13 @@
+## 2 Kasım 2026 — KAY-06 tamamlandı; Söz motoru beklemede (Kalfa)
+
+Ahmet açık yanıtı: «Söz motorunu beklet; bağımsız maddeleri sürdür». Bu bir ana hedef durdurma değildir; DIY-01a/ana Söz motoru ve ona bağlı şema hattı alınmaz. Bağımsız hazır maddeler sırayla sürer; aynı onay yeniden sorulmaz.
+
+Başarılı mevcut SYS-14 göçü kaynak/hedef sürümü içeren optional bildirim makbuzu üretir. Normal v3 yüklemesi üretmez. Makbuz Oturum kaydında korunur; ilk çözülen gecenin mevcut olay listesine tek satır eklenir, sonra tüketilir. Engellenen ilk akşam makbuzu tüketmez. Tek CSV anahtarı `kayit.goc.bildirimi`: «Kayıt %d sürümünden %d sürümüne güncellendi.» Yeni diyalog/ses/ekran veya ikinci rapor motoru yok; IflasYoneticisi mevcut olay biçimleyicisi gösterir.
+
+Kanıt: `work/kay06_unit_son.log`: başarılı göç, arada kaydet-yükle, engellenen gece, ilk gece tek çeviri satırı, ikinci yüklemede tekrar yok, normal oturumda satır yok. `kay06_goc.log`: SYS-14 gerçek göç regresyonu; `kay06_zincir.log`: tek-adım yürütücü; `kay06_acilis.log`: gerçek köy açılışı; `kay06_atomik.log`: SYS-02 regresyonu. Beş hedefli kontrol ve son recovery headless import (`kay06_import_son.log`) geçti. Hazırlık kopyasında cache/import metadata yerleşirken önceki importlarda engine MD5 uyarıları görüldü; son ayrı import temizdir, önceki loglar korunur. CSV importundan önce görülen ham CSV fallback uyarısı son testte yoktur. Tam sanity/görünür pencere yok.
+
+İnceleme: tek optional makbuz ve tek çeviri satırı, göç başarısı sonrası eklenir; eski kayıt/oyun sürümü ve mevcut alanlar korunur. Asset gerekmedi; envanter ihtiyacı yok. Çalışma `C:/Users/Ahmet/.codex/worktrees/kalfa-roadmap/Kapı_Muhafizi` ayrı kopyasında; ana checkout indexi ve Antigravity işleri korunur. festive tek remote entegrasyon dalı. ds yolları yok, önceki istisnayla eşitlenmedi. kota görünmüyor.
+
 ## 2 Kasım — KAY-06 başladı (Kalfa)
 
 Ayrı hazırlık kopyasında KAY-06 alındı. Başarılı SYS-14 göç kaynağı/hedefi optional tek bildirimle saklanacak; ilk çözülen gece raporunda bir çeviri satırı, sonra tekrar yok. Yeni motor veya içerik göçü yok. İlk worktree importu önbellek MD5 uyarıları verdi; ikinci recovery headless import temiz. Asset gerekmedi. kota görünmüyor.

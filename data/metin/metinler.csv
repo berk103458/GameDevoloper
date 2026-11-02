@@ -1830,3 +1830,4 @@ olay.kapi_acilisi.baslik,Sancak Beyi’nin beratı
 olay.kapi_acilisi.berat,"Sancak Beyi’nin buyruğudur: bu uç kapısını tutacaksın. Bu yurt sığınana açıktır. Ulağın sözü biter; elindeki beratı teslim eder ve yola döner. Ardından ilk aile kapıda belirir."
 olay.kapi_acilisi.devam,Berat teslim edildi
 olay.kapi_acilisi.berat.sonuc1,Berat teslim edildi; ilk aile kapıda bekliyor.
+kayit.goc.bildirimi,Kayıt %d sürümünden %d sürümüne güncellendi.
