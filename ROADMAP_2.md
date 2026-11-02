@@ -4283,7 +4283,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: yok. Boyut: S.
   - Dosya: yeni: `design/omurga.md` (oyun deposunda, uygulama fazında).
   - Asset: asset gerekmedi.
-- [ ] **OMR-02:** Perde 1'in üç dönemi.
+- [/] **OMR-02:** Perde 1'in üç dönemi. (Antigravity)
   - Ne: perde 1 üç döneme bölünür: kuruluş (nüfus < 8), yerleşme (8–13), oturma (14–18). Dönem, mevcut nüfustan türetilir; yeni sayaç yoktur.
   - Kabul: `donem(y)` fonksiyonu nüfustan üç değer döner; kayda yazılmaz. Test: üç nüfus değeri.
   - Bağımlılık: OMR-01. Boyut: S.
@@ -4295,7 +4295,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-02, KOP-10. Boyut: M.
   - Dosya: yeni: `src/sistemler/omurga_suzgeci.gd`; `karakter_kadrosu.gd` çağıran tarafa tek satır (çekirdek değil).
   - Asset: asset gerekmedi.
-- [ ] **OMR-04:** Perde 2'nin üç dalgası.
+- [/] **OMR-04:** Perde 2'nin üç dalgası. (Antigravity)
   - Ne: 12 gecelik perde 2 üç dalgaya bölünür (4+4+4): baskı gelir, baskı sıkışır, kapanış. Dalga `perde_gecisi.gece(y)` değerinden türetilir.
   - Kabul: `dalga(y)` 1/2/3 döner; `perde2_hedef_gece` değişince dalga sınırları oranla kayar. Test: hedef 12 ve 15'te sınırlar.
   - Bağımlılık: OMR-01. Boyut: S.
@@ -4307,7 +4307,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-04, HAR-09. Boyut: M.
   - Dosya: yeni: `src/sistemler/dis_hat_kapisi.gd`; dört hat dosyasına birer satır.
   - Asset: asset gerekmedi.
-- [ ] **OMR-06:** Omurga kayda yazmaz.
+- [/] **OMR-06:** Omurga kayda yazmaz. (Antigravity)
   - Ne: dönem ve dalga türetilmiş değerdir; kayıt alanı yoktur. Eski kayıt açılınca aynı dönem hesaplanır.
   - Kabul: `omurga.gd` içinde `kaydet/yukle` yoktur. Test: tarama.
   - Bağımlılık: OMR-02, OMR-04. Boyut: S.
@@ -4490,7 +4490,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: KAP-16, OMR-04. Boyut: S.
   - Dosya: `data/omurga.json`; KAP-16 okuyucusuna tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OMR-34:** Mevsim omurgayı bağlamaz.
+- [/] **OMR-34:** Mevsim omurgayı bağlamaz. (Antigravity)
   - Ne: perde geçişi mevsime bağlı değildir (Bölüm 30 ayrı). Madde yalnız sınır koyar: `omurga.gd` `takvim.gd`'yi okumaz.
   - Kabul: `omurga.gd` içinde `Takvim` 0. Test: tarama.
   - Bağımlılık: yok. Boyut: S.
