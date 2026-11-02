@@ -1,7 +1,7 @@
 ## BUG-16: yalnız güncel köyü okur; ayrı olay seçicisi/RNG veya kayıt alanı tutmaz.
 extends RefCounted
 
-const ANAHTARLAR := ["gece_min", "gece_max", "perde", "koyde", "ayrildi", "bayrak", "bayrak_yok", "nufus_min", "sinif_min", "ambar_max", "akce_min", "yapi_min", "bar_max", "bar_min", "sans", "tarla_ekili_min", "bina_var", "nufus_en_az", "cocuk_var", "yas_grubu", "yetiskin_hane_min"]
+const ANAHTARLAR := ["gece_min", "gece_max", "perde", "koyde", "ayrildi", "bayrak", "bayrak_yok", "nufus_min", "sinif_min", "ambar_max", "akce_min", "yapi_min", "bar_max", "bar_min", "sans", "tarla_ekili_min", "bina_var", "nufus_en_az", "cocuk_var", "yas_grubu", "yetiskin_hane_min", "mevsim", "kis_mi"]
 
 static func dogrula(k: Dictionary) -> PackedStringArray:
 	var hatalar := PackedStringArray()
@@ -16,6 +16,10 @@ static func dogrula(k: Dictionary) -> PackedStringArray:
 		hatalar.append("yetiskin_hane_min negatif olmayan tam sayı olmalı")
 	if k.has("cocuk_var") and not k.cocuk_var is bool:
 		hatalar.append("cocuk_var boolean olmalı")
+	if k.has("kis_mi") and not k.kis_mi is bool:
+		hatalar.append("kis_mi boolean olmalı")
+	if k.has("mevsim") and not (k.mevsim is int or k.mevsim is float or k.mevsim is Array):
+		hatalar.append("mevsim tam sayı veya liste olmalı")
 	if k.has("bina_var") and not (k.bina_var is String or k.bina_var is StringName or k.bina_var is Array or k.bina_var is PackedStringArray):
 		hatalar.append("bina_var bina adı veya ad listesi olmalı")
 	return hatalar
@@ -28,6 +32,12 @@ static func uygun(o: Oturum, k: Dictionary) -> bool:
 	if k.has("cocuk_var") and yas_var(o, "cocuk") != bool(k.cocuk_var): return false
 	if k.has("yas_grubu") and not yas_var(o, str(k.yas_grubu)): return false
 	if hane_sayisi(o, true) < int(k.get("yetiskin_hane_min", 0)): return false
+	var m_gun := o.yonetim.a.mevsim_gun
+	if k.has("kis_mi") and Takvim.kis_mi(o.yonetim.gun, m_gun) != bool(k.kis_mi): return false
+	if k.has("mevsim"):
+		var m := Takvim.mevsim(o.yonetim.gun, m_gun)
+		if k.mevsim is Array and m not in k.mevsim: return false
+		if (k.mevsim is int or k.mevsim is float) and m != int(k.mevsim): return false
 	return true
 
 static func binalar(k: Dictionary) -> PackedStringArray:

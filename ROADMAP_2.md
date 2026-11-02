@@ -5821,7 +5821,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.4 Takvim ve mevsim kartları
 
-- [/] **OZL-12:** Tarla kartları mevsim okur, ikinci takvim açmaz. (Antigravity)
+- [x] **OZL-12:** Tarla kartları mevsim okur, ikinci takvim açmaz. (Antigravity)
   - Ne: `tarla_yagmur`, `tarla_kuraklik`, `tarla_don`, `tarla_cekirge` mevcut `kosullar` ile durur; `takvim.gd` (`mevsim`, `kis_mi`) koşula bağlanır. Yeni mevsim sayacı yok (MEV-01 durur).
   - Kabul: kışta `tarla_yagmur` 0 (koşul yazılırsa); koşulsuz imza BUG-16 listesindedir. Test: dört mevsim.
   - Bağımlılık: BUG-16, MEV-01. Boyut: S.

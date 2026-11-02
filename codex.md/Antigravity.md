@@ -355,3 +355,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `tests/unit/sistemler/ozl_kart_tarama_test.gd` içine boş havuz ve `olay_olasiligi = 1.0` senaryosu eklendi.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OZL-12 — Tarla kartları mevsim okur, ikinci takvim açmaz (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OZL-12`
+- **Yapılanlar:**
+  - `src/sistemler/olay_on_kosulu.gd` içine `Takvim` (`mevsim`, `kis_mi`) koşul denetimi bağlandı.
+  - `data/olaylar/tarla_yagmur.tres` içine `"kis_mi": false` koşulu eklendi; dört mevsim kontrolü `tests/unit/sistemler/ozl_kart_tarama_test.gd` içine eklendi.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.

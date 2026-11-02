@@ -70,6 +70,20 @@ func _initialize() -> void:
 	GeceBilancosu.sessiz_gece_kontrol(bos_kart, bos_rapor)
 	_kontrol(bos_kart == null and bos_rapor.olaylar.size() == 1 and bos_rapor.olaylar[0].get("anahtar") == "bu gece köy sessiz", "Havuz bosken kart 0 olmali ve 'bu gece köy sessiz' satiri yazilmali")
 
+	# OZL-12: Tarla kartlari dort mevsimde Takvim (mevsim, kis_mi) okur; kista tarla_yagmur 0
+	var tarla_bina := KoyBinasi.new()
+	tarla_bina.tur = "tarla"
+	oturum.yonetim.binalar.append(tarla_bina)
+	var yagmur_kart := kat.olay(&"tarla_yagmur")
+	var m_gun := oturum.yonetim.a.mevsim_gun
+	for mevsim_idx in range(4):
+		oturum.yonetim.gun = mevsim_idx * m_gun
+		var uygun_mu := oturum._kosul_tutar(yagmur_kart.kosullar)
+		if mevsim_idx == 3:
+			_kontrol(not uygun_mu, "Kista (mevsim 3) tarla_yagmur 0 olmali")
+		else:
+			_kontrol(uygun_mu, "Kis disindaki mevsimlerde tarla_yagmur uygun olmali")
+
 	if _hata == 0:
 		print("OZL KART TARAMA: GEÇTİ (0 hata)")
 	else:
