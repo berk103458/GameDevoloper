@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-64 başladı (Kalfa)
+
+KAY-13–18/61–63 bekletilen Söz alanlarını bekler. Bağımsız KAY-64 mevcut SYS-02 okuyucusunun kesik JSON, tmp ve sağlam yedek davranışını doğrular. Yeni kayıt yolu yazılmaz. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-12 tamamlandı (Kalfa)
 
 Oturum mevcut `Dedikodu` sınıfından tek nesne taşır; kuyruk ve görülen olay kimlikleri aynı sınıfın kaydet/yükle yolu üzerinden optional kök alanında saklanır. Mutlak `kayit_gecesi`/`yayilim_gecesi`, tanık kimliği ve basım/yayılım bitleri korunur. Yükleme takvimi ilerletmez; gerçek gece çözümünde mevcut `gece_ilerlet(gun)` çağrılır. Yaş için ikinci sayaç yok. Eski kayıtta kuyruk boş açılır. Tanık kimliği olmayan bozuk satır yüklemede elenir; kayıt tanıksız habere dönüşmez. Diğer DIY-13/KOP-05 davranışları korunur.
