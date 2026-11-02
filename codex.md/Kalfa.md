@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-45 başladı (Kalfa)
+
+İki kasa gerçek JSON ve mevcut v2–v3 göçünde ayrı karşılaştırılacak. KAY-41 açık: SYS-10 dumanı bellek önce/son raporluyor, kabulün atıf verdiği sayısal tavan bulunmadı; uydurulmadı. KAY-43 yeni Söz sürümüne bağlı, motor bekliyor. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-37 tamamlandı (Kalfa)
 
 KAY-03 kayit_gocu_soz_test.gd mevcut tests/unit keşfiyle zaten sanity paketine giriyordu. İkinci çağrı/runner eklenmedi; keşif satırına açıklama ve mevcut runner testine tam bir kez listelenme, doğru dosya, headless ve başarı işareti denetimi eklendi. Asset gerekmedi. kota görünmüyor.
