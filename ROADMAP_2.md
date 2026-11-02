@@ -1280,7 +1280,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.2 Geçici iş
 
-- [ ] **ISG-02:** Geçici işler havuzu — boştakilere iş.
+- [/] **ISG-02:** Geçici işler havuzu — boştakilere iş. (Kalfa)
   - Ne: Oyuncu, binası olmayan yetişkini köylü kartındaki geçici işler sekmesinden bir işe yazar. İş listesi, verim ve yorgunluk `data/gecici_isler.json` içindedir. Gece bilançosunda her iş kendi kimliğiyle bir satırdır. Çocuk, yaralı ve o gece nöbet yuvasındaki kişi yazılmaz. Aynı kişi aynı gece iki işe yazılmaz. Havuz sırası kayda gömülmez. Atama, duran sürükleme kulpuyla yapılır; yeni atama penceresi açılmaz. Hediye anahtarı iş açmaz. İkinci meslek ağacı, köle sınıfı ve muhafız maaşı alanı açılmaz.
   - Kurallar:
     1. İş listesi `data/gecici_isler.json` içindedir: taş toplama (BUG-21 taş yatağı), çalı ve dal toplama (odun), su taşıma, hendek ve yol açma (mevcut inşaat hızına artı), inşaat yardımcılığı, gece bekçisine eşlik (mevcut güvenlik hesabına artı, yorgunluğa artı), yün eğirme (evde; uygun olan kadın veya yaşlı), ot ve mantar toplama (mevsimlik erzak), çocuk ve hasta bakımı.

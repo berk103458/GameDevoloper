@@ -1,3 +1,7 @@
+## 2 Kasım — ISG-02 başladı (Kalfa)
+
+ISG-01 metnindeki %X doğrudan ISG-02 tablosuna bağlı; tablo yokken uyarıya sayı uydurulmaması için önce örtük ön koşul ISG-02 alınır, sonra ISG-01 tamamlanır. Mevcut köylü kartı/sürükleme kulpu, gece bilançosu ve kaynaklar genişletilecek; ikinci üretim/meslek/atama ekranı yok. Yeni asset üretilmeyecek/indirilmeyecek; alet ihtiyacı envantere yazılacak. Söz motoru beklemede. kota görünmüyor.
+
 ## 2 Kasım 2026 — YAZ-89 tamamlandı (Kalfa)
 
 Söz dosyası/hafıza ve yeni optional alanları olmayan eski v2/v3 kayıt gerçek Oturum yolundan açıldı. Köy/gün/RNG korundu; kaynak girdiye veya yeniden kayda yeni Söz dosyası referansı yazılmadı. Mevcut göç yolu güvenilir Callable adımlarını kullanır, kayıttan Söz kaynak yolu okuyup dosya açmaz. Bekleyen ana Söz motoru kurulmadı; bu eski kayıt uyumu regresyonudur. Üretim kodu değişmedi. Asset gerekmedi. kota görünmüyor.
