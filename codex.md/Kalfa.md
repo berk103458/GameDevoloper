@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-55 başladı (Kalfa)
+
+Başarısız gerçek SYS-14 göçü Ana.devam_et yolunda hata ekranı göstermeli; ana v2 ve yedek baytları korunmalı. KAY-49 açık: bekleyen Söz MVP boyutu/içerik açılış ölçüsü henüz yok, eski küçük kayıttan kabul çıkarılmadı. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-68 tamamlandı (Kalfa)
 
 HAR-02 varış gününe göre başlangıç/5 gün kala/2 gün kala/varış/varış sonrası, MEV-01 mevsim günüyle ayrı ayrı gerçek JSON/v2–v3 göçünden geçirildi. Tehdit kalan günü ve tam mevsim durumu kendi değerlerinde kaldı; uyarı makbuzu korunur, aynı gece tekrar uyarı yazılmaz. Üretim sayaç/göç kodu değişmedi. Asset gerekmedi. kota görünmüyor.
