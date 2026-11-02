@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-66 başladı (Kalfa)
+
+Yarım bina, kalan inşaat günü ve seviyesi gerçek kayıt ikizinde/göçte karşılaştırılacak; yeni bina oluşmamalı. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-65 tamamlandı (Kalfa)
 
 Çalışan hekimli Şifahane fikstüründe gerçek KarantinaYoneticisi.al yolu kullanıldı. Bir ve iki gün süresi kalan hastanın kimliği, başlangıç/bitiş/bina kaydı, sağlık 35 ve humma enfeksiyonu güncel JSON yüklemede ve gerçek v2–v3 göçünde korunur. Temas engeli yükleme sonrası da sürer; göç tedavi yapmaz. Üretim sağlık/göç kodu değişmedi. Asset gerekmedi. kota görünmüyor.

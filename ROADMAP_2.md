@@ -3206,7 +3206,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KRI-02, KAY-03. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-66:** Bina ilerlemesi kaymaz.
+- [/] **KAY-66:** Bina ilerlemesi kaymaz. (Kalfa)
   - Ne: inşaatın kalan günü ve seviye göçte aynıdır. Yeni bina belirmez.
   - Kabul: inşaatın kalan günü ve seviye göçte aynıdır. Yeni bina belirmez. Test: bir yarımbina, kalan gün eşit.
   - Bağımlılık: KAY-03. Boyut: S.
