@@ -1,3 +1,9 @@
+## 2 Kasım — Toplu durum ve gerçek karar kapısı (Kalfa)
+
+Bu devam diliminde KAP-17 `404c7f4f`, KAP-19 `3bcd2caa` tamamlandı ve festive'e push edildi; ROADMAP [x]. Kalfa'nın açık [/] maddesi yok. KAP-18 DNY-01 bekliyor. Sonraki sıradaki DIY-01a için `docs/SOZ_TASARIMI.md` ve ROADMAP açıkça «Belge Ahmet onaylamadan şemaya geçilmez» diyor; `codex.md/Claude.md` de Ahmet onayını bekliyor kaydı içeriyor. Önceki genel devam talimatı bu somut tasarımın onayı olarak varsayılmadı. Ahmet'e mevcut bitmiş belge için kısa onay sorusu sunuldu; şema/motor sahiplenilmedi. Onay sonrasında güncel sahiplik ve faz sırası yeniden kontrol edilecek. Bağımsız maddeler kapatılmış gibi gösterilmedi.
+
+Toplu doğrulama: KAP-17 altı Godot hedefli kontrol + recovery import; KAP-19 üç Godot kontrolü + dört Python testi + 35 veri denetimi + recovery import. Tam sanity/görünür Godot yok. Asset indirilmedi/üretilmedi, KAP17 mevcut çocuk/yaşlı envanteri güncellendi. ds yolları yok, önceki istisna geçerli; eşitlenmedi. İlgisiz import/UI ve Antigravity çalışmaları korunur. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAP-19 tamamlandı (Kalfa)
 
 Mevcut BUG-16 denetçisine yaşayan hane sayımı/katman filtresi eklendi; ikinci seçici veya RNG yok. Optional `hane_id` aynı aileyi tek sayar, eski kayıtta hane alanı olmayan kişi kendi hanesi sayılır; evsiz aile tek tek kişi diye şişirilmez. Sağlık<=0 kişiler sayılmaz. 5/6/12/13 sınırları veri dosyasındadır. Üç açık liste `data/olaylar/nufus_katmanlari.json`: küçük 31, orta 34, büyük 35 kart. Orta liste küçük listeye bebek/düğün/salgını, büyük liste kaçak köylüyü ekler; mevcut tarih/bina/yaş/bar koşulları ayrıca geçmek zorundadır. Dosya havuzu dışındaki dinamik kartlar kendi eski koşullarını korur; üst listenin tüm 35 dosya kimliğini kapsaması testle doğrulanır.
