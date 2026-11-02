@@ -21,6 +21,7 @@ var egitim: Dictionary = {}
 var gelisim: Dictionary = {}
 var grev: Dictionary = {}
 var yorgunluk: Dictionary = {}
+var gecici_is: Dictionary = {}
 var is_kazasi: Dictionary = {}
 var zanaat_kazasi: Dictionary = {}
 var kis_hastaligi: Dictionary = {}
@@ -85,7 +86,7 @@ func kaydet() -> Dictionary:
 	var kayit_sozluk := {"karantina": karantina.duplicate(true), "enfeksiyon": enfeksiyon.duplicate(true), "id": id, "ad": ad, "adli_id": String(adli_id), "sinif": String(sinif), "portre": portre, "stat": stat, "zanaat_turu": ZanaatTuru.anahtar(zanaat_turu),
 		"bayraklar": Array(bayraklar), "gizli": Array(gizli_bayraklar), "moral": moral, "refah": refah, "saglik": saglik,
 		"sadakat": sadakat, "is_yeri": is_yeri, "kis_oncesi": kis_oncesi_is, "ev": ev, "ac": ac, "aclik": aclik, "giris": giris_gunu,
-		"pasif_ozellikler": pasif_ozellikler.duplicate(true), "egitim": egitim.duplicate(true), "gelisim": gelisim.duplicate(true), "grev": grev.duplicate(true), "yorgunluk": yorgunluk.duplicate(true), "is_kazasi": is_kazasi.duplicate(true), "zanaat_kazasi": zanaat_kazasi.duplicate(true), "kis_hastaligi": kis_hastaligi.duplicate(true), "toplumsal_bag": toplumsal_bag.duplicate(true), "hane_id": hane_id, "yas_grubu": String(yas_grubu), "gizli_egilim": gizli_egilim.duplicate(true), "divan_kanit": DivanKanit.durum(self)}
+		"pasif_ozellikler": pasif_ozellikler.duplicate(true), "egitim": egitim.duplicate(true), "gelisim": gelisim.duplicate(true), "grev": grev.duplicate(true), "yorgunluk": yorgunluk.duplicate(true), "gecici_is": gecici_is.duplicate(true), "is_kazasi": is_kazasi.duplicate(true), "zanaat_kazasi": zanaat_kazasi.duplicate(true), "kis_hastaligi": kis_hastaligi.duplicate(true), "toplumsal_bag": toplumsal_bag.duplicate(true), "hane_id": hane_id, "yas_grubu": String(yas_grubu), "gizli_egilim": gizli_egilim.duplicate(true), "divan_kanit": DivanKanit.durum(self)}
 	if not diller.is_empty():
 		kayit_sozluk["diller"] = Array(diller)
 	return kayit_sozluk
@@ -105,6 +106,7 @@ static func kayittan(v: Dictionary) -> Koylu:
 	k.gelisim = KoyluGelisimYoneticisi.oku(v.get("gelisim"))
 	k.grev = MeslekGrevi.oku(v.get("grev"))
 	k.yorgunluk = NobetYorgunlugu.oku(v.get("yorgunluk"))
+	k.gecici_is = GeciciIsler.oku(v.get("gecici_is"))
 	k.is_kazasi = IsKazalari.oku(v.get("is_kazasi"))
 	k.zanaat_kazasi = ZanaatKazalari.oku(v.get("zanaat_kazasi"))
 	k.kis_hastaligi = KisHastaligi.oku(v.get("kis_hastaligi"))
@@ -125,6 +127,8 @@ static func kayittan(v: Dictionary) -> Koylu:
 	k.saglik = int(v.get("saglik", 100))
 	k.sadakat = int(v.get("sadakat", 60))
 	k.is_yeri = int(v.get("is_yeri", -1))
+	if k.gecici_is.is_empty() and k.is_yeri == GeciciIsler.IS_YERI: k.is_yeri = -1
+	if not k.gecici_is.is_empty() and k.is_yeri != (TasYatagi.IS_YERI if k.gecici_is.id == "tas_toplama" else GeciciIsler.IS_YERI): k.gecici_is.clear()
 	k.kis_oncesi_is = int(v.get("kis_oncesi", -1))
 	k.ev = int(v.get("ev", -1))
 	k.ac = bool(v.get("ac", false))

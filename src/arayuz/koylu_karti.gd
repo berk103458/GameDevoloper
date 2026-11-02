@@ -7,18 +7,24 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	KoyluTakibi.sec(ekran.sahne3b, id)
 	var y := ekran.oturum.yonetim
 	var v := ekran._kart_ac(k.ad + " · Köylü kartı")
+	ekran._ust_kart.set_meta("gecici_is_sekmesi",true)
+	ekran._ust_kart.z_index = 110
 	var kulp := KoyluSuruklemeKulpu.new()
 	kulp.ekran = ekran
 	kulp.kisi = id
-	kulp.text = "Görev atamak için bu kartı binaya sürükle"
+	kulp.text = TranslationServer.translate("koy.gecici_is.kulp")
 	v.add_child(kulp)
 	var kaydir := ScrollContainer.new()
 	kaydir.custom_minimum_size = Vector2(minf(760, ekran.size.x - 100), minf(440, ekran.size.y - 210))
 	kaydir.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	v.add_child(kaydir)
+	var sekmeler := TabContainer.new()
+	sekmeler.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	kaydir.add_child(sekmeler)
 	var ic := VBoxContainer.new()
+	ic.name = TranslationServer.translate("koy.gecici_is.yapi_sekmesi")
 	ic.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	kaydir.add_child(ic)
+	sekmeler.add_child(ic)
 	var bilgi := ekran._etiket(ic, KoyluKartiVerisi.ozet(y, k), Tema.KUCUK_PX)
 	bilgi.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, KoyluGelisimYoneticisi.metin(k), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -51,6 +57,7 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	if KarantinaYoneticisi.aktif(k): bos.hide()
 	bos.disabled = k.is_yeri == KoyYonetimi.BOSTA
 	bos.pressed.connect(func() -> void: _ata(ekran, id, KoyYonetimi.BOSTA))
+	KoyGeciciIslerPaneli.ekle(ekran,sekmeler,k)
 	var kapat := ekran._dugme("Kapat", v)
 	kapat.pressed.connect(ekran._kart_kapat)
 	kapat.grab_focus.call_deferred()

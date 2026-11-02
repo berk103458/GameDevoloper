@@ -1,0 +1,17 @@
+# ISG-02 — Geçici işler (Kalfa)
+
+Durum: uygulama ve hedefli kontroller hazır; commitli kaynakla önbelleksiz kabul bekliyor. ROADMAP sahipliği sürer.
+
+Dokuz iş `data/gecici_isler.json` içindedir; verim %50 ve iş başına çıktı/yorgunluk seçimleri buradan okunur. Kişide yalnız iş kimliği, atama gecesi ve son gece makbuzu saklanır; havuz veya sıra kayda gömülmez. Aynı gece ikinci iş yok. Bina/nöbet ataması geçici işi bırakır; yıkılan binanın işçisi boşta kalır, kendiliğinden iş seçilmez.
+
+Kararlar: taş mevcut TasYatagi üretiminden geçer, yeni ocak açılmaz. Yol/hendek ve inşaat yardımı mevcut `_insaat` hesabına katkıdır, kendiliğinden yol/bina kurmaz. Su mevcut ambara yazılır, ANI-03 yeniden kurulmaz. Ot/mantar yalnız erzak yazar, afyon yazmaz. Yün işi yaşayan ağıl sürüsü ve hazır ev ister; iplik için yeni stok türü açılmaz, mevcut `kumas` tekstil kaynağı kullanılır. Uygun kadın kimlikleri CHR_002/008/012/015/017/018 kaynak dosyalarının açık Tag_Array bilgisinden gelir; yaşlılar da uygundur, isimden cinsiyet çıkarılmaz. Bakım mevcut çocuk/hastanın moraline katkıdır, hastalığı iyileştirmez veya karantina sayacını değiştirmez. Yorgunluk mevcut UZM-14 kaydıdır, ikinci bar/sayaç yoktur.
+
+Kart: mevcut köylü kartında yapı/geçici iş sekmeleri; mevcut KoyluSuruklemeKulpu kaynak, aynı kartın iş satırları hedef. Klavye düğmesi aynı atama yoluna gider. Yeni atama penceresi yok. İş adları CSV anahtarlarından gelir, ham kimlik gösterilmez.
+
+Kontroller: modelde dokuz iş/tek bilanço satırı; çocuk-yaralı-nöbetçi/bina çalışanı retleri; çift iş; tek erzak payı; kış otu sıfır; tükenmiş taş; kişi kaydı; aynı tohum iki gece; gerçek meclis gecesinde geçici iş ve bina üretimi. Canlı kart sürükle-bırak, diğer oturum reddi ve tekrar açmanın salt okunurluğu. Mevcut köylü kartı, atama, köy yönetimi, 55 taş yatağı, 29 nöbet ve yorgunluk regresyonları geçti. API sözleşmesi, filesystem kaynak denetimi, CSV kaynak kontrolü ve son recovery headless import geçti. Loglar `work/isg02_*`.
+
+İlk denemelerde JSON int/float mevsim üyeliği, testte raporun yanlış katmanından okuma ve aktif sürükleme dışı preview çağrısı teşhis edilip düzeltildi. İlk importlarda engine MD5 ve bir CowData iç hata logu korundu; son `isg02_import_kabul_son.log` temiz. Son canlı kart logunda sızıntı yok. Tam sanity/görünür Godot yok.
+
+Asset: özel kürek/kirmen/sepet/su kabı/bakım bezi eksik, ISG02-ALETLER envanteri gerçek duruma ve metre ölçülerine güncellendi. Özel alet henüz bağlanmadı; mevcut figür/kart iş adı kullanılır, ANI-11 entegrasyon noktası korunur. Yeni asset/font/ikon/portre üretilmedi veya indirilmedi.
+
+Söz motoru beklemede. ds yolları bulunmuyor; eşitlenmedi. kota görünmüyor.

@@ -1831,3 +1831,31 @@ olay.kapi_acilisi.berat,"Sancak Beyi’nin buyruğudur: bu uç kapısını tutac
 olay.kapi_acilisi.devam,Berat teslim edildi
 olay.kapi_acilisi.berat.sonuc1,Berat teslim edildi; ilk aile kapıda bekliyor.
 kayit.goc.bildirimi,Kayıt %d sürümünden %d sürümüne güncellendi.
+koy.gecici_is.tas_toplama,Taş toplama
+koy.gecici_is.dal_toplama,Çalı ve dal toplama
+koy.gecici_is.su_tasima,Su taşıma
+koy.gecici_is.yol_hendek,Hendek ve yol açma
+koy.gecici_is.insaat_yardimi,İnşaat yardımcılığı
+koy.gecici_is.nobete_eslik,Gece bekçisine eşlik
+koy.gecici_is.yun_egirme,Yün eğirme
+koy.gecici_is.ot_mantar,Ot ve mantar toplama
+koy.gecici_is.bakim,Çocuk ve hasta bakımı
+koy.gecici_is.sekme,Geçici işler
+koy.gecici_is.yapi_sekmesi,Yapı işleri
+koy.gecici_is.yonerge,Kişinin görev kulpunu uygun işe sürükle; düğmeyle de atayabilirsin. Önce mevcut geçici işi bırak.
+koy.gecici_is.surukle,göreve sürükle
+koy.gecici_is.verim,Geçici iş verimi: %d%% · Yorucu iş: %d
+koy.gecici_is.birak,Geçici işi bırak
+koy.gecici_is.bos,Boşta
+koy.gecici_is.uygun_degil,Bu kişi için uygun değil
+koy.gecici_is.nobetci,Nöbette; başka iş alamaz
+koy.gecici_is.tek_is,Önce mevcut geçici işi bırak
+koy.gecici_is.bina_isi,Önce yapı görevinden çıkar
+koy.gecici_is.tas_yok,Taş yatağı tükenmiş
+koy.gecici_is.yer_yok,Uygun yer yok
+koy.gecici_is.insaat_yok,Devam eden inşaat yok
+koy.gecici_is.nobet_yok,Eşlik edilecek nöbetçi yok
+koy.gecici_is.bakim_yok,Bakım gerektiren kişi yok
+koy.gecici_is.rapor,Geçici iş · %s: %d katkı
+koy.gecici_is.yorgun,Geçici işten yorgun · mevcut kaza/uyuklama riski sürer; bir gece dinlenin.
+koy.gecici_is.kulp,Görev atamak için bu kulpu binaya veya geçici işe sürükle.

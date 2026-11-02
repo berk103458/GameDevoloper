@@ -525,6 +525,7 @@ func _nufus_ac() -> void:
 
 
 func _is_adi(k: Koylu) -> String:
+	if not GeciciIsler.secili(k).is_empty(): return GeciciIsler.ad(GeciciIsler.secili(k))
 	if k.is_yeri == TasYatagi.IS_YERI: return tr("koy.tas_yatagi.ad")
 	if DivanHukmu.zindanda(k): return "Zindanda"
 	if k.is_yeri == KoyYonetimi.MUHAFIZ:

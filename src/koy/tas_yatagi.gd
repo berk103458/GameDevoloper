@@ -43,6 +43,7 @@ static func uygun(y: KoyYonetimi, k: Koylu) -> bool:
 static func ata(y: KoyYonetimi, id: int) -> bool:
 	var k := y.koylu(id)
 	if y.tas_yatagi == null or y.tas_yatagi.kalan <= 0 or y.son != "" or not uygun(y, k): return false
+	GeciciIsler.birak(y,k)
 	k.is_yeri = IS_YERI
 	return true
 
@@ -54,7 +55,8 @@ func gece(y: KoyYonetimi, uretim: Dictionary, olaylar: Array[Dictionary], calism
 	for k in y.calisanlar(IS_YERI):
 		if kalan <= 0: break
 		if not uygun(y, k): continue
-		var giren := y.kaynaklar.ekle("tas", mini(kalan, int(AYAR.isci_gunluk_tas)))
+		var giren := y.kaynaklar.ekle("tas", mini(kalan, GeciciIsler.tas_verimi(k,y,int(AYAR.isci_gunluk_tas))))
+		GeciciIsler.tas_makbuzu(y,k,giren)
 		kalan -= giren
 		adet += giren
 		if giren > 0: calismalar[k.id] = IS_YERI

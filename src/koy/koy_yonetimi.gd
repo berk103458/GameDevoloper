@@ -361,6 +361,7 @@ func ata(koylu_id: int, bina_id: int) -> bool:
 	if b.tur == "muhafiz_kislasi" and (k.yas_grubu != &"yetiskin" or (not MuhafizMaasi.aday(k, self) and muhafiz_sayisi() >= a.muhafiz_azami)): return false
 	if calisanlar(bina_id).size() >= katalog.slot(b.tur) and k.is_yeri != bina_id:
 		return false
+	GeciciIsler.birak(self,k)
 	k.is_yeri = bina_id
 	return true
 
@@ -374,6 +375,7 @@ func muhafiz_ata(koylu_id: int) -> bool:
 	if k != null and k.yas_grubu != &"yetiskin": return false
 	if k == null or (not MuhafizMaasi.aday(k, self) and muhafiz_sayisi() >= a.muhafiz_azami):
 		return false
+	GeciciIsler.birak(self,k)
 	k.is_yeri = MUHAFIZ
 	return true
 
@@ -383,6 +385,7 @@ func bosalt(koylu_id: int) -> void:
 	if KervanKorumasi.disarida(self, koylu_id): return
 	var k := koylu(koylu_id)
 	if k != null:
+		GeciciIsler.birak(self,k)
 		k.is_yeri = BOSTA
 
 
@@ -560,6 +563,7 @@ func gece() -> Dictionary:
 		if tas_yatagi != null: tas_yatagi.gece(self, rapor["uretim"], olaylar, calismalar)
 	else:
 		olaylar.append({"anahtar": "koy.olay.isyan_uretim_yok"})
+	GeciciIsler.gece(self, rapor, calismalar)
 	SamanBakimi.hasat(self, rapor)
 	GeceDeneyi.uretimin_ardindan(self)
 	KoyluGelisimYoneticisi.gece(self, calismalar, olaylar)
@@ -728,6 +732,7 @@ func _ambara(b: KoyBinasi, tur: String, miktar: float, bonus: float, uretim: Dic
 
 func _insaat() -> void:
 	var yardim := bostakiler().filter(func(k: Koylu) -> bool: return k.yas_grubu == &"yetiskin" and not KarantinaYoneticisi.aktif(k)).size() / maxi(1, a.insa_yardim_bolen)
+	yardim += GeciciIsler.insaat_yardimi(self)
 	for b in binalar:
 		if b.insa_kalan > 0:
 			b.insa_kalan = maxi(0, b.insa_kalan - 1 - yardim)

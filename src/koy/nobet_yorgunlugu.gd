@@ -23,4 +23,5 @@ static func gece(y: KoyYonetimi, uyanik: Array[int]) -> void:
 		if k == null or IsKazalari.uyuyor(k) or not CirakEgitimi.saglam(k): continue
 		k.yorgunluk = {"son_gece": y.gun}
 static func metin(k: Koylu, y: KoyYonetimi) -> String:
+	if aktif(k,y) and int(k.gecici_is.get("son_gece",-2)) == y.gun-1: return TranslationServer.translate("koy.gecici_is.yorgun")
 	return "Gece vardiyasından yorgun · kaza/uyuklama riski ×1.40 · bir gece dinlenin." if aktif(k, y) else "Gece vardiyası yorgunluğu yok"

@@ -556,7 +556,7 @@ Her yuva [tekli UI kataloğunda](arayuz/GEMINI_TEKLI_URETIM_PROMPTLARI.md) kendi
 | `KAP17-COCUK` | Çocuk köylü modeli; glTF / 3B model. | 0,40 × 1,15 × 0,30 m |
 | `KAP17-YASLI` | Yaşlı köylü modeli; glTF / 3B model. | 0,55 × 1,65 × 0,40 m |
 | `CAT02-KAVGA` | Kapıda kavga canlandırması; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
-| `ISG02-ALETLER` | Geçici işlere özel el aletleri; glTF. | Kılıç 0,08 × 0,85 × 0,04 m; kalkan çapı 0,60 m; mızrak boyu 2,0 m; alet boyu 0,35–1,20 m |
+| `ISG02-ALETLER` | Geçici işlere özel el aletleri; glTF. | Kürek 0,20 × 1,20 × 0,08 m; sepet 0,35 × 0,35 × 0,35 m; su kabı 0,25 × 0,40 × 0,25 m; kirmen 0,05 × 0,30 × 0,05 m; bakım bezi 0,25 × 0,25 m. |
 | `YAP03-USTALAR` | Kapıdan gelen usta modelleri; glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `YAP05-ODA` | Çözümleme odası modeli; glTF / 3B model. | 4,0 × 2,8 × 4,0 m |
 | `DYL02-AYRINTI-*` | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | Çarık 0,12 × 0,08 × 0,28 m; el/yara/giysi mevcut karakter rigine bağlı, ölçek değişmez |
@@ -594,7 +594,7 @@ ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik bura
 | KAP17-YASLI | KAP-17 | Yaşlı köylü modeli | glTF / 3B model | KAP-17 uygulandı: kapıda `src/dunya/aile_kapi_gorunumu.gd` isimli kutu; köyde duran yetişkinin %92 boyu + Yaşlı yer tutucu etiketi, `src/koy/gorsel/aile_yas_gorunumu.gd` | Anadolu yaşlı köylü; medieval anatolian elder peasant | yüksek | Claude |
 | ZAR01-ZAR | ZAR-01 | Görünür zar (d6, d12) — prompt hazır, Ahmet üretecek | PNG / SVG + 3B isteğe bağlı | planlı — madde kodlanınca: düz renk kutu + sayı | kemik zar d6 d12; medieval bone dice d6 d12 | yüksek | Claude |
 | CAT02-KAVGA | CAT-02 | Kapıda kavga canlandırması | glTF / iskelet animasyon klibi | planlı — madde kodlanınca: kamera sarsıntısı + metin | kapı itişme kavga; medieval gate scuffle brawl animation | orta | Claude |
-| ISG02-ALETLER | ISG-02 | Geçici işlere özel el aletleri | glTF | planlı — madde kodlanınca: ANI-11 kutu soketi (düz BoxMesh) | ortaçağ el aleti kürek tırpan; medieval hand tools set | orta | Claude |
+| ISG02-ALETLER | ISG-02 | Geçici işler: kürek, dal sepeti, su kabı, kirmen ve bakım bezi | glTF | Mekanik (Kalfa): mevcut köylü figürü ve kartta iş adı; özel alet görseli henüz bağlanmadı. Entegrasyon noktası `src/dunya/karakter_ekipman_yoneticisi.gd` (ANI-11); mevcut kutu soketi korunur. | ortaçağ el aleti kürek kirmen su kabı; medieval shovel spindle basket water jug tools | orta | Claude (ilk kayıt), Kalfa (mekanik durumu) |
 | YAP03-USTALAR | YAP-03 | Kapıdan gelen usta modelleri | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli + renk farkı + etiket | Selçuklu usta zanaatkâr; seljuk master craftsman | orta | Claude |
 | YAP04-DEFTER | YAP-04 | Usta defteri ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | planlı — madde kodlanınca: düz ColorRect + etiket | usta defteri kitap; medieval master's notebook icon | orta | Claude |
 | YAP05-ODA | YAP-05 | Çözümleme odası modeli | glTF / 3B model | planlı — madde kodlanınca: düz renk BoxMesh + etiket | araştırma odası masa; medieval study workshop room | orta | Claude |

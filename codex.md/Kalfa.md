@@ -1,3 +1,7 @@
+## 2 Kasım — ISG-02 doğrulama kontrol noktası (Kalfa)
+
+Dokuz iş modeli, canlı kart sürükle-bırak, mevcut köylü kartı/atama, köy yönetimi, 55 taş yatağı kontrolü, 29 nöbet kontrolü, yorgunluk ve CSV kaynak denetimi geçti. Erzak ikinci kez düşmüyor; mecliste iş/bina üretimi sürüyor. Özel alet görselleri eksik, envanter güncellendi; yeni asset yok. Güncel festive alınarak son import ve commitli kaynakla temiz açılış kabulü yapılacak. kota görünmüyor.
+
 ## 2 Kasım — ISG-02 başladı (Kalfa)
 
 ISG-01 metnindeki %X doğrudan ISG-02 tablosuna bağlı; tablo yokken uyarıya sayı uydurulmaması için önce örtük ön koşul ISG-02 alınır, sonra ISG-01 tamamlanır. Mevcut köylü kartı/sürükleme kulpu, gece bilançosu ve kaynaklar genişletilecek; ikinci üretim/meslek/atama ekranı yok. Yeni asset üretilmeyecek/indirilmeyecek; alet ihtiyacı envantere yazılacak. Söz motoru beklemede. kota görünmüyor.

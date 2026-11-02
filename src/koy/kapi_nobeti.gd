@@ -76,6 +76,7 @@ static func yaz(y: KoyYonetimi, id: int) -> bool:
 	if int(d.yuva) == id: return true
 	_ise_don(y, int(d.yuva), int(d.eski_is))
 	var k := y.koylu(id)
+	GeciciIsler.birak(y,k)
 	d.eski_is = k.is_yeri
 	d.yuva = id
 	d.bos_direk = false
@@ -87,6 +88,7 @@ static func yaz(y: KoyYonetimi, id: int) -> bool:
 static func eslik_isaretle(y: KoyYonetimi, id: int) -> bool:
 	if not aday(y, id) or yuva(y) == id: return false
 	var d := durum(y)
+	GeciciIsler.birak(y,y.koylu(id))
 	d.eslik = id
 	_yaz(y, d)
 	return true

@@ -1,0 +1,131 @@
+{
+  "surum": 1,
+  "verim_yuzde": 50,
+  "isler": [
+    {
+      "id": "tas_toplama",
+      "etki": "tas",
+      "miktar": 2,
+      "yorgunluk": 1,
+      "yas": [
+        "yetiskin"
+      ],
+      "ad_anahtari": "koy.gecici_is.tas_toplama"
+    },
+    {
+      "id": "dal_toplama",
+      "etki": "stok",
+      "kaynak": "odun",
+      "miktar": 2,
+      "yorgunluk": 1,
+      "yas": [
+        "yetiskin"
+      ],
+      "binalar": [
+        "odunluk"
+      ],
+      "ad_anahtari": "koy.gecici_is.dal_toplama"
+    },
+    {
+      "id": "su_tasima",
+      "etki": "stok",
+      "kaynak": "su",
+      "miktar": 2,
+      "yorgunluk": 1,
+      "yas": [
+        "yetiskin"
+      ],
+      "binalar": [
+        "kuyu"
+      ],
+      "ad_anahtari": "koy.gecici_is.su_tasima"
+    },
+    {
+      "id": "yol_hendek",
+      "etki": "insaat",
+      "miktar": 2,
+      "yorgunluk": 1,
+      "yas": [
+        "yetiskin"
+      ],
+      "ad_anahtari": "koy.gecici_is.yol_hendek"
+    },
+    {
+      "id": "insaat_yardimi",
+      "etki": "insaat",
+      "miktar": 2,
+      "yorgunluk": 1,
+      "yas": [
+        "yetiskin"
+      ],
+      "ad_anahtari": "koy.gecici_is.insaat_yardimi"
+    },
+    {
+      "id": "nobete_eslik",
+      "etki": "guvenlik",
+      "miktar": 2,
+      "yorgunluk": 1,
+      "yas": [
+        "yetiskin"
+      ],
+      "ad_anahtari": "koy.gecici_is.nobete_eslik"
+    },
+    {
+      "id": "yun_egirme",
+      "etki": "stok",
+      "miktar": 2,
+      "yorgunluk": 0,
+      "yas": [
+        "yetiskin",
+        "yasli"
+      ],
+      "ev": true,
+      "uygun_kisiler": [
+        "chr_002",
+        "chr_008",
+        "chr_012",
+        "chr_015",
+        "chr_017",
+        "chr_018"
+      ],
+      "ad_anahtari": "koy.gecici_is.yun_egirme",
+      "kaynak": "kumas",
+      "binalar": [
+        "agil"
+      ],
+      "suruden": true
+    },
+    {
+      "id": "ot_mantar",
+      "etki": "stok",
+      "kaynak": "gida",
+      "miktar": 2,
+      "yorgunluk": 0,
+      "yas": [
+        "yetiskin"
+      ],
+      "binalar": [
+        "kulube",
+        "han"
+      ],
+      "mevsimler": [
+        0,
+        1,
+        2
+      ],
+      "ad_anahtari": "koy.gecici_is.ot_mantar"
+    },
+    {
+      "id": "bakim",
+      "etki": "bakim",
+      "miktar": 2,
+      "yorgunluk": 0,
+      "yas": [
+        "yetiskin",
+        "yasli"
+      ],
+      "ev": true,
+      "ad_anahtari": "koy.gecici_is.bakim"
+    }
+  ]
+}
