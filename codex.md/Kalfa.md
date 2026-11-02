@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-68 başladı (Kalfa)
+
+HAR-02 kalan tehdidi ve MEV-01 mevsim günü ayrı yüzeylerde JSON/göç sonrası karşılaştırılacak. Uyarı makbuzu da korunmalı. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-67 tamamlandı (Kalfa)
 
 Gerçek kapı rüşvet kararı ve KasaTransferi zimmet işlemiyle kurulan makbuzlar iki adalet düzeyinde gerçek JSON ve v2–v3 göçünden geçirildi. Adalet/yozlaşma/denge/unvan ile rüşvet/zimmet kaynak sayıları aynı kaldı. Tekrar yükleme puanı çoğaltmaz; kaynak oturum değişmez. Üretim terazi/formül/göç kodu değişmedi. Asset gerekmedi. kota görünmüyor.
