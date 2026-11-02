@@ -3913,7 +3913,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-01. Boyut: S.
   - Dosya: yeni: `src/arayuz/gece_raporu_kisa.gd`; `src/arayuz/koy_ekrani.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OGR-06:** Tehdit alışma süresi ilk saatle hizalıdır.
+- [/] **OGR-06:** Tehdit alışma süresi ilk saatle hizalıdır. (Antigravity)
   - Ne: BUG-18'in "ilk N gün tehdit yok" değeri, OGR-01 listesinde pazar ve divan öğrenilmeden önce dolmaz. İki sayı tek yerden okunur.
   - Kabul: `ilk_saat.json` içindeki `tehdit_baslangic` BUG-18 sabitini okur; iki ayrı sayı yoktur. Test: değer değişince ikisi birlikte değişir.
   - Bağımlılık: BUG-18, OGR-01. Boyut: S.
