@@ -847,7 +847,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.3 Yaralı
 
-- [/] **CAT-03:** Yaralının tedavisi — hekim varsa iyileştirir. (Antigravity)
+- [x] **CAT-03:** Yaralının tedavisi — hekim varsa iyileştirir. (Antigravity)
   - Ne: Kavga yaralısı, bizden ya da yabancı, şifahane varsa hekime gider. Hekim varsa duran iyileşme akışı sağlığı yükseltir; hekim yoksa veya hekim kendisi yaralıysa kayıp sürer. Yabancı tedavi edilip gönderilirse grup itibarı bir artar ve köylü olmaz. Ölü hekime gitmez. Aynı yara ikinci gece bir daha iyileşmez.
   - Kurallar:
     1. Yaralı bizden veya yabancı olabilir. İkisi de Şifahane’ye gidebilir.

@@ -279,3 +279,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: `tests/unit/kapi/kavga_secenek_test.gd` (Godot headless, 0 hata, GEÇTİ).
 - Açık kalan: yok.
 - kota görünmüyor
+
+### 2 Kasım — CAT-03 kapatıldı (hedefli test)
+- `src/koy/hekim_ilac.gd` (`HekimIlac`): kavga yaralısının şifahane ve hekim üzerinden tedavisi için `yara_tedavi_secenegi_gorunur`, `yara_tedavi_uygula` ve `yara_gece_kuyrugu_isle` adaptörleri eklendi.
+- Hekim ve şifahane varken sağlık deltası pozitiftir; hekim yokken veya kendisi yaralıyken kayıp sürer; yabancı yaralı tedavi edilip gönderilirse grup itibarı +1 artar ve köylü olmaz; aynı yara ikinci gece sağlık deltası 0'dır; ölü hekime gitmez.
+- Test: `tests/unit/koy/hekim_yara_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
+- Açık kalan: yok.
+- kota görünmüyor
