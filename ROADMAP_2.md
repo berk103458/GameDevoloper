@@ -3125,7 +3125,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
 
 ### 31.7 Sanity genişlemesi
 
-- [/] **KAY-37:** Sanity göç testini çağırır. (Kalfa)
+- [x] **KAY-37:** Sanity göç testini çağırır. (Kalfa)
   - Ne: `tools/sanity_check.py` tam paket, KAY-03 fixtürünü çalıştırır. Yeni paket yazılmaz, tek satır eklenir.
   - Kabul: `tools/sanity_check.py` tam paket, KAY-03 fixtürünü çalıştırır. Yeni paket yazılmaz, tek satır eklenir. Test: sanity listesinde göç adı vardır.
   - Bağımlılık: SYS-11, KAY-03. Boyut: S.

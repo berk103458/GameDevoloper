@@ -65,6 +65,14 @@ class RunnerTest(unittest.TestCase):
         # Birim testleri kasıtlı eksik anahtar dener (guvenli_metin_test); kural yalnız temiz turdadır.
         self.assertEqual([], sanity.eksik_anahtar_hatasi("guvenli_metin_test", uyari))
 
+    def test_kay37_migration_fixture_is_discovered_once(self):
+        listed = list(sanity.checks("godot", ROOT))
+        matches = [row for row in listed if row[0] == "kayit_gocu_soz_test"]
+        self.assertEqual(1, len(matches))
+        _, command, marker = matches[0]
+        self.assertEqual("GEÇTİ", marker)
+        self.assertIn("--headless", command)
+        self.assertEqual(ROOT / "tests/unit/sistemler/kayit_gocu_soz_test.gd", Path(command[-1]))
     def test_good_output_passes(self):
         ok, _ = sanity.run([sys.executable, "-c", "print('GEÇTİ')"], ROOT, 5)
         self.assertTrue(ok)
