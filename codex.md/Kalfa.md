@@ -1,3 +1,7 @@
+## 2 Kasım — KAP-17 başladı (Kalfa)
+
+Pull güncel. ACL-03 bağımlılıkları ve diğer ajanların sahiplikleri korunur. KAP-17 aile verisi/tek karar/çocukları ayırma/yatak/snapshot için yeni dosyalar ve ince bağlantılar. KAP-16/39/45/48 uygulanmaz. Mevcut çocuk/yaşlı envanteri korunacak, yeni asset üretimi/indirme yok. kota görünmüyor.
+
 ## 2 Kasım 2026 — ACL-06 tamamlandı (Kalfa)
 
 Yeni oyunda mevcut bilgi ekranı dört geçmiş ve geri dönüş sunar; seçimden önce kayıt silinmez/oturum kurulmaz. Tek kayıt alanı `muhafiz_gecmisi`; ikinci seçim ve yüklenen eski kayda sonradan seçim reddedilir. Yapı bilgisi `data/yapi_bilgisi.json` üzerinden tek kimliktir: eski levent→avcı, Ahi çırağı→atölye, medrese talebesi→ambar, çoban oğlu→tarla. Mevcut katalogla sınırlı karar: avcılık/alet ustalığı/ambar hesabı/tarla bilgisi; bedava bina veya maliyet/zar değişikliği yok. Medrese Farsça dil satırı türetilir. YAP-02 bu bilgi erişimini, DYL-06 dil erişimini okuyacak; o maddelerin motorları uygulanmış sayılmaz.

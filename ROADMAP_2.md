@@ -321,7 +321,7 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ### 15.2 Kuyruk
 
-- [ ] **KAP-17:** Aileler birlikte gelir.
+- [/] **KAP-17:** (Kalfa) Aileler birlikte gelir.
   - Ne: Kapıya karı, koca, çocuk ve yaşlıdan kurulu bir kafile tek sorguyla gelir; sorgu aile reisiyledir. Varsayılan karar herkese uygulanır. "Yalnız çocukları al" ayrı bir düğmedir ve çocuksuz kafilede görünmez. Bölme, vicdan terazisine ve dedikodu kaydına bir satır yazar; yeni dedikodu motoru açılmaz. Reisin kimliği düşünce kişiler kuyruğa saçılmaz, kafile tek karar olarak kalır. Dört kişilik kabul dört köylü ekler.
   - Kurallar:
     1. Aile karı-koca, çocuk ve yaşlıdan kurulur. Sorgu aile reisiyle yapılır.
