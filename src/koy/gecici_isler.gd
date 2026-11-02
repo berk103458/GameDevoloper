@@ -107,6 +107,9 @@ static func gece(y: KoyYonetimi, rapor: Dictionary, calismalar: Dictionary) -> v
 				"stok":
 					miktar = y.kaynaklar.ekle(d.kaynak,miktar)
 					if miktar > 0: rapor.uretim[d.kaynak] = int(rapor.uretim.get(d.kaynak,0)) + miktar
+				"su":
+					miktar = SuDengesi.isci_tasidi(y,miktar)
+					if miktar > 0: rapor.uretim["su"] = int(rapor.uretim.get("su",0)) + miktar
 				"guvenlik": y.asayis_riski = maxi(0,y.asayis_riski-miktar)
 				"bakim":
 					for hasta in _bakim_adaylari(y,k): hasta.moral = mini(100,hasta.moral+miktar)

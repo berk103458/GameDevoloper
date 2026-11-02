@@ -28,7 +28,7 @@
     },
     {
       "id": "su_tasima",
-      "etki": "stok",
+      "etki": "su",
       "kaynak": "su",
       "miktar": 2,
       "yorgunluk": 1,
@@ -36,7 +36,8 @@
         "yetiskin"
       ],
       "binalar": [
-        "kuyu"
+        "kulube",
+        "cadir"
       ],
       "ad_anahtari": "koy.gecici_is.su_tasima"
     },

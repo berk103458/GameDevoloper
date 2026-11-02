@@ -67,3 +67,18 @@ static func gece(y: KoyYonetimi, tuketim: Dictionary, olaylar: Array[Dictionary]
 ## Aynı kaynak kartında arz/rezerv/ihtiyaç açıklaması.
 static func tip(y: KoyYonetimi) -> String:
  return "Su rezervi · Gecelik ihtiyaç: %d · kalan kuyu akışı: %d. Yaz/kuraklık tüketimi ×%d. Pazarda kuyudan rezerv ayırabilirsin." % [gerek(y),taze(y),int(AYAR.yaz_carpani)] + "\n" + KuyuKirliligi.metin(y) + KuyuZehirleme.tip(y)
+
+
+## ISG-02: işçi aynı meydan kuyusundan rezerv taşır; günlük akış makbuzu ortaktır.
+## Elle doldurma bedeli yazılmaz: emek geçici iş ataması ve mevcut erzak payıdır.
+static func isci_tasidi(y: KoyYonetimi, istenen: int) -> int:
+ var miktar := mini(maxi(0,istenen),taze(y))
+ var giren := y.kaynaklar.ekle("su",miktar)
+ if giren <= 0: return 0
+ var r := durum(y)
+ if int(r.gun) != y.gun:
+  r.gun = y.gun
+  r.adet = 0
+ r.adet = int(r.adet) + giren
+ y.set_meta(META,r)
+ return giren

@@ -19,3 +19,9 @@ Söz motoru beklemede. ds yolları bulunmuyor; eşitlenmedi. kota görünmüyor.
 ## Commitli kaynak kabulü
 
 `work/isg02_kabul_54ac3789` git archive ile kuruldu; başlangıçta .godot yoktu. Arşivin CRLF satır sonları dışında 22 paket dosyası commit ile aynıdır. İlk soğuk import CSV aşamasında Godot erişim ihlaliyle (3221225477) durdu; betik/eksik kaynak hata satırı görülmedi, bu koşu kabul sayılmadı. Aynı kaynak kopyasında import tekrarı temiz bitti (`work/isg02_cold_import_tekrar.log`). `isg02_cold_model.log`, `isg02_cold_kart.log`, `isg02_cold_menu.log` tamamlandı ve başarı işaretleri doğrulandı; son loglarda SCRIPT ERROR/ERROR veya kaynak sızıntısı yok. Özgün çalışma kopyasının .godot önbelleği taşınmadı. İlk çökme logu korunur. Tam sanity çalıştırılmadı.
+
+## Su koşulu regresyonu — 2 Kasım (Kalfa)
+
+ISG-01 incelemesinde `su_tasima` koşulunun gerçek katalogda olmayan `kuyu` türünü istediği görüldü. Önceki model fikstürü bu türü sentetik kurduğu için ilk kabulde kaçmıştı; madde yeniden açıldı. Sentetik yapı kaldırılıp her veri koşulunun en az bir gerçek kurulabilir katalog türüne bağlandığı test edildi ve RED alındı. Su işi mevcut kulübe/çadır yerleşiminden erişilir; kaynak zaten var olan meydan kuyusudur. `SuDengesi.isci_tasidi` aynı günlük akış/rezerv makbuzuna ince adaptördür. İki taşıyıcı kuyunun kalan son bir birimini aşamaz; ikinci kuyu/akış veya elle doldurma akçe bedeli yoktur.
+
+Genişletilmiş model (`work/isg02_su_fix.log`), mevcut su/yaz/yangın testi (`isg02_su_regresyon.log`), gerçek kurulabilir kulübeyle canlı kart (`isg02_su_kart_dugme.log`), API sözleşmesi ve son recovery import (`isg02_su_import_son.log`) geçti. Canlı kartta su hedefi açık ve düğme alternatifi doğru işi atar. İlk soğuk kabulün kapsamı/çökme kaydı yukarıda korunur; bu düzeltme ayrıca hedefli denetlendi. Tam sanity yok.

@@ -1,3 +1,9 @@
+## 2 Kasım 2026 — ISG-02 su koşulu düzeltildi (Kalfa)
+
+ISG-01 incelemesinde katalogda olmayan kuyu koşulu bulundu; önceki sentetik test yapısı hatayı gizlemişti. ISG-02 yeniden açılıp gerçek katalog erişilebilirliği RED testiyle doğrulandı. Su işi artık hazır kulübe/çadır koşuluyla gerçek meydan kuyusundan rezerv taşır. SuDengesi aynı günlük akış makbuzunu kullanır; iki işçi son bir birimi aşamaz, yeni kuyu veya ikinci akçe bedeli yoktur. Gerçek yapı kuran canlı kartta su işi açıktır ve düğme alternatifi doğru atar.
+
+Genişletilmiş iş modeli, su/yaz/yangın regresyonu, canlı kart, API sözleşmesi ve temiz son recovery import geçti. İlk kabul/çökme kayıtları audit dosyasında korunur, yanlış kapsam silinmedi. Asset gerekmedi; tam sanity/görünür pencere yok. ISG-01 sahipliği sürüyor; kabul uyarısına dönülecek. ds yolları yok; kota görünmüyor.
+
 ## 2 Kasım — ISG-02 su hedefi regresyon düzeltmesi (Kalfa)
 
 ISG-01 kaynak incelemesinde su işinin data koşulunda bulunmayan kuyu türü fark edildi. Önceki model fikstürü sentetik tür kurduğu için kaçtı. ISG-02 yeniden açık; gerçek katalog erişilebilirliğine dayalı test eklenecek ve su koşulu mevcut köy yapıları/var olan su akışına bağlanacak. ISG-01 sahipliği sürüyor. kota görünmüyor.

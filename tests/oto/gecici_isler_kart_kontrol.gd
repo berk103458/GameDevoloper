@@ -19,15 +19,8 @@ func _calistir() -> void:
 	y.a=y.a.duplicate(true); y.a.ambar_taban_kapasite=10000
 	y.kaynaklar=Kaynaklar.new(10000,{"gida":1000,"su":1000,"odun":1000,"tas":1000,"kereste":1000})
 	y.akce=1000
-	var kuruldu := false
-	for cy in y.izgara.boyut.y:
-		if kuruldu: break
-		for cx in y.izgara.boyut.x:
-			var yer := Vector2i(cx,cy)
-			if y.yerlesim("odunluk",yer).olur:
-				var r := y.bina_kur("odunluk",yer)
-				if r.olur: y.bina(r.id).insa_kalan=0; kuruldu=true; break
-	dene(kuruldu,"Gerçek odunluk kuruldu")
+	for tur in ["odunluk","kulube"]:
+		dene(_kur(y,tur),"Gerçek yapı kuruldu: "+tur)
 	var k := y.kabul({"ad":"Geçici işçi"})
 	ana._koye_git()
 	var ekran := ana._ekran as KoyEkrani
@@ -38,6 +31,8 @@ func _calistir() -> void:
 	var sekmeler := _sekme(ekran._ust_kart)
 	dene(sekmeler!=null and sekmeler.get_tab_count()==2,"Mevcut kartta yapı ve geçici iş sekmesi")
 	if sekmeler!=null: sekmeler.current_tab=1
+	var su_hedefi := _hedef(ekran._ust_kart,"su_tasima")
+	dene(su_hedefi!=null and not su_hedefi.disabled,"Gerçek kurulabilir konutla su işi kartta açık")
 	var hedef := _hedef(ekran._ust_kart,"dal_toplama")
 	var kulp := _kulp(ekran._ust_kart)
 	dene(hedef!=null and kulp!=null and not hedef.disabled,"Mevcut kulp ve uygun iş hedefi")
@@ -60,6 +55,11 @@ func _calistir() -> void:
 	dene(JSON.stringify(ana.oturum.kaydet())==once,"Sekmeyi açmak üretim/atama ilerletmez")
 	var ikinci := _hedef(ekran._ust_kart,"su_tasima")
 	dene(ikinci!=null and ikinci.disabled,"İkinci geçici iş düğmesi kapalı")
+	GeciciIsler.birak(y,k)
+	KoyluKarti.ac(ekran,k.id)
+	var su_dugmesi := _hedef(ekran._ust_kart,"su_tasima")
+	if su_dugmesi!=null: su_dugmesi.pressed.emit()
+	dene(GeciciIsler.secili(k)=="su_tasima","Klavye/düğme alternatifi doğru su işini atar")
 	ana.kayit.sil(); ana.queue_free()
 	await get_tree().process_frame
 	print("GEÇİCİ İŞ KARTI: GEÇTİ" if hata==0 else "GEÇİCİ İŞ KARTI: KALDI")
@@ -82,3 +82,14 @@ func _kulp(n: Node) -> KoyluSuruklemeKulpu:
 		var h := _kulp(c)
 		if h!=null: return h
 	return null
+
+func _kur(y: KoyYonetimi,tur: String) -> bool:
+	for cy in y.izgara.boyut.y:
+		for cx in y.izgara.boyut.x:
+			var yer := Vector2i(cx,cy)
+			if y.yerlesim(tur,yer).olur:
+				var r := y.bina_kur(tur,yer)
+				if r.olur:
+					y.bina(r.id).insa_kalan=0
+					return true
+	return false

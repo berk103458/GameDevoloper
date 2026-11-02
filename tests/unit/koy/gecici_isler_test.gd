@@ -18,7 +18,6 @@ func hazir() -> Oturum:
 	y.gun=2
 	bina(y,"kulube",1)
 	bina(y,"odunluk",2)
-	bina(y,"kuyu",3)
 	bina(y,"kulube",4,10)
 	y.tas_yatagi=TasYatagi.yeni(y,22)
 	return o
@@ -28,7 +27,10 @@ func isci(y: KoyYonetimi, ad: String="İşçi") -> Koylu:
 func _initialize() -> void:
 	kat=Katalog.new(); kat.yukle()
 	var ids := []
-	for d in GeciciIsler.AYAR.isler: ids.append(String(d.id))
+	for d in GeciciIsler.AYAR.isler:
+		ids.append(String(d.id))
+		if d.has("binalar"):
+			dene(d.binalar.any(func(t: Variant) -> bool: return kat.binalar.var_mi(String(t)) and not bool(kat.binalar.veri(String(t)).get("chr_hedef",false))), "İş en az bir gerçek kurulabilir yapı üzerinden erişilir: "+d.id)
 	ids.sort()
 	var beklenen := ["tas_toplama","dal_toplama","su_tasima","yol_hendek","insaat_yardimi","nobete_eslik","yun_egirme","ot_mantar","bakim"]
 	beklenen.sort()
@@ -39,6 +41,7 @@ func _initialize() -> void:
 	_kayit_ve_atama()
 	_ikiz()
 	_meclis()
+	_su_siniri()
 	print("GEÇİCİ İŞLER: GEÇTİ" if hata==0 else "GEÇİCİ İŞLER: KALDI")
 	quit(hata)
 func _tek_is(id: String) -> void:
@@ -129,3 +132,17 @@ func _meclis() -> void:
 	var r: Dictionary = o.gece_sonu().rapor
 	dene(r.get("gecici_isler",[]).size()==1 and r.gecici_isler[0].is_id=="dal_toplama","Meclis gecesinde geçici iş biter")
 	dene(int(r.get("uretim",{}).get("bugday",0))>0,"Meclis gecesinde bina üretimi de sürer")
+
+func _su_siniri() -> void:
+	var o := hazir(); var y := o.yonetim
+	var a := isci(y,"Su taşıyan bir"); var b := isci(y,"Su taşıyan iki")
+	var durum := SuDengesi.durum(y)
+	durum.gun=y.gun; durum.adet=int(SuDengesi.AYAR.kuyu_gunluk)-1
+	SuDengesi.yukle(y,durum)
+	dene(GeciciIsler.ata(y,a.id,"su_tasima") and GeciciIsler.ata(y,b.id,"su_tasima"),"Gerçek konut/ortak kuyu ile su işi erişilir")
+	var once := y.kaynaklar.miktar("su"); var para := y.akce
+	var r := {"uretim":{},"olaylar":[]}
+	GeciciIsler.gece(y,r,{})
+	dene(y.kaynaklar.miktar("su")==once+1 and SuDengesi.taze(y)==0,"İki işçi aynı günlük kuyunun son tek birimini taşır")
+	dene(r.gecici_isler.size()==1 and r.gecici_isler[0].kisi==2 and r.gecici_isler[0].miktar==1,"Aynı iş tek bilanço satırında toplanır")
+	dene(y.akce==para,"İşçi emeğine ikinci elle doldurma bedeli yazılmaz")
