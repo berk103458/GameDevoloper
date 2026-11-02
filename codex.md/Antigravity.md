@@ -381,3 +381,11 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `data/olaylar/` içinde `kis_odun` kimlikli kartın bulunmadığı (0 adet) `tests/tools/test_olay_kartlari.py` içine sayım testi olarak eklendi.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OZL-15 — `dugun.tres` KAP-19 ve BUG-16 ile bağlanır, tören motoru açılmaz (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OZL-15`
+- **Yapılanlar:**
+  - `data/olaylar/dugun.tres` içindeki `"yetiskin_hane_min": 2` ve `"yas_grubu": "yetiskin"` koşulunun KAP-19 ve BUG-16 ile bağlandığı ve 3 kişilik köyde 30 gecede `dugun` seçilmediği (`tests/unit/olay/nufus_katmani_test.gd` ve `tests/tools/test_olay_kartlari.py`) doğrulandı.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.
