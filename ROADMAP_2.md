@@ -580,7 +580,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
   - Dosya: şema + motor; içerik YAZ.
   - Asset: asset gerekmedi.
 
-- [ ] **DIY-11:** Kişi hafızası — dönen karakter hatırlar.
+- [/] **DIY-11:** Kişi hafızası — dönen karakter hatırlar. (Antigravity)
   - Ne: Dönen karakterin selamı son kararı okur; retten sonra selam `selam_ret` olur. Hafıza `KarakterKadrosu.durumlar` içindedir, ikinci depo yoktur. Kayıt yüklemek ziyaret sayacını artırmaz. Sayaç 9'dan sonra yeni selam anahtarı açmaz. Eski kayıtta alan yoksa boş sayılır, oyun çökmez.
   - Kurallar:
     1. Kişi başına hafıza şunları tutar: son karar (kabul, ret, rüşvet, kışla, kaçtı), verilen söz, yapılan yardım, yüzleşilen yalan, ödenen veya alınan akçe.
