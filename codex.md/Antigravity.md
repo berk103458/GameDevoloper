@@ -286,3 +286,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: `tests/unit/koy/hekim_yara_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
 - Açık kalan: yok.
 - kota görünmüyor
+
+### 2 Kasım — CAT-04 kapatıldı (hedefli test)
+- `data/kapi_kavgasi.json` (`siddet_korkusu`) ve `src/kapi/siddet_korkusu.gd` (`SiddetKorkusu`): askerle karşılık veya ölüm sonrasında sıradaki kişilerin tansiyon eşiğine ve tablo olasılığına göre ayrılması ve dedikodu taşıması eklendi.
+- Eşik altı sırada ayrılan 0'dır; eşik üstü ve olasılık 1 olan satırda ayrılan 1'dir ve sonraki gün dedikodu (DIY-13) taşır; yatıştırma ve ertelemede ayrılan 0'dır; menü açıkken artış donar, menü açılıp kapanınca tansiyon artışı değişmez.
+- Test: `tests/unit/kapi/siddet_korkusu_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
+- Açık kalan: yok.
+- kota görünmüyor

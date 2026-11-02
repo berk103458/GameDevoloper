@@ -29,5 +29,39 @@
     "basari": "yaralanma",
     "basarisiz": "kin",
     "kritik_basarisiz": "olum"
+  },
+  "siddet_korkusu": {
+    "siddet_sonuclari": [
+      "askerle_karsilik",
+      "olum"
+    ],
+    "siddet_sayilmayanlar": [
+      "sozle_yatistirma",
+      "akceyle_erteleme",
+      "yatistirma",
+      "erteleme"
+    ],
+    "tansiyon_esigi": 6,
+    "tansiyon_artisi": {
+      "askerle_karsilik": 2,
+      "olum": 3
+    },
+    "ayrilma_olasilik_tablosu": [
+      {
+        "min_tansiyon": 6,
+        "max_tansiyon": 7,
+        "olasilik": 0.4
+      },
+      {
+        "min_tansiyon": 8,
+        "max_tansiyon": 9,
+        "olasilik": 0.75
+      },
+      {
+        "min_tansiyon": 10,
+        "max_tansiyon": 99,
+        "olasilik": 1.0
+      }
+    ]
   }
 }
