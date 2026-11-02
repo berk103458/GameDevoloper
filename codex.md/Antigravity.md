@@ -346,3 +346,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `dervis` ve `dugun` gibi `tek_sefer = true` kartların şema ve seçici kuralının korunduğu ve 30 gecede en çok 1 kez seçildiği `tests/unit/sistemler/ozl_kart_tarama_test.gd` içine eklendi.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OZL-05 — Kart yoksa gece kilitlenmez (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OZL-05`
+- **Yapılanlar:**
+  - `src/sistemler/gece_bilancosu.gd` içine boş havuzda kart çıkmadığında rapora `"bu gece köy sessiz"` satırını ekleyen tek satırlık `sessiz_gece_kontrol` adaptörü eklendi.
+  - `tests/unit/sistemler/ozl_kart_tarama_test.gd` içine boş havuz ve `olay_olasiligi = 1.0` senaryosu eklendi.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.

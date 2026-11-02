@@ -37,3 +37,7 @@ static func olustur(o: Oturum, once: Dictionary, rapor: Dictionary) -> Dictionar
  if mevsim == MevsimYoneticisi.MEVSIM_SAYISI - 1:
   sonuc["kis_carpani"] = {"carpan": float(TicaretFiyatlari.AYAR.mevsim_carpani[mevsim]), "mevsim": mevsim, "kaynak": "mevsim_carpani"}
  return sonuc
+
+## OZL-05: BUG-16 havuzu boşsa kart çıkmaz; rapor "bu gece köy sessiz" satırı yazar, oyun devam eder.
+static func sessiz_gece_kontrol(olay: Variant, rapor: Dictionary) -> void:
+ if olay == null and rapor.get("olaylar") is Array: rapor.olaylar.append({"anahtar": "bu gece köy sessiz"})

@@ -61,6 +61,15 @@ func _initialize() -> void:
 	_kontrol(dervis_sayisi <= 1, "dervis tek_sefer ise 30 gecede en cok 1 kez gelmeli (gelen=%d)" % dervis_sayisi)
 	_kontrol(dugun_sayisi <= 1, "dugun tek_sefer ise 30 gecede en cok 1 kez gelmeli (gelen=%d)" % dugun_sayisi)
 
+	# OZL-05: Havuz bos + olay_olasiligi 1 olsa bile kart 0, rapor "bu gece köy sessiz" yazar ve faz gecer
+	var bos_kat := Katalog.new()
+	var bos_oturum := Oturum.new(bos_kat, 77)
+	bos_oturum.ayarlar.olay_olasiligi = 1.0
+	var bos_kart := bos_oturum.olay_sec()
+	var bos_rapor := {"olaylar": []}
+	GeceBilancosu.sessiz_gece_kontrol(bos_kart, bos_rapor)
+	_kontrol(bos_kart == null and bos_rapor.olaylar.size() == 1 and bos_rapor.olaylar[0].get("anahtar") == "bu gece köy sessiz", "Havuz bosken kart 0 olmali ve 'bu gece köy sessiz' satiri yazilmali")
+
 	if _hata == 0:
 		print("OZL KART TARAMA: GEÇTİ (0 hata)")
 	else:
