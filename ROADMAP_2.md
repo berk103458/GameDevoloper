@@ -5764,7 +5764,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: HFZ-01. Boyut: S.
   - Dosya: defter adaptörü tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OZL-04:** `tek_sefer` kartı ikinci kez gelmez.
+- [/] **OZL-04:** `tek_sefer` kartı ikinci kez gelmez. (Antigravity)
   - Ne: şemanın `tek_sefer` alanı korunur; bu bölüm onu ezer bir "tekrar izin" yazmaz.
   - Kabul: `dervis`, `dugun` tek_sefer ise 30 gecede en çok 1. Test: runner.
   - Bağımlılık: OZL-01. Boyut: S.
