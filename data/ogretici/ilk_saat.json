@@ -1,5 +1,5 @@
 {
-	"tehdit_baslangic_kaynak": "res://data/tehdit_takvimi.json",
+	"tehdit_baslangic": "res://data/tehdit_takvimi.json",
 	"kavramlar": [
 		{"id": "kapi_sorgusu", "gece_min": 0, "tetik": "kapi_ilk_aile"},
 		{"id": "koy_atama", "gece_min": 0, "tetik": "ilk_kabul"},

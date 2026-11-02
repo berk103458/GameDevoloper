@@ -432,3 +432,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `src/sistemler/ilk_saat.gd` ve `tests/unit/sistemler/ilk_saat_test.gd` güncellendi.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OGR-06 — Tehdit alışma süresi ilk saatle hizalıdır (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OGR-06`
+- **Yapılanlar:**
+  - `data/ogretici/ilk_saat.json` içindeki `tehdit_baslangic` alanı `BUG-18` kaynağına (`res://data/tehdit_takvimi.json`) bağlandı; `IlkSaat.tehdit_baslangic_gunu` tek kaynaktan okuyacak şekilde doğrulandı.
+  - `tests/unit/sistemler/ilk_saat_test.gd` güncellendi.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.
