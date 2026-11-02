@@ -1,3 +1,7 @@
+## 2 Kasım — YAZ-77 başladı (Kalfa)
+
+YER-04 mevcut CSV doğrulaması: boş tr tam bir hata, boş en sıfır hata; oyun metni/şema eklenmez. Ana Ahmet kopyası temizken 5b87af8c yayınına güvenli fast-forward edildi, tüm dallar fetch edildi. ds yolları yok. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-71 tamamlandı (Kalfa)
 
 Mevcut Ana ekran geçişi kapı/köy ekranını tek node grubunda işaretler; eski ekranın işareti geçişte kaldırılır. Göç yürütücüsü UI sınıfı import etmeden bu grubu okur. Gerçek sürüm dönüşümü aktif oyun ekranında hiçbir ara adımı çağırmadan geliştirme hatasıyla reddedilir. Güncel sürümün adımsız doğrulaması göç değildir ve eski kayıt ikizi API'si korunur. Açık Ana.devam_et isteği önce yükleme aşamasına geçer, sonra göç eder; oyuncu yüklemesi engellenmez. Yeni motor, zamanlayıcı veya kare başı tarama yok.

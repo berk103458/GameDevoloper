@@ -1181,7 +1181,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: `tools/metin_dogrula.py`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-77:** Boş Türkçe hücre hatadır
+- [/] **YAZ-77:** Boş Türkçe hücre hatadır (Kalfa)
   - Ne: `en` boş olabilir, `tr` boş olamaz. YER-04.
   - Kabul: Boş tr 1 hata. Test: YER-04.
   - Bağımlılık: YER-04 Boyut: S.
