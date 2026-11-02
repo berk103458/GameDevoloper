@@ -1,0 +1,14 @@
+{
+	"tehdit_baslangic_kaynak": "res://data/tehdit_takvimi.json",
+	"kavramlar": [
+		{"id": "kapi_sorgusu", "gece_min": 0, "tetik": "kapi_ilk_aile"},
+		{"id": "koy_atama", "gece_min": 0, "tetik": "ilk_kabul"},
+		{"id": "gece_raporu", "gece_min": 0, "tetik": "ilk_gece_sonu"},
+		{"id": "zar", "gece_min": 1, "tetik": "ilk_zar_atisi"},
+		{"id": "bar", "gece_min": 1, "tetik": "ilk_bar_degisimi"},
+		{"id": "heybe", "gece_min": 2, "tetik": "ilk_gizli_esya"},
+		{"id": "oda", "gece_min": 3, "tetik": "ilk_oda_acilisi"},
+		{"id": "pazar", "gece_min": 4, "tetik": "ilk_pazar_acilisi"},
+		{"id": "divan", "gece_min": 5, "tetik": "ilk_divan_acilisi"}
+	]
+}

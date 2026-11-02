@@ -3883,7 +3883,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
 
 ### 33.1 İlk saatin omurgası — neyin ne zaman öğrenildiği
 
-- [/] **OGR-01:** İlk saat haritası tek dosyada durur. (Antigravity)
+- [x] **OGR-01:** İlk saat haritası tek dosyada durur. (Antigravity)
   - Ne: oyuncunun ilk altı gecede karşılaşacağı kavramlar (kapı sorgusu, zar, bar, heybe, köy atama, gece raporu, pazar, divan, oda) gece numarasına bağlı sıralı listedir. Hangi kavramın hangi gecede ilk kez göründüğü buradan okunur.
   - Kabul: `data/ogretici/ilk_saat.json` içinde her kavramın `gece_min` ve `tetik` alanı vardır. Listede olmayan ipucu çıkmaz. Test: dosyadaki kavram sayısı ile ilk altı gecede gösterilen ipucu sayısı eşittir.
   - Bağımlılık: ACL-04. Boyut: S.

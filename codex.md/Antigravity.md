@@ -414,3 +414,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `src/sistemler/olay_soz_bagi.gd` içine `CenazeYasi` ve `cenaze_raporu.gd` çıktısını okuyarak Söz bağlamına `olay.cenaze` anahtarı türeten `cenaze_baglama_yaz` okuyucusu eklendi; yeni panel dosyası açılmadı.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OGR-01 — İlk saat haritası tek dosyada durur (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OGR-01`
+- **Yapılanlar:**
+  - `data/ogretici/ilk_saat.json` oluşturuldu; ilk altı gecede öğrenilen 9 kavramın `gece_min` ve `tetik` alanları tanımlandı.
+  - `src/sistemler/ilk_saat.gd` (`IlkSaat`) ve `tests/unit/sistemler/ilk_saat_test.gd` oluşturuldu.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.
