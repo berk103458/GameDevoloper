@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-06 başladı (Kalfa)
+
+Ayrı hazırlık kopyasında KAY-06 alındı. Başarılı SYS-14 göç kaynağı/hedefi optional tek bildirimle saklanacak; ilk çözülen gece raporunda bir çeviri satırı, sonra tekrar yok. Yeni motor veya içerik göçü yok. İlk worktree importu önbellek MD5 uyarıları verdi; ikinci recovery headless import temiz. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım — Ayrı hazırlık kopyası ve KAY-05 kabul kaydı (Kalfa)
 
 Ortak index yarışı nedeniyle KAY-05 kod/test/rapor dosyaları Antigravity DYL-06 yayını 8ec4b48e içine girdi; görev ve testler Kalfa tarafından yapıldı, DYL-06 Antigravity sahipliği korunur. KAY-05 [x] ve üç hedefli kontrol/import kanıtı geçerli. Geçmiş yeniden yazılmadı. Bu kayıt Kalfa kabul commitidir. Sonraki iş `C:/Users/Ahmet/.codex/worktrees/kalfa-roadmap/Kapı_Muhafizi` geçici detached hazırlık kopyasında yapılır, remote festive tek entegrasyon dalı olarak kalır; her madde origin festive üzerine rebase edilip HEAD:festive push ile gönderilir. Ana checkoutın indexine artık yazılmaz, başka ajanın uncommitted dosyaları korunur. ds aynaları yok; eşitlenmedi. kota görünmüyor.
