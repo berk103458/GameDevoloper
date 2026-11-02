@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-12 başladı (Kalfa)
+
+Mevcut Dedikodu kuyruğu Oturum kaydına bağlanacak. Mutlak doğum/yayılma gecesi ve tanık kimliği korunur; yükleme zamanı ilerletmez. Tanıksız bozuk satır yayılmaz. İkinci dedikodu/Söz motoru yok. Söz motorunu bekletme kararı sürer. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-11 tamamlandı (Kalfa)
 
 Oturum mevcut `GrupItibari` sınıfından tek nesne taşır. `grup_itibari.kaydet()` altı puanı/yazım makbuzlarını kök kayda yazar; yükleme aynı sınıfın mevcut yükleyicisinden geçer. Eksik grup 0 olur, diğer puanlar korunur; alanı olmayan eski kayıt altı sıfır puanla açılır. Mevcut yükleyicinin −10…+10 kıskaçı korunur. Yükleme kaynak oturumu değiştirmez. İkinci itibar tablosu, yeni grup, karar motoru veya Söz şeması kurulmadı. Uygunsuz kök itibar tipi/kabul edilmeyen grup kaydı oturum yüklemesini reddeder.

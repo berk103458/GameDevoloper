@@ -2936,7 +2936,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: DIY-12. Boyut: S.
   - Dosya: `src/sistemler/grup_itibari.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-12:** Dedikodu kuyruğu yaşıyla durur.
+- [/] **KAY-12:** (Kalfa) Dedikodu kuyruğu yaşıyla durur.
   - Ne: DIY-13 kaydı kaç gece önce doğduğunu yazar. Yüklemede yaş artmaz. Tanık biti korunur.
   - Kabul: DIY-13 kaydı kaç gece önce doğduğunu yazar. Yüklemede yaş artmaz. Tanık biti korunur. Test: tanıksız kayıt yüklemede hâlâ yayılmaz.
   - Bağımlılık: DIY-13, KOP-05. Boyut: M.
