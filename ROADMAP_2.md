@@ -1247,7 +1247,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Asset: asset gerekmedi.
 
 
-- [ ] **YAZ-89:** Göç optional alandır
+- [/] **YAZ-89:** Göç optional alandır (Kalfa)
   - Ne: Eski kayıt yeni söz dosyasını zorunlu tutmaz.
   - Kabul: Eski kayıtta söz dosyası alanı yoksa yükleme açılır ve yeni söz dosyası aranmaz (`tests/unit/sistemler/kayit_gocu_test.gd`).
   - Bağımlılık: KAY-04 Boyut: S.

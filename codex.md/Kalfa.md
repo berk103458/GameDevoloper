@@ -1,3 +1,7 @@
+## 2 Kasım — YAZ-89 başladı (Kalfa)
+
+Eski v2/v3 kayıtlar Söz dosyası referansı olmadan açılmalı. Mevcut yükleme yolu yeni Söz dosyası zorunlu kılmıyor; legacy regresyonu eklenecek. YAZ-87 anahtar/cümle şeması, ana Söz motoru beklediği için alınmadı. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — YAZ-77 tamamlandı (Kalfa)
 
 Mevcut YER-04/SYS-09 CSV doğrulayıcısı boş veya yalnız boşluk içeren Türkçe hücreye tam bir hata verir; İngilizce hücrenin boş kalması geçerlidir. Mevcut test paketine bu bağımsız kabul fikstürü eklendi. CSV/oyun metni/çeviri/üretim kodu değişmedi. Asset gerekmedi. kota görünmüyor.
