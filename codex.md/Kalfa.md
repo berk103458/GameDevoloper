@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-60 başladı (Kalfa)
+
+Mevcut tek-adım kuralı onaysız atlamayı reddeder. Sahte kayıt alanının kuralı aşamadığı ve eksik ara adımın reddi doğrulanacak; atlama onayı verilmiyor. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-55 tamamlandı (Kalfa)
 
 Gerçek Ana.devam_et yolunda v2 kaydının SYS-14 göçü hatalı kişisel akçe nedeniyle reddedildi. Oyuncu mevcut kısa hata ekranını görür; yeni oturum veya tmp oluşturulmaz. Ana dosya hâlâ v2 ve ana/.bak/.bak.tmp baytları aynıdır. Saf göç dosyaya yazmadığından geri kopyalama veya ikinci atomik yazıcı gerekmez; göç öncesi ana kayıt yerinde kalır. Mevcut KAY-05 hata izolasyonu korunur.
