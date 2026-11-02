@@ -11,6 +11,7 @@ func _initialize() -> void:
 	_kasalar(kat)
 	_takvim(kat)
 	_sonlar(kat)
+	_karantina(kat)
 	var asil := Oturum.new(kat, 3123)
 	asil.yonetim.gun = 8
 	dene(asil.dedikodu.olay_kaydet("iki_gecelik", "rusvet", 6, "tanik_23", 3).olur, "Tanıklı iki gecelik fikstür")
@@ -29,7 +30,7 @@ func _initialize() -> void:
 		dene(o.gun == 9 and o.dedikodu.pusula_satirlari(9).size() == 1, "Gerçek üçüncü gecede tek yayın")
 	# JSON sayıları float açar; karşılaştırmanın iki tarafını aynı sınırdan geçir.
 	dene(JSON.parse_string(JSON.stringify(asil.dedikodu.kaydet())) == a.dedikodu.kaydet() and a.dedikodu.kaydet() == b.dedikodu.kaydet(), "Kayıtsız ve yüklenmiş zaman çizgileri aynı")
-	print("KAYIT İKİZİ (KAY-23/45/46/47): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47): KALDI")
+	print("KAYIT İKİZİ (KAY-23/45/46/47/65): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47/65): KALDI")
 	quit(hata)
 
 func _kasalar(kat: Katalog) -> void:
@@ -108,3 +109,36 @@ func _sonlar(kat: Katalog) -> void:
 			dene(nihai.son(geri, &"zafer") == id, "Göç nihai kimliği değiştirmez: " + id)
 			dene(nihai.son(geri, &"zafer") in kimlikler, "Altıncı son üretilmez")
 			dene(nihai.son(geri, &"isyan") == "", "Kayıp sonucu zafer kimliğine çevrilmez")
+
+func _karantina(kat: Katalog) -> void:
+	for kalan in [1, 2]:
+		var o := Oturum.new(kat, 3165)
+		o.yonetim.gun = 10
+		o.yonetim.kaynaklar.ekle("gida", 20)
+		var b := KoyBinasi.new()
+		b.id = 1
+		b.tur = "sifahane"
+		o.yonetim.binalar.append(b)
+		var hekim := o.yonetim.kabul({"ad":"Hekim"})
+		hekim.zanaat_turu = ZanaatTuru.Tur.CERRAH
+		dene(o.yonetim.ata(hekim.id, b.id), "Karantina fikstüründe çalışan hekim")
+		var k := o.yonetim.kabul({"ad":"Hasta"})
+		k.saglik = 35
+		k.enfeksiyon = {"tur":"humma", "bitis":14, "son_gece":9, "hasar_gecesi":-1, "hasta_sahibi":true}
+		k.gizli_bayraklar.append("hasta")
+		dene(KarantinaYoneticisi.al(o.yonetim, k.id), "Gerçek karantina giriş yolu")
+		o.yonetim.gun = 12 - kalan
+		var durum := k.karantina.duplicate(true)
+		var hastalik := k.enfeksiyon.duplicate(true)
+		for surum in [2, 3]:
+			var veri: Dictionary = JSON.parse_string(JSON.stringify(o.kaydet()))
+			veri.surum = surum
+			var geri := Oturum.kayittan(kat, veri)
+			dene(geri != null, "Karantina kaydı açılır")
+			if geri == null: continue
+			var hasta := geri.yonetim.koylu(k.id)
+			dene(hasta != null and hasta.ad == k.ad, "Karantinadaki kişi kimliği korunur")
+			if hasta == null: continue
+			dene(hasta.karantina == durum and int(hasta.karantina.bitis) - geri.gun == kalan, "Bir veya iki gün kalan karantina sıfırlanmaz")
+			dene(hasta.saglik == 35 and hasta.enfeksiyon == hastalik and SaglikYoneticisi.hasta(hasta), "Göç hastayı iyileştirmez")
+			dene(not SaglikYoneticisi.temas_edebilir(geri.yonetim, hasta), "Yükleme karantina temas engelini kaldırmaz")
