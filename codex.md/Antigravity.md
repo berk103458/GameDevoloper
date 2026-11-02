@@ -271,3 +271,11 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: `tests/unit/kapi/kapi_kavgasi_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
 - Açık kalan: yok.
 - kota görünmüyor
+
+### 2 Kasım — CAT-02 kapatıldı (hedefli test)
+- `src/kapi/kapi_kavgasi.gd` (`KapiKavgasi`): dört kavga seçeneği (`askerle_karsilik`, `akceyle_erteleme`, `sozle_yatistirma`, `reddetme`) ve kilit/sonuç kuralları eklendi.
+- Dört seçenek dört ayrı sonuç kimliği üretir; erteleme `verilen_soz` kaydına 1 satır (`yarin_gel`) yazar ve `muhafiz_akce` düşer; ölüm cenaze akışına tek çağrı yazar; `kalp` anahtarı ve beşinci seçenek 1 hata verir; aynı seçeneğe iki tıkta sonuç yalnız 1 kez yazılır.
+- Asset: `CAT02-KAVGA` `docs/EKSIK_ASSET_ENVANTERI.md` içinde zaten kayıtlı; kodda sarsıntı + metin yer tutucusu (`YER_TUTUCU_CANLANDIRMA`) bağlandı.
+- Test: `tests/unit/kapi/kavga_secenek_test.gd` (Godot headless, 0 hata, GEÇTİ).
+- Açık kalan: yok.
+- kota görünmüyor
