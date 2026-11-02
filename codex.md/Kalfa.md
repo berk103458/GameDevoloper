@@ -1,3 +1,7 @@
+## 2 Kasım — KAP-19 başladı (Kalfa)
+
+KAP-18, DNY-01 bekliyor; KAP-19 bağımlılıkları BUG-16/KAP-17 tamam. Mevcut olay denetçisine yaşayan hane katmanı ve yetişkin hane eşiği bağlanıyor. İkinci seçici/RNG yok. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAP-17 tamamlandı (Kalfa)
 
 Aile tek Gelen/tek sorgudur; kabul tüm üyeleri, ret hiçbirini, ayrı «Yalnız çocukları al» yalnız çocukları köye yazar. Çocuksuz/tek kişilik kafilede bölme yok. Dört kişilik aile dört yatak ister. Karar makbuzu aile kimliğiyle kalıcıdır; snapshot dönüşünde reis kimliği boş olsa da ikinci karar reddedilir. `Koylu.hane_id` optional; açılış eşi/muhafızı da aynı hanedir. Eski kişilerde alan -1 kalır. İlk akşamın sabit iki yetişkin sahnesi aynı aile adaptöründen geçer, eski ikinci kişi eklemesi yinelenmez.

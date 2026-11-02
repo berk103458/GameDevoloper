@@ -360,7 +360,7 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ### 15.4 Karar
 
-- [ ] **KAP-19:** Köy nüfusu kompozisyonu — çocuksuz köyde çocuk olayı yok.
+- [/] **KAP-19:** (Kalfa) Köy nüfusu kompozisyonu — çocuksuz köyde çocuk olayı yok.
   - Ne: Gece kartı havuzu yaşayan hane sayısına göre üç listeden seçilir: 5 ve altı, 6–12, 13 ve üstü. Çocuk olayı `cocuk_var` ister; düğün olayı en az iki yetişkin hane ister. Üç kişilik köyde bu iki kart 30 gecede hiç açılmaz. Katman atlamak için nüfus şişirilmez. Seçim BUG-16 denetçisinden geçer; ikinci seçici yazılmaz.
   - Kurallar:
     1. Havuz hane sayısına göre üç katmandır: 5 ve altı, 6–12, 13 ve üstü. Listeler veri dosyasındadır.
