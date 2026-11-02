@@ -338,3 +338,11 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `Oturum.olay_sec` akışının `OlayOnKosulu` (`BUG-16` ve `KAP-19`) üzerinden geçtiği ve ikinci bir `olay_secici.gd` dosyasının bulunmadığı `tests/unit/sistemler/ozl_kart_tarama_test.gd` birim testiyle doğrulandı (`OZL KART TARAMA: GEÇTİ (0 hata)`).
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OZL-04 — `tek_sefer` kartı ikinci kez gelmez (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OZL-04`
+- **Yapılanlar:**
+  - `dervis` ve `dugun` gibi `tek_sefer = true` kartların şema ve seçici kuralının korunduğu ve 30 gecede en çok 1 kez seçildiği `tests/unit/sistemler/ozl_kart_tarama_test.gd` içine eklendi.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.

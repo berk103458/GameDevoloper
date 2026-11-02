@@ -41,6 +41,26 @@ func _initialize() -> void:
 	_kontrol(not OlayOnKosulu.uygun(oturum, {"cocuk_var": true}), "Cocuksuz koyde cocuk_var kosulu BUG-16 ile false donmeli")
 	_kontrol(not OlayOnKosulu.havuzda(oturum, &"dugun"), "Kucuk haneli koyde dugun KAP-19 havuzunda olmamali")
 
+	# OZL-04: tek_sefer karti (dervis, dugun) 30 gecede en cok 1 kez gelir
+	oturum.ayarlar.olay_olasiligi = 1.0
+	for i in range(8):
+		var k := oturum.yonetim.kabul({"ad": "Koylu_%d" % i})
+		k.yas_grubu = &"yetiskin"
+		k.hane_id = i + 1
+	var dervis_sayisi := 0
+	var dugun_sayisi := 0
+	for g in range(1, 31):
+		oturum.gece = g
+		oturum.yonetim.gun = g
+		var secilen := oturum.olay_sec()
+		if secilen != null:
+			if secilen.id == &"dervis":
+				dervis_sayisi += 1
+			elif secilen.id == &"dugun":
+				dugun_sayisi += 1
+	_kontrol(dervis_sayisi <= 1, "dervis tek_sefer ise 30 gecede en cok 1 kez gelmeli (gelen=%d)" % dervis_sayisi)
+	_kontrol(dugun_sayisi <= 1, "dugun tek_sefer ise 30 gecede en cok 1 kez gelmeli (gelen=%d)" % dugun_sayisi)
+
 	if _hata == 0:
 		print("OZL KART TARAMA: GEÇTİ (0 hata)")
 	else:
