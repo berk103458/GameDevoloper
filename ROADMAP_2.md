@@ -5854,7 +5854,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: KAP-17, BUG-16. Boyut: S.
   - Dosya: `data/olaylar/bebek.tres`.
   - Asset: KAP-17 çocuk. Yeni satır yok.
-- [ ] **OZL-17:** Ölüm KRI-05'e gider, yeni cenaze kartı yazılmaz.
+- [/] **OZL-17:** Ölüm KRI-05'e gider, yeni cenaze kartı yazılmaz. (Antigravity)
   - Ne: yangın, kurt, salgın, sıra ölümü (BUG-20) duran cenaze akışını çağırır. `cenaze.tres` diye ikinci kart yoktur.
   - Kabul: `data/olaylar/cenaze.tres` 0; ölüm → KRI-05 çağrı 1. Test: tarama + birim.
   - Bağımlılık: KRI-05, BUG-20. Boyut: S.
