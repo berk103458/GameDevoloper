@@ -494,3 +494,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   3. `tests/unit/sistemler/ayarlar_ek_test.gd` güncellendi.
   4. Asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+
+## 13 Ekim 2026 — KAY-04 (İçerik Sürümü ve Kayıt Sürümü Ayrımı)
+- **Ne yapıldı (`KAY-04`):**
+  1. `src/veri/icerik_ayarlari.gd` (`IcerikAyarlari`) ve `data/ayarlar/icerik.tres` oluşturuldu (`icerik_surumu = 1`, yalnız okunur).
+  2. `src/sistemler/kayit_gocu_soz.gd` içine `icerik_surumu_oku()` ve `kay04_hazirla()` eklendi: içerik sürümü artınca kişi hafızasını silmez, kayıt sürümü artınca kataloğu baştan kurmaz; eksik sabah defteri satırını boş, sabah gün sayacını 0, kapı eylemleri listesini tekil dizi ve boş gün alanını `"bos"`/boş olarak hazırlar.
+  3. `tests/unit/kayit/kay04_icerik_surumu_test.gd` birim testi eklendi.
+  4. Asset gerekmedi.
+- **Kota:** kota görünmüyor
