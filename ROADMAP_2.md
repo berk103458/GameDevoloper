@@ -596,7 +596,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.7 Hafıza, grup, güven
 
-- [ ] **DIY-12:** Grup itibarı — Türkmen, Rum, Ahi, köylü, tüccar, asker.
+- [/] **DIY-12:** Grup itibarı — Türkmen, Rum, Ahi, köylü, tüccar, asker. (Antigravity)
   - Ne: Altı grubun her birinin itibarı eksi on ile artı on arasındadır. Bir ziyaret yalnız karakterin birincil grubuna yazar; Türkmen reti Rum değerini değiştirmez. Sınırın dışına taşan yazım eksi on veya artı onda kesilir. Yedinci grup adı reddedilir. Kayıt anahtarı kalp veya romans olamaz.
   - Kurallar:
     1. Gruplar: Türkmen, Rum, Ahi, köylü, tüccar, asker. İtibar grup başına −10…+10.
