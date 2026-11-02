@@ -3,10 +3,21 @@
 class_name KarakterKadrosu
 extends RefCounted
 
+const _OPSIYONEL_HAFIZA_ALANLARI := [
+	"verilen_soz",
+	"yapilan_yardim",
+	"yuzlesilen_yalan",
+	"akce_farki",
+	"odenen_akce",
+	"alinan_akce",
+	"karar_gecmisi",
+	"es",
+]
+
 var _katalog: Katalog
 var _rng_donus: RandomNumberGenerator
 var _rng_ad: RandomNumberGenerator
-## id -> {durum, ziyaret, son_gece, son_karar, donus, istendi}
+## id -> {durum, ziyaret, son_gece, son_karar, donus, istendi, ...opsiyonel DIY-11 hafıza alanları}
 var durumlar: Dictionary = {}
 var _bu_gece_adlar: Dictionary = {}
 
@@ -105,8 +116,13 @@ func kaydet() -> Dictionary:
 	var veri := {}
 	for id in durumlar:
 		var d: Dictionary = durumlar[id]
-		veri[String(id)] = {"durum": String(d["durum"]), "ziyaret": d["ziyaret"], "son_gece": d["son_gece"],
+		var giris := {"durum": String(d["durum"]), "ziyaret": d["ziyaret"], "son_gece": d["son_gece"],
 			"son_karar": String(d["son_karar"]), "donus": d["donus"]}
+		for alan in _OPSIYONEL_HAFIZA_ALANLARI:
+			if d.has(alan):
+				var val: Variant = d[alan]
+				giris[alan] = val.duplicate(true) if (val is Dictionary or val is Array) else val
+		veri[String(id)] = giris
 	return veri
 
 
@@ -117,6 +133,17 @@ func yukle(veri: Dictionary) -> bool:
 			return false
 	for id in veri:
 		var v: Dictionary = veri[id]
-		durumlar[StringName(id)] = {"durum": StringName(v["durum"]), "ziyaret": int(v["ziyaret"]),
-			"son_gece": int(v["son_gece"]), "son_karar": StringName(v["son_karar"]), "donus": int(v["donus"]), "istendi": false}
+		var giris := {
+			"durum": StringName(v.get("durum", "gelmedi")),
+			"ziyaret": int(v.get("ziyaret", 0)),
+			"son_gece": int(v.get("son_gece", -1)),
+			"son_karar": StringName(v.get("son_karar", "")),
+			"donus": int(v.get("donus", -1)),
+			"istendi": false,
+		}
+		for alan in _OPSIYONEL_HAFIZA_ALANLARI:
+			if v.has(alan):
+				var val: Variant = v[alan]
+				giris[alan] = val.duplicate(true) if (val is Dictionary or val is Array) else val
+		durumlar[StringName(id)] = giris
 	return true

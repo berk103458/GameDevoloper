@@ -236,3 +236,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: `tests/unit/soz/satir_secici_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
 - Açık kalan: yok.
 - kota görünmüyor
+
+### 2 Kasım — DIY-11 kapatıldı (hedefli test)
+- `src/soz/kisi_hafizasi.gd` (`KisiHafizasi`) ve `src/sistemler/karakter_kadrosu.gd` opsiyonel hafıza alanı kayıt/yükleme adaptörü eklendi.
+- Hafıza tek kaynak olarak `KarakterKadrosu.durumlar[id]` altında tutulur (ikinci sözlük yok). `son_karar=ret` iken `selam_ret` döner; ret sonrası kabul `son_karar`'ı ezerken geçmişteki ret satırını silmez; ölümde `DYL-08` haberi üretilir ve selam seçilmez; kaydet-yükle ziyaret sayısını artırmaz; 10. ziyaret 9. ziyaretin selam anahtarını (`selam_9`) kullanır.
+- Test: `tests/unit/soz/kisi_hafizasi_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
+- Açık kalan: yok.
+- kota görünmüyor
