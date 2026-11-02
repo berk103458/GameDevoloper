@@ -5860,7 +5860,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: KRI-05, BUG-20. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **OZL-18:** Cenaze gecesi HUD `cenaze_raporu.gd` okunur.
+- [/] **OZL-18:** Cenaze gecesi HUD `cenaze_raporu.gd` okunur. (Antigravity)
   - Ne: `src/arayuz/koy_hud/cenaze_raporu.gd` durur; Söz bağında `olay.cenaze` anahtarı bu rapordan türetilir, yeni panel yok.
   - Kabul: cenaze gecesi rapor paneli 1, yeni dosya 0. Test: ekran.
   - Bağımlılık: KRI-05. Boyut: S.
