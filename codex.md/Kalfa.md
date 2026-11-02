@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-02 başladı (Kalfa)
+
+Söz tasarımı onayı beklerken aynı Faz 2 kayıt maddesi KAY-02 alındı. Var olan SYS-14 göç reddine ek olarak GuvenliKayit ana/yedek okuma ve yanlışlıkla yazma sınırında gelecek sürümü koruyacak. Atomik SYS-02 yolu yeniden yazılmaz. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — DIY-15 tamamlandı (Kalfa)
 
 Muhafız seçenek tonu mevcut CHR paneline ince adaptörle bağlandı. Yeni `src/soz/muhafiz_tonu.gd`, mevcut ODA `MuhafizTerazisi` skorunu ve aynı veri eşiklerini okur: adil/sert/yoz. ACL-06 geçmişine özel seçenek geçmiş yoksa görünmez. Ton alanı olmayan mevcut içerik nötr kalır. Üç varyant metin anahtarı zorunludur; boş/kayıp metin veya farklı mekanik etki reddedilir. Ton varyantında hedef/zar/tansiyon gibi mekanik alanlara izin verilmez; seçenek kökünün etkisi tek kaynak kalır. Eksik ton CHR sözleşmesi ve gerçek panel yüklemesinde reddedilir. Karşı tepki DIY-09 SatirSecici üzerinden, ziyaret başındaki aynı bağlamla seçilir; ikinci ton/tepki motoru yok.

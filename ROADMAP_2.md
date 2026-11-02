@@ -831,7 +831,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.2 Dört seçenek
 
-- [/] **CAT-02:** Kavga seçenekleri — askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. (Antigravity)
+- [x] **CAT-02:** Kavga seçenekleri — askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. (Antigravity)
   - Ne: Kapıdaki kavgada oyuncu dört yoldan birini seçer: askerle karşılık, akçeyle erteleme, sözle yatıştırma veya reddetme. Askerle karşılık zar atar ve yaralanma, ölüm, kaçış ya da kin bırakır. Akçe yetmezse erteleme kilitli görünür. Beşinci seçenek yoktur. Kalp alanı yazılmaz.
   - Kurallar:
     1. Dört seçenek vardır: askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. Beşinci seçenek yazılamaz.
@@ -2873,7 +2873,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: SYS-01. Boyut: S.
   - Dosya: `src/sistemler/guvenli_kayit.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-02:** Gelecek sürüm açılmaz.
+- [/] **KAY-02:** (Kalfa) Gelecek sürüm açılmaz.
   - Ne: dosyadaki sürüm, oyunun bildiği sürümden büyükse yükleme reddedilir. Eski dosya ezilmez.
   - Kabul: dosyadaki sürüm, oyunun bildiği sürümden büyükse yükleme reddedilir. Eski dosya ezilmez. Test: sürüm +1 dosya.
   - Bağımlılık: KAY-01, SYS-14. Boyut: S.
