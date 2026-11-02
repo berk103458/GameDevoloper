@@ -485,3 +485,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   3. `tests/unit/arayuz/omr13_14_28_oda_test.gd` birim testi eklendi.
   4. Asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+
+## 13 Ekim 2026 — AYR-05, AYR-22, AYR-43 ve AYR-46 (Sekme Sıfırlama, Odak Sesi, Sürümlü Ayar Dosyası ve CLI Ayar)
+- **Ne yapıldı (`AYR-05`, `AYR-22`, `AYR-43`, `AYR-46`):**
+  1. `src/sistemler/ayarlar_ek.gd` içine `sekme_sifirla(a, sekme, onaylandi)` (`AYR-05`), `surum` anahtarı ve bilinmeyen ileri sürüm anahtarlarını koruma (`AYR-43`), `--ayar anahtar=deger` komut satırı oturum geçersiz kılması (`AYR-46`) ve `arka_planda_sustur` ek anahtarı eklendi.
+  2. `src/sistemler/odak_sesi.gd` (`OdakSesi`, `AYR-22`) oluşturuldu: `NOTIFICATION_APPLICATION_FOCUS_OUT` ile `ses_ana` geçici 0 ve Master `-80 dB` olur, odak dönüşünde eski değere döner.
+  3. `tests/unit/sistemler/ayarlar_ek_test.gd` güncellendi.
+  4. Asset gerekmedi.
+- **Kota:** kota görünmüyor

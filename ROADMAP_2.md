@@ -4686,7 +4686,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-01. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/ayar_sekmeleri.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-05:** Varsayılana dön sekme başınadır. (Antigravity)
+- [x] **AYR-05:** Varsayılana dön sekme başınadır. (Antigravity)
   - Ne: `varsayilana_don()` bütün ayarları sıfırlar; sekme başına "bu sekmeyi sıfırla" eklenir, onay ister.
   - Kabul: Okuma sekmesi sıfırlanınca ses değerleri aynı kalır. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
@@ -4797,7 +4797,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-15. Boyut: S.
   - Dosya: `src/arayuz/kapi/tansiyon_bicimi.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-22:** Odak kaybında ses kısılır. (Antigravity)
+- [x] **AYR-22:** Odak kaybında ses kısılır. (Antigravity)
   - Ne: pencere odak kaybedince `ses_ana` geçici 0; dönüşte eski değer. Anahtar `arka_planda_sustur`.
   - Kabul: `NOTIFICATION_APPLICATION_FOCUS_OUT` sonrası Master -80 dB; dönüşte eski. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
@@ -4938,7 +4938,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.9 Kalıcılık, göç ve denetim
 
-- [/] **AYR-43:** Ayar dosyası sürümlüdür. (Antigravity)
+- [x] **AYR-43:** Ayar dosyası sürümlüdür. (Antigravity)
   - Ne: `ayarlar.cfg` içine `surum` anahtarı; bilinmeyen anahtar atılmaz, saklanır (ileri sürüm uyumu).
   - Kabul: ileri sürüm dosyası açılır, bilinmeyen anahtar korunur. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
@@ -4956,7 +4956,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-23. Boyut: S.
   - Dosya: `tests/unit/` kayıt tarama.
   - Asset: asset gerekmedi.
-- [/] **AYR-46:** Komut satırından ayar. (Antigravity)
+- [x] **AYR-46:** Komut satırından ayar. (Antigravity)
   - Ne: `--ayar anahtar=deger` argümanı (tester için); yalnız o oturumda geçerli, dosyaya yazılmaz.
   - Kabul: argümanla açılış değeri uygular, `yaz()` sonrası dosya değişmez. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
