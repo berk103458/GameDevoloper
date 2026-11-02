@@ -83,7 +83,11 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 
 
 func devam_et() -> void:
-	var o := Oturum.kayittan(katalog, kayit.oku())
+	var veri := kayit.oku()
+	if veri.is_empty():
+		ana_menu()
+		return
+	var o := Oturum.kayittan(katalog, veri)
 	if o == null:
 		ana_menu()
 		return

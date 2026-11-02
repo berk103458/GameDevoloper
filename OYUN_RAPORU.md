@@ -1,3 +1,11 @@
+## 2 Kasım 2026 — KAY-02 tamamlandı (Kalfa)
+
+GuvenliKayit (gerçek yolu `src/koy/guvenli_kayit.gd`) gelecek sürüm ana/yedek kaydı okuma sınırında reddeder. Ana yeni sürümse eski yedeğe sessiz dönmez; yeni sürümlü dosya korunur. Gelen veri veya mevcut ana/yedek güncel SYS-14 sürümünden yeniyse yazı başlamaz, tmp yaratılmaz. Aynı mevcut `kayit_gocu.gd.GUNCEL_SURUM` okunur; ikinci sürüm sabiti yok. SYS-02 atomik yazıcı yeniden kurulmadı. Ana.devam_et boş/reddedilmiş sözlükte menüye döner; boş kaydı Oturum'a verip SCRIPT ERROR üretmez.
+
+Kanıt: `work/kay02_unit.log` sürüm+1 ana/yedek, eski yedeğe dönmeme, bayt koruması, tmp yokluğu ve güncel sürüm; `kay02_menu.log` gerçek Ana Devam et yolunda menü ve dosya koruması; `kay02_atomik.log` atomik kayıt regresyonu; `kay02_goc.log` mevcut SYS-14 v2→v3 göç regresyonu; `kay02_acilis.log` gerçek köy açılış/devam. Beş hedefli kontrol ve recovery headless import (`kay02_import.log`) geçti. Gelecek sürüm/yedek fikstürlerinde beklenen push_warning mesajı var, hata/başarısız kontrol yok. Tam sanity/görünür pencere yok.
+
+İnceleme: sürüm sınırı tek kaynaktan, ret dosya baytını değiştirmez, normal yazı/bozuk ana yedeği ve mevcut göç korunur. Asset gerekmedi, yeni envanter ihtiyacı yok. Sahiplik commitinde ortak ROADMAP'teki Antigravity CAT-02 kapanış satırı eşzamanlı olarak 0c992731'e girdi; kodu/günlüğü sahiplenilmedi, Ajan Masası'nda bildirildi. CAT-02 uygulayıcısı kendi kod teslimini 0ce9e5d9 ile tamamladı. Sonraki ROADMAP değişiklikleri yalnız kendi satırıyla ayrılacak. ds yolları yok, önceki istisnayla eşitlenmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — DIY-15 tamamlandı (Kalfa)
 
 Muhafız seçenek tonu mevcut CHR paneline ince adaptörle bağlandı. Yeni `src/soz/muhafiz_tonu.gd`, mevcut ODA `MuhafizTerazisi` skorunu ve aynı veri eşiklerini okur: adil/sert/yoz. ACL-06 geçmişine özel seçenek geçmiş yoksa görünmez. Ton alanı olmayan mevcut içerik nötr kalır. Üç varyant metin anahtarı zorunludur; boş/kayıp metin veya farklı mekanik etki reddedilir. Ton varyantında hedef/zar/tansiyon gibi mekanik alanlara izin verilmez; seçenek kökünün etkisi tek kaynak kalır. Eksik ton CHR sözleşmesi ve gerçek panel yüklemesinde reddedilir. Karşı tepki DIY-09 SatirSecici üzerinden, ziyaret başındaki aynı bağlamla seçilir; ikinci ton/tepki motoru yok.

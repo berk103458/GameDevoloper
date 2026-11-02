@@ -2873,7 +2873,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: SYS-01. Boyut: S.
   - Dosya: `src/sistemler/guvenli_kayit.gd`.
   - Asset: asset gerekmedi.
-- [/] **KAY-02:** (Kalfa) Gelecek sürüm açılmaz.
+- [x] **KAY-02:** (Kalfa) Gelecek sürüm açılmaz.
   - Ne: dosyadaki sürüm, oyunun bildiği sürümden büyükse yükleme reddedilir. Eski dosya ezilmez.
   - Kabul: dosyadaki sürüm, oyunun bildiği sürümden büyükse yükleme reddedilir. Eski dosya ezilmez. Test: sürüm +1 dosya.
   - Bağımlılık: KAY-01, SYS-14. Boyut: S.

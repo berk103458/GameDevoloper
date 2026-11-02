@@ -17,6 +17,9 @@ func var_mi() -> bool:
 
 ## Yazar; başarısızsa ana kayda dokunmaz ve false döner. Sürüm ilk alan olarak başa yazılır (KAY-01).
 func yaz(veri: Dictionary) -> bool:
+	# KAY-02: yeni sürüm ana/yedek dosyayı eski motorla otomatik yazma.
+	if gelecek_surum(veri) or gelecek_surum(_oku_dosya(yol)) or gelecek_surum(_oku_dosya(yol + ".bak")):
+		return false
 	return preload("res://src/sistemler/atomik_json_kaydi.gd").yaz(yol, _surum_basa(veri))
 
 
@@ -25,11 +28,17 @@ func yaz(veri: Dictionary) -> bool:
 func oku() -> Dictionary:
 	var v := _oku_dosya(yol)
 	if not v.is_empty():
+		if gelecek_surum(v):
+			push_warning("Kayıt daha yeni bir oyun sürümünde oluşturulmuş; dosya korundu")
+			return {}
 		if not surum_gecerli(v):
 			push_warning("Kayıt sürümü yok; yükleme durduruldu")
 			return {}
 		return v
 	v = _oku_dosya(yol + ".bak")
+	if gelecek_surum(v):
+		push_warning("Yedek kayıt daha yeni bir oyun sürümünde oluşturulmuş; dosya korundu")
+		return {}
 	if not v.is_empty():
 		push_warning("Ana kayıt bozuk; yedek yüklendi")
 		v["_yedekten"] = true
@@ -63,3 +72,7 @@ static func surum_gecerli(veri: Dictionary) -> bool:
 		return false
 	var s: Variant = veri["surum"]
 	return (s is int or s is float) and is_finite(float(s)) and float(s) == floor(float(s))
+
+## SYS-14 ile aynı güncel sürüm; ikinci bir sürüm sabiti yok.
+static func gelecek_surum(veri: Dictionary) -> bool:
+	return surum_gecerli(veri) and float(veri.surum) > float(preload("res://src/sistemler/kayit_gocu.gd").GUNCEL_SURUM)
