@@ -14,6 +14,7 @@ func _initialize() -> void:
 	_karantina(kat)
 	_bina_ilerlemesi(kat)
 	_terazi(kat)
+	_tehdit_takvimi(kat)
 	var asil := Oturum.new(kat, 3123)
 	asil.yonetim.gun = 8
 	dene(asil.dedikodu.olay_kaydet("iki_gecelik", "rusvet", 6, "tanik_23", 3).olur, "Tanıklı iki gecelik fikstür")
@@ -32,7 +33,7 @@ func _initialize() -> void:
 		dene(o.gun == 9 and o.dedikodu.pusula_satirlari(9).size() == 1, "Gerçek üçüncü gecede tek yayın")
 	# JSON sayıları float açar; karşılaştırmanın iki tarafını aynı sınırdan geçir.
 	dene(JSON.parse_string(JSON.stringify(asil.dedikodu.kaydet())) == a.dedikodu.kaydet() and a.dedikodu.kaydet() == b.dedikodu.kaydet(), "Kayıtsız ve yüklenmiş zaman çizgileri aynı")
-	print("KAYIT İKİZİ (KAY-23/45/46/47/65/66/67): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47/65/66/67): KALDI")
+	print("KAYIT İKİZİ (KAY-23/45/46/47/65/66/67/68): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47/65/66/67/68): KALDI")
 	quit(hata)
 
 func _kasalar(kat: Katalog) -> void:
@@ -194,3 +195,29 @@ func _terazi(kat: Katalog) -> void:
 			var ikiz := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(geri.kaydet())))
 			dene(MuhafizTerazisi.durum(ikiz) == once, "Tekrar yüklemede skor çoğalmaz")
 		dene(JSON.stringify(o.kaydet()) == kaynak and MuhafizTerazisi.durum(o) == once, "Kaynak terazi/kayıt korunur")
+
+func _tehdit_takvimi(kat: Katalog) -> void:
+	var varis := int(MogolOncusu.AYAR.varis_gunu)
+	for gun in [0, varis - 5, varis - 2, varis, varis + 1]:
+		var o := Oturum.new(kat, 3168)
+		o.yonetim.gun = gun
+		var olaylar: Array[Dictionary] = []
+		var rapor := {"gun":gun - 1, "olaylar":olaylar}
+		MogolOncusu.gece(o, rapor)
+		var tehdit := MogolOncusu.durum(o)
+		var takvim := MevsimYoneticisi.durum(o.yonetim)
+		var uyari := MogolOncusu.oku(o.mogol_oncusu)
+		dene(tehdit.kalan == maxi(0, varis - gun), "HAR-02 mutlak kalan gün fikstürü")
+		dene(takvim.mevsim_gunu == gun % kat.koy_ayarlari.mevsim_gun + 1, "MEV-01 ayrı mevsim günü fikstürü")
+		for surum in [2, 3]:
+			var veri: Dictionary = JSON.parse_string(JSON.stringify(o.kaydet()))
+			veri.surum = surum
+			var geri := Oturum.kayittan(kat, veri)
+			dene(geri != null, "Tehdit/takvim kaydı açılır")
+			if geri == null: continue
+			dene(MogolOncusu.durum(geri) == tehdit, "Moğol kalan günü göçte aynı")
+			dene(MevsimYoneticisi.durum(geri.yonetim) == takvim, "Mevsim günü göçte ayrı korunur")
+			dene(MogolOncusu.oku(geri.mogol_oncusu) == uyari, "Uyarı makbuzu korunur")
+			var yeni_olaylar: Array[Dictionary] = []
+			MogolOncusu.gece(geri, {"gun":gun - 1, "olaylar":yeni_olaylar})
+			dene(yeni_olaylar.is_empty(), "Aynı gece yüklemesi uyarıyı tekrarlamaz")

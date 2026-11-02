@@ -3218,7 +3218,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: ODA-12, KAY-03. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [/] **KAY-68:** Moğol sayacı ve mevsim sayacı birbirine karışmaz. (Kalfa)
+- [x] **KAY-68:** Moğol sayacı ve mevsim sayacı birbirine karışmaz. (Kalfa)
   - Ne: HAR-02 kalan günü ile MEV-01 günü göçte yer değiştirmez.
   - Kabul: HAR-02 kalan günü ile MEV-01 günü göçte yer değiştirmez. Test: iki sayaç ayrı ayrı eşit.
   - Bağımlılık: HAR-02, KAY-46. Boyut: S.
