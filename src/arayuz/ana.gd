@@ -85,11 +85,11 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 func devam_et() -> void:
 	var veri := kayit.oku()
 	if veri.is_empty():
-		ana_menu()
+		preload("res://src/arayuz/kayit_hata_paneli.gd").goster(self)
 		return
 	var o := Oturum.kayittan(katalog, veri)
 	if o == null:
-		ana_menu()
+		preload("res://src/arayuz/kayit_hata_paneli.gd").goster(self)
 		return
 	oturum = o
 	if preload("res://src/sistemler/oturum_fazi.gd").durum(o) == "koy":

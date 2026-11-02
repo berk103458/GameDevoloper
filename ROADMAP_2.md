@@ -2999,7 +2999,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-17. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [/] **KAY-64:** (Kalfa) Kesik dosya kayıt değildir.
+- [x] **KAY-64:** (Kalfa) Kesik dosya kayıt değildir.
   - Ne: JSON ayrışmayan dosya yüklenmez. Göç başlamaz. Sağlam yedek varsa o açılır. Yedek de yoksa oyuncu yeni oyuna zorlanmaz, hata görür.
   - Kabul: JSON ayrışmayan dosya yüklenmez. Göç başlamaz. Sağlam yedek varsa o açılır. Yedek de yoksa oyuncu yeni oyuna zorlanmaz, hata görür. Test: yarım kesilmiş dosya.
   - Bağımlılık: SYS-02, KAY-05. Boyut: S.

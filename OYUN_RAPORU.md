@@ -1,3 +1,11 @@
+## 2 Kasım 2026 — KAY-64 tamamlandı (Kalfa)
+
+Kesik JSON ana kayıt sayılmaz; mevcut SYS-02 okuyucusu sağlam yedeğe gider, geçerli tmp ana kayıt diye açılmaz. Ana/yedek okuma sırasında baytları korunur. Sağlam yedek yoksa gerçek Ana.devam_et yolunda mevcut BilgiEkrani ile «Kayıt açılamadı» gösterilir; tek düğme «Ana menüye dön», yeni oturum kurulmaz ve yeni oyuna zorlanmaz. Gelecek sürüm aynı ekranda uygun sürümle açma açıklamasını görür. `src/arayuz/kayit_hata_paneli.gd` yeni ince sunum adaptörüdür; Ana'da yalnız iki başarısız yükleme dalı bağlandı. Yeni kayıt/rapor/arayüz sistemi yok.
+
+Kanıt: `work/kay64_unit.log` dört kesik JSON biçimi, bayt koruması, tmp reddi ve sağlam yedek; `kay64_menu.log` gerçek Devam et, görünür hata verisi, dosya koruması, yalnız menü düğmesi; `kay64_gelecek_menu.log` KAY-02 gelecek sürüm regresyonu; `kay64_atomik.log` SYS-02; `kay64_acilis.log` gerçek normal açılış/devam. Beş hedefli kontrol ve recovery headless import (`kay64_import_ui_son.log`) geçti. Hata ekranı için önce RED gözlendi; ilk dosya testi tek başına oyuncuya hata gösterme koşulunu kanıtlamadığından UI bağlantısı eklendi. Test kapanışında çalan WAV sızıntısı ayrıntılı logda teşhis edildi; testler mevcut Ses.cik güvenli kapanışını kullanır, son loglarda sızıntı yok. Beklenen bozuk ana/yedek ve yeni sürüm uyarıları dışında hata yok. İlk MD5 import logları korunur, son import temiz. Tam sanity/görünür pencere yok.
+
+İnceleme: hata halinde dosya silme/yazma ve göç çağrısı yok; kontrol mevcut menüye döner. Asset gerekmedi; var olan bilgi ekranı ve yazı/düğme kullanılır, envanter ihtiyacı yok. Söz motorunu bekletme kararı sürer. Ayrı hazırlık kopyası kullanıldı; başka ajan işleri korunur. ds yolları yok, önceki istisnayla eşitlenmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-12 tamamlandı (Kalfa)
 
 Oturum mevcut `Dedikodu` sınıfından tek nesne taşır; kuyruk ve görülen olay kimlikleri aynı sınıfın kaydet/yükle yolu üzerinden optional kök alanında saklanır. Mutlak `kayit_gecesi`/`yayilim_gecesi`, tanık kimliği ve basım/yayılım bitleri korunur. Yükleme takvimi ilerletmez; gerçek gece çözümünde mevcut `gece_ilerlet(gun)` çağrılır. Yaş için ikinci sayaç yok. Eski kayıtta kuyruk boş açılır. Tanık kimliği olmayan bozuk satır yüklemede elenir; kayıt tanıksız habere dönüşmez. Diğer DIY-13/KOP-05 davranışları korunur.
