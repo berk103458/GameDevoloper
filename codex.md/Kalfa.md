@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-03 başladı (Kalfa)
+
+Mevcut SYS-14 göç zinciri yeni tek-adım yürütücüsünü kullanacak; ikinci göç sistemi/gerçek sürüm artışı yok. İki basamaklı fikstür ara çağrıyı ve sürüm atlamanın reddini doğrulayacak. Kaynak ve dosya değiştirilmez. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-02 tamamlandı (Kalfa)
 
 GuvenliKayit (gerçek yolu `src/koy/guvenli_kayit.gd`) gelecek sürüm ana/yedek kaydı okuma sınırında reddeder. Ana yeni sürümse eski yedeğe sessiz dönmez; yeni sürümlü dosya korunur. Gelen veri veya mevcut ana/yedek güncel SYS-14 sürümünden yeniyse yazı başlamaz, tmp yaratılmaz. Aynı mevcut `kayit_gocu.gd.GUNCEL_SURUM` okunur; ikinci sürüm sabiti yok. SYS-02 atomik yazıcı yeniden kurulmadı. Ana.devam_et boş/reddedilmiş sözlükte menüye döner; boş kaydı Oturum'a verip SCRIPT ERROR üretmez.
