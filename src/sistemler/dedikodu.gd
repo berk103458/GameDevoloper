@@ -16,14 +16,39 @@ const AGIR_OLAY_TURLERI := [
 	"haksiz_ret",
 ]
 
+const VARSAYILAN_SATIRLAR := {
+	"rusvet": "Kapıda el altından akçe alındığı fısıldanıyor.",
+	"siddet": "Kapı önünde yaşanan sert arbede köy içinde konuşuluyor.",
+	"aileyi_bolme": "Kapıda bir ailenin birbirinden koparıldığı söylentisi dolaşıyor.",
+	"haksiz_ret": "Kapıdan geri çevrilen yolcuya haksızlık edildiği fısıldanıyor.",
+}
+
 var _kayitlar: Array[Dictionary] = []
 var _gorulen_kimlikler: Dictionary = {}
+var _okuma_sayisi: int = 0
+var _yazma_sayisi: int = 0
 
 
 ## Tum dedikodu kayitlarini sifirlar.
 func sifirla() -> void:
 	_kayitlar.clear()
 	_gorulen_kimlikler.clear()
+	_okuma_sayisi = 0
+	_yazma_sayisi = 0
+
+
+## Okuma ve yazma cagri sayaclarini sifirlar.
+func sayaclari_sifirla() -> void:
+	_okuma_sayisi = 0
+	_yazma_sayisi = 0
+
+
+func okuma_sayisi() -> int:
+	return _okuma_sayisi
+
+
+func yazma_sayisi() -> int:
+	return _yazma_sayisi
 
 
 ## Olay turunun agir olay listesinde olup olmadigini denetler.
@@ -71,10 +96,14 @@ func olay_kaydet(
 	var gecikme := clampi(gecikme_gece, ASGARI_GECIKME, AZAMI_GECIKME)
 	var yayilim_gecesi := baslangic_gece + gecikme
 	var son_gece := baslangic_gece + AZAMI_GECIKME
+	var ozel_satir := String(ek.get("satir", "")).strip_edges()
+	var satir_metni := ozel_satir if not ozel_satir.is_empty() else String(VARSAYILAN_SATIRLAR.get(norm_tur, ""))
 
 	var kayit := {
 		"olay_id": temiz_id,
 		"tur": norm_tur,
+		"satir": satir_metni,
+		"bayrak": "dedikodu_" + norm_tur,
 		"kayit_gecesi": baslangic_gece,
 		"gecikme": gecikme,
 		"yayilim_gecesi": yayilim_gecesi,
@@ -84,17 +113,41 @@ func olay_kaydet(
 		"basildi": false,
 		"grup": String(ek.get("grup", "")),
 		"hedef_id": String(ek.get("hedef_id", "")),
+		"kisisel_kasa": bool(ek.get("kisisel_kasa", false)),
 	}
 	_kayitlar.append(kayit)
 	_gorulen_kimlikler[temiz_id] = true
+	_yazma_sayisi += 1
 	return {
 		"olur": true,
 		"kayit": kayit.duplicate(true),
 	}
 
 
-## Tanik ertesi gece (yayilmadan once) olurse yayilmamis kayit duser.
+## Kisisel kasadaki rusvet: tanik varsa tek satir uretir; tanik yoksa akce hareketi pusulaya yazilmaz.
+func kisisel_rusvet_kaydet(
+	olay_id: String,
+	gece: int,
+	tanik: Variant,
+	gecikme_gece: int = 1,
+	ek: Dictionary = {}
+) -> Dictionary:
+	var kopya := ek.duplicate(true)
+	kopya["kisisel_kasa"] = true
+	return olay_kaydet(olay_id, "rusvet", gece, tanik, gecikme_gece, kopya)
+
+
+## Tanik ertesi gece (yayilmadan veya basilmadan once) olurse henuz basilmamis kayit duser.
 func tanik_oldu(tanik_id: String, olum_gecesi: int = -1) -> int:
+	return _tanik_kaydi_dusur(tanik_id, olum_gecesi)
+
+
+## Tanik koyu terk ederse henuz basilmamis kayit duser.
+func tanik_ayrildi(tanik_id: String, ayrilis_gecesi: int = -1) -> int:
+	return _tanik_kaydi_dusur(tanik_id, ayrilis_gecesi)
+
+
+func _tanik_kaydi_dusur(tanik_id: String, olay_gecesi: int = -1) -> int:
 	var temiz := tanik_id.strip_edges()
 	if temiz.is_empty():
 		return 0
@@ -102,9 +155,11 @@ func tanik_oldu(tanik_id: String, olum_gecesi: int = -1) -> int:
 	var kalanlar: Array[Dictionary] = []
 	for k in _kayitlar:
 		var k_tanik := String(k.get("tanik_id", ""))
+		var basildi := bool(k.get("basildi", false))
 		var yayildi := bool(k.get("yayildi", false))
 		var yayilim_gecesi := int(k.get("yayilim_gecesi", 0))
-		var dusmeli := (k_tanik == temiz) and (not yayildi) and (olum_gecesi < 0 or olum_gecesi <= yayilim_gecesi)
+		var zaman_uygun := (olay_gecesi < 0) or (not yayildi) or (olay_gecesi <= yayilim_gecesi)
+		var dusmeli := (k_tanik == temiz) and (not basildi) and zaman_uygun
 		if dusmeli:
 			silinen += 1
 		else:
@@ -137,6 +192,7 @@ func gece_ilerlet(guncel_gece: int) -> void:
 ## Gun 0'da veya yayilim gecesinden once 0 satir doner.
 ## `basildi_isaretle = true` verilirse okunan yayilmis kayitlar `basildi = true` olarak isaretlenir.
 func pusula_satirlari(guncel_gece: int, basildi_isaretle: bool = false) -> Array[Dictionary]:
+	_okuma_sayisi += 1
 	if guncel_gece <= 0:
 		return []
 	gece_ilerlet(guncel_gece)

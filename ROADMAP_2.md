@@ -8914,7 +8914,7 @@ Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı
   - Bağımlılık: DYL-08, DIY-11. Boyut: M.
   - Dosya: `src/soz/karar_donusu.gd` mevcut kuyruğa adaptör; `tools/chr_parser.py` alan okur, bina listesiyle tahmin etmez.
   - Asset: asset gerekmedi.
-- [/] **KOP-05:** Dedikodu, fısıltı gazetesinin yazarıdır. (Antigravity)
+- [x] **KOP-05:** Dedikodu, fısıltı gazetesinin yazarıdır. (Antigravity)
   - Ne: Sabah pusulası yalnız dedikodu kaydındaki satırı basar. Kayıtta olmayan olay pusulada görünmez. Tanıksız rüşvet 0 satır üretir. Tanıklı rüşvet bir ila üç gece içinde tam bir satır olur. Gazete kendi cümlesini yazmaz, kaydı okur.
   - Kurallar:
     1. DIY-13 kaydı sabah pusulasına (CAS-09) ve SYS-18 bayraklarına tek yazardır.

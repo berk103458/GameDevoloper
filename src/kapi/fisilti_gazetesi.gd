@@ -74,3 +74,33 @@ static func uygula(o: Oturum,e: OlayVerisi,i: int) -> Dictionary:
  r.ok=true
  r.sonuc_anahtari="Pusula arşivlendi; iddia henüz kanıt değildir." if i==0 else "İmzasız söylenti reddedildi; kimse suçlu ilan edilmedi."
  return r
+
+
+## KOP-05: Dedikodu (DIY-13), fısıltı gazetesinin tek yazarıdır.
+## Gazete kendi cümlesini yazmaz; yalnız Dedikodu kaydındaki satırı okur.
+static var gazete_yazma_sayisi: int = 0
+static var gazete_okuma_sayisi: int = 0
+
+static func sayaclari_sifirla() -> void:
+ gazete_yazma_sayisi = 0
+ gazete_okuma_sayisi = 0
+
+static func dedikodu_pusulasi_oku(dedikodu: Variant, guncel_gece: int, basildi_isaretle: bool = true) -> Array[String]:
+ if dedikodu == null or not dedikodu.has_method("pusula_satirlari"):
+  return []
+ gazete_okuma_sayisi += 1
+ var kayitlar: Array = dedikodu.pusula_satirlari(guncel_gece, basildi_isaretle)
+ var satirlar: Array[String] = []
+ for k in kayitlar:
+  if k is Dictionary:
+   var satir := String((k as Dictionary).get("satir", "")).strip_edges()
+   if not satir.is_empty():
+    satirlar.append(satir)
+ return satirlar
+
+## KRI-08 (BatilInancHisterisi) ve SYS-18 bayrakları için aynı Dedikodu kaydını okur; histeri motoru yeniden yazılmaz.
+static func dedikodu_kayitlari_oku(dedikodu: Variant, guncel_gece: int, basildi_isaretle: bool = false) -> Array[Dictionary]:
+ if dedikodu == null or not dedikodu.has_method("pusula_satirlari"):
+  return []
+ gazete_okuma_sayisi += 1
+ return dedikodu.pusula_satirlari(guncel_gece, basildi_isaretle)

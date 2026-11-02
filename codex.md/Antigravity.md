@@ -300,3 +300,13 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: `tests/unit/soz/dil_engeli_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
 - Açık kalan: yok.
 - kota görünmüyor
+
+### KOP-05 — Dedikodu, fısıltı gazetesinin yazarıdır (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `KOP-05`
+- **Yapılanlar:**
+  - `src/sistemler/dedikodu.gd` içine pusula satır şablonu, kişisel kasa rüşvet kaydı (`kisisel_rusvet_kaydet`), tanık ayrılışı (`tanik_ayrildi`) ve okuma/yazma sayaçları eklendi.
+  - `src/kapi/fisilti_gazetesi.gd` içine yalnızca `Dedikodu` kaydını okuyan `dedikodu_pusulasi_oku` ve `dedikodu_kayitlari_oku` köprüleri eklendi.
+  - `tests/unit/kapi/kop05_dedikodu_fisilti_test.gd` birim testi yazılıp doğrulandı (`KOP05 DEDIKODU FISILTI: GEÇTİ (0 hata)`).
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.
