@@ -5770,7 +5770,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: OZL-01. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **OZL-05:** Kart yoksa gece kilitlenmez.
+- [/] **OZL-05:** Kart yoksa gece kilitlenmez. (Antigravity)
   - Ne: BUG-16 havuzu boşsa (kural 2) kart çıkmaz; rapor "bu gece köy sessiz" satırı yazar, oyun devam eder.
   - Kabul: havuz boş + `olay_olasiligi` 1 olsa bile kart 0, faz geçer. Test: boş havuz.
   - Bağımlılık: BUG-16. Boyut: S.
