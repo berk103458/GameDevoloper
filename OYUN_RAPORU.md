@@ -1,3 +1,11 @@
+## 2 Kasım 2026 — ACL-06 tamamlandı (Kalfa)
+
+Yeni oyunda mevcut bilgi ekranı dört geçmiş ve geri dönüş sunar; seçimden önce kayıt silinmez/oturum kurulmaz. Tek kayıt alanı `muhafiz_gecmisi`; ikinci seçim ve yüklenen eski kayda sonradan seçim reddedilir. Yapı bilgisi `data/yapi_bilgisi.json` üzerinden tek kimliktir: eski levent→avcı, Ahi çırağı→atölye, medrese talebesi→ambar, çoban oğlu→tarla. Mevcut katalogla sınırlı karar: avcılık/alet ustalığı/ambar hesabı/tarla bilgisi; bedava bina veya maliyet/zar değişikliği yok. Medrese Farsça dil satırı türetilir. YAP-02 bu bilgi erişimini, DYL-06 dil erişimini okuyacak; o maddelerin motorları uygulanmış sayılmaz.
+
+Doğrulama: muhafiz_gecmisi_test.gd, muhafiz_gecmisi_akis_test.tscn, kapi_acilis_olayi_test.gd ve acilis_koy_kontrol.tscn geçti; recovery headless import exit=0, hata yok. Akış testi ilk --script denemesinde autoload Ses çözülemedi; doğru Node/tscn koşusuna taşındı ve geçti. Normal editor importundaki mevcut assets/vfx/_karsilastirma/vfx_onizleme.gd:37 look_at hatası korundu; recovery import temiz. Loglar work/acl06_* altında, tam sanity çalıştırılmadı. Görünür Godot açılmadı. Kod incelemesi: tek optional alan, veri kaynaklı bilgi, minimal çekirdek adaptör, kayıt ve ekonomi korunması doğrulandı.
+
+Asset gerekmedi; envanterde yeni ihtiyaç yok. İlgisiz Antigravity/UI/geçici dosyalar ve import çıktıları commit dışı. ds çalışma ve ayna yolu yok; önceki izinli istisna geçerli, eşitlenmedi. kota görünmüyor.
+
 ## Kalfa — Hazır asset entegrasyonu tamamlandı (28 Ekim 2026)
 
 HAE-01–05 [x], açık [/] yok. df552f11 MegaKit; 562519f8 eşya/hayvan; b373744f Ses/kısa dere OGG; e6414923 dokulu GPU VFX; 452bb671 LOWPO/UAL. 27 İHT bağlantısı; kısmi gruplar tamamen kapanmadı. UAL ana, yalnız çekiç A03; yerel rig referansı Ahmet onaylı. 16 hedefli test geçti, tam sanity yok. project.godot temiz; 2D, mekanik, diyalog ve denge değişmedi. Eksik fırın/hayvan/özgül yapı görselleri isimli yer tutucuda. Ayrıntı docs/denetim/HAZIR_ASSET_ENTEGRASYONU_2026-10-28.md. ds yolları yok, izinli istisnayla atlandı. Kota %47/%92. Son talimat: görünür Godot açılmaz, yalnız headless.

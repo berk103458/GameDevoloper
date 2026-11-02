@@ -282,7 +282,7 @@ ACL-01 … ACL-06 gövdesi durur. Yeni maddeler ACL-07 … ACL-86. İkinci hane 
 
 ### 14.6 Geçmiş
 
-- [/] **ACL-06:** (Kalfa) Muhafızın geçmişi — açılışta seçilen arka plan.
+- [x] **ACL-06:** (Kalfa) Muhafızın geçmişi — açılışta seçilen arka plan.
   - Ne: Yeni oyunda oyuncu dört geçmişten birini seçer: eski levent, Ahi çırağı, medrese talebesi, çoban oğlu. Seçim kayıtta tek alandır ve oyun başladıktan sonra değişmez. Her geçmiş bir yapı bilgisi açar; bina bedava kurulmaz. Geçmiş zar tabanını değiştirmez ve eş meslek listesine girmez. Eski kayıtta alan yoksa "seçilmedi" kalır, rastgele geçmiş atanmaz.
   - Kurallar:
     1. Yeni oyunda 4 geçmişten biri seçilir: eski levent, Ahi çırağı, medrese talebesi, çoban oğlu. Kayıtta tek alan.

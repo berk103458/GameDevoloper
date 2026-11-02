@@ -62,9 +62,22 @@ func ana_menu() -> void:
 	_goster(e)
 
 
-func yeni_oyun(tohum: int = 0) -> void:
+func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
+	var g = preload("res://src/sistemler/muhafiz_gecmisi.gd")
+	if not g.VERI.has(gecmis):
+		var adlar: Array = []
+		for id in g.SIRA: adlar.append(String(g.VERI[id].ad))
+		adlar.append("Ana menüye dön")
+		var e := _bilgi("Muhafızın geçmişi", "Geçmişini seç. Bu seçim oyun boyunca değişmez.", adlar, -1, "")
+		e.secildi.connect(func(i: int) -> void:
+			if i >= 0 and i < g.SIRA.size(): yeni_oyun(tohum, g.SIRA[i])
+			else: ana_menu()
+		)
+		_goster(e)
+		return
 	kayit.sil()
 	oturum = Oturum.new(katalog, tohum)
+	g.sec(oturum, gecmis)
 	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum)
 	_koye_git()
 

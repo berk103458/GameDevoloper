@@ -22,7 +22,7 @@ func _calistir() -> void:
 	get_tree().create_timer(90.0).timeout.connect(func() -> void: get_tree().quit(1))
 	var ana := TestAna.new()
 	add_child(ana)
-	ana.yeni_oyun(1401)
+	ana.yeni_oyun(1401, "eski_levent")
 	await get_tree().process_frame
 	await _arazi_hazir(ana)
 	var e := ana._ekran as KoyEkrani

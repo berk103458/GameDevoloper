@@ -1,0 +1,20 @@
+{
+  "eski_levent": {
+    "ad": "Eski levent",
+    "diller": []
+  },
+  "ahi_ciragi": {
+    "ad": "Ahi çırağı",
+    "diller": []
+  },
+  "medrese_talebesi": {
+    "ad": "Medrese talebesi",
+    "diller": [
+      "farsca"
+    ]
+  },
+  "coban_oglu": {
+    "ad": "Çoban oğlu",
+    "diller": []
+  }
+}

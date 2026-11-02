@@ -1,3 +1,11 @@
+## 2 Kasım 2026 — ACL-06 tamamlandı (Kalfa)
+
+Yeni oyunda mevcut bilgi ekranı dört geçmiş ve geri dönüş sunar; seçimden önce kayıt silinmez/oturum kurulmaz. Tek kayıt alanı `muhafiz_gecmisi`; ikinci seçim ve yüklenen eski kayda sonradan seçim reddedilir. Yapı bilgisi `data/yapi_bilgisi.json` üzerinden tek kimliktir: eski levent→avcı, Ahi çırağı→atölye, medrese talebesi→ambar, çoban oğlu→tarla. Mevcut katalogla sınırlı karar: avcılık/alet ustalığı/ambar hesabı/tarla bilgisi; bedava bina veya maliyet/zar değişikliği yok. Medrese Farsça dil satırı türetilir. YAP-02 bu bilgi erişimini, DYL-06 dil erişimini okuyacak; o maddelerin motorları uygulanmış sayılmaz.
+
+Doğrulama: muhafiz_gecmisi_test.gd, muhafiz_gecmisi_akis_test.tscn, kapi_acilis_olayi_test.gd ve acilis_koy_kontrol.tscn geçti; recovery headless import exit=0, hata yok. Akış testi ilk --script denemesinde autoload Ses çözülemedi; doğru Node/tscn koşusuna taşındı ve geçti. Normal editor importundaki mevcut assets/vfx/_karsilastirma/vfx_onizleme.gd:37 look_at hatası korundu; recovery import temiz. Loglar work/acl06_* altında, tam sanity çalıştırılmadı. Görünür Godot açılmadı. Kod incelemesi: tek optional alan, veri kaynaklı bilgi, minimal çekirdek adaptör, kayıt ve ekonomi korunması doğrulandı.
+
+Asset gerekmedi; envanterde yeni ihtiyaç yok. İlgisiz Antigravity/UI/geçici dosyalar ve import çıktıları commit dışı. ds çalışma ve ayna yolu yok; önceki izinli istisna geçerli, eşitlenmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — ACL-06 başladı (Kalfa)
 
 Tüm remote dallar fetch edildi; festive pull --rebase güncel. ACL-03 bağımlılıkları bekliyor; ACL-06 alındı. Dört geçmiş, tek kayıt kimliği ve mevcut açılışa ince adaptör hazırlanıyor. YAP-02/DYL-06 için veri erişimi; ikinci motor yok. Asset gerekmedi. Yalnız headless hedefli test. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

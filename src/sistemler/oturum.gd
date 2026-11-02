@@ -732,6 +732,7 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 ## Gün sonu kaydı için sözlük (oturum + köy yönetimi).
 func kaydet() -> Dictionary:
 	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
+		"muhafiz_gecmisi": preload("res://src/sistemler/muhafiz_gecmisi.gd").kimlik(self),
 		"acilis_hanesi": preload("res://src/sistemler/acilis_senaryosu.gd").durum(self),
 		"faz": preload("res://src/sistemler/oturum_fazi.gd").durum(self),
 		"bayraklar": bayraklar.keys().map(func(x): return String(x)),
@@ -801,5 +802,6 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.muhafiz_esyalari = preload("res://src/sistemler/cift_kasa_dagitimi.gd").esyalari_yukle(veri.get("muhafiz_esyalari", []))
 	o.yeni_binalar.assign(veri.get("yeni_binalar", []))
 	preload("res://src/sistemler/acilis_senaryosu.gd").yukle(o, veri.get("acilis_hanesi"))
+	preload("res://src/sistemler/muhafiz_gecmisi.gd").yukle(o, veri.get("muhafiz_gecmisi"))
 	o._koy_esitle()
 	return o
