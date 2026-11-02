@@ -78,3 +78,13 @@ static func havuzda(o: Oturum, id: StringName) -> bool:
 	# Dosya havuzunun dışındaki dinamik/uyarlama kartları kendi koşullarını korur.
 	if String(id) not in KATMANLAR.listeler.buyuk: return true
 	return String(id) in KATMANLAR.listeler[katman(o)]
+
+static var AGIRLIKLAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/olay_agirlik.json"))
+
+## OZL-13: hafta başında harman ve pazar_gunu kartlarının ağırlığı çarpan alır; diğer gecelerde taban kalır.
+static func agirlik(o: Oturum, kart: OlayVerisi) -> float:
+	if kart == null: return 0.0
+	var taban := float(kart.agirlik)
+	if not Takvim.hafta_basi(o.yonetim.gun, o.yonetim.a.mevsim_gun): return taban
+	var carpanlar: Dictionary = AGIRLIKLAR.get("hafta_basi_carpan", {})
+	return taban * float(carpanlar.get(String(kart.id), 1.0))

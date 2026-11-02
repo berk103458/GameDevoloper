@@ -364,3 +364,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `data/olaylar/tarla_yagmur.tres` içine `"kis_mi": false` koşulu eklendi; dört mevsim kontrolü `tests/unit/sistemler/ozl_kart_tarama_test.gd` içine eklendi.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OZL-13 — `harman` ve `pazar_gunu` hafta başına bakabilir (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OZL-13`
+- **Yapılanlar:**
+  - `data/olay_agirlik.json` oluşturuldu (`harman` ve `pazar_gunu` hafta başı çarpanları).
+  - `src/sistemler/olay_on_kosulu.gd` içine `Takvim.hafta_basi` okuyan `agirlik` hesabı eklendi; 7 gece kontrolü `tests/unit/sistemler/ozl_kart_tarama_test.gd` içine eklendi.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.

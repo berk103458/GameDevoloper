@@ -5827,7 +5827,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: BUG-16, MEV-01. Boyut: S.
   - Dosya: ilgili `.tres` `kosullar`.
   - Asset: asset gerekmedi.
-- [/] **OZL-13:** `harman` ve `pazar_gunu` hafta başına bakabilir. (Antigravity)
+- [x] **OZL-13:** `harman` ve `pazar_gunu` hafta başına bakabilir. (Antigravity)
   - Ne: `takvim.hafta_basi` true iken bu iki kartın ağırlığı artar (öneri `data/olay_agirlik.json`); kart id değişmez.
   - Kabul: hafta başı olmayan gecede ağırlık taban, başında çarpan. Test: 7 gece.
   - Bağımlılık: OZL-01. Boyut: S.

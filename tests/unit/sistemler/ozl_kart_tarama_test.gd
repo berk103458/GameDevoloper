@@ -84,6 +84,19 @@ func _initialize() -> void:
 		else:
 			_kontrol(uygun_mu, "Kis disindaki mevsimlerde tarla_yagmur uygun olmali")
 
+	# OZL-13: 7 gece boyunca harman ve pazar_gunu hafta basi olmayan gecede taban, hafta basinda carpan alir
+	var harman_kart := kat.olay(&"harman")
+	var pazar_kart := kat.olay(&"pazar_gunu")
+	for gun_idx in range(1, 8):
+		oturum.yonetim.gun = gun_idx
+		var hb := Takvim.hafta_basi(gun_idx, m_gun)
+		var h_agirlik := OlayOnKosulu.agirlik(oturum, harman_kart)
+		var p_agirlik := OlayOnKosulu.agirlik(oturum, pazar_kart)
+		if hb:
+			_kontrol(h_agirlik > harman_kart.agirlik and p_agirlik > pazar_kart.agirlik, "Hafta basinda harman ve pazar_gunu agirligi carpan almali")
+		else:
+			_kontrol(is_equal_approx(h_agirlik, harman_kart.agirlik) and is_equal_approx(p_agirlik, pazar_kart.agirlik), "Hafta basi olmayan gecede agirlik taban kalmali")
+
 	if _hata == 0:
 		print("OZL KART TARAMA: GEÇTİ (0 hata)")
 	else:
