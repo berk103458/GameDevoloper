@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-11 başladı (Kalfa)
+
+KAY-07–10 bekletilen Söz özelliklerini bekler. Bağımsız KAY-11 mevcut GrupItibari nesnesini Oturum kaydına bağlar; altı grup, eksik grup 0, diğer değerler korunur. İkinci itibar motoru yok; Söz motoru/şema geliştirilmez. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-06 tamamlandı; Söz motoru beklemede (Kalfa)
 
 Ahmet açık yanıtı: «Söz motorunu beklet; bağımsız maddeleri sürdür». Bu bir ana hedef durdurma değildir; DIY-01a/ana Söz motoru ve ona bağlı şema hattı alınmaz. Bağımsız hazır maddeler sırayla sürer; aynı onay yeniden sorulmaz.

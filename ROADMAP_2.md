@@ -2930,7 +2930,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: DYL-04. Boyut: S.
   - Dosya: `src/soz/yalan_denetimi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-11:** Grup itibarı kayıttadır.
+- [/] **KAY-11:** (Kalfa) Grup itibarı kayıttadır.
   - Ne: DIY-12 altı grup, her biri −10…+10. Eksik grup 0 sayılır, diğerleri bozulmaz.
   - Kabul: DIY-12 altı grup, her biri −10…+10. Eksik grup 0 sayılır, diğerleri bozulmaz. Test: Türkmen −3 yüklemede −3.
   - Bağımlılık: DIY-12. Boyut: S.
