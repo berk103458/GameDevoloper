@@ -57,6 +57,7 @@ func _ready() -> void:
  bilgi.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
  icerik.add_child(bilgi)
  OdaTerazisiPaneli.kur(self,icerik)
+ preload("res://src/arayuz/oda_gidisat_paneli.gd").kur(self,icerik)
  OdaKasasiPaneli.kur(self,icerik)
  OdaYetenekPaneli.kur(self,icerik)
  OdaTeftisNotu.kur(oturum,icerik)

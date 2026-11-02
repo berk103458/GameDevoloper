@@ -476,3 +476,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   3. `src/sistemler/ilk_saat.gd` içine perde 2'de (`perde >= 2`) ipucu sistemini susturan koşul eklendi ve `tests/unit/sistemler/ilk_saat_test.gd` güncellendi.
   4. Asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+
+## 13 Ekim 2026 — OMR-13, OMR-14 ve OMR-28 (Muhafız Odası Gidişat Paneli ve Yozlaşma Eşiği Uyarısı)
+- **Ne yapıldı (`OMR-13`, `OMR-14`, `OMR-28`):**
+  1. `src/arayuz/oda_gidisat_paneli.gd` (`OdaGidisatPaneli`) oluşturuldu: perde 2'de altı son göstergesini kademe sözcükleriyle (`düşük`/`orta`/`yüksek`) gösterir (perde 1'de gizlidir) ve dalga 2'den itibaren `nihai_sonlar.json sonlar[n].baslik` adını taşıyan `"şu an gidişat: …"` cümlesini sunar. `src/arayuz/muhafiz_odasi_ekrani.gd` içine tek satırla bağlandı.
+  2. `src/arayuz/oda_yozlasma_uyarisi.gd` (`OdaYozlasmaUyarisi`) oluşturuldu ve `src/arayuz/oda_vicdan_paneli.gd` içine bağlandı: yozlaşma eşiğine üç kademe kala erken uyarı satırı üretir.
+  3. `tests/unit/arayuz/omr13_14_28_oda_test.gd` birim testi eklendi.
+  4. Asset gerekmedi.
+- **Kota:** kota görünmüyor

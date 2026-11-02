@@ -10,5 +10,7 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
  if MuhafizVicdani.aktif(e.oturum):
   l.text+="\nBu gölge bir rüya; kanıt veya yeni kimlik bilgisi değil. Yatakta dinlenmek yorgunluğu giderir; geçmiş kararları silmez."
   if not e.oda.has_node("kabus_golgesi"): e.oda.call("_kutu",MuhafizVicdani.AYAR.golge)
+ var yoz_uyari := preload("res://src/arayuz/oda_yozlasma_uyarisi.gd").satir(e.oturum)
+ if not yoz_uyari.is_empty(): l.text += "\n" + yoz_uyari
  l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
  v.add_child(l)
