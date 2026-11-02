@@ -1,0 +1,11 @@
+## 2 Kasım 2026 — KAP-17 tamamlandı (Kalfa)
+
+Aile tek Gelen/tek sorgudur; kabul tüm üyeleri, ret hiçbirini, ayrı «Yalnız çocukları al» yalnız çocukları köye yazar. Çocuksuz/tek kişilik kafilede bölme yok. Dört kişilik aile dört yatak ister. Karar makbuzu aile kimliğiyle kalıcıdır; snapshot dönüşünde reis kimliği boş olsa da ikinci karar reddedilir. `Koylu.hane_id` optional; açılış eşi/muhafızı da aynı hanedir. Eski kişilerde alan -1 kalır. İlk akşamın sabit iki yetişkin sahnesi aynı aile adaptöründen geçer, eski ikinci kişi eklemesi yinelenmez.
+
+Takvim: `data/aile_kafileleri.json` ilk_gun=1/aralik=4; o gecenin ilk uygun adsız ziyaretçisi, kendi sorgusu korunarak iki yetişkin/çocuk/yaşlı kafilesi taşır. Adlı karakterler/heyet/tüccar ve KAP-16 akış hesabı değiştirilmez. Çocukları bölme mevcut vicdan yüküne ve adalete veri kaynaklı etki verir; `aile_kararlari.dedikodular` listesine tek satır makbuz bırakır. DIY-13 bu listeyi okuyacak; yayılım/ikinci dedikodu motoru yazılmadı. Üretim zinciri değişmedi.
+
+Görsel: kapıda reise bağlı, onunla yürüyüp silinen isimli kutu refakatçiler (`src/dunya/aile_kapi_gorunumu.gd`); köy çocuğu mevcut LOWPO, yaşlı mevcut yetişkinin %92 boyu + açık yer tutucu etiketi. Tek görsel değiştirme noktaları envanterin KAP17-COCUK/YASLI satırlarında. Yeni asset indirme/üretimi ve 2D ihtiyacı yok; yaşlı gerçek modeli tamamlanmış sayılmaz.
+
+Kanıt: work/kap17_unit.log, kap17_panel.log, kap17_acl04.log, kap17_bar.log, kap17_koy_unit.log, kap17_aclis.log: altı hedefli kontrol geçti. Recovery headless import (`kap17_import_final.log`) exit=0/hata yok. Köy testi kasıtlı bozuk kayıt/yedek uyarısını kendi fikstüründe verir; başarısız kontrol 0. Önce eksik uygulama RED görüldü; testte typed Array ataması, float karşılaştırması ve erken kapanan ses kaynağı ömrü düzeltildi. Son panel testi 0 hata/uyarı. Tam sanity/görünür Godot yok.
+
+İnceleme: mevcut karar/heybe/kadro işlemi reiste bir kez; üye ekleri yeni adaptörde, snapshot şeması dar/doğrulamalı, tekrar makbuzla engelli. Testx KAP-16/39/45/48 sahiplikleri korundu; kapıda yalnız aile bağlantıları değişti. Antigravity DIY-09 sahipliği korunur. ds yolları yok, önceki izinli istisna geçerli; eşitlenmedi. kota görünmüyor.

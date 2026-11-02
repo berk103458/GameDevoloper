@@ -138,6 +138,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 			g.etkiler[&"harc"] = g.etkiler.get(&"kabul", PackedInt32Array())
 	TuccarKapiGecisi.ekle(self, sonuc)
 	DiplomatikHeyet.ekle(self, sonuc)
+	preload("res://src/kapi/aile_kafilesi.gd").ekle(self, sonuc)
 	return sonuc
 
 
@@ -186,6 +187,7 @@ func ziyaret_basladi(gelen: Gelen) -> void:
 ## Kararlar: `kabul`, `harc` (yoksuldan zorla geçiş akçesi), `rusvet` (teklifini alıp içeri), `kisla` (asker, muhafız),
 ## `ret`, `elkoy` (astardan çıkanlara el konur, geri çevrilir; yalnız yalan yakalanınca).
 func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> Dictionary:
+	if preload("res://src/kapi/aile_kafilesi.gd").ilgilenir(gelen): return preload("res://src/kapi/aile_kafilesi.gd").karar(self, gelen, karar, _is_yeri)
 	if preload("res://src/sistemler/kapi_acilis_olayi.gd").karar_engelli(self, gelen, karar): return {"engellendi": true, "kaldi": false, "kirilan": -1}
 	if not SiraOlayiSonucu.neden(gelen).is_empty(): return {"engellendi": true, "kaldi": false, "kirilan": -1}
 	if DiplomatikHeyet.ilgilenir(gelen): return DiplomatikHeyet.karar(self, gelen, karar)
@@ -732,6 +734,7 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 ## Gün sonu kaydı için sözlük (oturum + köy yönetimi).
 func kaydet() -> Dictionary:
 	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
+		"aile_kararlari": preload("res://src/kapi/aile_kafilesi.gd").durum(self),
 		"muhafiz_gecmisi": preload("res://src/sistemler/muhafiz_gecmisi.gd").kimlik(self),
 		"acilis_hanesi": preload("res://src/sistemler/acilis_senaryosu.gd").durum(self),
 		"faz": preload("res://src/sistemler/oturum_fazi.gd").durum(self),
@@ -803,5 +806,6 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.yeni_binalar.assign(veri.get("yeni_binalar", []))
 	preload("res://src/sistemler/acilis_senaryosu.gd").yukle(o, veri.get("acilis_hanesi"))
 	preload("res://src/sistemler/muhafiz_gecmisi.gd").yukle(o, veri.get("muhafiz_gecmisi"))
+	preload("res://src/kapi/aile_kafilesi.gd").yukle(o, veri.get("aile_kararlari"))
 	o._koy_esitle()
 	return o

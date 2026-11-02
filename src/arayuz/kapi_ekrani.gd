@@ -213,7 +213,7 @@ func _model_adi(g: Gelen) -> String:
 func _bilgi_yaz() -> void:
 	_bilgi.text = tr("arayuz.kapi.bilgi") % [oturum.gosterilen_gece(), _gece_gelen, _kuyruk.size()]
 	KapiFirtinaKuyrugu.bilgi(oturum, _gelen, _bilgi)
-	_bilgi.text += "\n" + preload("res://src/kapi/barinak_uyarisi.gd").metin(oturum.yonetim, 2 if _gelen != null and _gelen.id == &"acl04_ilk_aile" else 1)
+	_bilgi.text += "\n" + preload("res://src/kapi/barinak_uyarisi.gd").metin(oturum.yonetim, preload("res://src/kapi/aile_kafilesi.gd").kisi_sayisi(_gelen))
 
 
 ## Yeni geceyi başlatır: kuyruk kurulur, ilk gelen kapıya yürür.
@@ -268,6 +268,7 @@ func _siradaki() -> void:
 	oturum.ziyaret_basladi(_gelen)
 	_adim_sesi(12)
 	await sahne.gelen_yaklas(_model_adi(_gelen))
+	preload("res://src/dunya/aile_kapi_gorunumu.gd").kur(sahne._gelen, _gelen)
 	if _gelen.acilis != "":
 		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), tr(_gelen.acilis)])
 	if oturum.perde == 2 or _gelen.sorular.is_empty():
@@ -405,6 +406,7 @@ func _esya_yazisi(e: Dictionary, adet: int) -> String:
 
 ## Karar düğmesinin yazısı; rüşvette miktar görünür.
 func _karar_etiketi(anahtar: String) -> String:
+	if anahtar == "cocuklari_al": return "Yalnız çocukları al"
 	if DiplomatikHeyet.ilgilenir(_gelen): return HeyetKapiPaneli.etiket(anahtar)
 	if TuccarKapiGecisi.ilgilenir(_gelen): return TuccarKapiPaneli.etiket(anahtar)
 	var sorgu := _gelen.chr_sorgusu()
@@ -474,10 +476,11 @@ func _karar_goster() -> void:
 		for karar in gorunen:
 			if chr.karar_acik(StringName(karar)) or karar == "kabul":
 				_karar_anahtarlari.append(karar)
+	_karar_anahtarlari = preload("res://src/arayuz/aile_kapi_paneli.gd").secenekler(_gelen, _karar_anahtarlari)
 	for n in _karar_anahtarlari.size():
 		var anahtar := _karar_anahtarlari[n]
 		var b := _dugme("%d · %s" % [n + 1, _karar_etiketi(anahtar)])
-		b.doku = Sanat.doku("ui", "icon_decision_%s_48" % KARAR_SIMGE[anahtar])
+		b.doku = Sanat.doku("ui", "icon_decision_%s_48" % KARAR_SIMGE.get(anahtar, "accept"))
 		b.custom_minimum_size.y = 80
 		b.punto = ayarlar.boyut(30)
 		b.alt_yazi = _karar_alt_yazi(anahtar)
@@ -515,7 +518,7 @@ func _karar_alt_yazi(anahtar: String) -> String:
 func _karar_bas(anahtar: String) -> void:
 	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	var sorgu := _gelen.chr_sorgusu()
-	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)):
+	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)) and not (anahtar == "cocuklari_al" and preload("res://src/kapi/aile_kafilesi.gd").bolunur(_gelen)):
 		return
 	if evre != &"karar":
 		return
@@ -548,7 +551,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	if DiplomatikHeyet.ilgilenir(_gelen) and not DiplomatikHeyet.karar_olur(oturum, _gelen, StringName(anahtar)): return
 	var sorgu := _gelen.chr_sorgusu()
-	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)):
+	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)) and not (anahtar == "cocuklari_al" and preload("res://src/kapi/aile_kafilesi.gd").bolunur(_gelen)):
 		return
 	evre = &"sonuc"
 	_temizle()
@@ -561,7 +564,8 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 		Ses.cal(&"sfx_kese")
 	Ses.cal(&"sfx_kapi_acilir" if sonuc["kaldi"] else &"sfx_kapi_kapanir", -4.0)
 	var replik := preload("res://src/kapi/karar_replik_adaptoru.gd")
-	if HeyetKapiPaneli.sonuc(self, _gelen, sonuc): pass
+	if preload("res://src/arayuz/aile_kapi_paneli.gd").sonuc(self, _gelen, sonuc): pass
+	elif HeyetKapiPaneli.sonuc(self, _gelen, sonuc): pass
 	elif TuccarKapiPaneli.sonuc(self, _gelen, sonuc): pass
 	elif replik.ilgilendirir(anahtar):
 		_karar_replik_dusur(replik, anahtar)

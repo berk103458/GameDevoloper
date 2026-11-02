@@ -37,6 +37,7 @@ static func kur(o: Oturum) -> void:
 		veri["bayraklar"] = [MUHAFIZ if rol == "muhafiz" else ES]
 		var k := y.kabul(veri)
 		k.ev = ev.id
+		k.hane_id = int(h.get("muhafiz_id", k.id))
 		h[rol + "_id"] = k.id
 	# Kuruluş sakinleri kapıda verilmiş iki kabul kararı sayılmaz.
 	y.kabul_sayisi = kapidan_kabul

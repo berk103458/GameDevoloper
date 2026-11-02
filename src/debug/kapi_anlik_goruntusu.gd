@@ -10,6 +10,8 @@ static func gelen_kaydet(g: Gelen) -> Dictionary:
 	var v := {}
 	for alan in BASIT + METIN_DIZILERI + SAYI_DIZILERI + ["sorular"]:
 		v[alan] = g.get(alan)
+	v["aile"] = g.aile.duplicate(true)
+	v["aile_id"] = g.aile_id
 	v["heybe"] = null
 	if g.heybe != null:
 		v["heybe"] = {"esyalar": g.heybe.esyalar.duplicate(true), "teklif": g.heybe.teklif, "astar_yoklandi": g.heybe.astar_yoklandi, "soruldu": g.heybe.soruldu}
@@ -49,6 +51,10 @@ static func gelen_yukle(v: Dictionary, katalog: Katalog) -> Gelen:
 		if not (v.get(alan) is int or v.get(alan) is float): return null
 	if not v.get("tehlikeli") is bool: return null
 	var g := Gelen.new()
+	g.aile = preload("res://src/kapi/aile_kafilesi.gd").uyeleri_oku(v.get("aile", []))
+	if v.has("aile") and (not v.aile is Array or g.aile.size() != v.aile.size()): return null
+	if not v.get("aile_id", "") is String: return null
+	g.aile_id = String(v.get("aile_id", ""))
 	for alan in BASIT:
 		g.set(alan, StringName(v[alan]) if alan in ["id", "sinif"] else v[alan])
 	g.etkiler = {}
@@ -161,6 +167,7 @@ static func goster(e: Node, v: Dictionary) -> void:
 	var model := Dunya3B.karakter(adlar[0])
 	s.add_child(model)
 	s.set("_gelen", model)
+	preload("res://src/dunya/aile_kapi_gorunumu.gd").kur(model, g)
 	model.position = s.DURMA
 	model.bak(s.get("kamera").position)
 	e.get("_ad").text = e.tr(g.ad_anahtari)

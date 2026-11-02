@@ -3,6 +3,7 @@ extends RefCounted
 const ACILIS = preload("res://src/sistemler/acilis_senaryosu.gd")
 
 static func kur(f: KarakterModel, k: Koylu) -> void:
+	preload("res://src/koy/gorsel/aile_yas_gorunumu.gd").kur(f, k)
 	var rol := "muhafiz" if k.bayrak_var(ACILIS.MUHAFIZ) else ("es" if k.bayrak_var(ACILIS.ES) else "")
 	if rol.is_empty(): return
 	var ayar: Dictionary = ACILIS.AYAR.yer_tutucu[rol]

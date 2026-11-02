@@ -2,6 +2,9 @@
 class_name Gelen
 extends RefCounted
 
+var aile: Array[Dictionary] = []
+var aile_id: String = ""
+
 var adli: bool = false
 ## KAP adaptörü: yalnız CHR kaynağı olan adlı ziyaretçiye eklenir.
 var _chr_sorgusu: RefCounted

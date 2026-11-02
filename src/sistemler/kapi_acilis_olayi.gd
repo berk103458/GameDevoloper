@@ -29,6 +29,8 @@ static func kuyruk(o: Oturum) -> Array[Gelen]:
 	var sonuc: Array[Gelen] = []
 	if not aile_bekliyor(o): return sonuc
 	var g := Gelen.new()
+	g.aile_id = "acl04_ilk_aile"
+	g.aile = preload("res://src/kapi/aile_kafilesi.gd").uyeleri_oku(AYAR.aile)
 	g.id = AILE
 	g.ad_anahtari = String(AYAR.aile_adi)
 	g.portre = String(AYAR.aile[0].portre)
@@ -54,6 +56,6 @@ static func karar_sonrasi(o: Oturum, g: Gelen, sonuc: Dictionary) -> void:
 	if sonuc.get("kaldi", false):
 		var ilk := o.yonetim.koylu(int(sonuc.koylu_id))
 		if ilk != null: ilk.ad = String(AYAR.aile[0].ad)
-		o.yonetim.kabul(AYAR.aile[1].duplicate(true))
+		if g.aile.size() < 2: o.yonetim.kabul(AYAR.aile[1].duplicate(true))
 		o._koy_esitle()
 	o.bayraklar[BITTI] = true

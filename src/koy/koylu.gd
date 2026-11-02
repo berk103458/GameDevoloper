@@ -27,6 +27,7 @@ var kis_hastaligi: Dictionary = {}
 var enfeksiyon: Dictionary = {}
 var karantina: Dictionary = {}
 var toplumsal_bag: Dictionary = {"grup": "", "dusman_gruplar": []}
+var hane_id: int = -1
 var yas_grubu: StringName = &"yetiskin"
 var gizli_egilim: Dictionary = {"tur": "yok", "calinan": 0, "son_gece": 0, "yakalanma": false}
 ## Açık bayraklar: `usta_ciftci`, `somurulmus`, `tembel` …
@@ -82,7 +83,7 @@ func kaydet() -> Dictionary:
 	return {"karantina": karantina.duplicate(true), "enfeksiyon": enfeksiyon.duplicate(true), "id": id, "ad": ad, "adli_id": String(adli_id), "sinif": String(sinif), "portre": portre, "stat": stat, "zanaat_turu": ZanaatTuru.anahtar(zanaat_turu),
 		"bayraklar": Array(bayraklar), "gizli": Array(gizli_bayraklar), "moral": moral, "refah": refah, "saglik": saglik,
 		"sadakat": sadakat, "is_yeri": is_yeri, "kis_oncesi": kis_oncesi_is, "ev": ev, "ac": ac, "aclik": aclik, "giris": giris_gunu,
-		"pasif_ozellikler": pasif_ozellikler.duplicate(true), "egitim": egitim.duplicate(true), "gelisim": gelisim.duplicate(true), "grev": grev.duplicate(true), "yorgunluk": yorgunluk.duplicate(true), "is_kazasi": is_kazasi.duplicate(true), "zanaat_kazasi": zanaat_kazasi.duplicate(true), "kis_hastaligi": kis_hastaligi.duplicate(true), "toplumsal_bag": toplumsal_bag.duplicate(true), "yas_grubu": String(yas_grubu), "gizli_egilim": gizli_egilim.duplicate(true), "divan_kanit": DivanKanit.durum(self)}
+		"pasif_ozellikler": pasif_ozellikler.duplicate(true), "egitim": egitim.duplicate(true), "gelisim": gelisim.duplicate(true), "grev": grev.duplicate(true), "yorgunluk": yorgunluk.duplicate(true), "is_kazasi": is_kazasi.duplicate(true), "zanaat_kazasi": zanaat_kazasi.duplicate(true), "kis_hastaligi": kis_hastaligi.duplicate(true), "toplumsal_bag": toplumsal_bag.duplicate(true), "hane_id": hane_id, "yas_grubu": String(yas_grubu), "gizli_egilim": gizli_egilim.duplicate(true), "divan_kanit": DivanKanit.durum(self)}
 
 
 static func kayittan(v: Dictionary) -> Koylu:
@@ -105,6 +106,7 @@ static func kayittan(v: Dictionary) -> Koylu:
 	k.enfeksiyon = SaglikYoneticisi.oku(v.get("enfeksiyon"))
 	k.karantina = KarantinaYoneticisi.oku(v.get("karantina"))
 	k.toplumsal_bag = KanDavasi.oku(v.get("toplumsal_bag"), KanDavasi.kaynak(k.adli_id))
+	k.hane_id = int(v.get("hane_id", -1))
 	k.yas_grubu = YasRolleri.oku(v.get("yas_grubu"), k.adli_id)
 	k.bayraklar = PackedStringArray(v.get("bayraklar", []))
 	k.gizli_bayraklar = PackedStringArray(v.get("gizli", []))

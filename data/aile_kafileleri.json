@@ -1,0 +1,29 @@
+{
+  "ilk_gun": 1,
+  "aralik": 4,
+  "bolme_vicdan_yuku": 2,
+  "bolme_adalet_kaybi": 2,
+  "uyeler": [
+    {
+      "ad": "Fatma",
+      "yas_grubu": "yetiskin",
+      "sinif": "ciftci",
+      "stat": 4,
+      "portre": "peasant_01"
+    },
+    {
+      "ad": "Ayşe",
+      "yas_grubu": "cocuk",
+      "sinif": "ciftci",
+      "stat": 3,
+      "portre": "peasant_01"
+    },
+    {
+      "ad": "Hasan",
+      "yas_grubu": "yasli",
+      "sinif": "ciftci",
+      "stat": 4,
+      "portre": "peasant_01"
+    }
+  ]
+}
