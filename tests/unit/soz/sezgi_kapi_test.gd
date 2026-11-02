@@ -35,4 +35,5 @@ func calistir() -> void:
 	h.queue_free()
 	await get_tree().process_frame
 	print("SEZGİ KAPI: GEÇTİ" if hata == 0 else "SEZGİ KAPI: KALDI")
+	await get_tree().create_timer(1.0).timeout
 	get_tree().quit(hata)

@@ -3,6 +3,10 @@ extends VBoxContainer
 
 signal karar_istendi
 var sorgu: RefCounted
+var oturum: Oturum
+var baglam: Dictionary = {}
+var _ton_tepkisi := ""
+const TON = preload("res://src/soz/muhafiz_tonu.gd")
 
 func _ready() -> void:
 	sorgu.ipucu_bulundu.connect(func(_ipucu: StringName) -> void: guncelle())
@@ -13,6 +17,16 @@ func guncelle() -> void:
 		remove_child(cocuk)
 		cocuk.queue_free()
 	var dugum: Dictionary = sorgu.karakter.diyalog_dugumu(sorgu.dugum_id)
+	if not TON.dugum_hatalari(dugum, sorgu.karakter.metinler).is_empty():
+		var hata := Label.new()
+		hata.text = "Konuşma seçeneklerinin ton verisi eksik."
+		add_child(hata)
+		return
+	if not _ton_tepkisi.is_empty():
+		var cevap := Label.new()
+		cevap.text = _ton_tepkisi
+		cevap.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		add_child(cevap)
 	var durum := preload("res://src/arayuz/kapi/tansiyon_gostergesi.gd").new()
 	durum.name = "TansiyonGostergesi"
 	durum.sorgu = sorgu
@@ -32,9 +46,10 @@ func guncelle() -> void:
 	var acik_var := false
 	for i in secenekler.size():
 		var secenek: Dictionary = secenekler[i]
+		if not TON.gorunur(oturum, secenek): continue
 		var b := Button.new()
 		b.name = "Secenek%d" % i
-		b.text = sorgu.metin(StringName(secenek["metin_anahtari"]))
+		b.text = sorgu.metin(StringName(TON.anahtar(oturum, secenek)))
 		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		b.custom_minimum_size.y = 80
 		b.disabled = not sorgu.secenek_acik(secenek, i)
@@ -45,6 +60,7 @@ func guncelle() -> void:
 				b.modulate = Color("#e6bd72")
 		b.pressed.connect(func() -> void:
 			if sorgu.secenek_sec(i):
+				_ton_tepkisi = TON.tepki(oturum, secenek, baglam)
 				guncelle()
 		)
 		add_child(b)

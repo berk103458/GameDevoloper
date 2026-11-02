@@ -1,3 +1,13 @@
+## 2 Kasım 2026 — DIY-15 tamamlandı (Kalfa)
+
+Muhafız seçenek tonu mevcut CHR paneline ince adaptörle bağlandı. Yeni `src/soz/muhafiz_tonu.gd`, mevcut ODA `MuhafizTerazisi` skorunu ve aynı veri eşiklerini okur: adil/sert/yoz. ACL-06 geçmişine özel seçenek geçmiş yoksa görünmez. Ton alanı olmayan mevcut içerik nötr kalır. Üç varyant metin anahtarı zorunludur; boş/kayıp metin veya farklı mekanik etki reddedilir. Ton varyantında hedef/zar/tansiyon gibi mekanik alanlara izin verilmez; seçenek kökünün etkisi tek kaynak kalır. Eksik ton CHR sözleşmesi ve gerçek panel yüklemesinde reddedilir. Karşı tepki DIY-09 SatirSecici üzerinden, ziyaret başındaki aynı bağlamla seçilir; ikinci ton/tepki motoru yok.
+
+Yeni üretim repliği veya geçmiş mevcut CHR kaynaklarına yazılmadı. Gerçek panelin üç tonu işlemesi test fikstüründe doğrulandı; metin yazımı kendi YAZ hattında ve DIY-01a'nın bekleyen içerik onayındadır. Bu iş onay bekleyen ana konuşma şemasını/motorunu kurmaz. Mevcut içerik ton verisi taşımadığından kendi nötr metinleriyle çalışır.
+
+Kanıt: `work/diy15_unit.log`: adil/yoz anahtar farkı, etki değişmezliği, orta sert, boş yoz tam 1 hata, farklı etki tam 1 hata, geçmiş kapısı/nötr ve bağlamsal tepki. `diy15_panel.log`: gerçek panel üç farklı metin, aynı hedef/tansiyon sonucu; kayıp metinle seçenek yüklenmez. `diy15_sezgi.log`: gerçek CHR/sezgi adaptörü regresyonu. `diy15_chr.log`: mevcut CHR sorgu testi. Dört hedefli kontrol ve recovery headless import (`diy15_import_final.log`) geçti. Kapanıştaki devam eden foley örneği nedeniyle ilk testte kaynak ömrü uyarısı görüldü; test teardown'u sesin bitişini bekler, son iki panel logu hatasız/uyarısız. Tam sanity/görünür Godot yok.
+
+İnceleme: yalnız metin/tepki seçimi, ortak etki değişmez, eşik kopyalanmaz; optional alanı olmayan mevcut sahneler aynı kalır. Asset gerekmedi, yeni envanter ihtiyacı yok. Antigravity DIY-14/CAT-01 ve diğer sahiplikler korundu. ds yolları yok, önceki istisnayla eşitlenmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — ZAR-06 tamamlandı (Kalfa)
 
 Zarsız sezgi mevcut CHR sohbet adaptörüne bağlandı. `src/soz/muhafiz_sezgisi.gd` veri dosyasındaki tek tecrübe eşiğini (4) ve ACL-06 geçmişini okur; DYL-02 aynı `esik()/esik_gecti()` erişimini kullanacak. Tüm mevcut 30 derlenmiş CHR için kaynağın `gorsel_hata` metni ve mevcut `gorsel_hata_ipucu` Clue kimliği okunur. Yeni replik, yeni ipucu adı veya sır kimliği uydurulmadı; gelecekte yeni/ dürüst çekirdeklerin sınıflaması DIY-01a onayı ve içerik hattındadır. Liste dışındaki/dürüst karaktere sezgi zorunlu kılınmadı.

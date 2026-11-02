@@ -1,3 +1,13 @@
+## 2 Kasım 2026 — DIY-15 tamamlandı (Kalfa)
+
+Muhafız seçenek tonu mevcut CHR paneline ince adaptörle bağlandı. Yeni `src/soz/muhafiz_tonu.gd`, mevcut ODA `MuhafizTerazisi` skorunu ve aynı veri eşiklerini okur: adil/sert/yoz. ACL-06 geçmişine özel seçenek geçmiş yoksa görünmez. Ton alanı olmayan mevcut içerik nötr kalır. Üç varyant metin anahtarı zorunludur; boş/kayıp metin veya farklı mekanik etki reddedilir. Ton varyantında hedef/zar/tansiyon gibi mekanik alanlara izin verilmez; seçenek kökünün etkisi tek kaynak kalır. Eksik ton CHR sözleşmesi ve gerçek panel yüklemesinde reddedilir. Karşı tepki DIY-09 SatirSecici üzerinden, ziyaret başındaki aynı bağlamla seçilir; ikinci ton/tepki motoru yok.
+
+Yeni üretim repliği veya geçmiş mevcut CHR kaynaklarına yazılmadı. Gerçek panelin üç tonu işlemesi test fikstüründe doğrulandı; metin yazımı kendi YAZ hattında ve DIY-01a'nın bekleyen içerik onayındadır. Bu iş onay bekleyen ana konuşma şemasını/motorunu kurmaz. Mevcut içerik ton verisi taşımadığından kendi nötr metinleriyle çalışır.
+
+Kanıt: `work/diy15_unit.log`: adil/yoz anahtar farkı, etki değişmezliği, orta sert, boş yoz tam 1 hata, farklı etki tam 1 hata, geçmiş kapısı/nötr ve bağlamsal tepki. `diy15_panel.log`: gerçek panel üç farklı metin, aynı hedef/tansiyon sonucu; kayıp metinle seçenek yüklenmez. `diy15_sezgi.log`: gerçek CHR/sezgi adaptörü regresyonu. `diy15_chr.log`: mevcut CHR sorgu testi. Dört hedefli kontrol ve recovery headless import (`diy15_import_final.log`) geçti. Kapanıştaki devam eden foley örneği nedeniyle ilk testte kaynak ömrü uyarısı görüldü; test teardown'u sesin bitişini bekler, son iki panel logu hatasız/uyarısız. Tam sanity/görünür Godot yok.
+
+İnceleme: yalnız metin/tepki seçimi, ortak etki değişmez, eşik kopyalanmaz; optional alanı olmayan mevcut sahneler aynı kalır. Asset gerekmedi, yeni envanter ihtiyacı yok. Antigravity DIY-14/CAT-01 ve diğer sahiplikler korundu. ds yolları yok, önceki istisnayla eşitlenmedi. kota görünmüyor.
+
 ## 2 Kasım — DIY-15 başladı (Kalfa)
 
 DIY-14 Antigravity sahipliğinde; bağımlılığı hazır DIY-15 alındı. Mevcut ODA terazi eşikleri ve ACL-06 geçmişinden seçenek tonu seçilecek, etki ortak kalacak. Tonlanmamış mevcut metin nötr kalır; yeni replik/içerik yazılmayacak. DIY-01a onayı henüz yok, ana şema kurulmayacak. Asset gerekmedi. kota görünmüyor.

@@ -19,6 +19,8 @@ static func karakter_hatalari(k: KarakterVerisi) -> PackedStringArray:
 		hatalar.append("Başlangıç tansiyonu 1–3 olmalı")
 	hatalar.append_array(karar_hatalari(k.karar_matrisi))
 	hatalar.append_array(diyalog_hatalari(k.diyalog_dugumleri))
+	for d in k.diyalog_dugumleri.values():
+		if d is Dictionary: hatalar.append_array(preload("res://src/soz/muhafiz_tonu.gd").dugum_hatalari(d, k.metinler))
 	hatalar.append_array(bayrak_hatalari(k.sorgu_bayraklari))
 	hatalar.append_array(gecikmeli_hatalari(k.gecikmeli_etkiler))
 	hatalar.append_array(spawn_hatalari(k.sonraki_spawns))
