@@ -53,6 +53,14 @@ class TranslationCSVTest(unittest.TestCase):
             with self.subTest(row=row):
                 self.assertTrue(MODULE.validate_text('keys,tr\n'+row+'\n'))
 
+    def test_yaz77_turkish_required_english_optional(self):
+        for tr in ('', '   '):
+            with self.subTest(tr=tr):
+                errors = MODULE.validate_text(f'keys,tr,en\narayuz.deneme.satir,{tr},English\n')
+                self.assertEqual(1, len(errors), errors)
+                self.assertIn('empty Turkish', errors[0])
+        self.assertEqual([], MODULE.validate_text('keys,tr,en\narayuz.deneme.satir,Türkçe,\n'))
+
     def test_missing_file(self):
         self.assertTrue(MODULE.validate_file(PATH.parent / 'does-not-exist.csv'))
 

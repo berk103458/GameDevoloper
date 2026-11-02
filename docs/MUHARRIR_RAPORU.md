@@ -1,3 +1,9 @@
+## 2 Kasım 2026 — YAZ-77 tamamlandı (Kalfa)
+
+Mevcut YER-04/SYS-09 CSV doğrulayıcısı boş veya yalnız boşluk içeren Türkçe hücreye tam bir hata verir; İngilizce hücrenin boş kalması geçerlidir. Mevcut test paketine bu bağımsız kabul fikstürü eklendi. CSV/oyun metni/çeviri/üretim kodu değişmedi. Asset gerekmedi. kota görünmüyor.
+
+Kanıt: python -B -m unittest discover -s tests/tools -p test_metin_dogrula.py: 21 test geçti. python -B tools/metin_dogrula.py: gerçek metinler.csv PASS. GDScript/sahne değişmedi; KAY-71 temiz headless importu geçerli. Tam sanity/görünür pencere yok. ds yolları yok, eşitlenmedi. Söz motoru beklemede; diğer ajan sahiplikleri korunur.
+
 ## 2 Kasım 2026 — KAY-71 tamamlandı (Kalfa)
 
 Mevcut Ana ekran geçişi kapı/köy ekranını tek node grubunda işaretler; eski ekranın işareti geçişte kaldırılır. Göç yürütücüsü UI sınıfı import etmeden bu grubu okur. Gerçek sürüm dönüşümü aktif oyun ekranında hiçbir ara adımı çağırmadan geliştirme hatasıyla reddedilir. Güncel sürümün adımsız doğrulaması göç değildir ve eski kayıt ikizi API'si korunur. Açık Ana.devam_et isteği önce yükleme aşamasına geçer, sonra göç eder; oyuncu yüklemesi engellenmez. Yeni motor, zamanlayıcı veya kare başı tarama yok.
