@@ -3275,7 +3275,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-12, KAY-50. Boyut: S.
   - Dosya: `src/sistemler/dedikodu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-71:** Göç, oyun karesinde çalışmaz.
+- [/] **KAY-71:** Göç, oyun karesinde çalışmaz. (Kalfa)
   - Ne: göç yükleme adımındadır. Kapı veya köy sahnesi açıkken göç fonksiyonu çağrılmaz.
   - Kabul: göç yükleme adımındadır. Kapı veya köy sahnesi açıkken göç fonksiyonu çağrılmaz. Test: sahnedeyken çağrı geliştirme hatasıdır.
   - Bağımlılık: KAY-03. Boyut: S.

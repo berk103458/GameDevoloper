@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-71 başladı (Kalfa)
+
+Mevcut Ana ekran geçişi oyun ekranını grup üzerinden işaretleyecek; gerçek sürüm adımı aktif kapı/köy ekranında geliştirme hatasıyla reddedilecek. Menü/yükleme ve adımsız güncel kayıt doğrulaması korunur. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-59 tamamlandı (Kalfa)
 
 Mevcut tests/unit/kayit/soz_ikiz_test.gd tek komutta v2 fikstürünü kendi kurar, eksik eski alanlarla gerçek Oturum yüklemesinden geçirir, güncel sürüm 3/gün 9/tek kişi sonucunu ve kaynak verinin değişmediğini doğrular. Oyuncu dosyası veya ikinci göç aracı yok. Asset gerekmedi. kota görünmüyor.
