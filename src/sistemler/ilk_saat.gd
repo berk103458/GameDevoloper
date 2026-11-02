@@ -107,6 +107,25 @@ func zar_ipucu_kontrol(guncel_gece: int) -> Dictionary:
 	}
 
 
+## OGR-21: Ilk insa denemesinde kaynak yetmezse kaynagin nereden geldigini (tas yatagi, oduncu) bir kez soyler.
+## Yeterli kaynakla 0 doner; yetersiz kaynakla ilk denemede 1, sonraki denemelerde 0 doner.
+func insa_kaynak_uyarisi(kaynak_yeterli: bool, eksik_kaynak: String = "tas") -> Dictionary:
+	if kaynak_yeterli or _gorulen.has("insa_kaynak_uyarisi"):
+		return {"ipucu_sayisi": 0, "metin": ""}
+	_gorulen["insa_kaynak_uyarisi"] = true
+	var norm := eksik_kaynak.strip_edges().to_lower()
+	var kaynak_yeri := "taş yatağı ve oduncu"
+	if norm == "tas":
+		kaynak_yeri = "taş yatağı"
+	elif norm == "odun":
+		kaynak_yeri = "oduncu"
+	return {
+		"ipucu_sayisi": 1,
+		"metin": "Kaynak yetmiyor; %s üzerinden temin edilir." % kaynak_yeri,
+		"kaynak_yeri": kaynak_yeri,
+	}
+
+
 func gorulen_ipuclari() -> Array[String]:
 	var sonuc: Array[String] = []
 	for k in _gorulen.keys():

@@ -441,3 +441,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `tests/unit/sistemler/ilk_saat_test.gd` güncellendi.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OGR-21 — Taş ve odun kilidi ilk inşa denemesinde uyarır (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OGR-21`
+- **Yapılanlar:**
+  - `src/sistemler/ilk_saat.gd` içine yetersiz kaynakla ilk inşa denemesinde kaynağın nereden geldiğini (`taş yatağı`, `oduncu`) bir kez bildiren ve yeterli kaynakta 0 dönen `insa_kaynak_uyarisi` eklendi.
+  - `tests/unit/sistemler/ilk_saat_test.gd` güncellendi.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.

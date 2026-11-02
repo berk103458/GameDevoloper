@@ -39,6 +39,12 @@ func _initialize() -> void:
 	_kontrol(IlkSaatSinifi.tehdit_baslangic_gunu() == 18 and TehditTakvimi.acik(18) and not TehditTakvimi.acik(17), "BUG-18 sabiti degisince IlkSaat ve TehditTakvimi birlikte degismeli")
 	TehditTakvimi.AYAR["tehdit_baslangic_gunu"] = eski_tehdit
 
+	# OGR-21: Yeterli kaynakla 0, yetersiz kaynakla ilk denemede 1 kez, ikincisinde 0
+	ilk.sifirla()
+	_kontrol(int(ilk.insa_kaynak_uyarisi(true, "tas").get("ipucu_sayisi", -1)) == 0, "Yeterli kaynakla insa uyarisi 0 olmali")
+	_kontrol(int(ilk.insa_kaynak_uyarisi(false, "tas").get("ipucu_sayisi", 0)) == 1, "Yetersiz kaynakla ilk denemede insa uyarisi 1 olmali")
+	_kontrol(int(ilk.insa_kaynak_uyarisi(false, "odun").get("ipucu_sayisi", -1)) == 0, "Yetersiz kaynakla ikinci denemede insa uyarisi 0 olmali")
+
 	# Ilk alti gecede (gece 0..5) tum kavramlar tetiklendiginde gosterilen ipucu sayisi kavram sayisiyla esittir
 	ilk.sifirla()
 	var gosterilen := 0
