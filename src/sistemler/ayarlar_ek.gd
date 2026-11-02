@@ -121,7 +121,7 @@ static func argumanlari_uygula(a: Ayarlar, argumanlar: PackedStringArray = OS.ge
 			continue
 		var anahtar := StringName(cift.substr(0, esit).strip_edges())
 		var ham_deger := cift.substr(esit + 1).strip_edges()
-		var deger := _metin_deger_coz(ham_deger)
+		var deger: Variant = _metin_deger_coz(ham_deger)
 		if _anahtar_gecerli_mi(a, anahtar, deger):
 			if not a.has_meta(&"gercek_yol"):
 				a.set_meta(&"gercek_yol", a.yol)

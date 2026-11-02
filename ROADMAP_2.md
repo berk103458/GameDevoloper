@@ -3290,7 +3290,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
 
 ### 31.10 Geri alma
 
-- [/] **KAY-55:** Başarısız göç yedeği geri getirir. (Kalfa)
+- [x] **KAY-55:** Başarısız göç yedeği geri getirir. (Kalfa)
   - Ne: oyuncu kısa bir hata görür. Ana dosya göç öncesidir.
   - Kabul: oyuncu kısa bir hata görür. Ana dosya göç öncesidir. Test: hatalı göçten sonra sürüm numarası eskisidir.
   - Bağımlılık: KAY-05, SYS-02. Boyut: S.

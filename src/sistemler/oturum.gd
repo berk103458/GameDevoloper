@@ -774,7 +774,7 @@ func kaydet() -> Dictionary:
 static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	veri = preload("res://src/sistemler/kayit_gocu.gd").uygula(veri, katalog_.koy_ayarlari.mevsim_gun)
 	if veri.is_empty():
-		push_error("Kayıt sürümü uyuşmuyor")
+		push_warning("Kayıt göçü veya doğrulaması başarısız; kayıt dosyaları korundu")
 		return null
 	var o := Oturum.new(katalog_, String(veri["tohum"]).to_int())
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(o, preload("res://src/sistemler/oturum_fazi.gd").oku(veri.get("faz")))
