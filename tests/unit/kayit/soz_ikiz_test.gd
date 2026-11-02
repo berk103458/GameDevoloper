@@ -8,6 +8,7 @@ func dene(v: bool, ad: String) -> void:
 func _initialize() -> void:
 	var kat := Katalog.new()
 	kat.yukle()
+	_goc_fixturu(kat)
 	_kasalar(kat)
 	_takvim(kat)
 	_sonlar(kat)
@@ -33,7 +34,7 @@ func _initialize() -> void:
 		dene(o.gun == 9 and o.dedikodu.pusula_satirlari(9).size() == 1, "Gerçek üçüncü gecede tek yayın")
 	# JSON sayıları float açar; karşılaştırmanın iki tarafını aynı sınırdan geçir.
 	dene(JSON.parse_string(JSON.stringify(asil.dedikodu.kaydet())) == a.dedikodu.kaydet() and a.dedikodu.kaydet() == b.dedikodu.kaydet(), "Kayıtsız ve yüklenmiş zaman çizgileri aynı")
-	print("KAYIT İKİZİ (KAY-23/45/46/47/65/66/67/68): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47/65/66/67/68): KALDI")
+	print("KAYIT İKİZİ (KAY-23/45/46/47/59/65/66/67/68): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47/59/65/66/67/68): KALDI")
 	quit(hata)
 
 func _kasalar(kat: Katalog) -> void:
@@ -221,3 +222,21 @@ func _tehdit_takvimi(kat: Katalog) -> void:
 			var yeni_olaylar: Array[Dictionary] = []
 			MogolOncusu.gece(geri, {"gun":gun - 1, "olaylar":yeni_olaylar})
 			dene(yeni_olaylar.is_empty(), "Aynı gece yüklemesi uyarıyı tekrarlamaz")
+
+func _goc_fixturu(kat: Katalog) -> void:
+	# KAY-59: tek test komutu v2 fikstürünü kendisi kurar; oyuncu dosyası yok.
+	var o := Oturum.new(kat, 3159)
+	o.yonetim.gun = 9
+	o.yonetim.kabul({"ad":"Göç fikstürü"})
+	var veri: Dictionary = JSON.parse_string(JSON.stringify(o.kaydet()))
+	veri.surum = 2
+	for alan in ["muhafiz_akce", "muhafiz_esyalari", "muhafiz_tecrubesi", "mevsim", "yeni_binalar"]:
+		veri.erase(alan)
+	var once := veri.duplicate(true)
+	var geri := Oturum.kayittan(kat, veri)
+	dene(geri != null, "Tek komut v2 fixtürünü gerçek Oturum yolundan göçtürür")
+	if geri == null: return
+	dene(int(geri.kaydet().surum) == Oturum.KAYIT_SURUMU, "Göç çıktısı güncel kayıt sürümüdür")
+	dene(geri.gun == 9 and geri.yonetim.nufus() == 1, "Tek komut fixtürünün günü ve kişisi korunur")
+	dene(veri == once and int(veri.surum) == 2, "Test eski fixtürü el ile dönüştürmez")
+	print("KAY-59 GÖÇ FİKSTÜRÜ: 2 -> %d" % int(geri.kaydet().surum))
