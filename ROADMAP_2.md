@@ -550,7 +550,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
   - Dosya: yeni `src/soz/baglam_sorgusu.gd`; okuduğu yöneticiler değişmez.
   - Asset: asset gerekmedi.
 
-- [ ] **DIY-09:** Kural tablosu ile bağlamsal satır seçimi.
+- [/] **DIY-09:** Kural tablosu ile bağlamsal satır seçimi. (Antigravity)
   - Ne: Bir satırın birden çok varyantı varsa en çok koşulu tutan seçilir. Eşit sayıda tutan iki varyantta `oncelik` kazanır. Hiçbiri tutmazsa varsayılan gelir; varsayılan yoksa satır susar. Kısmi tutma sayılmaz.
   - Kurallar:
     1. Bir satırın birden çok varyantı olabilir. Her varyantın koşulları DIY-08 sözlüğündendir.
