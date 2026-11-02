@@ -831,7 +831,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.2 Dört seçenek
 
-- [ ] **CAT-02:** Kavga seçenekleri — askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme.
+- [/] **CAT-02:** Kavga seçenekleri — askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. (Antigravity)
   - Ne: Kapıdaki kavgada oyuncu dört yoldan birini seçer: askerle karşılık, akçeyle erteleme, sözle yatıştırma veya reddetme. Askerle karşılık zar atar ve yaralanma, ölüm, kaçış ya da kin bırakır. Akçe yetmezse erteleme kilitli görünür. Beşinci seçenek yoktur. Kalp alanı yazılmaz.
   - Kurallar:
     1. Dört seçenek vardır: askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. Beşinci seçenek yazılamaz.
