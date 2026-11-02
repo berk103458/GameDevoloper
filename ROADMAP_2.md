@@ -814,7 +814,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.1 Kavga ne zaman
 
-- [/] **CAT-01:** Geri çevrilen kavga çıkarabilir. (Antigravity)
+- [x] **CAT-01:** Geri çevrilen kavga çıkarabilir. (Antigravity)
   - Ne: Yer yokluğu veya sert ret, tip listesindeki genç erkek, aç aile reisi ya da asker kaçağında kavga isteği doğurur. Kavga yalnız kapıda ve en az bir asker varken açılır. Asker yoksa kişi tehdit edip gider; tanık varsa bu gidiş dedikoduya yazılır. Köy meydanı, şifahane ve divanda kavga sahnesi yoktur. Heyet sırasında kavga açılmaz.
   - Kurallar:
     1. Kavga isteği iki koşulla doğar: yer yokluğu veya sert ret; karakter tipi genç erkek, aç aile reisi veya asker kaçağı. Tip veridedir.

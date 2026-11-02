@@ -264,3 +264,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: `tests/unit/kapi/hatirlanma_notu_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
 - Açık kalan: yok.
 - kota görünmüyor
+
+### 2 Kasım — CAT-01 kapatıldı (hedefli test)
+- `data/kapi_kavgasi.json` ve `src/kapi/kapi_kavgasi.gd` (`KapiKavgasi`): yer yokluğu ve sert ret durumlarında genç erkek, aç aile reisi ve asker kaçağı tiplerinde kavga tetikleme kuralları eklendi.
+- Askersiz köyde kavga sahnesi açılmaz, kişi tehdit edip gider ve tanık varsa `Dedikodu` (DIY-13) kaydı yazılır; tip dışı ret sıradan rettir; köy meydanı/şifahane/divan ve heyet sırasında kavga açılmaz; aynı kişi aynı gün ikinci istek üretmez.
+- Test: `tests/unit/kapi/kapi_kavgasi_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
+- Açık kalan: yok.
+- kota görünmüyor

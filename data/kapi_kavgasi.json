@@ -1,0 +1,33 @@
+{
+  "kavga_tipleri": [
+    "genc_erkek",
+    "ac_aile_reisi",
+    "asker_kacagi"
+  ],
+  "kavga_nedenleri": [
+    "yer_yoklugu",
+    "sert_ret"
+  ],
+  "izinli_mekan": "kapi",
+  "yasak_mekanlar": [
+    "koy_meydani",
+    "sifahane",
+    "divan"
+  ],
+  "asgari_asker": 1,
+  "secenekler": [
+    "askerle_karsilik",
+    "akceyle_erteleme",
+    "sozle_yatistirma",
+    "reddetme"
+  ],
+  "erteleme_akce_bedeli": 2,
+  "erteleme_donus_gun_araligi": [2, 4],
+  "azami_acik_soz": 5,
+  "karsilik_sonuc_tablosu": {
+    "kritik_basari": "kacti",
+    "basari": "yaralanma",
+    "basarisiz": "kin",
+    "kritik_basarisiz": "olum"
+  }
+}
