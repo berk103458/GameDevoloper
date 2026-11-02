@@ -1,3 +1,7 @@
+## 2 Kasım 2026 — ACL-06 başladı (Kalfa)
+
+Tüm remote dallar fetch edildi; festive pull --rebase güncel. ACL-03 bağımlılıkları bekliyor; ACL-06 alındı. Dört geçmiş, tek kayıt kimliği ve mevcut açılışa ince adaptör hazırlanıyor. YAP-02/DYL-06 için veri erişimi; ikinci motor yok. Asset gerekmedi. Yalnız headless hedefli test. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 # Kalfa — Çalışma günlüğü (Kapı Muhafızı)
 
 ## Kimlik
