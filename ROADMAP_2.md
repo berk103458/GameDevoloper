@@ -3320,14 +3320,14 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-03. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [/] **KAY-60:** Sürüm atlaması bu dosyada yazılı onay ister. (Kalfa)
+- [x] **KAY-60:** Sürüm atlaması bu dosyada yazılı onay ister. (Kalfa)
   - Ne: ara adım silinmeden sürüm atlanmaz. Atlama kararı bu bölümün sonuna bir satır olarak yazılır. Satır yoksa KAY-03 atlamayı reddeder.
   - Kabul: ara adım silinmeden sürüm atlanmaz. Atlama kararı bu bölümün sonuna bir satır olarak yazılır. Satır yoksa KAY-03 atlamayı reddeder. Test: onaysız atlama hatası.
   - Bağımlılık: KAY-03. Boyut: S.
   - Dosya: `ROADMAP_2_BOLUM_31.md` karar satırı, kod `kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
 
-Onay satırı henüz yok. Sürüm atlanmaz.
+Onay satırı henüz yok. Sürüm atlanmaz. KAY-60 denetimi (Kalfa): bu başlık bir atlama onayı değildir; mevcut yürütücü yalnız +1 adım kabul eder. Kayıt içindeki onay alanı yetki sayılmaz.
 
 
 ---

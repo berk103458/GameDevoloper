@@ -30,6 +30,13 @@ func _initialize() -> void:
 	cagrilar.clear()
 	dene(z.uygula(kaynak, 3, {1:func(v: Dictionary) -> Dictionary: v.surum = 3; return v}).is_empty(), "Sürüm atlayan adım reddedilir")
 	dene(z.uygula(kaynak, 3, {1:_adim_1}).is_empty(), "Ara adım eksikse zincir kapanır")
+	# KAY-60: kaydın kendi beyanı proje onayı değildir; ara adım silinemez.
+	var sahte_onay := kaynak.duplicate(true)
+	sahte_onay["surum_atlama_onayi"] = true
+	var onay_once := sahte_onay.duplicate(true)
+	dene(z.uygula(sahte_onay, 3, {1:func(v: Dictionary) -> Dictionary: v.surum = 3; return v}).is_empty(), "Kayıttaki sahte onay sürüm atlatmaz")
+	dene(sahte_onay == onay_once, "Reddedilen atlama kaynak alanları değiştirmez")
+	dene(z.uygula(kaynak, 4, {1:_adim_1, 3:func(v: Dictionary) -> Dictionary: v.surum = 4; return v}).is_empty(), "Ortadaki silinmiş adım sonraki adıma sıçramaz")
 	dene(z.uygula(kaynak, 3, {1:func(_v: Dictionary): return null}).is_empty(), "Boş adım sonucu reddedilir")
 	dene(z.uygula(kaynak, 3, {1:Callable()}).is_empty(), "Geçersiz çağrı reddedilir")
 	dene(z.uygula({"surum":4}, 3, {}).is_empty(), "Gelecek sürüm geriye göçmez")
