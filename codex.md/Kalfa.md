@@ -1,3 +1,7 @@
+## 2 Kasım — ISG-02 su hedefi regresyon düzeltmesi (Kalfa)
+
+ISG-01 kaynak incelemesinde su işinin data koşulunda bulunmayan kuyu türü fark edildi. Önceki model fikstürü sentetik tür kurduğu için kaçtı. ISG-02 yeniden açık; gerçek katalog erişilebilirliğine dayalı test eklenecek ve su koşulu mevcut köy yapıları/var olan su akışına bağlanacak. ISG-01 sahipliği sürüyor. kota görünmüyor.
+
 ## 2 Kasım — ISG-01 başladı (Kalfa)
 
 ISG-02 tablosu bbab61c9 kabulüyle hazır. Gelen kişinin mesleği için hazır yapı yoksa mevcut karar panelinde salt okunur uyarı gösterilecek; kabul kapanmaz, kayıt/tüketim değişmez. Yeni asset gerekmez. Söz motoru beklemede. kota görünmüyor.
