@@ -3071,7 +3071,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: ACL-02, ACL-06. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-29:** Yatak ve açıkta kalan sayısı durur.
+- [/] **KAY-29:** Yatak ve açıkta kalan sayısı durur. (Kalfa)
   - Ne: ACL-05 sayıları yüklemede aynıdır. Göç kimseyi içeri veya dışarı almaz.
   - Kabul: ACL-05 sayıları yüklemede aynıdır. Göç kimseyi içeri veya dışarı almaz. Test: açıkta kalan sayısı eşit.
   - Bağımlılık: ACL-05. Boyut: S.

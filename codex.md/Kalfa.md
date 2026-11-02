@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-29 başladı (Kalfa)
+
+Mevcut ACL-05 hesapları gerçek JSON yükleme ve SYS-14 v2–v3 göçünde karşılaştırılacak. Yeni barındırma/motor yok. Asset gerekmedi. kota görünmüyor. Ana Ahmet kopyası KAY-23 yayınına güvenli fast-forward edildi.
+
 ## 2 Kasım 2026 — KAY-23 tamamlandı (Kalfa)
 
 Gerçek Oturum JSON ikizi: 6. gecede doğan tanıklı dedikodu 8. gecede kaydedilip iki kez yüklendi. Yaşı iki gece, tanığı ve 9. gece yayılma tarihi korunur; yükleme yayın/basım yapmaz. Kaynak oturum ve iki ikiz gerçek gece_sonu sonrasında aynı tek yayını üretir. Yeni Söz motoru veya üretim kodu eklenmedi. Asset gerekmedi. kota görünmüyor.
