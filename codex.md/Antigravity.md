@@ -522,3 +522,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   4. `tools/metin_dogrula.py` içine `ogretici.*` ≤ 90 karakter (`OGR-08`) ve `"F1"` yasağı (`OGR-55`) kuralları eklendi; `tools/godot_script_taramasi.py` içine çekirdek 4 dosyada `ogretici.` anahtarı yasağı (`OGR-53`) eklendi.
   5. Asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+## 13 Ekim 2026 — AYR-28, AYR-29, AYR-31, AYR-32 ve AYR-33 (Üç Kayıt Yuvası, Yuva Kartı, Otomatik Kayıt ve İki Adımlı Silme)
+- **Ne yapıldı (`AYR-28`, `AYR-29`, `AYR-31`, `AYR-32`, `AYR-33`):**
+  1. `src/sistemler/kayit_yuvalari.gd` (`KayitYuvalari`, `AYR-28`, `AYR-32`) oluşturuldu: üç kayıt yuvası (`kayit_1.json`..`kayit_3.json`), eski `kayit.json` dosyasını silmeden yuva 1'e göç ettirme ve onaylı silmede `cop/` dizinine taşıyıp bir sonraki açılışta temizleme eklendi.
+  2. `src/arayuz/kayit_yuva_karti.gd` (`KayitYuvaKarti`, `AYR-29`, `AYR-33`) oluşturuldu: gün, nüfus, perde, son kayıt saati ve muhafız geçmişi alanlarını okur; bozuk dosyada `"okunamadı"`, ileri sürümde `"yeni sürüm kaydı"` yazar ve çökmez.
+  3. `src/sistemler/ayarlar_ek.gd` içine `otomatik_kayit` (`her_gece`/`uc_gecede_bir`/`kapali`) ve `otomatik_kayit_yazilmali_mi` (`AYR-31`) eklendi.
+  4. `tests/unit/sistemler/ayarlar_ek_test.gd` güncellendi ve Godot headless ile 0 hata doğrulandı.
+  5. Asset gerekmedi.
+- **Kota:** kota görünmüyor

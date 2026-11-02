@@ -4839,13 +4839,13 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.6 Kayıt: yuva, hızlı kayıt, otomatik kayıt
 
-- [/] **AYR-28:** Üç kayıt yuvası. (Antigravity)
+- [x] **AYR-28:** Üç kayıt yuvası. (Antigravity)
   - Ne: `kayit_deposu.gd` tek dosya kalır; üstüne `kayit_yuvalari.gd` üç yol verir (`user://kayit_1.json` … `_3`). Eski `user://kayit.json` ilk yuvaya göç eder (KAY zinciri).
   - Kabul: üç yuva; eski dosya varsa yuva 1'de görünür, silinmez. Test: göç birimi.
   - Bağımlılık: KAY-04, SYS-01. Boyut: M.
   - Dosya: yeni: `src/sistemler/kayit_yuvalari.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-29:** Yuva kartı. (Antigravity)
+- [x] **AYR-29:** Yuva kartı. (Antigravity)
   - Ne: her yuvada gün, nüfus, perde, son kayıt saati ve muhafızın geçmişi (ACL-06) yazar; ekran görüntüsü yok.
   - Kabul: beş alan kayıt başlığından okunur; bozuk kayıt "okunamadı" yazar, çökmez. Test: bozuk dosya.
   - Bağımlılık: AYR-28. Boyut: S.
@@ -4857,19 +4857,19 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: KAY-30, GIR-03. Boyut: S.
   - Dosya: yeni: `src/sistemler/hizli_kayit.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-31:** Otomatik kayıt ayarı. (Antigravity)
+- [x] **AYR-31:** Otomatik kayıt ayarı. (Antigravity)
   - Ne: gece sonu kaydı (mevcut) korunur; `otomatik_kayit` anahtarı her gece / üç gecede bir / kapalı. Kapalıyken yalnız elle kayıt.
   - Kabul: üç gecede bir seçiliyken dosya saati üç gecede değişir. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`; gece sonu kayıt çağrısına tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-32:** Silme iki adımdır. (Antigravity)
+- [x] **AYR-32:** Silme iki adımdır. (Antigravity)
   - Ne: yuva silme onay ister; silinen dosya `user://cop/` altına taşınır, bir sonraki açılışta temizlenir.
   - Kabul: silme sonrası `cop/` içinde dosya 1; ikinci açılışta 0. Test: birim.
   - Bağımlılık: AYR-28. Boyut: S.
   - Dosya: `src/sistemler/kayit_yuvalari.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-33:** Uyumsuz kayıt açılmaz, açıklanır. (Antigravity)
+- [x] **AYR-33:** Uyumsuz kayıt açılmaz, açıklanır. (Antigravity)
   - Ne: `KAYIT_SURUMU` ileri olan dosya yuva kartında "yeni sürüm kaydı" yazar; açılmaz, silinmez.
   - Kabul: sürüm 99 dosyası → kart uyarısı, çökme 0. Test: birim.
   - Bağımlılık: AYR-29, KAY-04. Boyut: S.

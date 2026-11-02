@@ -13,6 +13,7 @@ const VARSAYILAN := {
 	&"metin_agirligi": 400,
 	&"koy_hizi_varsayilan": 1,
 	&"arka_planda_sustur": true,
+	&"otomatik_kayit": &"her_gece",
 }
 ## Seçenekli ek anahtarların geçerli değerleri.
 const GECERLI := {
@@ -20,10 +21,11 @@ const GECERLI := {
 	&"metin_agirligi": [400, 500],
 	&"koy_hizi_varsayilan": [1, 2, 3],
 	&"arka_planda_sustur": [true, false],
+	&"otomatik_kayit": [&"her_gece", &"uc_gecede_bir", &"kapali"],
 }
 ## AYR-05: Sekme başına sıfırlanacak anahtar kümeleri.
 const SEKME_ANAHTARLARI := {
-	&"oyun": [&"koy_hizi_varsayilan", &"kamera_eksen_ters"],
+	&"oyun": [&"koy_hizi_varsayilan", &"kamera_eksen_ters", &"otomatik_kayit"],
 	&"goruntu": [&"ekran_modu", &"grafik_profili", &"cozunurluk_3d"],
 	&"okuma": [&"metin_olcegi", &"belirme_hizi", &"satir_araligi", &"metin_agirligi"],
 	&"ses": [&"ses_ana", &"ses_muzik", &"ses_efekt", &"arka_planda_sustur"],
@@ -94,6 +96,24 @@ static func sekme_sifirla(a: Ayarlar, sekme: StringName, onaylandi: bool = true)
 			a.degerler[anahtar] = VARSAYILAN[anahtar]
 	a.uygula()
 	a.degisti.emit(sekme)
+	return true
+
+
+## AYR-31: Gece sonu otomatik kayit kosulunu denetler (`her_gece`, `uc_gecede_bir`, `kapali`).
+static func otomatik_kayit_yazilmali_mi(a: Ayarlar, gece_no: int) -> bool:
+	var mod: StringName = &"her_gece"
+	if a != null:
+		var ham: Variant = a.al(&"otomatik_kayit")
+		if ham != null:
+			mod = StringName(ham)
+	if mod == &"kapali":
+		return false
+	if mod == &"uc_gecede_bir":
+		return gece_no > 0 and (gece_no % 3 == 0)
+	return true
+
+
+static func _eski_kalan() -> bool:
 	return true
 
 

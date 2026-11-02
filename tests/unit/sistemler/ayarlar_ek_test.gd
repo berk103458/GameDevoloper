@@ -4,6 +4,8 @@ extends SceneTree
 
 const YOL := "user://test_ayar_ek.cfg"
 const OdakSesiSinifi = preload("res://src/sistemler/odak_sesi.gd")
+const KayitYuvalariSinifi = preload("res://src/sistemler/kayit_yuvalari.gd")
+const KayitYuvaKartiSinifi = preload("res://src/arayuz/kayit_yuva_karti.gd")
 
 var hata := 0
 
@@ -121,6 +123,46 @@ func _calistir() -> void:
 	_kontrol(not aralik_disi and d.al(&"koy_hizi_varsayilan") == 1, "AYR-44: aralık dışı değer ayarla() ile reddedilir")
 	_kontrol(not tur_yanlis and d.al(&"metin_agirligi") == 400, "AYR-44: tür yanlışsa varsayılan kalır")
 	_kontrol(AyarlarEk.gecersizler.size() == 3, "AYR-44: reddedilen her değer tek satır")
+
+	# --- AYR-31: Otomatik kayıt ayarı (`her_gece`, `uc_gecede_bir`, `kapali`)
+	AyarlarEk.ayarla(d, &"otomatik_kayit", &"uc_gecede_bir")
+	_kontrol(not AyarlarEk.otomatik_kayit_yazilmali_mi(d, 1) and not AyarlarEk.otomatik_kayit_yazilmali_mi(d, 2) and AyarlarEk.otomatik_kayit_yazilmali_mi(d, 3), "AYR-31: üç gecede bir seçiliyken yalnız 3. gecede kayıt yazılır")
+	AyarlarEk.ayarla(d, &"otomatik_kayit", &"kapali")
+	_kontrol(not AyarlarEk.otomatik_kayit_yazilmali_mi(d, 3), "AYR-31: kapalıyken otomatik kayıt yazılmaz")
+
+	# --- AYR-28 & AYR-32: Üç kayıt yuvası, eski kaydın yuva 1'e göçü, iki adımlı silme ve cop temizliği
+	var test_kok := "user://test_yuvalar/"
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(test_kok))
+	for eski_kalinti in ["kayit.json", "kayit_1.json", "kayit_2.json", "kayit_3.json"]:
+		if FileAccess.file_exists(test_kok + eski_kalinti):
+			DirAccess.remove_absolute(ProjectSettings.globalize_path(test_kok + eski_kalinti))
+	KayitDeposu.new(test_kok + "kayit.json").yaz({"surum": Oturum.KAYIT_SURUMU, "gun": 4, "nufus": 9, "perde": 1, "muhafiz_gecmisi": "katip"})
+	var yuvalar := KayitYuvalariSinifi.new(test_kok)
+	_kontrol(yuvalar.tum_yuva_yollari().size() == 3, "AYR-28: üç kayıt yuvası vardır")
+	_kontrol(yuvalar.var_mi(1) and FileAccess.file_exists(test_kok + "kayit.json"), "AYR-28: eski dosya varsa yuva 1'de görünür ve eski dosya silinmez")
+	_kontrol(not yuvalar.yuva_sil(1, false) and yuvalar.var_mi(1), "AYR-32: onaysız yuva silinmez")
+	_kontrol(yuvalar.yuva_sil(1, true) and not yuvalar.var_mi(1) and yuvalar.cop_dosya_sayisi() == 1, "AYR-32: silme sonrası cop/ içinde dosya 1")
+	var yuvalar_ikinci := KayitYuvalariSinifi.new(test_kok)
+	_kontrol(yuvalar_ikinci.cop_dosya_sayisi() == 0, "AYR-32: ikinci açılışta cop/ içindeki dosya 0")
+
+	# --- AYR-29 & AYR-33: Yuva kartı 5 alan, bozuk dosya "okunamadı", sürüm 99 "yeni sürüm kaydı"
+	var kart := KayitYuvaKartiSinifi.new(2)
+	yuvalar_ikinci.yaz(2, {"surum": Oturum.KAYIT_SURUMU, "gun": 7, "nufus": 12, "perde": 1, "son_kayit_saati": "2026-10-13T21:00:00", "muhafiz_gecmisi": "eski_levent"})
+	var ozet_hazir := kart.dosyadan_yukle(yuvalar_ikinci.yuva_yolu(2))
+	_kontrol(bool(ozet_hazir.get("acilabilir", false)) and int(ozet_hazir.get("gun", 0)) == 7 and int(ozet_hazir.get("nufus", 0)) == 12 and int(ozet_hazir.get("perde", 0)) == 1 and String(ozet_hazir.get("gecmis", "")) == "eski_levent", "AYR-29: beş alan kayıt başlığından okunur")
+	var bozuk_yol := test_kok + "bozuk.json"
+	var bf := FileAccess.open(bozuk_yol, FileAccess.WRITE)
+	bf.store_string("{bozuk_json")
+	bf.close()
+	var ozet_bozuk := kart.dosyadan_yukle(bozuk_yol)
+	_kontrol(not bool(ozet_bozuk.get("acilabilir", true)) and String(ozet_bozuk.get("uyari", "")) == "okunamadı", "AYR-29: bozuk kayıt 'okunamadı' yazar, çökmez")
+	var ileri_yol := test_kok + "ileri_surum.json"
+	var ifile := FileAccess.open(ileri_yol, FileAccess.WRITE)
+	ifile.store_string(JSON.stringify({"surum": 99, "gun": 10}))
+	ifile.close()
+	var ozet_ileri := kart.dosyadan_yukle(ileri_yol)
+	_kontrol(not bool(ozet_ileri.get("acilabilir", true)) and String(ozet_ileri.get("uyari", "")) == "yeni sürüm kaydı" and FileAccess.file_exists(ileri_yol), "AYR-33: sürüm 99 dosyası 'yeni sürüm kaydı' yazar, açılmaz ve silinmez")
+	kart.free()
 
 	_sil()
 	d = null
