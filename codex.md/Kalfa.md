@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-23 başladı (Kalfa)
+
+İki gecelik dedikodunun gerçek Oturum JSON ikizinde yaşı, tanığı ve yayılım tarihi doğrulanacak. Söz motoru beklemede; yalnız bağımsız test. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-64 tamamlandı (Kalfa)
 
 Kesik JSON ana kayıt sayılmaz; mevcut SYS-02 okuyucusu sağlam yedeğe gider, geçerli tmp ana kayıt diye açılmaz. Ana/yedek okuma sırasında baytları korunur. Sağlam yedek yoksa gerçek Ana.devam_et yolunda mevcut BilgiEkrani ile «Kayıt açılamadı» gösterilir; tek düğme «Ana menüye dön», yeni oturum kurulmaz ve yeni oyuna zorlanmaz. Gelecek sürüm aynı ekranda uygun sürümle açma açıklamasını görür. `src/arayuz/kayit_hata_paneli.gd` yeni ince sunum adaptörüdür; Ana'da yalnız iki başarısız yükleme dalı bağlandı. Yeni kayıt/rapor/arayüz sistemi yok.
