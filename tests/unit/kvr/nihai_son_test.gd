@@ -12,6 +12,7 @@ func dene(v: bool, ad: String) -> void:
 func hazir() -> Oturum:
 	var o := Oturum.new(kat, 2020)
 	var y := o.yonetim
+	y.gun = SonKilidi.kilit_gecesi()
 	y.kaynaklar = Kaynaklar.new(1000, {"gida": 100, "su": 100})
 	y.adalet = 50
 	y.asayis_riski = 60
@@ -25,6 +26,9 @@ func hazir() -> Oturum:
 func _initialize() -> void:
 	kat = Katalog.new()
 	kat.yukle()
+	var kilitli := hazir()
+	kilitli.yonetim.gun = maxi(0, SonKilidi.kilit_gecesi() - 1)
+	dene(NIHAI.son(kilitli, &"zafer") == "", "İlk saat kilidi nihai son üretmez")
 	var o := hazir()
 	dene(NIHAI.son(o, &"zafer") == "uc_tutundu", "Varsayılan: Uç Tutundu (%s)" % NIHAI.son(o, &"zafer"))
 	dene(NIHAI.son(o, &"isyan") == "", "Kayıp sonu nihai son seçmez")

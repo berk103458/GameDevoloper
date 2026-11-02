@@ -10,6 +10,7 @@ func _initialize() -> void:
 	kat.yukle()
 	_kasalar(kat)
 	_takvim(kat)
+	_sonlar(kat)
 	var asil := Oturum.new(kat, 3123)
 	asil.yonetim.gun = 8
 	dene(asil.dedikodu.olay_kaydet("iki_gecelik", "rusvet", 6, "tanik_23", 3).olur, "Tanıklı iki gecelik fikstür")
@@ -28,7 +29,7 @@ func _initialize() -> void:
 		dene(o.gun == 9 and o.dedikodu.pusula_satirlari(9).size() == 1, "Gerçek üçüncü gecede tek yayın")
 	# JSON sayıları float açar; karşılaştırmanın iki tarafını aynı sınırdan geçir.
 	dene(JSON.parse_string(JSON.stringify(asil.dedikodu.kaydet())) == a.dedikodu.kaydet() and a.dedikodu.kaydet() == b.dedikodu.kaydet(), "Kayıtsız ve yüklenmiş zaman çizgileri aynı")
-	print("KAYIT İKİZİ (KAY-23/45/46): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46): KALDI")
+	print("KAYIT İKİZİ (KAY-23/45/46/47): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47): KALDI")
 	quit(hata)
 
 func _kasalar(kat: Katalog) -> void:
@@ -71,3 +72,39 @@ func _takvim(kat: Katalog) -> void:
 			var ikiz := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(geri.kaydet())))
 			dene(ikiz.gun == gun and MevsimYoneticisi.durum(ikiz.yonetim) == once, "Tekrar yüklemede takvim aynı")
 		dene(o.gun == gun and MevsimYoneticisi.durum(o.yonetim) == once, "Kaynak takvim korunur")
+
+func _sonlar(kat: Katalog) -> void:
+	var nihai = preload("res://src/sistemler/nihai_son.gd")
+	var kimlikler := ["uc_tutundu", "ahi_kasabasi", "beyin_uc_koyu", "ertugrul_obasi", "tekfur_haraccisi"]
+	dene(nihai.AYAR.sonlar.size() == 5, "SYS-20 tam beş nihai son")
+	for id in kimlikler:
+		var o := Oturum.new(kat, 3147)
+		o.yonetim.gun = SonKilidi.kilit_gecesi()
+		o.yonetim.kaynaklar = Kaynaklar.new(1000, {"gida":100, "su":100})
+		o.yonetim.adalet = 50
+		o.yonetim.asayis_riski = 60
+		o.yonetim.savusturulan = 3
+		for i in 6:
+			var k := o.yonetim.kabul({"ad":"Son kişisi %d" % i})
+			k.moral = 50
+			k.refah = 40
+		match id:
+			"ahi_kasabasi":
+				o.yonetim.adalet = 70
+				for k in o.yonetim.koylular: k.refah = 80
+			"beyin_uc_koyu":
+				o.sancak_asker_talebi = {"son_gece":8,"gun":8,"bekliyor":false,"secim":0,"gonderilen":[1,2]}
+			"ertugrul_obasi":
+				o.bayraklar[StringName(ObaIttifaki.AYAR.ittifak_bayragi)] = true
+			"tekfur_haraccisi":
+				o.bayraklar[&"rusvet_sayisi"] = 200
+		dene(nihai.son(o, &"zafer") == id, "Kaynak nihai son: " + id)
+		for surum in [2,3]:
+			var veri: Dictionary = JSON.parse_string(JSON.stringify(o.kaydet()))
+			veri.surum = surum
+			var geri := Oturum.kayittan(kat, veri)
+			dene(geri != null, "Nihai son kaydı açılır")
+			if geri == null: continue
+			dene(nihai.son(geri, &"zafer") == id, "Göç nihai kimliği değiştirmez: " + id)
+			dene(nihai.son(geri, &"zafer") in kimlikler, "Altıncı son üretilmez")
+			dene(nihai.son(geri, &"isyan") == "", "Kayıp sonucu zafer kimliğine çevrilmez")

@@ -3188,7 +3188,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: MEV-01. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [/] **KAY-47:** Nihai son kimliği beş değerden biri kalır. (Kalfa)
+- [x] **KAY-47:** Nihai son kimliği beş değerden biri kalır. (Kalfa)
   - Ne: SYS-20 kimliği göçte değişmez. Altıncı son yazılmaz.
   - Kabul: SYS-20 kimliği göçte değişmez. Altıncı son yazılmaz. Test: kimlik kümesi aynı.
   - Bağımlılık: SYS-20. Boyut: S.
