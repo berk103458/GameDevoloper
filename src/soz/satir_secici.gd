@@ -422,7 +422,7 @@ static func _alan_gecerli_mi(anahtar: String, baglam: Dictionary, izinli_alanlar
 		return true
 	if anahtar == "kriz":
 		return true
-	if anahtar.begins_with(DUNYA_ONEKI) or anahtar.begins_with("bina.") or anahtar.begins_with("grup_itibari."):
+	if anahtar.begins_with(DUNYA_ONEKI) or anahtar.begins_with("bina.") or anahtar.begins_with("grup_itibari.") or anahtar.begins_with("olay.") or anahtar.begins_with("sira."):
 		return true
 	if anahtar.ends_with("_min") or anahtar.ends_with("_max"):
 		var taban := anahtar.substr(0, anahtar.length() - 4)

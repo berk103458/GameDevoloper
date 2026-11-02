@@ -310,3 +310,13 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `tests/unit/kapi/kop05_dedikodu_fisilti_test.gd` birim testi yazılıp doğrulandı (`KOP05 DEDIKODU FISILTI: GEÇTİ (0 hata)`).
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OZL-02 — Kart metni Söz dalına düşebilir (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OZL-02`
+- **Yapılanlar:**
+  - `src/sistemler/olay_soz_bagi.gd` (`OlaySozBagi`) oluşturuldu; seçilen gece kartının `id` değerini DIY-09 bağlamına `olay.<id>` olarak yazan ve tanık/eş/dönen yüz için Söz dalını açan köprü kuruldu.
+  - `src/soz/satir_secici.gd` içinde `olay.<id>` ve `sira.<id>` alan doğrulaması eklendi.
+  - `tests/unit/sistemler/olay_soz_bagi_test.gd` birim testi yazılıp doğrulandı (`OLAY SOZ BAGI: GEÇTİ (0 hata)`).
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.

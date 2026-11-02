@@ -5752,7 +5752,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: BUG-16, KAP-19. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [/] **OZL-02:** Kart metni Söz dalına düşebilir. (Antigravity)
+- [x] **OZL-02:** Kart metni Söz dalına düşebilir. (Antigravity)
   - Ne: seçilen kartın `id` değeri DIY-09 bağlamına `olay.<id>` anahtarı olarak girer; kapıda veya köyde o olayı anan kişi (tanık, eş, dönen yüz) ilgili dalı açar. Kart metni CSV'de kalır, ikinci kopya yazılmaz.
   - Kabul: kart gecesi + tanık → dal 1; kart yokken 0. Test: iki gece.
   - Bağımlılık: DIY-09. Boyut: S.
