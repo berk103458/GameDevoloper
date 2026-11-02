@@ -16,8 +16,22 @@ func _initialize() -> void:
 	var ilk := IlkSaatSinifi.new()
 	var kavramlar := ilk.kavramlar()
 	_kontrol(kavramlar.size() == 9, "ilk_saat.json icinde 9 temel kavram olmali")
+	_kontrol(kavramlar.size() <= 20, "OGR-45: ilk_saat.json kavram sayisi <= 20 olmali")
 	for k in kavramlar:
 		_kontrol(k.has("gece_min") and k.has("tetik"), "Her kavramin gece_min ve tetik alani olmali")
+		_kontrol(k.has("atla_gecmis") and k["atla_gecmis"] is Array, "OGR-37: Her kavramda atla_gecmis listesi olmali")
+
+	# OGR-37: Iki gecmisle ipucu kumesi farki >= 1
+	var levent_kume := ilk.gecmis_icin_ipuclari("eski_levent")
+	var medrese_kume := ilk.gecmis_icin_ipuclari("medrese_talebesi")
+	var fark := 0
+	for id_a in levent_kume:
+		if not medrese_kume.has(id_a):
+			fark += 1
+	for id_b in medrese_kume:
+		if not levent_kume.has(id_b):
+			fark += 1
+	_kontrol(fark >= 1, "OGR-37: iki gecmisle ipucu kumesi farki >= 1 olmali")
 
 	# Listede olmayan ipucu cikmaz
 	var uydurma := ilk.tetikle("uydurma_ipucu", 5)

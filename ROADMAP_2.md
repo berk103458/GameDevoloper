@@ -4117,7 +4117,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
 
 ### 33.7 Muhafızın geçmişi ve öğretinin kişiselleşmesi
 
-- [/] **OGR-37:** Seçilen geçmiş ilk ipuçlarını değiştirir. (Antigravity)
+- [x] **OGR-37:** Seçilen geçmiş ilk ipuçlarını değiştirir. (Antigravity)
   - Ne: ACL-06 muhafızın geçmişi (eski asker, kâtip, çiftçi vb.) seçildiğinde o alanın ipucu atlanır: kâtip beyan defteri ipucunu görmez, asker tansiyon ipucunu görmez.
   - Kabul: `ilk_saat.json` her ipucuda `atla_gecmis` listesi. Test: iki geçmişle ipucu kümesi farkı ≥ 1.
   - Bağımlılık: ACL-06, OGR-01. Boyut: S.
@@ -4168,7 +4168,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-42. Boyut: S.
   - Dosya: `tools/python_test_runner.py` rapor satırı.
   - Asset: asset gerekmedi.
-- [/] **OGR-45:** İpucu sayısı üst sınırı. (Antigravity)
+- [x] **OGR-45:** İpucu sayısı üst sınırı. (Antigravity)
   - Ne: ilk altı gecede gösterilen ipucu toplamı 20'yi geçmez (öneri). Geçerse liste kırpılır, önce en az kullanılan araç kalır.
   - Kabul: `ilk_saat.json` kavram sayısı ≤ 20. Test: sayım.
   - Bağımlılık: OGR-01. Boyut: S.

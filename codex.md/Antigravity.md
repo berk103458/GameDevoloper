@@ -450,3 +450,12 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `tests/unit/sistemler/ilk_saat_test.gd` güncellendi.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+
+## 13 Ekim 2026 — OGR-37 ve OGR-45 (Geçmişe Göre İpucu Atlama ve İpucu Sayısı Üst Sınırı)
+- **Ne yapıldı (`OGR-37`, `OGR-45`):**
+  1. `data/ogretici/ilk_saat.json` içindeki her kavrama `atla_gecmis` listesi ve `azami_ipucu: 20` üst sınırı eklendi.
+  2. `src/sistemler/ilk_saat.gd` içine `gecmis_icin_ipuclari(gecmis_id)`, `tetikle(..., gecmis_id)` desteği ve `AZAMI_IPUCU` üst sınır süzgeci eklendi.
+  3. `tests/unit/sistemler/ilk_saat_test.gd` güncellendi.
+  4. Asset gerekmedi.
+- **Kota:** kota görünmüyor
