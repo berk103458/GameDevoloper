@@ -9,6 +9,7 @@ func _initialize() -> void:
 	var kat := Katalog.new()
 	kat.yukle()
 	_kasalar(kat)
+	_takvim(kat)
 	var asil := Oturum.new(kat, 3123)
 	asil.yonetim.gun = 8
 	dene(asil.dedikodu.olay_kaydet("iki_gecelik", "rusvet", 6, "tanik_23", 3).olur, "Tanıklı iki gecelik fikstür")
@@ -27,7 +28,7 @@ func _initialize() -> void:
 		dene(o.gun == 9 and o.dedikodu.pusula_satirlari(9).size() == 1, "Gerçek üçüncü gecede tek yayın")
 	# JSON sayıları float açar; karşılaştırmanın iki tarafını aynı sınırdan geçir.
 	dene(JSON.parse_string(JSON.stringify(asil.dedikodu.kaydet())) == a.dedikodu.kaydet() and a.dedikodu.kaydet() == b.dedikodu.kaydet(), "Kayıtsız ve yüklenmiş zaman çizgileri aynı")
-	print("KAYIT İKİZİ (KAY-23/45): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45): KALDI")
+	print("KAYIT İKİZİ (KAY-23/45/46): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46): KALDI")
 	quit(hata)
 
 func _kasalar(kat: Katalog) -> void:
@@ -49,3 +50,24 @@ func _kasalar(kat: Katalog) -> void:
 			var ikiz := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(geri.kaydet())))
 			dene(ikiz.muhafiz_akce == tutarlar[0] and ikiz.koy_akce == tutarlar[1], "Tekrar yüklemede transfer yok")
 		dene(o.muhafiz_akce == tutarlar[0] and o.koy_akce == tutarlar[1], "Kaynak oturum kasaları aynı")
+
+func _takvim(kat: Katalog) -> void:
+	# KAY-46: ilk gün, her mevsim sınırının iki yanı ve yıl dönüşü.
+	var sure := kat.koy_ayarlari.mevsim_gun
+	for gun in [0, sure - 1, sure, 2 * sure - 1, 2 * sure, 3 * sure - 1, 3 * sure, 4 * sure - 1, 4 * sure, 8 * sure + 2]:
+		var o := Oturum.new(kat, 3146)
+		o.yonetim.gun = gun
+		var once := MevsimYoneticisi.durum(o.yonetim)
+		dene(o.gun == gun and o.yonetim.mevsim() == (gun / sure) % 4, "Sınır fikstürünün gerçek mevsimi")
+		dene(int(once.mevsim_gunu) == gun % sure + 1, "Fikstürün mevsim günü")
+		for surum in [2, 3]:
+			var veri: Dictionary = JSON.parse_string(JSON.stringify(o.kaydet()))
+			veri.surum = surum
+			if surum == 2: veri.erase("mevsim")
+			var geri := Oturum.kayittan(kat, veri)
+			dene(geri != null, "Takvim kaydı açılır")
+			if geri == null: continue
+			dene(geri.gun == gun and MevsimYoneticisi.durum(geri.yonetim) == once, "Göç gün/mevsim/mevsim günü/yıl takvimini ilerletmez")
+			var ikiz := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(geri.kaydet())))
+			dene(ikiz.gun == gun and MevsimYoneticisi.durum(ikiz.yonetim) == once, "Tekrar yüklemede takvim aynı")
+		dene(o.gun == gun and MevsimYoneticisi.durum(o.yonetim) == once, "Kaynak takvim korunur")
