@@ -1,3 +1,7 @@
+## 2 Kasım — ZAR-06 başladı (Kalfa)
+
+DIY-01a için açık kullanıcı onayı henüz yok; bağımsız ZAR-06 bağımlılıkları DIY-09/ACL-06 tamam. Mevcut CHR görsel gözlem metni ve Clue kimlikleri kullanılarak tek ziyaretlik sezgi bağlanacak; yeni anlatı/şema motoru yok. DYL-02 aynı eşik erişimini kullanacak. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım — Toplu durum ve gerçek karar kapısı (Kalfa)
 
 Bu devam diliminde KAP-17 `404c7f4f`, KAP-19 `3bcd2caa` tamamlandı ve festive'e push edildi; ROADMAP [x]. Kalfa'nın açık [/] maddesi yok. KAP-18 DNY-01 bekliyor. Sonraki sıradaki DIY-01a için `docs/SOZ_TASARIMI.md` ve ROADMAP açıkça «Belge Ahmet onaylamadan şemaya geçilmez» diyor; `codex.md/Claude.md` de Ahmet onayını bekliyor kaydı içeriyor. Önceki genel devam talimatı bu somut tasarımın onayı olarak varsayılmadı. Ahmet'e mevcut bitmiş belge için kısa onay sorusu sunuldu; şema/motor sahiplenilmedi. Onay sonrasında güncel sahiplik ve faz sırası yeniden kontrol edilecek. Bağımsız maddeler kapatılmış gibi gösterilmedi.
