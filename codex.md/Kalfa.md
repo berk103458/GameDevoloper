@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-47 başladı (Kalfa)
+
+SYS-20 beş nihai sonunun girdileri mevcut göçten ve JSON ikizinden sonra aynı son kimliğini vermeli. Yeni son/koşul yok. KAY-46 ilk kapanış yayını Git kilidi yüzünden gecikti; yeniden commit 3c91c3de ve push tamamlandı, Ajan Masasında düzeltildi. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-46 tamamlandı (Kalfa)
 
 MEV-01 gerçek salt okunur durum yüzeyi, ilk gün/sekiz mevsim sınırı/yıl dönüşü ve ileriki yılda test edildi. Her örnek güncel v3 ve gerçek v2–v3 yüklemesinde, sonra tekrar JSON yüklemesinde aynı oyun günü/mevsim/mevsim günü/yıl/sonraki mevsim süresini verir. Göç takvimi ilerletmez; kaynak oturum korunur. Üretim takvim/göç kodu değişmedi. Asset gerekmedi. kota görünmüyor.
