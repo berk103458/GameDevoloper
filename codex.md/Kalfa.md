@@ -1,3 +1,7 @@
+## 2 Kasım — KAY-37 başladı (Kalfa)
+
+Mevcut sanity keşfinin KAY-03 fixtürünü tam bir kez çağırdığı hedefli olarak doğrulanacak. İkinci runner veya tam sanity koşusu yok. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — KAY-29 tamamlandı (Kalfa)
 
 Mevcut ACL-05 dört yatak/dört yerleşik/iki açıkta/altı kişi fikstürü gerçek Oturum JSON kaydından açıldı. Güncel v3 ve gerçek SYS-14 v2–v3 göçünde toplam/dolu/açıkta/nüfus ve her kişinin ev ataması aynıdır. Tekrar kaydet–yükle atama yapmaz, kaynak sözlük ve kaynak oturum korunur. Yeni barındırma veya göç sistemi gerekmedi; üretim koduna dokunulmadı. Asset gerekmedi. kota görünmüyor.
