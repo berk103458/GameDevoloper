@@ -87,6 +87,8 @@ func devam_et() -> void:
 	if veri.is_empty():
 		preload("res://src/arayuz/kayit_hata_paneli.gd").goster(self)
 		return
+	# Açık yükleme isteği oynanış aşamasını bitirir; göç ekranda çalışan oyun işi değildir.
+	preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_isaretle(_ekran, false)
 	var o := Oturum.kayittan(katalog, veri)
 	if o == null:
 		preload("res://src/arayuz/kayit_hata_paneli.gd").goster(self)
@@ -228,7 +230,9 @@ func _goster(e: Control) -> void:
 	Ses.efektleri_temizle()
 	_ust_kapat()
 	if _ekran != null:
+		preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_isaretle(_ekran, false)
 		_ekran.queue_free()
+	preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_isaretle(e, e is KoyEkrani or e is KapiEkrani)
 	_ekran = e
 	add_child(e)
 	if e is KoyEkrani or e is KapiEkrani:

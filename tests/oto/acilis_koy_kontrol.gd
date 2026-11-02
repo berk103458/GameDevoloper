@@ -26,6 +26,7 @@ func _calistir() -> void:
 	await get_tree().process_frame
 	await _arazi_hazir(ana)
 	var e := ana._ekran as KoyEkrani
+	dene(preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_acik(), "Gerçek Ana köy ekranı göç için oynanış sayılır")
 	for k in ana.oturum.yonetim.koylular:
 		dene(not k.ad.contains("acilis.") and not k.ad.is_empty(), "Nüfus satırında kişi adı teknik anahtar değildir")
 		var ozet := KoyluKartiVerisi.ozet(ana.oturum.yonetim, k)
@@ -63,6 +64,7 @@ func _calistir() -> void:
 		FAZ.ayarla(eski, faz)
 		var v := eski.kaydet()
 		v.erase("acilis_hanesi")
+		v.surum = 2 # KAY-71: açık Devam et isteği önce yükleme aşamasına geçer.
 		ana.kayit.yaz(v)
 		ana.devam_et()
 		await get_tree().process_frame
@@ -70,7 +72,10 @@ func _calistir() -> void:
 			await get_tree().process_frame
 		await _arazi_hazir(ana)
 		dene((ana._ekran is KapiEkrani if faz == "kapi" else ana._ekran is KoyEkrani) and ana.oturum.gun == 8, "Eski kayıt gerçek aynı faz/günde açılır")
+		dene(preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_acik(), "Gerçek kapı/köy fazı göç için oynanış sayılır")
 		dene(ACILIS.durum(ana.oturum).is_empty() and ana.oturum.yonetim.nufus() == 0 and ana.oturum.yonetim.binalar.is_empty(), "Eski kayda zorla ev/eş eklenmez")
+	ana.ana_menu()
+	dene(not preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_acik(), "Gerçek menü geçişi göç kilidini kaldırır")
 	ana.kayit.sil()
 	ana.free()
 	await get_tree().process_frame

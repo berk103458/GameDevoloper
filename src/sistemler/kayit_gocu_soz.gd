@@ -1,12 +1,17 @@
 ## KAY-03 ve KAY-04: SYS-14'ün tek-adım yürütücüsü ve içerik/kayıt sürümü ayrımı; dosya yazmaz.
 extends RefCounted
 
+const OYNANIS_GRUBU := &"kayit_gocu_oynanis_ekrani"
+
 const ICERIK_YOLU := "res://data/ayarlar/icerik.tres"
 
 ## Adım listesi yalnız güvenilir kodun Callable'larından gelir; kayıt dosyasından kod yüklenmez.
 static func uygula(kayit: Dictionary, hedef_surumu: int, adimlar: Dictionary) -> Dictionary:
 	var surum := _surum(kayit.get("surum"))
 	if surum < 0 or hedef_surumu < surum: return {}
+	if surum < hedef_surumu and oynanis_acik():
+		push_error("KAY71_GAMEPLAY_MIGRATION: sürüm göçü yalnız yükleme adımında çalışır")
+		return {}
 	var veri := kayit.duplicate(true)
 	while surum < hedef_surumu:
 		var adim: Variant = adimlar.get(surum)
@@ -59,3 +64,17 @@ static func _surum(v: Variant) -> int:
 	if (v is int or v is float) and is_finite(float(v)) and float(v) >= 0 and float(v) == floor(float(v)) and float(v) <= 1000000000:
 		return int(v)
 	return -1
+
+
+## KAY-71: UI sınıflarını içeri almadan mevcut Ana ekranının yaşam döngüsünü oku.
+static func oynanis_isaretle(ekran: Node, acik: bool) -> void:
+	if ekran == null: return
+	if acik: ekran.add_to_group(OYNANIS_GRUBU)
+	elif ekran.is_in_group(OYNANIS_GRUBU): ekran.remove_from_group(OYNANIS_GRUBU)
+
+static func oynanis_acik() -> bool:
+	var agac := Engine.get_main_loop() as SceneTree
+	if agac == null: return false
+	for ekran in agac.get_nodes_in_group(OYNANIS_GRUBU):
+		if not ekran.is_queued_for_deletion(): return true
+	return false
