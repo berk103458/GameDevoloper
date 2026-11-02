@@ -257,3 +257,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: `tests/unit/sistemler/dedikodu_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
 - Açık kalan: yok.
 - kota görünmüyor
+
+### 2 Kasım — DIY-14 kapatıldı (hedefli test)
+- `src/arayuz/kapi/hatirlanma_notu.gd` (`HatirlanmaNotu`): hafıza (DIY-11 / ZAR-03 kaçış) veya dedikodu (DIY-13) yazılan seçimlerde 2 saniyelik `"Bu hatırlanacak"` bildirimi eklendi.
+- Ayar kapalıyken kayıt yazımı devam eder, yalnız bildirim gizlenir; tek seçimde hem hafıza hem dedikodu varsa bildirim 1 kez çıkar; metinde özel ad/grup/gece sayısı yer almaz; ikinci bildirim birincinin üstüne binmez.
+- Test: `tests/unit/kapi/hatirlanma_notu_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
+- Açık kalan: yok.
+- kota görünmüyor

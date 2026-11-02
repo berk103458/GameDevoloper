@@ -626,7 +626,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.8 Dedikodu kancası
 
-- [/] **DIY-14:** "Bu hatırlanacak" bildirimi. (Antigravity)
+- [x] **DIY-14:** "Bu hatırlanacak" bildirimi. (Antigravity)
   - Ne: Hafıza veya dedikodu yazan seçimde oyuncu iki saniye "Bu hatırlanacak" notunu görür. Notta isim ve gece sayısı yoktur; metin çeviri anahtarıdır. Ayar kapatılırsa not gizlenir, kayıt yine yazılır. Aynı seçimde not bir kez çıkar.
   - Kurallar:
     1. Not yalnız hafıza (DIY-11) veya dedikodu (DIY-13) yazılan seçimde çıkar.
