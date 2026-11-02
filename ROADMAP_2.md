@@ -4090,7 +4090,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-20. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [ ] **OGR-33:** İlk saat içinde oyun bitmez.
+- [/] **OGR-33:** İlk saat içinde oyun bitmez. (Antigravity)
   - Ne: ilk altı gecede beş sondan (SYS-20) hiçbiri tetiklenemez; eşik koşulu `nihai_son.gd` tarafından okunur, `ilk_saat.json` `son_kilidi_gece` alanıyla ertelenir.
   - Kabul: gece < 6 iken son 0. Test: en kötü değerlerle gece 5 anlık görüntüsü.
   - Bağımlılık: SYS-20, OGR-01. Boyut: S.
@@ -4340,7 +4340,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: HFZ-01. Boyut: S.
   - Dosya: yeni: `src/arayuz/perde_ozeti.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-11:** Geçiş sonrası ilk gün ipucu almaz.
+- [/] **OMR-11:** Geçiş sonrası ilk gün ipucu almaz. (Antigravity)
   - Ne: perde 2'nin ilk günü Bölüm 33 ipucu sistemi susar; oyuncu deneyimlidir.
   - Kabul: `ilk_saat.json` kavramlarının hiçbiri perde 2'de tetiklenmez. Test: geçiş sonrası altı gece ipucu 0.
   - Bağımlılık: OGR-01. Boyut: S.
