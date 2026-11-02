@@ -228,3 +228,11 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Kalan net üretim sayısı: 267 madde.
 - kaldığı yer: madde 8, icon_erzak.png
 - kota: resim üretim kotası doldu (HTTP 429 RESOURCE_EXHAUSTED, ~4 saat 21 dk sonra yenileniyor)
+
+
+### 2 Kasım — DIY-09 kapatıldı (hedefli test)
+- `src/soz/satir_secici.gd` (`SatirSecici`): kural tablosu ile bağlamsal satır seçimi eklendi. Tam eşleşme şartı (kısmi tutma elenir), koşul sayısına göre en özgül varyant seçimi, eşit koşul sayısında `oncelik` kırılımı, önceliksiz eşitlikte doğrulayıcı hatası (dosya sırası hakem olmaz), boş koşullu varsayılan ve varsayılan yoksa sessiz dönüş bağlandı.
+- Ek şartlar: `baglama_aclik_yaz` ile aç kişinin söz bağlamına `aclik` anahtarı ve `baglama_dunya_isareti_yaz` / `baglam_hazirla` ile dünya işaretlerinin `dunya.<id>` önekiyle bağlama girmesi (ikinci cümle üretmeden) eklendi.
+- Test: `tests/unit/soz/satir_secici_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
+- Açık kalan: yok.
+- kota görünmüyor
