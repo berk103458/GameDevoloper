@@ -250,3 +250,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - Test: `tests/unit/sistemler/grup_itibari_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
 - Açık kalan: yok.
 - kota görünmüyor
+
+### 2 Kasım — DIY-13 kapatıldı (hedefli test)
+- `src/sistemler/dedikodu.gd` (`Dedikodu`): rüşvet, şiddet, aileyi bölme ve haksız ret olaylarının tanıklı ve 1-3 gece gecikmeli yayılımı eklendi.
+- Tanık yoksa satır oluşmaz; kamu vergisi dedikodu sayılmaz; aynı olay kimliği ikinci kayıt açmaz; tanık yayılmadan ölürse kayıt düşer; 3. geceden sonra basılmamış satır silinir; gün 0'da pusula satırı 0'dır.
+- Test: `tests/unit/sistemler/dedikodu_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
+- Açık kalan: yok.
+- kota görünmüyor
