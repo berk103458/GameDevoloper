@@ -1,3 +1,11 @@
+## 2 Kasım 2026 — ISG-02 tamamlandı (Kalfa)
+
+Dokuz geçici iş tek dış tabloda; mevcut köylü kartındaki sekme ve mevcut sürükleme kulpu üzerinden atanır. Kişi tek iş taşır, bina/nöbet ataması bunu bırakır. Çocuk/yaralı/nöbetçi atanmaz; bir erzak payına ikinci bedel eklenmez. Taş mevcut yataktan; inşaat yardımı mevcut hesaptan; su/odun/ot mevcut ambardan geçer. Ot afyon üretmez, kışta 0 verir. Yün için yaşayan ağıl ve hazır ev gerekir; yeni iplik stoğu yerine mevcut kumaş kaynağı kullanılır. Bakım mevcut moral etkisidir, tedavi sayacı değildir. Yorgunluk mevcut kayıttadır. Havuz/sıra kayda gömülmez, kişinin ataması ve gece makbuzu korunur. Aynı tohum iki gece ve gerçek meclis gecesi kontrolleri geçti.
+
+Sekiz hedefli kontrol (yeni model/kart, eski kart/atama, köy yönetimi, 55 taş yatağı, 29 nöbet, yorgunluk), API sözleşmesi, CSV kaynak ve filesystem açılış denetimi geçti. Uygulama 54ac3789 yerel commitinden yalnız commitli dosyalarla, .godot olmadan ayrı kabul kopyası kuruldu. İlk import CSV aşamasında Godot erişim ihlaliyle durdu; kabul sayılmadı, log korundu. Aynı kaynakta temiz import tekrarı, model, canlı kart ve gerçek ana menü/18 bağımlılık kontrolleri geçti; son loglarda hata/sızıntı yok. Tam sanity/görünür pencere yok. Ayrıntı docs/denetim/ISG-02-gecici-isler.md.
+
+Özel iş aletleri henüz bağlanmadı; ISG02-ALETLER envanteri gerçek durum ve metre ölçüleriyle güncellendi. Yeni asset/font/ikon/portre üretimi/indirme yok. Söz motoru beklemede. ISG-01 örtük ön koşulu tablo artık hazır, sırada kabul uyarısı var. ds yolları yok; eşitlenmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — YAZ-89 tamamlandı (Kalfa)
 
 Söz dosyası/hafıza ve yeni optional alanları olmayan eski v2/v3 kayıt gerçek Oturum yolundan açıldı. Köy/gün/RNG korundu; kaynak girdiye veya yeniden kayda yeni Söz dosyası referansı yazılmadı. Mevcut göç yolu güvenilir Callable adımlarını kullanır, kayıttan Söz kaynak yolu okuyup dosya açmaz. Bekleyen ana Söz motoru kurulmadı; bu eski kayıt uyumu regresyonudur. Üretim kodu değişmedi. Asset gerekmedi. kota görünmüyor.

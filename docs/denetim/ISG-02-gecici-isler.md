@@ -1,6 +1,6 @@
 # ISG-02 — Geçici işler (Kalfa)
 
-Durum: uygulama ve hedefli kontroller hazır; commitli kaynakla önbelleksiz kabul bekliyor. ROADMAP sahipliği sürer.
+Durum: tamamlandı (Kalfa). Uygulama commit’i 54ac3789; yalnız commitli dosyalardan oluşturulan, başlangıçta .godot içermeyen kabul kopyasında import/parse, gerçek ana menü ve canlı iş kartı doğrulandı.
 
 Dokuz iş `data/gecici_isler.json` içindedir; verim %50 ve iş başına çıktı/yorgunluk seçimleri buradan okunur. Kişide yalnız iş kimliği, atama gecesi ve son gece makbuzu saklanır; havuz veya sıra kayda gömülmez. Aynı gece ikinci iş yok. Bina/nöbet ataması geçici işi bırakır; yıkılan binanın işçisi boşta kalır, kendiliğinden iş seçilmez.
 
@@ -15,3 +15,7 @@ Kontroller: modelde dokuz iş/tek bilanço satırı; çocuk-yaralı-nöbetçi/bi
 Asset: özel kürek/kirmen/sepet/su kabı/bakım bezi eksik, ISG02-ALETLER envanteri gerçek duruma ve metre ölçülerine güncellendi. Özel alet henüz bağlanmadı; mevcut figür/kart iş adı kullanılır, ANI-11 entegrasyon noktası korunur. Yeni asset/font/ikon/portre üretilmedi veya indirilmedi.
 
 Söz motoru beklemede. ds yolları bulunmuyor; eşitlenmedi. kota görünmüyor.
+
+## Commitli kaynak kabulü
+
+`work/isg02_kabul_54ac3789` git archive ile kuruldu; başlangıçta .godot yoktu. Arşivin CRLF satır sonları dışında 22 paket dosyası commit ile aynıdır. İlk soğuk import CSV aşamasında Godot erişim ihlaliyle (3221225477) durdu; betik/eksik kaynak hata satırı görülmedi, bu koşu kabul sayılmadı. Aynı kaynak kopyasında import tekrarı temiz bitti (`work/isg02_cold_import_tekrar.log`). `isg02_cold_model.log`, `isg02_cold_kart.log`, `isg02_cold_menu.log` tamamlandı ve başarı işaretleri doğrulandı; son loglarda SCRIPT ERROR/ERROR veya kaynak sızıntısı yok. Özgün çalışma kopyasının .godot önbelleği taşınmadı. İlk çökme logu korunur. Tam sanity çalıştırılmadı.
