@@ -531,3 +531,15 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   4. `tests/unit/sistemler/ayarlar_ek_test.gd` güncellendi ve Godot headless ile 0 hata doğrulandı.
   5. Asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+
+## 13 Ekim 2026 — OGR-10, OGR-47, OGR-48, OGR-49, OGR-50, OGR-51, OMR-17 ve OMR-53 (İkinci Oyun Davranışları, İpucu Hafızası, Nihai Son Kaydı ve Omurga Verisi)
+- **Ne yapıldı (`OGR-10`, `OGR-47`, `OGR-48`, `OGR-49`, `OGR-50`, `OGR-51`, `OMR-17`, `OMR-53`):**
+  1. `src/sistemler/ipucu_kaydi.gd` (`IpucuKaydi`, `OGR-10`, `OGR-51`): Görülen ipuçlarının tekrar çıkmasını engelleyen yapıya hafıza defteri "Not" sayfası için son 5 ipucunu döndüren `defter_not_sayfasi(5)` / `son_ipuclari(5)` eklendi; devam eden kayıtta `ogretici.gorulen` ile `ilk_oyun_bitti` çeliştiğinde kayıt verisinin öncelikli olmasını sağlayan `durum_coz()` sağlandı.
+  2. `src/sistemler/oyuncu_izi.gd` (`OyuncuIzi`, `OGR-47`, `OGR-48`, `OGR-50`): Çekirdek ayarlar dosyasını kirletmeden `user://oyuncu_izi.cfg` dosyasında `ilk_oyun_bitti` durumunu saklar; 6 gece geçildiğinde ikinci oyunda ipuçlarını ve açılış kadrajını kapatır (`OGR-47`, `OGR-48`), zorluk seçimini ise ikinci oyunda erişilebilir kılar (`OGR-50`).
+  3. `data/ogretici/ilk_saat.json` (`OGR-49`): Tüm kavramlara `"surum_min": 1` eklendi; sürüm yükseldiğinde yeni mekaniklerin tek seferlik ipucu vermesi `OyuncuIzi.kavram_ipucu_verilmeli_mi()` ile doğrulandı.
+  4. `src/sistemler/son_kaydi.gd` (`SonKaydi`, `OMR-17`): Sonun seçildiği an `son_metni` dönüşündeki `nihai` kimliğini ve epilog metnini kayda (`son.nihai`) yazar; eski kayıtta alan yoksa boş sayarak çökmez.
+  5. `data/omurga.json` ve `src/sistemler/omurga.gd` (`OMR-53`): Dönem eşikleri, dalga sınırları, hat öncelikleri (`sancak > tekfur > mogol > oba > ahi`) ve yüz eşlemeleri `data/omurga.json` veri dosyasına taşındı; `omurga.gd` içerisindeki tüm 0 ve 1 hariç sayısal sabitler kaldırılarak veri tabanlı çalışır hale getirildi.
+  6. Birim testleri (`tests/unit/sistemler/ipucu_kaydi_test.gd`, `tests/unit/sistemler/oyuncu_izi_test.gd`, `tests/unit/sistemler/son_kaydi_test.gd`, `tests/unit/sistemler/omurga_test.gd`, `tests/tools/test_omurga.py`) başarıyla tamamlandı (0 hata).
+  7. Asset gerekmedi.
+- **Kota:** kota görünmüyor

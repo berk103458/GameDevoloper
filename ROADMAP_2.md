@@ -3940,7 +3940,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: YAZ-02, YAZ-10. Boyut: S.
   - Dosya: `data/metin/metinler.csv` (yeni satırlar).
   - Asset: asset gerekmedi.
-- [ ] **OGR-10:** Aynı ipucu iki kez çıkmaz, kaçırılan ipucu geri çağrılabilir.
+- [x] **OGR-10:** Aynı ipucu iki kez çıkmaz, kaçırılan ipucu geri çağrılabilir. (Antigravity)
   - Ne: görülen ipucu bir daha gelmez. Oyuncu kaçırdıysa Bölüm 39 hafıza defterinin "Not" sayfasında son beş ipucu durur.
   - Kabul: aynı kimlik kayıtta bir kez; defter sayfasında en çok beş satır. Test: altı ipucu sonrası sayfa 5 satır.
   - Bağımlılık: OGR-07, HFZ-01. Boyut: S.
@@ -4183,31 +4183,31 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
 
 ### 33.9 Yeniden oynayan oyuncu
 
-- [ ] **OGR-47:** İkinci oyunda ipucu kapalıdır.
+- [x] **OGR-47:** İkinci oyunda ipucu kapalıdır. (Antigravity)
   - Ne: `user://ayarlar.cfg` içinde `ilk_oyun_bitti` anahtarı; bir kez altı gece geçildiyse yeni oyunda ipucu ve kademeli açılış kapalı başlar, Bölüm 35'ten açılabilir.
   - Kabul: anahtar `Ayarlar.VARSAYILAN`'a değil ayrı dosyaya yazılır (çekirdek dosya korunur). Test: iki açılış.
   - Bağımlılık: AYR-12. Boyut: S.
   - Dosya: yeni: `src/sistemler/oyuncu_izi.gd` (`user://oyuncu_izi.cfg`).
   - Asset: asset gerekmedi.
-- [ ] **OGR-48:** Açılış kadrajı ikinci oyunda atlanır.
+- [x] **OGR-48:** Açılış kadrajı ikinci oyunda atlanır. (Antigravity)
   - Ne: OGR-41 kadrajı `ilk_oyun_bitti` iken gösterilmez.
   - Kabul: ikinci oyunda kadraj 0. Test: iki açılış.
   - Bağımlılık: OGR-41, OGR-47. Boyut: S.
   - Dosya: `src/sistemler/oyuncu_izi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-49:** Yeni mekanik (sürüm sonrası) tek ipucu alır.
+- [x] **OGR-49:** Yeni mekanik (sürüm sonrası) tek ipucu alır. (Antigravity)
   - Ne: sürüm güncellemesiyle gelen yeni sistem, deneyimli oyuncuya da bir kez ipucu verir; `ilk_saat.json` kavramında `surum_min` alanı.
   - Kabul: eski `oyuncu_izi` ile yeni sürümde yalnız yeni kavramın ipucu 1. Test: sürüm alanı değiştirilir.
   - Bağımlılık: OGR-47, KAY-04. Boyut: S.
   - Dosya: `data/ogretici/ilk_saat.json`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-50:** Zorluk seçimi ikinci oyunda açılır.
+- [x] **OGR-50:** Zorluk seçimi ikinci oyunda açılır. (Antigravity)
   - Ne: DEN-04 zorluk çarpanı (kolay/olağan/sıkı) ilk oyunda gösterilmez, olağan başlar; `ilk_oyun_bitti` ile yeni oyun ekranında görünür.
   - Kabul: ilk oyunda zorluk seçici 0. Test: iki açılış.
   - Bağımlılık: DEN-04, OGR-47, AYR-23, AYR-34. Boyut: S.
   - Dosya: `src/sistemler/oyuncu_izi.gd`; yeni oyun ekranı AYR-34.
   - Asset: asset gerekmedi.
-- [ ] **OGR-51:** Devam eden kayıtta ipucu durumu kayıttan gelir.
+- [x] **OGR-51:** Devam eden kayıtta ipucu durumu kayıttan gelir. (Antigravity)
   - Ne: "Devam" ile açılan kayıtta `ogretici.gorulen` kayıttan, `ilk_oyun_bitti` ayardan okunur; ikisi çelişirse kayıt kazanır.
   - Kabul: kayıt alanı dolu, ayar boş → ipucu kayıt kadar. Test: çapraz durum.
   - Bağımlılık: OGR-07, OGR-47. Boyut: S.
@@ -4379,7 +4379,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: HAR-09. Boyut: M.
   - Dosya: yeni: `src/sistemler/son_uyarisi.gd`; `haberci_agi.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OMR-17:** Sonun seçildiği an kayda yazılır.
+- [x] **OMR-17:** Sonun seçildiği an kayda yazılır. (Antigravity)
   - Ne: `son_metni` dönüşündeki `nihai` alanı oyun kaydına ve Bölüm 39 defterine yazılır; epilog sonradan yeniden okunabilir.
   - Kabul: kayıt alanı `son.nihai`; eski kayıtta yoksa boş. Test: KAY zinciri.
   - Bağımlılık: KAY-04, HFZ-01. Boyut: S.
@@ -4616,7 +4616,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `tools/api_sozlesmesi_baseline.json`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-53:** Omurga verisi tek dosyadır.
+- [x] **OMR-53:** Omurga verisi tek dosyadır. (Antigravity)
   - Ne: dönem eşikleri, dalga sınırları, hat öncelikleri ve yüz eşlemesi `data/omurga.json`; `.gd` içinde sabit yok.
   - Kabul: `omurga*.gd` içinde sayı sabiti 0 (0/1 hariç). Test: tarama.
   - Bağımlılık: OMR-02…05. Boyut: S.

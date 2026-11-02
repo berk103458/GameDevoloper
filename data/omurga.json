@@ -1,0 +1,54 @@
+{
+	"donem_esikleri": {
+		"kurulus_ust_sinir": 7,
+		"yerlesme_ust_sinir": 13
+	},
+	"dalga_bolum": 3,
+	"dalga_varsayilan_hedef": 12,
+	"dalga_indeksleri": [1, 2, 3],
+	"hat_onceligi": [
+		"sancak",
+		"tekfur",
+		"mogol",
+		"oba",
+		"ahi"
+	],
+	"sinif_agirliklari": {
+		"kurulus": {
+			"koylu": 0.5,
+			"zanaat": 0.3,
+			"tuccar": 0.1,
+			"asker": 0.1
+		},
+		"yerlesme": {
+			"koylu": 0.35,
+			"zanaat": 0.3,
+			"tuccar": 0.2,
+			"asker": 0.15
+		},
+		"oturma": {
+			"koylu": 0.25,
+			"zanaat": 0.25,
+			"tuccar": 0.25,
+			"asker": 0.25
+		}
+	},
+	"bos_gun_olasiligi": {
+		"perde1_oturma": 0.15,
+		"perde2_dalga3": 0.0
+	},
+	"yuz_eslemesi": {
+		"sancak": "sancak_cavusu",
+		"tekfur": "tekfur_elcisi",
+		"mogol": "noyan_habercisi",
+		"oba": "oba_yoldasi",
+		"ahi": "ahi_kethudasi"
+	},
+	"hat_kosullari": {
+		"sancak": "soz_sancak_tutuldu",
+		"tekfur": "soz_tekfur_tutuldu",
+		"mogol": "soz_mogol_tutuldu",
+		"oba": "soz_oba_tutuldu",
+		"ahi": "soz_ahi_tutuldu"
+	}
+}
