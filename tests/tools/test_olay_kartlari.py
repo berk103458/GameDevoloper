@@ -40,6 +40,9 @@ class OlayKartlariTest(unittest.TestCase):
     def test_ozl33_eski_kartlar_durur(self):
         self.assertEqual(set(), ESKI_KARTLAR - set(kartlar()))
 
+    def test_ozl14_kis_odun_karti_yoktur(self):
+        self.assertNotIn("kis_odun", kartlar())
+
     def test_srm10_son_istatistigi_dort_alan(self):
         ana = (ROOT / "src/arayuz/ana.gd").read_text(encoding="utf-8")
         m = re.search(r'tr\("arayuz\.son\.istatistik"\) % \[([^\]]*)\]', ana)

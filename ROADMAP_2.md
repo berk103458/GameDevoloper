@@ -5833,7 +5833,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: OZL-01. Boyut: S.
   - Dosya: yeni: `data/olay_agirlik.json`.
   - Asset: asset gerekmedi.
-- [/] **OZL-14:** Kış odunu kartı yoktur. (Antigravity)
+- [x] **OZL-14:** Kış odunu kartı yoktur. (Antigravity)
   - Ne: odun darlığı BUG-22 / DEN tablosudur; "kış odunu yok" diye yeni kart yazılmaz (32. bölüm sınırı).
   - Kabul: `olaylar/` içinde `kis_odun` id 0. Test: sayım.
   - Bağımlılık: DEN-01. Boyut: S.

@@ -373,3 +373,11 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `src/sistemler/olay_on_kosulu.gd` içine `Takvim.hafta_basi` okuyan `agirlik` hesabı eklendi; 7 gece kontrolü `tests/unit/sistemler/ozl_kart_tarama_test.gd` içine eklendi.
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OZL-14 — Kış odunu kartı yoktur (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OZL-14`
+- **Yapılanlar:**
+  - `data/olaylar/` içinde `kis_odun` kimlikli kartın bulunmadığı (0 adet) `tests/tools/test_olay_kartlari.py` içine sayım testi olarak eklendi.
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.
