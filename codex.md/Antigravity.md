@@ -320,3 +320,13 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `tests/unit/sistemler/olay_soz_bagi_test.gd` birim testi yazılıp doğrulandı (`OLAY SOZ BAGI: GEÇTİ (0 hata)`).
 - **Asset:** Asset gerekmedi.
 - **Açık kalanlar:** Yok.
+
+### OZL-07 — Sıra olayı Söz dalını açar (Tamamlandı)
+- **Tarih:** 12 Ekim 2026
+- **Madde:** `OZL-07`
+- **Yapılanlar:**
+  - `src/sistemler/olay_soz_bagi.gd` içine `sira_anahtari`, `sira_dali_var_mi` ve `sira_bagla` eklendi (dalı olan kişide 1 kez sorulur, olmayanda `kart_only` kalır).
+  - `src/kapi/sira_atlama_adaptoru.gd` içine tek satırlık `OlaySozBagi.sira_bagla` kancası eklendi.
+  - `tests/unit/sistemler/olay_soz_bagi_test.gd` birim testi iki kişi senaryosuyla genişletilip doğrulandı (`OLAY SOZ BAGI: GEÇTİ (0 hata)`).
+- **Asset:** Asset gerekmedi.
+- **Açık kalanlar:** Yok.

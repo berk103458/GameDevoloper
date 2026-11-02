@@ -10,6 +10,7 @@ static func uygula(ekran: KapiEkrani, anahtar: String, etki: Dictionary) -> bool
 	if indeks < 1 or indeks >= ekran._kuyruk.size() or sahne._kuyruk_adlari.size() != indeks + 1:
 		return false
 	var gelen: Gelen = ekran._kuyruk[indeks]
+	OlaySozBagi.sira_bagla(gelen, anahtar)
 	var model: KarakterModel = sahne._kuyruktakiler[indeks]
 	var ad: String = sahne._kuyruk_adlari[indeks]
 	# Kimliği olan nesneler erase ile taşınır; tekrar eden model adı indeksle çıkarılır.

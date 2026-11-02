@@ -5785,7 +5785,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: BUG-19, BUG-20. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [/] **OZL-07:** Sıra olayı Söz dalını açar. (Antigravity)
+- [x] **OZL-07:** Sıra olayı Söz dalını açar. (Antigravity)
   - Ne: kuyruktaki kişinin Söz dosyasında `sira.<id>` dalı varsa (bayılma yardımı, kavga ayırma) kartın yanında o dal bir kez sorulur; yoksa kart tek başına kalır.
   - Kabul: dalı olan kişide 1, olmayanda kart-only. Test: iki kişi.
   - Bağımlılık: DIY-03, OZL-06. Boyut: M.

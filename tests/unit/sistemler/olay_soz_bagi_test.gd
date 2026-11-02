@@ -22,7 +22,7 @@ func _initialize() -> void:
 		},
 	]
 
-	# Gece 1: Kart gecesi + tanik -> dal 1
+	# OZL-02 — Gece 1: Kart gecesi + tanik -> dal 1
 	var kart_gece1 := {"id": "yangin"}
 	var baglam_gece1 := OlaySozBagiSinifi.baglama_olay_yaz({"gun": 1}, kart_gece1, "tanik")
 	_kontrol(bool(baglam_gece1.get("olay.yangin", false)), "Kart gecesi + tanik baglama olay.yangin yazmali")
@@ -31,7 +31,7 @@ func _initialize() -> void:
 	var secilen_dal := OlaySozBagiSinifi.dal_sec(dallar, {"gun": 1}, kart_gece1, {"rol": "es"})
 	_kontrol(String(secilen_dal.get("id", "")) == "dal_yangin", "Es veya tanik ilgili Soz dalini acmali")
 
-	# Gece 2: Kart yokken -> dal 0
+	# OZL-02 — Gece 2: Kart yokken -> dal 0
 	var baglam_gece2 := OlaySozBagiSinifi.baglama_olay_yaz({"gun": 2}, null, "tanik")
 	_kontrol(not baglam_gece2.has("olay.yangin"), "Kart yokken baglama olay anahtari yazilmamali")
 	var dal_gece2 := OlaySozBagiSinifi.dal_sayisi(null, "tanik", dallar)
@@ -39,7 +39,22 @@ func _initialize() -> void:
 	var secilen_bos := OlaySozBagiSinifi.dal_sec(dallar, {"gun": 2}, null, "tanik")
 	_kontrol(secilen_bos.is_empty(), "Kart yokken dal secilmemeli")
 
-	# Dogrulama: DIY-09 dogrulayicisi olay.<id> alanini tanimali
+	# OZL-07 — Sira olayi Soz dalini acar: dali olan kiside 1, olmayanda kart-only (iki kisi)
+	var soruldu_kaydi := {}
+	var kisi_dalli := {"id": "chr_004", "soz_dallari": ["sira.sira_bayilma", "sira.sira_kavga"]}
+	var kisi_dalsiz := {"id": "chr_005", "soz_dallari": []}
+
+	var sonuc_dalli := OlaySozBagiSinifi.sira_bagla(kisi_dalli, "sira_bayilma", soruldu_kaydi)
+	_kontrol(int(sonuc_dalli.get("dal_sayisi", 0)) == 1 and not bool(sonuc_dalli.get("kart_only", true)), "Dali olan kiside dal_sayisi 1 olmali")
+
+	# Ayni dal ikinci kez sorulmaz; kart tek basina kalir
+	var sonuc_tekrar := OlaySozBagiSinifi.sira_bagla(kisi_dalli, "sira_bayilma", soruldu_kaydi)
+	_kontrol(int(sonuc_tekrar.get("dal_sayisi", -1)) == 0 and bool(sonuc_tekrar.get("kart_only", false)), "Ayni sira dali ikinci kez sorulmamali")
+
+	var sonuc_dalsiz := OlaySozBagiSinifi.sira_bagla(kisi_dalsiz, "sira_bayilma", soruldu_kaydi)
+	_kontrol(int(sonuc_dalsiz.get("dal_sayisi", -1)) == 0 and bool(sonuc_dalsiz.get("kart_only", false)), "Dali olmayan kiside kart-only (0 dal) kalmali")
+
+	# Dogrulama: DIY-09 dogrulayicisi olay.<id> ve sira.<id> alanini tanimali
 	var hatalar := SatirSeciciSinifi.dogrula(dallar, {"gun": 1})
 	_kontrol(hatalar.is_empty(), "SatirSecici olay.<id> kosul alanini gecerli saymali")
 
