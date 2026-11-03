@@ -1,0 +1,16 @@
+Lif — ikinci defter adayı
+
+sayfa.jpg ve paper_albedo kırpımı
+  Luke.RUSTLTD, CC0
+  https://opengameart.org/content/large-parchment-texture
+
+kapak.jpg ve ayirac_1.jpg … ayirac_4.jpg
+  Pink Sherbet Photography, CC BY 2.0
+  https://creativecommons.org/licenses/by/2.0/
+  https://www.flickr.com/photos/pinksherbet/2978544161/
+  Atıf: Free antique leather book cover texture for layers — Pink Sherbet Photography, CC BY 2.0.
+
+muhur.png
+  1778 Sombor tüccar loncası mühürü, tarayan Ravnoplov, kamu malı
+  https://commons.wikimedia.org/wiki/File:1778_wax_seal_of_merchant_guild_in_Sombor.jpg
+  Latince yazıt ve 18. yüzyıl tarihi var. Varsayılan mühür değildir.

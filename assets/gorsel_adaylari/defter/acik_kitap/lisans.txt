@@ -1,0 +1,16 @@
+Açık kitap — üçüncü defter adayı
+
+sayfa.png ve cevirme/00.png … 06.png
+  yd, CC0
+  https://opengameart.org/content/old-pagesflip-with-sound
+  FlippingPages.gif kareleri PNG yapıldı. İngilizce örnek sayfa ve ses alınmadı.
+
+kapak.png
+  Hamse filigran deri cilt, bilinmeyen sanatçı, kamu malı
+  https://commons.wikimedia.org/wiki/File:Filigree_leather_book_cover,_for_the_Five_Poems_(Khamsa)_of_Amir_Khusrau.jpg
+  Tarihi cilt fotoğrafıdır. Reddedilen Çini düz renk şablonunun kopyası değildir.
+
+sus/*.png
+  Lorc, CC BY 3.0
+  https://game-icons.net
+  Atıf: Icons made by Lorc. Available on https://game-icons.net

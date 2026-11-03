@@ -79,6 +79,10 @@ itch.io: sayfa açık. Resmî araç butler. Kurulum: https://itch.io/docs/butler
 
 Cursor — Godot doğrulama ve ince adaptör. Bu turda KAP-02, KAP-03, BUG-11 ve TUC-11/14 notu.
 
+## Görsel adaylar — 3 Kasım 2026
+
+Defter için üç aday: varsayılan `yirtik`, ayrıca `lif` ve `acik_kitap`. Bağ `assets/gorsel_adaylari/defter/secili.json` ve `secili_sayfa.tres`. Defter betiği, sinyal, genel tema, Ayarlar, girdi, Kalfa ekonomi/köy ve Antigravity diyalog dosyalarına dokunulmadı. ROADMAP `[/]` satırı değiştirilmedi. Açık lisans: CC0, kamu malı, CC-BY. Ayrıntı `docs/GORSEL_ADAYLARI.md`. Kota görünmüyor.
+
 ## Şu an üzerinde çalışılan
 Bölüm 38 kart mekaniği OZL-03, OZL-08…11, OZL-19…22, OZL-24, OZL-25, OZL-27, OZL-29, OZL-34 ve OZL-35 `[x] (Cursor)`. Dal `cursor/gece-38-kart`. Kart cümlesi yazılmadı, yer tutucu anahtar. Asset gerekmedi. kota görünmüyor.
 

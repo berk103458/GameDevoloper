@@ -1,0 +1,442 @@
+[
+  {
+    "path": "assets/gorsel_adaylari/ikonlar/erzak.png",
+    "author": "delapouite",
+    "icon": "grain-bundle",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/atmosfer/gece_kapisi/icon_erzak.png",
+    "author": "delapouite",
+    "icon": "grain-bundle",
+    "size": 256
+  },
+  {
+    "path": "assets/gorsel_adaylari/ikonlar/odun.png",
+    "author": "delapouite",
+    "icon": "wood-pile",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/atmosfer/gece_kapisi/icon_odun.png",
+    "author": "delapouite",
+    "icon": "wood-pile",
+    "size": 256
+  },
+  {
+    "path": "assets/gorsel_adaylari/ikonlar/tas.png",
+    "author": "delapouite",
+    "icon": "stone-pile",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/atmosfer/gece_kapisi/icon_tas.png",
+    "author": "delapouite",
+    "icon": "stone-pile",
+    "size": 256
+  },
+  {
+    "path": "assets/gorsel_adaylari/ikonlar/demir.png",
+    "author": "lorc",
+    "icon": "metal-bar",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/atmosfer/gece_kapisi/icon_demir.png",
+    "author": "lorc",
+    "icon": "metal-bar",
+    "size": 256
+  },
+  {
+    "path": "assets/gorsel_adaylari/ikonlar/bez.png",
+    "author": "delapouite",
+    "icon": "rolled-cloth",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/atmosfer/gece_kapisi/icon_bez.png",
+    "author": "delapouite",
+    "icon": "rolled-cloth",
+    "size": 256
+  },
+  {
+    "path": "assets/gorsel_adaylari/ikonlar/alet.png",
+    "author": "lorc",
+    "icon": "hammer-nails",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/atmosfer/gece_kapisi/icon_alet.png",
+    "author": "lorc",
+    "icon": "hammer-nails",
+    "size": 256
+  },
+  {
+    "path": "assets/gorsel_adaylari/ikonlar/nufus.png",
+    "author": "delapouite",
+    "icon": "person",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/atmosfer/gece_kapisi/icon_nufus.png",
+    "author": "delapouite",
+    "icon": "person",
+    "size": 256
+  },
+  {
+    "path": "assets/gorsel_adaylari/ikonlar/yatak.png",
+    "author": "delapouite",
+    "icon": "bed",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/atmosfer/gece_kapisi/icon_yatak.png",
+    "author": "delapouite",
+    "icon": "bed",
+    "size": 256
+  },
+  {
+    "path": "assets/gorsel_adaylari/ikonlar/saglik.png",
+    "author": "delapouite",
+    "icon": "herbs-bundle",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/atmosfer/gece_kapisi/icon_saglik.png",
+    "author": "delapouite",
+    "icon": "herbs-bundle",
+    "size": 256
+  },
+  {
+    "path": "assets/gorsel_adaylari/ikonlar/moral.png",
+    "author": "lorc",
+    "icon": "campfire",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/atmosfer/gece_kapisi/icon_moral.png",
+    "author": "lorc",
+    "icon": "campfire",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_esya_akce_64.png",
+    "author": "delapouite",
+    "icon": "coins",
+    "size": 64
+  },
+  {
+    "path": "assets/art/icons/icon_esya_arpa_64.png",
+    "author": "lorc",
+    "icon": "wheat",
+    "size": 64
+  },
+  {
+    "path": "assets/art/icons/icon_esya_tohum_64.png",
+    "author": "delapouite",
+    "icon": "grain-bundle",
+    "size": 64
+  },
+  {
+    "path": "assets/art/icons/icon_esya_kumas_64.png",
+    "author": "delapouite",
+    "icon": "rolled-cloth",
+    "size": 64
+  },
+  {
+    "path": "assets/art/icons/icon_esya_bakir_64.png",
+    "author": "lorc",
+    "icon": "metal-bar",
+    "size": 64
+  },
+  {
+    "path": "assets/art/icons/icon_esya_ok_64.png",
+    "author": "lorc",
+    "icon": "broadhead-arrow",
+    "size": 64
+  },
+  {
+    "path": "assets/art/icons/icon_esya_hancer_64.png",
+    "author": "lorc",
+    "icon": "plain-dagger",
+    "size": 64
+  },
+  {
+    "path": "assets/art/icons/icon_esya_ilac_64.png",
+    "author": "delapouite",
+    "icon": "herbs-bundle",
+    "size": 64
+  },
+  {
+    "path": "assets/art/icons/icon_usta_defteri.png",
+    "author": "lorc",
+    "icon": "open-book",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_trade_contract.png",
+    "author": "lorc",
+    "icon": "scroll-unfurled",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_trade_price.png",
+    "author": "delapouite",
+    "icon": "coins",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_trade_caravan.png",
+    "author": "delapouite",
+    "icon": "camel",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_map_hisar.png",
+    "author": "lorc",
+    "icon": "castle",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_map_yol.png",
+    "author": "delapouite",
+    "icon": "path-distance",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_savunma_okcu_64.png",
+    "author": "lorc",
+    "icon": "bowman",
+    "size": 64
+  },
+  {
+    "path": "assets/art/icons/icon_savunma_mizrakli_64.png",
+    "author": "lorc",
+    "icon": "barbed-spear",
+    "size": 64
+  },
+  {
+    "path": "assets/art/icons/icon_stok_sargi.png",
+    "author": "lorc",
+    "icon": "bandage-roll",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_stok_kumas_stok.png",
+    "author": "delapouite",
+    "icon": "rolled-cloth",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_stok_yasak_muhur.png",
+    "author": "lorc",
+    "icon": "wax-seal",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_stok_zirh.png",
+    "author": "lorc",
+    "icon": "breastplate",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_stok_yay.png",
+    "author": "lorc",
+    "icon": "pocket-bow",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_stok_kalkan.png",
+    "author": "lorc",
+    "icon": "checked-shield",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_stok_civi.png",
+    "author": "lorc",
+    "icon": "nails",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_stok_tirpan.png",
+    "author": "lorc",
+    "icon": "scythe",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_stok_balta.png",
+    "author": "lorc",
+    "icon": "wood-axe",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_stok_su.png",
+    "author": "delapouite",
+    "icon": "water-flask",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_stok_ilac_stok.png",
+    "author": "delapouite",
+    "icon": "herbs-bundle",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_stok_gozcu_kulesi.png",
+    "author": "delapouite",
+    "icon": "watchtower",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_oda_terazi.png",
+    "author": "lorc",
+    "icon": "scales",
+    "size": 256
+  },
+  {
+    "path": "assets/art/icons/icon_yasam_moral.png",
+    "author": "lorc",
+    "icon": "campfire",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/firin.png",
+    "author": "delapouite",
+    "icon": "furnace",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/degirmen.png",
+    "author": "delapouite",
+    "icon": "windmill",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/sifahane.png",
+    "author": "delapouite",
+    "icon": "herbs-bundle",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/ahir.png",
+    "author": "delapouite",
+    "icon": "stable",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/agil.png",
+    "author": "delapouite",
+    "icon": "sheep",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/demirhane.png",
+    "author": "lorc",
+    "icon": "anvil",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/kislasi.png",
+    "author": "lorc",
+    "icon": "castle",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/maden.png",
+    "author": "delapouite",
+    "icon": "mine-wagon",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/ocak.png",
+    "author": "lorc",
+    "icon": "campfire",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/kurk.png",
+    "author": "delapouite",
+    "icon": "fur-boot",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/mevsim_yaz.png",
+    "author": "lorc",
+    "icon": "sun",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/mevsim_sonbahar.png",
+    "author": "delapouite",
+    "icon": "oak-leaf",
+    "size": 256
+  },
+  {
+    "path": "assets/ui/koy/gece_kapisi/mevsim_kis.png",
+    "author": "lorc",
+    "icon": "snowflake-1",
+    "size": 256
+  },
+  {
+    "path": "assets/arayuz/ikonlar/uyari_ambar_dolu.png",
+    "author": "delapouite",
+    "icon": "warehouse",
+    "size": 256
+  },
+  {
+    "path": "defter/*/sus/tug.png",
+    "author": "lorc",
+    "icon": "quill",
+    "size": 256,
+    "fill": "ink"
+  },
+  {
+    "path": "defter/*/sus/hokka.png",
+    "author": "lorc",
+    "icon": "quill-ink",
+    "size": 256,
+    "fill": "ink"
+  },
+  {
+    "path": "defter/*/sus/tuy.png",
+    "author": "lorc",
+    "icon": "feather",
+    "size": 256,
+    "fill": "ink"
+  },
+  {
+    "path": "defter/*/sus/muhur_ikon.png",
+    "author": "lorc",
+    "icon": "wax-seal",
+    "size": 256,
+    "fill": "ink"
+  },
+  {
+    "path": "defter/*/sus/tomar.png",
+    "author": "lorc",
+    "icon": "scroll-unfurled",
+    "size": 256,
+    "fill": "ink"
+  },
+  {
+    "path": "defter/*/sus/kitap.png",
+    "author": "lorc",
+    "icon": "open-book",
+    "size": 256,
+    "fill": "ink"
+  },
+  {
+    "path": "defter/*/sus/ayrac.png",
+    "author": "lorc",
+    "icon": "bookmark",
+    "size": 256,
+    "fill": "ink"
+  },
+  {
+    "path": "defter/*/sus/terazi.png",
+    "author": "lorc",
+    "icon": "scales",
+    "size": 256,
+    "fill": "ink"
+  }
+]
