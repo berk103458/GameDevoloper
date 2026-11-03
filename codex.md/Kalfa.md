@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — DEN-03b tamamlandı (Kalfa)
+
+Aralık dışı değer ana menüyü engeller ve tek çevrilebilir hata gösterir. Birim ve headless açılış testi geçti. İlk import MD5 hatası verdi, ikinci import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — YSM-03 tamamlandı (Kalfa)
 
 Yataklı uyku 2, açıkta uyku 1 birim yorgunluk düşürür. Dolu yatak, nöbet ve kayıt dönüşü testleri geçti. İlk import MD5 hatası verdi, ikinci headless import temiz geçti. Asset gerekmedi. kota görünmüyor.

@@ -3363,7 +3363,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-01. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`. Sanity'ye tek satır.
   - Asset: asset gerekmedi.
-- [ ] **DEN-03b:** Aralık dışı tablo değeri oyun açılışında net hata verir (Kalfa ACL-04'ü bitirince).
+- [x] **DEN-03b:** Aralık dışı tablo değeri oyun açılışında net hata verir (Kalfa ACL-04'ü bitirince). (Kalfa)
   - Ne: DEN-03'ün sanity tarafı bitti (	ools/denge_dogrula.py, data/ayarlar/denge_sinirlari.json). Bu madde aynı doğrulamayı oyun açılışına bağlar: sınır dışı değerde oyun açılmaz ve oyuncuya çeviri anahtarıyla net hata mesajı gösterilir. Değer kırpılmaz.
   - Kabul: aralık dışı değerle açılış 1 hata mesajı verir, mesaj düz Türkçe gömülü değil çeviri anahtarıdır. Test: açılış kontrolü bilerek bozuk tabloyla kırmızı olur. Ek şart: yeni .gd doğrulayıcı yeni dosyadadır; açılışa tek satır çağrı eklenir.
   - Bağımlılık: DEN-03. Ön koşul: Kalfa ACL-04'ü bitirmiş olmalı; metinler.csv, project.godot ve açılış dosyaları ACL-04 yarım işinde olduğundan o zamana kadar dokunulmaz. Boyut: S.
