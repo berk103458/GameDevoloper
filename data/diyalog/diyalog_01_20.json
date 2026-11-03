@@ -2,25 +2,31 @@
   {
     "id": "diyalog_01",
     "sinif": "ciftci",
-    "sahne": "Kapıya yorgun adımlarla biri yanaştı. Sırtında boyundan büyük bir darı çuvalı var. Eliyle göğsüne bastırdığı ayrı bir kesede tohum taşıyor.",
+    "sahne": "Kapıya yalpalayan adımlarla biri yanaştı. Sırtındaki keçe çuvaldan kavruk darı kokusu tütüyor; sol eliyle göğsüne bastırdığı meşin keseyi adeta canı gibi sakınıyor.",
     "sorular": [
       [
-        "Kimsin?",
-        "Uzaklardan koptum. Doğudan. Moğol atlarının çiğnediği topraklardan.",
+        "Sırtındaki çuval yanık kokar, nereden koptun geldin?",
+        "Erzincan ovasından koptum ağam. Harman vakti göğü kara duman bürüdü; nal sesleri tarlayı yardı geçti. Ekin kül oldu, köy dağıldı. Gözümü yumup bu yana koştum.",
         [
           [
-            "Doğuda nereden?",
-            "Erzincan'ın ovasından. Ova artık yok; at izi var."
+            "Ovadaki beylik zahiresine ne oldu peki?",
+            "Zahire mi kaldı? Bey atını sürüp kaleye kapandı, tebaayı dağ başına saldı. Bu tohum ambarın değil, kendi döktüğüm alnımın teridir."
           ]
         ]
       ],
       [
-        "Nesin?",
-        "Toprak adamıyım. Tarlam yandı, canımı zor kurtardım."
+        "Göğsüne bastırdığın o meşin kesede ne saklarsın?",
+        "Gözümün nurunu saklarım. Has sarı tohum... Bir avuçtur amma üç köye yetecek bereketi saklar bağrında. Bana bir karış tarla verin, ertesi yaza ambarınız dolsun.",
+        [
+          [
+            "Ya kuraklık vurursa, ya su yetmezse?",
+            "Ben kuru derede taş çatlatıp çavdar yeşertmiş adamım muhafız. Toprak küsmez, insan nankörlük etmedikçe başak baş eğer."
+          ]
+        ]
       ],
       [
-        "Kendini tanıt.",
-        "Ne önemi var? Evsiz barksız bir garip. Yaşamak derdindeyim."
+        "Kapıda durup acındırırsın da köyün nizamına baş eğer misin?",
+        "Ben başkaldıranlardan olsam dağa haramiye katılırdım ağam. Ekmeğimi taştan çıkarırım, akşam ezanında başımı sokacak bir samanlık yeter bana."
       ]
     ],
     "secenekler": [
@@ -34,35 +40,35 @@
       1
     ],
     "yanitlar": {
-      "ret": "Geri dönersem yollarda tükenirim, yapma.",
-      "kabul": "Allah razı olsun. Ocağın tütsün hep.",
-      "rusvet": "Şu darının yarısını vereyim sana, yeter ki aç o kapıyı."
+      "ret": "Kuru ayaza geri salma beni muhafız... Bu tohum yolda donar, ben de kurda kuşa yem olurum. Etme eyleme.",
+      "kabul": "Ocağın tütüversin, yüzün ak olsun! Bu tohum artık bu köyün tohumudur; terimle sular, başağı ortak biçeriz.",
+      "rusvet": "Bak ağam... Çuvaldaki darının yarısı helalin olsun, şu tohumun da bir tutamını senin bostana ayırayım. Kimse görmeden sürgüyü çekiver."
     },
     "not": "Önce Ret. Bir cevap sonra Kabul ve Rüşvet. Kışla yok.",
-    "acilis": "Selam olsun. Doğudan geliyorum; tarlam yandı, elimde bu darı ile tohum kaldı. Tohumu kimseye vermem, toprağa veririm."
+    "acilis": "Selamün aleyküm muhafız ağa... Günlerdir dağ taş aşarım. Arkamda Moğol atlarının çiğnediği kül rengi ova kaldı. Elimde şu bir avuç tohumla bir çuval darıdan gayrı canım da yoktur. Tohumu kimseye çiğnetmem, toprağa gömerim."
   },
   {
     "id": "diyalog_02",
     "sinif": "esnaf",
-    "sahne": "Üstü başı toz içinde. Koltuk altında çuha topu.",
+    "sahne": "Tozdan ağarmış kaftanıyla bir adam kapı eşiğinde soluklanıyor. Koltuğunun altında balçık değmemiş, sıkıca sarılmış mor çuha topu var.",
     "sorular": [
       [
-        "Kimsin?",
-        "Kumaş tüccarıydım. Eskiden. Şehir düşünce geriye bir tek bu kaldı.",
+        "Kayseri gibi koca sancaktan bir top çuhayla mı kaçtın?",
+        "Kervan basıldı ağam! Deveci kaçtı, çıraklar dağıldı. Ateşin ortasından can havliyle tezgâhtaki en has yün çuhayı kucakladım. Kırk yılın emeği şu koltuğumun altındadır.",
         [
           [
-            "Hangi şehir?",
-            "Kayseri. Çarşısında kırk yıl çuha sattık. Kırk yılın bir topu kaldı."
+            "Kumaşın içinde akçe sesi mi gelir, neden öyle sıkı tutarsın?",
+            "Akçe değil ağam... Dükkânın pirinç anahtarıyla tartı dirhemleri sarılıdır. Çarşıya dönecek yüzüm kalmadıysa da elimde zanaatımın namusu kaldı."
           ]
         ]
       ],
       [
-        "Nesin?",
-        "Elinde malı olan bir gariban. Pazar arıyorum."
+        "Bu köye kumaşçı gerekmez, köylü kaba aba giyer. Ne işe yararsın?",
+        "Kaba abayı da biçen lazım muhafız! Yalnız beylere çuha dokumam; çoban keçesini pekiştirir, askerin heybesini yamar, çadır bezini dikerim. Boş duran el harama kayar, benim elim durmaz."
       ],
       [
-        "Kendini tanıt.",
-        "Yolcu... Dükkanı, tezgahı küle dönmüş bir yolcu."
+        "Sınır boyunda tezgâh tutturmak zordur, borcun veya düşmanın var mıdır?",
+        "Borcum da alacağım da Kayseri'nin külleri altında kaldı. Kimsenin hakkı geçmedi boğazımdan. Bana bir saçak altı verin, köyün kadınlarına tezgâh kurmayı öğreteyim."
       ]
     ],
     "secenekler": [
@@ -76,35 +82,35 @@
       1
     ],
     "yanitlar": {
-      "rusvet": "Şu çuhadan bir arşın keseyim sana. Hakiki yün.",
-      "kabul": "Geçeyim hemen, göze batmadan.",
-      "ret": "Gidemem ki bir yere, dizlerimde derman kalmadı."
+      "rusvet": "Şu has çuhadan sana üç arşın keseyim muhafız ağa. Sırmalı mintan diktirirsin, bayramda beyler gibi gezersin. Gözünü yum da geçivereyim.",
+      "kabul": "Hak razı olsun! Yarından tezi yok köyün meydanına tezgâhımı kurar, kumaşın bereketini buraya saçarım. Köyün çarığı çadırı benden sorulur.",
+      "ret": "Bu dağ başında bu kumaşla açıkta kalırsam haramiler boğazımı keser. İnsaf eyle muhafız, dükkânsız kaldım bari canımdan etme."
     },
     "not": "Önce Rüşvet. Bir cevap sonra Kabul ve Ret. Kışla yok.",
-    "acilis": "Kumaşçıydım; şehir düşünce elimde bu top kaldı. Bir tezgâh, bir köşe bulursam yine satarım."
+    "acilis": "Kayseri çarşısının kumaşçısı derlerdi bana... Kırk yıllık tezgâh bir gecede duman oldu da geriye bir tek bu çuha topu kaldı. Bir tezgâh, pazar yerinde bir köşe bulursam yine ekmeğimi kazanırım."
   },
   {
     "id": "diyalog_03",
     "sinif": "asker",
-    "sahne": "Aksayarak geldi. Kırık kargıya yaslanıyor.",
+    "sahne": "Aksayarak gelen neferin göğüs zırhındaki bağlar kopmuş. Kırık kargısına baston gibi yaslanıyor, sol şakağındaki kurumuş kan sakalına yapışmış.",
     "sorular": [
       [
-        "Kimsin?",
-        "Sivastan beri yürüyorum. Pusatım kırıldı.",
+        "Sivas'ta ordu bozulurken kargını neye kırdın, kiminle vuruştun?",
+        "Geçitte pusuya düştük ağam. Süvari önümüzü kesti, kargıyı atın göğsüne sürdüm amma atın zırhı demirdi; kargı çat diye ortadan ayrıldı. At beni çiğnedi geçti, hendeğe yuvarlanıp sağ kaldım.",
         [
           [
-            "Kimin askeriydin?",
-            "Sultanın. Sultan uzakta, ben buradayım. Hangisi daha çok asker sayılır, sen söyle."
+            "Bölüğün ne oldu, geride kimseyi bıraktın mı?",
+            "Onbaşı gözümün önünde atların altında kaldı. Kalanlar dağa dağıldı. Birlik kalmadı ki künyemi vereyim; sancağı yere düşürmeyen üç kişiden biriydim."
           ]
         ]
       ],
       [
-        "Nesin?",
-        "Nöbetçiydim. Sınır boyunda. Dağıldık."
+        "Bacağın aksar, yaran taze. Kışlaya alsak nöbette uyuyup kalmayasın?",
+        "Yaram kabuk bağlar muhafız! Gözüm açıktır, kulağım kiriştedir. Bu kırık kargıyla bile gece mazgalında gözcü dururum. Düşmanın nefesini bir milden sezerim."
       ],
       [
-        "Kendini tanıt.",
-        "Birlik kalmadı ki künyemi vereyim. Sağ kalanlardanım sadece."
+        "Firari misin yoksa beylikten izinli mi çekildin?",
+        "Emir veren çavuşun kellesi kargıya takılmıştı ağam! Kimden izin alacaktım? Kaçmadım, arkadaki köyleri uyarmak için öne düştüm. Burası da düşerse arkası bozkırdır."
       ]
     ],
     "secenekler": [
@@ -118,35 +124,35 @@
       1
     ],
     "yanitlar": {
-      "kisla": "Yara bere içindeyim ama kılıç tutarım. Yeter ki aş verin.",
-      "kabul": "Sağ ol yoldaş. Bir köşede soluklanırım.",
-      "ret": "Kan revan içinde nereye gideyim? Yapma."
+      "kisla": "Kışlanın ocağı tütsün! Kargıyı atar, duvardan bir mızrak çekerim. Dizdar ağaya cephedeki süvarinin taktiğini bir bir anlatırım; bu köyü kaleden sağlam tutarız.",
+      "kabul": "Eksik olma yoldaş... Revirde biraz bez, bir kova su bulursam bacağımı bağlarım. Sabahına köyün etrafındaki hendeği derinleştirmeye yardım ederim.",
+      "ret": "Kan revan içinde beni bu gece ayazına mı bırakırsın? Kurtlar kokumu alır iki saate parçalar... Bir lokma merhametin yok mudur senin?"
     },
     "not": "Önce Kışla. Bir cevap sonra Kabul ve Ret. Rüşvet yok.",
-    "acilis": "Kargım kırıldı, bacağım da az kaldı. Ama ayaktayım. Bir köşe ver, gerisini ben hallederim."
+    "acilis": "Kargım kırıldı, sol bacağım da az kaldı. Sivas boğazından beri yayan gelirim. Sultan uzakta, dirlik bozuldu... Bana bir tas sıcak çorba ve nöbet tutacak bir köşe ver, gerisini kılıcımla öderim."
   },
   {
     "id": "diyalog_04",
     "sinif": "ciftci",
-    "sahne": "İki koyun, belinde süt kabı.",
+    "sahne": "Sırtında keçe kepenek, arkasında birbirine sokulmuş iki cılız koyun. Belindeki tahta süt kabı boş, parmakları soğuktan morarmış.",
     "sorular": [
       [
-        "Kimsin?",
-        "Sürüden arta kalanlarla kaçan bir çoban.",
+        "Yaylada duman tüterken sürüyü kime bıraktın da bu ikisiyle geldin?",
+        "Kırk baş koyunum vardı muhafız ağa... Çoban köpeğim canını verdi, haramiler vadiyi sardı. Hepsini sürmeye kalksam canımdan olurdum. Bu Akça ile Karaca'yı ağılın arkasından kaçırabildim.",
         [
           [
-            "Koyunların adı var mı?",
-            "Biri Ak, biri Kara. Hayal gücümüz koyunlardan da kısa."
+            "Hayvanların nefesi hırıltılı; hastalık taşımayasın köye?",
+            "Hastalık değil, günlerdir açlıktan böğürleri çöktü ağam. İki tutam kuru saman yesinler, süt verirler. Köyün kuzularına kendi ellerimle analık ederim."
           ]
         ]
       ],
       [
-        "Nesin?",
-        "Hayvanlarına can yoldaşı olan biri. Otlaklarımız Moğol atlarına kaldı."
+        "Köyün otlağı dar, kış yakındır. Bu iki canın köye ne faydası olur?",
+        "Koyun dediğin berekettir. Yününden çorap örülür, sütünden peynir tutulur, gübresi tarlayı canlandırır. Ben de boş durmam; ağıl temizler, kurt kapanı kurarım."
       ],
       [
-        "Kendini tanıt.",
-        "Açlık nedir bilmeyen adamdım. Şimdi bir lokmaya muhtaçım."
+        "Dağda harami çoktur, peşine takılan oldu mu?",
+        "İzimi kaybettirmek için taşlık yoldan yürüdüm, ayaklarım yarıldı. Kimse peşimde değil amma yaylanın dumanı hâlâ burnumda tütüyor."
       ]
     ],
     "secenekler": [
@@ -160,35 +166,35 @@
       1
     ],
     "yanitlar": {
-      "kabul": "Bereket bulasın. Hayvanlar da perişan olmuştu.",
-      "rusvet": "Süt sağarım sana. Yeter ki içeri al bizi.",
-      "ret": "Gece ayazı vurur bizi dışarıda, perişan oluruz."
+      "kabul": "Bereketin artsın muhafız! Ağılın en kuytu köşesinde büzülürüz. Yarın ilk sağdığım sütü köyün yetimlerine ikram edeceğim.",
+      "rusvet": "Al ağam, şu has dövme bakır çıngırağı koynuna koy. İki gün sonra da sağılan ilk teleme peyniri senin sofrana gelsin. Yeter ki kapıyı aç.",
+      "ret": "Gece ayazı vadiye indi inecek... Hayvanlar donarsa ben de yaşayamam gayrı. Bu dilsiz canların vebali boynunda kalsın."
     },
     "not": "Önce Kabul. Bir cevap sonra Rüşvet ve Ret. Kışla yok.",
-    "acilis": "İki koyunum, bir süt kabım var. Yaylaya çıkamadık; yayla da yandı. Bir ağıl yeter bize."
+    "acilis": "İki koyunum, bir kırık süt kabım kaldı elimde. Yaylayı Moğol atlıları ateşe verdi; dumanı görünce sürünün geri kalanını dağa saldım, bu ikisini peşime taktım. Bize bir ağıl köşesi yeter."
   },
   {
     "id": "diyalog_05",
     "sinif": "esnaf",
-    "sahne": "Elleri is. Çekiç ve körük parçası, örs yok.",
+    "sahne": "Geniş omuzlu, elleri ve yüzü demir isiyle kararmış bir usta. Sırtındaki urgana bağlı deri körük parçasıyla kırık bir çekiç taşıyor; örsü yok.",
     "sorular": [
       [
-        "Kimsin?",
-        "Ateşin yoldaşıydım. Ocağım söndü.",
+        "Örssüz demirci mi olur usta, ocak nerede, balyoz nerede?",
+        "Örs dediğin beş yüz okka çeker be muhafız! Kaçarken insan canını mı taşır, taşı mı? Çarşımız basıldı; körüğün ciğerini söktüm, çekicimi kuşağıma soktum. Demir olduktan sonra taşa vurur yine biçim veririm.",
         [
           [
-            "Örsün nerede?",
-            "Taşıyamadım. Örs ağırdır; yolda insan ağırlığından kurtulmak ister."
+            "Ustan veya yamakların nerede kaldı?",
+            "Usta ocağın başında kaldı... 'Körüğü kurtar oğul, zanaat ölmesin' dedi. Ben kaçtım, dükkan üstüne devrildi. Ocağın hakkını bu köyde ödeyeceğim."
           ]
         ]
       ],
       [
-        "Nesin?",
-        "Demire şekil veren ellerim var. Kaçarken anca bunları kurtarabildim."
+        "Köyümüzde taş ocakları var, balta kırılır tırpan körelir. Hakikaten işin ehli misin?",
+        "Bana çürük demir ver, sana çelik gibi çapa çıkarayım. Kılıcın suyunu da bilirim, atın nalını da. Ahi silsilesinden el aldım, haram demire çekiç vurmadım."
       ],
       [
-        "Kendini tanıt.",
-        "Ustaydım. Şimdi yurtsuz bir çırak gibiyim kapında."
+        "Kışlaya kılıç döver misin, yoksa yalnız sabanla mı uğraşırsın?",
+        "Gerektiğinde pusat da döverim kargı ucu da. Lakin benim muradım toprağı süren demirdir. Savaş gelir geçer, ekmek davası baki kalır."
       ]
     ],
     "secenekler": [
@@ -202,12 +208,12 @@
       1
     ],
     "yanitlar": {
-      "ret": "Etme muhafız. Zanaatım var, bir ocak başı göster bana yeter.",
-      "kabul": "Bana bir ocak gösterin, yeter.",
-      "kisla": "Kılıç döverim, temren sivritirim. İş bilirim."
+      "ret": "Etme muhafız ağa... Bileğimdeki kuvveti taşa çaldırma. Açıkta kalırsam bu çekiç elimde paslanır, yazık olur zanaata.",
+      "kabul": "Ocağınız dert görmesin! Yarın sabah ilk çekiç sesini duyduğunuzda 'İyi ki kapıyı açmışız' diyeceksiniz. Köyün bütün aletlerini baştan savarım.",
+      "kisla": "Kışlanın ocağını bana verin! Kırık temrenleri eritir, kalkanların perçinlerini sağlamlarım. Askerin pusatı elinde oynamaz, kefilim."
     },
     "not": "Önce Ret. Bir cevap sonra Kabul ve Kışla. Rüşvet yok.",
-    "acilis": "Demirciyim. Örsüm yok, körüğün yarısı elimde. Bir örs bulursam bu köyün nalını ben dökerim."
+    "acilis": "Demirciyim ben... Örsüm kalmadı, körüğün yarısı yangında yandı amma şu bileğim hâlâ balyoz tutar. Bana bir ocak başı gösterin; bu köyün oraklarını, kılıçlarını ben bileyeyim."
   },
   {
     "id": "diyalog_06",
