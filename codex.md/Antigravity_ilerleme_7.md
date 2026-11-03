@@ -109,8 +109,14 @@
 - `SEV-01` … `SEV-07`: Boş gün, ateşe gelen tanıdık yüz, köydeki iz, tek istek, bağlar, isim sorma, veda.
 - `MCL-02` … `MCL-09`: Çınar meclisi şikayet ve karar sesleri, eş/usta sözü.
 
-### Parti 5: Muhafızın Hanesi, Sabah Satırları & Sofra Metinleri (Bölüm 36 - HAN)
-- `HAN-01` … `HAN-48`: Hane sabah satırları, eşin meslek sözleri, misafir konuşmaları, sofra diyalogları.
+### Parti 5: Muhafızın Hanesi, Sabah Satırları & Sofra Metinleri (Bölüm 36 - HAN) — TAMAMLANDI
+- **Maddeler:** `HAN-01` … `HAN-46`, `HAN-48`, `HAN-52` (Toplam 48 madde; HAN-47, HAN-49, HAN-50, HAN-51 Claude kapsam bekçisi tarafından önceden kapatılmıştır).
+- **Uygulanan Dosyalar:**
+  - `data/soz/hane_sabah_satirlari.json`: 6 meslek için (dokumacı, ebe, fırıncı, bostancı, sütçü, yün eğirici) hava, ambar, duyum ve kalıntı sabah satırı havuzları; USLUP kurallarına tam uyumlu replikler.
+  - `src/koy/hane.gd`: Sabah satırı üretimi, meslek çıktısı adaptörü (`is_ciktisi_al`), haftalık sofra döngüsü (`sofra_kur`), muhafız maaşı (`maas_al`), rüşvet engelleme (`rusvet_engelle`), misafir ağırlama ve olayları (`misafir_al`), yetim alma kapasitesi (en çok 2 yetim, `yetim_al`), eş duyumu ve ipucu üretimi (`duyum_dinle`), eve dönüş zihin yankısı (`eve_donus_satiri`), eş ölümü sonrası 4 kancanın sıfırlanması (`es_olumu`), ve KAY zincirine uyumlu serileştirme (`kayit_verisi_al`, `kayit_verisi_yukle`).
+  - `tests/unit/koy/hane_test.gd`: HAN-52 kapanış testi: 3 gün hane döngüsü (sabah satırı, üretim, sofra, hediye bırakan misafir, duyum ipucu kancası), eş ölümü sonrası 4 kancanın 0 olması, yetim sınırı ve KAY zinciri restorasyon kontrolü (PASS).
+- **Test Sonucu:** Godot headless ile 1/1 test hatasız geçti. `tools/metin_dogrula.py` ve `tools/soz_tasarimi_dogrula.py` PASS.
+- **Asset Durumu:** `DYL07-OCAK` envanterde kayıtlıdır. Asset gerekmedi.
 
 ### Parti 6: Söylenti, Dedikodu & Kamuoyu Ağı Metinleri (Bölüm 37 - SOY)
 - `SOY-01` … `SOY-50`: Söylenti şablonları, kapıdan giren haberler, dedikodu taşıyıcıları, doğrulama satırları.
