@@ -1,0 +1,20 @@
+{
+  "durumlar": [
+    {
+      "bayraklar": {"acik": true},
+      "secenekler": [
+        {"id": "sec.kapali", "kosul": {"acik": false}},
+        {"id": "sec.acik", "kosul": {"acik": true}}
+      ],
+      "beklenen": "sec.acik"
+    },
+    {
+      "bayraklar": {},
+      "secenekler": [
+        {"id": "sec.ilk", "kosul": {}},
+        {"id": "sec.ikinci", "kosul": {}}
+      ],
+      "beklenen": "sec.ilk"
+    }
+  ]
+}

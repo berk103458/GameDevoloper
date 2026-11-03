@@ -29,9 +29,51 @@ static func uygula(kayit: Dictionary, mevsim_gun: int) -> Dictionary:
 				return {}
 	if surum < GUNCEL_SURUM:
 		veri["kayit_gocu_bildirimi"] = {"kaynak":surum, "hedef":GUNCEL_SURUM, "bekliyor":true}
+	_usta_demirci_goc(veri)
 	if not preload("res://src/sistemler/kayit_gocu_soz.gd").soz_denetle(veri):
 		return {}
 	return veri
+
+## TEK-05: CHR kaydındaki yanlış `usta_demirci` doğru usta bayrağına döner. Adsız esnaf durur.
+static func _usta_demirci_goc(veri: Dictionary) -> void:
+	var koy: Variant = veri.get("koy_yonetimi", {})
+	if not koy is Dictionary:
+		return
+	var kisiler: Variant = koy.get("koylular", [])
+	if not kisiler is Array:
+		return
+	for kisi in kisiler:
+		if not kisi is Dictionary:
+			continue
+		var adli := String(kisi.get("adli_id", "")).to_lower()
+		if not ZanaatTuru.CHR.has(adli):
+			continue
+		var dogru := _usta_adi(int(ZanaatTuru.CHR[adli]))
+		if dogru.is_empty() or dogru == "demirci":
+			continue
+		for alan in ["bayraklar", "gizli"]:
+			var liste: Variant = kisi.get(alan, [])
+			if not liste is Array or not liste.has("usta_demirci"):
+				continue
+			liste.erase("usta_demirci")
+			var yeni := "usta_" + dogru
+			if not liste.has(yeni):
+				liste.append(yeni)
+
+
+static func _usta_adi(tur: int) -> String:
+	match tur:
+		ZanaatTuru.Tur.CERRAH, ZanaatTuru.Tur.OTACI:
+			return "cerrah"
+		ZanaatTuru.Tur.DEMIRCI:
+			return "demirci"
+		ZanaatTuru.Tur.CIFTCI:
+			return "ciftci"
+		ZanaatTuru.Tur.COBAN:
+			return "coban"
+		_:
+			return ""
+
 
 static func _v2_v3(veri: Dictionary, mevsim_gun: int) -> Dictionary:
 	veri["muhafiz_akce"] = veri.get("muhafiz_akce", 0)
