@@ -1,4 +1,5 @@
-## AYR-08, AYR-13, AYR-14, AYR-16, AYR-19: Tema kaynağının ikinci tablosu.
+## AYR-08, AYR-13, AYR-14, AYR-16, AYR-19: renk paleti.
+## `src/arayuz/tema/` seçilmemiş şablon kaynağıdır; palet oraya konmaz.
 ## `tema.gd` ve `renkler.gd` değişmez; bu dosya onların üstüne yazar.
 extends RefCounted
 

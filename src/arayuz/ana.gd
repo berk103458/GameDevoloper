@@ -20,6 +20,7 @@ func _ready() -> void:
 		var admin := AdminHud.new()
 		admin.baglam = self
 		add_child(admin)
+	TranslationServer.set_locale("tr")
 	GuvenliMetin.kur()  # BUG-07: eksik metin anahtarı kilitlemez
 	ayarlar = Ayarlar.new()
 	ayarlar.yukle()
@@ -31,10 +32,10 @@ func _ready() -> void:
 	var giris_kaynaklari := await VarlikYuklemePaneli.hazirla(self, GirisVarliklari.menu())
 	ayarlar.degisti.connect(func(_a: StringName) -> void:
 		theme = Tema.olustur(ayarlar)
-		preload("res://src/arayuz/tema/palet.gd").uygula(theme, ayarlar)
+		preload("res://src/arayuz/renk_paleti.gd").uygula(theme, ayarlar)
 	)
 	theme = Tema.olustur(ayarlar)
-	preload("res://src/arayuz/tema/palet.gd").uygula(theme, ayarlar)
+	preload("res://src/arayuz/renk_paleti.gd").uygula(theme, ayarlar)
 	_imleci_kur()
 	kayit = GuvenliKayit.new()
 	katalog = Katalog.new()

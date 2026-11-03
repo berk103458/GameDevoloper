@@ -26,6 +26,8 @@
   "kacan_bedeli.dedikodu": {"alt": 0, "ust": 5, "not": "DEN-19: Kacan kisi basina uretilen dedikodu puani (varsayilan 1)."},
   "kacan_bedeli.kasa": {"alt": 0, "ust": 0, "not": "DEN-19: Kacan kisi kasayi etkilemez; kasa degisimi daima 0 olmalidir (DEN-19 kuralı)."},
   "acilis_kasasi.koy_akce": {"alt": 0, "ust": 1000, "not": "DEN-14: Acilis koy akcesi (varsayilan 10, koy_ayarlari.akce_baslangic)."},
-  "acilis_kasasi.muhafiz_akce": {"alt": 0, "ust": 1000, "not": "DEN-14: Acilis muhafiz kisisel kesesi (varsayilan 0)."}
+  "acilis_kasasi.muhafiz_akce": {"alt": 0, "ust": 1000, "not": "DEN-14: Acilis muhafiz kisisel kesesi (varsayilan 0)."},
+  "olay.olay_olasiligi": {"alt": 0.0, "ust": 1.0, "not": "OZL-29: gece olayi olasiligi. 0 kart cikarmaz, 1 her gece dener. Tablodaki deger 0.75; deger degistirilmedi."},
+  "olay.sira_olay_olasiligi": {"alt": 0.0, "ust": 1.0, "not": "OZL-29: sira olayi olasiligi. Tablodaki deger 0.35; deger degistirilmedi."}
 }
 

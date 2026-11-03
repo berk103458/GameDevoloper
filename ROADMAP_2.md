@@ -4750,7 +4750,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Ne: `renk_paleti` anahtarı: olağan / deuteranopi / protanopi / tritanopi. Dört bar, tansiyon göstergesi, kaynak göstergesi ve zar rengini etkileyen palet ARY-02 tema kaynağının ikinci tablosudur; `renkler.gd` değişmez.
   - Kabul: palet değişince `Renkler` sabitleri yerine tema kaynağı okunur; dört palette bar renkleri çift çift ayrışır (ΔE ≥ 20, öneri). Test: ekran + sayı.
   - Bağımlılık: ARY-02. Boyut: M.
-  - Dosya: yeni: `src/arayuz/tema/palet.gd`; yeni: `data/arayuz/paletler.json`.
+  - Dosya: yeni: `src/arayuz/renk_paleti.gd`; yeni: `data/arayuz/paletler.json`.
   - Asset: asset gerekmedi.
 - [x] **AYR-15:** (Cursor) Renk tek bilgi taşıyıcı değildir.
   - Ne: bar, tansiyon ve kaynak durumu renkle birlikte bir biçim ya da harf taşır (bar adının ilk harfi, tansiyonda üç kademe çizgi). Palet seçiminden bağımsız açıktır.
@@ -4762,7 +4762,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Ne: `yuksek_kontrast` anahtarı: panel dolgusu tam opak, kenar kalınlığı +1, metin rengi tam `KUL` yerine beyaz. Tema kaynağı ikinci değer kümesi.
   - Kabul: açıkken metin/zemin kontrast oranı ≥ 7:1 (WCAG AAA, öneri). Test: renk ölçümü.
   - Bağımlılık: ARY-02. Boyut: S.
-  - Dosya: `src/arayuz/tema/palet.gd`.
+  - Dosya: `src/arayuz/renk_paleti.gd`.
   - Asset: asset gerekmedi.
 - [x] **AYR-17:** (Cursor) Zar sonucu rakamla da yazılır.
   - Ne: görünür zar (ZAR-01) sonucunu yalnız yüzle değil rakamla ve "geçti/kaldı" sözüyle gösterir; `belirme_hizi aninda` ile uyumlu.
@@ -4780,7 +4780,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Ne: `odak_cercevesi` normal/kalın; klavye ve gamepad odağı (`ui_*` eylemleri) kalın modda 3 px kenar.
   - Kabul: odaklı düğme kenarı 3 px. Test: ekran.
   - Bağımlılık: ARY-02, GIR-06. Boyut: S.
-  - Dosya: `src/arayuz/tema/palet.gd`.
+  - Dosya: `src/arayuz/renk_paleti.gd`.
   - Asset: asset gerekmedi.
 
 ### 35.4 Ses ayarları (yalnız var olan üç bus)
@@ -4975,7 +4975,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Ne: iki çekirdek dosyanın diff'i 0; yeni anahtar, palet ve sekme ayrı dosyadadır.
   - Kabul: `git diff` iki dosyada 0 (uygulama fazında). Test: inceleme.
   - Bağımlılık: AYR-02, AYR-14. Boyut: S.
-  - Dosya: `src/sistemler/ayarlar_ek.gd`, `src/arayuz/tema/palet.gd`.
+  - Dosya: `src/sistemler/ayarlar_ek.gd`, `src/arayuz/renk_paleti.gd`.
   - Asset: asset gerekmedi.
 - [x] **AYR-49:** (Claude) Ses üretimi yok.
   - Ne: bu bölüm yeni ses dosyası, bus, seslendirme veya ekran okuyucu sesi eklemez.

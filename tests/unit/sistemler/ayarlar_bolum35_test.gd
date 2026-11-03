@@ -2,7 +2,7 @@
 extends SceneTree
 
 const YOL := "user://test_ayar_bolum35.cfg"
-const Palet = preload("res://src/arayuz/tema/palet.gd")
+const Palet = preload("res://src/arayuz/renk_paleti.gd")
 const Sekmeler = preload("res://src/arayuz/ayarlar/ayar_sekmeleri.gd")
 const Hizli = preload("res://src/sistemler/hizli_kayit.gd")
 const Zorluk = preload("res://src/sistemler/zorluk_secimi.gd")

@@ -56,7 +56,7 @@ func _hepsini_kaydet(klasor: String) -> void:
 		await RenderingServer.frame_post_draw
 		var img := get_viewport().get_texture().get_image()
 		img.save_png(klasor.path_join(str(aday.dosya)))
-	get_tree().quit(0)
+	await Ses.cik(0)
 
 
 func _temizle() -> void:
