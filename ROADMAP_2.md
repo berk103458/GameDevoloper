@@ -1704,7 +1704,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.8 İnşaat
 
-- [ ] **YAP-70:** İnşaat ölçümü DEN satırıdır
+- [x] **YAP-70:** İnşaat ölçümü DEN satırıdır (Kalfa)
   - Ne: İnşaat ölçümü DEN satırıdır. Süre bandı. Formül değişmez.
   - Kabul: İnşaat ölçümü DEN satırıdır. Satır 1. Test: DEN.
   - Bağımlılık: DEN-05. Boyut: S.

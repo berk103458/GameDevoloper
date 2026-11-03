@@ -20,6 +20,11 @@ func _initialize() -> void:
 		var oturum := Oturum.new(k, 555)
 
 		# 1. Gece sonu çağrılır (tüketim fonksiyonu bu akışta bir kez çalışır)
+		var bina := KoyBinasi.new()
+		bina.id = 99
+		bina.tur = "tarla"
+		bina.insa_kalan = 3
+		oturum.yonetim.binalar.append(bina)
 		var gece_raporu := oturum.gece_sonu()
 		dene(gece_raporu.has("olaylar") or gece_raporu.has("rapor"), "Gece sonu raporu üretildi")
 
@@ -35,6 +40,7 @@ func _initialize() -> void:
 		gece_raporu["uretim"] = {"odun": 7}
 		gece_raporu["esyalar"] = ["usta_defteri"]
 		var olcum := DENGE_OLCUMU.olustur(oturum, gece_raporu, ek_baglam)
+		dene(bina.insa_kalan < 3 and olcum.insaat_ilerleme == 3 - bina.insa_kalan, "YAP-70: gercek insaat ilerlemesi")
 		dene(not olcum.keys().any(func(anahtar: Variant) -> bool: return str(anahtar).contains("esya")), "YAP-54: esya icin zorunlu olcum yok")
 		dene(olcum.uretim == gece_raporu.uretim, "ISG-43: uretim farki sifir")
 		olcum.uretim["odun"] = 0

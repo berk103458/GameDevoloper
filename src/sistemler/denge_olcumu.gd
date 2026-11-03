@@ -42,6 +42,7 @@ static func olustur(oturum: RefCounted, gece_raporu: Dictionary, ek_baglam: Dict
 	var rapor := {
 		"gun": gun,
 		"gida_tuketimi": gida_tuketimi,
+		"insaat_ilerleme": int(gece_raporu.get("rapor", gece_raporu).get("insaat_ilerleme", 0)),
 		"uretim": gece_raporu.get("uretim", {}).duplicate(true),
 		"ac_kisi_orani": ac_orani,
 		"nobet_maasi": nobet_maasi,
@@ -84,4 +85,3 @@ static func zar_rapor_satir_sayisi(rapor: Dictionary) -> int:
 		if "zar" in str(k).to_lower():
 			sayac += 1
 	return sayac
-

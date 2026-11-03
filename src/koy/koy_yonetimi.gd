@@ -576,7 +576,7 @@ func gece() -> Dictionary:
 	SaglikYoneticisi.tedavi(self, olaylar)
 	SIFAHANE_TRIYAJ.gece(self, olaylar)
 	NobetYorgunlugu.gece(self, uyanik_nobet)
-	_insaat()
+	rapor["insaat_ilerleme"] = _insaat()
 	_barindir()
 	CasusGeceTakibi.gece(self)
 	GizliEgilimler.gece(self, calismalar, olaylar)
@@ -731,13 +731,17 @@ func _ambara(b: KoyBinasi, tur: String, miktar: float, bonus: float, uretim: Dic
 				olaylar.append({"anahtar": "koy.olay.bonus_satis", "deger": [tasan, para]})
 
 
-func _insaat() -> void:
+func _insaat() -> int:
+	var ilerleme := 0
 	var yardim := bostakiler().filter(func(k: Koylu) -> bool: return k.yas_grubu == &"yetiskin" and not KarantinaYoneticisi.aktif(k)).size() / maxi(1, a.insa_yardim_bolen)
 	yardim += GeciciIsler.insaat_yardimi(self)
 	for b in binalar:
 		if b.insa_kalan > 0:
+			var once := b.insa_kalan
 			b.insa_kalan = maxi(0, b.insa_kalan - 1 - yardim)
+			ilerleme += once - b.insa_kalan
 	_ambar_kapasitesi()
+	return ilerleme
 
 
 func _ambar_kapasitesi() -> void:
