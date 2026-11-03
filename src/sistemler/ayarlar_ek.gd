@@ -229,7 +229,11 @@ static func _olcegi_dosyadan(a: Ayarlar) -> void:
 	if a == null or not FileAccess.file_exists(a.yol):
 		return
 	var cfg := ConfigFile.new()
-	if cfg.load(a.yol) != OK or not cfg.has_section_key("ayarlar", "metin_olcegi"):
+	var onceki := Engine.print_error_messages
+	Engine.print_error_messages = false
+	var sonuc := cfg.load(a.yol)
+	Engine.print_error_messages = onceki
+	if sonuc != OK or not cfg.has_section_key("ayarlar", "metin_olcegi"):
 		return
 	var olcek := _olcek_tam(cfg.get_value("ayarlar", "metin_olcegi"))
 	if olcek in METIN_OLCEKLERI:
