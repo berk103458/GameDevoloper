@@ -1911,3 +1911,6 @@ koy.meslek_uyarisi.satir,"%s — %s yok. Nitelikli iş verilemez; günde %s erza
 koy.atama.meslek_uyusmaz,Meslek bu yapıya uygun değil
 koy.atama.ilk_ipucu,Köylüyü başka bir işe geçirmek için kartını uygun yapıya sürükle.
 acilis.denge_hatasi,Denge tablosundaki değer geçersiz (%s).
+arayuz.menu.surum,%s
+arayuz.menu.daha_once,daha önce: %s
+arayuz.demo.bitti,Köy oturdu.

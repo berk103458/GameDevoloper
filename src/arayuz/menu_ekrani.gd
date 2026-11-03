@@ -14,6 +14,8 @@ const GENISLIK := 500.0
 
 var ust_satir: String = ""
 var ipucu: String = ""
+var surum_metni: String = ""
+var daha_once: PackedStringArray = PackedStringArray()
 
 
 func _ready() -> void:
@@ -96,6 +98,12 @@ func _ready() -> void:
 		l.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		l.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		alan.add_child(l)
+	if surum_metni != "":
+		var surum := _etiket(kok, surum_metni, 22, Tema.font(400), Color(MenuSatiri.KREM, 0.7), 990.0)
+		surum.name = "surum"
+	if daha_once.size() > 0:
+		var once := _etiket(kok, tr("arayuz.menu.daha_once") % ", ".join(daha_once), 22, Tema.font(400), Color(MenuSatiri.KREM, 0.7), 1024.0)
+		once.name = "daha_once"
 	_sirayla_goster(liste)
 
 

@@ -6926,7 +6926,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `project.godot`; `menu_ekrani.gd` boş sabit durur ya da `baslik` ile dolar, ikinci ad yazılmaz.
   - Asset: asset gerekmedi.
-- [/] **SRM-02:** (Cursor) Sürüm tek sabittir.
+- [x] **SRM-02:** (Cursor) Sürüm tek sabittir.
   - Ne: `config/version` bir dizedir (öneri `0.2.0`, Ahmet koyar). Menü alt satırı `arayuz.menu.surum` ile onu gösterir. Kod içinde dağınık sürüm yazısı 0.
   - Kabul: menüde sürüm 1, `project.godot` ile aynı. Test: iki yer eşit.
   - Bağımlılık: SRM-01. Boyut: S.
@@ -6941,19 +6941,19 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.2 Oyuncu sürümü — debug kapalı
 
-- [/] **SRM-04:** (Cursor) İki açılış vardır: geliştirme ve oyuncu.
+- [x] **SRM-04:** (Cursor) İki açılış vardır: geliştirme ve oyuncu.
   - Ne: oyuncu açılışı `--debug-arac` yokken admin, perf günlüğü ve köprüyü kurmaz. Geliştirme açılışı bugünkü davranıştır.
   - Kabul: bayraksız süreçte `AdminHud` 0 (TEK-27). Test: iki açılış.
   - Bağımlılık: TEK-27. Boyut: S.
   - Dosya: `src/arayuz/ana.gd` tek koşul.
   - Asset: asset gerekmedi.
-- [/] **SRM-05:** (Cursor) Debug kapalı sürüm.
+- [x] **SRM-05:** (Cursor) Debug kapalı sürüm.
   - Ne: export ön ayarında debug araçları kapalıdır: admin HUD, F1, performans şeridi, perf günlüğü, senaryo koşucusu, zaman makinesi, enjektörler. Köprü yalnız `--bridge-port` ile (ADM-16). Ön ayar `export_presets.cfg` içinde bir Windows hedefidir; Steam hedefi yoktur.
   - Kabul: oyuncu export'unda `src/debug/` düğümü 0. Test: export açılışı.
   - Bağımlılık: SRM-04, ADM-16. Boyut: M.
   - Dosya: `export_presets.cfg` (oyun deposunda, uygulanırken).
   - Asset: asset gerekmedi.
-- [/] **SRM-06:** (Cursor) Oyuncu sürümünde konsol izi yoktur.
+- [x] **SRM-06:** (Cursor) Oyuncu sürümünde konsol izi yoktur.
   - Ne: `push_error` durur (TEK-18); oyuncuya hata ayıklama dökümü penceresi açılmaz. Godot'un kendi stdout'u paket dışında bırakılır.
   - Kabul: export'ta verbose bayrağı kapalı. Test: preset.
   - Bağımlılık: SRM-05. Boyut: S.
@@ -6962,19 +6962,19 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.3 Demo kesiti — yeni perde yok
 
-- [/] **SRM-07:** (Cursor) Demo, perde 1 ile sınırlı bir export bayrağıdır.
+- [x] **SRM-07:** (Cursor) Demo, perde 1 ile sınırlı bir export bayrağıdır.
   - Ne: `demo` ayarı açıkken oyun `perde_gecisi` "Köy oturdu" kartında biter; perde 2 ve beş son çalışmaz. Omurga (Bölüm 34) yeniden yazılmaz. Sayı `oturma_esigi` (18) durur.
   - Kabul: demo bayrağında nüfus 18 sonrası kapı gecesi 0, bitiş kartı 1. Bayrak kapalıyken bugünkü perde 2. Test: iki bayrak.
   - Bağımlılık: OMR-08. Boyut: M.
   - Dosya: yeni: `src/sistemler/demo_kesiti.gd`; `perde_gecisi` çağrısına tek satır.
   - Asset: asset gerekmedi.
-- [/] **SRM-08:** (Cursor) Demo metni son ekranına eklenir, istatistik uydurmaz.
+- [x] **SRM-08:** (Cursor) Demo metni son ekranına eklenir, istatistik uydurmaz.
   - Ne: demo bitişinde mevcut dört sayı (gün, kabul, ret, nüfus) ve bir cümle `arayuz.demo.bitti`. Yeni sayaç yok.
   - Kabul: dört sayı `yonetim` alanlarından gelir. Test: son ekranı.
   - Bağımlılık: SRM-07. Boyut: S.
   - Dosya: `ana.gd _son_goster` demo dalı; `metinler.csv`.
   - Asset: asset gerekmedi.
-- [/] **SRM-09:** (Cursor) Tam sürümde demo kartı çıkmaz.
+- [x] **SRM-09:** (Cursor) Tam sürümde demo kartı çıkmaz.
   - Ne: bayrak kapalıyken `demo_kesiti` 0 çağrı etkisi.
   - Kabul: normal oyunda perde 2 gecesi başlar. Test: bayrak kapalı.
   - Bağımlılık: SRM-07. Boyut: S.
@@ -6989,13 +6989,13 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `ana.gd`.
   - Asset: asset gerekmedi.
-- [/] **SRM-11:** (Cursor) Başarım tablosu açılmaz.
+- [x] **SRM-11:** (Cursor) Başarım tablosu açılmaz.
   - Ne: Steam başarımları ve oyun içi rozet yoktur. Alınan son izi OMR-47 `oyuncu_izi.cfg` dosyasıdır; bu bölüm onu başarım diye yeniden adlandırmaz.
   - Kabul: `basarim` sınıfı 0. Test: tarama.
   - Bağımlılık: OMR-47. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [/] **SRM-12:** (Cursor) İkinci oyunda "daha önce" satırı OMR-47'dir.
+- [x] **SRM-12:** (Cursor) İkinci oyunda "daha önce" satırı OMR-47'dir.
   - Ne: menüde alınan sonların kısa adı. Liste OMR-47'den okunur, burada ikinci dosya yok.
   - Kabul: iz dosyası boşken satır 0. Test: OMR-47.
   - Bağımlılık: OMR-47. Boyut: S.
@@ -7046,13 +7046,13 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.7 Ekran listesi — çekim ve kontrol
 
-- [/] **SRM-19:** (Cursor) Sürüm kontrolü şu ekranları gezer.
+- [x] **SRM-19:** (Cursor) Sürüm kontrolü şu ekranları gezer.
   - Ne: tek liste: menü, ayarlar, yükleme, kapı (sorgu + karar), heybe, köy, harita, divan, muhafız odası, gece kartı, son ekranı. Liste Bölüm 43 envanterinin oyuncu yüzüdür; HUD parçaları ayrı sayılmaz.
   - Kabul: 11 ekranın her biri açılır, SCRIPT ERROR 0. Test: duman.
   - Bağımlılık: TEK-16. Boyut: M.
   - Dosya: `tests/oto` duman notu.
   - Asset: asset gerekmedi.
-- [/] **SRM-20:** (Cursor) Üç çözünürlükte aynı liste.
+- [x] **SRM-20:** (Cursor) Üç çözünürlükte aynı liste.
   - Ne: pencere 1280×720, 1600×900 (bugünkü override), 1920×1080. Taşan metin AYR ve GRV işidir; bu madde yalnız "açıldı" der.
   - Kabul: üç boyutta 11 ekran açılır. Test: duman × 3.
   - Bağımlılık: SRM-19, AYR. Boyut: M.
@@ -7061,7 +7061,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.8 Gizlilik ve ağ
 
-- [/] **SRM-21:** (Cursor) Oyun dışarı istek atmaz.
+- [x] **SRM-21:** (Cursor) Oyun dışarı istek atmaz.
   - Ne: oyuncu sürümünde HTTP/telemetri 0. Yerel köprü (ADM-16) localhost ve bayraklıdır, sürümde kapalıdır.
   - Kabul: bayraksız ağ bağlantısı 0. Test: tarama + açılış.
   - Bağımlılık: SRM-05. Boyut: S.
@@ -7091,13 +7091,13 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.10 Sınırlar ve kapanış
 
-- [/] **SRM-25:** (Cursor) Denge ve yazım bu bölümde değişmez.
+- [x] **SRM-25:** (Cursor) Denge ve yazım bu bölümde değişmez.
   - Ne: `denge.json` ve `data/soz/` sürüm kesitinden oynanmaz. Sapma DEN ve KLT'dedir.
   - Kabul: bu bölümün diff'i o iki ağaca girmez. Test: tarama.
   - Bağımlılık: DEN-01, KLT-01. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [/] **SRM-26:** (Cursor) Kapanış testi.
+- [x] **SRM-26:** (Cursor) Kapanış testi.
   - Ne: bayraksız açılışta admin 0, pencere adı eski yazım değil, kayıtsız devam pasif, demo bayrağında perde 2 yok, son ekranı 4 sayı, steam script 0.
   - Kabul: altı iddia. Test: `tests/oto/surum_kontrol.tscn`.
   - Bağımlılık: SRM-01…25. Boyut: M.

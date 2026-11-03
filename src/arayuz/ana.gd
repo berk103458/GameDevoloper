@@ -46,7 +46,8 @@ func _ready() -> void:
 	ana_menu()
 	await VarlikYuklemePaneli.bitir(self, giris_kaynaklari)
 	Ses.dongu_baslat()
-	preload("res://src/debug/oyun_koprusu.gd").bagla(self)
+	if OyuncuSurumu.kopru_istendi():
+		preload("res://src/debug/oyun_koprusu.gd").bagla(self)
 
 
 ## Ana menüyü gösterir.
@@ -60,6 +61,8 @@ func ana_menu() -> void:
 	e.ust_satir = tr("arayuz.menu.ust")
 	e.baslik = tr("arayuz.menu.baslik")
 	e.ipucu = tr("arayuz.menu.ipucu")
+	e.surum_metni = SurumKimligi.metin()
+	e.daha_once = SurumKimligi.daha_once()
 	e.dugmeler = PackedStringArray([tr("arayuz.menu.yeni"), tr("arayuz.menu.devam"), tr("arayuz.menu.ayarlar"), tr("arayuz.menu.cik")])
 	if not kayit.var_mi():
 		e.pasifler = [1]
@@ -159,9 +162,14 @@ func _son_goster(son: StringName) -> void:
 	kayit.sil()
 	Ses.cal(&"sfx_bar_kirildi" if son != &"zafer" else &"sfx_gece_bitti")
 	var y := oturum.yonetim
-	var son_metni := preload("res://src/sistemler/nihai_son.gd").son_metni(oturum, son, SancakTeftisi.son_metni(son))
-	var metin := MuhafizEpilogu.metin(oturum, son, String(son_metni.metin)) + "\n\n" + tr("arayuz.son.istatistik") % [y.gun, y.kabul_sayisi, y.ret_sayisi, y.nufus()]
-	var e := _bilgi(String(son_metni.baslik), metin, [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
+	var istatistik := tr("arayuz.son.istatistik") % [y.gun, y.kabul_sayisi, y.ret_sayisi, y.nufus()]
+	var baslik := tr("arayuz.perde.baslik")
+	var metin := tr("arayuz.demo.bitti") + "\n\n" + istatistik
+	if son != &"demo":
+		var son_metni := preload("res://src/sistemler/nihai_son.gd").son_metni(oturum, son, SancakTeftisi.son_metni(son))
+		baslik = String(son_metni.baslik)
+		metin = MuhafizEpilogu.metin(oturum, son, String(son_metni.metin)) + "\n\n" + istatistik
+	var e := _bilgi(baslik, metin, [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
 		oturum.gun, "3d_koy")
 	e.oturum = oturum
 	e.secildi.connect(_son_secimi)
@@ -171,6 +179,9 @@ func _son_goster(son: StringName) -> void:
 
 
 func _perde_gecisi() -> void:
+	if DemoKesiti.acik():
+		_son_goster(&"demo")
+		return
 	var e := _bilgi(tr("arayuz.perde.baslik"), tr("arayuz.perde.metin"), [tr("arayuz.perde.devam")], -1, "3d_koy")
 	e.oturum = oturum
 	e.secildi.connect(func(_i: int) -> void: _kapiya_git())
@@ -247,7 +258,7 @@ func _goster(e: Control) -> void:
 	preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_isaretle(e, e is KoyEkrani or e is KapiEkrani)
 	_ekran = e
 	add_child(e)
-	if e is KoyEkrani or e is KapiEkrani:
+	if (e is KoyEkrani or e is KapiEkrani) and OyuncuSurumu.perf_istendi():
 		preload("res://src/debug/performans_gunlugu.gd").bagla(self, oturum)
 	var grafik := GrafikProfiliAdaptoru.new()
 	grafik.ayarlar = ayarlar

@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Bölüm 42 — 3 Kasım 2026
+
+SRM-02, SRM-04…09, SRM-11, SRM-12, SRM-19…21, SRM-25 ve SRM-26. Sürüm `0.2.0` tek sabittir. Oyuncu açılışında debug düğümü kurulmaz. Demo bayrağı perde 2'yi açmaz. Mağaza cümlesi ve diyalog yazılmadı; yer tutucu anahtar kullanıldı. Kalfa ekonomi/köy ve Antigravity metin alanına girilmedi. Asset gerekmedi. Godot 4.7.2 headless `tests/oto/surum_kontrol.tscn` GEÇTİ, 0 hata. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok.
+
 ## VFX — 24 Ekim 2026
 
 Duman, alev, yağmur çizgisi, yumuşak ışık ve bir ateş topu. Şimşek, büyü, kan ve namlu yok. Kar ve ayrı kıvılcım yok. Sahneye bağlanmadı. Headless 5 PNG, `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. Kota görünmüyor.
