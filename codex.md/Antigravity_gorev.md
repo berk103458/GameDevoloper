@@ -264,3 +264,33 @@ Bu gece Cursor ajanları `claude/festive-volta-li1sfm` dalına PR'lar açtı (#1
 - Her bölümden sonra doğrulayıcıları çalıştır (`tools/metin_dogrula.py`, `tools/soz_dogrula.py` ve testler).
 - Bir şeyden emin değilsen dosyaya "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
 
+
+---
+
+# Görev 6 — Yeni ziyaretçiler ve köy olayları, ardından son okuma ve üslup cilası (Kaşif, 4 Kasım 2026 01:38)
+
+İlerleme dosyası: `codex.md/Antigravity_ilerleme_6.md`. Her partiden sonra güncelle. Sıra Ahmet'in isteği: önce Bölüm B'nin hepsini bitir, sonra Bölüm A'ya geç. Her şey bitince dosyanın son satırına tek başına `GOREV6_TAMAM` yaz. Acele etme, kaliteli ve kapsamlı yaz.
+
+## Bölüm B — Yeni kapı ziyaretçileri ve köy olayları (önce bu)
+- Önce ROADMAP'i, CHR kartlarını, var olan 20 kapı diyaloğunu ve oyunun dünyasını (13. yüzyıl uç beyliği, köy, kapı) oku. Hangi tiplerin eksik olduğunu çıkar ve ilerleme dosyasına yaz. Örnekler: kaçak, casus, hasta, tüccar, derviş, asker kaçağı, akraba, çocuk, yalancı tanık.
+- En az 10 yeni kapı ziyaretçisi yaz. Her biri için CHR kartı yaz, ya da var olan kart düzenine uygun bir tanım ekle.
+- Her ziyaretçinin Görev 3–5 kalitesinde tam bir sorgu ağacı olsun: tekrar eden soru olmasın (bayraklarla), anlamlı seçenekler olsun ve kararlar köyde iz bıraksın.
+- Eşin bu ziyaretçiler için yorumlarını da yaz. es_kapi_dusunceleri.json'da var olan 4 aşamalı düzene uy.
+- Bazı yeni ziyaretçiler önceki ziyaretçilere ve kararlara bağlansın: aynı aileden biri gelsin, intikam için gelen biri olsun, geri çevrilen birinin haberi ulaşsın.
+- En az 8 yeni köy olayı yaz. Bunlar kapı kararlarının sonucu olarak tetiklenen ya da mevsime ve kıtlığa bağlı olaylar olsun: köylüler arası kavga, hırsızlık, salgın söylentisi, düğün, cenaze, yangın ve benzerleri. Her olayın oyuncuya sunduğu seçimler ve sonuçları olsun. Bunları var olan olay, bayrak ve etki sistemine bağla, gerekiyorsa en küçük adaptörü yaz.
+- Yeni ziyaretçileri ve olayları oyunun ziyaretçi ve olay havuzuna bağla, gerçekten oyunda çıksınlar.
+
+## Bölüm A — Bütün metinlerde son okuma ve üslup cilası (B bitince)
+- Oyundaki bütün oyuncu metinlerini baştan sona oku: kapı diyalogları, köy sohbetleri, eşle sohbetler, eşin yorumları, olaylar, `metinler.csv` ve `docs/YER_TUTUCU_METINLER.csv`.
+- Yazım, noktalama ve Türkçe karakter hatalarını düzelt. Dönem dışı modern kelimeleri ve kalıpları değiştir.
+- Her karakterin sesinin baştan sona tutarlı olduğunu ve karakterlerin birbirine benzemediğini kontrol et.
+- Tekrar eden cümleleri, yapay zekâ kokan kalıpları ve gereksiz uzunlukları ayıkla.
+- Neyi neden değiştirdiğini ilerleme dosyasına kısa bir tabloyla yaz.
+
+## Kurallar
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at. Her parti bir commit olsun, mesajın sonu "(Antigravity)" ile bitsin. Her partiden sonra push et.
+- Diyalog dışı oyun koduna dokunma. Yalnız adaptör gerekiyorsa en az değişiklikle dokun.
+- Asset üretme. Gereken görselleri `docs/EKSIK_ASSET_ENVANTERI.md`'ye yaz; 2D olanlar için Nano Banana promptunu da yaz.
+- Her bölümden sonra doğrulayıcıları ve Godot headless testlerini çalıştır, sonuç 0 hata olsun.
+- Bir şeyden emin değilsen dosyaya "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
+
