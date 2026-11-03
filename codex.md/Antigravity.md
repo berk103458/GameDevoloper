@@ -664,3 +664,33 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - `tests/unit/kvr/diyalog_mantigi_test.gd`: GEÇTİ.
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_5.md` son satırı `GOREV5_TAMAM` olarak tamamlandı.
 - **Kota:** kota görünmüyor
+
+## 4 Kasım 2026 — Görev 6: Yeni Ziyaretçiler ve Köy Olayları (Bölüm B) ve Son Okuma/Üslup Cilası (Bölüm A)
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Bölüm B — 10 Yeni Kapı Ziyaretçisi ve Eş Düşünceleri:**
+     - Eksik tipler analiz edildi: derviş, Moğol casusu şüpheli tüccar, firari avcısı inzibat çavuşu, vebalı ana ve bebek, kaçak yetim çırak, sahte cerrah/otacı, fitneci kadı kâtibi, intikamcı harami bacısı, donan kafile habercisi ve muhafızın öz yeğeni.
+     - `data/diyalog/diyalog_01_20.json` içine `diyalog_21` – `diyalog_30` olmak üzere 10 yeni ziyaretçi eklendi (toplam 30 ziyaretçi).
+     - Her biri için açılışı kurcalayan takip soruları, bayraklar (`dervis_mujde_haberi`, `mogol_gizli_ferman`, `cuhaci_ortagi_iddiasi`, `vebali_bebek_emaneti`, `hamza_yegen_kavusma`, vb.) ve anlamlı seçenekler yazıldı.
+     - Önceki ziyaretçilere (`diyalog_01` Hamza, `diyalog_02` kumaşçı, `diyalog_03`/`06` firariler, `diyalog_04` çoban, `diyalog_11` levent, `diyalog_20` nalbant, Hasan Çelebi) derin bağlantılar kuruldu.
+     - `data/diyalog/es_kapi_dusunceleri.json` tablosuna 10 yeni ziyaretçi için 4 aşamalı (`karsilama`, `kritik_soru`, `karar_oncesi`, `karar_kabul`, `karar_ret`) eş yorumları eklendi (toplam 31 eş yorumu).
+     - `docs/DIYALOG_ANA_PLANI.md` karakter envanteri tablosuna yeni karakterler işlendi.
+  2. **Bölüm B — 8 Yeni Köy Olayı:**
+     - `data/olaylar/` dizinine 8 yeni olay kartı eklendi: `kavga_harman.tres`, `ambarda_hirsizlik.tres`, `salgin_fisiltisi.tres`, `koy_dugunu.tres`, `firari_cenazesi.tres`, `samanlik_yangini.tres`, `gece_donu.tres`, `harami_elcisi.tres`.
+     - `data/metin/metinler.csv` dosyasına 64 yeni anahtar (başlık, metin, 3 seçenek, 3 sonuç metni) eklendi.
+     - `tests/unit/olay/yeni_olaylar_test.gd` yazılarak tüm olaylar ve çevirileri doğrulandı.
+  3. **Bölüm A — Bütün Metinlerde Son Okuma ve Üslup Cilası:**
+     - Tüm kapı, köy ve olay metinleri tarandı.
+     - `sohbet.chr_022` içindeki modern İtalyanca/Fransızca "alarm" ve "tempo" kelimeleri 13. yy askeri ve halk müziği usullerine ("tehlike vuruşu", "baskın kösü", "usul", "tarla usulü") uyarlandı.
+     - `sohbet.sorhan.c23` ve `sohbet.thessra.c3` içindeki yapay "çünkü" bağlaçları dönemin ruhuna uygun akıcı ifadelere ("zira", "kadın kızı olduğumdan ötürü") dönüştürüldü.
+     - `data/metin/metinler.tr.translation` derlendi.
+  4. **Doğrulama ve Testler:**
+     - `python tools/metin_dogrula.py --kaynak`: PASS.
+     - `python tools/soz_tasarimi_dogrula.py`: GEÇTİ.
+     - `Godot --headless -s tests/unit/diyalog/diyalog_butunluk_test.gd`: BAŞARILI (0 hata, 30 kapı diyaloğu + 18 Parley sekansı).
+     - `Godot --headless -s tests/unit/kapi/es_yorumu_test.gd`: BAŞARILI (0 hata, 30 eş düşüncesi).
+     - `Godot --headless -s tests/unit/kvr/diyalog_mantigi_test.gd`: GEÇTİ (0 hata).
+     - `Godot --headless -s tests/unit/olay/yeni_olaylar_test.gd`: BAŞARILI (0 hata).
+     - `Godot --headless -s tests/unit/olay/on_kosul_test.gd`: GEÇTİ (0 hata).
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_6.md` son satırı `GOREV6_TAMAM` olarak tamamlandı.
+- **Kota:** kota görünmüyor

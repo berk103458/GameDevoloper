@@ -70,3 +70,48 @@ Köy simülasyonunda kapı kararlarının sonuçları, mevsim ve asayiş durumun
   - `python tools/soz_tasarimi_dogrula.py`: GEÇTİ (0 hata).
 
 ---
+
+## Bölüm A — Bütün Metinlerde Son Okuma ve Üslup Cilası
+
+Oyundaki tüm oyuncu metinleri (30 kapı diyaloğu, 18 Parley köy/eş sohbet sekansı, 30 eş kapı düşüncesi, köy olayları, `metinler.csv` ve `docs/YER_TUTUCU_METINLER.csv`) baştan sona tarandı:
+- Yazım, noktalama ve Türkçe karakterler denetlendi.
+- Dönem dışı modern kelimeler, yabancı kökenli modern terimler (`alarm`, `tempo`) ve yapay formül sözcükleri (`çünkü`, `aslında`, `köyünüzün geleceği`) ayıklandı.
+- Karakterlerin seslerinin (Ahilik, dervişlik, rençberlik, Türkmen savaşçılığı, kışla dili) özgünlüğü ve üslup tutarlılığı pekiştirildi.
+
+### Yapılan Üslup ve Düzeltmeler Tablosu
+
+| Dosya / Anahtar | Eski Metin (Sorunlu / Dönem Dışı) | Yeni Metin (Tarihsel / Akıcı Türkçe) | Gerekçe / Düzeltme |
+|---|---|---|---|
+| `metinler.csv` (`sohbet.chr_022.acilis1`) | "...Tarlada tempo tutarım, çocuklara alarm vuruşunu sayarım..." | "...Tarlada usul tutarım, çocuklara tehlike vuruşunu sayarım..." | 13. yy Anadolu davulcusunda modern İtalyanca/Fransızca "tempo" ve "alarm" kelimeleri yerine döneme uygun "usul" ve "tehlike vuruşu" getirildi. |
+| `metinler.csv` (`sohbet.chr_022.c11`) | "...Tarla Damı'nda tempo tutarım, Meydan'da alarmı çocuklara sayarım..." | "...Tarla Damı'nda usul tutarım, Meydan'da tehlike vuruşunu çocuklara sayarım..." | "Tempo" -> "usul", "alarm" -> "tehlike vuruşu" düzeltmesi. |
+| `metinler.csv` (`sohbet.chr_022.c6`) | "Tempo, alarm, yürüyüş vuruşu bilirim." | "Usul, baskın kösü, yürüyüş vuruşu bilirim." | "Alarm" askeri davul terminolojisinde "baskın kösü" olarak yerlileştirildi. |
+| `metinler.csv` (`sohbet.chr_022.c7`) | "Alarm üç kısa bir uzun. Tarla temposu yavaş başlar..." | "Baskın kösü üç kısa bir uzun. Tarla usulü yavaş başlar..." | Dönem ruhuna uygun askeri davul tabiri. |
+| `metinler.csv` (`sohbet.chr_022.c8`) | "...Tarla Damı'nda tempo tutarım, çocuklara alarmı sayarım..." | "...Tarla Damı'nda usul tutarım, çocuklara tehlike vuruşunu sayarım..." | Modern terimler temizlendi. |
+| `metinler.csv` (`sohbet.chr_022.giris1`) | "...tempo tutmaya gelmiş yorgun bir ocak eri..." | "...usul vurmaya gelmiş yorgun bir ocak eri..." | Anlatıcı metninde üslup cilası. |
+| `metinler.csv` (`sohbet.chr_022.s10`) | "Sen tempo arayan değil, davul satmış kaçaksın!" | "Sen usul arayan değil, davul satmış kaçaksın!" | Sorgu cümlesi 13. yy Türkçesine uyarlandı. |
+| `metinler.csv` (`sohbet.chr_022.s7`) | "alarm vuruşu kaçtır, tarla temposu nasıl sayılır?" | "baskın vuruşu kaçtır, tarla usulü nasıl sayılır?" | Soru kalıbı döneme oturtuldu. |
+| `metinler.csv` (`sohbet.sorhan.c23`) | "Çünkü yolum hep buraya çıkıyor. Bu da bir hesap." | "Zira yolum hep buraya çıkar; bu da bir hesaptır." | Formül "çünkü" bağlacı yerine dönemin klasik bağlacı "zira" getirildi, yüklem güçlendirildi. |
+| `metinler.csv` (`sohbet.thessra.c3`) | "...Bana kimse hekim demez; kadınım çünkü." | "...Bana kimse hekim demez; kadın kızı olduğumdan ötürü." | "Çünkü" yapaylığı kaldırıldı, 13. yy halk ağzına uygun hüzünlü ifade getirildi. |
+
+---
+
+## Genel Görev 6 Özeti ve Doğrulama Sonuçları
+
+1. **Bölüm B:**
+   - 10 yeni kapı ziyaretçisi (`diyalog_21` – `diyalog_30`) yazıldı ve `data/diyalog/diyalog_01_20.json` içine eklendi (toplam 30 ziyaretçi).
+   - Her ziyaretçi için CHR tanımları `docs/DIYALOG_ANA_PLANI.md` envanterine işlendi.
+   - 10 yeni ziyaretçinin her biri için `data/diyalog/es_kapi_dusunceleri.json` tablosuna 4 aşamalı eş yorumları yazıldı.
+   - Önceki ziyaretçilere ve kararlara (`diyalog_01`, `02`, `03`, `04`, `06`, `11`, `20`, Hasan Çelebi, ret kararları) derin bağlantılar kuruldu.
+   - 8 yeni köy olayı (`kavga_harman`, `ambarda_hirsizlik`, `salgin_fisiltisi`, `koy_dugunu`, `firari_cenazesi`, `samanlik_yangini`, `gece_donu`, `harami_elcisi`) oluşturuldu ve `data/metin/metinler.csv` içine 64 yeni anahtar eklendi.
+2. **Bölüm A:**
+   - Tüm diyalog ve olay metinlerinde son okuma yapıldı, dönem dışı kelimeler ("tempo", "alarm", "çünkü") ayıklandı, `metinler.tr.translation` yeniden derlendi.
+3. **Test Sonuçları:**
+   - `python tools/metin_dogrula.py --kaynak`: PASS (0 hata)
+   - `python tools/soz_tasarimi_dogrula.py`: GEÇTİ (0 hata)
+   - `Godot --headless -s tests/unit/diyalog/diyalog_butunluk_test.gd`: BAŞARILI (0 hata, 30 kapı diyaloğu + 18 Parley sekansı)
+   - `Godot --headless -s tests/unit/kapi/es_yorumu_test.gd`: BAŞARILI (0 hata, 30 ziyaretçi eş düşüncesi)
+   - `Godot --headless -s tests/unit/kvr/diyalog_mantigi_test.gd`: GEÇTİ (0 hata)
+   - `Godot --headless -s tests/unit/olay/yeni_olaylar_test.gd`: BAŞARILI (0 hata, 8 yeni olay, 48 seçenek ve sonuç anahtarı)
+   - `Godot --headless -s tests/unit/olay/on_kosul_test.gd`: GEÇTİ (0 hata)
+
+GOREV6_TAMAM

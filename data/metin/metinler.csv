@@ -1296,28 +1296,28 @@ sohbet.chr_021.s6,Elin taş tutmuş ama halin kaçak gibi. Hangi ocaktan koptun?
 sohbet.chr_021.s7,"Madem ocaktansın, gece sırası nasıl kurulur, gedik nasıl örülür?"
 sohbet.chr_021.s8,Ananın yükü ağırdır. İş bilen adama kapımız açık.
 sohbet.chr_021.s9,"Anan için kaçtığını ağzınla söyledin. Çavuş arkandan gelir, adın ne?"
-sohbet.chr_022.acilis1,"Ayaklarım şişti bekçi. Elim boş ama vuruşum durur. Tarlada tempo tutarım, çocuklara alarm vuruşunu sayarım. Bir köşe verseniz işe dururum."
+sohbet.chr_022.acilis1,"Ayaklarım şişti bekçi. Elim boş ama vuruşum durur. Tarlada usul tutarım, çocuklara tehlike vuruşunu sayarım. Bir köşe verseniz işe dururum."
 sohbet.chr_022.c1,Hisaraltı'da davul sustu bekçi. İş kalmadı. Boş duracağıma burada vuruş tutayım dedim.
 sohbet.chr_022.c10,"(Halkayı yere bırakır, omzunu açar) Görmüşsün bekçi. İnkar etmem."
-sohbet.chr_022.c11,"(Ot bohçasını açar) Babam Reşat için sattım. Nazile'ye davul gitti, ilaç geldi. Tarla Damı'nda tempo tutarım, Meydan'da alarmı çocuklara sayarım. Beni içeri al. Pertev Emin gelirse sakla beni."
+sohbet.chr_022.c11,"(Ot bohçasını açar) Babam Reşat için sattım. Nazile'ye davul gitti, ilaç geldi. Tarla Damı'nda usul tutarım, Meydan'da tehlike vuruşunu çocuklara sayarım. Beni içeri al. Pertev Emin gelirse sakla beni."
 sohbet.chr_022.c2,Eski bir halka işte. Yoldan kaldı. Köye yük olmayayım diye cebime attım.
 sohbet.chr_022.c3,"(Başını eğer) Tamam. Sattım. Babam Reşat yatakta. Otacı Nazile ilaç dedi, param yoktu. Bölük davulunu verdim, halkayı cebime sakladım, geldim."
 sohbet.chr_022.c4,(Omzunu örter) Ne karıştırırsın bekçi? Omzum kayıştan aşındı. Davul satan adam güpegündüz kapıya çıkar mı?
 sohbet.chr_022.c5,"(Başını eğer) Tamam. Sattım. Babam Reşat yatakta. Otacı Nazile ilaç dedi, param yoktu. Bölük davulunu verdim, halkayı cebime sakladım, geldim."
-sohbet.chr_022.c6,"Hisaraltı davul ocağındanım. Tempo, alarm, yürüyüş vuruşu bilirim. Tarlada da sayarım, meydana da."
-sohbet.chr_022.c7,"(Tokmağı ikiye böler gibi vurur) Alarm üç kısa bir uzun. Tarla temposu yavaş başlar, orak düşünce sıklaşır. Babam aklıma düşünce el şaşar ama sayım şaşmaz."
-sohbet.chr_022.c8,"(Yüzünü siler) Adım Bayram. Hırsız değilim. O halka sattığım davulun parçası. Tarla Damı'nda tempo tutarım, çocuklara alarmı sayarım. Yeter ki Pertev Emin'e teslim etmeyin."
+sohbet.chr_022.c6,"Hisaraltı davul ocağındanım. Usul, baskın kösü, yürüyüş vuruşu bilirim. Tarlada da sayarım, meydana da."
+sohbet.chr_022.c7,"(Tokmağı ikiye böler gibi vurur) Baskın kösü üç kısa bir uzun. Tarla usulü yavaş başlar, orak düşünce sıklaşır. Babam aklıma düşünce el şaşar ama sayım şaşmaz."
+sohbet.chr_022.c8,"(Yüzünü siler) Adım Bayram. Hırsız değilim. O halka sattığım davulun parçası. Tarla Damı'nda usul tutarım, çocuklara tehlike vuruşunu sayarım. Yeter ki Pertev Emin'e teslim etmeyin."
 sohbet.chr_022.c9,"(Omzunu kapatır) Evet, Bayram'ım ben. Babam hasta diye davulu sattım. Omzumdaki çizgi ondan. Bu el bir tarlayı sayar. Geri çevirirseniz babam da ben de açıkta kalırız."
-sohbet.chr_022.giris1,"Davulu yolda kırılmış, tempo tutmaya gelmiş yorgun bir ocak eri. Sol omzunda davul kayışının bıraktığı soluk çizgi ve kopuk toka deliği."
+sohbet.chr_022.giris1,"Davulu yolda kırılmış, usul vurmaya gelmiş yorgun bir ocak eri. Sol omzunda davul kayışının bıraktığı soluk çizgi ve kopuk toka deliği."
 sohbet.chr_022.s1,Davulcu ocakta durur. Sen niye tek başına bu kapıdasın?
-sohbet.chr_022.s10,"Kuşağındaki tokmak, cebindeki davul halkası ve omzundaki boş kayış çizgisi! Sen tempo arayan değil, davul satmış kaçaksın!"
+sohbet.chr_022.s10,"Kuşağındaki tokmak, cebindeki davul halkası ve omzundaki boş kayış çizgisi! Sen usul arayan değil, davul satmış kaçaksın!"
 sohbet.chr_022.s11,Yalan bitti Bayram. Şimdi niyetini söyle.
 sohbet.chr_022.s2,"Doğrudur, davul susunca adam yer arar."
 sohbet.chr_022.s3,Yoldan kalan halkada davul kasnağının izi var!
 sohbet.chr_022.s4,Davul sustuysa cebindeki pirinç halka neyin nesi?
 sohbet.chr_022.s5,"Yalanın kısa. Omzundaki boş çizgi duruyor, doğruyu söyle!"
 sohbet.chr_022.s6,"Tokmak var, davul yok. Hangi kışladan koptun?"
-sohbet.chr_022.s7,"Madem davulcusun, alarm vuruşu kaçtır, tarla temposu nasıl sayılır?"
+sohbet.chr_022.s7,"Madem davulcusun, baskın vuruşu kaçtır, tarla usulü nasıl sayılır?"
 sohbet.chr_022.s8,Babanın derdi insanın yakasını bırakmaz. İş bilen adama kapımız açık.
 sohbet.chr_022.s9,"Davulu sattığını ağzınla söyledin. Emin arkandan gelir, adın ne?"
 sohbet.chr_023.acilis1,"Başım çatlıyor bekçi. Yol yürüdüm, hendek bilirim. Kimin geldiğini sayarım. Bir köşe verseniz hendekte dururum."
@@ -1646,7 +1646,7 @@ sohbet.sorhan.c2,"Bozkırdan. Kıpçak obası dağıldı; Moğol bizi önce kend
 sohbet.sorhan.c20,Atlar gitti. Ben kaldım.
 sohbet.sorhan.c21,At bakmayı bilirim. Atı olan bir köy bulursam onun atlarına bakarım.
 sohbet.sorhan.c22,Bir yer. Sadece bir yer.
-sohbet.sorhan.c23,Çünkü yolum hep buraya çıkıyor. Bu da bir hesap.
+sohbet.sorhan.c23,Zira yolum hep buraya çıkar; bu da bir hesaptır.
 sohbet.sorhan.c3,Atlarını ben güdüyordum. Bir gece atları kendim için güttüm.
 sohbet.sorhan.c4,Şimdi benim.
 sohbet.sorhan.c5,"Damga eski sahibin, at yeni sahibin. Damga yalan söylemez ama her şeyi de söylemez."
@@ -1691,7 +1691,7 @@ sohbet.thessra.c14,"Bir bebeğin ateşine, bir askerin bacağına, bir yaşlın�
 sohbet.thessra.c15,Satmadım. Verdim. Ağrıyan çoktu.
 sohbet.thessra.c16,Ağrıyandan para alınmaz. Ağrısı geçince verirse alırım.
 sohbet.thessra.c2,"Babam Sivas'ta bir beye bakıyordu. Bey öldü, şehir yandı. Trabzon'a dönmeye çalışırken yol bizi buraya çıkardı."
-sohbet.thessra.c3,Yıllarca babamın elini tuttum. Yara sarmayı bilirim. Bana kimse hekim demez; kadınım çünkü.
+sohbet.thessra.c3,Yıllarca babamın elini tuttum. Yara sarmayı bilirim. Bana kimse hekim demez; kadın kızı olduğumdan ötürü.
 sohbet.thessra.c4,"Ateş düşürürüm, yara sararım, doğuma yardım ederim. İsteyen olursa."
 sohbet.thessra.c5,İlaç. Ağrıya iyi gelir... başka şeye de.
 sohbet.thessra.c6,Uyku. Fazlası derin uyku. Çok fazlası... uyanmamak.
@@ -1815,8 +1815,8 @@ arayuz.ayarlar.grafik.not,"Düşük profil duman ve alev efektlerini kapatır.
 3B ölçek arayüzün netliğini değiştirmez."
 arayuz.yukleme.hazirlaniyor,Hazırlanıyor…
 arayuz.yukleme.ilerleme,Hazırlanıyor… %d/%d
-koy.meclis.konusanlar,"Çınarın altında konuşanlar: %s"
-koy.meclis.konusan_yok,"Çınarın altında konuşan kimse yok; oylama adsız açılır."
+koy.meclis.konusanlar,Çınarın altında konuşanlar: %s
+koy.meclis.konusan_yok,Çınarın altında konuşan kimse yok; oylama adsız açılır.
 koy.yasam.baslik,Yaşam barları
 koy.yasam.aclik,Açlık
 koy.yasam.yorgunluk,Yorgunluk
@@ -1830,7 +1830,7 @@ koy.yasam.yok,yok
 koy.yasam.ozet_muhafiz,Yorgunluk %s · Moral %d
 acilis.kapi.acik,Kapı açık
 olay.kapi_acilisi.baslik,Sancak Beyi’nin beratı
-olay.kapi_acilisi.berat,"Sancak Beyi’nin buyruğudur: bu uç kapısını tutacaksın. Bu yurt sığınana açıktır. Ulağın sözü biter; elindeki beratı teslim eder ve yola döner. Ardından ilk aile kapıda belirir."
+olay.kapi_acilisi.berat,Sancak Beyi’nin buyruğudur: bu uç kapısını tutacaksın. Bu yurt sığınana açıktır. Ulağın sözü biter; elindeki beratı teslim eder ve yola döner. Ardından ilk aile kapıda belirir.
 olay.kapi_acilisi.devam,Berat teslim edildi
 olay.kapi_acilisi.berat.sonuc1,Berat teslim edildi; ilk aile kapıda bekliyor.
 kayit.goc.bildirimi,Kayıt %d sürümünden %d sürümüne güncellendi.
