@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — ISG-30 tamamlandı (Kalfa)
+
+Sürükle-bırak önizlemesi ve bırakma aynı meslek uyumunu denetler. Headless testte demirci tarlaya atanmadı ve kart geri geldi. İlk import MD5 hatası verdi, ikinci recovery import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-13 tamamlandı (Kalfa)
 
 Geçici işin hazır yapı şartı korundu. Hedefli testte inşaat sırasında atama reddedildi, yapı tamamlanınca açıldı ve yıkım sonrası gece bilançosunda iş ile odun üretimi sıfır kaldı. BUG-16 regresyonu geçti. İlk import MD5 dosya erişim hataları verdi, ikinci headless recovery import temiz tamamlandı. Asset gerekmedi. kota görünmüyor.

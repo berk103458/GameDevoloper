@@ -76,6 +76,13 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_kontrol(k.is_yeri != b.id and not get_viewport().gui_is_dragging() and not alan.visible and ekran._ust_kart.visible, "Önizleme sonrası kullanılamaz olan hedef bırakmada yeniden denetlenir")
 	b.insa_kalan = 0
+	k.zanaat_turu = ZanaatTuru.Tur.DEMIRCI
+	await _surukle(ekran, nokta)
+	_kontrol(alan.onizleme.visible and not alan.son.olur, "ISG-30: demirci tarlaya bırakılamaz")
+	_dugme(nokta, false)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_kontrol(k.is_yeri == KoyYonetimi.BOSTA and ekran._ust_kart.visible, "ISG-30: yanlış bina atama yapmaz ve kart geri gelir")
 	ana.kayit.sil()
 	ana.queue_free()
 	await get_tree().process_frame

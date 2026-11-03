@@ -26,10 +26,18 @@ func hedef(yer: Vector2) -> int:
 	var h := ekran.sahne3b.isaret(ekran._vp_konum(yer))
 	var b := ekran._bina_altinda(h)
 	return b.id if b != null else -1
+func _birakma_onizlemesi(kisi: int, id: int) -> Dictionary:
+	var y := ekran.oturum.yonetim
+	var sonuc := AtamaOnizlemesi.oku(y, kisi, id)
+	if sonuc.olur and sonuc.uyum < 1.0:
+		sonuc.olur = false
+		sonuc.neden = TranslationServer.translate("koy.atama.meslek_uyusmaz")
+	return sonuc
+
 func _can_drop_data(yer: Vector2, veri: Variant) -> bool:
 	if not veri_gecerli(veri): return false
 	var id := hedef(yer)
-	son = AtamaOnizlemesi.oku(ekran.oturum.yonetim, veri.kisi, id)
+	son = _birakma_onizlemesi(veri.kisi, id)
 	if not ekran.kip.is_empty():
 		son.olur = false
 		son.neden = "Önce inşaat/yol/yıkım kipini kapatın"
@@ -41,7 +49,7 @@ func _can_drop_data(yer: Vector2, veri: Variant) -> bool:
 func _drop_data(yer: Vector2, veri: Variant) -> void:
 	if not veri_gecerli(veri) or not ekran.kip.is_empty(): return
 	var id := hedef(yer)
-	var yeni := AtamaOnizlemesi.oku(ekran.oturum.yonetim, veri.kisi, id)
+	var yeni := _birakma_onizlemesi(veri.kisi, id)
 	if yeni.olur: KoyluKarti._ata(ekran, veri.kisi, id)
 	onizleme.hide()
 func _notification(ne: int) -> void:

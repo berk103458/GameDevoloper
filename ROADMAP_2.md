@@ -1324,7 +1324,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.4 Atama kadrajı
 
-- [ ] **ISG-30:** Yanlış binaya bırakmak iş yazmaz
+- [x] **ISG-30:** Yanlış binaya bırakmak iş yazmaz (Kalfa)
   - Ne: Yanlış binaya bırakmak iş yazmaz. Bina meslek uymazsa geri döner.
   - Kabul: Yanlış binaya bırakmak iş yazmaz. İş 0. Test: birim.
   - Bağımlılık: ISG-01. Boyut: S.
