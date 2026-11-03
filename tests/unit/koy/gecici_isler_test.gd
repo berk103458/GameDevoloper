@@ -42,6 +42,7 @@ func _initialize() -> void:
 	_ikiz()
 	_meclis()
 	_su_siniri()
+	_bina_kosulu()
 	print("GEÇİCİ İŞLER: GEÇTİ" if hata==0 else "GEÇİCİ İŞLER: KALDI")
 	quit(hata)
 func _tek_is(id: String) -> void:
@@ -146,3 +147,15 @@ func _su_siniri() -> void:
 	dene(y.kaynaklar.miktar("su")==once+1 and SuDengesi.taze(y)==0,"İki işçi aynı günlük kuyunun son tek birimini taşır")
 	dene(r.gecici_isler.size()==1 and r.gecici_isler[0].kisi==2 and r.gecici_isler[0].miktar==1,"Aynı iş tek bilanço satırında toplanır")
 	dene(y.akce==para,"İşçi emeğine ikinci elle doldurma bedeli yazılmaz")
+
+func _bina_kosulu() -> void:
+	var o := hazir()
+	var y := o.yonetim
+	var k := isci(y)
+	y.bina(2).insa_kalan = 10
+	dene(not GeciciIsler.ata(y, k.id, "dal_toplama"), "ISG-13: unfinished woodshed cannot open the job")
+	y.bina(2).insa_kalan = 0
+	dene(GeciciIsler.ata(y, k.id, "dal_toplama"), "ISG-13: ready woodshed opens the job")
+	y.bina_yik(2)
+	var r := y.gece()
+	dene(r.gecici_isler.is_empty() and int(r.uretim.get("odun", 0)) == 0, "ISG-13: no work or wood after demolition")

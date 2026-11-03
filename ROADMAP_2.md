@@ -1293,7 +1293,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: yeni `src/koy/gecici_isler.gd`; köylü kartına adaptör.
   - Asset: işlere özel el aleti envantere `ISG02-ALETLER`; yer tutucu ANI-11 kutu soketi.
 
-- [ ] **ISG-13:** Havuz bina ister
+- [x] **ISG-13:** Havuz bina ister (Kalfa)
   - Ne: Havuz bina ister. Bina yoksa iş yok. BUG-16.
   - Kabul: Havuz bina ister. İş 0. Test: BUG-16.
   - Bağımlılık: BUG-16. Boyut: S.
