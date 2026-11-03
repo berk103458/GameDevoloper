@@ -90,6 +90,9 @@ Bölüm 35 boş AYR maddeleri sahiplendi: AYR-01, 03, 04, 07–21, 23–27, 30, 
 
 Bölüm 26 ve 28 boş maddeleri sahiplendi: NBT-02…09, SAB-01…10, SAB-75. İşaret `[/] (Cursor)`. Kod `cursor/gece-26-28-hukum`. Diyalog cümlesi yazılmadı. Köy ekonomisine yazılmadı. Kota görünmüyor.
 
+Bölüm 45 girdi maddeleri GIR-01…17, GIR-19…23, GIR-25 ve GIR-26 `[x] (Cursor)`. Kod dalı `cursor/gece-45-girdi`. GIR-18 ve GIR-24 Claude'da duruyor. Kalfa'nın ekonomi/köy maddelerine ve Antigravity'nin diyalog metnine dokunulmadı. Asset gerekmedi. kota görünmüyor.
+
+
 KAP-02 ve KAP-03 `[x] (Cursor)`. BUG-11 eski notu düzeltildi. TUC-11/14 notları duruyor. MEV-01 satırına yazılmadı. Yeni dosya ve ikinci sistem yok. TUC/MEV/CAS kaynak dosyalarına dokunulmadı.
 
 ## Bölüm 35 sahiplenme — 3 Kasım 2026

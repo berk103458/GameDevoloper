@@ -96,5 +96,10 @@ func _ready() -> void:
 		dikey.add_child(d)
 		if ilk == null and not d.disabled:
 			ilk = d
+	var dugmeler: Array = []
+	for cocuk in dikey.get_children():
+		if cocuk is Button:
+			dugmeler.append(cocuk)
+	OdakHalkasi.bagla(dugmeler)
 	if ilk != null:
 		ilk.grab_focus.call_deferred()

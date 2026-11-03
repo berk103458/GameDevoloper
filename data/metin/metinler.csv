@@ -1931,3 +1931,30 @@ hafiza.ekran.baslik,Defter
 hafiza.filtre.kisi,kişi
 koy.eylem.defter,Defter
 arayuz.duraklat.defter,Defter
+arayuz.girdi.sekme,Kontroller
+arayuz.girdi.ata,Ata
+arayuz.girdi.bekleniyor,Bir tuş bekleniyor
+arayuz.girdi.cakisma,Çakışıyor
+arayuz.girdi.fare_olmaz,Fare bu eyleme yazılmaz
+arayuz.girdi.ipucu.hiz,Hız için {hiz_1}
+arayuz.girdi.geri,Geri
+arayuz.girdi.menu,Menü
+arayuz.girdi.kisayol_1,Birinci kapı kısayolu
+arayuz.girdi.kisayol_2,İkinci kapı kısayolu
+arayuz.girdi.kisayol_3,Üçüncü kapı kısayolu
+arayuz.girdi.kisayol_4,Dördüncü kapı kısayolu
+arayuz.girdi.kisayol_5,Beşinci kapı kısayolu
+arayuz.girdi.bina_cevir,Yapıyı çevir
+arayuz.girdi.bina_barinma,Barınma
+arayuz.girdi.nufus,Nüfus
+arayuz.girdi.hiz_1,Birinci hız
+arayuz.girdi.hiz_2,İkinci hız
+arayuz.girdi.hiz_3,Üçüncü hız
+arayuz.girdi.hiz_dur,Dur veya sürdür
+arayuz.girdi.kip_kapat,Kipi kapat
+arayuz.girdi.kapi_kabul,Kapıda kabul
+arayuz.girdi.kapi_ret,Kapıda ret
+arayuz.girdi.sec,Seç
+arayuz.girdi.iptal_kip,Kipi bırak
+arayuz.girdi.yakinlas,Yakınlaş
+arayuz.girdi.uzaklas,Uzaklaş

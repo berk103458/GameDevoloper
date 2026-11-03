@@ -490,6 +490,7 @@ func _karar_goster() -> void:
 		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kilit(b, oturum, _gelen, StringName(anahtar))
 		b.pressed.connect(_karar_bas.bind(anahtar))
 		_karar_dugmeleri.append(b)
+	OdakHalkasi.bagla(_karar_dugmeleri)
 	# Eylemler (defterin altı) hemen görünür; yalnız kararlar sırayla belirir.
 	if _gelen.heybe != null:
 		_heybe_dugmesi()
@@ -733,6 +734,14 @@ func _input(olay: InputEvent) -> void:
 
 func _unhandled_input(olay: InputEvent) -> void:
 	if _heybe_paneli != null or has_node("ChrInceleme"):
+		return
+	if evre == &"karar" and olay.is_action_pressed("kapi_kabul"):
+		_karar_bas("kabul")
+		get_viewport().set_input_as_handled()
+		return
+	if evre == &"karar" and olay.is_action_pressed("kapi_ret"):
+		_karar_bas("ret")
+		get_viewport().set_input_as_handled()
 		return
 	if evre == &"karar":
 		for n in 5:

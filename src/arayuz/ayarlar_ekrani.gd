@@ -66,11 +66,19 @@ func _ready() -> void:
 			ilk = ileri
 	var alt := HBoxContainer.new()
 	alt.add_theme_constant_override("separation", 16)
+	var kontroller := Button.new()
+	kontroller.name = "KontrollerSekmesiDugmesi"
+	kontroller.text = tr("arayuz.girdi.sekme")
+	kontroller.pressed.connect(_kontroller_goster)
+	alt.add_child(kontroller)
 	var v := Button.new()
 	v.text = tr("arayuz.ayarlar.varsayilan")
 	v.pressed.connect(func() -> void:
 		ayarlar.varsayilana_don()
 		_yenile()
+		var sekme := get_node_or_null("KontrollerSekmesi") as KontrollerSekmesi
+		if sekme != null:
+			sekme.yenile()
 	)
 	alt.add_child(v)
 	var k := Button.new()
@@ -81,8 +89,37 @@ func _ready() -> void:
 	var grafik := GrafikAyarlariPaneli.new()
 	grafik.ayarlar = ayarlar
 	add_child(grafik)
+	var sekme := KontrollerSekmesi.new()
+	sekme.name = "KontrollerSekmesi"
+	sekme.ayarlar = ayarlar
+	sekme.visible = false
+	add_child(sekme)
 	_yenile()
+	_odak_kur()
 	ilk.grab_focus.call_deferred()
+
+
+func _kontroller_goster() -> void:
+	var sekme := get_node_or_null("KontrollerSekmesi") as KontrollerSekmesi
+	if sekme == null:
+		return
+	sekme.visible = true
+	sekme.yenile()
+
+
+func _odak_kur() -> void:
+	var dugmeler: Array = []
+	_dugme_topla(self, dugmeler)
+	OdakHalkasi.bagla(dugmeler)
+
+
+func _dugme_topla(n: Node, hedef: Array) -> void:
+	if n is Button and n != self and (n as CanvasItem).visible:
+		hedef.append(n)
+	for cocuk in n.get_children():
+		if cocuk.name == "KontrollerSekmesi":
+			continue
+		_dugme_topla(cocuk, hedef)
 
 
 func _degistir(a: StringName, yon: int) -> void:

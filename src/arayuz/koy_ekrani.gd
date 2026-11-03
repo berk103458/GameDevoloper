@@ -8,6 +8,8 @@ extends Control
 signal devam_istendi(rapor: Dictionary)
 ## Oyun bir sonla bitti (`halk_kirildi`, `isyan`, `tekfur`, `zafer`).
 signal oturum_bitti(son: StringName)
+## Üst panel ve kip kapalıyken Esc / geri (GIR-08).
+signal duraklat_istendi
 
 const KATEGORILER: Array[String] = ["barinma", "uretim", "hizmet", "savunma"]
 
@@ -236,22 +238,21 @@ func _dunya_girdisi(olay: InputEvent) -> void:
 		_imlec = sahne3b.isaret(_vp_konum(olay.position))
 		_hayalet_guncelle()
 	elif olay is InputEventMouseButton and olay.pressed:
-		match olay.button_index:
-			MOUSE_BUTTON_WHEEL_UP:
-				sahne3b.yakinlas(1.0)
-			MOUSE_BUTTON_WHEEL_DOWN:
-				sahne3b.yakinlas(-1.0)
-			MOUSE_BUTTON_RIGHT:
-				KoyluTakibi.temizle(sahne3b)
-				_kip_sec("")
-			MOUSE_BUTTON_LEFT:
-				if kip.is_empty():
-					var kisi := KoyluSecimi.sec(sahne3b, _vp_konum(olay.position))
-					if kisi >= 0:
-						KoyluKarti.ac(self, kisi)
-						return
-				_imlec = sahne3b.isaret(_vp_konum(olay.position))
-				_tikla()
+		if olay.is_action_pressed("yakinlas"):
+			sahne3b.yakinlas(1.0)
+		elif olay.is_action_pressed("uzaklas"):
+			sahne3b.yakinlas(-1.0)
+		elif olay.is_action_pressed("iptal_kip"):
+			KoyluTakibi.temizle(sahne3b)
+			_kip_sec("")
+		elif olay.is_action_pressed("sec"):
+			if kip.is_empty():
+				var kisi := KoyluSecimi.sec(sahne3b, _vp_konum(olay.position))
+				if kisi >= 0:
+					KoyluKarti.ac(self, kisi)
+					return
+			_imlec = sahne3b.isaret(_vp_konum(olay.position))
+			_tikla()
 
 
 func _vp_konum(yerel: Vector2) -> Vector2:
@@ -311,29 +312,69 @@ func _tikla() -> void:
 			_bilgi_goster()
 
 
+func _process(_delta: float) -> void:
+	_cubuk_imleci()
+
+
+func _cubuk_imleci() -> void:
+	if sahne3b == null or _kap == null or _ust_panel_var():
+		return
+	var sapma := KoyCubukImleci.sapma()
+	if sapma == Vector2.ZERO:
+		return
+	var yer := KoyCubukImleci.hedef(_kap.size * 0.5, sapma)
+	_imlec = sahne3b.isaret(_vp_konum(yer))
+	_hayalet_guncelle()
+
+
+func _ust_panel_var() -> bool:
+	if _ust_kart != null:
+		return true
+	for ad in ["HaritaEkrani", "MuhafizOdasiEkrani", "DivanEkrani", "AyarlarEkrani", "HeybePaneli"]:
+		if has_node(NodePath(ad)):
+			return true
+	return false
+
+
 func _unhandled_input(olay: InputEvent) -> void:
-	if olay is InputEventKey and olay.pressed and not olay.echo:
-		match olay.physical_keycode:
-			KEY_R:
-				_yon = 1 - _yon
-				_hayalet_guncelle()
-			KEY_B:
-				_kategori = "barinma"
-				_yapi_satirini_ciz()
-			KEY_P:
-				_nufus_ac()
-			KEY_1:
-				_hiz_sec(1)
-			KEY_2:
-				_hiz_sec(2)
-			KEY_3:
-				_hiz_sec(3)
-			KEY_SPACE:
-				_hiz_sec(_son_hiz if get_tree().paused else 0)
-			KEY_ESCAPE:
-				if _ust_kart != null:
-					return
-				_kip_sec("")
+	if not olay.pressed:
+		return
+	if olay is InputEventKey and (olay as InputEventKey).echo:
+		return
+	if not (olay is InputEventKey or olay is InputEventJoypadButton):
+		return
+	if olay.is_action_pressed("kip_kapat") or olay.is_action_pressed("geri"):
+		var kademe := GirdiEylemleri.esc_kademe(_ust_panel_var(), not kip.is_empty())
+		if kademe == &"ust_panel":
+			if _ust_kart != null:
+				_kart_kapat()
+				get_viewport().set_input_as_handled()
+			return
+		if kademe == &"kip":
+			_kip_sec("")
+			get_viewport().set_input_as_handled()
+			return
+		duraklat_istendi.emit()
+		get_viewport().set_input_as_handled()
+		return
+	if _ust_panel_var():
+		return
+	if olay.is_action_pressed("bina_cevir"):
+		_yon = 1 - _yon
+		_hayalet_guncelle()
+	elif olay.is_action_pressed("bina_barinma"):
+		_kategori = "barinma"
+		_yapi_satirini_ciz()
+	elif olay.is_action_pressed("nufus"):
+		_nufus_ac()
+	elif olay.is_action_pressed("hiz_1"):
+		_hiz_sec(1)
+	elif olay.is_action_pressed("hiz_2"):
+		_hiz_sec(2)
+	elif olay.is_action_pressed("hiz_3"):
+		_hiz_sec(3)
+	elif olay.is_action_pressed("hiz_dur"):
+		_hiz_sec(_son_hiz if get_tree().paused else 0)
 
 
 ## 1/2/3 hız seçer; boşluk durdurur veya son hızda sürdürür. Arayüz duraklamada çalışır.

@@ -1,0 +1,95 @@
+{
+  "cubuk": {
+    "eksen_x": 0,
+    "eksen_y": 1,
+    "olcek": 220,
+    "olu_bolge": 0.25
+  },
+  "fare": {
+    "sol": 1,
+    "sag": 2,
+    "tekerlek_yukari": 4,
+    "tekerlek_asagi": 5
+  },
+  "gamepad": {
+    "a": 0,
+    "b": 1,
+    "x": 2,
+    "y": 3,
+    "start": 6,
+    "lb": 9,
+    "rb": 10
+  },
+  "ad": {
+    "escape": "Esc",
+    "space": "Space",
+    "f10": "F10",
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "r": "R",
+    "b": "B",
+    "p": "P",
+    "y": "Y",
+    "n": "N",
+    "sol": "Sol",
+    "sag": "Sağ",
+    "tekerlek_yukari": "Tekerlek",
+    "tekerlek_asagi": "Tekerlek",
+    "joy_a": "A",
+    "joy_b": "B",
+    "joy_x": "X",
+    "joy_start": "Start",
+    "joy_lb": "LB",
+    "joy_rb": "RB"
+  },
+  "klavye_os": {
+    "escape": "Escape",
+    "space": "Space",
+    "f10": "F10",
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "r": "R",
+    "b": "B",
+    "p": "P",
+    "y": "Y",
+    "n": "N"
+  },
+  "eylemler": [
+    {"id": "geri", "ekran": "genel", "klavye": "escape", "gamepad": "b"},
+    {"id": "menu", "ekran": "genel", "klavye": "f10", "gamepad": "start"},
+    {"id": "kisayol_1", "ekran": "kapi", "klavye": "1"},
+    {"id": "kisayol_2", "ekran": "kapi", "klavye": "2"},
+    {"id": "kisayol_3", "ekran": "kapi", "klavye": "3"},
+    {"id": "kisayol_4", "ekran": "kapi", "klavye": "4"},
+    {"id": "kisayol_5", "ekran": "kapi", "klavye": "5"},
+    {"id": "bina_cevir", "ekran": "koy", "klavye": "r"},
+    {"id": "bina_barinma", "ekran": "koy", "klavye": "b"},
+    {"id": "nufus", "ekran": "koy", "klavye": "p"},
+    {"id": "hiz_1", "ekran": "koy", "klavye": "1", "gamepad": "lb"},
+    {"id": "hiz_2", "ekran": "koy", "klavye": "2", "gamepad": "rb"},
+    {"id": "hiz_3", "ekran": "koy", "klavye": "3"},
+    {"id": "hiz_dur", "ekran": "koy", "klavye": "space"},
+    {"id": "kip_kapat", "ekran": "koy", "klavye": "escape"},
+    {"id": "kapi_kabul", "ekran": "kapi", "klavye": "y", "gamepad": "a", "fare_yasak": true},
+    {"id": "kapi_ret", "ekran": "kapi", "klavye": "n", "gamepad": "x", "fare_yasak": true},
+    {"id": "sec", "ekran": "koy", "fare": "sol"},
+    {"id": "iptal_kip", "ekran": "koy", "fare": "sag"},
+    {"id": "yakinlas", "ekran": "koy", "fare": "tekerlek_yukari"},
+    {"id": "uzaklas", "ekran": "koy", "fare": "tekerlek_asagi"}
+  ],
+  "birlikte_serbest": [
+    ["hiz_1", "kisayol_1"],
+    ["hiz_2", "kisayol_2"],
+    ["hiz_3", "kisayol_3"],
+    ["kip_kapat", "geri"]
+  ],
+  "yasak_cift": [
+    ["menu", "nufus"]
+  ]
+}
