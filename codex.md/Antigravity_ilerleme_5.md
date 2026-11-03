@@ -57,8 +57,27 @@ Ahmet'in tespiti doğrultusunda 20 kapı ziyaretçisinin tamamı (`diyalog_01` �
 - **Doğrulama:**
   - `tests/unit/diyalog/diyalog_butunluk_test.gd`: Eş muhabbeti dahil tüm 18 Parley ağacı başarıyla çalıştı ve GEÇTİ (0 hata).
   - `tests/unit/kvr/diyalog_mantigi_test.gd`: GEÇTİ (0 hata).
+- **Commit:** `33d002da` — `feat(gorev5-1b): esle konusma cok kapsamli parley agaci ve oda adaptoru (Antigravity); asset gerekmedi`
+
+---
+
+### Parti 3: 1C — Kapı Ekranında Eşin Düşünceleri (Tamamlandı)
+
+- **Veri Tabanı (`data/diyalog/es_kapi_dusunceleri.json`):**
+  - Kapıya gelen 20 ziyaretçinin her biri için (`diyalog_01` – `diyalog_20`) ve genel sınıf yedekleri için eşin düşünceleri, gözlemleri ve fısıltıları yazıldı.
+  - Eşin kişiliği: Her zaman tek tip veya her zaman haklı değildir. Kimi zaman rençberin nasırlı elinden dürüstlüğünü sezen bir sağduyuya sahipken, kimi zaman yayla çobanının koyunlarından aşırı evhamlanıp hastalığı bahane ederek haksız yere içeri almama uyarısı yapar; Kayseri kumaşçısına karşı peşin hükümlü yaklaşırken, yetimle ekmeğini bölen gence derinden merhamet duyar.
+  - 4 aşamalı düşünce haritası: `karsilama` (ilk intiba), `kritik_soru` (sorgu derinleştiğinde fısıltı), `karar_oncesi` (karar butonları belirdiğinde kanaat), `karar_kabul` / `karar_ret` (karar sonrası fısıltı).
+- **İnce Adaptör (`src/kapi/es_yorumu_adaptoru.gd`):**
+  - `karar_gosterildi(kapi, gelen)`: Karar aşamasına geçildiğinde eşin fısıltısını kapı defterine (`_kayit`) `[color=#c8a477][i]Eşin fısıltısı:[/i] "..."[/color]` biçiminde yazdırır.
+  - `soru_soruldu(kapi, gelen, soru_index)`: İkinci sorudan sonra kritik şüphe aşamasında eşin uyarısını fısıldar.
+  - `karar_verildi(kapi, gelen, karar)`: Karar neticelendiğinde eşin kanaatini kaydeder.
+- **Kapı Ekranı Entegrasyonu (`src/arayuz/kapi_ekrani.gd`):**
+  - `_soru_sor()`, `_karar_goster()`, `_karar_ver()` fonksiyonlarına ince adaptör çağrıları bağlandı.
+- **Birim Testi (`tests/unit/kapi/es_yorumu_test.gd`):**
+  - 20 diyalogun tamamının `karar_oncesi`, `kritik_soru`, `karar_kabul` ve `karar_ret` alanlarının eksiksizliği doğrulandı.
+  - Mock kapı ekranı üzerinde fısıltı ve uyarıların deftere doğru aktığı test edildi. (Godot 4.7.2 headless: 0 hata, GEÇTİ).
 
 ---
 
 ## Sıradaki Adım
-- Parti 3: 1C — Kapı Ekranında Eşin Düşünceleri (`src/kapi/es_yorumu_adaptoru.gd` ve `data/diyalog/es_kapi_dusunceleri.json`).
+- Bölüm 2 — Yer Tutucu Metinler: PR #15–#27 dallarındaki `metinler.csv` ve ilgili yer tutucu anahtarlarının incelenip `docs/YER_TUTUCU_METINLER.csv` dosyasına eksiksiz yazılması.

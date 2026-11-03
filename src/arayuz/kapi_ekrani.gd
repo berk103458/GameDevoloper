@@ -435,6 +435,7 @@ func _soru_sor(i: int) -> void:
 	_gelen.soru_soruldu(i)
 	_yaz("[color=#4A6B8A]%s:[/color] %s\n[b]%s:[/b] %s" % [tr("arayuz.sohbet.sen"), tr(_gelen.sorular[i][0]),
 		tr(_gelen.ad_anahtari), tr(_gelen.sorular[i][1])])
+	preload("res://src/kapi/es_yorumu_adaptoru.gd").soru_soruldu(self, _gelen, _sorulan.size())
 	if _gelen.acik_bayraklar.size() > once:
 		Ses.cal(&"sfx_olay", -6.0)
 		for b in _gelen.acik_bayraklar.slice(once):
@@ -458,6 +459,7 @@ func _karar_goster() -> void:
 	_daralt(true)
 	_karar_dugmeleri = []
 	preload("res://src/kapi/meslek_uyarisi.gd").ekle(_secenekler,oturum.yonetim,_gelen,ayarlar.boyut(Tema.KUCUK_PX))
+	preload("res://src/kapi/es_yorumu_adaptoru.gd").karar_gosterildi(self, _gelen)
 	var gorunen := PackedStringArray()
 	for n in _gelen.secenekler.size():
 		var esik := 0
@@ -583,6 +585,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 		_yaz("[i]%s[/i]" % (tr("anlati.heybe.alinan") % ", ".join(parca)))
 	if sonuc.get("gasp", false):
 		_yaz("[i][color=#C4843A]%s[/color][/i]" % tr("anlati.heybe.gasp"))
+	preload("res://src/kapi/es_yorumu_adaptoru.gd").karar_verildi(self, _gelen, StringName(anahtar))
 	if sonuc.get("durust_arandi", false):
 		_yaz("[i][color=#C4843A]%s[/color][/i]" % tr("anlati.heybe.durust"))
 	if not replik.ilgilendirir(anahtar) and _gelen.yanitlar.has(anahtar):
