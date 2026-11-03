@@ -36,6 +36,13 @@ func _ready() -> void:
 	if katalog.yukle() != Katalog.Durum.HAZIR:
 		_hata_goster()
 		return
+	var denge_hatasi := _denge_hatasi()
+	if not denge_hatasi.is_empty():
+		var etiket := Label.new()
+		etiket.text = tr("acilis.denge_hatasi") % denge_hatasi
+		etiket.position = Vector2(80, 80)
+		add_child(etiket)
+		return
 	ana_menu()
 	await VarlikYuklemePaneli.bitir(self, giris_kaynaklari)
 	Ses.dongu_baslat()
@@ -43,6 +50,10 @@ func _ready() -> void:
 
 
 ## Ana menüyü gösterir.
+func _denge_hatasi() -> String:
+	return preload("res://src/sistemler/denge_sinir_denetimi.gd").acilis_hatasi()
+
+
 func ana_menu() -> void:
 	var e := MenuEkrani.new()
 	e.ayarlar = ayarlar
@@ -77,6 +88,7 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 		return
 	kayit.sil()
 	oturum = Oturum.new(katalog, tohum)
+	preload("res://src/sistemler/denge_tablosu.gd").acilis_erzagini_yaz(oturum.yonetim.kaynaklar)
 	g.sec(oturum, gecmis)
 	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum)
 	_koye_git()

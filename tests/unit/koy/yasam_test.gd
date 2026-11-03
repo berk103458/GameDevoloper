@@ -51,5 +51,32 @@ func _initialize() -> void:
 		push_error("ISG-40: sağlık sıfırken üretim olmamalı")
 		quit(1)
 		return
-	print("YSM-02 ve ISG-40: GEÇTİ")
+	var ev := KoyBinasi.new()
+	ev.id = 91
+	ev.tur = "cadir"
+	koy.binalar.append(ev)
+	var yatakli := koy.kabul({"ad": "Yataklı"})
+	var acikta := koy.kabul({"ad": "Açıkta"})
+	yatakli.ev = ev.id
+	acikta.ev = -1
+	for uyuyan in [yatakli, acikta]:
+		uyuyan.yorgunluk = {"son_gece": koy.gun - 1}
+	NobetYorgunlugu.gece(koy, [])
+	if not yatakli.yorgunluk.is_empty() or acikta.yorgunluk.get("miktar", 0) != 1:
+		push_error("YSM-03: yataklı uyku açıkta uykunun iki katı")
+		quit(1)
+		return
+	for i in ev.yatak(koy.katalog) - 1:
+		koy.kabul({"ad": "Ev sakini"}).ev = ev.id
+	var fazla := koy.kabul({"ad": "Fazla"})
+	fazla.ev = ev.id
+	fazla.yorgunluk = {"son_gece": koy.gun - 1}
+	var nobetci := koy.kabul({"ad": "Nöbetçi"})
+	NobetYorgunlugu.gece(koy, [nobetci.id])
+	var geri := Koylu.kayittan(JSON.parse_string(JSON.stringify(fazla.kaydet())))
+	if fazla.yorgunluk.get("miktar", 0) != 1 or geri.yorgunluk != fazla.yorgunluk or nobetci.yorgunluk.get("son_gece") != koy.gun:
+		push_error("YSM-03: dolu yatak, kayıt veya gece vardiyası")
+		quit(1)
+		return
+	print("YSM-02, YSM-03 ve ISG-40: GEÇTİ")
 	quit()

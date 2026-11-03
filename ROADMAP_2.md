@@ -1743,7 +1743,7 @@ YSM-01 … YSM-03 gövdesi durur. Yeni maddeler YSM-04 … YSM-83. İkinci açl�
 
 ### 22.3 Uyku
 
-- [ ] **YSM-03:** Gece evde uyku, gündüz dinlenme.
+- [x] **YSM-03:** Gece evde uyku, gündüz dinlenme. (Kalfa)
   - Ne: Yataklı evde uyuyan kişinin yorgunluğu veri dosyasındaki tam miktar kadar düşer. Yatağı olmayan açıkta uyur ve düşüş tam miktarın yarısıdır; yarım dosyada yazılır, koda gömülmez. Gündüz ateş başı ve boşta durmak yorgunluk düşürmez; dinlenme adımı yalnız gece uykusudur. Gece vardiyasına yazılan kişi o gece uyumaz ve düşüş 0'dır. Yorgunluk, kaza riskine UZM-12 ve UZM-14 hesabıyla eklenir; ikinci bir kaza zar tablosu açılmaz.
   - Kabul: Aynı yorgunlukla yatan iki kişiden yataklı olanın düşüşü, açıkta kalanın düşüşünün iki katıdır (`tests/unit/koy/yasam_test.gd`). Gündüz ateşte duran kişide yorgunluk değişmez. Ev varken yatak doluysa fazla kişi açıkta sayılır. Ölen kişi uyku satırı yazmaz. Ek şart: Kayıtta uyku alanı yoksa kişi dinlenmiş sayılmaz; açılış bir sonraki gece hesabına bırakılır. Ek şart: Yeni uyku ses dosyası eklenmez. Ek şart: Oyuncunun nöbet yorgunluğu ertesi gün evde uyuyunca silinir; ayrı bir yorgunluk alanı açılmaz.
   - Bağımlılık: YSM-01, ACL-05. Boyut: S.
@@ -2335,7 +2335,7 @@ Kimlik numaraları yeniden sıralanmaz. `src/koy/kapi_nobeti.gd` henüz yoktur.
   - Dosya: yeni `src/koy/kapi_nobeti.gd`; ANI-02 kapı noktasına tek okuma.
   - Asset: asset gerekmedi. Meşale ANI-01 soketindedir.
 
-- [ ] **NBT-02:** Yanlış nöbetçi bir geleni kaçırır.
+- [/] **NBT-02:** (Cursor) Yanlış nöbetçi bir geleni kaçırır.
   - Ne: Eş ve çocuk yuvaya konamaz. Asker olmayan yetişkin veya yorgun kişi durursa o gecenin bir geleni sabah raporunda görülmedi diye durur; gelen KAP-16 listesinden kalkmaz.
   - Kurallar:
     1. Yanlış kişi şunlardır: çocuk (UZM-08 çalışmaz), eş (ACL-02 kapı nöbetine yazılamaz), yorgunluk eşiğini aşmış kişi (YSM-01), mesleği asker olmayan yetişkin. Asker olmayan yetişkin yazılabilir ama yanlış sayılır.
@@ -2351,7 +2351,7 @@ Kimlik numaraları yeniden sıralanmaz. `src/koy/kapi_nobeti.gd` henüz yoktur.
 
 ### 26.2 Devir zamanı, fırtına ve uyku
 
-- [ ] **NBT-03:** Akşam teslim, sabah aynı yuva.
+- [/] **NBT-03:** (Cursor) Akşam teslim, sabah aynı yuva.
   - Ne: Gün kapanırken yuvadaki kişi tutan olur; sabah yuva kendiliğinden boşalmaz. Devir kaydı bırakan ve alan adını taşır, ayrı bir sahne açmaz.
   - Kurallar:
     1. Akşam, gün kapanırken yuvadaki kişi "tutan" olur. Sabah, gece hesabından sonra yuva boşaltılmaz. Oyuncu yeni bir ad yazarsa devir olur.
@@ -2364,7 +2364,7 @@ Kimlik numaraları yeniden sıralanmaz. `src/koy/kapi_nobeti.gd` henüz yoktur.
   - Dosya: `src/koy/kapi_nobeti.gd` kayıt alanı; gece sonuna tek satır.
   - Asset: asset gerekmedi.
 
-- [ ] **NBT-04:** Fırtına bir geleni kaçırır.
+- [/] **NBT-04:** (Cursor) Fırtına bir geleni kaçırır.
   - Ne: Fırtına ve tipi MEV-09 ile MEV-15'ten okunur; kuyruk hesabı yeniden yazılmaz. Fırtına gecesinde doğru nöbetçi de bir geleni kaçırabilir ve sabah satırı tipi diye işaretler.
   - Kurallar:
     1. Fırtına ve tipi MEV-09 ile MEV-15'tir. Kuyruk daralması ve bulanık ipucu yeniden yazılmaz.
@@ -2377,7 +2377,7 @@ Kimlik numaraları yeniden sıralanmaz. `src/koy/kapi_nobeti.gd` henüz yoktur.
   - Dosya: `src/koy/kapi_nobeti.gd`; MEV-09 bayrağına tek okuma.
   - Asset: asset gerekmedi.
 
-- [ ] **NBT-05:** Uyuyan nöbetçi bir geleni kaçırır.
+- [/] **NBT-05:** (Cursor) Uyuyan nöbetçi bir geleni kaçırır.
   - Ne: UZM-14 o gece uyku derse nöbetçi uyku halinde durur ve bir gelen uyudu diye işaretlenir. Yüzde tablosu bu maddede yoktur; kişi yatağına ışınlanmaz.
   - Kurallar:
     1. Uyuma ihtimali UZM-14 kaydıdır. Gece vardiyasında uyumama ve ertesi gün riski orada durur. Bu madde ikinci bir yüzde yazmaz.
@@ -2392,7 +2392,7 @@ Kimlik numaraları yeniden sıralanmaz. `src/koy/kapi_nobeti.gd` henüz yoktur.
 
 ### 26.3 Görünen ve sabah raporu
 
-- [ ] **NBT-06:** Görülenler listesi sorgu değildir.
+- [/] **NBT-06:** (Cursor) Görülenler listesi sorgu değildir.
   - Ne: Liste, o gecenin KAP-16 gelişlerinden görülmedi işaretli olmayan kimlikleri taşır. Listede replik, ipucu ve karar yoktur; kapı sahnesindeki sorgu bu listeden açılmaz.
   - Kurallar:
     1. Görülenler listesi o gecenin KAP-16 gelişlerinden, "görülmedi" işaretli olmayan adları taşır.
@@ -2405,7 +2405,7 @@ Kimlik numaraları yeniden sıralanmaz. `src/koy/kapi_nobeti.gd` henüz yoktur.
   - Dosya: `src/koy/kapi_nobeti.gd` içinde görülenler listesi.
   - Asset: asset gerekmedi.
 
-- [ ] **NBT-07:** Sabah raporunda iki nöbet satırı.
+- [/] **NBT-07:** (Cursor) Sabah raporunda iki nöbet satırı.
   - Ne: Duran gece raporuna iki satır eklenir; üçüncü nöbet satırı ve ikinci panel yoktur. İlk satır tutan adı, ikinci satır görülen ve görülmedi sayısıdır.
   - Kurallar:
     1. Satırlar duran gece raporuna eklenir. İkinci bir rapor paneli yoktur.
@@ -2420,7 +2420,7 @@ Kimlik numaraları yeniden sıralanmaz. `src/koy/kapi_nobeti.gd` henüz yoktur.
 
 ### 26.4 Boş direk ve oyuncunun dönüşü
 
-- [ ] **NBT-08:** Boş direk gecenin gelişlerini kaçırır.
+- [/] **NBT-08:** (Cursor) Boş direk gecenin gelişlerini kaçırır.
   - Ne: Kapı açık, oyuncu köyde ve yuva boşsa o gecenin gelişlerinin hepsi görülmedi olur. Oyuncu kapı sahnesindeyse bu kaçırma yazılmaz; kıtlık nöbetçiyi ambara çektiyse yuva o gece boş sayılır.
   - Kurallar:
     1. Şart: kapı açık, oyuncu köy sahnesinde, yuva boş. Üçü birden yoksa bu madde susar.
@@ -2433,7 +2433,7 @@ Kimlik numaraları yeniden sıralanmaz. `src/koy/kapi_nobeti.gd` henüz yoktur.
   - Dosya: `src/koy/kapi_nobeti.gd`; KRI-14 sonucuna tek okuma.
   - Asset: asset gerekmedi.
 
-- [ ] **NBT-09:** Oyuncu kapıya girince nöbetçi kenara çekilir.
+- [/] **NBT-09:** (Cursor) Oyuncu kapıya girince nöbetçi kenara çekilir.
   - Ne: Kapı sahnesi açılınca yuvadaki kişi direğin yanına çekilir ve sorguyu oyuncu yürütür. Köye dönüşte aynı kimlik yuvaya geri gelir; nöbetçinin kaçırdığı satır durur, bakılan gelene oyuncu gördü eklenir.
   - Kurallar:
     1. Kapı sahnesi açılınca yuvadaki kişi direğin bir adım yanına çekilir. Sorgu düğmeleri ona ait değildir.
@@ -2558,7 +2558,7 @@ Dönem 1240'lar. Yol adı metindir. İkinci harita, kalp puanı, romans ve ses y
 
 ### 28.1 Hükmün kaydı
 
-- [ ] **SAB-01:** Gece hükmü sabah defterine tek satır düşer.
+- [/] **SAB-01:** (Cursor) Gece hükmü sabah defterine tek satır düşer.
   - Ne: Gece bitince son CAS-07 kaydı deftere tek satır olur: kişi, hüküm (zindan, sürgün veya infaz) ve gün 0; ertesi sabah aynı satır basılmaz. Hüküm yoksa defter boş kalır ve sonraki sabahları açmaz; gece içinde değişen hükümden yalnız son hali okunur, ad sorulmamışsa maskede kalır.
   - Kabul: İnfaz gecesinin sabahında satır sayısı 1 ve `hukum` değeri `infaz` olur (`tests/unit/koy/sabah_defteri_test.gd`). Hüküm yokken satır 0, aynı kişiye iki yazımda satır 1 kalır. Meclis tutanağıyla birebir satır 0. Kayıtta düz metin alanı 0. Aynı sabah ikinci yol satırı 0. Yeni ses dosyası ve kalp anahtarı 0. Ek şart: Sabah defteri nöbetin görülenler listesini ikinci kez basmaz; nöbeti anarsa bunu tek satırda bırakır. Ek şart: Çınar meclisi sabah defterine cümle yazmaz; sabah satırının kaynağı CAS-07 hükmüdür. Ek şart: Ölüm sabah defterine tek satır yazılır; ikinci ölüm cümlesi açılmaz.
   - Bağımlılık: CAS-07. Boyut: S.
@@ -2567,21 +2567,21 @@ Dönem 1240'lar. Yol adı metindir. İkinci harita, kalp puanı, romans ve ses y
 
 ### 28.2 İlk sabah köyde
 
-- [ ] **SAB-02:** Evde kalanların adı kapı satırına düşer.
+- [/] **SAB-02:** (Cursor) Evde kalanların adı kapı satırına düşer.
   - Ne: Satırdaki kişinin hanesinde veride kim varsa sabah kapısı onların görünen adını sayar; çocuk listede durur ama ağır işe yazılmaz. Kayıt yoksa veya kalan 0 ise sonuç `evi_bos` olur, evlilik ve yeni akraba eklenmez.
   - Kabul: Hanede 2 kişi varken sabah satırı 2 ad taşır (`tests/unit/koy/sabah_defteri_test.gd`). Hane kaydı yokken ad sayısı 0 ve kayıt `evi_bos` olur.
   - Bağımlılık: SAB-01. Boyut: S.
   - Dosya: `src/koy/sabah_defteri.gd`; hane kaydına okuma.
   - Asset: asset gerekmedi.
 
-- [ ] **SAB-03:** Birincil iş yeri o sabah kapalı kalır.
+- [/] **SAB-03:** (Cursor) Birincil iş yeri o sabah kapalı kalır.
   - Ne: Hükümlünün birincil iş yeri o sabah `kapali` olur ve o gün kişi katkısını duran hesaba yazmaz. İki yer bağlıysa yalnız birincil kapanır; tezgâh yoksa veya yer zaten kapalıysa yeni bayrak ve ikinci tabela yazılmaz.
   - Kabul: Demirhaneye bağlı bir zindan hükmünde sabah demirhane `kapali` ve kişi katkısı 0 olur (`tests/unit/koy/sabah_defteri_test.gd`). Tezgâhsız kişide `kapali` bayrağı 0.
   - Bağımlılık: SAB-02. Boyut: M.
   - Dosya: `src/koy/sabah_defteri.gd`; ANI-08 düğümüne `kapali` adaptörü.
   - Asset: kapalı örtü envantere `SAB03-ORTU`; yer tutucu düz renk bez, ANI-08 düğümünün üstünde.
 
-- [ ] **SAB-04:** Kapalı tezgâh tek dedikodu satırı olur.
+- [/] **SAB-04:** (Cursor) Kapalı tezgâh tek dedikodu satırı olur.
   - Ne: Kapalı tezgâh varsa o sabah tek dedikodu satırı tezgâhın adını taşır; tezgâh yoksa konu hüküm değeridir. Tanık yoksa satır çıkmaz ve köy sohbeti ayrı bir infaz haberi üretmez.
   - Kabul: Tanıklı kapalı tezgâhta pusulada 1 satır vardır ve satır tezgâhın adını taşır (`tests/unit/koy/sabah_defteri_test.gd`). Tanıksız sabah satır sayısı 0. Aynı sabahta ikinci satır 0.
   - Bağımlılık: SAB-03, DIY-13. Boyut: S.
@@ -2590,21 +2590,21 @@ Dönem 1240'lar. Yol adı metindir. İkinci harita, kalp puanı, romans ve ses y
 
 ### 28.3 Hükmün yolu — zindan, sürgün, infaz
 
-- [ ] **SAB-05:** Zindan payı bir erzak düşürür.
+- [/] **SAB-05:** (Cursor) Zindan payı bir erzak düşürür.
   - Ne: Zindan hükmünde hane doluysa pay onların erzağından 1 düşer, hane boşsa kamu ambarından 1 düşer; sürgün ve infaz erzak düşürmez. Erzak kalmamışsa kişiye `ekmek_yok` yazılır, kişi zindanda kalır ve bu pay onu öldürmez.
   - Kabul: Zindan ve dolu hanede hane erzağı 1 azalır, zindan payı 1 olur (`tests/unit/koy/sabah_defteri_test.gd`). İnfazda erzak deltası 0. Ambar 0 iken işaret `ekmek_yok` olur. Pay miktarı `data/koy/` içindedir. Eşin ayrı tüketimi ikinci kez düşmez. Çocuk bu paya yazılmaz. Aynı tohumla iki koşu aynı düşüşü yazar.
   - Bağımlılık: SAB-02. Boyut: S.
   - Dosya: yeni `src/koy/zindan_ekmegi.gd`; EKO-09 düşüşüne tek satır.
   - Asset: asset gerekmedi. Ekmek, duran erzak ikonudur.
 
-- [ ] **SAB-06:** Sürgün kapıdan bir yol adıyla çıkar.
+- [/] **SAB-06:** (Cursor) Sürgün kapıdan bir yol adıyla çıkar.
   - Ne: Sürgün sabahında kitaptaki bir yol adı (Sivas, Kayseri, Konya veya dosyadaki başka ad) kapı satırına yazılır, kişi nüfustan 1 düşer ve harita açılmaz. Hanede kalanlar köyde kalır; ad boşsa nüfus düşmez, çocuk yanında kayıt yoksa satır `açıkta` kalır ve kayıt görünen adı değil yol kimliğini tutar.
   - Kabul: Sürgünde nüfus 1 azalır ve sabah metninde bir yol adı vardır (`tests/unit/koy/sabah_defteri_test.gd`). Yol adı boşsa nüfus deltası 0. Zindan ve infazda yol satırı 0. Harita düğümü 0. Yol satırı için ses dosyası 0.
   - Bağımlılık: SAB-03. Boyut: M.
   - Dosya: `src/koy/sabah_defteri.gd`; `data/soz/surgun_yollari.json`.
   - Asset: asset gerekmedi.
 
-- [ ] **SAB-07:** İnfaz sabahı duran cenazeyi açar.
+- [/] **SAB-07:** (Cursor) İnfaz sabahı duran cenazeyi açar.
   - Ne: İnfaz sabahı duran cenaze akışını bir kez çağırır; tören seçeneği iki kalır ve ad satırı bir kez yazılır. Zindan ve sürgünde cenaze açılmaz, kişi zaten ölü kayıtlıysa ikinci çağrı yazılmaz.
   - Kabul: İnfaz sabahında cenaze çağrısı 1 ve tören seçeneği 2 olur (`tests/unit/koy/sabah_defteri_test.gd`). Zindanda cenaze çağrısı 0. Ad satırı sayısı 1.
   - Bağımlılık: SAB-04, SEV-07. Boyut: S.
@@ -2613,14 +2613,14 @@ Dönem 1240'lar. Yol adı metindir. İkinci harita, kalp puanı, romans ve ses y
 
 ### 28.4 Sonraki sabahlar
 
-- [ ] **SAB-08:** İkinci sabah ekmeği sürer, yolu basmaz.
+- [/] **SAB-08:** (Cursor) İkinci sabah ekmeği sürer, yolu basmaz.
   - Ne: Gün 0'dan 1'e çıkar ve yeni CAS-07 kararı yazılmaz; zindan payı bir kez daha düşer, sürgün yolu ile nüfus düşüşü tekrar yazılmaz. İnfazda tezgâh kapalı kalır, cenaze ikinci kez çağrılmaz ve dedikodu kimliği ikinci satır basmaz.
   - Kabul: Zindanın ikinci sabahında erzak bir kez daha 1 azalır ve dedikodu satırı 1 kalır (`tests/unit/koy/sabah_defteri_test.gd`). Sürgünün ikinci sabahında nüfus deltası 0. Kayıt yüklenince gün artışı 0. Gün tavanı `data/koy/` içindedir, betiğe gömülü 3 sabiti yoktur.
   - Bağımlılık: SAB-05, SAB-06, SAB-07. Boyut: S.
   - Dosya: `src/koy/sabah_defteri.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **SAB-09:** Üçüncü sabah tezgâha vekil yazmaz.
+- [/] **SAB-09:** (Cursor) Üçüncü sabah tezgâha vekil yazmaz.
   - Ne: Gün 2 olunca `kapali` bayrağı sürer; haneden kimse usta yazılmaz, çırak varsa rütbesi artmaz ve yas bitse de tezgâh burada açılmaz. Zindan payı üçüncü kez düşer, erzak yoksa `ekmek_yok` durur ve yeni dedikodu satırı yazılmaz.
   - Kabul: Gün 2'de `kapali` tezgâh 1 ve otomatik işçi 0 olur (`tests/unit/koy/sabah_defteri_test.gd`). Üç sabahın ekmek toplamı zindanda 3, infazda 0 ve sürgünde 0'dır. Dördüncü sabah bu hükümden ekmek düşüşü 0.
   - Bağımlılık: SAB-08. Boyut: S.
@@ -2629,7 +2629,7 @@ Dönem 1240'lar. Yol adı metindir. İkinci harita, kalp puanı, romans ve ses y
 
 ### 28.5 Hesap
 
-- [ ] **SAB-10:** Üç sabahın sayıları kapanışta okunur.
+- [/] **SAB-10:** (Cursor) Üç sabahın sayıları kapanışta okunur.
   - Ne: Üçüncü sabahın sonunda kapanış yedi sayıyı okur: hüküm, hane kalanı, kapalı tezgâh, dedikodu, ekmek düşüşü, yol ve cenaze. Gün 2 olmadan kapanış görünmez; kapanış erzak, nüfus ve tezgâh yazmaz.
   - Kabul: Sürgünde cenaze 0 ve yol 1, infazda yol 0 ve cenaze 1, zindanda ekmek 3 ve yol 0 (`tests/unit/koy/sabah_defteri_test.gd`). Kişi kaydı yoksa kapanış `kayip` der, sayılar 0 yazılır ve sahne açık kalır.
   - Bağımlılık: SAB-09. Boyut: S.
@@ -2644,7 +2644,7 @@ Dönem 1240'lar. Yol adı metindir. İkinci harita, kalp puanı, romans ve ses y
 
 ### 28.9 Kadraj
 
-- [ ] **SAB-75:** Sabah paneli köy ekranında durur.
+- [/] **SAB-75:** (Cursor) Sabah paneli köy ekranında durur.
   - Ne: Hüküm satırı köy ekranında bir panelde durur ve kapı kuyruğu kurulmadan okunur. Ayrı sabah sahnesi açılmaz; panel `rapor_bekle` ayarını kullanır ve ikinci anahtar açmaz.
   - Kabul: Satır varken köy ekranında panel 1 ve sabah sahnesi 0 (`tests/unit/koy/sabah_defteri_test.gd`). Kuyruk kurulmadan panel okunmuş olur. Bu panel için ayar anahtarı 1.
   - Bağımlılık: SAB-01. Boyut: S.
@@ -2673,7 +2673,7 @@ Yerler döneme uygundur: ağıl, değirmen, demirhane, bez. Kalp puanı, romans,
   - Bağımlılık: ANI-08. Boyut: S.
   - Dosya: yeni `src/koy/tezgahta_gun.gd`; ANI-08 düğümüne okuma.
   - Asset: dört örtü envantere `TEZ01-ORTU` (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham). Yer tutucu düz renk. Yeni model yok.
-- [ ] **TEZ-02:** Siparişin yüzü
+- [/] **TEZ-02:** (Cursor) Siparişin yüzü
   - Ne: Açık TUC-05 siparişi dört yerden birine bağlanır; yüzü köyde duran bir hane, usta ya da tüccardır ve yüzü olmayan sipariş tezgâha inmez. Bir yüzün aynı anda bir açık siparişi vardır; kapı kuyruğundaki kimlik ve köyden ayrılmış kişi yüz olamaz.
   - Kabul: Bir bez siparişi bir köylü adına tezgâha iner (`tests/unit/koy/tezgahta_gun_test.gd`). `yuzsuz` kayıtta `gun` artışı 0'dır; aynı yüzde ikinci açık sipariş 1 doğrulama hatası verir. Ek şart: yüz kaydında ses anahtarı ve `kalp` alanı yoktur.
   - Bağımlılık: TEZ-01, TUC-05. Boyut: M.
@@ -2682,25 +2682,25 @@ Yerler döneme uygundur: ağıl, değirmen, demirhane, bez. Kalp puanı, romans,
 
 ### 29.2 Beş sabah — ham, iz, biçim, ağız
 
-- [ ] **TEZ-03:** Birinci sabah ham yığındır
+- [/] **TEZ-03:** (Cursor) Birinci sabah ham yığındır
   - Ne: Usta tezgâhtaysa ve stok en az 1 ise kayıt `gun` 1 ve hal `ham` olur; hammadde stoğundan bir kez 1 düşer. Stok 0 ise sabah açılmaz; satır kapı kuyruğu kurulmadan yazılır.
   - Kabul: Stok varken `gun` 1 ve hal `ham`dır (`tests/unit/koy/tezgahta_gun_test.gd`). Stok 0 iken `gun` 0 ve teslim 0'dır; aynı sabahda ikinci stok düşüşü yoktur.
   - Bağımlılık: TEZ-02. Boyut: S.
   - Dosya: `src/koy/tezgahta_gun.gd`.
   - Asset: ham blok envantere `TEZ03-HAM`; yer tutucu düz renk küp, örtünün üstünde.
-- [ ] **TEZ-04:** İkinci sabah iz bırakır
+- [/] **TEZ-04:** (Cursor) İkinci sabah iz bırakır
   - Ne: `ham` kaydın sonraki usta sabahı `gun` 2 olur; parça düğüm, oluk, eğri çubuk ya da ilk kesik olarak görünür ve örtü rengi gün 1 ile aynı kalır. `gun` 1 yokken iz yazılmaz, teslim anahtarı bu kayıtta durmaz.
   - Kabul: `ham` kayıttan sonraki usta sabahı `gun` 2'dir (`tests/unit/koy/tezgahta_gun_test.gd`). `gun` 1 yokken `gun` 2 sayısı 0'dır.
   - Bağımlılık: TEZ-03. Boyut: S.
   - Dosya: `src/koy/tezgahta_gun.gd`.
   - Asset: iz bloğu envantere `TEZ04-IZ`; yer tutucu aynı küp, bir kenarı koyu.
-- [ ] **TEZ-05:** Üçüncü sabah biçim verir
+- [/] **TEZ-05:** (Cursor) Üçüncü sabah biçim verir
   - Ne: `gun` 2 varken bir usta sabahı `gun` 3 yazar ve etiket işin adını gösterir; yüz bu sabah parçayı alamaz. Biçim aleti stokta yoksa `gun` artmaz ve `titreme` 1 artar.
   - Kabul: `gun` 2 sonrası etiket gün 3 adını taşır ve teslim düğmesi 0'dır (`tests/unit/koy/tezgahta_gun_test.gd`). Sipariş türü dört yere uymazsa parça `gun` 2'de kalır.
   - Bağımlılık: TEZ-04. Boyut: S.
   - Dosya: `src/koy/tezgahta_gun.gd`.
   - Asset: biçim bloğu envantere `TEZ05-BICIM`; yer tutucu küp, etikette işin adı.
-- [ ] **TEZ-06:** Dördüncü sabah ağız ve kenardır
+- [/] **TEZ-06:** (Cursor) Dördüncü sabah ağız ve kenardır
   - Ne: `gun` 3 sonrası usta sabahı `gun` 4 olur; bez siparişi boya diyorsa ve boya stoğu varsa stoktan 1 düşer, boya yoksa parça `boyasiz` kalır. Kenar fire oranı `siparis_yuzu.json` içindedir, fire ikinci parça yazmaz ve demirhanede yeni ocak açılmaz.
   - Kabul: `gun` 3 kaydından sonraki usta sabahı `gun` 4'tür (`tests/unit/koy/tezgahta_gun_test.gd`). Boyasız bezde stok deltası 0'dır; demirhanede ocak düğümü 0'dır; teslim edilen parça sayısı 1 kalır.
   - Bağımlılık: TEZ-05. Boyut: S.
@@ -2709,13 +2709,13 @@ Yerler döneme uygundur: ağıl, değirmen, demirhane, bez. Kalp puanı, romans,
 
 ### 29.3 Ustanın yokluğu ve teslim
 
-- [ ] **TEZ-07:** Usta yoksa çırak titretir
+- [/] **TEZ-07:** (Cursor) Usta yoksa çırak titretir
   - Ne: Usta ölü, sürgün, zindanda, hasta, başka binada, o gece nöbetçi ya da YSM-02 bitkinse çırak tezgâhta durur, `gun` artmaz ve parçaya `titreme` 1 eklenir. Çırak yoksa veya SAB `kapali` ise `titreme` yazılmaz; rütbe UZM-11'den okunur, artmaz.
   - Kabul: Usta yok, çırak var, bir sabah: `gun` aynı, `titreme` 1, rütbe deltası 0'dır (`tests/unit/koy/tezgahta_gun_test.gd`). Çırak yokken `titreme` 0'dır; SAB `kapali` iken çırak sahnesi 0'dır.
   - Bağımlılık: TEZ-06, UZM-04, UZM-11. Boyut: M.
   - Dosya: `src/koy/tezgahta_gun.gd`; UZM rütbesine okuma.
   - Asset: titreme çizgisi envantere `TEZ07-TITREME`; yer tutucu blok üstünde eğri tek çizgi.
-- [ ] **TEZ-08:** Beşinci sabah teslimdir
+- [/] **TEZ-08:** (Cursor) Beşinci sabah teslimdir
   - Ne: `gun` 4 ise sonraki usta sabahı `gun` 5 ve hal `tam` olur; parça yüzün ev kaydına 1 yazılır, TUC-05 siparişi kapanır ve ücret o siparişteki değerdir. Yüz köyde değilse veya yüzde ücret yoksa parça tezgâhta kalır ve sipariş açık kalır; parça ambara ikinci kopya yazılmaz.
   - Kabul: Beş ilerleyen usta sabahında sipariş kapalı ve ev kaydında parça 1'dir (`tests/unit/koy/tezgahta_gun_test.gd`). Yüz köyde değilken TUC-05 açık kalır; `titreme` 2 iken teslim olur ve işaret 2 kalır. Ek şart: aynı sipariş ikinci kez kapanmaz. Ek şart: teslim kapı kabulü sayılmaz, gelen sayısı değişmez. Ek şart: divan hükmü bu ücreti yazmaz.
   - Bağımlılık: TEZ-07, TUC-05. Boyut: M.
@@ -2724,13 +2724,13 @@ Yerler döneme uygundur: ağıl, değirmen, demirhane, bez. Kalp puanı, romans,
 
 ### 29.4 Tek cümle ve sayım
 
-- [ ] **TEZ-09:** Yüz bir cümle söyler
+- [/] **TEZ-09:** (Cursor) Yüz bir cümle söyler
   - Ne: Teslimde bir kez cümle yazılır; `titreme` 0 ise anahtar `tam`, 0'dan büyükse `egri` olur. Cümle erzak, akçe, rütbe ve itibar yazmaz; kayıt düz metni gömmez, anahtarı tutar.
   - Kabul: `titreme` 0 tesliminde anahtar `tam`, `titreme` 1 tesliminde `egri`dir (`tests/unit/koy/tezgahta_gun_test.gd`). Cümle sonrası erzak deltası 0 ve rütbe deltası 0'dır. Ek şart: anahtar eksikse parça eve inmez ve gece fazı açılır. Ek şart: cümle dosyasında ses yolu yoktur.
   - Bağımlılık: TEZ-08. Boyut: S.
   - Dosya: `data/tez/siparis_yuzu.json` iki cümle anahtarı.
   - Asset: asset gerekmedi.
-- [ ] **TEZ-10:** Beş sabah sayılır
+- [/] **TEZ-10:** (Cursor) Beş sabah sayılır
   - Ne: Sayım ilerleyen usta sabahını, `titreme` değerini, son `gun` değerini, teslimi, cümle anahtarını, rütbe deltasını, un deltasını ve kademe deltasını okur, bunlara yazmaz. Beş ilerleyen sabah `gun` 5 eder; her yok sabah `titreme`yi 1 artırır ve `gun` artırmaz.
   - Kabul: Usta her sabah oradaysa `gun` 5, `titreme` 0, teslim 1 ve cümle `tam` olur (`tests/unit/koy/tezgahta_gun_test.gd`). Bir sabah usta yok ve çırak varsa `gun` 4, `titreme` 1, teslim 0'dır; rütbe, un ve kademe deltaları 0'dır. Ek şart: aynı tohumla iki sayım aynı `gun`, `titreme` ve teslim sayılarını verir. Ek şart: hız 3 iken bir sabah `gun` değerini bir kez artırır. Ek şart: eski kayıtta sayım alanı yoksa teslim 0 ve `gun` 0 yazılır, gece fazı açılır.
   - Bağımlılık: TEZ-09. Boyut: S.
@@ -2763,7 +2763,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.1 Yılın yüzü
 
-- [ ] **YIL-01:** Yılın yüzü bir kişidir
+- [/] **YIL-01:** (Cursor) Yılın yüzü bir kişidir
   - Ne: Mevsim yılı açılırken köyde yaşayan adlı yetişkinlerden biri `yil_izi` alanına bir kez yazılır; tarla işi olan varsa o seçilir, tek adlı yetişkin eş ise o seçilir. Dört mevsim aynı kimliği okur; adsız, ölü ve köyden ayrılmış kişi seçilmez, kişi ölürse kalan slotlar boş kalır.
   - Kabul: Bir yılda `yil_izi` en çok bir kimliktir ve dört mevsim slotu o kimliği taşır (`tests/unit/koy/yil_izi_test.gd`). Köyde adlı kimse yokken satır 0'dır; boş günde yıl satırı 0'dır; ölümden sonra açılan slot 0 ve cenaze seçeneği 2'dir. Ek şart: aynı tohumla iki açılış aynı kimliği seçer. Ek şart: eski kayıtta `yil_izi` yoksa alan boş kalır ve mevsim günü artar. Ek şart: satır düz cümle gömmez, `data/soz/yil_izi.json` anahtarını okur. Ek şart: `yil_izi.gd` takvim düğümü açmaz ve `koy_sahnesi` import etmez. Ek şart: nöbet ataması değişmez ve nöbet gecesinde duyulmuş satır silinmez. Ek şart: anahtar yoksa o slot 0 sayılır, mevsim günü yine artar.
   - Bağımlılık: MEV-01, YAZ-08. Boyut: M.
@@ -2772,14 +2772,14 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.2 Güz
 
-- [ ] **YIL-02:** Güz sofrasında ad söylenir
+- [/] **YIL-02:** (Cursor) Güz sofrasında ad söylenir
   - Ne: Ambar doluyken MEV-08 şenliği açıksa sofrada bir satır, `yil_izi` kişisinin görünen adını söyler; şenliği bu madde kurmaz. Cümle ödül ve eşya vermez, moral artışı MEV-08 tablosunda kalır.
   - Kabul: Ambar dolu bir güz gününde sofra satırı 1'dir ve yıl dosyasından gelen moral 0'dır (`tests/unit/koy/yil_izi_test.gd`). Şenlik kapalıyken sofra satırı 0'dır. Ek şart: Söz motoru dosyası yokken sofra satırı yine 1'dir.
   - Bağımlılık: YIL-01, MEV-08, SEV-06. Boyut: S.
   - Dosya: `src/koy/yil_izi.gd`; `data/soz/yil_izi.json` anahtarı `guz_sofra`.
   - Asset: asset gerekmedi. Sofra `MEV-08` yerindedir.
 
-- [ ] **YIL-03:** Şenlik yoksa harman cümlesi duyulur
+- [/] **YIL-03:** (Cursor) Şenlik yoksa harman cümlesi duyulur
   - Ne: Güzde şenlik kapalıyken harman ya da ambar sayımının yanında bir satır görünen adı söyler; yeni bina kurulmaz. Şenlik açıksa bu satır kapanır, kişi ölmüşse satır yazılmaz.
   - Kabul: Ambarsız güz gününde harman satırı 1, sofra satırı 0 ve moral deltası 0'dır (`tests/unit/koy/yil_izi_test.gd`). Şenlik açılınca harman satırı 0'a döner.
   - Bağımlılık: YIL-01, MEV-08, SEV-06. Boyut: S.
@@ -2788,14 +2788,14 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.3 Kış
 
-- [ ] **YIL-04:** Kışta dışarı ve ev iki ayrı cümledir
+- [/] **YIL-04:** (Cursor) Kışta dışarı ve ev iki ayrı cümledir
   - Ne: Kişi açıkta uyuyorsa o gece `kis_disari`, yatakta uyuyorsa `kis_ev` duyulur; iki anahtar aynı gece birlikte duyulmaz. Ölüm, donma ve odun cezası MEV-02, MEV-11 ve EKO-09 hesabında kalır, yıl satırı o zara yazmaz.
   - Kabul: Aynı kişi açıkta bir kış gecesinde `kis_disari` satırını duyar, yataklı gecede `kis_ev` duyar (`tests/unit/koy/yil_izi_test.gd`). Yıl satırı açıkken ve kapalıyken donma sayısı aynıdır. Ek şart: kış metni güz metniyle aynıysa 1 hata.
   - Bağımlılık: YIL-01, YSM-03, ACL-05. Boyut: S.
   - Dosya: `data/soz/yil_izi.json` anahtarları `kis_disari`, `kis_ev`.
   - Asset: asset gerekmedi.
 
-- [ ] **YIL-05:** Kışın tarla susar
+- [/] **YIL-05:** (Cursor) Kışın tarla susar
   - Ne: Mevsim kış ve iş noktası tarla ise yıl satırı 0'dır; üretim, don ve ürün MEV-03 değerinde kalır. Kışın `ilkbahar_tarla` cümlesi açılmaz.
   - Kabul: Kışın tarla yıl satırı 0'dır ve tarla üretimi MEV-03 ile aynıdır (`tests/unit/koy/yil_izi_test.gd`). Kış gününde `ilkbahar_tarla` satırı 0'dır.
   - Bağımlılık: YIL-01, MEV-03. Boyut: S.
@@ -2804,14 +2804,14 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.4 İlkbahar
 
-- [ ] **YIL-06:** İlkbaharda tarlasına döner
+- [/] **YIL-06:** (Cursor) İlkbaharda tarlasına döner
   - Ne: Mevsim ilkbahar olunca ve MEV-03 kilidi kalkınca `yil_izi` kişisinin tarla iş noktasında bir satır duyulur; yeni tarla ve yeni ürün açılmaz. Kişinin tarla işi yoksa cümle kendi duran iş noktasında bir kez duyulur.
   - Kabul: İlkbaharın ilk gününde tarla satırı 1'dir ve tarla üretimi MEV-03 kalkmış haliyle aynıdır (`tests/unit/koy/yil_izi_test.gd`). Ölü kişide satır 0'dır; kış gününde satır 0'dır. Ek şart: ilkbahar satırı açıkken ISG-02 atama sayısı aynı kalır.
   - Bağımlılık: YIL-05, MEV-03. Boyut: S.
   - Dosya: `data/soz/yil_izi.json` anahtarı `ilkbahar_tarla`.
   - Asset: asset gerekmedi.
 
-- [ ] **YIL-07:** Taşkın gününde bir cümle duyulur
+- [/] **YIL-07:** (Cursor) Taşkın gününde bir cümle duyulur
   - Ne: Satır yalnız MEV-06 olayı o gün açıksa durur; bent kırmaz, kuyu kireci yazmaz ve onarım başlatmaz. Cümle `yil_izi` kişisinindir ve `ilkbahar_tarla` ile aynı metin olamaz.
   - Kabul: MEV-06 açık bir ilkbahar gününde taşkın satırı 1'dir (`tests/unit/koy/yil_izi_test.gd`). Olay kapalıyken satır 0'dır; bent onarım sayacı yıl satırı yüzünden değişmez.
   - Bağımlılık: YIL-01, MEV-06. Boyut: S.
@@ -2820,7 +2820,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.5 Yaz
 
-- [ ] **YIL-08:** Yaz su sırasında bir söz duyulur
+- [/] **YIL-08:** (Cursor) Yaz su sırasında bir söz duyulur
   - Ne: Mevsim yaz iken ANI-03 su taşıma sırasında bir satır duyulur; yeni kuyruk ve yeni su kaynağı açılmaz, su tüketimi MEV-07 çarpanında kalır. Kişi o gün su işinde değilse cümle sırada bir ağızdan duyulur; yaz değilse veya kişi ölmüşse satır 0'dır.
   - Kabul: Bir yaz su gününde satır 1'dir ve su tüketimi MEV-07 değeriyle aynıdır (`tests/unit/koy/yil_izi_test.gd`). Kişi su işinde değilken de satır 1'dir ve atama kaydı aynı kalır; yangın riski tablosu değişmez. Ek şart: susuzluk cezası YSM-02 değerinde kalır ve yaz satırı bar yazmaz.
   - Bağımlılık: YIL-01, MEV-07. Boyut: S.
@@ -2829,14 +2829,14 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.6 Ad ve kapanış
 
-- [ ] **YIL-09:** Söylenen ad karttaki addır
+- [/] **YIL-09:** (Cursor) Söylenen ad karttaki addır
   - Ne: Güz cümlesi SEV-06 görünen adını okur; ad bayrağı yoksa maskenin kısa adı, bayrak varsa gerçek ad söylenir. Yıl ortasında ad açılırsa sonraki slot yeni adı söyler, yazılmış satır değişmez.
   - Kabul: `CHR_017` ad bayrağı yokken güz cümlesinde "çoban" geçer ve "Fadime" 0'dır; bayrak varken "Fadime" 1'dir (`tests/unit/koy/yil_izi_test.gd`). Kartın kendi yazısı değişmez.
   - Bağımlılık: YIL-02, SEV-06. Boyut: S.
   - Dosya: `src/koy/yil_izi.gd` ad okuması. Kart dosyasına yazılmaz.
   - Asset: asset gerekmedi.
 
-- [ ] **YIL-10:** Yıl kapanışında slotlar sayılır
+- [/] **YIL-10:** (Cursor) Yıl kapanışında slotlar sayılır
   - Ne: Kapanış, dördüncü mevsimin yedinci gününün gecesidir; rapor güz, kış, ilkbahar tarlası, taşkın ve yaz slotlarından duyulanları sayar, en çok 5 olur. Rapor SYS-20 son kimliğine yazılmaz, ardından `yil_izi` temizlenir.
   - Kabul: 28. gece raporundaki sayı, o yıl duyulan satır sayısıyla aynıdır ve SYS-20 kimliği kapanıştan önce ve sonra aynıdır (`tests/unit/koy/yil_izi_test.gd`). Ölümden sonraki slot rapora girmez; boş izde rapor 0'dır. `yil_izi.json` içinde kalp, hediye, romans ve ses anahtarı 0'dır. Ek şart: hız 3 iken aynı slot bir gecede bir kez sayılır. Ek şart: kayıt yüklenince duyulmuş slot yeniden sayılmaz. Ek şart: kapanış satırı dünya zaman çizelgesine yazılmaz.
   - Bağımlılık: YIL-01, MEV-01, SYS-20. Boyut: S.
@@ -2906,25 +2906,25 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
 
 ### 31.2 Söz alanlarının kayda girmesi
 
-- [ ] **KAY-07:** Güven ve korku kişi kaydındadır.
+- [/] **KAY-07:** (Cursor) Güven ve korku kişi kaydındadır.
   - Ne: DIY-17 değerleri optional alandır. Eski kayıtta alan yoktur. Yeni kayıtta 0–10 dışına çıkmaz.
   - Kabul: DIY-17 değerleri optional alandır. Eski kayıtta alan yoktur. Yeni kayıtta 0–10 dışına çıkmaz. Test: ikiz yüklemede iki sayı aynı.
   - Bağımlılık: DIY-17, KAY-03. Boyut: M.
   - Dosya: `src/soz/kisi_hafizasi.gd` kayıt adaptörü.
   - Asset: asset gerekmedi.
-- [ ] **KAY-08:** Beyanlar ziyaret sonunda kişiye yazılır.
+- [/] **KAY-08:** (Cursor) Beyanlar ziyaret sonunda kişiye yazılır.
   - Ne: DIY-06 defteri gece kapanınca kişi kimliğinin altında durur. Aynı beyan iki kez yazılmaz.
   - Kabul: DIY-06 defteri gece kapanınca kişi kimliğinin altında durur. Aynı beyan iki kez yazılmaz. Test: aynı id ikinci yazımda liste uzamaz.
   - Bağımlılık: DIY-06, DIY-11. Boyut: M.
   - Dosya: `src/soz/beyan_defteri.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-09:** Verilen sözler süreleriyle durur.
+- [/] **KAY-09:** (Cursor) Verilen sözler süreleriyle durur.
   - Ne: DYL-05 kaydı gün, tür ve tutuldu bilgisini taşır. Açık söz en çok 5'tir. Altıncı kayıtta yoksa yükleme onu düşürmez, günlük yazar.
   - Kabul: DYL-05 kaydı gün, tür ve tutuldu bilgisini taşır. Açık söz en çok 5'tir. Altıncı kayıtta yoksa yükleme onu düşürmez, günlük yazar. Test: süre günü kaydet-yükle ile kaymaz.
   - Bağımlılık: DYL-05. Boyut: M.
   - Dosya: `src/soz/verilen_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-10:** Muhafızın yalanı kayıtta `dogru: false` taşır.
+- [/] **KAY-10:** (Cursor) Muhafızın yalanı kayıtta `dogru: false` taşır.
   - Ne: DYL-04 kaydı yüklemede kaybolmaz. Ortaya çıkmış yalan bir daha gizlenmez.
   - Kabul: DYL-04 kaydı yüklemede kaybolmaz. Ortaya çıkmış yalan bir daha gizlenmez. Test: bayrak ikizde aynı.
   - Bağımlılık: DYL-04. Boyut: S.
@@ -2945,55 +2945,55 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
 
 ### 31.3 Bozuk ve eksik alan
 
-- [ ] **KAY-13:** Eksik güven sıfırdır, hikâye uydurulmaz.
+- [/] **KAY-13:** (Cursor) Eksik güven sıfırdır, hikâye uydurulmaz.
   - Ne: alan yoksa güven 0, korku o ziyaretin başlangıç tansiyonudur. Kişi kendiliğinden itiraf etmez.
   - Kabul: alan yoksa güven 0, korku o ziyaretin başlangıç tansiyonudur. Kişi kendiliğinden itiraf etmez. Test: alansız kayıtta itiraf seçeneği kapalı.
   - Bağımlılık: KAY-07. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-14:** Sayı taşan alan kıskaçlanır ve günlüğe düşer.
+- [/] **KAY-14:** (Cursor) Sayı taşan alan kıskaçlanır ve günlüğe düşer.
   - Ne: güven 40 ise 10 olur. Süre −3 ise 0 olur. Köy barları bu kıskaçtan etkilenmez.
   - Kabul: güven 40 ise 10 olur. Süre −3 ise 0 olur. Köy barları bu kıskaçtan etkilenmez. Test: taşan fixtür açılır, günlükte bir satır.
   - Bağımlılık: KAY-13. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-15:** Bilinmeyen kişi kimliği o kaydı düşürür, köyü düşürmez.
+- [/] **KAY-15:** (Cursor) Bilinmeyen kişi kimliği o kaydı düşürür, köyü düşürmez.
   - Ne: hafızada katalogda olmayan id varsa o kişi atlanır, diğer köylüler durur. Sessiz silme yoktur, geliştirme günlüğüne yazılır.
   - Kabul: hafızada katalogda olmayan id varsa o kişi atlanır, diğer köylüler durur. Sessiz silme yoktur, geliştirme günlüğüne yazılır. Test: sahte id, köylü sayısı aynı.
   - Bağımlılık: KAY-08. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-16:** Bilinmeyen çekirdek, tohumu yeniden çekmez.
+- [/] **KAY-16:** (Cursor) Bilinmeyen çekirdek, tohumu yeniden çekmez.
   - Ne: DYL-10 varyantı kayıtta yoksa o oyunda varyant seçilmez. Yeni tohum atılmaz.
   - Kabul: DYL-10 varyantı kayıtta yoksa o oyunda varyant seçilmez. Yeni tohum atılmaz. Test: aynı tohum, varyantsız kayıt, yüklemede hâlâ varyantsız.
   - Bağımlılık: DYL-10. Boyut: S.
   - Dosya: `src/soz/cekirdek_secici.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-17:** Tipi yanlış alan göçü durdurur.
+- [/] **KAY-17:** (Cursor) Tipi yanlış alan göçü durdurur.
   - Ne: güven dizesi ("yüksek") gelirse göç hata verir, yedek yüklenir. Kıskaç uygulanmaz.
   - Kabul: güven dizesi ("yüksek") gelirse göç hata verir, yedek yüklenir. Kıskaç uygulanmaz. Test: tipi bozuk fixtür.
   - Bağımlılık: KAY-05. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-18:** Söz listesi dizi değilse boş dizi olur.
+- [/] **KAY-18:** (Cursor) Söz listesi dizi değilse boş dizi olur.
   - Ne: alan sözlük gelirse boş liste yazılır, oyun açılır, o kişinin sözü yok sayılır.
   - Kabul: alan sözlük gelirse boş liste yazılır, oyun açılır, o kişinin sözü yok sayılır. Test: çökme yok.
   - Bağımlılık: KAY-09. Boyut: S.
   - Dosya: `src/soz/verilen_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-61:** Aynı kişi hafızada iki kez duruyorsa tek kayıt kalır.
+- [/] **KAY-61:** (Cursor) Aynı kişi hafızada iki kez duruyorsa tek kayıt kalır.
   - Ne: mükerrer id birleştirilir. Ziyaret sayısı büyük olan kalır. Öteki düşer, günlüğe yazılır. Köylü ikiye bölünmez.
   - Kabul: mükerrer id birleştirilir. Ziyaret sayısı büyük olan kalır. Öteki düşer, günlüğe yazılır. Köylü ikiye bölünmez. Test: iki kayıt, tek köylü.
   - Bağımlılık: KAY-15. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-62:** Kimliksiz beyan satırı düşer, defter durur.
+- [/] **KAY-62:** (Cursor) Kimliksiz beyan satırı düşer, defter durur.
   - Ne: beyan dizisinde `id` boşsa yalnız o satır atılır. Diğer beyanlar kalır.
   - Kabul: beyan dizisinde `id` boşsa yalnız o satır atılır. Diğer beyanlar kalır. Test: üç satırdan biri boş, yüklemede iki satır.
   - Bağımlılık: KAY-08. Boyut: S.
   - Dosya: `src/soz/beyan_defteri.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-63:** Bayrak bool değilse yanlış sayılır.
+- [/] **KAY-63:** (Cursor) Bayrak bool değilse yanlış sayılır.
   - Ne: `Flag_Sir_Tamamen_Cozuldu` dize veya sayı gelirse false yazılır, günlüğe düşer. Sır kendiliğinden açılmaz.
   - Kabul: `Flag_Sir_Tamamen_Cozuldu` dize veya sayı gelirse false yazılır, günlüğe düşer. Sır kendiliğinden açılmaz. Test: "evet" değeri itirafı açmaz.
   - Bağımlılık: KAY-17. Boyut: S.
@@ -3008,25 +3008,25 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
 
 ### 31.4 Kayıt ikizi
 
-- [ ] **KAY-19:** Aynı tohum, kaydet-yükle, kapıdaki kişi aynıdır.
+- [/] **KAY-19:** (Cursor) Aynı tohum, kaydet-yükle, kapıdaki kişi aynıdır.
   - Ne: gece sonu kayıt, yükle, ertesi sabah kuyruğun ilk kimliği aynı.
   - Kabul: gece sonu kayıt, yükle, ertesi sabah kuyruğun ilk kimliği aynı. Test: sabit tohum.
   - Bağımlılık: KAY-03, KAP-16. Boyut: M.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-20:** Kayıtlı zar yeniden atılmaz.
+- [/] **KAY-20:** (Cursor) Kayıtlı zar yeniden atılmaz.
   - Ne: DYL-16 altınındaki zar değeri yüklemede aynı kalır. Yeni atış yoktur.
   - Kabul: DYL-16 altınındaki zar değeri yüklemede aynı kalır. Yeni atış yoktur. Test: zar 4 kayıtlı, yüklemede 4.
   - Bağımlılık: ZAR-01, DYL-16. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-21:** Güven, korku ve itibar ikizde birebirdir.
+- [/] **KAY-21:** (Cursor) Güven, korku ve itibar ikizde birebirdir.
   - Ne: KAY-07 ve KAY-11 alanları yüklemede aynı sayıdır.
   - Kabul: KAY-07 ve KAY-11 alanları yüklemede aynı sayıdır. Test: altı grup ve bir kişi.
   - Bağımlılık: KAY-07, KAY-11. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-22:** Açık sözün hatırlatma günü kaymaz.
+- [/] **KAY-22:** (Cursor) Açık sözün hatırlatma günü kaymaz.
   - Ne: "yarın" sözü yüklemeden sonra hâlâ yarındır, bugün olmaz.
   - Kabul: "yarın" sözü yüklemeden sonra hâlâ yarındır, bugün olmaz. Test: gün sayacı eşit.
   - Bağımlılık: KAY-09. Boyut: S.
@@ -3038,7 +3038,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-12. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-24:** Altın oynanış, kayıtlı bağlamla aynı satırları verir.
+- [/] **KAY-24:** (Cursor) Altın oynanış, kayıtlı bağlamla aynı satırları verir.
   - Ne: DYL-16 dosyası yüklenmiş bir kaydın bağlamıyla bir kez daha oynar. Satır kimlikleri birebirdir.
   - Kabul: DYL-16 dosyası yüklenmiş bir kaydın bağlamıyla bir kez daha oynar. Satır kimlikleri birebirdir. Test: Yusuf için en az bir altın kayıt.
   - Bağımlılık: DYL-16, KAY-19. Boyut: M.
@@ -3047,25 +3047,25 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
 
 ### 31.5 Kapı ve köy birlikte açılır
 
-- [ ] **KAY-25:** Yarım kuyruk köylüyü silmez.
+- [/] **KAY-25:** (Cursor) Yarım kuyruk köylüyü silmez.
   - Ne: köy kaydı sağlam, kapı kuyruğu yarım ise kuyruk o sabah yeniden kurulur. Köylü sayısı değişmez.
   - Kabul: köy kaydı sağlam, kapı kuyruğu yarım ise kuyruk o sabah yeniden kurulur. Köylü sayısı değişmez. Test: yarım kuyruk fixtürü.
   - Bağımlılık: KAY-15. Boyut: M.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-26:** Açık sorgu aynı düğümden devam eder.
+- [/] **KAY-26:** (Cursor) Açık sorgu aynı düğümden devam eder.
   - Ne: kayıt, düğüm kimliğini ve seçilmiş konuları yazar. Yüklemede selam yeniden okunmaz.
   - Kabul: kayıt, düğüm kimliğini ve seçilmiş konuları yazar. Yüklemede selam yeniden okunmaz. Test: düğüm id eşit.
   - Bağımlılık: DIY-02. Boyut: M.
   - Dosya: `src/soz/soz_motoru.gd` kayıt alanı.
   - Asset: asset gerekmedi.
-- [ ] **KAY-27:** Eski diyalog sırası silinmez, yeni motorda okunmaz.
+- [/] **KAY-27:** (Cursor) Eski diyalog sırası silinmez, yeni motorda okunmaz.
   - Ne: SYS-16 `diyalog_sira` dosyada kalır. Kişi yeni motora geçmişse bu sayı yok sayılır. Geçmemiş kişi eski yerinden devam eder.
   - Kabul: SYS-16 `diyalog_sira` dosyada kalır. Kişi yeni motora geçmişse bu sayı yok sayılır. Geçmemiş kişi eski yerinden devam eder. Test: geçiş tablosundaki kişi ile tabloda olmayan kişi.
   - Bağımlılık: SYS-16, DIY-16. Boyut: S.
   - Dosya: `data/soz/gecis.json` okunur.
   - Asset: asset gerekmedi.
-- [ ] **KAY-28:** Eşin mesleği ve muhafızın geçmişi göçte durur.
+- [/] **KAY-28:** (Cursor) Eşin mesleği ve muhafızın geçmişi göçte durur.
   - Ne: ACL-02 ve ACL-06 alanları yeni sürümde aynıdır. Göç onları varsayılana çekmez.
   - Kabul: ACL-02 ve ACL-06 alanları yeni sürümde aynıdır. Göç onları varsayılana çekmez. Test: iki alan eşit.
   - Bağımlılık: ACL-02, ACL-06. Boyut: S.
@@ -3077,7 +3077,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: ACL-05. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-30:** Gece ortasında söz kaydı yazılmaz.
+- [/] **KAY-30:** (Cursor) Gece ortasında söz kaydı yazılmaz.
   - Ne: sorgu sürerken otomatik kayıt yoktur. Kayıt gece sonunda ve menüdedir. Hızlı kayıt Bölüm 35'e kalır.
   - Kabul: sorgu sürerken otomatik kayıt yoktur. Kayıt gece sonunda ve menüdedir. Hızlı kayıt Bölüm 35'e kalır. Test: sorgu ortasında kayıt dosyasının saati değişmez.
   - Bağımlılık: KAY-26. Boyut: S.
@@ -3086,37 +3086,37 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
 
 ### 31.6 Diyalog verisi doğrulayıcısı
 
-- [ ] **KAY-31:** Söz doğrulayıcısı ikinci araç değildir.
+- [/] **KAY-31:** (Cursor) Söz doğrulayıcısı ikinci araç değildir.
   - Ne: YAZ-07 `tools/soz_dogrula.py` tek kapıdır. Bu bölüm ona kayıt uyumu kuralları ekler. Yeni betik açılmaz.
   - Kabul: YAZ-07 `tools/soz_dogrula.py` tek kapıdır. Bu bölüm ona kayıt uyumu kuralları ekler. Yeni betik açılmaz. Test: betik adı biricik.
   - Bağımlılık: YAZ-07. Boyut: S.
   - Dosya: `tools/soz_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-32:** Kayıtta geçen her kişi katalogdadır.
+- [/] **KAY-32:** (Cursor) Kayıtta geçen her kişi katalogdadır.
   - Ne: doğrulayıcı, kayıt fixtüründeki kimlikleri katalogla karşılar. Eksik kimlik hata.
   - Kabul: doğrulayıcı, kayıt fixtüründeki kimlikleri katalogla karşılar. Eksik kimlik hata. Test: sahte id, çıkış kodu 1.
   - Bağımlılık: KAY-15, KAY-31. Boyut: S.
   - Dosya: `tools/soz_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-33:** Eksik metin anahtarı kaydı açar, doğrulayıcıyı kırmaz.
+- [/] **KAY-33:** (Cursor) Eksik metin anahtarı kaydı açar, doğrulayıcıyı kırmaz.
   - Ne: SYS-09 `[KEY_NOT_FOUND]` oyunda durur. Doğrulayıcı bunu içerik hatası sayar, kayıt göçünü durdurmaz.
   - Kabul: SYS-09 `[KEY_NOT_FOUND]` oyunda durur. Doğrulayıcı bunu içerik hatası sayar, kayıt göçünü durdurmaz. Test: anahtarsız satır, göç başarılı, doğrulayıcı hatalı.
   - Bağımlılık: SYS-09, KAY-31. Boyut: S.
   - Dosya: `tools/soz_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-34:** Kayıtlı kadroda çekirdek kotası sayılır.
+- [/] **KAY-34:** (Cursor) Kayıtlı kadroda çekirdek kotası sayılır.
   - Ne: YAZ-09 kotası, o kayıttaki varyantlara bakar. Yüzde 40 sınırı sapmışsa uyarı, yükleme durmaz.
   - Kabul: YAZ-09 kotası, o kayıttaki varyantlara bakar. Yüzde 40 sınırı sapmışsa uyarı, yükleme durmaz. Test: tek çekirdekli fixtür uyarı verir.
   - Bağımlılık: YAZ-09. Boyut: S.
   - Dosya: `tools/soz_kadro_denetimi.py`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-35:** Yasak kelime yüklemeyi kesmez.
+- [/] **KAY-35:** (Cursor) Yasak kelime yüklemeyi kesmez.
   - Ne: YAZ-02 listesi içerik aracını keser. Oyuncunun kaydı açılır.
   - Kabul: YAZ-02 listesi içerik aracını keser. Oyuncunun kaydı açılır. Test: yasaklı kelime içeren kayıt açılır.
   - Bağımlılık: YAZ-02. Boyut: S.
   - Dosya: `tools/soz_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-36:** Kopuk düğüm, kayıtlı ziyareti düşürmez.
+- [/] **KAY-36:** (Cursor) Kopuk düğüm, kayıtlı ziyareti düşürmez.
   - Ne: kişinin son düğümü şemada yoksa ziyaret selama döner, kişi silinmez. Geliştirme günlüğüne yazılır.
   - Kabul: kişinin son düğümü şemada yoksa ziyaret selama döner, kişi silinmez. Geliştirme günlüğüne yazılır. Test: silinmiş düğüm id.
   - Bağımlılık: KAY-26, KAY-31. Boyut: S.
@@ -3131,13 +3131,13 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: SYS-11, KAY-03. Boyut: S.
   - Dosya: `tools/sanity_check.py`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-38:** Sanity söz şemasını çağırır.
+- [/] **KAY-38:** (Cursor) Sanity söz şemasını çağırır.
   - Ne: YAZ-07 sanity'ye girer. Şema hatası tam paketi kırar.
   - Kabul: YAZ-07 sanity'ye girer. Şema hatası tam paketi kırar. Test: kopuk düğüm, sanity hatalı.
   - Bağımlılık: YAZ-07, KAY-31. Boyut: S.
   - Dosya: `tools/sanity_check.py`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-39:** Sanity altın oynanışı çağırır.
+- [/] **KAY-39:** (Cursor) Sanity altın oynanışı çağırır.
   - Ne: DYL-16 kayıtları tam pakettedir. Bir oynanış saparsa paket hatalı.
   - Kabul: DYL-16 kayıtları tam pakettedir. Bir oynanış saparsa paket hatalı. Test: bilerek bozulan etki.
   - Bağımlılık: DYL-16. Boyut: S.
@@ -3149,13 +3149,13 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: SYS-06. Boyut: S.
   - Dosya: `tools/sanity_check.py`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-41:** Yirmi gece, göçmüş kayıtla da koşar.
+- [/] **KAY-41:** (Cursor) Yirmi gece, göçmüş kayıtla da koşar.
   - Ne: SYS-10 dumanı, KAY-03'ten çıkmış bir kayıtla 20 gece çökmez. İkinci duman aracı yazılmaz.
   - Kabul: SYS-10 dumanı, KAY-03'ten çıkmış bir kayıtla 20 gece çökmez. İkinci duman aracı yazılmaz. Test: 20 gece, bellek sınırı SYS-10 ile aynı.
   - Bağımlılık: SYS-10, KAY-03. Boyut: M.
   - Dosya: `tests/oto/` mevcut duman.
   - Asset: asset gerekmedi.
-- [ ] **KAY-42:** Doğrulama ilkinde durmaz.
+- [/] **KAY-42:** (Cursor) Doğrulama ilkinde durmaz.
   - Ne: üç hatalı kayıt alanı tek listede toplanır. İçerik hattındaki kural burada da geçerlidir.
   - Kabul: üç hatalı kayıt alanı tek listede toplanır. İçerik hattındaki kural burada da geçerlidir. Test: üç hata, üç satır.
   - Bağımlılık: KAY-31. Boyut: S.
@@ -3164,7 +3164,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
 
 ### 31.8 Regresyon
 
-- [ ] **KAY-43:** Sürüm 3 kaydı yeni sürümde açılır.
+- [/] **KAY-43:** (Cursor) Sürüm 3 kaydı yeni sürümde açılır.
   - Ne: chr-runtime notundaki oturum sürüm 3 fixtürü göçer. Köy, kadro ve rastgelelik durur.
   - Kabul: chr-runtime notundaki oturum sürüm 3 fixtürü göçer. Köy, kadro ve rastgelelik durur. Test: köylü sayısı eşit.
   - Bağımlılık: KAY-03, SYS-14. Boyut: M.
@@ -3194,7 +3194,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: SYS-20. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-48:** Adsız diyalog sırası eski kayıtta kalır.
+- [/] **KAY-48:** (Cursor) Adsız diyalog sırası eski kayıtta kalır.
   - Ne: SYS-16 sayısı göçten sonra dosyada durur.
   - Kabul: SYS-16 sayısı göçten sonra dosyada durur. Test: sayı eşit.
   - Bağımlılık: KAY-27. Boyut: S.
@@ -3227,49 +3227,49 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
 
 ### 31.9 Performans bütçesi
 
-- [ ] **KAY-49:** Göç bir saniyenin altındadır.
+- [/] **KAY-49:** (Cursor) Göç bir saniyenin altındadır.
   - Ne: MVP boy kayıtta göç + doğrulama 1 saniyeden kısadır. Ölçü, içerik hattındaki açılış ölçüsüyle aynıdır. İkinci ölçü uydurulmaz.
   - Kabul: MVP boy kayıtta göç + doğrulama 1 saniyeden kısadır. Ölçü, içerik hattındaki açılış ölçüsüyle aynıdır. İkinci ölçü uydurulmaz. Test: süre satırı raporda.
   - Bağımlılık: KAY-03. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-50:** Kişi başına kayıt üst sınırı vardır.
+- [/] **KAY-50:** (Cursor) Kişi başına kayıt üst sınırı vardır.
   - Ne: beyan listesi kişi başı en çok 40 satır. Aşan satır yazılmaz, günlük uyarır. Oyun açılır.
   - Kabul: beyan listesi kişi başı en çok 40 satır. Aşan satır yazılmaz, günlük uyarır. Oyun açılır. Test: 41. satır düşer.
   - Bağımlılık: KAY-08. Boyut: S.
   - Dosya: `src/soz/kisi_hafizasi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-51:** Yükleme bütün söz dosyalarını açmaz.
+- [/] **KAY-51:** (Cursor) Yükleme bütün söz dosyalarını açmaz.
   - Ne: o gecenin kişileri okunur. Katalogdaki öteki söz dosyaları o yüklemede açılmaz.
   - Kabul: o gecenin kişileri okunur. Katalogdaki öteki söz dosyaları o yüklemede açılmaz. Test: açılan dosya sayısı kuyruk uzunluğunu geçmez.
   - Bağımlılık: DIY-02. Boyut: M.
   - Dosya: `src/soz/soz_motoru.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-52:** Üç yıl aç-kapa bellek tavanını aşmaz.
+- [/] **KAY-52:** (Cursor) Üç yıl aç-kapa bellek tavanını aşmaz.
   - Ne: 3 yıl simülasyonunda kayıt aç-kapa sonrası bellek artışı SYS-10 tavanının içindedir. Yeni tavan uydurulmaz.
   - Kabul: 3 yıl simülasyonunda kayıt aç-kapa sonrası bellek artışı SYS-10 tavanının içindedir. Yeni tavan uydurulmaz. Test: rapor satırı.
   - Bağımlılık: SYS-10, DNY-01. Boyut: M.
   - Dosya: `tests/oto/` duman genişler.
   - Asset: asset gerekmedi.
-- [ ] **KAY-53:** Doğrulayıcı otuz CHR'yi tek koşuda bitirir.
+- [/] **KAY-53:** (Cursor) Doğrulayıcı otuz CHR'yi tek koşuda bitirir.
   - Ne: 30 CHR + adlı karakterler tek süreçte doğrulanır. Süre raporda.
   - Kabul: 30 CHR + adlı karakterler tek süreçte doğrulanır. Süre raporda. Test: koşu hatasız biter.
   - Bağımlılık: KAY-31. Boyut: S.
   - Dosya: `tools/soz_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-54:** On beş altın oynanışın toplam süresi tavandadır.
+- [/] **KAY-54:** (Cursor) On beş altın oynanışın toplam süresi tavandadır.
   - Ne: DYL-16 Yusuf paketi 15 oynanışı tek testte biter. Süre raporda, kapı yoktur.
   - Kabul: DYL-16 Yusuf paketi 15 oynanışı tek testte biter. Süre raporda, kapı yoktur. Test: 15/15.
   - Bağımlılık: DYL-16. Boyut: S.
   - Dosya: `tests/unit/soz/altin_oynanis_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-69:** Gece sonu kayıt yazması bir saniyenin altındadır.
+- [/] **KAY-69:** (Cursor) Gece sonu kayıt yazması bir saniyenin altındadır.
   - Ne: göç süresi (KAY-49) ile yazma süresi ayrı ölçülür. Yazma 1 saniyeyi geçerse rapor satırı hatalıdır. Oyun kilitlenmez.
   - Kabul: göç süresi (KAY-49) ile yazma süresi ayrı ölçülür. Yazma 1 saniyeyi geçerse rapor satırı hatalıdır. Oyun kilitlenmez. Test: MVP kayıtta yazma süresi.
   - Bağımlılık: KAY-49, SYS-02. Boyut: S.
   - Dosya: `tests/unit/kayit/soz_ikiz_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-70:** Dedikodu listesi büyümez.
+- [/] **KAY-70:** (Cursor) Dedikodu listesi büyümez.
   - Ne: kayıtta en çok 80 dedikodu satırı durur. En eski satır düşer. Düşen satır yayılmamış bir olayı geri getirmez.
   - Kabul: kayıtta en çok 80 dedikodu satırı durur. En eski satır düşer. Düşen satır yayılmamış bir olayı geri getirmez. Test: 81. satır yazılmaz.
   - Bağımlılık: KAY-12, KAY-50. Boyut: S.
@@ -3281,7 +3281,7 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: KAY-03. Boyut: S.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-72:** Yüz tohumluk ikiz tek koşuda biter.
+- [/] **KAY-72:** (Cursor) Yüz tohumluk ikiz tek koşuda biter.
   - Ne: KAY-19 ölçüsü 100 tohumda da kapı kimliğini tutar. Süre raporda yazılır, yeni bir geçme kapısı uydurulmaz. Sapma varsa o tohumun numarası listededir.
   - Kabul: KAY-19 ölçüsü 100 tohumda da kapı kimliğini tutar. Süre raporda yazılır, yeni bir geçme kapısı uydurulmaz. Sapma varsa o tohumun numarası listededir. Test: 100 tohum, sapma listesi boş.
   - Bağımlılık: KAY-19. Boyut: M.
@@ -3302,13 +3302,13 @@ Alt başlıklar ondur. Her maddede dolgu yoktur. Ölçü, kaydet-yükle ikizidir
   - Bağımlılık: SYS-02. Boyut: S.
   - Dosya: `src/sistemler/guvenli_kayit.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-57:** Geri alınan sürüm yeni alanı yok sayar, silmez.
+- [/] **KAY-57:** (Cursor) Geri alınan sürüm yeni alanı yok sayar, silmez.
   - Ne: oyun eski sürümle açılırsa güven alanı okunmaz. Dosyadan da silinmez. Tekrar yeni sürüme geçince alan durur.
   - Kabul: oyun eski sürümle açılırsa güven alanı okunmaz. Dosyadan da silinmez. Tekrar yeni sürüme geçince alan durur. Test: alan baytı yerinde.
   - Bağımlılık: KAY-07, KAY-55. Boyut: M.
   - Dosya: `src/sistemler/kayit_gocu_soz.gd`.
   - Asset: asset gerekmedi.
-- [ ] **KAY-58:** Söz alanları tek bayrakla kapanır.
+- [/] **KAY-58:** (Cursor) Söz alanları tek bayrakla kapanır.
   - Ne: `data/ayarlar` içinde bir bayrak kapalıysa göç Söz alanlarını yazmaz, eski yol durur. Bayrak açıksa KAY-07…12 yazılır.
   - Kabul: `data/ayarlar` içinde bir bayrak kapalıysa göç Söz alanlarını yazmaz, eski yol durur. Bayrak açıksa KAY-07…12 yazılır. Test: kapalı bayrakta dosyada güven alanı yoktur.
   - Bağımlılık: KAY-07. Boyut: S.
@@ -3363,13 +3363,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-01. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`. Sanity'ye tek satır.
   - Asset: asset gerekmedi.
-- [ ] **DEN-03b:** Aralık dışı tablo değeri oyun açılışında net hata verir (Kalfa ACL-04'ü bitirince).
+- [x] **DEN-03b:** Aralık dışı tablo değeri oyun açılışında net hata verir (Kalfa ACL-04'ü bitirince). (Kalfa)
   - Ne: DEN-03'ün sanity tarafı bitti (	ools/denge_dogrula.py, data/ayarlar/denge_sinirlari.json). Bu madde aynı doğrulamayı oyun açılışına bağlar: sınır dışı değerde oyun açılmaz ve oyuncuya çeviri anahtarıyla net hata mesajı gösterilir. Değer kırpılmaz.
   - Kabul: aralık dışı değerle açılış 1 hata mesajı verir, mesaj düz Türkçe gömülü değil çeviri anahtarıdır. Test: açılış kontrolü bilerek bozuk tabloyla kırmızı olur. Ek şart: yeni .gd doğrulayıcı yeni dosyadadır; açılışa tek satır çağrı eklenir.
   - Bağımlılık: DEN-03. Ön koşul: Kalfa ACL-04'ü bitirmiş olmalı; metinler.csv, project.godot ve açılış dosyaları ACL-04 yarım işinde olduğundan o zamana kadar dokunulmaz. Boyut: S.
   - Dosya: yeni src/sistemler/denge_sinir_denetimi.gd; açılışa tek satır; data/metin/metinler.csv içine bir anahtar.
   - Asset: asset gerekmedi.
-- [ ] **DEN-03c:** Denge tablosunu okuyan oyun kodu (zorluk çarpanı, ilk hafta erzak payı).
+- [x] **DEN-03c:** Denge tablosunu okuyan oyun kodu (zorluk çarpanı, ilk hafta erzak payı). (Kalfa)
   - Ne: DEN-04 zorluk ve DEN-13 ilk_hafta_erzak şu an yalnız veri ve doğrulamadır; oyun kodu bunları okumaz. Bu madde tek bir okuyucu (yeni src/sistemler/denge_tablosu.gd) yazar ve mevcut sistemlere tek satırla bağlar. Tablo yoksa ya da bozuksa oyun açılmaz (DEN-08); kodda yedek sayı olmaz.
   - Kabul: Zorluk olagan iken hiçbir sayı değişmez; kolay/siki çarpanı tablodan gelir. Açılış erzağı ilk_hafta_erzak formülüyle hesaplanır ve 2 kişilik açılışta 30'dur. Test: 	ests/unit/sistemler/denge_tablosu_test.gd. Ek şart: koy_ayarlari.gd ve kirli listedeki dosyalara dokunmadan önce sahibine sorulur.
   - Bağımlılık: DEN-04, DEN-13, DEN-03b. Boyut: M.
@@ -4662,7 +4662,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.1 Ayarlar ekranının yapısı
 
-- [ ] **AYR-01:** Ayarlar beş sekmedir.
+- [/] **AYR-01:** (Cursor) Ayarlar beş sekmedir.
   - Ne: Oyun, Görüntü, Okuma, Ses, Kontroller (45) ve Dil (46) için sekmeler; bugünkü tek düz liste yerine. Her sekme kendi dosyasıdır; `ayarlar_ekrani.gd` yalnız sekme kabuğunu çağırır.
   - Kabul: `ayarlar_ekrani.gd` içinde `SATIRLAR` kalır (geri uyum), sekmeler yeni dosyadan yüklenir. Test: sekme sayısı 6, her sekme bir `.gd`.
   - Bağımlılık: ARY-02. Boyut: M.
@@ -4674,13 +4674,13 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: yok. Boyut: S.
   - Dosya: yeni: `src/sistemler/ayarlar_ek.gd`; `ana.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **AYR-03:** Her satırın açıklaması vardır.
+- [/] **AYR-03:** (Cursor) Her satırın açıklaması vardır.
   - Ne: seçili satırın altında tek satırlık açıklama (`arayuz.ayarlar.<anahtar>_aciklama`); ne yaptığı ve varsayılanı yazar.
   - Kabul: her anahtar için açıklama anahtarı var; `metin_dogrula.py` eksik açıklamayı hata sayar. Test: tarama.
   - Bağımlılık: AYR-01. Boyut: S.
   - Dosya: `data/metin/metinler.csv`; `tools/metin_dogrula.py` tek kural.
   - Asset: asset gerekmedi.
-- [ ] **AYR-04:** Ayar anında uygulanır, kapanınca yazılır.
+- [/] **AYR-04:** (Cursor) Ayar anında uygulanır, kapanınca yazılır.
   - Ne: mevcut davranış (`ayarlar_ekrani.gd` başlık yorumu) korunur ve yeni sekmelere de uygulanır; "Uygula" düğmesi yoktur.
   - Kabul: değer değişince `degisti` sinyali; `yaz()` yalnız `_kapat()`'ta. Test: birim.
   - Bağımlılık: AYR-01. Boyut: S.
@@ -4701,43 +4701,43 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.2 Okuma konforu
 
-- [ ] **AYR-07:** Metin ölçeğine 175 eklenir.
+- [/] **AYR-07:** (Cursor) Metin ölçeğine 175 eklenir.
   - Ne: `GECERLI.metin_olcegi` 100/125/150'ye 175 eklenir (ayrı dosyadan). Tüm paneller `ayarlar.boyut()` kullandığı sürece taşma `yapi_karti.gd:59` kalıbıyla kaydırmaya düşer.
   - Kabul: 175'te hiçbir metin kesilmez; TST-10 arayüz tarayıcısı üç çözünürlükte 0 taşma. Test: tarayıcı.
   - Bağımlılık: AYR-02, TST-10. Boyut: M.
   - Dosya: `src/sistemler/ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-08:** Satır aralığı ayarı.
+- [/] **AYR-08:** (Cursor) Satır aralığı ayarı.
   - Ne: `satir_araligi` anahtarı (normal/geniş); `RichTextLabel` `line_separation` tema sabitine yazılır.
   - Kabul: geniş modda satır aralığı +6 px (öneri). Test: ekran.
   - Bağımlılık: AYR-02, ARY-02. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`; tema kaynağına tek satır.
   - Asset: asset gerekmedi.
-- [ ] **AYR-09:** Belirme hızı Söz motoruna bağlanır.
+- [/] **AYR-09:** (Cursor) Belirme hızı Söz motoruna bağlanır.
   - Ne: `belirme_ms()` yeni Söz motorunun (DIY-03) satır belirmesinde tek kaynaktır; `aninda` seçildiğinde satır tam gelir, zar animasyonu (ZAR-01) da kısalır.
   - Kabul: `aninda`'da satır gecikmesi 0 ms, zar animasyonu ≤ 200 ms. Test: zamanlayıcı.
   - Bağımlılık: DIY-03, ZAR-01. Boyut: S.
   - Dosya: Söz motoru görünümüne tek satır.
   - Asset: asset gerekmedi.
-- [ ] **AYR-10:** Okunmuş satır işareti.
+- [/] **AYR-10:** (Cursor) Okunmuş satır işareti.
   - Ne: Söz motorunda daha önce görülmüş seçenek soluk renkle işaretlenir (kişi hafızası DIY-11 ile aynı kayıt). Anahtar `okunmus_isaret` açık/kapalı.
   - Kabul: ikinci ziyarette aynı seçenek soluk. Test: iki ziyaret.
   - Bağımlılık: DIY-11. Boyut: S.
   - Dosya: Söz motoru görünümüne tek satır; `ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-11:** Konuşma geçmişi kaydırılabilir.
+- [/] **AYR-11:** (Cursor) Konuşma geçmişi kaydırılabilir.
   - Ne: sorgu sırasında önceki satırlar yukarı kaydırılarak okunur (beyan defteri DIY-07'den ayrı, yalnız bu ziyaretin akışı). Fare tekeri ve gamepad sağ çubuk.
   - Kabul: 20 satırlık sorguda ilk satıra dönülür. Test: ekran.
   - Bağımlılık: DIY-03. Boyut: S.
   - Dosya: yeni: `src/arayuz/kapi/konusma_gecmisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-12:** İpuçları ve deneyimli oyuncu anahtarı.
+- [/] **AYR-12:** (Cursor) İpuçları ve deneyimli oyuncu anahtarı.
   - Ne: Oyun sekmesinde `ipuclari` (açık/kapalı) ve `kademeli_hud` (açık/kapalı); "ipuçlarını sıfırla" düğmesi `ogretici.gorulen`'i temizler. Bölüm 33 bunları okur.
   - Kabul: kapalıyken ipucu 0; sıfırla sonrası yeni oyunda ipucu tekrar gelir. Test: iki koşu.
   - Bağımlılık: OGR-07, OGR-29. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`; `src/arayuz/ayarlar/oyun_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-13:** Font ağırlığı seçimi.
+- [/] **AYR-13:** (Cursor) Font ağırlığı seçimi.
   - Ne: Alegreya değişken font `wght` ekseni kullanılır (`tema.font(agirlik)`); `metin_agirligi` normal (400) / kalın (500). Yeni font dosyası yok.
   - Kabul: kalın seçilince gövde 500. Test: tema sorgusu.
   - Bağımlılık: AYR-02. Boyut: S.
@@ -4746,37 +4746,37 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.3 Görsel erişilebilirlik
 
-- [ ] **AYR-14:** Renk körlüğü paleti.
+- [/] **AYR-14:** (Cursor) Renk körlüğü paleti.
   - Ne: `renk_paleti` anahtarı: olağan / deuteranopi / protanopi / tritanopi. Dört bar, tansiyon göstergesi, kaynak göstergesi ve zar rengini etkileyen palet ARY-02 tema kaynağının ikinci tablosudur; `renkler.gd` değişmez.
   - Kabul: palet değişince `Renkler` sabitleri yerine tema kaynağı okunur; dört palette bar renkleri çift çift ayrışır (ΔE ≥ 20, öneri). Test: ekran + sayı.
   - Bağımlılık: ARY-02. Boyut: M.
   - Dosya: yeni: `src/arayuz/tema/palet.gd`; yeni: `data/arayuz/paletler.json`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-15:** Renk tek bilgi taşıyıcı değildir.
+- [/] **AYR-15:** (Cursor) Renk tek bilgi taşıyıcı değildir.
   - Ne: bar, tansiyon ve kaynak durumu renkle birlikte bir biçim ya da harf taşır (bar adının ilk harfi, tansiyonda üç kademe çizgi). Palet seçiminden bağımsız açıktır.
   - Kabul: `tansiyon_gostergesi.gd` üç kademede üç farklı çizgi sayısı; `barlar.gd` görünümünde harf. Test: ekran.
   - Bağımlılık: AYR-14. Boyut: S.
   - Dosya: yeni: `src/arayuz/kapi/tansiyon_bicimi.gd`; bar görünümüne tek satır.
   - Asset: asset gerekmedi.
-- [ ] **AYR-16:** Yüksek kontrast modu.
+- [/] **AYR-16:** (Cursor) Yüksek kontrast modu.
   - Ne: `yuksek_kontrast` anahtarı: panel dolgusu tam opak, kenar kalınlığı +1, metin rengi tam `KUL` yerine beyaz. Tema kaynağı ikinci değer kümesi.
   - Kabul: açıkken metin/zemin kontrast oranı ≥ 7:1 (WCAG AAA, öneri). Test: renk ölçümü.
   - Bağımlılık: ARY-02. Boyut: S.
   - Dosya: `src/arayuz/tema/palet.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-17:** Zar sonucu rakamla da yazılır.
+- [/] **AYR-17:** (Cursor) Zar sonucu rakamla da yazılır.
   - Ne: görünür zar (ZAR-01) sonucunu yalnız yüzle değil rakamla ve "geçti/kaldı" sözüyle gösterir; `belirme_hizi aninda` ile uyumlu.
   - Kabul: zar panelinde rakam ve söz 1. Test: ekran.
   - Bağımlılık: ZAR-01. Boyut: S.
   - Dosya: zar görünümüne tek satır.
   - Asset: asset gerekmedi.
-- [ ] **AYR-18:** Hareket azaltma.
+- [/] **AYR-18:** (Cursor) Hareket azaltma.
   - Ne: `hareket_azalt` anahtarı: 12 fps adımlı hareket (`adim.gd`) korunur, ancak ekran sarsıntısı, kamera geçişi (`kapi_kamera_gecisi.gd`) ve panel kayma animasyonları anında olur.
   - Kabul: açıkken `kapi_kamera_gecisi` süresi 0. Test: zamanlayıcı.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`; kamera geçişine tek satır.
   - Asset: asset gerekmedi.
-- [ ] **AYR-19:** İmleç ve odak çerçevesi büyütme.
+- [/] **AYR-19:** (Cursor) İmleç ve odak çerçevesi büyütme.
   - Ne: `odak_cercevesi` normal/kalın; klavye ve gamepad odağı (`ui_*` eylemleri) kalın modda 3 px kenar.
   - Kabul: odaklı düğme kenarı 3 px. Test: ekran.
   - Bağımlılık: ARY-02, GIR-06. Boyut: S.
@@ -4785,13 +4785,13 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.4 Ses ayarları (yalnız var olan üç bus)
 
-- [ ] **AYR-20:** Ses sekmesi üç kaydırıcıdır.
+- [/] **AYR-20:** (Cursor) Ses sekmesi üç kaydırıcıdır.
   - Ne: `ses_ana`, `ses_muzik`, `ses_efekt` (`BUSLAR`) 0–10 kaydırıcı olarak taşınır; ok tuşlarıyla da değişir. Yeni bus yok.
   - Kabul: üç kaydırıcı; `AudioServer` bus adları `BUSLAR` ile aynı. Test: birim.
   - Bağımlılık: AYR-01. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/ses_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-21:** Sessizde görsel karşılık.
+- [/] **AYR-21:** (Cursor) Sessizde görsel karşılık.
   - Ne: `ses_ana` 0 iken tansiyon müziği (`tansiyon_muzigi.gd`) kademe geçişi tansiyon göstergesinde bir yanıp sönmeyle duyurulur; başka görsel ses karşılığı yok.
   - Kabul: ses 0 ve kademe geçişi → gösterge 1 yanıp sönme. Test: ekran.
   - Bağımlılık: AYR-15. Boyut: S.
@@ -4806,31 +4806,31 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.5 Oyun ayarları
 
-- [ ] **AYR-23:** Zorluk seçimi.
+- [/] **AYR-23:** (Cursor) Zorluk seçimi.
   - Ne: DEN-04 çarpanı (kolay/olağan/sıkı) Oyun sekmesinde ve yeni oyun ekranında; oyun içinde değiştirilebilir, değişim Bölüm 39 defterine yazılır. DEN-72 bu maddeyle kapanır.
   - Kabul: değer `denge.json zorluk` anahtarlarından biri; kayıtta tutulur. Test: birim.
   - Bağımlılık: DEN-04, OGR-50. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/oyun_sekmesi.gd`; kayıt alanı `zorluk`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-24:** Köy hızı varsayılanı.
+- [/] **AYR-24:** (Cursor) Köy hızı varsayılanı.
   - Ne: `koy_hizi_varsayilan` 1/2/3: köy ekranı açılınca `_hiz_sec` bu değeri alır.
   - Kabul: ayar 2 ise açılışta `Engine.time_scale` 2. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`; `koy_ekrani.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **AYR-25:** Olayda otomatik duraklat.
+- [/] **AYR-25:** (Cursor) Olayda otomatik duraklat.
   - Ne: `olayda_duraklat` açıkken köy olayı (`OlayVerisi`) açılınca hız 0'a iner; kapanınca eski hız.
   - Kabul: olay paneli açılınca `paused` true. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: olay paneline tek satır.
   - Asset: asset gerekmedi.
-- [ ] **AYR-26:** Gece raporu otomatik kapanmaz.
+- [/] **AYR-26:** (Cursor) Gece raporu otomatik kapanmaz.
   - Ne: `rapor_bekle` açıkken gece raporu oyuncu kapatana kadar durur (varsayılan açık).
   - Kabul: açıkken rapor zamanlayıcısı 0. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: rapor panelinde tek satır.
   - Asset: asset gerekmedi.
-- [ ] **AYR-27:** Karar onayı.
+- [/] **AYR-27:** (Cursor) Karar onayı.
   - Ne: `karar_onayi` açıkken kabul/ret düğmesi ikinci tıklama ister (yanlış tıklamaya karşı). Varsayılan kapalı.
   - Kabul: açıkken tek tıkla karar 0. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
@@ -4851,7 +4851,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-28. Boyut: S.
   - Dosya: yeni: `src/arayuz/kayit_yuva_karti.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-30:** Hızlı kayıt yalnız köyde.
+- [/] **AYR-30:** (Cursor) Hızlı kayıt yalnız köyde.
   - Ne: `hizli_kayit` eylemi (Bölüm 45, varsayılan F5) köy ekranında kayıt yazar; sorgu sırasında kapalıdır (KAY-30 ile uyumlu). Yazım atomiktir (SYS-02).
   - Kabul: sorgu ortasında eylem 0 etki; köyde dosya saati değişir. Test: birim.
   - Bağımlılık: KAY-30, GIR-03. Boyut: S.
@@ -4878,25 +4878,25 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.7 Yeni oyun ekranı
 
-- [ ] **AYR-34:** Yeni oyun tek ekrandır.
+- [/] **AYR-34:** (Cursor) Yeni oyun tek ekrandır.
   - Ne: `arayuz.menu.yeni` → tek ekran: muhafızın geçmişi (ACL-06), zorluk (AYR-23, ilk oyunda gizli OGR-50), yuva seçimi (AYR-28). Başka seçenek yok.
   - Kabul: ekranda üç alan; ilk oyunda iki. Test: ekran.
   - Bağımlılık: ACL-06, AYR-23, AYR-28. Boyut: S.
   - Dosya: yeni: `src/arayuz/yeni_oyun_ekrani.gd`; `menu_ekrani.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **AYR-35:** Tohum gösterilir, girilir.
+- [/] **AYR-35:** (Cursor) Tohum gösterilir, girilir.
   - Ne: oyun tohumu ekranda okunur ve isteğe bağlı girilir (TST-06 ikizi için). Varsayılan rastgele.
   - Kabul: aynı tohumla iki oyun ilk altı gece aynı kuyruğu üretir. Test: ikiz.
   - Bağımlılık: TST-06. Boyut: S.
   - Dosya: `src/arayuz/yeni_oyun_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-36:** Dolu yuvaya yazma onayı.
+- [/] **AYR-36:** (Cursor) Dolu yuvaya yazma onayı.
   - Ne: seçilen yuva doluysa üzerine yazma onayı; onaysız geri döner.
   - Kabul: dolu yuvada tek tıkla başlangıç 0. Test: birim.
   - Bağımlılık: AYR-28. Boyut: S.
   - Dosya: `src/arayuz/yeni_oyun_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-37:** Önceki oyunların izi.
+- [/] **AYR-37:** (Cursor) Önceki oyunların izi.
   - Ne: `oyuncu_izi.cfg` (OGR-47) alınan sonları ve oyun sayısını tek satırla gösterir (OMR-47).
   - Kabul: satır var/yok iz dosyasına göre. Test: iki durum.
   - Bağımlılık: OMR-47. Boyut: S.
@@ -4905,31 +4905,31 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.8 Görüntü ve performans ayarları
 
-- [ ] **AYR-38:** Pencere boyutu seçimi.
+- [/] **AYR-38:** (Cursor) Pencere boyutu seçimi.
   - Ne: `ekran_modu pencere` iken 1280×720 / 1600×900 / 1920×1080 seçimi (`project.godot` override 1600×900). Stretch `canvas_items/expand` korunur.
   - Kabul: seçim `DisplayServer.window_set_size`; tam ekranda seçici pasif. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/goruntu_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-39:** Dikey eşitleme ve kare sınırı.
+- [/] **AYR-39:** (Cursor) Dikey eşitleme ve kare sınırı.
   - Ne: `vsync` açık/kapalı (`DisplayServer.window_set_vsync_mode`), `kare_siniri` 30/60/kapalı (`Engine.max_fps`).
   - Kabul: değer anında uygulanır; `performans_seridi.gd` okur. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/goruntu_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-40:** Grafik profili ve 3B çözünürlük buraya taşınır.
+- [/] **AYR-40:** (Cursor) Grafik profili ve 3B çözünürlük buraya taşınır.
   - Ne: `grafik_ayarlari_paneli.gd` iki seçicisi Görüntü sekmesine girer; panel dosyası ince adaptör kalır.
   - Kabul: aynı anahtarlar, aynı etkiler (`grafik_profili_adaptoru.gd`). Test: birim.
   - Bağımlılık: AYR-01. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/goruntu_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-41:** Düşük profil otomatik önerisi.
+- [/] **AYR-41:** (Cursor) Düşük profil otomatik önerisi.
   - Ne: `performans_seridi` üç gece ortalaması 30 fps altında kalırsa bir kez "düşük profil?" satırı; otomatik değiştirmez.
   - Kabul: öneri bir kez; `grafik_profili` kendi kendine değişmez. Test: birim.
   - Bağımlılık: TEK-10. Boyut: S.
   - Dosya: yeni: `src/sistemler/profil_onerisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-42:** Arayüz ölçeği 3B'den ayrı.
+- [/] **AYR-42:** (Cursor) Arayüz ölçeği 3B'den ayrı.
   - Ne: `cozunurluk_3d` 3B sahneyi küçültürken arayüz (`canvas_items`) tam çözünürlükte kalır; madde bunu test eder.
   - Kabul: `cozunurluk_3d 50` iken metin keskinliği değişmez. Test: ekran.
   - Bağımlılık: yok. Boyut: S.
@@ -4950,7 +4950,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-45:** Ayarlar kayıt dosyasına girmez.
+- [/] **AYR-45:** (Cursor) Ayarlar kayıt dosyasına girmez.
   - Ne: zorluk (AYR-23) dışında hiçbir ayar oyun kaydında durmaz; kayıt taşınınca ayarlar makineye aittir.
   - Kabul: kayıt JSON'unda ayar anahtarı 0 (zorluk hariç). Test: tarama.
   - Bağımlılık: AYR-23. Boyut: S.
@@ -4962,7 +4962,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-47:** Ayar değişimi tester günlüğüne düşer.
+- [/] **AYR-47:** (Cursor) Ayar değişimi tester günlüğüne düşer.
   - Ne: TST-03 kancasına `AYAR` satırı: hangi anahtar ne oldu.
   - Kabul: değişim başına bir satır. Test: birim.
   - Bağımlılık: TST-03. Boyut: S.
@@ -4971,7 +4971,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.10 Sınırlar ve kapanış
 
-- [ ] **AYR-48:** `ayarlar.gd` ve `tema.gd` değişmez.
+- [/] **AYR-48:** (Cursor) `ayarlar.gd` ve `tema.gd` değişmez.
   - Ne: iki çekirdek dosyanın diff'i 0; yeni anahtar, palet ve sekme ayrı dosyadadır.
   - Kabul: `git diff` iki dosyada 0 (uygulama fazında). Test: inceleme.
   - Bağımlılık: AYR-02, AYR-14. Boyut: S.
@@ -4983,7 +4983,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **AYR-50:** Tuş atama ve dil bu bölümde değildir.
+- [/] **AYR-50:** (Cursor) Tuş atama ve dil bu bölümde değildir.
   - Ne: Kontroller sekmesi Bölüm 45 (GIR), Dil sekmesi Bölüm 46 (YER) içindedir; burada yalnız sekme yuvası vardır.
   - Kabul: `ayar_sekmeleri.gd` iki boş yuva. Test: ekran.
   - Bağımlılık: GIR-01, YER-01. Boyut: S.
@@ -4995,7 +4995,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: YER-02. Boyut: S.
   - Dosya: `data/metin/metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-52:** Kapanış testi.
+- [/] **AYR-52:** (Cursor) Kapanış testi.
   - Ne: tek koşu: altı sekme açılır, her anahtar değiştirilip geri alınır, dosya yazılır, yeniden okunur, değerler eşit; üç yuvaya kayıt yazılır ve okunur.
   - Kabul: dört iddia tek testte. Test: `tests/oto/ayarlar_kontrol.tscn`.
   - Bağımlılık: AYR-01…51. Boyut: S.
@@ -5758,7 +5758,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: DIY-09. Boyut: S.
   - Dosya: yeni: `src/sistemler/olay_soz_bagi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OZL-03:** Kart seçimi deftere düşer.
+- [/] **OZL-03:** (Cursor) Kart seçimi deftere düşer.
   - Ne: oyuncunun kart seçeneği Bölüm 39 defterine "olay, gece, seçenek" satırı yazar; etki `secenek_etkileri` ile aynıdır, ikinci etki tablosu yoktur.
   - Kabul: seçim gecesi defter satırı 1. Test: defter.
   - Bağımlılık: HFZ-01. Boyut: S.
@@ -5791,7 +5791,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: DIY-03, OZL-06. Boyut: M.
   - Dosya: `src/sistemler/olay_soz_bagi.gd`; `sira_atlama_adaptoru.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OZL-08:** Sıra olayı boş günde (KAP-16) çıkmaz.
+- [/] **OZL-08:** (Cursor) Sıra olayı boş günde (KAP-16) çıkmaz.
   - Ne: KAP-16 boş gününde kuyruk yoktur; `sira_olay_olasiligi` o gece 0 okunur.
   - Kabul: boş günde sıra olayı 0. Test: KAP-16 gecesi.
   - Bağımlılık: KAP-16. Boyut: S.
@@ -5800,19 +5800,19 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.3 Boş gün — kapı kapalı, köy açık
 
-- [ ] **OZL-09:** Boş gün SEV-01'dir, ikinci boş gün sistemi yoktur.
+- [/] **OZL-09:** (Cursor) Boş gün SEV-01'dir, ikinci boş gün sistemi yoktur.
   - Ne: KAP-16 üretir, SEV-01 köyde keyfe çevirir. Bu bölüm yalnız "boş günde kart havuzu"nu bağlar: kapı kartı 0, köy kartı (pazar_gunu, harman, dugun koşulu tutarsa) 1 olabilir.
   - Kabul: boş günde kapı kuyruğu 0, köy kartı koşulu tutarsa 1. Test: iki gece.
   - Bağımlılık: KAP-16, SEV-01. Boyut: S.
   - Dosya: yeni: `src/sistemler/bos_gun_olayi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OZL-10:** Boş günde âşık veya gezgin ozan gelebilir.
+- [/] **OZL-10:** (Cursor) Boş günde âşık veya gezgin ozan gelebilir.
   - Ne: yeni kart `data/olaylar/asik.tres`, `OlayVerisi` şeması; koşul `nufus_min: 6`, `tek_sefer: false`, ağırlık düşük. Seçenek: dinle (moral +1, akçe 0) / gönder (etki 0). Mini oyun yok, ses üretilmez.
   - Kabul: nüfus 5'te 0, 6+'da çıkabilir; `secenek_etkileri` iki sözlük. Test: iki nüfus.
   - Bağımlılık: OZL-09, BUG-16. Boyut: S.
   - Dosya: `data/olaylar/asik.tres`; `metinler.csv` `olay.asik.*`.
   - Asset: asset gerekmedi (yer tutucu: duran köylü).
-- [ ] **OZL-11:** Boş gün deftere "kapı yoktu" yazar.
+- [/] **OZL-11:** (Cursor) Boş gün deftere "kapı yoktu" yazar.
   - Ne: HFZ defterine gece türü `bos_gun` satırı; gelen 0, kart varsa kart id.
   - Kabul: boş gün satırı 1. Test: defter.
   - Bağımlılık: HFZ-01, KAP-16. Boyut: S.
@@ -5869,13 +5869,13 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.6 Dış yüzler — kart ve kapı aynı kişi olmaz
 
-- [ ] **OZL-19:** Heyet kartı ile kapı yüzü aynı gece çakışmaz.
+- [/] **OZL-19:** (Cursor) Heyet kartı ile kapı yüzü aynı gece çakışmaz.
   - Ne: `tekfur_elcisi`, `bey_daveti`, `vergi_tahsildari`, `aydogdu_oba`, `miraen_cavus` kartları, OMR-24 "bir gecede en çok bir dış hat yüzü" kuralına girer: o gece kapıda aynı id yüz olarak duruyorsa kart 0'dır.
   - Kabul: yüz + kart aynı id, aynı gece 0. Test: enjekte.
   - Bağımlılık: OMR-24. Boyut: S.
   - Dosya: `bos_gun_olayi.gd` değil; olay seçicine tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OZL-20:** Haber kartları DNY-02 ile tek kaynaktır.
+- [/] **OZL-20:** (Cursor) Haber kartları DNY-02 ile tek kaynaktır.
   - Ne: `ertugrul_haberi`, `nogay_haber`, `mogol_duman`, `ahi_haber` yazılı haberdir; yüz gelmeden haber (OMR-36) bu kartlardan biri olabilir, ikinci haber kanalı açılmaz.
   - Kabul: aynı olay id için kart + haberci ağı satırı aynı gece en çok 1. Test: OMR-36 ile ortak.
   - Bağımlılık: DNY-02, OMR-36. Boyut: S.
@@ -5884,13 +5884,13 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.7 Gece evresi — kapı kapandıktan sonra
 
-- [ ] **OZL-21:** Gece evresi yeni faz değildir.
+- [/] **OZL-21:** (Cursor) Gece evresi yeni faz değildir.
   - Ne: `oturum_fazi.gd` değerleri `kapi` / `koy` durur; üçüncü faz (`gece_devriye`) açılmaz. Nöbet NBT-09 oyuncunun köy ekranında kalmasıdır.
   - Kabul: faz enum'una yeni değer 0. Test: tarama.
   - Bağımlılık: NBT-09. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **OZL-22:** Nöbet tutulan gecede kart ertesi sabaha kayar.
+- [/] **OZL-22:** (Cursor) Nöbet tutulan gecede kart ertesi sabaha kayar.
   - Ne: oyuncu NBT-09 ile nöbetteyse gece kartı ertesi köy evresinde açılır; iki kart üst üste binmez.
   - Kabul: nöbet gecesi kart 0, ertesi köy evresi 1 (koşul tutarsa). Test: iki gece.
   - Bağımlılık: NBT-09, OZL-01. Boyut: S.
@@ -5905,13 +5905,13 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.8 Yeni kart — yalnız şemaya uyan, yalnız gerekçeli
 
-- [ ] **OZL-24:** Kadı kartı.
+- [/] **OZL-24:** (Cursor) Kadı kartı.
   - Ne: `data/olaylar/kadi.tres`; koşul `nufus_min: 10`, `gece_min` BUG-18 tehdit süresinden sonra, `tek_sefer: true`. Seçenek: davayı dinle (divan CAS-07 oturumu açılır, kart divanı yeniden kurmaz) / geçiştir (adalet −1, `koy.tres harc_adalet` okunur). Kadı kapı yüzü değildir.
   - Kabul: nüfus 9'da 0; dinle → divan oturumu 1. Test: iki nüfus.
   - Bağımlılık: CAS-07, BUG-18, BUG-16. Boyut: M.
   - Dosya: `data/olaylar/kadi.tres`; `metinler.csv` `olay.kadi.*`.
   - Asset: asset gerekmedi (yer tutucu: duran köylü).
-- [ ] **OZL-25:** Üçüncü yeni kart yoktur.
+- [/] **OZL-25:** (Cursor) Üçüncü yeni kart yoktur.
   - Ne: âşık (OZL-10) ve kadı (OZL-24) bu bölümün tavanıdır. "İleride lazım" kartı yazılmaz.
   - Kabul: bu dosyada `data/olaylar/` yeni id sayısı 2. Test: sayım.
   - Bağımlılık: OZL-10, OZL-24. Boyut: S.
@@ -5926,7 +5926,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `data/metin/metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **OZL-27:** Kart USLUP §1'den geçer.
+- [/] **OZL-27:** (Cursor) Kart USLUP §1'den geçer.
   - Ne: yeni iki kartın metni YAZ-10 yapaylık taramasından geçer; "köyünüzün geleceği" kalıbı yok.
   - Kabul: `olay.asik.*` ve `olay.kadi.*` ihlal 0. Test: YAZ-10.
   - Bağımlılık: YAZ-10. Boyut: S.
@@ -5938,7 +5938,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **OZL-29:** Olasılıklar `oyun.tres` / `denge.json` dışına çıkmaz.
+- [/] **OZL-29:** (Cursor) Olasılıklar `oyun.tres` / `denge.json` dışına çıkmaz.
   - Ne: `olay_olasiligi` ve `sira_olay_olasiligi` DEN-01 tablosuna taşınır (32 zaten ister); bu bölüm yeni sabit yazmaz.
   - Kabul: `.gd` içinde `0.75` / `0.35` olay sabiti 0. Test: tarama.
   - Bağımlılık: DEN-01. Boyut: S.
@@ -5971,13 +5971,13 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `data/olaylar/*.tres`.
   - Asset: asset gerekmedi.
-- [ ] **OZL-34:** Kayıt göçü.
+- [/] **OZL-34:** (Cursor) Kayıt göçü.
   - Ne: yeni kart id'leri eski kayıtta yoksa seçilmez; oyun çökmez.
   - Kabul: eski kayıt + yeni katalog açılır. Test: KAY zinciri.
   - Bağımlılık: KAY-04. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **OZL-35:** Kapanış testi.
+- [/] **OZL-35:** (Cursor) Kapanış testi.
   - Ne: tek koşu: BUG-16 boş havuz → kart 0; `dugun` küçük köyde 0; boş gün + âşık koşulu; kadı → divan; yüz+kart çakışması 0; KRI-05 ölüm yolu.
   - Kabul: altı iddia tek testte. Test: `tests/unit/olay/ozel_olay_test.gd`.
   - Bağımlılık: OZL-01…34. Boyut: M.
@@ -6008,25 +6008,25 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
 
 ### 39.1 Çekirdek — tek defter, dört sayfa
 
-- [ ] **HFZ-01:** Hafıza defteri çekirdeği.
+- [/] **HFZ-01:** (Cursor) Hafıza defteri çekirdeği.
   - Ne: oyuncunun okuduğu tek defter. Sayfalar: Karar, Beyan, Söylenti, Not. Veri kaynağı mevcut kayıtlardır; defter ikinci bir olay günlüğü tutmaz.
   - Kabul: dört sayfa; sayfa verisi DIY-14 / DIY-07 / SOY-29 / OGR-10 okuyucusudur. Test: dört okuyucu, yazım 0 (defter yazmaz).
   - Bağımlılık: DIY-14, DIY-07. Boyut: M.
   - Dosya: yeni: `src/sistemler/hafiza_defteri.gd`; yeni: `src/arayuz/hafiza_defteri_ekrani.gd`.
   - Asset: asset gerekmedi. Kabuk ARY-02.
-- [ ] **HFZ-02:** Defter kaydı optional alandır.
+- [/] **HFZ-02:** (Cursor) Defter kaydı optional alandır.
   - Ne: oyun kaydına `hafiza.okunan` (hangi satırlar görüldü) yazılır; satırların kendisi kaynak sistemlerindir. Eski kayıtta alan yoksa boş sayılır.
   - Kabul: alan silinmiş kayıt açılır, çökmez. Test: KAY birimi.
   - Bağımlılık: KAY-04, HFZ-01. Boyut: S.
   - Dosya: `hafiza_defteri.gd` `kaydet` / `yukle`.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-03:** Defter oyunu durdurur, hızı değiştirmez.
+- [/] **HFZ-03:** (Cursor) Defter oyunu durdurur, hızı değiştirmez.
   - Ne: açılınca `koy_ekrani` hızı saklanır (divan_baglantisi kalıbı: `divan_baglantisi.gd:16`); kapanınca aynı değere döner. `Engine.time_scale` defter kodunda yazılmaz.
   - Kabul: açıkken hız değişmez, kapandıktan sonra önceki hız. Test: hız 2'de aç/kapa.
   - Bağımlılık: HFZ-01. Boyut: S.
   - Dosya: `hafiza_defteri_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-04:** Defter kapı ve köyde aynı dosyadır.
+- [/] **HFZ-04:** (Cursor) Defter kapı ve köyde aynı dosyadır.
   - Ne: ikinci bir "kapı defteri" ekranı açılmaz; `kapi_ekrani.gd` sağdaki DEFTER dikdörtgeni (satır 13, `Rect2(1172, 104, 716, 952)`) sorgu defteridir, bu maddenin defteri değildir.
   - Kabul: sınıf adı `HafizaDefteriEkrani` bir kez. Test: tarama.
   - Bağımlılık: HFZ-01. Boyut: S.
@@ -6035,25 +6035,25 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
 
 ### 39.2 Karar sayfası
 
-- [ ] **HFZ-05:** Karar satırı DIY-14 ve DYL-08'dan gelir.
+- [/] **HFZ-05:** (Cursor) Karar satırı DIY-14 ve DYL-08'dan gelir.
   - Ne: "Bu hatırlanacak" tetiklenen her seçim bir satır: kişi, gece, kısa sonuç (DYL-08 döndüğünde güncellenir). Metin DIY-14'ün notudur, burada yeniden yazılmaz.
   - Kabul: DIY-14 tetik 1 → satır 1; tetik 0 → satır 0. Test: iki sorgu.
   - Bağımlılık: DIY-14, DYL-08. Boyut: S.
   - Dosya: `hafiza_defteri.gd` okuyucu.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-06:** Kapı kabul/ret her satır değildir.
+- [/] **HFZ-06:** (Cursor) Kapı kabul/ret her satır değildir.
   - Ne: her kabul/ret deftere düşmez; yalnız DIY-14 işaretlisi ve DYL-08 dönüşü. Aksi halde defter 30 günde okunmaz olur.
   - Kabul: 10 adsız kabul, DIY-14 yok → karar satırı 0. Test: on kabul.
   - Bağımlılık: HFZ-05. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-07:** Divan hükmü karar sayfasına bir satırdır.
+- [/] **HFZ-07:** (Cursor) Divan hükmü karar sayfasına bir satırdır.
   - Ne: CAS-07 hükmü (suçlu/değil, ceza) bir satır; SAB-01 sabah satırı ile aynı olay, iki kopya değil (SAB-01 okunur).
   - Kabul: bir hüküm → karar satırı 1, sabah kopyası 0. Test: hüküm.
   - Bağımlılık: CAS-07, SAB-01. Boyut: S.
   - Dosya: okuyucu.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-08:** Omurga yüzü kararı işaretlenir.
+- [/] **HFZ-08:** (Cursor) Omurga yüzü kararı işaretlenir.
   - Ne: OMR hat yüzü (sancak, tekfur, Moğol, oba) kararı DIY-14 listesine zaten giriyorsa satır "dış hat" etiketi alır; yeni sayaç yok.
   - Kabul: etiket metin, sayı değil. Test: bir yüz.
   - Bağımlılık: OMR-24, HFZ-05. Boyut: S.
@@ -6062,25 +6062,25 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
 
 ### 39.3 Beyan ve söylenti sayfaları
 
-- [ ] **HFZ-09:** Beyan sayfası DIY-07 defteridir.
+- [/] **HFZ-09:** (Cursor) Beyan sayfası DIY-07 defteridir.
   - Ne: bu ziyaretin ve önceki ziyaretlerin beyan satırları; çelişki çifti (DYL-01) işaretli. DIY-07 veri modeli değişmez.
   - Kabul: sayfa DIY-07 kayıt sayısıyla eşit. Test: iki ziyaret.
   - Bağımlılık: DIY-07, DYL-01. Boyut: S.
   - Dosya: okuyucu.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-10:** Söylenti sayfası SOY-29'dur.
+- [/] **HFZ-10:** (Cursor) Söylenti sayfası SOY-29'dur.
   - Ne: canlı söylenti: olay, kaynak, kademe (birkaç / yarı köy / herkes), doğrulandı mı. Ağ kaydı SOY-01'indir.
   - Kabul: sayfa ağ kaydıyla eşit. Test: SOY-29 ile ortak.
   - Bağımlılık: SOY-29. Boyut: S.
   - Dosya: okuyucu.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-11:** Not sayfası son beş ipucudur (OGR-10).
+- [/] **HFZ-11:** (Cursor) Not sayfası son beş ipucudur (OGR-10).
   - Ne: `ogretici.gorulen` son beş kimliğin metni; altıncı düşer.
   - Kabul: altı ipucu sonrası satır 5. Test: OGR-10 ile ortak.
   - Bağımlılık: OGR-10. Boyut: S.
   - Dosya: okuyucu.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-12:** Eş duyumu not veya söylentiye düşer, üçüncü sayfa açmaz.
+- [/] **HFZ-12:** (Cursor) Eş duyumu not veya söylentiye düşer, üçüncü sayfa açmaz.
   - Ne: HAN-21 duyum satırı söylenti sayfasındadır (kaynak = eş); ayrı "Hane" sayfası yoktur.
   - Kabul: sayfa sayısı 4 kalır. Test: sayım.
   - Bağımlılık: HAN-21. Boyut: S.
@@ -6089,25 +6089,25 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
 
 ### 39.4 Açılış ve gezinme
 
-- [ ] **HFZ-13:** Köy HUD'dan açılır.
+- [/] **HFZ-13:** (Cursor) Köy HUD'dan açılır.
   - Ne: köy ekranında tek düğme / kısayol (GIR-03 adı); kapıda sorgu evresinde kapalıdır (sorgu defteriyle karışmasın).
   - Kabul: `evre == sohbet|karar` iken düğme 0; köyde 1. Test: iki ekran.
   - Bağımlılık: GIR-03. Boyut: S.
   - Dosya: `koy_ekrani.gd` tek satır; `kapi_ekrani.gd` çağrı 0.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-14:** Duraklat menüsünden açılır.
+- [/] **HFZ-14:** (Cursor) Duraklat menüsünden açılır.
   - Ne: `ana.gd _duraklat` (satır 149) dördüncü satır "Defter"; mevcut üç satır (devam, ayarlar, menü) yerinde kalır.
   - Kabul: düğme sayısı 4; menüye dönüş 3. sırada kalır. Test: ekran.
   - Bağımlılık: HFZ-01. Boyut: S.
   - Dosya: `ana.gd` `_duraklat` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-15:** Sayfa gezinmesi `ui_*` ve kısayoldur.
+- [/] **HFZ-15:** (Cursor) Sayfa gezinmesi `ui_*` ve kısayoldur.
   - Ne: sekme veya 1–4 (GIR `kisayol_1…4`); `geri` kapatır (`ana.gd:240`).
   - Kabul: `geri` ile kapanır, odak ilk sayfadadır. Test: klavye.
   - Bağımlılık: GIR-01. Boyut: S.
   - Dosya: `hafiza_defteri_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-16:** Boş sayfa metni vardır.
+- [/] **HFZ-16:** (Cursor) Boş sayfa metni vardır.
   - Ne: satır yokken "henüz bir şey yazılmadı" (`hafiza.bos.*`); pembe anahtar yok.
   - Kabul: yeni oyunda dört boş metin CSV'de. Test: `metin_dogrula.py`.
   - Bağımlılık: SYS-09. Boyut: S.
@@ -6116,19 +6116,19 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
 
 ### 39.5 Filtre ve okunurluk
 
-- [ ] **HFZ-17:** Satırlar geceden yeniye sıralanır.
+- [/] **HFZ-17:** (Cursor) Satırlar geceden yeniye sıralanır.
   - Ne: varsayılan sıra `gece` azalan; kişi adına göre süzme tek alan.
   - Kabul: süzme sonrası yabancı kişi 0. Test: iki kişi.
   - Bağımlılık: HFZ-01. Boyut: S.
   - Dosya: `hafiza_defteri.gd`.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-18:** Okunmuş satır soluk (AYR-10 ile aynı anahtar).
+- [/] **HFZ-18:** (Cursor) Okunmuş satır soluk (AYR-10 ile aynı anahtar).
   - Ne: `okunmus_isaret` açıksa görülen satır soluk; kapalıysa hepsi aynı. AYR-10 Söz seçeneği içindir, bu madde defter satırı içindir, aynı ayar anahtarı.
   - Kabul: anahtar kapalıyken soluk 0. Test: iki ayar.
   - Bağımlılık: AYR-10. Boyut: S.
   - Dosya: `hafiza_defteri_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-19:** Metin ölçeği `ayarlar.boyut()` okur.
+- [/] **HFZ-19:** (Cursor) Metin ölçeği `ayarlar.boyut()` okur.
   - Ne: defter puntoları `tema.gd` + `metin_olcegi`; yerel punto yok.
   - Kabul: ölçek 150'de tarama yerel punto 0. Test: ARY-02 tarama.
   - Bağımlılık: ARY-02. Boyut: S.
@@ -6137,13 +6137,13 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
 
 ### 39.6 Sabah ve yıl ile sınır
 
-- [ ] **HFZ-20:** SAB-01 sabah satırı deftere kopyalanmaz.
+- [/] **HFZ-20:** (Cursor) SAB-01 sabah satırı deftere kopyalanmaz.
   - Ne: sabah defteri SAB-01 ekranıdır; HFZ onu okur (HFZ-07) ama sabah akışını değiştirmez.
   - Kabul: sabah evresinde HFZ otomatik açılmaz. Test: gece sonu.
   - Bağımlılık: SAB-01. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-21:** YIL izi defter sayfası değildir.
+- [/] **HFZ-21:** (Cursor) YIL izi defter sayfası değildir.
   - Ne: yılın izi Bölüm 30'dadır; HFZ "mevsim özeti" sayfası açmaz.
   - Kabul: sayfa 4. Test: sayım.
   - Bağımlılık: YIL-01. Boyut: S.
@@ -6158,13 +6158,13 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
 
 ### 39.7 Yazım
 
-- [ ] **HFZ-23:** Satır başlığı kişi adıdır, sistem jargonu değildir.
+- [/] **HFZ-23:** (Cursor) Satır başlığı kişi adıdır, sistem jargonu değildir.
   - Ne: "DIY-14 tetik" diye yazılmaz; "Hasan — üçüncü gece" yazılır. Anahtar `hafiza.satir.*`.
   - Kabul: oyuncu yüzünde `DIY-` / `HFZ-` 0. Test: tarama.
   - Bağımlılık: YAZ-02. Boyut: S.
   - Dosya: `metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-24:** Ölü / ayrılmış kişi adı çizilmez, satır kalır.
+- [/] **HFZ-24:** (Cursor) Ölü / ayrılmış kişi adı çizilmez, satır kalır.
   - Ne: kişi köyden gittiyse ad "gitti" işaretli kalır; uydurma ad yok (BUG-17 kuralı).
   - Kabul: ölü id → ad mevcut kayıt adı, yeni ad 0. Test: ölüm sonrası defter.
   - Bağımlılık: BUG-17. Boyut: S.
@@ -6173,13 +6173,13 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
 
 ### 39.8 Debug ve ölçüm
 
-- [ ] **HFZ-25:** Debug satır enjektörü.
+- [/] **HFZ-25:** (Cursor) Debug satır enjektörü.
   - Ne: `src/debug/` ile sahte karar satırı; oyuncu sürümünde kapalı (SRM-05).
   - Kabul: debug kapalıyken enjektör 0. Test: tarama.
   - Bağımlılık: SRM-05. Boyut: S.
   - Dosya: yeni: `src/debug/hafiza_enjektoru.gd`.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-26:** Defter satır tavanı.
+- [/] **HFZ-26:** (Cursor) Defter satır tavanı.
   - Ne: karar sayfası en çok 40 satır (öneri, `data/hafiza.json`); eski satır düşer, kaynak sistem kaydı silinmez.
   - Kabul: 41. satırda görünen 40. Test: enjekte.
   - Bağımlılık: HFZ-01. Boyut: S.
@@ -6188,19 +6188,19 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
 
 ### 39.9 Bağımlı okuyucular — bu bölüm yazmaz
 
-- [ ] **HFZ-27:** OGR-10 yalnız okur.
+- [/] **HFZ-27:** (Cursor) OGR-10 yalnız okur.
   - Ne: ipucu kimliği `ipucu_kaydi.gd`'dedir; defter kopyalamaz.
   - Kabul: ipucu yazımı `hafiza_defteri.gd` içinde 0. Test: tarama.
   - Bağımlılık: OGR-10. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-28:** SOY-29 yalnız okur.
+- [/] **HFZ-28:** (Cursor) SOY-29 yalnız okur.
   - Ne: ağ kaydı `soylenti_agi.gd`'dedir.
   - Kabul: söylenti yazımı defterde 0. Test: tarama.
   - Bağımlılık: SOY-29. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-29:** OZL-03 yalnız okur.
+- [/] **HFZ-29:** (Cursor) OZL-03 yalnız okur.
   - Ne: kart seçimi olay kaydındadır.
   - Kabul: olay yazımı defterde 0. Test: tarama.
   - Bağımlılık: OZL-03. Boyut: S.
@@ -6221,7 +6221,7 @@ Kimlikler HFZ-01 … HFZ-32. OGR-10, SOY-29, HAN-21, OZL-03/11 bu çekirdeği (H
   - Bağımlılık: yok. Boyut: S.
   - Dosya: baseline.
   - Asset: asset gerekmedi.
-- [ ] **HFZ-32:** Kapanış testi.
+- [/] **HFZ-32:** (Cursor) Kapanış testi.
   - Ne: tek koşu: DIY-14 satırı → defter; boş yeni oyun dört boş sayfa; duraklat açar; kapıda kapalı; eski kayıt alan yok.
   - Kabul: beş iddia. Test: `tests/unit/sistemler/hafiza_defteri_test.gd`.
   - Bağımlılık: HFZ-01…31. Boyut: M.
@@ -6254,38 +6254,38 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.1 Hattın sırası — oyuna girmeden önce
 
-- [ ] **KLT-01:** Üretim sırası tek belgededir.
+- [/] **KLT-01:** (Cursor) Üretim sırası tek belgededir.
   - Ne: sıra sabittir: YAZ-01 kitap → taslak → YAZ-10 yapaylık → DYL-11 kör okuma → YAZ-09 kota → insan onayı → YAZ-04 `data/soz/`. Sıra atlanırsa dosya oyuna alınmaz.
   - Kabul: `docs/soz/HAT.md` içinde sıra; atlanan adımlı dosya YAZ-04 tarafından reddedilir. Test: onaysız dosya 0 kopya.
   - Bağımlılık: YAZ-04, YAZ-10, DYL-11. Boyut: S.
   - Dosya: yeni: `docs/soz/HAT.md`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-02:** Onay iki isimdir (YAZ-01 kural 4).
+- [/] **KLT-02:** (Cursor) Onay iki isimdir (YAZ-01 kural 4).
   - Ne: anlatı yönetmeni + Ahmet; tek isim yetmez. Bu madde ikinci onay süreci açmaz.
   - Kabul: tek isimli dosya reddedilir. Test: YAZ-04. Taşınan: KLT-49: İki isimden biri boşsa red.
   - Bağımlılık: YAZ-01. Boyut: S.
   - Dosya: `HAT.md`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-03:** Şablon sır dayatmaz (DIY-01a).
+- [/] **KLT-03:** (Cursor) Şablon sır dayatmaz (DIY-01a).
   - Ne: kapı denetimi `soz` dosyasında `sira` alanı yoksa kabul; varsa ve zorunluysa red. DIY-01a kuralı burada ölçülür.
   - Kabul: zorunlu sırası olan dosya 1 hata. Test: birim.
   - Bağımlılık: DIY-01a. Boyut: S.
   - Dosya: yeni: `tools/soz_kapi.py`.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-26:** Adım kutusu tek dosyadır
+- [/] **KLT-26:** (Cursor) Adım kutusu tek dosyadır
   - Ne: Adım kutusu tek dosyadır. Geçen adım `HAT.md` kutusuna yazılır.
   - Kabul: Kutusuz kopya 0. Test: kapı.
   - Bağımlılık: KLT-01. Boyut: S.
   - Dosya: `docs/soz/HAT.md`
   - Asset: asset gerekmedi.
-- [ ] **KLT-27:** Sebepsiz adım atlama reddedilir
+- [/] **KLT-27:** (Cursor) Sebepsiz adım atlama reddedilir
   - Ne: Sebepsiz adım atlama reddedilir. Atlama satırında sebep yoksa kopya yoktur.
   - Kabul: Sebepsiz 1 hata. Test: fixtures.
   - Bağımlılık: KLT-01. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-28:** Kapı Godot başlatmaz
+- [/] **KLT-28:** (Cursor) Kapı Godot başlatmaz
   - Ne: Kapı Godot başlatmaz. Doğrulayıcı oyun sürecini açmaz.
   - Kabul: Süreç 0. Test: tarama.
   - Bağımlılık: KLT-01. Boyut: S.
@@ -6297,7 +6297,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `data/metin/metinler.csv`
   - Asset: asset gerekmedi.
-- [ ] **KLT-30:** Hata kopyayı keser, uyarı kesmez
+- [/] **KLT-30:** (Cursor) Hata kopyayı keser, uyarı kesmez
   - Ne: Hata kopyayı keser, uyarı kesmez. İki seviye karışmaz.
   - Kabul: Hata 0 kopya, uyarı 1 kopya. Test: fixtures.
   - Bağımlılık: KLT-04. Boyut: S.
@@ -6306,50 +6306,50 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.2 Otomatik taramalar — DYL araçlarını çağırır
 
-- [ ] **KLT-04:** Yapaylık taraması CI adımıdır.
+- [/] **KLT-04:** (Cursor) Yapaylık taraması CI adımıdır.
   - Ne: `yapaylik.js` kuralları (USLUP §1) `tools/soz_kapi.py` içinden çağrılır; ihlal 0 olmadan `data/soz/` kopyalanmaz. DYL-16 `--check` aynı dosyayı kullanır, ikinci kural seti yok.
   - Kabul: bilinen yasak kalıp 1 hata. Test: fixtures.
   - Bağımlılık: YAZ-10, DYL-16. Boyut: M.
   - Dosya: `tools/soz_kapi.py`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-05:** Kör okuma skoru kayda geçer (DYL-11).
+- [/] **KLT-05:** (Cursor) Kör okuma skoru kayda geçer (DYL-11).
   - Ne: DYL-11 testi yapılmadan karakter dosyası "hazır" olmaz; skor `docs/soz/kor_okuma.csv` satırıdır. Eşik DYL-11'indir, burada icat edilmez.
   - Kabul: skor satırı olmayan id YAZ-04 red. Test: kapı.
   - Bağımlılık: DYL-11. Boyut: S.
   - Dosya: `docs/soz/kor_okuma.csv`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-06:** Kota raporu YAZ-09'dan okunur.
+- [/] **KLT-06:** (Cursor) Kota raporu YAZ-09'dan okunur.
   - Ne: sır, dinleyici, dedikodu çekirdeği (SOY-27) yüzdeleri; aşım red.
   - Kabul: dedikodu > %20 (SOY-27 öneri) → 1 hata. Test: kota.
   - Bağımlılık: YAZ-09, SOY-27. Boyut: S.
   - Dosya: `soz_kapi.py`.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-31:** Yasak kalıp USLUP §1 dışına taşmaz
+- [/] **KLT-31:** (Cursor) Yasak kalıp USLUP §1 dışına taşmaz
   - Ne: Yasak kalıp USLUP §1 dışına taşmaz. İkinci yasak dosyası yok.
   - Kabul: Dosya 1. Test: tarama.
   - Bağımlılık: YAZ-02. Boyut: S.
   - Dosya: `USLUP_REHBERI.md`
   - Asset: asset gerekmedi.
-- [ ] **KLT-32:** Aynı iskelet iki ağızda uyarır
+- [/] **KLT-32:** (Cursor) Aynı iskelet iki ağızda uyarır
   - Ne: Aynı iskelet iki ağızda uyarır. Bilgi aynı, sıra aynıysa 1 uyarı.
   - Kabul: Uyarı 1. Test: fixtures.
   - Bağımlılık: YAZ-09. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-33:** Ünlem yığılması uyarır
+- [/] **KLT-33:** (Cursor) Ünlem yığılması uyarır
   - Ne: Ünlem yığılması uyarır. Üç ünlem 1 uyarı. Diyalog satırında.
   - Kabul: Uyarı 1. Test: fixtures.
   - Bağımlılık: YAZ-02. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-34:** Oyuncu yönergesi diyalogda reddedilir
+- [/] **KLT-34:** (Cursor) Oyuncu yönergesi diyalogda reddedilir
   - Ne: Oyuncu yönergesi diyalogda reddedilir. 'Tıkla', 'menüye dön' ağızda 1 hata. İpucu anahtarı hariç.
   - Kabul: Hata 1. Test: fixtures.
   - Bağımlılık: YAZ-02. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-35:** Rakamla yıl ağızda reddedilir
+- [/] **KLT-35:** (Cursor) Rakamla yıl ağızda reddedilir
   - Ne: Rakamla yıl ağızda reddedilir. 1240 veya 1243 karakter satırında 1 hata. Kitapta serbest.
   - Kabul: Hata 1. Test: fixtures.
   - Bağımlılık: YAZ-02. Boyut: S.
@@ -6358,38 +6358,38 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.3 Tutarlılık — ölü, giden, çelişki
 
-- [ ] **KLT-07:** Ölü veya ayrılmış kişi anılmaz.
+- [/] **KLT-07:** (Cursor) Ölü veya ayrılmış kişi anılmaz.
   - Ne: `koyde[]` / `ayrildi[]` koşulu tutmayan satırda o kişinin adı geçiyorsa tarama hatası (Valve olgu listesi, DIY-09).
   - Kabul: ayrılmış id + ad geçen satır 1 hata. Test: fixtures. Taşınan: KLT-36: Ayrılan kişi koşulsuz anılmaz.
   - Bağımlılık: DIY-09. Boyut: S.
   - Dosya: `soz_kapi.py`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-08:** Aynı gün iki zıt olgu.
+- [/] **KLT-08:** (Cursor) Aynı gün iki zıt olgu.
   - Ne: aynı `gece` ve aynı `olay_id` için iki `dogru=true` çelişik beyan tarama uyarısıdır; DNY-02 kural 1 kasıtlı çelişkiyse `kasitli_celiski` işareti gerekir.
   - Kabul: işaretsiz çelişki 1 uyarı. Test: fixtures.
   - Bağımlılık: DNY-02, SOY-25. Boyut: S.
   - Dosya: `soz_kapi.py`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-09:** Yer ve bina adı BUG-16 listesindedir.
+- [/] **KLT-09:** (Cursor) Yer ve bina adı BUG-16 listesindedir.
   - Ne: satırdaki bina adı `bina_var` veya koşulsuz imza listesinde değilse hata (BUG-17 gazete kuralının Söz hali).
   - Kabul: olmayan bina adı 1 hata. Test: fixtures.
   - Bağımlılık: BUG-16, BUG-17. Boyut: S.
   - Dosya: `soz_kapi.py`.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-37:** Aynı gece iki doğru çelişki işareti ister
+- [/] **KLT-37:** (Cursor) Aynı gece iki doğru çelişki işareti ister
   - Ne: Aynı gece iki doğru çelişki işareti ister. İşaretsiz çift 1 uyarı. KLT-08.
   - Kabul: Uyarı 1. Test: fixtures.
   - Bağımlılık: KLT-08. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-39:** Olmayan meslek ağızda reddedilir
+- [/] **KLT-39:** (Cursor) Olmayan meslek ağızda reddedilir
   - Ne: Olmayan meslek ağızda reddedilir. Meslek listesi `meslek_yapilari` dışındaysa 1 hata.
   - Kabul: Hata 1. Test: fixtures.
   - Bağımlılık: ISG-01. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-40:** Çocuk ağzı iş emri vermez
+- [/] **KLT-40:** (Cursor) Çocuk ağzı iş emri vermez
   - Ne: Çocuk ağzı iş emri vermez. Çocuk düğümünde iş atama fiili 1 uyarı.
   - Kabul: Uyarı 1. Test: fixtures.
   - Bağımlılık: UZM-08. Boyut: S.
@@ -6484,32 +6484,32 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.6 Prototip ve oyun aynı sonuç
 
-- [ ] **KLT-16:** DYL-16 `--check` kapanmadan `data/soz/` şişmez.
+- [/] **KLT-16:** (Cursor) DYL-16 `--check` kapanmadan `data/soz/` şişmez.
   - Ne: prototip motoru ile oyun adaptörü aynı fixtures'ta aynı dalı seçer. KOP söz adaptörü imzası değişmez.
   - Kabul: `--check` 0 fark. Test: DYL-16.
   - Bağımlılık: DYL-16, KOP. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **KLT-17:** DYL-15 sitede düzenleme üretim aracıdır, oyun içi editör değildir.
+- [/] **KLT-17:** (Cursor) DYL-15 sitede düzenleme üretim aracıdır, oyun içi editör değildir.
   - Ne: oyuncu Söz dosyası düzenlemez; madde sınırı koyar.
   - Kabul: `src/` içinde soz editörü 0. Test: tarama. Taşınan: KLT-52: Site editörü `src` altında değildir.
   - Bağımlılık: DYL-15. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-53:** Prototip kaydı onay bezemez
+- [/] **KLT-53:** (Cursor) Prototip kaydı onay bezemez
   - Ne: Prototip kaydı onay bezemez. Site kaydı HAT onayı sayılmaz.
   - Kabul: Onaysız kopya 0. Test: kapı.
   - Bağımlılık: YAZ-04. Boyut: S.
   - Dosya: `Roadmap-2/soz_agaci/`
   - Asset: asset gerekmedi.
-- [ ] **KLT-54:** JS ve GDScript aynı seçim kimliğini verir
+- [/] **KLT-54:** (Cursor) JS ve GDScript aynı seçim kimliğini verir
   - Ne: JS ve GDScript aynı seçim kimliğini verir. Bir fixtures.
   - Kabul: Fark 0. Test: DYL-16.
   - Bağımlılık: DIY-02. Boyut: S.
   - Dosya: `src/soz/soz_motoru.gd`
   - Asset: asset gerekmedi.
-- [ ] **KLT-55:** Fixtures içine düz Türkçe gömülmez
+- [/] **KLT-55:** (Cursor) Fixtures içine düz Türkçe gömülmez
   - Ne: Fixtures içine düz Türkçe gömülmez. Anahtar kullanılır.
   - Kabul: Düz cümle 1 hata. Test: tarama.
   - Bağımlılık: SYS-09. Boyut: S.
@@ -6580,7 +6580,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.9 Dosya ve araç sınırı
 
-- [ ] **KLT-22:** Dünya kitabı çalışma anında okunmaz (YAZ-01).
+- [/] **KLT-22:** (Cursor) Dünya kitabı çalışma anında okunmaz (YAZ-01).
   - Ne: `docs/dunya_kitabi/` `res://` altına kopyalanmaz.
   - Kabul: export'ta kitap yolu 0. Test: export listesi. Taşınan: KLT-66: Kitap export'a girmez.
   - Bağımlılık: YAZ-01. Boyut: S.
@@ -6593,13 +6593,13 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Dosya: araç kuralı.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-68:** Araç `user://` yazmaz
+- [/] **KLT-68:** (Cursor) Araç `user://` yazmaz
   - Ne: Araç `user://` yazmaz. Kayıt ve ayar dosyasına dokunmaz.
   - Kabul: Yazım 0. Test: tarama.
   - Bağımlılık: KLT-23. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-69:** Araç ağacı silmez
+- [/] **KLT-69:** (Cursor) Araç ağacı silmez
   - Ne: Araç ağacı silmez. `data/soz` dosyası araç tarafından kaldırılmaz. Red ayrı klasöre liste yazar.
   - Kabul: Silinen 0. Test: diff.
   - Bağımlılık: YAZ-04. Boyut: S.
@@ -6675,7 +6675,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `assets/model/karakter/*.import` (yalnız yetim meta).
   - Asset: asset gerekmedi.
-- [ ] **TEK-03:** ADV-01 — güvenlik satırı kartta görünür.
+- [/] **TEK-03:** (Cursor) ADV-01 — güvenlik satırı kartta görünür.
   - Ne: eski: ADV-01. "Güvenlik … savunma hazırlığı +N" `koylu_karti.gd` içinde kaydırmadan görünen üst bloktadır.
   - Kabul: 1080p ve metin ölçeği 150'de satır ilk ekrandadır. Test: kart açılışı, kaydırma 0. Ek şart: Yaşam satırları güvenlik satırını ilk ekrandan düşürmez.
   - Bağımlılık: ARY-02. Boyut: S.
@@ -6687,7 +6687,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: teşhis yazan kapi paneli (ince adaptör, tek satır).
   - Asset: asset gerekmedi.
-- [ ] **TEK-05:** ADV-03 — eski `usta_demirci` bayrağı göçer.
+- [/] **TEK-05:** (Cursor) ADV-03 — eski `usta_demirci` bayrağı göçer.
   - Ne: eski: ADV-03. BUG-0001 yeni kabulleri düzeltir; eski kayıttaki CHR bayrağı Bölüm 31 göç adımına bir satır olarak girer. İkinci göç motoru yok.
   - Kabul: bayraklı eski kayıt açılınca göç sonrası bayrak doğru sınıfta 1. Test: KAY zinciri.
   - Bağımlılık: KAY-04. Boyut: S.
@@ -6714,7 +6714,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KRI-10. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **TEK-09:** ADV-07 eşikleri DEN'dedir.
+- [/] **TEK-09:** (Cursor) ADV-07 eşikleri DEN'dedir.
   - Ne: eski: ADV-07. `data/atil_bayraklar.json` ve `data/nihai_sonlar.json` gözden geçirmesi Bölüm 32'dedir. Burada ikinci eşik tablosu açılmaz.
   - Kabul: bu dosyada yeni json 0. Test: sayım.
   - Bağımlılık: DEN-01. Boyut: S.
@@ -6726,7 +6726,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: M.
   - Dosya: yeni: `src/debug/performans_gunlugu.gd`; `data/teknik.json`.
   - Asset: asset gerekmedi.
-- [ ] **TEK-11:** Günlük oyuncu sürümünde kapalıdır.
+- [/] **TEK-11:** (Cursor) Günlük oyuncu sürümünde kapalıdır.
   - Ne: `performans_gunlugu` yalnız debug veya `--perf-log` ile yazar. SRM-05 kapalı sürümde dosya oluşmaz.
   - Kabul: bayraksız export'ta log dosyası 0. Test: açılış.
   - Bağımlılık: TEK-10, SRM-05. Boyut: S.
@@ -6855,7 +6855,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.9 Uzun koşu
 
-- [ ] **TEK-29:** Yirmi gece dumanı bellek sıçraması yazmaz.
+- [/] **TEK-29:** (Cursor) Yirmi gece dumanı bellek sıçraması yazmaz.
   - Ne: tester dumanı (20 gece) TEK-10 günlüğünde RAM'in gece başına sınırsız artmadığını bakar. Eşik `data/teknik.json` (öneri: 20 gecede 2 kattan az). Sıçrama varsa madde açık kalır, otomatik `memory_free` spam'i yok.
   - Kabul: eşik altı koşu geçer; üstü raporda 1 satır. Test: duman.
   - Bağımlılık: TEK-10. Boyut: M.
@@ -6870,7 +6870,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.10 Sınırlar ve kapanış
 
-- [ ] **TEK-31:** Çekirdek ekonomi ve olay şeması değişmez.
+- [/] **TEK-31:** (Cursor) Çekirdek ekonomi ve olay şeması değişmez.
   - Ne: `oyun.tres` denge sayıları, `OlayVerisi` alanları, `oturum.gd` kayıt sürümü bu bölümden artmaz. Sürüm artışı yalnız TEK-05 göçü gerektirirse KAY kuralıncadır.
   - Kabul: `olay_verisi.gd` diff 0. Test: sözleşme.
   - Bağımlılık: KAY-04. Boyut: S.
@@ -6888,7 +6888,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: DEN. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **TEK-34:** Kapanış testi.
+- [/] **TEK-34:** (Cursor) Kapanış testi.
   - Ne: tek koşu: TST-0001 anahtarı 0 hata; yetim import 0; üç gece perf satırı 3; yükleme paneli kalkınca tıklama gider; hız 3'ten menüde scale 1; portsuz köprü soketi 0.
   - Kabul: altı iddia. Test: `tests/unit/sistemler/teknik_borc_test.gd` + import sayımı.
   - Bağımlılık: TEK-01…33. Boyut: M.
@@ -6926,7 +6926,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `project.godot`; `menu_ekrani.gd` boş sabit durur ya da `baslik` ile dolar, ikinci ad yazılmaz.
   - Asset: asset gerekmedi.
-- [ ] **SRM-02:** Sürüm tek sabittir.
+- [/] **SRM-02:** (Cursor) Sürüm tek sabittir.
   - Ne: `config/version` bir dizedir (öneri `0.2.0`, Ahmet koyar). Menü alt satırı `arayuz.menu.surum` ile onu gösterir. Kod içinde dağınık sürüm yazısı 0.
   - Kabul: menüde sürüm 1, `project.godot` ile aynı. Test: iki yer eşit.
   - Bağımlılık: SRM-01. Boyut: S.
@@ -6941,19 +6941,19 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.2 Oyuncu sürümü — debug kapalı
 
-- [ ] **SRM-04:** İki açılış vardır: geliştirme ve oyuncu.
+- [/] **SRM-04:** (Cursor) İki açılış vardır: geliştirme ve oyuncu.
   - Ne: oyuncu açılışı `--debug-arac` yokken admin, perf günlüğü ve köprüyü kurmaz. Geliştirme açılışı bugünkü davranıştır.
   - Kabul: bayraksız süreçte `AdminHud` 0 (TEK-27). Test: iki açılış.
   - Bağımlılık: TEK-27. Boyut: S.
   - Dosya: `src/arayuz/ana.gd` tek koşul.
   - Asset: asset gerekmedi.
-- [ ] **SRM-05:** Debug kapalı sürüm.
+- [/] **SRM-05:** (Cursor) Debug kapalı sürüm.
   - Ne: export ön ayarında debug araçları kapalıdır: admin HUD, F1, performans şeridi, perf günlüğü, senaryo koşucusu, zaman makinesi, enjektörler. Köprü yalnız `--bridge-port` ile (ADM-16). Ön ayar `export_presets.cfg` içinde bir Windows hedefidir; Steam hedefi yoktur.
   - Kabul: oyuncu export'unda `src/debug/` düğümü 0. Test: export açılışı.
   - Bağımlılık: SRM-04, ADM-16. Boyut: M.
   - Dosya: `export_presets.cfg` (oyun deposunda, uygulanırken).
   - Asset: asset gerekmedi.
-- [ ] **SRM-06:** Oyuncu sürümünde konsol izi yoktur.
+- [/] **SRM-06:** (Cursor) Oyuncu sürümünde konsol izi yoktur.
   - Ne: `push_error` durur (TEK-18); oyuncuya hata ayıklama dökümü penceresi açılmaz. Godot'un kendi stdout'u paket dışında bırakılır.
   - Kabul: export'ta verbose bayrağı kapalı. Test: preset.
   - Bağımlılık: SRM-05. Boyut: S.
@@ -6962,19 +6962,19 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.3 Demo kesiti — yeni perde yok
 
-- [ ] **SRM-07:** Demo, perde 1 ile sınırlı bir export bayrağıdır.
+- [/] **SRM-07:** (Cursor) Demo, perde 1 ile sınırlı bir export bayrağıdır.
   - Ne: `demo` ayarı açıkken oyun `perde_gecisi` "Köy oturdu" kartında biter; perde 2 ve beş son çalışmaz. Omurga (Bölüm 34) yeniden yazılmaz. Sayı `oturma_esigi` (18) durur.
   - Kabul: demo bayrağında nüfus 18 sonrası kapı gecesi 0, bitiş kartı 1. Bayrak kapalıyken bugünkü perde 2. Test: iki bayrak.
   - Bağımlılık: OMR-08. Boyut: M.
   - Dosya: yeni: `src/sistemler/demo_kesiti.gd`; `perde_gecisi` çağrısına tek satır.
   - Asset: asset gerekmedi.
-- [ ] **SRM-08:** Demo metni son ekranına eklenir, istatistik uydurmaz.
+- [/] **SRM-08:** (Cursor) Demo metni son ekranına eklenir, istatistik uydurmaz.
   - Ne: demo bitişinde mevcut dört sayı (gün, kabul, ret, nüfus) ve bir cümle `arayuz.demo.bitti`. Yeni sayaç yok.
   - Kabul: dört sayı `yonetim` alanlarından gelir. Test: son ekranı.
   - Bağımlılık: SRM-07. Boyut: S.
   - Dosya: `ana.gd _son_goster` demo dalı; `metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **SRM-09:** Tam sürümde demo kartı çıkmaz.
+- [/] **SRM-09:** (Cursor) Tam sürümde demo kartı çıkmaz.
   - Ne: bayrak kapalıyken `demo_kesiti` 0 çağrı etkisi.
   - Kabul: normal oyunda perde 2 gecesi başlar. Test: bayrak kapalı.
   - Bağımlılık: SRM-07. Boyut: S.
@@ -6989,13 +6989,13 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `ana.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SRM-11:** Başarım tablosu açılmaz.
+- [/] **SRM-11:** (Cursor) Başarım tablosu açılmaz.
   - Ne: Steam başarımları ve oyun içi rozet yoktur. Alınan son izi OMR-47 `oyuncu_izi.cfg` dosyasıdır; bu bölüm onu başarım diye yeniden adlandırmaz.
   - Kabul: `basarim` sınıfı 0. Test: tarama.
   - Bağımlılık: OMR-47. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **SRM-12:** İkinci oyunda "daha önce" satırı OMR-47'dir.
+- [/] **SRM-12:** (Cursor) İkinci oyunda "daha önce" satırı OMR-47'dir.
   - Ne: menüde alınan sonların kısa adı. Liste OMR-47'den okunur, burada ikinci dosya yok.
   - Kabul: iz dosyası boşken satır 0. Test: OMR-47.
   - Bağımlılık: OMR-47. Boyut: S.
@@ -7046,13 +7046,13 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.7 Ekran listesi — çekim ve kontrol
 
-- [ ] **SRM-19:** Sürüm kontrolü şu ekranları gezer.
+- [/] **SRM-19:** (Cursor) Sürüm kontrolü şu ekranları gezer.
   - Ne: tek liste: menü, ayarlar, yükleme, kapı (sorgu + karar), heybe, köy, harita, divan, muhafız odası, gece kartı, son ekranı. Liste Bölüm 43 envanterinin oyuncu yüzüdür; HUD parçaları ayrı sayılmaz.
   - Kabul: 11 ekranın her biri açılır, SCRIPT ERROR 0. Test: duman.
   - Bağımlılık: TEK-16. Boyut: M.
   - Dosya: `tests/oto` duman notu.
   - Asset: asset gerekmedi.
-- [ ] **SRM-20:** Üç çözünürlükte aynı liste.
+- [/] **SRM-20:** (Cursor) Üç çözünürlükte aynı liste.
   - Ne: pencere 1280×720, 1600×900 (bugünkü override), 1920×1080. Taşan metin AYR ve GRV işidir; bu madde yalnız "açıldı" der.
   - Kabul: üç boyutta 11 ekran açılır. Test: duman × 3.
   - Bağımlılık: SRM-19, AYR. Boyut: M.
@@ -7061,7 +7061,7 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.8 Gizlilik ve ağ
 
-- [ ] **SRM-21:** Oyun dışarı istek atmaz.
+- [/] **SRM-21:** (Cursor) Oyun dışarı istek atmaz.
   - Ne: oyuncu sürümünde HTTP/telemetri 0. Yerel köprü (ADM-16) localhost ve bayraklıdır, sürümde kapalıdır.
   - Kabul: bayraksız ağ bağlantısı 0. Test: tarama + açılış.
   - Bağımlılık: SRM-05. Boyut: S.
@@ -7091,13 +7091,13 @@ Kimlikler SRM-01 … SRM-26. Asset üretilmez; ikon ihtiyacı ARY-05 satırıdı
 
 ### 42.10 Sınırlar ve kapanış
 
-- [ ] **SRM-25:** Denge ve yazım bu bölümde değişmez.
+- [/] **SRM-25:** (Cursor) Denge ve yazım bu bölümde değişmez.
   - Ne: `denge.json` ve `data/soz/` sürüm kesitinden oynanmaz. Sapma DEN ve KLT'dedir.
   - Kabul: bu bölümün diff'i o iki ağaca girmez. Test: tarama.
   - Bağımlılık: DEN-01, KLT-01. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **SRM-26:** Kapanış testi.
+- [/] **SRM-26:** (Cursor) Kapanış testi.
   - Ne: bayraksız açılışta admin 0, pencere adı eski yazım değil, kayıtsız devam pasif, demo bayrağında perde 2 yok, son ekranı 4 sayı, steam script 0.
   - Kabul: altı iddia. Test: `tests/oto/surum_kontrol.tscn`.
   - Bağımlılık: SRM-01…25. Boyut: M.
@@ -8434,25 +8434,25 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 45.1 Eylem haritası
 
-- [ ] **GIR-01:** Ayarlarda kontroller sekmesi.
+- [/] **GIR-01:** (Cursor) Ayarlarda kontroller sekmesi.
   - Ne: `ayarlar_ekrani.gd` sekmelerinden biri kontrollerdir (GRV-25). Sekme eylemleri listeler, yeniden atamayı açar, varsayılana döner. Oynanış ayarı buraya gömülmez.
   - Kabul: sekme açıkken en az `geri`, `menu`, hız ve köy eylemleri satırdadır. Test: ekran.
   - Bağımlılık: GRV-25. Boyut: M.
   - Dosya: yeni: `src/arayuz/kontroller_sekmesi.gd`; `ayarlar_ekrani.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **GIR-02:** Köy ham tuşu bırakır.
+- [/] **GIR-02:** (Cursor) Köy ham tuşu bırakır.
   - Ne: `KEY_R`, `KEY_B`, `KEY_P`, `KEY_1`, `KEY_2`, `KEY_3`, `KEY_SPACE`, `KEY_ESCAPE` karşılaştırması kalkar. Yerine `is_action_pressed`: `bina_cevir`, `bina_barinma`, `nufus`, `hiz_1`, `hiz_2`, `hiz_3`, `hiz_dur`, `kip_kapat`.
   - Kabul: `_unhandled_input` içinde `physical_keycode` 0. Test: tarama + hız 2 hâlâ 2.
   - Bağımlılık: GIR-01. Boyut: M.
   - Dosya: `koy_ekrani.gd`; eylemler `ana.gd _eylemleri_kur` ya da yeni `src/arayuz/girdi_eylemleri.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GIR-03:** Eylem adı ekranda çeviri anahtarıdır.
+- [/] **GIR-03:** (Cursor) Eylem adı ekranda çeviri anahtarıdır.
   - Ne: atama satırı `arayuz.girdi.<eylem>` ile yazılır, tuşun görünen adı `InputEvent.as_text()` değil, OS tuş adının kısa hali (Esc, Space, 1, P). Oyuncu "kisayol_1" görmez.
   - Kabul: sekmede ham eylem kimliği 0. Test: ekran + CSV.
   - Bağımlılık: GIR-01, YER-02. Boyut: S.
   - Dosya: `kontroller_sekmesi.gd`; `metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **GIR-04:** `[input]` proje dosyasına gömülmez.
+- [/] **GIR-04:** (Cursor) `[input]` proje dosyasına gömülmez.
   - Ne: bugünkü yol durur: eylemler kodda kurulur, atamalar `user://ayarlar.cfg` ek bölümünde saklanır. `project.godot` `[input]` bloğu açılmaz; iki kaynak olmasın.
   - Kabul: `project.godot` içinde `[input]` 0. Test: dosya.
   - Bağımlılık: GIR-02. Boyut: S.
@@ -8461,25 +8461,25 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 45.2 Çakışma
 
-- [ ] **GIR-05:** P iki iş taşımaz.
+- [/] **GIR-05:** (Cursor) P iki iş taşımaz.
   - Ne: `menu` eylemi P, köy `nufus` da P. Aynı fiziksel tuş iki eyleme atanamaz. Varsayılan: `menu` Esc yanına değil, ayrı bir tuşa (öneri F10) çekilir ya da yalnız duraklat açıkken dinlenir. Köyde P nüfus olarak kalır.
   - Kabul: köy ekranında P bir iş yapar (nüfus), duraklat açmaz. Test: köyde P.
   - Bağımlılık: GIR-02. Boyut: S.
   - Dosya: `girdi_eylemleri.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GIR-06:** Odak gezinmesi `ui_*` ile kalır, her ekranda komşu vardır.
+- [/] **GIR-06:** (Cursor) Odak gezinmesi `ui_*` ile kalır, her ekranda komşu vardır.
   - Ne: `ui_up`, `ui_down`, `ui_left`, `ui_right`, `ui_accept`, `ui_cancel` Godot varsayılanıdır, yeniden tanımlanmaz. Menüdeki `_odak_komsulari` kalıbı ayarlar, defter ve duraklat düğmelerine de uygulanır. Fare olmadan sekme gezilir.
   - Kabul: ayarlar sekmesinde odak halkası düğme sayısına eşittir, kopuk düğme 0. Test: klavye. Ek şart: Kapıdaki sorgu eylemleri ok tuşuyla seçilir; bu iş yeni oyun kolu şartı açmaz.
   - Bağımlılık: GIR-01. Boyut: M.
   - Dosya: `ayarlar_ekrani.gd`, `hafiza_defteri_ekrani.gd`, `ana.gd` duraklat.
   - Asset: asset gerekmedi.
-- [ ] **GIR-07:** 1–3 hız ile kapı kısayolu aynı anda dinlemez.
+- [/] **GIR-07:** (Cursor) 1–3 hız ile kapı kısayolu aynı anda dinlemez.
   - Ne: `kisayol_1…3` kapı sorgu ekranında, `hiz_1…3` köy ekranında. İkisi birden aynı karede işlenmez. Aynı tuşa atamak serbesttir çünkü ekranlar ayrıdır; atama ekranı bunu çakışma saymaz.
   - Kabul: köyde 1 hız seçer, kapı kısayolunu çalıştırmaz. Test: iki ekran.
   - Bağımlılık: GIR-02. Boyut: S.
   - Dosya: `girdi_eylemleri.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GIR-08:** Esc sırası tektir.
+- [/] **GIR-08:** (Cursor) Esc sırası tektir.
   - Ne: açık üst panel (heybe, kart, defter, kip) varsa Esc onu kapatır; yoksa `geri` duraklatır. `kip_kapat` ve `geri` aynı tuşta olabilir, tüketim sırası: üst panel, kip, duraklat.
   - Kabul: heybe açıkken Esc duraklat açmaz. Test: üç durum. Ek şart: Nöbet atama kartı açıkken Esc seçimi yuvaya yazmaz. Ek şart: Çınar meclisi oy düğmesi duraklat menüsü açıkken sadakat ve moral farkı yazmaz. Ek şart: Esc tezgâh teslimini onaylamaz; ücret ve parça o tuşla yazılmaz. Ek şart: Esc yıl cümlesini kapatır, moral ve erzak yazmaz.
   - Bağımlılık: GIR-02. Boyut: S.
@@ -8488,19 +8488,19 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 45.3 Atama
 
-- [ ] **GIR-09:** Bir eylem bir tuş bekler.
+- [/] **GIR-09:** (Cursor) Bir eylem bir tuş bekler.
   - Ne: satıra basılınca sonraki tuş veya gamepad düğmesi o eyleme yazılır. Fare düğmesi kamera eylemine yazılır (tekerlek, sol, sağ); karar düğmesine yazılmaz.
   - Kabul: `hiz_1` R'ye alınınca 1 hız seçmez, R seçer. Test: atama.
   - Bağımlılık: GIR-01. Boyut: M.
   - Dosya: `kontroller_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GIR-10:** Çakışan atama uyarı verir, sessizce silmez.
+- [/] **GIR-10:** (Cursor) Çakışan atama uyarı verir, sessizce silmez.
   - Ne: aynı ekranda dinlenen iki eylem aynı tuşa gelirse satır "çakışıyor" der (`arayuz.girdi.cakisma`). Kayıt yazılır ama ikinci eylem o tuşu dinlemez.
   - Kabul: çakışmada işleyen eylem 1. Test: birim.
   - Bağımlılık: GIR-09. Boyut: S.
   - Dosya: `girdi_eylemleri.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GIR-11:** Varsayılan `ayarlar.varsayilana_don` girdiye de döner.
+- [/] **GIR-11:** (Cursor) Varsayılan `ayarlar.varsayilana_don` girdiye de döner.
   - Ne: mevcut düğme (`ayarlar_ekrani.gd:68`) girdi bölümünü de sıfırlar. Ayrı "tuşları sıfırla" şart değildir; varsa aynı fonksiyonu çağırır.
   - Kabul: sıfırlama sonrası P nüfus, 1 hız. Test: atama + sıfır.
   - Bağımlılık: GIR-09. Boyut: S.
@@ -8509,19 +8509,19 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 45.4 Gamepad
 
-- [ ] **GIR-12:** Gamepad bugün iki eylemdir, liste bunu söyler.
+- [/] **GIR-12:** (Cursor) Gamepad bugün iki eylemdir, liste bunu söyler.
   - Ne: varsayılan gamepad: `geri` B, `menu` Start. Hız, nüfus, çevir, kabul/ret için varsayılan düğme `data/girdi.json` içindedir (öneri: omuz hız, A kabul, X ret — sayılar dosyada). Kod içi düğme indeksi 0.
   - Kabul: json silinince oyun klavye varsayılanıyla açılır, çökmez. Test: dosyasız açılış.
   - Bağımlılık: GIR-04. Boyut: M.
   - Dosya: yeni: `data/girdi.json`.
   - Asset: asset gerekmedi.
-- [ ] **GIR-13:** Sol çubuk köy imlecini kaydırır, yeni kamera yazmaz.
+- [/] **GIR-13:** (Cursor) Sol çubuk köy imlecini kaydırır, yeni kamera yazmaz.
   - Ne: çubuk, fare hareketinin yerine `sahne3b.isaret` noktasına ofset ekler. Yakınlaşma tekerlek eylemi `yakinlas` ile kalır (BUG-24 orta tuş ayrı).
   - Kabul: çubuk sapması seçim hücresini değiştirir, `yakinlas` çağrı sayısı sapma ile artmaz. Test: girdi.
   - Bağımlılık: GIR-12. Boyut: M.
   - Dosya: `koy_ekrani.gd` tek dal.
   - Asset: asset gerekmedi.
-- [ ] **GIR-14:** Gamepad yokken klavye tamdır.
+- [/] **GIR-14:** (Cursor) Gamepad yokken klavye tamdır.
   - Ne: düğme okunamazsa klavye yolu durur. Oyun gamepad aramaz, hata basmaz.
   - Kabul: gamepads boşken SCRIPT ERROR 0. Test: açılış.
   - Bağımlılık: GIR-12. Boyut: S.
@@ -8530,13 +8530,13 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 45.5 Kapı kararları
 
-- [ ] **GIR-15:** Kabul ve ret eylemdir.
+- [/] **GIR-15:** (Cursor) Kabul ve ret eylemdir.
   - Ne: kapı karar düğmeleri tıklanınca olduğu gibi kalır; ek olarak `kapi_kabul` ve `kapi_ret` eylemleri aynı fonksiyonu çağırır. Yeni karar türü yok (`KARAR_SIMGE` kümesi durur).
   - Kabul: klavye ile kabul, fare ile kabul aynı `sonuc` yolunu bir kez çağırır. Test: iki girdi.
   - Bağımlılık: GIR-02. Boyut: S.
   - Dosya: `kapi_ekrani.gd` tek bağ.
   - Asset: asset gerekmedi.
-- [ ] **GIR-16:** `ui_accept` ile `kapi_kabul` çakışması GIR-10'dur.
+- [/] **GIR-16:** (Cursor) `ui_accept` ile `kapi_kabul` çakışması GIR-10'dur.
   - Ne: Godot varsayılan Enter hem `ui_accept` hem kabul olmasın diye kabul eylemi Enter'dan başka varsayılan taşır (öneri Y). Enter odaklanan düğmeyi basar.
   - Kabul: odaklı ret düğmesinde Enter ret basar, kabul basmaz. Test: odak.
   - Bağımlılık: GIR-06, GIR-15. Boyut: S.
@@ -8545,7 +8545,7 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 45.6 Fare
 
-- [ ] **GIR-17:** Sol, sağ, tekerlek eylem kimliği alır, davranış değişmez.
+- [/] **GIR-17:** (Cursor) Sol, sağ, tekerlek eylem kimliği alır, davranış değişmez.
   - Ne: `MOUSE_BUTTON_LEFT/RIGHT/WHEEL_*` karşılaştırması eylem olur: `sec`, `iptal_kip`, `yakinlas`, `uzaklas`. İşlev satır 236–248'dekiyle aynıdır.
   - Kabul: sol köylü kartını açar, tekerlek `yakinlas` işaretini korur. Test: köy.
   - Bağımlılık: GIR-02. Boyut: S.
@@ -8560,13 +8560,13 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 45.7 Kayıt
 
-- [ ] **GIR-19:** Atama ayar dosyasındadır, oyun kaydında değildir.
+- [/] **GIR-19:** (Cursor) Atama ayar dosyasındadır, oyun kaydında değildir.
   - Ne: tuşlar `ayarlar.cfg` `girdi` bölümünde. `kayit.json` silinince atama durur. Eski ayar dosyasında bölüm yoksa varsayılan kurulur.
   - Kabul: kayıtsız açılışta atama hatırlanır; ayar dosyası yokken varsayılan. Test: iki dosya.
   - Bağımlılık: GIR-04. Boyut: S.
   - Dosya: `ayarlar.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GIR-20:** Bozuk atama satırı düşer.
+- [/] **GIR-20:** (Cursor) Bozuk atama satırı düşer.
   - Ne: bilinmeyen eylem veya boş olay `_gecerli` gibi yutulur, o eylem varsayılana döner, oyun açılır (`ayarlar.gd:48` kalıbı).
   - Kabul: `hiz_1=` boş satırında hız tuşu 1'dir, çökme 0. Test: birim.
   - Bağımlılık: GIR-19. Boyut: S.
@@ -8575,13 +8575,13 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 45.8 Metin ve öğretici
 
-- [ ] **GIR-21:** İpucu tuş adı eylemden gelir.
+- [/] **GIR-21:** (Cursor) İpucu tuş adı eylemden gelir.
   - Ne: OGR ipuçları "1'e bas" diye gömülü yazmaz. `arayuz.girdi.hiz_1` görünen adı yer tutucuya girer. Oyuncu tuşu değiştirince ipucu yeni adı söyler.
   - Kabul: `hiz_1` R iken ipucu metninde R geçer, "1" geçmez. Test: atama + ipucu.
   - Bağımlılık: GIR-03, OGR-09. Boyut: S.
   - Dosya: `ipucu_seridi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GIR-22:** Kontroller sekmesi USLUP dışıdır.
+- [/] **GIR-22:** (Cursor) Kontroller sekmesi USLUP dışıdır.
   - Ne: tuş adları tekniktir; YAZ-10 diyalog taramasına girmez.
   - Kabul: `arayuz.girdi.*` yapaylık listesinde 0. Test: KLT kapısı.
   - Bağımlılık: KLT-04. Boyut: S.
@@ -8590,7 +8590,7 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 45.9 Sürüm
 
-- [ ] **GIR-23:** Oyuncu sürümünde atama ekranı durur.
+- [/] **GIR-23:** (Cursor) Oyuncu sürümünde atama ekranı durur.
   - Ne: SRM-05 debug'ı kapatır, kontroller sekmesini kapatmaz.
   - Kabul: bayraksız export'ta sekme 1. Test: SRM-05 açılışı.
   - Bağımlılık: SRM-05. Boyut: S.
@@ -8605,13 +8605,13 @@ Kimlikler GIR-01 … GIR-26. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 45.10 Sınırlar ve kapanış
 
-- [ ] **GIR-25:** Hız formülü değişmez.
+- [/] **GIR-25:** (Cursor) Hız formülü değişmez.
   - Ne: `_hiz_sec` 0…3, kilitliyken 1, `time_scale` kuralı TEK-22/23'tedir. Bu bölüm yalnız tuşu değiştirir.
   - Kabul: `_hiz_sec` gövdesi diff'i yorum ve eylem bağı dışında 0. Test: hız birimi.
   - Bağımlılık: TEK-23. Boyut: S.
   - Dosya: `koy_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GIR-26:** Kapanış testi.
+- [/] **GIR-26:** (Cursor) Kapanış testi.
   - Ne: varsayılanda köy 1/2/3 hız, P nüfus, Space durur; P duraklat açmaz; heybe açıkken Esc duraklat açmaz; atama kaydı oyun kaydından bağımsız; `[input]` yok.
   - Kabul: beş iddia. Test: `tests/unit/arayuz/girdi_test.gd`.
   - Bağımlılık: GIR-01…25. Boyut: M.
@@ -8644,7 +8644,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.1 Dil seçimi
 
-- [ ] **YER-01:** Ayarlarda dil sekmesi.
+- [/] **YER-01:** (Cursor) Ayarlarda dil sekmesi.
   - Ne: GRV-25 sekmelerinden biri dildir. Liste bugün tek satır: Türkçe (`tr`). İkinci dil dosyası yoksa başka satır çizilmez. Seçim `ayarlar.cfg` anahtarı `dil` (ek dosya `ayarlar_ek.gd` kalıbı, Bölüm 35). Varsayılan `tr`.
   - Kabul: dosya yokken liste uzunluğu 1. Test: ekran.
   - Bağımlılık: GRV-25. Boyut: S.
@@ -8656,7 +8656,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `docs/METIN_ANAHTAR_STANDARDI.md`; `tools/metin_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **YER-03:** `set_locale` sabiti kalkar.
+- [/] **YER-03:** (Cursor) `set_locale` sabiti kalkar.
   - Ne: `ana.gd:23` `"tr"` yazmaz. `ayarlar` içindeki `dil` okunur; geçersizse fallback `tr`.
   - Kabul: ayar `tr` iken locale `tr`; çöp değerde locale `tr` ve uyarı 1. Test: birim.
   - Bağımlılık: YER-01. Boyut: S.
@@ -8671,13 +8671,13 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: YER-02. Boyut: M.
   - Dosya: `tools/metin_dogrula.py` sütun kuralı; `data/metin/metinler.csv` başlık (sütun eklenirse).
   - Asset: asset gerekmedi.
-- [ ] **YER-05:** Godot çeviri dosyası sütundan üretilir.
+- [/] **YER-05:** (Cursor) Godot çeviri dosyası sütundan üretilir.
   - Ne: bugün `metinler.tr.translation` tek dosyadır. İkinci sütun dolu değilse ikinci `.translation` üretilmez. Üretim kuralı `docs/METIN_ANAHTAR_STANDARDI.md` içine bir paragraf olarak yazılır; elle kopya çeviri dosyası yasaktır.
   - Kabul: `en` sütunu yokken `locale/translations` uzunluğu 1. Test: proje dosyası.
   - Bağımlılık: YER-04. Boyut: S.
   - Dosya: `project.godot`; standart belgesi.
   - Asset: asset gerekmedi.
-- [ ] **YER-06:** Fallback `tr` kalır.
+- [/] **YER-06:** (Cursor) Fallback `tr` kalır.
   - Ne: `locale/fallback` `tr`. İkinci dil eksik anahtarda Türkçe görünür, `[KEY_NOT_FOUND]` ancak Türkçe de yoksa çıkar (`GuvenliMetin`).
   - Kabul: fallback satırı `tr`. Test: dosya.
   - Bağımlılık: YER-05. Boyut: S.
@@ -8686,13 +8686,13 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.3 Doğrudan çeviri çağrıları
 
-- [ ] **YER-07:** Yedi dosya `tr()` ile hizalanır.
+- [/] **YER-07:** (Cursor) Yedi dosya `tr()` ile hizalanır.
   - Ne: `TranslationServer.translate` çağrıları şunlardadır: `karar_replik_adaptoru.gd`, `iflas_yoneticisi.gd`, `koylu_karti_verisi.gd`, `levent_firari.gd`, `sancak_teftisi.gd`, `koylu_takibi.gd`, `coban_surusu.gd`. Yeni çağrı eklenmez. Mevcut çağrı locale değişince aynı anahtarı yeni dilde okur; gövdeye Türkçe sabit gömülüyse sabit CSV'ye taşınır.
   - Kabul: bu yedi dosyada tırnak içi uzun Türkçe cümle 0 (anahtar hariç). Test: tarama.
   - Bağımlılık: YER-03. Boyut: M.
   - Dosya: adı geçen yedi script; `metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **YER-08:** `GuvenliMetin` locale değişince yeniden kurulur.
+- [/] **YER-08:** (Cursor) `GuvenliMetin` locale değişince yeniden kurulur.
   - Ne: `dil` değişince `GuvenliMetin.kur()` bir kez daha çalışır. Eksik listesi yeni locale'e göredir.
   - Kabul: dil değiştirince `eksikler` yeniden sayılır. Test: birim.
   - Bağımlılık: YER-03. Boyut: S.
@@ -8707,13 +8707,13 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: YER-02. Boyut: S.
   - Dosya: `docs/METIN_ANAHTAR_STANDARDI.md`.
   - Asset: asset gerekmedi.
-- [ ] **YER-10:** "Hazırlanıyor…" istisna değildir.
+- [/] **YER-10:** (Cursor) "Hazırlanıyor…" istisna değildir.
   - Ne: TEK-21 anahtara alır. Yükleme paneli YER-09 listesine girmez.
   - Kabul: panelde düz Türkçe 0. Test: TEK-21.
   - Bağımlılık: TEK-21. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **YER-11:** Debug metinleri çevrilmez.
+- [/] **YER-11:** (Cursor) Debug metinleri çevrilmez.
   - Ne: `src/debug/` ve `performans_seridi.gd` tooltip'i oyuncu diline girmez. SRM-05 zaten oyuncuda kapalıdır.
   - Kabul: debug klasörü `metin_dogrula --kaynak` anahtar zorunluluğunun dışındadır (belgede). Test: araç.
   - Bağımlılık: SRM-05. Boyut: S.
@@ -8728,7 +8728,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `tests/unit/arayuz/font_glif_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **YER-13:** İkinci dil fontu bu sürümde yoktur.
+- [/] **YER-13:** (Cursor) İkinci dil fontu bu sürümde yoktur.
   - Ne: `en` sütunu ileride dolarsa da Alegreya Latin yeter sayılır. Arap harfi, Kiril veya CJK için font maddesi açılmaz.
   - Kabul: `assets/font/` dosya sayısı değişmez. Test: sayım.
   - Bağımlılık: YER-12. Boyut: S.
@@ -8752,13 +8752,13 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.7 İçerik sınırı
 
-- [ ] **YER-16:** Diyalog çevirisi yazılmaz.
+- [/] **YER-16:** (Cursor) Diyalog çevirisi yazılmaz.
   - Ne: `data/soz/` ve `sohbet.*` anahtarlarının İngilizcesi bu bölümde üretilmez. KLT kapısı Türkçe metne bakmaya devam eder.
   - Kabul: bu bölümün diff'i `data/soz/` içine girmez. Test: tarama.
   - Bağımlılık: KLT-01. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **YER-17:** Kişi adları çevrilmez.
+- [/] **YER-17:** (Cursor) Kişi adları çevrilmez.
   - Ne: `karakter.*` adları özel isimdir. İkinci sütun olsa da ad hücresi `tr` ile aynı kalır; doğrulayıcı uyarı vermez.
   - Kabul: ad satırında `en` ≠ `tr` ise 1 uyarı (sütun varsa). Test: fixtures.
   - Bağımlılık: YER-04. Boyut: S.
@@ -8767,13 +8767,13 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.8 Değişim anı
 
-- [ ] **YER-18:** Dil değişimi açık ekranı yeniler.
+- [/] **YER-18:** (Cursor) Dil değişimi açık ekranı yeniler.
   - Ne: `Ayarlar.degisti` (`dil`) menü ve ayarlar etiketlerini yeniden `tr()` ile kurar. Oyun ortasında köy metni bir sonraki ekran açılışında değişir; yarıda kalan konuşma satırı o an yenilenmez (cümle bölünmesin).
   - Kabul: menüde anında yeni etiket; açık sorgu satırı aynı kalır. Test: iki ekran.
   - Bağımlılık: YER-03. Boyut: S.
   - Dosya: `menu_ekrani.gd`, `ayarlar_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **YER-19:** Kayıt dili gömmez.
+- [/] **YER-19:** (Cursor) Kayıt dili gömmez.
   - Ne: `kayit.json` içinde locale yok. Dil ayardadır (GIR-19 ile aynı ayrım). Eski kayıt açılır.
   - Kabul: kayıtta `dil` anahtarı 0. Test: KAY.
   - Bağımlılık: YER-01. Boyut: S.
@@ -8788,7 +8788,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KLT-10. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **YER-21:** Çift boşluk dil sütununda da aranır.
+- [/] **YER-21:** (Cursor) Çift boşluk dil sütununda da aranır.
   - Ne: TST-0006 / KLT-11 kuralı `tr` sütununa bakar. `en` doluysa aynı kural ona da uygulanır; boş `en` atlanır.
   - Kabul: `en` içinde çift boşluk 1 hata, boş hücre 0 hata. Test: fixtures.
   - Bağımlılık: KLT-11, YER-04. Boyut: S.
@@ -8803,7 +8803,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KLT-23. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **YER-23:** Kapanış testi.
+- [/] **YER-23:** (Cursor) Kapanış testi.
   - Ne: locale ayarı `tr`; çöp dilde fallback; CSV'de boş `tr` hata; boş `en` Türkçe gösterir; yedi dosyada yeni `translate` çağrısı yok; font yedi glif; katalog hata metni istisna listesinde tek.
   - Kabul: yedi iddia. Test: `tests/tools/test_yerel_dil.py` + font birimi.
   - Bağımlılık: YER-01…22. Boyut: M.

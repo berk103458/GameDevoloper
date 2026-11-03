@@ -6,9 +6,12 @@ static func oku(v: Variant) -> Dictionary:
 	if not v is Dictionary: return {}
 	var n: Variant = v.get("son_gece")
 	if (not n is int and not n is float) or not is_finite(float(n)) or floor(float(n)) != float(n) or float(n) < 0 or float(n) > 1000000000: return {}
-	return {"son_gece": int(n)}
+	var sonuc := {"son_gece": int(n)}
+	if v.has("miktar"):
+		sonuc["miktar"] = clampi(int(v.miktar), 0, 2)
+	return sonuc
 static func aktif(k: Koylu, y: KoyYonetimi) -> bool:
-	return int(k.yorgunluk.get("son_gece", -2)) == y.gun - 1
+	return int(k.yorgunluk.get("son_gece", -2)) == y.gun - 1 or int(k.yorgunluk.get("miktar", 0)) > 0
 static func carpan(k: Koylu, y: KoyYonetimi) -> float:
 	return RISK_CARPANI if aktif(k, y) else 1.0
 static func nobetciler(y: KoyYonetimi) -> Array[int]:
@@ -22,6 +25,7 @@ static func gece(y: KoyYonetimi, uyanik: Array[int]) -> void:
 		var k := y.koylu(id)
 		if k == null or IsKazalari.uyuyor(k) or not CirakEgitimi.saglam(k): continue
 		k.yorgunluk = {"son_gece": y.gun}
+	preload("res://src/koy/uyku_dinlenme.gd").gece(y, uyanik)
 static func metin(k: Koylu, y: KoyYonetimi) -> String:
 	if aktif(k,y) and int(k.gecici_is.get("son_gece",-2)) == y.gun-1: return TranslationServer.translate("koy.gecici_is.yorgun")
 	return "Gece vardiyasından yorgun · kaza/uyuklama riski ×1.40 · bir gece dinlenin." if aktif(k, y) else "Gece vardiyası yorgunluğu yok"

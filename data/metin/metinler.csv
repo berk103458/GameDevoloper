@@ -1910,6 +1910,7 @@ koy.meslek_uyarisi.yapi_bez_evi,dokuma tezgâhı
 koy.meslek_uyarisi.satir,"%s — %s yok. Nitelikli iş verilemez; günde %s erzak yer, geçici işte %%%d verimle çalışır."
 koy.atama.meslek_uyusmaz,Meslek bu yapıya uygun değil
 koy.atama.ilk_ipucu,Köylüyü başka bir işe geçirmek için kartını uygun yapıya sürükle.
+acilis.denge_hatasi,Denge tablosundaki değer geçersiz (%s).
 olay.kavga_harman.baslik,Harman Yeri Sınır Kavgası
 olay.kavga_harman.metin,Köy meydanında iki rençber ailesi harman taşının paylaşımı yüzünden yaba ve dirgenlerle birbirine girdi. Köylüler ikiye bölündü; kan dökülmek üzeredir.
 olay.kavga_harman.secenek1,"Adalet divanını topla, harman taşını eşit paylaştır"

@@ -76,7 +76,20 @@ itch.io: sayfa açık. Resmî araç butler. Kurulum: https://itch.io/docs/butler
 Cursor — Godot doğrulama ve ince adaptör. Bu turda KAP-02, KAP-03, BUG-11 ve TUC-11/14 notu.
 
 ## Şu an üzerinde çalışılan
+Bölüm 41 (41.1, 41.2, 41.9, 41.10) ve Bölüm 40 araç satırları (40.1, 40.2, 40.3, 40.6, 40.9) `[/] (Cursor)`. Dal `cursor/gece-41-40-arac`, taban PR #18. Diyalog metni ve 40.5 yok. kota görünmüyor.
+
+Bölüm 29 ve 30 boş maddeleri sahiplendi: TEZ-02…10, YIL-01…10. İşaret `[/] (Cursor)`. Dal `cursor/gece-29-30-mevsim`, taban festive. PR #21'den dallanılmadı; SAB kapalı bayrağı meta okuyucusu. Kota görünmüyor.
+
+Bölüm 31 boş kayıt maddeleri `[/] (Cursor)`. Kod dalı `cursor/gece-31-dogrulama`. Kalfa'nın ekonomi/köy maddelerine ve Antigravity'nin diyalog metnine dokunulmadı. Doğrulayıcı yalnız araç. Asset gerekmedi. kota görünmüyor.
+
+Bölüm 35 boş AYR maddeleri sahiplendi: AYR-01, 03, 04, 07–21, 23–27, 30, 34–42, 45, 47, 48, 50, 52. İşaret `[/] (Cursor)`. Kod `cursor/gece-35-ayarlar` dalında. Kalfa ekonomi/köy ve Antigravity diyalog alanına dokunulmadı. Kota görünmüyor.
+
+Bölüm 26 ve 28 boş maddeleri sahiplendi: NBT-02…09, SAB-01…10, SAB-75. İşaret `[/] (Cursor)`. Kod `cursor/gece-26-28-hukum`. Diyalog cümlesi yazılmadı. Köy ekonomisine yazılmadı. Kota görünmüyor.
+
 KAP-02 ve KAP-03 `[x] (Cursor)`. BUG-11 eski notu düzeltildi. TUC-11/14 notları duruyor. MEV-01 satırına yazılmadı. Yeni dosya ve ikinci sistem yok. TUC/MEV/CAS kaynak dosyalarına dokunulmadı.
+
+## Bölüm 35 sahiplenme — 3 Kasım 2026
+38 boş madde `[/] (Cursor)` yapıldı. `[x]` olan AYR maddelerine ve başka ajanın `[/]` satırına yazılmadı. Asset bu sahiplenmede gerekmedi.
 
 ## Sonraki plan
 Festive PR. Yeni özellik yok. ODA-01 açılınca TUC-11 tekrar yazılmaz.
