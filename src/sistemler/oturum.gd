@@ -694,6 +694,8 @@ func _json_sorular(g: Gelen, liste: Array, ust: int) -> void:
 		var i := g.sorular.size()
 		g.sorular.append(PackedStringArray([String(cift[0]), String(cift[1])]))
 		g.soru_ust.append(ust)
+		var b: String = String(cift[3]) if cift.size() > 3 and cift[3] is String else ""
+		g.soru_bayraklari.append(b)
 		if cift.size() > 2 and cift[2] is Array:
 			_json_sorular(g, cift[2], i)
 
