@@ -1911,3 +1911,15 @@ koy.meslek_uyarisi.satir,"%s — %s yok. Nitelikli iş verilemez; günde %s erza
 koy.atama.meslek_uyusmaz,Meslek bu yapıya uygun değil
 koy.atama.ilk_ipucu,Köylüyü başka bir işe geçirmek için kartını uygun yapıya sürükle.
 acilis.denge_hatasi,Denge tablosundaki değer geçersiz (%s).
+olay.asik.baslik,yer tutucu
+olay.asik.metin,yer tutucu
+olay.asik.dinle,yer tutucu
+olay.asik.gonder,yer tutucu
+olay.kadi.baslik,yer tutucu
+olay.kadi.metin,yer tutucu
+olay.kadi.dinle,yer tutucu
+olay.kadi.gecistir,yer tutucu
+olay.asik.sonuc1,yer tutucu
+olay.asik.sonuc2,yer tutucu
+olay.kadi.sonuc1,yer tutucu
+olay.kadi.sonuc2,yer tutucu
