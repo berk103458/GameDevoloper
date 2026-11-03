@@ -6254,38 +6254,38 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.1 Hattın sırası — oyuna girmeden önce
 
-- [ ] **KLT-01:** Üretim sırası tek belgededir.
+- [/] **KLT-01:** (Cursor) Üretim sırası tek belgededir.
   - Ne: sıra sabittir: YAZ-01 kitap → taslak → YAZ-10 yapaylık → DYL-11 kör okuma → YAZ-09 kota → insan onayı → YAZ-04 `data/soz/`. Sıra atlanırsa dosya oyuna alınmaz.
   - Kabul: `docs/soz/HAT.md` içinde sıra; atlanan adımlı dosya YAZ-04 tarafından reddedilir. Test: onaysız dosya 0 kopya.
   - Bağımlılık: YAZ-04, YAZ-10, DYL-11. Boyut: S.
   - Dosya: yeni: `docs/soz/HAT.md`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-02:** Onay iki isimdir (YAZ-01 kural 4).
+- [/] **KLT-02:** (Cursor) Onay iki isimdir (YAZ-01 kural 4).
   - Ne: anlatı yönetmeni + Ahmet; tek isim yetmez. Bu madde ikinci onay süreci açmaz.
   - Kabul: tek isimli dosya reddedilir. Test: YAZ-04. Taşınan: KLT-49: İki isimden biri boşsa red.
   - Bağımlılık: YAZ-01. Boyut: S.
   - Dosya: `HAT.md`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-03:** Şablon sır dayatmaz (DIY-01a).
+- [/] **KLT-03:** (Cursor) Şablon sır dayatmaz (DIY-01a).
   - Ne: kapı denetimi `soz` dosyasında `sira` alanı yoksa kabul; varsa ve zorunluysa red. DIY-01a kuralı burada ölçülür.
   - Kabul: zorunlu sırası olan dosya 1 hata. Test: birim.
   - Bağımlılık: DIY-01a. Boyut: S.
   - Dosya: yeni: `tools/soz_kapi.py`.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-26:** Adım kutusu tek dosyadır
+- [/] **KLT-26:** (Cursor) Adım kutusu tek dosyadır
   - Ne: Adım kutusu tek dosyadır. Geçen adım `HAT.md` kutusuna yazılır.
   - Kabul: Kutusuz kopya 0. Test: kapı.
   - Bağımlılık: KLT-01. Boyut: S.
   - Dosya: `docs/soz/HAT.md`
   - Asset: asset gerekmedi.
-- [ ] **KLT-27:** Sebepsiz adım atlama reddedilir
+- [/] **KLT-27:** (Cursor) Sebepsiz adım atlama reddedilir
   - Ne: Sebepsiz adım atlama reddedilir. Atlama satırında sebep yoksa kopya yoktur.
   - Kabul: Sebepsiz 1 hata. Test: fixtures.
   - Bağımlılık: KLT-01. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-28:** Kapı Godot başlatmaz
+- [/] **KLT-28:** (Cursor) Kapı Godot başlatmaz
   - Ne: Kapı Godot başlatmaz. Doğrulayıcı oyun sürecini açmaz.
   - Kabul: Süreç 0. Test: tarama.
   - Bağımlılık: KLT-01. Boyut: S.
@@ -6297,7 +6297,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `data/metin/metinler.csv`
   - Asset: asset gerekmedi.
-- [ ] **KLT-30:** Hata kopyayı keser, uyarı kesmez
+- [/] **KLT-30:** (Cursor) Hata kopyayı keser, uyarı kesmez
   - Ne: Hata kopyayı keser, uyarı kesmez. İki seviye karışmaz.
   - Kabul: Hata 0 kopya, uyarı 1 kopya. Test: fixtures.
   - Bağımlılık: KLT-04. Boyut: S.
@@ -6306,50 +6306,50 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.2 Otomatik taramalar — DYL araçlarını çağırır
 
-- [ ] **KLT-04:** Yapaylık taraması CI adımıdır.
+- [/] **KLT-04:** (Cursor) Yapaylık taraması CI adımıdır.
   - Ne: `yapaylik.js` kuralları (USLUP §1) `tools/soz_kapi.py` içinden çağrılır; ihlal 0 olmadan `data/soz/` kopyalanmaz. DYL-16 `--check` aynı dosyayı kullanır, ikinci kural seti yok.
   - Kabul: bilinen yasak kalıp 1 hata. Test: fixtures.
   - Bağımlılık: YAZ-10, DYL-16. Boyut: M.
   - Dosya: `tools/soz_kapi.py`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-05:** Kör okuma skoru kayda geçer (DYL-11).
+- [/] **KLT-05:** (Cursor) Kör okuma skoru kayda geçer (DYL-11).
   - Ne: DYL-11 testi yapılmadan karakter dosyası "hazır" olmaz; skor `docs/soz/kor_okuma.csv` satırıdır. Eşik DYL-11'indir, burada icat edilmez.
   - Kabul: skor satırı olmayan id YAZ-04 red. Test: kapı.
   - Bağımlılık: DYL-11. Boyut: S.
   - Dosya: `docs/soz/kor_okuma.csv`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-06:** Kota raporu YAZ-09'dan okunur.
+- [/] **KLT-06:** (Cursor) Kota raporu YAZ-09'dan okunur.
   - Ne: sır, dinleyici, dedikodu çekirdeği (SOY-27) yüzdeleri; aşım red.
   - Kabul: dedikodu > %20 (SOY-27 öneri) → 1 hata. Test: kota.
   - Bağımlılık: YAZ-09, SOY-27. Boyut: S.
   - Dosya: `soz_kapi.py`.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-31:** Yasak kalıp USLUP §1 dışına taşmaz
+- [/] **KLT-31:** (Cursor) Yasak kalıp USLUP §1 dışına taşmaz
   - Ne: Yasak kalıp USLUP §1 dışına taşmaz. İkinci yasak dosyası yok.
   - Kabul: Dosya 1. Test: tarama.
   - Bağımlılık: YAZ-02. Boyut: S.
   - Dosya: `USLUP_REHBERI.md`
   - Asset: asset gerekmedi.
-- [ ] **KLT-32:** Aynı iskelet iki ağızda uyarır
+- [/] **KLT-32:** (Cursor) Aynı iskelet iki ağızda uyarır
   - Ne: Aynı iskelet iki ağızda uyarır. Bilgi aynı, sıra aynıysa 1 uyarı.
   - Kabul: Uyarı 1. Test: fixtures.
   - Bağımlılık: YAZ-09. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-33:** Ünlem yığılması uyarır
+- [/] **KLT-33:** (Cursor) Ünlem yığılması uyarır
   - Ne: Ünlem yığılması uyarır. Üç ünlem 1 uyarı. Diyalog satırında.
   - Kabul: Uyarı 1. Test: fixtures.
   - Bağımlılık: YAZ-02. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-34:** Oyuncu yönergesi diyalogda reddedilir
+- [/] **KLT-34:** (Cursor) Oyuncu yönergesi diyalogda reddedilir
   - Ne: Oyuncu yönergesi diyalogda reddedilir. 'Tıkla', 'menüye dön' ağızda 1 hata. İpucu anahtarı hariç.
   - Kabul: Hata 1. Test: fixtures.
   - Bağımlılık: YAZ-02. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-35:** Rakamla yıl ağızda reddedilir
+- [/] **KLT-35:** (Cursor) Rakamla yıl ağızda reddedilir
   - Ne: Rakamla yıl ağızda reddedilir. 1240 veya 1243 karakter satırında 1 hata. Kitapta serbest.
   - Kabul: Hata 1. Test: fixtures.
   - Bağımlılık: YAZ-02. Boyut: S.
@@ -6358,38 +6358,38 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.3 Tutarlılık — ölü, giden, çelişki
 
-- [ ] **KLT-07:** Ölü veya ayrılmış kişi anılmaz.
+- [/] **KLT-07:** (Cursor) Ölü veya ayrılmış kişi anılmaz.
   - Ne: `koyde[]` / `ayrildi[]` koşulu tutmayan satırda o kişinin adı geçiyorsa tarama hatası (Valve olgu listesi, DIY-09).
   - Kabul: ayrılmış id + ad geçen satır 1 hata. Test: fixtures. Taşınan: KLT-36: Ayrılan kişi koşulsuz anılmaz.
   - Bağımlılık: DIY-09. Boyut: S.
   - Dosya: `soz_kapi.py`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-08:** Aynı gün iki zıt olgu.
+- [/] **KLT-08:** (Cursor) Aynı gün iki zıt olgu.
   - Ne: aynı `gece` ve aynı `olay_id` için iki `dogru=true` çelişik beyan tarama uyarısıdır; DNY-02 kural 1 kasıtlı çelişkiyse `kasitli_celiski` işareti gerekir.
   - Kabul: işaretsiz çelişki 1 uyarı. Test: fixtures.
   - Bağımlılık: DNY-02, SOY-25. Boyut: S.
   - Dosya: `soz_kapi.py`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-09:** Yer ve bina adı BUG-16 listesindedir.
+- [/] **KLT-09:** (Cursor) Yer ve bina adı BUG-16 listesindedir.
   - Ne: satırdaki bina adı `bina_var` veya koşulsuz imza listesinde değilse hata (BUG-17 gazete kuralının Söz hali).
   - Kabul: olmayan bina adı 1 hata. Test: fixtures.
   - Bağımlılık: BUG-16, BUG-17. Boyut: S.
   - Dosya: `soz_kapi.py`.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-37:** Aynı gece iki doğru çelişki işareti ister
+- [/] **KLT-37:** (Cursor) Aynı gece iki doğru çelişki işareti ister
   - Ne: Aynı gece iki doğru çelişki işareti ister. İşaretsiz çift 1 uyarı. KLT-08.
   - Kabul: Uyarı 1. Test: fixtures.
   - Bağımlılık: KLT-08. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-39:** Olmayan meslek ağızda reddedilir
+- [/] **KLT-39:** (Cursor) Olmayan meslek ağızda reddedilir
   - Ne: Olmayan meslek ağızda reddedilir. Meslek listesi `meslek_yapilari` dışındaysa 1 hata.
   - Kabul: Hata 1. Test: fixtures.
   - Bağımlılık: ISG-01. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-40:** Çocuk ağzı iş emri vermez
+- [/] **KLT-40:** (Cursor) Çocuk ağzı iş emri vermez
   - Ne: Çocuk ağzı iş emri vermez. Çocuk düğümünde iş atama fiili 1 uyarı.
   - Kabul: Uyarı 1. Test: fixtures.
   - Bağımlılık: UZM-08. Boyut: S.
@@ -6484,32 +6484,32 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.6 Prototip ve oyun aynı sonuç
 
-- [ ] **KLT-16:** DYL-16 `--check` kapanmadan `data/soz/` şişmez.
+- [/] **KLT-16:** (Cursor) DYL-16 `--check` kapanmadan `data/soz/` şişmez.
   - Ne: prototip motoru ile oyun adaptörü aynı fixtures'ta aynı dalı seçer. KOP söz adaptörü imzası değişmez.
   - Kabul: `--check` 0 fark. Test: DYL-16.
   - Bağımlılık: DYL-16, KOP. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **KLT-17:** DYL-15 sitede düzenleme üretim aracıdır, oyun içi editör değildir.
+- [/] **KLT-17:** (Cursor) DYL-15 sitede düzenleme üretim aracıdır, oyun içi editör değildir.
   - Ne: oyuncu Söz dosyası düzenlemez; madde sınırı koyar.
   - Kabul: `src/` içinde soz editörü 0. Test: tarama. Taşınan: KLT-52: Site editörü `src` altında değildir.
   - Bağımlılık: DYL-15. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-53:** Prototip kaydı onay bezemez
+- [/] **KLT-53:** (Cursor) Prototip kaydı onay bezemez
   - Ne: Prototip kaydı onay bezemez. Site kaydı HAT onayı sayılmaz.
   - Kabul: Onaysız kopya 0. Test: kapı.
   - Bağımlılık: YAZ-04. Boyut: S.
   - Dosya: `Roadmap-2/soz_agaci/`
   - Asset: asset gerekmedi.
-- [ ] **KLT-54:** JS ve GDScript aynı seçim kimliğini verir
+- [/] **KLT-54:** (Cursor) JS ve GDScript aynı seçim kimliğini verir
   - Ne: JS ve GDScript aynı seçim kimliğini verir. Bir fixtures.
   - Kabul: Fark 0. Test: DYL-16.
   - Bağımlılık: DIY-02. Boyut: S.
   - Dosya: `src/soz/soz_motoru.gd`
   - Asset: asset gerekmedi.
-- [ ] **KLT-55:** Fixtures içine düz Türkçe gömülmez
+- [/] **KLT-55:** (Cursor) Fixtures içine düz Türkçe gömülmez
   - Ne: Fixtures içine düz Türkçe gömülmez. Anahtar kullanılır.
   - Kabul: Düz cümle 1 hata. Test: tarama.
   - Bağımlılık: SYS-09. Boyut: S.
@@ -6580,7 +6580,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.9 Dosya ve araç sınırı
 
-- [ ] **KLT-22:** Dünya kitabı çalışma anında okunmaz (YAZ-01).
+- [/] **KLT-22:** (Cursor) Dünya kitabı çalışma anında okunmaz (YAZ-01).
   - Ne: `docs/dunya_kitabi/` `res://` altına kopyalanmaz.
   - Kabul: export'ta kitap yolu 0. Test: export listesi. Taşınan: KLT-66: Kitap export'a girmez.
   - Bağımlılık: YAZ-01. Boyut: S.
@@ -6593,13 +6593,13 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Dosya: araç kuralı.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-68:** Araç `user://` yazmaz
+- [/] **KLT-68:** (Cursor) Araç `user://` yazmaz
   - Ne: Araç `user://` yazmaz. Kayıt ve ayar dosyasına dokunmaz.
   - Kabul: Yazım 0. Test: tarama.
   - Bağımlılık: KLT-23. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-69:** Araç ağacı silmez
+- [/] **KLT-69:** (Cursor) Araç ağacı silmez
   - Ne: Araç ağacı silmez. `data/soz` dosyası araç tarafından kaldırılmaz. Red ayrı klasöre liste yazar.
   - Kabul: Silinen 0. Test: diff.
   - Bağımlılık: YAZ-04. Boyut: S.
@@ -6675,7 +6675,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `assets/model/karakter/*.import` (yalnız yetim meta).
   - Asset: asset gerekmedi.
-- [ ] **TEK-03:** ADV-01 — güvenlik satırı kartta görünür.
+- [/] **TEK-03:** (Cursor) ADV-01 — güvenlik satırı kartta görünür.
   - Ne: eski: ADV-01. "Güvenlik … savunma hazırlığı +N" `koylu_karti.gd` içinde kaydırmadan görünen üst bloktadır.
   - Kabul: 1080p ve metin ölçeği 150'de satır ilk ekrandadır. Test: kart açılışı, kaydırma 0. Ek şart: Yaşam satırları güvenlik satırını ilk ekrandan düşürmez.
   - Bağımlılık: ARY-02. Boyut: S.
@@ -6687,7 +6687,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: teşhis yazan kapi paneli (ince adaptör, tek satır).
   - Asset: asset gerekmedi.
-- [ ] **TEK-05:** ADV-03 — eski `usta_demirci` bayrağı göçer.
+- [/] **TEK-05:** (Cursor) ADV-03 — eski `usta_demirci` bayrağı göçer.
   - Ne: eski: ADV-03. BUG-0001 yeni kabulleri düzeltir; eski kayıttaki CHR bayrağı Bölüm 31 göç adımına bir satır olarak girer. İkinci göç motoru yok.
   - Kabul: bayraklı eski kayıt açılınca göç sonrası bayrak doğru sınıfta 1. Test: KAY zinciri.
   - Bağımlılık: KAY-04. Boyut: S.
@@ -6714,7 +6714,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KRI-10. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **TEK-09:** ADV-07 eşikleri DEN'dedir.
+- [/] **TEK-09:** (Cursor) ADV-07 eşikleri DEN'dedir.
   - Ne: eski: ADV-07. `data/atil_bayraklar.json` ve `data/nihai_sonlar.json` gözden geçirmesi Bölüm 32'dedir. Burada ikinci eşik tablosu açılmaz.
   - Kabul: bu dosyada yeni json 0. Test: sayım.
   - Bağımlılık: DEN-01. Boyut: S.
@@ -6726,7 +6726,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: M.
   - Dosya: yeni: `src/debug/performans_gunlugu.gd`; `data/teknik.json`.
   - Asset: asset gerekmedi.
-- [ ] **TEK-11:** Günlük oyuncu sürümünde kapalıdır.
+- [/] **TEK-11:** (Cursor) Günlük oyuncu sürümünde kapalıdır.
   - Ne: `performans_gunlugu` yalnız debug veya `--perf-log` ile yazar. SRM-05 kapalı sürümde dosya oluşmaz.
   - Kabul: bayraksız export'ta log dosyası 0. Test: açılış.
   - Bağımlılık: TEK-10, SRM-05. Boyut: S.
@@ -6855,7 +6855,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.9 Uzun koşu
 
-- [ ] **TEK-29:** Yirmi gece dumanı bellek sıçraması yazmaz.
+- [/] **TEK-29:** (Cursor) Yirmi gece dumanı bellek sıçraması yazmaz.
   - Ne: tester dumanı (20 gece) TEK-10 günlüğünde RAM'in gece başına sınırsız artmadığını bakar. Eşik `data/teknik.json` (öneri: 20 gecede 2 kattan az). Sıçrama varsa madde açık kalır, otomatik `memory_free` spam'i yok.
   - Kabul: eşik altı koşu geçer; üstü raporda 1 satır. Test: duman.
   - Bağımlılık: TEK-10. Boyut: M.
@@ -6870,7 +6870,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 41.10 Sınırlar ve kapanış
 
-- [ ] **TEK-31:** Çekirdek ekonomi ve olay şeması değişmez.
+- [/] **TEK-31:** (Cursor) Çekirdek ekonomi ve olay şeması değişmez.
   - Ne: `oyun.tres` denge sayıları, `OlayVerisi` alanları, `oturum.gd` kayıt sürümü bu bölümden artmaz. Sürüm artışı yalnız TEK-05 göçü gerektirirse KAY kuralıncadır.
   - Kabul: `olay_verisi.gd` diff 0. Test: sözleşme.
   - Bağımlılık: KAY-04. Boyut: S.
@@ -6888,7 +6888,7 @@ Kimlikler TEK-01 … TEK-34. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: DEN. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **TEK-34:** Kapanış testi.
+- [/] **TEK-34:** (Cursor) Kapanış testi.
   - Ne: tek koşu: TST-0001 anahtarı 0 hata; yetim import 0; üç gece perf satırı 3; yükleme paneli kalkınca tıklama gider; hız 3'ten menüde scale 1; portsuz köprü soketi 0.
   - Kabul: altı iddia. Test: `tests/unit/sistemler/teknik_borc_test.gd` + import sayımı.
   - Bağımlılık: TEK-01…33. Boyut: M.
