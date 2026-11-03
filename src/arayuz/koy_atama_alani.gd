@@ -50,7 +50,14 @@ func _drop_data(yer: Vector2, veri: Variant) -> void:
 	if not veri_gecerli(veri) or not ekran.kip.is_empty(): return
 	var id := hedef(yer)
 	var yeni := _birakma_onizlemesi(veri.kisi, id)
-	if yeni.olur: KoyluKarti._ata(ekran, veri.kisi, id)
+	if yeni.olur:
+		KoyluKarti._ata(ekran, veri.kisi, id)
+		var kayit := ekran.oturum.ipucu_kaydi
+		if ekran.oturum.yonetim.koylu(veri.kisi).is_yeri == id and kayit.ipucu_ekle("koy_atama"):
+			var serit := IpucuSeridi.new()
+			ekran.add_child(serit)
+			serit.kapandi.connect(func(_id: String) -> void: serit.queue_free())
+			serit.goster(tr("koy.atama.ilk_ipucu"), "koy_atama")
 	onizleme.hide()
 func _notification(ne: int) -> void:
 	if not is_instance_valid(ekran): return

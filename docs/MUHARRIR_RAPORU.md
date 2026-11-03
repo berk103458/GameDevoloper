@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — ISG-33 tamamlandı (Kalfa)
+
+İlk başarılı sürükle-bırak ataması ipucu şeridini açar. İkinci atamada şerit açılmaz, görüldü bilgisi kayıt yüklemesinde korunur. Hedefli headless kabul ve son recovery import geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-30 tamamlandı (Kalfa)
 
 Sürükle-bırak önizlemesi ve bırakma aynı meslek uyumunu denetler. Headless testte demirci tarlaya atanmadı ve kart geri geldi. İlk import MD5 hatası verdi, ikinci recovery import temiz geçti. Asset gerekmedi. kota görünmüyor.

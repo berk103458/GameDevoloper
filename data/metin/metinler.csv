@@ -1906,3 +1906,4 @@ koy.meslek_uyarisi.yapi_ortak_sofra,ortak sofra
 koy.meslek_uyarisi.yapi_bez_evi,dokuma tezgâhı
 koy.meslek_uyarisi.satir,"%s — %s yok. Nitelikli iş verilemez; günde %s erzak yer, geçici işte %%%d verimle çalışır."
 koy.atama.meslek_uyusmaz,Meslek bu yapıya uygun değil
+koy.atama.ilk_ipucu,Köylüyü başka bir işe geçirmek için kartını uygun yapıya sürükle.

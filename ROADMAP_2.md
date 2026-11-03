@@ -1339,7 +1339,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/arayuz/ana.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-33:** Atama ipucu bir kez
+- [x] **ISG-33:** Atama ipucu bir kez (Kalfa)
   - Ne: Atama ipucu bir kez. OGR.
   - Kabul: Atama ipucu bir kez. İkinci 0. Test: OGR-07.
   - Bağımlılık: OGR-07. Boyut: S.
