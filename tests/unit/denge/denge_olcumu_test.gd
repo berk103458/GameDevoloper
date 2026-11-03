@@ -32,7 +32,11 @@ func _initialize() -> void:
 			"sorgu_eylemleri": {"soru": 4, "heybe": 1, "bak": 2},
 			"basarisiz_zar_sayisi": 1
 		}
+		gece_raporu["uretim"] = {"odun": 7}
 		var olcum := DENGE_OLCUMU.olustur(oturum, gece_raporu, ek_baglam)
+		dene(olcum.uretim == gece_raporu.uretim, "ISG-43: uretim farki sifir")
+		olcum.uretim["odun"] = 0
+		dene(gece_raporu.uretim.odun == 7, "ISG-43: kaynak rapor korunur")
 
 		# 3. Kabul: Tüketim ikinci kez çalışmaz, gün ve ambar değişmez
 		dene(oturum.gun == gun_once, "Denge ölçümü oturum gününü ilerletmez (ikinci gece_sonu yok)")

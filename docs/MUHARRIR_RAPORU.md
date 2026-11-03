@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — ISG-43 tamamlandı (Kalfa)
+
+DEN ölçümü gece üretim tablosunun kopyasını okur. Hedefli testte değer farkı sıfır ve kaynak rapor korundu. İlk import MD5 hatası verdi, ikinci headless import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-38 tamamlandı (Kalfa)
 
 Meslek grevi testi gerçek demirhane gecesinde üretimin sıfır kaldığını ve girdi ile deneyimin değişmediğini doğruladı. İlk import MD5 dosya erişim hatası verdi, ikinci headless recovery import temiz geçti. Asset gerekmedi. kota görünmüyor.

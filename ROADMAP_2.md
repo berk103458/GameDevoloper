@@ -1385,7 +1385,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/koy/uretim.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-43:** Üretim ölçümü DEN'dedir
+- [x] **ISG-43:** Üretim ölçümü DEN'dedir (Kalfa)
   - Ne: Üretim ölçümü DEN'dedir. Formül değişmez.
   - Kabul: Üretim ölçümü DEN'dedir. Diff 0. Test: DEN.
   - Bağımlılık: DEN-01. Boyut: S.

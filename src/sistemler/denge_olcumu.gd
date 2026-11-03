@@ -42,6 +42,7 @@ static func olustur(oturum: RefCounted, gece_raporu: Dictionary, ek_baglam: Dict
 	var rapor := {
 		"gun": gun,
 		"gida_tuketimi": gida_tuketimi,
+		"uretim": gece_raporu.get("uretim", {}).duplicate(true),
 		"ac_kisi_orani": ac_orani,
 		"nobet_maasi": nobet_maasi,
 		"cinar_oy_farki": cinar_farki,
