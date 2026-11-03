@@ -164,7 +164,7 @@ func _alt_panel_kur() -> void:
 	sag.add_child(hizlar)
 	for kat in [0, 1, 2, 3]:
 		var b := _dugme("Ⅱ" if kat == 0 else "%dx" % kat, hizlar)
-		b.add_theme_font_size_override("font_size", ayarlar.boyut(18))
+		b.add_theme_font_size_override("font_size", ayarlar.boyut(Kabuk.KUCUK))
 		b.add_theme_stylebox_override("normal", Tema.koy_paneli())
 		b.toggle_mode = true
 		b.set_pressed_no_signal(kat == 1)

@@ -38,8 +38,15 @@ func guncelle() -> void:
 	var replik := Label.new()
 	replik.text = sorgu.metin(StringName(dugum.get("replik_anahtari", "")))
 	replik.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	replik.add_theme_font_size_override("font_size", 23)
-	add_child(replik)
+	replik.add_theme_font_size_override("font_size", Kabuk.GOVDE)
+	var replik_kaydir := ScrollContainer.new()
+	replik_kaydir.name = "replik_kaydir"
+	replik_kaydir.custom_minimum_size.y = 72
+	replik_kaydir.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	replik_kaydir.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	replik.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	replik_kaydir.add_child(replik)
+	add_child(replik_kaydir)
 	if sorgu.replik_baslat():
 		preload("res://src/sistemler/chr_sorgu_sesi.gd").cal(sorgu.karakter, replik.text)
 	var secenekler: Array = dugum.get("secenekler", [])
@@ -57,7 +64,7 @@ func guncelle() -> void:
 		if not secenek.get("gerekli_ipuclari", []).is_empty():
 			b.tooltip_text = "Önce nişan, yük veya fiziksel izi incele" if b.disabled else "Bulunan kanıtla yüzleş"
 			if not b.disabled:
-				b.modulate = Color("#e6bd72")
+				b.modulate = Kabuk.vurgu()
 		b.pressed.connect(func() -> void:
 			if sorgu.secenek_sec(i):
 				_ton_tepkisi = TON.tepki(oturum, secenek, baglam)

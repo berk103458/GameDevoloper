@@ -35,7 +35,7 @@ func _ready() -> void:
 			b.focus_mode = Control.FOCUS_NONE
 			b.size = Vector2(34, 30)
 			b.position = Vector2(8 if i == 0 else BOYUT.x - 42, 8)
-			b.add_theme_font_size_override("font_size", 20)
+			b.add_theme_font_size_override("font_size", Kabuk.KUCUK)
 			b.pressed.connect(func() -> void: adet_istendi.emit(-1 if i == 0 else 1))
 			add_child(b)
 
@@ -55,7 +55,7 @@ func _draw() -> void:
 	var r := Rect2(Vector2.ZERO, size)
 	var gizli: bool = esya["gizli"]
 	var alinan := int(esya["alinan"])
-	draw_rect(r, Color("#14161c"))
+	draw_rect(r, Kabuk.zemin())
 	var kenar := Renkler.MESALE if gizli else Renkler.KUL
 	draw_rect(r.grow(-1), Color(kenar, 1.0 if has_focus() else 0.55), false, 4.0 if has_focus() else 2.0)
 	if alinan > 0:

@@ -76,22 +76,27 @@ func _ready() -> void:
 
 	if ipucu != "":
 		var f := Tema.font(400)
-		var px := ayarlar.boyut(21)
-		var gen := f.get_string_size(ipucu, HORIZONTAL_ALIGNMENT_LEFT, -1, px).x if f != null else 360.0
+		var px := ayarlar.boyut(Kabuk.KUCUK)
+		var ekran := get_viewport_rect().size
+		if ekran.x < 100.0:
+			ekran = Vector2(1920, 1080)
+		var kutu := Kabuk.ipucu_kutusu(ekran, int(ayarlar.al(&"metin_olcegi")))
 		var alan := Control.new()
+		alan.name = "menu_ipucu"
 		alan.anchor_left = 1.0
 		alan.anchor_right = 1.0
 		alan.anchor_top = 1.0
 		alan.anchor_bottom = 1.0
-		alan.offset_left = -760.0
-		alan.offset_right = -40.0
-		alan.offset_top = -112.0
-		alan.offset_bottom = -72.0
+		alan.offset_left = kutu.position.x - ekran.x
+		alan.offset_right = kutu.end.x - ekran.x
+		alan.offset_top = kutu.position.y - ekran.y
+		alan.offset_bottom = kutu.end.y - ekran.y
 		alan.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		alan.clip_contents = true
 		add_child(alan)
 		var s := MenuSusu.new()
 		s.tur = MenuSusu.Tur.IPUCU
-		s.konum = gen + 60.0
+		s.konum = kutu.size.x
 		s.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		alan.add_child(s)
 		var l := Label.new()

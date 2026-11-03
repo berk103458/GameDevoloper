@@ -18,7 +18,7 @@ func _ready() -> void:
 	add_child(onizleme)
 	aciklama = Label.new()
 	aciklama.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	aciklama.add_theme_font_size_override("font_size", 20)
+	aciklama.add_theme_font_size_override("font_size", Kabuk.KUCUK)
 	onizleme.add_child(aciklama)
 func veri_gecerli(veri: Variant) -> bool:
 	return veri is Dictionary and veri.get("tur") == "koylu_atama" and veri.get("kisi") is int and veri.get("oturum") == ekran.oturum.get_instance_id()

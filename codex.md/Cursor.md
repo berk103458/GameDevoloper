@@ -11,6 +11,10 @@ HFZ-01…21, HFZ-23…29 ve HFZ-32. Tek hafıza defteri, dört sayfa: karar, bey
 
 SRM-02, SRM-04…09, SRM-11, SRM-12, SRM-19…21, SRM-25 ve SRM-26. Sürüm `0.2.0` tek sabittir. Oyuncu açılışında debug düğümü kurulmaz. Demo bayrağı perde 2'yi açmaz. Mağaza cümlesi ve diyalog yazılmadı; yer tutucu anahtar kullanıldı. Kalfa ekonomi/köy ve Antigravity metin alanına girilmedi. Asset gerekmedi. Godot 4.7.2 headless `tests/oto/surum_kontrol.tscn` GEÇTİ, 0 hata. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok.
 
+## Bölüm 43 kabuk — 3 Kasım 2026
+
+Ortak renk, boşluk ve punto `src/arayuz/kabuk.gd` içindedir. Aday temalardan biri seçilmedi. Ayarlar, defter ve diyalog dosyalarına dokunulmadı. Dal `cursor/gece-43-arayuz`. Kota görünmüyor. Asset gerekmedi; iki yer tutucu satırı envanterde.
+
 ## VFX — 24 Ekim 2026
 
 Duman, alev, yağmur çizgisi, yumuşak ışık ve bir ateş topu. Şimşek, büyü, kan ve namlu yok. Kar ve ayrı kıvılcım yok. Sahneye bağlanmadı. Headless 5 PNG, `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. Kota görünmüyor.

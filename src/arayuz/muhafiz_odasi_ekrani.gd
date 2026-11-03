@@ -30,7 +30,7 @@ func _ready() -> void:
  panel.offset_right=-12
  panel.offset_top=24
  panel.offset_bottom=-24
- panel.add_theme_stylebox_override("panel",Tema.koy_paneli())
+ panel.add_theme_stylebox_override("panel",Kabuk.panel())
  add_child(panel)
  var kenar:=MarginContainer.new()
  for y in ["margin_left","margin_right","margin_top","margin_bottom"]: kenar.add_theme_constant_override(y,16)
