@@ -2673,7 +2673,7 @@ Yerler döneme uygundur: ağıl, değirmen, demirhane, bez. Kalp puanı, romans,
   - Bağımlılık: ANI-08. Boyut: S.
   - Dosya: yeni `src/koy/tezgahta_gun.gd`; ANI-08 düğümüne okuma.
   - Asset: dört örtü envantere `TEZ01-ORTU` (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham). Yer tutucu düz renk. Yeni model yok.
-- [/] **TEZ-02:** (Cursor) Siparişin yüzü
+- [x] **TEZ-02:** (Cursor) Siparişin yüzü
   - Ne: Açık TUC-05 siparişi dört yerden birine bağlanır; yüzü köyde duran bir hane, usta ya da tüccardır ve yüzü olmayan sipariş tezgâha inmez. Bir yüzün aynı anda bir açık siparişi vardır; kapı kuyruğundaki kimlik ve köyden ayrılmış kişi yüz olamaz.
   - Kabul: Bir bez siparişi bir köylü adına tezgâha iner (`tests/unit/koy/tezgahta_gun_test.gd`). `yuzsuz` kayıtta `gun` artışı 0'dır; aynı yüzde ikinci açık sipariş 1 doğrulama hatası verir. Ek şart: yüz kaydında ses anahtarı ve `kalp` alanı yoktur.
   - Bağımlılık: TEZ-01, TUC-05. Boyut: M.
@@ -2682,25 +2682,25 @@ Yerler döneme uygundur: ağıl, değirmen, demirhane, bez. Kalp puanı, romans,
 
 ### 29.2 Beş sabah — ham, iz, biçim, ağız
 
-- [/] **TEZ-03:** (Cursor) Birinci sabah ham yığındır
+- [x] **TEZ-03:** (Cursor) Birinci sabah ham yığındır
   - Ne: Usta tezgâhtaysa ve stok en az 1 ise kayıt `gun` 1 ve hal `ham` olur; hammadde stoğundan bir kez 1 düşer. Stok 0 ise sabah açılmaz; satır kapı kuyruğu kurulmadan yazılır.
   - Kabul: Stok varken `gun` 1 ve hal `ham`dır (`tests/unit/koy/tezgahta_gun_test.gd`). Stok 0 iken `gun` 0 ve teslim 0'dır; aynı sabahda ikinci stok düşüşü yoktur.
   - Bağımlılık: TEZ-02. Boyut: S.
   - Dosya: `src/koy/tezgahta_gun.gd`.
   - Asset: ham blok envantere `TEZ03-HAM`; yer tutucu düz renk küp, örtünün üstünde.
-- [/] **TEZ-04:** (Cursor) İkinci sabah iz bırakır
+- [x] **TEZ-04:** (Cursor) İkinci sabah iz bırakır
   - Ne: `ham` kaydın sonraki usta sabahı `gun` 2 olur; parça düğüm, oluk, eğri çubuk ya da ilk kesik olarak görünür ve örtü rengi gün 1 ile aynı kalır. `gun` 1 yokken iz yazılmaz, teslim anahtarı bu kayıtta durmaz.
   - Kabul: `ham` kayıttan sonraki usta sabahı `gun` 2'dir (`tests/unit/koy/tezgahta_gun_test.gd`). `gun` 1 yokken `gun` 2 sayısı 0'dır.
   - Bağımlılık: TEZ-03. Boyut: S.
   - Dosya: `src/koy/tezgahta_gun.gd`.
   - Asset: iz bloğu envantere `TEZ04-IZ`; yer tutucu aynı küp, bir kenarı koyu.
-- [/] **TEZ-05:** (Cursor) Üçüncü sabah biçim verir
+- [x] **TEZ-05:** (Cursor) Üçüncü sabah biçim verir
   - Ne: `gun` 2 varken bir usta sabahı `gun` 3 yazar ve etiket işin adını gösterir; yüz bu sabah parçayı alamaz. Biçim aleti stokta yoksa `gun` artmaz ve `titreme` 1 artar.
   - Kabul: `gun` 2 sonrası etiket gün 3 adını taşır ve teslim düğmesi 0'dır (`tests/unit/koy/tezgahta_gun_test.gd`). Sipariş türü dört yere uymazsa parça `gun` 2'de kalır.
   - Bağımlılık: TEZ-04. Boyut: S.
   - Dosya: `src/koy/tezgahta_gun.gd`.
   - Asset: biçim bloğu envantere `TEZ05-BICIM`; yer tutucu küp, etikette işin adı.
-- [/] **TEZ-06:** (Cursor) Dördüncü sabah ağız ve kenardır
+- [x] **TEZ-06:** (Cursor) Dördüncü sabah ağız ve kenardır
   - Ne: `gun` 3 sonrası usta sabahı `gun` 4 olur; bez siparişi boya diyorsa ve boya stoğu varsa stoktan 1 düşer, boya yoksa parça `boyasiz` kalır. Kenar fire oranı `siparis_yuzu.json` içindedir, fire ikinci parça yazmaz ve demirhanede yeni ocak açılmaz.
   - Kabul: `gun` 3 kaydından sonraki usta sabahı `gun` 4'tür (`tests/unit/koy/tezgahta_gun_test.gd`). Boyasız bezde stok deltası 0'dır; demirhanede ocak düğümü 0'dır; teslim edilen parça sayısı 1 kalır.
   - Bağımlılık: TEZ-05. Boyut: S.
@@ -2709,13 +2709,13 @@ Yerler döneme uygundur: ağıl, değirmen, demirhane, bez. Kalp puanı, romans,
 
 ### 29.3 Ustanın yokluğu ve teslim
 
-- [/] **TEZ-07:** (Cursor) Usta yoksa çırak titretir
+- [x] **TEZ-07:** (Cursor) Usta yoksa çırak titretir
   - Ne: Usta ölü, sürgün, zindanda, hasta, başka binada, o gece nöbetçi ya da YSM-02 bitkinse çırak tezgâhta durur, `gun` artmaz ve parçaya `titreme` 1 eklenir. Çırak yoksa veya SAB `kapali` ise `titreme` yazılmaz; rütbe UZM-11'den okunur, artmaz.
   - Kabul: Usta yok, çırak var, bir sabah: `gun` aynı, `titreme` 1, rütbe deltası 0'dır (`tests/unit/koy/tezgahta_gun_test.gd`). Çırak yokken `titreme` 0'dır; SAB `kapali` iken çırak sahnesi 0'dır.
   - Bağımlılık: TEZ-06, UZM-04, UZM-11. Boyut: M.
   - Dosya: `src/koy/tezgahta_gun.gd`; UZM rütbesine okuma.
   - Asset: titreme çizgisi envantere `TEZ07-TITREME`; yer tutucu blok üstünde eğri tek çizgi.
-- [/] **TEZ-08:** (Cursor) Beşinci sabah teslimdir
+- [x] **TEZ-08:** (Cursor) Beşinci sabah teslimdir
   - Ne: `gun` 4 ise sonraki usta sabahı `gun` 5 ve hal `tam` olur; parça yüzün ev kaydına 1 yazılır, TUC-05 siparişi kapanır ve ücret o siparişteki değerdir. Yüz köyde değilse veya yüzde ücret yoksa parça tezgâhta kalır ve sipariş açık kalır; parça ambara ikinci kopya yazılmaz.
   - Kabul: Beş ilerleyen usta sabahında sipariş kapalı ve ev kaydında parça 1'dir (`tests/unit/koy/tezgahta_gun_test.gd`). Yüz köyde değilken TUC-05 açık kalır; `titreme` 2 iken teslim olur ve işaret 2 kalır. Ek şart: aynı sipariş ikinci kez kapanmaz. Ek şart: teslim kapı kabulü sayılmaz, gelen sayısı değişmez. Ek şart: divan hükmü bu ücreti yazmaz.
   - Bağımlılık: TEZ-07, TUC-05. Boyut: M.
@@ -2724,13 +2724,13 @@ Yerler döneme uygundur: ağıl, değirmen, demirhane, bez. Kalp puanı, romans,
 
 ### 29.4 Tek cümle ve sayım
 
-- [/] **TEZ-09:** (Cursor) Yüz bir cümle söyler
+- [x] **TEZ-09:** (Cursor) Yüz bir cümle söyler
   - Ne: Teslimde bir kez cümle yazılır; `titreme` 0 ise anahtar `tam`, 0'dan büyükse `egri` olur. Cümle erzak, akçe, rütbe ve itibar yazmaz; kayıt düz metni gömmez, anahtarı tutar.
   - Kabul: `titreme` 0 tesliminde anahtar `tam`, `titreme` 1 tesliminde `egri`dir (`tests/unit/koy/tezgahta_gun_test.gd`). Cümle sonrası erzak deltası 0 ve rütbe deltası 0'dır. Ek şart: anahtar eksikse parça eve inmez ve gece fazı açılır. Ek şart: cümle dosyasında ses yolu yoktur.
   - Bağımlılık: TEZ-08. Boyut: S.
   - Dosya: `data/tez/siparis_yuzu.json` iki cümle anahtarı.
   - Asset: asset gerekmedi.
-- [/] **TEZ-10:** (Cursor) Beş sabah sayılır
+- [x] **TEZ-10:** (Cursor) Beş sabah sayılır
   - Ne: Sayım ilerleyen usta sabahını, `titreme` değerini, son `gun` değerini, teslimi, cümle anahtarını, rütbe deltasını, un deltasını ve kademe deltasını okur, bunlara yazmaz. Beş ilerleyen sabah `gun` 5 eder; her yok sabah `titreme`yi 1 artırır ve `gun` artırmaz.
   - Kabul: Usta her sabah oradaysa `gun` 5, `titreme` 0, teslim 1 ve cümle `tam` olur (`tests/unit/koy/tezgahta_gun_test.gd`). Bir sabah usta yok ve çırak varsa `gun` 4, `titreme` 1, teslim 0'dır; rütbe, un ve kademe deltaları 0'dır. Ek şart: aynı tohumla iki sayım aynı `gun`, `titreme` ve teslim sayılarını verir. Ek şart: hız 3 iken bir sabah `gun` değerini bir kez artırır. Ek şart: eski kayıtta sayım alanı yoksa teslim 0 ve `gun` 0 yazılır, gece fazı açılır.
   - Bağımlılık: TEZ-09. Boyut: S.
@@ -2763,7 +2763,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.1 Yılın yüzü
 
-- [/] **YIL-01:** (Cursor) Yılın yüzü bir kişidir
+- [x] **YIL-01:** (Cursor) Yılın yüzü bir kişidir
   - Ne: Mevsim yılı açılırken köyde yaşayan adlı yetişkinlerden biri `yil_izi` alanına bir kez yazılır; tarla işi olan varsa o seçilir, tek adlı yetişkin eş ise o seçilir. Dört mevsim aynı kimliği okur; adsız, ölü ve köyden ayrılmış kişi seçilmez, kişi ölürse kalan slotlar boş kalır.
   - Kabul: Bir yılda `yil_izi` en çok bir kimliktir ve dört mevsim slotu o kimliği taşır (`tests/unit/koy/yil_izi_test.gd`). Köyde adlı kimse yokken satır 0'dır; boş günde yıl satırı 0'dır; ölümden sonra açılan slot 0 ve cenaze seçeneği 2'dir. Ek şart: aynı tohumla iki açılış aynı kimliği seçer. Ek şart: eski kayıtta `yil_izi` yoksa alan boş kalır ve mevsim günü artar. Ek şart: satır düz cümle gömmez, `data/soz/yil_izi.json` anahtarını okur. Ek şart: `yil_izi.gd` takvim düğümü açmaz ve `koy_sahnesi` import etmez. Ek şart: nöbet ataması değişmez ve nöbet gecesinde duyulmuş satır silinmez. Ek şart: anahtar yoksa o slot 0 sayılır, mevsim günü yine artar.
   - Bağımlılık: MEV-01, YAZ-08. Boyut: M.
@@ -2772,14 +2772,14 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.2 Güz
 
-- [/] **YIL-02:** (Cursor) Güz sofrasında ad söylenir
+- [x] **YIL-02:** (Cursor) Güz sofrasında ad söylenir
   - Ne: Ambar doluyken MEV-08 şenliği açıksa sofrada bir satır, `yil_izi` kişisinin görünen adını söyler; şenliği bu madde kurmaz. Cümle ödül ve eşya vermez, moral artışı MEV-08 tablosunda kalır.
   - Kabul: Ambar dolu bir güz gününde sofra satırı 1'dir ve yıl dosyasından gelen moral 0'dır (`tests/unit/koy/yil_izi_test.gd`). Şenlik kapalıyken sofra satırı 0'dır. Ek şart: Söz motoru dosyası yokken sofra satırı yine 1'dir.
   - Bağımlılık: YIL-01, MEV-08, SEV-06. Boyut: S.
   - Dosya: `src/koy/yil_izi.gd`; `data/soz/yil_izi.json` anahtarı `guz_sofra`.
   - Asset: asset gerekmedi. Sofra `MEV-08` yerindedir.
 
-- [/] **YIL-03:** (Cursor) Şenlik yoksa harman cümlesi duyulur
+- [x] **YIL-03:** (Cursor) Şenlik yoksa harman cümlesi duyulur
   - Ne: Güzde şenlik kapalıyken harman ya da ambar sayımının yanında bir satır görünen adı söyler; yeni bina kurulmaz. Şenlik açıksa bu satır kapanır, kişi ölmüşse satır yazılmaz.
   - Kabul: Ambarsız güz gününde harman satırı 1, sofra satırı 0 ve moral deltası 0'dır (`tests/unit/koy/yil_izi_test.gd`). Şenlik açılınca harman satırı 0'a döner.
   - Bağımlılık: YIL-01, MEV-08, SEV-06. Boyut: S.
@@ -2788,14 +2788,14 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.3 Kış
 
-- [/] **YIL-04:** (Cursor) Kışta dışarı ve ev iki ayrı cümledir
+- [x] **YIL-04:** (Cursor) Kışta dışarı ve ev iki ayrı cümledir
   - Ne: Kişi açıkta uyuyorsa o gece `kis_disari`, yatakta uyuyorsa `kis_ev` duyulur; iki anahtar aynı gece birlikte duyulmaz. Ölüm, donma ve odun cezası MEV-02, MEV-11 ve EKO-09 hesabında kalır, yıl satırı o zara yazmaz.
   - Kabul: Aynı kişi açıkta bir kış gecesinde `kis_disari` satırını duyar, yataklı gecede `kis_ev` duyar (`tests/unit/koy/yil_izi_test.gd`). Yıl satırı açıkken ve kapalıyken donma sayısı aynıdır. Ek şart: kış metni güz metniyle aynıysa 1 hata.
   - Bağımlılık: YIL-01, YSM-03, ACL-05. Boyut: S.
   - Dosya: `data/soz/yil_izi.json` anahtarları `kis_disari`, `kis_ev`.
   - Asset: asset gerekmedi.
 
-- [/] **YIL-05:** (Cursor) Kışın tarla susar
+- [x] **YIL-05:** (Cursor) Kışın tarla susar
   - Ne: Mevsim kış ve iş noktası tarla ise yıl satırı 0'dır; üretim, don ve ürün MEV-03 değerinde kalır. Kışın `ilkbahar_tarla` cümlesi açılmaz.
   - Kabul: Kışın tarla yıl satırı 0'dır ve tarla üretimi MEV-03 ile aynıdır (`tests/unit/koy/yil_izi_test.gd`). Kış gününde `ilkbahar_tarla` satırı 0'dır.
   - Bağımlılık: YIL-01, MEV-03. Boyut: S.
@@ -2804,14 +2804,14 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.4 İlkbahar
 
-- [/] **YIL-06:** (Cursor) İlkbaharda tarlasına döner
+- [x] **YIL-06:** (Cursor) İlkbaharda tarlasına döner
   - Ne: Mevsim ilkbahar olunca ve MEV-03 kilidi kalkınca `yil_izi` kişisinin tarla iş noktasında bir satır duyulur; yeni tarla ve yeni ürün açılmaz. Kişinin tarla işi yoksa cümle kendi duran iş noktasında bir kez duyulur.
   - Kabul: İlkbaharın ilk gününde tarla satırı 1'dir ve tarla üretimi MEV-03 kalkmış haliyle aynıdır (`tests/unit/koy/yil_izi_test.gd`). Ölü kişide satır 0'dır; kış gününde satır 0'dır. Ek şart: ilkbahar satırı açıkken ISG-02 atama sayısı aynı kalır.
   - Bağımlılık: YIL-05, MEV-03. Boyut: S.
   - Dosya: `data/soz/yil_izi.json` anahtarı `ilkbahar_tarla`.
   - Asset: asset gerekmedi.
 
-- [/] **YIL-07:** (Cursor) Taşkın gününde bir cümle duyulur
+- [x] **YIL-07:** (Cursor) Taşkın gününde bir cümle duyulur
   - Ne: Satır yalnız MEV-06 olayı o gün açıksa durur; bent kırmaz, kuyu kireci yazmaz ve onarım başlatmaz. Cümle `yil_izi` kişisinindir ve `ilkbahar_tarla` ile aynı metin olamaz.
   - Kabul: MEV-06 açık bir ilkbahar gününde taşkın satırı 1'dir (`tests/unit/koy/yil_izi_test.gd`). Olay kapalıyken satır 0'dır; bent onarım sayacı yıl satırı yüzünden değişmez.
   - Bağımlılık: YIL-01, MEV-06. Boyut: S.
@@ -2820,7 +2820,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.5 Yaz
 
-- [/] **YIL-08:** (Cursor) Yaz su sırasında bir söz duyulur
+- [x] **YIL-08:** (Cursor) Yaz su sırasında bir söz duyulur
   - Ne: Mevsim yaz iken ANI-03 su taşıma sırasında bir satır duyulur; yeni kuyruk ve yeni su kaynağı açılmaz, su tüketimi MEV-07 çarpanında kalır. Kişi o gün su işinde değilse cümle sırada bir ağızdan duyulur; yaz değilse veya kişi ölmüşse satır 0'dır.
   - Kabul: Bir yaz su gününde satır 1'dir ve su tüketimi MEV-07 değeriyle aynıdır (`tests/unit/koy/yil_izi_test.gd`). Kişi su işinde değilken de satır 1'dir ve atama kaydı aynı kalır; yangın riski tablosu değişmez. Ek şart: susuzluk cezası YSM-02 değerinde kalır ve yaz satırı bar yazmaz.
   - Bağımlılık: YIL-01, MEV-07. Boyut: S.
@@ -2829,14 +2829,14 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.6 Ad ve kapanış
 
-- [/] **YIL-09:** (Cursor) Söylenen ad karttaki addır
+- [x] **YIL-09:** (Cursor) Söylenen ad karttaki addır
   - Ne: Güz cümlesi SEV-06 görünen adını okur; ad bayrağı yoksa maskenin kısa adı, bayrak varsa gerçek ad söylenir. Yıl ortasında ad açılırsa sonraki slot yeni adı söyler, yazılmış satır değişmez.
   - Kabul: `CHR_017` ad bayrağı yokken güz cümlesinde "çoban" geçer ve "Fadime" 0'dır; bayrak varken "Fadime" 1'dir (`tests/unit/koy/yil_izi_test.gd`). Kartın kendi yazısı değişmez.
   - Bağımlılık: YIL-02, SEV-06. Boyut: S.
   - Dosya: `src/koy/yil_izi.gd` ad okuması. Kart dosyasına yazılmaz.
   - Asset: asset gerekmedi.
 
-- [/] **YIL-10:** (Cursor) Yıl kapanışında slotlar sayılır
+- [x] **YIL-10:** (Cursor) Yıl kapanışında slotlar sayılır
   - Ne: Kapanış, dördüncü mevsimin yedinci gününün gecesidir; rapor güz, kış, ilkbahar tarlası, taşkın ve yaz slotlarından duyulanları sayar, en çok 5 olur. Rapor SYS-20 son kimliğine yazılmaz, ardından `yil_izi` temizlenir.
   - Kabul: 28. gece raporundaki sayı, o yıl duyulan satır sayısıyla aynıdır ve SYS-20 kimliği kapanıştan önce ve sonra aynıdır (`tests/unit/koy/yil_izi_test.gd`). Ölümden sonraki slot rapora girmez; boş izde rapor 0'dır. `yil_izi.json` içinde kalp, hediye, romans ve ses anahtarı 0'dır. Ek şart: hız 3 iken aynı slot bir gecede bir kez sayılır. Ek şart: kayıt yüklenince duyulmuş slot yeniden sayılmaz. Ek şart: kapanış satırı dünya zaman çizelgesine yazılmaz.
   - Bağımlılık: YIL-01, MEV-01, SYS-20. Boyut: S.

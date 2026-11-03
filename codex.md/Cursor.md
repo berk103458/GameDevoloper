@@ -82,7 +82,7 @@ Cursor — Godot doğrulama ve ince adaptör. Bu turda KAP-02, KAP-03, BUG-11 ve
 ## Şu an üzerinde çalışılan
 Bölüm 41 (41.1, 41.2, 41.9, 41.10) ve Bölüm 40 araç satırları (40.1, 40.2, 40.3, 40.6, 40.9) `[x] (Cursor)`. Dal `cursor/gece-41-40-arac`, taban PR #18. Diyalog metni ve 40.5 yok. Asset gerekmedi. kota görünmüyor.
 
-Bölüm 29 ve 30 boş maddeleri sahiplendi: TEZ-02…10, YIL-01…10. İşaret `[/] (Cursor)`. Dal `cursor/gece-29-30-mevsim`, taban festive. PR #21'den dallanılmadı; SAB kapalı bayrağı meta okuyucusu. Kota görünmüyor.
+Bölüm 29 ve 30 bitti: TEZ-02…10, YIL-01…10 `[x] (Cursor)`. Dal `cursor/gece-29-30-mevsim`, taban festive. PR #21'den dallanılmadı. Godot 4.7.2: tezgahta gün GEÇTİ (51), yıl izi GEÇTİ. Stok ve üretim yazılmadı. Kota görünmüyor.
 
 Bölüm 31 boş kayıt maddeleri `[x] (Cursor)`. Dal `cursor/gece-31-dogrulama`. Söz alanları ince adaptör; diyalog metni yazılmadı. Kalfa ekonomi/köy ve Antigravity metin alanı duruyor. Asset gerekmedi. kota görünmüyor.
 
