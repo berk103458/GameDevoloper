@@ -9,7 +9,7 @@ func dene(v: bool, ad: String) -> void:
 
 func _initialize() -> void:
 	var d: Array = JSON.parse_string(FileAccess.get_file_as_string("res://data/diyalog/diyalog_01_20.json"))
-	dene(d.size() == 20, "20 diyalog")
+	dene(d.size() >= 20, "En az 20 diyalog (mevcut: %d)" % d.size())
 	var gitme := RegEx.create_from_string("(?i)kervanla (birlikte )?çık|kervan toplanırsa|çıkar giderim|yoluma koyulurum|ilk kervanla")
 	for x in d:
 		dene(x.secenekler.size() == x.esik.size(), "Seçenek/eşik uyumu: " + x.id)

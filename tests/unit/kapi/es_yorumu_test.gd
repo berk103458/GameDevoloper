@@ -28,7 +28,7 @@ func _initialize() -> void:
 	
 	if j is Dictionary:
 		var d: Dictionary = j
-		for i in range(1, 21):
+		for i in range(1, 31):
 			var did := "diyalog_%02d" % i
 			dene(d.has(did), "%s için eş düşüncesi mevcut" % did)
 			if d.has(did):

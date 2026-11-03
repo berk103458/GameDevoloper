@@ -47,7 +47,7 @@ func _test_kapi_diyaloglari_butunlugu() -> void:
 		return
 		
 	var diyaloglar: Array = veri
-	dene(diyaloglar.size() == 20, "Tam 20 adet kapı diyaloğu mevcut (Bulunan: %d)" % diyaloglar.size())
+	dene(diyaloglar.size() == 30, "Tam 30 adet kapı diyaloğu mevcut (Bulunan: %d)" % diyaloglar.size())
 	
 	for i in range(diyaloglar.size()):
 		var d = diyaloglar[i]

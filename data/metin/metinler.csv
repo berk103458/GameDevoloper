@@ -1910,3 +1910,67 @@ koy.meslek_uyarisi.yapi_bez_evi,dokuma tezgâhı
 koy.meslek_uyarisi.satir,"%s — %s yok. Nitelikli iş verilemez; günde %s erzak yer, geçici işte %%%d verimle çalışır."
 koy.atama.meslek_uyusmaz,Meslek bu yapıya uygun değil
 koy.atama.ilk_ipucu,Köylüyü başka bir işe geçirmek için kartını uygun yapıya sürükle.
+olay.kavga_harman.baslik,Harman Yeri Sınır Kavgası
+olay.kavga_harman.metin,Köy meydanında iki rençber ailesi harman taşının paylaşımı yüzünden yaba ve dirgenlerle birbirine girdi. Köylüler ikiye bölündü; kan dökülmek üzeredir.
+olay.kavga_harman.secenek1,"Adalet divanını topla, harman taşını eşit paylaştır"
+olay.kavga_harman.secenek2,Sert çıkış: Kavga çıkaranlara para cezası kes ve taşları kışlaya bağla
+olay.kavga_harman.secenek3,Köyün ambarından ortak harman tahsisi yap (2 ambar harca)
+olay.kavga_harman.sonuc1,Adalet divanında verilen hüküm iki aileyi de yatıştırdı; köyde adalet duygusu güçlendi.
+olay.kavga_harman.sonuc2,Kavga bastırıldı amma rençberler muhafıza kin besledi; kışla kasasına akçe girdi.
+olay.kavga_harman.sonuc3,Ambar tahsisiyle harman kuruldu; ahali muhafızın cömertliğine dua etti.
+olay.ambarda_hirsizlik.baslik,Zahire Ambarında Gece Hırsızlığı
+olay.ambarda_hirsizlik.metin,Gece yarısı köy zahire ambarının asma kilidi zorlanmış ve iki çuval tohumluk buğday çalınmış. Ahali kapıdan giren son yabancıları suçlar.
+olay.ambarda_hirsizlik.secenek1,Nöbetçileri kışladan çıkartıp köy evlerini tek tek arat
+olay.ambarda_hirsizlik.secenek2,Saruca Hatun'un kefaletine güven; ambarı sessizce takviye et (2 akçe harca)
+olay.ambarda_hirsizlik.secenek3,Hırsızlığı örtbas et; dedikodu çıkmasını engelle
+olay.ambarda_hirsizlik.sonuc1,"Arama sert geçti, ahali huzursuz oldu amma buğdayın bir kısmı bulunup asayiş sağlandı."
+olay.ambarda_hirsizlik.sonuc2,Zarar kapatıldı; Saruca Hatun yetimlerin hakkını gözetip hırsızı gizlice uyardı.
+olay.ambarda_hirsizlik.sonuc3,Olay sessizce kapandı amma ambar bekçisi şüphe içinde nöbet tutuyor.
+olay.salgin_fisiltisi.baslik,Kuyu Başında Salgın Fısıltısı
+olay.salgin_fisiltisi.metin,Köy kuyusundan su çeken iki kadının boğazında mor lekeler görüldüğü söylentisi yayıldı. Ahali kapıdan giren yabancıların veba getirdiğini fısıldayarak dehşete düştü.
+olay.salgin_fisiltisi.secenek1,Kuyuya kireç döktür ve şifacı Miraen'e köyü muayene ettir (1 akçe harca)
+olay.salgin_fisiltisi.secenek2,Şüpheli haneleri zorla karantina çadırına kapat
+olay.salgin_fisiltisi.secenek3,"Söylentiyi kulak ardı et, kuyu başındaki nöbeti artır"
+olay.salgin_fisiltisi.sonuc1,Kireç ve şifalı otlar kokuyu dağıttı; Miraen veba olmadığını anlayınca köy derin bir nefes aldı.
+olay.salgin_fisiltisi.sonuc2,Karantina çadırı feryatlarla doldu; asayiş sağlandı amma ailelerin canı yandı.
+olay.salgin_fisiltisi.sonuc3,Kuyu başında nöbet tutuldu amma köyün kadınları günlerce testilerini doldurmaya korktu.
+olay.koy_dugunu.baslik,Yetim Kızın Köy Düğünü
+olay.koy_dugunu.metin,Köyün demirci kalfası ile kapıdan sığınan yetim bir Türkmen kızı evlenmek ister. Ahali meydanda davul zurna çalıp toy kurmak için muhafızdan destur ve yardım bekler.
+olay.koy_dugunu.secenek1,"Köy ambarından toy aşı ver, düğünü beylik namına şenlendir (2 ambar, 1 akçe harca)"
+olay.koy_dugunu.secenek2,"Sade bir nikah kıyılmasına izin ver, ambarı koru"
+olay.koy_dugunu.secenek3,Kış ortasında toy kurulmasını yasakla; nöbeti sıkı tut
+olay.koy_dugunu.sonuc1,Köy meydanında kurulan toyda etli pilav dağıtıldı; ahalinin neşesi dağların ayazını kırdı.
+olay.koy_dugunu.sonuc2,"Nikah sade geçti; iki garip yuva kurdu, ambarın buğdayı köyde kaldı."
+olay.koy_dugunu.sonuc3,Düğün hevesi kursaklarda kaldı; köylü muhafızın katılığından dert yandı.
+olay.firari_cenazesi.baslik,Dağ Geçidinde Donan Garibin Cenazesi
+olay.firari_cenazesi.metin,Avcılar dağ geçidinde donarak ölmüş bir kaçağın cesedini bulup kapı önüne getirdi. Köylüler cenazenin köy mezarlığına defnedilip helallik verilmesini ister.
+olay.firari_cenazesi.secenek1,Köy mezarlığına İslami usulle defnettir ve helallik verdir
+olay.firari_cenazesi.secenek2,Cesedi dağ ardındaki kimsesizler vadisine gömdür
+olay.firari_cenazesi.secenek3,"Sancak subaşısına haber sal, cenazeyi beklet"
+olay.firari_cenazesi.sonuc1,Cenaze dualarla kaldırıldı; ahali muhafızın merhametine şahitlik etti.
+olay.firari_cenazesi.sonuc2,Garip sessizce vadiye gömüldü; köylülerin yüreğinde bir burukluk kaldı.
+olay.firari_cenazesi.sonuc3,Ceset günlerce bekletildi; sancak inzibatı gelmeyince köyde huzursuzluk büyüdü.
+olay.samanlik_yangini.baslik,Gece Samanlık Yangını
+olay.samanlik_yangini.metin,Gece yarısı alt köyün samanlığından alevler yükseldi. Kundaklama şüphesi vardır; rüzgâr yangını ahşap evlere doğru sürüklüyor.
+olay.samanlik_yangini.secenek1,Tüm köyü ve nöbetçileri kovalara koştur; yangını söndür
+olay.samanlik_yangini.secenek2,"Samanlığı feda et, hendek kazıp evleri emniyete al"
+olay.samanlik_yangini.secenek3,Kışla askerini kundakçıyı yakalamak için çevreye sal
+olay.samanlik_yangini.sonuc1,Birlik olan köylüler alevleri bastırdı; samanlığın yarısı yandı amma evler kurtuldu.
+olay.samanlik_yangini.sonuc2,Samanlık kül oldu amma hendek sayesinde hiçbir cana ve haneye zarar gelmedi.
+olay.samanlik_yangini.sonuc3,Askerler ormanda şüpheli bir harami gözcüsünü kıskıvrak yakalayıp kışlaya kapattı.
+olay.gece_donu.baslik,Erken Bastıran Gece Ayazı
+olay.gece_donu.metin,Kuzeyden inen kuru ayaz su arklarını dondurdu. Bostanlardaki son kışlık sebzeler ve bağ fidanları don vurma tehlikesiyle karşı karşıya kaldı.
+olay.gece_donu.secenek1,Tarlaların çevresinde saman dumanı tüttürüp donu kır
+olay.gece_donu.secenek2,Mahsulü hemen toplatıp köy ambarına doldur
+olay.gece_donu.secenek3,Ayaza karşı tedbir alma; fidanların dayanıklılığına güven
+olay.gece_donu.sonuc1,Tüttürülen duman ayazı kırdı; bağ fidanları ve bostanlar bahara sağ salim ulaştı.
+olay.gece_donu.sonuc2,Gece boyu süren hasatla iki çuval kışlık sebze ambara girdi; köylü kışa hazırlandı.
+olay.gece_donu.sonuc3,Don mahsulü yaktı; yapraklar kararınca rençberler kış telaşına düştü.
+olay.harami_elcisi.baslik,Dağ Çetesinden Gelen Tehdit Pusulası
+olay.harami_elcisi.metin,"Dağdaki harami reisi köy muhafızına bir çobanla pusula gönderdi: 'Kışlığımızı verin, yoksa koyunlarınızı ve değirmeninizi ateşe veririz!'"
+olay.harami_elcisi.secenek1,"Pusulayı yırt at, kule nöbetini iki katına çıkar!"
+olay.harami_elcisi.secenek2,"Kan dökülmesin diye çeteye erzak ve harçlık gönder (2 akçe, 3 ambar harca)"
+olay.harami_elcisi.secenek3,Pusu kur: Çobanla haber gönderip haramileri dere boyuna çek!
+olay.harami_elcisi.sonuc1,Kulede meşaleler sabaha kadar yandı; haramiler surların azametini görüp dağa çekildi.
+olay.harami_elcisi.sonuc2,Erzak çeteye teslim edildi; tehlike savuşturuldu amma köylünün ambarı hafifledi.
+olay.harami_elcisi.sonuc3,Dere boyunda kurulan pusuda iki harami vuruldu; ele geçen heybelerden köy kasasına ganimet girdi.

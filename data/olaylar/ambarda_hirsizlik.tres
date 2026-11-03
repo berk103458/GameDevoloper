@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="OlayVerisi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/olay_verisi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"ambarda_hirsizlik"
+baslik_anahtari = "olay.ambarda_hirsizlik.baslik"
+metin_anahtari = "olay.ambarda_hirsizlik.metin"
+kosullar = {"gece_min": 2, "nufus_en_az": 3}
+agirlik = 1.0
+tek_sefer = true
+secenek_anahtarlari = PackedStringArray("olay.ambarda_hirsizlik.secenek1", "olay.ambarda_hirsizlik.secenek2", "olay.ambarda_hirsizlik.secenek3")
+secenek_etkileri = Array[Dictionary]([{"bar": [-2, 1, 0, 2]}, {"gerekli": {"akce": 2}, "bar": [1, 1, -1, -1]}, {"bar": [-1, -2, 0, 0]}])
+ses = &""
+muzik = &""

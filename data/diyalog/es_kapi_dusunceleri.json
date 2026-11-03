@@ -149,5 +149,75 @@
     "asker": {
       "karar_oncesi": "Pusatı sağlam, gözü pek asker gerek bu karlı dağ başına. Kışlaya sorup öyle karar ver."
     }
+  },
+  "diyalog_21": {
+    "karsilama": "Keçe abalı, asası ardıçtan bir derviş... Yaylanın ayazını gözlerindeki tebessümle ısıtır gibi.",
+    "kritik_soru": "Cübbesinin astarında ferman taşır derler beyim; Moğol'un casusu mudur, yoksa Hakk aşığı bir garip midir?",
+    "karar_oncesi": "Dervişin girdiği köye bereket girer derler beyim... Hem yayladaki çobanın anasından haber getirmiş. Mescidin sundurmasında bir hasır verelim, köylüye dua etsin.",
+    "karar_kabul": "İyi ettin beyim. Derviş duası köyümüzün üzerindeki kara bulutları dağıtır inşallah.",
+    "karar_ret": "Dervişi kapıdan çevirmek uğursuzluk getirir derler... Gönlüm hiç razı olmadı amma sen bilirsin."
+  },
+  "diyalog_22": {
+    "karsilama": "Tebriz kervanından koptum der amma kaftanı pek süslü... Katırların heybelerinden safran tütüyor.",
+    "kritik_soru": "Boynundaki gümüş zincirli plaka Moğol payzasına benzer beyim! Tüccar kılığına girmiş bir casus olmasın?",
+    "karar_oncesi": "Gözleri tilki gibi oynar beyim! Kayserili çuhacıya da hırsız der... İçeri alırsan köyde fesat çıkarır, safranın hatırına canımızı tehlikeye atmayalım.",
+    "karar_kabul": "Safranı kışlık şifaya yarar belki amma gözünü katırların üzerinden ayırma beyim.",
+    "karar_ret": "İsabet ettin beyim. Moğol'un payzasıyla gezen adamın köyümüzde işi yoktur."
+  },
+  "diyalog_23": {
+    "karsilama": "Paslı zırhı ve sancak tuğlu tolgasıyla kapıya dayandı... Sancak inzibat çavuşu Sungur.",
+    "kritik_soru": "Kışla firarilerini arar amma niyeti adalet değil, kelle başına haraç koparmak gibi görünüyor beyim.",
+    "karar_oncesi": "Bu adam kışlaya girerse Sivas bozgunundan sığınan o garipleri kılıçtan geçirir beyim! Amma kapıyı yüzüne çarparsan sancak askerini üzerimize salar. Silahını bağlatıp kışla nizamına sokalım.",
+    "karar_kabul": "Kışlaya aldık amma tetikte olalım beyim; bu çavuşun gözü hiç tekin bakmıyor.",
+    "karar_ret": "Sancak çavuşunu kovdun beyim... Yüreğim ferahladı amma sancak beyi bu dik başlılığı unutmaz."
+  },
+  "diyalog_24": {
+    "karsilama": "Yüzü tülbentle örtülü, kucağında kundağıyla karları sürüyerek geldi... Boğazındaki öksürük yürek parçalar.",
+    "kritik_soru": "Veba çıbanı taşır beyim! O kundağa bulaştıysa köyün tüm bebeleri tehlikeye girer, ne büyük bir azap bu!",
+    "karar_oncesi": "Beyim... Bir anayım ben, o kundağa kıyamam! Kadını içeri alırsak köy kırılır, dışarıda bıraksak sabi donar! Kireç ocağının yanındaki kulübeye tecrit edelim, sabiyi uzaktan besleyelim!",
+    "karar_kabul": "Allah merhametini kabul etsin beyim... Sabiyi kurtardık, kadına da kireç ocağında sıcak bir çorba nasip oldu.",
+    "karar_ret": "Ah beyim ah... O sabinin ağlayışı rüyalarıma girecek. Hak katında günahı boynumuza kalmasın..."
+  },
+  "diyalog_25": {
+    "karsilama": "Tir tir titreyen, kollarında sopa izleri olan bir oğlancık... Erzincan fırıncısından kaçmış.",
+    "kritik_soru": "Hamza Dayısını sorar beyim! Gerçekten Hamza rençberin yeğeni midir, yoksa bir hırsız çırağı mı?",
+    "karar_oncesi": "Gözleri tıpkı Hamza rençbere benzer beyim! Günlerdir bu dağlarda aç kalmış garip. Fırında odun taşır, köye yük olmaz; Hamza dayısının yanına salalım gitsin!",
+    "karar_kabul": "Gözün aydın olsun Hamza rençber! İki yetim kavuştu ya, köyümüzün bereketi iki katına çıkar beyim.",
+    "karar_ret": "Karda titreyen çocuğu dağa saldık beyim... Hamza rençber bunu duyarsa kahrolur."
+  },
+  "diyalog_26": {
+    "karsilama": "Eşeğinin sırtı kurutulmuş ot ve şişeyle dolu... Konya Darüşşifası'ndanım der amma gözleri kaypak.",
+    "kritik_soru": "Afyon şurubunu dilinden düşürmez beyim; köprü leventinin kolunu da bu adam kangren etmiş olmasın?",
+    "karar_oncesi": "Köyün şifacısı Miraen varken bu afyoncu şarlatana güven olmaz beyim! Amma kışlık merhemi ve neşteri kışlaya yarayabilir; içeri alırsan şifahanede Miraen'in gözetiminde tut.",
+    "karar_kabul": "İçeri aldın amma tembihle Miraen'e; bu hekimin her kavanozunu koklasın, zehir dağıtmasın.",
+    "karar_ret": "İyi ettin beyim. Şarlatanın ilacı hastayı değil köyü mezara sokar."
+  },
+  "diyalog_27": {
+    "karsilama": "Cübbesi çamurlu, parmakları mürekkepli bir kâtip... Mahkemeden kovulmuş Molla Şükrü.",
+    "kritik_soru": "Hasan Çelebi'ye hırsız der, sandığında ise sahte vakıfname taşır beyim! Köyün tarlalarına fitne sokacak besbelli.",
+    "karar_oncesi": "Aman beyim, bu kâtibi sakın içeri alma! Hasan Çelebi ile birbirlerine girerler, divanın düzeni altüst olur! Köylünün tapusuna göz diken adamdan hayır gelmez.",
+    "karar_kabul": "İçeri aldın amma divan çadırında Hasan Çelebi ile aralarına nöbetçi koy beyim; kavga çıkmasın.",
+    "karar_ret": "Ağzına sağlık beyim. Fitneci kâtibin köyümüzde yeri yoktur; divitin mürekkebi kana bulanmasın."
+  },
+  "diyalog_28": {
+    "karsilama": "Kurt postlu, kalkanlı bir Türkmen kızı... Dağların kurdu Banu Hatun; gözlerinde intikam ateşi var.",
+    "kritik_soru": "Öldürülen harami ağabeyinin intikamını arar beyim; nalbantın hileli nalla kardeşini tökezlettiğini söyler.",
+    "karar_oncesi": "Bu kadının öfkesi dağları yakar beyim! Amma kalleş değil, mert bir savaşçıya benzer. Kılıcını kışlaya teslim ederse kapıda nöbetimize büyük güç katar; nalbantla yüzleştirip adaleti sağla derim.",
+    "karar_kabul": "Kışlaya aldın beyim; kapıda nöbet tutan kadın savaşçının oku haramiye göz açtırmaz.",
+    "karar_ret": "Kadını geri çevirdin beyim... Yüreği matem dolu bir bacıyı kovduk; umarım dağdan haramileriyle dönmez."
+  },
+  "diyalog_29": {
+    "karsilama": "Yüzü don ısırığından morarmış, nefesi ayazda tıkanan bir kafile habercisi... Feryat figan kapıya dayandı.",
+    "kritik_soru": "Dün kapıdan kovulan kafilenin karda donduğunu söyler beyim... Ah, içim cız etti! Gerçekten yardıma mı muhtaçlar, yoksa ambarı soymak için pusu mu?",
+    "karar_oncesi": "Karda donan bebeleri duyunca dizlerimin bağı çözüldü beyim! Kapıyı toptan açamayız amma ambardan iki çuval unla sıcak battaniye verelim; gitsin o garipleri kurtarsın!",
+    "karar_kabul": "Allah razı olsun beyim! Sedyeler yetişirse o sabiler donmaktan kurtulur; merhametimiz köyü korur.",
+    "karar_ret": "Yüreğim dayanmıyor beyim... O donan canların ahı bu kapının taşını çürütür; çok ağır bir karar verdin."
+  },
+  "diyalog_30": {
+    "karsilama": "Göğsündeki muska... Beyim, bu kız senin ata ocağından! Erzincan'daki kardeşin Hasan'ın kızı Turna!",
+    "kritik_soru": "Peşinde sancak voyvodasının atlıları varmış beyim! Kızımızı içeri alırsak voyvoda köyü ateşe verir mi?",
+    "karar_oncesi": "Beyim... Kendi öz kanımızdır, yetim yeğenindir! Voyvodanın itlerine bu masum kızı teslim edersek iki cihanda yüzümüz kara çıkar! Gerekirse köyün surunu kapar, voyvodaya karşı dururuz; Turna'yı bağrımıza bas!",
+    "karar_kabul": "Kurban olayım adaletine beyim! Yeğenimiz ocağımıza sığındı ya, soframızın aşı iki kat bereketlenir. Ona kızım gibi bakacağım.",
+    "karar_ret": "Öz yeğenini... Kendi kanını kapıdan kovdun beyim... Ocağımızın ateşi söndü bu gece; voyvodanın eline düşerse günahı boynumuzadır."
   }
 }
