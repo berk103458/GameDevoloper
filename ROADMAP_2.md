@@ -234,7 +234,7 @@ ACL-01 … ACL-06 gövdesi durur. Yeni maddeler ACL-07 … ACL-86. İkinci hane 
 
 ### 14.3 Akşam
 
-- [ ] **ACL-03:** Akşam sohbeti — eş günün kararlarını konuşur.
+- [x] **ACL-03:** (Antigravity) Akşam sohbeti — eş günün kararlarını konuşur.
   - Ne: Ağır bir kapı kararından sonra, gece raporundan önce eş bir kez konuşur. Konu ağırlığı ve meslek cümlesi DYL-07'den okunur; ikinci sohbet motoru yazılmaz. Ağır karar yoksa gündelik satır gelir ya da sohbet hiç açılmaz. Sohbet atlanabilir ve atlamak barı değiştirmez. Meclis gecesinde bu sohbet açılmaz. Eş ölmüşse tetik susar.
   - Kurallar:
     1. Bu madde tetiği ve kapanışı tanımlar. Konu ağırlığı, meslek varyantı ve eş hafızası DYL-07'den okunur. İkinci sohbet motoru yazılmaz.
@@ -2035,7 +2035,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.4 Dönüş, denetçi, varyant
 
-- [ ] **DYL-07:** Akşam eşle konuşmak (ACL-03'ün ayrıntılı tasarımı).
+- [x] **DYL-07:** (Antigravity) Akşam eşle konuşmak (ACL-03'ün ayrıntılı tasarımı).
   - Ne: Gece raporundan önce ocak başında en çok bir sohbet açılır. Konu, günün kararları arasından ağırlık tablosuna göre seçilir; eşin mesleği cümleyi değiştirir. Eş, muhafızın görmediği bir şeyi söyleyebilir ve bu ertesi gün ipucu olur. Sohbet atlanabilir, atlamanın cezası yoktur. Meclis gecesinde ve eş ölmüşken sohbet açılmaz. Yeni ses dosyası eklenmez.
   - Kurallar:
     1. Gece raporundan önce, ocak başında, en çok bir sohbet. 2–4 eş repliği, muhafız için 2–3 cevap: savunmak, kabul etmek, susmak.

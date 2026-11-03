@@ -1,0 +1,314 @@
+{
+  "konular": {
+    "aileyi_bolmek": {
+      "agirlik": 5,
+      "baslik": "Aileyi Bölme Kararı",
+      "es_replikleri": [
+        "Kapıda anayı içeri alıp oğlanı dışarıda bırakmışsın...",
+        "Ocağın direğini kırmak bize yakışır mıydı beyim?"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Yarın tezgahta kadınların yüzüne nasıl bakarım? Hepsi o ananın feryadını konuşur.",
+        "firinci": "Bölünen ailenin boğazından geçen ekmek bize helal olur mu dersin?",
+        "ebe": "Kundağındaki sabiyi anasından ayırmak gibi bu; yüreğim kaldırmaz."
+      },
+      "ipucu": "bolunen_aile_husumeti",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Kural açık hatun; köyün dirliği için ayrılmaları şarttı.",
+          "terazi": "savundu",
+          "moral_etkisi": 0
+        },
+        "kabul_etmek": {
+          "metin": "Haklısın... Kapıdaki ayazda aklım bulandı, içim sızlar.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız başını öne eğer, ocaktaki külleri karıştırır.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "rusvet_almak": {
+      "agirlik": 5,
+      "baslik": "Kapıda Akçe Pazarlığı",
+      "es_replikleri": [
+        "Kuşağındaki o gümüşleri gördüm. Kapı haram parayla mı bekçi tutuyor?",
+        "Sancak beyi duysa boynumuzu vurdurur; yetimin hakkı o akçelerde!"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Tezgahta emeğimle eğirdiğim yüne haram katma beyim.",
+        "firinci": "Haram akçeyle alınan unun ekmeği kursaktan geçmez.",
+        "ebe": "O paranın üstünde kaç mazlumun gözyaşı var, bilmez misin?"
+      },
+      "ipucu": "rusvet_fisiltisi_koyde",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Köyün ambarına, kışlık zahireye harcanacak; nefsim için almadım.",
+          "terazi": "savundu",
+          "moral_etkisi": -1
+        },
+        "kabul_etmek": {
+          "metin": "Hırsıma yenildim... O akçeleri yarın fakire dağıtacağım.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız hiçbir şey demez, keseyi sandığın dibine gizler.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "cocuklu_aileyi_cevirmek": {
+      "agirlik": 4,
+      "baslik": "Çocuklu Kafileyi Geri Çevirme",
+      "es_replikleri": [
+        "Dağ başında ayaz var; o bebeleri bu gece kime emanet ettin?",
+        "Kurtlar uluyor dışarıda... İçim ürperiyor muhafız."
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Eski çaputlardan bir döşek atacak yerimiz de mi yoktu sur dibinde?",
+        "firinci": "Bayat arpa ekmeğimizi bölüşürdük; açlıktan değil taştan korktuk.",
+        "ebe": "O çocukların titreyen elleri rüyama girecek bu gece."
+      },
+      "ipucu": "donan_cocuklar_haberi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Köyde arpa kalmadı hatun, alsaydım bizim çocuklar aç kalacaktı.",
+          "terazi": "savundu",
+          "moral_etkisi": 0
+        },
+        "kabul_etmek": {
+          "metin": "Kapıyı kaparken gözümün önü karardı... Yüreğim daralır.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız kapının mandalına bakar, suskunluğa gömülür.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "hastayi_koye_almak": {
+      "agirlik": 4,
+      "baslik": "Hastalık Taşıyanı Köye Kabul",
+      "es_replikleri": [
+        "Gelen adamın göğsü hırıldıyordu, teni solmuştu. Gördüm.",
+        "Köyün kuyusuna, çocukların nefesine veba bulaşırsa ne yaparız?"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Yün eğiren kızlar sabah kuyu başında korkuyla toplanır.",
+        "firinci": "Fırının sıcağı hastalığı azdırır derler; duman köyü sarar.",
+        "ebe": "Kara hummaysa bu, ocaklar söner beyim! Hemen tecrit gerek."
+      },
+      "ipucu": "hastalik_karantina_tedbiri",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Miraen'e tembih ettim; tecrit kulübesinde şifasını arayacak.",
+          "terazi": "savundu",
+          "moral_etkisi": 1
+        },
+        "kabul_etmek": {
+          "metin": "Merhametim aklımın önüne geçti; sabah erkenden hekime koşacağım.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız ocağa bir odun daha atar, sessizce dumanı izler.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "yalan_yemin_edeni_almak": {
+      "agirlik": 3,
+      "baslik": "Yalan Yemin Edenin Kabulü",
+      "es_replikleri": [
+        "Kuran'a el bastı ama gözleri sağa sola kaçıyordu o herifin.",
+        "Kutsal emaneti kalkan eden kalleşten köye hayır gelir mi?"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Sözün ipliği bir kez koptu mu dikiş tutmaz beyim.",
+        "firinci": "Tuz ekmek hakkını çiğneyen, yarın ambara da dadanır.",
+        "ebe": "Yalanla giren nifak tohumu saçar; kadınların dili durmaz."
+      },
+      "ipucu": "yemin_bozan_suphesi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Şüphem vardı amma delilim yoktu; yeminine hürmet etmek zorundaydım.",
+          "terazi": "savundu",
+          "moral_etkisi": 0
+        },
+        "kabul_etmek": {
+          "metin": "Yalanını seziyordum, göz yummam hataydı; gözetleyeceğim.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız çizmelerini çözerken bir kelime dahi etmez.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "yakalanan_yalan": {
+      "agirlik": 3,
+      "baslik": "Kapıda Yalan Yakalama",
+      "es_replikleri": [
+        "Gelen adam heybesini gizlemeye çalışırken iyi sıkıştırdın.",
+        "Yalanını yüzüne vurunca rengi attı; kapıdaki gözün keskinmiş beyim."
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Düğümünü iyi çözdün; kumaşın hilesini bilen usta gibisin.",
+        "firinci": "Böylelerine yüz vermemek gerek; aç kalsa da dürüst olan gelsin.",
+        "ebe": "Yalancının nabzı çabuk atar, bakışından anlarım demiştin; haklı çıktın."
+      },
+      "ipucu": "yalan_yakalama_itibari",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Uç beyliğinde gevşek davranan nöbetçinin ocağı erken söner.",
+          "terazi": "savundu",
+          "moral_etkisi": 1
+        },
+        "kabul_etmek": {
+          "metin": "Gözüm üstündeydi amma içim yine de hoşnut değil.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "Muhafız hafifçe başını sallar, gururlanmadan ateşe bakar.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "tutulmayan_soz": {
+      "agirlik": 3,
+      "baslik": "Köylüye Verilen Sözün Tutulmaması",
+      "es_replikleri": [
+        "Demirci kalfasına kömür sözü vermiştin, bugün kışlaya çekmişsin.",
+        "Muhafızın sözü senet bilinir bu köyde; güven sarsılırsa tutunamayız."
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Komşu kadınlar 'Muhafız bey sözünden döndü' diye fısıldaşır.",
+        "firinci": "Söz fırındaki hamura benzer; vakti geçerse ekmek taş olur.",
+        "ebe": "Güven bir can gibidir, bir kere gitti mi geri gelmesi müşküldür."
+      },
+      "ipucu": "koylu_kirginlik_kaydi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Sancak emri geldi, mecburen kışlaya öncelik verdim.",
+          "terazi": "savundu",
+          "moral_etkisi": 0
+        },
+        "kabul_etmek": {
+          "metin": "Kusur benimdir; yarın sabah ilk iş demirciye varıp helallik alacağım.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız suçlulukla kılıcının kınını siler, ses çıkarmaz.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "firari_askeri_almak": {
+      "agirlik": 3,
+      "baslik": "Kışla Firarisini Köye Kabul",
+      "es_replikleri": [
+        "Sancak subaşısının aradığı o askeri köye sokmuşsun.",
+        "İnzibat atlıları yarın kapıya dayanırsa ne hesap vereceksin?"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Asker kaçağı tezgaha yanaşamaz; köyü ateşe atma beyim.",
+        "firinci": "Asker dediğin kışlasında durur; ekmeğimizi firariye mi böleceğiz?",
+        "ebe": "Yaralıysa sararız amma kılıcından kan damlıyorsa bela çeker."
+      },
+      "ipucu": "subasi_baskin_ihtimali",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Zulümden kaçmış bir garip neferdi; kılıç tutacak adama da muhtacız.",
+          "terazi": "savundu",
+          "moral_etkisi": 0
+        },
+        "kabul_etmek": {
+          "metin": "Büyük risk aldım, bilirim; köyü korumak için nöbeti artıracağım.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "Muhafız pencereden karanlık yola bakar, bir şey demez.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "kacak_yetimi_almak": {
+      "agirlik": 3,
+      "baslik": "Kaçak Çırak / Yetimi Sahiplenme",
+      "es_replikleri": [
+        "Kapıdaki o çelimsiz çocuğu içeri almışsın...",
+        "Karnı aç, üstü başı yırtık; kime emanet edeceğiz bu sabiyi?"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Benim yanıma ver, yün eğirmeyi öğrensin; işe yarar.",
+        "firinci": "Fırına çırak verelim; hamur yoğurur, boğazının ekmeğini çıkarır.",
+        "ebe": "Şefkat gerek o yavruya; ocak başında bir tas sıcak çorba içer."
+      },
+      "ipucu": "yetim_himaye_sevgisi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Sokağa atamazdım hatun; yetimi korumak beyliğin şanıdır.",
+          "terazi": "savundu",
+          "moral_etkisi": 2
+        },
+        "kabul_etmek": {
+          "metin": "Hane dar amma gönlümüz geniştir; bir tas çorbamız yeter.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız çocuğun getirdiği tahta oyuncağa bakar, tebessüm eder.",
+          "terazi": "kacti",
+          "moral_etkisi": 1
+        }
+      }
+    },
+    "gundelik_sessizlik": {
+      "agirlik": 1,
+      "baslik": "Sakin Günün Akşamı",
+      "es_replikleri": [
+        "Bugün kapı sakinmiş beyim; şükür ki kavga gürültü çıkmadı.",
+        "Dağların ayazı erken indi; çorbanı sıcakken iç."
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "Bugün iki top çulha dokuduk, köyün kadınları neşeliydi.",
+        "firinci": "Odunumuz tam, unumuz bereketli; fırın tütüyor çok şükür.",
+        "ebe": "Şifalı otları kuruttum; köyde mühim bir sayrılık yok."
+      },
+      "ipucu": "koyde_huzur_gunu",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Sükunet iyidir hatun; lakin nöbeti boş bırakmaya gelmez.",
+          "terazi": "savundu",
+          "moral_etkisi": 1
+        },
+        "kabul_etmek": {
+          "metin": "Elhamdülillah; ocağımızın dumanı tütsün yeter.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "Muhafız sıcak kaseyi iki eliyle tutar, sessizce dinlenir.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    }
+  }
+}

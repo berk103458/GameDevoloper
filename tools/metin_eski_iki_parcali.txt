@@ -1,4 +1,5 @@
 # YER-02 öncesi iki parçalı anahtarlar; korunur. Yeni anahtar alan.alt.ad (en az üç parça) olur.
+acilis.denge_hatasi
 anlati.ambar
 anlati.gelir
 anlati.harc
