@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — YSM-02 tamamlandı (Kalfa)
+
+Açlık üretimi 0,80 / 0,50 / 0 kademesine bağlandı. Yürüyüş çarpanı 0,70 ve bitkin temas riski +5 puan seçildi. Gece üretimi, erzak sıfırlaması ve gerçek şifahane testi geçti. Son headless import temiz. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — YAP-70 tamamlandı (Kalfa)
 
 DEN, gece raporundaki toplam inşaat ilerlemesini okur. Gerçek gece testi ve son headless import geçti. Asset gerekmedi. kota görünmüyor.

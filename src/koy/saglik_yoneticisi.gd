@@ -76,7 +76,9 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> int:
 			if aday == kaynak or hasta(aday) or denenen.has(aday.id) or not temas_edebilir(y, aday) or not (ortak_bina(y, kaynak, aday) or CenazeYasi.ortak_toren(y, kaynak, aday)): continue
 			denenen[aday.id] = true
 			temas += 1
-			if y._rng.randi_range(1, 100) > KoyYonetimi.ACLIK_SAGLIK.risk(y, int(AYAR[kaynak.enfeksiyon.tur].risk)): continue
+			var risk := KoyYonetimi.ACLIK_SAGLIK.risk(y, int(AYAR[kaynak.enfeksiyon.tur].risk))
+			risk += preload("res://src/koy/aclik_kademesi.gd").hastalik_riski(aday)
+			if y._rng.randi_range(1, 100) > mini(100, risk): continue
 			if enfekte(y, aday, String(kaynak.enfeksiyon.tur)):
 				aday.enfeksiyon.son_gece = y.gun
 				aday.bayrak_ac("hasta")

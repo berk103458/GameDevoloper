@@ -1,0 +1,5 @@
+{
+  "1": {"uretim": 0.8},
+  "2": {"uretim": 0.5, "yurume": 0.7},
+  "3": {"uretim": 0.0, "yurume": 0.7, "hastalik_riski": 5}
+}

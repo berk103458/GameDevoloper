@@ -7,7 +7,7 @@ extends RefCounted
 static func koylu_carpani(k: Koylu, uzmanlik: String, a: KoyAyarlari, bina_turu: String = "") -> float:
 	var c := bilesik_carpan(k.bayraklar + k.gizli_bayraklar, uzmanlik, a.flag_carpanlari, a.carpan_alt, a.carpan_ust)
 	if not bina_turu.is_empty(): c *= MeslekUyumu.carpan(k, bina_turu) * KoyluGelisimYoneticisi.carpan(k, bina_turu)
-	return c * a.aclik_verim if k.ac else c
+	return c * preload("res://src/koy/aclik_kademesi.gd").uretim(k)
 
 ## Olumsuz bayraklar (çarpan `olumsuz`).
 const OLUMSUZ: Array[String] = ["tembel", "agir_yarali", "hasta", KisHastaligi.FLAG]

@@ -153,6 +153,12 @@ func _saglik_ve_tedavi() -> void:
 	dene(not SaglikYoneticisi.hasta(k) and Sifahane.tedavi_kapasitesi(y) == 0 and y.kaynaklar.miktar("gida") == gida - 2, "Aynı Şifahane iki erzak/bir kontenjanla tedavi eder")
 	SaglikYoneticisi.tedavi(y, [])
 	dene(y.kaynaklar.miktar("gida") == gida - 2, "Tedavi tekrarı ücretsiz ikinci iyileşme yapmaz")
+	y.gun += 1
+	k.ev = sifahane.id
+	k.saglik = 60
+	SaglikYoneticisi.enfekte(y, k)
+	y.gece()
+	dene(not SaglikYoneticisi.hasta(k) and k.saglik == 70, "YSM-02: gerçek gece tedavisi doğal iyileşmeyle toplanmaz")
 	var olum := hazir()
 	var oluy := olum.yonetim
 	var hasta := oluy.kabul({"ad":"Son Hasta", "gizli":["veba"]})

@@ -1821,7 +1821,10 @@ koy.yasam.baslik,Yaşam barları
 koy.yasam.aclik,Açlık
 koy.yasam.yorgunluk,Yorgunluk
 koy.yasam.moral,Moral
-koy.yasam.ozet,Açlık %d gece · Yorgunluk %s · Moral %d
+koy.yasam.tok,Tok
+koy.yasam.ac,Aç
+koy.yasam.bitkin,Bitkin
+koy.yasam.ozet,Açlık %s · Yorgunluk %s · Moral %d
 koy.yasam.var,var
 koy.yasam.yok,yok
 koy.yasam.ozet_muhafiz,Yorgunluk %s · Moral %d

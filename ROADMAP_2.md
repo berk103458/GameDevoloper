@@ -1733,7 +1733,7 @@ YSM-01 … YSM-03 gövdesi durur. Yeni maddeler YSM-04 … YSM-83. İkinci açl�
 
 ### 22.2 Açlık kademesi
 
-- [ ] **YSM-02:** Açlığın kademeli etkisi.
+- [x] **YSM-02:** Açlığın kademeli etkisi. (Kalfa)
   - Ne: Açlık üç kademedir ve eşikler `data/koy/aclik_kademeleri.json` içindedir. Bir gün üretim çarpanı 0.80'dir. İki gün çarpan 0.50 olur ve yürüyüş yavaşlar. İki günü aşan kişi evde yatar, iş satırı yazmaz ve hastalık riski artar. Çarpan, UZM-03 ve ADM-08 hesabının üstüne tek çarpan olarak biner; `uretim.gd` içindeki `aclik_verim` bu tablonun yerine geçer, ikinci çarpan açılmaz. Hastalık riski mevcut sağlık yöneticisine yazılır, yeni salgın dalgası çıkmaz.
   - Kabul: 1. günde üretim çarpanı 0.80, 2. günde 0.50'dir; 3. günde kişi iş satırı yazmaz ve salgın sayacı kendiliğinden artmaz (`tests/unit/koy/yasam_test.gd`). Gece payı düşünce sayaç 0'a döner ve çarpan 1 olur. Eşik dosyasında gün sayısı yoksa o kademe uygulanmaz. Yatan kişiye geçici iş yazılmaz. Ek şart: Kademe kartta tok, aç veya bitkin kelimesiyle yazılır; 0–100 sayısı basılmaz. Ek şart: Tok kişide gece sağlık artışı `iyilesme` alanından bir kez okunur; aç kademesinde bu artış 0'dır. Ek şart: Aç kademesinde moral düşüşü `aclik_moral` alanından okunur; bu sayı `.gd` içine yazılmaz. Ek şart: Aynı gecede şifahane iyileşmesi de varsa yalnız büyük olan yazılır. Ek şart: Açlık yeni ölüm türü açmaz; sağlık 0 olan kişi KRI-05 cenaze akışına bir kez girer. Ek şart: Zindan payı bitince yeni hastalık açılmaz; sağlık düşüşü yalnız açlık kademesindedir.
   - Bağımlılık: YSM-01. Boyut: S.
