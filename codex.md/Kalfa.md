@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — ISG-56 tamamlandı (Kalfa)
+
+Geçici iş kartı ikonunu Sanat önbelleğinden ister. Kart headless testi geçti. İlk import MD5 hatası verdi, ikinci import temiz tamamlandı. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-45 tamamlandı (Kalfa)
 
 Odunluk yıkılınca boş köylü dal toplamaya atanamadı ve gece üretimi sıfır kaldı. Hedefli test ve son headless recovery import geçti. Asset gerekmedi. kota görünmüyor.

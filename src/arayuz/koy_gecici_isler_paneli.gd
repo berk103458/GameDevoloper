@@ -24,6 +24,7 @@ static func ekle(ekran: KoyEkrani, sekmeler: TabContainer, k: Koylu) -> void:
 		hedef.set_meta("gecici_is",d.id)
 		var neden := GeciciIsler.neden(ekran.oturum.yonetim,k,d.id)
 		hedef.text = GeciciIsler.ad(d.id)
+		hedef.icon = Sanat.is_ikonu(d.id)
 		if not neden.is_empty(): hedef.text += " · " + TranslationServer.translate(neden)
 		hedef.tooltip_text = TranslationServer.translate("koy.gecici_is.verim") % [int(GeciciIsler.AYAR.verim_yuzde), int(d.yorgunluk)]
 		hedef.disabled = not neden.is_empty()

@@ -1411,7 +1411,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.7 Kart
 
-- [ ] **ISG-56:** İş ikonu Sanat'tan gelir
+- [x] **ISG-56:** İş ikonu Sanat'tan gelir (Kalfa)
   - Ne: İş ikonu Sanat'tan gelir. Panel `load` açmaz.
   - Kabul: İş ikonu Sanat'tan gelir. load 0. Test: GRV-27.
   - Bağımlılık: GRV-27. Boyut: S.
