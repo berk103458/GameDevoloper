@@ -20,6 +20,7 @@ var yonetim: KoyYonetimi
 var tohum: int = 0
 var dedikodu := Dedikodu.new() # KAY-12: mevcut kuyruğun tek oturum nesnesi.
 var grup_itibari := GrupItibari.new() # KAY-11: mevcut altı grubun tek oturum nesnesi.
+var soz_kaydi := SozKaydi.new() # KAY-07…10: söz alanlarının tek paketi.
 var muhafiz_tecrubesi: int = 0
 ## HAR-02 optional tek gece uyarı defteri; kalan süre gerçek günden türetilir.
 var mogol_oncusu: Dictionary = {}
@@ -741,7 +742,7 @@ var ipucu_kaydi := IpucuKaydi.new()
 
 
 func kaydet() -> Dictionary:
-	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
+	var veri := {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
 		"ogretici": ipucu_kaydi.sozluge(),
 		"dedikodu": dedikodu.kaydet(),
 		"grup_itibari": grup_itibari.kaydet(),
@@ -772,6 +773,9 @@ func kaydet() -> Dictionary:
 		"koy_yonetimi": yonetim.kaydet(),
 		"rng": [str(_rng.state), str(_rng_donus.state), str(_rng_ad.state), str(_rng_heybe.state)]}
 	# 64 bit sayılar JSON'da float'a döner; metin olarak saklanır.
+	if SozKaydi.acik(ayarlar):
+		veri["soz"] = soz_kaydi.paket(kadro)
+	return veri
 
 
 ## Kayıttan oturum kurar; geçersizse null.
@@ -792,6 +796,8 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 		o.gorulen_olaylar[StringName(g)] = true
 	if not o.kadro.yukle(veri.get("kadro", {})):
 		return null
+	if SozKaydi.acik(o.ayarlar):
+		o.soz_kaydi.uygula(o.kadro, veri.get("soz", {}))
 	var r: Array = veri.get("rng", [])
 	if r.size() >= 4:
 		o._rng.state = String(r[0]).to_int()

@@ -8,6 +8,7 @@ extends RefCounted
 
 const ASGARI_GECIKME := 1
 const AZAMI_GECIKME := 3
+const AZAMI_SATIR := 80
 
 const AGIR_OLAY_TURLERI := [
 	"rusvet",
@@ -117,6 +118,7 @@ func olay_kaydet(
 	}
 	_kayitlar.append(kayit)
 	_gorulen_kimlikler[temiz_id] = true
+	_tavana_sigdir()
 	_yazma_sayisi += 1
 	return {
 		"olur": true,
@@ -237,7 +239,15 @@ func yukle(veri: Dictionary) -> bool:
 			var s := String(id).strip_edges()
 			if not s.is_empty():
 				_gorulen_kimlikler[s] = true
+	_tavana_sigdir()
 	return true
+
+
+## KAY-70: en fazla 80 satır. En eski düşer; kimliği görülenlerde kalır, yayılmamış olay geri gelmez.
+func _tavana_sigdir() -> void:
+	while _kayitlar.size() > AZAMI_SATIR:
+		_kayitlar.remove_at(0)
+		push_warning("KAY70_DEDIKODU_TAVANI")
 
 
 static func _norm_tur(tur: String) -> String:

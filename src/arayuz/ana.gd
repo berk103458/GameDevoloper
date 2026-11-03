@@ -95,13 +95,9 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 
 
 func devam_et() -> void:
-	var veri := kayit.oku()
-	if veri.is_empty():
-		preload("res://src/arayuz/kayit_hata_paneli.gd").goster(self)
-		return
 	# Açık yükleme isteği oynanış aşamasını bitirir; göç ekranda çalışan oyun işi değildir.
 	preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_isaretle(_ekran, false)
-	var o := Oturum.kayittan(katalog, veri)
+	var o = preload("res://src/sistemler/kayit_gocu_soz.gd").oturum_veya_yedek(katalog, kayit)
 	if o == null:
 		preload("res://src/arayuz/kayit_hata_paneli.gd").goster(self)
 		return

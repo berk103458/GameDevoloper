@@ -5,6 +5,8 @@ class_name GuvenliKayit
 extends RefCounted
 
 var yol: String
+## KAY-30: sorgu açıkken otomatik yazma dosyaya dokunmaz. Gece sonu ve menü sorguyu kapatır.
+static var sorgu_kaydi_kapali := false
 
 
 func _init(yol_: String = "user://savegame.json") -> void:
@@ -17,6 +19,8 @@ func var_mi() -> bool:
 
 ## Yazar; başarısızsa ana kayda dokunmaz ve false döner. Sürüm ilk alan olarak başa yazılır (KAY-01).
 func yaz(veri: Dictionary) -> bool:
+	if sorgu_kaydi_kapali:
+		return false
 	# KAY-02: yeni sürüm ana/yedek dosyayı eski motorla otomatik yazma.
 	if gelecek_surum(veri) or gelecek_surum(_oku_dosya(yol)) or gelecek_surum(_oku_dosya(yol + ".bak")):
 		return false

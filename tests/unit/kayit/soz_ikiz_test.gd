@@ -16,6 +16,12 @@ func _initialize() -> void:
 	_bina_ilerlemesi(kat)
 	_terazi(kat)
 	_tehdit_takvimi(kat)
+	_kapi_ikizi(kat)
+	_zar_ve_soz(kat)
+	_guven_itibar(kat)
+	_diyalog_sirasi(kat)
+	_sure_olcusu(kat)
+	_yuz_tohum(kat)
 	var asil := Oturum.new(kat, 3123)
 	asil.yonetim.gun = 8
 	dene(asil.dedikodu.olay_kaydet("iki_gecelik", "rusvet", 6, "tanik_23", 3).olur, "Tanıklı iki gecelik fikstür")
@@ -34,7 +40,7 @@ func _initialize() -> void:
 		dene(o.gun == 9 and o.dedikodu.pusula_satirlari(9).size() == 1, "Gerçek üçüncü gecede tek yayın")
 	# JSON sayıları float açar; karşılaştırmanın iki tarafını aynı sınırdan geçir.
 	dene(JSON.parse_string(JSON.stringify(asil.dedikodu.kaydet())) == a.dedikodu.kaydet() and a.dedikodu.kaydet() == b.dedikodu.kaydet(), "Kayıtsız ve yüklenmiş zaman çizgileri aynı")
-	print("KAYIT İKİZİ (KAY-23/45/46/47/59/65/66/67/68): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-23/45/46/47/59/65/66/67/68): KALDI")
+	print("KAYIT İKİZİ (KAY-19/20/21/22/23/45/46/47/48/49/59/65/66/67/68/69/72): GEÇTİ" if hata == 0 else "KAYIT İKİZİ (KAY-19/20/21/22/23/45/46/47/48/49/59/65/66/67/68/69/72): KALDI")
 	quit(hata)
 
 func _kasalar(kat: Katalog) -> void:
@@ -240,3 +246,101 @@ func _goc_fixturu(kat: Katalog) -> void:
 	dene(geri.gun == 9 and geri.yonetim.nufus() == 1, "Tek komut fixtürünün günü ve kişisi korunur")
 	dene(veri == once and int(veri.surum) == 2, "Test eski fixtürü el ile dönüştürmez")
 	print("KAY-59 GÖÇ FİKSTÜRÜ: 2 -> %d" % int(geri.kaydet().surum))
+
+func _kimlik(g: Gelen) -> String:
+	return "%s|%s|%s" % [String(g.id), g.ad_anahtari, String(g.sinif)]
+
+func _kapi_ikizi(kat: Katalog) -> void:
+	var o := Oturum.new(kat, 3119)
+	o.yonetim.kaynaklar.ekle("gida", 30)
+	o.yonetim.kaynaklar.ekle("su", 30)
+	o.gece_sonu()
+	var ham := JSON.stringify(o.kaydet())
+	var geri := Oturum.kayittan(kat, JSON.parse_string(ham))
+	var ikiz := Oturum.kayittan(kat, JSON.parse_string(ham))
+	dene(geri != null and ikiz != null, "KAY-19 yükleme açılır")
+	if geri == null or ikiz == null:
+		return
+	var kuyruk_a := geri.gece_kuyrugu()
+	var kuyruk_b := ikiz.gece_kuyrugu()
+	dene(not kuyruk_a.is_empty() and not kuyruk_b.is_empty(), "KAY-19 gece sonu kuyruğu boş değil")
+	if kuyruk_a.is_empty() or kuyruk_b.is_empty():
+		return
+	dene(_kimlik(kuyruk_a[0]) == _kimlik(kuyruk_b[0]), "KAY-19 aynı tohumda kapıdaki ilk kişi aynı")
+
+func _zar_ve_soz(kat: Katalog) -> void:
+	var o := Oturum.new(kat, 3120)
+	o.soz_kaydi.motor.zar_kaydet(4)
+	o.soz_kaydi.sozler.ekle("yarin", "yusuf", o.gun + 1, "yarin_gel", false)
+	var ham := JSON.stringify(o.kaydet())
+	var geri := Oturum.kayittan(kat, JSON.parse_string(ham))
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 1
+	var once := rng.state
+	dene(geri.soz_kaydi.motor.zar_at(rng) == 4 and rng.state == once, "KAY-20 kayıtlı zar yeniden atılmaz")
+	dene(geri.soz_kaydi.sozler.satirlar().size() == 1 and int(geri.soz_kaydi.sozler.satirlar()[0].gun) == o.gun + 1, "KAY-22 hatırlatma günü kaymaz")
+
+func _guven_itibar(kat: Katalog) -> void:
+	var o := Oturum.new(kat, 3121)
+	var id: StringName = kat.karakterler()[0].id
+	KisiHafizasi.guven_yaz(o.kadro, id, 4)
+	KisiHafizasi.korku_yaz(o.kadro, id, 2)
+	o.grup_itibari.uygula("turkmen", -3)
+	var ham := JSON.stringify(o.kaydet())
+	var geri := Oturum.kayittan(kat, JSON.parse_string(ham))
+	var h := KisiHafizasi.oku(geri.kadro, id)
+	dene(int(h.guven) == 4 and int(h.korku) == 2, "KAY-21 kişi güveni ve korkusu aynı")
+	dene(geri.grup_itibari.deger("turkmen") == -3 and geri.grup_itibari.deger("rum") == 0, "KAY-21 altı gruptan Türkmen −3")
+
+func _diyalog_sirasi(kat: Katalog) -> void:
+	var o := Oturum.new(kat, 3148)
+	o._gemini_sira = 4
+	var veri: Dictionary = JSON.parse_string(JSON.stringify(o.kaydet()))
+	veri.surum = 2
+	for alan in ["muhafiz_akce", "muhafiz_esyalari", "muhafiz_tecrubesi", "mevsim", "yeni_binalar"]:
+		veri.erase(alan)
+	var geri := Oturum.kayittan(kat, veri)
+	dene(geri != null and int(geri.kaydet().diyalog_sira) == 4, "KAY-48 adsız diyalog sırası göçten sonra durur")
+	dene(SozMotoru.sira_etkin("chr_001", 4, ["chr_001"]) == -1, "KAY-27 yeni motordaki kişi eski sırayı yok sayar")
+	dene(SozMotoru.sira_etkin("chr_002", 4, ["chr_001"]) == 4, "KAY-27 tabloda olmayan kişi eski sırasından devam eder")
+
+func _sure_olcusu(kat: Katalog) -> void:
+	var o := Oturum.new(kat, 3149)
+	o.yonetim.kabul({"ad": "Ölçü"})
+	var veri: Dictionary = JSON.parse_string(JSON.stringify(o.kaydet()))
+	veri.surum = 2
+	for alan in ["muhafiz_akce", "muhafiz_esyalari", "muhafiz_tecrubesi", "mevsim", "yeni_binalar"]:
+		veri.erase(alan)
+	var bas := Time.get_ticks_usec()
+	var geri := Oturum.kayittan(kat, veri)
+	var goc_ms := (Time.get_ticks_usec() - bas) / 1000.0
+	print("KAY-49 sure_ms=%.2f" % goc_ms)
+	dene(geri != null and goc_ms < 1000.0, "KAY-49 göç ve doğrulama bir saniyenin altında")
+	var yol := "user://kay69_%d.json" % OS.get_process_id()
+	var kayit := GuvenliKayit.new(yol)
+	kayit.sil()
+	bas = Time.get_ticks_usec()
+	var yazildi := kayit.yaz(geri.kaydet())
+	var yaz_ms := (Time.get_ticks_usec() - bas) / 1000.0
+	print("KAY-69 sure_ms=%.2f" % yaz_ms)
+	dene(yazildi and yaz_ms < 1000.0, "KAY-69 gece sonu yazması bir saniyenin altında")
+	kayit.sil()
+
+func _yuz_tohum(kat: Katalog) -> void:
+	var sapmalar: Array[String] = []
+	var bas := Time.get_ticks_usec()
+	for tohum in 100:
+		var o := Oturum.new(kat, 4000 + tohum)
+		var ham := JSON.stringify(o.kaydet())
+		var kuyruk := o.gece_kuyrugu()
+		if kuyruk.is_empty():
+			sapmalar.append(str(tohum))
+			continue
+		var beklenen := _kimlik(kuyruk[0])
+		var geri := Oturum.kayittan(kat, JSON.parse_string(ham))
+		var yuklenen := geri.gece_kuyrugu() if geri != null else []
+		if yuklenen.is_empty() or _kimlik(yuklenen[0]) != beklenen:
+			sapmalar.append(str(tohum))
+	var sure_ms := (Time.get_ticks_usec() - bas) / 1000.0
+	print("KAY-72 sure_ms=%.2f sapma=%s" % [sure_ms, ",".join(sapmalar)])
+	dene(sapmalar.is_empty(), "KAY-72 yüz tohumda sapma listesi boş")

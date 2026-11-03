@@ -76,7 +76,9 @@ itch.io: sayfa açık. Resmî araç butler. Kurulum: https://itch.io/docs/butler
 Cursor — Godot doğrulama ve ince adaptör. Bu turda KAP-02, KAP-03, BUG-11 ve TUC-11/14 notu.
 
 ## Şu an üzerinde çalışılan
-Bölüm 31 boş kayıt maddeleri `[/] (Cursor)`. Kod dalı `cursor/gece-31-dogrulama`. Kalfa'nın ekonomi/köy maddelerine ve Antigravity'nin diyalog metnine dokunulmadı. Doğrulayıcı yalnız araç. Asset gerekmedi. kota görünmüyor.
+Bölüm 31 boş kayıt maddeleri `[x] (Cursor)`. Dal `cursor/gece-31-dogrulama`. Söz alanları ince adaptör; diyalog metni yazılmadı. Kalfa ekonomi/köy ve Antigravity metin alanı duruyor. Asset gerekmedi. kota görünmüyor.
+
+Doğrulama: Godot 4.7.2 `ed1daf0bf`. `soz_kayit_test`, `soz_ikiz_test`, `kayit_gocu_test`, `altin_oynanis_test`, `gocmus_duman_test` (20 gece ve 84 gece), `kisi_hafizasi`, `dedikodu`, `acilis_senaryosu`, `kayit_gocu_soz` GEÇTİ. Python `test_soz_dogrula` ve `test_soz_kadro_denetimi` geçti. API sözleşmesi PASS. Tam sanity bu turda çalıştırılmadı.
 
 KAP-02 ve KAP-03 `[x] (Cursor)`. BUG-11 eski notu düzeltildi. TUC-11/14 notları duruyor. MEV-01 satırına yazılmadı. Yeni dosya ve ikinci sistem yok. TUC/MEV/CAS kaynak dosyalarına dokunulmadı.
 
