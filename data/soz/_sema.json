@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SozVeriSemasi",
+  "type": "object",
+  "required": ["konusmaci", "cekirdek", "dugumler"],
+  "properties": {
+    "konusmaci": { "type": "string" },
+    "cekirdek": {
+      "type": "string",
+      "enum": ["durust", "koruma_yalani", "baskasinin_sirri", "tehlikeli_yalan", "mecburiyet", "intikam"]
+    },
+    "ipucu_id": { "type": "string" },
+    "dugumler": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string" },
+          "satir": { "type": ["string", "array"] },
+          "konu": { "type": "string" },
+          "beyan": { "type": ["string", "object"] },
+          "ikram": { "type": "string" },
+          "zar": { "type": "object" },
+          "secenekler": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "hedef"],
+              "properties": {
+                "id": { "type": "string" },
+                "metin": { "type": "string" },
+                "hedef": { "type": "string" },
+                "kosul": { "type": "object" },
+                "etkiler": { "type": "object" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

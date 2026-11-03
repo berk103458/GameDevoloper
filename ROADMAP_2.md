@@ -431,7 +431,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
   - Dosya: yeni `docs/SOZ_TASARIMI.md`.
   - Asset: asset gerekmedi.
 
-- [ ] **DIY-01a:** Söz veri şeması — konuşma dosyası biçimi.
+- [x] **DIY-01a:** (Antigravity) Söz veri şeması — konuşma dosyası biçimi.
   - Ne: Konuşma dosyası düğüm, satır, konu, beyan, ikram, zar kontrolü ve `cekirdek` alanlarını taşır. Dürüst çekirdek ipucusuz geçebilir; koruma yalanı ipucusuz geçemez. Konuşmacı kadroda yoksa, seçenek kimliği çiftse, düğüm kendine kenar veriyorsa ya da birden fazla giriş varsa dosya yüklenmez. Derinlik tavanı `data/soz/kurallar.json` içindedir.
   - Kurallar:
     1. Zorunlu alanlar yalnız varış, karar ve `cekirdek`. Selam, konular, yüzleşme, sır ve ikilem yoksa dosya yine geçerlidir.
@@ -446,7 +446,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.2 Yürütme — etki, kayıt, kilit
 
-- [ ] **DIY-02:** Söz motoru çekirdeği — düğüm yürütücü.
+- [x] **DIY-02:** (Antigravity) Söz motoru çekirdeği — düğüm yürütücü.
   - Ne: `SozMotoru` konuşma dosyasını okur, koşulu tutan satırı verir ve seçimin etkisini bir kez yazar. Şemaya uymayan dosya sahneyi sustu kapatır, oyunu düşürmez ve yedek hikâye uydurmaz. Etki anahtarı bar, akçe, ambar, bayrak, tansiyon ve ziyaret dışında olursa dosya reddedilir. Boş metin anahtarı ve bağlamda olmayan `{yer}` satırı oynatılmaz. Eski kayıtta düğüm alanı yoksa sahne girişten başlar.
   - Kurallar:
     1. `SozMotoru` konuşma dosyasını okur, koşulları değerlendirir, satırları sırayla verir, seçim alır, etkileri uygular.
@@ -460,7 +460,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
   - Dosya: yeni `src/soz/soz_motoru.gd`, `src/soz/soz_dugumu.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **DIY-03:** Selam önce, hikâye sonra — konu merkezi.
+- [x] **DIY-03:** (Antigravity) Selam önce, hikâye sonra — konu merkezi.
   - Ne: Karakter kapıya varınca oyuncu önce selamı görür; selam bitmeden konu listesi açılmaz. Konu sırası dosyadaki dizidir, kod yeniden sıralamaz. Konu düğümünde kabul ve ret kapalıdır; veda veya sustu kapanışında karar çubuğu açılır. Konu açıkken köy ekranına geçilmez. Her konu düğümünün merkeze dönen bir kenarı vardır.
   - Kurallar:
     1. Karakter kapıya varınca yalnız selam satırı gelir. Selam bitmeden konu listesi açılmaz.
@@ -476,7 +476,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.3 Konu merkezi
 
-- [ ] **DIY-04:** Derinleşme katmanları — aynı konuda üstelemek yeni bilgi açar.
+- [x] **DIY-04:** (Antigravity) Derinleşme katmanları — aynı konuda üstelemek yeni bilgi açar.
   - Ne: Oyuncu aynı konuyu üstelerse ikinci katman açılır; birinci seçilmeden ikinci gelmez. Üsteleme başka konuya zıplamaz. Tavan `kurallar.json` içindedir, öneri 3'tür; dördüncü üsteleme yeni soru açmaz, veda satırı gelir. Susuş beyan yazmaz.
   - Kurallar:
     1. Her konuda en az 2 katman vardır. İkinci katman birincisi seçilmeden açılmaz.
@@ -490,7 +490,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
   - Dosya: şema + motor; içerik YAZ bölümünde.
   - Asset: asset gerekmedi.
 
-- [ ] **DIY-05:** Sıra sabrı — sohbetin zaman bedeli.
+- [x] **DIY-05:** (Antigravity) Sıra sabrı — sohbetin zaman bedeli.
   - Ne: Her soru, bakış ve yemin sıradaki sabırdan düşer; HUD kalan sayıyı ve eylemin bedelini gösterir. Sayaç saniye değildir: oyuncu düşünürken, menü açıkken ve sıra olayı kartı açıkken düşmez. Tavan `azami_soru` alanıdır, ikinci bir sayı yazılmaz. Sabır bitince konu kapanır, veda ve karar çubuğu açılır. Hız çarpanı açık düğümü kesmez.
   - Kurallar:
     1. Her soru, bakış, gösterme, yemin ve tercüman çağrısı sıradaki sabırdan düşer. Miktar eylemde yazar; yazılmamış soru −1’dir.
@@ -506,7 +506,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.4 Sabır ve kesme
 
-- [ ] **DIY-06:** Beyan defteri — karakterin söyledikleri kayda geçer.
+- [x] **DIY-06:** (Antigravity) Beyan defteri — karakterin söyledikleri kayda geçer.
   - Ne: Önemli cevap, sorgu panelindeki küçük deftere metin anahtarı ve kaynak soru kimliğiyle düşer. Aynı ziyarette aynı beyan ikinci kez yazılmaz. Ziyaret bitince satırlar kişi hafızasına geçer; `Clue_*` sayısı bu yüzden artmaz. Köyden ayrılanın satırı silinmez, yanına gittiği yazılır. Eski kayıtta liste yoksa boş sayılır.
   - Kurallar:
     1. Önemli cevap bir beyan üretir. Beyan, metin anahtarı ve kaynak soru kimliği taşır. Örnekler: “Sivas’tan geliyorum”, “yalnızım”, “yükümde darı var”.
@@ -520,7 +520,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
   - Dosya: yeni `src/soz/beyan_defteri.gd`; `IpucuYoneticisi` yanında ikinci sistem değil, aynı ziyaret kapsamında ayrı defter.
   - Asset: asset gerekmedi.
 
-- [ ] **DIY-07:** Çelişki ve yüzleşme — yalan, kanıtla ortaya çıkar.
+- [x] **DIY-07:** (Antigravity) Çelişki ve yüzleşme — yalan, kanıtla ortaya çıkar.
   - Ne: Heybe, astar veya hastalık belirtisi bir beyanla çelişirse o çifte özel yüzleşme dalı açılır. İpucu yokken dal kapalıdır. Hazır "Yüzleş" düğmesi yalnız `celiski_yardimi` açıkken görünür. Çözülen çelişki aynı ziyarette ikinci dal açmaz.
   - Kurallar:
     1. İpucu (heybe, astar, görsel hata, hastalık belirtisi) bir beyanla çelişirse o çifte özel yüzleşme dalı tanımlanır.
@@ -566,7 +566,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.6 Bağlam sözlüğü
 
-- [ ] **DIY-10:** Sır ve ikilem dalları — neden sakladığı.
+- [x] **DIY-10:** (Antigravity) Sır ve ikilem dalları — neden sakladığı.
   - Ne: Sırrı açığa çıkan karakter neden dalına geçer; neden aile, borç, korku, inanç veya yeminden biri olarak veridedir. Dalın sonunda en az iki seçenek kalır ve etkileri farklıdır. Dürüst dosyada ikilem zorunlu değildir. Kasayı eksiye indirecek seçenek kilitli görünür, silinmez.
   - Kurallar:
     1. Sır çekirdeğinde sırrı açığa çıkan karakter neden dalına geçer. Neden veridedir: aile, borç, korku, inanç veya yemin. Kod neden bilmez.
@@ -656,7 +656,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.9 Ton, eski yol, prototip
 
-- [ ] **DIY-16:** Eski diyalog yollarının kapatılması — yeniden yazılan içerik devreye girer.
+- [x] **DIY-16:** (Antigravity) Eski diyalog yollarının kapatılması — yeniden yazılan içerik devreye girer.
   - Ne: Yeni konuşma dosyası biten karakter eski `diyalog_sirasi` yolundan çıkar; iki kaynak aynı karede basılmaz. Eşleme `data/soz/gecis.json` içindedir ve karşılığı olmayan alan `tasinmaz` diye yazılır. Kapanış bayrağı `kurallar.json` içindedir; bayrak kapalıyken eski sıra durur. Dosyası ve sınıf şablonu olmayan adlı figür sustu kapanır, şablon uydurulmaz.
   - Kurallar:
     1. Eşleme tablosu `docs/SOZ_SEMASI.md` içindedir. Satırlar: `diyalog_01_20.json` soru dizisi → konu ve katman; otomatik `acilis` → yalnız selam, hikâye konu seçilince; `SohbetVerisi` giriş / açılış / soru dizisi → aynı ayrım; CHR düğüm 00 ve üç dal → varış, konular, yüzleşme; `Clue_*` ve dört `Flag_*` aynı kimlikle kalır; `karar_matrisi` KOP-10'a gider.
@@ -669,7 +669,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
   - Dosya: `Oturum`, `chr_kapi_adaptoru.gd`, `kapi_ekrani.gd` yönlendirmesi (çekirdek, minimal); karakter başına geçiş tablosu `data/soz/gecis.json`.
   - Asset: asset gerekmedi.
 
-- [ ] **DIY-17:** Güven ve korku ayrı ölçülür.
+- [x] **DIY-17:** (Antigravity) Güven ve korku ayrı ölçülür.
   - Ne: Güven sıfır ile on arasında ayrı bir çubuktur; korkuyla açılan sır eksik kalır, güvenle açılan sır tam açılır. Güven yedi ve üstündeyken itiraf görünür ve zarsız tam sır açar. Altındayken itiraf düğmesi yoktur. İki değer toplanıp tek çubuk olmaz.
   - Kurallar:
     1. Güven 0–10’dur. Başlangıç karakter verisindedir; alan yoksa 3’tür.
@@ -685,7 +685,7 @@ DIY-01 … DIY-18 gövdesi durur; alt başlıklara bölündü, kimlikleri deği�
 
 ### 16.10 Sınır ve kapanış
 
-- [ ] **DIY-18:** Söz kesme, karşı soru ve muhafızın beyanı.
+- [x] **DIY-18:** (Antigravity) Söz kesme, karşı soru ve muhafızın beyanı.
   - Ne: Muhafız anlatıyı kesince cümle "—" ile biter, sabır bir artar, güven bir düşer ve o düğüme bir daha girilmez. Karakter soru sorarsa muhafızın cevabı `soylenen` kaydına düşer ve bir sabır hakkı harcar. Cevap verilmeden o cevaba bağlı varyant seçilmez.
   - Kurallar:
     1. `kesme`: muhafız anlatıyı keser. Son replik yarıda kalır, sabır +1, güven −1. Kaçan düğüme bir daha ulaşılmaz.
@@ -1922,7 +1922,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.1 Çelişki ve bakış
 
-- [ ] **DYL-01:** Çelişkiyi yüzüne vurmak — iki kaydı oyuncu kendisi eşleştirir.
+- [x] **DYL-01:** (Antigravity) Çelişkiyi yüzüne vurmak — iki kaydı oyuncu kendisi eşleştirir.
   - Ne: Oyuncu defterden iki kaydı kendisi seçer; motor çifti otomatik eşleştirmez. Doğru çift yüzleşme dalını açar. Yanlış çift tansiyonu bir artırır, güveni iki düşürür ve aynı çift bir daha denenemez. Üç yanlıştan sonra "Göster" o ziyarette kapanır. İlk üç gün hazır "Yüzleş" düğmesi de durur, sonra yalnız "Göster" kalır.
   - Kurallar:
     1. Sorgu panelinde "Göster" eylemi. Oyuncu defterden iki kayıt seçer: beyan + ipucu, beyan + beyan ya da beyan + duyduğu söz (başka bir karakterin beyanı veya dedikodu, DIY-11/13).
@@ -1939,7 +1939,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
   - Dosya: `src/soz/celiski.gd` (DIY-07 dosyası genişler, ikinci sistem yok); yeni `src/arayuz/kapi/beyan_defteri_paneli.gd`.
   - Asset: asset gerekmedi (defter paneli ARY şablonuyla).
 
-- [ ] **DYL-02:** Bakmak — konuşmadan süzmek.
+- [x] **DYL-02:** (Antigravity) Bakmak — konuşmadan süzmek.
   - Ne: Oyuncu yüz, eller, çarık, giysi, yük ve yanındakilere bakar; her bakış sabırdan bir düşer ve bir gözlem satırı verir. Işık kapalıysa ayrıntı ve ipucu gelmez. Aynı bölgeye ikinci bakış yeni bilgi vermez. Tecrübe eşiği altındayken ek yorum satırı görünmez. Hastalık belirtisi bu bakışın bir bölgesidir; ikinci vücut haritası açılmaz.
   - Kurallar:
     1. Sorgu panelinde "Bak" eylemi, bölgelere ayrılır: yüz, eller, ayak ve çarık, giysi, yük (dokunmadan; heybeyi açmak ayrı eylemdir), yanındakiler (hayvan, çocuk, eşya).
@@ -1959,7 +1959,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.2 Yemin, yalan, söz
 
-- [ ] **DYL-03:** Yemin ettirmek.
+- [x] **DYL-03:** (Antigravity) Yemin ettirmek.
   - Ne: Oyuncu ziyarette bir kez "El bas, yemin et" der. Yemin şekli karakterin inancına göre dünya kitabından gelir; uymayan şekil hakarettir. Tutum dört türden biridir: eder, kıvranır, rahat ya da reddeder. Yemin zar açmaz. Bozulan yemin bir kez ceza yazar. İnanç alanı boşsa düğme gizlenir.
   - Kurallar:
     1. Seçenek: "El bas, yemin et." Ziyaret başına bir kez kullanılır.
@@ -1978,7 +1978,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
   - Dosya: yeni `src/soz/yemin.gd`.
   - Asset: yemin nesneleri (dünya kitabına göre) envantere `DYL03-YEMIN`; yer tutucu: düz renk kutu + etiket.
 
-- [ ] **DYL-04:** Muhafız da yalan söyler.
+- [x] **DYL-04:** (Antigravity) Muhafız da yalan söyler.
   - Ne: Oyuncu yalan seçeneğinin yanında "Yalan" etiketini görür; kandırılan karakterdir. Yalan tansiyonu düşürür ya da gözdağını kolaylaştırır. Köyde gerçek görülürse ertesi gün kişi hafızasına `muhafiz_yalani` yazılır. Tanık varsa dedikodu da yayılır. Sözlükte olmayan `gercek` anahtarı 1 hata verir.
   - Kurallar:
     1. Seçenekte `soylenen: {id, metin, dogru: false, gercek}`. `gercek` kontrol edilebilecek bağlam alanını gösterir (asker sayısı, beyin köyde olup olmadığı, yatak sayısı).
@@ -1998,7 +1998,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.3 Dil ve akşam
 
-- [ ] **DYL-05:** Söz vermek — tutulan ve tutulmayan söz.
+- [x] **DYL-05:** (Antigravity) Söz vermek — tutulan ve tutulmayan söz.
   - Ne: Oyuncu "yarın gel" ya da "aileni ararım" dediğinde söz kişi hafızasına ve "Verdiğin sözler" listesine düşer. Süre dolunca kişi kapıya zorunlu gelen olarak gelir; sistem yatak ya da divan kaydına bakarak sözün tutulup tutulmadığını kendisi sayar. Tutulan söz güveni artırır, tutulmayan söz itibarı düşürür ve tanık varsa dedikodu açar. Aynı anda en çok beş açık söz vardır. Söz kimliği dosyada tekildir; tutulan sözün ödülü bir kez yazılır.
   - Kurallar:
     1. Seçenekte `soz: {id, tur, sure_gun, kosul}`. Türler: `yarin_gel` (yer açılınca), `beyle_konusurum`, `aileni_ararim` (kervan ya da gözcü sorar), `isini_ayarlarim`. Tür listesi veride.
@@ -2053,7 +2053,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
   - Dosya: `src/koy/aksam_sohbeti.gd` (ACL-03 dosyası); `data/soz/aksam_konulari.json`.
   - Asset: ocak başı ara sahne arka planı envantere `DYL07-OCAK`; yer tutucu: düz renk + metin, ARY-04 çerçevesi.
 
-- [ ] **DYL-08:** Kararın sonradan dönüşü.
+- [x] **DYL-08:** (Antigravity) Kararın sonradan dönüşü.
   - Ne: Bir kapı kararının sonucu günler sonra sabah raporu, başka bir gelenin haberi ya da köylü kartı olarak döner. Günde en çok iki dönüş gösterilir; üçüncüsü ertesi güne aynı kuyrukta kalır. Ölen kişinin dönüşü yalnız haberci kanalından gelir. Yeni sahne ve ikinci harita açılmaz.
   - Kurallar:
     1. Sahne verisinde her sonun `donusler: [{gun_min, gun_max, kosul, kanal, satirlar, etki}]` alanı olur.
@@ -2073,7 +2073,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.5 Kör okuma ve yan yana
 
-- [ ] **DYL-09:** Beyin denetçisi — sorgulanan muhafız.
+- [x] **DYL-09:** (Antigravity) Beyin denetçisi — sorgulanan muhafız.
   - Ne: Sancak beyinin adamı yedi ila on günde bir kapıya gelir ve muhafızı sorgular. Elinde dedikodu, kabul-ret sayısı ve tutulmayan sözler vardır. Teftiş koşulu tutmuyorsa sahne açılmaz. Sonuç övgü, uyarı ya da cezadır; üst üste iki ağır cezadan sonra görevden alma uyarısı mevcut son sistemine yazılır, altıncı son açılmaz.
   - Kurallar:
     1. Sancak beyinin adamı (HAR-04'teki beyle aynı kişi; unvanı dünya kitabından gelir) 7–10 günde bir gelir. Gelişi bir gün önce ulak ya da dedikoduyla duyulur.
@@ -2089,7 +2089,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
   - Dosya: yeni `src/kapi/denetci_gelisi.gd`; sahne `data/soz/denetci_*.json`.
   - Asset: denetçi modeli envantere `DYL09-DENETCI`; yer tutucu: mevcut köylü modeli + renk farkı.
 
-- [ ] **DYL-10:** Aynı karakter, farklı oyun — çekirdek varyantları.
+- [x] **DYL-10:** (Antigravity) Aynı karakter, farklı oyun — çekirdek varyantları.
   - Ne: Yusuf gibi kilit bir karakterin iki ya da üç çekirdeği aynı kimlikte durur; ikinci karakter kimliği açılmaz. Varyant oyun başında tohumla seçilir ve kayıtta değişmez. Heybe, bakış ayrıntısı ve dönüşler varyanta göre değişir. Dürüst Yusuf'ta yolda yedi ev yoktur.
   - Kurallar:
     1. Kilit karakterde 2–3 çekirdek bulunur (YAZ-09 türlerinden). Ortak kısım (selam, kimlik, çekirdekten bağımsız konular) bir kez yazılır; çekirdeğe bağlı düğüm ve satırlar `kosul.cekirdek` ile ayrılır.
@@ -2106,7 +2106,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.6 Örnek, site, fixtures
 
-- [ ] **DYL-11:** Kör okuma testi — bu sözü kim söyledi?
+- [x] **DYL-11:** (Antigravity) Kör okuma testi — bu sözü kim söyledi?
   - Ne: İnceleme aracında seçilen ağızların replikleri adsız ve karışık sırayla gelir; okuyan her satırın konuşanını işaretler. Özel ad, yer adı ve karakterin kendi adı üç nokta ile kapanır. Sonuçta ağız başına doğru oranı ve en çok karışan çiftler durur. Şansın üstünde olup yüzde yetmişin altında kalan ağız için "ses kartları birbirine yakın" uyarısı çıkar.
   - Kurallar:
     1. İnceleme aracında ayrı sekme. Üç ya da dört ağız seçilir; yalnız karakter replikleri adsız ve karışık sırayla gelir.
@@ -2121,7 +2121,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
   - Dosya: prototip `Roadmap-2/soz_agaci`; oyun tarafında `src/debug/soz_onizleme.gd` sekmesi.
   - Asset: asset gerekmedi.
 
-- [ ] **DYL-12:** Muhafız tipleriyle tarama — sonlar dengeli mi?
+- [x] **DYL-12:** (Antigravity) Muhafız tipleriyle tarama — sonlar dengeli mi?
   - Ne: Geliştirici aynı sahneyi beş muhafız tipiyle tarar; İnceleme sekmesinde son dağılımı, ortalama adım, sır açılma oranı ve kaçış oranı görünür. Sert tipte gözdağı seçimi yumuşak tipten yüksek çıkar. Bir tipte tek son yüzde seksenin üstündeyse ya da iki tip aynı dağılımı veriyorsa uyarı çıkar, son silinmez.
   - Kurallar:
     1. Muhafız tipleri veride (`data/soz/muhafiz_tipleri.json`):
@@ -2144,7 +2144,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.7 Kapı dışı sonuç
 
-- [ ] **DYL-13:** Eski ve yeni metni yan yana görmek.
+- [x] **DYL-13:** (Antigravity) Eski ve yeni metni yan yana görmek.
   - Ne: İnceleyen, işaret anındaki cümle ile yeni cümleyi kelime farkı olarak görür; eklenen yeşil, silinen kırmızı durur. "Yeniden yaz" ya da "yapay" işaretli satır değişince durum kendiliğinden "yeniden incele" olur. Satır yer değiştirirse `sid` işareti taşır; `sid` yokken benzer satır yalnız öneri verir ve hazır kimlik sayılmaz.
   - Kurallar:
     1. İşaretlendiği andaki metin zaten saklanıyor. Metin değişince eski ve yeni hâli kelime düzeyinde fark olarak gösterilir: eklenen yeşil, silinen kırmızı.
@@ -2160,7 +2160,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.8 Eylem kadrajı
 
-- [ ] **DYL-14:** Kaynaklı örnek defteri — bir köylü buna nasıl cevap verir?
+- [x] **DYL-14:** (Antigravity) Kaynaklı örnek defteri — bir köylü buna nasıl cevap verir?
   - Ne: Yazar, yapı türü ve durum için kaynaklı kısa örnekleri `docs/dunya_kitabi/ornek_defteri/` altında görür. İnceleme aracında yapaylık uyarısının yanında "örnek gör" bağlantısı, uyarının türüne uyan kayıtları açar. Model bu deftere satır yazmaz; kaynaksız kayıt listeye girmez.
   - Kurallar:
     1. `docs/dunya_kitabi/ornek_defteri/` altında kayıtlar tutulur. Her kayıtta:
@@ -2181,7 +2181,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
   - Dosya: yeni `docs/dunya_kitabi/ornek_defteri/*.md`.
   - Asset: asset gerekmedi.
 
-- [ ] **DYL-74:** Kapalı eylem sebebi bir kelimedir
+- [x] **DYL-74:** (Antigravity) Kapalı eylem sebebi bir kelimedir
   - Ne: Kapanan sorgu eylemi kadrajdan silinmez; düğmenin altında bir kelimelik sebep görünür ve bu kelime çeviri anahtarıdır. Altı eylem düğmesi sığmazsa liste kayar. Yedinci eylem türü eklenmez. Oyuncu düğmede madde kimliği görmez.
   - Kurallar:
     1. Kapalı düğme görünür kalır. Sebep bir kelimedir ve `data/metin/metinler.csv` anahtarıdır.
@@ -2195,7 +2195,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.9 Kayıt ve ölçüm
 
-- [ ] **DYL-15:** Sitede düzenleme — JS dosyası açmadan yazmak.
+- [x] **DYL-15:** (Antigravity) Sitede düzenleme — JS dosyası açmadan yazmak.
   - Ne: Yazar, İnceleme ve Ağaç sekmelerinde satır metnini yerinde değiştirir; koşul ve etki için form vardır, ham JSON açılmaz. Ağaçta düğüm eklenir, bağlantı sürüklenir, hedefi olmayan bağ kaydolmaz. Kaydetmek tarayıcıdan sahne dosyası indirir; `sid` yer değişse de durur.
   - Kurallar:
     1. Satırların ve seçeneklerin metni İnceleme ve Ağaç sekmelerinde yerinde düzenlenir. Koşul ve etki için form vardır; ham JSON düzenlenmez.
@@ -2214,7 +2214,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.10 Sınır ve kapanış
 
-- [ ] **DYL-16:** Ortak test dosyaları — prototip ve oyun aynı sonucu verir.
+- [x] **DYL-16:** (Antigravity) Ortak test dosyaları — prototip ve oyun aynı sonucu verir.
   - Ne: Prototipte "kayıt al" düğmesi seçimleri ve kayıtlı zar sonucunu beklenen satır kimlikleriyle `tests/soz/altin/` altına yazar. Godot aynı dosyayı `SozMotoru` ile oynatır; JS motoru da aynı kaydı oynatır. Ayrışan adım fark raporunda görünür. Bu kayıtta canlı zar çağrısı yoktur.
   - Kurallar:
     1. Prototipten "altın oynanış" kaydı alınır: bağlam, seçim dizisi, zar sonuçları (kayıtlı değer) → beklenen satır kimlikleri dizisi ve son durum (tansiyon, güven, sabır, bayraklar, beyanlar, söylenenler, karar).

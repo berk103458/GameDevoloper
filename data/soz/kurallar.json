@@ -1,0 +1,16 @@
+{
+  "derinlik_tavani": 12,
+  "izinli_etki_alanlari": ["bar", "akce", "ambar", "bayrak", "tansiyon", "ziyaret"],
+  "baslangic_guven": 3,
+  "baslangic_sabir": 5,
+  "itiraf_esigi": 7,
+  "sabit_konular": [
+    "nereden",
+    "neden_yola_dustun",
+    "kiminle",
+    "ne_is_bilirsin",
+    "yukun",
+    "yolda_ne_gordun",
+    "haber"
+  ]
+}

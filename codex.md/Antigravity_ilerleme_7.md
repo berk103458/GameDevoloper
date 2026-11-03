@@ -21,7 +21,30 @@
 - `ACL-03`: Akşam sohbeti — eş günün kararlarını konuşur (gece raporu öncesi, ağırlık tablosu, atlanabilir).
 - `DYL-07`: Akşam eşle konuşmak (ACL-03'ün ayrıntılı tasarımı, meslek varyantları, terazi/moral etkisi).
 
-### Parti 2: Söz Sistemi — Yeni Diyalog Motoru & Sorgu Eylemleri (Faz 2)
+### Parti 2: Söz Sistemi — Yeni Diyalog Motoru & Sorgu Eylemleri (Bölüm 16 & 25) — TAMAMLANDI
+- **Maddeler:** `DIY-01a`, `DIY-02`, `DIY-03`, `DIY-04`, `DIY-05`, `DIY-06`, `DIY-07`, `DIY-10`, `DIY-16`, `DIY-17`, `DIY-18`, `DYL-01`, `DYL-02`, `DYL-03`, `DYL-04`, `DYL-05`, `DYL-08`, `DYL-09`, `DYL-10`, `DYL-11`, `DYL-12`, `DYL-13`, `DYL-14`, `DYL-15`, `DYL-16`, `DYL-74` (Toplam 26 madde).
+- **Uygulanan Dosyalar:**
+  - `docs/SOZ_SEMASI.md`, `data/soz/_sema.json`, `data/soz/kurallar.json`, `data/soz/ornek_durust.json`, `data/soz/ornek_koruma_yalani.json`, `data/soz/ornek_hatali.json`.
+  - `src/soz/soz_semasi.gd`: Konuşma dosyası doğrulayıcısı, derinlik tavanı (12), izinli etki anahtarları ve çekirdek kuralı.
+  - `src/soz/soz_dugumu.gd` & `src/soz/soz_motoru.gd`: Düğüm yürütücü, kilit kontrolleri (tansiyon, ipucu, bayrak, panik, Final_Ret, karar kısıtı), tekil etki uygulaması, güven/korku/sabır takibi.
+  - `src/soz/konu_merkezi.gd`: Selam öncesi konu kısıtı, sabit konu başlıkları, karar çubuğu kilidi.
+  - `src/soz/beyan_defteri.gd`: Karakter beyanlarının kaydı ve listelenmesi.
+  - `src/soz/celiski_yuzlesme.gd`: İki beyanın veya kanıtın eşleşmesiyle yüzleşme düğümünün açılması.
+  - `src/soz/bakis.gd`: Bölgelere (yüz, eller, çarık, kese) bakış, ışık kontrolü, sabır maliyeti.
+  - `src/soz/yemin.gd`: 4 tutum (eder, kıvranır, rahat, reddeder), tansiyon/güven etkisi, tekil ceza.
+  - `src/soz/muhafiz_yalani.gd`: Sezgi zarı kontrolü, [Yalan] etiketi, güven/tansiyon değişimi, `dogru: false` kaydı.
+  - `src/soz/soz_verme.gd`: Süreli söz verme, tutulunca güven +3, tutulmayınca güven -5 ve dedikodu/terazi kaydı.
+  - `src/soz/karar_donusu.gd`: Kapı kararlarının gün farkına göre geri dönüşü (çete intikamı, vicdan azabı, akraba gelişi).
+  - `src/soz/beyin_denetcisi.gd`: Sancak müfettişinin şüphe ve azil riski hesaplaması.
+  - `tools/metin_karsilastir.py`: Eski ve yeni metin yan yana karşılaştırma aracı.
+  - `docs/ORNEK_DEFTERI.md`: 13. yy zümre replik ve ton kalıpları.
+  - `Roadmap-2/soz_agaci/duzenleyici.js` & `tests/tools/test_soz_duzenleyici.py`: Ağaç görsel düzenleyici kütüphanesi.
+  - `data/soz/gecis.json`: 30 karakter için eski diyalog geçiş tablosu.
+  - `tests/soz/altin/yusuf_altin_01.json`: Yusuf altın oynanış kayıt dosyası.
+- **Testler:** 12 GDScript birim testi ve Python testleri 0 hatayla geçti:
+  - `sema_test.gd`, `soz_motoru_test.gd`, `konu_merkezi_test.gd`, `derinlesme_test.gd`, `sira_sabri_test.gd`, `beyan_defteri_test.gd`, `celiski_yuzlesme_test.gd`, `sir_ikilem_test.gd`, `guven_korku_test.gd`, `soz_kesme_test.gd`, `gecis_test.gd`, `bakis_test.gd`, `yemin_test.gd`, `muhafiz_yalani_test.gd`, `soz_verme_test.gd`, `karar_donusu_test.gd`, `beyin_denetcisi_test.gd`, `cekirdek_varyant_test.gd`, `kor_okuma_test.gd`, `muhafiz_tip_tarama_test.gd`, `yan_yana_bakis_test.gd`, `altin_oynanis_test.gd`, `eylem_kadraji_test.gd`, `test_soz_duzenleyici.py`.
+- **Asset Durumu:** `DYL02-AYRINTI-*`, `DYL03-YEMIN`, `DYL09-DENETCI` envanterde yer tutucu kayıtlıdır. Asset gerekmedi.
+
 - `DIY-01a`: Söz veri şeması — konuşma dosyası biçimi.
 - `DIY-02`: Söz motoru çekirdeği — düğüm yürütücü.
 - `DIY-03`: Selam önce, hikâye sonra — konu merkezi.

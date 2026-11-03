@@ -1,0 +1,15 @@
+{
+  "oynanis_id": "yusuf_altin_01",
+  "karakter": "chr_001",
+  "secim_dizisi": ["sec_selam", "sec_is", "sec_veda_2"],
+  "beklenen_satirlar": [
+    "Selamünaleyküm muhafız bey. Dağdan indim, kapına sığındım.",
+    "Karaköy rençberiyim. Kuraklık vurdu, köy boşaldı.",
+    "Saban tutarım, ekin biçerim; taş taşımaktan gocunmam.",
+    "Hakkında hayırlısı muhafız bey."
+  ],
+  "beklenen_durum": {
+    "veda": true,
+    "sustu": false
+  }
+}

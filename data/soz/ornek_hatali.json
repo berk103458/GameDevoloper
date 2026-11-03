@@ -1,0 +1,30 @@
+{
+  "konusmaci": "olmayan_karakter_999",
+  "cekirdek": "koruma_yalani",
+  "dugumler": {
+    "giris": {
+      "id": "giris",
+      "satir": "İlk giriş",
+      "secenekler": [
+        { "id": "sec_1", "hedef": "giris" },
+        { "id": "sec_1", "hedef": "dugum_2" }
+      ]
+    },
+    "giris_2": {
+      "id": "giris_2",
+      "satir": "İkinci giriş",
+      "secenekler": []
+    },
+    "d3": { "id": "d3", "satir": "3", "secenekler": [] },
+    "d4": { "id": "d4", "satir": "4", "secenekler": [] },
+    "d5": { "id": "d5", "satir": "5", "secenekler": [] },
+    "d6": { "id": "d6", "satir": "6", "secenekler": [] },
+    "d7": { "id": "d7", "satir": "7", "secenekler": [] },
+    "d8": { "id": "d8", "satir": "8", "secenekler": [] },
+    "d9": { "id": "d9", "satir": "9", "secenekler": [] },
+    "d10": { "id": "d10", "satir": "10", "secenekler": [] },
+    "d11": { "id": "d11", "satir": "11", "secenekler": [] },
+    "d12": { "id": "d12", "satir": "12", "secenekler": [] },
+    "d13": { "id": "d13", "satir": "13", "secenekler": [] }
+  }
+}

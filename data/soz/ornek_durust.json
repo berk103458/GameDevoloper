@@ -1,0 +1,35 @@
+{
+  "konusmaci": "chr_001",
+  "cekirdek": "durust",
+  "dugumler": {
+    "giris": {
+      "id": "giris",
+      "satir": "Selamünaleyküm muhafız bey. Dağdan indim, kapına sığındım.",
+      "secenekler": [
+        { "id": "sec_selam", "metin": "Aleykümselam, nereden gelirsin?", "hedef": "konu_nereden" }
+      ]
+    },
+    "konu_nereden": {
+      "id": "konu_nereden",
+      "konu": "nereden",
+      "satir": "Karaköy rençberiyim. Kuraklık vurdu, köy boşaldı.",
+      "secenekler": [
+        { "id": "sec_is", "metin": "Ne iş bilirsin?", "hedef": "konu_is" },
+        { "id": "sec_veda", "metin": "Kenara çekil, karar vereceğim.", "hedef": "veda" }
+      ]
+    },
+    "konu_is": {
+      "id": "konu_is",
+      "konu": "ne_is_bilirsin",
+      "satir": "Saban tutarım, ekin biçerim; taş taşımaktan gocunmam.",
+      "secenekler": [
+        { "id": "sec_veda_2", "metin": "Yeterli, bekle.", "hedef": "veda" }
+      ]
+    },
+    "veda": {
+      "id": "veda",
+      "satir": "Hakkında hayırlısı muhafız bey.",
+      "secenekler": []
+    }
+  }
+}

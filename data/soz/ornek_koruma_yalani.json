@@ -1,0 +1,35 @@
+{
+  "konusmaci": "chr_002",
+  "cekirdek": "koruma_yalani",
+  "ipucu_id": "clue_chr002_gizli_heybe",
+  "dugumler": {
+    "giris": {
+      "id": "giris",
+      "satir": "Selam muhafız, tek başıma geldim, kimsem yoktur.",
+      "secenekler": [
+        { "id": "sec_kiminle", "metin": "Kiminle yola çıktın?", "hedef": "konu_kiminle" }
+      ]
+    },
+    "konu_kiminle": {
+      "id": "konu_kiminle",
+      "konu": "kiminle",
+      "satir": "Yalnızdım dedim ya, kimseyi tanımam.",
+      "beyan": { "id": "beyan_yalnizim", "metin": "Yalnız yola çıktım", "dogru": false },
+      "secenekler": [
+        { "id": "sec_yuzles", "metin": "Heybendeki çocuk çarığı kimin peki?", "hedef": "yuzlesme" }
+      ]
+    },
+    "yuzlesme": {
+      "id": "yuzlesme",
+      "satir": "Aman muhafız bey, ses etme! Kardeşimin yetimi çalılıkta saklanır, korktuk da yalan söyledik.",
+      "secenekler": [
+        { "id": "sec_itiraf_kabul", "metin": "Doğruyu söylemen iyi oldu. Bekle.", "hedef": "veda" }
+      ]
+    },
+    "veda": {
+      "id": "veda",
+      "satir": "Merhametine sığındık.",
+      "secenekler": []
+    }
+  }
+}
