@@ -1,0 +1,1593 @@
+@tool
+extends RefCounted
+class_name HFTransformSystem
+
+## Rigid transforms for a HammerForge selection: rotate, flip, and reset rotation.
+##
+## Rotation is a determinant +1 change to each object's basis, so local face data
+## is left alone — the baker's world-space `origin + basis * vert` already produces
+## the rotated geometry, and so do the snap system, the gizmos, and the .hflevel
+## writer.
+##
+## Flip is a reflection, determinant -1, and a negative determinant inverts
+## triangle winding at bake time. Rather than patch normals afterwards, the
+## reflection is folded back through a reflection along one *local* axis, which
+## restores a right-handed basis while leaving every world vertex exactly where
+## the mirror puts it. See
+## `docs/superpowers/specs/2026-09-07-free-transform-design.md`.
+##
+## `normalize_handedness()` folds the same way, for a mirror that arrived from
+## somewhere other than Flip: Godot's own scale gizmo, the Inspector, or a level
+## file written before this existed.
+
+# Preloaded under their global names so the script parses before Godot has
+# registered the global classes, as on a fresh clone.
+@warning_ignore_start("shadowed_global_identifier")
+const DraftBrush = preload("../brush_instance.gd")
+const DraftEntity = preload("../draft_entity.gd")
+const FaceData = preload("../face_data.gd")
+const HFDisplacementData = preload("../displacement_data.gd")
+const HFBrushEntity = preload("../hf_brush_entity.gd")
+const HFDoorRuntime = preload("../hf_door_runtime.gd")
+const HFGeneratorSystem = preload("hf_generator_system.gd")
+@warning_ignore_restore("shadowed_global_identifier")
+const HFDimensions = preload("../hf_dimensions.gd")
+
+enum PivotMode { SELECTION_CENTER, WORLD_ORIGIN, ACTIVE, CUSTOM }
+
+## Local-space grid used to decide whether a mirror maps a primitive onto itself.
+## Coarse enough to absorb float error, fine enough that no two brush vertices
+## share a cell. Misjudging falls to the exact path, never to wrong geometry.
+const MIRROR_EPSILON := 0.001
+
+## How far a basis column may stray from unit length, or from square with its
+## neighbours, and still count as a turn and nothing else. Columns are unit
+## length, so this is an angle in disguise: about a twentieth of a degree.
+const ROTATION_EPSILON := 0.001
+
+## The step a turn is read to before it moves a stored angle, in degrees.
+const YAW_STEP := 0.001
+
+var root: Node3D
+
+
+func _init(level_root: Node3D = null) -> void:
+	root = level_root
+
+
+# ---------------------------------------------------------------------------
+# Pure geometry
+# ---------------------------------------------------------------------------
+
+
+## World axis for an index: 0 = X, 1 = Y, anything else = Z.
+static func axis_vector(axis_index: int) -> Vector3:
+	match axis_index:
+		0:
+			return Vector3.RIGHT
+		1:
+			return Vector3.UP
+		_:
+			return Vector3.BACK
+
+
+static func rotation_basis(axis_index: int, angle_rad: float) -> Basis:
+	return Basis(axis_vector(axis_index), angle_rad)
+
+
+## Whether an axis index names a world axis. `axis_vector()` falls through to Z,
+## so a caller that got its index wrong would otherwise turn the selection about
+## an axis it did not ask for.
+static func is_valid_axis(axis_index: int) -> bool:
+	return axis_index >= 0 and axis_index <= 2
+
+
+## A world rotation written in the object's own space.
+##
+## Texture lock works on local face data, so it needs the turn as the object sees
+## it: after the move, the local point `v` sits where `local_rotation * v` used
+## to sit. The basis is orthonormalised first because only its rotation part
+## takes part in that; any scale on the node is a separate thing.
+static func local_rotation(basis: Basis, rot: Basis) -> Basis:
+	var orientation := basis.orthonormalized()
+	return orientation.inverse() * rot * orientation
+
+
+## Linear reflection through the plane whose normal is the given axis.
+static func reflection_basis(axis_index: int) -> Basis:
+	var scale := Vector3.ONE
+	scale[clampi(axis_index, 0, 2)] = -1.0
+	return Basis.IDENTITY.scaled(scale)
+
+
+## Whether a basis is a turn and nothing else — no squash, no stretch, no mirror.
+##
+## The mirror half is the one that matters most: a negative determinant inverts
+## the winding of every face built through the basis, and that does not look wrong
+## in the viewport. It looks wrong in the bake.
+## How far apart two transforms may be and still be the same place.
+##
+## Positions in a level are whole units and the arithmetic that places a piece is
+## a couple of multiplications, so anything past a thousandth of a unit was
+## somebody moving it.
+const PLACEMENT_EPSILON := 0.001
+
+
+## Whether two transforms stand in the same place, facing the same way.
+##
+## The one definition of that question, asked by anything that has to tell a
+## piece somebody moved from a piece that is where it was put — an array's copies
+## and a hollow's walls both.
+static func same_transform(a: Transform3D, b: Transform3D, epsilon := PLACEMENT_EPSILON) -> bool:
+	if a.origin.distance_to(b.origin) > epsilon:
+		return false
+	for axis in 3:
+		if a.basis[axis].distance_to(b.basis[axis]) > epsilon:
+			return false
+	return true
+
+
+static func is_rotation_basis(basis: Basis) -> bool:
+	if basis.determinant() <= 0.0:
+		return false
+	var unit := basis.orthonormalized()
+	for axis in 3:
+		if basis[axis].distance_to(unit[axis]) > ROTATION_EPSILON:
+			return false
+	return true
+
+
+## Column `index` of a basis, which is the world direction of that local axis.
+static func basis_axis(basis: Basis, index: int) -> Vector3:
+	match index:
+		0:
+			return basis.x
+		1:
+			return basis.y
+		_:
+			return basis.z
+
+
+## `xform` rotated by `rot` about `pivot`.
+##
+## The rotation part is re-orthonormalised because a brush accumulates one of
+## these per key press. Each composition carries a little float error, and left
+## alone that error compounds into a basis that is no longer a pure rotation —
+## a sheared brush, with scale creeping into the bake. Any scale the node already
+## carried is taken off first and put back afterwards, so orthonormalising cleans
+## up drift without quietly resizing a brush somebody scaled with Godot's own
+## gizmo.
+static func rotated_transform(xform: Transform3D, rot: Basis, pivot: Vector3) -> Transform3D:
+	var scale := xform.basis.get_scale()
+	var out := Transform3D()
+	out.basis = with_scale((rot * xform.basis).orthonormalized(), scale)
+	out.origin = pivot + rot * (xform.origin - pivot)
+	return out
+
+
+## Apply a per-local-axis scale to an orthonormal basis.
+##
+## `Basis.scaled()` scales the rows, which is a world-space scale; a brush's scale
+## belongs to its own axes, so each column is scaled instead.
+static func with_scale(rotation: Basis, scale: Vector3) -> Basis:
+	var out := rotation
+	out.x = rotation.x * scale.x
+	out.y = rotation.y * scale.y
+	out.z = rotation.z * scale.z
+	return out
+
+
+## `xform` mirrored across the plane through `pivot` with normal `axis_index`,
+## with the handedness folded back through the local axis `local_axis`.
+##
+## `basis'' = R * basis * H` has determinant +1 because both reflections
+## contribute -1, and pairing it with local vertices reflected by `H` reproduces
+## the mirrored world position exactly, since `H * H` is the identity.
+static func flipped_transform(
+	xform: Transform3D, axis_index: int, pivot: Vector3, local_axis: int
+) -> Transform3D:
+	var world_reflection := reflection_basis(axis_index)
+	var out := Transform3D()
+	out.basis = world_reflection * xform.basis * reflection_basis(local_axis)
+	out.origin = pivot + world_reflection * (xform.origin - pivot)
+	return out
+
+
+## The local axis whose world direction is most parallel to the mirror normal.
+##
+## Folding the reflection through this axis keeps an axis-aligned brush axis
+## aligned. Any local axis would give the same world geometry; this choice is
+## what stops a mirrored box from arriving with a spurious 90-degree turn.
+static func local_mirror_axis(basis: Basis, axis_index: int) -> int:
+	var world_normal := axis_vector(axis_index)
+	var best := 0
+	var best_dot := -1.0
+	for i in 3:
+		var alignment := absf(basis_axis(basis, i).normalized().dot(world_normal))
+		if alignment > best_dot:
+			best_dot = alignment
+			best = i
+	return best
+
+
+## Reflect one face's vertices through a local axis and reverse their order.
+##
+## Reflecting reverses winding, so the reversal restores the clockwise-from-
+## outside order the whole codebase depends on. Applying this twice is exactly
+## the identity: two negations and two reversals.
+##
+## A sculpted displacement goes with it. Its grid is laid against the face's
+## corners, and the reversal makes new corner `i` the old corner `3 - i`, so the
+## grid is relabelled to match and its custom offset directions are reflected
+## with the geometry. That is an involution as well.
+static func mirror_face(face: FaceData, local_axis: int) -> void:
+	if face == null:
+		return
+	var verts: PackedVector3Array = face.local_verts
+	var count := verts.size()
+	if count == 0:
+		return
+	var axis := clampi(local_axis, 0, 2)
+	var uvs: PackedVector2Array = face.custom_uvs
+	var carry_uvs := uvs.size() == count
+	var mirrored := PackedVector3Array()
+	mirrored.resize(count)
+	var mirrored_uvs := PackedVector2Array()
+	if carry_uvs:
+		mirrored_uvs.resize(count)
+	for i in count:
+		var source := count - 1 - i
+		var vertex: Vector3 = verts[source]
+		vertex[axis] = -vertex[axis]
+		mirrored[i] = vertex
+		if carry_uvs:
+			mirrored_uvs[i] = uvs[source]
+	face.local_verts = mirrored
+	face.custom_uvs = mirrored_uvs if carry_uvs else PackedVector2Array()
+	var sculpt := face.displacement as HFDisplacementData
+	if count == 4 and sculpt != null:
+		sculpt = sculpt.remapped(PackedInt32Array([3, 2, 1, 0]), axis)
+		if sculpt != null:
+			face.displacement = sculpt
+	face.ensure_geometry()
+
+
+## Relabel a face's corners so that it starts at the vertex sitting at `first`,
+## keeping its winding. Custom UVs and a displacement grid follow their corners,
+## so nothing moves in the world. False, having changed nothing, when no vertex
+## sits at `first`.
+static func start_face_at(face: FaceData, first: Vector3) -> bool:
+	if face == null:
+		return false
+	var verts: PackedVector3Array = face.local_verts
+	var count := verts.size()
+	var shift := -1
+	for i in count:
+		if verts[i].distance_to(first) <= MIRROR_EPSILON:
+			shift = i
+			break
+	if shift < 0:
+		return false
+	if shift == 0:
+		return true
+	var turned := PackedVector3Array()
+	turned.resize(count)
+	for i in count:
+		turned[i] = verts[(i + shift) % count]
+	face.local_verts = turned
+	face.relabel_corner_data(shift)
+	face.ensure_geometry()
+	return true
+
+
+static func mirror_faces(faces: Array, local_axis: int) -> void:
+	for face in faces:
+		mirror_face(face as FaceData, local_axis)
+
+
+## Advance a stored yaw, in degrees, by a rotation about the world Y axis.
+static func rotated_angle(angle_degrees: float, rotation_degrees: float) -> float:
+	return fposmod(angle_degrees + rotation_degrees, 360.0)
+
+
+## A stored yaw, in degrees, after mirroring across the given world axis.
+##
+## Godot's forward is -Z, so a yaw of θ points along `(-sin θ, 0, -cos θ)`.
+## Mirroring that direction and solving for the new yaw gives -θ across X,
+## θ across Y (the entity turns upside down, not around), and 180 - θ across Z.
+static func mirrored_angle(angle_degrees: float, axis_index: int) -> float:
+	match axis_index:
+		0:
+			return fposmod(-angle_degrees, 360.0)
+		1:
+			return fposmod(angle_degrees, 360.0)
+		_:
+			return fposmod(180.0 - angle_degrees, 360.0)
+
+
+## A brush entity's `angle` after its brushes are turned about the world Y axis.
+##
+## The Quake family's compass bearing, the way `HFDoorRuntime` reads it: 0 is +X
+## and it turns towards -Z, which is the way a turn about +Y goes, so it advances
+## by the turn as a point entity's yaw does. Up and down stay up and down.
+static func rotated_bearing(angle_degrees: float, rotation_degrees: float) -> float:
+	if _is_vertical_bearing(angle_degrees):
+		return angle_degrees
+	return rotated_angle(angle_degrees, rotation_degrees)
+
+
+## A brush entity's `angle` after mirroring across the given world axis.
+##
+## A bearing starts at +X where a yaw starts at -Z, so the two mirror the other
+## way round: 180 - θ across X and -θ across Z. Across Y a bearing stays where it
+## is, and up and down change places.
+static func mirrored_bearing(angle_degrees: float, axis_index: int) -> float:
+	if _is_vertical_bearing(angle_degrees):
+		if axis_index != 1:
+			return angle_degrees
+		if is_equal_approx(angle_degrees, HFDoorRuntime.ANGLE_UP):
+			return HFDoorRuntime.ANGLE_DOWN
+		return HFDoorRuntime.ANGLE_UP
+	match axis_index:
+		0:
+			return fposmod(180.0 - angle_degrees, 360.0)
+		1:
+			return fposmod(angle_degrees, 360.0)
+		_:
+			return fposmod(-angle_degrees, 360.0)
+
+
+## How far `rot` turns about the world up axis, in degrees, or NAN when it does
+## anything else as well: tips the up axis, or mirrors. A Quake angle is a compass
+## bearing, so only a turn of the compass moves it.
+##
+## Read to a thousandth of a degree. A turn read back off a basis carries float
+## error, and a gizmo turn and its undo would otherwise leave an angle a little
+## further off each time.
+static func yaw_of_turn(rot: Basis) -> float:
+	if not is_rotation_basis(rot):
+		return NAN
+	if (rot * Vector3.UP).distance_to(Vector3.UP) > ROTATION_EPSILON:
+		return NAN
+	var east := rot * Vector3.RIGHT
+	return snappedf(rad_to_deg(atan2(-east.z, east.x)), YAW_STEP)
+
+
+static func _is_vertical_bearing(angle_degrees: float) -> bool:
+	return (
+		is_equal_approx(angle_degrees, HFDoorRuntime.ANGLE_UP)
+		or is_equal_approx(angle_degrees, HFDoorRuntime.ANGLE_DOWN)
+	)
+
+
+# ---------------------------------------------------------------------------
+# Selection operations
+# ---------------------------------------------------------------------------
+
+
+## Rotate brushes and entities about `pivot`. Returns the number changed.
+func rotate(
+	brush_ids: Array, entity_paths: Array, axis_index: int, angle_rad: float, pivot: Vector3
+) -> int:
+	if not is_valid_axis(axis_index):
+		HFLog.warn("HFTransformSystem: rotate needs an axis of 0, 1 or 2")
+		return 0
+	if not is_finite(angle_rad) or not pivot.is_finite():
+		HFLog.warn("HFTransformSystem: rotate needs a finite angle and pivot")
+		return 0
+	if is_zero_approx(angle_rad):
+		return 0
+	var rot := rotation_basis(axis_index, angle_rad)
+	var lock_textures := _texture_lock_enabled()
+	# Read to the step a turn read off a basis is, so a door Rotate turned 30
+	# degrees and Reset Rotation turned back lands on 0 and not on 359.999...
+	var angle_degrees := snappedf(rad_to_deg(angle_rad), YAW_STEP)
+	var changed := 0
+	for brush_id in brush_ids:
+		var draft := _brush_at_id(str(brush_id))
+		if draft == null:
+			continue
+		var local_rot := local_rotation(draft.global_transform.basis, rot)
+		var shown := shown_corner_uvs(draft) if lock_textures else []
+		draft.global_transform = rotated_transform(draft.global_transform, rot, pivot)
+		if lock_textures:
+			adjust_face_uvs_for_rotation(draft, local_rot, shown)
+			draft.rebuild_preview()
+		_refit_texture_groups(draft)
+		# A door's angle turns with it, as a point entity's does below. Left
+		# behind, a door turned with its wall slid out of the wall (#1210).
+		if axis_index == 1:
+			_set_brush_entity_angle(
+				draft, rotated_bearing(_brush_entity_angle(draft), angle_degrees)
+			)
+		_tag_dirty(draft)
+		changed += 1
+	for entity_path in entity_paths:
+		var entity := _entity_at_path(entity_path)
+		if entity == null:
+			continue
+		entity.global_transform = rotated_transform(entity.global_transform, rot, pivot)
+		if axis_index == 1:
+			_set_entity_angle(entity, rotated_angle(_entity_angle(entity), angle_degrees))
+		changed += 1
+	return changed
+
+
+## Turn brushes to `rotation`, each about its own centre. Returns the number
+## changed.
+##
+## An angle rather than a turn: the turn from where each brush faces now to
+## `rotation` goes through the same path `rotate()` does, texture lock included,
+## so the two cannot drift apart. Any scale a brush carries stays on its own axes.
+func set_rotation(brush_ids: Array, rotation: Basis) -> int:
+	if not is_rotation_basis(rotation):
+		HFLog.warn("HFTransformSystem: set_rotation needs a pure rotation")
+		return 0
+	var lock_textures := _texture_lock_enabled()
+	var changed := 0
+	for brush_id in brush_ids:
+		var draft := _brush_at_id(str(brush_id))
+		if draft == null:
+			continue
+		var rot := rotation * draft.global_transform.basis.orthonormalized().inverse()
+		if _same_basis(rot, Basis.IDENTITY):
+			continue
+		var local_rot := local_rotation(draft.global_transform.basis, rot)
+		var shown := shown_corner_uvs(draft) if lock_textures else []
+		draft.global_transform = rotated_transform(
+			draft.global_transform, rot, draft.global_transform.origin
+		)
+		if lock_textures:
+			adjust_face_uvs_for_rotation(draft, local_rot, shown)
+			draft.rebuild_preview()
+		_refit_texture_groups(draft)
+		# The Agent Bridge turns a brush through here, and a door it turned slid
+		# out of its wall (#1256).
+		turn_brush_entity_angle(draft, rot)
+		_tag_dirty(draft)
+		changed += 1
+	return changed
+
+
+## Mirror brushes and entities across the plane through `pivot` whose normal is
+## `axis_index`. A sculpted displacement is mirrored with its face. A texture group
+## last fitted is fitted again across its mirrored faces, unless `refit_groups` is
+## off, as for Mirror Copy's copies, which extend a surface as a duplicate does.
+## Returns the number changed.
+func flip(
+	brush_ids: Array, entity_paths: Array, axis_index: int, pivot: Vector3, refit_groups := true
+) -> int:
+	if not is_valid_axis(axis_index):
+		HFLog.warn("HFTransformSystem: flip needs an axis of 0, 1 or 2")
+		return 0
+	if not pivot.is_finite():
+		HFLog.warn("HFTransformSystem: flip needs a finite pivot")
+		return 0
+	var changed := 0
+	# The local axis each brush is folded on, for a dimension flipped with it (#2000).
+	var folded: Dictionary = {}
+	for brush_id in brush_ids:
+		var draft := _brush_at_id(str(brush_id))
+		if draft == null:
+			continue
+		folded[str(brush_id)] = local_mirror_axis(draft.global_transform.basis, axis_index)
+		_flip_brush(draft, axis_index, pivot)
+		if refit_groups:
+			_refit_texture_groups(draft)
+		_set_brush_entity_angle(draft, mirrored_bearing(_brush_entity_angle(draft), axis_index))
+		changed += 1
+	for entity_path in entity_paths:
+		var entity := _entity_at_path(entity_path)
+		if entity == null:
+			continue
+		var local_axis := local_mirror_axis(entity.global_transform.basis, axis_index)
+		if HFDimensions.is_dimension(entity):
+			HFDimensions.mirror_ends(entity, local_axis, folded)
+		entity.global_transform = flipped_transform(
+			entity.global_transform, axis_index, pivot, local_axis
+		)
+		_set_entity_angle(entity, mirrored_angle(_entity_angle(entity), axis_index))
+		changed += 1
+	return changed
+
+
+## Mirrored copies of brushes and entities, the originals left as they are: one
+## across each axis in `axes` (bits: 1 X, 2 Y, 4 Z) and one across each
+## combination of them, so n axes make 2^n - 1 copies and X with Z makes three.
+## Each plane crosses its axis at `pivot`.
+##
+## A copy is what Duplicate makes, put through `flip()` once for each of its
+## axes: a brush id of its own and a brush entity of its own (#1161), then Flip's
+## fold, so it keeps a positive determinant and stays one convex brush, its faces'
+## look, paint and sculpts land on the faces the mirror sends them to, and an
+## entity's angle is mirrored. Texture Lock decides the texture as it does for a
+## move: on, it is mirrored with the copy; off, the copy reads the level's
+## projection where it lands, as Flip leaves it.
+##
+## Returns `{"brush_ids", "entity_paths"}` of the copies, empty when it made none.
+func mirror_copy(brush_ids: Array, entity_paths: Array, axes: int, pivot: Vector3) -> Dictionary:
+	var made := {"brush_ids": [], "entity_paths": []}
+	if axes < 1 or axes > 7:
+		HFLog.warn("HFTransformSystem: mirror_copy needs axes from 1 to 7")
+		return made
+	if not pivot.is_finite():
+		HFLog.warn("HFTransformSystem: mirror_copy needs a finite pivot")
+		return made
+	if not is_instance_valid(root):
+		return made
+	var lock_textures := _texture_lock_enabled()
+	for combination in range(1, 8):
+		if (combination & ~axes) != 0:
+			continue
+		var copy := _copy_in_place(brush_ids, entity_paths)
+		for axis_index in 3:
+			if (combination & (1 << axis_index)) == 0:
+				continue
+			flip(copy["brush_ids"], copy["entity_paths"], axis_index, pivot, false)
+			if lock_textures:
+				for brush_id in copy["brush_ids"]:
+					_lock_mirrored_texture(
+						_brush_at_id(str(brush_id)), axis_index, pivot[axis_index]
+					)
+		(made["brush_ids"] as Array).append_array(copy["brush_ids"])
+		(made["entity_paths"] as Array).append_array(copy["entity_paths"])
+	return made
+
+
+## One copy of each brush and entity, standing where its original stands:
+## Duplicate's records with no offset and fresh identities, built at once. Built
+## one combination at a time, so the names a copy is given are free of the
+## copies made before it. A group copied whole is a group of its own, "<name>
+## copy", as Duplicate makes one: the copies used to join the original's group,
+## so a click on the original took both halves (#1897).
+func _copy_in_place(brush_ids: Array, entity_paths: Array) -> Dictionary:
+	var originals: Array = []
+	var infos: Array = []
+	# Each brush's id to its copy's, for a dimension copied with it (#2000).
+	var copies: Dictionary = {}
+	for brush_id in brush_ids:
+		var draft := _brush_at_id(str(brush_id))
+		if draft == null:
+			continue
+		originals.append(draft)
+		var info: Dictionary = root.build_duplicate_info(draft, Vector3.ZERO)
+		if not info.is_empty():
+			infos.append(info)
+			copies[str(draft.brush_id)] = str(info.get("brush_id", ""))
+	var entities: Array = []
+	for entity_path in entity_paths:
+		var entity := _entity_at_path(entity_path)
+		if entity != null:
+			entities.append(entity)
+	HFBrushEntity.fresh_identities(infos, [], root.entity_system)
+	var renamed: Dictionary = {}
+	var visgroups = root.get("visgroup_system")
+	if visgroups:
+		var whole: Array = visgroups.whole_groups(originals + entities)
+		visgroups.add_groups(
+			visgroups.place_copied_groups(whole, " copy", true, infos, [], renamed)
+		)
+	var copy_ids: Array = []
+	for info in infos:
+		if root.create_brush_from_info(info) != null:
+			copy_ids.append(str(info["brush_id"]))
+	var copy_paths: Array = []
+	for entity in entities:
+		var info: Dictionary = root.build_duplicate_entity_info(entity, Vector3.ZERO)
+		var group_id := str(info.get("group_id", ""))
+		if renamed.has(group_id):
+			info["group_id"] = renamed[group_id]
+		HFDimensions.follow_copies([info], copies)
+		var copied: Node = root.entity_system.restore_entity_from_info(info)
+		if copied != null:
+			copy_paths.append(root.get_path_to(copied))
+	return {"brush_ids": copy_ids, "entity_paths": copy_paths}
+
+
+## Texture Lock for a mirror: every face reads the mirror image of what it read,
+## the way a moved face keeps its texture on the brush.
+func _lock_mirrored_texture(draft: DraftBrush, axis_index: int, plane: float) -> void:
+	if draft == null:
+		return
+	# The Box UV axis is read where the brush is now, and a moved node tells its
+	# faces only when the frame's transform notifications go out.
+	draft.sync_face_world_transform()
+	var adjusted := false
+	for face in draft.faces:
+		# A face in a texture group keeps its group's mapping (#1437).
+		if face == null or face.uv_group != 0:
+			continue
+		if face.adjust_uvs_for_mirror(axis_index, plane):
+			adjusted = true
+	if adjusted:
+		draft.rebuild_preview()
+
+
+## Clear each brush's rotation, keeping its position and its size.
+##
+## Rotation is only one part of a basis. Godot's own scale gizmo writes into the
+## same matrix, so replacing the whole basis with the identity would quietly
+## resize the brush as well. `basis = rotation * scale` and `get_scale()` reads
+## the scale half back out, so the cleared basis is that scale on its own.
+func reset_rotation(brush_ids: Array) -> int:
+	var changed := 0
+	for brush_id in brush_ids:
+		var draft := _brush_at_id(str(brush_id))
+		if draft == null:
+			continue
+		var xform := draft.global_transform
+		var scale := xform.basis.get_scale()
+		var cleared := Basis.from_scale(scale)
+		# Scale alone is not rotation. Leave it exactly as the user set it.
+		if xform.basis.is_equal_approx(cleared):
+			continue
+		# A basis that only swaps and flips whole axes is describing a box that is
+		# already axis-aligned, just bookkept oddly. Fold the swap into `size` so
+		# clearing the basis leaves the geometry exactly where it was — otherwise a
+		# quarter turn would snap a non-cube box back to its old footprint. The
+		# scale is per local axis, so it has to travel with the swap.
+		var permutation := axis_permutation(xform.basis)
+		var stays_put := not permutation.is_empty() and draft.shape == DraftBrush.BrushShape.BOX
+		if stays_put:
+			draft.size = permuted_size(draft.size, permutation)
+			cleared = Basis.from_scale(permuted_size(scale, permutation))
+		draft.global_transform = Transform3D(cleared, xform.origin)
+		# Anything else turns back to square, and a door's angle turns back with it.
+		if not stays_put:
+			turn_brush_entity_angle(draft, xform.basis.orthonormalized().inverse())
+		_tag_dirty(draft)
+		changed += 1
+	return changed
+
+
+## For a basis whose columns each lie along a distinct world axis, the world axis
+## that each local axis maps to. Empty for a general rotation.
+static func axis_permutation(basis: Basis) -> PackedInt32Array:
+	const TOLERANCE := 0.9999
+	var mapping := PackedInt32Array()
+	var used := {}
+	for local_axis in 3:
+		var direction := basis_axis(basis, local_axis).normalized()
+		var matched := -1
+		for world_axis in 3:
+			if absf(direction.dot(axis_vector(world_axis))) >= TOLERANCE:
+				matched = world_axis
+				break
+		if matched < 0 or used.has(matched):
+			return PackedInt32Array()
+		used[matched] = true
+		mapping.append(matched)
+	return mapping
+
+
+## Rewrite a size so each local extent lands on the world axis it now points down.
+static func permuted_size(size: Vector3, mapping: PackedInt32Array) -> Vector3:
+	if mapping.size() < 3:
+		return size
+	var out := size
+	for local_axis in 3:
+		out[mapping[local_axis]] = size[local_axis]
+	return out
+
+
+# ---------------------------------------------------------------------------
+# Apply Rotation and Scale
+# ---------------------------------------------------------------------------
+
+## Fold each brush's rotation and scale into its shape and faces, leaving it in
+## the world exactly where it stood with an identity basis (#1435). A brush
+## stretched with Godot's gizmo kept its old `size`, so typed sizes, resize
+## handles and Hollow's wall thickness all worked in units that were not metres.
+##
+# ---------------------------------------------------------------------------
+# Shear
+# ---------------------------------------------------------------------------
+
+
+## The shear that moves every point along axis `along` by `amount` for each unit
+## it stands past `pivot` on axis `over`, so the plane at `pivot` stays put
+## (#1718). A leaning wall is `along` X `over` Y; 0.5 m over 3 m is 1/6.
+static func shear_transform(along: int, over: int, amount: float, pivot: float) -> Transform3D:
+	var basis := Basis.IDENTITY
+	basis[over] = axis_vector(over) + axis_vector(along) * amount
+	return Transform3D(basis, -axis_vector(along) * amount * pivot)
+
+
+## The shear amount, metres per metre, that leans by `degrees`.
+static func shear_amount_for_degrees(degrees: float) -> float:
+	return tan(deg_to_rad(degrees))
+
+
+## Why a shear `along` `over` by `amount` cannot be made, or "" when it can.
+static func shear_problem(along: int, over: int, amount: float) -> String:
+	if not is_valid_axis(along) or not is_valid_axis(over):
+		return "Shear: the axes are X, Y or Z"
+	if along == over:
+		return "Shear: the axis that moves and the axis it leans over must differ"
+	if not is_finite(amount):
+		return "Shear: the amount must be a number"
+	return ""
+
+
+## Lean `brush_ids` and move `entity_paths` by `shear_transform()` (#1718).
+##
+## Every corner of every brush moves by the one shear, so brushes that met still
+## meet, and a shear keeps a flat face flat and a convex brush convex. Each brush
+## keeps its turn, with the lean folded into its faces as Apply Rotation and Scale
+## folds a scale, so a box becomes custom. With Texture Lock on, each face keeps
+## the texture where it showed, written into its custom UVs; otherwise its
+## projection is laid on the new corners afresh. A brush with a sculpt is left
+## alone, since a lean would stretch it. A point entity moves with its origin and
+## keeps its turn. Returns `fold_report_text()`'s report: `changed`, `custom`,
+## `cylindrical`, `structure` and `refused`, plus `entities`, how many moved.
+func shear(
+	brush_ids: Array, entity_paths: Array, along: int, over: int, amount: float, pivot: float
+) -> Dictionary:
+	var report := {
+		"changed": 0,
+		"custom": [],
+		"cylindrical": [],
+		"structure": [],
+		"refused": [],
+		"entities": 0,
+	}
+	if shear_problem(along, over, amount) != "" or not is_finite(pivot):
+		return report
+	if is_zero_approx(amount):
+		return report
+	var lean := shear_transform(along, over, amount, pivot)
+	var lock_textures := _texture_lock_enabled()
+	for brush_id in brush_ids:
+		var draft := _brush_at_id(str(brush_id))
+		if draft == null:
+			continue
+		_ensure_faces(draft)
+		var label := str(draft.name)
+		if _has_sculpt(draft):
+			(report["refused"] as Array).append("%s (a lean would stretch its sculpt)" % label)
+			continue
+		var locked: Array = []
+		if lock_textures:
+			for face in draft.get_faces():
+				var data := face as FaceData
+				if data != null and not data.has_uv_layout() and data.local_verts.size() >= 3:
+					data.custom_uvs = data.shown_uvs()
+					locked.append(data)
+		var before := draft.global_transform
+		draft.global_transform = lean * before
+		var outcome := fold_basis(draft, before.basis)
+		if str(outcome["refused"]) != "":
+			# Left as it was, lean and locked UVs both.
+			draft.global_transform = before
+			for data in locked:
+				(data as FaceData).custom_uvs = PackedVector2Array()
+			(report["refused"] as Array).append("%s %s" % [label, outcome["refused"]])
+			continue
+		if not outcome["folded"]:
+			continue
+		report["changed"] = int(report["changed"]) + 1
+		if outcome["custom"]:
+			(report["custom"] as Array).append(label)
+		if int(outcome["cylindrical"]) > 0:
+			(report["cylindrical"] as Array).append(label)
+		if str(draft.get_meta(HFGeneratorSystem.GENERATOR_META, "")) != "":
+			(report["structure"] as Array).append(label)
+		_refit_texture_groups(draft)
+	for entity_path in entity_paths:
+		var entity := _entity_at_path(entity_path)
+		if entity == null:
+			continue
+		entity.global_position = lean * entity.global_position
+		report["entities"] = int(report["entities"]) + 1
+	return report
+
+
+## Returns what happened, for the toast: `changed`, how many were folded, and the
+## names of those that became custom (`custom`), had Cylindrical faces written into
+## custom UVs (`cylindrical`), are structure pieces that now read as edited
+## (`structure`), and `refused`, each with why.
+func apply_rotation_and_scale(brush_ids: Array) -> Dictionary:
+	var report := {"changed": 0, "custom": [], "cylindrical": [], "structure": [], "refused": []}
+	for brush_id in brush_ids:
+		var draft := _brush_at_id(str(brush_id))
+		if draft == null:
+			continue
+		var outcome := fold_basis(draft, Basis.IDENTITY)
+		var label := str(draft.name)
+		if str(outcome["refused"]) != "":
+			(report["refused"] as Array).append("%s %s" % [label, outcome["refused"]])
+			continue
+		if not outcome["folded"]:
+			continue
+		report["changed"] = int(report["changed"]) + 1
+		if outcome["custom"]:
+			(report["custom"] as Array).append(label)
+		if int(outcome["cylindrical"]) > 0:
+			(report["cylindrical"] as Array).append(label)
+		if str(draft.get_meta(HFGeneratorSystem.GENERATOR_META, "")) != "":
+			(report["structure"] as Array).append(label)
+	return report
+
+
+## The toast for an `apply_rotation_and_scale()` report, or for the fold a
+## Convert to Brushes made: what was applied, and each case that could not keep
+## everything, by name.
+static func fold_report_text(report: Dictionary, lead: String) -> String:
+	var parts := PackedStringArray([lead])
+	var custom: Array = report.get("custom", [])
+	if not custom.is_empty():
+		parts.append(
+			(
+				"%s became custom, with no resize handles or Sides"
+				% ", ".join(PackedStringArray(custom))
+			)
+		)
+	var cylindrical: Array = report.get("cylindrical", [])
+	if not cylindrical.is_empty():
+		parts.append(
+			(
+				"Cylindrical faces of %s keep their look as custom UVs"
+				% ", ".join(PackedStringArray(cylindrical))
+			)
+		)
+	var structure: Array = report.get("structure", [])
+	if not structure.is_empty():
+		parts.append(
+			(
+				"%s now read as edited structure pieces, which Update rebuilds over"
+				% ", ".join(PackedStringArray(structure))
+			)
+		)
+	var refused: Array = report.get("refused", [])
+	if not refused.is_empty():
+		parts.append("Left alone: %s" % ", ".join(PackedStringArray(refused)))
+	return ". ".join(parts)
+
+
+## Fold the part of a brush's basis that is not `keep` into its shape and faces,
+## so the brush stands in `keep` and every corner stays where it is in the world.
+## Apply Rotation and Scale folds the whole basis (`keep` the identity); Convert
+## to Brushes folds a node's scale and keeps its turn.
+##
+## A linear map keeps a flat face flat and a convex brush convex, so the folded
+## faces are the brush exactly. A primitive stays one when a primitive of some
+## size has those corners: a box under a scale or a quarter turn, which `size`
+## takes, a sphere scaled unevenly, which is an ellipsoid. Its faces are built as
+## the shape builds them and take the folded faces' data by their corners, as a
+## flip moves a face's look to the face that takes its place. Anything else turns
+## CUSTOM with the folded faces as its geometry.
+##
+## A mirror reverses each face's winding, as `mirror_face()` does, so the faces
+## stay clockwise from outside. A Cylindrical face is projected in the brush's own
+## space, which the fold changes, so what it shows is written into its custom UVs
+## first; every other projection is taken in the level and reads the same. Box UV
+## is told the fold is no turn (`FaceData.keep_uv_layout_in()`). A sculpt keeps its
+## heights under a turn and an even scale, its distances scaled with the brush and
+## its offset directions turned; under an uneven one the brush is refused.
+##
+## Returns `{"folded": bool, "custom": bool, "cylindrical": int, "refused": String}`:
+## whether anything changed, whether a primitive became custom, how many
+## Cylindrical faces were written into custom UVs, and why the brush was left alone.
+func fold_basis(draft: DraftBrush, keep: Basis) -> Dictionary:
+	var outcome := {"folded": false, "custom": false, "cylindrical": 0, "refused": ""}
+	if draft == null or not is_instance_valid(draft):
+		return outcome
+	if not keep.is_finite() or is_zero_approx(keep.determinant()):
+		HFLog.warn("HFTransformSystem: fold_basis needs a basis to keep that has an inverse")
+		return outcome
+	var xform := draft.global_transform
+	var fold := keep.inverse() * xform.basis
+	if _same_basis(fold, Basis.IDENTITY):
+		return outcome
+	if not fold.is_finite() or absf(fold.determinant()) < FLAT_DETERMINANT:
+		outcome["refused"] = "(it is squashed flat)"
+		return outcome
+	_ensure_faces(draft)
+	if not is_similarity(fold) and _has_sculpt(draft):
+		outcome["refused"] = "(an uneven scale would stretch its sculpted faces)"
+		return outcome
+	var folded := _folded_faces(draft.get_faces(), fold)
+	var faces: Array[FaceData] = folded["faces"]
+	if faces.is_empty():
+		outcome["refused"] = "(it has no faces to fold into)"
+		return outcome
+	outcome["cylindrical"] = folded["cylindrical"]
+	var was_custom := draft.shape == DraftBrush.BrushShape.CUSTOM
+	var kept := {} if was_custom else _primitive_after_fold(draft, fold, faces)
+	var final_faces: Array[FaceData] = faces
+	if not kept.is_empty():
+		final_faces = kept["faces"]
+	for face in final_faces:
+		face.keep_uv_layout_in(keep)
+	draft.global_transform = Transform3D(keep, xform.origin)
+	if kept.is_empty():
+		if not was_custom:
+			draft.shape = DraftBrush.BrushShape.CUSTOM
+		draft.faces = final_faces
+		draft.size = DraftBrush._vertex_bounds(final_faces).size
+	else:
+		if int(kept["shape"]) != draft.shape:
+			draft.shape = int(kept["shape"])
+		draft.size = kept["size"]
+		draft.faces = final_faces
+	draft.geometry_dirty = false
+	draft.rebuild_preview()
+	_tag_dirty(draft)
+	outcome["folded"] = true
+	outcome["custom"] = not was_custom and kept.is_empty()
+	return outcome
+
+
+## The smallest determinant a fold is made through. Anything flatter has squashed
+## the brush to nothing along some axis, and its faces would fold onto each other.
+const FLAT_DETERMINANT := 0.000001
+
+
+## Whether a basis is a turn, possibly mirrored, and one scale on every axis:
+## the maps that carry a sculpt's heights and a face's angles along unchanged.
+static func is_similarity(basis: Basis) -> bool:
+	var lengths := Vector3(basis.x.length(), basis.y.length(), basis.z.length())
+	var scale := (lengths.x + lengths.y + lengths.z) / 3.0
+	if scale <= 0.0:
+		return false
+	for axis in 3:
+		if absf(lengths[axis] - scale) > ROTATION_EPSILON * scale:
+			return false
+	var unit := Basis(basis.x / lengths.x, basis.y / lengths.y, basis.z / lengths.z)
+	return (
+		absf(unit.x.dot(unit.y)) <= ROTATION_EPSILON
+		and absf(unit.y.dot(unit.z)) <= ROTATION_EPSILON
+		and absf(unit.z.dot(unit.x)) <= ROTATION_EPSILON
+	)
+
+
+## The turn in a basis with its scale and any mirror taken out: its columns made
+## unit length, and the first one reversed when they mirror. What a node's
+## transform keeps when its scale is folded into a brush (#1440). The identity
+## when the columns are not square with each other, a shear from a skewed parent,
+## which no turn and scale describe; the whole basis is folded then.
+static func rotation_part(basis: Basis) -> Basis:
+	var lengths := Vector3(basis.x.length(), basis.y.length(), basis.z.length())
+	if lengths.x <= 0.0 or lengths.y <= 0.0 or lengths.z <= 0.0 or not basis.is_finite():
+		return Basis.IDENTITY
+	var unit := Basis(basis.x / lengths.x, basis.y / lengths.y, basis.z / lengths.z)
+	if (
+		absf(unit.x.dot(unit.y)) > ROTATION_EPSILON
+		or absf(unit.y.dot(unit.z)) > ROTATION_EPSILON
+		or absf(unit.z.dot(unit.x)) > ROTATION_EPSILON
+	):
+		return Basis.IDENTITY
+	if unit.determinant() < 0.0:
+		unit.x = -unit.x
+	return unit.orthonormalized()
+
+
+static func _has_sculpt(draft: DraftBrush) -> bool:
+	for face in draft.get_faces():
+		if face != null and face.displacement != null:
+			return true
+	return false
+
+
+## Copies of `faces` with `fold` applied to every corner, reversed when it
+## mirrors, and what is laid against the corners carried with them. A Cylindrical
+## face without UVs of its own takes the ones it shows. Returns
+## `{"faces": Array[FaceData], "cylindrical": int}`.
+static func _folded_faces(faces: Array, fold: Basis) -> Dictionary:
+	var mirrored := fold.determinant() < 0.0
+	var scale := pow(absf(fold.determinant()), 1.0 / 3.0)
+	var turn := Basis(fold.x / scale, fold.y / scale, fold.z / scale)
+	var out: Array[FaceData] = []
+	var cylindrical := 0
+	for face in faces:
+		var source := face as FaceData
+		if source == null:
+			continue
+		var count := source.local_verts.size()
+		var uvs := PackedVector2Array()
+		if source.has_uv_layout():
+			uvs = source.custom_uvs
+		elif source.uv_projection == FaceData.UVProjection.CYLINDRICAL and count >= 3:
+			uvs = source.shown_uvs()
+			cylindrical += 1
+		var verts := PackedVector3Array()
+		verts.resize(count)
+		var carried := PackedVector2Array()
+		if uvs.size() == count:
+			carried.resize(count)
+		for i in count:
+			var from := count - 1 - i if mirrored else i
+			verts[i] = fold * source.local_verts[from]
+			if not carried.is_empty():
+				carried[i] = uvs[from]
+		var copy := FaceData.new()
+		copy.copy_appearance_from(source)
+		# The same face folded, so it stays in its linked surface (#1437).
+		copy.copy_texture_group_from(source)
+		copy.local_verts = verts
+		copy.custom_uvs = carried
+		copy.paint_layers = source.paint_layers.duplicate()
+		copy.displacement = _folded_sculpt(
+			source.displacement, turn, scale, mirrored and count == 4
+		)
+		copy.ensure_geometry()
+		out.append(copy)
+	return {"faces": out, "cylindrical": cylindrical}
+
+
+## A sculpt for a face folded through `turn` and an even `scale`: its distances
+## scaled, its offset directions turned, and its grid relabelled when the face's
+## corners were reversed. A new resource, since an undo step or another face can
+## hold the old one.
+static func _folded_sculpt(sculpt: Resource, turn: Basis, scale: float, reversed: bool) -> Resource:
+	var data := sculpt as HFDisplacementData
+	if data == null:
+		return sculpt
+	if reversed:
+		var relabelled := data.remapped(PackedInt32Array([3, 2, 1, 0]))
+		if relabelled != null:
+			data = relabelled
+	var out := data.duplicate() as HFDisplacementData
+	var distances := out.distances
+	for i in distances.size():
+		distances[i] *= scale
+	out.distances = distances
+	var offsets := out.offsets
+	for i in offsets.size():
+		offsets[i] = turn * offsets[i]
+	out.offsets = offsets
+	return out
+
+
+## The primitive a brush still is once `fold` is in its corners, as
+## `{"shape", "size", "faces"}` with the faces built and given the folded faces'
+## data, or empty when no primitive has those corners. Only a fold whose columns
+## each lie along a world axis can leave one: a scale, a quarter turn, a mirror.
+func _primitive_after_fold(draft: DraftBrush, fold: Basis, folded: Array) -> Dictionary:
+	var mapping := axis_permutation(fold)
+	if mapping.is_empty():
+		return {}
+	var stretch := Vector3(fold.x.length(), fold.y.length(), fold.z.length())
+	var size := permuted_size(draft.size * stretch, mapping)
+	var shape: int = draft.shape
+	if (
+		shape == DraftBrush.BrushShape.SPHERE
+		and not (is_equal_approx(size.x, size.y) and is_equal_approx(size.y, size.z))
+	):
+		shape = DraftBrush.BrushShape.ELLIPSOID
+	var built := DraftBrush.generated_faces(shape, size, draft.sides)
+	if not DraftBrush.take_face_data_by_corners(folded, built):
+		return {}
+	return {"shape": shape, "size": size, "faces": built}
+
+
+# ---------------------------------------------------------------------------
+# Pivots and bounds
+# ---------------------------------------------------------------------------
+
+
+func resolve_pivot(
+	brush_ids: Array, entity_paths: Array, mode: int, custom: Vector3 = Vector3.ZERO
+) -> Vector3:
+	match mode:
+		PivotMode.WORLD_ORIGIN:
+			return Vector3.ZERO
+		PivotMode.CUSTOM:
+			return custom
+		PivotMode.ACTIVE:
+			return _active_origin(brush_ids, entity_paths)
+		_:
+			return selection_origin_centroid(brush_ids, entity_paths)
+
+
+## The way the selection is facing, when it is all facing the same way.
+##
+## The companion to `resolve_pivot()`: a structure built on a selection should
+## stand where the selection is *and* face the way it does, which is one fact
+## short of what the pivot alone says. Anything less than agreement answers with
+## the world axes, because there is no single direction to inherit — and so does a
+## selection that has been mirrored or scaled, which is a basis nothing should be
+## built through.
+func resolve_selection_basis(brush_ids: Array, entity_paths: Array) -> Basis:
+	var shared: Variant = shared_selection_basis(brush_ids, entity_paths)
+	return shared if shared is Basis else Basis.IDENTITY
+
+
+## The same walk, answering null where `resolve_selection_basis()` falls back to
+## the world axes: a selection whose parts disagree, or that has a mirrored or
+## scaled part, or that is empty. The Offset popup says when its Local axes are
+## the world's for that reason, which the identity on its own cannot tell apart
+## from a selection that faces the world axes.
+func shared_selection_basis(brush_ids: Array, entity_paths: Array) -> Variant:
+	var shared: Variant = null
+	for node in _selected_nodes(brush_ids, entity_paths):
+		var basis: Basis = node.global_transform.basis
+		if not is_rotation_basis(basis):
+			return null
+		if shared == null:
+			shared = basis
+		elif not _same_basis(basis, shared):
+			return null
+	return shared
+
+
+static func _same_basis(a: Basis, b: Basis) -> bool:
+	for axis in 3:
+		if a[axis].distance_to(b[axis]) > ROTATION_EPSILON:
+			return false
+	return true
+
+
+## The live brushes and entities a selection names, in the order it names them.
+func _selected_nodes(brush_ids: Array, entity_paths: Array) -> Array:
+	var out: Array = []
+	for brush_id in brush_ids:
+		var draft := _brush_at_id(str(brush_id))
+		if draft != null:
+			out.append(draft)
+	for entity_path in entity_paths:
+		var entity := _entity_at_path(entity_path)
+		if entity != null:
+			out.append(entity)
+	return out
+
+
+## Centroid of the selection's object origins — Blender's "median point".
+##
+## This is the pivot rotate and flip use by default because it is exactly
+## invariant: rotating a point set about its own centroid, or mirroring it about
+## a plane through that centroid, leaves the centroid where it was. A bounding-box
+## centre does not have that property, so repeated presses of the rotate key would
+## walk an asymmetric selection across the level.
+func selection_origin_centroid(brush_ids: Array, entity_paths: Array) -> Vector3:
+	var total := Vector3.ZERO
+	var found := 0
+	for brush_id in brush_ids:
+		var draft := _brush_at_id(str(brush_id))
+		if draft == null:
+			continue
+		total += draft.global_position
+		found += 1
+	for entity_path in entity_paths:
+		var entity := _entity_at_path(entity_path)
+		if entity == null:
+			continue
+		total += entity.global_position
+		found += 1
+	return total / float(found) if found > 0 else Vector3.ZERO
+
+
+## World bounds of a selection, measured through each brush's own transform so
+## that an already-rotated brush contributes its real extent.
+func selection_bounds(brush_ids: Array, entity_paths: Array) -> AABB:
+	var bounds := AABB()
+	var seeded := false
+	for brush_id in brush_ids:
+		var draft := _brush_at_id(str(brush_id))
+		if draft == null:
+			continue
+		var xform := draft.global_transform
+		for local_point in _brush_local_points(draft):
+			var world_point: Vector3 = xform * local_point
+			if seeded:
+				bounds = bounds.expand(world_point)
+			else:
+				bounds = AABB(world_point, Vector3.ZERO)
+				seeded = true
+	for entity_path in entity_paths:
+		var entity := _entity_at_path(entity_path)
+		if entity == null:
+			continue
+		var origin := entity.global_position
+		if seeded:
+			bounds = bounds.expand(origin)
+		else:
+			bounds = AABB(origin, Vector3.ZERO)
+			seeded = true
+	return bounds
+
+
+# ---------------------------------------------------------------------------
+# Handedness
+# ---------------------------------------------------------------------------
+
+
+## Take a mirror off a brush's basis, leaving the brush exactly where it is.
+##
+## A basis with a negative determinant describes the same box as one without, but
+## every face built through it comes out wound the other way. A mirrored brush
+## bakes inside out, and a mirrored cutter adds its volume instead of removing it:
+## one wall of 24.0 and a cutter that should leave 21.75 left 26.25 instead (#749).
+## Nothing in the editor calls this mirroring. It is `scale` with a negative
+## component, which Godot's own gizmo and Inspector will both write to a brush,
+## and the viewport draws the brush the right shape either way.
+##
+## The reflection is folded through a local axis, the same trick `flip()` uses:
+## `basis * H` has determinant +1, and pairing it with local vertices reflected by
+## `H` puts every world vertex back exactly where it was, because `H * H` is the
+## identity. Measured on a 4 x 2 x 3 brush with six materials and six different UV
+## settings, folded through each of the three axes in turn: every face keeps its
+## appearance, at the same place in the world, all three times. A sculpted
+## displacement goes through the same `mirror_face()` flip does, so it stays where
+## it was too.
+##
+## Returns true when a mirror was taken off.
+func normalize_handedness(draft: DraftBrush) -> bool:
+	if draft == null or not is_instance_valid(draft):
+		return false
+	if draft.global_transform.basis.determinant() >= 0.0:
+		return false
+	# The symmetry test reads generated face vertices, so they have to exist first.
+	_ensure_faces(draft)
+	var local_axis := mirrored_local_axis(draft)
+	var keeps_primitive := _primitive_survives_mirror(draft, local_axis)
+	var remapped := false
+	if keeps_primitive:
+		remapped = remap_mirrored_faces(draft, local_axis)
+		if not remapped and _face_appearance_varies(draft):
+			keeps_primitive = false
+	if not keeps_primitive:
+		draft.mark_faces_authoritative()
+	draft.global_transform = Transform3D(
+		draft.global_transform.basis * reflection_basis(local_axis), draft.global_transform.origin
+	)
+	if not keeps_primitive:
+		mirror_faces(draft.get_faces(), local_axis)
+	if remapped or not keeps_primitive:
+		draft.rebuild_preview()
+	_tag_dirty(draft)
+	return true
+
+
+## Which local axis to fold a brush's mirror through.
+##
+## Any of the three gives identical world geometry and identical appearance, so
+## this only decides what the Inspector reads afterwards. A mapper who typed a
+## negative into one scale field gets that field back positive and no turn:
+## Node3D keeps the signs they typed, so one negative component names the axis.
+##
+## A gizmo drag writes the basis instead, and `Basis.get_scale()` then reports the
+## determinant's sign on all three components, naming nothing. X, then, and the
+## brush arrives carrying a half turn it did not have before. It is in the right
+## place, the right shape and the right way out, which is the part that was broken.
+static func mirrored_local_axis(draft: DraftBrush) -> int:
+	var scale: Vector3 = draft.scale
+	var negative := 0
+	var count := 0
+	for axis in 3:
+		if scale[axis] < 0.0:
+			negative = axis
+			count += 1
+	return negative if count == 1 else 0
+
+
+# ---------------------------------------------------------------------------
+# Texture lock
+# ---------------------------------------------------------------------------
+
+
+## Compensate every face's UV rotation so the texture stays put on the brush,
+## matching what `texture_lock` already means for moving and resizing a brush.
+## `shown` is `shown_corner_uvs()` from before the turn: the turn is held about the
+## level's origin, and the slide that leaves about any other pivot is taken back
+## out (#2022).
+static func adjust_face_uvs_for_rotation(draft: DraftBrush, local_rot: Basis, shown: Array) -> void:
+	for i in draft.faces.size():
+		var face: FaceData = draft.faces[i]
+		# A face in a texture group keeps its group's mapping (#1437).
+		if face == null or face.uv_group != 0:
+			continue
+		face.adjust_uvs_for_rotation(local_rot)
+		if i < shown.size():
+			face.take_back_slide(shown[i])
+
+
+## What each of `draft`'s faces shows at its corners, for
+## `adjust_face_uvs_for_rotation()` to hold through a turn.
+static func shown_corner_uvs(draft: DraftBrush) -> Array:
+	var out: Array = []
+	for face in draft.faces:
+		out.append(face.shown_uvs() if face != null else PackedVector2Array())
+	return out
+
+
+# ---------------------------------------------------------------------------
+# Internals
+# ---------------------------------------------------------------------------
+
+
+func _flip_brush(draft: DraftBrush, axis_index: int, pivot: Vector3) -> void:
+	var local_axis := local_mirror_axis(draft.global_transform.basis, axis_index)
+	# The symmetry test reads generated face vertices, so they have to exist before
+	# it runs — otherwise every brush would look asymmetric and promote to CUSTOM.
+	_ensure_faces(draft)
+	# A primitive that a local mirror maps onto itself needs no geometry surgery:
+	# the fold-back reflection lands every generated vertex on another vertex of
+	# the same shape.
+	var keeps_primitive := _primitive_survives_mirror(draft, local_axis)
+	# The shape survives, but the authored appearance does not ride along on its
+	# own. Face data is held by index, and the mirror sends each face to where a
+	# different face used to be, so a material on the positive X side would stay
+	# on positive X after an X flip. Move the data to follow the geometry.
+	var remapped := false
+	if keeps_primitive:
+		remapped = remap_mirrored_faces(draft, local_axis)
+		if not remapped and _face_appearance_varies(draft):
+			# The faces cannot be paired up, which is rare and shape-specific. The
+			# appearance would land on the wrong sides, so take the exact path
+			# instead and accept becoming CUSTOM.
+			keeps_primitive = false
+	if not keeps_primitive:
+		draft.mark_faces_authoritative()
+	draft.global_transform = flipped_transform(
+		draft.global_transform, axis_index, pivot, local_axis
+	)
+	if not keeps_primitive:
+		mirror_faces(draft.get_faces(), local_axis)
+	if remapped or not keeps_primitive:
+		draft.rebuild_preview()
+	_tag_dirty(draft)
+
+
+## Move each face's data to the face the mirror sends its geometry to, keeping
+## every face's vertices where the primitive generates them.
+##
+## Reflecting local vertex `v` puts it where the world mirror sent the old vertex
+## at `H * v`, so the face that now occupies a given place is the one that used to
+## occupy its reflection. `mirror_face()` turns the source face's geometry back
+## into the target's, winding included, and carries its material, UVs, paint and
+## sculpt with it. Each face then starts at the corner its place started at, so
+## the brush keeps the corner order its shape generates. False when the faces
+## cannot be paired one to one, having changed nothing.
+func remap_mirrored_faces(draft: DraftBrush, local_axis: int) -> bool:
+	var faces: Array = draft.get_faces()
+	var count := faces.size()
+	if count < 2:
+		return false
+	var by_place := {}
+	for face in faces:
+		if face == null or face.local_verts.is_empty():
+			return false
+		var place := _face_place(face, -1)
+		if by_place.has(place):
+			return false
+		by_place[place] = face
+	var sources: Array[FaceData] = []
+	var starts := PackedVector3Array()
+	for face in faces:
+		var mirrored := _face_place(face, local_axis)
+		if not by_place.has(mirrored):
+			return false
+		sources.append(by_place[mirrored])
+		starts.append(face.local_verts[0])
+	# The mirror is its own inverse, so the pairing above is a bijection and every
+	# face is mirrored exactly once.
+	for face in sources:
+		mirror_face(face, local_axis)
+	# The mirror can leave a face starting at a different corner from the face that
+	# held its place: a Y flip turns a box's top round by two. A resize matches
+	# corners before it hands a grid or custom UVs to a rebuilt face (#846), so
+	# that would no longer turn a sculpt. Each place still keeps the corner order
+	# it had, so the saved faces are the ones the shape generates, and a build that
+	# hands face data over by index resizes them correctly too.
+	for i in sources.size():
+		start_face_at(sources[i], starts[i])
+	draft.faces = sources
+	return true
+
+
+## An order-independent name for the place a face occupies, optionally after
+## reflecting it through one local axis. Two faces of one brush never share one.
+static func _face_place(face: FaceData, mirror_axis: int) -> String:
+	var parts := PackedStringArray()
+	for vertex in face.local_verts:
+		var point: Vector3 = vertex
+		if mirror_axis >= 0:
+			point[mirror_axis] = -point[mirror_axis]
+		parts.append(_quantize(point))
+	parts.sort()
+	return "|".join(parts)
+
+
+## True when the brush's faces do not all look alike, which is the only case
+## where it matters which face the data ends up on.
+##
+## The look is `FaceData.appearance_matches()`, the one definition of it. Flip
+## kept a list of its own, and #859 was the field that list left out (#864).
+static func _face_appearance_varies(draft: DraftBrush) -> bool:
+	var first: FaceData = null
+	for face in draft.faces:
+		if face == null:
+			continue
+		# Paint, a sculpt and custom UVs are laid against one face's corners, so
+		# treat any of them as worth moving rather than trying to compare them.
+		if (
+			not face.paint_layers.is_empty()
+			or face.displacement != null
+			or not face.custom_uvs.is_empty()
+		):
+			return true
+		if first == null:
+			first = face
+		elif not face.appearance_matches(first):
+			return true
+	return false
+
+
+## True when reflecting the brush's local vertices through `local_axis` leaves
+## the generated vertex set unchanged. A CUSTOM brush never qualifies: its faces
+## *are* the geometry, so they have to be mirrored rather than regenerated.
+func _primitive_survives_mirror(draft: DraftBrush, local_axis: int) -> bool:
+	if draft.shape == DraftBrush.BrushShape.CUSTOM:
+		return false
+	var faces := draft.get_faces()
+	if faces.is_empty():
+		return false
+	var axis := clampi(local_axis, 0, 2)
+	var occupied := {}
+	for face in faces:
+		if face == null:
+			continue
+		for vertex in face.local_verts:
+			occupied[_quantize(vertex)] = true
+	if occupied.is_empty():
+		return false
+	for face in faces:
+		if face == null:
+			continue
+		for vertex in face.local_verts:
+			var mirrored: Vector3 = vertex
+			mirrored[axis] = -mirrored[axis]
+			if not occupied.has(_quantize(mirrored)):
+				return false
+	return true
+
+
+static func _quantize(point: Vector3) -> String:
+	return (
+		"%d,%d,%d"
+		% [
+			roundi(point.x / MIRROR_EPSILON),
+			roundi(point.y / MIRROR_EPSILON),
+			roundi(point.z / MIRROR_EPSILON),
+		]
+	)
+
+
+## Local points that describe a brush's extent: its real face vertices when it
+## has them, and its box corners otherwise.
+static func _brush_local_points(draft: DraftBrush) -> PackedVector3Array:
+	var points := PackedVector3Array()
+	for face in draft.faces:
+		if face != null:
+			points.append_array(face.local_verts)
+	if not points.is_empty():
+		return points
+	var half: Vector3 = draft.size * 0.5
+	for sx in [-1.0, 1.0]:
+		for sy in [-1.0, 1.0]:
+			for sz in [-1.0, 1.0]:
+				points.append(Vector3(half.x * sx, half.y * sy, half.z * sz))
+	return points
+
+
+func _ensure_faces(draft: DraftBrush) -> void:
+	if draft.get_faces().is_empty():
+		draft.rebuild_preview()
+
+
+func _active_origin(brush_ids: Array, entity_paths: Array) -> Vector3:
+	for brush_id in brush_ids:
+		var draft := _brush_at_id(str(brush_id))
+		if draft != null:
+			return draft.global_position
+	for entity_path in entity_paths:
+		var entity := _entity_at_path(entity_path)
+		if entity != null:
+			return entity.global_position
+	return Vector3.ZERO
+
+
+func _brush_at_id(brush_id: String) -> DraftBrush:
+	if brush_id == "" or not is_instance_valid(root):
+		return null
+	var brush_system = root.get("brush_system")
+	if brush_system == null:
+		return null
+	var node = brush_system.find_brush_by_id(brush_id)
+	return node as DraftBrush
+
+
+func _entity_at_path(entity_path: Variant) -> DraftEntity:
+	if not is_instance_valid(root):
+		return null
+	var node := root.get_node_or_null(NodePath(str(entity_path)))
+	return node as DraftEntity
+
+
+static func _entity_angle(entity: DraftEntity) -> float:
+	# An `angle` the class maps onto an engine property is not a bearing: a spot
+	# light's is its cone, which went from 45 to 135 on a quarter turn.
+	for prop in entity._get_entity_definition().get("properties", []):
+		if prop is Dictionary and str(prop.get("name", "")) == "angle" and prop.has("maps_to"):
+			return NAN
+	var value = entity.entity_data.get("angle", null)
+	if value is float or value is int:
+		return float(value)
+	return NAN
+
+
+## Turn a point entity's yaw `angle` by however far `rot` turns it about world
+## up: a turn Godot's gizmo or Inspector made that `HFBrushChangeTracker` saw.
+## Nothing for any other turn, nor for an entity whose class has no yaw.
+static func turn_entity_angle(entity: DraftEntity, rot: Basis) -> void:
+	var yaw := yaw_of_turn(rot)
+	if is_nan(yaw) or is_zero_approx(yaw):
+		return
+	_set_entity_angle(entity, rotated_angle(_entity_angle(entity), yaw))
+
+
+static func _set_entity_angle(entity: DraftEntity, angle_degrees: float) -> void:
+	if is_nan(angle_degrees) or not entity.entity_data.has("angle"):
+		return
+	entity.entity_data["angle"] = angle_degrees
+
+
+## The `angle` a brush entity's brush holds, or its class's default when none was
+## set on it, which is the one its door slides along. NAN for a brush whose class
+## has no angle. A `.map` import stores the value as the text it read.
+func _brush_entity_angle(draft: DraftBrush) -> float:
+	var entity_class := HFBrushEntity.entity_class(draft)
+	if entity_class == "" or not is_instance_valid(root):
+		return NAN
+	if not root.has_method("get_entity_definition"):
+		return NAN
+	var held := HFBrushEntity.properties(root.get_entity_definition(entity_class), draft)
+	var value: Variant = held.get("angle", null)
+	if value is float or value is int:
+		return float(value)
+	if value is String and (value as String).is_valid_float():
+		return float(value)
+	return NAN
+
+
+## Turn a brush entity's `angle` by however far `rot` turns it about world up:
+## the turn a command made from its basis, or one Godot's gizmo or Inspector made
+## that `HFBrushChangeTracker` saw. Nothing for any other turn, nor for a brush
+## whose class has no angle.
+func turn_brush_entity_angle(draft: DraftBrush, rot: Basis) -> void:
+	var yaw := yaw_of_turn(rot)
+	if is_nan(yaw) or is_zero_approx(yaw):
+		return
+	_set_brush_entity_angle(draft, rotated_bearing(_brush_entity_angle(draft), yaw))
+
+
+static func _set_brush_entity_angle(draft: DraftBrush, angle_degrees: float) -> void:
+	if is_nan(angle_degrees):
+		return
+	var stored: Variant = draft.get_meta(HFBrushEntity.DATA_META, {})
+	var data: Dictionary = (stored as Dictionary).duplicate() if stored is Dictionary else {}
+	data["angle"] = angle_degrees
+	draft.set_meta(HFBrushEntity.DATA_META, data)
+
+
+## A texture group last fitted is fitted again across the surface the turn or the
+## mirror reshaped (#1437).
+func _refit_texture_groups(draft: DraftBrush) -> void:
+	if is_instance_valid(root) and root.brush_system:
+		root.brush_system.refit_texture_groups([draft])
+
+
+func _texture_lock_enabled() -> bool:
+	if not is_instance_valid(root):
+		return false
+	var value = root.get("texture_lock")
+	return value if value is bool else false
+
+
+func _tag_dirty(draft: DraftBrush) -> void:
+	if not is_instance_valid(root):
+		return
+	var brush_id := str(draft.brush_id)
+	if brush_id != "":
+		root.tag_brush_dirty(brush_id)

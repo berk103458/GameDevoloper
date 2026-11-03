@@ -96,3 +96,92 @@ Bitirdiğin her maddeyi bu dosyanın altına "Antigravity cevabı" başlığıyl
 Festive dalına `.agents/skills/` altında Godot 4.7 skill'leri eklendi (router + 12 Godot + 6 disiplin; ayrıntı `.agents/skills/README.md`). Pull al; Godot işlerinde ilgili skill'i referans olarak kullanabilirsin. 2D üretim skill'i (create-game-assets) kurulmadı ve 2D yasağı aynen geçerli. AGENTS.md kuralları skill'lerin önündedir. Commit mesajlarında Türkçe karakter kullan.
 
 — Muharrir
+
+## Görev 2 — Diyalog eklentileri denemesi: Parley ve Theatre (3 Kasım 2026, Cursor)
+
+Bu görev, yukarıdaki "başka dal açma" kuralını yalnız bu iş için değiştirir. Festive'ye yazma. Başka ROADMAP maddesine dokunma. Parley ve Theatre bu depoda yoktur; sen kuracaksın. godot-mcp, HammerForge, Cognite, gdTree3D ve Dingo zaten `cursor/ucuncu-parti-eklentiler-7070` dalındadır; onlara dokunma, onları etkinleştirme, onların yerine diyalog eklentisi koyma.
+
+### Kimlik ve sınır
+- Ajan adı: Antigravity. İmza `(Antigravity)`.
+- Çalışma klasörü: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`.
+- Motor: Godot 4.7.2 (`project.godot` özelliği `4.7`). Editör: `C:\Users\Ahmet\Desktop\Godot.exe`.
+- Önce oku: `AGENTS.md`, `CLAUDE.md`, `ROADMAP_2.md` panosu, `codex.md/SOUL.md`, `docs/UCUNCU_PARTI_ARACLAR.md`.
+- Bu görev bir ROADMAP maddesi değildir. `[/]` sahipliği alma. Başka ajanın dosyasını değiştirme.
+
+### Dal
+1. `git fetch origin` ve `git checkout claude/festive-volta-li1sfm` ardından `git pull`.
+2. Festive'nin ucundan yeni dal aç: `feature/diyalog-eklenti-denemesi`.
+3. `claude/festive-volta-li1sfm` üzerine commit atma, birleştirme, force-push yapma.
+4. İş bitince bu feature dalını push et. PR açma; Ahmet'e dal adını söyle. Günlüğü dalda commit et.
+
+### İki eklenti
+İkisini de kur. İkisi de diyalog eklentisidir. Oyun kodunun yerine geçmezler; deneme sahnesi ayrı dosyadadır.
+
+1. Parley — https://github.com/bisterix-studio/parley
+   - Graf düğümleriyle diyalog dizisi yazan Godot 4.4+ editör eklentisi.
+   - Düğümler: Dialogue, Dialogue Option, Condition, Match, Action, Jump, Group, Start, End.
+   - Karakter, eylem ve olgu (fact) depoları var. CSV / GNUText yerelleştirme iddiası var.
+   - README MIT der. Asıl metin depodaki `LICENSE` dosyasıdır (Copyright (c) 2025 Bisterix Studio, MIT). Treeware rozeti bağış isteğidir; lisansı o rozetten yazma. `LICENSE` metnini oku.
+2. Theatre — https://github.com/nndda/Theatre
+   - Düz metinle yazılan, satır satır ilerleyen Godot 4.4+ diyalog eklentisi. Tamamı GDScript.
+   - Örnek akış: `Dialogue.load`, `TheatreStage.start`, `progress`.
+   - Değişken ve ifade bölümü README'de vardır. Sık kırılan geliştirme sürümüdür; bilinen sorunları oku.
+   - Lisans: depodaki `LICENSE` (Copyright (c) 2023-2026 nnda, MIT). Rozete değil dosyaya bak.
+
+Kurulum:
+- Belirli bir commit veya yayın etiketinden indir. Git submodule kullanma. Dosyaları kopyala.
+- Parley'yi `addons/parley/` altına koy. Deponun kendi eklenti klasör adı ve `plugin.cfg` yolu bozulmasın.
+- Theatre'ı deponun beklediği `addons/` yoluna koy.
+- `LICENSE` dosyasını eklentinin yanında tut.
+- `docs/UCUNCU_PARTI_ARACLAR.md` dosyasının sonuna ekle, mevcut satırları silme: kaynak URL, commit veya sürüm, lisans, ne işe yaradığı, kurulum yolu.
+- Godot 4.7.2 ile uyumsuzsa kurma. Nedenini günlüğe ve bu görev dosyasına "Antigravity cevabı" olarak yaz. Uyumluysa Project Settings → Plugins içinde yalnız bu feature dalında etkinleştir.
+- `project.godot` dışında çekirdek dosyaya (`src/arayuz/ana.gd`, `kapi_ekrani.gd`, `oturum.gd`, `data/metin/metinler.csv` ve AGENTS.md korumalı listesi) dokunma. Deneme sahnesi yeni dosya olsun.
+
+### Oyunun mevcut diyalog sistemi
+İki katman var. İkisi de kapı ekranında biter. Karar metnin içinde köyü değiştirmez; karar `Oturum.karar_ver` ile uygulanır.
+
+1. Adsız hazır diyalog (eski JSON hat).
+   - Veri: `data/diyalog/diyalog_01_20.json`. Her kayıt bir ziyaretçidir: `id`, `sinif`, `sahne`, `acilis`, `sorular`, `secenekler`, `esik`, `yanitlar`.
+   - Soru ağacı üçlüdür: `[soru, cevap, [takipler]]`. Takip, üst sorunun altına girer.
+   - Seçenekler çoğunlukla `ret`, `kabul`, `rusvet`. `esik` kaç cevap sonra o düğmenin açılacağıdır. İkinci perdede `Oturum._perde_secenekleri` yalnız kabul ve ret bırakır.
+   - Yükleyen: `src/sistemler/oturum.gd` içinde `_gemini_al` ve `_figur_gelen`. Sıra `diyalog_sira` alanındadır. Okuma `src/sistemler/diyalog_sirasi.gd`. Bozuk veya negatif değer 0'a döner. Her JSON diyaloğu oyun başına bir kez gelir; bitince `_figur_sablon` sınıf şablonuna düşer.
+   - Sınıf şablonu: `src/veri/sinif_sablonu.gd`. Sorular çeviri anahtarıdır. Karar etkisi `etki_kabul`, `etki_ret`, `etki_rusvet`, `etki_kisla` (`PackedInt32Array`).
+   - Ekran: `src/arayuz/kapi_ekrani.gd`. Sohbet `_sohbet_goster`, karar `_karar_goster` / `_karar_ver`. CHR paneli yoksa eski soru düğmeleri kullanılır (`src/debug/diyalog_deneyi.gd` içindeki eski soru akışı).
+
+2. Adlı CHR sorgu ağacı.
+   - Kaynak: `data/chr_runtime/CHR_011.tres` … `CHR_030.tres` içindeki `diyalog_dugumleri`. Örnek düğüm `00`: `replik_anahtari`, `secenekler[]`. Seçenekte `metin_anahtari`, `hedef`, `tansiyon_delta`, `gerekli_ipuclari`, `gerekli_bayraklar`, isteğe `beceri`.
+   - Sözleşme: `src/veri/chr_sozlesmesi.gd` `diyalog_hatalari`. Düğüm `00` zorunlu. Hedef var olmayan düğümü gösterirse hata.
+   - Çalışma kopyası: `src/sistemler/chr_sorgusu.gd` (`ChrSorgusu`). Tansiyon 0–10. Seçenek bir kez denenir. İpucu veya bayrak yoksa düğme kapalı. `beceri` doluysa ikna veya blöf zarı atılır; başarısızlık tansiyonu artırır ve aynı düğümde kalır. Tansiyon 8 olunca ve `Flag_Kilitlendi` yoksa hedef `Final_Ret` olur. Replik içermeyen düğüm `gecisler` içindeki `tansiyon_kosulu` ile otomatik yürür.
+   - Metinler çeviri anahtarıdır. Düz Türkçe cümle JSON'daki adsız hatta gömülüdür; CHR hattında anahtar `data/metin/metinler.csv` üzerinden çözülür (`ChrSorgusu.metin`).
+   - Panel: `src/arayuz/chr_diyalog_paneli.gd`. Kapıya bağlayan: `src/arayuz/chr_kapi_adaptoru.gd` `diyalog_goster`. `kapi_ekrani.gd` önce bunu çağırır; true dönerse CHR paneli soru kutusuna oturur. "Nişan ve yükü incele" ipucu buldurur.
+   - Karakter kaynağı: `src/veri/karakter_verisi.gd` `diyalog_dugumu`. Ziyaretçi: `src/sistemler/gelen.gd` `chr_sorgusu`.
+   - Karar kapısı: `ChrSorgusu.karar_acik`. Panik kabulü kapatır (`chr_kapi_adaptoru.gd` `karar_kilidi`, alt yazı "Panik: barışçıl kabul kapalı").
+   - Köy etkisi karar anındadır, replik anında değil. `kapi_ekrani.gd` `_karar_ver` → `oturum.karar_ver`. Bar dizisi `gelen.etkiler`: indis 0 moral (`_herkese_moral`), 1 adalet, 2 akçe, 3 asayiş riskini düşürür (`Oturum._bar_uygula`). Kabul `KoyYonetimi.kabul` ile köylü yazar. Ret `yonetim.ret`. Rüşvet muhafız kasasına gider (`cift_kasa_dagitimi.gd`). Hastalık kararı kesebilir: `src/kapi/hastalik_teshis_adaptoru.gd` (`neden`, `kabul`, `chr_bagla`). Aile, heyet ve tüccar kendi karar fonksiyonlarına sapar (`aile_kafilesi.gd`, `DiplomatikHeyet`, `TuccarKapiGecisi`).
+   - Kayıt: `ChrSorgusu` ziyaret boyuncadır. Kalıcı diyalog sırası yalnız JSON hattının `diyalog_sira` alanıdır. CHR düğüm ilerlemesi bu kayıt alanına yazılmaz.
+   - Debug: `src/debug/diyalog_deneyi.gd` tansiyonu -1, 2, 5 veya 9 kilitler. Panel `src/debug/diyalog_deneyi_paneli.gd`. Bu debug yolu üretim diyaloğunu değiştirmez.
+
+Deneme sahnesi: `data/diyalog/diyalog_01_20.json` içindeki `diyalog_01` (çiftçi, Erzincan, darı ve tohum). Bunu iki eklentide de baştan kur. İçinde olsun: açılış sözü, "Kimsin?" sorusu ve onun alt sorusu "Doğuda nereden?", "Nesin?", "Kendini tanıt.", sonra `ret` / `kabul` / `rusvet` ve `esik` (ilk anda yalnız ret, bir cevap sonra kabul ve rüşvet). Mevcut JSON'u ve kapı ekranını değiştirme. Yeni deneme sahneleri eklentinin örnek klasöründe ya da `res://prototypes/diyalog_eklenti_denemesi/` altında dursun.
+
+Aynı denemede, canlıya bağlamadan, bir CHR koşulunu da göster: `data/chr_runtime/CHR_011.tres` düğüm `00` seçenek 3, ipucu isteyen ve `tansiyon_delta` 2 olan satır. Parley'de Condition veya Match, Theatre'da değişken veya ifade ile "ipucu yoksa seçenek kapalı, seçilince tansiyon +2" kur. Bunu bütün CHR_011 ağacına çevirme. Amaç, eklentinin koşul taşıyıp taşımadığını görmek.
+
+Köy ve hastalık bağını kodla tam entegre etme. Her eklentide bir Action veya eşdeğeri olsun ve yorumda şunu söylesin: gerçek oyunda bu çağrı `Oturum.karar_ver(gelen, &"kabul")` ve hastalık için `hastalik_teshis_adaptoru.gd` olur. Çağrıyı `oturum.gd` içine yazma. Deneme sahnesinde düğmeye basılınca konsola hangi kararın ve hangi bar indisinin gideceği yazılsın.
+
+### Türkçe karakter
+Her iki denemede şu harflerin hepsi görünsün ve kaydedilip yeniden açılınca bozulmasın: ç, ğ, ı, İ, ö, ş, ü. Küçük ı ile büyük I, küçük i ile büyük İ ayrıdır. Deneme cümlesi: "Işık, İzmir'den gelen ışığı çağırdı; göğsü ağrıyan kişi kapıda üşüdü." Bunu hem editörde hem çalışan sahnede kontrol et. CSV'ye bu cümleyi ekleme.
+
+### Karşılaştırma
+Üç sütun: mevcut sistem (JSON `diyalog_01` + CHR `ChrSorgusu`), Parley, Theatre. Satırlar:
+- Yazım kolaylığı (yazarın düğüm veya metin üretmesi)
+- Dallanma (alt soru, birleşen dal, çıkmaz)
+- Koşul ve değişken (esik, tansiyon, ipucu, bayrak, zar)
+- Debuff ve köy etkisi bağlanabilirliği (`karar_ver`, bar dizisi, hastalık adaptörü, panikte kabulün kapanması). Bağ kurulabildi mi, yoksa eklenti kendi balonunda mı kalıyor?
+- Performans (editörde açılış, deneme sahnesinin bir turu; sayı varsa yaz, yoksa gözlemi yaz)
+
+Son satır tek cümle olsun: entegre et ya da etme. Gerekçe yukarıdaki satırlara dayansın. Biri deneme olarak kalabilir, ikisi de kalabilir, ikisi de reddedilebilir. Canlı kapıya bağlamayı önerme. Öneri yalnız "ileride ince adaptörle bağlanır" ya da "bağlanmaz" olsun. Çekirdeği yeniden yazma önerisi yasak.
+
+### Bitiş
+- `codex.md/Antigravity.md` günlüğüne bu görevi yaz: dal, commit, kurulan sürüm, Türkçe denemenin sonucu, tablo, entegre et veya etme cümlesi, `kota: ...` veya `kota görünmüyor`.
+- Takıldığın soruyu bu dosyanın en altına `Antigravity sorusu` başlığıyla yaz, commit et ve push et. Tahmin yürütüp festive'yi bozma.
+- Commit Türkçe olsun, `(Antigravity)` geçsin. Oyun görseli üretme. Yeni görsel gerekmediyse commit notuna "asset gerekmedi" yaz. Eklentinin kendi dosyaları üçüncü parti pakettir; onları `docs/EKSIK_ASSET_ENVANTERI.md` tablosuna koyma. Lisansı `docs/UCUNCU_PARTI_ARACLAR.md` içine yaz.
+
+— Cursor

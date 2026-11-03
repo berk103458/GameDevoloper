@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="CogniteAssemble" format=3 uid="uid://cs3mjev2tawic"]
+
+[ext_resource type="Script" uid="uid://bmho1qa7r0yhk" path="res://addons/cognite/node/assemble.gd" id="1_rhek2"]
+
+[resource]
+script = ExtResource("1_rhek2")
+creation_count = 37
+perceptions = {
+28: ["Life", 1],
+29: ["TargetDistance", 1],
+31: ["IsEnemyVisible", 0]
+}
+contexts = {
+2: {
+"activated": true,
+"name": "IsLifeDown",
+"perception_ids": {
+28: {
+"bool": false,
+"max": 20.0,
+"min": 0.0,
+"text": ""
+},
+31: {
+"bool": true,
+"max": 1,
+"min": 0,
+"text": ""
+}
+}
+}
+}
+decisions = {
+3: {
+"activated": true,
+"base_score": 0,
+"context_ids": {
+2: 1
+},
+"name": "Recover"
+},
+33: {
+"activated": true,
+"base_score": 1,
+"context_ids": {
+2: -1
+},
+"name": "Idle"
+}
+}
+actions = {
+13: {
+"activated": true,
+"decision_id": 3,
+"deed_list": [14, 15, 32]
+},
+34: {
+"activated": true,
+"decision_id": 33,
+"deed_list": [35, 36]
+}
+}
+deeds = {
+14: {
+"name": "GetCover",
+"process_mode": 1
+},
+15: {
+"name": "ToHeal",
+"process_mode": 1
+},
+17: {
+"name": "StopMovement",
+"process_mode": 2
+},
+18: {
+"name": "SpawnGhosts",
+"process_mode": 1
+},
+20: {
+"name": "DashForward",
+"process_mode": 1
+},
+21: {
+"name": "ScytheSlash",
+"process_mode": 1
+},
+24: {
+"name": "StopMotion",
+"process_mode": 1
+},
+32: {
+"name": "WaitHighLife",
+"process_mode": 1
+},
+35: {
+"name": "Patrol",
+"process_mode": 1
+},
+36: {
+"name": "Wait",
+"process_mode": 1
+}
+}
+perception_runtime_value = {
+"IsEnemyVisible": true,
+"Life": 5.0,
+&"Man": "asddsa2a",
+"Nosssa": true,
+"TargetDistance": null,
+&"Teste": 50.0
+}
+metadata/_custom_type_script = "uid://bmho1qa7r0yhk"

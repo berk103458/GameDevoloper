@@ -1,0 +1,2052 @@
+@tool
+extends RefCounted
+class_name HFPaintSystem
+
+# Preloaded under their global names so the script parses before Godot has
+# registered the global classes, as on a fresh clone.
+@warning_ignore_start("shadowed_global_identifier")
+const DraftBrush = preload("../brush_instance.gd")
+const FaceData = preload("../face_data.gd")
+const SurfacePaint = preload("../surface_paint.gd")
+const HFPaintGrid = preload("../paint/hf_paint_grid.gd")
+const HFPaintLayerManager = preload("../paint/hf_paint_layer_manager.gd")
+const HFPaintTool = preload("../paint/hf_paint_tool.gd")
+const HFGeometrySynth = preload("../paint/hf_geometry_synth.gd")
+const HFGeneratedReconciler = preload("../paint/hf_reconciler.gd")
+const HFStroke = preload("../paint/hf_stroke.gd")
+const HFHeightmapIO = preload("../paint/hf_heightmap_io.gd")
+const HFHeightmapSynth = preload("../paint/hf_heightmap_synth.gd")
+const HFGeneratedModel = preload("../paint/hf_generated_model.gd")
+const HFTerrainRegionManager = preload("../paint/hf_region_manager.gd")
+const HFInferenceEngine = preload("../paint/hf_inference_engine.gd")
+const HFConnectorTool = preload("../paint/hf_connector_tool.gd")
+const HFLevelIO = preload("../hflevel_io.gd")
+const HFStateSystemType = preload("hf_state_system.gd")
+@warning_ignore_restore("shadowed_global_identifier")
+const HFTranslationType = preload("res://addons/hammerforge/hf_translation.gd")
+
+var root: Node3D
+var region_manager: HFTerrainRegionManager
+## Regions whose write already failed, so the warning is not repeated every frame.
+var _region_save_warned: Dictionary = {}
+## Whether the mapper has already been told the budget cannot be met.
+var _region_budget_warned: bool = false
+var region_streaming_enabled: bool = false
+## Counts every write or removal of a region file, and holds the count each
+## region's file last changed at, so a restore can tell which files changed
+## after its capture was taken (#1514).
+var _region_file_serial: int = 0
+var _region_file_changed_at: Dictionary = {}  # Dictionary[Vector2i, int]
+## A digest of what this session last wrote to each region's file.
+var _region_file_digests: Dictionary = {}  # Dictionary[Vector2i, PackedByteArray]
+## Regions whose file a restore could not bring in line with their paint. Each
+## stays loaded, and streaming it out tries the file again rather than leaving
+## it behind to be read back.
+var _stale_region_files: Dictionary = {}  # Dictionary[Vector2i, bool]
+## The paint layers each region's file holds, as this session last read or
+## wrote it, so a write reads the file again only when it may hold a layer the
+## level no longer has (#1550).
+var _region_file_layers: Dictionary = {}  # Dictionary[Vector2i, PackedStringArray]
+## The level files this level was saved from under another name, whose region
+## files a Save As carried to the folder it uses now. A restore captured in one of
+## them reads that folder as its own (#1929). The level file a Save As is about to
+## use, so moving to any other, as a load does, starts the list again.
+var _saved_as_from: Dictionary = {}  # Dictionary[String, bool]
+var _saving_as_to := ""
+
+## The surface paint stroke under way, for its undo step: each brush as it was
+## before the stroke first painted it, or the whole level when the first brush
+## could not be a scope. And whether it erases, which Alt on the press decides,
+## as it does for Floor Paint.
+var _surface_stroke_scopes: Array = []
+var _surface_stroke_ids: Array = []
+var _surface_stroke_state: Dictionary = {}
+var _surface_stroke_erasing := false
+var region_memory_budget_mb: int = 256
+var region_show_grid: bool = false
+var region_overlay_material: Material = null
+var _paint_region_pins: Dictionary = {}
+
+
+func _init(level_root: Node3D) -> void:
+	root = level_root
+	region_manager = HFTerrainRegionManager.new()
+
+
+func handle_paint_input(
+	camera: Camera3D,
+	event: InputEvent,
+	screen_pos: Vector2,
+	operation: int,
+	size: Vector3,
+	paint_tool_id: int = -1,
+	paint_radius_cells: int = -1,
+	paint_brush_shape: int = 1,
+	paint_options: Dictionary = {}
+) -> bool:
+	if not Engine.is_editor_hint():
+		return false
+	if not root.paint_tool or not root.paint_layers:
+		push_warning("HammerForge: paint input ignored — paint system not initialized")
+		return false
+	_sync_region_manager()
+	var layer = root.paint_layers.get_active_layer()
+	var inference_enabled := bool(paint_options.get("inference_enabled", false))
+	var mirror_x_enabled := bool(paint_options.get("mirror_x_enabled", false))
+	var mirror_z_enabled := bool(paint_options.get("mirror_z_enabled", false))
+	root.paint_tool.brush_shape = paint_brush_shape
+	root.paint_tool.inference = HFInferenceEngine.new() if inference_enabled else null
+	root.paint_tool.mirror_x_enabled = mirror_x_enabled
+	root.paint_tool.mirror_z_enabled = mirror_z_enabled
+	_sync_connector_settings()
+	if paint_radius_cells > 0:
+		root.paint_tool.brush_radius_cells = paint_radius_cells
+	elif layer and layer.grid:
+		var cell_size = max(layer.grid.cell_size, 0.1)
+		var radius_cells = max(1, int(round(size.x / cell_size)))
+		root.paint_tool.brush_radius_cells = radius_cells
+	if paint_tool_id >= 0:
+		root.paint_tool.tool = paint_tool_id
+	else:
+		root.paint_tool.tool = (
+			HFStroke.Tool.PAINT if operation == CSGShape3D.OPERATION_UNION else HFStroke.Tool.ERASE
+		)
+	if region_streaming_enabled:
+		var cell = _screen_to_cell(camera, screen_pos)
+		if cell != null:
+			_ensure_regions_for_cell(cell)
+			var starts_stroke: bool = (
+				event is InputEventMouseButton
+				and event.button_index == MOUSE_BUTTON_LEFT
+				and event.pressed
+				and not (event as InputEventMouseButton).is_command_or_control_pressed()
+			)
+			if root.paint_tool.is_stroke_active() or starts_stroke:
+				_pin_paint_region(region_manager.region_id_from_cell(cell))
+	var handled: bool = root.paint_tool.handle_input(camera, event, screen_pos)
+	if (
+		region_streaming_enabled
+		and event is InputEventMouseButton
+		and event.button_index == MOUSE_BUTTON_LEFT
+		and not event.pressed
+	):
+		release_paint_region_pins()
+	return handled
+
+
+## The connector settings a stroke's ghosts and a cell-space confirm are made
+## with: the level's connector mode, stair height, width and threshold, read off the root
+## each time so the Bake tab's values apply.
+func _sync_connector_settings() -> void:
+	root.paint_tool.connector_settings = HFAutoConnector.Settings.from_level(root)
+
+
+func prepare_paint_stroke(camera: Camera3D, screen_pos: Vector2) -> void:
+	if not region_streaming_enabled:
+		return
+	var cell = _screen_to_cell(camera, screen_pos)
+	if cell == null:
+		return
+	_ensure_regions_for_cell(cell)
+	_pin_paint_region(region_manager.region_id_from_cell(cell))
+
+
+# ---------------------------------------------------------------------------
+# Floor paint in cell space
+# ---------------------------------------------------------------------------
+
+# What the agent bridge paints with (#1299): the rectangle, the raise, the room
+# stamp and the connector confirm as calls that take a layer and cells, with no
+# screen, camera or mouse in them. Each writes the layer through the same
+# per-cell calls a stroke does, then rebuilds the chunks it dirtied through the
+# same reconciler, so the generated floors and walls follow at once. None of
+# them records an undo step: the caller captures the level either side, as the
+# palette's paint actions and the bridge's wrapper do. With region streaming on,
+# the caller loads the rectangle's regions before its capture (load_rect_regions).
+
+## How far from the origin a cell index may be, on either axis.
+const CELL_LIMIT := 100_000
+## How many cells one rectangle call may cover. The cells are written one by
+## one and their chunks rebuilt before the call answers, so one call must not
+## be able to take the editor away for minutes.
+const MAX_RECT_CELLS := 65_536
+
+
+## The layer at `index`, or null.
+func paint_layer_at(index: int) -> HFPaintLayer:
+	if not root.paint_layers or index < 0 or index >= root.paint_layers.layers.size():
+		return null
+	return root.paint_layers.layers[index]
+
+
+## The index of the layer called `name`: by its display name, then its id, then
+## either regardless of case. -1 when no layer is.
+func find_paint_layer(name: String) -> int:
+	if not root.paint_layers or name == "":
+		return -1
+	var layers: Array = root.paint_layers.layers
+	for exact in [true, false]:
+		for i in layers.size():
+			var layer: HFPaintLayer = layers[i]
+			if layer == null:
+				continue
+			for candidate in [layer.display_name, str(layer.layer_id)]:
+				var label := str(candidate)
+				if label == "":
+					continue
+				if (label == name) if exact else (label.to_lower() == name.to_lower()):
+					return i
+	return -1
+
+
+## Every layer as the bridge lists it: `index`, `id`, `name` (what the layer
+## list shows), `layer_y`, `cell_size` and `cells`, how many are filled.
+func describe_paint_layers() -> Array:
+	var out: Array = []
+	if not root.paint_layers:
+		return out
+	var layers: Array = root.paint_layers.layers
+	for i in layers.size():
+		var layer: HFPaintLayer = layers[i]
+		if layer == null:
+			continue
+		(
+			out
+			. append(
+				{
+					"index": i,
+					"id": str(layer.layer_id),
+					"name": paint_layer_name(layer),
+					"layer_y": layer.grid.layer_y if layer.grid else 0.0,
+					"cell_size": layer.grid.cell_size if layer.grid else 1.0,
+					"cells": layer.filled_cell_count(),
+				}
+			)
+		)
+	return out
+
+
+## What the layer list calls `layer`: its display name, or its id without one.
+static func paint_layer_name(layer: HFPaintLayer) -> String:
+	return layer.display_name if layer.display_name != "" else str(layer.layer_id)
+
+
+## A cell as the bridge writes one, `[x, z]`.
+static func cell_text(cell: Vector2i) -> String:
+	return "[%d, %d]" % [cell.x, cell.y]
+
+
+## The filled cells of the rectangle from `from` to `to` on `layer`.
+static func painted_cells(layer: HFPaintLayer, from: Vector2i, to: Vector2i) -> Array[Vector2i]:
+	var out: Array[Vector2i] = []
+	for cell in HFPaintTool.rect_cells(from, to):
+		if layer.get_cell(cell):
+			out.append(cell)
+	return out
+
+
+## Fill or clear every cell of the rectangle from `from` to `to`, both corners
+## included in any order, on the layer at `layer_index`, and rebuild the chunks
+## it touched: what the Rect tool does with a drag. With `filled` and a
+## `material_id` of 0 or more, each cell takes it as the Blend tool writes one.
+## `{ok, error, cells, changed, materials_changed}`: cells, filled bits flipped
+## and material ids changed, counted separately.
+## Nothing changes on a refusal.
+func paint_cells(
+	layer_index: int, from: Vector2i, to: Vector2i, filled: bool, material_id: int = -1
+) -> Dictionary:
+	var ready := check_rect(layer_index, from, to)
+	if not ready["ok"]:
+		return ready
+	var layer: HFPaintLayer = ready["layer"]
+	var cells: Array[Vector2i] = HFPaintTool.rect_cells(from, to)
+	_pin_regions_for_cells(cells)
+	var changed := 0
+	var materials_changed := 0
+	for cell in cells:
+		if layer.get_cell(cell) != filled:
+			changed += 1
+		layer.set_cell(cell, filled)
+		if filled and material_id >= 0:
+			if layer.get_cell_material(cell) != material_id:
+				materials_changed += 1
+			layer.set_cell_material(cell, material_id)
+	_reconcile_dirty_chunks(layer.consume_dirty_chunks(), layer)
+	release_paint_region_pins()
+	return {
+		"ok": true,
+		"error": "",
+		"cells": cells.size(),
+		"changed": changed,
+		"materials_changed": materials_changed,
+	}
+
+
+## Validate a wall-height change without applying it. Success extends check_rect()
+## with `filled`, the painted cells; no painted cells or a nonpositive/nonfinite
+## height is refused. The cells are read after load_rect_regions(), so paint in
+## a region streamed out to disk counts. Success keeps the pins for the
+## raise_cells() that follows, which lets them go; a refusal lets them go here.
+func check_raise_cells(layer_index: int, from: Vector2i, to: Vector2i, height: float) -> Dictionary:
+	var ready := check_rect(layer_index, from, to)
+	if not ready["ok"]:
+		return ready
+	if not is_finite(height) or height <= 0.0:
+		return _cell_call_refused("A wall height is a number above zero, in metres")
+	load_rect_regions(from, to)
+	var filled := painted_cells(ready["layer"], from, to)
+	if filled.is_empty():
+		release_paint_region_pins()
+		return _cell_call_refused(
+			(
+				"No painted cells from %s to %s on paint layer %d to raise; paint_ramp paints them"
+				% [cell_text(from), cell_text(to), layer_index]
+			)
+		)
+	ready["filled"] = filled
+	return ready
+
+
+## Set wall heights on painted cells, leaving unfilled cells alone.
+## `{ok, error, raised, changed}` counts painted cells and added/changed overrides.
+## Adding an override at the default height counts as a change.
+func raise_cells(layer_index: int, from: Vector2i, to: Vector2i, height: float) -> Dictionary:
+	var ready := check_raise_cells(layer_index, from, to, height)
+	if not ready["ok"]:
+		return ready
+	var layer: HFPaintLayer = ready["layer"]
+	var filled: Array[Vector2i] = ready["filled"]
+	var changed := 0
+	for cell in filled:
+		# Heights are nonnegative; -1 distinguishes no override from an override
+		# at the default, which pins the cell when that default changes later.
+		if not is_equal_approx(layer.get_wall_height(cell, -1.0), height):
+			changed += 1
+		layer.set_wall_height(cell, height)
+	_reconcile_dirty_chunks(layer.consume_dirty_chunks(), layer)
+	release_paint_region_pins()
+	return {"ok": true, "error": "", "raised": filled.size(), "changed": changed}
+
+
+## Paint the `width` by `depth` rectangle whose lowest corner is `at`, then
+## raise its walls to `height` when one is given: what the H key does with the
+## last rectangle's size at the hovered cell, with the size and the corner
+## named. `{ok, error, from, to, cells, changed, raised}`.
+func stamp_room(
+	layer_index: int, at: Vector2i, width: int, depth: int, height: float = -1.0
+) -> Dictionary:
+	if width < 1 or depth < 1:
+		return _cell_call_refused("A room is at least one cell wide and one cell deep")
+	if not is_finite(height):
+		return _cell_call_refused("A wall height must be finite")
+	var to := at + Vector2i(width - 1, depth - 1)
+	var painted := paint_cells(layer_index, at, to, true)
+	if not painted["ok"]:
+		return painted
+	var result := {
+		"ok": true,
+		"error": "",
+		"from": at,
+		"to": to,
+		"cells": painted["cells"],
+		"changed": painted["changed"],
+		"raised": 0,
+	}
+	if height > 0.0:
+		# The cells were just filled and the rectangle just checked, so this holds.
+		var raised := raise_cells(layer_index, at, to, height)
+		if not raised["ok"]:
+			return raised
+		result["raised"] = raised["raised"]
+	return result
+
+
+## The connectors a stroke over the rectangle would propose as ghosts: each
+## boundary where a filled cell of the layer meets a filled cell of another
+## layer at another height, with the level's connector mode, stair height and
+## width. `to_layer_index` 0 or more keeps only those that join that layer.
+## `{ok, error, new, already}`: the definitions not yet confirmed and the ones
+## that are. Refused with one layer, or when nothing there meets another layer.
+func connector_candidates(
+	layer_index: int, from: Vector2i, to: Vector2i, to_layer_index: int = -1
+) -> Dictionary:
+	var ready := check_rect(layer_index, from, to)
+	if not ready["ok"]:
+		return ready
+	if to_layer_index >= 0 and paint_layer_at(to_layer_index) == null:
+		return _cell_call_refused("No paint layer %d" % to_layer_index)
+	if to_layer_index == layer_index:
+		return _cell_call_refused("A connector joins two different layers", "to_layer")
+	if root.paint_layers.layers.size() < 2:
+		return _cell_call_refused(
+			"The level has one paint layer, so there is no other layer to connect it to"
+		)
+	var touched: Dictionary = {}
+	for cell in HFPaintTool.rect_cells(from, to):
+		touched[cell] = true
+	_sync_connector_settings()
+	var tool: HFPaintTool = root.paint_tool
+	var candidates: Array = tool.auto_connector.defs_for_touched_cells(
+		root.paint_layers, layer_index, touched, tool.connector_settings
+	)
+	var known: Dictionary = tool.confirmed_keys()
+	var new_defs: Array = []
+	var already: Array = []
+	for definition in candidates:
+		if (
+			to_layer_index >= 0
+			and definition.to_layer_index != to_layer_index
+			and definition.from_layer_index != to_layer_index
+		):
+			continue
+		if known.has(definition.boundary_key()):
+			already.append(definition)
+		else:
+			new_defs.append(definition)
+	if new_defs.is_empty() and already.is_empty():
+		var where := "another paint layer"
+		if to_layer_index >= 0:
+			where = "paint layer %d" % to_layer_index
+		return _cell_call_refused(
+			(
+				"No boundary with %s touches the cells from %s to %s on paint layer %d"
+				% [where, cell_text(from), cell_text(to), layer_index]
+			)
+		)
+	return {"ok": true, "error": "", "new": new_defs, "already": already}
+
+
+## Validate connector confirmation without changing saved definitions.
+## Success returns connector_candidates()'s `new` and `already` definitions;
+## a boundary with every connector already confirmed is refused.
+func check_confirm_connectors(
+	layer_index: int, from: Vector2i, to: Vector2i, to_layer_index: int = -1
+) -> Dictionary:
+	var found := connector_candidates(layer_index, from, to, to_layer_index)
+	if found["ok"] and (found["new"] as Array).is_empty():
+		return _cell_call_refused("Every connector at those cells is already confirmed")
+	return found
+
+
+## Keep the connector candidates, as Enter does for a stroke's ghosts.
+## `{ok, error, connectors, added, already}` reports descriptions of kept
+## connectors and counts newly added and previously confirmed definitions.
+func confirm_connectors(
+	layer_index: int, from: Vector2i, to: Vector2i, to_layer_index: int = -1
+) -> Dictionary:
+	var found := check_confirm_connectors(layer_index, from, to, to_layer_index)
+	if not found["ok"]:
+		return found
+	var new_defs: Array = found["new"]
+	var kept: Array = root.paint_tool.add_connector_defs(new_defs)
+	var connectors: Array = []
+	for definition in kept:
+		connectors.append(describe_connector(definition))
+	return {
+		"ok": true,
+		"error": "",
+		"connectors": connectors,
+		"added": kept.size(),
+		"already": (found["already"] as Array).size(),
+	}
+
+
+## A connector definition as the bridge answers one.
+static func describe_connector(definition) -> Dictionary:
+	var stairs: bool = definition.connector_type == HFConnectorTool.ConnectorType.STAIRS
+	return {
+		"from_layer": definition.from_layer_index,
+		"to_layer": definition.to_layer_index,
+		"from_cell": [definition.from_cell.x, definition.from_cell.y],
+		"to_cell": [definition.to_cell.x, definition.to_cell.y],
+		"type": "stairs" if stairs else "ramp",
+		"width_cells": definition.width_cells,
+	}
+
+
+## What every cell-space call checks first: a paint system, no stroke or height
+## gesture under way, a layer at `layer_index`, corners within `CELL_LIMIT` and
+## a rectangle of at most `MAX_RECT_CELLS`. `{ok, error, layer, argument}`;
+## `argument` names an invalid layer or rectangle, and is empty for busy state.
+func check_rect(layer_index: int, from: Vector2i, to: Vector2i) -> Dictionary:
+	if not root.paint_layers or not root.paint_tool:
+		return _cell_call_refused("The level has no paint system")
+	if root.paint_tool.is_stroke_active() or root.paint_tool.is_height_gesture_active():
+		return _cell_call_refused(
+			"The Paint tool is in the middle of a stroke; finish it in the editor first"
+		)
+	var layer := paint_layer_at(layer_index)
+	if layer == null:
+		return _cell_call_refused(
+			"No paint layer %d; the level has %d" % [layer_index, root.paint_layers.layers.size()],
+			"layer"
+		)
+	for cell in [from, to]:
+		if absi(cell.x) > CELL_LIMIT or absi(cell.y) > CELL_LIMIT:
+			return _cell_call_refused(
+				"Cell %s is past %d cells from the origin" % [cell_text(cell), CELL_LIMIT],
+				"rectangle"
+			)
+	var count := (absi(to.x - from.x) + 1) * (absi(to.y - from.y) + 1)
+	if count > MAX_RECT_CELLS:
+		return _cell_call_refused(
+			(
+				"From %s to %s is %d cells; one call takes at most %d"
+				% [cell_text(from), cell_text(to), count, MAX_RECT_CELLS]
+			),
+			"rectangle"
+		)
+	return {"ok": true, "error": "", "layer": layer}
+
+
+static func _cell_call_refused(message: String, argument := "") -> Dictionary:
+	return {"ok": false, "error": message, "argument": argument}
+
+
+## With region streaming on, load and pin the regions the rectangle from `from`
+## to `to` lies in. A caller that captures the level for undo before a
+## cell-space call does this first, so the capture holds the paint those regions
+## had on disk; an undo back to a capture without it would drop that paint. The
+## call that follows pins the same regions and lets them all go when it is done.
+func load_rect_regions(from: Vector2i, to: Vector2i) -> void:
+	if region_streaming_enabled:
+		_pin_regions_for_cells(HFPaintTool.rect_cells(from, to))
+
+
+## With region streaming on, load the regions `cells` lie in and pin them for
+## the call, as a stroke pins the region under the cursor, so the chunks are
+## there to write and nothing streams out part way. `release_paint_region_pins()`
+## lets them go after.
+func _pin_regions_for_cells(cells: Array[Vector2i]) -> void:
+	if not region_streaming_enabled:
+		return
+	_sync_region_manager()
+	var seen: Dictionary = {}
+	for cell in cells:
+		var region_id: Vector2i = region_manager.region_id_from_cell(cell)
+		if seen.has(region_id):
+			continue
+		seen[region_id] = true
+		_pin_paint_region(region_id)
+		_ensure_regions_for_cell(cell)
+
+
+func _pin_paint_region(region_id: Vector2i) -> void:
+	_paint_region_pins[region_id] = true
+	region_manager.set_pinned(region_id, true)
+
+
+func release_paint_region_pins() -> void:
+	for region_id: Vector2i in _paint_region_pins.keys():
+		region_manager.set_pinned(region_id, false)
+	_paint_region_pins.clear()
+
+
+func get_paint_layer_names() -> Array:
+	var names: Array = []
+	if not root.paint_layers:
+		return names
+	for layer in root.paint_layers.layers:
+		if layer:
+			var label = layer.display_name if layer.display_name != "" else str(layer.layer_id)
+			names.append(label)
+	return names
+
+
+## Rename a paint layer. Returns false and leaves the layer alone if the name is
+## empty or another layer already shows it. The layer list is how the user picks
+## what they are painting on, so two identical rows leave them no way to tell
+## which is which, and everything downstream that reports a layer by name
+## becomes ambiguous. The check sits here rather than in the rename dialog so a
+## rename from anywhere is covered.
+func rename_paint_layer(index: int, new_name: String) -> bool:
+	if not root.paint_layers:
+		return false
+	var trimmed := new_name.strip_edges()
+	if trimmed == "":
+		HFLog.warn("HFPaintSystem: a paint layer needs a name")
+		return false
+	var layers: Array = root.paint_layers.layers
+	if index < 0 or index >= layers.size():
+		HFLog.warn("HFPaintSystem: paint layer index out of range: %d" % index)
+		return false
+	# Compare against what each row actually shows, which is the display name
+	# when there is one and the layer id when there is not.
+	var names: Array = get_paint_layer_names()
+	for i in range(names.size()):
+		if i != index and str(names[i]) == trimmed:
+			HFLog.warn("HFPaintSystem: a paint layer is already called '%s'" % trimmed)
+			return false
+	root.paint_layers.rename_layer(index, trimmed)
+	return true
+
+
+func set_region_streaming_enabled(value: bool) -> void:
+	if region_streaming_enabled == value:
+		return
+	region_streaming_enabled = value
+	if region_streaming_enabled:
+		load_initial_regions()
+	_update_region_overlay()
+
+
+func set_region_show_grid(value: bool) -> void:
+	region_show_grid = value
+	_update_region_overlay()
+
+
+## A region has to stay a useful unit of streaming. `region_size_cells` is the
+## divisor that turns a cell index into a region coordinate, so a region of a
+## million cells is the whole world in one region: the radius-2 neighbourhood the
+## streamer keeps resident is then 25 of those, and the memory budget cannot be
+## met by evicting anything because there is nothing smaller than one region to
+## evict. The streaming radius was already clamped at both ends; these two are
+## the rest of that.
+const MIN_REGION_SIZE_CELLS := 64
+const MAX_REGION_SIZE_CELLS := 4096
+const MIN_MEMORY_BUDGET_MB := 32
+const MAX_MEMORY_BUDGET_MB := 8192
+
+
+func set_region_size_cells(value: int) -> void:
+	region_manager.region_size_cells = clampi(value, MIN_REGION_SIZE_CELLS, MAX_REGION_SIZE_CELLS)
+
+
+func set_region_streaming_radius(value: int) -> void:
+	region_manager.streaming_radius = clamp(value, 0, 8)
+
+
+func set_region_memory_budget_mb(value: int) -> void:
+	region_memory_budget_mb = clampi(value, MIN_MEMORY_BUDGET_MB, MAX_MEMORY_BUDGET_MB)
+
+
+func get_region_settings() -> Dictionary:
+	return {
+		"enabled": region_streaming_enabled,
+		"region_size_cells": region_manager.region_size_cells,
+		"streaming_radius": region_manager.streaming_radius,
+		"memory_budget_mb": region_memory_budget_mb,
+		"show_grid": region_show_grid
+	}
+
+
+func get_loaded_regions() -> Array[Vector2i]:
+	var out: Array[Vector2i] = []
+	for rid in region_manager.loaded_regions.keys():
+		out.append(rid)
+	return out
+
+
+func load_initial_regions() -> void:
+	if not region_streaming_enabled:
+		return
+	_ensure_regions_for_cell(Vector2i.ZERO)
+
+
+func get_paint_memory_bytes() -> int:
+	if not root.paint_layers:
+		return 0
+	var total := 0
+	for layer in root.paint_layers.layers:
+		if layer:
+			total += layer.get_memory_bytes()
+	return total
+
+
+func get_active_paint_layer_index() -> int:
+	return root.paint_layers.active_layer_index if root.paint_layers else 0
+
+
+func set_active_paint_layer(index: int) -> void:
+	if not root.paint_layers:
+		return
+	root.paint_layers.set_active_layer(index)
+
+
+func add_paint_layer() -> void:
+	if not root.paint_layers:
+		return
+	var new_id = next_paint_layer_id()
+	root.paint_layers.create_layer(StringName(new_id), root.grid_plane_origin.y)
+	root.paint_layers.active_layer_index = root.paint_layers.layers.size() - 1
+
+
+## Point a terrain slot on the active paint layer at `path` and rebuild.
+##
+## Named on the system so the dock has something to commit an undo action
+## against: the slot arrays are carried by `capture_paint_layers()` and put back
+## by `restore_paint_layers()`, so only the wrapper was missing.
+func set_terrain_slot_texture(slot: int, path: String) -> void:
+	if not root.paint_layers:
+		return
+	var layer = root.paint_layers.get_active_layer()
+	if not layer:
+		return
+	if not layer.set_terrain_slot_texture(slot, path):
+		return
+	regenerate_paint_layers()
+
+
+## The UV scale of a terrain slot on the active paint layer.
+func set_terrain_slot_uv_scale(slot: int, value: float) -> void:
+	if not root.paint_layers:
+		return
+	var layer = root.paint_layers.get_active_layer()
+	if not layer:
+		return
+	if not layer.set_terrain_slot_uv_scale(slot, value):
+		return
+	regenerate_paint_layers()
+
+
+func remove_active_paint_layer() -> void:
+	if not root.paint_layers:
+		return
+	if root.paint_layers.layers.size() <= 1:
+		return
+	var idx = root.paint_layers.active_layer_index
+	var layer: HFPaintLayer = paint_layer_at(idx)
+	var shown := paint_layer_name(layer) if layer else ""
+	root.paint_layers.remove_layer(idx)
+	# The confirmed connectors name layers by their place in the list (#2009).
+	var dropped: int = root.paint_tool.forget_layer(idx) if root.paint_tool else 0
+	if dropped > 0:
+		var took := HFTranslationType.message_n(
+			'Paint layer "{layer}" took {count} confirmed connector with it',
+			'Paint layer "{layer}" took {count} confirmed connectors with it',
+			dropped,
+			{"layer": shown}
+		)
+		root.user_message.emit(took, 1)
+	regenerate_paint_layers()
+
+
+## The id for a new paint layer: the first `layer_N` from the layer count up that
+## no layer has had this session and no region file holds paint for. A removed
+## layer's paint outlives it in the undo history, and in its region files so an
+## undo of the removal can read it back (#1554), so a new layer given the id of
+## one took that paint as its region streamed in (#1564). The files cover the
+## sessions before this one, a level saved or not. A new layer's row shows its id,
+## so an id another row already shows as its name is skipped too, as a rename to
+## it would be refused (#2013).
+func next_paint_layer_id() -> String:
+	const MAX_LAYER_ID_SEARCH := 10_000
+	var base = "layer_"
+	var index = root.paint_layers.layers.size() if root.paint_layers else 0
+	var in_files := _layer_ids_in_region_files()
+	var shown: Array = get_paint_layer_names()
+	for _i in range(MAX_LAYER_ID_SEARCH):
+		var candidate = "%s%d" % [base, index]
+		var held: bool = (
+			root.paint_layers != null and root.paint_layers.has_held_layer_id(StringName(candidate))
+		)
+		if not held and not in_files.has(candidate) and not shown.has(candidate):
+			return candidate
+		index += 1
+	return "%s0" % base
+
+
+func handle_surface_paint_input(
+	camera: Camera3D,
+	event: InputEvent,
+	mouse_pos: Vector2,
+	radius_uv: float,
+	strength: float,
+	layer_idx: int
+) -> bool:
+	if not root.surface_paint:
+		root._setup_surface_paint()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			root.input_state.begin_surface_paint()
+			take_surface_stroke()
+			_surface_stroke_erasing = event.alt_pressed
+			paint_surface_at(camera, mouse_pos, radius_uv, _stroke_strength(strength), layer_idx)
+			return true
+		if root.input_state.is_surface_painting():
+			root.input_state.end_surface_paint()
+			return true
+	if event is InputEventMouseMotion:
+		if (
+			root.input_state.is_surface_painting()
+			and event.button_mask & MOUSE_BUTTON_MASK_LEFT != 0
+		):
+			paint_surface_at(camera, mouse_pos, radius_uv, _stroke_strength(strength), layer_idx)
+			return true
+	return false
+
+
+## An erasing stroke takes paint off at the strength it would put it on.
+func _stroke_strength(strength: float) -> float:
+	return -absf(strength) if _surface_stroke_erasing else strength
+
+
+## What the surface paint stroke that just ended needs for its undo step, in the
+## shape `HFUndoHelper.capture_scope_or_state()` gives, and forget it. Empty when
+## the stroke painted nothing.
+func take_surface_stroke() -> Dictionary:
+	var taken := {}
+	if not _surface_stroke_state.is_empty():
+		taken = {"state": _surface_stroke_state, "scope_ids": []}
+	elif not _surface_stroke_ids.is_empty():
+		var scope := HFStateSystemType.merge_brush_scopes(_surface_stroke_scopes)
+		taken = {"state": scope, "scope_ids": _surface_stroke_ids.duplicate()}
+	_surface_stroke_scopes = []
+	_surface_stroke_ids = []
+	_surface_stroke_state = {}
+	_surface_stroke_erasing = false
+	return taken
+
+
+## Record `brush` as it is before this stroke first paints it. False when it
+## cannot join this stroke's undo step, and so is not painted by it.
+##
+## A brush is a scope of its own unless it is a pending cut. A stroke that starts
+## on one records the whole level instead, which covers everything after it. One
+## that reaches a pending cut part way through has nothing to put it back with,
+## so it stops at that brush and the next stroke can start on it.
+func _record_surface_stroke_brush(brush: DraftBrush) -> bool:
+	if not root.input_state.is_surface_painting() or not _surface_stroke_state.is_empty():
+		return true
+	var brush_id := str(brush.brush_id)
+	if brush_id in _surface_stroke_ids:
+		return true
+	var scope: Dictionary = root.capture_brush_scope([brush_id])
+	if not scope.is_empty():
+		_surface_stroke_scopes.append(scope)
+		_surface_stroke_ids.append(brush_id)
+		return true
+	if not _surface_stroke_ids.is_empty():
+		return false
+	_surface_stroke_state = root.capture_state()
+	return true
+
+
+func paint_surface_at(
+	camera: Camera3D, mouse_pos: Vector2, radius_uv: float, strength: float, layer_idx: int
+) -> void:
+	if not camera:
+		return
+	var hit = pick_face(camera, mouse_pos)
+	if hit.is_empty():
+		return
+	var brush = hit.get("brush", null)
+	var face_idx = int(hit.get("face_idx", -1))
+	var uv = hit.get("uv", Vector2.ZERO)
+	if not brush or face_idx < 0 or face_idx >= brush.faces.size():
+		return
+	# A face's UVs are the projection of its world coordinates, so a 128-unit wall
+	# spans 128 in U rather than 1. The painted albedo becomes the material's
+	# albedo_texture and is sampled through those same UVs, repeating, so the
+	# texel under the cursor is the one the fractional part points at. Clamping
+	# threw the position away and put every stroke on a face larger than one unit
+	# into whichever corner the sign of the coordinate chose.
+	uv.x = uv.x - floor(uv.x)
+	uv.y = uv.y - floor(uv.y)
+	if not _record_surface_stroke_brush(brush):
+		return
+	var face: FaceData = brush.faces[face_idx]
+	root.surface_paint.paint_at_uv(face, layer_idx, uv, radius_uv, strength)
+	brush.rebuild_preview()
+
+
+func pick_face(camera: Camera3D, mouse_pos: Vector2) -> Dictionary:
+	if not camera:
+		return {}
+	return root.pick_face(camera, mouse_pos)
+
+
+func select_face_at_screen(camera: Camera3D, mouse_pos: Vector2, additive: bool) -> bool:
+	var hit = pick_face(camera, mouse_pos)
+	if hit.is_empty():
+		if not additive:
+			clear_face_selection()
+		return false
+	var brush = hit.get("brush", null)
+	var face_idx = int(hit.get("face_idx", -1))
+	if brush and face_idx >= 0:
+		toggle_face_selection(brush, face_idx, additive)
+		return true
+	return false
+
+
+func toggle_face_selection(brush: DraftBrush, face_idx: int, additive: bool) -> void:
+	if not brush:
+		return
+	if not additive:
+		root.face_selection.clear()
+	var key = face_key(brush)
+	var indices: Array = root.face_selection.get(key, [])
+	var idx = indices.find(face_idx)
+	if idx >= 0:
+		indices.remove_at(idx)
+	else:
+		indices.append(face_idx)
+	root.face_selection[key] = indices
+
+
+func clear_face_selection() -> void:
+	root.face_selection.clear()
+
+
+func get_face_selection() -> Dictionary:
+	return root.face_selection.duplicate(true)
+
+
+func get_primary_selected_face() -> Dictionary:
+	for key in root.face_selection.keys():
+		var indices: Array = root.face_selection.get(key, [])
+		if indices.is_empty():
+			continue
+		var brush = root._find_brush_by_key(str(key))
+		if brush and indices[0] != null:
+			return {"brush": brush, "face_idx": int(indices[0])}
+	return {}
+
+
+func assign_material_to_selected_faces(material_index: int) -> int:
+	var count := 0
+	for key in root.face_selection.keys():
+		var brush = root._find_brush_by_key(str(key))
+		if not brush:
+			continue
+		var indices: Array = root.face_selection.get(key, [])
+		var typed: Array[int] = []
+		for idx in indices:
+			typed.append(int(idx))
+		brush.assign_material_to_faces(material_index, typed)
+		count += typed.size()
+	return count
+
+
+func face_key(brush: DraftBrush) -> String:
+	if brush == null:
+		return ""
+	if brush.brush_id != "":
+		return brush.brush_id
+	return str(brush.get_instance_id())
+
+
+func regenerate_paint_layers() -> void:
+	if not root.paint_tool or not root.paint_layers:
+		push_warning("HammerForge: cannot regenerate paint — paint system not initialized")
+		return
+	if not root.paint_tool.geometry or not root.paint_tool.reconciler:
+		push_warning("HammerForge: cannot regenerate paint — geometry synth or reconciler missing")
+		return
+	var had_ground := _has_generated_ground()
+	root._clear_generated()
+	for layer in root.paint_layers.layers:
+		if not layer:
+			continue
+		var chunk_ids = layer.get_chunk_ids()
+		if chunk_ids.is_empty():
+			continue
+		if layer.has_heightmap() and root.paint_tool.heightmap_synth:
+			var model = root.paint_tool.build_heightmap_model(layer, chunk_ids)
+			root.paint_tool.reconciler.reconcile(
+				model, layer.grid, root.paint_tool.synth_settings, chunk_ids, layer.layer_id
+			)
+		else:
+			var model = root.paint_tool.geometry.build_for_chunks(
+				layer, chunk_ids, root.paint_tool.synth_settings
+			)
+			root.paint_tool.reconciler.reconcile(
+				model, layer.grid, root.paint_tool.synth_settings, chunk_ids, layer.layer_id
+			)
+	# Every generated node was thrown away and built again, a removed layer's
+	# included, which no chunk tag names. So the ground the last bake took is stale
+	# whenever there was or is any: a new height scale, a layer moved, an undo (#1199).
+	if had_ground or _has_generated_ground():
+		root.tag_full_reconcile()
+	if region_streaming_enabled:
+		_rebuild_loaded_regions_from_layers()
+
+
+func _has_generated_ground() -> bool:
+	for container in [root.generated_floors, root.generated_walls, root.generated_heightmap_floors]:
+		if container and container.get_child_count() > 0:
+			return true
+	return false
+
+
+func restore_paint_layers(data: Array, active_index: int) -> void:
+	if not root.paint_layers:
+		root._setup_paint_system()
+	if not root.paint_layers:
+		return
+	if region_streaming_enabled:
+		region_manager.loaded_regions.clear()
+		region_manager.region_index.clear()
+	root.paint_layers.clear_layers()
+	root._clear_generated()
+	if data.is_empty():
+		root.paint_layers.create_layer(&"layer_0", root.grid_plane_origin.y)
+		root.paint_layers.active_layer_index = 0
+		return
+	for entry in data:
+		if not (entry is Dictionary):
+			continue
+		var layer_id = StringName(str(entry.get("id", "layer_0")))
+		var chunk_size = int(entry.get("chunk_size", root.paint_layers.chunk_size))
+		var grid_data = entry.get("grid", {})
+		var layer_y = (
+			float(grid_data.get("layer_y", root.grid_plane_origin.y))
+			if grid_data is Dictionary
+			else root.grid_plane_origin.y
+		)
+		var layer = root.paint_layers.create_layer(layer_id, layer_y)
+		layer.display_name = str(entry.get("display_name", ""))
+		layer.chunk_size = chunk_size
+		if grid_data is Dictionary and layer.grid:
+			layer.grid.cell_size = float(grid_data.get("cell_size", layer.grid.cell_size))
+			# A damaged file can hold anything here. What is not a Vector3 or a Basis
+			# is read past, as `layer_y` and `cell_size` read past a bad number.
+			var grid_origin: Variant = grid_data.get("origin", layer.grid.origin)
+			if grid_origin is Vector3:
+				layer.grid.origin = grid_origin
+			var grid_basis: Variant = grid_data.get("basis", layer.grid.basis)
+			if grid_basis is Basis:
+				layer.grid.basis = grid_basis
+			layer.grid.layer_y = float(grid_data.get("layer_y", layer.grid.layer_y))
+		layer._ensure_terrain_slots()
+		var wall_heights = entry.get("wall_heights", [])
+		if wall_heights is Array:
+			layer.restore_wall_height_entries(wall_heights)
+		# These three properties are typed arrays. A decoded .hflevel payload is
+		# untyped, and the engine rejects an untyped array assigned into a typed
+		# property, so each one has to be converted first or the slot data is
+		# dropped and _ensure_terrain_slots() refills it with defaults.
+		var slot_paths = entry.get("terrain_slot_paths", [])
+		if slot_paths is Array:
+			var typed_paths: Array[String] = []
+			for p in slot_paths:
+				typed_paths.append(str(p))
+			layer.terrain_slot_paths = typed_paths
+		var slot_scales = entry.get("terrain_slot_uv_scales", [])
+		if slot_scales is Array:
+			var typed_scales: Array[float] = []
+			for s in slot_scales:
+				typed_scales.append(float(s) if s is float or s is int else 1.0)
+			layer.terrain_slot_uv_scales = typed_scales
+		var slot_tints = entry.get("terrain_slot_tints", [])
+		if slot_tints is Array:
+			var typed_tints: Array[Color] = []
+			for t in slot_tints:
+				typed_tints.append(t if t is Color else Color(0.5, 0.5, 0.5))
+			layer.terrain_slot_tints = typed_tints
+		layer._ensure_terrain_slots()
+		# The layer's own, with a heightmap or without one (#2030).
+		layer.height_scale = float(entry.get("height_scale", layer.height_scale))
+		_restore_layer_heights(layer, entry)
+		var chunks = entry.get("chunks", [])
+		if chunks is Array:
+			_deserialize_chunks_to_layer(layer, chunks)
+	if root.paint_layers.layers.size() > 0:
+		root.paint_layers.active_layer_index = clamp(
+			active_index, 0, root.paint_layers.layers.size() - 1
+		)
+	regenerate_paint_layers()
+
+
+## A layer's ground as `HFStateSystem.capture_paint_layers()` saved it: its
+## base, an image or noise, and its sculpted chunks (#2007). An image with no
+## `heightmap_origin` is from a level saved before them, and repeats from cell
+## (0, 0) as it did.
+func _restore_layer_heights(layer: HFPaintLayer, entry: Dictionary) -> void:
+	var noise = entry.get("heightmap_noise")
+	var hm_b64 = str(entry.get("heightmap_b64", ""))
+	if noise is Dictionary:
+		layer.set_height_noise(noise)
+	elif hm_b64 != "":
+		layer.heightmap = HFHeightmapIO.decode_from_base64(hm_b64)
+		# Saved as the layer keeps it, each pixel at `posmod(cell, size)`, so it is
+		# put back as it is rather than placed again.
+		var origin = entry.get("heightmap_origin")
+		if (
+			origin is Array
+			and origin.size() == 2
+			and (origin[0] is int or origin[0] is float)
+			and (origin[1] is int or origin[1] is float)
+			and is_finite(float(origin[0]))
+			and is_finite(float(origin[1]))
+		):
+			layer.heightmap_origin = Vector2i(int(origin[0]), int(origin[1]))
+			layer.heightmap_repeats = false
+	var sculpts = entry.get("height_chunks", [])
+	if not sculpts is Array:
+		return
+	for sculpt in sculpts:
+		if not sculpt is Dictionary:
+			continue
+		var cid := Vector2i(int(sculpt.get("cx", 0)), int(sculpt.get("cy", 0)))
+		var heights := HFHeightmapIO.decode_from_base64(str(sculpt.get("heights", "")))
+		if not layer.set_height_chunk(cid, heights):
+			HFLog.warn(
+				(
+					"HFPaint: layer '%s' sculpt at chunk %s is not %d square, skipped"
+					% [str(layer.layer_id), str(cid), layer.chunk_size]
+				)
+			)
+
+
+## Deserialize an array of chunk dictionaries into a paint layer.
+## Returns the list of chunk IDs (Vector2i) that were loaded.
+func _deserialize_chunks_to_layer(layer: HFPaintLayer, chunks: Array) -> Array[Vector2i]:
+	var loaded: Array[Vector2i] = []
+	for chunk in chunks:
+		if not (chunk is Dictionary):
+			continue
+		var cx = int(chunk.get("cx", 0))
+		var cy = int(chunk.get("cy", 0))
+		var cid = Vector2i(cx, cy)
+		var bytes = chunk.get("bits", [])
+		var bits = PackedByteArray()
+		if bytes is Array:
+			bits.resize(bytes.size())
+			for i in range(bytes.size()):
+				bits[i] = int(bytes[i])
+		layer.set_chunk_bits(cid, bits)
+		var mat_bytes = chunk.get("material_ids", [])
+		if mat_bytes is Array and not mat_bytes.is_empty():
+			var mat_ids = PackedByteArray()
+			mat_ids.resize(mat_bytes.size())
+			for i in range(mat_bytes.size()):
+				mat_ids[i] = int(mat_bytes[i])
+			layer.set_chunk_material_ids(cid, mat_ids)
+		var blend_bytes = chunk.get("blend_weights", [])
+		if blend_bytes is Array and not blend_bytes.is_empty():
+			var blends = PackedByteArray()
+			blends.resize(blend_bytes.size())
+			for i in range(blend_bytes.size()):
+				blends[i] = int(blend_bytes[i])
+			layer.set_chunk_blend_weights(cid, blends)
+		var blend2_bytes = chunk.get("blend_weights_2", [])
+		if blend2_bytes is Array and not blend2_bytes.is_empty():
+			var blends2 = PackedByteArray()
+			blends2.resize(blend2_bytes.size())
+			for i in range(blend2_bytes.size()):
+				blends2[i] = int(blend2_bytes[i])
+			layer.set_chunk_blend_weights_slot(cid, 2, blends2)
+		var blend3_bytes = chunk.get("blend_weights_3", [])
+		if blend3_bytes is Array and not blend3_bytes.is_empty():
+			var blends3 = PackedByteArray()
+			blends3.resize(blend3_bytes.size())
+			for i in range(blend3_bytes.size()):
+				blends3[i] = int(blend3_bytes[i])
+			layer.set_chunk_blend_weights_slot(cid, 3, blends3)
+		var wall_heights = chunk.get("wall_heights", [])
+		if wall_heights is Array:
+			layer.restore_wall_height_entries(wall_heights)
+		loaded.append(cid)
+	return loaded
+
+
+## Mark every region with paint in memory loaded. One loaded already stays so,
+## paint or none: an erase can leave a region empty with its file still holding
+## the paint, and only streaming it out writes that file (#1550). A restore
+## empties the set itself before it rebuilds.
+func _rebuild_loaded_regions_from_layers() -> void:
+	if not region_streaming_enabled:
+		return
+	if not root.paint_layers:
+		return
+	var cs := region_manager.chunk_size
+	for layer in root.paint_layers.layers:
+		if not layer:
+			continue
+		for cid in layer.get_chunk_ids():
+			var cell := Vector2i(cid.x * cs, cid.y * cs)
+			var rid := region_manager.region_id_from_cell(cell)
+			region_manager.mark_loaded(rid)
+	_update_region_overlay()
+
+
+func import_heightmap(path: String) -> void:
+	var layer = root.paint_layers.get_active_layer() if root.paint_layers else null
+	if not layer:
+		push_warning("HammerForge: cannot import heightmap — no active paint layer")
+		root.user_message.emit("Import failed — no active paint layer", 1)
+		return
+	var img := HFHeightmapIO.load_from_file(path)
+	if img:
+		# Over the painted ground, from its first cell, so an image the size of
+		# the painted area lies on it. It no longer repeats past its edge (#2007).
+		layer.set_height_image(img, layer.painted_corner())
+		regenerate_paint_layers()
+	else:
+		push_warning("HammerForge: failed to load heightmap from '%s'" % path)
+		var failed := HFTranslationType.message(
+			"Failed to load heightmap from '{file}'", {"file": path}
+		)
+		root.user_message.emit(failed, 2)
+
+
+func generate_heightmap_noise(settings: Dictionary = {}) -> void:
+	var layer = root.paint_layers.get_active_layer() if root.paint_layers else null
+	if not layer:
+		return
+	# The noise itself rather than an image of it, which repeated every width
+	# (#2007).
+	layer.set_height_noise(settings)
+	regenerate_paint_layers()
+
+
+## How flat a heightmap may be scaled before it is not a sculpt any more.
+##
+## Zero is not non-finite, so it is not the same defect, but it multiplies every
+## height on the layer by nothing and the sculpt reads to a mapper as gone. The
+## multiplier is what changed, not the heights, so there is nothing to undo by
+## eye. A floor rather than a refusal, because a very flat terrain is a real
+## thing to want — and applied to the magnitude, because a negative scale turns
+## the sculpt upside down, which is also a real thing to want.
+const MIN_HEIGHT_SCALE := 0.001
+
+
+func set_heightmap_scale(value: float) -> void:
+	if not is_finite(value):
+		HFLog.warn("HFPaintSystem: heightmap scale must be a number")
+		return
+	var layer = root.paint_layers.get_active_layer() if root.paint_layers else null
+	if not layer:
+		return
+	if absf(value) < MIN_HEIGHT_SCALE:
+		var floored := -MIN_HEIGHT_SCALE if value < 0.0 else MIN_HEIGHT_SCALE
+		HFLog.warn(
+			(
+				"HFPaintSystem: heightmap scale %f flattens the sculpt. Using %f instead."
+				% [value, floored]
+			)
+		)
+		value = floored
+	layer.height_scale = value
+	regenerate_paint_layers()
+
+
+func set_layer_y(value: float) -> void:
+	if not is_finite(value):
+		# The plane the layer's geometry is built on and the paint tool's raycast
+		# plane. A non-finite value puts the whole generated layer somewhere that
+		# is not a place, and it is saved with the layer.
+		HFLog.warn("HFPaintSystem: the layer height must be a number")
+		return
+	var layer = root.paint_layers.get_active_layer() if root.paint_layers else null
+	if not layer or not layer.grid:
+		return
+	layer.grid.layer_y = value
+	regenerate_paint_layers()
+
+
+func set_region_base_path(hflevel_path: String) -> void:
+	if hflevel_path == "":
+		return
+	var abs_path = hflevel_path
+	if hflevel_path.begins_with("res://") or hflevel_path.begins_with("user://"):
+		abs_path = ProjectSettings.globalize_path(hflevel_path)
+	if abs_path != _saving_as_to and abs_path != region_manager.region_base_path:
+		_saved_as_from.clear()
+	_saving_as_to = ""
+	# A digest says what was written to a file in the old folder; the new one's
+	# file for the same region holds nothing yet.
+	if abs_path != region_manager.region_base_path:
+		_region_file_digests.clear()
+		_region_file_layers.clear()
+	region_manager.region_base_path = abs_path
+
+
+## The level file the region files sit beside, as a project path when it is in
+## the project, or "" before the level is saved or loaded. What a scene keeps so
+## it can find them again when it is reopened (#2006).
+func region_level_file() -> String:
+	var base: String = region_manager.region_base_path
+	return ProjectSettings.localize_path(base) if base != "" else ""
+
+
+func _region_dir_for_base_path(base_path: String) -> String:
+	var dir = base_path.get_base_dir()
+	var name = base_path.get_file().get_basename()
+	if name == "":
+		name = "level"
+	return dir.path_join("%s.hfregions" % name)
+
+
+func _region_file_path(region_id: Vector2i) -> String:
+	if region_manager.region_base_path == "":
+		return ""
+	var dir = _region_dir_for_base_path(region_manager.region_base_path)
+	var file_name = "region_%d_%d.hfr" % [region_id.x, region_id.y]
+	return dir.path_join(file_name)
+
+
+func save_loaded_regions() -> Dictionary:
+	if not region_streaming_enabled:
+		return {"ok": true, "failed": [], "error": ""}
+	if region_manager.region_base_path == "":
+		return {"ok": true, "failed": [], "error": ""}
+	var dir = _region_dir_for_base_path(region_manager.region_base_path)
+	if not DirAccess.dir_exists_absolute(dir):
+		DirAccess.make_dir_recursive_absolute(dir)
+	var failed: Array[Vector2i] = []
+	for rid in region_manager.loaded_regions.keys():
+		if _save_region_file(rid) != OK:
+			failed.append(rid)
+	if failed.is_empty():
+		return {"ok": true, "failed": [], "error": ""}
+	return {
+		"ok": false,
+		"failed": failed,
+		"error": "Could not write %d region file(s) next to the level" % failed.size(),
+	}
+
+
+func load_region_index(index_data: Dictionary, hflevel_path: String = "") -> void:
+	if hflevel_path != "":
+		set_region_base_path(hflevel_path)
+	if index_data.is_empty():
+		return
+	# Through the setters, because a sidecar written by an older version or by
+	# hand is exactly the caller the clamps are for.
+	set_region_size_cells(
+		int(index_data.get("region_size_cells", region_manager.region_size_cells))
+	)
+	set_region_streaming_radius(
+		int(index_data.get("streaming_radius", region_manager.streaming_radius))
+	)
+	if index_data.has("memory_budget_mb"):
+		set_region_memory_budget_mb(int(index_data["memory_budget_mb"]))
+	region_manager.region_index.clear()
+	var regions = index_data.get("regions", [])
+	if regions is Array:
+		for entry in regions:
+			if entry is Dictionary:
+				var x = int(entry.get("x", 0))
+				var y = int(entry.get("y", 0))
+				region_manager.region_index[Vector2i(x, y)] = {"has_data": true}
+
+
+func capture_region_index() -> Dictionary:
+	var regions: Array = []
+	var seen: Dictionary = {}
+	for rid in region_manager.region_index.keys():
+		regions.append({"x": rid.x, "y": rid.y})
+		seen[rid] = true
+	for rid in region_manager.loaded_regions.keys():
+		if not seen.has(rid) and _region_has_data(rid):
+			regions.append({"x": rid.x, "y": rid.y})
+			seen[rid] = true
+	return {
+		"region_size_cells": region_manager.region_size_cells,
+		"streaming_radius": region_manager.streaming_radius,
+		"regions": regions
+	}
+
+
+## What an undo capture records about the region files beside the chunks it
+## holds (#1514): the regions whose paint was in a file alone, with nothing of
+## them in memory, and the count of file changes it was taken at. Every other
+## region held exactly the chunks the capture has, and none when it has none,
+## which takes in a region loaded empty and one no file was written for yet. The
+## loaded regions are listed as well: one an erase emptied still has the file it
+## streamed in from until it streams out again (#1550).
+func capture_region_files() -> Dictionary:
+	_sync_region_manager()
+	var in_memory := _regions_in_memory()
+	var on_disk: Array = []
+	for region_id in _region_ids_on_disk():
+		if not in_memory.has(region_id):
+			on_disk.append(region_id)
+	on_disk.sort()
+	var loaded: Array = region_manager.loaded_regions.keys()
+	loaded.sort()
+	return {
+		"base_path": region_manager.region_base_path,
+		"region_size_cells": region_manager.region_size_cells,
+		"on_disk": on_disk,
+		"loaded": loaded,
+		"serial": _region_file_serial,
+	}
+
+
+## Bring the region files that changed after `capture` was taken back in line
+## with the paint restore_paint_layers() has just put back from it (#1514). A
+## file written since, as its region streamed out or the level was saved, or one
+## made since for a region that held nothing then, is written again from the
+## paint in memory, or removed when there is none, so the region cannot stream
+## back in with the paint the restore took away. A region the capture names in
+## `on_disk` keeps its file: the capture never held that region's paint. A file
+## that cannot be brought in line is reported, and its region kept loaded so the
+## paint in that file is not read back.
+func restore_region_files(capture: Variant) -> void:
+	if not region_streaming_enabled or not (capture is Dictionary):
+		return
+	var taken: Dictionary = capture
+	# At another region size the same coordinates name other cells. Files in
+	# another folder belong to another level, or to this one before a Save As;
+	# a level with no folder yet had no files to keep.
+	if int(taken.get("region_size_cells", -1)) != region_manager.region_size_cells:
+		return
+	var folder := str(taken.get("base_path", ""))
+	if folder != "" and folder != region_manager.region_base_path:
+		# Unless this level was saved from there under another name, which carried
+		# its files to the folder it uses now (#1929).
+		if not _saved_as_from.has(folder):
+			return
+	# What was loaded is loaded again, paint or none. The restore marked only the
+	# regions with paint, and one an erase emptied would read its file back.
+	var loaded = taken.get("loaded", [])
+	if loaded is Array:
+		for region_id in loaded:
+			region_manager.mark_loaded(region_id)
+	var serial := int(taken.get("serial", 0))
+	var on_disk: Dictionary = {}
+	var listed = taken.get("on_disk", [])
+	if listed is Array:
+		for region_id in listed:
+			on_disk[region_id] = true
+	var failed: Array[Vector2i] = []
+	for region_id: Vector2i in _region_file_changed_at.keys():
+		if on_disk.has(region_id):
+			continue
+		var changed: bool = int(_region_file_changed_at[region_id]) > serial
+		if not changed and not _stale_region_files.has(region_id):
+			continue
+		if _save_region_file(region_id) != OK:
+			failed.append(region_id)
+	if failed.is_empty():
+		return
+	failed.sort()
+	var names := PackedStringArray()
+	for region_id in failed:
+		region_manager.mark_loaded(region_id)
+		_stale_region_files[region_id] = true
+		names.append(str(region_id))
+	if root.has_signal("user_message"):
+		var text := HFTranslationType.message(
+			(
+				"The files of paint regions {regions} could not be brought up to date; "
+				+ "they stay loaded so their old paint is not read back"
+			),
+			{"regions": ", ".join(names)}
+		)
+		root.user_message.emit(text, 2)
+
+
+## The regions held in memory: the loaded ones, and any with chunks, as paint
+## written without loading its region leaves.
+func _regions_in_memory() -> Dictionary:
+	var out: Dictionary = region_manager.loaded_regions.duplicate()
+	if not root.paint_layers:
+		return out
+	var chunk_cells := region_manager.chunk_size
+	for layer in root.paint_layers.layers:
+		if not layer:
+			continue
+		for cid in layer.get_chunk_ids():
+			out[region_manager.region_id_from_cell(cid * chunk_cells)] = true
+	return out
+
+
+## The regions with a file in the level's region folder, counting one a write
+## left behind as `.previous`, which a load takes back when the file is gone.
+func _region_ids_on_disk() -> Array[Vector2i]:
+	var out: Array[Vector2i] = []
+	if region_manager.region_base_path == "":
+		return out
+	var dir := _region_dir_for_base_path(region_manager.region_base_path)
+	if not DirAccess.dir_exists_absolute(dir):
+		return out
+	for file_name in DirAccess.get_files_at(dir):
+		var region_id: Variant = _region_of_file(file_name)
+		if region_id != null and not out.has(region_id):
+			out.append(region_id)
+	return out
+
+
+## The region a file in a region folder holds, the copy a write left beside it
+## included, or null for any other file.
+static func _region_of_file(file_name: String) -> Variant:
+	var stem := file_name.trim_suffix(".previous")
+	if not stem.begins_with("region_") or not stem.ends_with(".hfr"):
+		return null
+	var parts := stem.trim_prefix("region_").trim_suffix(".hfr").split("_")
+	if parts.size() != 2 or not parts[0].is_valid_int() or not parts[1].is_valid_int():
+		return null
+	return Vector2i(parts[0].to_int(), parts[1].to_int())
+
+
+## Copy into the region folder of `hflevel_path` the files of every region that
+## is streamed out, ahead of a save there. A streamed out region's paint is in
+## its file alone, and `save_loaded_regions()` writes only the loaded ones, so a
+## Save As, or an autosave to a path of its own, left that paint in the old
+## folder and the level it wrote opened without it (#1665). A save to the folder
+## the regions are in already copies nothing. OK, or the error of the first file
+## that could not be copied or cleared; the region folder is still the old one
+## either way.
+##
+## Any other region file in the new folder is the level's that was saved there
+## before, whose paint would stream in as this one's, so it goes; the loaded
+## regions are written there by the save itself (#1929).
+func carry_region_files_to(hflevel_path: String) -> int:
+	if not region_streaming_enabled or hflevel_path == "":
+		return OK
+	var target := hflevel_path
+	if target.begins_with("res://") or target.begins_with("user://"):
+		target = ProjectSettings.globalize_path(target)
+	var to_dir := _region_dir_for_base_path(target)
+	if region_manager.region_base_path == "":
+		# A level that names regions it has not loaded keeps their paint in files
+		# whose folder it has lost, and the target may be that folder. The save is
+		# refused rather than clearing it (#2006).
+		if _has_regions_elsewhere():
+			return ERR_FILE_NOT_FOUND
+		# A level never saved has no region files anywhere.
+		return _clear_region_files(to_dir, {})
+	var from_dir := _region_dir_for_base_path(region_manager.region_base_path)
+	if from_dir == to_dir:
+		return OK
+	# The same level under another name, so an undo taken before reads the new
+	# folder as its own.
+	_saved_as_from[region_manager.region_base_path] = true
+	_saving_as_to = target
+	var carried: Dictionary = {}
+	var listed := PackedStringArray()
+	if DirAccess.dir_exists_absolute(from_dir):
+		listed = DirAccess.get_files_at(from_dir)
+	for file_name in listed:
+		var region_id: Variant = _region_of_file(file_name)
+		# A loaded region is written to the new folder by the save itself.
+		if region_id == null or region_manager.loaded_regions.has(region_id):
+			continue
+		if not DirAccess.dir_exists_absolute(to_dir):
+			var made := DirAccess.make_dir_recursive_absolute(to_dir)
+			if made != OK:
+				return made
+		var copied := DirAccess.copy_absolute(
+			from_dir.path_join(file_name), to_dir.path_join(file_name)
+		)
+		if copied != OK:
+			return copied
+		carried[file_name] = true
+	return _clear_region_files(to_dir, carried)
+
+
+## Whether the region index names a region that is not loaded: one whose paint is
+## only in its file.
+func _has_regions_elsewhere() -> bool:
+	for region_id in region_manager.region_index.keys():
+		if not region_manager.loaded_regions.has(region_id):
+			return true
+	return false
+
+
+## Remove every region file in `dir` but those named in `kept`. OK, or the error
+## of the first that could not be removed.
+func _clear_region_files(dir: String, kept: Dictionary) -> int:
+	if not DirAccess.dir_exists_absolute(dir):
+		return OK
+	for file_name in DirAccess.get_files_at(dir):
+		if _region_of_file(file_name) == null or kept.has(file_name):
+			continue
+		var removed := DirAccess.remove_absolute(dir.path_join(file_name))
+		if removed != OK:
+			return removed
+	return OK
+
+
+func _note_region_file_changed(region_id: Vector2i) -> void:
+	_region_file_serial += 1
+	_region_file_changed_at[region_id] = _region_file_serial
+
+
+func _sync_region_manager() -> void:
+	if not region_manager:
+		return
+	if root.paint_layers:
+		region_manager.chunk_size = root.paint_layers.chunk_size
+	region_manager.base_grid = root.paint_layers.base_grid if root.paint_layers else null
+
+
+## The grid the cursor is read on, for the regions a stroke loads and pins: the
+## active layer's, which is where `HFPaintTool` writes the stroke's cells. A
+## painted layer keeps its cell size when the snap changes (#2011), so the
+## template for new layers can be another size and would name other cells.
+func _cursor_grid() -> HFPaintGrid:
+	if not root.paint_layers:
+		return null
+	var layer: HFPaintLayer = root.paint_layers.get_active_layer()
+	if layer and layer.grid:
+		return layer.grid
+	return root.paint_layers.base_grid
+
+
+## Whether `layer` holds paint: cells or a heightmap in memory, or cells in a
+## region file its region was streamed out to. Such a layer keeps its cell size
+## when the grid snap changes (#2011).
+func layer_holds_paint(layer: HFPaintLayer) -> bool:
+	if layer == null:
+		return false
+	if not layer.get_chunk_ids().is_empty() or layer.has_heightmap():
+		return true
+	return _layer_ids_in_region_files().has(str(layer.layer_id))
+
+
+func _screen_to_cell(camera: Camera3D, screen_pos: Vector2) -> Variant:
+	var grid := _cursor_grid()
+	if not camera or not grid:
+		return null
+	var plane_point = grid.origin + (grid.basis * Vector3(0.0, grid.layer_y, 0.0))
+	var plane_normal = grid.basis.y.normalized()
+	var ray_origin = camera.project_ray_origin(screen_pos)
+	var ray_dir = camera.project_ray_normal(screen_pos)
+	var denom = plane_normal.dot(ray_dir)
+	if abs(denom) < 0.0001:
+		return null
+	var t = plane_normal.dot(plane_point - ray_origin) / denom
+	if t < 0.0:
+		return null
+	var hit = ray_origin + ray_dir * t
+	return grid.world_to_cell(hit)
+
+
+func _ensure_regions_for_cell(cell: Vector2i) -> void:
+	if not region_streaming_enabled:
+		return
+	_sync_region_manager()
+	var center = region_manager.region_id_from_cell(cell)
+	var want = region_manager.region_ids_in_radius(center)
+	for rid in want:
+		if not region_manager.is_loaded(rid):
+			_load_region(rid)
+	var loaded = region_manager.loaded_regions.keys()
+	for rid in loaded:
+		if region_manager.is_pinned(rid):
+			continue
+		if not want.has(rid):
+			_unload_region(rid)
+	for rid in want:
+		region_manager.last_access[rid] = Time.get_ticks_msec()
+	_evict_for_budget(center)
+	_update_region_overlay()
+
+
+func _region_chunk_bounds(region_id: Vector2i) -> Rect2i:
+	return region_manager.region_bounds_chunks(region_id)
+
+
+func _region_has_data(region_id: Vector2i) -> bool:
+	if not root.paint_layers:
+		return false
+	var chunk_bounds = _region_chunk_bounds(region_id)
+	var min_chunk = chunk_bounds.position
+	var max_chunk = chunk_bounds.position + chunk_bounds.size - Vector2i.ONE
+	for layer in root.paint_layers.layers:
+		if not layer:
+			continue
+		for cid in layer.get_chunk_ids():
+			if cid.x < min_chunk.x or cid.x > max_chunk.x:
+				continue
+			if cid.y < min_chunk.y or cid.y > max_chunk.y:
+				continue
+			return true
+	return false
+
+
+func _estimate_region_bytes(region_id: Vector2i) -> int:
+	if not root.paint_layers:
+		return 0
+	var chunk_bounds = _region_chunk_bounds(region_id)
+	var min_chunk = chunk_bounds.position
+	var max_chunk = chunk_bounds.position + chunk_bounds.size - Vector2i.ONE
+	var total := 0
+	for layer in root.paint_layers.layers:
+		if not layer:
+			continue
+		for cid in layer.get_chunk_ids():
+			if cid.x < min_chunk.x or cid.x > max_chunk.x:
+				continue
+			if cid.y < min_chunk.y or cid.y > max_chunk.y:
+				continue
+			total += layer.get_chunk_bits(cid).size()
+			total += layer.get_chunk_material_ids(cid).size()
+			total += layer.get_chunk_blend_weights(cid).size()
+			total += layer.get_chunk_blend_weights_slot(cid, 2).size()
+			total += layer.get_chunk_blend_weights_slot(cid, 3).size()
+	return total
+
+
+func _total_loaded_bytes() -> int:
+	var total := 0
+	for rid in region_manager.loaded_regions.keys():
+		total += _estimate_region_bytes(rid)
+	return total
+
+
+func _evict_for_budget(center_region: Vector2i) -> void:
+	var budget_bytes = region_memory_budget_mb * 1024 * 1024
+	if budget_bytes <= 0:
+		return
+	var total = _total_loaded_bytes()
+	if total <= budget_bytes:
+		return
+	var candidates: Array = []
+	for rid in region_manager.loaded_regions.keys():
+		if region_manager.is_pinned(rid):
+			continue
+		if rid == center_region:
+			continue
+		candidates.append(rid)
+	candidates.sort_custom(
+		func(a, b):
+			return (
+				int(region_manager.last_access.get(a, 0))
+				< int(region_manager.last_access.get(b, 0))
+			)
+	)
+	for rid in candidates:
+		var bytes = _estimate_region_bytes(rid)
+		# A region whose paint could not be written stays loaded, so its bytes
+		# are still ours. Subtracting them regardless made the loop decide the
+		# budget had been met and break out having freed nothing.
+		if not _unload_region(rid):
+			continue
+		total -= bytes
+		if total <= budget_bytes:
+			_region_budget_warned = false
+			return
+	_warn_budget_not_met(total, budget_bytes)
+
+
+## Say that streaming could not get back under the budget.
+##
+## The usual reason is a level that has never been saved: with no region base
+## path there is nowhere to write a region to, so nothing can be thrown away
+## and the Memory Budget spin does nothing at all. Once per run of being over,
+## so a stroke does not repeat it.
+func _warn_budget_not_met(total: int, budget_bytes: int) -> void:
+	if _region_budget_warned:
+		return
+	_region_budget_warned = true
+	if not root.has_signal("user_message"):
+		return
+	var sizes := {
+		"used": "%.1f" % (float(total) / 1048576.0),
+		"budget": "%.1f" % (float(budget_bytes) / 1048576.0),
+	}
+	var over := (
+		HFTranslationType.message(
+			(
+				"Paint memory is {used} MB against a {budget} MB budget. "
+				+ "Save the level before streaming can reclaim any of it."
+			),
+			sizes
+		)
+		if region_manager.region_base_path == ""
+		else HFTranslationType.message(
+			(
+				"Paint memory is {used} MB against a {budget} MB budget "
+				+ "and nothing more can be streamed out."
+			),
+			sizes
+		)
+	)
+	root.user_message.emit(over, 2)
+
+
+func _load_region(region_id: Vector2i) -> void:
+	region_manager.mark_loaded(region_id)
+	if not region_streaming_enabled:
+		return
+	_region_file_layers.erase(region_id)
+	var path: String = _region_file_path(region_id)
+	if path == "":
+		return
+	# The load takes back the copy a write cut short left when the file is gone.
+	# Streaming in empty instead left that paint for the region's next write to
+	# remove, since a region writes what it has, paint or none (#1550).
+	var data = HFLevelIO.load_from_path(path)
+	if data.is_empty():
+		return
+	var decoded = HFLevelIO.decode_variant(data)
+	if not (decoded is Dictionary):
+		return
+	region_manager.region_index[region_id] = {"has_data": true}
+	var layers = decoded.get("layers", [])
+	if not (layers is Array):
+		return
+	var held := PackedStringArray()
+	var dirty_chunks: Dictionary = {}
+	for entry in layers:
+		if not (entry is Dictionary):
+			continue
+		var layer_id = StringName(str(entry.get("id", "")))
+		held.append(str(layer_id))
+		var layer = _get_layer_by_id(layer_id)
+		if not layer:
+			continue
+		var chunks = entry.get("chunks", [])
+		if not (chunks is Array):
+			continue
+		var loaded_cids = _deserialize_chunks_to_layer(layer, chunks)
+		for cid in loaded_cids:
+			dirty_chunks[cid] = true
+	_region_file_layers[region_id] = held
+	var dirty_list: Array[Vector2i] = []
+	for cid in dirty_chunks.keys():
+		dirty_list.append(cid)
+	_reconcile_dirty_chunks(dirty_list)
+
+
+## Streaming a region out throws away its chunks, so the paint has to reach
+## disk first. A failed write keeps the region loaded rather than losing it.
+func _unload_region(region_id: Vector2i) -> bool:
+	if not root.paint_layers:
+		return false
+	# A region with no paint left is written too: its file may still hold what an
+	# erase took away, which would come back as the region streams in (#1550).
+	if _save_region_file(region_id) != OK:
+		if not _region_save_warned.has(region_id):
+			_region_save_warned[region_id] = true
+			if root.has_signal("user_message"):
+				var kept := {"region": str(region_id)}
+				root.user_message.emit(
+					HFTranslationType.message(
+						"Kept region {region} loaded: its paint could not be written", kept
+					),
+					2
+				)
+		return false
+	_region_save_warned.erase(region_id)
+	var chunk_bounds = _region_chunk_bounds(region_id)
+	var min_chunk = chunk_bounds.position
+	var max_chunk = chunk_bounds.position + chunk_bounds.size - Vector2i.ONE
+	for layer in root.paint_layers.layers:
+		if not layer:
+			continue
+		var removed = layer.remove_chunks_in_range(min_chunk, max_chunk)
+		if not removed.is_empty():
+			_reconcile_dirty_chunks(removed, layer)
+	region_manager.mark_unloaded(region_id)
+	return true
+
+
+func _reconcile_dirty_chunks(dirty: Array[Vector2i], layer_override: HFPaintLayer = null) -> void:
+	if dirty.is_empty():
+		return
+	if not root.paint_tool or not root.paint_tool.geometry or not root.paint_tool.reconciler:
+		return
+	if layer_override:
+		_reconcile_layer(layer_override, dirty)
+		return
+	for layer in root.paint_layers.layers:
+		if not layer:
+			continue
+		_reconcile_layer(layer, dirty)
+
+
+func _reconcile_layer(layer: HFPaintLayer, dirty: Array[Vector2i]) -> void:
+	if layer.has_heightmap() and root.paint_tool.heightmap_synth:
+		var model = root.paint_tool.build_heightmap_model(layer, dirty)
+		root.paint_tool.reconciler.reconcile(
+			model, layer.grid, root.paint_tool.synth_settings, dirty, layer.layer_id
+		)
+	else:
+		var model = root.paint_tool.geometry.build_for_chunks(
+			layer, dirty, root.paint_tool.synth_settings
+		)
+		root.paint_tool.reconciler.reconcile(
+			model, layer.grid, root.paint_tool.synth_settings, dirty, layer.layer_id
+		)
+
+
+func _get_layer_by_id(layer_id: StringName) -> HFPaintLayer:
+	if not root.paint_layers:
+		return null
+	for layer in root.paint_layers.layers:
+		if layer and layer.layer_id == layer_id:
+			return layer
+	return null
+
+
+func _save_region_file(region_id: Vector2i) -> int:
+	if not root.paint_layers:
+		return OK
+	var data: Dictionary = {"version": 1, "region_id": [region_id.x, region_id.y], "layers": []}
+	var chunk_bounds = _region_chunk_bounds(region_id)
+	var min_chunk = chunk_bounds.position
+	var max_chunk = chunk_bounds.position + chunk_bounds.size - Vector2i.ONE
+	for layer in root.paint_layers.layers:
+		if not layer:
+			continue
+		var entry: Dictionary = {"id": str(layer.layer_id), "chunks": []}
+		for cid in layer.get_chunk_ids():
+			if cid.x < min_chunk.x or cid.x > max_chunk.x:
+				continue
+			if cid.y < min_chunk.y or cid.y > max_chunk.y:
+				continue
+			var chunk: Dictionary = layer.packed_chunk(cid)
+			chunk["wall_heights"] = layer.get_chunk_wall_height_entries(cid)
+			entry["chunks"].append(chunk)
+		if not entry["chunks"].is_empty():
+			data["layers"].append(entry)
+	var path: String = _region_file_path(region_id)
+	# What the file holds for a layer the level does not have goes back in, so a
+	# region emptied or painted again after a layer was removed keeps that layer's
+	# paint for an undo of the removal to read back (#1550). Only a file left with
+	# nothing in it is removed.
+	data["layers"].append_array(_region_entries_to_keep(region_id, path))
+	if data["layers"].is_empty():
+		return _remove_region_file(region_id, path)
+	var encoded = HFLevelIO.encode_variant(data)
+	if path == "":
+		return ERR_INVALID_PARAMETER
+	var dir = path.get_base_dir()
+	if not DirAccess.dir_exists_absolute(dir):
+		DirAccess.make_dir_recursive_absolute(dir)
+	var digest := _region_file_digest(data)
+	var err := HFLevelIO.save_to_path(path, encoded, root.hflevel_compress)
+	if err != OK:
+		# A write that fails part way may still have changed the file.
+		_note_region_file_changed(region_id)
+		_region_file_digests.erase(region_id)
+		_region_file_layers.erase(region_id)
+		push_error("HFPaint: could not write region %s (error: %d)" % [str(region_id), err])
+		return err
+	# Writing again what this session last wrote there changes nothing a restore
+	# has to put right, which keeps every save from counting as a change to each
+	# loaded region's file.
+	if _region_file_digests.get(region_id) != digest:
+		_note_region_file_changed(region_id)
+		_region_file_digests[region_id] = digest
+	var held := PackedStringArray()
+	for entry: Dictionary in data["layers"]:
+		held.append(str(entry.get("id", "")))
+	_region_file_layers[region_id] = held
+	# Only claim the sidecar exists once it really does.
+	region_manager.region_index[region_id] = {"has_data": true}
+	_stale_region_files.erase(region_id)
+	return OK
+
+
+## The entries of a region's file for paint layers the level does not have, as
+## one removed since the file was written (#1550). The file is read only when it
+## may hold one: when this session has not read or written it, or found a layer
+## in it that the level has since lost. A file that cannot be read keeps nothing.
+func _region_entries_to_keep(region_id: Vector2i, path: String) -> Array:
+	var kept: Array = []
+	if path == "":
+		return kept
+	var known = _region_file_layers.get(region_id)
+	if known is PackedStringArray and _level_has_layers(known):
+		return kept
+	if not FileAccess.file_exists(path) and not FileAccess.file_exists(path + ".previous"):
+		return kept
+	var layers = HFLevelIO.load_from_path(path).get("layers")
+	if not (layers is Array):
+		return kept
+	for entry in layers:
+		if entry is Dictionary and not _get_layer_by_id(StringName(str(entry.get("id", "")))):
+			kept.append(HFLevelIO.decode_variant(entry))
+	return kept
+
+
+func _level_has_layers(layer_ids: PackedStringArray) -> bool:
+	for layer_id in layer_ids:
+		if not _get_layer_by_id(StringName(layer_id)):
+			return false
+	return true
+
+
+## The paint layer ids the level's region files hold, as a set (#1564). A file
+## this session has neither read nor written is read here, once: what it holds
+## is noted, as a load notes it.
+func _layer_ids_in_region_files() -> Dictionary:
+	var out: Dictionary = {}
+	for region_id in _region_ids_on_disk():
+		var held = _region_file_layers.get(region_id)
+		if not (held is PackedStringArray):
+			held = _read_region_file_layers(region_id)
+		for layer_id in held:
+			out[str(layer_id)] = true
+	return out
+
+
+## The layer ids a region's file holds. One that cannot be read holds none and is
+## not noted, so a write still reads it for the entries it has to keep.
+func _read_region_file_layers(region_id: Vector2i) -> PackedStringArray:
+	var held := PackedStringArray()
+	var layers = HFLevelIO.load_from_path(_region_file_path(region_id)).get("layers")
+	if not (layers is Array):
+		return held
+	for entry in layers:
+		if entry is Dictionary:
+			held.append(str(entry.get("id", "")))
+	_region_file_layers[region_id] = held
+	return held
+
+
+## Remove the file of a region with no paint, and the copy a write keeps while
+## it replaces one, which a load would otherwise take back as the region.
+func _remove_region_file(region_id: Vector2i, path: String) -> int:
+	var err := OK
+	_region_file_layers.erase(region_id)
+	if path != "":
+		for file_path in [path, path + ".previous"]:
+			if not FileAccess.file_exists(file_path):
+				continue
+			_note_region_file_changed(region_id)
+			_region_file_digests.erase(region_id)
+			var removed := DirAccess.remove_absolute(file_path)
+			if removed != OK:
+				push_error("HFPaint: could not remove %s (error: %d)" % [file_path, removed])
+				err = removed
+	if err == OK:
+		_stale_region_files.erase(region_id)
+	return err
+
+
+static func _region_file_digest(data: Dictionary) -> PackedByteArray:
+	var hashing := HashingContext.new()
+	hashing.start(HashingContext.HASH_SHA256)
+	hashing.update(var_to_bytes(data))
+	return hashing.finish()
+
+
+func _update_region_overlay() -> void:
+	if not root or not root.generated_region_overlay:
+		return
+	if not region_streaming_enabled or not region_show_grid:
+		root.generated_region_overlay.mesh = null
+		return
+	var grid := _cursor_grid()
+	if not grid:
+		root.generated_region_overlay.mesh = null
+		return
+	if region_overlay_material == null:
+		var mat := StandardMaterial3D.new()
+		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		mat.albedo_color = Color(0.2, 0.9, 1.0, 0.7)
+		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		region_overlay_material = mat
+	var mesh := ImmediateMesh.new()
+	mesh.surface_begin(Mesh.PRIMITIVE_LINES, region_overlay_material)
+	for rid in region_manager.loaded_regions.keys():
+		var bounds := region_manager.region_bounds_cells(rid)
+		var min_cell := bounds.position
+		var max_cell := bounds.position + bounds.size
+		var min_uv = grid.cell_to_uv(min_cell)
+		var max_uv = grid.cell_to_uv(max_cell)
+		var y = grid.layer_y + 0.05
+		var p00 = grid.uv_to_world(Vector2(min_uv.x, min_uv.y), y)
+		var p10 = grid.uv_to_world(Vector2(max_uv.x, min_uv.y), y)
+		var p11 = grid.uv_to_world(Vector2(max_uv.x, max_uv.y), y)
+		var p01 = grid.uv_to_world(Vector2(min_uv.x, max_uv.y), y)
+		mesh.surface_add_vertex(p00)
+		mesh.surface_add_vertex(p10)
+		mesh.surface_add_vertex(p10)
+		mesh.surface_add_vertex(p11)
+		mesh.surface_add_vertex(p11)
+		mesh.surface_add_vertex(p01)
+		mesh.surface_add_vertex(p01)
+		mesh.surface_add_vertex(p00)
+	mesh.surface_end()
+	root.generated_region_overlay.mesh = mesh

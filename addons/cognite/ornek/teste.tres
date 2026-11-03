@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="CogniteAssemble" load_steps=2 format=3 uid="uid://c1cjpf5p1bldr"]
+
+[ext_resource type="Script" uid="uid://bmho1qa7r0yhk" path="res://addons/cognite/node/assemble.gd" id="1_d0138"]
+
+[resource]
+script = ExtResource("1_d0138")
+creation_count = 20
+perceptions = {
+11: {
+"name": "Distance",
+"prop1": 300,
+"prop2": 0,
+"type": 3
+},
+12: {
+"name": "Clicked",
+"prop1": 1,
+"prop2": 0,
+"type": 0
+}
+}
+contexts = {
+13: {
+"activated": true,
+"name": "Attack",
+"perception_ids": {
+11: 0,
+12: 0
+}
+}
+}
+decisions = {
+14: {
+"activated": true,
+"base_score": 0,
+"context_ids": {
+13: 0
+},
+"name": "Deitoma"
+}
+}
+actions = {
+15: {
+"activated": true,
+"decision_id": 14,
+"deed_list": [18, 19]
+}
+}
+deeds = {
+18: {
+"name": "Binv",
+"process_mode": 1
+},
+19: {
+"name": "Provo",
+"process_mode": 2
+}
+}

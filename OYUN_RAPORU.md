@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — üçüncü parti editör araçları konuldu, açılmadı (Cursor)
+
+godot-mcp, HammerForge, Cognite, gdTree3D ve Dingo, Godot 4.7.2 ile uyumlu oldukları için depoya kopyalandı. Hiçbiri `project.godot` içinde etkin değil ve kapıya, köye veya kayda bağlanmadı. Headless import çıktı 0; ayrıntı `docs/UCUNCU_PARTI_ARACLAR.md`. Parley ve Theatre kurulmadı.
+
 ## 2 Kasım 2026 — ISG-02 su koşulu düzeltildi (Kalfa)
 
 ISG-01 incelemesinde katalogda olmayan kuyu koşulu bulundu; önceki sentetik test yapısı hatayı gizlemişti. ISG-02 yeniden açılıp gerçek katalog erişilebilirliği RED testiyle doğrulandı. Su işi artık hazır kulübe/çadır koşuluyla gerçek meydan kuyusundan rezerv taşır. SuDengesi aynı günlük akış makbuzunu kullanır; iki işçi son bir birimi aşamaz, yeni kuyu veya ikinci akçe bedeli yoktur. Gerçek yapı kuran canlı kartta su işi açıktır ve düğme alternatifi doğru atar.
