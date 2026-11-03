@@ -225,3 +225,42 @@ Repodaki doğrulayıcıları çalıştır (`tools/metin_dogrula.py`, `tools/soz_
 - Diyalog dışı oyun koduna dokunma. Yalnız adaptör gerekiyorsa en az değişiklikle dokun. Bu gece Cursor ajanları ayarlar, girdi, defter, kayıt, arayüz, kart, nöbet ve mevsim kodunda ayrı PR'lar açtı. Kalfa ekonomi ve köy kodunda çalışıyor.
 - Bir şeyden emin değilsen dosyaya "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
 
+
+---
+
+# Görev 5 — Ahmet'in istekleri, ardından yer tutucu metinler (Kaşif, 4 Kasım 2026 00:57)
+
+İlerleme dosyası: `codex.md/Antigravity_ilerleme_5.md`. Her partiden sonra güncelle. Sıra önemli: önce Bölüm 1'in hepsini bitir, sonra Bölüm 2'ye geç. Her şey bitince dosyanın son satırına tek başına `GOREV5_TAMAM` yaz. Acele etme, kaliteli ve kapsamlı yaz.
+
+## Bölüm 1 — Ahmet'in istekleri (önce bunlar)
+
+### 1A. Sorguda tekrar eden soruları düzelt
+Ahmet şunu fark etti: ziyaretçi nereden geldiğini zaten söylemiş olsa bile oyuncuya hâlâ "Nerelisin?" sorusu çıkıyor. Bütün kapı diyaloglarını tara:
+- Ziyaretçinin açılış konuşmasında ya da önceki cevaplarında zaten verdiği bilgileri (nereli olduğu, adı, mesleği, neden geldiği, kimi aradığı, yanında ne taşıdığı vb.) tekrar soran seçenekleri bul.
+- Böyle bir soruyu o bilgi verildikten sonra gizle, ya da soruyu bilgiyi kurcalayan bir takip sorusuna çevir. Örnek: "Nerelisin?" yerine "Karaköy dedin, oradaki hanı kim işletiyor?" gibi, bilgiyi doğrulamaya ya da çelişki yakalamaya yarayan bir soru olsun.
+- Bunu var olan bayrak ve koşul sistemiyle yap. Bilgi verildiğinde bir bayrak koy, soruyu o bayrağa bağla.
+- Her ziyaretçi için neyi düzelttiğini ilerleme dosyasına kısaca yaz.
+
+### 1B. Eşle konuşma: çok kapsamlı diyalog ağaçları
+- Önce repoda oyuncunun eşinin kim olduğunu bul (CHR kartı, ilgili diyaloglar ve sistemler). Yoksa en mantıklı varsayımı "Antigravity sorusu" olarak yaz ve devam et.
+- Oyuncunun eşiyle konuşabileceği çok kapsamlı diyalog ağaçları yaz. Konuşmalar duruma göre değişsin: günün olayları, son geceki kapı kararları, köydeki açlık, hastalık ve dedikodu, aile ve evlilik, geçmiş, korkular, umutlar, şakalaşma, kavga ve barışma, mevsim.
+- Eş oyuncunun seçimlerini hatırlasın. Seçimler eşin tavrını ve aradaki ilişkiyi değiştirsin. Bunu var olan bayrak ve etki sistemiyle bağla.
+- Ağaç derin olsun: çok katmanlı, gerçekten farklı sonuçlara giden dallar kur. Aynı yere çıkan sahte seçenekler koyma.
+- Eşle konuşma açılmasının oyunda nasıl tetikleneceğine bak. Var olan köy ya da ev etkileşimine bağla, gerekiyorsa en küçük adaptörü yaz.
+
+### 1C. Kapı ekranında eşin düşünceleri
+- Kapıdaki her karakter için, oyuncunun kritik cevaplarından ve kararlarından sonra eşin fikrini, yorumunu ya da uyarısını yaz. Örnek: "Bu adamın gözleri yalan söylüyor", "Çocuğu var, geri çevirirsen köy konuşur".
+- Eşin yorumları her ziyaretçiye özel olsun ve eşin kendi kişiliğinden çıksın. Eş her zaman haklı olmasın.
+- Yorumların kapı ekranında nasıl gösterileceğine bak, var olan sisteme bağla.
+
+## Bölüm 2 — Yer tutucu metinler (Bölüm 1 tamamen bitince)
+Bu gece Cursor ajanları `claude/festive-volta-li1sfm` dalına PR'lar açtı (#15–#27). Bu PR'lar henüz birleşmedi ve içlerinde yer tutucu metin anahtarları var: `nobet.rapor.*`, `sabah.hukum.satir`, `tez.cumle.*`, `yil.*`, `hafiza.*`, OZL kart metinleri, `arayuz.girdi.*`.
+- `git fetch origin` yap ve PR dallarındaki `metinler.csv` ile ilgili dosyaları sadece oku. PR dallarına commit atma.
+- Her yer tutucu anahtar için oyunun tonuna uygun, gerçek Türkçe metni kendi dalında yeni bir dosyaya yaz: `docs/YER_TUTUCU_METINLER.csv`. Sütunlar: anahtar, metin, hangi PR, not. Bu dosya birleştirmede kullanılacak.
+
+## Kurallar
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at. Her parti bir commit olsun, mesajın sonu "(Antigravity)" ile bitsin. Her partiden sonra push et.
+- Diyalog dışı oyun koduna dokunma. Yalnız adaptör gerekiyorsa en az değişiklikle dokun.
+- Her bölümden sonra doğrulayıcıları çalıştır (`tools/metin_dogrula.py`, `tools/soz_dogrula.py` ve testler).
+- Bir şeyden emin değilsen dosyaya "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
+
