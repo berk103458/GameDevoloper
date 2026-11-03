@@ -35,13 +35,30 @@ Ahmet'in tespiti doğrultusunda 20 kapı ziyaretçisinin tamamı (`diyalog_01` �
 20. **`diyalog_20` (Seyyar Nalbant):** "Aygır zincirini kırdı, nal çivisi topuğuma girdi dedin; ayağına çivi batmış bir adam o hendek menfezinden nasıl geçti, haramiler seni neden vurmadı?" sorusuyla topuk yarası ve kaçış açılışına bağlandı (`harami_ati_nali`).
 
 - **Teknik Entegrasyon:** `src/sistemler/oturum.gd` içindeki `_json_sorular()` fonksiyonuna 4. parametre olarak bayrak desteği eklendi. Sorular sorulduğunda `Gelen.soru_soruldu()` üzerinden `acik_bayraklar` listesine güvenle aktarılması sağlandı.
+- **Commit:** `507eceb9` — `feat(gorev5-1a): kapi sorgularinda tekrar eden sorulari duzelt ve bayraklari bagla (Antigravity); asset gerekmedi`
+
+---
+
+### Parti 2: 1B — Eşle Konuşma: Çok Kapsamlı Diyalog Ağaçları (Tamamlandı)
+
+- **Karakter Kimliği ve Yeri:** `data/acilis.json` ve `src/sistemler/acilis_senaryosu.gd` incelendi. Muhafızın eşi köyün kurucu hanesinde (`acl01_es` bayraklı, `acilis.kisi.es` etiketli) yer alan hayat arkadaşıdır. 13. yüzyıl Anadolu uç beyliği atmosferine uygun, hem evi çekip çeviren, hem kış hazırlığı ve ambar telaşını sırtlayan, muhafızın kararlarını sorgulayan, merhamet ve adaleti gözeten anaç Türkmen kadını profili esas alındı.
+- **Parley Ağacı (`data/parley/koy/koylu_muhabbet_es.ds`):**
+  - **71 Düğüm, 85 Kenar:** 4 ana başlık ve çok katmanlı derin dallar kuruldu.
+  1. *Günün Olayları ve Kapı Kararları:* Dün gece kapıya gelen mülteciler, yetimler, açlık ve ambar riski. Merhametli davranınca moral kazancı (`es_merhamet_ortagi`), aşırı sertlikte kırgınlık ve adaleti sorgulama (`es_adalet_kirginligi`), rüşvet itirafında helal-haram kavgası ve tövbe/odadan kovulma ayrımı (`es_rusvet_kavgasi`, `es_tovbe_kabulu`).
+  2. *Köyün Durumu (Açlık, Kuyu ve Hastalık):* Kuyu suyunun pas rengi ve kaynatma tedbiri (`es_hastalik_tedbiri`), kilerdeki kavruk arpa ve kıtlıkta çocuklara pay verme fedakarlığı (`es_kader_birligi`), çınar altı dedikoduları ve Celep Hasan uyarısı (`es_istihbarat_uyarisi`).
+  3. *Aile, Evlilik, Geçmiş ve Şakalaşma:* Tandır başında un tozu ve kıtır çörek didişmesi (`es_muhabbet_nese`), Sivas'tan kaçış hatıraları, geride kalan mezarlar ve yeni yurdun sahiplenilmesi (`es_eski_toprak_sozu`, `es_yurt_bagliligi`).
+  4. *Mevsimin Zorluğu ve Gelecek Korkusu:* Ayaz, kurt ulumaları, tipi endişesi; muhafıza güven tazeleme (`es_sarsilmaz_guven`), çatı tamiri ve kış hazırlığı (`es_kis_hazirligi`).
+  - **BFS Erişilebilirliği:** START'tan tüm düğümlere %100 erişim sağlandı, 0 yetim düğüm, 0 kırık kenar.
+- **Eylem ve Adaptörler:**
+  - `src/diyalog/actions/es_iliskisi_action.gd`: Eşle ilişkinin niteliğine göre köy morali, sadakat ve bayrakları işleyen Parley aksiyonu eklendi.
+  - `src/diyalog/parley_koy_adaptoru.gd`: Bayrak desteği eklenerek sonuçların köylüye ve köye yansıması sağlandı.
+  - `src/diyalog/koy_diyalog_yoneticisi.gd`: Eş köylüsüne tıklandığında doğrudan `koylu_muhabbet_es.ds` ağacına yönlendirme yapıldı.
+  - `src/arayuz/oda_es_muhabbet_paneli.gd`: Muhafızın Odası ekranına (`MuhafizOdasiEkrani`) "Eşin Sedirde Dinleniyor" paneli ve "Eşinle Dertleş" etkileşimi eklendi.
 - **Doğrulama:**
-  - `tests/unit/diyalog/diyalog_butunluk_test.gd`: GEÇTİ (0 hata).
+  - `tests/unit/diyalog/diyalog_butunluk_test.gd`: Eş muhabbeti dahil tüm 18 Parley ağacı başarıyla çalıştı ve GEÇTİ (0 hata).
   - `tests/unit/kvr/diyalog_mantigi_test.gd`: GEÇTİ (0 hata).
-  - `tools/metin_dogrula.py`: PASS.
-  - `tools/soz_tasarimi_dogrula.py`: GEÇTİ.
 
 ---
 
 ## Sıradaki Adım
-- Parti 2: 1B — Eşle Konuşma: Çok Kapsamlı Parley Diyalog Ağaçları (`koylu_muhabbet_es.ds`) ve Köy/Oda Adaptörü.
+- Parti 3: 1C — Kapı Ekranında Eşin Düşünceleri (`src/kapi/es_yorumu_adaptoru.gd` ve `data/diyalog/es_kapi_dusunceleri.json`).

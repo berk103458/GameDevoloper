@@ -100,6 +100,7 @@ func _test_parley_sekanslari_butunlugu() -> void:
 		"res://data/parley/koy/koylu_muhabbet_sorhan.ds",
 		"res://data/parley/koy/koylu_muhabbet_hasan_celebi.ds",
 		"res://data/parley/koy/koylu_muhabbet_nogay.ds",
+		"res://data/parley/koy/koylu_muhabbet_es.ds",
 		"res://data/parley/koy/sekans_degirmen_kitlik.ds",
 		"res://data/parley/koy/sekans_meydan_atesi.ds",
 		"res://data/parley/koy/sekans_demirhane_pusat.ds",
@@ -280,6 +281,18 @@ func _test_adaptor_ve_yonetici_butunlugu() -> void:
 	dy.bitir()
 	dene(not dy.calisiyor, "Ortam sekansı duzgun kapatildi")
 	
+	# Eş muhabbeti testi
+	var es := Koylu.new()
+	es.id = 5
+	es.ad = "Eş"
+	es.bayrak_ekle(&"acl01_es")
+	sonuc_durumu["replik_adeti"] = 0
+	var es_ok = dy.muhabbet_baslat(es, null)
+	dene(es_ok, "Eş adlı köylü muhabbeti baslatildi")
+	await create_timer(0.2).timeout
+	dene(sonuc_durumu["son_konusan"] == "Eş", "Eş muhabbeti doğru karakteri verdi")
+	dy.bitir()
+
 	# Yeni sekans koşturma testi (sekans_demirhane_pusat)
 	var sekans2_ok = dy.sekans_baslat("sekans_demirhane_pusat", null)
 	dene(sekans2_ok, "Yeni ortam sekansı (sekans_demirhane_pusat) baslatildi")

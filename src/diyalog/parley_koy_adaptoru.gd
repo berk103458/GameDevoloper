@@ -57,3 +57,7 @@ static func etkileri_uygula(p_data: Dictionary, koylu: Koylu, yonetim: KoyYoneti
 				var s: int = int(e.get("delta", 0))
 				if koylu:
 					koylu.sadakat = clampi(koylu.sadakat + s, 0, 100)
+			"bayrak":
+				var b: String = str(e.get("bayrak", ""))
+				if koylu and not b.is_empty():
+					koylu.bayrak_ekle(StringName(b))

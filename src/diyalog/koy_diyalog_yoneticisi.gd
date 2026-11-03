@@ -52,6 +52,8 @@ func muhabbet_baslat(k: Koylu, y: KoyYonetimi = null) -> bool:
 		var ozel_yol := "res://data/parley/koy/koylu_muhabbet_%s.ds" % ad_id
 		if FileAccess.file_exists(ozel_yol):
 			ds_yolu = ozel_yol
+		elif koylu.bayrak_var(&"acl01_es") or ad_id == "es" or ad_id.contains("es"):
+			ds_yolu = "res://data/parley/koy/koylu_muhabbet_es.ds"
 		elif ad_id.contains("karaca"):
 			ds_yolu = "res://data/parley/koy/koylu_muhabbet_karaca_usta.ds"
 		elif ad_id.contains("ayse"):

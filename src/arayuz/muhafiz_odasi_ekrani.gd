@@ -64,6 +64,7 @@ func _ready() -> void:
  OdaGelistirmePaneli.kur(self,icerik)
  OdaVicdanPaneli.kur(self,icerik)
  OdaEnvanterSergisi.kur(self,icerik)
+ preload("res://src/arayuz/oda_es_muhabbet_paneli.gd").kur(self,icerik)
  var b:=Button.new()
  b.name="oda_kapat"
  b.text="Köye dön"
