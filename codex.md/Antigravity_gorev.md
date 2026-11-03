@@ -186,3 +186,42 @@ Her parti sonunda güncelle:
 
 Her şey bittiğinde dosyanın en sonuna tek başına bir satır olarak `GOREV3_TAMAM` yaz ve `codex.md/Antigravity.md` günlüğüne özet rapor ekle: kaç karakter yeniden yazıldı, kaç seçenek eklendi/kaldırıldı, kaç köy sohbeti ve muhabbet ağacı yazıldı, test sonuçları.
 
+
+---
+
+# Görev 4 — Görev 3'ü derinleştirme (Kaşif, 4 Kasım 2026 00:20, Ahmet'in isteğiyle)
+
+Görev 3 yaklaşık 45 dakikada bitti. Ahmet "büyük düşünsün" demişti; bu kadar kısa sürede yapılan iş büyük ihtimalle yüzeysel kaldı. Bu görev aynı işi derinleştirir. Acele etme, kalite önemli. Sabaha kadar zamanın var.
+
+İlerleme dosyası: `codex.md/Antigravity_ilerleme_4.md`. Her partiden sonra güncelle. Her şey bitince dosyanın son satırına tek başına `GOREV4_TAMAM` yaz.
+
+## Aşama E — Öz denetim
+Görev 3'te yazdıklarını Ahmet'in yedi isteğine göre tek tek denetle:
+1. Bütün diyaloglar senin sorumluluğunda.
+2. Her karakter insan gibi konuşuyor.
+3. Ek seçenekler ve kararlar var, sonuçları büyük düşünülmüş.
+4. Karakterler oyuncunun seçimlerine uygun karşılık veriyor.
+5. Gereksiz seçenekler ve diyaloglar ayıklanmış.
+6. Köy sahnelerinde köylüler kendi aralarında sohbet ediyor.
+7. Köyde bir köylüye tıklayınca onunla konuşma açılıyor.
+
+Her diyalog dosyası ve her köylü için bir puan tablosu yaz: hangi istek eksik, nasıl düzeleceği. Tabloyu ilerleme dosyasına koy.
+
+## Aşama F — Kapı diyaloglarını derinleştir (4–5'lik partiler)
+- Her karakter kendi CHR kartındaki sese, geçmişe ve korkuya göre konuşsun. Karakterlerin cümleleri birbirine benzemesin. Söz kesme, kaçamak cevap, yalan ve çelişki olsun.
+- Her önemli düğümde en az bir anlamlı ek seçenek olsun: sert, merhametli, kurnaz ya da rüşvet. Her seçeneğin sonucu köyde bir iz bıraksın: iş, debuff, dedikodu ya da sıradaki kişinin tavrı. Bunu var olan bayrak ve etki sistemiyle bağla.
+- Önceki gecelerin kararlarını hatırlayan cevaplar ekle. Aynı aileden ya da aynı köyden biri daha önce geri çevrildiyse karakter bunu bilsin.
+- Hiçbir şeye bağlanmayan, aynı sonuca giden seçenekleri birleştir ya da sil.
+
+## Aşama G — Köy sohbetleri ve tıklayınca konuşma (Parley)
+- Adı olan her köylü için tıklayınca açılan bir konuşma yaz. En az 3 duruma göre değişsin: normal gün, kıtlık ya da kriz, son gece verilen tartışmalı karar.
+- Köylülerin kendi aralarındaki sohbetlerini çoğalt. Bu sohbetler mevsime, son kararlara ve söylentilere tepki versin. Aynı sohbet sık tekrar etmesin.
+
+## Aşama H — Bütünlük
+Repodaki doğrulayıcıları çalıştır (`tools/metin_dogrula.py`, `tools/soz_dogrula.py` ve testler). Godot 4.7.2 headless çalıştırabiliyorsan onu da çalıştır. Kırık bağ, kopuk düğüm ve eksik anahtar bırakma.
+
+## Kurallar
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at. Her parti bir commit olsun, mesajın sonu "(Antigravity)" ile bitsin. Her partiden sonra push et.
+- Diyalog dışı oyun koduna dokunma. Yalnız adaptör gerekiyorsa en az değişiklikle dokun. Bu gece Cursor ajanları ayarlar, girdi, defter, kayıt, arayüz, kart, nöbet ve mevsim kodunda ayrı PR'lar açtı. Kalfa ekonomi ve köy kodunda çalışıyor.
+- Bir şeyden emin değilsen dosyaya "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
+
