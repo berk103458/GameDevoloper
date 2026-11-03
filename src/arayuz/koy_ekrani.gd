@@ -48,6 +48,8 @@ var _gece_kilidi := preload("res://src/sistemler/gece_gecis_kilidi.gd").new()
 
 
 func _ready() -> void:
+	if not InputMap.has_action("sec"):
+		GirdiEylemleri.kur()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_onceki_fizik_adimi = Engine.max_physics_steps_per_frame
 	Engine.max_physics_steps_per_frame = 8
@@ -240,14 +242,14 @@ func _dunya_girdisi(olay: InputEvent) -> void:
 		_imlec = sahne3b.isaret(_vp_konum(olay.position))
 		_hayalet_guncelle()
 	elif olay is InputEventMouseButton and olay.pressed:
-		if olay.is_action_pressed("yakinlas"):
+		if InputMap.has_action("yakinlas") and olay.is_action_pressed("yakinlas"):
 			sahne3b.yakinlas(1.0)
-		elif olay.is_action_pressed("uzaklas"):
+		elif InputMap.has_action("uzaklas") and olay.is_action_pressed("uzaklas"):
 			sahne3b.yakinlas(-1.0)
-		elif olay.is_action_pressed("iptal_kip"):
+		elif InputMap.has_action("iptal_kip") and olay.is_action_pressed("iptal_kip"):
 			KoyluTakibi.temizle(sahne3b)
 			_kip_sec("")
-		elif olay.is_action_pressed("sec"):
+		elif InputMap.has_action("sec") and olay.is_action_pressed("sec"):
 			if kip.is_empty():
 				var kisi := KoyluSecimi.sec(sahne3b, _vp_konum(olay.position))
 				if kisi >= 0:
@@ -348,7 +350,7 @@ func _unhandled_input(olay: InputEvent) -> void:
 		return
 	if not (olay is InputEventKey or olay is InputEventJoypadButton):
 		return
-	if olay.is_action_pressed("kip_kapat") or olay.is_action_pressed("geri"):
+	if (InputMap.has_action("kip_kapat") and olay.is_action_pressed("kip_kapat")) or (InputMap.has_action("geri") and olay.is_action_pressed("geri")):
 		var kademe := GirdiEylemleri.esc_kademe(_ust_panel_var(), not kip.is_empty())
 		if kademe == &"ust_panel":
 			if _ust_kart != null:
@@ -364,21 +366,21 @@ func _unhandled_input(olay: InputEvent) -> void:
 		return
 	if _ust_panel_var():
 		return
-	if olay.is_action_pressed("bina_cevir"):
+	if InputMap.has_action("bina_cevir") and olay.is_action_pressed("bina_cevir"):
 		_yon = 1 - _yon
 		_hayalet_guncelle()
-	elif olay.is_action_pressed("bina_barinma"):
+	elif InputMap.has_action("bina_barinma") and olay.is_action_pressed("bina_barinma"):
 		_kategori = "barinma"
 		_yapi_satirini_ciz()
-	elif olay.is_action_pressed("nufus"):
+	elif InputMap.has_action("nufus") and olay.is_action_pressed("nufus"):
 		_nufus_ac()
-	elif olay.is_action_pressed("hiz_1"):
+	elif InputMap.has_action("hiz_1") and olay.is_action_pressed("hiz_1"):
 		_hiz_sec(1)
-	elif olay.is_action_pressed("hiz_2"):
+	elif InputMap.has_action("hiz_2") and olay.is_action_pressed("hiz_2"):
 		_hiz_sec(2)
-	elif olay.is_action_pressed("hiz_3"):
+	elif InputMap.has_action("hiz_3") and olay.is_action_pressed("hiz_3"):
 		_hiz_sec(3)
-	elif olay.is_action_pressed("hiz_dur"):
+	elif InputMap.has_action("hiz_dur") and olay.is_action_pressed("hiz_dur"):
 		_hiz_sec(_son_hiz if get_tree().paused else 0)
 
 

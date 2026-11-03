@@ -455,7 +455,7 @@ static func _dosyadan_oku() -> void:
 
 
 static func _yut(anahtar: String, deger: Variant) -> void:
-	push_error("Geçersiz ayar %s=%s; varsayılan kullanılıyor" % [anahtar, deger])
+	push_warning("Geçersiz ayar %s=%s; varsayılan kullanılıyor" % [anahtar, deger])
 
 
 static func _dosyaya_yaz() -> void:

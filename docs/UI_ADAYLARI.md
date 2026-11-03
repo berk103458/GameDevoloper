@@ -73,7 +73,7 @@ Yeni görüntü üretilmedi. Yazı tipi depodaki Alegreya'dır (SIL OFL); Türk�
 
 ## Nasıl bakılır
 
-Normal oyunda autoload ekranı açılınca temayı verir.
+Normal oyunda `AdayTema` autoload'u ekran açılınca temayı verir. Test, içe aktarma ve editörde kapalıdır; ölçü değişmesin.
 
 | Paket | Nerede görünür |
 |---|---|

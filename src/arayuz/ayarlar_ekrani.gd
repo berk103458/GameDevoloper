@@ -20,6 +20,8 @@ var _degerler: Dictionary = {}
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	if ayarlar != null:
+		AyarlarEk.bagla(ayarlar)
 	var zemin := ColorRect.new()
 	zemin.color = Renkler.GECE
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -98,8 +100,8 @@ func _ready() -> void:
 	add_child(sekme)
 	DilSekmesi.ekle(self, ayarlar)
 	_yenile()
-	_odak_kur()
 	preload("res://src/arayuz/ayarlar/ayar_sekmeleri.gd").kur(self)
+	_odak_kur()
 	ilk.grab_focus.call_deferred()
 
 

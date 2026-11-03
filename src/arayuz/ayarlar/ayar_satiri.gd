@@ -29,8 +29,13 @@ static func ekle(kutu: VBoxContainer, a: Ayarlar, anahtar: StringName, aciklama:
 	ileri.pressed.connect(func() -> void: _degistir(a, anahtar, 1, deger))
 	yatay.add_child(ileri)
 	_yaz(a, anahtar, deger)
-	if not a.degisti.is_connected(_yenile.bind(a, anahtar, deger)):
-		a.degisti.connect(_yenile.bind(a, anahtar, deger))
+	var bag := _yenile.bind(a, anahtar, deger)
+	if not a.degisti.is_connected(bag):
+		a.degisti.connect(bag)
+	deger.tree_exiting.connect(func() -> void:
+		if a.degisti.is_connected(bag):
+			a.degisti.disconnect(bag)
+	)
 
 
 static func _ceviri_var(anahtar: String) -> bool:
@@ -50,7 +55,7 @@ static func _yenile(_gelen: StringName, a: Ayarlar, anahtar: StringName, deger: 
 
 
 static func _yaz(a: Ayarlar, anahtar: StringName, deger: Label) -> void:
-	var v: Variant = a.al(anahtar)
+	var v: Variant = _deger(a, anahtar)
 	if v is bool:
 		deger.text = TranslationServer.translate("arayuz.ayarlar.acik") if v else TranslationServer.translate("arayuz.ayarlar.kapali")
 	elif v is StringName or v is String:
@@ -60,8 +65,14 @@ static func _yaz(a: Ayarlar, anahtar: StringName, deger: Label) -> void:
 		deger.text = str(v)
 
 
+static func _deger(a: Ayarlar, anahtar: StringName) -> Variant:
+	if a.degerler.has(anahtar):
+		return a.al(anahtar)
+	return AyarlarEk.VARSAYILAN.get(anahtar, null)
+
+
 static func _degistir(a: Ayarlar, anahtar: StringName, yon: int, deger: Label) -> void:
-	var v: Variant = a.al(anahtar)
+	var v: Variant = _deger(a, anahtar)
 	if v is bool:
 		_kaydet(a, anahtar, not bool(v))
 	else:

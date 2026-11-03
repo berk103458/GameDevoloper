@@ -286,4 +286,4 @@ static func uygula_ek(a: Ayarlar) -> void:
 static func _reddet(anahtar: StringName, deger: Variant) -> void:
 	var satir := "Geçersiz ayar %s=%s; varsayılan kullanılıyor" % [anahtar, deger]
 	gecersizler.append(satir)
-	push_error(satir)
+	push_warning(satir)

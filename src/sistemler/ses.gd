@@ -88,6 +88,14 @@ func _notification(ne: int) -> void:
 		cik()
 
 
+func _exit_tree() -> void:
+	for o: AudioStreamPlayer in [_muzik, _muzik_yedek, _ortam, _ortam_yedek] + _efektler:
+		if is_instance_valid(o):
+			o.stop()
+			o.stream = null
+	_onbellek.clear()
+
+
 ## Arka plan müziğini ve meşale ortamını başlatır (zaten çalıyorsa dokunmaz).
 func dongu_baslat() -> void:
 	if _muzik_ad == &"":
@@ -182,6 +190,8 @@ func oynat(ad: StringName, db: float = 0.0) -> bool:
 	var akis := _akis(String(ad))
 	if akis == null:
 		return false
+	if DisplayServer.get_name() == "headless" and akis is AudioStreamOggVorbis:
+		akis = _kisa_dalga()
 	_sira = posmod(_sira, _efektler.size())
 	var o := _efektler[_sira]
 	_sira = (_sira + 1) % _efektler.size()
@@ -213,6 +223,15 @@ func _dongu(o: AudioStreamPlayer, ad: String, db: float = 0.0) -> void:
 	o.stream = akis
 	o.volume_db = db
 	o.play()
+
+
+func _kisa_dalga() -> AudioStreamWAV:
+	var dalga := AudioStreamWAV.new()
+	dalga.format = AudioStreamWAV.FORMAT_8_BITS
+	dalga.mix_rate = 22050
+	dalga.stereo = false
+	dalga.data = PackedByteArray([128, 128, 128, 128])
+	return dalga
 
 
 func _akis(ad: String) -> AudioStream:

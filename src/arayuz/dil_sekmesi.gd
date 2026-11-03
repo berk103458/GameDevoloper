@@ -14,8 +14,13 @@ static func ekle(kok: Control, ayarlar: Ayarlar) -> void:
 	dugme.set_meta(&"metin_anahtari", "arayuz.dil.baslik")
 	dugme.pressed.connect(func() -> void: _ac(kok, ayarlar))
 	hedef.add_child(dugme)
-	if not ayarlar.degisti.is_connected(_yenile):
-		ayarlar.degisti.connect(_yenile.bind(kok))
+	var bag := _yenile.bind(kok)
+	if not ayarlar.degisti.is_connected(bag):
+		ayarlar.degisti.connect(bag)
+	kok.tree_exiting.connect(func() -> void:
+		if ayarlar.degisti.is_connected(bag):
+			ayarlar.degisti.disconnect(bag)
+	)
 
 
 static func _ac(kok: Control, ayarlar: Ayarlar) -> void:

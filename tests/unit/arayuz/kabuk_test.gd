@@ -37,6 +37,11 @@ func _calistir() -> void:
 	satir.text = "Devam"
 	_kontrol(satir.visible, "Kapalı menü satırı görünür")
 	await process_frame
+	root.remove_child(bilgi)
+	bilgi.free()
+	satir.free()
+	tema = null
+	await process_frame
 	print("KABUK: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
 	quit(hata)
 

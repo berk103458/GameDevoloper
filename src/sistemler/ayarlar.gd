@@ -49,7 +49,7 @@ func yukle() -> void:
 		if _gecerli(a, v):
 			degerler[a] = StringName(v) if v is String else v
 		else:
-			push_error("Geçersiz ayar %s=%s; varsayılan kullanılıyor" % [a, v])
+			push_warning("Geçersiz ayar %s=%s; varsayılan kullanılıyor" % [a, v])
 
 
 func yaz() -> void:

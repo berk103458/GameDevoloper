@@ -159,6 +159,7 @@ func _kur() -> void:
 	_bos = _yazi("", Tema.GOVDE_PX)
 	_bos.name = "bos_sayfa"
 	dikey.add_child(_bos)
+	preload("res://src/arayuz/defter_gorunumu.gd").bagla(self, dikey)
 
 
 func _listeyi_ciz() -> void:

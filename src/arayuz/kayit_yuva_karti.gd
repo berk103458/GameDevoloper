@@ -41,7 +41,10 @@ func dosyadan_yukle(yol: String, azami_surum: int = DESTEKLENEN_SURUM) -> Dictio
 		_bos_goster()
 		return {"durum": "bos", "acilabilir": false, "uyari": ""}
 	var metin := FileAccess.get_file_as_string(yol)
+	var onceki := Engine.print_error_messages
+	Engine.print_error_messages = false
 	var parsed: Variant = JSON.parse_string(metin)
+	Engine.print_error_messages = onceki
 	if not (parsed is Dictionary) or (parsed as Dictionary).is_empty():
 		durum_kodu = "okunamadi"
 		acilabilir = false

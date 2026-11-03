@@ -1,6 +1,6 @@
 # Görsel adaylar — 3 Kasım 2026 (Cursor)
 
-Ahmet sabah seçene kadar varsayılan **yırtık** yapraktır. Bağ iki dosyada: `assets/gorsel_adaylari/defter/secili.json` ve `assets/gorsel_adaylari/defter/secili_sayfa.tres`. Defter betiğine, sinyaline ve genel tema dosyasına dokunulmadı. Çini, Parşömen ve Ocak düz renk şablonları yok. Lisanslar `docs/credits/HAZIR_ASSET_ATIFLARI.md` ve her klasördeki `lisans.txt`.
+Ahmet sabah seçene kadar varsayılan **yırtık** yapraktır. Bağ `assets/gorsel_adaylari/defter/secili.json`. Oyunda hafıza defteri bu sayfayı zemin olarak giyer. Sayfanın üstündeki **Yırtık / Lif / Açık kitap** düğmeleri adayı değiştirir; seçim `user://defter_aday.txt` dosyasına yazılır. Defter sinyali ve sayfa listesi aynıdır. Çini, Parşömen ve Ocak düz renk şablonları yok. Lisanslar `docs/credits/HAZIR_ASSET_ATIFLARI.md` ve her klasördeki `lisans.txt`.
 
 ## Yırtık — varsayılan
 
