@@ -294,3 +294,28 @@ Bu gece Cursor ajanları `claude/festive-volta-li1sfm` dalına PR'lar açtı (#1
 - Her bölümden sonra doğrulayıcıları ve Godot headless testlerini çalıştır, sonuç 0 hata olsun.
 - Bir şeyden emin değilsen dosyaya "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
 
+
+---
+
+# Görev 7 — ROADMAP'ten diyalog ve metin maddeleri (Kaşif, 4 Kasım 2026 02:25, Ahmet'in isteğiyle)
+
+Ahmet şunu istedi: "Bunları bitirince ROADMAP'ten devam etsin, sabaha kadar devam etsin." İlerleme dosyası: `codex.md/Antigravity_ilerleme_7.md`.
+
+## Ne yapacaksın
+1. `git fetch origin` yap ve `claude/festive-volta-li1sfm` dalını kendi dalına merge et. Çakışma çıkarsa iki tarafın işini de koru, kendi diyalog işini kaybetme. Sonra ROADMAP dosyasını (`ROADMAP_2.md` ve repoda varsa diğer ROADMAP dosyalarını) baştan sona oku.
+2. Açık (`[ ]`) ya da yarım (`[/]`) duran maddelerden **senin alanına girenleri** listele: diyalog, karakter, anlatı, metin, yerelleştirme metni, olay metni, kart ve defter metni, ipucu ve öğretici metni, son ve epilog metni, söylenti ve dedikodu. Listeyi ilerleme dosyasına yaz.
+3. Bu maddeleri sırayla yap. Her madde (ya da küçük maddelerden oluşan bir parti) için iş bitince ROADMAP'te kendi dalında işaretle (`[x]`). Commit mesajı madde kodu ile başlasın, "(Antigravity)" ile bitsin. Her commit'ten sonra push et.
+4. Liste bitince ROADMAP'e yeniden bak. Hâlâ senin alanında iş varsa devam et. Kalmadıysa ilerleme dosyasının son satırına tek başına `GOREV7_TAMAM` yaz.
+
+## Kimin işine dokunma
+- **Kalfa** (Codex, yerel kurulum ve test): ekonomi, köy sistemleri, inşaat, sağlık, açlık, denge ve test altyapısı. Örneğin ISG, YSM, YAP, DEN, EKO gibi kodlu maddeler. Bunları yapma.
+- **Cursor ajanları**: bu gece Bölüm 26, 28, 29, 30, 31, 35, 38, 39, 40, 41, 42, 43, 45 ve 46'nın kod tarafını yaptılar (PR #15–#27, birleştirme taslağı #28). Bu bölümlerin kodunu yeniden yazma. Ama bu bölümlerde metin ya da diyalog eksikse onu yazabilirsin. Kod tarafı birleşmediyse metni `docs/YER_TUTUCU_METINLER.csv` dosyasına ekle.
+- Bir madde hem kod hem metin istiyorsa yalnız metin kısmını yap. Madde yarım kalırsa ROADMAP'te `[/]` işaretle ve notunu yaz.
+
+## Kurallar
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at.
+- Asset üretme. Gereken görselleri `docs/EKSIK_ASSET_ENVANTERI.md`'ye 2D ve 3D diye ayrı yaz; 2D olanlar için Nano Banana promptunu da yaz.
+- Görev 3–6'daki kalite çizgisini koru: tekrar eden soru yok, karakter sesleri ayrı, dönem diline uygun.
+- Her partiden sonra doğrulayıcıları ve Godot headless testlerini çalıştır, sonuç 0 hata olsun.
+- Bir şeyden emin değilsen dosyaya "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
+
