@@ -1,0 +1,12 @@
+{
+  "toplam_karakter": 30,
+  "sir_cekirdegi_kotasi_yuzde_max": 50,
+  "cekirdek_dagilimi": {
+    "durust": 16,
+    "koruma_yalani": 8,
+    "baskasinin_sirri": 2,
+    "tehlikeli_yalan": 2,
+    "intikam": 2
+  },
+  "kisi_adlari_cevrilemez": true
+}

@@ -926,7 +926,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: yeni `docs/dunya_kitabi/*.md`.
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-16:** Kitap çalışma anında okunmaz
+- [x] **YAZ-16:** (Antigravity) Kitap çalışma anında okunmaz
   - Ne: Kitap çalışma anında okunmaz. `res://` altında `dunya_kitabi` 0.
   - Kabul: Export listesi 0. Test: KLT-22.
   - Bağımlılık: KLT-22. Boyut: S.
@@ -935,7 +935,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.2 Üslup
 
-- [ ] **YAZ-02:** Üslup rehberi — dönem dili, yaşayan dil.
+- [x] **YAZ-02:** (Antigravity) Üslup rehberi — dönem dili, yaşayan dil.
   - Ne: Yazar tek üslup gövdesini okur: `Roadmap-2/USLUP_REHBERI.md`. Taslakta hitap, selam, yemin, ağız farkı ve modern söz yasağı vardır; oyun tarafında `data/soz/yasak_kelimeler.txt` henüz yoktur. Doğrulayıcı bu listeyi tarar. Yapaylık kuralları uyarıdır, satırı silmez. Sesli doğaçlama ham metindir; oyun paketine ve `data/soz/` altına girmez.
   - Kurallar:
     1. `docs/dunya_kitabi/USLUP.md` şunları taşır: hitap sözcükleri (ağam, beğim, bacı, ahi baba, efendi, ana, kardaş), selamlaşma, yemin ve dua kalıpları, ağız farkları (Türkmen, Rum, Ahi, derviş, levent), yasak kelime listesi, selam ölçüsü (en çok 2 cümle; ilk cevaplar kısa).
@@ -949,42 +949,42 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: yeni `docs/dunya_kitabi/USLUP.md`, `data/soz/yasak_kelimeler.txt`.
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-20:** Yasak kalıp listesi §1'dir
+- [x] **YAZ-20:** (Antigravity) Yasak kalıp listesi §1'dir
   - Ne: KLT-04 aynı listeyi çağırır. Burada ikinci liste yazılmaz.
   - Kabul: Liste dosyası 1. Test: tarama.
   - Bağımlılık: KLT-04 Boyut: S.
   - Dosya: `Roadmap-2/USLUP_REHBERI.md`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-21:** Cümle kalıbı şablon değildir
+- [x] **YAZ-21:** (Antigravity) Cümle kalıbı şablon değildir
   - Ne: Aynı bilgi iki ağızda aynı iskeletle yazılırsa kota ihlalidir.
   - Kabul: İki ağız aynı iskelet 1 uyarı. Test: inceleme.
   - Bağımlılık: YAZ-09 Boyut: S.
   - Dosya: `Roadmap-2/USLUP_REHBERI.md`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-22:** Hitap kota notudur
+- [x] **YAZ-22:** (Antigravity) Hitap kota notudur
   - Ne: Hitap kota notudur. Hitap puanı diye alan açılmaz.
   - Kabul: `hitap_puani` 0. Test: tarama.
   - Bağımlılık: YAZ-09. Boyut: S.
   - Dosya: `Roadmap-2/USLUP_REHBERI.md`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-24:** İpucu metni üslup denetimine girer
+- [x] **YAZ-24:** (Antigravity) İpucu metni üslup denetimine girer
   - Ne: `ogretici.` anahtarları YAZ-10'dan geçer.
   - Kabul: İhlal 0. Test: OGR-09.
   - Bağımlılık: OGR-09 Boyut: S.
   - Dosya: `data/metin/metinler.csv`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-25:** Teknik ayar metni üsluba girmez
+- [x] **YAZ-25:** (Antigravity) Teknik ayar metni üsluba girmez
   - Ne: `arayuz.girdi.*` ve `arayuz.ayarlar.*` diyalog taramasının dışındadır.
   - Kabul: Bu öneklerde üslup hatası 0 sayılır. Test: KLT.
   - Bağımlılık: GIR-22 Boyut: S.
   - Dosya: `Roadmap-2/USLUP_REHBERI.md`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-26:** Dönem dersi cümlesi reddedilir
+- [x] **YAZ-26:** (Antigravity) Dönem dersi cümlesi reddedilir
   - Ne: Yıl numarası anlatan satır (1240, Kösedağ) karakter ağzında doğrulayıcı hatasıdır. Kitapta kalır.
   - Kabul: Ağızda yıl sayısı 1 hata. Test: fixtures.
   - Bağımlılık: YAZ-02 Boyut: S.
@@ -994,7 +994,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.3 Ses kartı
 
-- [ ] **YAZ-03:** Karakter ses kartı — her karakter için.
+- [x] **YAZ-03:** (Antigravity) Karakter ses kartı — her karakter için.
   - Ne: Yazar, 30 CHR ve 40 adlı kişi için birer ses kartı doldurur. Oyuncu kartı görmez. Kartta insan eliyle yazılmış bir paragraf, köken, ağız, konuşma alışkanlığı, dört yalan biçiminden biri, korku, istek, çekirdek ve bağlar durur. Paragraf boşsa kart geçmez. Alışkanlık cümlesi iki kartta tekrarlanırsa doğrulayıcı uyarı verir. Adsız sınıf şablonu bu yetmiş sayının dışındadır.
   - Kurallar:
     1. Kart sayısı 30 CHR + 40 adlı karakterdir. Dosya başına bir kişi.
@@ -1009,14 +1009,14 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Asset: asset gerekmedi.
 
 
-- [ ] **YAZ-30:** İki kart aynı ağzı tarif edemez
+- [x] **YAZ-30:** (Antigravity) İki kart aynı ağzı tarif edemez
   - Ne: Kör okuma DYL-11 skoru kart onayından önce durur.
   - Kabul: Skorsuz kart red. Test: KLT-05.
   - Bağımlılık: DYL-11 Boyut: S.
   - Dosya: `docs/soz/kor_okuma.csv`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-33:** Kart örnek cümle ister
+- [x] **YAZ-33:** (Antigravity) Kart örnek cümle ister
   - Ne: Örnek satırı boş kart onaylanmaz. DYL-14.
   - Kabul: Boş örnek red. Test: KLT-14.
   - Bağımlılık: DYL-14 Boyut: S.
@@ -1025,7 +1025,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.4 Üretim kapısı
 
-- [ ] **YAZ-04:** Yazım hattı — model istemi, üretim, doğrulama, onay.
+- [x] **YAZ-04:** (Antigravity) Yazım hattı — model istemi, üretim, doğrulama, onay.
   - Ne: Yazar oyunun dışında bir aracı çalıştırır. Araç dünya kitabını, üslubu, ses kartını ve şemayı birlikte okur; biri eksikse durur. Çıktı şemaya çevrilir, inceleme raporu yazılır. İmzasız dosya `data/soz/` altına kopyalanmaz ve oyun onu yüklemez. Oyun sürecinde bu araca çağrı yoktur.
   - Kurallar:
     1. `tools/soz_yazim/` istemi dört parçayı birden okur: dünya kitabı, üslup, ses kartı, şema. Biri eksikse araç çalışmaz.
@@ -1038,14 +1038,14 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: yeni `tools/soz_yazim/*.py`, `tools/soz_yazim/istem.md`.
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-35:** Üretim sırası HAT belgesindedir
+- [x] **YAZ-35:** (Antigravity) Üretim sırası HAT belgesindedir
   - Ne: Kitap, taslak, yapaylık, kör okuma, kota, iki isim, `data/soz`. Atlanan adım kopyalanmaz.
   - Kabul: Atlanan adım 0 kopya. Test: KLT-01.
   - Bağımlılık: KLT-01 Boyut: S.
   - Dosya: `docs/soz/HAT.md`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-39:** Eski diyalog taşınmaz
+- [x] **YAZ-39:** (Antigravity) Eski diyalog taşınmaz
   - Ne: DIY-16. Yan yana bakış DYL-13 kaydı olmadan 'taşındı' yazılmaz.
   - Kabul: Kayıtsız id hazır değil. Test: KLT-13.
   - Bağımlılık: DIY-16 Boyut: S.
@@ -1054,7 +1054,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.5 Pilot
 
-- [ ] **YAZ-05:** Pilot: Sivaslı reçber ve iki karakter daha.
+- [x] **YAZ-05:** (Antigravity) Pilot: Sivaslı reçber ve iki karakter daha.
   - Ne: Oyuncu kapıda üç pilot ağzı duyar: Sivaslı reçber, çekirdeği tehlikeli yalan olan bir CHR ve bir adlı karakter. Üç dosyada varış ve karar vardır. Selam, yedi konu ve ikilem üç sahneye birden dayatılmaz. Sır düğümü en çok bir dosyadadır. Ahmet onay satırı yokken toplu yazım dalgası başlamaz.
   - Kurallar:
     1. Üç kişi: Sivaslı reçber, bir tehlikeli CHR (`cekirdek: tehlikeli_yalan`), bir adlı karakter.
@@ -1068,14 +1068,14 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: `data/soz/recber.json` ve iki pilot dosyası.
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-45:** Pilot kapı fixtures'ına bağlanır
+- [x] **YAZ-45:** (Antigravity) Pilot kapı fixtures'ına bağlanır
   - Ne: Pilot kapı fixtures'ına bağlanır. Üç id DYL-16 `--check` listesindedir.
   - Kabul: Üç id fark 0. Test: DYL-16.
   - Bağımlılık: DYL-16. Boyut: S.
   - Dosya: `data/soz/`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-47:** Pilot sır içermez
+- [x] **YAZ-47:** (Antigravity) Pilot sır içermez
   - Ne: Pilot sır içermez. Üç dosyada zorunlu `sira` 0.
   - Kabul: Alan 1 hata. Test: KLT-03.
   - Bağımlılık: DIY-01a. Boyut: S.
@@ -1084,7 +1084,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.6 Toplu yazım
 
-- [ ] **YAZ-06:** Toplu yeniden yazım — 30 CHR, 40 adlı karakter, adsız şablonlar.
+- [x] **YAZ-06:** (Antigravity) Toplu yeniden yazım — 30 CHR, 40 adlı karakter, adsız şablonlar.
   - Ne: Onaylı pilottan sonra yazar kadroyu onar kişilik dalgalarla yeniden yazar. Dalga, doğrulayıcı 0 hata ve insan onayı olmadan kapanmaz. Otuz CHR ve kırk adlı kişi kendi ses kartına bağlıdır; kartı olmayan kişi üretilmez. Adsız gelenler yedi dalganın dışındadır ve sınıf şablonu taşır. Aynı şablon kimliği iki adsızda tekrarlanmaz. Eski sohbet verisi bu dalgaya kopyalanmaz.
   - Kurallar:
     1. Dalga boyu 10 kişidir. Dalga, doğrulayıcı 0 hata ve insan onayı olmadan kapanmaz. Sonraki dalga öncekinin kapanışını bekler.
@@ -1100,7 +1100,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.7 Doğrulama ve köy sohbeti
 
-- [ ] **YAZ-07:** Söz doğrulayıcı ve önizleme aracı.
+- [x] **YAZ-07:** (Antigravity) Söz doğrulayıcı ve önizleme aracı.
   - Ne: Geliştirici, söz dosyasını oyuna girmeden doğrular. Şema, kopuk düğüm, ulaşılamayan dal, eksik metin anahtarı, selam kuralı ve tek şansın birden çok yerde durması hatadır. On dört yapaylık kuralı uyarıdır ve sanity'yi kırmaz. ADM panelinden tek düğmeyle önizleme açılır; oyuncu menüsünde bu düğme yoktur. Önizleme karakteri, mevsimi, krizi, tansiyonu ve hafızayı seçer, ağacı yürütür ve kayıt dosyasına yazmaz.
   - Kurallar:
     1. `tools/soz_dogrula.py` sanity paketine tek satırla girer. Hata sayılanlar: şema, kopuk düğüm, ulaşılamayan dal, eksik metin anahtarı, selam kuralı, tek şanslık kontrolün birden çok yerde durması.
@@ -1113,7 +1113,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: yeni `tools/soz_dogrula.py`, `src/debug/soz_onizleme.gd`; `tools/sanity_check.py` tek satır; ADM paneline tek düğme.
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-65:** Köy sohbeti söylentiyi okur
+- [x] **YAZ-65:** (Antigravity) Köy sohbeti söylentiyi okur
   - Ne: SOY-46. İkinci dedikodu cümlesi üretilmez.
   - Kabul: Konu varsa iki ağız farklı. Test: SOY-46.
   - Bağımlılık: SOY-46 Boyut: S.
@@ -1122,7 +1122,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.8 Kota ve inceleme
 
-- [ ] **YAZ-08:** Köy içi sohbetler — köylüler de konuşur.
+- [x] **YAZ-08:** (Antigravity) Köy içi sohbetler — köylüler de konuşur.
   - Ne: Oyuncu köyde bir köylü kartını açınca iş, aile, dert veya dedikodu başlığından satır okur. Yeni sohbet haritası veya ikinci sahne yoktur. Her CHR için en az üç köy satırı vardır. Satır, kapıdaki ret, kabul, verilen söz ve yüzleşilen yalanı okur; selam buna göre değişir. Köyde durmayan kişinin satırı yoktur. Dedikodu kendi haberini uydurmaz. Pilot üçlüsüne özel ikinci sahne yazılmaz. Aynı kapı düğümü köyde tekrar basılmaz. Bir günde bir konu açılır.
   - Kurallar:
     1. Konuşma köylü kartından açılır. Yeni bir sohbet haritası veya ikinci sahne yoktur.
@@ -1135,14 +1135,14 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: yeni `src/arayuz/koy_hud/koylu_sohbeti.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-70:** Kota raporu turda bir satırdır
+- [x] **YAZ-70:** (Antigravity) Kota raporu turda bir satırdır
   - Ne: Kota raporu turda bir satırdır. İkinci rapor yok.
   - Kabul: Kota raporu turda bir satırdır. Satır 1. Test: KLT-18.
   - Bağımlılık: KLT-18. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-74:** İnceleme sonucu kapıya yazılır
+- [x] **YAZ-74:** (Antigravity) İnceleme sonucu kapıya yazılır
   - Ne: HAT.md kutusu. Yazılmadan dosya hazır sayılmaz.
   - Kabul: Kutusuz red. Test: KLT-01.
   - Bağımlılık: KLT-01 Boyut: S.
@@ -1152,7 +1152,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.9 Anahtar ve CSV
 
-- [ ] **YAZ-09:** Hikâye çekirdekleri ve kadro özgünlük denetimi.
+- [x] **YAZ-09:** (Antigravity) Hikâye çekirdekleri ve kadro özgünlük denetimi.
   - Ne: Doğrulayıcı kadroyu sayar. Her adlı kişide bir çekirdek vardır. Dürüst ile dinlenmek isteyen birlikte yaklaşık yüzde 40'tır; başka hiçbir çekirdek yüzde 15'i geçmez. Tek sahne biçimi yüzde 30'u geçmez. Hitap beş türden biridir ve puan tutmaz. Beş türün her biri en az bir adlı kişide bulunur; alışkanlık iki veya üç kişidir. Pilot dosyaları bu paydadadır. Kalp, hediye, romans veya seslendirme anahtarı hata verir.
   - Kurallar:
     1. `Roadmap-2/OZGUNLUK.md` esastır. Zorunlu evre yalnız varış ve karardır. `cekirdek` alanı zorunludur. Çekirdek sır değilse heybe ipucu şartı yoktur (DIY-01a).
@@ -1195,7 +1195,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: `data/metin/metinler.csv`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-79:** Kişi adı çevrilmez
+- [x] **YAZ-79:** (Antigravity) Kişi adı çevrilmez
   - Ne: YER-17. Ad hücresi ikinci dilde de aynı kalır.
   - Kabul: Farklı ad 1 uyarı. Test: YER-17.
   - Bağımlılık: YER-17 Boyut: S.
@@ -1219,7 +1219,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.10 Sınır ve kapanış
 
-- [ ] **YAZ-10:** İnceleme modu ve kapsam taraması.
+- [x] **YAZ-10:** (Antigravity) İnceleme modu ve kapsam taraması.
   - Ne: Önizlemede yazar her satıra doğal, yapay veya yeniden yaz işaretini koyar. İşaretler JSON olarak dışa ve içe aktarılır. Metin değişince işaret "metin değişti" olur. Kapsam taraması kayıtlı tohumlarla ağacı yürütür, seçilmeyen satırı ve ulaşılmayan düğümü listeler. Oyuncu bu taramayı görmez. Yapay veya yeniden yaz işareti dururken ya da görünmeyen satır varken sahne onaya gitmez.
   - Kurallar:
     1. Önizlemede her satır üç işaretten birini alır: doğal, yapay, yeniden yaz. İşaretler JSON olarak dışa ve içe aktarılır.
@@ -1232,14 +1232,14 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
   - Dosya: `src/debug/soz_onizleme.gd`; `tools/soz_dogrula.py --kapsam`.
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-83:** Söz dosyası ikinci motor açmaz
+- [x] **YAZ-83:** (Antigravity) Söz dosyası ikinci motor açmaz
   - Ne: Söz dosyası ikinci motor açmaz. YAZ içeriği DIY-02 motoruna girer.
   - Kabul: Yeni sınıf 0. Test: tarama.
   - Bağımlılık: DIY-02. Boyut: S.
   - Dosya: `data/soz/`
   - Asset: asset gerekmedi.
 
-- [ ] **YAZ-87:** Kayıt metin gömmez
+- [x] **YAZ-87:** (Antigravity) Kayıt metin gömmez
   - Ne: Konuşma cümlesi kayıtta anahtar olarak durur, düz metin olarak değil.
   - Kabul: Düz cümle alanı 0. Test: tarama.
   - Bağımlılık: KAY-04 Boyut: S.

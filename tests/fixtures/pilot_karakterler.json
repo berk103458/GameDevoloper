@@ -1,0 +1,28 @@
+{
+  "pilotlar": [
+    {
+      "id": "pilot_01",
+      "ad": "Sivaslı Rençber Hamza",
+      "meslek": "rençber",
+      "cekirdek": "durust",
+      "sir_yok": true,
+      "satir": "Sivas'ın yaylasından gelirim, tohum ekerim, sırrım saklım yoktur."
+    },
+    {
+      "id": "pilot_02",
+      "ad": "Nalbant Çırağı Yakup",
+      "meslek": "nalbant",
+      "cekirdek": "durust",
+      "sir_yok": true,
+      "satir": "Ocağa kömür taşırım, körük çekerim, kimseden kaçtığım yok."
+    },
+    {
+      "id": "pilot_03",
+      "ad": "Bostancı Nine Hatice",
+      "meslek": "bostancı",
+      "cekirdek": "durust",
+      "sir_yok": true,
+      "satir": "Bostandan üç sepet lahana getirdim; helal rızık peşindeyim."
+    }
+  ]
+}

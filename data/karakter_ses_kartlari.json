@@ -1,0 +1,244 @@
+{
+  "kartlar": {
+    "chr_001": {
+      "ad": "Hamza",
+      "meslek": "rençber",
+      "agiz": "Sivas yayla Türkmençesi, yorgun ve devrik cümleler",
+      "korku": "Karaköy'ün tohumunu haramilere kaptırmak",
+      "ornek_cumle": "Yaktılar köyü işte muhafız; bir avuç arpa tohumuyla düştüm yola.",
+      "cekirdek": "durust"
+    },
+    "chr_002": {
+      "ad": "Kayserili Çuhacı",
+      "meslek": "tüccar",
+      "agiz": "İç Anadolu ticaret dili, hesapçı ve kaçamak",
+      "korku": "Kervandan kaçırdığı dirhemlerin açığa çıkması",
+      "ornek_cumle": "Kırk yıllık tüccarım ağam; terazimde bir dirhem hile bulamazsın.",
+      "cekirdek": "koruma_yalani"
+    },
+    "chr_003": {
+      "ad": "Bozgun Askere Neferi",
+      "meslek": "piyade askeri",
+      "agiz": "Kışla ve ordu ağzı, sert ve ürkek",
+      "korku": "İnzibat çavuşuna firari olarak yakalanmak",
+      "ornek_cumle": "Kös vurdular, saf yarıldı; kılıç kırılınca dağa vurduk kendimizi.",
+      "cekirdek": "koruma_yalani"
+    },
+    "chr_004": {
+      "ad": "Yusuf",
+      "meslek": "çoban",
+      "agiz": "Toros Yörük ağzı, dağlı ve kısa kelimeler",
+      "korku": "Kurdun sürüyü kırması, anasını dağda yalnız bırakmak",
+      "ornek_cumle": "Kurt dumanı sever derler; koyunu güdemedik, kapına sığındık.",
+      "cekirdek": "durust"
+    },
+    "chr_005": {
+      "ad": "Demirci Kalfası Hasan",
+      "meslek": "demirci",
+      "agiz": "Konya Ahi zanaat dili, tok ve gururlu",
+      "korku": "Örsünü ve ocağını kaybetmek",
+      "ornek_cumle": "Demir tavında dövülür muhafız; pabuç dama atılmasın diye geldik.",
+      "cekirdek": "durust"
+    },
+    "chr_006": {
+      "ad": "Silahsız Piyade",
+      "meslek": "asker kaçağı",
+      "agiz": "Sınır karakol neferi dili, fısıltılı ve tedirgin",
+      "korku": "Kaleden kaçtığının anlaşılması",
+      "ornek_cumle": "Yemin olsun nöbette uyumadım; komutan bizi kalede unuttu.",
+      "cekirdek": "koruma_yalani"
+    },
+    "chr_007": {
+      "ad": "Seyyar Kalaycı",
+      "meslek": "kalaycı",
+      "agiz": "Göçebe çingene/abdal Türkçesi, neşeli ve hızlı",
+      "korku": "Alet çantasındaki sahte gümüşün bulunması",
+      "ornek_cumle": "Bakırı parlatırız muhafız; kalay tutmayan kap zehir saçar.",
+      "cekirdek": "durust"
+    },
+    "chr_008": {
+      "ad": "Taşçı Kalfası",
+      "meslek": "taşçı",
+      "agiz": "Erzurum kireç ocağı ağzı, ağırbaşlı ve boğuk",
+      "korku": "Surun çöküşünde ihmali olduğu suçlaması",
+      "ornek_cumle": "Taş harç tutmazsa sur yıkılır; hatam varsa divana çıkarım.",
+      "cekirdek": "durust"
+    },
+    "chr_009": {
+      "ad": "Fırıncı Çırağı Ali",
+      "meslek": "fırıncı",
+      "agiz": "Genç çırak dili, telaşlı ve samimi",
+      "korku": "Ustasının dayağı ve aç kalmak",
+      "ornek_cumle": "Hamuru yoğururum, küreği tutarım; yeter ki kapıda dondurma.",
+      "cekirdek": "durust"
+    },
+    "chr_010": {
+      "ad": "Saraç Kalfası",
+      "meslek": "saraç",
+      "agiz": "Deri tabakhanesi dili, keskin ve pratik",
+      "korku": "Çalıntı eğer takımıyla yakalanmak",
+      "ornek_cumle": "Koşum takımı benden sorulur; meşin eğrildiyse at çatlatır.",
+      "cekirdek": "koruma_yalani"
+    },
+    "chr_011": {
+      "ad": "Yaralı Nöbetçi",
+      "meslek": "sınır nöbetçisi",
+      "agiz": "Acı çeken muharip dili, kesik nefesli",
+      "korku": "Yarasının kangren olup kolunun kesilmesi",
+      "ornek_cumle": "Köprü başında ok vurdular... Kireçle dağladık amma sızısı dinmez.",
+      "cekirdek": "durust"
+    },
+    "chr_012": {
+      "ad": "Sürgün Kâtip",
+      "meslek": "kadı kâtibi",
+      "agiz": "Divan ve medrese Türkçesi, tumturaklı ve gururlu",
+      "korku": "Rüşvet suçlamasıyla zindana atılmak",
+      "ornek_cumle": "Kelamın haysiyeti mürekkeple korunur; fermanı yanlış okumadım.",
+      "cekirdek": "koruma_yalani"
+    },
+    "chr_013": {
+      "ad": "Gezgin Derviş Burhan",
+      "meslek": "derviş",
+      "agiz": "Kalenderi sufi dili, kinayeli ve bilge",
+      "korku": "Moğol öncülerinin köye baskın vermesi",
+      "ornek_cumle": "Dünya bir han muhafız; kapıyı bekleyen de göçer, geçen de.",
+      "cekirdek": "durust"
+    },
+    "chr_014": {
+      "ad": "Kaçak Madenci",
+      "meslek": "madenci",
+      "agiz": "Divriği demir ocakları dili, öksürüklü ve sert",
+      "korku": "Maden beyinin zaptiyelerince geri götürülmek",
+      "ornek_cumle": "Günde on iki saat kör kuyuda kazma salladık; canımızı kurtardık.",
+      "cekirdek": "koruma_yalani"
+    },
+    "chr_015": {
+      "ad": "Türkmen Anası Saruca",
+      "meslek": "sütannesi / rençber",
+      "agiz": "Ova Türkmen kocakarı ağzı, buyurgan ve korumacı",
+      "korku": "Kucağındaki öksüzlerin açlıktan kırılması",
+      "ornek_cumle": "Çekil önümden be hey muhafız; sabilerin rızkı taştan çıkar.",
+      "cekirdek": "durust"
+    },
+    "chr_016": {
+      "ad": "Eski Harami",
+      "meslek": "tövbekar eşkıya",
+      "agiz": "Dağ çetesi jargonu, pürüzlü ve tekinsiz",
+      "korku": "Eski çete reisinin intikam pususu",
+      "ornek_cumle": "Pusu kurmayı da bilirim, yol açmayı da; tövbe ettik gayrı.",
+      "cekirdek": "baskasinin_sirri"
+    },
+    "chr_017": {
+      "ad": "Rum Değirmenci Mihali",
+      "meslek": "değirmenci",
+      "agiz": "Kapadokya Rum Türkçesi, nazik ve temkinli",
+      "korku": "Değirmen taşının kırılması, unun yağmalanması",
+      "ornek_cumle": "Çark dönerse un akar efendi; su biterse hepimiz taş yeriz.",
+      "cekirdek": "durust"
+    },
+    "chr_018": {
+      "ad": "Avcı Kara Bekir",
+      "meslek": "avcı",
+      "agiz": "Orman ve dağ dili, sessiz ve gözlemci",
+      "korku": "Ormandaki garip leşlerin ve canavarların yaklaşması",
+      "ornek_cumle": "İz sürerim, rüzgar koklarım; bu gece ormanda tekin olmayan bir koku var.",
+      "cekirdek": "durust"
+    },
+    "chr_019": {
+      "ad": "Saz Aşığı Kul Dertli",
+      "meslek": "ozan",
+      "agiz": "Aşık ve halk şiiri ağzı, kafiyeli ve hüzünlü",
+      "korku": "Sazının kırılması, beylik divanında susturulmak",
+      "ornek_cumle": "Üç telli saza sığındık muhafız; gurbet türküsü dağları deler.",
+      "cekirdek": "durust"
+    },
+    "chr_020": {
+      "ad": "Seyyar Nalbant",
+      "meslek": "nalbant",
+      "agiz": "At ve eğer pazarı dili, dobra ve pratik",
+      "korku": "Haramilerin atını nalladığının duyulması",
+      "ornek_cumle": "Mıhı çakarım, nalı oturturum; nal düşerse at düşer bilirim.",
+      "cekirdek": "koruma_yalani"
+    },
+    "chr_021": {
+      "ad": "Seyyid Burhan",
+      "meslek": "kalenderi",
+      "agiz": "Horasan erenleri üslubu, vakar ve sükunet",
+      "korku": "Gizli Moğol fermanının yanlış ellere geçmesi",
+      "ornek_cumle": "Yaylanın dumanı ferman dinlemez; Hak için yürüyene yol tükenmez.",
+      "cekirdek": "baskasinin_sirri"
+    },
+    "chr_022": {
+      "ad": "Hacı Bedreddin",
+      "meslek": "ipek tüccarı",
+      "agiz": "Farsça-Türkçe karışımı Şark tüccar dili",
+      "korku": "Boynundaki Moğol payzasının görülmesi",
+      "ornek_cumle": "İpeğin hası Tebriz'den gelir beyim; ziyanımız çoktur amma sabrederiz.",
+      "cekirdek": "tehlikeli_yalan"
+    },
+    "chr_023": {
+      "ad": "Sungur Çavuş",
+      "meslek": "inzibat çavuşu",
+      "agiz": "Sancak subaşılığı resmiye dili, kaba ve tehditkar",
+      "korku": "Kelle teslim edemezse rütbesinin sökülmesi",
+      "ornek_cumle": "Mühürlü berat burada! Firariyi saklayan muhafızın da başı yanar.",
+      "cekirdek": "durust"
+    },
+    "chr_024": {
+      "ad": "Gülhatun",
+      "meslek": "öksüz anası",
+      "agiz": "Acılı Türkmen kadını dili, yalvarış ve metanet",
+      "korku": "Kundaktaki sabiye kara hummanın bulaşması",
+      "ornek_cumle": "Beni kireç çukuruna atın razıyım; yeter ki yavrum sütannesine ersin.",
+      "cekirdek": "koruma_yalani"
+    },
+    "chr_025": {
+      "ad": "Dursun",
+      "meslek": "kaçak fırın çırağı",
+      "agiz": "Çocuk dili, kekeleyen ve masum",
+      "korku": "Dayaktan ayaklarının kırılması",
+      "ornek_cumle": "Hamza Dayım buradaymış... Beni fırıncıya geri verme n'olur!",
+      "cekirdek": "durust"
+    },
+    "chr_026": {
+      "ad": "Hekim Lokman",
+      "meslek": "şarlatan otacı",
+      "agiz": "Yarım Darüşşifa talebesi dili, ağdalı ve kurnaz",
+      "korku": "Afyon şurubuyla adam zehirlediğinin öğrenilmesi",
+      "ornek_cumle": "Hıltlar dengelenmezse maraz nükseder; merhemim derde devadır.",
+      "cekirdek": "koruma_yalani"
+    },
+    "chr_027": {
+      "ad": "Molla Şükrü",
+      "meslek": "azledilmiş kâtip",
+      "agiz": "Hileli mahkeme dili, fesat ve hesapçı",
+      "korku": "Sahte vakıfnamenin anlaşılması",
+      "ornek_cumle": "Hasan Çelebi'nin zimmeti kayıttadır; kanun nizam bilene hürmet gerek.",
+      "cekirdek": "tehlikeli_yalan"
+    },
+    "chr_028": {
+      "ad": "Banu Hatun",
+      "meslek": "harami bacısı",
+      "agiz": "Savaşçı Yörük kızı dili, sert ve intikam dolu",
+      "korku": "Ağabeyinin katilini bulamadan yakalanmak",
+      "ornek_cumle": "Kalkan tutan kız ağlamaz muhafız; borcumu ödetmeye geldim.",
+      "cekirdek": "intikam"
+    },
+    "chr_029": {
+      "ad": "Kervancı İlyas",
+      "meslek": "kervan sürücüsü",
+      "agiz": "Yol görmüş kervancı dili, sitemkar ve öfkeli",
+      "korku": "Karda donan yolcuların günahının köye kalması",
+      "ornek_cumle": "Dün gece kapıdan çevirdiğin iki can karda dondu! Vicdanın rahat mı?",
+      "cekirdek": "durust"
+    },
+    "chr_030": {
+      "ad": "Turna Hatun",
+      "meslek": "muhafız akrabası",
+      "agiz": "Doğu obası Türkmen kızı, hüzünlü ve asil",
+      "korku": "Voyvoda atlılarının köyü basması",
+      "ornek_cumle": "Boynumdaki bu muskayı babam takmıştı amca; ocağına sığınmaya geldim.",
+      "cekirdek": "durust"
+    }
+  }
+}

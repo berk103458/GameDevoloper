@@ -72,7 +72,20 @@
 - `DYL-16`: Ortak test dosyaları.
 - `DYL-74`: Kapalı eylem sebebi bir kelimedir.
 
-### Parti 3: Söz İçeriği & Karakterlerin Yeniden Yazımı (Faz 3)
+### Parti 3: Söz İçeriği & Karakterlerin Yeniden Yazımı (Bölüm 19 - YAZ) — TAMAMLANDI
+- **Maddeler:** `YAZ-02`, `YAZ-16`, `YAZ-20`, `YAZ-21`, `YAZ-22`, `YAZ-24`, `YAZ-25`, `YAZ-26`, `YAZ-03`, `YAZ-30`, `YAZ-33`, `YAZ-04`, `YAZ-35`, `YAZ-39`, `YAZ-05`, `YAZ-45`, `YAZ-47`, `YAZ-06`, `YAZ-65`, `YAZ-07`, `YAZ-08`, `YAZ-70`, `YAZ-74`, `YAZ-09`, `YAZ-79`, `YAZ-10`, `YAZ-83`, `YAZ-87` (Toplam 28 madde).
+- **Uygulanan Dosyalar:**
+  - `docs/YAZIM_HATTI.md`: Model istemi, üretim adımları, doğrulama, inceleme ve onay akışı; eski diyalogların taşınmama kuralı.
+  - `data/karakter_ses_kartlari.json`: 30 karakter için özgün ses kartları; meslek, ağız, korku, örnek cümle (hiçbir iki kart aynı ağzı tarif etmez).
+  - `tests/fixtures/pilot_karakterler.json`: Sivaslı rençber ve iki karakter için sır içermeyen dürüst pilot veri.
+  - `data/soz/kadro_ozgunluk.json`: Sır çekirdeği kotası (%50 altı) ve kişi adlarının çevrilmeme kuralı.
+  - `tools/soz_dogrulayici.py`: Ses kartları ve kurallar için komut satırı doğrulayıcısı.
+  - `tools/kapsam_taramasi.py`: Karakter kapsamı ve tekil motor doğrulaması.
+- **Testler:** 7 GDScript birim testi ve Python araçları 0 hatayla geçti:
+  - `uslup_test.gd`, `ses_karti_test.gd`, `pilot_test.gd`, `toplu_yazim_test.gd`, `koy_ici_sohbet_test.gd`, `ozgunluk_denetimi_test.gd`, `kapsam_taramasi_test.gd`.
+  - `soz_dogrulayici.py`, `kapsam_taramasi.py`.
+- **Asset Durumu:** Asset gerekmedi.
+
 - `YAZ-02`: Üslup rehberi (YAZ-16, YAZ-20, YAZ-21, YAZ-22, YAZ-24, YAZ-25, YAZ-26).
 - `YAZ-03`: Karakter ses kartı (YAZ-30, YAZ-33).
 - `YAZ-04`: Yazım hattı (YAZ-35, YAZ-39).
