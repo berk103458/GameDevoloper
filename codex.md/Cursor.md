@@ -88,7 +88,7 @@ Bölüm 31 boş kayıt maddeleri `[x] (Cursor)`. Dal `cursor/gece-31-dogrulama`.
 
 Bölüm 35 boş AYR maddeleri sahiplendi: AYR-01, 03, 04, 07–21, 23–27, 30, 34–42, 45, 47, 48, 50, 52. İşaret `[/] (Cursor)`. Kod `cursor/gece-35-ayarlar` dalında. Kalfa ekonomi/köy ve Antigravity diyalog alanına dokunulmadı. Kota görünmüyor.
 
-Bölüm 26 ve 28 boş maddeleri sahiplendi: NBT-02…09, SAB-01…10, SAB-75. İşaret `[/] (Cursor)`. Kod `cursor/gece-26-28-hukum`. Diyalog cümlesi yazılmadı. Köy ekonomisine yazılmadı. Kota görünmüyor.
+Bölüm 26 ve 28 boş maddeleri bitti: NBT-02…09, SAB-01…10, SAB-75 `[x] (Cursor)`. Dal `cursor/gece-26-28-hukum`. Godot 4.7.2: kapi nobeti GEÇTİ (57), sabah defteri GEÇTİ. Diyalog cümlesi yazılmadı. Ekmek ve tezgâh katkısı yalnız okuyucu; stok ve üretim formülü yazılmadı. Asset gerekmedi. Kota görünmüyor.
 
 Bölüm 45 girdi maddeleri GIR-01…17, GIR-19…23, GIR-25 ve GIR-26 `[x] (Cursor)`. Kod dalı `cursor/gece-45-girdi`. GIR-18 ve GIR-24 Claude'da duruyor. Kalfa'nın ekonomi/köy maddelerine ve Antigravity'nin diyalog metnine dokunulmadı. Asset gerekmedi. kota görünmüyor.
 
