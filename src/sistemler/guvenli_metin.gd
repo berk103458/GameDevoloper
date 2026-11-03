@@ -24,6 +24,7 @@ static var _sarmal: Translation
 
 ## Sistem çevirisini sarmalayıcıyla değiştirir; tekrar çağrılması zararsızdır.
 static func kur() -> void:
+	eksikler = PackedStringArray()
 	var mevcut := TranslationServer.get_translation_object(DIL)
 	if mevcut is _Sarmalayici:
 		return

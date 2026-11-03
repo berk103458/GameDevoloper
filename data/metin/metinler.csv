@@ -1911,3 +1911,31 @@ koy.meslek_uyarisi.satir,"%s — %s yok. Nitelikli iş verilemez; günde %s erza
 koy.atama.meslek_uyusmaz,Meslek bu yapıya uygun değil
 koy.atama.ilk_ipucu,Köylüyü başka bir işe geçirmek için kartını uygun yapıya sürükle.
 acilis.denge_hatasi,Denge tablosundaki değer geçersiz (%s).
+arayuz.dil.baslik,Dil
+arayuz.dil.tr,Türkçe
+koy.iflas.tip,"Kamu akçesi: %d
+Üst üste eksi geceler: %d/%d. Tefeci baskını kamu varlığına el koyar; kişisel kese korunur."
+koy.iflas.olay,Tefeci baskını: %d gece kamu açığı. El konulan kamu varlığı: %s. Borç ve kişisel kese değişmedi.
+koy.iflas.mal_yok,El konulabilir kamu malı yok
+koy.kart.ozet,"%s · beceri %d/10
+Moral %d · Sağlık %d · Sadakat %d · Refah %d/100
+Köye geliş: %d. gün · Köyde %d gün
+Güçlü yön: %s
+Zayıf yön: %s
+%s
+%s
+Açık bilgiler: %s
+%s"
+koy.kart.uzmanlik_yok,Özel uzmanlık eşleşmesi yok; yaş ve kapasite kuralları geçerli.
+koy.levent.olay,"Levent firarı · %s: %s köyü terk etti. Nöbet hattı zayıfladı; Güvenlik %d → %d/100 (asayiş riski +%d). Aynı kriz boyunca yeni firar dalgası olmaz; erzak, maaş ve moral desteği ayrılmayı önler."
+koy.sancak.temiz,Sancak müfettişi teftişi: gizli kasada suç isnadını destekleyen içerik ve yozlaşma birlikte bulunmadı. Görev sürüyor.
+koy.sancak.bulunamadi,Sancak müfettişi teftişi: gizli kasa bu kez bulunamadı. Geçmiş yozlaşma ve kasa içeriği değişmedi.
+koy.sancak.idam,Sancak müfettişi gizli kasayı buldu. Ağır yozlaşma nedeniyle muhafız hakkında idam hükmü verildi.
+koy.sancak.azil,Sancak müfettişi gizli kasayı buldu. Muhafız görevden azledildi.
+koy.sancak.son_azil_baslik,Muhafız azledildi
+koy.sancak.son_azil_metin,Sancak teftişinde gizli kasa ve yozlaşma açığa çıktı. Köy ayakta kalsa da muhafızın görevi sona erdi.
+koy.sancak.son_idam_baslik,Muhafızın idamı
+koy.sancak.son_idam_metin,Sancak müfettişi ağır yozlaşmayı gizli kasa içeriğiyle tespit etti. Muhafızın görevi idam hükmüyle son buldu.
+koy.sancak.tip,"Sancak teftişi: sıradaki %d. gece. Yozlaşma ≥%d ve dolu kişisel kasa birlikte risk taşır; kapak kapatmak korumaz. Bulunma şansı %%%d; yozlaşma ≥%d idam, altında azil."
+koy.coban.otlatiyor,Sürüyü otlatıyor
+koy.coban.agila,Sürüyü ağıla götürüyor
