@@ -38,18 +38,27 @@
   - Commit: `0860d05e`
 
 - **Aşama B Parti 3 — `diyalog_11` – `diyalog_15` (Tamamlandı)**
-  - `diyalog_11` (Taş köprü nöbetinden çekilen yaralı kargıcı - Asker): Bendi yaran süvariler, ok yarası, sancak beyinin son emri ve kışla/gözetleme kulesi dalları yazıldı.
-  - `diyalog_12` (Eşeğiyle gezen seyyar kalaycı ustası - Esnaf): Dövme bakır taslar, kaştaki kazan yarası, Ahi çekiç damgası ve köy kazanlarını parlatma dalları yazıldı.
-  - `diyalog_13` (Ağılı basılan, kucağında topal teke yavrusunu kaçıran çoban - Çiftçi): Dilsiz yetim can merhameti, bacağa bağlanan tahta çöp ve dağ kurdu taktikleri dalları yazıldı.
-  - `diyalog_14` (Kervanı vurulan kaya tuzu tüccarı - Esnaf): Kuru dere yatağından kaçış, has billur tuz kalitesi, kışlık et/peynir tuzlama ve ambar bağışı dalları yazıldı.
-  - `diyalog_15` (Kule baskınından borazanını kurtarıp kaçan nefer - Asker): Yardan atlayış, vadideki üç kollu süvari tehdidi, borazanın avazı ve dizdara acil istihbarat dalları yazıldı.
+  - `diyalog_11` (Taş köprü nöbetinden çekilen yaralı kargıcı - Asker)
+  - `diyalog_12` (Eşeğiyle gezen seyyar kalaycı ustası - Esnaf)
+  - `diyalog_13` (Ağılı basılan, kucağında topal teke yavrusunu kaçıran çoban - Çiftçi)
+  - `diyalog_14` (Kervanı vurulan kaya tuzu tüccarı - Esnaf)
+  - `diyalog_15` (Kule baskınından borazanını kurtarıp kaçan nefer - Asker)
+  - Test: `tests/unit/kvr/diyalog_mantigi_test.gd` (Godot headless, 0 hata, GEÇTİ).
+  - Commit: `235a1f0a`
+
+- **Aşama B Parti 4 — `diyalog_16` – `diyalog_20` (Tamamlandı)**
+  - `diyalog_16` (Kökleri bezde asma fidanıyla kaçan bağcı - Çiftçi): Üç yıllık sabır, yaprak ve koruk bereketi, bağ bıçağı, kış sepetçiliği ve aşı çeliği rüşveti yazıldı.
+  - `diyalog_17` (Pirinç dirhemleri ve el terazisiyle kaçan kantarcı - Esnaf): Pazar adaleti, sancak kadısı mührü, parçalanmış topuk ve hilesiz tartı yemini yazıldı.
+  - `diyalog_18` (Kale hendeğinde harç karan, kürekli kireççi ırgat - Çiftçi): Kendi ördüğü sur taşının düşmesi, kireç yanığı eller, ahşap kazık diplerine taş temel örme ve kışla siper kazıcılığı yazıldı.
+  - `diyalog_19` (Gürgen tekne ve oklavayla bacadan kaçan fırıncı - Esnaf): Babadan kalma tekne, kül kapağı kırma, kepeksiz tam buğday peksimeti, çay taşından tandır kurma ve çörekotu rüşveti yazıldı.
+  - `diyalog_20` (Nal çivisi batmış, kerpetenli seyyar nalbant - Esnaf): Çiviyi kerpetenle çekip at tersi basma, Şam kervanı at damgası, öküz/katır tırnağı ve kışla süvari nallama yazıldı.
   - Test: `tests/unit/kvr/diyalog_mantigi_test.gd` (Godot headless, 0 hata, GEÇTİ).
 
 ## Son Commit Hash'i
-- `0860d05e` (Aşama B Parti 3 commit'i atılacak)
+- `235a1f0a` (Aşama B Parti 4 commit'i atılacak)
 
 ## Bir Sonraki Adım
-Aşama B Parti 4: `diyalog_16` – `diyalog_20` kapı diyaloglarının insanlaştırılması, yeni seçim/sonuçların ve tepki dallarının yazılması.
+Aşama C: Köy sistemi (Parley adaptörleri `ParleyFactInterface`/`ParleyActionInterface`, tıklama bileşeni ve ilk köylü muhabbet ağacı).
 
 ## Açık Sorular (Ahmet'e)
 - Şimdilik açık soru bulunmamaktadır.
