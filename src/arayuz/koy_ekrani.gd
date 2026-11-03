@@ -93,6 +93,7 @@ func _ready() -> void:
 	_yenile()
 	CenazeRaporu.yukleme_karti(self)
 	CinarMeclisPaneli.yukleme(self)
+	preload("res://src/arayuz/koy_hud/sabah_paneli.gd").kur(self)
 
 ## Ana ekran ses adaptörü; ışığın ilk gunduz fazıyla aynı başlar.
 func ortam_baslat() -> void:
