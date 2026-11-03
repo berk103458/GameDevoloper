@@ -1663,7 +1663,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `src/kapi/`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-54:** Eşya ölçümü DEN'de değildir
+- [x] **YAP-54:** Eşya ölçümü DEN'de değildir (Kalfa)
   - Ne: Eşya ölçümü DEN'de değildir. Nadir olay. Bant zorlanmaz.
   - Kabul: Zorunlu bant 0. Test: belge.
   - Bağımlılık: DEN-01. Boyut: S.

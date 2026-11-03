@@ -33,7 +33,9 @@ func _initialize() -> void:
 			"basarisiz_zar_sayisi": 1
 		}
 		gece_raporu["uretim"] = {"odun": 7}
+		gece_raporu["esyalar"] = ["usta_defteri"]
 		var olcum := DENGE_OLCUMU.olustur(oturum, gece_raporu, ek_baglam)
+		dene(not olcum.keys().any(func(anahtar: Variant) -> bool: return str(anahtar).contains("esya")), "YAP-54: esya icin zorunlu olcum yok")
 		dene(olcum.uretim == gece_raporu.uretim, "ISG-43: uretim farki sifir")
 		olcum.uretim["odun"] = 0
 		dene(gece_raporu.uretim.odun == 7, "ISG-43: kaynak rapor korunur")

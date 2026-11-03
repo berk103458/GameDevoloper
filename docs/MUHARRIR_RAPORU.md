@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — YAP-54 tamamlandı (Kalfa)
+
+Nadir yapı eşyaları için zorunlu denge bandı yok. Usta defteri girdisiyle DEN raporunda eşya ölçümü oluşmadığı doğrulandı. Son headless import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-80 tamamlandı (Kalfa)
 
 Divan hükmü testi, geçerli dava varken iş cezasının reddedildiğini ve kaydın değişmediğini doğruladı. Son headless import temiz geçti. Asset gerekmedi. kota görünmüyor.
