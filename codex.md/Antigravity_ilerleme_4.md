@@ -138,3 +138,26 @@ Aşağıdaki denetim, Ahmet'in 7 temel isteği üzerinden mevcut sistemin durumu
   - Yaralı taş köprü neferini tanıma ve tepedeki elli atlı süvarinin geçiş haritasını dizdara verme hafızası bağlandı.
   - Eğri bakır borazanın iki mil öteden avaz verme hüneri eklendi.
 - **Doğrulama:** `tests/unit/diyalog/diyalog_butunluk_test.gd` (Godot 4.7.2 headless, 0 hata, GEÇTİ).
+
+### Parti 4 (`diyalog_16` – `diyalog_20`) — Tamamlandı
+- **diyalog_16 (Asma Fidanlı Bağcı):**
+  - Bizans sınırından kaçırılan misket üzümü aşı çubuğu, softaların tepkisi ve şifacı Miraen Hatun'a aşı verme seçeneği işlendi.
+  - Testisinde bağ şırası taşıyan yetim rençber çocuğu tanıma ve onun şırasıyla asmayı sulama hafızası bağlandı.
+  - Güney yamacın taşlık toprağında şekerli üzüm yetiştirme ve kış sepetçiliği hüneri eklendi.
+- **diyalog_17 (Dirhemleri Şakırdayan Kantarcı):**
+  - Beş dirhemlik pirinç kütüğün altındaki eğe izleri ve hileli dirhem itirafı ("Çarşı haracını ödeyemeyince törpüledim, kırın o dirhemi!") derinleştirildi.
+  - Hileli dirhemi kırıp kalan mühürlü dirhemlerle köy pazarında adil tartı tutma seçeneği işlendi.
+  - Dün gelen kaya tuzu tüccarı İlyas'ı tanıma ve kervan tartısı hafızası bağlandı.
+- **diyalog_18 (Kireç Lekeli Kale Irgatı):**
+  - Kale dizdarının harçtan kireç ve taş çalma yolsuzluğunu görmesi ve susturulmak için kalasla dövülüp hendeğe atılması dramı işlendi.
+  - Ahşap kazık surların altına taş temel ve kireçli harç dolgusu çekme hüneri eklendi.
+  - Kuledeki kemankeşin mazgal zayıflığı uyarısını doğrulama hafızası bağlandı.
+- **diyalog_19 (Gürgen Tekneli Fırıncı):**
+  - Çavdar mahmuzu şüphesine karşı kırk yıllık ocağın çörekotlu ekşi mayasını koklatma ve köye ekmek kokusu yayma arzusu işlendi.
+  - Un ambarını idare eden Saruca Hatun'a saygı ve çay taşlarından nar gibi tandır kurma hüneri eklendi.
+  - Sabanı kırık Arpacı İdris Amca'yı tanıma ve onun arpa unundan kış çöreği yapma hafızası bağlandı.
+- **diyalog_20 (Ayağına Çivi Batmış Nalbant):**
+  - Palaskasındaki nallarda Kızıl Karga haramilerinin üç çentikli damgasını itiraf etmesi ("Atlarını zorla nallattılar amma son aygırın tırnağına çiviyi bilerek eğri çaktım ki tökezlesin!") işlendi.
+  - Eşkıyanın atlarını sakatlayıp kışla dizdarına harita verme seçeneği ve Şifacı Miraen Hatun'a topuk tedavisi bağlandı.
+  - Kulesi basılan borazancıyı tanıma ve harami süvari atlarının nal durumunu teyit etme hafızası eklendi.
+- **Doğrulama:** `tests/unit/diyalog/diyalog_butunluk_test.gd` (Godot 4.7.2 headless, 0 hata, GEÇTİ).
