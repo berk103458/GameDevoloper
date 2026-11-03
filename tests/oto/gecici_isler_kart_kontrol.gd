@@ -34,6 +34,7 @@ func _calistir() -> void:
 	var su_hedefi := _hedef(ekran._ust_kart,"su_tasima")
 	dene(su_hedefi!=null and not su_hedefi.disabled,"Gerçek kurulabilir konutla su işi kartta açık")
 	var hedef := _hedef(ekran._ust_kart,"dal_toplama")
+	dene(hedef != null and hedef.icon == null and hedef.text.begins_with("Ç · "), "ISG-57: ikon yoksa iş adının ilk harfi görünür")
 	var kulp := _kulp(ekran._ust_kart)
 	dene(hedef!=null and kulp!=null and not hedef.disabled,"Mevcut kulp ve uygun iş hedefi")
 	if hedef!=null and kulp!=null:

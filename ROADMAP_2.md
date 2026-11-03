@@ -1418,7 +1418,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/arayuz/sanat.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-57:** İkon yoksa harf
+- [x] **ISG-57:** İkon yoksa harf (Kalfa)
   - Ne: İkon yoksa harf. Png inmez.
   - Kabul: İkon yoksa harf. png 0. Test: sayım.
   - Bağımlılık: ARY-05. Boyut: S.
