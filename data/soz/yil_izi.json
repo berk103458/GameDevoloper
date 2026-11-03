@@ -1,0 +1,12 @@
+{
+  "anahtarlar": {
+    "yuz": "yil.yuz",
+    "guz_sofra": "yil.guz_sofra",
+    "guz_harman": "yil.guz_harman",
+    "kis_disari": "yil.kis_disari",
+    "kis_ev": "yil.kis_ev",
+    "ilkbahar_tarla": "yil.ilkbahar_tarla",
+    "ilkbahar_taskin": "yil.ilkbahar_taskin",
+    "yaz_su": "yil.yaz_su"
+  }
+}

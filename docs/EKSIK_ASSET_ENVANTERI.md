@@ -1,5 +1,9 @@
 # Kapı Muhafızı — Eksik asset envanteri
 
+## 3 Kasım — TEZ-03…08 tezgâh yer tutucuları (Cursor)
+
+Üretilmedi. Düz renk küp, örtünün üstünde. TEZ03-HAM, TEZ04-IZ (bir kenar koyu), TEZ05-BICIM, TEZ06-AGIZ (bir uç açık), TEZ07-TITREME (eğri tek çizgi), TEZ08-PARCA (küçük kutu). 3B, yaklaşık 0,4 m. Ekleyen: Cursor.
+
 ## 28 Ekim — HAE-02 LOWPO karakter ve UAL hareket bağlantıları (Kalfa)
 
 İHT-0357 (kısmi), İHT-0431 (kısmi), İHT-0444, İHT-0445 (kısmi), İHT-0452 (kısmi), İHT-0453, İHT-0524 — **bağlandı (Kalfa)**. src/dunya/hazir_karakterler.gd LOWPO çocuğu 1,15 m ve adsız demirci rolünü 1,80 m kurar. Adlı ustaların kimliği/modeli korunur. UAL A01 idle/yürüme/konuşma, A02 hasat; yalnız UAL'de olmayan çekiç için A03 Hammering. Ahmet yerel referans kullanımını açıkça onayladı: data/animasyon/ual_referans.json yalnız sayısal rig/rest ve kaynak hash, ham model ve yeni indirme yok. Skin bind adları eşlendi, kaynak global rest/poz farkı hedef rest üzerine 30 FPS uyarlandı. Rota yönünde kök hareketi yok. Meslek değişiminde aktör dönüşümü, kayıt/RNG ve rota durumu korunur. Prosedürel düzeltici LOWPO'da ikinci kez uygulanmaz. Hedefli karakter, CHR kapı/sıra sonucu/köy hareket/zanaat/ses testleri geçti. 44 Meshy karakterin tamamı yeniden retarget edildi sayılmaz. Orak aleti ve özgül usta varyantları açık. 452bb671 kod yayını; son talimat: görünür Godot açılmaz.
