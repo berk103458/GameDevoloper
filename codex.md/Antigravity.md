@@ -543,3 +543,34 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   6. Birim testleri (`tests/unit/sistemler/ipucu_kaydi_test.gd`, `tests/unit/sistemler/oyuncu_izi_test.gd`, `tests/unit/sistemler/son_kaydi_test.gd`, `tests/unit/sistemler/omurga_test.gd`, `tests/tools/test_omurga.py`) başarıyla tamamlandı (0 hata).
   7. Asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+
+## 3 Kasım 2026 — Görev 2: Diyalog Eklentileri Denemesi (Parley ve Theatre)
+- **Dal:** `feature/diyalog-eklenti-denemesi`
+- **Kurulan Eklentiler ve Sürümler:**
+  1. **Parley (v2.1.0):** `addons/parley/`, commit `ef75bc30a5307ce118645d3463091d6c9adf1718` (MIT Lisansı).
+  2. **Theatre (v0.12.2):** `addons/Theatre/`, commit `11c19e1b02eae7ed7eb7c83b9da9c70532b8107d` (MIT Lisansı).
+- **Proje Ayarları:** `project.godot` eklenti listesinde (`[editor_plugins]`) yalnız bu feature dalında etkinleştirildi.
+- **Türkçe Karakter Denemesi Sonucu:**
+  - Test cümlesi: `"Işık, İzmir'den gelen ışığı çağırdı; göğsü ağrıyan kişi kapıda üşüdü."`
+  - ç, ğ, ı, İ, ö, ş, ü harflerinin tümü hem `.ds` (JSON) hem `.dlg` (metin) formatında, hem yüklemede hem de çalışan sahnede bozulmadan korundu. Küçük ı ve büyük I, küçük i ve büyük İ ayrımı hatasız doğrulandı.
+- **Prototip ve Test Uygulaması:**
+  - `data/diyalog/diyalog_01_20.json` içindeki `diyalog_01` (çiftçi, Erzincan, darı ve tohum; açılış, Kimsin?, Doğuda nereden?, Nesin?, Kendini tanıt) iki eklentide de kuruldu.
+  - Eşik kontrolü (`esik: [0, 1, 1]`) modellendi (0 cevapta ret açık; 1 cevap sonrası kabul ve rüşvet açılır).
+  - `data/chr_runtime/CHR_011.tres` düğüm `00` seçenek 3 ipucu koşulu modellendi: İpucu yokken seçenek kilitlendi, ipucu varken tansiyon +2 artırıldı (2 -> 4).
+  - Köy ve hastalık bağlantısı: Action ve fonksiyon çağrılarıyla simüle edildi (`# Gerçek oyunda bu çağrı Oturum.karar_ver(gelen, &"kabul") ve hastalık için hastalik_teshis_adaptoru.gd olur.`), bar indisleri (moral, adalet, akçe, asayiş riski) konsola yazdırıldı.
+  - Otomatik test koşucusu `prototypes/diyalog_eklenti_denemesi/deneme_kontrol.gd` ile Godot headless altında 0 hata ile doğrulandı.
+
+### Üçlü Karşılaştırma Tablosu
+
+| Ölçüt | Mevcut Sistem (JSON diyalog_01 + CHR ChrSorgusu) | Parley (v2.1.0) | Theatre (v0.12.2) |
+|---|---|---|---|
+| **Yazım kolaylığı** | İki ayrı format: JSON'da iç içe diziler; CHR'de .md/.tres ve sözleşme doğrulaması. Metinler CSV anahtarlı. | Görsel editör grafı (düğümler, slotlar, bağlantılar). AST JSON tabanlı (.ds). Yazar için görsel ama karmaşık ve hantal. | Düz metin (.dlg). İnsan tarafından okunabilir, YAML benzeri, GDScript içi/dışı çok pratik ve hızlı yazım. |
+| **Dallanma** | Soru ağacı 3'lü tuple (soru, cevap, [takipler]). CHR'de düğüm anahtarlı graph (00 -> 1.1 -> 1.2). | Doğal graf dallanması; DialogueOption ve Jump düğümleriyle birleşen ve ayrılan dallar tam destekli. | Satır satır lineer akış; dallanma için :section etiketleri ve koddan jump_to_section çağrıları gerekir. |
+| **Koşul ve değişken** | JSON'da sabit eşik [0,1,1]. CHR'de tansiyon (0-10), ipucu listesi, bayraklar ve zar entegrasyonu tam. | Condition / Match düğümleri; harici FactInterface (.gd) sınıfları gerektirir; doğrudan değişken desteği zayıf. | GDScript Expression ve {degisken} / Scope.degisken desteği tam; kod içi değişken atama doğrudan çalışır. |
+| **Debuff ve köy etkisi bağlanabilirliği** | Doğrudan çekirdeğe entegre: Oturum.karar_ver, bar indisleri (moral, adalet, akçe, asayiş), hastalık teşhis adaptörü. | Action düğümü harici script çağırır (ParleyActionInterface); adaptör yazılabilir ama dış dünyadan soyut balonunda kalır. | Scope ve Caller üzerinden add_scope('Adaptor', self) ile oyun koduna doğrudan GDScript fonksiyon çağrısı yapabilir. |
+| **Performans ve Kararlılık** | Çok hızlı: ~12 ms. Bellek ayak izi minimal (saf Resource / Dictionary). Sıfır hata. | Orta: ~37 ms. Editörde büyük düğüm grafı yükü, AST ağacı ve çok sayıda RefCounted nesnesi. | Hızlı: ~8 ms. Saf GDScript parser; ancak geliştirme sürümünde DialogueLabel timer/stage lifecycle çökmeleri mevcut (kararsız). |
+| **Karar Özeti** | Mevcut iki katmanlı mimari (adsız halk JSON + adlı kişi CHR) oyunun asimetrik yapısına tam oturuyor. | **Entegre etme.** Graf arayüzü görsel zenginlik sunsa da kapı karar/zar/köy durum makinelerine yabancı, hantal ve aşırı mühendislik içeriyor. | **Entegre etme.** Düz metin yazımı pratik olsa da mevcut CHR sorgu ağacını ve zar mantığını taşımak için yetersiz; ileride yalnız ince adaptörle yan diyaloglar için değerlendirilebilir. |
+
+- **Son Karar Cümlesi:** Parley ve Theatre'ı ana oyuna entegre etme; mevcut iki katmanlı JSON + CHR mimarisi korunmalı, ileride çoklu satırlı yan anlatılar gerekirse Theatre yalnız ince bir adaptörle değerlendirilebilir.
+- **Kota:** kota görünmüyor

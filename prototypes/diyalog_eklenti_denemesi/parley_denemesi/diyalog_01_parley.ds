@@ -1,0 +1,638 @@
+{
+  "title": "diyalog_01_parley",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:acilis",
+      "type": "DIALOGUE",
+      "position": "(300.0, 0.0)",
+      "character": "Çiftçi",
+      "text": "Selam olsun. Doğudan geliyorum; tarlam yandı, elimde bu darı ile tohum kaldı. Tohumu kimseye vermem, toprağa veririm."
+    },
+    {
+      "id": "node:turkce",
+      "type": "DIALOGUE",
+      "position": "(700.0, 0.0)",
+      "character": "Muhafız",
+      "text": "Işık, İzmir'den gelen ışığı çağırdı; göğsü ağrıyan kişi kapıda üşüdü."
+    },
+    {
+      "id": "node:opt_kimsin",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1100.0, -300.0)",
+      "character": "Muhafız",
+      "text": "Kimsin?"
+    },
+    {
+      "id": "node:opt_nesin",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1100.0, -100.0)",
+      "character": "Muhafız",
+      "text": "Nesin?"
+    },
+    {
+      "id": "node:opt_tanit",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1100.0, 100.0)",
+      "character": "Muhafız",
+      "text": "Kendini tanıt."
+    },
+    {
+      "id": "node:opt_chr",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1100.0, 300.0)",
+      "character": "Muhafız",
+      "text": "Kuşağındaki tefeci çetelesi, çuvalındaki mühürlü kunduru buğdayı ve göğsündeki sopa izi! Sen amele değil, tefeciden mal kaçıran borçlusun!"
+    },
+    {
+      "id": "node:opt_ret",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1100.0, 500.0)",
+      "character": "Muhafız",
+      "text": "Geri çevir (Ret)"
+    },
+    {
+      "id": "node:opt_kabul",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1100.0, 700.0)",
+      "character": "Muhafız",
+      "text": "Köy içine al (Kabul)"
+    },
+    {
+      "id": "node:opt_rusvet",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1100.0, 900.0)",
+      "character": "Muhafız",
+      "text": "Darı karşılığı aç (Rüşvet)"
+    },
+    {
+      "id": "node:act_sayac_kimsin",
+      "type": "ACTION",
+      "position": "(1500.0, -300.0)",
+      "description": "Soru sayacı artır (kimsin)",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://prototypes/diyalog_eklenti_denemesi/parley_denemesi/soru_sayac_action.gd",
+      "values": ["kimsin"]
+    },
+    {
+      "id": "node:rep_kimsin",
+      "type": "DIALOGUE",
+      "position": "(1900.0, -300.0)",
+      "character": "Çiftçi",
+      "text": "Uzaklardan koptum. Doğudan. Moğol atlarının çiğnediği topraklardan."
+    },
+    {
+      "id": "node:opt_nereden",
+      "type": "DIALOGUE_OPTION",
+      "position": "(2300.0, -300.0)",
+      "character": "Muhafız",
+      "text": "Doğuda nereden?"
+    },
+    {
+      "id": "node:rep_nereden",
+      "type": "DIALOGUE",
+      "position": "(2700.0, -300.0)",
+      "character": "Çiftçi",
+      "text": "Erzincan'ın ovasından. Ova artık yok; at izi var."
+    },
+    {
+      "id": "node:act_sayac_nesin",
+      "type": "ACTION",
+      "position": "(1500.0, -100.0)",
+      "description": "Soru sayacı artır (nesin)",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://prototypes/diyalog_eklenti_denemesi/parley_denemesi/soru_sayac_action.gd",
+      "values": ["nesin"]
+    },
+    {
+      "id": "node:rep_nesin",
+      "type": "DIALOGUE",
+      "position": "(1900.0, -100.0)",
+      "character": "Çiftçi",
+      "text": "Toprak adamıyım. Tarlam yandı, canımı zor kurtardım."
+    },
+    {
+      "id": "node:act_sayac_tanit",
+      "type": "ACTION",
+      "position": "(1500.0, 100.0)",
+      "description": "Soru sayacı artır (kendini_tanit)",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://prototypes/diyalog_eklenti_denemesi/parley_denemesi/soru_sayac_action.gd",
+      "values": ["kendini_tanit"]
+    },
+    {
+      "id": "node:rep_tanit",
+      "type": "DIALOGUE",
+      "position": "(1900.0, 100.0)",
+      "character": "Çiftçi",
+      "text": "Ne önemi var? Evsiz barksız bir garip. Yaşamak derdindeyim."
+    },
+    {
+      "id": "node:cond_chr",
+      "type": "CONDITION",
+      "position": "(1500.0, 300.0)",
+      "description": "CHR_011 Tefeci İpucu Kontrolü",
+      "combiner": "ALL",
+      "conditions": [
+        {
+          "fact_ref": "res://prototypes/diyalog_eklenti_denemesi/parley_denemesi/ipucu_var_fact.gd",
+          "operator": 0,
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "id": "node:act_chr_tansiyon",
+      "type": "ACTION",
+      "position": "(1900.0, 250.0)",
+      "description": "Tansiyon +2",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://prototypes/diyalog_eklenti_denemesi/parley_denemesi/chr_tansiyon_action.gd",
+      "values": [2]
+    },
+    {
+      "id": "node:rep_chr",
+      "type": "DIALOGUE",
+      "position": "(2300.0, 250.0)",
+      "character": "Çiftçi",
+      "text": "Her şeyi görmüşsün gardaş... İnkar etmem. Kuşağımdaki tefeci çetelesi, çuvalımdaki tohum ve bu morluklar... Hepsi Faik Ağa'dan kaçarken oldu."
+    },
+    {
+      "id": "node:rep_chr_kilit",
+      "type": "DIALOGUE",
+      "position": "(1900.0, 380.0)",
+      "character": "Muhafız",
+      "text": "[KİLİTLİ] Kuşaktaki çetele ve tohum ipuçları keşfedilmeden bu iddia öne sürülemez!"
+    },
+    {
+      "id": "node:act_ret",
+      "type": "ACTION",
+      "position": "(1500.0, 500.0)",
+      "description": "Karar ver: ret",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://prototypes/diyalog_eklenti_denemesi/parley_denemesi/koy_karar_action.gd",
+      "values": ["ret"]
+    },
+    {
+      "id": "node:rep_ret",
+      "type": "DIALOGUE",
+      "position": "(1900.0, 500.0)",
+      "character": "Çiftçi",
+      "text": "Geri dönersem yollarda tükenirim, yapma."
+    },
+    {
+      "id": "node:cond_kabul",
+      "type": "CONDITION",
+      "position": "(1500.0, 700.0)",
+      "description": "Kabul Eşik Kontrolü (en az 1 soru)",
+      "combiner": "ALL",
+      "conditions": [
+        {
+          "fact_ref": "res://prototypes/diyalog_eklenti_denemesi/parley_denemesi/esik_kontrol_fact.gd",
+          "operator": 0,
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "id": "node:act_kabul",
+      "type": "ACTION",
+      "position": "(1900.0, 650.0)",
+      "description": "Karar ver: kabul",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://prototypes/diyalog_eklenti_denemesi/parley_denemesi/koy_karar_action.gd",
+      "values": ["kabul"]
+    },
+    {
+      "id": "node:rep_kabul",
+      "type": "DIALOGUE",
+      "position": "(2300.0, 650.0)",
+      "character": "Çiftçi",
+      "text": "Allah razı olsun. Ocağın tütsün hep."
+    },
+    {
+      "id": "node:rep_kabul_esik_yetersiz",
+      "type": "DIALOGUE",
+      "position": "(1900.0, 750.0)",
+      "character": "Muhafız",
+      "text": "[EŞİK YETERSİZ] Henüz sorgulamadan içeri alamazsın; önce en az bir soru sormalısın."
+    },
+    {
+      "id": "node:cond_rusvet",
+      "type": "CONDITION",
+      "position": "(1500.0, 900.0)",
+      "description": "Rüşvet Eşik Kontrolü (en az 1 soru)",
+      "combiner": "ALL",
+      "conditions": [
+        {
+          "fact_ref": "res://prototypes/diyalog_eklenti_denemesi/parley_denemesi/esik_kontrol_fact.gd",
+          "operator": 0,
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "id": "node:act_rusvet",
+      "type": "ACTION",
+      "position": "(1900.0, 850.0)",
+      "description": "Karar ver: rusvet",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://prototypes/diyalog_eklenti_denemesi/parley_denemesi/koy_karar_action.gd",
+      "values": ["rusvet"]
+    },
+    {
+      "id": "node:rep_rusvet",
+      "type": "DIALOGUE",
+      "position": "(2300.0, 850.0)",
+      "character": "Çiftçi",
+      "text": "Şu darının yarısını vereyim sana, yeter ki aç o kapıyı."
+    },
+    {
+      "id": "node:rep_rusvet_esik_yetersiz",
+      "type": "DIALOGUE",
+      "position": "(1900.0, 950.0)",
+      "character": "Muhafız",
+      "text": "[EŞİK YETERSİZ] Henüz sorgulamadan rüşvet teklifini değerlendiremezsin; önce en az bir soru sormalısın."
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(3200.0, 300.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge:1",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:acilis",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:2",
+      "from_node": "node:acilis",
+      "from_slot": 0,
+      "to_node": "node:turkce",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:opt1",
+      "from_node": "node:turkce",
+      "from_slot": 0,
+      "to_node": "node:opt_kimsin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:opt2",
+      "from_node": "node:turkce",
+      "from_slot": 0,
+      "to_node": "node:opt_nesin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:opt3",
+      "from_node": "node:turkce",
+      "from_slot": 0,
+      "to_node": "node:opt_tanit",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:opt4",
+      "from_node": "node:turkce",
+      "from_slot": 0,
+      "to_node": "node:opt_chr",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:opt5",
+      "from_node": "node:turkce",
+      "from_slot": 0,
+      "to_node": "node:opt_ret",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:opt6",
+      "from_node": "node:turkce",
+      "from_slot": 0,
+      "to_node": "node:opt_kabul",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:opt7",
+      "from_node": "node:turkce",
+      "from_slot": 0,
+      "to_node": "node:opt_rusvet",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:k1",
+      "from_node": "node:opt_kimsin",
+      "from_slot": 0,
+      "to_node": "node:act_sayac_kimsin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:k2",
+      "from_node": "node:act_sayac_kimsin",
+      "from_slot": 0,
+      "to_node": "node:rep_kimsin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:k3",
+      "from_node": "node:rep_kimsin",
+      "from_slot": 0,
+      "to_node": "node:opt_nereden",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:k4",
+      "from_node": "node:opt_nereden",
+      "from_slot": 0,
+      "to_node": "node:rep_nereden",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:k5",
+      "from_node": "node:rep_nereden",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:n1",
+      "from_node": "node:opt_nesin",
+      "from_slot": 0,
+      "to_node": "node:act_sayac_nesin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:n2",
+      "from_node": "node:act_sayac_nesin",
+      "from_slot": 0,
+      "to_node": "node:rep_nesin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:n3",
+      "from_node": "node:rep_nesin",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:t1",
+      "from_node": "node:opt_tanit",
+      "from_slot": 0,
+      "to_node": "node:act_sayac_tanit",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:t2",
+      "from_node": "node:act_sayac_tanit",
+      "from_slot": 0,
+      "to_node": "node:rep_tanit",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:t3",
+      "from_node": "node:rep_tanit",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:c1",
+      "from_node": "node:opt_chr",
+      "from_slot": 0,
+      "to_node": "node:cond_chr",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:c2",
+      "from_node": "node:cond_chr",
+      "from_slot": 0,
+      "to_node": "node:act_chr_tansiyon",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:c3",
+      "from_node": "node:act_chr_tansiyon",
+      "from_slot": 0,
+      "to_node": "node:rep_chr",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:c4",
+      "from_node": "node:rep_chr",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:c5",
+      "from_node": "node:cond_chr",
+      "from_slot": 1,
+      "to_node": "node:rep_chr_kilit",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:c6",
+      "from_node": "node:rep_chr_kilit",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:r1",
+      "from_node": "node:opt_ret",
+      "from_slot": 0,
+      "to_node": "node:act_ret",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:r2",
+      "from_node": "node:act_ret",
+      "from_slot": 0,
+      "to_node": "node:rep_ret",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:r3",
+      "from_node": "node:rep_ret",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:kb1",
+      "from_node": "node:opt_kabul",
+      "from_slot": 0,
+      "to_node": "node:cond_kabul",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:kb2",
+      "from_node": "node:cond_kabul",
+      "from_slot": 0,
+      "to_node": "node:act_kabul",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:kb3",
+      "from_node": "node:act_kabul",
+      "from_slot": 0,
+      "to_node": "node:rep_kabul",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:kb4",
+      "from_node": "node:rep_kabul",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:kb5",
+      "from_node": "node:cond_kabul",
+      "from_slot": 1,
+      "to_node": "node:rep_kabul_esik_yetersiz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:kb6",
+      "from_node": "node:rep_kabul_esik_yetersiz",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:rs1",
+      "from_node": "node:opt_rusvet",
+      "from_slot": 0,
+      "to_node": "node:cond_rusvet",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:rs2",
+      "from_node": "node:cond_rusvet",
+      "from_slot": 0,
+      "to_node": "node:act_rusvet",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:rs3",
+      "from_node": "node:act_rusvet",
+      "from_slot": 0,
+      "to_node": "node:rep_rusvet",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:rs4",
+      "from_node": "node:rep_rusvet",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:rs5",
+      "from_node": "node:cond_rusvet",
+      "from_slot": 1,
+      "to_node": "node:rep_rusvet_esik_yetersiz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    },
+    {
+      "id": "edge:rs6",
+      "from_node": "node:rep_rusvet_esik_yetersiz",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(0.4118, 0.4118, 0.4118, 1.0)"
+    }
+  ]
+}

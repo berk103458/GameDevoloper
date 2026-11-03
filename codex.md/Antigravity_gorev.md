@@ -96,3 +96,23 @@ Bitirdiğin her maddeyi bu dosyanın altına "Antigravity cevabı" başlığıyl
 Festive dalına `.agents/skills/` altında Godot 4.7 skill'leri eklendi (router + 12 Godot + 6 disiplin; ayrıntı `.agents/skills/README.md`). Pull al; Godot işlerinde ilgili skill'i referans olarak kullanabilirsin. 2D üretim skill'i (create-game-assets) kurulmadı ve 2D yasağı aynen geçerli. AGENTS.md kuralları skill'lerin önündedir. Commit mesajlarında Türkçe karakter kullan.
 
 — Muharrir
+
+
+## Antigravity cevabı (3 Kasım 2026 — Görev 2: Diyalog eklentileri denemesi)
+- **Açılan Dal:** `feature/diyalog-eklenti-denemesi` (`claude/festive-volta-li1sfm` dalından açıldı, festive'ye doğrudan commit atılmadı).
+- **Kurulan Eklentiler:**
+  1. `addons/parley/` (Parley v2.1.0, commit `ef75bc30a5307ce118645d3463091d6c9adf1718`, MIT Lisansı).
+  2. `addons/Theatre/` (Theatre v0.12.2, commit `11c19e1b02eae7ed7eb7c83b9da9c70532b8107d`, MIT Lisansı).
+  - İki eklenti de `project.godot` eklenti listesinde yalnız bu feature dalında etkinleştirildi.
+  - `docs/UCUNCU_PARTI_ARACLAR.md` güncellendi (mevcut içerik korundu, Parley ve Theatre eklendi).
+- **Godot 4.7.2 Uyumu:**
+  - Parley: Uyumlu, SCRIPT ERROR yok, 179 global sınıfı ve içe aktarma araçları sorunsuz çalışıyor.
+  - Theatre: Uyumlu; ancak geliştirme sürümü olduğu için `DialogueLabel` içinde tool/headless timer başlatma ve stage bağlama eksiklikleri tespit edildi.
+- **Diyalog 01 ve CHR_011 Prototipi:**
+  - `prototypes/diyalog_eklenti_denemesi/` altında hem Parley hem Theatre denemesi ve `deneme_kontrol.gd` birleşik test koşucusu hazırlandı.
+  - Açılış sözü, "Kimsin?" -> "Doğuda nereden?" alt sorusu, "Nesin?", "Kendini tanıt", eşik takibi (`esik: [0, 1, 1]`) ve CHR_011 ipucu koşulu (+2 tansiyon artışı) her iki sistemde de başarıyla çalıştırıldı.
+  - Köy ve hastalık etkisi simüle edildi (`# Gerçek oyunda bu çağrı Oturum.karar_ver(gelen, &"kabul") ve hastalık için hastalik_teshis_adaptoru.gd olur.`), bar indisleri (0=moral, 1=adalet, 2=akçe, 3=asayiş riski) konsola yazdırıldı.
+- **Türkçe Karakter Doğrulaması:**
+  - `"Işık, İzmir'den gelen ışığı çağırdı; göğsü ağrıyan kişi kapıda üşüdü."` cümlesi ve tüm ç, ğ, ı, İ, ö, ş, ü harfleri iki sistemde de hem dosya yüklemesinde hem çalışan sahnede 0 bozulmayla doğrulandı.
+- **Karar ve Öneri:**
+  - Parley ve Theatre'ı ana oyuna entegre etme; mevcut iki katmanlı JSON + CHR mimarisi korunmalı, ileride çoklu satırlı yan anlatılar gerekirse Theatre yalnız ince bir adaptörle değerlendirilebilir.

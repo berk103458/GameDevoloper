@@ -1,0 +1,50 @@
+# Theatre diyalog_01 ve CHR_011 denemesi (Görev 2)
+# Karakter: Çiftçi (Darı ve tohum taşıyan köylü)
+
+:acilis
+Ciftci:
+    "Selam olsun. Doğudan geliyorum; tarlam yandı, elimde bu darı ile tohum kaldı. Tohumu kimseye vermem, toprağa veririm."
+
+:turkce_deneme
+Muhafiz:
+    "Işık, İzmir'den gelen ışığı çağırdı; göğsü ağrıyan kişi kapıda üşüdü."
+
+:soru_kimsin
+Ciftci:
+    Adaptor.soru_cevaplandi("kimsin")
+    "Uzaklardan koptum. Doğudan. Moğol atlarının çiğnediği topraklardan."
+
+:soru_doguda_nereden
+Ciftci:
+    Adaptor.soru_cevaplandi("doguda_nereden")
+    "Erzincan'ın ovasından. Ova artık yok; at izi var."
+
+:soru_nesin
+Ciftci:
+    Adaptor.soru_cevaplandi("nesin")
+    "Toprak adamıyım. Tarlam yandı, canımı zor kurtardım."
+
+:soru_kendini_tanit
+Ciftci:
+    Adaptor.soru_cevaplandi("kendini_tanit")
+    "Ne önemi var? Evsiz barksız bir garip. Yaşamak derdindeyim."
+
+:chr_ipucu_secenegi
+Ciftci:
+    Adaptor.chr_ipucu_secildi()
+    "Her şeyi görmüşsün gardaş... İnkar etmem. Kuşağımdaki tefeci çetelesi, çuvalımdaki tohum ve bu morluklar... Hepsi Faik Ağa'dan kaçarken oldu."
+
+:karar_ret
+Ciftci:
+    Adaptor.karar_ver("ret")
+    "Geri dönersem yollarda tükenirim, yapma."
+
+:karar_kabul
+Ciftci:
+    Adaptor.karar_ver("kabul")
+    "Allah razı olsun. Ocağın tütsün hep."
+
+:karar_rusvet
+Ciftci:
+    Adaptor.karar_ver("rusvet")
+    "Şu darının yarısını vereyim sana, yeter ki aç o kapıyı."

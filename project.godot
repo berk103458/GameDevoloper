@@ -33,3 +33,7 @@ window/stretch/aspect="expand"
 
 locale/translations=PackedStringArray("res://data/metin/metinler.tr.translation")
 locale/fallback="tr"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/parley/plugin.cfg", "res://addons/Theatre/plugin.cfg")
