@@ -25,6 +25,6 @@ static func _sayi(deger: Variant) -> bool:
 
 static func acilis_hatasi() -> String:
 	return hata(
-		JSON.parse_string(FileAccess.get_file_as_string("res://data/ayarlar/denge.json")),
+		preload("res://src/sistemler/denge_tablosu.gd").oku(),
 		JSON.parse_string(FileAccess.get_file_as_string("res://data/ayarlar/denge_sinirlari.json"))
 	)

@@ -88,6 +88,7 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 		return
 	kayit.sil()
 	oturum = Oturum.new(katalog, tohum)
+	preload("res://src/sistemler/denge_tablosu.gd").acilis_erzagini_yaz(oturum.yonetim.kaynaklar)
 	g.sec(oturum, gecmis)
 	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum)
 	_koye_git()

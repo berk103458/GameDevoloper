@@ -3369,7 +3369,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-03. Ön koşul: Kalfa ACL-04'ü bitirmiş olmalı; metinler.csv, project.godot ve açılış dosyaları ACL-04 yarım işinde olduğundan o zamana kadar dokunulmaz. Boyut: S.
   - Dosya: yeni src/sistemler/denge_sinir_denetimi.gd; açılışa tek satır; data/metin/metinler.csv içine bir anahtar.
   - Asset: asset gerekmedi.
-- [ ] **DEN-03c:** Denge tablosunu okuyan oyun kodu (zorluk çarpanı, ilk hafta erzak payı).
+- [x] **DEN-03c:** Denge tablosunu okuyan oyun kodu (zorluk çarpanı, ilk hafta erzak payı). (Kalfa)
   - Ne: DEN-04 zorluk ve DEN-13 ilk_hafta_erzak şu an yalnız veri ve doğrulamadır; oyun kodu bunları okumaz. Bu madde tek bir okuyucu (yeni src/sistemler/denge_tablosu.gd) yazar ve mevcut sistemlere tek satırla bağlar. Tablo yoksa ya da bozuksa oyun açılmaz (DEN-08); kodda yedek sayı olmaz.
   - Kabul: Zorluk olagan iken hiçbir sayı değişmez; kolay/siki çarpanı tablodan gelir. Açılış erzağı ilk_hafta_erzak formülüyle hesaplanır ve 2 kişilik açılışta 30'dur. Test: 	ests/unit/sistemler/denge_tablosu_test.gd. Ek şart: koy_ayarlari.gd ve kirli listedeki dosyalara dokunmadan önce sahibine sorulur.
   - Bağımlılık: DEN-04, DEN-13, DEN-03b. Boyut: M.
