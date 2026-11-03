@@ -1,0 +1,151 @@
+{
+  "title": "sekans_meydan_atesi",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:aydogdu",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Aydoğdu",
+      "text": "Odunu harlı atın çocuklar, bu gece ayaz dağdan inecek. Boğazdaki çatırtıları duydunuz mu?"
+    },
+    {
+      "id": "node:ayse",
+      "type": "DIALOGUE",
+      "position": "(700.0, 0.0)",
+      "character": "Ayşe Bacı",
+      "text": "Duyduk Aydoğdu çavuş... Kurt uluması değil o, atlıların nal sesidir. Muhafızlar mazgalları boş bırakmasın."
+    },
+    {
+      "id": "node:opt_guven",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, -90.0)",
+      "character": "Muhafız",
+      "text": "Korkmayın, kulelerde nöbetçilerimiz uyanık, köyün suru sağlamdır."
+    },
+    {
+      "id": "node:opt_dagil",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, 90.0)",
+      "character": "Muhafız",
+      "text": "Herkes çadırına ve evine çekilsin, meydanda toplanıp tedirginlik yaratmayın."
+    },
+    {
+      "id": "node:rep_guven",
+      "type": "DIALOGUE",
+      "position": "(1400.0, -90.0)",
+      "character": "Aydoğdu",
+      "text": "Gözün arkada kalmasın muhafız, gerekirse biz de kazmaları kapıp kapıya dikiliriz."
+    },
+    {
+      "id": "node:act_guven",
+      "type": "ACTION",
+      "position": "(1750.0, -90.0)",
+      "description": "Dayanışma Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "3"
+      ]
+    },
+    {
+      "id": "node:rep_dagil",
+      "type": "DIALOGUE",
+      "position": "(1400.0, 90.0)",
+      "character": "Ayşe Bacı",
+      "text": "Peki muhafız, lakin dirlik bir arada durunca kuvvet bulur."
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(2100.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_m_1",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:aydogdu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_2",
+      "from_node": "node:aydogdu",
+      "from_slot": 0,
+      "to_node": "node:ayse",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_o1",
+      "from_node": "node:ayse",
+      "from_slot": 0,
+      "to_node": "node:opt_guven",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_o2",
+      "from_node": "node:ayse",
+      "from_slot": 0,
+      "to_node": "node:opt_dagil",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_r1",
+      "from_node": "node:opt_guven",
+      "from_slot": 0,
+      "to_node": "node:rep_guven",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_a1",
+      "from_node": "node:rep_guven",
+      "from_slot": 0,
+      "to_node": "node:act_guven",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_e1",
+      "from_node": "node:act_guven",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_r2",
+      "from_node": "node:opt_dagil",
+      "from_slot": 0,
+      "to_node": "node:rep_dagil",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_e2",
+      "from_node": "node:rep_dagil",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

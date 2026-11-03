@@ -1,0 +1,196 @@
+{
+  "title": "koylu_muhabbet_yusuf",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:selam",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Yusuf",
+      "text": "Selam muhafız ağa... Ben Yusuf. Karabaş'ı gördün mü kapıda hiç?"
+    },
+    {
+      "id": "node:opt_ip",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -180.0)",
+      "character": "Muhafız",
+      "text": "Elindeki o ipi hiç bırakmaz mısın Yusuf?"
+    },
+    {
+      "id": "node:opt_ac",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 0.0)",
+      "character": "Muhafız",
+      "text": "Karnın aç mıdır, köyde sana bakan var mı?"
+    },
+    {
+      "id": "node:opt_hedef",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 180.0)",
+      "character": "Muhafız",
+      "text": "Büyüyünce ne olmak istersin?"
+    },
+    {
+      "id": "node:rep_ip",
+      "type": "DIALOGUE",
+      "position": "(1050.0, -180.0)",
+      "character": "Yusuf",
+      "text": "Bırakamam ağam... Bu ip Karabaş'ın boynundaydı. Babam Kösedağ'a giderken 'Keçiye iyi bak, ipi elinden düşürme' demişti. İpi bırakırsam babam yolunu bulamaz diye korkarım."
+    },
+    {
+      "id": "node:rep_ac",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 0.0)",
+      "character": "Yusuf",
+      "text": "Ayşe Bacı akşamları bir kase sıcak tarhana verir. Saruca Hatun da yün çorap ördü. Köyün insanı iyi amma... Ben yine de kapıya bakarım hep."
+    },
+    {
+      "id": "node:act_ac",
+      "type": "ACTION",
+      "position": "(1400.0, 0.0)",
+      "description": "Moral Desteği",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:rep_hedef",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 180.0)",
+      "character": "Yusuf",
+      "text": "Senin gibi muhafız olmak isterim! Elime koca bir mızrak alıp kapıda dururum; dağdan gelen mazlumlara kapıyı ben açarım."
+    },
+    {
+      "id": "node:act_hedef",
+      "type": "ACTION",
+      "position": "(1400.0, 180.0)",
+      "description": "Umut Artışı",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(1750.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_y_s",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:selam",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_y_o1",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_ip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_y_o2",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_ac",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_y_o3",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_hedef",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_y_r1",
+      "from_node": "node:opt_ip",
+      "from_slot": 0,
+      "to_node": "node:rep_ip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_y_e1",
+      "from_node": "node:rep_ip",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_y_r2",
+      "from_node": "node:opt_ac",
+      "from_slot": 0,
+      "to_node": "node:rep_ac",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_y_a2",
+      "from_node": "node:rep_ac",
+      "from_slot": 0,
+      "to_node": "node:act_ac",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_y_e2",
+      "from_node": "node:act_ac",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_y_r3",
+      "from_node": "node:opt_hedef",
+      "from_slot": 0,
+      "to_node": "node:rep_hedef",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_y_a3",
+      "from_node": "node:rep_hedef",
+      "from_slot": 0,
+      "to_node": "node:act_hedef",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_y_e3",
+      "from_node": "node:act_hedef",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

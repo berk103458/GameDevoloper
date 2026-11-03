@@ -1,6 +1,10 @@
 ## Köylü kartı mevcut ekran kartına eklenir; köyün gerçek iş API'leri kullanılır.
 class_name KoyluKarti
 extends RefCounted
+
+const KoyDiyalogYoneticisi = preload("res://src/diyalog/koy_diyalog_yoneticisi.gd")
+const KoyDiyalogPaneli = preload("res://src/arayuz/koy_diyalog_paneli.gd")
+
 static func ac(ekran: KoyEkrani, id: int) -> void:
 	var k := ekran.oturum.yonetim.koylu(id)
 	if k == null: return
@@ -58,6 +62,13 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	bos.disabled = k.is_yeri == KoyYonetimi.BOSTA
 	bos.pressed.connect(func() -> void: _ata(ekran, id, KoyYonetimi.BOSTA))
 	KoyGeciciIslerPaneli.ekle(ekran,sekmeler,k)
+	var konus := ekran._dugme("Muhabbet Et (Konuş)", v)
+	konus.pressed.connect(func() -> void:
+		ekran._kart_kapat()
+		var dy = KoyDiyalogYoneticisi.new()
+		KoyDiyalogPaneli.ac(ekran, dy)
+		dy.muhabbet_baslat(k, y)
+	)
 	var kapat := ekran._dugme("Kapat", v)
 	kapat.pressed.connect(ekran._kart_kapat)
 	kapat.grab_focus.call_deferred()

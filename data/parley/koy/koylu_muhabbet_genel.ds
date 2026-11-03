@@ -1,0 +1,333 @@
+{
+  "title": "koylu_muhabbet_genel",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:selam",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Köylü",
+      "text": "Selamün aleyküm muhafız ağa. Bir emrin, bir sualin var mıdır?"
+    },
+    {
+      "id": "node:opt_hal",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -270.0)",
+      "character": "Muhafız",
+      "text": "Hal hatır nasıldır? Keyfin yerinde mi?"
+    },
+    {
+      "id": "node:opt_is",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -90.0)",
+      "character": "Muhafız",
+      "text": "İşin gücün nasıl gidiyor? Görevinden memnun musun?"
+    },
+    {
+      "id": "node:opt_havadis",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 90.0)",
+      "character": "Muhafız",
+      "text": "Köyde ne konuşulur? Kulağına bir havadis geldi mi?"
+    },
+    {
+      "id": "node:opt_rica",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 270.0)",
+      "character": "Muhafız",
+      "text": "Bana söyleyeceğin mühim bir meramın var mı?"
+    },
+    {
+      "id": "node:cond_moral",
+      "type": "CONDITION",
+      "position": "(1050.0, -270.0)",
+      "description": "Moral Kontrolü",
+      "combiner": "ALL",
+      "conditions": [
+        {
+          "fact_ref": "res://src/diyalog/facts/koylu_moral_fact.gd",
+          "operator": 0,
+          "value": "iyi"
+        }
+      ]
+    },
+    {
+      "id": "node:rep_moral_iyi",
+      "type": "DIALOGUE",
+      "position": "(1400.0, -360.0)",
+      "character": "Köylü",
+      "text": "Çok şükür ağam, başımızda çatımız, soframızda aşımız var. Ocağınız daim tütsün."
+    },
+    {
+      "id": "node:rep_moral_kotu",
+      "type": "DIALOGUE",
+      "position": "(1400.0, -180.0)",
+      "character": "Köylü",
+      "text": "Nasıl olsun muhafız... Bellerimiz ağrır, içimiz buruktur. Yine de şükür ayaktayız."
+    },
+    {
+      "id": "node:act_moral_iyi",
+      "type": "ACTION",
+      "position": "(1750.0, -360.0)",
+      "description": "Moral Artışı",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:rep_is",
+      "type": "DIALOGUE",
+      "position": "(1050.0, -90.0)",
+      "character": "Köylü",
+      "text": "Gündüz tarlada ve tezgâhta alın teri dökeriz. Köyün işi bitmez; köylü çalışırsa köy doyar."
+    },
+    {
+      "id": "node:cond_havadis",
+      "type": "CONDITION",
+      "position": "(1050.0, 90.0)",
+      "description": "Havadis Kontrolü",
+      "combiner": "ALL",
+      "conditions": [
+        {
+          "fact_ref": "res://src/diyalog/facts/koy_havadis_fact.gd",
+          "operator": 0,
+          "value": "harami"
+        }
+      ]
+    },
+    {
+      "id": "node:rep_havadis_tehdit",
+      "type": "DIALOGUE",
+      "position": "(1400.0, 0.0)",
+      "character": "Köylü",
+      "text": "Dağ boğazında gece vakti meşale görmüşler ağam... Harami fırkası kol gezer derler, gözümüz kulağımız tetiktedir."
+    },
+    {
+      "id": "node:rep_havadis_sakin",
+      "type": "DIALOGUE",
+      "position": "(1400.0, 180.0)",
+      "character": "Köylü",
+      "text": "Ortalık şimdilik sakindir muhafız. Yalnız kışın ayazı erken inecek der ihtiyarlar."
+    },
+    {
+      "id": "node:rep_rica",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 270.0)",
+      "character": "Köylü",
+      "text": "Sağlığın ve nizamın daim olsun muhafız ağa. Bizim derdimiz ekmektir, adaletiniz eksik olmasın."
+    },
+    {
+      "id": "node:act_rica",
+      "type": "ACTION",
+      "position": "(1400.0, 270.0)",
+      "description": "Adalet/Moral Etkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(2100.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_s_1",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:selam",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_s_opt1",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_hal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_s_opt2",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_is",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_s_opt3",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_havadis",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_s_opt4",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_rica",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_opt1_cond",
+      "from_node": "node:opt_hal",
+      "from_slot": 0,
+      "to_node": "node:cond_moral",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_cond_true",
+      "from_node": "node:cond_moral",
+      "from_slot": 0,
+      "to_node": "node:rep_moral_iyi",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_cond_false",
+      "from_node": "node:cond_moral",
+      "from_slot": 1,
+      "to_node": "node:rep_moral_kotu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_iyi_act",
+      "from_node": "node:rep_moral_iyi",
+      "from_slot": 0,
+      "to_node": "node:act_moral_iyi",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_iyi_end",
+      "from_node": "node:act_moral_iyi",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_kotu_end",
+      "from_node": "node:rep_moral_kotu",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_opt2_rep",
+      "from_node": "node:opt_is",
+      "from_slot": 0,
+      "to_node": "node:rep_is",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_is_end",
+      "from_node": "node:rep_is",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_opt3_cond",
+      "from_node": "node:opt_havadis",
+      "from_slot": 0,
+      "to_node": "node:cond_havadis",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_cond_h_true",
+      "from_node": "node:cond_havadis",
+      "from_slot": 0,
+      "to_node": "node:rep_havadis_tehdit",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_cond_h_false",
+      "from_node": "node:cond_havadis",
+      "from_slot": 1,
+      "to_node": "node:rep_havadis_sakin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_ht_end",
+      "from_node": "node:rep_havadis_tehdit",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_hs_end",
+      "from_node": "node:rep_havadis_sakin",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_opt4_rep",
+      "from_node": "node:opt_rica",
+      "from_slot": 0,
+      "to_node": "node:rep_rica",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_rica_act",
+      "from_node": "node:rep_rica",
+      "from_slot": 0,
+      "to_node": "node:act_rica",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_rica_end",
+      "from_node": "node:act_rica",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}
