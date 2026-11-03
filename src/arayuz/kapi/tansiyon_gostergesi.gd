@@ -33,6 +33,7 @@ func guncelle(deger: int, kilitli: bool = false) -> void:
 	var bolge := 0 if tansiyon < 4 else 1 if tansiyon < 8 else 2
 	etiket.text = "Tansiyon: %d / 10 — %s%s" % [tansiyon, ["Sakin", "Gergin", "Panik"][bolge], " · kabul kapalı" if kilitli else ""]
 	bar.value = tansiyon
+	preload("res://src/arayuz/kapi/tansiyon_bicimi.gd").uygula(self, bolge)
 	var dolgu := StyleBoxFlat.new()
 	dolgu.bg_color = RENKLER[bolge]
 	dolgu.set_corner_radius_all(3)

@@ -82,6 +82,7 @@ func _ready() -> void:
 	grafik.ayarlar = ayarlar
 	add_child(grafik)
 	_yenile()
+	preload("res://src/arayuz/ayarlar/ayar_sekmeleri.gd").kur(self)
 	ilk.grab_focus.call_deferred()
 
 

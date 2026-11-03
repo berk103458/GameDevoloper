@@ -87,9 +87,38 @@ def validate_text(text: str) -> list[str]:
 def validate_file(path: Path) -> list[str]:
     """Read a UTF-8 CSV and return diagnostics, including read/decode failures."""
     try:
-        return validate_text(path.read_text(encoding="utf-8-sig"))
+        text = path.read_text(encoding="utf-8-sig")
     except (OSError, UnicodeError) as exc:
         return [f"cannot read {path}: {exc}"]
+    errors = validate_text(text)
+    if not errors and path.name == "metinler.csv":
+        errors.extend(ayar_aciklama_hatalari(path, read_texts(path)))
+    return errors
+
+
+def ayar_aciklama_hatalari(path: Path, texts: dict[str, str]) -> list[str]:
+    """AYR-03: her ayar anahtarının `arayuz.ayarlar.<anahtar>_aciklama` satırı vardır."""
+    if len(path.resolve().parents) < 3:
+        return []
+    root = path.resolve().parents[2]
+    cekirdek = root / "src/sistemler/ayarlar.gd"
+    ek = root / "src/sistemler/ayarlar_ek.gd"
+    if not cekirdek.is_file() or not ek.is_file():
+        return []
+    hatalar: list[str] = []
+    for kaynak in (cekirdek, ek):
+        for anahtar in _ayar_anahtarlari(kaynak.read_text(encoding="utf-8")):
+            aciklama = f"arayuz.ayarlar.{anahtar}_aciklama"
+            if aciklama not in texts:
+                hatalar.append(f"{kaynak.name}: missing description key {aciklama}")
+    return hatalar
+
+
+def _ayar_anahtarlari(kaynak: str) -> list[str]:
+    eslesen = re.search(r"const VARSAYILAN := \{([^}]*)\}", kaynak)
+    if eslesen is None:
+        return []
+    return re.findall(r'&"([a-z0-9_]+)"\s*:', eslesen.group(1))
 
 
 def read_texts(path: Path) -> dict[str, str]:

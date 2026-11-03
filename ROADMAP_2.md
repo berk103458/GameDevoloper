@@ -4662,7 +4662,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.1 Ayarlar ekranının yapısı
 
-- [/] **AYR-01:** (Cursor) Ayarlar beş sekmedir.
+- [x] **AYR-01:** (Cursor) Ayarlar beş sekmedir.
   - Ne: Oyun, Görüntü, Okuma, Ses, Kontroller (45) ve Dil (46) için sekmeler; bugünkü tek düz liste yerine. Her sekme kendi dosyasıdır; `ayarlar_ekrani.gd` yalnız sekme kabuğunu çağırır.
   - Kabul: `ayarlar_ekrani.gd` içinde `SATIRLAR` kalır (geri uyum), sekmeler yeni dosyadan yüklenir. Test: sekme sayısı 6, her sekme bir `.gd`.
   - Bağımlılık: ARY-02. Boyut: M.
@@ -4674,13 +4674,13 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: yok. Boyut: S.
   - Dosya: yeni: `src/sistemler/ayarlar_ek.gd`; `ana.gd` tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-03:** (Cursor) Her satırın açıklaması vardır.
+- [x] **AYR-03:** (Cursor) Her satırın açıklaması vardır.
   - Ne: seçili satırın altında tek satırlık açıklama (`arayuz.ayarlar.<anahtar>_aciklama`); ne yaptığı ve varsayılanı yazar.
   - Kabul: her anahtar için açıklama anahtarı var; `metin_dogrula.py` eksik açıklamayı hata sayar. Test: tarama.
   - Bağımlılık: AYR-01. Boyut: S.
   - Dosya: `data/metin/metinler.csv`; `tools/metin_dogrula.py` tek kural.
   - Asset: asset gerekmedi.
-- [/] **AYR-04:** (Cursor) Ayar anında uygulanır, kapanınca yazılır.
+- [x] **AYR-04:** (Cursor) Ayar anında uygulanır, kapanınca yazılır.
   - Ne: mevcut davranış (`ayarlar_ekrani.gd` başlık yorumu) korunur ve yeni sekmelere de uygulanır; "Uygula" düğmesi yoktur.
   - Kabul: değer değişince `degisti` sinyali; `yaz()` yalnız `_kapat()`'ta. Test: birim.
   - Bağımlılık: AYR-01. Boyut: S.
@@ -4701,43 +4701,43 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.2 Okuma konforu
 
-- [/] **AYR-07:** (Cursor) Metin ölçeğine 175 eklenir.
+- [x] **AYR-07:** (Cursor) Metin ölçeğine 175 eklenir.
   - Ne: `GECERLI.metin_olcegi` 100/125/150'ye 175 eklenir (ayrı dosyadan). Tüm paneller `ayarlar.boyut()` kullandığı sürece taşma `yapi_karti.gd:59` kalıbıyla kaydırmaya düşer.
   - Kabul: 175'te hiçbir metin kesilmez; TST-10 arayüz tarayıcısı üç çözünürlükte 0 taşma. Test: tarayıcı.
   - Bağımlılık: AYR-02, TST-10. Boyut: M.
   - Dosya: `src/sistemler/ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-08:** (Cursor) Satır aralığı ayarı.
+- [x] **AYR-08:** (Cursor) Satır aralığı ayarı.
   - Ne: `satir_araligi` anahtarı (normal/geniş); `RichTextLabel` `line_separation` tema sabitine yazılır.
   - Kabul: geniş modda satır aralığı +6 px (öneri). Test: ekran.
   - Bağımlılık: AYR-02, ARY-02. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`; tema kaynağına tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-09:** (Cursor) Belirme hızı Söz motoruna bağlanır.
+- [x] **AYR-09:** (Cursor) Belirme hızı Söz motoruna bağlanır.
   - Ne: `belirme_ms()` yeni Söz motorunun (DIY-03) satır belirmesinde tek kaynaktır; `aninda` seçildiğinde satır tam gelir, zar animasyonu (ZAR-01) da kısalır.
   - Kabul: `aninda`'da satır gecikmesi 0 ms, zar animasyonu ≤ 200 ms. Test: zamanlayıcı.
   - Bağımlılık: DIY-03, ZAR-01. Boyut: S.
   - Dosya: Söz motoru görünümüne tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-10:** (Cursor) Okunmuş satır işareti.
+- [x] **AYR-10:** (Cursor) Okunmuş satır işareti.
   - Ne: Söz motorunda daha önce görülmüş seçenek soluk renkle işaretlenir (kişi hafızası DIY-11 ile aynı kayıt). Anahtar `okunmus_isaret` açık/kapalı.
   - Kabul: ikinci ziyarette aynı seçenek soluk. Test: iki ziyaret.
   - Bağımlılık: DIY-11. Boyut: S.
   - Dosya: Söz motoru görünümüne tek satır; `ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-11:** (Cursor) Konuşma geçmişi kaydırılabilir.
+- [x] **AYR-11:** (Cursor) Konuşma geçmişi kaydırılabilir.
   - Ne: sorgu sırasında önceki satırlar yukarı kaydırılarak okunur (beyan defteri DIY-07'den ayrı, yalnız bu ziyaretin akışı). Fare tekeri ve gamepad sağ çubuk.
   - Kabul: 20 satırlık sorguda ilk satıra dönülür. Test: ekran.
   - Bağımlılık: DIY-03. Boyut: S.
   - Dosya: yeni: `src/arayuz/kapi/konusma_gecmisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-12:** (Cursor) İpuçları ve deneyimli oyuncu anahtarı.
+- [x] **AYR-12:** (Cursor) İpuçları ve deneyimli oyuncu anahtarı.
   - Ne: Oyun sekmesinde `ipuclari` (açık/kapalı) ve `kademeli_hud` (açık/kapalı); "ipuçlarını sıfırla" düğmesi `ogretici.gorulen`'i temizler. Bölüm 33 bunları okur.
   - Kabul: kapalıyken ipucu 0; sıfırla sonrası yeni oyunda ipucu tekrar gelir. Test: iki koşu.
   - Bağımlılık: OGR-07, OGR-29. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`; `src/arayuz/ayarlar/oyun_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-13:** (Cursor) Font ağırlığı seçimi.
+- [x] **AYR-13:** (Cursor) Font ağırlığı seçimi.
   - Ne: Alegreya değişken font `wght` ekseni kullanılır (`tema.font(agirlik)`); `metin_agirligi` normal (400) / kalın (500). Yeni font dosyası yok.
   - Kabul: kalın seçilince gövde 500. Test: tema sorgusu.
   - Bağımlılık: AYR-02. Boyut: S.
@@ -4746,37 +4746,37 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.3 Görsel erişilebilirlik
 
-- [/] **AYR-14:** (Cursor) Renk körlüğü paleti.
+- [x] **AYR-14:** (Cursor) Renk körlüğü paleti.
   - Ne: `renk_paleti` anahtarı: olağan / deuteranopi / protanopi / tritanopi. Dört bar, tansiyon göstergesi, kaynak göstergesi ve zar rengini etkileyen palet ARY-02 tema kaynağının ikinci tablosudur; `renkler.gd` değişmez.
   - Kabul: palet değişince `Renkler` sabitleri yerine tema kaynağı okunur; dört palette bar renkleri çift çift ayrışır (ΔE ≥ 20, öneri). Test: ekran + sayı.
   - Bağımlılık: ARY-02. Boyut: M.
   - Dosya: yeni: `src/arayuz/tema/palet.gd`; yeni: `data/arayuz/paletler.json`.
   - Asset: asset gerekmedi.
-- [/] **AYR-15:** (Cursor) Renk tek bilgi taşıyıcı değildir.
+- [x] **AYR-15:** (Cursor) Renk tek bilgi taşıyıcı değildir.
   - Ne: bar, tansiyon ve kaynak durumu renkle birlikte bir biçim ya da harf taşır (bar adının ilk harfi, tansiyonda üç kademe çizgi). Palet seçiminden bağımsız açıktır.
   - Kabul: `tansiyon_gostergesi.gd` üç kademede üç farklı çizgi sayısı; `barlar.gd` görünümünde harf. Test: ekran.
   - Bağımlılık: AYR-14. Boyut: S.
   - Dosya: yeni: `src/arayuz/kapi/tansiyon_bicimi.gd`; bar görünümüne tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-16:** (Cursor) Yüksek kontrast modu.
+- [x] **AYR-16:** (Cursor) Yüksek kontrast modu.
   - Ne: `yuksek_kontrast` anahtarı: panel dolgusu tam opak, kenar kalınlığı +1, metin rengi tam `KUL` yerine beyaz. Tema kaynağı ikinci değer kümesi.
   - Kabul: açıkken metin/zemin kontrast oranı ≥ 7:1 (WCAG AAA, öneri). Test: renk ölçümü.
   - Bağımlılık: ARY-02. Boyut: S.
   - Dosya: `src/arayuz/tema/palet.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-17:** (Cursor) Zar sonucu rakamla da yazılır.
+- [x] **AYR-17:** (Cursor) Zar sonucu rakamla da yazılır.
   - Ne: görünür zar (ZAR-01) sonucunu yalnız yüzle değil rakamla ve "geçti/kaldı" sözüyle gösterir; `belirme_hizi aninda` ile uyumlu.
   - Kabul: zar panelinde rakam ve söz 1. Test: ekran.
   - Bağımlılık: ZAR-01. Boyut: S.
   - Dosya: zar görünümüne tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-18:** (Cursor) Hareket azaltma.
+- [x] **AYR-18:** (Cursor) Hareket azaltma.
   - Ne: `hareket_azalt` anahtarı: 12 fps adımlı hareket (`adim.gd`) korunur, ancak ekran sarsıntısı, kamera geçişi (`kapi_kamera_gecisi.gd`) ve panel kayma animasyonları anında olur.
   - Kabul: açıkken `kapi_kamera_gecisi` süresi 0. Test: zamanlayıcı.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`; kamera geçişine tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-19:** (Cursor) İmleç ve odak çerçevesi büyütme.
+- [x] **AYR-19:** (Cursor) İmleç ve odak çerçevesi büyütme.
   - Ne: `odak_cercevesi` normal/kalın; klavye ve gamepad odağı (`ui_*` eylemleri) kalın modda 3 px kenar.
   - Kabul: odaklı düğme kenarı 3 px. Test: ekran.
   - Bağımlılık: ARY-02, GIR-06. Boyut: S.
@@ -4785,13 +4785,13 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.4 Ses ayarları (yalnız var olan üç bus)
 
-- [/] **AYR-20:** (Cursor) Ses sekmesi üç kaydırıcıdır.
+- [x] **AYR-20:** (Cursor) Ses sekmesi üç kaydırıcıdır.
   - Ne: `ses_ana`, `ses_muzik`, `ses_efekt` (`BUSLAR`) 0–10 kaydırıcı olarak taşınır; ok tuşlarıyla da değişir. Yeni bus yok.
   - Kabul: üç kaydırıcı; `AudioServer` bus adları `BUSLAR` ile aynı. Test: birim.
   - Bağımlılık: AYR-01. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/ses_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-21:** (Cursor) Sessizde görsel karşılık.
+- [x] **AYR-21:** (Cursor) Sessizde görsel karşılık.
   - Ne: `ses_ana` 0 iken tansiyon müziği (`tansiyon_muzigi.gd`) kademe geçişi tansiyon göstergesinde bir yanıp sönmeyle duyurulur; başka görsel ses karşılığı yok.
   - Kabul: ses 0 ve kademe geçişi → gösterge 1 yanıp sönme. Test: ekran.
   - Bağımlılık: AYR-15. Boyut: S.
@@ -4806,31 +4806,31 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.5 Oyun ayarları
 
-- [/] **AYR-23:** (Cursor) Zorluk seçimi.
+- [x] **AYR-23:** (Cursor) Zorluk seçimi.
   - Ne: DEN-04 çarpanı (kolay/olağan/sıkı) Oyun sekmesinde ve yeni oyun ekranında; oyun içinde değiştirilebilir, değişim Bölüm 39 defterine yazılır. DEN-72 bu maddeyle kapanır.
   - Kabul: değer `denge.json zorluk` anahtarlarından biri; kayıtta tutulur. Test: birim.
   - Bağımlılık: DEN-04, OGR-50. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/oyun_sekmesi.gd`; kayıt alanı `zorluk`.
   - Asset: asset gerekmedi.
-- [/] **AYR-24:** (Cursor) Köy hızı varsayılanı.
+- [x] **AYR-24:** (Cursor) Köy hızı varsayılanı.
   - Ne: `koy_hizi_varsayilan` 1/2/3: köy ekranı açılınca `_hiz_sec` bu değeri alır.
   - Kabul: ayar 2 ise açılışta `Engine.time_scale` 2. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`; `koy_ekrani.gd` tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-25:** (Cursor) Olayda otomatik duraklat.
+- [x] **AYR-25:** (Cursor) Olayda otomatik duraklat.
   - Ne: `olayda_duraklat` açıkken köy olayı (`OlayVerisi`) açılınca hız 0'a iner; kapanınca eski hız.
   - Kabul: olay paneli açılınca `paused` true. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: olay paneline tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-26:** (Cursor) Gece raporu otomatik kapanmaz.
+- [x] **AYR-26:** (Cursor) Gece raporu otomatik kapanmaz.
   - Ne: `rapor_bekle` açıkken gece raporu oyuncu kapatana kadar durur (varsayılan açık).
   - Kabul: açıkken rapor zamanlayıcısı 0. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: rapor panelinde tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-27:** (Cursor) Karar onayı.
+- [x] **AYR-27:** (Cursor) Karar onayı.
   - Ne: `karar_onayi` açıkken kabul/ret düğmesi ikinci tıklama ister (yanlış tıklamaya karşı). Varsayılan kapalı.
   - Kabul: açıkken tek tıkla karar 0. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
@@ -4851,7 +4851,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-28. Boyut: S.
   - Dosya: yeni: `src/arayuz/kayit_yuva_karti.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-30:** (Cursor) Hızlı kayıt yalnız köyde.
+- [x] **AYR-30:** (Cursor) Hızlı kayıt yalnız köyde.
   - Ne: `hizli_kayit` eylemi (Bölüm 45, varsayılan F5) köy ekranında kayıt yazar; sorgu sırasında kapalıdır (KAY-30 ile uyumlu). Yazım atomiktir (SYS-02).
   - Kabul: sorgu ortasında eylem 0 etki; köyde dosya saati değişir. Test: birim.
   - Bağımlılık: KAY-30, GIR-03. Boyut: S.
@@ -4878,25 +4878,25 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.7 Yeni oyun ekranı
 
-- [/] **AYR-34:** (Cursor) Yeni oyun tek ekrandır.
+- [x] **AYR-34:** (Cursor) Yeni oyun tek ekrandır.
   - Ne: `arayuz.menu.yeni` → tek ekran: muhafızın geçmişi (ACL-06), zorluk (AYR-23, ilk oyunda gizli OGR-50), yuva seçimi (AYR-28). Başka seçenek yok.
   - Kabul: ekranda üç alan; ilk oyunda iki. Test: ekran.
   - Bağımlılık: ACL-06, AYR-23, AYR-28. Boyut: S.
   - Dosya: yeni: `src/arayuz/yeni_oyun_ekrani.gd`; `menu_ekrani.gd` tek satır.
   - Asset: asset gerekmedi.
-- [/] **AYR-35:** (Cursor) Tohum gösterilir, girilir.
+- [x] **AYR-35:** (Cursor) Tohum gösterilir, girilir.
   - Ne: oyun tohumu ekranda okunur ve isteğe bağlı girilir (TST-06 ikizi için). Varsayılan rastgele.
   - Kabul: aynı tohumla iki oyun ilk altı gece aynı kuyruğu üretir. Test: ikiz.
   - Bağımlılık: TST-06. Boyut: S.
   - Dosya: `src/arayuz/yeni_oyun_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-36:** (Cursor) Dolu yuvaya yazma onayı.
+- [x] **AYR-36:** (Cursor) Dolu yuvaya yazma onayı.
   - Ne: seçilen yuva doluysa üzerine yazma onayı; onaysız geri döner.
   - Kabul: dolu yuvada tek tıkla başlangıç 0. Test: birim.
   - Bağımlılık: AYR-28. Boyut: S.
   - Dosya: `src/arayuz/yeni_oyun_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-37:** (Cursor) Önceki oyunların izi.
+- [x] **AYR-37:** (Cursor) Önceki oyunların izi.
   - Ne: `oyuncu_izi.cfg` (OGR-47) alınan sonları ve oyun sayısını tek satırla gösterir (OMR-47).
   - Kabul: satır var/yok iz dosyasına göre. Test: iki durum.
   - Bağımlılık: OMR-47. Boyut: S.
@@ -4905,31 +4905,31 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.8 Görüntü ve performans ayarları
 
-- [/] **AYR-38:** (Cursor) Pencere boyutu seçimi.
+- [x] **AYR-38:** (Cursor) Pencere boyutu seçimi.
   - Ne: `ekran_modu pencere` iken 1280×720 / 1600×900 / 1920×1080 seçimi (`project.godot` override 1600×900). Stretch `canvas_items/expand` korunur.
   - Kabul: seçim `DisplayServer.window_set_size`; tam ekranda seçici pasif. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/goruntu_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-39:** (Cursor) Dikey eşitleme ve kare sınırı.
+- [x] **AYR-39:** (Cursor) Dikey eşitleme ve kare sınırı.
   - Ne: `vsync` açık/kapalı (`DisplayServer.window_set_vsync_mode`), `kare_siniri` 30/60/kapalı (`Engine.max_fps`).
   - Kabul: değer anında uygulanır; `performans_seridi.gd` okur. Test: birim.
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/goruntu_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-40:** (Cursor) Grafik profili ve 3B çözünürlük buraya taşınır.
+- [x] **AYR-40:** (Cursor) Grafik profili ve 3B çözünürlük buraya taşınır.
   - Ne: `grafik_ayarlari_paneli.gd` iki seçicisi Görüntü sekmesine girer; panel dosyası ince adaptör kalır.
   - Kabul: aynı anahtarlar, aynı etkiler (`grafik_profili_adaptoru.gd`). Test: birim.
   - Bağımlılık: AYR-01. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/goruntu_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-41:** (Cursor) Düşük profil otomatik önerisi.
+- [x] **AYR-41:** (Cursor) Düşük profil otomatik önerisi.
   - Ne: `performans_seridi` üç gece ortalaması 30 fps altında kalırsa bir kez "düşük profil?" satırı; otomatik değiştirmez.
   - Kabul: öneri bir kez; `grafik_profili` kendi kendine değişmez. Test: birim.
   - Bağımlılık: TEK-10. Boyut: S.
   - Dosya: yeni: `src/sistemler/profil_onerisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-42:** (Cursor) Arayüz ölçeği 3B'den ayrı.
+- [x] **AYR-42:** (Cursor) Arayüz ölçeği 3B'den ayrı.
   - Ne: `cozunurluk_3d` 3B sahneyi küçültürken arayüz (`canvas_items`) tam çözünürlükte kalır; madde bunu test eder.
   - Kabul: `cozunurluk_3d 50` iken metin keskinliği değişmez. Test: ekran.
   - Bağımlılık: yok. Boyut: S.
@@ -4950,7 +4950,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-45:** (Cursor) Ayarlar kayıt dosyasına girmez.
+- [x] **AYR-45:** (Cursor) Ayarlar kayıt dosyasına girmez.
   - Ne: zorluk (AYR-23) dışında hiçbir ayar oyun kaydında durmaz; kayıt taşınınca ayarlar makineye aittir.
   - Kabul: kayıt JSON'unda ayar anahtarı 0 (zorluk hariç). Test: tarama.
   - Bağımlılık: AYR-23. Boyut: S.
@@ -4962,7 +4962,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-02. Boyut: S.
   - Dosya: `src/sistemler/ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-47:** (Cursor) Ayar değişimi tester günlüğüne düşer.
+- [x] **AYR-47:** (Cursor) Ayar değişimi tester günlüğüne düşer.
   - Ne: TST-03 kancasına `AYAR` satırı: hangi anahtar ne oldu.
   - Kabul: değişim başına bir satır. Test: birim.
   - Bağımlılık: TST-03. Boyut: S.
@@ -4971,7 +4971,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
 
 ### 35.10 Sınırlar ve kapanış
 
-- [/] **AYR-48:** (Cursor) `ayarlar.gd` ve `tema.gd` değişmez.
+- [x] **AYR-48:** (Cursor) `ayarlar.gd` ve `tema.gd` değişmez.
   - Ne: iki çekirdek dosyanın diff'i 0; yeni anahtar, palet ve sekme ayrı dosyadadır.
   - Kabul: `git diff` iki dosyada 0 (uygulama fazında). Test: inceleme.
   - Bağımlılık: AYR-02, AYR-14. Boyut: S.
@@ -4983,7 +4983,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [/] **AYR-50:** (Cursor) Tuş atama ve dil bu bölümde değildir.
+- [x] **AYR-50:** (Cursor) Tuş atama ve dil bu bölümde değildir.
   - Ne: Kontroller sekmesi Bölüm 45 (GIR), Dil sekmesi Bölüm 46 (YER) içindedir; burada yalnız sekme yuvası vardır.
   - Kabul: `ayar_sekmeleri.gd` iki boş yuva. Test: ekran.
   - Bağımlılık: GIR-01, YER-01. Boyut: S.
@@ -4995,7 +4995,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: YER-02. Boyut: S.
   - Dosya: `data/metin/metinler.csv`.
   - Asset: asset gerekmedi.
-- [/] **AYR-52:** (Cursor) Kapanış testi.
+- [x] **AYR-52:** (Cursor) Kapanış testi.
   - Ne: tek koşu: altı sekme açılır, her anahtar değiştirilip geri alınır, dosya yazılır, yeniden okunur, değerler eşit; üç yuvaya kayıt yazılır ve okunur.
   - Kabul: dört iddia tek testte. Test: `tests/oto/ayarlar_kontrol.tscn`.
   - Bağımlılık: AYR-01…51. Boyut: S.

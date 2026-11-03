@@ -1,0 +1,59 @@
+## AYR-52: altı sekme, anahtar gidiş-dönüş, dosya ve üç yuva.
+extends Node
+
+const YOL := "user://oto_ayarlar_kontrol.cfg"
+const KOK := "user://oto_ayar_yuva/"
+const Sekmeler = preload("res://src/arayuz/ayarlar/ayar_sekmeleri.gd")
+const Yuva = preload("res://src/sistemler/kayit_yuvalari.gd")
+
+var hata := 0
+
+
+func _ready() -> void:
+	_temizle()
+	_kontrol(Sekmeler.sekme_sayisi() == 6, "altı sekme")
+	for yol in Sekmeler.betikler():
+		var betik := load(yol) as GDScript
+		_kontrol(betik != null, "sekme yüklenir " + yol)
+		var sayfa: Control = betik.new()
+		_kontrol(sayfa != null, "sekme örneği " + yol)
+		sayfa.free()
+	var a := Ayarlar.new(YOL)
+	a.yukle()
+	AyarlarEk.bagla(a)
+	var once: Dictionary = a.degerler.duplicate(true)
+	for anahtar in AyarlarEk.VARSAYILAN:
+		var liste: Array = AyarlarEk.GECERLI[anahtar]
+		var simdiki: Variant = a.al(anahtar)
+		var diger: Variant = liste[0] if simdiki != liste[0] else liste[1]
+		_kontrol(AyarlarEk.ayarla(a, anahtar, diger), "anahtar değişir " + String(anahtar))
+		_kontrol(AyarlarEk.ayarla(a, anahtar, simdiki), "anahtar geri alınır " + String(anahtar))
+	a.yaz()
+	var b := Ayarlar.new(YOL)
+	b.yukle()
+	AyarlarEk.bagla(b)
+	var esit := true
+	for anahtar in AyarlarEk.VARSAYILAN:
+		if b.al(anahtar) != once[anahtar]:
+			esit = false
+	_kontrol(esit, "dosya yazılıp okununca değerler eşit")
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(KOK))
+	var yuvalar := Yuva.new(KOK)
+	for n in [1, 2, 3]:
+		_kontrol(yuvalar.yaz(n, {"surum": Oturum.KAYIT_SURUMU, "gun": n, "nufus": n + 3, "perde": 1}), "yuva yazılır %d" % n)
+		var okunan := yuvalar.oku(n)
+		_kontrol(int(okunan.get("gun", -1)) == n, "yuva okunur %d" % n)
+	_temizle()
+	print("AYARLAR KONTROL: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
+	get_tree().quit(hata)
+
+
+func _temizle() -> void:
+	if FileAccess.file_exists(YOL):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(YOL))
+
+
+func _kontrol(olur: bool, mesaj: String) -> void:
+	if not olur:
+		hata += 1
+		push_error(mesaj)
