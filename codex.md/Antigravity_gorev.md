@@ -116,3 +116,73 @@ Festive dalına `.agents/skills/` altında Godot 4.7 skill'leri eklendi (router 
   - `"Işık, İzmir'den gelen ışığı çağırdı; göğsü ağrıyan kişi kapıda üşüdü."` cümlesi ve tüm ç, ğ, ı, İ, ö, ş, ü harfleri iki sistemde de hem dosya yüklemesinde hem çalışan sahnede 0 bozulmayla doğrulandı.
 - **Karar ve Öneri:**
   - Parley ve Theatre'ı ana oyuna entegre etme; mevcut iki katmanlı JSON + CHR mimarisi korunmalı, ileride çoklu satırlı yan anlatılar gerekirse Theatre yalnız ince bir adaptörle değerlendirilebilir.
+
+---
+
+# Görev 3 — Tüm diyalogların sahipliği: insanlaştırma, seçenek planı ve köy sohbetleri
+
+Veren: Ahmet (Kaşif aracılığıyla), 3 Kasım 2026
+Ajan: Antigravity
+Dal: `feature/diyalog-yeniden-yazim` (Kaşif açtı; `feature/diyalog-eklenti-denemesi` üstüne kurulu, Parley içinde). Festive'e (`claude/festive-volta-li1sfm`) doğrudan push YOK.
+İlerleme dosyası: `codex.md/Antigravity_ilerleme.md` (aşağıda tarif edildi). Limit yüzünden yarıda kalırsan bir sonraki çalıştırmada önce bu dosyayı oku ve kaldığın yerden devam et.
+
+## 0. Sahiplik kararı
+
+Ahmet'in kararı: Kapı Muhafızı'ndaki **bütün diyaloglar artık senin sorumluluğunda**. Kapıya gelen ziyaretçiler, köylüler, olay sahneleri, köy içi sohbetler — hepsi. Daha önce diyalog yazan ajanların (Muharrir, Kalfa, Claude) bıraktığı metinleri devralıyorsun; onları çöpe atma, iyileştir.
+
+Başlamadan önce `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `ROADMAP` dosyaları, `Roadmap-2/DIYALOG_URETIM_ARASTIRMASI.md`, `codex.md/Muharrir.md` ve `.agents/skills/dialogue-systems/` oku. Proje kuralları her zaman bu görevden ve yeteneklerden önce gelir (commit disiplini, ROADMAP işaretleme, asset kuralları, Türkçe karakter kuralları).
+
+## 1. Ahmet'in istekleri (aynen)
+
+1. **Diyalogları geliştir ve insanlaştır**: tüm karakterler için. Robot gibi, bilgi veren kalıp cümleler değil; her karakterin kendi sesi, ağzı, derdi, yalanı, korkusu olsun. Dönemine ve yöresine uygun ama okunabilir Türkçe.
+2. **Ekstra seçenekler, seçimler ve sonuçları planla. Büyük düşün.** Oyuncunun kapıdaki ve köydeki seçimleri gerçekten bir şey değiştirsin: köy barları (moral, adalet, akçe, asayiş), tansiyon, ipucular, bayraklar, sonraki gelen kişi, karakterlerin sonraki diyalogları.
+3. **Karakterler seçimlere göre düzgün cevap versin.** Oyuncu kabaysa kırılsın, rüşvet reddedilirse buna uygun tepki versin, daha önce kapıdan geri çevrilen biri köyde/sonraki gün bunu hatırlasın.
+4. **Gereksiz seçenekleri ve diyalogları kaldır.** Aynı şeyi soran, hiçbir sonuca bağlanmayan, oyuncuya yeni bilgi vermeyen dalları sil veya birleştir. Ne kaldırdığını gerekçesiyle kaydet.
+5. **Köy içi karakter sohbet sekansları**: köylüler kendi aralarında konuşsun (oyuncu yanından geçerken veya belirli olaylardan sonra tetiklenen kısa sahneler). İçerikleri oyunun durumuna bağlı olsun: son kabul edilen/reddedilen kişiler, hastalık, kıtlık, barların durumu.
+6. **Tıklayınca muhabbet**: köy sekansında bir köylüye tıklayınca onunla konuşabilmeliyim. Her köylünün durumuna göre değişen, birkaç seçenekli kısa bir muhabbet ağacı olsun.
+
+## 2. Teknik yön
+
+- **Kapı diyalogları** mevcut sistemde kalır (diyalog JSON + `CHR_*.tres`, tansiyon/zar/eşik mekaniği). Görev 2'deki kendi kararın buydu; bozma.
+- **Köy içi sohbetler ve tıklayınca muhabbet için Parley kullan** (addons/parley, v2.1.0). Görev 2 kararındaki "bağımsız NPC sahneleri" tam olarak bu. Oyuna bağlantıyı `ParleyFactInterface` / `ParleyActionInterface` ile küçük adaptörler üzerinden kur; çekirdeğe (Oturum, KoyYonetimi) doğrudan Parley bağımlılığı sokma.
+- Parley `.ds` dosyalarında düğüm koordinatlarını ızgara kuralıyla yaz (ana hat x += 350, seçenekler y += 180), ağaçları sahne başına böl (100+ düğümlü tek dosya yok).
+- Köylüye tıklama: köy sahnesindeki köylü düğümlerine tıklama alanı + Parley diyaloğunu açan küçük bir bileşen ekle. Kamera/girdi akışını bozma; diyalog açıkken köy simülasyonu durumunu proje kuralına göre yönet.
+- Yeni görsel asset üretme. Gerekirse yer tutucu kullan ve `docs/EKSIK_ASSET_ENVANTERI.md` kuralına uy.
+
+## 3. Çalışma sırası
+
+### Aşama A — Envanter ve plan (önce bu, kod yazmadan)
+`docs/DIYALOG_ANA_PLANI.md` yaz:
+- Oyundaki bütün karakterlerin listesi (kapı ziyaretçileri CHR_xxx, köylüler, olay karakterleri), her biri için: kim, sesi/konuşma tarzı, derdi, gizlediği şey, mevcut diyaloğun sorunları.
+- Seçim–sonuç haritası: hangi seçim hangi barı/bayrağı/tansiyonu değiştirir, kim neyi hatırlar, hangi sonraki diyalog açılır. Tablo ve gerekirse mermaid diyagram.
+- Kaldırılacak/birleştirilecek seçenek ve diyalogların listesi ve gerekçesi.
+- Köy içi sohbet sekansları listesi: hangi karakterler, ne zaman tetiklenir, hangi oyun durumuna bağlı.
+- Tıklayınca muhabbet: her köylü için ağaç taslağı.
+- Teknik plan: dosya yolları, adaptör sınıfları, test planı.
+Planı commit + push et, ilerleme dosyasına "Aşama A tamam" yaz.
+
+### Aşama B — Kapı diyaloglarını yeniden yazma
+Karakterleri 4-5'lik partiler halinde ele al. Her parti: metni insanlaştır, gereksiz dalları kaldır, yeni seçim/sonuçları ekle, seçimlere göre tepki dallarını yaz, testleri koştur, commit + push, ilerleme dosyasını güncelle.
+
+### Aşama C — Köy sistemi (Parley)
+Adaptörler, tıklama bileşeni, ilk köylü muhabbeti uçtan uca çalışır hale gelsin (headless test ile). Sonra köy içi sohbet sekansları ve kalan köylüler, yine partiler halinde.
+
+### Aşama D — Bütünlük kontrolü
+Seçim–sonuç haritasındaki her bağlantı gerçekten kodda/veride var mı, kırık referans, ulaşılamayan düğüm, döngü var mı: `godot --headless` ile test betiği yaz ve koştur. Türkçe karakter (ı, İ, ş, ğ, ü, ö, ç) render testi.
+
+## 4. Test ve araçlar
+
+- Godot: `C:\Users\Ahmet\Desktop\Godot.exe` (4.7.2). Headless: `C:\Users\Ahmet\Desktop\Godot.exe --headless --path . ...`
+- Her commit öncesi ilgili headless test 0 hatayla geçmeli. Upstream eklenti uyarıları (HammerForge, Dingo) seninle ilgili değil.
+- Git: sadece `feature/diyalog-yeniden-yazim` dalına commit ve push. Commit mesajlarının sonuna `(Antigravity)` yaz. Başkalarının dosyalarına dokunman gerekirse nedenini commit mesajına ve ilerleme dosyasına yaz.
+
+## 5. İlerleme dosyası: `codex.md/Antigravity_ilerleme.md`
+
+Her parti sonunda güncelle:
+- Tamamlanan aşamalar ve partiler (karakter kodlarıyla)
+- Son commit hash'i
+- Bir sonraki adım (tek satır, net)
+- Açık sorular (Ahmet'e) — "Antigravity sorusu" başlığıyla
+
+Her şey bittiğinde dosyanın en sonuna tek başına bir satır olarak `GOREV3_TAMAM` yaz ve `codex.md/Antigravity.md` günlüğüne özet rapor ekle: kaç karakter yeniden yazıldı, kaç seçenek eklendi/kaldırıldı, kaç köy sohbeti ve muhabbet ağacı yazıldı, test sonuçları.
+
