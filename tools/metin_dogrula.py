@@ -73,6 +73,16 @@ def validate_text(text: str) -> list[str]:
                 errors.append(f"line {line}: empty Turkish translation for {key!r}")
             elif turkish is not None and turkish < len(row) and "  " in row[turkish]:
                 errors.append(f"line {line}: KLT-11 double space in Turkish text for {key!r}")
+            for idx, col in enumerate(header):
+                if col in ("keys", "tr") or idx >= len(row):
+                    continue
+                cell = row[idx]
+                if not str(cell).strip():
+                    continue
+                if "  " in cell:
+                    errors.append(f"line {line}: KLT-11 double space in {col} text for {key!r}")
+                if col == "en" and turkish is not None and key.startswith("karakter.") and cell.strip() != row[turkish].strip():
+                    errors.append(f"line {line}: YER-17 character name {key!r} must match tr")
             if turkish is not None and turkish < len(row) and key.startswith("ogretici."):
                 tr_text = row[turkish].strip()
                 if len(tr_text) > 90:
@@ -154,8 +164,11 @@ def validate_sources(root: Path, texts: dict[str, str]) -> list[str]:
     """Keys used by code/catalog must exist; simple tr("k") % args must match placeholders."""
     errors: list[str] = []
     for script in sorted((root / "src").rglob("*.gd")):
-        source = script.read_text(encoding="utf-8", errors="replace")
         rel = script.relative_to(root).as_posix()
+        # YER-11: debug metinleri ve performans şeridi oyuncu dili zorunluluğunun dışındadır.
+        if rel.startswith("src/debug/") or rel.endswith("performans_seridi.gd"):
+            continue
+        source = script.read_text(encoding="utf-8", errors="replace")
         for match in LITERAL_CALL.finditer(source):
             key = match.group(1)
             if DOTTED_KEY.fullmatch(key) and key not in texts:

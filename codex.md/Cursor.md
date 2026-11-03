@@ -98,6 +98,8 @@ Bölüm 26 ve 28 boş maddeleri bitti: NBT-02…09, SAB-01…10, SAB-75 `[x] (Cu
 
 Bölüm 45 girdi maddeleri GIR-01…17, GIR-19…23, GIR-25 ve GIR-26 `[x] (Cursor)`. Kod dalı `cursor/gece-45-girdi`. GIR-18 ve GIR-24 Claude'da duruyor. Kalfa'nın ekonomi/köy maddelerine ve Antigravity'nin diyalog metnine dokunulmadı. Asset gerekmedi. kota görünmüyor.
 
+Bölüm 46 yerelleştirme altyapısı YER-01, YER-03, YER-05…08, YER-10, YER-11, YER-13, YER-16…19, YER-21 ve YER-23 `[x] (Cursor)`. Kod dalı `cursor/gece-46-dil`. Çeviri cümlesi ve diyalog yazılmadı. Asset gerekmedi. kota görünmüyor.
+
 
 KAP-02 ve KAP-03 `[x] (Cursor)`. BUG-11 eski notu düzeltildi. TUC-11/14 notları duruyor. MEV-01 satırına yazılmadı. Yeni dosya ve ikinci sistem yok. TUC/MEV/CAS kaynak dosyalarına dokunulmadı.
 

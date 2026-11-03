@@ -35,6 +35,7 @@ func _ready() -> void:
 	kenar.add_child(dikey)
 	var b := Label.new()
 	b.text = tr("arayuz.ayarlar.baslik")
+	b.set_meta(&"metin_anahtari", "arayuz.ayarlar.baslik")
 	b.add_theme_font_size_override("font_size", ayarlar.boyut(48))
 	dikey.add_child(b)
 	var ilk: Button = null
@@ -44,6 +45,7 @@ func _ready() -> void:
 		yatay.add_theme_constant_override("separation", 12)
 		var l := Label.new()
 		l.text = tr(satir[1])
+		l.set_meta(&"metin_anahtari", satir[1])
 		l.custom_minimum_size = Vector2(420, 0)
 		yatay.add_child(l)
 		var geri := Button.new()
@@ -94,6 +96,7 @@ func _ready() -> void:
 	sekme.ayarlar = ayarlar
 	sekme.visible = false
 	add_child(sekme)
+	DilSekmesi.ekle(self, ayarlar)
 	_yenile()
 	_odak_kur()
 	preload("res://src/arayuz/ayarlar/ayar_sekmeleri.gd").kur(self)

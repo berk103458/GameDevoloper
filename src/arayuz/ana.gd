@@ -20,11 +20,12 @@ func _ready() -> void:
 		var admin := AdminHud.new()
 		admin.baglam = self
 		add_child(admin)
-	TranslationServer.set_locale("tr")
 	GuvenliMetin.kur()  # BUG-07: eksik metin anahtarı kilitlemez
 	ayarlar = Ayarlar.new()
 	ayarlar.yukle()
 	AyarlarEk.bagla(ayarlar)  # AYR-02: bölümün ek anahtarları ayrı dosyadan kaydolur
+	DilAyari.bagla(ayarlar)
+	DilAyari.uygula(ayarlar)
 	_eylemleri_kur()
 	ayarlar.uygula()
 	var giris_kaynaklari := await VarlikYuklemePaneli.hazirla(self, GirisVarliklari.menu())
@@ -64,6 +65,7 @@ func ana_menu() -> void:
 	e.ust_satir = tr("arayuz.menu.ust")
 	e.baslik = tr("arayuz.menu.baslik")
 	e.ipucu = tr("arayuz.menu.ipucu")
+	e.metin_anahtarlari = PackedStringArray(["arayuz.menu.yeni", "arayuz.menu.devam", "arayuz.menu.ayarlar", "arayuz.menu.cik"])
 	e.dugmeler = PackedStringArray([tr("arayuz.menu.yeni"), tr("arayuz.menu.devam"), tr("arayuz.menu.ayarlar"), tr("arayuz.menu.cik")])
 	if not kayit.var_mi():
 		e.pasifler = [1]

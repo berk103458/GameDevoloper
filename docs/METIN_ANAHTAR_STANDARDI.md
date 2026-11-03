@@ -73,3 +73,13 @@ Bu liste kapalıdır; başka düz metin eklenmez.
 | Yer | Metin | Neden |
 |---|---|---|
 | `src/arayuz/ana.gd` `_hata_goster` | "Oyun içeriği yüklenemedi." | Metin tablosunun kendisi bozuk olabilir; hata ekranı tabloya güvenmez. |
+
+Yükleme paneli (`arayuz.yukleme.hazirlaniyor`) bu listede değildir (YER-10).
+
+## 7. Çeviri dosyası (YER-05, YER-06)
+
+`data/metin/metinler.csv` Godot CSV içe aktarmasıyla `metinler.<dil>.translation` olur. Dosya elle kopyalanmaz ve elle düzenlenmez. `en` sütunu yoksa ya da bütün hücreleri boşsa ikinci `.translation` üretilmez; `project.godot` içindeki `locale/translations` uzunluğu 1 kalır. `locale/fallback` `tr`dir. İkinci dilde eksik anahtar Türkçeye düşer. `[KEY_NOT_FOUND]` yalnız Türkçe de yoksa çıkar.
+
+`src/debug/` ve `performans_seridi.gd` oyuncu diline girmez (YER-11). `metin_dogrula.py --kaynak` bu yollarda anahtar aramaz.
+
+Kişi adları (`karakter.*`) özel isimdir (YER-17). `en` sütunu varsa ve ad hücresi `tr` ile aynı değilse doğrulayıcı bir uyarı yazar. Boş `en` hücresi atlanır. `en` doluysa çift boşluk kuralı o sütuna da bakar (YER-21); boş hücre hata değildir.

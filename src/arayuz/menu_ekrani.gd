@@ -14,6 +14,8 @@ const GENISLIK := 500.0
 
 var ust_satir: String = ""
 var ipucu: String = ""
+var metin_anahtarlari: PackedStringArray = []
+var _satirlar: Array[Button] = []
 
 
 func _ready() -> void:
@@ -65,7 +67,10 @@ func _ready() -> void:
 		d.visible = false
 		kok.add_child(d)
 		liste.append(d)
+	_satirlar = liste
 	_odak_komsulari(liste)
+	if ayarlar != null and not ayarlar.degisti.is_connected(_dil_degisti):
+		ayarlar.degisti.connect(_dil_degisti)
 
 	if ipucu != "":
 		var f := Tema.font(400)
@@ -133,6 +138,14 @@ func _sirayla_goster(liste: Array[Button]) -> void:
 		if not d.disabled:
 			d.grab_focus()
 			break
+
+
+func _dil_degisti(anahtar: StringName) -> void:
+	if anahtar != &"dil":
+		return
+	for i in _satirlar.size():
+		if i < metin_anahtarlari.size() and is_instance_valid(_satirlar[i]):
+			_satirlar[i].text = DilAyari.gorunen("menu", _satirlar[i].text, metin_anahtarlari[i])
 
 
 ## Odak yalnız etkin satırlar arasında, listede sarar (7.10).
