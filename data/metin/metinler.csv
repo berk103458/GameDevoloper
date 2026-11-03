@@ -1911,3 +1911,23 @@ koy.meslek_uyarisi.satir,"%s — %s yok. Nitelikli iş verilemez; günde %s erza
 koy.atama.meslek_uyusmaz,Meslek bu yapıya uygun değil
 koy.atama.ilk_ipucu,Köylüyü başka bir işe geçirmek için kartını uygun yapıya sürükle.
 acilis.denge_hatasi,Denge tablosundaki değer geçersiz (%s).
+hafiza.bos.karar,henüz bir şey yazılmadı
+hafiza.bos.beyan,henüz bir şey yazılmadı
+hafiza.bos.soylenti,henüz bir şey yazılmadı
+hafiza.bos.not,henüz bir şey yazılmadı
+hafiza.satir.baslik,%s — %s
+hafiza.satir.gece,%d. gece
+hafiza.etiket.dis_hat,dış hat
+hafiza.etiket.celiski,çelişki
+hafiza.durum.gitti,gitti
+hafiza.kademe.birkac,birkaç
+hafiza.kademe.yari_koy,yarı köy
+hafiza.kademe.herkes,herkes
+hafiza.sayfa.karar,Karar
+hafiza.sayfa.beyan,Beyan
+hafiza.sayfa.soylenti,Söylenti
+hafiza.sayfa.not,Not
+hafiza.ekran.baslik,Defter
+hafiza.filtre.kisi,kişi
+koy.eylem.defter,Defter
+arayuz.duraklat.defter,Defter

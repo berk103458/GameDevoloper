@@ -187,12 +187,13 @@ func _son_secimi(i: int) -> void:
 func _duraklat() -> void:
 	if _ust != null:
 		return
-	var e := _bilgi(tr("arayuz.duraklat.baslik"), "", [tr("arayuz.duraklat.devam"), tr("arayuz.menu.ayarlar"), tr("arayuz.duraklat.menu")], -1, "")
+	var e := _bilgi(tr("arayuz.duraklat.baslik"), "", [tr("arayuz.duraklat.devam"), tr("arayuz.menu.ayarlar"), tr("arayuz.duraklat.menu"), tr("arayuz.duraklat.defter")], -1, "")
 	e.secildi.connect(func(i: int) -> void:
 		_ust_kapat()
 		match i:
 			1: _ayarlari_ac(_duraklat, true)
 			2: ana_menu()
+			3: HafizaDefteriBaglantisi.duraklatdan_ac(self)
 	)
 	_ust_ac(e)
 

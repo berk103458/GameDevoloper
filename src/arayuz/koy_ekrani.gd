@@ -154,6 +154,7 @@ func _alt_panel_kur() -> void:
 	MuhafizOdasiBaglantisi.kur(self, sag)
 	HaritaBaglantisi.kur(self, sag)
 	AyarlarBaglantisi.kur(self, sag)  # AYR-06: oyun içinden aynı ayar ekranı
+	HafizaDefteriBaglantisi.kur(self, sag)
 	var hizlar := HBoxContainer.new()
 	hizlar.add_theme_constant_override("separation", 4)
 	sag.add_child(hizlar)
