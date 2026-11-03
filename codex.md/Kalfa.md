@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — ISG-44 tamamlandı (Kalfa)
+
+Izgara dışına taşan yapıya atama reddedilir. Köy yönetimi ve BUG-23 testleri geçti. İlk import MD5 hatası verdi, ikinci headless import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-43 tamamlandı (Kalfa)
 
 DEN ölçümü gece üretim tablosunun kopyasını okur. Hedefli testte değer farkı sıfır ve kaynak rapor korundu. İlk import MD5 hatası verdi, ikinci headless import temiz geçti. Asset gerekmedi. kota görünmüyor.

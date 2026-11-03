@@ -357,6 +357,7 @@ func ata(koylu_id: int, bina_id: int) -> bool:
 	var b := bina(bina_id)
 	if k == null or b == null or not b.hazir() or katalog.slot(b.tur) == 0:
 		return false
+	if not b.hucreler(katalog).all(izgara.icinde): return false
 	if not YasRolleri.atanabilir(k, b.tur): return false
 	if b.tur == "muhafiz_kislasi" and (k.yas_grubu != &"yetiskin" or (not MuhafizMaasi.aday(k, self) and muhafiz_sayisi() >= a.muhafiz_azami)): return false
 	if calisanlar(bina_id).size() >= katalog.slot(b.tur) and k.is_yeri != bina_id:

@@ -1395,7 +1395,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.6 Yer ve yıkım
 
-- [ ] **ISG-44:** İş yeri ızgaradadır
+- [x] **ISG-44:** İş yeri ızgaradadır (Kalfa)
   - Ne: İş yeri ızgaradadır. Hücre dışı atama 0. BUG-23.
   - Kabul: İş yeri ızgaradadır. 0. Test: BUG-23.
   - Bağımlılık: BUG-23. Boyut: S.
