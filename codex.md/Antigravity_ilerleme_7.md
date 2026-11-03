@@ -118,8 +118,14 @@
 - **Test Sonucu:** Godot headless ile 1/1 test hatasız geçti. `tools/metin_dogrula.py` ve `tools/soz_tasarimi_dogrula.py` PASS.
 - **Asset Durumu:** `DYL07-OCAK` envanterde kayıtlıdır. Asset gerekmedi.
 
-### Parti 6: Söylenti, Dedikodu & Kamuoyu Ağı Metinleri (Bölüm 37 - SOY)
-- `SOY-01` … `SOY-50`: Söylenti şablonları, kapıdan giren haberler, dedikodu taşıyıcıları, doğrulama satırları.
+### Parti 6: Söylenti, Dedikodu & Kamuoyu Ağı Metinleri (Bölüm 37 - SOY) — TAMAMLANDI
+- **Maddeler:** `SOY-01` … `SOY-30`, `SOY-32` … `SOY-46`, `SOY-48`, `SOY-50` (Toplam 47 madde; SOY-31, SOY-47, SOY-49 Claude kapsam bekçisi tarafından önceden kapatılmıştır).
+- **Uygulanan Dosyalar:**
+  - `data/soylenti.json`: Yayılım hızı (azami 4), bozulma oranı (0.0875), kamuoyu eşiği (%40), ağ ve kamuoyu ömürleri, bar etkileri, asgari nüfus (5), iyi olaylar ve 3 bozulma kalıbı (ad kayması, yer kayması, abartı).
+  - `src/sistemler/soylenti_agi.gd`: Söylenti ağı yöneticisi: dedikodu kaydına kaynak ve doğruluk ekleme (`soylenti_ekle`), gece ilerlemesi ve ağ yayılımı (`gece_ilerlet`), kaynak güvenilirlik puanı ve kelimesi (`guvenilirlik_al`, `guvenilirlik_degistir`, `guvenilirlik_kelimesi`), kamuoyu konusu olma ve meclis şikayeti seçimi (`meclis_sikayeti_sec`), divan hükmüyle kamuoyunun sıfırlanması (`divan_hukmu_ver`), kaynak susturma (`sustur`), bağlam sorgusu (`baglam_sorgusu_al`), defter sayfası (`soylenti_sayfasi_al`), HUD şeridi (`kamuoyu_hud_satiri_al`), ve KAY serileştirmesi (`kayit_verisi_al`, `kayit_verisi_yukle`).
+  - `tests/unit/kvr/soylenti_agi_test.gd`: SOY-50 kapanış testi: 7 adım tek koşu (tanıklı rüşvet -> 3 gece yayılım -> %40 eşiğiyle kamuoyu oluşması -> bar -1 bir kez -> meclis şikayeti seçimi -> divan hükmüyle kamuoyunun 0 olması -> yanlış kopya ve kaynak güvenilirliğinin -1 düşmesi), küçük köyde susma (SOY-40), defter sayfası (SOY-29) ve KAY zinciri restorasyonu (PASS).
+- **Test Sonucu:** Godot headless ile 1/1 test hatasız geçti. `tools/metin_dogrula.py` ve `tools/soz_tasarimi_dogrula.py` PASS.
+- **Asset Durumu:** Asset gerekmedi.
 
 ### Parti 7: Ana Hikâye Omurgası, Perde Geçişleri, Son ve Epilog Metinleri (Bölüm 34 - OMR & KOP)
 - `OMR-07` … `OMR-18`: Perde geçiş konuşmaları, "Köy oturdu" kadrajı, 5 sonun epilog metinleri.

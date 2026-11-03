@@ -1,0 +1,30 @@
+{
+  "yayilim_hizi_gece_basi_azami": 4,
+  "bozulma_orani": 0.0875,
+  "kamuoyu_esigi_oran": 0.40,
+  "ag_kayit_omru_gece": 7,
+  "kamuoyu_omru_gece": 5,
+  "bar_etkisi_halk": -1,
+  "bar_etkisi_tuccar": -1,
+  "iyi_olay_bar_etkisi": 1,
+  "asgari_nufus": 5,
+  "varsayilan_guvenilirlik": 2,
+  "azami_guvenilirlik": 3,
+  "asgari_guvenilirlik": 0,
+  "iyi_olaylar": [
+    "haksizlik_karsi_durma",
+    "yarali_tedavi",
+    "aile_birlikte_alma"
+  ],
+  "bozulma_kaliplari": {
+    "ad_kaymasi": "Olayı {kaynak} değil de bir başkası yapmış derler.",
+    "yer_kaymasi": "Hadise kapıda değil pazar yerinde olmuş derler.",
+    "abarti": "Birkaç akçe değil koca bir kese altın dönmüş derler."
+  },
+  "soylenti_kaliplari": {
+    "rusvet": "Kapıda el altından akçe alındığı konuşuluyor.",
+    "siddet": "Kapı önünde sert bir arbede çıktığı fısıldanıyor.",
+    "aileyi_bolme": "Bir ailenin kapıda zorla koparıldığı söyleniyor.",
+    "haksiz_ret": "Garip bir yolcunun haksız yere kovulduğu anlatılıyor."
+  }
+}
