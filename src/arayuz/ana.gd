@@ -16,7 +16,6 @@ var _kapi_yukleniyor := false
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_eylemleri_kur()
 	if AdminHud.arac_acik():
 		var admin := AdminHud.new()
 		admin.baglam = self
@@ -26,6 +25,7 @@ func _ready() -> void:
 	ayarlar = Ayarlar.new()
 	ayarlar.yukle()
 	AyarlarEk.bagla(ayarlar)  # AYR-02: bölümün ek anahtarları ayrı dosyadan kaydolur
+	_eylemleri_kur()
 	ayarlar.uygula()
 	var giris_kaynaklari := await VarlikYuklemePaneli.hazirla(self, GirisVarliklari.menu())
 	ayarlar.degisti.connect(func(_a: StringName) -> void: theme = Tema.olustur(ayarlar))
@@ -143,6 +143,7 @@ func _koye_git(_rapor: Dictionary = {}) -> void:
 	koy.oturum = oturum
 	koy.ayarlar = ayarlar
 	koy.oturum_bitti.connect(_son_goster)
+	koy.duraklat_istendi.connect(_duraklat)
 	koy.devam_istendi.connect(func(rapor: Dictionary) -> void:
 		# Gece çözüldü ve olay seçildi: kayıt, sonra yeni gün (Ağalıkta önce geçiş kartı).
 		preload("res://src/sistemler/oturum_fazi.gd").ayarla(oturum, "kapi")
@@ -276,22 +277,6 @@ func _imleci_kur() -> void:
 		Input.set_custom_mouse_cursor(t, Input.CURSOR_POINTING_HAND)
 
 
-## Girdi eylemleri (Girdi ve odak gezinmesi GDD, kural 1). Gezinme ve onay Godot'un ui_* eylemleridir.
+## Girdi eylemleri (GIR-04). Gezinme ve onay Godot'un ui_* eylemleridir; atama girdi bölümündedir.
 func _eylemleri_kur() -> void:
-	var tuslar := {
-		"geri": [KEY_ESCAPE], "menu": [KEY_P],
-		"kisayol_1": [KEY_1], "kisayol_2": [KEY_2], "kisayol_3": [KEY_3], "kisayol_4": [KEY_4], "kisayol_5": [KEY_5],
-	}
-	for eylem in tuslar:
-		if InputMap.has_action(eylem):
-			continue
-		InputMap.add_action(eylem)
-		for k in tuslar[eylem]:
-			var o := InputEventKey.new()
-			o.physical_keycode = k
-			InputMap.action_add_event(eylem, o)
-	var gamepad := {"geri": JOY_BUTTON_B, "menu": JOY_BUTTON_START}
-	for eylem in gamepad:
-		var j := InputEventJoypadButton.new()
-		j.button_index = gamepad[eylem]
-		InputMap.action_add_event(eylem, j)
+	GirdiEylemleri.kur(ayarlar.yol if ayarlar != null else "user://ayarlar.cfg")

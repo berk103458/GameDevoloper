@@ -51,7 +51,7 @@ static func bagla(a: Ayarlar, cli_argumanlar: PackedStringArray = PackedStringAr
 		Engine.print_error_messages = false
 		var sonuc := cfg.load(a.yol)
 		Engine.print_error_messages = onceki
-		if sonuc == OK:
+		if sonuc == OK and cfg.has_section("ayarlar"):
 			for anahtar in cfg.get_section_keys("ayarlar"):
 				var k := StringName(anahtar)
 				var v: Variant = cfg.get_value("ayarlar", anahtar)
