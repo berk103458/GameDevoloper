@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Bölüm 39 — 3 Kasım 2026
+
+HFZ-01…21, HFZ-23…29 ve HFZ-32. Tek hafıza defteri, dört sayfa: karar, beyan, söylenti, not. Kaynak sistemlere yazılmaz; diyalog cümlesi yazılmadı, oyuncu metni yer tutucu anahtardır. Köy düğmesi ve duraklat dördüncü satırı açar; kapı sorgu defterine çağrı yok. HFZ-22, HFZ-30, HFZ-31 Claude'da duruyor. Asset gerekmedi. Godot 4.7.2 headless `tests/unit/sistemler/hafiza_defteri_test.gd` GEÇTİ, 0 hata. Tam sanity çalıştırılmadı. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## VFX — 24 Ekim 2026
 
 Duman, alev, yağmur çizgisi, yumuşak ışık ve bir ateş topu. Şimşek, büyü, kan ve namlu yok. Kar ve ayrı kıvılcım yok. Sahneye bağlanmadı. Headless 5 PNG, `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. Kota görünmüyor.
