@@ -113,10 +113,13 @@ func _kayit_ve_atama() -> void:
 func _ikiz() -> void:
 	var o := hazir(); var y := o.yonetim; var k := isci(y)
 	GeciciIsler.ata(y,k.id,"dal_toplama")
+	y.gece()
 	var eski_ayar := kat.koy_ayarlari
 	kat.koy_ayarlari=y.a
 	var geri := Oturum.kayittan(kat,JSON.parse_string(JSON.stringify(o.kaydet())))
 	kat.koy_ayarlari=eski_ayar
+	dene(geri.yonetim.kaynaklar.miktar("odun") == y.kaynaklar.miktar("odun"), "ISG-61: yükleme stoğu değiştirmez")
+	dene(geri.yonetim.koylu(k.id).gecici_is == k.gecici_is, "ISG-61: son iş makbuzu korunur")
 	for gece in 2:
 		var a := y.gece(); var b := geri.yonetim.gece()
 		dene(a.gecici_isler==b.gecici_isler and GeciciIsler.secili(k)==GeciciIsler.secili(geri.yonetim.koylu(k.id)),"Aynı tohumda iki gece aynı kişi/iş")

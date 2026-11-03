@@ -1435,7 +1435,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/koy/`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-61:** Yükleme atamayı tekrar üretmez
+- [x] **ISG-61:** Yükleme atamayı tekrar üretmez (Kalfa)
   - Ne: Yükleme atamayı tekrar üretmez. Çift ürün 0.
   - Kabul: Yükleme atamayı tekrar üretmez. Delta 0. Test: SYS-02.
   - Bağımlılık: SYS-02. Boyut: S.

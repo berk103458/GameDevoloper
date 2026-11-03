@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — ISG-61 tamamlandı (Kalfa)
+
+Üretim sonrası kayıt yüklendiğinde odun miktarı ve iş makbuzu korundu. Geçici işler hedefli testi ve son headless import geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-60 tamamlandı (Kalfa)
 
 Hedefli test, geçici atamanın köylü kaydında saklandığını ve ayrı atama kökü olmadığını doğruladı. Headless recovery import temiz geçti. Asset gerekmedi. kota görünmüyor.
