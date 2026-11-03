@@ -1442,7 +1442,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/koy/uretim.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-62:** Eski kayıt işsiz sayılır
+- [x] **ISG-62:** Eski kayıt işsiz sayılır (Kalfa)
   - Ne: Eski kayıtta iş alanı yoksa kişi boşta sayılır ve yükleme açılır.
   - Kabul: Eski kayıtta iş alanı yoksa kişi boşta sayılır ve yükleme açılır (`tests/unit/sistemler/kayit_gocu_test.gd`).
   - Bağımlılık: KAY-04. Boyut: S.
