@@ -1483,7 +1483,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/koy/tezgahta_gun.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-80:** Divan iş cezası yazmaz
+- [x] **ISG-80:** Divan iş cezası yazmaz (Kalfa)
   - Ne: Divan iş cezası yazmaz. CAS üçlü karar.
   - Kabul: Dördüncü 0. Test: CAS-07.
   - Bağımlılık: CAS-07. Boyut: S.
