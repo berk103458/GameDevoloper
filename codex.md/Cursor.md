@@ -15,6 +15,12 @@ SRM-02, SRM-04…09, SRM-11, SRM-12, SRM-19…21, SRM-25 ve SRM-26. Sürüm `0.2
 
 Ortak renk, boşluk ve punto `src/arayuz/kabuk.gd` içindedir. Aday temalardan biri seçilmedi. Ayarlar, defter ve diyalog dosyalarına dokunulmadı. Dal `cursor/gece-43-arayuz`. Kota görünmüyor. Asset gerekmedi; iki yer tutucu satırı envanterde.
 
+## UI adayları — 3 Kasım 2026
+
+Beş açık lisanslı 2D tema, ayrı ekranlara bağlandı. Dal `cursor/gece-ui-adaylari`. Belge `docs/UI_ADAYLARI.md`. ARY-01 Claude’da `[/]`; ARY-02 seçim boşken başlamaz, sahiplenilmedi. Ayarlar, defter, diyalog ve ekonomi koduna dokunulmadı. `tema.gd` değişmedi. Godot 4.7.2 headless: import bitti, `UI ADAY TEMA: GEÇTİ`. Tam sanity yok. Kota görünmüyor. Asset üretimi yok; indirilen paketler kesildi veya olduğu gibi alındı.
+Prova notu: Kabuk ölçü ve panel kaynağı olarak durur. AdayTema yalnız oyun açılışında tema bindirir; `tests/`, `--import` ve `--editor` sırasında kapalıdır. Seçilen tema paketi yoktur.
+
+
 ## VFX — 24 Ekim 2026
 
 Duman, alev, yağmur çizgisi, yumuşak ışık ve bir ateş topu. Şimşek, büyü, kan ve namlu yok. Kar ve ayrı kıvılcım yok. Sahneye bağlanmadı. Headless 5 PNG, `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. Kota görünmüyor.

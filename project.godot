@@ -20,6 +20,7 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 [autoload]
 
 Ses="*res://src/sistemler/ses.gd"
+AdayTema="*res://src/arayuz/ui_adaylari/bagla.gd"
 
 [display]
 

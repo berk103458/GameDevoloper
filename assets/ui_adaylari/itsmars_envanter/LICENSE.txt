@@ -1,0 +1,13 @@
+RPG Inventory
+Yazar: itsmars
+Kaynak: https://opengameart.org/content/rpg-inventory
+Dosya: https://opengameart.org/sites/default/files/RPG%20Inventory.zip
+Lisans: CC0 1.0 (OpenGameArt sayfasındaki lisans alanı)
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Değişiklik (Cursor, 3 Kasım 2026):
+- levha.png özgün sayfadır.
+- izgara.png sayfanın ızgara bölgesinden kesildi (yeni çizim yok).
+- yuva.png, 64×64 yuva çerçevesinin nearest-neighbor 4 kat büyütülmüş halidir.
+  Pikseller aynıdır; 1080p dokuz dilimde çerçeve okunur olsun diye büyütüldü.
+PSD repoya alınmadı. RarityBorders paketi alınmadı.
