@@ -1428,7 +1428,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.8 Kayıt ve ölçüm
 
-- [ ] **ISG-60:** Atama kaydı kişi üstündedir
+- [x] **ISG-60:** Atama kaydı kişi üstündedir (Kalfa)
   - Ne: Atama kaydı kişi üstündedir. Ayrı iş kayıt kökü yok.
   - Kabul: Atama kaydı kişi üstündedir. Kök 0. Test: tarama.
   - Bağımlılık: KAY-04. Boyut: S.

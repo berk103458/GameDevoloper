@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — ISG-60 tamamlandı (Kalfa)
+
+Hedefli test, geçici atamanın köylü kaydında saklandığını ve ayrı atama kökü olmadığını doğruladı. Headless recovery import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-57 tamamlandı (Kalfa)
 
 İkon bulunmayan geçici işte kart iş adının ilk harfini gösterir. Headless kart testi geçti. İlk import MD5 hatası verdi, ikinci import temiz tamamlandı. Asset gerekmedi. kota görünmüyor.

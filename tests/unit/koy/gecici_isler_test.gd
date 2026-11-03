@@ -99,6 +99,9 @@ func _kayit_ve_atama() -> void:
 	var o := hazir(); var y := o.yonetim; var k := isci(y)
 	dene(GeciciIsler.ata(y,k.id,"dal_toplama"),"Kayıt ataması")
 	var veri: Dictionary=JSON.parse_string(JSON.stringify(o.kaydet()))
+	var yonetim: Dictionary = veri.koy_yonetimi
+	dene(not veri.has("gecici_is") and not yonetim.has("gecici_is"), "ISG-60: ayrı atama kökü yok")
+	dene(yonetim.koylular.any(func(kayit: Dictionary) -> bool: return int(kayit.id) == k.id and kayit.gecici_is.id == "dal_toplama"), "ISG-60: atama kişi kaydında")
 	var geri := Oturum.kayittan(kat,veri)
 	dene(geri!=null and GeciciIsler.secili(geri.yonetim.koylu(k.id))=="dal_toplama","Kişi üzerindeki atama korunur")
 	dene(not JSON.stringify(veri).contains("havuz_sira"),"Havuz sırası kayda gömülmez")
