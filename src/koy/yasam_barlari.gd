@@ -39,4 +39,4 @@ static func metin(k: Koylu, y: KoyYonetimi) -> String:
 	var d := oku(k, y)
 	if not d.has("aclik"):
 		return TranslationServer.translate("koy.yasam.ozet_muhafiz") % [TranslationServer.translate("koy.yasam.var" if bool(d.yorgunluk) else "koy.yasam.yok"), int(d.moral)]
-	return TranslationServer.translate("koy.yasam.ozet") % [int(d.aclik), TranslationServer.translate("koy.yasam.var" if bool(d.yorgunluk) else "koy.yasam.yok"), int(d.moral)]
+	return TranslationServer.translate("koy.yasam.ozet") % [TranslationServer.translate("koy.yasam." + ("bitkin" if int(d.aclik) >= 3 else "ac" if int(d.aclik) > 0 else "tok")), TranslationServer.translate("koy.yasam.var" if bool(d.yorgunluk) else "koy.yasam.yok"), int(d.moral)]

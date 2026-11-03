@@ -58,6 +58,12 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_kontrol(k.is_yeri == b.id and not get_viewport().gui_is_dragging() and not alan.onizleme.visible, "Gerçek bırakma atar ve önizlemeyi kapatır")
 	_kontrol(is_instance_valid(ekran._ust_kart) and ekran._ust_kart.visible, "Bırakma sonrası köylü kartı görünür")
+	var serit := ekran.get_node_or_null("IpucuSeridi") as IpucuSeridi
+	_kontrol(serit != null and ana.oturum.ipucu_kaydi.goruldu_mu("koy_atama"), "ISG-33: ilk atama ipucunu gösterir")
+	var geri := Oturum.kayittan(ana.katalog, ana.oturum.kaydet())
+	_kontrol(geri != null and geri.ipucu_kaydi.goruldu_mu("koy_atama"), "ISG-33: yüklenen kayıt ipucunu hatırlar")
+	if serit != null: serit.kapat()
+	await get_tree().process_frame
 	# Sürükleme iptali ve önizleme sonrası değişen hedef gerçek GUI yolunda.
 	await _surukle(ekran, nokta)
 	var bos := Vector2(5, ekran.size.y * 0.6)
@@ -76,6 +82,19 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_kontrol(k.is_yeri != b.id and not get_viewport().gui_is_dragging() and not alan.visible and ekran._ust_kart.visible, "Önizleme sonrası kullanılamaz olan hedef bırakmada yeniden denetlenir")
 	b.insa_kalan = 0
+	k.zanaat_turu = ZanaatTuru.Tur.DEMIRCI
+	await _surukle(ekran, nokta)
+	_kontrol(alan.onizleme.visible and not alan.son.olur, "ISG-30: demirci tarlaya bırakılamaz")
+	_dugme(nokta, false)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_kontrol(k.is_yeri == KoyYonetimi.BOSTA and ekran._ust_kart.visible, "ISG-30: yanlış bina atama yapmaz ve kart geri gelir")
+	k.zanaat_turu = ZanaatTuru.Tur.CIFTCI
+	await _surukle(ekran, nokta)
+	_dugme(nokta, false)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_kontrol(k.is_yeri == b.id and not ekran.has_node("IpucuSeridi"), "ISG-33: ikinci başarılı atamada ipucu yok")
 	ana.kayit.sil()
 	ana.queue_free()
 	await get_tree().process_frame

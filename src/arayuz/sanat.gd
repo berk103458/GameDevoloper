@@ -18,6 +18,10 @@ static func doku(alt: String, ad: String) -> Texture2D:
 	return t
 
 
+static func is_ikonu(is_id: String) -> Texture2D:
+	return doku("ui", "icon_job_%s_48" % is_id)
+
+
 ## Portre: adlı karakter ya da figür kökü.
 static func portre(kok: String) -> Texture2D:
 	return doku("char", "char_%s_neutral_card" % kok)

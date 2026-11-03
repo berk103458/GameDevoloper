@@ -28,7 +28,7 @@ static func _bina_var(y: KoyYonetimi, turler: Array) -> bool:
 	return false
 
 static func _temel(y: KoyYonetimi, k: Koylu) -> String:
-	if k == null or y.son != "": return "koy.gecici_is.uygun_degil"
+	if k == null or y.son != "" or preload("res://src/koy/aclik_kademesi.gd").uretim(k) <= 0.0: return "koy.gecici_is.uygun_degil"
 	if k.yas_grubu == &"cocuk" or YasamBarlari.oyuncu_mu(k) or k.bayrak_var("acl01_es"): return "koy.gecici_is.uygun_degil"
 	if not CirakEgitimi.saglam(k) or not k.is_kazasi.is_empty() or SaglikYoneticisi.hasta(k) or KervanKorumasi.disarida(y,k.id) or ZanaatKazalari.durur(k): return "koy.gecici_is.uygun_degil"
 	if KapiNobeti.yuva(y) == k.id or int(KapiNobeti.durum(y).eslik) == k.id or IsKazalari.nobet(k,y): return "koy.gecici_is.nobetci"

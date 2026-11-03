@@ -19,6 +19,8 @@ func _initialize() -> void:
   var kamu:=y.akce
   dene(not DivanHukmu.uygula(o,k.id,String(karar)),"Niyet/habersiz kişi hüküm alamaz")
   CasusGeceTakibi.kaydet(y,k,"ambar",-1,"kundaklama","gida",0,true)
+  var hukum_oncesi := o.kaydet()
+  dene(not DivanHukmu.uygula(o,k.id,"is_cezasi") and o.kaydet()==hukum_oncesi,"ISG-80: is cezasi reddedilir ve kayit degismez")
   dene(DivanHukmu.uygula(o,k.id,String(karar)),"Gerçek fiile tek hüküm")
   dene(y.akce==kamu and y.kaynaklar.kaydet()==stok and y._rng.state==rng and diger.moral==moral+int(DivanHukmu.AYAR[karar].moral) and y.asayis_riski==30+int(DivanHukmu.AYAR[karar].asayis),"Sosyal delta gerçek, kasa/stok/zar korunur")
   var once:=JSON.stringify(o.kaydet())

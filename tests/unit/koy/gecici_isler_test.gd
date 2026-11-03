@@ -42,6 +42,7 @@ func _initialize() -> void:
 	_ikiz()
 	_meclis()
 	_su_siniri()
+	_bina_kosulu()
 	print("GEÇİCİ İŞLER: GEÇTİ" if hata==0 else "GEÇİCİ İŞLER: KALDI")
 	quit(hata)
 func _tek_is(id: String) -> void:
@@ -98,6 +99,9 @@ func _kayit_ve_atama() -> void:
 	var o := hazir(); var y := o.yonetim; var k := isci(y)
 	dene(GeciciIsler.ata(y,k.id,"dal_toplama"),"Kayıt ataması")
 	var veri: Dictionary=JSON.parse_string(JSON.stringify(o.kaydet()))
+	var yonetim: Dictionary = veri.koy_yonetimi
+	dene(not veri.has("gecici_is") and not yonetim.has("gecici_is"), "ISG-60: ayrı atama kökü yok")
+	dene(yonetim.koylular.any(func(kayit: Dictionary) -> bool: return int(kayit.id) == k.id and kayit.gecici_is.id == "dal_toplama"), "ISG-60: atama kişi kaydında")
 	var geri := Oturum.kayittan(kat,veri)
 	dene(geri!=null and GeciciIsler.secili(geri.yonetim.koylu(k.id))=="dal_toplama","Kişi üzerindeki atama korunur")
 	dene(not JSON.stringify(veri).contains("havuz_sira"),"Havuz sırası kayda gömülmez")
@@ -109,10 +113,13 @@ func _kayit_ve_atama() -> void:
 func _ikiz() -> void:
 	var o := hazir(); var y := o.yonetim; var k := isci(y)
 	GeciciIsler.ata(y,k.id,"dal_toplama")
+	y.gece()
 	var eski_ayar := kat.koy_ayarlari
 	kat.koy_ayarlari=y.a
 	var geri := Oturum.kayittan(kat,JSON.parse_string(JSON.stringify(o.kaydet())))
 	kat.koy_ayarlari=eski_ayar
+	dene(geri.yonetim.kaynaklar.miktar("odun") == y.kaynaklar.miktar("odun"), "ISG-61: yükleme stoğu değiştirmez")
+	dene(geri.yonetim.koylu(k.id).gecici_is == k.gecici_is, "ISG-61: son iş makbuzu korunur")
 	for gece in 2:
 		var a := y.gece(); var b := geri.yonetim.gece()
 		dene(a.gecici_isler==b.gecici_isler and GeciciIsler.secili(k)==GeciciIsler.secili(geri.yonetim.koylu(k.id)),"Aynı tohumda iki gece aynı kişi/iş")
@@ -146,3 +153,17 @@ func _su_siniri() -> void:
 	dene(y.kaynaklar.miktar("su")==once+1 and SuDengesi.taze(y)==0,"İki işçi aynı günlük kuyunun son tek birimini taşır")
 	dene(r.gecici_isler.size()==1 and r.gecici_isler[0].kisi==2 and r.gecici_isler[0].miktar==1,"Aynı iş tek bilanço satırında toplanır")
 	dene(y.akce==para,"İşçi emeğine ikinci elle doldurma bedeli yazılmaz")
+
+func _bina_kosulu() -> void:
+	var o := hazir()
+	var y := o.yonetim
+	var k := isci(y)
+	y.bina(2).insa_kalan = 10
+	dene(not GeciciIsler.ata(y, k.id, "dal_toplama"), "ISG-13: unfinished woodshed cannot open the job")
+	y.bina(2).insa_kalan = 0
+	dene(GeciciIsler.ata(y, k.id, "dal_toplama"), "ISG-13: ready woodshed opens the job")
+	y.bina_yik(2)
+	var bosta := isci(y, "Bos isci")
+	dene(not GeciciIsler.ata(y, bosta.id, "dal_toplama"), "ISG-45: bina yokken is acilmaz")
+	var r := y.gece()
+	dene(r.gecici_isler.is_empty() and int(r.uretim.get("odun", 0)) == 0, "ISG-13: no work or wood after demolition")

@@ -1293,7 +1293,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: yeni `src/koy/gecici_isler.gd`; köylü kartına adaptör.
   - Asset: işlere özel el aleti envantere `ISG02-ALETLER`; yer tutucu ANI-11 kutu soketi.
 
-- [ ] **ISG-13:** Havuz bina ister
+- [x] **ISG-13:** Havuz bina ister (Kalfa)
   - Ne: Havuz bina ister. Bina yoksa iş yok. BUG-16.
   - Kabul: Havuz bina ister. İş 0. Test: BUG-16.
   - Bağımlılık: BUG-16. Boyut: S.
@@ -1324,7 +1324,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.4 Atama kadrajı
 
-- [ ] **ISG-30:** Yanlış binaya bırakmak iş yazmaz
+- [x] **ISG-30:** Yanlış binaya bırakmak iş yazmaz (Kalfa)
   - Ne: Yanlış binaya bırakmak iş yazmaz. Bina meslek uymazsa geri döner.
   - Kabul: Yanlış binaya bırakmak iş yazmaz. İş 0. Test: birim.
   - Bağımlılık: ISG-01. Boyut: S.
@@ -1339,7 +1339,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/arayuz/ana.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-33:** Atama ipucu bir kez
+- [x] **ISG-33:** Atama ipucu bir kez (Kalfa)
   - Ne: Atama ipucu bir kez. OGR.
   - Kabul: Atama ipucu bir kez. İkinci 0. Test: OGR-07.
   - Bağımlılık: OGR-07. Boyut: S.
@@ -1364,7 +1364,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/koy/tezgahta_gun.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-38:** Greve giden üretmez
+- [x] **ISG-38:** Greve giden üretmez (Kalfa)
   - Ne: `meslek_grevi.gd`. İş düşer, yeni grev motoru yok.
   - Kabul: Üretim 0. Test: birim.
   - Bağımlılık: ISG-02 Boyut: S.
@@ -1378,14 +1378,14 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/koy/meslek_grevi.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-40:** Hastalık işi düşürür
+- [x] **ISG-40:** Hastalık işi düşürür (Kalfa)
   - Ne: Hastalık işi düşürür. KRI. Sağlık 0 ise üretim 0.
   - Kabul: Hastalık işi düşürür. 0. Test: birim.
   - Bağımlılık: YSM-02. Boyut: S.
   - Dosya: `src/koy/uretim.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-43:** Üretim ölçümü DEN'dedir
+- [x] **ISG-43:** Üretim ölçümü DEN'dedir (Kalfa)
   - Ne: Üretim ölçümü DEN'dedir. Formül değişmez.
   - Kabul: Üretim ölçümü DEN'dedir. Diff 0. Test: DEN.
   - Bağımlılık: DEN-01. Boyut: S.
@@ -1395,14 +1395,14 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.6 Yer ve yıkım
 
-- [ ] **ISG-44:** İş yeri ızgaradadır
+- [x] **ISG-44:** İş yeri ızgaradadır (Kalfa)
   - Ne: İş yeri ızgaradadır. Hücre dışı atama 0. BUG-23.
   - Kabul: İş yeri ızgaradadır. 0. Test: BUG-23.
   - Bağımlılık: BUG-23. Boyut: S.
   - Dosya: `src/koy/`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-45:** Bina yokken yer tutucu iş yoktur
+- [x] **ISG-45:** Bina yokken yer tutucu iş yoktur (Kalfa)
   - Ne: Bina yokken yer tutucu iş yoktur. İş 0.
   - Kabul: Bina yokken yer tutucu iş yoktur. 0. Test: BUG-16.
   - Bağımlılık: BUG-16. Boyut: S.
@@ -1411,14 +1411,14 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.7 Kart
 
-- [ ] **ISG-56:** İş ikonu Sanat'tan gelir
+- [x] **ISG-56:** İş ikonu Sanat'tan gelir (Kalfa)
   - Ne: İş ikonu Sanat'tan gelir. Panel `load` açmaz.
   - Kabul: İş ikonu Sanat'tan gelir. load 0. Test: GRV-27.
   - Bağımlılık: GRV-27. Boyut: S.
   - Dosya: `src/arayuz/sanat.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-57:** İkon yoksa harf
+- [x] **ISG-57:** İkon yoksa harf (Kalfa)
   - Ne: İkon yoksa harf. Png inmez.
   - Kabul: İkon yoksa harf. png 0. Test: sayım.
   - Bağımlılık: ARY-05. Boyut: S.
@@ -1428,21 +1428,21 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.8 Kayıt ve ölçüm
 
-- [ ] **ISG-60:** Atama kaydı kişi üstündedir
+- [x] **ISG-60:** Atama kaydı kişi üstündedir (Kalfa)
   - Ne: Atama kaydı kişi üstündedir. Ayrı iş kayıt kökü yok.
   - Kabul: Atama kaydı kişi üstündedir. Kök 0. Test: tarama.
   - Bağımlılık: KAY-04. Boyut: S.
   - Dosya: `src/koy/`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-61:** Yükleme atamayı tekrar üretmez
+- [x] **ISG-61:** Yükleme atamayı tekrar üretmez (Kalfa)
   - Ne: Yükleme atamayı tekrar üretmez. Çift ürün 0.
   - Kabul: Yükleme atamayı tekrar üretmez. Delta 0. Test: SYS-02.
   - Bağımlılık: SYS-02. Boyut: S.
   - Dosya: `src/koy/uretim.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-62:** Eski kayıt işsiz sayılır
+- [x] **ISG-62:** Eski kayıt işsiz sayılır (Kalfa)
   - Ne: Eski kayıtta iş alanı yoksa kişi boşta sayılır ve yükleme açılır.
   - Kabul: Eski kayıtta iş alanı yoksa kişi boşta sayılır ve yükleme açılır (`tests/unit/sistemler/kayit_gocu_test.gd`).
   - Bağımlılık: KAY-04. Boyut: S.
@@ -1483,7 +1483,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/koy/tezgahta_gun.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-80:** Divan iş cezası yazmaz
+- [x] **ISG-80:** Divan iş cezası yazmaz (Kalfa)
   - Ne: Divan iş cezası yazmaz. CAS üçlü karar.
   - Kabul: Dördüncü 0. Test: CAS-07.
   - Bağımlılık: CAS-07. Boyut: S.
@@ -1663,7 +1663,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `src/kapi/`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-54:** Eşya ölçümü DEN'de değildir
+- [x] **YAP-54:** Eşya ölçümü DEN'de değildir (Kalfa)
   - Ne: Eşya ölçümü DEN'de değildir. Nadir olay. Bant zorlanmaz.
   - Kabul: Zorunlu bant 0. Test: belge.
   - Bağımlılık: DEN-01. Boyut: S.
@@ -1704,7 +1704,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.8 İnşaat
 
-- [ ] **YAP-70:** İnşaat ölçümü DEN satırıdır
+- [x] **YAP-70:** İnşaat ölçümü DEN satırıdır (Kalfa)
   - Ne: İnşaat ölçümü DEN satırıdır. Süre bandı. Formül değişmez.
   - Kabul: İnşaat ölçümü DEN satırıdır. Satır 1. Test: DEN.
   - Bağımlılık: DEN-05. Boyut: S.
@@ -1733,7 +1733,7 @@ YSM-01 … YSM-03 gövdesi durur. Yeni maddeler YSM-04 … YSM-83. İkinci açl�
 
 ### 22.2 Açlık kademesi
 
-- [ ] **YSM-02:** Açlığın kademeli etkisi.
+- [x] **YSM-02:** Açlığın kademeli etkisi. (Kalfa)
   - Ne: Açlık üç kademedir ve eşikler `data/koy/aclik_kademeleri.json` içindedir. Bir gün üretim çarpanı 0.80'dir. İki gün çarpan 0.50 olur ve yürüyüş yavaşlar. İki günü aşan kişi evde yatar, iş satırı yazmaz ve hastalık riski artar. Çarpan, UZM-03 ve ADM-08 hesabının üstüne tek çarpan olarak biner; `uretim.gd` içindeki `aclik_verim` bu tablonun yerine geçer, ikinci çarpan açılmaz. Hastalık riski mevcut sağlık yöneticisine yazılır, yeni salgın dalgası çıkmaz.
   - Kabul: 1. günde üretim çarpanı 0.80, 2. günde 0.50'dir; 3. günde kişi iş satırı yazmaz ve salgın sayacı kendiliğinden artmaz (`tests/unit/koy/yasam_test.gd`). Gece payı düşünce sayaç 0'a döner ve çarpan 1 olur. Eşik dosyasında gün sayısı yoksa o kademe uygulanmaz. Yatan kişiye geçici iş yazılmaz. Ek şart: Kademe kartta tok, aç veya bitkin kelimesiyle yazılır; 0–100 sayısı basılmaz. Ek şart: Tok kişide gece sağlık artışı `iyilesme` alanından bir kez okunur; aç kademesinde bu artış 0'dır. Ek şart: Aç kademesinde moral düşüşü `aclik_moral` alanından okunur; bu sayı `.gd` içine yazılmaz. Ek şart: Aynı gecede şifahane iyileşmesi de varsa yalnız büyük olan yazılır. Ek şart: Açlık yeni ölüm türü açmaz; sağlık 0 olan kişi KRI-05 cenaze akışına bir kez girer. Ek şart: Zindan payı bitince yeni hastalık açılmaz; sağlık düşüşü yalnız açlık kademesindedir.
   - Bağımlılık: YSM-01. Boyut: S.

@@ -103,6 +103,12 @@ func _insa_ve_uretim() -> void:
 		_esit("atama", y.ata(k.id, b.id), true)
 	var fazla := y.kabul({"ad": "fazla", "stat": 5})
 	_esit("yuva dolu", y.ata(fazla.id, b.id), false)
+	var onceki_hucre := b.hucre
+	b.hucre = Vector2i(-1, 0)
+	var is_yeri := y.koylular[0].is_yeri
+	_esit("ISG-44 sinir disi atama", y.ata(y.koylular[0].id, b.id), false)
+	_esit("ISG-44 onceki is korunur", y.koylular[0].is_yeri, is_yeri)
+	b.hucre = onceki_hucre
 	var once := y.kaynaklar.miktar("gida")
 	var r := y.gece()
 	_esit("üç uyumlu çiftçi 9 gıda + 0.6 kesir üretti", int(r["uretim"].get("gida", 0)), 9)

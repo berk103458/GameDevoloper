@@ -737,8 +737,12 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 
 
 ## Gün sonu kaydı için sözlük (oturum + köy yönetimi).
+var ipucu_kaydi := IpucuKaydi.new()
+
+
 func kaydet() -> Dictionary:
 	return {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
+		"ogretici": ipucu_kaydi.sozluge(),
 		"dedikodu": dedikodu.kaydet(),
 		"grup_itibari": grup_itibari.kaydet(),
 		"kayit_gocu_bildirimi": preload("res://src/sistemler/kayit_gocu_bildirimi.gd").durum(self),
@@ -821,4 +825,5 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	var dedikodu_verisi: Variant = veri.get("dedikodu", {})
 	if not dedikodu_verisi is Dictionary or not o.dedikodu.yukle(dedikodu_verisi): return null
 	o._koy_esitle()
+	o.ipucu_kaydi.kayittan_oku(veri)
 	return o

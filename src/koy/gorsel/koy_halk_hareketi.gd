@@ -264,6 +264,12 @@ func _planla(id: int) -> void:
 	son = KervanKorumaGorseli.hedef(self, k, d, bas, son)
 	son = KarantinaRutini.hedef(self, k, d, bas, son)
 	son = TarlaIsNoktalari.planla(self, k, d, bas, son)
+	if preload("res://src/koy/aclik_kademesi.gd").uretim(k) <= 0.0:
+		var ev := sahne.yonetim.bina(k.ev)
+		if ev != null and ev.hazir():
+			son = rotaci.bina_duragi(bas, Rect2i(ev.hucre, ev.boyut(sahne.yonetim.katalog)), id)
+		d.is = false
+		d.dinlen = true
 	var hucreler := rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false
@@ -279,7 +285,7 @@ func _planla(id: int) -> void:
 
 func _adim(id: int) -> void:
 	var fark := sin(float(id) * 2.4) * float(_ayar.hiz_farki)
-	modeller[id].yuru(_durum[id].yol[_durum[id].adim], float(_ayar.yurume_hizi) * (1.0 + fark) * KarakterHavaTepkisi.hiz(sahne.yonetim) * SinsiGeceRutini.hiz(_durum[id]))
+	modeller[id].yuru(_durum[id].yol[_durum[id].adim], float(_ayar.yurume_hizi) * (1.0 + fark) * KarakterHavaTepkisi.hiz(sahne.yonetim) * SinsiGeceRutini.hiz(_durum[id]) * preload("res://src/koy/aclik_kademesi.gd").yurume(sahne.yonetim.koylu(id)))
 
 func _konum(h: Vector2i) -> Vector3:
 	return sahne.alan_merkezi(h, Vector2i.ONE)

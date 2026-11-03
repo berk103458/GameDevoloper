@@ -1,3 +1,71 @@
+## 3 Kasım 2026 — ISG-40 tamamlandı (Kalfa)
+
+Sağlığı sıfır olan köylü girdi harcamadan üretimden çıkar. Hedefli gece testi ve headless import geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — YSM-02 tamamlandı (Kalfa)
+
+Açlık üretimi 0,80 / 0,50 / 0 kademesine bağlandı. Yürüyüş çarpanı 0,70 ve bitkin temas riski +5 puan seçildi. Gece üretimi, erzak sıfırlaması ve gerçek şifahane testi geçti. Son headless import temiz. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — YAP-70 tamamlandı (Kalfa)
+
+DEN, gece raporundaki toplam inşaat ilerlemesini okur. Gerçek gece testi ve son headless import geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — YAP-54 tamamlandı (Kalfa)
+
+Nadir yapı eşyaları için zorunlu denge bandı yok. Usta defteri girdisiyle DEN raporunda eşya ölçümü oluşmadığı doğrulandı. Son headless import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-80 tamamlandı (Kalfa)
+
+Divan hükmü testi, geçerli dava varken iş cezasının reddedildiğini ve kaydın değişmediğini doğruladı. Son headless import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-62 tamamlandı (Kalfa)
+
+İş alanları bulunmayan kayıt mevcut yükleyiciyle açıldı ve köylü boşta yüklendi. Hedefli kayıt testi ve son headless import geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-61 tamamlandı (Kalfa)
+
+Üretim sonrası kayıt yüklendiğinde odun miktarı ve iş makbuzu korundu. Geçici işler hedefli testi ve son headless import geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-60 tamamlandı (Kalfa)
+
+Hedefli test, geçici atamanın köylü kaydında saklandığını ve ayrı atama kökü olmadığını doğruladı. Headless recovery import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-57 tamamlandı (Kalfa)
+
+İkon bulunmayan geçici işte kart iş adının ilk harfini gösterir. Headless kart testi geçti. İlk import MD5 hatası verdi, ikinci import temiz tamamlandı. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-56 tamamlandı (Kalfa)
+
+Geçici iş kartı ikonunu Sanat önbelleğinden ister. Kart headless testi geçti. İlk import MD5 hatası verdi, ikinci import temiz tamamlandı. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-45 tamamlandı (Kalfa)
+
+Odunluk yıkılınca boş köylü dal toplamaya atanamadı ve gece üretimi sıfır kaldı. Hedefli test ve son headless recovery import geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-44 tamamlandı (Kalfa)
+
+Izgara dışına taşan yapıya atama reddedilir. Köy yönetimi ve BUG-23 testleri geçti. İlk import MD5 hatası verdi, ikinci headless import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-43 tamamlandı (Kalfa)
+
+DEN ölçümü gece üretim tablosunun kopyasını okur. Hedefli testte değer farkı sıfır ve kaynak rapor korundu. İlk import MD5 hatası verdi, ikinci headless import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-38 tamamlandı (Kalfa)
+
+Meslek grevi testi gerçek demirhane gecesinde üretimin sıfır kaldığını ve girdi ile deneyimin değişmediğini doğruladı. İlk import MD5 dosya erişim hatası verdi, ikinci headless recovery import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-33 tamamlandı (Kalfa)
+
+İlk başarılı sürükle-bırak ataması ipucu şeridini açar. İkinci atamada şerit açılmaz, görüldü bilgisi kayıt yüklemesinde korunur. Hedefli headless kabul ve son recovery import geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-30 tamamlandı (Kalfa)
+
+Sürükle-bırak önizlemesi ve bırakma aynı meslek uyumunu denetler. Headless testte demirci tarlaya atanmadı ve kart geri geldi. İlk import MD5 hatası verdi, ikinci recovery import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
+## 3 Kasım 2026 — ISG-13 tamamlandı (Kalfa)
+
+Geçici işin hazır yapı şartı korundu. Hedefli testte inşaat sırasında atama reddedildi, yapı tamamlanınca açıldı ve yıkım sonrası gece bilançosunda iş ile odun üretimi sıfır kaldı. BUG-16 regresyonu geçti. İlk import MD5 dosya erişim hataları verdi, ikinci headless recovery import temiz tamamlandı. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-01 tamamlandı (Kalfa)
 
 Karar paneli eksik hazır meslek yapısını gösterir. Erzak payı EKO-09, verim ISG-02 tablosundan okunur. Meslek, panel, aile paneli ve uzmanlık testleri ile headless import geçti. Asset gerekmedi. kota görünmüyor.

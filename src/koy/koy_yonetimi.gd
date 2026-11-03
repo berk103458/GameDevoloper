@@ -357,6 +357,7 @@ func ata(koylu_id: int, bina_id: int) -> bool:
 	var b := bina(bina_id)
 	if k == null or b == null or not b.hazir() or katalog.slot(b.tur) == 0:
 		return false
+	if not b.hucreler(katalog).all(izgara.icinde): return false
 	if not YasRolleri.atanabilir(k, b.tur): return false
 	if b.tur == "muhafiz_kislasi" and (k.yas_grubu != &"yetiskin" or (not MuhafizMaasi.aday(k, self) and muhafiz_sayisi() >= a.muhafiz_azami)): return false
 	if calisanlar(bina_id).size() >= katalog.slot(b.tur) and k.is_yeri != bina_id:
@@ -571,11 +572,16 @@ func gece() -> Dictionary:
 	var uyanik_nobet := NobetYorgunlugu.nobetciler(self)
 	IsKazalari.gece(self, calismalar, olaylar)
 	ZanaatKazalari.gece(self, olaylar)
+	var tedavi_oncesi := {}
+	for kisi in koylular: tedavi_oncesi[kisi.id] = kisi.saglik
 	KisHastaligi.tedavi(self, olaylar)
 	SaglikYoneticisi.tedavi(self, olaylar)
+	var tedavi_artisi := {}
+	for kisi in koylular:
+		tedavi_artisi[kisi.id] = maxi(0, kisi.saglik - int(tedavi_oncesi[kisi.id]))
 	SIFAHANE_TRIYAJ.gece(self, olaylar)
 	NobetYorgunlugu.gece(self, uyanik_nobet)
-	_insaat()
+	rapor["insaat_ilerleme"] = _insaat()
 	_barindir()
 	CasusGeceTakibi.gece(self)
 	GizliEgilimler.gece(self, calismalar, olaylar)
@@ -591,7 +597,7 @@ func gece() -> Dictionary:
 	CenazeYasi.kaldir(self)
 	FisiltiGazetesi.HISTERI.kaldir(self)
 	var olum_kisileri: Array[Koylu] = koylular.duplicate()
-	_saglik_ve_moral(rapor["olenler"], olaylar)
+	_saglik_ve_moral(rapor["olenler"], olaylar, tedavi_artisi)
 	SiraOlayiSonucu.rapora_ekle(self, rapor)
 	CenazeYasi.gece(self, rapor, olum_kisileri)
 	IsMemnuniyeti.gece(self, calismalar, olaylar)
@@ -679,6 +685,7 @@ func _uret(uretim: Dictionary, olaylar: Array[Dictionary], calismalar: Dictionar
 		var cikti: Dictionary = r.get("uretim", {})
 		var uzmanlik := String(katalog.veri(b.tur).get("uzmanlik", ""))
 		for k in calisanlar(b.id):
+			if k.saglik <= 0 or preload("res://src/koy/aclik_kademesi.gd").uretim(k) <= 0.0: continue
 			if KarantinaYoneticisi.aktif(k): continue
 			if b.tur == "sifahane" and not Sifahane.hekim_calismaya_uygun(self, k, b): continue
 			if not YasRolleri.fiziksel(k, b.tur): continue
@@ -730,13 +737,17 @@ func _ambara(b: KoyBinasi, tur: String, miktar: float, bonus: float, uretim: Dic
 				olaylar.append({"anahtar": "koy.olay.bonus_satis", "deger": [tasan, para]})
 
 
-func _insaat() -> void:
+func _insaat() -> int:
+	var ilerleme := 0
 	var yardim := bostakiler().filter(func(k: Koylu) -> bool: return k.yas_grubu == &"yetiskin" and not KarantinaYoneticisi.aktif(k)).size() / maxi(1, a.insa_yardim_bolen)
 	yardim += GeciciIsler.insaat_yardimi(self)
 	for b in binalar:
 		if b.insa_kalan > 0:
+			var once := b.insa_kalan
 			b.insa_kalan = maxi(0, b.insa_kalan - 1 - yardim)
+			ilerleme += once - b.insa_kalan
 	_ambar_kapasitesi()
+	return ilerleme
 
 
 func _ambar_kapasitesi() -> void:
@@ -801,7 +812,7 @@ func _tuket(tuketim: Dictionary, olaylar: Array[Dictionary]) -> void:
 			olaylar.append({"anahtar": "koy.olay.soguk", "deger": [a.soguk_saglik]})
 
 
-func _saglik_ve_moral(olenler: Array, olaylar: Array[Dictionary]) -> void:
+func _saglik_ve_moral(olenler: Array, olaylar: Array[Dictionary], tedavi_artisi: Dictionary = {}) -> void:
 	var guvensiz := asayis_riski > a.asayis_moral_esigi
 	var adaletsiz := adalet < a.adalet_moral_esigi
 	for k in koylular:
@@ -811,7 +822,7 @@ func _saglik_ve_moral(olenler: Array, olaylar: Array[Dictionary]) -> void:
 		else:
 			k.moral += a.tok_moral
 			if k.ev >= 0 or DivanHukmu.zindanda(k):
-				k.saglik += a.iyilesme
+				k.saglik += maxi(0, a.iyilesme - int(tedavi_artisi.get(k.id, 0)))
 		if k.ev < 0 and not DivanHukmu.zindanda(k):
 			k.moral -= a.evsiz_moral
 		if guvensiz:
