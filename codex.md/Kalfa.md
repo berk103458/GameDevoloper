@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — YSM-03 tamamlandı (Kalfa)
+
+Yataklı uyku 2, açıkta uyku 1 birim yorgunluk düşürür. Dolu yatak, nöbet ve kayıt dönüşü testleri geçti. İlk import MD5 hatası verdi, ikinci headless import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-40 tamamlandı (Kalfa)
 
 Sağlığı sıfır olan köylü girdi harcamadan üretimden çıkar. Hedefli gece testi ve headless import geçti. Asset gerekmedi. kota görünmüyor.

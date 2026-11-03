@@ -1743,7 +1743,7 @@ YSM-01 … YSM-03 gövdesi durur. Yeni maddeler YSM-04 … YSM-83. İkinci açl�
 
 ### 22.3 Uyku
 
-- [ ] **YSM-03:** Gece evde uyku, gündüz dinlenme.
+- [x] **YSM-03:** Gece evde uyku, gündüz dinlenme. (Kalfa)
   - Ne: Yataklı evde uyuyan kişinin yorgunluğu veri dosyasındaki tam miktar kadar düşer. Yatağı olmayan açıkta uyur ve düşüş tam miktarın yarısıdır; yarım dosyada yazılır, koda gömülmez. Gündüz ateş başı ve boşta durmak yorgunluk düşürmez; dinlenme adımı yalnız gece uykusudur. Gece vardiyasına yazılan kişi o gece uyumaz ve düşüş 0'dır. Yorgunluk, kaza riskine UZM-12 ve UZM-14 hesabıyla eklenir; ikinci bir kaza zar tablosu açılmaz.
   - Kabul: Aynı yorgunlukla yatan iki kişiden yataklı olanın düşüşü, açıkta kalanın düşüşünün iki katıdır (`tests/unit/koy/yasam_test.gd`). Gündüz ateşte duran kişide yorgunluk değişmez. Ev varken yatak doluysa fazla kişi açıkta sayılır. Ölen kişi uyku satırı yazmaz. Ek şart: Kayıtta uyku alanı yoksa kişi dinlenmiş sayılmaz; açılış bir sonraki gece hesabına bırakılır. Ek şart: Yeni uyku ses dosyası eklenmez. Ek şart: Oyuncunun nöbet yorgunluğu ertesi gün evde uyuyunca silinir; ayrı bir yorgunluk alanı açılmaz.
   - Bağımlılık: YSM-01, ACL-05. Boyut: S.
