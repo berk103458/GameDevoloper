@@ -96,7 +96,16 @@
 - `YAZ-09`: Hikâye çekirdekleri ve kadro özgünlük denetimi (YAZ-79).
 - `YAZ-10`: İnceleme modu ve kapsam taraması (YAZ-83, YAZ-87).
 
-### Parti 4: Köy İçi Sevilen Yüz & Çınar Meclisi Metinleri (Faz 4 & Faz 2-3)
+### Parti 4: Köy İçi Sevilen Yüz & Çınar Meclisi Metinleri (Bölüm 25a & 27) — TAMAMLANDI
+- **Maddeler:** `SEV-01`, `SEV-02`, `SEV-03`, `SEV-04`, `SEV-05`, `SEV-06`, `SEV-07`, `MCL-02`, `MCL-03`, `MCL-04`, `MCL-05`, `MCL-06`, `MCL-07`, `MCL-08`, `MCL-09` (Toplam 15 madde).
+- **Uygulanan Dosyalar:**
+  - `src/koy/sevilen_yuz.gd`: Boş gün tespiti, ateşe gelen tanıdık yüz, kişisel iz bırakma, tek istek üretimi, köylü bağları (dostluk/husumet), isim sorma kartı ve helallik veda mekanizması.
+  - `src/koy/meclis_sesi.gd`: Karar şikayeti metni, eş/usta özel sözü, oy uygulama (adalet, moral, asayiş), meclis takvimi, karar gerekçesi, ağırlık sıralaması, hayatta olma kontrolü ve yasaklı eylem denetimi.
+  - `tests/unit/koy/sevilen_yuz_test.gd`: SEV-01..07 tüm kurallarının birim testleri (PASS).
+  - `tests/unit/koy/cinar_meclisi_genisletme_test.gd`: MCL-02..09 tüm kurallarının birim testleri (PASS).
+- **Testler:** Godot headless ile 3/3 test hatasız geçti (`meclis_sesi_test.gd`, `sevilen_yuz_test.gd`, `cinar_meclisi_genisletme_test.gd`). Doğrulayıcılar PASS.
+- **Asset Durumu:** Asset gerekmedi.
+
 - `SEV-01` … `SEV-07`: Boş gün, ateşe gelen tanıdık yüz, köydeki iz, tek istek, bağlar, isim sorma, veda.
 - `MCL-02` … `MCL-09`: Çınar meclisi şikayet ve karar sesleri, eş/usta sözü.
 

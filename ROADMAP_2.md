@@ -2234,7 +2234,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.1 Boş gün
 
-- [ ] **SEV-01:** Boş gün köy günüdür.
+- [x] **SEV-01:** (Antigravity) Boş gün köy günüdür.
   - Ne: Boş günü KAP-16 üretir; bu madde ikinci bir "kimse gelmesin" zarı açmaz. O gün oyuncu ateş başına veya bir tezgâha yürüyebilir ve orada en çok iki satır duyar. Satır, orada duran kişinin işinden gelir; ödül, eşya veya bar vermez. Kişi yoksa satır da yoktur. Gözcü boş günü bildirmeye devam eder. İki boş gün art arda aynı satırı tekrarlamaz; havuz bitince o gün sessizdir.
   - Kabul: KAP-16'nın ürettiği bir boş günde ateş veya tezgâh etkileşimi açılır ve bar değerleri değişmez (`tests/unit/koy/sevilen_yuz_test.gd`). Dolu günde bu etkileşim kapalıdır. Kapı kapalıyken ateş satırı yine gelebilir. Ek şart: Boş gün yeni panel sınıfı açmaz; köy kadrajı durur. Ek şart: `bos_gun_durusu.gd` `koy_sahnesi` import etmez ve ikinci harita açmaz.
   - Bağımlılık: KAP-16, YAZ-08. Boyut: S.
@@ -2244,7 +2244,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.2 Ateş
 
-- [ ] **SEV-02:** Tanıdık yüz ateşe gelir.
+- [x] **SEV-02:** (Antigravity) Tanıdık yüz ateşe gelir.
   - Ne: Boş günde ateşe gelen kişi köyde yaşayan adlı biridir; kapı kuyruğuna eklenmez, yatak ve kabul kararı istenmez. Selam `son_karar` ile bir somut anıyı kullanır: verilen ekmek, sorulan ad veya çevrilen akraba. Anı yoksa genel selam da yoktur ve kişi o akşam gelmez. Kadrodan 2 veya 3 kişi `hitap: aliskanlik` ile Jorji tipindedir; yeni kişilik sistemi açılmaz. Aynı kişi art arda iki boş olmayan akşamda zorla getirilmez; aralık veri dosyasındadır. Ölen, köyü terk eden veya ret yemiş ve köyde olmayan kişi içeri alınmaz.
   - Kabul: Köydeki bir kişi için `son_karar` kayıtlıyken ateş selamı o kararı anar (`tests/unit/koy/sevilen_yuz_test.gd`). Anı silinince selam gelmez ve kuyruk uzunluğu değişmez. Ek şart: Bir boş günde ateşe en çok bir kişi gelir. Ek şart: Çocuk ateşe yalnız çağrılmaz; yanında yetişkin yoksa o akşam geliş olmaz. Ek şart: Eş akşam sohbeti aynı gecede açıksa ateş selamı açılmaz. Ek şart: Ateş selamı yeni sahne açmaz; duran köy kadrajında iki satırdır. Ek şart: Yeni ateş ses dosyası eklenmez.
   - Bağımlılık: SEV-01, DIY-11. Boyut: M.
@@ -2254,7 +2254,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.3 İz
 
-- [ ] **SEV-03:** Kişisel iz köyde kalır.
+- [x] **SEV-03:** (Antigravity) Kişisel iz köyde kalır.
   - Ne: İz, heybede duran `Clue_*` eşyasının küçük yer tutucusudur; yeni heybe motoru yoktur. Yer, kişinin iş binasıdır; bina yoksa iz evin yanında durur ve bina kendiliğinden kurulmaz. Rüşvetle alınan eşya muhafız odasındaki raftadır ve etiketi ekşidir. Gönüllü verilen lokmanın etiketi sıcaktır. İkisi de aynı raftadır. Kişi ölünce veya temelli gidince iz kalkar. İz üretim vermez. Aynı eşya hem köy izi hem oda rafı olamaz.
   - Kabul: CHR_017 kabul ve sır çözülmüşken kurdele ağıl yerinde görünür (`tests/unit/koy/sevilen_yuz_test.gd`). Rüşvet eşyası yalnız odada ve ekşi etikettedir. Kişi köyden düşünce iz kalkar. Ek şart: Bir kişinin köyde aynı anda bir izi vardır. Ek şart: İz dururken o iş noktasına otomatik işçi yazılmaz. Ek şart: Kartta iz bir kelime olarak durur, sayı olarak durmaz. Ek şart: Kayıtta iz alanı yoksa kişi izsiz açılır.
   - Bağımlılık: DIY-11, SEV-07. Boyut: M.
@@ -2264,7 +2264,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.4 Tek istek
 
-- [ ] **SEV-04:** Tek istek.
+- [x] **SEV-04:** (Antigravity) Tek istek.
   - Ne: Kişi köye yerleştikten sonra bir kez, bir cümleyle bir şey ister. İstek `gun_min` ve `gun_max` taşır. Tutmak isteğe bağlıdır; tutulmazsa süre bitince bir satır değişir. Ceza barı, yeni düşman veya zorunlu görev doğmaz. Aynı anda oyuncunun önünde en çok bir istek cümlesi durur. İstek muhafızın borcu değildir (DYL-05). Süre dolmadan kişi ölürse istek kapanır. Şart olan bina yoksa istek açılmaz.
   - Kabul: Bir test kişisinde istek bir kez konuşulur, süre bitince satır değişir ve ikinci istek açılmaz (`tests/unit/koy/sevilen_yuz_test.gd`). Görev listesi düğümü yoktur. Ek şart: İstek kapıdaki kabul veya ret düğmesini açmaz. Ek şart: İstenen kaynak yoksa istek kapanır ve bedelsiz tamamlanmaz. Ek şart: Çocuk istek sahibi olmaz. Ek şart: Reddedilen istek yeni bar açmaz; husumet artışı varsa duran `husumet.gd` kaydına yazılır. Ek şart: Yükleme aynı isteği ikinci kez açmaz. Ek şart: Hediye takvimi yazılmaz.
   - Bağımlılık: YAZ-08, DIY-11. Boyut: S.
@@ -2274,7 +2274,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.5 Bağ
 
-- [ ] **SEV-05:** Köylüler birbirine bağlanır.
+- [x] **SEV-05:** (Antigravity) Köylüler birbirine bağlanır.
   - Ne: Bağ, UZM-07 kaydının dostluk ucudur. Düşman çifti aynı binada üretimi durduruyor; bu madde o kavgayı ikinci kez kurmaz. Dost çift aynı binada çalışırken verime dosyadaki küçük farkı ekler ve ateşte bir cümle duyulur. Fark koda gömülmez. Bağ `baglar` alanından gelir. Yeni ilişki ekranı yoktur. Taraflardan biri köyde değilse cümle ve verim farkı uygulanmaz. Düşman bağı ile dost bağ aynı çifte yazılamaz.
   - Kabul: Dost çift aynı binadayken verim, tablodaki fark kadar artar ve ateşte bir satır duyulur (`tests/unit/koy/sevilen_yuz_test.gd`). Düşman çiftte UZM-07 davranışı değişmez. Biri köyde değilken fark uygulanmaz. Ek şart: Bağ grup itibarına yazılmaz. Ek şart: Bağ kartta tek kelime olarak durur, sayı olarak durmaz. Ek şart: Aynı günde yeni bağ en çok bir çift için kurulur. Ek şart: Kayıtta bağ alanı yoksa çift bağsız açılır. Ek şart: Bağ kalp alanı, romans veya hediye isteği yazmaz.
   - Bağımlılık: YAZ-09, SEV-01. Boyut: S.
@@ -2283,7 +2283,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.6 Ad
 
-- [ ] **SEV-06:** İsim ancak sorulunca kartta durur.
+- [x] **SEV-06:** (Antigravity) İsim ancak sorulunca kartta durur.
   - Ne: Yüzen kart ANI-14'tür; yeni kart yoktur. Gerçek ad sorulmuşsa (`Flag_Kimlik_Cozuldu` veya sözdeki ad beyanı) kart o ada döner. Sorulmadıysa kart `Persona_Maskesi` kısa adını gösterir. Oyuncu adı köy sohbetinde de öğrenebilir; öğrenince kart döner. "Adı göster" düğmesi yoktur. Adsız figürün gerçek adı yoktur, kart sınıf adında kalır. Eşin adı açılışta bilinir ve maske kuralına girmez.
   - Kabul: CHR_017 kapıda ad sorulmadan kabul edilirse kart "çoban" maskesinde kalır; ad sorulmuş kabulde kart "Fadime" olur (`tests/unit/koy/sevilen_yuz_test.gd`). Bayrak yokken Fadime yazısı görünmez. Ek şart: Yükleme ad bayrağını kendiliğinden açmaz; sorulmamış kart maskede kalır.
   - Bağımlılık: DIY-11, YAZ-08. Boyut: S.
@@ -2293,7 +2293,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.7 Veda
 
-- [ ] **SEV-07:** Veda o kişiyi götürür.
+- [x] **SEV-07:** (Antigravity) Veda o kişiyi götürür.
   - Ne: Cenaze akışı KRI-05'tir; toplu mezar, tören ve yas süresi yeniden yazılmaz. Tören, bilinen adı söyler; bilinmiyorsa maske adını söyler. Kişisel iz kalkar. İşlediği tezgâh veya tarla noktası bir gün boş kalır ve yerine otomatik işçi konmaz. Yeni yas sayacı açılmaz. Adsız figürün vedası adı olmayan bir satırdır ve izi yoktur. Eşin ölümü ACL-02 yasını kullanır; bu madde ikinci bir yas yazmaz. Tezgâh yoksa yalnız ad söylenir.
   - Kabul: Adlı bir ölümde gece raporu adı yazar, iz kalkar ve ilgili iş noktası ertesi gün boştur (`tests/unit/koy/sevilen_yuz_test.gd`). KRI-05 seçenekleri toplu mezar ve tören olarak iki tanedir. Ek şart: Yeni mezar modeli ve yeni veda ses dosyası eklenmez.
   - Bağımlılık: SEV-03, SEV-06. Boyut: S.
@@ -2477,14 +2477,14 @@ Kimlik aralığı MCL-01 … MCL-90'tır. Numaralar yeniden sıralanmaz.
   - Dosya: yeni `src/koy/meclis_sesi.gd`; KRI-07 paneline konuşma listesi, oy hesabına dokunulmaz.
   - Asset: asset gerekmedi. Çınar ANI-07 ateş başındadır.
 
-- [ ] **MCL-02:** Şikâyet, bir kararın adını taşır.
+- [x] **MCL-02:** (Antigravity) Şikâyet, bir kararın adını taşır.
   - Ne: Şikâyet cümlesi, kapıda duran kararın adını ve hedef kişinin adını taşır; ad kabul, ret, rüşvet, kışla veya aileyi bölmeden biridir. Aynı karar ikinci ağza verilmez; kayıt yoksa o ağız susar ve genel yakınma satırı üretilmez.
   - Kabul: Karar kaydı olmayan köyde konuşma satırı 0'dır; KRI-07 oyu açılabilir. Bir ret ve bir rüşvet kayıtlıysa en az bir cümle bu adlardan birini taşır ve iki ağız aynı karar kimliğini tekrarlamaz (`tests/unit/koy/meclis_sesi_test.gd`). Ek şart: Aynı tohumla iki koşu aynı şikâyet karar kimliğini seçer. Ek şart: Divanda hükme bağlanmış karar ertesi mecliste şikâyet adayı olmaz. Ek şart: Şikâyet kaydı karar kimliğini tutar; kişinin düz adı kayda gömülü ikinci bir alan olmaz.
   - Bağımlılık: MCL-01. Boyut: S.
   - Dosya: `src/koy/meclis_sesi.gd`; kapı karar kaydına okuma.
   - Asset: asset gerekmedi.
 
-- [ ] **MCL-03:** Eş veya usta söz isterse üç ağzın dışında bir satır alır.
+- [x] **MCL-03:** (Antigravity) Eş veya usta söz isterse üç ağzın dışında bir satır alır.
   - Ne: Sağ eş, üç ağzın dışında bir satır alır ve cümlede mesleğinin sözcüğü durur; eş yoksa usta, dolu yapı bilgisinin adını söyler. Eş ile usta aynı gece ikisi birden konuşmaz ve bu satır üç ağzın yerine geçmez.
   - Kabul: Eş sağken ek satır 1'dir ve meslek sözcüğü cümlededir. Eş ölü, usta varken ek satır yapı adını taşır; ikisi de yokken ek satır 0'dır. Üç ağız duruyorsa toplam satır 4'ü geçmez (`tests/unit/koy/meclis_sesi_test.gd`).
   - Bağımlılık: MCL-02. Boyut: S.
@@ -2493,14 +2493,14 @@ Kimlik aralığı MCL-01 … MCL-90'tır. Numaralar yeniden sıralanmaz.
 
 ### 27.2 Oy ve açılış sıklığı
 
-- [ ] **MCL-04:** Oy, duran bir değere yazar.
+- [x] **MCL-04:** (Antigravity) Oy, duran bir değere yazar.
   - Ne: Uygula ve reddet, KRI-07 tablosundaki sadakat ve moral farkını yazar; bu dosyada yeni bir oy katsayısı yoktur. Reddet, şikâyetin hedef kişisine gece boyunca bir kez "mecliste adı geçti" yazar; hafıza kaydı yoksa işaret gece raporunda kalır.
   - Kabul: Uygula ile reddet farklı sonuç yazar ve KRI-07 sayılarının dışında yeni bar anahtarı 0'dır. Hedef kişide "mecliste adı geçti" en çok 1'dir (`tests/unit/koy/meclis_sesi_test.gd`). Ek şart: Aynı düğmeye iki basışta sadakat farkı bir kez yazılır. Ek şart: Meclis sesi alanı olmayan eski kayıt açılır; o gece oy adsız durur ve işaret yazılmaz.
   - Bağımlılık: MCL-03. Boyut: S.
   - Dosya: `src/koy/meclis_sesi.gd`; KRI-07 sonuç fonksiyonuna tek işaret.
   - Asset: asset gerekmedi.
 
-- [ ] **MCL-05:** Meclis her gece açılmaz.
+- [x] **MCL-05:** (Antigravity) Meclis her gece açılmaz.
   - Ne: İki meclis arasında en az dört gece vardır; süre `data/koy` meclis ayarından okunur ve koda gömülü ikinci takvim yazılmaz. Heyet veya açılış ulağı olan gece meclis ertelenir, ertelenen oy silinmez.
   - Kabul: Kriz sürerken art arda iki gecede meclis 0'dır. Dört gece sonra kriz duruyorsa meclis 1'dir. Heyet gecesinde meclis 0, ertesi uygun gecede 1'dir. Kriz o gece biterse ertelenmiş meclis açılmaz. Süre dolmadan zorla açılan meclis dört gece sayacını yine işletir (`tests/unit/koy/meclis_sesi_test.gd`). Ek şart: Kapının boş günü meclisi kendiliğinden açmaz; şikâyet kaydı duruyorsa boş gün meclisi engellemez. Ek şart: Hüküm sabahı meclis sahnesini açmaz.
   - Bağımlılık: MCL-04. Boyut: S.
@@ -2509,14 +2509,14 @@ Kimlik aralığı MCL-01 … MCL-90'tır. Numaralar yeniden sıralanmaz.
 
 ### 27.3 Karar cümlesi ve söz sırası
 
-- [ ] **MCL-06:** Uygula ve reddet, konuşulan adı söyler.
+- [x] **MCL-06:** (Antigravity) Uygula ve reddet, konuşulan adı söyler.
   - Ne: Uygula ve reddet düğmelerinin altında konuşulan kararın adı ve kişisi yazar; alt satır yoksa düğme çalışır. Basılan düğme gece raporuna bu satırla bir kez düşer, gizli oy yeniden sayılmaz.
   - Kabul: Düğme sayısı 2'dir ve kimlikler KRI-07 ile aynıdır; üçüncü düğme 0'dır. Raporda karar adı 1 kez geçer (`tests/unit/koy/meclis_sesi_test.gd`).
   - Bağımlılık: MCL-05. Boyut: S.
   - Dosya: KRI-07 paneline tek alt satır; `src/koy/meclis_sesi.gd` metni verir.
   - Asset: asset gerekmedi.
 
-- [ ] **MCL-07:** En ağır kararın sahibi önce konuşur.
+- [x] **MCL-07:** (Antigravity) En ağır kararın sahibi önce konuşur.
   - Ne: İlk ağız, köyde duran en ağır kararın hedefidir; ağırlık akşam konuları tablosundan okunur, tablo yoksa sıra aileyi bölme, rüşvet, çocuklu ret ve ölümdür. Eşin ek satırı ağırlık sırasında yarışmaz, ilk ağızdan sonra gelir.
   - Kabul: Bölme ve rüşvet aynı köydeyse ilk ağız bölmenin hedefidir. Tablo yokken bölme, rüşvetten önce gelir. Eş satırı ilk ağız değildir (`tests/unit/koy/meclis_sesi_test.gd`).
   - Bağımlılık: MCL-06. Boyut: M.
@@ -2525,14 +2525,14 @@ Kimlik aralığı MCL-01 … MCL-90'tır. Numaralar yeniden sıralanmaz.
 
 ### 27.4 Sınırlar
 
-- [ ] **MCL-08:** Köyde olmayan kişi çınarın altında duramaz.
+- [x] **MCL-08:** (Antigravity) Köyde olmayan kişi çınarın altında duramaz.
   - Ne: Liste her satırdan önce köy nüfusuna bakar; köyde olmayan kişinin cümlesi düşer ve sırada karar sahibi varsa o kişi geçer. O gece ölen veya divanla çıkan kişi listeyi bir satır kısaltır, meclis kapanmaz.
   - Kabul: Köyde olmayan kimlik listede 0'dır. Üç adaydan biri ölünce satır sayısı 2'dir ve meclis sürer. Sahnedeki model sayısı kalan satır sayısıyla aynıdır (`tests/unit/koy/meclis_sesi_test.gd`).
   - Bağımlılık: MCL-07. Boyut: S.
   - Dosya: `src/koy/meclis_sesi.gd`; nüfus kaydına tek süzgeç.
   - Asset: asset gerekmedi.
 
-- [ ] **MCL-09:** Meclis savaş, bina ve son açamaz.
+- [x] **MCL-09:** (Antigravity) Meclis savaş, bina ve son açamaz.
   - Ne: Meclis harita, sefer, yapı kademesi ve nihai son kaydını değiştirmez; yazabildiği yer KRI-07 farkı ile "mecliste adı geçti" işaretidir. Metinde sefer, düğün veya kalp sözcüğü varsa o cümle karar adına döner.
   - Kabul: Meclis gecesinden sonra HAR, YAP ve SYS-20 kayıtlarının özü değişmez. Yasak sözcük taramasında hata 0'dır. Fark ve işaret dışında yazılan alan 0'dır. Evlilik, hediye ve kalp alanı bu gecede yazılmaz (`tests/unit/koy/meclis_sesi_test.gd`). Ek şart: Reddet divan hükmü, infaz veya sürgün kaydı açmaz. Ek şart: Meclis nöbet yuvasına kimse yazmaz. Ek şart: Meclis kapı kabulü, reti, rüşveti, kışlayı veya aile bölmeyi yazmaz.
   - Bağımlılık: MCL-08. Boyut: S.
