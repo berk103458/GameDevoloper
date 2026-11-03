@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbsildvh1c6p1"]
+
+[ext_resource type="Script" uid="uid://ca685uc113riu" path="res://addons/cognite/node/cognite_node.gd" id="1_8g3c4"]
+
+[node name="LineEdit" type="LineEdit"]
+offset_right = 68.5625
+offset_bottom = 31.0
+
+[node name="CogniteNode" type="Node" parent="."]
+script = ExtResource("1_8g3c4")
+metadata/_custom_type_script = "uid://ca685uc113riu"

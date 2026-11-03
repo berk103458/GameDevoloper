@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Üçüncü parti araçlar — 3 Kasım 2026
+
+Godot 4.7.2 ile uyumlu beş araç kopyalandı, etkinleştirilmedi. Kayıt `docs/UCUNCU_PARTI_ARACLAR.md`. Parley ve Theatre kurulmadı; görev `codex.md/Antigravity_gorev.md` Görev 2. Kalfa denemesi `codex.md/Kalfa_gorev_eklentiler.md`. Dal `cursor/ucuncu-parti-eklentiler-7070`. Headless import çıkış 0, `SCRIPT ERROR` yok. HammerForge 1×1 ikon uyarısı ve Dingo sci-fi FBX'inin eksik dokusu üst paketten. Oyun kodu ve `project.godot` değişmedi. Oyun görseli üretilmedi. ds yolları bu makinede yok, eşitlenmedi. kota görünmüyor.
+
 ## VFX — 24 Ekim 2026
 
 Duman, alev, yağmur çizgisi, yumuşak ışık ve bir ateş topu. Şimşek, büyü, kan ve namlu yok. Kar ve ayrı kıvılcım yok. Sahneye bağlanmadı. Headless 5 PNG, `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. Kota görünmüyor.

@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="CogniteAssemble" load_steps=2 format=3 uid="uid://d24r1pi270utp"]
+
+[ext_resource type="Script" uid="uid://bmho1qa7r0yhk" path="res://addons/cognite/node/assemble.gd" id="1_kbvkb"]
+
+[resource]
+script = ExtResource("1_kbvkb")
+creation_count = 43
+perceptions = {
+20: {
+"name": "life",
+"prop1": 30,
+"prop2": 0,
+"type": 2
+},
+21: {
+"name": "surrounded",
+"prop1": 4,
+"prop2": 0,
+"type": 3
+},
+22: {
+"name": "ammunition",
+"prop1": 30,
+"prop2": 0,
+"type": 2
+}
+}
+contexts = {
+17: {
+"activated": true,
+"name": "escape",
+"perception_ids": {
+20: 0,
+21: 0,
+22: 0
+}
+},
+18: {
+"activated": true,
+"name": "heal",
+"perception_ids": {
+20: 0
+}
+},
+19: {
+"activated": true,
+"name": "",
+"perception_ids": {}
+}
+}
+decisions = {
+23: {
+"activated": true,
+"base_score": 25,
+"context_ids": {
+17: 25
+},
+"name": "ToEscape"
+},
+24: {
+"activated": true,
+"base_score": 0,
+"context_ids": {
+17: 0,
+18: 0
+},
+"name": "Heal"
+}
+}
+actions = {
+28: {
+"activated": true,
+"decision_id": 24,
+"deed_list": [41, 42]
+}
+}
+deeds = {
+41: {
+"name": "SetSafePosition",
+"process_mode": 1
+},
+42: {
+"name": "UseMedKit",
+"process_mode": 1
+}
+}
+metadata/_custom_type_script = "uid://bmho1qa7r0yhk"
