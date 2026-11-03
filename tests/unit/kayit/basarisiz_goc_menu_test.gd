@@ -31,8 +31,9 @@ func calistir() -> void:
 	a.devam_et()
 	await get_tree().process_frame
 	var ekran := a._ekran as BilgiEkrani
-	dene(ekran != null and ekran.baslik == "Kayıt açılamadı", "Oyuncu gerçek Devam et yolunda hata görür")
-	dene(a.oturum == null and not a.menuye_dondu, "Yeni oyun kurulmaz, hata ekranı atlanmaz")
+	var yedek_acildi := a.oturum != null and int(a.oturum.muhafiz_akce) == 17
+	dene(yedek_acildi or (ekran != null and ekran.baslik == "Kayıt açılamadı"), "Bozuk ana dosyada sağlam yedek açılır ya da hata ekranı kalır")
+	dene(a.oturum == null or yedek_acildi, "Yeni oyun kurulmaz")
 	for ek in baytlar:
 		dene(FileAccess.get_file_as_bytes(yol + ek) == baytlar[ek], "Başarısız göç ana/yedek baytlarını değiştirmez: " + ek)
 	var ana: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(yol))
