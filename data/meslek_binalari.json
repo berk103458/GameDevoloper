@@ -1,0 +1,282 @@
+{
+  "surum": 1,
+  "meslekler": {
+    "CIFTCI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_ciftci",
+      "binalar": [
+        {
+          "tur": "tarla",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_tarla"
+        },
+        {
+          "tur": "tarla_dami",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_tarla_dami"
+        },
+        {
+          "tur": "harman_yeri",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_harman_yeri"
+        }
+      ]
+    },
+    "BOSTANCI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_bostanci",
+      "binalar": [
+        {
+          "tur": "bostan",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_bostan"
+        }
+      ]
+    },
+    "COBAN": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_coban",
+      "binalar": [
+        {
+          "tur": "agil",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_agil"
+        },
+        {
+          "tur": "ahir",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_ahir"
+        }
+      ]
+    },
+    "DEGIRMENCI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_degirmenci",
+      "binalar": [
+        {
+          "tur": "degirmen",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_degirmen"
+        }
+      ]
+    },
+    "KALAYCI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_kalayci",
+      "binalar": [
+        {
+          "tur": "demirhane",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_demirhane"
+        },
+        {
+          "tur": "atolye",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_atolye"
+        }
+      ]
+    },
+    "CERRAH": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_cerrah",
+      "binalar": [
+        {
+          "tur": "sifahane",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_sifahane"
+        }
+      ]
+    },
+    "DEMIRCI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_demirci",
+      "binalar": [
+        {
+          "tur": "demir_ocagi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_demir_ocagi"
+        },
+        {
+          "tur": "demirhane",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_demirhane"
+        },
+        {
+          "tur": "atolye",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_atolye"
+        },
+        {
+          "tur": "civi_ocagi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_civi_ocagi"
+        },
+        {
+          "tur": "tamir_sundurmasi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_tamir_sundurmasi"
+        }
+      ]
+    },
+    "TELLAL": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_tellal",
+      "binalar": [
+        {
+          "tur": "han",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_han"
+        },
+        {
+          "tur": "koy_meydani",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_koy_meydani"
+        }
+      ]
+    },
+    "KATIP": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_katip",
+      "binalar": [
+        {
+          "tur": "muhafiz_kislasi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_muhafiz_kislasi"
+        },
+        {
+          "tur": "koy_meydani",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_koy_meydani"
+        }
+      ]
+    },
+    "OTACI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_otaci",
+      "binalar": [
+        {
+          "tur": "sifahane",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_sifahane"
+        }
+      ]
+    },
+    "BAGCI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_bagci",
+      "binalar": [
+        {
+          "tur": "bag_evi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_bag_evi"
+        }
+      ]
+    },
+    "SU_USTASI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_su_ustasi",
+      "binalar": [
+        {
+          "tur": "su_kuyusu",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_su_kuyusu"
+        },
+        {
+          "tur": "su_arki",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_su_arki"
+        },
+        {
+          "tur": "koy_cesmesi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_koy_cesmesi"
+        }
+      ]
+    },
+    "ASKER": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_asker",
+      "binalar": [
+        {
+          "tur": "muhafiz_kislasi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_muhafiz_kislasi"
+        },
+        {
+          "tur": "sur",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_sur"
+        },
+        {
+          "tur": "hendek",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_hendek"
+        },
+        {
+          "tur": "nobetci_kulesi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_nobetci_kulesi"
+        }
+      ]
+    },
+    "DAVULCU": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_davulcu",
+      "binalar": [
+        {
+          "tur": "tarla_dami",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_tarla_dami"
+        },
+        {
+          "tur": "harman_yeri",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_harman_yeri"
+        },
+        {
+          "tur": "muhafiz_kislasi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_muhafiz_kislasi"
+        }
+      ]
+    },
+    "KESIF_ERI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_kesif_eri",
+      "binalar": [
+        {
+          "tur": "hendek",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_hendek"
+        },
+        {
+          "tur": "nobetci_kulesi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_nobetci_kulesi"
+        },
+        {
+          "tur": "muhafiz_kislasi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_muhafiz_kislasi"
+        }
+      ]
+    },
+    "CEBECI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_cebeci",
+      "binalar": [
+        {
+          "tur": "tamir_sundurmasi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_tamir_sundurmasi"
+        },
+        {
+          "tur": "demirhane",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_demirhane"
+        },
+        {
+          "tur": "atolye",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_atolye"
+        }
+      ]
+    },
+    "SU_TASIYICI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_su_tasiyici",
+      "binalar": [
+        {
+          "tur": "su_kuyusu",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_su_kuyusu"
+        },
+        {
+          "tur": "koy_cesmesi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_koy_cesmesi"
+        },
+        {
+          "tur": "ortak_sofra",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_ortak_sofra"
+        }
+      ]
+    },
+    "SARAC": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_sarac",
+      "binalar": [
+        {
+          "tur": "ahir",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_ahir"
+        }
+      ]
+    },
+    "COMLEKCI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_comlekci",
+      "binalar": [
+        {
+          "tur": "su_kuyusu",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_su_kuyusu"
+        }
+      ]
+    },
+    "BEZCI": {
+      "ad_anahtari": "koy.meslek_uyarisi.meslek_bezci",
+      "binalar": [
+        {
+          "tur": "bez_evi",
+          "ad_anahtari": "koy.meslek_uyarisi.yapi_bez_evi"
+        }
+      ]
+    }
+  },
+  "ek_meslekler": {
+    "chr_003": [
+      "DEMIRCI"
+    ]
+  }
+}

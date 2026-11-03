@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/unit/kapi/meslek_uyarisi_panel_test.gd" id="1"]
+[node name="MeslekUyarisiPanelTest" type="Node"]
+script = ExtResource("1")

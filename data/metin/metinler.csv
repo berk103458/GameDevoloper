@@ -1859,3 +1859,49 @@ koy.gecici_is.bakim_yok,Bakım gerektiren kişi yok
 koy.gecici_is.rapor,Geçici iş · %s: %d katkı
 koy.gecici_is.yorgun,Geçici işten yorgun · mevcut kaza/uyuklama riski sürer; bir gece dinlenin.
 koy.gecici_is.kulp,Görev atamak için bu kulpu binaya veya geçici işe sürükle.
+koy.meslek_uyarisi.meslek_ciftci,Çiftçi
+koy.meslek_uyarisi.meslek_bostanci,Bostancı
+koy.meslek_uyarisi.meslek_coban,Çoban
+koy.meslek_uyarisi.meslek_degirmenci,Değirmenci
+koy.meslek_uyarisi.meslek_kalayci,Kalaycı
+koy.meslek_uyarisi.meslek_cerrah,Cerrah
+koy.meslek_uyarisi.meslek_demirci,Demirci
+koy.meslek_uyarisi.meslek_tellal,Tellal
+koy.meslek_uyarisi.meslek_katip,Kâtip
+koy.meslek_uyarisi.meslek_otaci,Otacı
+koy.meslek_uyarisi.meslek_bagci,Bağcı
+koy.meslek_uyarisi.meslek_su_ustasi,Su ustası
+koy.meslek_uyarisi.meslek_asker,Asker
+koy.meslek_uyarisi.meslek_davulcu,Davulcu
+koy.meslek_uyarisi.meslek_kesif_eri,Keşif eri
+koy.meslek_uyarisi.meslek_cebeci,Cebeci
+koy.meslek_uyarisi.meslek_su_tasiyici,Su taşıyıcı
+koy.meslek_uyarisi.meslek_sarac,Saraç
+koy.meslek_uyarisi.meslek_comlekci,Çömlekçi
+koy.meslek_uyarisi.meslek_bezci,Kumaşçı
+koy.meslek_uyarisi.yapi_tarla,tarla
+koy.meslek_uyarisi.yapi_tarla_dami,tarla damı
+koy.meslek_uyarisi.yapi_harman_yeri,harman yeri
+koy.meslek_uyarisi.yapi_bostan,bostan
+koy.meslek_uyarisi.yapi_agil,ağıl
+koy.meslek_uyarisi.yapi_ahir,ahır
+koy.meslek_uyarisi.yapi_degirmen,değirmen
+koy.meslek_uyarisi.yapi_demirhane,demirhane
+koy.meslek_uyarisi.yapi_atolye,atölye
+koy.meslek_uyarisi.yapi_sifahane,şifahane
+koy.meslek_uyarisi.yapi_demir_ocagi,demir ocağı
+koy.meslek_uyarisi.yapi_civi_ocagi,çivi ocağı
+koy.meslek_uyarisi.yapi_tamir_sundurmasi,tamir sundurması
+koy.meslek_uyarisi.yapi_han,han
+koy.meslek_uyarisi.yapi_koy_meydani,köy meydanı
+koy.meslek_uyarisi.yapi_muhafiz_kislasi,muhafız kışlası
+koy.meslek_uyarisi.yapi_bag_evi,bağ evi
+koy.meslek_uyarisi.yapi_su_kuyusu,su kuyusu
+koy.meslek_uyarisi.yapi_su_arki,su arkı
+koy.meslek_uyarisi.yapi_koy_cesmesi,köy çeşmesi
+koy.meslek_uyarisi.yapi_sur,sur
+koy.meslek_uyarisi.yapi_hendek,hendek
+koy.meslek_uyarisi.yapi_nobetci_kulesi,nöbetçi kulesi
+koy.meslek_uyarisi.yapi_ortak_sofra,ortak sofra
+koy.meslek_uyarisi.yapi_bez_evi,dokuma tezgâhı
+koy.meslek_uyarisi.satir,"%s — %s yok. Nitelikli iş verilemez; günde %s erzak yer, geçici işte %%%d verimle çalışır."

@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — ISG-01 tamamlandı (Kalfa)
+
+Karar paneli eksik hazır meslek yapısını gösterir. Erzak payı EKO-09, verim ISG-02 tablosundan okunur. Meslek, panel, aile paneli ve uzmanlık testleri ile headless import geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — ISG-02 su koşulu düzeltildi (Kalfa)
 
 ISG-01 incelemesinde katalogda olmayan kuyu koşulu bulundu; önceki sentetik test yapısı hatayı gizlemişti. ISG-02 yeniden açılıp gerçek katalog erişilebilirliği RED testiyle doğrulandı. Su işi artık hazır kulübe/çadır koşuluyla gerçek meydan kuyusundan rezerv taşır. SuDengesi aynı günlük akış makbuzunu kullanır; iki işçi son bir birimi aşamaz, yeni kuyu veya ikinci akçe bedeli yoktur. Gerçek yapı kuran canlı kartta su işi açıktır ve düğme alternatifi doğru atar.

@@ -457,6 +457,7 @@ func _karar_goster() -> void:
 	_bolum.text = tr("arayuz.kapi.karar")
 	_daralt(true)
 	_karar_dugmeleri = []
+	preload("res://src/kapi/meslek_uyarisi.gd").ekle(_secenekler,oturum.yonetim,_gelen,ayarlar.boyut(Tema.KUCUK_PX))
 	var gorunen := PackedStringArray()
 	for n in _gelen.secenekler.size():
 		var esik := 0
