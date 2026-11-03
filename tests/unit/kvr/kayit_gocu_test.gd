@@ -48,6 +48,19 @@ func _initialize() -> void:
 	var diskte: Variant = JSON.parse_string(FileAccess.get_file_as_string(slot.yol))
 	_kontrol(diskte is Dictionary and int(diskte["surum"]) == 1 and String(diskte["tohum"]) == "7", "Reddedilen v1 dosyası diskte değişmez")
 	slot.sil()
+	# KAY-43: chr-runtime sürüm 3 fixtürü yeni sürümde açılır; köy, kadro ve rastgelelik durur.
+	var v3oturum := Oturum.new(katalog, 3143)
+	v3oturum.yonetim.gun = 4
+	v3oturum.yonetim.kabul({"ad": "Sürüm 3"})
+	var v3nufus := v3oturum.yonetim.nufus()
+	var v3rng: Array = v3oturum.kaydet()["rng"]
+	var v3kadro: Dictionary = v3oturum.kadro.kaydet()
+	var v3: Dictionary = JSON.parse_string(JSON.stringify(v3oturum.kaydet()))
+	v3["surum"] = 3
+	var v3geri := Oturum.kayittan(katalog, v3)
+	_kontrol(v3geri != null and v3geri.yonetim.nufus() == v3nufus, "Sürüm 3 kaydı açılır, köylü sayısı eşit")
+	_kontrol(v3geri != null and v3geri.kaydet()["rng"] == v3rng, "Sürüm 3 rastgeleliği durur")
+	_kontrol(v3geri != null and v3geri.kadro.kaydet() == v3kadro, "Sürüm 3 kadrosu durur")
 	print("KAYIT GÖÇÜ: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
 	quit(hata)
 

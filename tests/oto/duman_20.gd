@@ -16,13 +16,22 @@ func _calistir() -> void:
 		get_tree().quit(1)
 		return
 	var o := Oturum.new(katalog, 11)
+	if OS.get_environment("DUMAN_GOCMUS") == "1":
+		o = preload("res://tests/oto/duman_cekirdek.gd").gocmus_oturum(katalog)
+		if o == null:
+			push_error("Göçmüş duman kaydı açılmadı")
+			get_tree().quit(1)
+			return
+	var hedef := 20
+	if OS.get_environment("DUMAN_YIL") == "3":
+		hedef = maxi(1, katalog.koy_ayarlari.mevsim_gun) * 12
 	var bot := get_parent()
 	bot.ana = Ana.new()
 	bot.ana.oturum = o
 	var koy := KoyProbu.new()
 	var hafiza_once := int(Performance.get_monitor(Performance.MEMORY_STATIC))
 	var geceler := 0
-	for gece in 20:
+	for gece in hedef:
 		for g in o.gece_kuyrugu():
 			var chr := g.chr_sorgusu()
 			if chr != null:
@@ -60,5 +69,9 @@ func _calistir() -> void:
 	koy.free()
 	bot.ana.free()
 	bot.ana = null
-	print("20 GECE DUMAN: GEÇTİ")
-	get_tree().quit(0 if geceler == 20 and o.gun == 20 else 1)
+	if hedef == 20:
+		print("20 GECE DUMAN: GEÇTİ")
+		get_tree().quit(0 if geceler == 20 and o.gun == 20 else 1)
+	else:
+		print("KAY-52 RAPOR: ", JSON.stringify(rapor))
+		get_tree().quit(0 if geceler == hedef else 1)

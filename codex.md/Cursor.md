@@ -80,7 +80,7 @@ Bölüm 41 (41.1, 41.2, 41.9, 41.10) ve Bölüm 40 araç satırları (40.1, 40.2
 
 Bölüm 29 ve 30 boş maddeleri sahiplendi: TEZ-02…10, YIL-01…10. İşaret `[/] (Cursor)`. Dal `cursor/gece-29-30-mevsim`, taban festive. PR #21'den dallanılmadı; SAB kapalı bayrağı meta okuyucusu. Kota görünmüyor.
 
-Bölüm 31 boş kayıt maddeleri `[/] (Cursor)`. Kod dalı `cursor/gece-31-dogrulama`. Kalfa'nın ekonomi/köy maddelerine ve Antigravity'nin diyalog metnine dokunulmadı. Doğrulayıcı yalnız araç. Asset gerekmedi. kota görünmüyor.
+Bölüm 31 boş kayıt maddeleri `[x] (Cursor)`. Dal `cursor/gece-31-dogrulama`. Söz alanları ince adaptör; diyalog metni yazılmadı. Kalfa ekonomi/köy ve Antigravity metin alanı duruyor. Asset gerekmedi. kota görünmüyor.
 
 Bölüm 35 boş AYR maddeleri sahiplendi: AYR-01, 03, 04, 07–21, 23–27, 30, 34–42, 45, 47, 48, 50, 52. İşaret `[/] (Cursor)`. Kod `cursor/gece-35-ayarlar` dalında. Kalfa ekonomi/köy ve Antigravity diyalog alanına dokunulmadı. Kota görünmüyor.
 

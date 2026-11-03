@@ -143,6 +143,10 @@ func bitki_verim_sozlugu() -> Dictionary:
 @export var harman_aralik: float = 0.8
 @export var harman_tolerans: float = 0.17
 
+@export_group("Söz kaydı")
+## KAY-58: kapalıyken göç Söz alanlarını yazmaz. Kayıt sürümü ayrı kalır.
+@export var soz_alanlari_acik: bool = true
+
 @export_group("Heybe")
 ## Gelenin söylediği akçe aralığı.
 @export var beyan_akce_min: int = 2

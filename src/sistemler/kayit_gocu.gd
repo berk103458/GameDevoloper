@@ -29,6 +29,8 @@ static func uygula(kayit: Dictionary, mevsim_gun: int) -> Dictionary:
 				return {}
 	if surum < GUNCEL_SURUM:
 		veri["kayit_gocu_bildirimi"] = {"kaynak":surum, "hedef":GUNCEL_SURUM, "bekliyor":true}
+	if not preload("res://src/sistemler/kayit_gocu_soz.gd").soz_denetle(veri):
+		return {}
 	return veri
 
 static func _v2_v3(veri: Dictionary, mevsim_gun: int) -> Dictionary:
