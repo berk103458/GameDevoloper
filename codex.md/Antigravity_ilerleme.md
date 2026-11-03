@@ -29,18 +29,27 @@
   - Commit: `286570c0`
 
 - **Aşama B Parti 2 — `diyalog_06` – `diyalog_10` (Tamamlandı)**
-  - `diyalog_06` (Miğferi yamuk, kılıcını ekmeğe satan yaya er - Asker): Er meydanı utancı, hancıya satılan pusat, gürz darbesi ve kışla kargıcılığı dalları yazıldı.
-  - `diyalog_07` (Köyü yakılan, kırık saban ve arpa tohumlu rençber - Çiftçi): Kağnı devrilmesi, tohumun sıcaklığı, kara börklü süvariler ve ambar birliği dalları yazıldı.
-  - `diyalog_08` (Çarşı yangınından kaçan b種類li dikici kalfası - Esnaf): Dükkânın kül oluşu, pabuç ve eyer onarımı, kapı dibinde sabaha kadar çalışma sözü ve çizme tamiri rüşveti yazıldı. (SYS-17 eşik=0 ret kuralı korundu).
-  - `diyalog_09` (Oku tükenmiş kemankeş - Asker): Tokat kalesi boynuz zihgiri, kamıştan ok yapımı, şehit arkadaşlar ve kule gözetlemesi dalları yazıldı.
-  - `diyalog_10` (Yetimlerle ekmeğini bölüşen obalı köylü - Çiftçi): Yarım somun ve testi suyu hikayesi, kuyu ve ark kazıcılığı, harama el uzatmama yemini dalları yazıldı.
+  - `diyalog_06` (Miğferi yamuk, kılıcını ekmeğe satan yaya er - Asker)
+  - `diyalog_07` (Köyü yakılan, kırık saban ve arpa tohumlu rençber - Çiftçi)
+  - `diyalog_08` (Çarşı yangınından kaçan b種類li dikici kalfası - Esnaf)
+  - `diyalog_09` (Oku tükenmiş kemankeş - Asker)
+  - `diyalog_10` (Yetimlerle ekmeğini bölüşen obalı köylü - Çiftçi)
+  - Test: `tests/unit/kvr/diyalog_mantigi_test.gd` (Godot headless, 0 hata, GEÇTİ).
+  - Commit: `0860d05e`
+
+- **Aşama B Parti 3 — `diyalog_11` – `diyalog_15` (Tamamlandı)**
+  - `diyalog_11` (Taş köprü nöbetinden çekilen yaralı kargıcı - Asker): Bendi yaran süvariler, ok yarası, sancak beyinin son emri ve kışla/gözetleme kulesi dalları yazıldı.
+  - `diyalog_12` (Eşeğiyle gezen seyyar kalaycı ustası - Esnaf): Dövme bakır taslar, kaştaki kazan yarası, Ahi çekiç damgası ve köy kazanlarını parlatma dalları yazıldı.
+  - `diyalog_13` (Ağılı basılan, kucağında topal teke yavrusunu kaçıran çoban - Çiftçi): Dilsiz yetim can merhameti, bacağa bağlanan tahta çöp ve dağ kurdu taktikleri dalları yazıldı.
+  - `diyalog_14` (Kervanı vurulan kaya tuzu tüccarı - Esnaf): Kuru dere yatağından kaçış, has billur tuz kalitesi, kışlık et/peynir tuzlama ve ambar bağışı dalları yazıldı.
+  - `diyalog_15` (Kule baskınından borazanını kurtarıp kaçan nefer - Asker): Yardan atlayış, vadideki üç kollu süvari tehdidi, borazanın avazı ve dizdara acil istihbarat dalları yazıldı.
   - Test: `tests/unit/kvr/diyalog_mantigi_test.gd` (Godot headless, 0 hata, GEÇTİ).
 
 ## Son Commit Hash'i
-- `286570c0` (Aşama B Parti 2 commit'i atılacak)
+- `0860d05e` (Aşama B Parti 3 commit'i atılacak)
 
 ## Bir Sonraki Adım
-Aşama B Parti 3: `diyalog_11` – `diyalog_15` kapı diyaloglarının insanlaştırılması, yeni seçim/sonuçların ve tepki dallarının yazılması.
+Aşama B Parti 4: `diyalog_16` – `diyalog_20` kapı diyaloglarının insanlaştırılması, yeni seçim/sonuçların ve tepki dallarının yazılması.
 
 ## Açık Sorular (Ahmet'e)
 - Şimdilik açık soru bulunmamaktadır.
