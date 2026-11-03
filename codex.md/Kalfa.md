@@ -1,3 +1,17 @@
+## 3 Kasım 2026 — Windows eklenti ön denemesi (Kalfa)
+
+Dal: cursor/ucuncu-parti-eklentiler-7070. Ayrı çalışma kopyası, Godot 4.7.2.stable.official.ed1daf0bf ve Node v24.18.0. Aktif masaüstü oturumu nedeniyle editörde odak alan adımlar beklemede.
+
+| Eklenti | Editör açıldı | Örnek / bağlantı | Oyun duruyor | Sonuç |
+| --- | --- | --- | --- | --- |
+| godot-mcp | Eklenti etkinleştirmesi bekliyor | Kaynak derlendi, 0.6.1 stdio initialize geçti. Editör bağlantısı bekliyor | Birleşik koşu bekliyor | Bekliyor |
+| HammerForge | Dock bekliyor | Minimal sahne headless hata vermedi. F6 bekliyor | Birleşik koşu bekliyor | Bekliyor |
+| Cognite | Kapalı taramada inspector.gd:4 ve :7 derleme hatası | Örnek iki koşuda Nil.position SCRIPT ERROR verdi | Kapalı ana menü geçti | KALDI |
+| gdTree3D | Windows DLL yüklendi, ClassDB Tree3D mevcut | İki sahne headless açıldı. Eski UID'ler metin yoluna döndü. Görsel üretim bekliyor | Kapalı eklenti listesiyle ana menü geçti | Bekliyor |
+| Dingo | Plugins satırı yok. Taramada eksik Sci-fi dokusu ve yol harfi uyarısı var | Import sonrasında örnek headless çıkış 0 ve ERROR yok. Editörde üretim ve oda sayısı bekliyor | Kapalı ana menü geçti | Bekliyor |
+
+Kapalı editör taramasında ilk_saat.gd:87 TehditTakvimi eksik ve bazı mevcut testlerde derleme hataları görüldü. Import sırasında erken alınan Dingo ve ana menü koşularında model cache dosyaları eksikti. Sonraki headless koşularda Dingo hata vermedi ve ana menü bağımlılık kontrolü geçti. Editör project.godot içindeki run/main_scene satırının sırasını değiştirdi. Bu fark commit kapsamına alınmadı. Eklenti etkinliği değişmedi. Günlükler çalışma kopyasındaki .godot-kalfa-editor.log ve .godot/kalfa-*.log dosyalarında. ds yolu bulunamadı, eşitlenmedi. kota görünmüyor.
+
 ## 2 Kasım 2026 — ISG-02 su koşulu düzeltildi (Kalfa)
 
 ISG-01 incelemesinde katalogda olmayan kuyu koşulu bulundu; önceki sentetik test yapısı hatayı gizlemişti. ISG-02 yeniden açılıp gerçek katalog erişilebilirliği RED testiyle doğrulandı. Su işi artık hazır kulübe/çadır koşuluyla gerçek meydan kuyusundan rezerv taşır. SuDengesi aynı günlük akış makbuzunu kullanır; iki işçi son bir birimi aşamaz, yeni kuyu veya ikinci akçe bedeli yoktur. Gerçek yapı kuran canlı kartta su işi açıktır ve düğme alternatifi doğru atar.
