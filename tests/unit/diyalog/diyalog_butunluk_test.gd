@@ -91,8 +91,21 @@ func _test_parley_sekanslari_butunlugu() -> void:
 	var ds_dosyalari := [
 		"res://data/parley/koy/koylu_muhabbet_genel.ds",
 		"res://data/parley/koy/koylu_muhabbet_yusuf.ds",
+		"res://data/parley/koy/koylu_muhabbet_miraen.ds",
+		"res://data/parley/koy/koylu_muhabbet_karaca_usta.ds",
+		"res://data/parley/koy/koylu_muhabbet_ayse_baci.ds",
+		"res://data/parley/koy/koylu_muhabbet_aydogdu.ds",
+		"res://data/parley/koy/koylu_muhabbet_saruca_hatun.ds",
+		"res://data/parley/koy/koylu_muhabbet_thessra.ds",
+		"res://data/parley/koy/koylu_muhabbet_sorhan.ds",
+		"res://data/parley/koy/koylu_muhabbet_hasan_celebi.ds",
+		"res://data/parley/koy/koylu_muhabbet_nogay.ds",
 		"res://data/parley/koy/sekans_degirmen_kitlik.ds",
-		"res://data/parley/koy/sekans_meydan_atesi.ds"
+		"res://data/parley/koy/sekans_meydan_atesi.ds",
+		"res://data/parley/koy/sekans_demirhane_pusat.ds",
+		"res://data/parley/koy/sekans_kuyu_hastalik.ds",
+		"res://data/parley/koy/sekans_nobet_harami.ds",
+		"res://data/parley/koy/sekans_pazar_fiskos.ds"
 	]
 	
 	for ds_yolu in ds_dosyalari:
@@ -170,8 +183,21 @@ func _test_turkce_karakter_butunlugu() -> void:
 	var ds_dosyalari := [
 		"res://data/parley/koy/koylu_muhabbet_genel.ds",
 		"res://data/parley/koy/koylu_muhabbet_yusuf.ds",
+		"res://data/parley/koy/koylu_muhabbet_miraen.ds",
+		"res://data/parley/koy/koylu_muhabbet_karaca_usta.ds",
+		"res://data/parley/koy/koylu_muhabbet_ayse_baci.ds",
+		"res://data/parley/koy/koylu_muhabbet_aydogdu.ds",
+		"res://data/parley/koy/koylu_muhabbet_saruca_hatun.ds",
+		"res://data/parley/koy/koylu_muhabbet_thessra.ds",
+		"res://data/parley/koy/koylu_muhabbet_sorhan.ds",
+		"res://data/parley/koy/koylu_muhabbet_hasan_celebi.ds",
+		"res://data/parley/koy/koylu_muhabbet_nogay.ds",
 		"res://data/parley/koy/sekans_degirmen_kitlik.ds",
-		"res://data/parley/koy/sekans_meydan_atesi.ds"
+		"res://data/parley/koy/sekans_meydan_atesi.ds",
+		"res://data/parley/koy/sekans_demirhane_pusat.ds",
+		"res://data/parley/koy/sekans_kuyu_hastalik.ds",
+		"res://data/parley/koy/sekans_nobet_harami.ds",
+		"res://data/parley/koy/sekans_pazar_fiskos.ds"
 	]
 	var parley_toplam_metin := ""
 	for ds in ds_dosyalari:
@@ -222,6 +248,30 @@ func _test_adaptor_ve_yonetici_butunlugu() -> void:
 	dy.bitir()
 	dene(not dy.calisiyor, "Yusuf muhabbeti duzgun kapatildi")
 	
+	# Miraen adlı köylü muhabbeti testi
+	var miraen := Koylu.new()
+	miraen.id = 3
+	miraen.ad = "Miraen"
+	miraen.adli_id = &"miraen"
+	sonuc_durumu["replik_adeti"] = 0
+	var miraen_ok = dy.muhabbet_baslat(miraen, null)
+	dene(miraen_ok, "Miraen adlı köylü muhabbeti baslatildi")
+	await create_timer(0.2).timeout
+	dene(sonuc_durumu["son_konusan"] == "Miraen", "Miraen muhabbeti doğru karakteri verdi")
+	dy.bitir()
+	
+	# Karaca Usta adlı köylü muhabbeti testi
+	var karaca := Koylu.new()
+	karaca.id = 4
+	karaca.ad = "Karaca Usta"
+	karaca.adli_id = &"karaca_usta"
+	sonuc_durumu["replik_adeti"] = 0
+	var karaca_ok = dy.muhabbet_baslat(karaca, null)
+	dene(karaca_ok, "Karaca Usta adlı köylü muhabbeti baslatildi")
+	await create_timer(0.2).timeout
+	dene(sonuc_durumu["son_konusan"] == "Karaca Usta", "Karaca Usta muhabbeti doğru karakteri verdi")
+	dy.bitir()
+	
 	# Sekans koşturma testi (sekans_degirmen_kitlik)
 	var sekans_ok = dy.sekans_baslat("sekans_degirmen_kitlik", null)
 	dene(sekans_ok, "Ortam sekansı (sekans_degirmen_kitlik) baslatildi")
@@ -229,3 +279,9 @@ func _test_adaptor_ve_yonetici_butunlugu() -> void:
 	dene(sonuc_durumu["replik_adeti"] >= 2, "Ortam sekansı replik üretti")
 	dy.bitir()
 	dene(not dy.calisiyor, "Ortam sekansı duzgun kapatildi")
+	
+	# Yeni sekans koşturma testi (sekans_demirhane_pusat)
+	var sekans2_ok = dy.sekans_baslat("sekans_demirhane_pusat", null)
+	dene(sekans2_ok, "Yeni ortam sekansı (sekans_demirhane_pusat) baslatildi")
+	await create_timer(0.2).timeout
+	dy.bitir()

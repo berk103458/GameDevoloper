@@ -1,0 +1,171 @@
+{
+  "title": "sekans_kuyu_hastalik",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:c1",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Miraen",
+      "text": "Saruca Hatun... Meydan kuyusundan çekilen suda kükürt ve pas kokusu sezinledim. Çocuklara bu suyu kaynatmadan içirme."
+    },
+    {
+      "id": "node:c2",
+      "type": "DIALOGUE",
+      "position": "(700.0, 0.0)",
+      "character": "Saruca Hatun",
+      "text": "Aman Miraen kızım! Kış günü başımıza bir de salgın humması sarmayalım. Kuyuya kireç dökelim mi, ne dersin?"
+    },
+    {
+      "id": "node:opt1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, -90.0)",
+      "character": "Muhafız",
+      "text": "Hemen sönmemiş kireç kuyusunu açıp üç ölçek kuyuya dökelim, iki gün dinlensin."
+    },
+    {
+      "id": "node:opt2",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, 90.0)",
+      "character": "Muhafız",
+      "text": "Kuyuyu kapatamayız, köylü susuz kalır; sadece şüpheli kovaları arıtalım."
+    },
+    {
+      "id": "node:rep1",
+      "type": "DIALOGUE",
+      "position": "(1400.0, -90.0)",
+      "character": "Miraen",
+      "text": "Doğru karar muhafız ağa. Kireç kuyunun zehrini kırar, iki güne su ayna gibi berraklaşır."
+    },
+    {
+      "id": "node:rep2",
+      "type": "DIALOGUE",
+      "position": "(1400.0, 90.0)",
+      "character": "Saruca Hatun",
+      "text": "Öyleyse suları tandır ateşinde kaynatıp öyle dağıtacağız evlat; tedbiri elden bırakmayız."
+    },
+    {
+      "id": "node:act1",
+      "type": "ACTION",
+      "position": "(1750.0, -90.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "3"
+      ]
+    },
+    {
+      "id": "node:act2",
+      "type": "ACTION",
+      "position": "(1750.0, 90.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(2100.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_s",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:c1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_1_2",
+      "from_node": "node:c1",
+      "from_slot": 0,
+      "to_node": "node:c2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_2_o1",
+      "from_node": "node:c2",
+      "from_slot": 0,
+      "to_node": "node:opt1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_2_o2",
+      "from_node": "node:c2",
+      "from_slot": 0,
+      "to_node": "node:opt2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o1_r1",
+      "from_node": "node:opt1",
+      "from_slot": 0,
+      "to_node": "node:rep1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r1_a1",
+      "from_node": "node:rep1",
+      "from_slot": 0,
+      "to_node": "node:act1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a1_end",
+      "from_node": "node:act1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o2_r2",
+      "from_node": "node:opt2",
+      "from_slot": 0,
+      "to_node": "node:rep2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r2_a2",
+      "from_node": "node:rep2",
+      "from_slot": 0,
+      "to_node": "node:act2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a2_end",
+      "from_node": "node:act2",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

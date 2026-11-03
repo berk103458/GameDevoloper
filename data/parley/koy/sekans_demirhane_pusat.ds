@@ -1,0 +1,171 @@
+{
+  "title": "sekans_demirhane_pusat",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:c1",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Karaca Usta",
+      "text": "Thessra usta! Kapı kanadının demir takviyeleri zayıf kalmış; süvari atı çarpsa menteşe fırlar!"
+    },
+    {
+      "id": "node:c2",
+      "type": "DIALOGUE",
+      "position": "(700.0, 0.0)",
+      "character": "Thessra",
+      "text": "Haklısın Karaca baba. Taş temel sağlam amma kapı kanadına çift sıra dövme perçinli demir kuşak çekmemiz şart. Kömürün yeter mi?"
+    },
+    {
+      "id": "node:opt1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, -90.0)",
+      "character": "Muhafız",
+      "text": "Kömürü ben sağlarım, kalkanları ve kapıyı en sağlam çelikle donatacağız!"
+    },
+    {
+      "id": "node:opt2",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, 90.0)",
+      "character": "Muhafız",
+      "text": "İsraf yok! Yalnızca en zayıf mazgallara ve kapı göbeğine takviye yapın."
+    },
+    {
+      "id": "node:rep1",
+      "type": "DIALOGUE",
+      "position": "(1400.0, -90.0)",
+      "character": "Karaca Usta",
+      "text": "Emir baş üstüne muhafız ağa! Demirhane sabaha kadar tütecek, kapı kale kapısı gibi olacak."
+    },
+    {
+      "id": "node:rep2",
+      "type": "DIALOGUE",
+      "position": "(1400.0, 90.0)",
+      "character": "Thessra",
+      "text": "Az kaynakla da olsa mühendislik hünerimizi konuştururuz ağam, surlar dimdik durur."
+    },
+    {
+      "id": "node:act1",
+      "type": "ACTION",
+      "position": "(1750.0, -90.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act2",
+      "type": "ACTION",
+      "position": "(1750.0, 90.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(2100.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_s",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:c1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_1_2",
+      "from_node": "node:c1",
+      "from_slot": 0,
+      "to_node": "node:c2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_2_o1",
+      "from_node": "node:c2",
+      "from_slot": 0,
+      "to_node": "node:opt1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_2_o2",
+      "from_node": "node:c2",
+      "from_slot": 0,
+      "to_node": "node:opt2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o1_r1",
+      "from_node": "node:opt1",
+      "from_slot": 0,
+      "to_node": "node:rep1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r1_a1",
+      "from_node": "node:rep1",
+      "from_slot": 0,
+      "to_node": "node:act1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a1_end",
+      "from_node": "node:act1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o2_r2",
+      "from_node": "node:opt2",
+      "from_slot": 0,
+      "to_node": "node:rep2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r2_a2",
+      "from_node": "node:rep2",
+      "from_slot": 0,
+      "to_node": "node:act2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a2_end",
+      "from_node": "node:act2",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

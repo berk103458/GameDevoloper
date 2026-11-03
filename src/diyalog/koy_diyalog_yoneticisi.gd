@@ -42,8 +42,36 @@ func muhabbet_baslat(k: Koylu, y: KoyYonetimi = null) -> bool:
 	koylu = k
 	yonetim = y
 	var ds_yolu := "res://data/parley/koy/koylu_muhabbet_genel.ds"
-	if koylu and (koylu.ad == "Yusuf" or koylu.adli_id == &"yusuf"):
-		ds_yolu = "res://data/parley/koy/koylu_muhabbet_yusuf.ds"
+	if koylu:
+		var ad_id := ""
+		if not koylu.adli_id.is_empty():
+			ad_id = String(koylu.adli_id).to_lower()
+		elif not koylu.ad.is_empty():
+			ad_id = koylu.ad.to_lower().replace(" ", "_").replace("ı", "i").replace("ş", "s").replace("ç", "c").replace("ğ", "g").replace("ö", "o").replace("ü", "u")
+			
+		var ozel_yol := "res://data/parley/koy/koylu_muhabbet_%s.ds" % ad_id
+		if FileAccess.file_exists(ozel_yol):
+			ds_yolu = ozel_yol
+		elif ad_id.contains("karaca"):
+			ds_yolu = "res://data/parley/koy/koylu_muhabbet_karaca_usta.ds"
+		elif ad_id.contains("ayse"):
+			ds_yolu = "res://data/parley/koy/koylu_muhabbet_ayse_baci.ds"
+		elif ad_id.contains("saruca"):
+			ds_yolu = "res://data/parley/koy/koylu_muhabbet_saruca_hatun.ds"
+		elif ad_id.contains("hasan"):
+			ds_yolu = "res://data/parley/koy/koylu_muhabbet_hasan_celebi.ds"
+		elif ad_id.contains("yusuf"):
+			ds_yolu = "res://data/parley/koy/koylu_muhabbet_yusuf.ds"
+		elif ad_id.contains("miraen"):
+			ds_yolu = "res://data/parley/koy/koylu_muhabbet_miraen.ds"
+		elif ad_id.contains("thessra"):
+			ds_yolu = "res://data/parley/koy/koylu_muhabbet_thessra.ds"
+		elif ad_id.contains("sorhan"):
+			ds_yolu = "res://data/parley/koy/koylu_muhabbet_sorhan.ds"
+		elif ad_id.contains("aydogdu"):
+			ds_yolu = "res://data/parley/koy/koylu_muhabbet_aydogdu.ds"
+		elif ad_id.contains("nogay"):
+			ds_yolu = "res://data/parley/koy/koylu_muhabbet_nogay.ds"
 	
 	ast = sekans_yukle(ds_yolu)
 	if not ast:
@@ -63,6 +91,8 @@ func sekans_baslat(sekans_adi: String, y: KoyYonetimi = null) -> bool:
 	yonetim = y
 	koylu = null
 	var ds_yolu := "res://data/parley/koy/" + sekans_adi + ".ds"
+	if not FileAccess.file_exists(ds_yolu) and not sekans_adi.begins_with("sekans_"):
+		ds_yolu = "res://data/parley/koy/sekans_" + sekans_adi + ".ds"
 	ast = sekans_yukle(ds_yolu)
 	if not ast:
 		return false

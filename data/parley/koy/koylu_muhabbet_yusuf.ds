@@ -11,48 +11,55 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Yusuf",
-      "text": "Selam muhafız ağa... Ben Yusuf. Karabaş'ı gördün mü kapıda hiç?"
+      "text": "Selam muhafız ağa... Ben Yusuf. Karabaş'ın ipini tutarım, kapıya bakarım hep."
     },
     {
-      "id": "node:opt_ip",
+      "id": "node:opt_normal",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -180.0)",
       "character": "Muhafız",
       "text": "Elindeki o ipi hiç bırakmaz mısın Yusuf?"
     },
     {
-      "id": "node:opt_ac",
+      "id": "node:opt_kriz",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 0.0)",
       "character": "Muhafız",
-      "text": "Karnın aç mıdır, köyde sana bakan var mı?"
+      "text": "Köyde erzak azaldı, kış ayazı bastırıyor; karnın aç mıdır?"
     },
     {
-      "id": "node:opt_hedef",
+      "id": "node:opt_karar",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 180.0)",
       "character": "Muhafız",
-      "text": "Büyüyünce ne olmak istersin?"
+      "text": "Dün gece kapıda verilen kararları işittin mi, köylü ne konuşur?"
     },
     {
-      "id": "node:rep_ip",
+      "id": "node:rep_normal",
       "type": "DIALOGUE",
       "position": "(1050.0, -180.0)",
       "character": "Yusuf",
-      "text": "Bırakamam ağam... Bu ip Karabaş'ın boynundaydı. Babam Kösedağ'a giderken 'Keçiye iyi bak, ipi elinden düşürme' demişti. İpi bırakırsam babam yolunu bulamaz diye korkarım."
+      "text": "Bırakamam ağam... Babam Kösedağ'a giderken 'Keçiye iyi bak, ipi elinden düşürme' demişti. İpi bırakırsam babam dönerse yolunu bulamaz diye korkarım."
     },
     {
-      "id": "node:rep_ac",
+      "id": "node:rep_kriz",
       "type": "DIALOGUE",
       "position": "(1050.0, 0.0)",
       "character": "Yusuf",
-      "text": "Ayşe Bacı akşamları bir kase sıcak tarhana verir. Saruca Hatun da yün çorap ördü. Köyün insanı iyi amma... Ben yine de kapıya bakarım hep."
+      "text": "Saruca Hatun dün akşam bir tas sıcak tarhana verdi, Ayşe Bacı da yün çorap ördü. Aç kalmam ağam, köylü beni doyurur; ben de ağılda topal oğlakla Akça koyuna bakarım."
     },
     {
-      "id": "node:act_ac",
+      "id": "node:rep_karar",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 180.0)",
+      "character": "Yusuf",
+      "text": "İşittim ağam... Çeşme başında kadınlar 'Muhafız adil adamdır, hak edeni içeri aldı' dediler. Eğer yabancı gelseydi Karabaş havlardı, havlamadığına göre iyi insanlardır."
+    },
+    {
+      "id": "node:act_normal",
       "type": "ACTION",
-      "position": "(1400.0, 0.0)",
-      "description": "Moral Desteği",
+      "position": "(1400.0, -180.0)",
+      "description": "Köy Morali",
       "action_type": "SCRIPT",
       "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
       "values": [
@@ -60,17 +67,21 @@
       ]
     },
     {
-      "id": "node:rep_hedef",
-      "type": "DIALOGUE",
-      "position": "(1050.0, 180.0)",
-      "character": "Yusuf",
-      "text": "Senin gibi muhafız olmak isterim! Elime koca bir mızrak alıp kapıda dururum; dağdan gelen mazlumlara kapıyı ben açarım."
+      "id": "node:act_kriz",
+      "type": "ACTION",
+      "position": "(1400.0, 0.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
     },
     {
-      "id": "node:act_hedef",
+      "id": "node:act_karar",
       "type": "ACTION",
       "position": "(1400.0, 180.0)",
-      "description": "Umut Artışı",
+      "description": "Köy Morali",
       "action_type": "SCRIPT",
       "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
       "values": [
@@ -85,7 +96,7 @@
   ],
   "edges": [
     {
-      "id": "e_y_s",
+      "id": "e_start",
       "from_node": "node:start",
       "from_slot": 0,
       "to_node": "node:selam",
@@ -94,44 +105,53 @@
       "colour_override": "(1, 1, 1, 1)"
     },
     {
-      "id": "e_y_o1",
+      "id": "e_o_norm",
       "from_node": "node:selam",
       "from_slot": 0,
-      "to_node": "node:opt_ip",
+      "to_node": "node:opt_normal",
       "to_slot": 0,
       "should_override_colour": false,
       "colour_override": "(1, 1, 1, 1)"
     },
     {
-      "id": "e_y_o2",
+      "id": "e_o_kriz",
       "from_node": "node:selam",
       "from_slot": 0,
-      "to_node": "node:opt_ac",
+      "to_node": "node:opt_kriz",
       "to_slot": 0,
       "should_override_colour": false,
       "colour_override": "(1, 1, 1, 1)"
     },
     {
-      "id": "e_y_o3",
+      "id": "e_o_karar",
       "from_node": "node:selam",
       "from_slot": 0,
-      "to_node": "node:opt_hedef",
+      "to_node": "node:opt_karar",
       "to_slot": 0,
       "should_override_colour": false,
       "colour_override": "(1, 1, 1, 1)"
     },
     {
-      "id": "e_y_r1",
-      "from_node": "node:opt_ip",
+      "id": "e_r_norm",
+      "from_node": "node:opt_normal",
       "from_slot": 0,
-      "to_node": "node:rep_ip",
+      "to_node": "node:rep_normal",
       "to_slot": 0,
       "should_override_colour": false,
       "colour_override": "(1, 1, 1, 1)"
     },
     {
-      "id": "e_y_e1",
-      "from_node": "node:rep_ip",
+      "id": "e_a_norm",
+      "from_node": "node:rep_normal",
+      "from_slot": 0,
+      "to_node": "node:act_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_norm",
+      "from_node": "node:act_normal",
       "from_slot": 0,
       "to_node": "node:end",
       "to_slot": 0,
@@ -139,26 +159,26 @@
       "colour_override": "(1, 1, 1, 1)"
     },
     {
-      "id": "e_y_r2",
-      "from_node": "node:opt_ac",
+      "id": "e_r_kriz",
+      "from_node": "node:opt_kriz",
       "from_slot": 0,
-      "to_node": "node:rep_ac",
+      "to_node": "node:rep_kriz",
       "to_slot": 0,
       "should_override_colour": false,
       "colour_override": "(1, 1, 1, 1)"
     },
     {
-      "id": "e_y_a2",
-      "from_node": "node:rep_ac",
+      "id": "e_a_kriz",
+      "from_node": "node:rep_kriz",
       "from_slot": 0,
-      "to_node": "node:act_ac",
+      "to_node": "node:act_kriz",
       "to_slot": 0,
       "should_override_colour": false,
       "colour_override": "(1, 1, 1, 1)"
     },
     {
-      "id": "e_y_e2",
-      "from_node": "node:act_ac",
+      "id": "e_e_kriz",
+      "from_node": "node:act_kriz",
       "from_slot": 0,
       "to_node": "node:end",
       "to_slot": 0,
@@ -166,26 +186,26 @@
       "colour_override": "(1, 1, 1, 1)"
     },
     {
-      "id": "e_y_r3",
-      "from_node": "node:opt_hedef",
+      "id": "e_r_karar",
+      "from_node": "node:opt_karar",
       "from_slot": 0,
-      "to_node": "node:rep_hedef",
+      "to_node": "node:rep_karar",
       "to_slot": 0,
       "should_override_colour": false,
       "colour_override": "(1, 1, 1, 1)"
     },
     {
-      "id": "e_y_a3",
-      "from_node": "node:rep_hedef",
+      "id": "e_a_karar",
+      "from_node": "node:rep_karar",
       "from_slot": 0,
-      "to_node": "node:act_hedef",
+      "to_node": "node:act_karar",
       "to_slot": 0,
       "should_override_colour": false,
       "colour_override": "(1, 1, 1, 1)"
     },
     {
-      "id": "e_y_e3",
-      "from_node": "node:act_hedef",
+      "id": "e_e_karar",
+      "from_node": "node:act_karar",
       "from_slot": 0,
       "to_node": "node:end",
       "to_slot": 0,

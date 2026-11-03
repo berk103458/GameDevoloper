@@ -161,3 +161,34 @@ Aşağıdaki denetim, Ahmet'in 7 temel isteği üzerinden mevcut sistemin durumu
   - Eşkıyanın atlarını sakatlayıp kışla dizdarına harita verme seçeneği ve Şifacı Miraen Hatun'a topuk tedavisi bağlandı.
   - Kulesi basılan borazancıyı tanıma ve harami süvari atlarının nal durumunu teyit etme hafızası eklendi.
 - **Doğrulama:** `tests/unit/diyalog/diyalog_butunluk_test.gd` (Godot 4.7.2 headless, 0 hata, GEÇTİ).
+
+
+---
+
+## Aşama G — Köy Sohbetleri ve Tıklayınca Konuşma (Parley) — Tamamlandı
+
+### 1. Adlı Köylüler için 3 Durumlu Tıklayınca Muhabbet Ağaçları (`data/parley/koy/`)
+10 adlı köy sakini için 3 farklı duruma (Normal gün/iş, Kriz/kıtlık/salgın/harami, Kapıdaki son tartışmalı kararlar) göre dallanan müstakil Parley `.ds` diyalog grafikleri üretildi:
+1. `koylu_muhabbet_yusuf.ds`: Karabaş'ın ipi, Kösedağ bozgunu, Saruca Hatun'un tarhanası, kapıdaki adil muhafız fısıltısı.
+2. `koylu_muhabbet_miraen.ds`: Rum cerrahlık ilmi, dağ kekiği/kantaron merhemi, kuyu kireçleme ve karantina tedbirleri, kapıdan alınan yaralı levent ve nalbantın tedavisi.
+3. `koylu_muhabbet_karaca_usta.ds`: Ahi ocağı fütüvvet ahlakı, oraklardan pusat yapma, rüşvetle girene demirhane boykotu, kalfayı çırak alma sevinci.
+4. `koylu_muhabbet_ayse_baci.ds`: Bacıyan-ı Rum kadın dayanışması, yetim aşevi, kıtlıkta çörekotlu ekmek, yetimli rençber ailesini kucaklama.
+5. `koylu_muhabbet_aydogdu.ds`: Emekli çavuş disiplini, mazgal nöbeti denetimi, hendek kurt çukurları ve Kösedağ süvari pusuları, kapıdan alınan askerlerin kışlaya intibakı.
+6. `koylu_muhabbet_saruca_hatun.ds`: Köy ocağı anası, gizli zahire sandığı güvencesi, tasarruf terbiyesi, fırıncının tandırı kurması ve tuz ambarı bereketi.
+7. `koylu_muhabbet_thessra.ds`: Andezit taş blokları, su arkı ve sur çatlağı ölçümleri, mancınık sekmeli dış bent, kireççi kale ırgatıyla sur örme ortaklığı.
+8. `koylu_muhabbet_sorhan.ds`: Bozkır at terbiyesi, süvari vadisi taktikleri, topuğu çivili nalbant ustasının aygırlara hilal nal çakması.
+9. `koylu_muhabbet_hasan_celebi.ds`: Divan kâtipliği, koyundaki gizli defter sayfası, kanunsuz vergiye direnç, hileli dirhemi kırılan kantarcının adalete boyun eğişi.
+10. `koylu_muhabbet_nogay.ds`: Çamlıkta Kızıl Karga izi sürme, orman kapanları, topal oğlaklı çobanın ve kule borazancısının anlattıklarını izlerle doğrulama.
+
+### 2. Zenginleştirilmiş Ortam Sohbet Sekansları
+Köylülerin kendi aralarında döneme, mevsime ve kriz durumlarına göre konuştukları 4 yeni sahne sekansı eklendi (toplam 6 sekans):
+1. `sekans_degirmen_kitlik.ds`: Latif & İdris (Un ve kıtlık tartışması)
+2. `sekans_meydan_atesi.ds`: Aydoğdu & Ayşe Bacı (Kurt baskını ve kış hazırlığı)
+3. `sekans_demirhane_pusat.ds`: Karaca Usta & Thessra (Kapı kanadına çift sıra dövme demir takviyesi, sur ve mazgal perçinleri)
+4. `sekans_kuyu_hastalik.ds`: Miraen & Saruca Hatun (Kuyu suyundaki pas kokusu, sönmemiş kireçle dezenfeksiyon, tandırda su kaynatma)
+5. `sekans_nobet_harami.ds`: Nogay & Sorhan (Gece teyakkuzu, ahırda tayların huzursuzluğu, vadide karşı pusu)
+6. `sekans_pazar_fiskos.ds`: Hasan Çelebi & Yusuf (Kapıdaki adalet dedikoduları, divan defterinin önemi, yetimin duaları)
+
+### 3. Dinamik Yönlendirici Mimarisi
+`src/diyalog/koy_diyalog_yoneticisi.gd` güncellendi: Tıklanan köylünün `adli_id` veya `ad` bilgisine göre otomatik olarak ilgili özel `.ds` dosyasına yönlendirme sağlandı, bulunamadığı durumlarda genel köylü sekansına güvenli geri düşüş bağlandı.
+- **Doğrulama:** `tests/unit/diyalog/diyalog_butunluk_test.gd` (Godot 4.7.2 headless, 17 Parley dosyası, BFS erişilebilirliği, 0 hata, GEÇTİ).
