@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## UI adayları — 3 Kasım 2026
+
+Beş açık lisanslı 2D tema, ayrı ekranlara bağlandı. Dal `cursor/gece-ui-adaylari`. Belge `docs/UI_ADAYLARI.md`. ARY-01 Claude’da `[/]`; ARY-02 seçim boşken başlamaz, sahiplenilmedi. Ayarlar, defter, diyalog ve ekonomi koduna dokunulmadı. `tema.gd` değişmedi. Godot 4.7.2 headless: import bitti, `UI ADAY TEMA: GEÇTİ`. Tam sanity yok. Kota görünmüyor. Asset üretimi yok; indirilen paketler kesildi veya olduğu gibi alındı.
+
 ## VFX — 24 Ekim 2026
 
 Duman, alev, yağmur çizgisi, yumuşak ışık ve bir ateş topu. Şimşek, büyü, kan ve namlu yok. Kar ve ayrı kıvılcım yok. Sahneye bağlanmadı. Headless 5 PNG, `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. Kota görünmüyor.

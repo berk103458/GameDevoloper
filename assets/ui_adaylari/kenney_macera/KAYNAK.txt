@@ -1,0 +1,8 @@
+UI Pack - Adventure 1.1
+Yazar: Kenney (Kenney Vleugels), https://kenney.nl
+Kaynak: https://kenney.nl/assets/ui-pack-adventure
+Lisans: CC0 1.0
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Paketin bilimkurgu, plan ve modern parçaları alınmadı.
+Repoda yalnız kahverengi düğme, metal köşeli panel ve koyu panel vardır.

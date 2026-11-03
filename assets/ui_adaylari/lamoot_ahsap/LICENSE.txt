@@ -1,0 +1,13 @@
+RPG GUI construction kit v1.0
+Yazar: Lamoot
+Kaynak: https://opengameart.org/content/rpg-gui-construction-kit-v10
+Dosya: https://opengameart.org/sites/default/files/rpg_gui_v1.zip
+Lisans: Creative Commons Attribution 3.0 (CC-BY 3.0)
+https://creativecommons.org/licenses/by/3.0/
+
+Ticari kullanım serbesttir. Atıf zorunludur.
+Önerilen atıf: RPG GUI construction kit v1.0 — Lamoot, CC-BY 3.0.
+
+Değişiklik (Cursor, 3 Kasım 2026): RPG_GUI_v1.png sayfasından beş parça
+ayrı PNG olarak kesildi (dört düğme durumu ve bir panel). Yeni çizim yok.
+Kaynak XCF, kâğıt dokusu ve gradyan repoya alınmadı.
