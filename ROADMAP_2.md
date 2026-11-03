@@ -8644,7 +8644,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.1 Dil seçimi
 
-- [ ] **YER-01:** Ayarlarda dil sekmesi.
+- [/] **YER-01:** (Cursor) Ayarlarda dil sekmesi.
   - Ne: GRV-25 sekmelerinden biri dildir. Liste bugün tek satır: Türkçe (`tr`). İkinci dil dosyası yoksa başka satır çizilmez. Seçim `ayarlar.cfg` anahtarı `dil` (ek dosya `ayarlar_ek.gd` kalıbı, Bölüm 35). Varsayılan `tr`.
   - Kabul: dosya yokken liste uzunluğu 1. Test: ekran.
   - Bağımlılık: GRV-25. Boyut: S.
@@ -8656,7 +8656,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `docs/METIN_ANAHTAR_STANDARDI.md`; `tools/metin_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **YER-03:** `set_locale` sabiti kalkar.
+- [/] **YER-03:** (Cursor) `set_locale` sabiti kalkar.
   - Ne: `ana.gd:23` `"tr"` yazmaz. `ayarlar` içindeki `dil` okunur; geçersizse fallback `tr`.
   - Kabul: ayar `tr` iken locale `tr`; çöp değerde locale `tr` ve uyarı 1. Test: birim.
   - Bağımlılık: YER-01. Boyut: S.
@@ -8671,13 +8671,13 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: YER-02. Boyut: M.
   - Dosya: `tools/metin_dogrula.py` sütun kuralı; `data/metin/metinler.csv` başlık (sütun eklenirse).
   - Asset: asset gerekmedi.
-- [ ] **YER-05:** Godot çeviri dosyası sütundan üretilir.
+- [/] **YER-05:** (Cursor) Godot çeviri dosyası sütundan üretilir.
   - Ne: bugün `metinler.tr.translation` tek dosyadır. İkinci sütun dolu değilse ikinci `.translation` üretilmez. Üretim kuralı `docs/METIN_ANAHTAR_STANDARDI.md` içine bir paragraf olarak yazılır; elle kopya çeviri dosyası yasaktır.
   - Kabul: `en` sütunu yokken `locale/translations` uzunluğu 1. Test: proje dosyası.
   - Bağımlılık: YER-04. Boyut: S.
   - Dosya: `project.godot`; standart belgesi.
   - Asset: asset gerekmedi.
-- [ ] **YER-06:** Fallback `tr` kalır.
+- [/] **YER-06:** (Cursor) Fallback `tr` kalır.
   - Ne: `locale/fallback` `tr`. İkinci dil eksik anahtarda Türkçe görünür, `[KEY_NOT_FOUND]` ancak Türkçe de yoksa çıkar (`GuvenliMetin`).
   - Kabul: fallback satırı `tr`. Test: dosya.
   - Bağımlılık: YER-05. Boyut: S.
@@ -8686,13 +8686,13 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.3 Doğrudan çeviri çağrıları
 
-- [ ] **YER-07:** Yedi dosya `tr()` ile hizalanır.
+- [/] **YER-07:** (Cursor) Yedi dosya `tr()` ile hizalanır.
   - Ne: `TranslationServer.translate` çağrıları şunlardadır: `karar_replik_adaptoru.gd`, `iflas_yoneticisi.gd`, `koylu_karti_verisi.gd`, `levent_firari.gd`, `sancak_teftisi.gd`, `koylu_takibi.gd`, `coban_surusu.gd`. Yeni çağrı eklenmez. Mevcut çağrı locale değişince aynı anahtarı yeni dilde okur; gövdeye Türkçe sabit gömülüyse sabit CSV'ye taşınır.
   - Kabul: bu yedi dosyada tırnak içi uzun Türkçe cümle 0 (anahtar hariç). Test: tarama.
   - Bağımlılık: YER-03. Boyut: M.
   - Dosya: adı geçen yedi script; `metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **YER-08:** `GuvenliMetin` locale değişince yeniden kurulur.
+- [/] **YER-08:** (Cursor) `GuvenliMetin` locale değişince yeniden kurulur.
   - Ne: `dil` değişince `GuvenliMetin.kur()` bir kez daha çalışır. Eksik listesi yeni locale'e göredir.
   - Kabul: dil değiştirince `eksikler` yeniden sayılır. Test: birim.
   - Bağımlılık: YER-03. Boyut: S.
@@ -8707,13 +8707,13 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: YER-02. Boyut: S.
   - Dosya: `docs/METIN_ANAHTAR_STANDARDI.md`.
   - Asset: asset gerekmedi.
-- [ ] **YER-10:** "Hazırlanıyor…" istisna değildir.
+- [/] **YER-10:** (Cursor) "Hazırlanıyor…" istisna değildir.
   - Ne: TEK-21 anahtara alır. Yükleme paneli YER-09 listesine girmez.
   - Kabul: panelde düz Türkçe 0. Test: TEK-21.
   - Bağımlılık: TEK-21. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **YER-11:** Debug metinleri çevrilmez.
+- [/] **YER-11:** (Cursor) Debug metinleri çevrilmez.
   - Ne: `src/debug/` ve `performans_seridi.gd` tooltip'i oyuncu diline girmez. SRM-05 zaten oyuncuda kapalıdır.
   - Kabul: debug klasörü `metin_dogrula --kaynak` anahtar zorunluluğunun dışındadır (belgede). Test: araç.
   - Bağımlılık: SRM-05. Boyut: S.
@@ -8728,7 +8728,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `tests/unit/arayuz/font_glif_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **YER-13:** İkinci dil fontu bu sürümde yoktur.
+- [/] **YER-13:** (Cursor) İkinci dil fontu bu sürümde yoktur.
   - Ne: `en` sütunu ileride dolarsa da Alegreya Latin yeter sayılır. Arap harfi, Kiril veya CJK için font maddesi açılmaz.
   - Kabul: `assets/font/` dosya sayısı değişmez. Test: sayım.
   - Bağımlılık: YER-12. Boyut: S.
@@ -8752,13 +8752,13 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.7 İçerik sınırı
 
-- [ ] **YER-16:** Diyalog çevirisi yazılmaz.
+- [/] **YER-16:** (Cursor) Diyalog çevirisi yazılmaz.
   - Ne: `data/soz/` ve `sohbet.*` anahtarlarının İngilizcesi bu bölümde üretilmez. KLT kapısı Türkçe metne bakmaya devam eder.
   - Kabul: bu bölümün diff'i `data/soz/` içine girmez. Test: tarama.
   - Bağımlılık: KLT-01. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **YER-17:** Kişi adları çevrilmez.
+- [/] **YER-17:** (Cursor) Kişi adları çevrilmez.
   - Ne: `karakter.*` adları özel isimdir. İkinci sütun olsa da ad hücresi `tr` ile aynı kalır; doğrulayıcı uyarı vermez.
   - Kabul: ad satırında `en` ≠ `tr` ise 1 uyarı (sütun varsa). Test: fixtures.
   - Bağımlılık: YER-04. Boyut: S.
@@ -8767,13 +8767,13 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 46.8 Değişim anı
 
-- [ ] **YER-18:** Dil değişimi açık ekranı yeniler.
+- [/] **YER-18:** (Cursor) Dil değişimi açık ekranı yeniler.
   - Ne: `Ayarlar.degisti` (`dil`) menü ve ayarlar etiketlerini yeniden `tr()` ile kurar. Oyun ortasında köy metni bir sonraki ekran açılışında değişir; yarıda kalan konuşma satırı o an yenilenmez (cümle bölünmesin).
   - Kabul: menüde anında yeni etiket; açık sorgu satırı aynı kalır. Test: iki ekran.
   - Bağımlılık: YER-03. Boyut: S.
   - Dosya: `menu_ekrani.gd`, `ayarlar_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **YER-19:** Kayıt dili gömmez.
+- [/] **YER-19:** (Cursor) Kayıt dili gömmez.
   - Ne: `kayit.json` içinde locale yok. Dil ayardadır (GIR-19 ile aynı ayrım). Eski kayıt açılır.
   - Kabul: kayıtta `dil` anahtarı 0. Test: KAY.
   - Bağımlılık: YER-01. Boyut: S.
@@ -8788,7 +8788,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KLT-10. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **YER-21:** Çift boşluk dil sütununda da aranır.
+- [/] **YER-21:** (Cursor) Çift boşluk dil sütununda da aranır.
   - Ne: TST-0006 / KLT-11 kuralı `tr` sütununa bakar. `en` doluysa aynı kural ona da uygulanır; boş `en` atlanır.
   - Kabul: `en` içinde çift boşluk 1 hata, boş hücre 0 hata. Test: fixtures.
   - Bağımlılık: KLT-11, YER-04. Boyut: S.
@@ -8803,7 +8803,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: KLT-23. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **YER-23:** Kapanış testi.
+- [/] **YER-23:** (Cursor) Kapanış testi.
   - Ne: locale ayarı `tr`; çöp dilde fallback; CSV'de boş `tr` hata; boş `en` Türkçe gösterir; yedi dosyada yeni `translate` çağrısı yok; font yedi glif; katalog hata metni istisna listesinde tek.
   - Kabul: yedi iddia. Test: `tests/tools/test_yerel_dil.py` + font birimi.
   - Bağımlılık: YER-01…22. Boyut: M.
