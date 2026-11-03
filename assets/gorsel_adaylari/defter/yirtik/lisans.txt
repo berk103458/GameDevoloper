@@ -1,0 +1,19 @@
+Yırtık yaprak — varsayılan defter adayı
+
+sayfa.png
+  cron, CC0
+  https://opengameart.org/content/old-parchment-paper
+  Özgün dosya parchment_alpha.png
+
+kapak.png
+  Walters Art Museum, W610 İran cildi, kamu malı
+  https://commons.wikimedia.org/wiki/File:Iranian_-_Binding_from_Five_Poems_(Quintet)_-_Walters_W610binding_-_Top_Exterior.jpg
+
+muhur.png ve muhur_256.png
+  Bilinmeyen yazar, 1464 Sonta mühürü, kamu malı
+  https://commons.wikimedia.org/wiki/File:Wax_seal_from_Sonta_1464.jpg
+
+sus/*.png
+  Lorc, CC BY 3.0
+  https://game-icons.net
+  Atıf: Icons made by Lorc. Available on https://game-icons.net
