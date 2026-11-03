@@ -92,3 +92,26 @@ Aşağıdaki denetim, Ahmet'in 7 temel isteği üzerinden mevcut sistemin durumu
   - Karaca Usta'nın eski çırağı oluşu, Ahi ocağına teslimiyet ve yarım okkalık has pirinç maden külçesi rüşveti bağlandı.
   - Kayseri'den gelen çuhacı Selim Usta'yı hatırlama ve tanıma hafızası eklendi.
 - **Doğrulama:** `tests/unit/diyalog/diyalog_butunluk_test.gd` (Godot 4.7.2 headless, 0 hata, GEÇTİ).
+
+### Parti 2 (`diyalog_06` – `diyalog_10`) — Tamamlandı
+- **diyalog_06 (Yamuk Miğferli Asker):**
+  - Kılıcı ekmeğe satma yalanının ardındaki Karaboran harami pususu ve haraç verme utancı yüzleştirildi.
+  - Sivaslı kargıcı neferi tanıma ve sırt sırta nöbet tutma hafızası bağlandı.
+  - Gürz darbesiyle çift görme, kulak hassasiyeti ve gece seslerini dinleme derinleştirildi.
+- **diyalog_07 (Sabanı Kırık Rençber):**
+  - Küflü arpa tohumunu ambardan kurtarırken şehit düşen iki oğlunun dramı ve taşlık yamaçta tek tek ekme yemini işlendi.
+  - Karaca Usta'ya saban demirini kaynattırma ve Erzincanlı Halil'in sarı tohumuyla kardeşleme hafızası bağlandı.
+  - Moğol akıncılarının nehir boyuna gidişi istihbaratı eklendi.
+- **diyalog_08 (Kunduracı Çırağı):**
+  - Efendisinin yanan konağından gümüş kemer tokası aşırma itirafı, kefaret olarak köy sandığına teslim etme seçeneği işlendi.
+  - Kayserili çuhacı ustayı tanıma ve onun kumaşına astar dikme bağı eklendi.
+  - Ret eşiği 0 zorunlu kuralı korundu.
+- **diyalog_09 (Kemankeş):**
+  - Boş sadağın ardındaki hain nöbetçi cinayeti ve intikam arayışı ("İki yoldaşım sırtından vuruldu!") derinleştirildi.
+  - Sivaslı yaralı kargıcıyı cepheden tanıma ("O hendekte vuruşurken ben tepeden ok yağdırıyordum!") hafızası bağlandı.
+  - Kargı sazından kamış ve tavuk teleğiyle ok imalatı ve boynuz zihgir sorgusu eklendi.
+- **diyalog_10 (Yetimli Genç Rençber):**
+  - Testideki asırlık bağ kütüğü şırası, anasının bereket vasiyeti ve köy bağına dökme arzusu işlendi.
+  - Ayşe Bacı ve Saruca Hatun'un yetim aşevine odun ve un taşıma görevi bağlandı.
+  - Dün kapıdan çevrilen mültecilere su ikram etme hafızası eklendi.
+- **Doğrulama:** `tests/unit/diyalog/diyalog_butunluk_test.gd` (Godot 4.7.2 headless, 0 hata, GEÇTİ).
