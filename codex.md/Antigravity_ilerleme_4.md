@@ -115,3 +115,26 @@ Aşağıdaki denetim, Ahmet'in 7 temel isteği üzerinden mevcut sistemin durumu
   - Ayşe Bacı ve Saruca Hatun'un yetim aşevine odun ve un taşıma görevi bağlandı.
   - Dün kapıdan çevrilen mültecilere su ikram etme hafızası eklendi.
 - **Doğrulama:** `tests/unit/diyalog/diyalog_butunluk_test.gd` (Godot 4.7.2 headless, 0 hata, GEÇTİ).
+
+### Parti 3 (`diyalog_11` – `diyalog_15`) — Tamamlandı
+- **diyalog_11 (Yaralı Köprü Levendi):**
+  - Çavuşun hendekte şehit düşüşü ve köyleri uyarmak için öne salınış dramı işlendi.
+  - Şifacı Rum Miraen Hatun'a yönlendirilme ve Tokatlı kemankeşi cepheden tanıma hafızası bağlandı.
+  - Kırık kalkanla kışla nöbetine ve dizdara süvari menfezlerini göstermeye adanma seçeneği eklendi.
+- **diyalog_12 (Eşekli Seyyar Kalaycı):**
+  - Çifte tabanlı kazanda kaçak cıva tozu ve saf kalay külçesi saklama itirafı ve Karaca Usta'nın demirhanesine hibe etme seçeneği işlendi.
+  - Dikici kalfasını tanıma ve pirinç tokalarını parlatma hafızası bağlandı.
+  - Nişadır dumanı ve bakır tencere zehirlenmesini önleme zanaatı derinleştirildi.
+- **diyalog_13 (Topal Oğlaklı Çoban):**
+  - Ağılın borç yüzünden Kızıl Karga haramilerince basılması itirafı ("Suç bendedir, bu masum oğlağı kurda atmayın!") işlendi.
+  - Yusuf ve Karabaş ile dostluk kurma, yetim oğlağı Yusuf'a emanet etme hafızası bağlandı.
+  - Dün gelen yaylacı Dursun'un Akça koyunundan süt emzirme bağı eklendi.
+- **diyalog_14 (Kaya Tuzu Tüccarı):**
+  - Kesenin dibindeki barutluk kükürtlü güherçile tozu tespiti ve kışla sur patlatma fitillerine hibe seçeneği işlendi.
+  - Kalaycı Mahmut Usta'yı tanıma ve tuz ambarı bereketi hafızası bağlandı.
+  - Çatlak ellerdeki tuz yanıkları ve kış erzağı muhafazası derinleştirildi.
+- **diyalog_15 (Kule Borazancısı):**
+  - Kuleyi basan haramilerin önündeki amcasının oğlunu görüp bir an donma itirafı ve vicdan çatışması işlendi.
+  - Yaralı taş köprü neferini tanıma ve tepedeki elli atlı süvarinin geçiş haritasını dizdara verme hafızası bağlandı.
+  - Eğri bakır borazanın iki mil öteden avaz verme hüneri eklendi.
+- **Doğrulama:** `tests/unit/diyalog/diyalog_butunluk_test.gd` (Godot 4.7.2 headless, 0 hata, GEÇTİ).
