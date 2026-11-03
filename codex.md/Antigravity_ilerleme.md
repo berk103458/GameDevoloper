@@ -72,12 +72,25 @@
     - `src/arayuz/koy_diyalog_paneli.gd`: 13. yy temalı, kaydırmalı butonlu, animasyonlu replik paneli.
     - `src/arayuz/koylu_karti.gd`: Köylü kartına "Muhabbet Et (Konuş)" butonu eklendi, karta basıldığında kart kapanıp diyalog paneli açılıyor.
   - Test: `tests/unit/diyalog/koy_parley_sistemi_test.gd` (Godot headless, AST yükleme, Türkçe karakter koruma, adaptör ve uçtan uca akış: 0 hata, GEÇTİ).
+  - Commit: `afc39f7a`
+
+- **Aşama D — Bütünlük ve Doğrulama Kontrolü (Tamamlandı)**
+  - `tests/unit/diyalog/diyalog_butunluk_test.gd` oluşturuldu ve çalıştırıldı:
+    1. Kapı Diyalogları Bütünlüğü: 20 diyalogun tamamında kimlik sırası, sahne, soru ağacı, seçenek-eşik denkliği, yanıt sözlüğü eşleşmesi ve yerleşimci teması (kervanla kaçış yasağı) doğrulandı (0 hata).
+    2. Köy Parley Sekansları: 4 `.ds` dosyasında düğüm, bağlantı, START erişilebilirliği (BFS ile yetim/ulaşılamayan düğüm yokluğu) ve diskteki Fact/Action script referanslarının tamlığı doğrulandı (0 hata).
+    3. Türkçe Karakter Bütünlüğü: `ç, ğ, ı, İ, ö, ş, ü, Ç, Ğ, Ö, Ş, Ü` harflerinin tüm dosyalarda eksiksiz korunduğu ve bozulmadığı doğrulandı.
+    4. Adaptör & Orkestrasyon: Null koruması, Yusuf özel anlatısı ve sekans tetiklemeleri uçtan uca doğrulandı (0 hata).
+  - `tools/chr_parser.py --check` çalıştırıldı: 30 CHR sayfasının tamamı başarıyla ayrıştırıldı ve doğrulandı (0 hata).
+  - `tests/unit/kvr/diyalog_mantigi_test.gd`: GEÇTİ (0 hata).
+  - `tests/unit/diyalog/koy_parley_sistemi_test.gd`: GEÇTİ (0 hata).
 
 ## Son Commit Hash'i
-- `cd2bdadf` (Aşama B Parti 4)
+- `afc39f7a` (Aşama C)
 
 ## Bir Sonraki Adım
-Aşama D: Bütünlük ve Doğrulama Kontrolü (Diyalog mantığı, Türkçe karakter bütünlüğü, CHR ayrıştırıcı denetimi, uçtan uca test süiti).
+Görev 3 başarıyla ve eksiksiz olarak tamamlandı.
 
 ## Açık Sorular (Ahmet'e)
-- Şimdilik açık soru bulunmamaktadır.
+- Şimdilik açık soru bulunmamaktadır. Tüm aşamalar (A, B, C, D) sıfır hatayla başarıyla sonuçlanmıştır.
+
+GOREV3_TAMAM

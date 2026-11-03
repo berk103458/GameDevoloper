@@ -574,3 +574,36 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 
 - **Son Karar Cümlesi:** Parley ve Theatre'ı ana oyuna entegre etme; mevcut iki katmanlı JSON + CHR mimarisi korunmalı, ileride çoklu satırlı yan anlatılar gerekirse Theatre yalnız ince bir adaptörle değerlendirilebilir.
 - **Kota:** kota görünmüyor
+
+
+## 3 Kasım 2026 — Görev 3: Tüm Diyalogların Sahipliği, İnsanlaştırma, Seçenek Planı ve Köy Sohbetleri
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Aşama A — Envanter ve Plan:**
+     - `docs/DIYALOG_ANA_PLANI.md` hazırlandı: 20 adsız ziyaretçi (`diyalog_01`–`20`), 30 CHR karakteri (`CHR_001`–`030`), 10 adlı/olay karakteri ve köy sakinleri envanterlendi. Karakter kimlikleri, konuşma ağızları (13. yy Anadolu Selçuklu), dertleri ve sırları tanımlandı. Seçim–sonuç haritası (barlar, tansiyon, `KisiHafizasi`, `Dedikodu`) ve Mermaid grafı kuruldu.
+  2. **Aşama B — Kapı Diyaloglarının Yeniden Yazımı:**
+     - 20 kapı karakterinin tümü (`diyalog_01` – `diyalog_20`) 4 parti halinde insanlaştırıldı.
+     - Robotik, yapay ve ezber "Kimsin?", "Nesin?", "Kendini tanıt" soruları kaldırıldı; yerlerine atmosferik, mesleki ve şüphe uyandıran derin takip soruları (40+ takip sorusu ve alt dal) yazıldı.
+     - Kabul yanıtlarındaki "kervanla çekip gitme" ifadeleri temizlenerek yerleşimci kimliği kazandırıldı; `diyalog_08` ret eşiği 0 kuralı korundu.
+  3. **Aşama C — Köy Sistemi (Parley Adaptörleri ve Muhabbet Ağaçları):**
+     - Çekirdek sistemlerle (`Oturum`, `Koylu`, `KoyYonetimi`) Parley'i gevşek bağlayan adaptörler yazıldı: `src/diyalog/parley_koy_adaptoru.gd`, `KoyluMoralFact`, `KoyHavadisFact`, `KoyMoralAction`, `KoyAkceAction`.
+     - 4 Parley `.ds` diyalog grafı oluşturuldu (`data/parley/koy/`):
+       - `koylu_muhabbet_genel.ds`: Köyde herhangi bir köylüye tıklandığında açılan 4 ana kollu (Moral, İş durumu, Havadis/tehdit, İhtiyaç/akçe) diyalog ağacı.
+       - `koylu_muhabbet_yusuf.ds`: Yusuf karakteri özel anlatısı (urgan örme, Karabaş köpek, Kösedağ bozgunu, muhafızlık hevesi).
+       - `sekans_degirmen_kitlik.ds`: Değirmenci Latif ile Çiftçi İdris un/kıtlık ortam tartışması.
+       - `sekans_meydan_atesi.ds`: Çoban Aydoğdu ile Ayşe Bacı meydan ateşi başında kurt ve kış hazırlığı sekansı.
+     - `src/diyalog/koy_diyalog_yoneticisi.gd` çalışma zamanı orkestratörü ve `src/arayuz/koy_diyalog_paneli.gd` arayüz paneli hazırlandı.
+     - `src/arayuz/koylu_karti.gd` içine "Muhabbet Et (Konuş)" butonu eklenerek tıklayınca muhabbet uçtan uca bağlandı.
+  4. **Aşama D — Bütünlük ve Doğrulama Kontrolü:**
+     - `tests/unit/diyalog/diyalog_butunluk_test.gd` oluşturuldu ve koşturuldu:
+       - 20 kapı diyaloğunun tüm seçenek-eşik denkliği, yanıt sözlüğü karşılıkları ve yerleşim teması doğrulandı.
+       - 4 Parley sekansının düğüm, bağlantı, BFS START erişilebilirliği ve diskteki Fact/Action script referansları sıfır hatayla doğrulandı.
+       - Türkçe karakterlerin (`ç, ğ, ı, İ, ö, ş, ü, Ç, Ğ, Ö, Ş, Ü`) iki sistemde de bozulmadan korunduğu doğrulandı.
+       - `tools/chr_parser.py --check` ile 30 CHR sayfasının tamamı başarıyla ayrıştırıldı.
+- **Test Sonuçları:**
+  - `tests/unit/kvr/diyalog_mantigi_test.gd`: GEÇTİ (0 hata).
+  - `tests/unit/diyalog/koy_parley_sistemi_test.gd`: GEÇTİ (0 hata).
+  - `tests/unit/diyalog/diyalog_butunluk_test.gd`: GEÇTİ (0 hata).
+  - `tools/chr_parser.py --check`: GEÇTİ (0 hata).
+- **Asset Durumu:** Asset gerekmedi (yer tutucular ve mevcut arayüz stilleri kullanıldı).
+- **Kota:** kota görünmüyor
