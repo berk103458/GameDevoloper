@@ -5758,7 +5758,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: DIY-09. Boyut: S.
   - Dosya: yeni: `src/sistemler/olay_soz_bagi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OZL-03:** Kart seçimi deftere düşer.
+- [/] **OZL-03:** (Cursor) Kart seçimi deftere düşer.
   - Ne: oyuncunun kart seçeneği Bölüm 39 defterine "olay, gece, seçenek" satırı yazar; etki `secenek_etkileri` ile aynıdır, ikinci etki tablosu yoktur.
   - Kabul: seçim gecesi defter satırı 1. Test: defter.
   - Bağımlılık: HFZ-01. Boyut: S.
@@ -5791,7 +5791,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: DIY-03, OZL-06. Boyut: M.
   - Dosya: `src/sistemler/olay_soz_bagi.gd`; `sira_atlama_adaptoru.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OZL-08:** Sıra olayı boş günde (KAP-16) çıkmaz.
+- [/] **OZL-08:** (Cursor) Sıra olayı boş günde (KAP-16) çıkmaz.
   - Ne: KAP-16 boş gününde kuyruk yoktur; `sira_olay_olasiligi` o gece 0 okunur.
   - Kabul: boş günde sıra olayı 0. Test: KAP-16 gecesi.
   - Bağımlılık: KAP-16. Boyut: S.
@@ -5800,19 +5800,19 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.3 Boş gün — kapı kapalı, köy açık
 
-- [ ] **OZL-09:** Boş gün SEV-01'dir, ikinci boş gün sistemi yoktur.
+- [/] **OZL-09:** (Cursor) Boş gün SEV-01'dir, ikinci boş gün sistemi yoktur.
   - Ne: KAP-16 üretir, SEV-01 köyde keyfe çevirir. Bu bölüm yalnız "boş günde kart havuzu"nu bağlar: kapı kartı 0, köy kartı (pazar_gunu, harman, dugun koşulu tutarsa) 1 olabilir.
   - Kabul: boş günde kapı kuyruğu 0, köy kartı koşulu tutarsa 1. Test: iki gece.
   - Bağımlılık: KAP-16, SEV-01. Boyut: S.
   - Dosya: yeni: `src/sistemler/bos_gun_olayi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OZL-10:** Boş günde âşık veya gezgin ozan gelebilir.
+- [/] **OZL-10:** (Cursor) Boş günde âşık veya gezgin ozan gelebilir.
   - Ne: yeni kart `data/olaylar/asik.tres`, `OlayVerisi` şeması; koşul `nufus_min: 6`, `tek_sefer: false`, ağırlık düşük. Seçenek: dinle (moral +1, akçe 0) / gönder (etki 0). Mini oyun yok, ses üretilmez.
   - Kabul: nüfus 5'te 0, 6+'da çıkabilir; `secenek_etkileri` iki sözlük. Test: iki nüfus.
   - Bağımlılık: OZL-09, BUG-16. Boyut: S.
   - Dosya: `data/olaylar/asik.tres`; `metinler.csv` `olay.asik.*`.
   - Asset: asset gerekmedi (yer tutucu: duran köylü).
-- [ ] **OZL-11:** Boş gün deftere "kapı yoktu" yazar.
+- [/] **OZL-11:** (Cursor) Boş gün deftere "kapı yoktu" yazar.
   - Ne: HFZ defterine gece türü `bos_gun` satırı; gelen 0, kart varsa kart id.
   - Kabul: boş gün satırı 1. Test: defter.
   - Bağımlılık: HFZ-01, KAP-16. Boyut: S.
@@ -5869,13 +5869,13 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.6 Dış yüzler — kart ve kapı aynı kişi olmaz
 
-- [ ] **OZL-19:** Heyet kartı ile kapı yüzü aynı gece çakışmaz.
+- [/] **OZL-19:** (Cursor) Heyet kartı ile kapı yüzü aynı gece çakışmaz.
   - Ne: `tekfur_elcisi`, `bey_daveti`, `vergi_tahsildari`, `aydogdu_oba`, `miraen_cavus` kartları, OMR-24 "bir gecede en çok bir dış hat yüzü" kuralına girer: o gece kapıda aynı id yüz olarak duruyorsa kart 0'dır.
   - Kabul: yüz + kart aynı id, aynı gece 0. Test: enjekte.
   - Bağımlılık: OMR-24. Boyut: S.
   - Dosya: `bos_gun_olayi.gd` değil; olay seçicine tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OZL-20:** Haber kartları DNY-02 ile tek kaynaktır.
+- [/] **OZL-20:** (Cursor) Haber kartları DNY-02 ile tek kaynaktır.
   - Ne: `ertugrul_haberi`, `nogay_haber`, `mogol_duman`, `ahi_haber` yazılı haberdir; yüz gelmeden haber (OMR-36) bu kartlardan biri olabilir, ikinci haber kanalı açılmaz.
   - Kabul: aynı olay id için kart + haberci ağı satırı aynı gece en çok 1. Test: OMR-36 ile ortak.
   - Bağımlılık: DNY-02, OMR-36. Boyut: S.
@@ -5884,13 +5884,13 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.7 Gece evresi — kapı kapandıktan sonra
 
-- [ ] **OZL-21:** Gece evresi yeni faz değildir.
+- [/] **OZL-21:** (Cursor) Gece evresi yeni faz değildir.
   - Ne: `oturum_fazi.gd` değerleri `kapi` / `koy` durur; üçüncü faz (`gece_devriye`) açılmaz. Nöbet NBT-09 oyuncunun köy ekranında kalmasıdır.
   - Kabul: faz enum'una yeni değer 0. Test: tarama.
   - Bağımlılık: NBT-09. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **OZL-22:** Nöbet tutulan gecede kart ertesi sabaha kayar.
+- [/] **OZL-22:** (Cursor) Nöbet tutulan gecede kart ertesi sabaha kayar.
   - Ne: oyuncu NBT-09 ile nöbetteyse gece kartı ertesi köy evresinde açılır; iki kart üst üste binmez.
   - Kabul: nöbet gecesi kart 0, ertesi köy evresi 1 (koşul tutarsa). Test: iki gece.
   - Bağımlılık: NBT-09, OZL-01. Boyut: S.
@@ -5905,13 +5905,13 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
 
 ### 38.8 Yeni kart — yalnız şemaya uyan, yalnız gerekçeli
 
-- [ ] **OZL-24:** Kadı kartı.
+- [/] **OZL-24:** (Cursor) Kadı kartı.
   - Ne: `data/olaylar/kadi.tres`; koşul `nufus_min: 10`, `gece_min` BUG-18 tehdit süresinden sonra, `tek_sefer: true`. Seçenek: davayı dinle (divan CAS-07 oturumu açılır, kart divanı yeniden kurmaz) / geçiştir (adalet −1, `koy.tres harc_adalet` okunur). Kadı kapı yüzü değildir.
   - Kabul: nüfus 9'da 0; dinle → divan oturumu 1. Test: iki nüfus.
   - Bağımlılık: CAS-07, BUG-18, BUG-16. Boyut: M.
   - Dosya: `data/olaylar/kadi.tres`; `metinler.csv` `olay.kadi.*`.
   - Asset: asset gerekmedi (yer tutucu: duran köylü).
-- [ ] **OZL-25:** Üçüncü yeni kart yoktur.
+- [/] **OZL-25:** (Cursor) Üçüncü yeni kart yoktur.
   - Ne: âşık (OZL-10) ve kadı (OZL-24) bu bölümün tavanıdır. "İleride lazım" kartı yazılmaz.
   - Kabul: bu dosyada `data/olaylar/` yeni id sayısı 2. Test: sayım.
   - Bağımlılık: OZL-10, OZL-24. Boyut: S.
@@ -5926,7 +5926,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `data/metin/metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **OZL-27:** Kart USLUP §1'den geçer.
+- [/] **OZL-27:** (Cursor) Kart USLUP §1'den geçer.
   - Ne: yeni iki kartın metni YAZ-10 yapaylık taramasından geçer; "köyünüzün geleceği" kalıbı yok.
   - Kabul: `olay.asik.*` ve `olay.kadi.*` ihlal 0. Test: YAZ-10.
   - Bağımlılık: YAZ-10. Boyut: S.
@@ -5938,7 +5938,7 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **OZL-29:** Olasılıklar `oyun.tres` / `denge.json` dışına çıkmaz.
+- [/] **OZL-29:** (Cursor) Olasılıklar `oyun.tres` / `denge.json` dışına çıkmaz.
   - Ne: `olay_olasiligi` ve `sira_olay_olasiligi` DEN-01 tablosuna taşınır (32 zaten ister); bu bölüm yeni sabit yazmaz.
   - Kabul: `.gd` içinde `0.75` / `0.35` olay sabiti 0. Test: tarama.
   - Bağımlılık: DEN-01. Boyut: S.
@@ -5971,13 +5971,13 @@ Kimlikler OZL-01 … OZL-35. Asset üretilmez. Yeni dosya + ince adaptör. Bitin
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `data/olaylar/*.tres`.
   - Asset: asset gerekmedi.
-- [ ] **OZL-34:** Kayıt göçü.
+- [/] **OZL-34:** (Cursor) Kayıt göçü.
   - Ne: yeni kart id'leri eski kayıtta yoksa seçilmez; oyun çökmez.
   - Kabul: eski kayıt + yeni katalog açılır. Test: KAY zinciri.
   - Bağımlılık: KAY-04. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **OZL-35:** Kapanış testi.
+- [/] **OZL-35:** (Cursor) Kapanış testi.
   - Ne: tek koşu: BUG-16 boş havuz → kart 0; `dugun` küçük köyde 0; boş gün + âşık koşulu; kadı → divan; yüz+kart çakışması 0; KRI-05 ölüm yolu.
   - Kabul: altı iddia tek testte. Test: `tests/unit/olay/ozel_olay_test.gd`.
   - Bağımlılık: OZL-01…34. Boyut: M.
