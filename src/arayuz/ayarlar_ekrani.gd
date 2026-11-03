@@ -96,6 +96,7 @@ func _ready() -> void:
 	add_child(sekme)
 	_yenile()
 	_odak_kur()
+	preload("res://src/arayuz/ayarlar/ayar_sekmeleri.gd").kur(self)
 	ilk.grab_focus.call_deferred()
 
 

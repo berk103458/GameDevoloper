@@ -14,6 +14,20 @@ const VARSAYILAN := {
 	&"koy_hizi_varsayilan": 1,
 	&"arka_planda_sustur": true,
 	&"otomatik_kayit": &"her_gece",
+	&"ipuclari": true,
+	&"kademeli_hud": true,
+	&"okunmus_isaret": true,
+	&"renk_paleti": &"olagan",
+	&"yuksek_kontrast": false,
+	&"hareket_azalt": false,
+	&"odak_cercevesi": &"normal",
+	&"pencere_boyutu": &"1600x900",
+	&"vsync": true,
+	&"kare_siniri": 0,
+	&"rapor_bekle": true,
+	&"olayda_duraklat": false,
+	&"karar_onayi": false,
+	&"zorluk": &"olagan",
 }
 ## Seçenekli ek anahtarların geçerli değerleri.
 const GECERLI := {
@@ -22,12 +36,28 @@ const GECERLI := {
 	&"koy_hizi_varsayilan": [1, 2, 3],
 	&"arka_planda_sustur": [true, false],
 	&"otomatik_kayit": [&"her_gece", &"uc_gecede_bir", &"kapali"],
+	&"ipuclari": [true, false],
+	&"kademeli_hud": [true, false],
+	&"okunmus_isaret": [true, false],
+	&"renk_paleti": [&"olagan", &"deuteranopi", &"protanopi", &"tritanopi"],
+	&"yuksek_kontrast": [true, false],
+	&"hareket_azalt": [true, false],
+	&"odak_cercevesi": [&"normal", &"kalin"],
+	&"pencere_boyutu": [&"1280x720", &"1600x900", &"1920x1080"],
+	&"vsync": [true, false],
+	&"kare_siniri": [0, 30, 60],
+	&"rapor_bekle": [true, false],
+	&"olayda_duraklat": [true, false],
+	&"karar_onayi": [true, false],
+	&"zorluk": [&"kolay", &"olagan", &"siki"],
 }
+## AYR-07: Çekirdek liste 100/125/150 kalır; 175 yalnız bu dosyadan eklenir.
+const METIN_OLCEKLERI := [100, 125, 150, 175]
 ## AYR-05: Sekme başına sıfırlanacak anahtar kümeleri.
 const SEKME_ANAHTARLARI := {
-	&"oyun": [&"koy_hizi_varsayilan", &"kamera_eksen_ters", &"otomatik_kayit"],
-	&"goruntu": [&"ekran_modu", &"grafik_profili", &"cozunurluk_3d"],
-	&"okuma": [&"metin_olcegi", &"belirme_hizi", &"satir_araligi", &"metin_agirligi"],
+	&"oyun": [&"koy_hizi_varsayilan", &"kamera_eksen_ters", &"otomatik_kayit", &"ipuclari", &"kademeli_hud", &"olayda_duraklat", &"rapor_bekle", &"karar_onayi", &"zorluk"],
+	&"goruntu": [&"ekran_modu", &"grafik_profili", &"cozunurluk_3d", &"pencere_boyutu", &"vsync", &"kare_siniri", &"renk_paleti", &"yuksek_kontrast", &"hareket_azalt", &"odak_cercevesi"],
+	&"okuma": [&"metin_olcegi", &"belirme_hizi", &"satir_araligi", &"metin_agirligi", &"okunmus_isaret"],
 	&"ses": [&"ses_ana", &"ses_muzik", &"ses_efekt", &"arka_planda_sustur"],
 }
 
@@ -67,19 +97,27 @@ static func bagla(a: Ayarlar, cli_argumanlar: PackedStringArray = PackedStringAr
 				elif not Ayarlar.VARSAYILAN.has(k):
 					# AYR-43: İleri sürüm uyumu için bilinmeyen anahtar atılmaz, saklanır.
 					a.degerler[k] = v
+	_olcegi_dosyadan(a)
 	if not cli_argumanlar.is_empty():
 		argumanlari_uygula(a, cli_argumanlar)
+	uygula_ek(a)
 
 
 ## Ek anahtarı değiştirir ve hemen uygular (çekirdek `Ayarlar.ayarla` ek anahtarı bilmez).
 ## Geçersiz değer reddedilir, değer değişmez; `true` döner yalnız değer kabul edildiğinde.
 static func ayarla(a: Ayarlar, anahtar: StringName, deger: Variant) -> bool:
+	if anahtar == &"metin_olcegi":
+		return _olcek_ayarla(a, deger)
 	if not _gecerli(anahtar, deger):
 		_reddet(anahtar, deger)
 		return false
-	a.degerler[anahtar] = _donustur(deger)
+	var eski: Variant = a.degerler.get(anahtar, null)
+	var yeni: Variant = _donustur(deger)
+	a.degerler[anahtar] = yeni
 	a.uygula()
+	uygula_ek(a)
 	a.degisti.emit(anahtar)
+	preload("res://src/debug/tester_izi.gd").ayar(anahtar, eski, yeni)
 	return true
 
 
@@ -155,6 +193,8 @@ static func argumanlari_uygula(a: Ayarlar, argumanlar: PackedStringArray = OS.ge
 
 
 static func _anahtar_gecerli_mi(a: Ayarlar, anahtar: StringName, deger: Variant) -> bool:
+	if anahtar == &"metin_olcegi":
+		return _olcek_tam(deger) in METIN_OLCEKLERI
 	if VARSAYILAN.has(anahtar):
 		return _gecerli(anahtar, deger)
 	if Ayarlar.VARSAYILAN.has(anahtar):
@@ -182,6 +222,64 @@ static func _gecerli(anahtar: StringName, deger: Variant) -> bool:
 
 static func _donustur(deger: Variant) -> Variant:
 	return StringName(deger) if deger is String else deger
+
+
+## AYR-07: 175 çekirdek `yukle()` tarafından reddedilirse dosyadan geri yazılır.
+static func _olcegi_dosyadan(a: Ayarlar) -> void:
+	if a == null or not FileAccess.file_exists(a.yol):
+		return
+	var cfg := ConfigFile.new()
+	if cfg.load(a.yol) != OK or not cfg.has_section_key("ayarlar", "metin_olcegi"):
+		return
+	var olcek := _olcek_tam(cfg.get_value("ayarlar", "metin_olcegi"))
+	if olcek in METIN_OLCEKLERI:
+		a.degerler[&"metin_olcegi"] = olcek
+
+
+static func _olcek_ayarla(a: Ayarlar, deger: Variant) -> bool:
+	var olcek := _olcek_tam(deger)
+	if olcek not in METIN_OLCEKLERI:
+		_reddet(&"metin_olcegi", deger)
+		return false
+	var eski: Variant = a.degerler.get(&"metin_olcegi", null)
+	a.degerler[&"metin_olcegi"] = olcek
+	a.uygula()
+	uygula_ek(a)
+	a.degisti.emit(&"metin_olcegi")
+	preload("res://src/debug/tester_izi.gd").ayar(&"metin_olcegi", eski, olcek)
+	return true
+
+
+static func _olcek_tam(deger: Variant) -> int:
+	if deger is String and String(deger).is_valid_int():
+		return int(deger)
+	if deger is StringName and String(deger).is_valid_int():
+		return int(String(deger))
+	if deger is float and deger == floorf(float(deger)):
+		return int(deger)
+	if deger is int:
+		return int(deger)
+	return -1
+
+
+## Pencere, kare sınırı ve hareket azaltma çekirdek `uygula()` dışında uygulanır.
+static func uygula_ek(a: Ayarlar) -> void:
+	if a == null:
+		return
+	var sinir := int(a.degerler.get(&"kare_siniri", 0))
+	Engine.max_fps = sinir
+	preload("res://src/sistemler/hareket_azalt.gd").guncelle(a)
+	if DisplayServer.get_name() == "headless":
+		return
+	var vsync_acik := bool(a.degerler.get(&"vsync", true))
+	var mod := DisplayServer.VSYNC_ENABLED if vsync_acik else DisplayServer.VSYNC_DISABLED
+	if DisplayServer.window_get_vsync_mode() != mod:
+		DisplayServer.window_set_vsync_mode(mod)
+	if a.degerler.get(&"ekran_modu", &"tam_ekran") != &"pencere":
+		return
+	var olcu := String(a.degerler.get(&"pencere_boyutu", &"1600x900")).split("x")
+	if olcu.size() == 2 and olcu[0].is_valid_int() and olcu[1].is_valid_int():
+		DisplayServer.window_set_size(Vector2i(int(olcu[0]), int(olcu[1])))
 
 
 ## Tek satır günlük (AYR-44): satır listeye yazılır ve hata olarak basılır.

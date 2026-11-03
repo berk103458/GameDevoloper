@@ -92,7 +92,7 @@ Bölüm 29 ve 30 bitti: TEZ-02…10, YIL-01…10 `[x] (Cursor)`. Dal `cursor/gec
 
 Bölüm 31 boş kayıt maddeleri `[x] (Cursor)`. Dal `cursor/gece-31-dogrulama`. Söz alanları ince adaptör; diyalog metni yazılmadı. Kalfa ekonomi/köy ve Antigravity metin alanı duruyor. Asset gerekmedi. kota görünmüyor.
 
-Bölüm 35 boş AYR maddeleri sahiplendi: AYR-01, 03, 04, 07–21, 23–27, 30, 34–42, 45, 47, 48, 50, 52. İşaret `[/] (Cursor)`. Kod `cursor/gece-35-ayarlar` dalında. Kalfa ekonomi/köy ve Antigravity diyalog alanına dokunulmadı. Kota görünmüyor.
+Bölüm 35 boş AYR maddeleri bitti: AYR-01, 03, 04, 07–21, 23–27, 30, 34–42, 45, 47, 48, 50, 52 `[x] (Cursor)`. Dal `cursor/gece-35-ayarlar`. Godot 4.7.2 headless: `AYARLAR BOLUM 35: GEÇTİ (0 hata)`, `AYARLAR KONTROL: GEÇTİ`, `AYARLAR EK: GEÇTİ`. Import sonrası `SCRIPT ERROR` yok. Asset gerekmedi. Kalfa ekonomi/köy ve Antigravity diyalog alanına dokunulmadı. Kota görünmüyor.
 
 Bölüm 26 ve 28 boş maddeleri bitti: NBT-02…09, SAB-01…10, SAB-75 `[x] (Cursor)`. Dal `cursor/gece-26-28-hukum`. Godot 4.7.2: kapi nobeti GEÇTİ (57), sabah defteri GEÇTİ. Diyalog cümlesi yazılmadı. Ekmek ve tezgâh katkısı yalnız okuyucu; stok ve üretim formülü yazılmadı. Asset gerekmedi. Kota görünmüyor.
 

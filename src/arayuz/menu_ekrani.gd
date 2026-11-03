@@ -17,6 +17,7 @@ var ipucu: String = ""
 
 
 func _ready() -> void:
+	preload("res://src/arayuz/yeni_oyun_ekrani.gd").menu_hazir(self)
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var zemin := ColorRect.new()
 	zemin.color = Renkler.GECE

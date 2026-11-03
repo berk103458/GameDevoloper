@@ -96,6 +96,7 @@ func _ready() -> void:
 	CenazeRaporu.yukleme_karti(self)
 	CinarMeclisPaneli.yukleme(self)
 	preload("res://src/arayuz/koy_hud/sabah_paneli.gd").kur(self)
+	_hiz_sec(preload("res://src/sistemler/koy_hizi_ayari.gd").acilis(ayarlar))
 
 ## Ana ekran ses adaptörü; ışığın ilk gunduz fazıyla aynı başlar.
 func ortam_baslat() -> void:
@@ -338,6 +339,9 @@ func _ust_panel_var() -> bool:
 
 
 func _unhandled_input(olay: InputEvent) -> void:
+	if preload("res://src/sistemler/hizli_kayit.gd").girdi(self, olay):
+		get_viewport().set_input_as_handled()
+		return
 	if not olay.pressed:
 		return
 	if olay is InputEventKey and (olay as InputEventKey).echo:
@@ -711,6 +715,7 @@ func _geceye_gec() -> void:
 		l.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		l.custom_minimum_size.x = 900
+	preload("res://src/sistemler/rapor_bekle.gd").uygula(v, ayarlar)
 	var tamam := _dugme(tr("koy.rapor.sabah"), v)
 	CenazeRaporu.ekle(self, v, tamam, r, sonuc)
 	tamam.grab_focus.call_deferred()
@@ -751,6 +756,7 @@ func _olay_goster(olay: OlayVerisi, sonuc: Dictionary) -> void:
 			ilk = d
 	if ilk != null:
 		ilk.grab_focus.call_deferred()
+	preload("res://src/sistemler/olay_duraklat.gd").ac(self)
 
 
 func _olay_sec(olay: OlayVerisi, i: int, gece: Dictionary) -> void:
@@ -826,6 +832,7 @@ func _kart_ac(baslik: String) -> VBoxContainer:
 
 
 func _kart_kapat() -> void:
+	preload("res://src/sistemler/olay_duraklat.gd").kapat(self)
 	if _ust_kart != null and is_instance_valid(_ust_kart):
 		_ust_kart.queue_free()
 	_ust_kart = null

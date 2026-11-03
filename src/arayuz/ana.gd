@@ -28,8 +28,12 @@ func _ready() -> void:
 	_eylemleri_kur()
 	ayarlar.uygula()
 	var giris_kaynaklari := await VarlikYuklemePaneli.hazirla(self, GirisVarliklari.menu())
-	ayarlar.degisti.connect(func(_a: StringName) -> void: theme = Tema.olustur(ayarlar))
+	ayarlar.degisti.connect(func(_a: StringName) -> void:
+		theme = Tema.olustur(ayarlar)
+		preload("res://src/arayuz/tema/palet.gd").uygula(theme, ayarlar)
+	)
 	theme = Tema.olustur(ayarlar)
+	preload("res://src/arayuz/tema/palet.gd").uygula(theme, ayarlar)
 	_imleci_kur()
 	kayit = GuvenliKayit.new()
 	katalog = Katalog.new()
@@ -65,7 +69,7 @@ func ana_menu() -> void:
 		e.pasifler = [1]
 	e.secildi.connect(func(i: int) -> void:
 		match i:
-			0: yeni_oyun()
+			0: _yeni_oyun_ekrani()
 			1: devam_et()
 			2: _ayarlari_ac(ana_menu)
 			3: Ses.cik()
@@ -89,6 +93,8 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 	kayit.sil()
 	oturum = Oturum.new(katalog, tohum)
 	preload("res://src/sistemler/denge_tablosu.gd").acilis_erzagini_yaz(oturum.yonetim.kaynaklar)
+	if ayarlar != null and ayarlar.degerler.has(&"zorluk"):
+		oturum.set_meta(&"zorluk", String(ayarlar.al(&"zorluk")))
 	g.sec(oturum, gecmis)
 	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum)
 	_koye_git()
@@ -134,7 +140,7 @@ func _kapiya_git(snapshot: Dictionary = {}) -> void:
 ## Kapı nöbeti bitti (Faz 1 → Faz 2): kayıt, sonra köy yönetimi.
 func _koye_git(_rapor: Dictionary = {}) -> void:
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(oturum, "koy")
-	kayit.yaz(oturum.kaydet())
+	_kayit_yaz()
 	var koy := KoyEkrani.new()
 	koy.oturum = oturum
 	koy.ayarlar = ayarlar
@@ -143,7 +149,7 @@ func _koye_git(_rapor: Dictionary = {}) -> void:
 	koy.devam_istendi.connect(func(rapor: Dictionary) -> void:
 		# Gece çözüldü ve olay seçildi: kayıt, sonra yeni gün (Ağalıkta önce geçiş kartı).
 		preload("res://src/sistemler/oturum_fazi.gd").ayarla(oturum, "kapi")
-		kayit.yaz(oturum.kaydet())
+		_kayit_yaz()
 		if rapor.get("perde_degisti", false):
 			_perde_gecisi()
 		else:
@@ -195,9 +201,26 @@ func _duraklat() -> void:
 	_ust_ac(e)
 
 
+func _yeni_oyun_ekrani() -> void:
+	var e := preload("res://src/arayuz/yeni_oyun_ekrani.gd").new()
+	e.ayarlar = ayarlar
+	e.baslatildi.connect(func(tohum: int, gecmis: String) -> void: yeni_oyun(tohum, gecmis))
+	e.vazgecildi.connect(ana_menu)
+	_goster(e)
+
+
+func _kayit_yaz() -> void:
+	var veri := oturum.kaydet()
+	if ayarlar != null and ayarlar.degerler.has(&"zorluk"):
+		preload("res://src/sistemler/zorluk_secimi.gd").kayda_yaz(veri, String(ayarlar.al(&"zorluk")))
+	kayit.yaz(veri)
+
+
 func _ayarlari_ac(sonra: Callable, ustte: bool = false) -> void:
 	var a := AyarlarEkrani.new()
 	a.ayarlar = ayarlar
+	if oturum != null:
+		a.set_meta(&"ipucu_kaydi", oturum.ipucu_kaydi)
 	if ustte:
 		a.kapandi.connect(func() -> void:
 			_ust_kapat()
@@ -277,3 +300,4 @@ func _imleci_kur() -> void:
 ## Girdi eylemleri (GIR-04). Gezinme ve onay Godot'un ui_* eylemleridir; atama girdi bölümündedir.
 func _eylemleri_kur() -> void:
 	GirdiEylemleri.kur(ayarlar.yol if ayarlar != null else "user://ayarlar.cfg")
+	preload("res://src/sistemler/hizli_kayit.gd").eylem_kur()

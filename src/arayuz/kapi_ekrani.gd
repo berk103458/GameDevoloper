@@ -550,6 +550,7 @@ func _karar_birak() -> void:
 
 
 func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
+	if not preload("res://src/sistemler/karar_onayi.gd").izinli(ayarlar, anahtar): return
 	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	if DiplomatikHeyet.ilgilenir(_gelen) and not DiplomatikHeyet.karar_olur(oturum, _gelen, StringName(anahtar)): return
 	var sorgu := _gelen.chr_sorgusu()
@@ -696,7 +697,7 @@ func _sirayla_goster(dugmeler: Array[Button]) -> void:
 	_gosterilecek = dugmeler
 	for b in dugmeler:
 		b.visible = false
-	var bekle := ayarlar.belirme_ms(oturum.ayarlar.belirme_ms) / 1000.0
+	var bekle := preload("res://src/arayuz/soz/belirme_baglantisi.gd").satir_ms(ayarlar, oturum.ayarlar.belirme_ms) / 1000.0
 	_beliriyor = true
 	for i in dugmeler.size():
 		if benim != _belirme_id or not is_instance_valid(dugmeler[i]):

@@ -147,6 +147,7 @@ func guncelle() -> void:
 	_gun.text = tr("arayuz.hud.gun") % (y.gun + 1)
 	MevsimTakvim.guncelle(_mevsim, y)
 	_nufus.text = tr("arayuz.hud.nufus") % [y.nufus(), y.yatak_kapasitesi(), k.toplam(), k.kapasite]
+	preload("res://src/arayuz/kapi/bar_bicimi.gd").isaretle(self)
 	preload("res://src/arayuz/koy_hud/acilis_kapi_bilgisi.gd").guncelle(self, _oturum)
 
 
