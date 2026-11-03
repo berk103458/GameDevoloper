@@ -44,7 +44,12 @@ func calistir() -> void:
 		ekran.secildi.emit(0)
 		dene(a.menuye_dondu, "Oyuncu ana menüye dönebilir")
 	a.kayit.sil()
-	a.queue_free()
-	await get_tree().process_frame
+	a.free()
+	for _i in 3:
+		await get_tree().process_frame
 	print("BAŞARISIZ GÖÇ MENÜ: GEÇTİ" if hata == 0 else "BAŞARISIZ GÖÇ MENÜ: KALDI")
-	await Ses.cik(hata)
+	var ses := get_node_or_null("/root/Ses")
+	if ses != null and ses.has_method("cik"):
+		await ses.cik(hata)
+	else:
+		get_tree().quit(hata)

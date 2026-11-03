@@ -170,6 +170,12 @@ func _panel() -> void:
 	root.add_child(ekran)
 	var p := SabahPanelSinifi.kur(ekran)
 	_kontrol(p != null and ekran.get_child_count() == 1, "SAB-75: köy düğümünde panel 1")
+	p.ekran = null
+	ekran.remove_meta(&"oturum")
+	sarmal.remove_meta(&"yonetim")
+	sarmal.free()
+	root.remove_child(ekran)
+	ekran.free()
 
 
 func _kontrol(olur: bool, mesaj: String) -> void:
