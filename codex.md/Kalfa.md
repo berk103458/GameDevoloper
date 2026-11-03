@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — ISG-45 tamamlandı (Kalfa)
+
+Odunluk yıkılınca boş köylü dal toplamaya atanamadı ve gece üretimi sıfır kaldı. Hedefli test ve son headless recovery import geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-44 tamamlandı (Kalfa)
 
 Izgara dışına taşan yapıya atama reddedilir. Köy yönetimi ve BUG-23 testleri geçti. İlk import MD5 hatası verdi, ikinci headless import temiz geçti. Asset gerekmedi. kota görünmüyor.

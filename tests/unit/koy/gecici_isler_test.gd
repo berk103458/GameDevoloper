@@ -157,5 +157,7 @@ func _bina_kosulu() -> void:
 	y.bina(2).insa_kalan = 0
 	dene(GeciciIsler.ata(y, k.id, "dal_toplama"), "ISG-13: ready woodshed opens the job")
 	y.bina_yik(2)
+	var bosta := isci(y, "Bos isci")
+	dene(not GeciciIsler.ata(y, bosta.id, "dal_toplama"), "ISG-45: bina yokken is acilmaz")
 	var r := y.gece()
 	dene(r.gecici_isler.is_empty() and int(r.uretim.get("odun", 0)) == 0, "ISG-13: no work or wood after demolition")

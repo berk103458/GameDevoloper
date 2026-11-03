@@ -1402,7 +1402,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/koy/`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-45:** Bina yokken yer tutucu iş yoktur
+- [x] **ISG-45:** Bina yokken yer tutucu iş yoktur (Kalfa)
   - Ne: Bina yokken yer tutucu iş yoktur. İş 0.
   - Kabul: Bina yokken yer tutucu iş yoktur. 0. Test: BUG-16.
   - Bağımlılık: BUG-16. Boyut: S.
