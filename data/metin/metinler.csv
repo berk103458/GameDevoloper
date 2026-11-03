@@ -2067,3 +2067,6 @@ koy.sancak.son_idam_metin,Sancak müfettişi ağır yozlaşmayı gizli kasa içe
 koy.sancak.tip,"Sancak teftişi: sıradaki %d. gece. Yozlaşma ≥%d ve dolu kişisel kasa birlikte risk taşır; kapak kapatmak korumaz. Bulunma şansı %%%d; yozlaşma ≥%d idam, altında azil."
 koy.coban.otlatiyor,Sürüyü otlatıyor
 koy.coban.agila,Sürüyü ağıla götürüyor
+arayuz.menu.surum,%s
+arayuz.menu.daha_once,daha önce: %s
+arayuz.demo.bitti,Köy oturdu.

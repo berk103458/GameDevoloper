@@ -7,6 +7,10 @@ Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Curs
 
 HFZ-01…21, HFZ-23…29 ve HFZ-32. Tek hafıza defteri, dört sayfa: karar, beyan, söylenti, not. Kaynak sistemlere yazılmaz; diyalog cümlesi yazılmadı, oyuncu metni yer tutucu anahtardır. Köy düğmesi ve duraklat dördüncü satırı açar; kapı sorgu defterine çağrı yok. HFZ-22, HFZ-30, HFZ-31 Claude'da duruyor. Asset gerekmedi. Godot 4.7.2 headless `tests/unit/sistemler/hafiza_defteri_test.gd` GEÇTİ, 0 hata. Tam sanity çalıştırılmadı. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
 
+## Bölüm 42 — 3 Kasım 2026
+
+SRM-02, SRM-04…09, SRM-11, SRM-12, SRM-19…21, SRM-25 ve SRM-26. Sürüm `0.2.0` tek sabittir. Oyuncu açılışında debug düğümü kurulmaz. Demo bayrağı perde 2'yi açmaz. Mağaza cümlesi ve diyalog yazılmadı; yer tutucu anahtar kullanıldı. Kalfa ekonomi/köy ve Antigravity metin alanına girilmedi. Asset gerekmedi. Godot 4.7.2 headless `tests/oto/surum_kontrol.tscn` GEÇTİ, 0 hata. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok.
+
 ## VFX — 24 Ekim 2026
 
 Duman, alev, yağmur çizgisi, yumuşak ışık ve bir ateş topu. Şimşek, büyü, kan ve namlu yok. Kar ve ayrı kıvılcım yok. Sahneye bağlanmadı. Headless 5 PNG, `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. Kota görünmüyor.
