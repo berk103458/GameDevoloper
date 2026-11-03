@@ -192,3 +192,36 @@ Köylülerin kendi aralarında döneme, mevsime ve kriz durumlarına göre konu�
 ### 3. Dinamik Yönlendirici Mimarisi
 `src/diyalog/koy_diyalog_yoneticisi.gd` güncellendi: Tıklanan köylünün `adli_id` veya `ad` bilgisine göre otomatik olarak ilgili özel `.ds` dosyasına yönlendirme sağlandı, bulunamadığı durumlarda genel köylü sekansına güvenli geri düşüş bağlandı.
 - **Doğrulama:** `tests/unit/diyalog/diyalog_butunluk_test.gd` (Godot 4.7.2 headless, 17 Parley dosyası, BFS erişilebilirliği, 0 hata, GEÇTİ).
+
+
+---
+
+## Aşama H — Bütünlük ve Nihai Doğrulama Kontrolleri (Tamamlandı)
+
+Repodaki tüm doğrulayıcı araçlar ve Godot headless testleri çalıştırılarak eksiksiz bütünlük doğrulandı:
+
+1. **`python tools/chr_parser.py --check`:**
+   - 30 CHR karakter sayfası eksiksiz ayrıştırıldı, doğrulanıp onaylandı (0 hata, GEÇTİ).
+2. **`python tools/metin_dogrula.py`:**
+   - `data/metin/metinler.csv` dosyasının bütünlüğü ve formatı doğrulandı (PASS).
+3. **`python tools/soz_tasarimi_dogrula.py` (`PYTHONUTF8=1`):**
+   - Söz tasarımı doğrulandı (SÖZ TASARIMI: GEÇTİ).
+4. **`tests/unit/diyalog/diyalog_butunluk_test.gd` (Godot 4.7.2 Headless):**
+   - 20 kapı ziyaretçisi diyaloğunun şeması, sahne metinleri, seçenek-eşik denkliği, yanıt sözlüğü karşılıkları, kervanla kaçış yasağı ve diyalog_08 ret eşiği (0 hata).
+   - 17 Parley `.ds` dosyasının AST ayrıştırması, kırık bağlantı (dangling edge) kontrolü, START'tan tüm düğümlere BFS erişilebilirliği (sıfır yetim/ulaşılamayan düğüm), Fact ve Action script referanslarının diskteki varlığı (0 hata).
+   - Türkçe karakterlerin (`ç, ğ, ı, İ, ö, ş, ü, Ç, Ğ, Ö, Ş, Ü`) tüm JSON ve Parley dosyalarında bozulmadan korunduğu (0 hata).
+   - `ParleyKoyAdaptoru` ve `KoyDiyalogYoneticisi`'nin Yusuf, Miraen, Karaca Usta ve ortam sekansları üzerinden uçtan uca çalışması (0 hata, GEÇTİ).
+5. **`tests/unit/kvr/diyalog_mantigi_test.gd` (Godot 4.7.2 Headless):**
+   - Diyalog mantığı ve karar/eşik kontrolleri doğrulandı (0 hata, GEÇTİ).
+6. **`tests/unit/diyalog/koy_parley_sistemi_test.gd` (Godot 4.7.2 Headless):**
+   - Parley adaptör ve arayüz entegrasyonu doğrulandı (0 hata, GEÇTİ).
+
+---
+
+## Özet İstatistikler
+- **Yeniden Yazılan & Derinleştirilen Kapı Ziyaretçisi:** 20 Karakter (`diyalog_01` – `diyalog_20`), 80+ derinleştirilmiş alt soru/cevap ve sert/merhametli/kurnaz dalları, önceki gün kararları hafıza referansları.
+- **Yazılan Parley Adlı Köylü Ağacı:** 10 Adlı Karakter (Yusuf, Miraen, Karaca Usta, Ayşe Bacı, Aydoğdu, Saruca Hatun, Thessra, Sorhan, Hasan Çelebi, Nogay), her biri için 3 duruma (normal, kriz, kapı kararı) göre dallanan müstakil ağaçlar.
+- **Yazılan Parley Ortam Sekansı:** 6 Sekans (`degirmen_kitlik`, `meydan_atesi`, `demirhane_pusat`, `kuyu_hastalik`, `nobet_harami`, `pazar_fiskos`).
+- **Toplam Test ve Doğrulama Hata Sayısı:** 0 (Sıfır Hata Politikası tam sağlandı).
+
+GOREV4_TAMAM

@@ -607,3 +607,30 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   - `tools/chr_parser.py --check`: GEÇTİ (0 hata).
 - **Asset Durumu:** Asset gerekmedi (yer tutucular ve mevcut arayüz stilleri kullanıldı).
 - **Kota:** kota görünmüyor
+
+
+## 4 Kasım 2026 — Görev 4: Görev 3'ü Derinleştirme (Öz Denetim, Dallandırma, Köylü Hafızası ve Tam Kadro Köy Sohbetleri)
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Aşama E — Öz Denetim ve Puan Tablosu:**
+     - Ahmet'in 7 temel isteği üzerinden mevcut diyalog sistemi denetlendi.
+     - 20 kapı karakteri, 30 CHR kartı ve 10 adlı köylü için eksiklikler ve düzeltme hedeflerini içeren puan tablosu hazırlanarak `codex.md/Antigravity_ilerleme_4.md` dosyasına kaydedildi.
+  2. **Aşama F — Kapı Diyaloglarının Derinleştirilmesi (`data/diyalog/diyalog_01_20.json`):**
+     - 20 kapı ziyaretçisi 4 parti halinde ele alındı:
+       - **Parti 1 (`diyalog_01` – `diyalog_05`):** Çiftçi tohum yangını, Çuhacı gümüş dirhemleri ve Karaca Usta bağı, Sivaslı kargıcı neferin kırık kargı tehdidi ve haritada pusu noktaları, koyunlu çobanın sürü sağlığı ve Yusuf bağı, örssüz demirci kalfasının ustasını geride bırakma itirafı ve pirinç külçe rüşveti.
+       - **Parti 2 (`diyalog_06` – `diyalog_10`):** Yamuk miğferli askerin kılıcını haramiye kaptırma utancı, sabanı kırık rençberin şehit oğulları ve küflü arpa dramı, dikici kalfasının yanan konaktan aşırdığı gümüş kemer tokası kefareti (ret eşiği 0 kuralı korundu), kemankeşin hain nöbetçi cinayeti intikamı ve ok imalatı hüneri, yetimli gencin asırlık bağ kütüğü şırası.
+       - **Parti 3 (`diyalog_11` – `diyalog_15`):** Yaralı köprü levendinin süvari istihbaratı ve Miraen Hatun'a yönlendirilmesi, kalaycının çifte tabanlı kazandaki kaçak cıva/kalay tozu ve Karaca Usta'ya hibe seçeneği, topal oğlaklı çobanın Kızıl Karga borç baskını itirafı ve oğlağı Yusuf'a emanet etmesi, kaya tuzu tüccarının kükürtlü güherçilesini kışlaya vermesi, kule borazancısının kuleyi basan amcaoğlunu görüp donma itirafı.
+       - **Parti 4 (`diyalog_16` – `diyalog_20`):** Asma fidanlı bağcının Bizans misket aşı çubuğu ve yetimli rençber çocuğu tanıması, kantarcının hileli dirhemi kırıp adil pazar yemini, kireççi ırgatın kale dizdarının yolsuzluğunu görmesi ve ahşap sura taş temel örmesi, gürgen tekneli fırıncının 40 yıllık ekşi mayası ve tandır kurması, ayağına çivi batmış nalbantın harami atlarını sakatlayıp kaçış itirafı.
+  3. **Aşama G — Köy Sohbetleri ve Tıklayınca Konuşma (Parley):**
+     - Adı olan 10 köylü için (Yusuf, Miraen, Karaca Usta, Ayşe Bacı, Aydoğdu, Saruca Hatun, Thessra, Sorhan, Hasan Çelebi, Nogay) 3 duruma göre değişen (normal gün, kriz/kıtlık/salgın, kapıdaki tartışmalı kararlar) müstakil `.ds` ağaçları yazıldı.
+     - 4 yeni ortam sahne sekansı eklendi (`sekans_demirhane_pusat`, `sekans_kuyu_hastalik`, `sekans_nobet_harami`, `sekans_pazar_fiskos`).
+     - `src/diyalog/koy_diyalog_yoneticisi.gd` köylü kimliğine göre otomatik yönlendirme yapacak şekilde dinamikleştirildi.
+  4. **Aşama H — Bütünlük ve Nihai Doğrulama:**
+     - `tools/chr_parser.py --check`: 30 sayfa eksiksiz GEÇTİ.
+     - `tools/metin_dogrula.py`: PASS.
+     - `tools/soz_tasarimi_dogrula.py`: SÖZ TASARIMI: GEÇTİ.
+     - `tests/unit/diyalog/diyalog_butunluk_test.gd`: 20 kapı diyaloğu + 17 Parley sekansı + Türkçe karakter kontrolü + Uçtan uca adaptör orkestrasyonu 0 hata ile GEÇTİ.
+     - `tests/unit/kvr/diyalog_mantigi_test.gd`: GEÇTİ.
+     - `tests/unit/diyalog/koy_parley_sistemi_test.gd`: GEÇTİ.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_4.md` son satırı `GOREV4_TAMAM` olarak tamamlandı.
+- **Kota:** kota görünmüyor
