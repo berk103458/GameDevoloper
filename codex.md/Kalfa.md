@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — ISG-40 tamamlandı (Kalfa)
+
+Sağlığı sıfır olan köylü girdi harcamadan üretimden çıkar. Hedefli gece testi ve headless import geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — YSM-02 tamamlandı (Kalfa)
 
 Açlık üretimi 0,80 / 0,50 / 0 kademesine bağlandı. Yürüyüş çarpanı 0,70 ve bitkin temas riski +5 puan seçildi. Gece üretimi, erzak sıfırlaması ve gerçek şifahane testi geçti. Son headless import temiz. Asset gerekmedi. kota görünmüyor.

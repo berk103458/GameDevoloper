@@ -1378,7 +1378,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/koy/meslek_grevi.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-40:** Hastalık işi düşürür
+- [x] **ISG-40:** Hastalık işi düşürür (Kalfa)
   - Ne: Hastalık işi düşürür. KRI. Sağlık 0 ise üretim 0.
   - Kabul: Hastalık işi düşürür. 0. Test: birim.
   - Bağımlılık: YSM-02. Boyut: S.

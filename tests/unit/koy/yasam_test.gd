@@ -44,5 +44,12 @@ func _initialize() -> void:
 		push_error("YSM-02: büyük tedavi katkısına doğal iyileşme eklenmemeli")
 		quit(1)
 		return
-	print("YSM-02 üretim, atama ve iyileşme: GEÇTİ")
+	kisi.saglik = 0
+	var carpani := Uretim.koylu_carpani(kisi, "", koy.a)
+	var son_rapor := koy.gece()
+	if carpani != 0.0 or int(son_rapor.uretim.get("bugday", 0)) != 0:
+		push_error("ISG-40: sağlık sıfırken üretim olmamalı")
+		quit(1)
+		return
+	print("YSM-02 ve ISG-40: GEÇTİ")
 	quit()

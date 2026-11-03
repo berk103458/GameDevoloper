@@ -685,7 +685,7 @@ func _uret(uretim: Dictionary, olaylar: Array[Dictionary], calismalar: Dictionar
 		var cikti: Dictionary = r.get("uretim", {})
 		var uzmanlik := String(katalog.veri(b.tur).get("uzmanlik", ""))
 		for k in calisanlar(b.id):
-			if preload("res://src/koy/aclik_kademesi.gd").uretim(k) <= 0.0: continue
+			if k.saglik <= 0 or preload("res://src/koy/aclik_kademesi.gd").uretim(k) <= 0.0: continue
 			if KarantinaYoneticisi.aktif(k): continue
 			if b.tur == "sifahane" and not Sifahane.hekim_calismaya_uygun(self, k, b): continue
 			if not YasRolleri.fiziksel(k, b.tur): continue

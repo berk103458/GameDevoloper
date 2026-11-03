@@ -5,6 +5,7 @@ class_name Uretim
 extends RefCounted
 
 static func koylu_carpani(k: Koylu, uzmanlik: String, a: KoyAyarlari, bina_turu: String = "") -> float:
+	if k.saglik <= 0: return 0.0
 	var c := bilesik_carpan(k.bayraklar + k.gizli_bayraklar, uzmanlik, a.flag_carpanlari, a.carpan_alt, a.carpan_ust)
 	if not bina_turu.is_empty(): c *= MeslekUyumu.carpan(k, bina_turu) * KoyluGelisimYoneticisi.carpan(k, bina_turu)
 	return c * preload("res://src/koy/aclik_kademesi.gd").uretim(k)
