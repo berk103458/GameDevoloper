@@ -64,3 +64,31 @@ Aşağıdaki denetim, Ahmet'in 7 temel isteği üzerinden mevcut sistemin durumu
    - 4 yeni ortam sekansı oluşturulacak.
    - `KoyDiyalogYoneticisi`'ne dinamik yönlendirici eklenecek.
 7. **Aşama H (Bütünlük ve Doğrulama):** Testler ve doğrulayıcılar koşturulacak, `GOREV4_TAMAM` ile tamamlanacak.
+
+
+---
+
+## Aşama F — Kapı Diyaloglarının Derinleştirilmesi
+
+### Parti 1 (`diyalog_01` – `diyalog_05`) — Tamamlandı
+- **diyalog_01 (Erzincanlı Çiftçi):**
+  - Beylik ambarı yangını, çalıntı tohum kuşkusu, sert sorguda kekeleme ve kaçamak cevaplar işlendi.
+  - Önceki gece kapıdan çevrilen köylünün kurda yem oluşunu hatırlayan hafıza dalı bağlandı.
+  - Merhametli yaklaşımda gözyaşı ve tohumu köye adama, rüşvet yaklaşımında gizli tohum takası derinleştirildi.
+- **diyalog_02 (Kayserili Çuhacı):**
+  - Kumaş katları arasına gizlenmiş gümüş dirhemler ve dükkân anahtarları sorguya açıldı.
+  - Karaca Usta'nın Ahi ocağı referansı, sert sorguda lonca yemini ve kışla çadır tamiri vazifesi bağlandı.
+  - Önceki gün kovalana saraç kalfasını hatırlayan hafıza dalı eklendi.
+- **diyalog_03 (Sivas Bozgun Askeri):**
+  - Kırık kargı tehdidi ("Bir adım daha atarsan kırık kargıyı bağrına çalarım!"), sancak ve firari gerilimi derinleştirildi.
+  - Merhametli yaklaşımda diz çöküp yarayı açma, kışla seçeneğinde harita üstünde pusu noktalarını gösterme eklendi.
+  - Dün kapıdan çevrilen askerin haramiye katılması hafızası işlendi.
+- **diyalog_04 (Koyunlu Çoban):**
+  - Sürü sağlığı (hastalık/uyuz kuşkusu), yaylacı inadı ve hayvanları koruma içgüdüsü işlendi.
+  - Yusuf ve Karabaş referansı, rüşvette dövme bakır çıngırak ve haftalık teleme peyniri vaadi bağlandı.
+  - Önceki gün dağda ateş yakan kovulmuş obalıları hatırlayan hafıza satırları eklendi.
+- **diyalog_05 (Demirci Kalfası):**
+  - Moğol akınında ustasını geride bırakıp kaçmanın vicdan azabı ve kaçak kalfa travması işlendi.
+  - Karaca Usta'nın eski çırağı oluşu, Ahi ocağına teslimiyet ve yarım okkalık has pirinç maden külçesi rüşveti bağlandı.
+  - Kayseri'den gelen çuhacı Selim Usta'yı hatırlama ve tanıma hafızası eklendi.
+- **Doğrulama:** `tests/unit/diyalog/diyalog_butunluk_test.gd` (Godot 4.7.2 headless, 0 hata, GEÇTİ).
