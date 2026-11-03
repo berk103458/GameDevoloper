@@ -434,12 +434,16 @@ func olay_sec() -> OlayVerisi:
 	if ferman != null: return ferman
 	var haber := HaberciAgi.olay(self)
 	if haber != null: return haber
+	var bekleyen := preload("res://src/sistemler/ozel_olay.gd").bekleyen(self, katalog)
+	if bekleyen != null:
+		return bekleyen
 	if _rng.randf() >= ayarlar.olay_olasiligi:
 		return null
 	var adaylar: Array[OlayVerisi] = []
 	var toplam_agirlik := 0.0
 	for o in katalog.olaylar():
 		if not preload("res://src/sistemler/olay_on_kosulu.gd").havuzda(self, o.id): continue
+		if not preload("res://src/sistemler/ozel_olay.gd").aday(self, o): continue
 		if o.tek_sefer and gorulen_olaylar.has(o.id):
 			continue
 		if not _kosul_tutar(o.kosullar):
@@ -453,14 +457,17 @@ func olay_sec() -> OlayVerisi:
 		r -= o.agirlik
 		if r <= 0.0:
 			gorulen_olaylar[o.id] = true
-			return o
+			return preload("res://src/sistemler/ozel_olay.gd").sonuc(self, o)
 	gorulen_olaylar[adaylar[-1].id] = true
-	return adaylar[-1]
+	return preload("res://src/sistemler/ozel_olay.gd").sonuc(self, adaylar[-1])
 
 
 
 ## İki gelen arasında kuyrukta bir olay (ağırlıklı rastgele) ya da null. `kuyruk`: sırada bekleyen sayısı.
 func sira_olayi_sec(kuyruk: int) -> OlayVerisi:
+	if preload("res://src/sistemler/ozel_olay.gd").sira_kapali(self):
+		preload("res://src/sistemler/ozel_olay.gd").bos_gun_yaz(self)
+		return null
 	if kuyruk <= 0 or _rng.randf() >= ayarlar.sira_olay_olasiligi:
 		return null
 	var adaylar: Array[OlayVerisi] = []
@@ -548,6 +555,7 @@ func olay_uygula(olay: OlayVerisi, i: int, puan: int = -1) -> Dictionary:
 					yonetim.koylular.erase(k)
 					break
 	_koy_esitle()
+	preload("res://src/sistemler/ozel_olay.gd").secildi(self, olay, i)
 	var sonuc := {"kirilan": -1, "rusvet_harcandi": -1}
 	sonuc["sonuc_anahtari"] = "%s.sonuc%d" % [olay.metin_anahtari.trim_suffix(".metin"), i + 1]
 	sonuc["oyun_puan"] = puan
