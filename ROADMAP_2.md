@@ -7149,7 +7149,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 43.1 Envanter kapanışı
 
-- [ ] **GRV-01:** Bu tablodaki her ekranın bir zemin hükmü vardır.
+- [x] **GRV-01:** (Cursor) Bu tablodaki her ekranın bir zemin hükmü vardır.
   - Ne: hüküm üçtür: `sahne` (3B duruyor), `tema` (ARY-02 düzlemi), `eksik` (düz renk, sahne yok). Hüküm bu dosyadaki tablonun sağ sütunundan çıkar, ikinci liste tutulmaz.
   - Kabul: tabloda satırı olup hükmü boş ekran 0. Test: satır sayımı.
   - Bağımlılık: ARY-02. Boyut: S.
@@ -7161,13 +7161,13 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-02, GRV-01. Boyut: M.
   - Dosya: `src/arayuz/ayarlar_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GRV-03:** Yükleme `eksik`tir, ARY-04 yuvasına bağlanır.
+- [x] **GRV-03:** (Cursor) Yükleme `eksik`tir, ARY-04 yuvasına bağlanır.
   - Ne: `#0d1117` gömülü renk kalkar. Zemin ARY-04 yuvası ya da yuva yoksa tema nötrüdür. Metin TEK-21 anahtarıdır. Yeni sinematik yok.
   - Kabul: dosyada `Color("#0d1117")` 0. Test: tarama.
   - Bağımlılık: ARY-04, TEK-21. Boyut: S.
   - Dosya: `varlik_yukleme_paneli.gd`.
   - Asset: ARY-04 yer tutucusu. Yeni satır yok.
-- [ ] **GRV-04:** Duraklat zemini boş string bırakmaz.
+- [x] **GRV-04:** (Cursor) Duraklat zemini boş string bırakmaz.
   - Ne: `ana.gd:152` duraklat `arka_plan ""` verir. Boşken `bilgi_ekrani` tema düzlemi kullanır, pembe/şeffaf delik yok.
   - Kabul: duraklatta arka plan düğümü 1. Test: ekran.
   - Bağımlılık: ARY-02. Boyut: S.
@@ -7176,25 +7176,25 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 43.2 ARY-03 sekizi — dosya bağı
 
-- [ ] **GRV-05:** Harita `harita_ekrani.gd`.
+- [/] **GRV-05:** (Cursor — yarım) Harita `harita_ekrani.gd`.
   - Ne: ARY-03 harita alt kapanışı bu dosyadır. Bölge haritası (R1) yeniden kurulmaz, kabuk değişir.
   - Kabul: önce/sonra görüntüsü ARY-03 raporunda bu dosya adıyla. Test: ARY-03.
   - Bağımlılık: ARY-03. Boyut: M.
   - Dosya: `src/arayuz/harita_ekrani.gd`.
   - Asset: `ARY03-HARITA` yer tutucu, düz renk.
-- [ ] **GRV-06:** Sorgu `kapi_ekrani.gd` konuşma kutusu ve `chr_diyalog_paneli.gd`.
+- [/] **GRV-06:** (Cursor — yarım) Sorgu `kapi_ekrani.gd` konuşma kutusu ve `chr_diyalog_paneli.gd`.
   - Ne: `KONUSMA` dikdörtgeni (satır 14, `Rect2(36, 742, 1104, 314)`) ve sağ `DEFTER` (satır 13) tema kaynağına bağlanır. 3B kapı sahnesi yeniden çizilmez.
   - Kabul: iki panelde yerel renk 0. Test: ARY-02 tarama.
   - Bağımlılık: ARY-03. Boyut: M.
   - Dosya: `kapi_ekrani.gd`, `chr_diyalog_paneli.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GRV-07:** Seçim düğmeleri kapı karar çubuğudur.
+- [/] **GRV-07:** (Cursor — yarım) Seçim düğmeleri kapı karar çubuğudur.
   - Ne: `kapi_ekrani` karar düğmeleri (`_karar_dugmeleri`) tema düğme durumlarını (normal, üstünde, basılı, kapalı) kullanır. Yeni karar türü eklenmez.
   - Kabul: düğme `StyleBox` tema kaynağından. Test: tarama.
   - Bağımlılık: ARY-02. Boyut: S.
   - Dosya: `kapi_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GRV-08:** Köy HUD `src/arayuz/koy_hud/`.
+- [/] **GRV-08:** (Cursor — yarım) Köy HUD `src/arayuz/koy_hud/`.
   - Ne: 43 panel tek tema kaynağı. Her panele ayrı palet yok. İşlev (pazar, meclis, cenaze, vergi) durur.
   - Kabul: klasörde yerel renk tarama 0, istisna listesi ARY-02 belgesinde. Test: tarama.
   - Bağımlılık: ARY-02. Boyut: L.
@@ -7206,19 +7206,19 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-03. Boyut: S.
   - Dosya: adı geçen üç dosya.
   - Asset: asset gerekmedi.
-- [ ] **GRV-10:** Divan `divan_ekrani.gd`.
+- [/] **GRV-10:** (Cursor — yarım) Divan `divan_ekrani.gd`.
   - Ne: sorgu, hüküm, kanıt, haksızlık panelleri aynı tema. `divan_meydani.gd` 3B'dir, kabuk işi değildir (Bölüm 44).
   - Kabul: dört panel dosyasında yerel renk 0. Test: tarama.
   - Bağımlılık: ARY-03. Boyut: M.
   - Dosya: `src/kapi/divan_ekrani.gd` ve üç panel.
   - Asset: asset gerekmedi.
-- [ ] **GRV-11:** Oda `muhafiz_odasi_ekrani.gd`.
+- [/] **GRV-11:** (Cursor — yarım) Oda `muhafiz_odasi_ekrani.gd`.
   - Ne: yedi `oda_*` paneli tema. Terazi, vicdan, kasa kuralları ODA maddelerindedir, burada değişmez.
   - Kabul: oda ekranında yerel renk 0. Test: tarama.
   - Bağımlılık: ARY-03. Boyut: M.
   - Dosya: `muhafiz_odasi_ekrani.gd`, `oda_*.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GRV-12:** Gece raporu ayrı sahne olmaz.
+- [x] **GRV-12:** (Cursor) Gece raporu ayrı sahne olmaz.
   - Ne: `gece_bilancosu.gd` çıktısı köy ekranındaki mevcut kadrajda tema ile çizilir. `gece_raporu_ekrani.tscn` açılmaz.
   - Kabul: bu adlı sahne 0. Test: tarama.
   - Bağımlılık: ARY-03. Boyut: S.
@@ -7227,7 +7227,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 43.3 Okunurluk
 
-- [ ] **GRV-13:** Gövde puntosu 26'nın altına inmez.
+- [x] **GRV-13:** (Cursor) Gövde puntosu 26'nın altına inmez.
   - Ne: `Tema.GOVDE_PX` 26 tabandır; `metin_olcegi` 100'de gövde 26. HUD sayı etiketleri `KUCUK_PX` 22'nin altına yerel punto ile düşmez.
   - Kabul: 22 altı `font_size` override tarama 0 (istisna: `performans_seridi.gd` 18, debug, SRM-05'te yok). Test: tarama.
   - Bağımlılık: ARY-02. Boyut: S.
@@ -7239,7 +7239,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: TEK-03. Boyut: S.
   - Dosya: `koylu_karti.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GRV-15:** Uzun metin kesilmez, kayar.
+- [/] **GRV-15:** (Cursor — yarım) Uzun metin kesilmez, kayar.
   - Ne: kapı konuşması ve divan metni `autowrap` + kaydırma. 1920 ve 1280'de son satır kaydırılarak okunur (tester K5).
   - Kabul: 400 karakterlik deneme metninde kesilen glif 0. Test: iki çözünürlük. Ek şart: Çınar meclisi şikâyet satırı kaydırılır; uzun metinde kesilen glif kalmaz. Ek şart: Hüküm sabahı paneli uzun satırda glif kesmez, kaydırır. Ek şart: Tezgâh sabah satırı köy panelinde kesilmez; 400 karakterlik denemede son satır kayarak okunur. Ek şart: Yıl cümlesi köy satırında kesilmez; 400 karakterlik denemede son satır kayarak okunur.
   - Bağımlılık: GRV-06. Boyut: M.
@@ -7248,7 +7248,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 43.4 Odak ve durum
 
-- [ ] **GRV-16:** Düğme dört durumu temadadır.
+- [/] **GRV-16:** (Cursor — yarım) Düğme dört durumu temadadır.
   - Ne: normal, üstünde, basılı, kapalı. Kapalı devam düğmesi (`pasifler`) kapalı stili kullanır, kaybolmaz.
   - Kabul: kayıtsız menüde devam görünür ve `disabled`. Test: menü.
   - Bağımlılık: ARY-01. Boyut: S.
@@ -7263,13 +7263,13 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 43.5 Mini oyun ve heybe
 
-- [ ] **GRV-18:** Harman ve okçuluk kadrajı temaya girer, kuralı girmez.
+- [x] **GRV-18:** (Cursor) Harman ve okçuluk kadrajı temaya girer, kuralı girmez.
   - Ne: `harman_oyunu.gd`, `okculuk_oyunu.gd` skor yazısı tema puntosu. Oyun eşiği `OlayVerisi` içindedir, değişmez.
   - Kabul: skor puntosu `boyut()` ile ölçeklenir. Test: ölçek 150.
   - Bağımlılık: ARY-02. Boyut: S.
   - Dosya: iki oyun dosyası.
   - Asset: asset gerekmedi.
-- [ ] **GRV-19:** Heybe paneli kapı defterinin üstüne taşmaz.
+- [x] **GRV-19:** (Cursor) Heybe paneli kapı defterinin üstüne taşmaz.
   - Ne: `heybe_paneli.gd` açıkken `DEFTER` dikdörtgeni ile çakışma alanı 0 (tester üst üste panel). Çakışırsa panel konuşma kutusunun üstünde, defterin solunda durur.
   - Kabul: 1600×900'de iki dikdörtgen kesişimi boş. Test: ölçüm.
   - Bağımlılık: GRV-06. Boyut: S.
@@ -7278,13 +7278,13 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 43.6 Menü
 
-- [ ] **GRV-20:** Menü 3B sahnesi durur.
+- [x] **GRV-20:** (Cursor) Menü 3B sahnesi durur.
   - Ne: `MenuSahnesi` referans yerleşimi (4 Ekim notu, dosya başı) bozulmaz. Tema yalnız yazı ve düğmeye gelir.
   - Kabul: `SubViewport` düğümü durur. Test: menü açılır.
   - Bağımlılık: ARY-02. Boyut: S.
   - Dosya: `menu_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GRV-21:** Menü ipucu köşesi ölçekle taşmaz.
+- [x] **GRV-21:** (Cursor) Menü ipucu köşesi ölçekle taşmaz.
   - Ne: sağ alt ipucu (`offset` satır 74–80) `metin_olcegi` 150'de ekran içinde kalır.
   - Kabul: 150 ölçekte ipucu kutusu viewport içindedir. Test: iki ölçek.
   - Bağımlılık: AYR. Boyut: S.
@@ -7293,13 +7293,13 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 43.7 Tutarlılık taraması
 
-- [ ] **GRV-22:** Gömülü renk listesi kapanır.
+- [x] **GRV-22:** (Cursor) Gömülü renk listesi kapanır.
   - Ne: `src/arayuz/**/*.gd` içinde `Color("#` ve `ColorRect` ham renk ARY-02 istisna listesinde değilse hatadır. `Renkler` sabitleri tema kaynağına taşınınca istisna da düşer.
   - Kabul: istisna dışı 0. Test: `tools/` tarama kuralı.
   - Bağımlılık: ARY-02. Boyut: M.
   - Dosya: yeni tarama kuralı, `sanity_check.py` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **GRV-23:** Admin katmanı tema yutmaz (ARY-02 kural 4).
+- [x] **GRV-23:** (Cursor) Admin katmanı tema yutmaz (ARY-02 kural 4).
   - Ne: `src/debug/` renkleri oyuncu temasına girmez.
   - Kabul: debug dosyası tema kaynağını import etmez. Test: tarama.
   - Bağımlılık: ARY-02. Boyut: S.
@@ -7323,7 +7323,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 43.9 Asset sınırı
 
-- [ ] **GRV-26:** Yeni doku üretilmez.
+- [x] **GRV-26:** (Cursor) Yeni doku üretilmez.
   - Ne: eksik zemin ARY-05'e yazılır: `GRV02-AYARLAR`, `GRV04-DURAKLAT`. Yer tutucu tema düzlemi. İndirme yok.
   - Kabul: bu madde dosya üretmez. Test: sayım.
   - Bağımlılık: ARY-05. Boyut: S.
@@ -7350,7 +7350,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: SAH. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **GRV-30:** Kapanış testi.
+- [/] **GRV-30:** (Cursor — yarım) Kapanış testi.
   - Ne: ayarlar ve yüklemede gömülü renk 0; sekiz ARY-03 dosya adı raporda; duraklat zemini var; heybe-defter kesişimi boş; debug tema import etmez.
   - Kabul: beş iddia. Test: tarama betiği `tests/tools/test_arayuz_renk.py`.
   - Bağımlılık: GRV-01…29. Boyut: M.
@@ -7365,7 +7365,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.11 Kapı ve inceleme
 
-- [ ] **GRV-31:** `chr_diyalog_paneli.gd` temaya bağlanır.
+- [/] **GRV-31:** (Cursor — yarım) `chr_diyalog_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/chr_diyalog_paneli.gd` bugün ColorRect 0 ve 3 düz düğmeyle duruyor; notu: Konuşma seçenekleri düz düğme. Tema bağlanınca yalnız `chr_diyalog_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Konuşma seçenekleri düz düğme davranışı değişmez.
   - Kabul: `chr_diyalog_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `chr_diyalog_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7386,7 +7386,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/grafik_ayarlari_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-34:** `esya_karti.gd` temaya bağlanır.
+- [/] **GRV-34:** (Cursor — yarım) `esya_karti.gd` temaya bağlanır.
   - Ne: `src/arayuz/esya_karti.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Eşya kartı zeminsiz. Tema bağlanınca yalnız `esya_karti.gd` ARY-02 zeminini ve düğme durumunu okur, Eşya kartı zeminsiz davranışı değişmez.
   - Kabul: `esya_karti.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `esya_karti.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7400,7 +7400,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/hud.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-36:** `koy_ekrani.gd` temaya bağlanır.
+- [/] **GRV-36:** (Cursor — yarım) `koy_ekrani.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_ekrani.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Köy araç şeridi düz düğme; 3B sahne zemin sayılmaz. Tema bağlanınca yalnız `koy_ekrani.gd` ARY-02 zeminini ve düğme durumunu okur, Köy araç şeridi düz düğme; 3B sahne zemin sayılmaz davranışı değişmez.
   - Kabul: `koy_ekrani.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `koy_ekrani.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7414,7 +7414,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koylu_karti.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-38:** `koy_atama_alani.gd` temaya bağlanır.
+- [/] **GRV-38:** (Cursor — yarım) `koy_atama_alani.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_atama_alani.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Atama alanı zeminsiz. Tema bağlanınca yalnız `koy_atama_alani.gd` ARY-02 zeminini ve düğme durumunu okur, Atama alanı zeminsiz davranışı değişmez.
   - Kabul: `koy_atama_alani.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `koy_atama_alani.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7487,7 +7487,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/okculuk_oyunu.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-48:** `tansiyon_gostergesi.gd` temaya bağlanır.
+- [/] **GRV-48:** (Cursor — yarım) `tansiyon_gostergesi.gd` temaya bağlanır.
   - Ne: `src/arayuz/kapi/tansiyon_gostergesi.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Tansiyon yazısı zeminsiz. Tema bağlanınca yalnız `tansiyon_gostergesi.gd` ARY-02 zeminini ve düğme durumunu okur, Tansiyon yazısı zeminsiz davranışı değişmez.
   - Kabul: `tansiyon_gostergesi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `tansiyon_gostergesi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7501,7 +7501,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/kapi/kapi_gorus_adaptoru.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-50:** `divan_ekrani.gd` temaya bağlanır.
+- [/] **GRV-50:** (Cursor — yarım) `divan_ekrani.gd` temaya bağlanır.
   - Ne: `src/kapi/divan_ekrani.gd` bugün ColorRect 0 ve 2 düz düğmeyle duruyor; notu: Divan ekranı zeminsiz, düz düğme. Tema bağlanınca yalnız `divan_ekrani.gd` ARY-02 zeminini ve düğme durumunu okur, Divan ekranı zeminsiz, düz düğme davranışı değişmez.
   - Kabul: `divan_ekrani.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `divan_ekrani.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7532,7 +7532,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/kapi/divan_haksizlik_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-54:** `divan_kanit_karti.gd` temaya bağlanır.
+- [/] **GRV-54:** (Cursor — yarım) `divan_kanit_karti.gd` temaya bağlanır.
   - Ne: `src/kapi/divan_kanit_karti.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Kanıt kartı düz düğme. Tema bağlanınca yalnız `divan_kanit_karti.gd` ARY-02 zeminini ve düğme durumunu okur, Kanıt kartı düz düğme davranışı değişmez.
   - Kabul: `divan_kanit_karti.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `divan_kanit_karti.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7584,7 +7584,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.14 Köy şeridi — düğmeli
 
-- [ ] **GRV-61:** `kaynak_gostergesi.gd` temaya bağlanır.
+- [/] **GRV-61:** (Cursor — yarım) `kaynak_gostergesi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/kaynak_gostergesi.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Kaynak yazısı zeminsiz. Tema bağlanınca yalnız `kaynak_gostergesi.gd` ARY-02 zeminini ve düğme durumunu okur, Kaynak yazısı zeminsiz davranışı değişmez.
   - Kabul: `kaynak_gostergesi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kaynak_gostergesi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7647,7 +7647,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/su_rezerv_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-70:** `yapi_karti.gd` temaya bağlanır.
+- [/] **GRV-70:** (Cursor — yarım) `yapi_karti.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/yapi_karti.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Yapı kartı zeminsiz. Tema bağlanınca yalnız `yapi_karti.gd` ARY-02 zeminini ve düğme durumunu okur, Yapı kartı zeminsiz davranışı değişmez.
   - Kabul: `yapi_karti.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `yapi_karti.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7824,7 +7824,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/vergi_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-94:** `gezgin_stok_ikonu.gd` temaya bağlanır.
+- [/] **GRV-94:** (Cursor — yarım) `gezgin_stok_ikonu.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/gezgin_stok_ikonu.gd` bugün ColorRect 1 ve 0 düz düğmeyle duruyor; notu: Tek ColorRect var, tema kaynağına bağlı değil. Tema bağlanınca yalnız `gezgin_stok_ikonu.gd` ARY-02 zeminini ve düğme durumunu okur, Tek ColorRect var, tema kaynağına bağlı değil davranışı değişmez.
   - Kabul: `gezgin_stok_ikonu.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `gezgin_stok_ikonu.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7838,7 +7838,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/haberci_anlati_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-96:** `kisisel_karaborsa_paneli.gd` temaya bağlanır.
+- [/] **GRV-96:** (Cursor — yarım) `kisisel_karaborsa_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd` bugün ColorRect 1 ve 0 düz düğmeyle duruyor; notu: Tek ColorRect, tema dışı. Tema bağlanınca yalnız `kisisel_karaborsa_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Tek ColorRect, tema dışı davranışı değişmez.
   - Kabul: `kisisel_karaborsa_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kisisel_karaborsa_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7876,7 +7876,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.18 Ekran
 
-- [ ] **GRV-101:** `hastalik_teshis_adaptoru.gd` temaya bağlanır.
+- [/] **GRV-101:** (Cursor — yarım) `hastalik_teshis_adaptoru.gd` temaya bağlanır.
   - Ne: `src/kapi/hastalik_teshis_adaptoru.gd` bugün ColorRect 0 ve 2 düz düğmeyle duruyor; notu: Teşhis düğmeleri düz. Tema bağlanınca yalnız `hastalik_teshis_adaptoru.gd` ARY-02 zeminini ve düğme durumunu okur, Teşhis düğmeleri düz davranışı değişmez.
   - Kabul: `hastalik_teshis_adaptoru.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `hastalik_teshis_adaptoru.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

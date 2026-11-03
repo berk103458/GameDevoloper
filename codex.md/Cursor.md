@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Bölüm 43 kabuk — 3 Kasım 2026
+
+Ortak renk, boşluk ve punto `src/arayuz/kabuk.gd` içindedir. Aday temalardan biri seçilmedi. Ayarlar, defter ve diyalog dosyalarına dokunulmadı. Dal `cursor/gece-43-arayuz`. Kota görünmüyor. Asset gerekmedi; iki yer tutucu satırı envanterde.
+
 ## VFX — 24 Ekim 2026
 
 Duman, alev, yağmur çizgisi, yumuşak ışık ve bir ateş topu. Şimşek, büyü, kan ve namlu yok. Kar ve ayrı kıvılcım yok. Sahneye bağlanmadı. Headless 5 PNG, `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. Kota görünmüyor.

@@ -127,7 +127,7 @@ func _konusma_kur() -> void:
 	_kayit.add_theme_color_override("default_color", MenuSatiri.KREM)
 	kenar.add_child(_kayit)
 	var levha := CerceveKutu.new()
-	levha.dolgu = Color(0.06, 0.05, 0.04, 0.95)
+	levha.dolgu = Kabuk.LEVHA
 	levha.position = KONUSMA.position + Vector2(28, -22)
 	levha.size = Vector2(420, 44)
 	add_child(levha)
@@ -164,7 +164,7 @@ func _defter_kur() -> void:
 	_sinif.add_theme_color_override("font_color", MenuSatiri.SOLUK)
 	dikey.add_child(_sinif)
 	_bilgi = Label.new()
-	_bilgi.add_theme_font_size_override("font_size", ayarlar.boyut(19))
+	_bilgi.add_theme_font_size_override("font_size", ayarlar.boyut(Kabuk.KUCUK))
 	_bilgi.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
 	dikey.add_child(_bilgi)
 	dikey.add_child(_ayrac(MenuSusu.Tur.ALT))
@@ -189,7 +189,7 @@ func _defter_kur() -> void:
 	var ipucu := Label.new()
 	ipucu.text = tr("arayuz.sohbet.ipucu")
 	ipucu.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	ipucu.add_theme_font_size_override("font_size", ayarlar.boyut(16))
+	ipucu.add_theme_font_size_override("font_size", ayarlar.boyut(Kabuk.KUCUK))
 	ipucu.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
 	dikey.add_child(ipucu)
 
@@ -674,7 +674,7 @@ func _dugme(yazi: String, kap: Container = null) -> MenuSatiri:
 	b.ikon = MenuSatiri.Ikon.YOK
 	b.font_ = Tema.font(500)
 	b.punto = ayarlar.boyut(26)
-	b.alt_punto = ayarlar.boyut(17)
+	b.alt_punto = ayarlar.boyut(Kabuk.KUCUK)
 	b.custom_minimum_size = Vector2(0, 58)
 	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	b.focus_entered.connect(func() -> void: Ses.cal(&"sfx_secim", -8.0))

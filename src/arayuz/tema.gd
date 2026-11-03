@@ -2,9 +2,10 @@
 class_name Tema
 extends RefCounted
 
-const GOVDE_PX := 26
-const KUCUK_PX := 22
-const BASLIK_PX := 34
+## Sayılar Kabuk'tadır. Seçilen tema bu sabitleri ezmez; kabuk ölçüleri tek yerden okunur.
+const GOVDE_PX := Kabuk.GOVDE
+const KUCUK_PX := Kabuk.KUCUK
+const BASLIK_PX := Kabuk.BASLIK
 ## Sanat kitabı 7.4: hümanist serif (Alegreya, SIL OFL). Değişken font; ağırlık wght ekseninden.
 const FONT_DIK := "res://assets/font/Alegreya-wght.ttf"
 const FONT_ITALIK := "res://assets/font/Alegreya-Italic-wght.ttf"
@@ -92,14 +93,9 @@ static func _kutu(dolgu: Color, kenar: Color, kalinlik: int) -> StyleBoxFlat:
 	return s
 
 
-## Köy panelleri: koyu ahşap zemin ve ince bronz kenar.
+## Köy panelleri Kabuk'tan gelir. Görünüm seçilince yalnız Kabuk.panel() değişir.
 static func koy_paneli() -> StyleBoxFlat:
-	var s := _kutu(Color("201f1bed"), Color("64543a"), 1)
-	s.content_margin_left = 12
-	s.content_margin_right = 12
-	s.content_margin_top = 6
-	s.content_margin_bottom = 6
-	return s
+	return Kabuk.panel()
 
 ## Köy başlıklarında kullanılan SIL OFL lisanslı Cinzel.
 static func koy_baslik_fontu() -> Font:

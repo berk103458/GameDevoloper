@@ -10,7 +10,7 @@ func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	etiket = Label.new()
 	etiket.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	etiket.add_theme_font_size_override("font_size", 20)
+	etiket.add_theme_font_size_override("font_size", Kabuk.KUCUK)
 	add_child(etiket)
 	bar = ProgressBar.new()
 	bar.mouse_filter = Control.MOUSE_FILTER_IGNORE

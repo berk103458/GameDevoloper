@@ -17,7 +17,7 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
   var p:=PanelContainer.new()
   p.name="oda_esya_%d"%i
   p.set_meta("kayit_indeksi",i)
-  p.add_theme_stylebox_override("panel",Tema.koy_paneli())
+  p.add_theme_stylebox_override("panel",Kabuk.panel())
   v.add_child(p)
   var h:=HBoxContainer.new()
   h.add_theme_constant_override("separation",8)

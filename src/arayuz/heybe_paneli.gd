@@ -69,7 +69,7 @@ func _ready() -> void:
 func _draw() -> void:
 	# Tepsi: koyu zemin, ince kül çerçeve, kenarda dikiş.
 	var r := Rect2(TEPSI.position + Vector2(0, 40), TEPSI.size - Vector2(0, 40))
-	draw_rect(r, Color("#101217"))
+	draw_rect(r, Kabuk.zemin())
 	draw_rect(r, Color(Renkler.KUL, 0.35), false, 2.0)
 	draw_dashed_line(r.position + Vector2(10, 10), Vector2(r.end.x - 10, r.position.y + 10), Color(MenuSatiri.ALTIN, 0.35), 1.5, 8.0)
 

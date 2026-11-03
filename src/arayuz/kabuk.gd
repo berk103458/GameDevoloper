@@ -1,0 +1,59 @@
+## Tema seçilmeden duran ortak kabuk. Renk, boşluk ve punto burada toplanır.
+## Hazır paketlerden biri burada seçilmez.
+## Sabah seçilen tema Kabuk.panel() ve zemin renkleriyle bütün çağrıları değiştirir.
+class_name Kabuk
+extends RefCounted
+
+const GOVDE := 26
+const KUCUK := 22
+const BASLIK := 34
+const KENAR := 20
+const AYIRIM := 12
+const DUGME_Y := 48
+const IPUCU_GENISLIK := 720
+const IPUCU_ALT := 28
+const IPUCU_YUKSEKLIK := 56
+
+const PANEL_DOLGU := Color("201f1bed")
+const PANEL_KENAR := Color("64543a")
+const SOLUK := Color("aaa18e")
+const YORGUNLUK := Color("6E7BA8")
+const MORAL := Color("7FA86E")
+const STOK_SU := Color("678fa7")
+const STOK_KUMAS := Color("857c65")
+const LEVHA := Color(0.06, 0.05, 0.04, 0.95)
+
+
+static func zemin() -> Color:
+	return Renkler.GECE
+
+
+static func yazi() -> Color:
+	return Renkler.KUL
+
+
+static func vurgu() -> Color:
+	return MenuSatiri.ALTIN
+
+
+static func panel() -> StyleBoxFlat:
+	var s := StyleBoxFlat.new()
+	s.bg_color = PANEL_DOLGU
+	s.border_color = PANEL_KENAR
+	s.set_border_width_all(1)
+	s.set_corner_radius_all(0)
+	s.shadow_size = 0
+	s.content_margin_left = 12
+	s.content_margin_right = 12
+	s.content_margin_top = 6
+	s.content_margin_bottom = 6
+	return s
+
+
+## Sağ alt menü ipucu kutusu. Ölçek büyüyünce kutu uzar, ekranın içinde kalır.
+static func ipucu_kutusu(ekran: Vector2, olcek: int) -> Rect2:
+	var yuk := maxi(KUCUK, roundi(IPUCU_YUKSEKLIK * olcek / 100.0))
+	var gen := float(mini(IPUCU_GENISLIK, int(ekran.x) - KENAR * 2))
+	var x := ekran.x - KENAR - gen
+	var y := ekran.y - IPUCU_ALT - yuk
+	return Rect2(Vector2(x, y), Vector2(gen, yuk))
