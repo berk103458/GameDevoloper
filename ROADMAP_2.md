@@ -1364,7 +1364,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/koy/tezgahta_gun.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-38:** Greve giden üretmez
+- [x] **ISG-38:** Greve giden üretmez (Kalfa)
   - Ne: `meslek_grevi.gd`. İş düşer, yeni grev motoru yok.
   - Kabul: Üretim 0. Test: birim.
   - Bağımlılık: ISG-02 Boyut: S.

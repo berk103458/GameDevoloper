@@ -1,3 +1,7 @@
+## 3 Kasım 2026 — ISG-38 tamamlandı (Kalfa)
+
+Meslek grevi testi gerçek demirhane gecesinde üretimin sıfır kaldığını ve girdi ile deneyimin değişmediğini doğruladı. İlk import MD5 dosya erişim hatası verdi, ikinci headless recovery import temiz geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-33 tamamlandı (Kalfa)
 
 İlk başarılı sürükle-bırak ataması ipucu şeridini açar. İkinci atamada şerit açılmaz, görüldü bilgisi kayıt yüklemesinde korunur. Hedefli headless kabul ve son recovery import geçti. Asset gerekmedi. kota görünmüyor.
