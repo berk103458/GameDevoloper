@@ -119,6 +119,26 @@ static func etkiler_ayni(beklenen: Dictionary, gelen: Dictionary) -> bool:
 	return beklenen == gelen
 
 
+## KLT-54: koşulu tutan ilk seçeneğin kimliği. Metin okumaz.
+static func secim_kimligi(baglam: Dictionary) -> String:
+	var secenekler: Variant = baglam.get("secenekler", [])
+	if not secenekler is Array or secenekler.is_empty():
+		return ""
+	var bayraklar: Dictionary = baglam.get("bayraklar", {}) if baglam.get("bayraklar") is Dictionary else {}
+	for secenek in secenekler:
+		if not secenek is Dictionary:
+			continue
+		var kosul: Dictionary = secenek.get("kosul", {}) if secenek.get("kosul") is Dictionary else {}
+		var olur := true
+		for ad in kosul.keys():
+			if bool(bayraklar.get(ad, false)) != bool(kosul[ad]):
+				olur = false
+				break
+		if olur:
+			return String(secenek.get("id", ""))
+	return String((secenekler[0] as Dictionary).get("id", "")) if secenekler[0] is Dictionary else ""
+
+
 func _zar_oku(veri: Dictionary) -> void:
 	if veri.has("zar") and (veri["zar"] is int or veri["zar"] is float) and is_finite(float(veri["zar"])):
 		zar = int(veri["zar"])

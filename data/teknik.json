@@ -2,5 +2,8 @@
   "performans_gunlugu": {
     "fps_ortanca_en_az": 30.0,
     "kare_ms_azami": 100.0
+  },
+  "duman": {
+    "bellek_carpan_tavan": 2.0
   }
 }

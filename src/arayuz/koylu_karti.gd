@@ -7,6 +7,9 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	KoyluTakibi.sec(ekran.sahne3b, id)
 	var y := ekran.oturum.yonetim
 	var v := ekran._kart_ac(k.ad + " · Köylü kartı")
+	var guvenlik := ekran._etiket(v, SavunmaGuvenligi.metin(y), Tema.KUCUK_PX)
+	guvenlik.name = "guvenlik_satiri"
+	guvenlik.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._ust_kart.set_meta("gecici_is_sekmesi",true)
 	ekran._ust_kart.z_index = 110
 	var kulp := KoyluSuruklemeKulpu.new()

@@ -76,7 +76,7 @@ itch.io: sayfa açık. Resmî araç butler. Kurulum: https://itch.io/docs/butler
 Cursor — Godot doğrulama ve ince adaptör. Bu turda KAP-02, KAP-03, BUG-11 ve TUC-11/14 notu.
 
 ## Şu an üzerinde çalışılan
-Bölüm 41 (41.1, 41.2, 41.9, 41.10) ve Bölüm 40 araç satırları (40.1, 40.2, 40.3, 40.6, 40.9) `[/] (Cursor)`. Dal `cursor/gece-41-40-arac`, taban PR #18. Diyalog metni ve 40.5 yok. kota görünmüyor.
+Bölüm 41 (41.1, 41.2, 41.9, 41.10) ve Bölüm 40 araç satırları (40.1, 40.2, 40.3, 40.6, 40.9) `[x] (Cursor)`. Dal `cursor/gece-41-40-arac`, taban PR #18. Diyalog metni ve 40.5 yok. Godot 4.7.2 teknik borç, seçim kimliği ve söz kapısı testleri geçti. Tam sanity yok. Asset gerekmedi. kota görünmüyor.
 
 Bölüm 31 boş kayıt maddeleri `[x] (Cursor)`. Dal `cursor/gece-31-dogrulama`. Söz alanları ince adaptör; diyalog metni yazılmadı. Kalfa ekonomi/köy ve Antigravity metin alanı duruyor. Asset gerekmedi. kota görünmüyor.
 

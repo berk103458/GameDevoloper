@@ -349,9 +349,7 @@ func _hiz_sec(kat: int) -> void:
 
 
 func _exit_tree() -> void:
-	get_tree().paused = false
-	Engine.time_scale = 1.0
-	Engine.max_physics_steps_per_frame = _onceki_fizik_adimi
+	preload("res://src/arayuz/koy_hiz_kapisi.gd").sifirla(get_tree(), _onceki_fizik_adimi)
 
 
 # ── Yapı bilgi penceresi (10.1, 17.3) ─────────────────────────────────────────────────────────────
