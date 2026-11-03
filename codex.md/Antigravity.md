@@ -634,3 +634,33 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - `tests/unit/diyalog/koy_parley_sistemi_test.gd`: GEÇTİ.
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_4.md` son satırı `GOREV4_TAMAM` olarak tamamlandı.
 - **Kota:** kota görünmüyor
+
+## 4 Kasım 2026 — Görev 5: Ahmet'in İstekleri (Sorgu Düzeltme, Eş Diyalogları ve Fısıltıları) ve Yer Tutucu Metinler
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Bölüm 1A — Kapı Sorgularında Tekrar Eden Soruları Düzeltme:**
+     - 20 kapı ziyaretçisinin (`diyalog_01` – `diyalog_20`) açılış konuşmasında verdiği bilgileri dikkatsizce tekrar soran tüm sorular temizlendi.
+     - Açılış iddialarını kurcalayan, çelişki yakalayan ve iddiaları test eden takip sorularına çevrildi.
+     - `src/sistemler/oturum.gd` `_json_sorular()` fonksiyonuna bayrak desteği eklendi; sorular sorulduğunda bayraklar `acik_bayraklar` listesine işlendi.
+  2. **Bölüm 1B — Eşle Konuşma: Kapsamlı Parley Ağacı ve Oda Entegrasyonu:**
+     - Oyuncunun eşi (`acl01_es`, `acilis.kisi.es`) için 71 düğüm ve 85 kenardan oluşan çok katmanlı diyalog grafı hazırlandı (`data/parley/koy/koylu_muhabbet_es.ds`).
+     - Konuşmalar 4 ana başlığa ayrıldı: 1) Kapı kararları ve merhamet/adalet/rüşvet kavgası; 2) Köy durumu (açlık, kuyu suyu, hastalık, dedikodular); 3) Aile, evlilik, tandır şakalaşması ve Sivas hatıraları; 4) Mevsim hazırlığı ve gelecek endişesi.
+     - `src/diyalog/actions/es_iliskisi_action.gd` eklendi.
+     - `src/diyalog/parley_koy_adaptoru.gd` bayrak desteğiyle genişletildi.
+     - `src/arayuz/oda_es_muhabbet_paneli.gd` ve `src/arayuz/muhafiz_odasi_ekrani.gd` ile muhafızın odasındaki sedirde oturan eşle dertleşme arayüzü kuruldu.
+  3. **Bölüm 1C — Kapı Ekranında Eşin Düşünceleri ve Fısıltıları:**
+     - `data/diyalog/es_kapi_dusunceleri.json`: 20 ziyaretçinin her biri için `karsilama`, `kritik_soru`, `karar_oncesi`, `karar_kabul` ve `karar_ret` aşamalarında eşin fısıltı ve kanaatleri yazıldı (eşin kendine has sağduyusu, evhamı ve merhameti yansıtıldı).
+     - `src/kapi/es_yorumu_adaptoru.gd` adaptörü yazıldı; `src/arayuz/kapi_ekrani.gd` ekranına ince bağlandı.
+     - `tests/unit/kapi/es_yorumu_test.gd` birim testi yazıldı ve doğrulandı.
+  4. **Bölüm 2 — Yer Tutucu Metinler Envanteri:**
+     - Cursor PR'ları (#15–#27) taranarak birleştirme öncesi yer tutucu anahtarları tespit edildi.
+     - `docs/YER_TUTUCU_METINLER.csv` dosyasına 85 adet anahtar, 13. yy dönemine uygun edebi Türkçe metin, hangi PR'dan geldiği ve açıklama notlarıyla kaydedildi (`nobet.rapor.*`, `sabah.hukum.satir`, `tez.cumle.*`, `yil.*`, OZL kart metinleri `olay.asik.*`, `olay.kadi.*`, `hafiza.*`, `arayuz.girdi.*`).
+     - Metinlerde formül sözcük ("köyünüzün geleceği", "çünkü", "aslında") ve çift boşluk yasağına titizlikle uyuldu.
+  5. **Bütünlük ve Testler:**
+     - `tools/metin_dogrula.py --kaynak`: PASS.
+     - `tools/soz_tasarimi_dogrula.py`: GEÇTİ.
+     - `tests/unit/kapi/es_yorumu_test.gd`: GEÇTİ (0 hata).
+     - `tests/unit/diyalog/diyalog_butunluk_test.gd`: GEÇTİ (0 hata).
+     - `tests/unit/kvr/diyalog_mantigi_test.gd`: GEÇTİ.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_5.md` son satırı `GOREV5_TAMAM` olarak tamamlandı.
+- **Kota:** kota görünmüyor

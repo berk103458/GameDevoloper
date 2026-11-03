@@ -77,7 +77,36 @@ Ahmet'in tespiti doğrultusunda 20 kapı ziyaretçisinin tamamı (`diyalog_01` �
   - 20 diyalogun tamamının `karar_oncesi`, `kritik_soru`, `karar_kabul` ve `karar_ret` alanlarının eksiksizliği doğrulandı.
   - Mock kapı ekranı üzerinde fısıltı ve uyarıların deftere doğru aktığı test edildi. (Godot 4.7.2 headless: 0 hata, GEÇTİ).
 
+- **Commit:** `e7ec7493` — `feat(gorev5-1c): kapi ekraninda esin dusunceleri adaptoru ve 20 ziyaretci verisi (Antigravity); asset gerekmedi`
+
 ---
 
-## Sıradaki Adım
-- Bölüm 2 — Yer Tutucu Metinler: PR #15–#27 dallarındaki `metinler.csv` ve ilgili yer tutucu anahtarlarının incelenip `docs/YER_TUTUCU_METINLER.csv` dosyasına eksiksiz yazılması.
+## Bölüm 2 — Yer Tutucu Metinler (Tamamlandı)
+
+- **PR Taraması ve Kapsam:**
+  - Cursor ajanlarının `claude/festive-volta-li1sfm` dalına açtığı birleşmemiş PR'lar (`#15` – `#27`) `git fetch origin` ile incelendi.
+  - Kodlarda ve veri yapılarında referans verilen ancak `metinler.csv` içinde yer tutucu (`yer tutucu`, `henüz bir şey yazılmadı`) olarak bırakılmış veya sadece GDScript backend yapılarında tanımlanmış tüm anahtarlar tespit edildi:
+    1. **PR #21 (`origin/cursor/gece-26-28-hukum`):** Nöbet devir teslim ve sayım raporları (`nobet.rapor.devir`, `nobet.rapor.sabaha_kalmadi`, `nobet.rapor.bos`, `nobet.rapor.sayim`, `nobet.rapor.tipi_bos`, `nobet.rapor.tipi`, `nobet.rapor.uyudu`), sabah divan hükmü satırı (`sabah.hukum.satir`).
+    2. **PR #25 (`origin/cursor/gece-29-30-mevsim`):** Tezgâh teslim ve aksaklık cümleleri (`tez.cumle.tam`, `tez.cumle.egri`), dört mevsim izi satırları (`yil.yuz`, `yil.guz_sofra`, `yil.guz_harman`, `yil.kis_disari`, `yil.kis_ev`, `yil.ilkbahar_tarla`, `yil.ilkbahar_taskin`, `yil.yaz_su`).
+    3. **PR #27 (`origin/cursor/gece-38-kart`):** Özel olay kartları (Kopuzlu Âşık ve Sancak Kadı Naibi): `olay.asik.baslik`, `olay.asik.metin`, `olay.asik.dinle`, `olay.asik.gonder`, `olay.asik.sonuc1`, `olay.asik.sonuc2`, `olay.kadi.baslik`, `olay.kadi.metin`, `olay.kadi.dinle`, `olay.kadi.gecistir`, `olay.kadi.sonuc1`, `olay.kadi.sonuc2`.
+    4. **PR #15 (`origin/cursor/gece-39-defter`):** Hafıza defteri ekranı, boş durum metinleri, başlık ve gece kalıpları, etiketler ve sekmeler (`hafiza.bos.*`, `hafiza.satir.*`, `hafiza.etiket.*`, `hafiza.durum.*`, `hafiza.kademe.*`, `hafiza.sayfa.*`, `hafiza.ekran.*`, `hafiza.filtre.*`, `hafiza.sonuc.*`, `koy.eylem.defter`, `arayuz.duraklat.defter`).
+    5. **PR #16 (`origin/cursor/gece-45-girdi`):** Girdi tuş atama ve kontroller haritası (`arayuz.girdi.sekme`, `ata`, `bekleniyor`, `cakisma`, `fare_olmaz`, `ipucu.hiz`, `geri`, `menu`, `kisayol_1..5`, `bina_cevir`, `bina_barinma`, `nufus`, `hiz_1..3`, `hiz_dur`, `kip_kapat`, `kapi_kabul`, `kapi_ret`, `sec`, `iptal_kip`, `yakinlas`, `uzaklas`).
+    6. **PR #22 ve #26:** Dil ve sürüm tamamlayıcı metinleri (`arayuz.menu.surum`, `arayuz.menu.daha_once`, `arayuz.demo.bitti`, `arayuz.dil.*`, `koy.coban.*`).
+- **Üretilen Envanter Dosyası (`docs/YER_TUTUCU_METINLER.csv`):**
+  - Toplam 85 anahtar; RFC 4180 standardına uygun biçimde `anahtar,metin,hangi_pr,not` sütunlarıyla kaydedildi.
+  - 13. yüzyıl Anadolu uç beyliği diline ve üslubuna tam uyum sağlandı.
+  - Kalite ve yasak kuralı denetimi: `tests/unit/olay/ozel_olay_test.gd` ve `tests/unit/sistemler/ozl_kart_tarama_test.gd` kriterlerine göre hiçbir metinde "köyünüzün geleceği", "çünkü" veya "aslında" formül sözcükleri kullanılmadı; KLT-11 gereğince metinlerde çift boşluk (`  `) yer almaz.
+  - Bu dosya, ilgili PR'lar festive'ye birleştirilirken `data/metin/metinler.csv` tablosunu beslemek üzere hazırlandı.
+- **Doğrulama ve Test Sonuçları:**
+  - `python tools/metin_dogrula.py --kaynak`: PASS (0 hata)
+  - `python tools/soz_tasarimi_dogrula.py`: GEÇTİ (0 hata)
+  - `Godot --headless -s tests/unit/kapi/es_yorumu_test.gd`: BAŞARILI (0 hata)
+  - `Godot --headless -s tests/unit/diyalog/diyalog_butunluk_test.gd`: BAŞARILI (0 hata, 18 Parley + 20 kapı diyaloğu)
+  - `Godot --headless -s tests/unit/kvr/diyalog_mantigi_test.gd`: GEÇTİ (0 hata)
+
+---
+
+## Genel Görev Özeti
+Görev 5 kapsamındaki tüm maddeler (Bölüm 1: 1A, 1B, 1C ve Bölüm 2: Yer Tutucu Metinler) eksiksiz, derinlemesine ve tüm doğrulayıcı testlerden sıfır hatayla geçerek tamamlanmıştır.
+
+GOREV5_TAMAM

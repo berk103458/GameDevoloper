@@ -1,0 +1,86 @@
+anahtar,metin,hangi_pr,not
+nobet.rapor.devir,"Kapı nöbetini %s devretti, direği %s devraldı.",PR #21,Nöbet devir teslim satırı; nöbeti bırakan ve devralan kişi adları yer alır.
+nobet.rapor.sabaha_kalmadi,Nöbette duran nefer sabaha çıkamadı; kapı direği sahipsiz kaldı.,PR #21,Nöbetçi gece vefat ettiğinde veya kaybolduğunda çıkan durum raporu.
+nobet.rapor.bos,Kapı direğinde bu gece nöbetçi yoktu; kapı sahipsiz ve boş bekledi.,PR #21,Gece boyu nöbetçi atanmadığında yazılan rapor.
+nobet.rapor.sayim,Gece boyu kapıya %d kişi yanaştı; nöbetçi %d kişiyi fark edemedi.,PR #21,Nöbet sayım raporu; kapıya yaklaşanlar ve gözden kaçanlar.
+nobet.rapor.tipi_bos,Kuduran kış tipisinde göz gözü görmedi; kapıya kimse yanaşmadı.,PR #21,Fırtına gecesi kapıya gelen olmadığında yazılan rapor.
+nobet.rapor.tipi,Tipi ve dondurucu ayazda nöbetçi önünü göremedi; karanlıkta kapıdan sızanlar oldu.,PR #21,Fırtınada nöbetçinin gözünden kaçan ziyaretçiler olduğunda yazılan rapor.
+nobet.rapor.uyudu,Nöbetçi ayazda uyuyakaldı; kapıya yaklaşanlar karanlıkta kayboldu.,PR #21,Nöbetçi uykuya daldığında yazılan kusur raporu.
+sabah.hukum.satir,Divan kararı: %s hakkında %s hükmü verildi.,PR #21,Sabah defteri divan hükmü satırı; kişi adı ve ceza türü.
+tez.cumle.tam,Tezgâhtaki sipariş eksiksiz tamamlandı; iş sahibine teslim edildi.,PR #25,Tezgâh siparişi 5. gün başarıyla bittiğinde yazılan teslim cümlesi.
+tez.cumle.egri,"Tezgâhta aksaklık çıktı; malzeme ziyan oldu, iş eğri kaldı.",PR #25,Tezgâh siparişi aksadığında veya hatalı bittiğinde yazılan cümle.
+yil.yuz,"Yılın yüzü: Mevsimler döner, uç boyunda hayat sabırla sürer.",PR #25,Yıl izi genel tanıtım ve mevsim döngüsü cümlesi.
+yil.guz_sofra,Güz sofrası kuruldu; köy halkı bereketli hasadı mecliste paylaştı.,PR #25,Sonbaharda ambar dolu ve şenlik açıkken yazılan mevsim izi satırı.
+yil.guz_harman,Güz harmanı kalktı; buğday başakları kış gelmeden ambarlara taşındı.,PR #25,Sonbaharda şenlik yokken harman sonu yazılan mevsim izi satırı.
+yil.kis_disari,Dışarıda dondurucu kış ayazı; sığınaksız kalanlar buz kesip titrer.,PR #25,Kış mevsiminde barınaksız/açıkta geçirilen gecenin izi.
+yil.kis_ev,Kış gecesi ocak başında; tandır ateşi evi ve gönülleri ısıtır.,PR #25,Kış mevsiminde sıcak yatakta/evde geçirilen gecenin izi.
+yil.ilkbahar_tarla,İlkbahar cemresi düştü; rençberler tarlaya saban sürmeye çıktı.,PR #25,İlkbaharda tarla işleri başladığında yazılan mevsim izi satırı.
+yil.ilkbahar_taskin,Bahar taşkını vadiyi bastı; coşan dere bentleri zorladı.,PR #25,İlkbaharda sel veya taşkın hadisesinde yazılan mevsim izi satırı.
+yil.yaz_su,Yaz sıcağı tepeye vurdu; kuyulardan ve arklardan su çekildi.,PR #25,Yaz mevsiminde su sıkıntısı veya aşırı sıcaklarda yazılan mevsim izi satırı.
+olay.asik.baslik,Kopuzlu Âşık,PR #27,Gezgin âşık olay kartı başlığı.
+olay.asik.metin,"Akşam alacasında kapıya kopuzunu sırtlamış bir gezgin âşık yanaşır. Bozkırın türkülerini, beylerin cengini ve gurbet havalarını fısıldar; köylünün bağrı yanıktır.",PR #27,Gezgin âşık olay kartı ana metni (formül sözcük içermez).
+olay.asik.dinle,"Meydanda meclis kur, çalsın söylesin",PR #27,Âşık olay kartı 1. seçenek (dinleme ve moral).
+olay.asik.gonder,"Köyün derdi kendine yeter, yola revan olsun",PR #27,Âşık olay kartı 2. seçenek (savuşturma).
+olay.asik.sonuc1,"Âşık tellere dokundu; çınar altında toplanan ahali türkülerle dert unuttu, ocaklar şenlendi.",PR #27,Âşık dinlendiğinde ortaya çıkan netice metni.
+olay.asik.sonuc2,Âşık boynunu büküp yola koyuldu; köy meydanı sessiz ve soğuk kaldı.,PR #27,Âşık geri çevrildiğinde ortaya çıkan netice metni.
+olay.kadi.baslik,Sancak Kadı Naibi,PR #27,Kadı teftişi olay kartı başlığı.
+olay.kadi.metin,Sancak Divanı'ndan heybetli bir kadı naibi atından iner. Yanındaki katiplerle tahrir defterini açar; köyün asayişini ve zemin kayıtlarını teftişe niyetlenir.,PR #27,Kadı teftişi olay kartı ana metni (formül sözcük içermez).
+olay.kadi.dinle,"Buyur et, divan defterini önüne ser",PR #27,Kadı naibi olay kartı 1. seçenek (açık denetim).
+olay.kadi.gecistir,"Beyimiz seferdedir de, teftişi savuştur",PR #27,Kadı naibi olay kartı 2. seçenek (geçiştirme).
+olay.kadi.sonuc1,Kadı naibi tahrir defterini mühürledi; adalet terazisi köyde güven tazeledi.,PR #27,Kadı teftişi kabul edildiğinde ortaya çıkan netice metni.
+olay.kadi.sonuc2,Teftiş yarım kaldı; naip kaşlarını çatarak atını sancağa doğru mahmuzladı.,PR #27,Kadı savuşturulduğunda ortaya çıkan netice metni.
+hafiza.bos.karar,Bu gece kapıda henüz bir karar verilmedi.,PR #15,Hafıza defterinde henüz kapı kararı yokken görünen metin.
+hafiza.bos.beyan,Ziyaretçiden henüz bir beyan kayda geçmedi.,PR #15,Hafıza defterinde henüz beyan yokken görünen metin.
+hafiza.bos.soylenti,Köyde henüz işitilmiş bir söylenti yoktur.,PR #15,Hafıza defterinde henüz söylenti yokken görünen metin.
+hafiza.bos.not,Muhafız defterine henüz bir not düşülmedi.,PR #15,Hafıza defterinde henüz not yokken görünen metin.
+hafiza.satir.baslik,%s — %s,PR #15,Hafıza defteri satır başlığı kalıbı (Kişi adı — Gece).
+hafiza.satir.gece,%d. gece,PR #15,Hafıza defteri gece numarası kalıbı.
+hafiza.etiket.dis_hat,Sınır Boyu,PR #15,Hafıza defteri dış hat / sınır boyu etiketi.
+hafiza.etiket.celiski,İfadede Çelişki,PR #15,Hafıza defteri ifadede çelişki etiketi.
+hafiza.durum.gitti,Köyden Ayrıldı,PR #15,Hafıza defteri ayrılan ziyaretçi/köylü durum etiketi.
+hafiza.kademe.birkac,Birkaç Kişi Fısıldaşır,PR #15,Hafıza defteri söylenti yayılma düzeyi: düşük.
+hafiza.kademe.yari_koy,Köyün Yarısı Konuşur,PR #15,Hafıza defteri söylenti yayılma düzeyi: orta.
+hafiza.kademe.herkes,Bütün Köy Çalkalanır,PR #15,Hafıza defteri söylenti yayılma düzeyi: yüksek.
+hafiza.sayfa.karar,Kapı Kararları,PR #15,Hafıza defteri kapı kararları sekmesi başlığı.
+hafiza.sayfa.beyan,Ziyaretçi Beyanları,PR #15,Hafıza defteri ziyaretçi beyanları sekmesi başlığı.
+hafiza.sayfa.soylenti,Köy Söylentileri,PR #15,Hafıza defteri söylentiler sekmesi başlığı.
+hafiza.sayfa.not,Muhafız Notları,PR #15,Hafıza defteri muhafız notları sekmesi başlığı.
+hafiza.ekran.baslik,Hafıza Defteri,PR #15,Hafıza defteri ekran pencere başlığı.
+hafiza.filtre.kisi,Kişi adına göre ara...,PR #15,Hafıza defteri kişi filtreleme girdi kutusu yer tutucusu.
+hafiza.sonuc.dondu,Geri Döndü,PR #15,Hafıza defteri köye geri dönen kişi durum etiketi.
+koy.eylem.defter,Defteri İncele,PR #15,Köy HUD arayüzünde defter açma düğmesi etiketi.
+arayuz.duraklat.defter,Hafıza Defteri,PR #15,Duraklatma menüsünde defteri açma düğmesi etiketi.
+arayuz.girdi.sekme,Tuş Kontrolleri,PR #16,Ayarlar menüsünde tuş atama / kontroller sekmesi başlığı.
+arayuz.girdi.ata,Yeni Tuş Ata,PR #16,Girdi haritasında tuş atama düğmesi.
+arayuz.girdi.bekleniyor,Bir tuşa basınız...,PR #16,Tuş atama sırasında yeni tuş beklenirken çıkan ipucu.
+arayuz.girdi.cakisma,Bu tuş başka bir eyleme atanmış!,PR #16,Aynı tuş birden fazla eyleme atandığında çıkan çakışma uyarısı.
+arayuz.girdi.fare_olmaz,Fare tuşları bu eyleme atanamaz,PR #16,Fare tıklaması atanamayan eylemlerde verilen uyarı.
+arayuz.girdi.ipucu.hiz,Zaman hızı kısayolu: {hiz_1},PR #16,Arayüzde hız değiştirme kısayol ipucu metni.
+arayuz.girdi.geri,Geri / Vazgeç,PR #16,Girdi menüsünden çıkış / vazgeç düğmesi.
+arayuz.girdi.menu,Ana Menü,PR #16,Menüyü açma/kapama eylemi adı.
+arayuz.girdi.kisayol_1,1. Kapı Seçeneği Kısayolu,PR #16,Kapı sorgusunda 1. seçeneği seçme tuşu.
+arayuz.girdi.kisayol_2,2. Kapı Seçeneği Kısayolu,PR #16,Kapı sorgusunda 2. seçeneği seçme tuşu.
+arayuz.girdi.kisayol_3,3. Kapı Seçeneği Kısayolu,PR #16,Kapı sorgusunda 3. seçeneği seçme tuşu.
+arayuz.girdi.kisayol_4,4. Kapı Seçeneği Kısayolu,PR #16,Kapı sorgusunda 4. seçeneği seçme tuşu.
+arayuz.girdi.kisayol_5,5. Kapı Seçeneği Kısayolu,PR #16,Kapı sorgusunda 5. seçeneği seçme tuşu.
+arayuz.girdi.bina_cevir,Yapı Yönünü Döndür,PR #16,Köy yerleşiminde yapı yönünü çevirme kısayolu.
+arayuz.girdi.bina_barinma,Barınma Yapılarını Göster,PR #16,Köyde barınma ve hane binalarını filtreleme tuşu.
+arayuz.girdi.nufus,Köy Nüfusu ve Halk,PR #16,Köy nüfus panelini açma kısayolu.
+arayuz.girdi.hiz_1,Zaman Hızı: 1x (Normal),PR #16,Zamanı normal akışa alma tuşu.
+arayuz.girdi.hiz_2,Zaman Hızı: 2x (Hızlı),PR #16,Zamanı hızlı akışa alma tuşu.
+arayuz.girdi.hiz_3,Zaman Hızı: 3x (Çok Hızlı),PR #16,Zamanı çok hızlı akışa alma tuşu.
+arayuz.girdi.hiz_dur,Zamanı Durdur / Devam Et,PR #16,Zamanı duraklatma ve yeniden başlatma tuşu.
+arayuz.girdi.kip_kapat,Görünümü Kapat,PR #16,Açık olan kipi veya paneli kapatma tuşu.
+arayuz.girdi.kapi_kabul,Kapı Kararı: Kabul Et,PR #16,Kapıdaki ziyaretçiyi köye kabul etme kısayolu.
+arayuz.girdi.kapi_ret,Kapı Kararı: Geri Çevir,PR #16,Kapıdaki ziyaretçiyi geri çevirme kısayolu.
+arayuz.girdi.sec,Seç / Onayla,PR #16,Menü ve seçeneklerde onaylama tuşu.
+arayuz.girdi.iptal_kip,Seçimi İptal Et,PR #16,Mevcut seçimi veya inşa modunu bırakma tuşu.
+arayuz.girdi.yakinlas,Kamerayı Yakınlaştır,PR #16,Kamera yaklaşma tuşu.
+arayuz.girdi.uzaklas,Kamerayı Uzaklaştır,PR #16,Kamera uzaklaşma tuşu.
+arayuz.menu.surum,Sürüm: %s,PR #26,Ana menü sürüm numarası göstergesi.
+arayuz.menu.daha_once,Önceki Oyun: %s,PR #26,Ana menü son oturum/oyun bilgisi satırı.
+arayuz.demo.bitti,"Köy kök saldı, dirlik kuruldu.",PR #26,Demo bitiş ekranı kapanış kutlama cümlesi.
+arayuz.dil.baslik,Dil Seçimi,PR #22,Ayarlar menüsünde dil seçimi sekme başlığı.
+arayuz.dil.tr,Türkçe,PR #22,Dil seçenekleri: Türkçe etiketi.
+koy.coban.otlatiyor,Sürüyü merada otlatıyor,PR #22,Çoban günlük görev durumu.
+koy.coban.agila,Sürüyü akşam ağıla çekiyor,PR #22,Çoban akşam ağıla dönüş durumu.
