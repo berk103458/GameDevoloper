@@ -9078,7 +9078,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/parley/koy/meclis_davalari.ds, data/parley/en/koy/meclis_davalari.ds.
   - Asset: asset gerekmedi.
 
-- [ ] **SES-DIL-01:** Karakter kartlarına ve repliklere seslendirme reji kılavuzu. (Antigravity)
+- [x] **SES-DIL-01:** Karakter kartlarına ve repliklere seslendirme reji kılavuzu. (Antigravity)
   - Amaç: Gelecekteki seslendirme (VA / AI dublaj) için 13. yy dönem dili tonlama, duygu, nefes ve duraklama kılavuzu hazırlanması.
   - Kurallar:
     1. 30 ziyaretçi ve başlıca köylüler için fonetik ve reji direktifleri yazılır.
