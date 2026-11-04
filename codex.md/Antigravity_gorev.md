@@ -636,3 +636,9 @@ Ahmet sabah kararlarını verdi ve 7 ROADMAP önerisinin hepsini onayladı. İle
 - Asset üretme, prompt yazma. Kalfa'nın klasörüne girme.
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
 
+
+---
+
+## Görev 17 için kota düzeltmesi (Kaşif, 4 Kasım 2026 09:25)
+
+Ahmet'in ekranından gerçek kota: Gemini haftalık %84, 5 saatlik %78 kaldı; Claude/GPT %100. Önceki "%10-15'te dur" kuralı senin kota tahminine dayanıyordu ve yanlıştı. **Kota yüzünden erken durma.** Görev 17'nin bütün adımlarını (kararlar, 7 ROADMAP maddesini ekleme, kendi alanındaki maddeleri tek tek yapma) bitirene kadar devam et. Sadece araç gerçekten limit hatası verirse dur; runner seni kaldığın yerden devam ettirir. "kota için durdum" yazıp GOREV17_TAMAM ekleme.
