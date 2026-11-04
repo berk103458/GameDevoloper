@@ -8,7 +8,7 @@ extends RefCounted
 ## Salt-okunur denge ölçüm raporu üretir.
 ## oturum: aktif oturum
 ## gece_raporu: oturum.gece_sonu() dönüşü
-## ek_baglam: ek ölçüm girdileri (oy farkı, zindan payı, sorgu eylemleri, başarısız zar sayısı)
+## ek_baglam: meslek_uyarisi_gelen optional Gelen; ek ölçüm girdileri (oy farkı, zindan payı, sorgu eylemleri, başarısız zar sayısı)
 static func olustur(oturum: RefCounted, gece_raporu: Dictionary, ek_baglam: Dictionary = {}) -> Dictionary:
 	var y = oturum.get("yonetim") if oturum != null else null
 	var gun: int = int(gece_raporu.get("gece", oturum.get("gun") if oturum != null else 0))
@@ -39,8 +39,13 @@ static func olustur(oturum: RefCounted, gece_raporu: Dictionary, ek_baglam: Dict
 	# 7. DEN-22: O gecenin başarısız zar sayısı tek satırdır; her zar için ayrı ekonomik satır açmaz
 	var basarisiz_zar_sayisi: int = int(ek_baglam.get("basarisiz_zar_sayisi", 0))
 
+	# DEN-33: mevcut ISG-01 uyarısının bulunduğu gece için tek gözlem.
+	var gelen := ek_baglam.get("meslek_uyarisi_gelen") as Gelen
+	var meslek_uyarisi := not MeslekUyarisi.satirlar(y, gelen).is_empty()
+
 	var rapor := {
 		"gun": gun,
+		"meslek_uyarisi_gece": int(meslek_uyarisi),
 		"gida_tuketimi": gida_tuketimi,
 		"insaat_ilerleme": int(gece_raporu.get("rapor", gece_raporu).get("insaat_ilerleme", 0)),
 		"uretim": gece_raporu.get("uretim", {}).duplicate(true),

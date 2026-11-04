@@ -1,11 +1,10 @@
 # Diyalog Dalı Birleşme Notu (`feature/diyalog-yeniden-yazim`)
 
-- **Tarih:** 4 Kasım 2026, 07:50 (Sabah Birleşme Öncesi Son Güncelleme)
+- **Tarih:** 4 Kasım 2026, 08:35 (Görev 16 Bölüm A — Festive Entegrasyonu)
 - **Ajan:** Antigravity
 - **Hedef Dal:** `claude/festive-volta-li1sfm`
 - **Kaynak Dal:** `feature/diyalog-yeniden-yazim`
-- **Entegre Edilen Son Festive Commit'i:** `8c32c453e5ee29fe5e554c0f7dc6e2751bb0a013` (Kalfa — "Yaşam barı ve denge gözleminin geceyi tekrarlamadığını doğrula")
-- **Daldaki Merge Commit'i:** `d0fee0a6a83374847ea902b38dacf2a397b0c8cf`
+- **Entegre Edilen Son Festive Commit'i:** `7646b8d519d5f04b123687259021e10260714fc2` (Kalfa — "Yetenek kapalıyken esnaftan haraç alınmadığını doğrula")
 
 ---
 
@@ -28,9 +27,9 @@ Bu dal, Görev 3'ten Görev 15'e kadar Kapı Muhafızı'nın bütün anlatı, di
 
 ## 2. Festive Entegrasyonu ve Çakışma Durumu
 
-- **Merge Süreci:** `origin/claude/festive-volta-li1sfm` dalından Kalfa'nın gece boyunca yaptığı 12 commit çekilmiş ve `d0fee0a6` merge commit'i ile dalımıza katılmıştır.
+- **Merge Süreci:** `origin/claude/festive-volta-li1sfm` dalından Kalfa'nın son commit'leri (`7646b8d5` dahil) çekilmiş ve merge edilmiştir.
 - **Çakışma (Conflict):** **0 çakışma**. `ROADMAP_2.md` dosyası Git tarafından otomatik ve temiz bir şekilde birleştirilmiştir.
-- **Kalfa Alanı:** Kalfa'nın denge tabloları (`data/ayarlar/denge.json`, `data/ayarlar/denge_sinirlari.json`), birim testleri (`tests/unit/denge/aclik_uretim_test.gd`), araçları (`tools/denge_dogrula.py`, `tests/tools/test_denge_dogrula.py`) ve oda paneli kodları aynen korunmuştur.
+- **Kalfa Alanı:** Kalfa'nın denge tabloları (`data/ayarlar/denge.json`, `data/ayarlar/denge_sinirlari.json`), birim testleri (`tests/unit/denge/aclik_uretim_test.gd`, `tests/unit/denge/rusvet_test.gd`), araçları (`tools/denge_dogrula.py`, `tests/tools/test_denge_dogrula.py`) ve oda paneli kodları aynen korunmuştur.
 - **Cursor Alanı:** Gece birleşen PR kodlarına dokunulmamış, yalnızca bekledikleri metinler yerleşmiş durumdadır.
 
 ---

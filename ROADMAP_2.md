@@ -3552,7 +3552,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: YSM-01, DEN-05. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-32:** Ölüm, cenaze sistemine gider.
+- [x] **DEN-32:** (Kalfa) Ölüm, cenaze sistemine gider.
   - Ne: açlıktan ölen kişi KRI-05 kuyruğuna yazılır. Bu bölüm ayrı mezar açmaz.
   - Kabul: açlıktan ölen kişi KRI-05 kuyruğuna yazılır. Bu bölüm ayrı mezar açmaz. Test: ölüm sayısı ile cenaze kuyruğu eşit.
   - Bağımlılık: KRI-05, DEN-29. Boyut: S.
@@ -3561,13 +3561,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.5 Meslek ve boşta kalan
 
-- [ ] **DEN-33:** Meslek uyarısı ISG-01'dir.
+- [x] **DEN-33:** (Kalfa) Meslek uyarısı ISG-01'dir.
   - Ne: atölyesiz kumaşçı uyarısı o maddede kalır. Denge, uyarının göründüğü gece sayısını ölçer. Yeni uyarı metni yazmaz.
   - Kabul: atölyesiz kumaşçı uyarısı o maddede kalır. Denge, uyarının göründüğü gece sayısını ölçer. Yeni uyarı metni yazmaz. Test: atölyesiz 10 gece, uyarı en az 1.
   - Bağımlılık: ISG-01. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-34:** Geçici işin verimi tablodadır.
+- [x] **DEN-34:** (Kalfa) Geçici işin verimi tablodadır.
   - Ne: ISG-02 verimleri `gecici_isler.json` içindedir. `denge.json` aynı sayıyı kopyalamaz, yolu yazar.
   - Kabul: ISG-02 verimleri `gecici_isler.json` içindedir. `denge.json` aynı sayıyı kopyalamaz, yolu yazar. Test: kopya sayı varsa hata.
   - Bağımlılık: ISG-02, DEN-03. Boyut: S.
@@ -3597,13 +3597,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ACL-02. Boyut: S.
   - Dosya: `tests/unit/denge/meslek_verim_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-39:** Çırak beş günde yarım usta olur.
+- [x] **DEN-39:** (Kalfa) Çırak beş günde yarım usta olur.
   - Ne: UZM-04 süresi değişmez. Ölçüm, 5. günde verimin ara basamakta olduğunu doğrular.
   - Kabul: UZM-04 süresi değişmez. Ölçüm, 5. günde verimin ara basamakta olduğunu doğrular. Test: 4. gün ara basamak değil, 5. gün odur.
   - Bağımlılık: UZM-04. Boyut: S.
   - Dosya: `tests/unit/denge/meslek_verim_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-40:** Boştaki vasıfsız, salgında ot toplar.
+- [x] **DEN-40:** (Kalfa) Boştaki vasıfsız, salgında ot toplar.
   - Ne: KRI-15 kuralı durur. Denge, salgınsız günde ot toplanmadığını ölçer.
   - Kabul: KRI-15 kuralı durur. Denge, salgınsız günde ot toplanmadığını ölçer. Test: salgın yok, afyon 0.
   - Bağımlılık: KRI-15. Boyut: S.
@@ -3624,7 +3624,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: KOP-10, DEN-08. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-43:** Yozlaşma skoru ODA-12'dir.
+- [x] **DEN-43:** (Kalfa) Yozlaşma skoru ODA-12'dir.
   - Ne: rüşvet skoru o sisteme yazar. Yeni terazi açılmaz.
   - Kabul: rüşvet skoru o sisteme yazar. Yeni terazi açılmaz. Test: bir rüşvet, skor bir kez artar.
   - Bağımlılık: ODA-12. Boyut: S.
@@ -3642,7 +3642,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-41. Boyut: S.
   - Dosya: `tests/unit/denge/rusvet_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-46:** Haraç yeteneği ODA-05'tir.
+- [x] **DEN-46:** (Kalfa) Haraç yeteneği ODA-05'tir.
   - Ne: günlük esnaf haraç o yetenekte kalır. Denge yeni bir vergi icat etmez.
   - Kabul: günlük esnaf haraç o yetenekte kalır. Denge yeni bir vergi icat etmez. Test: yetenek kapalıyken haraç 0.
   - Bağımlılık: ODA-05. Boyut: S.

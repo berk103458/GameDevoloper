@@ -273,6 +273,18 @@ def aclik_kademesi_hatalari(denge: dict) -> list:
     return hatalar
 
 
+def gecici_is_hatalari(denge: dict) -> list:
+    """DEN-34: geçici iş verimi ISG-02 tablosunda kalır."""
+    hatalar = []
+    for ad, veri in denge.items():
+        if ad == "gecici_isler":
+            if veri != {"kaynak": "res://data/gecici_isler.json"}:
+                hatalar.append("gecici_isler: ikinci verim tablosu olamaz; kaynak data/gecici_isler.json (DEN-34)")
+        elif isinstance(veri, dict):
+            hatalar.extend(gecici_is_hatalari(veri))
+    return hatalar
+
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -294,6 +306,7 @@ def main(argv=None) -> int:
         hatalar += kacan_bedeli_hatalari(denge)
         hatalar += acilis_kasasi_hatalari(denge)
         hatalar += aclik_kademesi_hatalari(denge)
+        hatalar += gecici_is_hatalari(denge)
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]
     for h in hatalar:

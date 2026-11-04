@@ -27,6 +27,12 @@ func hazir(gorunur_hasta: bool) -> KoyYonetimi:
 func _initialize() -> void:
 	kat = Katalog.new()
 	kat.yukle()
+	var saglam := hazir(false)
+	for kisi in saglam.koylular:
+		SaglikYoneticisi.iyilestir(kisi)
+	var saglam_rapor := saglam.gece()
+	dene(saglam.kaynaklar.miktar("afyon") == 0, "DEN-40: salgınsız gerçek gecede afyon üretilmez")
+	dene(not saglam_rapor.olaylar.any(func(e: Dictionary) -> bool: return e.has("sifali_ot")), "DEN-40: salgınsız gecede ot toplama satırı yok")
 	var y := hazir(true)
 	var t := OT.toplayicilar(y)
 	dene(t.size() == int(OT.AYAR.azami_toplayici), "Toplayıcı tavanı")
