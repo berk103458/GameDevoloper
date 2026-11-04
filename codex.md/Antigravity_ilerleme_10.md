@@ -11,23 +11,27 @@
 
 ## Genel Durum ve Plan
 - [x] **Bölüm A — 3 Açık Karar İçin İki Hazır Seçenek:** `docs/KARAR_SECENEKLERI.md` dosyası oluşturuldu. 3 açık karar (Banu Hatun 50 atlısı, Molla Şükrü meclis yüzleşmesi, Vebalı sabi) için tam diyaloglar, bayraklar, eş yorumları, köy sonuçları ve oyuncuya etki notlarıyla hazırlandı.
-- [ ] **Bölüm B — Yeni ROADMAP Madde Önerileri:** Anlatı ve diyalog sisteminde eksik kalan noktalar tespit edilip `docs/ROADMAP_ONERILERI_ANTIGRAVITY.md` dosyasına yapılandırılmış öneriler olarak yazılacak.
+- [x] **Bölüm B — Yeni ROADMAP Madde Önerileri:** Anlatı, diyalog, eş derinleştirmesi ve epilog sisteminde eksik kalan noktalar tespit edilerek 7 yapılandırılmış madde önerisiyle `docs/ROADMAP_ONERILERI_ANTIGRAVITY.md` dosyası oluşturuldu.
 - [ ] **Bölüm C — İngilizce Metin Taslağı İncelemesi:** Dil altyapısı, `metinler.csv`, `dil_test.gd` ve `DilAyari` mimarisi incelenecek; kurala göre sistem destekliyorsa uygulanacak, desteklemiyorsa gerekçesiyle soru/not düşülüp atlanacak.
 - [ ] **Bitirme:** Doğrulayıcılar ve testler koşturulacak, `docs/DIYALOG_GECE_OZETI.md` güncellenecek ve `GOREV10_TAMAM` ile mühürlenecek.
 
 ---
 
 ## Bölüm A — 3 Açık Karar İçin İki Hazır Seçenek (TAMAMLANDI)
-- `docs/KARAR_SECENEKLERI.md` dosyası yazıldı.
-- 3 karar için ikişer hazır seçenek eksiksiz olarak kurgulandı:
-  1. **Banu Hatun'un 50 Atlısı:**
-     - Seçenek 1.1: Müttefik Süvari Muhafızları (+50 Savunma Gücü, -3 Günlük Erzak, -3 Asayiş Riski) — *(Önerilen)*
-     - Seçenek 1.2: Yalnız Savaşçı ve Atlıların Men Edilmesi (Erzak korunur, +1 Asayiş Riski, +2 Adalet)
-  2. **Molla Şükrü vs Hasan Çelebi Meclis Yüzleşmesi:**
-     - Seçenek 2.1: Çınar Meclisi'nde Aleni Mahkeme (+3 Adalet, +2 Moral, demirhanede ceza) — *(Önerilen)*
-     - Seçenek 2.2: Perde Arkası Kâtip İttifakı (+15 Günlük Akçe, -3 Adalet, Hasan Çelebi küser)
-  3. **Vebalı Sabi ve Anasının Akıbeti:**
-     - Seçenek 3.1: Kireç Ocağında Şifa ve Sabinin Kurtuluşu (+3 Moral, +2 Adalet, -10 Akçe, 0 Salgın) — *(Önerilen)*
-     - Seçenek 3.2: Dondurucu Ayazda Dramatik Kayıp (-3 Moral, 0 Salgın, eşle kış matemi sohbeti)
-- Karşılaştırmalı özet tablosu eklendi; mevcut kod akışına doğrudan dokunulmadan Ahmet'in kararına sunuldu.
+- `docs/KARAR_SECENEKLERI.md` dosyası yazıldı (commit `a95815d5`).
+- 3 karar için ikişer hazır seçenek eksiksiz olarak kurgulandı (Banu Hatun 50 atlısı, Molla Şükrü meclis mahkemesi, Vebalı sabi ve anası).
+
+---
+
+## Bölüm B — Yeni ROADMAP Madde Önerileri (TAMAMLANDI)
+- `docs/ROADMAP_ONERILERI_ANTIGRAVITY.md` dosyası hazırlandı.
+- 7 yeni madde önerisi yapılandırıldı:
+  1. `ANL-DON-01`: Ziyaretçi Geri Dönüş Döngüsü ve İkinci Karşılaşmalar (Echo Visits)
+  2. `ES-GECM-01`: Eşin Kişisel Anlatı Yayının Genişletilmesi (Eski köyün yangını, çocuk korkusu, şifa desteği)
+  3. `ANL-EPI-01`: 30. Gün / Kış Sonu Kişisel Epilog Ekranı (Papers Please tarzı karakter kaderleri)
+  4. `SOY-SON-01`: Dedikodu ve Söylenti Ağının Somut Olaylara Kapanışı
+  5. `KVR-SES-01`: Kapı Nöbetinde Dinamik Hava ve Ayaz Replikleri (Tipi, fırtına, meşale sönmesi)
+  6. `MECLIS-ARA-01`: Çınar Meclisi İnteraktif Dava Sistemi (Muhafız'ın kadı/hakem rolü)
+  7. `SES-DIL-01`: Karakter Kartlarına ve Repliklere Seslendirmen Reji Notları Eklenmesi
+- ROADMAP dosyasına doğrudan dokunulmadı; Ahmet'in onayına sunuldu.
 - **Kota:** %40 kaldı.
