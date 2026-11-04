@@ -15,7 +15,7 @@
   - [x] **Parti A2 — SOY-SON-01 (Öncelik 2):** Dedikodu ve Söylenti Ağının Somut Olaylara Kapanışı (5 somut kapanış sahnesi, bayraklar, kod notu, UYGULA.md hazırlandı)
   - [x] **Parti A3 — ANL-DON-01 (Öncelik 3):** Ziyaretçi Geri Dönüş Döngüsü ve İkinci Karşılaşmalar (6 derin dönüş sahnesi, bayraklar, kod notu, UYGULA.md hazırlandı)
   - [x] **Parti A4 — MECLIS-ARA-01 (Öncelik 4):** Çınar Meclisi İnteraktif Dava Sistemi (4 interaktif dava, bayraklar, kod notu, UYGULA.md hazırlandı)
-  - [ ] **Parti A5 — KVR-SES-01 (Öncelik 5):** Kapı Nöbetinde Dinamik Hava ve Ayaz Replikleri
+  - [x] **Parti A5 — KVR-SES-01 (Öncelik 5):** Kapı Nöbetinde Dinamik Hava ve Ayaz Replikleri (4 hava türü, replik havuzları, adaptör notu, UYGULA.md hazırlandı)
   - [ ] **Parti A6 — ANL-EPI-01 (Öncelik 6):** 30. Gün / Kış Sonu Kişisel Epilog Ekranı
   - [ ] **Parti A7 — SES-DIL-01 (Öncelik 7):** Seslendirme Hazırlığı İçin Vurgu ve Reji Notları
 - [ ] **Bölüm B — Portre Promptlarını Tamamla (30 Yeni Portre Promptu):**
@@ -31,4 +31,4 @@
 ---
 
 ## Sonraki Adım
-Parti A5: `KVR-SES-01` (Kapı Nöbetinde Dinamik Hava ve Ayaz Replikleri) taslak paketinin hazırlanması.
+Parti A6: `ANL-EPI-01` (30. Gün / Kış Sonu Kişisel Epilog Ekranı) taslak paketinin hazırlanması.
