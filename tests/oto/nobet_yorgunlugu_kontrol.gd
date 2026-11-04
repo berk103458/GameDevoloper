@@ -26,6 +26,12 @@ func _ready() -> void:
 				b.insa_kalan = 0
 				break
 	var k := y.kabul({"ad": "Ali", "sinif": "ciftci"})
+	var ev := KoyBinasi.new()
+	ev.id = 900
+	ev.tur = "cadir"
+	ev.hucre = Vector2i(0, 0)
+	y.binalar.append(ev)
+	k.ev = ev.id
 	k.moral = 50
 	y.muhafiz_ata(k.id)
 	var zar := RandomNumberGenerator.new()

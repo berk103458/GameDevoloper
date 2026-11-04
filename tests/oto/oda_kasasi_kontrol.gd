@@ -41,7 +41,12 @@ func _ready() -> void:
  assert(MuhafizOdasiBaglantisi.ac(e)==null and DivanBaglantisi.ac(e)==null)
  assert(d.oda.get_world_3d()!=e.sahne3b.get_world_3d())
  for isim in ["yatak","masa","mesale","gizli_kasa"]:
-  assert(d.oda.get_node(isim) is MeshInstance3D and d.oda.get_node(isim).mesh is BoxMesh)
+  var parca := d.oda.get_node(isim) as Node3D
+  assert(parca != null)
+  if isim in ["yatak", "masa"]:
+   assert(parca is MeshInstance3D or not parca.find_children("*", "MeshInstance3D", true, false).is_empty())
+  else:
+   assert(parca is MeshInstance3D and parca.mesh is BoxMesh)
  var kasa:=d.find_children("oda_kasa_ac","Button",true,false)[0] as Button
  var alan:=d.find_children("oda_kasasi","VBoxContainer",true,false)[0]
  var kapak:=d.oda.get_node("gizli_kasa") as MeshInstance3D

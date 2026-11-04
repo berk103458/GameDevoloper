@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — Gece birleşimi sonrası doğrulama (Kalfa)
+
+Nöbet, oda ve bozuk dosya kontrolleri güncel davranışa uyarlandı. Hazır yatak modelinde oda geliştirme panelinin null erişimi giderildi. Dokuz hedefli kontrol geçti. Sırada DEN-10. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — DEN-03c tamamlandı (Kalfa)
 
 Ortak denge okuyucusu açılış erzağını 30 hesaplar, üç zorluk çarpanını gecelik erzak hesabına verir. Oyuncu seçimi AYR-23 kapsamındadır. Hedefli testler ve son headless import geçti. Asset gerekmedi. kota görünmüyor.

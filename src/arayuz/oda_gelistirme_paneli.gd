@@ -56,5 +56,6 @@ static func gorsel(e: MuhafizOdasiEkrani) -> void:
   var a: Dictionary=MuhafizOdaGelisimi.AYAR[id]
   if id=="yatak":
    var b:=e.oda.get_node("yatak") as MeshInstance3D
-   (b.material_override as StandardMaterial3D).albedo_color=Color(String(a.renk))
+   if b != null:
+    (b.material_override as StandardMaterial3D).albedo_color=Color(String(a.renk))
   elif not e.oda.has_node(id): e.oda.call("_kutu",a.parca)
