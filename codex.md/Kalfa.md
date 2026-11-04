@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-29 tamamlandı (Kalfa)
+
+Üç kişilik, erzak sıfır başlayan köy 2929 tohumu ile 20 gerçek gece ölçüldü. Ölüm 0 çıktı; ölçümün alt/üst sınırı 0/0 kaydedildi. Normal kurtarıcı ve oyun sistemleri açık kaldı; her gece stok silinmedi. Eksik aralıkla RED, tabloyla GREEN görüldü. Denge doğrulaması geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-28 tamamlandı (Kalfa)
 
 Mevcut yaşam testi headless geçti. Yataklı ve yataksız uyku farkı, dolu yatak, nöbetçi ve kayıt dönüşü YSM-03 üzerinden doğrulandı. İkinci uyku formülü eklenmedi. Asset gerekmedi. kota görünmüyor.

@@ -3534,7 +3534,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: YSM-03, ACL-05. Boyut: S.
   - Dosya: `tests/unit/denge/aclik_uretim_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-29:** Yirmi günlük aç köy ölçülür.
+- [x] **DEN-29:** (Kalfa) Yirmi günlük aç köy ölçülür.
   - Ne: erzak 0 ile başlayan 20 gecede ölüm sayısı tablodaki alt ve üst sınırın içindedir. Sınır dosyadadır.
   - Kabul: erzak 0 ile başlayan 20 gecede ölüm sayısı tablodaki alt ve üst sınırın içindedir. Sınır dosyadadır. Test: 20 gece, sayı aralıkta.
   - Bağımlılık: EKO-09, YSM-02, DEN-01. Boyut: M.

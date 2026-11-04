@@ -14,6 +14,8 @@
     "ust": 14,
     "not": "Meclis oylama penceresi ve bekleme suresi, gun (src/koy/cinar_alti_meclisi.gd bekleme()). 0 olursa pencere hic acilmaz ve oylama aninda 'suresi_doldu' olur; 14 gunden uzunu (iki hafta) bir krizi meclise tasimayi anlamsiz kilar. Mevcut deger 2."
   },
+  "aclik_olum_aralik.alt": {"alt": 0, "ust": 3, "not": "DEN-29: uc kisilik, erzak sifir baslayan olcumun olum alt siniri."},
+  "aclik_olum_aralik.ust": {"alt": 0, "ust": 3, "not": "DEN-29: uc kisilik, erzak sifir baslayan olcumun olum ust siniri."},
   "kis_odun_farki": {"alt": 1, "ust": 100, "not": "DEN-12: Ilk on gecenin yaz ve kis odun dipleri arasindaki pozitif fark."},
   "zorluk.kolay": {"alt": 0.5, "ust": 1.0, "not": "Kolay mod tabloyu azaltir; 1.0 ustu kolay olmaz, 0.5 alti oyunu anlamsiz kolaylastirir. Secilen 0.8."},
   "zorluk.olagan": {"alt": 1.0, "ust": 1.0, "not": "Olagan zorluk tabloyu aynen birakir; carpan her zaman 1 (DEN-04)."},

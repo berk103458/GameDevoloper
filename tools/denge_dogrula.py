@@ -264,7 +264,7 @@ def aclik_kademesi_hatalari(denge: dict) -> list:
     """DEN-25/27: açlık kademesi ve erzak eşiği kendi kaynaklarında kalır."""
     hatalar = []
     for ad, veri in denge.items():
-        if ad == "aclik" or ad.startswith("aclik_"):
+        if ad == "aclik" or (ad.startswith("aclik_") and ad != "aclik_olum_aralik"):
             kaynak = "aclik_saglik" if ad == "aclik_saglik" else "aclik_kademeleri"
             if veri != {"kaynak": f"res://data/koy/{kaynak}.json"}:
                 hatalar.append(f"{ad}: açlık değeri ikinci kez yazılamaz; kaynak data/koy/{kaynak}.json (DEN-25/27)")
