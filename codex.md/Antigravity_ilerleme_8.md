@@ -47,7 +47,13 @@
 - `tools/metin_dogrula.py`: PASS.
 - Testler: `tests/unit/koy/tezgahta_gun_test.gd` (PASS), `tests/unit/koy/yil_izi_test.gd` (PASS).
 
+### Parti B3: Özel Olay Kart Metinleri (TAMAMLANDI)
+- `olay.asik.baslik`, `olay.asik.metin`, `olay.asik.dinle`, `olay.asik.gonder`, `olay.asik.sonuc1`, `olay.asik.sonuc2`, `olay.kadi.baslik`, `olay.kadi.metin`, `olay.kadi.dinle`, `olay.kadi.gecistir`, `olay.kadi.sonuc1`, `olay.kadi.sonuc2` (12 anahtar).
+- Metinler `data/metin/metinler.csv` içinde güncellendi; `docs/YER_TUTUCU_METINLER.csv` dosyasında `yerlesti` olarak işaretlendi.
+- `tools/metin_dogrula.py`: PASS.
+- Testler: `tests/unit/olay/ozel_olay_test.gd` (PASS, 0 hata).
+
 ---
 
 ## Sıradaki Adım
-- **Parti B3:** `olay.asik.*` ve `olay.kadi.*` (12 anahtar) olay metinlerinin yerleştirilmesi.
+- **Parti B4:** `hafiza.*`, `koy.eylem.defter`, `arayuz.duraklat.defter` (20 anahtar) hafıza defteri metinlerinin yerleştirilmesi.

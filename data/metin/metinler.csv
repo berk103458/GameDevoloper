@@ -27,7 +27,7 @@ anlati.maas,Askerlerin payı: %d akçe.
 anlati.maas_ambar,"Askerin hakkı ödendi: −%d akçe, kalanı ambardan −%d ürün."
 anlati.maas_yok,Askerlere verecek akçe yok. Kışlada homurtu var.
 anlati.perde.basladi,"Köy oturdu · 2. perde başladı. Çitler sağlamlaştı, nöbet ciddiye bindi."
-anlati.perde.bitti,"Uç tutundu · Ağalığın %d gecesi dolduruldu; köy ayakta kaldı."
+anlati.perde.bitti,Uç tutundu · Ağalığın %d gecesi dolduruldu; köy ayakta kaldı.
 anlati.rusvet.harcandi,%s kırılmak üzereydi. Bir kese el altından gitti.
 anlati.saldiri.agir,Tekfur'un adamları köyün kıyısını yaktı.
 anlati.saldiri.guc,"Tekfur'un akıncıları geldi: güçleri %d, savunman %d."
@@ -2024,18 +2024,18 @@ arayuz.girdi.sec,Seç
 arayuz.girdi.iptal_kip,Kipi bırak
 arayuz.girdi.yakinlas,Yakınlaş
 arayuz.girdi.uzaklas,Uzaklaş
-olay.asik.baslik,yer tutucu
-olay.asik.metin,yer tutucu
-olay.asik.dinle,yer tutucu
-olay.asik.gonder,yer tutucu
-olay.kadi.baslik,yer tutucu
-olay.kadi.metin,yer tutucu
-olay.kadi.dinle,yer tutucu
-olay.kadi.gecistir,yer tutucu
-olay.asik.sonuc1,yer tutucu
-olay.asik.sonuc2,yer tutucu
-olay.kadi.sonuc1,yer tutucu
-olay.kadi.sonuc2,yer tutucu
+olay.asik.baslik,Kopuzlu Âşık
+olay.asik.metin,"Akşam alacasında kapıya kopuzunu sırtlamış bir gezgin âşık yanaşır. Bozkırın türkülerini, beylerin cengini ve gurbet havalarını fısıldar; köylünün bağrı yanıktır."
+olay.asik.dinle,"Meydanda meclis kur, çalsın söylesin"
+olay.asik.gonder,"Köyün derdi kendine yeter, yola revan olsun"
+olay.kadi.baslik,Sancak Kadı Naibi
+olay.kadi.metin,Sancak Divanı'ndan heybetli bir kadı naibi atından iner. Yanındaki katiplerle tahrir defterini açar; köyün asayişini ve zemin kayıtlarını teftişe niyetlenir.
+olay.kadi.dinle,"Buyur et, divan defterini önüne ser"
+olay.kadi.gecistir,"Beyimiz seferdedir de, teftişi savuştur"
+olay.asik.sonuc1,"Âşık tellere dokundu; çınar altında toplanan ahali türkülerle dert unuttu, ocaklar şenlendi."
+olay.asik.sonuc2,Âşık boynunu büküp yola koyuldu; köy meydanı sessiz ve soğuk kaldı.
+olay.kadi.sonuc1,Kadı naibi tahrir defterini mühürledi; adalet terazisi köyde güven tazeledi.
+olay.kadi.sonuc2,Teftiş yarım kaldı; naip kaşlarını çatarak atını sancağa doğru mahmuzladı.
 arayuz.ayarlar.acik,Açık
 arayuz.ayarlar.kapali,Kapalı
 arayuz.ayarlar.sekme.oyun,Oyun

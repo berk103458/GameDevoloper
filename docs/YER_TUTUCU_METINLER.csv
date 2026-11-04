@@ -17,18 +17,18 @@ yil.kis_ev,Kış gecesi ocak başında; tandır ateşi evi ve gönülleri ısıt
 yil.ilkbahar_tarla,İlkbahar cemresi düştü; rençberler tarlaya saban sürmeye çıktı.,PR #25,yerlesti,İlkbaharda tarla işleri başladığında yazılan mevsim izi satırı.
 yil.ilkbahar_taskin,Bahar taşkını vadiyi bastı; coşan dere bentleri zorladı.,PR #25,yerlesti,İlkbaharda sel veya taşkın hadisesinde yazılan mevsim izi satırı.
 yil.yaz_su,Yaz sıcağı tepeye vurdu; kuyulardan ve arklardan su çekildi.,PR #25,yerlesti,Yaz mevsiminde su sıkıntısı veya aşırı sıcaklarda yazılan mevsim izi satırı.
-olay.asik.baslik,Kopuzlu Âşık,PR #27,,Gezgin âşık olay kartı başlığı.
-olay.asik.metin,"Akşam alacasında kapıya kopuzunu sırtlamış bir gezgin âşık yanaşır. Bozkırın türkülerini, beylerin cengini ve gurbet havalarını fısıldar; köylünün bağrı yanıktır.",PR #27,,Gezgin âşık olay kartı ana metni (formül sözcük içermez).
-olay.asik.dinle,"Meydanda meclis kur, çalsın söylesin",PR #27,,Âşık olay kartı 1. seçenek (dinleme ve moral).
-olay.asik.gonder,"Köyün derdi kendine yeter, yola revan olsun",PR #27,,Âşık olay kartı 2. seçenek (savuşturma).
-olay.asik.sonuc1,"Âşık tellere dokundu; çınar altında toplanan ahali türkülerle dert unuttu, ocaklar şenlendi.",PR #27,,Âşık dinlendiğinde ortaya çıkan netice metni.
-olay.asik.sonuc2,Âşık boynunu büküp yola koyuldu; köy meydanı sessiz ve soğuk kaldı.,PR #27,,Âşık geri çevrildiğinde ortaya çıkan netice metni.
-olay.kadi.baslik,Sancak Kadı Naibi,PR #27,,Kadı teftişi olay kartı başlığı.
-olay.kadi.metin,Sancak Divanı'ndan heybetli bir kadı naibi atından iner. Yanındaki katiplerle tahrir defterini açar; köyün asayişini ve zemin kayıtlarını teftişe niyetlenir.,PR #27,,Kadı teftişi olay kartı ana metni (formül sözcük içermez).
-olay.kadi.dinle,"Buyur et, divan defterini önüne ser",PR #27,,Kadı naibi olay kartı 1. seçenek (açık denetim).
-olay.kadi.gecistir,"Beyimiz seferdedir de, teftişi savuştur",PR #27,,Kadı naibi olay kartı 2. seçenek (geçiştirme).
-olay.kadi.sonuc1,Kadı naibi tahrir defterini mühürledi; adalet terazisi köyde güven tazeledi.,PR #27,,Kadı teftişi kabul edildiğinde ortaya çıkan netice metni.
-olay.kadi.sonuc2,Teftiş yarım kaldı; naip kaşlarını çatarak atını sancağa doğru mahmuzladı.,PR #27,,Kadı savuşturulduğunda ortaya çıkan netice metni.
+olay.asik.baslik,Kopuzlu Âşık,PR #27,yerlesti,Gezgin âşık olay kartı başlığı.
+olay.asik.metin,"Akşam alacasında kapıya kopuzunu sırtlamış bir gezgin âşık yanaşır. Bozkırın türkülerini, beylerin cengini ve gurbet havalarını fısıldar; köylünün bağrı yanıktır.",PR #27,yerlesti,Gezgin âşık olay kartı ana metni (formül sözcük içermez).
+olay.asik.dinle,"Meydanda meclis kur, çalsın söylesin",PR #27,yerlesti,Âşık olay kartı 1. seçenek (dinleme ve moral).
+olay.asik.gonder,"Köyün derdi kendine yeter, yola revan olsun",PR #27,yerlesti,Âşık olay kartı 2. seçenek (savuşturma).
+olay.asik.sonuc1,"Âşık tellere dokundu; çınar altında toplanan ahali türkülerle dert unuttu, ocaklar şenlendi.",PR #27,yerlesti,Âşık dinlendiğinde ortaya çıkan netice metni.
+olay.asik.sonuc2,Âşık boynunu büküp yola koyuldu; köy meydanı sessiz ve soğuk kaldı.,PR #27,yerlesti,Âşık geri çevrildiğinde ortaya çıkan netice metni.
+olay.kadi.baslik,Sancak Kadı Naibi,PR #27,yerlesti,Kadı teftişi olay kartı başlığı.
+olay.kadi.metin,Sancak Divanı'ndan heybetli bir kadı naibi atından iner. Yanındaki katiplerle tahrir defterini açar; köyün asayişini ve zemin kayıtlarını teftişe niyetlenir.,PR #27,yerlesti,Kadı teftişi olay kartı ana metni (formül sözcük içermez).
+olay.kadi.dinle,"Buyur et, divan defterini önüne ser",PR #27,yerlesti,Kadı naibi olay kartı 1. seçenek (açık denetim).
+olay.kadi.gecistir,"Beyimiz seferdedir de, teftişi savuştur",PR #27,yerlesti,Kadı naibi olay kartı 2. seçenek (geçiştirme).
+olay.kadi.sonuc1,Kadı naibi tahrir defterini mühürledi; adalet terazisi köyde güven tazeledi.,PR #27,yerlesti,Kadı teftişi kabul edildiğinde ortaya çıkan netice metni.
+olay.kadi.sonuc2,Teftiş yarım kaldı; naip kaşlarını çatarak atını sancağa doğru mahmuzladı.,PR #27,yerlesti,Kadı savuşturulduğunda ortaya çıkan netice metni.
 hafiza.bos.karar,Bu gece kapıda henüz bir karar verilmedi.,PR #15,,Hafıza defterinde henüz kapı kararı yokken görünen metin.
 hafiza.bos.beyan,Ziyaretçiden henüz bir beyan kayda geçmedi.,PR #15,,Hafıza defterinde henüz beyan yokken görünen metin.
 hafiza.bos.soylenti,Köyde henüz işitilmiş bir söylenti yoktur.,PR #15,,Hafıza defterinde henüz söylenti yokken görünen metin.
