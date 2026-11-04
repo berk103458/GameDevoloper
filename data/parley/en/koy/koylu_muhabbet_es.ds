@@ -1054,14 +1054,14 @@
       "id": "node:opt_z_veba_sifa",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1140.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "The infant's fever has broken at the lime kiln, my lady; Miraen found the cure."
     },
     {
       "id": "node:rep_z_veba_sifa",
       "type": "DIALOGUE",
       "position": "(1750.0, 1140.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "Joyful tidings came at dawn prayer, my lord... The babe's fever has cooled, and the mother smiles once more. You saved a life at the kiln; blessings shall rain upon our hearth."
     },
     {
@@ -1079,14 +1079,14 @@
       "id": "node:opt_z_veba_kayip",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1200.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "The infant at the lime kiln succumbed to the bitter frost, my lady; the mother's lament reached past our walls."
     },
     {
       "id": "node:rep_z_veba_kayip",
       "type": "DIALOGUE",
       "position": "(1750.0, 1200.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "Did you hear the mother's lament, my lord... My heart broke. You acted rightly to protect the village, yet this winter even our hearth fire cannot warm away this sorrow..."
     },
     {
@@ -1104,42 +1104,42 @@
       "id": "node:opt_gecmis",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 720.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Let us talk beside the hearth, wife; let us speak of old days and our destiny."
     },
     {
       "id": "node:rep_gecmis",
       "type": "DIALOGUE",
       "position": "(1050.0, 720.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "To sit with you beside this hearth and remember the past warms my soul yet burns my heart, my lord... Which memory would you unfurl?"
     },
     {
       "id": "node:opt_g_yangin",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 600.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Sometimes your gaze drifts away; does your mind wander back to the burning of our old village?"
     },
     {
       "id": "node:rep_g_yangin",
       "type": "DIALOGUE",
       "position": "(1750.0, 600.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "How could it not, my lord? When the Tekfur's horsemen descended the valley, flames touched the heavens... When our rawhide shoes tore apart, you gave me your own boots and your feet turned to ice. Yet my heart trembles lest we wake to hoofbeats in the night once more."
     },
     {
       "id": "node:opt_g_yangin_mert",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, 540.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Those days are behind us; the ramparts of this village and my own chest are your shield."
     },
     {
       "id": "node:rep_g_yangin_mert",
       "type": "DIALOGUE",
       "position": "(2450.0, 540.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "I know, my champion... If I did not freeze in that mud, it was because I walked in your footsteps. May you live long."
     },
     {
@@ -1157,14 +1157,14 @@
       "id": "node:opt_g_yangin_kaygi",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, 660.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "I too cannot forget that smoke; whenever I look at the ramparts I see those flames."
     },
     {
       "id": "node:rep_g_yangin_kaygi",
       "type": "DIALOGUE",
       "position": "(2450.0, 660.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "Never forget it, my lord; those who forget are taken unawares, yet do not make fear your companion. Come sit, let your shoulders rest."
     },
     {
@@ -1182,28 +1182,28 @@
       "id": "node:opt_g_yetim",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 720.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Whenever you look upon Turna and Dursun, I sense you sighing for our own destiny."
     },
     {
       "id": "node:rep_g_yetim",
       "type": "DIALOGUE",
       "position": "(1750.0, 720.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "Heaven forbid I rebel against fate, my lord! Three winters have passed since we crossed this threshold, yet there is no child's laughter in our home. When I see infants struck down by plague my heart weeps; I think, 'Had Heaven granted us a child, how could we shelter it in this frost?'"
     },
     {
       "id": "node:opt_g_yetim_umut",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, 720.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Turna and Dursun are our sacred trust now; so long as the hearth smokes, hope still breathes."
     },
     {
       "id": "node:rep_g_yetim_umut",
       "type": "DIALOGUE",
       "position": "(2450.0, 720.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "When you speak so, ease settles upon my soul, my lord. I shall knit a wool vest for Turna, and give Dursun a bowl of warm molasses gruel. A household that feeds an orphan never lacks blessing."
     },
     {
@@ -1221,14 +1221,14 @@
       "id": "node:opt_g_yetim_sabir",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, 780.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "It is the Almighty who grants both sustenance and patience; when the hour arrives our hearth shall be joyous."
     },
     {
       "id": "node:rep_g_yetim_sabir",
       "type": "DIALOGUE",
       "position": "(2450.0, 780.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "You speak righteous words, my lord. We shall endure with patience, so long as the bread entering our gate remains lawful."
     },
     {
@@ -1246,28 +1246,28 @@
       "id": "node:opt_g_sifa",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 840.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "The north wind dried my lungs, wife; what is this soothing brew whose aroma fills the hearth?"
     },
     {
       "id": "node:rep_g_sifa",
       "type": "DIALOGUE",
       "position": "(1750.0, 840.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "It is wild mountain thyme, dried linden blossoms, and pine honey brought by Karaca Usta, my lord. Frost has gathered upon your beard again; unbuckle your belt and drink this warm cup."
     },
     {
       "id": "node:opt_g_sifa_minnet",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, 840.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Bless your hands, wife; in this bitter cold it came like water of life."
     },
     {
       "id": "node:rep_g_sifa_minnet",
       "type": "DIALOGUE",
       "position": "(2450.0, 840.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "Freely given to my champion. If you did not stand watch out there, we could never sleep in peace here. Rest your back against the hearth and close your eyes."
     },
     {
@@ -1285,14 +1285,14 @@
       "id": "node:opt_g_sifa_saka",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, 900.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Honey is costly, wife; if we do not guard our coins carefully we will face hardship midwinter."
     },
     {
       "id": "node:rep_g_sifa_saka",
       "type": "DIALOGUE",
       "position": "(2450.0, 900.0)",
-      "character": "Eş",
+      "character": "Spouse",
       "text": "Coins can be earned again, sentry, but life cannot! If you take to bed sick, will silver coins stand vigil at the village gate? Drink it and cease your grumbling!"
     },
     {

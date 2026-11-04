@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "meclis_davalari",
-  "character_name": "Muhafız",
+  "character_name": "Gatekeeper",
   "nodes": [
     {
       "id": "node:start",
@@ -12,14 +12,14 @@
       "id": "node:selam",
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "The Plane Tree Council has convened; let all who harbor disputes step forward and let the scales of justice be balanced."
     },
     {
       "id": "node:opt_balta",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -360.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Let us hear the dispute of the broken axe between Karaca Usta and Farmer Yusuf."
     },
     {
@@ -33,7 +33,7 @@
       "id": "node:opt_balta_h1",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, -420.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "There was no malice yet trust is sacred; Yusuf shall pump bellows for 5 days in the forge to repay the labor, paying no coin."
     },
     {
@@ -58,7 +58,7 @@
       "id": "node:opt_balta_h2",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, -300.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "The village treasury shall pay the two coins for the iron; let harmony between neighbors remain unmarred."
     },
     {
@@ -83,7 +83,7 @@
       "id": "node:opt_boya",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -120.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Let us hear the dye dispute between Sister Ayse and the traveling draper."
     },
     {
@@ -97,7 +97,7 @@
       "id": "node:opt_boya_h1",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, -180.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "The draper shall refund the spoiled dye and supply two bolts of clean wool in restitution to the weavers!"
     },
     {
@@ -122,14 +122,14 @@
       "id": "node:opt_boya_h2",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, -60.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Let the losses be shared equally between both parties; maintain peace in the marketplace."
     },
     {
       "id": "node:rep_boya_h2",
       "type": "DIALOGUE",
       "position": "(1750.0, -60.0)",
-      "character": "Çuhacı",
+      "character": "Draper",
       "text": "I accept your decree, sentry; you did not crush the visiting merchant, and I will trade here again."
     },
     {
@@ -147,7 +147,7 @@
       "id": "node:opt_mera",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 120.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Let us hear the pasture and spring dispute between Shepherd Aydogdu and Molla Sukru."
     },
     {
@@ -155,13 +155,13 @@
       "type": "DIALOGUE",
       "position": "(1050.0, 120.0)",
       "character": "Aydoğdu",
-      "text": "This southern spring has watered the flocks of the Avsar clan for a century! The scribe brandishes an edict declaring the spring belongs to his foundation! Molla Sukru insists on court register supremacy."
+      "text": "This southern spring has watered the flocks of the Avsar clan for a century! Scribe Sukru brandishes an old deed declaring the spring is endowment property; he insists on ancient ledger entries over our customary rights!"
     },
     {
       "id": "node:opt_mera_h1",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 60.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Parchment cannot sever the ancestral water of the folk! The spring remains open to clan and village alike; amend the register accordingly!"
     },
     {
@@ -186,21 +186,21 @@
       "id": "node:opt_mera_h2",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 180.0)",
-      "character": "Muhafız",
-      "text": "The foundation charter must prevail; let the flocks water at the lower creek in the valley."
+      "character": "Gatekeeper",
+      "text": "The written register must prevail; let the flocks water at the lower creek in the valley, that property records remain intact."
     },
     {
       "id": "node:rep_mera_h2",
       "type": "DIALOGUE",
       "position": "(1750.0, 180.0)",
       "character": "Molla Şükrü",
-      "text": "You upheld the order of the Divan, sentry; the ledger is secure. Yet the Avsar clan departs resentful."
+      "text": "Your verdict shall be recorded in the register, sentry; the ledger is secure. Yet the Avsar clan departs resentful."
     },
     {
       "id": "node:act_mera_h2",
       "type": "ACTION",
       "position": "(2100.0, 180.0)",
-      "description": "Scribe Authority",
+      "description": "Register Order",
       "action_type": "SCRIPT",
       "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
       "values": [
@@ -211,7 +211,7 @@
       "id": "node:opt_sifahane",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 360.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Let us hear the joint infirmary proposal between Thessra and Herbalist Miraen."
     },
     {
@@ -225,7 +225,7 @@
       "id": "node:opt_sifa_h1",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 360.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "The wisdom of both is vital to our village! Thessra shall oversee surgery and cautery; Miraen shall oversee bone-setting and herbs; we establish a joint infirmary at the old lime kiln!"
     },
     {
