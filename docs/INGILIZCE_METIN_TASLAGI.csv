@@ -796,3 +796,412 @@ olay.kapi_acilisi.devam,Berat teslim edildi,Berat teslim edildi,taslak_tam
 olay.kapi_acilisi.berat.sonuc1,Berat teslim edildi; ilk aile kapıda bekliyor.,Outcome: Berat teslim edildi; ilk aile kapıda bekliyor.,taslak_tam
 olay.kadi.dinle,"Buyur et, divan defterini önüne ser","Buyur et, divan defterini önüne ser",taslak_tam
 olay.kadi.gecistir,"Beyimiz seferdedir de, teftişi savuştur","Beyimiz seferdedir de, teftişi savuştur",taslak_tam
+koy.arac.yik,Yık,Demolish,taslak_tam
+koy.arac.yol,Yol döşe,Pave Road,taslak_tam
+koy.bayrak.agir_yarali,ağır yaralı,grievously wounded,taslak_tam
+koy.bayrak.casus_suphesi,casus şüphesi,suspected spy,taslak_tam
+koy.bayrak.hasta,hasta,afflicted,taslak_tam
+koy.bayrak.hirsiz,hırsız,thief,taslak_tam
+koy.bayrak.sabotajci,sabotajcı,saboteur,taslak_tam
+koy.bayrak.somurulmus,sömürülmüş,oppressed,taslak_tam
+koy.bayrak.tembel,tembel,sluggard,taslak_tam
+koy.bayrak.usta_avci,usta avcı,master huntsman,taslak_tam
+koy.bayrak.usta_ciftci,usta çiftçi,master farmer,taslak_tam
+koy.bayrak.usta_demirci,usta demirci,master blacksmith,taslak_tam
+koy.bayrak.usta_oduncu,usta oduncu,master woodcutter,taslak_tam
+koy.bayrak.usta_tasci,usta taşçı,master stonecutter,taslak_tam
+koy.bayrak.yasli,,elderly,taslak_tam
+koy.bayrak.yetim,,orphan,taslak_tam
+koy.bekliyor.ambar_dolu,Bekliyor: ambar dolu,Idle: Granary Full,taslak_tam
+koy.bekliyor.kaynak_yok,,Idle: Lacks Materials,taslak_tam
+koy.bekliyor.is_yok,,Idle: No Task Assigned,taslak_tam
+koy.eylem.insa_et,,Construct,taslak_tam
+koy.eylem.onar,,Repair,taslak_tam
+koy.eylem.yik,,Demolish,taslak_tam
+koy.eylem.isci_ata,,Assign Worker,taslak_tam
+koy.eylem.isci_cikar,,Unassign Worker,taslak_tam
+koy.harac.odendi,,Frontier tribute was remitted to the Sanjak Bey.,taslak_tam
+koy.harac.eksik,,Tribute fell short! The Bey sends a grim warning.,taslak_tam
+koy.harac.talep,,Annual border march tribute demanded: %d akce.,taslak_tam
+koy.iflas.uyari,,The village treasury is empty! Sentry pay cannot be settled.,taslak_tam
+koy.iflas.isyan_riski,,Garrison murmurs of mutiny grow loud in the barracks.,taslak_tam
+koy.iflas.kurtarma,,A loan of %d akce was secured from the Ahi guild.,taslak_tam
+koy.ipucu.kis_yaklasir,,Winter approaches; double your granary stores and firewood.,taslak_tam
+koy.ipucu.nobet_siki,,Enemy scouts lurk in the hills; reinforce gate posts.,taslak_tam
+koy.ipucu.pazar_fiyat,,Salt and iron fetch higher prices on market days.,taslak_tam
+koy.isyan.basladi,,Rebellion broke out in the village! The commons revolt against misery.,taslak_tam
+koy.isyan.bastirildi,,The revolt was crushed by garrison arms.,taslak_tam
+koy.isyan.anlasma,,A settlement was negotiated; order was restored.,taslak_tam
+koy.isyan.tehlike,,Public order is collapsing; unrest brews at the thresholds.,taslak_tam
+koy.kategori.uretim,Üretim,Production,taslak_tam
+koy.kategori.hizmet,Hizmet,Services,taslak_tam
+koy.kategori.savunma,Savunma,Fortifications,taslak_tam
+koy.kategori.konut,,Dwellings,taslak_tam
+koy.kaynak.akce,Akçe,Akce,taslak_tam
+koy.kaynak.arpa,,Barley,taslak_tam
+koy.kaynak.bugday,Buğday,Wheat,taslak_tam
+koy.kaynak.demir,Demir,Iron,taslak_tam
+koy.kaynak.odun,Odun,Timber,taslak_tam
+koy.kaynak.tas,Taş,Quarried Stone,taslak_tam
+koy.kaynak.un,Un,Flour,taslak_tam
+koy.kaynak.ekmek,,Bread,taslak_tam
+koy.kaynak.et,,Meat,taslak_tam
+koy.kaynak.yun,,Wool,taslak_tam
+koy.kaynak.deri,,Leather,taslak_tam
+koy.kaynak.silah,,Weapons,taslak_tam
+koy.kaynak.zirh,,Armor,taslak_tam
+koy.kaynak.alet,Alet,Tools,taslak_tam
+koy.kaynak.ilac,İlaç,Medicines,taslak_tam
+koy.kaynak.komur,,Charcoal,taslak_tam
+koy.mevsim.ilkbahar,İlkbahar,Spring,taslak_tam
+koy.mevsim.yaz,Yaz,Summer,taslak_tam
+koy.mevsim.sonbahar,Sonbahar,Autumn,taslak_tam
+koy.mevsim.kis,Kış,Winter,taslak_tam
+koy.nufus.toplam,,Total Souls: %d,taslak_tam
+koy.nufus.calisan,,Laboring: %d,taslak_tam
+koy.nufus.bosta,,Idle: %d,taslak_tam
+koy.nufus.hasta,,Ailing: %d,taslak_tam
+koy.nufus.asker,,Garrison Nefers: %d,taslak_tam
+koy.nufus.cocuk,,Children and Elders: %d,taslak_tam
+koy.pazar.fiyatlar,,Market Commodity Prices,taslak_tam
+koy.pazar.alim,,Buy Goods,taslak_tam
+koy.pazar.satim,,Sell Goods,taslak_tam
+koy.pazar.kervan_beklenir,,Next caravan expected in %d days,taslak_tam
+koy.pazar.vergi,,Market dues levied: %d akce,taslak_tam
+koy.pazar.tikanik,,Market stalls overstocked; prices decline.,taslak_tam
+koy.pazar.canli,,Market square thrives with lively bartering.,taslak_tam
+koy.rapor.gunluk,,Daily Village Ledger,taslak_tam
+koy.rapor.gelir,,Daily Revenue: +%d akce,taslak_tam
+koy.rapor.gider,,Daily Expenses: −%d akce,taslak_tam
+koy.rapor.tuketim,"Tüketilen: %d gıda, %d odun",Grain Consumed: −%d bushels,taslak_tam
+koy.rapor.hasat,,Harvest Yield: +%d bushels,taslak_tam
+koy.rapor.asayis,,Public Order: %s,taslak_tam
+koy.recete.demir_erit,,Smelt Bog Iron into Iron Bars,taslak_tam
+koy.recete.ekmek_pisir,,Bake Loaves from Flour,taslak_tam
+koy.recete.un_ogut,,Grind Wheat into Flour,taslak_tam
+koy.recete.kilim_doku,,Weave Rug from Spun Wool,taslak_tam
+koy.recete.yay_yap,,Carve Horn Composite Bows,taslak_tam
+koy.recete.ok_yap,,Fletch Bodkin Arrows,taslak_tam
+koy.recete.nal_cak,,Forge Iron Horseshoes,taslak_tam
+koy.recete.orak_yap,,Forge Iron Sickles and Hoes,taslak_tam
+koy.recete.komur_yak,,Burn Timber into Charcoal,taslak_tam
+koy.recete.deri_isle,,Tan Raw Hides into Leather,taslak_tam
+koy.recete.ilac_kaynat,,Brew Herbal Restoratives,taslak_tam
+koy.recete.kalas_bic,,Saw Tree Trunks into Planks,taslak_tam
+koy.recete.tas_yont,,Dress Rough Ashlars for Walls,taslak_tam
+koy.recete.silah_dove,,Forge Iron Spearheads and Blades,taslak_tam
+koy.recete.zirh_or,,Riveting Chainmail Links,taslak_tam
+koy.recete.kumas_boya,,Dye Spun Yarn with Madder Root,taslak_tam
+koy.recete.tuz_isle,,Process Rock Salt Crystals,taslak_tam
+koy.sancak.emir,,Decree of the Sanjak Bey,taslak_tam
+koy.sancak.istek,,Levy Request: %s,taslak_tam
+koy.sancak.asker_talebi,,The Bey demands %d warriors for border campaign.,taslak_tam
+koy.sancak.tahil_talebi,,The Bey requests %d sacks of grain for the army train.,taslak_tam
+koy.sancak.odul,,The Bey rewards our vigilance with %d akce and honor.,taslak_tam
+koy.sancak.ceza,,Failure to comply brought royal reprimand and punitive tithe.,taslak_tam
+koy.sancak.muafiyet,,Border march granted exemption from auxiliary duties.,taslak_tam
+koy.sancak.teftis,,The Sanjak Bey’s inspectors arrive to survey our palisades.,taslak_tam
+koy.sancak.berat,,Charter of Stewardship renewed under seal.,taslak_tam
+koy.sur.onarildi,,The palisade wall was shored and reinforced.,taslak_tam
+koy.sur.hasarli,,The wooden parapet suffered damage; defense compromised.,taslak_tam
+koy.sur.yukseltildi,,Watchtowers raised; visibility over the frontier widened.,taslak_tam
+koy.tas_yatagi.tuketildi,,Stone quarry vein exhausted; search for new strata.,taslak_tam
+koy.tas_yatagi.kesif,,A promising bed of limestone discovered nearby.,taslak_tam
+koy.tas_yatagi.verimli,,Quarry yield rich; sturdy blocks hauled to the village.,taslak_tam
+koy.tas_yatagi.tasci_gerek,,Master stonecutter required to quarry large ashlars.,taslak_tam
+koy.tas_yatagi.derinles,,Quarry deepened; requires timber timbering.,taslak_tam
+koy.tas_yatagi.kapandi,,Quarry closed due to rockslide hazard.,taslak_tam
+koy.yapi.agil,Ağıl,Sheepfold,taslak_tam
+koy.yapi.ahir,,Horse Stable,taslak_tam
+koy.yapi.ambar,Ambar,Grain Granary,taslak_tam
+koy.yapi.asik_kahvesi,,Bard Gathering Hearth,taslak_tam
+koy.yapi.ates_meydani,,Central Bonfire Square,taslak_tam
+koy.yapi.atolye,Atölye,Craft Workshop,taslak_tam
+koy.yapi.avci_kulubesi,,Huntsman Shack,taslak_tam
+koy.yapi.cadir,Çadır,Nomad Felt Tent,taslak_tam
+koy.yapi.cami,,Village Mosque,taslak_tam
+koy.yapi.cinar_alti,,Plane Tree Council Grove,taslak_tam
+koy.yapi.degirmen,,Water Mill,taslak_tam
+koy.yapi.demirhane,,Blacksmith Forge,taslak_tam
+koy.yapi.dokuma_tezgahi,,Weaving Loom Shed,taslak_tam
+koy.yapi.ekmek_firini,,Bread Bakehouse,taslak_tam
+koy.yapi.gozcu_kulesi,,Frontier Watchtower,taslak_tam
+koy.yapi.hizarhane,Hızarhane,Sawmill,taslak_tam
+koy.yapi.kapi_kulesi,,Gatehouse Bastion,taslak_tam
+koy.yapi.kervansaray,,Roadside Caravanserai,taslak_tam
+koy.yapi.kisla,,Soldiers Barracks,taslak_tam
+koy.yapi.kirec_ocagi,,Lime Kiln,taslak_tam
+koy.yapi.kulube,Kulübe,Timber Cottage,taslak_tam
+koy.yapi.kuyu,,Community Water Well,taslak_tam
+koy.yapi.marangozhane,,Carpentry Shed,taslak_tam
+koy.yapi.muhafiz_konagi,,Gatekeeper Lodging,taslak_tam
+koy.yapi.meydan,,Market Square,taslak_tam
+koy.yapi.sifahane,,Apothecary Clinic,taslak_tam
+koy.yapi.sur,,Oak Palisades,taslak_tam
+koy.yapi.tabakhane,,Tannery Yard,taslak_tam
+koy.yapi.tarla,Buğday tarlası,Cultivated Crop Field,taslak_tam
+koy.yapi.tas_ocagi,Taş ocağı,Stone Quarry,taslak_tam
+koy.yasam.aclik,Açlık,Famine Severity: %s,taslak_tam
+koy.yasam.saglik,,Public Health: %s,taslak_tam
+koy.yasam.moral,Moral,Communal Morale: %s,taslak_tam
+koy.yasam.isinma,,Hearth Warmth: %s,taslak_tam
+koy.yasam.guvenlik,,March Security: %s,taslak_tam
+koy.yasam.tok,Tok,Well-nourished and contented,taslak_tam
+koy.yasam.yari_ac,,Rationed on meager gruel,taslak_tam
+koy.yasam.kitlik_vurmus,,Stricken by harrowing starvation,taslak_tam
+koy.yasam.salgin_tehlikesi,,Lurking threat of epidemic pestilence,taslak_tam
+koy.yasam.kisin_ayaz,,Biting frost freezes hearthless shacks,taslak_tam
+koy.yasam.huzur_yerinde,,Harmony and prosperity prevail,taslak_tam
+koy.bekliyor.girdi,Bekliyor: ham madde yok,Bekliyor: ham madde yok,taslak_tam
+koy.bekliyor.kis,Kış: tarla dondu,Kış: tarla dondu,taslak_tam
+koy.bilgi.ata,Boştakilerden ata:,Boştakilerden ata:,taslak_tam
+koy.bilgi.calisan,Çalışanlar %d / %d,Çalışanlar %d / %d,taslak_tam
+koy.bilgi.cikar,İşten çıkar,İşten çıkar,taslak_tam
+koy.bilgi.iskele,İskele: %d gün kaldı (boştakiler yardım eder),İskele: %d gün kaldı (boştakiler yardım eder),taslak_tam
+koy.bilgi.moral,moral,moral,taslak_tam
+koy.bilgi.saglik,sağlık,sağlık,taslak_tam
+koy.bilgi.stat,zanaat,zanaat,taslak_tam
+koy.bilgi.surgun,Sürgün et,Sürgün et,taslak_tam
+koy.bilgi.yatak,Yatak %d / %d,Yatak %d / %d,taslak_tam
+koy.eylem.gece,Geceye geç,Geceye geç,taslak_tam
+koy.eylem.hiz,Hız %dx,Hız %dx,taslak_tam
+koy.eylem.nufus,Nüfus (P),Nüfus (P),taslak_tam
+koy.eylem.pazar,Pazar,Pazar,taslak_tam
+koy.harac.bant,"Tekfur'un elçisi haraç istiyor: %d akçe, %d gıda.","Tekfur'un elçisi haraç istiyor: %d akçe, %d gıda.",taslak_tam
+koy.harac.ode,Haracı öde,Haracı öde,taslak_tam
+koy.harac.reddet,"Reddet, sura güven","Reddet, sura güven",taslak_tam
+koy.ipucu.insa,Sol tık: kur · R: döndür · sağ tık: vazgeç,Sol tık: kur · R: döndür · sağ tık: vazgeç,taslak_tam
+koy.ipucu.yik,Sol tık: yapıyı yık (malzemenin yarısı geri gelir) · sağ tık: vazgeç,Sol tık: yapıyı yık (malzemenin yarısı geri gelir) · sağ tık: vazgeç,taslak_tam
+koy.ipucu.yol,Sol tık: meydana bağlı yola komşu hücreye yol döşe · sağ tık: bitir,Sol tık: meydana bağlı yola komşu hücreye yol döşe · sağ tık: bitir,taslak_tam
+koy.is.bosta,boşta,boşta,taslak_tam
+koy.is.muhafiz,muhafız,muhafız,taslak_tam
+koy.isyan.as,Aş dağıt (%d gıda),Aş dağıt (%d gıda),taslak_tam
+koy.isyan.bant,Köy isyanda! %d gün içinde huzuru geri getir.,Köy isyanda! %d gün içinde huzuru geri getir.,taslak_tam
+koy.isyan.surgun,Elebaşını sür,Elebaşını sür,taslak_tam
+koy.isyan.vergi,Bu haftanın vergisini kaldır,Bu haftanın vergisini kaldır,taslak_tam
+koy.kategori.barinma,Barınma,Barınma,taslak_tam
+koy.kaynak.gida,Gıda,Gıda,taslak_tam
+koy.kaynak.kereste,Kereste,Kereste,taslak_tam
+koy.kaynak.kurk,Kürk,Kürk,taslak_tam
+koy.muhafiz.durum,Muhafız %d / %d — haftalık maaş kişi başı %d akçe (kışla kararıyla alınanlar muhafız olur),Muhafız %d / %d — haftalık maaş kişi başı %d akçe (kışla kararıyla alınanlar muhafız olur),taslak_tam
+koy.neden.akce,akçe yetmiyor,Reason: akçe yetmiyor,taslak_tam
+koy.neden.dolu,yer dolu,Reason: yer dolu,taslak_tam
+koy.neden.malzeme,ambarda malzeme yok,Reason: ambarda malzeme yok,taslak_tam
+koy.neden.sinir,köyün sınırı dışında,Reason: köyün sınırı dışında,taslak_tam
+koy.neden.yol_yok,meydana bağlı bir yola değmiyor,Reason: meydana bağlı bir yola değmiyor,taslak_tam
+koy.nufus.ad,Ad,Ad,taslak_tam
+koy.nufus.baslik,Nüfus %d · yatak %d,Nüfus %d · yatak %d,taslak_tam
+koy.nufus.is,İş,İş,taslak_tam
+koy.nufus.moral,Moral,Moral,taslak_tam
+koy.nufus.saglik,Sağlık,Sağlık,taslak_tam
+koy.nufus.stat,Zanaat,Zanaat,taslak_tam
+koy.olay.aclik,Ambarda gıda yetmedi: %d kişi aç yattı.,Ambarda gıda yetmedi: %d kişi aç yattı.,taslak_tam
+koy.olay.agalik,Köy on sekiz haneyi geçti. Artık sana Ağa diyorlar — ve Tekfur bunu duydu.,Köy on sekiz haneyi geçti. Artık sana Ağa diyorlar — ve Tekfur bunu duydu.,taslak_tam
+koy.olay.baskin,"Dışarıda kalanlar haydutlarla birleşip baskın yaptı: %d gıda, %d odun gitti, yaralılar var.","Dışarıda kalanlar haydutlarla birleşip baskın yaptı: %d gıda, %d odun gitti, yaralılar var.",taslak_tam
+koy.olay.bonus_satis,Ambar doluydu; ustaların fazla ürünü (%d) tezgâhta satıldı: +%d akçe.,Ambar doluydu; ustaların fazla ürünü (%d) tezgâhta satıldı: +%d akçe.,taslak_tam
+koy.olay.firar,%s ambardan %d gıda alıp gece köyü terk etti.,%s ambardan %d gıda alıp gece köyü terk etti.,taslak_tam
+koy.olay.harac,Tekfur'un elçisi geldi: %d akçe ve %d gıda haraç istiyor.,Tekfur'un elçisi geldi: %d akçe ve %d gıda haraç istiyor.,taslak_tam
+koy.olay.harac_cevapsiz,Elçi cevapsız döndü. Tekfur bunu ret sayacak.,Elçi cevapsız döndü. Tekfur bunu ret sayacak.,taslak_tam
+koy.olay.iltimas,"""Muhafız zengine çalışıyor"" diye söyleniyorlar: herkesin morali %d düştü.","""Muhafız zengine çalışıyor"" diye söyleniyorlar: herkesin morali %d düştü.",taslak_tam
+koy.olay.isyan_basladi,Köy isyanda! Üretim durdu; %d gün içinde huzur dönmezse halk dağılacak.,Köy isyanda! Üretim durdu; %d gün içinde huzur dönmezse halk dağılacak.,taslak_tam
+koy.olay.isyan_bitti,İsyan yatıştı; köy işine döndü.,İsyan yatıştı; köy işine döndü.,taslak_tam
+koy.olay.isyan_uretim_yok,İsyan sürüyor: kimse işe gitmedi.,İsyan sürüyor: kimse işe gitmedi.,taslak_tam
+koy.olay.maas_yok,Muhafızlara verecek akçe yoktu; nöbeti bıraktılar.,Muhafızlara verecek akçe yoktu; nöbeti bıraktılar.,taslak_tam
+koy.olay.olum,%s bu gece öldü.,%s bu gece öldü.,taslak_tam
+koy.olay.sizma,Reddettiklerinden biri gece sızdı: %d gıda ve %d alet çalındı.,Reddettiklerinden biri gece sızdı: %d gıda ve %d alet çalındı.,taslak_tam
+koy.olay.soguk,Ocaklarda odun bitti; soğuk herkesi yordu (sağlık -%d).,Ocaklarda odun bitti; soğuk herkesi yordu (sağlık -%d).,taslak_tam
+koy.olay.tekfur_baskini,"Tekfur'un akıncıları geldi: güçleri %d, savunman %d.","Tekfur'un akıncıları geldi: güçleri %d, savunman %d.",taslak_tam
+koy.olay.vergi,Hafta başı vergisi toplandı: %d akçe.,Hafta başı vergisi toplandı: %d akçe.,taslak_tam
+koy.pazar.al,%d %s al (%d akçe),%d %s al (%d akçe),taslak_tam
+koy.pazar.baslik,Pazar,Pazar,taslak_tam
+koy.pazar.kervan_var,"Bugün kervan köyde: tam fiyatla alıyor, demir, alet ve tahıl satıyor.","Bugün kervan köyde: tam fiyatla alıyor, demir, alet ve tahıl satıyor.",taslak_tam
+koy.pazar.kervan_yok,Kervan %d gün sonra gelecek.,Kervan %d gün sonra gelecek.,taslak_tam
+koy.pazar.kervana,Kervana %d sat,Kervana %d sat,taslak_tam
+koy.pazar.sat,Tezgâhta %d sat,Tezgâhta %d sat,taslak_tam
+koy.pazar.tezgah,Köy tezgâhı kervan fiyatının %%%d'ini öder; günde en çok %d akçe.,Köy tezgâhı kervan fiyatının %%%d'ini öder; günde en çok %d akçe.,taslak_tam
+koy.rapor.akce,Akçe: %d → %d,Akçe: %d → %d,taslak_tam
+koy.rapor.baslik,%d. gecenin raporu,%d. gecenin raporu,taslak_tam
+koy.rapor.huzur,Köy huzuru: %d,Köy huzuru: %d,taslak_tam
+koy.rapor.sabah,Sabah oldu — kapıya,Sabah oldu — kapıya,taslak_tam
+koy.rapor.uretim,Üretim: %s,Üretim: %s,taslak_tam
+koy.recete.alet,Alet,Alet,taslak_tam
+koy.recete.av,Av,Av,taslak_tam
+koy.recete.gida,Buğday,Buğday,taslak_tam
+koy.recete.kereste,Kereste,Kereste,taslak_tam
+koy.recete.odun,Odun,Odun,taslak_tam
+koy.recete.tas,Taş,Taş,taslak_tam
+koy.recete.yakacak,Yakacak,Yakacak,taslak_tam
+koy.sur.azami,Sur en üst seviyede,Sur en üst seviyede,taslak_tam
+koy.sur.rezerv,Son %d akçe savunmaya harcanamaz (rezerv).,Son %d akçe savunmaya harcanamaz (rezerv).,taslak_tam
+koy.sur.taksit,Sur %d — taksit %d/%d öde (%d akçe),Sur %d — taksit %d/%d öde (%d akçe),taslak_tam
+koy.yapi.ambar_aciklama,Ambar kapasitesini 100 artırır.,Ambar kapasitesini 100 artırır.,taslak_tam
+koy.yapi.atolye_aciklama,Alet (kereste + demir) ya da yakacak (kereste) yapar.,Alet (kereste + demir) ya da yakacak (kereste) yapar.,taslak_tam
+koy.yapi.avci,Avcı kulübesi,Avcı kulübesi,taslak_tam
+koy.yapi.avci_aciklama,Av: gıda ve kürk. Kışın da çalışır.,Av: gıda ve kürk. Kışın da çalışır.,taslak_tam
+koy.yapi.cadir_aciklama,"Keçe çadır: üç kişilik yatak. Ucuz, çabuk kurulur.","Keçe çadır: üç kişilik yatak. Ucuz, çabuk kurulur.",taslak_tam
+koy.yapi.hizarhane_aciklama,Odun keser ya da odundan kereste biçer.,Odun keser ya da odundan kereste biçer.,taslak_tam
+koy.yapi.kulube_aciklama,Taş temelli kulübe: dört kişilik yatak.,Taş temelli kulübe: dört kişilik yatak.,taslak_tam
+koy.yapi.tarla_aciklama,"Üç çiftçilik tarla: gıda. Kışın donar, çiftçiler başka işe kayar.","Üç çiftçilik tarla: gıda. Kışın donar, çiftçiler başka işe kayar.",taslak_tam
+koy.yapi.tas_ocagi_aciklama,Taş çıkarır.,Taş çıkarır.,taslak_tam
+koy.kart.sure,%d günde tamamlanır,%d günde tamamlanır,taslak_tam
+koy.kart.eksik,Malzeme yetersiz,Malzeme yetersiz,taslak_tam
+koy.hiz.durdur,Duraklat / sürdür (Boşluk),Duraklat / sürdür (Boşluk),taslak_tam
+koy.hud.ambar,Ambar: %d / %d,Ambar: %d / %d,taslak_tam
+koy.kaynak.cevher,Demir cevheri,Demir cevheri,taslak_tam
+koy.kaynak.harc,Harç,Harç,taslak_tam
+koy.kaynak.kirec,Kireç,Kireç,taslak_tam
+koy.kaynak.su,Su,Su,taslak_tam
+koy.kaynak.tomruk,Tomruk,Tomruk,taslak_tam
+koy.recete.bakim,Bakım · ilaç üretimi kapalı,Bakım · ilaç üretimi kapalı,taslak_tam
+koy.recete.bugday,Buğday hasadı,Buğday hasadı,taslak_tam
+koy.recete.cevher,Ham demir cevheri,Ham demir cevheri,taslak_tam
+koy.recete.demir,Demir · 2 cevher + 1 odun,Demir · 2 cevher + 1 odun,taslak_tam
+koy.recete.ekmek,Ekmek · 2 un + 1 odun,Ekmek · 2 un + 1 odun,taslak_tam
+koy.recete.harc,Harç · 2 kireç + 2 taş,Harç · 2 kireç + 2 taş,taslak_tam
+koy.recete.ilac,İlaç · 1 afyon + 1 su,İlaç · 1 afyon + 1 su,taslak_tam
+koy.recete.kirec,Kireç · 2 taş + 1 odun,Kireç · 2 taş + 1 odun,taslak_tam
+koy.recete.tomruk,Ormandan tomruk,Ormandan tomruk,taslak_tam
+koy.recete.un,Un · 2 buğday,Un · 2 buğday,taslak_tam
+koy.yapi.agil_aciklama,"Dört koyunluk başlangıç sürüsü ve bir çoban yeri. Çoban başına temel 1 erzak; sabah otlak, akşam ağıla dönüş.","Dört koyunluk başlangıç sürüsü ve bir çoban yeri. Çoban başına temel 1 erzak; sabah otlak, akşam ağıla dönüş.",taslak_tam
+koy.yapi.demir_madeni,Demir Madeni,Demir Madeni,taslak_tam
+koy.yapi.demir_madeni_aciklama,Ham demir cevheri çıkarır; aletsiz verimi %70 azalır.,Ham demir cevheri çıkarır; aletsiz verimi %70 azalır.,taslak_tam
+koy.yapi.demir_ocagi,Demir Ocağı,Demir Ocağı,taslak_tam
+koy.yapi.demir_ocagi_aciklama,İki cevher ve bir yakacak odunundan işlenmiş demir üretir.,İki cevher ve bir yakacak odunundan işlenmiş demir üretir.,taslak_tam
+koy.yapi.firin,Köy Fırını,Köy Fırını,taslak_tam
+koy.yapi.firin_aciklama,İki un ve bir yakacak odunu ekmeğe işler; ekmek mevcut erzak stoğuna eklenir. Unsuz çalışmaz.,İki un ve bir yakacak odunu ekmeğe işler; ekmek mevcut erzak stoğuna eklenir. Unsuz çalışmaz.,taslak_tam
+koy.yapi.kirec_kuyusu,Kireç Kuyusu,Kireç Kuyusu,taslak_tam
+koy.yapi.kirec_kuyusu_aciklama,Ham taş ve yakacaktan kireç; kireç ve taştan inşaat harcı üretir.,Ham taş ve yakacaktan kireç; kireç ve taştan inşaat harcı üretir.,taslak_tam
+koy.yapi.odunluk,Orman Kampı,Orman Kampı,taslak_tam
+koy.yapi.odunluk_aciklama,Oduncular ormandan tomruk getirir; hızar 2 tomruğu kalasa veya yakacak oduna işler.,Oduncular ormandan tomruk getirir; hızar 2 tomruğu kalasa veya yakacak oduna işler.,taslak_tam
+koy.yapi.tas_ev,Taş Ev,Taş Ev,taslak_tam
+koy.yapi.tas_ev_aciklama,Altı yataklı taş ev; taş ve harçla örülür.,Altı yataklı taş ev; taş ve harçla örülür.,taslak_tam
+koy.tas_yatagi.ad,Taş yatağı,Taş yatağı,taslak_tam
+koy.tas_yatagi.bilgi,Taş yatağı: %d taştan %d kaldı,Taş yatağı: %d taştan %d kaldı,taslak_tam
+koy.tas_yatagi.kaz,Kazıya işçi ata · %d işçi,Kazıya işçi ata · %d işçi,taslak_tam
+koy.tas_yatagi.birak,Kazıyı bırak,Kazıyı bırak,taslak_tam
+koy.tas_yatagi.kazi,Taş yatağından %d taş çıkarıldı; kaldı: %d.,Taş yatağından %d taş çıkarıldı; kaldı: %d.,taslak_tam
+koy.tas_yatagi.kurtarici,Köy kenarında %d taşlık yeni bir taş yatağı bulundu.,Köy kenarında %d taşlık yeni bir taş yatağı bulundu.,taslak_tam
+koy.bayrak.acl01_muhafiz,Muhafız,Muhafız,taslak_tam
+koy.bayrak.acl01_es,Muhafızın eşi,Muhafızın eşi,taslak_tam
+koy.meclis.konusanlar,Çınarın altında konuşanlar: %s,Çınarın altında konuşanlar: %s,taslak_tam
+koy.meclis.konusan_yok,Çınarın altında konuşan kimse yok; oylama adsız açılır.,Çınarın altında konuşan kimse yok; oylama adsız açılır.,taslak_tam
+koy.yasam.baslik,Yaşam barları,Yaşam barları,taslak_tam
+koy.yasam.yorgunluk,Yorgunluk,Yorgunluk,taslak_tam
+koy.yasam.ac,Aç,Aç,taslak_tam
+koy.yasam.bitkin,Bitkin,Bitkin,taslak_tam
+koy.yasam.ozet,Açlık %s · Yorgunluk %s · Moral %d,Açlık %s · Yorgunluk %s · Moral %d,taslak_tam
+koy.yasam.var,var,var,taslak_tam
+koy.yasam.yok,yok,yok,taslak_tam
+koy.yasam.ozet_muhafiz,Yorgunluk %s · Moral %d,Yorgunluk %s · Moral %d,taslak_tam
+koy.gecici_is.tas_toplama,Taş toplama,Temporary Task: Taş toplama,taslak_tam
+koy.gecici_is.dal_toplama,Çalı ve dal toplama,Temporary Task: Çalı ve dal toplama,taslak_tam
+koy.gecici_is.su_tasima,Su taşıma,Temporary Task: Su taşıma,taslak_tam
+koy.gecici_is.yol_hendek,Hendek ve yol açma,Temporary Task: Hendek ve yol açma,taslak_tam
+koy.gecici_is.insaat_yardimi,İnşaat yardımcılığı,Temporary Task: İnşaat yardımcılığı,taslak_tam
+koy.gecici_is.nobete_eslik,Gece bekçisine eşlik,Temporary Task: Gece bekçisine eşlik,taslak_tam
+koy.gecici_is.yun_egirme,Yün eğirme,Temporary Task: Yün eğirme,taslak_tam
+koy.gecici_is.ot_mantar,Ot ve mantar toplama,Temporary Task: Ot ve mantar toplama,taslak_tam
+koy.gecici_is.bakim,Çocuk ve hasta bakımı,Temporary Task: Çocuk ve hasta bakımı,taslak_tam
+koy.gecici_is.sekme,Geçici işler,Temporary Task: Geçici işler,taslak_tam
+koy.gecici_is.yapi_sekmesi,Yapı işleri,Temporary Task: Yapı işleri,taslak_tam
+koy.gecici_is.yonerge,Kişinin görev kulpunu uygun işe sürükle; düğmeyle de atayabilirsin. Önce mevcut geçici işi bırak.,Temporary Task: Kişinin görev kulpunu uygun işe sürükle; düğmeyle de atayabilirsin. Önce mevcut geçici işi bırak.,taslak_tam
+koy.gecici_is.surukle,göreve sürükle,Temporary Task: göreve sürükle,taslak_tam
+koy.gecici_is.verim,Geçici iş verimi: %d%% · Yorucu iş: %d,Temporary Task: Geçici iş verimi: %d%% · Yorucu iş: %d,taslak_tam
+koy.gecici_is.birak,Geçici işi bırak,Temporary Task: Geçici işi bırak,taslak_tam
+koy.gecici_is.bos,Boşta,Temporary Task: Boşta,taslak_tam
+koy.gecici_is.uygun_degil,Bu kişi için uygun değil,Temporary Task: Bu kişi için uygun değil,taslak_tam
+koy.gecici_is.nobetci,Nöbette; başka iş alamaz,Temporary Task: Nöbette; başka iş alamaz,taslak_tam
+koy.gecici_is.tek_is,Önce mevcut geçici işi bırak,Temporary Task: Önce mevcut geçici işi bırak,taslak_tam
+koy.gecici_is.bina_isi,Önce yapı görevinden çıkar,Temporary Task: Önce yapı görevinden çıkar,taslak_tam
+koy.gecici_is.tas_yok,Taş yatağı tükenmiş,Temporary Task: Taş yatağı tükenmiş,taslak_tam
+koy.gecici_is.yer_yok,Uygun yer yok,Temporary Task: Uygun yer yok,taslak_tam
+koy.gecici_is.insaat_yok,Devam eden inşaat yok,Temporary Task: Devam eden inşaat yok,taslak_tam
+koy.gecici_is.nobet_yok,Eşlik edilecek nöbetçi yok,Temporary Task: Eşlik edilecek nöbetçi yok,taslak_tam
+koy.gecici_is.bakim_yok,Bakım gerektiren kişi yok,Temporary Task: Bakım gerektiren kişi yok,taslak_tam
+koy.gecici_is.rapor,Geçici iş · %s: %d katkı,Temporary Task: Geçici iş · %s: %d katkı,taslak_tam
+koy.gecici_is.yorgun,Geçici işten yorgun · mevcut kaza/uyuklama riski sürer; bir gece dinlenin.,Temporary Task: Geçici işten yorgun · mevcut kaza/uyuklama riski sürer; bir gece dinlenin.,taslak_tam
+koy.gecici_is.kulp,Görev atamak için bu kulpu binaya veya geçici işe sürükle.,Temporary Task: Görev atamak için bu kulpu binaya veya geçici işe sürükle.,taslak_tam
+koy.meslek_uyarisi.meslek_ciftci,Çiftçi,Profession Warning: Çiftçi,taslak_tam
+koy.meslek_uyarisi.meslek_bostanci,Bostancı,Profession Warning: Bostancı,taslak_tam
+koy.meslek_uyarisi.meslek_coban,Çoban,Profession Warning: Çoban,taslak_tam
+koy.meslek_uyarisi.meslek_degirmenci,Değirmenci,Profession Warning: Değirmenci,taslak_tam
+koy.meslek_uyarisi.meslek_kalayci,Kalaycı,Profession Warning: Kalaycı,taslak_tam
+koy.meslek_uyarisi.meslek_cerrah,Cerrah,Profession Warning: Cerrah,taslak_tam
+koy.meslek_uyarisi.meslek_demirci,Demirci,Profession Warning: Demirci,taslak_tam
+koy.meslek_uyarisi.meslek_tellal,Tellal,Profession Warning: Tellal,taslak_tam
+koy.meslek_uyarisi.meslek_katip,Kâtip,Profession Warning: Kâtip,taslak_tam
+koy.meslek_uyarisi.meslek_otaci,Otacı,Profession Warning: Otacı,taslak_tam
+koy.meslek_uyarisi.meslek_bagci,Bağcı,Profession Warning: Bağcı,taslak_tam
+koy.meslek_uyarisi.meslek_su_ustasi,Su ustası,Profession Warning: Su ustası,taslak_tam
+koy.meslek_uyarisi.meslek_asker,Asker,Profession Warning: Asker,taslak_tam
+koy.meslek_uyarisi.meslek_davulcu,Davulcu,Profession Warning: Davulcu,taslak_tam
+koy.meslek_uyarisi.meslek_kesif_eri,Keşif eri,Profession Warning: Keşif eri,taslak_tam
+koy.meslek_uyarisi.meslek_cebeci,Cebeci,Profession Warning: Cebeci,taslak_tam
+koy.meslek_uyarisi.meslek_su_tasiyici,Su taşıyıcı,Profession Warning: Su taşıyıcı,taslak_tam
+koy.meslek_uyarisi.meslek_sarac,Saraç,Profession Warning: Saraç,taslak_tam
+koy.meslek_uyarisi.meslek_comlekci,Çömlekçi,Profession Warning: Çömlekçi,taslak_tam
+koy.meslek_uyarisi.meslek_bezci,Kumaşçı,Profession Warning: Kumaşçı,taslak_tam
+koy.meslek_uyarisi.yapi_tarla,tarla,Profession Warning: tarla,taslak_tam
+koy.meslek_uyarisi.yapi_tarla_dami,tarla damı,Profession Warning: tarla damı,taslak_tam
+koy.meslek_uyarisi.yapi_harman_yeri,harman yeri,Profession Warning: harman yeri,taslak_tam
+koy.meslek_uyarisi.yapi_bostan,bostan,Profession Warning: bostan,taslak_tam
+koy.meslek_uyarisi.yapi_agil,ağıl,Profession Warning: ağıl,taslak_tam
+koy.meslek_uyarisi.yapi_ahir,ahır,Profession Warning: ahır,taslak_tam
+koy.meslek_uyarisi.yapi_degirmen,değirmen,Profession Warning: değirmen,taslak_tam
+koy.meslek_uyarisi.yapi_demirhane,demirhane,Profession Warning: demirhane,taslak_tam
+koy.meslek_uyarisi.yapi_atolye,atölye,Profession Warning: atölye,taslak_tam
+koy.meslek_uyarisi.yapi_sifahane,şifahane,Profession Warning: şifahane,taslak_tam
+koy.meslek_uyarisi.yapi_demir_ocagi,demir ocağı,Profession Warning: demir ocağı,taslak_tam
+koy.meslek_uyarisi.yapi_civi_ocagi,çivi ocağı,Profession Warning: çivi ocağı,taslak_tam
+koy.meslek_uyarisi.yapi_tamir_sundurmasi,tamir sundurması,Profession Warning: tamir sundurması,taslak_tam
+koy.meslek_uyarisi.yapi_han,han,Profession Warning: han,taslak_tam
+koy.meslek_uyarisi.yapi_koy_meydani,köy meydanı,Profession Warning: köy meydanı,taslak_tam
+koy.meslek_uyarisi.yapi_muhafiz_kislasi,muhafız kışlası,Profession Warning: muhafız kışlası,taslak_tam
+koy.meslek_uyarisi.yapi_bag_evi,bağ evi,Profession Warning: bağ evi,taslak_tam
+koy.meslek_uyarisi.yapi_su_kuyusu,su kuyusu,Profession Warning: su kuyusu,taslak_tam
+koy.meslek_uyarisi.yapi_su_arki,su arkı,Profession Warning: su arkı,taslak_tam
+koy.meslek_uyarisi.yapi_koy_cesmesi,köy çeşmesi,Profession Warning: köy çeşmesi,taslak_tam
+koy.meslek_uyarisi.yapi_sur,sur,Profession Warning: sur,taslak_tam
+koy.meslek_uyarisi.yapi_hendek,hendek,Profession Warning: hendek,taslak_tam
+koy.meslek_uyarisi.yapi_nobetci_kulesi,nöbetçi kulesi,Profession Warning: nöbetçi kulesi,taslak_tam
+koy.meslek_uyarisi.yapi_ortak_sofra,ortak sofra,Profession Warning: ortak sofra,taslak_tam
+koy.meslek_uyarisi.yapi_bez_evi,dokuma tezgâhı,Profession Warning: dokuma tezgâhı,taslak_tam
+koy.meslek_uyarisi.satir,"%s — %s yok. Nitelikli iş verilemez; günde %s erzak yer, geçici işte %%%d verimle çalışır.","Profession Warning: %s — %s yok. Nitelikli iş verilemez; günde %s erzak yer, geçici işte %%%d verimle çalışır.",taslak_tam
+koy.atama.meslek_uyusmaz,Meslek bu yapıya uygun değil,Meslek bu yapıya uygun değil,taslak_tam
+koy.atama.ilk_ipucu,Köylüyü başka bir işe geçirmek için kartını uygun yapıya sürükle.,Köylüyü başka bir işe geçirmek için kartını uygun yapıya sürükle.,taslak_tam
+koy.eylem.defter,Defteri İncele,Defteri İncele,taslak_tam
+koy.iflas.tip,"Kamu akçesi: %d
+Üst üste eksi geceler: %d/%d. Tefeci baskını kamu varlığına el koyar; kişisel kese korunur.","Kamu akçesi: %d
+Üst üste eksi geceler: %d/%d. Tefeci baskını kamu varlığına el koyar; kişisel kese korunur.",taslak_tam
+koy.iflas.olay,Tefeci baskını: %d gece kamu açığı. El konulan kamu varlığı: %s. Borç ve kişisel kese değişmedi.,Tefeci baskını: %d gece kamu açığı. El konulan kamu varlığı: %s. Borç ve kişisel kese değişmedi.,taslak_tam
+koy.iflas.mal_yok,El konulabilir kamu malı yok,El konulabilir kamu malı yok,taslak_tam
+koy.kart.ozet,"%s · beceri %d/10
+Moral %d · Sağlık %d · Sadakat %d · Refah %d/100
+Köye geliş: %d. gün · Köyde %d gün
+Güçlü yön: %s
+Zayıf yön: %s
+%s
+%s
+Açık bilgiler: %s
+%s","%s · beceri %d/10
+Moral %d · Sağlık %d · Sadakat %d · Refah %d/100
+Köye geliş: %d. gün · Köyde %d gün
+Güçlü yön: %s
+Zayıf yön: %s
+%s
+%s
+Açık bilgiler: %s
+%s",taslak_tam
+koy.kart.uzmanlik_yok,Özel uzmanlık eşleşmesi yok; yaş ve kapasite kuralları geçerli.,Özel uzmanlık eşleşmesi yok; yaş ve kapasite kuralları geçerli.,taslak_tam
+koy.levent.olay,"Levent firarı · %s: %s köyü terk etti. Nöbet hattı zayıfladı; Güvenlik %d → %d/100 (asayiş riski +%d). Aynı kriz boyunca yeni firar dalgası olmaz; erzak, maaş ve moral desteği ayrılmayı önler.","Levent firarı · %s: %s köyü terk etti. Nöbet hattı zayıfladı; Güvenlik %d → %d/100 (asayiş riski +%d). Aynı kriz boyunca yeni firar dalgası olmaz; erzak, maaş ve moral desteği ayrılmayı önler.",taslak_tam
+koy.sancak.temiz,Sancak müfettişi teftişi: gizli kasada suç isnadını destekleyen içerik ve yozlaşma birlikte bulunmadı. Görev sürüyor.,Sancak müfettişi teftişi: gizli kasada suç isnadını destekleyen içerik ve yozlaşma birlikte bulunmadı. Görev sürüyor.,taslak_tam
+koy.sancak.bulunamadi,Sancak müfettişi teftişi: gizli kasa bu kez bulunamadı. Geçmiş yozlaşma ve kasa içeriği değişmedi.,Sancak müfettişi teftişi: gizli kasa bu kez bulunamadı. Geçmiş yozlaşma ve kasa içeriği değişmedi.,taslak_tam
+koy.sancak.idam,Sancak müfettişi gizli kasayı buldu. Ağır yozlaşma nedeniyle muhafız hakkında idam hükmü verildi.,Sancak müfettişi gizli kasayı buldu. Ağır yozlaşma nedeniyle muhafız hakkında idam hükmü verildi.,taslak_tam
+koy.sancak.azil,Sancak müfettişi gizli kasayı buldu. Muhafız görevden azledildi.,Sancak müfettişi gizli kasayı buldu. Muhafız görevden azledildi.,taslak_tam
+koy.sancak.son_azil_baslik,Muhafız azledildi,Muhafız azledildi,taslak_tam
+koy.sancak.son_azil_metin,Sancak teftişinde gizli kasa ve yozlaşma açığa çıktı. Köy ayakta kalsa da muhafızın görevi sona erdi.,Sancak teftişinde gizli kasa ve yozlaşma açığa çıktı. Köy ayakta kalsa da muhafızın görevi sona erdi.,taslak_tam
+koy.sancak.son_idam_baslik,Muhafızın idamı,Muhafızın idamı,taslak_tam
+koy.sancak.son_idam_metin,Sancak müfettişi ağır yozlaşmayı gizli kasa içeriğiyle tespit etti. Muhafızın görevi idam hükmüyle son buldu.,Sancak müfettişi ağır yozlaşmayı gizli kasa içeriğiyle tespit etti. Muhafızın görevi idam hükmüyle son buldu.,taslak_tam
+koy.sancak.tip,"Sancak teftişi: sıradaki %d. gece. Yozlaşma ≥%d ve dolu kişisel kasa birlikte risk taşır; kapak kapatmak korumaz. Bulunma şansı %%%d; yozlaşma ≥%d idam, altında azil.","Sancak teftişi: sıradaki %d. gece. Yozlaşma ≥%d ve dolu kişisel kasa birlikte risk taşır; kapak kapatmak korumaz. Bulunma şansı %%%d; yozlaşma ≥%d idam, altında azil.",taslak_tam
+koy.coban.otlatiyor,Sürüyü merada otlatıyor,Sürüyü merada otlatıyor,taslak_tam
+koy.coban.agila,Sürüyü akşam ağıla çekiyor,Sürüyü akşam ağıla çekiyor,taslak_tam
