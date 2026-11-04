@@ -1997,33 +1997,33 @@ hafiza.ekran.baslik,Hafıza Defteri
 hafiza.filtre.kisi,Kişi adına göre ara...
 koy.eylem.defter,Defteri İncele
 arayuz.duraklat.defter,Hafıza Defteri
-arayuz.girdi.sekme,Kontroller
-arayuz.girdi.ata,Ata
-arayuz.girdi.bekleniyor,Bir tuş bekleniyor
-arayuz.girdi.cakisma,Çakışıyor
-arayuz.girdi.fare_olmaz,Fare bu eyleme yazılmaz
-arayuz.girdi.ipucu.hiz,Hız için {hiz_1}
-arayuz.girdi.geri,Geri
-arayuz.girdi.menu,Menü
-arayuz.girdi.kisayol_1,Birinci kapı kısayolu
-arayuz.girdi.kisayol_2,İkinci kapı kısayolu
-arayuz.girdi.kisayol_3,Üçüncü kapı kısayolu
-arayuz.girdi.kisayol_4,Dördüncü kapı kısayolu
-arayuz.girdi.kisayol_5,Beşinci kapı kısayolu
-arayuz.girdi.bina_cevir,Yapıyı çevir
-arayuz.girdi.bina_barinma,Barınma
-arayuz.girdi.nufus,Nüfus
-arayuz.girdi.hiz_1,Birinci hız
-arayuz.girdi.hiz_2,İkinci hız
-arayuz.girdi.hiz_3,Üçüncü hız
-arayuz.girdi.hiz_dur,Dur veya sürdür
-arayuz.girdi.kip_kapat,Kipi kapat
-arayuz.girdi.kapi_kabul,Kapıda kabul
-arayuz.girdi.kapi_ret,Kapıda ret
-arayuz.girdi.sec,Seç
-arayuz.girdi.iptal_kip,Kipi bırak
-arayuz.girdi.yakinlas,Yakınlaş
-arayuz.girdi.uzaklas,Uzaklaş
+arayuz.girdi.sekme,Tuş Kontrolleri
+arayuz.girdi.ata,Yeni Tuş Ata
+arayuz.girdi.bekleniyor,Bir tuşa basınız...
+arayuz.girdi.cakisma,Bu tuş başka bir eyleme atanmış!
+arayuz.girdi.fare_olmaz,Fare tuşları bu eyleme atanamaz
+arayuz.girdi.ipucu.hiz,Zaman hızı kısayolu: {hiz_1}
+arayuz.girdi.geri,Geri / Vazgeç
+arayuz.girdi.menu,Ana Menü
+arayuz.girdi.kisayol_1,1. Kapı Seçeneği Kısayolu
+arayuz.girdi.kisayol_2,2. Kapı Seçeneği Kısayolu
+arayuz.girdi.kisayol_3,3. Kapı Seçeneği Kısayolu
+arayuz.girdi.kisayol_4,4. Kapı Seçeneği Kısayolu
+arayuz.girdi.kisayol_5,5. Kapı Seçeneği Kısayolu
+arayuz.girdi.bina_cevir,Yapı Yönünü Döndür
+arayuz.girdi.bina_barinma,Barınma Yapılarını Göster
+arayuz.girdi.nufus,Köy Nüfusu ve Halk
+arayuz.girdi.hiz_1,Zaman Hızı: 1x (Normal)
+arayuz.girdi.hiz_2,Zaman Hızı: 2x (Hızlı)
+arayuz.girdi.hiz_3,Zaman Hızı: 3x (Çok Hızlı)
+arayuz.girdi.hiz_dur,Zamanı Durdur / Devam Et
+arayuz.girdi.kip_kapat,Görünümü Kapat
+arayuz.girdi.kapi_kabul,Kapı Kararı: Kabul Et
+arayuz.girdi.kapi_ret,Kapı Kararı: Geri Çevir
+arayuz.girdi.sec,Seç / Onayla
+arayuz.girdi.iptal_kip,Seçimi İptal Et
+arayuz.girdi.yakinlas,Kamerayı Yakınlaştır
+arayuz.girdi.uzaklas,Kamerayı Uzaklaştır
 olay.asik.baslik,Kopuzlu Âşık
 olay.asik.metin,"Akşam alacasında kapıya kopuzunu sırtlamış bir gezgin âşık yanaşır. Bozkırın türkülerini, beylerin cengini ve gurbet havalarını fısıldar; köylünün bağrı yanıktır."
 olay.asik.dinle,"Meydanda meclis kur, çalsın söylesin"
@@ -2105,7 +2105,7 @@ arayuz.ayarlar.rapor_bekle_aciklama,Gece raporu kendiliğinden kapanmaz. Varsay�
 arayuz.ayarlar.olayda_duraklat_aciklama,Köy olayı açılınca oyun durur. Varsayılan kapalı.
 arayuz.ayarlar.karar_onayi_aciklama,Kabul ve ret ikinci tıklama ister. Varsayılan kapalı.
 arayuz.ayarlar.zorluk_aciklama,"Kolay, olağan ya da sıkı. Oyun kaydında durur. Varsayılan olağan."
-arayuz.dil.baslik,Dil
+arayuz.dil.baslik,Dil Seçimi
 arayuz.dil.tr,Türkçe
 koy.iflas.tip,"Kamu akçesi: %d
 Üst üste eksi geceler: %d/%d. Tefeci baskını kamu varlığına el koyar; kişisel kese korunur."
@@ -2131,11 +2131,11 @@ koy.sancak.son_azil_metin,Sancak teftişinde gizli kasa ve yozlaşma açığa ç
 koy.sancak.son_idam_baslik,Muhafızın idamı
 koy.sancak.son_idam_metin,Sancak müfettişi ağır yozlaşmayı gizli kasa içeriğiyle tespit etti. Muhafızın görevi idam hükmüyle son buldu.
 koy.sancak.tip,"Sancak teftişi: sıradaki %d. gece. Yozlaşma ≥%d ve dolu kişisel kasa birlikte risk taşır; kapak kapatmak korumaz. Bulunma şansı %%%d; yozlaşma ≥%d idam, altında azil."
-koy.coban.otlatiyor,Sürüyü otlatıyor
-koy.coban.agila,Sürüyü ağıla götürüyor
-arayuz.menu.surum,%s
-arayuz.menu.daha_once,daha önce: %s
-arayuz.demo.bitti,Köy oturdu.
+koy.coban.otlatiyor,Sürüyü merada otlatıyor
+koy.coban.agila,Sürüyü akşam ağıla çekiyor
+arayuz.menu.surum,Sürüm: %s
+arayuz.menu.daha_once,Önceki Oyun: %s
+arayuz.demo.bitti,"Köy kök saldı, dirlik kuruldu."
 nobet.rapor.devir,"Kapı nöbetini %s devretti, direği %s devraldı."
 nobet.rapor.sabaha_kalmadi,Nöbette duran nefer sabaha çıkamadı; kapı direği sahipsiz kaldı.
 nobet.rapor.bos,Kapı direğinde bu gece nöbetçi yoktu; kapı sahipsiz ve boş bekledi.

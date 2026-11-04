@@ -61,5 +61,26 @@
 
 ---
 
-## Sıradaki Adım
-- **Parti B5:** `arayuz.girdi.*`, `arayuz.menu.*`, `arayuz.demo.*`, `arayuz.dil.*`, `koy.coban.*` (35 anahtar) metinlerinin yerleştirilmesi.
+### Parti B5: Girdi, Menü, Dil ve Çoban Metinleri (TAMAMLANDI)
+- `arayuz.girdi.*` (27 anahtar), `arayuz.menu.*` (2 anahtar), `arayuz.demo.bitti`, `arayuz.dil.*` (2 anahtar), `koy.coban.*` (2 anahtar) (Toplam 34 anahtar).
+- Metinler `data/metin/metinler.csv` içinde güncellendi; `docs/YER_TUTUCU_METINLER.csv` dosyasındaki tüm 85 yer tutucu metin `yerlesti` olarak tamamlandı (85/85 %100).
+- `tools/metin_dogrula.py`: PASS.
+- Testler: `tests/unit/arayuz/girdi_test.gd` (PASS, 0 hata), `tests/unit/arayuz/dil_test.gd` (PASS, 0 hata).
+
+---
+
+## Bölüm B Tamamlanma Özeti
+- `docs/YER_TUTUCU_METINLER.csv` dosyasındaki 85 anahtarın tamamı `yerlesti` durumuna getirildi.
+- B1: Nöbet ve sabah hükümleri (8 anahtar)
+- B2: Tezgâh ve yıl izleri (10 anahtar)
+- B3: Âşık ve kadı özel olayları (12 anahtar)
+- B4: Hafıza defteri ve eylemler (21 anahtar)
+- B5: Girdi, menü, demo, dil ve çoban metinleri (34 anahtar)
+- Bütün doğrulama scriptleri (`metin_dogrula.py`, `soz_dogrula.py`, `soz_tasarimi_dogrula.py`) eksiksiz geçmektedir.
+
+---
+
+## Bölüm C — Görev 6'da Eklenen 10 Yeni Ziyaretçiyi Derinleştir
+- **Hedef:** `chr_021` .. `chr_030` arası 10 yeni ziyaretçinin diyalog ağaçlarını (`data/diyalog/diyalog_21.json` .. `diyalog_30.json`) Görev 4 & 5 standartlarına ulaştırmak.
+- Eş kapı düşünceleri (`es_kapi_dusunceleri.json` veya ilgili veri yapısı) 4 kademeli olarak genişletilecek.
+- Eş köy muhabbeti (`data/parley/koy/koylu_muhabbet_es.ds`) bu 10 ziyaretçi ve 8 yeni köy olayıyla zenginleştirilecek.

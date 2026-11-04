@@ -50,37 +50,37 @@ hafiza.filtre.kisi,Kişi adına göre ara...,PR #15,yerlesti,Hafıza defteri ki�
 hafiza.sonuc.dondu,Geri Döndü,PR #15,yerlesti,Hafıza defteri köye geri dönen kişi durum etiketi.
 koy.eylem.defter,Defteri İncele,PR #15,yerlesti,Köy HUD arayüzünde defter açma düğmesi etiketi.
 arayuz.duraklat.defter,Hafıza Defteri,PR #15,yerlesti,Duraklatma menüsünde defteri açma düğmesi etiketi.
-arayuz.girdi.sekme,Tuş Kontrolleri,PR #16,,Ayarlar menüsünde tuş atama / kontroller sekmesi başlığı.
-arayuz.girdi.ata,Yeni Tuş Ata,PR #16,,Girdi haritasında tuş atama düğmesi.
-arayuz.girdi.bekleniyor,Bir tuşa basınız...,PR #16,,Tuş atama sırasında yeni tuş beklenirken çıkan ipucu.
-arayuz.girdi.cakisma,Bu tuş başka bir eyleme atanmış!,PR #16,,Aynı tuş birden fazla eyleme atandığında çıkan çakışma uyarısı.
-arayuz.girdi.fare_olmaz,Fare tuşları bu eyleme atanamaz,PR #16,,Fare tıklaması atanamayan eylemlerde verilen uyarı.
-arayuz.girdi.ipucu.hiz,Zaman hızı kısayolu: {hiz_1},PR #16,,Arayüzde hız değiştirme kısayol ipucu metni.
-arayuz.girdi.geri,Geri / Vazgeç,PR #16,,Girdi menüsünden çıkış / vazgeç düğmesi.
-arayuz.girdi.menu,Ana Menü,PR #16,,Menüyü açma/kapama eylemi adı.
-arayuz.girdi.kisayol_1,1. Kapı Seçeneği Kısayolu,PR #16,,Kapı sorgusunda 1. seçeneği seçme tuşu.
-arayuz.girdi.kisayol_2,2. Kapı Seçeneği Kısayolu,PR #16,,Kapı sorgusunda 2. seçeneği seçme tuşu.
-arayuz.girdi.kisayol_3,3. Kapı Seçeneği Kısayolu,PR #16,,Kapı sorgusunda 3. seçeneği seçme tuşu.
-arayuz.girdi.kisayol_4,4. Kapı Seçeneği Kısayolu,PR #16,,Kapı sorgusunda 4. seçeneği seçme tuşu.
-arayuz.girdi.kisayol_5,5. Kapı Seçeneği Kısayolu,PR #16,,Kapı sorgusunda 5. seçeneği seçme tuşu.
-arayuz.girdi.bina_cevir,Yapı Yönünü Döndür,PR #16,,Köy yerleşiminde yapı yönünü çevirme kısayolu.
-arayuz.girdi.bina_barinma,Barınma Yapılarını Göster,PR #16,,Köyde barınma ve hane binalarını filtreleme tuşu.
-arayuz.girdi.nufus,Köy Nüfusu ve Halk,PR #16,,Köy nüfus panelini açma kısayolu.
-arayuz.girdi.hiz_1,Zaman Hızı: 1x (Normal),PR #16,,Zamanı normal akışa alma tuşu.
-arayuz.girdi.hiz_2,Zaman Hızı: 2x (Hızlı),PR #16,,Zamanı hızlı akışa alma tuşu.
-arayuz.girdi.hiz_3,Zaman Hızı: 3x (Çok Hızlı),PR #16,,Zamanı çok hızlı akışa alma tuşu.
-arayuz.girdi.hiz_dur,Zamanı Durdur / Devam Et,PR #16,,Zamanı duraklatma ve yeniden başlatma tuşu.
-arayuz.girdi.kip_kapat,Görünümü Kapat,PR #16,,Açık olan kipi veya paneli kapatma tuşu.
-arayuz.girdi.kapi_kabul,Kapı Kararı: Kabul Et,PR #16,,Kapıdaki ziyaretçiyi köye kabul etme kısayolu.
-arayuz.girdi.kapi_ret,Kapı Kararı: Geri Çevir,PR #16,,Kapıdaki ziyaretçiyi geri çevirme kısayolu.
-arayuz.girdi.sec,Seç / Onayla,PR #16,,Menü ve seçeneklerde onaylama tuşu.
-arayuz.girdi.iptal_kip,Seçimi İptal Et,PR #16,,Mevcut seçimi veya inşa modunu bırakma tuşu.
-arayuz.girdi.yakinlas,Kamerayı Yakınlaştır,PR #16,,Kamera yaklaşma tuşu.
-arayuz.girdi.uzaklas,Kamerayı Uzaklaştır,PR #16,,Kamera uzaklaşma tuşu.
-arayuz.menu.surum,Sürüm: %s,PR #26,,Ana menü sürüm numarası göstergesi.
-arayuz.menu.daha_once,Önceki Oyun: %s,PR #26,,Ana menü son oturum/oyun bilgisi satırı.
-arayuz.demo.bitti,"Köy kök saldı, dirlik kuruldu.",PR #26,,Demo bitiş ekranı kapanış kutlama cümlesi.
-arayuz.dil.baslik,Dil Seçimi,PR #22,,Ayarlar menüsünde dil seçimi sekme başlığı.
-arayuz.dil.tr,Türkçe,PR #22,,Dil seçenekleri: Türkçe etiketi.
-koy.coban.otlatiyor,Sürüyü merada otlatıyor,PR #22,,Çoban günlük görev durumu.
-koy.coban.agila,Sürüyü akşam ağıla çekiyor,PR #22,,Çoban akşam ağıla dönüş durumu.
+arayuz.girdi.sekme,Tuş Kontrolleri,PR #16,yerlesti,Ayarlar menüsünde tuş atama / kontroller sekmesi başlığı.
+arayuz.girdi.ata,Yeni Tuş Ata,PR #16,yerlesti,Girdi haritasında tuş atama düğmesi.
+arayuz.girdi.bekleniyor,Bir tuşa basınız...,PR #16,yerlesti,Tuş atama sırasında yeni tuş beklenirken çıkan ipucu.
+arayuz.girdi.cakisma,Bu tuş başka bir eyleme atanmış!,PR #16,yerlesti,Aynı tuş birden fazla eyleme atandığında çıkan çakışma uyarısı.
+arayuz.girdi.fare_olmaz,Fare tuşları bu eyleme atanamaz,PR #16,yerlesti,Fare tıklaması atanamayan eylemlerde verilen uyarı.
+arayuz.girdi.ipucu.hiz,Zaman hızı kısayolu: {hiz_1},PR #16,yerlesti,Arayüzde hız değiştirme kısayol ipucu metni.
+arayuz.girdi.geri,Geri / Vazgeç,PR #16,yerlesti,Girdi menüsünden çıkış / vazgeç düğmesi.
+arayuz.girdi.menu,Ana Menü,PR #16,yerlesti,Menüyü açma/kapama eylemi adı.
+arayuz.girdi.kisayol_1,1. Kapı Seçeneği Kısayolu,PR #16,yerlesti,Kapı sorgusunda 1. seçeneği seçme tuşu.
+arayuz.girdi.kisayol_2,2. Kapı Seçeneği Kısayolu,PR #16,yerlesti,Kapı sorgusunda 2. seçeneği seçme tuşu.
+arayuz.girdi.kisayol_3,3. Kapı Seçeneği Kısayolu,PR #16,yerlesti,Kapı sorgusunda 3. seçeneği seçme tuşu.
+arayuz.girdi.kisayol_4,4. Kapı Seçeneği Kısayolu,PR #16,yerlesti,Kapı sorgusunda 4. seçeneği seçme tuşu.
+arayuz.girdi.kisayol_5,5. Kapı Seçeneği Kısayolu,PR #16,yerlesti,Kapı sorgusunda 5. seçeneği seçme tuşu.
+arayuz.girdi.bina_cevir,Yapı Yönünü Döndür,PR #16,yerlesti,Köy yerleşiminde yapı yönünü çevirme kısayolu.
+arayuz.girdi.bina_barinma,Barınma Yapılarını Göster,PR #16,yerlesti,Köyde barınma ve hane binalarını filtreleme tuşu.
+arayuz.girdi.nufus,Köy Nüfusu ve Halk,PR #16,yerlesti,Köy nüfus panelini açma kısayolu.
+arayuz.girdi.hiz_1,Zaman Hızı: 1x (Normal),PR #16,yerlesti,Zamanı normal akışa alma tuşu.
+arayuz.girdi.hiz_2,Zaman Hızı: 2x (Hızlı),PR #16,yerlesti,Zamanı hızlı akışa alma tuşu.
+arayuz.girdi.hiz_3,Zaman Hızı: 3x (Çok Hızlı),PR #16,yerlesti,Zamanı çok hızlı akışa alma tuşu.
+arayuz.girdi.hiz_dur,Zamanı Durdur / Devam Et,PR #16,yerlesti,Zamanı duraklatma ve yeniden başlatma tuşu.
+arayuz.girdi.kip_kapat,Görünümü Kapat,PR #16,yerlesti,Açık olan kipi veya paneli kapatma tuşu.
+arayuz.girdi.kapi_kabul,Kapı Kararı: Kabul Et,PR #16,yerlesti,Kapıdaki ziyaretçiyi köye kabul etme kısayolu.
+arayuz.girdi.kapi_ret,Kapı Kararı: Geri Çevir,PR #16,yerlesti,Kapıdaki ziyaretçiyi geri çevirme kısayolu.
+arayuz.girdi.sec,Seç / Onayla,PR #16,yerlesti,Menü ve seçeneklerde onaylama tuşu.
+arayuz.girdi.iptal_kip,Seçimi İptal Et,PR #16,yerlesti,Mevcut seçimi veya inşa modunu bırakma tuşu.
+arayuz.girdi.yakinlas,Kamerayı Yakınlaştır,PR #16,yerlesti,Kamera yaklaşma tuşu.
+arayuz.girdi.uzaklas,Kamerayı Uzaklaştır,PR #16,yerlesti,Kamera uzaklaşma tuşu.
+arayuz.menu.surum,Sürüm: %s,PR #26,yerlesti,Ana menü sürüm numarası göstergesi.
+arayuz.menu.daha_once,Önceki Oyun: %s,PR #26,yerlesti,Ana menü son oturum/oyun bilgisi satırı.
+arayuz.demo.bitti,"Köy kök saldı, dirlik kuruldu.",PR #26,yerlesti,Demo bitiş ekranı kapanış kutlama cümlesi.
+arayuz.dil.baslik,Dil Seçimi,PR #22,yerlesti,Ayarlar menüsünde dil seçimi sekme başlığı.
+arayuz.dil.tr,Türkçe,PR #22,yerlesti,Dil seçenekleri: Türkçe etiketi.
+koy.coban.otlatiyor,Sürüyü merada otlatıyor,PR #22,yerlesti,Çoban günlük görev durumu.
+koy.coban.agila,Sürüyü akşam ağıla çekiyor,PR #22,yerlesti,Çoban akşam ağıla dönüş durumu.
