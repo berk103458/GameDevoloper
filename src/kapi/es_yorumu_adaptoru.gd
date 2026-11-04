@@ -58,7 +58,18 @@ static func karar_verildi(kapi: Control, gelen: Gelen, karar: StringName) -> voi
 	
 	if _veriler.has(d_id) and _veriler[d_id] is Dictionary:
 		var anahtar := "karar_kabul" if (karar == &"kabul" or karar == &"harc") else "karar_ret"
+		if d_id == "diyalog_24" and (karar == &"kabul" or karar == &"harc"):
+			if gelen.acik_bayraklar.has("veba_kirec_karantina_basarili"):
+				anahtar = "karar_kabul_sifa"
+				if gelen.yanitlar.has("kabul_sifa"):
+					gelen.yanitlar["kabul"] = gelen.yanitlar["kabul_sifa"]
+			elif gelen.acik_bayraklar.has("sabi_vefati_kis_matemi"):
+				anahtar = "karar_kabul_kayip"
+				if gelen.yanitlar.has("kabul_kayip"):
+					gelen.yanitlar["kabul"] = gelen.yanitlar["kabul_kayip"]
 		yorum = String(_veriler[d_id].get(anahtar, ""))
+		if yorum.is_empty() and (karar == &"kabul" or karar == &"harc"):
+			yorum = String(_veriler[d_id].get("karar_kabul", ""))
 		
 	if not yorum.is_empty() and kapi.has_method("_yaz"):
 		kapi._yaz("[color=#c8a477][i]Eşin kanaati:[/i] \"%s\"[/color]" % yorum)

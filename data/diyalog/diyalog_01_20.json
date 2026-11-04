@@ -1639,8 +1639,16 @@
             "Ben köye girmem ağam! Surların dibindeki kireç ocağını bilirim; beni oradaki terk edilmiş çoban kulübesine kapatın! Kapıyı dışarıdan kilitleyin, bana yalnız bir kase suyla bir tas süt uzatın! Sabimi kurtarın, ben orada ölmeye razıyım!",
             [
               [
-                "Kireç ocağında ateş yakar, sana uzaktan sıcak çorba ulaştırırız; sabiyi ise sütnineye emanet ederiz, razı mısın?",
-                "(Hıçkırarak kundağı öper) Razıyım ağam... Bin kere razıyım! Yeter ki yavrum yaşasın; anamın duası köyünüzün üstünde olsun!"
+                "Kireç ocağında ateş yakar, Miraen'e kükürt ve adaçayı hazırlatırız; sabinin humması düşene kadar karantinadan çıkmayacaksınız!",
+                "Allah razı olsun muhafız! Miraen Hatun'un ilacı ve dualarınızla sabim ayağa kalkarsa iki cihanda köleniz olurum!",
+                [],
+                "veba_kirec_karantina_basarili"
+              ],
+              [
+                "Kireç ocağında ateş yakarız amma bu dondurucu ayazda sabinin zayıf ciğeri hummaya dayanır mı bilmem; köye veba sokamayız!",
+                "Yavrum kollarımda titrer ağam... Ayaz kemiklerini deler. Hak ne yazdıysa o olur; sabimi kirece alsan da bu kış feryadımız dinmez...",
+                [],
+                "sabi_vefati_kis_matemi"
               ]
             ]
           ],
@@ -1705,7 +1713,9 @@
     "yanitlar": {
       "ret": "(Gözlerinden yaşlar boşanır, kundağı göğsüne bastırır) Hak katında hesaplaşırız muhafız... Sabimin kanı bu kapının eşiğine yazılsın. Karda donmaya gidiyorum...",
       "kabul": "Allah tuttuğun kılıcı iki cihanda aziz kılsın muhafız! Yavrumu sütanneye verin... Ben kireç ocağının dibinde başımı taşa koyar, size dua ede ede can veririm...",
-      "harc": "Verdiğin bu sıcak battaniye ve ekmek sabime birkaç saat can verir muhafız... Lakin ayaz çok sert. Kapı eşiğinde nöbet biterken ruhum göğe uçar..."
+      "harc": "Verdiğin bu sıcak battaniye ve ekmek sabime birkaç saat can verir muhafız... Lakin ayaz çok sert. Kapı eşiğinde nöbet biterken ruhum göğe uçar...",
+      "kabul_sifa": "Allah merhametini kabul etsin muhafız! Kireç ocağındaki ateş ve Miraen Hatun'un şifasıyla sabimin ateşi düştü; kundağım yeniden güldü! Bu köyün ocağı kıyamete kadar tütsün!",
+      "kabul_kayip": "Kireç kuyusuna kapattın muhafız... Köyüne hastalık sıçramadı amma sabaha karşı yavrumun buz gibi nefesi tükendi! Taş duvarların kurusun muhafız, sabimi bu ayazda aldın!"
     }
   },
   {
@@ -1981,15 +1991,15 @@
             ]
           ],
           [
-            "Arkamda elli atlı var dersin; hani neredeler? Yoksa dağdaki haramileri köye pusu kurmak için mi bekletirsin?!",
-            "Benim yoldaşlarım harami değil, Türkmen alperenleridir! Ağabeyimin intikamı için pusuda beklerler; benim bir ıslığıma bakar vadiyi doldurmaları! Amma ben bu köye düşman değilim; ağabeyimin kanı yerde kalmasın, o elli atlı bu köyün sınırına kalkan olsun!",
+            "Arkamda elli atlı var dersin; hani neredeler? Atlıların kılıcı kınında duracaksa, bu köyün ekmeği de suyu da onlara helaldir Banu Hatun. Sınır boyunda Tekfur'un devriyesini savuşturur, ambarı korursunuz.",
+            "Sözümüz taşa kazınmıştır Muhafız! 50 pusat bu gece köyün etrafına çelikten bir halka çeker. Lakin çerinin karnı doyacak; ambardan hakkımızı isteriz. Sözüm sözdür!",
             [
               [
-                "O elli atlı kışın köyün kapısına dayanırsa ambarımız çöker; onları dağa geri salabilecek misin?",
-                "Onlar dağın ceylanıyla doyar muhafız! Köyden tek bir lokma ekmek istemezler; kış boyu haramiye geçit vermezler!"
+                "Köyün ambarından payınızı ayırırız; vadi girişindeki korulukta ordugâh kurup köyün sınırına kalkan olacaksınız, anlaştık mı?",
+                "Anlaştık muhafız! 50 Türkmen atlısı bu gece vadiyi tutar; tek bir harami bu sınırdan kuş olup uçamaz!"
               ]
             ],
-            "banu_hatun_atli_guvencesi"
+            "banu_ittifak_kabul"
           ],
           [
             "Aydoğdu Bey gibi bir cengaverin huzuruna çıkacaksın; onun adalet terazisi kıldan incedir.",
@@ -2040,7 +2050,7 @@
     ],
     "yanitlar": {
       "ret": "Demek adaleti değil, hırsızı korursunuz! Yarın gece dağdan inecek dumanı bekleyin muhafız; o nalbantın kellesini surunuzdan alacağım!",
-      "kabul": "Kılıcımı emanet ettim muhafız. Yüzleşme vaktidir; adaletliysen köyün kazanır.",
+      "kabul": "Kılıcımı kınında, 50 pusatımı korulukta emrine verdim muhafız! Ambarından payımızı alır, suruna kalkan oluruz. Karaca Usta da babasının kan borcunu pusatlarımızı bileyerek ödesin; adaletliysen köyün kazanır!",
       "kisla": "Kışlanıza katılıyorum! Kardeşimin kanını köyün nizamına katarım; kapıda nöbet tutan harami kızı, dağdaki kurttan daha keskin gözcülük eder!"
     }
   },

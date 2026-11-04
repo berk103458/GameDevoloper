@@ -92,6 +92,31 @@
       "id": "node:end",
       "type": "END",
       "position": "(1750.0, 0.0)"
+    },
+    {
+      "id": "node:opt_banu",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 360.0)",
+      "character": "Muhafız",
+      "text": "Banu Hatun'un 50 atlısıyla anlaştık Karaca Usta; vadi koruluğunda sınır nöbetine durdular."
+    },
+    {
+      "id": "node:rep_banu",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 360.0)",
+      "character": "Karaca Usta",
+      "text": "Babamın kan borcunu bu nöbetle ödeyeceksen, atlarınızın nalını, kılıçlarınızın eğrisini ben döverim Banu! 50 pusat köyün etrafında nöbetteyse körüğü gece gündüz yakarım Muhafız."
+    },
+    {
+      "id": "node:act_banu",
+      "type": "ACTION",
+      "position": "(1400.0, 360.0)",
+      "description": "Köy Savunması ve Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
     }
   ],
   "edges": [
@@ -206,6 +231,42 @@
     {
       "id": "e_e_karar",
       "from_node": "node:act_karar",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_banu",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_banu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_banu",
+      "from_node": "node:opt_banu",
+      "from_slot": 0,
+      "to_node": "node:rep_banu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_banu",
+      "from_node": "node:rep_banu",
+      "from_slot": 0,
+      "to_node": "node:act_banu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_banu",
+      "from_node": "node:act_banu",
       "from_slot": 0,
       "to_node": "node:end",
       "to_slot": 0,

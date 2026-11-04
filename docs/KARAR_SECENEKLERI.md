@@ -7,7 +7,7 @@
 
 ---
 
-## Karar 1: Banu Hatun'un Dağdaki 50 Atlısı
+## Karar 1: Banu Hatun'un Dağdaki 50 Atlısı — [UYGULANDI (Ahmet, 4 Kasım): Seçenek 1.1 İttifak]
 
 ### Durum Özeti
 Ziyaretçi 28 (Banu Hatun), sırtında kurt postu ve kalkanıyla tek başına kapıya gelmiş bir Türkmen alp hatunudur. Nalbant Karaca Usta ile eski bir kan borcu davası vardır ve dağ sırtlarında emrinde bekleyen 50 atlı çerisi bulunmaktadır. Banu Hatun köye kabul edildiğinde bu 50 atlının akıbeti ne olacaktır?
@@ -64,7 +64,7 @@ Ziyaretçi 28 (Banu Hatun), sırtında kurt postu ve kalkanıyla tek başına ka
 
 ---
 
-## Karar 2: Molla Şükrü vs Hasan Çelebi Meclis Yüzleşmesi
+## Karar 2: Molla Şükrü vs Hasan Çelebi Meclis Yüzleşmesi — [BEKLİYOR (Ahmet, 4 Kasım)]
 
 ### Durum Özeti
 Ziyaretçi 27 (Molla Şükrü), Sivas divanından kovulmuş, heybesinde sahte Selçuklu vakıfnamesi ve çalıntı mühür taşıyan kurnaz bir kâtiptir. İçeri alındığında köyün kadim kâtibi Hasan Çelebi ile tapu, arazi ve vakıf gelirleri üzerinde karşı karşıya gelir.
@@ -123,7 +123,18 @@ Ziyaretçi 27 (Molla Şükrü), Sivas divanından kovulmuş, heybesinde sahte Se
 
 ---
 
-## Karar 3: Vebalı Sabi ve Anasının Akıbeti
+## Karar 3: Vebalı Sabi ve Anasının Akıbeti — [UYGULANDI (Ahmet, 4 Kasım): İKİ SEÇENEK DE OYUNDA]
+
+### Koşul ve Çift Son Mantığı (Rastgele Değil, Oyuncu Kararlarına Bağlı)
+Ahmet'in 4 Kasım sabahı verdiği talimat doğrultusunda **3.1 Şifa ve Kurtuluş** ile **3.2 Dramatik Kayıp** seçeneklerinin ikisi de oyuna entegre edilmiştir. Hangisinin gerçekleşeceği oyuncunun sorgu ve karantina tercihlerine bağlıdır:
+1. **Şifa ve Kurtuluş Koşulu (`veba_kirec_karantina_basarili`):**
+   - Oyuncu kapıda Vebalı Ana ile konuşurken kireç ocağında ateş yaktırır ve Miraen'e kükürt ile adaçayı ilacı hazırlatır.
+   - Sabi iyileşir; kapıda kabul yanıtı şükrana dönüşür (`kabul_sifa`), eş sabah ezanında müjde fısıldar (`karar_kabul_sifa`), köyde Tabip Miraen ve Eş sevinçle karşılar (+3 Moral, +2 Adalet).
+2. **Dramatik Kayıp Koşulu (`sabi_vefati_kis_matemi`):**
+   - Oyuncu kapıda kireç kuyusuna salt tecrit uygular, ayaz ve veba korkusuyla ilacı/ateşi hazırlatmaz ya da sorgulamadan kuyuya kapatır.
+   - Ayaz sabinin ciğerini dondurur; sabi can verir (`kabul_kayip`), eş gecenin ağıtını fısıldar (`karar_kabul_kayip`), köyde Tabip Miraen ve Eş derin hüzün yaşar (-3 Moral, matem havası).
+3. **Oyuncuya İpuçları:**
+   - Eşin kapı fısıltısı, Tabip Miraen'in köy sohbeti ve oda dertleşmesi sonucun neden böyle bittiğini (hekim ilacı ve ateş desteği vs dondurucu ayaz ve gecikme) açıkça oyuncuya açıklar.
 
 ### Durum Özeti
 Ziyaretçi 24 (Vebalı Ana ve Sabi), Akpınar köyünden kara hummadan kaçıp kapıya gelmiştir. Muhafız vicdanına yenilmeyip onları doğrudan köy meydanına salmamış, kireç ocağı kuyusunda sıkı karantinaya almıştır. Köyün tabibi Miraen ilaç yapmaktadır. Sabinin kaderi ne olacaktır?
@@ -183,11 +194,11 @@ Ziyaretçi 24 (Vebalı Ana ve Sabi), Akpınar köyünden kara hummadan kaçıp k
 
 ## Ahmet İçin Karşılaştırmalı Özet Tablosu
 
-| Karar No | Karar Konusu | Seçenek 1 | Seçenek 2 | Antigravity Önerisi |
+| Karar No | Karar Konusu | Seçenek 1 | Seçenek 2 | Durum (Ahmet Onayı, 4 Kasım) |
 |---|---|---|---|---|
-| **1** | Banu Hatun'un 50 Atlısı | **1.1 İttifak & Süvari Gücü:** +50 Savunma, -3 Erzak tüketimi | **1.2 Yalnız Kabul:** Erzak korunur, +1 Asayiş riski | **1.1 İttifak** (Kış stratejisini derinleştirir) |
-| **2** | Molla Şükrü Meclis Yüzleşmesi | **2.1 Aleni Mahkeme:** +3 Adalet, +2 Moral, Demirhanede ceza | **2.2 Pragmatik İttifak:** +15 Günlük Akçe, -3 Adalet, Hasan küser | **2.1 Aleni Mahkeme** (Hak ve adaleti pekiştirir) |
-| **3** | Vebalı Sabi ve Anası | **3.1 Şifa ve Kurtuluş:** +3 Moral, +2 Nüfus, -10 Akçe masraf | **3.2 Dramatik Kayıp:** -3 Moral, Eşle hüzün sohbeti, sert gerçekçilik | **3.1 Şifa** (İlk kriz için umut dengesi) |
+| **1** | Banu Hatun'un 50 Atlısı | **1.1 İttifak & Süvari Gücü:** +50 Savunma, -3 Erzak tüketimi | **1.2 Yalnız Kabul:** Erzak korunur, +1 Asayiş riski | **UYGULANDI: Seçenek 1.1 İttifak** |
+| **2** | Molla Şükrü Meclis Yüzleşmesi | **2.1 Aleni Mahkeme:** +3 Adalet, +2 Moral, Demirhanede ceza | **2.2 Pragmatik İttifak:** +15 Günlük Akçe, -3 Adalet, Hasan küser | **BEKLİYOR: Mevcut Hali Korundu** |
+| **3** | Vebalı Sabi ve Anası | **3.1 Şifa ve Kurtuluş:** +3 Moral, +2 Nüfus, -10 Akçe masraf | **3.2 Dramatik Kayıp:** -3 Moral, Eşle hüzün sohbeti, sert gerçekçilik | **UYGULANDI: İKİ SEÇENEK DE OYUNDA (Koşullu Çift Dal)** |
 
 ---
-*Bu seçenekler `docs/KARAR_SECENEKLERI.md` dosyasında saklıdır; Ahmet onay verdiğinde ilgili diyalog ve olay tetikleyicilerine tek satırla bağlanabilir.*
+*Bu seçenekler `docs/KARAR_SECENEKLERI.md` dosyasında saklıdır; Karar 1.1 ve Karar 3 (çift son) oyuna entegre edilmiş, testlerle doğrulanmıştır.*

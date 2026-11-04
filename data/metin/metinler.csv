@@ -2165,3 +2165,12 @@ yil.ilkbahar_tarla,İlkbahar cemresi düştü; rençberler tarlaya saban sürmey
 yil.ilkbahar_taskin,Bahar taşkını vadiyi bastı; coşan dere bentleri zorladı.,Spring flood swept through the valley; the surging stream battered the weirs.
 yil.yaz_su,Yaz sıcağı tepeye vurdu; kuyulardan ve arklardan su çekildi.,Summer heat struck from above; water was drawn from wells and irrigation channels.
 hafiza.sonuc.dondu,Geri Döndü,Turned Back
+karar.banu.ittifak.baslik,Banu Hatun ve 50 Atlı İttifakı,Banu Hatun and 50 Horsemen Alliance
+karar.banu.ittifak.metin,"50 Türkmen süvarisi vadi koruluğunda ordugâh kurdu. Köy savunması 50 puan arttı, ambar tüketimi günlük 3 erzak ve 2 arpa yükseldi.","50 Turkmen horsemen pitched camp in the valley grove. Village defense increased by 50, grain consumption increased by 3 rations and 2 barley daily."
+karar.banu.ittifak.sonuc,"Süvari muhafızları sınır boyunda nöbette. Köy güvende, erzak azaldı.","Cavalry guards on patrol along the frontier. Village is secure, rations depleted."
+karar.veba.sifa.baslik,Kireç Ocağında Şifa ve Kurtuluş,Healing and Salvation at Lime Kiln
+karar.veba.sifa.metin,"Miraen'in kükürt ve adaçayı tedavisiyle sabi iyileşti. Salgın köye sıçramadı; Moral 3, Adalet 2 arttı, 10 akçe ecza masrafı yapıldı, köye 2 sağlıklı can katıldı.","Child healed through Miraen's sulfur and sage cure. Plague did not breach village; Morale +3, Justice +2, 10 coins medicine cost, 2 healthy souls joined."
+karar.veba.sifa.sonuc,"Tecrit hayat kurtardı. Köyde salgın yok, şükran var.","Quarantine saved lives. No plague in village, deep gratitude."
+karar.veba.kayip.baslik,Kireç Ocağında Kış Matemi,Winter Mourning at Lime Kiln
+karar.veba.kayip.metin,"Dondurucu kış ayazında sabi hummaya yenik düştü. Köye salgın yayılmadı; Moral 3 azaldı, Adalet 1 arttı, köyde ağır matem havası oluştu.","In freezing winter chill the infant succumbed to fever. Plague did not spread; Morale -3, Justice +1, heavy mourning fell upon village."
+karar.veba.kayip.sonuc,Salgın engellendi lakin can kurtarılamadı. Acı bir bedel.,Plague was halted but the life was lost. A bitter price.

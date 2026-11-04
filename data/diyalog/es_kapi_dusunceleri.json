@@ -176,7 +176,9 @@
     "kritik_soru": "Veba çıbanı taşır beyim! O kundağa bulaştıysa köyün tüm bebeleri tehlikeye girer, ne büyük bir azap bu!",
     "karar_oncesi": "Beyim... Bir anayım ben, o kundağa kıyamam! Kadını içeri alırsak köy kırılır, dışarıda bıraksak sabi donar! Kireç ocağının yanındaki kulübeye tecrit edelim, sabiyi uzaktan besleyelim!",
     "karar_kabul": "Allah merhametini kabul etsin beyim... Sabiyi kurtardık, kadına da kireç ocağında sıcak bir çorba nasip oldu.",
-    "karar_ret": "Ah beyim ah... O sabinin ağlayışı rüyalarıma girecek. Hak katında günahı boynumuza kalmasın..."
+    "karar_ret": "Ah beyim ah... O sabinin ağlayışı rüyalarıma girecek. Hak katında günahı boynumuza kalmasın...",
+    "karar_kabul_sifa": "Sabah ezanında haber geldi... Çocuğun nefesi düzelmiş. Gözümden yaş geldi efendi. Kapıda o vebalı anayı kirece alırken tereddüt etmiştin ya; meğer can kurtaracakmışsın.",
+    "karar_kabul_kayip": "Gecenin kör ayazında ananın feryadı surları deldi geçti... Yüreğim dağlandı efendi. Sen elinden geleni yaptın, kirece almasan bütün köy kırılırdı. Lakin bu ağıt bu kış ocağımızdan çıkmaz."
   },
   "diyalog_25": {
     "karsilama": "Tir tir titreyen, kollarında sopa izleri olan bir oğlancık... Erzincan fırıncısından kaçmış.",
@@ -202,8 +204,8 @@
   "diyalog_28": {
     "karsilama": "Kurt postlu, kalkanlı bir Türkmen kızı... Dağların kurdu Banu Hatun; gözlerinde intikam ateşi var.",
     "kritik_soru": "Öldürülen harami ağabeyinin intikamını arar beyim; nalbantın hileli nalla kardeşini tökezlettiğini söyler.",
-    "karar_oncesi": "Bu kadının öfkesi dağları yakar beyim! Amma kalleş değil, mert bir savaşçıya benzer. Kılıcını kışlaya teslim ederse kapıda nöbetimize büyük güç katar; nalbantla yüzleştirip adaleti sağla derim.",
-    "karar_kabul": "Kışlaya aldın beyim; kapıda nöbet tutan kadın savaşçının oku haramiye göz açtırmaz.",
+    "karar_oncesi": "Eli pusat tutan 50 yiğit duvara yaslanmak gibidir efendi... Lakin 50 can 50 boğaz demektir. Kış bastırdığında ambar daralırsa o süvariler ekmeği kılıçla istemesin?",
+    "karar_kabul": "50 atlıyla ittifak kurdun beyim... Vadi koruluğunda çadırlar kuruldu. Haramiye karşı çelik kalkan olduk lakin ambarı sıkı tutmak gerek gayrı.",
     "karar_ret": "Kadını geri çevirdin beyim... Yüreği matem dolu bir bacıyı kovduk; umarım dağdan haramileriyle dönmez."
   },
   "diyalog_29": {

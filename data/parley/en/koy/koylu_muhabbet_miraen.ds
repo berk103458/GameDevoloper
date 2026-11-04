@@ -92,6 +92,56 @@
       "id": "node:end",
       "type": "END",
       "position": "(1750.0, 0.0)"
+    },
+    {
+      "id": "node:opt_veba_sifa",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 360.0)",
+      "character": "Muhafız",
+      "text": "What is the condition of the plague-stricken mother and infant at the lime kiln, Healer Miraen?"
+    },
+    {
+      "id": "node:rep_veba_sifa",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 360.0)",
+      "character": "Miraen",
+      "text": "The fever has broken, gatekeeper! The sulfur smoke and wild thyme opened his chest. The child will live; the lime pit became not their grave, but the place of their rebirth, Heaven be praised."
+    },
+    {
+      "id": "node:act_veba_sifa",
+      "type": "ACTION",
+      "position": "(1400.0, 360.0)",
+      "description": "Village Morale and Hope",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "3"
+      ]
+    },
+    {
+      "id": "node:opt_veba_kayip",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 540.0)",
+      "character": "Muhafız",
+      "text": "Did the infant at the lime kiln survive until dawn, Healer Miraen?"
+    },
+    {
+      "id": "node:rep_veba_kayip",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 540.0)",
+      "character": "Miraen",
+      "text": "(Her eyes tearful, she bows her head) We could not reach him in time, sentry... I applied the balm and bathed him with lime, yet the biting frost froze his lungs. Towards dawn the little one passed. The plague did not breach the village, yet a life was lost..."
+    },
+    {
+      "id": "node:act_veba_kayip",
+      "type": "ACTION",
+      "position": "(1400.0, 540.0)",
+      "description": "Village Mourning",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "-3"
+      ]
     }
   ],
   "edges": [
@@ -206,6 +256,78 @@
     {
       "id": "e_e_karar",
       "from_node": "node:act_karar",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_veba_s",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_veba_sifa",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_veba_s",
+      "from_node": "node:opt_veba_sifa",
+      "from_slot": 0,
+      "to_node": "node:rep_veba_sifa",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_veba_s",
+      "from_node": "node:rep_veba_sifa",
+      "from_slot": 0,
+      "to_node": "node:act_veba_sifa",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_veba_s",
+      "from_node": "node:act_veba_sifa",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_veba_k",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_veba_kayip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_veba_k",
+      "from_node": "node:opt_veba_kayip",
+      "from_slot": 0,
+      "to_node": "node:rep_veba_kayip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_veba_k",
+      "from_node": "node:rep_veba_kayip",
+      "from_slot": 0,
+      "to_node": "node:act_veba_kayip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_veba_k",
+      "from_node": "node:act_veba_kayip",
       "from_slot": 0,
       "to_node": "node:end",
       "to_slot": 0,

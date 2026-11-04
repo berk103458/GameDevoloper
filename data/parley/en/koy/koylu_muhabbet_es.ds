@@ -778,14 +778,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1320.0)",
       "character": "Gatekeeper",
-      "text": "Banu Hatun, the wolf-pelt warrior who came for blood vengeance, now stands watch on our ramparts."
+      "text": "We reached an alliance with Banu Hatun's fifty horsemen; they pitched camp in the grove and stand guard."
     },
     {
       "id": "node:rep_z_banu",
       "type": "DIALOGUE",
       "position": "(1750.0, 1320.0)",
       "character": "Spouse",
-      "text": "She is a noble warrior, husband. Grief burns in her eyes, but no treachery. The arrow of a Turkmen maiden on the ramparts gives outlaws no respite; you can trust her."
+      "text": "I saw their encampment at the valley mouth, my lord. Fifty blades stand watch around our perimeter; my heart finds ease against brigands, yet I lose sleep wondering if our winter grain will suffice to feed them..."
     },
     {
       "id": "node:act_z_banu",
@@ -1048,6 +1048,56 @@
         "sadakat",
         "4",
         "es_harami_elcisi_dikdurusu"
+      ]
+    },
+    {
+      "id": "node:opt_z_veba_sifa",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 1140.0)",
+      "character": "Muhafız",
+      "text": "The infant's fever has broken at the lime kiln, my lady; Miraen found the cure."
+    },
+    {
+      "id": "node:rep_z_veba_sifa",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 1140.0)",
+      "character": "Eş",
+      "text": "Joyful tidings came at dawn prayer, my lord... The babe's fever has cooled, and the mother smiles once more. You saved a life at the kiln; blessings shall rain upon our hearth."
+    },
+    {
+      "id": "node:act_z_veba_sifa",
+      "type": "ACTION",
+      "position": "(2100.0, 1140.0)",
+      "description": "Spouse Joy and Morale",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:opt_z_veba_kayip",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 1200.0)",
+      "character": "Muhafız",
+      "text": "The infant at the lime kiln succumbed to the bitter frost, my lady; the mother's lament reached past our walls."
+    },
+    {
+      "id": "node:rep_z_veba_kayip",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 1200.0)",
+      "character": "Eş",
+      "text": "Did you hear the mother's lament, my lord... My heart broke. You acted rightly to protect the village, yet this winter even our hearth fire cannot warm away this sorrow..."
+    },
+    {
+      "id": "node:act_z_veba_kayip",
+      "type": "ACTION",
+      "position": "(2100.0, 1200.0)",
+      "description": "Spouse Grief",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "-2"
       ]
     }
   ],
@@ -2423,6 +2473,78 @@
     {
       "id": "e_node:act_o_harami_elcisi_to_end",
       "from_node": "node:act_o_harami_elcisi",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_veba_sifa",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_veba_sifa",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_opt_z_veba_sifa_to_rep",
+      "from_node": "node:opt_z_veba_sifa",
+      "from_slot": 0,
+      "to_node": "node:rep_z_veba_sifa",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_veba_sifa_to_act",
+      "from_node": "node:rep_z_veba_sifa",
+      "from_slot": 0,
+      "to_node": "node:act_z_veba_sifa",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_z_veba_sifa_to_end",
+      "from_node": "node:act_z_veba_sifa",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_veba_kayip",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_veba_kayip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_opt_z_veba_kayip_to_rep",
+      "from_node": "node:opt_z_veba_kayip",
+      "from_slot": 0,
+      "to_node": "node:rep_z_veba_kayip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_veba_kayip_to_act",
+      "from_node": "node:rep_z_veba_kayip",
+      "from_slot": 0,
+      "to_node": "node:act_z_veba_kayip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_z_veba_kayip_to_end",
+      "from_node": "node:act_z_veba_kayip",
       "from_slot": 0,
       "to_node": "node:end",
       "to_slot": 0,

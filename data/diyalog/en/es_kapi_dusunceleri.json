@@ -165,7 +165,9 @@
     "kritik_soru": "She bears the plague boil, husband! If it has touched that infant, every child in our village is in mortal peril; what agony this is!",
     "karar_oncesi": "Husband... I am a mother; I cannot bear to see that infant perish! If we admit her, our village will be wiped out; if we leave them in the drifts, the babe will freeze! Quarantine her in the shack beside the lime kiln, and feed the infant from afar!",
     "karar_kabul": "May God accept your compassion, husband... We saved the child, and the mother was granted hot soup by the lime kiln.",
-    "karar_ret": "Ah, husband, alas... The weeping of that baby will haunt my sleep. May Heaven not hold this blood against our souls..."
+    "karar_ret": "Ah, husband, alas... The weeping of that baby will haunt my sleep. May Heaven not hold this blood against our souls...",
+    "karar_kabul_sifa": "Word arrived at dawn prayer... The child's breath has steadied. Tears sprang to my eyes, husband. When you quarantined that plague-stricken mother at the kiln you hesitated; yet it saved a life.",
+    "karar_kabul_kayip": "In the dead cold of night the mother's wailing pierced through the stone walls... My heart was torn, my lord. You did what you had to do; had you not shut them away the entire village would have perished. Yet this lament will not leave our hearth all winter."
   },
   "diyalog_25": {
     "karsilama": "A trembling boy with bruises on his arms, scarce taller than a spear... Fled from the cruel baker in Erzincan.",
@@ -191,8 +193,8 @@
   "diyalog_28": {
     "karsilama": "A Turkmen warrior maiden wearing a wolf pelt and bearing a shield... Banu Hatun, the Wolf of the Mountains; in her eyes burns the fire of vengeance.",
     "kritik_soru": "She seeks vengeance for her slain brother, husband; she claims our blacksmith tripped her brother's mount with a fraudulent shoe.",
-    "karar_oncesi": "This woman's wrath could set mountains ablaze, husband! Yet she is no assassin; she looks like an honorable warrior. If she surrenders her sword to the barracks, she will add immense strength to our watch; bring her before the blacksmith and render justice.",
-    "karar_kabul": "You admitted her to the barracks, husband; the arrow of a warrior maiden standing watch at the gate will grant outlaws no respite.",
+    "karar_oncesi": "Fifty warriors bearing arms are like leaning against a stone rampart, my lord... Yet fifty lives mean fifty mouths to feed. When winter closes in and granaries run low, pray those cavalrymen do not demand bread at swordpoint.",
+    "karar_kabul": "You struck an alliance with fifty riders, my lord... Tents are pitched in the valley grove. We gained a shield of steel against brigands, yet now we must guard our storehouse doubly tight.",
     "karar_ret": "You turned the woman away, husband... We drove off a sister whose heart was heavy with mourning; I pray she does not return with her horsemen from the heights."
   },
   "diyalog_29": {

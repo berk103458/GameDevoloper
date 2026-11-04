@@ -778,14 +778,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1320.0)",
       "character": "Muhafız",
-      "text": "Ağabeyinin intikamı için gelen kurt postlu savaşçı Banu Hatun kışlada nöbete durdu."
+      "text": "Banu Hatun'un 50 atlısı korulukta ordugâh kurup sınır nöbetine durdu beyim."
     },
     {
       "id": "node:rep_z_banu",
       "type": "DIALOGUE",
       "position": "(1750.0, 1320.0)",
       "character": "Eş",
-      "text": "Yiğit kadındır beyim. Gözlerinde matem var amma kalleşlik yok. Türkmen kızının oku sur üstünde haramiye göz açtırmaz; ona güvenebilirsin."
+      "text": "Vadi girişindeki ordugâhı gördüm beyim. 50 pusat köyün etrafında nöbete durdu; haramiye karşı yüreğim ferahladı amma kışın ambardaki buğday süvarilere yetecek mi diye uykum kaçar..."
     },
     {
       "id": "node:act_z_banu",
@@ -1048,6 +1048,56 @@
         "sadakat",
         "4",
         "es_harami_elcisi_dikdurusu"
+      ]
+    },
+    {
+      "id": "node:opt_z_veba_sifa",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 1140.0)",
+      "character": "Muhafız",
+      "text": "Kireç ocağındaki sabinin humması düşmüş beyim; Miraen şifayı buldu."
+    },
+    {
+      "id": "node:rep_z_veba_sifa",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 1140.0)",
+      "character": "Eş",
+      "text": "Sabah ezanında müjde geldi beyim... Sabinin humması düşmüş, ananın yüzü gülmüş. Kireç ocağında can kurtardın; bu sevap hanene nur gibi yağar."
+    },
+    {
+      "id": "node:act_z_veba_sifa",
+      "type": "ACTION",
+      "position": "(2100.0, 1140.0)",
+      "description": "Eş Sevinci ve Moral",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:opt_z_veba_kayip",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 1200.0)",
+      "character": "Muhafız",
+      "text": "Kireç ocağındaki sabi ayaza yenik düştü beyim; ananın feryadı surları aştı."
+    },
+    {
+      "id": "node:rep_z_veba_kayip",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 1200.0)",
+      "character": "Eş",
+      "text": "Ananın ağıtını duydun mu beyim... Yüreğim parçalandı. Sen köyü korumak için doğrusunu yaptın lakin bu kış ocağımızın ateşi bile bu hüznü ısıtamaz..."
+    },
+    {
+      "id": "node:act_z_veba_kayip",
+      "type": "ACTION",
+      "position": "(2100.0, 1200.0)",
+      "description": "Eş Hüznü",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "-2"
       ]
     }
   ],
@@ -2423,6 +2473,78 @@
     {
       "id": "e_node:act_o_harami_elcisi_to_end",
       "from_node": "node:act_o_harami_elcisi",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_veba_sifa",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_veba_sifa",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_opt_z_veba_sifa_to_rep",
+      "from_node": "node:opt_z_veba_sifa",
+      "from_slot": 0,
+      "to_node": "node:rep_z_veba_sifa",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_veba_sifa_to_act",
+      "from_node": "node:rep_z_veba_sifa",
+      "from_slot": 0,
+      "to_node": "node:act_z_veba_sifa",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_z_veba_sifa_to_end",
+      "from_node": "node:act_z_veba_sifa",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_veba_kayip",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_veba_kayip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_opt_z_veba_kayip_to_rep",
+      "from_node": "node:opt_z_veba_kayip",
+      "from_slot": 0,
+      "to_node": "node:rep_z_veba_kayip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_veba_kayip_to_act",
+      "from_node": "node:rep_z_veba_kayip",
+      "from_slot": 0,
+      "to_node": "node:act_z_veba_kayip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_z_veba_kayip_to_end",
+      "from_node": "node:act_z_veba_kayip",
       "from_slot": 0,
       "to_node": "node:end",
       "to_slot": 0,
