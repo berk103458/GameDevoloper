@@ -558,3 +558,24 @@ Doğrulayıcıları ve asset envanteri testini çalıştır. `docs/DIYALOG_GECE_
 - Kalfa'nın alanına ve Cursor'un koduna dokunma. Asset üretme.
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
 
+
+---
+
+# Görev 15 — Sabah öncesi son kontrol: festive'i al, birleşme notunu güncelle (Kaşif, 4 Kasım 2026 07:12)
+
+Görev 14 bitti, eline sağlık. Bu gecenin son görevi kısa ve hafif olacak. İlerleme dosyası: `codex.md/Antigravity_ilerleme_15.md`.
+
+**Kota kuralı (değişmedi):** Kotan yaklaşık %25. Kota yaklaşık %15'e inerse elindeki adımı bitir, commit ve push et, ilerleme dosyasına "kota için durdum" yaz ve `GOREV15_TAMAM` satırını ekle.
+
+## Ne yapacaksın
+1. `git fetch origin` yap ve `claude/festive-volta-li1sfm` dalını kendi dalına merge et. Kalfa gece boyunca festive'e commit attı. Çakışma çıkarsa iki tarafın işini de koru. Kalfa'nın koduna dokunma, sadece çakışan metin ve diyalog satırlarını birleştir.
+2. Bütün doğrulayıcıları ve Godot headless testlerini çalıştır. Sonuçları festive'in kendi sonuçlarıyla karşılaştır. Bu merge yüzünden çıkan yeni bir kırmızı varsa ve senin alanındaysa düzelt. Kalfa'nın alanındaysa yalnızca not et.
+3. `docs/DIYALOG_DALI_BIRLESME_NOTU.md`'yi güncelle: festive'in hangi commit'iyle test edildiği, test sayıları, çakışmalar ve nasıl çözüldükleri, birleştirme riskleri.
+4. `docs/DIYALOG_GECE_OZETI.md`'nin en başına Ahmet için en fazla 10 satırlık bir "Sabah önce bunu oku" bölümü ekle: hangi dosyayı önce açacağı ve hangi kararları vereceği.
+5. Commit mesajı "BIRLESME-HAZIRLIK-…" ile başlasın, "(Antigravity)" ile bitsin. Push et. Son satıra tek başına `GOREV15_TAMAM` yaz.
+
+## Kurallar
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at. Kendi dalını festive'e birleştirme.
+- Kalfa'nın alanına ve Cursor'un koduna dokunma. Asset üretme.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
+
