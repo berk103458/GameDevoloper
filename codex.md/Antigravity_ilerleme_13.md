@@ -16,11 +16,11 @@
     - `docs/karar_yamalari/karar_1_yalniz_kabul/` (Seçenek 1.2 — Yalnız Kabul & İhtiyat)
     - Her klasörde tam `diyalog_01_20.json`, `es_kapi_dusunceleri.json`, `koylu_muhabbet_karaca_usta.ds`, `koylu_muhabbet_es.ds`, `metinler_parca.csv` ve `UYGULA.md` eksiksiz oluşturuldu.
     - Commit `KARAR-01:...` hazırlandı.
-  - [ ] **Parti A2 — Karar 2 (Molla Şükrü vs Hasan Çelebi Meclis Yüzleşmesi):**
-    - `docs/karar_yamalari/karar_2_aleni_mahkeme/` (Seçenek 2.1)
-    - `docs/karar_yamalari/karar_2_katip_ittifak/` (Seçenek 2.2)
-    - Her klasörde tam diyalog, eş düşünceleri, Hasan Çelebi & Meclis sohbeti, `metinler_parca.csv` ve `UYGULA.md`.
-    - Commit `KARAR-02:...` ve push.
+  - [x] **Parti A2 — Karar 2 (Molla Şükrü vs Hasan Çelebi Meclis Yüzleşmesi):**
+    - `docs/karar_yamalari/karar_2_aleni_mahkeme/` (Seçenek 2.1 — Aleni Mahkeme & Hak)
+    - `docs/karar_yamalari/karar_2_katip_ittifak/` (Seçenek 2.2 — Kâtip İttifakı & Pragmatizm)
+    - Her klasörde tam `diyalog_01_20.json`, `es_kapi_dusunceleri.json`, `koylu_muhabbet_hasan_celebi.ds`, `koylu_muhabbet_es.ds`, `metinler_parca.csv` ve `UYGULA.md` eksiksiz oluşturuldu.
+    - Commit `KARAR-02:...` hazırlandı.
   - [ ] **Parti A3 — Karar 3 (Vebalı Sabi ve Anasının Akıbeti):**
     - `docs/karar_yamalari/karar_3_sifa_kurtulus/` (Seçenek 3.1)
     - `docs/karar_yamalari/karar_3_dramatik_kayip/` (Seçenek 3.2)
