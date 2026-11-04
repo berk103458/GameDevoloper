@@ -7,16 +7,16 @@ nobet.rapor.tipi_bos,Kuduran kış tipisinde göz gözü görmedi; kapıya kimse
 nobet.rapor.tipi,Tipi ve dondurucu ayazda nöbetçi önünü göremedi; karanlıkta kapıdan sızanlar oldu.,PR #21,yerlesti,Fırtınada nöbetçinin gözünden kaçan ziyaretçiler olduğunda yazılan rapor.
 nobet.rapor.uyudu,Nöbetçi ayazda uyuyakaldı; kapıya yaklaşanlar karanlıkta kayboldu.,PR #21,yerlesti,Nöbetçi uykuya daldığında yazılan kusur raporu.
 sabah.hukum.satir,Divan kararı: %s hakkında %s hükmü verildi.,PR #21,yerlesti,Sabah defteri divan hükmü satırı; kişi adı ve ceza türü.
-tez.cumle.tam,Tezgâhtaki sipariş eksiksiz tamamlandı; iş sahibine teslim edildi.,PR #25,,Tezgâh siparişi 5. gün başarıyla bittiğinde yazılan teslim cümlesi.
-tez.cumle.egri,"Tezgâhta aksaklık çıktı; malzeme ziyan oldu, iş eğri kaldı.",PR #25,,Tezgâh siparişi aksadığında veya hatalı bittiğinde yazılan cümle.
-yil.yuz,"Yılın yüzü: Mevsimler döner, uç boyunda hayat sabırla sürer.",PR #25,,Yıl izi genel tanıtım ve mevsim döngüsü cümlesi.
-yil.guz_sofra,Güz sofrası kuruldu; köy halkı bereketli hasadı mecliste paylaştı.,PR #25,,Sonbaharda ambar dolu ve şenlik açıkken yazılan mevsim izi satırı.
-yil.guz_harman,Güz harmanı kalktı; buğday başakları kış gelmeden ambarlara taşındı.,PR #25,,Sonbaharda şenlik yokken harman sonu yazılan mevsim izi satırı.
-yil.kis_disari,Dışarıda dondurucu kış ayazı; sığınaksız kalanlar buz kesip titrer.,PR #25,,Kış mevsiminde barınaksız/açıkta geçirilen gecenin izi.
-yil.kis_ev,Kış gecesi ocak başında; tandır ateşi evi ve gönülleri ısıtır.,PR #25,,Kış mevsiminde sıcak yatakta/evde geçirilen gecenin izi.
-yil.ilkbahar_tarla,İlkbahar cemresi düştü; rençberler tarlaya saban sürmeye çıktı.,PR #25,,İlkbaharda tarla işleri başladığında yazılan mevsim izi satırı.
-yil.ilkbahar_taskin,Bahar taşkını vadiyi bastı; coşan dere bentleri zorladı.,PR #25,,İlkbaharda sel veya taşkın hadisesinde yazılan mevsim izi satırı.
-yil.yaz_su,Yaz sıcağı tepeye vurdu; kuyulardan ve arklardan su çekildi.,PR #25,,Yaz mevsiminde su sıkıntısı veya aşırı sıcaklarda yazılan mevsim izi satırı.
+tez.cumle.tam,Tezgâhtaki sipariş eksiksiz tamamlandı; iş sahibine teslim edildi.,PR #25,yerlesti,Tezgâh siparişi 5. gün başarıyla bittiğinde yazılan teslim cümlesi.
+tez.cumle.egri,"Tezgâhta aksaklık çıktı; malzeme ziyan oldu, iş eğri kaldı.",PR #25,yerlesti,Tezgâh siparişi aksadığında veya hatalı bittiğinde yazılan cümle.
+yil.yuz,"Yılın yüzü: Mevsimler döner, uç boyunda hayat sabırla sürer.",PR #25,yerlesti,Yıl izi genel tanıtım ve mevsim döngüsü cümlesi.
+yil.guz_sofra,Güz sofrası kuruldu; köy halkı bereketli hasadı mecliste paylaştı.,PR #25,yerlesti,Sonbaharda ambar dolu ve şenlik açıkken yazılan mevsim izi satırı.
+yil.guz_harman,Güz harmanı kalktı; buğday başakları kış gelmeden ambarlara taşındı.,PR #25,yerlesti,Sonbaharda şenlik yokken harman sonu yazılan mevsim izi satırı.
+yil.kis_disari,Dışarıda dondurucu kış ayazı; sığınaksız kalanlar buz kesip titrer.,PR #25,yerlesti,Kış mevsiminde barınaksız/açıkta geçirilen gecenin izi.
+yil.kis_ev,Kış gecesi ocak başında; tandır ateşi evi ve gönülleri ısıtır.,PR #25,yerlesti,Kış mevsiminde sıcak yatakta/evde geçirilen gecenin izi.
+yil.ilkbahar_tarla,İlkbahar cemresi düştü; rençberler tarlaya saban sürmeye çıktı.,PR #25,yerlesti,İlkbaharda tarla işleri başladığında yazılan mevsim izi satırı.
+yil.ilkbahar_taskin,Bahar taşkını vadiyi bastı; coşan dere bentleri zorladı.,PR #25,yerlesti,İlkbaharda sel veya taşkın hadisesinde yazılan mevsim izi satırı.
+yil.yaz_su,Yaz sıcağı tepeye vurdu; kuyulardan ve arklardan su çekildi.,PR #25,yerlesti,Yaz mevsiminde su sıkıntısı veya aşırı sıcaklarda yazılan mevsim izi satırı.
 olay.asik.baslik,Kopuzlu Âşık,PR #27,,Gezgin âşık olay kartı başlığı.
 olay.asik.metin,"Akşam alacasında kapıya kopuzunu sırtlamış bir gezgin âşık yanaşır. Bozkırın türkülerini, beylerin cengini ve gurbet havalarını fısıldar; köylünün bağrı yanıktır.",PR #27,,Gezgin âşık olay kartı ana metni (formül sözcük içermez).
 olay.asik.dinle,"Meydanda meclis kur, çalsın söylesin",PR #27,,Âşık olay kartı 1. seçenek (dinleme ve moral).

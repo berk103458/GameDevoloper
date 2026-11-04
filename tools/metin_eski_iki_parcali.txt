@@ -42,3 +42,11 @@ heybe.soyledigi
 heybe.teklif
 heybe.toplam
 heybe.yakalandi
+yil.yuz
+yil.guz_sofra
+yil.guz_harman
+yil.kis_disari
+yil.kis_ev
+yil.ilkbahar_tarla
+yil.ilkbahar_taskin
+yil.yaz_su

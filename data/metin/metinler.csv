@@ -2144,3 +2144,13 @@ nobet.rapor.tipi_bos,Kuduran kış tipisinde göz gözü görmedi; kapıya kimse
 nobet.rapor.tipi,Tipi ve dondurucu ayazda nöbetçi önünü göremedi; karanlıkta kapıdan sızanlar oldu.
 nobet.rapor.uyudu,Nöbetçi ayazda uyuyakaldı; kapıya yaklaşanlar karanlıkta kayboldu.
 sabah.hukum.satir,Divan kararı: %s hakkında %s hükmü verildi.
+tez.cumle.tam,Tezgâhtaki sipariş eksiksiz tamamlandı; iş sahibine teslim edildi.
+tez.cumle.egri,"Tezgâhta aksaklık çıktı; malzeme ziyan oldu, iş eğri kaldı."
+yil.yuz,"Yılın yüzü: Mevsimler döner, uç boyunda hayat sabırla sürer."
+yil.guz_sofra,Güz sofrası kuruldu; köy halkı bereketli hasadı mecliste paylaştı.
+yil.guz_harman,Güz harmanı kalktı; buğday başakları kış gelmeden ambarlara taşındı.
+yil.kis_disari,Dışarıda dondurucu kış ayazı; sığınaksız kalanlar buz kesip titrer.
+yil.kis_ev,Kış gecesi ocak başında; tandır ateşi evi ve gönülleri ısıtır.
+yil.ilkbahar_tarla,İlkbahar cemresi düştü; rençberler tarlaya saban sürmeye çıktı.
+yil.ilkbahar_taskin,Bahar taşkını vadiyi bastı; coşan dere bentleri zorladı.
+yil.yaz_su,Yaz sıcağı tepeye vurdu; kuyulardan ve arklardan su çekildi.

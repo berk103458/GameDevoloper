@@ -41,7 +41,13 @@
 - `tools/metin_dogrula.py`: PASS.
 - Testler: `tests/unit/koy/kapi_nobeti_test.gd` (PASS), `tests/unit/koy/sabah_defteri_test.gd` (PASS).
 
+### Parti B2: Tezgâh Siparişleri & Mevsim Yıl İzi (TAMAMLANDI)
+- `tez.cumle.tam`, `tez.cumle.egri`, `yil.yuz`, `yil.guz_sofra`, `yil.guz_harman`, `yil.kis_disari`, `yil.kis_ev`, `yil.ilkbahar_tarla`, `yil.ilkbahar_taskin`, `yil.yaz_su` (10 anahtar).
+- Metinler `data/metin/metinler.csv` içine eklendi; `docs/YER_TUTUCU_METINLER.csv` dosyasında `yerlesti` olarak işaretlendi.
+- `tools/metin_dogrula.py`: PASS.
+- Testler: `tests/unit/koy/tezgahta_gun_test.gd` (PASS), `tests/unit/koy/yil_izi_test.gd` (PASS).
+
 ---
 
 ## Sıradaki Adım
-- **Parti B2:** `tez.cumle.*` ve `yil.*` (10 anahtar) metinlerinin yerleştirilmesi.
+- **Parti B3:** `olay.asik.*` ve `olay.kadi.*` (12 anahtar) olay metinlerinin yerleştirilmesi.
