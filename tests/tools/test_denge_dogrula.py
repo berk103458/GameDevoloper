@@ -29,6 +29,11 @@ class DengeDogrulaTest(unittest.TestCase):
         self.assertEqual(dogrulayici.aclik_kademesi_hatalari(denge), [])
         self.assertEqual(dogrulayici.aclik_kademesi_hatalari({}), [])
 
+    def test_erzak_esigi_tek_kaynak(self):
+        self.assertTrue(dogrulayici.aclik_kademesi_hatalari({"aclik_saglik": {"erzak_esigi": 3}}))
+        self.assertEqual(dogrulayici.aclik_kademesi_hatalari(
+            {"aclik_saglik": {"kaynak": "res://data/koy/aclik_saglik.json"}}), [])
+
     def test_gercek_tablo_temiz(self):
         self.assertEqual(dogrulayici.main([]), 0)
 

@@ -261,12 +261,13 @@ def acilis_kasasi_hatalari(denge: dict) -> list:
 
 
 def aclik_kademesi_hatalari(denge: dict) -> list:
-    """DEN-25: açlık sayıları YSM-02 tablosunda kalır, yalnız kaynak yolu verilebilir."""
+    """DEN-25/27: açlık kademesi ve erzak eşiği kendi kaynaklarında kalır."""
     hatalar = []
     for ad, veri in denge.items():
         if ad == "aclik" or ad.startswith("aclik_"):
-            if veri != {"kaynak": "res://data/koy/aclik_kademeleri.json"}:
-                hatalar.append(f"{ad}: açlık kademesi ikinci kez yazılamaz; kaynak data/koy/aclik_kademeleri.json (DEN-25)")
+            kaynak = "aclik_saglik" if ad == "aclik_saglik" else "aclik_kademeleri"
+            if veri != {"kaynak": f"res://data/koy/{kaynak}.json"}:
+                hatalar.append(f"{ad}: açlık değeri ikinci kez yazılamaz; kaynak data/koy/{kaynak}.json (DEN-25/27)")
         elif isinstance(veri, dict):
             hatalar.extend(aclik_kademesi_hatalari(veri))
     return hatalar

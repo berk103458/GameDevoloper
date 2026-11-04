@@ -3522,7 +3522,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: YSM-02. Boyut: S.
   - Dosya: `tests/unit/denge/aclik_uretim_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-27:** Erzak eşiği KRI-12 ile aynıdır.
+- [x] **DEN-27:** (Kalfa) Erzak eşiği KRI-12 ile aynıdır.
   - Ne: erzak 3 gecenin altına inince sağlık eşiği KRI-12'dedir. Denge bunu ölçer, eşiği kopyalamaz.
   - Kabul: erzak 3 gecenin altına inince sağlık eşiği KRI-12'dedir. Denge bunu ölçer, eşiği kopyalamaz. Test: eşik sayısı bir.
   - Bağımlılık: KRI-12, YSM-01. Boyut: S.
