@@ -431,3 +431,34 @@ Doğrulayıcıları ve Godot headless testlerini çalıştır; Kalfa'nın biline
   4. AGENTS.md kuralları gereği Kalfa/Cursor'un yazdığı `dil_test.gd` veya `dil_ayari.gd` koduna dokunulması yasaktır.
 - **Yapılan İşlem:** Görev 10 Bölüm C kuralı 3 uyarınca ("Hazır bir yer yoksa yeni sistem kurma. Bunu 'Antigravity sorusu' olarak not et ve bu bölümü atla"), mevcut çalışan sisteme dokunulmadı ve testlerin 0 hata kalması sağlandı. Bununla birlikte Ahmet ve ekibin elinde hazır bulunması için menü, HUD, ayarlar, girdi ve arayüz anahtarlarının (250 anahtar) dönem diline uygun İngilizce çevirileri `docs/INGILIZCE_METIN_TASLAGI.csv` dosyasına eksiksiz olarak çıkarıldı.
 - **Soru:** Cursor/Kalfa `dil_test.gd` testini İngilizce translation dosyasının varlığına izin verecek şekilde güncellediğinde, bu 250 anahtar ve kapı diyalogları `metinler.csv`ye doğrudan dahil edilsin mi?
+
+---
+
+# Görev 11 — İngilizce taslağı tamamla, oyun dosyalarına dokunmadan (Kaşif, 4 Kasım 2026 05:20)
+
+Görev 10 bitti, eline sağlık. Dil testiyle ilgili 3. sorunu doğru yönettin: çekirdek dosyalara dokunmadın, testin değişip değişmeyeceğine Ahmet sabah karar verecek. Bu görevde aynı güvenli yoldan devam et. İlerleme dosyası: `codex.md/Antigravity_ilerleme_11.md`.
+
+## Bölüm A — metinler.csv'nin kalanı
+1. `docs/INGILIZCE_METIN_TASLAGI.csv`'de olmayan `data/metin/metinler.csv` anahtarlarını listele.
+2. Bu anahtarların İngilizce taslağını aynı dosyaya ekle. Sıra: öğretici ve ipuçları, olay metinleri, defter, sabah hükmü, sonlar ve epilog.
+3. Partiler halinde commit et. Commit mesajı "DIL-EN-…" ile başlasın, "(Antigravity)" ile bitsin.
+
+## Bölüm B — Diyaloglar
+1. Diyalog JSON'larının (ziyaretçi, köylü, eş sohbeti, `es_kapi_dusunceleri.json`, köy olayları) İngilizce taslağını `docs/ingilizce_diyalog/` klasörüne yaz. Her kaynak dosya için yapısı aynı olan bir kopya olsun; yalnız metin alanları İngilizce olsun.
+2. Düğüm kimliklerine, bayraklara ve dosya yapısına dokunma. Orijinal dosyaları değiştirme.
+3. Ziyaretçi ziyaretçi ilerle ve her birkaç dosyada bir commit et.
+
+## Bölüm C — Ton kontrolü
+1. Bitince taslağı baştan oku. Bakacakların: dönem havası (modern argo yok), karakter seslerinin ayrı kalması, isimlerin ve yer adlarının çevrilmemiş olması, terimlerin tutarlılığı (muhafız, kapı, divan gibi).
+2. Bir terim sözlüğü yaz: `docs/INGILIZCE_TERIM_SOZLUGU.md`.
+3. `docs/DIYALOG_GECE_OZETI.md`'ye Görev 11 için kısa bir bölüm ekle.
+
+En son ilerleme dosyasının son satırına tek başına `GOREV11_TAMAM` yaz.
+
+## Kurallar
+- Yalnız `docs/` altına yaz. Oyunun çalışan dosyalarını, testleri ve `metinler.csv`'yi değiştirme.
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at ve her commit'ten sonra push et. Kendi dalını festive'e birleştirme.
+- Kalfa'nın alanına ve Cursor'un koduna dokunma.
+- Asset üretme.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
+
