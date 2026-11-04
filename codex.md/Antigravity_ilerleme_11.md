@@ -12,7 +12,7 @@
 ## Genel Durum ve Plan
 - [/] **Bölüm A — metinler.csv'nin Kalanı:** `docs/INGILIZCE_METIN_TASLAGI.csv`'de henüz bulunmayan 1895 anahtarın dönem İngilizcesine uygun olarak eklenmesi.
   - [x] Parti A1: Öğretici, ipuçları, hafıza, defter, nöbet, sabah hükmü, anlatı, bar, bitki, eşya, heybe, karakter, kayıt, tez, yıl, açılış (162 anahtar eklendi)
-  - [ ] Parti A2: Olay metinleri (`olay.*`, 364 anahtar)
+  - [x] Parti A2: Olay metinleri (`olay.*`, 364 anahtar eklendi)
   - [ ] Parti A3: Köy metinleri (`koy.*`, 277 anahtar)
   - [ ] Parti A4: Şablon metinleri (`sablon.*`, 102 anahtar)
   - [ ] Parti A5: Sohbet metinleri (`sohbet.*`, 999 anahtar)

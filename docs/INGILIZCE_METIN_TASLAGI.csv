@@ -413,3 +413,386 @@ karakter.saruca_hatun.ad,Saruca Hatun,Saruca Hatun,taslak_tam
 karakter.sorhan.ad,Sorhan,Sorhan,taslak_tam
 karakter.thessra.ad,Thessra,Thessra,taslak_tam
 karakter.yusuf.ad,Yusuf,Yusuf,taslak_tam
+olay.ahi_haber.baslik,Kayseri'den haber,Tidings from Kayseri,taslak_tam
+olay.ahi_haber.metin,Kayseri'deki büyük Ahi ocağından bir haberci geldi. Yeni ocağı tanıyorlar.,A messenger arrived from the grand Ahi lodge in Kayseri. They formally recognize the new lodge.,taslak_tam
+olay.ahi_haber.secenek1,Ocağa bağlan,Bind to the lodge,taslak_tam
+olay.ahi_haber.secenek2,Bağımsız kal,Remain independent,taslak_tam
+olay.ahi_haber.sonuc1,Ocağın kuşağı Kayseri'den mühürlü geldi.,The sash of the brotherhood arrived bearing the seal of Kayseri.,taslak_tam
+olay.ahi_haber.sonuc2,Haberci kırgın döndü.,The messenger departed sullen and aggrieved.,taslak_tam
+olay.ambarda_hirsizlik.baslik,Zahire Ambarında Gece Hırsızlığı,Night Theft at the Granary,taslak_tam
+olay.ambarda_hirsizlik.metin,Gece yarısı köy zahire ambarının asma kilidi zorlanmış ve iki çuval tohumluk buğday çalınmış. Ahali kapıdan giren son yabancıları suçlar.,"At midnight, the padlock of the village granary was forced, and two sacks of seed wheat were stolen. The folk blame the newcomers admitted at the gate.",taslak_tam
+olay.ambarda_hirsizlik.secenek1,Nöbetçileri kışladan çıkartıp köy evlerini tek tek arat,Musters sentries from the barracks and search the village houses one by one,taslak_tam
+olay.ambarda_hirsizlik.secenek2,Saruca Hatun'un kefaletine güven; ambarı sessizce takviye et (2 akçe harca),Trust Saruca Hatun's surety; quietly replenish the granary (spend 2 akce),taslak_tam
+olay.ambarda_hirsizlik.secenek3,Hırsızlığı örtbas et; dedikodu çıkmasını engelle,Cover up the theft; quell rumors from spreading,taslak_tam
+olay.ambarda_hirsizlik.sonuc1,"Arama sert geçti, ahali huzursuz oldu amma buğdayın bir kısmı bulunup asayiş sağlandı.","The search was harsh, unsettling the villagers, yet part of the grain was recovered and order restored.",taslak_tam
+olay.ambarda_hirsizlik.sonuc2,Zarar kapatıldı; Saruca Hatun yetimlerin hakkını gözetip hırsızı gizlice uyardı.,The loss was remedied; Saruca Hatun guarded the rights of orphans and gave discreet warning to the culprit.,taslak_tam
+olay.ambarda_hirsizlik.sonuc3,Olay sessizce kapandı amma ambar bekçisi şüphe içinde nöbet tutuyor.,"The matter was hushed up, yet the granary watchman stands guard in gnawing suspicion.",taslak_tam
+olay.asik.baslik,Kopuzlu Âşık,The Wandering Bard with Kopuz,taslak_tam
+olay.asik.dinle,"Meydanda meclis kur, çalsın söylesin",Convene an assembly in the square; let him pluck and sing,taslak_tam
+olay.asik.gonder,"Köyün derdi kendine yeter, yola revan olsun",The village has enough sorrow of its own; send him on his road,taslak_tam
+olay.asik.metin,"Akşam alacasında kapıya kopuzunu sırtlamış bir gezgin âşık yanaşır. Bozkırın türkülerini, beylerin cengini ve gurbet havalarını fısıldar; köylünün bağrı yanıktır.","At twilight, a wandering bard with a kopuz strapped to his back nears the gate. He chants songs of the steppe, the clashes of beys, and the melancholy of exile; the hearts of the folk ache.",taslak_tam
+olay.asik.sonuc1,"Âşık tellere dokundu; çınar altında toplanan ahali türkülerle dert unuttu, ocaklar şenlendi.","The bard plucked the strings; gathered under the plane tree, the villagers forgot their grief in song, and hearts were cheered.",taslak_tam
+olay.asik.sonuc2,Âşık boynunu büküp yola koyuldu; köy meydanı sessiz ve soğuk kaldı.,The bard bowed his head and trudged onward; the village square remained bleak and silent.,taslak_tam
+olay.aydogdu_oba.baslik,Obanın gelişi,Arrival of the Clan,taslak_tam
+olay.aydogdu_oba.metin,"Aydoğdu'nun obası kapıya dayandı: yirmi kişi, otuz koyun, iki kağnı.","Aydogdu's clan arrived at the gate: twenty souls, thirty sheep, two ox-carts.",taslak_tam
+olay.aydogdu_oba.secenek1,Hepsini al,Admit them all,taslak_tam
+olay.aydogdu_oba.secenek2,Yalnız savaşanları al,Admit only the warriors,taslak_tam
+olay.aydogdu_oba.secenek3,Obayı geri gönder,Turn the clan away,taslak_tam
+olay.aydogdu_oba.sonuc1,Koyunlar ambarı doldurdu; çadırlar köyü kalabalıklaştırdı.,The sheep replenished the stores; the tents made the village crowded.,taslak_tam
+olay.aydogdu_oba.sonuc2,Obanın kadınları ve çocukları yollarına devam etti. Aydoğdu onları uğurlarken dönmedi.,The women and children of the clan trudged onward. Aydogdu did not look back as he saw them off.,taslak_tam
+olay.aydogdu_oba.sonuc3,Aydoğdu sabah atına bindi ve obasının peşine düştü.,"At dawn, Aydogdu mounted his steed and rode out to pursue his clan.",taslak_tam
+olay.ayse_tezgah.baslik,Bacıların tezgâhı,Loom of the Sisters,taslak_tam
+olay.ayse_tezgah.metin,"Ayşe Bacı köyün kadınlarını tezgâhın başına topladı. Kilim dokuyacaklar, satacaklar.",Ayse Baci gathered the women of the village at the loom. They intend to weave rugs and sell them in market.,taslak_tam
+olay.ayse_tezgah.secenek1,Destekle (iki akçe),Support them (two akce),taslak_tam
+olay.ayse_tezgah.secenek2,Kadınların işi tarlada,Women's place is in the fields,taslak_tam
+olay.ayse_tezgah.sonuc1,İlk kilim pazarda üç akçeye gitti.,The first rug fetched three akce at the market.,taslak_tam
+olay.ayse_tezgah.sonuc2,Tezgâh bir köşeye kaldırıldı.,The loom was stowed away in a corner.,taslak_tam
+olay.bebek.baslik,Yeni doğan,A Newborn,taslak_tam
+olay.bebek.ad_koy,,Name the child and offer a blessing,taslak_tam
+olay.bebek.kutla,,Send a loaf of bread and a scoop of honey to the home,taslak_tam
+olay.bebek.metin,Kapıdan geçen bir ailenin kızı köyde doğum yaptı. Köyde doğan ilk çocuk.,"In one of the huts by the palisade, a woman has delivered a healthy boy. The father brings tidings to the gate with flushed cheeks.",taslak_tam
+olay.bebek.sonuc1,Çocuğa köyün adı verildi.,You bestowed a brave warrior’s name upon the child; the parents thanked you with tears in their eyes.,taslak_tam
+olay.bebek.sonuc2,Ebe akçeyi çocuğun beşiğine bağladı.,The hearth was warmed with honey and bread; the blessing of plenty was invoked upon the village.,taslak_tam
+olay.bey_daveti.baslik,Beyin daveti,The Bey's Summons,taslak_tam
+olay.bey_daveti.metin,Bölgenin beyi seni sofrasına çağırıyor. Köyünü kendi himayesine almak istiyor.,A horseman bearing the Sanjak Bey's banner rode up. The Bey summons you to dinner at his seat.,taslak_tam
+olay.bey_daveti.secenek1,Himayeyi kabul et,Ride to the banquet,taslak_tam
+olay.bey_daveti.secenek2,Nazikçe geri çevir,"Refuse, pleading the gate cannot be left unattended",taslak_tam
+olay.bey_daveti.sonuc1,"Bey'in sancağı kapının üstüne asıldı. Vergi artık senden değil, beyin adamlarından sorulacak.",The Bey spoke highly of your vigil and rewarded you with a pouch of coin.,taslak_tam
+olay.bey_daveti.sonuc2,Bey bir şey demedi. Beyler bir şey demezler.,The courier departed frowning; the Bey does not take kindly to cold excuses.,taslak_tam
+olay.dervis.baslik,Gezgin derviş,The Wandering Dervish,taslak_tam
+olay.dervis.dua,,Humbly ask for his blessing upon the march,taslak_tam
+olay.dervis.ekmek,,Fill his wooden bowl with warm soup and bread,taslak_tam
+olay.dervis.metin,"Bir gezgin derviş kapının dibinde geceledi. Batıdan, uçlardan haber getiriyor.","A barefoot dervish wearing a felt cloak stands by the threshold. He leans upon his staff, gazing into the eyes of men as though reading their ledger of sins.",taslak_tam
+olay.dervis.sonuc1,"Derviş sabah giderken Söğüt diye bir yerden, orada toplanan Türkmenlerden söz etti.",The dervish lifted his palms and murmured a prayer; a tranquil calm descended upon the gatehouse.,taslak_tam
+olay.dervis.sonuc2,Derviş dua etti ve yürüdü.,"The traveler broke bread, blessed the sustenance, and vanished into the evening mist.",taslak_tam
+olay.dugun.baslik,Düğün,A Wedding Celebration,taslak_tam
+olay.dugun.metin,"İki aile, kapıdan ayrı ayrı girmiş iki genci evlendirmek istiyor.",The blacksmith Karaca Usta is giving his apprentice in marriage to the daughter of the miller. The entire village prepares for a feast.,taslak_tam
+olay.dugun.secenek1,Düğün ver (üç akçe),Contribute five akce to the feast table from the communal purse,taslak_tam
+olay.dugun.secenek2,Sade bir nikâh yeter,Attend the wedding and dance the halay with the elders,taslak_tam
+olay.dugun.secenek3,Şimdi sırası değil,Keep watches doubled; weddings breed drunken negligence,taslak_tam
+olay.dugun.sonuc1,Bir gece boyunca kimse kapıyı düşünmedi.,"The drums beat till dawn, roast mutton was shared, and the villagers toasted your benevolence.",taslak_tam
+olay.dugun.sonuc2,Nikâhı köyün en yaşlısı kıydı.,Your presence in the dance honored the hosts; respect for the gatekeeper deepened.,taslak_tam
+olay.dugun.sonuc3,Gençler bir şey demedi. Aileler dedi.,"While merriment echoed, the vigilant watch caught two prowlers attempting to scale the orchard wall.",taslak_tam
+olay.ertugrul_haberi.baslik,Batıdan haber,Tidings from the West,taslak_tam
+olay.ertugrul_haberi.metin,"Batıda, Söğüt yöresinde Ertuğrul adında bir Türkmen beyi uçlarda adam topluyor. Haberci senden de söz almak istiyor.",Couriers speak of Ertugrul Gazi securing strong footholds toward Sogut and Domanic. The Byzantine border is stirring.,taslak_tam
+olay.ertugrul_haberi.secenek1,Ertuğrul'a haber gönder,Send an envoy pledging fraternal loyalty,taslak_tam
+olay.ertugrul_haberi.secenek2,Uzak dur,Tend strictly to our own borders,taslak_tam
+olay.ertugrul_haberi.sonuc1,Haberci sabah batıya yola çıktı. Ardından iki atlı daha gitti.,Our riders returned bearing gifts and warm greetings from the west.,taslak_tam
+olay.ertugrul_haberi.sonuc2,Söğüt uzak. Tekfur yakın.,"We kept our eyes fixed on our own palisades, minding our own perimeter.",taslak_tam
+olay.firari_cenazesi.baslik,Dağ Geçidinde Donan Garibin Cenazesi,Burial of the Vagrant Frozen in the Pass,taslak_tam
+olay.firari_cenazesi.metin,Avcılar dağ geçidinde donarak ölmüş bir kaçağın cesedini bulup kapı önüne getirdi. Köylüler cenazenin köy mezarlığına defnedilip helallik verilmesini ister.,The corpse of an unknown fugitive who froze to death in the northern mountain pass was brought before the gate. The village imam asks where to lay him to rest.,taslak_tam
+olay.firari_cenazesi.secenek1,Köy mezarlığına İslami usulle defnettir ve helallik verdir,Bury him in the village graveyard with full funeral rites and shroud,taslak_tam
+olay.firari_cenazesi.secenek2,Cesedi dağ ardındaki kimsesizler vadisine gömdür,"Bury him outside the palisade, past the road marker, without drawing notice",taslak_tam
+olay.firari_cenazesi.secenek3,"Sancak subaşısına haber sal, cenazeyi beklet",Send a rider to the nearby castle to inquire if a bounty hangs on his head,taslak_tam
+olay.firari_cenazesi.sonuc1,Cenaze dualarla kaldırıldı; ahali muhafızın merhametine şahitlik etti.,The prayer was held solemnly; the folk appreciated that no soul was denied mercy in death.,taslak_tam
+olay.firari_cenazesi.sonuc2,Garip sessizce vadiye gömüldü; köylülerin yüreğinde bir burukluk kaldı.,He was interred beyond the wall; superstition and unease gripped the village outskirts.,taslak_tam
+olay.firari_cenazesi.sonuc3,Ceset günlerce bekletildi; sancak inzibatı gelmeyince köyde huzursuzluk büyüdü.,"The garrison across the border claimed no knowledge, and the corpse was interred in cold delay.",taslak_tam
+olay.gece_donu.baslik,Erken Bastıran Gece Ayazı,Sudden Midnight Frost,taslak_tam
+olay.gece_donu.metin,Kuzeyden inen kuru ayaz su arklarını dondurdu. Bostanlardaki son kışlık sebzeler ve bağ fidanları don vurma tehlikesiyle karşı karşıya kaldı.,A merciless frost descended upon the village before nightfall. The newly planted greens and stored root vegetables risk freezing in the huts.,taslak_tam
+olay.gece_donu.secenek1,Tarlaların çevresinde saman dumanı tüttürüp donu kır,Distribute firewood from the communal stockpile to all needy homes,taslak_tam
+olay.gece_donu.secenek2,Mahsulü hemen toplatıp köy ambarına doldur,Open the warm stables and workshops for shelter,taslak_tam
+olay.gece_donu.secenek3,Ayaza karşı tedbir alma; fidanların dayanıklılığına güven,Keep stores sealed; let each hearth fend with its own wood,taslak_tam
+olay.gece_donu.sonuc1,Tüttürülen duman ayazı kırdı; bağ fidanları ve bostanlar bahara sağ salim ulaştı.,Communal firewood preserved the warmth; no infant or elder succumbed to the cold.,taslak_tam
+olay.gece_donu.sonuc2,Gece boyu süren hasatla iki çuval kışlık sebze ambara girdi; köylü kışa hazırlandı.,Folk and beasts slept huddled under shared roofs; camaraderie warmed the bitter frost.,taslak_tam
+olay.gece_donu.sonuc3,Don mahsulü yaktı; yapraklar kararınca rençberler kış telaşına düştü.,"Several pens lost lambs to the freeze, and bitter complaints reached the gate.",taslak_tam
+olay.harami_elcisi.baslik,Dağ Çetesinden Gelen Tehdit Pusulası,Threatening Note from Mountain Brigands,taslak_tam
+olay.harami_elcisi.metin,"Dağdaki harami reisi köy muhafızına bir çobanla pusula gönderdi: 'Kışlığımızı verin, yoksa koyunlarınızı ve değirmeninizi ateşe veririz!'","A hooded rider flung an arrow wrapped in parchment into the gatepost: ""Pay thirty akce by the full moon, or your mills and outlying crops burn.""",taslak_tam
+olay.harami_elcisi.secenek1,"Pusulayı yırt at, kule nöbetini iki katına çıkar!","Scorn the threat, double the gate sentries, and sharpen the stakes",taslak_tam
+olay.harami_elcisi.secenek2,"Kan dökülmesin diye çeteye erzak ve harçlık gönder (2 akçe, 3 ambar harca)",Send an intermediary to negotiate a smaller tribute (10 akce),taslak_tam
+olay.harami_elcisi.secenek3,Pusu kur: Çobanla haber gönderip haramileri dere boyuna çek!,Lure their envoys into an ambush at the crossroads,taslak_tam
+olay.harami_elcisi.sonuc1,Kulede meşaleler sabaha kadar yandı; haramiler surların azametini görüp dağa çekildi.,The palisade was bristling with archers; the outlaws tested the approaches and slunk away.,taslak_tam
+olay.harami_elcisi.sonuc2,Erzak çeteye teslim edildi; tehlike savuşturuldu amma köylünün ambarı hafifledi.,"A compromise was struck; blood was spared, though the tribute stung our treasury.",taslak_tam
+olay.harami_elcisi.sonuc3,Dere boyunda kurulan pusuda iki harami vuruldu; ele geçen heybelerden köy kasasına ganimet girdi.,Two brigands were slain in the trap; the rest retreated into the high crags swearing vengeance.,taslak_tam
+olay.harman.baslik,Harman,Threshing Floor,taslak_tam
+olay.harman.metin,Harman yerine demetler serildi. Düveni çekecek öküzler hazır; birinin davulun ritmine uyup onları sürmesi gerek.,"The threshing has ended. The farmers await the division of grain between the commune, the tithe, and the seed store.",taslak_tam
+olay.harman.secenek1,Düveni sen sür,Grant the farmers an extra share,taslak_tam
+olay.harman.secenek2,Çiftçiler halletsin,Adhere strictly to the Bey’s customary tax,taslak_tam
+olay.harman.secenek3,,Stockpile all surplus in the communal granary for lean winter,taslak_tam
+olay.harman.sonuc1,"Saman savruldu, tane ambara aktı. Çiftçiler başını salladı.",The farmers praised your generosity across every hearth.,taslak_tam
+olay.harman.sonuc2,İş ağır ama sağlam gitti.,The customary dues were collected without protest or incident.,taslak_tam
+olay.harman.sonuc3,,"The granaries swelled full, though some grumbled at their lightened flour bags.",taslak_tam
+olay.hasan_defter.baslik,Kâtibin defteri,The Scribe's Ledger,taslak_tam
+olay.hasan_defter.metin,"Hasan Çelebi köyün defterini tuttu. Kim ne getirdi, kim ne yedi, kim ne borçlu — hepsi yazılı.",Hasan Celebi uncovered a discrepancy in the taxation scrolls: three merchants paid less toll than recorded.,taslak_tam
+olay.hasan_defter.secenek1,Deftere göre vergi topla,Summon the merchants and demand back-taxes,taslak_tam
+olay.hasan_defter.secenek2,Defteri yalnız ambar için kullan,Pardon the shortfall in the spirit of trade goodwill,taslak_tam
+olay.hasan_defter.secenek3,Defteri yak,Audit Hasan Celebi’s own accounts to ensure honesty,taslak_tam
+olay.hasan_defter.sonuc1,Kasa doldu. Halk defterden korkmaya başladı.,The merchants begrudgingly paid the owed akce; justice was upheld.,taslak_tam
+olay.hasan_defter.sonuc2,Ambarda artık hiçbir şey kaybolmuyor.,Trade flowed smoothly and merchants spoke well of the village hospitality.,taslak_tam
+olay.hasan_defter.sonuc3,Halk bir gece ateşin başında güldü. Hasan ağladı.,"The scribe was offended by the suspicion, yet his ledgers proved immaculate.",taslak_tam
+olay.hirsizlik.baslik,Pazarda hırsızlık,Theft at the Market,taslak_tam
+olay.hirsizlik.metin,Pazardan bir top kumaş ve bir kese çalındı. Esnaf suçluyu istiyor.,A visiting cloth merchant shouts in fury: two bolts of scarlet silk were stolen from his cart while he bargained.,taslak_tam
+olay.hirsizlik.secenek1,"Suçluyu bul, cezalandır",Search the market crowd and seal the exits,taslak_tam
+olay.hirsizlik.secenek2,Zararı köy kasasından öde,Compensate the merchant half the loss from the toll coffer,taslak_tam
+olay.hirsizlik.secenek3,Esnafın işine karışma,Tell him vigilance is his own duty and dismiss the complaint,taslak_tam
+olay.hirsizlik.sonuc1,Suçlu yeni gelenlerden biriydi. Herkes bunu hatırlayacak.,The thief was cornered behind the tanneries; the silk was returned and the rogue put in irons.,taslak_tam
+olay.hirsizlik.sonuc2,Esnaf memnun. Hırsız hâlâ aralarında.,"The merchant left appeased, though the treasury bore the penalty.",taslak_tam
+olay.hirsizlik.sonuc3,Pazarda kepenkler erken iniyor artık.,"The merchant packed his goods in rancor, swearing never to trade at our gates again.",taslak_tam
+olay.kacak_koylu.baslik,Gece kaçanlar,Night Runaways,taslak_tam
+olay.kacak_koylu.metin,Gece köyden üç kişi kaçmaya çalışırken nöbetçiler yakaladı.,"Three tenant peasants fleeing the heavy dues of the neighboring Byzantine feudal lord crossed the creek at dusk, begging for sanctuary.",taslak_tam
+olay.kacak_koylu.secenek1,"Geri getir, ders olsun",Grant them asylum and assign them to the fallow fields,taslak_tam
+olay.kacak_koylu.secenek2,Bırak gitsinler,Hand them back to the Tekfur’s border reeves to prevent strife,taslak_tam
+olay.kacak_koylu.sonuc1,Kaçaklar geri getirildi. Bir daha kimse denemedi. Henüz.,"The men took up the plow with fervent gratitude, strengthening our agricultural labor.",taslak_tam
+olay.kacak_koylu.sonuc2,Kapı arkalarından kapandı. Bu sefer içeriden.,They were returned in chains; the village felt a chill of dishonor.,taslak_tam
+olay.kadi.baslik,Sancak Kadı Naibi,Deputy Kadi of the Sanjak,taslak_tam
+olay.kadi.metin,Sancak Divanı'ndan heybetli bir kadı naibi atından iner. Yanındaki katiplerle tahrir defterini açar; köyün asayişini ve zemin kayıtlarını teftişe niyetlenir.,The deputy judge arrived with his clerks to review border disputes and inheritance deeds.,taslak_tam
+olay.kadi.secenek1,,Present the court with a feast and open all registers,taslak_tam
+olay.kadi.secenek2,,Let him conduct his business curtly without state fanfare,taslak_tam
+olay.kadi.sonuc1,Kadı naibi tahrir defterini mühürledi; adalet terazisi köyde güven tazeledi.,The Kadi praised the lawful order of your settlement and confirmed land entitlements.,taslak_tam
+olay.kadi.sonuc2,Teftiş yarım kaldı; naip kaşlarını çatarak atını sancağa doğru mahmuzladı.,The court proceeded routinely and departed without notable acclaim.,taslak_tam
+olay.kapi_acilisi.baslik,Sancak Beyi’nin beratı,The Sanjak Bey's Patent,taslak_tam
+olay.kapi_acilisi.metin,,"The parchment bearing the Sanjak Bey's tughra has been unrolled: you are officially entrusted with the gate, the toll, and the march.",taslak_tam
+olay.kapi_acilisi.onayla,,Accept the charge with solemn vow,taslak_tam
+olay.kapi_acilisi.sonuc,,The heavy oaken gate swings open on iron hinges. The frontier vigil has commenced.,taslak_tam
+olay.karaca_ocak.baslik,Ahi ocağı,The Ahi Forge,taslak_tam
+olay.karaca_ocak.metin,"Karaca Usta, pazarın yanında bir Ahi ocağı kurmak istiyor. Çıraklar yemin edecek, esnaf birbirine kefil olacak.","Karaca Usta wishes to recruit three young apprentices to forge scythes, horseshoes, and spearheads.",taslak_tam
+olay.karaca_ocak.secenek1,Ocağa izin ver,Fund iron and coal from the village fund,taslak_tam
+olay.karaca_ocak.secenek2,Önce Kayseri'ye olan borcunu öde,Let the smithy sustain itself on commercial orders,taslak_tam
+olay.karaca_ocak.sonuc1,Ocağın kapısına bir kuşak asıldı. O gece pazar her zamankinden kalabalıktı.,Sparks flew high; sturdy tools and sharp iron bolstered our village defense.,taslak_tam
+olay.karaca_ocak.sonuc2,Karaca borcunu ödedi ama ocağı kurmaktan söz etmedi bir daha.,"Work progressed slowly as coal was scarce, yet no gold was lost.",taslak_tam
+olay.kavga_harman.baslik,Harman Yeri Sınır Kavgası,Border Brawl at the Threshing Floor,taslak_tam
+olay.kavga_harman.metin,Köy meydanında iki rençber ailesi harman taşının paylaşımı yüzünden yaba ve dirgenlerle birbirine girdi. Köylüler ikiye bölündü; kan dökülmek üzeredir.,A violent quarrel broke out between the old villagers and newly settled refugees over the boundary ditch dividing the grain piles.,taslak_tam
+olay.kavga_harman.secenek1,"Adalet divanını topla, harman taşını eşit paylaştır","Ride between them, plant a boundary stone by decree, and fine the brawlers",taslak_tam
+olay.kavga_harman.secenek2,Sert çıkış: Kavga çıkaranlara para cezası kes ve taşları kışlaya bağla,Let the council of village elders arbitrate the dispute under the oak,taslak_tam
+olay.kavga_harman.secenek3,Köyün ambarından ortak harman tahsisi yap (2 ambar harca),Confiscate the disputed pile of grain for the communal granary,taslak_tam
+olay.kavga_harman.sonuc1,Adalet divanında verilen hüküm iki aileyi de yatıştırdı; köyde adalet duygusu güçlendi.,A firm hand suppressed the brawl; justice was served without bloodshed.,taslak_tam
+olay.kavga_harman.sonuc2,Kavga bastırıldı amma rençberler muhafıza kin besledi; kışla kasasına akçe girdi.,"The elders spent half the day deliberating, reaching a peaceful compromise.",taslak_tam
+olay.kavga_harman.sonuc3,Ambar tahsisiyle harman kuruldu; ahali muhafızın cömertliğine dua etti.,"Both parties resented the confiscation, but the brawl ceased immediately.",taslak_tam
+olay.kervan.baslik,Kervan,The Grand Caravan,taslak_tam
+olay.kervan.metin,Halep'ten Sivas'a giden bir kervan kervansarayda konaklamak istiyor.,"A rich caravan laden with Persian silks, Damascus spices, and salt blocks asks for night quarter in the kervansaray.",taslak_tam
+olay.kervan.secenek1,Konuk et,Charge standard tolls and provide full night guard,taslak_tam
+olay.kervan.secenek2,Ağır bir geçiş akçesi iste,Offer escort through the bandit-infested defile for extra silver,taslak_tam
+olay.kervan.secenek3,Askerlerine eşlik ettir,Turn them away fearing they may harbor plague or spies,taslak_tam
+olay.kervan.sonuc1,Kervancılar haber getirdi: güneydeki yollar hâlâ açık.,The caravan rested securely and spent generously at local shops.,taslak_tam
+olay.kervan.sonuc2,Kervan ödedi. Bir dahaki sefere başka yoldan gidecekler.,The escort led them safely through; the caravan master praised our valor.,taslak_tam
+olay.kervan.sonuc3,Kervan güvenle geçti. Kışla bir gece boş kaldı.,"The caravan marched onward, taking its wealth to a rival settlement.",taslak_tam
+olay.kitlik.baslik,Ambarın dibi,Bottom of the Granary,taslak_tam
+olay.kitlik.metin,"Ambarın dibi göründü. Çuvallar boş, ekmek ince.",Severe winter and poor harvests have depleted grain stores. Bread portions must be rationed.,taslak_tam
+olay.kitlik.secenek1,Beyden zahire iste,Ration grain strictly: half-portion per soul,taslak_tam
+olay.kitlik.secenek2,"Pazar malını sat, buğday al",Buy grain from passing merchants even at exorbitant prices,taslak_tam
+olay.kitlik.secenek3,Tayını yarıya indir,Send hunting parties into the northern woods for game,taslak_tam
+olay.kitlik.sonuc1,Zahire geldi; yanında bir de mektup: 'Unutmayız.',"Belts tightened, but the stores lasted until early thaw.",taslak_tam
+olay.kitlik.sonuc2,Pazar bir gün boş kaldı. Ambar doldu.,"The coffer emptied rapidly, but no child went hungry.",taslak_tam
+olay.kitlik.sonuc3,Kimse aç ölmedi. Kimse tok da uyumadı.,Hunters returned with deer and wild boar; spirits rose in adversity.,taslak_tam
+olay.koy_dugunu.baslik,Yetim Kızın Köy Düğünü,Village Wedding of the Orphan Maid,taslak_tam
+olay.koy_dugunu.metin,Köyün demirci kalfası ile kapıdan sığınan yetim bir Türkmen kızı evlenmek ister. Ahali meydanda davul zurna çalıp toy kurmak için muhafızdan destur ve yardım bekler.,The orphan maiden raised by Saruca Hatun is marrying a shepherd lad. The village desires a joyful celebration despite the grim times.,taslak_tam
+olay.koy_dugunu.secenek1,"Köy ambarından toy aşı ver, düğünü beylik namına şenlendir (2 ambar, 1 akçe harca)",Provide a sheep from communal stock and anoint the couple with good will,taslak_tam
+olay.koy_dugunu.secenek2,"Sade bir nikah kıyılmasına izin ver, ambarı koru",Exempt the groom from sentry duty for three nights,taslak_tam
+olay.koy_dugunu.secenek3,Kış ortasında toy kurulmasını yasakla; nöbeti sıkı tut,Keep celebration modest; permit neither excess expense nor loud noise,taslak_tam
+olay.koy_dugunu.sonuc1,Köy meydanında kurulan toyda etli pilav dağıtıldı; ahalinin neşesi dağların ayazını kırdı.,The wedding feast lifted village morale; hope was renewed along the frontier.,taslak_tam
+olay.koy_dugunu.sonuc2,"Nikah sade geçti; iki garip yuva kurdu, ambarın buğdayı köyde kaldı.",The groom was profoundly grateful; his kin became loyal allies.,taslak_tam
+olay.koy_dugunu.sonuc3,Düğün hevesi kursaklarda kaldı; köylü muhafızın katılığından dert yandı.,"The rite was brief and sober, preserving resources for harsher days.",taslak_tam
+olay.kurt.baslik,Ağıldaki kurt,The Wolf in the Fold,taslak_tam
+olay.kurt.metin,Gece ağıldan uluma geldi. Sabah iki koyun eksikti; çamurda iri pençe izleri var.,"A pack of hungry wolves raided the sheep pens under cover of fog, killing five ewes and injuring a shepherd.",taslak_tam
+olay.kurt.secenek1,Askerleri pusuya yatır,Dispatch huntsmen to track and eliminate the wolf pack,taslak_tam
+olay.kurt.secenek2,Ağılı taşla çevir (iki akçe),Fortify the pen palisades and assign extra hounds,taslak_tam
+olay.kurt.secenek3,Kaderine bırak,Compensate the shepherd for his loss from the village fund,taslak_tam
+olay.kurt.sonuc1,Kurdun postu kapının üstüne asıldı.,Three wolf pelts were brought back; the woods were made safer.,taslak_tam
+olay.kurt.sonuc2,Taş duvar bir günde örüldü. Kurt bir daha gelmedi.,Stronger barriers kept the beasts at bay on subsequent nights.,taslak_tam
+olay.kurt.sonuc3,Kurt üç gece daha geldi.,"The shepherd wept in gratitude, relieved of devastating ruin.",taslak_tam
+olay.miraen_cavus.baslik,Selçuklu çavuşu,The Seljuk Sergeant,taslak_tam
+olay.miraen_cavus.metin,Bir Selçuklu çavuşu kapıya geldi. Bozgundan kaçanları arıyor. Listesinde Miraen'in adı var.,Sergeant Miraen reports that border discipline has slackened and recommends rigorous drills for the garrison nefers.,taslak_tam
+olay.miraen_cavus.secenek1,Miraen'i teslim et,Authorize grueling daily drill and weapons training,taslak_tam
+olay.miraen_cavus.secenek2,Burada öyle biri yok de,Keep training moderate to avoid wearing out the men,taslak_tam
+olay.miraen_cavus.secenek3,Çavuşun eline üç akçe sıkıştır,Direct attention to repairing walls and digging trenches instead,taslak_tam
+olay.miraen_cavus.sonuc1,Miraen karşı çıkmadı. Giderken kırık kınını kapının dibine bıraktı.,"The garrison became razor-sharp, ready for sudden cavalry assaults.",taslak_tam
+olay.miraen_cavus.sonuc2,Çavuş inanmadı ama ısrar da etmedi. Miraen o gece nöbete kendisi çıktı.,The men maintained high morale without excessive exhaustion.,taslak_tam
+olay.miraen_cavus.sonuc3,Çavuş listeye bir çizgi çekti ve atına bindi.,The fortifications stood renewed and formidable against siege.,taslak_tam
+olay.mogol_duman.baslik,Ufukta duman,Smoke on the Horizon,taslak_tam
+olay.mogol_duman.metin,"Doğuda, tepelerin ardında duman var. Moğol öncüleri olabilir; yanan bir köy de olabilir.",Thick columns of black smoke rose to the east. Scouts report a Mongol scouting party raiding outlying hamlets.,taslak_tam
+olay.mogol_duman.secenek1,Yarın gece kapıyı kapalı tut,"Bar the gates, raise drawbridges, and light warning beacons",taslak_tam
+olay.mogol_duman.secenek2,Nöbeti iki katına çıkar,Dispatch fast horsemen to rescue survivors from the hamlets,taslak_tam
+olay.mogol_duman.secenek3,Kaçanlara kapıyı aç,Prepare tribute and peace emissaries to avoid confrontation,taslak_tam
+olay.mogol_duman.sonuc1,Ertesi gece kapının önünde kimse beklemedi. Ya da kimse kapıyı çalmadı.,The gates held firm; the marauders bypassed our defended walls.,taslak_tam
+olay.mogol_duman.sonuc2,Gece boyu kimse uyumadı. Duman sabaha doğru dağıldı.,A dozen fleeing families were brought inside safely before nightfall.,taslak_tam
+olay.mogol_duman.sonuc3,O gece kapıya her zamankinden çok insan geldi.,The riders accepted silver and withdrew without burning our fields.,taslak_tam
+olay.nogay_haber.baslik,Dilmacın uyarısı,Warning of the Interpreter,taslak_tam
+olay.nogay_haber.metin,Nogay geceyarısı yanına geldi: 'Moğol öncülerinin işaretini tanıyorum. Yolun kenarındaki taşlar dizilmiş.',Nogay warns that foreign merchant bands are inquiring suspiciously about village stockpile locations and gate guard rosters.,taslak_tam
+olay.nogay_haber.secenek1,"Taşları dağıt, izleri sil",Place suspicious foreigners under covert surveillance,taslak_tam
+olay.nogay_haber.secenek2,Nogay'ı casus diye kov,Expel suspects beyond the march boundary immediately,taslak_tam
+olay.nogay_haber.sonuc1,Ertesi gece yol sessizdi.,A hidden letter addressed to enemy raiders was intercepted.,taslak_tam
+olay.nogay_haber.sonuc2,Nogay hiçbir şey demeden gitti. Taşlar yerinde kaldı.,"The foreigners were ejected, leaving the village securely guarded.",taslak_tam
+olay.okculuk.baslik,Okçuluk yarışı,The Archery Tourney,taslak_tam
+olay.okculuk.metin,Askerler kışlanın arkasına bir hedef dikmiş; köyün gençleri de sıraya girmiş. Senin de bir yay tutup tutmayacağını merak ediyorlar.,The youth and veteran soldiers gather at the shooting butts to compete for a prize bow of horn and sinew.,taslak_tam
+olay.okculuk.secenek1,"Yayı al, sen de at",Offer five akce prize to the winner,taslak_tam
+olay.okculuk.secenek2,Ödülü sen koy (iki akçe),Step onto the line and take part in the match yourself,taslak_tam
+olay.okculuk.secenek3,Ok boşa harcanmaz,Use the gathering to recruit the best marksmen into the gate guard,taslak_tam
+olay.okculuk.sonuc1,Son ok da yerine oturdu. Kışladan bir uğultu yükseldi.,Cheers resounded; the victor hoisted your banner high.,taslak_tam
+olay.okculuk.sonuc2,Ödülü bir çoban kazandı. Ertesi gün kışlaya yazıldı.,"Your arrow split the target mark, earning roar of admiration.",taslak_tam
+olay.okculuk.sonuc3,Hedef söküldü. Gençler dağıldı.,Three sharp-eyed archers were added to our ramparts.,taslak_tam
+olay.pazar_gunu.baslik,Pazar günü,Market Day,taslak_tam
+olay.pazar_gunu.metin,Komşu obalardan tüccarlar geldi. Pazar hiç bu kadar kalabalık olmamıştı.,Caravans and peasants from three valleys converge on the village square. Trade bustles with vibrant energy.,taslak_tam
+olay.pazar_gunu.secenek1,Bac al (pazar vergisi),Lower market dues to stimulate higher trade volume,taslak_tam
+olay.pazar_gunu.secenek2,"Bac alma, bol olsun",Enforce strict weights and measures inspections,taslak_tam
+olay.pazar_gunu.sonuc1,"Kasa doldu, tüccarlar söylendi.",Merchants flocked in droves; commerce flourished briskly.,taslak_tam
+olay.pazar_gunu.sonuc2,Tüccarlar gelecek ay yine geleceklerini söylediler.,"Fraudulent scales were broken, earning praise from the poor.",taslak_tam
+olay.salgin.baslik,Öksürük,The Coughing Sickness,taslak_tam
+olay.salgin.metin,"Köyde öksürük yayılıyor. Önce çocuklar, sonra yaşlılar.",A persistent fever and barking cough has taken hold of several cottages. The herbalist warns it may spread.,taslak_tam
+olay.salgin.secenek1,Thessra'nın ilaçlarını kullan,Quarantine the afflicted huts and provide herbal teas,taslak_tam
+olay.salgin.secenek2,Hastaları ayır,Open the apothecary stores and purchase vinegar and mint,taslak_tam
+olay.salgin.secenek3,"Sabret, geçer",Carry on normally; trust in hardy constitutions,taslak_tam
+olay.salgin.sonuc1,Thessra üç gece uyumadı. Kimse ölmedi.,The sickness was contained within isolated quarters and abated.,taslak_tam
+olay.salgin.sonuc2,Hastaların çadırı köyün dışına kuruldu. Biri sabaha çıkmadı.,Remedies alleviated suffering; recovery came swiftly.,taslak_tam
+olay.salgin.sonuc3,Geçti. Ama herkes kimin öksürdüğünü hatırladı.,The illness spread to more households before fading away.,taslak_tam
+olay.salgin_fisiltisi.baslik,Kuyu Başında Salgın Fısıltısı,Plague Whispers by the Well,taslak_tam
+olay.salgin_fisiltisi.metin,Köy kuyusundan su çeken iki kadının boğazında mor lekeler görüldüğü söylentisi yayıldı. Ahali kapıdan giren yabancıların veba getirdiğini fısıldayarak dehşete düştü.,Women drawing water at dawn spread rumors that a newly arrived traveler drank from the communal well while burning with black spots on his neck.,taslak_tam
+olay.salgin_fisiltisi.secenek1,Kuyuya kireç döktür ve şifacı Miraen'e köyü muayene ettir (1 akçe harca),"Seal the well, boil all drinking water, and test the traveler’s health",taslak_tam
+olay.salgin_fisiltisi.secenek2,Şüpheli haneleri zorla karantina çadırına kapat,Summon Thessra and the healers to examine the well and dispel panic,taslak_tam
+olay.salgin_fisiltisi.secenek3,"Söylentiyi kulak ardı et, kuyu başındaki nöbeti artır",Punish the rumor-mongers for creating baseless terror,taslak_tam
+olay.salgin_fisiltisi.sonuc1,Kireç ve şifalı otlar kokuyu dağıttı; Miraen veba olmadığını anlayınca köy derin bir nefes aldı.,Precautionary measures halted hysteria; the well water proved pure.,taslak_tam
+olay.salgin_fisiltisi.sonuc2,Karantina çadırı feryatlarla doldu; asayiş sağlandı amma ailelerin canı yandı.,Thessra reassured the folk with medicinal herbs and rational guidance.,taslak_tam
+olay.salgin_fisiltisi.sonuc3,Kuyu başında nöbet tutuldu amma köyün kadınları günlerce testilerini doldurmaya korktu.,"The rumors quieted down, though people still eyed the water warily.",taslak_tam
+olay.samanlik_yangini.baslik,Gece Samanlık Yangını,Midnight Barn Fire,taslak_tam
+olay.samanlik_yangini.metin,Gece yarısı alt köyün samanlığından alevler yükseldi. Kundaklama şüphesi vardır; rüzgâr yangını ahşap evlere doğru sürüklüyor.,Flames erupted in the community hay barn in the dead of night. Sparks fly toward nearby residential thatch roofs.,taslak_tam
+olay.samanlik_yangini.secenek1,Tüm köyü ve nöbetçileri kovalara koştur; yangını söndür,Mobilize the bucket brigade and tear down connecting thatched sheds,taslak_tam
+olay.samanlik_yangini.secenek2,"Samanlığı feda et, hendek kazıp evleri emniyete al",Evacuate livestock from adjoining stables first,taslak_tam
+olay.samanlik_yangini.secenek3,Kışla askerini kundakçıyı yakalamak için çevreye sal,Focus all water solely on shielding the grain storehouse,taslak_tam
+olay.samanlik_yangini.sonuc1,Birlik olan köylüler alevleri bastırdı; samanlığın yarısı yandı amma evler kurtuldu.,"The blaze was conquered before spreading to dwellings, though fodder was lost.",taslak_tam
+olay.samanlik_yangini.sonuc2,Samanlık kül oldu amma hendek sayesinde hiçbir cana ve haneye zarar gelmedi.,Every cow and horse was saved unharmed; the village praised your quick thinking.,taslak_tam
+olay.samanlik_yangini.sonuc3,Askerler ormanda şüpheli bir harami gözcüsünü kıskıvrak yakalayıp kışlaya kapattı.,"The granary emerged unscathed, securing our bread supply.",taslak_tam
+olay.saruca_tohum.baslik,Tohum,The Seed Stock,taslak_tam
+olay.saruca_tohum.metin,Saruca Hatun'un getirdiği tohum ambarda bekliyor. Kış yaklaşıyor.,Saruca Hatun requests that the best grain be set aside strictly for planting next season rather than milled for flour.,taslak_tam
+olay.saruca_tohum.secenek1,"Tarla aç, toprağa ver",Lock away seed sacks under her personal seal,taslak_tam
+olay.saruca_tohum.secenek2,"Ambara kat, kışı çıkaralım",Mill part of it now to relieve immediate bread shortages,taslak_tam
+olay.saruca_tohum.sonuc1,İlk gece kimse bir şey görmedi. Ama köy artık her gece biraz daha fazla ürün kaldıracak.,The future harvest was safeguarded against short-sighted hunger.,taslak_tam
+olay.saruca_tohum.sonuc2,Ambar doldu. Saruca bir şey demedi; çocuğun ipini sıktı.,"Loaves were baked today, but planting season may prove meager.",taslak_tam
+olay.sira.baslik,,The Queue at the Gate,taslak_tam
+olay.sira.metin,,"A long line of wagons, refugees, and pilgrims waits patiently before the gate in the cold morning wind.",taslak_tam
+olay.sira.secenek1,,Accelerate inspections to clear the line before dark,taslak_tam
+olay.sira.secenek2,,"Maintain thorough, unhurried checks on every soul",taslak_tam
+olay.sira.sonuc1,,The crowd entered without bottleneck before sundown.,taslak_tam
+olay.sira.sonuc2,,Not a single hidden contraband slipped past our scrutiny.,taslak_tam
+olay.sira_atlama.baslik,Sıra kapan,Line Cutter,taslak_tam
+olay.sira_atlama.metin,Sıranın arkasındaki {kisi} dirsekleriyle öne doğru ilerliyor. Bekleyenler homurdanıyor.,"An arrogant merchant with three laden mules pushed ahead of waiting women and elders, demanding immediate entry.",taslak_tam
+olay.sira_atlama.secenek1,Sırasına geri gönder,Send him to the very back of the line and levy a double toll,taslak_tam
+olay.sira_atlama.secenek2,"Elindeki akçeyi al, öne geçsin",Permit him through if he pays extra fee for expedited processing,taslak_tam
+olay.sira_atlama.sonuc1,Sıradaki {kisi} söylene söylene geri döndü. Bekleyenler başlarıyla seni selamladı.,The crowd cheered the enforcement of fair order.,taslak_tam
+olay.sira_atlama.sonuc2,İki akçe avucuna düştü. Arkada biri yere tükürdü.,"The treasury gained coin, though waiting folk grumbled.",taslak_tam
+olay.sira_bayilma.baslik,Yere yığılan,Collapse in Line,taslak_tam
+olay.sira_bayilma.metin,Sıradaki {kisi} sendeledi ve yere yığıldı.,An elderly woman carrying a bundle collapsed on the frozen earth after waiting hours in line.,taslak_tam
+olay.sira_bayilma.secenek1,Su ve ekmek gönder (1 ambar),"Carry her into the guardhouse, revive her with warm broth, and admit her",taslak_tam
+olay.sira_bayilma.secenek2,Sıra yürüsün,Have her companions tend to her by the roadside fires,taslak_tam
+olay.sira_bayilma.secenek3,,Call the village apothecary immediately,taslak_tam
+olay.sira_bayilma.sonuc1,Yere düşen {kisi} doğruldu; ekmeği ikiye bölüp yanındakine verdi.,She regained her strength and blessed the gatekeeper with heartfelt tears.,taslak_tam
+olay.sira_bayilma.sonuc2,Yere düşen {kisi} yolun kenarına çekildi. Sıra yürüdü.,Her kin tended to her by the fire until she could stand.,taslak_tam
+olay.sira_bayilma.sonuc3,,Herbal tinctures revived her safely.,taslak_tam
+olay.sira_kavga.baslik,Kavga,Fight in the Queue,taslak_tam
+olay.sira_kavga.metin,Sıradaki {kisi} yanındakiyle bir su testisi yüzünden kavgaya tutuştu.,Two armed grooms from rival trade companies began trading blows over grazing spots by the ditch.,taslak_tam
+olay.sira_kavga.secenek1,"Araya gir, ayır",Send guards to disarm both men and throw them in the stockade,taslak_tam
+olay.sira_kavga.secenek2,"Karışma, kendileri bitirsin",Order their masters to resolve the dispute or lose their passage,taslak_tam
+olay.sira_kavga.sonuc1,İkisini de bileğinden tuttun. Testiyi ikisine verdin; yarısı döküldü.,The brawl was quelled instantly; weapons were confiscated.,taslak_tam
+olay.sira_kavga.sonuc2,Kavga kendi kendine bitti. Birinin kaşı yarıldı.,The caravan masters silenced their servants swiftly.,taslak_tam
+olay.sira_panik.baslik,Arkadan atlılar,Panic: Riders Approaching,taslak_tam
+olay.sira_panik.metin,Sıradaki {kisi} bağırıyor: arkadan atlılar geliyormuş. Sıra kıpırdanıyor.,"A sudden shout arose from the rear: ""Horsemen approaching through the dust!"" People surge toward the gate.",taslak_tam
+olay.sira_panik.secenek1,"Sakin olun, kapı açık",Hold the gate firm and calm the crowd with firm voice,taslak_tam
+olay.sira_panik.secenek2,Nöbetçileri yola sal,Open the wicket gate and allow women and children in first,taslak_tam
+olay.sira_panik.sonuc1,Sıra sustu. Kimse yerinden kıpırdamadı.,The horsemen turned out to be our own scouts; calm was restored.,taslak_tam
+olay.sira_panik.sonuc2,Nöbetçiler döndü: yolda yalnız bir kervan var.,The vulnerable were sheltered safely without trampling.,taslak_tam
+olay.sira_vazgecen.baslik,Vazgeçen,Turning Back,taslak_tam
+olay.sira_vazgecen.metin,"Sıranın sonundaki {kisi} bir süre kapıya baktı, sonra döndü ve yola koyuldu.","A family with two small children turned their cart around, weary of the cold and waiting.",taslak_tam
+olay.sira_vazgecen.secenek1,"Seslen, geri çağır",Call them forward and grant them priority inspection,taslak_tam
+olay.sira_vazgecen.secenek2,Bırak gitsin,Let them depart in peace if they wish,taslak_tam
+olay.sira_vazgecen.sonuc1,"Seslendin. Durdu, düşündü, sonra sırasına döndü.",The family was admitted and sheltered from the frost.,taslak_tam
+olay.sira_vazgecen.sonuc2,Yol onu yuttu. Sıra bir kişi kısaldı.,They took the southern road toward warmer valleys.,taslak_tam
+olay.sorhan_damga.baslik,Damgalı atlar,Branded Horses,taslak_tam
+olay.sorhan_damga.metin,Bir Türkmen beyinin adamları geldi. Sorhan'ın getirdiği atlardaki damga onların.,Sorhan suspects that five fine stallions brought by a trader bear the tamga of a raided Seljuk imperial stud farm.,taslak_tam
+olay.sorhan_damga.secenek1,Atları geri ver,Seize the horses for the border garrison,taslak_tam
+olay.sorhan_damga.secenek2,Sorhan'ı koru,Interrogate the trader about their provenance,taslak_tam
+olay.sorhan_damga.secenek3,Atları beş akçeye satın al,Permit passage upon payment of high livestock duty,taslak_tam
+olay.sorhan_damga.sonuc1,Adamlar atları alıp gitti. Sorhan bir süre kimseyle konuşmadı.,The steeds bolstered our cavalry patrol immensely.,taslak_tam
+olay.sorhan_damga.sonuc2,Adamlar dönerken arkalarına baktılar. Uçta kin unutulmaz.,The trader confessed to buying them cheaply from bandits.,taslak_tam
+olay.sorhan_damga.sonuc3,Atlar köyün oldu. Kışlanın ilk binekleri.,The coffers swelled with hefty duty.,taslak_tam
+olay.sur_catlak.baslik,Surda çatlak,Fissure in the Palisade,taslak_tam
+olay.sur_catlak.metin,Gece saldırısından sonra surda bir çatlak açıldı.,Winter frost and ground movement caused a wide crack in the stone footing of the western palisade.,taslak_tam
+olay.sur_catlak.secenek1,Ustalara onart (beş akçe),Mobilize stonecutters and timber-men for immediate repair,taslak_tam
+olay.sur_catlak.secenek2,Köylüleri çalıştır,Shore it up temporarily with oak timber and earth,taslak_tam
+olay.sur_catlak.secenek3,"Bırak, şimdilik dayanır",Post a permanent guard until spring weather permits mason work,taslak_tam
+olay.sur_catlak.sonuc1,Sur sabaha onarıldı.,The wall footing was restored stronger than before.,taslak_tam
+olay.sur_catlak.sonuc2,"Herkes taş taşıdı. Kimse şikâyet etmedi, kimse teşekkür etmedi.",The emergency props held securely against collapse.,taslak_tam
+olay.sur_catlak.sonuc3,Çatlak her gece biraz daha uzadı.,A sentry watched the breach faithfully day and night.,taslak_tam
+olay.tarla_cekirge.baslik,Çekirge,Locust Swarm,taslak_tam
+olay.tarla_cekirge.metin,Doğudan bir çekirge bulutu geliyor. Gökyüzü vızıldıyor.,A swarm of locusts from the southern steppe descended on the barley plots.,taslak_tam
+olay.tarla_cekirge.secenek1,"Duman yak, kov (1 ambar)",Drive them off with smoke fires and noise across the fields,taslak_tam
+olay.tarla_cekirge.secenek2,Kaderine bırak,Reap whatever unripe crops can be salvaged immediately,taslak_tam
+olay.tarla_cekirge.sonuc1,Islak samanı yaktınız. Çekirgeler tarlaların üstünden geçip gitti.,"Smoke diverted the swarm, saving the majority of the crop.",taslak_tam
+olay.tarla_cekirge.sonuc2,Çekirgeler bir gece kaldı. Hasat yarıya indi.,Partial yield was salvaged into the barn.,taslak_tam
+olay.tarla_don.baslik,Erken don,Early Ground Frost,taslak_tam
+olay.tarla_don.metin,Gece ayaz çıktı. Sabaha karşı tarlaları kırağı bastı.,Sudden frost glazed the young crops with white rime.,taslak_tam
+olay.tarla_don.secenek1,Tarlaları örttür (2 akçe),Burn damp straw along field borders to shield against frost,taslak_tam
+olay.tarla_don.secenek2,Örtecek bir şey yok,Wait out the morning sun and assess damage,taslak_tam
+olay.tarla_don.sonuc1,"Keçeler, çuvallar, kilimler... Ne bulduysanız tarlaya serdiniz. Ekin kurtuldu.","Warm smoke blanketed the fields, rescuing the sprouts.",taslak_tam
+olay.tarla_don.sonuc2,Genç ekinler dondu. Toprağı yeniden sürmek gerekecek.,"Some shoots were nipped, but resilient roots survived.",taslak_tam
+olay.tarla_kuraklik.baslik,Kuraklık,Summer Drought,taslak_tam
+olay.tarla_kuraklik.metin,"Günlerdir yağmur yok. Toprak çatladı, ekinler boynunu büktü.",Weeks have passed without a raindrop; irrigation ditches are cracked and dry.,taslak_tam
+olay.tarla_kuraklik.secenek1,Kuyudan su taşıt,Organize collective digging to deepen the spring channel,taslak_tam
+olay.tarla_kuraklik.secenek2,"Bekle, yağmur gelir",Ration well water strictly between beasts and crops,taslak_tam
+olay.tarla_kuraklik.sonuc1,"Halk bütün gün kova taşıdı. Ekinler kurtuldu, sırtlar ağrıdı.","Fresh water surged from the hillside, quenching parched soil.",taslak_tam
+olay.tarla_kuraklik.sonuc2,Yağmur gelmedi. Ekinler bir gece geriledi.,Judicious rationing prevented thirst through the dry spell.,taslak_tam
+olay.tarla_yagmur.baslik,Bereketli yağmur,Bountiful Rain,taslak_tam
+olay.tarla_yagmur.metin,Gece boyu ince ince yağmur yağdı. Sabah tarlalar ışıldıyordu.,"Gentle, soaking rains have fallen for three days, blessing soil and springs.",taslak_tam
+olay.tarla_yagmur.secenek1,Şükret,Hold a communal prayer of thanksgiving at the plane tree,taslak_tam
+olay.tarla_yagmur.secenek2,"Ark kazdır, suyu tut (2 akçe)",Direct runoff channels into storage cisterns,taslak_tam
+olay.tarla_yagmur.sonuc1,Ekinler bir gecede bir karış uzadı.,Spirits soared as green shoots surged vigorously.,taslak_tam
+olay.tarla_yagmur.sonuc2,Arklardan su şırıldadı. Ekinler iki gecelik yol aldı.,Cisterns filled to the brim with crystal water.,taslak_tam
+olay.tekfur_elcisi.baslik,Tekfur'un elçisi,The Tekfur's Envoy,taslak_tam
+olay.tekfur_elcisi.metin,"Tekfur'un elçisi geldi. Sözü kısa: her ay haraç öde, köyün rahat etsin.",An ornate embassy bearing the Byzantine double eagle arrives with demands from the local Tekfur.,taslak_tam
+olay.tekfur_elcisi.secenek1,Haracı kabul et (sekiz akçe),Receive them with dignified frontier ceremony,taslak_tam
+olay.tekfur_elcisi.secenek2,Reddet,Demand they state their terms outside the gate,taslak_tam
+olay.tekfur_elcisi.secenek3,"Oyala, cevabı sonra ver",Dismiss their haughty demands with sharp rebuke,taslak_tam
+olay.tekfur_elcisi.sonuc1,Elçi parayı aldı. Tekfur'un adamları o gece tepelerden inmedi.,Negotiations were conducted with mutual civility.,taslak_tam
+olay.tekfur_elcisi.sonuc2,Elçi gülümsedi ve gitti. Gülümsemesi iyi bir şey değildi.,The envoy delivered his message standing under our arrows.,taslak_tam
+olay.tekfur_elcisi.sonuc3,Elçi bir gece daha bekleyeceğini söyledi.,The envoy rode back in dismay at our unyielding resolve.,taslak_tam
+olay.thessra_afyon.baslik,Eksik şişe,The Missing Vial,taslak_tam
+olay.thessra_afyon.metin,"Thessra'nın kutusundan bir şişe eksik. Sabah, değirmenin arkasında uyuşmuş bir adam bulundu.","Thessra reports that a potent tincture bottle is missing from her clinic shelf, possibly taken by someone seeking oblivion or poison.",taslak_tam
+olay.thessra_afyon.secenek1,Thessra'yı sorguya çek,Conduct discrete inquiries through trusted village women,taslak_tam
+olay.thessra_afyon.secenek2,"Kutuyu kilitle, anahtar sende dursun",Issue an open warning about the lethal peril of the medicine,taslak_tam
+olay.thessra_afyon.secenek3,Görmezden gel,Search the barracks lockers,taslak_tam
+olay.thessra_afyon.sonuc1,Thessra bir şey demedi. Ertesi gün kutuyu sana getirdi; kapağı açıktı.,The vial was retrieved from an unhappy youth before harm was done.,taslak_tam
+olay.thessra_afyon.sonuc2,Kutuyu soran hekimler artık sana geliyor. Her biri bir akçe bırakıyor.,"The warning terrified the thief, who left the vial on the mosque doorstep.",taslak_tam
+olay.thessra_afyon.sonuc3,Pazarda şişeler el altından dolaşmaya başladı.,The barracks were clean; discipline was reaffirmed.,taslak_tam
+olay.vergi_tahsildari.baslik,Tahsildar,The Imperial Tax Collector,taslak_tam
+olay.vergi_tahsildari.metin,"Beyin tahsildarı geldi. Yanında iki atlı, elinde defter.",The Seljuk Sultan’s tax collector arrives with armed retinue to collect the sovereign tribute.,taslak_tam
+olay.vergi_tahsildari.secenek1,Dört akçe öde,Pay the full assessed tribute without dispute,taslak_tam
+olay.vergi_tahsildari.secenek2,Ambardan öde,Plead frontier hardship and negotiate a reduced levy,taslak_tam
+olay.vergi_tahsildari.secenek3,Ödemeyi reddet,Bribe the collector to write a lenient appraisal,taslak_tam
+olay.vergi_tahsildari.sonuc1,"Tahsildar parayı saydı, defterine bir şey yazdı, gitti.",The Sultan’s receipt was stamped in gold wax.,taslak_tam
+olay.vergi_tahsildari.sonuc2,Çuvallar atlara yüklendi. Halk arkalarından baktı.,The tax was reduced in consideration of our garrison defense.,taslak_tam
+olay.vergi_tahsildari.sonuc3,Tahsildar kapıdan çıkarken köyün adını yüksek sesle tekrarladı.,The collector took the purse and recorded minimal liabilities.,taslak_tam
+olay.yangin.baslik,Samanlıkta yangın,Haystack Blaze,taslak_tam
+olay.yangin.metin,Gece yarısı samanlıktan alev yükseldi. Rüzgâr evlere doğru esiyor.,A runaway spark ignited a haystack behind the stables.,taslak_tam
+olay.yangin.secenek1,Herkes kovaya!,Smother the flames with wet wool blankets and dirt,taslak_tam
+olay.yangin.secenek2,"Evleri koru, samanlık yansın",Pull the stack apart with iron hooks to isolate the fire,taslak_tam
+olay.yangin.sonuc1,"Kuyudan samanlığa bir insan zinciri kuruldu. Sabah herkes isliydi, ama evler ayaktaydı.",The fire was snuffed out before reaching wooden walls.,taslak_tam
+olay.yangin.sonuc2,Samanlık kül oldu. Evlere kıvılcım bile değmedi.,Hooks dragged the burning straw into the open creek bed.,taslak_tam
+olay.yusuf_keci.baslik,Keçi,Yusuf's Goats,taslak_tam
+olay.yusuf_keci.metin,Yusuf'un keçisi bir sabah kapının önünde bekliyordu. Yanında dört keçi daha.,"Yusuf let his stubborn goats wander into the communal vineyard, nibbling prized tender vines.",taslak_tam
+olay.yusuf_keci.secenek1,Sürü Yusuf'un olsun,Order Yusuf to compensate the vintner with goat milk and cheese,taslak_tam
+olay.yusuf_keci.secenek2,Keçiler köyün malı,Pardon the shepherd with stern warning not to repeat it,taslak_tam
+olay.yusuf_keci.sonuc1,Yusuf o gün ilk kez güldü.,"The vintner enjoyed sweet cheese, and peace was maintained.",taslak_tam
+olay.yusuf_keci.sonuc2,Ambar doldu. Yusuf ipi yine eline aldı ve bir şey demedi.,"Yusuf herded his goats away in haste, mindful of his duty.",taslak_tam
+olay.bebek.secenek1,Ziyafet ver (bir ambar),Option: Ziyafet ver (bir ambar),taslak_tam
+olay.bebek.secenek2,Ebeye bir akçe gönder,Option: Ebeye bir akçe gönder,taslak_tam
+olay.dervis.secenek1,Misafir et,Option: Misafir et,taslak_tam
+olay.dervis.secenek2,"Ekmek ver, uğurla","Option: Ekmek ver, uğurla",taslak_tam
+olay.harman.sonuc1_az,"Öküzler ritmi kaçırdı, düven sekti. Çiftçiler işi senden devraldı.","Outcome: Öküzler ritmi kaçırdı, düven sekti. Çiftçiler işi senden devraldı.",taslak_tam
+olay.okculuk.sonuc1_az,Oklar saman balyasına gömüldü; hedefe pek değmedi. Askerler gülmemeye çalıştı.,Outcome: Oklar saman balyasına gömüldü; hedefe pek değmedi. Askerler gülmemeye çalıştı.,taslak_tam
+olay.sira.kisi.kadin,bir kadın,bir kadın,taslak_tam
+olay.sira.kisi.adam,bir adam,bir adam,taslak_tam
+olay.sira.kisi.cocuk,bir çocuk,bir çocuk,taslak_tam
+olay.sira.kisi.yasli_kadin,yaşlı bir kadın,yaşlı bir kadın,taslak_tam
+olay.sira.kisi.yasli_adam,yaşlı bir adam,yaşlı bir adam,taslak_tam
+olay.sira.kisi.biri,biri,biri,taslak_tam
+olay.sira_bayilma.sonuc_olum,Yere düşen {kisi} hayatını kaybetti. Cenaze gece raporuna yazılacak.,Outcome: Yere düşen {kisi} hayatını kaybetti. Cenaze gece raporuna yazılacak.,taslak_tam
+olay.sira_bayilma.rapor_olum,Kapı kuyruğunda {kisi} hayatını kaybetti; mevcut cenaze kaydı açıldı.,Kapı kuyruğunda {kisi} hayatını kaybetti; mevcut cenaze kaydı açıldı.,taslak_tam
+olay.sira_bayilma.sonuc_sakatlik,Yere düşen {kisi} ayağa kalktı ama ağır yaralandı; kabul edilirse düşük sağlıkla girecek.,Outcome: Yere düşen {kisi} ayağa kalktı ama ağır yaralandı; kabul edilirse düşük sağlıkla girecek.,taslak_tam
+olay.sira_bayilma.rapor_sakatlik,Yere düşen {kisi} ayağa kalktı ama ağır yaralandı; kabul edilirse düşük sağlıkla girecek.,Yere düşen {kisi} ayağa kalktı ama ağır yaralandı; kabul edilirse düşük sağlıkla girecek.,taslak_tam
+olay.sira_bayilma.sonuc_ayrilma,Yere düşen {kisi} güçlükle kalkıp sıradan ayrıldı.,Outcome: Yere düşen {kisi} güçlükle kalkıp sıradan ayrıldı.,taslak_tam
+olay.sira_bayilma.rapor_ayrilma,Yere düşen {kisi} güçlükle kalkıp sıradan ayrıldı.,Yere düşen {kisi} güçlükle kalkıp sıradan ayrıldı.,taslak_tam
+olay.sira_bayilma.sonuc_toparlanma,Yere düşen {kisi} soluklanıp ayağa kalktı ve sırasına döndü.,Outcome: Yere düşen {kisi} soluklanıp ayağa kalktı ve sırasına döndü.,taslak_tam
+olay.sira_bayilma.rapor_toparlanma,Yere düşen {kisi} soluklanıp ayağa kalktı ve sırasına döndü.,Yere düşen {kisi} soluklanıp ayağa kalktı ve sırasına döndü.,taslak_tam
+olay.sira_bayilma.sonuc_yardim,Yere düşen {kisi} su ve ekmekle toparlandı; yardım ambardan karşılandı.,Outcome: Yere düşen {kisi} su ve ekmekle toparlandı; yardım ambardan karşılandı.,taslak_tam
+olay.sira_bayilma.rapor_yardim,Yere düşen {kisi} su ve ekmekle toparlandı; yardım ambardan karşılandı.,Yere düşen {kisi} su ve ekmekle toparlandı; yardım ambardan karşılandı.,taslak_tam
+olay.kapi_acilisi.berat,Sancak Beyi’nin buyruğudur: bu uç kapısını tutacaksın. Bu yurt sığınana açıktır. Ulağın sözü biter; elindeki beratı teslim eder ve yola döner. Ardından ilk aile kapıda belirir.,Sancak Beyi’nin buyruğudur: bu uç kapısını tutacaksın. Bu yurt sığınana açıktır. Ulağın sözü biter; elindeki beratı teslim eder ve yola döner. Ardından ilk aile kapıda belirir.,taslak_tam
+olay.kapi_acilisi.devam,Berat teslim edildi,Berat teslim edildi,taslak_tam
+olay.kapi_acilisi.berat.sonuc1,Berat teslim edildi; ilk aile kapıda bekliyor.,Outcome: Berat teslim edildi; ilk aile kapıda bekliyor.,taslak_tam
+olay.kadi.dinle,"Buyur et, divan defterini önüne ser","Buyur et, divan defterini önüne ser",taslak_tam
+olay.kadi.gecistir,"Beyimiz seferdedir de, teftişi savuştur","Beyimiz seferdedir de, teftişi savuştur",taslak_tam
