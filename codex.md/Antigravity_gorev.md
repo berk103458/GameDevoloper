@@ -650,3 +650,9 @@ Ahmet'in ekranından gerçek kota: Gemini haftalık %84, 5 saatlik %78 kaldı; C
 
 Ahmet işleri paralel ajanlara dağıttı. Sen (ana ajan) şunları yap: Karar 1.1 ve Karar 3'ün iki sonu, 7 maddenin hepsini `ROADMAP_2.md`'ye ekleme (bunu önce yap ve hemen festive'e push et, diğer ajanlar bekliyor), sonra **sadece ANL-EPI-01'in epilog metinleri ve KVR-SES-01'in hava replikleri**. Şu maddeleri YAPMA, başka ajanlar yapıyor: ES-GECM-01 ve SES-DIL-01 (ajan B), ANL-DON-01 (ajan C), SOY-SON-01 ve MECLIS-ARA-01 (ajan D). ROADMAP'te bunların sahibi "Antigravity-B/C/D" olsun.
 
+
+
+## Parti 5 iş bölümü (Kaşif, 09:35)
+
+Parti 5'te sen sadece **ANL-EPI-01** epilog metinlerini yap ve bitince GOREV17_TAMAM yaz. KVR-SES-01 metinlerini ajan C, SES-DIL-01'i ajan B yapıyor; ajan D sabahki maddeleri denetliyor. Bunlara başladıysan bıraktığın yeri ilerleme dosyasına yaz ve commit et, devam etme.
+
