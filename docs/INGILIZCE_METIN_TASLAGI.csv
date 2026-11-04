@@ -118,7 +118,7 @@ arayuz.son.tutundu,Uç tutundu.,The Frontier Held.,taslak_tam
 arayuz.son.tutundu_metin,Tekfur'un adamları bir sabah gelmedi. Köy kışı çıkardı. Kapı hâlâ açılıp kapanıyor.,One morning the Tekfur's horsemen did not appear. The settlement made it through the winter. The gate still opens and closes.,taslak_tam
 arayuz.son.yeniden,Yeniden başla,Restart,taslak_tam
 arayuz.son.zafer,Uç bağımsız,The Frontier is Free,taslak_tam
-arayuz.son.zafer_metin,"Tekfur'un üçüncü baskısı da surun dibinde dağıldı. Köy artık kimseye haraç vermiyor; kapı senin, sözün senin.","The Tekfur's third assault broke against the ramparts. The village pays tribute to no lord; the gate is yours, your word is law.",taslak_tam
+arayuz.son.zafer_metin,"Tekfur'un üçüncü baskısı da surun dibinde dağıldı. Köy artık kimseye haraç vermiyor; kapı senin, sözün senin.","The Tekfur's third assault broke against the ramparts. The village pays tribute to no foreign overlord; the gate is yours, your word is law.",taslak_tam
 arayuz.tarla.baslik,Tarlalar (%d),Grain Fields (%d),taslak_tam
 arayuz.tarla.bos,boş,empty,taslak_tam
 arayuz.tarla.durum,%s %d/%d,%s %d/%d,taslak_tam
@@ -528,7 +528,7 @@ olay.hirsizlik.sonuc1,Suçlu yeni gelenlerden biriydi. Herkes bunu hatırlayacak
 olay.hirsizlik.sonuc2,Esnaf memnun. Hırsız hâlâ aralarında.,"The merchant left appeased, though the treasury bore the penalty.",taslak_tam
 olay.hirsizlik.sonuc3,Pazarda kepenkler erken iniyor artık.,"The merchant packed his goods in rancor, swearing never to trade at our gates again.",taslak_tam
 olay.kacak_koylu.baslik,Gece kaçanlar,Night Runaways,taslak_tam
-olay.kacak_koylu.metin,Gece köyden üç kişi kaçmaya çalışırken nöbetçiler yakaladı.,"Three tenant peasants fleeing the heavy dues of the neighboring Byzantine feudal lord crossed the creek at dusk, begging for sanctuary.",taslak_tam
+olay.kacak_koylu.metin,Gece köyden üç kişi kaçmaya çalışırken nöbetçiler yakaladı.,"Three tenant peasants fleeing the heavy dues of the neighboring Byzantine Tekfur crossed the creek at dusk, begging for sanctuary.",taslak_tam
 olay.kacak_koylu.secenek1,"Geri getir, ders olsun",Grant them asylum and assign them to the fallow fields,taslak_tam
 olay.kacak_koylu.secenek2,Bırak gitsinler,Hand them back to the Tekfur’s border reeves to prevent strife,taslak_tam
 olay.kacak_koylu.sonuc1,Kaçaklar geri getirildi. Bir daha kimse denemedi. Henüz.,"The men took up the plow with fervent gratitude, strengthening our agricultural labor.",taslak_tam
@@ -662,33 +662,33 @@ olay.sira.secenek2,,"Maintain thorough, unhurried checks on every soul",taslak_t
 olay.sira.sonuc1,,The crowd entered without bottleneck before sundown.,taslak_tam
 olay.sira.sonuc2,,Not a single hidden contraband slipped past our scrutiny.,taslak_tam
 olay.sira_atlama.baslik,Sıra kapan,Line Cutter,taslak_tam
-olay.sira_atlama.metin,Sıranın arkasındaki {kisi} dirsekleriyle öne doğru ilerliyor. Bekleyenler homurdanıyor.,"An arrogant merchant with three laden mules pushed ahead of waiting women and elders, demanding immediate entry.",taslak_tam
+olay.sira_atlama.metin,Sıranın arkasındaki {kisi} dirsekleriyle öne doğru ilerliyor. Bekleyenler homurdanıyor.,"{kisi} at the rear of the line pushes forward with elbows out. Those waiting grumble.",taslak_tam
 olay.sira_atlama.secenek1,Sırasına geri gönder,Send him to the very back of the line and levy a double toll,taslak_tam
 olay.sira_atlama.secenek2,"Elindeki akçeyi al, öne geçsin",Permit him through if he pays extra fee for expedited processing,taslak_tam
-olay.sira_atlama.sonuc1,Sıradaki {kisi} söylene söylene geri döndü. Bekleyenler başlarıyla seni selamladı.,The crowd cheered the enforcement of fair order.,taslak_tam
-olay.sira_atlama.sonuc2,İki akçe avucuna düştü. Arkada biri yere tükürdü.,"The treasury gained coin, though waiting folk grumbled.",taslak_tam
+olay.sira_atlama.sonuc1,Sıradaki {kisi} söylene söylene geri döndü. Bekleyenler başlarıyla seni selamladı.,"{kisi} in the queue muttered under their breath and returned to their place. Those waiting nodded in respect.",taslak_tam
+olay.sira_atlama.sonuc2,İki akçe avucuna düştü. Arkada biri yere tükürdü.,"Two akce dropped into your palm. Behind you, someone spat on the ground.",taslak_tam
 olay.sira_bayilma.baslik,Yere yığılan,Collapse in Line,taslak_tam
-olay.sira_bayilma.metin,Sıradaki {kisi} sendeledi ve yere yığıldı.,An elderly woman carrying a bundle collapsed on the frozen earth after waiting hours in line.,taslak_tam
+olay.sira_bayilma.metin,Sıradaki {kisi} sendeledi ve yere yığıldı.,"{kisi} in the queue stumbled and collapsed onto the ground.",taslak_tam
 olay.sira_bayilma.secenek1,Su ve ekmek gönder (1 ambar),"Carry her into the guardhouse, revive her with warm broth, and admit her",taslak_tam
 olay.sira_bayilma.secenek2,Sıra yürüsün,Have her companions tend to her by the roadside fires,taslak_tam
 olay.sira_bayilma.secenek3,,Call the village apothecary immediately,taslak_tam
-olay.sira_bayilma.sonuc1,Yere düşen {kisi} doğruldu; ekmeği ikiye bölüp yanındakine verdi.,She regained her strength and blessed the gatekeeper with heartfelt tears.,taslak_tam
-olay.sira_bayilma.sonuc2,Yere düşen {kisi} yolun kenarına çekildi. Sıra yürüdü.,Her kin tended to her by the fire until she could stand.,taslak_tam
+olay.sira_bayilma.sonuc1,Yere düşen {kisi} doğruldu; ekmeği ikiye bölüp yanındakine verdi.,"{kisi} who had fallen stood back up, broke the bread in two, and shared it with the neighbor.",taslak_tam
+olay.sira_bayilma.sonuc2,Yere düşen {kisi} yolun kenarına çekildi. Sıra yürüdü.,"{kisi} who had fallen was pulled to the roadside. The queue moved on.",taslak_tam
 olay.sira_bayilma.sonuc3,,Herbal tinctures revived her safely.,taslak_tam
 olay.sira_kavga.baslik,Kavga,Fight in the Queue,taslak_tam
-olay.sira_kavga.metin,Sıradaki {kisi} yanındakiyle bir su testisi yüzünden kavgaya tutuştu.,Two armed grooms from rival trade companies began trading blows over grazing spots by the ditch.,taslak_tam
+olay.sira_kavga.metin,Sıradaki {kisi} yanındakiyle bir su testisi yüzünden kavgaya tutuştu.,"{kisi} in the queue broke into a brawl with their neighbor over a water jug.",taslak_tam
 olay.sira_kavga.secenek1,"Araya gir, ayır",Send guards to disarm both men and throw them in the stockade,taslak_tam
 olay.sira_kavga.secenek2,"Karışma, kendileri bitirsin",Order their masters to resolve the dispute or lose their passage,taslak_tam
 olay.sira_kavga.sonuc1,İkisini de bileğinden tuttun. Testiyi ikisine verdin; yarısı döküldü.,The brawl was quelled instantly; weapons were confiscated.,taslak_tam
 olay.sira_kavga.sonuc2,Kavga kendi kendine bitti. Birinin kaşı yarıldı.,The caravan masters silenced their servants swiftly.,taslak_tam
 olay.sira_panik.baslik,Arkadan atlılar,Panic: Riders Approaching,taslak_tam
-olay.sira_panik.metin,Sıradaki {kisi} bağırıyor: arkadan atlılar geliyormuş. Sıra kıpırdanıyor.,"A sudden shout arose from the rear: ""Horsemen approaching through the dust!"" People surge toward the gate.",taslak_tam
+olay.sira_panik.metin,Sıradaki {kisi} bağırıyor: arkadan atlılar geliyormuş. Sıra kıpırdanıyor.,"{kisi} in the queue shouts: horsemen are riding from behind! The queue stirs with panic.",taslak_tam
 olay.sira_panik.secenek1,"Sakin olun, kapı açık",Hold the gate firm and calm the crowd with firm voice,taslak_tam
 olay.sira_panik.secenek2,Nöbetçileri yola sal,Open the wicket gate and allow women and children in first,taslak_tam
 olay.sira_panik.sonuc1,Sıra sustu. Kimse yerinden kıpırdamadı.,The horsemen turned out to be our own scouts; calm was restored.,taslak_tam
 olay.sira_panik.sonuc2,Nöbetçiler döndü: yolda yalnız bir kervan var.,The vulnerable were sheltered safely without trampling.,taslak_tam
 olay.sira_vazgecen.baslik,Vazgeçen,Turning Back,taslak_tam
-olay.sira_vazgecen.metin,"Sıranın sonundaki {kisi} bir süre kapıya baktı, sonra döndü ve yola koyuldu.","A family with two small children turned their cart around, weary of the cold and waiting.",taslak_tam
+olay.sira_vazgecen.metin,"Sıranın sonundaki {kisi} bir süre kapıya baktı, sonra döndü ve yola koyuldu.","{kisi} at the end of the line gazed at the gate for a while, then turned back down the road.",taslak_tam
 olay.sira_vazgecen.secenek1,"Seslen, geri çağır",Call them forward and grant them priority inspection,taslak_tam
 olay.sira_vazgecen.secenek2,Bırak gitsin,Let them depart in peace if they wish,taslak_tam
 olay.sira_vazgecen.sonuc1,"Seslendin. Durdu, düşündü, sonra sırasına döndü.",The family was admitted and sheltered from the frost.,taslak_tam
