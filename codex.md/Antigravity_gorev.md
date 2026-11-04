@@ -462,3 +462,36 @@ En son ilerleme dosyasının son satırına tek başına `GOREV11_TAMAM` yaz.
 - Asset üretme.
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
 
+
+---
+
+# Görev 12 — İngilizce taslağın ikinci okuması ve Ahmet için oyun testi listesi (Kaşif, 4 Kasım 2026 05:55)
+
+Görev 11 bitti, eline sağlık: 1895 anahtar, 30 ziyaretçi ve köylü dosyaları İngilizceye çevrildi. Bu görevde de yalnız `docs/` altında çalışacaksın, oyun dosyalarına dokunmayacaksın. İlerleme dosyası: `codex.md/Antigravity_ilerleme_12.md`.
+
+## Bölüm A — İngilizce taslağın ikinci okuması
+Hızlı çevrilen metinlerde hata kalır. `docs/INGILIZCE_METIN_TASLAGI.csv` ve `docs/ingilizce_diyalog/` dosyalarını baştan sona oku ve şunları düzelt:
+1. Terim sözlüğüyle (`docs/INGILIZCE_TERIM_SOZLUGU.md`) uyuşmayan terimler.
+2. Karakter sesi karışmaları: Türkçede ayrı konuşan iki karakter İngilizcede aynı konuşmasın.
+3. Modern ya da Amerikan argosu ("okay", "guys", "awesome" gibi), dönem dışı kelimeler.
+4. Türkçe ile anlamı kayan, eksik ya da fazla çevrilen satırlar.
+5. Bozuk biçim: CSV tırnakları, JSON yapısı ve kaynakla birebir aynı kalması gereken yer tutucular (`{isim}` ve benzerleri).
+
+Düzeltmeleri partiler halinde commit et. Commit mesajı "DIL-EN-GOZDEN-…" ile başlasın, "(Antigravity)" ile bitsin. JSON ve CSV dosyalarının açılıp okunabildiğini kontrol eden basit bir betiği `docs/` altında çalıştır, ama oyunun test klasörüne ekleme.
+
+## Bölüm B — Ahmet için oyun testi listesi
+`docs/OYUN_TESTI_KONTROL_LISTESI.md` dosyasını yaz. Ahmet sabah oyunu açıp bu gece eklenenleri deneyecek, o yüzden pratik olsun:
+1. Her yeni ya da derinleşmiş içerik için oraya nasıl ulaşılacağını yaz: hangi gün, hangi ziyaretçi, hangi soru sırası ve hangi bayrağın önce açılması gerektiği. Kapsam: 30 ziyaretçi, eş sohbeti ("Eşinle Dertleş"), kapıdaki eş yorumları, 8 köy olayı, söylenti ağı, sonlar.
+2. Her madde için "beklenen sonuç" ve kutucuk ("[ ] çalıştı") koy.
+3. En başa 15 dakikada denenebilecek kısa bir yol koy: en önemli 10 anı en az adımla gösteren bir sıra.
+4. Yalnız repoda gördüklerini yaz, adımları uydurma. Bir şeye nasıl ulaşıldığından emin değilsen "doğrulanmadı" diye işaretle.
+
+## Bitirme
+`docs/DIYALOG_GECE_OZETI.md`'ye Görev 12 için kısa bir bölüm ekle. En son ilerleme dosyasının son satırına tek başına `GOREV12_TAMAM` yaz.
+
+## Kurallar
+- Yalnız `docs/` altına yaz. Oyunun çalışan dosyalarını, testleri ve `metinler.csv`'yi değiştirme.
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at, her commit'ten sonra push et. Kendi dalını festive'e birleştirme.
+- Kalfa'nın alanına ve Cursor'un koduna dokunma. Asset üretme.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
+
