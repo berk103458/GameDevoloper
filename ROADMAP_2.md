@@ -9048,7 +9048,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/metin/metinler.csv, src/sistemler/epilog_metin_verisi.gd.
   - Asset: asset gerekmedi.
 
-- [ ] **SOY-SON-01:** Söylenti ağının somut olaylara ve hesaplaşmalara kapanışı. (Antigravity)
+- [x] **SOY-SON-01:** Söylenti ağının somut olaylara ve hesaplaşmalara kapanışı. (Antigravity)
   - Amaç: soylenti_agi.gd içinde yayılan fısıltıların 2-3 gün sonra köy meydanında veya kapıda somut bir çözüme bağlanması.
   - Kurallar:
     1. 5 kritik söylenti (Değirmenci un hırsızlığı, kuyu zehri, Tekfur arabası, sahte hekim, gece ışığı) sonuca kavuşur.
@@ -9068,7 +9068,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/metin/metinler.csv, src/soz/hava_replik_adaptoru.gd.
   - Asset: asset gerekmedi.
 
-- [ ] **MECLIS-ARA-01:** Çınar Meclisi interaktif dava sistemi (Muhafız'ın kadı/hakem rolü). (Antigravity)
+- [x] **MECLIS-ARA-01:** Çınar Meclisi interaktif dava sistemi (Muhafız'ın kadı/hakem rolü). (Antigravity)
   - Amaç: Haftada bir Çınaraltında köylüler arası ihtilaflarda Muhafız'ın iki tarafı dinleyip delillere göre hüküm vermesi.
   - Kurallar:
     1. 4 interaktif dava: Karaca Usta vs Yusuf alet davası, Ayşe Bacı tavuk davası, tüccar borç davası, sınır taşı ihtilafı.
