@@ -390,3 +390,34 @@ Hepsi bitince ilerleme dosyasının son satırına tek başına `GOREV9_TAMAM` y
 - Asset üretme; gerekeni `docs/EKSIK_ASSET_ENVANTERI.md`'ye 2D/3D ayrı yaz.
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et. Durma.
 
+
+---
+
+# Görev 10 — Açık kararlar için hazır seçenekler, yeni madde önerileri, İngilizce metin taslağı (Kaşif, 4 Kasım 2026 05:00)
+
+Görev 9 bitti, eline sağlık: denetim temiz ve 31 testin 31'i geçti. Sabaha birkaç saat var ve ROADMAP'te senin alanında açık madde kalmadı. Bu görevdeki işlerin hiçbiri oyunun mevcut akışını değiştirmez, hepsi Ahmet'in sabah seçebileceği hazırlıklar. İlerleme dosyası: `codex.md/Antigravity_ilerleme_10.md`.
+
+## Bölüm A — 3 açık karar için iki hazır seçenek
+`docs/DIYALOG_GECE_OZETI.md`'de yazdığın 3 açık karar şunlar: Banu Hatun'un 50 atlısı, Molla Şükrü'nün meclis yüzleşmesi ve "Vebali sabi".
+1. Her karar için en az iki seçeneği eksiksiz yaz: diyalog satırları, gereken bayraklar, eş yorumu ve köy sonucu.
+2. Hepsini `docs/KARAR_SECENEKLERI.md` dosyasına koy. Oyuna bağlama; mevcut dosyalarda hangisi şu an etkinse o kalsın.
+3. Her seçeneğin altına kısa bir "oyuncuya etkisi" notu ve senin önerini yaz, böylece Ahmet telefondan okuyup seçebilir.
+
+## Bölüm B — Yeni ROADMAP madde önerileri (ROADMAP'i değiştirme)
+1. Bu gece yazılanlara bakıp oyunun anlatısında hâlâ eksik ya da zayıf kalan yerleri bul. Örnekler: hiç dönmeyen ziyaretçiler, eşle ilgili açılmamış konular, sonlara bağlanmayan söylentiler.
+2. Bunları `docs/ROADMAP_ONERILERI_ANTIGRAVITY.md` dosyasına öneri olarak yaz: madde kodu önerisi, kısa açıklama, gerekçe, tahmini boyut ve kod gerekip gerekmediği. ROADMAP dosyasına ekleme yapma; Ahmet onaylarsa eklenir.
+
+## Bölüm C — İngilizce metin taslağı (yalnız sistem destekliyorsa)
+1. Oyunun dil sistemine bak (`dil` testleri, `data/metin/metinler.csv` ve ayarlar). Sistemde İngilizce için hazır bir yer var mı, kontrol et: bir sütun, ayrı bir dosya ya da bir dil kodu.
+2. Hazır bir yer varsa `metinler.csv` anahtarlarının İngilizce taslağını bu yere yaz. Önce menü, arayüz ve öğretici metinlerini, sonra diyalogları yaz. Dönem havasını koru ve isimleri çevirme. Partiler halinde commit et; mesaj "DIL-EN-…" ile başlasın, "(Antigravity)" ile bitsin. Varsayılan dil Türkçe kalsın.
+3. Hazır bir yer yoksa yeni sistem kurma. Bunu "Antigravity sorusu" olarak not et ve bu bölümü atla.
+
+## Bitirme
+Doğrulayıcıları ve Godot headless testlerini çalıştır; Kalfa'nın bilinen kırmızıları dışında 0 hata olsun. `docs/DIYALOG_GECE_OZETI.md`'ye Görev 10 için kısa bir bölüm ekle. En son ilerleme dosyasının son satırına tek başına `GOREV10_TAMAM` yaz.
+
+## Kurallar (değişmedi)
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at ve her commit'ten sonra push et. Kendi dalını festive'e birleştirme.
+- Kalfa'nın alanına ve Cursor'un koduna dokunma.
+- Asset üretme.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et. Durma.
+
