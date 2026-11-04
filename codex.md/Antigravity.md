@@ -802,5 +802,27 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
   3. **Bölüm C / Bitirme:**
      - `docs/DIYALOG_GECE_OZETI.md` 7. bölümle güncellendi.
      - `tests/tools/test_asset_envanteri.py` ve tüm Python/Godot testleri 0 hatayla doğrulandı.
-- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_13.md` son satırı `GOREV13_TAMAM` ile mühürlendi.
-- **Kota:** %30 kaldı.
+## 4 Kasım 2026 — Görev 14: Öneri Maddeleri İçin Hazır Taslaklar ve Portre Promptlarını Tamamlama
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Bölüm A — 7 Yeni ROADMAP Önerisi İçin Uygulamaya Hazır Taslak Paketleri (`docs/oneri_taslaklari/`):**
+     - En çok etki ve en az kod gerektiren öncelik sırasıyla 7 bağımsız taslak klasörü açıldı:
+       - `ES-GECM-01`: Eşin geçmişi, eski köyün yangını, göç yolu, yetimler Dursun ve Turna'ya analık arzusu ve Muhafız'a gece kaynatılan ıhlamur şifası (3 derin Parley dalı; 0 kod, `4d01c6a3`).
+       - `SOY-SON-01`: Söylenti ağının 2 gün sonra somut köy olaylarına kapandığı 5 sahne (Değirmenci un oluğu teftişi, kuyu suyu panik tahlili, Tekfur'un devrilen tuz arabası, samanlıktaki kaçak borçlu, vebalı kumaş iftirası; 0 kod, `7a81393c`).
+       - `ANL-DON-01`: İlk kararların 5-10 gece sonra kapıda yankılandığı 6 derin geri dönüş sahnesi (Sungur'un intikam fermanı veya teftiş istihbaratı, Turna ve Dursun'un ilk sıcak somunu, Lokman'ın afyon ihaneti ve kovuluşu, Banu Hatun'un vadi zaferi müjdesi, Behram'ın kuru incir ve zeytinyağı hediyesi; `d781d6a7`).
+       - `MECLIS-ARA-01`: Çınar Meclisi'nde Muhafız'ın kadı/hakem rolü üstlendiği 4 interaktif dava (Karaca Usta vs Çiftçi Yusuf kırık balta, Ayşe Bacı vs Çuhacı sahte çivit boyası, Çoban Aydoğdu vs Molla Şükrü mera ve pınar yazımı, Thessra vs Miraen ortak köy şifahanesi; 0 kod, `fed5c1a4`).
+       - `KVR-SES-01`: Tipi, sağanak yağmur, ayaz ve sis durumlarında 30 ziyaretçinin açılış sözlerine ve Muhafız karşılamasına eklenen dinamik atmosfer replikleri (1 satırlık arayüz adaptörü, `7019c2a9`).
+       - `ANL-EPI-01`: 30. gün kış sonu oyuncunun kararlarına göre karakterlerin akıbetini gösteren 6 çift taraflı kişisel epilog kartı (Turna & Dursun fırını, Lokman'ın akıbeti, Banu Hatun'un sancağı, Sungur'un teftişi, Vebalı sabi ve anası, Hane ocağının akıbeti; `f83129ee`).
+       - `SES-DIL-01`: Seslendirme hazırlığı için tipolojik ses kartları, duygu/tempo, nefes/duraklama ve 13. yy halk ağzı vurgu kuralları (`cd056f18`).
+     - Her öneri klasöründe tam metin/diyalog taslağı, gereken bayraklar, kod/sistem notu (Kalfa/Cursor iş dağılımı) ve adım adım `UYGULA.md` kılavuzu eksiksiz yer aldı.
+  2. **Bölüm B — 30 Yeni 2D Portre Promptu İle Eksiksiz Portre Kataloğu:**
+     - Ziyaretçiler 01–20 (20 portre) ve 10 İsimli Köylü (Aydoğdu, Ayşe Bacı, Hasan Çelebi, Karaca Usta, Miraen, Nogay, Saruca Hatun, Sorhan, Thessra, Yusuf) için Türkçe karakter tarifleri ve otantik 13. yy Selçuklu sınır boyu üslubunda tekil Nano Banana promptları hazırlandı (`817c0e71`).
+     - `docs/arayuz/DIYALOG_ASSET_PROMPTLARI.md` ve `docs/EKSIK_ASSET_ENVANTERI.md` güncellendi; oyundaki **30 ziyaretçinin 30'u**, **tüm isimli köylüler** ve **Muhafızın Eşi** olmak üzere 41 karakter portresi %100 tamamlandı.
+  3. **Bölüm C — Bitirme & Doğrulama:**
+     - `tests/tools/test_asset_envanteri.py`: 6/6 test OK (0 hata).
+     - `tools/metin_dogrula.py`, `tools/soz_dogrula.py`, `tools/soz_tasarimi_dogrula.py`: PASS.
+     - `docs/dogrula_ingilizce_taslak.py`: 2330 CSV satırı, 6 JSON, 18 Parley dosyası (0 hata, 0 uyarı).
+     - Godot Headless Testleri (Diyalog bütünlüğü, eş yorumları, Parley sistemi, yeni olaylar, dil testi): 0 hata.
+     - `docs/DIYALOG_GECE_OZETI.md` 8. bölümle güncellendi.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_14.md` son satırı `GOREV14_TAMAM` ile mühürlendi.
+- **Kota:** %25 kaldı.

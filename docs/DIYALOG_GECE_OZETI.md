@@ -125,4 +125,29 @@
 
 ---
 
+## 8. Görev 14 İle Tamamlanan Öneri Taslakları ve Eksiksiz Portre Kataloğu
+
+1. **7 Yeni ROADMAP Önerisi İçin Uygulamaya Hazır Taslak Paketleri (`docs/oneri_taslaklari/`):**
+   Ahmet ve Muharrir'in onayına sunulan 7 öneri maddesi, en yüksek etki ve en az kod gerektiren öncelik sırasına göre tam taslak paketleriyle hazırlandı. Her klasör tam metin taslağını, gereken bayrakları, kod notunu (Kalfa/Cursor iş dağılımı) ve `UYGULA.md` kılavuzunu barındırır:
+   - **`ES-GECM-01` (Öncelik 1 — Eşin Geçmişi ve Çocuk Korkusu):** Eski köyün yangını, göç yolu çilesi, yetimler Dursun ve Turna'ya analık arzusu, çocuksuzluk hüznü ve nöbette donan Muhafız'a gece kaynatılan ıhlamur/bal şifası (3 derin Parley dalı; 0 kod).
+   - **`SOY-SON-01` (Öncelik 2 — Söylenti Ağının Somut Olaylara Kapanışı):** Köyde dolaşan fısıltıların 2 gün sonra çözüme bağlandığı 5 somut olay sahnesi (Değirmenci Mihali'nin un oluğu teftişi, Kuyu zehirlenmesi paniğinin yatıştırılması, Tekfur'un devrilen tuz arabası, Samanlıkta saklanan kaçak borçlu, Vebalı kumaş iftirasının temizlenmesi; 0 kod).
+   - **`ANL-DON-01` (Öncelik 3 — Ziyaretçi Geri Dönüş Döngüsü / Echo Visits):** İlk kararların 5-10 gece sonra kapıda yankılandığı 6 derin geri dönüş sahnesi (Sancak Çavuşu Sungur'un intikam fermanı veya teftiş istihbaratı; Yeğenler Dursun ve Turna'nın getirdiği ilk sıcak somun; Şarlatan Cerrah Lokman'ın köyde afyon satarken Karaca Usta'ya yakalanması; Banu Hatun'un vadide çapulcuları biçme müjdesi; Tebrizli Behram'ın hediye kuru meyve kervanı; mevcut havuz bayraklarıyla tam uyumlu).
+   - **`MECLIS-ARA-01` (Öncelik 4 — Çınar Meclisi İnteraktif Dava Sistemi):** Çınaraltında Muhafız'ın kadı/hakem rolü üstlendiği 4 interaktif dava (Karaca Usta vs Çiftçi Yusuf kırık balta davası, Ayşe Bacı vs Çuhacı sahte çivit boyası davası, Çoban Aydoğdu vs Molla Şükrü mera ve pınar yazımı davası, Thessra vs Miraen ortak köy şifahanesi kuruluşu; 0 kod).
+   - **`KVR-SES-01` (Öncelik 5 — Kapı Nöbetinde Dinamik Hava ve Ayaz Replikleri):** Tipi/kar fırtınası, sağanak yağmur/çamur, gece ayazı ve yoğun sis durumlarında 30 ziyaretçinin açılış sözlerine ve Muhafız karşılamasına eklenen dinamik atmosfer replikleri (1 satırlık arayüz adaptörü).
+   - **`ANL-EPI-01` (Öncelik 6 — 30. Gün Kış Sonu Bireysel Epilog Kartları):** Oyun sonuna ulaşıldığında oyuncunun kararlarına göre karakterlerin nihai kaderini anlatan 6 çift taraflı epilog kartı (Turna & Dursun fırın akıbeti, Lokman'ın tövbesi ya da dağda donuşu, Banu Hatun'un dostluk sancağı, Sungur'un divan teftişi, Vebalı sabi ve anasının kurtuluşu, Hane ocağının akıbeti; sonuç gösterim adaptörü).
+   - **`SES-DIL-01` (Öncelik 7 — Seslendirme Hazırlığı İçin Vurgu ve Reji Notları):** İleride oyuna seslendirme eklendiğinde ses sanatçılarına rehberlik edecek tipolojik ses kartları (tempo, duygu, nefes aralıkları, 13. yy halk ağzı vurgu kuralları ve kuru WAV teknik standartları).
+
+2. **30 Yeni 2D Portre Promptu İle Portre Kataloğu %100 Tamamlandı (`docs/arayuz/DIYALOG_ASSET_PROMPTLARI.md` ve `docs/EKSIK_ASSET_ENVANTERI.md`):**
+   - **Ziyaretçiler 01–20 (20 Portre):** Rençber Hamza, Kayserili Çuhacı, Bozgun Neferi, Toros Çobanı Yusuf, Demirci Kalfası Hasan, Silahsız Piyade, Seyyar Kalaycı, Taşçı Kalfası, Fırıncı Çırağı Ali, Saraç Kalfası, Yaralı Nöbetçi, Sürgün Kâtip, Gezgin Derviş Burhan, Kaçak Madenci, Türkmen Anası Saruca, Tövbekâr Harami, Rum Değirmenci Mihali, Avcı Kara Bekir, Saz Aşığı Kul Dertli, Seyyar Nalbant.
+   - **10 İsimli Köylü (10 Portre):** Okçu Aydoğdu, Ayşe Bacı, Kâtip Hasan Çelebi, Karaca Usta, Şifacı Miraen, Avcı Nogay, Saruca Hatun, At Tüccarı Sorhan, Hekim Kızı Thessra, Yetim Çoban Yusuf.
+   - **Eksiksiz Kapsam:** Bu teslimle birlikte oyundaki **30 ziyaretçinin 30'u**, **tüm isimli köylüler** ve **Muhafızın Eşi** olmak üzere 41 karakter portresinin tamamı 600×760, #00FF00 saydamlık maskeli, otantik Selçuklu uç beyliği üslubunda tekil Nano Banana promptlarına ve envanter kayıtlarına kavuştu.
+
+3. **Bütünlük ve Test Güvencesi:**
+   - `test_asset_envanteri.py`: 6/6 test OK (0 hata).
+   - `tools/metin_dogrula.py`, `tools/soz_dogrula.py`, `tools/soz_tasarimi_dogrula.py`: PASS.
+   - `docs/dogrula_ingilizce_taslak.py`: 2330 CSV satırı, 6 JSON, 18 Parley dosyası (0 hata, 0 uyarı).
+   - Godot Headless Testleri (Diyalog bütünlüğü, eş yorumları, Parley sistemi, yeni olaylar, dil testi): 0 hata.
+
+---
+
 *Dal birleşmeye hazırdır; festive'e doğrudan dokunulmadı, sabah Ahmet'in onayını bekliyor.*

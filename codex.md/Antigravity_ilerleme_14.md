@@ -22,13 +22,24 @@
   - [x] Ziyaretçi 01–20 Portreleri (`PORTRE-DYS-001` … `PORTRE-DYS-020`) — 20 tekil ziyaretçi portresi tamamlandı
   - [x] 10 İsimli Köylü Portresi (`PORTRE-KOY-AYDOGDU` … `PORTRE-KOY-YUSUF`) — 10 isimli köylü portresi tamamlandı
   - [x] `docs/arayuz/DIYALOG_ASSET_PROMPTLARI.md` ve `docs/EKSIK_ASSET_ENVANTERI.md` güncellenmesi (30 yeni Nano Banana promptu ve envanter kaydı eklendi)
-- [ ] **Bölüm C — Bitirme & Doğrulama:**
-  - [ ] Doğrulayıcılar ve testlerin tam koşumu (0 hata)
-  - [ ] `docs/DIYALOG_GECE_OZETI.md` 8. bölüm eklenmesi
-  - [ ] `codex.md/Antigravity.md` güncellenmesi
-  - [ ] `GOREV14_TAMAM` ile mühürlenmesi
+- [x] **Bölüm C — Bitirme & Doğrulama:**
+  - [x] Doğrulayıcılar ve testlerin tam koşumu (0 hata): `test_asset_envanteri.py` (6/6 OK), `metin_dogrula.py`, `soz_dogrula.py`, `soz_tasarimi_dogrula.py`, `dogrula_ingilizce_taslak.py`, Godot headless testleri (5/5 PASS).
+  - [x] `docs/DIYALOG_GECE_OZETI.md` 8. bölüm eklendi.
+  - [x] `codex.md/Antigravity.md` günlüğü mühürlendi.
+  - [x] Görev 14 başarıyla tamamlandı.
 
 ---
 
-## Sonraki Adım
-Bölüm C: Doğrulayıcıların ve testlerin çalıştırılması, özet dokümanların yazılması ve mühürleme.
+## Doğrulama ve Test Sonuçları
+- `tests/tools/test_asset_envanteri.py`: 6/6 test OK (0 hata).
+- `tools/metin_dogrula.py`: PASS.
+- `tools/soz_dogrula.py` & `tools/soz_tasarimi_dogrula.py`: PASS (KAY-53 / KAY-38 / SÖZ TASARIMI: GEÇTİ).
+- `docs/dogrula_ingilizce_taslak.py`: 2330 CSV satırı, 6 JSON, 18 Parley dosyası tarandı (0 hata, 0 uyarı).
+- Godot Headless Testleri: 5/5 PASS (`diyalog_butunluk_test.gd`, `es_yorumu_test.gd`, `koy_parley_sistemi_test.gd`, `yeni_olaylar_test.gd`, `dil_test.gd`).
+- 7 Öneri Taslağı: `docs/oneri_taslaklari/` altında 7 bağımsız klasör (metin taslağı, bayraklar, kod notu, UYGULA.md) eksiksiz hazırlandı; çalışan oyun dosyalarına dokunulmadı.
+- 30 Yeni Portre: 20 ziyaretçi (01-20) ve 10 isimli köylü için tekil Nano Banana promptları `docs/arayuz/DIYALOG_ASSET_PROMPTLARI.md` ve `docs/EKSIK_ASSET_ENVANTERI.md` içine işlendi.
+- Kota durumu: %25 kaldı.
+
+---
+
+GOREV14_TAMAM
