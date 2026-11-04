@@ -68,6 +68,18 @@ func _initialize() -> void:
 		# 8. Ek şart: Aç kişi oranı gece ölçümüne bir satır eklenir; denge hesabı ikinci kez çalışmaz
 		dene(olcum.has("ac_kisi_orani"), "Aç kişi oranı ölçüme satır olarak eklendi")
 		dene(olcum.get("ac_kisi_orani") >= 0.0, "Aç kişi oranı geçerli bir değer")
+		var gelen := Gelen.new()
+		gelen.adli = true
+		gelen.id = &"chr_028"
+		var uyarili_gece := 0
+		for gece in 10:
+			var gece_sonucu := oturum.yonetim.gece()
+			var once := JSON.stringify(oturum.yonetim.kaydet())
+			var meslek := DENGE_OLCUMU.olustur(oturum, gece_sonucu, {"meslek_uyarisi_gelen": gelen})
+			uyarili_gece += int(meslek.get("meslek_uyarisi_gece", 0))
+			dene(JSON.stringify(oturum.yonetim.kaydet()) == once, "DEN-33: uyarı ölçümü salt okunur")
+		dene(uyarili_gece == 10, "DEN-33: atölyesiz kumaşçı on gecede mevcut uyarıyı taşır")
+
 	else:
 		push_error("Katalog yüklenemedi")
 		_hata += 1

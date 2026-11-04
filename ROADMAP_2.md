@@ -3561,7 +3561,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.5 Meslek ve boşta kalan
 
-- [ ] **DEN-33:** Meslek uyarısı ISG-01'dir.
+- [x] **DEN-33:** (Kalfa) Meslek uyarısı ISG-01'dir.
   - Ne: atölyesiz kumaşçı uyarısı o maddede kalır. Denge, uyarının göründüğü gece sayısını ölçer. Yeni uyarı metni yazmaz.
   - Kabul: atölyesiz kumaşçı uyarısı o maddede kalır. Denge, uyarının göründüğü gece sayısını ölçer. Yeni uyarı metni yazmaz. Test: atölyesiz 10 gece, uyarı en az 1.
   - Bağımlılık: ISG-01. Boyut: S.

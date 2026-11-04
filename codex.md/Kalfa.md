@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-33 tamamlandı (Kalfa)
+
+Denge raporunun optional meslek_uyarisi_gelen bağlamı, mevcut ISG-01 satırlarını kullanarak gece başına 0/1 gözlem verir. Atölyesiz kumaşçı 10 gerçek gecede 10 uyarı taşıdı; her gözlemde kayıt/RNG korundu. Önce RED, ardından hedefli test GREEN. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-32 tamamlandı (Kalfa)
 
 Erzaksız ve sağlığı 1 olan üç köylü gerçek gecede öldü; mevcut cenaze durumunda ve raporunda sayı 3 olarak doğrulandı. Hedefli test geçti. İlk import MD5 hataları verdi; ikinci headless import hatasız tamamlandı. Asset gerekmedi. kota görünmüyor.
