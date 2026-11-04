@@ -579,3 +579,30 @@ Görev 14 bitti, eline sağlık. Bu gecenin son görevi kısa ve hafif olacak. �
 - Kalfa'nın alanına ve Cursor'un koduna dokunma. Asset üretme.
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
 
+
+---
+
+# Görev 16 — İngilizceyi oyuna ekle ve diyalog dalını festive'e birleştir (Kaşif, 4 Kasım 2026 08:35)
+
+Ahmet sabah iki şeyi onayladı: (1) İngilizce oyuna girsin, hazır taslak eklensin; (2) `feature/diyalog-yeniden-yazim` dalı festive'e birleştirilsin. Görseller şimdilik bekleyecek; asset üretme, prompt da yazma. İlerleme dosyası: `codex.md/Antigravity_ilerleme_16.md`.
+
+**Kota kuralı:** Kotan yaklaşık %20. Yaklaşık %10'a inersen elindeki adımı bitir, commit ve push et, ilerleme dosyasına "kota için durdum" yaz ve `GOREV16_TAMAM` satırını ekle. Bölüm A'yı mutlaka önce bitir.
+
+## Bölüm A — Diyalog dalını festive'e birleştir (önce bu)
+1. `git fetch origin`, ardından `origin/claude/festive-volta-li1sfm`'i kendi dalına merge et. Kalfa festive'e sürekli commit atıyor; çakışma çıkarsa iki tarafı da koru, Kalfa'nın koduna dokunma.
+2. Bütün doğrulayıcıları ve Godot headless testlerini çalıştır, festive ile karşılaştır. Merge'den doğan yeni kırmızı yoksa devam et.
+3. festive dalı Kalfa'nın klasöründe açık olduğu için checkout etme. Bunun yerine `git push origin HEAD:claude/festive-volta-li1sfm` ile festive'i fast-forward olarak kendi dalının ucuna getir. Push reddedilirse (Kalfa bu arada commit attıysa) tekrar fetch + merge + test yap ve yeniden dene. Asla force push yapma.
+4. Commit mesajı "BIRLESME-…" ile başlasın, "(Antigravity)" ile bitsin. `docs/DIYALOG_DALI_BIRLESME_NOTU.md`'ye birleşme commit'ini ve test sayılarını yaz.
+
+## Bölüm B — İngilizceyi oyuna ekle
+1. Ahmet "İngilizce olsun" dedi; bu "Antigravity sorusu 3"ün cevabıdır, öyle işaretle. `tests/unit/arayuz/dil_test.gd` testini Türkçe varsayılan kalacak, İngilizce ikinci dil olarak izinli olacak şekilde güncelle.
+2. `docs/INGILIZCE_METIN_TASLAGI.csv`, `docs/ingilizce_diyalog/` ve `docs/INGILIZCE_TERIM_SOZLUGU.md`'deki hazır taslağı oyunun metin sistemine ekle (`data/metin/metinler.csv` İngilizce sütunu ve diyalog dosyaları). Varsayılan dil Türkçe kalsın. Ayarlar ekranında dil seçeneği varsa İngilizceyi oraya bağla; yoksa en küçük haliyle ekle ve ne yaptığını not et.
+3. Kalfa'nın alanındaki bir dosyayı değiştirmen gerekirse en küçük değişikliği yap ve ilerleme dosyasına hangi dosya, neden diye yaz.
+4. Bütün doğrulayıcıları ve testleri çalıştır. Yeşilse Bölüm A'daki gibi festive'e fast-forward push et. Commit mesajı "DIL-EN-…" ile başlasın, "(Antigravity)" ile bitsin.
+5. Son satıra tek başına `GOREV16_TAMAM` yaz.
+
+## Kurallar
+- Hikâye kararlarına (karar_yamalari) ve ROADMAP önerilerine dokunma; Ahmet henüz seçmedi.
+- Asset üretme. Force push yapma. Kalfa'nın klasörüne girme.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
+
