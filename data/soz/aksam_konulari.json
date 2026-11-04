@@ -237,7 +237,7 @@
           "moral_etkisi": 0
         },
         "kabul_etmek": {
-          "metin": "Büyük risk aldım, bilirim; köyü korumak için nöbeti artıracağım.",
+          "metin": "Büyük tehlikeyi göze aldım, bilirim; köyü korumak için nöbeti artıracağım.",
           "terazi": "kabul_etti",
           "moral_etkisi": 1
         },

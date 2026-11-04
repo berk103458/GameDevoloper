@@ -438,7 +438,7 @@
             "Küf değil ağam, kurbanın olayım deme öyle! İki başak nem kapmış sadece... Güneşe sersen, külle harmanlasan bir haftaya cillop gibi olur! İki oğlum bu tohumu ambardan kaçırırken şehit düştü... Onların kanı var bu torbada, bana bunu attırma!",
             [
               [
-                "Oğullarının hatırasına hürmetimiz vardır amma köyün ambarı riske girmez.",
+                "Oğullarının hatırasına hürmetimiz vardır amma köyün ambarı tehlikeye atılmaz.",
                 "Ambara koymayın ağam! Çit kenarındaki taşlık yamacı verin bana, kendi ellerimle tek tek ekeyim! Çürük çıkarsa beni köyden sürün!"
               ]
             ]
@@ -896,7 +896,7 @@
     "sorular": [
       [
         "Tuz gölü kervanı bozkırda vuruldu dedin; katırlar uçuruma sürülürken o güzergahtaki han muhafızları neredeydi, sen kuşağındaki tuzu nasıl sakladın?",
-        "Han çok geride kalmıştı ağam, bozkırın ortasında pusu kurdular. Katırları panikletip yardan aşağı yuvarladılar. Ben kayalık yarığına sindim; şu tuz torbasını da koynuma gömdüm. Tuz candır, dağda tuzsuz kalan adam çürür.",
+        "Han çok geride kalmıştı ağam, bozkırın ortasında pusu kurdular. Katırları ürkütüp yardan aşağı yuvarladılar. Ben kayalık yarığına sindim; şu tuz torbasını da koynuma gömdüm. Tuz candır, dağda tuzsuz kalan adam çürür.",
         [
           [
             "Tuz dediğin beyaz olur; kesenin dibindeki bu kül rengi, kükürt kokulu toz nedir? Barutluk güherçile mi taşırsın?",
@@ -1296,7 +1296,7 @@
       0
     ],
     "yanitlar": {
-      "ret": "Tekneyi başıma siper eder sundurma dibine büzülürüm. Ayaz unumu savurur amma canımı kollarım. Sabah kapı aralanınca yine denerim şansımı...",
+      "ret": "Tekneyi başıma siper eder sundurma dibine büzülürüm. Ayaz unumu savurur amma canımı kollarım. Sabah kapı aralanınca yine ararım nasibimi...",
       "rusvet": "Ağam... Mis kokulu çörekotuyla fırından kurtardığım iki parça has kuru peksimet var. Çorbanıza katın, lezzet verir. Al bunları torbana koy, sürgüyü arala.",
       "kabul": "Ocağınız dert görmesin! Samanlık kenarında tekneyi altıma kor dinlenirim. Yarın sabah Saruca Hatun'un ambarından ilk unu verin, tandırı tüttüreyim."
     },
@@ -1424,7 +1424,7 @@
             ]
           ],
           [
-            "Asandaki o çentikler neyin nesidir derviş baba; her çentik bir harami kurşunundan mı kaldı?",
+            "Asandaki o çentikler neyin nesidir derviş baba; her çentik bir harami okundan mı kaldı?",
             "Gördüğüm her viran obaya, ateşe verilen her ocağa bir çentik vurdum oğul. Yetmiş çentik oldu... Bu dağlar çok acı gördü."
           ]
         ]
@@ -1562,7 +1562,7 @@
           ],
           [
             "Kulağıma geldi çavuş; sancak subaşısı seni firari yakalamaya değil, dağ köylerinden zorla zahire toplamaya salmış! Fermanın sahte olmasın?",
-            "Fermanıma dil uzatanın dilini koparırım! Lakin... Kış basıyor, sancak kalesi de açtır. Bana iki kantar unla on koyun verirseniz o firarilerin adını kütükten siler, 'Yolda donup ölmüşler' diye rapor yazarım!",
+            "Fermanıma dil uzatanın dilini koparırım! Lakin... Kış basıyor, sancak kalesi de açtır. Bana iki kantar unla on koyun verirseniz o firarilerin adını kütükten siler, 'Yolda donup ölmüşler' diye divana kayıt düşerim!",
             [
               [
                 "Demek askeri kütüğü rüşvetle satarsın Sungur Çavuş! Seni subaşına şikâyet etsek ne dersin?",
@@ -1711,7 +1711,7 @@
   {
     "id": "diyalog_25",
     "sinif": "ciftci",
-    "sahne": "Kapının eşiğinde tir tir titreyen, boyu tüfeğe yetmez, yırtık keçe yelekli bir oğlan belirdi. Kolları hamur teknesi çizikleriyle dolu; yüzündeki un lekeleri gözyaşlarıyla çamur olmuş.",
+    "sahne": "Kapının eşiğinde tir tir titreyen, boyu kargıya yetmez, yırtık keçe yelekli bir oğlan belirdi. Kolları hamur teknesi çizikleriyle dolu; yüzündeki un lekeleri gözyaşlarıyla çamur olmuş.",
     "acilis": "Muhafız emmi kurbanın olayım beni Erzincan'daki zalim fırıncıya geri gönderme! Üç gündür ormanda çakallar kovaladı; açlıktan çam kabuğu kemirdim!",
     "sorular": [
       [
@@ -1740,8 +1740,8 @@
             "harami_karabudak_izi"
           ],
           [
-            "Geride senden başka kimse kaldı mı oğul; bacın Turna'dan haberin var mıdır?",
-            "Turna ablam ovada kaldı amca... Voyvodanın konağına götürdüler dediler; ah ablam sağ mıdır, bilsem ateşe atılırım!"
+            "Sen bizim rahmetli Hasan'ın yetimi Dursun musun yoksa? Geride senden başka kimse kaldı mı oğul; bacın Turna'dan haberin var mıdır?",
+            "Benim emmi, Hasan'ın Dursun'uyum! Turna ablam ovada kaldı amca... Voyvodanın konağına götürdüler dediler; ah ablam sağ mıdır, bilsem ateşe atılırım!"
           ]
         ]
       ],
