@@ -6,6 +6,7 @@
   "kriz_araligi": {
     "meclis_bekleme_gun": 2
   },
+  "kis_odun_farki": 1,
   "acilis_stoku": {
     "kaynak": "res://data/ayarlar/koy.tres"
   },

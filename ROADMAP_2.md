@@ -3426,7 +3426,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: BUG-21. Boyut: S.
   - Dosya: `tests/oto/acilis_denge_kontrol.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-12:** Kış açılışı yaz açılışından ayrı ölçülür.
+- [x] **DEN-12:** Kış açılışı yaz açılışından ayrı ölçülür. (Kalfa)
   - Ne: MEV-01 kışında ilk 10 gecenin odun dibi yazdaki dibin altındadır. Altında kalması tabloda yazılı bir farktır.
   - Kabul: MEV-01 kışında ilk 10 gecenin odun dibi yazdaki dibin altındadır. Altında kalması tabloda yazılı bir farktır. Test: iki mevsim, fark tabloya uyar.
   - Bağımlılık: MEV-11, DEN-10. Boyut: M.
