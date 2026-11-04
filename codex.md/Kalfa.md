@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-25 tamamlandı (Kalfa)
+
+Denge doğrulayıcısı ikinci açlık tablosunu ve iç içe kopyasını reddeder; yalnız YSM-02 kaynağına referans serbesttir. Önce başarısız test görüldü, ardından 32 hedefli Python testi ve gerçek denge doğrulaması geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-16 tamamlandı (Kalfa)
 
 Mevcut açılış testinde deneme sayısı yerine oyun takviminin ilerlediği geceler ölçüldü. Beş sıranın her biri 20 geceyi tamamladı. Asset gerekmedi. kota görünmüyor.

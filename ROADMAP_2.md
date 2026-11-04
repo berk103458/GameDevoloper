@@ -3510,7 +3510,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.4 Yaşam barı ve üretim
 
-- [ ] **DEN-25:** Açlık kademesi YSM-02'dir.
+- [x] **DEN-25:** (Kalfa) Açlık kademesi YSM-02'dir.
   - Ne: yüzde 20, yüzde 50 ve yatar eşikleri o maddeden okunur. Denge dosyası aynı sayıyı ikinci kez yazarsa doğrulayıcı hata verir.
   - Kabul: yüzde 20, yüzde 50 ve yatar eşikleri o maddeden okunur. Denge dosyası aynı sayıyı ikinci kez yazarsa doğrulayıcı hata verir. Test: tek eşik kaynağı.
   - Bağımlılık: YSM-02, DEN-03. Boyut: S.
