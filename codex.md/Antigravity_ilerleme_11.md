@@ -14,7 +14,7 @@
   - [x] Parti A1: Öğretici, ipuçları, hafıza, defter, nöbet, sabah hükmü, anlatı, bar, bitki, eşya, heybe, karakter, kayıt, tez, yıl, açılış (162 anahtar eklendi)
   - [x] Parti A2: Olay metinleri (`olay.*`, 364 anahtar eklendi)
   - [x] Parti A3: Köy metinleri (`koy.*`, 277 anahtar eklendi)
-  - [ ] Parti A4: Şablon metinleri (`sablon.*`, 102 anahtar)
+  - [x] Parti A4: Şablon metinleri (`sablon.*`, 102 anahtar eklendi)
   - [ ] Parti A5: Sohbet metinleri (`sohbet.*`, 999 anahtar)
 - [ ] **Bölüm B — Diyaloglar:** `docs/ingilizce_diyalog/` klasörü altına oyunun orijinal JSON ve Parley dosyalarının yapısı birebir korunarak İngilizce çevirilerinin hazırlanması.
   - [ ] Parti B1: 30 Ziyaretçi Diyaloğu (`diyalog_01_20.json` - diyalog_01 ila diyalog_30)

@@ -1205,3 +1205,151 @@ koy.sancak.son_idam_metin,Sancak müfettişi ağır yozlaşmayı gizli kasa içe
 koy.sancak.tip,"Sancak teftişi: sıradaki %d. gece. Yozlaşma ≥%d ve dolu kişisel kasa birlikte risk taşır; kapak kapatmak korumaz. Bulunma şansı %%%d; yozlaşma ≥%d idam, altında azil.","Sancak teftişi: sıradaki %d. gece. Yozlaşma ≥%d ve dolu kişisel kasa birlikte risk taşır; kapak kapatmak korumaz. Bulunma şansı %%%d; yozlaşma ≥%d idam, altında azil.",taslak_tam
 koy.coban.otlatiyor,Sürüyü merada otlatıyor,Sürüyü merada otlatıyor,taslak_tam
 koy.coban.agila,Sürüyü akşam ağıla çekiyor,Sürüyü akşam ağıla çekiyor,taslak_tam
+sablon.asker.acilis1,"Bir yudum su, bir köşe. Yaralıyım ama yürüyorum. Kimin adamı olduğumu sorma; artık kimsenin değilim.","A sip of water, a quiet corner. I am wounded, yet I still walk. Whose man was I? Does it even matter in this desolate wilderness?",taslak_tam
+sablon.asker.acilis2,"Akşamın hayrolsun. Silahımı bıraktım, adımı da bırakmak isterim. Bir gece, bir köşe; sabah ola hayrola.",Good evening to you. I laid down my blade; I wish to leave my name behind as well. Will you grant me a place by the ramparts?,taslak_tam
+sablon.asker.ad1,Yaralı bir asker,A wounded soldier,taslak_tam
+sablon.asker.ad2,Bir firari,A deserter,taslak_tam
+sablon.asker.ad3,Yaya bir sipahi,A dismounted sipahi,taslak_tam
+sablon.asker.ad4,Bir sınır bekçisi,A border watchman,taslak_tam
+sablon.asker.c1_c1,Artık kimsenin.,No one’s man any longer.,taslak_tam
+sablon.asker.c1_c2,Bir sipahinin. Kösedağ'da öldü; onu taşıyamadım.,A sipahi’s man. He perished at Kosedag; I could not carry his body from the field.,taslak_tam
+sablon.asker.c1_c3,Bahadır Bey. Söylesem bilmezsin. Bilen kalmadı.,"Bahadir Bey’s man. Even if I spoke his name, you would not know it. None are left who remember.",taslak_tam
+sablon.asker.c1_c4,Hafif. Kimse emir vermiyor. Kimse ekmek de vermiyor.,"Light. No one shouts commands at me now. Yet no one offers bread, either.",taslak_tam
+sablon.asker.c1_c5,"Ekmek veren, ok atmayı bilen birine bağlanırım. Sen misin?",I would pledge my loyalty to whoever feeds me and knows how to draw a bow. Is that you?,taslak_tam
+sablon.asker.c1_c6,"Yürüyorum, değil mi?","I am standing on my two feet, am I not?",taslak_tam
+sablon.asker.c1_c7,Bakma. Bakınca kötüleşiyor sanki.,Do not stare so. Looking at the wound only seems to make the pain throb worse.,taslak_tam
+sablon.asker.c1_c8,Herkes savaştaydı. Sonra herkes yoldaydı.,Everyone marched to battle. Then everyone was scattered on the highway.,taslak_tam
+sablon.asker.c1_c9,Çok şey. Çoğunu unutmaya çalışıyorum. Unutamadıklarım benimle yürüyor.,Too much. I strive each night to forget most of it. What I cannot forget walks beside me.,taslak_tam
+sablon.asker.c1_c10,,I know how to draw a bow. I know how to hold a watch. I know how to remain silent in the dark.,taslak_tam
+sablon.asker.c1_c11,,Whatever task you assign. I have no appetite for sitting idle.,taslak_tam
+sablon.asker.c1_c12,,I carry an old composite bow. A handful of bodkin arrows. And this wound upon my shoulder.,taslak_tam
+sablon.asker.c1_c13,,"Neither gold nor silver. If I possessed coin, would I stand begging in the frost?",taslak_tam
+sablon.asker.c1_c14,,"I deserted. What shame is there in speaking true? When the commander fled on horseback, why should the footman bleed for a ditch?",taslak_tam
+sablon.asker.c1_c15,,I do not run from battle; I run from senseless slaughter. There is a distinction.,taslak_tam
+sablon.asker.c1_c16,,"Give me bread, give me arrows. When the Tekfur’s raiders charge, you will see where I stand.",taslak_tam
+sablon.asker.c1_c17,,"Let me sleep under the eaves tonight. If you find me lacking at sunrise, thrust me beyond the gate.",taslak_tam
+sablon.asker.c1_c18,,Cold wind gnaws through my leather jerkin. My fingers stiffen.,taslak_tam
+sablon.asker.c1_c19,,The horses in the rear were butchered for meat. The baggage train burned.,taslak_tam
+sablon.asker.c1_c20,,I seek neither fief nor gold. A roof and an honest command are enough.,taslak_tam
+sablon.asker.s1,,Whose banner did you march under?,taslak_tam
+sablon.asker.s2,,How does that wound upon your shoulder fare?,taslak_tam
+sablon.asker.s3,,What did you witness in the east?,taslak_tam
+sablon.asker.s4,,What skill do you bring to our garrison?,taslak_tam
+sablon.asker.s5,,What do you conceal in that sack?,taslak_tam
+sablon.asker.s6,,Did you flee from your post?,taslak_tam
+sablon.asker.s7,,Why should I admit you through the palisade?,taslak_tam
+sablon.ciftci.acilis1,"Akşam hayrola. Rençberim; öküzüm yolda öldü, boyunduruğu bırakamadım. Toprak verirseniz sabanı ben çekerim.","Peace be upon you, gatekeeper. The Mongol horses trampled our valley into cinders. I clutch only this seed pouch; allow me to till your soil.",taslak_tam
+sablon.ciftci.acilis2,"Selam. Ben tarlada çalışırım; kocam tarlada kaldı. Hasada kadar bir iş, bir köşe isterim.","We walked four nights through the marshes. My oxen died on the trail, but my two hands are strong and ready for the plow.",taslak_tam
+sablon.ciftci.ad1,Yorgun bir çiftçi,A dispossessed peasant,taslak_tam
+sablon.ciftci.ad2,Irgat bir kadın,A plains farmer,taslak_tam
+sablon.ciftci.ad3,Sivaslı bir rençber,A refugee vine-dresser,taslak_tam
+sablon.ciftci.ad4,Bir orakçı,A plowman,taslak_tam
+sablon.ciftci.c1_c1,Yolda öldü. Boyunduruğu bırakamadım.,"From the plains beyond Konya. The tax collectors took the grain, then the riders burned the stubble.",taslak_tam
+sablon.ciftci.c1_c2,"Öküz ölür, boyunduruk kalır. Belki başka öküz bulurum.",A small hamlet near the river. Nothing remains standing except blackened chimney stones.,taslak_tam
+sablon.ciftci.c1_c3,Toprak. Başka bir şey bilmem.,Three measures of hardy winter wheat. It yields sweet bread even in stony clay.,taslak_tam
+sablon.ciftci.c1_c4,"Buğday, arpa. Toprak iyiyse nohut.",I guarded this seed in my bosom against the thieves. It is my children’s breath.,taslak_tam
+sablon.ciftci.c1_c5,Sivas'ın ovasından. Ova yandı.,"My wife succumbed to cough by the roadside. My boy walks behind me, keeping his head low.",taslak_tam
+sablon.ciftci.c1_c6,"Kim yakmadı ki? Önce Moğol geçti, sonra bizimkiler kalanı aldı.",He does not complain. Give him a crust of barley bread and he will herd geese till dusk.,taslak_tam
+sablon.ciftci.c1_c7,,I know when to turn the furrow before the frost strikes. I know how to mend an irrigation ditch.,taslak_tam
+sablon.ciftci.c1_c8,,"If you give me a patch of hillside, I will turn it into green barley by springtime.",taslak_tam
+sablon.ciftci.c1_c9,,"I have nothing hidden, effendi. Search the sack; you will find only dry pulse and salt.",taslak_tam
+sablon.ciftci.c1_c10,,Three copper mangirs. Not enough to tempt even a beggar.,taslak_tam
+sablon.ciftci.c1_c11,,We do not ask for handouts. We ask for earth to break with a hoe.,taslak_tam
+sablon.ciftci.c1_c12,,"The earth does not hold grudges. If you tend her with sweat, she gives bread.",taslak_tam
+sablon.ciftci.c1_c13,,My hands are calloused like tree bark. Try them on your hardest soil.,taslak_tam
+sablon.ciftci.c1_c14,,I will sleep in the barn beside the cattle; the beasts’ breath will keep us from freezing.,taslak_tam
+sablon.ciftci.s1,,From which valley do you arrive?,taslak_tam
+sablon.ciftci.s2,,What grain do you carry in that cloth pouch?,taslak_tam
+sablon.ciftci.s3,,Who travels in your company?,taslak_tam
+sablon.ciftci.s4,,What craft do your hands possess?,taslak_tam
+sablon.ciftci.s5,,Do you hold coin to pay the gate toll?,taslak_tam
+sablon.ciftci.s6,,Where will you lay your head if admitted?,taslak_tam
+sablon.ciftci.s7,,Why seek shelter upon this dangerous frontier?,taslak_tam
+sablon.esnaf.acilis1,"Selam usta... yani kapıcı. Ustamı yolda kaybettim. Deri işlerim, biraz da demir. Bir ocak bulursam yeniden başlarım.","Greetings, noble guard. I carry needles, thread, whetstones, and copper wire. If there is a bazaar inside, I bring fair commerce.",taslak_tam
+sablon.esnaf.acilis2,"Bakırcıyım; tas, kepçe, kazan. Malım bu kadar kaldı, borcum daha çok. Kervansaray varsa orada satarım.",May your evening be prosperous. My mule is laden with woolen felt and salt blocks from Tuz Golu. Grant me shelter at the caravanserai.,taslak_tam
+sablon.esnaf.ad1,Bir Ahi çırağı,A peddler,taslak_tam
+sablon.esnaf.ad2,Seyyar bir bakırcı,An itinerant tanner,taslak_tam
+sablon.esnaf.ad3,Bir keçeci,A pack-horse trader,taslak_tam
+sablon.esnaf.ad4,Bir semerci,An ironmonger,taslak_tam
+sablon.esnaf.c1_c1,Yolda kaybettim. Arıyorum.,From Aksaray. The trade road was cut by mountain outlaws; I had to veer through goat tracks.,taslak_tam
+sablon.esnaf.c1_c2,"Bir kalabalıkta elini bıraktım. Sonra kalabalık dağıldı, usta da.","From the Byzantine border markets. Silk is cheap there, but iron is worth its weight in silver.",taslak_tam
+sablon.esnaf.c1_c3,Deri. Biraz da demir.,"Three bags of rock salt, four pairs of shear blades, and a bundle of sheepskins.",taslak_tam
+sablon.esnaf.c1_c4,Kemer tokası. Ustam 'senin tokan kemeri sever' derdi.,I have two bolts of dyed wool. Sturdy enough to withstand the harshest mountain blizzard.,taslak_tam
+sablon.esnaf.c1_c5,"Kayseri'nin. Ocak yerinde mi, bilmem.",Here is my transit permit sealed by the Ahi lodge of Eskisehir.,taslak_tam
+sablon.esnaf.c1_c6,Henüz değil. Şed kuşanmama bir yıl vardı.,"I pay my lawful gate toll in good silver akce, not with clipped copper.",taslak_tam
+sablon.esnaf.c1_c7,,I know the price of grain in three provinces. I can tell your scribe where wheat is scarce.,taslak_tam
+sablon.esnaf.c1_c8,,"A fair merchant brings prosperity to a settlement; where caravans pause, gold lingers.",taslak_tam
+sablon.esnaf.c1_c9,,I seek only a stall in your market square and hay for my mule.,taslak_tam
+sablon.esnaf.c1_c10,,I do not traffic in stolen gear or heathen idols; my ledger is open to the judge.,taslak_tam
+sablon.esnaf.c1_c11,,Bandits ambushed the caravan two leagues back; I survived only because my mule sure-footed escaped into the gully.,taslak_tam
+sablon.esnaf.c1_c12,,Let me enter before the mist thickens; wolves are howling along the creek bed.,taslak_tam
+sablon.esnaf.s1,,What wares do you bring to market?,taslak_tam
+sablon.esnaf.s2,,Do you hold a merchant patent or guild seal?,taslak_tam
+sablon.esnaf.s3,,What news do you carry from the trade highways?,taslak_tam
+sablon.esnaf.s4,,Can you pay the merchant toll in silver akce?,taslak_tam
+sablon.esnaf.s5,,Did you encounter robbers on the road?,taslak_tam
+sablon.esnaf.s6,,How long do you intend to lodge within our walls?,taslak_tam
+sablon.esnaf.s7,,Who stands surety for your honesty?,taslak_tam
+sablon.asker.c1_s1,Kimin adamısın?,Kimin adamısın?,taslak_tam
+sablon.asker.c1_s2,Önce kimin adamıydın?,Önce kimin adamıydın?,taslak_tam
+sablon.asker.c1_s3,Adı neydi?,Adı neydi?,taslak_tam
+sablon.asker.c1_s4,Kimsenin olmak nasıl?,Kimsenin olmak nasıl?,taslak_tam
+sablon.asker.c1_s5,Yeniden birine bağlanır mısın?,Yeniden birine bağlanır mısın?,taslak_tam
+sablon.asker.c1_s6,Yaran ağır mı?,Yaran ağır mı?,taslak_tam
+sablon.asker.c1_s7,Bakayım mı?,Bakayım mı?,taslak_tam
+sablon.asker.c1_s8,Savaşta mıydın?,Savaşta mıydın?,taslak_tam
+sablon.asker.c1_s9,Neler gördün?,Neler gördün?,taslak_tam
+sablon.asker.c2_c1,Herkes bir şeyden kaçıyor bu yolda.,Herkes bir şeyden kaçıyor bu yolda.,taslak_tam
+sablon.asker.c2_c2,"Bir çavuş. Bir liste. Listede adım var mı, bilmiyorum. Varmış gibi yürüyorum.","Bir çavuş. Bir liste. Listede adım var mı, bilmiyorum. Varmış gibi yürüyorum.",taslak_tam
+sablon.asker.c2_c3,Bıraktım.,Bıraktım.,taslak_tam
+sablon.asker.c2_c4,Bir dereye. Su iyi saklar.,Bir dereye. Su iyi saklar.,taslak_tam
+sablon.asker.c2_c5,Olsaydı bu kadar yavaş yürür müydüm?,Olsaydı bu kadar yavaş yürür müydüm?,taslak_tam
+sablon.asker.c2_c6,"O zaman burada durup seninle konuşmazdım, kapıcı.","O zaman burada durup seninle konuşmazdım, kapıcı.",taslak_tam
+sablon.asker.c2_s1,Kimden kaçıyorsun?,Kimden kaçıyorsun?,taslak_tam
+sablon.asker.c2_s2,Senin kaçtığın ne?,Senin kaçtığın ne?,taslak_tam
+sablon.asker.c2_s3,Silahın var mı?,Silahın var mı?,taslak_tam
+sablon.asker.c2_s4,Nereye bıraktın?,Nereye bıraktın?,taslak_tam
+sablon.asker.c2_s5,Peşinde biri var mı?,Peşinde biri var mı?,taslak_tam
+sablon.asker.c2_s6,Ya olsaydı?,Ya olsaydı?,taslak_tam
+sablon.asker.giris1,Sargısı kirlenmiş bir asker.,Sargısı kirlenmiş bir asker.,taslak_tam
+sablon.asker.giris2,Gözleri sürekli yolda olan bir adam.,Gözleri sürekli yolda olan bir adam.,taslak_tam
+sablon.ciftci.c1_s1,Öküzün nerede?,Öküzün nerede?,taslak_tam
+sablon.ciftci.c1_s2,Neden taşıyorsun boyunduruğu?,Neden taşıyorsun boyunduruğu?,taslak_tam
+sablon.ciftci.c1_s3,Ne iş bilirsin?,Ne iş bilirsin?,taslak_tam
+sablon.ciftci.c1_s4,Ne ekersin?,Ne ekersin?,taslak_tam
+sablon.ciftci.c1_s5,Nereden geliyorsun?,Nereden geliyorsun?,taslak_tam
+sablon.ciftci.c1_s6,Kim yaktı?,Kim yaktı?,taslak_tam
+sablon.ciftci.c2_c1,Kocam tarlada kaldı.,Kocam tarlada kaldı.,taslak_tam
+sablon.ciftci.c2_c2,Vardı. (Başka bir şey demiyor.),Vardı. (Başka bir şey demiyor.),taslak_tam
+sablon.ciftci.c2_c3,Hasat zamanı iş.,Hasat zamanı iş.,taslak_tam
+sablon.ciftci.c2_c4,"O zamana kadar ot yolarım, su taşırım. Boş durmam.","O zamana kadar ot yolarım, su taşırım. Boş durmam.",taslak_tam
+sablon.ciftci.c2_c5,Yolda kimse kimseyi beklemiyor.,Yolda kimse kimseyi beklemiyor.,taslak_tam
+sablon.ciftci.c2_c6,Boş köyler. Bir de yolun kenarına dizilmiş taşlar. Kim dizdi bilmiyorum.,Boş köyler. Bir de yolun kenarına dizilmiş taşlar. Kim dizdi bilmiyorum.,taslak_tam
+sablon.ciftci.c2_s1,Kimin nesisin?,Kimin nesisin?,taslak_tam
+sablon.ciftci.c2_s2,Çocuğun var mı?,Çocuğun var mı?,taslak_tam
+sablon.ciftci.c2_s3,Ne istersin?,Ne istersin?,taslak_tam
+sablon.ciftci.c2_s4,Hasada daha çok var.,Hasada daha çok var.,taslak_tam
+sablon.ciftci.c2_s5,Yalnız mı yürüdün?,Yalnız mı yürüdün?,taslak_tam
+sablon.ciftci.c2_s6,Yolda ne gördün?,Yolda ne gördün?,taslak_tam
+sablon.ciftci.giris1,Sırtında boyunduruk taşıyan bir adam. Öküzü yok.,Sırtında boyunduruk taşıyan bir adam. Öküzü yok.,taslak_tam
+sablon.ciftci.giris2,"Elleri nasırlı bir kadın, yalnız.","Elleri nasırlı bir kadın, yalnız.",taslak_tam
+sablon.esnaf.c1_s1,Ustan nerede?,Ustan nerede?,taslak_tam
+sablon.esnaf.c1_s2,Nasıl kaybettin?,Nasıl kaybettin?,taslak_tam
+sablon.esnaf.c1_s3,Ne iş yaparsın?,Ne iş yaparsın?,taslak_tam
+sablon.esnaf.c1_s4,En iyi neyi yaparsın?,En iyi neyi yaparsın?,taslak_tam
+sablon.esnaf.c1_s5,Ocağın hangisi?,Ocağın hangisi?,taslak_tam
+sablon.esnaf.c1_s6,Ahi misin?,Ahi misin?,taslak_tam
+sablon.esnaf.c2_c1,Kalan bu. Borcum daha çok.,Kalan bu. Borcum daha çok.,taslak_tam
+sablon.esnaf.c2_c2,"Yol aldı. Biri bir tasa ekmek verdi, biri bir kazana geçit.","Yol aldı. Biri bir tasa ekmek verdi, biri bir kazana geçit.",taslak_tam
+sablon.esnaf.c2_c3,Kervansaray varsa oraya.,Kervansaray varsa oraya.,taslak_tam
+sablon.esnaf.c2_c4,O zaman pazara. Pazar da yoksa kapının dibine. Bakır her yerde satılır.,O zaman pazara. Pazar da yoksa kapının dibine. Bakır her yerde satılır.,taslak_tam
+sablon.esnaf.c2_c5,Bir Rum tüccara. O da yolda bir yerde.,Bir Rum tüccara. O da yolda bir yerde.,taslak_tam
+sablon.esnaf.c2_c6,Bulursam. Bulamazsam borç bende kalır.,Bulursam. Bulamazsam borç bende kalır.,taslak_tam
+sablon.esnaf.c2_s1,Malın bu kadar mı?,Malın bu kadar mı?,taslak_tam
+sablon.esnaf.c2_s2,Kalanı ne oldu?,Kalanı ne oldu?,taslak_tam
+sablon.esnaf.c2_s3,Nereye gidiyorsun?,Nereye gidiyorsun?,taslak_tam
+sablon.esnaf.c2_s4,Kervansaray yoksa?,Kervansaray yoksa?,taslak_tam
+sablon.esnaf.c2_s5,Kime borçlusun?,Kime borçlusun?,taslak_tam
+sablon.esnaf.c2_s6,Ödeyecek misin?,Ödeyecek misin?,taslak_tam
+sablon.esnaf.giris1,"Elinde alet torbası, genç bir çırak.","Elinde alet torbası, genç bir çırak.",taslak_tam
+sablon.esnaf.giris2,Sırtında birkaç bakır kap.,Sırtında birkaç bakır kap.,taslak_tam
