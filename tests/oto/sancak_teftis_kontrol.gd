@@ -21,7 +21,7 @@ func _ready() -> void:
  var ana:=TestAna.new()
  add_child(ana)
  var o:=ana.oturum
- for i in 4:
+ for i in 20:
   var g:=Gelen.new()
   g.id=StringName("teftis_ui_%d"%i)
   o.karar_ver(g,&"rusvet")

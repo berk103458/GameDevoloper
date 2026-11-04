@@ -18,7 +18,12 @@ func _initialize() -> void:
  var ayar:=SancakTeftisi.AYAR
  SancakTeftisi.AYAR=ayar.duplicate(true)
  SancakTeftisi.AYAR.bulma_olasiligi=1.0
- var o:=kur(kat,4)
+ var sinir:=kur(kat,19)
+ var sinir_rng:=sinir._rng.state
+ var sinir_raporu:=rapor(6)
+ SancakTeftisi.gece(sinir,sinir_raporu)
+ dene(sinir.yonetim.son=="" and sinir.sancak_teftisi.sonuc=="temiz" and sinir._rng.state==sinir_rng,"DEN-44: 19 rüşvette risk zarı yok")
+ var o:=kur(kat,20)
  var rng:=o._rng.state
  var r:=rapor(5)
  SancakTeftisi.gece(o,r)
@@ -41,7 +46,7 @@ func _initialize() -> void:
  r=rapor(6)
  SancakTeftisi.gece(legal,r)
  dene(legal.yonetim.son=="" and legal.sancak_teftisi.sonuc=="temiz" and legal._rng.state==rng,"Meşru kişisel para suç değil; zar yok")
- var bos:=kur(kat,14)
+ var bos:=kur(kat,70)
  bos.muhafiz_akce=0
  bos.muhafiz_esyalari=[{"adet":0}]
  rng=bos._rng.state
@@ -53,7 +58,7 @@ func _initialize() -> void:
  r=rapor(6)
  SancakTeftisi.gece(bos,r)
  dene(bos.yonetim.son==String(SancakTeftisi.SON_IDAM) and bos.sancak_teftisi.esya==1,"Yalnız eşya + ağır gerçek yozlaşma idam")
- var gizli:=kur(kat,4)
+ var gizli:=kur(kat,20)
  SancakTeftisi.AYAR.bulma_olasiligi=0.0
  r=rapor(6)
  SancakTeftisi.gece(gizli,r)
@@ -66,13 +71,13 @@ func _initialize() -> void:
  r=rapor(11)
  SancakTeftisi.gece(gizli,r)
  dene(gizli.yonetim.son==String(SancakTeftisi.SON_AZIL) and gizli.sancak_teftisi.son_gece==11,"Reload sonrası sıradaki teftiş")
- var biten:=kur(kat,14)
+ var biten:=kur(kat,70)
  biten.yonetim.son=KoyYonetimi.SON_TEKFUR
  rng=biten._rng.state
  r=rapor(6)
  SancakTeftisi.gece(biten,r)
  dene(biten.yonetim.son==KoyYonetimi.SON_TEKFUR and biten._rng.state==rng and r.olaylar.is_empty(),"Mevcut terminal ezilmez")
- var gece:=kur(kat,4)
+ var gece:=kur(kat,20)
  gece.yonetim.kabul({"ad":"Sağ kalan köylü"})
  gece.gun=5
  gece.yonetim.kaynaklar.ekle("gida",100)

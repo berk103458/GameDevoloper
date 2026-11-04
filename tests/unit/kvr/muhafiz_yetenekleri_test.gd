@@ -16,11 +16,11 @@ func _initialize() -> void:
  kat.yukle()
  var o:=Oturum.new(kat,97)
  dene(not MuhafizYetenekleri.al(o,"goz_yumma") and not MuhafizYetenekleri.al(o,"uydurma"),"Eksik koşul/bilinmeyen seçim red")
- for i in range(8):
+ for i in range(20):
   var g:=Gelen.new()
   g.id=StringName("yetenek_%d"%i)
   o.karar_ver(g,&"rusvet")
- dene(o.muhafiz_tecrubesi==8 and MuhafizTerazisi.durum(o).rusvet==8,"Gerçek kararlar tecrübe/sayaç")
+ dene(o.muhafiz_tecrubesi==20 and MuhafizTerazisi.durum(o).rusvet==20,"Gerçek kararlar tecrübe/sayaç")
  dene(not MuhafizYetenekleri.al(o,"harac_kesme"),"Dal önceki yeteneği ister")
  o.muhafiz_akce=40
  var kamu:=o.koy_akce
