@@ -495,3 +495,33 @@ Düzeltmeleri partiler halinde commit et. Commit mesajı "DIL-EN-GOZDEN-…" ile
 - Kalfa'nın alanına ve Cursor'un koduna dokunma. Asset üretme.
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
 
+
+---
+
+# Görev 13 — Karar seçeneklerini uygulamaya hazır hale getir, eksik 2D asset promptlarını tamamla (Kaşif, 4 Kasım 2026 06:30)
+
+Görev 12 bitti, eline sağlık. Oyun testi listesi sabah Ahmet'in ilk okuyacağı dosya olacak. İlerleme dosyası: `codex.md/Antigravity_ilerleme_13.md`. Kotan yaklaşık %35. Bu görevi verimli yap ve gereksiz yere tekrar okuma yapma.
+
+## Bölüm A — Karar seçenekleri uygulanmaya hazır olsun
+Ahmet sabah `docs/KARAR_SECENEKLERI.md`'deki 3 karardan (Banu Hatun'un 50 atlısı, Molla Şükrü'nün meclis yüzleşmesi, "Vebali sabi") birer seçenek seçecek. Seçtiği an uygulanabilsin diye her seçeneği şimdiden hazırla:
+1. Her karar ve her seçenek için `docs/karar_yamalari/<karar>_<secenek>/` klasörü aç. İçine değişecek diyalog, metin ve JSON dosyalarının o seçeneğe göre yazılmış tam halini koy. Gerekiyorsa `metinler.csv` satırlarını ayrı bir parça dosyası olarak koy.
+2. Her klasöre bir `UYGULA.md` yaz: hangi dosya nereye kopyalanacak, hangi bayraklar eklenecek ya da çıkacak, hangi testler çalıştırılacak.
+3. Oyunun kendi dosyalarını değiştirme. Bu klasörler sadece hazır bekleyecek.
+4. Her karar için bir commit at. Commit mesajı "KARAR-…" ile başlasın, "(Antigravity)" ile bitsin.
+
+## Bölüm B — Diyalogla ilgili eksik 2D asset promptları
+1. `docs/EKSIK_ASSET_ENVANTERI.md`'yi oku.
+2. Diyalog ve anlatıyla ilgili 2D ihtiyaçları bul: ziyaretçi portreleri, eş portresi, köy olayı kartları, defter ve söylenti görselleri, son ve epilog görselleri.
+3. Envanterde olmayanları ekle. Promptu eksik olanlara Nano Banana promptu yaz. Promptlar aynı sanat yönünde olsun: atmosferik, dönem havasında, düz web arayüzü gibi değil. Her karakter için kısa bir görünüş tarifi yaz ve bunu diyalogda söylenenlerle tutarlı tut.
+4. 3D ihtiyaçları ayrı başlıkta bırak, onlar için prompt yazma.
+5. Asset üretme, sadece listele ve prompt yaz. Commit mesajı "ASSET-PROMPT-…" ile başlasın, "(Antigravity)" ile bitsin.
+
+## Bitirme
+Doğrulayıcıları çalıştır. `docs/DIYALOG_GECE_OZETI.md`'ye Görev 13 için kısa bir bölüm ekle. En son ilerleme dosyasının son satırına tek başına `GOREV13_TAMAM` yaz.
+
+## Kurallar
+- Yalnız `docs/` altına ve kendi ilerleme dosyana yaz. Oyunun çalışan dosyalarını ve testleri değiştirme.
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at ve her commit'ten sonra push et. Festive'e birleştirme.
+- Kalfa'nın alanına ve Cursor'un koduna dokunma.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
+
