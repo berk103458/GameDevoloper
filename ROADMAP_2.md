@@ -3516,7 +3516,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: YSM-02, DEN-03. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-26:** İki günü aşan açlık üretimi sıfırlar.
+- [x] **DEN-26:** (Kalfa) İki günü aşan açlık üretimi sıfırlar.
   - Ne: YSM-02'nin yatar hali, o gecenin üretim satırında 0 yazar. İkinci bir ceza çarpanı eklenmez.
   - Kabul: YSM-02'nin yatar hali, o gecenin üretim satırında 0 yazar. İkinci bir ceza çarpanı eklenmez. Test: 3. aç gün, üretim 0.
   - Bağımlılık: YSM-02. Boyut: S.

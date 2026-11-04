@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-26 tamamlandı (Kalfa)
+
+Mevcut tests/unit/koy/yasam_test.gd tekrar headless çalıştırıldı ve geçti. Üçüncü aç gündeki işçinin gerçek gece buğday üretimi sıfır; erzak sonrası çarpan tabana döner. Mevcut test yeniden kullanıldı. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-25 tamamlandı (Kalfa)
 
 Denge doğrulayıcısı ikinci açlık tablosunu ve iç içe kopyasını reddeder; yalnız YSM-02 kaynağına referans serbesttir. Önce başarısız test görüldü, ardından 32 hedefli Python testi ve gerçek denge doğrulaması geçti. Asset gerekmedi. kota görünmüyor.
