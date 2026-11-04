@@ -3444,7 +3444,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: EKO-01, DEN-01. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-15:** Hızarhane, iki çadır ve tarla sırası kilitlenmez.
+- [x] **DEN-15:** Hızarhane, iki çadır ve tarla sırası kilitlenmez. (Kalfa)
   - Ne: BUG-22'nin bu sırası 10 gün içinde taş ocağına gider. Odun o sırada 0 olmaz (DEN-10).
   - Kabul: BUG-22'nin bu sırası 10 gün içinde taş ocağına gider. Odun o sırada 0 olmaz (DEN-10). Test: tek senaryo, iki koşul.
   - Bağımlılık: DEN-10, BUG-21. Boyut: S.

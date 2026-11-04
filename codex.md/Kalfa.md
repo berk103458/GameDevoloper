@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-15 tamamlandı (Kalfa)
+
+Mevcut hedefli açılış testinde hızarhane, iki çadır ve tarla sırası taş ocağını 1. gecede kurdu. İlk 10 gece odun sıfıra inmedi ve kilit oluşmadı. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-12 tamamlandı (Kalfa)
 
 Aynı açılışın yaz ve kış koşuları 10 gece ölçüldü. Odun dibi yazın 1, kışın 0; fark denge tablosuyla eşleşti. Hedefli kontrol geçti. Asset gerekmedi. kota görünmüyor.
