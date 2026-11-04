@@ -26,20 +26,27 @@ func _kos() -> void:
 	var yaz := FileAccess.open(yol, FileAccess.WRITE)
 	yaz.store_string('{"surum": 3, "tohum": "5", "koy_yone')
 	yaz.close()
+	var baytlar := FileAccess.get_file_as_bytes(yol)
 	var ana := MenuAna.new()
 	ana.test_yolu = yol
 	add_child(ana)
 	await get_tree().process_frame
-	# Yarım yazılmış dosyada "Devam": menüye dönmeli, oturum kurmamalı, çökmemeli.
+	# Yarım yazılmış dosyada "Devam" hata ekranını açar, oturum kurmaz.
 	ana.devam_et()
 	await get_tree().process_frame
 	await get_tree().process_frame
-	var olur := ana.oturum == null and ana._ekran is MenuEkrani
+	var hata_ekrani := ana._ekran as BilgiEkrani
+	var olur := ana.oturum == null and hata_ekrani != null
+	if olur:
+		olur = hata_ekrani.baslik == "Kayıt açılamadı" and hata_ekrani.dugmeler == PackedStringArray(["Ana menüye dön"])
+		hata_ekrani.secildi.emit(0)
+		await get_tree().process_frame
+		olur = olur and ana._ekran is MenuEkrani
 	if olur:
 		var devam := ana._ekran.find_children("*", "Button", true, false).filter(
 			func(b: Node) -> bool: return (b as Button).text == tr("arayuz.menu.devam"))
 		olur = devam.size() == 1 and not (devam[0] as Button).disabled
-	olur = olur and FileAccess.file_exists(yol)
+	olur = olur and FileAccess.get_file_as_bytes(yol) == baytlar
 	print("TEK25 KESİK KAYIT MENÜSÜ: GEÇTİ" if olur else "TEK25 KESİK KAYIT MENÜSÜ: KALDI")
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(yol))
 	ana.queue_free()

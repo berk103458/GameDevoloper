@@ -1,3 +1,51 @@
+## 4 Kasım 2026 — DEN-31 tamamlandı (Kalfa)
+
+Aç/tok köyün 40 gerçek gecesinde bar ve denge raporu üçer kez okundu. Kayıt fotoğrafı değişmedi; sağlık, stok, gün ve RNG ikinci hesap açmadı. Hedefli headless test geçti. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-30 tamamlandı (Kalfa)
+
+Aynı 2929 tohumu, üç taşçı ve tek hazır taş ocağıyla 20 gece karşılaştırıldı. Aç köy 5, tok köy 27 taş üretti. DEN-29 aralığı yeniden geçti. İlk denemede eski hızarhane odun reçetesi üretmedi; güncel taş ocağı reçetesine geçildi. Açlıkta 0 ölüm, nüfusun hayatta kaldığını göstermez; isyan/firar sistemi açıktır. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-29 tamamlandı (Kalfa)
+
+Üç kişilik, erzak sıfır başlayan köy 2929 tohumu ile 20 gerçek gece ölçüldü. Ölüm 0 çıktı; ölçümün alt/üst sınırı 0/0 kaydedildi. Normal kurtarıcı ve oyun sistemleri açık kaldı; her gece stok silinmedi. Eksik aralıkla RED, tabloyla GREEN görüldü. Denge doğrulaması geçti. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-28 tamamlandı (Kalfa)
+
+Mevcut yaşam testi headless geçti. Yataklı ve yataksız uyku farkı, dolu yatak, nöbetçi ve kayıt dönüşü YSM-03 üzerinden doğrulandı. İkinci uyku formülü eklenmedi. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-27 tamamlandı (Kalfa)
+
+Denge dosyasında ikinci açlık sağlık/erzak eşiği reddedilir; KRI-12 kaynağı data/koy/aclik_saglik.json referansı serbesttir. Önce başarısız test, ardından 33 hedefli Python testi ve gerçek tablo doğrulaması geçti. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-26 tamamlandı (Kalfa)
+
+Mevcut tests/unit/koy/yasam_test.gd tekrar headless çalıştırıldı ve geçti. Üçüncü aç gündeki işçinin gerçek gece buğday üretimi sıfır; erzak sonrası çarpan tabana döner. Mevcut test yeniden kullanıldı. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-25 tamamlandı (Kalfa)
+
+Denge doğrulayıcısı ikinci açlık tablosunu ve iç içe kopyasını reddeder; yalnız YSM-02 kaynağına referans serbesttir. Önce başarısız test görüldü, ardından 32 hedefli Python testi ve gerçek denge doğrulaması geçti. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-16 tamamlandı (Kalfa)
+
+Mevcut açılış testinde deneme sayısı yerine oyun takviminin ilerlediği geceler ölçüldü. Beş sıranın her biri 20 geceyi tamamladı. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-15 tamamlandı (Kalfa)
+
+Mevcut hedefli açılış testinde hızarhane, iki çadır ve tarla sırası taş ocağını 1. gecede kurdu. İlk 10 gece odun sıfıra inmedi ve kilit oluşmadı. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-12 tamamlandı (Kalfa)
+
+Aynı açılışın yaz ve kış koşuları 10 gece ölçüldü. Odun dibi yazın 1, kışın 0; fark denge tablosuyla eşleşti. Hedefli kontrol geçti. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-10 tamamlandı (Kalfa)
+
+Beş açılış sırası ilk 10 gecede sıfır odunla kapanan gece üretmedi. Hedefli açılış denge kontrolü geçti. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — Gece birleşimi sonrası doğrulama (Kalfa)
+
+Nöbet, oda ve bozuk dosya kontrolleri güncel davranışa uyarlandı. Hazır yatak modelinde oda geliştirme panelinin null erişimi giderildi. Dokuz hedefli kontrol geçti. Sırada DEN-10. Asset gerekmedi. kota görünmüyor.
+
 ## 3 Kasım 2026 — DEN-03c tamamlandı (Kalfa)
 
 Ortak denge okuyucusu açılış erzağını 30 hesaplar, üç zorluk çarpanını gecelik erzak hesabına verir. Oyuncu seçimi AYR-23 kapsamındadır. Hedefli testler ve son headless import geçti. Asset gerekmedi. kota görünmüyor.

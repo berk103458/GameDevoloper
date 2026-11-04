@@ -260,6 +260,19 @@ def acilis_kasasi_hatalari(denge: dict) -> list:
     return hatalar
 
 
+def aclik_kademesi_hatalari(denge: dict) -> list:
+    """DEN-25/27: açlık kademesi ve erzak eşiği kendi kaynaklarında kalır."""
+    hatalar = []
+    for ad, veri in denge.items():
+        if ad == "aclik" or (ad.startswith("aclik_") and ad != "aclik_olum_aralik"):
+            kaynak = "aclik_saglik" if ad == "aclik_saglik" else "aclik_kademeleri"
+            if veri != {"kaynak": f"res://data/koy/{kaynak}.json"}:
+                hatalar.append(f"{ad}: açlık değeri ikinci kez yazılamaz; kaynak data/koy/{kaynak}.json (DEN-25/27)")
+        elif isinstance(veri, dict):
+            hatalar.extend(aclik_kademesi_hatalari(veri))
+    return hatalar
+
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -280,6 +293,7 @@ def main(argv=None) -> int:
         hatalar += zar_esigi_hatalari(denge, args.sorgu_kurallari.read_text(encoding="utf-8"))
         hatalar += kacan_bedeli_hatalari(denge)
         hatalar += acilis_kasasi_hatalari(denge)
+        hatalar += aclik_kademesi_hatalari(denge)
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]
     for h in hatalar:

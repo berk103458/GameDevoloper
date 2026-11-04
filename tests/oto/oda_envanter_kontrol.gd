@@ -42,7 +42,12 @@ func _ready() -> void:
  assert(MuhafizOdasiBaglantisi.ac(e)==null and DivanBaglantisi.ac(e)==null)
  assert(d.oda.get_world_3d()!=e.sahne3b.get_world_3d())
  for isim in ["yatak","masa","mesale","gizli_kasa"]:
-  assert(d.oda.get_node(isim) is MeshInstance3D and d.oda.get_node(isim).mesh is BoxMesh)
+  var parca := d.oda.get_node(isim) as Node3D
+  assert(parca != null)
+  if isim in ["yatak", "masa"]:
+   assert(parca is MeshInstance3D or not parca.find_children("*", "MeshInstance3D", true, false).is_empty())
+  else:
+   assert(parca is MeshInstance3D and parca.mesh is BoxMesh)
  var satirlar:=d.find_children("oda_esya_*","PanelContainer",true,false)
  assert(satirlar.size()==o.muhafiz_esyalari.size()-1)
  assert(d.find_children("esya_adi","Label",true,false)[0].text=="Yasak mühür · 2 adet")

@@ -35,7 +35,8 @@ func _kos() -> void:
 	await get_tree().process_frame
 	await get_tree().create_timer(1.2).timeout
 	# Bozuk dosyada her ayar varsayılanında: çekirdek anahtarlar ve bölümün ek anahtarları (AYR-02).
-	var olur := ana.ayarlar.degerler.size() == Ayarlar.VARSAYILAN.size() + AyarlarEk.VARSAYILAN.size()
+	var olur := ana.ayarlar.degerler.size() == Ayarlar.VARSAYILAN.size() + AyarlarEk.VARSAYILAN.size() + 1
+	olur = olur and ana.ayarlar.degerler.get(&"surum") == AyarlarEk.SURUM
 	for k in Ayarlar.VARSAYILAN:
 		olur = olur and ana.ayarlar.degerler.get(k) == Ayarlar.VARSAYILAN[k]
 	for k in AyarlarEk.VARSAYILAN:

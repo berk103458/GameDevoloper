@@ -11,6 +11,12 @@ func _initialize() -> void:
 	y.akce = 1000
 	for tur in ["gida", "tomruk", "odun", "tas", "kereste", "alet"]: y.kaynaklar.ekle(tur, 100)
 	var k := y.kabul({"ad": "Ali", "sinif": "ciftci", "stat": 5})
+	var ev := KoyBinasi.new()
+	ev.id = 900
+	ev.tur = "cadir"
+	ev.hucre = Vector2i(0, 0)
+	y.binalar.append(ev)
+	k.ev = ev.id
 	k.moral = 50
 	y.muhafiz_ata(k.id)
 	_kontrol(not NobetYorgunlugu.aktif(k, y) and is_equal_approx(IsKazalari.risk(k, y), 0.10), "İlk gece eski uyuklama riski")
@@ -41,7 +47,7 @@ func _initialize() -> void:
 	k.moral = 50
 	y._rng.seed = _tohum(0.08, 0.112)
 	y.gece()
-	_kontrol(k.is_kazasi.get("tur") == "yaralanma" and k.saglik == 80, "Artan aralıktaki zar gerçek üretim gecesinde yaralar")
+	_kontrol(k.is_kazasi.get("tur") == "yaralanma" and k.saglik == 80 + y.a.iyilesme, "Artan aralıktaki zar gerçek üretim gecesinde yaralar")
 	y.bosalt(k.id)
 	y.gece()
 	_kontrol(not NobetYorgunlugu.aktif(k, y), "Nöbetsiz gece sonrası yorgunluk sona erer")

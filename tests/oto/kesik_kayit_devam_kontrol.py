@@ -1,9 +1,4 @@
-"""TEK-25 akış: yarı yazılmış kayıt dosyasında gerçek `devam_et` menüye döner, çökmez.
-
-Kesik dosya beklenen tek kayıt hatasını üretir ("Kayıt sürümü uyuşmuyor"); bu yüzden
-doğrulama alt Godot sürecinin çıktısında yapılır ve üst süreç temiz kalır (TEK-18 kalıbı).
-Ortamın sertifika deposunu okuyamaması (TST-0011) beklenen hata sayılmaz.
-"""
+"""TEK-25: kesik kayıt hata ekranını açar, menüye dönüş ve dosya korunur."""
 from pathlib import Path
 import os
 import re
@@ -28,7 +23,7 @@ def main():
     errors = re.findall(r"^ERROR: (.*)$", ORTAM_GURULTUSU.sub("", output), re.M)
     valid = (
         result.returncode == 0
-        and errors == ["Kayıt sürümü uyuşmuyor"]
+        and not errors
         and "TEK25 KESİK KAYIT MENÜSÜ: GEÇTİ" in output
         and not re.search(r"SCRIPT ERROR|Failed to load script|\bKALDI\b", output)
     )
@@ -36,7 +31,7 @@ def main():
         print(output)
         print("KESİK KAYIT MENÜ: KALDI")
         return 1
-    print("Yarım yazılmış kayıtta devam_et menüye döndü; beklenen tek kayıt hatası doğrulandı.")
+    print("Kesik kayıtta hata ekranı, menüye dönüş ve dosya koruması doğrulandı.")
     print("KESİK KAYIT MENÜ: GEÇTİ")
     return 0
 

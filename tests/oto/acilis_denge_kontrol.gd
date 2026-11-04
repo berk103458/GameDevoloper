@@ -7,6 +7,7 @@ extends Node
 const ACILIS := preload("res://src/sistemler/acilis_senaryosu.gd")
 const GECE := 20
 const AZAMI_KURULUM := 10
+const ODUN_OLCUM_GECESI := 10
 
 ## Beş açılış sırası (madde Kabul). Adımlar: yapı türü, "kazi" (yatağa işçi),
 ## "kazi_bitir" (20 taş çıkana kadar bekle), "bekle" (yalnız başlangıç evi).
@@ -40,6 +41,7 @@ func _calistir() -> void:
 	for i in SIRALAR.size():
 		var r := _oyna(katalog, SIRALAR[i], 4200 + i * 7)
 		_rapor.append(r)
+		_kontrol(int(r.gece) == GECE, "DEN-16: %s %d gerçek geceyi tamamlar" % [r.sira, GECE])
 		print("SIRA %s | gece=%d son=%s ocak_gece=%d kilit=%s stok(odun=%d tas=%d alet=%d) kurtarici=%d" % [
 			r.sira, r.gece, r.son, r.ocak_gece, r.kilit, r.odun, r.tas, r.alet, r.kurtarici])
 		if not r.kilit_satirlari.is_empty():
@@ -47,7 +49,16 @@ func _calistir() -> void:
 		_kontrol(not bool(r.kilit), "Sıra %s hiç kilitlenmez" % r.sira)
 		_kontrol(int(r.ocak_gece) > 0 and int(r.ocak_gece) <= AZAMI_KURULUM,
 			"Sıra %s %d gün içinde taş ocağını kurar (gece=%d)" % [r.sira, AZAMI_KURULUM, r.ocak_gece])
+		_kontrol(r.odunsuz_geceler.is_empty(), "DEN-10: %s ilk %d gece odunsuz kalmaz (geceler=%s)" % [r.sira, ODUN_OLCUM_GECESI, r.odunsuz_geceler])
 		await get_tree().process_frame
+	var yaz := _oyna(katalog, SIRALAR[0], 4200, 1, ODUN_OLCUM_GECESI)
+	var kis := _oyna(katalog, SIRALAR[0], 4200, 3, ODUN_OLCUM_GECESI)
+	var tablo: Dictionary = preload("res://src/sistemler/denge_tablosu.gd").oku()
+	var beklenen := int(tablo.get("kis_odun_farki", 0))
+	var fark := int(yaz.odun_dibi) - int(kis.odun_dibi)
+	print("DEN-12: yaz odun dibi=%d, kış odun dibi=%d" % [yaz.odun_dibi, kis.odun_dibi])
+	_kontrol(beklenen > 0 and fark == beklenen,
+		"DEN-12: kışın odun dibi tabloda yazan kadar düşer (ölçülen=%d, beklenen=%d)" % [fark, beklenen])
 	await get_tree().process_frame
 	print("AÇILIŞ DENGE: %s (%d hata)" % ["GEÇTİ" if _hata == 0 else "KALDI", _hata])
 	get_tree().quit(0 if _hata == 0 else 1)
@@ -106,25 +117,34 @@ func _tas_yatagi_ikinci_kez_yazilmaz(k: Katalog) -> void:
 
 
 
-func _oyna(katalog: Katalog, sira: Dictionary, tohum: int) -> Dictionary:
+func _oyna(katalog: Katalog, sira: Dictionary, tohum: int, mevsim: int = -1, gece_sayisi: int = GECE) -> Dictionary:
 	var o := Oturum.new(katalog, tohum)
 	ACILIS.kur(o)
 	var y := o.yonetim
+	IklimDeneyi.yukle(y, {"mevsim": mevsim, "hava": "normal"})
 	var idx: Array[int] = [0]
 	var kilit_geceleri: Array[int] = []
+	var odunsuz_geceler: Array[int] = []
+	var ilk_gun := y.gun
 	var gecen := 0
 	var ocak_gece := 0
-	for i in GECE:
+	var odun_dibi := y.kaynaklar.miktar("odun")
+	for i in gece_sayisi:
 		_gate(o)
 		_gece_adim(o, y, sira, idx)
 		o.gece_sonu()
-		gecen += 1
+		gecen = y.gun - ilk_gun
+		if gecen <= ODUN_OLCUM_GECESI:
+			var odun := y.kaynaklar.miktar("odun")
+			odun_dibi = mini(odun_dibi, odun)
+			if odun == 0:
+				odunsuz_geceler.append(gecen)
 		if ocak_gece == 0 and _ocak(y):
 			ocak_gece = gecen
 		if _kilit(y):
 			kilit_geceleri.append(y.gun)
 	var rapor := {"sira": sira.ad, "gece": gecen, "son": y.son, "ocak_gece": ocak_gece,
-		"kilit": not kilit_geceleri.is_empty(), "kilit_satirlari": kilit_geceleri,
+		"kilit": not kilit_geceleri.is_empty(), "kilit_satirlari": kilit_geceleri, "odunsuz_geceler": odunsuz_geceler, "odun_dibi": odun_dibi,
 		"odun": y.kaynaklar.miktar("odun"), "tas": y.kaynaklar.miktar("tas"), "alet": y.kaynaklar.miktar("alet"),
 		"kurtarici": y.tas_yatagi.kurtarici_sayisi if y.tas_yatagi != null else -1}
 	o.yonetim = null

@@ -17,6 +17,23 @@ SINIR = {
 
 
 class DengeDogrulaTest(unittest.TestCase):
+    def test_aclik_kademesi_ikinci_tablo_olamaz(self):
+        for alan in ["aclik", "aclik_kademeleri", "aclik_uretim", "aclik_yatar_esigi"]:
+            with self.subTest(alan=alan):
+                denge = {alan: {"1": {"uretim": 0.8}}}
+                self.assertTrue(dogrulayici.aclik_kademesi_hatalari(denge))
+                self.assertTrue(dogrulayici.aclik_kademesi_hatalari({"ekonomi": denge}))
+
+    def test_aclik_kaynagina_referans_serbest(self):
+        denge = {"aclik_kademeleri": {"kaynak": "res://data/koy/aclik_kademeleri.json"}}
+        self.assertEqual(dogrulayici.aclik_kademesi_hatalari(denge), [])
+        self.assertEqual(dogrulayici.aclik_kademesi_hatalari({}), [])
+
+    def test_erzak_esigi_tek_kaynak(self):
+        self.assertTrue(dogrulayici.aclik_kademesi_hatalari({"aclik_saglik": {"erzak_esigi": 3}}))
+        self.assertEqual(dogrulayici.aclik_kademesi_hatalari(
+            {"aclik_saglik": {"kaynak": "res://data/koy/aclik_saglik.json"}}), [])
+
     def test_gercek_tablo_temiz(self):
         self.assertEqual(dogrulayici.main([]), 0)
 

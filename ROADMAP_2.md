@@ -3414,7 +3414,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: BUG-22, DEN-01. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`, `data/ayarlar/koy.tres`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-10:** Odun darlığı ölçülür.
+- [x] **DEN-10:** Odun darlığı ölçülür. (Kalfa)
   - Ne: BUG-0018, ilk 10 gecede odunun sıfıra düşüp ateşin kesildiği koşudur. Beş açılış sırasının (BUG-22) hiçbiri bu koşula girmez.
   - Kabul: BUG-0018, ilk 10 gecede odunun sıfıra düşüp ateşin kesildiği koşudur. Beş açılış sırasının (BUG-22) hiçbiri bu koşula girmez. Test: beş sıra, 10 gece, odun 0 gün sayısı 0.
   - Bağımlılık: BUG-22, EKO-02, MEV-11. Boyut: M.
@@ -3426,7 +3426,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: BUG-21. Boyut: S.
   - Dosya: `tests/oto/acilis_denge_kontrol.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-12:** Kış açılışı yaz açılışından ayrı ölçülür.
+- [x] **DEN-12:** Kış açılışı yaz açılışından ayrı ölçülür. (Kalfa)
   - Ne: MEV-01 kışında ilk 10 gecenin odun dibi yazdaki dibin altındadır. Altında kalması tabloda yazılı bir farktır.
   - Kabul: MEV-01 kışında ilk 10 gecenin odun dibi yazdaki dibin altındadır. Altında kalması tabloda yazılı bir farktır. Test: iki mevsim, fark tabloya uyar.
   - Bağımlılık: MEV-11, DEN-10. Boyut: M.
@@ -3444,13 +3444,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: EKO-01, DEN-01. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-15:** Hızarhane, iki çadır ve tarla sırası kilitlenmez.
+- [x] **DEN-15:** Hızarhane, iki çadır ve tarla sırası kilitlenmez. (Kalfa)
   - Ne: BUG-22'nin bu sırası 10 gün içinde taş ocağına gider. Odun o sırada 0 olmaz (DEN-10).
   - Kabul: BUG-22'nin bu sırası 10 gün içinde taş ocağına gider. Odun o sırada 0 olmaz (DEN-10). Test: tek senaryo, iki koşul.
   - Bağımlılık: DEN-10, BUG-21. Boyut: S.
   - Dosya: `tests/oto/acilis_denge_kontrol.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-16:** Açılış ölçümü 20 geceyi geçer.
+- [x] **DEN-16:** Açılış ölçümü 20 geceyi geçer. (Kalfa)
   - Ne: beş sıra 20 gece çökmeden biter. Bu, BUG-22 kabulünün ölçüm kopyasıdır. Yeni otomatik oyuncu yazılmaz.
   - Kabul: beş sıra 20 gece çökmeden biter. Bu, BUG-22 kabulünün ölçüm kopyasıdır. Yeni otomatik oyuncu yazılmaz. Test: mevcut senaryo yeşil.
   - Bağımlılık: BUG-22. Boyut: S.
@@ -3510,43 +3510,43 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.4 Yaşam barı ve üretim
 
-- [ ] **DEN-25:** Açlık kademesi YSM-02'dir.
+- [x] **DEN-25:** (Kalfa) Açlık kademesi YSM-02'dir.
   - Ne: yüzde 20, yüzde 50 ve yatar eşikleri o maddeden okunur. Denge dosyası aynı sayıyı ikinci kez yazarsa doğrulayıcı hata verir.
   - Kabul: yüzde 20, yüzde 50 ve yatar eşikleri o maddeden okunur. Denge dosyası aynı sayıyı ikinci kez yazarsa doğrulayıcı hata verir. Test: tek eşik kaynağı.
   - Bağımlılık: YSM-02, DEN-03. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-26:** İki günü aşan açlık üretimi sıfırlar.
+- [x] **DEN-26:** (Kalfa) İki günü aşan açlık üretimi sıfırlar.
   - Ne: YSM-02'nin yatar hali, o gecenin üretim satırında 0 yazar. İkinci bir ceza çarpanı eklenmez.
   - Kabul: YSM-02'nin yatar hali, o gecenin üretim satırında 0 yazar. İkinci bir ceza çarpanı eklenmez. Test: 3. aç gün, üretim 0.
   - Bağımlılık: YSM-02. Boyut: S.
   - Dosya: `tests/unit/denge/aclik_uretim_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-27:** Erzak eşiği KRI-12 ile aynıdır.
+- [x] **DEN-27:** (Kalfa) Erzak eşiği KRI-12 ile aynıdır.
   - Ne: erzak 3 gecenin altına inince sağlık eşiği KRI-12'dedir. Denge bunu ölçer, eşiği kopyalamaz.
   - Kabul: erzak 3 gecenin altına inince sağlık eşiği KRI-12'dedir. Denge bunu ölçer, eşiği kopyalamaz. Test: eşik sayısı bir.
   - Bağımlılık: KRI-12, YSM-01. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-28:** Yataksız uyku YSM-03'tür.
+- [x] **DEN-28:** (Kalfa) Yataksız uyku YSM-03'tür.
   - Ne: açıkta kalanın yorgunluğu yarım düşer. Bu bölüm yeni bir uyku formülü yazmaz.
   - Kabul: açıkta kalanın yorgunluğu yarım düşer. Bu bölüm yeni bir uyku formülü yazmaz. Test: yataklı ve yataksız fark, YSM-03 kabulüne uyar.
   - Bağımlılık: YSM-03, ACL-05. Boyut: S.
   - Dosya: `tests/unit/denge/aclik_uretim_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-29:** Yirmi günlük aç köy ölçülür.
+- [x] **DEN-29:** (Kalfa) Yirmi günlük aç köy ölçülür.
   - Ne: erzak 0 ile başlayan 20 gecede ölüm sayısı tablodaki alt ve üst sınırın içindedir. Sınır dosyadadır.
   - Kabul: erzak 0 ile başlayan 20 gecede ölüm sayısı tablodaki alt ve üst sınırın içindedir. Sınır dosyadadır. Test: 20 gece, sayı aralıkta.
   - Bağımlılık: EKO-09, YSM-02, DEN-01. Boyut: M.
   - Dosya: `data/ayarlar/denge.json` `aclik_olum_aralik`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-30:** Tok köyde üretim taban çizgidir.
+- [x] **DEN-30:** (Kalfa) Tok köyde üretim taban çizgidir.
   - Ne: erzak bolken 20 gecenin üretimi, aç köy ölçüsünün üstündedir. İki ölçüm aynı tohumdadır.
   - Kabul: erzak bolken 20 gecenin üretimi, aç köy ölçüsünün üstündedir. İki ölçüm aynı tohumdadır. Test: tok üretim > aç üretim.
   - Bağımlılık: DEN-29. Boyut: S.
   - Dosya: `tests/unit/denge/aclik_uretim_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-31:** Bar, ikinci gece hesabı açmaz.
+- [x] **DEN-31:** (Kalfa) Bar, ikinci gece hesabı açmaz.
   - Ne: YSM-01, KRI-12 hesabını okur. Denge raporu da onu okur.
   - Kabul: YSM-01, KRI-12 hesabını okur. Denge raporu da onu okur. Test: sağlık fonksiyonu gecede bir kez.
   - Bağımlılık: YSM-01, DEN-05. Boyut: S.
