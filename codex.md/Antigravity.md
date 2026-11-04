@@ -826,3 +826,20 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - `docs/DIYALOG_GECE_OZETI.md` 8. bölümle güncellendi.
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_14.md` son satırı `GOREV14_TAMAM` ile mühürlendi.
 - **Kota:** %25 kaldı.
+
+## 4 Kasım 2026 — Görev 15: Sabah Öncesi Son Kontrol, Festive Entegrasyonu ve Birleşme Notu
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Bölüm A — Festive Entegrasyonu (`d0fee0a6`):**
+     - `origin/claude/festive-volta-li1sfm` dalından Kalfa'nın gece boyunca tamamladığı 12 commit çekildi (`8c32c453`).
+     - Dalımıza merge edildi; 0 çakışma (conflict-free). Kalfa'nın denge/açlık/ölçüm kodları (`denge.json`, `denge_sinirlari.json`, `aclik_uretim_test.gd`, `denge_dogrula.py`, `oda_gelistirme_paneli.gd`, `acilis_denge_kontrol.gd`) dokunulmadan korundu; diyalog dalındaki tüm anlatı sistemleri muhafaza edildi.
+  2. **Bölüm B — Doğrulayıcılar ve Testler (Sıfır Hata):**
+     - Python doğrulayıcıları: `metin_dogrula.py` (PASS), `soz_dogrula.py` (PASS), `soz_tasarimi_dogrula.py` (PASS), `test_asset_envanteri.py` (6/6 OK), `test_denge_dogrula.py` (14/14 OK), `denge_dogrula.py` (GECTI), `dogrula_ingilizce_taslak.py` (2330 CSV, 6 JSON, 18 .ds — 0 hata, 0 uyarı).
+     - Godot Headless Testleri (16/16 PASS): `diyalog_butunluk_test.gd`, `es_yorumu_test.gd`, `koy_parley_sistemi_test.gd`, `yeni_olaylar_test.gd`, `ozel_olay_test.gd`, `girdi_test.gd`, `dil_test.gd`, `hafiza_defteri_test.gd`, `kapi_nobeti_test.gd`, `sabah_defteri_test.gd`, `tezgahta_gun_test.gd`, `yil_izi_test.gd`, `aksam_sohbeti_test.gd`, `hane_test.gd`, `soylenti_agi_test.gd`, `aclik_uretim_test.gd`.
+     - Söz motoru testleri (`tests/unit/soz/*.gd`): 40 testin tamamı PASS (0 hata).
+     - Regresyon / Yeni Kırmızı: 0 adet.
+  3. **Bölüm C — Birleşme Notu ve Sabah Özeti Güncellemesi:**
+     - `docs/DIYALOG_DALI_BIRLESME_NOTU.md` son festive commit'i (`8c32c453`), merge commit'i (`d0fee0a6`), test dökümü ve sıfır çakışma durumuyla güncellendi.
+     - `docs/DIYALOG_GECE_OZETI.md` dosyasının en başına Ahmet için 4 maddelik (7 satır) "Sabah Önce Bunu Oku (Hızlı Yol Haritası)" bölümü eklendi.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_15.md` son satırı `GOREV15_TAMAM` ile mühürlendi.
+- **Kota:** %20 kaldı.

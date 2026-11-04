@@ -1,9 +1,12 @@
 # Kapı Muhafızı — Diyalog & Anlatı Gece Özeti
 
-**Kime:** Ahmet  
-**Ajan:** Antigravity  
-**Tarih:** 4 Kasım 2026, Sabah  
-**Dal:** `feature/diyalog-yeniden-yazim` (festive ile tam senkron, teste hazır)  
+**Kime:** Ahmet | **Ajan:** Antigravity | **Tarih:** 4 Kasım 2026, Sabah | **Dal:** `feature/diyalog-yeniden-yazim` (festive ile tam senkron, teste hazır)
+
+## ☀️ Sabah Önce Bunu Oku (Hızlı Yol Haritası)
+1. **Oyun Testi:** Önce `docs/OYUN_TESTI_KONTROL_LISTESI.md` dosyasını aç; başındaki 15 dakikalık en iyi 10 anı oyunda dene.
+2. **Birleşme Onayı:** `docs/DIYALOG_DALI_BIRLESME_NOTU.md` dosyasını incele; dal festive ile tam senkronize ve testler 0 hatadır, onay verirsen festive'e birleşecek.
+3. **3 Açık Karar:** `docs/KARAR_SECENEKLERI.md` içindeki 3 karardan (Banu Hatun, Molla Şükrü, Vebalı Sabi) seçimini yap; `docs/karar_yamalari/` klasöründe tek tıkla uygulamaya hazır paketleri bekliyor.
+4. **Yeni Öneriler & Promptlar:** `docs/ROADMAP_ONERILERI_ANTIGRAVITY.md` (7 hazır taslak `docs/oneri_taslaklari/`) ve `docs/arayuz/DIYALOG_ASSET_PROMPTLARI.md` (57 yeni portre/kart promptu) hazır.
 
 ---
 
