@@ -251,3 +251,165 @@ arayuz.dil.tr,Türkçe,Turkish,taslak_tam
 arayuz.menu.surum,Sürüm: %s,Version: %s,taslak_tam
 arayuz.menu.daha_once,Önceki Oyun: %s,Previous Playthrough: %s,taslak_tam
 arayuz.demo.bitti,"Köy kök saldı, dirlik kuruldu.",The village has rooted; peace and order reign.,taslak_tam
+anlati.ambar,"Ambar: +%d ürün, −%d tüketim.","Granary: +%d goods, −%d consumed.",taslak_tam
+anlati.baski.gida,Ambar boşaldı. Halk aç yattı.,The granary ran empty. The folk went to bed hungry.,taslak_tam
+anlati.baski.ordu,Uzakta Tekfur'un adamlarının ateşleri görüldü.,The fires of the Tekfur's men were sighted in the distance.,taslak_tam
+anlati.baski.tuccar,Pazar boş kaldı. Tüccarlar uğramıyor.,The market remained deserted. No merchants came calling.,taslak_tam
+anlati.baski.vergi,Beyin adamı vergi istedi. Soylular memnun değil.,The Bey's man demanded taxes. The nobles are displeased.,taslak_tam
+anlati.gece.basladi,%d. gün. Kapının önünde yine bir kuyruk var.,"Day %d. Once again, a queue forms before the gate.",taslak_tam
+anlati.gece.bitti,Gece bitti.,The night has ended.,taslak_tam
+anlati.gelir,Pazar ve kervandan %d akçe geldi.,%d akce gathered from the market and caravans.,taslak_tam
+anlati.harc,Kapı harcı alındı: %d akçe. Yoksulun yüzü düştü.,Gate toll collected: %d akce. The poor man's countenance fell.,taslak_tam
+anlati.hasat.arpa,Arpa hasadı: +%d ürün ambara.,Barley harvest: +%d crops to the granary.,taslak_tam
+anlati.hasat.bugday,Buğday hasadı: +%d ürün ambara.,Wheat harvest: +%d crops to the granary.,taslak_tam
+anlati.hasat.mercimek,Mercimek hasadı: +%d ürün ambara.,Lentil harvest: +%d crops to the granary.,taslak_tam
+anlati.hasat.nohut,Nohut hasadı: +%d ürün ambara.,Chickpea harvest: +%d crops to the granary.,taslak_tam
+anlati.heybe.alinan,Alınan: %s.,Taken: %s.,taslak_tam
+anlati.heybe.durust,Dürüst birinin heybesini didikledin. Halk bunu duyacak.,You rummaged through the bag of an honest soul. The folk shall hear of this.,taslak_tam
+anlati.heybe.gasp,Teklifinden fazlasını aldın. Halk bunu duyacak.,You took more than was offered. The folk shall hear of this.,taslak_tam
+anlati.heybe.yakalandi,Astardan çıkanlar: %s. %s gözlerini kaçırıyor.,Found in the lining: %s. %s averts their gaze.,taslak_tam
+anlati.is.uyumsuz,Bu iş ona göre değil. %s bunu hissedecek.,This toil does not suit them. %s will feel the burden.,taslak_tam
+anlati.is.yazildi,%s %s yazıldı.,%s was assigned to the %s.,taslak_tam
+anlati.is.yer.kervansaray,kervansaraya,caravanserai,taslak_tam
+anlati.is.yer.kisla,kışlaya,barracks,taslak_tam
+anlati.is.yer.pazar,pazara,market,taslak_tam
+anlati.is.yer.tarla,tarlaya,fields,taslak_tam
+anlati.koy.yazildi,%s köyün meydanına geçti; boştaki iş gücüne yazıldı.,%s proceeded to the village square; enrolled into the labor force.,taslak_tam
+anlati.maas,Askerlerin payı: %d akçe.,Soldiers' share: %d akce.,taslak_tam
+anlati.maas_ambar,"Askerin hakkı ödendi: −%d akçe, kalanı ambardan −%d ürün.","The soldiers' due was paid: −%d akce, remainder from the granary −%d goods.",taslak_tam
+anlati.maas_yok,Askerlere verecek akçe yok. Kışlada homurtu var.,No akce left to pay the soldiers. Murmurs rise in the barracks.,taslak_tam
+anlati.perde.basladi,"Köy oturdu · 2. perde başladı. Çitler sağlamlaştı, nöbet ciddiye bindi.","The settlement took root · Act 2 has begun. The palisades stand firm, watch duty grows grave.",taslak_tam
+anlati.perde.bitti,Uç tutundu · Ağalığın %d gecesi dolduruldu; köy ayakta kaldı.,The frontier held · %d nights of stewardship fulfilled; the village endured.,taslak_tam
+anlati.rusvet.harcandi,%s kırılmak üzereydi. Bir kese el altından gitti.,%s was on the verge of breaking. A purse slipped under the table.,taslak_tam
+anlati.saldiri.agir,Tekfur'un adamları köyün kıyısını yaktı.,The Tekfur's men set the village outskirts ablaze.,taslak_tam
+anlati.saldiri.guc,"Tekfur'un akıncıları geldi: güçleri %d, savunman %d.","The Tekfur's raiders arrived: their strength %d, your defense %d.",taslak_tam
+anlati.saldiri.kayip,Saldırıda köyden biri öldü.,A villager perished in the assault.,taslak_tam
+anlati.saldiri.puskurtuldu,"Tekfur'un adamları surun dibine kadar geldi, geri döndü.","The Tekfur's men pressed to the foot of the wall, then retreated.",taslak_tam
+anlati.sonuc.elkoy,Saklananlara el konuldu. %s yoluna döndü.,Concealed goods were confiscated. %s turned back on their way.,taslak_tam
+anlati.sonuc.harc,%s geçiş harcını ödeyip içeri girdi.,%s paid the passage toll and entered within.,taslak_tam
+anlati.sonuc.kabul,Kapı açıldı. %s içeri girdi.,The gate swung open. %s stepped inside.,taslak_tam
+anlati.sonuc.kisla,%s kışlaya yazıldı.,%s was mustered into the barracks.,taslak_tam
+anlati.sonuc.ret,Kapı kapalı kaldı. %s yoluna döndü.,The gate remained barred. %s turned back on their way.,taslak_tam
+anlati.sonuc.rusvet,Kese el değiştirdi. %s içeri girdi.,The purse changed hands. %s entered within.,taslak_tam
+anlati.takas,"Ambarın fazlası tüccara satıldı: −%d ürün, +%d akçe.","Granary surplus sold to merchants: −%d goods, +%d akce.",taslak_tam
+bar.halk,Halk,Common Folk,taslak_tam
+bar.ordu,Ordu,Garrison,taslak_tam
+bar.soylular,Soylular,Nobles,taslak_tam
+bar.tuccarlar,Tüccarlar,Merchants,taslak_tam
+bitki.arpa,Arpa,Barley,taslak_tam
+bitki.bugday,Buğday,Wheat,taslak_tam
+bitki.mercimek,Mercimek,Lentils,taslak_tam
+bitki.nohut,Nohut,Chickpeas,taslak_tam
+esya.akce,akçe,akce,taslak_tam
+esya.arpa,arpa çuvalı,sack of barley,taslak_tam
+esya.bakir,bakır tas,copper bowl,taslak_tam
+esya.ekmek,kuru ekmek,dry bread,taslak_tam
+esya.hancer,hançer,dagger,taslak_tam
+esya.ilac,ilaç şişesi,vial of medicine,taslak_tam
+esya.kumas,çuha topu,bolt of wool broadcloth,taslak_tam
+esya.ok,ok demeti,bundle of arrows,taslak_tam
+esya.tohum,tohum kesesi,seed pouch,taslak_tam
+esya.tuz,tuz kesesi,salt pouch,taslak_tam
+esya.yuzuk,gümüş yüzük,silver ring,taslak_tam
+heybe.adet,%d / %d,%d / %d,taslak_tam
+heybe.alinacaklar,Alınacaklar,Items to Take,taslak_tam
+heybe.astar,Astarı yokla,Check the lining,taslak_tam
+heybe.astar_bos,Astar boş. %s seni süzüyor: “Aradın da ne buldun?”,The lining is empty. %s eyes you: “What did you hope to find?”,taslak_tam
+heybe.astar_yoklandi,Astar yoklandı,Lining checked,taslak_tam
+heybe.baslik,%s — heybe,%s — saddlebag,taslak_tam
+heybe.beyan.akce,Kesemde %d akçe var.,I have %d akce in my purse.,taslak_tam
+heybe.beyan.esya,Bir de %s.,And also %s.,taslak_tam
+heybe.beyan.yok,Başka bir şeyim yok.,I have nothing else.,taslak_tam
+heybe.bos,Bir eşyaya bas: alınacaklara gider. Yine bas: heybeye döner.,Click an item: moves to taken. Click again: returns to bag.,taslak_tam
+heybe.gasp_uyari,Teklifinden %d akçe fazlası. Kapıda adın çıkar.,%d akce beyond their offer. Your name will be tarnished at the gate.,taslak_tam
+heybe.gizli,beyan edilmedi,undeclared,taslak_tam
+heybe.kapat,Heybeyi kapat,Close saddlebag,taslak_tam
+heybe.serbest,Sakladıklarını alırsan kimse bir şey diyemez.,"If you seize what was concealed, none can contest your right.",taslak_tam
+heybe.sormadin,Ona ne taşıdığını sormadın.,You did not ask what they carry.,taslak_tam
+heybe.soyledigi,Söylediği: “%s”,What they said: “%s”,taslak_tam
+heybe.teklif,Teklifi: %d akçe,Their offer: %d akce,taslak_tam
+heybe.toplam,Değeri: %d akçe,Value: %d akce,taslak_tam
+heybe.yakalandi,Yalan yakalandı,Deceit caught,taslak_tam
+acilis.kisi.muhafiz,Muhafız,Gatekeeper,taslak_tam
+acilis.kisi.es,Eş,Spouse,taslak_tam
+acilis.kapi.kapali,Kapı kapalı,Gate closed,taslak_tam
+acilis.kapi.acik,Kapı açık,Gate open,taslak_tam
+kayit.goc.bildirimi,Kayıt %d sürümünden %d sürümüne güncellendi.,Save migrated from version %d to version %d.,taslak_tam
+acilis.denge_hatasi,Denge tablosundaki değer geçersiz (%s).,Invalid balance table value (%s).,taslak_tam
+hafiza.bos.karar,Bu gece kapıda henüz bir karar verilmedi.,No decision has been rendered at the gate tonight.,taslak_tam
+hafiza.bos.beyan,Ziyaretçiden henüz bir beyan kayda geçmedi.,No declaration has been recorded from visitors yet.,taslak_tam
+hafiza.bos.soylenti,Köyde henüz işitilmiş bir söylenti yoktur.,No rumors have reached the village yet.,taslak_tam
+hafiza.bos.not,Muhafız defterine henüz bir not düşülmedi.,No note has been entered in the Gatekeeper's log yet.,taslak_tam
+hafiza.satir.baslik,%s — %s,%s — %s,taslak_tam
+hafiza.satir.gece,%d. gece,Night %d,taslak_tam
+hafiza.etiket.dis_hat,Sınır Boyu,Border March,taslak_tam
+hafiza.etiket.celiski,İfadede Çelişki,Contradiction in Testimony,taslak_tam
+hafiza.durum.gitti,Köyden Ayrıldı,Departed Village,taslak_tam
+hafiza.kademe.birkac,Birkaç Kişi Fısıldaşır,A Few Folk Whisper,taslak_tam
+hafiza.kademe.yari_koy,Köyün Yarısı Konuşur,Half the Village Talks,taslak_tam
+hafiza.kademe.herkes,Bütün Köy Çalkalanır,The Entire Village Stirs,taslak_tam
+hafiza.sayfa.karar,Kapı Kararları,Gate Decisions,taslak_tam
+hafiza.sayfa.beyan,Ziyaretçi Beyanları,Visitor Declarations,taslak_tam
+hafiza.sayfa.soylenti,Köy Söylentileri,Village Rumors,taslak_tam
+hafiza.sayfa.not,Muhafız Notları,Gatekeeper's Notes,taslak_tam
+hafiza.ekran.baslik,Hafıza Defteri,Ledger of Memory,taslak_tam
+hafiza.filtre.kisi,Kişi adına göre ara...,Search by name...,taslak_tam
+hafiza.sonuc.dondu,Geri Döndü,Turned Back,taslak_tam
+nobet.rapor.devir,"Kapı nöbetini %s devretti, direği %s devraldı.","%s handed over the gate watch, %s took post at the gate post.",taslak_tam
+nobet.rapor.sabaha_kalmadi,Nöbette duran nefer sabaha çıkamadı; kapı direği sahipsiz kaldı.,The sentry on watch could not survive till dawn; the gate post stood forsaken.,taslak_tam
+nobet.rapor.bos,Kapı direğinde bu gece nöbetçi yoktu; kapı sahipsiz ve boş bekledi.,No sentry stood at the gate post tonight; the gate remained abandoned and unattended.,taslak_tam
+nobet.rapor.sayim,Gece boyu kapıya %d kişi yanaştı; nöbetçi %d kişiyi fark edemedi.,%d folk approached the gate through the night; the sentry failed to notice %d of them.,taslak_tam
+nobet.rapor.tipi_bos,Kuduran kış tipisinde göz gözü görmedi; kapıya kimse yanaşmadı.,Nothing could be seen through the howling blizzard; no one came near the gate.,taslak_tam
+nobet.rapor.tipi,Tipi ve dondurucu ayazda nöbetçi önünü göremedi; karanlıkta kapıdan sızanlar oldu.,"Through blinding blizzard and freezing frost, the sentry could not see ahead; some slipped through the gate in the dark.",taslak_tam
+nobet.rapor.uyudu,Nöbetçi ayazda uyuyakaldı; kapıya yaklaşanlar karanlıkta kayboldu.,The sentry fell asleep in the frost; those approaching the gate vanished into the shadows.,taslak_tam
+sabah.hukum.satir,Divan kararı: %s hakkında %s hükmü verildi.,"Divan decree: Regarding %s, judgment of %s was pronounced.",taslak_tam
+tez.cumle.tam,Tezgâhtaki sipariş eksiksiz tamamlandı; iş sahibine teslim edildi.,The workshop order was completed in full; delivered to the patron.,taslak_tam
+tez.cumle.egri,"Tezgâhta aksaklık çıktı; malzeme ziyan oldu, iş eğri kaldı.","A mishap struck the workshop; material was ruined, the piece remained flawed.",taslak_tam
+yil.yuz,"Yılın yüzü: Mevsimler döner, uç boyunda hayat sabırla sürer.","The turn of the year: Seasons revolve, life on the march endures with patience.",taslak_tam
+yil.guz_sofra,Güz sofrası kuruldu; köy halkı bereketli hasadı mecliste paylaştı.,The autumn banquet was laid; the villagers shared the bountiful harvest in council.,taslak_tam
+yil.guz_harman,Güz harmanı kalktı; buğday başakları kış gelmeden ambarlara taşındı.,The autumn threshing concluded; ears of wheat were carried into granaries before winter fell.,taslak_tam
+yil.kis_disari,Dışarıda dondurucu kış ayazı; sığınaksız kalanlar buz kesip titrer.,Freezing winter frost outside; those left shelterless shiver into ice.,taslak_tam
+yil.kis_ev,Kış gecesi ocak başında; tandır ateşi evi ve gönülleri ısıtır.,Winter night beside the hearth; the tandoor fire warms house and heart alike.,taslak_tam
+yil.ilkbahar_tarla,İlkbahar cemresi düştü; rençberler tarlaya saban sürmeye çıktı.,Spring embers have fallen; plowmen set out to till the soil.,taslak_tam
+yil.ilkbahar_taskin,Bahar taşkını vadiyi bastı; coşan dere bentleri zorladı.,Spring flood swept through the valley; the surging stream battered the weirs.,taslak_tam
+yil.yaz_su,Yaz sıcağı tepeye vurdu; kuyulardan ve arklardan su çekildi.,Summer heat struck from above; water was drawn from wells and irrigation channels.,taslak_tam
+karakter.aydogdu.ad,Aydoğdu,Aydoğdu,taslak_tam
+karakter.ayse_baci.ad,Ayşe Bacı,Ayşe Bacı,taslak_tam
+karakter.chr_001.ad,Hamza,Hamza,taslak_tam
+karakter.chr_002.ad,Meryem,Meryem,taslak_tam
+karakter.chr_003.ad,Haydar,Haydar,taslak_tam
+karakter.chr_004.ad,İlyas,İlyas,taslak_tam
+karakter.chr_005.ad,Kerim,Kerim,taslak_tam
+karakter.chr_006.ad,Seyit,Seyit,taslak_tam
+karakter.chr_007.ad,Şemsettin,Şemsettin,taslak_tam
+karakter.chr_008.ad,Dudu Hatun,Dudu Hatun,taslak_tam
+karakter.chr_009.ad,Abbas,Abbas,taslak_tam
+karakter.chr_010.ad,Gaffar,Gaffar,taslak_tam
+karakter.chr_011.ad,İdris,İdris,taslak_tam
+karakter.chr_012.ad,Zeynep,Zeynep,taslak_tam
+karakter.chr_013.ad,Osman Dayı,Osman Dayı,taslak_tam
+karakter.chr_014.ad,Bekir,Bekir,taslak_tam
+karakter.chr_015.ad,Emine Hatun,Emine Hatun,taslak_tam
+karakter.chr_016.ad,Halil,Halil,taslak_tam
+karakter.chr_017.ad,Fadime,Fadime,taslak_tam
+karakter.chr_018.ad,Rahime,Rahime,taslak_tam
+karakter.chr_019.ad,İsmail,İsmail,taslak_tam
+karakter.chr_020.ad,Satılmış,Satılmış,taslak_tam
+karakter.chr_021.ad,Cemil,Cemil,taslak_tam
+karakter.chr_022.ad,Bayram,Bayram,taslak_tam
+karakter.chr_023.ad,Necip,Necip,taslak_tam
+karakter.chr_024.ad,Fehmi,Fehmi,taslak_tam
+karakter.chr_025.ad,Nevzat,Nevzat,taslak_tam
+karakter.chr_026.ad,Salih,Salih,taslak_tam
+karakter.chr_027.ad,Rasim,Rasim,taslak_tam
+karakter.chr_028.ad,Hulusi,Hulusi,taslak_tam
+karakter.chr_029.ad,Basri,Basri,taslak_tam
+karakter.chr_030.ad,Latif,Latif,taslak_tam
+karakter.hasan_celebi.ad,Hasan Çelebi,Hasan Çelebi,taslak_tam
+karakter.karaca_usta.ad,Karaca Usta,Karaca Usta,taslak_tam
+karakter.miraen.ad,Miraen,Miraen,taslak_tam
+karakter.nogay.ad,Nogay,Nogay,taslak_tam
+karakter.saruca_hatun.ad,Saruca Hatun,Saruca Hatun,taslak_tam
+karakter.sorhan.ad,Sorhan,Sorhan,taslak_tam
+karakter.thessra.ad,Thessra,Thessra,taslak_tam
+karakter.yusuf.ad,Yusuf,Yusuf,taslak_tam
