@@ -34,6 +34,12 @@ class DengeDogrulaTest(unittest.TestCase):
         self.assertEqual(dogrulayici.aclik_kademesi_hatalari(
             {"aclik_saglik": {"kaynak": "res://data/koy/aclik_saglik.json"}}), [])
 
+    def test_gecici_is_verimi_kopyalanmaz(self):
+        self.assertEqual(dogrulayici.gecici_is_hatalari(
+            {"gecici_isler": {"kaynak": "res://data/gecici_isler.json"}}), [])
+        self.assertTrue(dogrulayici.gecici_is_hatalari({"gecici_isler": {"verim_yuzde": 50}}))
+        self.assertTrue(dogrulayici.gecici_is_hatalari({"ekonomi": {"gecici_isler": {"verim_yuzde": 50}}}))
+
     def test_gercek_tablo_temiz(self):
         self.assertEqual(dogrulayici.main([]), 0)
 

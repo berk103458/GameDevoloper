@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-34 tamamlandı (Kalfa)
+
+Denge dosyası ISG-02 verim sayısını kopyalamadan data/gecici_isler.json yolunu gösterir. İkinci geçici iş tablosu ve iç içe kopyası doğrulama hatası verir. Önce RED, ardından 34 hedefli Python testi ve gerçek denge doğrulaması geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-33 tamamlandı (Kalfa)
 
 Denge raporunun optional meslek_uyarisi_gelen bağlamı, mevcut ISG-01 satırlarını kullanarak gece başına 0/1 gözlem verir. Atölyesiz kumaşçı 10 gerçek gecede 10 uyarı taşıdı; her gözlemde kayıt/RNG korundu. Önce RED, ardından hedefli test GREEN. Asset gerekmedi. kota görünmüyor.

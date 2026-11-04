@@ -3567,7 +3567,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ISG-01. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-34:** Geçici işin verimi tablodadır.
+- [x] **DEN-34:** (Kalfa) Geçici işin verimi tablodadır.
   - Ne: ISG-02 verimleri `gecici_isler.json` içindedir. `denge.json` aynı sayıyı kopyalamaz, yolu yazar.
   - Kabul: ISG-02 verimleri `gecici_isler.json` içindedir. `denge.json` aynı sayıyı kopyalamaz, yolu yazar. Test: kopya sayı varsa hata.
   - Bağımlılık: ISG-02, DEN-03. Boyut: S.
