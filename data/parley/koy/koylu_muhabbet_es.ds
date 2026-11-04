@@ -589,6 +589,466 @@
       "id": "node:end",
       "type": "END",
       "position": "(3150.0, 0.0)"
+    },
+    {
+      "id": "node:opt_ziyaretciler",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 600.0)",
+      "character": "Muhafız",
+      "text": "Kapıya gelen yeni yabancılar hakkında ne düşünürsün hatun; derviş, tüccar, yetimler ve yeğenimiz Turna..."
+    },
+    {
+      "id": "node:opt_olaylar",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 840.0)",
+      "character": "Muhafız",
+      "text": "Köyde son günlerde yaşanan çalkantılar, kavgalar ve esrarengiz hadiseler hakkında ne dersin hatun?"
+    },
+    {
+      "id": "node:rep_ziyaretciler",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 600.0)",
+      "character": "Eş",
+      "text": "Ah beyim, kapımız ana baba gününe döndü... Kimi dertli, kimi kaçak, kimi de öz kanımız. Hangi birinin halini merak edersin?"
+    },
+    {
+      "id": "node:opt_z_turna_dursun",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 600.0)",
+      "character": "Muhafız",
+      "text": "Öz yeğenimiz Turna ve fırın çırağı Dursun ocağımıza sığındı; hane soframız şenlenir mi?"
+    },
+    {
+      "id": "node:rep_z_turna_dursun",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 600.0)",
+      "character": "Eş",
+      "text": "Şenlenmez mi beyim! Turna'yı bağrıma bastım, anamın kokusu var üstünde... Dursun da dayısının yanında hamur yoğurur. İki yetimin duası bu ocağı cennet eder."
+    },
+    {
+      "id": "node:act_z_turna_dursun",
+      "type": "ACTION",
+      "position": "(2100.0, 600.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "moral",
+        "4",
+        "es_turna_ve_dursun_hanede"
+      ]
+    },
+    {
+      "id": "node:opt_z_dervis",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 720.0)",
+      "character": "Muhafız",
+      "text": "Yayladan gelen o keçe abalı derviş baba mescide yerleşti; duası köylüye nefes olur mu?"
+    },
+    {
+      "id": "node:rep_z_dervis",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 720.0)",
+      "character": "Eş",
+      "text": "Nefes olur beyim. Çınar altında menkıbe anlatır, ihtiyarların gözü parlar. Moğol fermanını da sana teslim etti ya, niyetinin halis olduğu aşikâr."
+    },
+    {
+      "id": "node:act_z_dervis",
+      "type": "ACTION",
+      "position": "(2100.0, 720.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "moral",
+        "3",
+        "es_dervis_duasi"
+      ]
+    },
+    {
+      "id": "node:opt_z_tuccar",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 840.0)",
+      "character": "Muhafız",
+      "text": "Tebrizli safran tüccarı ile çuhacı Selim Usta'nın husumeti divana taşındı; fitne çıkar mı?"
+    },
+    {
+      "id": "node:rep_z_tuccar",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 840.0)",
+      "character": "Eş",
+      "text": "Gözünü dört aç beyim. Tüccarın safranı kışlık şifaya yarar amma boynundaki o gümüş mühür tilkiliğine işarettir; Selim Usta'yı divanda ezdirme."
+    },
+    {
+      "id": "node:act_z_tuccar",
+      "type": "ACTION",
+      "position": "(2100.0, 840.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "moral",
+        "2",
+        "es_tuccar_uyarisi"
+      ]
+    },
+    {
+      "id": "node:opt_z_cavus",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 960.0)",
+      "character": "Muhafız",
+      "text": "Sancak çavuşu Sungur kışlaya firari teftişine geldi; kılıcını bağlattık amma gözü tekin değil."
+    },
+    {
+      "id": "node:rep_z_cavus",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 960.0)",
+      "character": "Eş",
+      "text": "Tekin bakmaz beyim... Asker kılıklı haramiye benzer. Aydoğdu Bey gözünü üstünden ayırmasın; kışladaki gariplerin boğazına yapışmasın."
+    },
+    {
+      "id": "node:act_z_cavus",
+      "type": "ACTION",
+      "position": "(2100.0, 960.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "sadakat",
+        "3",
+        "es_cavus_teftisi"
+      ]
+    },
+    {
+      "id": "node:opt_z_vebali",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 1080.0)",
+      "character": "Muhafız",
+      "text": "Kucağında sabisiyle vebalı anayı kireç ocağında tecrit ettik; sabiye Ayşe Bacı süt verir mi?"
+    },
+    {
+      "id": "node:rep_z_vebali",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 1080.0)",
+      "character": "Eş",
+      "text": "Verir beyim, Ayşe Bacı sabiyi kucağına aldı bile. Anaya da her sabah sıcak çorba götürürüm, kapıdan seslenirim. Merhametimiz o sabiyi yaşatacak inşallah."
+    },
+    {
+      "id": "node:act_z_vebali",
+      "type": "ACTION",
+      "position": "(2100.0, 1080.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "moral",
+        "4",
+        "es_vebali_sabi_merhameti"
+      ]
+    },
+    {
+      "id": "node:opt_z_hekim_katip",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 1200.0)",
+      "character": "Muhafız",
+      "text": "O afyoncu cerrah ile mahkemeden kovulan kâtip Molla Şükrü köye dirlik getirir mi?"
+    },
+    {
+      "id": "node:rep_z_hekim_katip",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 1200.0)",
+      "character": "Eş",
+      "text": "İkisi de birbirinden kurnaz beyim! Cerrahı Miraen'in yanına, kâtibi de Hasan Çelebi'nin divitine bağla; biri zehir dağıtmasın, diğeri sahte tapu yazmasın."
+    },
+    {
+      "id": "node:act_z_hekim_katip",
+      "type": "ACTION",
+      "position": "(2100.0, 1200.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "moral",
+        "2",
+        "es_hekim_katip_tedbiri"
+      ]
+    },
+    {
+      "id": "node:opt_z_banu",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 1320.0)",
+      "character": "Muhafız",
+      "text": "Ağabeyinin intikamı için gelen kurt postlu savaşçı Banu Hatun kışlada nöbete durdu."
+    },
+    {
+      "id": "node:rep_z_banu",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 1320.0)",
+      "character": "Eş",
+      "text": "Yiğit kadındır beyim. Gözlerinde matem var amma kalleşlik yok. Türkmen kızının oku sur üstünde haramiye göz açtırmaz; ona güvenebilirsin."
+    },
+    {
+      "id": "node:act_z_banu",
+      "type": "ACTION",
+      "position": "(2100.0, 1320.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "sadakat",
+        "4",
+        "es_banu_hatun_guveni"
+      ]
+    },
+    {
+      "id": "node:opt_z_kafile",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 1440.0)",
+      "character": "Muhafız",
+      "text": "Karda donan kafile için ambarı açıp kızağı yolladık; vicdanımız rahat mıdır?"
+    },
+    {
+      "id": "node:rep_z_kafile",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 1440.0)",
+      "character": "Eş",
+      "text": "Kızağın arkasından dua ettim beyim... O donan sabilerin çığlığı kesti ya, dünyaları kurtardın. Allah bu iyiliğini iki cihanda karşına çıkarsın."
+    },
+    {
+      "id": "node:act_z_kafile",
+      "type": "ACTION",
+      "position": "(2100.0, 1440.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "moral",
+        "5",
+        "es_kafile_kurtarma_huzuru"
+      ]
+    },
+    {
+      "id": "node:rep_olaylar",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 1800.0)",
+      "character": "Eş",
+      "text": "Köyün huzuru pamuk ipliğine bağlı beyim... Her gün yeni bir dert, yeni bir fısıltı kapımıza dayanır. Hangisini sorarsın?"
+    },
+    {
+      "id": "node:opt_o_harman_kavga",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 1800.0)",
+      "character": "Muhafız",
+      "text": "Harman yerinde köylüler arasında çıkan arpa kavgası yatıştı mı hatun?"
+    },
+    {
+      "id": "node:rep_o_harman_kavga",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 1800.0)",
+      "character": "Eş",
+      "text": "Saruca Hatun araya girdi de dirliği sağladı beyim. Kış kapıdayken bir avuç arpa için komşunun komşuya orak çekmesi yüreğimi dağladı."
+    },
+    {
+      "id": "node:act_o_harman_kavga",
+      "type": "ACTION",
+      "position": "(2100.0, 1800.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "moral",
+        "2",
+        "es_harman_kavgasi_notu"
+      ]
+    },
+    {
+      "id": "node:opt_o_ambar_hirsizlik",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 1920.0)",
+      "character": "Muhafız",
+      "text": "Ambarda gece vakti kilit kırılmış, un çuvalları eksilmiş derler; hırsız kimdir?"
+    },
+    {
+      "id": "node:rep_o_ambar_hirsizlik",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 1920.0)",
+      "character": "Eş",
+      "text": "Açlık insanı hırsız eder beyim... Lakin kilidi kıran yabancı değil, köyün içinden biri derler. Nöbeti sıkı tut, ambar boşalırsa kış çıkmaz."
+    },
+    {
+      "id": "node:act_o_ambar_hirsizlik",
+      "type": "ACTION",
+      "position": "(2100.0, 1920.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "sadakat",
+        "2",
+        "es_ambar_hirsizligi_tedbiri"
+      ]
+    },
+    {
+      "id": "node:opt_o_salgin_fisilti",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 2040.0)",
+      "character": "Muhafız",
+      "text": "Kuyu başında salgın fısıltısı yayılmış; halk kireç dökmekten korkar, ne yapalım?"
+    },
+    {
+      "id": "node:rep_o_salgin_fisilti",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 2040.0)",
+      "character": "Eş",
+      "text": "Kuyu suyunu kaynatmadan içmeyin diye herkese tembihledim beyim. Miraen kireç ocağını hazırladı; korkunun ecele faydası yok, tedbiri elden bırakmayalım."
+    },
+    {
+      "id": "node:act_o_salgin_fisilti",
+      "type": "ACTION",
+      "position": "(2100.0, 2040.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "moral",
+        "3",
+        "es_salgin_tedbiri"
+      ]
+    },
+    {
+      "id": "node:opt_o_koy_dugunu",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 2160.0)",
+      "character": "Muhafız",
+      "text": "Çınar altında kurulan köy düğünü ayazda köylünün yüzünü güldürdü mü hatun?"
+    },
+    {
+      "id": "node:rep_o_koy_dugunu",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 2160.0)",
+      "character": "Eş",
+      "text": "Hem de nasıl beyim! Davul zurna çalınca cümle gam kasavet dağıldı. Geline eski sandığımdan bir ipek çevre hediye ettim; gençlerin neşesi köyü ısıttı."
+    },
+    {
+      "id": "node:act_o_koy_dugunu",
+      "type": "ACTION",
+      "position": "(2100.0, 2160.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "moral",
+        "4",
+        "es_koy_dugunu_nesesi"
+      ]
+    },
+    {
+      "id": "node:opt_o_firari_cenaze",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 2280.0)",
+      "character": "Muhafız",
+      "text": "Karda donan o firari askerin cenazesini kıldırdık; köylü ne söyler arkasından?"
+    },
+    {
+      "id": "node:rep_o_firari_cenaze",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 2280.0)",
+      "character": "Eş",
+      "text": "Garip bir kuldu beyim... Mescidin arkasındaki mezarlığa defnettik, derviş baba başında dua okudu. Köylü 'Muhafız düşmanına bile mezar hakkı tanıdı' diye seni över."
+    },
+    {
+      "id": "node:act_o_firari_cenaze",
+      "type": "ACTION",
+      "position": "(2100.0, 2280.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "moral",
+        "3",
+        "es_firari_cenazesi_hayri"
+      ]
+    },
+    {
+      "id": "node:opt_o_samanlik_yangin",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 2400.0)",
+      "character": "Muhafız",
+      "text": "Gece samanlıkta çıkan yangın sur dibine sıçramadan söndürüldü çok şükür; kundak mıdır?"
+    },
+    {
+      "id": "node:rep_o_samanlik_yangin",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 2400.0)",
+      "character": "Eş",
+      "text": "Karaca Usta ile leventler kovalarla yetişmeseydi kışla kül olacaktı beyim! Rüzgâr kıvılcımı uçurdu derler amma harami parmağı olmasından korkarım."
+    },
+    {
+      "id": "node:act_o_samanlik_yangin",
+      "type": "ACTION",
+      "position": "(2100.0, 2400.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "sadakat",
+        "3",
+        "es_samanlik_yangini_suphesi"
+      ]
+    },
+    {
+      "id": "node:opt_o_gece_donu",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 2520.0)",
+      "character": "Muhafız",
+      "text": "Gece donu bostanları vurdu, kuyunun ağzı buz kesti; kilerimiz dayanır mı?"
+    },
+    {
+      "id": "node:rep_o_gece_donu",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 2520.0)",
+      "character": "Eş",
+      "text": "Toprak taş gibi dondu beyim... Amma tandırın közünü küle gömdüm, un çuvallarını keçeyle sardım. Biz bu kışı da aşarız Allah'ın izniyle, sen içini ferah tut."
+    },
+    {
+      "id": "node:act_o_gece_donu",
+      "type": "ACTION",
+      "position": "(2100.0, 2520.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "moral",
+        "3",
+        "es_gece_donu_sabri"
+      ]
+    },
+    {
+      "id": "node:opt_o_harami_elcisi",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 2640.0)",
+      "character": "Muhafız",
+      "text": "Dağdaki haramilerin elçisi küstahça haraç istemeye geldi; başını dik tuttuk mu?"
+    },
+    {
+      "id": "node:rep_o_harami_elcisi",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 2640.0)",
+      "character": "Eş",
+      "text": "İyi yaptın beyim! Çapulcuya tek bir akçe verirsek yarın sürümüzü de isterler. Köyün muhafızı baş eğmezse harami bu dağdan kaçar!"
+    },
+    {
+      "id": "node:act_o_harami_elcisi",
+      "type": "ACTION",
+      "position": "(2100.0, 2640.0)",
+      "description": "Eş İlişkisi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/es_iliskisi_action.gd",
+      "values": [
+        "sadakat",
+        "4",
+        "es_harami_elcisi_dikdurusu"
+      ]
     }
   ],
   "edges": [
@@ -1351,6 +1811,618 @@
     {
       "id": "e_end_m_tedarik",
       "from_node": "node:act_mevsim_tedarik",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_selam_ziyaretciler",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_ziyaretciler",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_selam_olaylar",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_olaylar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_opt_rep_ziyaretciler",
+      "from_node": "node:opt_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:rep_ziyaretciler",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_turna_dursun",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_turna_dursun",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_z_turna_dursun_to_node:rep_z_turna_dursun",
+      "from_node": "node:opt_z_turna_dursun",
+      "from_slot": 0,
+      "to_node": "node:rep_z_turna_dursun",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_z_turna_dursun_to_node:act_z_turna_dursun",
+      "from_node": "node:rep_z_turna_dursun",
+      "from_slot": 0,
+      "to_node": "node:act_z_turna_dursun",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_z_turna_dursun_to_end",
+      "from_node": "node:act_z_turna_dursun",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_dervis",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_dervis",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_z_dervis_to_node:rep_z_dervis",
+      "from_node": "node:opt_z_dervis",
+      "from_slot": 0,
+      "to_node": "node:rep_z_dervis",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_z_dervis_to_node:act_z_dervis",
+      "from_node": "node:rep_z_dervis",
+      "from_slot": 0,
+      "to_node": "node:act_z_dervis",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_z_dervis_to_end",
+      "from_node": "node:act_z_dervis",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_tuccar",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_tuccar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_z_tuccar_to_node:rep_z_tuccar",
+      "from_node": "node:opt_z_tuccar",
+      "from_slot": 0,
+      "to_node": "node:rep_z_tuccar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_z_tuccar_to_node:act_z_tuccar",
+      "from_node": "node:rep_z_tuccar",
+      "from_slot": 0,
+      "to_node": "node:act_z_tuccar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_z_tuccar_to_end",
+      "from_node": "node:act_z_tuccar",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_cavus",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_cavus",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_z_cavus_to_node:rep_z_cavus",
+      "from_node": "node:opt_z_cavus",
+      "from_slot": 0,
+      "to_node": "node:rep_z_cavus",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_z_cavus_to_node:act_z_cavus",
+      "from_node": "node:rep_z_cavus",
+      "from_slot": 0,
+      "to_node": "node:act_z_cavus",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_z_cavus_to_end",
+      "from_node": "node:act_z_cavus",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_vebali",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_vebali",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_z_vebali_to_node:rep_z_vebali",
+      "from_node": "node:opt_z_vebali",
+      "from_slot": 0,
+      "to_node": "node:rep_z_vebali",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_z_vebali_to_node:act_z_vebali",
+      "from_node": "node:rep_z_vebali",
+      "from_slot": 0,
+      "to_node": "node:act_z_vebali",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_z_vebali_to_end",
+      "from_node": "node:act_z_vebali",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_hekim_katip",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_hekim_katip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_z_hekim_katip_to_node:rep_z_hekim_katip",
+      "from_node": "node:opt_z_hekim_katip",
+      "from_slot": 0,
+      "to_node": "node:rep_z_hekim_katip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_z_hekim_katip_to_node:act_z_hekim_katip",
+      "from_node": "node:rep_z_hekim_katip",
+      "from_slot": 0,
+      "to_node": "node:act_z_hekim_katip",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_z_hekim_katip_to_end",
+      "from_node": "node:act_z_hekim_katip",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_banu",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_banu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_z_banu_to_node:rep_z_banu",
+      "from_node": "node:opt_z_banu",
+      "from_slot": 0,
+      "to_node": "node:rep_z_banu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_z_banu_to_node:act_z_banu",
+      "from_node": "node:rep_z_banu",
+      "from_slot": 0,
+      "to_node": "node:act_z_banu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_z_banu_to_end",
+      "from_node": "node:act_z_banu",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_z_to_node:opt_z_kafile",
+      "from_node": "node:rep_ziyaretciler",
+      "from_slot": 0,
+      "to_node": "node:opt_z_kafile",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_z_kafile_to_node:rep_z_kafile",
+      "from_node": "node:opt_z_kafile",
+      "from_slot": 0,
+      "to_node": "node:rep_z_kafile",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_z_kafile_to_node:act_z_kafile",
+      "from_node": "node:rep_z_kafile",
+      "from_slot": 0,
+      "to_node": "node:act_z_kafile",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_z_kafile_to_end",
+      "from_node": "node:act_z_kafile",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_opt_rep_olaylar",
+      "from_node": "node:opt_olaylar",
+      "from_slot": 0,
+      "to_node": "node:rep_olaylar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_o_to_node:opt_o_harman_kavga",
+      "from_node": "node:rep_olaylar",
+      "from_slot": 0,
+      "to_node": "node:opt_o_harman_kavga",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_o_harman_kavga_to_node:rep_o_harman_kavga",
+      "from_node": "node:opt_o_harman_kavga",
+      "from_slot": 0,
+      "to_node": "node:rep_o_harman_kavga",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_o_harman_kavga_to_node:act_o_harman_kavga",
+      "from_node": "node:rep_o_harman_kavga",
+      "from_slot": 0,
+      "to_node": "node:act_o_harman_kavga",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_o_harman_kavga_to_end",
+      "from_node": "node:act_o_harman_kavga",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_o_to_node:opt_o_ambar_hirsizlik",
+      "from_node": "node:rep_olaylar",
+      "from_slot": 0,
+      "to_node": "node:opt_o_ambar_hirsizlik",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_o_ambar_hirsizlik_to_node:rep_o_ambar_hirsizlik",
+      "from_node": "node:opt_o_ambar_hirsizlik",
+      "from_slot": 0,
+      "to_node": "node:rep_o_ambar_hirsizlik",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_o_ambar_hirsizlik_to_node:act_o_ambar_hirsizlik",
+      "from_node": "node:rep_o_ambar_hirsizlik",
+      "from_slot": 0,
+      "to_node": "node:act_o_ambar_hirsizlik",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_o_ambar_hirsizlik_to_end",
+      "from_node": "node:act_o_ambar_hirsizlik",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_o_to_node:opt_o_salgin_fisilti",
+      "from_node": "node:rep_olaylar",
+      "from_slot": 0,
+      "to_node": "node:opt_o_salgin_fisilti",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_o_salgin_fisilti_to_node:rep_o_salgin_fisilti",
+      "from_node": "node:opt_o_salgin_fisilti",
+      "from_slot": 0,
+      "to_node": "node:rep_o_salgin_fisilti",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_o_salgin_fisilti_to_node:act_o_salgin_fisilti",
+      "from_node": "node:rep_o_salgin_fisilti",
+      "from_slot": 0,
+      "to_node": "node:act_o_salgin_fisilti",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_o_salgin_fisilti_to_end",
+      "from_node": "node:act_o_salgin_fisilti",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_o_to_node:opt_o_koy_dugunu",
+      "from_node": "node:rep_olaylar",
+      "from_slot": 0,
+      "to_node": "node:opt_o_koy_dugunu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_o_koy_dugunu_to_node:rep_o_koy_dugunu",
+      "from_node": "node:opt_o_koy_dugunu",
+      "from_slot": 0,
+      "to_node": "node:rep_o_koy_dugunu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_o_koy_dugunu_to_node:act_o_koy_dugunu",
+      "from_node": "node:rep_o_koy_dugunu",
+      "from_slot": 0,
+      "to_node": "node:act_o_koy_dugunu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_o_koy_dugunu_to_end",
+      "from_node": "node:act_o_koy_dugunu",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_o_to_node:opt_o_firari_cenaze",
+      "from_node": "node:rep_olaylar",
+      "from_slot": 0,
+      "to_node": "node:opt_o_firari_cenaze",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_o_firari_cenaze_to_node:rep_o_firari_cenaze",
+      "from_node": "node:opt_o_firari_cenaze",
+      "from_slot": 0,
+      "to_node": "node:rep_o_firari_cenaze",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_o_firari_cenaze_to_node:act_o_firari_cenaze",
+      "from_node": "node:rep_o_firari_cenaze",
+      "from_slot": 0,
+      "to_node": "node:act_o_firari_cenaze",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_o_firari_cenaze_to_end",
+      "from_node": "node:act_o_firari_cenaze",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_o_to_node:opt_o_samanlik_yangin",
+      "from_node": "node:rep_olaylar",
+      "from_slot": 0,
+      "to_node": "node:opt_o_samanlik_yangin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_o_samanlik_yangin_to_node:rep_o_samanlik_yangin",
+      "from_node": "node:opt_o_samanlik_yangin",
+      "from_slot": 0,
+      "to_node": "node:rep_o_samanlik_yangin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_o_samanlik_yangin_to_node:act_o_samanlik_yangin",
+      "from_node": "node:rep_o_samanlik_yangin",
+      "from_slot": 0,
+      "to_node": "node:act_o_samanlik_yangin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_o_samanlik_yangin_to_end",
+      "from_node": "node:act_o_samanlik_yangin",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_o_to_node:opt_o_gece_donu",
+      "from_node": "node:rep_olaylar",
+      "from_slot": 0,
+      "to_node": "node:opt_o_gece_donu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_o_gece_donu_to_node:rep_o_gece_donu",
+      "from_node": "node:opt_o_gece_donu",
+      "from_slot": 0,
+      "to_node": "node:rep_o_gece_donu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_o_gece_donu_to_node:act_o_gece_donu",
+      "from_node": "node:rep_o_gece_donu",
+      "from_slot": 0,
+      "to_node": "node:act_o_gece_donu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_o_gece_donu_to_end",
+      "from_node": "node:act_o_gece_donu",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_o_to_node:opt_o_harami_elcisi",
+      "from_node": "node:rep_olaylar",
+      "from_slot": 0,
+      "to_node": "node:opt_o_harami_elcisi",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:opt_o_harami_elcisi_to_node:rep_o_harami_elcisi",
+      "from_node": "node:opt_o_harami_elcisi",
+      "from_slot": 0,
+      "to_node": "node:rep_o_harami_elcisi",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:rep_o_harami_elcisi_to_node:act_o_harami_elcisi",
+      "from_node": "node:rep_o_harami_elcisi",
+      "from_slot": 0,
+      "to_node": "node:act_o_harami_elcisi",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_node:act_o_harami_elcisi_to_end",
+      "from_node": "node:act_o_harami_elcisi",
       "from_slot": 0,
       "to_node": "node:end",
       "to_slot": 0,

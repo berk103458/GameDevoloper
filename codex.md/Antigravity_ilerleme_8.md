@@ -80,7 +80,17 @@
 
 ---
 
-## Bölüm C — Görev 6'da Eklenen 10 Yeni Ziyaretçiyi Derinleştir
-- **Hedef:** `chr_021` .. `chr_030` arası 10 yeni ziyaretçinin diyalog ağaçlarını (`data/diyalog/diyalog_21.json` .. `diyalog_30.json`) Görev 4 & 5 standartlarına ulaştırmak.
-- Eş kapı düşünceleri (`es_kapi_dusunceleri.json` veya ilgili veri yapısı) 4 kademeli olarak genişletilecek.
-- Eş köy muhabbeti (`data/parley/koy/koylu_muhabbet_es.ds`) bu 10 ziyaretçi ve 8 yeni köy olayıyla zenginleştirilecek.
+## Bölüm C — Görev 6'da Eklenen 10 Yeni Ziyaretçiyi Derinleştir (TAMAMLANDI)
+- `data/diyalog/diyalog_01_20.json` içindeki `diyalog_21` .. `diyalog_30` arası 10 karakterin diyalog ağaçları Görev 4 & 5 standartlarına yükseltildi:
+  - Her karaktere 3. ana soru eklendi (toplam 3 ana soru/karakter).
+  - Alt sorular derinleştirildi; 3. kademe alt sorular (`subsub`) ve soru/itiraf/şüphe bayrakları (`dervis_mogol_fermani`, `tuccar_sahte_payza`, `cavus_kelle_pazarligi`, `veba_kaynagi_akpinar`, `harami_karabudak_izi`, `sarlatan_afyon_itirafi`, `katip_calinti_muhur`, `banu_hatun_atli_guvencesi`, `kafile_kurtarma_seferi`, `turna_oz_yegen_kabul`) eklendi.
+  - Karakterler arası bağlar (Turna & fırın çırağı Dursun, Vebalı ana & hekim, tüccar & çuhacı Selim Usta, kâtip Molla Şükrü & Hasan Çelebi vb.) örüldü.
+- `data/diyalog/es_kapi_dusunceleri.json`: 30 karakterin tamamı için 4 aşamalı eş yorumları (`karar_oncesi`, `kritik_soru`, `karar_kabul`, `karar_ret`) doğrulandı (`tests/unit/kapi/es_yorumu_test.gd`: PASS, 0 hata).
+- `data/parley/koy/koylu_muhabbet_es.ds`:
+  - 10 yeni ziyaretçi (Derviş, Safrancı Tüccar, Sancak Çavuşu, Vebalı Ana, Dursun & Turna, Şarlatan Cerrah, Kâtip Molla Şükrü, Banu Hatun, Kafile Habercisi) hakkında özel konuşma ve değerlendirme dalları eklendi.
+  - 8 yeni köy olayı (`kavga_harman`, `ambarda_hirsizlik`, `salgin_fisiltisi`, `koy_dugunu`, `firari_cenazesi`, `samanlik_yangini`, `gece_donu`, `harami_elcisi`) hakkında eşle dertleşme ve moral/sadakat etkili konuşma dalları eklendi.
+  - Parley grafı 123 düğüm ve 153 kenara ulaştı; 0 yetim düğüm, 0 kırık bağlantı (`diyalog_butunluk_test.gd`: PASS).
+
+---
+
+## Bölüm D — ROADMAP Kontrolü ve Kapanış
