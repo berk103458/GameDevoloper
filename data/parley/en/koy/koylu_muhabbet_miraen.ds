@@ -97,7 +97,7 @@
       "id": "node:opt_veba_sifa",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 360.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "What is the condition of the plague-stricken mother and infant at the lime kiln, Healer Miraen?"
     },
     {
@@ -122,7 +122,7 @@
       "id": "node:opt_veba_kayip",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 540.0)",
-      "character": "Muhafız",
+      "character": "Gatekeeper",
       "text": "Did the infant at the lime kiln survive until dawn, Healer Miraen?"
     },
     {
