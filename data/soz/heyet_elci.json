@@ -1,0 +1,43 @@
+{
+  "dosya_id": "heyet_elci",
+  "karakter_id": "tekfur_elcisi",
+  "baslangic_dugumu": "kok",
+  "dugumler": {
+    "kok": {
+      "id": "kok",
+      "konusmaci": "tekfur_elcisi",
+      "metin": "Tekfur efendimizin fermanıdır: Bu mevsimin haraç bedeli 50 kamu akçesi ve 10 çuval buğdaydır. Ya verirsiniz ya da sınır boyunu ateşe veririz!",
+      "secenekler": [
+        {
+          "metin": "Köyün selameti için kamu kasasından ve ambardan haraç teslim edilsin.",
+          "hedef": "odeme_kabul",
+          "etkiler": {
+            "kamu_akce": -50,
+            "bugday": -10,
+            "harac_odendi": true
+          }
+        },
+        {
+          "metin": "Tekfurunuza söyleyin; bu köy haraçla değil kılıçla ayakta durur!",
+          "hedef": "odeme_ret",
+          "etkiler": {
+            "saldiri_sayaci": 1,
+            "harac_red": true
+          }
+        }
+      ]
+    },
+    "odeme_kabul": {
+      "id": "odeme_kabul",
+      "konusmaci": "tekfur_elcisi",
+      "metin": "Akıllıca bir karar muhafız. Tekfur efendimiz kış boyunca sınırınıza dokunmayacak.",
+      "secenekler": []
+    },
+    "odeme_ret": {
+      "id": "odeme_ret",
+      "konusmaci": "tekfur_elcisi",
+      "metin": "Bu küstahlığınızın bedelini çok yakında sur dibinde duman tüterken ödeyeceksiniz!",
+      "secenekler": []
+    }
+  }
+}

@@ -4316,25 +4316,25 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
 
 ### 34.2 Perde geçişi sahnesi
 
-- [ ] **OMR-07:** "Köy oturdu" kadrajı tek ağızdan.
+- [x] **OMR-07:** (Antigravity) "Köy oturdu" kadrajı tek ağızdan.
   - Ne: `perde_gecisi.olay_metin` sabit Türkçe metni (`"Köy oturdu · 2. perde başladı…"`) `metinler.csv` anahtarına taşınır; metin KOP-07 ağzıyla yeniden yazılır. Fonksiyon imzası değişmez.
   - Kabul: `perde_gecisi.gd` içinde sabit cümle 0; anahtar `anlati.perde.basladi`. Test: tarama + ekran.
   - Bağımlılık: KOP-07. Boyut: S.
   - Dosya: yeni: `src/sistemler/perde_metni.gd`; `perde_gecisi.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OMR-08:** Geçiş gecesinde kapı kapalıdır.
+- [x] **OMR-08:** (Antigravity) Geçiş gecesinde kapı kapalıdır.
   - Ne: "Köy oturdu" gecesi kapıya kimse gelmez (KAP-16 boş gün zorlanır); oyuncu köyde ağalık kararını verir.
   - Kabul: geçiş gecesi `gece_basina_gelen` 0. Test: nüfus 18'e enjekte, o gece kuyruk boş.
   - Bağımlılık: KAP-16. Boyut: S.
   - Dosya: yeni: `src/sistemler/gecis_gecesi.gd`; kuyruk üreticisine tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OMR-09:** Geçişte eş ve çınar konuşur.
+- [x] **OMR-09:** (Antigravity) Geçişte eş ve çınar konuşur.
   - Ne: geçiş akşamı eş (DYL-07) ve çınar meclisi (MCL) "ağalık" konusunu alır; iki ayrı sahne değil, mevcut akşam sohbeti ve meclis dalıdır.
   - Kabul: Söz dosyasında `perde_gecisi` bağlam anahtarı (DIY-09). Test: bağlam açıkken dal 1.
   - Bağımlılık: DYL-07, MCL-01, DIY-09. Boyut: S.
   - Dosya: eş ve meclis söz dosyaları (YAZ-06 kapsamı) dal satırı.
   - Asset: asset gerekmedi.
-- [ ] **OMR-10:** Geçiş kadrajında köyün özeti.
+- [x] **OMR-10:** (Antigravity) Geçiş kadrajında köyün özeti.
   - Ne: `bilgi_ekrani.gd` kadrajında perde 1 özeti: gün, gelen, kabul, ret, ölü, en çok anılan karar (Bölüm 39 defterinden). Resim yok.
   - Kabul: altı satır, hepsi kayıttan. Test: anlık görüntü.
   - Bağımlılık: HFZ-01. Boyut: S.
@@ -4367,13 +4367,13 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-13. Boyut: S.
   - Dosya: `src/arayuz/oda_gidisat_paneli.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-15:** Her sonun bir yüzü vardır.
+- [x] **OMR-15:** (Antigravity) Her sonun bir yüzü vardır.
   - Ne: beş sonun her biri bir adlı karakterle anılır: tekfur haraççısı → tekfur elçisi (`tekfur_elcisi.tres`), Ertuğrul obası → Aydoğdu (`aydogdu_oba.tres`), beyin uç köyü → ulak (ACL-04), ahi kasabası → ahi (`ahi_haber.tres`), uç tutundu → eş. Yüz, dalga 2'de kapıya ya da köye gelir ve o sonun koşulunu kendi ağzından söyler (Söz motoru).
   - Kabul: beş yüz için beş Söz dosyası dalı; koşul metni `nihai_sonlar.json esik` değerleriyle çelişmez. Test: yazım hattı denetimi (KLT).
   - Bağımlılık: OMR-05, YAZ-06. Boyut: M.
   - Dosya: Söz dosyaları; `data/omurga.json` yüz eşlemesi.
   - Asset: asset gerekmedi.
-- [ ] **OMR-16:** Kayıp sonları erken uyarır.
+- [x] **OMR-16:** (Antigravity) Kayıp sonları erken uyarır.
   - Ne: `isyan`, `tekfur`, `halk_kirildi`, `azil`, `idam` sonlarının her birinin eşiğine iki gece kala haberci ağı (HAR-09) bir satır düşürür. Eşik değişmez.
   - Kabul: her kayıp sonu için bir uyarı anahtarı; uyarı eşikten önce. Test: beş kayıp yolu zaman makinesiyle.
   - Bağımlılık: HAR-09. Boyut: M.
@@ -4385,7 +4385,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: KAY-04, HFZ-01. Boyut: S.
   - Dosya: yeni: `src/sistemler/son_kaydi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-18:** Beş son beş farklı kadraj değil, bir kadraj beş metindir.
+- [x] **OMR-18:** (Antigravity) Beş son beş farklı kadraj değil, bir kadraj beş metindir.
   - Ne: `muhafiz_epilogu_sunumu.gd` tek kadraj kalır; görsel çeşitleme yok. Metin KOP-07 ağzıyla.
   - Kabul: sunum dosyasında son başına görsel dalı 0. Test: tarama.
   - Bağımlılık: KOP-07. Boyut: S.
@@ -4529,7 +4529,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: SOY-01. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-40:** Haber metni KOP-07 ağzındadır.
+- [x] **OMR-40:** (Antigravity) Haber metni KOP-07 ağzındadır.
   - Ne: `mogol_oncusu.olay_metin` ve benzeri sabit metinler `metinler.csv`'ye taşınır; ağız aynı yazardadır. İmzalar değişmez.
   - Kabul: dört hat dosyasında sabit Türkçe cümle 0. Test: tarama.
   - Bağımlılık: KOP-07, OMR-07. Boyut: M.
@@ -8866,7 +8866,7 @@ Bu klasördeki `ROADMAP.md` kapanmış yol haritasıdır. Kapı ipucu motoru, ta
 
 Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı olmayan bir “ayrıca şunu da yapalım” cümlesi yol haritasına girmez.
 
-- [ ] **KOP-01:** Divan konuşması Söz motoruna bağlanır.
+- [x] **KOP-01:** (Antigravity) Divan konuşması Söz motoruna bağlanır.
   - Ne: Yargılama sahnesi `SozMotoru` ile yürür; konuşan sanık ve muhafızdır. Kanıt listesi kapıdaki `Clue_*` kaydıdır. İpucu yokken suçlama kilitlidir. İtiraf, sürgün ve infaz mevcut üç karardan birine tek satır yazar; dördüncü ceza yoktur.
   - Kurallar:
     1. Yargılama sahnesi (CAS-05) `SozMotoru` ile yürür. Sahne dosyası `data/soz/divan_*.json` olur. Konuşan sanık ve muhafızdır.
@@ -8878,7 +8878,7 @@ Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı
   - Bağımlılık: DIY-02, DIY-07, CAS-05. Boyut: M.
   - Dosya: `src/kapi/divan_kanit.gd` adaptör; sahne `data/soz/divan_*.json`.
   - Asset: asset gerekmedi.
-- [ ] **KOP-02:** Heyet sahnesi — atlanamayan konuşma.
+- [x] **KOP-02:** (Antigravity) Heyet sahnesi — atlanamayan konuşma.
   - Ne: Heyet kuyruk başında durur ve atlanamaz. Heyet açıkken sıradaki köylüye soru, bakış ve heybe açılmaz. Ödeme yalnız kamu akçesi ve buğdaydır; `muhafiz_akce` bu sahnede yazılmaz. Ret, haritadaki mevcut saldırı veya asker sayacını bir artırır.
   - Kurallar:
     1. HAR-03 ve HAR-04 sahneleri `data/soz/heyet_*.json` ile yürür. Nereden, Yükün, Kimsin başlıkları bu dosyada yoktur.
@@ -8926,7 +8926,7 @@ Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı
   - Bağımlılık: DIY-13. Boyut: S.
   - Dosya: `src/sistemler/dedikodu.gd`; `fisilti_gazetesi.gd` okur.
   - Asset: asset gerekmedi.
-- [ ] **KOP-06:** Yozlaşma ağacı sözü ve zarı değiştirir.
+- [x] **KOP-06:** (Antigravity) Yozlaşma ağacı sözü ve zarı değiştirir.
   - Ne: Göz yumma ve keskin bakış zar değiştiricisidir; yeni yetenek puanı açılmaz. Aynı skor muhafızın tonunu seçer: yoz uçta gözdağı, adil uçta gönül alma. Üç tonda da etki sözlüğü aynı kalır. Orta skorda değiştirici sıfırdır.
   - Kurallar:
     1. ODA-05 (göz yumma, haraç) ve ODA-06 (keskin bakış, gönül bağı) ZAR-04 değiştiricisidir. Yeni yetenek puanı açılmaz.
@@ -8938,7 +8938,7 @@ Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı
   - Bağımlılık: ZAR-04, DIY-15, DYL-07. Boyut: S.
   - Dosya: `src/kapi/zar_degistiricileri.gd` mevcut skoru okur.
   - Asset: asset gerekmedi.
-- [ ] **KOP-07:** Perde ve son metinleri aynı ağızdan yazılır.
+- [x] **KOP-07:** (Antigravity) Perde ve son metinleri aynı ağızdan yazılır.
   - Ne: Köyün oturması, beş nihai son ve epilog `data/soz/sonlar.json` anahtarlarından okunur. `nihai_son.gd` cümle üretmez. Altıncı son kimliği doğrulayıcıda 1 hata verir. Koşulu tutmayan son gösterilmez.
   - Kurallar:
     1. “Köy oturdu” (SYS-19), beş nihai son ve muhafız epiloğu (SYS-20, ODA-10) üslup rehberinden ve yapaylık denetiminden geçer.
@@ -8950,7 +8950,7 @@ Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı
   - Bağımlılık: YAZ-02, DNY-04, DYL-09. Boyut: M.
   - Dosya: `data/soz/sonlar.json`; `src/sistemler/nihai_son.gd` anahtar okur.
   - Asset: asset gerekmedi.
-- [ ] **KOP-08:** Tüccar kapıda pazarlık sahnesidir.
+- [x] **KOP-08:** (Antigravity) Tüccar kapıda pazarlık sahnesidir.
   - Ne: Geçiş bacı ve rüşvet konu menüsü olmadan pazarlık sahnesinde yürür. Resmi vergi kamu kasasına, şahsi rüşvet `muhafiz_akce` hesabına ayrı satır yazar. İki hedef aynı düğmede birleşmez. Heyet kuyruk başındayken tüccar konuşmaz.
   - Kurallar:
     1. Geçiş bacı ve rüşvet (TUC-12) pazarlık sahne biçimindedir (OZGUNLUK §4). Konu menüsü yoktur.

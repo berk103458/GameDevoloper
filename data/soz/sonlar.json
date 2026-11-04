@@ -1,0 +1,67 @@
+{
+  "koy_oturdu": {
+    "anahtar": "anlati.perde.basladi",
+    "baslik": "Köy Oturdu",
+    "metin": "Köy oturdu · 2. perde başladı. Çitler sağlamlaştı, nöbet ciddiye bindi."
+  },
+  "sonlar": {
+    "tekfur_haraccisi": {
+      "baslik": "Tekfur Haraççısı",
+      "metin": "Uç boyunda tekfurun buyruğu geçer oldu; her hasatta haraç arabaları kapıya dizildi."
+    },
+    "ertugrul_obasi": {
+      "baslik": "Ertuğrul Obası",
+      "metin": "Kayı sancağı köye dikildi; Ertuğrul Bey'in atlıları ucu yurt bildi, oba köyle bir oldu."
+    },
+    "beyin_uc_koyu": {
+      "baslik": "Beyin Uç Köyü",
+      "metin": "Sancak beyinin fermanıyla köy hisara bağlandı; kapı muhafızı beyliğin uç nöbetçisi oldu."
+    },
+    "ahi_kasabasi": {
+      "baslik": "Ahi Kasabası",
+      "metin": "Tezgâh sesleri vadiyi doldurdu; Ahi Evran yoldaşları köye terazi ve nizam kurdu."
+    },
+    "uc_tutundu": {
+      "baslik": "Uç Tutundu",
+      "metin": "Kendi yağıyla kavrulan uç köyü kışa ve fırtınaya direndi; kapı dimdik ayakta kaldı."
+    }
+  },
+  "epilog": {
+    "huzur": {
+      "ad": "Halk Huzuru",
+      "yuksek": "Köyde yüzler gülüyor, akşamları meydan ateşi neşeyle tütüyor.",
+      "orta": "Köy kendi halinde yaşar, büyük bir sevinç de keder de duyulmaz.",
+      "dusuk": "Huzursuzluk ve şüphe kol geziyor, köylü birbirine yan gözle bakıyor."
+    },
+    "adalet": {
+      "ad": "Divan Adaleti",
+      "yuksek": "Haksızlık cezasız kalmadı, çınar meclisinde hak yerini buldu.",
+      "orta": "Adalet kısmen sağlandı, bazı yaralar örtbas edildi.",
+      "dusuk": "Zulüm kapıyı sardı, mazlumun ahı havada kaldı."
+    },
+    "refah": {
+      "ad": "Ekonomik Refah",
+      "yuksek": "Ambarlar buğdayla dolup taştı, kış korkusu kalmadı.",
+      "orta": "Açlık çekilmedi, herkes nasibince karnını doyurdu.",
+      "dusuk": "Kıtlık kapıyı vurdu, ocaklar çorbasız kaldı."
+    },
+    "guvenlik": {
+      "ad": "Kervan Güvenliği",
+      "yuksek": "Yollar emniyet içinde, tüccarlar korkusuzca menzile vardı.",
+      "orta": "Yolcular temkinli geçti, nöbetçiler gözünü dört açtı.",
+      "dusuk": "Eşkıya yolları kesti, kapıya varamadan soyulanlar oldu."
+    },
+    "nufus": {
+      "ad": "Köy Nüfusu",
+      "yuksek": "Köy büyüdü, yeni haneler kuruldu, sokaklar çocuk sesleriyle doldu.",
+      "orta": "Nüfus dengede kaldı, gidenin yerine gelen oldu.",
+      "dusuk": "Köy tenhalaştı, kapıdan dönenler ardına bakmadan kaçtı."
+    },
+    "yozlasma": {
+      "ad": "Muhafız Vicdanı",
+      "yuksek": "Rüşvet ve leke muhafızın boynuna dolandı, adı altın düşkününe çıktı.",
+      "orta": "Arada nefse uyulsa da kapının namusu büsbütün çiğnenmedi.",
+      "dusuk": "Alnı ak, vicdanı temiz bir bekçi olarak anıldı."
+    }
+  }
+}

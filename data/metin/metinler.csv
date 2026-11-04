@@ -26,6 +26,8 @@ anlati.koy.yazildi,%s köyün meydanına geçti; boştaki iş gücüne yazıldı
 anlati.maas,Askerlerin payı: %d akçe.
 anlati.maas_ambar,"Askerin hakkı ödendi: −%d akçe, kalanı ambardan −%d ürün."
 anlati.maas_yok,Askerlere verecek akçe yok. Kışlada homurtu var.
+anlati.perde.basladi,"Köy oturdu · 2. perde başladı. Çitler sağlamlaştı, nöbet ciddiye bindi."
+anlati.perde.bitti,"Uç tutundu · Ağalığın %d gecesi dolduruldu; köy ayakta kaldı."
 anlati.rusvet.harcandi,%s kırılmak üzereydi. Bir kese el altından gitti.
 anlati.saldiri.agir,Tekfur'un adamları köyün kıyısını yaktı.
 anlati.saldiri.guc,"Tekfur'un akıncıları geldi: güçleri %d, savunman %d."

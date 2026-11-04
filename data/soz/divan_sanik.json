@@ -1,0 +1,79 @@
+{
+  "dosya_id": "divan_sanik",
+  "karakter_id": "sanik",
+  "baslangic_dugumu": "kok",
+  "dugumler": {
+    "kok": {
+      "id": "kok",
+      "konusmaci": "sanik",
+      "metin": "Beni buraya niye getirdiniz muhafız bey? Benim bir suçum günahım yoktur.",
+      "secenekler": [
+        {
+          "metin": "Heybendeki sahte ferman ve mühür neyin nesidir?",
+          "hedef": "itiraf_dali",
+          "kilit": {
+            "tur": "ipucu",
+            "ipucu": "Clue_ferman"
+          }
+        },
+        {
+          "metin": "Doğruyu söyle, köyün ambarında ne arıyordun?",
+          "hedef": "inkar_dali"
+        }
+      ]
+    },
+    "itiraf_dali": {
+      "id": "itiraf_dali",
+      "konusmaci": "sanik",
+      "metin": "Yeter, inkâr etmeyeceğim... Tekfurun adamıyım, vazifem ambarı ateşe vermekti.",
+      "secenekler": [
+        {
+          "metin": "İtirafın kayda geçti. Hüküm: Sürgün!",
+          "hedef": "hukum_surgun",
+          "etkiler": {
+            "hukum": "surgun"
+          }
+        },
+        {
+          "metin": "Bu hıyanetin karşılığı tektir. Hüküm: İnfaz!",
+          "hedef": "hukum_infaz",
+          "etkiler": {
+            "hukum": "infaz"
+          }
+        }
+      ]
+    },
+    "inkar_dali": {
+      "id": "inkar_dali",
+      "konusmaci": "sanik",
+      "metin": "Ben garip bir rençberim. Yemin billah ederim bir kötülük düşünmedim.",
+      "secenekler": [
+        {
+          "metin": "Ortada kesin kanıt yok. Şimdilik nezarete alınsın.",
+          "hedef": "hukum_nezaret",
+          "etkiler": {
+            "hukum": "nezaret"
+          }
+        }
+      ]
+    },
+    "hukum_surgun": {
+      "id": "hukum_surgun",
+      "konusmaci": "sanik",
+      "metin": "Sağ olasın muhafız bey, canımı bağışladın.",
+      "secenekler": []
+    },
+    "hukum_infaz": {
+      "id": "hukum_infaz",
+      "konusmaci": "sanik",
+      "metin": "Adaletiniz batsın...",
+      "secenekler": []
+    },
+    "hukum_nezaret": {
+      "id": "hukum_nezaret",
+      "konusmaci": "sanik",
+      "metin": "Hak yerini bulacak elbet.",
+      "secenekler": []
+    }
+  }
+}

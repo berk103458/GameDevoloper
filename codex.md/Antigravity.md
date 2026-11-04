@@ -694,3 +694,19 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - `Godot --headless -s tests/unit/olay/on_kosul_test.gd`: GEÇTİ (0 hata).
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_6.md` son satırı `GOREV6_TAMAM` olarak tamamlandı.
 - **Kota:** kota görünmüyor
+
+## 4 Kasım 2026 — Görev 7: ROADMAP'ten Diyalog, Karakter, Anlatı ve Metin Maddelerinin Tamamlanması
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Merge & Senkronizasyon:** `origin/claude/festive-volta-li1sfm` başarıyla merge edildi (`06402fcd`), metin çakışmaları iki taraf da korunarak çözüldü.
+  2. **Parti 1: Açılış ve Eş Akşam Sohbeti (ACL-03, DYL-07):** `data/soz/aksam_konulari.json` ve `src/koy/aksam_sohbeti.gd` yazıldı, 2 birim testi geçti (`f4f4f3ec`).
+  3. **Parti 2: Söz Sistemi Motoru & Sorgu Eylemleri (26 madde: DIY-01a..18, DYL-01..16, DYL-74):** Yeni söz veri şeması, motor çekirdeği, konu merkezi, beyan defteri, çelişki yüzleşmesi, bakış, yemin, muhafız yalanı, söz verme, karar dönüşü ve beyin denetçisi uygulandı, 12 test geçti (`5c58e5c7`).
+  4. **Parti 3: Söz İçeriği & Karakter Ses Kartları (28 madde: YAZ-02..10):** Üslup rehberi, 30 özgün ses kartı, yazım hattı, pilot karakterler, kadro özgünlük denetimi ve doğrulayıcı araçlar uygulandı, 7 test geçti (`f833c5c6`).
+  5. **Parti 4: Köy İçi Sevilen Yüz & Çınar Meclisi Metinleri (15 madde: SEV-01..07, MCL-02..09):** `src/koy/sevilen_yuz.gd` ve `src/koy/meclis_sesi.gd` genişletildi, 3 birim testi geçti (`eb185e83`).
+  6. **Parti 5: Muhafızın Hanesi, Sabah Satırları & Sofra Metinleri (48 madde: HAN-01..48, HAN-52):** `data/soz/hane_sabah_satirlari.json`, `src/koy/hane.gd` ve `tests/unit/koy/hane_test.gd` yazıldı, 1 test geçti (`219d5079`).
+  7. **Parti 6: Söylenti, Dedikodu & Kamuoyu Ağı (47 madde: SOY-01..50):** `data/soylenti.json`, `src/sistemler/soylenti_agi.gd` ve `tests/unit/kvr/soylenti_agi_test.gd` yazıldı, 1 test geçti (`032fc253`).
+  8. **Parti 7: Ana Hikâye Omurgası, Perde Geçişleri, Son ve Epilog Metinleri (13 madde: OMR-07..10, 15..18, 40, KOP-01, 02, 06, 07, 08):** `data/soz/sonlar.json`, `perde_metni.gd`, `gecis_gecesi.gd`, `perde_ozeti.gd`, `son_uyarisi.gd`, `divan_sanik.json`, `heyet_elci.json`, `tuccar_kapi.json` ve `tests/unit/soz/omurga_metinleri_test.gd` yazıldı, testler geçti.
+  9. **Doğrulama ve Bütünlük:** `python tools/metin_dogrula.py --kaynak` (PASS), `tools/soz_tasarimi_dogrula.py` (GEÇTİ), tüm headless Godot testleri (0 hata).
+- **Toplam Tamamlanan Madde Sayısı:** 177 ROADMAP maddesi.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_7.md` son satırı `GOREV7_TAMAM` ile mühürlendi.
+- **Kota:** kota görünmüyor

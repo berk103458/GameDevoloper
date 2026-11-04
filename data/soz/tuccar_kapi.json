@@ -1,0 +1,55 @@
+{
+  "dosya_id": "tuccar_kapi",
+  "karakter_id": "kapi_tuccari",
+  "baslangic_dugumu": "kok",
+  "dugumler": {
+    "kok": {
+      "id": "kok",
+      "konusmaci": "kapi_tuccari",
+      "metin": "Selamünaleyküm muhafız ağa. Halep'ten yükle geldim; köye girmem için ne gerektir?",
+      "secenekler": [
+        {
+          "metin": "Resmi geçiş bacı 5 akçedir, kamu kasasına yazılır.",
+          "hedef": "resmi_vergi",
+          "etkiler": {
+            "kamu_akce": 5,
+            "resmi_bac_odendi": true
+          }
+        },
+        {
+          "metin": "Yükün ağır, göz yummam için 3 akçe kişisel keseme bırakırsın.",
+          "hedef": "sahsi_rusvet",
+          "etkiler": {
+            "muhafiz_akce": 3,
+            "rusvet_alindi": true
+          }
+        },
+        {
+          "metin": "Bu malların menşei belirsiz, geri dönün!",
+          "hedef": "tuccar_ret",
+          "etkiler": {
+            "karar": "ret"
+          }
+        }
+      ]
+    },
+    "resmi_vergi": {
+      "id": "resmi_vergi",
+      "konusmaci": "kapi_tuccari",
+      "metin": "Devletin hakkı baş üstüne. İşte 5 akçe resmi bac.",
+      "secenekler": []
+    },
+    "sahsi_rusvet": {
+      "id": "sahsi_rusvet",
+      "konusmaci": "kapi_tuccari",
+      "metin": "Anlaştık ağam, lafı aramızda kalsın. Kesene bereket.",
+      "secenekler": []
+    },
+    "tuccar_ret": {
+      "id": "tuccar_ret",
+      "konusmaci": "kapi_tuccari",
+      "metin": "Yazıklar olsun, malımızı heder ettiniz!",
+      "secenekler": []
+    }
+  }
+}

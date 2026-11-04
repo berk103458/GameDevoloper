@@ -1,3 +1,4 @@
+# gdlint: disable=max-line-length
 ## SYS-19: 1→2. perde geçişi. Nüfus agalik_nufus'a (18) varınca mevcut _asamalar "Köy oturdu"
 ## (agalik) açılır; oyuncu "Ağa olarak devam et" der. Gün/gece sayacı sıfırlanmaz: 2. perde kendi
 ## sayacını geçiş gününden tutar ve OyunAyarlari.perde2_hedef_gece (12) gece dayanılınca biter.
@@ -34,5 +35,4 @@ static func denetle(y: KoyYonetimi, r: Dictionary, hedef: int) -> void:
 
 static func olay_metin(e: Dictionary) -> String:
 	var d: Dictionary = e.perde_gecisi
-	if d.tur == "basladi": return "Köy oturdu · 2. perde başladı: Ağa olarak %d gece dayan (gün sayacı sürüyor, %d. günden itibaren)." % [d.hedef, d.gun]
-	return "Uç tutundu · Ağalığın %d gecesi dolduruldu; köy ayakta kaldı." % d.hedef
+	return PerdeMetni.metin_al(String(d.tur), int(d.hedef), int(d.get("gun", 1)))
