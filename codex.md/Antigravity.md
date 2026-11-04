@@ -753,3 +753,37 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - `docs/DIYALOG_GECE_OZETI.md` hazırlanarak mobil okumaya uygun sade Türkçe ile Görev 3'ten 9'a kadar yapılan tüm çalışmalar, mutlaka deneyimlenmesi gereken 10 an ve Ahmet'in kararını bekleyen 3 konu sunuldu.
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_9.md` son satırı `GOREV9_TAMAM` ile mühürlendi.
 - **Kota:** %35 kaldı.
+
+## 4 Kasım 2026 — Görev 10: Karar Seçenekleri, ROADMAP Önerileri ve Dil Sistemi Analizi
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. `docs/KARAR_SECENEKLERI.md`: Banu Hatun'un 50 atlısı, Molla Şükrü vs Hasan Çelebi divan yüzleşmesi ve Vebalı Sabi için ikişer tam diyalog, bayrak, eş yorumu ve köy etkisi seçeneği hazırlandı.
+  2. `docs/ROADMAP_ONERILERI_ANTIGRAVITY.md`: Anlatı ve diyalog derinliğini artıracak 7 yeni ROADMAP madde önerisi sunuldu.
+  3. Dil sistemi incelendi; `dil_test.gd` ve `metin_dogrula.py` kurallarını kırmamak için çekirdeğe dokunulmadan ilk 250 arayüz anahtarı `docs/INGILIZCE_METIN_TASLAGI.csv`ye aktarıldı.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_10.md` son satırı `GOREV10_TAMAM` ile mühürlendi.
+- **Kota:** %35 kaldı.
+
+## 4 Kasım 2026 — Görev 11: İngilizce Taslağın Tamamlanması
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. `docs/INGILIZCE_METIN_TASLAGI.csv`: Kalan 1895 anahtar (toplam 2145 anahtar) dönem İngilizcesine uyarlandı.
+  2. `docs/ingilizce_diyalog/`: 30 ziyaretçi, eş kapı düşünceleri, 18 Parley sahnesi ve 10 akşam konusu İngilizceye aktarıldı.
+  3. `docs/INGILIZCE_TERIM_SOZLUGU.md`: Dönem ruhu, yer adları, unvanlar ve hitap ilkeleri resmileştirildi.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_11.md` son satırı `GOREV11_TAMAM` ile mühürlendi.
+- **Kota:** %35 kaldı.
+
+## 4 Kasım 2026 — Görev 12: İngilizce Taslağın İkinci Okuması ve Oyun Testi Kontrol Listesi
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Bölüm A — İkinci Okuma ve Kapsamlı Düzeltmeler:**
+     - `docs/INGILIZCE_METIN_TASLAGI.csv`: 2330 satır doğrulandı, 8 satırdaki eksik `{kisi}` yer tutucuları ve uygunsuz feodal unvanlar ('lord'/'lady') düzeltildi (`38f6e3d3`).
+     - 30 Ziyaretçi & Eş Düşünceleri: Ziyaretçi 1'deki terim düzeltmeleri ve Ziyaretçi 21-30'un zengin anlatı ağaçları (Derviş Baba, Tebrizli Tüccar, Çavuş Sungur, Vebalı Ana, Dursun, Hekim Lokman, Molla Şükrü, Banu Hatun, Kafile Habercisi, Turna) ile 4-5 aşamalı eş kapı fısıltıları eksiksiz İngilizceye aktarıldı (`817a2c81`).
+     - 18 Parley Sahnesi & 10 Akşam Konusu: 10 isimli köylü, 6 köy sekansı, 123 düğümlü eş dertleşme sahnesi ve 10 akşam konusunun tamamı 13. yy sınır boyu İngilizcesine dönüştürüldü (%100 İngilizce, `f0d46c01`).
+     - `docs/dogrula_ingilizce_taslak.py` ile doğrulama: 0 hata, 0 uyarı.
+  2. **Bölüm B — Ahmet İçin Oyun Testi Kontrol Listesi:**
+     - `docs/OYUN_TESTI_KONTROL_LISTESI.md` hazırlandı: 15 dakikalık hızlı rota (en önemli 10 an), 30 ziyaretçinin adım adım soru/bayrak/karar/eş düşüncesi test tablosu, 11 köylüyle konuşma, 6 sekans, 8 yeni köy olayı, söylenti ağı ve sonlar rehberi `[ ] çalıştı` kutucuklarıyla belgelendi (`15e21100`).
+  3. **Bölüm C / Bitirme:**
+     - `docs/DIYALOG_GECE_OZETI.md` güncellendi.
+     - Tüm doğrulayıcılar ve testler 0 hata ile çalıştırıldı.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_12.md` son satırı `GOREV12_TAMAM` ile mühürlendi.
+- **Kota:** %35 kaldı.

@@ -81,4 +81,22 @@
 
 ---
 
-*Dal birleşmeye hazırdır; festive'e doğrudan dokunulmadı, onayını bekliyor.*
+## 6. Görev 12 İle Yapılan İkinci Okuma ve Oyun Testi Hazırlığı
+
+1. **İngilizce Taslağın Kapsamlı İkinci Okuması (0 Hata, 0 Uyarı):**
+   - **`docs/INGILIZCE_METIN_TASLAGI.csv`:** 2330 satır taranarak eksik kalan 8 `{kisi}` yer tutucusu onarıldı; `lord/lady` gibi uygunsuz feodal unvanlar yerine `Bey`, `Hatun`, `Tekfur` terimleri yerleştirildi.
+   - **Ziyaretçiler 21–30 & Eş Düşünceleri:** Gece yazılan zengin 10 karakter (Derviş Baba, Tebrizli Tüccar Behram, Çavuş Sungur, Vebalı Ana Yusuf, Fırın Çırağı Dursun, Hekim Lokman, Molla Şükrü, Banu Hatun, Kafile Habercisi ve yeğen Turna) ve her biri için 4-5 aşamalı eş fısıltıları tüm soru ağaçları ve bayraklarıyla İngilizceye aktarıldı.
+   - **18 Parley Sahnesi & 10 Akşam Konusu:** Türkçe kalan 17 Parley sahnesi (10 isimli köylü, 6 ortam sekansı ve 123 düğümlü eş dertleşme sahnesi) ve 10 akşam konusu 13. yy sınır boyu İngilizcesine dönüştürüldü; Parley dosyalarında Türkçe kelime kalmadı (%100 İngilizce).
+2. **Ahmet İçin Pratik Oyun Testi Kontrol Listesi (`docs/OYUN_TESTI_KONTROL_LISTESI.md`):**
+   - Sabah telefondan veya bilgisayardan açıp oynarken tek tek işaretleyebileceğin bir kılavuz hazırlandı:
+     - **15 Dakikalık Hızlı Rota:** En çarpıcı 10 anı (Dursun'un nal yüzüğü, Turna ile kavuşma, Derviş'in Moğol fermanı, Banu Hatun'un 50 atlısı, Vebalı Ana'nın kireç karantinası, Çavuş Sungur'un rüşveti, Hekim Lokman'ın afyon şişeleri, Molla Şükrü'nün çalıntı mührü, odada eşle dertleşme ve gece yangını) en az adımla deneten hızlı yol.
+     - **30 Ziyaretçi Tablosu:** Her ziyaretçi için hangi soruya tıklanacağı, hangi alt sorunun (↳) ve bayrağın açılacağı, eşin ne fısıldayacağı ve beklenen sonuçlar.
+     - **11 Köylü & 6 Sekans:** Köy içinde köylülerin üzerine tıklayınca açılan diyaloglar ve ortam sohbetleri.
+     - **8 Köy Olayı, Söylenti Ağı ve Oyun Sonları:** Olay seçenekleri, söylenti yayılımı ve Tekfur zaferi sonu.
+3. **Doğrulama ve Bütünlük:**
+   - `docs/dogrula_ingilizce_taslak.py` betiği oluşturuldu; tüm CSV, JSON ve Parley dosyaları test edildi (Hata: 0, Uyarı: 0).
+   - Oyunun çalışan dosyalarına ve testlerine dokunulmadı; tüm yeni ve revize edilen dosyalar `docs/` altında izole ve güvenli tutuldu.
+
+---
+
+*Dal birleşmeye hazırdır; festive'e doğrudan dokunulmadı, sabah Ahmet'in onayını bekliyor.*

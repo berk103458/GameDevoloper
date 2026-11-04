@@ -16,14 +16,21 @@
   - [x] Parti A3: Köy Parley Sohbetleri ve Akşam Konuları (`koy/*.ds`, `aksam_konulari.json`) üslup, ses ve bütünlük kontrolü tamamlandı. 18 Parley sahnesi ve 10 akşam konusu eksiksiz İngilizceye uyarlandı, 0 hata, 0 uyarı. (Commit: `f0d46c01`)
 - [x] **Bölüm B — Ahmet İçin Oyun Testi Kontrol Listesi:**
   - [x] Parti B1: `docs/OYUN_TESTI_KONTROL_LISTESI.md` hazırlandı. 15 dakikalık hızlı rota (en önemli 10 an), 30 ziyaretçinin adım adım soru/bayrak/karar/eş düşüncesi test tablosu, 11 köylüyle tıklayınca konuşma, 6 köy sohbet sekansı, 8 köy olayı, söylenti ağı ve oyun sonu kontrol adımları `[ ] çalıştı` onay kutularıyla belgelendi.
-- [/] **Bölüm C / Bitirme:**
-  - [ ] `docs/DIYALOG_GECE_OZETI.md` dosyasına Görev 12 raporunun eklenmesi.
-  - [ ] Doğrulayıcılar ve test kontrolü (Python doğrulayıcıları + Godot headless testleri).
-  - [ ] `codex.md/Antigravity.md` günlüğünün güncellenmesi ve `GOREV12_TAMAM` mührü.
+- [x] **Bölüm C / Bitirme:**
+  - [x] `docs/DIYALOG_GECE_OZETI.md` dosyasına Görev 12 raporu eklendi (ikinci okuma düzeltmeleri ve test kontrol listesi).
+  - [x] Doğrulayıcılar ve test kontrolü: 4 Python doğrulayıcısı (`metin_dogrula.py`, `soz_dogrula.py`, `soz_tasarimi_dogrula.py`, `dogrula_ingilizce_taslak.py`) ve 5 Godot headless testi (`diyalog_butunluk_test.gd`, `es_yorumu_test.gd`, `koy_parley_sistemi_test.gd`, `yeni_olaylar_test.gd`, `dil_test.gd`) 0 hata ile geçti.
+  - [x] `codex.md/Antigravity.md` çalışma günlüğü güncellendi ve Görev 12 mühürlendi.
 
 ---
 
 ## Doğrulama ve Test Sonuçları
-- `docs/dogrula_ingilizce_taslak.py`: CSV, 6 JSON dosyası ve 18 Parley `.ds` dosyası tam tarandı. Hata: 0, Uyarı: 0.
+- `docs/dogrula_ingilizce_taslak.py`: 2330 CSV satırı, 6 JSON dosyası ve 18 Parley `.ds` dosyası tam tarandı. Hata: 0, Uyarı: 0.
+- `tools/metin_dogrula.py`: PASS.
+- `tools/soz_dogrula.py` & `tools/soz_tasarimi_dogrula.py`: PASS (KAY-53 / KAY-38 / SÖZ TASARIMI: GEÇTİ).
+- Godot Headless Testleri: 5/5 PASS (0 hata).
 - `docs/OYUN_TESTI_KONTROL_LISTESI.md`: Ahmet için pratik, adım adım oynanış rehberi ve doğrulama kılavuzu hazırlandı.
-- Git durumu: Bölüm B commit ve push için hazır.
+- Kota durumu: %35 kaldı.
+
+---
+
+GOREV12_TAMAM
