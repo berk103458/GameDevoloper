@@ -1,0 +1,314 @@
+{
+  "konular": {
+    "aileyi_bolmek": {
+      "agirlik": 5,
+      "baslik": "Decision to Divide a Family",
+      "es_replikleri": [
+        "You took the mother inside and left her lad out in the cold at the gate...",
+        "Did it behoove us to snap the very pillar of their hearth, my husband?"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
+        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
+        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+      },
+      "ipucu": "bolunen_aile_husumeti",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "terazi": "savundu",
+          "moral_etkisi": 0
+        },
+        "kabul_etmek": {
+          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "rusvet_almak": {
+      "agirlik": 5,
+      "baslik": "Silver Bargaining at the Gate",
+      "es_replikleri": [
+        "Kuşağındaki o gümüşleri gördüm. Kapı haram parayla mı bekçi tutuyor?",
+        "Sancak beyi duysa boynumuzu vurdurur; yetimin hakkı o akçelerde!"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
+        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
+        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+      },
+      "ipucu": "rusvet_fisiltisi_koyde",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "terazi": "savundu",
+          "moral_etkisi": -1
+        },
+        "kabul_etmek": {
+          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "cocuklu_aileyi_cevirmek": {
+      "agirlik": 4,
+      "baslik": "Turning Away a Family with Children",
+      "es_replikleri": [
+        "Dağ başında ayaz var; o bebeleri bu gece kime emanet ettin?",
+        "Kurtlar uluyor dışarıda... İçim ürperiyor muhafız."
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
+        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
+        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+      },
+      "ipucu": "donan_cocuklar_haberi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "terazi": "savundu",
+          "moral_etkisi": 0
+        },
+        "kabul_etmek": {
+          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "hastayi_koye_almak": {
+      "agirlik": 4,
+      "baslik": "Admitting the Afflicted into the Village",
+      "es_replikleri": [
+        "Gelen adamın göğsü hırıldıyordu, teni solmuştu. Gördüm.",
+        "Köyün kuyusuna, çocukların nefesine veba bulaşırsa ne yaparız?"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
+        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
+        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+      },
+      "ipucu": "hastalik_karantina_tedbiri",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "terazi": "savundu",
+          "moral_etkisi": 1
+        },
+        "kabul_etmek": {
+          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "yalan_yemin_edeni_almak": {
+      "agirlik": 3,
+      "baslik": "Admitting One Who Swore False Oath",
+      "es_replikleri": [
+        "Kuran'a el bastı ama gözleri sağa sola kaçıyordu o herifin.",
+        "Kutsal emaneti kalkan eden kalleşten köye hayır gelir mi?"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
+        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
+        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+      },
+      "ipucu": "yemin_bozan_suphesi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "terazi": "savundu",
+          "moral_etkisi": 0
+        },
+        "kabul_etmek": {
+          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "yakalanan_yalan": {
+      "agirlik": 3,
+      "baslik": "Kapıda Yalan Yakalama",
+      "es_replikleri": [
+        "Gelen adam heybesini gizlemeye çalışırken iyi sıkıştırdın.",
+        "Yalanını yüzüne vurunca rengi attı; kapıdaki gözün keskinmiş beyim."
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
+        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
+        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+      },
+      "ipucu": "yalan_yakalama_itibari",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "terazi": "savundu",
+          "moral_etkisi": 1
+        },
+        "kabul_etmek": {
+          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "tutulmayan_soz": {
+      "agirlik": 3,
+      "baslik": "Köylüye Verilen Sözün Tutulmaması",
+      "es_replikleri": [
+        "Demirci kalfasına kömür sözü vermiştin, bugün kışlaya çekmişsin.",
+        "Muhafızın sözü senet bilinir bu köyde; güven sarsılırsa tutunamayız."
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
+        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
+        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+      },
+      "ipucu": "koylu_kirginlik_kaydi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "terazi": "savundu",
+          "moral_etkisi": 0
+        },
+        "kabul_etmek": {
+          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "firari_askeri_almak": {
+      "agirlik": 3,
+      "baslik": "Kışla Firarisini Köye Kabul",
+      "es_replikleri": [
+        "Sancak subaşısının aradığı o askeri köye sokmuşsun.",
+        "İnzibat atlıları yarın kapıya dayanırsa ne hesap vereceksin?"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
+        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
+        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+      },
+      "ipucu": "subasi_baskin_ihtimali",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "terazi": "savundu",
+          "moral_etkisi": 0
+        },
+        "kabul_etmek": {
+          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    },
+    "kacak_yetimi_almak": {
+      "agirlik": 3,
+      "baslik": "Kaçak Çırak / Yetimi Sahiplenme",
+      "es_replikleri": [
+        "Kapıdaki o çelimsiz çocuğu içeri almışsın...",
+        "Karnı aç, üstü başı yırtık; kime emanet edeceğiz bu sabiyi?"
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
+        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
+        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+      },
+      "ipucu": "yetim_himaye_sevgisi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "terazi": "savundu",
+          "moral_etkisi": 2
+        },
+        "kabul_etmek": {
+          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "terazi": "kacti",
+          "moral_etkisi": 1
+        }
+      }
+    },
+    "gundelik_sessizlik": {
+      "agirlik": 1,
+      "baslik": "Sakin Günün Akşamı",
+      "es_replikleri": [
+        "Bugün kapı sakinmiş beyim; şükür ki kavga gürültü çıkmadı.",
+        "Dağların ayazı erken indi; çorbanı sıcakken iç."
+      ],
+      "meslek_varyantlari": {
+        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
+        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
+        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+      },
+      "ipucu": "koyde_huzur_gunu",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "terazi": "savundu",
+          "moral_etkisi": 1
+        },
+        "kabul_etmek": {
+          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
+    }
+  }
+}

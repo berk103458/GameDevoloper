@@ -1,0 +1,151 @@
+{
+  "title": "sekans_degirmen_kitlik",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:latif",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Latif",
+      "text": "Taş dönüyor dönmesine de hazneye buğday dökülmüyor be İdris! Çiftçiler ambarı boşalttı mı?"
+    },
+    {
+      "id": "node:idris",
+      "type": "DIALOGUE",
+      "position": "(700.0, 0.0)",
+      "character": "İdris",
+      "text": "Ovadaki başakları dolu vurdu, kalanını da beylik zahiresine saydılar Latif usta. Elimdeki son çuval bu; kepeğini ayırmadan öğüt ki bereketlensin."
+    },
+    {
+      "id": "node:opt_teskin",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, -90.0)",
+      "character": "Gatekeeper",
+      "text": "Sakin olun! Köyün ambarı hepimize yeter, unu idareli pay edeceğiz."
+    },
+    {
+      "id": "node:opt_sert",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, 90.0)",
+      "character": "Gatekeeper",
+      "text": "İsraf eden olursa hesabını sorarım, tek bir avuç un ziyan olmayacak!"
+    },
+    {
+      "id": "node:rep_teskin",
+      "type": "DIALOGUE",
+      "position": "(1400.0, -90.0)",
+      "character": "Latif",
+      "text": "Sen öyle diyorsan nizamına uyarız muhafız ağa. Değirmeni gece de döndürürüm."
+    },
+    {
+      "id": "node:act_teskin",
+      "type": "ACTION",
+      "position": "(1750.0, -90.0)",
+      "description": "Köy Morali Artışı",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:rep_sert",
+      "type": "DIALOGUE",
+      "position": "(1400.0, 90.0)",
+      "character": "İdris",
+      "text": "Ziyan etmeyiz ağam, her tanenin vebalini biliriz."
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(2100.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_d_1",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:latif",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_d_2",
+      "from_node": "node:latif",
+      "from_slot": 0,
+      "to_node": "node:idris",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_d_o1",
+      "from_node": "node:idris",
+      "from_slot": 0,
+      "to_node": "node:opt_teskin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_d_o2",
+      "from_node": "node:idris",
+      "from_slot": 0,
+      "to_node": "node:opt_sert",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_d_r1",
+      "from_node": "node:opt_teskin",
+      "from_slot": 0,
+      "to_node": "node:rep_teskin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_d_a1",
+      "from_node": "node:rep_teskin",
+      "from_slot": 0,
+      "to_node": "node:act_teskin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_d_e1",
+      "from_node": "node:act_teskin",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_d_r2",
+      "from_node": "node:opt_sert",
+      "from_slot": 0,
+      "to_node": "node:rep_sert",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_d_e2",
+      "from_node": "node:rep_sert",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

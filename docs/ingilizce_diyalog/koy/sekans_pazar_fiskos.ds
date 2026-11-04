@@ -1,0 +1,171 @@
+{
+  "title": "sekans_pazar_fiskos",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:c1",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Hasan Çelebi",
+      "text": "Yusuf oğul, elindeki Karabaş'ın ipini sıkı tut. Köy pazarında yabancılar dolaşır; kulağıma türlü türlü fısıltı gelir."
+    },
+    {
+      "id": "node:c2",
+      "type": "DIALOGUE",
+      "position": "(700.0, 0.0)",
+      "character": "Yusuf",
+      "text": "Korkmam Hasan kâtip emmi... Kapıdaki muhafız ağam adaletlidir. Dün gelenlerin heybesine baktı, haramiyi içeri sokmadı."
+    },
+    {
+      "id": "node:opt1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, -90.0)",
+      "character": "Gatekeeper",
+      "text": "Adalet mülkün temelidir Yusuf. Köyün dirliği bozulmasın diye gece gündüz nöbet tutarız."
+    },
+    {
+      "id": "node:opt2",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, 90.0)",
+      "character": "Gatekeeper",
+      "text": "Dedikodulara kulak asmayın, herkes kendi işine baksın!"
+    },
+    {
+      "id": "node:rep1",
+      "type": "DIALOGUE",
+      "position": "(1400.0, -90.0)",
+      "character": "Hasan Çelebi",
+      "text": "Haklısın muhafız ağa. Defterime yalnız hakikati yazarım; dedikodu yapanı divan uyarır."
+    },
+    {
+      "id": "node:rep2",
+      "type": "DIALOGUE",
+      "position": "(1400.0, 90.0)",
+      "character": "Yusuf",
+      "text": "Muhafız ağam doğru der Hasan emmi, köyümüzün nöbetçisi sağlamdır!"
+    },
+    {
+      "id": "node:act1",
+      "type": "ACTION",
+      "position": "(1750.0, -90.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act2",
+      "type": "ACTION",
+      "position": "(1750.0, 90.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(2100.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_s",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:c1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_1_2",
+      "from_node": "node:c1",
+      "from_slot": 0,
+      "to_node": "node:c2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_2_o1",
+      "from_node": "node:c2",
+      "from_slot": 0,
+      "to_node": "node:opt1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_2_o2",
+      "from_node": "node:c2",
+      "from_slot": 0,
+      "to_node": "node:opt2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o1_r1",
+      "from_node": "node:opt1",
+      "from_slot": 0,
+      "to_node": "node:rep1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r1_a1",
+      "from_node": "node:rep1",
+      "from_slot": 0,
+      "to_node": "node:act1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a1_end",
+      "from_node": "node:act1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o2_r2",
+      "from_node": "node:opt2",
+      "from_slot": 0,
+      "to_node": "node:rep2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r2_a2",
+      "from_node": "node:rep2",
+      "from_slot": 0,
+      "to_node": "node:act2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a2_end",
+      "from_node": "node:act2",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}
