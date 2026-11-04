@@ -3624,7 +3624,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: KOP-10, DEN-08. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-43:** Yozlaşma skoru ODA-12'dir.
+- [x] **DEN-43:** (Kalfa) Yozlaşma skoru ODA-12'dir.
   - Ne: rüşvet skoru o sisteme yazar. Yeni terazi açılmaz.
   - Kabul: rüşvet skoru o sisteme yazar. Yeni terazi açılmaz. Test: bir rüşvet, skor bir kez artar.
   - Bağımlılık: ODA-12. Boyut: S.
