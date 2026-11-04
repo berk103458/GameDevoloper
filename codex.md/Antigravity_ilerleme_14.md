@@ -13,7 +13,7 @@
 - [ ] **Bölüm A — Öneri Maddeleri İçin Hazır Taslaklar (`docs/oneri_taslaklari/`):**
   - [x] **Parti A1 — ES-GECM-01 (Öncelik 1):** Eşin Geçmişi, Evlilik Hikâyesi ve Gelecek Korkusu (tam taslak, bayraklar, kod notu, UYGULA.md hazırlandı)
   - [x] **Parti A2 — SOY-SON-01 (Öncelik 2):** Dedikodu ve Söylenti Ağının Somut Olaylara Kapanışı (5 somut kapanış sahnesi, bayraklar, kod notu, UYGULA.md hazırlandı)
-  - [ ] **Parti A3 — ANL-DON-01 (Öncelik 3):** Ziyaretçi Geri Dönüş Döngüsü ve İkinci Karşılaşmalar
+  - [x] **Parti A3 — ANL-DON-01 (Öncelik 3):** Ziyaretçi Geri Dönüş Döngüsü ve İkinci Karşılaşmalar (6 derin dönüş sahnesi, bayraklar, kod notu, UYGULA.md hazırlandı)
   - [ ] **Parti A4 — MECLIS-ARA-01 (Öncelik 4):** Çınar Meclisi İnteraktif Dava Sistemi
   - [ ] **Parti A5 — KVR-SES-01 (Öncelik 5):** Kapı Nöbetinde Dinamik Hava ve Ayaz Replikleri
   - [ ] **Parti A6 — ANL-EPI-01 (Öncelik 6):** 30. Gün / Kış Sonu Kişisel Epilog Ekranı
@@ -31,4 +31,4 @@
 ---
 
 ## Sonraki Adım
-Parti A3: `ANL-DON-01` (Ziyaretçi Geri Dönüş Döngüsü ve İkinci Karşılaşmalar) taslak paketinin hazırlanması.
+Parti A4: `MECLIS-ARA-01` (Çınar Meclisi İnteraktif Dava Sistemi) taslak paketinin hazırlanması.
