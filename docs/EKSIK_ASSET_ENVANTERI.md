@@ -1,5 +1,29 @@
 # Kapı Muhafızı — Eksik asset envanteri
 
+## 3 Kasım — SAB-03 kapalı tezgâh örtüsü (Cursor)
+
+SAB-03. 2D örtü. Yer tutucu: düz renk bez, ANI-08 düğümünün üstünde; kodda sahne eklenmedi, bayrak `sabah_defteri.kapali`. Dosya adı `sabah_tezgah_ortu.png`. Boyut 256×128. Saydam kaynak düz #00FF00. Prompt: "A small plain unpatterned cloth cover draped over a medieval Anatolian workshop stall, flat color, no text, transparent background." Öncelik düşük. Ekleyen: Cursor.
+
+## 3 Kasım — TEZ-03…08 tezgâh yer tutucuları (Cursor)
+
+Üretilmedi. Düz renk küp, örtünün üstünde. TEZ03-HAM, TEZ04-IZ (bir kenar koyu), TEZ05-BICIM, TEZ06-AGIZ (bir uç açık), TEZ07-TITREME (eğri tek çizgi), TEZ08-PARCA (küçük kutu). 3B, yaklaşık 0,4 m. Ekleyen: Cursor.
+
+## 3 Kasım 2026 — hazır 2D adaylar (Cursor)
+
+Oyun betiğine, defter sinyaline ve genel `Theme` dosyasına dokunulmadı. Görseller `assets/gorsel_adaylari/` altında. Varsayılan defter `yirtik`; bağ `assets/gorsel_adaylari/defter/secili.json` ve `secili_sayfa.tres`. Önizleme `docs/GORSEL_ADAYLARI.md`. Atıf `docs/credits/HAZIR_ASSET_ATIFLARI.md`.
+
+**Kapatılan veya kısmi bağlanan:** defter sayfası, kapak, sayfa çevirme kareleri, deri ayraç, mühür, mürekkep süsleri; kâğıt ve yıpranmış tahta dokusu; kaynak, eşya, yapı, mevsim, savunma ve mühür ikonları. Satır **kapatıldı** ise konu tutuyor. **Kısmi** ise elde silüet var, boyalı sahne değil. Lisans yalnız CC0, kamu malı veya CC-BY.
+
+**Açık kalan:** adlı ve sınıfsız portreler, kişi izleri, ekmek, tuz, yüzük, ilkbahar, açlık, yorgunluk, zar, sekiz anlatı yükleme/son sahnesi, boyalı kart ve portre çerçevesi (yerinde duruyor; üstüne yazılmadı). Çini, Parşömen ve Ocak düz renk şablonları kopyalanmadı. 3B alınmadı. Lisansı belirsiz veya düz giriş kutusu gibi duran parşömen alınmadı.
+
+## 3 Kasım — GRV-26 kabuk yer tutucuları (Cursor)
+
+Yeni doku indirilmedi ve üretilmedi. `GRV02-AYARLAR` ve `GRV04-DURAKLAT` zemini `Kabuk.zemin()` düz rengidir. Ayarlar ekranı Bölüm 35'te başka işte olduğu için bu turda yerleşimi değişmedi. Duraklat zemini `bilgi_ekrani.gd` içinde `kabuk_zemin` düğümüdür.
+
+## 3 Kasım — gece UI adayları (Cursor)
+
+Beş açık lisanslı 2D arayüz paketi `assets/ui_adaylari/` altına alındı ve ayrı ekranlara tema olarak bağlandı. Eksik üretim kuyruğu değildir; kaynak, lisans ve ekran eşlemesi [UI adayları](UI_ADAYLARI.md) belgesindedir. Yeni görüntü üretilmedi. Seçim Ahmet'tedir; seçilene kadar `tema.gd` ve `src/arayuz/tema/` değişmez.
+
 ## 28 Ekim — HAE-02 LOWPO karakter ve UAL hareket bağlantıları (Kalfa)
 
 İHT-0357 (kısmi), İHT-0431 (kısmi), İHT-0444, İHT-0445 (kısmi), İHT-0452 (kısmi), İHT-0453, İHT-0524 — **bağlandı (Kalfa)**. src/dunya/hazir_karakterler.gd LOWPO çocuğu 1,15 m ve adsız demirci rolünü 1,80 m kurar. Adlı ustaların kimliği/modeli korunur. UAL A01 idle/yürüme/konuşma, A02 hasat; yalnız UAL'de olmayan çekiç için A03 Hammering. Ahmet yerel referans kullanımını açıkça onayladı: data/animasyon/ual_referans.json yalnız sayısal rig/rest ve kaynak hash, ham model ve yeni indirme yok. Skin bind adları eşlendi, kaynak global rest/poz farkı hedef rest üzerine 30 FPS uyarlandı. Rota yönünde kök hareketi yok. Meslek değişiminde aktör dönüşümü, kayıt/RNG ve rota durumu korunur. Prosedürel düzeltici LOWPO'da ikinci kez uygulanmaz. Hedefli karakter, CHR kapı/sıra sonucu/köy hareket/zanaat/ses testleri geçti. 44 Meshy karakterin tamamı yeniden retarget edildi sayılmaz. Orak aleti ve özgül usta varyantları açık. 452bb671 kod yayını; son talimat: görünür Godot açılmaz.
@@ -101,7 +125,7 @@ ACL-04 uygulama notu (14 Ekim, Kalfa): `ACL04-ARASAHNE` için aşağıdaki mevcu
 
 ### Envanterin tekli 2D parçaları
 
-Her satırdaki prompt bağlantısı tam İngilizce metin, kaynak konu ve notları açar. Tüm satırların durumu: **prompt hazır, Ahmet üretecek**. ROADMAP / yer tutucu / öncelik / ekleyen bilgisi kaynak kimliğiyle tarihsel taramadan izlenir.
+Her satırdaki prompt bağlantısı tam İngilizce metin, kaynak konu ve notları açar. Satırların çoğu hâlâ **prompt hazır, Ahmet üretecek**. 3 Kasım 2026’da bulunan açık lisanslı parçalar satırda **kapatıldı** veya **kısmi** diye işaretlidir; ayrıntı dosyanın başındaki kapanış kaydındadır. ROADMAP / yer tutucu / öncelik / ekleyen bilgisi kaynak kimliğiyle tarihsel taramadan izlenir.
 
 | Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Hazır prompt |
 |---|---|---|---|---|
@@ -226,30 +250,30 @@ Her satırdaki prompt bağlantısı tam İngilizce metin, kaynak konu ve notlar�
 | `PORTRE-CHR-30` | `assets/art/char/char_chr_030_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt 119](arayuz/UI_ASSET_PROMPTLARI_2.md#119--assetsartcharchar_chr_030_neutral_cardpng) |
 | `NISAN-30` | `assets/art/icons/icon_clue_chr_030_obje1.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 120](arayuz/UI_ASSET_PROMPTLARI_2.md#120--assetsarticonsicon_clue_chr_030_obje1png) |
 | `YUK-30` | `assets/art/icons/icon_clue_chr_030_obje2.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 121](arayuz/UI_ASSET_PROMPTLARI_2.md#121--assetsarticonsicon_clue_chr_030_obje2png) |
-| `HEYBE-11` | `assets/art/icons/icon_esya_akce_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 122](arayuz/UI_ASSET_PROMPTLARI_2.md#122--assetsarticonsicon_esya_akce_64png) |
-| `HEYBE-11` | `assets/art/icons/icon_esya_arpa_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 123](arayuz/UI_ASSET_PROMPTLARI_2.md#123--assetsarticonsicon_esya_arpa_64png) |
-| `HEYBE-11` | `assets/art/icons/icon_esya_tohum_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 124](arayuz/UI_ASSET_PROMPTLARI_2.md#124--assetsarticonsicon_esya_tohum_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_akce_64.png` — kapatıldı 3 Kasım 2026 (Cursor): sikke, CC-BY | 64×64 | RGBA; düz #00FF00 | [Prompt 122](arayuz/UI_ASSET_PROMPTLARI_2.md#122--assetsarticonsicon_esya_akce_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_arpa_64.png` — kapatıldı 3 Kasım 2026 (Cursor): buğday, CC-BY | 64×64 | RGBA; düz #00FF00 | [Prompt 123](arayuz/UI_ASSET_PROMPTLARI_2.md#123--assetsarticonsicon_esya_arpa_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_tohum_64.png` — kapatıldı 3 Kasım 2026 (Cursor): tahıl demeti, CC-BY | 64×64 | RGBA; düz #00FF00 | [Prompt 124](arayuz/UI_ASSET_PROMPTLARI_2.md#124--assetsarticonsicon_esya_tohum_64png) |
 | `HEYBE-11` | `assets/art/icons/icon_esya_ekmek_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 125](arayuz/UI_ASSET_PROMPTLARI_2.md#125--assetsarticonsicon_esya_ekmek_64png) |
 | `HEYBE-11` | `assets/art/icons/icon_esya_tuz_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 126](arayuz/UI_ASSET_PROMPTLARI_2.md#126--assetsarticonsicon_esya_tuz_64png) |
-| `HEYBE-11` | `assets/art/icons/icon_esya_kumas_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 127](arayuz/UI_ASSET_PROMPTLARI_2.md#127--assetsarticonsicon_esya_kumas_64png) |
-| `HEYBE-11` | `assets/art/icons/icon_esya_bakir_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 128](arayuz/UI_ASSET_PROMPTLARI_2.md#128--assetsarticonsicon_esya_bakir_64png) |
-| `HEYBE-11` | `assets/art/icons/icon_esya_ok_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 129](arayuz/UI_ASSET_PROMPTLARI_2.md#129--assetsarticonsicon_esya_ok_64png) |
-| `HEYBE-11` | `assets/art/icons/icon_esya_hancer_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 130](arayuz/UI_ASSET_PROMPTLARI_2.md#130--assetsarticonsicon_esya_hancer_64png) |
-| `HEYBE-11` | `assets/art/icons/icon_esya_ilac_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 131](arayuz/UI_ASSET_PROMPTLARI_2.md#131--assetsarticonsicon_esya_ilac_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_kumas_64.png` — kapatıldı 3 Kasım 2026 (Cursor): kumaş topu, CC-BY | 64×64 | RGBA; düz #00FF00 | [Prompt 127](arayuz/UI_ASSET_PROMPTLARI_2.md#127--assetsarticonsicon_esya_kumas_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_bakir_64.png` — kısmi 3 Kasım 2026 (Cursor): metal çubuk, CC-BY | 64×64 | RGBA; düz #00FF00 | [Prompt 128](arayuz/UI_ASSET_PROMPTLARI_2.md#128--assetsarticonsicon_esya_bakir_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_ok_64.png` — kapatıldı 3 Kasım 2026 (Cursor): ok, CC-BY | 64×64 | RGBA; düz #00FF00 | [Prompt 129](arayuz/UI_ASSET_PROMPTLARI_2.md#129--assetsarticonsicon_esya_ok_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_hancer_64.png` — kapatıldı 3 Kasım 2026 (Cursor): hançer, CC-BY | 64×64 | RGBA; düz #00FF00 | [Prompt 130](arayuz/UI_ASSET_PROMPTLARI_2.md#130--assetsarticonsicon_esya_hancer_64png) |
+| `HEYBE-11` | `assets/art/icons/icon_esya_ilac_64.png` — kısmi 3 Kasım 2026 (Cursor): ot demeti, CC-BY | 64×64 | RGBA; düz #00FF00 | [Prompt 131](arayuz/UI_ASSET_PROMPTLARI_2.md#131--assetsarticonsicon_esya_ilac_64png) |
 | `HEYBE-11` | `assets/art/icons/icon_esya_yuzuk_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 132](arayuz/UI_ASSET_PROMPTLARI_2.md#132--assetsarticonsicon_esya_yuzuk_64png) |
-| `IKN-KURK` | `assets/ui/koy/gece_kapisi/kurk.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 133](arayuz/UI_ASSET_PROMPTLARI_2.md#133--assetsuikoygece_kapisikurkpng) |
-| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/firin.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 134](arayuz/UI_ASSET_PROMPTLARI_2.md#134--assetsuikoygece_kapisifirinpng) |
-| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/degirmen.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 135](arayuz/UI_ASSET_PROMPTLARI_2.md#135--assetsuikoygece_kapisidegirmenpng) |
-| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/sifahane.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 136](arayuz/UI_ASSET_PROMPTLARI_2.md#136--assetsuikoygece_kapisisifahanepng) |
-| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/ahir.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 137](arayuz/UI_ASSET_PROMPTLARI_2.md#137--assetsuikoygece_kapisiahirpng) |
-| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/agil.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 138](arayuz/UI_ASSET_PROMPTLARI_2.md#138--assetsuikoygece_kapisiagilpng) |
-| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/demirhane.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 139](arayuz/UI_ASSET_PROMPTLARI_2.md#139--assetsuikoygece_kapisidemirhanepng) |
-| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/kislasi.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 140](arayuz/UI_ASSET_PROMPTLARI_2.md#140--assetsuikoygece_kapisikislasipng) |
-| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/maden.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 141](arayuz/UI_ASSET_PROMPTLARI_2.md#141--assetsuikoygece_kapisimadenpng) |
-| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/ocak.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 142](arayuz/UI_ASSET_PROMPTLARI_2.md#142--assetsuikoygece_kapisiocakpng) |
+| `IKN-KURK` | `assets/ui/koy/gece_kapisi/kurk.png` — kısmi 3 Kasım 2026 (Cursor): kürk çizme, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 133](arayuz/UI_ASSET_PROMPTLARI_2.md#133--assetsuikoygece_kapisikurkpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/firin.png` — kısmi 3 Kasım 2026 (Cursor): fırın ikonu, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 134](arayuz/UI_ASSET_PROMPTLARI_2.md#134--assetsuikoygece_kapisifirinpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/degirmen.png` — kapatıldı 3 Kasım 2026 (Cursor): yel değirmeni, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 135](arayuz/UI_ASSET_PROMPTLARI_2.md#135--assetsuikoygece_kapisidegirmenpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/sifahane.png` — kısmi 3 Kasım 2026 (Cursor): ot demeti, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 136](arayuz/UI_ASSET_PROMPTLARI_2.md#136--assetsuikoygece_kapisisifahanepng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/ahir.png` — kısmi 3 Kasım 2026 (Cursor): ahır kapısı, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 137](arayuz/UI_ASSET_PROMPTLARI_2.md#137--assetsuikoygece_kapisiahirpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/agil.png` — kapatıldı 3 Kasım 2026 (Cursor): koyun, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 138](arayuz/UI_ASSET_PROMPTLARI_2.md#138--assetsuikoygece_kapisiagilpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/demirhane.png` — kapatıldı 3 Kasım 2026 (Cursor): örs, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 139](arayuz/UI_ASSET_PROMPTLARI_2.md#139--assetsuikoygece_kapisidemirhanepng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/kislasi.png` — kapatıldı 3 Kasım 2026 (Cursor): hisar, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 140](arayuz/UI_ASSET_PROMPTLARI_2.md#140--assetsuikoygece_kapisikislasipng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/maden.png` — kapatıldı 3 Kasım 2026 (Cursor): maden arabası, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 141](arayuz/UI_ASSET_PROMPTLARI_2.md#141--assetsuikoygece_kapisimadenpng) |
+| `IKN-YAPI` | `assets/ui/koy/gece_kapisi/ocak.png` — kısmi 3 Kasım 2026 (Cursor): ateş ikonu, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 142](arayuz/UI_ASSET_PROMPTLARI_2.md#142--assetsuikoygece_kapisiocakpng) |
 | `IKN-UYARI` | `assets/arayuz/ikonlar/uyari_isci_yok.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 143](arayuz/UI_ASSET_PROMPTLARI_2.md#143--assetsarayuzikonlaruyari_isci_yokpng) |
 | `IKN-UYARI` | `assets/arayuz/ikonlar/uyari_hammadde_yok.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 144](arayuz/UI_ASSET_PROMPTLARI_2.md#144--assetsarayuzikonlaruyari_hammadde_yokpng) |
-| `IKN-UYARI` | `assets/arayuz/ikonlar/uyari_ambar_dolu.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 145](arayuz/UI_ASSET_PROMPTLARI_2.md#145--assetsarayuzikonlaruyari_ambar_dolupng) |
+| `IKN-UYARI` | `assets/arayuz/ikonlar/uyari_ambar_dolu.png` — kapatıldı 3 Kasım 2026 (Cursor): ambar, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 145](arayuz/UI_ASSET_PROMPTLARI_2.md#145--assetsarayuzikonlaruyari_ambar_dolupng) |
 | `IKN-BAR` | `assets/art/ui/ui_bar_segment_full.png` | 22×30 | RGBA; düz #00FF00 | [Prompt 146](arayuz/UI_ASSET_PROMPTLARI_2.md#146--assetsartuiui_bar_segment_fullpng) |
 | `IKN-BAR` | `assets/art/ui/ui_bar_segment_empty.png` | 22×30 | RGBA; düz #00FF00 | [Prompt 147](arayuz/UI_ASSET_PROMPTLARI_2.md#147--assetsartuiui_bar_segment_emptypng) |
 | `IKN-BAR` | `assets/art/ui/ui_bar_segment_cracked_01.png` | 22×30 | RGBA; düz #00FF00 | [Prompt 148](arayuz/UI_ASSET_PROMPTLARI_2.md#148--assetsartuiui_bar_segment_cracked_01png) |
@@ -266,25 +290,25 @@ Her satırdaki prompt bağlantısı tam İngilizce metin, kaynak konu ve notlar�
 | `LOGO` | `assets/art/ui/logo_kapi_muhafizi.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 159](arayuz/UI_ASSET_PROMPTLARI_2.md#159--assetsartuilogo_kapi_muhafizipng) |
 | `LOGO`, `SRM18-IKON` | `assets/ui/atmosfer/gece_kapisi/app_icon.png` | 1024×1024 | RGBA; düz #00FF00 | [Prompt 160](arayuz/UI_ASSET_PROMPTLARI_2.md#160--assetsuiatmosfergece_kapisiapp_iconpng) |
 | `PALET` | `assets/palette/palette_swatch.png` | 1024×192 | Opak RGB; tam sahne/doku | [Prompt 161](arayuz/UI_ASSET_PROMPTLARI_2.md#161--assetspalettepalette_swatchpng) |
-| `TUC-UI` | `assets/art/icons/icon_trade_contract.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 162](arayuz/UI_ASSET_PROMPTLARI_2.md#162--assetsarticonsicon_trade_contractpng) |
-| `TUC-UI` | `assets/art/icons/icon_trade_price.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 163](arayuz/UI_ASSET_PROMPTLARI_2.md#163--assetsarticonsicon_trade_pricepng) |
-| `TUC-UI` | `assets/art/icons/icon_trade_caravan.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 164](arayuz/UI_ASSET_PROMPTLARI_2.md#164--assetsarticonsicon_trade_caravanpng) |
+| `TUC-UI` | `assets/art/icons/icon_trade_contract.png` — kapatıldı 3 Kasım 2026 (Cursor): tomar, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 162](arayuz/UI_ASSET_PROMPTLARI_2.md#162--assetsarticonsicon_trade_contractpng) |
+| `TUC-UI` | `assets/art/icons/icon_trade_price.png` — kapatıldı 3 Kasım 2026 (Cursor): sikke, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 163](arayuz/UI_ASSET_PROMPTLARI_2.md#163--assetsarticonsicon_trade_pricepng) |
+| `TUC-UI` | `assets/art/icons/icon_trade_caravan.png` — kapatıldı 3 Kasım 2026 (Cursor): deve, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 164](arayuz/UI_ASSET_PROMPTLARI_2.md#164--assetsarticonsicon_trade_caravanpng) |
 | `MEV-HUD` | `assets/ui/koy/gece_kapisi/mevsim_ilkbahar.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 165](arayuz/UI_ASSET_PROMPTLARI_2.md#165--assetsuikoygece_kapisimevsim_ilkbaharpng) |
-| `MEV-HUD` | `assets/ui/koy/gece_kapisi/mevsim_yaz.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 166](arayuz/UI_ASSET_PROMPTLARI_2.md#166--assetsuikoygece_kapisimevsim_yazpng) |
-| `MEV-HUD` | `assets/ui/koy/gece_kapisi/mevsim_sonbahar.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 167](arayuz/UI_ASSET_PROMPTLARI_2.md#167--assetsuikoygece_kapisimevsim_sonbaharpng) |
-| `MEV-HUD` | `assets/ui/koy/gece_kapisi/mevsim_kis.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 168](arayuz/UI_ASSET_PROMPTLARI_2.md#168--assetsuikoygece_kapisimevsim_kispng) |
+| `MEV-HUD` | `assets/ui/koy/gece_kapisi/mevsim_yaz.png` — kapatıldı 3 Kasım 2026 (Cursor): güneş, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 166](arayuz/UI_ASSET_PROMPTLARI_2.md#166--assetsuikoygece_kapisimevsim_yazpng) |
+| `MEV-HUD` | `assets/ui/koy/gece_kapisi/mevsim_sonbahar.png` — kapatıldı 3 Kasım 2026 (Cursor): meşe yaprağı, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 167](arayuz/UI_ASSET_PROMPTLARI_2.md#167--assetsuikoygece_kapisimevsim_sonbaharpng) |
+| `MEV-HUD` | `assets/ui/koy/gece_kapisi/mevsim_kis.png` — kapatıldı 3 Kasım 2026 (Cursor): kar tanesi, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 168](arayuz/UI_ASSET_PROMPTLARI_2.md#168--assetsuikoygece_kapisimevsim_kispng) |
 | `CAS-DIVAN` | `assets/art/ui/divan_kart.png` | 768×1024 | RGBA; düz #00FF00 | [Prompt 169](arayuz/UI_ASSET_PROMPTLARI_2.md#169--assetsartuidivan_kartpng) |
-| `ODA-UI` | `assets/art/icons/icon_oda_terazi.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 170](arayuz/UI_ASSET_PROMPTLARI_2.md#170--assetsarticonsicon_oda_terazipng) |
+| `ODA-UI` | `assets/art/icons/icon_oda_terazi.png` — kapatıldı 3 Kasım 2026 (Cursor): terazi, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 170](arayuz/UI_ASSET_PROMPTLARI_2.md#170--assetsarticonsicon_oda_terazipng) |
 | `ODA-UI` | `assets/art/icons/icon_oda_yetenek.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 171](arayuz/UI_ASSET_PROMPTLARI_2.md#171--assetsarticonsicon_oda_yetenekpng) |
 | `ODA-UI` | `assets/art/icons/icon_oda_yozlasma.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 172](arayuz/UI_ASSET_PROMPTLARI_2.md#172--assetsarticonsicon_oda_yozlasmapng) |
 | `ODA-UI` | `assets/art/env/oda_epilog.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 173](arayuz/UI_ASSET_PROMPTLARI_2.md#173--assetsartenvoda_epilogpng) |
 | `HAR-HARITA`, `HAR01-HARITA`, `ARY03-HARITA` | `assets/art/env/harita_uc.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 174](arayuz/UI_ASSET_PROMPTLARI_2.md#174--assetsartenvharita_ucpng) |
-| `HAR01-HARITA` | `assets/art/icons/icon_map_hisar.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 175](arayuz/UI_ASSET_PROMPTLARI_2.md#175--assetsarticonsicon_map_hisarpng) |
-| `HAR01-HARITA` | `assets/art/icons/icon_map_yol.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 176](arayuz/UI_ASSET_PROMPTLARI_2.md#176--assetsarticonsicon_map_yolpng) |
+| `HAR01-HARITA` | `assets/art/icons/icon_map_hisar.png` — kapatıldı 3 Kasım 2026 (Cursor): hisar, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 175](arayuz/UI_ASSET_PROMPTLARI_2.md#175--assetsarticonsicon_map_hisarpng) |
+| `HAR01-HARITA` | `assets/art/icons/icon_map_yol.png` — kapatıldı 3 Kasım 2026 (Cursor): yol, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 176](arayuz/UI_ASSET_PROMPTLARI_2.md#176--assetsarticonsicon_map_yolpng) |
 | `HAR01-HARITA` | `assets/art/icons/icon_map_tekfur.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 177](arayuz/UI_ASSET_PROMPTLARI_2.md#177--assetsarticonsicon_map_tekfurpng) |
 | `HAR01-HARITA` | `assets/art/icons/icon_map_goc.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 178](arayuz/UI_ASSET_PROMPTLARI_2.md#178--assetsarticonsicon_map_gocpng) |
-| `HAR-SAVAS` | `assets/art/icons/icon_savunma_okcu_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 179](arayuz/UI_ASSET_PROMPTLARI_2.md#179--assetsarticonsicon_savunma_okcu_64png) |
-| `HAR-SAVAS` | `assets/art/icons/icon_savunma_mizrakli_64.png` | 64×64 | RGBA; düz #00FF00 | [Prompt 180](arayuz/UI_ASSET_PROMPTLARI_2.md#180--assetsarticonsicon_savunma_mizrakli_64png) |
+| `HAR-SAVAS` | `assets/art/icons/icon_savunma_okcu_64.png` — kapatıldı 3 Kasım 2026 (Cursor): okçu, CC-BY | 64×64 | RGBA; düz #00FF00 | [Prompt 179](arayuz/UI_ASSET_PROMPTLARI_2.md#179--assetsarticonsicon_savunma_okcu_64png) |
+| `HAR-SAVAS` | `assets/art/icons/icon_savunma_mizrakli_64.png` — kapatıldı 3 Kasım 2026 (Cursor): mızrak, CC-BY | 64×64 | RGBA; düz #00FF00 | [Prompt 180](arayuz/UI_ASSET_PROMPTLARI_2.md#180--assetsarticonsicon_savunma_mizrakli_64png) |
 | `KRI-HASTA` | `assets/art/fx/portrait_symptom_ates.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 181](arayuz/UI_ASSET_PROMPTLARI_2.md#181--assetsartfxportrait_symptom_atespng) |
 | `KRI-HASTA` | `assets/art/fx/portrait_symptom_irin.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 182](arayuz/UI_ASSET_PROMPTLARI_2.md#182--assetsartfxportrait_symptom_irinpng) |
 | `KRI-HASTA` | `assets/art/fx/portrait_symptom_oksuruk.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 183](arayuz/UI_ASSET_PROMPTLARI_2.md#183--assetsartfxportrait_symptom_oksurukpng) |
@@ -303,8 +327,8 @@ Her satırdaki prompt bağlantısı tam İngilizce metin, kaynak konu ve notlar�
 | `MEV-AFET` | `assets/art/textures/gece_kapisi/flood_water_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 196](arayuz/UI_ASSET_PROMPTLARI_2.md#196--assetsarttexturesgece_kapisiflood_water_albedopng) |
 | `MEV-AFET` | `assets/art/textures/gece_kapisi/burnt_ground_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 197](arayuz/UI_ASSET_PROMPTLARI_2.md#197--assetsarttexturesgece_kapisiburnt_ground_albedopng) |
 | `KAPI-DEMIR` | `assets/art/textures/gece_kapisi/iron_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 198](arayuz/UI_ASSET_PROMPTLARI_2.md#198--assetsarttexturesgece_kapisiiron_albedopng) |
-| `ARY01-*` | `assets/art/textures/gece_kapisi/timber_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 199](arayuz/UI_ASSET_PROMPTLARI_2.md#199--assetsarttexturesgece_kapisitimber_albedopng) |
-| `ARY01-*` | `assets/art/textures/gece_kapisi/paper_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 200](arayuz/UI_ASSET_PROMPTLARI_2.md#200--assetsarttexturesgece_kapisipaper_albedopng) |
+| `ARY01-*` | `assets/art/textures/gece_kapisi/timber_albedo.png` — kapatıldı 3 Kasım 2026 (Cursor): yıpranmış tahta, CC0 | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 199](arayuz/UI_ASSET_PROMPTLARI_2.md#199--assetsarttexturesgece_kapisitimber_albedopng) |
+| `ARY01-*` | `assets/art/textures/gece_kapisi/paper_albedo.png` — kapatıldı 3 Kasım 2026 (Cursor): lif kâğıt, CC0 | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 200](arayuz/UI_ASSET_PROMPTLARI_2.md#200--assetsarttexturesgece_kapisipaper_albedopng) |
 | `SAB03-ORTU` | `assets/art/textures/gece_kapisi/cloth_cover_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 201](arayuz/UI_ASSET_PROMPTLARI_2.md#201--assetsarttexturesgece_kapisicloth_cover_albedopng) |
 | `TEZ01-ORTU` | `assets/art/textures/gece_kapisi/tez_agil_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 202](arayuz/UI_ASSET_PROMPTLARI_2.md#202--assetsarttexturesgece_kapisitez_agil_albedopng) |
 | `TEZ01-ORTU` | `assets/art/textures/gece_kapisi/tez_degirmen_albedo.png` | 1024×1024 | Opak RGB; tam sahne/doku | [Prompt 203](arayuz/UI_ASSET_PROMPTLARI_2.md#203--assetsarttexturesgece_kapisitez_degirmen_albedopng) |
@@ -319,32 +343,32 @@ Her satırdaki prompt bağlantısı tam İngilizce metin, kaynak konu ve notlar�
 | `MEV-SENLIK` | `assets/art/decor/harvest_grain_wreath.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 212](arayuz/UI_ASSET_PROMPTLARI_2.md#212--assetsartdecorharvest_grain_wreathpng) |
 | `MEV-SENLIK` | `assets/art/decor/harvest_cloth_banner.png` | 512×512 | RGBA; düz #00FF00 | [Prompt 213](arayuz/UI_ASSET_PROMPTLARI_2.md#213--assetsartdecorharvest_cloth_bannerpng) |
 | `TUC04-AFYON` | `assets/art/icons/icon_stok_afyon.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 214](arayuz/UI_ASSET_PROMPTLARI_2.md#214--assetsarticonsicon_stok_afyonpng) |
-| `TUC04-SARGI` | `assets/art/icons/icon_stok_sargi.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 215](arayuz/UI_ASSET_PROMPTLARI_2.md#215--assetsarticonsicon_stok_sargipng) |
+| `TUC04-SARGI` | `assets/art/icons/icon_stok_sargi.png` — kapatıldı 3 Kasım 2026 (Cursor): sargı, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 215](arayuz/UI_ASSET_PROMPTLARI_2.md#215--assetsarticonsicon_stok_sargipng) |
 | `TUC04-KECE` | `assets/art/icons/icon_stok_kece.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 216](arayuz/UI_ASSET_PROMPTLARI_2.md#216--assetsarticonsicon_stok_kecepng) |
-| `TUC04-KUMAS` | `assets/art/icons/icon_stok_kumas_stok.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 217](arayuz/UI_ASSET_PROMPTLARI_2.md#217--assetsarticonsicon_stok_kumas_stokpng) |
-| `TUC11-MUHUR` | `assets/art/icons/icon_stok_yasak_muhur.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 218](arayuz/UI_ASSET_PROMPTLARI_2.md#218--assetsarticonsicon_stok_yasak_muhurpng) |
+| `TUC04-KUMAS` | `assets/art/icons/icon_stok_kumas_stok.png` — kapatıldı 3 Kasım 2026 (Cursor): kumaş topu, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 217](arayuz/UI_ASSET_PROMPTLARI_2.md#217--assetsarticonsicon_stok_kumas_stokpng) |
+| `TUC11-MUHUR` | `assets/art/icons/icon_stok_yasak_muhur.png` — kapatıldı 3 Kasım 2026 (Cursor): mühür ikonu, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 218](arayuz/UI_ASSET_PROMPTLARI_2.md#218--assetsarticonsicon_stok_yasak_muhurpng) |
 | `TUC11-IKSIR` | `assets/art/icons/icon_stok_kacak_iksir.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 219](arayuz/UI_ASSET_PROMPTLARI_2.md#219--assetsarticonsicon_stok_kacak_iksirpng) |
-| `TUC08-ZIRH` | `assets/art/icons/icon_stok_zirh.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 220](arayuz/UI_ASSET_PROMPTLARI_2.md#220--assetsarticonsicon_stok_zirhpng) |
-| `TUC08-YAY` | `assets/art/icons/icon_stok_yay.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 221](arayuz/UI_ASSET_PROMPTLARI_2.md#221--assetsarticonsicon_stok_yaypng) |
-| `TUC08-KALKAN` | `assets/art/icons/icon_stok_kalkan.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 222](arayuz/UI_ASSET_PROMPTLARI_2.md#222--assetsarticonsicon_stok_kalkanpng) |
-| `TUC03-CIVI` | `assets/art/icons/icon_stok_civi.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 223](arayuz/UI_ASSET_PROMPTLARI_2.md#223--assetsarticonsicon_stok_civipng) |
-| `TUC03-TIRPAN` | `assets/art/icons/icon_stok_tirpan.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 224](arayuz/UI_ASSET_PROMPTLARI_2.md#224--assetsarticonsicon_stok_tirpanpng) |
-| `TUC03-BALTA` | `assets/art/icons/icon_stok_balta.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 225](arayuz/UI_ASSET_PROMPTLARI_2.md#225--assetsarticonsicon_stok_baltapng) |
-| `MEV07-SU` | `assets/art/icons/icon_stok_su.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 226](arayuz/UI_ASSET_PROMPTLARI_2.md#226--assetsarticonsicon_stok_supng) |
+| `TUC08-ZIRH` | `assets/art/icons/icon_stok_zirh.png` — kısmi 3 Kasım 2026 (Cursor): göğüs zırhı, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 220](arayuz/UI_ASSET_PROMPTLARI_2.md#220--assetsarticonsicon_stok_zirhpng) |
+| `TUC08-YAY` | `assets/art/icons/icon_stok_yay.png` — kapatıldı 3 Kasım 2026 (Cursor): yay, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 221](arayuz/UI_ASSET_PROMPTLARI_2.md#221--assetsarticonsicon_stok_yaypng) |
+| `TUC08-KALKAN` | `assets/art/icons/icon_stok_kalkan.png` — kapatıldı 3 Kasım 2026 (Cursor): kalkan, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 222](arayuz/UI_ASSET_PROMPTLARI_2.md#222--assetsarticonsicon_stok_kalkanpng) |
+| `TUC03-CIVI` | `assets/art/icons/icon_stok_civi.png` — kapatıldı 3 Kasım 2026 (Cursor): çivi, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 223](arayuz/UI_ASSET_PROMPTLARI_2.md#223--assetsarticonsicon_stok_civipng) |
+| `TUC03-TIRPAN` | `assets/art/icons/icon_stok_tirpan.png` — kapatıldı 3 Kasım 2026 (Cursor): tırpan, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 224](arayuz/UI_ASSET_PROMPTLARI_2.md#224--assetsarticonsicon_stok_tirpanpng) |
+| `TUC03-BALTA` | `assets/art/icons/icon_stok_balta.png` — kapatıldı 3 Kasım 2026 (Cursor): balta, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 225](arayuz/UI_ASSET_PROMPTLARI_2.md#225--assetsarticonsicon_stok_baltapng) |
+| `MEV07-SU` | `assets/art/icons/icon_stok_su.png` — kapatıldı 3 Kasım 2026 (Cursor): su matarası, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 226](arayuz/UI_ASSET_PROMPTLARI_2.md#226--assetsarticonsicon_stok_supng) |
 | `MEV14-SAMAN` | `assets/art/icons/icon_stok_saman.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 227](arayuz/UI_ASSET_PROMPTLARI_2.md#227--assetsarticonsicon_stok_samanpng) |
-| `KRI03-ILAC` | `assets/art/icons/icon_stok_ilac_stok.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 228](arayuz/UI_ASSET_PROMPTLARI_2.md#228--assetsarticonsicon_stok_ilac_stokpng) |
+| `KRI03-ILAC` | `assets/art/icons/icon_stok_ilac_stok.png` — kısmi 3 Kasım 2026 (Cursor): ot demeti, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 228](arayuz/UI_ASSET_PROMPTLARI_2.md#228--assetsarticonsicon_stok_ilac_stokpng) |
 | `HAR03-HEYET` | `assets/art/icons/icon_stok_heyet.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 229](arayuz/UI_ASSET_PROMPTLARI_2.md#229--assetsarticonsicon_stok_heyetpng) |
-| `HAR06-IKON` | `assets/art/icons/icon_stok_gozcu_kulesi.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 230](arayuz/UI_ASSET_PROMPTLARI_2.md#230--assetsarticonsicon_stok_gozcu_kulesipng) |
+| `HAR06-IKON` | `assets/art/icons/icon_stok_gozcu_kulesi.png` — kapatıldı 3 Kasım 2026 (Cursor): gözcü kulesi, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 230](arayuz/UI_ASSET_PROMPTLARI_2.md#230--assetsarticonsicon_stok_gozcu_kulesipng) |
 | `HAR09-GUVERCIN` | `assets/art/cards/guvercin.png` | 512×640 | RGBA; düz #00FF00 | [Prompt 231](arayuz/UI_ASSET_PROMPTLARI_2.md#231--assetsartcardsguvercinpng) |
 | `HAR09-ULAK` | `assets/art/cards/ulak.png` | 512×640 | RGBA; düz #00FF00 | [Prompt 232](arayuz/UI_ASSET_PROMPTLARI_2.md#232--assetsartcardsulakpng) |
 | `ACL04-ARASAHNE` | `assets/art/env/acilis_ulak.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 233](arayuz/UI_ASSET_PROMPTLARI_2.md#233--assetsartenvacilis_ulakpng) |
 | `ZAR01-ZAR` | `assets/art/ui/zar_d6.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 234](arayuz/UI_ASSET_PROMPTLARI_2.md#234--assetsartuizar_d6png) |
 | `ZAR01-ZAR` | `assets/art/ui/zar_d12.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 235](arayuz/UI_ASSET_PROMPTLARI_2.md#235--assetsartuizar_d12png) |
-| `YAP04-DEFTER` | `assets/art/icons/icon_usta_defteri.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 236](arayuz/UI_ASSET_PROMPTLARI_2.md#236--assetsarticonsicon_usta_defteripng) |
+| `YAP04-DEFTER` | `assets/art/icons/icon_usta_defteri.png` — kapatıldı 3 Kasım 2026 (Cursor): açık kitap ikonu, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 236](arayuz/UI_ASSET_PROMPTLARI_2.md#236--assetsarticonsicon_usta_defteripng) |
 | `YAP06-ESYA` | `assets/art/icons/icon_ozel_esya.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 237](arayuz/UI_ASSET_PROMPTLARI_2.md#237--assetsarticonsicon_ozel_esyapng) |
 | `YSM01-IKON` | `assets/art/icons/icon_yasam_aclik.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 238](arayuz/UI_ASSET_PROMPTLARI_2.md#238--assetsarticonsicon_yasam_aclikpng) |
 | `YSM01-IKON` | `assets/art/icons/icon_yasam_yorgunluk.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 239](arayuz/UI_ASSET_PROMPTLARI_2.md#239--assetsarticonsicon_yasam_yorgunlukpng) |
-| `YSM01-IKON` | `assets/art/icons/icon_yasam_moral.png` | 256×256 | RGBA; düz #00FF00 | [Prompt 240](arayuz/UI_ASSET_PROMPTLARI_2.md#240--assetsarticonsicon_yasam_moralpng) |
+| `YSM01-IKON` | `assets/art/icons/icon_yasam_moral.png` — kısmi 3 Kasım 2026 (Cursor): ateş ikonu, CC-BY | 256×256 | RGBA; düz #00FF00 | [Prompt 240](arayuz/UI_ASSET_PROMPTLARI_2.md#240--assetsarticonsicon_yasam_moralpng) |
 | `ARY03-*` | `assets/art/env/secim_bg.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 241](arayuz/UI_ASSET_PROMPTLARI_2.md#241--assetsartenvsecim_bgpng) |
 | `ARY03-*` | `assets/art/env/koy_hud_bg.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 242](arayuz/UI_ASSET_PROMPTLARI_2.md#242--assetsartenvkoy_hud_bgpng) |
 | `ARY04-YUKLEME-01` | `assets/art/env/yukleme_01.png` | 1920×1080 | Opak RGB; tam sahne/doku | [Prompt 243](arayuz/UI_ASSET_PROMPTLARI_2.md#243--assetsartenvyukleme_01png) |
@@ -421,22 +445,22 @@ Her yuva [tekli UI kataloğunda](arayuz/GEMINI_TEKLI_URETIM_PROMPTLARI.md) kendi
 | 26 | `assets/ui/atmosfer/gece_kapisi/ornament_corner.png` | 256×256 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
 | 27 | `assets/ui/atmosfer/gece_kapisi/ornament_divider.png` | 1024×96 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
 | 28 | `assets/ui/atmosfer/gece_kapisi/ornament_emblem.png` | 512×512 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
-| 29 | `assets/ui/atmosfer/gece_kapisi/ornament_seal.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 29 | `assets/ui/atmosfer/gece_kapisi/ornament_seal.png` — kapatıldı 3 Kasım 2026 (Cursor): 1464 mühür, kamu malı | 256×256 | RGBA; dışı saydam | açık lisanslı asset bağlandı; Tek resim |
 | 30 | `assets/ui/atmosfer/gece_kapisi/cursor_arrow.png` | 128×128 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
 | 31 | `assets/ui/atmosfer/gece_kapisi/cursor_point.png` | 128×128 | RGBA; dışı saydam | Alfa/ölçü hazır; entegrasyon üretim sonu; Tek resim |
 | 32 | `assets/ui/atmosfer/gece_kapisi/cursor_grab.png` | 128×128 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
 | 33 | `assets/ui/atmosfer/gece_kapisi/cursor_busy.png` | 128×128 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
 | 34 | `assets/ui/atmosfer/gece_kapisi/icon_akce.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
-| 35 | `assets/ui/atmosfer/gece_kapisi/icon_erzak.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
-| 36 | `assets/ui/atmosfer/gece_kapisi/icon_odun.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
-| 37 | `assets/ui/atmosfer/gece_kapisi/icon_tas.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
-| 38 | `assets/ui/atmosfer/gece_kapisi/icon_demir.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
-| 39 | `assets/ui/atmosfer/gece_kapisi/icon_bez.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
-| 40 | `assets/ui/atmosfer/gece_kapisi/icon_alet.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
-| 41 | `assets/ui/atmosfer/gece_kapisi/icon_nufus.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
-| 42 | `assets/ui/atmosfer/gece_kapisi/icon_yatak.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
-| 43 | `assets/ui/atmosfer/gece_kapisi/icon_saglik.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
-| 44 | `assets/ui/atmosfer/gece_kapisi/icon_moral.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
+| 35 | `assets/ui/atmosfer/gece_kapisi/icon_erzak.png` — kapatıldı 3 Kasım 2026 (Cursor): tahıl demeti, CC-BY | 256×256 | RGBA; dışı saydam | açık lisanslı asset bağlandı; Tek resim |
+| 36 | `assets/ui/atmosfer/gece_kapisi/icon_odun.png` — kapatıldı 3 Kasım 2026 (Cursor): odun yığını, CC-BY | 256×256 | RGBA; dışı saydam | açık lisanslı asset bağlandı; Tek resim |
+| 37 | `assets/ui/atmosfer/gece_kapisi/icon_tas.png` — kapatıldı 3 Kasım 2026 (Cursor): taş yığını, CC-BY | 256×256 | RGBA; dışı saydam | açık lisanslı asset bağlandı; Tek resim |
+| 38 | `assets/ui/atmosfer/gece_kapisi/icon_demir.png` — kısmi 3 Kasım 2026 (Cursor): metal çubuk, CC-BY | 256×256 | RGBA; dışı saydam | açık lisanslı asset bağlandı; Tek resim |
+| 39 | `assets/ui/atmosfer/gece_kapisi/icon_bez.png` — kapatıldı 3 Kasım 2026 (Cursor): kumaş topu, CC-BY | 256×256 | RGBA; dışı saydam | açık lisanslı asset bağlandı; Tek resim |
+| 40 | `assets/ui/atmosfer/gece_kapisi/icon_alet.png` — kapatıldı 3 Kasım 2026 (Cursor): çekiç ve çivi, CC-BY | 256×256 | RGBA; dışı saydam | açık lisanslı asset bağlandı; Tek resim |
+| 41 | `assets/ui/atmosfer/gece_kapisi/icon_nufus.png` — kapatıldı 3 Kasım 2026 (Cursor): kişi silüeti, CC-BY | 256×256 | RGBA; dışı saydam | açık lisanslı asset bağlandı; Tek resim |
+| 42 | `assets/ui/atmosfer/gece_kapisi/icon_yatak.png` — kapatıldı 3 Kasım 2026 (Cursor): yatak, CC-BY | 256×256 | RGBA; dışı saydam | açık lisanslı asset bağlandı; Tek resim |
+| 43 | `assets/ui/atmosfer/gece_kapisi/icon_saglik.png` — kısmi 3 Kasım 2026 (Cursor): ot demeti, CC-BY | 256×256 | RGBA; dışı saydam | açık lisanslı asset bağlandı; Tek resim |
+| 44 | `assets/ui/atmosfer/gece_kapisi/icon_moral.png` — kısmi 3 Kasım 2026 (Cursor): ateş ikonu, CC-BY | 256×256 | RGBA; dışı saydam | açık lisanslı asset bağlandı; Tek resim |
 | 45 | `assets/ui/atmosfer/gece_kapisi/icon_guvenlik.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
 | 46 | `assets/ui/atmosfer/gece_kapisi/icon_adalet.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |
 | 47 | `assets/ui/atmosfer/gece_kapisi/icon_gun.png` | 256×256 | RGBA; dışı saydam | prompt hazır, Ahmet üretecek; Tek resim |

@@ -17,7 +17,9 @@ func _initialize() -> void:
  b.tur = "ahir"
  dene(not CobanSurusu.hazir(b), "Ahır çekiş hayvanıyla karışmaz")
  var koyun := CobanSurusu.koyun()
- dene(koyun.get_child_count() >= 6, "Yünlü gövde, baş, dört bacak")
+ var parca := koyun.get_child_count() >= 6
+ var hazir_model := bool(koyun.get_meta("statik_hayvan", false)) and koyun.get_node_or_null("bas") != null
+ dene(parca or hazir_model, "Yünlü gövde, baş, dört bacak ya da hazır koyun modeli")
  koyun.free()
  var n := Node3D.new()
  CobanSurusu.agil_kur(n, 6, 6)

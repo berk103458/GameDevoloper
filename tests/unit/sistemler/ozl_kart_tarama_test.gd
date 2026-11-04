@@ -50,7 +50,6 @@ func _initialize() -> void:
 	var dervis_sayisi := 0
 	var dugun_sayisi := 0
 	for g in range(1, 31):
-		oturum.gece = g
 		oturum.yonetim.gun = g
 		var secilen := oturum.olay_sec()
 		if secilen != null:
@@ -63,6 +62,8 @@ func _initialize() -> void:
 
 	# OZL-05: Havuz bos + olay_olasiligi 1 olsa bile kart 0, rapor "bu gece köy sessiz" yazar ve faz gecer
 	var bos_kat := Katalog.new()
+	bos_kat.yukle()
+	bos_kat._olaylar.clear()
 	var bos_oturum := Oturum.new(bos_kat, 77)
 	bos_oturum.ayarlar.olay_olasiligi = 1.0
 	var bos_kart := bos_oturum.olay_sec()

@@ -8,11 +8,14 @@ extends RefCounted
 const AZAMI_SELAM_ZIYARETI := 9
 const GECERLI_KARARLAR := ["kabul", "ret", "rusvet", "kisla", "kacti"]
 const HABER_KANALI_OLUM := "DYL-08"
+const GUVEN_TAVANI := 10
+const BEYAN_TAVANI := 40
+const ITIRAF_GUVENI := 8
 
 
 ## Karakterin kadrodaki durum kaydindan hafiza gorunumunu okur.
 ## Eski kayitta opsiyonel alanlar yoksa bos degerlerle doner, oyun cokmez.
-static func oku(kadro: KarakterKadrosu, id: StringName, guncel_gece: int = -1) -> Dictionary:
+static func oku(kadro: KarakterKadrosu, id: StringName, guncel_gece: int = -1, baslangic_tansiyonu: int = 0) -> Dictionary:
 	var bos := {
 		"durum": "",
 		"ziyaret": 0,
@@ -28,6 +31,9 @@ static func oku(kadro: KarakterKadrosu, id: StringName, guncel_gece: int = -1) -
 		"karar_gecmisi": [],
 		"es": {},
 		"oldu": false,
+		"guven": 0,
+		"korku": baslangic_tansiyonu,
+		"itiraf": false,
 	}
 	if kadro == null or not kadro.durumlar.has(id):
 		return bos
@@ -51,6 +57,10 @@ static func oku(kadro: KarakterKadrosu, id: StringName, guncel_gece: int = -1) -
 	if kayit.get("es") is Dictionary:
 		es_sozluk = (kayit["es"] as Dictionary).duplicate(true)
 
+	var guven := _kisitli_sayi(kayit, "guven", 0)
+	var korku := baslangic_tansiyonu
+	if _sayi_var(kayit, "korku"):
+		korku = _kisitli_sayi(kayit, "korku", baslangic_tansiyonu)
 	return {
 		"durum": durum_str,
 		"ziyaret": ziyaret_sayisi,
@@ -66,6 +76,9 @@ static func oku(kadro: KarakterKadrosu, id: StringName, guncel_gece: int = -1) -
 		"karar_gecmisi": gecmis,
 		"es": es_sozluk,
 		"oldu": oldu_mu,
+		"guven": guven,
+		"korku": korku,
+		"itiraf": itiraf_acik(kadro, id),
 	}
 
 
@@ -235,6 +248,96 @@ static func konu_sec(
 	var zengin_baglam := baglama_yaz(baglam, kadro, id, guncel_gece)
 	var secici := SatirSecici.new()
 	return secici.sec(varyantlar, zengin_baglam)
+
+
+## KAY-07: güven ve korku kişi kaydında 0–10. Eksik güven 0'dır.
+static func guven_yaz(kadro: KarakterKadrosu, id: StringName, deger: int) -> int:
+	return _olcu_yaz(kadro, id, "guven", deger)
+
+
+static func korku_yaz(kadro: KarakterKadrosu, id: StringName, deger: int) -> int:
+	return _olcu_yaz(kadro, id, "korku", deger)
+
+
+## KAY-13 / KAY-63: itiraf yalnız sayısal güven eşiği ve bool sır bayrağıyla açılır.
+static func itiraf_acik(kadro: KarakterKadrosu, id: StringName) -> bool:
+	if kadro == null or not kadro.durumlar.has(id):
+		return false
+	var kayit: Dictionary = kadro.durumlar[id]
+	if not _sayi_var(kayit, "guven") or _kisitli_sayi(kayit, "guven", 0) < ITIRAF_GUVENI:
+		return false
+	return kayit.get("Flag_Sir_Tamamen_Cozuldu", false) is bool and bool(kayit["Flag_Sir_Tamamen_Cozuldu"])
+
+
+## KAY-50: kişi başı beyan tavanı. Aşan satır yazılmaz.
+static func beyan_tavanina_sigdir(satirlar: Array) -> Array:
+	if satirlar.size() <= BEYAN_TAVANI:
+		return satirlar
+	push_warning("KAY50_BEYAN_TAVANI")
+	return satirlar.slice(0, BEYAN_TAVANI)
+
+
+static func hafiza_paketi(kadro: KarakterKadrosu) -> Array:
+	var sonuc: Array = []
+	if kadro == null:
+		return sonuc
+	for id in kadro.durumlar.keys():
+		var kayit: Dictionary = kadro.durumlar[id]
+		if not kayit.has("guven") and not kayit.has("korku") and not kayit.has("Flag_Sir_Tamamen_Cozuldu"):
+			continue
+		var satir := {"id": String(id), "ziyaret": int(kayit.get("ziyaret", 0))}
+		if kayit.has("guven"):
+			satir["guven"] = kayit["guven"]
+		if kayit.has("korku"):
+			satir["korku"] = kayit["korku"]
+		if kayit.has("Flag_Sir_Tamamen_Cozuldu"):
+			satir["Flag_Sir_Tamamen_Cozuldu"] = kayit["Flag_Sir_Tamamen_Cozuldu"]
+		sonuc.append(satir)
+	return sonuc
+
+
+static func hafiza_uygula(kadro: KarakterKadrosu, satirlar: Array) -> void:
+	if kadro == null:
+		return
+	for satir in satirlar:
+		if not satir is Dictionary:
+			continue
+		var id := StringName(String(satir.get("id", "")).strip_edges())
+		if id == StringName() or not kadro.durumlar.has(id):
+			push_warning("KAY15_%s" % String(id))
+			continue
+		var kayit: Dictionary = kadro.durumlar[id]
+		if satir.has("ziyaret"):
+			kayit["ziyaret"] = maxi(int(kayit.get("ziyaret", 0)), int(satir.get("ziyaret", 0)))
+		if _sayi_var(satir, "guven"):
+			kayit["guven"] = clampi(int(satir["guven"]), 0, GUVEN_TAVANI)
+		if _sayi_var(satir, "korku"):
+			kayit["korku"] = clampi(int(satir["korku"]), 0, GUVEN_TAVANI)
+		if satir.has("Flag_Sir_Tamamen_Cozuldu") and satir["Flag_Sir_Tamamen_Cozuldu"] is bool:
+			kayit["Flag_Sir_Tamamen_Cozuldu"] = bool(satir["Flag_Sir_Tamamen_Cozuldu"])
+
+
+static func _olcu_yaz(kadro: KarakterKadrosu, id: StringName, alan: String, deger: int) -> int:
+	if kadro == null or not kadro.durumlar.has(id):
+		return 0
+	var n := clampi(deger, 0, GUVEN_TAVANI)
+	if n != deger:
+		push_warning("KAY14_%s" % alan)
+	kadro.durumlar[id][alan] = n
+	return n
+
+
+static func _sayi_var(kayit: Dictionary, alan: String) -> bool:
+	if not kayit.has(alan):
+		return false
+	var v: Variant = kayit[alan]
+	return (v is int or v is float) and is_finite(float(v))
+
+
+static func _kisitli_sayi(kayit: Dictionary, alan: String, varsayilan: int) -> int:
+	if not _sayi_var(kayit, alan):
+		return varsayilan
+	return clampi(int(kayit[alan]), 0, GUVEN_TAVANI)
 
 
 static func _norm_karar(karar: String) -> String:

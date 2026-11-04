@@ -14,9 +14,14 @@ const GENISLIK := 500.0
 
 var ust_satir: String = ""
 var ipucu: String = ""
+var metin_anahtarlari: PackedStringArray = []
+var _satirlar: Array[Button] = []
+var surum_metni: String = ""
+var daha_once: PackedStringArray = PackedStringArray()
 
 
 func _ready() -> void:
+	preload("res://src/arayuz/yeni_oyun_ekrani.gd").menu_hazir(self)
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var zemin := ColorRect.new()
 	zemin.color = Renkler.GECE
@@ -64,26 +69,34 @@ func _ready() -> void:
 		d.visible = false
 		kok.add_child(d)
 		liste.append(d)
+	_satirlar = liste
 	_odak_komsulari(liste)
+	if ayarlar != null and not ayarlar.degisti.is_connected(_dil_degisti):
+		ayarlar.degisti.connect(_dil_degisti)
 
 	if ipucu != "":
 		var f := Tema.font(400)
-		var px := ayarlar.boyut(21)
-		var gen := f.get_string_size(ipucu, HORIZONTAL_ALIGNMENT_LEFT, -1, px).x if f != null else 360.0
+		var px := ayarlar.boyut(Kabuk.KUCUK)
+		var ekran := get_viewport_rect().size
+		if ekran.x < 100.0:
+			ekran = Vector2(1920, 1080)
+		var kutu := Kabuk.ipucu_kutusu(ekran, int(ayarlar.al(&"metin_olcegi")))
 		var alan := Control.new()
+		alan.name = "menu_ipucu"
 		alan.anchor_left = 1.0
 		alan.anchor_right = 1.0
 		alan.anchor_top = 1.0
 		alan.anchor_bottom = 1.0
-		alan.offset_left = -760.0
-		alan.offset_right = -40.0
-		alan.offset_top = -112.0
-		alan.offset_bottom = -72.0
+		alan.offset_left = kutu.position.x - ekran.x
+		alan.offset_right = kutu.end.x - ekran.x
+		alan.offset_top = kutu.position.y - ekran.y
+		alan.offset_bottom = kutu.end.y - ekran.y
 		alan.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		alan.clip_contents = true
 		add_child(alan)
 		var s := MenuSusu.new()
 		s.tur = MenuSusu.Tur.IPUCU
-		s.konum = gen + 60.0
+		s.konum = kutu.size.x
 		s.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		alan.add_child(s)
 		var l := Label.new()
@@ -96,6 +109,12 @@ func _ready() -> void:
 		l.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		l.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		alan.add_child(l)
+	if surum_metni != "":
+		var surum := _etiket(kok, surum_metni, 22, Tema.font(400), Color(MenuSatiri.KREM, 0.7), 990.0)
+		surum.name = "surum"
+	if daha_once.size() > 0:
+		var once := _etiket(kok, tr("arayuz.menu.daha_once") % ", ".join(daha_once), 22, Tema.font(400), Color(MenuSatiri.KREM, 0.7), 1024.0)
+		once.name = "daha_once"
 	_sirayla_goster(liste)
 
 
@@ -132,6 +151,14 @@ func _sirayla_goster(liste: Array[Button]) -> void:
 		if not d.disabled:
 			d.grab_focus()
 			break
+
+
+func _dil_degisti(anahtar: StringName) -> void:
+	if anahtar != &"dil":
+		return
+	for i in _satirlar.size():
+		if i < metin_anahtarlari.size() and is_instance_valid(_satirlar[i]):
+			_satirlar[i].text = DilAyari.gorunen("menu", _satirlar[i].text, metin_anahtarlari[i])
 
 
 ## Odak yalnız etkin satırlar arasında, listede sarar (7.10).

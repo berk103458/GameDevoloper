@@ -72,4 +72,4 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 ## Mevcut gece raporuna açık isimler ve gerçekten değişen tek Güvenlik değeri.
 static func olay_metin(e: Dictionary) -> String:
 	var d: Dictionary = e.levent_firari
-	return "Levent firarı · %s: %s köyü terk etti. Nöbet hattı zayıfladı; Güvenlik %d → %d/100 (asayiş riski +%d). Aynı kriz boyunca yeni firar dalgası olmaz; erzak, maaş ve moral desteği ayrılmayı önler." % [d.sebep, ", ".join(d.adlar), d.guvenlik_once, d.guvenlik_sonra, d.asayis_kaybi]
+	return TranslationServer.translate("koy.levent.olay") % [d.sebep, ", ".join(d.adlar), d.guvenlik_once, d.guvenlik_sonra, d.asayis_kaybi]

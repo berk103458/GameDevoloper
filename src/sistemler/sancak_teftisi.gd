@@ -46,15 +46,15 @@ static func gece(o: Oturum,r: Dictionary) -> void:
 ## Aynı sabah kartının olay metni; içerik ikinci kasaya veya Clue'a dönüştürülmez.
 static func olay_metin(d: Dictionary) -> String:
  match String(d.sonuc):
-  "temiz": return "Sancak müfettişi teftişi: gizli kasada suç isnadını destekleyen içerik ve yozlaşma birlikte bulunmadı. Görev sürüyor."
-  "bulunamadi": return "Sancak müfettişi teftişi: gizli kasa bu kez bulunamadı. Geçmiş yozlaşma ve kasa içeriği değişmedi."
-  String(SON_IDAM): return "Sancak müfettişi gizli kasayı buldu. Ağır yozlaşma nedeniyle muhafız hakkında idam hükmü verildi."
-  _: return "Sancak müfettişi gizli kasayı buldu. Muhafız görevden azledildi."
+  "temiz": return TranslationServer.translate("koy.sancak.temiz")
+  "bulunamadi": return TranslationServer.translate("koy.sancak.bulunamadi")
+  String(SON_IDAM): return TranslationServer.translate("koy.sancak.idam")
+  _: return TranslationServer.translate("koy.sancak.azil")
 
 ## Mevcut Ana/BilgiEkrani son yüzeyine özel başlık; diğer sonlar eski çeviriyi korur.
 static func son_metni(son: StringName) -> Dictionary:
- if son==SON_AZIL: return {"baslik":"Muhafız azledildi","metin":"Sancak teftişinde gizli kasa ve yozlaşma açığa çıktı. Köy ayakta kalsa da muhafızın görevi sona erdi."}
- if son==SON_IDAM: return {"baslik":"Muhafızın idamı","metin":"Sancak müfettişi ağır yozlaşmayı gizli kasa içeriğiyle tespit etti. Muhafızın görevi idam hükmüyle son buldu."}
+ if son==SON_AZIL: return {"baslik":TranslationServer.translate("koy.sancak.son_azil_baslik"),"metin":TranslationServer.translate("koy.sancak.son_azil_metin")}
+ if son==SON_IDAM: return {"baslik":TranslationServer.translate("koy.sancak.son_idam_baslik"),"metin":TranslationServer.translate("koy.sancak.son_idam_metin")}
  return {"baslik":TranslationServer.translate("arayuz.son."+String(son)),"metin":TranslationServer.translate("arayuz.son.%s_metin"%son)}
 
 ## Oda içindeki tek bilgilendirme satırı; alım/arama veya ek kayıt işlemi yok.
@@ -62,4 +62,4 @@ static func tip(o: Oturum) -> String:
  var n:=int(AYAR.ilk_gece)
  var son:=maxi(o.gun,int(oku(o.sancak_teftisi).son_gece))
  if n<=son: n+=(floori(float(son-n)/int(AYAR.aralik))+1)*int(AYAR.aralik)
- return "Sancak teftişi: sıradaki %d. gece. Yozlaşma ≥%d ve dolu kişisel kasa birlikte risk taşır; kapak kapatmak korumaz. Bulunma şansı %%%d; yozlaşma ≥%d idam, altında azil."%[n,int(AYAR.yozlasma_esigi),int(round(float(AYAR.bulma_olasiligi)*100)),int(AYAR.idam_esigi)]
+ return TranslationServer.translate("koy.sancak.tip")%[n,int(AYAR.yozlasma_esigi),int(round(float(AYAR.bulma_olasiligi)*100)),int(AYAR.idam_esigi)]

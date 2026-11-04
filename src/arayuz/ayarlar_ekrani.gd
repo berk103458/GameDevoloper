@@ -20,6 +20,8 @@ var _degerler: Dictionary = {}
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	if ayarlar != null:
+		AyarlarEk.bagla(ayarlar)
 	var zemin := ColorRect.new()
 	zemin.color = Renkler.GECE
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -35,6 +37,7 @@ func _ready() -> void:
 	kenar.add_child(dikey)
 	var b := Label.new()
 	b.text = tr("arayuz.ayarlar.baslik")
+	b.set_meta(&"metin_anahtari", "arayuz.ayarlar.baslik")
 	b.add_theme_font_size_override("font_size", ayarlar.boyut(48))
 	dikey.add_child(b)
 	var ilk: Button = null
@@ -44,6 +47,7 @@ func _ready() -> void:
 		yatay.add_theme_constant_override("separation", 12)
 		var l := Label.new()
 		l.text = tr(satir[1])
+		l.set_meta(&"metin_anahtari", satir[1])
 		l.custom_minimum_size = Vector2(420, 0)
 		yatay.add_child(l)
 		var geri := Button.new()
@@ -66,11 +70,19 @@ func _ready() -> void:
 			ilk = ileri
 	var alt := HBoxContainer.new()
 	alt.add_theme_constant_override("separation", 16)
+	var kontroller := Button.new()
+	kontroller.name = "KontrollerSekmesiDugmesi"
+	kontroller.text = tr("arayuz.girdi.sekme")
+	kontroller.pressed.connect(_kontroller_goster)
+	alt.add_child(kontroller)
 	var v := Button.new()
 	v.text = tr("arayuz.ayarlar.varsayilan")
 	v.pressed.connect(func() -> void:
 		ayarlar.varsayilana_don()
 		_yenile()
+		var sekme := get_node_or_null("KontrollerSekmesi") as KontrollerSekmesi
+		if sekme != null:
+			sekme.yenile()
 	)
 	alt.add_child(v)
 	var k := Button.new()
@@ -81,8 +93,39 @@ func _ready() -> void:
 	var grafik := GrafikAyarlariPaneli.new()
 	grafik.ayarlar = ayarlar
 	add_child(grafik)
+	var sekme := KontrollerSekmesi.new()
+	sekme.name = "KontrollerSekmesi"
+	sekme.ayarlar = ayarlar
+	sekme.visible = false
+	add_child(sekme)
+	DilSekmesi.ekle(self, ayarlar)
 	_yenile()
+	preload("res://src/arayuz/ayarlar/ayar_sekmeleri.gd").kur(self)
+	_odak_kur()
 	ilk.grab_focus.call_deferred()
+
+
+func _kontroller_goster() -> void:
+	var sekme := get_node_or_null("KontrollerSekmesi") as KontrollerSekmesi
+	if sekme == null:
+		return
+	sekme.visible = true
+	sekme.yenile()
+
+
+func _odak_kur() -> void:
+	var dugmeler: Array = []
+	_dugme_topla(self, dugmeler)
+	OdakHalkasi.bagla(dugmeler)
+
+
+func _dugme_topla(n: Node, hedef: Array) -> void:
+	if n is Button and n != self and (n as CanvasItem).visible:
+		hedef.append(n)
+	for cocuk in n.get_children():
+		if cocuk.name == "KontrollerSekmesi":
+			continue
+		_dugme_topla(cocuk, hedef)
 
 
 func _degistir(a: StringName, yon: int) -> void:

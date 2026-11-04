@@ -19,7 +19,7 @@ func _ready() -> void:
  panel.offset_right = -24
  panel.offset_top = 155
  panel.offset_bottom = -24
- panel.add_theme_stylebox_override("panel",Tema.koy_paneli())
+ panel.add_theme_stylebox_override("panel",Kabuk.panel())
  add_child(panel)
  var kenar := MarginContainer.new()
  for a in ["margin_left","margin_right","margin_top","margin_bottom"]: kenar.add_theme_constant_override(a,20)
@@ -29,7 +29,7 @@ func _ready() -> void:
  kenar.add_child(v)
  var bas := Label.new()
  bas.text = "Muhafız Divanı · Köy Meydanı"
- bas.add_theme_font_size_override("font_size",Tema.BASLIK_PX)
+ bas.add_theme_font_size_override("font_size",Kabuk.BASLIK)
  bas.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  v.add_child(bas)
  var kaydir := ScrollContainer.new()
@@ -39,11 +39,18 @@ func _ready() -> void:
  _liste = VBoxContainer.new()
  _liste.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  kaydir.add_child(_liste)
+ var bilgi_kaydir := ScrollContainer.new()
+ bilgi_kaydir.name = "divan_bilgi_kaydir"
+ bilgi_kaydir.custom_minimum_size.y = 96
+ bilgi_kaydir.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ bilgi_kaydir.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ v.add_child(bilgi_kaydir)
  _bilgi = Label.new()
  _bilgi.name = "divan_tutanagi"
  _bilgi.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
- _bilgi.add_theme_font_size_override("font_size",Tema.KUCUK_PX)
- v.add_child(_bilgi)
+ _bilgi.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ _bilgi.add_theme_font_size_override("font_size",Kabuk.KUCUK)
+ bilgi_kaydir.add_child(_bilgi)
  var kapat := Button.new()
  kapat.name = "divan_kapat"
  kapat.text = "Duruşmayı ertele · köye dön"

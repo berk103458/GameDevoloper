@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="OlayVerisi" format=3]
+
+[ext_resource type="Script" path="res://src/veri/olay_verisi.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"kadi"
+baslik_anahtari = "olay.kadi.baslik"
+metin_anahtari = "olay.kadi.metin"
+kosullar = {}
+agirlik = 0.5
+tek_sefer = true
+secenek_anahtarlari = PackedStringArray("olay.kadi.dinle", "olay.kadi.gecistir")
+secenek_etkileri = Array[Dictionary]([{"bayrak": "kadi_dinlendi"}, {"bar": [0, 0, 0, 0]}])
+ses = &""
+muzik = &""

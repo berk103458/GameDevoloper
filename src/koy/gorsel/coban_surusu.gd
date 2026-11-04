@@ -16,7 +16,7 @@ static func ekle(turler: Dictionary) -> void:
  turler["agil"] = AYAR.agil.duplicate(true)
 ## CSV kilidinde mevcut yapı adı/açıklaması adaptörü için okunur metin.
 static func ad(anahtar: String) -> String:
- return {"koy.yapi.agil": "Ağıl", "koy.yapi.agil_aciklama": "Dört koyunluk başlangıç sürüsü ve bir çoban yeri. Çoban başına temel 1 erzak; sabah otlak, akşam ağıla dönüş."}.get(anahtar, TranslationServer.translate(anahtar))
+ return TranslationServer.translate(anahtar)
 ## İnşaat/farklı hayvan barınağı güvenli biçimde hariçtir.
 static func hazir(b: KoyBinasi) -> bool:
  return b != null and b.tur == "agil" and b.hazir()
@@ -35,7 +35,7 @@ static func hedef(h: KoyHalkHareketi, k: Koylu, bas: Vector2i) -> Dictionary:
     son = aday
     break
  if not h.rotaci.gecilir(son) or h.rotaci.yol(bas, son).is_empty(): return {}
- return {"son": son, "ad": "Sürüyü otlatıyor" if h.faz_adi == &"gunduz" else "Sürüyü ağıla götürüyor"}
+ return {"son": son, "ad": TranslationServer.translate("koy.coban.otlatiyor" if h.faz_adi == &"gunduz" else "koy.coban.agila")}
 static func _otlak(r: KoyRotasi, h: Vector2i) -> bool:
  for x in range(-1, 2):
   for z in range(-1, 2):

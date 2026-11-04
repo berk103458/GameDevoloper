@@ -29,8 +29,10 @@ func _init(debug_acik: bool = AdminHud.arac_acik()) -> void:
 
 
 static func kur(ust: Node, debug_acik: bool = AdminHud.arac_acik()) -> IpucuPaneli:
-	var p := IpucuPaneli.new(debug_acik)
-	if ust != null and debug_acik:
+	if not debug_acik:
+		return null
+	var p := IpucuPaneli.new(true)
+	if ust != null:
 		ust.add_child(p)
 	return p
 

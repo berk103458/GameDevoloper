@@ -8,7 +8,7 @@ const IKONLAR := {"cadir": "cadir", "kulube": "kulube", "tarla": "gida", "hizarh
 func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	custom_minimum_size = Vector2(220, 136)
 	focus_mode = Control.FOCUS_ALL
-	var stil := Tema.koy_paneli()
+	var stil := Kabuk.panel()
 	add_theme_stylebox_override("normal", stil)
 	add_theme_stylebox_override("hover", stil)
 	var odak := stil.duplicate() as StyleBoxFlat
@@ -35,7 +35,7 @@ func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	baslik.add_theme_constant_override("separation", 10)
 	v.add_child(baslik)
 	baslik.add_child(GozcuKulesiGorseli.ikon(38) if tur==GozcuKulesi.TUR else KaynakGostergesi.ikon(IKONLAR.get(tur, "kulube"), 38))
-	var ad := _etiket(MeslekYapilari.ad(tur), ayarlar.boyut(20))
+	var ad := _etiket(MeslekYapilari.ad(tur), ayarlar.boyut(Kabuk.KUCUK))
 	ad.add_theme_font_override("font", Tema.koy_baslik_fontu())
 	baslik.add_child(ad)
 	var maliyet := HBoxContainer.new()
@@ -43,14 +43,14 @@ func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	v.add_child(maliyet)
 	for kaynak in m:
 		maliyet.add_child(KaynakGostergesi.ikon(kaynak, 22))
-		var adet := _etiket(str(int(m[kaynak])), ayarlar.boyut(19))
+		var adet := _etiket(str(int(m[kaynak])), ayarlar.boyut(Kabuk.KUCUK))
 		var elde: int = y.akce if kaynak == "akce" else y.kaynaklar.miktar(kaynak)
 		if elde < int(m[kaynak]):
 			adet.add_theme_color_override("font_color", Hud.UYARI)
 		maliyet.add_child(adet)
 	var veri := y.katalog.veri(tur)
-	var bilgi := _etiket(tr("koy.kart.sure") % int(veri.get("insa_gun", 1)), ayarlar.boyut(17))
-	bilgi.add_theme_color_override("font_color", Color("aaa18e"))
+	var bilgi := _etiket(tr("koy.kart.sure") % int(veri.get("insa_gun", 1)), ayarlar.boyut(Kabuk.KUCUK))
+	bilgi.add_theme_color_override("font_color", Kabuk.SOLUK)
 	v.add_child(bilgi)
 	if disabled:
 		bilgi.text = tr("koy.kart.eksik")

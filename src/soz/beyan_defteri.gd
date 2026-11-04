@@ -1,16 +1,93 @@
 # gdlint: disable=max-line-length
+## KAY-08 / KAY-50 / KAY-62 & DIY-06: ziyaret beyanları kişi kimliğinin altında, tekil ve tavanlıdır.
 class_name BeyanDefteri
 extends RefCounted
 
-## DIY-06: Beyan defteri — karakterin söyledikleri kayda geçer.
-
+var _satirlar: Array[Dictionary] = []
 var beyanlar: Array[Dictionary] = []
 
+
+func satirlar() -> Array[Dictionary]:
+	return _satirlar.duplicate(true)
+
+
+func ekle(kisi: String, id: String, gece: int) -> bool:
+	var kim := id.strip_edges()
+	if kim.is_empty():
+		return false
+	for satir in _satirlar:
+		if String(satir.get("id", "")) == kim:
+			return false
+	var adet := 0
+	for satir in _satirlar:
+		if String(satir.get("kisi", "")) == kisi:
+			adet += 1
+	if adet >= KisiHafizasi.BEYAN_TAVANI:
+		push_warning("KAY50_BEYAN_TAVANI")
+		return false
+	_satirlar.append({"id": kim, "kisi": kisi, "gece": gece})
+	return true
+
+
+## Gece kapanınca satırlar kişi kimliğinin altında kalır; ikinci yazım listeyi uzatmaz.
+func gece_kapat(kisi: String) -> int:
+	var adet := 0
+	for satir in _satirlar:
+		if String(satir.get("kisi", "")) == kisi:
+			satir["kapandi"] = true
+			adet += 1
+	return adet
+
+
+func kaydet() -> Array:
+	return _satirlar.duplicate(true)
+
+
+func yukle(veri: Variant) -> bool:
+	_satirlar.clear()
+	if not veri is Array:
+		push_warning("KAY18_BEYAN")
+		return true
+	for satir in veri:
+		if not satir is Dictionary:
+			continue
+		var kim := String(satir.get("id", "")).strip_edges()
+		if kim.is_empty():
+			push_warning("KAY62_BEYAN")
+			continue
+		if _kimlik_var(kim):
+			continue
+		_satirlar.append((satir as Dictionary).duplicate(true))
+	var gruplar := {}
+	var sira: Array[String] = []
+	for satir in _satirlar:
+		var kisi := String(satir.get("kisi", ""))
+		if not gruplar.has(kisi):
+			gruplar[kisi] = []
+			sira.append(kisi)
+		(gruplar[kisi] as Array).append(satir)
+	_satirlar.clear()
+	for kisi in sira:
+		for satir in KisiHafizasi.beyan_tavanina_sigdir(gruplar[kisi]):
+			if satir is Dictionary:
+				_satirlar.append(satir)
+	return true
+
+
+func _kimlik_var(kim: String) -> bool:
+	for satir in _satirlar:
+		if String(satir.get("id", "")) == kim:
+			return true
+	return false
+
+
+## DIY-06 API metodları
 func temizle() -> void:
 	beyanlar.clear()
+	_satirlar.clear()
+
 
 func beyan_ekle(beyan_id: String, metin: String, dogru: bool = true, kanit_id: String = "") -> void:
-	# Mükerrer beyan kontrolü
 	for b in beyanlar:
 		if str(b.get("id")) == beyan_id:
 			return
@@ -22,11 +99,13 @@ func beyan_ekle(beyan_id: String, metin: String, dogru: bool = true, kanit_id: S
 		"zaman": Time.get_unix_time_from_system()
 	})
 
+
 func beyan_al(beyan_id: String) -> Dictionary:
 	for b in beyanlar:
 		if str(b.get("id")) == beyan_id:
 			return b
 	return {}
+
 
 func tum_beyanlar() -> Array[Dictionary]:
 	return beyanlar.duplicate(true)

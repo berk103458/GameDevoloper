@@ -44,8 +44,20 @@ static func metin_kirp(metin: String) -> String:
 	return tek_satir.substr(0, AZAMI_KARAKTER).strip_edges()
 
 
+## GIR-21: `{hiz_1}` yer tutucusu eylemin görünen tuş adıdır.
+static func eylem_yerlestir(metin: String) -> String:
+	var yer := "{hiz_1}"
+	if not yer in metin:
+		return metin
+	return metin.replace(yer, GirdiEylemleri.tus_adi("hiz_1"))
+
+
+static func hiz_ipucu() -> String:
+	return eylem_yerlestir(TranslationServer.translate("arayuz.girdi.ipucu.hiz"))
+
+
 func goster(metin: String, ipucu_id: String = "", sure_sn: float = GOSTERIM_SURESI_SN) -> bool:
-	var temiz := metin_kirp(metin)
+	var temiz := metin_kirp(eylem_yerlestir(metin))
 	if temiz.is_empty():
 		return false
 	if _etiket == null:

@@ -36,7 +36,7 @@ func _ready() -> void:
  v.add_child(s)
  var panel:=PanelContainer.new()
  panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL
- panel.add_theme_stylebox_override("panel",Tema.koy_paneli())
+ panel.add_theme_stylebox_override("panel",Kabuk.panel())
  s.add_child(panel)
  _alan=Control.new()
  _alan.name="harita_alan"
@@ -68,7 +68,7 @@ func _ready() -> void:
   dugme.text=String(b.ad)
   dugme.name="sec_"+String(b.id)
   dugme.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-  dugme.add_theme_font_size_override("font_size",ayarlar.boyut(20))
+  dugme.add_theme_font_size_override("font_size",ayarlar.boyut(Kabuk.KUCUK))
   dugme.pressed.connect(func() -> void: bolge_sec(String(b.id)))
   nokta.add_child(dugme)
   _noktalar[String(b.id)]=nokta

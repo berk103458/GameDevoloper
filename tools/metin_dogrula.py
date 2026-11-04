@@ -73,6 +73,16 @@ def validate_text(text: str) -> list[str]:
                 errors.append(f"line {line}: empty Turkish translation for {key!r}")
             elif turkish is not None and turkish < len(row) and "  " in row[turkish]:
                 errors.append(f"line {line}: KLT-11 double space in Turkish text for {key!r}")
+            for idx, col in enumerate(header):
+                if col in ("keys", "tr") or idx >= len(row):
+                    continue
+                cell = row[idx]
+                if not str(cell).strip():
+                    continue
+                if "  " in cell:
+                    errors.append(f"line {line}: KLT-11 double space in {col} text for {key!r}")
+                if col == "en" and turkish is not None and key.startswith("karakter.") and cell.strip() != row[turkish].strip():
+                    errors.append(f"line {line}: YER-17 character name {key!r} must match tr")
             if turkish is not None and turkish < len(row) and key.startswith("ogretici."):
                 tr_text = row[turkish].strip()
                 if len(tr_text) > 90:
@@ -87,9 +97,38 @@ def validate_text(text: str) -> list[str]:
 def validate_file(path: Path) -> list[str]:
     """Read a UTF-8 CSV and return diagnostics, including read/decode failures."""
     try:
-        return validate_text(path.read_text(encoding="utf-8-sig"))
+        text = path.read_text(encoding="utf-8-sig")
     except (OSError, UnicodeError) as exc:
         return [f"cannot read {path}: {exc}"]
+    errors = validate_text(text)
+    if not errors and path.name == "metinler.csv":
+        errors.extend(ayar_aciklama_hatalari(path, read_texts(path)))
+    return errors
+
+
+def ayar_aciklama_hatalari(path: Path, texts: dict[str, str]) -> list[str]:
+    """AYR-03: her ayar anahtarının `arayuz.ayarlar.<anahtar>_aciklama` satırı vardır."""
+    if len(path.resolve().parents) < 3:
+        return []
+    root = path.resolve().parents[2]
+    cekirdek = root / "src/sistemler/ayarlar.gd"
+    ek = root / "src/sistemler/ayarlar_ek.gd"
+    if not cekirdek.is_file() or not ek.is_file():
+        return []
+    hatalar: list[str] = []
+    for kaynak in (cekirdek, ek):
+        for anahtar in _ayar_anahtarlari(kaynak.read_text(encoding="utf-8")):
+            aciklama = f"arayuz.ayarlar.{anahtar}_aciklama"
+            if aciklama not in texts:
+                hatalar.append(f"{kaynak.name}: missing description key {aciklama}")
+    return hatalar
+
+
+def _ayar_anahtarlari(kaynak: str) -> list[str]:
+    eslesen = re.search(r"const VARSAYILAN := \{([^}]*)\}", kaynak)
+    if eslesen is None:
+        return []
+    return re.findall(r'&"([a-z0-9_]+)"\s*:', eslesen.group(1))
 
 
 def read_texts(path: Path) -> dict[str, str]:
@@ -125,8 +164,11 @@ def validate_sources(root: Path, texts: dict[str, str]) -> list[str]:
     """Keys used by code/catalog must exist; simple tr("k") % args must match placeholders."""
     errors: list[str] = []
     for script in sorted((root / "src").rglob("*.gd")):
-        source = script.read_text(encoding="utf-8", errors="replace")
         rel = script.relative_to(root).as_posix()
+        # YER-11: debug metinleri ve performans şeridi oyuncu dili zorunluluğunun dışındadır.
+        if rel.startswith("src/debug/") or rel.endswith("performans_seridi.gd"):
+            continue
+        source = script.read_text(encoding="utf-8", errors="replace")
         for match in LITERAL_CALL.finditer(source):
             key = match.group(1)
             if DOTTED_KEY.fullmatch(key) and key not in texts:

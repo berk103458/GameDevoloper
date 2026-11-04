@@ -17,9 +17,14 @@ func kuyruk(bakis: Callable, simdiki: Vector3, hedef: Vector3, fov: float) -> vo
 	var n := _baslat()
 	if not is_instance_valid(kamera):
 		return
+	var sure := preload("res://src/sistemler/hareket_azalt.gd").sure(0.6)
+	if sure <= 0.0:
+		kamera.fov = fov
+		bakis.call(hedef)
+		return
 	_tween = create_tween().set_parallel().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-	_tween.tween_method(bakis, simdiki, hedef, 0.6)
-	_tween.tween_property(kamera, "fov", fov, 0.6)
+	_tween.tween_method(bakis, simdiki, hedef, sure)
+	_tween.tween_property(kamera, "fov", fov, sure)
 	# kill() finished sinyali vermez; iptal edilen çağrı da beklemekten çıkar.
 	while n == _nesil and _tween != null and _tween.is_valid() and _tween.is_running():
 		await get_tree().process_frame
@@ -32,6 +37,9 @@ func karar(icerden: bool, normal_fov: float, bakis: Callable, hedef: Vector3) ->
 	if not is_instance_valid(kamera):
 		return
 	bakis.call(hedef)
+	if preload("res://src/sistemler/hareket_azalt.gd").sure(1.0) <= 0.0:
+		kamera.fov = normal_fov - 9.0 if icerden else normal_fov
+		return
 	for i in range(1, 4):
 		if n != _nesil or not is_instance_valid(kamera):
 			return

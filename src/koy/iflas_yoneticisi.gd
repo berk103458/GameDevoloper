@@ -27,7 +27,7 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 	olaylar.append({"anahtar": "koy.olay.iflas", "deger": [s.son_varlik]})
 ## Oyuncuya gerçek kamu açığı serisini açıklar; kasaya veya RNG'ye yazmaz.
 static func tip(y: KoyYonetimi) -> String:
-	return "Kamu akçesi: %d\nÜst üste eksi geceler: %d/%d. Tefeci baskını kamu varlığına el koyar; kişisel kese korunur." % [y.akce, y.iflas_durumu.eksi_gece, int(AYAR.eksi_gece_esigi)]
+	return TranslationServer.translate("koy.iflas.tip") % [y.akce, y.iflas_durumu.eksi_gece, int(AYAR.eksi_gece_esigi)]
 ## Yeni iflas olayının CSV kilidiyle uyumlu ince metin adaptörü; diğer olaylar eski çeviriyi kullanır.
 static func olay_metin(e: Dictionary) -> String:
 	if e.has("kriz_kenetlenmesi"): return KoyYonetimi.KRIZ_KENETLENMESI.olay_metin(e)
@@ -46,7 +46,7 @@ static func olay_metin(e: Dictionary) -> String:
 	if e.has("muhafiz_harac"): return MuhafizYetenekleri.olay_metin(e.muhafiz_harac)
 	if e.get("anahtar") == "koy.olay.ambar_ziyan": return AmbarBakimi.olay_metin(e)
 	var d: Array = e.get("deger", [])
-	if e.get("anahtar") == "koy.olay.iflas": return "Tefeci baskını: %d gece kamu açığı. El konulan kamu varlığı: %s. Borç ve kişisel kese değişmedi." % [int(AYAR.eksi_gece_esigi), String(d[0])]
+	if e.get("anahtar") == "koy.olay.iflas": return TranslationServer.translate("koy.iflas.olay") % [int(AYAR.eksi_gece_esigi), String(d[0])]
 	return (TranslationServer.translate(e.anahtar) % d) if not d.is_empty() else TranslationServer.translate(e.anahtar)
 static func _el_koy(y: KoyYonetimi) -> String:
 	var son_bina: KoyBinasi
@@ -59,7 +59,7 @@ static func _el_koy(y: KoyYonetimi) -> String:
 	for tur in AYAR.stok_el_koyma:
 		var adet := y.kaynaklar.azalt(tur, int(AYAR.stok_el_koyma[tur]))
 		if adet > 0: return "%d %s" % [adet, DemirZinciri.ad("koy.kaynak." + tur)]
-	return "El konulabilir kamu malı yok"
+	return TranslationServer.translate("koy.iflas.mal_yok")
 static func _tam(v: Variant, alt: int, ust: int, varsayilan: int) -> int:
 	if (v is int or v is float) and is_finite(float(v)) and floor(float(v)) == float(v) and float(v) >= alt and float(v) <= ust: return int(v)
 	return varsayilan

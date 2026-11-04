@@ -1,0 +1,9 @@
+UI pack: RPG extension
+Yazar: Kenney Vleugels, https://kenney.nl
+Kaynak: https://kenney.nl/assets/ui-pack-rpg-expansion
+Ayna: https://opengameart.org/content/ui-pack-rpg-extension
+Lisans: CC0 1.0
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Repoda yalnız kahverengi/bej düğme durumları ve panel vardır.
+Mavi, gri ve imleç parçaları alınmadı.

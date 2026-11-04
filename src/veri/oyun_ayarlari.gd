@@ -86,7 +86,7 @@ extends Resource
 
 @export_group("Olaylar")
 ## Gece sonunda bir olay çıkma olasılığı (uygun olay varsa).
-@export var olay_olasiligi: float = 0.75
+@export var olay_olasiligi: float = -1.0
 
 @export_group("İş yerleri")
 ## Kabul edilen kapıda bir iş yerine yazılır (design/gdd/is-yerleri.md). Aynı sıra:
@@ -128,7 +128,7 @@ func bitki_verim_sozlugu() -> Dictionary:
 
 @export_group("Sıra olayları")
 ## İki gelen arasında kuyrukta bir olay çıkma olasılığı.
-@export var sira_olay_olasiligi: float = 0.35
+@export var sira_olay_olasiligi: float = -1.0
 
 @export_group("Mini oyunlar")
 ## Okçuluk: ok sayısı (her ok en çok 2 puan), nişangâhın salınım hızı (salınım/s) ve her okta artışı,
@@ -142,6 +142,10 @@ func bitki_verim_sozlugu() -> Dictionary:
 @export var harman_vurus: int = 8
 @export var harman_aralik: float = 0.8
 @export var harman_tolerans: float = 0.17
+
+@export_group("Söz kaydı")
+## KAY-58: kapalıyken göç Söz alanlarını yazmaz. Kayıt sürümü ayrı kalır.
+@export var soz_alanlari_acik: bool = true
 
 @export_group("Heybe")
 ## Gelenin söylediği akçe aralığı.
@@ -167,3 +171,12 @@ func bitki_verim_sozlugu() -> Dictionary:
 @export var esya_degerleri: PackedInt32Array
 @export var esya_siniflari: PackedStringArray
 @export var esya_gizli: PackedInt32Array
+
+
+func _init() -> void:
+	if olay_olasiligi < 0.0 or sira_olay_olasiligi < 0.0:
+		var sayi: Dictionary = preload("res://src/sistemler/ozel_olay.gd").olasiliklar()
+		if olay_olasiligi < 0.0:
+			olay_olasiligi = float(sayi.get("olay", 0.0))
+		if sira_olay_olasiligi < 0.0:
+			sira_olay_olasiligi = float(sayi.get("sira", 0.0))

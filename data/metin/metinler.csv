@@ -1977,3 +1977,162 @@ olay.harami_elcisi.secenek3,Pusu kur: Çobanla haber gönderip haramileri dere b
 olay.harami_elcisi.sonuc1,Kulede meşaleler sabaha kadar yandı; haramiler surların azametini görüp dağa çekildi.
 olay.harami_elcisi.sonuc2,Erzak çeteye teslim edildi; tehlike savuşturuldu amma köylünün ambarı hafifledi.
 olay.harami_elcisi.sonuc3,Dere boyunda kurulan pusuda iki harami vuruldu; ele geçen heybelerden köy kasasına ganimet girdi.
+hafiza.bos.karar,henüz bir şey yazılmadı
+hafiza.bos.beyan,henüz bir şey yazılmadı
+hafiza.bos.soylenti,henüz bir şey yazılmadı
+hafiza.bos.not,henüz bir şey yazılmadı
+hafiza.satir.baslik,%s — %s
+hafiza.satir.gece,%d. gece
+hafiza.etiket.dis_hat,dış hat
+hafiza.etiket.celiski,çelişki
+hafiza.durum.gitti,gitti
+hafiza.kademe.birkac,birkaç
+hafiza.kademe.yari_koy,yarı köy
+hafiza.kademe.herkes,herkes
+hafiza.sayfa.karar,Karar
+hafiza.sayfa.beyan,Beyan
+hafiza.sayfa.soylenti,Söylenti
+hafiza.sayfa.not,Not
+hafiza.ekran.baslik,Defter
+hafiza.filtre.kisi,kişi
+koy.eylem.defter,Defter
+arayuz.duraklat.defter,Defter
+arayuz.girdi.sekme,Kontroller
+arayuz.girdi.ata,Ata
+arayuz.girdi.bekleniyor,Bir tuş bekleniyor
+arayuz.girdi.cakisma,Çakışıyor
+arayuz.girdi.fare_olmaz,Fare bu eyleme yazılmaz
+arayuz.girdi.ipucu.hiz,Hız için {hiz_1}
+arayuz.girdi.geri,Geri
+arayuz.girdi.menu,Menü
+arayuz.girdi.kisayol_1,Birinci kapı kısayolu
+arayuz.girdi.kisayol_2,İkinci kapı kısayolu
+arayuz.girdi.kisayol_3,Üçüncü kapı kısayolu
+arayuz.girdi.kisayol_4,Dördüncü kapı kısayolu
+arayuz.girdi.kisayol_5,Beşinci kapı kısayolu
+arayuz.girdi.bina_cevir,Yapıyı çevir
+arayuz.girdi.bina_barinma,Barınma
+arayuz.girdi.nufus,Nüfus
+arayuz.girdi.hiz_1,Birinci hız
+arayuz.girdi.hiz_2,İkinci hız
+arayuz.girdi.hiz_3,Üçüncü hız
+arayuz.girdi.hiz_dur,Dur veya sürdür
+arayuz.girdi.kip_kapat,Kipi kapat
+arayuz.girdi.kapi_kabul,Kapıda kabul
+arayuz.girdi.kapi_ret,Kapıda ret
+arayuz.girdi.sec,Seç
+arayuz.girdi.iptal_kip,Kipi bırak
+arayuz.girdi.yakinlas,Yakınlaş
+arayuz.girdi.uzaklas,Uzaklaş
+olay.asik.baslik,yer tutucu
+olay.asik.metin,yer tutucu
+olay.asik.dinle,yer tutucu
+olay.asik.gonder,yer tutucu
+olay.kadi.baslik,yer tutucu
+olay.kadi.metin,yer tutucu
+olay.kadi.dinle,yer tutucu
+olay.kadi.gecistir,yer tutucu
+olay.asik.sonuc1,yer tutucu
+olay.asik.sonuc2,yer tutucu
+olay.kadi.sonuc1,yer tutucu
+olay.kadi.sonuc2,yer tutucu
+arayuz.ayarlar.acik,Açık
+arayuz.ayarlar.kapali,Kapalı
+arayuz.ayarlar.sekme.oyun,Oyun
+arayuz.ayarlar.sekme.goruntu,Görüntü
+arayuz.ayarlar.sekme.okuma,Okuma
+arayuz.ayarlar.sekme.ses,Ses
+arayuz.ayarlar.sekme.kontroller,Kontroller
+arayuz.ayarlar.sekme.dil,Dil
+arayuz.ayarlar.sekme_sifirla,Bu sekmeyi sıfırla
+arayuz.ayarlar.sekme_sifirla_onay,Sıfırlamak için bir kez daha bas
+arayuz.ayarlar.yuva.bos,Bu sekme sonraki bölümde açılır
+arayuz.ayarlar.ipuclari_sifirla,İpuçlarını sıfırla
+arayuz.ayarlar.ipuclari,İpuçları
+arayuz.ayarlar.kademeli_hud,Kademeli arayüz
+arayuz.ayarlar.okunmus_isaret,Okunmuş seçenek
+arayuz.ayarlar.renk_paleti,Renk paleti
+arayuz.ayarlar.yuksek_kontrast,Yüksek kontrast
+arayuz.ayarlar.hareket_azalt,Hareket azalt
+arayuz.ayarlar.odak_cercevesi,Odak çerçevesi
+arayuz.ayarlar.pencere_boyutu,Pencere boyutu
+arayuz.ayarlar.vsync,Dikey eşitleme
+arayuz.ayarlar.kare_siniri,Kare sınırı
+arayuz.ayarlar.rapor_bekle,Rapor beklesin
+arayuz.ayarlar.olayda_duraklat,Olayda duraklat
+arayuz.ayarlar.karar_onayi,Karar onayı
+arayuz.ayarlar.zorluk,Zorluk
+arayuz.ayarlar.satir_araligi,Satır aralığı
+arayuz.ayarlar.metin_agirligi,Yazı kalınlığı
+arayuz.ayarlar.koy_hizi_varsayilan,Köy hızı
+arayuz.ayarlar.arka_planda_sustur,Odak kaybında sustur
+arayuz.ayarlar.otomatik_kayit,Otomatik kayıt
+arayuz.ayarlar.grafik_profili,Grafik profili
+arayuz.ayarlar.cozunurluk_3d,3B çözünürlük
+arayuz.ayarlar.profil_onerisi,Düşük profil?
+arayuz.ayarlar.zar.gecti,geçti
+arayuz.ayarlar.zar.kaldi,kaldı
+arayuz.ayarlar.yeni_oyun.baslik,Yeni oyun
+arayuz.ayarlar.yeni_oyun.tohum,Tohum
+arayuz.ayarlar.yeni_oyun.baslat,Başla
+arayuz.ayarlar.yeni_oyun.yuva,Yuva %d
+arayuz.ayarlar.yeni_oyun.iz,Önceki oyun: %d
+arayuz.ayarlar.ses_ana_aciklama,Ana ses. 0 sessizdir. Varsayılan 8.
+arayuz.ayarlar.ses_muzik_aciklama,Müzik sesi. Varsayılan 7.
+arayuz.ayarlar.ses_efekt_aciklama,Efekt sesi. Varsayılan 8.
+arayuz.ayarlar.ekran_modu_aciklama,Tam ekran ya da pencere. Varsayılan tam ekran.
+arayuz.ayarlar.metin_olcegi_aciklama,"Yazı büyüklüğü. 100, 125, 150 veya 175. Varsayılan 100."
+arayuz.ayarlar.belirme_hizi_aciklama,Satırların belirme hızı. Varsayılan normal.
+arayuz.ayarlar.grafik_profili_aciklama,Normal ya da düşük grafik. Varsayılan normal.
+arayuz.ayarlar.cozunurluk_3d_aciklama,Yalnız 3B sahnenin çözünürlüğü. Arayüz tam kalır. Varsayılan 100.
+arayuz.ayarlar.kamera_eksen_ters_aciklama,Harita kaydırmanın yönü. Varsayılan düz.
+arayuz.ayarlar.satir_araligi_aciklama,Satır aralığı. Geniş mod artı 6 piksel. Varsayılan normal.
+arayuz.ayarlar.metin_agirligi_aciklama,Gövde yazının kalınlığı. 400 ya da 500. Varsayılan 400.
+arayuz.ayarlar.koy_hizi_varsayilan_aciklama,Köy açılınca hız. Varsayılan 1.
+arayuz.ayarlar.arka_planda_sustur_aciklama,Pencere odak kaybedince ses kısılır. Varsayılan açık.
+arayuz.ayarlar.otomatik_kayit_aciklama,"Gece sonu kaydı: her gece, üç gecede bir ya da kapalı. Varsayılan her gece."
+arayuz.ayarlar.ipuclari_aciklama,İpucu satırları. Kapalıyken ipucu çıkmaz. Varsayılan açık.
+arayuz.ayarlar.kademeli_hud_aciklama,Paneller ilk gecelerde sırayla açılır. Varsayılan açık.
+arayuz.ayarlar.okunmus_isaret_aciklama,Daha önce seçilen söz soluk görünür. Varsayılan açık.
+arayuz.ayarlar.renk_paleti_aciklama,Renk körlüğü paleti. Varsayılan olağan.
+arayuz.ayarlar.yuksek_kontrast_aciklama,"Metin beyaz, zemin opak. Varsayılan kapalı."
+arayuz.ayarlar.hareket_azalt_aciklama,Kamera ve panel geçişi anında olur. Varsayılan kapalı.
+arayuz.ayarlar.odak_cercevesi_aciklama,Klavye odağının kenarı. Kalın mod 3 piksel. Varsayılan normal.
+arayuz.ayarlar.pencere_boyutu_aciklama,Pencere modunda boyut. Tam ekranda seçilemez. Varsayılan 1600x900.
+arayuz.ayarlar.vsync_aciklama,Dikey eşitleme. Varsayılan açık.
+arayuz.ayarlar.kare_siniri_aciklama,En yüksek kare. 0 sınır yok. Varsayılan 0.
+arayuz.ayarlar.rapor_bekle_aciklama,Gece raporu kendiliğinden kapanmaz. Varsayılan açık.
+arayuz.ayarlar.olayda_duraklat_aciklama,Köy olayı açılınca oyun durur. Varsayılan kapalı.
+arayuz.ayarlar.karar_onayi_aciklama,Kabul ve ret ikinci tıklama ister. Varsayılan kapalı.
+arayuz.ayarlar.zorluk_aciklama,"Kolay, olağan ya da sıkı. Oyun kaydında durur. Varsayılan olağan."
+arayuz.dil.baslik,Dil
+arayuz.dil.tr,Türkçe
+koy.iflas.tip,"Kamu akçesi: %d
+Üst üste eksi geceler: %d/%d. Tefeci baskını kamu varlığına el koyar; kişisel kese korunur."
+koy.iflas.olay,Tefeci baskını: %d gece kamu açığı. El konulan kamu varlığı: %s. Borç ve kişisel kese değişmedi.
+koy.iflas.mal_yok,El konulabilir kamu malı yok
+koy.kart.ozet,"%s · beceri %d/10
+Moral %d · Sağlık %d · Sadakat %d · Refah %d/100
+Köye geliş: %d. gün · Köyde %d gün
+Güçlü yön: %s
+Zayıf yön: %s
+%s
+%s
+Açık bilgiler: %s
+%s"
+koy.kart.uzmanlik_yok,Özel uzmanlık eşleşmesi yok; yaş ve kapasite kuralları geçerli.
+koy.levent.olay,"Levent firarı · %s: %s köyü terk etti. Nöbet hattı zayıfladı; Güvenlik %d → %d/100 (asayiş riski +%d). Aynı kriz boyunca yeni firar dalgası olmaz; erzak, maaş ve moral desteği ayrılmayı önler."
+koy.sancak.temiz,Sancak müfettişi teftişi: gizli kasada suç isnadını destekleyen içerik ve yozlaşma birlikte bulunmadı. Görev sürüyor.
+koy.sancak.bulunamadi,Sancak müfettişi teftişi: gizli kasa bu kez bulunamadı. Geçmiş yozlaşma ve kasa içeriği değişmedi.
+koy.sancak.idam,Sancak müfettişi gizli kasayı buldu. Ağır yozlaşma nedeniyle muhafız hakkında idam hükmü verildi.
+koy.sancak.azil,Sancak müfettişi gizli kasayı buldu. Muhafız görevden azledildi.
+koy.sancak.son_azil_baslik,Muhafız azledildi
+koy.sancak.son_azil_metin,Sancak teftişinde gizli kasa ve yozlaşma açığa çıktı. Köy ayakta kalsa da muhafızın görevi sona erdi.
+koy.sancak.son_idam_baslik,Muhafızın idamı
+koy.sancak.son_idam_metin,Sancak müfettişi ağır yozlaşmayı gizli kasa içeriğiyle tespit etti. Muhafızın görevi idam hükmüyle son buldu.
+koy.sancak.tip,"Sancak teftişi: sıradaki %d. gece. Yozlaşma ≥%d ve dolu kişisel kasa birlikte risk taşır; kapak kapatmak korumaz. Bulunma şansı %%%d; yozlaşma ≥%d idam, altında azil."
+koy.coban.otlatiyor,Sürüyü otlatıyor
+koy.coban.agila,Sürüyü ağıla götürüyor
+arayuz.menu.surum,%s
+arayuz.menu.daha_once,daha önce: %s
+arayuz.demo.bitti,Köy oturdu.

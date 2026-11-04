@@ -19,14 +19,7 @@ func _ekran_izle(c: Node) -> void:
 		c.oturum_bitti.connect(func(_kirilan: int) -> void: _son_kimligi = "halk_kirildi")
 
 static func port_oku(argumanlar: PackedStringArray, ortam: String) -> int:
-	var deger := ortam
-	for i in argumanlar.size():
-		if argumanlar[i] == "--bridge-port":
-			deger = argumanlar[i + 1] if i + 1 < argumanlar.size() else ""
-			break
-	if not deger.is_valid_int(): return 0
-	var p := int(deger)
-	return p if p > 0 and p <= 65535 else 0
+	return preload("res://src/debug/kopru_portu.gd").oku(argumanlar, ortam)
 
 static func bagla(kok: Ana) -> void:
 	var p := port_oku(OS.get_cmdline_user_args(), OS.get_environment("BRIDGE_PORT"))

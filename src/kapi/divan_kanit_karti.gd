@@ -6,7 +6,7 @@ static func ekle(e: DivanEkrani,v: VBoxContainer,id: int,clue: String,kaynak: Di
  var p:=PanelContainer.new()
  p.name="kanit_"+clue
  p.set_meta("clue",clue)
- p.add_theme_stylebox_override("panel",Tema.koy_paneli())
+ p.add_theme_stylebox_override("panel",Kabuk.panel())
  v.add_child(p)
  var n:=VBoxContainer.new()
  n.add_theme_constant_override("separation",8)
@@ -22,7 +22,7 @@ static func ekle(e: DivanEkrani,v: VBoxContainer,id: int,clue: String,kaynak: Di
  l.name="kaynak_aciklamasi"
  l.text=String(kaynak.aciklama)
  l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
- l.add_theme_font_size_override("font_size",Tema.KUCUK_PX)
+ l.add_theme_font_size_override("font_size",Kabuk.KUCUK)
  l.add_theme_color_override("font_color",Renkler.KUL)
  n.add_child(l)
  b.pressed.connect(func() -> void:

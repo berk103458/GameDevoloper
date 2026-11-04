@@ -1,0 +1,19 @@
+Crisp Quest Free — Fantasy RPG UI Theme 1.0.0
+Yazar: Anipixels
+Kaynak: https://github.com/Anipixels/crisp-quest-free-theme
+Godot Asset Library: https://www.godotengine.org/asset-library/asset/5551
+itch: https://anipixels.itch.io/crisp-quest
+Lisans: görseller ve Theme dosyası CC-BY 4.0
+https://creativecommons.org/licenses/by/4.0/
+Atıf: Crisp Quest Free Theme by Anipixels — https://anipixels.itch.io/crisp-quest
+
+Yapım notu (yazar): şekiller, bir yapay zeka asistanıyla yazılmış kodla
+prosedürel çizilmiştir. Yapay zeka görüntü üreteci kullanılmamıştır.
+Bu repoda yeni görüntü üretilmedi; yayınlanmış PNG'ler alındı.
+
+Değişiklik (Cursor, 3 Kasım 2026):
+- 2x PNG kullanıldı; dokuz dilim ve içerik payları ikiyle çarpıldı.
+- Yazı tipi Alegreya (depodaki SIL OFL font) bağlandı.
+- Gövde puntosu 26, başlık 34 yapıldı.
+- Düğme odağı ahşap düğmeyi silmesin diye odak stili üstüne-gelme dokusudur.
+Eklenti betiği ve demo sahnesi alınmadı.

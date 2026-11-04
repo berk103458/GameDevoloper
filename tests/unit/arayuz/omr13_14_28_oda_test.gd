@@ -14,8 +14,12 @@ func _kontrol(kosul: bool, mesaj: String) -> void:
 
 
 func _initialize() -> void:
-	var oturum := Oturum.new(Ayarlar.new())
-	oturum.yeni_oyun()
+	var kat := Katalog.new()
+	if kat.yukle() != Katalog.Durum.HAZIR:
+		push_error("OMR ODA TEST HATASI: katalog")
+		quit(1)
+		return
+	var oturum := Oturum.new(kat, 10)
 	oturum.gun = 10
 	oturum.yonetim.gun = 10
 

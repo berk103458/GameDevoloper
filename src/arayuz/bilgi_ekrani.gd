@@ -22,7 +22,8 @@ var oturum: Oturum
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var zemin := ColorRect.new()
-	zemin.color = Renkler.GECE
+	zemin.name = "kabuk_zemin"
+	zemin.color = Kabuk.zemin()
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(zemin)
 	var arka := Sanat.doku("env", arka_plan) if arka_plan != "" and not arka_plan.begins_with("3d_") else null
@@ -96,5 +97,10 @@ func _ready() -> void:
 		dikey.add_child(d)
 		if ilk == null and not d.disabled:
 			ilk = d
+	var dugmeler: Array = []
+	for cocuk in dikey.get_children():
+		if cocuk is Button:
+			dugmeler.append(cocuk)
+	OdakHalkasi.bagla(dugmeler)
 	if ilk != null:
 		ilk.grab_focus.call_deferred()

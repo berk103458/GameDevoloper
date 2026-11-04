@@ -1,0 +1,20 @@
+{
+  "kisi": "yusuf",
+  "oynanislar": [
+    {"tohum": 1, "zar": 4, "satirlar": ["sohbet.yusuf.acilis1", "sohbet.yusuf.c1"], "etki": {"guven": 1}},
+    {"tohum": 2, "zar": 2, "satirlar": ["sohbet.yusuf.acilis2", "sohbet.yusuf.c2"], "etki": {"guven": 0}},
+    {"tohum": 3, "zar": 6, "satirlar": ["sohbet.yusuf.c1", "sohbet.yusuf.c10"], "etki": {"korku": 1}},
+    {"tohum": 4, "zar": 1, "satirlar": ["sohbet.yusuf.acilis1"], "etki": {"guven": 2}},
+    {"tohum": 5, "zar": 3, "satirlar": ["sohbet.yusuf.acilis2"], "etki": {"guven": 1}},
+    {"tohum": 6, "zar": 5, "satirlar": ["sohbet.yusuf.c2", "sohbet.yusuf.c1"], "etki": {"korku": 2}},
+    {"tohum": 7, "zar": 4, "satirlar": ["sohbet.yusuf.c10"], "etki": {"guven": 3}},
+    {"tohum": 8, "zar": 2, "satirlar": ["sohbet.yusuf.acilis1", "sohbet.yusuf.c2"], "etki": {"guven": 1}},
+    {"tohum": 9, "zar": 6, "satirlar": ["sohbet.yusuf.acilis2", "sohbet.yusuf.c10"], "etki": {"korku": 0}},
+    {"tohum": 10, "zar": 1, "satirlar": ["sohbet.yusuf.c1"], "etki": {"guven": 0}},
+    {"tohum": 11, "zar": 3, "satirlar": ["sohbet.yusuf.c2"], "etki": {"guven": 2}},
+    {"tohum": 12, "zar": 5, "satirlar": ["sohbet.yusuf.acilis1", "sohbet.yusuf.c10"], "etki": {"korku": 1}},
+    {"tohum": 13, "zar": 4, "satirlar": ["sohbet.yusuf.acilis2", "sohbet.yusuf.c1"], "etki": {"guven": 1}},
+    {"tohum": 14, "zar": 2, "satirlar": ["sohbet.yusuf.c10", "sohbet.yusuf.c2"], "etki": {"guven": 0}},
+    {"tohum": 15, "zar": 6, "satirlar": ["sohbet.yusuf.acilis1", "sohbet.yusuf.c1", "sohbet.yusuf.c2"], "etki": {"korku": 1}}
+  ]
+}

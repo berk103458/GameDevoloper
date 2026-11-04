@@ -11,7 +11,8 @@ static func hazirla(kok: Node, yollar: Array[String]) -> VarlikOnbellek:
 	katman.process_mode = Node.PROCESS_MODE_ALWAYS
 	katman.layer = 100
 	var zemin := ColorRect.new()
-	zemin.color = Color("#0d1117")
+	zemin.name = "kabuk_zemin"
+	zemin.color = Kabuk.zemin()
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	zemin.mouse_filter = Control.MOUSE_FILTER_STOP
 	katman.add_child(zemin)
@@ -19,6 +20,8 @@ static func hazirla(kok: Node, yollar: Array[String]) -> VarlikOnbellek:
 	yazi.text = TranslationServer.translate("arayuz.yukleme.hazirlaniyor")
 	yazi.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	yazi.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	yazi.add_theme_font_size_override("font_size", Kabuk.GOVDE)
+	yazi.add_theme_color_override("font_color", Kabuk.yazi())
 	yazi.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	yazi.mouse_filter = Control.MOUSE_FILTER_STOP
 	zemin.add_child(yazi)

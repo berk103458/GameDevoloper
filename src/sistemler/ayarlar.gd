@@ -39,6 +39,8 @@ func yukle() -> void:
 	if cfg.load(yol) != OK:
 		push_error("Ayar dosyası okunamadı; varsayılanlar kullanılıyor")
 		return
+	if not cfg.has_section("ayarlar"):
+		return
 	for anahtar in cfg.get_section_keys("ayarlar"):
 		var a := StringName(anahtar)
 		var v: Variant = cfg.get_value("ayarlar", anahtar)
@@ -47,11 +49,19 @@ func yukle() -> void:
 		if _gecerli(a, v):
 			degerler[a] = StringName(v) if v is String else v
 		else:
-			push_error("Geçersiz ayar %s=%s; varsayılan kullanılıyor" % [a, v])
+			push_warning("Geçersiz ayar %s=%s; varsayılan kullanılıyor" % [a, v])
 
 
 func yaz() -> void:
 	var cfg := ConfigFile.new()
+	if FileAccess.file_exists(yol):
+		var onceki := Engine.print_error_messages
+		Engine.print_error_messages = false
+		cfg.load(yol)
+		Engine.print_error_messages = onceki
+	if cfg.has_section("ayarlar"):
+		for anahtar in cfg.get_section_keys("ayarlar"):
+			cfg.erase_section_key("ayarlar", anahtar)
 	for a in degerler:
 		var v: Variant = degerler[a]
 		cfg.set_value("ayarlar", String(a), String(v) if v is StringName else v)
@@ -76,6 +86,7 @@ func ayarla(anahtar: StringName, deger: Variant) -> void:
 
 func varsayilana_don() -> void:
 	degerler = VARSAYILAN.duplicate()
+	GirdiEylemleri.varsayilana_don(yol)
 	uygula()
 	degisti.emit(&"")
 

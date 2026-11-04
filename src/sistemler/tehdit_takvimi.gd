@@ -1,4 +1,5 @@
 ## BUG-18: gerçek tamamlanan gün okunur; debug/legacy için ikinci sayaç veya kayıt yok.
+class_name TehditTakvimi
 extends RefCounted
 const DEBUG_BASKIN := &"debug_tehdit_baskini"
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/tehdit_takvimi.json"))

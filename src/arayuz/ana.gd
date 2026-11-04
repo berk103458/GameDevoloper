@@ -16,7 +16,6 @@ var _kapi_yukleniyor := false
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_eylemleri_kur()
 	if AdminHud.arac_acik():
 		var admin := AdminHud.new()
 		admin.baglam = self
@@ -26,10 +25,17 @@ func _ready() -> void:
 	ayarlar = Ayarlar.new()
 	ayarlar.yukle()
 	AyarlarEk.bagla(ayarlar)  # AYR-02: bölümün ek anahtarları ayrı dosyadan kaydolur
+	DilAyari.bagla(ayarlar)
+	DilAyari.uygula(ayarlar)
+	_eylemleri_kur()
 	ayarlar.uygula()
 	var giris_kaynaklari := await VarlikYuklemePaneli.hazirla(self, GirisVarliklari.menu())
-	ayarlar.degisti.connect(func(_a: StringName) -> void: theme = Tema.olustur(ayarlar))
+	ayarlar.degisti.connect(func(_a: StringName) -> void:
+		theme = Tema.olustur(ayarlar)
+		preload("res://src/arayuz/renk_paleti.gd").uygula(theme, ayarlar)
+	)
 	theme = Tema.olustur(ayarlar)
+	preload("res://src/arayuz/renk_paleti.gd").uygula(theme, ayarlar)
 	_imleci_kur()
 	kayit = GuvenliKayit.new()
 	katalog = Katalog.new()
@@ -46,7 +52,8 @@ func _ready() -> void:
 	ana_menu()
 	await VarlikYuklemePaneli.bitir(self, giris_kaynaklari)
 	Ses.dongu_baslat()
-	preload("res://src/debug/oyun_koprusu.gd").bagla(self)
+	if OyuncuSurumu.kopru_istendi():
+		preload("res://src/debug/oyun_koprusu.gd").bagla(self)
 
 
 ## Ana menüyü gösterir.
@@ -60,12 +67,15 @@ func ana_menu() -> void:
 	e.ust_satir = tr("arayuz.menu.ust")
 	e.baslik = tr("arayuz.menu.baslik")
 	e.ipucu = tr("arayuz.menu.ipucu")
+	e.metin_anahtarlari = PackedStringArray(["arayuz.menu.yeni", "arayuz.menu.devam", "arayuz.menu.ayarlar", "arayuz.menu.cik"])
+	e.surum_metni = SurumKimligi.metin()
+	e.daha_once = SurumKimligi.daha_once()
 	e.dugmeler = PackedStringArray([tr("arayuz.menu.yeni"), tr("arayuz.menu.devam"), tr("arayuz.menu.ayarlar"), tr("arayuz.menu.cik")])
 	if not kayit.var_mi():
 		e.pasifler = [1]
 	e.secildi.connect(func(i: int) -> void:
 		match i:
-			0: yeni_oyun()
+			0: _yeni_oyun_ekrani()
 			1: devam_et()
 			2: _ayarlari_ac(ana_menu)
 			3: Ses.cik()
@@ -89,19 +99,17 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 	kayit.sil()
 	oturum = Oturum.new(katalog, tohum)
 	preload("res://src/sistemler/denge_tablosu.gd").acilis_erzagini_yaz(oturum.yonetim.kaynaklar)
+	if ayarlar != null and ayarlar.degerler.has(&"zorluk"):
+		oturum.set_meta(&"zorluk", String(ayarlar.al(&"zorluk")))
 	g.sec(oturum, gecmis)
 	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum)
 	_koye_git()
 
 
 func devam_et() -> void:
-	var veri := kayit.oku()
-	if veri.is_empty():
-		preload("res://src/arayuz/kayit_hata_paneli.gd").goster(self)
-		return
 	# Açık yükleme isteği oynanış aşamasını bitirir; göç ekranda çalışan oyun işi değildir.
 	preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_isaretle(_ekran, false)
-	var o := Oturum.kayittan(katalog, veri)
+	var o = preload("res://src/sistemler/kayit_gocu_soz.gd").oturum_veya_yedek(katalog, kayit)
 	if o == null:
 		preload("res://src/arayuz/kayit_hata_paneli.gd").goster(self)
 		return
@@ -138,15 +146,16 @@ func _kapiya_git(snapshot: Dictionary = {}) -> void:
 ## Kapı nöbeti bitti (Faz 1 → Faz 2): kayıt, sonra köy yönetimi.
 func _koye_git(_rapor: Dictionary = {}) -> void:
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(oturum, "koy")
-	kayit.yaz(oturum.kaydet())
+	_kayit_yaz()
 	var koy := KoyEkrani.new()
 	koy.oturum = oturum
 	koy.ayarlar = ayarlar
 	koy.oturum_bitti.connect(_son_goster)
+	koy.duraklat_istendi.connect(_duraklat)
 	koy.devam_istendi.connect(func(rapor: Dictionary) -> void:
 		# Gece çözüldü ve olay seçildi: kayıt, sonra yeni gün (Ağalıkta önce geçiş kartı).
 		preload("res://src/sistemler/oturum_fazi.gd").ayarla(oturum, "kapi")
-		kayit.yaz(oturum.kaydet())
+		_kayit_yaz()
 		if rapor.get("perde_degisti", false):
 			_perde_gecisi()
 		else:
@@ -159,9 +168,14 @@ func _son_goster(son: StringName) -> void:
 	kayit.sil()
 	Ses.cal(&"sfx_bar_kirildi" if son != &"zafer" else &"sfx_gece_bitti")
 	var y := oturum.yonetim
-	var son_metni := preload("res://src/sistemler/nihai_son.gd").son_metni(oturum, son, SancakTeftisi.son_metni(son))
-	var metin := MuhafizEpilogu.metin(oturum, son, String(son_metni.metin)) + "\n\n" + tr("arayuz.son.istatistik") % [y.gun, y.kabul_sayisi, y.ret_sayisi, y.nufus()]
-	var e := _bilgi(String(son_metni.baslik), metin, [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
+	var istatistik := tr("arayuz.son.istatistik") % [y.gun, y.kabul_sayisi, y.ret_sayisi, y.nufus()]
+	var baslik := tr("arayuz.perde.baslik")
+	var metin := tr("arayuz.demo.bitti") + "\n\n" + istatistik
+	if son != &"demo":
+		var son_metni := preload("res://src/sistemler/nihai_son.gd").son_metni(oturum, son, SancakTeftisi.son_metni(son))
+		baslik = String(son_metni.baslik)
+		metin = MuhafizEpilogu.metin(oturum, son, String(son_metni.metin)) + "\n\n" + istatistik
+	var e := _bilgi(baslik, metin, [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
 		oturum.gun, "3d_koy")
 	e.oturum = oturum
 	e.secildi.connect(_son_secimi)
@@ -171,6 +185,9 @@ func _son_goster(son: StringName) -> void:
 
 
 func _perde_gecisi() -> void:
+	if DemoKesiti.acik():
+		_son_goster(&"demo")
+		return
 	var e := _bilgi(tr("arayuz.perde.baslik"), tr("arayuz.perde.metin"), [tr("arayuz.perde.devam")], -1, "3d_koy")
 	e.oturum = oturum
 	e.secildi.connect(func(_i: int) -> void: _kapiya_git())
@@ -187,19 +204,37 @@ func _son_secimi(i: int) -> void:
 func _duraklat() -> void:
 	if _ust != null:
 		return
-	var e := _bilgi(tr("arayuz.duraklat.baslik"), "", [tr("arayuz.duraklat.devam"), tr("arayuz.menu.ayarlar"), tr("arayuz.duraklat.menu")], -1, "")
+	var e := _bilgi(tr("arayuz.duraklat.baslik"), "", [tr("arayuz.duraklat.devam"), tr("arayuz.menu.ayarlar"), tr("arayuz.duraklat.menu"), tr("arayuz.duraklat.defter")], -1, "")
 	e.secildi.connect(func(i: int) -> void:
 		_ust_kapat()
 		match i:
 			1: _ayarlari_ac(_duraklat, true)
 			2: ana_menu()
+			3: HafizaDefteriBaglantisi.duraklatdan_ac(self)
 	)
 	_ust_ac(e)
+
+
+func _yeni_oyun_ekrani() -> void:
+	var e := preload("res://src/arayuz/yeni_oyun_ekrani.gd").new()
+	e.ayarlar = ayarlar
+	e.baslatildi.connect(func(tohum: int, gecmis: String) -> void: yeni_oyun(tohum, gecmis))
+	e.vazgecildi.connect(ana_menu)
+	_goster(e)
+
+
+func _kayit_yaz() -> void:
+	var veri := oturum.kaydet()
+	if ayarlar != null and ayarlar.degerler.has(&"zorluk"):
+		preload("res://src/sistemler/zorluk_secimi.gd").kayda_yaz(veri, String(ayarlar.al(&"zorluk")))
+	kayit.yaz(veri)
 
 
 func _ayarlari_ac(sonra: Callable, ustte: bool = false) -> void:
 	var a := AyarlarEkrani.new()
 	a.ayarlar = ayarlar
+	if oturum != null:
+		a.set_meta(&"ipucu_kaydi", oturum.ipucu_kaydi)
 	if ustte:
 		a.kapandi.connect(func() -> void:
 			_ust_kapat()
@@ -247,7 +282,7 @@ func _goster(e: Control) -> void:
 	preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_isaretle(e, e is KoyEkrani or e is KapiEkrani)
 	_ekran = e
 	add_child(e)
-	if e is KoyEkrani or e is KapiEkrani:
+	if (e is KoyEkrani or e is KapiEkrani) and OyuncuSurumu.perf_istendi():
 		preload("res://src/debug/performans_gunlugu.gd").bagla(self, oturum)
 	var grafik := GrafikProfiliAdaptoru.new()
 	grafik.ayarlar = ayarlar
@@ -276,22 +311,7 @@ func _imleci_kur() -> void:
 		Input.set_custom_mouse_cursor(t, Input.CURSOR_POINTING_HAND)
 
 
-## Girdi eylemleri (Girdi ve odak gezinmesi GDD, kural 1). Gezinme ve onay Godot'un ui_* eylemleridir.
+## Girdi eylemleri (GIR-04). Gezinme ve onay Godot'un ui_* eylemleridir; atama girdi bölümündedir.
 func _eylemleri_kur() -> void:
-	var tuslar := {
-		"geri": [KEY_ESCAPE], "menu": [KEY_P],
-		"kisayol_1": [KEY_1], "kisayol_2": [KEY_2], "kisayol_3": [KEY_3], "kisayol_4": [KEY_4], "kisayol_5": [KEY_5],
-	}
-	for eylem in tuslar:
-		if InputMap.has_action(eylem):
-			continue
-		InputMap.add_action(eylem)
-		for k in tuslar[eylem]:
-			var o := InputEventKey.new()
-			o.physical_keycode = k
-			InputMap.action_add_event(eylem, o)
-	var gamepad := {"geri": JOY_BUTTON_B, "menu": JOY_BUTTON_START}
-	for eylem in gamepad:
-		var j := InputEventJoypadButton.new()
-		j.button_index = gamepad[eylem]
-		InputMap.action_add_event(eylem, j)
+	GirdiEylemleri.kur(ayarlar.yol if ayarlar != null else "user://ayarlar.cfg")
+	preload("res://src/sistemler/hizli_kayit.gd").eylem_kur()
