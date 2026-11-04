@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-28 tamamlandı (Kalfa)
+
+Mevcut yaşam testi headless geçti. Yataklı ve yataksız uyku farkı, dolu yatak, nöbetçi ve kayıt dönüşü YSM-03 üzerinden doğrulandı. İkinci uyku formülü eklenmedi. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-27 tamamlandı (Kalfa)
 
 Denge dosyasında ikinci açlık sağlık/erzak eşiği reddedilir; KRI-12 kaynağı data/koy/aclik_saglik.json referansı serbesttir. Önce başarısız test, ardından 33 hedefli Python testi ve gerçek tablo doğrulaması geçti. Asset gerekmedi. kota görünmüyor.

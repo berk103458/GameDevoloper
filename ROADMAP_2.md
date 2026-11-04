@@ -3528,7 +3528,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: KRI-12, YSM-01. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-28:** Yataksız uyku YSM-03'tür.
+- [x] **DEN-28:** (Kalfa) Yataksız uyku YSM-03'tür.
   - Ne: açıkta kalanın yorgunluğu yarım düşer. Bu bölüm yeni bir uyku formülü yazmaz.
   - Kabul: açıkta kalanın yorgunluğu yarım düşer. Bu bölüm yeni bir uyku formülü yazmaz. Test: yataklı ve yataksız fark, YSM-03 kabulüne uyar.
   - Bağımlılık: YSM-03, ACL-05. Boyut: S.
