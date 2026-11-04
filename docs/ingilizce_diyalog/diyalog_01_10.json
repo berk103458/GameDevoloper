@@ -9,7 +9,7 @@
         "I broke away from the plain of Erzincan, effendi... At harvest time black smoke choked the sky; hoofbeats tore through the crops. Grain turned to ashes, the village scattered. I shut my eyes and fled hither.",
         [
           [
-            "Cease your lies! You were present when the lord's granary was torched; does this seed belong to that looted store?",
+            "Cease your lies! You were present when the Bey's granary was torched; does this seed belong to that looted store?",
             "S-seed, did you say, effendi? No... The bey spurred his mount and barred himself inside the citadel, abandoning the folk to the fire. I did not steal this seed from the granary... It was the final ear of my own plot! The stench of naphtha clung to me from the plain, by heaven I am no thief!",
             [
               [
@@ -30,7 +30,7 @@
             ]
           ],
           [
-            "If the lord's granary burned, every single grain in that sack is worth gold. What will you contribute to the settlement?",
+            "If the Bey's granary burned, every single grain in that sack is worth gold. What will you contribute to the settlement?",
             "The pouch looks small, yet within it sleep a thousand ears of wheat. Give me a hut against the palisade; half the seed goes to your village store, the rest I plant in your plot. Before winter ends it will sprout green."
           ]
         ]
@@ -44,7 +44,7 @@
             "I am a man who coaxed rye from cracked stones in dry creek beds, guard. Earth requires patience; I will dig trenches from the brook and clear the pebbles. One handful of this seed yields sevenfold."
           ],
           [
-            "The seal of the lord has been ripped from the neck of that pouch; if bailiffs track it, they will torch our village too!",
+            "The seal of the Bey has been ripped from the neck of that pouch; if bailiffs track it, they will torch our village too!",
             "There is no seal, effendi... It was torn away! The sanjak bey fled long ago; Mongol horsemen tore through the valley. If we do not establish order here, none of us will survive the winter!",
             "muhur_tahrif_suphesi"
           ]

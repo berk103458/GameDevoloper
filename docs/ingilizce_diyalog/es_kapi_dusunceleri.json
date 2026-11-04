@@ -98,7 +98,7 @@
     "karar_ret": "He fled into the gully weeping. If his master catches him, he will not survive the beating."
   },
   "diyalog_15": {
-    "karsilama": "An envoy of the Baciyan wearing the white sash... A lady of noble presence on a fine mare.",
+    "karsilama": "An envoy of the Baciyan wearing the white sash... A noble Hatun on a fine mare.",
     "kritik_soru": "She brings warm cloaks for our garrison, but she also brings messages for Sister Ayse. The sisterhood moves with purpose.",
     "karar_oncesi": "Sister Ayse has awaited tidings from the grand lodge for moons. Welcoming an envoy of the sisters brings honor to our seat.",
     "karar_kabul": "She rode through with grace. Our village is knit closer to the wider alliance of the border march.",
@@ -140,74 +140,74 @@
     "karar_ret": "He drove his salt mules elsewhere. How will we cure the beef when slaughtering day arrives?"
   },
   "diyalog_21": {
-    "karsilama": "Another weary soul approaches the gatehouse for diyalog 21... Look closely at their baggage, husband.",
-    "kritik_soru": "Notice how they hedge when you ask about the border highway; truth rarely needs so many excuses.",
-    "karar_oncesi": "Consider our granary and our sentry strength, husband. A wise choice protects both the hearth and the law.",
-    "karar_kabul": "The gate opened. May their labor strengthen our march through the winter.",
-    "karar_ret": "The gate remained barred. May heaven guide them safely along the highway."
+    "karsilama": "A dervish clad in patched wool with a staff of gnarled juniper... As if warming the highland frost with the serene smile in his eyes.",
+    "kritik_soru": "They whisper he bears a decree stitched inside his cloak, husband; is he a Mongol spy, or a devout wanderer of the Divine?",
+    "karar_oncesi": "They say blessing enters any village a true dervish enters, husband... Moreover, he brought word of the highland shepherd's praying mother. Let us grant him a straw mat in the mosque porch; let him pray over the folk.",
+    "karar_kabul": "You chose well, husband. May the prayer of a righteous dervish disperse the dark clouds gathering over our settlement.",
+    "karar_ret": "They say turning away a dervish brings misfortune... My heart was never at peace with this, yet the decision is yours."
   },
   "diyalog_22": {
-    "karsilama": "Another weary soul approaches the gatehouse for diyalog 22... Look closely at their baggage, husband.",
-    "kritik_soru": "Notice how they hedge when you ask about the border highway; truth rarely needs so many excuses.",
-    "karar_oncesi": "Consider our granary and our sentry strength, husband. A wise choice protects both the hearth and the law.",
-    "karar_kabul": "The gate opened. May their labor strengthen our march through the winter.",
-    "karar_ret": "The gate remained barred. May heaven guide them safely along the highway."
+    "karsilama": "He claims he was separated from the Tabriz caravan, yet his kaftan is lavishly embroidered... The fragrance of saffron drifts from his mules' packs.",
+    "kritik_soru": "The silver plate around his neck resembles a Mongol paiza, husband! Could he be an imperial scout disguised as a trader?",
+    "karar_oncesi": "His eyes dart like a fox, husband! He accuses the Kayseri clothier of being a thief as well... If you admit him, he will stir discord in the square; let us not risk our lives for the sake of saffron.",
+    "karar_kabul": "His saffron may serve our winter remedies, but never take your eyes off his mule packs, husband.",
+    "karar_ret": "A prudent judgment, husband. A man wandering with a Mongol paiza has no place within our walls."
   },
   "diyalog_23": {
-    "karsilama": "Another weary soul approaches the gatehouse for diyalog 23... Look closely at their baggage, husband.",
-    "kritik_soru": "Notice how they hedge when you ask about the border highway; truth rarely needs so many excuses.",
-    "karar_oncesi": "Consider our granary and our sentry strength, husband. A wise choice protects both the hearth and the law.",
-    "karar_kabul": "The gate opened. May their labor strengthen our march through the winter.",
-    "karar_ret": "The gate remained barred. May heaven guide them safely along the highway."
+    "karsilama": "He rides up to our gate in rusted mail and a crested horned helmet... Enforcement Sergeant Sungur of the Sanjak.",
+    "kritik_soru": "He hunts garrison deserters, yet his true intent seems not justice, but extorting silver ransoms per head, husband.",
+    "karar_oncesi": "If this man enters the barracks, he will put those wretched souls who fled the Sivas defeat to the sword! Yet if you slam the gate in his face, he will turn the Sanjak cavalry upon us. Disarm him and lodge him under barracks watch.",
+    "karar_kabul": "We admitted him to the barracks, but remain alert, husband; there is a sinister glint in this sergeant's eye.",
+    "karar_ret": "You drove off the Sanjak sergeant, husband... My heart feels lighter, but the Sanjak Bey will not forget such defiance."
   },
   "diyalog_24": {
-    "karsilama": "Another weary soul approaches the gatehouse for diyalog 24... Look closely at their baggage, husband.",
-    "kritik_soru": "Notice how they hedge when you ask about the border highway; truth rarely needs so many excuses.",
-    "karar_oncesi": "Consider our granary and our sentry strength, husband. A wise choice protects both the hearth and the law.",
-    "karar_kabul": "The gate opened. May their labor strengthen our march through the winter.",
-    "karar_ret": "The gate remained barred. May heaven guide them safely along the highway."
+    "karsilama": "Her face is wrapped tight in cotton, dragging her feet through the drifts with a bundle in her arms... Her rasping cough rends the heart.",
+    "kritik_soru": "She bears the plague boil, husband! If it has touched that infant, every child in our village is in mortal peril; what agony this is!",
+    "karar_oncesi": "Husband... I am a mother; I cannot bear to see that infant perish! If we admit her, our village will be wiped out; if we leave them in the drifts, the babe will freeze! Quarantine her in the shack beside the lime kiln, and feed the infant from afar!",
+    "karar_kabul": "May God accept your compassion, husband... We saved the child, and the mother was granted hot soup by the lime kiln.",
+    "karar_ret": "Ah, husband, alas... The weeping of that baby will haunt my sleep. May Heaven not hold this blood against our souls..."
   },
   "diyalog_25": {
-    "karsilama": "Another weary soul approaches the gatehouse for diyalog 25... Look closely at their baggage, husband.",
-    "kritik_soru": "Notice how they hedge when you ask about the border highway; truth rarely needs so many excuses.",
-    "karar_oncesi": "Consider our granary and our sentry strength, husband. A wise choice protects both the hearth and the law.",
-    "karar_kabul": "The gate opened. May their labor strengthen our march through the winter.",
-    "karar_ret": "The gate remained barred. May heaven guide them safely along the highway."
+    "karsilama": "A trembling boy with bruises on his arms, scarce taller than a spear... Fled from the cruel baker in Erzincan.",
+    "kritik_soru": "He asks for his uncle Hamza, husband! Is he truly the nephew of Hamza the farmer, or a thieving runaway apprentice?",
+    "karar_oncesi": "His eyes look just like my late brother-in-law Hasan and Hamza the farmer, husband! Our poor orphan who starved on these mountain slopes for days... He will haul timber for the ovens and never burden the village; he will be comfort to our hearth and a comrade to his uncle. Let him enter!",
+    "karar_kabul": "Joy to our household, husband! Our brother's trust, Dursun, has found our hearth; the bounty of our village will double.",
+    "karar_ret": "We cast a shivering child back into the mountain snows, husband... If Hamza hears of this, his heart will shatter."
   },
   "diyalog_26": {
-    "karsilama": "Another weary soul approaches the gatehouse for diyalog 26... Look closely at their baggage, husband.",
-    "kritik_soru": "Notice how they hedge when you ask about the border highway; truth rarely needs so many excuses.",
-    "karar_oncesi": "Consider our granary and our sentry strength, husband. A wise choice protects both the hearth and the law.",
-    "karar_kabul": "The gate opened. May their labor strengthen our march through the winter.",
-    "karar_ret": "The gate remained barred. May heaven guide them safely along the highway."
+    "karsilama": "His donkey is laden with baskets of dried herbs and flasks... He claims to be licensed by the Konya Maristan, yet his gaze is slippery.",
+    "kritik_soru": "He never stops praising his opium syrup, husband; could this be the quack who gangrened the bridge sentry's arm?",
+    "karar_oncesi": "With our village healer Miraen present, this opium-peddling quack cannot be trusted, husband! Yet his winter ointments and lancets could aid the garrison; if you admit him, keep him under Miraen's strict oversight in the clinic.",
+    "karar_kabul": "You admitted him, but caution Miraen; let her smell every jar of his, lest he dispense poison.",
+    "karar_ret": "You chose wisely, husband. A quack's potion puts not the patient, but the whole settlement into the grave."
   },
   "diyalog_27": {
-    "karsilama": "Another weary soul approaches the gatehouse for diyalog 27... Look closely at their baggage, husband.",
-    "kritik_soru": "Notice how they hedge when you ask about the border highway; truth rarely needs so many excuses.",
-    "karar_oncesi": "Consider our granary and our sentry strength, husband. A wise choice protects both the hearth and the law.",
-    "karar_kabul": "The gate opened. May their labor strengthen our march through the winter.",
-    "karar_ret": "The gate remained barred. May heaven guide them safely along the highway."
+    "karsilama": "His robe is caked with mud, his fingers stained with ink... Molla Sukru, expelled from the court.",
+    "kritik_soru": "He slanders Hasan Celebi as a fraud, while carrying a purloined endowment deed in his chest, husband! He clearly seeks to sow discord over our lands.",
+    "karar_oncesi": "Beware, husband, do not admit this scribe! He and Hasan Celebi will tear into each other, and the order of the Divan will be overturned! No good comes from a man with designs on peasant deeds.",
+    "karar_kabul": "You admitted him, but place guards between him and Hasan Celebi in the council tent, husband; let no brawl erupt.",
+    "karar_ret": "Well spoken, husband. A scheming scribe has no place in our settlement; let not ink from the reed be stained with blood."
   },
   "diyalog_28": {
-    "karsilama": "Another weary soul approaches the gatehouse for diyalog 28... Look closely at their baggage, husband.",
-    "kritik_soru": "Notice how they hedge when you ask about the border highway; truth rarely needs so many excuses.",
-    "karar_oncesi": "Consider our granary and our sentry strength, husband. A wise choice protects both the hearth and the law.",
-    "karar_kabul": "The gate opened. May their labor strengthen our march through the winter.",
-    "karar_ret": "The gate remained barred. May heaven guide them safely along the highway."
+    "karsilama": "A Turkmen warrior maiden wearing a wolf pelt and bearing a shield... Banu Hatun, the Wolf of the Mountains; in her eyes burns the fire of vengeance.",
+    "kritik_soru": "She seeks vengeance for her slain brother, husband; she claims our blacksmith tripped her brother's mount with a fraudulent shoe.",
+    "karar_oncesi": "This woman's wrath could set mountains ablaze, husband! Yet she is no assassin; she looks like an honorable warrior. If she surrenders her sword to the barracks, she will add immense strength to our watch; bring her before the blacksmith and render justice.",
+    "karar_kabul": "You admitted her to the barracks, husband; the arrow of a warrior maiden standing watch at the gate will grant outlaws no respite.",
+    "karar_ret": "You turned the woman away, husband... We drove off a sister whose heart was heavy with mourning; I pray she does not return with her horsemen from the heights."
   },
   "diyalog_29": {
-    "karsilama": "Another weary soul approaches the gatehouse for diyalog 29... Look closely at their baggage, husband.",
-    "kritik_soru": "Notice how they hedge when you ask about the border highway; truth rarely needs so many excuses.",
-    "karar_oncesi": "Consider our granary and our sentry strength, husband. A wise choice protects both the hearth and the law.",
-    "karar_kabul": "The gate opened. May their labor strengthen our march through the winter.",
-    "karar_ret": "The gate remained barred. May heaven guide them safely along the highway."
+    "karsilama": "A caravan messenger with a face bruised by frostbite and breath catching in the freezing wind... He arrived at our gate crying in anguish.",
+    "kritik_soru": "He claims the convoy turned away last night froze in the snow drifts, husband... Oh, my heart aches! Are they truly in desperate need of aid, or is this an ambush to sack the granary?",
+    "karar_oncesi": "When I heard of babes freezing in the drifts, my knees gave way, husband! We cannot open the gate wide, but let us send two sacks of flour and warm blankets from the granary; let him hasten to save those wretched souls!",
+    "karar_kabul": "May God bless you, husband! If the stretchers arrive in time, those innocent babes will be saved from freezing; our mercy shields the village.",
+    "karar_ret": "My heart cannot bear it, husband... The lament of those freezing souls will rot the very stone of this portal; you have made a heavy decision."
   },
   "diyalog_30": {
-    "karsilama": "Another weary soul approaches the gatehouse for diyalog 30... Look closely at their baggage, husband.",
-    "kritik_soru": "Notice how they hedge when you ask about the border highway; truth rarely needs so many excuses.",
-    "karar_oncesi": "Consider our granary and our sentry strength, husband. A wise choice protects both the hearth and the law.",
-    "karar_kabul": "The gate opened. May their labor strengthen our march through the winter.",
-    "karar_ret": "The gate remained barred. May heaven guide them safely along the highway."
+    "karsilama": "The amulet upon her chest... Husband, this maiden is from your ancestral hearth! It is Turna, daughter of your late brother Hasan in Erzincan!",
+    "kritik_soru": "Riders of the Sanjak voivode pursue her, husband! If we take our niece in, will the voivode turn his torches upon our settlement?",
+    "karar_oncesi": "Husband... She is our own flesh and blood, your orphan niece! If we surrender this innocent girl to the voivode's hounds, our faces will be blackened across both worlds! If need be, we will close the ramparts and stand against the voivode; take Turna into our embrace!",
+    "karar_kabul": "Bless your justice, husband! Our niece has found refuge beneath our roof; our table's broth will be doubly blessed. I shall care for her like my own daughter.",
+    "karar_ret": "Your own niece... You drove your own blood from the portal, husband... The fire of our hearth has been extinguished tonight; if she falls into the voivode's hands, her sin rests upon our necks."
   },
   "genel": {
     "karsilama": "Another traveler stands at the gate as dusk falls... Listen carefully before you decide, husband.",
