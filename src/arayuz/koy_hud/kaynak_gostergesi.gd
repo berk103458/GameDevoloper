@@ -10,7 +10,7 @@ var _net: Label
 ## Kartı kaynak adıyla oluşturur; etiketler yalnız veri değişiminde güncellenir.
 func kur(tur: String, punto: int) -> void:
 	focus_mode = Control.FOCUS_ALL
-	add_theme_stylebox_override("panel", Tema.koy_paneli())
+	add_theme_stylebox_override("panel", Kabuk.panel())
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 0)
 	add_child(v)

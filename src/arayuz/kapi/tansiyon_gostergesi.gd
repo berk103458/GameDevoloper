@@ -10,7 +10,7 @@ func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	etiket = Label.new()
 	etiket.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	etiket.add_theme_font_size_override("font_size", 20)
+	etiket.add_theme_font_size_override("font_size", Kabuk.KUCUK)
 	add_child(etiket)
 	bar = ProgressBar.new()
 	bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -33,6 +33,7 @@ func guncelle(deger: int, kilitli: bool = false) -> void:
 	var bolge := 0 if tansiyon < 4 else 1 if tansiyon < 8 else 2
 	etiket.text = "Tansiyon: %d / 10 — %s%s" % [tansiyon, ["Sakin", "Gergin", "Panik"][bolge], " · kabul kapalı" if kilitli else ""]
 	bar.value = tansiyon
+	preload("res://src/arayuz/kapi/tansiyon_bicimi.gd").uygula(self, bolge)
 	var dolgu := StyleBoxFlat.new()
 	dolgu.bg_color = RENKLER[bolge]
 	dolgu.set_corner_radius_all(3)

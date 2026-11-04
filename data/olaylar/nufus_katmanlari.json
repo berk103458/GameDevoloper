@@ -4,6 +4,7 @@
   "listeler": {
     "kucuk": [
       "ahi_haber",
+      "asik",
       "aydogdu_oba",
       "ayse_tezgah",
       "bey_daveti",
@@ -12,6 +13,7 @@
       "harman",
       "hasan_defter",
       "hirsizlik",
+      "kadi",
       "kapi_acilisi",
       "karaca_ocak",
       "kervan",
@@ -37,6 +39,7 @@
     ],
     "orta": [
       "ahi_haber",
+      "asik",
       "aydogdu_oba",
       "ayse_tezgah",
       "bebek",
@@ -47,6 +50,7 @@
       "harman",
       "hasan_defter",
       "hirsizlik",
+      "kadi",
       "kapi_acilisi",
       "karaca_ocak",
       "kervan",
@@ -73,6 +77,7 @@
     ],
     "buyuk": [
       "ahi_haber",
+      "asik",
       "aydogdu_oba",
       "ayse_tezgah",
       "bebek",
@@ -84,6 +89,7 @@
       "hasan_defter",
       "hirsizlik",
       "kacak_koylu",
+      "kadi",
       "kapi_acilisi",
       "karaca_ocak",
       "kervan",

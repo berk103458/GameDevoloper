@@ -7,6 +7,9 @@ var _profil: OptionButton
 var _olcek: OptionButton
 
 func _ready() -> void:
+	if get_parent() != null and get_parent().get_script() != null and get_parent().get_script().resource_path.ends_with("ayarlar_ekrani.gd"):
+		visible = false
+		return
 	position = Vector2(1190, 210)
 	custom_minimum_size = Vector2(540, 0)
 	add_theme_constant_override("separation", 20)

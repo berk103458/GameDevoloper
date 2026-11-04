@@ -4,7 +4,7 @@ class_name YasamBarlariPaneli
 extends RefCounted
 
 const ADLAR := {"aclik": "koy.yasam.aclik", "yorgunluk": "koy.yasam.yorgunluk", "moral": "koy.yasam.moral"}
-const IKON_RENK := {"aclik": Color("#C4843A"), "yorgunluk": Color("#6E7BA8"), "moral": Color("#7FA86E")}
+const IKON_RENK := {"aclik": Renkler.MESALE, "yorgunluk": Kabuk.YORGUNLUK, "moral": Kabuk.MORAL}
 
 ## Yaşayan köylü için üç satırı karta ekler; ölü/geçersiz kişide hiçbir şey çizmez.
 static func ekle(y: KoyYonetimi, ebeveyn: Control, k: Koylu) -> void:

@@ -1,0 +1,211 @@
+"""KLT kapı testleri. Oyun diyaloğu yazılmaz; paketler anahtar ve kural fişidir."""
+from __future__ import annotations
+
+import json
+import shutil
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "tools"))
+
+from soz_kapi import (  # noqa: E402
+    denetle,
+    godot_baslatir_mi,
+    kitap_exportta_mi,
+    kopyala,
+    src_editor_sayisi,
+    _temiz_paket,
+)
+
+
+KOR = [{"id": "ornek", "skor": 0.9, "agiz": 3}]
+
+
+class SozKapiTest(unittest.TestCase):
+    def test_onaysiz_kopya_yok(self):
+        paket = _temiz_paket()
+        paket["onay"] = ["anlati"]
+        with tempfile.TemporaryDirectory() as klasor:
+            self.assertEqual(kopyala(paket, Path(klasor), KOR), 0)
+            self.assertEqual(list(Path(klasor).glob("ornek.json")), [])
+
+    def test_bos_isim_red(self):
+        paket = _temiz_paket()
+        paket["onay"] = ["anlati", ""]
+        hatalar, _ = denetle(paket, KOR)
+        self.assertTrue(any(h["kod"] == "KLT-02" for h in hatalar))
+
+    def test_zorunlu_sira_hata(self):
+        paket = _temiz_paket()
+        paket["sira_zorunlu"] = True
+        hatalar, _ = denetle(paket, KOR)
+        self.assertTrue(any(h["kod"] == "KLT-03" for h in hatalar))
+
+    def test_sira_alani_yoksa_kabul(self):
+        paket = _temiz_paket()
+        self.assertNotIn("sira", paket)
+        hatalar, _ = denetle(paket, KOR)
+        self.assertFalse(any(h["kod"] == "KLT-03" for h in hatalar))
+
+    def test_kutusuz_kopya_yok(self):
+        paket = _temiz_paket()
+        paket["kutu"] = False
+        with tempfile.TemporaryDirectory() as klasor:
+            self.assertEqual(kopyala(paket, Path(klasor), KOR), 0)
+
+    def test_sebepsiz_atlama(self):
+        paket = _temiz_paket()
+        paket["adimlar"] = [a for a in paket["adimlar"] if a != "yapaylik"]
+        paket["atlama"] = [{"adim": "yapaylik", "sebep": ""}]
+        hatalar, _ = denetle(paket, KOR)
+        self.assertTrue(any(h["kod"] == "KLT-27" for h in hatalar))
+
+    def test_godot_yok(self):
+        self.assertFalse(godot_baslatir_mi())
+        kaynak = (ROOT / "tools" / "soz_kapi.py").read_text(encoding="utf-8")
+        self.assertNotIn("subprocess", kaynak)
+
+    def test_hata_keser_uyari_kesmez(self):
+        hatali = _temiz_paket()
+        hatali["satirlar"][0]["metin"] = "Tıkla"
+        with tempfile.TemporaryDirectory() as klasor:
+            self.assertEqual(kopyala(hatali, Path(klasor), KOR), 0)
+        uyarili = _temiz_paket()
+        uyarili["satirlar"][0]["metin"] = "bekler!!!"
+        with tempfile.TemporaryDirectory() as klasor:
+            self.assertEqual(kopyala(uyarili, Path(klasor), KOR), 1)
+
+    def test_yasak_kalip_ve_tek_kaynak(self):
+        paket = _temiz_paket()
+        paket["satirlar"][0]["metin"] = "bu değil, o"
+        hatalar, _ = denetle(paket, KOR)
+        self.assertTrue(any(h["kod"] == "KLT-04" for h in hatalar))
+        yasak_dosyalari = [p for p in (ROOT / "tools").glob("*yasak*")]
+        self.assertEqual(yasak_dosyalari, [])
+
+    def test_kor_okuma_yoksa_red(self):
+        hatalar, _ = denetle(_temiz_paket(), [])
+        self.assertTrue(any(h["kod"] == "KLT-05" for h in hatalar))
+
+    def test_dedikodu_kotasi(self):
+        paket = _temiz_paket()
+        paket["cekirdekler"] = ["dedikodu", "dedikodu", "gunluk"]
+        hatalar, _ = denetle(paket, KOR)
+        self.assertTrue(any(h["kod"] == "KLT-06" for h in hatalar))
+
+    def test_ayni_iskelet_uyari(self):
+        paket = _temiz_paket()
+        paket["satirlar"] = [
+            {"id": "a.1", "agiz": "a", "anahtar": "a.1", "iskelet": "kalip.1"},
+            {"id": "b.1", "agiz": "b", "anahtar": "b.1", "iskelet": "kalip.1"},
+        ]
+        _, uyarilar = denetle(paket, KOR)
+        self.assertTrue(any(u["kod"] == "KLT-32" for u in uyarilar))
+
+    def test_unlem_uyari(self):
+        paket = _temiz_paket()
+        paket["satirlar"][0]["metin"] = "bekler!!!"
+        _, uyarilar = denetle(paket, KOR)
+        self.assertTrue(any(u["kod"] == "KLT-33" for u in uyarilar))
+
+    def test_yonerge_ve_ipucu_istisnasi(self):
+        paket = _temiz_paket()
+        paket["satirlar"][0]["metin"] = "menüye dön"
+        hatalar, _ = denetle(paket, KOR)
+        self.assertTrue(any(h["kod"] == "KLT-34" for h in hatalar))
+        paket["satirlar"][0]["anahtar"] = "ipucu.don"
+        paket["satirlar"][0]["metin"] = "menüye dön"
+        hatalar, _ = denetle(paket, KOR)
+        self.assertFalse(any(h["kod"] == "KLT-34" for h in hatalar))
+
+    def test_yil_ve_kitap(self):
+        paket = _temiz_paket()
+        paket["satirlar"][0]["metin"] = "1243"
+        hatalar, _ = denetle(paket, KOR)
+        self.assertTrue(any(h["kod"] == "KLT-35" for h in hatalar))
+        paket["satirlar"][0]["agiz"] = "kitap"
+        hatalar, _ = denetle(paket, KOR)
+        self.assertFalse(any(h["kod"] == "KLT-35" for h in hatalar))
+
+    def test_ayrilan_kisi(self):
+        paket = _temiz_paket()
+        paket["kisiler"] = {"kisi_b": "ayrildi"}
+        paket["satirlar"][0]["anilan"] = ["kisi_b"]
+        hatalar, _ = denetle(paket, KOR)
+        self.assertTrue(any(h["kod"] == "KLT-07" for h in hatalar))
+
+    def test_celiski_uyari(self):
+        paket = _temiz_paket()
+        paket["olaylar"] = [
+            {"gece": 1, "olay_id": "olay.1", "dogru": True},
+            {"gece": 1, "olay_id": "olay.1", "dogru": True},
+        ]
+        _, uyarilar = denetle(paket, KOR)
+        self.assertTrue(any(u["kod"] == "KLT-08" for u in uyarilar))
+
+    def test_bina_ve_meslek(self):
+        paket = _temiz_paket()
+        paket["satirlar"][0]["bina"] = "olmayan_bina"
+        paket["satirlar"][0]["meslek"] = "olmayan_meslek"
+        hatalar, _ = denetle(paket, KOR)
+        self.assertTrue(any(h["kod"] == "KLT-09" for h in hatalar))
+        self.assertTrue(any(h["kod"] == "KLT-39" for h in hatalar))
+
+    def test_cocuk_is_emri_uyari(self):
+        paket = _temiz_paket()
+        paket["satirlar"][0]["yas"] = "cocuk"
+        paket["satirlar"][0]["fiil"] = "is_ata"
+        _, uyarilar = denetle(paket, KOR)
+        self.assertTrue(any(u["kod"] == "KLT-40" for u in uyarilar))
+
+    def test_editor_ve_kitap(self):
+        self.assertEqual(src_editor_sayisi(), 0)
+        self.assertFalse(kitap_exportta_mi())
+
+    def test_prototip_onay_sayilmaz(self):
+        paket = _temiz_paket()
+        paket["onay"] = []
+        paket["prototip_kaydi"] = True
+        with tempfile.TemporaryDirectory() as klasor:
+            self.assertEqual(kopyala(paket, Path(klasor), KOR), 0)
+
+    def test_js_ve_beklenen_kimlik(self):
+        fixtur = json.loads((ROOT / "tests/fixtures/soz_kapi/secim.json").read_text(encoding="utf-8"))
+        js = ROOT / "Roadmap-2/soz_agaci/secim.js"
+        kod = js.read_text(encoding="utf-8") + "\nprocess.stdout.write(JSON.stringify(secimKimligi(JSON.parse(process.argv[1]))));"
+        for durum in fixtur["durumlar"]:
+            cikti = subprocess.check_output(
+                ["node", "-e", kod, json.dumps({k: durum[k] for k in ("bayraklar", "secenekler")})],
+                text=True,
+            )
+            self.assertEqual(json.loads(cikti), durum["beklenen"])
+
+    def test_duz_turkce_red(self):
+        paket = _temiz_paket()
+        paket["satirlar"][0]["metin"] = "bu dort kelimelik cumle"
+        hatalar, _ = denetle(paket, KOR)
+        self.assertTrue(any(h["kod"] == "KLT-55" for h in hatalar))
+
+    def test_user_yok_ve_silmez(self):
+        with self.assertRaises(ValueError):
+            kopyala(_temiz_paket(), Path("user://kayit"), KOR)
+        with tempfile.TemporaryDirectory() as klasor:
+            kaynak = Path(klasor) / "data_soz"
+            kaynak.mkdir()
+            dosya = kaynak / "durur.json"
+            dosya.write_text("{}", encoding="utf-8")
+            hedef = Path(klasor) / "cikti"
+            paket = _temiz_paket()
+            paket["onay"] = []
+            self.assertEqual(kopyala(paket, hedef, KOR), 0)
+            self.assertTrue(dosya.is_file())
+            self.assertTrue((hedef / "red" / "ornek.json").is_file())
+            shutil.rmtree(hedef)
+
+
+if __name__ == "__main__":
+    unittest.main()

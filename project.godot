@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Uçta bir kapı."
+config/version="0.2.0"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="KapiMuhafizi"
 run/main_scene="res://src/arayuz/ana.tscn"
@@ -19,6 +20,7 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 [autoload]
 
 Ses="*res://src/sistemler/ses.gd"
+AdayTema="*res://src/arayuz/ui_adaylari/bagla.gd"
 
 [display]
 

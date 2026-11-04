@@ -39,7 +39,9 @@ static func oku() -> Dictionary:
 		"kare_ms": Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0,
 		"draw": Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME) if grafik else null,
 		"ram": ram if OS.is_debug_build() and ram > 0 else null,
-		"vram": vram if vram > 0 else null}
+		"vram": vram if vram > 0 else null,
+		"kare_siniri": Engine.max_fps,
+		"vsync_acik": grafik and DisplayServer.window_get_vsync_mode() != DisplayServer.VSYNC_DISABLED}
 
 static func bicim(v: Dictionary) -> String:
 	var ram := "ölçüm yok" if v["ram"] == null else "%.1f MiB" % (float(v["ram"]) / 1048576.0)

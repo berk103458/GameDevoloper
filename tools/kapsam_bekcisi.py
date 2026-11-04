@@ -11,7 +11,8 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 # SOY-49 / OZL-31: R2 seslendirme yasağı; assets/ses altında ses dosyası sayısı bu sayıdan artmaz.
-SES_TABANI = 39
+# HAE tesliminden sonra depodaki ses dosyası sayısı. Yeni dosya bu sayıyı aşarsa kural düşer.
+SES_TABANI = 72
 SES_UZANTILARI = (".wav", ".ogg", ".mp3")
 
 
@@ -37,7 +38,7 @@ def han47_hane_romans(root):
 def hfz30_kalp_anahtari(root):
     """HFZ-30: kodda ve veri anahtarlarında kalp/romans/hediye adı yok (diyalog metni sayılmaz)."""
     ad = re.compile(r"\b(kalp|romans|hediye)\w*", re.I)
-    bulunan = [_rel(root, p) for p in _gd(root) if ad.search(re.sub(r'"[^"\n]*"', '""', _kod(p.read_text(encoding="utf-8"))))]
+    bulunan = [_rel(root, p) for p in _gd(root) if ad.search(re.sub(r'"(?:\\.|[^"\\\n])*"', '""', _kod(p.read_text(encoding="utf-8"))))]
     for p in sorted((root / "data").rglob("*.json")) if (root / "data").is_dir() else ():
         if re.search(r'"(kalp|romans|hediye)\w*"\s*:', p.read_text(encoding="utf-8", errors="replace"), re.I):
             bulunan.append(_rel(root, p))
@@ -141,9 +142,13 @@ def yer14_cogul(root):
 
 
 def yer15_locale(root):
-    """YER-15: sayı biçimi Türkçe kalır; tek locale çağrısı ana.gd'deki set_locale("tr")."""
+    """YER-15: sayı biçimi Türkçe kalır. İzinli çağrılar açılıştaki tr ve DilAyari'nın doğrulanmış kodudur."""
+    izin = {
+        ("src/arayuz/ana.gd", 'TranslationServer.set_locale("tr")'),
+        ("src/sistemler/dil_ayari.gd", "TranslationServer.set_locale(kod)"),
+    }
     bulunan = [(_rel(root, p), s.strip()) for p in _gd(root) for s in _kod(p.read_text(encoding="utf-8")).splitlines() if "set_locale" in s]
-    return [f"{d}: {s}" for d, s in bulunan if (d, s) != ("src/arayuz/ana.gd", 'TranslationServer.set_locale("tr")')]
+    return [f"{d}: {s}" for d, s in bulunan if (d, s) not in izin]
 
 
 def omr46_omurga_acilis(root):

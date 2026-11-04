@@ -3,6 +3,24 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Bölüm 39 — 3 Kasım 2026
+
+HFZ-01…21, HFZ-23…29 ve HFZ-32. Tek hafıza defteri, dört sayfa: karar, beyan, söylenti, not. Kaynak sistemlere yazılmaz; diyalog cümlesi yazılmadı, oyuncu metni yer tutucu anahtardır. Köy düğmesi ve duraklat dördüncü satırı açar; kapı sorgu defterine çağrı yok. HFZ-22, HFZ-30, HFZ-31 Claude'da duruyor. Asset gerekmedi. Godot 4.7.2 headless `tests/unit/sistemler/hafiza_defteri_test.gd` GEÇTİ, 0 hata. Tam sanity çalıştırılmadı. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
+## Bölüm 42 — 3 Kasım 2026
+
+SRM-02, SRM-04…09, SRM-11, SRM-12, SRM-19…21, SRM-25 ve SRM-26. Sürüm `0.2.0` tek sabittir. Oyuncu açılışında debug düğümü kurulmaz. Demo bayrağı perde 2'yi açmaz. Mağaza cümlesi ve diyalog yazılmadı; yer tutucu anahtar kullanıldı. Kalfa ekonomi/köy ve Antigravity metin alanına girilmedi. Asset gerekmedi. Godot 4.7.2 headless `tests/oto/surum_kontrol.tscn` GEÇTİ, 0 hata. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok.
+
+## Bölüm 43 kabuk — 3 Kasım 2026
+
+Ortak renk, boşluk ve punto `src/arayuz/kabuk.gd` içindedir. Aday temalardan biri seçilmedi. Ayarlar, defter ve diyalog dosyalarına dokunulmadı. Dal `cursor/gece-43-arayuz`. Kota görünmüyor. Asset gerekmedi; iki yer tutucu satırı envanterde.
+
+## UI adayları — 3 Kasım 2026
+
+Beş açık lisanslı 2D tema, ayrı ekranlara bağlandı. Dal `cursor/gece-ui-adaylari`. Belge `docs/UI_ADAYLARI.md`. ARY-01 Claude’da `[/]`; ARY-02 seçim boşken başlamaz, sahiplenilmedi. Ayarlar, defter, diyalog ve ekonomi koduna dokunulmadı. `tema.gd` değişmedi. Godot 4.7.2 headless: import bitti, `UI ADAY TEMA: GEÇTİ`. Tam sanity yok. Kota görünmüyor. Asset üretimi yok; indirilen paketler kesildi veya olduğu gibi alındı.
+Prova notu: Kabuk ölçü ve panel kaynağı olarak durur. AdayTema yalnız oyun açılışında tema bindirir; `tests/`, `--import` ve `--editor` sırasında kapalıdır. Seçilen tema paketi yoktur.
+
+
 ## VFX — 24 Ekim 2026
 
 Duman, alev, yağmur çizgisi, yumuşak ışık ve bir ateş topu. Şimşek, büyü, kan ve namlu yok. Kar ve ayrı kıvılcım yok. Sahneye bağlanmadı. Headless 5 PNG, `SONUC 0`, `SCRIPT ERROR` yok. Tam sanity yok. Kota görünmüyor.
@@ -75,16 +93,27 @@ itch.io: sayfa açık. Resmî araç butler. Kurulum: https://itch.io/docs/butler
 
 Cursor — Godot doğrulama ve ince adaptör. Bu turda KAP-02, KAP-03, BUG-11 ve TUC-11/14 notu.
 
+## Görsel adaylar — 3 Kasım 2026
+
+Defter için üç aday: varsayılan `yirtik`, ayrıca `lif` ve `acik_kitap`. Bağ `assets/gorsel_adaylari/defter/secili.json` ve `secili_sayfa.tres`. Defter betiği, sinyal, genel tema, Ayarlar, girdi, Kalfa ekonomi/köy ve Antigravity diyalog dosyalarına dokunulmadı. ROADMAP `[/]` satırı değiştirilmedi. Açık lisans: CC0, kamu malı, CC-BY. Ayrıntı `docs/GORSEL_ADAYLARI.md`. Kota görünmüyor.
+
 ## Şu an üzerinde çalışılan
-Bölüm 41 (41.1, 41.2, 41.9, 41.10) ve Bölüm 40 araç satırları (40.1, 40.2, 40.3, 40.6, 40.9) `[/] (Cursor)`. Dal `cursor/gece-41-40-arac`, taban PR #18. Diyalog metni ve 40.5 yok. kota görünmüyor.
+Bölüm 38 kart mekaniği OZL-03, OZL-08…11, OZL-19…22, OZL-24, OZL-25, OZL-27, OZL-29, OZL-34 ve OZL-35 `[x] (Cursor)`. Dal `cursor/gece-38-kart`. Kart cümlesi yazılmadı, yer tutucu anahtar. Asset gerekmedi. kota görünmüyor.
 
-Bölüm 29 ve 30 boş maddeleri sahiplendi: TEZ-02…10, YIL-01…10. İşaret `[/] (Cursor)`. Dal `cursor/gece-29-30-mevsim`, taban festive. PR #21'den dallanılmadı; SAB kapalı bayrağı meta okuyucusu. Kota görünmüyor.
+Bölüm 41 (41.1, 41.2, 41.9, 41.10) ve Bölüm 40 araç satırları (40.1, 40.2, 40.3, 40.6, 40.9) `[x] (Cursor)`. Dal `cursor/gece-41-40-arac`, taban PR #18. Diyalog metni ve 40.5 yok. Asset gerekmedi. kota görünmüyor.
 
-Bölüm 31 boş kayıt maddeleri `[/] (Cursor)`. Kod dalı `cursor/gece-31-dogrulama`. Kalfa'nın ekonomi/köy maddelerine ve Antigravity'nin diyalog metnine dokunulmadı. Doğrulayıcı yalnız araç. Asset gerekmedi. kota görünmüyor.
+Bölüm 29 ve 30 bitti: TEZ-02…10, YIL-01…10 `[x] (Cursor)`. Dal `cursor/gece-29-30-mevsim`, taban festive. PR #21'den dallanılmadı. Godot 4.7.2: tezgahta gün GEÇTİ (51), yıl izi GEÇTİ. Stok ve üretim yazılmadı. Kota görünmüyor.
 
-Bölüm 35 boş AYR maddeleri sahiplendi: AYR-01, 03, 04, 07–21, 23–27, 30, 34–42, 45, 47, 48, 50, 52. İşaret `[/] (Cursor)`. Kod `cursor/gece-35-ayarlar` dalında. Kalfa ekonomi/köy ve Antigravity diyalog alanına dokunulmadı. Kota görünmüyor.
+Bölüm 31 boş kayıt maddeleri `[x] (Cursor)`. Dal `cursor/gece-31-dogrulama`. Söz alanları ince adaptör; diyalog metni yazılmadı. Kalfa ekonomi/köy ve Antigravity metin alanı duruyor. Asset gerekmedi. kota görünmüyor.
 
-Bölüm 26 ve 28 boş maddeleri sahiplendi: NBT-02…09, SAB-01…10, SAB-75. İşaret `[/] (Cursor)`. Kod `cursor/gece-26-28-hukum`. Diyalog cümlesi yazılmadı. Köy ekonomisine yazılmadı. Kota görünmüyor.
+Bölüm 35 boş AYR maddeleri bitti: AYR-01, 03, 04, 07–21, 23–27, 30, 34–42, 45, 47, 48, 50, 52 `[x] (Cursor)`. Dal `cursor/gece-35-ayarlar`. Godot 4.7.2 headless: `AYARLAR BOLUM 35: GEÇTİ (0 hata)`, `AYARLAR KONTROL: GEÇTİ`, `AYARLAR EK: GEÇTİ`. Import sonrası `SCRIPT ERROR` yok. Asset gerekmedi. Kalfa ekonomi/köy ve Antigravity diyalog alanına dokunulmadı. Kota görünmüyor.
+
+Bölüm 26 ve 28 boş maddeleri bitti: NBT-02…09, SAB-01…10, SAB-75 `[x] (Cursor)`. Dal `cursor/gece-26-28-hukum`. Godot 4.7.2: kapi nobeti GEÇTİ (57), sabah defteri GEÇTİ. Diyalog cümlesi yazılmadı. Ekmek ve tezgâh katkısı yalnız okuyucu; stok ve üretim formülü yazılmadı. Asset gerekmedi. Kota görünmüyor.
+
+Bölüm 45 girdi maddeleri GIR-01…17, GIR-19…23, GIR-25 ve GIR-26 `[x] (Cursor)`. Kod dalı `cursor/gece-45-girdi`. GIR-18 ve GIR-24 Claude'da duruyor. Kalfa'nın ekonomi/köy maddelerine ve Antigravity'nin diyalog metnine dokunulmadı. Asset gerekmedi. kota görünmüyor.
+
+Bölüm 46 yerelleştirme altyapısı YER-01, YER-03, YER-05…08, YER-10, YER-11, YER-13, YER-16…19, YER-21 ve YER-23 `[x] (Cursor)`. Kod dalı `cursor/gece-46-dil`. Çeviri cümlesi ve diyalog yazılmadı. Asset gerekmedi. kota görünmüyor.
+
 
 KAP-02 ve KAP-03 `[x] (Cursor)`. BUG-11 eski notu düzeltildi. TUC-11/14 notları duruyor. MEV-01 satırına yazılmadı. Yeni dosya ve ikinci sistem yok. TUC/MEV/CAS kaynak dosyalarına dokunulmadı.
 

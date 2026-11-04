@@ -22,6 +22,10 @@ func _ready() -> void:
 	add_child(kopru)
 	assert((await kopru.run_command("get_state"))["ekran"] == "menu")
 	assert(not (await kopru.run_command("yeni_oyun", {"tohum": 11})).has("error"))
+	# Geçmiş seçimi durur. İlk satır bir geçmiştir; sonra köy açılır.
+	assert(kopru.get_state().ekran == "rapor")
+	assert(not (await kopru.run_command("devam", {"indeks": 0})).has("error"))
+	await get_tree().process_frame
 	# ACL-01: yeni oyunun ilk günü köydedir. Kapıya model günü atlayarak
 	# değil, gerçek gece ve rapor/olay düğmelerini köprüden kullanarak gideriz.
 	var acilis := kopru.get_state()

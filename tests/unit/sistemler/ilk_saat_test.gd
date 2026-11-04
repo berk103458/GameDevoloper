@@ -41,8 +41,13 @@ func _initialize() -> void:
 
 	# OGR-33: Gece < 6 iken son 0 (en kotu degerlerle gece 5 anlik goruntusu)
 	_kontrol(ilk.son_kilidi_gece() == 6 and SonKilidiSinifi.kilitli_mi(5) and not SonKilidiSinifi.kilitli_mi(6), "OGR-33: son_kilidi_gece 6 olmali ve gece 5 kilitli olmali")
-	var oturum := Oturum.new(Ayarlar.new())
-	oturum.yeni_oyun()
+	var kat := Katalog.new()
+	if kat.yukle() != Katalog.Durum.HAZIR:
+		_kontrol(false, "katalog")
+		print("ILK SAAT: KALDI")
+		quit(1)
+		return
+	var oturum := Oturum.new(kat, 5)
 	oturum.gun = 5
 	oturum.yonetim.gun = 5
 	oturum.yonetim.adalet = 0

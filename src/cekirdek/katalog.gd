@@ -72,6 +72,10 @@ func sira_olaylari() -> Array[OlayVerisi]:
 	return sonuc
 
 
+func olay(id: StringName) -> OlayVerisi:
+	return _olaylar.get(id) as OlayVerisi
+
+
 ## Tüm gece olayları (kimlik sırasıyla).
 func olaylar() -> Array[OlayVerisi]:
 	var sonuc: Array[OlayVerisi] = []

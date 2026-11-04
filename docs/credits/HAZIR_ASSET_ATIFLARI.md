@@ -167,6 +167,90 @@
 - Edinim: **24 Ekim 2026**, yalnız ücretsiz zip.
 - Dosyalar: `assets/vfx/kronbits/ates_01.png`. Özgün ad `fire_1.png`. Büyü, namlu ve yıldız yok.
 
+## 3 Kasım 2026 — defter, mühür, doku ve mürekkep ikonları (Cursor)
+
+Edinim **3 Kasım 2026**. Yalnız 2D. CC0 atıf zorunlu değildir; CC-BY atıf zorunludur. Dosya listesi `docs/GORSEL_ADAYLARI.md` ve `assets/gorsel_adaylari/ikonlar/indeks.json`.
+
+### Yırtık yaprak — cron, CC0
+
+- Yazar: **cron**
+- Kaynak: https://opengameart.org/content/old-parchment-paper
+- Lisans: **CC0**
+- Dosya: `assets/gorsel_adaylari/defter/yirtik/sayfa.png` (`parchment_alpha.png`).
+
+### Geniş lif — Luke.RUSTLTD, CC0
+
+- Yazar: **Luke.RUSTLTD**
+- Kaynak: https://opengameart.org/content/large-parchment-texture
+- Lisans: **CC0**
+- Dosya: `assets/gorsel_adaylari/defter/lif/sayfa.jpg` ve `assets/art/textures/gece_kapisi/paper_albedo.png`. 1920×1080 sayfa JPEG kalite 90; albedo ortadan 1024 kare. Yeni desen yok.
+
+### Açık kitap — yd, CC0
+
+- Yazar: **yd**
+- Kaynak: https://opengameart.org/content/old-pagesflip-with-sound
+- Lisans: **CC0**
+- Dosya: `assets/gorsel_adaylari/defter/acik_kitap/cevirme/00.png` … `06.png`. GIF kareleri PNG. İngilizce örnek sayfa (`OldTwoPages.png`) ve ses alınmadı.
+
+### Altın cilt — Walters Art Museum, kamu malı
+
+- Yazar: adsız İran cildi; müze kaydı Walters W610
+- Kaynak: https://commons.wikimedia.org/wiki/File:Iranian_-_Binding_from_Five_Poems_(Quintet)_-_Walters_W610binding_-_Top_Exterior.jpg
+- Lisans: **kamu malı** (Wikimedia LicenseShortName: Public domain)
+- Dosya: `assets/gorsel_adaylari/defter/yirtik/kapak.png`. Köşe siyahi saydamlandı; desen değişmedi.
+
+### Filigran cilt — kamu malı
+
+- Yazar: bilinmeyen sanatçı, Hamse cildi
+- Kaynak: https://commons.wikimedia.org/wiki/File:Filigree_leather_book_cover,_for_the_Five_Poems_(Khamsa)_of_Amir_Khusrau.jpg
+- Lisans: **kamu malı**
+- Dosya: `assets/gorsel_adaylari/defter/acik_kitap/kapak.png`. Tarihi cilt fotoğrafıdır; reddedilen Çini renk şablonunun kopyası değildir. Ahmet istemezse bu kapak düşer.
+
+### Yıpranmış deri — Pink Sherbet Photography, CC BY 2.0
+
+- Yazar: **Pink Sherbet Photography**
+- Kaynak: https://www.flickr.com/photos/pinksherbet/2978544161/ ve https://commons.wikimedia.org/wiki/File:Free_antique_leather_book_cover_texture_for_layers_(2978544161).jpg
+- Lisans: **CC BY 2.0**, https://creativecommons.org/licenses/by/2.0/
+- Atıf: “Free antique leather book cover texture for layers — Pink Sherbet Photography, CC BY 2.0.”
+- Dosya: `assets/gorsel_adaylari/defter/lif/kapak.jpg` ve `ayirac_1.jpg` … `ayirac_4.jpg`. Uzun kenar 1600; ayraçlar aynı fotoğraftan dört şerit.
+
+### Mühürler — kamu malı
+
+- 1464 Sonta: yazar bilinmiyor. https://commons.wikimedia.org/wiki/File:Wax_seal_from_Sonta_1464.jpg — **kamu malı**. `defter/yirtik/muhur.png` ve `assets/ui/atmosfer/gece_kapisi/ornament_seal.png`.
+- 1778 Sombor tüccar loncası: tarayan Ravnoplov. https://commons.wikimedia.org/wiki/File:1778_wax_seal_of_merchant_guild_in_Sombor.jpg — **kamu malı**. `defter/lif/muhur.png`. Latince yazıtı var; 18. yüzyıl. Varsayılan mühür bu değil.
+
+### Yıpranmış tahta — Poly Haven, CC0
+
+- Yazar: **Dimitrios Savva**, **Rico Cilliers**
+- Kaynak: https://polyhaven.com/a/weathered_brown_planks
+- Lisans: **CC0**, https://polyhaven.com/license
+- Dosya: `assets/gorsel_adaylari/dokular/tahta_esik.jpg` ve `assets/art/textures/gece_kapisi/timber_albedo.png`. 1k diffuse. 3B model yok.
+
+### Kervansaray avlusu — Bgag, CC0
+
+- Yazar: **Bgag**
+- Kaynak: https://commons.wikimedia.org/wiki/File:Alla_Kouli_Khan_caravanserai_02.jpg
+- Lisans: **CC0**
+- Dosya: `assets/gorsel_adaylari/arkaplan/kervansaray.jpg`. Uzun kenar 1920. Gündüz avlu; gece menüsünün yerine geçmez. Anlatılı yükleme sahneleri açık kaldı.
+
+### Mürekkep ikonları — game-icons.net, CC BY 3.0
+
+- Yazar: **Lorc** ve **Delapouite** (dosya yazarı `assets/gorsel_adaylari/ikonlar/indeks.json`)
+- Kaynak: https://game-icons.net
+- Lisans: **CC BY 3.0**, https://creativecommons.org/licenses/by/3.0/
+- Atıf: “Icons made by Lorc and Delapouite. Available on https://game-icons.net”
+- Renk: arayüz fildişi `#E6DDC6`, defter süsleri mürekkep `#24180F`. Şekil kaynak SVG’dir.
+
+## 3 Kasım 2026 — UI adayları (Cursor)
+
+Ayrıntı ve ekran eşlemesi: [docs/UI_ADAYLARI.md](../UI_ADAYLARI.md). Yeni görüntü üretilmedi.
+
+- **Lamoot ahşap** — Lamoot, CC-BY 3.0, https://opengameart.org/content/rpg-gui-construction-kit-v10 — `assets/ui_adaylari/lamoot_ahsap/`. Sayfadan kesilmiş düğme ve panel.
+- **itsmars envanter** — itsmars, CC0, https://opengameart.org/content/rpg-inventory — `assets/ui_adaylari/itsmars_envanter/`. Izgara kesildi; yuva çerçevesi nearest-neighbor 4 kat büyütüldü.
+- **Kenney RPG** — Kenney Vleugels, CC0, https://kenney.nl/assets/ui-pack-rpg-expansion — `assets/ui_adaylari/kenney_rpg/`.
+- **Crisp Quest Free** — Anipixels, CC-BY 4.0, https://github.com/Anipixels/crisp-quest-free-theme — `assets/ui_adaylari/crisp_quest/`. Atıf: Crisp Quest Free Theme by Anipixels.
+- **Kenney macera** — Kenney, CC0, https://kenney.nl/assets/ui-pack-adventure — `assets/ui_adaylari/kenney_macera/`. Yalnız kahverengi ve metal köşeli parçalar.
+
 ## 28 Ekim 2026 — LOWPO hareket uyarlaması (Kalfa)
 
 `data/animasyon/ual_referans.json`, Ahmet’in bu konuşmadaki açık onayıyla daha önce indirilmiş yerel dosyalardan çıkarılan sayısal kemik hiyerarşisi/rest referansıdır. Ham GLB/geometri/doku repoya eklenmedi, yeni indirme yapılmadı. A01/A02: Quaternius, CC0 1.0 (repo lisansı `assets/animasyon/quaternius/LICENSE.txt`). A03 yalnız UAL’de olmayan çekiç döngüsü için: Kay Lousberg, CC0 1.0 (`assets/animasyon/kaykit/LICENSE.txt`). Kaynak dosya adları ve SHA-256 değerleri referansın her grubunda saklıdır. Kaynak rest/poz farkı hedef LOWPO’nun rest matrislerine uygulanır; sonuçlar bellek içi AnimationLibrary'dir. LOWPO kaynakları StandOut7’nin ücretsiz KAR02 katmanıdır; önceki atıf/lisans kayıtları korunur.

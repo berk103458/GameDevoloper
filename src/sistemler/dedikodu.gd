@@ -8,6 +8,7 @@ extends RefCounted
 
 const ASGARI_GECIKME := 1
 const AZAMI_GECIKME := 3
+const AZAMI_SATIR := 80
 
 const AGIR_OLAY_TURLERI := [
 	"rusvet",
@@ -117,6 +118,7 @@ func olay_kaydet(
 	}
 	_kayitlar.append(kayit)
 	_gorulen_kimlikler[temiz_id] = true
+	_tavana_sigdir()
 	_yazma_sayisi += 1
 	return {
 		"olur": true,
@@ -213,6 +215,36 @@ func kayitlar() -> Array[Dictionary]:
 	return _kayitlar.duplicate(true)
 
 
+## SAB-04: kapalı tezgâh için tek not. Cümle değil, anahtar yazılır. Tanık yoksa satır yok.
+func sabah_notu(olay_id: String, gece: int, tanik: Variant, anahtar: String) -> Dictionary:
+	var temiz := olay_id.strip_edges()
+	var kimlik := _tanik_kimligi_cikar(tanik)
+	if temiz.is_empty() or kimlik.is_empty():
+		return {"olur": false, "sebep": "tanik_yok"}
+	if _gorulen_kimlikler.has(temiz):
+		return {"olur": false, "sebep": "tekrar"}
+	var kayit := {
+		"olay_id": temiz,
+		"tur": "sabah",
+		"satir": anahtar,
+		"bayrak": "dedikodu_sabah",
+		"kayit_gecesi": maxi(gece, 0),
+		"gecikme": 1,
+		"yayilim_gecesi": maxi(gece, 0) + 1,
+		"gun_araligi": [maxi(gece, 0) + 1, maxi(gece, 0) + AZAMI_GECIKME],
+		"tanik_id": kimlik,
+		"yayildi": false,
+		"basildi": false,
+		"grup": "",
+		"hedef_id": "",
+		"kisisel_kasa": false,
+	}
+	_kayitlar.append(kayit)
+	_gorulen_kimlikler[temiz] = true
+	_yazma_sayisi += 1
+	return {"olur": true, "kayit": kayit.duplicate(true)}
+
+
 func kaydet() -> Dictionary:
 	return {
 		"kayitlar": _kayitlar.duplicate(true),
@@ -237,7 +269,15 @@ func yukle(veri: Dictionary) -> bool:
 			var s := String(id).strip_edges()
 			if not s.is_empty():
 				_gorulen_kimlikler[s] = true
+	_tavana_sigdir()
 	return true
+
+
+## KAY-70: en fazla 80 satır. En eski düşer; kimliği görülenlerde kalır, yayılmamış olay geri gelmez.
+func _tavana_sigdir() -> void:
+	while _kayitlar.size() > AZAMI_SATIR:
+		_kayitlar.remove_at(0)
+		push_warning("KAY70_DEDIKODU_TAVANI")
 
 
 static func _norm_tur(tur: String) -> String:

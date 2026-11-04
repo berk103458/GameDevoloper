@@ -1,0 +1,9 @@
+Mürekkep ikonları
+
+Yazar: Lorc ve Delapouite. Hangi dosyanın kime ait olduğu indeks.json içindedir.
+Kaynak: https://game-icons.net
+Lisans: CC BY 3.0, https://creativecommons.org/licenses/by/3.0/
+Atıf: Icons made by Lorc and Delapouite. Available on https://game-icons.net
+
+Arayüz kopyaları fildişi #E6DDC6. Defter süsleri mürekkep #24180F.
+Şekil kaynak SVG’dir; yeni ikon çizilmedi.

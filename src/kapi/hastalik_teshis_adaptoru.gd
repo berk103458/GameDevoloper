@@ -126,7 +126,7 @@ static func heybe_bagla(panel: Control, e: Node, g: Gelen) -> void:
 	etiket.position = Vector2(48, 914)
 	etiket.size = Vector2(600, 64)
 	etiket.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	etiket.add_theme_font_size_override("font_size", 17)
+	etiket.add_theme_font_size_override("font_size", Kabuk.KUCUK)
 	etiket.text = metin(g)
 	panel.add_child(etiket)
 	b.pressed.connect(func() -> void:
@@ -147,7 +147,7 @@ static func chr_bagla(panel: Control, e: Node, g: Gelen) -> void:
 	etiket.name = "HastalikIbre"
 	etiket.text = metin(g)
 	etiket.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	etiket.add_theme_font_size_override("font_size", 20)
+	etiket.add_theme_font_size_override("font_size", Kabuk.KUCUK)
 	kutu.add_child(etiket)
 
 static func _chr_incele(panel: Control, e: Node, g: Gelen, kaynak: String) -> void:

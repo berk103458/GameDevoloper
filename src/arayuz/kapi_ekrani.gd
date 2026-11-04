@@ -127,7 +127,7 @@ func _konusma_kur() -> void:
 	_kayit.add_theme_color_override("default_color", MenuSatiri.KREM)
 	kenar.add_child(_kayit)
 	var levha := CerceveKutu.new()
-	levha.dolgu = Color(0.06, 0.05, 0.04, 0.95)
+	levha.dolgu = Kabuk.LEVHA
 	levha.position = KONUSMA.position + Vector2(28, -22)
 	levha.size = Vector2(420, 44)
 	add_child(levha)
@@ -164,7 +164,7 @@ func _defter_kur() -> void:
 	_sinif.add_theme_color_override("font_color", MenuSatiri.SOLUK)
 	dikey.add_child(_sinif)
 	_bilgi = Label.new()
-	_bilgi.add_theme_font_size_override("font_size", ayarlar.boyut(19))
+	_bilgi.add_theme_font_size_override("font_size", ayarlar.boyut(Kabuk.KUCUK))
 	_bilgi.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
 	dikey.add_child(_bilgi)
 	dikey.add_child(_ayrac(MenuSusu.Tur.ALT))
@@ -189,7 +189,7 @@ func _defter_kur() -> void:
 	var ipucu := Label.new()
 	ipucu.text = tr("arayuz.sohbet.ipucu")
 	ipucu.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	ipucu.add_theme_font_size_override("font_size", ayarlar.boyut(16))
+	ipucu.add_theme_font_size_override("font_size", ayarlar.boyut(Kabuk.KUCUK))
 	ipucu.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
 	dikey.add_child(ipucu)
 
@@ -490,6 +490,7 @@ func _karar_goster() -> void:
 		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kilit(b, oturum, _gelen, StringName(anahtar))
 		b.pressed.connect(_karar_bas.bind(anahtar))
 		_karar_dugmeleri.append(b)
+	OdakHalkasi.bagla(_karar_dugmeleri)
 	# Eylemler (defterin altı) hemen görünür; yalnız kararlar sırayla belirir.
 	if _gelen.heybe != null:
 		_heybe_dugmesi()
@@ -549,6 +550,7 @@ func _karar_birak() -> void:
 
 
 func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
+	if not preload("res://src/sistemler/karar_onayi.gd").izinli(ayarlar, anahtar): return
 	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	if DiplomatikHeyet.ilgilenir(_gelen) and not DiplomatikHeyet.karar_olur(oturum, _gelen, StringName(anahtar)): return
 	var sorgu := _gelen.chr_sorgusu()
@@ -674,7 +676,7 @@ func _dugme(yazi: String, kap: Container = null) -> MenuSatiri:
 	b.ikon = MenuSatiri.Ikon.YOK
 	b.font_ = Tema.font(500)
 	b.punto = ayarlar.boyut(26)
-	b.alt_punto = ayarlar.boyut(17)
+	b.alt_punto = ayarlar.boyut(Kabuk.KUCUK)
 	b.custom_minimum_size = Vector2(0, 58)
 	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	b.focus_entered.connect(func() -> void: Ses.cal(&"sfx_secim", -8.0))
@@ -695,7 +697,7 @@ func _sirayla_goster(dugmeler: Array[Button]) -> void:
 	_gosterilecek = dugmeler
 	for b in dugmeler:
 		b.visible = false
-	var bekle := ayarlar.belirme_ms(oturum.ayarlar.belirme_ms) / 1000.0
+	var bekle := preload("res://src/arayuz/soz/belirme_baglantisi.gd").satir_ms(ayarlar, oturum.ayarlar.belirme_ms) / 1000.0
 	_beliriyor = true
 	for i in dugmeler.size():
 		if benim != _belirme_id or not is_instance_valid(dugmeler[i]):
@@ -733,6 +735,14 @@ func _input(olay: InputEvent) -> void:
 
 func _unhandled_input(olay: InputEvent) -> void:
 	if _heybe_paneli != null or has_node("ChrInceleme"):
+		return
+	if evre == &"karar" and olay.is_action_pressed("kapi_kabul"):
+		_karar_bas("kabul")
+		get_viewport().set_input_as_handled()
+		return
+	if evre == &"karar" and olay.is_action_pressed("kapi_ret"):
+		_karar_bas("ret")
+		get_viewport().set_input_as_handled()
 		return
 	if evre == &"karar":
 		for n in 5:

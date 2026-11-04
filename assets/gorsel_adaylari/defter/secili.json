@@ -1,0 +1,14 @@
+{
+  "secili": "yirtik",
+  "not": "Ahmet seçene kadar varsayılan yırtık yapraktır. Defter betiği ve sinyali bu dosyada yoktur.",
+  "sayfa": "res://assets/gorsel_adaylari/defter/yirtik/sayfa.png",
+  "sayfa_dokusu": "res://assets/gorsel_adaylari/defter/secili_sayfa.tres",
+  "kapak": "res://assets/gorsel_adaylari/defter/yirtik/kapak.png",
+  "muhur": "res://assets/gorsel_adaylari/defter/yirtik/muhur.png",
+  "sus": "res://assets/gorsel_adaylari/defter/yirtik/sus",
+  "adaylar": [
+    "yirtik",
+    "lif",
+    "acik_kitap"
+  ]
+}

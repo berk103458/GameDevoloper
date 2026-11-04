@@ -38,6 +38,10 @@
   "acilis_kasasi": {
     "koy_akce": 10,
     "muhafiz_akce": 0
+  },
+  "olay": {
+    "olay_olasiligi": 0.75,
+    "sira_olay_olasiligi": 0.35
   }
 }
 

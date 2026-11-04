@@ -12,6 +12,9 @@ const _OPSIYONEL_HAFIZA_ALANLARI := [
 	"alinan_akce",
 	"karar_gecmisi",
 	"es",
+	"guven",
+	"korku",
+	"Flag_Sir_Tamamen_Cozuldu",
 ]
 
 var _katalog: Katalog

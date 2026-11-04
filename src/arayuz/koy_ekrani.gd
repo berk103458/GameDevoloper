@@ -8,6 +8,8 @@ extends Control
 signal devam_istendi(rapor: Dictionary)
 ## Oyun bir sonla bitti (`halk_kirildi`, `isyan`, `tekfur`, `zafer`).
 signal oturum_bitti(son: StringName)
+## Üst panel ve kip kapalıyken Esc / geri (GIR-08).
+signal duraklat_istendi
 
 const KATEGORILER: Array[String] = ["barinma", "uretim", "hizmet", "savunma"]
 
@@ -46,6 +48,8 @@ var _gece_kilidi := preload("res://src/sistemler/gece_gecis_kilidi.gd").new()
 
 
 func _ready() -> void:
+	if not InputMap.has_action("sec"):
+		GirdiEylemleri.kur()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_onceki_fizik_adimi = Engine.max_physics_steps_per_frame
 	Engine.max_physics_steps_per_frame = 8
@@ -93,6 +97,8 @@ func _ready() -> void:
 	_yenile()
 	CenazeRaporu.yukleme_karti(self)
 	CinarMeclisPaneli.yukleme(self)
+	preload("res://src/arayuz/koy_hud/sabah_paneli.gd").kur(self)
+	_hiz_sec(preload("res://src/sistemler/koy_hizi_ayari.gd").acilis(ayarlar))
 
 ## Ana ekran ses adaptörü; ışığın ilk gunduz fazıyla aynı başlar.
 func ortam_baslat() -> void:
@@ -154,12 +160,13 @@ func _alt_panel_kur() -> void:
 	MuhafizOdasiBaglantisi.kur(self, sag)
 	HaritaBaglantisi.kur(self, sag)
 	AyarlarBaglantisi.kur(self, sag)  # AYR-06: oyun içinden aynı ayar ekranı
+	HafizaDefteriBaglantisi.kur(self, sag)
 	var hizlar := HBoxContainer.new()
 	hizlar.add_theme_constant_override("separation", 4)
 	sag.add_child(hizlar)
 	for kat in [0, 1, 2, 3]:
 		var b := _dugme("Ⅱ" if kat == 0 else "%dx" % kat, hizlar)
-		b.add_theme_font_size_override("font_size", ayarlar.boyut(18))
+		b.add_theme_font_size_override("font_size", ayarlar.boyut(Kabuk.KUCUK))
 		b.add_theme_stylebox_override("normal", Tema.koy_paneli())
 		b.toggle_mode = true
 		b.set_pressed_no_signal(kat == 1)
@@ -235,22 +242,21 @@ func _dunya_girdisi(olay: InputEvent) -> void:
 		_imlec = sahne3b.isaret(_vp_konum(olay.position))
 		_hayalet_guncelle()
 	elif olay is InputEventMouseButton and olay.pressed:
-		match olay.button_index:
-			MOUSE_BUTTON_WHEEL_UP:
-				sahne3b.yakinlas(1.0)
-			MOUSE_BUTTON_WHEEL_DOWN:
-				sahne3b.yakinlas(-1.0)
-			MOUSE_BUTTON_RIGHT:
-				KoyluTakibi.temizle(sahne3b)
-				_kip_sec("")
-			MOUSE_BUTTON_LEFT:
-				if kip.is_empty():
-					var kisi := KoyluSecimi.sec(sahne3b, _vp_konum(olay.position))
-					if kisi >= 0:
-						KoyluKarti.ac(self, kisi)
-						return
-				_imlec = sahne3b.isaret(_vp_konum(olay.position))
-				_tikla()
+		if InputMap.has_action("yakinlas") and olay.is_action_pressed("yakinlas"):
+			sahne3b.yakinlas(1.0)
+		elif InputMap.has_action("uzaklas") and olay.is_action_pressed("uzaklas"):
+			sahne3b.yakinlas(-1.0)
+		elif InputMap.has_action("iptal_kip") and olay.is_action_pressed("iptal_kip"):
+			KoyluTakibi.temizle(sahne3b)
+			_kip_sec("")
+		elif InputMap.has_action("sec") and olay.is_action_pressed("sec"):
+			if kip.is_empty():
+				var kisi := KoyluSecimi.sec(sahne3b, _vp_konum(olay.position))
+				if kisi >= 0:
+					KoyluKarti.ac(self, kisi)
+					return
+			_imlec = sahne3b.isaret(_vp_konum(olay.position))
+			_tikla()
 
 
 func _vp_konum(yerel: Vector2) -> Vector2:
@@ -310,29 +316,72 @@ func _tikla() -> void:
 			_bilgi_goster()
 
 
+func _process(_delta: float) -> void:
+	_cubuk_imleci()
+
+
+func _cubuk_imleci() -> void:
+	if sahne3b == null or _kap == null or _ust_panel_var():
+		return
+	var sapma := KoyCubukImleci.sapma()
+	if sapma == Vector2.ZERO:
+		return
+	var yer := KoyCubukImleci.hedef(_kap.size * 0.5, sapma)
+	_imlec = sahne3b.isaret(_vp_konum(yer))
+	_hayalet_guncelle()
+
+
+func _ust_panel_var() -> bool:
+	if _ust_kart != null:
+		return true
+	for ad in ["HaritaEkrani", "MuhafizOdasiEkrani", "DivanEkrani", "AyarlarEkrani", "HeybePaneli"]:
+		if has_node(NodePath(ad)):
+			return true
+	return false
+
+
 func _unhandled_input(olay: InputEvent) -> void:
-	if olay is InputEventKey and olay.pressed and not olay.echo:
-		match olay.physical_keycode:
-			KEY_R:
-				_yon = 1 - _yon
-				_hayalet_guncelle()
-			KEY_B:
-				_kategori = "barinma"
-				_yapi_satirini_ciz()
-			KEY_P:
-				_nufus_ac()
-			KEY_1:
-				_hiz_sec(1)
-			KEY_2:
-				_hiz_sec(2)
-			KEY_3:
-				_hiz_sec(3)
-			KEY_SPACE:
-				_hiz_sec(_son_hiz if get_tree().paused else 0)
-			KEY_ESCAPE:
-				if _ust_kart != null:
-					return
-				_kip_sec("")
+	if preload("res://src/sistemler/hizli_kayit.gd").girdi(self, olay):
+		get_viewport().set_input_as_handled()
+		return
+	if not olay.pressed:
+		return
+	if olay is InputEventKey and (olay as InputEventKey).echo:
+		return
+	if not (olay is InputEventKey or olay is InputEventJoypadButton):
+		return
+	if (InputMap.has_action("kip_kapat") and olay.is_action_pressed("kip_kapat")) or (InputMap.has_action("geri") and olay.is_action_pressed("geri")):
+		var kademe := GirdiEylemleri.esc_kademe(_ust_panel_var(), not kip.is_empty())
+		if kademe == &"ust_panel":
+			if _ust_kart != null:
+				_kart_kapat()
+				get_viewport().set_input_as_handled()
+			return
+		if kademe == &"kip":
+			_kip_sec("")
+			get_viewport().set_input_as_handled()
+			return
+		duraklat_istendi.emit()
+		get_viewport().set_input_as_handled()
+		return
+	if _ust_panel_var():
+		return
+	if InputMap.has_action("bina_cevir") and olay.is_action_pressed("bina_cevir"):
+		_yon = 1 - _yon
+		_hayalet_guncelle()
+	elif InputMap.has_action("bina_barinma") and olay.is_action_pressed("bina_barinma"):
+		_kategori = "barinma"
+		_yapi_satirini_ciz()
+	elif InputMap.has_action("nufus") and olay.is_action_pressed("nufus"):
+		_nufus_ac()
+	elif InputMap.has_action("hiz_1") and olay.is_action_pressed("hiz_1"):
+		_hiz_sec(1)
+	elif InputMap.has_action("hiz_2") and olay.is_action_pressed("hiz_2"):
+		_hiz_sec(2)
+	elif InputMap.has_action("hiz_3") and olay.is_action_pressed("hiz_3"):
+		_hiz_sec(3)
+	elif InputMap.has_action("hiz_dur") and olay.is_action_pressed("hiz_dur"):
+		_hiz_sec(_son_hiz if get_tree().paused else 0)
 
 
 ## 1/2/3 hız seçer; boşluk durdurur veya son hızda sürdürür. Arayüz duraklamada çalışır.
@@ -349,9 +398,7 @@ func _hiz_sec(kat: int) -> void:
 
 
 func _exit_tree() -> void:
-	get_tree().paused = false
-	Engine.time_scale = 1.0
-	Engine.max_physics_steps_per_frame = _onceki_fizik_adimi
+	preload("res://src/arayuz/koy_hiz_kapisi.gd").sifirla(get_tree(), _onceki_fizik_adimi)
 
 
 # ── Yapı bilgi penceresi (10.1, 17.3) ─────────────────────────────────────────────────────────────
@@ -670,6 +717,7 @@ func _geceye_gec() -> void:
 		l.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		l.custom_minimum_size.x = 900
+	preload("res://src/sistemler/rapor_bekle.gd").uygula(v, ayarlar)
 	var tamam := _dugme(tr("koy.rapor.sabah"), v)
 	CenazeRaporu.ekle(self, v, tamam, r, sonuc)
 	tamam.grab_focus.call_deferred()
@@ -710,6 +758,7 @@ func _olay_goster(olay: OlayVerisi, sonuc: Dictionary) -> void:
 			ilk = d
 	if ilk != null:
 		ilk.grab_focus.call_deferred()
+	preload("res://src/sistemler/olay_duraklat.gd").ac(self)
 
 
 func _olay_sec(olay: OlayVerisi, i: int, gece: Dictionary) -> void:
@@ -785,6 +834,7 @@ func _kart_ac(baslik: String) -> VBoxContainer:
 
 
 func _kart_kapat() -> void:
+	preload("res://src/sistemler/olay_duraklat.gd").kapat(self)
 	if _ust_kart != null and is_instance_valid(_ust_kart):
 		_ust_kart.queue_free()
 	_ust_kart = null

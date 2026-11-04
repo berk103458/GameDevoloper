@@ -1,0 +1,10 @@
+tahta_esik.jpg ve timber_albedo.png
+  Dimitrios Savva ve Rico Cilliers, Poly Haven, CC0
+  https://polyhaven.com/a/weathered_brown_planks
+  https://polyhaven.com/license
+  1k diffuse. 3B alınmadı.
+
+kagit_lif.png
+  Luke.RUSTLTD, CC0
+  https://opengameart.org/content/large-parchment-texture
+  Geniş lif sayfanın ortadan 1024 kare kırpımı.
