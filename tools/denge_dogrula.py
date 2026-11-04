@@ -302,6 +302,18 @@ def teftis_esigi_hatalari(denge: dict, terazi: dict, teftis: dict) -> list:
     return []
 
 
+def fiyat_kaynagi_hatalari(denge: dict) -> list:
+    """DEN-49: fiyat çarpanı TUC-09 kaynağından gelir."""
+    hatalar = []
+    for ad, veri in denge.items():
+        if ad == "fiyat_carpani":
+            if veri != {"kaynak": "res://data/ticaret_fiyatlari.json"}:
+                hatalar.append("fiyat_carpani: ikinci mevsim/fiyat tablosu olamaz; kaynak data/ticaret_fiyatlari.json (DEN-49)")
+        elif isinstance(veri, dict):
+            hatalar.extend(fiyat_kaynagi_hatalari(veri))
+    return hatalar
+
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -324,6 +336,7 @@ def main(argv=None) -> int:
         hatalar += acilis_kasasi_hatalari(denge)
         hatalar += aclik_kademesi_hatalari(denge)
         hatalar += gecici_is_hatalari(denge)
+        hatalar += fiyat_kaynagi_hatalari(denge)
         hatalar += teftis_esigi_hatalari(denge, yukle(ROOT / "data/muhafiz_terazisi.json"), yukle(ROOT / "data/sancak_teftisi.json"))
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]

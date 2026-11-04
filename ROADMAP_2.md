@@ -3663,7 +3663,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.7 Fiyat eğrisi
 
-- [ ] **DEN-49:** Fiyat TUC-09'dur.
+- [x] **DEN-49:** (Kalfa) Fiyat TUC-09'dur.
   - Ne: kış çarpanı o maddede kalır. Denge dosyası aynı çarpanı kopyalamaz.
   - Kabul: kış çarpanı o maddede kalır. Denge dosyası aynı çarpanı kopyalamaz. Test: tek kış çarpanı.
   - Bağımlılık: TUC-09, DEN-03. Boyut: S.

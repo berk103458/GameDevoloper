@@ -52,6 +52,15 @@ class DengeDogrulaTest(unittest.TestCase):
                     {"teftis_rusvet_sayisi": deger}, {"rusvet_agirlik": 1}, {"yozlasma_esigi": 20}))
         self.assertTrue(dogrulayici.teftis_esigi_hatalari({}, [], {}))
 
+    def test_kis_fiyati_ikinci_tablo_olamaz(self):
+        kaynak = {"kaynak": "res://data/ticaret_fiyatlari.json"}
+        self.assertEqual(dogrulayici.fiyat_kaynagi_hatalari({"fiyat_carpani": kaynak}), [])
+        for veri in [3, {"kis": 3}, {**kaynak, "mevsim_carpani": [1, 0.75, 1, 3]}]:
+            with self.subTest(veri=veri):
+                self.assertTrue(dogrulayici.fiyat_kaynagi_hatalari({"fiyat_carpani": veri}))
+        self.assertTrue(dogrulayici.fiyat_kaynagi_hatalari(
+            {"ekonomi": {"fiyat_carpani": {"kis": 3}}}))
+
     def test_gercek_tablo_temiz(self):
         self.assertEqual(dogrulayici.main([]), 0)
 

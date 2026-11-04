@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-49 tamamlandı (Kalfa)
+
+Full fetch/pull ile 936d6df5 alındı. Üretilmiş TR/EN translation çakışmaları güncel CSV çıktısıyla giderildi; yerel eski çıktılar autostash 0eaf88ec içinde korunuyor. project.godot yerel editör düzenlemesi korunup commit dışında tutuldu. Fiyat çarpanı yalnız TUC-09 dosyasını referans alır; sayı/dizi/iç içe ikinci tablo doğrulama hatası verir. Önce RED, ardından 37 hedefli Python testi ve gerçek denge doğrulaması geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-44, Ahmet kararı uygulandı (Kalfa)
 
 Ahmet teftiş riskinin 20 rüşvette açılmasını seçti. Tek kaynak data/muhafiz_terazisi.json içindeki rüşvet ağırlığı 5’ten 1’e indirildi; teftiş puan eşiği 20 kaldı. Bu tercih mevcut kayıt makbuzlarından türetilen diğer rüşvet/yozlaşma sonuçlarının katkısını da azaltır. Zimmet, haksızlık ve haraç ağırlıkları değişmedi. Denge tablosunda teftis_rusvet_sayisi=20; doğrulayıcı ilk risk sayısının terazi ve ODA-07 kaynağıyla uyuşmasını denetler.
