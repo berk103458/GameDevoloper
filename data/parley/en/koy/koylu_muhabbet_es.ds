@@ -1099,6 +1099,212 @@
       "values": [
         "-2"
       ]
+    },
+    {
+      "id": "node:opt_gecmis",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 720.0)",
+      "character": "Muhafız",
+      "text": "Let us talk beside the hearth, wife; let us speak of old days and our destiny."
+    },
+    {
+      "id": "node:rep_gecmis",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 720.0)",
+      "character": "Eş",
+      "text": "To sit with you beside this hearth and remember the past warms my soul yet burns my heart, my lord... Which memory would you unfurl?"
+    },
+    {
+      "id": "node:opt_g_yangin",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 600.0)",
+      "character": "Muhafız",
+      "text": "Sometimes your gaze drifts away; does your mind wander back to the burning of our old village?"
+    },
+    {
+      "id": "node:rep_g_yangin",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 600.0)",
+      "character": "Eş",
+      "text": "How could it not, my lord? When the Tekfur's horsemen descended the valley, flames touched the heavens... When our rawhide shoes tore apart, you gave me your own boots and your feet turned to ice. Yet my heart trembles lest we wake to hoofbeats in the night once more."
+    },
+    {
+      "id": "node:opt_g_yangin_mert",
+      "type": "DIALOGUE_OPTION",
+      "position": "(2100.0, 540.0)",
+      "character": "Muhafız",
+      "text": "Those days are behind us; the ramparts of this village and my own chest are your shield."
+    },
+    {
+      "id": "node:rep_g_yangin_mert",
+      "type": "DIALOGUE",
+      "position": "(2450.0, 540.0)",
+      "character": "Eş",
+      "text": "I know, my champion... If I did not freeze in that mud, it was because I walked in your footsteps. May you live long."
+    },
+    {
+      "id": "node:act_g_yangin_mert",
+      "type": "ACTION",
+      "position": "(2800.0, 540.0)",
+      "description": "Devotion and Resolve",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:opt_g_yangin_kaygi",
+      "type": "DIALOGUE_OPTION",
+      "position": "(2100.0, 660.0)",
+      "character": "Muhafız",
+      "text": "I too cannot forget that smoke; whenever I look at the ramparts I see those flames."
+    },
+    {
+      "id": "node:rep_g_yangin_kaygi",
+      "type": "DIALOGUE",
+      "position": "(2450.0, 660.0)",
+      "character": "Eş",
+      "text": "Never forget it, my lord; those who forget are taken unawares, yet do not make fear your companion. Come sit, let your shoulders rest."
+    },
+    {
+      "id": "node:act_g_yangin_kaygi",
+      "type": "ACTION",
+      "position": "(2800.0, 660.0)",
+      "description": "Prudent Vigilance",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:opt_g_yetim",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 720.0)",
+      "character": "Muhafız",
+      "text": "Whenever you look upon Turna and Dursun, I sense you sighing for our own destiny."
+    },
+    {
+      "id": "node:rep_g_yetim",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 720.0)",
+      "character": "Eş",
+      "text": "Heaven forbid I rebel against fate, my lord! Three winters have passed since we crossed this threshold, yet there is no child's laughter in our home. When I see infants struck down by plague my heart weeps; I think, 'Had Heaven granted us a child, how could we shelter it in this frost?'"
+    },
+    {
+      "id": "node:opt_g_yetim_umut",
+      "type": "DIALOGUE_OPTION",
+      "position": "(2100.0, 720.0)",
+      "character": "Muhafız",
+      "text": "Turna and Dursun are our sacred trust now; so long as the hearth smokes, hope still breathes."
+    },
+    {
+      "id": "node:rep_g_yetim_umut",
+      "type": "DIALOGUE",
+      "position": "(2450.0, 720.0)",
+      "character": "Eş",
+      "text": "When you speak so, ease settles upon my soul, my lord. I shall knit a wool vest for Turna, and give Dursun a bowl of warm molasses gruel. A household that feeds an orphan never lacks blessing."
+    },
+    {
+      "id": "node:act_g_yetim_umut",
+      "type": "ACTION",
+      "position": "(2800.0, 720.0)",
+      "description": "Orphan Care and Compassion",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:opt_g_yetim_sabir",
+      "type": "DIALOGUE_OPTION",
+      "position": "(2100.0, 780.0)",
+      "character": "Muhafız",
+      "text": "It is the Almighty who grants both sustenance and patience; when the hour arrives our hearth shall be joyous."
+    },
+    {
+      "id": "node:rep_g_yetim_sabir",
+      "type": "DIALOGUE",
+      "position": "(2450.0, 780.0)",
+      "character": "Eş",
+      "text": "You speak righteous words, my lord. We shall endure with patience, so long as the bread entering our gate remains lawful."
+    },
+    {
+      "id": "node:act_g_yetim_sabir",
+      "type": "ACTION",
+      "position": "(2800.0, 780.0)",
+      "description": "Patience and Faith",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:opt_g_sifa",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 840.0)",
+      "character": "Muhafız",
+      "text": "The north wind dried my lungs, wife; what is this soothing brew whose aroma fills the hearth?"
+    },
+    {
+      "id": "node:rep_g_sifa",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 840.0)",
+      "character": "Eş",
+      "text": "It is wild mountain thyme, dried linden blossoms, and pine honey brought by Karaca Usta, my lord. Frost has gathered upon your beard again; unbuckle your belt and drink this warm cup."
+    },
+    {
+      "id": "node:opt_g_sifa_minnet",
+      "type": "DIALOGUE_OPTION",
+      "position": "(2100.0, 840.0)",
+      "character": "Muhafız",
+      "text": "Bless your hands, wife; in this bitter cold it came like water of life."
+    },
+    {
+      "id": "node:rep_g_sifa_minnet",
+      "type": "DIALOGUE",
+      "position": "(2450.0, 840.0)",
+      "character": "Eş",
+      "text": "Freely given to my champion. If you did not stand watch out there, we could never sleep in peace here. Rest your back against the hearth and close your eyes."
+    },
+    {
+      "id": "node:act_g_sifa_minnet",
+      "type": "ACTION",
+      "position": "(2800.0, 840.0)",
+      "description": "Spouse Healing and Vigor",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:opt_g_sifa_saka",
+      "type": "DIALOGUE_OPTION",
+      "position": "(2100.0, 900.0)",
+      "character": "Muhafız",
+      "text": "Honey is costly, wife; if we do not guard our coins carefully we will face hardship midwinter."
+    },
+    {
+      "id": "node:rep_g_sifa_saka",
+      "type": "DIALOGUE",
+      "position": "(2450.0, 900.0)",
+      "character": "Eş",
+      "text": "Coins can be earned again, sentry, but life cannot! If you take to bed sick, will silver coins stand vigil at the village gate? Drink it and cease your grumbling!"
+    },
+    {
+      "id": "node:act_g_sifa_saka",
+      "type": "ACTION",
+      "position": "(2800.0, 900.0)",
+      "description": "Gentle Chiding",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
     }
   ],
   "edges": [
@@ -2545,6 +2751,294 @@
     {
       "id": "e_act_z_veba_kayip_to_end",
       "from_node": "node:act_z_veba_kayip",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_selam_to_opt",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_gecmis",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_opt_to_rep",
+      "from_node": "node:opt_gecmis",
+      "from_slot": 0,
+      "to_node": "node:rep_gecmis",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_to_yangin",
+      "from_node": "node:rep_gecmis",
+      "from_slot": 0,
+      "to_node": "node:opt_g_yangin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_yangin_to_rep",
+      "from_node": "node:opt_g_yangin",
+      "from_slot": 0,
+      "to_node": "node:rep_g_yangin",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_yangin_to_mert",
+      "from_node": "node:rep_g_yangin",
+      "from_slot": 0,
+      "to_node": "node:opt_g_yangin_mert",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_mert_to_rep",
+      "from_node": "node:opt_g_yangin_mert",
+      "from_slot": 0,
+      "to_node": "node:rep_g_yangin_mert",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_mert_to_act",
+      "from_node": "node:rep_g_yangin_mert",
+      "from_slot": 0,
+      "to_node": "node:act_g_yangin_mert",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_act_mert_to_end",
+      "from_node": "node:act_g_yangin_mert",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_yangin_to_kaygi",
+      "from_node": "node:rep_g_yangin",
+      "from_slot": 0,
+      "to_node": "node:opt_g_yangin_kaygi",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_kaygi_to_rep",
+      "from_node": "node:opt_g_yangin_kaygi",
+      "from_slot": 0,
+      "to_node": "node:rep_g_yangin_kaygi",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_kaygi_to_act",
+      "from_node": "node:rep_g_yangin_kaygi",
+      "from_slot": 0,
+      "to_node": "node:act_g_yangin_kaygi",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_act_kaygi_to_end",
+      "from_node": "node:act_g_yangin_kaygi",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_to_yetim",
+      "from_node": "node:rep_gecmis",
+      "from_slot": 0,
+      "to_node": "node:opt_g_yetim",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_yetim_to_rep",
+      "from_node": "node:opt_g_yetim",
+      "from_slot": 0,
+      "to_node": "node:rep_g_yetim",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_yetim_to_umut",
+      "from_node": "node:rep_g_yetim",
+      "from_slot": 0,
+      "to_node": "node:opt_g_yetim_umut",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_umut_to_rep",
+      "from_node": "node:opt_g_yetim_umut",
+      "from_slot": 0,
+      "to_node": "node:rep_g_yetim_umut",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_umut_to_act",
+      "from_node": "node:rep_g_yetim_umut",
+      "from_slot": 0,
+      "to_node": "node:act_g_yetim_umut",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_act_umut_to_end",
+      "from_node": "node:act_g_yetim_umut",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_yetim_to_sabir",
+      "from_node": "node:rep_g_yetim",
+      "from_slot": 0,
+      "to_node": "node:opt_g_yetim_sabir",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_sabir_to_rep",
+      "from_node": "node:opt_g_yetim_sabir",
+      "from_slot": 0,
+      "to_node": "node:rep_g_yetim_sabir",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_sabir_to_act",
+      "from_node": "node:rep_g_yetim_sabir",
+      "from_slot": 0,
+      "to_node": "node:act_g_yetim_sabir",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_act_sabir_to_end",
+      "from_node": "node:act_g_yetim_sabir",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_to_sifa",
+      "from_node": "node:rep_gecmis",
+      "from_slot": 0,
+      "to_node": "node:opt_g_sifa",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_sifa_to_rep",
+      "from_node": "node:opt_g_sifa",
+      "from_slot": 0,
+      "to_node": "node:rep_g_sifa",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_sifa_to_minnet",
+      "from_node": "node:rep_g_sifa",
+      "from_slot": 0,
+      "to_node": "node:opt_g_sifa_minnet",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_minnet_to_rep",
+      "from_node": "node:opt_g_sifa_minnet",
+      "from_slot": 0,
+      "to_node": "node:rep_g_sifa_minnet",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_minnet_to_act",
+      "from_node": "node:rep_g_sifa_minnet",
+      "from_slot": 0,
+      "to_node": "node:act_g_sifa_minnet",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_act_minnet_to_end",
+      "from_node": "node:act_g_sifa_minnet",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_sifa_to_saka",
+      "from_node": "node:rep_g_sifa",
+      "from_slot": 0,
+      "to_node": "node:opt_g_sifa_saka",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_saka_to_rep",
+      "from_node": "node:opt_g_sifa_saka",
+      "from_slot": 0,
+      "to_node": "node:rep_g_sifa_saka",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_rep_saka_to_act",
+      "from_node": "node:rep_g_sifa_saka",
+      "from_slot": 0,
+      "to_node": "node:act_g_sifa_saka",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_g_act_saka_to_end",
+      "from_node": "node:act_g_sifa_saka",
       "from_slot": 0,
       "to_node": "node:end",
       "to_slot": 0,

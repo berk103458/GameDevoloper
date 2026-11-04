@@ -37,6 +37,15 @@
   - [x] `docs/ROADMAP_ONERILERI_ANTIGRAVITY.md`'deki 7 önerinin tamamı (ANL-DON-01, ES-GECM-01, ANL-EPI-01, SOY-SON-01, KVR-SES-01, MECLIS-ARA-01, SES-DIL-01) `ROADMAP_2.md`'ye eklendi.
   - [x] Sahiplikler açıkça belirtildi: Kod isteyen kısımlar Kalfa'ya (`sonuc_epilog_olusturucu.gd`, hava entegrasyonu), anlatı ve diyalog Antigravity'ye.
   - [x] Commit & Fast-Forward Push: `ROADMAP-ONERI-01: Ahmet tarafindan onaylanan 7 yeni anlati ve diyalog maddesinin ROADMAP_2'ye eklenmesi (Antigravity)`
-- [ ] **Parti 3 — ES-GECM-01 & ANL-DON-01 Uygulanması**
+- [x] **Parti 3 — ES-GECM-01 & ANL-DON-01 Uygulanması:**
+  - [x] **ES-GECM-01 (Eşin Geçmişi ve Anlatı Yayları):**
+    - `data/parley/koy/koylu_muhabbet_es.ds` ve `data/parley/en/koy/koylu_muhabbet_es.ds` içine 3 derin anlatı dalı (Eski köy yangını/göç, yetimler ve çocuksuzluk hüznü, ayazda şifalı ıhlamur/bal) tam etkileşimli diyalog düğümleri ve ahlaki seçimlerle eklendi.
+    - `data/soz/aksam_konulari.json` ve `data/soz/en/aksam_konulari.json` içine 3 yeni akşam dertleşme konusu (`es_yangin_ve_goc`, `es_yetim_ve_cocuk`, `es_gece_sifasi`) eklendi.
+    - `ROADMAP_2.md` üzerinde `ES-GECM-01 [x] (Antigravity)` olarak işaretlendi.
+  - [x] **ANL-DON-01 (Ziyaretçi Geri Dönüş Döngüsü - Echo Visits):**
+    - `data/diyalog/diyalog_donusler.json` ve `data/diyalog/en/diyalog_donusler.json` oluşturuldu (6 kritik karakterin 5-10 gece sonra kapıda ve meydanda dönüş sekansları: Sungur hasım dönüşü, Sungur müttefik teftiş ihbarı, Turna & Dursun ilk fırın ekmeği, Lokman sahte merhem arbedesi, Banu Hatun zafer ganimeti, Behram vefa hediyesi).
+    - `ROADMAP_2.md` üzerinde `ANL-DON-01 [x] (Antigravity)` olarak işaretlendi.
+  - [x] `tests/unit/diyalog/es_gecmis_ve_donusler_test.gd` birim testi yazıldı ve 0 hatayla geçti.
+  - [x] Commit & Fast-Forward Push: `feat(ES-GECM-01, ANL-DON-01): Eşin geçmişi anlatı yayları ve ziyaretçi geri dönüş döngüsü entegrasyonu (Antigravity); asset gerekmedi`
 - [ ] **Parti 4 — SOY-SON-01 & MECLIS-ARA-01 Uygulanması**
 - [ ] **Parti 5 — ANL-EPI-01, KVR-SES-01, SES-DIL-01 & Bitiş**

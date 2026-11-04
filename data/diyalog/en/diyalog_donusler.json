@@ -1,0 +1,212 @@
+[
+  {
+    "id": "donus_sungur_hasim",
+    "kaynak_id": "chr_023",
+    "en_erken_gece": 12,
+    "kosul": "sungur_reddedildi",
+    "ad_anahtari": "Banner Sergeant Sungur",
+    "sinif": "asker",
+    "sahne": "Sungur returns not alone this time; four provincial guards accompany him, brandishing a red-sealed search warrant from the Sivas Divan.",
+    "acilis": "Do you recall me, sentry master? 'Not a bird shall pass,' you declared. Gaze upon this edict! Under the Beylik seal it commands every storehouse and dwelling to be searched for fugitives! Step aside, or I shall tear this gate down upon your head!",
+    "sorular": [
+      [
+        "Show the seal of that edict, sergeant; which Divan judge signed it?",
+        "It bears the personal tughra of Judge Fahrettin of Sivas, sentry! Tidings reached us that you shelter mountain fugitives in your village; I shall not take one step back from this portal without conducting our search!"
+      ],
+      [
+        "The village order and household honor are entrusted to me; can you restrain your troopers from committing outrages in the square?",
+        "My troopers know the law of the Beylik! Yet whoever draws steel against us shall lose his head before the court; offer us no resistance!"
+      ]
+    ],
+    "secenekler": [
+      "kabul",
+      "ret"
+    ],
+    "yanitlar": {
+      "kabul": "Wisdom returns to you at last, sentry. I shall enter with merely two guards, inspect the granary, and depart. For now, your village order remains undisturbed.",
+      "ret": "You shall pay for this audacity in court after court, sentry! When I return from Sivas with a magistrate's deputy, may I not be called Sungur if I do not uproot this gate!"
+    },
+    "sonuclar": {
+      "kabul": {
+        "asayis": -2,
+        "adalet": 1,
+        "bayrak": "sungur_ikinci_arama_yapildi"
+      },
+      "ret": {
+        "asayis": 2,
+        "bayrak": "sungur_dusman_oldu"
+      }
+    }
+  },
+  {
+    "id": "donus_sungur_muttefik",
+    "kaynak_id": "chr_023",
+    "en_erken_gece": 10,
+    "kosul": "sungur_tatmin_edildi",
+    "ad_anahtari": "Banner Sergeant Sungur",
+    "sinif": "asker",
+    "sahne": "Sungur approaches on a single steed through the night storm, whispering secretly up to the tower embrasure.",
+    "acilis": "Sentry! Unlatch this grate and keep silent. I owed you a debt. In two days a Sivas inspection delegation reaches this pass. Conceal the contraband barley in your granary and the absent roster entries. You heard nothing from me!",
+    "sorular": [
+      [
+        "Who leads this inspection delegation, Sergeant Sungur; what is the court's purpose?",
+        "Auditor Kemaleddin Efendi heads it, carrying his audit scales. Guard your coins and ledgers tightly!"
+      ],
+      [
+        "Do you grant this favor without seeking reward; if the Divan discovers it, is not your neck at forfeit?",
+        "We broke bread and received sustenance at your portal, sentry. A Turkmen warrior forgets not the law of salt and bread; my debt is paid!"
+      ]
+    ],
+    "secenekler": [
+      "kabul"
+    ],
+    "yanitlar": {
+      "kabul": "Bless you, sentry. I ride into the darkness; be well prepared when the teftish arrives."
+    },
+    "sonuclar": {
+      "kabul": {
+        "guvenlik": 2,
+        "bayrak": "divan_teftis_ihbari"
+      }
+    }
+  },
+  {
+    "id": "donus_dursun_turna",
+    "kaynak_id": "chr_025",
+    "en_erken_gece": 8,
+    "kosul": "dursun_ve_turna_kabul",
+    "ad_anahtari": "Nephews Dursun and Turna",
+    "sinif": "ciftci",
+    "sahne": "In the morning frost of the watch, Dursun in his flour-dusted cap and Turna cradling a fresh loaf wrapped in white linen ascend the gate tower.",
+    "acilis": "Uncle! Sister Ayse lit the bakery oven this morning! We baked our very first harvest loaf. Turna said 'let us take it before uncle's watch ends, lest it grow cold'.",
+    "sorular": [
+      [
+        "Turna my child, does uncle Hamza's ring still remain safe; have you learned the baker's craft?",
+        "I stitched it inside my vest, uncle, right above my heart! Sister Ayse taught me to knead the dough and scatter sesame; we brought you the finest loaf in the village!"
+      ],
+      [
+        "Dursun my lion, did you haul the oven logs and pump the bellows; you bring no burden upon your uncle, do you?",
+        "I hauled three cartloads of brushwood daily, uncle! My arms have grown strong; now our own sweat and flour are baked into this village bread!"
+      ]
+    ],
+    "secenekler": [
+      "kabul"
+    ],
+    "yanitlar": {
+      "kabul": "May abundance bless you, my lambs! This warm loaf of yours fills the heart of an entire tribe; long may you live!"
+    },
+    "sonuclar": {
+      "kabul": {
+        "moral": 3,
+        "es_mutluluk": 2,
+        "bayrak": "dursun_turna_mutlu"
+      }
+    }
+  },
+  {
+    "id": "donus_lokman_ihanet",
+    "kaynak_id": "chr_026",
+    "en_erken_gece": 9,
+    "kosul": "lokman_kabul",
+    "ad_anahtari": "Blacksmith Karaca and Lokman",
+    "sinif": "zanaatci",
+    "sahne": "An uproar erupts in the village square. Blacksmith Karaca Usta drags the quack Lokman by the scruff of his neck to the gate.",
+    "acilis": "You admitted this charlatan through the gate, sentry! He rubbed poppy oil onto my apprentice Musa's aching tooth claiming it was 'a cure', and the boy has not awakened in two days! And counterfeit Seljuk dirhams were found in his pouch!",
+    "sorular": [
+      [
+        "Lokman! You entered our gates claiming to be a physician; what poison did you administer to the lad, and why are your dirhams forged?",
+        "False accusation, gatekeeper master! I gave him mountain poppy extract to quell the agony; Karaca Usta owes me wages and raises a clamor to avoid paying!"
+      ],
+      [
+        "Karaca Usta, does the child live; has Healer Miraen intervened?",
+        "Healer Miraen had him drink saltwater and purged his stomach; thanks be to Heaven the boy was saved. Yet this scoundrel has no place in our settlement, sentry!"
+      ]
+    ],
+    "secenekler": [
+      "kabul",
+      "ret"
+    ],
+    "yanitlar": {
+      "kabul": "Judgment is rendered: Confiscate his medicine vials and deliver them to Miraen; cane him in the square and banish him beyond the gate!",
+      "ret": "This offense cannot be lightly pardoned! Lock him in the tower dungeon; let him be chained in the forge until the magistrate arrives!"
+    },
+    "sonuclar": {
+      "kabul": {
+        "adalet": 2,
+        "asayis": 1,
+        "bayrak": "lokman_kovuldu"
+      },
+      "ret": {
+        "adalet": 1,
+        "akce": 1,
+        "bayrak": "lokman_zindanda"
+      }
+    }
+  },
+  {
+    "id": "donus_banu_zafer",
+    "kaynak_id": "chr_028",
+    "en_erken_gece": 14,
+    "kosul": "banu_ittifak_kabul",
+    "ad_anahtari": "Banu Hatun",
+    "sinif": "asker",
+    "sahne": "Banu Hatun rides out before the village on a snowy night with ten riders; captured bucklers hang from her saddle.",
+    "acilis": "Gatekeeper! No need to unbolt the portals, I came to bring glad tidings. We cornered thirty marauders of the Tekfur in the creek bed. We seized their mounts and arms. Five horses and ten spears we leave at your gate, freely given to your garrison sentries!",
+    "sorular": [
+      [
+        "Valiant Hatun! Were any of your warriors wounded in battle; shall we dispatch Healer Miraen to your camp?",
+        "Only two of my braves took glancing cuts to the shoulder; we bound them with mountain thyme. We are the wolves of the crags, sentry; our wounds scab quickly!"
+      ],
+      [
+        "Will the Tekfur dispatch a fresh host into the defile after this defeat; what report your scouts?",
+        "The Tekfur cannot abandon his keep in dead winter! This blow will suffice him all season; guard your storehouse well, the frontier is held by us!"
+      ]
+    ],
+    "secenekler": [
+      "kabul"
+    ],
+    "yanitlar": {
+      "kabul": "Blessings upon you, Banu Hatun! So long as Turkmen steel gleams along the frontier, this village shall never bow; may your spoils bring prosperity!"
+    },
+    "sonuclar": {
+      "kabul": {
+        "savunma": 3,
+        "moral": 2,
+        "bayrak": "banu_ittifak_pekisti"
+      }
+    }
+  },
+  {
+    "id": "donus_behram_vefa",
+    "kaynak_id": "chr_014",
+    "en_erken_gece": 11,
+    "kosul": "behram_kabul",
+    "ad_anahtari": "Saffron Merchant Behram of Tabriz",
+    "sinif": "tuccar",
+    "sahne": "Behram's pack mules loaded with salt and dried fruit halt at the gate on their return journey; fragrance of spices wafts from their packs.",
+    "acilis": "Peace be upon you, sentry master! We safely brought our Tabriz caravan to the market of Konya. That night I rested at your portal saved my very life; brigands were lying in wait for me in the hills. Accept these two sacks of dried figs and a wineskin of Aleppo olive oil as a gift for your lady at home.",
+    "sorular": [
+      [
+        "Safe travels, Behram; how is the name of our march settlement remembered in the Konya market?",
+        "They call you the just sentry of Sultan Alaeddin, master! Your renown has spread as the gate that oppresses no caravan merchant and robs no traveler."
+      ],
+      [
+        "Did you encounter brigand tracks on your return through the pass; have winter roads closed?",
+        "Snow has blanketed Karacadag pass, yet Banu Hatun's horsemen hold the defile; they grant brigands no breath. The road is secure."
+      ]
+    ],
+    "secenekler": [
+      "kabul"
+    ],
+    "yanitlar": {
+      "kabul": "May you reap abundance, chief merchant! May the road remain open to those who earn honorably; your gift honors my hearth."
+    },
+    "sonuclar": {
+      "kabul": {
+        "erzak": 2,
+        "akce": 1,
+        "bayrak": "behram_vefa_gosterdi"
+      }
+    }
+  }
+]

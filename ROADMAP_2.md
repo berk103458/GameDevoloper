@@ -9017,7 +9017,7 @@ Yalnız repodaki hazır 3D, animasyon, ses ve VFX kaynakları bağlanır. Mekani
 
 Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi (docs/ROADMAP_ONERILERI_ANTIGRAVITY.md). Metin ve diyalog tasarımı Antigravity'ye, görsel UI/sonuç motoru kodları Kalfa'ya aittir.
 
-- [ ] **ANL-DON-01:** Ziyaretçi geri dönüş döngüsü ve ikinci karşılaşmalar (Echo Visits). (Antigravity)
+- [x] **ANL-DON-01:** Ziyaretçi geri dönüş döngüsü ve ikinci karşılaşmalar (Echo Visits). (Antigravity)
   - Amaç: Kapıdan içeri alınan veya reddedilen kritik ziyaretçilerin (Dursun, Turna, Lokman, Sungur, Banu Hatun) 5-10 gece sonra yeni durumlarla geri dönmesi.
   - Kurallar:
     1. Kapıda açılan bayraklara bağlı olarak döner; rastgele değil.
@@ -9027,7 +9027,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/diyalog/diyalog_donusler.json, data/diyalog/en/diyalog_donusler.json.
   - Asset: asset gerekmedi.
 
-- [ ] **ES-GECM-01:** Eşin kişisel anlatı yayının genişletilmesi: geçmiş, yetimler ve şifa. (Antigravity)
+- [x] **ES-GECM-01:** Eşin kişisel anlatı yayının genişletilmesi: geçmiş, yetimler ve şifa. (Antigravity)
   - Amaç: Oda dertleşmesinde eşin iç dünyasını ve duygusal bağını derinleştiren 3 yeni anlatı dalı açılması.
   - Kurallar:
     1. Dal 1: Eski köyün yangını ve göç yolu çilesi (es_guven >= 1).

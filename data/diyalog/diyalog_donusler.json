@@ -1,0 +1,212 @@
+[
+  {
+    "id": "donus_sungur_hasim",
+    "kaynak_id": "chr_023",
+    "en_erken_gece": 12,
+    "kosul": "sungur_reddedildi",
+    "ad_anahtari": "Sancak Çavuşu Sungur",
+    "sinif": "asker",
+    "sahne": "Sungur bu defa tek başına değil; yanında 4 sancak muhafızı, elinde Sivas Divanı'nın kırmızı mühürlü arama fermanıyla kapıya dayandı.",
+    "acilis": "Hatırladın mı beni muhafız efendi? 'Kapıdan kuş uçurtmam' diyordun. Bak bakalım bu fermana! Beylik mührü altında firari avı için her ambar ve hane aranacaktır yazar! Çekil önümden, yoksa kapıyı başına yıkarım!",
+    "sorular": [
+      [
+        "Fermanın mührünü göster bakalım çavuş; hangi divan kadısının imzası vardır?",
+        "Sivas kadısı Fahrettin Efendi'nin bizzat tuğrasıdır muhafız! Dağdaki kaçakları köyünde sakladığın ihbarı geldi; arama yapmadan bu kapıdan tek adım geri atmam!"
+      ],
+      [
+        "Köyün asayişi ve hanelerin namusu bana emanettir; askerlerini köy meydanında taşkınlık yapmayacak şekilde zapt edebilir misin?",
+        "Askerim beylik nizamını bilir! Lakin kim kılıç çekerse kellesini divana götürürüm; bize zorluk çıkarma!"
+      ]
+    ],
+    "secenekler": [
+      "kabul",
+      "ret"
+    ],
+    "yanitlar": {
+      "kabul": "Aklın başına geldi muhafız. Yalnız iki neferimle girer, ambarı kolaçan eder çıkarım. Köyün düzenine şimdilik dokunmadık.",
+      "ret": "Bu cüretin bedelini divan divan ödeyeceksin muhafız! Sivas'tan kadı naibiyle döndüğümde o kapıyı kökünden söktürmezsem bana da Sungur demesinler!"
+    },
+    "sonuclar": {
+      "kabul": {
+        "asayis": -2,
+        "adalet": 1,
+        "bayrak": "sungur_ikinci_arama_yapildi"
+      },
+      "ret": {
+        "asayis": 2,
+        "bayrak": "sungur_dusman_oldu"
+      }
+    }
+  },
+  {
+    "id": "donus_sungur_muttefik",
+    "kaynak_id": "chr_023",
+    "en_erken_gece": 10,
+    "kosul": "sungur_tatmin_edildi",
+    "ad_anahtari": "Sancak Çavuşu Sungur",
+    "sinif": "asker",
+    "sahne": "Sungur gece fırtınasında tek atla kapıya yaklaştı, kule mazgalına gizlice fısıldar.",
+    "acilis": "Muhafız! Aç şu mazgalı, ses etme. Sana borcum vardı. İki güne Sivas teftiş heyeti bu boğaza gelecek. Ambarınızdaki kaçak zahireyi ve askersiz nöbet defterini saklayın. Benden duymadın say!",
+    "sorular": [
+      [
+        "Bu teftiş heyetinin başında kim vardır Sungur çavuş; divanın maksadı nedir?",
+        "Müfettiş Kemaleddin Efendi gelir; heybesinde teftiş terazisi vardır. Akçeyi ve kütükleri sıkı tutun!"
+      ],
+      [
+        "Bu iyiliğini karşılıksız mı yaparsın; divan duyarsa kellen tehlikeye girmez mi?",
+        "Kapında ekmeğini yedik, rızkımızı aldık muhafız. Türkmen askeri tuz ekmek hakkını unutmaz; borcumu ödedim!"
+      ]
+    ],
+    "secenekler": [
+      "kabul"
+    ],
+    "yanitlar": {
+      "kabul": "Eksik olma muhafız. Ben atımı karanlığa sürerim; teftiş gelince hazırlıklı olasınız."
+    },
+    "sonuclar": {
+      "kabul": {
+        "guvenlik": 2,
+        "bayrak": "divan_teftis_ihbari"
+      }
+    }
+  },
+  {
+    "id": "donus_dursun_turna",
+    "kaynak_id": "chr_025",
+    "en_erken_gece": 8,
+    "kosul": "dursun_ve_turna_kabul",
+    "ad_anahtari": "Yeğenler Dursun ve Turna",
+    "sinif": "ciftci",
+    "sahne": "Sabah nöbetinin ayazında Dursun başında unlu fesi, Turna kucağında beyaz bezle sarılı sıcak somunla kapı kulesine çıkar.",
+    "acilis": "Dayı! Ayşe Bacı fırını yaktı bu sabah! İlk harman ekmeğini çıkardık. Turna dedi ki 'dayımın nöbeti bitmeden götürelim, soğumasın'.",
+    "sorular": [
+      [
+        "Turna kızım, Hamza dayınızın emaneti yüzük durur mu; fırında zanaatı öğrenebildin mi?",
+        "Yeleğimin içine diktim dayı, kalbimin üstünde durur! Ayşe Bacı hamur yoğurmayı, ekmeğe küncü serpmeyi öğretti; köyün en güzel somununu sana getirdik!"
+      ],
+      [
+        "Dursun aslanım, fırının odununu taşıyıp körüğünü çekebildin mi; dayına yük olmazsınız değil mi?",
+        "Günde üç araba çalı taşıdım dayı! Kollarım güçlendi; artık bu köyün ekmeğinde bizim de unumuz, alın terimiz var!"
+      ]
+    ],
+    "secenekler": [
+      "kabul"
+    ],
+    "yanitlar": {
+      "kabul": "Bereketli olsun kuzularım! Sizin şu sıcacık ekmeğiniz koca bir obanın yüreğini doyurur; var olun!"
+    },
+    "sonuclar": {
+      "kabul": {
+        "moral": 3,
+        "es_mutluluk": 2,
+        "bayrak": "dursun_turna_mutlu"
+      }
+    }
+  },
+  {
+    "id": "donus_lokman_ihanet",
+    "kaynak_id": "chr_026",
+    "en_erken_gece": 9,
+    "kosul": "lokman_kabul",
+    "ad_anahtari": "Nalbant Karaca ve Lokman",
+    "sinif": "zanaatci",
+    "sahne": "Köy meydanında feryat kopar. Nalbant Karaca Usta, sahtekâr Lokman'ı yakasından tutmuş kapıya sürükler.",
+    "acilis": "Bu sahtekârı kapıdan içeri aldın muhafız! Çırağım Musa'nın sancılanan dişine 'şifadır' diye afyon suyu sürmüş, çocuk iki gündür uyanamaz! Cebinden de sahte Selçuklu dirhemleri çıktı!",
+    "sorular": [
+      [
+        "Lokman! Hekimim diye köye girdin; çırağa verdiğin zehir nedir, dirhemlerin nesi sahtedir?",
+        "İftiradır muhafız ağam! Ağrıyı dindirmek için dağ afyonu verdim; Karaca Usta bana borçludur, parasını ödememek için yaygara koparıyor!"
+      ],
+      [
+        "Karaca Usta, çocuk sağ mıdır; Miraen hekim müdahale etti mi?",
+        "Miraen hekim çocuğa tuzlu su içirdi, midesini yıkadı da çok şükür canı kurtuldu. Lakin bu kalpazanın köyde yeri yoktur muhafız!"
+      ]
+    ],
+    "secenekler": [
+      "kabul",
+      "ret"
+    ],
+    "yanitlar": {
+      "kabul": "Hüküm verilmiştir: İlaç şişelerine el koyup Miraen'e teslim edin; kendisini de meydanda falakaya yatırıp kapı dışarı sürün!",
+      "ret": "Bu suç hafif geçiştirilemez! Kule zindanına kilitleyin; kadı naibi gelene kadar demirhanede zincire vurulsun!"
+    },
+    "sonuclar": {
+      "kabul": {
+        "adalet": 2,
+        "asayis": 1,
+        "bayrak": "lokman_kovuldu"
+      },
+      "ret": {
+        "adalet": 1,
+        "akce": 1,
+        "bayrak": "lokman_zindanda"
+      }
+    }
+  },
+  {
+    "id": "donus_banu_zafer",
+    "kaynak_id": "chr_028",
+    "en_erken_gece": 14,
+    "kosul": "banu_ittifak_kabul",
+    "ad_anahtari": "Banu Hatun",
+    "sinif": "asker",
+    "sahne": "Banu Hatun karlı gecede on süvarisiyle köyün önünde at oynatır; eyerinde ganimet kalkanları asılıdır.",
+    "acilis": "Muhafız! Kapıyı açmana lüzum yok, haber vermeye geldim. Vadide pusu kuran Tekfur'un otuz çapulcusunu derede kıstırdık. Atlarını ve pusatlarını aldık. Beş beygiri ve on mızrağı köyün kapısına bıraktık, nöbetçilerinize helaldir!",
+    "sorular": [
+      [
+        "Yiğit hatun! Çatışmada yaralanan çeriniz var mıdır; Miraen hekimi ordugâha gönderelim mi?",
+        "Yalnız iki yiğidim omzundan sıyrık aldı; dağ kekiğiyle sardık. Biz dağın kurduyuz muhafız; yaramız tez kabuk bağlar!"
+      ],
+      [
+        "Tekfur bu hezimetten sonra vadiye yeni ordu sürer mi; gözcüleriniz ne der?",
+        "Tekfur kış ortasında obasını terk edemez! Bu tokat ona bir kış yeter; siz ambarınızı sıkı tutun, sınır bizdedir!"
+      ]
+    ],
+    "secenekler": [
+      "kabul"
+    ],
+    "yanitlar": {
+      "kabul": "Var olasın Banu Hatun! Sınır boyunda Türkmen'in pusatı parladıkça bu köyün başı eğilmez; ganimetiniz bereketli olsun!"
+    },
+    "sonuclar": {
+      "kabul": {
+        "savunma": 3,
+        "moral": 2,
+        "bayrak": "banu_ittifak_pekisti"
+      }
+    }
+  },
+  {
+    "id": "donus_behram_vefa",
+    "kaynak_id": "chr_014",
+    "en_erken_gece": 11,
+    "kosul": "behram_kabul",
+    "ad_anahtari": "Tebrizli Safrancı Behram",
+    "sinif": "tuccar",
+    "sahne": "Behram'ın katırları tuz ve kuru meyve yüklü olarak dönüş yolunda kapıda mola verir; heybelerinden baharat kokusu yayılır.",
+    "acilis": "Selamünaleyküm muhafız ağam! Tebriz kervanını sağ salim Konya pazarına indirdik. Kapında dinlendiğim o gece hayatımı kurtardı; haramiler beni dağda bekliyormuş. Al şu iki çuval kuru incirle bir tulum Halep zeytinyağını; hanendeki hatununa hediyemdir.",
+    "sorular": [
+      [
+        "Yolun açık olsun Behram; Konya pazarında uç beyliğimizin namı nasıl anılır?",
+        "Sultan Alaeddin'in adaletli muhafızı derler sana ağam! Kervan ehline zulmetmeyen, tüccarı soymayan kapı diye namın yürüdü."
+      ],
+      [
+        "Dağ geçidinde harami izine rastladın mı dönüşte; kış yolları kapandı mı?",
+        "Karacadağ geçidi kar tuttu lakin Banu Hatun'un atlıları boğazı tutmuş; haramiye nefes aldırmıyorlar. Yol güvenlidir."
+      ]
+    ],
+    "secenekler": [
+      "kabul"
+    ],
+    "yanitlar": {
+      "kabul": "Bereketini gör tüccar başı! Helal kazananın yolu açık olsun; hediyen haneme şeref verdi."
+    },
+    "sonuclar": {
+      "kabul": {
+        "erzak": 2,
+        "akce": 1,
+        "bayrak": "behram_vefa_gosterdi"
+      }
+    }
+  }
+]

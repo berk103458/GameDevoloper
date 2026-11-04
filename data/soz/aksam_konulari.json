@@ -309,6 +309,84 @@
           "moral_etkisi": 0
         }
       }
+    },
+    "es_yangin_ve_goc": {
+      "agirlik": 4,
+      "baslik": "Eski Köyün Yangını ve Göç",
+      "es_replikleri": [
+        "Rüzgâr bacada uğuldadıkça aklım Tekfur'un yaktığı o eski köye düşer beyim...",
+        "Çarıklarımız çamurda parçalandığında bana kendi çizmelerini vermiştin de ayakların buz tutmuştu."
+      ],
+      "ipucu": "es_gecmis_yangin_bilindi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "O günler geride kaldı hatun; bu köyün surları da göğsüm de sana siperdir.",
+          "terazi": "savundu",
+          "moral_etkisi": 2
+        },
+        "kabul_etmek": {
+          "metin": "Ben de o dumanı unutmuyorum; nöbette her an tetikte beklerim.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "Muhafız közleri karıştırır, hatununun elini sımsıkı tutar.",
+          "terazi": "kacti",
+          "moral_etkisi": 1
+        }
+      }
+    },
+    "es_yetim_ve_cocuk": {
+      "agirlik": 4,
+      "baslik": "Yetimler ve Çocuk Korkusu",
+      "es_replikleri": [
+        "Turna ile Dursun'u gördükçe içim sızlar; üç kış geçti amma evimizde çocuk cıvıltısı yok beyim...",
+        "Dağ köylerinde vebadan kırılan sabileri duydukça kendi nasibimize iç çekerim."
+      ],
+      "ipucu": "es_yetim_analik_istegi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Turna ile Dursun artık bize emanettir; ocak tütüyorsa umut da tüter.",
+          "terazi": "savundu",
+          "moral_etkisi": 2
+        },
+        "kabul_etmek": {
+          "metin": "Rızkı veren de sabrı veren de Hak'tır; vakti gelince hanemiz şenlenir.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "Muhafız başını eğer, içindeki hüznü sessizce hatununa sarılarak teselli eder.",
+          "terazi": "kacti",
+          "moral_etkisi": 1
+        }
+      }
+    },
+    "es_gece_sifasi": {
+      "agirlik": 4,
+      "baslik": "Ayaz Nöbetinde Eş Şifası",
+      "es_replikleri": [
+        "Sakalın bıyığın kırağı tutmuş yine beyim; çöz kuşağını da kaynattığım şu kekikli ıhlamuru iç.",
+        "Kuzey yeli ciğerini kurutmuş senin; bu köyün kapısını sikkeler değil can tutar!"
+      ],
+      "ipucu": "es_sifa_ihlamur_verildi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Ellerin dert görmesin hatun; bu soğukta can suyu gibi geldi.",
+          "terazi": "savundu",
+          "moral_etkisi": 2
+        },
+        "kabul_etmek": {
+          "metin": "Bal pahalıdır amma canımız sağ olsun; helal olsun hatunuma.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "Muhafız sıcak maşrapayı iki eliyle kavrar, dumanı içine çeker.",
+          "terazi": "kacti",
+          "moral_etkisi": 1
+        }
+      }
     }
   }
 }

@@ -309,6 +309,84 @@
           "moral_etkisi": 0
         }
       }
+    },
+    "es_yangin_ve_goc": {
+      "agirlik": 4,
+      "baslik": "The Burning of the Old Village and Migration",
+      "es_replikleri": [
+        "As the wind howls down the chimney, my mind wanders back to our old village torched by the Tekfur, my lord...",
+        "When our shoes tore to shreds in the mud, you gave me your own boots and your feet turned to ice."
+      ],
+      "ipucu": "es_gecmis_yangin_bilindi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Those days are past, wife; the ramparts of this village and my own chest are your shield.",
+          "terazi": "savundu",
+          "moral_etkisi": 2
+        },
+        "kabul_etmek": {
+          "metin": "I too cannot forget that smoke; I keep vigilant guard on watch at all times.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "The sentry stirs the embers and holds his wife's hand tightly.",
+          "terazi": "kacti",
+          "moral_etkisi": 1
+        }
+      }
+    },
+    "es_yetim_ve_cocuk": {
+      "agirlik": 4,
+      "baslik": "Orphans and the Longing for Children",
+      "es_replikleri": [
+        "Whenever I look upon Turna and Dursun my heart weeps; three winters have passed yet our hearth lacks a child's laughter, my lord...",
+        "Hearing of infants perishing from plague in mountain hamlets, I sigh for our own destiny."
+      ],
+      "ipucu": "es_yetim_analik_istegi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Turna and Dursun are our sacred trust now; so long as the hearth smokes, hope still lives.",
+          "terazi": "savundu",
+          "moral_etkisi": 2
+        },
+        "kabul_etmek": {
+          "metin": "It is Heaven that bestows both sustenance and patience; in due time our home shall be joyful.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "The sentry bows his head, comforting his sorrow in silence by embracing his wife.",
+          "terazi": "kacti",
+          "moral_etkisi": 1
+        }
+      }
+    },
+    "es_gece_sifasi": {
+      "agirlik": 4,
+      "baslik": "Spouse's Herbal Remedy on Frost Watch",
+      "es_replikleri": [
+        "Rime has gathered upon your beard again, my lord; unbuckle your belt and drink this steaming linden and thyme brew.",
+        "The north wind has parched your lungs; it is living souls, not silver coins, that guard this village!"
+      ],
+      "ipucu": "es_sifa_ihlamur_verildi",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Bless your hands, wife; in this bitter cold it came like water of life.",
+          "terazi": "savundu",
+          "moral_etkisi": 2
+        },
+        "kabul_etmek": {
+          "metin": "Pine honey is costly, yet life is precious; blessings upon you, wife.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 1
+        },
+        "susmak": {
+          "metin": "The sentry clasps the warm mug with both hands, breathing in the fragrant steam.",
+          "terazi": "kacti",
+          "moral_etkisi": 1
+        }
+      }
     }
   }
 }
