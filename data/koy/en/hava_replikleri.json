@@ -1,0 +1,266 @@
+{
+  "karaca_usta": {
+    "yagmur": [
+      "The bellows reek of dampness, the forge is smoking in this downpour, guard.",
+      "If rain leaks from the roof, the charcoal gets wet; if charcoal gets wet, the hearth dies."
+    ],
+    "kar": [
+      "Iron quenched in the frost cracks easily; we must stoke the bellows hard.",
+      "The snow has blocked the door, but thank heavens the forge still burns; if anyone comes, we'll warm them."
+    ],
+    "ayaz": [
+      "The anvil is freezing cold; whoever touches it without gloves will leave skin on the iron.",
+      "Our breath freezes in the workshop. We must throw more oak logs into the embers."
+    ],
+    "sicak": [
+      "Fire rains from the heavens, and the hearth adds to it... One cannot stand by the anvil today.",
+      "Forging iron in this sweltering heat is torment; our water is nearly exhausted."
+    ],
+    "sis": [
+      "The fog has trapped the smoke; you cannot see a span ahead inside the workshop.",
+      "Even the hammer blows sound muffled in the mist; it is as though the village is asleep."
+    ]
+  },
+  "ayse_baci": {
+    "yagmur": [
+      "The skies have opened; if the roof leaks, the flour in the sacks will be ruined!",
+      "They say rain is a blessing, but the oven chimney smokes back and stings my eyes."
+    ],
+    "kar": [
+      "Come by the hearth; in this bitter snow, a soul without warm soup will not fare well.",
+      "The snow is knee-deep; steam rises high into the sky from the fresh bread out of the oven."
+    ],
+    "ayaz": [
+      "The water jar has turned to stone from the frost; my arms ache from breaking ice since dawn.",
+      "Tonight's frost is cruel; leave the oven ashes warm so the stray creatures do not freeze."
+    ],
+    "sicak": [
+      "The heat made the dough rise too quickly, but the stew sours fast; we must keep it in the cool cellar.",
+      "The midday sun burns like flame; combined with the oven heat, we can scarcely breathe."
+    ],
+    "sis": [
+      "They say even wolves creep into the village in this heavy fog; do not let the children outdoors.",
+      "Mist shrouds everything; I lost my bearings twice just carrying water from the fountain."
+    ]
+  },
+  "es": {
+    "yagmur": [
+      "You are soaked through... Come by the hearth, let me drape a dry shawl over your back.",
+      "The eaves are overflowing again; take care not to catch a chill keeping watch at the gate."
+    ],
+    "kar": [
+      "The blizzard howls atop the ramparts... Bundle up, my guard; that wind cuts to the marrow.",
+      "The snow has silenced the village; I will keep the soup piping hot until you return from watch."
+    ],
+    "ayaz": [
+      "The frost makes the floorboards creak tonight... Our firewood runs low, but the fire must not die.",
+      "Even iron freezes out there; your hands are ice, come stretch them toward the embers."
+    ],
+    "sicak": [
+      "The steppe sun scorches the plains; mind the heat does not strike your head on the ramparts.",
+      "I fear the well might dry up; this relentless heat makes everyone's temper flare."
+    ],
+    "sis": [
+      "The fog swallowed the gate tower whole; keep your eyes sharp on watch, my guard.",
+      "Footsteps sound deceptive in this haze; stay vigilant, your life is in our keeping."
+    ]
+  },
+  "saruca_hatun": {
+    "yagmur": [
+      "Rain brings abundance, yet dampness rots healing herbs; hang them under the porch at once.",
+      "The humidity stirs aches in stiff joints; I must prepare mustard poultices."
+    ],
+    "kar": [
+      "When snow falls, the elders' chests begin to rattle; we must brew linden tea with honey.",
+      "By grace I gathered mountain thyme before the blizzard closed the paths; our winter cure is ready."
+    ],
+    "ayaz": [
+      "Never bring frostbitten limbs directly to the fire; rub them gently with snowmelt first.",
+      "Tonight's dry freeze scorches the lungs; every hearth needs thyme steam before slumber."
+    ],
+    "sicak": [
+      "This scorching heat festers wounds swiftly; we must dress them with herbal vinegar.",
+      "Sunstroke can be deadly; those working the fields must bind wet cloths about their heads."
+    ],
+    "sis": [
+      "This thick mist settles heavy on the chest; those short of breath should chew mint and pine resin.",
+      "Damp ague spreads in murky weather; do not drink well water without boiling it first."
+    ]
+  },
+  "hasan_celebi": {
+    "yagmur": [
+      "If rain drips, the court registry is ruined; stow the parchments in leather pouches immediately.",
+      "The roof is about to leak; damp paper bleeds ink, writing today is a futile chore."
+    ],
+    "kar": [
+      "The snow has surely choked the passes; the courier from Konya must be stranded at the inn.",
+      "The blizzard batters the shutter; on such winter nights, one ought to read the ancient chronicles."
+    ],
+    "ayaz": [
+      "Ink has frozen solid in the inkhorn; I cannot write a letter without thawing the quill in warm ash.",
+      "Numb fingers cannot grip the reed; this biting frost slows even scholarship, guard."
+    ],
+    "sicak": [
+      "The heat presses so relentlessly that sheets of parchment curl in the scribe chamber.",
+      "The mind turns sluggish under this oppressive sun; I must wait for dusk to avoid ledger mistakes."
+    ],
+    "sis": [
+      "The fog turns the horizon into a deep well; where sight fails, rumors breed aplenty.",
+      "One does not survey boundaries in thick mist; the eyes easily deceive, guard."
+    ]
+  },
+  "yusuf": {
+    "yagmur": [
+      "The brook swells in spate! If we don't open the sluices, the water will smash the millwheel.",
+      "In rain the sheep's wool drinks water, making them twice as heavy; driving them is hard toil."
+    ],
+    "kar": [
+      "The snow drifts almost over the fold; the flock is penned within, but will our hay hold out?",
+      "The blizzard drives wolves toward human scent; I must unleash the hounds and keep sharp vigil."
+    ],
+    "ayaz": [
+      "Tonight's frost is lethal; I wrapped the newborn lambs in felt and placed them by the hearth.",
+      "The trough at the fountain froze over; I have been breaking ice all morning to water the beasts."
+    ],
+    "sicak": [
+      "The grass has withered in the sun; no graze remains, the sheep pant with tongues out in the shade.",
+      "The millrace runs shallow; the wheel barely turns at half speed, the milling will be delayed."
+    ],
+    "sis": [
+      "If I lose the bell's chime in this mist, sheep will plunge off the cliff; I dare not blink.",
+      "When fog settles, the wolf's eyes glint while the shepherd is blinded; may God preserve us."
+    ]
+  },
+  "miraen": {
+    "yagmur": [
+      "Rain softened the earth; it is the ideal hour to dig out licorice and mandrake roots.",
+      "Dried spices spoil in damp air; I must burn resin incense in the storehouse to dry the room."
+    ],
+    "kar": [
+      "Mountain snow freezes medicinal pine sap; hard to harvest, yet twice as potent in healing.",
+      "Soil under a snowy blanket carries a peculiar fragrance; in winter I brew hot spiced elixirs."
+    ],
+    "ayaz": [
+      "Rose oil in the phials has congealed; the bitter chill turns soft salve into hardened wax.",
+      "When frost burns the lungs, drink boiled ginger and cinnamon; keep the inner fire burning."
+    ],
+    "sicak": [
+      "The blistering heat evaporates volatile essences; I moved the musk and amber phials underground.",
+      "When parching heat strikes, scorpions and vipers creep from their crevices; watch your step."
+    ],
+    "sis": [
+      "In our highlands they called this fog 'the witch's breath'; it steals both path and wits.",
+      "The haze drifted from valley to village; burning wormwood smoke clears the fogged head."
+    ]
+  },
+  "thessra": {
+    "yagmur": [
+      "Dampness slackened the warp threads; carpets woven in this weather will not hold even knots.",
+      "The scent of rain soaked into the fleeces; if woven before drying, the cloth will sour."
+    ],
+    "kar": [
+      "When snow arrives, all folk clamor for heavy felt coats and wool socks; the shuttle never rests.",
+      "A white shroud blankets outside; sitting at the loom, I warm myself with vibrant spools of yarn."
+    ],
+    "ayaz": [
+      "My fingertips throb with icy pain; there is no feeling left to spin fine silk in this chill.",
+      "The freezing cold turned the wooden loom to stone; even the shuttle slips from numb fingers."
+    ],
+    "sicak": [
+      "Dry heat sets madder dye swiftly, yet makes fragile wool strands brittle.",
+      "Handling fleece in this stifling heat is torment; sweaty palms cling awkwardly to the thread."
+    ],
+    "sis": [
+      "Daylight vanished into the mist; my eyes ache counting warp knots, a lantern is barely enough.",
+      "The fog coats windows like frosted pane; patterns woven in this gloom will show flaws."
+    ]
+  },
+  "sorhan": {
+    "yagmur": [
+      "Rain washes tracks away; mud reveals quarry, yet the bowstring has slackened with moisture.",
+      "A heavy downpour deafens the woods; keep downwind or you won't stalk a single beast."
+    ],
+    "kar": [
+      "Tracks in fresh snow never lie; the deer herds moved down into the valley, time to hunt.",
+      "Blizzard blinds both hunter and beast; whoever loses direction in the snow dies frozen."
+    ],
+    "ayaz": [
+      "In dry frost a snapped branch cracks like gunshot; walking silently in the forest is impossible.",
+      "The horn backing of my bow has grown brittle; draw too hard in this frost and it will snap."
+    ],
+    "sicak": [
+      "No wild game stirs under scorching midday sun; all quarry lies motionless in deep thickets.",
+      "In this drought game must seek water; if you intend an ambush, wait beside the spring."
+    ],
+    "sis": [
+      "One does not hunt in thick mist; in mist, you are the hunted. Keep your ears tuned to the string.",
+      "Murky weather hides even bandit footprints; think twice before stepping outside the palisade."
+    ]
+  },
+  "aydogdu": {
+    "yagmur": [
+      "The heavens granted mercy, praise be; the crops drank deep, yet the plow sticks in heavy mud.",
+      "The rains overflow the gullies; unless we clear the ditch sluices, seed will rot under standing water."
+    ],
+    "kar": [
+      "Snow serves as blanket to winter wheat; snow in winter means brimming granaries in harvest.",
+      "The snow exceeds knee depth; if we don't shovel the barn roof, the rafters will split under weight."
+    ],
+    "ayaz": [
+      "Frost bites tender shoots to the core; we must mulch straw around the young orchard saplings.",
+      "Soil has turned to iron with the freeze; strike it with a pickaxe and sparks fly, but it won't budge."
+    ],
+    "sicak": [
+      "The ground has cracked with drought; I dread the grain will wither before heads can fill.",
+      "The sun hammers like an iron mallet; no water flows in the ditch, our backs break hauling buckets."
+    ],
+    "sis": [
+      "Morning fog brings blight rust to the grain; unless wind clears it by noon, ears will mildew.",
+      "You cannot see the field's edge in this mist; even the oxen lose their furrow and nudge the fence."
+    ]
+  },
+  "nogay": {
+    "yagmur": [
+      "Mail armor will rust in this downpour... The blade must be rubbed with sheep tallow every night.",
+      "Neither horse nor soldier gallops in mud; if foes advance in this mire, their own weight drowns them."
+    ],
+    "kar": [
+      "Snow swallows sound, guard; even if enemy riders reached the rampart base, you'd barely hear hooves.",
+      "Winter raids on the steppe are ruthless; let not sentries' eyelashes freeze together, keep alert!"
+    ],
+    "ayaz": [
+      "The iron helm clings frozen to my brow; the bowstring is stiff, pull it rashly and it snaps.",
+      "In dry freeze the dagger hilt glazes over; keep fingers inside your gauntlets, let not blood cool."
+    ],
+    "sicak": [
+      "Chainmail heats like an oven plate; standing guard under this glare is fiercer than battle.",
+      "Water in the flask has turned scalding; soldiers' tempers fray easily under such sun, beware fights."
+    ],
+    "sis": [
+      "Foggy weather is outlaw weather; archers cannot sight targets, keep your blade loose in scabbard!",
+      "On watch in mist, ears must be your eyes; if twigs snap beneath the wall, cast a torch down."
+    ]
+  },
+  "genel": {
+    "yagmur": [
+      "Lanes turned to mire lakes; nothing to do but stand on the threshold and wait for rain to abate.",
+      "Rain hammers upon the shingles; whoever has a dry nook in their home ought to give thanks today."
+    ],
+    "kar": [
+      "If we don't shovel the rooftop snow, rafters will collapse; winter brought abundance but harsh toil.",
+      "Snow settled silently over the roofs; whoever kindles pine kindling has no yearning to wander out."
+    ],
+    "ayaz": [
+      "The wind pierces to the bone; batten doors and flues so frost does not pierce the dwelling's peace.",
+      "Stones would shatter struck together in this freeze; our breath rises before us like smoke clouds."
+    ],
+    "sicak": [
+      "One cannot draw breath even in shaded nooks; streets lie deserted under this oppressive glare.",
+      "The sun beats so fierce it could spark dry rocks; we pray for any whisper of cool breeze."
+    ],
+    "sis": [
+      "Fog swallowed the far end of the village; you cannot see a span ahead, none know who passes.",
+      "When mist thickens, even bells and calls vanish; an eerie quiet has claimed the hamlet."
+    ]
+  }
+}

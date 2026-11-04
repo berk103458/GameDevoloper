@@ -1,7 +1,7 @@
 # SOY-SON-01 ve MECLIS-ARA-01 doğrulama testi
 extends SceneTree
 
-func _init() -> void:
+func _initialize() -> void:
 	print("--- SOY-SON-01 & MECLIS-ARA-01 TESTI BASLADI ---")
 
 	# 1. SOY-SON-01 Kapanış Olayları kontrolü

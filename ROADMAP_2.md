@@ -9058,14 +9058,14 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/olaylar/, src/sistemler/soylenti_agi.gd.
   - Asset: asset gerekmedi.
 
-- [ ] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin: Antigravity, Kod: Kalfa)
+- [/] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin: [x] Antigravity-C, Kod: Kalfa bekleniyor)
   - Amaç: Sert Anadolu kışını hissettirmek için hava durumu ve ayaza bağlı dinamik açılış replikleri eklenmesi.
   - Kurallar:
     1. Tipi, fırtına ve ayazda ziyaretçinin ve muhafızın diş vurma/titreme replikleri (kapi.hava.*).
     2. Metinler ve ince replik adaptörü Antigravity tarafından hazırlanır; derin hava motoru entegrasyonu Kalfa'ya aittir.
-  - Kabul: kapi.hava.* anahtarları tanımlı ve testlerde sıfır hatadır.
+  - Kabul: kapi.hava.* ve kvr.hava.* anahtarları tanımlı ve testlerde sıfır hatadır. (Metin kısmı tamamlandı, 12 köylü + kapı nöbeti 136 anahtar TR/EN ve adaptör hazırlandı: Antigravity-C)
   - Bağımlılık: DNY hava sistemi. Boyut: S.
-  - Dosya: data/metin/metinler.csv, src/soz/hava_replik_adaptoru.gd.
+  - Dosya: data/metin/metinler.csv, src/koy/hava_replik_adaptoru.gd, data/koy/hava_replikleri.json.
   - Asset: asset gerekmedi.
 
 - [x] **MECLIS-ARA-01:** Çınar Meclisi interaktif dava sistemi (Muhafız'ın kadı/hakem rolü). (Antigravity)
