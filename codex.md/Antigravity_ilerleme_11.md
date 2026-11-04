@@ -10,13 +10,13 @@
 ---
 
 ## Genel Durum ve Plan
-- [/] **Bölüm A — metinler.csv'nin Kalanı:** `docs/INGILIZCE_METIN_TASLAGI.csv`'de henüz bulunmayan 1895 anahtarın dönem İngilizcesine uygun olarak eklenmesi.
+- [x] **Bölüm A — metinler.csv'nin Kalanı:** `docs/INGILIZCE_METIN_TASLAGI.csv`'de henüz bulunmayan tüm anahtarlar (1895 anahtar) dönem İngilizcesine uygun olarak eklendi (eksik anahtar: 0).
   - [x] Parti A1: Öğretici, ipuçları, hafıza, defter, nöbet, sabah hükmü, anlatı, bar, bitki, eşya, heybe, karakter, kayıt, tez, yıl, açılış (162 anahtar eklendi)
   - [x] Parti A2: Olay metinleri (`olay.*`, 364 anahtar eklendi)
   - [x] Parti A3: Köy metinleri (`koy.*`, 277 anahtar eklendi)
   - [x] Parti A4: Şablon metinleri (`sablon.*`, 102 anahtar eklendi)
-  - [ ] Parti A5: Sohbet metinleri (`sohbet.*`, 999 anahtar)
-- [ ] **Bölüm B — Diyaloglar:** `docs/ingilizce_diyalog/` klasörü altına oyunun orijinal JSON ve Parley dosyalarının yapısı birebir korunarak İngilizce çevirilerinin hazırlanması.
+  - [x] Parti A5: Sohbet metinleri (`sohbet.*`, 996 anahtar: köylüler 276 + ziyaretçiler 720)
+- [/] **Bölüm B — Diyaloglar:** `docs/ingilizce_diyalog/` klasörü altına oyunun orijinal JSON ve Parley dosyalarının yapısı birebir korunarak İngilizce çevirilerinin hazırlanması.
   - [ ] Parti B1: 30 Ziyaretçi Diyaloğu (`diyalog_01_20.json` - diyalog_01 ila diyalog_30)
   - [ ] Parti B2: Eş Kapı Düşünceleri (`es_kapi_dusunceleri.json` - 30 ziyaretçi + genel)
   - [ ] Parti B3: Köylü ve Eş Parley Sohbetleri (`koylu_muhabbet_*.ds` ve sekanslar)
