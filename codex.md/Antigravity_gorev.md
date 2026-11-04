@@ -319,3 +319,37 @@ Ahmet şunu istedi: "Bunları bitirince ROADMAP'ten devam etsin, sabaha kadar de
 - Her partiden sonra doğrulayıcıları ve Godot headless testlerini çalıştır, sonuç 0 hata olsun.
 - Bir şeyden emin değilsen dosyaya "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
 
+
+---
+
+# Görev 8 — Yer tutucu metinleri oyuna yerleştir, yeni ziyaretçileri derinleştir (Kaşif, 4 Kasım 2026 03:15)
+
+Ahmet "sabaha kadar devam etsin" dedi. Görev 7'yi bitirdin, eline sağlık. İlerleme dosyası: `codex.md/Antigravity_ilerleme_8.md`.
+
+Önemli değişiklik: Cursor ajanlarının gece işleri (PR #15–#27) 03:00'te #28 ile `claude/festive-volta-li1sfm` dalına birleştirildi (merge commit `b5ceb33a`). Yani yer tutucu bıraktığın ekranların kodu artık festive'de.
+
+## Bölüm A — festive'i al
+1. `git fetch origin` yap ve `claude/festive-volta-li1sfm` dalını kendi dalına merge et. Çakışmada iki tarafın işini de koru; kendi diyalog işini kaybetme, Cursor'un kodunu da bozma.
+2. Merge'den sonra doğrulayıcıları ve Godot headless testlerini çalıştır. Festive'de zaten kırmızı olan şu testler senin sorumluluğunda değil: nobet_yorgunlugu_test, nobet_yorgunlugu_kontrol, oda_kasasi/oda_envanter/oda_terazisi/oda_yetenek/oda_gelisim_kontrol, ayarlar_bozuk_menu_kontrol, kesik_kayit_devam_kontrol. Bunların dışında yeni kırmızı çıkarsa merge'den kaynaklanan kısmı düzelt.
+
+## Bölüm B — yer tutucu metinleri gerçek metinle değiştir
+1. `docs/YER_TUTUCU_METINLER.csv` dosyasındaki anahtarları sırayla ele al (Görev 5 ve 6'da yazdıkların dahil).
+2. Her anahtar için koddaki ya da sahnedeki yer tutucuyu bul ve son metni koy. Mantığa, düğüm yapısına ve tasarıma dokunma; yalnız metin ve yerelleştirme dizgisi değiştir.
+3. Yerleştirdiğin anahtarı CSV'de "yerlesti" olarak işaretle. Kodun hâlâ eksik olduğu anahtarları olduğu gibi bırak ve nedenini yaz.
+4. Küçük partiler halinde commit et, mesaj "YER-…" ile başlasın ve "(Antigravity)" ile bitsin.
+
+## Bölüm C — Görev 6'da eklenen 10 yeni ziyaretçiyi derinleştir
+1. diyalog_21–30 için Görev 4 ve 5'teki seviyeye çık: alt sorular, tekrar eden soru bayrakları, yalan ve doğru dalları.
+2. `es_kapi_dusunceleri.json` dosyasına bu 10 kişi için de 4 aşamalı eş yorumlarını ekle.
+3. Eş sohbetine (koylu_muhabbet_es.ds) bu ziyaretçiler ve 8 yeni köy olayı hakkında konuşma dalları ekle.
+
+## Bölüm D — ROADMAP'e yeniden bak
+Senin alanında açık madde kaldıysa Görev 7'deki kurallarla devam et. Kalmadıysa ilerleme dosyasının son satırına tek başına `GOREV8_TAMAM` yaz.
+
+## Kurallar (değişmedi)
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at, her commit'ten sonra push et. Kendi dalını festive'e birleştirme.
+- Kalfa'nın alanına (ISG, YSM, YAP, DEN, EKO, ekonomi, köy sistemleri, test altyapısı) dokunma.
+- Asset üretme; gerekeni `docs/EKSIK_ASSET_ENVANTERI.md`'ye 2D/3D ayrı yaz, 2D için Nano Banana promptu ekle.
+- Her partiden sonra doğrulayıcılar ve Godot headless testleri; yukarıdaki bilinen kırmızılar dışında 0 hata.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et. Durma.
+
