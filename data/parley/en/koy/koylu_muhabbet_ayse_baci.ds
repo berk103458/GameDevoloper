@@ -1,0 +1,216 @@
+{
+  "title": "koylu_muhabbet_ayse_baci",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:selam",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Ayşe Bacı",
+      "text": "Welcome, my child. We cast our shuttles upon the loom of the Baciyan-i Rum. A woman's labor is the central pillar of this settlement."
+    },
+    {
+      "id": "node:opt_normal",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -180.0)",
+      "character": "Gatekeeper",
+      "text": "Ayse Baci, how fare the weaving looms and the charity soup kitchen?"
+    },
+    {
+      "id": "node:opt_kriz",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 0.0)",
+      "character": "Gatekeeper",
+      "text": "Winter is upon us; if the granary runs dry, what will the women do?"
+    },
+    {
+      "id": "node:opt_karar",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 180.0)",
+      "character": "Gatekeeper",
+      "text": "What is your judgment regarding the newcomers admitted through the gate?"
+    },
+    {
+      "id": "node:rep_normal",
+      "type": "DIALOGUE",
+      "position": "(1050.0, -180.0)",
+      "character": "Ayşe Bacı",
+      "text": "The girls spin wool and knit thick socks. In the soup kitchen we boil a great cauldron every evening; orphan and traveler alike eat their fill. Even if only five copper mangirs remain in our solidarity chest, no soul sleeps hungry."
+    },
+    {
+      "id": "node:rep_kriz",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 0.0)",
+      "character": "Ayşe Bacı",
+      "text": "Women can wring remedy from barren stone, my child! We blend black cumin with coarse flour and make hearty pottage from dried fruits. So long as our unity remains unbroken; against brigands we keep dagger blades tucked inside our sashes."
+    },
+    {
+      "id": "node:rep_karar",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 180.0)",
+      "character": "Ayşe Bacı",
+      "text": "I took those orphans into my embrace, child; the tears dried from their cheeks. The grape must in their earthen jar we counted as bounty. A gate that shows mercy shall never fall; our prayers go with your vigil."
+    },
+    {
+      "id": "node:act_normal",
+      "type": "ACTION",
+      "position": "(1400.0, -180.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act_kriz",
+      "type": "ACTION",
+      "position": "(1400.0, 0.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act_karar",
+      "type": "ACTION",
+      "position": "(1400.0, 180.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "3"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(1750.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_start",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:selam",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_norm",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_kriz",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_karar",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_norm",
+      "from_node": "node:opt_normal",
+      "from_slot": 0,
+      "to_node": "node:rep_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_norm",
+      "from_node": "node:rep_normal",
+      "from_slot": 0,
+      "to_node": "node:act_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_norm",
+      "from_node": "node:act_normal",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_kriz",
+      "from_node": "node:opt_kriz",
+      "from_slot": 0,
+      "to_node": "node:rep_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_kriz",
+      "from_node": "node:rep_kriz",
+      "from_slot": 0,
+      "to_node": "node:act_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_kriz",
+      "from_node": "node:act_kriz",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_karar",
+      "from_node": "node:opt_karar",
+      "from_slot": 0,
+      "to_node": "node:rep_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_karar",
+      "from_node": "node:rep_karar",
+      "from_slot": 0,
+      "to_node": "node:act_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_karar",
+      "from_node": "node:act_karar",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

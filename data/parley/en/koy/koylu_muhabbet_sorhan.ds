@@ -1,0 +1,216 @@
+{
+  "title": "koylu_muhabbet_sorhan",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:selam",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Sorhan",
+      "text": "Blessings upon you, gatekeeper. The steppe wind blows through the manes of our horses. I groom the colts in the stable; what do you inquire?"
+    },
+    {
+      "id": "node:opt_normal",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -180.0)",
+      "character": "Gatekeeper",
+      "text": "Sorhan, how fare the village mounts and pack beasts?"
+    },
+    {
+      "id": "node:opt_kriz",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 0.0)",
+      "character": "Gatekeeper",
+      "text": "If enemy cavalry approaches from the plain, are our horses swift enough for flight or maneuver?"
+    },
+    {
+      "id": "node:opt_karar",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 180.0)",
+      "character": "Gatekeeper",
+      "text": "What say you regarding the itinerant farrier who arrived yesterday?"
+    },
+    {
+      "id": "node:rep_normal",
+      "type": "DIALOGUE",
+      "position": "(1050.0, -180.0)",
+      "character": "Sorhan",
+      "text": "Horses listen not to grievances, but to the heart, gatekeeper. I trimmed the hooves of our two black war horses and fed them steppe grass. The village cavalry can fly like the wind whenever duty summons."
+    },
+    {
+      "id": "node:rep_kriz",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 0.0)",
+      "character": "Sorhan",
+      "text": "A Kipchak mount never tires, master. If cavalry advances, we flank them from the rear and lay an ambush in the gorge. A warrior who masters his mount is worth ten infantrymen on the field of honor."
+    },
+    {
+      "id": "node:rep_karar",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 180.0)",
+      "character": "Sorhan",
+      "text": "The farrier with the nail in his heel came to the stables. He explained how outlaws deliberately hobbled mounts on the pass; I inspected the shoes, and he was truthful. He forged crescent shoes for all our stallions; our beasts will stumble no more."
+    },
+    {
+      "id": "node:act_normal",
+      "type": "ACTION",
+      "position": "(1400.0, -180.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act_kriz",
+      "type": "ACTION",
+      "position": "(1400.0, 0.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act_karar",
+      "type": "ACTION",
+      "position": "(1400.0, 180.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(1750.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_start",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:selam",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_norm",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_kriz",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_karar",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_norm",
+      "from_node": "node:opt_normal",
+      "from_slot": 0,
+      "to_node": "node:rep_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_norm",
+      "from_node": "node:rep_normal",
+      "from_slot": 0,
+      "to_node": "node:act_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_norm",
+      "from_node": "node:act_normal",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_kriz",
+      "from_node": "node:opt_kriz",
+      "from_slot": 0,
+      "to_node": "node:rep_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_kriz",
+      "from_node": "node:rep_kriz",
+      "from_slot": 0,
+      "to_node": "node:act_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_kriz",
+      "from_node": "node:act_kriz",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_karar",
+      "from_node": "node:opt_karar",
+      "from_slot": 0,
+      "to_node": "node:rep_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_karar",
+      "from_node": "node:rep_karar",
+      "from_slot": 0,
+      "to_node": "node:act_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_karar",
+      "from_node": "node:act_karar",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

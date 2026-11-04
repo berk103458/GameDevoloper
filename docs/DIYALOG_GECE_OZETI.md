@@ -153,4 +153,25 @@
 
 ---
 
-*Dal birleşmeye hazırdır; festive'e doğrudan dokunulmadı, sabah Ahmet'in onayını bekliyor.*
+## 9. Görev 16 İle İngilizce Dil ve Diyalog Sisteminin Oyuna Entegrasyonu
+
+Ahmet'in sabah onayıyla ("İngilizce oyuna girsin, hazır taslak eklensin; diyalog dalı festive ile birleştirilsin") hazırlanan sistem oyuna tam olarak entegre edildi:
+
+1. **`data/metin/metinler.csv` İçine `en` Sütunu Katıldı:**
+   - 2147 satır ve 2331 metin anahtarının tamamı `keys,tr,en` formatında İngilizce karşılıklarıyla genişletildi.
+   - `arayuz.dil.en` ("İngilizce" / "English") eklendi.
+   - Karakter isimleri kuralı (YER-17) ve çift boşluk yasağı (KLT-11) eksiksiz doğrulandı (`metin_dogrula.py --kaynak` PASS).
+   - Godot motoru `res://data/metin/metinler.en.translation` dosyasını derledi ve `DilAyari` üzerinden bağlandı.
+
+2. **Diyalog ve Anlatı Sistemlerinin İngilizce Desteği:**
+   - `data/diyalog/en/` altında 30 ziyaretçi diyaloğu ve eş düşünceleri aktif kılındı.
+   - `data/soz/en/` altında akşam dertleşme konuları yerleştirildi.
+   - `data/parley/en/koy/` altında 18 Parley NPC ve ortam sekansı bağlandı.
+   - İnce adaptörler (`oturum.gd`, `es_yorumu_adaptoru.gd`, `koy_diyalog_yoneticisi.gd`, `aksam_sohbeti.gd`) dil seçimine duyarlı kılındı; varsayılan dil daima Türkçedir, İngilizce seçildiğinde İngilizce dosyalar devreye girer.
+
+3. **Uçtan Uca Doğrulama:**
+   - `tests/unit/diyalog/ingilizce_entegrasyon_test.gd` dahil 21 Godot headless testi ve tüm Python araçları sıfır hatayla geçti.
+
+---
+
+*Görev 16 başarıyla tamamlanmıştır. Kullanıcı talimatı uyarınca yalnızca `feature/diyalog-yeniden-yazim` dalına commit ve push atılmıştır.*

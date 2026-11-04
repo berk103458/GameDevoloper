@@ -48,6 +48,10 @@ static func uygula(a: Ayarlar) -> void:
 	if a != null:
 		kod = _gecerli(str(a.degerler.get(ANAHTAR, VARSAYILAN)))
 		a.degerler[ANAHTAR] = kod
+	if FileAccess.file_exists(DOSYA_EN) and TranslationServer.get_translation_object("en") == null and ResourceLoader.exists(DOSYA_EN):
+		var tr_en := load(DOSYA_EN) as Translation
+		if tr_en != null:
+			TranslationServer.add_translation(tr_en)
 	TranslationServer.set_locale(kod)
 	GuvenliMetin.kur()
 

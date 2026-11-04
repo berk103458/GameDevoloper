@@ -1,0 +1,216 @@
+{
+  "title": "koylu_muhabbet_yusuf",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:selam",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Yusuf",
+      "text": "Greetings, master guard... I am Yusuf. I hold the rope of my dog Karabash, and I always watch the gate."
+    },
+    {
+      "id": "node:opt_normal",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -180.0)",
+      "character": "Gatekeeper",
+      "text": "Do you never let go of that rope in your hand, Yusuf?"
+    },
+    {
+      "id": "node:opt_kriz",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 0.0)",
+      "character": "Gatekeeper",
+      "text": "Provisions have dwindled in the village, winter frost sets in; are you hungry, lad?"
+    },
+    {
+      "id": "node:opt_karar",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 180.0)",
+      "character": "Gatekeeper",
+      "text": "Did you hear the decisions rendered at the gate last night; what do the folk say?"
+    },
+    {
+      "id": "node:rep_normal",
+      "type": "DIALOGUE",
+      "position": "(1050.0, -180.0)",
+      "character": "Yusuf",
+      "text": "Karabash is my shepherd dog, master guard. His ears twitch at the rustle of an owl in the dark; whenever he barks, I know stranger or wolf approaches the fold."
+    },
+    {
+      "id": "node:rep_kriz",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 0.0)",
+      "character": "Yusuf",
+      "text": "Saruca Hatun gave me a bowl of hot tarhana soup yesterday evening, and Ayse Baci knitted me thick wool socks. I will not starve, master; our villagers feed me, and in return I tend the lame kid and Akca the ewe in the fold."
+    },
+    {
+      "id": "node:rep_karar",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 180.0)",
+      "character": "Yusuf",
+      "text": "I heard them, master... At the fountain the women said, 'The gatekeeper is a just man; he admitted those who deserved mercy.' If a villain had entered, Karabash would have barked; since he stayed quiet, they must be good souls."
+    },
+    {
+      "id": "node:act_normal",
+      "type": "ACTION",
+      "position": "(1400.0, -180.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act_kriz",
+      "type": "ACTION",
+      "position": "(1400.0, 0.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act_karar",
+      "type": "ACTION",
+      "position": "(1400.0, 180.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(1750.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_start",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:selam",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_norm",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_kriz",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_karar",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_norm",
+      "from_node": "node:opt_normal",
+      "from_slot": 0,
+      "to_node": "node:rep_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_norm",
+      "from_node": "node:rep_normal",
+      "from_slot": 0,
+      "to_node": "node:act_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_norm",
+      "from_node": "node:act_normal",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_kriz",
+      "from_node": "node:opt_kriz",
+      "from_slot": 0,
+      "to_node": "node:rep_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_kriz",
+      "from_node": "node:rep_kriz",
+      "from_slot": 0,
+      "to_node": "node:act_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_kriz",
+      "from_node": "node:act_kriz",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_karar",
+      "from_node": "node:opt_karar",
+      "from_slot": 0,
+      "to_node": "node:rep_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_karar",
+      "from_node": "node:rep_karar",
+      "from_slot": 0,
+      "to_node": "node:act_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_karar",
+      "from_node": "node:act_karar",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

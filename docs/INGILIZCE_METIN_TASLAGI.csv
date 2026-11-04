@@ -248,6 +248,7 @@ arayuz.ayarlar.karar_onayi_aciklama,Kabul ve ret ikinci tıklama ister. Varsayı
 arayuz.ayarlar.zorluk_aciklama,"Kolay, olağan ya da sıkı. Oyun kaydında durur. Varsayılan olağan.","Easy, Normal, or Severe. Stored per playthrough. Default Normal.",taslak_tam
 arayuz.dil.baslik,Dil Seçimi,Language Selection,taslak_tam
 arayuz.dil.tr,Türkçe,Turkish,taslak_tam
+arayuz.dil.en,İngilizce,English,taslak_tam
 arayuz.menu.surum,Sürüm: %s,Version: %s,taslak_tam
 arayuz.menu.daha_once,Önceki Oyun: %s,Previous Playthrough: %s,taslak_tam
 arayuz.demo.bitti,"Köy kök saldı, dirlik kuruldu.",The village has rooted; peace and order reign.,taslak_tam

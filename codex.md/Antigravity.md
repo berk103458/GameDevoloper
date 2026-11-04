@@ -843,3 +843,24 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - `docs/DIYALOG_GECE_OZETI.md` dosyasının en başına Ahmet için 4 maddelik (7 satır) "Sabah Önce Bunu Oku (Hızlı Yol Haritası)" bölümü eklendi.
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_15.md` son satırı `GOREV15_TAMAM` ile mühürlendi.
 - **Kota:** %20 kaldı.
+
+## 4 Kasım 2026 — Görev 16: İngilizceyi Oyuna Ekle ve Diyalog Dalını Festive ile Bütünleştir
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Bölüm A — Festive Entegrasyonu ve Birleşme Hazırlığı (`ab9c10b2`):**
+     - `origin/claude/festive-volta-li1sfm` dalından Kalfa'nın son commit'leri (`7646b8d5` dahil) çekildi ve merge edildi.
+     - 0 çakışma (conflict-free). Kalfa'nın rüşvet, çıraklık, şifalı ot ve yetenek kapalıyken haraç testleri aynen korundu.
+     - `docs/DIYALOG_DALI_BIRLESME_NOTU.md` güncellendi ve kullanıcı talimatı uyarınca yalnızca `feature/diyalog-yeniden-yazim` dalına push edildi.
+  2. **Bölüm B — İngilizce Dil ve Diyalog Sisteminin Oyuna Entegrasyonu:**
+     - `tests/unit/arayuz/dil_test.gd`: Türkçe varsayılan kalacak, İngilizce ikinci dil olarak izinli olacak şekilde güncellendi (Antigravity sorusu 3 onaylandı).
+     - `data/metin/metinler.csv`: `en` sütunu eklendi (2147 satır, 2331 anahtar), `arayuz.dil.en` ("İngilizce" / "English") dahil edildi. `metin_dogrula.py --kaynak` sıfır hatayla geçti.
+     - `data/metin/metinler.en.translation`: Godot motoru tarafından derlendi; `DilAyari` üzerinden dinamik olarak bağlandı. Ayarlar menüsündeki dil seçici (`DilSekmesi`) otomatik olarak hem Türkçe hem İngilizce seçeneklerini listeliyor ve anında uyguluyor.
+     - İngilizce Diyalog Paketleri: `data/diyalog/en/` (kapı ziyaretçileri, eş düşünceleri), `data/soz/en/` (akşam konuları) ve `data/parley/en/koy/` (18 Parley NPC ve ortam sekansı) oyun klasörüne eklendi.
+     - İnce Adaptörler: `oturum.gd`, `es_yorumu_adaptoru.gd`, `koy_diyalog_yoneticisi.gd` ve `aksam_sohbeti.gd` dillere duyarlı hale getirildi (Türkçe varsayılan korunarak, İngilizce seçildiğinde İngilizce dosyalar devreye giriyor).
+     - Yeni Birim Testi: `tests/unit/diyalog/ingilizce_entegrasyon_test.gd` yazıldı. Türkçe varsayılan metinler, İngilizce çeviriler, karakter adı koruması (YER-17), JSON/Parley sekans yüklemeleri ve geri dönüş uçtan uca doğrulandı (0 hata).
+  3. **Bölüm C — Bütünlük ve Test Doğrulaması:**
+     - Python Araçları: `metin_dogrula.py --kaynak` (PASS), `soz_dogrula.py` (PASS), `soz_tasarimi_dogrula.py` (PASS), `test_asset_envanteri.py` (6/6 OK), `test_denge_dogrula.py` (15/15 OK), `denge_dogrula.py` (GECTI), `dogrula_ingilizce_taslak.py` (0 hata, 0 uyarı).
+     - Godot Headless Birim Testleri: 21 testin tamamı (21/21) PASS (0 hata).
+     - Kullanıcı Kuralı: Kullanıcının açık talimatı ("Commit and push only to feature/diyalog-yeniden-yazim") uyarınca yalnızca `feature/diyalog-yeniden-yazim` dalına commit ve push atıldı.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_16.md` son satırı `GOREV16_TAMAM` ile mühürlendi.
+- **Kota:** %15 kaldı.

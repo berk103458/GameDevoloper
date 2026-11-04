@@ -431,6 +431,7 @@ Doğrulayıcıları ve Godot headless testlerini çalıştır; Kalfa'nın biline
   4. AGENTS.md kuralları gereği Kalfa/Cursor'un yazdığı `dil_test.gd` veya `dil_ayari.gd` koduna dokunulması yasaktır.
 - **Yapılan İşlem:** Görev 10 Bölüm C kuralı 3 uyarınca ("Hazır bir yer yoksa yeni sistem kurma. Bunu 'Antigravity sorusu' olarak not et ve bu bölümü atla"), mevcut çalışan sisteme dokunulmadı ve testlerin 0 hata kalması sağlandı. Bununla birlikte Ahmet ve ekibin elinde hazır bulunması için menü, HUD, ayarlar, girdi ve arayüz anahtarlarının (250 anahtar) dönem diline uygun İngilizce çevirileri `docs/INGILIZCE_METIN_TASLAGI.csv` dosyasına eksiksiz olarak çıkarıldı.
 - **Soru:** Cursor/Kalfa `dil_test.gd` testini İngilizce translation dosyasının varlığına izin verecek şekilde güncellediğinde, bu 250 anahtar ve kapı diyalogları `metinler.csv`ye doğrudan dahil edilsin mi?
+- **Cevap (Ahmet onayı, Görev 16):** [CEVAPLANDI / ONAYLANDI] Ahmet sabah onayladı: İngilizce oyuna girsin, hazır taslak eklensin; `dil_test.gd` Türkçe varsayılan kalacak, İngilizce ikinci dil olarak izinli olacak şekilde güncellensin.
 
 ---
 

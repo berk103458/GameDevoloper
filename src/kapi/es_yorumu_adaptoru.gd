@@ -9,7 +9,7 @@ static func _veri_yukle() -> void:
 	if _yuklendi:
 		return
 	_yuklendi = true
-	var yol := "res://data/diyalog/es_kapi_dusunceleri.json"
+	var yol := "res://data/diyalog/en/es_kapi_dusunceleri.json" if (TranslationServer.get_locale() == "en" and FileAccess.file_exists("res://data/diyalog/en/es_kapi_dusunceleri.json")) else "res://data/diyalog/es_kapi_dusunceleri.json"
 	if FileAccess.file_exists(yol):
 		var txt := FileAccess.get_file_as_string(yol)
 		var j: Variant = JSON.parse_string(txt)

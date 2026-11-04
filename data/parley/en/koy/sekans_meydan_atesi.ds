@@ -1,0 +1,151 @@
+{
+  "title": "sekans_meydan_atesi",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:aydogdu",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Aydoğdu",
+      "text": "Heave more timber on the blaze, lads; tonight the frost will descend from the peaks. Did you hear the cracking echoes along the defile?"
+    },
+    {
+      "id": "node:ayse",
+      "type": "DIALOGUE",
+      "position": "(700.0, 0.0)",
+      "character": "Ayşe Bacı",
+      "text": "We heard them, Sergeant Aydogdu... That was no wolf howl; that was the clatter of shod war horses. Let not the sentries leave the battlements empty."
+    },
+    {
+      "id": "node:opt_guven",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, -90.0)",
+      "character": "Gatekeeper",
+      "text": "Fear not; our sentries atop the towers are alert, and the ramparts of our settlement are staunch."
+    },
+    {
+      "id": "node:opt_dagil",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, 90.0)",
+      "character": "Gatekeeper",
+      "text": "Let all folk withdraw to their tents and cottages; do not assemble in the square and breed alarm."
+    },
+    {
+      "id": "node:rep_guven",
+      "type": "DIALOGUE",
+      "position": "(1400.0, -90.0)",
+      "character": "Aydoğdu",
+      "text": "Keep no anxiety in your heart, gatekeeper; if need arises, we too will seize pickaxes and stand beside the portal."
+    },
+    {
+      "id": "node:act_guven",
+      "type": "ACTION",
+      "position": "(1750.0, -90.0)",
+      "description": "Dayanışma Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "3"
+      ]
+    },
+    {
+      "id": "node:rep_dagil",
+      "type": "DIALOGUE",
+      "position": "(1400.0, 90.0)",
+      "character": "Ayşe Bacı",
+      "text": "As you say, gatekeeper; yet remember that unity gathers strength when folk stand together."
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(2100.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_m_1",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:aydogdu",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_2",
+      "from_node": "node:aydogdu",
+      "from_slot": 0,
+      "to_node": "node:ayse",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_o1",
+      "from_node": "node:ayse",
+      "from_slot": 0,
+      "to_node": "node:opt_guven",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_o2",
+      "from_node": "node:ayse",
+      "from_slot": 0,
+      "to_node": "node:opt_dagil",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_r1",
+      "from_node": "node:opt_guven",
+      "from_slot": 0,
+      "to_node": "node:rep_guven",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_a1",
+      "from_node": "node:rep_guven",
+      "from_slot": 0,
+      "to_node": "node:act_guven",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_e1",
+      "from_node": "node:act_guven",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_r2",
+      "from_node": "node:opt_dagil",
+      "from_slot": 0,
+      "to_node": "node:rep_dagil",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_m_e2",
+      "from_node": "node:rep_dagil",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

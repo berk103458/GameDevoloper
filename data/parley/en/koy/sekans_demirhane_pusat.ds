@@ -1,0 +1,171 @@
+{
+  "title": "sekans_demirhane_pusat",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:c1",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Karaca Usta",
+      "text": "Master Thessra! The iron braces on the gate leaves are too frail; if a cavalry charge strikes, the hinge pins will snap!"
+    },
+    {
+      "id": "node:c2",
+      "type": "DIALOGUE",
+      "position": "(700.0, 0.0)",
+      "character": "Thessra",
+      "text": "You speak truth, Father Karaca. The stone plinth is massive, but we must bolt double-riveted forged iron straps across the timber face. Have you enough charcoal?"
+    },
+    {
+      "id": "node:opt1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, -90.0)",
+      "character": "Gatekeeper",
+      "text": "I will provide the charcoal myself; we shall equip our bucklers and gate with the toughest steel!"
+    },
+    {
+      "id": "node:opt2",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1050.0, 90.0)",
+      "character": "Gatekeeper",
+      "text": "No waste! Reinforce only the weakest loopholes and the center hub of the gate leaf."
+    },
+    {
+      "id": "node:rep1",
+      "type": "DIALOGUE",
+      "position": "(1400.0, -90.0)",
+      "character": "Karaca Usta",
+      "text": "Your command is honored, master guard! The forge shall blaze till dawn, and the portal shall be sturdy as a fortress gate."
+    },
+    {
+      "id": "node:rep2",
+      "type": "DIALOGUE",
+      "position": "(1400.0, 90.0)",
+      "character": "Thessra",
+      "text": "Even with sparse materials we shall display our engineering craft, master; these ramparts will stand unyielding."
+    },
+    {
+      "id": "node:act1",
+      "type": "ACTION",
+      "position": "(1750.0, -90.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act2",
+      "type": "ACTION",
+      "position": "(1750.0, 90.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(2100.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_s",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:c1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_1_2",
+      "from_node": "node:c1",
+      "from_slot": 0,
+      "to_node": "node:c2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_2_o1",
+      "from_node": "node:c2",
+      "from_slot": 0,
+      "to_node": "node:opt1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_2_o2",
+      "from_node": "node:c2",
+      "from_slot": 0,
+      "to_node": "node:opt2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o1_r1",
+      "from_node": "node:opt1",
+      "from_slot": 0,
+      "to_node": "node:rep1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r1_a1",
+      "from_node": "node:rep1",
+      "from_slot": 0,
+      "to_node": "node:act1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a1_end",
+      "from_node": "node:act1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o2_r2",
+      "from_node": "node:opt2",
+      "from_slot": 0,
+      "to_node": "node:rep2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r2_a2",
+      "from_node": "node:rep2",
+      "from_slot": 0,
+      "to_node": "node:act2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a2_end",
+      "from_node": "node:act2",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

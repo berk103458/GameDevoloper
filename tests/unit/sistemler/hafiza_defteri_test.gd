@@ -207,7 +207,7 @@ func _ekran() -> void:
 	_kontrol(is_equal_approx(Engine.time_scale, 2.0), "acikken hiz ayni")
 	_kontrol(ekran.hiz_korunur(2), "saklanan hiz 2")
 	var bos_metin := String(ekran._bos.text)
-	_kontrol(bos_metin == "hafiza.bos.karar" or bos_metin == "henüz bir şey yazılmadı", "bos sayfa metni")
+	_kontrol(bos_metin == "hafiza.bos.karar" or bos_metin == "henüz bir şey yazılmadı" or bos_metin == tr("hafiza.bos.karar"), "bos sayfa metni")
 
 	_eylem("kisayol_2")
 	_eylem("geri")

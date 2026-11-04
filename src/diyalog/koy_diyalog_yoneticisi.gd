@@ -20,6 +20,10 @@ var calisiyor: bool = false
 
 ## Verilen .ds dosyasını yükler ve AST döner
 static func sekans_yukle(ds_yolu: String) -> ParleyDialogueSequenceAst:
+	if TranslationServer.get_locale() == "en":
+		var en_yol := ds_yolu.replace("res://data/parley/koy/", "res://data/parley/en/koy/")
+		if FileAccess.file_exists(en_yol):
+			ds_yolu = en_yol
 	var f := FileAccess.open(ds_yolu, FileAccess.READ)
 	if not f:
 		push_error("Parley sekansı açılamadı: " + ds_yolu)

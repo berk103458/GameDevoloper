@@ -15,7 +15,12 @@ func _calistir() -> void:
 	var a := Ayarlar.new(YOL)
 	a.yukle()
 	DilAyari.bagla(a)
-	_kontrol(DilAyari.diller().size() == 1 and DilAyari.diller()[0] == "tr", "YER-01: dosya yokken liste 1")
+	var d := DilAyari.diller()
+	_kontrol(d.size() >= 1 and d[0] == "tr" and (d.size() == 1 or (d.size() == 2 and d[1] == "en")), "YER-01: tr varsayılan, en izinli")
+	if d.has("en"):
+		_kontrol(DilAyari.sec(a, "en"), "YER-01: en dili seçilebilir")
+		_kontrol(TranslationServer.get_locale() == "en", "YER-03: seçilen locale en")
+		DilAyari.sec(a, "tr")
 	DilAyari.uygula(a)
 	_kontrol(TranslationServer.get_locale() == "tr", "YER-03: varsayılan locale tr")
 	a.degerler[&"dil"] = "cop"

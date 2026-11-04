@@ -1,0 +1,216 @@
+{
+  "title": "koylu_muhabbet_nogay",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:selam",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Nogay",
+      "text": "Quiet, gatekeeper... When the wind blows from the crags, the scent of the soil shifts. I track footprints along the forest border."
+    },
+    {
+      "id": "node:opt_normal",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -180.0)",
+      "character": "Gatekeeper",
+      "text": "Nogay, what tracks have you observed along the mountain paths and perimeter fence?"
+    },
+    {
+      "id": "node:opt_kriz",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 0.0)",
+      "character": "Gatekeeper",
+      "text": "Were you able to find the tracks of the raiders who lit campfires in the pine woods?"
+    },
+    {
+      "id": "node:opt_karar",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 180.0)",
+      "character": "Gatekeeper",
+      "text": "What do the trail tracks reveal about the scouts and shepherds we admitted?"
+    },
+    {
+      "id": "node:rep_normal",
+      "type": "DIALOGUE",
+      "position": "(1050.0, -180.0)",
+      "character": "Nogay",
+      "text": "The wolf tracks wild goats, while human tracks seek the smoke of the village chimney. For now the border is quiet, yet I never take my eye from the pine boughs. Tracks never tell falsehoods."
+    },
+    {
+      "id": "node:rep_kriz",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 0.0)",
+      "character": "Nogay",
+      "text": "They were scouts from the Red Crow outlaw band... Three horsemen descended into the valley and surveyed the village gate. I tracked their trail down to the river shingle. I laid snare pits; whoever approaches will tumble into the trap."
+    },
+    {
+      "id": "node:rep_karar",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 180.0)",
+      "character": "Nogay",
+      "text": "I examined the tracks of the shepherd with the lame kid by the creek; his flight from the outlaws was genuine. The mountain passes described by the tower trumpeter match the hoofprints perfectly. You admitted the right men."
+    },
+    {
+      "id": "node:act_normal",
+      "type": "ACTION",
+      "position": "(1400.0, -180.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act_kriz",
+      "type": "ACTION",
+      "position": "(1400.0, 0.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act_karar",
+      "type": "ACTION",
+      "position": "(1400.0, 180.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(1750.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_start",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:selam",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_norm",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_kriz",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_karar",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_norm",
+      "from_node": "node:opt_normal",
+      "from_slot": 0,
+      "to_node": "node:rep_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_norm",
+      "from_node": "node:rep_normal",
+      "from_slot": 0,
+      "to_node": "node:act_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_norm",
+      "from_node": "node:act_normal",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_kriz",
+      "from_node": "node:opt_kriz",
+      "from_slot": 0,
+      "to_node": "node:rep_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_kriz",
+      "from_node": "node:rep_kriz",
+      "from_slot": 0,
+      "to_node": "node:act_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_kriz",
+      "from_node": "node:act_kriz",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_karar",
+      "from_node": "node:opt_karar",
+      "from_slot": 0,
+      "to_node": "node:rep_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_karar",
+      "from_node": "node:rep_karar",
+      "from_slot": 0,
+      "to_node": "node:act_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_karar",
+      "from_node": "node:act_karar",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

@@ -647,7 +647,8 @@ func _adli_gelen(id: StringName) -> Gelen:
 ## ve adsız gelenler sınıf şablonlarına düşer (aynı kişi ikinci kez kapıya gelmez).
 func _gemini_al() -> Dictionary:
 	if _gemini.is_empty():
-		var metin := FileAccess.get_file_as_string("res://data/diyalog/diyalog_01_20.json")
+		var _yol := "res://data/diyalog/en/diyalog_01_20.json" if (TranslationServer.get_locale() == "en" and FileAccess.file_exists("res://data/diyalog/en/diyalog_01_20.json")) else "res://data/diyalog/diyalog_01_20.json"
+		var metin := FileAccess.get_file_as_string(_yol)
 		var ayris = JSON.parse_string(metin)
 		if ayris is Array:
 			_gemini = ayris

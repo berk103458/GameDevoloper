@@ -1,0 +1,219 @@
+{
+  "diyalog_01": {
+    "karsilama": "The scent of ash and soot rises from his sack... He clearly fled the plains trampled by Mongol horsemen.",
+    "kritik_soru": "He clutches that pouch to his breast as though it were his very life, husband; there may be a secret within beyond mere grain, be watchful.",
+    "karar_oncesi": "His eyes are famished, but his hands are rough with calluses, husband... This man is a plowman grieving his lost soil rather than a thief. Keep the granary key safe from Saruca Hatun, yet set this man to till the earth.",
+    "karar_kabul": "You did well, husband. The earth never holds a grudge, so long as a man spares not his sweat.",
+    "karar_ret": "A pity for the poor soul... I pray he does not freeze in the mountain gales."
+  },
+  "diyalog_02": {
+    "karsilama": "He carries purple broadcloth under his arm... A craftsman fleeing the smoke of the Kayseri bazaar.",
+    "kritik_soru": "He claims forty years of honest trade, yet his fingers nervously test the silver weight inside the roll.",
+    "karar_oncesi": "Fine Frankish broadcloth does not belong on a frontier border, husband; yet if he knows how to patch our sentries' coats, Karaca Usta can keep an eye on him in the bazaar.",
+    "karar_kabul": "May his trade prosper. At least our warriors will not freeze in ragged coats this winter.",
+    "karar_ret": "He took his purple cloth back into the cold. May the mountain wolves spare his mules."
+  },
+  "diyalog_03": {
+    "karsilama": "A tall sipahi with an iron spear... Dried blood stiffens his sleeve. He looks like a veteran from Kosedag.",
+    "kritik_soru": "His mount died beneath him, yet he stands upright without leaning on his spear. That is no deserter's posture.",
+    "karar_oncesi": "Our parapets are thin, husband; we have few men who can draw a sixty-pound reflex bow. If you send him to Sergeant Miraen, our walls will hold firmer.",
+    "karar_kabul": "A stalwart warrior entered our gates. May his blade guard our children in the dark.",
+    "karar_ret": "A warrior turned away in bitterness becomes a formidable rogue on the highway, husband... Be wary."
+  },
+  "diyalog_04": {
+    "karsilama": "Pots, shears, and whetstones clatter upon his donkey... A peddler arriving at sundown.",
+    "kritik_soru": "He glances too keenly at our timber stockades. A peddler's eyes should look at the market stalls, not the bastions.",
+    "karar_oncesi": "The women have broken needles and the shearers need files, husband. Levy the lawful toll and let him trade under watch.",
+    "karar_kabul": "The village women will rejoice over new steel needles and copper pots tomorrow.",
+    "karar_ret": "He drove his donkey back toward the lower defile. Let us hope he carries no ill tidings to the outlaws."
+  },
+  "diyalog_05": {
+    "karsilama": "He wears a tattered fleece cloak; his ewes huddle against the wind. The mountains are cruel to lonely shepherds.",
+    "kritik_soru": "He claims wolves took half his herd, yet his fleece shows no bloodstains. Did he flee with another man’s sheep?",
+    "karar_oncesi": "Winter is coming; three ewes are three fleeces and pots of broth. If you let him into the pens, Yusuf can keep watch over him.",
+    "karar_kabul": "The beasts are sheltered from the frost. Their milk will feed our weaning babes.",
+    "karar_ret": "The poor man wept as he led his sheep back into the crags. The howling of wolves grows louder tonight."
+  },
+  "diyalog_06": {
+    "karsilama": "A barefoot traveler with a mendicant gourd... A dervish wandering the frontier.",
+    "kritik_soru": "His speech is soft and humble, yet he looks into a man’s eyes as if peering into the ledger of the grave.",
+    "karar_oncesi": "A hearth that denies bread to a wandering seeker of truth never prospers, husband. Grant him a pallet by the mosque fire.",
+    "karar_kabul": "May the prayers of the righteous shield our border village from calamity.",
+    "karar_ret": "We turned a dervish from our gate... May heaven not withdraw its favor from our roofs."
+  },
+  "diyalog_07": {
+    "karsilama": "Flour dust smudges his coat; an ox-cart laden with heavy iron mill cogs... A miller with broken hearth.",
+    "kritik_soru": "He says the Tekfur’s raiders torched his mill, but why did they spare his sturdy oxen and iron wheels?",
+    "karar_oncesi": "Our brook runs swift and the flour mill has lacked an honest miller since spring. If he sets the wheel turning, bread will be plenty.",
+    "karar_kabul": "The sound of water wheels grinding grain will bring peace to the valley once more.",
+    "karar_ret": "Without a miller, we shall continue pounding wheat with stone pestles through the snow."
+  },
+  "diyalog_08": {
+    "karsilama": "Baskets of dried yarrow and sage... Mother Dudu comes from the high meadows.",
+    "kritik_soru": "She knows every poison root and healing leaf on these ridges. Do not offend her wisdom, husband.",
+    "karar_oncesi": "The infants will cough when the sleet arrives, husband. Thessra understands wounds, but Mother Dudu understands children's fevers. Admit her.",
+    "karar_kabul": "Her fragrant herbs will sweeten our sickrooms and chase away winter chills.",
+    "karar_ret": "When the croup strikes the little ones, whose door shall we knock upon, husband?"
+  },
+  "diyalog_09": {
+    "karsilama": "An eastern fort warrior with a notched sword... A stern soldier with empty pockets.",
+    "kritik_soru": "He speaks of dishonorable captains, but a soldier who abandons his garrison once may do so again.",
+    "karar_oncesi": "Miraen can test his temper on the parapets. If he is true to his salt, he is worth ten conscripts.",
+    "karar_kabul": "An iron arm takes watch upon our walls. May he hold the post with honor.",
+    "karar_ret": "A soldier cast into the wild with a blade in hand often becomes the captain of bandits."
+  },
+  "diyalog_10": {
+    "karsilama": "A stonemason with lime dust in his beard... Broad hands that know the weight of granite.",
+    "kritik_soru": "He speaks of stone towers, but stone requires lime kilns and coin. What will he demand of our coffers?",
+    "karar_oncesi": "Our palisade is timber and thatch; a single burning arrow could roast us all. If he reinforces the gate footing, our sleep will be sounder.",
+    "karar_kabul": "With stone and mortar, our refuge will stand like a mountain against the steppe raiders.",
+    "karar_ret": "We remain behind wooden fences, praying sparks do not catch the dry oak posts."
+  },
+  "diyalog_11": {
+    "karsilama": "He carries silver on his fingers and hides his face beneath a deep hood... A traveler carrying heavy secrets.",
+    "kritik_soru": "He offers silver without haggling, husband; honest folk contest every copper. Why does he wish so fiercely to vanish from the highway?",
+    "karar_oncesi": "If bailiffs pursue him, his presence will bring horsemen to our palisade. Yet if his silver is lawful, the toll coffer needs coin.",
+    "karar_kabul": "He slipped quietly into the upper quarter. Let us pray no riders appear with torches before dawn.",
+    "karar_ret": "He spurred his mount back into the gloom. He was running from something darker than our night."
+  },
+  "diyalog_12": {
+    "karsilama": "Her lips are blue with frost, clutching a worn mantle... A sister searching for her lost kin.",
+    "kritik_soru": "She describes a soldier wounded three moons ago. Could it be the nefer resting in Thessra's sickbed?",
+    "karar_oncesi": "She has neither coin nor bread, but a sister's grief weighs heavy upon any threshold. Admit her to the sisters' lodge.",
+    "karar_kabul": "Her tears turned to prayers of gratitude. May she find her kin alive among our folk.",
+    "karar_ret": "She wanders the frozen roadside calling a name that the wind carries away. My heart aches for her."
+  },
+  "diyalog_13": {
+    "karsilama": "A tilted ox-cart and a broken axle... Old Osman Dayi has traversed these mountain passes for thirty years.",
+    "kritik_soru": "He has barrels of olive oil and grease; if the axle cannot be mended, those barrels are worth more than his life to bandits.",
+    "karar_oncesi": "Karaca Usta can forge an iron sleeve for the axle in an hour. His olive oil will light our lamps through the long nights.",
+    "karar_kabul": "His cart creaked into the yard. The lanterns of the village will burn bright with his oil.",
+    "karar_ret": "An old man stranded with broken wheels in the wolf pass... That was a cruel judgment, husband."
+  },
+  "diyalog_14": {
+    "karsilama": "Purple welts across his arms, soot on his brow... A runaway apprentice fleeing a cruel master.",
+    "kritik_soru": "If his master comes demanding him back under guild law, will you stand between the smith's rod and this boy?",
+    "karar_oncesi": "He has quick hands and knows the bellows. Karaca Usta needs a lad who does not balk at heat. Take him under your mantle.",
+    "karar_kabul": "The boy kissed your hand in relief. He will hammer iron with loyalty in his heart.",
+    "karar_ret": "He fled into the gully weeping. If his master catches him, he will not survive the beating."
+  },
+  "diyalog_15": {
+    "karsilama": "An envoy of the Baciyan wearing the white sash... A noble Hatun on a fine mare.",
+    "kritik_soru": "She brings warm cloaks for our garrison, but she also brings messages for Sister Ayse. The sisterhood moves with purpose.",
+    "karar_oncesi": "Sister Ayse has awaited tidings from the grand lodge for moons. Welcoming an envoy of the sisters brings honor to our seat.",
+    "karar_kabul": "She rode through with grace. Our village is knit closer to the wider alliance of the border march.",
+    "karar_ret": "To turn away an envoy of the sisters is an insult that the lodges will not soon forgive, husband."
+  },
+  "diyalog_16": {
+    "karsilama": "A fur-trapper with a short reflex bow... His eyes dart like a hawk sizing up prey.",
+    "kritik_soru": "He knows every bridle path to the Byzantine border. But does he guide our scouts, or does he guide the Tekfur's raiders?",
+    "karar_oncesi": "Keep his arrows in the guardhouse and give him hot broth. If his knowledge of the ridge is true, Miraen can employ him well.",
+    "karar_kabul": "He steps softly like a cat. Let us keep an eye on his movements through the camp.",
+    "karar_ret": "He melted into the pine scrub without a sound. A dangerous man to leave lurking beyond our ditch."
+  },
+  "diyalog_17": {
+    "karsilama": "A mother with a wheezing baby... The child's cough sounds like dry winter twigs snapping.",
+    "kritik_soru": "Thessra has vinegar and honey syrups, but if it is the spotted plague, our own infants are at peril.",
+    "karar_oncesi": "I am a mother, husband... I cannot watch an infant perish on our threshold while smoke rises from our chimney. Let them into the clinic.",
+    "karar_kabul": "Thessra wrapped the child in warm cloths. May the breath of life return to the little one.",
+    "karar_ret": "The mother's wailing pierces through the oaken gate. How will we sleep tonight with that sound in the wind?"
+  },
+  "diyalog_18": {
+    "karsilama": "Tubs of brine and a sharp tongue... Rahime comes seeking salt for her father's tanning pits.",
+    "kritik_soru": "She wants salt from our stores, but salt is scarce and the winter slaughter is near. Will she pay fair silver?",
+    "karar_oncesi": "Tanned leather provides boots and cuirasses for our nefers. If she pays the market price, trade strengthens both settlements.",
+    "karar_kabul": "She loaded her tubs with salt. In two moons her father will send cured boots for our archers.",
+    "karar_ret": "Her bull hides will rot in the valley, and she left cursing our gatekeeper's obstinacy."
+  },
+  "diyalog_19": {
+    "karsilama": "A boy of twelve winters clutching his father's belt buckle... His eyes are brave, but his boots are frozen.",
+    "kritik_soru": "His father vanished four days ago near the pass. Could he be the courier found slain by the river?",
+    "karar_oncesi": "Do not break the boy's spirit, husband. Give him warm soup and let Sister Ayse care for him until we know the truth.",
+    "karar_kabul": "He sat beside our hearth, eating eagerly. An orphan sheltered is a blessing upon the roof.",
+    "karar_ret": "A child turned away into the wilderness... Heaven forbid our own children ever face such a night."
+  },
+  "diyalog_20": {
+    "karsilama": "Three mules laden with heavy rock salt! Satilmis brings the white gold of the great salt lake.",
+    "kritik_soru": "He claims his salt is pure, but check the bottoms of the sacks; traders often pad with crushed river gravel.",
+    "karar_oncesi": "Our granaries and meat curing pits need salt before the first frost. Collect the lawful toll and let the mules unload.",
+    "karar_kabul": "Our provisions are secured for the winter. Salt keeps rot away from man and beast alike.",
+    "karar_ret": "He drove his salt mules elsewhere. How will we cure the beef when slaughtering day arrives?"
+  },
+  "diyalog_21": {
+    "karsilama": "A dervish clad in patched wool with a staff of gnarled juniper... As if warming the highland frost with the serene smile in his eyes.",
+    "kritik_soru": "They whisper he bears a decree stitched inside his cloak, husband; is he a Mongol spy, or a devout wanderer of the Divine?",
+    "karar_oncesi": "They say blessing enters any village a true dervish enters, husband... Moreover, he brought word of the highland shepherd's praying mother. Let us grant him a straw mat in the mosque porch; let him pray over the folk.",
+    "karar_kabul": "You chose well, husband. May the prayer of a righteous dervish disperse the dark clouds gathering over our settlement.",
+    "karar_ret": "They say turning away a dervish brings misfortune... My heart was never at peace with this, yet the decision is yours."
+  },
+  "diyalog_22": {
+    "karsilama": "He claims he was separated from the Tabriz caravan, yet his kaftan is lavishly embroidered... The fragrance of saffron drifts from his mules' packs.",
+    "kritik_soru": "The silver plate around his neck resembles a Mongol paiza, husband! Could he be an imperial scout disguised as a trader?",
+    "karar_oncesi": "His eyes dart like a fox, husband! He accuses the Kayseri clothier of being a thief as well... If you admit him, he will stir discord in the square; let us not risk our lives for the sake of saffron.",
+    "karar_kabul": "His saffron may serve our winter remedies, but never take your eyes off his mule packs, husband.",
+    "karar_ret": "A prudent judgment, husband. A man wandering with a Mongol paiza has no place within our walls."
+  },
+  "diyalog_23": {
+    "karsilama": "He rides up to our gate in rusted mail and a crested horned helmet... Enforcement Sergeant Sungur of the Sanjak.",
+    "kritik_soru": "He hunts garrison deserters, yet his true intent seems not justice, but extorting silver ransoms per head, husband.",
+    "karar_oncesi": "If this man enters the barracks, he will put those wretched souls who fled the Sivas defeat to the sword! Yet if you slam the gate in his face, he will turn the Sanjak cavalry upon us. Disarm him and lodge him under barracks watch.",
+    "karar_kabul": "We admitted him to the barracks, but remain alert, husband; there is a sinister glint in this sergeant's eye.",
+    "karar_ret": "You drove off the Sanjak sergeant, husband... My heart feels lighter, but the Sanjak Bey will not forget such defiance."
+  },
+  "diyalog_24": {
+    "karsilama": "Her face is wrapped tight in cotton, dragging her feet through the drifts with a bundle in her arms... Her rasping cough rends the heart.",
+    "kritik_soru": "She bears the plague boil, husband! If it has touched that infant, every child in our village is in mortal peril; what agony this is!",
+    "karar_oncesi": "Husband... I am a mother; I cannot bear to see that infant perish! If we admit her, our village will be wiped out; if we leave them in the drifts, the babe will freeze! Quarantine her in the shack beside the lime kiln, and feed the infant from afar!",
+    "karar_kabul": "May God accept your compassion, husband... We saved the child, and the mother was granted hot soup by the lime kiln.",
+    "karar_ret": "Ah, husband, alas... The weeping of that baby will haunt my sleep. May Heaven not hold this blood against our souls..."
+  },
+  "diyalog_25": {
+    "karsilama": "A trembling boy with bruises on his arms, scarce taller than a spear... Fled from the cruel baker in Erzincan.",
+    "kritik_soru": "He asks for his uncle Hamza, husband! Is he truly the nephew of Hamza the farmer, or a thieving runaway apprentice?",
+    "karar_oncesi": "His eyes look just like my late brother-in-law Hasan and Hamza the farmer, husband! Our poor orphan who starved on these mountain slopes for days... He will haul timber for the ovens and never burden the village; he will be comfort to our hearth and a comrade to his uncle. Let him enter!",
+    "karar_kabul": "Joy to our household, husband! Our brother's trust, Dursun, has found our hearth; the bounty of our village will double.",
+    "karar_ret": "We cast a shivering child back into the mountain snows, husband... If Hamza hears of this, his heart will shatter."
+  },
+  "diyalog_26": {
+    "karsilama": "His donkey is laden with baskets of dried herbs and flasks... He claims to be licensed by the Konya Maristan, yet his gaze is slippery.",
+    "kritik_soru": "He never stops praising his opium syrup, husband; could this be the quack who gangrened the bridge sentry's arm?",
+    "karar_oncesi": "With our village healer Miraen present, this opium-peddling quack cannot be trusted, husband! Yet his winter ointments and lancets could aid the garrison; if you admit him, keep him under Miraen's strict oversight in the clinic.",
+    "karar_kabul": "You admitted him, but caution Miraen; let her smell every jar of his, lest he dispense poison.",
+    "karar_ret": "You chose wisely, husband. A quack's potion puts not the patient, but the whole settlement into the grave."
+  },
+  "diyalog_27": {
+    "karsilama": "His robe is caked with mud, his fingers stained with ink... Molla Sukru, expelled from the court.",
+    "kritik_soru": "He slanders Hasan Celebi as a fraud, while carrying a purloined endowment deed in his chest, husband! He clearly seeks to sow discord over our lands.",
+    "karar_oncesi": "Beware, husband, do not admit this scribe! He and Hasan Celebi will tear into each other, and the order of the Divan will be overturned! No good comes from a man with designs on peasant deeds.",
+    "karar_kabul": "You admitted him, but place guards between him and Hasan Celebi in the council tent, husband; let no brawl erupt.",
+    "karar_ret": "Well spoken, husband. A scheming scribe has no place in our settlement; let not ink from the reed be stained with blood."
+  },
+  "diyalog_28": {
+    "karsilama": "A Turkmen warrior maiden wearing a wolf pelt and bearing a shield... Banu Hatun, the Wolf of the Mountains; in her eyes burns the fire of vengeance.",
+    "kritik_soru": "She seeks vengeance for her slain brother, husband; she claims our blacksmith tripped her brother's mount with a fraudulent shoe.",
+    "karar_oncesi": "This woman's wrath could set mountains ablaze, husband! Yet she is no assassin; she looks like an honorable warrior. If she surrenders her sword to the barracks, she will add immense strength to our watch; bring her before the blacksmith and render justice.",
+    "karar_kabul": "You admitted her to the barracks, husband; the arrow of a warrior maiden standing watch at the gate will grant outlaws no respite.",
+    "karar_ret": "You turned the woman away, husband... We drove off a sister whose heart was heavy with mourning; I pray she does not return with her horsemen from the heights."
+  },
+  "diyalog_29": {
+    "karsilama": "A caravan messenger with a face bruised by frostbite and breath catching in the freezing wind... He arrived at our gate crying in anguish.",
+    "kritik_soru": "He claims the convoy turned away last night froze in the snow drifts, husband... Oh, my heart aches! Are they truly in desperate need of aid, or is this an ambush to sack the granary?",
+    "karar_oncesi": "When I heard of babes freezing in the drifts, my knees gave way, husband! We cannot open the gate wide, but let us send two sacks of flour and warm blankets from the granary; let him hasten to save those wretched souls!",
+    "karar_kabul": "May God bless you, husband! If the stretchers arrive in time, those innocent babes will be saved from freezing; our mercy shields the village.",
+    "karar_ret": "My heart cannot bear it, husband... The lament of those freezing souls will rot the very stone of this portal; you have made a heavy decision."
+  },
+  "diyalog_30": {
+    "karsilama": "The amulet upon her chest... Husband, this maiden is from your ancestral hearth! It is Turna, daughter of your late brother Hasan in Erzincan!",
+    "kritik_soru": "Riders of the Sanjak voivode pursue her, husband! If we take our niece in, will the voivode turn his torches upon our settlement?",
+    "karar_oncesi": "Husband... She is our own flesh and blood, your orphan niece! If we surrender this innocent girl to the voivode's hounds, our faces will be blackened across both worlds! If need be, we will close the ramparts and stand against the voivode; take Turna into our embrace!",
+    "karar_kabul": "Bless your justice, husband! Our niece has found refuge beneath our roof; our table's broth will be doubly blessed. I shall care for her like my own daughter.",
+    "karar_ret": "Your own niece... You drove your own blood from the portal, husband... The fire of our hearth has been extinguished tonight; if she falls into the voivode's hands, her sin rests upon our necks."
+  },
+  "genel": {
+    "karsilama": "Another traveler stands at the gate as dusk falls... Listen carefully before you decide, husband.",
+    "kritik_soru": "Their words stumble when you press on their origin; watch their eyes, not their tongue.",
+    "karar_oncesi": "Weigh justice against mercy, husband. The village looks to your judgment tonight.",
+    "karar_kabul": "A stranger enters our circle; may they bring blessing rather than discord.",
+    "karar_ret": "The gate bars clank shut. The cold darkness outside claims another wanderer."
+  }
+}

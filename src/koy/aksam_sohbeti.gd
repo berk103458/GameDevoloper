@@ -16,7 +16,10 @@ static var _es_hafizasi: Dictionary = {}
 static func veri_al() -> Dictionary:
 	if not _veri_onbellek.is_empty():
 		return _veri_onbellek
-	var dosya := FileAccess.open(VERI_YOLU, FileAccess.READ)
+	var yol := VERI_YOLU
+	if TranslationServer.get_locale() == "en" and FileAccess.file_exists("res://data/soz/en/aksam_konulari.json"):
+		yol = "res://data/soz/en/aksam_konulari.json"
+	var dosya := FileAccess.open(yol, FileAccess.READ)
 	if dosya:
 		var json_metin := dosya.get_as_text()
 		var json = JSON.new()

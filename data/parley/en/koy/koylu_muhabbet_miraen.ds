@@ -1,0 +1,216 @@
+{
+  "title": "koylu_muhabbet_miraen",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:selam",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Miraen",
+      "text": "Welcome, gatekeeper. Beneath the shade of the garden I dry wild thyme and attend to sorrows arriving from beyond the mountain."
+    },
+    {
+      "id": "node:opt_normal",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -180.0)",
+      "character": "Gatekeeper",
+      "text": "How stand matters in the apothecary clinic, Miraen? Are your herbs and salves sufficient?"
+    },
+    {
+      "id": "node:opt_kriz",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 0.0)",
+      "character": "Gatekeeper",
+      "text": "Is there suspicion of contagion or well contamination in the settlement?"
+    },
+    {
+      "id": "node:opt_karar",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 180.0)",
+      "character": "Gatekeeper",
+      "text": "What are your thoughts on the wounded souls we admitted last night?"
+    },
+    {
+      "id": "node:rep_normal",
+      "type": "DIALOGUE",
+      "position": "(1050.0, -180.0)",
+      "character": "Miraen",
+      "text": "Mountain thyme and yellow St. John's wort are plentiful, praise be. With the surgical arts I learned in the Greek mountain villages, I dress the hurts of our people. So long as our hearth remains warm, we shall endure."
+    },
+    {
+      "id": "node:rep_kriz",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 0.0)",
+      "character": "Miraen",
+      "text": "My eye is ever upon the well, gatekeeper. If I taste the slightest trace of rust in the water, I have quicklime slaked within it. I scrutinize the skin of every stranger entering through the gate; any showing marks of mange or pestilence I isolate instantly."
+    },
+    {
+      "id": "node:rep_karar",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 180.0)",
+      "character": "Miraen",
+      "text": "The marine soldier from the stone bridge and the blacksmith with the pierced foot both arrived at the clinic. I extracted the nail from the heel and packed it with salt; I bound the soldier's arm. Both will stand on their feet within two days; your judgment was sound."
+    },
+    {
+      "id": "node:act_normal",
+      "type": "ACTION",
+      "position": "(1400.0, -180.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act_kriz",
+      "type": "ACTION",
+      "position": "(1400.0, 0.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:act_karar",
+      "type": "ACTION",
+      "position": "(1400.0, 180.0)",
+      "description": "Köy Morali",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(1750.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_start",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:selam",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_norm",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_kriz",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_karar",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_norm",
+      "from_node": "node:opt_normal",
+      "from_slot": 0,
+      "to_node": "node:rep_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_norm",
+      "from_node": "node:rep_normal",
+      "from_slot": 0,
+      "to_node": "node:act_normal",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_norm",
+      "from_node": "node:act_normal",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_kriz",
+      "from_node": "node:opt_kriz",
+      "from_slot": 0,
+      "to_node": "node:rep_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_kriz",
+      "from_node": "node:rep_kriz",
+      "from_slot": 0,
+      "to_node": "node:act_kriz",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_kriz",
+      "from_node": "node:act_kriz",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_karar",
+      "from_node": "node:opt_karar",
+      "from_slot": 0,
+      "to_node": "node:rep_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_karar",
+      "from_node": "node:rep_karar",
+      "from_slot": 0,
+      "to_node": "node:act_karar",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_karar",
+      "from_node": "node:act_karar",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

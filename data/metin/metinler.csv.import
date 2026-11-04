@@ -6,10 +6,10 @@ uid="uid://b44qtyn3sivqt"
 
 [deps]
 
-files=["res://data/metin/metinler.tr.translation"]
+files=["res://data/metin/metinler.tr.translation", "res://data/metin/metinler.en.translation"]
 
 source_file="res://data/metin/metinler.csv"
-dest_files=["res://data/metin/metinler.tr.translation"]
+dest_files=["res://data/metin/metinler.tr.translation", "res://data/metin/metinler.en.translation"]
 
 [params]
 
