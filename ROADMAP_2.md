@@ -3630,7 +3630,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ODA-12. Boyut: S.
   - Dosya: `tests/unit/denge/rusvet_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-44:** Yirmi rüşvet, müfettiş eşiğine gider.
+- [x] **DEN-44:** (Kalfa) Yirmi rüşvet, müfettiş eşiğine gider.
   - Ne: ODA-07 eşiği değişmez. Ölçüm, tablodaki rüşvet sayısında teftiş bayrağının açıldığını söyler. Sayı dosyadadır ve ODA eşiğiyle aynı olmalıdır. Farklıysa hata.
   - Kabul: ODA-07 eşiği değişmez. Ölçüm, tablodaki rüşvet sayısında teftiş bayrağının açıldığını söyler. Sayı dosyadadır ve ODA eşiğiyle aynı olmalıdır. Farklıysa hata. Test: eşik eşitliği.
   - Bağımlılık: ODA-07, DEN-03. Boyut: M.

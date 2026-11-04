@@ -13,7 +13,7 @@ func _initialize() -> void:
  var rng:=o.yonetim._rng.state
  var stok:=o.yonetim.kaynaklar.kaydet()
  dene(not MuhafizYetenekleri.al(o,"gonul_bagi"),"Önkoşul olmadan Gönül yok")
- o.bayraklar[&"rusvet_sayisi"]=5
+ o.bayraklar[&"rusvet_sayisi"]=25
  dene(not MuhafizYetenekleri.al(o,"keskin_bakis"),"Yüksek yozlaşma adalet alımını kapatır")
  o.bayraklar.erase(&"rusvet_sayisi")
  o.yonetim.adalet=69
@@ -53,7 +53,7 @@ func _initialize() -> void:
  dene(y.isyan_kalan==y.a.isyan_gun,"Düşen gerçek adalette eski isyan kuralı geri gelir")
  y.adalet=80
  y.isyan_kalan=-1
- o.bayraklar[&"rusvet_sayisi"]=5
+ o.bayraklar[&"rusvet_sayisi"]=25
  MuhafizAdaletYetenekleri.bagla(o)
  y._isyan(olaylar)
  dene(y.isyan_kalan==y.a.isyan_gun,"Yeni yüksek yozlaşma korumayı kaldırır")

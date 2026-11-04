@@ -40,6 +40,18 @@ class DengeDogrulaTest(unittest.TestCase):
         self.assertTrue(dogrulayici.gecici_is_hatalari({"gecici_isler": {"verim_yuzde": 50}}))
         self.assertTrue(dogrulayici.gecici_is_hatalari({"ekonomi": {"gecici_isler": {"verim_yuzde": 50}}}))
 
+    def test_teftis_rusvet_sayisi_kaynaklarla_eslesir(self):
+        denge = {"teftis_rusvet_sayisi": 20}
+        self.assertEqual(dogrulayici.teftis_esigi_hatalari(denge, {"rusvet_agirlik": 1}, {"yozlasma_esigi": 20}), [])
+        self.assertTrue(dogrulayici.teftis_esigi_hatalari(denge, {"rusvet_agirlik": 5}, {"yozlasma_esigi": 20}))
+
+    def test_teftis_bozuk_degerde_cokmez(self):
+        for deger in [0, -1, float("inf"), float("nan"), "20", True]:
+            with self.subTest(deger=deger):
+                self.assertTrue(dogrulayici.teftis_esigi_hatalari(
+                    {"teftis_rusvet_sayisi": deger}, {"rusvet_agirlik": 1}, {"yozlasma_esigi": 20}))
+        self.assertTrue(dogrulayici.teftis_esigi_hatalari({}, [], {}))
+
     def test_gercek_tablo_temiz(self):
         self.assertEqual(dogrulayici.main([]), 0)
 
