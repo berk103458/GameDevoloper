@@ -11,35 +11,35 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Latif",
-      "text": "Taş dönüyor dönmesine de hazneye buğday dökülmüyor be İdris! Çiftçiler ambarı boşalttı mı?"
+      "text": "The millstone turns, yet no grain pours into the hopper, Idris! Have the farmers emptied the storehouse already?"
     },
     {
       "id": "node:idris",
       "type": "DIALOGUE",
       "position": "(700.0, 0.0)",
       "character": "İdris",
-      "text": "Ovadaki başakları dolu vurdu, kalanını da beylik zahiresine saydılar Latif usta. Elimdeki son çuval bu; kepeğini ayırmadan öğüt ki bereketlensin."
+      "text": "Hail battered the standing wheat on the plain, and the rest was seized for the Beylik tithe, Master Latif! This is the last sack in my cart; grind it without sifting the bran so it may yield more loaves."
     },
     {
       "id": "node:opt_teskin",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, -90.0)",
       "character": "Gatekeeper",
-      "text": "Sakin olun! Köyün ambarı hepimize yeter, unu idareli pay edeceğiz."
+      "text": "Calm yourselves! The village granary suffices for us all; we shall ration the flour with prudence."
     },
     {
       "id": "node:opt_sert",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, 90.0)",
       "character": "Gatekeeper",
-      "text": "İsraf eden olursa hesabını sorarım, tek bir avuç un ziyan olmayacak!"
+      "text": "If any man squanders a single grain, he shall answer to me; not a handful of flour shall be wasted!"
     },
     {
       "id": "node:rep_teskin",
       "type": "DIALOGUE",
       "position": "(1400.0, -90.0)",
       "character": "Latif",
-      "text": "Sen öyle diyorsan nizamına uyarız muhafız ağa. Değirmeni gece de döndürürüm."
+      "text": "If that is your command, we abide by your order, master guard. I will keep the water wheel turning through the night as well."
     },
     {
       "id": "node:act_teskin",
@@ -57,7 +57,7 @@
       "type": "DIALOGUE",
       "position": "(1400.0, 90.0)",
       "character": "İdris",
-      "text": "Ziyan etmeyiz ağam, her tanenin vebalini biliriz."
+      "text": "We will not waste a grain, master; we know full well the solemn burden of every seed."
     },
     {
       "id": "node:end",

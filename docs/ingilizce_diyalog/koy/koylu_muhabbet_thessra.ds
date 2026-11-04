@@ -11,21 +11,21 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Thessra",
-      "text": "Selam muhafız. Taş ses verir, çekiç tartar. Sur bedenindeki çatlakları ölçerim; bir haber mi var?"
+      "text": "Greetings, gatekeeper. Stone gives voice, hammer measures weight. I measure fractures along the rampart curtain; is there news from the trail?"
     },
     {
       "id": "node:opt_normal",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -180.0)",
       "character": "Gatekeeper",
-      "text": "Thessra Usta, köyün surları ve su arkları sağlam mıdır?"
+      "text": "Master Thessra, are the village ramparts and water conduits sound?"
     },
     {
       "id": "node:opt_kriz",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 0.0)",
       "character": "Gatekeeper",
-      "text": "Surlar mancınık veya koçbaşı darbesine dayanır mı?"
+      "text": "Can these walls withstand the blow of a catapult or battering ram?"
     },
     {
       "id": "node:opt_karar",
@@ -39,21 +39,21 @@
       "type": "DIALOGUE",
       "position": "(1050.0, -180.0)",
       "character": "Thessra",
-      "text": "Kuzey surunun ahşap kazıkları çürümeye yüz tutmuştu; taş temel örüp kireçle bağladım. Taş ocağından getirdiğimiz andezit blokları iki yüz yıl ayakta kalır."
+      "text": "The timber palisades of the northern wall were beginning to rot; I raised a stone plinth bonded with hydraulic lime. The andesite ashlar blocks we hauled from the quarry will stand firm for two hundred years."
     },
     {
       "id": "node:rep_kriz",
       "type": "DIALOGUE",
       "position": "(1050.0, 0.0)",
       "character": "Thessra",
-      "text": "Dış bendi eğimli dizdim; atılan taş seker gider. Lakin kapı kanadının arkasına meşe payanda koymamız şart. Karaca Usta'dan dövme demir menteşe istedim."
+      "text": "I sloped the outer revetment; stones hurled against it will glance harmlessly away. Yet we must brace the gate leaf with oak shores behind. I requested double-riveted forged iron hinges from Karaca Usta."
     },
     {
       "id": "node:rep_karar",
       "type": "DIALOGUE",
       "position": "(1050.0, 180.0)",
       "character": "Thessra",
-      "text": "O ırgat harç karmayı iyi bilir muhafız! Ellerindeki kireç yanıklarına baktım; usta eli. Hendek duvarını onunla birlikte örüyoruz, işimiz yarı yarıya hızlandı."
+      "text": "That laborer knows how to mix mortar exceedingly well, gatekeeper! I looked at the lime burns on his palms; they are the hands of a master mason. We are raising the ditch revetment together, and our work has doubled in speed."
     },
     {
       "id": "node:act_normal",

@@ -11,35 +11,35 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Villager",
-      "text": "Selamün aleyküm muhafız ağa. Bir emrin, bir sualin var mıdır?"
+      "text": "Peace be upon you, master guard. Have you any command or inquiry?"
     },
     {
       "id": "node:opt_hal",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -270.0)",
       "character": "Gatekeeper",
-      "text": "Hal hatır nasıldır? Keyfin yerinde mi?"
+      "text": "How fare you, friend? Is your spirits in good heart?"
     },
     {
       "id": "node:opt_is",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -90.0)",
       "character": "Gatekeeper",
-      "text": "İşin gücün nasıl gidiyor? Görevinden memnun musun?"
+      "text": "How fares your daily toil? Are you content with your duty?"
     },
     {
       "id": "node:opt_havadis",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 90.0)",
       "character": "Gatekeeper",
-      "text": "Köyde ne konuşulur? Kulağına bir havadis geldi mi?"
+      "text": "What is spoken in the village? Has any news reached your ear?"
     },
     {
       "id": "node:opt_rica",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 270.0)",
       "character": "Gatekeeper",
-      "text": "Bana söyleyeceğin mühim bir meramın var mı?"
+      "text": "Have you any important matter you wish to speak to me about?"
     },
     {
       "id": "node:cond_moral",
@@ -60,14 +60,14 @@
       "type": "DIALOGUE",
       "position": "(1400.0, -360.0)",
       "character": "Villager",
-      "text": "Çok şükür ağam, başımızda çatımız, soframızda aşımız var. Ocağınız daim tütsün."
+      "text": "Praise be to God, master, we have a roof over our heads and soup in our bowls. May smoke ever rise from your chimney."
     },
     {
       "id": "node:rep_moral_kotu",
       "type": "DIALOGUE",
       "position": "(1400.0, -180.0)",
       "character": "Villager",
-      "text": "Nasıl olsun muhafız... Bellerimiz ağrır, içimiz buruktur. Yine de şükür ayaktayız."
+      "text": "How could it be, gatekeeper... Our backs ache, and our hearts are weary. Yet we thank Heaven that we still stand on our feet."
     },
     {
       "id": "node:act_moral_iyi",
@@ -85,7 +85,7 @@
       "type": "DIALOGUE",
       "position": "(1050.0, -90.0)",
       "character": "Villager",
-      "text": "Gündüz tarlada ve tezgâhta alın teri dökeriz. Köyün işi bitmez; köylü çalışırsa köy doyar."
+      "text": "By day we pour sweat in the furrowed fields and at the looms. The labor of the village never ceases; if the peasant toils, the settlement is fed."
     },
     {
       "id": "node:cond_havadis",
@@ -106,21 +106,21 @@
       "type": "DIALOGUE",
       "position": "(1400.0, 0.0)",
       "character": "Villager",
-      "text": "Dağ boğazında gece vakti meşale görmüşler ağam... Harami fırkası kol gezer derler, gözümüz kulağımız tetiktedir."
+      "text": "They saw torches flickering in the mountain gorge at midnight, master... They whisper a band of brigands is prowling the trails; our eyes and ears are vigilant."
     },
     {
       "id": "node:rep_havadis_sakin",
       "type": "DIALOGUE",
       "position": "(1400.0, 180.0)",
       "character": "Villager",
-      "text": "Ortalık şimdilik sakindir muhafız. Yalnız kışın ayazı erken inecek der ihtiyarlar."
+      "text": "Matters are tranquil for the moment, gatekeeper. Only the elders say the winter frost will strike earlier than usual this year."
     },
     {
       "id": "node:rep_rica",
       "type": "DIALOGUE",
       "position": "(1050.0, 270.0)",
       "character": "Villager",
-      "text": "Sağlığın ve nizamın daim olsun muhafız ağa. Bizim derdimiz ekmektir, adaletiniz eksik olmasın."
+      "text": "May your health and authority endure, master guard. Our concern is daily bread; may your justice never be wanting from our midst."
     },
     {
       "id": "node:act_rica",

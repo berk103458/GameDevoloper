@@ -11,49 +11,49 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Saruca Hatun",
-      "text": "Gel evlat, otur soluklan. Köyün ocağında çorba kaynar, ambarın anahtarı kuşağımda sallanır. Bir eksiğin mi var?"
+      "text": "Come, child, sit and catch your breath. Soup simmers on the hearth, and the granary keys sway from my sash. Do you lack for anything?"
     },
     {
       "id": "node:opt_normal",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -180.0)",
       "character": "Gatekeeper",
-      "text": "Saruca Hatun, zahire hesabımız kışı çıkarır mı?"
+      "text": "Saruca Hatun, will our grain provisions carry us through the winter?"
     },
     {
       "id": "node:opt_kriz",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 0.0)",
       "character": "Gatekeeper",
-      "text": "Erzak azalırsa ne tedbir alırsın?"
+      "text": "What measures will you take if provisions grow lean?"
     },
     {
       "id": "node:opt_karar",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 180.0)",
       "character": "Gatekeeper",
-      "text": "Kapıdan aldığımız fırıncı ile tuz tüccarı hakkında ne dersin?"
+      "text": "What say you of the baker and the salt merchant we admitted through the portal?"
     },
     {
       "id": "node:rep_normal",
       "type": "DIALOGUE",
       "position": "(1050.0, -180.0)",
       "character": "Saruca Hatun",
-      "text": "Hesabı denk tutarsak çıkarır evlat. Darıyı buğdaya karıştırır, arpa unundan peksimet döktürürüz. İsraf eden olursa oklavamla kovalarım; bereket tasarruftan doğar."
+      "text": "If we keep our accounts exact, they will suffice, child. We blend millet with wheat and bake hard biscuits from barley meal. If any man squanders grain, I chase him with my rolling pin; bounty is born of thrift."
     },
     {
       "id": "node:rep_kriz",
       "type": "DIALOGUE",
       "position": "(1050.0, 0.0)",
       "character": "Saruca Hatun",
-      "text": "Benim ambarın altında acil günler için sakladığım gizli zahire sandığım vardır evlat; onu kimseye açmam amma köylü aç kalırsa ortaya dökerim. Korkma, ananız sağken bu köy aç kalmaz."
+      "text": "Beneath my granary lies a secret grain chest kept for dire emergencies, child; I open it to none, yet if our folk face starvation, I will lay it bare. Fear not; while your mother breathes, this settlement shall not starve."
     },
     {
       "id": "node:rep_karar",
       "type": "DIALOGUE",
       "position": "(1050.0, 180.0)",
       "character": "Saruca Hatun",
-      "text": "Fırıncı gürgen teknesini getirdi, tandırı kurdu bile; mis gibi ekşi maya kokusu sardı köyü. Tuzcu da ambara iki çuval kaya tuzu hibe etti. Doğru adama kapı açmışsın, ocağımız şenlendi."
+      "text": "The baker brought his seasoned beech kneading trough and has already stoked the tandoor; the savory scent of sourdough fills the village. The salt trader donated two sacks of rock salt to our granary. You opened the gate to worthy men; our hearth is enlivened."
     },
     {
       "id": "node:act_normal",

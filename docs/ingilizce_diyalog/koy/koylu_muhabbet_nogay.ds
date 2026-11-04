@@ -11,49 +11,49 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Nogay",
-      "text": "Sessiz ol muhafız... Rüzgâr dağdan estiğinde toprağın kokusu değişir. Orman sınırında iz sürerim."
+      "text": "Quiet, gatekeeper... When the wind blows from the crags, the scent of the soil shifts. I track footprints along the forest border."
     },
     {
       "id": "node:opt_normal",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -180.0)",
       "character": "Gatekeeper",
-      "text": "Nogay, dağ yollarında ve çeperde ne izler gördün?"
+      "text": "Nogay, what tracks have you observed along the mountain paths and perimeter fence?"
     },
     {
       "id": "node:opt_kriz",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 0.0)",
       "character": "Gatekeeper",
-      "text": "Çamlıkta ateş yakan çapulcuların izini bulabildin mi?"
+      "text": "Were you able to find the tracks of the raiders who lit campfires in the pine woods?"
     },
     {
       "id": "node:opt_karar",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 180.0)",
       "character": "Gatekeeper",
-      "text": "Kapıdan aldığımız gözcü neferler ve çobanlar hakkında izler ne der?"
+      "text": "What do the trail tracks reveal about the scouts and shepherds we admitted?"
     },
     {
       "id": "node:rep_normal",
       "type": "DIALOGUE",
       "position": "(1050.0, -180.0)",
       "character": "Nogay",
-      "text": "Kurt izi dağ keçisinin peşindedir, insan izi köyün dumanına bakar. Şimdilik sınır tenhadır amma gözümü daldan ayırmam. İz yalan söylemez."
+      "text": "The wolf tracks wild goats, while human tracks seek the smoke of the village chimney. For now the border is quiet, yet I never take my eye from the pine boughs. Tracks never tell falsehoods."
     },
     {
       "id": "node:rep_kriz",
       "type": "DIALOGUE",
       "position": "(1050.0, 0.0)",
       "character": "Nogay",
-      "text": "Kızıl Karga çetesinin keşifçileriydi... Üç atlı vadiye inip köy kapısını gözetlemiş. İzlerini derenin çakılına kadar sürdüm. Kapan kurdum, yaklaşan olursa tuzağa düşer."
+      "text": "They were scouts from the Red Crow outlaw band... Three horsemen descended into the valley and surveyed the village gate. I tracked their trail down to the river shingle. I laid snare pits; whoever approaches will tumble into the trap."
     },
     {
       "id": "node:rep_karar",
       "type": "DIALOGUE",
       "position": "(1050.0, 180.0)",
       "character": "Nogay",
-      "text": "Topal oğlaklı çobanın izini derede inceledim; haramilerden kaçtığı doğru. Kule borazancısının anlattığı süvari geçitleri de izlerle uyuşur. Yanlış adam almamışsın."
+      "text": "I examined the tracks of the shepherd with the lame kid by the creek; his flight from the outlaws was genuine. The mountain passes described by the tower trumpeter match the hoofprints perfectly. You admitted the right men."
     },
     {
       "id": "node:act_normal",

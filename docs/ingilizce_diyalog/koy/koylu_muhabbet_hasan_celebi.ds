@@ -11,49 +11,49 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Hasan Çelebi",
-      "text": "Hürmetler muhafız ağa. Kamış kalemim divan defterini yazar, kulağım köyün asayişini tartar. Mühim bir tahrir mi var?"
+      "text": "My respects, master sentry. My reed pen registers the council ledger, and my ear weighs the peace of the village. Is there an urgent census record to enter?"
     },
     {
       "id": "node:opt_normal",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -180.0)",
       "character": "Gatekeeper",
-      "text": "Kâtip efendi, köyün kayıtları ve nüfusu denk midir?"
+      "text": "Master scribe, do the village rolls and population tallies balance?"
     },
     {
       "id": "node:opt_kriz",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 0.0)",
       "character": "Gatekeeper",
-      "text": "Sancaktan vergi tahsildarı veya harami baskısı gelirse ne yaparız?"
+      "text": "What shall we do if a tax collector from the Sanjak or a brigand threat arrives?"
     },
     {
       "id": "node:opt_karar",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 180.0)",
       "character": "Gatekeeper",
-      "text": "Dün hileli dirhemi kırılan kantarcıyı pazara aldık; defterine ne yazdın?"
+      "text": "Yesterday we admitted the weighmaster whose fraudulent weight was shattered; what did you record in your rolls?"
     },
     {
       "id": "node:rep_normal",
       "type": "DIALOGUE",
       "position": "(1050.0, -180.0)",
       "character": "Hasan Çelebi",
-      "text": "Giren çıkan her canı, ambara giren her kile tahılı deftere şerh düşerim ağam. Nizam olan yerde bereket olur; deftersiz köy haramilerin insafına kalır."
+      "text": "Every soul that enters or departs, every bushel of grain placed into the granary I enter into the register, master. Where order reigns, abundance follows; a settlement without records is left to the mercy of outlaws."
     },
     {
       "id": "node:rep_kriz",
       "type": "DIALOGUE",
       "position": "(1050.0, 0.0)",
       "character": "Hasan Çelebi",
-      "text": "Koynumdaki gizli defter sayfasını saklarım ağam. Beyliğin usulsüzlüklerini kadıya sunacak delilim var. Kanunsuz vergiye karşı divanda sözümüz geçer; köyün hakkını yedirmem."
+      "text": "I keep a secret ledger sheet concealed within my robe, master. I hold evidence to present any unlawful extortion by the Beylik before the Kadi. Our word carries weight in the high Divan against arbitrary taxes; I will not let the village's rights be usurped."
     },
     {
       "id": "node:rep_karar",
       "type": "DIALOGUE",
       "position": "(1050.0, 180.0)",
       "character": "Hasan Çelebi",
-      "text": "Kantarcının hileli dirhemini kırıp tövbe ettirmeniz adalet hanesine yazıldı ağam. Köy pazarında artık tartı şaşmaz; esnaf da muhafızın adaletinden çekinir."
+      "text": "Shattering that weighmaster's dishonest scale and making him swear an oath of repentance was recorded on the ledger of justice, master. Scales will not waver in our marketplace; merchants now revere the gatekeeper's justice."
     },
     {
       "id": "node:act_normal",

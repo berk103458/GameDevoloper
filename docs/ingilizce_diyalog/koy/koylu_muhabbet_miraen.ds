@@ -11,49 +11,49 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Miraen",
-      "text": "Hoş geldin muhafız. Bostanın gölgesinde kekik kurutur, dağın bu yüzünden gelen dertleri dinlerim."
+      "text": "Welcome, gatekeeper. Beneath the shade of the garden I dry wild thyme and attend to sorrows arriving from beyond the mountain."
     },
     {
       "id": "node:opt_normal",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -180.0)",
       "character": "Gatekeeper",
-      "text": "Şifahanede durumlar nasıldır Miraen? Otların, merhemlerin yeter mi?"
+      "text": "How stand matters in the apothecary clinic, Miraen? Are your herbs and salves sufficient?"
     },
     {
       "id": "node:opt_kriz",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 0.0)",
       "character": "Gatekeeper",
-      "text": "Köyde salgın şüphesi veya kuyu kirliliği var mıdır?"
+      "text": "Is there suspicion of contagion or well contamination in the settlement?"
     },
     {
       "id": "node:opt_karar",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 180.0)",
       "character": "Gatekeeper",
-      "text": "Dün gece kapıdan aldığımız yaralılar hakkında ne düşünürsün?"
+      "text": "What are your thoughts on the wounded souls we admitted last night?"
     },
     {
       "id": "node:rep_normal",
       "type": "DIALOGUE",
       "position": "(1050.0, -180.0)",
       "character": "Miraen",
-      "text": "Dağ kekiğiyle sarı kantaronumuz boldur çok şükür. Rum köylerinden öğrendiğim cerrahlık ilmiyle köylünün yaralarını sararım. Yeter ki ocağımız tütsün."
+      "text": "Mountain thyme and yellow St. John's wort are plentiful, praise be. With the surgical arts I learned in the Greek mountain villages, I dress the hurts of our people. So long as our hearth remains warm, we shall endure."
     },
     {
       "id": "node:rep_kriz",
       "type": "DIALOGUE",
       "position": "(1050.0, 0.0)",
       "character": "Miraen",
-      "text": "Gözüm hep kuyudadır muhafız. Suda pas tadı sezersem kireç döktürürüm. Kapıdan giren yabancıların da tenine bakarım; uyuz ve humma belirtisi olanı hemen tecrit eder, karantinaya alırım."
+      "text": "My eye is ever upon the well, gatekeeper. If I taste the slightest trace of rust in the water, I have quicklime slaked within it. I scrutinize the skin of every stranger entering through the gate; any showing marks of mange or pestilence I isolate instantly."
     },
     {
       "id": "node:rep_karar",
       "type": "DIALOGUE",
       "position": "(1050.0, 180.0)",
       "character": "Miraen",
-      "text": "Taş köprüden gelen levent ile ayağı çivili nalbant geldi şifahaneye. Topuktaki çiviyi çıkarıp tuz bastım, askerin kolunu sardım. İkisi de iki güne ayağa kalkar; yerinde bir karar vermişsin."
+      "text": "The marine soldier from the stone bridge and the blacksmith with the pierced foot both arrived at the clinic. I extracted the nail from the heel and packed it with salt; I bound the soldier's arm. Both will stand on their feet within two days; your judgment was sound."
     },
     {
       "id": "node:act_normal",

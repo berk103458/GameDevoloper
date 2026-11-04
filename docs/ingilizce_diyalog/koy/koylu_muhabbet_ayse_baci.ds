@@ -11,21 +11,21 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Ayşe Bacı",
-      "text": "Hoş geldin evlat. Bacıyan-ı Rum tezgâhında mekik dokuruz. Kadının emeği köyün direğidir."
+      "text": "Welcome, my child. We cast our shuttles upon the loom of the Baciyan-i Rum. A woman's labor is the central pillar of this settlement."
     },
     {
       "id": "node:opt_normal",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -180.0)",
       "character": "Gatekeeper",
-      "text": "Ayşe Bacı, tezgâhlar ve aşevi nasıl gidiyor?"
+      "text": "Ayse Baci, how fare the weaving looms and the charity soup kitchen?"
     },
     {
       "id": "node:opt_kriz",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 0.0)",
       "character": "Gatekeeper",
-      "text": "Kış yaklaşıyor, ambar daralırsa kadınlar ne yapar?"
+      "text": "Winter is upon us; if the granary runs dry, what will the women do?"
     },
     {
       "id": "node:opt_karar",
@@ -39,21 +39,21 @@
       "type": "DIALOGUE",
       "position": "(1050.0, -180.0)",
       "character": "Ayşe Bacı",
-      "text": "Kızlar yün eğirir, çorap örer. Aşevinde her akşam bir kazan kaynatırız; yetim de doyar garip de. Dayanışma sandığımızda beş kuruş kalsa dahi kimseyi aç yatırmayız."
+      "text": "The girls spin wool and knit thick socks. In the soup kitchen we boil a great cauldron every evening; orphan and traveler alike eat their fill. Even if only five copper mangirs remain in our solidarity chest, no soul sleeps hungry."
     },
     {
       "id": "node:rep_kriz",
       "type": "DIALOGUE",
       "position": "(1050.0, 0.0)",
       "character": "Ayşe Bacı",
-      "text": "Kadınlar çareyi taştan çıkarır evlat! Çörekotunu una katarız, kurutulmuş meyveleri aş yaparız. Yeter ki birlik bozulmasın; haramiye karşı da hançerimiz kuşağımızda saklıdır."
+      "text": "Women can wring remedy from barren stone, my child! We blend black cumin with coarse flour and make hearty pottage from dried fruits. So long as our unity remains unbroken; against brigands we keep dagger blades tucked inside our sashes."
     },
     {
       "id": "node:rep_karar",
       "type": "DIALOGUE",
       "position": "(1050.0, 180.0)",
       "character": "Ayşe Bacı",
-      "text": "O yetimleri kucağıma aldım evlat, gözlerindeki yaş dindi. Testideki bağ şırasını da berekete saydık. Merhamet gösteren kapı yıkılmaz; hayır duamız seninledir."
+      "text": "I took those orphans into my embrace, child; the tears dried from their cheeks. The grape must in their earthen jar we counted as bounty. A gate that shows mercy shall never fall; our prayers go with your vigil."
     },
     {
       "id": "node:act_normal",

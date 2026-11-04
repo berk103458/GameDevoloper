@@ -11,42 +11,42 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Nogay",
-      "text": "Sorhan... Gece orman sınırında dört at izi gördüm. Nalların çentikleri Kızıl Karga eşkıyasına aitti."
+      "text": "Sorhan... In the night I discovered four unshod horse tracks along the forest boundary. The notch in the hoof marks belongs to the Red Crow outlaws."
     },
     {
       "id": "node:c2",
       "type": "DIALOGUE",
       "position": "(700.0, 0.0)",
       "character": "Sorhan",
-      "text": "Biliyorum Nogay... Ahırdaki taylar da gece yarısı huzursuz kişnedi, kurt kokusu değil harami kokusu aldılar. Tetikte olmak gerek."
+      "text": "I know it, Nogay... The colts in the stable whinnied in distress at midnight; they smelled no wolf, but the stench of brigands. We must keep sharp vigil."
     },
     {
       "id": "node:opt1",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, -90.0)",
       "character": "Gatekeeper",
-      "text": "Kışladaki süvarileri ve kuledeki kemankeşleri alarma geçirin, gece devriyesini ikiye katlayın!"
+      "text": "Sound the alarm for the garrison horsemen and the archers on the tower; double the night patrol!"
     },
     {
       "id": "node:opt2",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, 90.0)",
       "character": "Gatekeeper",
-      "text": "Paniğe gerek yok, izleri takip edin amma ahaliyi ürkütmeyin."
+      "text": "No need for panic; track the prints, but do not alarm the townspeople."
     },
     {
       "id": "node:rep1",
       "type": "DIALOGUE",
       "position": "(1400.0, -90.0)",
       "character": "Nogay",
-      "text": "Hemen atımı eyerlerim muhafız! Bozkırda pusuyu ilk biz kuracağız, kapıya yaklaştırmayız."
+      "text": "I saddle my mount at once, gatekeeper! We shall lay the first ambush on the steppe; they shall not draw near the portal."
     },
     {
       "id": "node:rep2",
       "type": "DIALOGUE",
       "position": "(1400.0, 90.0)",
       "character": "Sorhan",
-      "text": "İz sürüp tuzak kurarım ağam. Çamlıkta bir çıt çıksa kargıyı saplarım."
+      "text": "I shall track their trail and lay deadfalls, master. If a twig snaps in the pine woods, my spear will find its mark."
     },
     {
       "id": "node:act1",

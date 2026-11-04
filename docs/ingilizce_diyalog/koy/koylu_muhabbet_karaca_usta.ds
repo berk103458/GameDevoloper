@@ -11,49 +11,49 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Karaca Usta",
-      "text": "Selamünaleyküm muhafız. Körük harlıdır, demir tavındadır. Ahi ocağında boş lafa yer yoktur; derdin nedir?"
+      "text": "Peace be upon you, gatekeeper. The bellows roar and the iron is at heat. There is no room for idle words in an Ahi forge; what is your need?"
     },
     {
       "id": "node:opt_normal",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -180.0)",
       "character": "Gatekeeper",
-      "text": "Ocakta işler nasıl Karaca Usta? Sabanlar, kalkanlar ne durumda?"
+      "text": "How goes work at the forge, Karaca Usta? How stand the plowshares and shields?"
     },
     {
       "id": "node:opt_kriz",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 0.0)",
       "character": "Gatekeeper",
-      "text": "Dağda harami fısıltısı artar; silahımız ve kalkanımız yeter mi?"
+      "text": "Whispers of brigands grow upon the mountain; do we possess enough weapons and bucklers?"
     },
     {
       "id": "node:opt_karar",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 180.0)",
       "character": "Gatekeeper",
-      "text": "Kapıdaki tüccarlar ve yolcular hakkında kulağına bir dedikodu geldi mi?"
+      "text": "Have any rumors reached your ears regarding the merchants and travelers at the gate?"
     },
     {
       "id": "node:rep_normal",
       "type": "DIALOGUE",
       "position": "(1050.0, -180.0)",
       "character": "Karaca Usta",
-      "text": "Kömürümüz yettikçe çekiç susmaz oğul! Köyün körelen baltalarını biledim, kışlanın mızrak temrenlerini sertleştirdim. Helal demir taşa çalsan kırılmaz."
+      "text": "So long as charcoal lasts, the hammer never falls silent, my son! I ground the dulled axes of the farmers and tempered the spear bodkins for the garrison. Lawful iron never breaks, even if struck against granite."
     },
     {
       "id": "node:rep_kriz",
       "type": "DIALOGUE",
       "position": "(1050.0, 0.0)",
       "character": "Karaca Usta",
-      "text": "Haramiler yaklaşırsa köyün oraklarını pusat yaparız! Kalkanların arkasına meşe tahtası çekerim. Ahi yiğitleri ocağını çiğnetmez; yeter ki muhafız kapıyı gevşek tutmasın!"
+      "text": "If brigands draw near, we shall forge the village scythes into deadly blades! I bolt seasoned oak planks to the back of every buckler. Ahi warriors will never let their forge be trampled; provided the sentry keeps no slack vigil at the gate!"
     },
     {
       "id": "node:rep_karar",
       "type": "DIALOGUE",
       "position": "(1050.0, 180.0)",
       "character": "Karaca Usta",
-      "text": "Kulağıma haram akçe fısıltısı gelmesin oğul! Rüşvetle içeri giren olursa demirhanemin kapısını kilitlerim! Lakin Kayserili kumaşçıyla demirci kalfası Ahi nizamına uygun davranmış; kalfayı çırak aldım, körüğü çeker."
+      "text": "Let no whisper of illicit silver reach my ears, son! If any man enters by bribery, I will padlock my forge! Yet that Kayseri draper and the smith's apprentice respected the Ahi code; I took the lad as an apprentice, and he works the bellows well."
     },
     {
       "id": "node:act_normal",

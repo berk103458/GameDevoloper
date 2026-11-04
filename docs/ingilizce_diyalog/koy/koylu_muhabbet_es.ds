@@ -11,119 +11,119 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Spouse",
-      "text": "Hoş geldin beyim... Yorgun görünürsün, omuzlarına gece ayazı çökmüş. Kapıdan yeni mi geldin yoksa köyü mü dolandın?"
+      "text": "Welcome, husband... You look weary, the night frost has settled upon your shoulders. Did you just return from the gate, or did you make the rounds of the village?"
     },
     {
       "id": "node:opt_kapi",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -360.0)",
       "character": "Gatekeeper",
-      "text": "Dün gece kapıda verdiğimiz kararları sormak istersin bilirim hatun; köyde ne konuşulur?"
+      "text": "I know you wish to ask of the judgments we rendered at the gate last night, wife; what is spoken in the village?"
     },
     {
       "id": "node:opt_koy",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -120.0)",
       "character": "Gatekeeper",
-      "text": "Köyün hali nasıl; un çuvalları, kuyu suyu, hastalık fısıltıları ne durumda?"
+      "text": "How stands the village; the flour sacks, the well water, the whispers of sickness?"
     },
     {
       "id": "node:opt_aile",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 120.0)",
       "character": "Gatekeeper",
-      "text": "Bırak kapıyı köyü bir yana... Sen nasılsın hatun; halin vaktin nicedir?"
+      "text": "Set aside the gate and the village for a moment... How fare you, wife; how is your heart and health?"
     },
     {
       "id": "node:opt_mevsim",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 360.0)",
       "character": "Gatekeeper",
-      "text": "Kış ayazı kapıya dayandı, rüzgâr uğuldar; yüreğinde bir korku mu var?"
+      "text": "Winter frost is knocking at the gate, the wind howls; is there fear in your heart?"
     },
     {
       "id": "node:rep_kapi",
       "type": "DIALOGUE",
       "position": "(1050.0, -360.0)",
       "character": "Spouse",
-      "text": "Köylü çınar altında toplanmış konuşur durur beyim. Kimi 'Muhafız bizi kurda kuşa yem etmez' der, kimi de 'Yabancıları doldurdu, kışın aç kalacağız' diye söylenir. Sen içeri aldığın adamlara güvenir misin sahiden?"
+      "text": "The villagers gather beneath the plane tree and talk unceasingly, husband. Some say 'The gatekeeper will never leave us to wolves', while others grumble 'He filled the place with strangers, we shall starve in winter.' Do you truly trust the men you admitted?"
     },
     {
       "id": "node:rep_koy",
       "type": "DIALOGUE",
       "position": "(1050.0, -120.0)",
       "character": "Spouse",
-      "text": "Köyün üstünde kara bir bulut dolaşır gibi... Kuyu başına vardım, suyun dibinde pas rengi bir bulanıklık var. Saruca Hatun fıçıları kaynatmadan içmeyin der; Thessra da heybesindeki otları ayıklıyordu."
+      "text": "A dark cloud seems to circle over the village... I went to the wellhead; at the bottom of the water is a murky rust-colored taint. Saruca Hatun warns never to drink without boiling; and Thessra was sorting dried herbs in her pack."
     },
     {
       "id": "node:rep_aile",
       "type": "DIALOGUE",
       "position": "(1050.0, 120.0)",
       "character": "Spouse",
-      "text": "Ben iyiyim çok şükür beyim... Ateşin başında çorabı yamıyordum. Sen içeri girince odanın içi ısınıverdi."
+      "text": "I am well, praise be, husband... By the fire I was mending your wool socks. The moment you stepped through the doorway, the whole room grew warm."
     },
     {
       "id": "node:rep_mevsim",
       "type": "DIALOGUE",
       "position": "(1050.0, 360.0)",
       "character": "Spouse",
-      "text": "Rüzgâr bacada uludukça içim titrer beyim. Gökyüzü kurşun gibi ağırlaştı; ilk kar indi inecek. Ya tipi yolları kapatır da kervan gelmezse? Ya dağdaki kurtlar köye inerse?"
+      "text": "Whenever the wind howls in the chimney, my spirit shivers, husband. The sky hangs heavy as lead; the first snow is about to fall. What if blizzards seal the passes and no caravan arrives? What if the mountain wolves descend into the village?"
     },
     {
       "id": "node:opt_kapi_merhamet",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, -480.0)",
       "character": "Gatekeeper",
-      "text": "Kapıya gelen biçareydi hatun; yetimi, çocuğu ayazda kurda yem mi etseydim?"
+      "text": "Those who came to the gate were destitute, wife; should I have left orphans and children to freeze as prey for wolves?"
     },
     {
       "id": "node:opt_kapi_sert",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, -360.0)",
       "character": "Gatekeeper",
-      "text": "Köyün güvenliği her şeyden önce gelir; yabancının gözünün yaşına bakmadım, şüpheliyi çevirdim."
+      "text": "The safety of the settlement comes before all else; I heeded no stranger's tears and turned away the suspect."
     },
     {
       "id": "node:opt_kapi_rusvet",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, -240.0)",
       "character": "Gatekeeper",
-      "text": "Birkaç altın akçe aldım hatun... Kışın gaz yağımız, tuzumuz eksik olmasın diye gizli kasaya koydum."
+      "text": "I accepted several silver akce, wife... I placed them in our hidden coffer so we lack neither lamp oil nor salt in winter."
     },
     {
       "id": "node:rep_kapi_merhamet",
       "type": "DIALOGUE",
       "position": "(1750.0, -480.0)",
       "character": "Spouse",
-      "text": "Yüreğin yufkadır beyim, o merhametin için sevdim seni. Lakin bu kış taş mı kaynatacağız? Saruca Hatun ambarın anahtarını beline bağlamış, kimseye tek avuç darı koklatmaz. Eğer bu yabancılar iş tutmazsa ilk taşı bize atarlar."
+      "text": "Your heart is tender, husband; it was for that mercy that I loved you. Yet will we boil stones in our kettle this winter? Saruca Hatun has bound the granary keys to her sash and will not spare a handful of millet to anyone. If these strangers prove idle, the folk will cast the first stone at us."
     },
     {
       "id": "node:opt_merhamet_paylas",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, -540.0)",
       "character": "Gatekeeper",
-      "text": "Gerekirse kendi ekmeğimi onlarla bölüşürüm hatun, yetim duası bizi korur."
+      "text": "If need be, I will divide my own bread with them, wife; the blessing of an orphan shields our home."
     },
     {
       "id": "node:opt_merhamet_tedbir",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, -420.0)",
       "character": "Gatekeeper",
-      "text": "Haklısın hatun; bundan sonra kapıda yalnız eli iş tutan zanaatkarı içeri alacağım."
+      "text": "You are right, wife; henceforth at the portal I shall admit only craftsmen whose hands know honest labor."
     },
     {
       "id": "node:rep_merhamet_paylas",
       "type": "DIALOGUE",
       "position": "(2450.0, -540.0)",
       "character": "Spouse",
-      "text": "Senin o temiz gönlün beni hem ağlatır hem sevindirir beyim. Ne olursa olsun yanındayım."
+      "text": "Your pure heart makes me both weep and rejoice, husband. Whatever befalls us, I stand steadfast at your side."
     },
     {
       "id": "node:rep_merhamet_tedbir",
       "type": "DIALOGUE",
       "position": "(2450.0, -420.0)",
       "character": "Spouse",
-      "text": "Aklın yolu birdir beyim. Merhamet tedbirle birleşmezse ziyan olur."
+      "text": "Wisdom follows a single path, husband. Unless mercy is joined with vigilance, it turns to ruin."
     },
     {
       "id": "node:act_merhamet_paylas",
@@ -156,35 +156,35 @@
       "type": "DIALOGUE",
       "position": "(1750.0, -360.0)",
       "character": "Spouse",
-      "text": "Sertsin beyim... Belki bu uç beyliğinde yumuşak adamı çiğnerler, doğru. Lakin Yusuf'un gözlerindeki korkuyu gördüm; kapıdan çevrilen bir ananın feryadını işitmiş, geceleri uyuyamaz olmuş. Sertlik adalet midir, yoksa yüreğin mi nasır tuttu?"
+      "text": "You are stern, husband... Perhaps in this frontier march soft men are trampled, that is true. Yet I saw the terror in Yusuf's eyes; he heard the lament of a mother turned away at the gate, and has not slept since. Is such harshness justice, or has your heart turned to callous stone?"
     },
     {
       "id": "node:opt_sert_sevgi",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, -360.0)",
       "character": "Gatekeeper",
-      "text": "Yüreğim nasır tutmadı hatun; ben sert durmazsam haramiler bu kapıyı kırar, seni de yuvamızı da elimden alırlar!"
+      "text": "My heart has not turned to stone, wife; if I stand not firm as flint, brigands will smash that gate and tear both you and our home from my grasp!"
     },
     {
       "id": "node:opt_sert_kural",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, -280.0)",
       "character": "Gatekeeper",
-      "text": "Bu topraklarda merhamet zaaftır hatun; kural neyse kılıç da odur."
+      "text": "In these harsh borderlands mercy is weakness, wife; whatever the law dictates, the blade must enforce."
     },
     {
       "id": "node:rep_sert_sevgi",
       "type": "DIALOGUE",
       "position": "(2450.0, -360.0)",
       "character": "Spouse",
-      "text": "Bizi korumak için taş kesildiğini bilirim beyim... Gel ocağın başına otur da sıcak çorbana bak, bağışla beni."
+      "text": "I know you turn to stone only to shield us, husband... Come, sit by the hearth and drink your hot broth; forgive my harsh words."
     },
     {
       "id": "node:rep_sert_kural",
       "type": "DIALOGUE",
       "position": "(2450.0, -280.0)",
       "character": "Spouse",
-      "text": "Kılıç kan kokar beyim, insan sevgisi kokmaz. Dilerim bir gün o kural kendi boynumuza dolanmaz."
+      "text": "The sword smells of blood, husband, not of human love. I only pray that one day such relentless rules do not wind around our own necks."
     },
     {
       "id": "node:act_sert_sevgi",
@@ -217,35 +217,35 @@
       "type": "DIALOGUE",
       "position": "(1750.0, -240.0)",
       "character": "Spouse",
-      "text": "Ne dersin sen beyim?! Haram akçeyle ocak mı ısıtılır? Karaca Usta 'Haram lokma yiyenin körüğü ters üfler' der! Sen bu kapıya muhafız mı oldun, yoksa yol kesen haramiye mi özendin?!"
+      "text": "What madness do you speak, husband?! Can a hearth be warmed with illicit coin? Karaca Usta says 'He who eats unlawful bread finds his bellows blowing backward!' Did you become sentinel of this gate to serve justice, or to imitate outlaws on the highway?!"
     },
     {
       "id": "node:opt_rusvet_pisman",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, -200.0)",
       "character": "Gatekeeper",
-      "text": "Öfkelenme hatun, haklısın... Nefsime uydum. O akçeleri köyün ortak ambarına bağışlayacağım."
+      "text": "Do not be enraged, wife; you speak truth... I succumbed to temptation. I will donate those coins to the common village granary."
     },
     {
       "id": "node:opt_rusvet_israr",
       "type": "DIALOGUE_OPTION",
       "position": "(2100.0, -120.0)",
       "character": "Gatekeeper",
-      "text": "Sen bu dünyanın kahrını bilmezsin! Yarın köy dağılsa kimse bize bakmaz, kendimizi düşünmek zorundayız!"
+      "text": "You understand nothing of this world's cruelty! If the settlement scatters tomorrow, no soul will look after us; we must look to ourselves!"
     },
     {
       "id": "node:rep_rusvet_pisman",
       "type": "DIALOGUE",
       "position": "(2450.0, -200.0)",
       "character": "Spouse",
-      "text": "Tövbe kapısı açıktır beyim. Alnının akı kalsın, gerekirse kuru ekmek yeriz amma haram yemeyiz."
+      "text": "The door of repentance stands open, husband. Let your brow remain unblemished; if need be we shall eat dry crusts, but never feed upon shame."
     },
     {
       "id": "node:rep_rusvet_israr",
       "type": "DIALOGUE",
       "position": "(2450.0, -120.0)",
       "character": "Spouse",
-      "text": "Bencillik gözünü kör etmiş beyim. O sandıktaki altınlar yarın mezarına yoldaş olmaz. Bu gece odada yalnız kalacaksın."
+      "text": "Selfishness has blinded your eyes, husband. The gold in that coffer will not keep you company in your grave. Tonight you shall sleep alone in this chamber."
     },
     {
       "id": "node:act_rusvet_pisman",
@@ -278,28 +278,28 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, -60.0)",
       "character": "Gatekeeper",
-      "text": "Kuyu suyundan içme hatun! Tandırda ateşi yak, suyu kaynatmadan tek yudum alma."
+      "text": "Drink not from the well, wife! Kindle the fire in the tandoor, and touch not a single sip without boiling it first."
     },
     {
       "id": "node:opt_koy_kitlik",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 60.0)",
       "character": "Gatekeeper",
-      "text": "Kilerde durumumuz nedir hatun; kış bastırırsa unumuz, bulgurumuz yeter mi?"
+      "text": "How stands our larder, wife; if the frost locks the valley, will our flour and bulgur suffice?"
     },
     {
       "id": "node:opt_koy_dedikodu",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 180.0)",
       "character": "Gatekeeper",
-      "text": "Çınar altında köylüler arkamızdan ne konuşur hatun; doğruyu söyle."
+      "text": "What do the villagers whisper behind our backs beneath the plane tree, wife; speak the plain truth."
     },
     {
       "id": "node:rep_koy_kuyu",
       "type": "DIALOGUE",
       "position": "(1750.0, -60.0)",
       "character": "Spouse",
-      "text": "Bakarım beyim, güğümü kaynattım bile. Hekim kızına biraz kurutulmuş nane ve dağ kekiği götürdüm; 'Muhafızın eşi bizi düşündü' diye sevindi."
+      "text": "I take heed, husband; I have already set the kettle to boil. I brought dried mint and mountain thyme to the healer maiden; she rejoiced that the gatekeeper's wife remembered her."
     },
     {
       "id": "node:act_koy_kuyu",
@@ -319,7 +319,7 @@
       "type": "DIALOGUE",
       "position": "(1750.0, 60.0)",
       "character": "Spouse",
-      "text": "Ambarın dibini süpürdüm, iki çuval kavruk arpayla bir çömlek pekmezimiz durur. Eğer köye kıtlık vurursa ben payımı çocuklara veririm beyim; sen nöbette dinç durmalısın."
+      "text": "Our sacks are dry, husband; I salted three crocks of mutton and hid two bushels of bulgur. If you do not give away our food to every wanderer at the gate, we shall see the spring in peace."
     },
     {
       "id": "node:opt_kitlik_paylas",
@@ -340,14 +340,14 @@
       "type": "DIALOGUE",
       "position": "(2450.0, 20.0)",
       "character": "Spouse",
-      "text": "İki can bir olunca dağlar yol verir beyim. Bu kış da geçer, bahara ereriz."
+      "text": "When two souls become one, even mountains yield a path, husband. This winter too shall pass, and spring will arrive."
     },
     {
       "id": "node:rep_kitlik_av",
       "type": "DIALOGUE",
       "position": "(2450.0, 100.0)",
       "character": "Spouse",
-      "text": "Orman tekinsizdir beyim, haramiden sakın... Kendini tehlikeye atma yeter."
+      "text": "The forest is perilous, husband, beware of outlaws... Only do not put your life in jeopardy."
     },
     {
       "id": "node:act_kitlik_paylas",
@@ -380,7 +380,7 @@
       "type": "DIALOGUE",
       "position": "(1750.0, 180.0)",
       "character": "Spouse",
-      "text": "Ayşe Bacı seni över; 'Muhafız mert oğlandır amma yükü ağırdır' der. Lakin Celep Hasan kurnazdır, gözü senin odandaki kasadadır. Gözünü dört aç beyim."
+      "text": "They whisper all manner of things, husband... Some say the gatekeeper is a champion of justice, others whisper that he holds council with spies. Yet they all know this: while you stand vigil, no harami dares scale the palisade."
     },
     {
       "id": "node:act_koy_dedikodu",
@@ -400,21 +400,21 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 280.0)",
       "character": "Gatekeeper",
-      "text": "Saçına yine un tozu bulaşmış hatun; tandır başında uyuklarken hamur teknesine mi düştün?"
+      "text": "The soup smells savory, but tell me: did you leave the salt in the pantry again like yesterday?"
     },
     {
       "id": "node:opt_aile_gecmis",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 400.0)",
       "character": "Gatekeeper",
-      "text": "Eski yurdu, Sivas'taki o küçük bahçeli evimizi hatırlar mısın? Buraya ilk geldiğimiz günleri..."
+      "text": "Do you remember our wedding night, hatun; the snowfall in the mountain village, the copper bowl of soup on the hearth?"
     },
     {
       "id": "node:rep_aile_saka",
       "type": "DIALOGUE",
       "position": "(1750.0, 280.0)",
       "character": "Spouse",
-      "text": "Aşk olsun beyim! Sabahtan beri koca köyün ekmeğine un elerim, sen bana laf edersin! Bir daha sana tandır çöreğinin kıtır yerini verirsem ne olayım!"
+      "text": "Tease me not, master sentry! Taste the broth first, then speak; this soup has wild thyme and bone marrow, enough to warm your weary blood!"
     },
     {
       "id": "node:opt_saka_tatli",
@@ -435,14 +435,14 @@
       "type": "DIALOGUE",
       "position": "(2450.0, 240.0)",
       "character": "Spouse",
-      "text": "Gülümse beyim, yüzün gülsün yeter... Çörek de helaldir, canım da sana feda."
+      "text": "Smile, husband, let your face brighten... The pastry is lawful, and my heart is yours."
     },
     {
       "id": "node:rep_saka_huzur",
       "type": "DIALOGUE",
       "position": "(2450.0, 320.0)",
       "character": "Spouse",
-      "text": "Sen sağ ol beyim. Ocağımız tütsün, dirlik bozulmasın."
+      "text": "May you live long, husband. Let our chimney smoke, and our peace remain unbroken."
     },
     {
       "id": "node:act_saka_tatli",
@@ -475,7 +475,7 @@
       "type": "DIALOGUE",
       "position": "(1750.0, 400.0)",
       "character": "Spouse",
-      "text": "Nasıl unuturum beyim... Atın terkisinde üç gün üç gece ağlamıştım. Anamın mezarı, babamın meyve ağaçları geride kaldı diye ciğerim yanmıştı. Lakin bak, bu çorak dağ başında sıfırdan bir yuva kurduk. Burası da yurdumuz oldu gayrı."
+      "text": "How could I ever forget, husband... You were so young, your mustache barely sprouting, yet you gripped your sword as if defending the sultanate. You said 'My wife shall never sleep cold.' You kept that oath."
     },
     {
       "id": "node:opt_gecmis_soz",
@@ -496,14 +496,14 @@
       "type": "DIALOGUE",
       "position": "(2450.0, 380.0)",
       "character": "Spouse",
-      "text": "Sen yanımda ol da beyim, bahçe de burasıdır, saray da... Sözün yüreğime su serpti."
+      "text": "So long as you are beside me, husband, this cottage is both garden and palace... Your words brought peace to my heart."
     },
     {
       "id": "node:rep_gecmis_kok",
       "type": "DIALOGUE",
       "position": "(2450.0, 460.0)",
       "character": "Spouse",
-      "text": "Kökümüz sağlam olsun beyim; yeter ki fırtına dallarımızı kırmasın."
+      "text": "May our roots be staunch, husband; so long as the storm snaps not our branches."
     },
     {
       "id": "node:act_gecmis_soz",
@@ -550,14 +550,14 @@
       "type": "DIALOGUE",
       "position": "(1750.0, 560.0)",
       "character": "Spouse",
-      "text": "Bilirim beyim... Sen nöbetteyken başımı yastığa rahat koyarım. Allah bileğine kuvvet, yüreğine ferahlık versin."
+      "text": "I know it, husband... While you stand vigil, I rest my head upon the bolster in peace. May Heaven grant strength to your arm and tranquility to your heart."
     },
     {
       "id": "node:rep_mevsim_tedarik",
       "type": "DIALOGUE",
       "position": "(1750.0, 680.0)",
       "character": "Spouse",
-      "text": "Çok iyi olur beyim. Karaca Usta'ya bir tas sıcak çorba götüreyim, o da çatı tahtalarını çivilesin. El birliğiyle kışı aşarız."
+      "text": "That would be wondrous, husband. I will carry a bowl of hot broth to Karaca Usta, and he can nail the roof shingles tight. Together we shall overcome the winter."
     },
     {
       "id": "node:act_mevsim_guven",
@@ -595,21 +595,21 @@
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 600.0)",
       "character": "Gatekeeper",
-      "text": "Kapıya gelen yeni yabancılar hakkında ne düşünürsün hatun; derviş, tüccar, yetimler ve yeğenimiz Turna..."
+      "text": "What do the folk say about the travelers and refugees we admitted into the village?"
     },
     {
       "id": "node:opt_olaylar",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 840.0)",
       "character": "Gatekeeper",
-      "text": "Köyde son günlerde yaşanan çalkantılar, kavgalar ve esrarengiz hadiseler hakkında ne dersin hatun?"
+      "text": "What rumors stir in the village regarding recent happenings and crises?"
     },
     {
       "id": "node:rep_ziyaretciler",
       "type": "DIALOGUE",
       "position": "(1050.0, 600.0)",
       "character": "Spouse",
-      "text": "Ah beyim, kapımız ana baba gününe döndü... Kimi dertli, kimi kaçak, kimi de öz kanımız. Hangi birinin halini merak edersin?"
+      "text": "Every newcomer brings their own baggage and their own shadow, husband. Who is it that troubles your mind?"
     },
     {
       "id": "node:opt_z_turna_dursun",
@@ -623,7 +623,7 @@
       "type": "DIALOGUE",
       "position": "(1750.0, 600.0)",
       "character": "Spouse",
-      "text": "Şenlenmez mi beyim! Turna'yı bağrıma bastım, anamın kokusu var üstünde... Dursun da dayısının yanında hamur yoğurur. İki yetimin duası bu ocağı cennet eder."
+      "text": "Could it not be blessed, husband! I held Turna to my heart, she carries the sweet scent of our kin... And Dursun kneads dough beside his uncle Hamza. The blessing of those two orphans makes our hearth like paradise."
     },
     {
       "id": "node:act_z_turna_dursun",
@@ -643,14 +643,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 720.0)",
       "character": "Gatekeeper",
-      "text": "Yayladan gelen o keçe abalı derviş baba mescide yerleşti; duası köylüye nefes olur mu?"
+      "text": "Will Dervish Baba, who brought the Mongol decree, bring peace and blessing to our ruined mosque?"
     },
     {
       "id": "node:rep_z_dervis",
       "type": "DIALOGUE",
       "position": "(1750.0, 720.0)",
       "character": "Spouse",
-      "text": "Nefes olur beyim. Çınar altında menkıbe anlatır, ihtiyarların gözü parlar. Moğol fermanını da sana teslim etti ya, niyetinin halis olduğu aşikâr."
+      "text": "He brings true blessing, husband. Beneath the plane tree he recounts legends, and the elders' eyes kindle. Since he delivered that Mongol parchment into your hands, his honest intent is clear to all."
     },
     {
       "id": "node:act_z_dervis",
@@ -670,14 +670,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 840.0)",
       "character": "Gatekeeper",
-      "text": "Tebrizli safran tüccarı ile çuhacı Selim Usta'nın husumeti divana taşındı; fitne çıkar mı?"
+      "text": "The feud between the Tabriz saffron merchant and Draper Selim Usta has reached the Divan; will discord erupt?"
     },
     {
       "id": "node:rep_z_tuccar",
       "type": "DIALOGUE",
       "position": "(1750.0, 840.0)",
       "character": "Spouse",
-      "text": "Gözünü dört aç beyim. Tüccarın safranı kışlık şifaya yarar amma boynundaki o gümüş mühür tilkiliğine işarettir; Selim Usta'yı divanda ezdirme."
+      "text": "Keep your eyes wide open, husband. The merchant's saffron serves our winter remedies, but that silver plate at his neck marks his cunning; do not let Selim Usta be crushed in council."
     },
     {
       "id": "node:act_z_tuccar",
@@ -697,14 +697,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 960.0)",
       "character": "Gatekeeper",
-      "text": "Sancak çavuşu Sungur kışlaya firari teftişine geldi; kılıcını bağlattık amma gözü tekin değil."
+      "text": "Enforcement Sergeant Sungur came to inspect the garrison for deserters; we bound his sword, yet his gaze is treacherous."
     },
     {
       "id": "node:rep_z_cavus",
       "type": "DIALOGUE",
       "position": "(1750.0, 960.0)",
       "character": "Spouse",
-      "text": "Tekin bakmaz beyim... Asker kılıklı haramiye benzer. Aydoğdu Bey gözünü üstünden ayırmasın; kışladaki gariplerin boğazına yapışmasın."
+      "text": "His eye is not honest, husband... He looks like a brigand dressed in military steel. Let Aydogdu Bey keep watch over him; let him not seize the throats of the poor souls in the barracks."
     },
     {
       "id": "node:act_z_cavus",
@@ -724,14 +724,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1080.0)",
       "character": "Gatekeeper",
-      "text": "Kucağında sabisiyle vebalı anayı kireç ocağında tecrit ettik; sabiye Ayşe Bacı süt verir mi?"
+      "text": "We quarantined the plague-stricken mother in the lime kiln hut; will Ayse Baci nurse the infant?"
     },
     {
       "id": "node:rep_z_vebali",
       "type": "DIALOGUE",
       "position": "(1750.0, 1080.0)",
       "character": "Spouse",
-      "text": "Verir beyim, Ayşe Bacı sabiyi kucağına aldı bile. Anaya da her sabah sıcak çorba götürürüm, kapıdan seslenirim. Merhametimiz o sabiyi yaşatacak inşallah."
+      "text": "She will nurse him, husband; Ayse Baci has already taken the child into her arms. Every dawn I carry warm soup to the mother, calling to her from outside. Our compassion will keep that baby alive, by God's grace."
     },
     {
       "id": "node:act_z_vebali",
@@ -751,14 +751,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1200.0)",
       "character": "Gatekeeper",
-      "text": "O afyoncu cerrah ile mahkemeden kovulan kâtip Molla Şükrü köye dirlik getirir mi?"
+      "text": "Will that opium-peddling surgeon and the disgraced scribe Molla Sukru bring peace to our village?"
     },
     {
       "id": "node:rep_z_hekim_katip",
       "type": "DIALOGUE",
       "position": "(1750.0, 1200.0)",
       "character": "Spouse",
-      "text": "İkisi de birbirinden kurnaz beyim! Cerrahı Miraen'in yanına, kâtibi de Hasan Çelebi'nin divitine bağla; biri zehir dağıtmasın, diğeri sahte tapu yazmasın."
+      "text": "Both are sly as foxes, husband! Bind the surgeon to Miraen's side, and the scribe to Hasan Celebi's desk; let one dispense no poison, and the other forge no deeds."
     },
     {
       "id": "node:act_z_hekim_katip",
@@ -778,14 +778,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1320.0)",
       "character": "Gatekeeper",
-      "text": "Ağabeyinin intikamı için gelen kurt postlu savaşçı Banu Hatun kışlada nöbete durdu."
+      "text": "Banu Hatun, the wolf-pelt warrior who came for blood vengeance, now stands watch on our ramparts."
     },
     {
       "id": "node:rep_z_banu",
       "type": "DIALOGUE",
       "position": "(1750.0, 1320.0)",
       "character": "Spouse",
-      "text": "Yiğit kadındır beyim. Gözlerinde matem var amma kalleşlik yok. Türkmen kızının oku sur üstünde haramiye göz açtırmaz; ona güvenebilirsin."
+      "text": "She is a noble warrior, husband. Grief burns in her eyes, but no treachery. The arrow of a Turkmen maiden on the ramparts gives outlaws no respite; you can trust her."
     },
     {
       "id": "node:act_z_banu",
@@ -805,14 +805,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1440.0)",
       "character": "Gatekeeper",
-      "text": "Karda donan kafile için ambarı açıp kızağı yolladık; vicdanımız rahat mıdır?"
+      "text": "We unbarred the granary and dispatched rescue sledges for the convoy freezing in the snow; is our conscience at rest?"
     },
     {
       "id": "node:rep_z_kafile",
       "type": "DIALOGUE",
       "position": "(1750.0, 1440.0)",
       "character": "Spouse",
-      "text": "Kızağın arkasından dua ettim beyim... O donan sabilerin çığlığı kesti ya, dünyaları kurtardın. Allah bu iyiliğini iki cihanda karşına çıkarsın."
+      "text": "I prayed as the sledges departed, husband... You stilled the cries of freezing babes; you saved an entire world. May God reward this mercy across both realms."
     },
     {
       "id": "node:act_z_kafile",
@@ -832,21 +832,21 @@
       "type": "DIALOGUE",
       "position": "(1050.0, 1800.0)",
       "character": "Spouse",
-      "text": "Köyün huzuru pamuk ipliğine bağlı beyim... Her gün yeni bir dert, yeni bir fısıltı kapımıza dayanır. Hangisini sorarsın?"
+      "text": "The peace of this village hangs by a thread of cotton, husband... Every day brings a new trial, a new whisper to our portal. Which matter do you inquire about?"
     },
     {
       "id": "node:opt_o_harman_kavga",
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1800.0)",
       "character": "Gatekeeper",
-      "text": "Harman yerinde köylüler arasında çıkan arpa kavgası yatıştı mı hatun?"
+      "text": "Has the barley brawl that erupted among the farmers at the threshing floor subsided, wife?"
     },
     {
       "id": "node:rep_o_harman_kavga",
       "type": "DIALOGUE",
       "position": "(1750.0, 1800.0)",
       "character": "Spouse",
-      "text": "Saruca Hatun araya girdi de dirliği sağladı beyim. Kış kapıdayken bir avuç arpa için komşunun komşuya orak çekmesi yüreğimi dağladı."
+      "text": "Saruca Hatun stepped between them and restored order, husband. With winter at our throats, to see neighbor draw a scythe upon neighbor over a handful of barley tore my heart."
     },
     {
       "id": "node:act_o_harman_kavga",
@@ -866,14 +866,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1920.0)",
       "character": "Gatekeeper",
-      "text": "Ambarda gece vakti kilit kırılmış, un çuvalları eksilmiş derler; hırsız kimdir?"
+      "text": "They say the granary lock was broken at midnight and flour sacks went missing; who is the thief?"
     },
     {
       "id": "node:rep_o_ambar_hirsizlik",
       "type": "DIALOGUE",
       "position": "(1750.0, 1920.0)",
       "character": "Spouse",
-      "text": "Açlık insanı hırsız eder beyim... Lakin kilidi kıran yabancı değil, köyün içinden biri derler. Nöbeti sıkı tut, ambar boşalırsa kış çıkmaz."
+      "text": "Hunger drives men to theft, husband... Yet they whisper the lock was broken not by a stranger, but by someone within our walls. Keep tight watch; if the granary is emptied, we will not see the spring."
     },
     {
       "id": "node:act_o_ambar_hirsizlik",
@@ -893,14 +893,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 2040.0)",
       "character": "Gatekeeper",
-      "text": "Kuyu başında salgın fısıltısı yayılmış; halk kireç dökmekten korkar, ne yapalım?"
+      "text": "Whispers of pestilence spread around the wellhead; folk fear slaking lime into the water. What shall we do?"
     },
     {
       "id": "node:rep_o_salgin_fisilti",
       "type": "DIALOGUE",
       "position": "(1750.0, 2040.0)",
       "character": "Spouse",
-      "text": "Kuyu suyunu kaynatmadan içmeyin diye herkese tembihledim beyim. Miraen kireç ocağını hazırladı; korkunun ecele faydası yok, tedbiri elden bırakmayalım."
+      "text": "I cautioned everyone never to drink without boiling the kettle, husband. Miraen has the lime kiln ready; fear cannot avert destiny, let us not abandon vigilance."
     },
     {
       "id": "node:act_o_salgin_fisilti",
@@ -920,14 +920,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 2160.0)",
       "character": "Gatekeeper",
-      "text": "Çınar altında kurulan köy düğünü ayazda köylünün yüzünü güldürdü mü hatun?"
+      "text": "Did the village wedding beneath the plane tree bring smiles to our folk despite the freezing air?"
     },
     {
       "id": "node:rep_o_koy_dugunu",
       "type": "DIALOGUE",
       "position": "(1750.0, 2160.0)",
       "character": "Spouse",
-      "text": "Hem de nasıl beyim! Davul zurna çalınca cümle gam kasavet dağıldı. Geline eski sandığımdan bir ipek çevre hediye ettim; gençlerin neşesi köyü ısıttı."
+      "text": "Indeed it did, husband! When the drum and zurna sounded, every grief and gloom scattered. I gifted the bride an embroidered silk kerchief from my old dowry chest; the youth's joy warmed the village."
     },
     {
       "id": "node:act_o_koy_dugunu",
@@ -947,14 +947,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 2280.0)",
       "character": "Gatekeeper",
-      "text": "Karda donan o firari askerin cenazesini kıldırdık; köylü ne söyler arkasından?"
+      "text": "We conducted the funeral prayer for the runaway trooper who froze in the drifts; what do the folk say?"
     },
     {
       "id": "node:rep_o_firari_cenaze",
       "type": "DIALOGUE",
       "position": "(1750.0, 2280.0)",
       "character": "Spouse",
-      "text": "Garip bir kuldu beyim... Mescidin arkasındaki mezarlığa defnettik, derviş baba başında dua okudu. Köylü 'Muhafız düşmanına bile mezar hakkı tanıdı' diye seni över."
+      "text": "He was a wretched, lonely soul, husband... We laid him to rest behind the mosque, and Dervish Baba recited prayers over his mound. The villagers praise you, saying 'Our gatekeeper grants even his enemy the right of burial.'"
     },
     {
       "id": "node:act_o_firari_cenaze",
@@ -974,14 +974,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 2400.0)",
       "character": "Gatekeeper",
-      "text": "Gece samanlıkta çıkan yangın sur dibine sıçramadan söndürüldü çok şükür; kundak mıdır?"
+      "text": "Praise be, the midnight hay barn blaze was quenched before leaping to the palisades; was it arson?"
     },
     {
       "id": "node:rep_o_samanlik_yangin",
       "type": "DIALOGUE",
       "position": "(1750.0, 2400.0)",
       "character": "Spouse",
-      "text": "Karaca Usta ile leventler kovalarla yetişmeseydi kışla kül olacaktı beyim! Rüzgâr kıvılcımı uçurdu derler amma harami parmağı olmasından korkarım."
+      "text": "Had Karaca Usta and the garrison troopers not rushed with water buckets, the barracks would have turned to ash! Some say a gust caught a spark, yet I dread the hand of outlaws."
     },
     {
       "id": "node:act_o_samanlik_yangin",
@@ -1001,14 +1001,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 2520.0)",
       "character": "Gatekeeper",
-      "text": "Gece donu bostanları vurdu, kuyunun ağzı buz kesti; kilerimiz dayanır mı?"
+      "text": "The night frost struck the gardens, the mouth of the well froze solid; will our larder hold out?"
     },
     {
       "id": "node:rep_o_gece_donu",
       "type": "DIALOGUE",
       "position": "(1750.0, 2520.0)",
       "character": "Spouse",
-      "text": "Toprak taş gibi dondu beyim... Amma tandırın közünü küle gömdüm, un çuvallarını keçeyle sardım. Biz bu kışı da aşarız Allah'ın izniyle, sen içini ferah tut."
+      "text": "The earth froze hard as stone, husband... Yet I banked the tandoor embers under ash and wrapped the flour sacks in thick felt. We shall weather this winter too with God's help; keep your heart at ease."
     },
     {
       "id": "node:act_o_gece_donu",
@@ -1028,14 +1028,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 2640.0)",
       "character": "Gatekeeper",
-      "text": "Dağdaki haramilerin elçisi küstahça haraç istemeye geldi; başını dik tuttuk mu?"
+      "text": "The outlaw envoy insolently demanded tribute; did we hold our heads high?"
     },
     {
       "id": "node:rep_o_harami_elcisi",
       "type": "DIALOGUE",
       "position": "(1750.0, 2640.0)",
       "character": "Spouse",
-      "text": "İyi yaptın beyim! Çapulcuya tek bir akçe verirsek yarın sürümüzü de isterler. Köyün muhafızı baş eğmezse harami bu dağdan kaçar!"
+      "text": "You acted nobly, husband! If we give a single akce to brigands, tomorrow they will demand our flocks. When the guardian of the march bends not his neck, the outlaw flees from these peaks!"
     },
     {
       "id": "node:act_o_harami_elcisi",

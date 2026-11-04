@@ -157,30 +157,30 @@
     },
     "yakalanan_yalan": {
       "agirlik": 3,
-      "baslik": "Kapıda Yalan Yakalama",
+      "baslik": "Unmasking Deceit at the Gate",
       "es_replikleri": [
-        "Gelen adam heybesini gizlemeye çalışırken iyi sıkıştırdın.",
-        "Yalanını yüzüne vurunca rengi attı; kapıdaki gözün keskinmiş beyim."
+        "You cornered him well when that traveler attempted to conceal his saddlebag.",
+        "His face paled when you threw his falsehood in his teeth; your eye at the gate is keen, husband."
       ],
       "meslek_varyantlari": {
-        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
-        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
-        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+        "dokumaci": "You unraveled his knot deftly; like a master craftsman discerning flawed yarn.",
+        "firinci": "Such scoundrels deserve no indulgence; let only honest folk enter, even if hungry.",
+        "ebe": "A liar's pulse races fast; you said you could read it in his glance, and you were proven right."
       },
       "ipucu": "yalan_yakalama_itibari",
       "cevaplar": {
         "savunmak": {
-          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "metin": "In a frontier Beylik, the hearth of a lax sentry is swiftly extinguished.",
           "terazi": "savundu",
           "moral_etkisi": 1
         },
         "kabul_etmek": {
-          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "metin": "My eye was upon him, yet my heart takes no joy in catching men in shame.",
           "terazi": "kabul_etti",
           "moral_etkisi": 1
         },
         "susmak": {
-          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "metin": "The gatekeeper nods slightly, gazing into the fire without pride.",
           "terazi": "kacti",
           "moral_etkisi": 0
         }
@@ -188,30 +188,30 @@
     },
     "tutulmayan_soz": {
       "agirlik": 3,
-      "baslik": "Köylüye Verilen Sözün Tutulmaması",
+      "baslik": "A Broken Vow to the Villagers",
       "es_replikleri": [
-        "Demirci kalfasına kömür sözü vermiştin, bugün kışlaya çekmişsin.",
-        "Muhafızın sözü senet bilinir bu köyde; güven sarsılırsa tutunamayız."
+        "You promised charcoal to the blacksmith's apprentice, yet today diverted it to the barracks.",
+        "A gatekeeper's word is regarded as a bond in this settlement; if trust falters, we cannot endure."
       ],
       "meslek_varyantlari": {
-        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
-        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
-        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+        "dokumaci": "The women at the well whisper among themselves that the master guard went back on his word.",
+        "firinci": "A promise is like dough in the oven; if its hour passes, the loaf turns to stone.",
+        "ebe": "Trust is like a living soul; once departed, it is grievous hard to recall."
       },
       "ipucu": "koylu_kirginlik_kaydi",
       "cevaplar": {
         "savunmak": {
-          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "metin": "Orders arrived from the Sanjak; of necessity I gave priority to the garrison.",
           "terazi": "savundu",
           "moral_etkisi": 0
         },
         "kabul_etmek": {
-          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "metin": "The fault is mine; come dawn, my first walk shall be to the smithy to ask forgiveness.",
           "terazi": "kabul_etti",
           "moral_etkisi": 2
         },
         "susmak": {
-          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "metin": "With a pang of guilt, the gatekeeper wipes his sword scabbard and utters no word.",
           "terazi": "kacti",
           "moral_etkisi": 0
         }
@@ -219,30 +219,30 @@
     },
     "firari_askeri_almak": {
       "agirlik": 3,
-      "baslik": "Kışla Firarisini Köye Kabul",
+      "baslik": "Sheltering a Garrison Deserter",
       "es_replikleri": [
-        "Sancak subaşısının aradığı o askeri köye sokmuşsun.",
-        "İnzibat atlıları yarın kapıya dayanırsa ne hesap vereceksin?"
+        "You allowed that trooper hunted by the Sanjak subasi to slip into our settlement.",
+        "If enforcement cavalry ride up to our portal tomorrow, what account will you render?"
       ],
       "meslek_varyantlari": {
-        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
-        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
-        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+        "dokumaci": "A deserter must not draw near the looms; do not draw fire upon the village, husband.",
+        "firinci": "A soldier belongs in his barracks; must we divide our bread with a fugitive?",
+        "ebe": "If he is wounded we will bind his hurts, but if blood drips from his steel, he brings calamity."
       },
       "ipucu": "subasi_baskin_ihtimali",
       "cevaplar": {
         "savunmak": {
-          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "metin": "He was a wretched trooper fleeing tyranny; besides, we desperately need men who can bear arms.",
           "terazi": "savundu",
           "moral_etkisi": 0
         },
         "kabul_etmek": {
-          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "metin": "I know full well the grave risk I took; to guard the village I will double the watch.",
           "terazi": "kabul_etti",
           "moral_etkisi": 1
         },
         "susmak": {
-          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "metin": "The gatekeeper stares out through the window into the dark road, answering nothing.",
           "terazi": "kacti",
           "moral_etkisi": 0
         }
@@ -250,30 +250,30 @@
     },
     "kacak_yetimi_almak": {
       "agirlik": 3,
-      "baslik": "Kaçak Çırak / Yetimi Sahiplenme",
+      "baslik": "Sheltering a Runaway Apprentice / Orphan",
       "es_replikleri": [
-        "Kapıdaki o çelimsiz çocuğu içeri almışsın...",
-        "Karnı aç, üstü başı yırtık; kime emanet edeceğiz bu sabiyi?"
+        "You took in that frail boy shivering upon the portal...",
+        "He is starving, his garments in tatters; to whose care shall we entrust this child?"
       ],
       "meslek_varyantlari": {
-        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
-        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
-        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+        "dokumaci": "Place him beside me, let him learn to spin wool; he will earn his keep.",
+        "firinci": "Let us apprentice him to the bakery; he can knead dough and earn his daily bread.",
+        "ebe": "Tender mercy is what that boy needs; let him drink a bowl of hot broth by the hearth."
       },
       "ipucu": "yetim_himaye_sevgisi",
       "cevaplar": {
         "savunmak": {
-          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "metin": "I could not cast him into the snow, wife; to shield the orphan is the honor of the Beylik.",
           "terazi": "savundu",
           "moral_etkisi": 2
         },
         "kabul_etmek": {
-          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "metin": "Our cottage is small, but our hearts are spacious; a bowl of our broth is enough for him.",
           "terazi": "kabul_etti",
           "moral_etkisi": 2
         },
         "susmak": {
-          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "metin": "The gatekeeper looks upon the carved wooden toy the boy brought, smiling gently.",
           "terazi": "kacti",
           "moral_etkisi": 1
         }
@@ -281,30 +281,30 @@
     },
     "gundelik_sessizlik": {
       "agirlik": 1,
-      "baslik": "Sakin Günün Akşamı",
+      "baslik": "Evening of a Peaceful Day",
       "es_replikleri": [
-        "Bugün kapı sakinmiş beyim; şükür ki kavga gürültü çıkmadı.",
-        "Dağların ayazı erken indi; çorbanı sıcakken iç."
+        "The gate was tranquil today, husband; praise be that no brawl or strife arose.",
+        "The mountain frost descended early; drink your soup while it is steaming."
       ],
       "meslek_varyantlari": {
-        "dokumaci": "How shall I face the women at the loom tomorrow? They will speak only of that mother's wailing.",
-        "firinci": "Do you believe bread bought with the tears of a broken family will taste sweet on our tongues?",
-        "ebe": "This is like tearing a swaddled newborn from its mother's breast; my heart cannot bear it."
+        "dokumaci": "Today we wove two bolts of wool felt; the village women were cheerful.",
+        "firinci": "Our firewood is stacked, our flour blessed; the oven blazes warmly, praise be.",
+        "ebe": "I dried the medicinal herbs; no grave ailment afflicts the settlement."
       },
       "ipucu": "koyde_huzur_gunu",
       "cevaplar": {
         "savunmak": {
-          "metin": "The law is clear, wife; for the security of our settlement, they had to be separated.",
+          "metin": "Serenity is a blessing, wife; yet on the watch one must never let down his guard.",
           "terazi": "savundu",
           "moral_etkisi": 1
         },
         "kabul_etmek": {
-          "metin": "You speak true... My senses were clouded in the biting wind at the gate; my soul aches.",
+          "metin": "Praise be to God; so long as smoke rises from our chimney, it is enough.",
           "terazi": "kabul_etti",
           "moral_etkisi": 1
         },
         "susmak": {
-          "metin": "The gatekeeper remained silent beside the hearth, staring down at the glowing coals.",
+          "metin": "The gatekeeper cradles the warm bowl in both hands, resting in peaceful silence.",
           "terazi": "kacti",
           "moral_etkisi": 0
         }

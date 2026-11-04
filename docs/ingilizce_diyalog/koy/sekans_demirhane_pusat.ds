@@ -11,42 +11,42 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Karaca Usta",
-      "text": "Thessra usta! Kapı kanadının demir takviyeleri zayıf kalmış; süvari atı çarpsa menteşe fırlar!"
+      "text": "Master Thessra! The iron braces on the gate leaves are too frail; if a cavalry charge strikes, the hinge pins will snap!"
     },
     {
       "id": "node:c2",
       "type": "DIALOGUE",
       "position": "(700.0, 0.0)",
       "character": "Thessra",
-      "text": "Haklısın Karaca baba. Taş temel sağlam amma kapı kanadına çift sıra dövme perçinli demir kuşak çekmemiz şart. Kömürün yeter mi?"
+      "text": "You speak truth, Father Karaca. The stone plinth is massive, but we must bolt double-riveted forged iron straps across the timber face. Have you enough charcoal?"
     },
     {
       "id": "node:opt1",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, -90.0)",
       "character": "Gatekeeper",
-      "text": "Kömürü ben sağlarım, kalkanları ve kapıyı en sağlam çelikle donatacağız!"
+      "text": "I will provide the charcoal myself; we shall equip our bucklers and gate with the toughest steel!"
     },
     {
       "id": "node:opt2",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, 90.0)",
       "character": "Gatekeeper",
-      "text": "İsraf yok! Yalnızca en zayıf mazgallara ve kapı göbeğine takviye yapın."
+      "text": "No waste! Reinforce only the weakest loopholes and the center hub of the gate leaf."
     },
     {
       "id": "node:rep1",
       "type": "DIALOGUE",
       "position": "(1400.0, -90.0)",
       "character": "Karaca Usta",
-      "text": "Emir baş üstüne muhafız ağa! Demirhane sabaha kadar tütecek, kapı kale kapısı gibi olacak."
+      "text": "Your command is honored, master guard! The forge shall blaze till dawn, and the portal shall be sturdy as a fortress gate."
     },
     {
       "id": "node:rep2",
       "type": "DIALOGUE",
       "position": "(1400.0, 90.0)",
       "character": "Thessra",
-      "text": "Az kaynakla da olsa mühendislik hünerimizi konuştururuz ağam, surlar dimdik durur."
+      "text": "Even with sparse materials we shall display our engineering craft, master; these ramparts will stand unyielding."
     },
     {
       "id": "node:act1",

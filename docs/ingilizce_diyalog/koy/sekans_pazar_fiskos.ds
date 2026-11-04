@@ -11,42 +11,42 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Hasan Çelebi",
-      "text": "Yusuf oğul, elindeki Karabaş'ın ipini sıkı tut. Köy pazarında yabancılar dolaşır; kulağıma türlü türlü fısıltı gelir."
+      "text": "Yusuf lad, hold fast to the rope of Karabash. Strangers wander through our market; all manner of whispers reach my ear."
     },
     {
       "id": "node:c2",
       "type": "DIALOGUE",
       "position": "(700.0, 0.0)",
       "character": "Yusuf",
-      "text": "Korkmam Hasan kâtip emmi... Kapıdaki muhafız ağam adaletlidir. Dün gelenlerin heybesine baktı, haramiyi içeri sokmadı."
+      "text": "I fear nothing, Uncle Hasan Celebi... Our master guard at the gate is just. He inspected the saddlebags of all who arrived yesterday, and let no outlaw slip in."
     },
     {
       "id": "node:opt1",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, -90.0)",
       "character": "Gatekeeper",
-      "text": "Adalet mülkün temelidir Yusuf. Köyün dirliği bozulmasın diye gece gündüz nöbet tutarız."
+      "text": "Justice is the bedrock of the realm, Yusuf. We stand vigil day and night so the peace of the settlement may not falter."
     },
     {
       "id": "node:opt2",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, 90.0)",
       "character": "Gatekeeper",
-      "text": "Dedikodulara kulak asmayın, herkes kendi işine baksın!"
+      "text": "Pay no heed to idle gossip; let every man tend to his own craft!"
     },
     {
       "id": "node:rep1",
       "type": "DIALOGUE",
       "position": "(1400.0, -90.0)",
       "character": "Hasan Çelebi",
-      "text": "Haklısın muhafız ağa. Defterime yalnız hakikati yazarım; dedikodu yapanı divan uyarır."
+      "text": "You speak truth, master guard. I enter only the truth into my chronicle; whoever spreads false rumor will face the council."
     },
     {
       "id": "node:rep2",
       "type": "DIALOGUE",
       "position": "(1400.0, 90.0)",
       "character": "Yusuf",
-      "text": "Muhafız ağam doğru der Hasan emmi, köyümüzün nöbetçisi sağlamdır!"
+      "text": "Master guard speaks truly, Uncle Hasan; the sentry of our village stands unshakeable!"
     },
     {
       "id": "node:act1",

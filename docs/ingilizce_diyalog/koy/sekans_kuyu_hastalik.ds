@@ -11,42 +11,42 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Miraen",
-      "text": "Saruca Hatun... Meydan kuyusundan çekilen suda kükürt ve pas kokusu sezinledim. Çocuklara bu suyu kaynatmadan içirme."
+      "text": "Saruca Hatun... In the water drawn from the square well I detected the taint of sulfur and rust. Do not let the children drink without boiling it first."
     },
     {
       "id": "node:c2",
       "type": "DIALOGUE",
       "position": "(700.0, 0.0)",
       "character": "Saruca Hatun",
-      "text": "Aman Miraen kızım! Kış günü başımıza bir de salgın humması sarmayalım. Kuyuya kireç dökelim mi, ne dersin?"
+      "text": "Mercy, daughter Miraen! Let us not invite the scourge of pestilence in the dead of winter. Shall we slake quicklime into the well; what say you?"
     },
     {
       "id": "node:opt1",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, -90.0)",
       "character": "Gatekeeper",
-      "text": "Hemen sönmemiş kireç kuyusunu açıp üç ölçek kuyuya dökelim, iki gün dinlensin."
+      "text": "Open the quicklime pit immediately and cast three measures into the shaft; let the well rest for two days."
     },
     {
       "id": "node:opt2",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, 90.0)",
       "character": "Gatekeeper",
-      "text": "Kuyuyu kapatamayız, köylü susuz kalır; sadece şüpheli kovaları arıtalım."
+      "text": "We cannot shutter the well, the folk will thirst; purify only the buckets under suspicion."
     },
     {
       "id": "node:rep1",
       "type": "DIALOGUE",
       "position": "(1400.0, -90.0)",
       "character": "Miraen",
-      "text": "Doğru karar muhafız ağa. Kireç kuyunun zehrini kırar, iki güne su ayna gibi berraklaşır."
+      "text": "A righteous decision, master guard. Quicklime breaks the venom of the deep shaft; within two days the water will be clear as a polished mirror."
     },
     {
       "id": "node:rep2",
       "type": "DIALOGUE",
       "position": "(1400.0, 90.0)",
       "character": "Saruca Hatun",
-      "text": "Öyleyse suları tandır ateşinde kaynatıp öyle dağıtacağız evlat; tedbiri elden bırakmayız."
+      "text": "Then we shall boil every kettle over the tandoor embers before distributing water, child; we take no careless risks."
     },
     {
       "id": "node:act1",

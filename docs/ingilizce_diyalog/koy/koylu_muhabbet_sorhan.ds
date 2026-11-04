@@ -11,49 +11,49 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Sorhan",
-      "text": "Esenlikler muhafız. Bozkırın rüzgârı atların yelesindedir. Ahırda tayları tımarlarım; ne sorarsın?"
+      "text": "Blessings upon you, gatekeeper. The steppe wind blows through the manes of our horses. I groom the colts in the stable; what do you inquire?"
     },
     {
       "id": "node:opt_normal",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -180.0)",
       "character": "Gatekeeper",
-      "text": "Sorhan, köyün binekleri ve yük hayvanları ne alemde?"
+      "text": "Sorhan, how fare the village mounts and pack beasts?"
     },
     {
       "id": "node:opt_kriz",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 0.0)",
       "character": "Gatekeeper",
-      "text": "Bozkırdan süvari yaklaşırsa atlarımız kaçışta yeter mi?"
+      "text": "If enemy cavalry approaches from the plain, are our horses swift enough for flight or maneuver?"
     },
     {
       "id": "node:opt_karar",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 180.0)",
       "character": "Gatekeeper",
-      "text": "Dün gelen seyyar nalbant hakkında ne dersin?"
+      "text": "What say you regarding the itinerant farrier who arrived yesterday?"
     },
     {
       "id": "node:rep_normal",
       "type": "DIALOGUE",
       "position": "(1050.0, -180.0)",
       "character": "Sorhan",
-      "text": "Atlar dert dinlemez, yürek dinler muhafız. İki yağız atın ayak tırnağını kestim, bozkır otuyla besledim. Köyün süvarisi gerekirse rüzgâr gibi uçar."
+      "text": "Horses listen not to grievances, but to the heart, gatekeeper. I trimmed the hooves of our two black war horses and fed them steppe grass. The village cavalry can fly like the wind whenever duty summons."
     },
     {
       "id": "node:rep_kriz",
       "type": "DIALOGUE",
       "position": "(1050.0, 0.0)",
       "character": "Sorhan",
-      "text": "Kıpçak atı yorulmaz ağam. Süvari yaklaşırsa arkadan çevirir, vadide pusu kurarız. Atı iyi süren asker, er meydanında on yayaya bedeldir."
+      "text": "A Kipchak mount never tires, master. If cavalry advances, we flank them from the rear and lay an ambush in the gorge. A warrior who masters his mount is worth ten infantrymen on the field of honor."
     },
     {
       "id": "node:rep_karar",
       "type": "DIALOGUE",
       "position": "(1050.0, 180.0)",
       "character": "Sorhan",
-      "text": "Topuğu çivili nalbant ustası ahıra girdi. Haramilerin atlarını sakatladığını anlattı; nalları inceledim, haklı. Bizim aygırların hepsine hilal nal çaktı; hayvanlar gayrı tökezlemez."
+      "text": "The farrier with the nail in his heel came to the stables. He explained how outlaws deliberately hobbled mounts on the pass; I inspected the shoes, and he was truthful. He forged crescent shoes for all our stallions; our beasts will stumble no more."
     },
     {
       "id": "node:act_normal",

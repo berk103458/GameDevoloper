@@ -11,35 +11,35 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Aydoğdu",
-      "text": "Odunu harlı atın çocuklar, bu gece ayaz dağdan inecek. Boğazdaki çatırtıları duydunuz mu?"
+      "text": "Heave more timber on the blaze, lads; tonight the frost will descend from the peaks. Did you hear the cracking echoes along the defile?"
     },
     {
       "id": "node:ayse",
       "type": "DIALOGUE",
       "position": "(700.0, 0.0)",
       "character": "Ayşe Bacı",
-      "text": "Duyduk Aydoğdu çavuş... Kurt uluması değil o, atlıların nal sesidir. Muhafızlar mazgalları boş bırakmasın."
+      "text": "We heard them, Sergeant Aydogdu... That was no wolf howl; that was the clatter of shod war horses. Let not the sentries leave the battlements empty."
     },
     {
       "id": "node:opt_guven",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, -90.0)",
       "character": "Gatekeeper",
-      "text": "Korkmayın, kulelerde nöbetçilerimiz uyanık, köyün suru sağlamdır."
+      "text": "Fear not; our sentries atop the towers are alert, and the ramparts of our settlement are staunch."
     },
     {
       "id": "node:opt_dagil",
       "type": "DIALOGUE_OPTION",
       "position": "(1050.0, 90.0)",
       "character": "Gatekeeper",
-      "text": "Herkes çadırına ve evine çekilsin, meydanda toplanıp tedirginlik yaratmayın."
+      "text": "Let all folk withdraw to their tents and cottages; do not assemble in the square and breed alarm."
     },
     {
       "id": "node:rep_guven",
       "type": "DIALOGUE",
       "position": "(1400.0, -90.0)",
       "character": "Aydoğdu",
-      "text": "Gözün arkada kalmasın muhafız, gerekirse biz de kazmaları kapıp kapıya dikiliriz."
+      "text": "Keep no anxiety in your heart, gatekeeper; if need arises, we too will seize pickaxes and stand beside the portal."
     },
     {
       "id": "node:act_guven",
@@ -57,7 +57,7 @@
       "type": "DIALOGUE",
       "position": "(1400.0, 90.0)",
       "character": "Ayşe Bacı",
-      "text": "Peki muhafız, lakin dirlik bir arada durunca kuvvet bulur."
+      "text": "As you say, gatekeeper; yet remember that unity gathers strength when folk stand together."
     },
     {
       "id": "node:end",

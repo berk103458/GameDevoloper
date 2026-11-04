@@ -11,49 +11,49 @@
       "type": "DIALOGUE",
       "position": "(350.0, 0.0)",
       "character": "Yusuf",
-      "text": "Selam muhafız ağa... Ben Yusuf. Karabaş'ın ipini tutarım, kapıya bakarım hep."
+      "text": "Greetings, master guard... I am Yusuf. I hold the rope of my dog Karabash, and I always watch the gate."
     },
     {
       "id": "node:opt_normal",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, -180.0)",
       "character": "Gatekeeper",
-      "text": "Elindeki o ipi hiç bırakmaz mısın Yusuf?"
+      "text": "Do you never let go of that rope in your hand, Yusuf?"
     },
     {
       "id": "node:opt_kriz",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 0.0)",
       "character": "Gatekeeper",
-      "text": "Köyde erzak azaldı, kış ayazı bastırıyor; karnın aç mıdır?"
+      "text": "Provisions have dwindled in the village, winter frost sets in; are you hungry, lad?"
     },
     {
       "id": "node:opt_karar",
       "type": "DIALOGUE_OPTION",
       "position": "(700.0, 180.0)",
       "character": "Gatekeeper",
-      "text": "Dün gece kapıda verilen kararları işittin mi, köylü ne konuşur?"
+      "text": "Did you hear the decisions rendered at the gate last night; what do the folk say?"
     },
     {
       "id": "node:rep_normal",
       "type": "DIALOGUE",
       "position": "(1050.0, -180.0)",
       "character": "Yusuf",
-      "text": "Dust of cavalry was reported near the ridge; we must fortify the redoubts."
+      "text": "Karabash is my shepherd dog, master guard. His ears twitch at the rustle of an owl in the dark; whenever he barks, I know stranger or wolf approaches the fold."
     },
     {
       "id": "node:rep_kriz",
       "type": "DIALOGUE",
       "position": "(1050.0, 0.0)",
       "character": "Yusuf",
-      "text": "Saruca Hatun dün akşam bir tas sıcak tarhana verdi, Ayşe Bacı da yün çorap ördü. Aç kalmam ağam, köylü beni doyurur; ben de ağılda topal oğlakla Akça koyuna bakarım."
+      "text": "Saruca Hatun gave me a bowl of hot tarhana soup yesterday evening, and Ayse Baci knitted me thick wool socks. I will not starve, master; our villagers feed me, and in return I tend the lame kid and Akca the ewe in the fold."
     },
     {
       "id": "node:rep_karar",
       "type": "DIALOGUE",
       "position": "(1050.0, 180.0)",
       "character": "Yusuf",
-      "text": "İşittim ağam... Çeşme başında kadınlar 'Muhafız adil adamdır, hak edeni içeri aldı' dediler. Eğer yabancı gelseydi Karabaş havlardı, havlamadığına göre iyi insanlardır."
+      "text": "I heard them, master... At the fountain the women said, 'The gatekeeper is a just man; he admitted those who deserved mercy.' If a villain had entered, Karabash would have barked; since he stayed quiet, they must be good souls."
     },
     {
       "id": "node:act_normal",
