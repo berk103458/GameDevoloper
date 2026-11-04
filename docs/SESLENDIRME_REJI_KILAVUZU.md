@@ -1,33 +1,109 @@
-# Kapı Muhafızı — Seslendirme ve Dil Reji Kılavuzu (SES-DIL-01)
+# SES-DIL-01: Kapı Muhafızı — Seslendirme ve Dil Reji Kılavuzu
 
-> **Kapsam:** 13. Yüzyıl Anadolu Selçuklu / Uç Beyliği Dönemi Fonetik Kılavuzu, Reji Direktifleri ve Karakter Ses Kartları  
+> **Kapsam:** 13. Yüzyıl Anadolu Selçuklu / Uç Beyliği Dönemi Fonetik Kılavuzu, Reji Direktifleri, Tipolojik Ses Kartları ve Çift Dilli (TR/EN) Örnek Replikler  
 > **Hazırlayan:** Antigravity (Ahmet ve Kaşif direktifiyle, Görev 17 Paralel Ajan B)  
 > **Referans Belgeler:** `ROADMAP_2.md` (SES-DIL-01), `docs/DIYALOG_ANA_PLANI.md`, `data/diyalog/diyalog_01_20.json`, `data/diyalog/en/diyalog_01_20.json`, `data/parley/koy/`  
-> **Teknik Standart:** 48 kHz / 24-bit PCM WAV (Mono), Dry Vocal, Proximity Effect
+> **Teknik Standart:** 48 kHz / 24-bit PCM WAV (Mono), Dry Vocal, Proximity Effect, True Peak -1.0 dBFS
 
 ---
 
-## 1. Genel Sanat ve Ses Tasarım Vizyonu
+## 1. Genel Sanat ve Reji İlkeleri
 
-### 1.1. Tarihsel ve Atmosferik Çerçeve
-*Kapı Muhafızı*, 1243 Kösedağ Bozgunu sonrasındaki çalkantılı dönemde, dondurucu bir kış mevsiminde dağ geçidindeki sınır kapısını tutan bir nöbetçinin ve sığındığı köyün dramını anlatır. Seslendirme vizyonunun merkezinde şu unsurlar yer alır:
-
-1. **Tiyatro ve Opera Abartısından Kaçınma:** Replikler teatral veya tumturaklı tiratlar gibi okunmamalıdır. Kış ayazında donan, sırtında heybesi olan, açlıktan takati kalmamış, korku veya tekinsizlik içindeki gerçek 13. yüzyıl insanlarının ağzından çıkmalıdır.
-2. **Ayaz, Soluk ve Beden Gerçekçiliği:** Soğuk havada konuşurken verilen buharlı kesik nefesler, çene titremeleri, kelime aralarındaki yutkunmalar ve göğüs hırıltıları korunmalıdır. Karakter bir yük taşıyorsa ses tonunda ağırlık, yaralıysa kesik soluk hissedilmelidir.
-3. **13. Yüzyıl Anadolu Türkçesi Fonetiği:** Günümüz şehir Türkçesi kibarlığı veya modern dizi dili yerine; sert ünsüzleri (k, t, p, ç) tok vuran, boğaz ve göğüs rezonansını kullanan, devrik ve yalın halk dili esas alınır. Yabancı/azınlık karakterlerde (Tebrizli tüccar, Rum ipekçi, Kıpçak levent) hafif ve otantik dönem aksanları korunmalıdır.
-4. **Reji Notasyonu:** Her repliğin başında köşeli parantez içinde verilen `[...]` direktifleri; oyuncunun beden dilini, fiziksel mesafesini, ses dinamiğini ve repliğin alt metnini belirler.
-
-### 1.2. Akustik ve Teknik Kayıt Standartları
-- **Örnekleme ve Çözünürlük:** 48 kHz, 24-bit PCM WAV, Mono.
-- **Akustik Ortam (Dry Vocal):** Kayıtlar tamamen yansısız (dead room) kuru vokal olarak alınır. Kapı kulesi yankısı, rüzgâr uğultusu ve oda ambiyansı oyun motorunun Godot AudioBus (Reverb/LowPass) hattında dinamik olarak işlenecektir.
-- **Mikrofon Mesafesi (Proximity Effect):**
-  - *Kapı Nöbeti (Diyalog):* 15–20 cm kardioid/geniş diyafram kondenser mikrofon; soğuk nefes patlamalarını önlemek için pop filtre kullanılır.
-  - *Eş Fısıltıları ve İç Ses:* 5–10 cm yakın mikrofonlama; sıcak, samimi, fısıltılı alt harmonikler öne çıkarılır.
-  - *Nida ve Tehdit:* 30–40 cm mesafeden ses patlamasına (clipping) izin vermeden göğüsten gelen yüksek projeksiyon.
+1. **Tiyatro ve Opera Tiradından Kaçınma:** Replikler sahne tiyatrosu abartısıyla veya yapay epik tonlamalarla değil; sırtında kırk okka yük taşıyan, günlerdir çamurda yürüyen, ayazdan dudağı çatlamış gerçek insanların nefesiyle verilmelidir.
+2. **Ayaz, Soğuk ve Nefes Gerçekçiliği:** Karakterlerin konuşurken verdikleri buharlı kesik soluklar, titreyen çeneler, kelime aralarındaki kısa yutkunmalar ve soğuktan sertleşen dudak tempoları korunmalıdır. Karakter bir yük taşıyorsa ses tonunda ağırlık, yaralıysa kesik soluk hissedilmelidir.
+3. **13. Yüzyıl Anadolu Türkçesi Doku ve Vurgusu:** Günümüz kibar İstanbul Türkçesi değil; tok, sert sessiz harfleri (k, t, p, ç) ve gırtlaksı vurguları öne çıkaran, devrik cümle yapısına sahip samimi ve sert halk ağzı esas alınmalıdır. Yabancı/azınlık karakterlerde (Tebrizli tüccar, Rum ipekçi, Kıpçak levent) hafif ve otantik dönem aksanları korunmalıdır.
+4. **Mikrofon Mesafesi ve Samimiyet (Proximity Effect):** Kapı mazgalından konuşurken mesafe hissi (yaklaşık 1-2 metre kule eşiği mesafesi); gece hane dertleşmelerinde ise yakın mikrofon (5-10 cm proximity effect) ve fısıltılı samimiyet kullanılmalıdır.
+5. **Reji Notasyonu:** Her repliğin başında köşeli parantez içinde verilen `[...]` direktifleri; oyuncunun beden dilini, fiziksel mesafesini, ses dinamiğini ve repliğin alt metnini belirler.
 
 ---
 
-## 2. Ana Karakterler (Core Protagonists)
+## 2. Dinamik Hava Durumuna Bağlı Tonlama İlkeleri
+
+1. **Fırtına ve Tipi (`firtina`):**
+   - Karakterler rüzgâr sesini bastırmak için ses tonunu yükseltmeli ancak ses telleri ayazdan kasıldığı için çatlak ve nefesli bir bağırma üretmelidir.
+   - Replik başlarında çene titremesi (`t-t-titreme`), diş takırtısı ve nefes alma güçlüğü belirgin olmalıdır.
+2. **Yağmur ve Balçık (`yagmur`):**
+   - Karakterler sırılsıklam kıyafetlerin ağırlığı altında konuşmalı; ses tonunda bezginlik, çamurda kaykılma ve omuz çöküklüğü hissedilmelidir.
+3. **Kuru Gece Ayazı (`ayaz`):**
+   - Bağırma olmaz; ciğerlere batan keskin soğuk nedeniyle fısıltılı, morarmış dudaklarla kelimeleri zorlukla çıkarma tonlaması esastır.
+4. **Sis ve Alacakaranlık (`sis`):**
+   - Karakterler mesafeyi kestiremediği için tedirgin, ürkek ve yankı bekleyen bir tonlamayla seslenmelidir.
+
+---
+
+## 3. Teknik Ses Kayıt ve Teslim Standartları
+
+- **Örnekleme Hızı ve Derinlik:** 48.000 Hz (48 kHz) / 24-bit PCM WAV (Uncompressed Mono).
+- **Akustik Ortam (Dry Vocal):** Kayıtlar tamamen kuru (reverb, delay ve chorus içermeyen) akustik kabin ortamında alınmalıdır. Kapı kulesi, taş duvar yankısı ve oda akustiği oyun motorunun (Godot AudioServer) dinamik reverb bus'ı tarafından sağlanacaktır.
+- **Dinamik Aralık ve Peak Sınırları:** Maksimum True Peak seviyesi `-1.0 dBFS` olmalı; ortalama RMS değeri `-20 dBFS` ile `-16 dBFS` arasında tutulmalıdır.
+- **Gürültü Tabanı (Noise Floor):** `-60 dBFS` veya daha sessiz olmalı; gürültü giderme (noise suppression) esnasında insan sesinin doğal rezonansı ve nefes detayları bozulmamalıdır.
+- **Mikrofonlama:**
+  - *Kapı Nöbeti (Mazgal / Karşılaşma):* 15–20 cm kardioid/geniş diyafram kondenser mikrofon; pop filtre ile.
+  - *Eş Fısıltıları ve İç Monolog:* 5–10 cm yakın mikrofonlama; sıcak, samimi, fısıltılı alt harmonikler öne çıkarılır.
+  - *Nida ve Askeri Emirler:* 30–40 cm mesafeden kırılmasız (no clipping) göğüs projeksiyonu.
+
+---
+
+## 4. Dosya İsimlendirme Standardı
+
+- `va_chr001_acilis.wav` (Karakter açılış repliği)
+- `va_chr001_soru_01.wav` (Sorgu sorularına verilen yanıtlar)
+- `va_hava_firtina_01.wav` (Hava durumu dinamik ön ekleri)
+- `va_koy_es_aksam_01.wav` (Köy içi ve eş diyalogları)
+
+---
+
+## 5. Çekirdek Köy Kadrosu — Hızlı Tipoloji Özeti
+
+| Karakter | Ses Rengi | Tempo ve Nefes | Temel Duygu | Reji Direktifi ve Örnek Cümle |
+|---|---|---|---|---|
+| **Muhafız (Oyuncu)** | Bariton, tok, yorgun, buğulu | Ağırbaşlı, az kelimeli, ölçülü | Ağır sorumluluk, vicdan, tetikte olma | `[boğuk, derin nefes vererek, sert]` *"Dur hele! Ayazdan sesin boğulmuş amma kapının nizamı karda da birdir, yazda da. Kimsin, nereden gelirsin?"* |
+| **Muhafızın Eşi** | Sıcak alto, metin, şefkatli | Sakin, tane tane, yumuşak | Sadakat, hüzün, sığınak olma | `[fısıltıyla, elini omzuna koyarcasına]` *"Bırak o pusatı köşeye muhafız... Sakalın buz tutmuş. Otur ocağın başına da bir tas sıcak çorba iç."* |
+| **Miraen Nine** | 65+ yaş kırılgan alto, bilge | Ağırkanlı amma keskin, tane tane | Şefkat, kadim bilgelik, acı görmüşlük | `[kireç ocağında kazanı karıştırırken, sakin]` *"Gözündeki sarılık kıştan değil evlat... Ölümün kokusunu kireç bile zor bastırır, hele yaklaş ocağa."* |
+| **Karaca Usta** | Tok bas-bariton, gür, göğüsten | Hızlı, emredici, sert | Zanaat gururu, haksızlığa tahammülsüzlük | `[örse çekici vururken, sesini yükselterek]` *"Benim dövdüğüm balta eğrilmez efendi! Hakka eğrilen insanın da bu köyde yeri yoktur!"* |
+| **Çoban Yusuf** | Genç tenor, dağlı, nefes nefese | Kesik, hızlı, kekremsi | Doğallık, telaş, sadelik | `[koyun çıngırağını tutarak, nefes nefese]` *"Ağam kurdun izi ağıla dayandı! Çitin ardında gözleri kor gibi parlar; sürüyü içeri almazsak sabaha kemik kalmaz!"* |
+| **Ayşe Bacı** | Olgun soprano, anaç, dirayetli | Canlı, buyurgan, sıcak | Bereket, otorite, kucaklayıcılık | `[ekmek teknesini unlarken, neşeli ve tok]` *"Aç karınla sınır beklenmez! Al şu nohut mayalı sıcağı koynuna, nöbette dizin titremesin."* |
+
+---
+
+## 6. Otuz Ziyaretçi — Hızlı Tipoloji Tablosu
+
+| Kod | Ad ve Meslek | Ses Tipi & Ağız | Tempo / Nefes | Tavır ve Korku | Örnek Replik ve Reji Notu |
+|---|---|---|---|---|---|
+| **chr_001** | Hamza (Rençber) | Tok bariton; Sivas yayla Türkmençesi | Yorgun, nefes nefese, devrik | Sürülmüşlük, tohumunu koruma telaşı | `[titreyerek, göğsünü tutarak]` *"Yaktılar köyü işte muhafız; bir avuç arpa tohumuyla düştüm yola."* |
+| **chr_002** | Kayserili Çuhacı (Tüccar) | Orta tenor; İç Anadolu ticaret dili | Hızlı, kaçamak, hesapçı | Malını kaptırma korkusu, kurnazlık | `[gözlerini süzerek, fısıltıyla]` *"Altın sırmalı Bursa kumaşıdır ağam, ucuza bırakırım... yeter ki kapıyı arala."* |
+| **chr_003** | Bozgun Askeri Neferi (Piyade) | Sert bariton; Kışla ve ordu ağzı | Boğuk, kırık dökük, korkulu | İdam edilme, komutanına yakalanma korkusu | `[soluk soluğa, ardına bakarak]` *"Moğol süvarisi ovanın ardında belirdi beyim... Alayı dağıttılar, tek başıma kaçtım."* |
+| **chr_004** | Durmuş (Çoban) | Genç tenor; Toros Yörük ağzı | Kısa, kesik, kekremsi | Sürüsünü kurda kaptırma korkusu | `[titrek bir sesle, yalvararak]` *"Üç koçum kaldı ağam, canımı da al sürümü surun içine sok."* |
+| **chr_005** | Demirci Kalfası Veli | Bas-bariton; Konya Ahi zanaat dili | Tok, dik, gururlu | Kalfalık onurunu zedeleme korkusu | `[başını dik tutarak, kendinden emin]` *"Ustamın çekicini sırtlandım geldim; ocak tüten yerde aç kalmam."* |
+| **chr_006** | Silahsız Piyade Timur | Alaycı bariton; Uç boyu asker argosu | Lakayt, yavaş, yayvan | Silahını kaybettiğinin duyulması utancı | `[omzunu silkerek, bıyık altından sırıtarak]` *"Kılıç karın doyurmuyor nöbetçi... Ekmek varsa surda dikilirim, yoksa yoluma giderim."* |
+| **chr_007** | Yaşlı Rençber Halil | Çatlak bariton; Karadeniz dağ eteği | Ağır, iniltili, öksürüklü | Tohumun çürümesi, açlıktan ölme | `[titreyen ellerle çuvalı göstererek]` *"Öküzüm çatladı dağ başında evlat... Bir çinik arpayla kaldım kapında."* |
+| **chr_008** | Dikici Çırağı Cebrail | Tiz tenor; Şehir çarşı dili | Heyecanlı, aceleci, peltek | Ustasının konağındaki hırsızlıkla suçlanma | `[bızını sallayarak, nefes nefese]` *"Yırtık çarığı iki dikişte bağlarım ağam! Yeter ki bu gece karda koyma beni."* |
+| **chr_009** | Yaralı Kemankeş Arslan | Kuru, keskin bariton; Uç boyu okçu dili | Soğuk, ölçülü, tek tük | Yay kirişinin donması, intikamını alamama | `[sadağındaki son oku okşayarak]` *"Sadak boşaldı amma yayım sağdır muhafız. Gözüm kartal gibidir; kuleden kuş uçurmam."* |
+| **chr_010** | Testili Obalı Yunus | Yumuşak, kederli tenor; Bozok ağzı | Kırık, yavaş, yutkunarak | Atalarının şırasını yere dökme korkusu | `[testiyi göğsüne bastırarak]` *"Köyümüz kurudu gitti ağam... Bir testi can suyu getirdim bağınıza."* |
+| **chr_011** | Köprü Leventi Sinan | Kesik soluklu bariton; Kıyı leventi | İniltili, ateşli, hırıltılı | Kangrenden kolunu kaybetme korkusu | `[sargılı kolunu tutarak, sendeleme]` *"Bendi tuttuk tutmasına da kanımız aktı köprüye... Hele bir bağ kütüğü yakın da yarama basalım."* |
+| **chr_012** | Gezgin Kalaycı Davut | Çingene/Ahi seyyar tenor | Şakacı, kıvrak, melodik | Kazandaki kaçak cıvanın bulunması | `[kazanları tıngırdatarak, göz kırpıp]` *"Kararmış tencerenin dostu Davut geldi! Akçesi olana bakır parlatırım, olmayana türkü söylerim."* |
+| **chr_013** | Topal Oğlaklı Çoban Mehmed | Yanık bariton; Taşeli Platosu | Öfkeli, inatçı, şefkatli | Kucağındaki oğlağın kesilmesi korkusu | `[oğlağı hırkasına sarıp sertçe]` *"Bu oğlağın bir canı var, bir de benim kucağım! Kesilsin diye vermem haramiye de askere de!"* |
+| **chr_014** | Tuz Tüccarı Şemsettin | Kuru, gıcırdayan bas; Çankırı kervan dili | Ağır, boğaz temizleyerek | Kalan üç deve yükü tuzun erimesi | `[tuz çuvalına vurup toz kaldırarak]` *"Tuzsuz aş, imansız baş olmaz nöbetçi! Üç çuval has kaya tuzu getirdim; ambarı şenlendiririm."* |
+| **chr_015** | Kaçak Borazancı Hamit | Çatlak tenor; Kale garnizon dili | Titrek, kesik, panik içinde | Kulenin düşüşünü geç haber verdiği suçlaması | `[borazanını sıkarak, arkasına bakıp]` *"Boruyu çaldım vallah billah çaldım! Dağdan inen Moğol boru sesine mi bakar?!"* |
+| **chr_016** | Asma Bağcısı Pir Nazar | Şiirsel, bilge bas-bariton; Tokat/Amasya | Aheste, türkü söyler gibi | Kök fidanın soğukta donup ölmesi | `[ıslak çula sarılı asmayı göstererek]` *"Toprak küsmez oğul, insan küser... Bu çubuk üç yıla bala döner, sabrınız var mı?"* |
+| **chr_017** | Dirhemci İshak | Tiz, hesapçı tenor; Çerçi çarşı dili | Tane tane, mırıldanarak | Hileli kantarının fark edilmesi korkusu | `[el terazisini şakırdatarak]` *"Benim dirhemim hak dirhemidir ağam! Kılı kırk yararım; köylünün yününü ziyan etmem."* |
+| **chr_018** | Kale Irgatı Rüstem | Kaba, boğuk bas; Taş ocağı işçi dili | Kesik, nefes nefese, homurtulu | Taş çalmakla suçlanıp asılma korkusu | `[omzundaki morluğu göstererek]` *"Kireç eti yakar, taş omzu çökertir ağam... Harç karmaya adam lazım değil midir buraya?"* |
+| **chr_019** | Hamurcu Fırıncı Haydar | Sıcak, canlı bariton; Menzil hanı dili | Hızlı, telaşlı, hevesli | Ununun nem alıp küflenmesi korkusu | `[tekneyi yere bırakıp ellerini çırparak]` *"Külün içinde pişen somun cana can katar! Açın kapıyı da ocağı körükleyeyim!"* |
+| **chr_020** | Topal Nalbant Seyfi | Pürüzlü, küfürlü bariton; Kervan nalbandı | Acıyla dişlerini sıkarak | Ayağındaki paslı çividen zehirlenme | `[ayağını tutarak iniltiyle]` *"Kancık kısrak nalı topuğuma çaldı muhafız! Dağlayacak közünüz var mıdır içerde?"* |
+| **chr_021** | Derviş Seyyid Burhan | Derin bas; Horasan tasavvuf dili | Son derece vakur, sakin, aheste | Haksızlığa ortak olma korkusu | `[ellerini cübbesinde kavuşturarak]` *"Gönül kapısı açık olanın hisar kapısı kilit tutmaz muhafız. Selam üzerinize olsun."* |
+| **chr_022** | Tebrizli Hacı Behram | Kadife tenor; Tebriz-Şark tüccar dili | Akıcı, yağlı, iltifatkâr | Kervanın yağmalanması, iflas korkusu | `[eğilerek, elini kalbine koyup fısıltıyla]` *"Sana yalan söyleyenin terazisi bozulsun ağam... Kervan karda saplandı, kerem eyle."* |
+| **chr_023** | Sungur Çavuş | Çatlak, sert bariton; Kışla zabit dili | Hızlı, emredici, buyurgan | Teftişte rezil olma, rütbe kaybı korkusu | `[kılıç kabzasına vurarak, bağırarak]` *"Fermanı görmüyor musun ahmak bekçi! Sancak subaşısının emridir, çekil önümden!"* |
+| **chr_024** | Gülhatun (Vebalı Sabi Anası) | Hırıltılı alto; Yanık ana dili | Ateşli, dermansız, kesik kesik | Kucağındaki yavrunun kollarında ölmesi | `[ağlamaklı, yavrusunu sararak, yalvarışla]` *"Bana değil muhafız... kurban olayım şu sübyana acı! Ocağın külüne razıyım, yeter ki yaşasın."* |
+| **chr_025** | Dursun (Kaçak Çırak) | Cılız çocuk tenor (14 yaş) | Hızlı, nefes nefese, kekeleyerek | Aç kalma, dağda donma korkusu | `[titreyerek, gözlerini açarak]` *"Dayı! Hamza dayı içeride mi? Ayşe Bacı'nın fırınına çırak olmaya geldim dayı!"* |
+| **chr_026** | Cerrah Lokman | Kaygan, tiz bariton; Yarım medrese dili | Ağdalı, süslü, kurnaz ve yapışkan | Şarlatanlığının anlaşılıp dövülmesi korkusu | `[şişeleri tıngırdatarak, sinsi bir tebessümle]` *"Hekimlerin piri Lokman derler adıma... Her derde deva tiryak bendedir efendi."* |
+| **chr_027** | Molla Şükrü | Tiz, keskin bariton; Kadı mahkeme dili | Tane tane, alaycı, yasal tehditkâr | Mal varlığına el konulması, sürgün | `[mühürlü kâğıdı mazgaldan uzatarak]` *"Nizam kâğıtla kurulur çoban efendi! Kadı sicilini çiğneyenin boynu kıldan incedir!"* |
+| **chr_028** | Banu Hatun | Çelik sertliğinde mezzo; Alp kadın | Mağrur, buyurgan, meydan okuyan | İntikamını alamadan kuşatılmak | `[at üstünden kılıcını şakırdatarak, tok]` *"Bu dağların kurdu biziz muhafız! Çapulcuları vadide biçtik, şimdi hisara sığınma sırası sizde!"* |
+| **chr_029** | Kervancı İlyas | Kaba, çatallı bariton; Yol dili | Öfkeli, sitemkâr, bezgin | Kervan develerinin soğukta çatlaması | `[karı tükürerek, bağırarak]` *"Kırk gündür tuz taşırız boğazdan! Bu kapı açılmazsa malları surun dibine döker yakarım!"* |
+| **chr_030** | Turna Hatun | Berrak, hüzünlü soprano (11-12 yaş) | Ürkek, alçak sesli, içe dönük | Dayısını bulamadan dağda kaybolmak | `[kısık bir fısıltıyla, boynundaki yüzüğü göstererek]` *"Yüzüğü düşürmedim dayı... Babam Hamza'ya emanet et dedi beni..."* |
+
+---
+
+## 7. Ana Karakterler ve Köy Sakinleri — Ayrıntılı Reji Kartları (TR/EN)
 
 ---
 
@@ -59,17 +135,13 @@
 
 #### Replik 1 (Kapı Arkasından İkaz / Sezgi)
 - **TR:** `[kulağa fısıldar gibi, acele etmeden, gözleriyle kapı aralığını süzerken]` "Gözlerine bak bey... Avuçları nasırlı değil, kılıç kabzası tutmuş. Çiftçi dediğine kanma."
-- **EN:** `[intimate whisper, unhurried, scanning through the gate slit]` "Look at his eyes, husband... His palms bear no plow calouses; they have gripped a sword hilt. Do not be deceived by his peasant garb."
+- **EN:** `[intimate whisper, unhurried, scanning through the gate slit]` "Look at his eyes, husband... His palms bear no plow callouses; they have gripped a sword hilt. Do not be deceived by his peasant garb."
 - **Reji Notu:** Aceleci bir panik değil; kadın sezgisi ve soğukkanlı bir stratejist dikkati. "Bey" kelimesi hürmet ve yakınlık taşımalıdır.
 
 #### Replik 2 (Ocak Başı / Gece Rahatlaması)
 - **TR:** `[titreyen ellerini muhafızın omzuna koyarcasına, şefkatle]` "Bırak o pusatı köşeye gayrı... Sakalın buz tutmuş. Çorba kaynar, biraz ısın."
 - **EN:** `[placing trembling hands gently on his shoulder, warm affection]` "Lay down that blade in the corner now... Frost clings to your beard. The broth simmers; come, thaw yourself."
 - **Reji Notu:** Sığınak hissi yaratmalı. Dinleyene kış fırtınasının ardından sıcacık bir ocağın huzurunu geçirmelidir.
-
----
-
-## 3. Köyün Çekirdek Sakinleri (10 Adlı Köylü)
 
 ---
 
@@ -93,7 +165,7 @@
 ---
 
 ### 2. Miraen (Rum İpekçi & Şifacı Kadın)
-- **Yaş:** 38
+- **Yaş:** 38 (veya 65+ bilge şifacı nine varyantı)
 - **Ses Rengi / Tını:** Melankolik mezzo-soprano, kadife yumuşaklığında, bilge, hafif puslu tını.
 - **Ağız / Şive:** Kırık Selçuklu Türkçesi (hafif Grek fonetiği; kelime başı 'h' seslerini yumuşatma, 'r' harflerini tane tane basma).
 - **Duygu Aralığı:** Tevekkül, saklı bilgelik, yabancı sayılmanın tedirginliği, şifa verirken mutlak dinginlik.
@@ -263,11 +335,11 @@
 
 ---
 
-## 4. Otuz Kapı Ziyaretçisi (30 Gate Visitors: `diyalog_01` – `diyalog_30`)
+## 8. Otuz Kapı Ziyaretçisi — Birebir Reji Kartları (TR/EN)
 
 ---
 
-### Ziyaretçi 01 (`diyalog_01`): Hamza (Erzincanlı Yanık Rençber — Çiftçi)
+### Ziyaretçi 01 (`diyalog_01` / `chr_001`): Hamza (Erzincanlı Yanık Rençber — Çiftçi)
 - **Yaş:** 48
 - **Ses Rengi:** Yanık bariton, boğuk, toprak ve duman yutmuş kaba köylü sesi.
 - **Ağız / Şive:** Doğu Anadolu / Erzincan ova ağzı; 'ağa' yerine 'ağam', kalın sesliler.
@@ -286,7 +358,7 @@
 
 ---
 
-### Ziyaretçi 02 (`diyalog_02`): Mahmut (Kayserili Çuhacı — Esnaf)
+### Ziyaretçi 02 (`diyalog_02` / `chr_002`): Mahmut (Kayserili Çuhacı — Esnaf)
 - **Yaş:** 50
 - **Ses Rengi:** Orta bariton, kelimeleri tartan, ikna kabiliyeti yüksek tüccar tonu.
 - **Ağız / Şive:** Kayseri çarşı ağzı; hızlı heceleme, tatlı dilli pazarlıkçı tonlama.
@@ -305,7 +377,7 @@
 
 ---
 
-### Ziyaretçi 03 (`diyalog_03`): Balaban (Sivas Bozgunu Neferi — Asker)
+### Ziyaretçi 03 (`diyalog_03` / `chr_003`): Balaban (Sivas Bozgunu Neferi — Asker)
 - **Yaş:** 28
 - **Ses Rengi:** Sert bariton, kırık, öfke ve acı dolu kışla askeri sesi.
 - **Ağız / Şive:** Sivas/Orta Anadolu askeri ağzı; devrik ve sert emir-itiraz dili.
@@ -324,7 +396,7 @@
 
 ---
 
-### Ziyaretçi 04 (`diyalog_04`): Durmuş (Yaylası Yanan Çoban — Çiftçi)
+### Ziyaretçi 04 (`diyalog_04` / `chr_004`): Durmuş (Yaylası Yanan Çoban — Çiftçi)
 - **Yaş:** 44
 - **Ses Rengi:** Yumuşak tenor-bariton, saf, yayla rüzgarı yemiş dingin ve kederli köylü sesi.
 - **Ağız / Şive:** Toros/Konya Türkmen yaylacı ağzı; saf, hayvanlarıyla konuşur gibi içten.
@@ -343,7 +415,7 @@
 
 ---
 
-### Ziyaretçi 05 (`diyalog_05`): Veli (Örssüz Demirci Kalfası — Esnaf)
+### Ziyaretçi 05 (`diyalog_05` / `chr_005`): Veli (Örssüz Demirci Kalfası — Esnaf)
 - **Yaş:** 24
 - **Ses Rengi:** Metalik, tok tenor, kömür isi yutmuş sert ve enerjik delikanlı sesi.
 - **Ağız / Şive:** Ahi çırak ağzı; saygılı ama işini bilen pratik konuşma.
@@ -362,7 +434,7 @@
 
 ---
 
-### Ziyaretçi 06 (`diyalog_06`): Timur (Miğferi Yamuk Piyade — Asker)
+### Ziyaretçi 06 (`diyalog_06` / `chr_006`): Timur (Miğferi Yamuk Piyade — Asker)
 - **Yaş:** 32
 - **Ses Rengi:** Alaycı bariton, kuru, dünya gailesinden bıkmış sınır muhafızı tonu.
 - **Ağız / Şive:** Uç askeri argosu; laubali ama tetikte, devrik cümleler.
@@ -381,7 +453,7 @@
 
 ---
 
-### Ziyaretçi 07 (`diyalog_07`): Halil (Sabanı Kırık Rençber — Çiftçi)
+### Ziyaretçi 07 (`diyalog_07` / `chr_007`): Halil (Sabanı Kırık Rençber — Çiftçi)
 - **Yaş:** 56
 - **Ses Rengi:** Yaşlı bariton, çatlak, öksürüklü, kederli toprak adamı sesi.
 - **Ağız / Şive:** İç Anadolu köylü ağzı; yavaş, uzatan heceler.
@@ -400,7 +472,7 @@
 
 ---
 
-### Ziyaretçi 08 (`diyalog_08`): Cebrail (Kunduracı/Dikici Çırağı — Esnaf)
+### Ziyaretçi 08 (`diyalog_08` / `chr_008`): Cebrail (Kunduracı/Dikici Çırağı — Esnaf)
 - **Yaş:** 19
 - **Ses Rengi:** Tiz tenor, ürkek, heyecanlı, genç zanaatkar sesi.
 - **Ağız / Şive:** Şehir esnafı çırak ağzı; hızlı, saygılı, hafif peltek.
@@ -419,7 +491,7 @@
 
 ---
 
-### Ziyaretçi 09 (`diyalog_09`): Arslan (Oku Tükenmiş Kemankeş — Asker)
+### Ziyaretçi 09 (`diyalog_09` / `chr_009`): Arslan (Oku Tükenmiş Kemankeş — Asker)
 - **Yaş:** 29
 - **Ses Rengi:** Soğuk, keskin bariton, az konuşan çelik gibi sert avcı/okçu sesi.
 - **Ağız / Şive:** Uç boyu okçu Türkçesi; son derece net, keskin sessizler, lüzumsuz laf yok.
@@ -438,7 +510,7 @@
 
 ---
 
-### Ziyaretçi 10 (`diyalog_10`): Yunus (Testili Yetim Obalı — Çiftçi)
+### Ziyaretçi 10 (`diyalog_10` / `chr_010`): Yunus (Testili Yetim Obalı — Çiftçi)
 - **Yaş:** 20
 - **Ses Rengi:** Kederli tenor, kırılgan, susuzluk ve yastan boğulmuş yumuşak ses.
 - **Ağız / Şive:** Güney/Toros Yörük ağzı; içli, türkü söyler gibi yanık tonlama.
@@ -457,7 +529,7 @@
 
 ---
 
-### Ziyaretçi 11 (`diyalog_11`): Sinan (Yaralı Köprü Nöbetçisi — Asker)
+### Ziyaretçi 11 (`diyalog_11` / `chr_011`): Sinan (Yaralı Köprü Nöbetçisi — Asker)
 - **Yaş:** 35
 - **Ses Rengi:** Boğuk, hırıltılı bariton; kan kaybı ve ateşten titreyen savaşçı sesi.
 - **Ağız / Şive:** Uç askeri dili; emir kipleri acı iniltileriyle karışır.
@@ -476,7 +548,7 @@
 
 ---
 
-### Ziyaretçi 12 (`diyalog_12`): Davut (Gezgin Bakırcı/Kalaycı — Esnaf)
+### Ziyaretçi 12 (`diyalog_12` / `chr_012`): Davut (Gezgin Bakırcı/Kalaycı — Esnaf)
 - **Yaş:** 41
 - **Ses Rengi:** Şakacı, kıvrak tenor-bariton; tekinsiz bir sokak neşesi ve kurnazlık taşıyan ses.
 - **Ağız / Şive:** Gezgin Ahi/Çingene esnaf tınısı; kelimeleri uzatarak, manalı gülüşlerle.
@@ -495,7 +567,7 @@
 
 ---
 
-### Ziyaretçi 13 (`diyalog_13`): Mehmed (Topal Oğlaklı Çoban — Çiftçi)
+### Ziyaretçi 13 (`diyalog_13` / `chr_013`): Mehmed (Topal Oğlaklı Çoban — Çiftçi)
 - **Yaş:** 38
 - **Ses Rengi:** Yanık bariton, inatçı, dağ soğuğundan çatlamış kaba ses.
 - **Ağız / Şive:** Sert dağlı Türkmen ağzı; kısa, buyurgan ama merhamet dilenen ton.
@@ -514,7 +586,7 @@
 
 ---
 
-### Ziyaretçi 14 (`diyalog_14`): Şemsettin (Kaya Tuzu Tüccarı — Esnaf)
+### Ziyaretçi 14 (`diyalog_14` / `chr_014`): Şemsettin (Kaya Tuzu Tüccarı — Esnaf)
 - **Yaş:** 54
 - **Ses Rengi:** Kuru, tuzdan çatlamış gıcırdayan bas-bariton; ağırbaşlı ve yorgun kervancı.
 - **Ağız / Şive:** Çankırı/Tuz Gölü kervan ağzı; kelimeleri uzatan, boğaz temizleyen ton.
@@ -533,7 +605,7 @@
 
 ---
 
-### Ziyaretçi 15 (`diyalog_15`): Hamit (Kaçak Kule Borazancısı — Asker)
+### Ziyaretçi 15 (`diyalog_15` / `chr_015`): Hamit (Kaçak Kule Borazancısı — Asker)
 - **Yaş:** 26
 - **Ses Rengi:** Titrek tenor, nefesi daralan, dehşet görmüş gözcü neferi sesi.
 - **Ağız / Şive:** Kışla askeri Türkçesi; kesik, aceleci ve panik dolu.
@@ -552,7 +624,7 @@
 
 ---
 
-### Ziyaretçi 16 (`diyalog_16`): Pir Nazar (Asma Fidanlı Bağcı — Çiftçi)
+### Ziyaretçi 16 (`diyalog_16` / `chr_016`): Pir Nazar (Asma Fidanlı Bağcı — Çiftçi)
 - **Yaş:** 62
 - **Ses Rengi:** Puslu, bilge bas-bariton; toprağı koklayan, aşık bir derviş-çiftçi sesi.
 - **Ağız / Şive:** Tokat/Amasya bağcı ağzı; şiirsel, aheste ve sabırlı konuşma.
@@ -571,7 +643,7 @@
 
 ---
 
-### Ziyaretçi 17 (`diyalog_17`): İshak (Dirhemleri Şakırdayan Kantarcı — Esnaf)
+### Ziyaretçi 17 (`diyalog_17` / `chr_017`): İshak (Dirhemleri Şakırdayan Kantarcı — Esnaf)
 - **Yaş:** 47
 - **Ses Rengi:** İnce, hesapçı bariton; her şeye kuşkuyla bakan, titiz çerçi sesi.
 - **Ağız / Şive:** Şehir esnafı Türkçesi; tane tane, resmi ve adli terimlerle.
@@ -590,7 +662,7 @@
 
 ---
 
-### Ziyaretçi 18 (`diyalog_18`): Rüstem (Kireç Lekeli Kale Irgatı — İşçi)
+### Ziyaretçi 18 (`diyalog_18` / `chr_018`): Rüstem (Kireç Lekeli Kale Irgatı — İşçi)
 - **Yaş:** 40
 - **Ses Rengi:** Çok kalın bas, çatlak, kaba, tozdan boğulmuş beden işçisi sesi.
 - **Ağız / Şive:** Kaba köylü/ırgat dili; kısa, dolaysız, lafı eğip bükmeyen tavır.
@@ -609,7 +681,7 @@
 
 ---
 
-### Ziyaretçi 19 (`diyalog_19`): Haydar (Teknesi Sırtında Fırıncı — Esnaf)
+### Ziyaretçi 19 (`diyalog_19` / `chr_019`): Haydar (Teknesi Sırtında Fırıncı — Esnaf)
 - **Yaş:** 45
 - **Ses Rengi:** Sıcak, telaşlı bariton; un kokan, ekmek pişirme tutkusuyla dolu samimi ses.
 - **Ağız / Şive:** Şehir fırıncısı ağzı; aceleci, iştah açıcı konuşma.
@@ -628,7 +700,7 @@
 
 ---
 
-### Ziyaretçi 20 (`diyalog_20`): Seyfi (Ayağına Çivi Batmış Nalbant — Esnaf)
+### Ziyaretçi 20 (`diyalog_20` / `chr_020`): Seyfi (Ayağına Çivi Batmış Nalbant — Esnaf)
 - **Yaş:** 37
 - **Ses Rengi:** Sert, tok bariton; acıdan dişlerini sıkan, soğuk demirci sesi.
 - **Ağız / Şive:** Uç boyu nalbant ağzı; küfürlü, mert, doğrudan konuşan.
@@ -647,7 +719,7 @@
 
 ---
 
-### Ziyaretçi 21 (`diyalog_21`): Seyyid Burhan (Kalenderi Derviş — Gezgin)
+### Ziyaretçi 21 (`diyalog_21` / `chr_021`): Seyyid Burhan (Kalenderi Derviş — Gezgin)
 - **Yaş:** 65
 - **Ses Rengi:** Derin bas-bariton, puslu, ney sesi gibi buğulu ve dingin sufi sesi.
 - **Ağız / Şive:** Tasavvufi Selçuklu Türkçesi; kinayeli, latifeli, dünyayı aşmış bir üslup.
@@ -666,7 +738,7 @@
 
 ---
 
-### Ziyaretçi 22 (`diyalog_22`): Hacı Behram (Tebriz Kervan Tüccarı — Esnaf)
+### Ziyaretçi 22 (`diyalog_22` / `chr_022`): Hacı Behram (Tebriz Kervan Tüccarı — Esnaf)
 - **Yaş:** 52
 - **Ses Rengi:** Kadife yumuşaklığında bariton, akıcı, Farsça edalı, kurnaz ve nezaket maskeli tüccar sesi.
 - **Ağız / Şive:** Tebriz / Azeri-Fars aksanı; yumuşak 'k' ve 'g' harfleri, ağdalı iltifatlar.
@@ -685,7 +757,7 @@
 
 ---
 
-### Ziyaretçi 23 (`diyalog_23`): Çavuş Sungur (Sancak İnzibatı — Asker)
+### Ziyaretçi 23 (`diyalog_23` / `chr_023`): Çavuş Sungur (Sancak İnzibatı — Asker)
 - **Yaş:** 36
 - **Ses Rengi:** Metalik, yırtıcı bariton; kışla kibri ve tehditle dolu otoriter ses.
 - **Ağız / Şive:** Sancak inzibat dili; sert, kaba, emir kipleri ve aşağılayıcı hitaplar.
@@ -704,7 +776,7 @@
 
 ---
 
-### Ziyaretçi 24 (`diyalog_24`): Gülhatun (Vebalı Ana ve Sabi — Çiftçi)
+### Ziyaretçi 24 (`diyalog_24` / `chr_024`): Gülhatun (Vebalı Ana ve Sabi — Çiftçi)
 - **Yaş:** 25
 - **Ses Rengi:** Hırıltılı, titrek mezzo; yüksek ateşten yanmış, dermansız ölüm döşeği sesi.
 - **Ağız / Şive:** Sade köy dili; ölüm döşeğindeki bir annenin can havli feryadı.
@@ -723,7 +795,7 @@
 
 ---
 
-### Ziyaretçi 25 (`diyalog_25`): Dursun (Kaçak Fırın Çırağı — Yetim)
+### Ziyaretçi 25 (`diyalog_25` / `chr_025`): Dursun (Kaçak Fırın Çırağı — Yetim)
 - **Yaş:** 14
 - **Ses Rengi:** İnce, kırılgan, hızlı ve soluk soluğa bir sokak çocuğu sesi.
 - **Ağız / Şive:** Sokak Türkçesi; hızlı, telaşlı, kelimeleri yutan çocuk ağzı.
@@ -742,7 +814,7 @@
 
 ---
 
-### Ziyaretçi 26 (`diyalog_26`): Hekim Lokman (Gezgin Otacı / Şarlatan — Esnaf)
+### Ziyaretçi 26 (`diyalog_26` / `chr_026`): Hekim Lokman (Gezgin Otacı / Şarlatan — Esnaf)
 - **Yaş:** 46
 - **Ses Rengi:** Ağdalı bariton, bilge görünüşlü ama altından kurnazlık sızan yapışkan ses.
 - **Ağız / Şive:** Medrese/şifahane dili; Arapça ve Latince tıp terimleri serpiştirilmiş tumturaklı dil.
@@ -761,7 +833,7 @@
 
 ---
 
-### Ziyaretçi 27 (`diyalog_27`): Molla Şükrü (Azledilmiş Kâtip — Molla)
+### Ziyaretçi 27 (`diyalog_27` / `chr_027`): Molla Şükrü (Azledilmiş Kâtip — Molla)
 - **Yaş:** 49
 - **Ses Rengi:** Tiz bariton, genizden konuşan, yapışkan ve kibirli bürokrat sesi.
 - **Ağız / Şive:** Osmanlı öncesi Selçuklu kadı/medrese dili; kanun ve şer'i terimlerle dolu ağdalı ton.
@@ -780,7 +852,7 @@
 
 ---
 
-### Ziyaretçi 28 (`diyalog_28`): Banu Hatun (İntikam Savaşçısı — Alp Kadın)
+### Ziyaretçi 28 (`diyalog_28` / `chr_028`): Banu Hatun (İntikam Savaşçısı — Alp Kadın)
 - **Yaş:** 28
 - **Ses Rengi:** Güçlü mezzo-soprano, çelik gibi keskin, matem ve hiddetle bilenen savaşçı kadın sesi.
 - **Ağız / Şive:** Uç Türkmen alp ağzı; buyurgan, mert, kafiyeli savaş nidaları.
@@ -799,7 +871,7 @@
 
 ---
 
-### Ziyaretçi 29 (`diyalog_29`): Kervancı İlyas (Kafile Habercisi — Kervancı)
+### Ziyaretçi 29 (`diyalog_29` / `chr_029`): Kervancı İlyas (Kafile Habercisi — Kervancı)
 - **Yaş:** 51
 - **Ses Rengi:** Öfkeli bas-bariton, boğazı ayazda yırtılmış, sitemkâr ve gür ses.
 - **Ağız / Şive:** Kervan yolları kaba dili; bağırarak, hesap sorarak konuşan ton.
@@ -818,7 +890,7 @@
 
 ---
 
-### Ziyaretçi 30 (`diyalog_30`): Turna Hatun (Muhafızın Yetim Yeğeni — Çocuk/Genç Kız)
+### Ziyaretçi 30 (`diyalog_30` / `chr_030`): Turna Hatun (Muhafızın Yetim Yeğeni — Çocuk/Genç Kız)
 - **Yaş:** 16 (veya 11–16 genç kız / yetim çocuk)
 - **Ses Rengi:** Berrak, hüzünlü soprano; masum, ayazda donmuş ama akrabasını bulunca titreşen sıcak ses.
 - **Ağız / Şive:** Ata ocağı Erzincan Türkmen ağzı; samimi, aile sıcaklığı taşıyan kelimeler.
@@ -837,9 +909,7 @@
 
 ---
 
-## 5. Seslendirme Sanatçıları ve AI Ses Motoru (TTS) Parametre Tablosu
-
-Aşağıdaki tablo, ileride hem stüdyo seslendirmenlerine oyuncu seçimi (casting) brifingi olarak verilecek hem de AI ses sentezi (ElevenLabs / Coqui / VITS) hatlarında modelleme parametreleri olarak kullanılacaktır.
+## 9. Seslendirme Sanatçıları ve AI Ses Motoru (TTS) Parametre Tablosu
 
 | Karakter Kodu / Adı | Ses Tipi / Yaş | Hız (Speed) | Kararlılık (Stability) | Tını / Vurgu (Style) | Temel Vokal Efekti (AudioBus) |
 |---|---|---|---|---|---|
@@ -888,9 +958,7 @@ Aşağıdaki tablo, ileride hem stüdyo seslendirmenlerine oyuncu seçimi (casti
 
 ---
 
-## 6. Dönem Sözlüğü ve Fonetik Telaffuz Kuralları
-
-Seslendirme sırasında döneme ait özel terimlerin modern tahrifata uğramadan doğru okunması için aşağıdaki fonetik transkripsiyon kurallarına uyulmalıdır:
+## 10. Dönem Sözlüğü ve Fonetik Telaffuz Kuralları
 
 1. **Kösedağ [Kö-se-dağ]:** 'g' harfi boğazdan yumuşatılmadan, hafif genizsi bir 'ğ' ile tok söylenir. Modern "Köseda" gibi yutulmaz.
 2. **Subaşı [Su-ba-şı]:** Askeri unvan. Vurgu ikinci hecededir. "Su-BA-şı".
