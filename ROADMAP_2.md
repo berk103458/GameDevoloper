@@ -3540,7 +3540,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: EKO-09, YSM-02, DEN-01. Boyut: M.
   - Dosya: `data/ayarlar/denge.json` `aclik_olum_aralik`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-30:** Tok köyde üretim taban çizgidir.
+- [x] **DEN-30:** (Kalfa) Tok köyde üretim taban çizgidir.
   - Ne: erzak bolken 20 gecenin üretimi, aç köy ölçüsünün üstündedir. İki ölçüm aynı tohumdadır.
   - Kabul: erzak bolken 20 gecenin üretimi, aç köy ölçüsünün üstündedir. İki ölçüm aynı tohumdadır. Test: tok üretim > aç üretim.
   - Bağımlılık: DEN-29. Boyut: S.

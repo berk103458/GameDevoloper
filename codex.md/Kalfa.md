@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-30 tamamlandı (Kalfa)
+
+Aynı 2929 tohumu, üç taşçı ve tek hazır taş ocağıyla 20 gece karşılaştırıldı. Aç köy 5, tok köy 27 taş üretti. DEN-29 aralığı yeniden geçti. İlk denemede eski hızarhane odun reçetesi üretmedi; güncel taş ocağı reçetesine geçildi. Açlıkta 0 ölüm, nüfusun hayatta kaldığını göstermez; isyan/firar sistemi açıktır. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-29 tamamlandı (Kalfa)
 
 Üç kişilik, erzak sıfır başlayan köy 2929 tohumu ile 20 gerçek gece ölçüldü. Ölüm 0 çıktı; ölçümün alt/üst sınırı 0/0 kaydedildi. Normal kurtarıcı ve oyun sistemleri açık kaldı; her gece stok silinmedi. Eksik aralıkla RED, tabloyla GREEN görüldü. Denge doğrulaması geçti. Asset gerekmedi. kota görünmüyor.
