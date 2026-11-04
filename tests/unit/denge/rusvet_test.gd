@@ -7,6 +7,23 @@ func _initialize() -> void:
 		quit(1)
 		return
 	var o := Oturum.new(kat, 4343)
+	var bina := KoyBinasi.new()
+	bina.id = 90
+	bina.tur = "bez_evi"
+	o.yonetim.binalar.append(bina)
+	var esnaf := o.yonetim.kabul({"ad": "Çalışan esnaf", "sinif": "esnaf"})
+	esnaf.is_yeri = bina.id
+	var harac_once := JSON.stringify(o.kaydet())
+	for tekrar in 20:
+		var harac := MuhafizYetenekleri.harac(o)
+		if int(harac.akce) != 0 or int(harac.kisi) != 0:
+			push_error("DEN-46: yetenek kapalıyken haraç sıfır olmalı")
+			quit(1)
+			return
+	if JSON.stringify(o.kaydet()) != harac_once:
+		push_error("DEN-46: kapalı haraç kasa, moral veya gece makbuzu yazmamalı")
+		quit(1)
+		return
 	var once := MuhafizTerazisi.durum(o)
 	var g := Gelen.new()
 	g.id = &"den43_rusvet"

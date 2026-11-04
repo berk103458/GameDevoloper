@@ -3642,7 +3642,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-41. Boyut: S.
   - Dosya: `tests/unit/denge/rusvet_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-46:** Haraç yeteneği ODA-05'tir.
+- [x] **DEN-46:** (Kalfa) Haraç yeteneği ODA-05'tir.
   - Ne: günlük esnaf haraç o yetenekte kalır. Denge yeni bir vergi icat etmez.
   - Kabul: günlük esnaf haraç o yetenekte kalır. Denge yeni bir vergi icat etmez. Test: yetenek kapalıyken haraç 0.
   - Bağımlılık: ODA-05. Boyut: S.
