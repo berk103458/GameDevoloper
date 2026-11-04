@@ -1,0 +1,590 @@
+{
+  "schema_version": 1,
+  "name": "meclis_davalari",
+  "character_name": "Muhafız",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:selam",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Muhafız",
+      "text": "The Plane Tree Council has convened; let all who harbor disputes step forward and let the scales of justice be balanced."
+    },
+    {
+      "id": "node:opt_balta",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -360.0)",
+      "character": "Muhafız",
+      "text": "Let us hear the dispute of the broken axe between Karaca Usta and Farmer Yusuf."
+    },
+    {
+      "id": "node:rep_balta",
+      "type": "DIALOGUE",
+      "position": "(1050.0, -360.0)",
+      "character": "Karaca Usta",
+      "text": "I tempered this axe in the hearth for two days! Yusuf struck stone instead of timber; let him either pay two coins for the iron or pump my bellows! Yusuf counters that the frozen oak was harder than stone and broke without malice."
+    },
+    {
+      "id": "node:opt_balta_h1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, -420.0)",
+      "character": "Muhafız",
+      "text": "There was no malice yet trust is sacred; Yusuf shall pump bellows for 5 days in the forge to repay the labor, paying no coin."
+    },
+    {
+      "id": "node:rep_balta_h1",
+      "type": "DIALOGUE",
+      "position": "(1750.0, -420.0)",
+      "character": "Karaca Usta",
+      "text": "The ruling is just, master! Let him work the bellows and learn the weight of sweat; no grudge remains between us."
+    },
+    {
+      "id": "node:act_balta_h1",
+      "type": "ACTION",
+      "position": "(2100.0, -420.0)",
+      "description": "Ahi Order and Justice",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:opt_balta_h2",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, -300.0)",
+      "character": "Muhafız",
+      "text": "The village treasury shall pay the two coins for the iron; let harmony between neighbors remain unmarred."
+    },
+    {
+      "id": "node:rep_balta_h2",
+      "type": "DIALOGUE",
+      "position": "(1750.0, -300.0)",
+      "character": "Yusuf",
+      "text": "Heaven bless you, sentry; may our settlement flourish! I shall repay Karaca Usta with labor elsewhere."
+    },
+    {
+      "id": "node:act_balta_h2",
+      "type": "ACTION",
+      "position": "(2100.0, -300.0)",
+      "description": "Village Harmony",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:opt_boya",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -120.0)",
+      "character": "Muhafız",
+      "text": "Let us hear the dye dispute between Sister Ayse and the traveling draper."
+    },
+    {
+      "id": "node:rep_boya",
+      "type": "DIALOGUE",
+      "position": "(1050.0, -120.0)",
+      "character": "Ayşe Bacı",
+      "text": "Three precious carpets woven for the Sivas fair were ruined! The indigo dye this merchant sold washed away in the rain like watered ink! The draper contends he purchased it in good faith from the Tabriz caravan."
+    },
+    {
+      "id": "node:opt_boya_h1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, -180.0)",
+      "character": "Muhafız",
+      "text": "The draper shall refund the spoiled dye and supply two bolts of clean wool in restitution to the weavers!"
+    },
+    {
+      "id": "node:rep_boya_h1",
+      "type": "DIALOGUE",
+      "position": "(1750.0, -180.0)",
+      "character": "Ayşe Bacı",
+      "text": "May your justice endure, sentry; you defended the rights of the Baciyan weavers with honor."
+    },
+    {
+      "id": "node:act_boya_h1",
+      "type": "ACTION",
+      "position": "(2100.0, -180.0)",
+      "description": "Market Order and Justice",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:opt_boya_h2",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, -60.0)",
+      "character": "Muhafız",
+      "text": "Let the losses be shared equally between both parties; maintain peace in the marketplace."
+    },
+    {
+      "id": "node:rep_boya_h2",
+      "type": "DIALOGUE",
+      "position": "(1750.0, -60.0)",
+      "character": "Çuhacı",
+      "text": "I accept your decree, sentry; you did not crush the visiting merchant, and I will trade here again."
+    },
+    {
+      "id": "node:act_boya_h2",
+      "type": "ACTION",
+      "position": "(2100.0, -60.0)",
+      "description": "Mercantile Balance",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:opt_mera",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 120.0)",
+      "character": "Muhafız",
+      "text": "Let us hear the pasture and spring dispute between Shepherd Aydogdu and Molla Sukru."
+    },
+    {
+      "id": "node:rep_mera",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 120.0)",
+      "character": "Aydoğdu",
+      "text": "This southern spring has watered the flocks of the Avsar clan for a century! The scribe brandishes an edict declaring the spring belongs to his foundation! Molla Sukru insists on court register supremacy."
+    },
+    {
+      "id": "node:opt_mera_h1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 60.0)",
+      "character": "Muhafız",
+      "text": "Parchment cannot sever the ancestral water of the folk! The spring remains open to clan and village alike; amend the register accordingly!"
+    },
+    {
+      "id": "node:rep_mera_h1",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 60.0)",
+      "character": "Aydoğdu",
+      "text": "Heaven bless your verdict, sentry! The prayers of the Avsar warriors shall shield your watchtower; the pasture is ours!"
+    },
+    {
+      "id": "node:act_mera_h1",
+      "type": "ACTION",
+      "position": "(2100.0, 60.0)",
+      "description": "Ancestral Rights and Unity",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "3"
+      ]
+    },
+    {
+      "id": "node:opt_mera_h2",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 180.0)",
+      "character": "Muhafız",
+      "text": "The foundation charter must prevail; let the flocks water at the lower creek in the valley."
+    },
+    {
+      "id": "node:rep_mera_h2",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 180.0)",
+      "character": "Molla Şükrü",
+      "text": "You upheld the order of the Divan, sentry; the ledger is secure. Yet the Avsar clan departs resentful."
+    },
+    {
+      "id": "node:act_mera_h2",
+      "type": "ACTION",
+      "position": "(2100.0, 180.0)",
+      "description": "Scribe Authority",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "-1"
+      ]
+    },
+    {
+      "id": "node:opt_sifahane",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 360.0)",
+      "character": "Muhafız",
+      "text": "Let us hear the joint infirmary proposal between Thessra and Herbalist Miraen."
+    },
+    {
+      "id": "node:rep_sifahane",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 360.0)",
+      "character": "Thessra",
+      "text": "My distilled tincture quells virulent fevers in three hours; Mother Miraen instills dread in the folk against foreign remedies! Miraen warns that poppy distillate carries peril and mountain thyme has healed for centuries."
+    },
+    {
+      "id": "node:opt_sifa_h1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 360.0)",
+      "character": "Muhafız",
+      "text": "The wisdom of both is vital to our village! Thessra shall oversee surgery and cautery; Miraen shall oversee bone-setting and herbs; we establish a joint infirmary at the old lime kiln!"
+    },
+    {
+      "id": "node:rep_sifa_h1",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 360.0)",
+      "character": "Miraen",
+      "text": "Your decree is honored, sentry; we shall stand shoulder to shoulder to bring healing to our folk."
+    },
+    {
+      "id": "node:act_sifa_h1",
+      "type": "ACTION",
+      "position": "(2100.0, 360.0)",
+      "description": "Joint Village Infirmary",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "3"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(2450.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_start",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:selam",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_selam_to_balta",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_balta",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_balta_to_rep",
+      "from_node": "node:opt_balta",
+      "from_slot": 0,
+      "to_node": "node:rep_balta",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_to_h1",
+      "from_node": "node:rep_balta",
+      "from_slot": 0,
+      "to_node": "node:opt_balta_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_h1_to_rep",
+      "from_node": "node:opt_balta_h1",
+      "from_slot": 0,
+      "to_node": "node:rep_balta_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_h1_to_act",
+      "from_node": "node:rep_balta_h1",
+      "from_slot": 0,
+      "to_node": "node:act_balta_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_h1_to_end",
+      "from_node": "node:act_balta_h1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_to_h2",
+      "from_node": "node:rep_balta",
+      "from_slot": 0,
+      "to_node": "node:opt_balta_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_h2_to_rep",
+      "from_node": "node:opt_balta_h2",
+      "from_slot": 0,
+      "to_node": "node:rep_balta_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_h2_to_act",
+      "from_node": "node:rep_balta_h2",
+      "from_slot": 0,
+      "to_node": "node:act_balta_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_h2_to_end",
+      "from_node": "node:act_balta_h2",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_selam_to_boya",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_boya",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_boya_to_rep",
+      "from_node": "node:opt_boya",
+      "from_slot": 0,
+      "to_node": "node:rep_boya",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_boya_to_h1",
+      "from_node": "node:rep_boya",
+      "from_slot": 0,
+      "to_node": "node:opt_boya_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_boya_h1_to_rep",
+      "from_node": "node:opt_boya_h1",
+      "from_slot": 0,
+      "to_node": "node:rep_boya_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_boya_h1_to_act",
+      "from_node": "node:rep_boya_h1",
+      "from_slot": 0,
+      "to_node": "node:act_boya_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_boya_h1_to_end",
+      "from_node": "node:act_boya_h1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_boya_to_h2",
+      "from_node": "node:rep_boya",
+      "from_slot": 0,
+      "to_node": "node:opt_boya_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_boya_h2_to_rep",
+      "from_node": "node:opt_boya_h2",
+      "from_slot": 0,
+      "to_node": "node:rep_boya_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_boya_h2_to_act",
+      "from_node": "node:rep_boya_h2",
+      "from_slot": 0,
+      "to_node": "node:act_boya_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_boya_h2_to_end",
+      "from_node": "node:act_boya_h2",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_selam_to_mera",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_mera",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_mera_to_rep",
+      "from_node": "node:opt_mera",
+      "from_slot": 0,
+      "to_node": "node:rep_mera",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_mera_to_h1",
+      "from_node": "node:rep_mera",
+      "from_slot": 0,
+      "to_node": "node:opt_mera_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_mera_h1_to_rep",
+      "from_node": "node:opt_mera_h1",
+      "from_slot": 0,
+      "to_node": "node:rep_mera_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_mera_h1_to_act",
+      "from_node": "node:rep_mera_h1",
+      "from_slot": 0,
+      "to_node": "node:act_mera_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_mera_h1_to_end",
+      "from_node": "node:act_mera_h1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_mera_to_h2",
+      "from_node": "node:rep_mera",
+      "from_slot": 0,
+      "to_node": "node:opt_mera_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_mera_h2_to_rep",
+      "from_node": "node:opt_mera_h2",
+      "from_slot": 0,
+      "to_node": "node:rep_mera_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_mera_h2_to_act",
+      "from_node": "node:rep_mera_h2",
+      "from_slot": 0,
+      "to_node": "node:act_mera_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_mera_h2_to_end",
+      "from_node": "node:act_mera_h2",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_selam_to_sifa",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_sifahane",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_sifa_to_rep",
+      "from_node": "node:opt_sifahane",
+      "from_slot": 0,
+      "to_node": "node:rep_sifahane",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_sifa_to_h1",
+      "from_node": "node:rep_sifahane",
+      "from_slot": 0,
+      "to_node": "node:opt_sifa_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_sifa_h1_to_rep",
+      "from_node": "node:opt_sifa_h1",
+      "from_slot": 0,
+      "to_node": "node:rep_sifa_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_sifa_h1_to_act",
+      "from_node": "node:rep_sifa_h1",
+      "from_slot": 0,
+      "to_node": "node:act_sifa_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_sifa_h1_to_end",
+      "from_node": "node:act_sifa_h1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

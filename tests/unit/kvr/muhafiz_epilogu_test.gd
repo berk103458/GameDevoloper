@@ -13,9 +13,9 @@ func _initialize() -> void:
  o.yonetim.adalet=79
  dene(MuhafizEpilogu.durum(o,&"zafer").dal=="evine_donus","Adalet eşiği altında kahraman yok")
  o.yonetim.adalet=100
- o.bayraklar[&"rusvet_sayisi"]=4
+ o.bayraklar[&"rusvet_sayisi"]=20
  dene(MuhafizEpilogu.durum(o,&"tekfur").dal=="adil_kahraman","Yoz sınırı20 dahil")
- o.bayraklar[&"rusvet_sayisi"]=5
+ o.bayraklar[&"rusvet_sayisi"]=21
  dene(MuhafizEpilogu.durum(o,&"zafer").dal=="evine_donus","Yoz21 üstü kahraman değil")
  o.bayraklar[&"rusvet_sayisi"]=0
  o.yonetim.adalet=70
@@ -43,9 +43,9 @@ func _initialize() -> void:
  var z:=Oturum.new(kat,1011)
  z.muhafiz_akce=1000000
  dene(MuhafizEpilogu.durum(z,&"zafer").dal=="evine_donus","Meşru kişisel zenginlik tek başına kaçak değil")
- z.bayraklar[&"rusvet_sayisi"]=13
+ z.bayraklar[&"rusvet_sayisi"]=65
  dene(MuhafizEpilogu.durum(z,&"zafer").dal=="evine_donus","Yoz65 kaçış eşiği altında")
- z.bayraklar[&"rusvet_sayisi"]=14
+ z.bayraklar[&"rusvet_sayisi"]=70
  dene(MuhafizEpilogu.durum(z,&"zafer").dal=="venedik_kacagi","Gerçek tek rüşvet sayacı da kader kaynağı")
  var metin:=MuhafizEpilogu.metin(z,&"zafer","Köy zaferi")
  dene(metin.begins_with("Köy zaferi") and metin.contains("Venedik") and metin.contains("Muhafızın kaderi"),"Köy anlatısı korunur, tek muhafız sonu eklenir")

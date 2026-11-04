@@ -232,6 +232,36 @@ func divan_hukmu_ver(olay_id: String) -> void:
 		k["hukme_baglandi"] = true
 		k["kamuoyu_oldu"] = false
 
+## SOY-SON-01: Söylentinin somut kapanış olayı karşılığı
+const SOYLENTI_KAPANISLARI := {
+	"degirmen_un": "soylenti_degirmen_kapanis",
+	"kuyu_zehir": "soylenti_kuyu_kapanis",
+	"tekfur_altin": "soylenti_tekfur_araba_kapanis",
+	"mogol_casus": "soylenti_mogol_casus_kapanis",
+	"vebali_kumas": "soylenti_vebali_kumas_kapanis"
+}
+
+func soylenti_kapanis_olayi_al(olay_id: String) -> String:
+	return SOYLENTI_KAPANISLARI.get(olay_id, "")
+
+func soylenti_kapanisi_uygula(olay_id: String, cozum_secimi: String = "adalet") -> Dictionary:
+	if not ag_kayitlari.has(olay_id):
+		return {"cozuldu": false}
+	var k: Dictionary = ag_kayitlari[olay_id]
+	k["hukme_baglandi"] = true
+	k["kamuoyu_oldu"] = false
+	k["cozuldu"] = true
+	k["cozum_secimi"] = cozum_secimi
+	if cozum_secimi == "adalet":
+		dogru_soylenti_dogrulandi(olay_id)
+	else:
+		yanlis_soylenti_dogrulandi(olay_id)
+	return {
+		"cozuldu": true,
+		"olay_id": olay_id,
+		"kapanis": soylenti_kapanis_olayi_al(olay_id)
+	}
+
 ## SOY-11: Yanlış ve doğru söylenti doğrulama.
 func yanlis_soylenti_dogrulandi(olay_id: String) -> void:
 	if ag_kayitlari.has(olay_id):
