@@ -607,3 +607,32 @@ Ahmet sabah iki şeyi onayladı: (1) İngilizce oyuna girsin, hazır taslak ekle
 - Asset üretme. Force push yapma. Kalfa'nın klasörüne girme.
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
 
+
+---
+
+# Görev 17 — Ahmet'in hikâye kararlarını uygula (Kaşif, 4 Kasım 2026 08:35)
+
+Ahmet sabah kararlarını verdi ve 7 ROADMAP önerisinin hepsini onayladı. İlerleme dosyası: `codex.md/Antigravity_ilerleme_17.md`.
+
+**Kota kuralı:** Kota yaklaşık %10'a inerse elindeki adımı bitir, commit ve push et, ilerleme dosyasına "kota için durdum" yaz ve `GOREV17_TAMAM` satırını ekle.
+
+## Kararlar
+- **Karar 1 → Seçenek 1.1 (İttifak, süvari muhafızları).** `docs/karar_yamalari/karar_1_ittifak_suvari/UYGULA.md`'yi uygula. `karar_1_yalniz_kabul` uygulanmayacak.
+- **Karar 3 → İKİ SEÇENEK DE oyunda olacak.** `karar_3_sifa_kurtulus` ve `karar_3_dramatik_kayip` ikisi de uygulanacak; hangisinin geleceği oyuncunun önceki kararlarına bağlı olsun. Koşulu mevcut sistemlerden kur (ör. ana-çocuk vaktinde karantinaya alındı mı, Miraen'in yeterli şifalı otu/akçesi var mı, Miraen'e yardım edildi mi). Rastgele olmasın; oyuncu sonradan neden öyle bittiğini anlayabilsin (eş yorumu veya defter notu bir ipucu versin). Koşulu `docs/KARAR_SECENEKLERI.md`'ye yaz.
+- **Karar 2 (Molla Şükrü) → BEKLİYOR.** Hiçbir yamasına dokunma, mevcut hali koru.
+
+## Ne yapacaksın
+1. `git fetch origin`, festive'i (`origin/claude/festive-volta-li1sfm`) kendi dalına merge et. Çakışmada iki tarafı koru.
+   Eğer Görev 16 festive'e push edemediyse (festive kendi dalını içermiyorsa) önce o fast-forward push'u yap.
+2. Kararları uygula. Kalfa'nın alanındaki bir dosyaya küçük bağlantı gerekirse en küçük değişikliği yap ve ilerleme dosyasına yaz.
+3. Bütün doğrulayıcıları ve Godot headless testlerini çalıştır; yeni kırmızı olmasın. Gerekirse iki Karar 3 dalı için birer test ekle. Yeni metin anahtarlarının İngilizce karşılığını da ekle.
+4. Yeşilse `git push origin HEAD:claude/festive-volta-li1sfm` ile festive'e fast-forward push et (reddedilirse fetch + merge + test + tekrar). Asla force push yapma. Kendi dalını da push et.
+5. `docs/KARAR_SECENEKLERI.md`'de kararları "UYGULANDI (Ahmet, 4 Kasım)" / "BEKLİYOR" diye işaretle. Commit mesajları "KARAR-…" ile başlasın, "(Antigravity)" ile bitsin.
+6. **ROADMAP önerileri (Ahmet: "hepsi iyi").** `docs/ROADMAP_ONERILERI_ANTIGRAVITY.md`'deki 7 önerinin hepsini (ANL-DON-01, ES-GECM-01, ANL-EPI-01, SOY-SON-01, KVR-SES-01, MECLIS-ARA-01, SES-DIL-01) `ROADMAP_2.md`'ye yeni maddeler olarak ekle; her maddede sahibi yazsın. Kod isteyen kısımlar (ANL-EPI-01 `sonuc_epilog_olusturucu.gd`, KVR-SES-01 hava adaptörü) **Kalfa**'ya, metin/diyalog kısımları sana. Commit "ROADMAP-ONERI-…(Antigravity)", festive'e fast-forward push.
+7. Sonra kendi alanındaki maddeleri öncelik sırasıyla yap: ES-GECM-01, ANL-DON-01, SOY-SON-01, MECLIS-ARA-01, ANL-EPI-01'in epilog metinleri, KVR-SES-01'in replik metinleri, SES-DIL-01. `docs/oneri_taslaklari/` klasöründeki hazır taslakları kullan. Her maddeyi bitirince ROADMAP'te işaretle, test et, commit + festive'e fast-forward push. Kalfa'nın kodu henüz yoksa metinleri hazırla ve bağlantı noktasını "Kalfa bekleniyor" diye not et.
+8. Hepsi bitince ya da kota kuralı devreye girince son satıra tek başına `GOREV17_TAMAM` yaz.
+
+## Kurallar
+- Asset üretme, prompt yazma. Kalfa'nın klasörüne girme.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
+
