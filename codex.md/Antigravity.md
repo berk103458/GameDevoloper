@@ -737,3 +737,19 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - Tüm Godot headless testleri (`diyalog_butunluk_test.gd`, `koy_parley_sistemi_test.gd`, `es_yorumu_test.gd`, `yeni_olaylar_test.gd`, `girdi_test.gd`, `dil_test.gd`, `hafiza_defteri_test.gd`, `ozel_olay_test.gd`): 0 HATA.
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_8.md` son satırı `GOREV8_TAMAM` ile mühürlendi.
 - **Kota:** %40 kaldı.
+
+## 4 Kasım 2026 — Görev 9: Bütünlük Denetimi, Birleşmeye Hazırlık ve Sabah Özeti
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Bölüm A — Bütünlük Denetimi:**
+     - 30 kapı diyaloğu, eş kapı düşünceleri, 17 Parley köy sekansı ve 8 köy olayı baştan sona tarandı.
+     - Modern kelimeler ve 13. yüzyıl dünyasına uymayan anakronizmler (diyalog_25'teki tüfek -> kargı, diyalog_21'deki kurşun -> ok, diyalog_07/14/19/23'teki riske/panikletip/şansımı/rapor kelimeleri, metinler.csv'deki panikleyecekti -> korkuya kapılacaktı, aksam_konulari'ndaki risk -> tehlike) dönem diline uyarlandı (`72661d51`).
+     - diyalog_25 (fırın çırağı oğlan) ile diyalog_30 (Turna) arasındaki öz kardeşlik ve Muhafızın yeğeni olma ("rahmetli Hasan'ın yetimi Dursun") bağı ve eş düşünceleri tam olarak kenetlendi.
+  2. **Bölüm B — Birleşmeye Hazırlık:**
+     - `origin/claude/festive-volta-li1sfm` ile tam senkronize durumda olduğu doğrulandı ("Already up to date").
+     - 5 Python doğrulayıcısı ve 26 Godot headless birim testi (toplam 31 test) çalıştırıldı ve 31/31 sıfır hatayla geçti.
+     - `docs/DIYALOG_DALI_BIRLESME_NOTU.md` hazırlanarak eklenen/değişen dosyalar, Kalfa/Cursor alanına müdahale edilmediği ve birleşme adımları belgelendi.
+  3. **Bölüm C — Ahmet İçin Sabah Özeti:**
+     - `docs/DIYALOG_GECE_OZETI.md` hazırlanarak mobil okumaya uygun sade Türkçe ile Görev 3'ten 9'a kadar yapılan tüm çalışmalar, mutlaka deneyimlenmesi gereken 10 an ve Ahmet'in kararını bekleyen 3 konu sunuldu.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_9.md` son satırı `GOREV9_TAMAM` ile mühürlendi.
+- **Kota:** %35 kaldı.

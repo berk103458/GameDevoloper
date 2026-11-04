@@ -34,7 +34,45 @@
 - **Doğrulama:** `tools/metin_dogrula.py` (PASS), `tools/soz_dogrula.py` (PASS), `tools/soz_tasarimi_dogrula.py` (PASS), `diyalog_butunluk_test.gd` (PASS, 0 hata), `es_yorumu_test.gd` (PASS, 0 hata).
 - **Kota:** %50 kaldı.
 
-### Düzeltilmeden Bırakılan Konular (Ahmet'in Onayına Sunulacak Kararlar)
-1. **diyalog_28 (Banu Hatun'un Dağdaki 50 Atlısı):** Banu Hatun'un dağda bıraktığını söylediği 50 atlı süvarinin ilerleyen gecelerde bir kuşatma önleme müttefiki mi yoksa bir köy baskını tehdidi mi olacağı Faz 3 anlatı tasarım kararı olarak Ahmet'in tercihine bırakıldı.
-2. **diyalog_27 (Molla Şükrü vs Hasan Çelebi Kadı Divanı Çekişmesi):** Molla Şükrü'nün sahte vakıfname suçlaması ile Hasan Çelebi arasındaki divan çekişmesinin doğrudan bir mahkeme mini-oyununa bağlanıp bağlanmayacağı tasarım kararıdır.
-3. **diyalog_24 (Vebalı Ana ve Sabi):** Sabi kucakta kireç kuyusuna alındıktan sonra Miraen'in ilacıyla hayatta kalıp kalmayacağı ya da kış ortasında acı bir kayıp yaşanıp yaşanmayacağı dramatik anlatı tercihi olarak Ahmet'e bırakıldı.
+---
+
+## Bölüm B — Birleşmeye Hazırlık (TAMAMLANDI)
+1. `git fetch origin` yapıldı; `origin/claude/festive-volta-li1sfm` son commit'i (`b5ceb33a`) zaten dalımıza dahil edilmiş durumda olduğu doğrulandı ("Already up to date").
+2. 5 Python doğrulayıcısı ve 26 Godot headless birim testi olmak üzere toplam 31 test çalıştırıldı; 31/31 sıfır hatayla geçti:
+   - `tools/metin_dogrula.py` (PASS)
+   - `tools/soz_dogrula.py` (PASS)
+   - `tools/soz_tasarimi_dogrula.py` (PASS)
+   - `tools/soz_kapi.py` (PASS)
+   - `tools/soz_kadro_denetimi.py` (PASS)
+   - `tests/unit/diyalog/diyalog_butunluk_test.gd` (PASS, 0 hata)
+   - `tests/unit/kapi/es_yorumu_test.gd` (PASS, 0 hata)
+   - `tests/unit/diyalog/koy_parley_sistemi_test.gd` (PASS, 0 hata)
+   - `tests/unit/olay/yeni_olaylar_test.gd` (PASS, 0 hata)
+   - `tests/unit/olay/ozel_olay_test.gd` (PASS, 0 hata)
+   - `tests/unit/arayuz/girdi_test.gd` (PASS, 0 hata)
+   - `tests/unit/arayuz/dil_test.gd` (PASS, 0 hata)
+   - `tests/unit/sistemler/hafiza_defteri_test.gd` (PASS, 0 hata)
+   - `tests/unit/koy/kapi_nobeti_test.gd` (PASS, 0 hata)
+   - `tests/unit/koy/sabah_defteri_test.gd` (PASS, 0 hata)
+   - `tests/unit/koy/tezgahta_gun_test.gd` (PASS, 0 hata)
+   - `tests/unit/koy/yil_izi_test.gd` (PASS, 0 hata)
+   - `tests/unit/soz/*.gd` (14 test): PASS (0 hata)
+   - `tests/unit/koy/aksam_sohbeti_test.gd`, `tests/unit/koy/hane_test.gd`, `tests/unit/kvr/soylenti_agi_test.gd`: PASS (0 hata)
+3. `docs/DIYALOG_DALI_BIRLESME_NOTU.md` dosyası oluşturuldu: festive'e göre eklenen/değişen dosyalar, Kalfa ve Cursor alanlarına dokunulmadığı, sıfır hata test sonuçları ve birleşmede dikkat edilecek riskler detaylandırıldı.
+
+---
+
+## Bölüm C — Ahmet İçin Sabah Özeti (TAMAMLANDI)
+- `docs/DIYALOG_GECE_OZETI.md` dosyası hazırlandı. Ahmet'in telefondan rahatça okuyabilmesi için kısa, net ve sade Türkçe bölümlerle yapılandırıldı:
+  - Görev 3'ten Görev 9'a kadar yapılan tüm diyalog, eş, köy ve yerelleştirme çalışmalarının özeti.
+  - Oynarken mutlaka deneyimlemesi gereken en iyi 10 sahne ve an.
+  - Karar bekleyen 3 ana konu (Banu Hatun 50 atlı, Molla Şükrü meclis yüzleşmesi, Vebalı sabi).
+
+---
+
+## Sonuç
+- Görev 9 tüm bölümleriyle (A, B, C) başarıyla tamamlandı.
+- Dal `feature/diyalog-yeniden-yazim` sabah incelemesi ve festive birleşimi için eksiksiz ve temiz durumdadır.
+- Kota durumu: %40 kaldı.
+
+GOREV9_TAMAM
