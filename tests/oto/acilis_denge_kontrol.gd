@@ -7,6 +7,7 @@ extends Node
 const ACILIS := preload("res://src/sistemler/acilis_senaryosu.gd")
 const GECE := 20
 const AZAMI_KURULUM := 10
+const ODUN_OLCUM_GECESI := 10
 
 ## Beş açılış sırası (madde Kabul). Adımlar: yapı türü, "kazi" (yatağa işçi),
 ## "kazi_bitir" (20 taş çıkana kadar bekle), "bekle" (yalnız başlangıç evi).
@@ -47,6 +48,7 @@ func _calistir() -> void:
 		_kontrol(not bool(r.kilit), "Sıra %s hiç kilitlenmez" % r.sira)
 		_kontrol(int(r.ocak_gece) > 0 and int(r.ocak_gece) <= AZAMI_KURULUM,
 			"Sıra %s %d gün içinde taş ocağını kurar (gece=%d)" % [r.sira, AZAMI_KURULUM, r.ocak_gece])
+		_kontrol(r.odunsuz_geceler.is_empty(), "DEN-10: %s ilk %d gece odunsuz kalmaz (geceler=%s)" % [r.sira, ODUN_OLCUM_GECESI, r.odunsuz_geceler])
 		await get_tree().process_frame
 	await get_tree().process_frame
 	print("AÇILIŞ DENGE: %s (%d hata)" % ["GEÇTİ" if _hata == 0 else "KALDI", _hata])
@@ -112,6 +114,7 @@ func _oyna(katalog: Katalog, sira: Dictionary, tohum: int) -> Dictionary:
 	var y := o.yonetim
 	var idx: Array[int] = [0]
 	var kilit_geceleri: Array[int] = []
+	var odunsuz_geceler: Array[int] = []
 	var gecen := 0
 	var ocak_gece := 0
 	for i in GECE:
@@ -119,12 +122,14 @@ func _oyna(katalog: Katalog, sira: Dictionary, tohum: int) -> Dictionary:
 		_gece_adim(o, y, sira, idx)
 		o.gece_sonu()
 		gecen += 1
+		if gecen <= ODUN_OLCUM_GECESI and y.kaynaklar.miktar("odun") == 0:
+			odunsuz_geceler.append(gecen)
 		if ocak_gece == 0 and _ocak(y):
 			ocak_gece = gecen
 		if _kilit(y):
 			kilit_geceleri.append(y.gun)
 	var rapor := {"sira": sira.ad, "gece": gecen, "son": y.son, "ocak_gece": ocak_gece,
-		"kilit": not kilit_geceleri.is_empty(), "kilit_satirlari": kilit_geceleri,
+		"kilit": not kilit_geceleri.is_empty(), "kilit_satirlari": kilit_geceleri, "odunsuz_geceler": odunsuz_geceler,
 		"odun": y.kaynaklar.miktar("odun"), "tas": y.kaynaklar.miktar("tas"), "alet": y.kaynaklar.miktar("alet"),
 		"kurtarici": y.tas_yatagi.kurtarici_sayisi if y.tas_yatagi != null else -1}
 	o.yonetim = null

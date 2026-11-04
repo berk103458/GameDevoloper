@@ -3414,7 +3414,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: BUG-22, DEN-01. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`, `data/ayarlar/koy.tres`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-10:** Odun darlığı ölçülür.
+- [x] **DEN-10:** Odun darlığı ölçülür. (Kalfa)
   - Ne: BUG-0018, ilk 10 gecede odunun sıfıra düşüp ateşin kesildiği koşudur. Beş açılış sırasının (BUG-22) hiçbiri bu koşula girmez.
   - Kabul: BUG-0018, ilk 10 gecede odunun sıfıra düşüp ateşin kesildiği koşudur. Beş açılış sırasının (BUG-22) hiçbiri bu koşula girmez. Test: beş sıra, 10 gece, odun 0 gün sayısı 0.
   - Bağımlılık: BUG-22, EKO-02, MEV-11. Boyut: M.
