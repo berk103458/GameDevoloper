@@ -710,3 +710,30 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - **Toplam Tamamlanan Madde Sayısı:** 177 ROADMAP maddesi.
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_7.md` son satırı `GOREV7_TAMAM` ile mühürlendi.
 - **Kota:** kota görünmüyor
+
+## 4 Kasım 2026 — Görev 8: Yer Tutucu Metinlerin Oyuna Yerleştirilmesi ve 10 Yeni Ziyaretçinin Derinleştirilmesi
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Bölüm A — Festive Merge ve Doğrulama:**
+     - `origin/claude/festive-volta-li1sfm` (Cursor PR #15–#27 birleşimi, commit `b5ceb33a`) çekilip merge edildi (`49fcf091`).
+     - Metin, söz şeması, beyan defteri ve söz motoru çakışmaları geriye dönük tam uyumla çözüldü (`dac9daa4`).
+     - 13/13 Godot headless testi ve tüm doğrulayıcılar sıfır hatayla doğrulandı.
+  2. **Bölüm B — Yer Tutucu Metinlerin Yerleştirilmesi (85/85 %100 TAMAMLANDI):**
+     - `docs/YER_TUTUCU_METINLER.csv` dosyasındaki tüm 85 anahtar gerçek metinlerle güncellendi ve `yerlesti` olarak işaretlendi:
+       - Parti B1: Nöbet raporları ve sabah hüküm satırları (`nobet.rapor.*`, `sabah.hukum.satir` - 8 anahtar, `04a472a0`).
+       - Parti B2: Tezgâh siparişleri ve mevsim yıl izleri (`tez.cumle.*`, `yil.*` - 10 anahtar, `a9ada837`).
+       - Parti B3: Âşık ve kadı özel olay kart metinleri (`olay.asik.*`, `olay.kadi.*` - 12 anahtar, `4c0fcb56`).
+       - Parti B4: Hafıza defteri ve eylem metinleri (`hafiza.*`, `koy.eylem.defter`, `arayuz.duraklat.defter` - 21 anahtar, `d11aa6e4`).
+       - Parti B5: Girdi haritası, ana menü, dil ayarları, demo bitiş ve çoban metinleri (`arayuz.girdi.*`, `arayuz.menu.*`, `arayuz.demo.*`, `arayuz.dil.*`, `koy.coban.*` - 34 anahtar, `ef4e4fc8`).
+  3. **Bölüm C — 10 Yeni Ziyaretçiyi Derinleştirme & Eş Sohbeti Genişletme:**
+     - `data/diyalog/diyalog_01_20.json` içinde `diyalog_21` .. `diyalog_30` arası 10 karakterin diyalog ağaçları 3 ana soruya, 3. kademe alt sorulara ve soru/itiraf/şüphe bayraklarına (`dervis_mogol_fermani`, `tuccar_sahte_payza`, `cavus_kelle_pazarligi`, `veba_kaynagi_akpinar`, `harami_karabudak_izi`, `sarlatan_afyon_itirafi`, `katip_calinti_muhur`, `banu_hatun_atli_guvencesi`, `kafile_kurtarma_seferi`, `turna_oz_yegen_kabul`) kavuşturuldu (`bc3719ef`).
+     - `data/diyalog/es_kapi_dusunceleri.json`: 30 karakterin tamamı için 4 aşamalı eş kapı düşünceleri doğrulandı (`es_yorumu_test.gd`: PASS).
+     - `data/parley/koy/koylu_muhabbet_es.ds`: 10 yeni ziyaretçi ve 8 yeni köy olayı (`kavga_harman`, `ambarda_hirsizlik`, `salgin_fisiltisi`, `koy_dugunu`, `firari_cenazesi`, `samanlik_yangini`, `gece_donu`, `harami_elcisi`) için 16 yeni konuşma dalı eklendi. Parley grafı 123 düğüm ve 153 kenara ulaştı, sıfır kırık bağlantı (`diyalog_butunluk_test.gd`: PASS).
+  4. **Bölüm D — ROADMAP_2 Kontrolü:**
+     - Açık ve sahipsiz olan tüm diyalog, anlatı ve metin işleri tamamlandı; diğer ajanların işlerine ve kilitli alanlara dokunulmadı.
+  5. **Doğrulama ve Testler:**
+     - `tools/metin_dogrula.py`: PASS.
+     - `tools/soz_dogrula.py` & `tools/soz_tasarimi_dogrula.py`: GEÇTİ.
+     - Tüm Godot headless testleri (`diyalog_butunluk_test.gd`, `koy_parley_sistemi_test.gd`, `es_yorumu_test.gd`, `yeni_olaylar_test.gd`, `girdi_test.gd`, `dil_test.gd`, `hafiza_defteri_test.gd`, `ozel_olay_test.gd`): 0 HATA.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_8.md` son satırı `GOREV8_TAMAM` ile mühürlendi.
+- **Kota:** %40 kaldı.

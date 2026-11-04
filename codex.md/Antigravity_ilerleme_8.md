@@ -93,4 +93,23 @@
 
 ---
 
-## Bölüm D — ROADMAP Kontrolü ve Kapanış
+## Bölüm D — ROADMAP Kontrolü ve Kapanış (TAMAMLANDI)
+- `ROADMAP_2.md` baştan sona tarandı:
+  - Antigravity alanındaki (diyalog, söz motoru, yerelleştirme metinleri, karakter konuşmaları, Parley anlatı sekansları) açık veya sahipsiz madde kalmadı.
+  - Açık/yarım kalan maddeler Kalfa (inşaat, ekonomi, denge), testx (`[/] ACL-02`, `[/] KAP-16/39/45/48`), Claude (`[/] YAZ-01`, `[/] ARY-01`) ve Cursor (`[/] GRV-06/15/31`) sahipliğinde olup kural gereği dokunulmadı.
+- Tüm doğrulama testleri sıfır hatayla geçti:
+  - `tools/metin_dogrula.py`: PASS
+  - `tools/soz_dogrula.py`: PASS
+  - `tools/soz_tasarimi_dogrula.py`: PASS
+  - `tests/unit/diyalog/diyalog_butunluk_test.gd`: PASS (0 hata)
+  - `tests/unit/diyalog/koy_parley_sistemi_test.gd`: PASS (0 hata)
+  - `tests/unit/kapi/es_yorumu_test.gd`: PASS (0 hata)
+  - `tests/unit/olay/yeni_olaylar_test.gd`: PASS (0 hata)
+  - `tests/unit/arayuz/girdi_test.gd`: PASS (0 hata)
+  - `tests/unit/arayuz/dil_test.gd`: PASS (0 hata)
+  - `tests/unit/sistemler/hafiza_defteri_test.gd`: PASS (0 hata)
+  - `tests/unit/olay/ozel_olay_test.gd`: PASS (0 hata)
+- **Kota Durumu:** %45 kaldı.
+- Görev 8 tüm bölümleriyle (A, B, C, D) başarıyla tamamlandı.
+
+GOREV8_TAMAM
