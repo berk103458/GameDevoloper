@@ -21,12 +21,12 @@
     - `docs/karar_yamalari/karar_2_katip_ittifak/` (Seçenek 2.2 — Kâtip İttifakı & Pragmatizm)
     - Her klasörde tam `diyalog_01_20.json`, `es_kapi_dusunceleri.json`, `koylu_muhabbet_hasan_celebi.ds`, `koylu_muhabbet_es.ds`, `metinler_parca.csv` ve `UYGULA.md` eksiksiz oluşturuldu.
     - Commit `KARAR-02:...` hazırlandı.
-  - [ ] **Parti A3 — Karar 3 (Vebalı Sabi ve Anasının Akıbeti):**
-    - `docs/karar_yamalari/karar_3_sifa_kurtulus/` (Seçenek 3.1)
-    - `docs/karar_yamalari/karar_3_dramatik_kayip/` (Seçenek 3.2)
-    - Her klasörde tam diyalog, eş düşünceleri, Miraen & Karantina sohbeti, `metinler_parca.csv` ve `UYGULA.md`.
-    - Commit `KARAR-03:...` ve push.
-- [ ] **Bölüm B — Diyalog ve Anlatıyla İlgili Eksik 2D Asset Promptları:**
+  - [x] **Parti A3 — Karar 3 (Vebalı Sabi ve Anasının Akıbeti):**
+    - `docs/karar_yamalari/karar_3_sifa_kurtulus/` (Seçenek 3.1 — Şifa & Umut)
+    - `docs/karar_yamalari/karar_3_dramatik_kayip/` (Seçenek 3.2 — Dramatik Kayıp & Gerçekçilik)
+    - Her klasörde tam `diyalog_01_20.json`, `es_kapi_dusunceleri.json`, `koylu_muhabbet_miraen.ds`, `koylu_muhabbet_es.ds`, `metinler_parca.csv` ve `UYGULA.md` eksiksiz oluşturuldu.
+    - Commit `KARAR-03:...` hazırlandı.
+- [/] **Bölüm B — Diyalog ve Anlatıyla İlgili Eksik 2D Asset Promptları:**
   - `docs/EKSIK_ASSET_ENVANTERI.md` incelenecek.
   - Yeni 10 ziyaretçi, muhafızın eşi, 8 köy olayı, hafıza defteri ve epilog/sonlar için 2D portre, kart ve sahne promptları tek tek Nano Banana formatında hazırlanacak.
   - Commit `ASSET-PROMPT-01:...` ve push.

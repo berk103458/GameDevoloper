@@ -498,6 +498,250 @@ C:\\Users\\Ahmet\\Desktop\\Godot.exe --headless --path . -s tests/unit/diyalog/k
     print("Karar 2 yamaları eksiksiz oluşturuldu.")
 
 
+def uret_karar_3():
+    base_dir_1 = "docs/karar_yamalari/karar_3_sifa_kurtulus"
+    base_dir_2 = "docs/karar_yamalari/karar_3_dramatik_kayip"
+    os.makedirs(base_dir_1, exist_ok=True)
+    os.makedirs(base_dir_2, exist_ok=True)
+
+    with open("data/diyalog/diyalog_01_20.json", "r", encoding="utf-8") as f:
+        diyaloglar = json.load(f)
+    with open("data/diyalog/es_kapi_dusunceleri.json", "r", encoding="utf-8") as f:
+        es_dusunceleri = json.load(f)
+    with open("data/parley/koy/koylu_muhabbet_miraen.ds", "r", encoding="utf-8") as f:
+        miraen_ds = json.load(f)
+    with open("data/parley/koy/koylu_muhabbet_es.ds", "r", encoding="utf-8") as f:
+        es_ds = json.load(f)
+
+    # --- SEÇENEK 3.1: ŞİFA VE SABİNİN KURTULUŞU (UMUT VE BEDEL) ---
+    d31 = copy.deepcopy(diyaloglar)
+    chr24 = d31[23]
+    chr24["sorular"][0][2][0] = [
+        "Köyün hekimi Miraen vardır; sabiyi ona muayene ettiririz. Lakin sen bu halde köye girersen köyün cümle bebeleri kırılır!",
+        "Ben köye girmem ağam! Surların dibindeki kireç ocağını bilirim; beni oradaki terk edilmiş çoban kulübesine kapatın! Kapıyı dışarıdan kilitleyin, bana yalnız bir kase suyla bir tas süt uzatın! Sabimi kurtarın, ben orada ölmeye razıyım!",
+        [
+            [
+                "Kireç ocağında ateş yakar, Miraen'e kükürt ve adaçayı hazırlatırız; sabinin humması düşene kadar karantinadan çıkmayacaksınız!",
+                "Allah razı olsun muhafız! Miraen Hatun'un ilacı ve dualarınızla sabim ayağa kalkarsa iki cihanda köleniz olurum!"
+            ]
+        ],
+        "veba_kirec_karantina_basarili"
+    ]
+    chr24["yanitlar"]["kabul"] = "Allah merhametini kabul etsin muhafız! Kireç ocağındaki ateş ve Miraen Hatun'un şifasıyla sabimin ateşi düştü; kundağım yeniden güldü! Bu köyün ocağı kıyamete kadar tütsün!"
+
+    with open(os.path.join(base_dir_1, "diyalog_01_20.json"), "w", encoding="utf-8") as f:
+        json.dump(d31, f, ensure_ascii=False, indent=2)
+
+    es31 = copy.deepcopy(es_dusunceleri)
+    es31["diyalog_24"]["karar_oncesi"] = "Kireç ocağına tecrit edelim beyim. Miraen kükürt tütsüsü yaksın; sabiyle anayı ölüme terk etmeyelim amma köylüyü de tehlikeye atmayalım."
+    es31["diyalog_24"]["karar_kabul"] = "Sabah ezanında haber geldi... Çocuğun nefesi düzelmiş. Gözümden yaş geldi efendi. Kapıda o vebalı anayı kirece alırken tereddüt etmiştin ya; meğer can kurtaracakmışsın."
+    with open(os.path.join(base_dir_1, "es_kapi_dusunceleri.json"), "w", encoding="utf-8") as f:
+        json.dump(es31, f, ensure_ascii=False, indent=2)
+
+    miraen31 = copy.deepcopy(miraen_ds)
+    miraen31["nodes"].append({
+        "id": "node:opt_veba",
+        "type": "DIALOGUE_OPTION",
+        "position": "(700.0, 360.0)",
+        "character": "Muhafız",
+        "text": "Kireç ocağındaki vebalı ana ile sabinin durumu nedir tabip Miraen?"
+    })
+    miraen31["nodes"].append({
+        "id": "node:rep_veba",
+        "type": "DIALOGUE",
+        "position": "(1050.0, 360.0)",
+        "character": "Miraen",
+        "text": "Ateşi kırıldı Muhafız! Kükürt dumanı ve dağ kekiği göğsünü açtı. Yavru yaşayacak; kireç kuyusu mezarları değil yeniden doğdukları yer oldu şükürler olsun."
+    })
+    miraen31["nodes"].append({
+        "id": "node:act_veba",
+        "type": "ACTION",
+        "position": "(1400.0, 360.0)",
+        "description": "Köy Morali ve Umut",
+        "action_type": "SCRIPT",
+        "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+        "values": ["3"]
+    })
+    miraen31["edges"].extend([
+        {"id": "e_o_veba", "from_node": "node:selam", "from_slot": 0, "to_node": "node:opt_veba", "to_slot": 0, "should_override_colour": False, "colour_override": "(1, 1, 1, 1)"},
+        {"id": "e_r_veba", "from_node": "node:opt_veba", "from_slot": 0, "to_node": "node:rep_veba", "to_slot": 0, "should_override_colour": False, "colour_override": "(1, 1, 1, 1)"},
+        {"id": "e_a_veba", "from_node": "node:rep_veba", "from_slot": 0, "to_node": "node:act_veba", "to_slot": 0, "should_override_colour": False, "colour_override": "(1, 1, 1, 1)"},
+        {"id": "e_e_veba", "from_node": "node:act_veba", "from_slot": 0, "to_node": "node:end", "to_slot": 0, "should_override_colour": False, "colour_override": "(1, 1, 1, 1)"}
+    ])
+    with open(os.path.join(base_dir_1, "koylu_muhabbet_miraen.ds"), "w", encoding="utf-8") as f:
+        json.dump(miraen31, f, ensure_ascii=False, indent=2)
+
+    es_ds31 = copy.deepcopy(es_ds)
+    for n in es_ds31["nodes"]:
+        if n["id"] == "node:opt_z_vebali":
+            n["text"] = "Kireç ocağındaki sabinin humması düşmüş beyim; Miraen şifayı buldu."
+        elif n["id"] == "node:rep_z_vebali":
+            n["text"] = "Sabah ezanında müjde geldi beyim... Sabinin humması düşmüş, ananın yüzü gülmüş. Kireç ocağında can kurtardın; bu sevap hanene nur gibi yağar."
+    with open(os.path.join(base_dir_1, "koylu_muhabbet_es.ds"), "w", encoding="utf-8") as f:
+        json.dump(es_ds31, f, ensure_ascii=False, indent=2)
+
+    with open(os.path.join(base_dir_1, "metinler_parca.csv"), "w", encoding="utf-8") as f:
+        f.write("anahtar,tr,en\n")
+        f.write("karar.veba.sifa.baslik,Kireç Ocağında Şifa ve Kurtuluş,Healing and Salvation at Lime Kiln\n")
+        f.write("karar.veba.sifa.metin,\"Miraen'in kükürt ve adaçayı tedavisiyle sabi iyileşti. Salgın köye sıçramadı; Moral 3, Adalet 2 arttı, 10 akçe ecza masrafı yapıldı, köye 2 sağlıklı can katıldı.\",\"Child healed through Miraen's sulfur and sage cure. Plague did not breach village; Morale +3, Justice +2, 10 coins medicine cost, 2 healthy souls joined.\"\n")
+        f.write("karar.veba.sifa.sonuc,\"Tecrit hayat kurtardı. Köyde salgın yok, şükran var.\",\"Quarantine saved lives. No plague in village, deep gratitude.\"\n")
+
+    uygula_31 = """# Yama Uygulama Rehberi — Karar 3 / Seçenek 3.1 (Kireç Ocağında Şifa ve Sabinin Kurtuluşu)
+
+## Seçenek Özeti
+- **Karar:** Vebalı Sabi ve Anasının Akıbeti
+- **Seçim:** 3.1 Kireç Ocağında Şifa ve Sabinin Kurtuluşu (Umut ve Bedel)
+- **Anlatı:** Miraen dağ kekiği, kükürt dumanı ve sirke ile hazırladığı panzehirle sabiyi kireç ocağında günlerce tedavi eder. Çocuğun ateşi düşer, anne ve sabi vebadan arınarak sağ salim ayağa kalkar. Köye salgın bulaşmaz, muazzam bir sevinç ve hekime saygı oluşur.
+
+## Kopyalanacak Dosyalar
+Aşağıdaki dosyaları bu klasörden oyunun ana dizinlerine kopyalayınız:
+1. `diyalog_01_20.json` -> `data/diyalog/diyalog_01_20.json`
+2. `es_kapi_dusunceleri.json` -> `data/diyalog/es_kapi_dusunceleri.json`
+3. `koylu_muhabbet_miraen.ds` -> `data/parley/koy/koylu_muhabbet_miraen.ds`
+4. `koylu_muhabbet_es.ds` -> `data/parley/koy/koylu_muhabbet_es.ds`
+5. `metinler_parca.csv` satırlarını `data/metin/metinler.csv` dosyasına ekleyiniz.
+
+## Etkinleşen Bayraklar ve Oyun Değişkenleri
+- `veba_kirec_karantina_basarili`: true
+- `sabi_iyilesti_kurtuldu`: true
+- `miraen_tabip_saygi_zirve`: true
+- `koyde_salgin_yok`: true
+- `moral`: +3
+- `adalet`: +2
+- `akce`: -10 (ecza masrafı)
+- `asayis_riski`: 0 (salgın yok)
+- `nufus`: +2 sağlıklı köylü
+
+## Doğrulama ve Test Komutları
+Uygulama sonrasında şu komutlarla sistemi test ediniz:
+```powershell
+$env:PYTHONUTF8=1
+python tools/metin_dogrula.py
+python tools/soz_dogrula.py
+C:\\Users\\Ahmet\\Desktop\\Godot.exe --headless --path . -s tests/unit/diyalog/diyalog_butunluk_test.gd
+C:\\Users\\Ahmet\\Desktop\\Godot.exe --headless --path . -s tests/unit/kapi/es_yorumu_test.gd
+C:\\Users\\Ahmet\\Desktop\\Godot.exe --headless --path . -s tests/unit/diyalog/koy_parley_sistemi_test.gd
+```
+"""
+    with open(os.path.join(base_dir_1, "UYGULA.md"), "w", encoding="utf-8") as f:
+        f.write(uygula_31)
+
+    # --- SEÇENEK 3.2: DONDURUCU AYAZDA DRAMATİK KAYIP (AĞIT VE MATEM) ---
+    d32 = copy.deepcopy(diyaloglar)
+    chr24 = d32[23]
+    chr24["sorular"][0][2][0] = [
+        "Köyün hekimi Miraen vardır; sabiyi ona muayene ettiririz. Lakin sen bu halde köye girersen köyün cümle bebeleri kırılır!",
+        "Ben köye girmem ağam! Surların dibindeki kireç ocağını bilirim; beni oradaki terk edilmiş çoban kulübesine kapatın! Kapıyı dışarıdan kilitleyin, bana yalnız bir kase suyla bir tas süt uzatın! Sabimi kurtarın, ben orada ölmeye razıyım!",
+        [
+            [
+                "Kireç ocağında ateş yakarız amma bu dondurucu ayazda sabinin zayıf ciğeri hummaya dayanır mı bilmem; köye veba sokamayız!",
+                "Yavrum kollarımda titrer ağam... Ayaz kemiklerini deler. Hak ne yazdıysa o olur; sabimi kirece alsan da bu kış feryadımız dinmez..."
+            ]
+        ],
+        "sabi_vefati_kis_matemi"
+    ]
+    chr24["yanitlar"]["kabul"] = "Kireç kuyusuna kapattın muhafız... Köyüne hastalık sıçramadı amma sabaha karşı yavrumun buz gibi nefesi tükendi! Taş duvarların kurusun muhafız, sabimi bu ayazda aldın!"
+
+    with open(os.path.join(base_dir_2, "diyalog_01_20.json"), "w", encoding="utf-8") as f:
+        json.dump(d32, f, ensure_ascii=False, indent=2)
+
+    es32 = copy.deepcopy(es_dusunceleri)
+    es32["diyalog_24"]["karar_oncesi"] = "Ayaz çok sert efendi... Kadını kireç ocağına kapatsak da o sabi bu dondurucu kış gecesini çıkaramayabilir. Yüreğim sızlar amma köyün selametini düşünmek zorundayız."
+    es32["diyalog_24"]["karar_kabul"] = "Gecenin kör ayazında ananın feryadı surları deldi geçti... Yüreğim dağlandı efendi. Sen elinden geleni yaptın, kirece almasan bütün köy kırılırdı. Lakin bu ağıt bu kış ocağımızdan çıkmaz."
+    with open(os.path.join(base_dir_2, "es_kapi_dusunceleri.json"), "w", encoding="utf-8") as f:
+        json.dump(es32, f, ensure_ascii=False, indent=2)
+
+    miraen32 = copy.deepcopy(miraen_ds)
+    miraen32["nodes"].append({
+        "id": "node:opt_veba",
+        "type": "DIALOGUE_OPTION",
+        "position": "(700.0, 360.0)",
+        "character": "Muhafız",
+        "text": "Kireç ocağındaki sabi sabaha çıktı mı tabip Miraen?"
+    })
+    miraen32["nodes"].append({
+        "id": "node:rep_veba",
+        "type": "DIALOGUE",
+        "position": "(1050.0, 360.0)",
+        "character": "Miraen",
+        "text": "(Gözleri yaşlı başını eğer) Yetişemedik Muhafız... İlacı sürdüm, kireçle ovdum lakin o dondurucu ayaz ciğerini dondurdu. Sabaha karşı yavru can verdi. Köye veba bulaşmadı lakin can da kurtulmadı..."
+    })
+    miraen32["nodes"].append({
+        "id": "node:act_veba",
+        "type": "ACTION",
+        "position": "(1400.0, 360.0)",
+        "description": "Köy Matemi",
+        "action_type": "SCRIPT",
+        "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+        "values": ["-3"]
+    })
+    miraen32["edges"].extend([
+        {"id": "e_o_veba", "from_node": "node:selam", "from_slot": 0, "to_node": "node:opt_veba", "to_slot": 0, "should_override_colour": False, "colour_override": "(1, 1, 1, 1)"},
+        {"id": "e_r_veba", "from_node": "node:opt_veba", "from_slot": 0, "to_node": "node:rep_veba", "to_slot": 0, "should_override_colour": False, "colour_override": "(1, 1, 1, 1)"},
+        {"id": "e_a_veba", "from_node": "node:rep_veba", "from_slot": 0, "to_node": "node:act_veba", "to_slot": 0, "should_override_colour": False, "colour_override": "(1, 1, 1, 1)"},
+        {"id": "e_e_veba", "from_node": "node:act_veba", "from_slot": 0, "to_node": "node:end", "to_slot": 0, "should_override_colour": False, "colour_override": "(1, 1, 1, 1)"}
+    ])
+    with open(os.path.join(base_dir_2, "koylu_muhabbet_miraen.ds"), "w", encoding="utf-8") as f:
+        json.dump(miraen32, f, ensure_ascii=False, indent=2)
+
+    es_ds32 = copy.deepcopy(es_ds)
+    for n in es_ds32["nodes"]:
+        if n["id"] == "node:opt_z_vebali":
+            n["text"] = "Kireç ocağındaki sabi ayaza yenik düştü beyim; ananın feryadı surları aştı."
+        elif n["id"] == "node:rep_z_vebali":
+            n["text"] = "Ananın ağıtını duydun mu beyim... Yüreğim parçalandı. Sen köyü korumak için doğrusunu yaptın lakin bu kış ocağımızın ateşi bile bu hüznü ısıtamaz..."
+    with open(os.path.join(base_dir_2, "koylu_muhabbet_es.ds"), "w", encoding="utf-8") as f:
+        json.dump(es_ds32, f, ensure_ascii=False, indent=2)
+
+    with open(os.path.join(base_dir_2, "metinler_parca.csv"), "w", encoding="utf-8") as f:
+        f.write("anahtar,tr,en\n")
+        f.write("karar.veba.kayip.baslik,Kireç Ocağında Kış Matemi,Winter Mourning at Lime Kiln\n")
+        f.write("karar.veba.kayip.metin,\"Dondurucu kış ayazında sabi hummaya yenik düştü. Köye salgın yayılmadı; Moral 3 azaldı, Adalet 1 arttı, köyde ağır matem havası oluştu.\",\"In freezing winter chill the infant succumbed to fever. Plague did not spread; Morale -3, Justice +1, heavy mourning fell upon village.\"\n")
+        f.write("karar.veba.kayip.sonuc,\"Salgın engellendi lakin can kurtarılamadı. Acı bir bedel.\",\"Plague was halted but the life was lost. A bitter price.\"\n")
+
+    uygula_32 = """# Yama Uygulama Rehberi — Karar 3 / Seçenek 3.2 (Dondurucu Ayazda Dramatik Kayıp)
+
+## Seçenek Özeti
+- **Karar:** Vebalı Sabi ve Anasının Akıbeti
+- **Seçim:** 3.2 Dondurucu Ayazda Dramatik Kayıp (Karanlık Gerçekçilik ve Ağıt)
+- **Anlatı:** Miraen'in tüm çabalarına ve kireç ocağında yakılan ateşe rağmen, kış ayazının acımasızlığında sabinin zayıf ciğerleri hummaya yenik düşer. Sabi sabaha karşı can verir, ana aklını yitirme raddesine gelir. Köye salgın yayılmaz ancak köy ağır bir matem ve vicdan muhasebesine bürünür.
+
+## Kopyalanacak Dosyalar
+Aşağıdaki dosyaları bu klasörden oyunun ana dizinlerine kopyalayınız:
+1. `diyalog_01_20.json` -> `data/diyalog/diyalog_01_20.json`
+2. `es_kapi_dusunceleri.json` -> `data/diyalog/es_kapi_dusunceleri.json`
+3. `koylu_muhabbet_miraen.ds` -> `data/parley/koy/koylu_muhabbet_miraen.ds`
+4. `koylu_muhabbet_es.ds` -> `data/parley/koy/koylu_muhabbet_es.ds`
+5. `metinler_parca.csv` satırlarını `data/metin/metinler.csv` dosyasına ekleyiniz.
+
+## Etkinleşen Bayraklar ve Oyun Değişkenleri
+- `sabi_vefati_kis_matemi`: true
+- `vebali_ana_akil_yitirdi`: true
+- `muhafiz_agir_vicdan_yuku`: true
+- `koyde_salgin_yok`: true
+- `moral`: -3
+- `adalet`: +1 (muhafızın köyü koruma kararı haklı bulunur amma bedeli ağırdır)
+- `asayis_riski`: 0 (salgın yok)
+- `es_sohbeti`: 'Kış Ağıtı ve Kader' dertleşme dalı açılır
+
+## Doğrulama ve Test Komutları
+Uygulama sonrasında şu komutlarla sistemi test ediniz:
+```powershell
+$env:PYTHONUTF8=1
+python tools/metin_dogrula.py
+python tools/soz_dogrula.py
+C:\\Users\\Ahmet\\Desktop\\Godot.exe --headless --path . -s tests/unit/diyalog/diyalog_butunluk_test.gd
+C:\\Users\\Ahmet\\Desktop\\Godot.exe --headless --path . -s tests/unit/kapi/es_yorumu_test.gd
+C:\\Users\\Ahmet\\Desktop\\Godot.exe --headless --path . -s tests/unit/diyalog/koy_parley_sistemi_test.gd
+```
+"""
+    with open(os.path.join(base_dir_2, "UYGULA.md"), "w", encoding="utf-8") as f:
+        f.write(uygula_32)
+
+    print("Karar 3 yamaları eksiksiz oluşturuldu.")
+
 if __name__ == "__main__":
     uret_karar_1()
     uret_karar_2()
+    uret_karar_3()
+
