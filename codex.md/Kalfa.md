@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-31 tamamlandı (Kalfa)
+
+Aç/tok köyün 40 gerçek gecesinde bar ve denge raporu üçer kez okundu. Kayıt fotoğrafı değişmedi; sağlık, stok, gün ve RNG ikinci hesap açmadı. Hedefli headless test geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-30 tamamlandı (Kalfa)
 
 Aynı 2929 tohumu, üç taşçı ve tek hazır taş ocağıyla 20 gece karşılaştırıldı. Aç köy 5, tok köy 27 taş üretti. DEN-29 aralığı yeniden geçti. İlk denemede eski hızarhane odun reçetesi üretmedi; güncel taş ocağı reçetesine geçildi. Açlıkta 0 ölüm, nüfusun hayatta kaldığını göstermez; isyan/firar sistemi açıktır. Asset gerekmedi. kota görünmüyor.

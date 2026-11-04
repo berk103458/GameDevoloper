@@ -3546,7 +3546,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-29. Boyut: S.
   - Dosya: `tests/unit/denge/aclik_uretim_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-31:** Bar, ikinci gece hesabı açmaz.
+- [x] **DEN-31:** (Kalfa) Bar, ikinci gece hesabı açmaz.
   - Ne: YSM-01, KRI-12 hesabını okur. Denge raporu da onu okur.
   - Kabul: YSM-01, KRI-12 hesabını okur. Denge raporu da onu okur. Test: sağlık fonksiyonu gecede bir kez.
   - Bağımlılık: YSM-01, DEN-05. Boyut: S.

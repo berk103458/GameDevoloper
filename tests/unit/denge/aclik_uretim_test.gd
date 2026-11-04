@@ -17,7 +17,8 @@ func _initialize() -> void:
 	quit()
 
 func _olc(kat: Katalog, gida: int) -> Dictionary:
-	var y := Oturum.new(kat, 2929).yonetim
+	var o := Oturum.new(kat, 2929)
+	var y := o.yonetim
 	y.kaynaklar.stok["gida"] = gida
 	var bina := KoyBinasi.new()
 	bina.id = 90
@@ -35,6 +36,15 @@ func _olc(kat: Katalog, gida: int) -> Dictionary:
 		var rapor := y.gece()
 		olum += rapor.olenler.size()
 		uretim += int(rapor.uretim.get("tas", 0))
+		var once := JSON.stringify(y.kaydet())
+		for tekrar in 3:
+			DengeOlcumu.olustur(o, rapor)
+			for kisi in y.koylular:
+				YasamBarlari.oku(kisi, y)
+		if JSON.stringify(y.kaydet()) != once:
+			push_error("DEN-31: bar veya denge gözlemi gece durumunu değiştirdi")
+			quit(1)
+			return {}
 	print("DEN-29 ÖLÇÜM: gece=%d ölüm=%d" % [y.gun - ilk_gun, olum])
 	var tablo: Dictionary = preload("res://src/sistemler/denge_tablosu.gd").oku()
 	var aralik: Dictionary = tablo.get("aclik_olum_aralik", {})
