@@ -60,8 +60,24 @@
    - Yukarıdaki 3 açık kararın her biri için ikişer hazır seçenek; tam diyalog satırları, gereken bayraklar, eş fısıltıları, köy barlarına somut etkileri ve Antigravity'nin tavsiye notlarıyla yazıldı. Telefondan okuyup tek dokunuşla seçebilirsin.
 2. **Yeni ROADMAP Madde Önerileri (`docs/ROADMAP_ONERILERI_ANTIGRAVITY.md`):**
    - Kabul/ret edilen kişilerin 5-10 gece sonra köye geri dönüş döngüsü (`ANL-DON-01`), eşin geçmişi ve çocuk korkusu (`ES-GECM-01`), 30. gün sonu kişisel epilog kader kartları (`ANL-EPI-01`), fısıltı ağının somut olaylara bağlanması (`SOY-SON-01`), kış ayazı ve fırtına diyalogları (`KVR-SES-01`), Çınaraltı interaktif davaları (`MECLIS-ARA-01`) ve seslendirme reji kılavuzu (`SES-DIL-01`) olmak üzere 7 yapılandırılmış madde önerisi hazırlandı.
-3. **İngilizce Metin Taslağı (`docs/INGILIZCE_METIN_TASLAGI.csv`):**
-   - Dil altyapısı incelendi; Cursor'un `dil_test.gd` birim testini kırmamak ve 0 hata kuralını korumak için çekirdek test koduna dokunulmadı. Ancak menü, HUD, ayarlar, girdi ve arayüzdeki 250 anahtarın tamamı dönem atmosferine uygun İngilizce çevirileriyle hazır bir taslak dosya olarak çıkarıldı.
+3. **İngilizce Metin Taslağı Başlangıcı (`docs/INGILIZCE_METIN_TASLAGI.csv`):**
+   - Dil altyapısı incelendi; Cursor'un `dil_test.gd` birim testini kırmamak ve 0 hata kuralını korumak için çekirdek test koduna dokunulmadı. Menü, HUD, ayarlar, girdi ve arayüzdeki ilk 250 anahtar bu aşamada çıkarıldı.
+
+---
+
+## 5. Görev 11 İle Tamamlanan İngilizce Yerelleştirme Paketi
+
+1. **`metinler.csv`'nin Kalanı %100 İngilizceye Aktarıldı (`docs/INGILIZCE_METIN_TASLAGI.csv`):**
+   - 2145 anahtarın tamamı (kalan 1895 anahtar eksiksiz: öğretici, ipuçları, hafıza, nöbet raporları, sabah hükümleri, 51 köy olayı, köy yönetimi, meslekler, asker/çiftçi/esnaf şablonları, köylü ve 30 ziyaretçi sohbetleri) dönem atmosferine uygun İngilizce çevirileriyle dosyaya işlendi. Eksik anahtar sayısı: **0**.
+2. **Diyalog JSON ve Parley Dosyalarının İngilizce Taslağı (`docs/ingilizce_diyalog/`):**
+   - **30 Ziyaretçi Diyaloğu:** `diyalog_01_20.json` (ve `diyalog_01_10`, `diyalog_11_20`, `diyalog_21_30` modülleri) altında soru ağaçları, sahne betimlemeleri, açılışlar ve yanıtlar; bayrak ve id yapısı birebir korunarak İngilizceye çevrildi.
+   - **Eş Kapı Düşünceleri:** `es_kapi_dusunceleri.json` altında 30 ziyaretçi + genel durum için 4-5 aşamalı eş fısıltıları ve analizleri İngilizceye aktarıldı.
+   - **Köy İçi Parley Sohbetleri:** `koy/` altında 18 Parley `.ds` dosyasının (Aydoğdu, Ayşe Bacı, Karaca Usta, Hasan Çelebi, Eş, vb. ve 6 sekans) düğüm ve kenar koordinatları bozulmadan İngilizce metinleri yazıldı.
+   - **Akşam Konuları:** `aksam_konulari.json` altında 10 derin aile ve ahlaki tartışma konusu İngilizceye çevrildi.
+3. **İngilizce Terim ve Üslup Sözlüğü (`docs/INGILIZCE_TERIM_SOZLUGU.md`):**
+   - Dönem ruhu (anakronizm yasağı), karakter sesleri, unvanlar (*Bey, Hatun, Çelebi, Ahi, Tekfur*), ölçü birimleri (*akçe, dirhem, kile*) ve yer adlarının korunması kuralları resmi bir stil kılavuzu olarak belgelendi.
+4. **Güvenli Çizgi:**
+   - Oyunun çalışan dosyalarına, testlerine ve `metinler.csv`'ye dokunulmadı; tüm çeviri taslağı `docs/` altında izole ve güvenli tutuldu.
 
 ---
 

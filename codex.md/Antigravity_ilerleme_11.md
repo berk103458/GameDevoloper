@@ -21,8 +21,31 @@
   - [x] Parti B2: Eş Kapı Düşünceleri (`docs/ingilizce_diyalog/es_kapi_dusunceleri.json` - 30 ziyaretçi + genel için 4-5 aşamalı eş tepkileri)
   - [x] Parti B3: Köylü ve Eş Parley Sohbetleri (`docs/ingilizce_diyalog/koy/*.ds` - 18 Parley dosyasının düğüm ve kenar yapıları korunarak text çevirileri)
   - [x] Parti B4: Akşam Konuları (`docs/ingilizce_diyalog/aksam_konulari.json` - 10 akşam konusu, eş replikleri, meslek varyantları ve yanıtlar)
-- [/] **Bölüm C — Ton Kontrolü ve Terim Sözlüğü:**
-  - [ ] Terim tutarlılığı, dönem üslubu ve isim muhafazası kontrolü
-  - [ ] `docs/INGILIZCE_TERIM_SOZLUGU.md` dosyasının yazılması
-  - [ ] `docs/DIYALOG_GECE_OZETI.md` dosyasının Görev 11 ile güncellenmesi
-- [ ] **Bitirme:** Doğrulayıcılar ve test kontrolü, `GOREV11_TAMAM`.
+- [x] **Bölüm C — Ton Kontrolü ve Terim Sözlüğü:**
+  - [x] Terim tutarlılığı, dönem üslubu ve isim muhafazası kontrolü tamamlandı.
+  - [x] `docs/INGILIZCE_TERIM_SOZLUGU.md` resmi stil ve terminoloji kılavuzu olarak yazıldı.
+  - [x] `docs/DIYALOG_GECE_OZETI.md` dosyasına Görev 11 tamamlanma raporu eklendi.
+- [x] **Bitirme:** Doğrulayıcılar ve test kontrolü (3 Python doğrulayıcı + 5 Godot headless test: 0 hata).
+
+---
+
+## Doğrulama ve Test Sonuçları
+- **Python Doğrulayıcıları:**
+  - `tools/metin_dogrula.py` (PASS)
+  - `tools/soz_dogrula.py` (KAY-53 / KAY-38 PASS)
+  - `tools/soz_tasarimi_dogrula.py` (SÖZ TASARIMI: GEÇTİ)
+- **Godot Headless Birim Testleri:**
+  - `tests/unit/arayuz/dil_test.gd`: PASS (0 hata)
+  - `tests/unit/diyalog/diyalog_butunluk_test.gd`: PASS (0 hata)
+  - `tests/unit/kapi/es_yorumu_test.gd`: PASS (0 hata)
+  - `tests/unit/diyalog/koy_parley_sistemi_test.gd`: PASS (0 hata)
+  - `tests/unit/olay/yeni_olaylar_test.gd`: PASS (0 hata)
+
+---
+
+## Sonuç
+- Görev 11 tüm bölümleriyle (A, B, C) eksiksiz tamamlandı.
+- Tüm çeviriler yalnızca `docs/` altında toplandı; çalışan oyun koduna dokunulmadı.
+- Kota durumu: %40 kaldı.
+
+GOREV11_TAMAM
