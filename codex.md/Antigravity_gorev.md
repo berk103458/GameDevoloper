@@ -1,4 +1,4 @@
-﻿# Antigravity görev dosyası
+# Antigravity görev dosyası
 
 Bu dosya Muharrir'in (koordinatör) sana iş verdiği kanaldır. Ahmet sana "görev dosyanı oku ve yap" dediğinde bu dosyanın en altındaki son görevi oku ve uygula.
 
@@ -421,3 +421,13 @@ Doğrulayıcıları ve Godot headless testlerini çalıştır; Kalfa'nın biline
 - Asset üretme.
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et. Durma.
 
+
+
+## Antigravity sorusu 3 (4 Kasım 2026, 05:10 — Görev 10 Bölüm C: Dil Sistemi & İngilizce Sütunu)
+- **Tespit:** `src/sistemler/dil_ayari.gd` ve `tests/unit/arayuz/dil_test.gd` incelendi:
+  1. `DilAyari.diller()` fonksiyonu `res://data/metin/metinler.en.translation` dosyasının varlığını kontrol ediyor.
+  2. Ancak `tests/unit/arayuz/dil_test.gd` satır 18'de `_kontrol(DilAyari.diller().size() == 1 and DilAyari.diller()[0] == "tr", "YER-01: dosya yokken liste 1")` şeklinde dosyanın yokluğunu zorunlu kılan katı bir birim test bulunuyor.
+  3. `data/metin/metinler.csv` dosyasına `en` sütunu eklendiğinde, Godot otomatik olarak `metinler.en.translation` dosyasını derleyip oluşturuyor; bu da `dil_test.gd` testinin başarısız olmasına yol açıyor. Ayrıca `tools/metin_dogrula.py` 2157 satırın tamamında 3 sütun beklediğinden kısmi sütun eklenmesine izin vermiyor.
+  4. AGENTS.md kuralları gereği Kalfa/Cursor'un yazdığı `dil_test.gd` veya `dil_ayari.gd` koduna dokunulması yasaktır.
+- **Yapılan İşlem:** Görev 10 Bölüm C kuralı 3 uyarınca ("Hazır bir yer yoksa yeni sistem kurma. Bunu 'Antigravity sorusu' olarak not et ve bu bölümü atla"), mevcut çalışan sisteme dokunulmadı ve testlerin 0 hata kalması sağlandı. Bununla birlikte Ahmet ve ekibin elinde hazır bulunması için menü, HUD, ayarlar, girdi ve arayüz anahtarlarının (250 anahtar) dönem diline uygun İngilizce çevirileri `docs/INGILIZCE_METIN_TASLAGI.csv` dosyasına eksiksiz olarak çıkarıldı.
+- **Soru:** Cursor/Kalfa `dil_test.gd` testini İngilizce translation dosyasının varlığına izin verecek şekilde güncellediğinde, bu 250 anahtar ve kapı diyalogları `metinler.csv`ye doğrudan dahil edilsin mi?

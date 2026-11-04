@@ -1,0 +1,253 @@
+anahtar,tr,en,not
+arayuz.ayarlar.baslik,Ayarlar,Settings,taslak_tam
+arayuz.ayarlar.belirme.aninda,Anında,Instant,taslak_tam
+arayuz.ayarlar.belirme.hizli,Hızlı,Fast,taslak_tam
+arayuz.ayarlar.belirme.normal,Normal,Normal,taslak_tam
+arayuz.ayarlar.belirme_hizi,Seçeneklerin belirişi,Dialogue Text Speed,taslak_tam
+arayuz.ayarlar.ekran.pencere,Pencere,Windowed,taslak_tam
+arayuz.ayarlar.ekran.tam_ekran,Tam ekran,Fullscreen,taslak_tam
+arayuz.ayarlar.ekran_modu,Ekran,Display Mode,taslak_tam
+arayuz.ayarlar.geri,Geri,Back,taslak_tam
+arayuz.ayarlar.metin_olcegi,Metin büyüklüğü,Text Size,taslak_tam
+arayuz.ayarlar.ses_ana,Ana ses,Master Volume,taslak_tam
+arayuz.ayarlar.ses_efekt,Efektler,Sound Effects,taslak_tam
+arayuz.ayarlar.ses_muzik,Müzik,Music Volume,taslak_tam
+arayuz.ayarlar.varsayilan,Varsayılana dön,Reset to Defaults,taslak_tam
+arayuz.bayrak.acildi,Ortaya çıktı: %s,Revealed: %s,taslak_tam
+arayuz.duraklat.baslik,Duraklatıldı,Paused,taslak_tam
+arayuz.duraklat.devam,Devam et,Resume,taslak_tam
+arayuz.duraklat.menu,Ana menüye dön,Return to Main Menu,taslak_tam
+arayuz.hata.icerik,Oyun içeriği yüklenemedi. Ayrıntı geliştirici günlüğünde.,Failed to load game content. Details in developer log.,taslak_tam
+arayuz.hud.adalet,Adalet %d,Justice %d,taslak_tam
+arayuz.hud.akce,Akçe %d,Akce %d,taslak_tam
+arayuz.hud.ambar,Ambar %d,Granary %d,taslak_tam
+arayuz.hud.asayis,Asayiş riski %d,Public Order Risk %d,taslak_tam
+arayuz.hud.gece,%d. gece,Night %d,taslak_tam
+arayuz.hud.gun,%d. gün,Day %d,taslak_tam
+arayuz.hud.huzur,Huzur %d,Prosperity %d,taslak_tam
+arayuz.hud.isyan,İSYAN — %d gün,REBELLION — %d days,taslak_tam
+arayuz.hud.kose,Köy: %d,Village: %d,taslak_tam
+arayuz.hud.mevsim,%s · %d/%d,%s · %d/%d,taslak_tam
+arayuz.hud.nufus,Nüfus %d / yatak %d · ambar %d/%d,Population %d / Beds %d · Granary %d/%d,taslak_tam
+arayuz.is.baslik,Nerede çalışacak?,Where shall they be assigned?,taslak_tam
+arayuz.is.geri,Karara dön,Return to Decision,taslak_tam
+arayuz.is.kervansaray,Kervansaraya yaz,Assign to Caravanserai,taslak_tam
+arayuz.is.kisla,Kışlaya yaz,Assign to Barracks,taslak_tam
+arayuz.is.pazar,Pazara yaz,Assign to Market,taslak_tam
+arayuz.is.tarla,Tarlaya yaz,Assign to Fields,taslak_tam
+arayuz.is.uygun,%s işi,%s work,taslak_tam
+arayuz.kapi.bilgi,%d. gün · %d. gelen · sırada %d kişi,Day %d · Visitor %d · %d in queue,taslak_tam
+arayuz.kapi.karar,Karar,Decision,taslak_tam
+arayuz.kapi.yatak_satiri,Yatak: %d/%d,Beds: %d/%d,taslak_tam
+arayuz.kapi.yatak_uyari,Yatacak yer yok; açıkta kalır.,No beds available; will sleep out in the cold.,taslak_tam
+arayuz.kapi.sira,Sırada,In Queue,taslak_tam
+arayuz.kapi.sohbete_don,Sohbete dön,Return to Conversation,taslak_tam
+arayuz.kapi.sorular,Sorular,Questions,taslak_tam
+arayuz.karar.elkoy,"El koy, geri çevir","Confiscate, Turn Away",taslak_tam
+arayuz.karar.harc,"Harç al, içeri al","Levy Toll, Admit",taslak_tam
+arayuz.karar.kabul,Kabul,Admit,taslak_tam
+arayuz.karar.kisla,Kışlaya yaz,Assign to Barracks,taslak_tam
+arayuz.karar.onayla,%s — onayla,%s — Confirm,taslak_tam
+arayuz.karar.ret,Ret,Reject,taslak_tam
+arayuz.karar.rusvet,Rüşvet al,Accept Bribe,taslak_tam
+arayuz.karar.rusvet_deger,Rüşvet al — %d akçe değerinde,Accept Bribe — %d Akce in value,taslak_tam
+arayuz.karar.rusvet_miktar,Rüşvet al — %d akçe,Accept Bribe — %d Akce,taslak_tam
+arayuz.koy.baslik,Köy,Village,taslak_tam
+arayuz.koy.kese_al,Boş keseyi doldur — %d akçe,Fill Empty Pouch — %d Akce,taslak_tam
+arayuz.koy.nufus,%d asker · %d esnaf · %d çiftçi,%d Soldiers · %d Artisans · %d Farmers,taslak_tam
+arayuz.koy.olay_secenek_kosul,(olmaz),(Unavailable),taslak_tam
+arayuz.koy.sonraki,Kapıya dön,Return to Gate,taslak_tam
+arayuz.koy.yapilar,Yapılar,Structures,taslak_tam
+arayuz.menu.alt,Kösedağ'dan sonra. Uçta bir kapı.,After Kosedag. A solitary gate on the frontier.,taslak_tam
+arayuz.menu.ayarlar,Ayarlar,Settings,taslak_tam
+arayuz.menu.baslik,Uçta bir kapı.,A Gate on the Frontier.,taslak_tam
+arayuz.menu.cik,Çık,Quit,taslak_tam
+arayuz.menu.devam,Devam,Continue,taslak_tam
+arayuz.menu.ipucu,Yön tuşları ile seç · Enter ile onayla,Arrow keys to select · Enter to confirm,taslak_tam
+arayuz.menu.ust,Kösedağ'dan sonra · 1243,After Kosedag · 1243,taslak_tam
+arayuz.menu.yeni,Yeni gece,New Night,taslak_tam
+arayuz.olay.devam,Devam,Continue,taslak_tam
+arayuz.oyun.harman.baslik,Harman,Threshing,taslak_tam
+arayuz.oyun.harman.ipucu,Daralan halka düvenin çemberine oturduğu anda Boşluk'a bas ya da tıkla.,Press Space or click right as the shrinking ring meets the threshing sled.,taslak_tam
+arayuz.oyun.isabet,İsabet,Hit,taslak_tam
+arayuz.oyun.iska,Iska,Miss,taslak_tam
+arayuz.oyun.kenar,Halkaya +1,+1 on Outer Ring,taslak_tam
+arayuz.oyun.ok,Ok %d / %d,Arrows %d / %d,taslak_tam
+arayuz.oyun.okculuk.baslik,Okçuluk,Archery,taslak_tam
+arayuz.oyun.okculuk.ipucu,Nişangâh hedefin ortasından geçerken Boşluk'a bas ya da tıkla.,Press Space or click when the crosshair passes the target center.,taslak_tam
+arayuz.oyun.puan,Puan %d / %d,Score %d / %d,taslak_tam
+arayuz.oyun.tam,Tam isabet +2,Bullseye +2,taslak_tam
+arayuz.oyun.vurus,Vuruş %d / %d,Hits %d / %d,taslak_tam
+arayuz.perde.baslik,Köy oturdu.,The Village Has Taken Root.,taslak_tam
+arayuz.perde.devam,Ağa olarak devam et,Continue as the Village Elder,taslak_tam
+arayuz.perde.metin,"Kapıdan girenler artık bir köy. Sen artık kapının muhafızı değil, köyün ağasısın.
+Kapı sade bir süzgeç. Tekfur'un adamları uzakta, ama yakınlaşıyorlar.","Those admitted through the gate now form a village. You are no longer just a gatekeeper, but the village elder.\nThe gate is now a sieve. The Tekfur's raiding scouts linger in the distance, drawing near.",taslak_tam
+arayuz.sinif.asker,asker,soldier,taslak_tam
+arayuz.sinif.ciftci,çiftçi,farmer,taslak_tam
+arayuz.sinif.esnaf,esnaf,artisan,taslak_tam
+arayuz.sinif.gibi,%s gibi görünüyor,appears to be a %s,taslak_tam
+arayuz.sohbet.devam,Devam,Continue,taslak_tam
+arayuz.sohbet.heybe_ara,Heybesini ara,Search Saddlebag,taslak_tam
+arayuz.sohbet.heybe_sor,Heybende ne var?,What do you carry in your pouch?,taslak_tam
+arayuz.sohbet.ipucu,Kararda: 1–5 seçer · aynı karara tekrar basmak onaylar · Esc seçimi bırakır,In Decision: 1–5 selects · press again to confirm · Esc cancels selection,taslak_tam
+arayuz.sohbet.karar_ver,Kararını ver,Make Your Decision,taslak_tam
+arayuz.sohbet.sen,Sen,You,taslak_tam
+arayuz.son.ahi,Ahi kasabası.,Ahi Township.,taslak_tam
+arayuz.son.ahi_metin,"Pazar büyüdü, ocak kuruldu. Köyün adı uçtan çok kervan yolunda anılır oldu. Tekfur bile buradan geçerken pazarlık etti.","The marketplace flourished, an artisan lodge took root. The village's name spread across caravan routes rather than war frontiers. Even the Tekfur traded when passing through.",taslak_tam
+arayuz.son.bey,Beyin uç köyü.,The Bey's Frontier Hamlet.,taslak_tam
+arayuz.son.bey_metin,"Köy beyin sancağı altına girdi. Vergi düzenli, nöbet düzenli. Kapıyı artık beyin adamı tutuyor; sen sofrada oturuyorsun.","The village came under the Bey's banner. Taxes are regular, watch shifts are disciplined. The Bey's men now guard the gate; you sit at the council table.",taslak_tam
+arayuz.son.ertugrul,Ertuğrul'un obasına katıldın.,Joined Ertugrul's Clan.,taslak_tam
+arayuz.son.ertugrul_metin,"Bir bahar sabahı batıdan atlılar geldi. Köy, Söğüt'teki obanın uç karakollarından biri oldu. Kapı açık kaldı; bekçisi artık sen değildin.","One spring morning, horsemen arrived from the west. The village became an outpost for the clan in Sogut. The gate remained open; you were no longer its lone sentinel.",taslak_tam
+arayuz.son.gun,Hayatta kalınan gün,Days Survived,taslak_tam
+arayuz.son.halk_kirildi,Halk kırıldı,The People Perished,taslak_tam
+arayuz.son.halk_kirildi_metin,"Köy boşaldı. Açlık, soğuk ya da hastalık; sonunda meydanda ateşi yakacak kimse kalmadı.","The village was emptied. Hunger, bitter cold, or contagion; in the end, none remained to light the square fire.",taslak_tam
+arayuz.son.harac,Tekfur'un haraççısı.,Tekfur's Tributary.,taslak_tam
+arayuz.son.harac_metin,Köy ayakta kaldı. Her ay bir kese Tekfur'a gitti. Kimse savaşmadı; kimse de kapıdan özgür geçmedi.,The village survived. Each month a pouch of coin went to the Tekfur. No battle was fought; yet none passed freely through the gate.,taslak_tam
+arayuz.son.istatistik,"%d gün dayandın. Kapıdan %d kişiyi aldın, %d kişiyi geri çevirdin. Son günde köyde %d kişi vardı.","You endured %d days. You admitted %d souls and turned away %d. On the final day, %d villagers remained.",taslak_tam
+arayuz.son.isyan,İsyan,Rebellion,taslak_tam
+arayuz.son.isyan_metin,"Üç gün boyunca kimse sözünü dinlemedi. Bir sabah kapıyı açık, ambarı boş buldun; halk köyü topluca terk etmişti.","For three days, none heeded your command. One morning you found the gate wide open and the granary stripped bare; the people had deserted the village in unison.",taslak_tam
+arayuz.son.kirildi,%s kırıldı.,%s has collapsed.,taslak_tam
+arayuz.son.kirildi.0,Halk kapıyı kendisi açtı ve gitti.,The people opened the gate themselves and departed.,taslak_tam
+arayuz.son.kirildi.1,Bey seni azletti. Kapıya başkası bakacak.,The Bey dismissed you from command. Another shall guard the gate.,taslak_tam
+arayuz.son.kirildi.2,Kervanlar yolunu değiştirdi. Köy açlıktan dağıldı.,The caravans rerouted their trails. The village dispersed into famine.,taslak_tam
+arayuz.son.kirildi.3,Tekfur'un adamları kapıyı kırdı.,The Tekfur's warriors shattered the gate.,taslak_tam
+arayuz.son.menu,Ana menü,Main Menu,taslak_tam
+arayuz.son.tekfur,Tekfur'un akıncıları,Tekfur's Raiders,taslak_tam
+arayuz.son.tekfur_metin,Haracı reddettin ve sur dayanmadı. Akıncılar meydanı yaktı; köyün adı yalnız Tekfur'un defterinde kaldı.,You refused the tribute and the palisade could not hold. Raiders set fire to the square; the village remains only in the Tekfur's ledger.,taslak_tam
+arayuz.son.tutundu,Uç tutundu.,The Frontier Held.,taslak_tam
+arayuz.son.tutundu_metin,Tekfur'un adamları bir sabah gelmedi. Köy kışı çıkardı. Kapı hâlâ açılıp kapanıyor.,One morning the Tekfur's horsemen did not appear. The settlement made it through the winter. The gate still opens and closes.,taslak_tam
+arayuz.son.yeniden,Yeniden başla,Restart,taslak_tam
+arayuz.son.zafer,Uç bağımsız,The Frontier is Free,taslak_tam
+arayuz.son.zafer_metin,"Tekfur'un üçüncü baskısı da surun dibinde dağıldı. Köy artık kimseye haraç vermiyor; kapı senin, sözün senin.","The Tekfur's third assault broke against the ramparts. The village pays tribute to no lord; the gate is yours, your word is law.",taslak_tam
+arayuz.tarla.baslik,Tarlalar (%d),Grain Fields (%d),taslak_tam
+arayuz.tarla.bos,boş,empty,taslak_tam
+arayuz.tarla.durum,%s %d/%d,%s %d/%d,taslak_tam
+arayuz.tarla.ek,"%s ek — %d gece, +%d · tohum %d","Plant %s — %d nights, +%d · Seed %d",taslak_tam
+arayuz.tarla.yok,Tarla açmak için çiftçi gerek (her %d çiftçi bir tarla).,Farmers are required to break new ground (1 field per %d farmers).,taslak_tam
+arayuz.yapi.azami,%s — en üst seviyede,%s — Maximum Level,taslak_tam
+arayuz.yapi.esnaf_gerek,%d esnaf gerekir,%d Artisans required,taslak_tam
+arayuz.yapi.kervansaray,Kervansaray,Caravanserai,taslak_tam
+arayuz.yapi.kervansaray_aciklama,Gecelik kervan geliri; 2. seviyede kapıya daha çok kişi gelir.,Nightly caravan income; level 2 draws more wayfarers to the gate.,taslak_tam
+arayuz.yapi.konak,Köy konağı,Village Hall,taslak_tam
+arayuz.yapi.konak_aciklama,"Soylular +1; köy büyür, evler sağlamlaşır.","Nobles +1; settlement expands, dwellings grow sturdy.",taslak_tam
+arayuz.yapi.kur,%s kur / büyüt — %d akçe,Build / Expand %s — %d Akce,taslak_tam
+arayuz.yapi.nufus_gerek,%d nüfus gerekir,%d Population required,taslak_tam
+arayuz.yapi.pazar,Pazar,Marketplace,taslak_tam
+arayuz.yapi.pazar_aciklama,Esnaf başına gelir artar; Halk +1.,Income per artisan rises; Common Folk +1.,taslak_tam
+arayuz.yapi.seviye,%s — seviye %d,%s — Level %d,taslak_tam
+arayuz.yapi.sur,Sur,Fortified Wall,taslak_tam
+arayuz.yapi.sur_aciklama,Her seviye savunmayı 2 artırır.,Each level increases defense by 2.,taslak_tam
+arayuz.ayarlar.kamera_eksen_ters,Kamera: eksen ters,Camera: Invert Axis,taslak_tam
+arayuz.ayarlar.kamera_eksen.acik,Açık,On,taslak_tam
+arayuz.ayarlar.kamera_eksen.kapali,Kapalı,Off,taslak_tam
+arayuz.ayarlar.grafik.baslik,Grafik,Graphics,taslak_tam
+arayuz.ayarlar.grafik.profil,Grafik profili,Graphics Profile,taslak_tam
+arayuz.ayarlar.grafik.normal,Normal,Normal,taslak_tam
+arayuz.ayarlar.grafik.dusuk,Düşük,Low,taslak_tam
+arayuz.ayarlar.grafik.cozunurluk,3B çözünürlük,3D Resolution,taslak_tam
+arayuz.ayarlar.grafik.not,"Düşük profil duman ve alev efektlerini kapatır.
+3B ölçek arayüzün netliğini değiştirmez.",Low profile disables smoke and flame particle effects.\n3D scaling does not affect UI crispness.,taslak_tam
+arayuz.yukleme.hazirlaniyor,Hazırlanıyor…,Preparing...,taslak_tam
+arayuz.yukleme.ilerleme,Hazırlanıyor… %d/%d,Preparing... %d/%d,taslak_tam
+arayuz.duraklat.defter,Hafıza Defteri,Memory Ledger,taslak_tam
+arayuz.girdi.sekme,Tuş Kontrolleri,Key Controls,taslak_tam
+arayuz.girdi.ata,Yeni Tuş Ata,Rebind Key,taslak_tam
+arayuz.girdi.bekleniyor,Bir tuşa basınız...,Press any key...,taslak_tam
+arayuz.girdi.cakisma,Bu tuş başka bir eyleme atanmış!,This key is bound to another action!,taslak_tam
+arayuz.girdi.fare_olmaz,Fare tuşları bu eyleme atanamaz,Mouse buttons cannot be bound to this action,taslak_tam
+arayuz.girdi.ipucu.hiz,Zaman hızı kısayolu: {hiz_1},Game speed shortcut: {hiz_1},taslak_tam
+arayuz.girdi.geri,Geri / Vazgeç,Back / Cancel,taslak_tam
+arayuz.girdi.menu,Ana Menü,Main Menu,taslak_tam
+arayuz.girdi.kisayol_1,1. Kapı Seçeneği Kısayolu,1st Gate Option Shortcut,taslak_tam
+arayuz.girdi.kisayol_2,2. Kapı Seçeneği Kısayolu,2nd Gate Option Shortcut,taslak_tam
+arayuz.girdi.kisayol_3,3. Kapı Seçeneği Kısayolu,3rd Gate Option Shortcut,taslak_tam
+arayuz.girdi.kisayol_4,4. Kapı Seçeneği Kısayolu,4th Gate Option Shortcut,taslak_tam
+arayuz.girdi.kisayol_5,5. Kapı Seçeneği Kısayolu,5th Gate Option Shortcut,taslak_tam
+arayuz.girdi.bina_cevir,Yapı Yönünü Döndür,Rotate Building Orientation,taslak_tam
+arayuz.girdi.bina_barinma,Barınma Yapılarını Göster,Show Shelter Structures,taslak_tam
+arayuz.girdi.nufus,Köy Nüfusu ve Halk,Village Population and Folk,taslak_tam
+arayuz.girdi.hiz_1,Zaman Hızı: 1x (Normal),Speed: 1x (Normal),taslak_tam
+arayuz.girdi.hiz_2,Zaman Hızı: 2x (Hızlı),Speed: 2x (Fast),taslak_tam
+arayuz.girdi.hiz_3,Zaman Hızı: 3x (Çok Hızlı),Speed: 3x (Very Fast),taslak_tam
+arayuz.girdi.hiz_dur,Zamanı Durdur / Devam Et,Pause / Resume Time,taslak_tam
+arayuz.girdi.kip_kapat,Görünümü Kapat,Close Overlay,taslak_tam
+arayuz.girdi.kapi_kabul,Kapı Kararı: Kabul Et,Gate Decision: Admit,taslak_tam
+arayuz.girdi.kapi_ret,Kapı Kararı: Geri Çevir,Gate Decision: Turn Away,taslak_tam
+arayuz.girdi.sec,Seç / Onayla,Select / Confirm,taslak_tam
+arayuz.girdi.iptal_kip,Seçimi İptal Et,Cancel Selection,taslak_tam
+arayuz.girdi.yakinlas,Kamerayı Yakınlaştır,Camera Zoom In,taslak_tam
+arayuz.girdi.uzaklas,Kamerayı Uzaklaştır,Camera Zoom Out,taslak_tam
+arayuz.ayarlar.acik,Açık,On,taslak_tam
+arayuz.ayarlar.kapali,Kapalı,Off,taslak_tam
+arayuz.ayarlar.sekme.oyun,Oyun,Gameplay,taslak_tam
+arayuz.ayarlar.sekme.goruntu,Görüntü,Video,taslak_tam
+arayuz.ayarlar.sekme.okuma,Okuma,Text,taslak_tam
+arayuz.ayarlar.sekme.ses,Ses,Audio,taslak_tam
+arayuz.ayarlar.sekme.kontroller,Kontroller,Controls,taslak_tam
+arayuz.ayarlar.sekme.dil,Dil,Language,taslak_tam
+arayuz.ayarlar.sekme_sifirla,Bu sekmeyi sıfırla,Reset This Tab,taslak_tam
+arayuz.ayarlar.sekme_sifirla_onay,Sıfırlamak için bir kez daha bas,Press again to confirm reset,taslak_tam
+arayuz.ayarlar.yuva.bos,Bu sekme sonraki bölümde açılır,This tab unlocks in a later section,taslak_tam
+arayuz.ayarlar.ipuclari_sifirla,İpuçlarını sıfırla,Reset Hints,taslak_tam
+arayuz.ayarlar.ipuclari,İpuçları,Tutorial Hints,taslak_tam
+arayuz.ayarlar.kademeli_hud,Kademeli arayüz,Staged HUD,taslak_tam
+arayuz.ayarlar.okunmus_isaret,Okunmuş seçenek,Read Dialogues Marked,taslak_tam
+arayuz.ayarlar.renk_paleti,Renk paleti,Color Palette,taslak_tam
+arayuz.ayarlar.yuksek_kontrast,Yüksek kontrast,High Contrast,taslak_tam
+arayuz.ayarlar.hareket_azalt,Hareket azalt,Reduce Motion,taslak_tam
+arayuz.ayarlar.odak_cercevesi,Odak çerçevesi,Focus Frame,taslak_tam
+arayuz.ayarlar.pencere_boyutu,Pencere boyutu,Window Resolution,taslak_tam
+arayuz.ayarlar.vsync,Dikey eşitleme,Vertical Sync,taslak_tam
+arayuz.ayarlar.kare_siniri,Kare sınırı,Frame Rate Cap,taslak_tam
+arayuz.ayarlar.rapor_bekle,Rapor beklesin,Wait on Night Report,taslak_tam
+arayuz.ayarlar.olayda_duraklat,Olayda duraklat,Pause on Events,taslak_tam
+arayuz.ayarlar.karar_onayi,Karar onayı,Confirm Decisions,taslak_tam
+arayuz.ayarlar.zorluk,Zorluk,Difficulty,taslak_tam
+arayuz.ayarlar.satir_araligi,Satır aralığı,Line Spacing,taslak_tam
+arayuz.ayarlar.metin_agirligi,Yazı kalınlığı,Font Weight,taslak_tam
+arayuz.ayarlar.koy_hizi_varsayilan,Köy hızı,Default Village Speed,taslak_tam
+arayuz.ayarlar.arka_planda_sustur,Odak kaybında sustur,Mute on Focus Loss,taslak_tam
+arayuz.ayarlar.otomatik_kayit,Otomatik kayıt,Autosave,taslak_tam
+arayuz.ayarlar.grafik_profili,Grafik profili,Graphics Preset,taslak_tam
+arayuz.ayarlar.cozunurluk_3d,3B çözünürlük,3D Render Scale,taslak_tam
+arayuz.ayarlar.profil_onerisi,Düşük profil?,Suggest Low Spec?,taslak_tam
+arayuz.ayarlar.zar.gecti,geçti,passed,taslak_tam
+arayuz.ayarlar.zar.kaldi,kaldı,failed,taslak_tam
+arayuz.ayarlar.yeni_oyun.baslik,Yeni oyun,New Game,taslak_tam
+arayuz.ayarlar.yeni_oyun.tohum,Tohum,World Seed,taslak_tam
+arayuz.ayarlar.yeni_oyun.baslat,Başla,Embark,taslak_tam
+arayuz.ayarlar.yeni_oyun.yuva,Yuva %d,Slot %d,taslak_tam
+arayuz.ayarlar.yeni_oyun.iz,Önceki oyun: %d,Previous Record: %d,taslak_tam
+arayuz.ayarlar.ses_ana_aciklama,Ana ses. 0 sessizdir. Varsayılan 8.,Master volume. 0 is mute. Default 8.,taslak_tam
+arayuz.ayarlar.ses_muzik_aciklama,Müzik sesi. Varsayılan 7.,Music volume. Default 7.,taslak_tam
+arayuz.ayarlar.ses_efekt_aciklama,Efekt sesi. Varsayılan 8.,Sound effects volume. Default 8.,taslak_tam
+arayuz.ayarlar.ekran_modu_aciklama,Tam ekran ya da pencere. Varsayılan tam ekran.,Fullscreen or windowed mode. Default fullscreen.,taslak_tam
+arayuz.ayarlar.metin_olcegi_aciklama,"Yazı büyüklüğü. 100, 125, 150 veya 175. Varsayılan 100.","Text scale. 100, 125, 150, or 175. Default 100.",taslak_tam
+arayuz.ayarlar.belirme_hizi_aciklama,Satırların belirme hızı. Varsayılan normal.,Dialogue reveal speed. Default normal.,taslak_tam
+arayuz.ayarlar.grafik_profili_aciklama,Normal ya da düşük grafik. Varsayılan normal.,Standard or low fidelity graphics. Default standard.,taslak_tam
+arayuz.ayarlar.cozunurluk_3d_aciklama,Yalnız 3B sahnenin çözünürlüğü. Arayüz tam kalır. Varsayılan 100.,Resolution of 3D scene only. Interface stays crisp. Default 100.,taslak_tam
+arayuz.ayarlar.kamera_eksen_ters_aciklama,Harita kaydırmanın yönü. Varsayılan düz.,Direction of camera panning. Default standard.,taslak_tam
+arayuz.ayarlar.satir_araligi_aciklama,Satır aralığı. Geniş mod artı 6 piksel. Varsayılan normal.,Line height. Wide mode adds 6 pixels. Default standard.,taslak_tam
+arayuz.ayarlar.metin_agirligi_aciklama,Gövde yazının kalınlığı. 400 ya da 500. Varsayılan 400.,Body font weight. 400 or 500. Default 400.,taslak_tam
+arayuz.ayarlar.koy_hizi_varsayilan_aciklama,Köy açılınca hız. Varsayılan 1.,Game speed when village scene loads. Default 1.,taslak_tam
+arayuz.ayarlar.arka_planda_sustur_aciklama,Pencere odak kaybedince ses kısılır. Varsayılan açık.,Audio mutes when window loses focus. Default enabled.,taslak_tam
+arayuz.ayarlar.otomatik_kayit_aciklama,"Gece sonu kaydı: her gece, üç gecede bir ya da kapalı. Varsayılan her gece.","Nightly save: every night, every three nights, or disabled. Default every night.",taslak_tam
+arayuz.ayarlar.ipuclari_aciklama,İpucu satırları. Kapalıyken ipucu çıkmaz. Varsayılan açık.,"Contextual guide lines. When disabled, hints are hidden. Default enabled.",taslak_tam
+arayuz.ayarlar.kademeli_hud_aciklama,Paneller ilk gecelerde sırayla açılır. Varsayılan açık.,Panels unlock progressively across initial nights. Default enabled.,taslak_tam
+arayuz.ayarlar.okunmus_isaret_aciklama,Daha önce seçilen söz soluk görünür. Varsayılan açık.,Previously chosen options appear dimmed. Default enabled.,taslak_tam
+arayuz.ayarlar.renk_paleti_aciklama,Renk körlüğü paleti. Varsayılan olağan.,Color blindness accessibility palette. Default standard.,taslak_tam
+arayuz.ayarlar.yuksek_kontrast_aciklama,"Metin beyaz, zemin opak. Varsayılan kapalı.",Pure white text on opaque background. Default disabled.,taslak_tam
+arayuz.ayarlar.hareket_azalt_aciklama,Kamera ve panel geçişi anında olur. Varsayılan kapalı.,Camera and window transitions happen instantly. Default disabled.,taslak_tam
+arayuz.ayarlar.odak_cercevesi_aciklama,Klavye odağının kenarı. Kalın mod 3 piksel. Varsayılan normal.,Outline width of keyboard focus. Thick mode is 3 pixels. Default normal.,taslak_tam
+arayuz.ayarlar.pencere_boyutu_aciklama,Pencere modunda boyut. Tam ekranda seçilemez. Varsayılan 1600x900.,Windowed mode resolution. Disabled in fullscreen. Default 1600x900.,taslak_tam
+arayuz.ayarlar.vsync_aciklama,Dikey eşitleme. Varsayılan açık.,Vertical synchronization. Default enabled.,taslak_tam
+arayuz.ayarlar.kare_siniri_aciklama,En yüksek kare. 0 sınır yok. Varsayılan 0.,Maximum framerate. 0 denotes uncapped. Default 0.,taslak_tam
+arayuz.ayarlar.rapor_bekle_aciklama,Gece raporu kendiliğinden kapanmaz. Varsayılan açık.,Night report requires user input to dismiss. Default enabled.,taslak_tam
+arayuz.ayarlar.olayda_duraklat_aciklama,Köy olayı açılınca oyun durur. Varsayılan kapalı.,Game pauses automatically when village event triggers. Default disabled.,taslak_tam
+arayuz.ayarlar.karar_onayi_aciklama,Kabul ve ret ikinci tıklama ister. Varsayılan kapalı.,Gate decisions require a secondary confirmation click. Default disabled.,taslak_tam
+arayuz.ayarlar.zorluk_aciklama,"Kolay, olağan ya da sıkı. Oyun kaydında durur. Varsayılan olağan.","Easy, Normal, or Severe. Stored per playthrough. Default Normal.",taslak_tam
+arayuz.dil.baslik,Dil Seçimi,Language Selection,taslak_tam
+arayuz.dil.tr,Türkçe,Turkish,taslak_tam
+arayuz.menu.surum,Sürüm: %s,Version: %s,taslak_tam
+arayuz.menu.daha_once,Önceki Oyun: %s,Previous Playthrough: %s,taslak_tam
+arayuz.demo.bitti,"Köy kök saldı, dirlik kuruldu.",The village has rooted; peace and order reign.,taslak_tam

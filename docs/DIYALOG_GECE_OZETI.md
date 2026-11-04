@@ -54,4 +54,15 @@
 
 ---
 
+## 4. Görev 10 İle Eklenen Hazırlıklar
+
+1. **Açık Kararlar İçin Hazır Seçenekler (`docs/KARAR_SECENEKLERI.md`):**
+   - Yukarıdaki 3 açık kararın her biri için ikişer hazır seçenek; tam diyalog satırları, gereken bayraklar, eş fısıltıları, köy barlarına somut etkileri ve Antigravity'nin tavsiye notlarıyla yazıldı. Telefondan okuyup tek dokunuşla seçebilirsin.
+2. **Yeni ROADMAP Madde Önerileri (`docs/ROADMAP_ONERILERI_ANTIGRAVITY.md`):**
+   - Kabul/ret edilen kişilerin 5-10 gece sonra köye geri dönüş döngüsü (`ANL-DON-01`), eşin geçmişi ve çocuk korkusu (`ES-GECM-01`), 30. gün sonu kişisel epilog kader kartları (`ANL-EPI-01`), fısıltı ağının somut olaylara bağlanması (`SOY-SON-01`), kış ayazı ve fırtına diyalogları (`KVR-SES-01`), Çınaraltı interaktif davaları (`MECLIS-ARA-01`) ve seslendirme reji kılavuzu (`SES-DIL-01`) olmak üzere 7 yapılandırılmış madde önerisi hazırlandı.
+3. **İngilizce Metin Taslağı (`docs/INGILIZCE_METIN_TASLAGI.csv`):**
+   - Dil altyapısı incelendi; Cursor'un `dil_test.gd` birim testini kırmamak ve 0 hata kuralını korumak için çekirdek test koduna dokunulmadı. Ancak menü, HUD, ayarlar, girdi ve arayüzdeki 250 anahtarın tamamı dönem atmosferine uygun İngilizce çevirileriyle hazır bir taslak dosya olarak çıkarıldı.
+
+---
+
 *Dal birleşmeye hazırdır; festive'e doğrudan dokunulmadı, onayını bekliyor.*
