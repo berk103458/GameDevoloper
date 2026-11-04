@@ -53,7 +53,13 @@
 - `tools/metin_dogrula.py`: PASS.
 - Testler: `tests/unit/olay/ozel_olay_test.gd` (PASS, 0 hata).
 
+### Parti B4: Hafıza Defteri & Eylem Metinleri (TAMAMLANDI)
+- `hafiza.bos.karar`, `hafiza.bos.beyan`, `hafiza.bos.soylenti`, `hafiza.bos.not`, `hafiza.satir.baslik`, `hafiza.satir.gece`, `hafiza.etiket.dis_hat`, `hafiza.etiket.celiski`, `hafiza.durum.gitti`, `hafiza.kademe.birkac`, `hafiza.kademe.yari_koy`, `hafiza.kademe.herkes`, `hafiza.sayfa.karar`, `hafiza.sayfa.beyan`, `hafiza.sayfa.soylenti`, `hafiza.sayfa.not`, `hafiza.ekran.baslik`, `hafiza.filtre.kisi`, `hafiza.sonuc.dondu`, `koy.eylem.defter`, `arayuz.duraklat.defter` (21 anahtar).
+- Metinler `data/metin/metinler.csv` içinde güncellendi; `docs/YER_TUTUCU_METINLER.csv` dosyasında `yerlesti` olarak işaretlendi.
+- `tools/metin_dogrula.py`: PASS.
+- Testler: `tests/unit/sistemler/hafiza_defteri_test.gd` (PASS, 0 hata).
+
 ---
 
 ## Sıradaki Adım
-- **Parti B4:** `hafiza.*`, `koy.eylem.defter`, `arayuz.duraklat.defter` (20 anahtar) hafıza defteri metinlerinin yerleştirilmesi.
+- **Parti B5:** `arayuz.girdi.*`, `arayuz.menu.*`, `arayuz.demo.*`, `arayuz.dil.*`, `koy.coban.*` (35 anahtar) metinlerinin yerleştirilmesi.

@@ -29,27 +29,27 @@ olay.kadi.dinle,"Buyur et, divan defterini önüne ser",PR #27,yerlesti,Kadı na
 olay.kadi.gecistir,"Beyimiz seferdedir de, teftişi savuştur",PR #27,yerlesti,Kadı naibi olay kartı 2. seçenek (geçiştirme).
 olay.kadi.sonuc1,Kadı naibi tahrir defterini mühürledi; adalet terazisi köyde güven tazeledi.,PR #27,yerlesti,Kadı teftişi kabul edildiğinde ortaya çıkan netice metni.
 olay.kadi.sonuc2,Teftiş yarım kaldı; naip kaşlarını çatarak atını sancağa doğru mahmuzladı.,PR #27,yerlesti,Kadı savuşturulduğunda ortaya çıkan netice metni.
-hafiza.bos.karar,Bu gece kapıda henüz bir karar verilmedi.,PR #15,,Hafıza defterinde henüz kapı kararı yokken görünen metin.
-hafiza.bos.beyan,Ziyaretçiden henüz bir beyan kayda geçmedi.,PR #15,,Hafıza defterinde henüz beyan yokken görünen metin.
-hafiza.bos.soylenti,Köyde henüz işitilmiş bir söylenti yoktur.,PR #15,,Hafıza defterinde henüz söylenti yokken görünen metin.
-hafiza.bos.not,Muhafız defterine henüz bir not düşülmedi.,PR #15,,Hafıza defterinde henüz not yokken görünen metin.
-hafiza.satir.baslik,%s — %s,PR #15,,Hafıza defteri satır başlığı kalıbı (Kişi adı — Gece).
-hafiza.satir.gece,%d. gece,PR #15,,Hafıza defteri gece numarası kalıbı.
-hafiza.etiket.dis_hat,Sınır Boyu,PR #15,,Hafıza defteri dış hat / sınır boyu etiketi.
-hafiza.etiket.celiski,İfadede Çelişki,PR #15,,Hafıza defteri ifadede çelişki etiketi.
-hafiza.durum.gitti,Köyden Ayrıldı,PR #15,,Hafıza defteri ayrılan ziyaretçi/köylü durum etiketi.
-hafiza.kademe.birkac,Birkaç Kişi Fısıldaşır,PR #15,,Hafıza defteri söylenti yayılma düzeyi: düşük.
-hafiza.kademe.yari_koy,Köyün Yarısı Konuşur,PR #15,,Hafıza defteri söylenti yayılma düzeyi: orta.
-hafiza.kademe.herkes,Bütün Köy Çalkalanır,PR #15,,Hafıza defteri söylenti yayılma düzeyi: yüksek.
-hafiza.sayfa.karar,Kapı Kararları,PR #15,,Hafıza defteri kapı kararları sekmesi başlığı.
-hafiza.sayfa.beyan,Ziyaretçi Beyanları,PR #15,,Hafıza defteri ziyaretçi beyanları sekmesi başlığı.
-hafiza.sayfa.soylenti,Köy Söylentileri,PR #15,,Hafıza defteri söylentiler sekmesi başlığı.
-hafiza.sayfa.not,Muhafız Notları,PR #15,,Hafıza defteri muhafız notları sekmesi başlığı.
-hafiza.ekran.baslik,Hafıza Defteri,PR #15,,Hafıza defteri ekran pencere başlığı.
-hafiza.filtre.kisi,Kişi adına göre ara...,PR #15,,Hafıza defteri kişi filtreleme girdi kutusu yer tutucusu.
-hafiza.sonuc.dondu,Geri Döndü,PR #15,,Hafıza defteri köye geri dönen kişi durum etiketi.
-koy.eylem.defter,Defteri İncele,PR #15,,Köy HUD arayüzünde defter açma düğmesi etiketi.
-arayuz.duraklat.defter,Hafıza Defteri,PR #15,,Duraklatma menüsünde defteri açma düğmesi etiketi.
+hafiza.bos.karar,Bu gece kapıda henüz bir karar verilmedi.,PR #15,yerlesti,Hafıza defterinde henüz kapı kararı yokken görünen metin.
+hafiza.bos.beyan,Ziyaretçiden henüz bir beyan kayda geçmedi.,PR #15,yerlesti,Hafıza defterinde henüz beyan yokken görünen metin.
+hafiza.bos.soylenti,Köyde henüz işitilmiş bir söylenti yoktur.,PR #15,yerlesti,Hafıza defterinde henüz söylenti yokken görünen metin.
+hafiza.bos.not,Muhafız defterine henüz bir not düşülmedi.,PR #15,yerlesti,Hafıza defterinde henüz not yokken görünen metin.
+hafiza.satir.baslik,%s — %s,PR #15,yerlesti,Hafıza defteri satır başlığı kalıbı (Kişi adı — Gece).
+hafiza.satir.gece,%d. gece,PR #15,yerlesti,Hafıza defteri gece numarası kalıbı.
+hafiza.etiket.dis_hat,Sınır Boyu,PR #15,yerlesti,Hafıza defteri dış hat / sınır boyu etiketi.
+hafiza.etiket.celiski,İfadede Çelişki,PR #15,yerlesti,Hafıza defteri ifadede çelişki etiketi.
+hafiza.durum.gitti,Köyden Ayrıldı,PR #15,yerlesti,Hafıza defteri ayrılan ziyaretçi/köylü durum etiketi.
+hafiza.kademe.birkac,Birkaç Kişi Fısıldaşır,PR #15,yerlesti,Hafıza defteri söylenti yayılma düzeyi: düşük.
+hafiza.kademe.yari_koy,Köyün Yarısı Konuşur,PR #15,yerlesti,Hafıza defteri söylenti yayılma düzeyi: orta.
+hafiza.kademe.herkes,Bütün Köy Çalkalanır,PR #15,yerlesti,Hafıza defteri söylenti yayılma düzeyi: yüksek.
+hafiza.sayfa.karar,Kapı Kararları,PR #15,yerlesti,Hafıza defteri kapı kararları sekmesi başlığı.
+hafiza.sayfa.beyan,Ziyaretçi Beyanları,PR #15,yerlesti,Hafıza defteri ziyaretçi beyanları sekmesi başlığı.
+hafiza.sayfa.soylenti,Köy Söylentileri,PR #15,yerlesti,Hafıza defteri söylentiler sekmesi başlığı.
+hafiza.sayfa.not,Muhafız Notları,PR #15,yerlesti,Hafıza defteri muhafız notları sekmesi başlığı.
+hafiza.ekran.baslik,Hafıza Defteri,PR #15,yerlesti,Hafıza defteri ekran pencere başlığı.
+hafiza.filtre.kisi,Kişi adına göre ara...,PR #15,yerlesti,Hafıza defteri kişi filtreleme girdi kutusu yer tutucusu.
+hafiza.sonuc.dondu,Geri Döndü,PR #15,yerlesti,Hafıza defteri köye geri dönen kişi durum etiketi.
+koy.eylem.defter,Defteri İncele,PR #15,yerlesti,Köy HUD arayüzünde defter açma düğmesi etiketi.
+arayuz.duraklat.defter,Hafıza Defteri,PR #15,yerlesti,Duraklatma menüsünde defteri açma düğmesi etiketi.
 arayuz.girdi.sekme,Tuş Kontrolleri,PR #16,,Ayarlar menüsünde tuş atama / kontroller sekmesi başlığı.
 arayuz.girdi.ata,Yeni Tuş Ata,PR #16,,Girdi haritasında tuş atama düğmesi.
 arayuz.girdi.bekleniyor,Bir tuşa basınız...,PR #16,,Tuş atama sırasında yeni tuş beklenirken çıkan ipucu.

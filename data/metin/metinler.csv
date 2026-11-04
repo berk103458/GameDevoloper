@@ -1977,26 +1977,26 @@ olay.harami_elcisi.secenek3,Pusu kur: Çobanla haber gönderip haramileri dere b
 olay.harami_elcisi.sonuc1,Kulede meşaleler sabaha kadar yandı; haramiler surların azametini görüp dağa çekildi.
 olay.harami_elcisi.sonuc2,Erzak çeteye teslim edildi; tehlike savuşturuldu amma köylünün ambarı hafifledi.
 olay.harami_elcisi.sonuc3,Dere boyunda kurulan pusuda iki harami vuruldu; ele geçen heybelerden köy kasasına ganimet girdi.
-hafiza.bos.karar,henüz bir şey yazılmadı
-hafiza.bos.beyan,henüz bir şey yazılmadı
-hafiza.bos.soylenti,henüz bir şey yazılmadı
-hafiza.bos.not,henüz bir şey yazılmadı
+hafiza.bos.karar,Bu gece kapıda henüz bir karar verilmedi.
+hafiza.bos.beyan,Ziyaretçiden henüz bir beyan kayda geçmedi.
+hafiza.bos.soylenti,Köyde henüz işitilmiş bir söylenti yoktur.
+hafiza.bos.not,Muhafız defterine henüz bir not düşülmedi.
 hafiza.satir.baslik,%s — %s
 hafiza.satir.gece,%d. gece
-hafiza.etiket.dis_hat,dış hat
-hafiza.etiket.celiski,çelişki
-hafiza.durum.gitti,gitti
-hafiza.kademe.birkac,birkaç
-hafiza.kademe.yari_koy,yarı köy
-hafiza.kademe.herkes,herkes
-hafiza.sayfa.karar,Karar
-hafiza.sayfa.beyan,Beyan
-hafiza.sayfa.soylenti,Söylenti
-hafiza.sayfa.not,Not
-hafiza.ekran.baslik,Defter
-hafiza.filtre.kisi,kişi
-koy.eylem.defter,Defter
-arayuz.duraklat.defter,Defter
+hafiza.etiket.dis_hat,Sınır Boyu
+hafiza.etiket.celiski,İfadede Çelişki
+hafiza.durum.gitti,Köyden Ayrıldı
+hafiza.kademe.birkac,Birkaç Kişi Fısıldaşır
+hafiza.kademe.yari_koy,Köyün Yarısı Konuşur
+hafiza.kademe.herkes,Bütün Köy Çalkalanır
+hafiza.sayfa.karar,Kapı Kararları
+hafiza.sayfa.beyan,Ziyaretçi Beyanları
+hafiza.sayfa.soylenti,Köy Söylentileri
+hafiza.sayfa.not,Muhafız Notları
+hafiza.ekran.baslik,Hafıza Defteri
+hafiza.filtre.kisi,Kişi adına göre ara...
+koy.eylem.defter,Defteri İncele
+arayuz.duraklat.defter,Hafıza Defteri
 arayuz.girdi.sekme,Kontroller
 arayuz.girdi.ata,Ata
 arayuz.girdi.bekleniyor,Bir tuş bekleniyor
@@ -2154,3 +2154,4 @@ yil.kis_ev,Kış gecesi ocak başında; tandır ateşi evi ve gönülleri ısıt
 yil.ilkbahar_tarla,İlkbahar cemresi düştü; rençberler tarlaya saban sürmeye çıktı.
 yil.ilkbahar_taskin,Bahar taşkını vadiyi bastı; coşan dere bentleri zorladı.
 yil.yaz_su,Yaz sıcağı tepeye vurdu; kuyulardan ve arklardan su çekildi.
+hafiza.sonuc.dondu,Geri Döndü
