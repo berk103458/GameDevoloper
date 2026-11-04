@@ -3597,7 +3597,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ACL-02. Boyut: S.
   - Dosya: `tests/unit/denge/meslek_verim_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-39:** Çırak beş günde yarım usta olur.
+- [x] **DEN-39:** (Kalfa) Çırak beş günde yarım usta olur.
   - Ne: UZM-04 süresi değişmez. Ölçüm, 5. günde verimin ara basamakta olduğunu doğrular.
   - Kabul: UZM-04 süresi değişmez. Ölçüm, 5. günde verimin ara basamakta olduğunu doğrular. Test: 4. gün ara basamak değil, 5. gün odur.
   - Bağımlılık: UZM-04. Boyut: S.

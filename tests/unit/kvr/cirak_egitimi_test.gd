@@ -32,6 +32,7 @@ func _initialize() -> void:
 		geri.yonetim.gece()
 		_kontrol(k.egitim.get("gece") == n, "Kayıttan sonraki gerçek gece: %d" % n)
 		_kontrol(k.egitim == geri.yonetim.koylu(k.id).egitim and k.stat == geri.yonetim.koylu(k.id).stat, "Yükleme aynı ilerlemeyi üretir")
+		if n == 4: _kontrol(k.stat == 3 and not k.egitim.get("tamamlandi", false), "DEN-39: dördüncü gece ara basamak açılmaz")
 		if n == 5: _kontrol(rapor["olaylar"].any(func(e: Dictionary) -> bool: return e["anahtar"].contains("yarı usta")), "Beşinci gecede rapor")
 	_kontrol(k.stat == 6 and not k.usta_mi() and k.zanaat_turu == u.zanaat_turu and k.egitim["tamamlandi"], "Yarı usta; tam usta değil")
 	var son := y.gece()
