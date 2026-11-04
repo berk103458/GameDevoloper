@@ -353,3 +353,40 @@ Senin alanında açık madde kaldıysa Görev 7'deki kurallarla devam et. Kalmad
 - Her partiden sonra doğrulayıcılar ve Godot headless testleri; yukarıdaki bilinen kırmızılar dışında 0 hata.
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et. Durma.
 
+
+---
+
+# Görev 9 — Bütünlük denetimi, birleşmeye hazırlık ve Ahmet için özet (Kaşif, 4 Kasım 2026 04:30)
+
+Görev 8 bitti, eline sağlık: 85 yer tutucu anahtarın hepsi yerleşti ve ROADMAP'te senin alanında açık madde kalmadı. Ahmet "sabaha kadar devam etsin" dedi. Bu görevde yeni içerik yığmak yerine bu gece yazılanların hepsini sağlamlaştır, çünkü dalın sabah festive'e birleştirilmesi Ahmet'in onayına sunulacak. İlerleme dosyası: `codex.md/Antigravity_ilerleme_9.md`.
+
+## Bölüm A — Bütünlük denetimi (30 ziyaretçi, köylüler, eş, köy olayları)
+1. Bütün diyalog, olay ve metin dosyalarını baştan sona oku ve şunları ara:
+   - Çelişkiler: isim, köy, yaş, akrabalık ve zaman çizelgesi tutarsızlıkları, bir karakterin bir yerde başka bir yerde farklı anlatılması.
+   - Kopuk bayraklar: hiç set edilmeyen ama okunan ya da set edilip hiç okunmayan bayraklar.
+   - Kalan tekrar eden sorular: cevabı önceden verilmiş bir sorunun yine sorulması.
+   - Eş yorumlarının ziyaretçinin gerçekte söylediğiyle uyuşmaması.
+   - Dönem diline uymayan modern kelimeler, yazım hataları, karakter sesinin karışması.
+2. Bulduklarını küçük partiler halinde düzelt. Commit mesajı "DNT-…" ile başlasın, "(Antigravity)" ile bitsin. Her commit'ten sonra push et.
+3. Düzeltmeden bıraktığın her şeyi (karar Ahmet'in olan şeyler) gerekçesiyle ilerleme dosyasına yaz.
+
+## Bölüm B — Birleşmeye hazırlık (birleştirme YAPMA)
+1. `git fetch origin` ile festive'in son halini kendi dalına merge et, çakışma varsa iki tarafı da koruyarak çöz.
+2. Doğrulayıcıları ve Godot headless testlerini tam çalıştır. Festive'de zaten kırmızı olan Kalfa testleri (nobet_yorgunlugu, oda_*_kontrol, ayarlar_bozuk_menu_kontrol, kesik_kayit_devam_kontrol) dışında 0 hata olsun.
+3. `docs/DIYALOG_DALI_BIRLESME_NOTU.md` yaz: festive'e göre hangi dosyaları eklediğin veya değiştirdiğin, Kalfa ya da Cursor alanındaki dosyalara dokunup dokunmadığın, test sonuçları ve birleştirmede dikkat edilecek riskler.
+
+## Bölüm C — Ahmet için sabah özeti
+`docs/DIYALOG_GECE_OZETI.md` yaz. Ahmet bunu telefondan okuyacak, o yüzden sade Türkçe ve kısa bölümler olsun:
+- Görev 3'ten 9'a kadar ne yapıldı.
+- Oynarken denemesi gereken 10 en iyi an: hangi ziyaretçi, hangi soru, hangi eş sohbeti, hangi köy olayı.
+- Karar bekleyen konular.
+Sayıları uydurma, yalnız repoda gördüklerini yaz.
+
+Hepsi bitince ilerleme dosyasının son satırına tek başına `GOREV9_TAMAM` yaz.
+
+## Kurallar (değişmedi)
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at. Kendi dalını festive'e birleştirme.
+- Kalfa'nın alanına (ISG, YSM, YAP, DEN, EKO, ekonomi, köy sistemleri, test altyapısı) ve Cursor'un koduna dokunma; yalnız metin, diyalog ve kendi testlerin.
+- Asset üretme; gerekeni `docs/EKSIK_ASSET_ENVANTERI.md`'ye 2D/3D ayrı yaz.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et. Durma.
+
