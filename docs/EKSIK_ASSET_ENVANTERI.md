@@ -596,6 +596,41 @@ Her yuva [tekli UI kataloğunda](arayuz/GEMINI_TEKLI_URETIM_PROMPTLARI.md) kendi
 | `TEZ08-PARCA` | Teslim parçası; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
 | `B4-ILERI-KLIPLER` | kos, otur, orak, cekic, nobet, saldir, dus, yagmur_yuru, kar_yuru — bir ileri 3D klip grubu. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 
+
+### Diyalog ve Anlatı 2D Parçaları (Görev 13 — Antigravity)
+
+Görev 6, 8 ve 13 kapsamında derinleştirilen 10 ziyaretçi (21-30), muhafızın eşi, 8 köy olayı kartı, defter/söylenti görselleri ve 5 oyun sonu için hazırlanan 27 tekil 2D parçadır. Tam İngilizce Nano Banana promptları ve Türkçe karakter tarifleri [Diyalog Asset Promptları](arayuz/DIYALOG_ASSET_PROMPTLARI.md) belgesindedir.
+
+| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Hazır prompt |
+|---|---|---|---|---|
+| `PORTRE-DYS-021` | `assets/art/char/char_dervis_baba_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-021](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-021) |
+| `PORTRE-DYS-022` | `assets/art/char/char_tuccar_tebrizli_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-022](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-022) |
+| `PORTRE-DYS-023` | `assets/art/char/char_cavus_sungur_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-023](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-023) |
+| `PORTRE-DYS-024` | `assets/art/char/char_vebali_ana_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-024](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-024) |
+| `PORTRE-DYS-025` | `assets/art/char/char_firinci_dursun_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-025](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-025) |
+| `PORTRE-DYS-026` | `assets/art/char/char_cerrah_lokman_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-026](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-026) |
+| `PORTRE-DYS-027` | `assets/art/char/char_katip_sukru_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-027](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-027) |
+| `PORTRE-DYS-028` | `assets/art/char/char_banu_hatun_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-028](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-028) |
+| `PORTRE-DYS-029` | `assets/art/char/char_kafile_habercisi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-029](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-029) |
+| `PORTRE-DYS-030` | `assets/art/char/char_yetim_turna_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-030](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-030) |
+| `PORTRE-DYS-ES` | `assets/art/char/char_muhafiz_esi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-ES](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-es) |
+| `KART-OLAY-01` | `assets/art/events/event_kavga_harman.png` | 800×450 | Opak RGB | [Prompt KART-OLAY-01](arayuz/DIYALOG_ASSET_PROMPTLARI.md#kart-olay-01) |
+| `KART-OLAY-02` | `assets/art/events/event_ambarda_hirsizlik.png` | 800×450 | Opak RGB | [Prompt KART-OLAY-02](arayuz/DIYALOG_ASSET_PROMPTLARI.md#kart-olay-02) |
+| `KART-OLAY-03` | `assets/art/events/event_salgin_fisiltisi.png` | 800×450 | Opak RGB | [Prompt KART-OLAY-03](arayuz/DIYALOG_ASSET_PROMPTLARI.md#kart-olay-03) |
+| `KART-OLAY-04` | `assets/art/events/event_koy_dugunu.png` | 800×450 | Opak RGB | [Prompt KART-OLAY-04](arayuz/DIYALOG_ASSET_PROMPTLARI.md#kart-olay-04) |
+| `KART-OLAY-05` | `assets/art/events/event_firari_cenazesi.png` | 800×450 | Opak RGB | [Prompt KART-OLAY-05](arayuz/DIYALOG_ASSET_PROMPTLARI.md#kart-olay-05) |
+| `KART-OLAY-06` | `assets/art/events/event_samanlik_yangini.png` | 800×450 | Opak RGB | [Prompt KART-OLAY-06](arayuz/DIYALOG_ASSET_PROMPTLARI.md#kart-olay-06) |
+| `KART-OLAY-07` | `assets/art/events/event_gece_donu.png` | 800×450 | Opak RGB | [Prompt KART-OLAY-07](arayuz/DIYALOG_ASSET_PROMPTLARI.md#kart-olay-07) |
+| `KART-OLAY-08` | `assets/art/events/event_harami_elcisi.png` | 800×450 | Opak RGB | [Prompt KART-OLAY-08](arayuz/DIYALOG_ASSET_PROMPTLARI.md#kart-olay-08) |
+| `UI-DEFTER-DERI` | `assets/art/ui/ui_defter_kapak_deri.png` | 512×512 | RGBA; düz #00FF00 | [Prompt UI-DEFTER-DERI](arayuz/DIYALOG_ASSET_PROMPTLARI.md#ui-defter-deri) |
+| `UI-DEFTER-PARSOMEN` | `assets/art/ui/ui_defter_sayfa_parsomen.png` | 512×512 | RGBA; düz #00FF00 | [Prompt UI-DEFTER-PARSOMEN](arayuz/DIYALOG_ASSET_PROMPTLARI.md#ui-defter-parsomen) |
+| `UI-SOYLENTI-AGI` | `assets/art/ui/icon_soylenti_agi.png` | 512×512 | RGBA; düz #00FF00 | [Prompt UI-SOYLENTI-AGI](arayuz/DIYALOG_ASSET_PROMPTLARI.md#ui-soylenti-agi) |
+| `SON-DYS-TEKFUR` | `assets/art/env/son_tekfur_haraccisi_cinar.png` | 1920×1080 | Opak RGB | [Prompt SON-DYS-TEKFUR](arayuz/DIYALOG_ASSET_PROMPTLARI.md#son-dys-tekfur) |
+| `SON-DYS-ERTUGRUL` | `assets/art/env/son_ertugrul_obasi_sancak.png` | 1920×1080 | Opak RGB | [Prompt SON-DYS-ERTUGRUL](arayuz/DIYALOG_ASSET_PROMPTLARI.md#son-dys-ertugrul) |
+| `SON-DYS-AHI` | `assets/art/env/son_ahi_kasabasi_refah.png` | 1920×1080 | Opak RGB | [Prompt SON-DYS-AHI](arayuz/DIYALOG_ASSET_PROMPTLARI.md#son-dys-ahi) |
+| `SON-DYS-KURTULUS` | `assets/art/env/son_veba_karantina_kurtulus.png` | 1920×1080 | Opak RGB | [Prompt SON-DYS-KURTULUS](arayuz/DIYALOG_ASSET_PROMPTLARI.md#son-dys-kurtulus) |
+| `SON-DYS-DIRENIS` | `assets/art/env/son_harami_kusatmasi_direnis.png` | 1920×1080 | Opak RGB | [Prompt SON-DYS-DIRENIS](arayuz/DIYALOG_ASSET_PROMPTLARI.md#son-dys-direnis) |
+
 ## Ses ve diğer görsel dışı ihtiyaçlar
 
 Ses/müzik, font ve GPL/ASE palet dosyaları 2D resim değildir; Nano Banana ile üretilmez, 3D kuyruğuna da sokulmaz. Ses ihtiyaçları kaynak taramasının A3 ve C3 bölümlerinde korunur. Mevcut fontlar ve teslim edilmiş modeller yeniden eksik sayılmaz. Lisans/kaynak kayıtları silinmemiştir.

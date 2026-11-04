@@ -26,11 +26,12 @@
     - `docs/karar_yamalari/karar_3_dramatik_kayip/` (Seçenek 3.2 — Dramatik Kayıp & Gerçekçilik)
     - Her klasörde tam `diyalog_01_20.json`, `es_kapi_dusunceleri.json`, `koylu_muhabbet_miraen.ds`, `koylu_muhabbet_es.ds`, `metinler_parca.csv` ve `UYGULA.md` eksiksiz oluşturuldu.
     - Commit `KARAR-03:...` hazırlandı.
-- [/] **Bölüm B — Diyalog ve Anlatıyla İlgili Eksik 2D Asset Promptları:**
-  - `docs/EKSIK_ASSET_ENVANTERI.md` incelenecek.
-  - Yeni 10 ziyaretçi, muhafızın eşi, 8 köy olayı, hafıza defteri ve epilog/sonlar için 2D portre, kart ve sahne promptları tek tek Nano Banana formatında hazırlanacak.
-  - Commit `ASSET-PROMPT-01:...` ve push.
-- [ ] **Bölüm C — Bitirme & Doğrulama:**
+- [x] **Bölüm B — Diyalog ve Anlatıyla İlgili Eksik 2D Asset Promptları:**
+  - `docs/EKSIK_ASSET_ENVANTERI.md` güncellendi: 'Diyalog ve Anlatı 2D Parçaları (Görev 13 — Antigravity)' tablosu eklendi.
+  - `docs/arayuz/DIYALOG_ASSET_PROMPTLARI.md` oluşturuldu: 27 tekil 2D görsel için Türkçe karakter/sahne tarifleri ve standart 'gece_kapisi' stilinde tek resimlik Nano Banana promptları eksiksiz hazırlandı (10 yeni ziyaretçi portresi, 1 muhafız eşi portresi, 8 köy olayı kartı, 3 hafıza defteri ve söylenti görseli, 5 oyun sonu sahnesi).
+  - `tests/tools/test_asset_envanteri.py` ve tüm doğrulayıcılar 0 hata ile doğrulandı.
+  - Commit `ASSET-PROMPT-01:...` hazırlandı.
+- [/] **Bölüm C — Bitirme & Doğrulama:**
   - Tüm doğrulayıcılar ve testlerin koşulması.
   - `docs/DIYALOG_GECE_OZETI.md` güncellenmesi.
   - `codex.md/Antigravity.md` günlüğünün güncellenmesi.
