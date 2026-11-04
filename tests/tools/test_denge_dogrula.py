@@ -61,6 +61,14 @@ class DengeDogrulaTest(unittest.TestCase):
         self.assertTrue(dogrulayici.fiyat_kaynagi_hatalari(
             {"ekonomi": {"fiyat_carpani": {"kis": 3}}}))
 
+    def test_sozlesme_faizi_tek_kaynaktadir(self):
+        kaynak = {"sozlesme_cezasi": {"kaynak": "res://data/siparis_ihlali.json"}}
+        self.assertEqual(dogrulayici.faiz_kaynagi_hatalari(kaynak), [])
+        for veri in [{"gecelik_faiz": 0.1}, {"ekonomi": {"ceza_faizi": 0.1}},
+                     {"senaryolar": [{"siparis_faiz": 0.1}]}]:
+            with self.subTest(veri=veri):
+                self.assertTrue(dogrulayici.faiz_kaynagi_hatalari(veri))
+
     def test_gercek_tablo_temiz(self):
         self.assertEqual(dogrulayici.main([]), 0)
 

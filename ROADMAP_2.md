@@ -3687,7 +3687,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: TUC-10, EKO-01. Boyut: S.
   - Dosya: `tests/unit/denge/fiyat_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-53:** Sözleşme cezası TUC-07'dir.
+- [x] **DEN-53:** (Kalfa) Sözleşme cezası TUC-07'dir.
   - Ne: gecikme faizi o maddede kalır. Denge faizi ikinci kez tanımlamaz.
   - Kabul: gecikme faizi o maddede kalır. Denge faizi ikinci kez tanımlamaz. Test: tek faiz anahtarı.
   - Bağımlılık: TUC-07, DEN-03. Boyut: S.

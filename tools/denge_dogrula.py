@@ -314,6 +314,14 @@ def fiyat_kaynagi_hatalari(denge: dict) -> list:
     return hatalar
 
 
+def faiz_kaynagi_hatalari(denge: dict) -> list:
+    """DEN-53: faiz anahtarı yalnız TUC-07 tablosunda tutulur."""
+    return [
+        f"{ad}: ikinci faiz anahtarı olamaz; kaynak data/siparis_ihlali.json (DEN-53)"
+        for ad in sorted(set(anahtar_adlari(denge))) if "faiz" in ad
+    ]
+
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -337,6 +345,7 @@ def main(argv=None) -> int:
         hatalar += aclik_kademesi_hatalari(denge)
         hatalar += gecici_is_hatalari(denge)
         hatalar += fiyat_kaynagi_hatalari(denge)
+        hatalar += faiz_kaynagi_hatalari(denge)
         hatalar += teftis_esigi_hatalari(denge, yukle(ROOT / "data/muhafiz_terazisi.json"), yukle(ROOT / "data/sancak_teftisi.json"))
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]
