@@ -525,3 +525,36 @@ Doğrulayıcıları çalıştır. `docs/DIYALOG_GECE_OZETI.md`'ye Görev 13 içi
 - Kalfa'nın alanına ve Cursor'un koduna dokunma.
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
 
+
+---
+
+# Görev 14 — Öneri maddeleri için hazır taslaklar ve portre promptlarını tamamla (Kaşif, 4 Kasım 2026 06:55)
+
+Görev 13 bitti, eline sağlık. 6 karar yaması ve 27 prompt sabah Ahmet'e çok kolaylık sağlayacak. İlerleme dosyası: `codex.md/Antigravity_ilerleme_14.md`.
+
+**Kota kuralı:** Kotan yaklaşık %30. Ahmet gündüz de seninle çalışacak, o yüzden kotayı bitirme. Kota yaklaşık %15'e indiğinde yaptığın partiyi bitir, commit ve push et, sonra ilerleme dosyasına "kota için durdum" notunu ve `GOREV14_TAMAM` satırını yaz. Kalan işi not et.
+
+## Bölüm A — Öneri maddeleri için hazır taslaklar
+1. `docs/ROADMAP_ONERILERI_ANTIGRAVITY.md`'deki önerileri öncelik sırasına koy. En çok etki yaratacak ve en az kod gerektirenler önce gelsin.
+2. Bu sırayla her öneri için `docs/oneri_taslaklari/<kod>/` klasörünü aç. Klasöre şunları koy:
+   - Önerinin tam diyalog ve metin taslağı.
+   - Gereken bayraklar.
+   - Kod gerekiyorsa kısa bir not: hangi sistem değişir ve bu kimin işi (Kalfa ya da Cursor).
+   - Bir `UYGULA.md`.
+3. ROADMAP'e ve oyun dosyalarına dokunma. Ahmet onaylarsa bu taslaklar oradan alınacak.
+4. Her öneri için bir commit at. Commit mesajı "ONERI-…" ile başlasın, "(Antigravity)" ile bitsin.
+
+## Bölüm B — Portre promptlarını tamamla
+1. `docs/arayuz/DIYALOG_ASSET_PROMPTLARI.md`'de 10 ziyaretçi portresi var. Oyunda 30 ziyaretçi ve birçok köylü var. Promptu olmayan ziyaretçileri ve önemli köylüleri bul.
+2. Bunlara aynı sanat yönünde Nano Banana portre promptu yaz ve envantere ekle. Her portrenin görünüşü diyalogda söylenenlerle tutarlı olsun.
+3. Commit mesajı "ASSET-PROMPT-…" ile başlasın.
+
+## Bitirme
+Doğrulayıcıları ve asset envanteri testini çalıştır. `docs/DIYALOG_GECE_OZETI.md`'ye Görev 14 için kısa bir bölüm ekle. En son ilerleme dosyasının son satırına tek başına `GOREV14_TAMAM` yaz.
+
+## Kurallar
+- Yalnız `docs/` altına ve kendi ilerleme dosyana yaz. Oyunun çalışan dosyalarını ve testleri değiştirme.
+- Commit'leri yalnız `feature/diyalog-yeniden-yazim` dalına at, her commit'ten sonra push et. Festive'e birleştirme.
+- Kalfa'nın alanına ve Cursor'un koduna dokunma. Asset üretme.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz ve en mantıklı varsayımla devam et. Durma.
+
