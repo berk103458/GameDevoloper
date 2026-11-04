@@ -41,6 +41,7 @@ func _calistir() -> void:
 	for i in SIRALAR.size():
 		var r := _oyna(katalog, SIRALAR[i], 4200 + i * 7)
 		_rapor.append(r)
+		_kontrol(int(r.gece) == GECE, "DEN-16: %s %d gerçek geceyi tamamlar" % [r.sira, GECE])
 		print("SIRA %s | gece=%d son=%s ocak_gece=%d kilit=%s stok(odun=%d tas=%d alet=%d) kurtarici=%d" % [
 			r.sira, r.gece, r.son, r.ocak_gece, r.kilit, r.odun, r.tas, r.alet, r.kurtarici])
 		if not r.kilit_satirlari.is_empty():
@@ -124,6 +125,7 @@ func _oyna(katalog: Katalog, sira: Dictionary, tohum: int, mevsim: int = -1, gec
 	var idx: Array[int] = [0]
 	var kilit_geceleri: Array[int] = []
 	var odunsuz_geceler: Array[int] = []
+	var ilk_gun := y.gun
 	var gecen := 0
 	var ocak_gece := 0
 	var odun_dibi := y.kaynaklar.miktar("odun")
@@ -131,7 +133,7 @@ func _oyna(katalog: Katalog, sira: Dictionary, tohum: int, mevsim: int = -1, gec
 		_gate(o)
 		_gece_adim(o, y, sira, idx)
 		o.gece_sonu()
-		gecen += 1
+		gecen = y.gun - ilk_gun
 		if gecen <= ODUN_OLCUM_GECESI:
 			var odun := y.kaynaklar.miktar("odun")
 			odun_dibi = mini(odun_dibi, odun)

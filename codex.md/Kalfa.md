@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-16 tamamlandı (Kalfa)
+
+Mevcut açılış testinde deneme sayısı yerine oyun takviminin ilerlediği geceler ölçüldü. Beş sıranın her biri 20 geceyi tamamladı. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-15 tamamlandı (Kalfa)
 
 Mevcut hedefli açılış testinde hızarhane, iki çadır ve tarla sırası taş ocağını 1. gecede kurdu. İlk 10 gece odun sıfıra inmedi ve kilit oluşmadı. Asset gerekmedi. kota görünmüyor.

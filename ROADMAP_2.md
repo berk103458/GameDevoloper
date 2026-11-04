@@ -3450,7 +3450,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-10, BUG-21. Boyut: S.
   - Dosya: `tests/oto/acilis_denge_kontrol.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-16:** Açılış ölçümü 20 geceyi geçer.
+- [x] **DEN-16:** Açılış ölçümü 20 geceyi geçer. (Kalfa)
   - Ne: beş sıra 20 gece çökmeden biter. Bu, BUG-22 kabulünün ölçüm kopyasıdır. Yeni otomatik oyuncu yazılmaz.
   - Kabul: beş sıra 20 gece çökmeden biter. Bu, BUG-22 kabulünün ölçüm kopyasıdır. Yeni otomatik oyuncu yazılmaz. Test: mevcut senaryo yeşil.
   - Bağımlılık: BUG-22. Boyut: S.
