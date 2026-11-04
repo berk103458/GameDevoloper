@@ -631,6 +631,44 @@ Görev 6, 8 ve 13 kapsamında derinleştirilen 10 ziyaretçi (21-30), muhafızı
 | `SON-DYS-KURTULUS` | `assets/art/env/son_veba_karantina_kurtulus.png` | 1920×1080 | Opak RGB | [Prompt SON-DYS-KURTULUS](arayuz/DIYALOG_ASSET_PROMPTLARI.md#son-dys-kurtulus) |
 | `SON-DYS-DIRENIS` | `assets/art/env/son_harami_kusatmasi_direnis.png` | 1920×1080 | Opak RGB | [Prompt SON-DYS-DIRENIS](arayuz/DIYALOG_ASSET_PROMPTLARI.md#son-dys-direnis) |
 
+
+### Ziyaretçi ve Köylü Portreleri (Görev 14 — Antigravity)
+
+Görev 14 kapsamında tamamlanan 20 ziyaretçi portresi (01–20) ve 10 isimli köylü portresi için hazırlanan 30 tekil 2D parçadır. Tam İngilizce Nano Banana promptları ve Türkçe karakter tarifleri [Diyalog Asset Promptları](arayuz/DIYALOG_ASSET_PROMPTLARI.md) belgesindedir.
+
+| Kaynak ID | Nihai dosya | Boyut (px) | Saydamlık / kaynak zemin | Hazır prompt |
+|---|---|---|---|---|
+| `PORTRE-DYS-001` | `assets/art/char/char_rencber_hamza_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-001](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-001) |
+| `PORTRE-DYS-002` | `assets/art/char/char_kayserili_cuhaci_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-002](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-002) |
+| `PORTRE-DYS-003` | `assets/art/char/char_bozgun_neferi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-003](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-003) |
+| `PORTRE-DYS-004` | `assets/art/char/char_coban_yusuf_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-004](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-004) |
+| `PORTRE-DYS-005` | `assets/art/char/char_demirci_hasan_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-005](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-005) |
+| `PORTRE-DYS-006` | `assets/art/char/char_silahsiz_piyade_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-006](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-006) |
+| `PORTRE-DYS-007` | `assets/art/char/char_seyyar_kalayci_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-007](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-007) |
+| `PORTRE-DYS-008` | `assets/art/char/char_tasci_kalfasi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-008](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-008) |
+| `PORTRE-DYS-009` | `assets/art/char/char_firinci_ali_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-009](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-009) |
+| `PORTRE-DYS-010` | `assets/art/char/char_sarac_kalfasi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-010](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-010) |
+| `PORTRE-DYS-011` | `assets/art/char/char_yarali_nobetci_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-011](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-011) |
+| `PORTRE-DYS-012` | `assets/art/char/char_surgun_katip_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-012](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-012) |
+| `PORTRE-DYS-013` | `assets/art/char/char_dervis_burhan_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-013](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-013) |
+| `PORTRE-DYS-014` | `assets/art/char/char_kacak_madenci_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-014](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-014) |
+| `PORTRE-DYS-015` | `assets/art/char/char_turkmen_anasi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-015](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-015) |
+| `PORTRE-DYS-016` | `assets/art/char/char_tovbekar_harami_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-016](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-016) |
+| `PORTRE-DYS-017` | `assets/art/char/char_degirmenci_mihali_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-017](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-017) |
+| `PORTRE-DYS-018` | `assets/art/char/char_avci_kara_bekir_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-018](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-018) |
+| `PORTRE-DYS-019` | `assets/art/char/char_asik_kul_dertli_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-019](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-019) |
+| `PORTRE-DYS-020` | `assets/art/char/char_seyyar_nalbant_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-DYS-020](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-dys-020) |
+| `PORTRE-KOY-AYDOGDU` | `assets/art/char/char_aydogdu_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-KOY-AYDOGDU](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-koy-aydogdu) |
+| `PORTRE-KOY-AYSE-BACI` | `assets/art/char/char_ayse_baci_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-KOY-AYSE-BACI](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-koy-ayse-baci) |
+| `PORTRE-KOY-HASAN-CELEBI` | `assets/art/char/char_hasan_celebi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-KOY-HASAN-CELEBI](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-koy-hasan-celebi) |
+| `PORTRE-KOY-KARACA-USTA` | `assets/art/char/char_karaca_usta_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-KOY-KARACA-USTA](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-koy-karaca-usta) |
+| `PORTRE-KOY-MIRAEN` | `assets/art/char/char_miraen_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-KOY-MIRAEN](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-koy-miraen) |
+| `PORTRE-KOY-NOGAY` | `assets/art/char/char_nogay_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-KOY-NOGAY](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-koy-nogay) |
+| `PORTRE-KOY-SARUCA-HATUN` | `assets/art/char/char_saruca_hatun_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-KOY-SARUCA-HATUN](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-koy-saruca-hatun) |
+| `PORTRE-KOY-SORHAN` | `assets/art/char/char_sorhan_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-KOY-SORHAN](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-koy-sorhan) |
+| `PORTRE-KOY-THESSRA` | `assets/art/char/char_thessra_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-KOY-THESSRA](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-koy-thessra) |
+| `PORTRE-KOY-YUSUF` | `assets/art/char/char_yusuf_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | [Prompt PORTRE-KOY-YUSUF](arayuz/DIYALOG_ASSET_PROMPTLARI.md#portre-koy-yusuf) |
+
 ## Ses ve diğer görsel dışı ihtiyaçlar
 
 Ses/müzik, font ve GPL/ASE palet dosyaları 2D resim değildir; Nano Banana ile üretilmez, 3D kuyruğuna da sokulmaz. Ses ihtiyaçları kaynak taramasının A3 ve C3 bölümlerinde korunur. Mevcut fontlar ve teslim edilmiş modeller yeniden eksik sayılmaz. Lisans/kaynak kayıtları silinmemiştir.

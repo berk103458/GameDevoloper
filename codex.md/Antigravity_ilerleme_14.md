@@ -18,10 +18,10 @@
   - [x] **Parti A5 — KVR-SES-01 (Öncelik 5):** Kapı Nöbetinde Dinamik Hava ve Ayaz Replikleri (4 hava türü, replik havuzları, adaptör notu, UYGULA.md hazırlandı)
   - [x] **Parti A6 — ANL-EPI-01 (Öncelik 6):** 30. Gün / Kış Sonu Kişisel Epilog Ekranı (6 kader kartı, ikili durum koşulları, adaptör notu, UYGULA.md hazırlandı)
   - [x] **Parti A7 — SES-DIL-01 (Öncelik 7):** Seslendirme Hazırlığı İçin Vurgu ve Reji Notları (tipolojik reji kartları, tempo/duygu yönergeleri, teknik standartlar hazırlandı)
-- [ ] **Bölüm B — Portre Promptlarını Tamamla (30 Yeni Portre Promptu):**
-  - [ ] Ziyaretçi 01–20 Portreleri (`PORTRE-DYS-001` … `PORTRE-DYS-020`)
-  - [ ] 10 İsimli Köylü Portresi (`PORTRE-KOY-AYDOGDU` … `PORTRE-KOY-YUSUF`)
-  - [ ] `docs/arayuz/DIYALOG_ASSET_PROMPTLARI.md` ve `docs/EKSIK_ASSET_ENVANTERI.md` güncellenmesi
+- [x] **Bölüm B — Portre Promptlarını Tamamla (30 Yeni Portre Promptu):**
+  - [x] Ziyaretçi 01–20 Portreleri (`PORTRE-DYS-001` … `PORTRE-DYS-020`) — 20 tekil ziyaretçi portresi tamamlandı
+  - [x] 10 İsimli Köylü Portresi (`PORTRE-KOY-AYDOGDU` … `PORTRE-KOY-YUSUF`) — 10 isimli köylü portresi tamamlandı
+  - [x] `docs/arayuz/DIYALOG_ASSET_PROMPTLARI.md` ve `docs/EKSIK_ASSET_ENVANTERI.md` güncellenmesi (30 yeni Nano Banana promptu ve envanter kaydı eklendi)
 - [ ] **Bölüm C — Bitirme & Doğrulama:**
   - [ ] Doğrulayıcılar ve testlerin tam koşumu (0 hata)
   - [ ] `docs/DIYALOG_GECE_OZETI.md` 8. bölüm eklenmesi
@@ -31,4 +31,4 @@
 ---
 
 ## Sonraki Adım
-Bölüm B: Portre promptlarının tamamlanması (Ziyaretçi 01–20 ve 10 isimli köylü için 30 yeni Nano Banana promptu).
+Bölüm C: Doğrulayıcıların ve testlerin çalıştırılması, özet dokümanların yazılması ve mühürleme.

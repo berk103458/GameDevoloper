@@ -38,6 +38,36 @@
 | `SON-DYS-KURTULUS` | `assets/art/env/son_veba_karantina_kurtulus.png` | 1920×1080 | Opak RGB | Oyun Sonu 4 — Salgını Yenen Umutlu Bahar |
 | `SON-DYS-DIRENIS` | `assets/art/env/son_harami_kusatmasi_direnis.png` | 1920×1080 | Opak RGB | Oyun Sonu 5 — Surlarda Destansı Savunma |
 
+| `PORTRE-DYS-001` | `assets/art/char/char_rencber_hamza_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 01 — Rençber Hamza |
+| `PORTRE-DYS-002` | `assets/art/char/char_kayserili_cuhaci_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 02 — Kayserili Çuhacı |
+| `PORTRE-DYS-003` | `assets/art/char/char_bozgun_neferi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 03 — Bozgun Askeri Neferi |
+| `PORTRE-DYS-004` | `assets/art/char/char_coban_yusuf_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 04 — Toros Çobanı Yusuf |
+| `PORTRE-DYS-005` | `assets/art/char/char_demirci_hasan_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 05 — Demirci Kalfası Hasan |
+| `PORTRE-DYS-006` | `assets/art/char/char_silahsiz_piyade_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 06 — Silahsız Piyade |
+| `PORTRE-DYS-007` | `assets/art/char/char_seyyar_kalayci_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 07 — Seyyar Kalaycı |
+| `PORTRE-DYS-008` | `assets/art/char/char_tasci_kalfasi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 08 — Taşçı Kalfası |
+| `PORTRE-DYS-009` | `assets/art/char/char_firinci_ali_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 09 — Fırıncı Çırağı Ali |
+| `PORTRE-DYS-010` | `assets/art/char/char_sarac_kalfasi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 10 — Saraç Kalfası |
+| `PORTRE-DYS-011` | `assets/art/char/char_yarali_nobetci_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 11 — Yaralı Nöbetçi |
+| `PORTRE-DYS-012` | `assets/art/char/char_surgun_katip_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 12 — Sürgün Kadı Kâtibi |
+| `PORTRE-DYS-013` | `assets/art/char/char_dervis_burhan_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 13 — Gezgin Derviş Burhan |
+| `PORTRE-DYS-014` | `assets/art/char/char_kacak_madenci_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 14 — Kaçak Madenci |
+| `PORTRE-DYS-015` | `assets/art/char/char_turkmen_anasi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 15 — Türkmen Anası Saruca |
+| `PORTRE-DYS-016` | `assets/art/char/char_tovbekar_harami_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 16 — Tövbekâr Harami |
+| `PORTRE-DYS-017` | `assets/art/char/char_degirmenci_mihali_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 17 — Rum Değirmenci Mihali |
+| `PORTRE-DYS-018` | `assets/art/char/char_avci_kara_bekir_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 18 — Avcı Kara Bekir |
+| `PORTRE-DYS-019` | `assets/art/char/char_asik_kul_dertli_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 19 — Saz Aşığı Kul Dertli |
+| `PORTRE-DYS-020` | `assets/art/char/char_seyyar_nalbant_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Ziyaretçi 20 — Seyyar Nalbant |
+| `PORTRE-KOY-AYDOGDU` | `assets/art/char/char_aydogdu_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Köylü — Okçu Aydoğdu |
+| `PORTRE-KOY-AYSE-BACI` | `assets/art/char/char_ayse_baci_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Köylü — Ayşe Bacı |
+| `PORTRE-KOY-HASAN-CELEBI` | `assets/art/char/char_hasan_celebi_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Köylü — Kâtip Hasan Çelebi |
+| `PORTRE-KOY-KARACA-USTA` | `assets/art/char/char_karaca_usta_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Köylü — Karaca Usta |
+| `PORTRE-KOY-MIRAEN` | `assets/art/char/char_miraen_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Köylü — Şifacı Miraen |
+| `PORTRE-KOY-NOGAY` | `assets/art/char/char_nogay_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Köylü — Avcı Nogay |
+| `PORTRE-KOY-SARUCA-HATUN` | `assets/art/char/char_saruca_hatun_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Köylü — Saruca Hatun |
+| `PORTRE-KOY-SORHAN` | `assets/art/char/char_sorhan_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Köylü — At Tüccarı Sorhan |
+| `PORTRE-KOY-THESSRA` | `assets/art/char/char_thessra_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Köylü — Hekim Kızı Thessra |
+| `PORTRE-KOY-YUSUF` | `assets/art/char/char_yusuf_neutral_card.png` | 600×760 | RGBA; düz #00FF00 | Köylü — Yetim Çoban Yusuf |
 ---
 
 ## Tekil Nano Banana Promptları
@@ -283,4 +313,274 @@ Create ONE actual image. Original hand-painted 2D game art for a 13th-century An
 
 ```text
 Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, atmospheric storytelling and cinematic lighting. Epic battle ending cutscene: Legendary frontier gate defense; Banu Hatun and allied horsemen standing resolute on snow-covered ramparts and gate palisade alongside the village watch, repelling mountain raiders in a dramatic winter twilight, flaming arrows arching into the dusk. No text, no letters, no numbers, no checkerboard, no UI borders, no 3D render. Use a 16:9 source canvas.
+```
+
+### 28. `PORTRE-DYS-001` — Ziyaretçi 01 — Rençber Hamza
+- **Hedef Dosya:** `assets/art/char/char_rencber_hamza_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Karaköy'ün tohumunu haramilerden kaçıran yorgun rençber, Dursun ve Turna'nın dayısı; 45 yaşlarında, güneşten ve ayazdan yanmış kırışık yüzlü. Sırtında arpa tohumu çuvalı askısı, üzerinde aba yelek ve yamalı kaba kumaş gömlek. Başında yıpranmış keçeden köylü takkesi. Gözlerinde toprak derdi ve yeğenlerini kurtarma endişesi.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Weary 45-year-old Anatolian peasant farmer (Hamza) with deeply lined sun-weathered face, stubbled hollow cheeks, coarse homespun woolen vest, frayed felt cap, carrying coarse burlap seed sack strap across chest; sorrowful yet resilient gaze of an impoverished rural laborer. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 29. `PORTRE-DYS-002` — Ziyaretçi 02 — Kayserili Çuhacı
+- **Hedef Dosya:** `assets/art/char/char_kayserili_cuhaci_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** İç Anadolu kumaş tüccarı; 40 yaşlarında, kurnaz ve etli çeneli. Başında kat kat sarılmış gösterişli kumaş sarık, sırtında yakası ince yün astarlı çuha kaftan. Boynunda pirinç dirhem terazisi askısı. Gözlerinde sürekli hesap yapan, kurnaz ve sakıngan bir tüccar bakışı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Shrewd 40-year-old Anatolian cloth merchant from Kayseri with plump jowls, calculating narrow dark eyes, finely wrapped merchant turban, heavy woolen broadcloth caftan with worn fur trim, brass coin scale cord hanging on chest; sly, observant merchant expression. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 30. `PORTRE-DYS-003` — Ziyaretçi 03 — Bozgun Askeri Neferi
+- **Hedef Dosya:** `assets/art/char/char_bozgun_neferi_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Kösedağ bozgunundan kaçan mızraklı nefer; 25 yaşlarında, toz toprak ve kurum lekeleriyle kararmış çehre. Eğrilmiş perçinli demir miğfer, yakası yırtılmış zırh gömlek. Sağ gözünün üstünde kurumuş kan kabuğu. Gözlerinde büyük meydan savaşının dehşeti ve kaçak psikolojisi.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Traumatized 25-year-old Seljuk routed foot soldier with soot-smudged hollow face, battered dented conical iron helmet, torn quilted gambeson with broken scale armor links, dried blood streak over temple; haunted shock and survivor guilt in wide exhausted eyes. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 31. `PORTRE-DYS-004` — Ziyaretçi 04 — Toros Çobanı Yusuf
+- **Hedef Dosya:** `assets/art/char/char_coban_yusuf_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Dağda sürüsü kurda kaptırılmış genç Yörük çobanı; 20 yaşlarında, sırtında kalın keçe kepenek, başında deve tüyü fes. Elinde meşe ağacından çoban kavalı ve sapan urganı. Gözlerinde hem dağ rüzgârının sertliği hem de sürüyü yitirmenin derin hüznü.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Rugged 20-year-old Taurus Mountain nomad shepherd with chapped lips, dark unruly hair under a coarse camel-hair skullcap, wrapped in a heavy raw wool felt shepherd's cloak (kepenek), wooden reed flute tucked into leather vest; stoic grief and weathered highland pride in dark eyes. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 32. `PORTRE-DYS-005` — Ziyaretçi 05 — Demirci Kalfası Hasan
+- **Hedef Dosya:** `assets/art/char/char_demirci_hasan_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Konya Ahi ocağından kaçmış demirci kalfası; 26 yaşlarında, geniş omuzlu, adaleli boyun. Yüzünde demir tozu ve ocak kömürü isi, belinde kalın meşin önlük bağı. Saçları meşin kayışla geriye bağlanmış. Gözlerinde pabuç dama atılmasın diye direnen onurlu bir zanaatkâr bakışı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Sturdy 26-year-old blacksmith journeyman with muscular neck, coal-smudged forehead and cheeks, thick leather apron strap over a coarse linen tunic, hair tied back with leather cord; proud, defiant craftsman's gaze burning with stubborn resolve. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 33. `PORTRE-DYS-006` — Ziyaretçi 06 — Silahsız Piyade
+- **Hedef Dosya:** `assets/art/char/char_silahsiz_piyade_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Sınır kalesinden firar etmiş nöbetçi; 22 yaşlarında, tıraşı uzamış, zayıf ve üşümüş. Üzerinde beylik armaları sökülmüş soluk asker cübbesi, silahsız kılıç kemeri. Sürekli arkasını kollayan, fısıltıyla konuşan adamın ürkek ve tetikte gözleri.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Panicked 22-year-old frontier garrison deserter with patchy stubble, shivering narrow shoulders, stripped military tunic where heraldic badges were roughly ripped off, empty sword belt buckle; paranoid darting eyes constantly checking shadows for pursuers. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 34. `PORTRE-DYS-007` — Ziyaretçi 07 — Seyyar Kalaycı
+- **Hedef Dosya:** `assets/art/char/char_seyyar_kalayci_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Gezgin abdal kalaycı; 38 yaşlarında, dişlek, neşeli ve hızlı konuşan çehre. Sırtında kalay körüğü askısı, boynunda lehim damlalarıyla yanmış meşin önlük. Kulak memesinde küçük bakır halka, gözlerinde gurbet neşesi ve kurnazlık.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Lively 38-year-old wandering tinker tinsmith with crooked teeth, quick witty smile, soot-stained cheeks, leather aproned tunic speckled with silvery solder burn marks, a tiny copper hoop in earlobe; shrewd wanderer's warmth and cunning in bright eyes. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 35. `PORTRE-DYS-008` — Ziyaretçi 08 — Taşçı Kalfası
+- **Hedef Dosya:** `assets/art/char/char_tasci_kalfasi_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Erzurum sur ustası ve taş yontucu; 48 yaşlarında, kireç ve taş tozuyla ağarmış gür kaşlar ve bıyıklar. Sert çatık kaşlar, nasırlı kaba eller. Üzerinde kalın keçe yelek ve taşçı önlüğü. Ağırbaşlı, az konuşan, taşın sesini dinleyen bir usta çehresi.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Burly 48-year-old master stonemason with bushy gray-streaked mustache and eyebrows coated in pale limestone dust, weathered chiselled jaw, heavy woolen felt work vest; quiet, somber dignified gaze of an experienced fortress builder. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 36. `PORTRE-DYS-009` — Ziyaretçi 09 — Fırıncı Çırağı Ali
+- **Hedef Dosya:** `assets/art/char/char_firinci_ali_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Genç fırıncı kalfası; 16 yaşlarında, yanakları fırın sıcağından al al olmuş, burnunda un lekesi. Başında beyaz keten sarık, üzerinde kolları sıvalı bez gömlek. Ustasının dayağından kaçmış, kapıda donmamak için yalvaran samimi bir genç yüzü.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Earnest 16-year-old bakery journeyman boy with flour-dusted dark curly hair, flushed rosy cheeks from oven heat, rolled-up linen sleeves, wearing a simple cloth bakers cap; hopeful, anxious pleading look seeking refuge from harsh winter cold. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 37. `PORTRE-DYS-010` — Ziyaretçi 10 — Saraç Kalfası
+- **Hedef Dosya:** `assets/art/char/char_sarac_kalfasi_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Eyer ve koşum ustası; 34 yaşlarında, bıyıkları sivri, parmakları meşin balmumuyla kararmış. Kuşağında saraç bıçağı kını ve pirinç perçinler. Yüzünde çalıntı eyer takımı taşımanın getirdiği gizli bir gerilim ve sert esnaf bakışı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Sharp-featured 34-year-old leather saddler craftsman with wax-blackened fingers, trimmed pointed mustache, thick hide apron with brass rivets and awl pocket visible at shoulder strap; guarded, suspicious glance of a craftsman guarding a costly secret. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 38. `PORTRE-DYS-011` — Ziyaretçi 11 — Yaralı Nöbetçi
+- **Hedef Dosya:** `assets/art/char/char_yarali_nobetci_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Sınır köprüsünde oktan vurulmuş nöbetçi; 30 yaşlarında, sol omzu ve göğsü kanlı keten bezlerle sıkıca sarılmış. Kireç ve ziftle dağlanmış yaranın acısıyla dişlerini sıkan, solgun ve terli çehre. Gözlerinde ölüm kalım mücadelesinin acısı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Wounded 30-year-old outpost border sentry with pale clammy skin, jaw clenched in severe pain, left shoulder and collarbone bound in bloody linen bandages with herbal poultice seep, worn studded leather jerkin; feverish, defiant soldier gaze fighting off infection. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 39. `PORTRE-DYS-012` — Ziyaretçi 12 — Sürgün Kadı Kâtibi
+- **Hedef Dosya:** `assets/art/char/char_surgun_katip_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Sivas kadılığından azledilmiş gururlu kâtip; 42 yaşlarında, sivri keçi sakallı, dar sarıklı. Parmakları mürekkep lekeli, yakası yıpranmış müderris cübbesi. Gözlerinde divandan kovulmuş olmanın kibri, küskünlüğü ve adalet açlığı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Disgraced 42-year-old exiled Islamic court scribe with trimmed goatee, dark scholarly turban, ink-stained quill fingers, frayed dark wool robe; haughty, resentful intellectual expression wounded by political betrayal. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 40. `PORTRE-DYS-013` — Ziyaretçi 13 — Gezgin Derviş Burhan
+- **Hedef Dosya:** `assets/art/char/char_dervis_burhan_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Kalenderi sufi dervişi; 55 yaşlarında, çıplak göğsünde deve yünü haydariye, boynunda akik zikir taneleri. Elinde çentikli dut ağacından asa, başında on iki dilimli külah. Gözlerinde Moğol istilasını önceden görmüş bir ermişin dalgın ve hüzünlü bilgeliği.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Enigmatic 55-year-old wandering Kalenderi mystic with long wispy graying hair, coarse wool sleeveless mantle (haydariye), agate rosary beads, pointed felt dervish cap; serene, hauntingly prophetic smile of a sage who has transcended mortal dread. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 41. `PORTRE-DYS-014` — Ziyaretçi 14 — Kaçak Madenci
+- **Hedef Dosya:** `assets/art/char/char_kacak_madenci_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Divriği demir ocaklarından kaçmış madenci; 36 yaşlarında, göğsü ve yüzü kara maden isi ve pasla kaplı, göz akları kömür karasında parlayan. Sırtında kırık demir kazma askısı, yırtık meşin yelek. Öksürükten boğulan göğüs, hürriyete kaçan adamın sert bakışı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Escaped 36-year-old iron ore miner with heavy coal soot embedded in skin pores, bloodshot dark eyes gleaming from a blackened gaunt face, ragged hide vest, broken pickaxe harness; fierce, breathless gaze of a laborer who broke free from subterranean bondage. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 42. `PORTRE-DYS-015` — Ziyaretçi 15 — Türkmen Anası Saruca
+- **Hedef Dosya:** `assets/art/char/char_turkmen_anasi_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Yaşlı ve buyurgan Türkmen anası; 58 yaşlarında, yüzünde yayla rüzgârının derin çizgileri. Başında ak bürüncük tülbent, omuzlarında koyun yünü şal, kucağında iki öksüz sabiyi koruyan kollar. Gözlerinde sabilerin rızkı için orduların önüne duracak bir ana metaneti.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Indomitable 58-year-old Turkmen matriarch with deeply furrowed weathered brow, white homespun cotton headscarf framing a strong stern face, thick sheepskin shawl pinned with antique brass brooch; fiercely protective, unyielding maternal authority. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 43. `PORTRE-DYS-016` — Ziyaretçi 16 — Tövbekâr Harami
+- **Hedef Dosya:** `assets/art/char/char_tovbekar_harami_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Dağ eşkıyalığından tövbe etmiş harami; 35 yaşlarında, sol elmacık kemiğinden boynuna uzanan derin kılıç yarası. Sırtında kurttan bozma kürk yelek, kuşağında gizli hançer kını. Gözlerinde hem eski çetesinin intikamından kaçmanın tedirginliği hem de temiz bir hayat arzusu.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Penitent 35-year-old reformed mountain bandit with a jagged scar across left cheek, dark stubbled jaw, wolf-fur trimmed rugged vest, concealed dagger sheath strap crossing chest; tense, dangerous yet remorseful gaze of an outlaw seeking redemption. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 44. `PORTRE-DYS-017` — Ziyaretçi 17 — Rum Değirmenci Mihali
+- **Hedef Dosya:** `assets/art/char/char_degirmenci_mihali_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Kapadokya Rum değirmen ustası; 52 yaşlarında, sakalı un tozundan ağarmış, nazik ve temkinli çehre. Başında yuvarlak kumaş takke, üzerinde unla beyazlaşmış iş önlüğü. Gözlerinde suyun ve taşın sesini bilen, sınır kavgalarından bıkmış bir zanaatkâr sabrı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Gentle 52-year-old Cappadocian Greek miller with flour-whitened beard and bushy eyebrows, round soft woolen cap, dusty flour-coated coarse canvas smock; patient, cautious and weary gaze of a craftsman who respects the turning wheel. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 45. `PORTRE-DYS-018` — Ziyaretçi 18 — Avcı Kara Bekir
+- **Hedef Dosya:** `assets/art/char/char_avci_kara_bekir_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Orman ve dağ avcısı; 44 yaşlarında, kurt postu başlıklı, fındık rengi keskin gözler. Kuşağında kemik kabzalı av bıçağı, sırtında porsuk derisi sadak. Yüzünde çam reçinesi ve rüzgâr yanığı, gecenin sesini dinleyen bir iz sürücü dikkati.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Vigilant 44-year-old forest hunter wearing a cured wolf-pelt hood, windburned weathered skin, badger-fur quiver strap over rough deerhide tunic; piercing hawk-like hazel eyes tuned to nocturnal danger in wild woods. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 46. `PORTRE-DYS-019` — Ziyaretçi 19 — Saz Aşığı Kul Dertli
+- **Hedef Dosya:** `assets/art/char/char_asik_kul_dertli_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Gezgin halk ozanı; 40 yaşlarında, sırtında meşin kılıfta üç telli kopuz. Yıpranmış kırmızı aba yelek, dökülen dalgalı kır saçlar. Gözlerinde gurbet türkülerinin hüznü, beylik divanlarının zulmünü sazıyla haykıran aşık bakışı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Melancholic 40-year-old wandering folk bard (aşık) with greying shoulder-length hair, worn crimson woolen vest, wooden three-stringed lute (kopuz) neck visible over shoulder; soulful, poetic eyes holding decades of exile ballads and wanderlust. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 47. `PORTRE-DYS-020` — Ziyaretçi 20 — Seyyar Nalbant
+- **Hedef Dosya:** `assets/art/char/char_seyyar_nalbant_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** At pazarı nalbant ustası; 46 yaşlarında, güçlü çeneli, parmakları demir tavı ve nal yağı lekeli. Göğsünde demir mıh torbası ve kerpeten askısı, kalın manda derisi önlük. Gözlerinde atın toynağından hastalığını anlayan pratik ve dobra bir esnaf mizacı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Sturdy 46-year-old itinerant farrier horse-shoer with thick forearms, oil-stained thick bull-hide apron, pincers and iron horseshoe nails hanging from leather belt; pragmatic, blunt and honest gaze of a seasoned horse healer. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 48. `PORTRE-KOY-AYDOGDU` — Köylü — Okçu Aydoğdu
+- **Hedef Dosya:** `assets/art/char/char_aydogdu_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Kösedağ gazisi Avşar Türkmeni okçu; 28 yaşlarında, sol kolu bezle sıkı sargılı amma sağ eli yay kabzasında. Başında kulaklıklı keçe börk, sırtında huş ağacı yay ve tilki kuyruğu takılı sadak. Gözlerinde beylik umudu ve savaşçı dikkati.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Proud 28-year-old Avshar Turkmen archer (Aydoğdu) with bandaged left arm, resolute jaw, wearing a felt combat cap with earflaps, birch recurve bow and fur quiver strap across chest; hardened warrior gaze of a battle-tested marksman. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 49. `PORTRE-KOY-AYSE-BACI` — Köylü — Ayşe Bacı
+- **Hedef Dosya:** `assets/art/char/char_ayse_baci_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Kayseri Bacıyan-ı Rum teşkilatından dokuma ustası; 45 yaşlarında, sırtında portatif katlanır dokuma tezgâhı ayağı. Başında temiz toprak rengi bürüncük tülbent, üzerinde nakışlı yün yelek. Gözlerinde analık şefkati, esnaf disiplini ve çıraklarına kol kanat geren usta vakarı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Venerable 45-year-old master weaver woman (Ayşe Bacı) of the Baciyan-i Rum guild, draped in a modest beige linen headscarf, embroidered artisan vest, carrying a compact wooden weaving loom frame; dignified, nurturing and authoritative guild-mother expression. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 50. `PORTRE-KOY-HASAN-CELEBI` — Köylü — Kâtip Hasan Çelebi
+- **Hedef Dosya:** `assets/art/char/char_hasan_celebi_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Sivas divanı vergi kâtibi; 38 yaşlarında, iyi dikilmiş lacivert çuha kaftan, ince sarık. Parmak uçları ve tırnak dipleri siyah divit mürekkebiyle boyanmış. Yanında mühürlü meşin vergi kütüğü çantası. Gözlerinde bürokratik dürüstlük ve köyü nizamla yaşatma arzusu.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Erudite 38-year-old imperial tax scribe (Hasan Çelebi) with neat trimmed beard, elegant navy-blue scholar robe, dark ink stains on fingertips, small rolled scroll tucked into sash; intelligent, meticulous and quietly honorable administrative gaze. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 51. `PORTRE-KOY-KARACA-USTA` — Köylü — Karaca Usta
+- **Hedef Dosya:** `assets/art/char/char_karaca_usta_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Köyün demirci ve nalbant piri, Kayseri Ahi ustası; 50 yaşlarında, kırlaşmış gür sakallı, belinde yeşil Ahi şeddi kuşağı. Üzerinde isli kalın manda derisi önlük. Gözlerinde adaleti örs üstünde tartan bir usta ciddiyeti ve esnaf babalığı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Respected 50-year-old master village blacksmith and tanner (Karaca Usta) with thick salt-and-pepper beard, green woven Ahi guild sash around waist, heavy soot-stained leather forge apron; stern, deeply fair and venerable patriarch expression. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 52. `PORTRE-KOY-MIRAEN` — Köylü — Şifacı Miraen
+- **Hedef Dosya:** `assets/art/char/char_miraen_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Köyün kadim otacı ve şifacısı; 62 yaşlarında, yüzü kırışık ve nurani. Boynunda kurutulmuş dağ nanesi ve kantaron demetleri, başında mor desenli pamuklu örtü. Gözlerinde yüz yıllık otların sırrını bilen, merhametli ve bilge bir hekim bakışı.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Wise 62-year-old village herbalist and apothecary grandmother (Miraen) with gentle wrinkling face, deep soulful dark eyes, draped in an indigo-patterned cotton shawl, sprigs of dried mountain thyme and yarrow hung around neck; compassionate, mystical healer's warmth. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 53. `PORTRE-KOY-NOGAY` — Köylü — Avcı Nogay
+- **Hedef Dosya:** `assets/art/char/char_nogay_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Bozkır iz sürücüsü ve köy avcısı; 32 yaşlarında, çekik keskin gözlü, seyrek bıyıklı. Başında samur kürk börk, sırtında kemik kakmalı boynuz yay ve tilki kürkleri. Gözlerinde ormanın en gizli kıpırtısını anında sezen avcı refleksi.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Keen-eyed 32-year-old steppe hunter and tracker (Nogay) with high cheekbones, sparse mustache, conical fur-trimmed felt hat (börk), raw deerskin tunic, bone-inlaid bow strap crossing chest; silent, razor-sharp predator focus in dark slanted eyes. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 54. `PORTRE-KOY-SARUCA-HATUN` — Köylü — Saruca Hatun
+- **Hedef Dosya:** `assets/art/char/char_saruca_hatun_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Köyün oba anası ve akıl hocası; 65 yaşlarında, vakur ve bilge Türkmen kadını. Başında altın sikkeli gümüş alınlık takılı ak tülbent, üzerinde sırmalı kadife cepken. Gözlerinde beylik töresini ayakta tutan çelik gibi bir irade ve ana şefkati.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Noble 65-year-old Turkmen clan matriarch (Saruca Hatun) wearing an immaculate white veil adorned with silver coin brow ornaments, embroidered dark velvet bodice; majestic, fiercely wise and venerable countenance of a frontier clan elder. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 55. `PORTRE-KOY-SORHAN` — Köylü — At Tüccarı Sorhan
+- **Hedef Dosya:** `assets/art/char/char_sorhan_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Kıpçak at tüccarı ve eski akıncı; 36 yaşlarında, rüzgâr yanığı bronz ten, örülü saç tutamı. Boynunda at kılından nazarlık, üzerinde perçinli süvari deri yeleği. Gözlerinde bozkır fırtınalarının yabaniliği ve at cambazı gururu.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Weathered 36-year-old Kipchak horse merchant and veteran raider (Sorhan) with braided dark scalp lock, chapped sun-bronzed skin, braided horsehair talisman around neck, riveted leather horseman's vest; proud, restless equestrian wildness in steely eyes. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 56. `PORTRE-KOY-THESSRA` — Köylü — Hekim Kızı Thessra
+- **Hedef Dosya:** `assets/art/char/char_thessra_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Trabzonlu Rum tabip kızı; 24 yaşlarında, zeytin yeşili zeki ve temkinli gözler. Başında zarif dantelli tülbent, boynunda küçük yeşim taşlı gümüş haç. Kucağında sedir ağacından minik ecza kutusu askısı. Gözlerinde hem gurbet tedirginliği hem de cerrahlık cesareti.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Intelligent 24-year-old Pontic Greek physician's daughter (Thessra) with observant olive-green eyes, fine dark lace veil pinned over braided hair, dark wool tunic with clean linen cuffs, small cedarwood apothecary case strap; cautious, proud medical scholar's poise. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
+```
+
+### 57. `PORTRE-KOY-YUSUF` — Köylü — Yetim Çoban Yusuf
+- **Hedef Dosya:** `assets/art/char/char_yusuf_neutral_card.png`
+- **Boyut:** 600×760 | **Saydamlık / Zemin:** RGBA; düz #00FF00
+- **Karakter ve Sahne Tarifi:** Köyün 12 yaşındaki öksüz keçicisi; zayıf, çilli yanaklı, dağınık saçlı delikanlı. Elinde boş keçi urganı parçası, üzerinde babasından kalma kolları katlanmış eski yün yelek. Gözlerinde hem yetim kalmanın hüznü hem de bir lokma ekmek ve şefkat bekleyen masumiyet.
+
+```text
+Create ONE actual image. Original hand-painted 2D game art for a 13th-century Anatolian frontier gatekeeper; matte smoky timber, worn iron, charcoal #10171C, wood #30251F, iron #58616A, amber #C88A43 and ivory #E6DDC6; restrained ink-and-gouache brushwork, readable silhouettes and quiet space. One shoulders-up portrait: Gaunt 12-year-old orphan goatherd boy (Yusuf) with tousled brown hair, freckled sun-chapped nose, oversized patched woolen vest with frayed hem, clutching a frayed hemp goat tether rope; poignantly innocent, vulnerable and quietly longing expression. No frame, props or surrounding scene. Use uniform solid #00FF00 green outside the complete object for later masking; no green in the object, no green reflections, no shadow on the background. Leave clear space around the object. no text, no letters, no numbers, no checkerboard, no palette labels, no contact sheet, no 3D render. Use a 4:5 source canvas.
 ```
