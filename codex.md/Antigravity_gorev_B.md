@@ -1,10 +1,11 @@
-﻿# Paralel Antigravity ajanı B — Eşin geçmişi ve seslendirme notları (Kaşif, 4 Kasım 2026 09:30)
+﻿# Paralel Antigravity ajanı B — Seslendirme ve dil kılavuzu (Kaşif, 4 Kasım 2026 09:35)
 
 İlerleme dosyası: `codex.md/Antigravity_ilerleme_B.md`.
 
+**Önemli (09:35 güncellemesi):** ES-GECM-01, ANL-DON-01, SOY-SON-01 ve MECLIS-ARA-01 ana ajan tarafından zaten yapıldı ve festive'de. Önce `git fetch origin` + `git merge origin/claude/festive-volta-li1sfm` yap. Ana ajan şu an yalnızca ANL-EPI-01 epilog metinleri üzerinde çalışıyor; ona dokunma. Başlamadan önce kendi maddenin festive'de zaten yapılıp yapılmadığına bak (ROADMAP_2.md işareti ve dosyalar); yapılmışsa tekrar yazma, eksikleri tamamla.
+
 ## Senin maddelerin
-1. **ES-GECM-01** — Eşin geçmişi: oda sohbetinde (`koylu_muhabbet_es.ds` ve ilgili Parley dosyaları) 3 yeni derin dal: eski köyün yangını ve göç; yetimler, çocuk arzusu ve kaybetme korkusu; nöbette Muhafız'a destek (ıhlamur, yorgunluğa küçük etki; mekanik kısmı küçükse yap, değilse Kalfa'ya not).
-2. **SES-DIL-01** — `docs/SESLENDIRME_REJI_KILAVUZU.md`: karakter başına ses tonu, duygu, nefes ve duraklama notları; ana karakterler ve 30 ziyaretçi.
+1. **SES-DIL-01** — `docs/SESLENDIRME_REJI_KILAVUZU.md`: karakter başına ses tonu, yaş, ağız/şive, duygu aralığı, nefes ve duraklama notları; ana karakterler (Muhafız, eş, köylüler) ve 30 ziyaretçi. Her karakter için 2 örnek replik (TR + EN) ve reji notu. ROADMAP_2.md'de SES-DIL-01'i işaretle.
 
 ## Ortak kurallar (her paralel ajan için)
 - Sen paralel çalışan 4 Antigravity ajanından birisin. Klasörün ve dalın sadece sana ait (`agy/paralel-B`). Başka ajanın maddesine dokunma.
