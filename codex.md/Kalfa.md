@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-40 tamamlandı (Kalfa)
+
+Mevcut şifalı ot testi salgınsız gerçek gecede afyon 0 ve ot raporu 0 doğruladı. Toplayıcı tavanı, gizli hastalık, görev ve kayıt kontrolleri geçti. DEN-36 ölçüm kararı bekliyor. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-39 tamamlandı (Kalfa)
 
 Mevcut çıraklık testi dördüncü gecede stat 3 ve tamamlanmamış eğitim, beşinci gecede stat 6 ve yarı ustalık doğruladı. Gerçek gece ve kayıt ikizi kontrolü geçti. UZM-04 süresi aynı kaynaktan okunur. Asset gerekmedi. kota görünmüyor.

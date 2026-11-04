@@ -3603,7 +3603,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: UZM-04. Boyut: S.
   - Dosya: `tests/unit/denge/meslek_verim_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-40:** Boştaki vasıfsız, salgında ot toplar.
+- [x] **DEN-40:** (Kalfa) Boştaki vasıfsız, salgında ot toplar.
   - Ne: KRI-15 kuralı durur. Denge, salgınsız günde ot toplanmadığını ölçer.
   - Kabul: KRI-15 kuralı durur. Denge, salgınsız günde ot toplanmadığını ölçer. Test: salgın yok, afyon 0.
   - Bağımlılık: KRI-15. Boyut: S.

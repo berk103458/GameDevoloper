@@ -1,3 +1,9 @@
+## 4 Kasım 2026 — DEN ölçümleri (Kalfa)
+
+DEN-30–34 ve DEN-39–40 tamamlandı, ayrı commitlerle festive dalına gönderildi. Aynı tohumda 20 gece aç üretim 5, tok üretim 27 taş. Üç açlık ölümü mevcut cenaze durumunda ve raporunda 3 olarak doğrulandı. Bar/denge gözlemleri kayıt fotoğrafını değiştirmedi. Atölyesiz kumaşçı 10 gecede 10 mevcut uyarı taşıdı. Çıraklık 4/5. gece sınırı ve salgınsız afyon 0 doğrulandı. 34 hedefli Python testi, hedefli Godot kontrolleri ve ikinci headless import geçti; ilk import MD5 hatalıydı.
+
+DEN-29 açıklaması: 0 ölüm tüm nüfusun hayatta kalması değildir; normal isyan/firar açıktır. DEN-35, açık ISG-03’ü bekler. DEN-37/38, testx’in ACL-02 sahipliğini bekler. DEN-36 için chr_028’in geçici yün eğirme uygunluğu ile ekonomik değer ölçümü seçimi Ahmet’e soruldu. Asset gerekmedi. ds aynası yok, Ahmet masaüstünde fetch yapıldı. kota görünmüyor.
+
 ## 3 Kasım 2026 — ISG-01 tamamlandı (Kalfa)
 
 Karar paneli eksik hazır meslek yapısını gösterir. Erzak payı EKO-09, verim ISG-02 tablosundan okunur. Meslek, panel, aile paneli ve uzmanlık testleri ile headless import geçti. Asset gerekmedi. kota görünmüyor.
