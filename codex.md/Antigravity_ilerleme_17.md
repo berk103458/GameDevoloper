@@ -47,5 +47,15 @@
     - `ROADMAP_2.md` üzerinde `ANL-DON-01 [x] (Antigravity)` olarak işaretlendi.
   - [x] `tests/unit/diyalog/es_gecmis_ve_donusler_test.gd` birim testi yazıldı ve 0 hatayla geçti.
   - [x] Commit & Fast-Forward Push: `feat(ES-GECM-01, ANL-DON-01): Eşin geçmişi anlatı yayları ve ziyaretçi geri dönüş döngüsü entegrasyonu (Antigravity); asset gerekmedi`
-- [ ] **Parti 4 — SOY-SON-01 & MECLIS-ARA-01 Uygulanması**
+- [x] **Parti 4 — SOY-SON-01 & MECLIS-ARA-01 Uygulanması:**
+  - [x] **SOY-SON-01 (Söylenti Ağının Somut Olaylara Kapanışı):**
+    - 5 somut kapanış olayı (`soylenti_degirmen_kapanis`, `soylenti_kuyu_kapanis`, `soylenti_tekfur_araba_kapanis`, `soylenti_mogol_casus_kapanis`, `soylenti_vebali_kumas_kapanis`) `data/olaylar/*.tres` olarak oluşturuldu.
+    - `src/sistemler/soylenti_agi.gd` içine `soylenti_kapanis_olayi_al` ve `soylenti_kapanisi_uygula` fonksiyonları eklendi.
+    - `data/metin/metinler.csv` içine 10 yeni metin satırı (TR & EN) eklendi.
+    - `ROADMAP_2.md` üzerinde `SOY-SON-01 [x] (Antigravity)` olarak işaretlendi.
+  - [x] **MECLIS-ARA-01 (Çınar Meclisi İnteraktif Dava Sistemi):**
+    - `data/parley/koy/meclis_davalari.ds` ve `data/parley/en/koy/meclis_davalari.ds` oluşturuldu (Karaca Usta vs Yusuf balta davası, Ayşe Bacı vs Çuhacı boya davası, Aydoğdu vs Molla Şükrü mera davası, Thessra vs Miraen şifahane davası).
+    - `ROADMAP_2.md` üzerinde `MECLIS-ARA-01 [x] (Antigravity)` olarak işaretlendi.
+  - [x] `tests/unit/kvr/soylenti_ve_meclis_davalari_test.gd` birim testi yazıldı ve 0 hatayla geçti.
+  - [x] Commit & Fast-Forward Push: `feat(SOY-SON-01, MECLIS-ARA-01): Söylenti kapanış olayları ve Çınar Meclisi interaktif dava sistemi (Antigravity); asset gerekmedi`
 - [ ] **Parti 5 — ANL-EPI-01, KVR-SES-01, SES-DIL-01 & Bitiş**

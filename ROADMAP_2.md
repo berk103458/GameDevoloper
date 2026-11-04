@@ -3630,7 +3630,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ODA-12. Boyut: S.
   - Dosya: `tests/unit/denge/rusvet_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-44:** Yirmi rüşvet, müfettiş eşiğine gider.
+- [x] **DEN-44:** (Kalfa) Yirmi rüşvet, müfettiş eşiğine gider.
   - Ne: ODA-07 eşiği değişmez. Ölçüm, tablodaki rüşvet sayısında teftiş bayrağının açıldığını söyler. Sayı dosyadadır ve ODA eşiğiyle aynı olmalıdır. Farklıysa hata.
   - Kabul: ODA-07 eşiği değişmez. Ölçüm, tablodaki rüşvet sayısında teftiş bayrağının açıldığını söyler. Sayı dosyadadır ve ODA eşiğiyle aynı olmalıdır. Farklıysa hata. Test: eşik eşitliği.
   - Bağımlılık: ODA-07, DEN-03. Boyut: M.
@@ -9048,7 +9048,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/metin/metinler.csv, src/sistemler/epilog_metin_verisi.gd.
   - Asset: asset gerekmedi.
 
-- [ ] **SOY-SON-01:** Söylenti ağının somut olaylara ve hesaplaşmalara kapanışı. (Antigravity)
+- [x] **SOY-SON-01:** Söylenti ağının somut olaylara ve hesaplaşmalara kapanışı. (Antigravity)
   - Amaç: soylenti_agi.gd içinde yayılan fısıltıların 2-3 gün sonra köy meydanında veya kapıda somut bir çözüme bağlanması.
   - Kurallar:
     1. 5 kritik söylenti (Değirmenci un hırsızlığı, kuyu zehri, Tekfur arabası, sahte hekim, gece ışığı) sonuca kavuşur.
@@ -9068,7 +9068,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/metin/metinler.csv, src/soz/hava_replik_adaptoru.gd.
   - Asset: asset gerekmedi.
 
-- [ ] **MECLIS-ARA-01:** Çınar Meclisi interaktif dava sistemi (Muhafız'ın kadı/hakem rolü). (Antigravity)
+- [x] **MECLIS-ARA-01:** Çınar Meclisi interaktif dava sistemi (Muhafız'ın kadı/hakem rolü). (Antigravity)
   - Amaç: Haftada bir Çınaraltında köylüler arası ihtilaflarda Muhafız'ın iki tarafı dinleyip delillere göre hüküm vermesi.
   - Kurallar:
     1. 4 interaktif dava: Karaca Usta vs Yusuf alet davası, Ayşe Bacı tavuk davası, tüccar borç davası, sınır taşı ihtilafı.

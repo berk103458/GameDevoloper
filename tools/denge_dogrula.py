@@ -15,6 +15,7 @@ Hatalar:
 from pathlib import Path
 import argparse
 import json
+import math
 import re
 import sys
 
@@ -285,6 +286,22 @@ def gecici_is_hatalari(denge: dict) -> list:
     return hatalar
 
 
+def teftis_esigi_hatalari(denge: dict, terazi: dict, teftis: dict) -> list:
+    """DEN-44: yalnız rüşvetle ulaşılan ilk risk sayısı kaynak eşiğine uyar."""
+    if not all(isinstance(v, dict) for v in (denge, terazi, teftis)):
+        return ["DEN-44: kaynak tabloları nesne olmalı"]
+    sayi = denge.get("teftis_rusvet_sayisi")
+    if sayi is None:
+        return []
+    agirlik = terazi.get("rusvet_agirlik")
+    esik = teftis.get("yozlasma_esigi")
+    if not all(_sayi(v) and math.isfinite(v) and v > 0 for v in (sayi, agirlik, esik)):
+        return ["DEN-44: rüşvet sayısı, ağırlık ve teftiş eşiği pozitif sayı olmalı"]
+    if sayi != int(sayi) or (sayi - 1) * agirlik >= esik or min(100, sayi * agirlik) < esik:
+        return ["DEN-44: rüşvet sayısı mevcut terazi ağırlığı ve teftiş eşiğiyle uyuşmuyor"]
+    return []
+
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -307,6 +324,7 @@ def main(argv=None) -> int:
         hatalar += acilis_kasasi_hatalari(denge)
         hatalar += aclik_kademesi_hatalari(denge)
         hatalar += gecici_is_hatalari(denge)
+        hatalar += teftis_esigi_hatalari(denge, yukle(ROOT / "data/muhafiz_terazisi.json"), yukle(ROOT / "data/sancak_teftisi.json"))
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]
     for h in hatalar:
