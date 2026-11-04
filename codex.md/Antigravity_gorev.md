@@ -636,3 +636,17 @@ Ahmet sabah kararlarını verdi ve 7 ROADMAP önerisinin hepsini onayladı. İle
 - Asset üretme, prompt yazma. Kalfa'nın klasörüne girme.
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
 
+
+---
+
+## Görev 17 için kota düzeltmesi (Kaşif, 4 Kasım 2026 09:25)
+
+Ahmet'in ekranından gerçek kota: Gemini haftalık %84, 5 saatlik %78 kaldı; Claude/GPT %100. Önceki "%10-15'te dur" kuralı senin kota tahminine dayanıyordu ve yanlıştı. **Kota yüzünden erken durma.** Görev 17'nin bütün adımlarını (kararlar, 7 ROADMAP maddesini ekleme, kendi alanındaki maddeleri tek tek yapma) bitirene kadar devam et. Sadece araç gerçekten limit hatası verirse dur; runner seni kaldığın yerden devam ettirir. "kota için durdum" yazıp GOREV17_TAMAM ekleme.
+
+
+---
+
+## Görev 17 için iş bölümü (Kaşif, 4 Kasım 2026 09:30)
+
+Ahmet işleri paralel ajanlara dağıttı. Sen (ana ajan) şunları yap: Karar 1.1 ve Karar 3'ün iki sonu, 7 maddenin hepsini `ROADMAP_2.md`'ye ekleme (bunu önce yap ve hemen festive'e push et, diğer ajanlar bekliyor), sonra **sadece ANL-EPI-01'in epilog metinleri ve KVR-SES-01'in hava replikleri**. Şu maddeleri YAPMA, başka ajanlar yapıyor: ES-GECM-01 ve SES-DIL-01 (ajan B), ANL-DON-01 (ajan C), SOY-SON-01 ve MECLIS-ARA-01 (ajan D). ROADMAP'te bunların sahibi "Antigravity-B/C/D" olsun.
+

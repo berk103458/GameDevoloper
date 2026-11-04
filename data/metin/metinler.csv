@@ -2174,3 +2174,23 @@ karar.veba.sifa.sonuc,"Tecrit hayat kurtardı. Köyde salgın yok, şükran var.
 karar.veba.kayip.baslik,Kireç Ocağında Kış Matemi,Winter Mourning at Lime Kiln
 karar.veba.kayip.metin,"Dondurucu kış ayazında sabi hummaya yenik düştü. Köye salgın yayılmadı; Moral 3 azaldı, Adalet 1 arttı, köyde ağır matem havası oluştu.","In freezing winter chill the infant succumbed to fever. Plague did not spread; Morale -3, Justice +1, heavy mourning fell upon village."
 karar.veba.kayip.sonuc,Salgın engellendi lakin can kurtarılamadı. Acı bir bedel.,Plague was halted but the life was lost. A bitter price.
+olay.soylenti_degirmen_kapanis.baslik,Değirmenci Hesabı ve Kırık Oluk,Miller's Reckoning and the Broken Trough
+olay.soylenti_degirmen_kapanis.metin,Değirmenci Mihali'nin un aşırdığı fısıltısı köylüyü Çınaraltına topladı; lakin muayenede oluğun çatlak olduğu anlaşıldı.,Whispers of Miller Mihali stealing flour brought the village to the Plane Tree; yet inspection revealed the trough was merely cracked.
+olay.soylenti_degirmen_kapanis.secenek1,"Oluğu Karaca Usta'ya tamir ettir, günah alma (Moral +1, Adalet +1)","Have Karaca Usta repair the trough, cast no blame (Morale +1, Justice +1)"
+olay.soylenti_degirmen_kapanis.secenek2,"Mihali'ye ambar kefareti kestir (Akçe +1, Adalet -1)","Impose a granary penalty upon Mihali (Coin +1, Justice -1)"
+olay.soylenti_kuyu_kapanis.baslik,Kuyu Zehri Vesvesesi,The Well Poison Rumor Dispelled
+olay.soylenti_kuyu_kapanis.metin,Kuyu suyuna harami zehir attı korkusu yayıldı. Tabip Miraen suyun palamut yaprağından acıdığını kanıtladı.,Fear spread that brigands poisoned the well. Healer Miraen proved the water was only bitter from oak leaves.
+olay.soylenti_kuyu_kapanis.secenek1,"Meydanda suyu ilk içen ol, temizlik emret (Asayiş +2, Moral +2)","Drink the water first in the square, order it cleansed (Security +2, Morale +2)"
+olay.soylenti_kuyu_kapanis.secenek2,"Kuyuyu tedbiren mühürle (Asayiş -1, Moral -1)","Seal the well as a precaution (Security -1, Morale -1)"
+olay.soylenti_tekfur_araba_kapanis.baslik,Tekfur'un Devrilen Arabası,The Tekfur's Overturned Cart
+olay.soylenti_tekfur_araba_kapanis.metin,Vadide altın yüklü araba devrildi söylentisiyle köylüler dağa koştu; devrilen araba yaşlı Rum katırcının tuz yükü çıktı.,Villagers rushed the hills on rumors of a gold cart overturned; the wreck was only an old Greek muleteer's salt shipment.
+olay.soylenti_tekfur_araba_kapanis.secenek1,"Köylüyü durdur, katırcıya 2 akçe tazminat ver (Adalet +2, Akçe -2)","Restrain villagers, pay 2 coins restitution (Justice +2, Coin -2)"
+olay.soylenti_tekfur_araba_kapanis.secenek2,"Katırcıyı sınır dışına sür (Adalet -1, Asayiş -1)","Banish the muleteer beyond borders (Justice -1, Security -1)"
+olay.soylenti_mogol_casus_kapanis.baslik,Samanlıktaki Göçmen,The Fugitive in the Hayloft
+olay.soylenti_mogol_casus_kapanis.metin,Geceleri ocakları gözetleyen Moğol casusu fısıltısı korku salmıştı; yakalanan kişi Sivas borcundan kaçan zavallı bir rençper çıktı.,Whispers of a Mongol spy scouting hearths spread panic; the captive proved to be a poor peasant fleeing Sivas debts.
+olay.soylenti_mogol_casus_kapanis.secenek1,"Ahilik kefaletine ver, demirhaneye çırak yap (Nüfus +1, Asayiş +1)","Grant Ahi bond, apprentice him to the forge (Population +1, Security +1)"
+olay.soylenti_mogol_casus_kapanis.secenek2,"Köyden kov, tedbiri elden bırakma (Moral -1, Asayiş +1)","Expel him from the village, take no risks (Morale -1, Security +1)"
+olay.soylenti_vebali_kumas_kapanis.baslik,Tezgâhtaki Çivit ve Yün,Indigo and Wool on the Loom
+olay.soylenti_vebali_kumas_kapanis.metin,Çuhacının getirdiği kumaşlarda veba olduğu iftirası çıktı. Ayşe Bacı kazanlarda yünleri kaynatıp tertemiz olduğunu gösterdi.,"Rumors claimed the draper's cloth bore plague. Sister Ayse boiled the fleeces, proving them spotless."
+olay.soylenti_vebali_kumas_kapanis.secenek1,"İftirayı çarşıda teşhir et, pazar nizamını sağla (Adalet +2, Moral +1)","Denounce the slanderer, uphold market order (Justice +2, Morale +1)"
+olay.soylenti_vebali_kumas_kapanis.secenek2,"Kumaşları ihtiyat için ambarda beklet (Adalet -1, Moral -1)","Hold fabrics in storage for caution (Justice -1, Morale -1)"

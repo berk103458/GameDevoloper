@@ -12,11 +12,11 @@ func _initialize() -> void:
  dene(MuhafizTerazisi.durum(o)==bas,"Para varlığı tek başına yozlaşma değil")
  o.karar_ver(o._adli_gelen(&"chr_001"),&"rusvet")
  var d:=MuhafizTerazisi.durum(o)
- dene(d.rusvet==1 and d.yozlasma==5,"Gerçek rüşvet kararı makbuzu")
+ dene(d.rusvet==1 and d.yozlasma==1,"Gerçek rüşvet kararı makbuzu")
  o.koy_akce=100
  dene(KasaTransferi.uygula(o,"zimmet",5),"Gerçek zimmet işlemi")
  d=MuhafizTerazisi.durum(o)
- dene(d.zimmet==5 and d.yozlasma==10,"Tek EKO makbuzu skora bağlandı")
+ dene(d.zimmet==5 and d.yozlasma==6,"Tek EKO makbuzu skora bağlandı")
  var once:=JSON.stringify(o.kaydet())
  for i in range(4): dene(MuhafizTerazisi.durum(o)==d,"Saf tekrar okuma")
  dene(JSON.stringify(o.kaydet())==once,"Okuma kayıt/kasa/stok/RNG değiştirmedi")

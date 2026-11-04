@@ -1,0 +1,590 @@
+{
+  "schema_version": 1,
+  "name": "meclis_davalari",
+  "character_name": "Muhafız",
+  "nodes": [
+    {
+      "id": "node:start",
+      "type": "START",
+      "position": "(0.0, 0.0)"
+    },
+    {
+      "id": "node:selam",
+      "type": "DIALOGUE",
+      "position": "(350.0, 0.0)",
+      "character": "Muhafız",
+      "text": "Çınaraltı meclisi toplanmıştır; ihtilafı olan huzura gelsin, adalet terazisi kurulsun."
+    },
+    {
+      "id": "node:opt_balta",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -360.0)",
+      "character": "Muhafız",
+      "text": "Karaca Usta ile Yusuf'un kırılan balta davasını dinleyelim."
+    },
+    {
+      "id": "node:rep_balta",
+      "type": "DIALOGUE",
+      "position": "(1050.0, -360.0)",
+      "character": "Karaca Usta",
+      "text": "Bu baltayı iki gün ocakta tavladım! Yusuf kütüğe değil taşa vurup çatlatmış; ya iki akçe demir hakkını ödesin ya da körük çeksin! Yusuf ise donmuş kütüğün taştan beter olduğunu, kasten kırmadığını söyler."
+    },
+    {
+      "id": "node:opt_balta_h1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, -420.0)",
+      "character": "Muhafız",
+      "text": "Kasıt yoktur amma emanet esastır; Yusuf demirhanede 5 gün körük çekip zanaat ödesin, akçe ödemesin."
+    },
+    {
+      "id": "node:rep_balta_h1",
+      "type": "DIALOGUE",
+      "position": "(1750.0, -420.0)",
+      "character": "Karaca Usta",
+      "text": "Hüküm adildir ağam! Gelsin körük çeksin, emeğin kadrini bilsin; aramızda husumet kalmaz."
+    },
+    {
+      "id": "node:act_balta_h1",
+      "type": "ACTION",
+      "position": "(2100.0, -420.0)",
+      "description": "Ahilik Nizamı ve Adalet",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:opt_balta_h2",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, -300.0)",
+      "character": "Muhafız",
+      "text": "İki akçelik demir hakkını köy kasası karşılasın, komşuluk ve dirlik bozulmasın."
+    },
+    {
+      "id": "node:rep_balta_h2",
+      "type": "DIALOGUE",
+      "position": "(1750.0, -300.0)",
+      "character": "Yusuf",
+      "text": "Hak razı olsun ağam, köyün ocağı daim tütsün! Karaca Usta'ya borcumu başka işte öderim."
+    },
+    {
+      "id": "node:act_balta_h2",
+      "type": "ACTION",
+      "position": "(2100.0, -300.0)",
+      "description": "Köy Dirliği",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:opt_boya",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, -120.0)",
+      "character": "Muhafız",
+      "text": "Ayşe Bacı ile gezgin çuhacının boya davasını dinleyelim."
+    },
+    {
+      "id": "node:rep_boya",
+      "type": "DIALOGUE",
+      "position": "(1050.0, -120.0)",
+      "character": "Ayşe Bacı",
+      "text": "Sivas panayırına dokuduğumuz üç kıymetli kilim ziyan oldu! Bu adamın sattığı çivit boya değil, yağmurda akan mürekkep tortusudur! Çuhacı ise boyayı Tebriz kervanından aldığını, kasıt olmadığını savunur."
+    },
+    {
+      "id": "node:opt_boya_h1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, -180.0)",
+      "character": "Muhafız",
+      "text": "Çuhacı bozuk boyanın parasını iade edecek ve dokumacılara iki top yün tazminat verecektir!"
+    },
+    {
+      "id": "node:rep_boya_h1",
+      "type": "DIALOGUE",
+      "position": "(1750.0, -180.0)",
+      "character": "Ayşe Bacı",
+      "text": "Adaletin daim olsun muhafız; Bacıyan tezgâhının hakkını yedirmedin, helal olsun."
+    },
+    {
+      "id": "node:act_boya_h1",
+      "type": "ACTION",
+      "position": "(2100.0, -180.0)",
+      "description": "Çarşı Nizamı ve Adalet",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "2"
+      ]
+    },
+    {
+      "id": "node:opt_boya_h2",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, -60.0)",
+      "character": "Muhafız",
+      "text": "Kervan malında zarar yarı yarıya bölünsün; pazar nizamı bozulmasın."
+    },
+    {
+      "id": "node:rep_boya_h2",
+      "type": "DIALOGUE",
+      "position": "(1750.0, -60.0)",
+      "character": "Çuhacı",
+      "text": "Hükmüne razıyım muhafız; yabancı tüccarı ezdirmedin, köy pazarına yine gelirim."
+    },
+    {
+      "id": "node:act_boya_h2",
+      "type": "ACTION",
+      "position": "(2100.0, -60.0)",
+      "description": "Esnaf Dengesi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "1"
+      ]
+    },
+    {
+      "id": "node:opt_mera",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 120.0)",
+      "character": "Muhafız",
+      "text": "Aydoğdu ile Molla Şükrü'nün mera ve pınar davasını dinleyelim."
+    },
+    {
+      "id": "node:rep_mera",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 120.0)",
+      "character": "Aydoğdu",
+      "text": "Bu güney pınarı yüz yıldır Avşar obasını sular! Kâtip efendi kâğıt sallayıp 'pınar vakfındır, sürü yaklaşamaz' der! Molla Şükrü ise beylik divan nizamını ve kütük kaydını savunur."
+    },
+    {
+      "id": "node:opt_mera_h1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 60.0)",
+      "character": "Muhafız",
+      "text": "Kâğıt halkın kadim suyunu kesemez! Pınar hem obaya hem köye açıktır; kütük buna göre düzeltilsin!"
+    },
+    {
+      "id": "node:rep_mera_h1",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 60.0)",
+      "character": "Aydoğdu",
+      "text": "Hak razı olsun muhafız! Avşar obasının duası sur üstünde nöbetine kalkan olsun; yayla bizimdir!"
+    },
+    {
+      "id": "node:act_mera_h1",
+      "type": "ACTION",
+      "position": "(2100.0, 60.0)",
+      "description": "Kadim Hak ve Oba Birliği",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "3"
+      ]
+    },
+    {
+      "id": "node:opt_mera_h2",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 180.0)",
+      "character": "Muhafız",
+      "text": "Vakıf beratı esastır; sürü aşağı vadideki dereden sulansın, divan kütüğü bozulmasın."
+    },
+    {
+      "id": "node:rep_mera_h2",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 180.0)",
+      "character": "Molla Şükrü",
+      "text": "Divan nizamını korudun muhafız; defter tamamdır. Lakin Aydoğdu obası diş biler."
+    },
+    {
+      "id": "node:act_mera_h2",
+      "type": "ACTION",
+      "position": "(2100.0, 180.0)",
+      "description": "Kâtip Düzeni",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "-1"
+      ]
+    },
+    {
+      "id": "node:opt_sifahane",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 360.0)",
+      "character": "Muhafız",
+      "text": "Thessra ile Otacı Miraen'in ortak şifahane meselesini dinleyelim."
+    },
+    {
+      "id": "node:rep_sifahane",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 360.0)",
+      "character": "Thessra",
+      "text": "Benim damıtma tentürgülüm hummayı üç saatte düşürür; Miraen Nine köylüye korku salar! Miraen ise tentürgülde afyon ruhu olduğunu, dağ kekiğinin bin yıllık şifa olduğunu söyler."
+    },
+    {
+      "id": "node:opt_sifa_h1",
+      "type": "DIALOGUE_OPTION",
+      "position": "(1400.0, 360.0)",
+      "character": "Muhafız",
+      "text": "İkinizin de ilmi bu köye lazımdır! Thessra cerrahlığı ve ateşi alacak, Miraen otları ve kırıkları; eski kireç ocağını köy şifahanesi yapıyoruz!"
+    },
+    {
+      "id": "node:rep_sifa_h1",
+      "type": "DIALOGUE",
+      "position": "(1750.0, 360.0)",
+      "character": "Miraen",
+      "text": "Sözün başımız üstünedir muhafız; Frenk kızıyla omuz omuza verir, köyün derdine derman oluruz."
+    },
+    {
+      "id": "node:act_sifa_h1",
+      "type": "ACTION",
+      "position": "(2100.0, 360.0)",
+      "description": "Köy Şifahanesi",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "3"
+      ]
+    },
+    {
+      "id": "node:end",
+      "type": "END",
+      "position": "(2450.0, 0.0)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_start",
+      "from_node": "node:start",
+      "from_slot": 0,
+      "to_node": "node:selam",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_selam_to_balta",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_balta",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_balta_to_rep",
+      "from_node": "node:opt_balta",
+      "from_slot": 0,
+      "to_node": "node:rep_balta",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_to_h1",
+      "from_node": "node:rep_balta",
+      "from_slot": 0,
+      "to_node": "node:opt_balta_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_h1_to_rep",
+      "from_node": "node:opt_balta_h1",
+      "from_slot": 0,
+      "to_node": "node:rep_balta_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_h1_to_act",
+      "from_node": "node:rep_balta_h1",
+      "from_slot": 0,
+      "to_node": "node:act_balta_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_h1_to_end",
+      "from_node": "node:act_balta_h1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_to_h2",
+      "from_node": "node:rep_balta",
+      "from_slot": 0,
+      "to_node": "node:opt_balta_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_h2_to_rep",
+      "from_node": "node:opt_balta_h2",
+      "from_slot": 0,
+      "to_node": "node:rep_balta_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_h2_to_act",
+      "from_node": "node:rep_balta_h2",
+      "from_slot": 0,
+      "to_node": "node:act_balta_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_h2_to_end",
+      "from_node": "node:act_balta_h2",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_selam_to_boya",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_boya",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_boya_to_rep",
+      "from_node": "node:opt_boya",
+      "from_slot": 0,
+      "to_node": "node:rep_boya",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_boya_to_h1",
+      "from_node": "node:rep_boya",
+      "from_slot": 0,
+      "to_node": "node:opt_boya_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_boya_h1_to_rep",
+      "from_node": "node:opt_boya_h1",
+      "from_slot": 0,
+      "to_node": "node:rep_boya_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_boya_h1_to_act",
+      "from_node": "node:rep_boya_h1",
+      "from_slot": 0,
+      "to_node": "node:act_boya_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_boya_h1_to_end",
+      "from_node": "node:act_boya_h1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_boya_to_h2",
+      "from_node": "node:rep_boya",
+      "from_slot": 0,
+      "to_node": "node:opt_boya_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_boya_h2_to_rep",
+      "from_node": "node:opt_boya_h2",
+      "from_slot": 0,
+      "to_node": "node:rep_boya_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_boya_h2_to_act",
+      "from_node": "node:rep_boya_h2",
+      "from_slot": 0,
+      "to_node": "node:act_boya_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_boya_h2_to_end",
+      "from_node": "node:act_boya_h2",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_selam_to_mera",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_mera",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_mera_to_rep",
+      "from_node": "node:opt_mera",
+      "from_slot": 0,
+      "to_node": "node:rep_mera",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_mera_to_h1",
+      "from_node": "node:rep_mera",
+      "from_slot": 0,
+      "to_node": "node:opt_mera_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_mera_h1_to_rep",
+      "from_node": "node:opt_mera_h1",
+      "from_slot": 0,
+      "to_node": "node:rep_mera_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_mera_h1_to_act",
+      "from_node": "node:rep_mera_h1",
+      "from_slot": 0,
+      "to_node": "node:act_mera_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_mera_h1_to_end",
+      "from_node": "node:act_mera_h1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_mera_to_h2",
+      "from_node": "node:rep_mera",
+      "from_slot": 0,
+      "to_node": "node:opt_mera_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_mera_h2_to_rep",
+      "from_node": "node:opt_mera_h2",
+      "from_slot": 0,
+      "to_node": "node:rep_mera_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_mera_h2_to_act",
+      "from_node": "node:rep_mera_h2",
+      "from_slot": 0,
+      "to_node": "node:act_mera_h2",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_mera_h2_to_end",
+      "from_node": "node:act_mera_h2",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_selam_to_sifa",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_sifahane",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_sifa_to_rep",
+      "from_node": "node:opt_sifahane",
+      "from_slot": 0,
+      "to_node": "node:rep_sifahane",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_sifa_to_h1",
+      "from_node": "node:rep_sifahane",
+      "from_slot": 0,
+      "to_node": "node:opt_sifa_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_sifa_h1_to_rep",
+      "from_node": "node:opt_sifa_h1",
+      "from_slot": 0,
+      "to_node": "node:rep_sifa_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_rep_sifa_h1_to_act",
+      "from_node": "node:rep_sifa_h1",
+      "from_slot": 0,
+      "to_node": "node:act_sifa_h1",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_act_sifa_h1_to_end",
+      "from_node": "node:act_sifa_h1",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    }
+  ]
+}

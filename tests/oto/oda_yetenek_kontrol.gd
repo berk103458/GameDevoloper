@@ -16,7 +16,7 @@ func _ready() -> void:
  add_child(ana)
  var o: Oturum=ana.oturum
  o.yonetim.kabul({"ad":"Oda komşusu"})
- for i in range(8):
+ for i in range(20):
   var g:=Gelen.new()
   g.id=StringName("oda_yetenek_%d"%i)
   o.karar_ver(g,&"rusvet")

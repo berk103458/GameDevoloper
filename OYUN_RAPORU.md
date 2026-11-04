@@ -1,3 +1,9 @@
+## 4 Kasım 2026 — DEN-44, Ahmet kararı uygulandı (Kalfa)
+
+Ahmet teftiş riskinin 20 rüşvette açılmasını seçti. Tek kaynak data/muhafiz_terazisi.json içindeki rüşvet ağırlığı 5’ten 1’e indirildi; teftiş puan eşiği 20 kaldı. Bu tercih mevcut kayıt makbuzlarından türetilen diğer rüşvet/yozlaşma sonuçlarının katkısını da azaltır. Zimmet, haksızlık ve haraç ağırlıkları değişmedi. Denge tablosunda teftis_rusvet_sayisi=20; doğrulayıcı ilk risk sayısının terazi ve ODA-07 kaynağıyla uyuşmasını denetler.
+
+19 gerçek rüşvette RNG çekilmedi, 20’de mevcut teftiş risk dalı açıldı. Mevcut ilk teftiş gecesi, tekrar aralığı ve bulunma olasılığı geçerlidir; yirminci rüşvet anında kesin teftiş yapılmaz. Terazi, adalet yeteneği, yoz yetenek, epilog, DEN rüşvet, gerçek teftiş UI ve oda yetenek UI hedefli kontrolleri geçti. 36 Python testi ve gerçek tablo doğrulaması geçti. Import ve recovery parse 0 koduyla, SCRIPT ERROR/Failed to load script olmadan bitti; yeni çekilen ortak sürümde editor kapanışında 381 ObjectDB/295 kaynak sızıntısı raporu sürüyor, hatasız import diye raporlanmıyor. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-43 ve DEN-46 tamamlandı (Kalfa)
 
 Tek gerçek rüşvet, mevcut ODA-12 sayacını 1 ve skoru tablo ağırlığı kadar artırdı. Terazi/dengeyi 20 kez okumak kaydı değiştirmedi. Hazır işyerindeki esnafa rağmen yetenek kapalıyken 20 haraç çağrısı 0 döndürdü; kasa, moral ve gece makbuzu korunuyor. Hedefli headless test geçti. İlk import MD5 hataları verdi, ikinci import hatasız tamamlandı. Asset gerekmedi. kota görünmüyor.
