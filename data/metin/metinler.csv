@@ -2136,3 +2136,11 @@ koy.coban.agila,Sürüyü ağıla götürüyor
 arayuz.menu.surum,%s
 arayuz.menu.daha_once,daha önce: %s
 arayuz.demo.bitti,Köy oturdu.
+nobet.rapor.devir,"Kapı nöbetini %s devretti, direği %s devraldı."
+nobet.rapor.sabaha_kalmadi,Nöbette duran nefer sabaha çıkamadı; kapı direği sahipsiz kaldı.
+nobet.rapor.bos,Kapı direğinde bu gece nöbetçi yoktu; kapı sahipsiz ve boş bekledi.
+nobet.rapor.sayim,Gece boyu kapıya %d kişi yanaştı; nöbetçi %d kişiyi fark edemedi.
+nobet.rapor.tipi_bos,Kuduran kış tipisinde göz gözü görmedi; kapıya kimse yanaşmadı.
+nobet.rapor.tipi,Tipi ve dondurucu ayazda nöbetçi önünü göremedi; karanlıkta kapıdan sızanlar oldu.
+nobet.rapor.uyudu,Nöbetçi ayazda uyuyakaldı; kapıya yaklaşanlar karanlıkta kayboldu.
+sabah.hukum.satir,Divan kararı: %s hakkında %s hükmü verildi.
