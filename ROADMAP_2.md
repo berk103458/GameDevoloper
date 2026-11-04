@@ -9038,7 +9038,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/parley/koy/koylu_muhabbet_es.ds, data/parley/en/koy/koylu_muhabbet_es.ds.
   - Asset: asset gerekmedi.
 
-- [ ] **ANL-EPI-01:** 30. gün / kış sonu kişisel epilog ve akıbet raporu. (Metin: Antigravity, Kod: Kalfa)
+- [x] **ANL-EPI-01:** 30. gün / kış sonu kişisel epilog ve akıbet raporu. (Metin ve veri adaptörü: Antigravity; UI arayüz kodu: Kalfa bekleniyor)
   - Amaç: Ağalık kışının sonunda kapı kararlarının her karakter için somut sonucunu gösteren kişisel epilog kartları.
   - Kurallar:
     1. Metin ve veri adaptörü: Antigravity tarafından hazırlanır (epilog.* anahtarları ve bayrak eşleşmeleri).
@@ -9058,7 +9058,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/olaylar/, src/sistemler/soylenti_agi.gd.
   - Asset: asset gerekmedi.
 
-- [ ] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin: Antigravity, Kod: Kalfa)
+- [x] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin ve adaptör: Antigravity; hava motoru: Kalfa)
   - Amaç: Sert Anadolu kışını hissettirmek için hava durumu ve ayaza bağlı dinamik açılış replikleri eklenmesi.
   - Kurallar:
     1. Tipi, fırtına ve ayazda ziyaretçinin ve muhafızın diş vurma/titreme replikleri (kapi.hava.*).
@@ -9078,7 +9078,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/parley/koy/meclis_davalari.ds, data/parley/en/koy/meclis_davalari.ds.
   - Asset: asset gerekmedi.
 
-- [ ] **SES-DIL-01:** Karakter kartlarına ve repliklere seslendirme reji kılavuzu. (Antigravity)
+- [x] **SES-DIL-01:** Karakter kartlarına ve repliklere seslendirme reji kılavuzu. (Antigravity)
   - Amaç: Gelecekteki seslendirme (VA / AI dublaj) için 13. yy dönem dili tonlama, duygu, nefes ve duraklama kılavuzu hazırlanması.
   - Kurallar:
     1. 30 ziyaretçi ve başlıca köylüler için fonetik ve reji direktifleri yazılır.

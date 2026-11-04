@@ -864,3 +864,33 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - Kullanıcı Kuralı: Kullanıcının açık talimatı ("Commit and push only to feature/diyalog-yeniden-yazim") uyarınca yalnızca `feature/diyalog-yeniden-yazim` dalına commit ve push atıldı.
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_16.md` son satırı `GOREV16_TAMAM` ile mühürlendi.
 - **Kota:** %15 kaldı.
+
+## 4 Kasım 2026 — Görev 17: Ahmet'in Hikâye Kararları ve Onaylanan 7 ROADMAP Önerisinin Entegrasyonu
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Hedef Dal:** `claude/festive-volta-li1sfm` (Ahmet onaylı fast-forward push)
+- **Ne Yapıldı:**
+  1. **Parti 1 — Hikâye Kararları Entegrasyonu (`a5c20052`):**
+     - **Karar 1 (Banu Hatun):** Seçenek 1.1 uygulandı (50 süvari atlısı ittifakı, `banu_ittifak_kabul` bayrağı, TR/EN diyalog, eş düşünceleri, Karaca Usta +2 moral muhabbeti).
+     - **Karar 3 (Vebalı Sabi ve Anası):** Çift dal uygulandı (3.1 Şifa & Kurtuluş vs 3.2 Dramatik Kayıp). `src/kapi/es_yorumu_adaptoru.gd` ince adaptörü oyuncunun seçimini dinamik olarak doğru kabul cevabına bağladı. Miraen Nine ve eş sohbetlerine her iki son seçeneği de eklendi.
+     - **Karar 2 (Molla Şükrü):** Ahmet'in talimatıyla BEKLİYOR olarak korundu.
+     - `docs/KARAR_SECENEKLERI.md` ve `data/metin/metinler.csv` güncellendi.
+     - `tests/unit/diyalog/karar_secenekleri_test.gd` yazıldı ve başarıyla geçti.
+  2. **Parti 2 — ROADMAP_2.md'ye 7 Yeni Maddenin Eklenmesi (`1b8c24ef`):**
+     - Ahmet tarafından onaylanan 7 anlatı önerisi (`ANL-DON-01`, `ES-GECM-01`, `ANL-EPI-01`, `SOY-SON-01`, `KVR-SES-01`, `MECLIS-ARA-01`, `SES-DIL-01`) `ROADMAP_2.md`'ye eklendi. Kod gerektiren kısımlar açıkça Kalfa'ya, anlatı kısımları Antigravity'ye atandı.
+  3. **Parti 3 — ES-GECM-01 & ANL-DON-01 Entegrasyonu (`f065ae0f`):**
+     - **ES-GECM-01:** Eşin geçmişi anlatı yayları (`data/parley/koy/koylu_muhabbet_es.ds` ve TR/EN akşam konuları) tamamlandı.
+     - **ANL-DON-01:** 6 kritik ziyaretçinin 5-10 gece sonra köye/kapıya yankı ziyaretleri (`data/diyalog/diyalog_donusler.json` TR/EN) oluşturuldu.
+     - `tests/unit/diyalog/es_gecmis_ve_donusler_test.gd` yazıldı ve başarıyla geçti.
+  4. **Parti 4 — SOY-SON-01 & MECLIS-ARA-01 Entegrasyonu (`00a57346`):**
+     - **SOY-SON-01:** Söylenti ağının 5 somut kapanış olayı (`data/olaylar/*.tres`), `src/sistemler/soylenti_agi.gd` kapanış fonksiyonları ve CSV metinleri tamamlandı.
+     - **MECLIS-ARA-01:** Çınar Meclisi için 4 interaktif dava (`data/parley/koy/meclis_davalari.ds` TR/EN) oluşturuldu.
+     - `tests/unit/kvr/soylenti_ve_meclis_davalari_test.gd` yazıldı ve başarıyla geçti.
+  5. **Parti 5 — ANL-EPI-01, KVR-SES-01, SES-DIL-01 & Final Kapanış:**
+     - **ANL-EPI-01:** Kış sonu 6 kişisel akıbet kartı metinleri (TR & EN) `data/metin/metinler.csv`'ye eklendi; `src/sistemler/epilog_metin_verisi.gd` veri köprüsü oluşturuldu.
+     - **KVR-SES-01:** 4 farklı kış hava durumu için dinamik açılış replikleri `data/metin/metinler.csv`'ye eklendi; `src/soz/hava_replik_adaptoru.gd` ince adaptörü oluşturuldu.
+     - **SES-DIL-01:** 30 ziyaretçi ve köy halkının tamamını kapsayan 13. yy fonetik ve reji direktifleri `docs/SESLENDIRME_REJI_KILAVUZU.md` dosyasına yazıldı.
+     - `ROADMAP_2.md`'de tüm ilgili maddeler `[x]` yapıldı.
+     - `tests/unit/diyalog/epilog_ve_hava_test.gd` yazıldı ve başarıyla geçti (0 hata).
+     - Python ve Godot testleri (metin_dogrula, soz_dogrula, soz_tasarimi_dogrula, denge_dogrula) sıfır hatayla doğrulandı.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_17.md` son satırı `GOREV17_TAMAM` ile mühürlendi.
+- **Kota:** %10 kaldı.
