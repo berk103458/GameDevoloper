@@ -787,3 +787,20 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - Tüm doğrulayıcılar ve testler 0 hata ile çalıştırıldı.
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_12.md` son satırı `GOREV12_TAMAM` ile mühürlendi.
 - **Kota:** %35 kaldı.
+
+## 4 Kasım 2026 — Görev 13: Karar Seçenekleri Uygulama Yamaları ve 2D Asset Promptları
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Ne Yapıldı:**
+  1. **Bölüm A — Karar Seçenekleri İçin 6 Bağımsız Yama Paketi (`docs/karar_yamalari/`):**
+     - Karar 1 (Banu Hatun'un 50 Atlısı): `karar_1_ittifak_suvari` (+50 Savunma, -3 Erzak, Karaca Usta kılıç döver) ve `karar_1_yalniz_kabul` (+2 Adalet, +1 Asayiş Riski, ambar korunur) paketleri oluşturuldu (`76c05313`).
+     - Karar 2 (Molla Şükrü vs Hasan Çelebi): `karar_2_aleni_mahkeme` (+3 Adalet, +2 Moral, berat yakılır, Şükrü demirhanede körük cezası çeker) ve `karar_2_katip_ittifak` (+15 Günlük Akçe, -3 Adalet, Hasan Çelebi küser, Divan teftiş riski) paketleri oluşturuldu (`d498bf6f`).
+     - Karar 3 (Vebalı Sabi ve Anasının Akıbeti): `karar_3_sifa_kurtulus` (+3 Moral, +2 Adalet, -10 Akçe ecza masrafı, +2 sağlıklı köylü) ve `karar_3_dramatik_kayip` (-3 Moral, +1 Adalet, eşle kış ağıtı dertleşmesi, sert gerçekçilik) paketleri oluşturuldu (`d4bf32d0`).
+     - Her pakette tam `diyalog_01_20.json`, `es_kapi_dusunceleri.json`, ilgili köylü `.ds` sahnesi, `koylu_muhabbet_es.ds`, `metinler_parca.csv` ve adım adım `UYGULA.md` kılavuzu hazırlandı. Oyunun çalışan dosyalarına dokunulmadı.
+  2. **Bölüm B — Diyalog ve Anlatı 2D Görsel Kataloğu:**
+     - 27 tekil 2D parça için Türkçe görünüş/sahne tarifleri ve standart 'gece_kapisi' stilinde tek resimlik Nano Banana İngilizce promptları hazırlandı: 10 yeni ziyaretçi portresi (21-30), 1 muhafız eşi portresi, 8 yeni köy olayı kartı, 3 hafıza defteri ve söylenti görseli, 5 oyun sonu sinematik sahnesi (`docs/arayuz/DIYALOG_ASSET_PROMPTLARI.md`).
+     - `docs/EKSIK_ASSET_ENVANTERI.md` 2D tablosu yeni parçalarla güncellendi (`4c3015ff`).
+  3. **Bölüm C / Bitirme:**
+     - `docs/DIYALOG_GECE_OZETI.md` 7. bölümle güncellendi.
+     - `tests/tools/test_asset_envanteri.py` ve tüm Python/Godot testleri 0 hatayla doğrulandı.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_13.md` son satırı `GOREV13_TAMAM` ile mühürlendi.
+- **Kota:** %30 kaldı.

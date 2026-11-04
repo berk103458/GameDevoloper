@@ -99,4 +99,30 @@
 
 ---
 
+## 7. Görev 13 İle Tamamlanan Karar Yamaları ve 2D Görsel Kataloğu
+
+1. **3 Kritik Karar İçin 6 Uygulamaya Hazır Bağımsız Yama Paketi (`docs/karar_yamalari/`):**
+   - Sabah telefondan seçtiğin an tek bir kopyalama komutuyla oyuna entegre edilebilecek şekilde 6 klasör hazırlandı:
+     - **Karar 1 (Banu Hatun'un 50 Atlısı):**
+       - `karar_1_ittifak_suvari/`: 50 atlı korulukta ordugâh kurar (+50 Savunma, -3 Erzak, Karaca Usta pusat biler).
+       - `karar_1_yalniz_kabul/`: Banu tek kabul edilir, atlılar dağda kalır (+2 Adalet, +1 Asayiş Riski, ambar korunur).
+     - **Karar 2 (Molla Şükrü vs Hasan Çelebi):**
+       - `karar_2_aleni_mahkeme/`: Çınar Meclisi'nde aleni mahkeme (+3 Adalet, +2 Moral, berat yakılır, Şükrü demirhanede körük cezası çeker).
+       - `karar_2_katip_ittifak/`: Perde arkası vergi kaçırma ittifakı (Günlük +15 Akçe, -3 Adalet, Hasan Çelebi küser, Divan teftiş riski).
+     - **Karar 3 (Vebalı Sabi ve Anasının Akıbeti):**
+       - `karar_3_sifa_kurtulus/`: Kireç ocağında şifa (+3 Moral, +2 Adalet, -10 Akçe ecza, +2 sağlıklı köylü katılır).
+       - `karar_3_dramatik_kayip/`: Ayazda dramatik kayıp (-3 Moral, +1 Adalet, eşle hüzün ağıtı dertleşmesi, sert tarihi gerçekçilik).
+   - Her yama klasörü tam `diyalog_01_20.json`, `es_kapi_dusunceleri.json`, ilgili köylü Parley sahnesi (`karaca_usta.ds`, `hasan_celebi.ds` veya `miraen.ds`), `koylu_muhabbet_es.ds`, `metinler_parca.csv` ve adım adım talimatları içeren `UYGULA.md` dosyalarını barındırır. Oyunun çalışan dosyalarına dokunulmamıştır.
+
+2. **27 Tekil Diyalog ve Anlatı 2D Görsel Promptu (`docs/arayuz/DIYALOG_ASSET_PROMPTLARI.md` ve `docs/EKSIK_ASSET_ENVANTERI.md`):**
+   - Oyunun sanat yönetimine (13. yy Anadolu Selçuklu, 'gece_kapisi' koyu paleti, #00FF00 saydamlık maskelemesi, no text) uygun 27 tekil parça modellendi ve Ahmet'in görsel üretim aracına doğrudan yapıştırabileceği Nano Banana promptlarıyla belgelendi:
+     - **10 Yeni Ziyaretçi Portresi (600×760):** Derviş Baba, Tebrizli Tüccar, Sancak Çavuşu Sungur, Vebalı Ana ve Sabi, Fırın Çırağı Dursun, Şarlatan Cerrah Lokman, Sivas Kâtibi Molla Şükrü, Dağların Kurdu Banu Hatun, Kafile Habercisi, Yetim Turna.
+     - **1 Muhafız Eşi Portresi (600×760):** Oda ve kapı düşünceleri için vakur ve şefkatli portre.
+     - **8 Köy Olayı Kartı (800×450):** Harman kavgası, ambar hırsızlığı, salgın fısıltısı, köy düğünü, firari cenazesi, samanlık yangını, gece ayazı ve harami elçisi.
+     - **3 Defter ve Söylenti Görseli (512×512):** Yıpranmış keçi derisi defter kapağı, parşömen sayfa, kırmızı ipli söylenti ağı ikonu.
+     - **5 Oyun Sonu Sinematiği (1920×1080):** Tekfur tahakkümü, Ertuğrul obası zaferi, Ahi kasabası refahı, salgını yenen umutlu bahar, surlarda destansı direniş.
+   - `docs/EKSIK_ASSET_ENVANTERI.md` 2D tablosu yeni parçalarla güncellendi; `test_asset_envanteri.py` dahil tüm testler 0 hata ile korundu.
+
+---
+
 *Dal birleşmeye hazırdır; festive'e doğrudan dokunulmadı, sabah Ahmet'in onayını bekliyor.*
