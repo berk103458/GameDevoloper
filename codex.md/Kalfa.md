@@ -1,3 +1,7 @@
+## 4 Kasım 2026 — DEN-32 tamamlandı (Kalfa)
+
+Erzaksız ve sağlığı 1 olan üç köylü gerçek gecede öldü; mevcut cenaze durumunda ve raporunda sayı 3 olarak doğrulandı. Hedefli test geçti. İlk import MD5 hataları verdi; ikinci headless import hatasız tamamlandı. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-31 tamamlandı (Kalfa)
 
 Aç/tok köyün 40 gerçek gecesinde bar ve denge raporu üçer kez okundu. Kayıt fotoğrafı değişmedi; sağlık, stok, gün ve RNG ikinci hesap açmadı. Hedefli headless test geçti. Asset gerekmedi. kota görünmüyor.

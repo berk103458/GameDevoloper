@@ -3,6 +3,9 @@ extends SceneTree
 func _initialize() -> void:
 	var kat := Katalog.new()
 	kat.yukle()
+	if not _cenaze(kat):
+		quit(1)
+		return
 	var ac := _olc(kat, 0)
 	var tok := _olc(kat, 100)
 	if ac.is_empty() or tok.is_empty():
@@ -53,3 +56,18 @@ func _olc(kat: Katalog, gida: int) -> Dictionary:
 		quit(1)
 		return {}
 	return {"olum": olum, "uretim": uretim}
+
+
+func _cenaze(kat: Katalog) -> bool:
+	var y := Oturum.new(kat, 3232).yonetim
+	y.kaynaklar.stok["gida"] = 0
+	for i in 3:
+		var kisi := y.kabul({"ad": "Açlık vakası %d" % i})
+		kisi.saglik = 1
+	var rapor := y.gece()
+	var sayi: int = rapor.olenler.size()
+	var cenaze := CenazeYasi.durum(y)
+	var olur: bool = sayi == 3 and int(cenaze.get("sayi", 0)) == sayi and int(rapor.get("cenaze", {}).get("sayi", 0)) == sayi
+	if not olur:
+		push_error("DEN-32: açlık ölüm sayısı mevcut cenaze kaydına eşit olmalı")
+	return olur

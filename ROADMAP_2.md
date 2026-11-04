@@ -3552,7 +3552,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: YSM-01, DEN-05. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-32:** Ölüm, cenaze sistemine gider.
+- [x] **DEN-32:** (Kalfa) Ölüm, cenaze sistemine gider.
   - Ne: açlıktan ölen kişi KRI-05 kuyruğuna yazılır. Bu bölüm ayrı mezar açmaz.
   - Kabul: açlıktan ölen kişi KRI-05 kuyruğuna yazılır. Bu bölüm ayrı mezar açmaz. Test: ölüm sayısı ile cenaze kuyruğu eşit.
   - Bağımlılık: KRI-05, DEN-29. Boyut: S.
