@@ -65,9 +65,10 @@ func kaydet() -> Dictionary:
 	return veri
 
 
-func yukle(veri: Variant, baglam_veya_sema: Variant = {}) -> Variant:
+func yukle(veri: Variant, baglam_veya_sema: Variant = {}) -> Dictionary:
 	if veri is Dictionary and (veri.has("dugumler") or (veri.has("cekirdek") and not veri.has("dugum_id"))):
-		return _yukle_diyalog(veri, baglam_veya_sema if baglam_veya_sema is Dictionary else {})
+		var ok := _yukle_diyalog(veri, baglam_veya_sema if baglam_veya_sema is Dictionary else {})
+		return {"basarili": true} if ok else {}
 	else:
 		return _yukle_kayit(veri, baglam_veya_sema if baglam_veya_sema is Array else [])
 
@@ -288,7 +289,6 @@ func sec(secenek_id: String, baglam: Dictionary = {}) -> Dictionary:
 	if secilen_secenek.has("muhafiz_cevabi"):
 		var m_cev = str(secilen_secenek.get("muhafiz_cevabi"))
 		hafiza_soylenen[m_cev] = true
-		sabir = maxi(sabir - 1, 0)
 
 	# Güven ve korku etkileri
 	if secilen_secenek.has("guven_degisim"):
@@ -370,7 +370,7 @@ func celiski_yuzlestir(beyan_id_1: String, beyan_id_2: String) -> Dictionary:
 	if b1.is_empty() or b2.is_empty():
 		return {"basarili": false, "sebep": "beyan_bulunamadi"}
 
-	var celiski_var := (b1.get("dogru") != b2.get("dogru")) or (b1.has("celisir_ile") and b1.get("celisir_ile") == beyan_id_2)
+	var celiski_var: bool = (b1.get("dogru") != b2.get("dogru")) or (b1.has("celisir_ile") and b1.get("celisir_ile") == beyan_id_2)
 
 	if celiski_var:
 		if dugumler.has("yuzlesme"):

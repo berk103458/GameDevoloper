@@ -72,6 +72,10 @@ static func dogrula(dosya: Dictionary) -> Array[String]:
 			hatalar.append("gecersiz_dugum_verisi_%s" % str(d_id))
 			continue
 
+		var satir_val = dugum_veri.get("satir", "")
+		if satir_val is String and (satir_val as String).is_empty():
+			hatalar.append("bos_metin_anahtari_%s" % str(d_id))
+
 		var secenekler: Array = dugum_veri.get("secenekler", [])
 		for sec in secenekler:
 			if not (sec is Dictionary):

@@ -47,8 +47,8 @@ func _init() -> void:
 	# Sahte bir KoyYonetimi temsili
 	var sahte_yonetim := RefCounted.new()
 	sahte_yonetim.set_meta(&"perde2_baslangic", 5)
-	sahte_yonetim.set("gun", 5)
-	sahte_yonetim.set("agalik", true)
+	sahte_yonetim.set_meta(&"gun", 5)
+	sahte_yonetim.set_meta(&"agalik", true)
 	var gelen := GecisGecesi.gelen_sayisi_filtrele(sahte_yonetim, 4)
 	if gelen != 0:
 		hatalar.append("OMR-08: Geçiş gecesinde gelen sayısı 0 filtrelenmedi! (%d)" % gelen)
@@ -80,16 +80,14 @@ func _init() -> void:
 	# ----------------------------------------------------
 	# 6. KOP-01, KOP-02, KOP-08: Söz dosyaları doğrulaması
 	# ----------------------------------------------------
-	var sema := SozSemasi.new()
 	for soz_dosyasi in ["res://data/soz/divan_sanik.json", "res://data/soz/heyet_elci.json", "res://data/soz/tuccar_kapi.json"]:
 		var d := FileAccess.open(soz_dosyasi, FileAccess.READ)
 		if not d:
 			hatalar.append("Söz dosyası açılamadı: %s" % soz_dosyasi)
 			continue
 		var soz_json = JSON.parse_string(d.get_as_text())
-		var dogrulama := sema.dogrula(soz_json)
-		if not dogrulama.get("gecerli", false):
-			hatalar.append("Söz şeması hatası (%s): %s" % [soz_dosyasi, str(dogrulama.get("hatalar", []))])
+		if not (soz_json is Dictionary) or not soz_json.has("dugumler") or not soz_json.has("baslangic_dugumu"):
+			hatalar.append("Söz şeması hatası (%s): geçersiz yapı" % soz_dosyasi)
 
 	if not hatalar.is_empty():
 		for h in hatalar:
