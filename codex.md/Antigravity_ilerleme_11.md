@@ -18,7 +18,7 @@
   - [x] Parti A5: Sohbet metinleri (`sohbet.*`, 996 anahtar: köylüler 276 + ziyaretçiler 720)
 - [/] **Bölüm B — Diyaloglar:** `docs/ingilizce_diyalog/` klasörü altına oyunun orijinal JSON ve Parley dosyalarının yapısı birebir korunarak İngilizce çevirilerinin hazırlanması.
   - [x] Parti B1: 30 Ziyaretçi Diyaloğu (`docs/ingilizce_diyalog/diyalog_01_20.json`, `diyalog_01_10.json`, `diyalog_11_20.json`, `diyalog_21_30.json` - 30 ziyaretçinin sahne, açılış, soru ağacı ve yanıtları)
-  - [ ] Parti B2: Eş Kapı Düşünceleri (`es_kapi_dusunceleri.json` - 30 ziyaretçi + genel)
+  - [x] Parti B2: Eş Kapı Düşünceleri (`docs/ingilizce_diyalog/es_kapi_dusunceleri.json` - 30 ziyaretçi + genel için 4-5 aşamalı eş tepkileri)
   - [ ] Parti B3: Köylü ve Eş Parley Sohbetleri (`koylu_muhabbet_*.ds` ve sekanslar)
   - [ ] Parti B4: Akşam Konuları (`aksam_konulari.json`)
 - [ ] **Bölüm C — Ton Kontrolü ve Terim Sözlüğü:**
