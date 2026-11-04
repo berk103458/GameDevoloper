@@ -58,4 +58,28 @@
     - `ROADMAP_2.md` üzerinde `MECLIS-ARA-01 [x] (Antigravity)` olarak işaretlendi.
   - [x] `tests/unit/kvr/soylenti_ve_meclis_davalari_test.gd` birim testi yazıldı ve 0 hatayla geçti.
   - [x] Commit & Fast-Forward Push: `feat(SOY-SON-01, MECLIS-ARA-01): Söylenti kapanış olayları ve Çınar Meclisi interaktif dava sistemi (Antigravity); asset gerekmedi`
-- [ ] **Parti 5 — ANL-EPI-01, KVR-SES-01, SES-DIL-01 & Bitiş**
+- [x] **Parti 5 — ANL-EPI-01, KVR-SES-01, SES-DIL-01 & Bitiş:**
+  - [x] **ANL-EPI-01 (30. Gün / Kış Sonu Kişisel Epilog Ekranı):**
+    - `data/metin/metinler.csv` içine 19 yeni metin satırı (TR & EN) eklendi (`epilog.genel.baslik`, `epilog.kart.*`, `epilog.dursun_turna.*`, `epilog.lokman.*`, `epilog.banu.*`, `epilog.sungur.*`, `epilog.vebali_ana.*`, `epilog.hane.*`).
+    - `src/sistemler/epilog_metin_verisi.gd` veri köprüsü oluşturuldu (Kalfa'nın yazacağı `sonuc_epilog_olusturucu.gd` ekranı için kart durumlarını, metin anahtarlarını ve olumlu/olumsuz bayrak eşleşmelerini sağlar).
+    - `ROADMAP_2.md` üzerinde `ANL-EPI-01 [x]` olarak işaretlendi.
+  - [x] **KVR-SES-01 (Kapı Nöbetinde Dinamik Hava ve Ayaz Replikleri):**
+    - `data/metin/metinler.csv` içine 13 yeni metin satırı (TR & EN) eklendi (`kapi.hava.firtina.*`, `kapi.hava.yagmur.*`, `kapi.hava.ayaz.*`, `kapi.hava.sis.*`).
+    - `src/soz/hava_replik_adaptoru.gd` ince replik adaptörü oluşturuldu (Tipi, fırtına, kar, yağmur, ayaz ve sis atmosferi için rastgele/tohumlu ön ekler ve muhafız karşılamaları üretir).
+    - `ROADMAP_2.md` üzerinde `KVR-SES-01 [x]` olarak işaretlendi.
+  - [x] **SES-DIL-01 (Karakter Kartlarına ve Repliklere Seslendirme Reji Kılavuzu):**
+    - `docs/SESLENDIRME_REJI_KILAVUZU.md` eksiksiz oluşturuldu (13. yy Anadolu fonetik ilkeleri, çekirdek köy kadrosu ve 30 kapı ziyaretçisinin tamamı için ses rengi, tempo/nefes, duygu durumu, örnek replik ve reji notları, teknik WAV standartları).
+    - `ROADMAP_2.md` üzerinde `SES-DIL-01 [x]` olarak işaretlendi.
+  - [x] `tests/unit/diyalog/epilog_ve_hava_test.gd` birim testi yazıldı ve 0 hatayla geçti.
+  - [x] Bütün doğrulama araçları (tools/metin_dogrula.py, tools/soz_dogrula.py, tools/soz_tasarimi_dogrula.py, tools/denge_dogrula.py) ve birim testler başarıyla geçti.
+  - [x] Commit & Fast-Forward Push yapıldı.
+
+---
+
+## Görev 17 Kapsamında Tamamlanan Tüm Maddeler
+1. **Karar 1 (Banu Hatun) Seçenek 1.1:** İttifak ve 50 süvari muhafızı entegrasyonu tamamlandı.
+2. **Karar 3 (Vebalı Sabi ve Anası) Çift Dal:** 3.1 Şifa ve 3.2 Dramatik Kayıp koşullu dalları entegre edildi.
+3. **Karar 2 (Molla Şükrü):** Ahmet'in talimatıyla BEKLİYOR olarak korundu.
+4. **ROADMAP-ONERI-01:** Onaylanan 7 madde (ANL-DON-01, ES-GECM-01, ANL-EPI-01, SOY-SON-01, KVR-SES-01, MECLIS-ARA-01, SES-DIL-01) ROADMAP_2'ye eklendi ve tüm anlatı/diyalog işleri tamamlanarak işaretlendi.
+
+GOREV17_TAMAM

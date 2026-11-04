@@ -31,7 +31,7 @@ Karakter ve hava durumuna göre `data[karakter][hava] = ["replik1", "replik2"]` 
 ---
 
 ## 2. Hazır İnce Adaptör API (`HavaReplikAdaptoru`)
-`src/koy/hava_replik_adaptoru.gd` altında hafif ve sıfır yan etkili adaptör hazırdır:
+`src/soz/hava_replik_adaptoru.gd` altında hafif ve sıfır yan etkili adaptör hazırdır:
 
 ```gdscript
 # 1. Köylünün hava repliğini alma:

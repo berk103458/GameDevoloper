@@ -1,7 +1,7 @@
 # KVR-SES-01: Hava ve mevsim replikleri doğrulama birim testi
 extends SceneTree
 
-const HavaReplikAdaptoru = preload("res://src/koy/hava_replik_adaptoru.gd")
+const HavaReplikAdaptoru = preload("res://src/soz/hava_replik_adaptoru.gd")
 
 
 func _initialize() -> void:
