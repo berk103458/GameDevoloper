@@ -33,7 +33,10 @@
   - [x] Testler: Python doğrulayıcıları PASS, Godot headless (karar_secenekleri_test, diyalog_butunluk_test, ingilizce_entegrasyon_test, es_yorumu_test, koy_parley_sistemi_test) PASS.
   - [x] Commit & Push: `KARAR-01-03: Banu Hatun ittifakı (1.1) ve Vebalı sabi çift son koşullu dalı (3.1/3.2) entegrasyonu (Antigravity)`
 
-- [ ] **Parti 2 — ROADMAP_2.md'ye 7 Yeni Maddenin Eklenmesi**
+- [x] **Parti 2 — ROADMAP_2.md'ye 7 Yeni Maddenin Eklenmesi:**
+  - [x] `docs/ROADMAP_ONERILERI_ANTIGRAVITY.md`'deki 7 önerinin tamamı (ANL-DON-01, ES-GECM-01, ANL-EPI-01, SOY-SON-01, KVR-SES-01, MECLIS-ARA-01, SES-DIL-01) `ROADMAP_2.md`'ye eklendi.
+  - [x] Sahiplikler açıkça belirtildi: Kod isteyen kısımlar Kalfa'ya (`sonuc_epilog_olusturucu.gd`, hava entegrasyonu), anlatı ve diyalog Antigravity'ye.
+  - [x] Commit & Fast-Forward Push: `ROADMAP-ONERI-01: Ahmet tarafindan onaylanan 7 yeni anlati ve diyalog maddesinin ROADMAP_2'ye eklenmesi (Antigravity)`
 - [ ] **Parti 3 — ES-GECM-01 & ANL-DON-01 Uygulanması**
 - [ ] **Parti 4 — SOY-SON-01 & MECLIS-ARA-01 Uygulanması**
 - [ ] **Parti 5 — ANL-EPI-01, KVR-SES-01, SES-DIL-01 & Bitiş**

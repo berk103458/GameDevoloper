@@ -9009,3 +9009,81 @@ Yalnız repodaki hazır 3D, animasyon, ses ve VFX kaynakları bağlanır. Mekani
 - [x] **HAE-05:** Meşale alevi, baca dumanı ve ocak ateşi GPUParticles3D bağlantıları.
   - Dosya: `src/koy/gorsel/hazir_ates_efektleri.gd`, `src/dunya/dunya3b.gd`, köy/atölye görsel adaptörleri.
   - Kabul: yalnız mevcut izinli duman/alev/ışık dokuları; sınırlandırılmış parçacık miktarı, doğru yayın alanı, gece okunurluğu ve sahne temizliği. Elektrik/büyü ve 2D UI yok. İHT karşılıkları/testler kaydedilir.
+
+
+---
+
+## Anlatı, Diyalog ve Karakter Derinleştirmesi — Ahmet Onayı, 4 Kasım 2026
+
+Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi (docs/ROADMAP_ONERILERI_ANTIGRAVITY.md). Metin ve diyalog tasarımı Antigravity'ye, görsel UI/sonuç motoru kodları Kalfa'ya aittir.
+
+- [ ] **ANL-DON-01:** Ziyaretçi geri dönüş döngüsü ve ikinci karşılaşmalar (Echo Visits). (Antigravity)
+  - Amaç: Kapıdan içeri alınan veya reddedilen kritik ziyaretçilerin (Dursun, Turna, Lokman, Sungur, Banu Hatun) 5-10 gece sonra yeni durumlarla geri dönmesi.
+  - Kurallar:
+    1. Kapıda açılan bayraklara bağlı olarak döner; rastgele değil.
+    2. Sungur fermanla, Dursun/Turna ilk fırın ekmeğiyle, Lokman sahte merhem arbedesiyle gelir.
+  - Kabul: data/diyalog/diyalog_donusler.json üzerinden 6 yeni geri dönüş sekansı çalışır, diyalog_butunluk_test.gd geçer.
+  - Bağımlılık: Görev 16 diyalogları. Boyut: M.
+  - Dosya: data/diyalog/diyalog_donusler.json, data/diyalog/en/diyalog_donusler.json.
+  - Asset: asset gerekmedi.
+
+- [ ] **ES-GECM-01:** Eşin kişisel anlatı yayının genişletilmesi: geçmiş, yetimler ve şifa. (Antigravity)
+  - Amaç: Oda dertleşmesinde eşin iç dünyasını ve duygusal bağını derinleştiren 3 yeni anlatı dalı açılması.
+  - Kurallar:
+    1. Dal 1: Eski köyün yangını ve göç yolu çilesi (es_guven >= 1).
+    2. Dal 2: Yetimler ve çocuk korkusu (Turna/Dursun kabulünde veya gün >= 6).
+    3. Dal 3: Nöbet yorgunluğunda şifalı ıhlamur ve eş desteği.
+  - Kabul: koylu_muhabbet_es.ds içinde 3 dal uçtan uca konuşulabilir, koy_parley_sistemi_test.gd geçer.
+  - Bağımlılık: Görev 5 eş sohbeti. Boyut: M.
+  - Dosya: data/parley/koy/koylu_muhabbet_es.ds, data/parley/en/koy/koylu_muhabbet_es.ds.
+  - Asset: asset gerekmedi.
+
+- [ ] **ANL-EPI-01:** 30. gün / kış sonu kişisel epilog ve akıbet raporu. (Metin: Antigravity, Kod: Kalfa)
+  - Amaç: Ağalık kışının sonunda kapı kararlarının her karakter için somut sonucunu gösteren kişisel epilog kartları.
+  - Kurallar:
+    1. Metin ve veri adaptörü: Antigravity tarafından hazırlanır (epilog.* anahtarları ve bayrak eşleşmeleri).
+    2. Sonuç epilog oluşturucu arayüz kodu: Kalfa tarafından yazılır (src/sistemler/sonuc_epilog_olusturucu.gd).
+  - Kabul: Turna, Lokman, Banu Hatun, Sabi vb. için bireysel akıbet kartları metinler.csv içinde yer alır ve test edilir.
+  - Bağımlılık: ANL-DON-01. Boyut: M.
+  - Dosya: data/metin/metinler.csv, src/sistemler/epilog_metin_verisi.gd.
+  - Asset: asset gerekmedi.
+
+- [ ] **SOY-SON-01:** Söylenti ağının somut olaylara ve hesaplaşmalara kapanışı. (Antigravity)
+  - Amaç: soylenti_agi.gd içinde yayılan fısıltıların 2-3 gün sonra köy meydanında veya kapıda somut bir çözüme bağlanması.
+  - Kurallar:
+    1. 5 kritik söylenti (Değirmenci un hırsızlığı, kuyu zehri, Tekfur arabası, sahte hekim, gece ışığı) sonuca kavuşur.
+    2. Çınaraltı meclisinde veya kapıda hesaplaşma tetiklenir.
+  - Kabul: Söylenti süresi dolunca ilgili olay çözülür; soylenti_agi_test.gd geçer.
+  - Bağımlılık: SOY-01...16. Boyut: M.
+  - Dosya: data/olaylar/, src/sistemler/soylenti_agi.gd.
+  - Asset: asset gerekmedi.
+
+- [ ] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin: Antigravity, Kod: Kalfa)
+  - Amaç: Sert Anadolu kışını hissettirmek için hava durumu ve ayaza bağlı dinamik açılış replikleri eklenmesi.
+  - Kurallar:
+    1. Tipi, fırtına ve ayazda ziyaretçinin ve muhafızın diş vurma/titreme replikleri (kapi.hava.*).
+    2. Metinler ve ince replik adaptörü Antigravity tarafından hazırlanır; derin hava motoru entegrasyonu Kalfa'ya aittir.
+  - Kabul: kapi.hava.* anahtarları tanımlı ve testlerde sıfır hatadır.
+  - Bağımlılık: DNY hava sistemi. Boyut: S.
+  - Dosya: data/metin/metinler.csv, src/soz/hava_replik_adaptoru.gd.
+  - Asset: asset gerekmedi.
+
+- [ ] **MECLIS-ARA-01:** Çınar Meclisi interaktif dava sistemi (Muhafız'ın kadı/hakem rolü). (Antigravity)
+  - Amaç: Haftada bir Çınaraltında köylüler arası ihtilaflarda Muhafız'ın iki tarafı dinleyip delillere göre hüküm vermesi.
+  - Kurallar:
+    1. 4 interaktif dava: Karaca Usta vs Yusuf alet davası, Ayşe Bacı tavuk davası, tüccar borç davası, sınır taşı ihtilafı.
+    2. Adalet veya akçe odaklı hüküm verilir; köy barlarına ve ilişkilere yansır.
+  - Kabul: data/parley/koy/meclis_davalari.ds derlenir ve Parley testinden geçer.
+  - Bağımlılık: MECLIS-01. Boyut: L.
+  - Dosya: data/parley/koy/meclis_davalari.ds, data/parley/en/koy/meclis_davalari.ds.
+  - Asset: asset gerekmedi.
+
+- [ ] **SES-DIL-01:** Karakter kartlarına ve repliklere seslendirme reji kılavuzu. (Antigravity)
+  - Amaç: Gelecekteki seslendirme (VA / AI dublaj) için 13. yy dönem dili tonlama, duygu, nefes ve duraklama kılavuzu hazırlanması.
+  - Kurallar:
+    1. 30 ziyaretçi ve başlıca köylüler için fonetik ve reji direktifleri yazılır.
+    2. Dokümantasyon niteliğindedir; kod veya ses dosyası üretilmez.
+  - Kabul: docs/SESLENDIRME_REJI_KILAVUZU.md eksiksiz oluşturulur.
+  - Bağımlılık: Görev 6 üslup cilası. Boyut: S.
+  - Dosya: docs/SESLENDIRME_REJI_KILAVUZU.md.
+  - Asset: asset gerekmedi.
