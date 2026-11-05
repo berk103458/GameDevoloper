@@ -1,3 +1,7 @@
+## 5 Kasım 2026 — ISG-03 başladı (Kalfa)
+
+Hazır/sahipsiz maddelerin genel sıra denetiminde ISG-03 alındı. KAP-18 açık DNY-01’i bekler; ZAR-05 Söz bekleme kapsamında. Sayaç ve moral bedeli, optional kayıt, mevcut HUD ve sohbet bağlantısı küçük parçalarla doğrulanacak. ACL-02/testx sahipliği korunacak; eş bayrağı mevcut kaynaktan okunacak. Çalışma kopyası C:/Users/Ahmet/.codex/worktrees/kalfa-roadmap/Kapı_Muhafizi. Asset gerekmedi. kota görünmüyor.
+
 ## 5 Kasım 2026 — DEN-57 tamamlandı (Kalfa)
 
 28 gecelik başlangıç denge hedefi kriz_aralik altında alt=0, ust=12 olarak kaydedildi. Bu rutin hedef seçimi Kalfa tarafından yapıldı; 20 tohumluk oyun ölçümü DEN-59 kabulüdür ve henüz yapılmadı. Sayısal sınır dosyası 0–140 fiziksel sayım tavanını tanımlar. Veri sözleşmesi yalnız alt/ust kabul eder; eksik, ters, kesirli, bool, sonsuz ve ek tetik kuralı içeren alanlar hata verir. KRI uygulamalarına kod eklenmedi.

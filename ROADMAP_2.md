@@ -1302,7 +1302,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.3 Boşta bedel
 
-- [ ] **ISG-03:** Boşta kalma bedeli ve görünürlüğü.
+- [/] **ISG-03:** (Kalfa) Boşta kalma bedeli ve görünürlüğü.
   - Ne: Oyuncu köy HUD'unda "Boşta: N kişi" satırını görür. N, o gün binada ve geçici işte olmayan yetişkinleri sayar. Boşta kalanın morali duran memnuniyet değerinden düşer; düşüş miktarı veri dosyasındadır ve günde bir kez yazılır. Mesleği olan kişi üç gün üst üste boşta kalırsa köy sohbetinde terk cümlesi açılır; o gece köyden silinmez. İşe yazılınca sayaç sıfır olur. Çocuk, eş, hasta ve karantinadaki kişi boşta sayılmaz. Kış için ayrı bir bedel yoktur. Açlık çubuğuyla tek çubukta birleşmez.
   - Kurallar:
     1. HUD satırı "Boşta: N kişi"dir. N, o gün binada ve geçici işte olmayan yetişkinleri sayar.
