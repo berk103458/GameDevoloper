@@ -3693,7 +3693,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: TUC-07, DEN-03. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-54:** Yirmi sekiz günde tüccar iflası aralıktadır.
+- [/] **DEN-54:** (Kalfa) Yirmi sekiz günde tüccar iflası aralıktadır.
   - Ne: olağan oyunda EKO-10 iflası tablodaki alt ve üst sayıdadır. Alt sınır 0 olabilir.
   - Kabul: olağan oyunda EKO-10 iflası tablodaki alt ve üst sayıdadır. Alt sınır 0 olabilir. Test: 28 gece, sayı aralıkta.
   - Bağımlılık: EKO-10, TUC-09. Boyut: M.
