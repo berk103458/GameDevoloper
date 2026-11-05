@@ -2362,3 +2362,5 @@ kapi.hava.sis_muhafiz,"Adımını yavaş at! Sisin ardında kimin yürüdüğün
 kapi.hava.sicak_1,"[alnındaki teri silerek, soluk soluğa] Kavrulduk muhafız... Bozkır yolu alev fırını gibi yanıyor, matarada tek damla su kalmadı...","[wiping dripping brow, panting] We are scorched, guard... The steppe trail burns like an oven, not a drop remains in the waterskin..."
 kapi.hava.sicak_2,"[güneşten çatlamış dudaklarla] Gün tepemizde çekiç gibi indi... Bir gölge, bir tas kuyu suyu için yalvarırım kapıyı aç...","[sun-cracked lips, pleading] The sun hammered down upon our crowns... For a patch of shade and a cup of well water, I beg you open the gate..."
 kapi.hava.sicak_muhafiz,"Güneş beynini kaynatmış amma nizam nizamdır. Çekil hele gölgeye, önce söyle bakalım kimlerdensin?","The sun has boiled your wits, yet order is order. Step into the shadow here, and tell us first: whose kin are you?"
+koy.bosta.hud,Boşta: %d kişi,Idle: %d villagers
+koy.bosta.terk,Üç gündür elim iş tutmadı. Böyle sürerse başka bir köye varırım.,"I have had no work for three days. If this continues, I will seek another village."

@@ -53,6 +53,8 @@ static func gece(y: KoyYonetimi, calismalar: Dictionary, olaylar: Array[Dictiona
 		CasusGeceTakibi.kaydet(y, k, "cephanelik" if kaynak == "alet" else "ambar", -1, "sabotaj", kaynak, kayip, false)
 		olaylar.append({"anahtar": "Köylü %d iş uyumsuzluğu nedeniyle sabotaj yaptı: %d %s kayıp.", "deger": [k.id, kayip, kaynak]})
 
+	preload("res://src/koy/bosta_kalma.gd").gece(y, calismalar)
+
 static func metin(k: Koylu, y: KoyYonetimi) -> String:
 	var u := uyum(k, y)
 	var durum := "Nötr iş" if is_equal_approx(u, 1.0) else ("Uyumlu iş: fiilî gece +2 moral" if u > 1.0 else "Uyumsuz iş: fiilî gece −2 moral")

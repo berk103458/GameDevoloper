@@ -1,3 +1,11 @@
+## 5 Kasım 2026 — ISG-03 tamamlandı (Kalfa)
+
+Boşta yetişkinin mevcut moralinden gecede bir kez veri tablosundaki 2 puan düşer. Optional kişi kaydı son bedel gecesini ve en çok üç günlük seriyi taşır; eski/bozuk kayıt güvenle boş başlar. Geçici iş, bina ve nöbet ataması seriyi anında sıfırlar, aynı gece damgasını korur. Çocuk, eş, hasta, karantina, oyuncu, zindan ve dış görev/nöbet hariçtir. Açlık sayacı ayrıdır. Mevsim çarpanı mevcut mevsim kaydından gelir; dört varsayılan çarpan 1’dir.
+
+Mevcut HUD nüfus sütununa CSV anahtarlı sayı, mevcut Parley köy muhabbetinin ilk repliğine meslekli kişide üç tam gün sonunda tek terk isteği eklendi. Kişi silinmez. Gerçek sohbet deneyi eski adaptörün gida/salgin_var_mi/hazine erişimlerini ortaya çıkardı; mevcut kaynaklar/SaglikYoneticisi/akce API’sine ince uyarlama yapıldı. Parley sonuç ve bağlam nesneleri serbest bırakıldı; yeni kabul koşusunda SCRIPT ERROR, ERROR ve kapanış sızıntısı yok.
+
+Yeni kabul testi ile geçici işler, kapı nöbeti, iş memnuniyeti, mevsim ve köy yönetimi hedefli testleri geçti. Eski boşta moral beklentisi yeni ISG-03 bedeline uyarlandı; diğer uyum/sabotaj beklentileri korundu. CSV kaynak doğrulaması geçti. Headless normal import exit0, script yükleme/parse hatası yok; 356 kaynak kapanış sızıntısı var. Recovery import exit0, script hatası yok; 296 kaynak/PagedAllocator sızıntısı var. Temiz import denmedi; tam sanity yapılmadı. Yerel üretilmiş translation/.import ve project.godot değişiklikleri commit dışında korundu. Asset gerekmedi. ds çalışma/ayna yolları yok, önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 5 Kasım 2026 — DEN-57 tamamlandı (Kalfa)
 
 28 gecelik başlangıç denge hedefi kriz_aralik altında alt=0, ust=12 olarak kaydedildi. Bu rutin hedef seçimi Kalfa tarafından yapıldı; 20 tohumluk oyun ölçümü DEN-59 kabulüdür ve henüz yapılmadı. Sayısal sınır dosyası 0–140 fiziksel sayım tavanını tanımlar. Veri sözleşmesi yalnız alt/ust kabul eder; eksik, ters, kesirli, bool, sonsuz ve ek tetik kuralı içeren alanlar hata verir. KRI uygulamalarına kod eklenmedi.

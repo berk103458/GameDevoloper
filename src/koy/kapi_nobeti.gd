@@ -120,6 +120,7 @@ static func yaz(y: KoyYonetimi, id: int) -> bool:
 	GeciciIsler.birak(y,k)
 	d.eski_is = k.is_yeri
 	d.yuva = id
+	preload("res://src/koy/bosta_kalma.gd").sifirla(y, id)
 	d.bos_direk = false
 	if k.is_yeri >= 0: k.is_yeri = KoyYonetimi.BOSTA
 	_yaz(y, d)
@@ -131,6 +132,7 @@ static func eslik_isaretle(y: KoyYonetimi, id: int) -> bool:
 	var d := durum(y)
 	GeciciIsler.birak(y,y.koylu(id))
 	d.eslik = id
+	preload("res://src/koy/bosta_kalma.gd").sifirla(y, id)
 	_yaz(y, d)
 	return true
 

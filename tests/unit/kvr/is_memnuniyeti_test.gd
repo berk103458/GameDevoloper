@@ -23,11 +23,12 @@ func _initialize() -> void:
 	_kontrol(k.moral == 52 and y._rng.state == rng, "Uyumlu gerçek üretim +2 moral; sabotaj zarı yok")
 	y.bosalt(k.id)
 	y.gece()
-	_kontrol(k.moral == 52, "Boşta iş morali uydurulmaz")
+	var bosta_sonrasi := 52 - int(preload("res://src/koy/bosta_kalma.gd").AYAR.moral_kaybi)
+	_kontrol(k.moral == bosta_sonrasi, "Boşta uyum bonusu yok; ISG-03 veri bedeli var")
 	k.zanaat_turu = ZanaatTuru.Tur.BELIRSIZ
 	y.ata(k.id, b.id)
 	y.gece()
-	_kontrol(k.moral == 52, "Belirsiz meslek nötr")
+	_kontrol(k.moral == bosta_sonrasi, "Belirsiz meslek işte nötr")
 	k.zanaat_turu = ZanaatTuru.Tur.ASKER
 	k.pasif_ozellikler = {"guclu": ["cesur"], "zayif": ["korkak"]}
 	k.moral = 19

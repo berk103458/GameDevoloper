@@ -146,6 +146,7 @@ func guncelle() -> void:
 	_asayis.add_theme_color_override("font_color", UYARI if y.asayis_riski >= ASAYIS_KRITIK else Renkler.KUL)
 	_gun.text = tr("arayuz.hud.gun") % (y.gun + 1)
 	MevsimTakvim.guncelle(_mevsim, y)
+	preload("res://src/arayuz/koy_hud/bosta_gostergesi.gd").guncelle(self, y)
 	_nufus.text = tr("arayuz.hud.nufus") % [y.nufus(), y.yatak_kapasitesi(), k.toplam(), k.kapasite]
 	preload("res://src/arayuz/kapi/bar_bicimi.gd").isaretle(self)
 	preload("res://src/arayuz/koy_hud/acilis_kapi_bilgisi.gd").guncelle(self, _oturum)

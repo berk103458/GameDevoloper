@@ -22,9 +22,9 @@ static func baglam_olustur(koylu: Koylu, yonetim: KoyYonetimi = null) -> Diction
 	
 	if yonetim:
 		var havadis_listesi: Array = []
-		if yonetim.gida < 15:
+		if yonetim.kaynaklar.miktar("gida") < 15:
 			havadis_listesi.append("kitlik")
-		if yonetim.salgin_var_mi():
+		if yonetim.koylular.any(func(k: Koylu) -> bool: return SaglikYoneticisi.hasta(k)):
 			havadis_listesi.append("hastalik")
 		if yonetim.asayis_riski > 40:
 			havadis_listesi.append("harami")
@@ -52,7 +52,7 @@ static func etkileri_uygula(p_data: Dictionary, koylu: Koylu, yonetim: KoyYoneti
 			"akce":
 				var m: int = int(e.get("miktar", 0))
 				if yonetim and m != 0:
-					yonetim.hazine = maxi(0, yonetim.hazine + m)
+					yonetim.akce = maxi(0, yonetim.akce + m)
 			"sadakat":
 				var s: int = int(e.get("delta", 0))
 				if koylu:

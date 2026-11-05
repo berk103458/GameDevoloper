@@ -42,7 +42,13 @@ var moral: int = 60
 var saglik: int = 100
 var sadakat: int = 60
 ## Çalıştığı yapının kimliği (-1 = boşta); `muhafiz` görevindeyse -2.
-var is_yeri: int = -1
+## ISG-03: son bedel gecesi ve üst üste boş günler; eski kayıtta boş.
+var bosta_kalma: Dictionary = {}
+var is_yeri: int = -1:
+	set(v):
+		is_yeri = v
+		if v != KoyYonetimi.BOSTA and not bosta_kalma.is_empty():
+			bosta_kalma["gun"] = 0
 ## Kışın donan yapıdan kaydırıldıysa eski iş yeri; baharda geri döner (-1 = yok).
 var kis_oncesi_is: int = -1
 ## Kaldığı barınağın kimliği (-1 = evsiz).
@@ -89,6 +95,8 @@ func kaydet() -> Dictionary:
 		"pasif_ozellikler": pasif_ozellikler.duplicate(true), "egitim": egitim.duplicate(true), "gelisim": gelisim.duplicate(true), "grev": grev.duplicate(true), "yorgunluk": yorgunluk.duplicate(true), "gecici_is": gecici_is.duplicate(true), "is_kazasi": is_kazasi.duplicate(true), "zanaat_kazasi": zanaat_kazasi.duplicate(true), "kis_hastaligi": kis_hastaligi.duplicate(true), "toplumsal_bag": toplumsal_bag.duplicate(true), "hane_id": hane_id, "yas_grubu": String(yas_grubu), "gizli_egilim": gizli_egilim.duplicate(true), "divan_kanit": DivanKanit.durum(self)}
 	if not diller.is_empty():
 		kayit_sozluk["diller"] = Array(diller)
+	if not bosta_kalma.is_empty():
+		kayit_sozluk["bosta_kalma"] = bosta_kalma.duplicate(true)
 	return kayit_sozluk
 
 
@@ -129,6 +137,9 @@ static func kayittan(v: Dictionary) -> Koylu:
 	k.is_yeri = int(v.get("is_yeri", -1))
 	if k.gecici_is.is_empty() and k.is_yeri == GeciciIsler.IS_YERI: k.is_yeri = -1
 	if not k.gecici_is.is_empty() and k.is_yeri != (TasYatagi.IS_YERI if k.gecici_is.id == "tas_toplama" else GeciciIsler.IS_YERI): k.gecici_is.clear()
+	k.bosta_kalma = preload("res://src/koy/bosta_kalma.gd").oku(v.get("bosta_kalma"))
+	if k.is_yeri != KoyYonetimi.BOSTA and not k.bosta_kalma.is_empty():
+		k.bosta_kalma["gun"] = 0
 	k.kis_oncesi_is = int(v.get("kis_oncesi", -1))
 	k.ev = int(v.get("ev", -1))
 	k.ac = bool(v.get("ac", false))

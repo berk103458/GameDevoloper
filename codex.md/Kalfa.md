@@ -1,3 +1,11 @@
+## 5 Kasım 2026 — ISG-03 tamamlandı (Kalfa)
+
+Boşta yetişkinin mevcut moralinden gecede bir kez veri tablosundaki 2 puan düşer. Optional kişi kaydı son bedel gecesini ve en çok üç günlük seriyi taşır; eski/bozuk kayıt güvenle boş başlar. Geçici iş, bina ve nöbet ataması seriyi anında sıfırlar, aynı gece damgasını korur. Çocuk, eş, hasta, karantina, oyuncu, zindan ve dış görev/nöbet hariçtir. Açlık sayacı ayrıdır. Mevsim çarpanı mevcut mevsim kaydından gelir; dört varsayılan çarpan 1’dir.
+
+Mevcut HUD nüfus sütununa CSV anahtarlı sayı, mevcut Parley köy muhabbetinin ilk repliğine meslekli kişide üç tam gün sonunda tek terk isteği eklendi. Kişi silinmez. Gerçek sohbet deneyi eski adaptörün gida/salgin_var_mi/hazine erişimlerini ortaya çıkardı; mevcut kaynaklar/SaglikYoneticisi/akce API’sine ince uyarlama yapıldı. Parley sonuç ve bağlam nesneleri serbest bırakıldı; yeni kabul koşusunda SCRIPT ERROR, ERROR ve kapanış sızıntısı yok.
+
+Yeni kabul testi ile geçici işler, kapı nöbeti, iş memnuniyeti, mevsim ve köy yönetimi hedefli testleri geçti. Eski boşta moral beklentisi yeni ISG-03 bedeline uyarlandı; diğer uyum/sabotaj beklentileri korundu. CSV kaynak doğrulaması geçti. Headless normal import exit0, script yükleme/parse hatası yok; 356 kaynak kapanış sızıntısı var. Recovery import exit0, script hatası yok; 296 kaynak/PagedAllocator sızıntısı var. Temiz import denmedi; tam sanity yapılmadı. Yerel üretilmiş translation/.import ve project.godot değişiklikleri commit dışında korundu. Asset gerekmedi. ds çalışma/ayna yolları yok, önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-03 başladı (Kalfa)
 
 Hazır/sahipsiz maddelerin genel sıra denetiminde ISG-03 alındı. KAP-18 açık DNY-01’i bekler; ZAR-05 Söz bekleme kapsamında. Sayaç ve moral bedeli, optional kayıt, mevcut HUD ve sohbet bağlantısı küçük parçalarla doğrulanacak. ACL-02/testx sahipliği korunacak; eş bayrağı mevcut kaynaktan okunacak. Çalışma kopyası C:/Users/Ahmet/.codex/worktrees/kalfa-roadmap/Kapı_Muhafizi. Asset gerekmedi. kota görünmüyor.
