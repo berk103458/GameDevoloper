@@ -142,6 +142,11 @@ func _usta_yok() -> void:
 	y.gun += 1
 	var yok := TezgahtaGun.sabah(y, "demirhane", {"usta": -1, "cirak": cirak.id, "stok": 1, "ucret": 2})
 	_kontrol(int(yok.gun) == once and int(yok.titreme) == 1 and int(yok.rutbe_delta) == 0, "TEZ-07: usta yoksa gün durur, titreme 1")
+	_kontrol(int(yok.teslim) == 0 and int(yok.ev_parca) == 0 and int(yok.ucret) == 0, "ISG-37: ustasız sabah yarım üretim/teslim/ücret açmaz")
+	var foto := y.kaydet()
+	var tez_foto := TezgahtaGun.isler(y)
+	TezgahtaGun.sabah(y, "demirhane", {"usta": -1, "cirak": cirak.id, "stok": 1, "ucret": 2})
+	_kontrol(y.kaydet() == foto and TezgahtaGun.isler(y) == tez_foto, "ISG-37: aynı sabah ikinci titreme veya ilerleme yok")
 	y.gun += 1
 	var ciraksiz := TezgahtaGun.sabah(y, "demirhane", {"usta": -1, "cirak": -1, "stok": 1})
 	_kontrol(int(ciraksiz.titreme) == 1, "TEZ-07: çırak yokken titreme artmaz")

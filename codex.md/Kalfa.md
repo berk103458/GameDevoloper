@@ -1,3 +1,9 @@
+## 5 Kasım 2026 — ISG-37 tamamlandı (Kalfa)
+
+Eski yarım üretim başlığı, aynı maddenin açıkça yönlendirdiği tamamlanmış TEZ-07 ayrıntılı kabulüyle çelişiyordu. Rutin tutarlılık kararıyla TEZ-07 tek kaynak korundu: ustasız/çıraklı sabah gün ilerlemez, titreme1 artar, rütbe/teslim/ücret0’dır. ROADMAP başlığı ve kabulü buna uyarlandı. Yeni yarım üretim veya çırak motoru yazılmadı; oyun kodu değiştirilmedi.
+
+Mevcut TEZ testi53 kontrol/0 hata geçti. Ek kabul aynı sabah ikinci çağrının köy kaydı ve gerçek TezgahtaGun.isler durumunu değiştirmediğini, teslim/parça/ücret açılmadığını denetler. Headless parse exit0, SCRIPT ERROR/ERROR0. Önceki ISG-35 importuyla aynı oyun kaynakları korunuyor; o kontroldeki296 kaynak editör kapanış sızıntısı ayrı olarak sürer, bu temiz hedef koşusuyla giderildi sayılmadı. TEZ-07’nin diğer bütün uç durumlarının yeni denetimi iddia edilmez. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki istisna geçerli. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-37 başladı (Kalfa)
 
 ISG-35 83a11655 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Hazır ISG-37 alındı. Başlıktaki yarım üretim, açıkça referans verilen tamamlanmış TEZ-07 kabulüyle çelişiyor: orada gün ilerlemez, titreme1 olur. Ayrıntılı tek TEZ kaynağı korunacak; ikinci çırak motoru yazılmadan başlık uyumu ve mevcut kabul doğrulanacak. Asset gerekmedi. kota görünmüyor.

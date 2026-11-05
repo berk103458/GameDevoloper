@@ -1357,9 +1357,9 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.5 Üretim bağı
 
-- [/] **ISG-37:** Usta yokken çırak yarım üretir (Kalfa)
+- [x] **ISG-37:** Ustasız çırak TEZ-07 sonucunu kullanır (Kalfa)
   - Ne: TEZ-07. Bu madde ikinci çırak motoru açmaz.
-  - Kabul: Çıktı TEZ tablosu. Test: TEZ-07.
+  - Kabul: TEZ-07 tek kaynaktır: usta yok, çırak var iken gün ilerlemez ve titreme 1 artar; rütbe/teslim/ücret 0, aynı sabah ikinci yazım yoktur. Test: `tests/unit/koy/tezgahta_gun_test.gd`. Eski yarım üretim başlığı TEZ-07 ayrıntılı kabulüne göre düzeltildi; ikinci çırak motoru eklenmedi.
   - Bağımlılık: TEZ-07 Boyut: S.
   - Dosya: `src/koy/tezgahta_gun.gd`
   - Asset: asset gerekmedi.

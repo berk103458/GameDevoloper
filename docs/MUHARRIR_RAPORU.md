@@ -1,3 +1,9 @@
+## 5 Kasım 2026 — ISG-37 tamamlandı (Kalfa)
+
+Eski yarım üretim başlığı, aynı maddenin açıkça yönlendirdiği tamamlanmış TEZ-07 ayrıntılı kabulüyle çelişiyordu. Rutin tutarlılık kararıyla TEZ-07 tek kaynak korundu: ustasız/çıraklı sabah gün ilerlemez, titreme1 artar, rütbe/teslim/ücret0’dır. ROADMAP başlığı ve kabulü buna uyarlandı. Yeni yarım üretim veya çırak motoru yazılmadı; oyun kodu değiştirilmedi.
+
+Mevcut TEZ testi53 kontrol/0 hata geçti. Ek kabul aynı sabah ikinci çağrının köy kaydı ve gerçek TezgahtaGun.isler durumunu değiştirmediğini, teslim/parça/ücret açılmadığını denetler. Headless parse exit0, SCRIPT ERROR/ERROR0. Önceki ISG-35 importuyla aynı oyun kaynakları korunuyor; o kontroldeki296 kaynak editör kapanış sızıntısı ayrı olarak sürer, bu temiz hedef koşusuyla giderildi sayılmadı. TEZ-07’nin diğer bütün uç durumlarının yeni denetimi iddia edilmez. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki istisna geçerli. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-35 tamamlandı (Kalfa)
 
 Mevcut köylü kartı fare olmadan bina ataması, görevden çıkarma ve geçici iş atamasını destekliyor. Yeni gerçek sahne kabulü odak + ui_accept basma/bırakma ve TabBar ui_right girdilerini kullanır; fare olayı veya pressed.emit göndermez. Her kabul tam bir düğme sinyali üretir. İkinci UI/atama motoru eklenmedi. Test fixture’ı ISG-32 sahnesinin TestAna sınıfından yeniden kullanılır; standart hedef listesine bir kez eklendi.
