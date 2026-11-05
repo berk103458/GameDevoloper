@@ -1332,7 +1332,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Asset: asset gerekmedi.
 
 
-- [/] **ISG-32:** Atama duraklatta uygulanmaz (Kalfa)
+- [x] **ISG-32:** Atama duraklatta uygulanmaz (Kalfa)
   - Ne: Atama duraklatta uygulanmaz. Delta 0.
   - Kabul: Atama duraklatta uygulanmaz. 0. Test: menü.
   - Bağımlılık: GIR-08. Boyut: S.

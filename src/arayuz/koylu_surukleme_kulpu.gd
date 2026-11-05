@@ -3,7 +3,7 @@ extends Button
 var ekran: KoyEkrani
 var kisi := -1
 func _get_drag_data(_yer: Vector2) -> Variant:
-	if not is_instance_valid(ekran) or ekran.oturum.yonetim.koylu(kisi) == null: return null
+	if not preload("res://src/arayuz/koy_atama_kapisi.gd").acik(ekran) or ekran.oturum.yonetim.koylu(kisi) == null: return null
 	var l := Label.new()
 	l.text = ekran.oturum.yonetim.koylu(kisi).ad + " · " + TranslationServer.translate("koy.gecici_is.surukle")
 	l.add_theme_font_size_override("font_size", 22)

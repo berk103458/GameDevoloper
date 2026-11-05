@@ -483,6 +483,7 @@ func _bilgi_goster() -> void:
 			for k in _y.bostakiler():
 				var d := _dugme("%s  ·  %s %d" % [k.ad, tr("koy.bilgi.stat"), k.stat], _bilgi_icerik)
 				d.pressed.connect(func() -> void:
+					if not preload("res://src/arayuz/koy_atama_kapisi.gd").acik(self): return
 					if _y.ata(k.id, b.id):
 						Ses.cal(&"sfx_onay", -6.0)
 						_yenile()
@@ -512,6 +513,7 @@ func _koylu_satiri(k: Koylu, b: KoyBinasi) -> void:
 	kart.pressed.connect(func() -> void: KoyluKarti.ac(self, k.id))
 	var cikar := _dugme(tr("koy.bilgi.cikar"), satir)
 	cikar.pressed.connect(func() -> void:
+		if not preload("res://src/arayuz/koy_atama_kapisi.gd").acik(self): return
 		_y.bosalt(k.id)
 		_yenile()
 	)

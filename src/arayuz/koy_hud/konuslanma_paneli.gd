@@ -13,6 +13,7 @@ static func ekle(e: KoyEkrani,ic: VBoxContainer,k: Koylu) -> void:
   b.set_meta("konuslanma",r)
   b.disabled=rol==r or not SavunmaKonuslanmasi.atanabilir(y,k.id,r)
   b.pressed.connect(func() -> void:
+   if not preload("res://src/arayuz/koy_atama_kapisi.gd").acik(e): return
    SavunmaKonuslanmasi.ata(y,k.id,r)
    e._yenile()
    KoyluKarti.ac(e,k.id))

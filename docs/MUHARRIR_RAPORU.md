@@ -1,3 +1,11 @@
+## 5 Kasım 2026 — ISG-32 tamamlandı (Kalfa)
+
+Duraklat menüsünün devre dışı bıraktığı ekran ile sıfır hızdaki sahne ağacı ortak koy_atama_kapisi tarafından doğrulanır. Kart, geçici iş/çıkarma, sürükleme başlatma/bırakma, bina bilgi atama/çıkarma ve konuşlanma düğmeleri mevcut model çağrısından önce döner. Ana duraklat altyapısı ve başsız model API’si korunur.
+
+İlk denemede SceneTree unit runner autoload Ses’i derleyemedi; kabul gerçek sahne runner’ına taşındı. Doğru runner menüde bina/geçici iş için2 RED üretti. Sonrasında gerçek düğme sinyalleri ve sürükleme bırakması menüde delta0, sıfır hızda atamalar delta0, devamdan sonra bina ve geçici iş başarılı. Yeni kabul, mevcut sürükle-bırak ve duraklat menü/kayıt sahneleri geçti; SCRIPT ERROR/ERROR yok. Yeni sahne standart hedef listesine eklendi, tam sanity çalıştırılmadı.
+
+İlk recovery import MD5 hatalı uzun yeniden içe alma yaptı; zaman sınırında süreç çalışıyordu, sonradan kapandı (çıkış kodu alınmadı). İkinci import exit0 ve script yükleme/parse hatası0;296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Üretilmiş dosyalar commit dışında. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-25 tamamlandı (Kalfa)
 
 Boşta modelinin mevcut moralden gerçekten kestiği toplam, IsMemnuniyeti dönüşü üzerinden gece raporuna bosta_moral_bedeli olarak aktarılır. DEN aynı raporun tek satırını okur; doğrudan köy ve Oturum rapor zarfı desteklenir. Yeni hesap veya ikinci gece çağrısı yoktur; formül değişmedi. Moral1 iken ölçüm1, aynı gece ikinci çağrıda0 sınırı doğrulandı.
