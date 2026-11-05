@@ -1,3 +1,7 @@
+## 5 Kasım 2026 — ISG-37 başladı (Kalfa)
+
+ISG-35 83a11655 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Hazır ISG-37 alındı. Başlıktaki yarım üretim, açıkça referans verilen tamamlanmış TEZ-07 kabulüyle çelişiyor: orada gün ilerlemez, titreme1 olur. Ayrıntılı tek TEZ kaynağı korunacak; ikinci çırak motoru yazılmadan başlık uyumu ve mevcut kabul doğrulanacak. Asset gerekmedi. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-35 tamamlandı (Kalfa)
 
 Mevcut köylü kartı fare olmadan bina ataması, görevden çıkarma ve geçici iş atamasını destekliyor. Yeni gerçek sahne kabulü odak + ui_accept basma/bırakma ve TabBar ui_right girdilerini kullanır; fare olayı veya pressed.emit göndermez. Her kabul tam bir düğme sinyali üretir. İkinci UI/atama motoru eklenmedi. Test fixture’ı ISG-32 sahnesinin TestAna sınıfından yeniden kullanılır; standart hedef listesine bir kez eklendi.

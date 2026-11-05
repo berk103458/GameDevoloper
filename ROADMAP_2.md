@@ -1357,7 +1357,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.5 Üretim bağı
 
-- [ ] **ISG-37:** Usta yokken çırak yarım üretir
+- [/] **ISG-37:** Usta yokken çırak yarım üretir (Kalfa)
   - Ne: TEZ-07. Bu madde ikinci çırak motoru açmaz.
   - Kabul: Çıktı TEZ tablosu. Test: TEZ-07.
   - Bağımlılık: TEZ-07 Boyut: S.
