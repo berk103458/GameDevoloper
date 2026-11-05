@@ -1,3 +1,7 @@
+## 5 Kasım 2026 — ISG-32 başladı (Kalfa)
+
+ISG-25 ed69f207 festive üzerinde. Hazır ISG-32 alındı; duraklat menüsü ve sıfır hızda mevcut UI atama yolları ortak ince kapıyla korunacak. GIR-08 tamam. Modelin başsız atama API’si korunur. Asset gerekmedi. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-25 tamamlandı (Kalfa)
 
 Boşta modelinin mevcut moralden gerçekten kestiği toplam, IsMemnuniyeti dönüşü üzerinden gece raporuna bosta_moral_bedeli olarak aktarılır. DEN aynı raporun tek satırını okur; doğrudan köy ve Oturum rapor zarfı desteklenir. Yeni hesap veya ikinci gece çağrısı yoktur; formül değişmedi. Moral1 iken ölçüm1, aynı gece ikinci çağrıda0 sınırı doğrulandı.
