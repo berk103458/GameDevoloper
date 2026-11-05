@@ -1,3 +1,7 @@
+## 5 Kasım 2026 — DEN-57 başladı (Kalfa)
+
+DEN-54 4d868faa ile festive üzerinde tamamlandı; Ahmet masaüstü güvenli fast-forward yapıldı. Sıradaki hazır madde DEN-57 sahipliği alındı. Krizler mevcut KRI kaynaklarından ölçülecek, denge dosyasında 28 gecelik sayısal aralık tutulacak. KRI-10 krizler listesi isyan/salgın/kuyu/yas içeriyor; DEN-57 kundak ve zehri de anıyor. Sayım eşlemesi bu kaynaklar üzerinden netleştirilecek. Asset gerekmedi. kota görünmüyor.
+
 ## 5 Kasım 2026 — DEN-54 tamamlandı (Kalfa)
 
 Olağan zorlukta, 5454 tohumlu köy odaklı persona 28 gerçek geceyi oyun sonuna düşmeden tamamladı. Mevcut açılış oyuncusunun kapı ve yapı işlemleri yeniden kullanıldı; yatak/huzur koşulu, esnaf tercihi, meslek uyumlu atama, kervan ticareti ve aş dağıtımı normal API üzerinden işler. Yedi kuruluş adımı tamamlanır. Erken terminal, eksik plan ve tanımsız/ihlal edilen aralık test hatasıdır.
