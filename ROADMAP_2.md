@@ -1372,6 +1372,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Asset: asset gerekmedi.
 
 - [ ] **ISG-39:** Grev söylenti eşiğini SOY-34 okur
+  - 5 Kasım doğrulaması (Kalfa): SOY-34 [x] olsa da `meslek_grevi.gd` içinde söylenti okuyucusu/olasılık artışı bulunmuyor; `SoylentiAgi` üretim çağrısı da yok. Bu bağımlılığın gerçek bağlantısı sağlanmadan ISG-39 tamamlandı sayılmaz; sahiplik alınmadı.
   - Ne: Grev söylenti eşiğini SOY-34 okur. İkinci eşik yok.
   - Kabul: Grev söylenti eşiğini SOY-34 okur. Eşik 1. Test: SOY-34.
   - Bağımlılık: SOY-34. Boyut: S.
@@ -1449,7 +1450,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/sistemler/kayit_gocu.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-67:** İş ölçümü otuz günde bantta
+- [/] **ISG-67:** İş ölçümü otuz günde bantta (Kalfa)
   - Ne: Boşta oranı DEN. Sapınca formül kendiliğinden değişmez.
   - Kabul: Rapor 1. Test: DEN.
   - Bağımlılık: DEN-05 Boyut: S.

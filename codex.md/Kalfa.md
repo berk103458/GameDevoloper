@@ -1,3 +1,7 @@
+## 5 Kasım 2026 — ISG-67 başladı, ISG-39 bağımlılığı doğrulanamadı (Kalfa)
+
+Full pull 20924037 güncel; Ajan Masası okundu. Önceki tur beş tamamlanmış madde/yayın ile ilerlemeydi. SOY-34 işaretli olsa da SoylentiAgi yalnız testlerde ve HafizaDefteri sözlük okuyucusunda bulunuyor; Oturum/KoyYonetimi bağlantısı veya MeslekGrevi söylenti okuyucusu yok. ISG-39 sahiplenilmedi ve kapatılmadı. Hazır ISG-67 alındı: otuz gerçek günlük boşta oranı tek DEN raporunda olacak; bant dışı sonuç hiçbir oyun formülünü değiştirmeyecek. Asset gerekmedi. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-37 tamamlandı (Kalfa)
 
 Eski yarım üretim başlığı, aynı maddenin açıkça yönlendirdiği tamamlanmış TEZ-07 ayrıntılı kabulüyle çelişiyordu. Rutin tutarlılık kararıyla TEZ-07 tek kaynak korundu: ustasız/çıraklı sabah gün ilerlemez, titreme1 artar, rütbe/teslim/ücret0’dır. ROADMAP başlığı ve kabulü buna uyarlandı. Yeni yarım üretim veya çırak motoru yazılmadı; oyun kodu değiştirilmedi.
