@@ -129,6 +129,7 @@ def checks(godot, root):
         yield scene, [godot, "--headless", "--path", str(root), f"tests/oto/{scene}.tscn"], "GEÇTİ"
     yield "tas_yatagi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/tas_yatagi_kontrol.tscn"], "GEÇTİ"
     yield "acilis_denge_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/acilis_denge_kontrol.tscn"], "GEÇTİ"
+    yield "denge_persona", [godot, "--headless", "--path", str(root), "tests/oto/denge_persona.tscn"], "GEÇTİ"
     yield "sira_olayi_sonucu_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/sira_olayi_sonucu_kontrol.tscn"], "GEÇTİ"
     yield "kapi_kuyu_donusu_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/kapi_kuyu_donusu_kontrol.tscn"], "GEÇTİ"
     yield "bellek_sahne_gecisi_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/bellek_sahne_gecisi_kontrol.tscn"], "GEÇTİ"
