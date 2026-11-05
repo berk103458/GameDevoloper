@@ -1,3 +1,7 @@
+## 5 Kasım 2026 — ISG-35 başladı (Kalfa)
+
+ISG-32 e0c8f73b festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Full pull güncel. Hazır ISG-35 alındı: mevcut kartın odak/ui_accept yolu gerçek klavye girdisiyle sınanacak. GIR-06 tamam; ikinci atama arayüzü açılmaz. Asset gerekmedi. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-32 tamamlandı (Kalfa)
 
 Duraklat menüsünün devre dışı bıraktığı ekran ile sıfır hızdaki sahne ağacı ortak koy_atama_kapisi tarafından doğrulanır. Kart, geçici iş/çıkarma, sürükleme başlatma/bırakma, bina bilgi atama/çıkarma ve konuşlanma düğmeleri mevcut model çağrısından önce döner. Ana duraklat altyapısı ve başsız model API’si korunur.

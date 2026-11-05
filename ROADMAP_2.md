@@ -1347,7 +1347,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Asset: asset gerekmedi.
 
 
-- [ ] **ISG-35:** Atama klavye ile de bırakılır
+- [/] **ISG-35:** Atama klavye ile de bırakılır (Kalfa)
   - Ne: Atama klavye ile de bırakılır. GIR. Fare şart değil.
   - Kabul: Atama klavye ile de bırakılır. Klavye 1. Test: GIR-06.
   - Bağımlılık: GIR-06. Boyut: S.
