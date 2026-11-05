@@ -1,3 +1,9 @@
+## 5 Kasım 2026 — ISG-35 tamamlandı (Kalfa)
+
+Mevcut köylü kartı fare olmadan bina ataması, görevden çıkarma ve geçici iş atamasını destekliyor. Yeni gerçek sahne kabulü odak + ui_accept basma/bırakma ve TabBar ui_right girdilerini kullanır; fare olayı veya pressed.emit göndermez. Her kabul tam bir düğme sinyali üretir. İkinci UI/atama motoru eklenmedi. Test fixture’ı ISG-32 sahnesinin TestAna sınıfından yeniden kullanılır; standart hedef listesine bir kez eklendi.
+
+İlk koşu davranışı geçti fakat testin null varsayılanlı get_meta çağrısı hata bastı; has_meta kontrolüyle düzeltildi. Son kabul exit0 ve SCRIPT ERROR/ERROR0. Headless recovery import ilk koşu uzun yeniden içe alma/MD5 hatalarıyla exit0; ikinci import exit0, script yükleme/parse hatası0, mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki istisna geçerli. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-32 tamamlandı (Kalfa)
 
 Duraklat menüsünün devre dışı bıraktığı ekran ile sıfır hızdaki sahne ağacı ortak koy_atama_kapisi tarafından doğrulanır. Kart, geçici iş/çıkarma, sürükleme başlatma/bırakma, bina bilgi atama/çıkarma ve konuşlanma düğmeleri mevcut model çağrısından önce döner. Ana duraklat altyapısı ve başsız model API’si korunur.

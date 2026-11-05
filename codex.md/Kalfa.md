@@ -1,3 +1,9 @@
+## 5 Kasım 2026 — ISG-35 tamamlandı (Kalfa)
+
+Mevcut köylü kartı fare olmadan bina ataması, görevden çıkarma ve geçici iş atamasını destekliyor. Yeni gerçek sahne kabulü odak + ui_accept basma/bırakma ve TabBar ui_right girdilerini kullanır; fare olayı veya pressed.emit göndermez. Her kabul tam bir düğme sinyali üretir. İkinci UI/atama motoru eklenmedi. Test fixture’ı ISG-32 sahnesinin TestAna sınıfından yeniden kullanılır; standart hedef listesine bir kez eklendi.
+
+İlk koşu davranışı geçti fakat testin null varsayılanlı get_meta çağrısı hata bastı; has_meta kontrolüyle düzeltildi. Son kabul exit0 ve SCRIPT ERROR/ERROR0. Headless recovery import ilk koşu uzun yeniden içe alma/MD5 hatalarıyla exit0; ikinci import exit0, script yükleme/parse hatası0, mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki istisna geçerli. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-35 başladı (Kalfa)
 
 ISG-32 e0c8f73b festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Full pull güncel. Hazır ISG-35 alındı: mevcut kartın odak/ui_accept yolu gerçek klavye girdisiyle sınanacak. GIR-06 tamam; ikinci atama arayüzü açılmaz. Asset gerekmedi. kota görünmüyor.
