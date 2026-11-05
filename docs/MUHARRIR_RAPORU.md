@@ -1,3 +1,9 @@
+## 5 Kasım 2026 — DEN-57 tamamlandı (Kalfa)
+
+28 gecelik başlangıç denge hedefi kriz_aralik altında alt=0, ust=12 olarak kaydedildi. Bu rutin hedef seçimi Kalfa tarafından yapıldı; 20 tohumluk oyun ölçümü DEN-59 kabulüdür ve henüz yapılmadı. Sayısal sınır dosyası 0–140 fiziksel sayım tavanını tanımlar. Veri sözleşmesi yalnız alt/ust kabul eder; eksik, ters, kesirli, bool, sonsuz ve ek tetik kuralı içeren alanlar hata verir. KRI uygulamalarına kod eklenmedi.
+
+Önce RED, ardından 39 hedefli Python testi, gerçek tablo doğrulaması ve Godot denge sınır testi geçti. İlk recovery import MD5 hatalıydı. İkinci import exit0 ve SCRIPT ERROR/Failed to load script 0; ortak sürümün 295 kaynak kapanış sızıntısı sürüyor. Hatasız import iddiası verilmedi. Asset gerekmedi. ds yolları önceki izinli istisna kapsamında yok. kota görünmüyor.
+
 ## 5 Kasım 2026 — DEN-54 tamamlandı (Kalfa)
 
 Olağan zorlukta, 5454 tohumlu köy odaklı persona 28 gerçek geceyi oyun sonuna düşmeden tamamladı. Mevcut açılış oyuncusunun kapı ve yapı işlemleri yeniden kullanıldı; yatak/huzur koşulu, esnaf tercihi, meslek uyumlu atama, kervan ticareti ve aş dağıtımı normal API üzerinden işler. Yedi kuruluş adımı tamamlanır. Erken terminal, eksik plan ve tanımsız/ihlal edilen aralık test hatasıdır.

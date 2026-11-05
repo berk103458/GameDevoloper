@@ -322,6 +322,19 @@ def faiz_kaynagi_hatalari(denge: dict) -> list:
     ]
 
 
+def kriz_aralik_hatalari(denge: dict) -> list:
+    """DEN-57: denge dosyası kriz sayısının alt/üst sınırını tutar."""
+    aralik = denge.get("kriz_aralik")
+    if not isinstance(aralik, dict) or set(aralik) != {"alt", "ust"}:
+        return ["kriz_aralik: yalnız alt ve ust sınırları bulunmalı (DEN-57)"]
+    for ad, deger in aralik.items():
+        if not (_sayi(deger) and math.isfinite(deger) and deger >= 0 and deger == int(deger)):
+            return [f"kriz_aralik.{ad}: negatif olmayan tam sayı gerekli (DEN-57)"]
+    if aralik["alt"] > aralik["ust"]:
+        return ["kriz_aralik: alt sınır üst sınırı aşamaz (DEN-57)"]
+    return []
+
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -346,6 +359,7 @@ def main(argv=None) -> int:
         hatalar += gecici_is_hatalari(denge)
         hatalar += fiyat_kaynagi_hatalari(denge)
         hatalar += faiz_kaynagi_hatalari(denge)
+        hatalar += kriz_aralik_hatalari(denge)
         hatalar += teftis_esigi_hatalari(denge, yukle(ROOT / "data/muhafiz_terazisi.json"), yukle(ROOT / "data/sancak_teftisi.json"))
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]

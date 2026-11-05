@@ -69,6 +69,16 @@ class DengeDogrulaTest(unittest.TestCase):
             with self.subTest(veri=veri):
                 self.assertTrue(dogrulayici.faiz_kaynagi_hatalari(veri))
 
+    def test_kriz_araligi_yalniz_sinirlardan_olusur(self):
+        self.assertEqual(dogrulayici.kriz_aralik_hatalari({"kriz_aralik": {"alt": 0, "ust": 12}}), [])
+        for aralik in [None, {}, {"alt": 0}, {"alt": 2, "ust": 1},
+                       {"alt": 0, "ust": 12, "tetikle": "salgin"},
+                       {"alt": -1, "ust": 12}, {"alt": True, "ust": 12},
+                       {"alt": 0, "ust": float("inf")}, {"alt": 0, "ust": 2.5}]:
+            with self.subTest(aralik=aralik):
+                self.assertTrue(dogrulayici.kriz_aralik_hatalari({"kriz_aralik": aralik}))
+        self.assertTrue(dogrulayici.kriz_aralik_hatalari({}))
+
     def test_gercek_tablo_temiz(self):
         self.assertEqual(dogrulayici.main([]), 0)
 

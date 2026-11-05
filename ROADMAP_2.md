@@ -3714,7 +3714,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.8 Kriz sıklığı
 
-- [/] **DEN-57:** (Kalfa) Kriz listesi KRI maddeleridir.
+- [x] **DEN-57:** (Kalfa) Kriz listesi KRI maddeleridir.
   - Ne: salgın, kıtlık, kundak, zehir, isyan ayrı sistem olarak durur. Denge yalnız aralık yazar: 28 günde en az ve en çok kaç kriz.
   - Kabul: salgın, kıtlık, kundak, zehir, isyan ayrı sistem olarak durur. Denge yalnız aralık yazar: 28 günde en az ve en çok kaç kriz. Test: aralık dosyada, kriz kodu dosyada değil.
   - Bağımlılık: DEN-01. Boyut: S.
