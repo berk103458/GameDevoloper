@@ -1,3 +1,7 @@
+## 5 Kasım 2026 — ISG-25 başladı (Kalfa)
+
+ISG-03 9f2ad761 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Full pull güncel. Hazır ISG-25 alındı: gerçekleşen boşta moral bedeli tek DEN ölçüm satırı olacak; formül veya gece ikinci kez çalışmayacak. Asset gerekmedi. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-03 tamamlandı (Kalfa)
 
 Boşta yetişkinin mevcut moralinden gecede bir kez veri tablosundaki 2 puan düşer. Optional kişi kaydı son bedel gecesini ve en çok üç günlük seriyi taşır; eski/bozuk kayıt güvenle boş başlar. Geçici iş, bina ve nöbet ataması seriyi anında sıfırlar, aynı gece damgasını korur. Çocuk, eş, hasta, karantina, oyuncu, zindan ve dış görev/nöbet hariçtir. Açlık sayacı ayrıdır. Mevsim çarpanı mevcut mevsim kaydından gelir; dört varsayılan çarpan 1’dir.
