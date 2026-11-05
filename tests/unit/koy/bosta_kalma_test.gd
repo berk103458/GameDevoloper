@@ -60,7 +60,16 @@ func _calistir() -> void:
 	normal.kaynaklar = Kaynaklar.new(10000, {"gida": 1000, "su": 1000, "odun": 1000})
 	var kisi := normal.kabul({"ad": "Usta", "sinif": "ciftci"})
 	var baslangic := kisi.moral
-	for i in 3: normal.gece()
+	for i in 3:
+		var r := normal.gece()
+		dene(int(r.get("bosta_moral_bedeli", -1)) == int(B.AYAR.moral_kaybi), "Gerçekleşen bedel gece raporunda tek satır")
+		var foto := normal.kaydet()
+		for tekrar in 2:
+			var olcum := DengeOlcumu.olustur(o, r)
+			dene(olcum.get("bosta_moral_bedeli", -1) == r.get("bosta_moral_bedeli", -2), "DEN rapordan aynı bedeli okur")
+		dene(normal.kaydet() == foto, "DEN ikinci bedel veya gece üretmez")
+		var sarili := DengeOlcumu.olustur(o, {"rapor": r})
+		dene(sarili.bosta_moral_bedeli == r.bosta_moral_bedeli, "Oturum rapor zarfı aynı satırı taşır")
 	dene(normal.gun == 3 and B.gunler(normal, kisi) == 3, "Normal gece üç tam gün sayar")
 	dene(kisi.moral == baslangic - 3 * int(B.AYAR.moral_kaybi), "Normal gece tek moral alanına yazar")
 	dene(normal.koylu(kisi.id) != null, "Terk isteği kişiyi silmez")
@@ -127,6 +136,11 @@ func _calistir() -> void:
 	dene(B.gunler(normal, ikinci) == 0, "Gelecek tarih terk isteği açmaz")
 	B.gece(normal, {})
 	dene(B.gunler(normal, ikinci) == 1, "Gelecek tarih sonraki normal sayımı kilitlemez")
+	var tek := Oturum.new(kat, 304).yonetim
+	var dusuk := tek.kabul({"ad": "Düşük moral"})
+	dusuk.moral = 1
+	dene(B.gece(tek, {}) == 1 and dusuk.moral == 0, "Gerçek bedel moral tabanında tam bir puandır")
+	dene(B.gece(tek, {}) == 0, "Aynı gecenin ikinci ölçümü sıfır bedel")
 	h.free()
 	print("BOŞTA KALMA MODEL: GEÇTİ" if hata == 0 else "BOŞTA KALMA MODEL: KALDI")
 	quit(hata)

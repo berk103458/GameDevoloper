@@ -1,3 +1,9 @@
+## 5 Kasım 2026 — ISG-25 tamamlandı (Kalfa)
+
+Boşta modelinin mevcut moralden gerçekten kestiği toplam, IsMemnuniyeti dönüşü üzerinden gece raporuna bosta_moral_bedeli olarak aktarılır. DEN aynı raporun tek satırını okur; doğrudan köy ve Oturum rapor zarfı desteklenir. Yeni hesap veya ikinci gece çağrısı yoktur; formül değişmedi. Moral1 iken ölçüm1, aynı gece ikinci çağrıda0 sınırı doğrulandı.
+
+Önce9 RED, sonra boşta/HUD/Parley kabulü, DEN ölçümü, iş memnuniyeti ve köy yönetimi olmak üzere4 hedefli Godot testi geçti. Tekrarlanan DEN okuması kayıt ve RNG’yi değiştirmedi. Recovery import ilk koşu MD5 hatalı; ikinci exit0, SCRIPT ERROR/Failed to load script0, mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-03 tamamlandı (Kalfa)
 
 Boşta yetişkinin mevcut moralinden gecede bir kez veri tablosundaki 2 puan düşer. Optional kişi kaydı son bedel gecesini ve en çok üç günlük seriyi taşır; eski/bozuk kayıt güvenle boş başlar. Geçici iş, bina ve nöbet ataması seriyi anında sıfırlar, aynı gece damgasını korur. Çocuk, eş, hasta, karantina, oyuncu, zindan ve dış görev/nöbet hariçtir. Açlık sayacı ayrıdır. Mevsim çarpanı mevcut mevsim kaydından gelir; dört varsayılan çarpan 1’dir.

@@ -1315,7 +1315,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: yeni `src/koy/bosta_kalma.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **ISG-25:** Bedel ölçümü DEN satırıdır (Kalfa)
+- [x] **ISG-25:** Bedel ölçümü DEN satırıdır (Kalfa)
   - Ne: Bedel ölçümü DEN satırıdır. Formül değişmez.
   - Kabul: Bedel ölçümü DEN satırıdır. Satır 1. Test: DEN.
   - Bağımlılık: DEN-05. Boyut: S.

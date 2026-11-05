@@ -44,8 +44,9 @@ static func sifirla(y: KoyYonetimi, id: int) -> void:
 	if k != null and not k.bosta_kalma.is_empty():
 		k.bosta_kalma["gun"] = 0
 
-static func gece(y: KoyYonetimi, calismalar: Dictionary) -> void:
-	if not y.son.is_empty(): return
+static func gece(y: KoyYonetimi, calismalar: Dictionary) -> int:
+	if not y.son.is_empty(): return 0
+	var toplam := 0
 	var mevsim := MevsimYoneticisi.durum(y)
 	var bedel := roundi(float(AYAR.moral_kaybi) * float(mevsim.bosta_moral_carpani))
 	for k in y.koylular:
@@ -56,8 +57,11 @@ static func gece(y: KoyYonetimi, calismalar: Dictionary) -> void:
 		if uygun(y, k) and not calismalar.has(k.id):
 			var eski := int(once.get("gun", 0)) if int(once.get("son_gece", -1)) == y.gun - 1 else 0
 			gun = mini(int(AYAR.terk_gun), eski + 1)
+			var moral_once := k.moral
 			k.moral = maxi(0, k.moral - bedel)
+			toplam += moral_once - k.moral
 		k.bosta_kalma = {"gun": gun, "son_gece": y.gun}
+	return toplam
 
 static func sohbet_satiri(y: KoyYonetimi, k: Koylu) -> String:
 	if k == null or k.zanaat_turu == ZanaatTuru.Tur.BELIRSIZ or gunler(y, k) < int(AYAR.terk_gun):
