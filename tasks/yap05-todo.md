@@ -19,3 +19,5 @@
 - [ ] Hedefli testler/import/parse, raporlar ve commit/push/masaüstü FF tamam.
 
 Madde tamamlanmadan[x] yapılmaz. kota görünmüyor.
+
+Veri dilimi kanıtı: K1 oda katalog kaydı ve tek iş yuvası, süre/tek sonuç/bedel verisi ve bozuk veri doğrulaması hedefli testte geçti. Oda kurulabilir=false; gerçek iş/UI/kayıt tamamlanınca açılacak. Yukarıdaki tam kabul kutuları henüz işaretlenmedi.

@@ -3,7 +3,14 @@
     "usta_defteri_marangoz": {
       "ad": "Marangoz ustasının defteri",
       "yapi": "hizarhane",
-      "deger": 4
+      "deger": 4,
+      "arastirma": {
+        "sure_gun": 3,
+        "sonuc": {
+          "hedef_sistem": "hizarhane_uretimi",
+          "carpan": 1.1
+        }
+      }
     }
   },
   "ganimet": {
@@ -23,5 +30,10 @@
       "yok": 4,
       "usta_defteri_marangoz": 1
     }
+  },
+  "cozumleme": {
+    "oda_turu": "cozumleme_odasi",
+    "kamu_bedel": 2,
+    "mevsim_carpani": "insa_carpani"
   }
 }

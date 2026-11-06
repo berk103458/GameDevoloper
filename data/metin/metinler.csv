@@ -2368,3 +2368,5 @@ koy.yapi_kilidi.gerekli,Gerekli: %s bilgisi,Required: %s knowledge
 koy.yapi_kilidi.on_kademe,Önce hazır K%d yapı gerekir,Requires a completed K%d building first
 koy.neden.yapi_bilgisi,Yapı bilgisi eksik,Building knowledge is missing
 koy.neden.yapi_on_kademe,Önce alt kademe bir yapıyı tamamlayın,Complete a building of the preceding tier first
+koy.yapi.cozumleme_odasi,Çözümleme odası,Study room
+koy.yapi.cozumleme_odasi_aciklama,Defterleri incelemek için tek kişilik çalışma odası.,A room for one villager to study notebooks.

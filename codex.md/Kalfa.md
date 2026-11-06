@@ -1,3 +1,11 @@
+## 6 Kasım 2026 — YAP-05 veri dilimi doğrulandı; iş sürüyor (Kalfa)
+
+YAP-05 açık oda şartına özgü cozumleme_odasi katalog satırı/K1 tablosu/tek iş yuvası eklendi. Diğer yapı türleri/seviyeler değişmedi. Oda kurulabilir=false: gerçek iş/UI/kayıt bağlantısı tamamlanana kadar inşa menüsünde açılmaz. Defter verisi süre3, tek kamu bedeli2 ve mevcut hızarhane üretimi için tek1.1 sonuç çarpanını tanımlar; bu değerler henüz oyun hesabına uygulanmıyor. Mevsim kaynağı mevcut insa_carpani alanıdır, ayrı kış sabiti eklenmedi. Yeni cozumleme.gd yalnız veri doğrulayıcı ve hazır oda sorgusudur; başlat/gece/ödül varmış gibi çağıran stub yok.
+
+Önce eksik preload RED; sonra çözümleme veri testi, YAP kademe testi, defter/gerçek ganimet testi ve kademe CLI olmak üzere4 hedef geçti. Sıfır/negatif/bool/kesirli/sonsuz süre, bilinmeyen/çift hedef ve geçersiz çarpan reddedilir. CSV doğrulaması PASS. İlk recovery import exit0/script hatası0, yedi MD5/kapanış hatası; ikinci exit0/script hatası0, üç PagedAllocator kapanış hatası sürer. Hatasız import veya tam sanity denmedi. YAP05-ODA envanterde3D ölçü ve planlanan kutu/etiketle kayıtlı; asset üretimi/indirmesi yok.
+
+YAP-05[/] Kalfa kalır. Bütün orijinal kabul koşulları tasks/yap05-plan.md ve yap05-todo.md içinde; veri kanıtı tam iş kabulü sayılmadı. Sonraki dilim tek etkin iş/kuyruk, yetişkin çalışan ataması, optional kayıt ve gerçek gecelik ilerlemedir; sonrasında tek sonuç adaptörü/oyuncu UI/kabul. DEN-54 plan2/7 regresyonu açık. ds yolları yeniden kontrol edildi, ikisi de yok; önceki Ahmet istisnası geçerli. İlgisiz import/translation/project.godot korunup commit dışında. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-05 başladı (Kalfa)
 
 Full pull7a113f51 güncel; Ajan Masası okundu. Maddeye özgü açık katalog oda şartı yalnız bir K1 çözümleme odası kimliği için esas alınır. Bütün kabul koşulları tasks/yap05-plan.md ve yap05-todo.md içinde korunuyor. Önce veri/oda doğrulaması, sonra tek iş/kuyruk/kayıt ve gerçek UI. YAP-05 henüz tamamlanmadı. Asset YAP05-ODA kaydedilecek; kota görünmüyor.
