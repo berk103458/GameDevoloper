@@ -1461,7 +1461,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 ### 20.9 Sınır
 
 
-- [ ] **ISG-73:** Çocuk çırak yaşı UZM-04'tür
+- [/] **ISG-73:** Çocuk çırak yaşı UZM-04'tür (Kalfa)
   - Ne: Çocuk çırak yaşı UZM-04'tür. ISG yaş icat etmez.
   - Kabul: Eşik 1 kaynak. Test: UZM-04.
   - Bağımlılık: UZM-04. Boyut: S.

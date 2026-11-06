@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — ISG-73 başladı (Kalfa)
+
+ISG-67 905e9c74 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Hazır ISG-73 alındı. ROADMAP1 UZM-04 beş ortak üretim gecesi eğitimidir; ayrı sayısal çocuk yaşı içermez. Mevcut yaş kaynağı YasRolleri: çocuk yalnız COCUK_HAFIF listesindeki işlere atanır. Eğitim ve TEZ çırak okuyucusunun bu kaynağı kullanması doğrulanacak; yeni yaş grubu/sayısı veya eğitim motoru kurulmayacak. Asset gerekmedi. kota görünmüyor.
+
 ## 6 Kasım 2026 — ISG-67 tamamlandı (Kalfa)
 
 Gece raporuna mevcut boşta kurallarından salt okunur yetişkin işgücü/boşta/gün fotoğrafı eklendi. Mevcut BostaKalma uygunluğu aynı sağlık/yaş kaynağına ayrıldı; HUD ve moral davranışı korunur. İşgücü çalışan/nöbetçi sağlıklı yetişkinleri içerir; çocuk, eş, oyuncu, hasta, karantina, zindan ve köy dışı kişiler hariçtir. DEN fotoğrafı kopyalar; DengeOlcumu.is_raporu son30 ardışık geceyi tek raporda toplar. Oran toplam boşta kişi-gün / toplam işgücü kişi-gündür. Aynı fotoğraf mükerrer sayılmaz, çelişen/bozuk/eksik gece hazır sayılmaz; işgücü olmayan pencere denge kabulü vermez.
