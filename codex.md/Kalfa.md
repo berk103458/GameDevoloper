@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — DEN-58 tamamlandı (Kalfa)
+
+Mevcut BUG-18 testi DEN-58 gözlemiyle genişletildi: ayardaki tüm alışma günlerinde DEN raporu alındıktan sonra her risk profili10000 taban ağırlıkta da0; süre dolunca2 taban değeri aynen2. Ölçüm kayıt/RNG/takvim değiştirmez. Mevcut13. gün gerçek kuyruk/sabotaj/baskın0, HAR-02 ilerleme, resmi ulak/heyet,15. gün dönüş, debug ve eski kayıt kontrolleri birlikte geçti. Üretim kodu/denge/tehdit süresi değişmedi, ikinci kapı yok. Hedefli headless test exit0 SCRIPT ERROR/ERROR0; son aynı üretim kaynaklarının recovery importu exit0/script hatası0, üç PagedAllocator kapanış hatası sürer. Tam sanity yok. Asset gerekmedi. YAP-01 bedel tercihi açık. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — DEN-58 başladı (Kalfa)
 
 Full pull güncel; BUG-18 kapısının DEN tarafından gevşetilmediği mevcut hedefli testte doğrulanacak. Asset gerekmedi; kota görünmüyor.

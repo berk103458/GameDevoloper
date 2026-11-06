@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — DEN-58 tamamlandı (Kalfa)
+
+Mevcut BUG-18 testi DEN-58 gözlemiyle genişletildi: ayardaki tüm alışma günlerinde DEN raporu alındıktan sonra her risk profili10000 taban ağırlıkta da0; süre dolunca2 taban değeri aynen2. Ölçüm kayıt/RNG/takvim değiştirmez. Mevcut13. gün gerçek kuyruk/sabotaj/baskın0, HAR-02 ilerleme, resmi ulak/heyet,15. gün dönüş, debug ve eski kayıt kontrolleri birlikte geçti. Üretim kodu/denge/tehdit süresi değişmedi, ikinci kapı yok. Hedefli headless test exit0 SCRIPT ERROR/ERROR0; son aynı üretim kaynaklarının recovery importu exit0/script hatası0, üç PagedAllocator kapanış hatası sürer. Tam sanity yok. Asset gerekmedi. YAP-01 bedel tercihi açık. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — DEN-35 tamamlandı (Kalfa)
 
 ISG-03 terk sorgusunun gece sonu kişi kimlikleri fotoğrafı mevcut gece/DEN raporuna eklendi. Yeni oyun sayacı veya eşik değişikliği yok. Salt okunur bosta_terk_raporu son20 ardışık geceyi toplar; aynı süren istek bir başlangıçtır, kapanıp yeniden açılırsa yeniden sayılır. Pencere öncesi fotoğraf varsa devam eden isteği ayırt eder; yoksa ilk gecedeki istek pencereye dahil sayılır. Mükerrer aynı fotoğraf sayılmaz; çelişen/bozuk/eksik/kesik kayıt kabul edilmez. Başlangıç bandı0–3 denge.json bosta_terk_aralik içindedir; bu kontrollü kabul bandıdır, genel denge sağlığı iddiası veya otomatik ayar değildir.

@@ -6,6 +6,7 @@ var kat: Katalog
 func _initialize() -> void:
 	kat = Katalog.new()
 	kat.yukle()
+	_denge_alisma()
 	_erken_gelis()
 	_mogol()
 	_resmi_bildiri()
@@ -160,3 +161,17 @@ func dene(ok: bool, mesaj: String) -> void:
 	if not ok:
 		hata += 1
 		push_error(mesaj)
+
+## DEN-58: DEN gözlemi ve yüksek taban ağırlık alışma kapısını gevşetmez.
+func _denge_alisma() -> void:
+	var o := Oturum.new(kat, 1858)
+	for gun in range(int(TAKVIM.AYAR.tehdit_baslangic_gunu)):
+		o.gun = gun
+		var once := o.kaydet()
+		DengeOlcumu.olustur(o, {})
+		for id in riskler():
+			dene(TAKVIM.agirlik(o.gun, id, 10000.0) == 0.0, "DEN-58: alışma gününde yüksek risk ağırlığı da sıfır %d/%s" % [gun,id])
+		dene(o.kaydet() == once, "DEN-58: ölçüm takvim/kayıt/RNG değiştirmez")
+	o.gun = int(TAKVIM.AYAR.tehdit_baslangic_gunu)
+	for id in riskler():
+		dene(TAKVIM.agirlik(o.gun, id, 2.0) == 2.0, "DEN-58: sınırdan sonra gerçek taban ağırlık korunur")
