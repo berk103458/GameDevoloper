@@ -656,3 +656,33 @@ Ahmet işleri paralel ajanlara dağıttı. Sen (ana ajan) şunları yap: Karar 1
 
 Parti 5'te sen sadece **ANL-EPI-01** epilog metinlerini yap ve bitince GOREV17_TAMAM yaz. KVR-SES-01 metinlerini ajan C, SES-DIL-01'i ajan B yapıyor; ajan D sabahki maddeleri denetliyor. Bunlara başladıysan bıraktığın yeri ilerleme dosyasına yaz ve commit et, devam etme.
 
+
+
+---
+
+# Görev 18 - Ahmet dışarıda, uzun metin oturumu (Kaşif, 6 Kasım 2026 13:50)
+
+Ahmet evden çıktı, PC açık. Sen dönene kadar durmadan çalış; bir madde bitince sıradakine geç. İlerleme dosyası: `codex.md/Antigravity_ilerleme_18.md`.
+
+**Kota kuralı:** Kota yaklaşık %10'a inerse elindeki adımı bitir, commit ve push et, ilerleme dosyasına "kota için durdum" yaz ve `GOREV18_TAMAM` satırını ekle. Kota bitmeden erken durma.
+
+## Ne yapacaksın
+1. `git fetch origin`, festive'i (`origin/claude/festive-volta-li1sfm`) kendi dalına merge et (Kalfa'nın yeni commitleri var). Çakışmada iki tarafı koru. Testleri çalıştır, yeni kırmızı olmasın.
+2. `ROADMAP_2.md`'deki açık maddelerin **metin/diyalog/karakter** kısımlarını öncelik sırasıyla yap. Kod isteyen kısmı Kalfa'ya bırak, bağlantı noktasını "Kalfa bekleniyor" diye not et:
+   - **KAP-18** Yetimler ve savaştan kaçan çocuklar: kapıya gelen çocuk ziyaretçiler, diyalog ağaçları, kabul/ret sonuçlarının metinleri.
+   - **YAP-03, YAP-24, YAP-28, YAP-29** Ustalar kapıdan gelir: her biri adlı, geçmişi olan özel usta karakterleri; kapı diyalogları, köydeki replikleri, usta çocuğunun çırak olma hikâyesi.
+   - **YAP-04, YAP-37** Usta defterleri ve yapı resimleri: defter metinleri, ganimetten bulunan defterlerin içerikleri.
+   - **YAP-51** Eşya açıklamaları: özel eşyaların açıklama metinleri, metin anahtarı olarak.
+   - **DNY-01 - DNY-04** Dünya zaman çizelgesi, haberin önce insanlardan duyulması, olayların köye etkisi, kararların dünyaya geri dönmesi: zaman çizelgesi metni, ziyaretçilerin getirdiği haber replikleri, kararlara bağlı geri dönüş replikleri.
+3. Her yeni metin anahtarının İngilizce karşılığını da ekle. Mevcut sözlük ve doğrulayıcıları çalıştır.
+4. Her maddeyi bitirince ROADMAP'te işaretle (yalnız metin kısmı bittiyse "metin tamam, Kalfa bekleniyor" yaz), test et, commit et, sonra `git push origin HEAD:claude/festive-volta-li1sfm` ile festive'e fast-forward push et (reddedilirse fetch + merge + test + tekrar). Kendi dalını da push et. Asla force push yapma. Commit mesajları madde koduyla başlasın, "(Antigravity)" ile bitsin.
+5. Listedeki her şey biterse durma: mevcut diyalogların İngilizce çevirilerini gözden geçir, tutarsız karakter adlarını ve doğal olmayan cümleleri düzelt, bulduklarını `docs/DENETIM_6KASIM.md`'ye yaz. Sonra ROADMAP'te metin isteyen başka açık madde bul ve onu yap.
+6. Ahmet dönünce okuyacağı kısa bir özet bölümü ekle ilerleme dosyasının başına: "Ahmet dönünce önce bunu oku" başlığıyla, neler bitti, Kalfa'nın ne yapması gerekiyor, sorular neler.
+7. Hepsi bitince ya da kota kuralı devreye girince son satıra tek başına `GOREV18_TAMAM` yaz.
+
+## Kurallar
+- **Karar 2 (Molla Şükrü) hâlâ BEKLİYOR.** Yamalarına dokunma.
+- Asset üretme, asset promptu yazma; gerekirse isim etiketli yer tutucu kullan ve `docs/EKSIK_ASSET_ENVANTERI.md`'ye yaz.
+- Yalnız `Kapi_Muhafizi_diyalog` klasöründe çalış. **Kalfa'nın klasörüne (`Kapı_Muhafizi`) ve `Kapi_Muhafizi_agy_B/C/D` klasörlerine girme, oralarda git komutu çalıştırma.**
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
+
