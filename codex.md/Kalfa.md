@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — YAP-61 sahipliği (Kalfa)
+
+Full pull güncel. TEK-22 tamam; gerçek yapı bilgi kartının köy hızını değiştirmediği hedefli UI kabulü alınacak. YAP-01 bedel kararı bekliyor. Asset gerekmedi; kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-28 tamamlandı (Kalfa)
 
 Gerçek KAP-17 aile kapı kabulünden gelen usta ve çocuğun aynı kalıcı hanesi doğrulandı. Mevcut YasRolleri ağır iş atamasını çocukken reddeder; çalışma listesine adı girse bile eğitim sıfırdır. Yaşı uygun yetişkin fixture girdisi gerçek Oturum JSON kaydet/yükle üzerinden korunur; çocuk normal atamayla aynı ustanın yanında mevcut beş ortak çalışma ile stat6 yarı usta olur. Yaş büyümesi elle fixture girdisidir, DNY-01 takvimi uygulanmış veya tamamlanmış sayılmaz. Yeni aile/çırak sistemi veya üretim kodu yok.
