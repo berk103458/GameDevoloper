@@ -3741,7 +3741,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: KRI-10. Boyut: S.
   - Dosya: `tests/oto/denge_kriz.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-61:** Kıtlık, erzak 0 ile ölçülür.
+- [x] **DEN-61:** Kıtlık, erzak 0 ile ölçülür. (Kalfa)
   - Ne: KRI-06 iki gece 0 kuralı değişmez. Ölçüm, eşiğin bir geceye inmediğini doğrular.
   - Kabul: KRI-06 iki gece 0 kuralı değişmez. Ölçüm, eşiğin bir geceye inmediğini doğrular. Test: 1 gece 0, isyan yok. 2 gece 0, isyan var.
   - Bağımlılık: KRI-06. Boyut: S.

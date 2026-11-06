@@ -47,7 +47,30 @@ func _calistir() -> void:
 	var once := ana.oturum.kaydet()
 	DengeOlcumu.olustur(ana.oturum,{})
 	dene(ana.oturum.kaydet() == once,"DEN-60 ölçüm ikinci gece/ödül üretmez")
+	_kitlik(ana.katalog)
 	ana.queue_free()
 	await get_tree().process_frame
 	print("DENGE KRİZ: GEÇTİ" if hata == 0 else "DENGE KRİZ: KALDI")
 	await Ses.cik(hata)
+
+func _kitlik(kat: Katalog) -> void:
+	var o := Oturum.new(kat,6161)
+	var y := o.yonetim
+	y.a = y.a.duplicate(true)
+	y.a.isyan_esigi = -1
+	y.a.ambar_taban_kapasite = 1000
+	y.kaynaklar = Kaynaklar.new(1000,{"gida":0,"su":100,"odun":100})
+	var k := y.kabul({"ad":"Kıtlık ölçüm komşusu"})
+	k.moral = 85
+	var ilk := o.gece_sonu()
+	dene(y.kaynaklar.miktar("gida") == 0 and KitlikIsyani.durum(y).kitlik_gece_sayisi == 1 and not KitlikIsyani.durum(y).tetiklendi,"DEN-61 ilk gerçek sıfır erzak gecesi isyan başlatmaz")
+	dene(ilk.olaylar.filter(func(e: Dictionary) -> bool: return e.has("kitlik_isyani")).is_empty(),"DEN-61 birinci gece kıtlık isyanı satırı0")
+	kat.koy_ayarlari = y.a.duplicate(true)
+	var geri := Oturum.kayittan(kat,JSON.parse_string(JSON.stringify(o.kaydet())))
+	dene(geri != null,"DEN-61 birinci gece gerçek JSON ile yüklenir")
+	if geri == null: return
+	var ikinci := o.gece_sonu()
+	var yuklu := geri.gece_sonu()
+	dene(KitlikIsyani.durum(y).kitlik_gece_sayisi == 2 and KitlikIsyani.durum(y).tetiklendi,"DEN-61 ikinci gerçek sıfır erzak gecesi isyan başlatır")
+	dene(ikinci.olaylar.filter(func(e: Dictionary) -> bool: return e.has("kitlik_isyani")).size() == 1,"DEN-61 ikinci gece tek gerçek kıtlık isyanı satırı")
+	dene(KitlikIsyani.durum(geri.yonetim) == KitlikIsyani.durum(y) and yuklu.olaylar == ikinci.olaylar,"DEN-61 yükleme aynı ikinci geceyi verir, eşik bir geceye inmez")

@@ -1,3 +1,13 @@
+## 6 Kasım 2026 — DEN-61 tamamlandı (Kalfa)
+
+Mevcut denge_kriz.tscn içine KRI-06 gerçek Oturum.gece_sonu ölçümü eklendi. İlk gece erzak0/sayaç1, tetikleme0 ve kıtlık isyan satırı0; ikinci gece sayaç2/tetikleme1 ve tam bir kıtlık satırı. İlk gecenin gerçek JSON kaydı yüklenip ikinci gece oynanınca hem kriz makbuzu hem olaylar aynıdır. Eşik/gece/üretim kodu değişmedi. Aynı hedefte DEN-60 gerçek raporu da geçmeye devam eder.
+
+Hedef exit0 ve SCRIPT ERROR0/PASS. Yalnız test/belge değişti; önceki DEN-60 import exit0/script0, mevcut kaynak/allocator kapanış hataları açık. Yeni import yapılmış denmedi. Tam sanity yok. Asset gerekmedi; ilgisiz dosyalar korundu. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-61 başladı (Kalfa)
+
+DEN-60 1e84fea8 festive ve masaüstüne aktarılıyor. Mevcut KRI-06 iki gece0 erzak eşiği gerçek Oturum.gece_sonu ve ilk geceden JSON yüklemesiyle ölçülecek. Yeni tetikleyici/eşik/formül yok. Asset gerekmedi; kota görünmüyor.
+
 ## 6 Kasım 2026 — DEN-60 tamamlandı (Kalfa)
 
 Yeni denge_kriz.tscn mevcut KRI-10 fixture/gerçek gece düğmesi ve mevcut rapor kartını kullanır. Aynı gece başında tam iki kriz (isyan ve belirtili salgın) vardır; fixture yalnız süreleri kapanış sınırına koyar. Mevcut gerçek gece ikisini kapatır. Tek rapor başlığı, iki kriz adını taşıyan tek kenetlenme satırı görünür; gün yalnız1 artar. DEN tekrar okuması kaydı/ödülü/geceyi değiştirmez. Yeni birleştirici, kriz veya formül yazılmadı.
