@@ -1477,7 +1477,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/arayuz/ayarlar_ekrani.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-78:** Tezgâh yüzü TEZ'dedir
+- [/] **ISG-78:** Tezgâh yüzü TEZ'dedir (Kalfa)
   - Ne: Tezgâh yüzü TEZ'dedir. ISG sipariş cümlesi yazmaz.
   - Kabul: Tezgâh yüzü TEZ'dedir. Cümle 0. Test: TEZ-02.
   - Bağımlılık: TEZ-02. Boyut: S.

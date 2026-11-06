@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — ISG-78 başladı (Kalfa)
+
+ISG-77 ce9e3f11 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Hazır ISG-78 alındı. TEZ-02 yüz bağlama tek kaynak; normal ISG bina/boşa alma/geçici iş ataması bu yüzü ve sipariş cümlesini yazmamalı. Mevcut TEZ kabulü bu gerçek model yollarıyla genişletilecek. Asset gerekmedi. kota görünmüyor.
+
 ## 6 Kasım 2026 — ISG-77 tamamlandı (Kalfa)
 
 Gerçek Ana → AyarlarEkrani → Oyun sekmesi üzerinde dokuz ayar satırının ileri düğmeleri çalıştırıldı. Her ayarın değeri gerçekten değişti; köy kaydı (atamalar, nüfus, kasa ve RNG dahil) sabit kaldı. Başlangıçtaki dal_toplama geçici işi ve boşta kişi kapanışta korundu. Ayarlar ağacında hedef/gecici_is atama düğmesi bulunmadı. Üretim kodu değiştirilmedi; yeni kabul sahnesi standart hedef listesine bir kez eklendi.
