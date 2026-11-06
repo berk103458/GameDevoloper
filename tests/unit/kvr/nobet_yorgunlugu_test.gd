@@ -41,6 +41,10 @@ func _initialize() -> void:
 	y._rng.seed = _tohum(0.14, 1.0)
 	y.gece()
 	var b := _kur(y)
+	if b == null:
+		push_error("Nöbet fixture hızarhanesi kurulamadı")
+		quit(1)
+		return
 	y.kaynaklar.stok["alet"] = 0
 	y.ata(k.id, b.id)
 	_kontrol(is_equal_approx(IsKazalari.risk(k, y), 0.112), "Nöbetten sonra uyumsuz gündüz işinde yaralanma %8→%11.2")
@@ -72,6 +76,8 @@ func _tohum(alt: float, ust: float) -> int:
 		if r >= alt and r < ust: return n
 	return 1
 func _kur(y: KoyYonetimi) -> KoyBinasi:
+	# YAP-01: fixture gerçek bilgi şartıyla kurulur, oyun kilidi gevşetilmez.
+	y.koylular[0].yapi_bilgisi.append("hizarhane")
 	for cy in y.a.izgara_boyut.y:
 		for cx in y.a.izgara_boyut.x:
 			var h := Vector2i(cx, cy)

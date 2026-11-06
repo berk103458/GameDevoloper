@@ -99,7 +99,7 @@ static func _ise_don(y: KoyYonetimi, id: int, eski_is: int) -> void:
 ## Yuvaya köylü yazılır. Kişi o gece kendi işinde üretim yazmasın diye işinden
 ## alınır; sabah dönebilmesi için eski iş yeri tek kayıtta saklanır. Ayrı maaş yok.
 static func _yasak(k: Koylu) -> bool:
-	return k == null or k.yas_grubu == &"cocuk" or k.bayrak_var("acl01_es") or k.usta_mi()
+	return k == null or k.yas_grubu == &"cocuk" or k.bayrak_var("acl01_es") or CirakEgitimi.usta(k)
 
 
 static func yanlis_mi(y: KoyYonetimi, id: int) -> bool:

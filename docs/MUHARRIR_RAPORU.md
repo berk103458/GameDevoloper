@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — YAP-29 tamamlandı (Kalfa)
+
+NBT-02 nöbet yasağı mevcut CirakEgitimi.usta sorgusunu okur: düşük statlı adlı kaynak ustası da nöbete yazılamaz. Yeni usta listesi/meslek veya asker kuralı eklenmedi; eski yüksek stat/bayrak yasağı ortak sorguda korunur. Gerçek chr_013 stat5 karşı örneği önce iki RED verdi, sonra nöbet kabulü60 kontrol/0 hata ve çırak eğitimi geçti. Ret nöbet kaydını ve kişinin işini değiştirmez.
+
+Ek nöbet yorgunluğu regresyonu YAP-01 bilgi kilidinden dolayı eski hızarhane fixture kurulumunda null üzerinde kaldı; ilgili headless süreç sonlandırıldı. Fixture gerçek hızarhane bilgisiyle kuruldu, null için çıkış koruması eklendi; tekrar test exit0, SCRIPT ERROR/ERROR0. Oyun kilidi gevşetilmedi. İlk recovery import exit0/script hatası0, yedi MD5/kapanış hatası; ikinci exit0/script hatası0, üç PagedAllocator kapanış hatası sürer. Tam sanity yok; hatasız import denmedi. Asset gerekmedi. YAP-28 usta ailesi kabulü doğrulanmadı ve açık; YAP-01 bedel kaynağı kararı bekleniyor. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-20 tamamlandı (Kalfa)
 
 KAY-04 bağımlılığı tamamlanmış bağımsız YAP-20 kabulü, mevcut kayit_gocu_test.gd içinde gerçek Oturum JSON kaydet/yükle üzerinden doğrulandı. Bilgili kişinin eski kaydından yapi_bilgisi alanı çıkarılınca yükleme açılır, bilgi boş ve K2 kilitli kalır; tekrar kayıtta boş optional alan yazılmaz. Alan bulunan karşı örnekte bilgi JSON yüklemede aynen korunur. ISG-62 eski iş alanları kabulü de geçti. Üretim kodunda ek göç veya uydurma bilgi yazılmadı; mevcut Koylu sözleşmesi yeterli. Hedefli headless test exit0, SCRIPT ERROR/ERROR0; aynı üretim kaynaklarının önceki recovery importu script hatasız exit0, üç PagedAllocator kapanış hatası sürer. Tam sanity yok. Asset gerekmedi. YAP-01 bedel tercihi hâlâ bekleniyor; bu madde onu kapatmaz. ds yolları yok, önceki Ahmet istisnası geçerli. kota görünmüyor.

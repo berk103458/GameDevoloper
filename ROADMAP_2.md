@@ -1568,7 +1568,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `src/koy/`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-29:** Usta nöbet tutmaz
+- [x] **YAP-29:** Usta nöbet tutmaz (Kalfa)
   - Ne: Usta nöbet tutmaz. NBT asker ister.
   - Kabul: Usta nöbet tutmaz. Atama 0. Test: NBT-02.
   - Bağımlılık: NBT-02. Boyut: S.
