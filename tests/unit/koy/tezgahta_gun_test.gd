@@ -27,6 +27,7 @@ func _calistir() -> void:
 	_izgara_disi()
 	_sabitler()
 	_yuz()
+	_isg_yuzu_yazmaz()
 	_bes_sabah()
 	_usta_yok()
 	_sayim()
@@ -97,6 +98,22 @@ func _yuz() -> void:
 	_kontrol(TezgahtaGun.yuz_bagla(y2, "bez", str(a.id), "usta", true) == 1, "TEZ-02: aynı yüzde ikinci sipariş hata")
 	var kayit := JSON.stringify(TezgahtaGun.isler(y2))
 	_kontrol(not kayit.contains("kalp") and not kayit.contains(".ogg"), "TEZ-02: yüzde ses ve kalp yok")
+
+
+## ISG-78: gerçek atama API’leri sipariş yüzü/cümlesi üretmez.
+func _isg_yuzu_yazmaz() -> void:
+	var y := _y()
+	_bina(y, "bez_evi", Vector2i(2, 2))
+	var odunluk := _bina(y, "odunluk", Vector2i(6, 2))
+	var k := _usta(y)
+	_kontrol(KoyluKartiVerisi.ata(y, k.id, odunluk.id), "ISG-78: gerçek bina ataması")
+	_kontrol(TezgahtaGun.isler(y).is_empty(), "ISG-78: bina ataması yeni yüz/sipariş yazmaz")
+	_kontrol(TezgahtaGun.yuz_bagla(y, "bez", str(k.id), "usta", true) == 0, "ISG-78: yüzü yalnız TEZ-02 bağlar")
+	var once := TezgahtaGun.isler(y)
+	_kontrol(String(once.bez.cumle).is_empty(), "ISG-78: başlangıçta sipariş cümlesi yok")
+	_kontrol(KoyluKartiVerisi.ata(y, k.id, KoyYonetimi.BOSTA), "ISG-78: gerçek boşa alma")
+	_kontrol(GeciciIsler.ata(y, k.id, "dal_toplama"), "ISG-78: gerçek geçici iş ataması")
+	_kontrol(TezgahtaGun.isler(y) == once, "ISG-78: atamalar TEZ yüzü ve cümlesini değiştirmez")
 
 
 func _bes_sabah() -> void:

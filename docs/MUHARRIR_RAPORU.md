@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — ISG-78 tamamlandı (Kalfa)
+
+Mevcut TEZ-02 kabulüne normal KoyluKartiVerisi bina ataması/boşa alma ve GeciciIsler ataması eklendi. Bina ataması yeni yüz/sipariş oluşturmaz. Yüz yalnız TezgahtaGun.yuz_bagla ile bağlanır; bu yüzün gerçek TEZ durum fotoğrafı ve boş sipariş cümlesi sonraki ISG atamalarında aynen korunur. Üretim kodu değiştirilmedi; ikinci yüz/cümle kaynağı eklenmedi.
+
+İlk fixture bez_evi için normal atama istedi; mevcut katalogda iş yuvası0 olduğu için test kurulumu başarısızdı. Yer tutucu slot uydurulmadı; gerçek atama odunluk üzerinden yapıldı, TEZ bez yüzü ayrı korundu. Son TEZ paketi60 kontrol/0 hata ve headless parse exit0, SCRIPT ERROR/ERROR0. Aynı oyun kaynaklarının son ISG-77 importu script hatasız exit0;296 kaynak editör kapanış sızıntısı ayrı sürer ve giderildi sayılmadı. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — ISG-77 tamamlandı (Kalfa)
 
 Gerçek Ana → AyarlarEkrani → Oyun sekmesi üzerinde dokuz ayar satırının ileri düğmeleri çalıştırıldı. Her ayarın değeri gerçekten değişti; köy kaydı (atamalar, nüfus, kasa ve RNG dahil) sabit kaldı. Başlangıçtaki dal_toplama geçici işi ve boşta kişi kapanışta korundu. Ayarlar ağacında hedef/gecici_is atama düğmesi bulunmadı. Üretim kodu değiştirilmedi; yeni kabul sahnesi standart hedef listesine bir kez eklendi.
