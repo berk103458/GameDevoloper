@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — ISG-77 başladı (Kalfa)
+
+ISG-73 f07ffbce festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Hazır ISG-77 alındı. AYR sekme altyapısı ve Oyun sayfası mevcut/tamamlanmış; sayfadaki ayar düğmelerinin canlı köy modelinde atama/ekonomi/nüfus değişikliği yapmadığı gerçek sahnede doğrulanacak. Ayar dosyası test yoluna ayrılacak. Asset gerekmedi. kota görünmüyor.
+
 ## 6 Kasım 2026 — ISG-73 tamamlandı (Kalfa)
 
 UZM-04 eğitiminde ve TEZ çırak okuyucusunda mevcut YasRolleri.atanabilir izni kullanılır. Yeni sayısal yaş/yaş grubu veya ikinci eğitim motoru eklenmedi. Eski/tutarsız ağır iş ataması ve çalışma listesi artık çocuk eğitimini ilerletmez; TEZ çırak titremesi de yazmaz. Mevcut hafif iş (örnekte bez_evi) izinleri ve5 ortak gecelik yarı ustalık korunur. DNY-01’in henüz açık28. gün büyüme mekanizması bu kabulün parçası değildir, tamamlandı denmedi.
