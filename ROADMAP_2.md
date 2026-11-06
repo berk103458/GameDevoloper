@@ -1530,7 +1530,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: yeni `src/koy/yapi_bilgisi.gd`; ustalık verisi `Koylu` (optional alan).
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-20:** Bilgi kayda optional yazılır
+- [x] **YAP-20:** Bilgi kayda optional yazılır (Kalfa)
   - Ne: Yapı bilgisi kayda optional yazılır. Eski kayıtta alan yoksa yapılar kilitli başlar ve yükleme açılır.
   - Kabul: Eski kayıtta bilgi alanı yoksa yükleme açılır ve kilitli yapılar kilitli kalır (`tests/unit/sistemler/kayit_gocu_test.gd`).
   - Bağımlılık: KAY-04. Boyut: S.

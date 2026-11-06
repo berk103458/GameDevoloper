@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — YAP-20 tamamlandı (Kalfa)
+
+KAY-04 bağımlılığı tamamlanmış bağımsız YAP-20 kabulü, mevcut kayit_gocu_test.gd içinde gerçek Oturum JSON kaydet/yükle üzerinden doğrulandı. Bilgili kişinin eski kaydından yapi_bilgisi alanı çıkarılınca yükleme açılır, bilgi boş ve K2 kilitli kalır; tekrar kayıtta boş optional alan yazılmaz. Alan bulunan karşı örnekte bilgi JSON yüklemede aynen korunur. ISG-62 eski iş alanları kabulü de geçti. Üretim kodunda ek göç veya uydurma bilgi yazılmadı; mevcut Koylu sözleşmesi yeterli. Hedefli headless test exit0, SCRIPT ERROR/ERROR0; aynı üretim kaynaklarının önceki recovery importu script hatasız exit0, üç PagedAllocator kapanış hatası sürer. Tam sanity yok. Asset gerekmedi. YAP-01 bedel tercihi hâlâ bekleniyor; bu madde onu kapatmaz. ds yolları yok, önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — Full pull ve Konak K3 düzeltmesi (Kalfa)
 
 Full fetch/pull --rebase tamamlandı; başlangıç festive 2b6dbe07 ile aynıydı. Ajan Masası son mesajları okundu. Mevcut Konak/Ağalık hedefi kademe verisinde K3 olarak sınıflandırıldı; katalog kimliği eklenmedi, eski Ağalık 0/1 anlamı korunuyor. Bozuk Konak verisi reddedilir. Veri, gerçek açılış/sur/kapı sınırı ve CLI doğrulayıcısı olmak üzere üç hedef geçti; SCRIPT ERROR/ERROR yok. Mevcut olay metni uyarıları ayrı sürüyor. İlk import exit0, script hatası0, beş MD5/kapanış hatası; ikinci recovery import exit0, script hatası0, üç PagedAllocator kapanış hatası. Hatasız import denmedi.
