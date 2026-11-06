@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — YAP-05 başladı (Kalfa)
+
+Full pull7a113f51 güncel; Ajan Masası okundu. Maddeye özgü açık katalog oda şartı yalnız bir K1 çözümleme odası kimliği için esas alınır. Bütün kabul koşulları tasks/yap05-plan.md ve yap05-todo.md içinde korunuyor. Önce veri/oda doğrulaması, sonra tek iş/kuyruk/kayıt ve gerçek UI. YAP-05 henüz tamamlanmadı. Asset YAP05-ODA kaydedilecek; kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-04 tamamlandı (Kalfa)
 
 Usta defteri mevcut Oturum.muhafiz_esyalari sözlük listesine yazılır; yeni eşya sınıfı veya envanter kökü yok. data/usta_defterleri.json ilk marangoz defterini ve dört kaynak ağırlığını tutar. Gerçek HAR-05/HAR-14 başarısı, mevcut kervan koruma görevinin yaşayan kişiyle dönüşü, gerçek gece baskın raporu ve mevcut tüccar harç/rüşvet kararı bağlandı; ret kaynak değildir. Yeni takvim veya savaş yok. Mevcut görevin RNG değiştirmeme sözleşmesi korunur: seçim oyun tohumu + kaynak + mevcut olay makbuzu hashinin toplam ağırlığa bölümüyle belirlenir; RNG nesnesi/draw yok. Bu rutin uygulama kararıdır; aynı makbuz yeniden zar atmaz. Satır yoksa defter yok, yok ağırlığı tüccarın her ziyarette bırakmamasını sağlar.
