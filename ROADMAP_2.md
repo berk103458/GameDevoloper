@@ -3729,6 +3729,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Dosya: mevcut BUG-18 testi.
   - Asset: asset gerekmedi.
 - [ ] **DEN-59:** 28 günde kriz sayısı aralıktadır.
+  - Güncel ön kontrol (6 Kasım, Kalfa): mevcut DEN-54 persona YAP-01 sonrası yapı planı2/7 nedeniyle exit1;28 gece/iflas0 tek başına yeterli değildir. Bu regresyon giderilmeden o koşu DEN-59 kanıtı sayılmaz.
   - Ne: olağan zorluk, sabit tohumla 28 gecede kriz sayısı alt ve üst arasındadır.
   - Kabul: olağan zorluk, sabit tohumla 28 gecede kriz sayısı alt ve üst arasındadır. Test: 20 tohumun en az 16'sı aralıkta.
   - Bağımlılık: DEN-57, DEN-04. Boyut: M.
