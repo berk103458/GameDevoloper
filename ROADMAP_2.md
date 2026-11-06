@@ -1501,7 +1501,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.1 Kademe
 
-- [/] **YAP-01:** Yapı kademeleri — her şey baştan açık değil. (Kalfa)
+- [x] **YAP-01:** Yapı kademeleri — her şey baştan açık değil. (Kalfa)
   - Ne: Oyuncu inşa menüsünde kilitli yapıyı gri görür ve satırda gereken bilgiyi okur. Kademe tablosu `data/koy/yapi_kademeleri.json` içindedir. K0 baştan kurulabilir. K1 ve üstü, yapı bilgisi yokken kurulamaz. K0–K3, duran bina seviyesinin üretim çarpanını değiştirmez. Bedel mevcut `BinaKatalogu` kaynaklarından okunur; fiyatlar ve surun mevcut `koy.tres` sözleşmesi korunur (Ahmet, 6 Kasım 2026). Bedel yetmezse düğme kapalıdır. Kademe atlanmaz. Yıkım kademeyi sıfırlar. Kilitli yapıda yerleştirme hayaleti çıkmaz. İş gücü, kapı kararı, divan hükmü ve olay kartı kademe açmaz. Yeni bina türü eklenmez. İşçi yokken inşaat günü ilerlemez.
   - Kurallar:
     1. Kademe tablosu `data/koy/yapi_kademeleri.json` içindedir. K0: çadır, tarla, taş yatağı, odun yığını. K1: kulübe, hızarhane, taş ocağı, ambar. K2: taş ev, sur 2, değirmen, şifahane. K3: sur 3, konak, gelişmiş atölyeler.

@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — YAP-01 son kabul tamamlandı (Kalfa)
+
+Ahmet mevcut katalog kaynaklarını koruma kararından sonra a0f4aca9 yalnız commitli git arşivinden yeni TEMP kopyaya çıkarıldı; başlangıçta .godot yoktu. Soğuk headless recovery import exit0, SCRIPT ERROR/Failed to load script0; üç PagedAllocator kapanış hatası sürer, tamamen hatasız import denmedi.14 hedefin tamamı bu kopyada exit0/script-error0 geçti: dört YAP model testi, köy yönetimi, bina seviyesi, geçici işler, DEN ölçümü, gerçek açılış, kapı kararları, divan, mevsim, veri CLI ve gerçek yapı UI kabulü. Kritik1960 kaynak/config dosyasının CRC ve boyutu commit arşiviyle aynı.22 yapı fiyatı önceki fotoğrafla birebir aynı. Sonuç yalnız YAP-01 kabulüdür, genel ROADMAP veya DEN-54 regresyonu tamamlandı demek değildir.
+
+Konak K3 mevcut Ağalık anlamını korur; yeni bina kimliği yok. Bilgi kaydı/kilit/kurulum/hayalet, yetersiz bedel, önceki kademe, ADM ayrımı, işçi/hasta/kış/kesirli kayıt ve kartın uzun metin/hız korunumu geçer. YAP-02 geçmiş/usta/çırak bilgi edinimi sıradaki iştir. DEN-54 plan2/7 güncel regresyonu bu bilgi edinimi sonrası yeniden sınanacak. Asset gerekmedi. Tam sanity yok. İlgisiz import/translation/project.godot korunup commit dışında. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-01 bedel kararı geldi (Kalfa)
 
 Ahmet mevcut katalog kaynaklarını korumayı seçti.22 yapının fiyatı koy.tres içine taşınmıyor; eski katalog .gd tanımları dahil kaynaklar korunuyor, yeni fiyat tablosu/sabiti eklenmiyor. ROADMAP ve kabul planındaki bedel şartı bu açık karara uyarlandı. Bu yalnız kaynak tercihi engelini kaldırır; YAP-01 henüz kapatılmadı. Son kabul ardından YAP-02 bilgi edinimi uygulanacak; DEN-54 plan2/7 regresyonu tamamlandı diye raporlanmaz. Asset gerekmedi. kota görünmüyor.

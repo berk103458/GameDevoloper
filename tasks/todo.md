@@ -25,10 +25,12 @@ ROADMAP_2.md kapsamı korunur. İlk dilim tamam olsa da madde[/] kalır.
 - [x] ADM-08 üretim/yatak/depo/sur hasarı sözleşmeleri korunur.
 - [x] sur_taksiti tutarı ve ödeme davranışı kademe tablosundan bağımsız korunur.
 - [x] Tüm ilgili hedefli model/gerçek UI testleri ve headless import/parse çalışır.
-- [ ] Asset gerekmedi notu, ROADMAP ve Kalfa/OYUN/Muharrir raporları güncel.
-- [ ] Son paket commit/push ve Ahmet masaüstü FF doğrulanır; ds yokluğu doğru raporlanır.
+- [x] Asset gerekmedi notu, ROADMAP ve Kalfa/OYUN/Muharrir raporları güncel.
+- [x] a0f4aca9 uygulaması festive/masaüstünde; kapanış raporu ayrı commit/push ile yayınlanır, ds yokluğu doğru raporlanır.
 - [x] 2b6dbe07 için yalnız commitli arşivden önbelleksiz import ve gerçek UI/model kabulü geçti; son değişikliklerde yeniden doğrulanacak.
 - [x] Konak sınıfı K3 olarak, yeni bina kimliği oluşturmadan üç hedefle doğrulandı.
 - [x] Ahmet 6 Kasım kararı: mevcut katalog kaynakları/fiyatlar korunur; koy.tres toplu taşıması yapılmaz.
 
 Tam sanity yok. kota görünmüyor.
+
+Son kabul: a0f4aca9 yalnız commitli yeni arşiv, önbelleksiz import exit0/script0; üç PagedAllocator kapanış hatası ayrı.14 hedef geçti,1960 kaynak/config arşivle aynı.
