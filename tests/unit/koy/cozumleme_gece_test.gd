@@ -67,8 +67,31 @@ func _initialize() -> void:
 	_iyilesme(kat)
 	_mevsim(kat)
 	_kuyruk(kat)
+	_yetiskin(kat)
 	print("ÇÖZÜMLEME GECE: GEÇTİ" if hata == 0 else "ÇÖZÜMLEME GECE: KALDI")
 	quit(hata)
+func _yetiskin(kat: Katalog) -> void:
+	for yas in [&"cocuk",&"yasli"]:
+		var o := hazir(kat,5040)
+		var y := o.yonetim
+		var k := y.koylular[0]
+		o.gece_sonu()
+		k.yas_grubu = yas
+		var once := o.kaydet()
+		dene(not C.isci_degistir(o,ID,99,k.id) and o.kaydet() == once,"YAP-40 yetişkin olmayan yeniden bağlayamaz: " + String(yas))
+		# Eski kayıtta artık uygun olmayan işçi bağlı olsa bile iş yürütülmez.
+		kat.koy_ayarlari = y.a.duplicate(true)
+		var geri := Oturum.kayittan(kat,JSON.parse_string(JSON.stringify(once)))
+		dene(geri != null,"YAP-40 yaş değişimi gerçek JSON ile açılır")
+		if geri == null: continue
+		geri.gece_sonu()
+		var s := C.durum(geri.yonetim)
+		dene(s.aktif.ilerleme == 1.0 and not ID in s.tamamlanan and C.uretim_carpani(geri.yonetim,"hizarhane") == 1.0,"YAP-40 yetişkin olmayanın gece ilerleme/sonuç katkısı0: " + String(yas))
+		var kisi := geri.yonetim.koylu(k.id)
+		kisi.yas_grubu = &"yetiskin"
+		dene(geri.yonetim.ata(kisi.id,99) and C.isci_degistir(geri,ID,99,kisi.id),"YAP-40 mevcut yetişkin ataması yeniden başlatır")
+		geri.gece_sonu()
+		dene(C.durum(geri.yonetim).aktif.ilerleme == 2.0,"YAP-40 yetişkin aynı ilerlemeden devam eder")
 func _durma(kat: Katalog, tur: String) -> void:
 	var o := hazir(kat,5053)
 	o.gece_sonu()

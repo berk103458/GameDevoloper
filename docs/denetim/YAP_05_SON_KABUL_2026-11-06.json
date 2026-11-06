@@ -1,0 +1,125 @@
+{
+  "head": "c1569e663fe53efb74a393d528c8d8c1a82f7700",
+  "base": "a0f4aca9d546338650cfaf57b4cdc22a9afe1a80",
+  "tree": "C:\\Users\\Ahmet\\AppData\\Local\\Temp\\kalfa-yap05-commitli-9dexgpyf",
+  "checked_blobs": 9231,
+  "crlf_exported": 8257,
+  "initial_godot": false,
+  "post_import_critical_files_except_project": 1973,
+  "project_import_change": "Parley editor extension setting + property ordering",
+  "results": [
+    {
+      "name": "metin-csv",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "denge_olcumu_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "cozumleme_gece_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "cozumleme_is_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "cozumleme_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "usta_defterleri_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "yapi_bilgisi_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "yapi_insaati_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "yapi_kilidi_sinir_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "yapi_kilidi_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "yapi_kurulum_kilidi_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "koy_yonetimi_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "kayit_gocu_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "kayit_gocu_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "muhafiz_gecmisi_akis_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "muhafiz_gecmisi_test",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "yapi_kademeleri",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "yapi_kilidi",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "usta_defteri_envanter",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "cozumleme",
+      "ok": true,
+      "exit": 0
+    },
+    {
+      "name": "atama_duraklat",
+      "ok": true,
+      "exit": 0
+    }
+  ],
+  "missing": [],
+  "import_exit": 0,
+  "import_script_errors": 0,
+  "accepted": false,
+  "blockers": [
+    "Existing Parley importer rejects title field in two meclis_davalari.ds records",
+    "Existing resource/PagedAllocator exit errors"
+  ]
+}

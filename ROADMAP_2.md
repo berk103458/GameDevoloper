@@ -1621,7 +1621,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Asset: çözümleme odası modeli envantere `YAP05-ODA`.
 
 
-- [ ] **YAP-40:** Çözümleme işçisi yetişkindir
+- [x] **YAP-40:** Çözümleme işçisi yetişkindir (Kalfa)
   - Ne: Çözümleme işçisi yetişkindir. Çocuk 0.
   - Kabul: Çözümleme işçisi yetişkindir. 0. Test: UZM-08.
   - Bağımlılık: UZM-08. Boyut: S.

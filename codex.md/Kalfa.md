@@ -1,3 +1,13 @@
+## 6 Kasım 2026 — YAP-40 tamamlandı; YAP-05 import engeli kayıtlı (Kalfa)
+
+YAP-40 mevcut yetişkin işgücü kapısını kullanır; yeni yaş/formül yok. Çocuk ve yaşlı bağlı işçiyle gerçek JSON yüklenip gerçek gece oynandı: ilerleme1'de kaldı, tamamlanma/üretim etkisi0. Yeniden bağlama salt okunur ret; yetişkin aynı ilerlemeden2'ye devam eder. Üç hedef geçti: çözümleme gerçek gece, çözümleme iş/kuyruk ve mevcut UZM-08 yaş rolleri. Eski yaş testi YAP-01/02 sonrası değirmeni K1/bilgi olmadan kuruyordu; mevcut işçiye testte ambar/değirmen bilgisi ve gerçek K1 ambar inşası eklendi, kurulum hatası artık zaman aşımı yerine exit1 verir. Oyun kilidi gevşetilmedi. Asset gerekmedi.
+
+YAP-05 c1569e66 commitli/önbelleksiz kabulü20 benzersiz hedefte21 koşu PASS; masaüstü gerçek UI PASS.9231 blob HEAD ile eşleşti; import sonrası project.godot hariç1973 kritik dosya aynı. Eklenti project.godot içine editor uzantı ayarı ekliyor ve sıralıyor, commit dışı. Import exit0/script0 ancak mevcut iki Parley title/AST hatası ve kaynak/allocator kapanış hataları nedeniyle sıfır hata kabulü sağlanmadı. YAP-05[/] kalır. Kanıt docs/denetim/YAP_05_SON_KABUL_2026-11-06.md ve JSON. Söz bekletildi, başkasının verisi/eklentisi değişmedi. Sonraki bağımsız hazır madde YAP-46 ölçümü. Tam sanity yok; ilgisiz dosyalar korundu. ds yolları yok; önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-40 yetişkin işçi kabulü başladı (Kalfa)
+
+YAP-05 arayüzü c1569e66 festive ve masaüstünde; gerçek UI tekrar geçti. Soğuk kopyada9231 blob HEAD ile doğrulandı (8257 yalnız CRLF ihracı), başlangıç .godot yok. Mevcut iki meclis_davalari.ds Parley title alanı hatası Ajan Masasında bildirildi; Söz/veri/eklentiye müdahale yok, YAP-05 kapanmadı. Bağımsız YAP-40 UZM-08 mevcut yaş kapısını doğrulayacak; yeni yaş/iş formülü yok. Asset gerekmedi. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-05 mevcut kart arayüzü doğrulandı (Kalfa)
 
 Oda kurulabilir=true; mevcut ambar yapımı bilgisi optional bilgi eşlemesiyle oda erişimini açar. Diğer yapı bilgileri ve geçmiş puanları değişmedi. Mevcut yapı kartına ince panel adaptörü eklendi: salt okunur ön kontrol, başlatma, ilerleme/durma sebebi, FIFO sıra, etkin ve sıradaki işi yeni oda/işçiye bağlama. Mevcut duraklatma kapısı her yazma çağrısında korunur. Yeni sahne/ikon/font yok; yalnız düz renk BoxMesh ve ad etiketi, YAP05-ODA envanteri güncel.
