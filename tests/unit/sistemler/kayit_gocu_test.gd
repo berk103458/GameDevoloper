@@ -33,5 +33,24 @@ func _initialize() -> void:
 		quit(1)
 		return
 	print("YAP-20: GEÇTİ")
+	# YAP-38: defter ayrı bir zorunlu kayıt kökü değildir.
+	var deftersiz: Dictionary = JSON.parse_string(JSON.stringify(oturum.kaydet()))
+	deftersiz.surum = 2
+	deftersiz.erase("muhafiz_esyalari")
+	deftersiz.koy_yonetimi.erase("cozumleme")
+	var degismedi := deftersiz.duplicate(true)
+	var eski_defter := Oturum.kayittan(katalog,deftersiz)
+	if eski_defter == null or not eski_defter.muhafiz_esyalari.is_empty() or deftersiz != degismedi:
+		push_error("YAP-38: defter/eşya alanı olmayan eski JSON boş envanterle açılmalı, kaynak kayıt korunmalı")
+		quit(1)
+		return
+	var diger: Dictionary = JSON.parse_string(JSON.stringify(oturum.kaydet()))
+	diger.muhafiz_esyalari = [{"id":"alet","adet":2,"deger":1}]
+	var diger_geri := Oturum.kayittan(katalog,diger)
+	if diger_geri == null or diger_geri.muhafiz_esyalari != diger.muhafiz_esyalari:
+		push_error("YAP-38: güncel deftersiz kayıt diğer eşyayı korumalı")
+		quit(1)
+		return
+	print("YAP-38: GEÇTİ")
 	print("ISG-62: GEÇTİ")
 	quit()

@@ -1598,7 +1598,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `src/soz/soz_motoru.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-38:** Defter kaydı optional
+- [x] **YAP-38:** Defter kaydı optional (Kalfa)
   - Ne: Defter kaydı optional'dır. Eski kayıtta alan yoksa yükleme açılır.
   - Kabul: Eski kayıtta defter alanı yoksa yükleme açılır ve envanterde defter aranmaz (`tests/unit/sistemler/kayit_gocu_test.gd`).
   - Bağımlılık: KAY-04. Boyut: S.

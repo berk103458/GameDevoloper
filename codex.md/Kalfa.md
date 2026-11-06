@@ -1,3 +1,13 @@
+## 6 Kasım 2026 — YAP-38 tamamlandı (Kalfa)
+
+Mevcut KAY-04 göçü yeterli; üretim kodu ve kayıt sürümü değiştirilmedi. Gerçek JSON v2 kaydından muhafiz_esyalari ve çözümleme alt kaydı çıkarıldığında mevcut göç boş eşya listesiyle oturumu açar, kaynak kayıt değişmez ve defter uydurmaz. Güncel deftersiz JSON içindeki diğer alet yığını aynen korunur. Defter ayrı zorunlu alan veya ikinci eşya sınıfı değildir. tests/unit/sistemler/kayit_gocu_test.gd exit0; YAP-20/YAP-38/ISG-62 geçer. Dolu/yinelenen defter yüklemesi önceki YAP-04/cold hedeflerinde geçti; gereksiz migration eklenmedi.
+
+Asset gerekmedi. Yalnız kabul testi/belge değişti; oyun kodu değişmedi. Önceki YAP-46 import script0/exit0, mevcut import kapanış hataları açık. YAP-05 Parley soğuk import engeli ve DEN-54 plan2/7 açık. Tam sanity yok; ilgisiz dosyalar korundu. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-38 başladı (Kalfa)
+
+Mevcut defter tek kişisel eşya listesinde; yeni defter kökü yok. Gerçek v2 JSON kaydında eşya alanı yokken göçün boş listeyle açılması ve güncel kayıtta deftersiz diğer eşyaların korunması doğrulanacak. Yeni migration veya zorunlu alan açılmaz. Asset gerekmedi; kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-46 tamamlandı (Kalfa)
 
 Mevcut DengeOlcumu.olustur raporunda tek cozumleme satırı mevcut kayıt durumunun derin kopyasını okur. Etkin iş/ilerleme, kuyruk ve tamamlananlar mevcut sözleşmedir; yeni sayaç/formül/gece/tahsilat yok. Önce iki RED, sonra gerçek çözümleme gecesi, DEN-05 ve iş/kuyruk/kayıt olmak üzere3 hedef PASS. Dönen raporun içini değiştirmek ve tekrar okumak oturum kaydı/para/gün/RNG değiştirmez. Oyun arayüzüne denge satırı eklenmedi.
