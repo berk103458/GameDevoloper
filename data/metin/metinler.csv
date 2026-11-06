@@ -2371,3 +2371,27 @@ koy.neden.yapi_on_kademe,Önce alt kademe bir yapıyı tamamlayın,Complete a bu
 koy.yapi.cozumleme_odasi,Çözümleme odası,Study room
 koy.yapi.cozumleme_odasi_aciklama,Defterleri incelemek için tek kişilik çalışma odası.,A room for one villager to study notebooks.
 koy.cozumleme.bitti,%s çözümlendi.,Study of %s is complete.
+koy.cozumleme.baslik,Köy incelemesi,Village study
+koy.cozumleme.hazir_degil,Oda hazır olunca inceleme yapılabilir.,The room must be ready before studying.
+koy.cozumleme.isci_yok,Bu odaya sağlıklı bir yetişkin ata.,Assign a healthy adult to this room.
+koy.cozumleme.bedel,Başlarken %d köy akçesi alınır.,Starting costs %d village coins.
+koy.cozumleme.bos,Etkin inceleme yok.,No active study.
+koy.cozumleme.ilerleme,%s · %s / %d iş günü,%s · %s / %d working days
+koy.cozumleme.kuyruk,Sırada %d defter var.,Notebooks waiting: %d.
+koy.cozumleme.devam,Bu odadaki çalışanla devam et,Continue with this room and worker
+koy.cozumleme.baslat,İncele,Study
+koy.cozumleme.sirala,Sıraya ekle,Queue
+koy.cozumleme.cozuldu,Çözümlendi,Studied
+koy.cozumleme.defter_yok,İncelenecek defter yok.,No notebook to study.
+koy.cozumleme.neden.oyun_bitti,Oturum sona erdi.,The session has ended.
+koy.cozumleme.neden.defter_yok,Defter heybe içinde olmalı.,The notebook must be in your inventory.
+koy.cozumleme.neden.oda_yok,Hazır bir çözümleme odası gerekli.,A ready study room is required.
+koy.cozumleme.neden.isci_uygun_degil,Sağlıklı bir yetişkin çalışan gerekli.,A healthy adult worker is required.
+koy.cozumleme.neden.isci_atanmamis,Çalışanı bu odaya ata.,Assign the worker to this room.
+koy.cozumleme.neden.bozuk_veri,Bu defter şu anda incelenemiyor.,This notebook cannot be studied now.
+koy.cozumleme.neden.zaten_listede,Defter zaten sırada ya da çözümlenmiş.,The notebook is already in progress or studied.
+koy.cozumleme.neden.kuyruk_dolu,İnceleme sırası dolu.,The study queue is full.
+koy.cozumleme.neden.kuyrukta,Defter sıraya eklenecek.,The notebook will be queued.
+koy.cozumleme.neden.bedel,Köy kasasında yeterli akçe yok.,The village has insufficient funds.
+koy.cozumleme.durdu,İnceleme durdu. %s,Study paused. %s
+koy.cozumleme.siradaki,Bekliyor: %s,Waiting: %s

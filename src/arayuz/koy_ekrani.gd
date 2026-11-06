@@ -454,6 +454,7 @@ func _bilgi_goster() -> void:
 	SamanBilgisi.ekle(_y, b, _bilgi_icerik)
 	KundakClueBilgisi.ekle(_y, b, _bilgi_icerik)
 	AmbarKapisiPaneli.ekle(self, b)
+	preload("res://src/arayuz/koy_hud/cozumleme_paneli.gd").ekle(self,b)
 	if b.tur == "sifahane": HekimIlacBilgisi.ekle(_y, _bilgi_icerik, b.id)
 	if b.tur in ["su_kuyusu", "su_arki"]: KuyuKireclemePaneli.ekle(self, _bilgi_icerik, b.id)
 	var yatak := b.yatak(_y.katalog)

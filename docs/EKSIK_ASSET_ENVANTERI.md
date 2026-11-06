@@ -1,6 +1,6 @@
 ## 6 Kasım 2026 — YAP05-ODA (Kalfa)
 
-3D çözümleme odası:13. yüzyıl Anadolu köyünde sade tek odalı ahşap/kâgir çalışma yapısı; yaklaşık4×4 m taban,3 m yükseklik. Öncelik orta. Planlanan yer tutucu mevcut köy yapı çizicisinin düz renk kutusu ve kısa isim etiketi; katalog kimliği cozumleme_odasi. Yeni model/görsel üretilmedi veya indirilmedi. Ekleyen Kalfa.
+3D çözümleme odası:13. yüzyıl Anadolu köyünde sade tek odalı ahşap/kâgir çalışma yapısı; yaklaşık4×4 m taban,3 m yükseklik. Öncelik orta. Yer tutucu src/koy/gorsel/cozumleme_oda_yer_tutucu.gd içindeki düz renk BoxMesh ve Türkçe isim etiketi; katalog kimliği cozumleme_odasi. Gerçek başsız sahnede kutu ve dokusuz malzeme doğrulandı. Yeni model/görsel üretilmedi veya indirilmedi. Ekleyen Kalfa.
 
 ## 6 Kasım 2026 — YAP04-DEFTER (Kalfa)
 

@@ -31,6 +31,8 @@ func _initialize() -> void:
 	once = o.kaydet()
 	dene(not C.baslat(o,ID,b.id,k.id).ok and o.kaydet() == once,"Bedel yetmezse mutasyon yok")
 	y.akce = 20
+	once = o.kaydet()
+	dene(C.istek_durumu(o,ID,b.id,k.id).ok and o.kaydet() == once,"UI önizlemesi işi/para/RNG başlatmaz")
 	dene(C.baslat(o,ID,b.id,k.id).ok and y.akce == 18,"Tek kamu bedeliyle ilk iş başlar")
 	once = o.kaydet()
 	dene(not C.baslat(o,ID,b.id,k.id).ok and o.kaydet() == once,"Aynı iş tekrar para almaz")

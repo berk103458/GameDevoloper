@@ -8,7 +8,7 @@ static func kademe(tur: String) -> int:
 	return int(AYAR.binalar.get(tur, 0))
 
 static func gereken_bilgi(tur: String) -> String:
-	return tur if kademe(tur) > 0 else ""
+	return String(AYAR.get("bilgi_eslesmeleri",{}).get(tur,tur)) if kademe(tur) > 0 else ""
 
 static func sur_kademesi(hedef_seviye: int) -> int:
 	return int(AYAR.sur[hedef_seviye - 1]) if hedef_seviye >= 1 and hedef_seviye <= AYAR.sur.size() else 0
@@ -34,6 +34,14 @@ static func dogrula(katalog: BinaKatalogu, veri: Variant = null) -> PackedString
 		if not katalog.var_mi(String(tur)): hatalar.append("Bilinmeyen bina kimliği: " + String(tur))
 		if not (k is int or k is float) or not is_finite(float(k)) or float(k) != floor(float(k)) or float(k) < 0 or float(k) > 3:
 			hatalar.append("K0–K3 dışında kademe: " + String(tur))
+	var eslesmeler: Variant = d.get("bilgi_eslesmeleri",{})
+	if not eslesmeler is Dictionary:
+		hatalar.append("Bilgi eşlemeleri sözlük olmalı")
+	else:
+		for kaynak in eslesmeler:
+			var hedef: Variant = eslesmeler[kaynak]
+			if not kaynak is String or not hedef is String or not d.binalar.has(kaynak) or not d.binalar.has(hedef) or kaynak == hedef or eslesmeler.has(hedef):
+				hatalar.append("Geçersiz doğrudan bilgi eşlemesi: " + String(kaynak))
 	var konak: Variant = d.get("konak")
 	if not (konak is int or konak is float) or not is_finite(float(konak)) or float(konak) != 3:
 		hatalar.append("Mevcut Konak/Ağalık hedefi K3 olmalı")
@@ -75,7 +83,7 @@ static func durum(y: KoyYonetimi, tur: String) -> Dictionary:
 	if k == 0: return d
 	var bilgi_var := false
 	for kisi in y.koylular:
-		if kisi.saglik > 0 and tur in kisi.yapi_bilgisi:
+		if kisi.saglik > 0 and (tur in kisi.yapi_bilgisi or String(d.bilgi) in kisi.yapi_bilgisi):
 			bilgi_var = true
 			break
 	if not bilgi_var:
@@ -98,4 +106,4 @@ static func metin(y: KoyYonetimi, tur: String) -> String:
 	if d.acik: return ""
 	if d.neden == "yapi_on_kademe":
 		return TranslationServer.translate("koy.yapi_kilidi.on_kademe") % (int(d.kademe) - 1)
-	return TranslationServer.translate("koy.yapi_kilidi.gerekli") % MeslekYapilari.ad(tur)
+	return TranslationServer.translate("koy.yapi_kilidi.gerekli") % MeslekYapilari.ad(String(d.bilgi))

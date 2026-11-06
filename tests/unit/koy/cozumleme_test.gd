@@ -29,5 +29,13 @@ func _initialize() -> void:
 	dene(not C.oda(y,b.id),"Yarım oda hazır sayılmaz")
 	b.insa_kalan = 0
 	dene(C.oda(y,b.id),"Hazır K1 oda mevcut modelden okunur")
+	var bilen := y.kabul({"ad":"Doğrudan oda bilgisi","yapi_bilgisi":["cozumleme_odasi"]})
+	dene(YapiKilidi.durum(y,"cozumleme_odasi").acik,"Doğrudan oda bilgisi de geçerlidir")
+	y.koylular.erase(bilen)
+	bilen = y.kabul({"ad":"Ambar bilgisi","yapi_bilgisi":["ambar"]})
+	dene(YapiKilidi.durum(y,"cozumleme_odasi").acik and YapiKilidi.gereken_bilgi("cozumleme_odasi") == "ambar","Oda mevcut ambar bilgisini veriden okuyarak açılır")
+	var bozuk := YapiKilidi.AYAR.duplicate(true)
+	bozuk.bilgi_eslesmeleri.cozumleme_odasi = "olmayan"
+	dene(not YapiKilidi.dogrula(kat,bozuk).is_empty(),"Tablosuz bilgi eşlemesi reddedilir")
 	print("ÇÖZÜMLEME VERİ: GEÇTİ" if hata == 0 else "ÇÖZÜMLEME VERİ: KALDI")
 	quit(hata)

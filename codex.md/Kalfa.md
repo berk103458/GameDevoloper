@@ -1,3 +1,11 @@
+## 6 Kasım 2026 — YAP-05 mevcut kart arayüzü doğrulandı (Kalfa)
+
+Oda kurulabilir=true; mevcut ambar yapımı bilgisi optional bilgi eşlemesiyle oda erişimini açar. Diğer yapı bilgileri ve geçmiş puanları değişmedi. Mevcut yapı kartına ince panel adaptörü eklendi: salt okunur ön kontrol, başlatma, ilerleme/durma sebebi, FIFO sıra, etkin ve sıradaki işi yeni oda/işçiye bağlama. Mevcut duraklatma kapısı her yazma çağrısında korunur. Yeni sahne/ikon/font yok; yalnız düz renk BoxMesh ve ad etiketi, YAP05-ODA envanteri güncel.
+
+Gerçek UI testi Medrese geçmişinden mevcut kartla oda kurma/işçi atama, tek bedel, duraklatılmış geri çağrıyı reddetme, ikinci defteri sıralama, gerçek gece, yıkım, yeniden inşa, iki işi yeni odaya bedelsiz bağlama ve bilgi açılışını doğruladı. Eksik metin güvenli geri dönüşü ve açıkça yüklenen İngilizce kaynak kontrolü geçti. Önceki kurulabilir=false notu yalnız gerçek kurulumu engelliyordu; kartı gizlemiyordu, önceki menü ifadesi düzeltilmiştir. UI ilk İngilizce kontrolü proje yalnız TR yüklediği için başarısızdı; test kendi EN kaynağını yükler, proje ayarı değiştirilmedi.
+
+Headless import exit0 ve script/parse hatası0; kaynak/allocator kapanış hataları sürüyor, hatasız import denmedi. YAP-05[/] kalır: commitli önbelleksiz son kabul sonraki adımdır. Tam sanity çalıştırılmadı. İlgisiz import/translation/project.godot korunur ve commit dışındadır. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-05 iş/gece/kayıt dilimi doğrulandı (Kalfa)
 
 Çözümleme işi köyün mevcut kayıt sözlüğünde surum1 optional alt kayıt taşır: tek aktif iş, FIFO kuyruk, tamamlanan kimlikler, tek başlatma/son gece makbuzu. Canlı nesne kaydedilmez. Eski/bozuk/gelecek alt kayıt iş veya ödül üretmez. Oda/defter/yetişkin sağlıklı atama/bedel doğrulanmadan mutasyon yok. İlk iş tek kamu bedeli alır, ikinci aynı gün başlamaz ve ücret alınmadan sırada bekler. İşçi/oda yeniden bağlanınca ilerleme ve tahsilat korunur.

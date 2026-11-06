@@ -76,7 +76,7 @@ static func _defter(o: Oturum, id: String) -> Dictionary:
 	for e in o.muhafiz_esyalari:
 		if e.get("id") == id and int(e.get("adet",0)) > 0: return e
 	return {}
-static func _neden(o: Oturum, d: Dictionary) -> String:
+static func gorev_nedeni(o: Oturum, d: Dictionary) -> String:
 	var y := o.yonetim
 	if not y.son.is_empty(): return "oyun_bitti"
 	if not DEFTERLER.AYAR.defterler.has(d.defter) or _defter(o,d.defter).is_empty(): return "defter_yok"
@@ -87,20 +87,21 @@ static func _neden(o: Oturum, d: Dictionary) -> String:
 	return ""
 static func _baslat(o: Oturum, s: Dictionary, d: Dictionary) -> bool:
 	var bedel := int(DEFTERLER.AYAR.cozumleme.kamu_bedel)
-	if not _neden(o,d).is_empty() or o.yonetim.akce < bedel or int(s.son_baslatma) == o.gun: return false
+	if not gorev_nedeni(o,d).is_empty() or o.yonetim.akce < bedel or int(s.son_baslatma) == o.gun: return false
 	s.aktif = d.duplicate(true)
 	s.aktif.ilerleme = 0.0
 	s.aktif.baslangic = o.gun
 	s.son_baslatma = o.gun
 	o.yonetim.akce -= bedel
 	return true
-static func baslat(o: Oturum, id: String, oda_id: int, isci_id: int) -> Dictionary:
+## UI ile başsız API aynı salt-okunur koşulları kullanır.
+static func istek_durumu(o: Oturum, id: String, oda_id: int, isci_id: int) -> Dictionary:
 	var r := {"ok":false,"kuyrukta":false,"neden":""}
 	if not dogrula().is_empty():
 		r.neden = "bozuk_veri"
 		return r
 	var d := {"defter":id,"oda":oda_id,"isci":isci_id}
-	r.neden = _neden(o,d)
+	r.neden = gorev_nedeni(o,d)
 	if not String(r.neden).is_empty(): return r
 	var s := durum(o.yonetim)
 	if id in s.tamamlanan or (not s.aktif.is_empty() and s.aktif.defter == id):
@@ -113,19 +114,24 @@ static func baslat(o: Oturum, id: String, oda_id: int, isci_id: int) -> Dictiona
 	if not s.aktif.is_empty() or int(s.son_baslatma) == o.gun or not s.kuyruk.is_empty():
 		if s.kuyruk.size() >= 128:
 			r.neden = "kuyruk_dolu"
-			return r
-		s.kuyruk.append(d)
-		r.kuyrukta = true
-		r.neden = "kuyrukta"
-	elif not _baslat(o,s,d):
-		r.neden = "bedel"
-		return r
+		else:
+			r.kuyrukta = true
+			r.neden = "kuyrukta"
+	elif o.yonetim.akce < int(DEFTERLER.AYAR.cozumleme.kamu_bedel): r.neden = "bedel"
 	else: r.ok = true
+	return r
+static func baslat(o: Oturum, id: String, oda_id: int, isci_id: int) -> Dictionary:
+	var r := istek_durumu(o,id,oda_id,isci_id)
+	if not r.ok and not r.kuyrukta: return r
+	var s := durum(o.yonetim)
+	var d := {"defter":id,"oda":oda_id,"isci":isci_id}
+	if r.kuyrukta: s.kuyruk.append(d)
+	elif not _baslat(o,s,d): return {"ok":false,"kuyrukta":false,"neden":"bedel"}
 	_yaz(o.yonetim,s)
 	return r
 static func isci_degistir(o: Oturum, id: String, oda_id: int, isci_id: int) -> bool:
 	var d := {"defter":id,"oda":oda_id,"isci":isci_id}
-	if not _neden(o,d).is_empty(): return false
+	if not gorev_nedeni(o,d).is_empty(): return false
 	var s := durum(o.yonetim)
 	if not s.aktif.is_empty() and s.aktif.defter == id:
 		s.aktif.oda = oda_id
@@ -154,14 +160,14 @@ static func gece_baslat(o: Oturum) -> void:
 static func gece_fotografi(o: Oturum) -> Dictionary:
 	var s := durum(o.yonetim)
 	if s.aktif.is_empty(): return {}
-	return {"gun":o.gun,"defter":s.aktif.defter,"oda":s.aktif.oda,"isci":s.aktif.isci,"uygun":_neden(o,s.aktif).is_empty()}
+	return {"gun":o.gun,"defter":s.aktif.defter,"oda":s.aktif.oda,"isci":s.aktif.isci,"uygun":gorev_nedeni(o,s.aktif).is_empty()}
 
 ## Aynı gerçek gece ikinci ilerleme/bitiş yok; mevsim kaydı gece başında alınır.
 static func gece(o: Oturum, rapor: Dictionary, mevsim: Dictionary, calisma: Dictionary = {}) -> void:
 	var s := durum(o.yonetim)
 	if s.aktif.is_empty() or not o.yonetim.son.is_empty() or int(s.son_gece) >= o.gun: return
 	s.son_gece = o.gun
-	if calisma.get("uygun",false) == true and calisma.get("gun",-2) == o.gun - 1 and calisma.get("defter") == s.aktif.defter and calisma.get("oda") == s.aktif.oda and calisma.get("isci") == s.aktif.isci and _neden(o,s.aktif).is_empty():
+	if calisma.get("uygun",false) == true and calisma.get("gun",-2) == o.gun - 1 and calisma.get("defter") == s.aktif.defter and calisma.get("oda") == s.aktif.oda and calisma.get("isci") == s.aktif.isci and gorev_nedeni(o,s.aktif).is_empty():
 		var alan := String(DEFTERLER.AYAR.cozumleme.mevsim_carpani)
 		var carpan: Variant = mevsim.get(alan)
 		if (carpan is int or carpan is float) and is_finite(float(carpan)) and float(carpan) > 0:

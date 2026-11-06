@@ -51,6 +51,7 @@ func _initialize() -> void:
 	var r := o.gece_sonu()
 	geri.gece_sonu()
 	dene(C.durum(y) == C.durum(geri.yonetim) and y.akce == geri.yonetim.akce,"Yükleme aynı bitişi ve ücreti verir")
+	dene(C.uretim_carpani(y,"hizarhane") == C.uretim_carpani(geri.yonetim,"hizarhane"),"Gerçek yükleme aynı sonuç çarpanını korur")
 	dene(C.durum(y).aktif.is_empty() and ID in C.durum(y).tamamlanan and o.muhafiz_esyalari[0].get("cozuldu",false),"Verideki süre dolunca mevcut defter çözüldü")
 	var bildirim := 0
 	for olay in r.olaylar:
