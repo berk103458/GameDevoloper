@@ -3722,7 +3722,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-01. Boyut: S.
   - Dosya: `data/ayarlar/denge.json` `kriz_aralik`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-58:** İlk 14 gün tehdit BUG-18'dir.
+- [/] **DEN-58:** İlk 14 gün tehdit BUG-18'dir. (Kalfa)
   - Ne: pusu, çete, casus ve sabotaj o günden önce 0'dır. Denge bu kapıyı gevşetmez.
   - Kabul: pusu, çete, casus ve sabotaj o günden önce 0'dır. Denge bu kapıyı gevşetmez. Test: 13. gün tehdit 0.
   - Bağımlılık: BUG-18. Boyut: S.

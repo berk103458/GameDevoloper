@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — DEN-58 başladı (Kalfa)
+
+Full pull güncel; BUG-18 kapısının DEN tarafından gevşetilmediği mevcut hedefli testte doğrulanacak. Asset gerekmedi; kota görünmüyor.
+
 ## 6 Kasım 2026 — DEN-35 tamamlandı (Kalfa)
 
 ISG-03 terk sorgusunun gece sonu kişi kimlikleri fotoğrafı mevcut gece/DEN raporuna eklendi. Yeni oyun sayacı veya eşik değişikliği yok. Salt okunur bosta_terk_raporu son20 ardışık geceyi toplar; aynı süren istek bir başlangıçtır, kapanıp yeniden açılırsa yeniden sayılır. Pencere öncesi fotoğraf varsa devam eden isteği ayırt eder; yoksa ilk gecedeki istek pencereye dahil sayılır. Mükerrer aynı fotoğraf sayılmaz; çelişen/bozuk/eksik/kesik kayıt kabul edilmez. Başlangıç bandı0–3 denge.json bosta_terk_aralik içindedir; bu kontrollü kabul bandıdır, genel denge sağlığı iddiası veya otomatik ayar değildir.
