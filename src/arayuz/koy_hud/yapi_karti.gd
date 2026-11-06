@@ -6,6 +6,7 @@ const IKONLAR := {"cadir": "cadir", "kulube": "kulube", "tarla": "gida", "hizarh
 
 ## Kartı güncel simülasyon verisiyle kurar; satın alma kuralı oyunun kaynaklarına dayanır.
 func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
+	set_meta("yapi_turu", tur)
 	custom_minimum_size = Vector2(220, 136)
 	focus_mode = Control.FOCUS_ALL
 	var stil := Kabuk.panel()
@@ -22,6 +23,9 @@ func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	add_theme_stylebox_override("disabled", stil)
 	var m := y.katalog.maliyet(tur)
 	disabled = not y.kaynaklar.yeterli(_malzeme(m)) or y.akce < int(m.get("akce", 0))
+	var kilit := YapiKilidi.durum(y, tur)
+	disabled = disabled or not kilit.acik
+	modulate = Color(0.6, 0.6, 0.6) if not kilit.acik else Color.WHITE
 	tooltip_text = MeslekYapilari.aciklama(tur)
 	var v := VBoxContainer.new()
 	v.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -55,6 +59,12 @@ func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	if disabled:
 		bilgi.text = tr("koy.kart.eksik")
 		bilgi.add_theme_color_override("font_color", Hud.UYARI)
+	if not kilit.acik:
+		bilgi.text = YapiKilidi.metin(y, tur)
+		bilgi.add_theme_color_override("font_color", Kabuk.SOLUK)
+		tooltip_text += "\n" + bilgi.text
+	bilgi.name = "YapiKademeBilgisi"
+	bilgi.text = "K%d · %s" % [y.katalog.kademe(tur), bilgi.text]
 	_girdiyi_gecir(v)
 	# Çocuk içerik font ölçeğiyle büyür; yatay liste taşanı kaydırır.
 	custom_minimum_size = v.get_combined_minimum_size() + Vector2(28, 20)

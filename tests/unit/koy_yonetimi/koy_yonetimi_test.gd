@@ -41,6 +41,9 @@ func _kur(y: KoyYonetimi, tur: String, hucre: Vector2i) -> int:
 	y.kaynaklar.kapasite = 10000
 	for t in ["odun", "tas", "kereste", "alet"]:
 		y.kaynaklar.ekle(t, 50)
+	# Bu üretim/kayıt fixtureı ilgili K1 bilgisini yaşayan mevcut kişide taşır.
+	if YapiKilidi.kademe(tur) > 0 and not y.koylular.is_empty():
+		y.koylular[0].yapi_bilgisi = YapiKilidi.bilgi_oku(Array(y.koylular[0].yapi_bilgisi) + [tur])
 	var d := y.bina_kur(tur, hucre)
 	_esit("kurulum %s" % tur, d["olur"], true)
 	y.bina(d["id"]).insa_kalan = 0

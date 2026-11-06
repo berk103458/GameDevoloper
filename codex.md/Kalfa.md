@@ -1,3 +1,13 @@
+## 6 Kasım 2026 — YAP-01 uygulama dilimi; temiz kabul bekleniyor (Kalfa)
+
+Gerçek yerlesim/bina_kur bilgi kilidi, mevcut kartta gri K0–K3 metni, canlı kilit kaybında hayalet gizleme, kişi üzerindeki optional bilgi ve kesirli inşaat kaydı tamamlandı. K3 için tam önceki hazır kademe aranır; daha yüksek yapı, yıkılan K2 yerine geçmez. İnşaat yalnız mevcut sağlıklı boş yetişkin işgücü veya o gece gerçekleşmiş geçici yardım varsa ilerler; mevsim çarpanı MevsimYoneticisi kaydından okunur. Kış artığı JSON ile korunur. ADM-08 ve sur taksit tutarı/akışı ayrı kalır.
+
+14 hedefli Godot kontrolü (dört yeni model, mevcut köy yönetimi/bina seviyesi/geçici iş/DEN/açılış/kapı/divan/mevsim, yeni veri CLI ve gerçek UI), CSV ve40 Python testi geçti. Kaynakta kilit/işçi varsayan iki eski fixture ilgili gerçek bilgi/işçiyle kuruldu; oyun kuralı gevşetilmedi. Sınır testi gerçek olayın1 akçe etkisini de doğrular, işlem uygulanmadan yanlış olumlu sonuç vermez. Modelde K2 yıkılıp K3 kaldığında yeniden K3 kurulumunun kapanması denetlenir.
+
+Son çalışma kopyası recovery import exit0, SCRIPT ERROR/Failed to load script0; editör kapanışında298 kaynak/PagedAllocator hatası raporlandı (önceki veri diliminde296 idi). Bu kapanış sorununa temiz import veya tamamen aynı sayı denmedi; hedefli çalışma koşularında SCRIPT ERROR/ERROR yok. Üretim uygulaması yerel commit sonrası yalnız commitli arşivden önbelleksiz kontrol edilecek. Bu kanıt gelmeden YAP-01[/] kalır. Bilginin ustadan/geçmişten/çıraktan edinimi sonraki YAP-02 maddesidir, bu işte tamamlandı sayılmaz.
+
+Asset gerekmedi. Tam sanity yapılmadı. ds yolları bu makinede yok; önceki Ahmet istisnası geçerli. Üretilmiş import/translation/project.godot korunup commit dışında. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-01 veri dilimi doğrulandı; madde sürüyor (Kalfa)
 
 K0–K3 tablosu22 mevcut kurulabilir bina kimliğiyle data/koy/yapi_kademeleri.json içine eklendi. YapiKilidi kademe/gereken bilgi/sur sorgusu ve veri doğrulayıcısı salt okunurdur; tablo dışı kurulabilir tür K0 ve uyarı listesi üretir. Sur1–3 mevcut seviyelerdir, yeni bina kimliği yoktur. KoyBinasi ADM-08 seviyesi/katalog bedelleri sorguda değişmez. Kış inşaat çarpanı0.5 rutin başlangıç seçimi olarak veridedir; henüz oyun hesabına bağlanmadı. JSON sayılarının Godot float okunması nedeniyle sur dizisi değer bazında doğrulanır, bool/kesirli/bozuk girdiler reddedilir.

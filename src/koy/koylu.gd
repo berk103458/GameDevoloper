@@ -36,6 +36,8 @@ var bayraklar: PackedStringArray = []
 var gizli_bayraklar: PackedStringArray = []
 ## DYL-06: köylünün bildiği diller (optional alan).
 var diller: PackedStringArray = []
+## YAP-01/02: bilgi yalnız kişide taşınır; eski kayıtta boş.
+var yapi_bilgisi: PackedStringArray = []
 ## Kamu kasasından ayrı ekonomik yaşam standardı (0–100).
 var refah: int = EkonomikRefah.baslangic()
 var moral: int = 60
@@ -97,6 +99,8 @@ func kaydet() -> Dictionary:
 		kayit_sozluk["diller"] = Array(diller)
 	if not bosta_kalma.is_empty():
 		kayit_sozluk["bosta_kalma"] = bosta_kalma.duplicate(true)
+	if not yapi_bilgisi.is_empty():
+		kayit_sozluk["yapi_bilgisi"] = Array(yapi_bilgisi)
 	return kayit_sozluk
 
 
@@ -126,6 +130,7 @@ static func kayittan(v: Dictionary) -> Koylu:
 	k.bayraklar = PackedStringArray(v.get("bayraklar", []))
 	k.gizli_bayraklar = PackedStringArray(v.get("gizli", []))
 	k.diller = PackedStringArray(v.get("diller", []))
+	k.yapi_bilgisi = YapiKilidi.bilgi_oku(v.get("yapi_bilgisi"))
 	if SaglikYoneticisi.hasta(k) and "hasta" not in k.bayraklar + k.gizli_bayraklar: k.gizli_bayraklar.append("hasta")
 	if k.kis_hastaligi.is_empty(): k.bayraklar.erase(KisHastaligi.FLAG)
 	else: k.bayrak_ekle(KisHastaligi.FLAG)

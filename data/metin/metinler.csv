@@ -2364,3 +2364,7 @@ kapi.hava.sicak_2,"[güneşten çatlamış dudaklarla] Gün tepemizde çekiç gi
 kapi.hava.sicak_muhafiz,"Güneş beynini kaynatmış amma nizam nizamdır. Çekil hele gölgeye, önce söyle bakalım kimlerdensin?","The sun has boiled your wits, yet order is order. Step into the shadow here, and tell us first: whose kin are you?"
 koy.bosta.hud,Boşta: %d kişi,Idle: %d villagers
 koy.bosta.terk,Üç gündür elim iş tutmadı. Böyle sürerse başka bir köye varırım.,"I have had no work for three days. If this continues, I will seek another village."
+koy.yapi_kilidi.gerekli,Gerekli: %s bilgisi,Required: %s knowledge
+koy.yapi_kilidi.on_kademe,Önce hazır K%d yapı gerekir,Requires a completed K%d building first
+koy.neden.yapi_bilgisi,Yapı bilgisi eksik,Building knowledge is missing
+koy.neden.yapi_on_kademe,Önce alt kademe bir yapıyı tamamlayın,Complete a building of the preceding tier first

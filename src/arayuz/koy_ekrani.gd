@@ -224,6 +224,9 @@ func _savunma_satiri() -> void:
 
 
 func _kip_sec(k: String, tur: String = "") -> void:
+	if k == "insa" and not YapiKilidi.durum(_y, tur).acik:
+		_kip_sec("")
+		return
 	KoyluTakibi.kip(sahne3b, k)
 	kip = k
 	_insa_turu = tur
@@ -266,6 +269,10 @@ func _vp_konum(yerel: Vector2) -> Vector2:
 func _hayalet_guncelle() -> void:
 	match kip:
 		"insa":
+			if not YapiKilidi.durum(_y, _insa_turu).acik:
+				sahne3b.hayalet(_imlec, Vector2i.ZERO, false)
+				_ipucu.text = YapiKilidi.metin(_y, _insa_turu)
+				return
 			var d := _y.yerlesim(_insa_turu, _imlec, _yon)
 			var b := _y.katalog.boyut(_insa_turu)
 			sahne3b.hayalet(_imlec, Vector2i(b.y, b.x) if _yon == 1 else b, d["olur"])

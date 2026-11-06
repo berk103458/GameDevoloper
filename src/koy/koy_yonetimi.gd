@@ -256,6 +256,9 @@ func ret(ad: String, haksiz: bool, usta_uzmanlik: String = "") -> void:
 
 ## Yerleşim önizlemesi (hayalet): {olur, neden, maliyet}. Neden: `sinir`, `dolu`, `yol_yok`, `malzeme`, `akce`.
 func yerlesim(tur: String, hucre: Vector2i, yon: int = 0) -> Dictionary:
+	var kilit := YapiKilidi.durum(self, tur)
+	if not kilit.acik:
+		return {"olur": false, "neden": kilit.neden, "maliyet": katalog.maliyet(tur)}
 	var b := KoyBinasi.new()
 	b.tur = tur
 	b.hucre = hucre
@@ -739,14 +742,7 @@ func _ambara(b: KoyBinasi, tur: String, miktar: float, bonus: float, uretim: Dic
 
 
 func _insaat() -> int:
-	var ilerleme := 0
-	var yardim := bostakiler().filter(func(k: Koylu) -> bool: return k.yas_grubu == &"yetiskin" and not KarantinaYoneticisi.aktif(k)).size() / maxi(1, a.insa_yardim_bolen)
-	yardim += GeciciIsler.insaat_yardimi(self)
-	for b in binalar:
-		if b.insa_kalan > 0:
-			var once := b.insa_kalan
-			b.insa_kalan = maxi(0, b.insa_kalan - 1 - yardim)
-			ilerleme += once - b.insa_kalan
+	var ilerleme := preload("res://src/koy/yapi_insaati.gd").ilerlet(self)
 	_ambar_kapasitesi()
 	return ilerleme
 
