@@ -25,3 +25,7 @@ YAP-02 bilgi kaynakları ayrı sonraki maddedir. YAP-01 içinde üst kademe içi
 Yeni kilitler eski hedefli testlerin kurulumsuz varsayımlarını kırabilir. Kabulü gevşetmek yerine ilgili fixture gerekli gerçek bilgi/işçi durumuyla kurulmalı; bağımsız başka ajan değişiklikleri korunmalı. Korunan çekirdeğe yalnız gereken adaptör eklenmeli, yeniden yazılmamalı. Her dilimden sonra hedefli test ve headless parse/import sonucu kaydedilir. Mevcut296 kaynak editör kapanış sızıntısı temiz import diye raporlanmaz.
 
 Rutin uygulama kararları Ahmet yetkisiyle sürer. Sadece gerçek çakışma/karar gereğinde Ahmet sorulur; bu plan yeni rutin onay bekleme adımı oluşturmaz. kota görünmüyor.
+
+## Son kabul notu — 6 Kasım
+
+Konak mevcut Ağalık hedefi olarak K3 verisine eklendi; yeni bina kimliği yok. Yukarıdaki katalog bedeli varsayımı ROADMAP koy.tres şartını tek başına karşılamaz. Ahmet kaynak tercihi bekleniyor; fiyatlar değişmedi, YAP-01 açık.

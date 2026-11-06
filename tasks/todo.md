@@ -27,6 +27,8 @@ ROADMAP_2.md kapsamı korunur. İlk dilim tamam olsa da madde[/] kalır.
 - [x] Tüm ilgili hedefli model/gerçek UI testleri ve headless import/parse çalışır.
 - [ ] Asset gerekmedi notu, ROADMAP ve Kalfa/OYUN/Muharrir raporları güncel.
 - [ ] Son paket commit/push ve Ahmet masaüstü FF doğrulanır; ds yokluğu doğru raporlanır.
-- [ ] Yalnız commitli arşivden önbelleksiz import ve gerçek UI/model kabulü geçer.
+- [x] 2b6dbe07 için yalnız commitli arşivden önbelleksiz import ve gerçek UI/model kabulü geçti; son değişikliklerde yeniden doğrulanacak.
+- [x] Konak sınıfı K3 olarak, yeni bina kimliği oluşturmadan üç hedefle doğrulandı.
+- [ ] ROADMAP koy.tres bedel kaynağı ile mevcut katalog arasındaki Ahmet tercihi uygulanır.
 
 Tam sanity yok. kota görünmüyor.

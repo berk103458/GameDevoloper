@@ -22,12 +22,17 @@ func _initialize() -> void:
 	kat.turler["deneme"] = {"kurulabilir": true}
 	dene("deneme" in KILIT.eksik_turler(kat), "Tablosuz kurulabilir bina uyarı listesinde")
 	dene(KILIT.gereken_bilgi("cadir").is_empty() and KILIT.gereken_bilgi("tas_ev") == "tas_ev", "K0 açık, üst kademe tek yapı bilgisini ister")
+	dene(KILIT.konak_kademesi() == 3 and not kat.var_mi("konak"), "Mevcut Ağalık/konak hedefi K3, yeni bina türü değil")
 	dene(KILIT.sur_kademesi(2) == 2 and KILIT.sur_kademesi(3) == 3, "Sur 2/3 ayrı bina kimliği açmaz")
 	dene(not KILIT.dogrula(kat, {}).is_empty(), "Eksik kademe verisi reddedilir")
 	for deger in [true, 1.5, 4, -1]:
 		var bozuk := KILIT.AYAR.duplicate(true)
 		bozuk.binalar.tarla = deger
 		dene(not KILIT.dogrula(kat, bozuk).is_empty(), "Tek bozuk kademe reddedilir")
+	for deger in [true, 0, 4, "3"]:
+		var bozuk := KILIT.AYAR.duplicate(true)
+		bozuk.konak = deger
+		dene(not KILIT.dogrula(kat, bozuk).is_empty(), "Konak yalnız K3 sınıfını kabul eder")
 	var yeni := KILIT.AYAR.duplicate(true)
 	yeni.binalar["yeni_kimlik"] = 1
 	dene(not KILIT.dogrula(kat, yeni).is_empty(), "Yeni bina kimliği reddedilir")

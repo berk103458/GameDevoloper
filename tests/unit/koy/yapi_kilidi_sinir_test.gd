@@ -18,6 +18,10 @@ func _initialize() -> void:
 	preload("res://src/sistemler/acilis_senaryosu.gd").kur(a)
 	preload("res://src/sistemler/acilis_senaryosu.gd").kur(b)
 	dene(liste(a.yonetim) == liste(b.yonetim), "Aynı tohumlu gerçek kuruluş aynı kilitleri verir")
+	dene(a.yapilar[&"konak"] == 0 and YapiKilidi.konak_kademesi() == 3, "K3 sınıfı eski Konak/Ağalık durumunu açmaz")
+	b.yonetim.agalik = true
+	dene(b.yapilar[&"konak"] == 1 and YapiKilidi.konak_kademesi() == 3 and not b.yonetim.katalog.var_mi("konak"), "Mevcut Ağalık anlamı korunur; yeni Konak bina kimliği yok")
+	b.yonetim.agalik = false
 	var once := liste(a.yonetim)
 	var binalar := a.yonetim.binalar.size()
 	var g := Gelen.new()

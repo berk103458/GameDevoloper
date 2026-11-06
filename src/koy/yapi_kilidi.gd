@@ -13,6 +13,10 @@ static func gereken_bilgi(tur: String) -> String:
 static func sur_kademesi(hedef_seviye: int) -> int:
 	return int(AYAR.sur[hedef_seviye - 1]) if hedef_seviye >= 1 and hedef_seviye <= AYAR.sur.size() else 0
 
+## Konak mevcut Oturum.yapilar Ağalık anlamıdır; kataloğa bina eklemez.
+static func konak_kademesi() -> int:
+	return int(AYAR.konak)
+
 static func eksik_turler(katalog: BinaKatalogu) -> PackedStringArray:
 	var sonuc := PackedStringArray()
 	for tur in katalog.turler:
@@ -30,6 +34,9 @@ static func dogrula(katalog: BinaKatalogu, veri: Variant = null) -> PackedString
 		if not katalog.var_mi(String(tur)): hatalar.append("Bilinmeyen bina kimliği: " + String(tur))
 		if not (k is int or k is float) or not is_finite(float(k)) or float(k) != floor(float(k)) or float(k) < 0 or float(k) > 3:
 			hatalar.append("K0–K3 dışında kademe: " + String(tur))
+	var konak: Variant = d.get("konak")
+	if not (konak is int or konak is float) or not is_finite(float(konak)) or float(konak) != 3:
+		hatalar.append("Mevcut Konak/Ağalık hedefi K3 olmalı")
 	var sur: Variant = d.get("sur")
 	if not sur is Array or sur.size() != 3:
 		hatalar.append("Sur kademeleri mevcut üç seviye ile eşleşmeli")
