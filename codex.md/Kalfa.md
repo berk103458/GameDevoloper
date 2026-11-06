@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — YAP-61 tamamlandı (Kalfa)
+
+Gerçek KoyEkrani hız düğmeleriyle1/2/3/duraklat seçildi; her seçimin gerçek Engine.time_scale ve SceneTree.paused sonucu önce doğrulandı. Mevcut yapı bilgi kartı açılıp kapandığında her iki değer aynen korunur. Yeni kart veya hız motoru/üretim kodu eklenmedi. Mevcut gerçek UI kabulü kilit, hayalet, bedel ve uzun bilgi kaydırmasıyla birlikte headless exit0, SCRIPT ERROR/ERROR0 geçti. Son aynı üretim kaynaklarının recovery importunda script hatası0, üç PagedAllocator kapanış hatası sürer; tam sanity yok. Asset gerekmedi. YAP-01 bedel tercihi bekleniyor; YAP-62 SAH bağımlılığı genel bölüm olduğundan hazır varsayılmadı. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-61 sahipliği (Kalfa)
 
 Full pull güncel. TEK-22 tamam; gerçek yapı bilgi kartının köy hızını değiştirmediği hedefli UI kabulü alınacak. YAP-01 bedel kararı bekliyor. Asset gerekmedi; kota görünmüyor.

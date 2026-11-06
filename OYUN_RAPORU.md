@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — YAP-61 tamamlandı (Kalfa)
+
+Gerçek KoyEkrani hız düğmeleriyle1/2/3/duraklat seçildi; her seçimin gerçek Engine.time_scale ve SceneTree.paused sonucu önce doğrulandı. Mevcut yapı bilgi kartı açılıp kapandığında her iki değer aynen korunur. Yeni kart veya hız motoru/üretim kodu eklenmedi. Mevcut gerçek UI kabulü kilit, hayalet, bedel ve uzun bilgi kaydırmasıyla birlikte headless exit0, SCRIPT ERROR/ERROR0 geçti. Son aynı üretim kaynaklarının recovery importunda script hatası0, üç PagedAllocator kapanış hatası sürer; tam sanity yok. Asset gerekmedi. YAP-01 bedel tercihi bekleniyor; YAP-62 SAH bağımlılığı genel bölüm olduğundan hazır varsayılmadı. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-28 tamamlandı (Kalfa)
 
 Gerçek KAP-17 aile kapı kabulünden gelen usta ve çocuğun aynı kalıcı hanesi doğrulandı. Mevcut YasRolleri ağır iş atamasını çocukken reddeder; çalışma listesine adı girse bile eğitim sıfırdır. Yaşı uygun yetişkin fixture girdisi gerçek Oturum JSON kaydet/yükle üzerinden korunur; çocuk normal atamayla aynı ustanın yanında mevcut beş ortak çalışma ile stat6 yarı usta olur. Yaş büyümesi elle fixture girdisidir, DNY-01 takvimi uygulanmış veya tamamlanmış sayılmaz. Yeni aile/çırak sistemi veya üretim kodu yok.

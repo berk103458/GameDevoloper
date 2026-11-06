@@ -1688,7 +1688,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `src/arayuz/koy_hud/yapi_karti.gd`
   - Asset: asset gerekmedi.
 
-- [/] **YAP-61:** Kart köy hızını değiştirmez (Kalfa)
+- [x] **YAP-61:** Kart köy hızını değiştirmez (Kalfa)
   - Ne: Kart köy hızını değiştirmez. Açık kart scale aynı.
   - Kabul: Kart köy hızını değiştirmez. Fark 0. Test: hız.
   - Bağımlılık: TEK-22. Boyut: S.

@@ -67,6 +67,19 @@ func _calistir() -> void:
 	odun.hucre = Vector2i(8, 2)
 	y.binalar.append(odun)
 	for i in 30: y.kabul({"ad": "Uzun bilgi işçi %d" % i})
+	# YAP-61: gerçek hız düğmeleri ve mevcut yapı bilgi penceresi.
+	for hiz in [1, 2, 3, 0]:
+		(e._hiz_dugmeleri[hiz] as Button).pressed.emit()
+		var olcek := Engine.time_scale
+		var duraklat := get_tree().paused
+		dene(is_equal_approx(olcek, float(hiz) if hiz > 0 else 1.0) and duraklat == (hiz == 0), "YAP-61: hız gerçekten seçildi %d" % hiz)
+		e._secili_bina = odun.id
+		e._bilgi_goster()
+		dene(e._bilgi.visible and Engine.time_scale == olcek and get_tree().paused == duraklat, "YAP-61: açık kart hız/duraklatmayı korur %d" % hiz)
+		e._secili_bina = -1
+		e._bilgi_goster()
+		dene(not e._bilgi.visible and Engine.time_scale == olcek and get_tree().paused == duraklat, "YAP-61: kapanan kart hız/duraklatmayı korur %d" % hiz)
+	(e._hiz_dugmeleri[1] as Button).pressed.emit()
 	e._secili_bina = odun.id
 	e._bilgi_goster()
 	await get_tree().process_frame
