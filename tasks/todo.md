@@ -29,6 +29,6 @@ ROADMAP_2.md kapsamı korunur. İlk dilim tamam olsa da madde[/] kalır.
 - [ ] Son paket commit/push ve Ahmet masaüstü FF doğrulanır; ds yokluğu doğru raporlanır.
 - [x] 2b6dbe07 için yalnız commitli arşivden önbelleksiz import ve gerçek UI/model kabulü geçti; son değişikliklerde yeniden doğrulanacak.
 - [x] Konak sınıfı K3 olarak, yeni bina kimliği oluşturmadan üç hedefle doğrulandı.
-- [ ] ROADMAP koy.tres bedel kaynağı ile mevcut katalog arasındaki Ahmet tercihi uygulanır.
+- [x] Ahmet 6 Kasım kararı: mevcut katalog kaynakları/fiyatlar korunur; koy.tres toplu taşıması yapılmaz.
 
 Tam sanity yok. kota görünmüyor.

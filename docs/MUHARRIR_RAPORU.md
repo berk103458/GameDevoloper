@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — YAP-01 bedel kararı geldi (Kalfa)
+
+Ahmet mevcut katalog kaynaklarını korumayı seçti.22 yapının fiyatı koy.tres içine taşınmıyor; eski katalog .gd tanımları dahil kaynaklar korunuyor, yeni fiyat tablosu/sabiti eklenmiyor. ROADMAP ve kabul planındaki bedel şartı bu açık karara uyarlandı. Bu yalnız kaynak tercihi engelini kaldırır; YAP-01 henüz kapatılmadı. Son kabul ardından YAP-02 bilgi edinimi uygulanacak; DEN-54 plan2/7 regresyonu tamamlandı diye raporlanmaz. Asset gerekmedi. kota görünmüyor.
+
 ## 6 Kasım 2026 — DEN-59 ön kontrolünde DEN-54 regresyonu (Kalfa)
 
 Full pull51b108ea güncel. DEN-59 için mevcut olağan oyuncu koşusu yeniden çalıştırıldı:28 gerçek gece tamam, terminal yok, iflas0; ancak yapı planı2/7 (kulübe/tarla/odunluk) ve test exit1. YAP-01 bilgi kilidi sonrası hızarhane ve devamındaki plan açılmıyor; önceki DEN-54 yeşil kanıtı güncel kaynaklar için yeterli değildir. Başarısız koşu DEN-59 kabulü sayılmadı, DEN-59 sahiplenilmedi veya kapatılmadı. Kilit gevşetilmedi ve persona fixture bilgisi uydurulmadı. YAP-01 bedel kaynağı kararı ve sonraki YAP-02 bilgi edinimi öncelikli açık bağlamdır. Bu not yeni üretim kodu içermez. Asset gerekmedi. Tam sanity yok. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.

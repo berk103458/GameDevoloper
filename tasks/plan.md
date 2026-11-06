@@ -29,3 +29,7 @@ Rutin uygulama kararları Ahmet yetkisiyle sürer. Sadece gerçek çakışma/kar
 ## Son kabul notu — 6 Kasım
 
 Konak mevcut Ağalık hedefi olarak K3 verisine eklendi; yeni bina kimliği yok. Yukarıdaki katalog bedeli varsayımı ROADMAP koy.tres şartını tek başına karşılamaz. Ahmet kaynak tercihi bekleniyor; fiyatlar değişmedi, YAP-01 açık.
+
+## Ahmet kararı — 6 Kasım 2026
+
+Mevcut katalog kaynakları korunacak;22 fiyat koy.tres içine taşınmayacak. Eski katalog içindeki .gd tanımları da mevcut kaynak kapsamındadır; yeni/ikinci fiyat sabiti eklenmez. Bu karar önceki bedel kaynağı bekleme notunu kaldırır. YAP-01 son kabulü ve YAP-02 bilgi edinimi sırasıyla sürer.
