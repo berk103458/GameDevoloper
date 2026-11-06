@@ -3735,7 +3735,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-57, DEN-04. Boyut: M.
   - Dosya: `tests/oto/denge_kriz.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-60:** İki kriz aynı gece tek rapordadır.
+- [x] **DEN-60:** İki kriz aynı gece tek rapordadır. (Kalfa)
   - Ne: KRI-10 üst üste binmeyi zaten bilir. Ölçüm, aynı gecede iki kriz satırının tek raporda durduğunu söyler. Yeni birleştirici yok.
   - Kabul: KRI-10 üst üste binmeyi zaten bilir. Ölçüm, aynı gecede iki kriz satırının tek raporda durduğunu söyler. Yeni birleştirici yok. Test: iki kriz, rapor başlığı bir.
   - Bağımlılık: KRI-10. Boyut: S.

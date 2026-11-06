@@ -1,3 +1,13 @@
+## 6 Kasım 2026 — DEN-60 tamamlandı (Kalfa)
+
+Yeni denge_kriz.tscn mevcut KRI-10 fixture/gerçek gece düğmesi ve mevcut rapor kartını kullanır. Aynı gece başında tam iki kriz (isyan ve belirtili salgın) vardır; fixture yalnız süreleri kapanış sınırına koyar. Mevcut gerçek gece ikisini kapatır. Tek rapor başlığı, iki kriz adını taşıyan tek kenetlenme satırı görünür; gün yalnız1 artar. DEN tekrar okuması kaydı/ödülü/geceyi değiştirmez. Yeni birleştirici, kriz veya formül yazılmadı.
+
+Yeni gerçek UI ve mevcut KRI-10 birimi exit0/PASS. Yeni hedef standart test listesine bir kez eklendi; tam sanity çalıştırılmadı. Import exit0/script/parse0, mevcut kaynak/PagedAllocator kapanış hataları sürer. Performans günlüğünün headless fps uyarısı ölçüm çıktısıdır, performans kabulü yapılmış sayılmadı. Asset gerekmedi. YAP-05 Parley engeli ve DEN-54 plan2/7 açık. İlgisiz dosyalar korundu; ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-60 başladı (Kalfa)
+
+Full pull016f928b güncel ve Ajan Masası okundu. DNY-01/YAP-06 YAZ-01 onayına bağlı; YAP-55 ARY-02, YAP-62 SAH hazır değil. DEN-59 gerçek persona plan2/7 regresyonu açık; kolay geçsin diye bilgi/plan uydurulmayacak. DEN-60 mevcut KRI-10 iki örtüşen kriz, tek gerçek gece/rapor başlığını doğrulayacak; yeni birleştirici yok. Asset gerekmedi; kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-60 tamamlandı (Kalfa)
 
 Eksik kilit çevirisi gerçek YapiKarti üzerinde printf biçimlendirme hatası üretiyordu (RED). Mevcut YapiKilidi.metin tek güvenli biçim okuyucusuyla bilgi ve fiziksel ön-kademe kilidinde eksik/bozuk şablonu biçimlendirmeden nötr CSV anahtarına düşürür. Kart ayakta kalır; kaynak/bilgi/ön-kademe kilidi, kayıt ve oyun mekaniği aynı kalır. Yeni pencere/ikon/font/asset yok.
