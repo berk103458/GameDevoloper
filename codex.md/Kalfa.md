@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — YAP-04 başladı (Kalfa)
+
+Full pull6d9f44df güncel; Ajan Masası okundu. Mevcut kişisel eşya listesi kullanılacak. Yol/pusu görevi, süreli dış görev dönüşü, baskın raporu ve mevcut tüccar kararı veriden ağırlıklı defter düşürebilecek. Bilgi çözümleme olmadan açılmaz, aynı kimlik yığını1. Yeni eşya sınıfı/takvim/görsel yok. YAP-03 KAP-16 sahipliğine dokunulmadı. Asset ihtiyacı YAP04-DEFTER envantere yazılacak; kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-02 tamamlandı (Kalfa)
 
 Yeni yapi_bilgisi.gd kabul edilen kişinin optional bilgisini ve mevcut MeslekUyumu.UYGUN/usta sorgusunu okur; ikinci meslek/yetenek tablosu yok. Kabulden önce köyde bilgi yok, ret bilgi açmaz. ACL-06 geçmişi mevcut data/yapi_bilgisi.json kaynağından yalnız mevcut muhafıza bağlanır; seçim kuruluş öncesi/sonrası ve gerçek JSON yükleme sıraları geçer. Tekrar eden bilgi tektir. Üst kademe fiziksel ön şartları YAP-01 olarak durur.
