@@ -1,3 +1,13 @@
+## 6 Kasım 2026 — YAP-04 tamamlandı (Kalfa)
+
+Usta defteri mevcut Oturum.muhafiz_esyalari sözlük listesine yazılır; yeni eşya sınıfı veya envanter kökü yok. data/usta_defterleri.json ilk marangoz defterini ve dört kaynak ağırlığını tutar. Gerçek HAR-05/HAR-14 başarısı, mevcut kervan koruma görevinin yaşayan kişiyle dönüşü, gerçek gece baskın raporu ve mevcut tüccar harç/rüşvet kararı bağlandı; ret kaynak değildir. Yeni takvim veya savaş yok. Mevcut görevin RNG değiştirmeme sözleşmesi korunur: seçim oyun tohumu + kaynak + mevcut olay makbuzu hashinin toplam ağırlığa bölümüyle belirlenir; RNG nesnesi/draw yok. Bu rutin uygulama kararıdır; aynı makbuz yeniden zar atmaz. Satır yoksa defter yok, yok ağırlığı tüccarın her ziyarette bırakmamasını sağlar.
+
+Aynı kimlik tek kayıt/yığın1 kalır; gerçek JSON yükleyici de bilinen defter tekrarlarını tekleştirir ve diğer eşyaları korur. Çözümleme/bilgi/kademe yazılmaz; defter eldeyken veya çıkarıldıktan sonra hızarhane kilitli. Mevcut kişisel envanter gerçek UI kontrolünde tek adet ve adıyla görünür; okuma kayıt değiştirmez. Yeni UI hedefi standart listeye bir kez eklendi; tam sanity çalıştırılmadı. İkon YAP04-DEFTER tanımı/boyut/saydamlık/tekli İngilizce prompt docs/EKSIK_ASSET_ENVANTERI.md içinde; mevcut ColorRect/kutu ve ad etiketi kullanılır. Yeni png/ses/model üretilmedi/indirilmedi.
+
+Sekiz hedef geçti: yeni model ve gerçek dört akış, eski yol güvenliği, pusu ticaret akışı, tüccar kapısı, kervan koruması, çift kasa, yapı bilgisi, yeni gerçek envanter UI. Kervan testinin eski kurulumuna gerçek K1 ve bilgiyle K2 kurulum eklendi. Yeni gerçek dönüş testinin ilk erzak yığını ambar tavanını aşıp açlık/firar üretti; kapasitesi uygun barınaklı fixture ile düzeltildi, oyun kuralı gevşetilmedi. İlk recovery import exit0/script hatası0, altı MD5/kapanış hatası; ikinci exit0/script hatası0, üç PagedAllocator kapanış hatası sürer. Hatasız import denmedi. YAP-05 çözümlemesi bu maddede yapılmadı. DEN-54 plan2/7 regresyonu çözülmüş sayılmaz.
+
+İlgisiz import/translation/project.godot korunup commit dışında. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-04 başladı (Kalfa)
 
 Full pull6d9f44df güncel; Ajan Masası okundu. Mevcut kişisel eşya listesi kullanılacak. Yol/pusu görevi, süreli dış görev dönüşü, baskın raporu ve mevcut tüccar kararı veriden ağırlıklı defter düşürebilecek. Bilgi çözümleme olmadan açılmaz, aynı kimlik yığını1. Yeni eşya sınıfı/takvim/görsel yok. YAP-03 KAP-16 sahipliğine dokunulmadı. Asset ihtiyacı YAP04-DEFTER envantere yazılacak; kota görünmüyor.

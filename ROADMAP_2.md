@@ -1578,7 +1578,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.4 Defter ve resim
 
-- [/] **YAP-04:** Usta defterleri ve yapı resimleri — ganimetten gelen bilgi. (Kalfa)
+- [x] **YAP-04:** Usta defterleri ve yapı resimleri — ganimetten gelen bilgi. (Kalfa)
   - Ne: Oyuncu sefer, pusu, baskın veya tüccar ganimetinde bir defter, yapı resmi veya örnek eşya görür. Eşya envanterdedir. Yapı kilidi, çözümleme bitmeden açılmaz. Aynı defter kimliği ikinci kez düşünce yığın bir kalır. Defter yeni eşya sınıfı açmaz; duran heybe kaydına yazılır. Metin bir resim dosyası değildir. Oyuncu metninde bu eşya "şematik" diye anılmaz.
   - Kurallar:
     1. Defter, yapı resmi veya örnek eşya şu duran akışların ganimetine yazılır: dış sefer, pusu temizliği (HAR-05, HAR-14), baskın sonrası, tüccar (TUC). Yeni tüccar takvimi açılmaz.

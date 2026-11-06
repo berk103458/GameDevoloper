@@ -12,7 +12,7 @@ static func esyalari_yukle(kayit: Array) -> Array[Dictionary]:
 			esya["deger"] = maxi(0, int(esya["deger"]))
 		KaraborsaAdaptoru.kayit(esya)
 		esyalar.append(esya)
-	return esyalar
+	return preload("res://src/koy/usta_defterleri.gd").duzenle(esyalar)
 
 static func kisisel_rusvet(gelen: Gelen, varsayilan: int) -> Dictionary:
 	var sonuc := {"akce": 0, "esyalar": []}

@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — YAP04-DEFTER (Kalfa)
+
+2D kişisel eşya ikonu: marangoz ustasının defteri / yapı resmi. Öncelik orta. Yer tutucu: src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd mevcut ColorRect ve ad etiketi; oda sergisinde mevcut kutu. Dosya adı: usta_defteri_marangoz.png. Boyut64×64. Saydamlık için kaynak düz #00FF00 yeşil. Tekli İngilizce prompt: "A single small worn leather bound carpenter notebook from thirteenth century Anatolia, closed plain cover with a simple cord, centered inventory icon, hand painted medieval game style, no writing, no letters, no symbols, isolated on a solid bright #00FF00 green background, 64 by 64 pixels." Üretim/indirme yapılmadı; png/ses/model eklenmedi. Ekleyen: Kalfa.
+
 # Kapı Muhafızı — Eksik asset envanteri
 
 ## 3 Kasım — SAB-03 kapalı tezgâh örtüsü (Cursor)

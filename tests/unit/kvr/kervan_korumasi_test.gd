@@ -8,7 +8,11 @@ func _initialize() -> void:
  y.akce = 1000
  y.kaynaklar.kapasite = 10000
  for t in ["odun", "tas", "kereste", "gida", "alet"]: y.kaynaklar.ekle(t, 100)
+ # YAP: fixture önce gerçek K1 ve bilgi sahibiyle K2 kışlayı kurar.
+ var bilgili := y.kabul({"ad":"Kurulum bilgisi","sinif":"asker","stat":8,"yapi_bilgisi":["kulube"]})
+ kur(y,"kulube")
  var kisla := kur(y)
+ y.koylular.erase(bilgili)
  var k := y.kabul({"ad": "Kervan nöbetçisi", "sinif": "asker", "stat": 5})
  var k2 := y.kabul({"ad": "Köy nöbetçisi", "sinif": "asker", "stat": 5})
  dene(y.ata(k.id, kisla.id) and y.ata(k2.id, kisla.id), "İki mevcut kışla nöbetçisi")
@@ -50,12 +54,12 @@ func _initialize() -> void:
  dene(KervanKorumasi.oku({}).is_empty(), "Eski kayıt ek alan gerektirmez")
  print("KERVAN KORUMASI: GEÇTİ" if hata == 0 else "KERVAN KORUMASI: KALDI")
  quit(hata)
-func kur(y: KoyYonetimi) -> KoyBinasi:
+func kur(y: KoyYonetimi, tur: String = "muhafiz_kislasi") -> KoyBinasi:
  for cy in y.a.izgara_boyut.y:
   for cx in y.a.izgara_boyut.x:
    var h := Vector2i(cx, cy)
-   if y.yerlesim("muhafiz_kislasi", h).olur:
-    var b := y.bina(y.bina_kur("muhafiz_kislasi", h).id)
+   if y.yerlesim(tur, h).olur:
+    var b := y.bina(y.bina_kur(tur, h).id)
     b.insa_kalan = 0
     return b
  assert(false)

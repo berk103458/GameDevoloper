@@ -48,7 +48,9 @@ static func temizle(o: Oturum) -> Dictionary:
 		o.yonetim.asayis_riski=mini(100,o.yonetim.asayis_riski+int(AYAR.basarisiz_asayis_artir))
 		r.metin=String(AYAR.basarisiz_metin)
 	o.goc_yolu_guvenligi=d
-	if r.basari: TICARET_AKISI.basari(o)
+	if r.basari:
+		TICARET_AKISI.basari(o)
+		preload("res://src/koy/usta_defterleri.gd").ganimet(o,"pusu",str(o.gun) + ":" + str(d.basari))
 	return r
 ## Başarı makbuzuyla her gerçek gün bir normal Gelen; kabul/ret ve heybe eski kuyruğa bırakılır.
 static func ziyaret(o: Oturum,kuyruk: Array[Gelen]) -> void:
