@@ -1517,7 +1517,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.2 Bilginin kaynağı
 
-- [/] **YAP-02:** Yapı bilgisinin kaynakları — usta, muhafız geçmişi, çırak. (Kalfa)
+- [x] **YAP-02:** Yapı bilgisinin kaynakları — usta, muhafız geçmişi, çırak. (Kalfa)
   - Ne: Oyuncu yapı bilgisini üç yoldan biriyle açar: o bilgiye sahip usta köyde yaşıyorsa, seçilen muhafız geçmişi tabloda o yapıyı taşıyorsa, ya da çırak usta olmuşsa. Usta ölür veya ayrılırsa yeni inşaat kapanır; ayaktaki yapı durur. Çırak usta olduysa kilit geri gelmez ve yeni usta kaydı doğmaz. Geçmişin açtığı yapılar `data/yapi_bilgisi.json` içindedir. Bilgi bayrağı kişi kaydında optional alandır. İkinci yetenek ağacı açılmaz. Bilgi takası akçe istemez.
   - Kurallar:
     1. Yapı açılır: o bilgiye sahip usta köyde yaşıyorsa; muhafızın seçtiği geçmiş o bilgiyi taşıyorsa (ACL-06); veya çırak UZM-11 ile usta olduysa.

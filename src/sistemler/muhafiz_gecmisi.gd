@@ -12,6 +12,7 @@ static func sec(o: Oturum, id: String) -> bool:
 	if not VERI.has(id) or not kimlik(o).is_empty() or o.gun != 0 or o.get_meta(&"acl06_yuklendi", false):
 		return false
 	o.set_meta(META, id)
+	preload("res://src/koy/yapi_bilgisi.gd").gecmis(o)
 	return true
 
 static func yukle(o: Oturum, v: Variant) -> void:
@@ -19,6 +20,7 @@ static func yukle(o: Oturum, v: Variant) -> void:
 	o.set_meta(&"acl06_yuklendi", true)
 	if kimlik(o).is_empty() and v is String and VERI.has(v):
 		o.set_meta(META, v)
+	preload("res://src/koy/yapi_bilgisi.gd").gecmis(o)
 
 static func yapi_bilgisi(o: Oturum) -> PackedStringArray:
 	var id := kimlik(o)

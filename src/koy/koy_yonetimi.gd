@@ -222,6 +222,7 @@ func kabul(v: Dictionary, harc: bool = false, rusvet: int = 0, zengin: bool = fa
 	k.stat = clampi(int(v.get("stat", 5)), 1, 10)
 	k.bayraklar = PackedStringArray(v.get("bayraklar", []))
 	k.gizli_bayraklar = PackedStringArray(v.get("gizli", []))
+	k.yapi_bilgisi = preload("res://src/koy/yapi_bilgisi.gd").kabul_bilgisi(k, v)
 	k.gizli_egilim = GizliEgilimler.oku(v.get("gizli_egilim"), k)
 	k.moral = a.baslangic_moral
 	k.sadakat = a.baslangic_sadakat
@@ -572,6 +573,7 @@ func gece() -> Dictionary:
 	GeceDeneyi.uretimin_ardindan(self)
 	KoyluGelisimYoneticisi.gece(self, calismalar, olaylar)
 	CirakEgitimi.gece(self, calismalar, olaylar)
+	preload("res://src/koy/yapi_bilgisi.gd").ciraklar(self)
 	var uyanik_nobet := NobetYorgunlugu.nobetciler(self)
 	IsKazalari.gece(self, calismalar, olaylar)
 	ZanaatKazalari.gece(self, olaylar)

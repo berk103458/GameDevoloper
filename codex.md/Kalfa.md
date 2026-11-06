@@ -1,3 +1,13 @@
+## 6 Kasım 2026 — YAP-02 tamamlandı (Kalfa)
+
+Yeni yapi_bilgisi.gd kabul edilen kişinin optional bilgisini ve mevcut MeslekUyumu.UYGUN/usta sorgusunu okur; ikinci meslek/yetenek tablosu yok. Kabulden önce köyde bilgi yok, ret bilgi açmaz. ACL-06 geçmişi mevcut data/yapi_bilgisi.json kaynağından yalnız mevcut muhafıza bağlanır; seçim kuruluş öncesi/sonrası ve gerçek JSON yükleme sıraları geçer. Tekrar eden bilgi tektir. Üst kademe fiziksel ön şartları YAP-01 olarak durur.
+
+UZM-11 tam usta olan, aynı yerdeki yaşayan öğretmenin UZM-04 eğitim bağını taşıyan kişi bilgiyi edinir. Yarı usta tek başına yeterli değildir. Bilgi kendi kişi kaydında kalır; öğretmenin ölümü/ayrılışı yeni kişi veya para doğurmaz. Gerçek on üretim gecesi ve JSON kaydı bunu doğrular. İlk eksik dosya RED; sonraki tek hata, ölüm sonrası fiziksel temizleme olmadan nüfus düşmesi bekleyen fixture idi ve düzeltildi. UZM-11 eski test kurulumu mevcut kişiye gereken yapının bilgisini açıkça veriyor; oyun kilidi gevşetilmedi.
+
+Dokuz hedef geçti: yeni YAP-02 modeli/gerçek kapı ret-kabul/gerçek inşaat/on gece, geçmiş birimi, açılış, kayıt göçü, UZM-04, YAP kurulum, UZM-11, gerçek geçmiş UI akışı ve gerçek yapı UI. Son recovery import exit0/script hatası0; ilk import sekiz MD5/kapanış hatalı, ikinci üç PagedAllocator kapanış hatalı. Hatasız import denmedi. Ek DEN-54 persona tekrar exit1/plan2/7;28 gece ve iflas0 tek başına kabul değil. Bu regresyon giderilmiş sayılmadı. YAP-03 yeni ustaların gelişine bağlıdır ve KAP-16 hâlâ[/] testx; o sahipliğe dokunulmayacak.
+
+Asset gerekmedi. Tam sanity yok. Eski ilişkisiz import/translation/project.godot korunup commit dışında. Yeni kaynakla ilişkili mevcut UID kimliği korunur. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-02 başladı (Kalfa)
 
 Full pull c32b5de7 güncel; Ajan Masası okundu. Geçmiş mevcut MuhafizGecmisi verisini okuyacak; kabul edilen bilgi sahibi ustanın optional alanı tek kaynak. Çırak UZM-11 tam usta olduğunda mevcut öğretmen bilgisini kişide koruyacak; yarı ustalık tek başına yetmeyecek. Yeni kişi/para/yetenek sistemi yok. Asset gerekmedi; kota görünmüyor.

@@ -42,6 +42,7 @@ static func kur(o: Oturum) -> void:
 	# Kuruluş sakinleri kapıda verilmiş iki kabul kararı sayılmaz.
 	y.kabul_sayisi = kapidan_kabul
 	o.set_meta(META, h)
+	preload("res://src/koy/yapi_bilgisi.gd").gecmis(o)
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(o, "koy")
 	o._koy_esitle()
 
