@@ -3574,7 +3574,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ISG-02, DEN-03. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-35:** Boşta üç gün, terk isteği ISG-03'tür.
+- [/] **DEN-35:** Boşta üç gün, terk isteği ISG-03'tür. (Kalfa)
   - Ne: eşik o maddede kalır. Ölçüm, 20 gecede terk isteği sayısının aralıkta olduğunu söyler. Aralık dosyadadır.
   - Kabul: eşik o maddede kalır. Ölçüm, 20 gecede terk isteği sayısının aralıkta olduğunu söyler. Aralık dosyadadır. Test: 3 kişilik boş köy, sayı aralıkta.
   - Bağımlılık: ISG-03, DEN-01. Boyut: M.

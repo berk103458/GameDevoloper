@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — DEN-35 başladı (Kalfa)
+
+Full pull güncel.20 gerçek gecede üç kişilik boş köyün terk isteği ölçülecek. ISG-03 eşiği değişmez; süren aynı istek her gece yeni olay sayılmaz, yeni istek başlangıcı ölçülür. Yeni oyun sayacı yok. Asset gerekmedi; kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-61 tamamlandı (Kalfa)
 
 Gerçek KoyEkrani hız düğmeleriyle1/2/3/duraklat seçildi; her seçimin gerçek Engine.time_scale ve SceneTree.paused sonucu önce doğrulandı. Mevcut yapı bilgi kartı açılıp kapandığında her iki değer aynen korunur. Yeni kart veya hız motoru/üretim kodu eklenmedi. Mevcut gerçek UI kabulü kilit, hayalet, bedel ve uzun bilgi kaydırmasıyla birlikte headless exit0, SCRIPT ERROR/ERROR0 geçti. Son aynı üretim kaynaklarının recovery importunda script hatası0, üç PagedAllocator kapanış hatası sürer; tam sanity yok. Asset gerekmedi. YAP-01 bedel tercihi bekleniyor; YAP-62 SAH bağımlılığı genel bölüm olduğundan hazır varsayılmadı. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
