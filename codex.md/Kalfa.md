@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — ISG-77 tamamlandı (Kalfa)
+
+Gerçek Ana → AyarlarEkrani → Oyun sekmesi üzerinde dokuz ayar satırının ileri düğmeleri çalıştırıldı. Her ayarın değeri gerçekten değişti; köy kaydı (atamalar, nüfus, kasa ve RNG dahil) sabit kaldı. Başlangıçtaki dal_toplama geçici işi ve boşta kişi kapanışta korundu. Ayarlar ağacında hedef/gecici_is atama düğmesi bulunmadı. Üretim kodu değiştirilmedi; yeni kabul sahnesi standart hedef listesine bir kez eklendi.
+
+Hedefli headless gerçek sahne exit0 ve SCRIPT ERROR/ERROR0. Oyuncunun ayar dosyasına dokunulmadı; yalnız açıkça adlandırılan user://kalfa_isg77_test.cfg yazıldı ve test sonunda o dosya kaldırıldı. İlk recovery import MD5 hatalıydı; ikinci exit0, script yükleme/parse hatası0, mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — ISG-77 başladı (Kalfa)
 
 ISG-73 f07ffbce festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Hazır ISG-77 alındı. AYR sekme altyapısı ve Oyun sayfası mevcut/tamamlanmış; sayfadaki ayar düğmelerinin canlı köy modelinde atama/ekonomi/nüfus değişikliği yapmadığı gerçek sahnede doğrulanacak. Ayar dosyası test yoluna ayrılacak. Asset gerekmedi. kota görünmüyor.

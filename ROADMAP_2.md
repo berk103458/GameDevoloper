@@ -1470,7 +1470,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.10 Kapanış
 
-- [/] **ISG-77:** Geçici iş menüsü ayarlarda değildir (Kalfa)
+- [x] **ISG-77:** Geçici iş menüsü ayarlarda değildir (Kalfa)
   - Ne: Geçici iş menüsü ayarlarda değildir. AYR oyun sekmesi iş atamaz.
   - Kabul: Geçici iş menüsü ayarlarda değildir. Atama 0. Test: ayar.
   - Bağımlılık: AYR. Boyut: S.
