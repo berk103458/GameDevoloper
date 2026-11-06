@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — YAP-01 başladı (Kalfa)
+
+ISG-78 693e68b5 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Genel hazır madde sırası doğrulandı: ISG-39 gerçek SOY-34 bağlantısını bekliyor; YAP-01 bağımlılıksız açık ve YAP-02 öncesinde. YAP-01 alındı. K0–K3 veri/kilit modeli, mevcut inşa menüsü/önizleme ve gerçek kayıt/inşaat kontrolleri küçük dilimlerle geliştirilecek. ADM-08 bina seviyesi ve sur taksiti korunacak. Tüm ek kabul şartları geçmeden madde kapanmayacak. Asset gerekmedi. kota görünmüyor.
+
 ## 6 Kasım 2026 — ISG-78 tamamlandı (Kalfa)
 
 Mevcut TEZ-02 kabulüne normal KoyluKartiVerisi bina ataması/boşa alma ve GeciciIsler ataması eklendi. Bina ataması yeni yüz/sipariş oluşturmaz. Yüz yalnız TezgahtaGun.yuz_bagla ile bağlanır; bu yüzün gerçek TEZ durum fotoğrafı ve boş sipariş cümlesi sonraki ISG atamalarında aynen korunur. Üretim kodu değiştirilmedi; ikinci yüz/cümle kaynağı eklenmedi.
