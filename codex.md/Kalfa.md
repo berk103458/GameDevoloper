@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — ISG-73 tamamlandı (Kalfa)
+
+UZM-04 eğitiminde ve TEZ çırak okuyucusunda mevcut YasRolleri.atanabilir izni kullanılır. Yeni sayısal yaş/yaş grubu veya ikinci eğitim motoru eklenmedi. Eski/tutarsız ağır iş ataması ve çalışma listesi artık çocuk eğitimini ilerletmez; TEZ çırak titremesi de yazmaz. Mevcut hafif iş (örnekte bez_evi) izinleri ve5 ortak gecelik yarı ustalık korunur. DNY-01’in henüz açık28. gün büyüme mekanizması bu kabulün parçası değildir, tamamlandı denmedi.
+
+Önce2 RED, sonra yeni yaş kaynağı testi, UZM-04 eğitim/kayıt testi, yaş rolleri ve53 kontrollü TEZ testi geçti. Normal ağır iş atama reddi, eski kaydın aynı izni koruması ve hafif işte pozitif eğitim/TEZ yolu doğrulandı. İki kaynakta yalnız mevcut izin kontrolü eklendi. İlk recovery import MD5 hatalıydı; ikinci exit0 ve SCRIPT ERROR/Failed to load script0, mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — ISG-73 başladı (Kalfa)
 
 ISG-67 905e9c74 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Hazır ISG-73 alındı. ROADMAP1 UZM-04 beş ortak üretim gecesi eğitimidir; ayrı sayısal çocuk yaşı içermez. Mevcut yaş kaynağı YasRolleri: çocuk yalnız COCUK_HAFIF listesindeki işlere atanır. Eğitim ve TEZ çırak okuyucusunun bu kaynağı kullanması doğrulanacak; yeni yaş grubu/sayısı veya eğitim motoru kurulmayacak. Asset gerekmedi. kota görünmüyor.

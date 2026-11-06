@@ -125,7 +125,7 @@ static func sabah(y: KoyYonetimi, yer: String, baglam: Dictionary) -> Dictionary
 	var usta_var := usta >= 0 and y.koylu(usta) != null and y.koylu(usta).saglik > 0 and not kapali
 	if usta_var and (KapiNobeti.yuva(y) == usta or DivanHukmu.zindanda(y.koylu(usta)) or int(y.koylu(usta).yorgunluk.get("miktar", 0)) >= 2):
 		usta_var = false
-	var cirak_var := cirak >= 0 and y.koylu(cirak) != null
+	var cirak_var := cirak >= 0 and y.koylu(cirak) != null and YasRolleri.atanabilir(y.koylu(cirak), String(YERLER.get(yer, "")))
 	if not usta_var:
 		if cirak_var and not kapali:
 			is_kaydi.titreme = int(is_kaydi.titreme) + 1

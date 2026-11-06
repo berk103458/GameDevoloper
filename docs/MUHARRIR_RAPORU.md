@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — ISG-73 tamamlandı (Kalfa)
+
+UZM-04 eğitiminde ve TEZ çırak okuyucusunda mevcut YasRolleri.atanabilir izni kullanılır. Yeni sayısal yaş/yaş grubu veya ikinci eğitim motoru eklenmedi. Eski/tutarsız ağır iş ataması ve çalışma listesi artık çocuk eğitimini ilerletmez; TEZ çırak titremesi de yazmaz. Mevcut hafif iş (örnekte bez_evi) izinleri ve5 ortak gecelik yarı ustalık korunur. DNY-01’in henüz açık28. gün büyüme mekanizması bu kabulün parçası değildir, tamamlandı denmedi.
+
+Önce2 RED, sonra yeni yaş kaynağı testi, UZM-04 eğitim/kayıt testi, yaş rolleri ve53 kontrollü TEZ testi geçti. Normal ağır iş atama reddi, eski kaydın aynı izni koruması ve hafif işte pozitif eğitim/TEZ yolu doğrulandı. İki kaynakta yalnız mevcut izin kontrolü eklendi. İlk recovery import MD5 hatalıydı; ikinci exit0 ve SCRIPT ERROR/Failed to load script0, mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — ISG-67 tamamlandı (Kalfa)
 
 Gece raporuna mevcut boşta kurallarından salt okunur yetişkin işgücü/boşta/gün fotoğrafı eklendi. Mevcut BostaKalma uygunluğu aynı sağlık/yaş kaynağına ayrıldı; HUD ve moral davranışı korunur. İşgücü çalışan/nöbetçi sağlıklı yetişkinleri içerir; çocuk, eş, oyuncu, hasta, karantina, zindan ve köy dışı kişiler hariçtir. DEN fotoğrafı kopyalar; DengeOlcumu.is_raporu son30 ardışık geceyi tek raporda toplar. Oran toplam boşta kişi-gün / toplam işgücü kişi-gündür. Aynı fotoğraf mükerrer sayılmaz, çelişen/bozuk/eksik gece hazır sayılmaz; işgücü olmayan pencere denge kabulü vermez.

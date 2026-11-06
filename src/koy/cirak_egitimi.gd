@@ -32,7 +32,7 @@ static func gece(y: KoyYonetimi, calismalar: Dictionary, olaylar: Array[Dictiona
 			if k.is_yeri != int(k.egitim["bina"]) or onceki == null or onceki.is_yeri != k.is_yeri: k.egitim.clear()
 		if k.stat >= 6 or usta(k) or not saglam(k) or not calismalar.has(k.id): continue
 		var bina := y.bina(k.is_yeri)
-		if bina == null: continue
+		if bina == null or not YasRolleri.atanabilir(k, bina.tur): continue # ISG-73: tek yaş kaynağı.
 		var ogretmen: Koylu
 		for aday in y.calisanlar(bina.id):
 			if aday == k or not calismalar.has(aday.id) or not saglam(aday) or not usta(aday) or MeslekUyumu.carpan(aday, bina.tur) < 1.0: continue
