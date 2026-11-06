@@ -45,6 +45,8 @@ static func olustur(oturum: RefCounted, gece_raporu: Dictionary, ek_baglam: Dict
 
 	var rapor := {
 		"gun": gun,
+		# YAP-46: yalnız mevcut durumun kopyası; gece/bedel/sonuç tekrar uygulanmaz.
+		"cozumleme": preload("res://src/koy/cozumleme.gd").durum(y) if y != null else preload("res://src/koy/cozumleme.gd").bos(),
 		"bosta_terk": gece_raporu.get("rapor", gece_raporu).get("bosta_terk", {}).duplicate(true),
 		"is_olcumu": gece_raporu.get("rapor", gece_raporu).get("is_olcumu", {}).duplicate(true),
 		# ISG-25: gerçekleşen tek gece bedeli; mevcut formül yeniden çağrılmaz.

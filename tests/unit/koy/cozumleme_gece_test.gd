@@ -33,6 +33,13 @@ func _initialize() -> void:
 	var k := y.koylular[0]
 	o.gece_sonu()
 	dene(C.durum(y).aktif.ilerleme == 1.0,"Gerçek gece ilerler")
+	var olcum_once := o.kaydet()
+	var olcum := DengeOlcumu.olustur(o,{})
+	dene(olcum.keys().filter(func(a: Variant) -> bool: return String(a).begins_with("cozumleme")).size() == 1,"YAP-46 çözümleme DEN ölçümünde tek satır")
+	dene(olcum.get("cozumleme",{}) == C.durum(y),"YAP-46 gerçek gece çözümleme durumu ölçülür")
+	if olcum.has("cozumleme"): olcum.cozumleme.aktif.clear()
+	for tekrar in 2: DengeOlcumu.olustur(o,{})
+	dene(o.kaydet() == olcum_once,"YAP-46 raporu değiştirme/tekrar okuma iş, para, gece ve RNG değiştirmez")
 	var gece_foto := o.kaydet()
 	C.gece(o,{"olaylar":[]},MevsimYoneticisi.durum(y),{"gun":0,"defter":ID,"oda":99,"isci":k.id,"uygun":true})
 	dene(o.kaydet() == gece_foto,"Aynı gerçek gecenin tekrarında ilerleme/ücret yok")

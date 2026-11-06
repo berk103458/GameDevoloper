@@ -1,3 +1,13 @@
+## 6 Kasım 2026 — YAP-46 tamamlandı (Kalfa)
+
+Mevcut DengeOlcumu.olustur raporunda tek cozumleme satırı mevcut kayıt durumunun derin kopyasını okur. Etkin iş/ilerleme, kuyruk ve tamamlananlar mevcut sözleşmedir; yeni sayaç/formül/gece/tahsilat yok. Önce iki RED, sonra gerçek çözümleme gecesi, DEN-05 ve iş/kuyruk/kayıt olmak üzere3 hedef PASS. Dönen raporun içini değiştirmek ve tekrar okumak oturum kaydı/para/gün/RNG değiştirmez. Oyun arayüzüne denge satırı eklenmedi.
+
+Headless import exit0; script/parse/Failed to load script0. Mevcut kaynak/PagedAllocator kapanış hataları sürer. YAP-05 soğuk Parley import engeli ayrı raporda açık, çözülmüş denmedi. Asset gerekmedi. Tam sanity yok. İlgisiz import/translation/project.godot korundu. ds yolları yok; önceki istisna geçerli. Sonraki bağımsız hazır sıra YAP-38 optional eski defter kaydı kabulü; YAP-37 Söz, YAP-06 YAZ-01 onayı bekler. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-46 başladı (Kalfa)
+
+YAP-40 6d57857c festive ve masaüstünde. DEN-05 mevcut salt okunur ölçüm raporuna tek çözümleme durum satırı eklenecek; gece/bedel/formül tekrar çalıştırılmaz. Önce gerçek gece/kayıt/RNG saflık kontrolü. Asset gerekmedi; kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-40 tamamlandı; YAP-05 import engeli kayıtlı (Kalfa)
 
 YAP-40 mevcut yetişkin işgücü kapısını kullanır; yeni yaş/formül yok. Çocuk ve yaşlı bağlı işçiyle gerçek JSON yüklenip gerçek gece oynandı: ilerleme1'de kaldı, tamamlanma/üretim etkisi0. Yeniden bağlama salt okunur ret; yetişkin aynı ilerlemeden2'ye devam eder. Üç hedef geçti: çözümleme gerçek gece, çözümleme iş/kuyruk ve mevcut UZM-08 yaş rolleri. Eski yaş testi YAP-01/02 sonrası değirmeni K1/bilgi olmadan kuruyordu; mevcut işçiye testte ambar/değirmen bilgisi ve gerçek K1 ambar inşası eklendi, kurulum hatası artık zaman aşımı yerine exit1 verir. Oyun kilidi gevşetilmedi. Asset gerekmedi.

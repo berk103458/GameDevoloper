@@ -1628,7 +1628,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `src/koy/`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-46:** Çözümleme ölçümü DEN satırıdır
+- [x] **YAP-46:** Çözümleme ölçümü DEN satırıdır (Kalfa)
   - Ne: Çözümleme ölçümü DEN satırıdır. Formül değişmez.
   - Kabul: Çözümleme ölçümü DEN satırıdır. Satır 1. Test: DEN.
   - Bağımlılık: DEN-05. Boyut: S.
