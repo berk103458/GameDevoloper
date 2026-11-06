@@ -2370,3 +2370,4 @@ koy.neden.yapi_bilgisi,Yapı bilgisi eksik,Building knowledge is missing
 koy.neden.yapi_on_kademe,Önce alt kademe bir yapıyı tamamlayın,Complete a building of the preceding tier first
 koy.yapi.cozumleme_odasi,Çözümleme odası,Study room
 koy.yapi.cozumleme_odasi_aciklama,Defterleri incelemek için tek kişilik çalışma odası.,A room for one villager to study notebooks.
+koy.cozumleme.bitti,%s çözümlendi.,Study of %s is complete.

@@ -283,6 +283,9 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 func gece_sonu() -> Dictionary:
 	if preload("res://src/sistemler/kapi_acilis_olayi.gd").gece_engelli(self): return {"engellendi": true, "neden": "İlk ailenin kararı bekleniyor"}
 	var bilanco_once := GeceBilancosu.fotograf(self)
+	preload("res://src/koy/cozumleme.gd").gece_baslat(self)
+	var cozumleme_mevsimi := MevsimYoneticisi.durum(yonetim)
+	var cozumleme_calisma := preload("res://src/koy/cozumleme.gd").gece_fotografi(self)
 	var agalik_once := yonetim.agalik
 	MuhafizOdaGelisimi.gece(self)
 	var harac := MuhafizYetenekleri.harac(self)
@@ -290,6 +293,7 @@ func gece_sonu() -> Dictionary:
 	yonetim.perde2_hedef = ayarlar.perde2_hedef_gece
 	var r := yonetim.gece()
 	preload("res://src/koy/usta_defterleri.gd").gece(self,r)
+	preload("res://src/koy/cozumleme.gd").gece(self,r,cozumleme_mevsimi,cozumleme_calisma)
 	dedikodu.gece_ilerlet(gun)
 	preload("res://src/sistemler/kayit_gocu_bildirimi.gd").gece(self, r)
 	MuhafizYetenekleri.rapora_ekle(r, harac)
