@@ -45,6 +45,7 @@ static func olustur(oturum: RefCounted, gece_raporu: Dictionary, ek_baglam: Dict
 
 	var rapor := {
 		"gun": gun,
+		"bosta_terk": gece_raporu.get("rapor", gece_raporu).get("bosta_terk", {}).duplicate(true),
 		"is_olcumu": gece_raporu.get("rapor", gece_raporu).get("is_olcumu", {}).duplicate(true),
 		# ISG-25: gerçekleşen tek gece bedeli; mevcut formül yeniden çağrılmaz.
 		"bosta_moral_bedeli": int(gece_raporu.get("rapor", gece_raporu).get("bosta_moral_bedeli", 0)),
@@ -98,3 +99,7 @@ static func zar_rapor_satir_sayisi(rapor: Dictionary) -> int:
 ## ISG-67: geliştirme raporu; geçmişi okur, oyun formülüne yazmaz.
 static func is_raporu(olcumler: Array[Dictionary]) -> Dictionary:
 	return preload("res://src/sistemler/is_olcumu.gd").rapor(olcumler)
+
+## DEN-35: aynı süren istek her gece yeniden sayılmaz.
+static func bosta_terk_raporu(olcumler: Array[Dictionary]) -> Dictionary:
+	return preload("res://src/sistemler/bosta_terk_olcumu.gd").rapor(olcumler)

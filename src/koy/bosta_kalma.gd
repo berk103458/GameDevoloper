@@ -78,3 +78,11 @@ static func sohbet_satiri(y: KoyYonetimi, k: Koylu) -> String:
 	if k == null or k.zanaat_turu == ZanaatTuru.Tur.BELIRSIZ or gunler(y, k) < int(AYAR.terk_gun):
 		return ""
 	return TranslationServer.translate("koy.bosta.terk")
+
+## DEN-35: mevcut istek sorgusunun salt okunur gece fotoğrafı.
+static func terk_gozlem(y: KoyYonetimi) -> Dictionary:
+	var kisiler: Array[int] = []
+	for k in y.koylular:
+		if not sohbet_satiri(y, k).is_empty(): kisiler.append(k.id)
+	kisiler.sort()
+	return {"gun": y.gun, "kisiler": kisiler}

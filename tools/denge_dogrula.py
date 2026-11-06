@@ -335,6 +335,17 @@ def kriz_aralik_hatalari(denge: dict) -> list:
     return []
 
 
+def bosta_terk_hatalari(denge: dict) -> list:
+    ayar = denge.get("bosta_terk_aralik")
+    if not isinstance(ayar, dict) or set(ayar) != {"gun", "alt", "ust"}:
+        return ["bosta_terk_aralik: yalnız gun/alt/ust gerekli (DEN-35)"]
+    if any(not _sayi(ayar[k]) or not math.isfinite(ayar[k]) or ayar[k] != int(ayar[k]) or ayar[k] < 0 for k in ayar):
+        return ["bosta_terk_aralik: negatif olmayan sonlu tam sayılar gerekli (DEN-35)"]
+    if ayar["gun"] != 20 or ayar["alt"] > ayar["ust"]:
+        return ["bosta_terk_aralik: yirmi gece ve sıralı sınırlar gerekli (DEN-35)"]
+    return []
+
+
 def is_olcumu_hatalari(denge: dict) -> list:
     """ISG-67: rapor penceresi ve tek oran bandı, otomatik formül ayarı yok."""
     ayar = denge.get("is_olcumu")
@@ -375,6 +386,7 @@ def main(argv=None) -> int:
         hatalar += faiz_kaynagi_hatalari(denge)
         hatalar += kriz_aralik_hatalari(denge)
         hatalar += is_olcumu_hatalari(denge)
+        hatalar += bosta_terk_hatalari(denge)
         hatalar += teftis_esigi_hatalari(denge, yukle(ROOT / "data/muhafiz_terazisi.json"), yukle(ROOT / "data/sancak_teftisi.json"))
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]

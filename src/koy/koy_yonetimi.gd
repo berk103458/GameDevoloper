@@ -605,6 +605,7 @@ func gece() -> Dictionary:
 	CenazeYasi.gece(self, rapor, olum_kisileri)
 	rapor["is_olcumu"] = preload("res://src/koy/bosta_kalma.gd").gozlem(self)
 	rapor["bosta_moral_bedeli"] = IsMemnuniyeti.gece(self, calismalar, olaylar)
+	rapor["bosta_terk"] = preload("res://src/koy/bosta_kalma.gd").terk_gozlem(self)
 	CasusDevriyesi.gece(self, olaylar)
 	FisiltiGazetesi.gece(self, olaylar)
 	_akce(olaylar)

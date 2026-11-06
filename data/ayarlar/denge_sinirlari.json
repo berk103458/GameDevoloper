@@ -1,4 +1,7 @@
 {
+  "bosta_terk_aralik.gun": {"alt": 20, "ust": 20},
+  "bosta_terk_aralik.alt": {"alt": 0, "ust": 1000000},
+  "bosta_terk_aralik.ust": {"alt": 0, "ust": 1000000},
   "is_olcumu.gun": {"alt": 30, "ust": 30, "not": "ISG-67: tam otuz ardışık gerçek gece."},
   "is_olcumu.alt": {"alt": 0.0, "ust": 1.0, "not": "ISG-67: boşta kişi-gün oranı alt hedefi."},
   "is_olcumu.ust": {"alt": 0.0, "ust": 1.0, "not": "ISG-67: başlangıç hedefi en çok yüzde25; ölçüm formül değiştirmez."},

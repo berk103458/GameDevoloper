@@ -1,5 +1,6 @@
 {
   "surum": 1,
+  "bosta_terk_aralik": {"gun": 20, "alt": 0, "ust": 3},
   "is_olcumu": {"gun": 30, "alt": 0.0, "ust": 0.25},
   "teftis_rusvet_sayisi": 20,
   "kamera_surukleme": {

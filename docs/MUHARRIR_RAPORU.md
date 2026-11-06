@@ -1,3 +1,11 @@
+## 6 Kasım 2026 — DEN-35 tamamlandı (Kalfa)
+
+ISG-03 terk sorgusunun gece sonu kişi kimlikleri fotoğrafı mevcut gece/DEN raporuna eklendi. Yeni oyun sayacı veya eşik değişikliği yok. Salt okunur bosta_terk_raporu son20 ardışık geceyi toplar; aynı süren istek bir başlangıçtır, kapanıp yeniden açılırsa yeniden sayılır. Pencere öncesi fotoğraf varsa devam eden isteği ayırt eder; yoksa ilk gecedeki istek pencereye dahil sayılır. Mükerrer aynı fotoğraf sayılmaz; çelişen/bozuk/eksik/kesik kayıt kabul edilmez. Başlangıç bandı0–3 denge.json bosta_terk_aralik içindedir; bu kontrollü kabul bandıdır, genel denge sağlığı iddiası veya otomatik ayar değildir.
+
+Üç gerçek yetişkinli boş köy tohum3535 ile20 gerçek geceyi bitirdi; ilk iki gecede erken istek0, toplam yeni istek3 ve bantta. Tekrar ölçüm kayıt/RNG değiştirmedi. Yeniden başlayan istek, bant dışı dört istek, bozuk id/gece ve pencere testleri geçti. Mevcut ISG-03 model/gerçek HUD-sohbet ve30 günlük iş ölçümü de geçti.41 Python denge testi ve gerçek tablo doğrulaması başarılı. İlk Python modül yolu paket olmadığı için yanlış çağrıydı; doğru discover ile41 test geçti. İlk import exit0/script hatası0, sekiz MD5/kapanış hatası; ikinci recovery import exit0/script hatası0, üç PagedAllocator kapanış hatası sürer. Hatasız import veya tam sanity denmedi.
+
+Asset gerekmedi. YAP-01 bedel kaynağı kararı açık. İlgisiz import/translation/project.godot korunup commit dışında. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-61 tamamlandı (Kalfa)
 
 Gerçek KoyEkrani hız düğmeleriyle1/2/3/duraklat seçildi; her seçimin gerçek Engine.time_scale ve SceneTree.paused sonucu önce doğrulandı. Mevcut yapı bilgi kartı açılıp kapandığında her iki değer aynen korunur. Yeni kart veya hız motoru/üretim kodu eklenmedi. Mevcut gerçek UI kabulü kilit, hayalet, bedel ve uzun bilgi kaydırmasıyla birlikte headless exit0, SCRIPT ERROR/ERROR0 geçti. Son aynı üretim kaynaklarının recovery importunda script hatası0, üç PagedAllocator kapanış hatası sürer; tam sanity yok. Asset gerekmedi. YAP-01 bedel tercihi bekleniyor; YAP-62 SAH bağımlılığı genel bölüm olduğundan hazır varsayılmadı. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
