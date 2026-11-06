@@ -686,3 +686,27 @@ Ahmet evden çıktı, PC açık. Sen dönene kadar durmadan çalış; bir madde 
 - Yalnız `Kapi_Muhafizi_diyalog` klasöründe çalış. **Kalfa'nın klasörüne (`Kapı_Muhafizi`) ve `Kapi_Muhafizi_agy_B/C/D` klasörlerine girme, oralarda git komutu çalıştırma.**
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
 
+
+
+---
+
+# Görev 19 — Karar 2'yi uygula: Molla Şükrü için aleni mahkeme (Muharrir, 6 Kasım 2026 19:25)
+
+Ahmet bugün 19:38'de Karar 2 için seçimini yaptı: **Seçenek 2.1, Çınar Meclisi'nde aleni mahkeme.** Görev 18'deki "Karar 2 hâlâ BEKLİYOR, yamalarına dokunma" kuralı artık geçersiz. Kâtip ittifakı (`karar_2_katip_ittifak`) uygulanmayacak. Bunu Görev 18'in kalan işlerinden önce yap. İlerleme dosyası: `codex.md/Antigravity_ilerleme_19.md`.
+
+## Ne yapacaksın
+1. `git fetch origin`, ardından `origin/claude/festive-volta-li1sfm`'i kendi dalına merge et (yaklaşık 56 yeni commit var, çoğu Kalfa'nın). Çakışmada iki tarafı da koru. Çalışma ağacındaki `addons/*.import` değişiklikleri Godot'nun yeniden içe aktarma gürültüsü; bunları commit'e katma.
+2. `docs/karar_yamalari/karar_2_aleni_mahkeme/UYGULA.md`'yi oku ve uygula. **Dikkat:** yama 4 Kasım'da yazıldı. O günden sonra `data/diyalog/diyalog_01_20.json`, `es_kapi_dusunceleri.json`, `data/parley/koy/*.ds` ve `data/metin/metinler.csv` dosyaları Karar 1, Karar 3, epilog ve İngilizce işleriyle değişti. Yamadaki dosyaları körlemesine üzerine kopyalama. Sadece Molla Şükrü ve meclis yüzleşmesiyle ilgili düğümleri, replikleri ve satırları güncel dosyalara işle, sonradan eklenen hiçbir şeyi silme.
+3. UYGULA.md'deki bayrakları ve etkileri (adalet +3, moral +2, asayiş riski -2, demirhanede günlük +1 alet) mevcut sistemlere bağla. Kod gerekiyorsa en küçük bağlantıyı yap, Kalfa'nın sistemine büyük değişiklik gerekirse "Kalfa bekleniyor" diye not et.
+4. Yeni metin anahtarlarının İngilizce karşılığını da ekle.
+5. UYGULA.md'deki doğrulayıcıları ve üç Godot headless testini çalıştır, ayrıca diyalog alanının diğer hedefli testlerini de çalıştır. Yeni kırmızı olmasın. Tam sanity çalıştırma.
+6. `docs/KARAR_SECENEKLERI.md`'de Karar 2'yi "UYGULANDI (Ahmet, 6 Kasım) — Seçenek 2.1 aleni mahkeme" diye işaretle.
+7. Commit mesajı "KARAR-2-aleni-mahkeme: …" ile başlasın, "(Antigravity)" ile bitsin. Kendi dalını push et, sonra `git push origin HEAD:claude/festive-volta-li1sfm` ile festive'e fast-forward push et. Reddedilirse fetch + merge + test + tekrar. Asla force push yapma.
+8. İlerleme dosyasına neyi nereye işlediğini, test sonuçlarını ve festive commit'ini yaz. Son satıra tek başına `GOREV19_TAMAM` yaz. Ardından Görev 18'e kaldığın yerden devam et.
+
+## Kurallar
+- Yalnız `Kapi_Muhafizi_diyalog` klasöründe çalış. Kalfa'nın klasörüne (`Kapi_Muhafizi`) ve `Kapi_Muhafizi_agy_B/C/D` klasörlerine girme.
+- Asset üretme. Uydurma evrak, yeni sistem ya da yeni karakter ekleme.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
+
+— Muharrir
