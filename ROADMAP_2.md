@@ -1450,9 +1450,9 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/sistemler/kayit_gocu.gd`
   - Asset: asset gerekmedi.
 
-- [/] **ISG-67:** İş ölçümü otuz günde bantta (Kalfa)
+- [x] **ISG-67:** İş ölçümü otuz günde bantta (Kalfa)
   - Ne: Boşta oranı DEN. Sapınca formül kendiliğinden değişmez.
-  - Kabul: Rapor 1. Test: DEN.
+  - Kabul: Otuz ardışık gerçek gecenin kişi-gün ağırlıklı boşta oranı tek DEN raporudur; eksik/çelişen pencere hazır sayılmaz. Başlangıç hedefi %0–25 veri tablosundadır; bant dışı sonuç oyun formülünü değiştirmez. Test: `tests/unit/denge/is_olcumu_test.gd`.
   - Bağımlılık: DEN-05 Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`
   - Asset: asset gerekmedi.

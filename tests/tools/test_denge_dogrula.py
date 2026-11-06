@@ -17,6 +17,12 @@ SINIR = {
 
 
 class DengeDogrulaTest(unittest.TestCase):
+    def test_is_olcumu_otuz_gece_ve_sirali_oran_gerektirir(self):
+        self.assertEqual(dogrulayici.is_olcumu_hatalari({"is_olcumu": {"gun": 30, "alt": 0, "ust": 0.25}}), [])
+        for ayar in [None, {}, {"gun": 29, "alt": 0, "ust": 1}, {"gun": 30, "alt": 0.5, "ust": 0.25}, {"gun": 30, "alt": False, "ust": 1}, {"gun": 30, "alt": 0, "ust": float("inf")}, {"gun": 30, "alt": 0, "ust": 1.1}, {"gun": 30, "alt": 0, "ust": 1, "otomatik_ayar": True}]:
+            with self.subTest(ayar=ayar):
+                self.assertTrue(dogrulayici.is_olcumu_hatalari({"is_olcumu": ayar}))
+
     def test_aclik_kademesi_ikinci_tablo_olamaz(self):
         for alan in ["aclik", "aclik_kademeleri", "aclik_uretim", "aclik_yatar_esigi"]:
             with self.subTest(alan=alan):

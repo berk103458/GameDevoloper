@@ -10,7 +10,7 @@ static func oku(v: Variant) -> Dictionary:
 		return {}
 	return {"gun": int(v.gun), "son_gece": int(v.son_gece)}
 
-static func uygun(y: KoyYonetimi, k: Koylu) -> bool:
+static func isgucunde(y: KoyYonetimi, k: Koylu) -> bool:
 	if y == null or k == null or k.saglik <= 0 or k.yas_grubu != &"yetiskin":
 		return false
 	if YasamBarlari.oyuncu_mu(k) or k.bayrak_var("acl01_es"):
@@ -21,6 +21,10 @@ static func uygun(y: KoyYonetimi, k: Koylu) -> bool:
 		return false
 	if DivanHukmu.zindanda(k) or KervanKorumasi.disarida(y, k.id):
 		return false
+	return true
+
+static func uygun(y: KoyYonetimi, k: Koylu) -> bool:
+	if not isgucunde(y, k): return false
 	var nobet := KapiNobeti.durum(y)
 	if KapiNobeti.yuva(y) == k.id or int(nobet.eslik) == k.id:
 		return false
@@ -31,6 +35,13 @@ static func sayi(y: KoyYonetimi) -> int:
 	for k in y.koylular:
 		if uygun(y, k): n += 1
 	return n
+
+## ISG-67: gece hesabı sırasında alınan, sonradan atamayla değişmeyen fotoğraf.
+static func gozlem(y: KoyYonetimi) -> Dictionary:
+	var isgucu := 0
+	for k in y.koylular:
+		if isgucunde(y, k): isgucu += 1
+	return {"gun": y.gun, "bosta": sayi(y), "isgucu": isgucu}
 
 static func gunler(y: KoyYonetimi, k: Koylu) -> int:
 	if not uygun(y, k): return 0

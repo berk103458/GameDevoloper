@@ -335,6 +335,20 @@ def kriz_aralik_hatalari(denge: dict) -> list:
     return []
 
 
+def is_olcumu_hatalari(denge: dict) -> list:
+    """ISG-67: rapor penceresi ve tek oran bandı, otomatik formül ayarı yok."""
+    ayar = denge.get("is_olcumu")
+    if not isinstance(ayar, dict) or set(ayar) != {"gun", "alt", "ust"}:
+        return ["is_olcumu: yalnız gun/alt/ust gerekli (ISG-67)"]
+    if not _sayi(ayar["gun"]) or ayar["gun"] != 30:
+        return ["is_olcumu.gun: otuz gerçek gece gerekli (ISG-67)"]
+    if any(not (_sayi(ayar[ad]) and math.isfinite(ayar[ad]) and 0 <= ayar[ad] <= 1) for ad in ("alt", "ust")):
+        return ["is_olcumu: alt/ust sonlu 0..1 oranı olmalı (ISG-67)"]
+    if ayar["alt"] > ayar["ust"]:
+        return ["is_olcumu: alt sınır üst sınırı aşamaz (ISG-67)"]
+    return []
+
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -360,6 +374,7 @@ def main(argv=None) -> int:
         hatalar += fiyat_kaynagi_hatalari(denge)
         hatalar += faiz_kaynagi_hatalari(denge)
         hatalar += kriz_aralik_hatalari(denge)
+        hatalar += is_olcumu_hatalari(denge)
         hatalar += teftis_esigi_hatalari(denge, yukle(ROOT / "data/muhafiz_terazisi.json"), yukle(ROOT / "data/sancak_teftisi.json"))
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]

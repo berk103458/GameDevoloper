@@ -1,3 +1,11 @@
+## 6 Kasım 2026 — ISG-67 tamamlandı (Kalfa)
+
+Gece raporuna mevcut boşta kurallarından salt okunur yetişkin işgücü/boşta/gün fotoğrafı eklendi. Mevcut BostaKalma uygunluğu aynı sağlık/yaş kaynağına ayrıldı; HUD ve moral davranışı korunur. İşgücü çalışan/nöbetçi sağlıklı yetişkinleri içerir; çocuk, eş, oyuncu, hasta, karantina, zindan ve köy dışı kişiler hariçtir. DEN fotoğrafı kopyalar; DengeOlcumu.is_raporu son30 ardışık geceyi tek raporda toplar. Oran toplam boşta kişi-gün / toplam işgücü kişi-gündür. Aynı fotoğraf mükerrer sayılmaz, çelişen/bozuk/eksik gece hazır sayılmaz; işgücü olmayan pencere denge kabulü vermez.
+
+Başlangıç gözlem bandı Kalfa rutin kararıyla denge.json is_olcumu altında0–%25 olarak kondu; bu oyun dengesinin sağlıklı olduğu iddiası değildir.30 gerçek gece,6767 tohumlu kontrollü fixture’da kış hastalığı işgücünü azalttı;15/54≈%27,78 bant dışı raporlandı. Hastalık kapatılmadı, oyun formülü değişmedi. Sentetik sınır kontrolleri0/%25 dahil ve son30 pencereyi doğrular. Tekrarlanan gözlem kayıt/RNG/oyun durumunu değiştirmedi.
+
+Önce RED, sonra yeni30-gece kabulü, boşta/HUD/Parley, DEN ölçümü, köy yönetimi, iş memnuniyeti ve yerel denge sınır kontrolü olmak üzere6 hedefli Godot testi geçti.40 Python denge testi ve gerçek tablo doğrulaması geçti; bozuk/ters/sonsuz/bool/ek otomatik ayar alanı reddedilir. İlk recovery import MD5 hatalıydı. İkinci import exit0, SCRIPT ERROR/Failed to load script0; mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı; üretilmiş import/translation ve project.godot commit dışı. Asset gerekmedi. ds yolları bu makinede yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 5 Kasım 2026 — ISG-67 başladı, ISG-39 bağımlılığı doğrulanamadı (Kalfa)
 
 Full pull 20924037 güncel; Ajan Masası okundu. Önceki tur beş tamamlanmış madde/yayın ile ilerlemeydi. SOY-34 işaretli olsa da SoylentiAgi yalnız testlerde ve HafizaDefteri sözlük okuyucusunda bulunuyor; Oturum/KoyYonetimi bağlantısı veya MeslekGrevi söylenti okuyucusu yok. ISG-39 sahiplenilmedi ve kapatılmadı. Hazır ISG-67 alındı: otuz gerçek günlük boşta oranı tek DEN raporunda olacak; bant dışı sonuç hiçbir oyun formülünü değiştirmeyecek. Asset gerekmedi. kota görünmüyor.

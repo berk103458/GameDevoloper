@@ -1,4 +1,7 @@
 {
+  "is_olcumu.gun": {"alt": 30, "ust": 30, "not": "ISG-67: tam otuz ardışık gerçek gece."},
+  "is_olcumu.alt": {"alt": 0.0, "ust": 1.0, "not": "ISG-67: boşta kişi-gün oranı alt hedefi."},
+  "is_olcumu.ust": {"alt": 0.0, "ust": 1.0, "not": "ISG-67: başlangıç hedefi en çok yüzde25; ölçüm formül değiştirmez."},
   "teftis_rusvet_sayisi": {"alt": 20, "ust": 20, "not": "DEN-44: Ahmet karari, teftis riski yirmi rusvette acilir."},
   "surum": {
     "alt": 1,

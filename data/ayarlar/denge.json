@@ -1,5 +1,6 @@
 {
   "surum": 1,
+  "is_olcumu": {"gun": 30, "alt": 0.0, "ust": 0.25},
   "teftis_rusvet_sayisi": 20,
   "kamera_surukleme": {
     "hiz": 1.0

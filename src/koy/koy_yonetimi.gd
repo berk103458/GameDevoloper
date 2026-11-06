@@ -600,6 +600,7 @@ func gece() -> Dictionary:
 	_saglik_ve_moral(rapor["olenler"], olaylar, tedavi_artisi)
 	SiraOlayiSonucu.rapora_ekle(self, rapor)
 	CenazeYasi.gece(self, rapor, olum_kisileri)
+	rapor["is_olcumu"] = preload("res://src/koy/bosta_kalma.gd").gozlem(self)
 	rapor["bosta_moral_bedeli"] = IsMemnuniyeti.gece(self, calismalar, olaylar)
 	CasusDevriyesi.gece(self, olaylar)
 	FisiltiGazetesi.gece(self, olaylar)
