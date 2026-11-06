@@ -1681,7 +1681,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `src/arayuz/koy_hud/yapi_karti.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-60:** Eksik anahtar kartı düşürmez
+- [x] **YAP-60:** Eksik anahtar kartı düşürmez (Kalfa)
   - Ne: Kilit metninin anahtarı yoksa kart nötr sebep gösterir ve açık kalır.
   - Kabul: Eksik kilit anahtarında kart açık kalır ve nötr sebep satırı görünür (`tests/unit/koy/yapi_karti_test.gd`).
   - Bağımlılık: SYS-09. Boyut: S.

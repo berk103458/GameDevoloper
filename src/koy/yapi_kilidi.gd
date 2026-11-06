@@ -105,5 +105,11 @@ static func metin(y: KoyYonetimi, tur: String) -> String:
 	var d := durum(y, tur)
 	if d.acik: return ""
 	if d.neden == "yapi_on_kademe":
-		return TranslationServer.translate("koy.yapi_kilidi.on_kademe") % (int(d.kademe) - 1)
-	return TranslationServer.translate("koy.yapi_kilidi.gerekli") % MeslekYapilari.ad(String(d.bilgi))
+		return _kilit_metni("koy.yapi_kilidi.on_kademe","%d",int(d.kademe) - 1)
+	return _kilit_metni("koy.yapi_kilidi.gerekli","%s",MeslekYapilari.ad(String(d.bilgi)))
+
+static func _kilit_metni(anahtar: String, bicim: String, deger: Variant) -> String:
+	var kalip := TranslationServer.translate(anahtar)
+	if kalip == anahtar or kalip.count("%") != 1 or not kalip.contains(bicim):
+		return GuvenliMetin.metin("koy.yapi_kilidi.neden_yok")
+	return kalip % deger

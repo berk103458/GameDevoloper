@@ -1,3 +1,13 @@
+## 6 Kasım 2026 — YAP-60 tamamlandı (Kalfa)
+
+Eksik kilit çevirisi gerçek YapiKarti üzerinde printf biçimlendirme hatası üretiyordu (RED). Mevcut YapiKilidi.metin tek güvenli biçim okuyucusuyla bilgi ve fiziksel ön-kademe kilidinde eksik/bozuk şablonu biçimlendirmeden nötr CSV anahtarına düşürür. Kart ayakta kalır; kaynak/bilgi/ön-kademe kilidi, kayıt ve oyun mekaniği aynı kalır. Yeni pencere/ikon/font/asset yok.
+
+Dört hedef PASS: yeni gerçek kart birimi (iki eksik kilit ve bozuk şablon), yapı kilidi birimi, mevcut gerçek yapı UI ve çözümleme gerçek UI. CSV kaynak doğrulaması PASS. Headless import exit0; SCRIPT ERROR/parse/Failed to load script0. Mevcut kaynak/PagedAllocator kapanış hataları sürer; sıfır hata veya tam sanity denmedi. YAP-05 Parley soğuk import engeli ayrı ve açık. İlgisiz import/translation/project.godot korundu. Asset gerekmedi. ds yolları yok; önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-60 başladı (Kalfa)
+
+SYS-09 hazır. Eksik kilit çevirisinde mevcut kart nötr sebep gösterecek; kaynak/kişi bilgisi kilidi gevşetilmeyecek. Gerçek YapiKarti ile eksik çeviri testi önce yazılır. Asset gerekmedi; kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-38 tamamlandı (Kalfa)
 
 Mevcut KAY-04 göçü yeterli; üretim kodu ve kayıt sürümü değiştirilmedi. Gerçek JSON v2 kaydından muhafiz_esyalari ve çözümleme alt kaydı çıkarıldığında mevcut göç boş eşya listesiyle oturumu açar, kaynak kayıt değişmez ve defter uydurmaz. Güncel deftersiz JSON içindeki diğer alet yığını aynen korunur. Defter ayrı zorunlu alan veya ikinci eşya sınıfı değildir. tests/unit/sistemler/kayit_gocu_test.gd exit0; YAP-20/YAP-38/ISG-62 geçer. Dolu/yinelenen defter yüklemesi önceki YAP-04/cold hedeflerinde geçti; gereksiz migration eklenmedi.

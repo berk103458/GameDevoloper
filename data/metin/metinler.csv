@@ -2380,6 +2380,7 @@ koy.cozumleme.ilerleme,%s · %s / %d iş günü,%s · %s / %d working days
 koy.cozumleme.kuyruk,Sırada %d defter var.,Notebooks waiting: %d.
 koy.cozumleme.devam,Bu odadaki çalışanla devam et,Continue with this room and worker
 koy.cozumleme.baslat,İncele,Study
+koy.yapi_kilidi.neden_yok,Bilgi bekleniyor.,Information pending.
 koy.cozumleme.sirala,Sıraya ekle,Queue
 koy.cozumleme.cozuldu,Çözümlendi,Studied
 koy.cozumleme.defter_yok,İncelenecek defter yok.,No notebook to study.
