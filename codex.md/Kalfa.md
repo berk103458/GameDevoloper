@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — YAP-02 başladı (Kalfa)
+
+Full pull c32b5de7 güncel; Ajan Masası okundu. Geçmiş mevcut MuhafizGecmisi verisini okuyacak; kabul edilen bilgi sahibi ustanın optional alanı tek kaynak. Çırak UZM-11 tam usta olduğunda mevcut öğretmen bilgisini kişide koruyacak; yarı ustalık tek başına yetmeyecek. Yeni kişi/para/yetenek sistemi yok. Asset gerekmedi; kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-01 son kabul tamamlandı (Kalfa)
 
 Ahmet mevcut katalog kaynaklarını koruma kararından sonra a0f4aca9 yalnız commitli git arşivinden yeni TEMP kopyaya çıkarıldı; başlangıçta .godot yoktu. Soğuk headless recovery import exit0, SCRIPT ERROR/Failed to load script0; üç PagedAllocator kapanış hatası sürer, tamamen hatasız import denmedi.14 hedefin tamamı bu kopyada exit0/script-error0 geçti: dört YAP model testi, köy yönetimi, bina seviyesi, geçici işler, DEN ölçümü, gerçek açılış, kapı kararları, divan, mevsim, veri CLI ve gerçek yapı UI kabulü. Kritik1960 kaynak/config dosyasının CRC ve boyutu commit arşiviyle aynı.22 yapı fiyatı önceki fotoğrafla birebir aynı. Sonuç yalnız YAP-01 kabulüdür, genel ROADMAP veya DEN-54 regresyonu tamamlandı demek değildir.
