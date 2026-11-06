@@ -1561,7 +1561,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `data/soz/`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-28:** Usta çocuğu çırak olabilir
+- [x] **YAP-28:** Usta çocuğu çırak olabilir (Kalfa)
   - Ne: Usta çocuğu çırak olabilir. Yaş UZM-04. Erken çırak 0.
   - Kabul: Usta çocuğu çırak olabilir. Erken 0. Test: UZM-04.
   - Bağımlılık: UZM-04. Boyut: S.

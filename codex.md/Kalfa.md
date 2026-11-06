@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — YAP-28 tamamlandı (Kalfa)
+
+Gerçek KAP-17 aile kapı kabulünden gelen usta ve çocuğun aynı kalıcı hanesi doğrulandı. Mevcut YasRolleri ağır iş atamasını çocukken reddeder; çalışma listesine adı girse bile eğitim sıfırdır. Yaşı uygun yetişkin fixture girdisi gerçek Oturum JSON kaydet/yükle üzerinden korunur; çocuk normal atamayla aynı ustanın yanında mevcut beş ortak çalışma ile stat6 yarı usta olur. Yaş büyümesi elle fixture girdisidir, DNY-01 takvimi uygulanmış veya tamamlanmış sayılmaz. Yeni aile/çırak sistemi veya üretim kodu yok.
+
+Genişletilmiş yaş kabulü, gerçek aile kafilesi ve mevcut UZM-04 eğitim/kayıt testi olmak üzere üç hedefli headless kontrol exit0, SCRIPT ERROR/ERROR0 geçti. Aynı üretim kaynaklarının son recovery importu exit0/script hatası0; üç PagedAllocator kapanış hatası ayrı sürer. Tam sanity yok. Asset gerekmedi. YAP-01 bedel kaynağı kararı hâlâ bekleniyor. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — YAP-29 tamamlandı (Kalfa)
 
 NBT-02 nöbet yasağı mevcut CirakEgitimi.usta sorgusunu okur: düşük statlı adlı kaynak ustası da nöbete yazılamaz. Yeni usta listesi/meslek veya asker kuralı eklenmedi; eski yüksek stat/bayrak yasağı ortak sorguda korunur. Gerçek chr_013 stat5 karşı örneği önce iki RED verdi, sonra nöbet kabulü60 kontrol/0 hata ve çırak eğitimi geçti. Ret nöbet kaydını ve kişinin işini değiştirmez.
