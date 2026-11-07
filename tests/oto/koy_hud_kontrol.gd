@@ -31,6 +31,18 @@ func _dene() -> void:
 	for tur in ["akce", "gida", "odun", "tas", "su"]:
 		_dogrula(ilk_paneller.has("kaynak_gostergesi.gd:" + tur), "OGR-25 ilk gece temel kaynak: " + tur)
 	_dogrula(not e.hud._stok_etiketleri["kereste"].is_inside_tree() and not e.hud._kese.is_inside_tree(), "OGR-25 bekleyen paneller sahne ağacında yok")
+	var nufus_grubu := e.hud._nufus.get_parent()
+	_dogrula(not nufus_grubu.has_node("KarantinaSayisi"), "OGR-26 ilk gece karantina verisi yokken panel yok")
+	var koylu := o.yonetim.kabul({"ad": "Karantina kontrolü"})
+	koylu.karantina = {"baslangic": 0, "bitis": 2, "bina": 1}
+	e.hud.guncelle()
+	var karantina := nufus_grubu.get_node_or_null("KarantinaSayisi") as Label
+	_dogrula(karantina != null and karantina.is_visible_in_tree() and karantina.text == "Karantinada: 1 kişi", "OGR-26 ilk gece karantina kaydı paneli erken açar")
+	e.hud.guncelle()
+	_dogrula(nufus_grubu.get_node_or_null("KarantinaSayisi") == karantina, "OGR-26 yenileme paneli çoğaltmaz")
+	koylu.karantina.clear()
+	e.hud.guncelle()
+	_dogrula(not nufus_grubu.has_node("KarantinaSayisi"), "OGR-26 erken karantina verisi bittiğinde panel ağaçtan ayrılır")
 	var ambar := KitlikIsyani.durum(o.yonetim)
 	ambar.kapi_kirik = true
 	KitlikIsyani.yukle(o.yonetim, ambar)
@@ -41,6 +53,20 @@ func _dene() -> void:
 	KitlikIsyani.yukle(o.yonetim, ambar)
 	e.hud.guncelle()
 	_dogrula(not ambar_grubu.has_node("ambar_kapisi_onar"), "Onarılan kapının kontrolü ilk gece ağaçtan ayrılır")
+	_dogrula(e.find_children("oda_ac", "Button", true, false).is_empty() and MuhafizOdasiBaglantisi.ac(e) == null, "OGR-27 tetiksiz köyde oda düğmesi ve girişi kapalı")
+	var tetiksiz_kayit := Oturum.kayittan(k, o.kaydet())
+	var kayit_katmani = preload("res://src/arayuz/koy_hud/hud_katmani.gd").new()
+	kayit_katmani.kur(tetiksiz_kayit, a)
+	_dogrula(tetiksiz_kayit != null and not kayit_katmani.acik("muhafiz_odasi_baglantisi.gd"), "OGR-27 tetiksiz kayıt yüklenince oda kilitli")
+	o.bayraklar[&"rusvet_sayisi"] = 1
+	e.hud.guncelle()
+	_dogrula(e.find_children("oda_ac", "Button", true, false).size() == 1, "OGR-27 ilk rüşvet kararı odayı açar")
+	o.bayraklar.erase(&"rusvet_sayisi")
+	e.hud.guncelle()
+	_dogrula(e.find_children("oda_ac", "Button", true, false).is_empty(), "OGR-27 teftiş yolunu tetiksiz durumdan sınar")
+	o.sancak_teftisi = {"son_gece": 1, "sonuc": "temiz"}
+	e.hud.guncelle()
+	_dogrula(e.find_children("oda_ac", "Button", true, false).size() == 1, "OGR-27 temiz sancak teftişi de odayı açar")
 	var once := o.yonetim.akce
 	o.yonetim.akce += 3
 	o.yonetim.gun += 1
