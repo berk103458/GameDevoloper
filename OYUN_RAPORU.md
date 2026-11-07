@@ -1,3 +1,7 @@
+## 7 Kasım 2026 — Ayar sıfırlama düzeltmesi (Kalfa)
+
+OMR-31 otomatik oyuncu provasında tüm ayarları sıfırlama, ek anahtarları siliyor ve yeni oyunun zorluk okumasında script hatası veriyordu. Çekirdek ve ek anahtarlar kendi varsayılanlarına döner. Tanınmayan ileri sürüm alanları korunur ve ek ayarlar hemen uygulanır. Ayarlar, ek ayarlar ve bozuk ayar dosyasıyla gerçek menü testleri geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OMR-22 tamamlandı (Kalfa)
 
 ACL-04 ulağı sekizinci nöbetin kuyruğuna ilk sırada ve bir kez girer. Kapıdaki üç ferman seçeneği mevcut HAR-04 aday, uygunluk ve karar kurallarını kullanır. Bir teftiş oyunu bitirmediyse ulak sonucunu sonraki nöbette iletir. İkisi aynı nöbete denk gelirse tek ziyaret ikisini taşır. Terminal teftiş raporu ve açılış ulağını görmemiş eski kayıtların yazılı akışı korunur. Kabul edilen teftiş haberi ve güncel kapı ziyareti kayda yansır. Ulak mevcut asker figürünü kullanır. Asset gerekmedi.

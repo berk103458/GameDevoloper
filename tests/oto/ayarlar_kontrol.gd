@@ -37,6 +37,13 @@ func _ready() -> void:
 		if b.al(anahtar) != once[anahtar]:
 			esit = false
 	_kontrol(esit, "dosya yazılıp okununca değerler eşit")
+	AyarlarEk.ayarla(b, &"zorluk", &"siki")
+	b.ayarla(&"ses_ana", 2)
+	b.degerler[&"surum"] = 9
+	b.degerler[&"ileri_ayar"] = "korunur"
+	b.varsayilana_don()
+	_kontrol(b.al(&"zorluk") == &"olagan" and b.al(&"ses_ana") == 8, "sıfırlama sonrası yeni oyun zorluğu ve ses varsayılan")
+	_kontrol(b.al(&"surum") == 9 and b.al(&"ileri_ayar") == "korunur", "sıfırlama ileri sürüm alanlarını korur")
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(KOK))
 	var yuvalar := Yuva.new(KOK)
 	for n in [1, 2, 3]:
