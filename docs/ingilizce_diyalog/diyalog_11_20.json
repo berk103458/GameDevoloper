@@ -2,52 +2,52 @@
   {
     "id": "diyalog_11",
     "sinif": "asker",
-    "sahne": "A cloaked traveler carrying an oiled leather valise slips toward the threshold under the shadows of evening. He keeps his hood low; his silver rings catch the torchlight as his fingers tap restlessly upon his belt.",
+    "sahne": "A cracked wooden shield hangs from his shoulder, and his right arm is bound to his chest from elbow to wrist in a soiled sling. His boots are caked in mire up to the knee and his breath rattles in his chest; in his eyes mingle the bitterness of defeat and a soldier's pride.",
     "sorular": [
       [
-        "Taş köprüyü iki gün iki gece tuttuk dedin; köprünün diğer başındaki kale garnizonu neden yardıma gelmedi, bent nasıl yarıldı?",
-        "Garnizon kuşatılmıştı ağam, köprüye destek salacak neferleri kalmamıştı. Süvari zırhlı atlarla nehir yatağından sığ yeri bulup arkamıza dolandı. Kalkanlar parçalandı amma son nefese kadar durduk.",
+        "You say you held the stone bridge for two days and nights; why did the castle garrison at the other end of the bridge send no aid, and how was the embankment breached?",
+        "The garrison was besieged, master; they had no troopers left to spare for the bridge. The cavalry found a shallow ford along the riverbed with their armored mounts and flanked us from behind. Our shields were splintered, yet we stood till our last breath.",
         [
           [
-            "Çavuşun vuruşurken sen korkup arkana bakmadan kaçtın değil mi? Kaçak askerin mazereti bitmez!",
-            "Çavuşum beni 'Köyleri uyar, mazgalları tuttursunlar' diye öne saldı muhafız! Kaçacak adam yaralı kolla iki gün çamurda sürünür mü? İnanmıyorsan şu çatlak kalkanı al göğsüme vur amma korkak deme! On beş yoldaşım o bentte toprağa düştü!",
+            "While your sergeant fought on, you took fright and fled without looking back, did you not? A runaway soldier never runs out of excuses!",
+            "My sergeant sent me ahead shouting, 'Warn the villages, have them man the battlements!' gatekeeper! Would a coward crawl through mud for two days with a mangled arm? If you doubt me, take this cracked shield and smash it against my chest, but never call me a coward! Fifteen of my comrades fell into the earth at that embankment!",
             [
               [
-                "Öfken haklıdır levent. Kışlada dizdara durumu arz etmeye hazır mısın?",
-                "Hazırım ağam! Dizdarın önüne haritayı serer, atlıların geçeceği menfezleri tek tek gösteririm. Beni kuleye dikin, yaklaşan olursa boru çalarım!"
+                "Your anger is just, trooper. Are you ready to report the situation to the warden in the barracks?",
+                "I am ready, master! I will spread the map before the warden and point out every culvert the horsemen can cross. Post me on the tower, and if anyone approaches I will sound the horn!"
               ]
             ]
           ],
           [
-            "Kolundaki kan tazedir, titrersin... Gel hele, bir kova su dökelim yaranı temizleyelim.",
-            "Hak razı olsun gardaş... Üç gündür kolum kangren olacak diye aklım çıktı. Bir tutam tuz, biraz sirke bulursam kendim sararım. Askerin canı devlete emanettir.",
+            "The blood on your arm is fresh and you shiver... Come, let us pour a bucket of water and cleanse your wound.",
+            "May God be pleased with you, brother... For three days I feared my arm would rot with gangrene. If I find a pinch of salt and a splash of vinegar, I can bind it myself. A soldier's life is entrusted to the realm.",
             [
               [
-                "Köyümüzde Miraen adında Rum bir şifacı hekim vardır; o bakar koluna.",
-                "Miraen Hatun'un ilmini duymuştum ağam... Yarayı temizlesin, sabahına sol elimle de olsa sur taşını taşırım."
+                "We have a Roman healer named Miraen in our village; she will tend to your arm.",
+                "I have heard of Miraen Hatun's learning, master... Let her cleanse the wound, and by morning I will haul rampart stones even if only with my left hand."
               ]
             ]
           ],
           [
-            "Önceki gün kemankeş bir neferi kuleye aldık; geçitteki pusudan bahsediyordu, gördün mü?",
-            "Tokatlı kemankeşi mi? Gördüm ağam! Tepeden haramilere ok yağdıran oydu; arkasından hain bir neferin ok attığını bağırmıştı! O sağsa kulemiz emniyettedir; beni de onun yanına verin, gözcü duralım."
+            "Yesterday we admitted a bowman to the tower; he spoke of the ambush in the pass—did you see him?",
+            "The bowman from Tokat? I saw him, master! It was he who rained arrows down upon the brigands from the ridge, shouting that a traitor had shot from behind! If he is safe, our tower is secure; put me beside him and let us stand lookout together."
           ]
         ],
         "yarali_gazi"
       ],
       [
-        "Kışlaya alınırsan koldaki yarayla ne işe yararsın?",
-        "Kışlada gözetleme kulesine çıkarım! Kolum sargılı olsa da sol elimle boru çalar, kaledeki nöbetçilere taktik veririm. Boğazın neresi kayalık, neresi süvariye geçit verir avucumun içi gibi bilirim.",
+        "If you are admitted to the barracks, what use will you be with that wounded arm?",
+        "In the barracks I will climb the watchtower! Though my right arm is in a sling, with my left hand I can blow the horn and give tactics to the sentries on the wall. I know like the palm of my hand which part of the gorge is craggy and which gives passage to cavalry.",
         [
           [
-            "Süvari yaklaşırsa tek kolla nasıl vuruşursun?",
-            "Tek kolum kalkan tutar, göğsüm siper olur ağam! Kapı kanadına yaslanır, süvarinin atına çelme takarım. Asker adam boş durmaz."
+            "If cavalry approaches, how will you fight with a single arm?",
+            "My one arm holds a shield and my chest becomes a rampart, master! I will brace against the gate leaf and trip the horseman's mount. A true soldier never stands idle."
           ]
         ]
       ],
       [
-        "Sancak beyinin bölüğünden geride sağ kalan oldu mu?",
-        "Çavuşumuz hendek kenarında kılıç sallıyordu en son... Beni 'Tepeye koş, arkadaki köylere haber uçur' diye öne saldı. Vazifemi yapıp kapınıza vardım."
+        "Did anyone else from the sanjak bey's company survive behind you?",
+        "Our sergeant was still swinging his sword by the ditch when last I saw him... He sent me ahead saying, 'Run to the ridge and carry word to the villages behind.' I fulfilled my duty and reached your gate."
       ]
     ],
     "secenekler": [
@@ -61,62 +61,62 @@
       0
     ],
     "yanitlar": {
-      "kabul": "May heaven reward your justice and preserve your threshold!",
-      "ret": "Do not turn me away into the freezing night, guard! Have pity on a traveler!",
-      "kisla": "I report to the garrison captain at once. My blade is yours."
+      "kabul": "Bless you, master guard. I will find clean water by the infirmary wall and wash my wound, apply Miraen Hatun's salve, and take my turn on watch when called.",
+      "ret": "Will you drive me beyond the trench with this bleeding arm? By night the cavalry patrol sweeps the plain; you will find my lifeless body in the brush... May the sin be upon your neck.",
+      "kisla": "Bring me straight before the castle warden! The embankment in the gorge has collapsed, and I must show the horsemen's route upon the map. Let one more life be pledged to the barracks."
     },
-    "not": "Reject first. After one reply, Barracks unlocks. After two replies, Accept unlocks. No Bribe.",
-    "acilis": "Do not detain me long in this draughty pass, guard. I pay my gate tax in honest silver coin, ask for no communal bread, and desire only a quiet room in the upper quarter until the morning mist clears."
+    "not": "Accept, Reject, and Barracks from the start.",
+    "acilis": "My shield is cracked and my arm is in a sling, master guard... We held the stone bridge behind us for two days and two nights, yet the cavalry broke through the embankment. Even if I have no strength left for pitched battle, I have eyes to keep watch at your gate and breath to warn of approaching peril."
   },
   {
     "id": "diyalog_12",
     "sinif": "esnaf",
-    "sahne": "A woman wearing a tattered traveling mantle stands in the biting wind. Her lips are pale with frost, her dark eyes hollow with sorrow, scanning the sentry catwalks with anxious desperation.",
+    "sahne": "Forged copper bowls and ladles clatter against one another inside his donkey's saddlebags. His apron is smeared with hearth soot, and the gash above his left brow has not yet scabbed over; suspicious metallic weights can be felt at the bottom of his pack.",
     "sorular": [
       [
-        "Pazar yeri basılınca dere boyundan kaçtım dedin; heybendeki bakır taslar vadi boyunca şıngırdarken haramiler peşine nasıl düşmedi?",
-        "Tasların arasına kuru ot ve keçe tıktım ağam! Tek ses çıkmasın diye eşeğin ayaklarına bile keçe sardım. Gece vakti dere şırıltısına karışıp kayalıktan sıyrıldım. Zanaat ehli adam kurnaz olur.",
+        "You say you fled along the creek when the marketplace was raided; with the copper bowls clattering in your saddlebags all down the valley, how did brigands not pursue you?",
+        "I stuffed dry grass and felt between the bowls, master! I even wrapped felt around the donkey's hooves so not a sound would escape. By night I mingled with the rushing sound of the creek and slipped past the crags. A craftsman knows how to be resourceful.",
         [
           [
-            "Eşeğin sırtındaki o büyük kazanın tabanı niye çifte perçinli? İçinde kaçak maden mi var?",
-            "Ağam ses etme kurbanın olayım... Çifte tabanda kaçak maden değil, simyacıların aradığı has cıva tozuyla saf kalay külçesi saklarım! Çarşı yağmalanırken haramilerin eline geçmesin diye gizledim! Açığa çıkarsa Karaca Usta beni ocağından kovar! Ne istersen vereyim, yeter ki ahaliye duyurma!",
+            "Why is the bottom of that large cauldron on your donkey's back double-riveted? Is there smuggled metal inside?",
+            "Hush, master, I beg you... Inside the double bottom I hid not smuggled ore, but pure mercury powder sought by alchemists and an ingot of refined tin! While the bazaar was being looted, I concealed them so they would not fall into brigand hands! If it comes to light, Master Karaca will drive me from his hearth! I will give you whatever you ask, only do not announce it to the folk!",
             [
               [
-                "O madeni Karaca Usta'nın demirhanesine hibe edersen kapı açılır.",
-                "Tamam ağam, baş üstüne! Karaca Usta demirhane için kullansın, köyün kalkanlarına cıvalı lehim vursun! Yeter ki zanaatımı bu köyde icra edeyim!"
+                "If you donate that metal to Master Karaca's smithy, the gate will open.",
+                "Agreed, master, upon my head! Let Master Karaca use it for the smithy and apply mercury solder to the village shields! Only let me practice my craft in this village!"
               ]
             ]
           ],
           [
-            "Kaşındaki yara taze, gözlerin toz içinde... Bir lokma aşın var mıdır?",
-            "Eşeğin torbasında iki parça kuru peksimetim vardı, onu da hayvanla bölüştüm ağam. Bir çanak sıcak çorba verirseniz, köyün bütün isli tencerelerini altın gibi parlatırım.",
+            "The cut on your brow is fresh and your eyes are full of dust... Do you have a morsel of food?",
+            "I had two pieces of dry biscuit in the donkey's feedbag, and I shared those with the beast, master. If you give me a bowl of hot soup, I will polish all the sooty pots in the village till they gleam like gold.",
             [
               [
-                "Köyün kazanları kış öncesi zehir çalmasın diye kalay bekler.",
-                "Sabah erkenden ocağı yakarım ağam! Nişadır dumanı köyü sarar, bütün bakırlar ayna gibi parlar."
+                "The village cauldrons await tinning before winter so they do not taint the food with verdigris.",
+                "I will light the hearth early tomorrow morning, master! Sal-ammoniac smoke will curl through the square, and all the copperware will shine like a mirror."
               ]
             ]
           ],
           [
-            "Dün gelen dikici kalfasını içeri aldık; pabuç dikmeye başladı bile.",
-            "Çarşıdaki o yetim çırağı mı? Ah, onun dikişi sağlamdır ağam! O pabuçları diksin, ben pirinç tokalarını parlatayım; köyün çarşısı yeniden canlansın!"
+            "We admitted the cobbler journeyman who came yesterday; he has already begun stitching shoes.",
+            "That orphan apprentice from the bazaar? Ah, his stitching is sound, master! Let him sew the shoes and I will polish their brass buckles; let the village market come alive again!"
           ]
         ],
         "supheli_bakirci"
       ],
       [
-        "Köyde bakır kap azdır, köylü çömlek kullanır. Kalaycının ne işe yarar burada?",
-        "Çömlek çatlar kırılır, bakır bin yıl yaşar muhafız! Köyün çorba kazanı zehir çalmasın diye kalay çekmek gerek. Hayvanların nallarını, kapı menteşelerini de döverim; elim her madene değer.",
+        "There is little copperware in our village; the folk use clay pots. What use is a tinsmith here?",
+        "Clay cracks and shatters, while copper lives a thousand years, gatekeeper! You must tin the village soup cauldron so it does not poison the broth. I also forge horseshoes and door hinges; my hand knows every metal.",
         [
           [
-            "Kaşındaki o yarık nedir, kavga mı ettin?",
-            "Kaçarken tezgâhın üstündeki koca kazan devrildi ağam. Kazanı kurtarayım derken kenarı kaşımı yardı. Bakır ucu deriyi keser amma zanaatın sevdası candan üstündür."
+            "What is that gash on your brow—were you in a brawl?",
+            "As I fled, the great cauldron atop the workbench toppled over, master. Trying to catch it, its rim split my brow. A copper edge cuts skin, yet love of the craft stands above life."
           ]
         ]
       ],
       [
-        "Heybendeki taslar helal mal mıdır, yağmadan mı topladın?",
-        "Ahi silsilesine kayıtlı kalaycıyım ben ağam! Her tasın dibinde kendi çekiç damgam vardır. Alnımın teriyle dövmediğim tek bir pul bile girmedi heybeme."
+        "Are the bowls in your saddlebag lawful goods, or did you gather them from the looting?",
+        "I am a tinsmith registered in the Ahi line, master! Stamped on the bottom of every bowl is my own hammer mark. Not a single scale of metal I did not forge by the sweat of my brow has ever entered my bag."
       ]
     ],
     "secenekler": [
@@ -130,62 +130,62 @@
       0
     ],
     "yanitlar": {
-      "rusvet": "Take this silver purse; let it be between our two souls. Just lift the latch.",
-      "kabul": "May heaven reward your justice and preserve your threshold!",
-      "ret": "Do not turn me away into the freezing night, guard! Have pity on a traveler!"
+      "rusvet": "Look here, master... Let me leave you this fine cast yellow copper bowl so you may drink soup by the hearth, and let the mercury solder powder beside it be my gift as well. Do not let Master Karaca hear of it—keep it between us and draw back the bolt.",
+      "kabul": "I will tie the donkey in a sheltered corner of the courtyard and toss two handfuls of hay before the beast, then curl up beneath the awning myself. First thing tomorrow I will polish the village cauldrons and pay my respects to Master Karaca.",
+      "ret": "I cannot stay out in the open country alone with this load, gatekeeper! Looters who hear the clatter of copper will fall upon my throat. Was this the whole of your mercy?"
     },
-    "not": "Reject first. After one reply, Accept and Bribe unlock. No Barracks.",
-    "acilis": "In the name of the merciful, tell me: is my brother within these walls? He marched with the border levies three moons ago; wounded travelers on the highway told me he was carried to this sanctuary."
+    "not": "Bribe, Accept, and Reject from the start.",
+    "acilis": "I am a tinsmith of the lower districts, gatekeeper... My donkey carries the bowls, and I lead the donkey's halter. When the marketplace was raided, amidst naphtha and smoke I loaded my saddlebags and climbed up along the creek bed. Grant me a hearth corner so the cauldrons of this village do not go untinned."
   },
   {
     "id": "diyalog_13",
     "sinif": "ciftci",
-    "sahne": "An elderly carter with a grizzled beard stands beside his tilted ox-cart. A fractured wheel axle is propped upon a stack of rough-hewn pine logs, while steam rises from the nostrils of his two patient oxen.",
+    "sahne": "In his arms he holds a frail goat kid whose broken left leg is splinted with wood. His felt vest is torn to shreds and his bare knees bleed from thorn scratches; he presses the kid to his chest like an infant.",
     "sorular": [
       [
-        "Haramiler ağılı bastığında bu topal oğlağı bırakamadım dedin; sürü dağa kaçarken o haramilerin reisi kimdi, seni neden dere boyunda vurmadılar?",
-        "Kızıl Sakallı haraminin çetesiydi ağam! Onlar ağıldaki besili koçların peşine düştü; bu garip topal oğlağa dönüp bakmadılar bile. Ben de yavruyu kucağıma alıp uçurum dibindeki keçi yoluna saptım.",
+        "You say you could not leave this lame kid when brigands raided the fold; while the flock scattered up the mountain, who was the chief of those brigands, and why did they not shoot you along the creek?",
+        "It was the band of the Red-Bearded brigand, master! They chased after the fattened rams in the fold and did not even glance at this poor lame kid. Taking the little one in my arms, I turned onto the goat path at the foot of the cliff.",
         [
           [
-            "Ağılı kurt değil borçlu olduğun Kızıl Karga haramileri bastı, değil mi? İzini bu köye çekeceksin!",
-            "Borcum vardı evet ağam... Geçen kış ağıl çökünce tefeciden üç akçe almıştım, haramiler faizini on koyun istedi! Vermeyince ağılı ateşe verdiler! Sürüyü dağa saçtım ki borç ödenmesin! Bu oğlağın suçu ne? Suç bendedir, cezayı bana kesin amma bu masumu kurda atmayın!",
+            "It was not wolves that raided the fold, but the Red Crow brigands to whom you owed debt, was it not? You will draw their trail to this village!",
+            "Yes, I had a debt, master... Last winter when the fold collapsed I borrowed three coins from a usurer, and the brigands demanded ten sheep in interest! When I could not pay, they torched the fold! I scattered the flock onto the mountain so the debt could not be seized! What fault has this kid? The fault is mine—punish me as you will, only do not cast this innocent creature to the wolves!",
             [
               [
-                "Haramiler peşinde ise köyün nöbetçilerini alarma geçirmemiz gerek.",
-                "Geçirin ağam! Dere yatağından suyun içinden yürüdüm, izimi köpekleri bile bulamaz. Amma harami gelirse kışlaya odun da taşırım, kargı da tutarım!"
+                "If brigands are on your trail, we must put the village sentries on alert.",
+                "Alert them, master! I waded through the water along the creek bed so even their hounds cannot find my scent. Yet if brigands come, I will haul firewood to the barracks and hold a spear too!"
               ]
             ]
           ],
           [
-            "Dizlerin çalı dikeninden kan içinde, keçen paramparça... Kucağındaki yavru titriyor.",
-            "Oğlağın ayağına kekik yağı sürdüm, tahtayla bağladım ağam. Bir avuç ılık süt, bir tutam kuru saman bulsak iki haftaya ayaklanır. Yusuf'un keçisi Karabaş'a da yoldaş olur bu dilsiz can.",
+            "Your knees bleed from bramble thorns and your felt vest is in tatters... The little one in your arms is shivering.",
+            "I rubbed thyme oil on the kid's leg and bound it with wood splints, master. If we find a palmful of warm milk and a wisp of dry straw, within two weeks it will stand on its feet and be a companion to Yusuf's goat Karabash.",
             [
               [
-                "Yusuf da senin gibi dağda keçisini kaybetmişti; onu görsen sevinirsin.",
-                "Yusuf'un namını dağda duymuştum... Annesinin duası üstündeymiş. Bu oğlağı Yusuf'a emanet ederim; ikisi köyün çayırında koşsun."
+                "Yusuf also lost his goat on the mountain like you; you will be glad to meet him.",
+                "I heard of Yusuf's name on the mountain... His mother's prayer watches over him. I will entrust this kid to Yusuf; let the two of them run across the village meadow."
               ]
             ]
           ],
           [
-            "Dün gelen Akça ve Karaca koyunlu yaylacıyı ağıla aldık; onu bilir misin?",
-            "Yaylacı Dursun'u mu? Ah ağam, onun Akça koyununun sütü boldur! O koyunları sağsın, bu yetim oğlağa iki yudum süt versin; oğlak iki güne ayağa kalkar!"
+            "Yesterday we admitted the highland shepherd with his ewes Akcha and Karaca into the fold; do you know him?",
+            "Highlander Dursun? Ah, master, his ewe Akcha has abundant milk! Let him milk the ewes and give two sips to this orphaned kid, and the kid will be on its feet within two days!"
           ]
         ],
         "topal_oglak"
       ],
       [
-        "Köyün ağılı doludur, bir yabancı çobana niye yer açalım?",
-        "Ben yabancı olsam da dağın kurdunu kuşunu bilirim ağam. Hangi otta şifa var, hangi pınar zehirlidir bilirim. Sürünüzü kendi evladım gibi güder, bir tek tüyüne zarar getirtmem.",
+        "The village fold is full; why should we make room for a stranger shepherd?",
+        "Though I am a stranger, I know the wolves and birds of the mountain, master. I know which herb holds healing and which spring is poisoned. I will tend your flock like my own child and let no harm come to a single hair.",
         [
           [
-            "Ayağına sardığın o tahta çöp nedir, kaynar mı kemiği?",
-            "Kayalıktan atlarken ayağı yarıldı. İki kuru dal bağladım, kekik yağı sürdüm. İki haftaya ayağa kalkar, keçi gibi seker. Bu köyün ağılına bereket getirir."
+            "What is that wooden splint tied to its leg—will the bone knit?",
+            "Its leg split while leaping down the crags. I tied two dry branches and rubbed thyme oil over it. In two weeks it will stand up and skip like a true goat, bringing blessing to this village's fold."
           ]
         ]
       ],
       [
-        "Haramiler derenin izini sürerse köy tehlikeye girmez mi?",
-        "Suyun akıntısına karşı yürüdüm ağam; izim sel suyunda kayboldu. Korkmayın, bu köyün kalesine gölge düşürmem."
+        "If the brigands follow the creek trail, will the village not be endangered?",
+        "I walked against the current of the water, master; my tracks vanished in the floodwater. Have no fear—I will cast no shadow upon the fortress of this village."
       ]
     ],
     "secenekler": [
@@ -197,61 +197,61 @@
       0
     ],
     "yanitlar": {
-      "ret": "Do not turn me away into the freezing night, guard! Have pity on a traveler!",
-      "kabul": "May heaven reward your justice and preserve your threshold!"
+      "ret": "I will curl up at the base of the stone and pull my torn felt vest over the kid. Without blinking an eye I will wait for dawn, though the frost is bitter... If its life gives out, may the sin rest upon your neck.",
+      "kabul": "May God never bring sorrow to your hearth! I will sleep in a corner of the fold; let this mute creature grow up beside Yusuf, and let me take root in the soil of this village. I will be a burden to no one."
     },
-    "not": "Standard gate protocol: Evaluate testimony, check baggage, confirm village safety.",
-    "acilis": "My left axle snapped on the boulder ford, effendi. Darkness falls and wolves are gathering in the pine scrub. Grant my cart yard space; I have two barrels of cured olives and winter grease to barter."
+    "not": "Reject and Accept from the start.",
+    "acilis": "I am the shepherd of the fold on the slope... Last night when brigands raided the fold, I turned the flock loose onto the mountain, yet I could not leave this lame kid behind. Carrying this little one in my arms, I crossed the crags. Just show us an eave and a handful of dry straw."
   },
   {
     "id": "diyalog_14",
     "sinif": "esnaf",
-    "sahne": "A gaunt youth wearing a singed blacksmith's apron shivers by the timber palisade. His knuckles are raw and blackened with forge soot; purple welts from a severe beating show upon his forearms.",
+    "sahne": "A heavy salt sack sewn of coarse linen swings from his hemp belt. His hands are cracked from frost and salt burn, and dried salty sweat gleams on his left temple; a faint smell of sulfur rises from the bottom of the sack.",
     "sorular": [
       [
-        "Tuz gölü kervanı bozkırda vuruldu dedin; katırlar uçuruma sürülürken o güzergahtaki han muhafızları neredeydi, sen kuşağındaki tuzu nasıl sakladın?",
-        "Han çok geride kalmıştı ağam, bozkırın ortasında pusu kurdular. Katırları ürkütüp yardan aşağı yuvarladılar. Ben kayalık yarığına sindim; şu tuz torbasını da koynuma gömdüm. Tuz candır, dağda tuzsuz kalan adam çürür.",
+        "You say the salt lake caravan was ambushed on the steppe; while the mules were driven over the cliff, where were the khan guards along that route, and how did you hide the salt at your sash?",
+        "The khan had been left far behind, master; they laid an ambush in the middle of the steppe and stampeded the mules over the ravine. I crouched in a rock crevice and buried this salt bag against my chest. Salt is life; a man left without salt on the mountain rots away.",
         [
           [
-            "Tuz dediğin beyaz olur; kesenin dibindeki bu kül rengi, kükürt kokulu toz nedir? Barutluk güherçile mi taşırsın?",
-            "Ağam... Bezirgan dediğin her madeni tartar. Tuz gölünün kayalık yamacında güherçile damarı bulmuştuk... Kervanbaşı 'Bunu kaledeki dizdarlara satarız, iyi akçe eder' demişti. Kötü niyetim yok! Alın bu güherçileyi köyün kışlasına verin, sur dibine fitil döksünler! Bana tuzun ekmeği yeter!",
+            "Salt is white; what is this ash-colored, sulfur-smelling powder at the bottom of your sack? Do you carry gunpowder saltpeter?",
+            "Master... A merchant weighs every mineral. On the rocky slope of the salt lake we found a vein of saltpeter... The caravan master said we could sell it to castle wardens for good coin. I harbor no ill intent! Take this saltpeter and give it to the village barracks so they may pour fuses at the foot of the wall! The bread earned from salt is enough for me!",
             [
               [
-                "Güherçileyi kışlaya teslim edersen kervanının hesabı sorulmaz.",
-                "Teslim ederim ağam! Güherçile kışlaya kalsın, has kaya tuzu ambarınıza girsin! Bu kış köylünün eti kokmasın, peyniri taş gibi dursun."
+                "If you surrender the saltpeter to the barracks, no reckoning will be demanded of your caravan.",
+                "I surrender it gladly, master! Let the saltpeter go to the barracks, and let the pure rock salt enter your granary! This winter the villagers' meat will not spoil and their cheese will stay firm as stone."
               ]
             ]
           ],
           [
-            "Ellerin tuz yakmasından çatlamış, yarıkların içi kan dolmuş... Acı çekersin.",
-            "Tuz yarayı yakar amma mikrobunu da kırar ağam. Yorgunluğum tuzun ağırlığındandır. Bir tas sıcak su verin, yaralarımı yıkayayım. Köyün ambarına da tuzun yarısını hibe edeyim.",
+            "Your hands are cracked from salt burn and the fissures are filled with blood... You must be in pain.",
+            "Salt burns a wound, yet it also kills the rot, master. My weariness comes from the weight of the salt. Give me a bowl of hot water to wash my cuts, and I will donate half the salt to the village granary.",
             [
               [
-                "Köy ambarımızda tuz tükenmek üzereydi; zamanında yetiştin.",
-                "Hızır yetiştirdi ağam! Kış boyu ambarın bütün erzağını tuzlarım, tek bir parça et bile ziyan olmaz."
+                "Salt was nearly exhausted in our village granary; you arrived just in time.",
+                "Khidr sent me, master! All winter long I will cure the provisions of the granary so not a single piece of meat goes to waste."
               ]
             ]
           ],
           [
-            "Önceki gün bir kalaycıyı içeri aldık; heybesinde sarı taslar vardı.",
-            "Bakırcı Mahmut Usta mı? Tanırım ağam, Kayseri hanında çorba içmiştik! O bakır tasları parlatırsa ben de içini has tuzla doldururum; köyün sofrası zenginleşir!"
+            "Yesterday we admitted a tinsmith whose saddlebag held yellow copper bowls.",
+            "Master Mahmut the coppersmith? I know him, master—we drank soup together at the Kayseri khan! If he polishes the copper bowls, I will fill them with pure rock salt, and the village table shall be enriched!"
           ]
         ],
         "tuz_kervani_kacak"
       ],
       [
-        "Köyümüzün ambarında tuz azdır, bize bunu ucuza bırakır mısın?",
-        "Ben fırsatçı bezirgan değilim ağam. Bana başımı sokacak bir samanlık, akşam bir tas sıcak bulgur verin; tuzun yarısını ambarınıza hibe edeyim. Kalanıyla da köyde takas yaparım.",
+        "Salt is scarce in our village granary; will you let us have it cheaply?",
+        "I am no profiteering merchant, master. Grant me a hayloft to shelter my head and a bowl of hot bulgur at dusk, and I will donate half the salt to your granary. With the rest I will barter fairly in the village.",
         [
           [
-            "Kuşaktaki tuz ak mıdır, yoksa gölün çamurlu tortusu mudur?",
-            "Has dağ tuzu, billur gibi ak kaya tuzudur ağam! Çamur görmemiştir. Bir tutamı koca kazanın etini kokutmaz, peyniri taş gibi tutar."
+            "Is the salt at your sash pure white, or muddy sediment from the lake?",
+            "It is pure mountain salt, crystal-white rock salt, master! It has never touched mud. A single pinch keeps a whole cauldron of meat from spoiling and holds cheese firm as stone."
           ]
         ]
       ],
       [
-        "Bozkırdaki çapulcular bu tarafa yöneldi mi?",
-        "Onlar kervandaki ipek denklerini ve gümüşleri yağmalamakla meşguldü. Tuzu yük bilip yere saçtılar. Buraya kadar gelmeleri iki günü bulur, hazırlığınızı yapın."
+        "Have the looters on the steppe turned this way?",
+        "They were busy plundering the silk bales and silver in the caravan, scattering the salt on the ground as dead weight. It will take them two days to reach here—make your preparations."
       ]
     ],
     "secenekler": [
@@ -265,62 +265,62 @@
       0
     ],
     "yanitlar": {
-      "kabul": "May heaven reward your justice and preserve your threshold!",
-      "rusvet": "Take this silver purse; let it be between our two souls. Just lift the latch.",
-      "ret": "Do not turn me away into the freezing night, guard! Have pity on a traveler!"
+      "kabul": "May you find abundance, gatekeeper! By the edge of the hayloft I will set the salt upon a dry plank and lie down beside it. All winter long I will not leave the meat and cheese of this village unsalted.",
+      "rusvet": "Master guard... Let two handfuls of crystal salt and a pinch of saltpeter powder be poured into your pouch. In a frontier beylik it is more precious than silver. Add it to your soup and see your winter through; just let me inside.",
+      "ret": "If I stand out in the open on this mountain peak, by night the jackals will catch my scent and come for the salt. I will hide behind the rocks and wait till dawn, yet if I lose my salt I am ruined."
     },
-    "not": "Reject first. After one reply, Accept and Bribe unlock. No Barracks.",
-    "acilis": "The master smith in the valley fortress laid an iron rod across my shoulders when the tongs slipped. Look at these scars, guard... If you cast me back, he will chain me to the anvil till I perish."
+    "not": "Accept, Bribe, and Reject from the start.",
+    "acilis": "I am a peddler who outfits caravans from the salt lake to carry goods to mountain villages, gatekeeper... Our caravan was ambushed on the steppe road and the mules were driven over a cliff. I could salvage only this fine rock salt at my sash. There is neither food nor realm without salt; open the gate so your village may prepare for winter."
   },
   {
     "id": "diyalog_15",
     "sinif": "asker",
-    "sahne": "A dignified woman riding a sturdy bay mare reins in before the ditch. Over her wool riding robe she wears the embroidered white sash of the Baciyan-i Rum, flanked by two armed youths bearing quarterstaffs.",
+    "sahne": "A bent copper bugle hangs from the thick leather strap around his neck. His leather vest is split at the shoulder and the wooden scabbard of the sword at his waist is cracked; a fresh graze on his temple trickles blood down his cheek, and in his eyes lingers an averted look of kinship shame.",
     "sorular": [
       [
-        "Meşaleyi yaktım amma kule ateşe verildi dedin; boruyu kule düşmeden önce kaç kez çaldın, ovadaki nöbetçi çavuşu işaretini almadı mı?",
-        "Üç kez acı acı üfledim ağam! Vadide yankılandı borunun sesi. Lakin ovadaki karakolu da eş zamanlı basmışlar; dumanı görünce anladım ki orası da düşmüş. Yardan atlamasam diri diri yanacaktım.",
+        "You say you lit the beacon before the tower was torched; how many times did you sound the horn before the tower fell, and did the sentry sergeant on the plain not catch your signal?",
+        "I blew three bitter blasts, master! The sound of the horn echoed across the valley. Yet they had raided the outpost on the plain at the same hour; when I saw the smoke, I knew it had fallen too. Had I not leaped from the cliff, I would have burned alive.",
         [
           [
-            "Kuleyi basanların arasında kendi kanından biri vardı da boruyu erken kestin derler; doğru mudur?",
-            "Kim... Kim söyledi bunu? Ağam... Amcamın oğlu harami bölüğünün önündeydi! 'Üfle boruyu da nefesini keseyim' diye bağırdı! Bir an... Yalnızca bir an donup kaldım! Amma sonra meşaleyi ateşe verip kendimi yardan attım! İhanet etmedim ağam, kan bağı aklımı çeldi amma kapıyı haber etmeye yine ben geldim!",
+            "They say someone of your own blood was among those who raided the tower, and that is why you cut the horn blast short; is it true?",
+            "Who... Who told you that? Master... My uncle's son rode at the head of the brigand troop! 'Blow that horn and I will cut your breath!' he shouted! For a moment... For just a single moment I froze! Yet then I touched fire to the beacon and hurled myself over the cliff! I did not betray my post, master—blood ties clouded my mind for an instant, yet it was still I who came to warn your gate!",
             [
               [
-                "Akraban da olsa bu köyün sınırına yaklaşırsa kargıyla karşılanacak!",
-                "Biliyorum ağam... O harami olduysa benim gayrı akrabam yoktur! Borumu bu köyün kulesinde öyle bir öttüreyim ki, amcamın oğlu bile sesimden titresin!"
+                "Even if he is your kinsman, if he approaches the border of this village he will be met with spears!",
+                "I know, master... Since he turned brigand, I have no kinsman left! I will blow my horn atop this village's tower so fiercely that even my cousin will tremble at my voice!"
               ]
             ]
           ],
           [
-            "Yardan atlarken deri yeleğin yırtılmış, şakağından kan akar... Soluklan hele.",
-            "Yardan aşağı çalılıklara yuvarlandım ağam. Sıyrıklar mühim değil, borazanımın bakırı eğrildi amma nefesi sağlamdır. Bir yudum su verin, kuleye tırmanıp gözcü durayım.",
+            "Your leather vest tore when you leaped from the cliff, and blood trickles from your temple... Catch your breath.",
+            "I tumbled down the cliff into the brush, master. Scratches matter little; the copper of my bugle is dented, yet its breath is sound. Give me a sip of water and let me climb the tower to stand lookout.",
             [
               [
-                "Kulemizin borazanı kırıktı; senin gelmen hayır oldu.",
-                "Kulenin en tepesine dikilin beni! Süvari tozunu iki mil öteden sezer, köyü ezan gibi sesimle ayağa kaldırırım."
+                "Our tower's bugle was broken; your arrival is a blessing.",
+                "Post me at the very top of the tower! I will spot cavalry dust from two miles off and rouse the village with a voice like the call to prayer."
               ]
             ]
           ],
           [
-            "Dün gelen yaralı levent neferi revire aldık; köprü bendinin çöktüğünü söylemişti.",
-            "Taş köprüdeki neferi mi? Onu sağ gördüğüme kurban olayım! O bendin haberini getirdiyse ben de tepedeki elli atlı süvarinin istihbaratını getirdim; dizdar ağa bizi dinlesin, tedbiri alsın!"
+            "Yesterday we admitted the wounded trooper into the infirmary; he told us the bridge embankment had collapsed.",
+            "The trooper from the stone bridge? Praise be that I see him alive! If he brought word of the embankment, I bring intelligence of fifty mounted raiders on the ridge; let the warden hear us both and take precautions!"
           ]
         ],
         "borazanci_korkaklik_ithami"
       ],
       [
-        "Yardan atlarken borazanın eğrilmiş, hâlâ ses verir mi bu bakır?",
-        "Bakır eğrilir amma ses eğrilmez muhafız! Bu borazanın avazı iki mil öteden köyü ayağa kaldırır. Beni surun tepesine dikin, gözüm ovada olsun.",
+        "Your bugle was bent when you leaped from the cliff; does this copper still give voice?",
+        "Copper bends, yet its voice never bends, gatekeeper! The blast of this bugle will rouse the village from two miles away. Post me atop the rampart and let my eye watch the plain.",
         [
           [
-            "Kuleyi basanlar kaç kişiydi, sancakları ne renkti?",
-            "En az elli atlı vardı ağam! Siyah börklü, mızraklarının ucunda kurt kuyruğu takılıydı. Üç kola ayrılıp vadiyi tarayarak geliyorlar."
+            "How many men raided the tower, and what color was their banner?",
+            "There were at least fifty horsemen, master! Wearing black fur caps, with wolf tails tied to the tips of their lances. They split into three columns and are sweeping down the valley."
           ]
         ]
       ],
       [
-        "Korkup görev yerini terk ettiğin için seni zincire vurmayalım?",
-        "Kule cayır cayır yanarken içeride kalsam kül olacaktım ağam! Kül olmuş askerin kime ne faydası var? Canımı haber getirmek için kurtardım; zincire de vursanız hakikat budur."
+        "Why should we not clap you in irons for taking fright and abandoning your post?",
+        "With the tower blazing like tinder, had I stayed inside I would have turned to ash, master! What use is a charred soldier to anyone? I saved my life to bring warning; even if you chain me, that is the truth."
       ]
     ],
     "secenekler": [
@@ -334,62 +334,62 @@
       0
     ],
     "yanitlar": {
-      "kisla": "I report to the garrison captain at once. My blade is yours.",
-      "ret": "Do not turn me away into the freezing night, guard! Have pity on a traveler!",
-      "kabul": "May heaven reward your justice and preserve your threshold!"
+      "kisla": "Take me straight to the warden! I will describe step by step the dry creek bed the horsemen from the plain will follow, and hand my bugle to the lookouts on the tower so we do not lose this village to a raid.",
+      "ret": "Will you leave me as an open target on this plain? Within two hours the horsemen will descend into the valley; you will find my corpse before your gate... May the sin rest upon your neck.",
+      "kabul": "Bless you, brother. I will crouch at the foot of the infirmary wall and catch my breath, wipe the blood from my temple, gird my sword, and stand watch at the gate tonight."
     },
-    "not": "Reject first. After one reply, Barracks unlocks. After two replies, Accept unlocks. No Bribe.",
-    "acilis": "Peace be upon your vigil, keeper of the gate. I ride with blessings from the grand lodge of Baciyan-i Rum. We bring woven cloaks for your sentries and seek counsel with Sister Ayse."
+    "not": "Barracks, Reject, and Accept from the start.",
+    "acilis": "I am the bugler of the hilltop watchtower, gatekeeper! The tower was raided; I lit the beacon torch, yet they rained arrows from the cliff. When the lower floor was set ablaze, I leaped from the precipice and tumbled into the valley. The dust of the horsemen behind me has not yet settled—open the gate so I may warn the warden!"
   },
   {
     "id": "diyalog_16",
     "sinif": "ciftci",
-    "sahne": "A wiry woodsman carrying a short reflex bow and iron-tipped furrier's axe steps out of the forest edge. Dried mud covers his high deerskin boots, and his keen gaze measures the height of our watchtowers.",
+    "sahne": "In his arms he cradles a dry grapevine sapling whose roots are wrapped in damp burlap. The handle of the pruning knife at his sash is darkened with sweat; his palms are blistered and cracked, and the scent of fresh earth and sour grape must rises from the cloth around the sapling.",
     "sorular": [
       [
-        "Köyün ekmeğe ihtiyacı var be bağcı; üç yıl üzüm bekleyecek sabrı nereden bulalım?",
-        "Yalnız üzüm mü verir asma ağam? Yaprağından sarma sarılır, koruğundan ekşi ezilir, kurusundan kış boyu can bulunur! Bağ dikmeyen kavim bir kışta tükenir; geleceği düşünen insan bağ kurar.",
+        "The village needs bread, vintner; where shall we find the patience to wait three years for grapes?",
+        "Does a grapevine yield grapes alone, master? From its leaves stuffed rolls are wrapped, from its unripe clusters sour verjuice is pressed, and from its raisins strength is found all winter long! A people who plant no vines perish in a single winter; a man who thinks of tomorrow plants a vineyard.",
         [
           [
-            "Koynundaki aşı çubuğunun sarılı bezinden keskin ekşi şıra kokusu gelir! Bu softaların yasakladığı şaraplık Frenk bağı aşı mıdır?",
-            "Ağam... Bağın helali de vardır haramı da! Bu asma Bizans sınırından kaçırılan ballı misket üzümüdür! Softa şarap sanır amma bunun kurusu kış boyu askere kuvvet, hastalara şifa verir! Köyün hocası kızarsa yaprağını aşevine veririm, pekmezini çocuklara kaynatırım! Kökü koparma ağam!",
+            "A sharp smell of sour must rises from the cloth wrapped around the graft shoot at your breast! Is this a Frankish wine-vine cutting forbidden by the zealots?",
+            "Master... A vineyard has both its lawful and its forbidden uses! This vine is a honey-muscat grape smuggled across the Byzantine border! A zealot may mistake it for wine, yet its dried raisins give strength to soldiers all winter and healing to the sick! If the village preacher objects, I will give its leaves to the soup kitchen and boil its molasses for the children! Do not snap the root, master!",
             [
               [
-                "İlmini köyün şifacısı Miraen Hatun'a aktarırsan bağın dikilmesine izin çıkar.",
-                "Miraen Hatun bağ kökünün merhemini de bilir ağam! Ona şifa için aşı veririm, Ayşe Bacı'ya yaprak sarma veririm! Yeter ki fidan toprağa değsin!"
+                "If you share your knowledge with our village healer Miraen Hatun, permission will be granted to plant the vineyard.",
+                "Miraen Hatun knows the salve of the vine root as well, master! I will give her cuttings for medicine and grape leaves to Sister Ayse! Only let the sapling touch the soil!"
               ]
             ]
           ],
           [
-            "Avuçların çatlamış, kök kurumasın diye göğsünde ısıtmışsın... Bir yudum suyumuz helaldir.",
-            "Hak razı olsun ağam... Kendi boğazımdan kestim de köke serptim. Kök ölürse bağ ölür, bağ ölürse umut ölür. Bana güney yamacı verin, iki yıla kalmaz çardaklar yeşile boyansın.",
+            "Your palms are cracked, and you warmed the root against your chest so it would not dry out... A sip of our water is lawfully yours.",
+            "May God be pleased with you, master... I stinted my own throat to sprinkle water upon the root. If the root dies the vineyard dies, and if the vineyard dies hope dies. Give me the southern slope, and within two years the arbors will be painted green.",
             [
               [
-                "Güney yamacımız taşlıktır amma güneş bol alır; asmaya yarar.",
-                "Taşlı toprağın üzümü tatlı olur ağam! Çakıl kökü sıcak tutar, şekerini artırır. Orayı cennete çeviririm."
+                "Our southern slope is stony, yet it catches plenty of sun; it will suit the vine.",
+                "The grapes of stony soil grow sweet, master! Gravel keeps the root warm and enriches its sugar. I will turn that slope into a paradise."
               ]
             ]
           ],
           [
-            "Önceki gün testisinde bağ şırası taşıyan genç bir rençberi içeri aldık; onunla akraba mısın?",
-            "Testili çocuğu mu? Tanırım ağam, bizim yukarı vadinin yetimidir! Onun testisine obanın son şırasını dolduran bendim! O çocuk sağsa bu fidan yetim kalmaz; onun şırasını bu fidanın köküne döküp bereketi uyandırırız!"
+            "Yesterday we admitted a young peasant carrying grape must in his jug; are you kin to him?",
+            "The lad with the clay jug? I know him, master—he is an orphan from our upper valley! It was I who filled his jug with the last must of the camp! If that lad is safe, this sapling will not remain an orphan; we will pour his must upon the root of this sapling and awaken its abundance!"
           ]
         ]
       ],
       [
-        "Aşağı vadinin bağ bekçisiyim dedin; oranın üzümü beyliğin kilerine giderdi, bağı yakanlar köylüye ne yaptı, seni neden sağ bıraktılar?",
-        "Köylüyü vadi tabanına sürdüler ağam, bağ evlerini ateşe verdiler. Ben su kemerinin menfezinde saklandım; beni öldü sandılar. Yangın küllenince can damarı olan şu aşı çubuğunu topraktan kesip kaçtım.",
+        "You say you were the vineyard watchman of the lower valley, whose grapes went to the beylik cellar; what did those who burned the vineyard do to the villagers, and why did they leave you alive?",
+        "They drove the villagers down to the valley floor, master, and torched the vineyard cottages. I hid inside the culvert of the aqueduct, and they took me for dead. When the fire died down to embers, I cut this lifeblood graft shoot from the soil and fled.",
         [
           [
-            "Kökü bezde sarılı bu fidan donmadı mı yolda?",
-            "Her pınarda bezini ıslattım, göğsümün buğusuyla ısıttım ağam. Kökünde hâlâ ata toprağının kokusu durur. Diktiğin gün sürgün verir."
+            "Did this sapling wrapped in cloth not freeze on the road?",
+            "At every spring I dampened its cloth and warmed it with the vapor of my own chest, master. The scent of ancestral soil still lingers on its root; the day you plant it, it will put forth shoots."
           ]
         ],
         "saraplik_bag_suphesi"
       ],
       [
-        "Bağ budamaktan başka kışın köye ne faydan olur?",
-        "Kışın budanan çubuklardan sepet örerim, çit çekerim, meyve ağaçlarını aşılarım. Çiftçinin eli durursa bereketi kaçar; ben durmam."
+        "Besides pruning vines, what use will you be to the village in winter?",
+        "In winter I weave baskets from pruned shoots, mend fences, and graft fruit trees. If a farmer's hand stops, his blessing flees; my hand never stops."
       ]
     ],
     "secenekler": [
@@ -403,62 +403,62 @@
       0
     ],
     "yanitlar": {
-      "ret": "Do not turn me away into the freezing night, guard! Have pity on a traveler!",
-      "kabul": "May heaven reward your justice and preserve your threshold!",
-      "rusvet": "Take this silver purse; let it be between our two souls. Just lift the latch."
+      "ret": "I will crouch against the outer wall of the caravanserai and bury the sapling in damp mud. I can pass the night at the base of the stone, yet if the sapling withers my heart will burn...",
+      "kabul": "May your soil rejoice, master guard! I will plant this sapling on the southern slope. Within three years the children of this village will come to your gate with armfuls of grapes, and I will offer its healing to Miraen Hatun.",
+      "rusvet": "Look here, master... One is a honey-fig shoot and the other a seedless grapevine cutting. Plant them in your own garden and in two years you will harvest their fruit. Let these be yours, and bid me enter."
     },
-    "not": "Reject first. After one reply, Accept and Bribe unlock. No Barracks.",
-    "acilis": "I trapped marten and wolf across the Byzantine ridges all autumn. I know every bridle path between here and the Tekfur’s border castles. Grant me entry and I will share what I spied."
+    "not": "Reject, Accept, and Bribe from the start.",
+    "acilis": "I am the vineyard watchman of the lower valley, gatekeeper... They set the vines ablaze, yet I dug up this fine graft shoot from the soil and tucked it into my breast. To one who waits three years in patience, this vine yields honey-sweet grapes. Grant me a slope and a span of earth so I may plant your vineyard."
   },
   {
     "id": "diyalog_17",
     "sinif": "esnaf",
-    "sahne": "A young mother clutching a tightly swaddled infant to her breast leans against the gatepost. The child's feverish whimpering echoes through the dusk; her eyes are red from weeping and road dust.",
+    "sahne": "An itinerant weigher whose brass dirhem weights clink at his sash and who carries a small hand balance in a leather pouch at his breast. The hem of his kaftan is torn and blood oozing from his heel is caked with mud; fine file marks glint upon the brass weights.",
     "sorular": [
       [
-        "Menzil hanında pazar dağıtıldı dedin; handaki kervancıbaşı nerede, terazini kuşağına sokarken hancıyı ya da nöbetçileri görmedin mi?",
-        "Hancı kapıları kilitledi amma kapıyı baltayla kırdılar ağam! Kervancıbaşı malları kurtarmak için atına atlayıp ormana sürdü. Ben dirhemleri ve teraziyi kuşağıma sarıp mutfak bacasından kaçtım.",
+        "You say the market at the waystation khan was scattered; where is the caravan master of the khan, and did you not see the innkeeper or the sentries as you tucked your balance into your sash?",
+        "The innkeeper locked the doors, yet they smashed the gate with axes, master! To save the goods, the caravan master leaped onto his horse and rode into the woods. I wrapped my dirhem weights and balance into my sash and escaped up the kitchen chimney.",
         [
           [
-            "Ver şu dirhemleri elime! Şu beş dirhemlik pirinç kütüğün altı niye eğe ile zımparalanmış? Köylüyü soymak için mi yaptın bunu?",
-            "Ağam... Kadı divanında tartarken bir parça çapak kalmıştı, onu törpüledim! Hile için değil... Yani, bezirganlar kaba tartı kullanırdı, ben hakkı koruyayım dedim! Tamam... İtiraf ederim; o beş dirhem çeyrek zerre eksiktir! Çarşı haracını ödeyemeyince o dirhemi kullanmak zorunda kaldım! Kır o dirhemi ağam! Terazimi alın amma beni köye sokun, adaletle tartayım!",
+            "Hand me those dirhem weights! Why is the bottom of this five-dirhem brass block filed down? Did you do this to rob the villagers?",
+            "Master... When weighing at the judge's court a burr remained on the brass, so I filed it smooth! Not for fraud... That is, the merchants used coarse weights, and I wanted to protect my share! Very well... I confess: that five-dirhem piece is a quarter-grain short! When I could not pay the market extortion tax, I was forced to use that weight! Smash that weight, master! Take my scale if you must, only let me into the village so I may weigh with justice!",
             [
               [
-                "Hileli dirhemi kırdık! Kalan sağlam dirhemlerle köy pazarını dürüstçe tartacaksın!",
-                "Kırın ağam, canıma minnet! Hileli dirhem erisin, boynumdaki vebal kalksın! Sağlam dirhemlerimle köyün tek bir buğday tanesini bile eksik tarttırmam!"
+                "We have smashed the shaved weight! With the remaining sound weights you shall weigh the village market honestly!",
+                "Smash it, master, gladly! Let the crooked weight melt away and lift the sin from my neck! With my true weights I will not let a single grain of wheat in the village be weighed short!"
               ]
             ],
             "hileli_dirhem"
           ],
           [
-            "Topuğun parçalanmış, kan çamura bulanmış... Yürümekte zorlanırsın.",
-            "Taşlık patikadan koşarken mest yarıldı, topuk kemiğime taş battı ağam. Canım yanar amma zanaatın namusu ayak acısından büyüktür. Bir samanlıkta iki gün dinlensem yeter.",
+            "Your heel is torn open and blood is caked with mud... You can barely walk.",
+            "While running up the rocky footpath my leather sock split and a sharp stone pierced my heel bone, master. It burns with pain, yet the honor of a craft is greater than an aching foot. Two days of rest in a hayloft will suffice for me.",
             [
               [
-                "Köyümüzde tuz tüccarı vardır; yarana tuzlu su bastırırız.",
-                "Tuz tüccarı mı? Onun kaya tuzu topuktaki iltihabı söker ağam! Yarayı dağlar, sabahına köyün terazisinin başına geçerim."
+                "We have a salt merchant in our village; we will have salt water pressed to your wound.",
+                "A salt merchant? His rock salt will draw out the inflammation in my heel, master! It will sear the wound clean, and by morning I will take my place at the village scales."
               ]
             ]
           ],
           [
-            "Dün gelen kaya tuzu tüccarını içeri aldık; onun tuz denklerini tartmış mıydın?",
-            "Tuzcu İlyas'ı mı? Evet ağam! Kervan basılmadan evvel tuz çuvallarını benim terazimde tartmıştı! O tuzu getirsin, ben dirhemi koyayım; köylü birbiriyle kuruşu kuruşuna takas yapsın!"
+            "Yesterday we admitted the rock-salt merchant; had you weighed his salt bales?",
+            "Ilyas the salt trader? Yes, master! Before the caravan was raided, he weighed his salt sacks upon my very balance! Let him bring the salt and I will set the dirhem weight, so the villagers may barter penny for penny!"
           ]
         ]
       ],
       [
-        "Bu sakat ayakla pazar yerinde nasıl duracaksın?",
-        "Taşlık patikadan koşarken mest parçalandı, topuğum yarıldı. İki gün bir samanlık köşesinde dinlensem kabuk bağlar. Ayak sakat kalsa da terazi tutan el titremez.",
+        "How will you stand in the marketplace with that crippled foot?",
+        "My leather sock tore while running up the stony trail and my heel split open. If I rest two days in a corner of the hayloft, it will scab over. Even if the foot stays lame, the hand that holds the balance never trembles.",
         [
           [
-            "Pirinç dirhemlerin tam mıdır, kadı mührü durur mu?",
-            "Sancak kadısının mühürlü damgası vardır diğer dirhemlerde ağam! Hileli olanı attık gitti; kalan dirhemlerle hak neyse o çıkar."
+            "Are your remaining brass dirhems full weight, and do they bear the judge's stamp?",
+            "The other weights bear the sealed stamp of the sanjak judge, master! We cast the shaved one away; with the remaining weights, whatever is rightful comes out true."
           ]
         ]
       ],
       [
-        "Yağmacılar peşinden mi geldi?",
-        "Onlar denkleri deşip yünleri savurdular amma beni fark etmediler. Ahırın arkasındaki keçi yolundan tepeye vurdum. Peşimde kimse yoktur."
+        "Did the looters follow behind you?",
+        "They were slashing open the bales and scattering the wool, so they took no notice of me. I struck out up the goat path behind the stable toward the ridge. No one is following me."
       ]
     ],
     "secenekler": [
@@ -472,62 +472,62 @@
       0
     ],
     "yanitlar": {
-      "rusvet": "Take this silver purse; let it be between our two souls. Just lift the latch.",
-      "ret": "Do not turn me away into the freezing night, guard! Have pity on a traveler!",
-      "kabul": "May heaven reward your justice and preserve your threshold!"
+      "rusvet": "Brother guard... Here is a solid cast brass dirhem weight. Melt it down in the market and it fetches a tidy sum of coin. Hook it to your belt and let it be your due—only unbar the gate.",
+      "ret": "With this mangled heel I cannot take a step across the open plain, gatekeeper... I will lean against the awning post and wait, yet if the breath of wolf and jackal touches the back of my neck tonight, I will not forgive my right.",
+      "kabul": "May the scales of justice never waver! I will hold the balance in the village market and let no man cheat another of his due. A just market brings blessing to a village."
     },
-    "not": "Reject first. After one reply, Accept and Bribe unlock. No Barracks.",
-    "acilis": "My baby burns with the chest fever, master... The apothecary Thessra lives in this village, does she not? Let us in before the night frost stops my child's breath!"
+    "not": "Bribe, Reject, and Accept from the start.",
+    "acilis": "I am a weigher who travels the highlands weighing wool and dyer's madder, gatekeeper... When the market at the waystation khan was broken up, I tucked my balance into my sash and bolted up the mountain. The scale weighs true, and when the hand holding it is honest, the market finds abundance. If you have a market, you have need of me."
   },
   {
     "id": "diyalog_18",
     "sinif": "ciftci",
-    "sahne": "A brisk, determined young woman accompanied by a pack-pony laden with empty wooden brine tubs halts at the gate. Her leather apron smells strongly of lime and sumac bark.",
+    "sahne": "On his back he carries a coarse mortar shovel with an iron blade. His fingertips are cracked and scabbed from lime burn; a fresh bruise from a falling stone stands out on his right shoulder, and his voice rumbles loud and fierce like a trench wind.",
     "sorular": [
       [
-        "Şantiye basılınca küreği kapıp menfezden kaçtım dedin; omzundaki o koca morluk kaçarken taş çarpması mıdır, yoksa kale dizdarının sopası mı?",
-        "Kaçarken sur bedeninden bir köşe taşı koptu ağam. Taşı kendi ellerimle dizmiştim; meğer harcı eksik vurmuşlar, taş kaydı omzumu ezdi. Lakin dizdarın sopası da az değildi hani; harçtan çalanları gördük diye az tehdit yemedik.",
+        "You say you grabbed your shovel and escaped through the culvert when the worksite was raided; is that huge bruise on your shoulder from a falling stone as you fled, or from the castle warden's cudgel?",
+        "As I fled, a cornerstone broke loose from the rampart face, master. I had laid that stone with my own hands; it turned out they had stinted the mortar, so the stone slipped and crushed my shoulder. Yet the warden's cudgel was no light matter either—we took plenty of threats because we saw those who stole from the mortar.",
         [
           [
-            "Duvar durup dururken çökmez! Kale dizdarının harçtan kireç ve taş çaldığını gördün de seni susturmak için dövdüler, değil mi?",
-            "Nereden bildin muhafız? Evet! Dizdar kireci kendi bağına taşıttı, surun dibine çürük moloz doldurttu! 'Bu duvar ilk mancınıkta göçer' dedim diye sırtıma kalasla indirdiler! Hendeğe attılar beni! Ben de o hendeğin su menfezinden sürünerek kaçtım! Bu köyün surları da ahşaptandır; harcı bilmeyen iki güne kalesiz kalır!",
+            "A wall does not collapse by itself! You saw the castle warden stealing lime and dressed stone from the mortar, and they beat you to silence you, did they not?",
+            "How did you know, gatekeeper? Yes! The warden had the lime hauled to his own vineyard and stuffed rotten rubble into the base of the rampart! Because I said, 'This wall will cave in at the first trebuchet stone,' they brought a timber beam down across my back and threw me into the moat! I crawled out through the water culvert of that moat! This village's palisade is made of wood too; he who knows not mortar is left without a fortress in two days!",
             [
               [
-                "Hakikati söyleyen ırgatın yeri başımızın üstüdür. Köyümüzün ahşap suruna taş temel çekebilir misin?",
-                "Taş temel benim işimdir ağam! Kazık diplerine öyle bir kireçli harç dökerim ki, Moğol koçbaşı vursa kazık oynamaz! Yeter ki bana taşla kireç temin edin!"
+                "A laborer who speaks the truth is welcome among us. Can you lay a stone foundation beneath our village's wooden palisade?",
+                "Stone foundations are my trade, master! I will pour such lime mortar around the base of the stakes that even if a Mongol battering ram strikes, the timber will not budge! Just provide me stone and lime!"
               ]
             ],
             "rusvetci_dizdar_tanigi"
           ],
           [
-            "Parmak uçların kireç yanığından çatlamış, kan damlar... Canın acımaz mı?",
-            "Irgatın eli kireç görmezse nasır tutmaz ağam! Yanar amma hissetmem gayrı. Bir kova su verin kirecimi yıkayayım; kuru ekmeğe razıyım, başımı sokacak bir siper verin.",
+            "Your fingertips are cracked from lime burn and dripping blood... Does it not hurt?",
+            "If a laborer's hand does not touch lime, it never grows calloused, master! It burns, yet I feel it no longer. Give me a bucket of water to wash off the lime; I am content with dry bread and a trench to shelter my head.",
             [
               [
-                "Köyümüzde kireç kuyuları vardır; işinin başına geçebilirsin.",
-                "Kireç kuyularını kendi ellerimle temizlerim! Sönmemiş kirece su verip kaynatırım; surun harcı taş gibi donar."
+                "We have lime pits in our village; you can take up your work.",
+                "I will clean out the lime pits with my own hands! I will slake the quicklime with water and boil it so the rampart mortar sets hard as rock."
               ]
             ]
           ],
           [
-            "Önceki gün kemankeş bir okçuyu kuleye aldık; siperlerin zayıflığından yakınıyordu.",
-            "Kuledeki kemankeş doğru demiş ağam! Mazgalın altı boşluktadır; iki süvari asılsa mazgal çöker. O oku atsın, ben mazgalın altına taş öreyim! İkimiz suru çelik gibi tutarız."
+            "Yesterday we admitted a bowman to the tower; he complained of the weakness of the parapets.",
+            "The bowman on the tower spoke true, master! The base beneath the crenel is hollow; if two horsemen pull at it, the parapet will give way. Let him shoot the arrows, and I will lay stone beneath the parapet! Together we two will hold the wall like steel."
           ]
         ]
       ],
       [
-        "Köyün suru ahşap kazıktandır; taş duvarcı ne iş yapar burada?",
-        "Ahşap kazık ateşe bakar muhafız! Kazıkların dibine taş temeli, kireçli dolguyu kim çekecek? Kapı eşiğini taştan yapmazsan süvari atı kırar geçer. Bana kürek verin, köyün etrafını siperle çevireyim.",
+        "Our village wall is built of wooden stakes; what work is there for a stonemason here?",
+        "Wooden stakes are at the mercy of fire, gatekeeper! Who will lay the stone footing and lime fill around the base of the stakes? If you do not build the gate threshold of stone, cavalry horses will smash right through. Give me a shovel, and I will ring the village with trenches.",
         [
           [
-            "Kireç yanığı ellerinle kürek sallayabilir misin?",
-            "Irgatın eli kireç görmezse nasır tutmaz ağam! Yanar amma hissetmem gayrı. Çamuru harçla yoğurur, hendeğin en zayıf yerini iki günde kale gibi berkitirim."
+            "Can you swing a shovel with hands burned raw by lime?",
+            "If a laborer's hand never sees lime, it never forms calluses, master! It stings, yet I pay it no mind. I will knead mud with mortar and fortify the weakest stretch of the moat like a fortress in two days."
           ]
         ]
       ],
       [
-        "Kışlaya katılıp hendek kazar mısın?",
-        "Kışlanın hendeğini kazmak benim boynumun borcudur. Hangi toprak çöker, nereye kurt kapanı kazılır hendekçi iyi bilir. Askerin canını siper korur."
+        "Will you join the barracks and dig trenches?",
+        "Digging the barracks moat is my bounden duty. A trench-digger knows well which soil caves in and where to dig a wolf-pit. It is the breastwork that saves a soldier's life."
       ]
     ],
     "secenekler": [
@@ -541,62 +541,62 @@
       0
     ],
     "yanitlar": {
-      "kabul": "May heaven reward your justice and preserve your threshold!",
-      "kisla": "I report to the garrison captain at once. My blade is yours.",
-      "ret": "Do not turn me away into the freezing night, guard! Have pity on a traveler!"
+      "kabul": "Bless you, gatekeeper. I will sit on a stone and hold my shovel across my knees. Let me find a bowl of water to wash off the lime, and at first light I will be at the foot of the wall.",
+      "kisla": "Send me straight to the barracks! I will show you which side of the trench is loose, reset the collapsed stones, and dig breastworks for the guards.",
+      "ret": "I will climb down into the dry bottom of the ditch before the gate and lean on my shovel. If a wolf comes by night I will meet it with the iron blade, yet if this village's rampart collapses you will remember me."
     },
-    "not": "Reject first. After one reply, Barracks unlocks. After two replies, Accept unlocks. No Bribe.",
-    "acilis": "I am Rahime, daughter of the tanner in the lower valley. We have thirty bull hides soaking in the vats that will spoil unless we procure rock salt before sunset. Let me into the bazaar."
+    "not": "Accept, Barracks, and Reject from the start.",
+    "acilis": "I am a laborer who hauls stone and mixes mortar in the castle moat, gatekeeper... The worksite was raided; when horsemen lined the edge of the ditch, I grabbed my shovel and ran up through the culvert. My hands are split from lime, yet my body is hard as stone; I have come to build up your rampart and granary."
   },
   {
     "id": "diyalog_19",
     "sinif": "esnaf",
-    "sahne": "A young boy of twelve winters, wearing an oversized sheepskin vest and patched wool trousers, stands clutching an iron buckle in his palm. His chin quivers, yet he refuses to lower his eyes.",
+    "sahne": "A hornbeam rolling pin hangs from his neck by a cord, and on his back he carries a dough trough carved from thick ash wood. His flour-dusted tunic clings to his chest with sweat, and a deep friction scrape marks his elbow; the sweet, tangy scent of sourdough starter wafts from his trough.",
     "sorular": [
       [
-        "Fırına atlılar dalınca hamur teknesiyle un bacasından fırladım dedin; o daracık bacadan koca tekneyi nasıl geçirdin, arkandaki un çuvallarına ne oldu?",
-        "Babamdan kalma gürgen teknedir ağam, eni dar boyu uzuncadır. Bacayı un tozu tıkanmasın diye geniş örmüştük. Çuvalları çapulcular parçaladı, unlar dumana karıştı; ben tekneyi çekip çatıdan samanlığa atladım.",
+        "You say when horsemen burst into the bakery you leaped out the flour chute with your dough trough; how did you fit a huge trough through that narrow chimney, and what became of the flour sacks behind you?",
+        "It is a hornbeam trough left by my father, master—narrow in width and long in body. We had built the chute wide so flour dust would not clog it. The looters ripped open the sacks and the flour mingled with smoke; I pulled the trough through and jumped from the roof into the hayloft.",
         [
           [
-            "Teknenin dibindeki un kalıntısı siyahlaşmış; zehirli çavdar mahmuzu mudur o? Köylüyü zehirlemeyesin!",
-            "Kurban olayım deme öyle ağam! Zehirli çavdar değil, çörekotuyla kavrulmuş kara buğday mayasıdır bu! Kırk yıllık ocağın ekşi mayasıdır! Bu mayayı bir kile una katsan, sabaha kabaran hamur bütün köyün meydanına buram buram ekmek kokusu yayar! Aç karnına yiyenin ciğeri bayram eder!",
+            "The flour residue at the bottom of your trough has turned black; is that poisonous ergot of rye? Do not poison the villagers!",
+            "I beg you do not say so, master! That is no poisoned rye—it is buckwheat sourdough starter roasted with black cumin! It is the forty-year-old sour starter of our hearth! Mix this starter into a bushel of flour, and by morning the rising dough will fill the whole village square with the fragrance of bread! Whoever eats of it on an empty stomach will feel his lungs rejoice!",
             [
               [
-                "Ekmek kokusu köylünün moralidir. Köyün fırın ocağını yeniden yakabilecek misin?",
-                "Yakarım ağam! Köyün çay taşlarından nar gibi bir tandır kurarım; askere de üç ay bozulmayan sefer peksimeti dökerim!"
+                "The scent of bread is the morale of the villagers. Can you relight the village bakery oven?",
+                "I will light it, master! From the river stones of the village I will build a glowing tandoor, and for the soldiers I will bake campaign hardtack that keeps for three months without spoiling!"
               ]
             ],
             "zehirli_un_suphesi"
           ],
           [
-            "Dirseğin sıyrılmış, unlu mintanın terden sırtına yapışmış... Yorgun düşmüşsün.",
-            "Damdan samana atlarken duvara sürttüm ağam; fırıncının canı hamur teknede kalınca acı hissetmez. Bir kase sıcak aş verin, sabahına ilk somunu fırından çıkarıp kapınıza getireyim.",
+            "Your elbow is scraped raw and your floury tunic clings to your back with sweat... You are worn out.",
+            "I scraped it against the wall while jumping from the roof into the hay, master; so long as a baker's soul stays with his dough trough, he feels no pain. Give me a bowl of hot broth, and by morning I will pull the first loaf from the oven and bring it to your gate.",
             [
               [
-                "Köyümüzde un ambarımız Saruca Hatun'un idaresindedir.",
-                "Saruca Hatun'un bereketini bilirim! Onun ununu tekneme alırım, tek bir kepek tanesini bile ziyan etmeden köye bereket saçarım."
+                "In our village the flour granary is under the stewardship of Saruca Hatun.",
+                "I know the blessing of Saruca Hatun! I will take her flour into my trough and spread abundance through the village without wasting a single flake of bran."
               ]
             ]
           ],
           [
-            "Önceki gün sabanı kırık bir çiftçiyi içeri aldık; arpa tohumunu kurtarmıştı.",
-            "Arpacı İdris Amca'yı mı? Ah ağam, onun arpasını değirmende öğütelim, ben de arpa unundan köylüye kış çöreği dökeyim! İkimiz köyü aç bırakmayız!"
+            "Yesterday we admitted a farmer with a broken plow who had saved his barley seed.",
+            "Uncle Idris the barley-grower? Ah, master, let us grind his barley at the mill, and from the barley flour I will bake winter loaves for the villagers! Together we two will never let the village go hungry!"
           ]
         ]
       ],
       [
-        "Köyün unu kıttır, kış yakındır. Ekmekçi ambarı kurutmasın?",
-        "Usta fırıncı un tüketmez, undan bereket çıkarır muhafız! Kepeği ayırmadan tam buğday yoğururum, askerin peksimetini öyle pişiririm ki üç ay bayatlamaz. Bir avuç undan on canı doyururum.",
+        "The village flour is scarce and winter is near. Will a baker not drain the granary dry?",
+        "A master baker does not waste flour—he draws abundance out of flour, gatekeeper! Without sifting away the bran I knead whole wheat, and I bake soldiers' hardtack so well that it does not go stale for three months. From a single handful of flour I feed ten souls.",
         [
           [
-            "Dirseğindeki o kanlı yara bacadan düşerken mi oldu?",
-            "Damdan ahırın samanlığına atlarken duvara sürttüm ağam. Kemik sağ salimdir. Fırıncının eli hamur tutsun, dirsek acısı iki somun pişince unutulur."
+            "Did you get that bloody scrape on your elbow while falling down the chute?",
+            "I grazed the wall while leaping from the roof into the stable hayloft, master. The bone is sound. So long as a baker's hand kneads dough, an aching elbow is forgotten once two loaves are baked."
           ]
         ]
       ],
       [
-        "Ocak kuracak tuğlan var mıdır?",
-        "Köyün çay taşlarından tandır kurarım, çamurla sıvarım. İki güne tandır nar gibi kızarır. Köy halkı sıcak somun yüzü görür."
+        "Do you have bricks to build an oven?",
+        "I will build a tandoor from the river stones of the village and plaster it with clay. Within two days the tandoor will glow red-hot, and the village folk will see the face of warm bread."
       ]
     ],
     "secenekler": [
@@ -610,62 +610,62 @@
       0
     ],
     "yanitlar": {
-      "ret": "Do not turn me away into the freezing night, guard! Have pity on a traveler!",
-      "rusvet": "Take this silver purse; let it be between our two souls. Just lift the latch.",
-      "kabul": "May heaven reward your justice and preserve your threshold!"
+      "ret": "I will hold the trough over my head as a shield and curl up beneath the awning. The frost will scatter my flour, yet I will guard my life. When the gate opens in the morning, I will seek my fortune again...",
+      "rusvet": "Master... I have two pieces of fine dry biscuit baked with fragrant black cumin that I saved from the oven. Crumble them into your soup for flavor. Put them in your pouch and draw back the bolt.",
+      "kabul": "May your hearth never know sorrow! By the edge of the hayloft I will set the trough beneath me and rest. Tomorrow morning give me the first flour from Saruca Hatun's granary, and I will set the tandoor smoking."
     },
-    "not": "Reject first. After one reply, Accept and Bribe unlock. No Barracks.",
-    "acilis": "My father wore a green turban and carried a silver-inlaid belt buckle like this one. He came to your gate four days ago and never returned to our tent. Did you let him inside, guard effendi?"
+    "not": "Reject, Bribe, and Accept from the start.",
+    "acilis": "I am the baker of the waystation khan, gatekeeper... When horsemen burst into the bakery and looted the pantry, I shouldered my dough trough and leaped out through the flour chute. My trough is on my back, my rolling pin around my neck... Give me a bushel of flour, and by morning I will fill the village square with the warm scent of fresh bread."
   },
   {
     "id": "diyalog_20",
     "sinif": "esnaf",
-    "sahne": "A stout merchant leading three pack mules laden with heavy salt sacks approaches the barrier. The white crust of lake salt coats the burlap bags and his own thick beard.",
+    "sahne": "Long farrier's pincers and a pair of iron horseshoes hang from his leather belt. His tunic is soaked in forge soot and sweat; his left heel is bound with a torn, soiled cloth stained with mud and clotted blood, and a notched brand upon the horseshoes gleams ominously.",
     "sorular": [
       [
-        "Aygır zincirini kırdı, nal çivisi topuğuma girdi dedin; ayağına çivi batmış bir adam o hendek menfezinden nasıl geçti, haramiler seni neden vurmadı?",
-        "Dişimi sıktım, kerpetenle çiviyi asılıp çıkardım ağam! Üstüne at tersiyle çamur bastım ki kan dursun. Haramiler aygırın peşine koştu, nalbant çırağının topal kaçışına kimse bakmadı. Kayalıklarda sürüne sürüne kapınıza vardım.",
+        "You say the stallion snapped its chain and a horseshoe nail pierced your heel; how did a man with a nail in his foot crawl through that moat culvert, and why did the brigands not shoot you?",
+        "I clenched my teeth and yanked the nail out with my pincers, master! Then pressed mud and horse dung over it to staunch the blood. The brigands chased after the stallion, and no one looked twice at a limping farrier's apprentice. Crawling over the crags, I reached your gate.",
         [
           [
-            "Palaskandaki şu çifte nalda Kızıl Karga haramilerinin üç çentikli damgası var! Eşkıyanın atlarını nallayan usta mısın sen?",
-            "Ağam... Boynuma kılıç dayadılar! Karaboran geçidinde kervanı kestiler; 'Ya atlarımızın tırnağını düzeltirsin ya da seni kuyuya atarız' dediler! Nalladım evet... Can havliyle nalladım! Amma son aygırın tırnağına çiviyi bilerek eğri çaktım ki at tökezlesin! O aygır huysuzlanınca çivi benim topuğuma fırladı! Hain değilim ağam, eşkıyanın atını sakatlayıp kaçtım!",
+            "That pair of horseshoes at your belt bears the three-notched brand of the Red Crow brigands! Are you the smith who shoes the outlaws' horses?",
+            "Master... They pressed a sword to my throat! In the Karaboran pass they cut off the caravan and told me, 'Either trim and shoe our horses' hooves or we throw you down the well!' Yes, I shod them... In fear for my life I shod them! Yet into the hoof of the last stallion I purposely drove the nail crooked so the mount would stumble! When that stallion reared up, the nail flew into my own heel! I am no traitor, master—I lamed the outlaw chief's horse and escaped!",
             [
               [
-                "Eşkıyanın atını sakatladıysan kışlanın dizdarı seni dinlemek ister.",
-                "Götürün beni dizdara ağam! Haramilerin atlarının kaçı aksar, hangi patikadan gelirler harita üstünde bir bir anlatayım! Palaskamdaki nallar da delildir!"
+                "If you lamed the outlaw's mount, the warden of the barracks will want to hear you.",
+                "Take me to the warden, master! I will show upon the map how many of the brigands' horses are limping and which footpath they will take! The horseshoes at my belt are the proof!"
               ]
             ],
             "harami_ati_nali"
           ],
           [
-            "Topuğundaki çamurla kurumuş kan kangren kokar... Hemen şifahaneye gitmen gerek.",
-            "Canım burnumda ağam... Basamıyorum gayrı. Miraen Hatun'un şifahanesinde yarayı temizlettirin, tuzlu su bastırın. İki güne ayağa kalkar, koca köyün bütün hayvanlarının tırnağını elden geçiririm.",
+            "The mud and dried blood on your heel reek of gangrene... You must go to the infirmary at once.",
+            "My life is at my lips, master... I can no longer tread upon it. Have the wound cleansed and steeped in salt water at Miraen Hatun's infirmary. In two days I will stand on my feet and tend to the hooves of every beast in the village.",
             [
               [
-                "Köyümüzde yük katırları ve saban öküzleri nalsız bekler.",
-                "Hilal nal dökerim ağam! Çatal tırnaklı öküzün ayağını taş gibi yaparım; saban çekerken hayvan tökezlemez."
+                "In our village pack mules and plow oxen wait unshod.",
+                "I forge crescent shoes, master! I make the cloven hooves of oxen hard as stone so the beast never stumbles while pulling the plow."
               ]
             ]
           ],
           [
-            "Dün kulesi basılan borazancıyı kışlaya aldık; harami süvarilerinin yaklaştığını söylemişti.",
-            "Kule borazancısını mı? Doğru demiş ağam! O süvarilerin öndeki üç atı nalsızlıktan çatlamak üzereydi; arkalarından gelen bölük iki güne bu vadiye iner. Atları nallayalım ki süvarimiz hazır olsun!"
+            "Yesterday we admitted the bugler whose tower was raided into the barracks; he warned that brigand horsemen were approaching.",
+            "The tower bugler? He spoke true, master! The three lead horses of those riders were about to split their hooves from lack of shoes; the troop trailing behind them will descend into this valley within two days. Let us shoe our horses so our cavalry stands ready!"
           ]
         ]
       ],
       [
-        "Köyümüzde at azdır, öküzle katır çoktur. Onları da nallar mısın?",
-        "Katırın tırnağını düzeltir, öküzün çatal tırnağına hilal nal çakarım muhafız! Tırnağı çürüyen hayvan yük çekemez. Nalbant yalnız ata değil, koca köyün yük hayvanına bakar.",
+        "We have few horses in our village, but many oxen and mules. Do you shoe them as well?",
+        "I trim the mule's hoof and nail crescent plates to the cloven hoof of the ox, gatekeeper! A beast whose hoof rots cannot haul a load. A farrier tends not to horses alone, but to the draft beasts of the entire village.",
         [
           [
-            "Palaskandaki nallarda garip bir damga var, kimin atıydı o?",
-            "Kervanbaşına ait has Arap atıydı ağam. Nalın üstündeki damga Şam kervanının alametidir. Çalıntı değil, kendi dövdüğüm naldır."
+            "There is a strange brand on the horseshoes at your belt; whose horse was that?",
+            "It belonged to the caravan master's thoroughbred Arabian mount, master. The mark upon the shoe is the token of the Damascus caravan. It is not stolen, but a shoe of my own forging."
           ]
         ]
       ],
       [
-        "Kışlanın süvarilerine pusat ve nal yardımı eder misin?",
-        "Kışlanın ahırına girerim! Süvari atının tırnağı sağlam olmazsa er meydanında at tökezler, süvariyi düşürür. Bütün atları elden geçiririm."
+        "Will you aid the barracks cavalry with weapons and horseshoes?",
+        "I will enter the barracks stable! If a cavalry mount's hoof is not sound, the horse stumbles on the field of battle and throws its rider. I will inspect every mount."
       ]
     ],
     "secenekler": [
@@ -679,11 +679,11 @@
       0
     ],
     "yanitlar": {
-      "kisla": "I report to the garrison captain at once. My blade is yours.",
-      "kabul": "May heaven reward your justice and preserve your threshold!",
-      "ret": "Do not turn me away into the freezing night, guard! Have pity on a traveler!"
+      "kisla": "Send me straight to the barracks stable! Let me inspect the hooves of the castle mounts and nail on the cast shoes. The cavalry's steeds will stay sound and never fail them mid-campaign.",
+      "kabul": "I will crouch at the foot of the hay pile beside the stable, have Miraen Hatun bind my heel, and not stir till morning. Without burdening anyone, I will tend to my work.",
+      "ret": "With this pierced foot I cannot take a step across the open steppe, gatekeeper... I will sit upon the threshold holding my pincers in my lap, yet if horsemen raid by night my blood will remain upon your gate."
     },
-    "not": "Reject first. After one reply, Barracks unlocks. After two replies, Accept unlocks. No Bribe.",
-    "acilis": "Finest rock salt from the great lake! Pure white crystals that keep mutton sweet through the harshest winter. A village without salt faces rot, muhafiz. Let my mules into the yard."
+    "not": "Barracks, Accept, and Reject from the start.",
+    "acilis": "I am an itinerant farrier of the caravan roads, gatekeeper... While shoeing a stallion at the waystation a raid broke out; the horse snapped its chain and trampled my heel, driving a horseshoe nail into my flesh. Hooking my pincers and this pair of shoes to my belt, I escaped through the moat culvert. If you have mounts, let them not go unshod—open the gate."
   }
 ]

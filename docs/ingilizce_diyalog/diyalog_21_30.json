@@ -266,8 +266,16 @@
             "I will not enter the village, master! I know of the lime kiln beside the outer wall; lock me in the abandoned shepherd's shack there! Bolt the door from without, and merely pass me a cup of water and a bowl of milk from afar! Save my baby, and I am ready to breathe my last in that shack!",
             [
               [
-                "We will light a fire in the kiln shack and bring warm soup to you from a distance; the child we entrust to a wet nurse. Do you accept?",
-                "(Weeping, she kisses the bundle) I accept, master... A thousand times I accept! If only my babe may live; may a mother's blessing shield your village forever!"
+                "We shall kindle a fire in the lime kiln and have Miraen prepare sulfur and sage; until the infant's fever breaks you shall not leave quarantine!",
+                "May Heaven reward your mercy, gatekeeper! If my child rises to health through Miraen Hatun's medicine and your prayers, I shall be your servant across two worlds!",
+                [],
+                "veba_kirec_karantina_basarili"
+              ],
+              [
+                "We shall kindle a fire in the lime kiln, yet in this freezing frost I know not if the infant's frail chest can endure the fever; we cannot permit plague into the village!",
+                "My babe shivers in my arms, sentry... The frost cuts through to the bone. What Heaven decrees shall pass; though you keep us at the kiln, our lament will not cease this winter...",
+                [],
+                "sabi_vefati_kis_matemi"
               ]
             ]
           ],
@@ -332,7 +340,9 @@
     "yanitlar": {
       "ret": "(Tears pour from her eyes as she clutches the swaddling to her heart) We shall settle this before Heaven's throne, gatekeeper... Let my child's blood be written upon your portal. I go to freeze in the snow...",
       "kabul": "May God keep the blade you bear noble across two worlds, gatekeeper! Give my child to the nurse... I shall rest my head upon stone by the lime kiln and die praying for your people...",
-      "harc": "This warm blanket and loaf will give my baby a few hours of life, gatekeeper... Yet the frost is merciless. As your watch ends, my spirit will rise to the heavens..."
+      "harc": "This warm blanket and loaf will give my baby a few hours of life, gatekeeper... Yet the frost is merciless. As your watch ends, my spirit will rise to the heavens...",
+      "kabul_sifa": "May Heaven accept your compassion, sentry! With the fire in the lime kiln and Miraen Hatun's cure my babe's fever broke; my swaddle smiles once more! May this village's hearth smoke forever!",
+      "kabul_kayip": "You shut us in the lime pit, gatekeeper... The sickness did not breach your walls, yet at dawn my child's icy breath failed! May your stone walls dry up, you took my babe in this bitter frost!"
     }
   },
   {
@@ -514,14 +524,15 @@
         "Driven out?! What slander, sentry! The chief judge drowned in bribery; with forged seals he transferred freeholders' land to Mongol viziers! When I inscribed the truth and entered a dissenting decree into the court register, they sought my life! The endowment deeds in my chest bear the cipher of the Seljuk Sultan; I came to prove the ancient tenure rights of this very village!",
         [
           [
-            "Our village recorder is Hasan Celebi; no man disputes the deeds stamped with his seal! Do you have the audacity to face him before the council?",
-            "Hasan Celebi?! He is an untrained copyist, sentry! He cannot decipher ancient Sultanic decrees nor historical endowment rolls! Bring me before the Divan; I shall register the village boundaries in golden script into the judicial rolls and slash your tribute to the Beylik in half!",
+            "Our village scribe is Hasan Celebi; no one in this village can contest the deeds he seals! I will bring you before the Council under the Plane Tree, and all the village shall witness your counterfeit seals!",
+            "The Council?! Slander, sentry! If I do not maintain those registers, the Tekfur will double the tribute tomorrow! Yet I do not fear the truth—bring me before the council!",
             [
               [
-                "If you scribes seize each other's throats in council, I will have you both caned in the marketplace, scribe!",
-                "Men of learning do not brawl, gatekeeper; the reed pen speaks, the sealed deed decides! I shall sit beside Hasan Celebi and bring true justice to this settlement!"
+                "Judgment is rendered, Molla Sukru. He who usurps rights with counterfeit seals has no place under this plane tree. Your charter shall be burned, and you shall sweat at the bellows of Karaca Usta's smithy!",
+                "Mercy, guard! Shall fingers that held the reed pen strike the anvil?! I submit... Spare my life, and I will pump the bellows to expiate my sin!"
               ]
-            ]
+            ],
+            "meclis_sukru_mahkeme_edildi"
           ],
           [
             "A brass seal handle protrudes from the leather purse at your sash; rumors say you stole the court seal of the judge when fleeing! Is that true?!",
@@ -583,7 +594,7 @@
     ],
     "yanitlar": {
       "ret": "There is no place for scholarship among the ignorant anyway! When Hasan Celebi ruins your village with fraudulent registers, you will remember the worth of Molla Sukru!",
-      "kabul": "May the gate of justice stand open, sentry. Let me set my chest in the council pavilion; by tomorrow I shall bring the village census rolls into pristine order.",
+      "kabul": "I surrendered not a sword in its scabbard, but my inkstand to the council, guard. The counterfeit seal is exposed, yet my head is bowed; I shall work the smithy bellows and repay my debt to the people!",
       "harc": "This travel allowance will suffice for a night at an inn... Yet mark my words: Hasan Celebi's falsehoods will consume this village."
     }
   },
@@ -608,15 +619,15 @@
             ]
           ],
           [
-            "You claim you have fifty horsemen behind you; where are they? Or do you keep mountain brigands in ambush to sack the village?!",
-            "My companions are no brigands; they are Turkmen alperen warriors! They wait in the ravine for vengeance for my brother; a single whistle from me would fill this defile with riders! Yet I bear no enmity toward this village; let my brother's blood not remain unavenged, and those fifty horsemen will serve as a shield along your borders!",
+            "You claim you have fifty horsemen behind you; where are they? If the swords of your riders stay sheathed, the bread and water of this village shall be freely given to them, Banu Hatun. Along the frontier you will fend off Tekfur's patrols and guard our storehouse.",
+            "Our word is carved in stone, Gatekeeper! Fifty blades will draw an iron ring around this village tonight. Yet the troop must be fed; we demand our due from the granary. My word is my oath!",
             [
               [
-                "If fifty horsemen descend upon our gates in winter, our granary will collapse; can you order them back to their highlands?",
-                "They feed on mountain game, sentry! They demand not a single crust of village bread; all winter long they will deny passage to any outlaw!"
+                "We shall apportion your share from the village granary; you shall pitch your camp in the valley grove and become a shield upon our border. Agreed?",
+                "Agreed, gatekeeper! Fifty Turkmen riders will hold the valley defile tonight; not a single brigand shall slip across this border even as a bird!"
               ]
             ],
-            "banu_hatun_atli_guvencesi"
+            "banu_ittifak_kabul"
           ],
           [
             "You will stand before a champion like Aydogdu Bey; his scales of justice are finer than a hair.",
@@ -667,7 +678,7 @@
     ],
     "yanitlar": {
       "ret": "So you shield the thief rather than justice! Await the smoke descending from the crags tomorrow night, gatekeeper; I will pluck that smith's head from your ramparts!",
-      "kabul": "I have entrusted my blade, sentry. It is time for reckoning; if you are just, your village prospers.",
+      "kabul": "With my saber sheathed and my 50 blades in the grove, I place them at your command, sentry! We will take our share from your granary and serve as a shield to your ramparts. Let Karaca Usta repay his father's blood debt by sharpening our blades; if you are just, your village prospers!",
       "kisla": "Very well; I will lodge in your barracks. But let no man test my patience; my saber strikes like mountain lightning."
     }
   },

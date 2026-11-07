@@ -919,3 +919,27 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - Ahmet'in çalışma kopyası (`Kapı_Muhafizi`) ff-only ile güncellendi.
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_19.md` son satırı `GOREV19_TAMAM` ile mühürlendi.
 - **Kota:** Görünmüyor.
+
+## 7 Kasım 2026 — Görev 18: Uzun Diyalog, Usta Defterleri, Dünya Çizelgesi ve İngilizce Bütünlük Oturumu
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Hedef Dal:** `claude/festive-volta-li1sfm` (Ahmet / Muharrir onaylı fast-forward push)
+- **Ne Yapıldı:**
+  1. **Parti 1 — `KAP-18` (Yetimler ve Dulların Hikâye/Söz Paketleri, `59b443d5`):**
+     - `data/soz/yetim_kafilesi.json` ve `data/soz/en/yetim_kafilesi.json` oluşturuldu (Hacer Bacı, Elif ve İlyas için kapı yakarışı, ret feryadı, yetimhane kabul sevinci, hane evlat edinme duaları ve DYL-08 fısıltı gazetesi haberleri).
+     - `data/metin/metinler.csv` içine `kap18.yetim.*` anahtarları eklendi; `tests/unit/diyalog/kap18_yetim_metinleri_test.gd` 0 hatayla geçti ve `ROADMAP_2.md` güncellendi.
+  2. **Parti 2 — `YAP-03, YAP-24, YAP-28, YAP-29` (Usta Katalogları, Kapı Pazarlıkları ve Çırak Metinleri, `710e9b1e`):**
+     - `data/ustalar.json` (4 tarihsel usta: Sinan Kalfa, Mihali Usta, Tuğrul Usta, Evhad Çelebi) ve `data/soz/usta_*.json` (TR & EN kapı pazarlık ağaçları) oluşturuldu.
+     - `data/metin/metinler.csv` içine `yap03.usta.*`, `yap28.cirak.*` ve `yap29.usta.nobet_ret` anahtarları eklendi; `tests/unit/diyalog/ustalar_metin_test.gd` 0 hatayla geçti ve `YAP-24` `[x] (Antigravity)` olarak kapatıldı.
+  3. **Parti 3 — `YAP-04, YAP-37, YAP-51` (Usta Defterleri, Karar Dönüşü ve Özel Eşyalar, `0db7fed3`):**
+     - `data/usta_defterleri.json` içine `defter_metinleri` (TR/EN sahife, ipucu, resim başlığı ve `YAP-37` dönüş anahtarları) eklendi; `src/soz/karar_donusu.gd` ve `tests/unit/soz/karar_donusu_test.gd` `defter_id` desteğiyle genişletildi (`YAP-37`).
+     - `data/ozel_esyalar.json` (8 tarihsel özel eşya, `YAP-51`) oluşturuldu ve `data/metin/metinler.csv` içine `yap04.defter.*`, `yap04.resim.*`, `yap37.donus.*`, `esya.ozel.*` anahtarları eklendi.
+     - `tests/unit/diyalog/ozel_esyalar_ve_defter_metin_test.gd` 0 hatayla geçti; `YAP-37` ve `YAP-51` `ROADMAP_2.md`'de `[x] (Antigravity)` olarak kapatıldı.
+  4. **Parti 4 — `DNY-01 – DNY-04` (Dünya Zaman Çizelgesi, Söylenti/Haber Replikleri ve Elçi Karar Dönüşleri, `2af64068`):**
+     - `data/dunya/zaman_cizelgesi.json` ve `data/dunya/en/zaman_cizelgesi.json` (6 sıralı dünya olayı, her söylenti ve haber evresinde 2 ayrı karakter sesi `DNY-02`, tek kapı + gece raporu hedefi `DNY-03`, 3 büyük karar dönüşü `DNY-04`) oluşturuldu.
+     - `data/metin/metinler.csv` içine `dunya.olay.*`, `dunya.haber.*`, `dunya.rapor.*`, `dunya.donus.*` anahtarları eklendi; `tests/unit/diyalog/dunya_cizelge_metin_test.gd` 0 hatayla geçti ve `ROADMAP_2.md` güncellendi.
+  5. **Parti 5 — İngilizce Diyalog ve Metin Bütünlük Denetimi:**
+     - `data/diyalog/en/diyalog_01_20.json` içinde kalan 19 ziyaretçi (`diyalog_02`..`diyalog_20`) eksiksiz İngilizceye çevrildi; `docs/ingilizce_diyalog/` altındaki taslak dosyaları senkronize edildi.
+     - `data/metin/metinler.csv` içinde kalan 17 Türkçe `en` hücresi İngilizceye çevrildi.
+     - `docs/DENETIM_6KASIM.md` denetim raporu oluşturuldu (`dogrula_ingilizce_taslak.py`: 0 hata, 0 uyarı; `metin_dogrula.py --kaynak`: PASS; `soz_dogrula.py`: PASS; `soz_tasarimi_dogrula.py`: PASS).
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_18.md` son satırı `GOREV18_TAMAM` ile mühürlendi.
+- **Kota:** kota görünmüyor
