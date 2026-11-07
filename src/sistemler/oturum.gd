@@ -127,8 +127,11 @@ func gece_kuyrugu() -> Array[Gelen]:
 	var uygun := preload("res://src/sistemler/tehdit_takvimi.gd").adaylar(gun, kadro.uygunlar(gun))
 	var sonuc: Array[Gelen] = []
 	for i in sayi:
+		var indeks := -1
 		if not uygun.is_empty() and _rng.randf() < ayarlar.adli_olasiligi:
-			var id: StringName = uygun.pop_at(GuvenlikKafileDengesi.adli_indeks(self, uygun))
+			indeks = preload("res://src/sistemler/omurga_suzgeci.gd").adli_indeks(self, uygun)
+		if indeks >= 0:
+			var id: StringName = uygun.pop_at(indeks)
 			kadro.iste(id, gun)
 			sonuc.append(_adli_gelen(id))
 		else:
