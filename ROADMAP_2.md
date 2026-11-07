@@ -4128,7 +4128,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: ACL-06, OGR-01. Boyut: S.
   - Dosya: `data/ogretici/ilk_saat.json`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-38:** Atlanan ipucu yerine geçmişin tek cümlesi.
+- [x] **OGR-38:** Atlanan ipucu yerine geçmişin tek cümlesi. (Kalfa)
   - Ne: atlanan ipucunun yerinde muhafızın geçmişine ait tek cümle durur (USLUP_REHBERI ses kartı tonunda). Bilgi vermez, kişilik verir.
   - Kabul: cümle `ogretici.gecmis.*` anahtarındadır; en çok 70 karakter. Test: tarama.
   - Bağımlılık: OGR-37, YAZ-03. Boyut: S.

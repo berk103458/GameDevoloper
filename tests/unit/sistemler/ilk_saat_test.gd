@@ -39,6 +39,15 @@ func _initialize() -> void:
 			fark += 1
 	_kontrol(fark >= 1, "OGR-37: iki gecmisle ipucu kumesi farki >= 1 olmali")
 
+	# OGR-38: Atlanan kavramın yerine tek bir kişisel satır gelir.
+	for k in kavramlar:
+		for gecmis in k.atla_gecmis:
+			var oz := IlkSaatSinifi.new()
+			var sonuc := oz.tetikle(k.id, k.gece_min, gecmis)
+			var metin := String(sonuc.get("gecmis_metni", ""))
+			_kontrol(not sonuc.gosterildi and not metin.is_empty() and metin.length() <= 70 and not metin.begins_with("ogretici."), "OGR-38: " + gecmis)
+			_kontrol(not oz.tetikle(k.id, k.gece_min, gecmis).has("gecmis_metni"), "OGR-38: Aynı kavram ikinci kez görünmez")
+	_kontrol(not IlkSaatSinifi.new().tetikle("pazar", 0, "ahi_ciragi").has("gecmis_metni"), "OGR-38: Gece eşiğinden önce satır yok")
 	# OGR-33: Gece < 6 iken son 0 (en kotu degerlerle gece 5 anlik goruntusu)
 	_kontrol(ilk.son_kilidi_gece() == 6 and SonKilidiSinifi.kilitli_mi(5) and not SonKilidiSinifi.kilitli_mi(6), "OGR-33: son_kilidi_gece 6 olmali ve gece 5 kilitli olmali")
 	var kat := Katalog.new()
@@ -47,6 +56,10 @@ func _initialize() -> void:
 		print("ILK SAAT: KALDI")
 		quit(1)
 		return
+	var gecmisli := Oturum.new(kat, 5)
+	preload("res://src/sistemler/muhafiz_gecmisi.gd").sec(gecmisli, "medrese_talebesi")
+	var kapi_satirlari := IlkSaat.kapi_acilis_satirlari(gecmisli)
+	_kontrol(kapi_satirlari.size() == 3 and kapi_satirlari[0] == IlkSaat.ipucu_metni("ogretici.gecmis.medrese_talebesi") and kapi_satirlari[1] == IlkSaat.ipucu_metni("ogretici.kapi.konu"), "OGR-38: Kapıdaki ilk satır geçmişe göre değişir")
 	var oturum := Oturum.new(kat, 5)
 	oturum.gun = 5
 	oturum.yonetim.gun = 5

@@ -11,10 +11,7 @@ static func kur(k: KapiEkrani) -> void:
 	k.add_child(kutu)
 	var etiket := Label.new()
 	etiket.name = "Adimlar"
-	var satirlar := PackedStringArray()
-	for anahtar: String in AK.AYAR.ogretici:
-		satirlar.append(IlkSaat.ipucu_metni(anahtar))
-	etiket.text = "\n".join(satirlar)
+	etiket.text = "\n".join(IlkSaat.kapi_acilis_satirlari(k.oturum))
 	etiket.add_theme_font_size_override("font_size", 22)
 	kutu.add_child(etiket)
 	var atla := Button.new()

@@ -2410,6 +2410,10 @@ ogretici.kaynak.eksi,Köy bu gece %s tüketti (-%d).,The village used %s tonight
 ogretici.ambar.esik,Ambar yedek payının altına indi. Erzak bulmalıyım.,The granary fell below its reserve. I need food.
 ogretici.kasa.iflas,Kasa ekside. %d gece içinde toparlayamazsam iflas ederim.,The treasury is short. I have %d nights to avoid bankruptcy.
 ogretici.kapi.selam,Önce sağdaki selamla söze gireyim.,I will start with the greeting on the right.
+ogretici.gecmis.eski_levent,Keçeyi taşın üstüne sererdik nöbette.,We spread felt over the stones on watch.
+ogretici.gecmis.ahi_ciragi,Ustam dükkânı açınca önce ocağı yakardı.,My master lit the hearth as soon as he opened the shop.
+ogretici.gecmis.medrese_talebesi,Kamış kalemin ucu çatlayınca hoca elime yenisini verirdi.,When my reed pen split my teacher would hand me another.
+ogretici.gecmis.coban_oglu,Babam koyunları sayarken değneği dizine dayardı.,Father rested his staff on his knee as he counted the sheep.
 ogretici.kapi.konu,Aileye neden geldiklerini sorayım.,I should ask why the family came.
 ogretici.kapi.karar,Dinledim. Şimdi kabul ya da ret kararımı onaylayayım.,I have heard them. Now I can confirm admission or refusal.
 ogretici.koy.hiz,Hız: {hiz_1} · {hiz_2} · {hiz_3}. Dur: {hiz_dur}.,Speed: {hiz_1} · {hiz_2} · {hiz_3}. Pause: {hiz_dur}.

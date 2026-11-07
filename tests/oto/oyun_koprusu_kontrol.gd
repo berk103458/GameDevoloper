@@ -24,7 +24,7 @@ func _ready() -> void:
 	assert(not (await kopru.run_command("yeni_oyun", {"tohum": 11})).has("error"))
 	# Geçmiş seçimi durur. İlk satır bir geçmiştir; sonra köy açılır.
 	assert(kopru.get_state().ekran == "rapor")
-	assert(not (await kopru.run_command("devam", {"indeks": 0})).has("error"))
+	assert(not (await kopru.run_command("devam", {"indeks": 2})).has("error"))
 	await get_tree().process_frame
 	# ACL-01: yeni oyunun ilk günü köydedir. Kapıya model günü atlayarak
 	# değil, gerçek gece ve rapor/olay düğmelerini köprüden kullanarak gideriz.
@@ -41,7 +41,7 @@ func _ready() -> void:
 	assert(ana.oturum.yonetim.nufus() == 2 and ana._kapi._gelen.id == &"acl04_ilk_aile")
 	var ogretici := ana._kapi.get_node("AcilisOgretici")
 	var ogretici_satirlari := (ogretici.get_node("Adimlar") as Label).text.split("\n")
-	assert(ogretici_satirlari.size() == 3 and ogretici_satirlari[0] == IlkSaat.ipucu_metni("ogretici.kapi.selam"))
+	assert(ogretici_satirlari.size() == 3 and ogretici_satirlari[0] == IlkSaat.ipucu_metni("ogretici.gecmis.medrese_talebesi"))
 	assert(not (ogretici.get_node("Adimlar") as Label).text.contains("ogretici."))
 	(ogretici.get_child(1) as Button).pressed.emit()
 	await get_tree().process_frame
