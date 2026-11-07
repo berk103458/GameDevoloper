@@ -1,0 +1,73 @@
+{
+  "konusmaci": "chr_003",
+  "adli_kisi": "Sivaslı Tuğrul Usta",
+  "usta_id": "usta_tugrul_pusatci",
+  "cekirdek": "durust",
+  "dugumler": {
+    "giris": {
+      "satir": "Vaktin kılıçtan keskin olsun muhafız! Sivas demir loncasından Tuğrul Usta ben; örsümde çeliğe su vermiş, pusat ve zırh dövmüş adamım. Moğol akını Sivas çarşısını dağıtınca körüğümü ve genç oğlumu alıp bu boğaza geldim. Demirhane, maden, kışla ve üçüncü kademe atölye kurduracaksan pazarlığımızı yapalım.",
+      "secenekler": [
+        {
+          "id": "tugrul_ucret_sor",
+          "metin": "Sivas çeliğinin namını biliriz Tuğrul Usta; köy kasasından ne kadar akçe istersin?",
+          "hedef": "pazarlik_ucret",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "tugrul_ev_aile_sor",
+          "metin": "Körüğü taşıyan delikanlı kimdir? Köyde barınak ve çıraklık şartın nedir?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        }
+      ]
+    },
+    "pazarlik_ucret": {
+      "satir": "Örsümü toprağa gömmek ve kömür ocağını harlamak için kamu kasasından yirmi iki akçe isterim; senin şahsî kesene dokunmam. Karşılığında demirhane, demir madeni, muhafız kışlası ve üçüncü kademe atölye bilgisini bu köye kazandırırım.",
+      "secenekler": [
+        {
+          "id": "tugrul_ucretten_aileye",
+          "metin": "Akçe hesabını duyduk; peki yanındaki oğlun ve ev şartın nedir?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "tugrul_kabul_ucretten",
+          "metin": "Köy kasasından yirmi iki akçeni veriyoruz Tuğrul Usta; gir ve ocağını yak.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -22, "bar": 2, "bayrak": "usta_tugrul_kabul"}
+        },
+        {
+          "id": "tugrul_ret_ucretten",
+          "metin": "Yirmi iki akçe kamu kasamız için fazladır Tuğrul Usta; yolun açık olsun.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_tugrul_ret"}
+        }
+      ]
+    },
+    "pazarlik_ev_aile": {
+      "satir": "Yanımdaki genç oğlum Kutlu'dur; iki başız, yatacak sağlam bir dam isteriz. Yataklarınız doluysa demirhane sundurmasında da kıvrılırız ama sahipsiz bırakılmayalım. Kutlu körük çekmeyi bilir; demirhanede yanıma çırak verirsen beş gecede yarı usta, sonra tam pusatçı olur.",
+      "secenekler": [
+        {
+          "id": "tugrul_kabul_aileden",
+          "metin": "Kabulümüzdür Tuğrul Usta; oğlun Kutlu ile gir, demirhanede çırak yetişsin.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -22, "bar": 2, "bayrak": "usta_tugrul_kabul"}
+        },
+        {
+          "id": "tugrul_ret_aileden",
+          "metin": "Ne boş yatağımız ne de bu kadar akçemiz var; başka bir menzile varın.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_tugrul_ret"}
+        }
+      ]
+    },
+    "kabul_sonuc": {
+      "satir": "Demirimiz tavında, sözümüz yerinde olsun muhafız! Yalnız şunu bil: ben pusat döverim ama surda kalkan tutup gece nöbetine çıkmam. Nöbeti asker tutar, pusatını Tuğrul Usta döver.",
+      "secenekler": []
+    },
+    "ret_sonuc": {
+      "satir": "Sen bilirsin muhafız. Kör baltayla, çatlak mızrakla baskın savuşturulmaz; o gün geldiğinde Sivaslı Tuğrul'u ararsın.",
+      "secenekler": []
+    }
+  }
+}

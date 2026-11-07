@@ -1,0 +1,73 @@
+{
+  "konusmaci": "chr_015",
+  "adli_kisi": "Master Physician Evhaduddin of Konya",
+  "usta_id": "usta_evhad_hekim",
+  "cekirdek": "durust",
+  "dugumler": {
+    "giris": {
+      "satir": "Good health to you, gatekeeper. I am Physician Evhaduddin of the Konya Darushifa; I set fractures, treat fevers, and decipher ancient manuscripts. As plague and turmoil spread along the caravan roads, I took my medicine chest and my young daughter toward this secluded village. If you would establish an infirmary and study room, hear my terms.",
+      "secenekler": [
+        {
+          "id": "evhad_ucret_sor",
+          "metin": "Both healing and learning are honored here, Master Evhaduddin; what do you ask from the village chest?",
+          "hedef": "pazarlik_ucret",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "evhad_ev_aile_sor",
+          "metin": "Who is the young woman beside you? What do you stipulate for shelter and apprenticeship?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        }
+      ]
+    },
+    "pazarlik_ucret": {
+      "satir": "To set out my mortar bowls, lancets, and theriac jars, I ask twenty coins from the village public treasury—I take nothing from your personal pouch. In return, I unlock second-tier infirmary and study room knowledge for this village.",
+      "secenekler": [
+        {
+          "id": "evhad_ucretten_aileye",
+          "metin": "We understand the treasury fee; what of your daughter and housing?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "evhad_kabul_ucretten",
+          "metin": "We pay the twenty coins from the village chest, Master Physician; enter and set up the infirmary.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -20, "bar": 2, "bayrak": "usta_evhad_kabul"}
+        },
+        {
+          "id": "evhad_ret_ucretten",
+          "metin": "Our chest cannot spare twenty coins, Master Physician; go in peace.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_evhad_ret"}
+        }
+      ]
+    },
+    "pazarlik_ev_aile": {
+      "satir": "Beside me is my young daughter Meryem; we are two souls and ask a dry roof. If your beds are full we can wait briefly in the open, provided my medicine chest stays dry. Meryem knows herbs and bandages; apprentice her to me in the infirmary and in five nights she will be a half-physician.",
+      "secenekler": [
+        {
+          "id": "evhad_kabul_aileden",
+          "metin": "Accepted, Master Evhaduddin; enter with your daughter Meryem, and let her train in the infirmary.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -20, "bar": 2, "bayrak": "usta_evhad_kabul"}
+        },
+        {
+          "id": "evhad_ret_aileden",
+          "metin": "We cannot meet your terms, Master Physician; seek another town.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_evhad_ret"}
+        }
+      ]
+    },
+    "kabul_sonuc": {
+      "satir": "Healing comes from God, effort from us, gatekeeper. Know from the outset: I am a surgeon and scholar; I do not take up a spear for night sentry duty on the wall. My watch is beside the wounded and the manuscripts.",
+      "secenekler": []
+    },
+    "ret_sonuc": {
+      "satir": "The choice is yours, gatekeeper. When winter fever or arrow wounds knock at your gate, you will wish for Evhaduddin of Konya.",
+      "secenekler": []
+    }
+  }
+}

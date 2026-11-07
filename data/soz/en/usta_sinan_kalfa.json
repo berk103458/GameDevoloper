@@ -1,0 +1,73 @@
+{
+  "konusmaci": "chr_014",
+  "adli_kisi": "Master Mason Sinan of Ahlat",
+  "usta_id": "usta_sinan_kalfa",
+  "cekirdek": "durust",
+  "dugumler": {
+    "giris": {
+      "satir": "Good tidings, gatekeeper. I am Master Sinan of Ahlat; I have raised caravanserai arches and Horasan-mortared ramparts. When no stone was left standing in the east, I took my plumb line, hammer, and family to this frontier village. If you need a master to unlock the quarry, lime pit, and stone house, let us speak.",
+      "secenekler": [
+        {
+          "id": "sinan_ucret_sor",
+          "metin": "Your craft is precious, Master Sinan; how much coin do you ask from the village treasury?",
+          "hedef": "pazarlik_ucret",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "sinan_ev_aile_sor",
+          "metin": "Who are the woman and youth by your cart? What shelter do you stipulate?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        }
+      ]
+    },
+    "pazarlik_ucret": {
+      "satir": "My bargain is with the village public treasury, not your personal pouch. To unload my tools and set the quarry, I ask eighteen coins from the village chest. In return, I unlock the secrets of the lime pit, stone house, and second-tier ramparts.",
+      "secenekler": [
+        {
+          "id": "sinan_ucretten_aileye",
+          "metin": "I understand the fee; what of your family and housing terms?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "sinan_kabul_ucretten",
+          "metin": "We grant the eighteen coins from the village chest and your home; enter, Master Sinan.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -18, "bar": 2, "bayrak": "usta_sinan_kabul"}
+        },
+        {
+          "id": "sinan_ret_ucretten",
+          "metin": "Our public treasury cannot bear that cost, Master Sinan; safe travels.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_sinan_ret"}
+        }
+      ]
+    },
+    "pazarlik_ev_aile": {
+      "satir": "With me are my wife Halime Hatun and my son Davud; we are three souls and need a roof. If your beds are full we can endure the open air briefly, so long as we are not forsaken. My son Davud is now a youth; apprentice him to me at the quarry and in five nights he will be a half-master, then a full master.",
+      "secenekler": [
+        {
+          "id": "sinan_kabul_aileden",
+          "metin": "Your terms are accepted; enter with your family, and let your son train as an apprentice.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -18, "bar": 2, "bayrak": "usta_sinan_kabul"}
+        },
+        {
+          "id": "sinan_ret_aileden",
+          "metin": "We have neither empty beds nor that much coin in the chest; seek another halt.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_sinan_ret"}
+        }
+      ]
+    },
+    "kabul_sonuc": {
+      "satir": "Your word is your bond, gatekeeper. May our plumb line hang true and our mortar hold fast. Know this from the start: I am a master mason—I do not stand sentry with a spear; my task is to make the wall unbreakable.",
+      "secenekler": []
+    },
+    "ret_sonuc": {
+      "satir": "As you wish, gatekeeper. A wall without lime and arch buckles at the first ram; then you will wish for Sinan of Ahlat.",
+      "secenekler": []
+    }
+  }
+}

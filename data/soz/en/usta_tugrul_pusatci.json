@@ -1,0 +1,73 @@
+{
+  "konusmaci": "chr_003",
+  "adli_kisi": "Master Armorer Tugrul of Sivas",
+  "usta_id": "usta_tugrul_pusatci",
+  "cekirdek": "durust",
+  "dugumler": {
+    "giris": {
+      "satir": "May your blade stay keen, gatekeeper! I am Master Tugrul of the Sivas iron guild; I have tempered steel on my anvil and forged weapons and mail. When the Mongol raid scattered the Sivas bazaar, I took my bellows and my young son to this pass. If you would raise a smithy, iron mine, barracks, and third-tier workshop, let us strike a bargain.",
+      "secenekler": [
+        {
+          "id": "tugrul_ucret_sor",
+          "metin": "We know the renown of Sivas steel, Master Tugrul; how much coin do you ask from the village chest?",
+          "hedef": "pazarlik_ucret",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "tugrul_ev_aile_sor",
+          "metin": "Who is the youth carrying the bellows? What are your terms for shelter and apprenticeship?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        }
+      ]
+    },
+    "pazarlik_ucret": {
+      "satir": "To sink my anvil into the earth and fire the charcoal hearth, I ask twenty-two coins from the public treasury—I do not touch your personal pouch. In return, I unlock smithy, iron mine, guard barracks, and third-tier workshop knowledge for this village.",
+      "secenekler": [
+        {
+          "id": "tugrul_ucretten_aileye",
+          "metin": "We hear the fee; what of your son and housing terms?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "tugrul_kabul_ucretten",
+          "metin": "We grant twenty-two coins from the village chest, Master Tugrul; enter and light your forge.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -22, "bar": 2, "bayrak": "usta_tugrul_kabul"}
+        },
+        {
+          "id": "tugrul_ret_ucretten",
+          "metin": "Twenty-two coins is too steep for our public chest, Master Tugrul; safe travels.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_tugrul_ret"}
+        }
+      ]
+    },
+    "pazarlik_ev_aile": {
+      "satir": "With me is my young son Kutlu; we are two souls and ask a sturdy roof. If your beds are full we can curl beneath the smithy awning for a night, so long as we are not forsaken. Kutlu knows the bellows; apprentice him to me in the smithy and in five nights he will be a half-master, then a full armorer.",
+      "secenekler": [
+        {
+          "id": "tugrul_kabul_aileden",
+          "metin": "Accepted, Master Tugrul; enter with your son Kutlu, and let him train in the smithy.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -22, "bar": 2, "bayrak": "usta_tugrul_kabul"}
+        },
+        {
+          "id": "tugrul_ret_aileden",
+          "metin": "We have neither empty beds nor that much coin; seek another halt.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_tugrul_ret"}
+        }
+      ]
+    },
+    "kabul_sonuc": {
+      "satir": "May our iron glow bright and our word hold fast, gatekeeper! Know this well: I forge weapons, but I do not stand night sentry on the wall with a shield. Soldiers keep the watch; Master Tugrul forges their steel.",
+      "secenekler": []
+    },
+    "ret_sonuc": {
+      "satir": "As you wish, gatekeeper. No raid is repelled with blunt axes and cracked spears; when that day comes, you will look for Tugrul of Sivas.",
+      "secenekler": []
+    }
+  }
+}

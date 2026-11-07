@@ -1,0 +1,73 @@
+{
+  "konusmaci": "chr_015",
+  "adli_kisi": "Konevi Hekim Evhadüddin",
+  "usta_id": "usta_evhad_hekim",
+  "cekirdek": "durust",
+  "dugumler": {
+    "giris": {
+      "satir": "Üzerinize afiyet olsun muhafız. Konya Darüşşifası'ndan Hekim Evhadüddin ben; kırık sarar, hummalıyı sağaltır, kadim elyazmalarını çözümlerim. Kervan yollarında salgın ve kargaşa artınca ilaç sandığımı ve genç kızımı alıp bu sapa köye yöneldim. Şifahane ve çözümleme odası kurduracaksanız şartımı söyleyeyim.",
+      "secenekler": [
+        {
+          "id": "evhad_ucret_sor",
+          "metin": "Hekimlik de ilim de baş tacımızdır Evhadüddin Efendi; köy kasasından ne istersin?",
+          "hedef": "pazarlik_ucret",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "evhad_ev_aile_sor",
+          "metin": "Yanındaki genç kız kimdir? Köyde barınak ve çıraklık için ne şart koşarsın?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        }
+      ]
+    },
+    "pazarlik_ucret": {
+      "satir": "Merhem havanlarımı, neşterlerimi ve tiryak kavanozlarımı dizmek için köyün kamu kasasından yirmi akçe isterim; senin şahsî kesenden akçe almam. Karşılığında ikinci kademe şifahane ve çözümleme odası bilgisini bu köye açarım.",
+      "secenekler": [
+        {
+          "id": "evhad_ucretten_aileye",
+          "metin": "Kamu kasası şartını anladık; peki yanındaki kızın ve ev meselesi nedir?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "evhad_kabul_ucretten",
+          "metin": "Köy kasasından yirmi akçeni veriyoruz Hekim Efendi; buyur gir, şifahaneyi kur.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -20, "bar": 2, "bayrak": "usta_evhad_kabul"}
+        },
+        {
+          "id": "evhad_ret_ucretten",
+          "metin": "Kasamızda yirmi akçe ayıracak takat yok Hekim Efendi; yolun açık olsun.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_evhad_ret"}
+        }
+      ]
+    },
+    "pazarlik_ev_aile": {
+      "satir": "Yanımdaki genç kızım Meryem'dir; iki başız, rutubetsiz bir dam isteriz. Yataklarınız doluysa geçici olarak açıkta da bekleriz ama ilaç sandığımız yağmur görmesin. Meryem otları ve sargıyı tanır; şifahanede yanıma çırak verirsen beş gecede yarı hekim yetişir.",
+      "secenekler": [
+        {
+          "id": "evhad_kabul_aileden",
+          "metin": "Kabulümüzdür Evhadüddin Efendi; kızın Meryem ile gir, şifahanede çırak yetişsin.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -20, "bar": 2, "bayrak": "usta_evhad_kabul"}
+        },
+        {
+          "id": "evhad_ret_aileden",
+          "metin": "Şartlarını karşılayamayız Hekim Efendi; başka bir beldeye varın.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_evhad_ret"}
+        }
+      ]
+    },
+    "kabul_sonuc": {
+      "satir": "Şifa Allah'tan, gayret bizden muhafız. Yalnız baştan bilesin: ben cerrah ve alimim; elime mızrak alıp surda gece nöbeti tutmam. Benim nöbetim yaralının ve kitabın başındadır.",
+      "secenekler": []
+    },
+    "ret_sonuc": {
+      "satir": "Takdir senin muhafız. Kış humması veya ok yarası kapıyı çaldığında Konevi Evhadüddin'i ararsınız.",
+      "secenekler": []
+    }
+  }
+}

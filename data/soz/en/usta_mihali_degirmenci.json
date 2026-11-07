@@ -1,0 +1,73 @@
+{
+  "konusmaci": "chr_022",
+  "adli_kisi": "Master Miller Mihali of Kemah",
+  "usta_id": "usta_mihali_degirmenci",
+  "cekirdek": "durust",
+  "dugumler": {
+    "giris": {
+      "satir": "Peace be upon you, gatekeeper. They call me Master Mihali of the Kemah canyon; I have set waterwheels upon the fierce Euphrates and dressed basalt millstones. Your stream runs idle while your wheat goes to waste in hand mortars; if you would build a mill, bakery, and granary, hear my terms.",
+      "secenekler": [
+        {
+          "id": "mihali_ucret_sor",
+          "metin": "Setting a millwheel is no small feat, Master Mihali; what do you ask from the village chest?",
+          "hedef": "pazarlik_ucret",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "mihali_ev_aile_sor",
+          "metin": "Who are the family in your wagon? What do you stipulate for shelter and apprenticeship?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        }
+      ]
+    },
+    "pazarlik_ucret": {
+      "satir": "To forge the iron axle and frame the flume, I ask sixteen coins from the public treasury—I do not touch your personal purse. In return, I unlock second-tier watermill, bakery, and granary knowledge for your village.",
+      "secenekler": [
+        {
+          "id": "mihali_ucretten_aileye",
+          "metin": "Your fee is fair; what of your family and housing?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "mihali_kabul_ucretten",
+          "metin": "We pay the sixteen coins from the village chest, Master Mihali; enter and raise the wheel.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -16, "bar": 2, "bayrak": "usta_mihali_kabul"}
+        },
+        {
+          "id": "mihali_ret_ucretten",
+          "metin": "Our treasury has no coin to spare for a master miller; go in peace.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_mihali_ret"}
+        }
+      ]
+    },
+    "pazarlik_ev_aile": {
+      "satir": "With my wife Despina and my young son Nikola, we are three; grant us a household. If your beds are full we can weather a night under an awning, so long as we are not neglected. My son Nikola knows the groove of a millstone; apprentice him to me at the mill and in five nights he will master the craft.",
+      "secenekler": [
+        {
+          "id": "mihali_kabul_aileden",
+          "metin": "Accepted, Master Mihali; enter with your family, and let Nikola train at the mill.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -16, "bar": 2, "bayrak": "usta_mihali_kabul"}
+        },
+        {
+          "id": "mihali_ret_aileden",
+          "metin": "We cannot meet your terms, Master Mihali; seek another village.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_mihali_ret"}
+        }
+      ]
+    },
+    "kabul_sonuc": {
+      "satir": "May it bring abundance, gatekeeper. Turning water into flour is my work, guarding the flour is yours. Remember only this: I am a master miller; I do not take sentry shifts on the ramparts.",
+      "secenekler": []
+    },
+    "ret_sonuc": {
+      "satir": "As you please. When winter freezes your arms over stone mortars, you will recall Master Mihali of Kemah.",
+      "secenekler": []
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "ustalar": [
+    {
+      "id": "usta_sinan_kalfa",
+      "ad": "Ahlatlı Sinan Kalfa",
+      "ad_en": "Master Mason Sinan of Ahlat",
+      "konusmaci": "chr_014",
+      "kademe": 2,
+      "zanaat_turu": "tasci",
+      "yapi_bilgisi": ["tas_ocagi", "kirec_kuyusu", "tas_ev", "sur"],
+      "gelis_agirligi": 1.25,
+      "cekim_esigi": {"refah": 40, "guvenlik": 40, "yatak": 1},
+      "dunya_olayi_carpani": {"mogol_ilerleyisi": 1.5, "selcuklu_taht_kavgasi": 1.3},
+      "pazarlik": {
+        "ucret_koy_akce": 18,
+        "ev_gerekli": true,
+        "aile_sayisi": 2,
+        "aile_uyeleri": [
+          {"ad": "Halime Hatun", "rol": "yetiskin", "yas_grubu": "yetiskin"},
+          {"ad": "Davud", "rol": "cocuk", "yas_grubu": "genc", "cirak_adayi": true}
+        ]
+      },
+      "soz_dosyasi": "res://data/soz/usta_sinan_kalfa.json",
+      "metin_anahtarlari": {
+        "ad": "yap03.usta.sinan.ad",
+        "gecmis": "yap03.usta.sinan.gecmis",
+        "pazarlik_ucret": "yap03.usta.sinan.pazarlik_ucret",
+        "pazarlik_ev": "yap03.usta.sinan.pazarlik_ev",
+        "pazarlik_aile": "yap03.usta.sinan.pazarlik_aile",
+        "kabul": "yap03.usta.sinan.kabul",
+        "ret": "yap03.usta.sinan.ret",
+        "ikinci_gelis": "yap03.usta.sinan.ikinci_gelis",
+        "koy_replik": "yap03.usta.sinan.koy_replik"
+      }
+    },
+    {
+      "id": "usta_mihali_degirmenci",
+      "ad": "Kemahlı Mihali Usta",
+      "ad_en": "Master Miller Mihali of Kemah",
+      "konusmaci": "chr_022",
+      "kademe": 2,
+      "zanaat_turu": "degirmenci",
+      "yapi_bilgisi": ["degirmen", "ambar", "firin"],
+      "gelis_agirligi": 1.15,
+      "cekim_esigi": {"refah": 35, "guvenlik": 35, "yatak": 1},
+      "dunya_olayi_carpani": {"bizans_uc_baskisi": 1.4, "kitlik_yili": 1.6},
+      "pazarlik": {
+        "ucret_koy_akce": 16,
+        "ev_gerekli": true,
+        "aile_sayisi": 2,
+        "aile_uyeleri": [
+          {"ad": "Despina", "rol": "yetiskin", "yas_grubu": "yetiskin"},
+          {"ad": "Nikola", "rol": "cocuk", "yas_grubu": "genc", "cirak_adayi": true}
+        ]
+      },
+      "soz_dosyasi": "res://data/soz/usta_mihali_degirmenci.json",
+      "metin_anahtarlari": {
+        "ad": "yap03.usta.mihali.ad",
+        "gecmis": "yap03.usta.mihali.gecmis",
+        "pazarlik_ucret": "yap03.usta.mihali.pazarlik_ucret",
+        "pazarlik_ev": "yap03.usta.mihali.pazarlik_ev",
+        "pazarlik_aile": "yap03.usta.mihali.pazarlik_aile",
+        "kabul": "yap03.usta.mihali.kabul",
+        "ret": "yap03.usta.mihali.ret",
+        "ikinci_gelis": "yap03.usta.mihali.ikinci_gelis",
+        "koy_replik": "yap03.usta.mihali.koy_replik"
+      }
+    },
+    {
+      "id": "usta_tugrul_pusatci",
+      "ad": "Sivaslı Tuğrul Usta",
+      "ad_en": "Master Armorer Tugrul of Sivas",
+      "konusmaci": "chr_003",
+      "kademe": 2,
+      "zanaat_turu": "demirci",
+      "yapi_bilgisi": ["demirhane", "demir_madeni", "muhafiz_kislasi", "atolye", "demir_ocagi"],
+      "gelis_agirligi": 1.1,
+      "cekim_esigi": {"refah": 45, "guvenlik": 30, "yatak": 1},
+      "dunya_olayi_carpani": {"mogol_ilerleyisi": 1.6, "ticaret_yolunun_kapanmasi": 1.3},
+      "pazarlik": {
+        "ucret_koy_akce": 22,
+        "ev_gerekli": true,
+        "aile_sayisi": 1,
+        "aile_uyeleri": [
+          {"ad": "Kutlu", "rol": "cocuk", "yas_grubu": "genc", "cirak_adayi": true}
+        ]
+      },
+      "soz_dosyasi": "res://data/soz/usta_tugrul_pusatci.json",
+      "metin_anahtarlari": {
+        "ad": "yap03.usta.tugrul.ad",
+        "gecmis": "yap03.usta.tugrul.gecmis",
+        "pazarlik_ucret": "yap03.usta.tugrul.pazarlik_ucret",
+        "pazarlik_ev": "yap03.usta.tugrul.pazarlik_ev",
+        "pazarlik_aile": "yap03.usta.tugrul.pazarlik_aile",
+        "kabul": "yap03.usta.tugrul.kabul",
+        "ret": "yap03.usta.tugrul.ret",
+        "ikinci_gelis": "yap03.usta.tugrul.ikinci_gelis",
+        "koy_replik": "yap03.usta.tugrul.koy_replik"
+      }
+    },
+    {
+      "id": "usta_evhad_hekim",
+      "ad": "Konevi Hekim Evhadüddin",
+      "ad_en": "Master Physician Evhaduddin of Konya",
+      "konusmaci": "chr_015",
+      "kademe": 2,
+      "zanaat_turu": "cerrah",
+      "yapi_bilgisi": ["sifahane", "cozumleme_odasi"],
+      "gelis_agirligi": 1.05,
+      "cekim_esigi": {"refah": 40, "guvenlik": 40, "yatak": 1},
+      "dunya_olayi_carpani": {"salgin_dalgasi": 1.8, "selcuklu_taht_kavgasi": 1.2},
+      "pazarlik": {
+        "ucret_koy_akce": 20,
+        "ev_gerekli": true,
+        "aile_sayisi": 1,
+        "aile_uyeleri": [
+          {"ad": "Meryem", "rol": "cocuk", "yas_grubu": "genc", "cirak_adayi": true}
+        ]
+      },
+      "soz_dosyasi": "res://data/soz/usta_evhad_hekim.json",
+      "metin_anahtarlari": {
+        "ad": "yap03.usta.evhad.ad",
+        "gecmis": "yap03.usta.evhad.gecmis",
+        "pazarlik_ucret": "yap03.usta.evhad.pazarlik_ucret",
+        "pazarlik_ev": "yap03.usta.evhad.pazarlik_ev",
+        "pazarlik_aile": "yap03.usta.evhad.pazarlik_aile",
+        "kabul": "yap03.usta.evhad.kabul",
+        "ret": "yap03.usta.evhad.ret",
+        "ikinci_gelis": "yap03.usta.evhad.ikinci_gelis",
+        "koy_replik": "yap03.usta.evhad.koy_replik"
+      }
+    }
+  ]
+}

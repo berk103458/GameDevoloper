@@ -1,0 +1,73 @@
+{
+  "konusmaci": "chr_014",
+  "adli_kisi": "Ahlatlı Sinan Kalfa",
+  "usta_id": "usta_sinan_kalfa",
+  "cekirdek": "durust",
+  "dugumler": {
+    "giris": {
+      "satir": "Vakit hayrola muhafız. Ahlat'tan Sinan Kalfa ben; kervansaray kemeri ve Horasan harçlı sur örmüşlüğüm vardır. Şarkta taş üstünde taş kalmayınca şakülümü, çekicimi ve ailemi alıp bu uç köyüne vardım. Taş ocağı, kireç kuyusu ve taş ev kurduracak usta ararsanız konuşalım.",
+      "secenekler": [
+        {
+          "id": "sinan_ucret_sor",
+          "metin": "Zanaatın kıymetli Sinan Kalfa; lakin köy kasasından ne kadar akçe istersin?",
+          "hedef": "pazarlik_ucret",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "sinan_ev_aile_sor",
+          "metin": "Arbandaki kadın ve delikanlı kimdir? Köyde nasıl bir barınak şart koşarsın?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        }
+      ]
+    },
+    "pazarlik_ucret": {
+      "satir": "Benim pazarlığım şahsî kesenle değil, köyün kamu kasasıyladır. Avadanlığımı indirmek ve ocağı kurmak için köy kasasından on sekiz akçe avans isterim. Karşılığında kireç kuyusundan ikinci kademe taş sura kadar her yapının sırrını bu köye açarım.",
+      "secenekler": [
+        {
+          "id": "sinan_ucretten_aileye",
+          "metin": "Akçe hesabını anladım; peki yanındaki ailen ve barınak şartın nedir?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "sinan_kabul_ucretten",
+          "metin": "Köy kasasından on sekiz akçeni de, haneni de veriyoruz; içeri buyur Sinan Kalfa.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -18, "bar": 2, "bayrak": "usta_sinan_kabul"}
+        },
+        {
+          "id": "sinan_ret_ucretten",
+          "metin": "Kamu kasamız bu yükü çekmez Sinan Kalfa; yolun açık olsun.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_sinan_ret"}
+        }
+      ]
+    },
+    "pazarlik_ev_aile": {
+      "satir": "Yanımdaki zevcem Halime Hatun ile oğlum Davud'dur; üç başız, başımızı sokacak bir dam isteriz. Yataklarınız doluysa açıkta yatmaya da razıyız ama sefil bırakılmayalım. Oğlum Davud genç yaşına bastı; taş ocağında yanıma çırak verirsen beş gecede yarı usta, sonra tam usta olur.",
+      "secenekler": [
+        {
+          "id": "sinan_kabul_aileden",
+          "metin": "Şartların kabulümüzdür; ailenle gir, oğlun da taş ocağında çırak yetişsin.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -18, "bar": 2, "bayrak": "usta_sinan_kabul"}
+        },
+        {
+          "id": "sinan_ret_aileden",
+          "metin": "Ne boş yatağımız ne de kasada bu kadar akçemiz var; var git başka menzile.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_sinan_ret"}
+        }
+      ]
+    },
+    "kabul_sonuc": {
+      "satir": "Sözün senettir muhafız. Şakülümüz doğru, harcımız sağlam olsun. Yalnız baştan söyleyeyim: ben duvarcı ustasıyım, surda mızrak tutup nöbet beklemem; benim işim o suru yıkılmaz kılmaktır.",
+      "secenekler": []
+    },
+    "ret_sonuc": {
+      "satir": "Sen bilirsin muhafız. Kireçsiz, kemersiz duvar ilk koçbaşında bel verir; o vakit Ahlatlı Sinan'ı ararsınız.",
+      "secenekler": []
+    }
+  }
+}

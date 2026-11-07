@@ -1,0 +1,73 @@
+{
+  "konusmaci": "chr_022",
+  "adli_kisi": "Kemahlı Mihali Usta",
+  "usta_id": "usta_mihali_degirmenci",
+  "cekirdek": "durust",
+  "dugumler": {
+    "giris": {
+      "satir": "Selamünaleyküm muhafız ağa. Kemah kanyonundan Mihali Usta derler bana; Fırat'ın azgın suyuna çark oturtmuş, bazalt değirmen taşı dişlemiş adamım. Köyünüzün deresi boşa akar, buğdayınız el dibeklerinde ziyan olur; değirmen, fırın ve ambar kurduracaksanız şartımı dinleyin.",
+      "secenekler": [
+        {
+          "id": "mihali_ucret_sor",
+          "metin": "Değirmen çarkı kurmak kolay iş değildir Mihali Usta; köy kasasından ne istersin?",
+          "hedef": "pazarlik_ucret",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "mihali_ev_aile_sor",
+          "metin": "Arabadaki ailen kimlerdir? Köyde barınak ve çırak için ne şart koşarsın?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        }
+      ]
+    },
+    "pazarlik_ucret": {
+      "satir": "Çarkın demir milini ve su oluğunu çatmak için kamu kasasından on altı akçe isterim; senin şahsî kesene el sürmem. Bu bedelle köyünüze ikinci kademe su değirmeni, fırın ve ambar bilgisini açarım.",
+      "secenekler": [
+        {
+          "id": "mihali_ucretten_aileye",
+          "metin": "Akçe şartın makuldür; peki ailen ve barınak meselesi nedir?",
+          "hedef": "pazarlik_ev_aile",
+          "etkiler": {"tansiyon": 0}
+        },
+        {
+          "id": "mihali_kabul_ucretten",
+          "metin": "Köy kasasından on altı akçeni veriyoruz Mihali Usta; içeri buyur, çarkı kur.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -16, "bar": 2, "bayrak": "usta_mihali_kabul"}
+        },
+        {
+          "id": "mihali_ret_ucretten",
+          "metin": "Kasamızda değirmen ustasına ayıracak akçe yok; var git yoluna.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_mihali_ret"}
+        }
+      ]
+    },
+    "pazarlik_ev_aile": {
+      "satir": "Eşim Despina ve genç oğlum Nikola ile üç kişiyiz; bize bir hane gösterin. Yataklarınız doluysa sundurma altında da sabahlarız ama açıkta unutulmayalım. Oğlum Nikola değirmen taşının dilinden anlar; değirmene yanıma çırak verirsen beş gecede işi kavrar.",
+      "secenekler": [
+        {
+          "id": "mihali_kabul_aileden",
+          "metin": "Kabulümüzdür Mihali Usta; ailenle gir, Nikola da değirmende çırak yetişsin.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {"akce": -16, "bar": 2, "bayrak": "usta_mihali_kabul"}
+        },
+        {
+          "id": "mihali_ret_aileden",
+          "metin": "Şartlarını karşılayamayız Mihali Usta; başka bir köye varın.",
+          "hedef": "ret_sonuc",
+          "etkiler": {"bar": -1, "bayrak": "usta_mihali_ret"}
+        }
+      ]
+    },
+    "kabul_sonuc": {
+      "satir": "Bereketli olsun muhafız ağa. Suyun gücünü una çevirmek benden, unu korumak sizden. Yalnız unutma, ben değirmenci ustasıyım; sur boyunda nöbete yazılmam, kulede bekçilik etmem.",
+      "secenekler": []
+    },
+    "ret_sonuc": {
+      "satir": "Keyfin bilir ağam. Kış bastırınca taş dibekte kolunuz koptuğunda Kemahlı Mihali'nin sözünü hatırlarsınız.",
+      "secenekler": []
+    }
+  }
+}

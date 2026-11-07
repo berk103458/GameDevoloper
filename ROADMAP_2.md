@@ -1540,7 +1540,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.3 Usta
 
-- [ ] **YAP-03:** Ustalar kapıdan gelir — özel karakterler.
+- [ ] **YAP-03:** Ustalar kapıdan gelir — özel karakterler. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/ustalar.json`, `data/soz/usta_*.json` TR/EN ve `yap03.usta.*` pazarlık/köy metin anahtarları eklendi)*
   - Ne: Oyuncu kapıda bir usta görür. Kimlerin geleceği `data/ustalar.json` içindedir; ağırlık köy çekiciliğini ve dünya olayını okur, ikinci bir gelen zarı açılmaz. Kabul pazarlığı ücret, ev ve aile başlıklarındadır. Ücret kamu kasasından düşer, kişisel keseden düşmez. Test tohumunda bir K2 ustası 28 günde en az bir kez gelir. Ret yiyen usta bilgi açmaz. Aynı usta ikinci gelişinde aynı bilgiyi yeniden açmaz.
   - Kurallar:
     1. Kimler geleceği `data/ustalar.json` içindedir. Geliş ağırlığı köy çekiciliğini (KAP-16: refah, güvenlik, yatak) ve dünya olayını (DNY) okur. Bu madde ikinci bir gelen zarı açmaz.
@@ -1554,7 +1554,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Asset: usta modelleri envantere `YAP03-USTALAR`.
 
 
-- [ ] **YAP-24:** Usta adsız şablon değildir
+- [x] **YAP-24:** Usta adsız şablon değildir (Antigravity)
   - Ne: Usta adsız şablon değildir. Adlı dosya. KOP-10 adsız kalanı açmaz.
   - Kabul: Adsız usta 0. Test: KOP-10.
   - Bağımlılık: KOP-10. Boyut: S.
