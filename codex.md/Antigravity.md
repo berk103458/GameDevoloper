@@ -894,3 +894,28 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - Python ve Godot testleri (metin_dogrula, soz_dogrula, soz_tasarimi_dogrula, denge_dogrula) sıfır hatayla doğrulandı.
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_17.md` son satırı `GOREV17_TAMAM` ile mühürlendi.
 - **Kota:** %10 kaldı.
+
+
+## 7 Kasım 2026 — Görev 19: Molla Şükrü Aleni Mahkeme (Seçenek 2.1) Entegrasyonu
+- **Dal:** `feature/diyalog-yeniden-yazim`
+- **Hedef Dal:** `claude/festive-volta-li1sfm` (Ahmet / Muharrir onaylı fast-forward push)
+- **Ne Yapıldı:**
+  1. **Dal Senkronizasyonu:** `origin/claude/festive-volta-li1sfm` dalından Kalfa'nın son commit'leri çekildi ve 0 çakışmayla birleştirildi.
+  2. **Karar 2 (Molla Şükrü vs Hasan Çelebi):** Ahmet'in onayıyla Seçenek 2.1 (Çınar Meclisi'nde Aleni Mahkeme) uygulandı.
+     - `diyalog_27`: Çınar Meclisi aleni yüzleşme soru dalı, sahte beratın yakılması ve demirhane körük cezası hükmü, `meclis_sukru_mahkeme_edildi` bayrağı ve kabul cevabı (TR & EN).
+     - `es_kapi_dusunceleri.json`: Eşin karar öncesi ve karar kabul fısıltıları meclis adaletine uygun güncellendi (TR & EN).
+     - `koylu_muhabbet_hasan_celebi.ds`: Hasan Çelebi meclis zaferi ve sahte mührün ifşası düğümü ile +3 Adalet/Moral aksiyonu eklendi (TR & EN).
+     - `koylu_muhabbet_es.ds`: Eşin meclis mahkemesi ve adalet tesisi repliği güncellendi (TR & EN).
+     - `data/metin/metinler.csv`: `karar.sukru.mahkeme.*` anahtarları eklendi.
+     - `docs/KARAR_SECENEKLERI.md`: Karar 2 UYGULANDI (Seçenek 2.1) olarak işaretlendi.
+  3. **Testler ve Doğrulama:**
+     - `tools/metin_dogrula.py`: PASS.
+     - `tools/soz_dogrula.py`: PASS.
+     - `tests/unit/diyalog/karar_secenekleri_test.gd`: Karar 1, Karar 2 ve Karar 3 tam kapsamlı doğrulandı (0 hata).
+     - Hedefli Godot testleri (diyalog_butunluk, es_yorumu, koy_parley_sistemi, ingilizce_entegrasyon, epilog_ve_hava, es_gecmis_ve_donusler, soylenti_ve_meclis_davalari) 0 hatayla geçti.
+  4. **Push ve Senkronizasyon:**
+     - `feature/diyalog-yeniden-yazim` dalına commit atıldı ve push edildi.
+     - `claude/festive-volta-li1sfm` dalına fast-forward push yapıldı (`bb4290d7`).
+     - Ahmet'in çalışma kopyası (`Kapı_Muhafizi`) ff-only ile güncellendi.
+- **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_19.md` son satırı `GOREV19_TAMAM` ile mühürlendi.
+- **Kota:** Görünmüyor.
