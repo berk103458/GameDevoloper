@@ -1591,7 +1591,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Asset: defter ikonu envantere `YAP04-DEFTER`.
 
 
-- [ ] **YAP-37:** Defter sözü DYL-08 ile dönebilir
+- [x] **YAP-37:** Defter sözü DYL-08 ile dönebilir (Antigravity)
   - Ne: Defter sözü DYL-08 ile dönebilir. İkinci dönüş motoru yok.
   - Kabul: Defter sözü DYL-08 ile dönebilir. Dönüş 1. Test: DYL-08.
   - Bağımlılık: DYL-08. Boyut: S.
@@ -1638,7 +1638,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.6 Özel eşya
 
-- [ ] **YAP-06:** Özel eşyalar.
+- [ ] **YAP-06:** Özel eşyalar. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/ozel_esyalar.json` içinde 8 özel eşya ve `esya.ozel.*` metin anahtarları eklendi)*
   - Ne: Oyuncu en az sekiz özel eşyadan birini çözer. Her satırda ad, dünya kitabı kaynak notu ve tek hedef sistem vardır. Hedef, oyunda duran bir kapıdır. Bir eşya iki kapıya yazamaz. Etki, o kapının gece hesabına tek çarpandır. Çözülmüş eşya satılınca açılmış kademe geri kapanmaz. Eşya çocuk heybesinden de okunur; ikinci kayıt açılmaz. İkon `Sanat` üzerinden gelir; yeni png üretilmez.
   - Kurallar:
     1. `data/ozel_esyalar.json` en az 8 satırdır. Her satırda ad, YAZ-01 kaynak notu ve tek `hedef_sistem` vardır.
@@ -1650,7 +1650,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: yeni `src/koy/ozel_esyalar.gd`, `data/ozel_esyalar.json`.
   - Asset: eşya ikonları envantere `YAP06-ESYA`.
 
-- [ ] **YAP-51:** Eşya açıklaması anahtardır
+- [x] **YAP-51:** Eşya açıklaması anahtardır (Antigravity)
   - Ne: Eşya açıklaması anahtardır. Düz cümle 0.
   - Kabul: Eşya açıklaması anahtardır. 0. Test: SYS-09.
   - Bağımlılık: SYS-09. Boyut: S.

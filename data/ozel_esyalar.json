@@ -1,0 +1,85 @@
+{
+  "gecerli_hedefler": [
+    "sur_hasari",
+    "degirmen_uretimi",
+    "kis_odun_tuketimi",
+    "savunma_formulu",
+    "erzak",
+    "saglik",
+    "guvenlik"
+  ],
+  "esyalar": [
+    {
+      "id": "horasan_harci_numunesi",
+      "ad_anahtari": "esya.ozel.horasan_harci.ad",
+      "aciklama_anahtari": "esya.ozel.horasan_harci.aciklama",
+      "kaynak_notu_anahtari": "esya.ozel.horasan_harci.kaynak_notu",
+      "hedef_sistem": "sur_hasari",
+      "carpan": 0.85,
+      "ikon": "horasan_harci"
+    },
+    {
+      "id": "rum_su_carki_mili",
+      "ad_anahtari": "esya.ozel.rum_carki.ad",
+      "aciklama_anahtari": "esya.ozel.rum_carki.aciklama",
+      "kaynak_notu_anahtari": "esya.ozel.rum_carki.kaynak_notu",
+      "hedef_sistem": "degirmen_uretimi",
+      "carpan": 1.15,
+      "ikon": "rum_carki"
+    },
+    {
+      "id": "turkmen_kece_aba",
+      "ad_anahtari": "esya.ozel.turkmen_kecesi.ad",
+      "aciklama_anahtari": "esya.ozel.turkmen_kecesi.aciklama",
+      "kaynak_notu_anahtari": "esya.ozel.turkmen_kecesi.kaynak_notu",
+      "hedef_sistem": "kis_odun_tuketimi",
+      "carpan": 0.88,
+      "ikon": "turkmen_kecesi"
+    },
+    {
+      "id": "kirim_akcaagac_yayi",
+      "ad_anahtari": "esya.ozel.uzun_yay.ad",
+      "aciklama_anahtari": "esya.ozel.uzun_yay.aciklama",
+      "kaynak_notu_anahtari": "esya.ozel.uzun_yay.kaynak_notu",
+      "hedef_sistem": "savunma_formulu",
+      "carpan": 1.12,
+      "ikon": "uzun_yay"
+    },
+    {
+      "id": "sirlak_bugday_kupu",
+      "ad_anahtari": "esya.ozel.sirlak_kup.ad",
+      "aciklama_anahtari": "esya.ozel.sirlak_kup.aciklama",
+      "kaynak_notu_anahtari": "esya.ozel.sirlak_kup.kaynak_notu",
+      "hedef_sistem": "erzak",
+      "carpan": 1.1,
+      "ikon": "sirlak_kup"
+    },
+    {
+      "id": "konevi_tiryak_hokasi",
+      "ad_anahtari": "esya.ozel.tiryak_hokasi.ad",
+      "aciklama_anahtari": "esya.ozel.tiryak_hokasi.aciklama",
+      "kaynak_notu_anahtari": "esya.ozel.tiryak_hokasi.kaynak_notu",
+      "hedef_sistem": "saglik",
+      "carpan": 1.15,
+      "ikon": "tiryak_hokasi"
+    },
+    {
+      "id": "ahlat_burc_zinciri",
+      "ad_anahtari": "esya.ozel.burc_zinciri.ad",
+      "aciklama_anahtari": "esya.ozel.burc_zinciri.aciklama",
+      "kaynak_notu_anahtari": "esya.ozel.burc_zinciri.kaynak_notu",
+      "hedef_sistem": "guvenlik",
+      "carpan": 1.12,
+      "ikon": "burc_zinciri"
+    },
+    {
+      "id": "sivas_celik_zirh_pullari",
+      "ad_anahtari": "esya.ozel.celik_pul.ad",
+      "aciklama_anahtari": "esya.ozel.celik_pul.aciklama",
+      "kaynak_notu_anahtari": "esya.ozel.celik_pul.kaynak_notu",
+      "hedef_sistem": "savunma_formulu",
+      "carpan": 1.1,
+      "ikon": "celik_pul"
+    }
+  ]
+}

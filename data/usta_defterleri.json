@@ -35,5 +35,42 @@
     "oda_turu": "cozumleme_odasi",
     "kamu_bedel": 2,
     "mevsim_carpani": "insa_carpani"
+  },
+  "defter_metinleri": {
+    "usta_defteri_marangoz": {
+      "tur": "usta_defteri",
+      "ad_anahtari": "yap04.defter.marangoz.ad",
+      "aciklama_anahtari": "yap04.defter.marangoz.aciklama",
+      "kaynak_notu_anahtari": "yap04.defter.marangoz.kaynak_notu",
+      "cozum_bildirimi_anahtari": "yap04.defter.marangoz.cozum_bildirimi"
+    },
+    "usta_defteri_horasan_harci": {
+      "tur": "usta_defteri",
+      "ad_anahtari": "yap04.defter.horasan.ad",
+      "aciklama_anahtari": "yap04.defter.horasan.aciklama",
+      "kaynak_notu_anahtari": "yap04.defter.horasan.kaynak_notu",
+      "cozum_bildirimi_anahtari": "yap04.defter.horasan.cozum_bildirimi"
+    },
+    "yapi_resmi_rum_degirmeni": {
+      "tur": "yapi_resmi",
+      "ad_anahtari": "yap04.resim.degirmen.ad",
+      "aciklama_anahtari": "yap04.resim.degirmen.aciklama",
+      "kaynak_notu_anahtari": "yap04.resim.degirmen.kaynak_notu",
+      "cozum_bildirimi_anahtari": "yap04.resim.degirmen.cozum_bildirimi"
+    },
+    "usta_defteri_turkmen_kecesi": {
+      "tur": "usta_defteri",
+      "ad_anahtari": "yap04.defter.kece.ad",
+      "aciklama_anahtari": "yap04.defter.kece.aciklama",
+      "kaynak_notu_anahtari": "yap04.defter.kece.kaynak_notu",
+      "cozum_bildirimi_anahtari": "yap04.defter.kece.cozum_bildirimi"
+    },
+    "yapi_resmi_uzun_yay": {
+      "tur": "yapi_resmi",
+      "ad_anahtari": "yap04.resim.yay.ad",
+      "aciklama_anahtari": "yap04.resim.yay.aciklama",
+      "kaynak_notu_anahtari": "yap04.resim.yay.kaynak_notu",
+      "cozum_bildirimi_anahtari": "yap04.resim.yay.cozum_bildirimi"
+    }
   }
 }

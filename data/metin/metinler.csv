@@ -2491,3 +2491,49 @@ yap03.usta.evhad.koy_replik,"Yarayı dağlamak kolaydır; marifet iltihabı kuru
 yap28.cirak.usta_cocugu_baslangic,"Ustanın genç evladı babasının iş yerinde çıraklığa başladı; beş ortak çalışma gecesinde yarı usta olacak.","The master's young child began apprenticing at their parent's workplace; after five nights of shared work they will become a half-master."
 yap28.cirak.usta_cocugu_tamam,"Usta evladı babasının yanında beş gece çalışıp zanaatın sırrını devraldı; yapı bilgisi artık köyde kalıcıdır.","Working five nights beside their parent, the master's child inherited the secret of the craft; the building knowledge is now permanent in the village."
 yap29.usta.nobet_ret,"Baş ustalar surda veya kulede gece nöbeti tutmaz; nöbet işi asker ve muhafızlarındır.","Master craftsmen do not stand night sentry on the wall or tower; sentry duty belongs to soldiers and guards."
+yap04.defter.marangoz.ad,Marangoz Ustasının Defteri,Master Carpenter's Notebook
+yap04.defter.marangoz.aciklama,"Su hızarının çark dişlerini ve çam kerestesi biçme usulünü anlatan usta defteri.","Master notebook detailing water-saw gear teeth and pine timber milling methods."
+yap04.defter.marangoz.kaynak_notu,"13. yüzyıl Kastamonu ve Sinop orman ocaklarında kullanılan su hızarı kayıtlarından derlenmiştir.","Compiled from 13th-century water-saw records used in the forest camps of Kastamonu and Sinop."
+yap04.defter.marangoz.cozum_bildirimi,"Marangoz ustasının defteri çözümlendi: hızarhane üretimi kalıcı olarak bereketlendi.","Master carpenter's notebook studied: sawmill production permanently increased."
+yap04.defter.horasan.ad,Horasan Harcı Usta Defteri,Horasan Mortar Master Notebook
+yap04.defter.horasan.aciklama,"Kireç, dövülmüş tuğla tozu ve kül karışımıyla suya ve koçbaşına dayanıklı sur harcı tarifini içeren usta defteri.","Master notebook containing the recipe for water- and ram-resistant rampart mortar made of lime, crushed brick dust, and ash."
+yap04.defter.horasan.kaynak_notu,"Selçuklu kervansaray ve kale burçlarında kullanılan geleneksel Horasan harcı terkibidir.","Traditional Horasan mortar compound used in Seljuk caravanserais and fortress towers."
+yap04.defter.horasan.cozum_bildirimi,"Horasan harcı usta defteri çözümlendi: surların aldığı hasar kalıcı olarak azaldı.","Horasan mortar master notebook studied: damage taken by the ramparts permanently reduced."
+yap04.resim.degirmen.ad,Rum Usulü Su Değirmeni Yapı Resmi,Roman-Style Watermill Building Drawing
+yap04.resim.degirmen.aciklama,"Yatay çarklı dere değirmeninin su oluğu eğimini ve taş dişleme ölçülerini gösteren yapı resmi.","Building drawing showing the flume slope and stone-dressing measurements of a horizontal-wheel stream mill."
+yap04.resim.degirmen.kaynak_notu,"Kemah ve Niksar vadilerindeki Rum ve Türkmen değirmencilerin ortak su çarkı geleneğine dayanır.","Based on the shared waterwheel tradition of Roman and Turkmen millers in the Kemah and Niksar valleys."
+yap04.resim.degirmen.cozum_bildirimi,"Rum usulü su değirmeni yapı resmi çözümlendi: mevcut değirmen üretimi arttı.","Roman-style watermill building drawing studied: existing mill production increased."
+yap04.defter.kece.ad,Türkmen Keçesi Usta Defteri,Turkmen Felt Master Notebook
+yap04.defter.kece.aciklama,"Koyun yapağısını sıcak su ve sabunla teperek çadır ve kulübe duvarlarını ayaza karşı kaplama usulünü anlatan usta defteri.","Master notebook explaining how to full sheep wool with hot water and soap to insulate tent and hut walls against frost."
+yap04.defter.kece.kaynak_notu,"Anadolu yaylaklarında kışlayan Türkmen obalarının çadır yalıtım ve keçe tepme zanaatıdır.","Tent insulation and felt-fulling craft of Turkmen clans wintering on the Anatolian highlands."
+yap04.defter.kece.cozum_bildirimi,"Türkmen keçesi usta defteri çözümlendi: kışın yakılan odun tüketimi azaldı.","Turkmen felt master notebook studied: winter firewood consumption reduced."
+yap04.resim.yay.ad,Uzun Menzilli Yay Yapı Resmi,Long-Range Bow Building Drawing
+yap04.resim.yay.aciklama,"Akçaağaç gövde, manda boynuzu ve balık tutkalıyla kurulan bileşik yay kanatlarının büküm ölçülerini gösteren yapı resmi.","Building drawing showing the reflex measurements of composite bow limbs built from maple core, horn, and fish glue."
+yap04.resim.yay.kaynak_notu,"13. yüzyıl Anadolu uç okçularının menzil ve zırh delici yay yapım geleneğinden alınmıştır.","Taken from the range and armor-piercing bowyer tradition of 13th-century Anatolian frontier archers."
+yap04.resim.yay.cozum_bildirimi,"Uzun menzilli yay yapı resmi çözümlendi: köy savunma gücü kalıcı olarak arttı.","Long-range bow building drawing studied: village defense power permanently increased."
+yap37.donus.defter_kabul,"Söz verilen usta defteri ve yapı resmi haberciyle kapıya ulaştırıldı.","The promised master notebook and building drawing were delivered to the gate by messenger."
+yap37.donus.defter_ret,"Kapıdan çevrilen yolcunun heybesindeki usta defteri komşu menzilde başkasına satılmış.","The master notebook in the bag of the turned-away traveler was sold to another at the neighboring halt."
+esya.ozel.horasan_harci.ad,Mühürlü Horasan Harcı Numunesi,Sealed Horasan Mortar Sample
+esya.ozel.horasan_harci.aciklama,"Eski bir kervansaray temelinden çıkarılmış, kireç ve pişmiş toprak tozunun tam oranını gösteren taşlaşmış harç kalıbı.","A petrified mortar block taken from an old caravanserai foundation, showing the exact ratio of lime and fired clay dust."
+esya.ozel.horasan_harci.kaynak_notu,"YAZ-01 Dünya Kitabı: 13. yüzyıl Selçuklu ribat ve kale duvarlarında sarsıntı ve koçbaşı darbesini sönümleyen Horasan harcı.","YAZ-01 Worldbook: Horasan mortar used in 13th-century Seljuk ribats and fortress walls to absorb tremors and battering ram strikes."
+esya.ozel.rum_carki.ad,Tunç Yataklı Su Çarkı Mili,Bronze-Bearing Waterwheel Axle
+esya.ozel.rum_carki.aciklama,"Değirmen taşının sürtünmesini azaltıp düşük debili derede bile çarkı döndüren dökme tunç mil yatağı.","Cast bronze axle bearing that reduces millstone friction and turns the wheel even in low-flow streams."
+esya.ozel.rum_carki.kaynak_notu,"YAZ-01 Dünya Kitabı: Kelkit ve Fırat boylarındaki su değirmenlerinde kullanılan Bizans-Selçuklu ortak çark mekaniği.","YAZ-01 Worldbook: Shared Byzantine-Seljuk wheel mechanics used in watermills along the Kelkit and Euphrates."
+esya.ozel.turkmen_kecesi.ad,Üç Katlı Türkmen Keçe Abası,Three-Ply Turkmen Felt Cloak
+esya.ozel.turkmen_kecesi.aciklama,"Kökboya ve içyağı ile sertleştirilmiş, rüzgarı ve kar suyunu geçirmeyen sıkı tepilmiş keçe örnek parçası.","Tightly fulled felt sample stiffened with madder root and tallow, impervious to wind and snowmelt."
+esya.ozel.turkmen_kecesi.kaynak_notu,"YAZ-01 Dünya Kitabı: Bozok ve Üçok göçerlerinin kışlak çadırlarında ısı kaybını önleyen keçe dokuma tekniği.","YAZ-01 Worldbook: Felt fulling technique of Bozok and Ucok nomads preventing heat loss in winter tents."
+esya.ozel.uzun_yay.ad,Sinir Sargılı Akçaağaç Yay Kabzası,Sinew-Wrapped Maple Bow Grip
+esya.ozel.uzun_yay.aciklama,"Mersin balığı tutkalıyla sıvanmış aşil siniri ve boynuz katmanlarını gösteren kesit yay örneği.","Cross-section bow sample showing layers of Achilles sinew and horn bonded with sturgeon glue."
+esya.ozel.uzun_yay.kaynak_notu,"YAZ-01 Dünya Kitabı: Anadolu uçlarında kullanılan kemanî yayların nem ve soğuğa dayanıklı kabza sargısı.","YAZ-01 Worldbook: Moisture- and cold-resistant grip wrapping of composite bows used on the Anatolian frontier."
+esya.ozel.sirlak_kup.ad,Sırlı Erzak Küpü Kapağı,Glazed Granary Jar Lid
+esya.ozel.sirlak_kup.aciklama,"Balmumu ve çam sakızı oluğu sayesinde tahılı rutubetten ve ambar bitinden koruyan sırlı pişmiş toprak kapak.","Glazed terracotta lid whose beeswax and pine resin groove protects grain from dampness and granary weevils."
+esya.ozel.sirlak_kup.kaynak_notu,"YAZ-01 Dünya Kitabı: Orta Anadolu yeraltı tahıl kuyularında ve kale ambarlarında kullanılan hava sızdırmaz küp mühürlemesi.","YAZ-01 Worldbook: Airtight jar sealing used in Central Anatolian underground grain pits and fortress granaries."
+esya.ozel.tiryak_hokasi.ad,Konevi Tiryak ve Kafur Hokkası,Konya Theriac and Camphor Jar
+esya.ozel.tiryak_hokasi.aciklama,"Darüşşifa mührü taşıyan, yara ateşini ve kış hummasını kesen kurutulmuş kök ve kafur karışımı hokka.","Darushifa-sealed jar containing a dried root and camphor compound that halts wound fever and winter chills."
+esya.ozel.tiryak_hokasi.kaynak_notu,"YAZ-01 Dünya Kitabı: Gevher Nesibe ve Konya şifahanelerinde cerrahların kullandığı antiseptik tiryak tertibi.","YAZ-01 Worldbook: Antiseptic theriac preparation used by surgeons in the Gevher Nesibe and Konya infirmaries."
+esya.ozel.burc_zinciri.ad,Ahlat Dövme Burç Çıngırağı ve Zinciri,Ahlat Forged Tower Bell and Chain
+esya.ozel.burc_zinciri.aciklama,"Gece sızmalarında sur dibindeki tellere bağlanıp nöbetçiyi uyaran dövme demir gergi zinciri.","Forged iron tension chain tied to tripwires at the base of the wall to alert sentries during night infiltrations."
+esya.ozel.burc_zinciri.kaynak_notu,"YAZ-01 Dünya Kitabı: Doğu Anadolu uç kalelerinde gece baskınlarına karşı kullanılan erken uyarı ve devriye tertibatı.","YAZ-01 Worldbook: Early warning and patrol rigging used against night raids in Eastern Anatolian frontier forts."
+esya.ozel.celik_pul.ad,Sivas Su Verilmiş Çelik Zırh Pulları,Sivas Tempered Steel Armor Scales
+esya.ozel.celik_pul.aciklama,"Meşe kömüründe tavlanıp yağda su verilmiş, deri kaftan üzerine dikilmeye hazır hafif çelik cevşen pulları.","Light steel cuirass scales heated in oak charcoal and quenched in oil, ready to be stitched onto leather coats."
+esya.ozel.celik_pul.kaynak_notu,"YAZ-01 Dünya Kitabı: Sivas ve Erzincan pusatçılarının ok ve kılıç darbesini saptıran cevşen zırh işçiliği.","YAZ-01 Worldbook: Cuirass armor craftsmanship of Sivas and Erzincan armorers that deflects arrow and sword blows."
