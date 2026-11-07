@@ -1,0 +1,350 @@
+{
+  "olaylar": [
+    {
+      "id": "mogol_ilerleyisi",
+      "sira": 1,
+      "ad_anahtari": "dunya.olay.mogol_ilerleyisi.ad",
+      "kaynak_notu_anahtari": "dunya.olay.mogol_ilerleyisi.kaynak_notu",
+      "gun_kaynagi": "har02_sayaci",
+      "evreler": {
+        "erken_soylenti": {
+          "gun_ofset": -6,
+          "replikler": [
+            {
+              "konusmaci": "chr_005",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.mogol.soylenti_1",
+              "metin": "Erzincan boğazından gelen kervancılar doğu ufkunda dumanların hiç sönmediğini, Baycu Noyan'ın öncü atlılarının Sivas çayırlarına indiğini fısıldıyor."
+            },
+            {
+              "konusmaci": "chr_011",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.mogol.soylenti_2",
+              "metin": "Yayladan inen çobanlar gece vakti demir nallı yüzlerce atın nal sesini duymuş; kuşlar bile doğu korularından batıya göçüyor."
+            }
+          ]
+        },
+        "kesin_haber": {
+          "gun_ofset": -2,
+          "replikler": [
+            {
+              "konusmaci": "chr_001",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.mogol.kesin_1",
+              "metin": "Karahisar derbendindeki gözcü kulesi dün gece yakıldı muhafız; Moğol туğları vadi ağzında göründü, kaçabilen köylüler yollara döküldü."
+            },
+            {
+              "konusmaci": "chr_003",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.mogol.kesin_2",
+              "metin": "Sivas'tan çıkan son ulak atını çatlatarak geçti; doğu menzilleri kapandı, akıncı kolu doğrudan bizim boğaza yürüyor."
+            }
+          ]
+        },
+        "etki": {
+          "gun_ofset": 0,
+          "hedef_kapi": "tehdit_kapisi",
+          "carpan": 1.25,
+          "rapor_anahtari": "dunya.rapor.mogol_ilerleyisi"
+        }
+      },
+      "karar_kosulu": {
+        "bagli_karar": "mogol_elcisi",
+        "kabul": "dunya.donus.mogol_elcisi.kabul",
+        "ret": "dunya.donus.mogol_elcisi.ret",
+        "bekliyor": "dunya.donus.mogol_elcisi.bekliyor"
+      }
+    },
+    {
+      "id": "selcuklu_taht_kavgasi",
+      "sira": 2,
+      "ad_anahtari": "dunya.olay.selcuklu_taht_kavgasi.ad",
+      "kaynak_notu_anahtari": "dunya.olay.selcuklu_taht_kavgasi.kaynak_notu",
+      "evreler": {
+        "erken_soylenti": {
+          "gun": 10,
+          "replikler": [
+            {
+              "konusmaci": "chr_009",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.taht.soylenti_1",
+              "metin": "Konya divanında iki sultan kardeşin emirleri birbirine kılıç çekmiş derler; kervansaraylarda hangi sultanın sikkesinin geçeceği tartışılıyor."
+            },
+            {
+              "konusmaci": "chr_017",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.taht.soylenti_2",
+              "metin": "Subaşı konaklarında mühürler değişmiş; bir gün İzzeddin Keykavus'un, ertesi gün Rükneddin Kılıç Arslan'ın fermanı okunuyormuş."
+            }
+          ]
+        },
+        "kesin_haber": {
+          "gun": 14,
+          "replikler": [
+            {
+              "konusmaci": "chr_002",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.taht.kesin_1",
+              "metin": "Saltanat ordusu Aksaray ovasında ikiye bölündü; tımarlı sipahiler kalelerini bırakıp taht kavgasına çağrılınca iç vilayetlerin ahalisi uçlara kaçmaya başladı."
+            },
+            {
+              "konusmaci": "chr_014",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.taht.kesin_2",
+              "metin": "Konya'dan gelen mülteci kafileleri yollara sığmıyor; emirlerin müsaderesinden kaçan zanaatkâr ve köylüler güvenli boğaz arıyor."
+            }
+          ]
+        },
+        "etki": {
+          "gun": 16,
+          "hedef_kapi": "gelen_akisi",
+          "carpan": 1.3,
+          "rapor_anahtari": "dunya.rapor.selcuklu_taht_kavgasi"
+        }
+      },
+      "karar_kosulu": {
+        "bagli_karar": "turkmen_ittifaki",
+        "kabul": "dunya.donus.turkmen_ittifaki.kabul",
+        "ret": "dunya.donus.turkmen_ittifaki.ret",
+        "bekliyor": "dunya.donus.turkmen_ittifaki.bekliyor"
+      }
+    },
+    {
+      "id": "bizans_uc_baskisi",
+      "sira": 3,
+      "ad_anahtari": "dunya.olay.bizans_uc_baskisi.ad",
+      "kaynak_notu_anahtari": "dunya.olay.bizans_uc_baskisi.kaynak_notu",
+      "evreler": {
+        "erken_soylenti": {
+          "gun": 22,
+          "replikler": [
+            {
+              "konusmaci": "chr_004",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.bizans.soylenti_1",
+              "metin": "Batı sınırındaki İznik tekfuru akritai garnizonlarını takviye etmiş; sınır kalelerinde gece gündüz boru sesleri duyuluyormuş."
+            },
+            {
+              "konusmaci": "chr_022",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.bizans.soylenti_2",
+              "metin": "Uçtaki Rum ve Türkmen pazarlarında tekfurun tahsildarları görülmüş; geçit parası vermeyen köylerin sürülerine el koyacaklarmış."
+            }
+          ]
+        },
+        "kesin_haber": {
+          "gun": 26,
+          "replikler": [
+            {
+              "konusmaci": "chr_007",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.bizans.kesin_1",
+              "metin": "Tekfurun zırhlı süvarileri batı geçidini tuttu; sınır boyundaki bütün uç köylerine ağır haraç fermanı gönderildi."
+            },
+            {
+              "konusmaci": "chr_012",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.bizans.kesin_2",
+              "metin": "Komşu vadi köyü tekfurun istediği haracı denkleştiremeyince bağlarını yakmışlar; sıra bizim boğaza geldi."
+            }
+          ]
+        },
+        "etki": {
+          "gun": 28,
+          "hedef_kapi": "harac",
+          "carpan": 1.25,
+          "rapor_anahtari": "dunya.rapor.bizans_uc_baskisi"
+        }
+      },
+      "karar_kosulu": {
+        "bagli_karar": "tekfur_haraci",
+        "kabul": "dunya.donus.tekfur_haraci.kabul",
+        "ret": "dunya.donus.tekfur_haraci.ret",
+        "bekliyor": "dunya.donus.tekfur_haraci.bekliyor"
+      }
+    },
+    {
+      "id": "kitlik_yili",
+      "sira": 4,
+      "ad_anahtari": "dunya.olay.kitlik_yili.ad",
+      "kaynak_notu_anahtari": "dunya.olay.kitlik_yili.kaynak_notu",
+      "evreler": {
+        "erken_soylenti": {
+          "gun": 34,
+          "replikler": [
+            {
+              "konusmaci": "chr_008",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.kitlik.soylenti_1",
+              "metin": "Güney ovalarında bahar yağmuru hiç düşmemiş; başaklar diz boyuna gelmeden sararıp kavrulmuş diyorlar."
+            },
+            {
+              "konusmaci": "chr_016",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.kitlik.soylenti_2",
+              "metin": "Pazar yerlerinde bir kile arpanın fiyatı iki katına fırlamış; köylüler tohumluk buğdayı bile değirmene taşımaya başlamış."
+            }
+          ]
+        },
+        "kesin_haber": {
+          "gun": 38,
+          "replikler": [
+            {
+              "konusmaci": "chr_010",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.kitlik.kesin_1",
+              "metin": "Kızılırmak yayındaki kuyular çekildi, çekirge sürüsü kalan ekinleri de süpürdü; bütün sancakta büyük kıtlık yılı ilan edildi."
+            },
+            {
+              "konusmaci": "chr_019",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.kitlik.kesin_2",
+              "metin": "Kervanlar artık un ve zahire satmıyor; ambarındaki yedeği tutamayan köyler meşe palamudu öğütmeye düşmüş."
+            }
+          ]
+        },
+        "etki": {
+          "gun": 40,
+          "hedef_kapi": "tuketim",
+          "carpan": 1.2,
+          "rapor_anahtari": "dunya.rapor.kitlik_yili"
+        }
+      },
+      "karar_kosulu": {
+        "bagli_karar": "tekfur_haraci",
+        "kabul": "dunya.donus.tekfur_haraci.kabul",
+        "ret": "dunya.donus.tekfur_haraci.ret",
+        "bekliyor": "dunya.donus.tekfur_haraci.bekliyor"
+      }
+    },
+    {
+      "id": "salgin_dalgasi",
+      "sira": 5,
+      "ad_anahtari": "dunya.olay.salgin_dalgasi.ad",
+      "kaynak_notu_anahtari": "dunya.olay.salgin_dalgasi.kaynak_notu",
+      "evreler": {
+        "erken_soylenti": {
+          "gun": 46,
+          "replikler": [
+            {
+              "konusmaci": "chr_015",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.salgin.soylenti_1",
+              "metin": "Limanlardan gelen katırcılar kara humma nöbetinden söz ediyor; konakladıkları hanlarda geceleri sirke dumanı yakılıyormuş."
+            },
+            {
+              "konusmaci": "chr_020",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.salgin.soylenti_2",
+              "metin": "Aşağı vadideki su kaynaklarının başında ölü hayvan leşleri bulunmuş; hekimler kaynatılmamış su içilmemesini tembihliyor."
+            }
+          ]
+        },
+        "kesin_haber": {
+          "gun": 50,
+          "replikler": [
+            {
+              "konusmaci": "chr_006",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.salgin.kesin_1",
+              "metin": "Kervansaray kapılarına kireç döküldü muhafız; salgın dalgası komşu kazalara sıçradı, ateşlenen yolcular yollarda kalıyor."
+            },
+            {
+              "konusmaci": "chr_025",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.salgin.kesin_2",
+              "metin": "Şifahanesi ve temiz suyu olmayan köylerde humma her haneye girmiş; rüzgar bile vadiden hastalık kokusu taşıyor."
+            }
+          ]
+        },
+        "etki": {
+          "gun": 52,
+          "hedef_kapi": "saglik_yoneticisi",
+          "carpan": 1.25,
+          "rapor_anahtari": "dunya.rapor.salgin_dalgasi"
+        }
+      },
+      "karar_kosulu": {
+        "bagli_karar": "mogol_elcisi",
+        "kabul": "dunya.donus.mogol_elcisi.kabul",
+        "ret": "dunya.donus.mogol_elcisi.ret",
+        "bekliyor": "dunya.donus.mogol_elcisi.bekliyor"
+      }
+    },
+    {
+      "id": "ticaret_yolunun_kapanmasi",
+      "sira": 6,
+      "ad_anahtari": "dunya.olay.ticaret_yolunun_kapanmasi.ad",
+      "kaynak_notu_anahtari": "dunya.olay.ticaret_yolunun_kapanmasi.kaynak_notu",
+      "evreler": {
+        "erken_soylenti": {
+          "gun": 58,
+          "replikler": [
+            {
+              "konusmaci": "chr_013",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.ticaret.soylenti_1",
+              "metin": "Büyük kervan başları Erzurum-Sivas menzilinde köprülerin yıkıldığını, haramilerin her geçitte pusu kurduğunu anlatıyor."
+            },
+            {
+              "konusmaci": "chr_021",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.ticaret.soylenti_2",
+              "metin": "Tuz ve demir yüklü katır kolları haftalardır gecikti; bezirgânlar muhafızsız yola çıkmaya tövbe etmiş."
+            }
+          ]
+        },
+        "kesin_haber": {
+          "gun": 62,
+          "replikler": [
+            {
+              "konusmaci": "chr_018",
+              "konu": "yolda_ne_gordun",
+              "anahtar": "dunya.haber.ticaret.kesin_1",
+              "metin": "Kervan yolu taş çığları ve baskınlar yüzünden tamamen kapandı; hanların kapısına kilit vuruldu, dışarıdan mal gelişi kesildi."
+            },
+            {
+              "konusmaci": "chr_027",
+              "konu": "koy_dedikodusu",
+              "anahtar": "dunya.haber.ticaret.kesin_2",
+              "metin": "Uç boyunda demir alet ve tuz karaborsaya düştü; kendi atölyesi ve ambarı olmayan köyler tek bir çiviye bile servet ödüyor."
+            }
+          ]
+        },
+        "etki": {
+          "gun": 64,
+          "hedef_kapi": "fiyat",
+          "carpan": 1.3,
+          "rapor_anahtari": "dunya.rapor.ticaret_yolunun_kapanmasi"
+        }
+      },
+      "karar_kosulu": {
+        "bagli_karar": "turkmen_ittifaki",
+        "kabul": "dunya.donus.turkmen_ittifaki.kabul",
+        "ret": "dunya.donus.turkmen_ittifaki.ret",
+        "bekliyor": "dunya.donus.turkmen_ittifaki.bekliyor"
+      }
+    }
+  ],
+  "geri_donen_kararlar": {
+    "tekfur_haraci": {
+      "varsayilan": "bekliyor",
+      "kabul_anahtari": "dunya.donus.tekfur_haraci.kabul",
+      "ret_anahtari": "dunya.donus.tekfur_haraci.ret",
+      "bekliyor_anahtari": "dunya.donus.tekfur_haraci.bekliyor"
+    },
+    "mogol_elcisi": {
+      "varsayilan": "bekliyor",
+      "kabul_anahtari": "dunya.donus.mogol_elcisi.kabul",
+      "ret_anahtari": "dunya.donus.mogol_elcisi.ret",
+      "bekliyor_anahtari": "dunya.donus.mogol_elcisi.bekliyor"
+    },
+    "turkmen_ittifaki": {
+      "varsayilan": "bekliyor",
+      "min_ikinci_ziyaret_gece": 4,
+      "kabul_anahtari": "dunya.donus.turkmen_ittifaki.kabul",
+      "ret_anahtari": "dunya.donus.turkmen_ittifaki.ret",
+      "bekliyor_anahtari": "dunya.donus.turkmen_ittifaki.bekliyor"
+    }
+  }
+}

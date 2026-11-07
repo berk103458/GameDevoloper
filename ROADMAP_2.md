@@ -1769,7 +1769,7 @@ DNY-01 … DNY-04 gövdesi durur. Yeni maddeler DNY-05 … DNY-84. İkinci harit
 
 ### 23.1 Çizelge
 
-- [ ] **DNY-01:** Dünya zaman çizelgesi.
+- [ ] **DNY-01:** Dünya zaman çizelgesi. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/dunya/zaman_cizelgesi.json` TR/EN ve `dunya.olay.*` metin anahtarları eklendi)*
   - Ne: `data/dunya/zaman_cizelgesi.json` altı olayı sırayla taşır: Moğol ilerleyişi, Selçuklu taht kavgası, Bizans uç baskısı, kıtlık yılı, salgın dalgası ve ticaret yolunun kapanması. Her olayın erken söylenti, kesin haber ve etki evresi vardır; evre günü mevcut mevsim yılının içindedir ve bu madde yeni bir yıl uzunluğu yazmaz. Moğol günleri HAR-02 sayacından okunur, çizelge ikinci bir kalan gün tutmaz. Etki evresi gelince çağrı DNY-03'edir; çizelge bar, kasa veya nüfus değiştirmez.
   - Kabul: Üç mevsim yılı boyunca altı olay, dosyadaki sırayla üç evreyi de gezer (`tests/unit/sistemler/dunya_test.gd`). HAR-02 kalan günü ile çizelgedeki Moğol günü aynı sayıdır ve çizelgede ayrı sayaç alanı yoktur. İki olay aynı gün etki evresine gelirse o gece tek etki yazılır, öbürü ertesi geceye kalır. Kayıt olayın ortasında açılırsa evre kaldığı günden sürer. Ek şart: Çizelge yılı `.gd` içine gömülmez; günler `zaman_cizelgesi.json` içindedir. Ek şart: Dünya kitabı olgusuyla çelişen satır 1 doğrulama hatası verir ve o olay düşmez. Ek şart: Aynı olay kimliği ikinci kez düşmez. Ek şart: Eski kayıtta işaret listesi yoksa liste boş başlar ve geçmiş geceler zorla işletilmez. Ek şart: Mevsim değişince olay günü kaymaz. Ek şart: Aynı tohumla iki koşu aynı olay kimliğini aynı günde düşürür. Ek şart: Kayıt, işaret kimliklerinin listesidir; cümle metni gömülmez. Ek şart: `dunya_zamani.gd` `koy_sahnesi` import etmez ve ikinci harita açmaz. Ek şart: Divan hükmü çizelge işaretine yazmaz; üçlü karar ROADMAP 1 CAS-07'de durur.
   - Bağımlılık: YAZ-01. Boyut: M.
@@ -1779,7 +1779,7 @@ DNY-01 … DNY-04 gövdesi durur. Yeni maddeler DNY-05 … DNY-84. İkinci harit
 
 ### 23.2 Haber
 
-- [ ] **DNY-02:** Haber önce insanlardan duyulur.
+- [ ] **DNY-02:** Haber önce insanlardan duyulur. *(metin tamam, Kalfa bekleniyor — Antigravity: 6 olay için 2'şer erken söylenti ve kesin haber karakter repliği `dunya.haber.*` olarak TR/EN eklendi)*
   - Ne: Erken söylenti ve kesin haber, "Yolda ne gördün" konusunda ve köy dedikodusunda durur. Etki evresinden önce aynı olay için en az iki ayrı karakter satırı vardır; satırlar YAZ içeriğidir ve birebir aynı olamaz. Dedikodu DIY-13 üzerinden fısıltıya gider; bu madde gazete üretmez. Gözcü ertesi günkü kafileyi söyler, dünya haberi gözcü kulesinden açılmaz. O gün kapıya kimse gelmezse söylenti bir sonraki gelişe kalır ve etki evresi öne çekilmez.
   - Kabul: Etki evresinden önceki pencerede aynı olay için en az 2 satır vardır ve bu satırlar birbirinin kopyası değildir (`tests/unit/sistemler/dunya_test.gd`). Gözcü özeti açıkken dünya olay satırı sayısı artmaz. Köyde konuşacak kimse yoksa satır 0'dır ve etki DNY-01 gününü bekler. Ek şart: Salgın haber satırı hastalık yöneticisini çağırmaz; çağrı etki evresindedir. Ek şart: Karar işaretinin kişi dosyasında dalı yoksa o işaret yalnız yazılı haberde kalır. Ek şart: Boş günde yazılı haber satırı durur ve silinmez; yüz o gece gelmez. Ek şart: Aynı tohumla iki koşu aynı haber satırını aynı günde üretir. Ek şart: Yeni haber ses dosyası eklenmez.
   - Bağımlılık: DNY-01, DIY-03, DIY-13. Boyut: M.
@@ -1788,7 +1788,7 @@ DNY-01 … DNY-04 gövdesi durur. Yeni maddeler DNY-05 … DNY-84. İkinci harit
 
 ### 23.3 Köy etkisi
 
-- [ ] **DNY-03:** Olayların köye etkisi.
+- [ ] **DNY-03:** Olayların köye etkisi. *(metin tamam, Kalfa bekleniyor — Antigravity: tek kapı hedefleri ve gece raporu satırları `dunya.rapor.*` olarak TR/EN eklendi)*
   - Ne: Her olayın tek kapısı dosyada yazılıdır. Moğol ilerleyişi tehdit kapısına (HAR-02), Selçuklu taht kavgası gelen akışına (KAP-16), Bizans uç baskısı haraca (HAR-03), kıtlık yılı tüketime (EKO-09), salgın dalgası sağlık yöneticisine ve ticaret yolunun kapanması fiyata (TUC-09) yazılır. Kıtlık yılı KRI-06'ya ikinci kez yazmaz. Salgın yeni hastalık türü açmaz, kıtlık yeni isyan kurmaz, yol kapanması yeni pazar kurmaz. KAP-16 göç dalgası kendi zarının üstüne ikinci kez atılmaz; bu maddenin çarpanını okur.
   - Kabul: Altı olayın her biri bir etki testinde tam bir kapıya yazar (`tests/unit/sistemler/dunya_test.gd`). İki kapılı bir olay satırı doğrulayıcıda 1 hatadır. Salgın olayından sonra hastalık türü sayısı değişmez. Kapısı listede olmayan olay bar değiştirmez ve raporda "yazılmadı" der. Gece raporunda etki, olay kimliğiyle tek satırdır. Ek şart: Etki mevcut `OlayVerisi` alanlarına yazılır; şemaya yeni anahtar eklenmez. Ek şart: Aynı olay kimliğinin etkisi bir kez yazılır; yükleme bu etkiyi ikinci kez uygulamaz.
   - Bağımlılık: DNY-01, KAP-16. Boyut: M.
@@ -1797,7 +1797,7 @@ DNY-01 … DNY-04 gövdesi durur. Yeni maddeler DNY-05 … DNY-84. İkinci harit
 
 ### 23.4 Kararın dönüşü
 
-- [ ] **DNY-04:** Oyuncunun kararları dünyaya geri döner.
+- [ ] **DNY-04:** Oyuncunun kararları dünyaya geri döner. *(metin tamam, Kalfa bekleniyor — Antigravity: `tekfur_haraci`, `mogol_elcisi`, `turkmen_ittifaki` için `kabul`/`ret`/`bekliyor` dönüş metinleri `dunya.donus.*` olarak TR/EN eklendi)*
   - Ne: Çizelgeye geri dönen kararlar üçtür: Tekfur haracı (HAR-03), Moğol elçisi ve Türkmen beyiyle ittifak (HAR-07). Başka karar bu dosyaya kendiliğinden yazılmaz. Karar, sonraki olayın koşul alanına girer. Nihai sonlar SYS-20 bu kaydı okur; altıncı son açılmaz. Karar verilmemiş durum `bekliyor` değeridir; boş alan sonraki olayı düşürmez ve "karar yok" dalını kullanır. Aynı karara iki kez basılırsa kayıt son değeri tutar. Heyet konuşması KOP-02'dedir; ikinci bir heyet diyaloğu yazılmaz.
   - Kabul: İki farklı karar dizisi, aynı tohumda iki farklı olay sırası üretir (`tests/unit/sistemler/dunya_test.gd`). SYS-20 son kimliği beş değerden biri olarak kalır. `bekliyor` ile biten kayıt açılır. Ek şart: Aynı gecede çizelgeye en çok bir karar işareti yazılır. Ek şart: Haraç, elçi ve ittifak kayıtlarında kabul ile ret ayrı koşul dalıdır. Ek şart: Kapıdaki kabul düğmesi dünya işaretini karar saymaz; işaret yalnız bu üç kayıttan yazılır. Ek şart: Türkmen ittifak isteği, aynı kişinin ikinci ziyareti dört geceden önceyse açılmaz. Ek şart: Kalp alanı yazılmaz.
   - Bağımlılık: DNY-01. Boyut: M.
