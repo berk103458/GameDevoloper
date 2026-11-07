@@ -3810,7 +3810,8 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: SYS-20, DEN-65. Boyut: S.
   - Dosya: `tests/unit/denge/zorluk_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-72:** Zorluk menüsü Bölüm 35 ve 43'e kalır.
+- [x] **DEN-72:** Zorluk menüsü Bölüm 35 ve 43'e kalır. (Kalfa)
+  - Doğrulama: `denge.json` üç sayısal zorluk çarpanı taşır. Menü düzeni AYR-23, AYR-34 ve Bölüm 43 kapsamındadır.
   - Ne: bu bölüm seçimin verisini yazar. Yazı boyutu, sekme ve panel burada yoktur.
   - Kabul: bu bölüm seçimin verisini yazar. Yazı boyutu, sekme ve panel burada yoktur. Test: bu dosyada arayüz maddesi 0.
   - Bağımlılık: DEN-66. Boyut: S.
