@@ -8979,7 +8979,7 @@ Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı
   - Bağımlılık: KOP-04. Boyut: M.
   - Dosya: `tools/chr_parser.py`; `karakterler/CHR_*.md` Bölüm 5 spawn satırları.
   - Asset: asset gerekmedi. Yeni model bu maddeyle açılmaz.
-- [ ] **KOP-10:** Kapıdaki sayı, kişinin karar matrisinden gelir.
+- [/] **KOP-10:** Kapıdaki sayı, kişinin karar matrisinden gelir. (Antigravity)
   - Ne: Adlı CHR ziyaretinde bar etkisi sınıf şablonundan değil `karar_matrisi` satırından gelir. Sır açık ve sır gizli varyantı varsa doğru varyant seçilir. Adsız figür şablonda kalır. Rüşvet akçesi kişisel kasada kalır, kamu kasasına ikinci kez yazılmaz.
   - Kurallar:
     1. Bugün adlı gelende düğme etkisi `k.etki(karar)` ile sınıf şablonundan gelir. CHR matrisinin beş statı (Refah, Erzak, Güvenlik, Moral, Sağlık) köy barına yazılmaz. Matris kapıda yalnız rüşvetin `muhafiz_akce` ve `esyalar` alanı için okunur.
