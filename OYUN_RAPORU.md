@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OMR-31 tamamlandı (Kalfa)
+
+Başsız otomatik oyuncunun gerçek ikinci perde geçiş makbuzu Python runner ve DEN raporuna bağlandı. Yeni gece hesabı çağrılmaz. Ölçüm 30. gecede, perde geçişinde veya oyun sonunda kapanır. Ayar: `python -B tools/python_test_runner.py --perde1-suresi --godot C:/Users/Ahmet/Desktop/Godot.exe --tohum 11 --kabul-orani 0.75`. Aynı tohum ve olağan zorlukta kabul tercih eşiği 0,75 ve 0,15 ile iki bağımsız koşu da 18 nüfusta 5. geceyi verdi. Bu eşik, rastgele seçilen diğer kararların da köye alımla sonuçlanabilmesi nedeniyle gerçekleşen kabul oranı değildir. 20–30 gecelik öneri bandı sağlanmadı. Bir tohumdaki iki koşudan üretim dengesi veya OMR-03 rol ağırlığı değişikliği çıkarılmadı.
+
+DEN birim testi, iki Perde 1 koşusu ve mevcut ilk saat ölçümü (6. gece, 171060 ms) geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — Ayar sıfırlama düzeltmesi (Kalfa)
 
 OMR-31 otomatik oyuncu provasında tüm ayarları sıfırlama, ek anahtarları siliyor ve yeni oyunun zorluk okumasında script hatası veriyordu. Çekirdek ve ek anahtarlar kendi varsayılanlarına döner. Tanınmayan ileri sürüm alanları korunur ve ek ayarlar hemen uygulanır. Ayarlar, ek ayarlar ve bozuk ayar dosyasıyla gerçek menü testleri geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

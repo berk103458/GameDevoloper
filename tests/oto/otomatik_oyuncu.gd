@@ -79,12 +79,16 @@ func _dongu() -> void:
 	await get_tree().create_timer(1.0).timeout
 	var menu_gecildi := false
 	var ilk_saat_olcumu := OS.get_environment("ILK_SAAT_OLCUMU") == "1"
+	var perde1_olcumu := OS.get_environment("PERDE1_OLCUMU") == "1"
 	var ilk_koy_ms := -1
 	for adim in 4000:
 		await get_tree().create_timer(0.12).timeout
 		var ekran: Control = ana._ust if ana._ust != null else ana._ekran
 		if ekran == null:
 			continue
+		if perde1_olcumu and ana.oturum != null and _perde1_olcumunu_bitir(ana.oturum):
+			Ses.cik()
+			return
 		# Nabız: ekran/evre/gelen değişince bir satır; 7/24 bekçisi uzun süre nabız yoksa donma sayar.
 		var imza := "%s %s" % [ekran.get_class(), ekran.get_instance_id()]
 		if ekran is KapiEkrani:
@@ -188,7 +192,10 @@ func _dongu() -> void:
 				await _foto("02_sohbet_perde%d" % ana.oturum.perde)
 				d[rng.randi_range(0, d.size() - 1)].pressed.emit()
 			elif k.evre == &"karar":
-				var secenekler := k._karar_anahtarlari
+				var secenekler := PackedStringArray()
+				for i in k._karar_dugmeleri.size():
+					if not k._karar_dugmeleri[i].disabled: secenekler.append(k._karar_anahtarlari[i])
+				if secenekler.is_empty(): continue
 				var anahtar := "kabul" if rng.randf() < _kabul_orani else secenekler[rng.randi_range(0, secenekler.size() - 1)]
 				if not anahtar in secenekler:
 					anahtar = secenekler[0]
@@ -204,6 +211,19 @@ func _dongu() -> void:
 				d[rng.randi_range(0, d.size() - 1)].pressed.emit()
 	print("ZAMAN ASIMI")
 	Ses.cik()
+
+
+## OMR-31: gerçek geçiş makbuzunu okur, ikinci bir gece hesabı çalıştırmaz.
+func _perde1_olcumunu_bitir(o: Oturum) -> bool:
+	var y := o.yonetim
+	var baslangic := KoyYonetimi.PERDE_GECISI.baslangic(y)
+	var sinir := int(OS.get_environment("GECE_SINIRI"))
+	if baslangic < 0 and y.son.is_empty() and y.gun < sinir: return false
+	print("PERDE1_SURE ", JSON.stringify({
+		"tohum": str(o.tohum), "gece": y.gun, "nufus": y.nufus(),
+		"hedef_nufus": y.a.agalik_nufus, "gecis_gecesi": baslangic, "son": y.son,
+	}))
+	return true
 
 
 ## Basit köy stratejisi (tools/denge/koy_benzetimi.gd ile aynı fikir): yatak yetmezse çadır, nüfusa göre tarla,

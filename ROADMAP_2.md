@@ -4477,7 +4477,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
 
 ### 34.6 Zamanlama ve tempo
 
-- [ ] **OMR-31:** Perde 1 hedef süresi ölçülür.
+- [x] **OMR-31:** Perde 1 hedef süresi ölçülür. (Kalfa)
   - Ne: 18 nüfusa ulaşma gecesi otomatik oyuncuyla ölçülür; hedef 20–30 gece (öneri). Sapınca `gece_basina_gelen` değil kabul oranı ve omurga süzgeci (OMR-03) oynar.
   - Kabul: ölçüm raporda, DEN tablosuyla paylaşılır. Test: runner.
   - Bağımlılık: DEN-05, OMR-03. Boyut: S.
