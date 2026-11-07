@@ -1,14 +1,14 @@
-<<<<<<< HEAD
+
 ## 7 Kasım 2026 — KOP-04 ve KOP-09 tamamlandı (Antigravity)
 
 `tools/chr_parser.py`, `src/soz/karar_donusu.gd`, `src/veri/chr_sozlesmesi.gd`, `karakterler/CHR_001.md`..`CHR_030.md` ve `data/chr_runtime/CHR_001.tres`..`CHR_030.tres` güncellendi: (1) `KOP-04`: Gecikmeli karar dönüşleri ikinci bir kuyruk kurmadan `gecikmeli_etkiler` ve `sonraki_spawns` üzerinde `hedef_sistem` (`bar`, `dedikodu`, `spawn`, `kuyu_zehri`, `ambar_kundak`), `alan`, `deger`, `tur_offset` yapılandırılmış alanlarıyla taşınır; `chr_parser.py` içindeki bina adı tahmin listesi kaldırıldı ve tahmine muhtaç satır `--check` ile hata verir; Yusuf kabul dönüşü dahil aynı karar tek kuyrukta tek satırdır. (2) `KOP-09`: Dört spawn zorunluluğu kaldırıldı, `karakterler/CHR_*.md` Bölüm 5 içindeki sayfasız hayalet takip kimlikleri (`CHR_031`..`CHR_123`) temizlendi ve `validate_spawns` ile `ChrSozlesmesi.spawn_hatalari` sayfasız takip kimliklerini doğrulama hatasına çevirdi (`0 external follow-up IDs`). `tests/tools/test_chr_parser.py`, `tests/unit/soz/karar_donusu_test.gd`, `tests/unit/kvr/chr_derleme_test.gd`, `tests/unit/kvr/kvr_test.gd` ve `tests/unit/kvr/chr_bina_test.gd` 0 hatayla geçti. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
-=======
+
 ## 7 Kasım 2026 — OMR-03 tamamlandı (Kalfa)
 
 Full pull ed9859b1 güncel, Ajan Masası okundu. Perde 1'de gerçek kapı kuyruğunun uygun adlı adayları mevcut omurga.json dönem paylarıyla seçilir. Esnaf sınıfında mevcut zanaat kimliği tüccar ve uzmanı ayırır. Takvim ve kadro uygunluğundan geçen aynı roldeki adaylarda mevcut güvenlik ve ticaret ağırlıkları korunur. Adayı bulunmayan rolün payı adsız yolcuya gider. Kuruluş asker payı 0,10. Perde 2 mevcut seçim yolunda kalır.
 
 Yüzer gerçek kuyruk örneğinde kuruluş 51 köylü, 28 zanaatkâr, 14 tüccar, 7 asker. Oturma 26 köylü, 18 zanaatkâr, 27 tüccar, 29 asker. Dağılım, güvenlik, KOP-10 karar matrisi ve gerçek oyun köprüsü geçti. İlk import iki MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
->>>>>>> origin/claude/festive-volta-li1sfm
+
 
 ## 7 Kasım 2026 — OGR-54 tamamlandı (Kalfa)
 
