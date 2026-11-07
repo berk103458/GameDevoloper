@@ -14,10 +14,12 @@ static func kur(e: KoyEkrani,v: VBoxContainer) -> void:
  b.text="Muhafızın Odası"
  b.custom_minimum_size.y=42
  s.add_child(b)
+ e.hud._katman.izle(b, "muhafiz_odasi_baglantisi.gd")
  b.pressed.connect(func() -> void: ac(e))
 
 ## Köyü duraklatır, bağımsız dünya açar; kapanışta yalnız önceki hız/duraklama geri gelir.
 static func ac(e: KoyEkrani) -> MuhafizOdasiEkrani:
+ if not e.hud._katman.acik("muhafiz_odasi_baglantisi.gd"): return null
  if e._gece_kilidi.kilitli() or e._ust_kart!=null or e.has_node("DivanEkrani") or e.has_node("MuhafizOdasiEkrani") or e.has_node("HaritaEkrani") or e.oturum.yonetim.son!="": return null
  var hiz:=0 if e.get_tree().paused else int(Engine.time_scale)
  e._hiz_sec(0)

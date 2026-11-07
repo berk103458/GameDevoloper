@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — OGR-27 tamamlandı (Kalfa)
+
+Kademeli açılışı kullanan ACL-01 köyünde oda düğmesi sancak teftişi veya yozlaşma kararı kaydından sonra ağaca eklenir. Karar için mevcut rüşvet, zimmet, haraç ve haksızlık kayıtları esas alındı. Eski açılış düzenindeki kayıtlar ve kademeli HUD kapalıyken doğrudan erişim sürer.
+
+Köy HUD, gerçek sancak teftişi, muhafız odası ve harita hedefleri geçti. Tetiksiz kayıt yüklemesi ile teftiş ve rüşvetin bağımsız açılması kontrol edildi. İlk import iki MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — OGR-26 tamamlandı (Kalfa)
 
 Köy HUD nüfus grubundaki karantina sayacı üçüncü gece katmanına eklendi. Aktif karantina kaydı varsa ilk gece de açılır, erken açılışta son kayıt temizlenince ağaçtan ayrılır. Yalnız aktif karantina sayısı okunur. Köylü kartı ve kapı HUD akışı korunur.

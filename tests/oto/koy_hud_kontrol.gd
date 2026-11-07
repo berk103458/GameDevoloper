@@ -53,6 +53,20 @@ func _dene() -> void:
 	KitlikIsyani.yukle(o.yonetim, ambar)
 	e.hud.guncelle()
 	_dogrula(not ambar_grubu.has_node("ambar_kapisi_onar"), "Onarılan kapının kontrolü ilk gece ağaçtan ayrılır")
+	_dogrula(e.find_children("oda_ac", "Button", true, false).is_empty() and MuhafizOdasiBaglantisi.ac(e) == null, "OGR-27 tetiksiz köyde oda düğmesi ve girişi kapalı")
+	var tetiksiz_kayit := Oturum.kayittan(k, o.kaydet())
+	var kayit_katmani = preload("res://src/arayuz/koy_hud/hud_katmani.gd").new()
+	kayit_katmani.kur(tetiksiz_kayit, a)
+	_dogrula(tetiksiz_kayit != null and not kayit_katmani.acik("muhafiz_odasi_baglantisi.gd"), "OGR-27 tetiksiz kayıt yüklenince oda kilitli")
+	o.bayraklar[&"rusvet_sayisi"] = 1
+	e.hud.guncelle()
+	_dogrula(e.find_children("oda_ac", "Button", true, false).size() == 1, "OGR-27 ilk rüşvet kararı odayı açar")
+	o.bayraklar.erase(&"rusvet_sayisi")
+	e.hud.guncelle()
+	_dogrula(e.find_children("oda_ac", "Button", true, false).is_empty(), "OGR-27 teftiş yolunu tetiksiz durumdan sınar")
+	o.sancak_teftisi = {"son_gece": 1, "sonuc": "temiz"}
+	e.hud.guncelle()
+	_dogrula(e.find_children("oda_ac", "Button", true, false).size() == 1, "OGR-27 temiz sancak teftişi de odayı açar")
 	var once := o.yonetim.akce
 	o.yonetim.akce += 3
 	o.yonetim.gun += 1

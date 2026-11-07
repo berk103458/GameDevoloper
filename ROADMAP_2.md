@@ -4056,7 +4056,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-25. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/hud_katmani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-27:** Muhafız odası ilk teftişten sonra açılır.
+- [x] **OGR-27:** Muhafız odası ilk teftişten sonra açılır. (Kalfa)
   - Ne: `src/arayuz/muhafiz_odasi_ekrani.gd` düğmesi ilk sancak teftişi (`sancak_teftisi.gd`) ya da ilk yozlaşma kararından sonra görünür.
   - Kabul: iki tetikten önce düğme 0. Test: tetiksiz kayıt.
   - Bağımlılık: OGR-25. Boyut: S.
