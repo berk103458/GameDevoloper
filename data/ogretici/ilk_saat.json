@@ -13,6 +13,7 @@
 		},
 		"acilis_kapi_bilgisi.gd": {"ana": 0},
 		"bosta_gostergesi.gd": {"ana": 1},
+		"karantina_paneli.gd": {"ana": 3},
 		"kese_gostergesi.gd": {"ana": 2},
 		"ambar_kapisi_paneli.gd": {"ana": 2},
 		"cinar_meclis_paneli.gd": {"ana": 3},

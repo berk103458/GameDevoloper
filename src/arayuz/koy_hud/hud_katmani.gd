@@ -11,6 +11,9 @@ func kur(oturum: Oturum, ayarlar: Ayarlar) -> void:
 	_oturum = oturum
 	_ayarlar = ayarlar
 
+func koy_hudu() -> bool:
+	return _oturum != null
+
 func acik(dosya: String, parca: String = "ana", zorunlu: bool = false) -> bool:
 	if zorunlu or _oturum == null or not ACILIS.durum(_oturum).get("kuruldu", false): return true
 	if _ayarlar != null and not _ayarlar.degerler.get(&"kademeli_hud", AyarlarEk.VARSAYILAN[&"kademeli_hud"]): return true

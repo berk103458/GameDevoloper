@@ -174,6 +174,7 @@ func guncelle() -> void:
 		preload("res://src/arayuz/koy_hud/bosta_gostergesi.gd").guncelle(self, y)
 	else:
 		_katman.gecici_kaldir(_nufus.get_parent(), "BostaSayisi")
+	if _katman.koy_hudu(): KarantinaPaneli.hud_guncelle(self, y, _katman)
 	_nufus.text = tr("arayuz.hud.nufus") % [y.nufus(), y.yatak_kapasitesi(), k.toplam(), k.kapasite]
 	preload("res://src/arayuz/kapi/bar_bicimi.gd").isaretle(self)
 	if _katman.acik("acilis_kapi_bilgisi.gd"):

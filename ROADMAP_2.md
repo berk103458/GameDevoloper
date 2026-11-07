@@ -4050,7 +4050,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-01. Boyut: M.
   - Dosya: yeni: `src/arayuz/koy_hud/hud_katmani.gd`; `src/arayuz/hud.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OGR-26:** Gizli panel, verisi oluşunca kendini açar.
+- [x] **OGR-26:** Gizli panel, verisi oluşunca kendini açar. (Kalfa)
   - Ne: `gece_min` dolmasa da ilgili sistem veri üretirse (örn. karantina, `karantina_paneli.gd`) panel açılır. Gizlilik oyuncudan bilgi saklamaz.
   - Kabul: karantina bayrağı açıkken panel gece 0'da bile görünür. Test: bayrak enjekte edilir, panel 1.
   - Bağımlılık: OGR-25. Boyut: S.

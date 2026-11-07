@@ -31,6 +31,18 @@ func _dene() -> void:
 	for tur in ["akce", "gida", "odun", "tas", "su"]:
 		_dogrula(ilk_paneller.has("kaynak_gostergesi.gd:" + tur), "OGR-25 ilk gece temel kaynak: " + tur)
 	_dogrula(not e.hud._stok_etiketleri["kereste"].is_inside_tree() and not e.hud._kese.is_inside_tree(), "OGR-25 bekleyen paneller sahne ağacında yok")
+	var nufus_grubu := e.hud._nufus.get_parent()
+	_dogrula(not nufus_grubu.has_node("KarantinaSayisi"), "OGR-26 ilk gece karantina verisi yokken panel yok")
+	var koylu := o.yonetim.kabul({"ad": "Karantina kontrolü"})
+	koylu.karantina = {"baslangic": 0, "bitis": 2, "bina": 1}
+	e.hud.guncelle()
+	var karantina := nufus_grubu.get_node_or_null("KarantinaSayisi") as Label
+	_dogrula(karantina != null and karantina.is_visible_in_tree() and karantina.text == "Karantinada: 1 kişi", "OGR-26 ilk gece karantina kaydı paneli erken açar")
+	e.hud.guncelle()
+	_dogrula(nufus_grubu.get_node_or_null("KarantinaSayisi") == karantina, "OGR-26 yenileme paneli çoğaltmaz")
+	koylu.karantina.clear()
+	e.hud.guncelle()
+	_dogrula(not nufus_grubu.has_node("KarantinaSayisi"), "OGR-26 erken karantina verisi bittiğinde panel ağaçtan ayrılır")
 	var ambar := KitlikIsyani.durum(o.yonetim)
 	ambar.kapi_kirik = true
 	KitlikIsyani.yukle(o.yonetim, ambar)
