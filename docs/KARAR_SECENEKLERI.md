@@ -64,7 +64,7 @@ Ziyaretçi 28 (Banu Hatun), sırtında kurt postu ve kalkanıyla tek başına ka
 
 ---
 
-## Karar 2: Molla Şükrü vs Hasan Çelebi Meclis Yüzleşmesi — [BEKLİYOR (Ahmet, 4 Kasım)]
+## Karar 2: Molla Şükrü vs Hasan Çelebi Meclis Yüzleşmesi — [UYGULANDI (Ahmet, 6 Kasım) — Seçenek 2.1 Aleni Mahkeme]
 
 ### Durum Özeti
 Ziyaretçi 27 (Molla Şükrü), Sivas divanından kovulmuş, heybesinde sahte Selçuklu vakıfnamesi ve çalıntı mühür taşıyan kurnaz bir kâtiptir. İçeri alındığında köyün kadim kâtibi Hasan Çelebi ile tapu, arazi ve vakıf gelirleri üzerinde karşı karşıya gelir.

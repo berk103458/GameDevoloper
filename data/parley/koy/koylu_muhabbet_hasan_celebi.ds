@@ -92,6 +92,31 @@
       "id": "node:end",
       "type": "END",
       "position": "(1750.0, 0.0)"
+    },
+    {
+      "id": "node:opt_sukru",
+      "type": "DIALOGUE_OPTION",
+      "position": "(700.0, 360.0)",
+      "character": "Muhafız",
+      "text": "Molla Şükrü'yü Çınar Meclisi'ne çıkardık Hasan Çelebi; sahte beratı meydana serildi."
+    },
+    {
+      "id": "node:rep_sukru",
+      "type": "DIALOGUE",
+      "position": "(1050.0, 360.0)",
+      "character": "Hasan Çelebi",
+      "text": "Şu berattaki tuğraya bakın cemaat! Mürekkebi daha geçen hafta sürülmüş bezir yağı kokar! Muhafız hileyi meydana serdi; hakikatin terazisi bozulmadı şükürler olsun."
+    },
+    {
+      "id": "node:act_sukru",
+      "type": "ACTION",
+      "position": "(1400.0, 360.0)",
+      "description": "Köy Adaleti ve İtibar",
+      "action_type": "SCRIPT",
+      "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
+      "values": [
+        "3"
+      ]
     }
   ],
   "edges": [
@@ -206,6 +231,42 @@
     {
       "id": "e_e_karar",
       "from_node": "node:act_karar",
+      "from_slot": 0,
+      "to_node": "node:end",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_o_sukru",
+      "from_node": "node:selam",
+      "from_slot": 0,
+      "to_node": "node:opt_sukru",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_r_sukru",
+      "from_node": "node:opt_sukru",
+      "from_slot": 0,
+      "to_node": "node:rep_sukru",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_a_sukru",
+      "from_node": "node:rep_sukru",
+      "from_slot": 0,
+      "to_node": "node:act_sukru",
+      "to_slot": 0,
+      "should_override_colour": false,
+      "colour_override": "(1, 1, 1, 1)"
+    },
+    {
+      "id": "e_e_sukru",
+      "from_node": "node:act_sukru",
       "from_slot": 0,
       "to_node": "node:end",
       "to_slot": 0,

@@ -751,14 +751,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1200.0)",
       "character": "Muhafız",
-      "text": "O afyoncu cerrah ile mahkemeden kovulan kâtip Molla Şükrü köye dirlik getirir mi?"
+      "text": "Molla Şükrü'nün sahte beratı Çınar Meclisi'nde mahkeme edildi beyim."
     },
     {
       "id": "node:rep_z_hekim_katip",
       "type": "DIALOGUE",
       "position": "(1750.0, 1200.0)",
       "character": "Eş",
-      "text": "İkisi de birbirinden kurnaz beyim! Cerrahı Miraen'in yanına, kâtibi de Hasan Çelebi'nin divitine bağla; biri zehir dağıtmasın, diğeri sahte tapu yazmasın."
+      "text": "Molla Şükrü'nün sahte beratını Çınar Meclisi'nde ateşe attın ya beyim, Hasan Çelebi'nin gözleri doldu. Adalet yerini buldu, köylünün içi rahatladı."
     },
     {
       "id": "node:act_z_hekim_katip",

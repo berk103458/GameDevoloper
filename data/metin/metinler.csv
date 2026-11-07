@@ -2412,3 +2412,6 @@ ogretici.kapi.selam,Önce sağdaki selamla söze gireyim.,I will start with the 
 ogretici.kapi.konu,Aileye neden geldiklerini sorayım.,I should ask why the family came.
 ogretici.kapi.karar,Dinledim. Şimdi kabul ya da ret kararımı onaylayayım.,I have heard them. Now I can confirm admission or refusal.
 ogretici.koy.hiz,Hız: {hiz_1} · {hiz_2} · {hiz_3}. Dur: {hiz_dur}.,Speed: {hiz_1} · {hiz_2} · {hiz_3}. Pause: {hiz_dur}.
+karar.sukru.mahkeme.baslik,Çınar Meclisinde Aleni Mahkeme,Public Trial at Plane Tree Council
+karar.sukru.mahkeme.metin,"Molla Şükrü Çınar Meclisi önünde yargılandı. Sahte mühür tahrifatı kanıtlandı, berat yakıldı, kâtip demirhane cezasına çarptırıldı. Adalet 3, Moral 2 arttı, Asayiş Riski 2 azaldı.","Molla Sukru was tried before the Council. Forged seal was proven, charter burned, scribe sentenced to forge labor. Justice +3, Morale +2, Public Order Risk -2."
+karar.sukru.mahkeme.sonuc,"Hasan Çelebi ve divan onurlandırıldı. Köyde adalet tesis edildi.","Hasan Celebi and council honored. Justice established in the village."

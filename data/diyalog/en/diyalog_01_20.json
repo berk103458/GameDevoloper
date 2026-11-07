@@ -1897,14 +1897,15 @@
         "Driven out?! What slander, sentry! The chief judge drowned in bribery; with forged seals he transferred freeholders' land to Mongol viziers! When I inscribed the truth and entered a dissenting decree into the court register, they sought my life! The endowment deeds in my chest bear the cipher of the Seljuk Sultan; I came to prove the ancient tenure rights of this very village!",
         [
           [
-            "Our village recorder is Hasan Celebi; no man disputes the deeds stamped with his seal! Do you have the audacity to face him before the council?",
-            "Hasan Celebi?! He is an untrained copyist, sentry! He cannot decipher ancient Sultanic decrees nor historical endowment rolls! Bring me before the Divan; I shall register the village boundaries in golden script into the judicial rolls and slash your tribute to the Beylik in half!",
+            "Our village scribe is Hasan Celebi; no one in this village can contest the deeds he seals! I will bring you before the Council under the Plane Tree, and all the village shall witness your counterfeit seals!",
+            "The Council?! Slander, sentry! If I do not maintain those registers, the Tekfur will double the tribute tomorrow! Yet I do not fear the truth—bring me before the council!",
             [
               [
-                "If you scribes seize each other's throats in council, I will have you both caned in the marketplace, scribe!",
-                "Men of learning do not brawl, gatekeeper; the reed pen speaks, the sealed deed decides! I shall sit beside Hasan Celebi and bring true justice to this settlement!"
+                "Judgment is rendered, Molla Sukru. He who usurps rights with counterfeit seals has no place under this plane tree. Your charter shall be burned, and you shall sweat at the bellows of Karaca Usta's smithy!",
+                "Mercy, guard! Shall fingers that held the reed pen strike the anvil?! I submit... Spare my life, and I will pump the bellows to expiate my sin!"
               ]
-            ]
+            ],
+            "meclis_sukru_mahkeme_edildi"
           ],
           [
             "A brass seal handle protrudes from the leather purse at your sash; rumors say you stole the court seal of the judge when fleeing! Is that true?!",
@@ -1966,7 +1967,7 @@
     ],
     "yanitlar": {
       "ret": "There is no place for scholarship among the ignorant anyway! When Hasan Celebi ruins your village with fraudulent registers, you will remember the worth of Molla Sukru!",
-      "kabul": "May the gate of justice stand open, sentry. Let me set my chest in the council pavilion; by tomorrow I shall bring the village census rolls into pristine order.",
+      "kabul": "I surrendered not a sword in its scabbard, but my inkstand to the council, guard. The counterfeit seal is exposed, yet my head is bowed; I shall work the smithy bellows and repay my debt to the people!",
       "harc": "This travel allowance will suffice for a night at an inn... Yet mark my words: Hasan Celebi's falsehoods will consume this village."
     }
   },

@@ -751,14 +751,14 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 1200.0)",
       "character": "Gatekeeper",
-      "text": "Will that opium-peddling surgeon and the disgraced scribe Molla Sukru bring peace to our village?"
+      "text": "Molla Sukru's forged charter was brought before the Plane Tree Council, husband."
     },
     {
       "id": "node:rep_z_hekim_katip",
       "type": "DIALOGUE",
       "position": "(1750.0, 1200.0)",
       "character": "Spouse",
-      "text": "Both are sly as foxes, husband! Bind the surgeon to Miraen's side, and the scribe to Hasan Celebi's desk; let one dispense no poison, and the other forge no deeds."
+      "text": "When you cast Molla Sukru's forged charter into the fire before the Plane Tree Council, husband, Hasan Celebi's eyes welled with tears. Justice was served, and the village found peace."
     },
     {
       "id": "node:act_z_hekim_katip",

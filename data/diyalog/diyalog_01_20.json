@@ -1897,14 +1897,15 @@
         "Kovulmak ne kelime muhafız! Kadı efendi rüşvete battı; beylerin arazisini sahte mühürle Moğol vezirine bağladı! Ben hakikati yazıp divan defterine şerh düşürünce canıma kastettiler! Sandığımdaki vakıfnameler Selçuklu sultanının tuğrasını taşır; bu köyün de kadimden gelen vakıf haklarını ispata geldim!",
         [
           [
-            "Köyümüzün divan kâtibi Hasan Çelebi'dir; onun mühürlediği tapuya köyde kimse karşı çıkamaz! Onunla divanda karşı karşıya gelmeye cesaretin var mı?",
-            "Hasan Çelebi mi?! O alaylı bir divitçidir muhafız! Sultan fermanını okuyamaz, kadim vakfiyeleri bilmez! Beni divana çıkarın; köyün sınırlarını kadı defterine altın harflerle tescil edeyim, beylik vergisini yarıya indireyim!",
+            "Köyümüzün divan kâtibi Hasan Çelebi'dir; onun mühürlediği tapuya köyde kimse karşı çıkamaz! Seni Çınar Meclisi'nin huzuruna çıkaracağım, mühürlerin sahteliğini cümle köylü görecek!",
+            "Divan mı?! İftiradır muhafız! O kütükleri ben tutmazsam yarın Tekfur haracı iki katına çıkarır! Amma hakikatten korkum yoktur, beni meclise çıkarın!",
             [
               [
-                "Divanda kâtipler birbirinin gırtlağına sarılırsa ikinizi de meydanda sopaya çekerim kâtip!",
-                "İlim ehli kavga etmez muhafız; divit konuşur, hüccet konuşur! Hasan Çelebi ile yan yana oturur, köye adalet getiririz!"
+                "Hüküm verilmiştir Molla Şükrü. Sahte mühürle hak gasp edenin bu çınar altında yeri yoktur. Beratın yakılacak, kendin de demirhanede Karaca Usta'nın körüğünde ter dökeceksin!",
+                "Aman muhafızım, etme eyleme! Kalem tutan parmaklarım örs mü dövecek?! Razıyım... Yeter ki kellere kıyma, körüğü çeker günahımı öderim!"
               ]
-            ]
+            ],
+            "meclis_sukru_mahkeme_edildi"
           ],
           [
             "Kuşağındaki meşin keseden pirinç mühür sapı sarkar; kadı divanının mührünü çalıp kaçtığın söylenir, doğru mudur?!",
@@ -1966,7 +1967,7 @@
     ],
     "yanitlar": {
       "ret": "Cahiller divanında kâtibe yer yokmuş zaten! Hasan Çelebi o sahte defterle köyünüzü batırdığında Molla Şükrü'nün kıymetini anlarsınız!",
-      "kabul": "Adaletin kapısı açık olsun muhafız. Sandığımı divan çadırına bırakayım; yarından tezi yok köyün tahrir defterini nizama sokarım.",
+      "kabul": "Kılıcımı kınında değil divitimi meclise teslim ettim muhafız. Sahte mühür meydana saçıldı amma boynum büküktür; demirhanede körük çekip ahaliye borcumu öderim!",
       "harc": "Verdiğin bu yol harçlığı bir gece handa kalmama yeter... Lakin bilesin ki Hasan Çelebi'nin yalanları bu köyü yakacak."
     }
   },
