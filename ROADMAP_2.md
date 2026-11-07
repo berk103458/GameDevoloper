@@ -3792,7 +3792,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-10, DEN-65. Boyut: S.
   - Dosya: `tests/oto/acilis_denge_kontrol.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-69:** Sıkı, açılış erzağını payın altına indirir.
+- [x] **DEN-69:** Sıkı, açılış erzağını payın altına indirir. (Kalfa)
   - Ne: DEN-13 payı sıkıda çarpanla küçülür. Pay 1 gecenin altına inmez.
   - Kabul: DEN-13 payı sıkıda çarpanla küçülür. Pay 1 gecenin altına inmez. Test: sıkı erzak, olağandan küçük, 1 geceden büyük.
   - Bağımlılık: DEN-13, DEN-04. Boyut: S.

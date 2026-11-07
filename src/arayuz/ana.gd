@@ -98,10 +98,13 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 		return
 	kayit.sil()
 	oturum = Oturum.new(katalog, tohum)
-	preload("res://src/sistemler/denge_tablosu.gd").acilis_erzagini_yaz(oturum.yonetim.kaynaklar)
 	g.sec(oturum, gecmis)
 	var zorluk: Variant = ayarlar.al(&"zorluk") if ayarlar != null else null
 	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum, zorluk)
+	var koy_yonetimi := oturum.yonetim
+	var acilis_zorlugu := String(koy_yonetimi.get_meta(&"zorluk", "olagan"))
+	var gecelik_erzak := int(TuketimDengesi.gerek(koy_yonetimi).gida)
+	preload("res://src/sistemler/denge_tablosu.gd").acilis_erzagini_yaz(koy_yonetimi.kaynaklar, acilis_zorlugu, gecelik_erzak)
 	_koye_git()
 
 

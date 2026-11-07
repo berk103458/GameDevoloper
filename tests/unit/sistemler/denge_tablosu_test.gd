@@ -24,5 +24,11 @@ func _initialize() -> void:
 			push_error("DEN-03c: erzak hesabı çarpanı uygulamadı")
 			quit(1)
 			return
-	print("DEN-03c tablo ve tüketim: GEÇTİ")
+	var az_pay := veri.duplicate(true)
+	az_pay.ilk_hafta_erzak.pay = 1
+	if Tablo.ilk_hafta_erzak(veri, "kolay", 2) != 30 or Tablo.ilk_hafta_erzak(az_pay, "siki", 3) != 17:
+		push_error("DEN-69: kolay payı ve sıkı tek gece tabanı")
+		quit(1)
+		return
+	print("DEN-03c ve DEN-69 tablo ve tüketim: GEÇTİ")
 	quit()
