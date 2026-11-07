@@ -9,9 +9,11 @@ static func oku(v: Variant) -> Dictionary:
   d.son_gun=KurtBaskini.oku(v.get("son_gun",-1))
   if v.get("takas") in ["at","alp"]: d.takas=String(v.takas)
  return d
-## İttifak mevcut kalıcı oturum bayrağıdır; yalnız başarılı takasla kurulur.
+## İttifak mevcut kalıcı oturum bayrağıdır; anlaşma veya başarılı takasla kurulur.
 static func muttefik(o: Oturum) -> bool:
  return o.bayraklar.has(StringName(AYAR.ittifak_bayragi))
+static func ittifak_kur(o: Oturum) -> void:
+ o.bayraklar[StringName(AYAR.ittifak_bayragi)]=true
 ## Günlük sınır, gerçek kaynaklar ve tamamlanmış ortak barınak/yatak kapasitesi.
 static func uygun(o: Oturum,tur: String) -> bool:
  var y:=o.yonetim
@@ -33,7 +35,7 @@ static func takas(o: Oturum,tur: String) -> Dictionary:
   y.kabul({"ad":String(AYAR.alp_ad),"sinif":"asker","stat":int(AYAR.alp_stat)})
   o._koy_esitle()
  o.oba_ittifaki={"son_gun":o.gun,"takas":tur}
- o.bayraklar[StringName(AYAR.ittifak_bayragi)]=true
+ ittifak_kur(o)
  return {"ok":true}
 ## Saf pazar durum metni; yalnız açık kaynak ve gün bilgisi, gizli CHR bilgisi yok.
 static func tip(o: Oturum) -> String:

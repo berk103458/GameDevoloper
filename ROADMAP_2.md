@@ -4411,7 +4411,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-05, KOP-02. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-21:** Oba hattı: Aydoğdu iki kez gelir.
+- [x] **OMR-21:** Oba hattı: Aydoğdu iki kez gelir. (Kalfa)
   - Ne: `aydogdu_oba.tres` ve `oba_ittifaki.gd`; Aydoğdu ilk gelişte tanışır, ikincide ittifak ister. İki geliş arası ≥ 4 gece (öneri). Kişi hafızası (DIY-11) ikinci gelişi tanır.
   - Kabul: ikinci gelişte `durumlar[id].ziyaret` ≥ 1. Test: iki ziyaret.
   - Bağımlılık: DIY-11, OMR-05. Boyut: S.

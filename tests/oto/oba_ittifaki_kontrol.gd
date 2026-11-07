@@ -60,6 +60,30 @@ func _ready() -> void:
 	assert(y.nufus()==n+1 and y.kaynaklar.miktar("bugday")==50 and (y.koylular.back() as Koylu).sinif==&"asker")
 	e._kart_kapat()
 	await get_tree().process_frame
+	var aydogdu = preload("res://src/sistemler/aydogdu_ziyareti.gd")
+	o.gun = 3
+	var ilk := o._adli_gelen(aydogdu.ID)
+	o.ziyaret_basladi(ilk)
+	assert(o.karar_ver(ilk, &"kabul").kaldi)
+	o.gun = 8
+	var kuyruk: Array[Gelen] = []
+	aydogdu.ekle(o, kuyruk)
+	assert(kuyruk.size() == 1)
+	var kapi := KapiEkrani.new()
+	kapi.oturum = o
+	kapi.ayarlar = ana.ayarlar
+	ana._goster(kapi)
+	kapi._kuyruk = kuyruk
+	kapi._siradaki()
+	while kapi.evre != &"karar": await get_tree().process_frame
+	assert(kapi._kayit.get_parsed_text().contains(tr("sohbet.aydogdu.acilis2")))
+	kapi._tumunu_goster()
+	assert(kapi._karar_dugmeleri[0].text.contains(tr("olay.aydogdu_oba.secenek1")))
+	kapi._karar_dugmeleri[0].pressed.emit()
+	kapi._karar_dugmeleri[0].pressed.emit()
+	assert(kapi._kayit.get_parsed_text().contains(tr("olay.aydogdu_oba.sonuc1")))
+	assert(o.kadro.durumlar[aydogdu.ID].ziyaret == 2)
+	await kapi.gece_bitti
 	ana.kayit.sil()
 	ana.queue_free()
 	await get_tree().process_frame

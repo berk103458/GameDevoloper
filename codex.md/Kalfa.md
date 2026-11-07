@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OMR-21 tamamlandı (Kalfa)
+
+Full pull 9a0ecaa1 güncel, Ajan Masası okundu. Aydoğdu ilk kapı ziyaretini mevcut adlı kadroda yapar. İlk gerçek karardan en az dört gece sonra, oba hattı açıksa aynı kimlikle ikinci kez kapıya gelir. İlk ret de dönüşe izin verir. Köyde kalmış Aydoğdu'nun dönüşü için canlı köylü kaydı gerekir. İkinci ziyaret mevcut oba olayının seçenek ve etkilerini kapıda kullanır. Kabul veya savaşçı kabulü ittifak bayrağını açar. Aydoğdu ikinci kez nüfusa eklenmez. Karar bir kez uygulanır. Kapı anlık görüntüsü ziyaret gününü korur.
+
+İki ziyaret, oba ittifakı, gerçek kapı arayüzü ve gerçek oyun köprüsü geçti. İlk UI koşusunda sohbet aşaması bekleniyordu. Test ikinci gelişin doğrudan karar aşamasına uyarlandı. İki CSV anahtarı iki dilde doğrulandı. Headless import çıkış 0, script ve MD5 hatası yok. Üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OMR-05 tamamlandı (Kalfa)
 
 Full pull 94544323 güncel, Ajan Masası okundu. Perde 2 başlangıcından türeyen ortak kapı dört dış hattı bağlar. İlk dalgada Moğol, Tekfur, oba ve sancak haberleri mevcut HAR-09 kuyruğuna gider. İkinci dalgada Tekfur ve ferman mevcut takvimleriyle, oba takası mevcut koşullarıyla, Moğol heyeti mevcut uyarı makbuzuyla açılır. Tekfur baskını ve dört hattın gerçek durumuna dayalı sonuç haberleri üçüncü dalgada çözülür. Mevcut taleplere cevap verme yolları ve perde başlangıcı yazılmamış kayıtların eski zamanlaması korunur. Yeni sayaç yok.

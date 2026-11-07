@@ -142,6 +142,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 		if g.secenekler.has("kabul") and not g.zengin(ayarlar.zengin_esigi) and not g.secenekler.has("harc"):
 			g.secenekler.insert(g.secenekler.find("kabul") + 1, "harc")
 			g.etkiler[&"harc"] = g.etkiler.get(&"kabul", PackedInt32Array())
+	preload("res://src/sistemler/aydogdu_ziyareti.gd").ekle(self, sonuc)
 	TuccarKapiGecisi.ekle(self, sonuc)
 	DiplomatikHeyet.ekle(self, sonuc)
 	preload("res://src/kapi/aile_kafilesi.gd").ekle(self, sonuc)
@@ -200,6 +201,8 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	if not SiraOlayiSonucu.neden(gelen).is_empty(): return {"engellendi": true, "kaldi": false, "kirilan": -1}
 	if DiplomatikHeyet.ilgilenir(gelen): return DiplomatikHeyet.karar(self, gelen, karar)
 	if TuccarKapiGecisi.ilgilenir(gelen): return TuccarKapiGecisi.karar(self, gelen, karar)
+	var oba = preload("res://src/sistemler/aydogdu_ziyareti.gd")
+	if oba.ilgilenir(gelen): return oba.karar(self, gelen, karar)
 	var sorgu := gelen.chr_sorgusu()
 	if sorgu != null and not sorgu.karar_acik(karar):
 		return {"engellendi": true, "kaldi": false, "kirilan": -1}

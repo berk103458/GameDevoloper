@@ -74,6 +74,7 @@ static func aday(o: Oturum, olay: OlayVerisi) -> bool:
 	if o == null or olay == null:
 		return false
 	var id := String(olay.id)
+	if id == "aydogdu_oba": return false # İttifak kararı ikinci kapı ziyaretinde açılır.
 	if bos_mu(o) and id not in KOY_KARTLARI:
 		return false
 	if id in DIS_YUZ and kapi_yuzu(o) == id:

@@ -411,6 +411,8 @@ func _esya_yazisi(e: Dictionary, adet: int) -> String:
 
 ## Karar düğmesinin yazısı; rüşvette miktar görünür.
 func _karar_etiketi(anahtar: String) -> String:
+	var oba = preload("res://src/sistemler/aydogdu_ziyareti.gd")
+	if oba.ilgilenir(_gelen): return oba.etiket(StringName(anahtar))
 	if anahtar == "cocuklari_al": return "Yalnız çocukları al"
 	if DiplomatikHeyet.ilgilenir(_gelen): return HeyetKapiPaneli.etiket(anahtar)
 	if TuccarKapiGecisi.ilgilenir(_gelen): return TuccarKapiPaneli.etiket(anahtar)
@@ -587,6 +589,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	if preload("res://src/arayuz/aile_kapi_paneli.gd").sonuc(self, _gelen, sonuc): pass
 	elif HeyetKapiPaneli.sonuc(self, _gelen, sonuc): pass
 	elif TuccarKapiPaneli.sonuc(self, _gelen, sonuc): pass
+	elif sonuc.get("oba_ziyareti", false): _yaz(tr(String(sonuc.sonuc_anahtari)))
 	elif replik.ilgilendirir(anahtar):
 		_karar_replik_dusur(replik, anahtar)
 	else:

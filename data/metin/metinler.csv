@@ -756,6 +756,8 @@ sablon.esnaf.c2_s6,Ödeyecek misin?,Ödeyecek misin?
 sablon.esnaf.giris1,"Elinde alet torbası, genç bir çırak.","Elinde alet torbası, genç bir çırak."
 sablon.esnaf.giris2,Sırtında birkaç bakır kap.,Sırtında birkaç bakır kap.
 sohbet.aydogdu.acilis1,"Aydoğdu. Türkmen'im, okçuyum. Kolum yaralı ama yayı hâlâ gerebilirim. Arkamdan obam geliyor; önden ben bakayım dedim.","Aydogdu. I am a Turkmen, an archer. My arm is wounded, yet I can still draw the bowstring."
+sohbet.aydogdu.giris2,Aydoğdu yeniden kapıda durdu.,Aydogdu is at the gate again.
+sohbet.aydogdu.acilis2,Obamı getirdim. Bize yer verirseniz nöbeti sizinle tutarız.,I brought my clan. Give us a place here and we will stand watch with you.
 sohbet.aydogdu.c1,Aydoğdu. Türkmen'im.,Aydogdu. I am a Turkmen.
 sohbet.aydogdu.c2,"Avşar. Babam beydi, ben değilim. Bey olmak için önce sağ kalmak gerek.","Avsar. My father was a bey; I am not. To become a bey, one must first stay alive."
 sohbet.aydogdu.c3,Kösedağ'dan hatıra.,"A wound from a Byzantine arrow. It healed, yet on damp cold nights it throbs deep in the marrow."

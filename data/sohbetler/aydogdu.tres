@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1")
 id = &"aydogdu"
-giris_anahtarlari = PackedStringArray("sohbet.aydogdu.giris1")
-acilis_anahtarlari = PackedStringArray("sohbet.aydogdu.acilis1")
+giris_anahtarlari = PackedStringArray("sohbet.aydogdu.giris1", "sohbet.aydogdu.giris2")
+acilis_anahtarlari = PackedStringArray("sohbet.aydogdu.acilis1", "sohbet.aydogdu.acilis2")
 soru_anahtarlari = PackedStringArray("sohbet.aydogdu.s1", "sohbet.aydogdu.s2", "sohbet.aydogdu.s3", "sohbet.aydogdu.s4", "sohbet.aydogdu.s5", "sohbet.aydogdu.s6", "sohbet.aydogdu.s7", "sohbet.aydogdu.s8")
 cevap_anahtarlari = PackedStringArray("sohbet.aydogdu.c1", "sohbet.aydogdu.c2", "sohbet.aydogdu.c3", "sohbet.aydogdu.c4", "sohbet.aydogdu.c5", "sohbet.aydogdu.c6", "sohbet.aydogdu.c7", "sohbet.aydogdu.c8")
 soru_ziyareti = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0)
