@@ -21,6 +21,11 @@ func acik(dosya: String, parca: String = "ana", zorunlu: bool = false) -> bool:
 		return (int(SancakTeftisi.oku(_oturum.sancak_teftisi).son_gece) >= 0
 			or int(MuhafizTerazisi.durum(_oturum).yozlasma) > 0
 			or not DivanHaksizligi.durum(_oturum.yonetim).is_empty())
+	if dosya == "harita_baglantisi.gd":
+		var ilk_haber := int(HaberciAgi.oku(_oturum.haberci_agi).ilk_haber_gunu)
+		return (_oturum.gorulen_olaylar.has(&"kervan")
+			or not TuccarKapiGecisi.oku(_oturum.yonetim.tuccar_girisi).is_empty()
+			or (ilk_haber > 0 and ilk_haber <= _oturum.gun))
 	return _oturum.gun >= int(AYAR.get(dosya, {}).get(parca, 0))
 
 func izle(panel: Control, dosya: String, parca: String = "ana") -> void:

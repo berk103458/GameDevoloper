@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — OGR-28 tamamlandı (Kalfa)
+
+Kademeli köyde harita düğmesi kervan olayı, takvimli tüccarın kapı makbuzu veya ilk haberci raporundan sonra açılır. Üçüncü gece tek başına tetik sayılmaz. İlk haber günü mevcut haberci kaydında tutulur ve kart okunup kaldırıldıktan sonra da yüklenir. Eski bekleyen haberler açılış için kanıt sayılır. Eski açılış düzenindeki kayıtlar ve kademeli HUD kapalıyken doğrudan erişim sürer.
+
+Köy HUD, harita ekranı ve haberci ağı hedefleri geçti. Tetiksiz üçüncü gece, takvimli ziyaret, kervan olayı ve okunan haberin kayıt dönüşü doğrulandı. İlk import beş MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — OGR-27 tamamlandı (Kalfa)
 
 Kademeli açılışı kullanan ACL-01 köyünde oda düğmesi sancak teftişi veya yozlaşma kararı kaydından sonra ağaca eklenir. Karar için mevcut rüşvet, zimmet, haraç ve haksızlık kayıtları esas alındı. Eski açılış düzenindeki kayıtlar ve kademeli HUD kapalıyken doğrudan erişim sürer.
