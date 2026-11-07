@@ -159,3 +159,78 @@ static func _chr_incele(panel: Control, e: Node, g: Gelen, kaynak: String) -> vo
 ## Gerçek kabul sonucunu aynı konuşma kaydında görünür kılar.
 static func sonuc_yaz(e: Node, sonuc: Dictionary) -> void:
 	if sonuc.get("karantina", false): e.call("_yaz", "Enfeksiyon şüphesiyle Şifahanede 2 gün karantina başladı; temas ve çalışma engelli.")
+
+
+## KOP-03: DYL-02 yüz ve eller bölgesi KRI-11 belirtilerini (ateş, kanlı öksürük, irin) aynı kayda yazar.
+## Ayrı teşhis düğmesi yoktur (0). Belirti satırı yokken veya ışık kapalıysa enfeksiyon ipucu yazılmaz.
+static func teshis_dugmesi_sayisi() -> int:
+	return 0
+
+static func bakis_belirtisi_isle(g: Variant, bolge: String, bolge_verisi: Dictionary, satir: String, isik_var: bool = true) -> String:
+	if not isik_var:
+		return ""
+	if bolge not in ["yuz", "eller"]:
+		return ""
+	var temiz_satir := satir.strip_edges()
+	if temiz_satir.is_empty():
+		return ""
+	var ipucu := _belirti_ipucu_coz(g, bolge_verisi, temiz_satir)
+	if ipucu.is_empty():
+		return ""
+	if g is Gelen:
+		var gelen_kisi := g as Gelen
+		var bayrak := _ipucu_bayragi(ipucu)
+		if not bayrak.is_empty() and bayrak not in gelen_kisi.acik_bayraklar:
+			var yeni_bayraklar := PackedStringArray(gelen_kisi.acik_bayraklar)
+			yeni_bayraklar.append(bayrak)
+			gelen_kisi.acik_bayraklar = yeni_bayraklar
+		if _servis(gelen_kisi).kaydet(StringName(ipucu)):
+			var sorgu := gelen_kisi.chr_sorgusu()
+			if sorgu != null:
+				sorgu.emit_signal("ipucu_bulundu", StringName(ipucu))
+	return ipucu
+
+static func _belirti_ipucu_coz(g: Variant, bolge_verisi: Dictionary, satir: String) -> String:
+	var belirti_key := String(bolge_verisi.get("belirti", "")).strip_edges()
+	if not belirti_key.is_empty() and AYAR.belirtiler.has(belirti_key):
+		return String(AYAR.belirtiler[belirti_key].ipucu)
+	var acik_ipucu := String(bolge_verisi.get("ipucu", "")).strip_edges()
+	if acik_ipucu in ["Clue_Enfeksiyon_Ates", "Clue_Enfeksiyon_KanliOksuruk", "Clue_Enfeksiyon_Irin"]:
+		if _satirda_belirti_var_mi(satir):
+			return acik_ipucu
+		return ""
+	var kucuk := satir.to_lower()
+	if (kucuk.find("kanlı öksürük") >= 0 or kucuk.find("kanli oksuruk") >= 0 or (kucuk.find("öksür") >= 0 and kucuk.find("kan") >= 0)):
+		return "Clue_Enfeksiyon_KanliOksuruk"
+	if kucuk.find("irin") >= 0:
+		return "Clue_Enfeksiyon_Irin"
+	if kucuk.find("ateş") >= 0 or kucuk.find("ates") >= 0 or kucuk.find("humma") >= 0:
+		return "Clue_Enfeksiyon_Ates"
+	if g is Gelen:
+		var b_list := belirtiler(g as Gelen)
+		if not b_list.is_empty() and _satirda_belirti_var_mi(satir):
+			return String(b_list[0].ipucu)
+	return ""
+
+static func _satirda_belirti_var_mi(satir: String) -> bool:
+	var kucuk := satir.to_lower()
+	return kucuk.find("ateş") >= 0 or kucuk.find("ates") >= 0 or kucuk.find("irin") >= 0 or kucuk.find("öksür") >= 0 or kucuk.find("oksur") >= 0 or kucuk.find("humma") >= 0 or kucuk.find("veba") >= 0
+
+static func _ipucu_bayragi(ipucu: String) -> String:
+	match ipucu:
+		"Clue_Enfeksiyon_Ates":
+			return "belirti_ates"
+		"Clue_Enfeksiyon_KanliOksuruk":
+			return "belirti_kanli_oksuruk"
+		"Clue_Enfeksiyon_Irin":
+			return "belirti_irin"
+		_:
+			return ""
+
+## KOP-03 Uç durum: Karakter kaçarsa (ZAR-03) ipucu kişi hafızasında kalır, karantina açılmaz.
+static func kacista_hafizaya_yaz(g: Gelen, hafiza: Dictionary) -> Dictionary:
+	var bulunanlar := kaydet(g) if g != null else []
+	if not bulunanlar.is_empty():
+		hafiza["enfeksiyon_ipuclari"] = bulunanlar.duplicate()
+	hafiza["karantina_acildi"] = false
+	return hafiza

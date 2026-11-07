@@ -1,3 +1,7 @@
+## 7 Kasım 2026 — KOP-03 tamamlandı (Antigravity)
+
+`src/soz/bakis.gd` ve `src/kapi/hastalik_teshis_adaptoru.gd` birbirine bağlandı: `DYL-02` yüz ve eller bölgesi `KRI-11` belirtilerini (`Clue_Enfeksiyon_Ates`, `Clue_Enfeksiyon_KanliOksuruk`, `Clue_Enfeksiyon_Irin`) aynı `IpucuYoneticisi` kaydına yazar. Ayrı teşhis düğmesi sayısı 0'dır. Belirti satırı yokken veya ışık kapalıyken (`kosul.baglam.isik = false`) enfeksiyon ipucu oluşmaz; aynı bölgeye ikinci bakış yeni belirti üretmez; kabul duran karantina şartını bir kez açar; karakter kaçarsa ipucu kişi hafızasında kalır ve karantina açılmaz. `tests/unit/kapi/kop03_bakis_hastalik_test.gd` ve `tests/unit/soz/bakis_test.gd` 0 hatayla geçti. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — ZAR-05 tamamlandı (Antigravity)
 
 `src/kapi/sorgu_zari.gd` içine beyaz (`tekrar`) ve kırmızı (`tek_sans`) zar kontrol türleri, koşul imzası (`kanitlar`, `tansiyon_bandi`, `guven_esigi`), aynı koşulla ikinci beyaz atış kilidi, kanıt eklenince yeniden açılma, `tek_sans` kontrolünün yalnız sır/ikilem düğümünde durması ve kalıcı kapanışı eklendi. `src/soz/soz_semasi.gd` içine şema düzeyinde `zar` kontrol türü doğrulaması bağlandı. Menü/odak değişimi tekrar hakkını düşürmez. `tests/unit/kapi/zar_tur_test.gd` ve `tests/unit/soz/sema_test.gd` 0 hatayla geçti. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

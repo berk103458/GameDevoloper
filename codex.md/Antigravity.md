@@ -949,3 +949,8 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - `src/soz/soz_semasi.gd`: düğüm ve seçenek zar kontrol türü doğrulaması eklendi (boş tür ve sır/ikilem dışı `tek_sans` hatası).
 - Test: `tests/unit/kapi/zar_tur_test.gd` ve `tests/unit/soz/sema_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
 - kota görünmüyor
+
+## 7 Kasım 2026 — KOP-03 (Hastalık, Bakışın Bir Bölgesidir)
+- `src/soz/bakis.gd` ve `src/kapi/hastalik_teshis_adaptoru.gd`: yüz ve eller bölgesinden `KRI-11` belirtilerinin (`ateş`, `kanlı öksürük`, `irin`) aynı `IpucuYoneticisi` kaydına yazılması, ayrı teşhis düğmesinin 0 olması, belirtisiz/ışıksız bakışta enfeksiyon ipucunun 0 kalması ve kaçışta ipucunun kişi hafızasında tutulup karantina açmaması bağlandı.
+- Test: `tests/unit/kapi/kop03_bakis_hastalik_test.gd` ve `tests/unit/soz/bakis_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
+- kota görünmüyor

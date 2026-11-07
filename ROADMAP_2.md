@@ -8895,7 +8895,7 @@ Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı
   - Bağımlılık: DIY-02, DIY-08. Boyut: M.
   - Dosya: yeni `data/soz/heyet_*.json`; `DiplomatikHeyet` tek satır.
   - Asset: asset gerekmedi.
-- [/] **KOP-03:** (Antigravity) Hastalık, bakışın bir bölgesidir.
+- [x] **KOP-03:** (Antigravity) Hastalık, bakışın bir bölgesidir.
   - Ne: Yüz ve ellere bakınca ateş, kanlı öksürük veya irin satırı çıkabilir. Ayrı teşhis düğmesi yoktur. Belirti yokken enfeksiyon ipucu yazılmaz. Işık kapalıysa belirti de ipucu da oluşmaz. Kabul, duran karantina bayrağına bir kez yazar.
   - Kurallar:
     1. DYL-02 yüz ve eller bölgesi KRI-11 belirtilerini üretir: ateş, kanlı öksürük, irin. İpucu anahtarı KRI-11 ile aynıdır.
