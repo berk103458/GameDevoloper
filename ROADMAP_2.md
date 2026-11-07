@@ -4140,7 +4140,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: DYL-07, DIY-09. Boyut: S.
   - Dosya: eş söz dosyası (YAZ-05 pilot kapsamı) dal satırı.
   - Asset: asset gerekmedi.
-- [ ] **OGR-40:** Ulak ikinci gece dönüp berat şartını hatırlatır.
+- [x] **OGR-40:** Ulak ikinci gece dönüp berat şartını hatırlatır. (Kalfa)
   - Ne: ACL-04 ulağı ikinci gecenin sonunda tek satır haber bırakır: sancak beyi kapının defterini ister (SYS-20 sonlarından teftiş yoluna işaret).
   - Kabul: satır gece 1 sonunda bir kez. Test: anlık görüntü.
   - Bağımlılık: ACL-04. Boyut: S.

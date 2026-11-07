@@ -61,6 +61,11 @@ func _initialize() -> void:
 	var kapi_satirlari := IlkSaat.kapi_acilis_satirlari(gecmisli)
 	_kontrol(kapi_satirlari.size() == 3 and kapi_satirlari[0] == IlkSaat.ipucu_metni("ogretici.gecmis.medrese_talebesi") and kapi_satirlari[1] == IlkSaat.ipucu_metni("ogretici.kapi.konu"), "OGR-38: Kapıdaki ilk satır geçmişe göre değişir")
 	var oturum := Oturum.new(kat, 5)
+	var kapi_acilis = preload("res://src/sistemler/kapi_acilis_olayi.gd")
+	_kontrol(not IlkSaat.ulak_hatirlatmasi_var(oturum, 1), "OGR-40: Açılış akışı geçilmeden ulak satırı yok")
+	oturum.bayraklar[kapi_acilis.ULAK] = true
+	oturum.bayraklar[kapi_acilis.BITTI] = true
+	_kontrol(not IlkSaat.ulak_hatirlatmasi_var(oturum, 0) and IlkSaat.ulak_hatirlatmasi_var(oturum, 1) and not IlkSaat.ulak_hatirlatmasi_var(oturum, 2), "OGR-40: Ulak yalnız ikinci gece raporunda")
 	oturum.gun = 5
 	oturum.yonetim.gun = 5
 	oturum.yonetim.adalet = 0

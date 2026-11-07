@@ -8,6 +8,8 @@ static func ekle(e: KoyEkrani, v: VBoxContainer, bilanco: Dictionary) -> bool:
 	_satir(e, v, "gelenler", [_adlar(ozet.gelenler)])
 	_satir(e, v, "kalanlar", [_adlar(ozet.kalanlar)])
 	_satir(e, v, "ambar", [int(gida.once), int(gida.sonra)])
+	if IlkSaat.ulak_hatirlatmasi_var(e.oturum, int(bilanco.gun)):
+		_satir(e, v, "ulak_berat", [])
 	return true
 
 static func ilk_saat_ozetini_ekle(e: KoyEkrani, v: VBoxContainer, bilanco: Dictionary) -> void:
@@ -23,7 +25,7 @@ static func _satir(e: KoyEkrani, v: VBoxContainer, ad: String, degerler: Array) 
 	var anahtar := "koy.rapor.kisa." + ad
 	var metin := TranslationServer.translate(anahtar)
 	if metin == anahtar or metin.is_empty(): metin = GuvenliMetin.metin(anahtar)
-	var l := e._etiket(v, metin % degerler, Tema.KUCUK_PX)
+	var l := e._etiket(v, metin if degerler.is_empty() else metin % degerler, Tema.KUCUK_PX)
 	l.name = "kisa_" + ad
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	l.custom_minimum_size.x = 900

@@ -14,6 +14,11 @@ static func ipucu_metni(anahtar: String) -> String:
 	return GuvenliMetin.metin(anahtar) if metin == anahtar or metin.is_empty() else metin
 
 
+static func ulak_hatirlatmasi_var(o: Oturum, gece: int) -> bool:
+	var acilis = preload("res://src/sistemler/kapi_acilis_olayi.gd")
+	return gece == 1 and o.bayraklar.has(acilis.ULAK) and o.bayraklar.has(acilis.BITTI)
+
+
 static func kapi_acilis_satirlari(o: Oturum) -> PackedStringArray:
 	var gecmis := preload("res://src/sistemler/muhafiz_gecmisi.gd").kimlik(o)
 	var ipucu := IlkSaat.new().tetikle("kapi_sorgusu", o.gun, gecmis, o.perde)

@@ -2443,6 +2443,7 @@ ogretici.usul.heybe.2,Arama eylemi görünüyorsa heybeyi açabilirsin.,You can 
 ogretici.usul.heybe.3,Beyanı gördüğün eşyalarla karşılaştır.,Compare the declaration with the goods you can see.
 ogretici.usul.heybe.4,Gizli eşya için heybe içindeki arama noktalarını kontrol et.,Check the search spots inside the bag for hidden goods.
 ogretici.usul.heybe.5,Heybeyi kapatıp aynı sorguya dönebilirsin.,Close the bag to return to the same inquiry.
+koy.rapor.kisa.ulak_berat,Ulak döndü. Sancak beyi teftişte kapının defterini görmek ister.,The messenger returned. The Sanjak Bey wants to see the gate ledger at inspection.
 koy.rapor.kisa.ilk_saat_ozeti,"İlk altı gece. Gelen: %s. %d kişiyi aldın, %d kişiyi geri çevirdin. Köyde %d kişi var.","First six nights. Arrivals: %s. You admitted %d and turned away %d. %d villagers remain."
 karar.sukru.mahkeme.baslik,Çınar Meclisinde Aleni Mahkeme,Public Trial at Plane Tree Council
 karar.sukru.mahkeme.metin,"Molla Şükrü Çınar Meclisi önünde yargılandı. Sahte mühür tahrifatı kanıtlandı, berat yakıldı, kâtip demirhane cezasına çarptırıldı. Adalet 3, Moral 2 arttı, Asayiş Riski 2 azaldı.","Molla Sukru was tried before the Council. Forged seal was proven, charter burned, scribe sentenced to forge labor. Justice +3, Morale +2, Public Order Risk -2."
