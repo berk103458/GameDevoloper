@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — OGR-35 tamamlandı (Kalfa)
+
+Kapı usulü, Esc ile açılan mevcut duraklat menüsünde. Bağlantı ana menü sınıfı yerine duraklat menüsünü kuran Ana'da. Tek kaydırılabilir sayfada kapı, köy, zar, göstergeler ve heybe için beşer satır var. 25 satır Türkçe ve İngilizce CSV'den okunur. Geri düğmesi veya mevcut geri eylemi duraklat menüsüne döndürür.
+
+CSV anahtar denetimi, duraklat menüsü/kayıt ve gerçek köy açılışı geçti. İlk import altı MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — OGR-30 tamamlandı (Kalfa)
 
 Full pull 5ffb8fb9 güncel, Ajan Masası okundu. Yeni hedefli sahne aynı tohumlu iki köy açılışını altı gerçek gece ilerletir. İkinci koşu ikinci gecenin sonunda mevcut JSON kayıt ve yükleme API'lerinden geçerek yeni köy ekranı kurar. İki günlük, sahne ağacındaki görünür katmanların kimliklerini sıralı karşılaştırır. İlk üç katman, takvimli tüccar sonrası harita ve altıncı gece sancak teftişi sonrası oda ayrıca doğrulanır. TST-06'nın genel kayit_ikizi.tscn sahnesi repoda bulunmadığı için onun kayıt ikizi yöntemi bu özel kontrolde mevcut API'lerle uygulandı.

@@ -4107,7 +4107,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-07. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [ ] **OGR-35:** "Ne yapabilirim?" sayfası — tek sayfa, metin.
+- [x] **OGR-35:** "Ne yapabilirim?" sayfası — tek sayfa, metin. (Kalfa)
   - Ne: Esc menüsüne (`menu` eylemi) "Kapı usulü" sayfası eklenir: kapı, köy, zar, bar, heybe için beşer satır. Kaydırmalı tek sayfa, resim yok.
   - Kabul: sayfa 25 satırı geçmez, hepsi `metinler.csv`'den. Test: anahtar sayısı 25.
   - Bağımlılık: OGR-09. Boyut: S.

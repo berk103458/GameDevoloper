@@ -2413,6 +2413,32 @@ ogretici.kapi.selam,Önce sağdaki selamla söze gireyim.,I will start with the 
 ogretici.kapi.konu,Aileye neden geldiklerini sorayım.,I should ask why the family came.
 ogretici.kapi.karar,Dinledim. Şimdi kabul ya da ret kararımı onaylayayım.,I have heard them. Now I can confirm admission or refusal.
 ogretici.koy.hiz,Hız: {hiz_1} · {hiz_2} · {hiz_3}. Dur: {hiz_dur}.,Speed: {hiz_1} · {hiz_2} · {hiz_3}. Pause: {hiz_dur}.
+arayuz.duraklat.kapi_usulu,Kapı usulü,Gate handbook
+ogretici.usul.kapi.1,Kapı: Önce selam ver ve geliş nedenini sor.,Gate: Greet the visitor and ask why they came.
+ogretici.usul.kapi.2,Gördüğün kanıtla duyduğun sözü ayrı tart.,Weigh what you saw separately from what you heard.
+ogretici.usul.kapi.3,Soruların tükenmeden karar ekranına geçebilirsin.,You can move to the decision screen before using every question.
+ogretici.usul.kapi.4,Kararı seç ve onayla. Onaydan önce seçimini değiştirebilirsin.,Select and confirm a decision. You can change it before confirming.
+ogretici.usul.kapi.5,Kabulden önce köyde yatak ve erzak olup olmadığına bak.,Check the village for beds and food before admitting anyone.
+ogretici.usul.koy.1,Köy: Üst şerit stokları ve köyün durumunu gösterir.,Village: The top bar shows your supplies and the state of the village.
+ogretici.usul.koy.2,Bir yapı kartını seçip uygun bir yere yerleştir.,Select a building card and place it on a suitable tile.
+ogretici.usul.koy.3,Üretim için hazır yapıya işçi ata.,Assign a worker to a finished building to start production.
+ogretici.usul.koy.4,Pazarda stok ve akçene göre alış veya satış yap.,Buy or sell at the market according to your stock and coin.
+ogretici.usul.koy.5,Gece sonunda rapordan tüketimi ve köyde olanları izle.,Check the night report for supplies used and events in the village.
+ogretici.usul.zar.1,Zar: Atış sunulursa önce gerekli değeri oku.,"Dice: When a roll is offered, check the required value first."
+ogretici.usul.zar.2,Atış gerekli değere eşit veya ondan büyükse geçer.,The roll passes if it meets or exceeds the required value.
+ogretici.usul.zar.3,Tansiyon bazı sorgularda gerekli değeri yükseltir.,Tension raises the required value in some inquiries.
+ogretici.usul.zar.4,Gerekli değer zarın üst sınırını aşarsa atış yapılamaz.,You cannot roll if the required value exceeds the die's maximum.
+ogretici.usul.zar.5,Atıştan sonra sayı ve sonucu birlikte oku.,"After rolling, read the number and the outcome together."
+ogretici.usul.bar.1,Göstergeler: Huzur halkın durumunu gösterir.,Indicators: Contentment reflects how the villagers are doing.
+ogretici.usul.bar.2,Adalet kararlarının köydeki karşılığını izlemene yardım eder.,Justice helps you track how your decisions affect the village.
+ogretici.usul.bar.3,Asayiş riski yükselirse güvenlik uyarılarına bak.,Check the security warnings when unrest rises.
+ogretici.usul.bar.4,Ambar çubuğu doluluk ve kapasiteyi birlikte gösterir.,The granary bar shows both current stock and capacity.
+ogretici.usul.bar.5,Köy kasasıyla muhafızın kesesi ayrı tutulur.,The village treasury and the guard's purse are kept separate.
+ogretici.usul.heybe.1,Heybe: Eylem açıksa önce yolcunun beyanını dinle.,"Bag: When the action is available, listen to the visitor's declaration first."
+ogretici.usul.heybe.2,Arama eylemi görünüyorsa heybeyi açabilirsin.,You can open the bag when the search action is available.
+ogretici.usul.heybe.3,Beyanı gördüğün eşyalarla karşılaştır.,Compare the declaration with the goods you can see.
+ogretici.usul.heybe.4,Gizli eşya için heybe içindeki arama noktalarını kontrol et.,Check the search spots inside the bag for hidden goods.
+ogretici.usul.heybe.5,Heybeyi kapatıp aynı sorguya dönebilirsin.,Close the bag to return to the same inquiry.
 karar.sukru.mahkeme.baslik,Çınar Meclisinde Aleni Mahkeme,Public Trial at Plane Tree Council
 karar.sukru.mahkeme.metin,"Molla Şükrü Çınar Meclisi önünde yargılandı. Sahte mühür tahrifatı kanıtlandı, berat yakıldı, kâtip demirhane cezasına çarptırıldı. Adalet 3, Moral 2 arttı, Asayiş Riski 2 azaldı.","Molla Sukru was tried before the Council. Forged seal was proven, charter burned, scribe sentenced to forge labor. Justice +3, Morale +2, Public Order Risk -2."
 karar.sukru.mahkeme.sonuc,"Hasan Çelebi ve divan onurlandırıldı. Köyde adalet tesis edildi.","Hasan Celebi and council honored. Justice established in the village."
