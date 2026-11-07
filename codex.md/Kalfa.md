@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OGR-46 tamamlandı (Kalfa)
+
+Mevcut otomatik oyuncu sahnesi yeni oyun ekranından gerçek oyun seçimi yapar. Hedefli ölçüm, ilk köy ekranından altıncı gece özet kartına kadar geçen süreyi tek ILKSAAT_SURE satırına yazar. Python runner ayrı oyuncu dizininde başsız çalıştırır ve gece, süre, tohum ve script çıkışını doğrular. İlk koşudaki ayar sıfırlama hatası, ölçümde ayar taramasını atlayarak giderildi.
+
+Tohum 11 ile altı gece 187187 ms, KOP-03 ve ZAR-05 ile birleşen sürümde 187078 ms. İki koşuda script hatası0. Mevcut eksik metin anahtarı uyarıları çıktı. Sonuç docs/tester/OGR-46_ILK_SAAT_SURESI.md içinde, insan hedefiyle otomasyon süresi ayrı belirtildi. Son başsız import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OGR-44 tamamlandı (Kalfa)
 
 Full pull fb5bb0ef güncel, Ajan Masası okundu. Mevcut tester sürücüsüne araç tablosu çıktısı eklendi. Heybe açma, beyan sorma ve nişan-yük inceleme gerçek UI eylemlerinde ölçülür. OGR-42 ile birlikte sekiz araç raporlanır. Canlı eylemi bulunmayan yemin ölçülmedi. Araç raporu, ölçülmeyeni kullanılmayan araçtan ayrı gösterir.

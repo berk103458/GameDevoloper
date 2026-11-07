@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OGR-46 tamamlandı (Kalfa)
+
+Mevcut otomatik oyuncu sahnesi yeni oyun ekranından gerçek oyun seçimi yapar. Hedefli ölçüm, ilk köy ekranından altıncı gece özet kartına kadar geçen süreyi tek ILKSAAT_SURE satırına yazar. Python runner ayrı oyuncu dizininde başsız çalıştırır ve gece, süre, tohum ve script çıkışını doğrular. İlk koşudaki ayar sıfırlama hatası, ölçümde ayar taramasını atlayarak giderildi.
+
+Tohum 11 ile altı gece 187187 ms, KOP-03 ve ZAR-05 ile birleşen sürümde 187078 ms. İki koşuda script hatası0. Mevcut eksik metin anahtarı uyarıları çıktı. Sonuç docs/tester/OGR-46_ILK_SAAT_SURESI.md içinde, insan hedefiyle otomasyon süresi ayrı belirtildi. Son başsız import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — KOP-03 tamamlandı (Antigravity)
 
 `src/soz/bakis.gd` ve `src/kapi/hastalik_teshis_adaptoru.gd` birbirine bağlandı: `DYL-02` yüz ve eller bölgesi `KRI-11` belirtilerini (`Clue_Enfeksiyon_Ates`, `Clue_Enfeksiyon_KanliOksuruk`, `Clue_Enfeksiyon_Irin`) aynı `IpucuYoneticisi` kaydına yazar. Ayrı teşhis düğmesi sayısı 0'dır. Belirti satırı yokken veya ışık kapalıyken (`kosul.baglam.isik = false`) enfeksiyon ipucu oluşmaz; aynı bölgeye ikinci bakış yeni belirti üretmez; kabul duran karantina şartını bir kez açar; karakter kaçarsa ipucu kişi hafızasında kalır ve karantina açılmaz. `tests/unit/kapi/kop03_bakis_hastalik_test.gd` ve `tests/unit/soz/bakis_test.gd` 0 hatayla geçti. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
