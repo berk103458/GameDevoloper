@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OMR-03 tamamlandı (Kalfa)
+
+Full pull ed9859b1 güncel, Ajan Masası okundu. Perde 1'de gerçek kapı kuyruğunun uygun adlı adayları mevcut omurga.json dönem paylarıyla seçilir. Esnaf sınıfında mevcut zanaat kimliği tüccar ve uzmanı ayırır. Takvim ve kadro uygunluğundan geçen aynı roldeki adaylarda mevcut güvenlik ve ticaret ağırlıkları korunur. Adayı bulunmayan rolün payı adsız yolcuya gider. Kuruluş asker payı 0,10. Perde 2 mevcut seçim yolunda kalır.
+
+Yüzer gerçek kuyruk örneğinde kuruluş 51 köylü, 28 zanaatkâr, 14 tüccar, 7 asker. Oturma 26 köylü, 18 zanaatkâr, 27 tüccar, 29 asker. Dağılım, güvenlik, KOP-10 karar matrisi ve gerçek oyun köprüsü geçti. İlk import iki MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OGR-54 tamamlandı (Kalfa)
 
 Full pull 516c3ad4 güncel, Ajan Masası okundu. Aynı tohum, aynı ilk aile kararı ve altı geceyle iki koşu. Köy hız ipucu ve kapı öğreticisinin yalnız açık koşuda görünmesi doğrulanır. İki koşu ikinci gece sonunda DurumAnlikGoruntusu üzerinden yüklenir. Başlangıç dahil yedi anlık görüntü, yalnız ipucunun kendi görülme geçmişi çıkarılarak eşit karşılaştırılır. RNG, sayaçlar, barlar, stoklar ve iki kasa karşılaştırmaya dahildir.

@@ -4294,7 +4294,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-01. Boyut: S.
   - Dosya: yeni: `src/sistemler/omurga.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-03:** Dönem, gelen kadroyu süzer.
+- [x] **OMR-03:** Dönem, gelen kadroyu süzer. (Kalfa)
   - Ne: `karakter_kadrosu.gd uygunlar(gece)` çağrısına dönem bilgisi eklenir: kuruluşta aile ve zanaatkâr ağırlıklı, oturmada tüccar, heyet ve tehdit. Karar matrisi (KOP-10) değişmez, yalnız aday havuzu daralır.
   - Kabul: `data/omurga.json` içinde dönem → sınıf ağırlığı; kuruluşta asker ağırlığı ≤ 0.1. Test: 100 gece simülasyon dağılımı.
   - Bağımlılık: OMR-02, KOP-10. Boyut: M.
