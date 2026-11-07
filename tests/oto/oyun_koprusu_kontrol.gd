@@ -11,6 +11,7 @@ func _ready() -> void:
 		await get_tree().process_frame
 	assert(ana.find_children("*", "OyunKoprusu", true, false).is_empty())
 	ana.kayit = GuvenliKayit.new("user://test_kopru_save.json")
+	ana.oyuncu_izi.sifirla()
 	# TEK-27: AdminHud oyuncu surumunde dogmaz; kopru kaydet/yukle snapshot aracini test kendisi saglar.
 	var test_admin := AdminHud.new()
 	test_admin.baglam = ana
@@ -24,6 +25,8 @@ func _ready() -> void:
 	assert(not (await kopru.run_command("yeni_oyun", {"tohum": 11})).has("error"))
 	# Geçmiş seçimi durur. İlk satır bir geçmiştir; sonra köy açılır.
 	assert(kopru.get_state().ekran == "rapor")
+	assert(not (await kopru.run_command("devam", {"indeks": 2})).has("error"))
+	assert(ana._ekran.name == &"IlkSaatKadraci" and ana.oturum == null)
 	assert(not (await kopru.run_command("devam", {"indeks": 0})).has("error"))
 	await get_tree().process_frame
 	# ACL-01: yeni oyunun ilk günü köydedir. Kapıya model günü atlayarak
@@ -41,7 +44,7 @@ func _ready() -> void:
 	assert(ana.oturum.yonetim.nufus() == 2 and ana._kapi._gelen.id == &"acl04_ilk_aile")
 	var ogretici := ana._kapi.get_node("AcilisOgretici")
 	var ogretici_satirlari := (ogretici.get_node("Adimlar") as Label).text.split("\n")
-	assert(ogretici_satirlari.size() == 3 and ogretici_satirlari[0] == IlkSaat.ipucu_metni("ogretici.kapi.selam"))
+	assert(ogretici_satirlari.size() == 3 and ogretici_satirlari[0] == IlkSaat.ipucu_metni("ogretici.gecmis.medrese_talebesi"))
 	assert(not (ogretici.get_node("Adimlar") as Label).text.contains("ogretici."))
 	(ogretici.get_child(1) as Button).pressed.emit()
 	await get_tree().process_frame
@@ -77,6 +80,7 @@ func _ready() -> void:
 	assert(not (await kopru.run_command("gece_bitir")).has("error"))
 	assert(_kisa_rapor(ambar_once))
 	var ilk_rapor := ana._ekran._ust_kart as Control
+	assert(ilk_rapor.find_child("kisa_ulak_berat", true, false) == null)
 	assert((ilk_rapor.find_child("kisa_gelenler", true, false) as Label).text.contains("ulağı"))
 	assert((ilk_rapor.find_child("kisa_gelenler", true, false) as Label).text.contains("Ali ve Zeynep"))
 	assert((ilk_rapor.find_child("kisa_kalanlar", true, false) as Label).text.ends_with("Ali, Zeynep"))
@@ -147,6 +151,8 @@ func _ready() -> void:
 	assert(not (await kopru.run_command("gece_bitir")).has("error"))
 	assert(_kisa_rapor(ambar_once))
 	assert(not (ana._ekran._ust_kart.find_child("kisa_gelenler", true, false) as Label).text.contains("ulağı"))
+	var ulak_satirlari := (ana._ekran._ust_kart as Control).find_children("kisa_ulak_berat", "Label", true, false)
+	assert(ulak_satirlari.size() == 1 and ulak_satirlari[0].text == tr("koy.rapor.kisa.ulak_berat"))
 	s = kopru.get_state()
 	assert(s.ekran == "rapor" and s.gun == gun + 1 and s.rapor_satirlari.size() > 0)
 	assert(s.erzak == ana.oturum.ambar and s.akce.muhafiz == ana.oturum.muhafiz_akce and s.barlar.size() == 4)
@@ -171,4 +177,4 @@ func _kisa_rapor(ambar_once: int) -> bool:
 	if kart == null: return false
 	var kisa_satirlar := kart.find_children("kisa_*", "Label", true, false)
 	var ambar := kart.find_child("kisa_ambar", true, false) as Label
-	return kisa_satirlar.size() == 3 and ambar != null and ambar.text.ends_with("%d → %d" % [ambar_once, ana.oturum.ambar]) and kart.find_child("gece_akce", true, false) == null
+	return kisa_satirlar.size() == (4 if ana.oturum.gun == 2 else 3) and ambar != null and ambar.text.ends_with("%d → %d" % [ambar_once, ana.oturum.ambar]) and kart.find_child("gece_akce", true, false) == null

@@ -4128,7 +4128,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: ACL-06, OGR-01. Boyut: S.
   - Dosya: `data/ogretici/ilk_saat.json`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-38:** Atlanan ipucu yerine geçmişin tek cümlesi.
+- [x] **OGR-38:** Atlanan ipucu yerine geçmişin tek cümlesi. (Kalfa)
   - Ne: atlanan ipucunun yerinde muhafızın geçmişine ait tek cümle durur (USLUP_REHBERI ses kartı tonunda). Bilgi vermez, kişilik verir.
   - Kabul: cümle `ogretici.gecmis.*` anahtarındadır; en çok 70 karakter. Test: tarama.
   - Bağımlılık: OGR-37, YAZ-03. Boyut: S.
@@ -4140,13 +4140,13 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: DYL-07, DIY-09. Boyut: S.
   - Dosya: eş söz dosyası (YAZ-05 pilot kapsamı) dal satırı.
   - Asset: asset gerekmedi.
-- [ ] **OGR-40:** Ulak ikinci gece dönüp berat şartını hatırlatır.
+- [x] **OGR-40:** Ulak ikinci gece dönüp berat şartını hatırlatır. (Kalfa)
   - Ne: ACL-04 ulağı ikinci gecenin sonunda tek satır haber bırakır: sancak beyi kapının defterini ister (SYS-20 sonlarından teftiş yoluna işaret).
   - Kabul: satır gece 1 sonunda bir kez. Test: anlık görüntü.
   - Bağımlılık: ACL-04. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı; metin `metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-41:** Yeni oyun başlangıç özeti tek kadraj.
+- [x] **OGR-41:** Yeni oyun başlangıç özeti tek kadraj. (Kalfa)
   - Ne: ACL-06 seçiminden sonra `bilgi_ekrani.gd` kadrajında üç satır: kimsin, köy nerede, kapı ne zaman açılır. Resim yok, metin koddan.
   - Kabul: kadraj bir girdiyle geçilir; süre sınırı yok. Test: anahtar sayısı 3.
   - Bağımlılık: ACL-06. Boyut: S.

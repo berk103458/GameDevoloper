@@ -7,10 +7,27 @@ extends RefCounted
 const VERI_YOLU := "res://data/ogretici/ilk_saat.json"
 const TEHDIT_YOLU := "res://data/tehdit_takvimi.json"
 const AZAMI_IPUCU := 20
+const GECMIS_ADLARI := {"asker": "eski_levent", "katip": "medrese_talebesi", "ciftci": "coban_oglu"}
 
 static func ipucu_metni(anahtar: String) -> String:
 	var metin := TranslationServer.translate(anahtar)
 	return GuvenliMetin.metin(anahtar) if metin == anahtar or metin.is_empty() else metin
+
+
+static func ulak_hatirlatmasi_var(o: Oturum, gece: int) -> bool:
+	var acilis = preload("res://src/sistemler/kapi_acilis_olayi.gd")
+	return gece == 1 and o.bayraklar.has(acilis.ULAK) and o.bayraklar.has(acilis.BITTI)
+
+
+static func kapi_acilis_satirlari(o: Oturum) -> PackedStringArray:
+	var gecmis := preload("res://src/sistemler/muhafiz_gecmisi.gd").kimlik(o)
+	var ipucu := IlkSaat.new().tetikle("kapi_sorgusu", o.gun, gecmis, o.perde)
+	var sonuc := PackedStringArray()
+	for anahtar: String in preload("res://src/sistemler/kapi_acilis_olayi.gd").AYAR.ogretici:
+		sonuc.append(IlkSaat.ipucu_metni(anahtar))
+	if not sonuc.is_empty() and ipucu.has("gecmis_metni"):
+		sonuc[0] = String(ipucu.gecmis_metni)
+	return sonuc
 
 
 static func koy_hizi_ipucunu_goster(ekran: Control, oturum: Oturum, ayarlar: Ayarlar) -> void:
@@ -132,17 +149,16 @@ func tetikle(anahtar: String, guncel_gece: int, gecmis_id: String = "", perde_no
 		var id_str := String(k.get("id", ""))
 		var tetik_str := String(k.get("tetik", ""))
 		if temiz == id_str or temiz == tetik_str:
-			if not temiz_gecmis.is_empty():
-				var atla: Variant = k.get("atla_gecmis", [])
-				if atla is Array:
-					for g in atla:
-						if String(g) == temiz_gecmis:
-							return {"gosterildi": false, "sebep": "gecmis_atlandi", "id": id_str}
 			if _gorulen.has(id_str):
 				return {"gosterildi": false, "sebep": "zaten_goruldu", "id": id_str}
 			if guncel_gece < int(k.get("gece_min", 0)):
 				return {"gosterildi": false, "sebep": "gece_min_gelmedi", "id": id_str}
 			_gorulen[id_str] = true
+			var atla: Array = k.get("atla_gecmis", [])
+			if temiz_gecmis in atla:
+				var ses_karti := String(GECMIS_ADLARI.get(temiz_gecmis, temiz_gecmis))
+				var metin := ipucu_metni("ogretici.gecmis." + ses_karti)
+				return {"gosterildi": false, "sebep": "gecmis_atlandi", "id": id_str, "gecmis_metni": metin}
 			if id_str == "zar":
 				zar_gosterildi = true
 			return {

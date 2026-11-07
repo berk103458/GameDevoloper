@@ -1,3 +1,21 @@
+## 7 Kasım 2026 — OGR-41 tamamlandı (Kalfa)
+
+Geçmiş seçilince mevcut BilgiEkrani üç çevrilmiş satırı gösterir. Satırlar muhafızın görevini, uç köyünün konumunu ve ilk kapı açılışını anlatır. Yeni oyun ekranı ve doğrudan geçmiş seçimi aynı geçişi kullanır. Devam tek girdidir ve oyun o girdiden sonra başlatılır. Bitmiş oyuncu izi varsa mevcut OGR-48 yordamı kadrajı atlar. Hazır geçmişle yapılan doğrudan program çağrısı mevcut hızlı giriş sözleşmesini korur.
+
+CSV üç benzersiz anahtar, gerçek köy açılışı ve gerçek oyun köprüsü geçti. Üç satır, tek girdi ve bitmiş izde atlama doğrulandı. İlk import üç MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 7 Kasım 2026 — OGR-40 tamamlandı (Kalfa)
+
+Full pull 42358c12 güncel, Ajan Masası okundu. ACL-04 ulağı ve ilk aile kararı gerçekleştiyse mevcut ikinci gece kısa raporu, sancak beyinin teftişte kapı defterini isteyeceğini tek satırda bildirir. Gece 0 ve 2'de satır yok. Mevcut gece raporu ve kayıt düzeni kullanıldı.
+
+İlk saat birimi ve gerçek oyun köprüsü geçti. Başsız import exit0/script0/MD50. Üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 7 Kasım 2026 — OGR-38 tamamlandı (Kalfa)
+
+İlk saat tetikleyicisi, geçmiş nedeniyle atlanan kavramın yerine o geçmişe ait tek satırı döndürür. Gece eşiği ve tek gösterim denetimi aynı akışta uygulanır. Mevcut ilk kapı öğreticisinde medrese geçmişi selam ipucunun yerine bu satırı gösterir. Konu ve karar satırları durur. Metinler Türkçe ve İngilizce ogretici.gecmis anahtarlarında, her dilde en çok 70 karakter.
+
+İlk saat birimi ve medrese geçmişiyle gerçek kapı/köy köprüsü geçti. Tablodaki bütün geçmiş eşleşmeleri ve tekrar denetimi sınandı. İlk birim koşusundaki Ses autoload derleme sorunu, satır seçimini IlkSaat'e taşıyarak düzeltildi. Son import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — OGR-36 tamamlandı (Kalfa)
 
 Full pull efa023e9, Ajan Masası okundu. Altıncı gecenin mevcut bilançosu kapıya gelen kişi sayısını, mevcut kabul ve ret sayaçlarını ve gecenin sonundaki köy nüfusunu tek satırda gösterir. Bir ailedeki kişiler ayrı sayılır. Aynı ziyaret aynı gece ikinci kez sayılmaz. İlk ulak mevcut açılış bayrağından bir kez eklenir. Geliş sayısı ilk altı gece için isteğe bağlı JSON alanında korunur. Alanı olmayan eski kayıtta geliş değeri çizgiyle gösterilir.

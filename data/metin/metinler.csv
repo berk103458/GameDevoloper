@@ -1809,6 +1809,9 @@ arayuz.ayarlar.kamera_eksen.kapali,Kapalı,Off
 acilis.kisi.muhafiz,Muhafız,Gatekeeper
 acilis.kisi.es,Eş,Spouse
 acilis.kapi.kapali,Kapı kapalı,Gate closed
+acilis.kadraj.muhafiz,Bu köyün muhafızısın.,You are the gatekeeper of this village.
+acilis.kadraj.koy,Köy sancağın sınır yolunda.,The village lies on the sanjak's frontier road.
+acilis.kadraj.kapi,Kapı ilk akşam ulak ayrılınca açılır.,The gate opens on the first evening after the messenger leaves.
 koy.bayrak.acl01_muhafiz,Muhafız,Muhafız
 koy.bayrak.acl01_es,Muhafızın eşi,Muhafızın eşi
 arayuz.ayarlar.grafik.baslik,Grafik,Graphics
@@ -2410,6 +2413,10 @@ ogretici.kaynak.eksi,Köy bu gece %s tüketti (-%d).,The village used %s tonight
 ogretici.ambar.esik,Ambar yedek payının altına indi. Erzak bulmalıyım.,The granary fell below its reserve. I need food.
 ogretici.kasa.iflas,Kasa ekside. %d gece içinde toparlayamazsam iflas ederim.,The treasury is short. I have %d nights to avoid bankruptcy.
 ogretici.kapi.selam,Önce sağdaki selamla söze gireyim.,I will start with the greeting on the right.
+ogretici.gecmis.eski_levent,Keçeyi taşın üstüne sererdik nöbette.,We spread felt over the stones on watch.
+ogretici.gecmis.ahi_ciragi,Ustam dükkânı açınca önce ocağı yakardı.,My master lit the hearth as soon as he opened the shop.
+ogretici.gecmis.medrese_talebesi,Kamış kalemin ucu çatlayınca hoca elime yenisini verirdi.,When my reed pen split my teacher would hand me another.
+ogretici.gecmis.coban_oglu,Babam koyunları sayarken değneği dizine dayardı.,Father rested his staff on his knee as he counted the sheep.
 ogretici.kapi.konu,Aileye neden geldiklerini sorayım.,I should ask why the family came.
 ogretici.kapi.karar,Dinledim. Şimdi kabul ya da ret kararımı onaylayayım.,I have heard them. Now I can confirm admission or refusal.
 ogretici.koy.hiz,Hız: {hiz_1} · {hiz_2} · {hiz_3}. Dur: {hiz_dur}.,Speed: {hiz_1} · {hiz_2} · {hiz_3}. Pause: {hiz_dur}.
@@ -2439,7 +2446,8 @@ ogretici.usul.heybe.2,Arama eylemi görünüyorsa heybeyi açabilirsin.,You can 
 ogretici.usul.heybe.3,Beyanı gördüğün eşyalarla karşılaştır.,Compare the declaration with the goods you can see.
 ogretici.usul.heybe.4,Gizli eşya için heybe içindeki arama noktalarını kontrol et.,Check the search spots inside the bag for hidden goods.
 ogretici.usul.heybe.5,Heybeyi kapatıp aynı sorguya dönebilirsin.,Close the bag to return to the same inquiry.
-koy.rapor.kisa.ilk_saat_ozeti,"İlk altı gece. Gelen: %s. %d kişiyi aldın, %d kişiyi geri çevirdin. Köyde %d kişi var.",First six nights. Arrivals: %s. You admitted %d and turned away %d. %d villagers remain.
+koy.rapor.kisa.ulak_berat,Ulak döndü. Sancak beyi teftişte kapının defterini görmek ister.,The messenger returned. The Sanjak Bey wants to see the gate ledger at inspection.
+koy.rapor.kisa.ilk_saat_ozeti,"İlk altı gece. Gelen: %s. %d kişiyi aldın, %d kişiyi geri çevirdin. Köyde %d kişi var.","First six nights. Arrivals: %s. You admitted %d and turned away %d. %d villagers remain."
 karar.sukru.mahkeme.baslik,Çınar Meclisinde Aleni Mahkeme,Public Trial at Plane Tree Council
 karar.sukru.mahkeme.metin,"Molla Şükrü Çınar Meclisi önünde yargılandı. Sahte mühür tahrifatı kanıtlandı, berat yakıldı, kâtip demirhane cezasına çarptırıldı. Adalet 3, Moral 2 arttı, Asayiş Riski 2 azaldı.","Molla Sukru was tried before the Council. Forged seal was proven, charter burned, scribe sentenced to forge labor. Justice +3, Morale +2, Public Order Risk -2."
 karar.sukru.mahkeme.sonuc,Hasan Çelebi ve divan onurlandırıldı. Köyde adalet tesis edildi.,Hasan Celebi and council honored. Justice established in the village.
