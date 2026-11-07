@@ -1,10 +1,11 @@
-## CAT-02: Kavga secenekleri — askerle karsilik, akceyle erteleme, sozle yatistirma, reddetme birim testi.
+## CAT-02 ve YAP-53: Kavga secenekleri — askerle karsilik, akceyle erteleme, sozle yatistirma, reddetme ve esya kavga ganimeti birim testi.
 ## Kabul kriterleri:
 ## - Dort secenek dort ayri sonuc kimligi uretir.
 ## - Erteleme `verilen_soz` kaydina 1 satir yazar.
 ## - Olum cenaze akisina tek cagri yazar.
 ## - Ek sart: kalp anahtari 1 hata verir.
 ## - Ek sart: ayni secenege iki tikta sonuc bir kez yazilir.
+## - YAP-53: Esya kavga ganimeti olabilir; CAT ayri esya sinifi acmaz (data/ozel_esyalar.json tanimiyla ayni).
 extends SceneTree
 
 const KapiKavgasiSinifi = preload("res://src/kapi/kapi_kavgasi.gd")
@@ -31,6 +32,7 @@ func _calistir() -> void:
 	_test_kalp_anahtari_ve_besinci_secenek_hatasi()
 	_test_ayni_secenege_iki_tikta_tek_yazim(kadro, ornek_id)
 	_test_kilit_durumlari_akce_bes_soz_ve_asker_olumu()
+	_test_yap53_esya_kavga_ganimeti(kadro, ornek_id)
 
 	await process_frame
 	print("KAVGA SECENEK: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
@@ -124,22 +126,45 @@ func _test_ayni_secenege_iki_tikta_tek_yazim(kadro: KarakterKadrosu, id: StringN
 
 func _test_kilit_durumlari_akce_bes_soz_ve_asker_olumu() -> void:
 	var kk := KapiKavgasiSinifi.new()
-	# 1) Akce yetmezse erteleme kilitli gorunur
 	var d_akcesiz: Dictionary = kk.secenek_durumlari({"asker_sayisi": 1, "muhafiz_akce": 0, "erteleme_bedeli": 2})
 	var erteleme_1: Dictionary = d_akcesiz.get("akceyle_erteleme", {})
 	_kontrol(bool(erteleme_1.get("gorunur", false)) and bool(erteleme_1.get("kilitli", false)), "Akçe yetmezse erteleme kilitli görünmeli")
 
-	# 2) Acik soz sayisi 5 ise erteleme kilitlidir ve nedeni yazar
 	var d_bes_soz: Dictionary = kk.secenek_durumlari({"asker_sayisi": 1, "muhafiz_akce": 10, "acik_soz_sayisi": 5})
 	var erteleme_2: Dictionary = d_bes_soz.get("akceyle_erteleme", {})
 	_kontrol(bool(erteleme_2.get("kilitli", false)) and not String(erteleme_2.get("kilit_nedeni", "")).is_empty(), "Açık söz sayısı 5 iken erteleme kilitli olmalı ve nedeni yazmalı")
 
-	# 3) Asker olurse karsilik secenegi kapanir, diger ucu durur
 	var d_asker_oldu: Dictionary = kk.secenek_durumlari({"asker_hayatta": false, "asker_sayisi": 0, "muhafiz_akce": 10})
 	_kontrol(not bool((d_asker_oldu.get("askerle_karsilik", {}) as Dictionary).get("gorunur", true)), "Asker ölürse karşılık seçeneği kapanmalı")
 	_kontrol(bool((d_asker_oldu.get("akceyle_erteleme", {}) as Dictionary).get("gorunur", false)), "Diğer seçenek 1 (erteleme) durmalı")
 	_kontrol(bool((d_asker_oldu.get("sozle_yatistirma", {}) as Dictionary).get("gorunur", false)), "Diğer seçenek 2 (yatıştırma) durmalı")
 	_kontrol(bool((d_asker_oldu.get("reddetme", {}) as Dictionary).get("gorunur", false)), "Diğer seçenek 3 (reddetme) durmalı")
+
+
+func _test_yap53_esya_kavga_ganimeti(kadro: KarakterKadrosu, id: StringName) -> void:
+	var kk := KapiKavgasiSinifi.new()
+	kk.yeni_kavga_ac({"kisi_id": String(id), "gun": 9})
+	var basarili_kavga: Dictionary = kk.secenek_uygula("askerle_karsilik", {
+		"kisi_id": String(id),
+		"gun": 9,
+		"asker_sayisi": 1,
+		"zar_atis": 6,
+		"ganimet_esya_id": "kirim_akcaagac_yayi"
+	}, kadro)
+	_kontrol(String(basarili_kavga.get("ganimet_esya_id", "")) == "kirim_akcaagac_yayi", "YAP-53: Başarılı askerle karşılıkta özel eşya kavga ganimeti olabilmeli")
+	var ganimet: Variant = basarili_kavga.get("ganimet_esya")
+	_kontrol(ganimet is Dictionary and not (ganimet is Object) and String(ganimet.get("hedef_sistem", "")) == "savunma_formulu", "YAP-53: CAT ayrı eşya sınıfı açmaz, data/ozel_esyalar.json sözlüğünü kullanır")
+
+	kk.yeni_kavga_ac({"kisi_id": String(id), "gun": 10})
+	var basarisiz_kavga: Dictionary = kk.secenek_uygula("askerle_karsilik", {
+		"kisi_id": String(id),
+		"gun": 10,
+		"asker_sayisi": 1,
+		"zar_atis": 2,
+		"zorluk": 5,
+		"ganimet_esya_id": "kirim_akcaagac_yayi"
+	}, kadro)
+	_kontrol(String(basarisiz_kavga.get("ganimet_esya_id", "")).is_empty(), "YAP-53: Başarısız kavgada ganimet eşya düşmez")
 
 
 func _kontrol(olur: bool, mesaj: String) -> void:

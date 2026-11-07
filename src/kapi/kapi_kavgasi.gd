@@ -8,6 +8,19 @@ extends RefCounted
 
 
 const VERI_YOLU := "res://data/kapi_kavgasi.json"
+const OZEL_ESYALAR_YOLU := "res://data/ozel_esyalar.json"
+
+## YAP-53: CAT ayri esya sinifi acmaz; data/ozel_esyalar.json tanimini okur.
+static func ozel_esya_tanimi(esya_id: String) -> Dictionary:
+	var aranan := esya_id.strip_edges()
+	if aranan.is_empty() or not FileAccess.file_exists(OZEL_ESYALAR_YOLU):
+		return {}
+	var okunan: Variant = JSON.parse_string(FileAccess.get_file_as_string(OZEL_ESYALAR_YOLU))
+	if okunan is Dictionary and okunan.get("esyalar") is Array:
+		for oge in okunan["esyalar"]:
+			if oge is Dictionary and String(oge.get("id", "")) == aranan:
+				return oge.duplicate(true)
+	return {}
 const YER_TUTUCU_CANLANDIRMA := {
 	"asset_id": "CAT02-KAVGA",
 	"tur": "sarsinti_ve_metin",
@@ -391,6 +404,8 @@ func _uygula_askerle_karsilik(
 		"sonuc_kimligi": sonuc_kimligi,
 		"zar": zar_sonuc,
 		"cenaze_cagri_sayisi": _cenaze_cagrilari.size(),
+		"ganimet_esya_id": String(ozel_esya_tanimi(String(baglam.get("ganimet_esya_id", ""))).get("id", "")) if basarili else "",
+		"ganimet_esya": ozel_esya_tanimi(String(baglam.get("ganimet_esya_id", ""))) if basarili else {},
 		"canlandirma": YER_TUTUCU_CANLANDIRMA.duplicate(true),
 	}
 

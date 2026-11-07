@@ -1,6 +1,7 @@
-## DEN-05, DEN-06, DEN-22: Denge ölçümü ve geliştirme günlüğü.
+## DEN-05, DEN-06, DEN-18, DEN-22: Denge ölçümü ve geliştirme günlüğü.
 ## Gece hesabını ikinci kez çalıştırmaz; gece_sonu() raporunu salt-okunur okur.
 ## Oyuncu arayüzüne (HUD) denge sayısı yansıtılmaz; geliştirme günlüğünde tutulur (DEN-06).
+## Başarılı ikna zarı rüşveti azaltan/artıran bir çarpan değildir; kasa yalnız karar matrisinden yazar (DEN-18).
 ## O gecenin başarısız zar sayısı tek satırda toplanır (DEN-22).
 class_name DengeOlcumu
 extends RefCounted
@@ -65,6 +66,12 @@ static func olustur(oturum: RefCounted, gece_raporu: Dictionary, ek_baglam: Dict
 	}
 
 	return rapor
+
+
+## DEN-18: Başarılı ikna zarı, rüşveti azaltan veya kasayı değiştiren bir çarpan değildir.
+## 0 veya 100 başarılı zar atılsa dahi kasaya yazılan değer yalnız karar matrisindeki sayıdır.
+static func zar_sonrasi_matris_kasa_degeri(matris_akce: int, _basarili_zar_sayisi: int) -> int:
+	return matris_akce
 
 
 ## DEN-06: Ölçüm geliştirme günlüğündedir, oyuncu ekranına doğrudan açılmaz.

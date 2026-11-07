@@ -967,3 +967,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - `src/soz/karar_donusu.gd` ve `src/veri/chr_sozlesmesi.gd`: Tek kuyruğa yazım (`tek_kuyruga_yaz`), `hedef_sistem` doğrulaması ve runtime spawn varlık kontrolü bağlandı.
 - Test: `tests/tools/test_chr_parser.py` (6 test OK), `tests/unit/soz/karar_donusu_test.gd`, `tests/unit/kvr/chr_derleme_test.gd`, `tests/unit/kvr/kvr_test.gd`, `tests/unit/kvr/chr_bina_test.gd` (0 hata, GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
 - kota görünmüyor
+
+## 7 Kasım 2026 — YAP-53, DEN-18, DEN-20, DEN-41, DEN-42, DEN-45 ve DEN-67
+- `YAP-53`: `src/kapi/kapi_kavgasi.gd` içine `ozel_esya_tanimi` ve kavga ganimeti (`ganimet_esya_id` / `ganimet_esya`) bağlandı (`tests/unit/kapi/kavga_secenek_test.gd` GEÇTİ).
+- `DEN-18` ve `DEN-20`: `src/sistemler/denge_olcumu.gd` ve `tests/unit/denge/zar_kasa_test.gd` içinde 100 başarılı zarın kasayı çarpmadığı ve `d6`/`d12` kasa farkının 0 olduğu doğrulandı (GEÇTİ).
+- `DEN-41`, `DEN-42`, `DEN-45`: `tools/denge_dogrula.py` (`rusvet_tavan_hatalari`) ve `tests/unit/denge/rusvet_test.gd` içinde 20 rüşvette kişisel kasa artışı, matris=3 için +3 ve 20 rette 0 kasa deltası doğrulandı (GEÇTİ).
+- `DEN-67`: `tests/unit/denge/zorluk_test.gd` içinde üç zorlukta `ZAR-01` gerekli zar sayısının eşitliği doğrulandı (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- kota görünmüyor

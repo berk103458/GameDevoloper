@@ -314,6 +314,15 @@ def fiyat_kaynagi_hatalari(denge: dict) -> list:
     return hatalar
 
 
+def rusvet_tavan_hatalari(denge: dict) -> list:
+    """DEN-42: KVR kiskaci -4..+4 stat icindir; akce tavani karakter matrisindedir, denge dosyasinda ikinci tavan yoktur."""
+    return [
+        f"{ad}: rusvet akce tavani karakter matrisindedir; denge dosyasinda ayri tavan anahtari olamaz (DEN-42)"
+        for ad in sorted(set(anahtar_adlari(denge)))
+        if ("rusvet" in ad and ("tavan" in ad or "ust" in ad or "limit" in ad or "akce" in ad)) or ad in ("rusvet_tavan", "rusvet_akce_tavan", "akce_tavan")
+    ]
+
+
 def faiz_kaynagi_hatalari(denge: dict) -> list:
     """DEN-53: faiz anahtarı yalnız TUC-07 tablosunda tutulur."""
     return [
@@ -386,6 +395,7 @@ def main(argv=None) -> int:
         hatalar += aclik_kademesi_hatalari(denge)
         hatalar += gecici_is_hatalari(denge)
         hatalar += fiyat_kaynagi_hatalari(denge)
+        hatalar += rusvet_tavan_hatalari(denge)
         hatalar += faiz_kaynagi_hatalari(denge)
         hatalar += kriz_aralik_hatalari(denge)
         hatalar += is_olcumu_hatalari(denge)

@@ -1657,7 +1657,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `data/metin/metinler.csv`
   - Asset: asset gerekmedi.
 
-- [/] **YAP-53:** Eşya kavga ganimeti olabilir (Antigravity)
+- [x] **YAP-53:** Eşya kavga ganimeti olabilir (Antigravity)
   - Ne: Eşya kavga ganimeti olabilir. CAT ayrı eşya sınıfı açmaz.
   - Kabul: Eşya kavga ganimeti olabilir. Sınıf aynı. Test: CAT.
   - Bağımlılık: CAT-02. Boyut: S.
@@ -3466,7 +3466,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ZAR-01, DEN-03. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`, `data/chr_runtime/sorgu_kurallari.tres`.
   - Asset: asset gerekmedi.
-- [/] **DEN-18:** Başarılı ikna, rüşveti azaltan bir çarpan değildir. (Antigravity)
+- [x] **DEN-18:** Başarılı ikna, rüşveti azaltan bir çarpan değildir. (Antigravity)
   - Ne: zar sonucu kasaya yazılmaz. Kasa, karar matrisinden yazar (KOP-10).
   - Kabul: zar sonucu kasaya yazılmaz. Kasa, karar matrisinden yazar (KOP-10). Test: 100 başarılı zar, kasa yalnız matris kadar değişir.
   - Bağımlılık: KOP-10, ZAR-01. Boyut: S.
@@ -3478,7 +3478,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ZAR-03, DIY-13. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [/] **DEN-20:** d6 ve d12 aynı ekonomik kapıyı kullanır. (Antigravity)
+- [x] **DEN-20:** d6 ve d12 aynı ekonomik kapıyı kullanır. (Antigravity)
   - Ne: yüzün türü zorluğu değiştirir, kasaya ayrı çarpan yazmaz.
   - Kabul: yüzün türü zorluğu değiştirir, kasaya ayrı çarpan yazmaz. Test: aynı karar, iki zar türü, kasa farkı 0.
   - Bağımlılık: ZAR-01, DEN-18. Boyut: S.
@@ -3581,19 +3581,19 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Ölçüm: son20 ardışık gece fotoğrafında yeni istek başlangıçları sayılır; aynı süren istek tekrarlanmaz. İlk pencere gecesinde öncesi bilinmiyorsa görünen istek başlangıç sayılır. Üç kişilik boş köy/tohum3535 sonucu3; başlangıç kabul bandı0–3 veridedir, otomatik denge ayarı yok. Test: `tests/unit/denge/bosta_terk_olcumu_test.gd`.
   - Dosya: `data/ayarlar/denge.json` `bosta_terk_aralik`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-36:** Nitelikli iş, geçici işten çok üretir.
+- [/] **DEN-36:** Nitelikli iş, geçici işten çok üretir. (Antigravity)
   - Ne: atölyeli kumaşçının gecelik çıktısı, aynı kişinin geçici iş çıktısının üstündedir. Fark tabloda bir orandır.
   - Kabul: atölyeli kumaşçının gecelik çıktısı, aynı kişinin geçici iş çıktısının üstündedir. Fark tabloda bir orandır. Test: oran tutulur.
   - Bağımlılık: ISG-01, ISG-02, UZM-03. Boyut: M.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-37:** Eşin mesleği demirhaneye yazılmaz.
+- [/] **DEN-37:** Eşin mesleği demirhaneye yazılmaz. (Antigravity)
   - Ne: ACL-02 listesi dışındaki meslek hâlâ reddedilir. Denge bu listeyi genişletmez.
   - Kabul: ACL-02 listesi dışındaki meslek hâlâ reddedilir. Denge bu listeyi genişletmez. Test: demirci reddi durur.
   - Bağımlılık: ACL-02. Boyut: S.
   - Dosya: mevcut ACL-02 testi.
   - Asset: asset gerekmedi.
-- [ ] **DEN-38:** Meslek değişiminin bir günlük kaybı durur.
+- [/] **DEN-38:** Meslek değişiminin bir günlük kaybı durur. (Antigravity)
   - Ne: ACL-02'deki 1 gün verimsizlik ölçülür, uzatılmaz.
   - Kabul: ACL-02'deki 1 gün verimsizlik ölçülür, uzatılmaz. Test: değişim günü üretim, ertesi günden düşüktür.
   - Bağımlılık: ACL-02. Boyut: S.
@@ -3614,13 +3614,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.6 Rüşvet ve yozlaşma
 
-- [ ] **DEN-41:** Rüşvet kişisel kasaya gider.
+- [x] **DEN-41:** Rüşvet kişisel kasaya gider. (Antigravity)
   - Ne: EKO-01 ayrımı durur. Ölçüm, rüşvetin köy akçesine yazılmadığını 20 kararda doğrular.
   - Kabul: EKO-01 ayrımı durur. Ölçüm, rüşvetin köy akçesine yazılmadığını 20 kararda doğrular. Test: köy akçesi sabit, kişisel kasa artar.
   - Bağımlılık: EKO-01, KOP-10. Boyut: S.
   - Dosya: `tests/unit/denge/rusvet_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-42:** Rüşvetin akçe tavanı matriste kalır.
+- [x] **DEN-42:** Rüşvetin akçe tavanı matriste kalır. (Antigravity)
   - Ne: KVR kıskacı −4…+4 stat içindir. Akçe tavanı karakter matrisindedir, denge dosyasında ikinci tavan yoktur.
   - Kabul: KVR kıskacı −4…+4 stat içindir. Akçe tavanı karakter matrisindedir, denge dosyasında ikinci tavan yoktur. Test: matris 3 ise kasa +3, dosyada ayrı tavan anahtarı yok.
   - Bağımlılık: KOP-10, DEN-08. Boyut: S.
@@ -3638,7 +3638,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ODA-07, DEN-03. Boyut: M.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-45:** Adil uçta rüşvet reddi kasayı büyütmez.
+- [x] **DEN-45:** Adil uçta rüşvet reddi kasayı büyütmez. (Antigravity)
   - Ne: ret, kişisel kasaya 0 yazar. Ölçüm bunu 20 rette doğrular.
   - Kabul: ret, kişisel kasaya 0 yazar. Ölçüm bunu 20 rette doğrular. Test: kasa deltası 0.
   - Bağımlılık: DEN-41. Boyut: S.
@@ -3753,7 +3753,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: KRI-01, KRI-11. Boyut: M.
   - Dosya: `tests/oto/denge_kriz.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-63:** Sıkı zorluk kriz aralığını yükseltir.
+- [/] **DEN-63:** Sıkı zorluk kriz aralığını yükseltir. (Antigravity)
   - Ne: DEN-04 çarpanı alt ve üst sınırı birlikte kaydırır. Olağanın üst sınırı, sıkının alt sınırından büyüktür.
   - Kabul: DEN-04 çarpanı alt ve üst sınırı birlikte kaydırır. Olağanın üst sınırı, sıkının alt sınırından büyüktür. Test: iki aralık kesişmez.
   - Bağımlılık: DEN-04, DEN-57. Boyut: S.
@@ -3780,7 +3780,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-65, KAY-03. Boyut: S.
   - Dosya: `src/sistemler/acilis_senaryosu.gd` tek alan.
   - Asset: asset gerekmedi.
-- [ ] **DEN-67:** Zorluk zar formülünü değiştirmez.
+- [x] **DEN-67:** Zorluk zar formülünü değiştirmez. (Antigravity)
   - Ne: ZAR-01 eşikleri üç zorlukta da aynıdır. Zorluk gelen sayısını, kriz aralığını ve fiyat çarpanını değiştirir.
   - Kabul: ZAR-01 eşikleri üç zorlukta da aynıdır. Zorluk gelen sayısını, kriz aralığını ve fiyat çarpanını değiştirir. Test: gerekli zar sayısı iki zorlukta eşit.
   - Bağımlılık: ZAR-01, DEN-65. Boyut: S.
@@ -3798,7 +3798,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-13, DEN-04. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-70:** Olağan, ölçümün referansıdır.
+- [/] **DEN-70:** Olağan, ölçümün referansıdır. (Antigravity)
   - Ne: DEN-47, DEN-54 ve DEN-59 olağanda koşar. Kolay ve sıkı ayrı aralık taşır.
   - Kabul: DEN-47, DEN-54 ve DEN-59 olağanda koşar. Kolay ve sıkı ayrı aralık taşır. Test: üç aralık dosyada.
   - Bağımlılık: DEN-65. Boyut: S.
@@ -3832,13 +3832,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: EKO-10, DEN-73. Boyut: S.
   - Dosya: `tests/oto/denge_persona.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-75:** TST-04 personası burada tanımlanmaz.
+- [/] **DEN-75:** TST-04 personası burada tanımlanmaz. (Antigravity)
   - Ne: ölçüm, Tester TST-04 kimliğini okur. O maddenin adımları bu dosyada yoktur. Kimlik yoksa ölçüm durur, uydurma persona yazılmaz.
   - Kabul: ölçüm, Tester TST-04 kimliğini okur. O maddenin adımları bu dosyada yoktur. Kimlik yoksa ölçüm durur, uydurma persona yazılmaz. Test: kimlik listesi TST dosyasıyla aynıdır.
   - Bağımlılık: DEN-05. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-76:** TST-05 sonuç ölçüsü burada tanımlanmaz.
+- [/] **DEN-76:** TST-05 sonuç ölçüsü burada tanımlanmaz. (Antigravity)
   - Ne: son dağılımı TST-05'in sayacını okur. İkinci bir son sayacı yazılmaz.
   - Kabul: son dağılımı TST-05'in sayacını okur. İkinci bir son sayacı yazılmaz. Test: sayaç bir.
   - Bağımlılık: DEN-73, SYS-20. Boyut: S.
@@ -3862,7 +3862,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: SYS-10, DEN-73. Boyut: M.
   - Dosya: `tools/sanity_check.py` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **DEN-80:** Sapma, tabloyu kendisi değiştirmez.
+- [/] **DEN-80:** Sapma, tabloyu kendisi değiştirmez. (Antigravity)
   - Ne: aralık dışındaki ölçüm rapor yazar. `denge.json` oyun sırasında yazılmaz. Değişiklik insan eliyledir.
   - Kabul: aralık dışındaki ölçüm rapor yazar. `denge.json` oyun sırasında yazılmaz. Değişiklik insan eliyledir. Test: sapmalı koşu, dosya baytı aynı.
   - Bağımlılık: DEN-06, DEN-73. Boyut: S.

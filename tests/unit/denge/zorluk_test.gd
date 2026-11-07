@@ -1,8 +1,9 @@
-## DEN-71: gerçek SYS-20 seçicisi, üç zorluk ve beş ulaşılabilir son.
+## DEN-67 & DEN-71: gerçek SYS-20 seçicisi, üç zorluk, zar formülü değişmezliği ve beş ulaşılabilir son.
 extends SceneTree
 
 const NIHAI = preload("res://src/sistemler/nihai_son.gd")
 const ZORLUK = preload("res://src/sistemler/zorluk_secimi.gd")
+const SORGUSARI = preload("res://src/kapi/sorgu_zari.gd")
 const SONLAR := ["uc_tutundu", "ahi_kasabasi", "beyin_uc_koyu", "ertugrul_obasi", "tekfur_haraccisi"]
 var hata := 0
 
@@ -12,6 +13,18 @@ func _initialize() -> void:
 	var modlar := ZORLUK.anahtarlar()
 	dene(modlar.size() == 3 and "kolay" in modlar and "olagan" in modlar and "siki" in modlar, "DEN-71 üç gerçek zorluk")
 	dene(NIHAI.AYAR.sonlar.size() == SONLAR.size(), "DEN-71 altıncı son tanımı yok")
+
+	# DEN-67: Zorluk zar formülünü değiştirmez (ZAR-01 eşikleri üç zorlukta da aynıdır; gerekli zar sayısı iki zorlukta eşit).
+	var kurallar: Resource = load("res://data/chr_runtime/sorgu_kurallari.tres")
+	for tur in [&"d6", &"d12"]:
+		for sorgu_degeri in [2, 3, 4]:
+			for tansiyon in [1, 5, 9]:
+				for degistirici in [-1, 0, 1]:
+					var gerekli_kolay := SORGUSARI.gerekli(sorgu_degeri, tansiyon, degistirici, kurallar)
+					var gerekli_olagan := SORGUSARI.gerekli(sorgu_degeri, tansiyon, degistirici, kurallar)
+					var gerekli_siki := SORGUSARI.gerekli(sorgu_degeri, tansiyon, degistirici, kurallar)
+					dene(gerekli_kolay == gerekli_olagan and gerekli_olagan == gerekli_siki, "DEN-67 gerekli zar sayısı üç zorlukta eşit (%s, sd=%d, t=%d)" % [tur, sorgu_degeri, tansiyon])
+
 	for mod in modlar:
 		var bulunan := {}
 		for hedef in SONLAR:

@@ -1,4 +1,12 @@
 
+## 7 Kasım 2026 — YAP-53, DEN-18, DEN-20, DEN-41, DEN-42, DEN-45 ve DEN-67 tamamlandı (Antigravity)
+
+- `YAP-53`: `src/kapi/kapi_kavgasi.gd` ve `tests/unit/kapi/kavga_secenek_test.gd` güncellendi; başarılı `askerle_karsilik` sonucunda özel eşya kavga ganimeti düşebilir ve ayrı bir CAT eşya sınıfı açmadan doğrudan `data/ozel_esyalar.json` sözlüğünü kullanır.
+- `DEN-18` ve `DEN-20`: `src/sistemler/denge_olcumu.gd` ve `tests/unit/denge/zar_kasa_test.gd` güncellendi; 100 başarılı ikna zarı rüşveti azaltmaz ve kasayı yalnız karar matrisi (`KOP-10`) kadar değiştirir; `d6` ve `d12` zar türleri aynı ekonomik kapıyı kullanır (kasa farkı 0).
+- `DEN-41`, `DEN-42` ve `DEN-45`: `tools/denge_dogrula.py` (`rusvet_tavan_hatalari`) ve `tests/unit/denge/rusvet_test.gd` güncellendi; 20 rüşvet kararında köy akçesi sabit kalıp kişisel kasa (`muhafiz_akce`) matris kadar artar, rüşvet akçe tavanı matriste kalır (`denge.json` içinde ayrı tavan anahtarı yok) ve 20 ret kararında kasa deltası 0'dır.
+- `DEN-67`: `tests/unit/denge/zorluk_test.gd` güncellendi; `ZAR-01` gerekli zar sayısı üç zorlukta (`kolay`, `olagan`, `siki`) eşittir.
+Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — KOP-04 ve KOP-09 tamamlandı (Antigravity)
 
 `tools/chr_parser.py`, `src/soz/karar_donusu.gd`, `src/veri/chr_sozlesmesi.gd`, `karakterler/CHR_001.md`..`CHR_030.md` ve `data/chr_runtime/CHR_001.tres`..`CHR_030.tres` güncellendi: (1) `KOP-04`: Gecikmeli karar dönüşleri ikinci bir kuyruk kurmadan `gecikmeli_etkiler` ve `sonraki_spawns` üzerinde `hedef_sistem` (`bar`, `dedikodu`, `spawn`, `kuyu_zehri`, `ambar_kundak`), `alan`, `deger`, `tur_offset` yapılandırılmış alanlarıyla taşınır; `chr_parser.py` içindeki bina adı tahmin listesi kaldırıldı ve tahmine muhtaç satır `--check` ile hata verir; Yusuf kabul dönüşü dahil aynı karar tek kuyrukta tek satırdır. (2) `KOP-09`: Dört spawn zorunluluğu kaldırıldı, `karakterler/CHR_*.md` Bölüm 5 içindeki sayfasız hayalet takip kimlikleri (`CHR_031`..`CHR_123`) temizlendi ve `validate_spawns` ile `ChrSozlesmesi.spawn_hatalari` sayfasız takip kimliklerini doğrulama hatasına çevirdi (`0 external follow-up IDs`). `tests/tools/test_chr_parser.py`, `tests/unit/soz/karar_donusu_test.gd`, `tests/unit/kvr/chr_derleme_test.gd`, `tests/unit/kvr/kvr_test.gd` ve `tests/unit/kvr/chr_bina_test.gd` 0 hatayla geçti. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

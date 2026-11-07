@@ -42,5 +42,50 @@ func _initialize() -> void:
 		push_error("DEN-43: skor gözlemi ikinci kez yazmamalı")
 		quit(1)
 		return
+
+	# DEN-41: Rüşvet kişisel kasaya gider (20 kararda köy akçesi sabit, kişisel kasa artar).
+	# DEN-42: Matris 3 ise kişisel kasa +3 artar (KVR -4..+4 kıskacı stat içindir, akçe tavanı matriste kalır).
+	var o_rusvet := Oturum.new(kat, 4141)
+	var baslangic_koy_akce := o_rusvet.akce
+	var baslangic_kisisel_akce := o_rusvet.muhafiz_akce
+	var beklenen_kisisel_artis := 0
+	for i in range(20):
+		var chr_no := (i % 30) + 1
+		var gelen_r := o_rusvet._adli_gelen(StringName("chr_%03d" % chr_no))
+		gelen_r.heybe = o_rusvet.heybe_uret(gelen_r.sinif)
+		var sorgu_r := gelen_r.chr_sorgusu()
+		if i == 0:
+			sorgu_r.karakter = sorgu_r.karakter.duplicate(true)
+			sorgu_r.karakter.karar_matrisi["rusvet"]["muhafiz_akce"] = 3
+		var matris_akce := int(sorgu_r.karakter.karar_verisi(&"rusvet").get("muhafiz_akce", 0))
+		beklenen_kisisel_artis += matris_akce
+		var kasa_once_i := o_rusvet.muhafiz_akce
+		o_rusvet.karar_ver(gelen_r, &"rusvet")
+		if i == 0 and (o_rusvet.muhafiz_akce - kasa_once_i) != 3:
+			push_error("DEN-42: matris 3 ise kişisel kasa +3 olmalı")
+			quit(1)
+			return
+		if o_rusvet.akce != baslangic_koy_akce:
+			push_error("DEN-41: %d. rüşvet kararında köy akçesi değişmemeli (%d != %d)" % [i + 1, o_rusvet.akce, baslangic_koy_akce])
+			quit(1)
+			return
+	if (o_rusvet.muhafiz_akce - baslangic_kisisel_akce) != beklenen_kisisel_artis or beklenen_kisisel_artis <= 0:
+		push_error("DEN-41: 20 rüşvet kararında kişisel kasa matris toplamı kadar artmalı (%d != %d)" % [o_rusvet.muhafiz_akce - baslangic_kisisel_akce, beklenen_kisisel_artis])
+		quit(1)
+		return
+
+	# DEN-45: Adil uçta rüşvet reddi kasayı büyütmez (20 rette kişisel kasa deltası 0).
+	var o_ret := Oturum.new(kat, 4545)
+	var ret_once_kisisel := o_ret.muhafiz_akce
+	var ret_once_koy := o_ret.akce
+	for i in range(20):
+		var chr_no := (i % 30) + 1
+		var gelen_ret := o_ret._adli_gelen(StringName("chr_%03d" % chr_no))
+		o_ret.karar_ver(gelen_ret, &"gonullu_ret" if i % 2 == 0 else &"zorunlu_ret")
+	if (o_ret.muhafiz_akce - ret_once_kisisel) != 0 or (o_ret.akce - ret_once_koy) != 0:
+		push_error("DEN-45: 20 ret kararında kasa deltası 0 olmalı (kişisel=%d, kamu=%d)" % [o_ret.muhafiz_akce - ret_once_kisisel, o_ret.akce - ret_once_koy])
+		quit(1)
+		return
+
 	print("RÜŞVET ÖLÇÜMÜ: GEÇTİ")
 	quit()

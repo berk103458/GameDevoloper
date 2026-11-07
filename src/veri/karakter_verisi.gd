@@ -58,6 +58,8 @@ func diyalog_dugumu(dugum_id: StringName) -> Dictionary:
 ## KVR-04: kaynak görsel ipucu ve pozları; sınırlar sorgu sözleşmesidir.
 @export var gorsel_hata_ipucu: StringName = &""
 @export_range(1, 3, 1) var baslangic_tansiyonu: int = 2
+@export var zar: String = "d6"
+@export var sorgu_degeri: int = 2
 @export var animasyon_anahtarlari: Dictionary = {
 	"Idle": &"Idle", "Stressed": &"Stressed", "Panic": &"Panic"
 }
