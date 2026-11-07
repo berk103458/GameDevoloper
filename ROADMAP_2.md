@@ -4074,7 +4074,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: AYR-12, OGR-25. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/hud_katmani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-30:** Katman sırası tester ikizinde doğrulanır.
+- [x] **OGR-30:** Katman sırası tester ikizinde doğrulanır. (Kalfa)
   - Ne: TST-06 kayıt ikizi ile aynı tohumda iki açılışın panel açılış geceleri eşittir.
   - Kabul: iki koşunun `hud_katmani` günlüğü aynıdır. Test: `tests/oto/` yeni kontrol.
   - Bağımlılık: OGR-25. Boyut: S.

@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — OGR-30 tamamlandı (Kalfa)
+
+Full pull 5ffb8fb9 güncel, Ajan Masası okundu. Yeni hedefli sahne aynı tohumlu iki köy açılışını altı gerçek gece ilerletir. İkinci koşu ikinci gecenin sonunda mevcut JSON kayıt ve yükleme API'lerinden geçerek yeni köy ekranı kurar. İki günlük, sahne ağacındaki görünür katmanların kimliklerini sıralı karşılaştırır. İlk üç katman, takvimli tüccar sonrası harita ve altıncı gece sancak teftişi sonrası oda ayrıca doğrulanır. TST-06'nın genel kayit_ikizi.tscn sahnesi repoda bulunmadığı için onun kayıt ikizi yöntemi bu özel kontrolde mevcut API'lerle uygulandı.
+
+Katman kayıt ikizi ve köy HUD geçti. İlk import beş MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. OGR-31, oynanışa bağlanmış DYL-08 sabah dönüşü bulunmadığından açık. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — OGR-29 tamamlandı (Kalfa)
 
 AYR-12 Kademeli arayüz tercihi kapalıyken deneyimli oyuncu düzeni açılır. Tam köy HUD'ı, oda ve harita aynı anda açılır. Mevcut köy hız ipucu ile ilk kapı öğreticisi susar. İpuçları tercihi ayrıca korunur, kademeli düzene dönüldüğünde tekrar geçerli olur. HUD ayar değişimini anında dinler. Oyun sekmesindeki açıklama bu davranışı belirtir.
