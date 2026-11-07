@@ -1,4 +1,4 @@
-﻿keys,tr,en
+keys,tr,en
 anlati.ambar,"Ambar: +%d ürün, −%d tüketim.","Granary: +%d goods, −%d consumed."
 anlati.baski.gida,Ambar boşaldı. Halk aç yattı.,The granary ran empty. The folk went to bed hungry.
 anlati.baski.ordu,Uzakta Tekfur'un adamlarının ateşleri görüldü.,The fires of the Tekfur's men were sighted in the distance.
@@ -2416,3 +2416,13 @@ ogretici.koy.hiz,Hız: {hiz_1} · {hiz_2} · {hiz_3}. Dur: {hiz_dur}.,Speed: {hi
 karar.sukru.mahkeme.baslik,Çınar Meclisinde Aleni Mahkeme,Public Trial at Plane Tree Council
 karar.sukru.mahkeme.metin,"Molla Şükrü Çınar Meclisi önünde yargılandı. Sahte mühür tahrifatı kanıtlandı, berat yakıldı, kâtip demirhane cezasına çarptırıldı. Adalet 3, Moral 2 arttı, Asayiş Riski 2 azaldı.","Molla Sukru was tried before the Council. Forged seal was proven, charter burned, scribe sentenced to forge labor. Justice +3, Morale +2, Public Order Risk -2."
 karar.sukru.mahkeme.sonuc,"Hasan Çelebi ve divan onurlandırıldı. Köyde adalet tesis edildi.","Hasan Celebi and council honored. Justice established in the village."
+kap18.yetim.kafile_baslik,Savaştan Kaçan Yetim Kafilesi,War-Fleeing Orphan Convoy
+kap18.yetim.kafile_acilis,"Doğu boğazından yükselen dumanların ardından üç çocuk kapıya sığındı. Abla Elif dokuz yaşındaki Sungurcuk ile altı yaşındaki Bala'nın elini bırakmıyor.","Following the smoke rising from the eastern gorge, three children sought refuge at the gate. Elder sister Elif holds fast to nine-year-old Sungurcuk and six-year-old Bala."
+kap18.yetim.kabul_hane,"Yetimler köydeki bir haneye emanet edildi; 28. güne dek çalışmazlar.","The orphans were entrusted to a village household; they do not work until day 28."
+kap18.yetim.kabul_es,"Uygun hane bulunamadığından yetimler muhafızın eşine emanet edildi.","With no suitable household available, the orphans were entrusted to the gatekeeper's wife."
+kap18.yetim.kabul_acikta,"Boş yatak ve hane yok; yetimler açıkta kaldı lakin silinmedi.","No empty bed or household; the orphans remain unsheltered in the open."
+kap18.yetim.ret_sonuc,Savaştan kaçan çocuk kafilesi kapıdan geri çevrildi.,The war-fleeing children's convoy was turned away from the gate.
+kap18.yetim.genc_oldu,"28. gün doldu: Yetim çocuk büyüyüp genç oldu; artık ustaların yanına çırak verilebilir.","Day 28 reached: The orphan child has grown into a youth and can now be apprenticed to a master."
+kap18.yetim.uye.elif_not,"Elif (12): Karahisar baskınından kardeşlerini sırtlayıp çıkardı; yorgun ama soğukkanlı.","Elif (12): Carried her siblings out of the Karahisar raid; exhausted but composed."
+kap18.yetim.uye.sungurcuk_not,"Sungurcuk (9): Nalbant babasının meşin önlüğünü sarınmış; ateşe ve nala meraklı.","Sungurcuk (9): Wrapped in his farrier father's leather apron; curious about fire and horseshoes."
+kap18.yetim.uye.bala_not,"Bala (6): Duman yüzünden sesi kısılmış; ablasının eteğinden ayrılmıyor.","Bala (6): Voice hoarse from smoke; never lets go of her sister's hem."

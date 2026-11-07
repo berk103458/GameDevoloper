@@ -1,0 +1,129 @@
+{
+  "dosya_id": "yetim_kafilesi",
+  "karakter_id": "chr_006",
+  "konusmaci": "chr_006",
+  "cekirdek": "durust",
+  "baslangic_dugumu": "giris",
+  "kafile_uyeleri": [
+    {
+      "ad": "Elif",
+      "yas_grubu": "cocuk",
+      "sinif": "ciftci",
+      "stat": 3,
+      "portre": "peasant_01",
+      "tanim": "On bir yaşlarında, sırtındaki yırtık keçe şalın altında küçük kardeşlerinin elini sımsıkı tutan abla."
+    },
+    {
+      "ad": "Sungurcuk",
+      "yas_grubu": "cocuk",
+      "sinif": "ciftci",
+      "stat": 3,
+      "portre": "peasant_01",
+      "tanim": "Dokuz yaşlarında, babasının yanık sadağını boynuna asmış, dizleri taş kesiğinden yara içinde kalmış oğlan."
+    },
+    {
+      "ad": "Bala",
+      "yas_grubu": "cocuk",
+      "sinif": "ciftci",
+      "stat": 2,
+      "portre": "peasant_01",
+      "tanim": "Yedi yaşlarında, elindeki bez bebeği göğsüne bastırmış, soğuktan sesi kısılmış en küçük yetim."
+    }
+  ],
+  "dugumler": {
+    "giris": {
+      "id": "giris",
+      "konusmaci": "chr_006",
+      "satir": "A-ağam, mızrağını indirme üstümüze... Biz harami değiliz. Aşağı vadideki Karacaviran köyünden kaçtık; atlılar ekinleri ateşe verince anamız bizi su arkının menfezine sakladı. Üç gündür dumanı baka baka bu dağ yolunu tırmandık.",
+      "secenekler": [
+        {
+          "id": "sec_yetim_nereden",
+          "metin": "Titremeyin çocuklar, yaklaşın meşalenin ışığına. Büyüklerinizden sağ kalan, peşinizden gelen kimse yok mudur?",
+          "hedef": "konu_savas_kacisi"
+        },
+        {
+          "id": "sec_yetim_heybe",
+          "metin": "Boynundaki o yanık sadak ve sırtınızdaki çıkın nedir; yolda eşkıyaya mı rastladınız?",
+          "hedef": "konu_emanet_heybe"
+        },
+        {
+          "id": "sec_yetim_emanet",
+          "metin": "Sizi içeri alırsak bu kış kıyamette hangi ocağa sığınacaksınız; elinizden iş gelir mi?",
+          "hedef": "konu_hane_emaneti"
+        }
+      ]
+    },
+    "konu_savas_kacisi": {
+      "id": "konu_savas_kacisi",
+      "konu": "nereden",
+      "satir": "Kimsemiz kalmadı muhafız amca... Babamız değirmen bendini tutarken düştü, anamız da 'Kapıdaki muhafızın ocağı tüter, gidin eteğine yapışın' deyip bizi arka dereden saldı. Küçük Bala'nın ayakları donmak üzeredir, bir avuç sıcak kül verin yeter.",
+      "secenekler": [
+        {
+          "id": "sec_kacis_emanet",
+          "metin": "Köyde çocuk çalıştırılmaz; büyüyene dek bir haneye ya da ocağımıza emanet olursunuz.",
+          "hedef": "konu_hane_emaneti"
+        },
+        {
+          "id": "sec_kacis_karar",
+          "metin": "Sözünüz anlaşıldı, kapı önünde bekleyin; kararımı vereceğim.",
+          "hedef": "veda"
+        }
+      ]
+    },
+    "konu_emanet_heybe": {
+      "id": "konu_emanet_heybe",
+      "konu": "heybe",
+      "satir": "Çıkında yalnız anamızın sardığı iki kuru arpa bazlamasıyla babamın kırık bileği taşı vardır ağam. Sungurcuk babasının boş sadağını bırakmadı; 'Büyüyüp genç olunca Karaca Usta'ya çırak girerim, köyü korurum' diye boynunda taşır.",
+      "secenekler": [
+        {
+          "id": "sec_heybe_savas",
+          "metin": "Köyünüzü vuran atlılar ne yana gitti, büyüklerinizden kimse kaldı mı?",
+          "hedef": "konu_savas_kacisi"
+        },
+        {
+          "id": "sec_heybe_karar",
+          "metin": "Çıkınınız temizdir, kenarda bekleyin.",
+          "hedef": "veda"
+        }
+      ]
+    },
+    "konu_hane_emaneti": {
+      "id": "konu_hane_emaneti",
+      "konu": "ne_is_bilirsin",
+      "satir": "Biz ağır taş kaldıramayız, saban süremeyiz ağam; yaşımız küçüktür. Lakin kimsenin ekmeğine göz dikmeyiz. Hangi haneye, hangi anaya emanet ederseniz dizinin dibinde terbiyeyle otururuz; boyumuz yetip genç olunca da ustaların dizinde çıraklık eder, borcumuzu öderiz.",
+      "secenekler": [
+        {
+          "id": "sec_emanet_kabul_hane",
+          "metin": "Girin içeri yavrularım; sizi köydeki bir haneye ve eşimin ocağına emanet ediyorum.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {
+            "bayrak": "kap18_yetim_kabul"
+          }
+        },
+        {
+          "id": "sec_emanet_ret",
+          "metin": "Ambarımız dar, yatacak yerimiz kalmadı; başka bir obaya varın.",
+          "hedef": "ret_sonuc",
+          "etkiler": {
+            "bayrak": "kap18_yetim_ret"
+          }
+        }
+      ]
+    },
+    "kabul_sonuc": {
+      "id": "kabul_sonuc",
+      "satir": "Allah ocağınızı söndürmesin muhafız amca! Bala'nın yüzüne kan geldi bile; büyüdüğümüz gün bu köyün en sadık çırakları biz olacağız.",
+      "secenekler": []
+    },
+    "ret_sonuc": {
+      "id": "ret_sonuc",
+      "satir": "Elif küçük kardeşlerini eteğinin altına toplar; çocuklar hiçbir şey demeden karanlık dağ patikasına doğru geri döner.",
+      "secenekler": []
+    },
+    "veda": {
+      "id": "veda",
+      "satir": "Nefesimiz dualarımızla bir, hükmünü bekleriz muhafız amca.",
+      "secenekler": []
+    }
+  }
+}

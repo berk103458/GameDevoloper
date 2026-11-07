@@ -1,0 +1,129 @@
+{
+  "dosya_id": "yetim_kafilesi",
+  "karakter_id": "chr_006",
+  "konusmaci": "chr_006",
+  "cekirdek": "durust",
+  "baslangic_dugumu": "giris",
+  "kafile_uyeleri": [
+    {
+      "ad": "Elif",
+      "yas_grubu": "cocuk",
+      "sinif": "ciftci",
+      "stat": 3,
+      "portre": "peasant_01",
+      "tanim": "An eleven-year-old elder sister clutching her younger siblings' hands tightly beneath a torn felt shawl."
+    },
+    {
+      "ad": "Sungurcuk",
+      "yas_grubu": "cocuk",
+      "sinif": "ciftci",
+      "stat": 3,
+      "portre": "peasant_01",
+      "tanim": "A nine-year-old boy wearing his father's scorched quiver slung over his neck, his knees scraped raw by mountain stones."
+    },
+    {
+      "ad": "Bala",
+      "yas_grubu": "cocuk",
+      "sinif": "ciftci",
+      "stat": 2,
+      "portre": "peasant_01",
+      "tanim": "The youngest orphan of seven winters, pressing a rag doll to her chest, her voice hoarse from the biting frost."
+    }
+  ],
+  "dugumler": {
+    "giris": {
+      "id": "giris",
+      "konusmaci": "chr_006",
+      "satir": "M-master guard, do not lower your spear upon us... We are no brigands. We fled Karacaviran village in the lower valley; when horsemen torched the crops, our mother hid us inside the stone culvert of the millrace. For three days we climbed this mountain trail watching the smoke.",
+      "secenekler": [
+        {
+          "id": "sec_yetim_nereden",
+          "metin": "Tremble not, children, draw near the torchlight. Did none of your elders survive, or does anyone follow behind you?",
+          "hedef": "konu_savas_kacisi"
+        },
+        {
+          "id": "sec_yetim_heybe",
+          "metin": "What is that scorched quiver around your neck and the bundle on your back; did you encounter outlaws on the road?",
+          "hedef": "konu_emanet_heybe"
+        },
+        {
+          "id": "sec_yetim_emanet",
+          "metin": "If we admit you in this dead of winter, whose hearth will shelter you; can your hands perform any labor?",
+          "hedef": "konu_hane_emaneti"
+        }
+      ]
+    },
+    "konu_savas_kacisi": {
+      "id": "konu_savas_kacisi",
+      "konu": "nereden",
+      "satir": "We have no one left, uncle guard... Our father fell holding the mill weir, and our mother sent us up the back ravine saying, 'The hearth of the gatekeeper still smokes; go cling to his hem.' Little Bala's feet are nearly frozen; grant us but a handful of warm ash.",
+      "secenekler": [
+        {
+          "id": "sec_kacis_emanet",
+          "metin": "Children are not put to heavy labor in our village; until you come of age, you shall be entrusted to a household or our own hearth.",
+          "hedef": "konu_hane_emaneti"
+        },
+        {
+          "id": "sec_kacis_karar",
+          "metin": "Your words are heard; wait before the gate while I render my decision.",
+          "hedef": "veda"
+        }
+      ]
+    },
+    "konu_emanet_heybe": {
+      "id": "konu_emanet_heybe",
+      "konu": "heybe",
+      "satir": "In the bundle are only two dry barley flatbreads wrapped by our mother and our father's broken whetstone, master. Sungurcuk refused to leave our father's empty quiver behind; he carries it saying, 'When I grow into a youth on the twenty-eighth day, I shall apprentice to Karaca Usta and defend the village.'",
+      "secenekler": [
+        {
+          "id": "sec_heybe_savas",
+          "metin": "Which way did the horsemen who struck your village ride; did none of your elders remain?",
+          "hedef": "konu_savas_kacisi"
+        },
+        {
+          "id": "sec_heybe_karar",
+          "metin": "Your bundle is clean; step aside and wait.",
+          "hedef": "veda"
+        }
+      ]
+    },
+    "konu_hane_emaneti": {
+      "id": "konu_hane_emaneti",
+      "konu": "ne_is_bilirsin",
+      "satir": "We cannot lift heavy quarry stones or drive the plow, master; we are too young. Yet we covet no one's bread. Whatever household or mother you entrust us to, we shall sit dutifully by their hearth; and when we grow into youths, we shall serve as apprentices to the masters and repay our debt.",
+      "secenekler": [
+        {
+          "id": "sec_emanet_kabul_hane",
+          "metin": "Enter, my little ones; I entrust you to a village household and my wife's hearth.",
+          "hedef": "kabul_sonuc",
+          "etkiler": {
+            "bayrak": "kap18_yetim_kabul"
+          }
+        },
+        {
+          "id": "sec_emanet_ret",
+          "metin": "Our granary is strained and no beds remain; seek another encampment.",
+          "hedef": "ret_sonuc",
+          "etkiler": {
+            "bayrak": "kap18_yetim_ret"
+          }
+        }
+      ]
+    },
+    "kabul_sonuc": {
+      "id": "kabul_sonuc",
+      "satir": "May Heaven never let your hearth go cold, uncle guard! Color returns to Bala's cheeks already; the day we come of age, we shall be the most faithful apprentices of this village.",
+      "secenekler": []
+    },
+    "ret_sonuc": {
+      "id": "ret_sonuc",
+      "satir": "Elif gathers her younger siblings beneath her shawl; without a word, the children turn back toward the dark mountain footpath.",
+      "secenekler": []
+    },
+    "veda": {
+      "id": "veda",
+      "satir": "With our breath and prayers united, we await your judgment, uncle guard.",
+      "secenekler": []
+    }
+  }
+}

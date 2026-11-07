@@ -1,4 +1,4 @@
-﻿# Kapı Muhafızı — ROADMAP 2
+# Kapı Muhafızı — ROADMAP 2
 
 Bu dosya ROADMAP 2’nin tek ve geçerli kopyasıdır (11 Ekim 2026, Muharrir birleştirdi). ROADMAP 1 (`ROADMAP.md`) bitmiş oyundur ve yalnız okuma referansıdır.
 
@@ -337,7 +337,7 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ### 15.3 Soru ve heybe
 
-- [ ] **KAP-18:** Yetimler ve savaştan kaçan çocuklar.
+- [ ] **KAP-18:** Yetimler ve savaştan kaçan çocuklar. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/soz/yetim_kafilesi.json`, `data/soz/en/yetim_kafilesi.json` ve `kap18.yetim.*` metin anahtarları eklendi)*
   - Ne: Dünya savaş olayından sonra kapıya çocuk kafilesi düşer; olay yoksa bu kafile 28 günde hiç gelmez. Kabul edilen çocuk bir haneye ya da eşe emanet edilir. Hane yoksa ACL-05 uyarısı çıkar ve çocuk açıkta kalır, silinmez. Çocuk çalışmaz. 28. günde yaş grubu gence döner ve çırak düğmesi açılır. Model KAP-17 çocuk modelidir.
   - Kurallar:
     1. Bu kafile, dünya savaş olayından sonra açılır (DNY-01). Olay yoksa ağırlık 0.
