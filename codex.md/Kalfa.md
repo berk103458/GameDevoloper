@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OGR-54 tamamlandı (Kalfa)
+
+Full pull 516c3ad4 güncel, Ajan Masası okundu. Aynı tohum, aynı ilk aile kararı ve altı geceyle iki koşu. Köy hız ipucu ve kapı öğreticisinin yalnız açık koşuda görünmesi doğrulanır. İki koşu ikinci gece sonunda DurumAnlikGoruntusu üzerinden yüklenir. Başlangıç dahil yedi anlık görüntü, yalnız ipucunun kendi görülme geçmişi çıkarılarak eşit karşılaştırılır. RNG, sayaçlar, barlar, stoklar ve iki kasa karşılaştırmaya dahildir.
+
+İpucu kayıt ikizi ve HUD katmanı kayıt ikizi geçti. Genel TST-06 sahnesi repoda bulunmadığı için ikiz yöntemini mevcut gerçek kayıt noktası API'siyle uyguladım. İlk import iki MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OGR-46 tamamlandı (Kalfa)
 
 Mevcut otomatik oyuncu sahnesi yeni oyun ekranından gerçek oyun seçimi yapar. Hedefli ölçüm, ilk köy ekranından altıncı gece özet kartına kadar geçen süreyi tek ILKSAAT_SURE satırına yazar. Python runner ayrı oyuncu dizininde başsız çalıştırır ve gece, süre, tohum ve script çıkışını doğrular. İlk koşudaki ayar sıfırlama hatası, ölçümde ayar taramasını atlayarak giderildi.

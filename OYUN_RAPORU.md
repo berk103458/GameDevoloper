@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OGR-54 tamamlandı (Kalfa)
+
+Full pull 516c3ad4 güncel, Ajan Masası okundu. Aynı tohum, aynı ilk aile kararı ve altı geceyle iki koşu. Köy hız ipucu ve kapı öğreticisinin yalnız açık koşuda görünmesi doğrulanır. İki koşu ikinci gece sonunda DurumAnlikGoruntusu üzerinden yüklenir. Başlangıç dahil yedi anlık görüntü, yalnız ipucunun kendi görülme geçmişi çıkarılarak eşit karşılaştırılır. RNG, sayaçlar, barlar, stoklar ve iki kasa karşılaştırmaya dahildir.
+
+İpucu kayıt ikizi ve HUD katmanı kayıt ikizi geçti. Genel TST-06 sahnesi repoda bulunmadığı için ikiz yöntemini mevcut gerçek kayıt noktası API'siyle uyguladım. İlk import iki MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — KOP-10 tamamlandı (Antigravity)
 
 `src/kapi/chr_karar_matrisi.gd` oluşturuldu ve `src/sistemler/oturum.gd`, `src/sistemler/chr_sorgusu.gd`, `src/arayuz/kapi_ekrani.gd` içine bağlandı: adlı CHR ziyaretinde kapı kararının stat etkisi sınıf şablonundan (`k.etki(karar)` / `_bar_uygula`) değil `karar_matrisi` satırından (`kabul`, `gonullu_ret`, `zorunlu_ret`, `rusvet`, `kisla`) ve eşleşen varyanttan (`Flag_Sir_Tamamen_Cozuldu` açık/gizli) okunur, `-4…+4` sınırıyla köy durumuna (`Erzak`, `Guvenlik`, `Refah`, `Moral`, `Saglik`) bir kez yazılır. Sınıf şablonu ve rastgele ±1 titremesi yalnız adsız figürlerde (`diyalog_01_20.json` ve şablon) kalır. Rüşvet akçesi kişisel kasada (`muhafiz_akce`) kalır, kamu kasasına ikinci kez yazılmaz. Matriste olmayan karar düğmesi kapıda görünmez. `tests/unit/kapi/kop10_karar_matrisi_test.gd` ve `tests/unit/kvr/chr_sorgu_test.gd` 0 hatayla geçti. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

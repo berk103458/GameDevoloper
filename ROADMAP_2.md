@@ -4233,7 +4233,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-08. Boyut: S.
   - Dosya: `tools/godot_script_taramasi.py`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-54:** İpucu oyun durumunu değiştirmez.
+- [x] **OGR-54:** İpucu oyun durumunu değiştirmez. (Kalfa)
   - Ne: ipucu gösterimi RNG, kayıt sayaçları, bar ve kasaya dokunmaz. TST-06 ikiz koşusu ipucu açık/kapalı iken aynı sonucu verir.
   - Kabul: iki koşunun durum anlık görüntüsü (`src/debug/durum_anlik_goruntusu.gd`) eşittir. Test: ikiz.
   - Bağımlılık: OGR-25, TST-06. Boyut: S.
