@@ -13,6 +13,21 @@ static func ipucu_metni(anahtar: String) -> String:
 	return GuvenliMetin.metin(anahtar) if metin == anahtar or metin.is_empty() else metin
 
 
+static func koy_hizi_ipucunu_goster(ekran: Control, oturum: Oturum, ayarlar: Ayarlar) -> void:
+	if oturum.gun != 0 or not preload("res://src/sistemler/acilis_senaryosu.gd").durum(oturum).get("kuruldu", false): return
+	var kimlik := "koy_hizi"
+	var kayit := oturum.ipucu_kaydi
+	if not preload("res://src/sistemler/ipucu_anahtari.gd").gosterilir_mi(ayarlar, kayit, kimlik): return
+	var serit := IpucuSeridi.new()
+	serit.process_mode = Node.PROCESS_MODE_ALWAYS
+	ekran.add_child(serit)
+	serit.kapandi.connect(func(_id: String) -> void: serit.queue_free())
+	if serit.goster(ipucu_metni("ogretici.koy.hiz"), kimlik):
+		kayit.ipucu_ekle(kimlik)
+	else:
+		serit.queue_free()
+
+
 var _veri: Dictionary = {}
 var _kavramlar: Array[Dictionary] = []
 var _gorulen: Dictionary = {}

@@ -148,7 +148,6 @@ func _kapiya_git(snapshot: Dictionary = {}) -> void:
 ## Kapı nöbeti bitti (Faz 1 → Faz 2): kayıt, sonra köy yönetimi.
 func _koye_git(_rapor: Dictionary = {}) -> void:
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(oturum, "koy")
-	_kayit_yaz()
 	var koy := KoyEkrani.new()
 	koy.oturum = oturum
 	koy.ayarlar = ayarlar
@@ -164,6 +163,8 @@ func _koye_git(_rapor: Dictionary = {}) -> void:
 			_kapiya_git()
 	)
 	_goster(koy)
+	IlkSaat.koy_hizi_ipucunu_goster(koy, oturum, ayarlar)
+	_kayit_yaz()
 
 
 func _son_goster(son: StringName) -> void:

@@ -22,6 +22,7 @@ func _calistir() -> void:
 	get_tree().create_timer(90.0).timeout.connect(func() -> void: get_tree().quit(1))
 	var ana := TestAna.new()
 	add_child(ana)
+	GirdiEylemleri.kur("user://ogr22_%d.cfg" % OS.get_process_id())
 	dene(AyarlarEk.ayarla(ana.ayarlar, &"zorluk", &"siki"), "DEN-66 yeni oyunun zorluk tercihi")
 	ana.yeni_oyun(1401, "eski_levent")
 	await get_tree().process_frame
@@ -34,6 +35,8 @@ func _calistir() -> void:
 		dene(not ozet.contains("[KEY_NOT_FOUND") and not ozet.contains("acl01_"), "Kuruluş kimliği kartta teknik anahtar olarak görünmez")
 	dene(e != null and ana._kapi == null and not ana._kapi_yukleniyor, "Gerçek yeni oyun köy ekranında, kapı/kuyruk kurulmaz")
 	if e != null:
+		var serit := e.find_child("IpucuSeridi", true, false) as IpucuSeridi
+		dene(serit != null and serit.visible and serit.aktif_metin().contains(GirdiEylemleri.tus_adi("hiz_dur")), "OGR-22 ilk gerçek köy ekranında güncel hız ipucu")
 		var etiket := e.hud.find_child("acilis_kapi_durumu", true, false) as Label
 		dene(etiket != null and etiket.visible and etiket.text == tr("acilis.kapi.kapali"), "Gerçek HUD Kapı kapalı yazar")
 		dene(e.sahne3b.halk_hareketi.modeller.size() == 2, "Mevcut köy sahnesinde iki gerçek model")
@@ -49,6 +52,7 @@ func _calistir() -> void:
 	dene(ana._ekran is KoyEkrani and ana._kapi == null, "İlk gün doğrudan kapı çağrısı da kuyruk kurmaz")
 	dene(ana._ekran == e, "Kapalı kapı çağrısı mevcut köy ekranını yeniden kurmaz")
 	var kayit := ana.kayit.oku()
+	dene("koy_hizi" in kayit.ogretici.gorulen, "OGR-22 ilk açılış kaydı gösterilen ipucunu taşır")
 	dene(kayit.get("zorluk") == "siki" and not kayit.koy_yonetimi.has("zorluk"), "DEN-66 sıkı zorluk kayıt kökünde tek alan")
 	var gerek := TuketimDengesi.gerek(ana.oturum.yonetim)
 	dene(ana.oturum.yonetim.kaynaklar.miktar("gida") == 26 and 26 > int(gerek.gida), "DEN-69 sıkı gerçek açılış erzağı 30'dan az ve bir geceden çok")
@@ -59,6 +63,7 @@ func _calistir() -> void:
 	await get_tree().process_frame
 	await _arazi_hazir(ana)
 	dene(ana._ekran is KoyEkrani and ana.oturum.gun == 0 and ana.oturum.yonetim.yatak_kapasitesi() == 4, "Yeni kuruluş kaydından aynı köye devam")
+	dene(ana._ekran.find_child("IpucuSeridi", true, false) == null, "OGR-22 kayıt dönüşünde ipucu tekrar çıkmaz")
 	dene(String(ana.oturum.yonetim.get_meta(&"zorluk", "olagan")) == "siki" and TuketimDengesi.gerek(ana.oturum.yonetim) == gerek, "DEN-66 yükleme sıkı zorluğu ve tüketim hesabını korur")
 	dene(ana.oturum.yonetim.kaynaklar.miktar("gida") == 26, "DEN-69 açılış indirimi yüklemede yeniden uygulanmaz")
 	ana._kayit_yaz()

@@ -2411,3 +2411,4 @@ ogretici.kasa.iflas,Kasa ekside. %d gece içinde toparlayamazsam iflas ederim.,T
 ogretici.kapi.selam,Önce sağdaki selamla söze gireyim.,I will start with the greeting on the right.
 ogretici.kapi.konu,Aileye neden geldiklerini sorayım.,I should ask why the family came.
 ogretici.kapi.karar,Dinledim. Şimdi kabul ya da ret kararımı onaylayayım.,I have heard them. Now I can confirm admission or refusal.
+ogretici.koy.hiz,Hız: {hiz_1} · {hiz_2} · {hiz_3}. Dur: {hiz_dur}.,Speed: {hiz_1} · {hiz_2} · {hiz_3}. Pause: {hiz_dur}.

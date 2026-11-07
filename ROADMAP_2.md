@@ -4022,7 +4022,8 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: BUG-21, BUG-22. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [ ] **OGR-22:** Hız tuşları ilk köy gününde gösterilir.
+- [x] **OGR-22:** Hız tuşları ilk köy gününde gösterilir. (Kalfa)
+  - Uygulama: geçerli GIR-26 eylem haritası üç hız ve duraklatma gösterir. 4/5 kapı kısayollarıdır. P nüfusu açar.
   - Ne: köy ekranında hız seçimi (`koy_ekrani.gd:330–343`, 1–5 ve P) ilk açılışta tek satırla söylenir; tuş adları Bölüm 45 eylem haritasından okunur.
   - Kabul: ipucu metninde tuş adı sabit değil, eylemden gelir. Test: tuş yeniden atanınca ipucu metni değişir.
   - Bağımlılık: GIR-03, OGR-07. Boyut: S.

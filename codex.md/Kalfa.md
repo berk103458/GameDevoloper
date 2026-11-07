@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — OGR-22 tamamlandı (Kalfa)
+
+Full pull 5cb8b631 güncel, Ajan Masası okundu. İlk köy açılışında mevcut IpucuSeridi, GIR-26 eylemlerinden üç hız ve duraklatma atamasını okur. ROADMAP eski 1–5/P notu yerine geçerli harita esas alındı. 4/5 kapı kısayollarıdır. P nüfusu açar. Görülen ipucu ilk köy kaydında yazılır ve yüklemede tekrarlanmaz. Kapalı ipucu tercihi AYR-12 üzerinden uygulanır. Ek ayar henüz birleşmemişse mevcut AYR varsayılanı kullanılır.
+
+İlk gerçek açılış RED, sonra açılış/yükleme, girdi yeniden atama, ilk saat ve ayarlar dört hedef PASS. CSV PASS. Mevcut YAZ-10 taramasında 13 öğretici satırı ve ihlal0. İlk import dört MD5 hatası verdi. İkinci exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — OGR-09 tamamlandı (Kalfa)
 
 Full pull 141137de güncel, Ajan Masası okundu. Mevcut dokuz ilk saat ipucu ve üç açılış yönlendirmesi ayrı ogretici.* CSV anahtarlarına taşındı. Metinler kısa, somut ve muhafızın kendi notu tonunda. İlk saat ve gerçek kapı öğreticisi aynı çeviri okumasını kullanır. Metin parametreleri, ilk görülme kuralları ve zar formülü korunur.
