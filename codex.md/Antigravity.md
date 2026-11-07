@@ -960,3 +960,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - `src/sistemler/oturum.gd`, `src/sistemler/chr_sorgusu.gd`, `src/arayuz/kapi_ekrani.gd`: adlı CHR ziyaretinde sınıf şablonunun uygulanmaması, yalnız adsız figürlerin şablonda kalması ve rüşvet akçesinin yalnız `muhafiz_akce` hesabında kalması bağlandı.
 - Test: `tests/unit/kapi/kop10_karar_matrisi_test.gd` ve `tests/unit/kvr/chr_sorgu_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
 - kota görünmüyor
+
+## 7 Kasım 2026 — KOP-04 ve KOP-09 (Tek Gecikmeli Kuyruk & Hayalet Takip Kimliği Kalmaz)
+- `tools/chr_parser.py`: Bina adı tahmin listesi kaldırıldı; her gecikmeli satıra `hedef_sistem` (`bar`, `dedikodu`, `spawn`, `kuyu_zehri`, `ambar_kundak`), `alan`, `deger`, `tur_offset` eklendi. Dört spawn zorunluluğu kaldırıldı ve `validate_spawns` ile sayfasız `CHR_XXX` takip kimlikleri doğrulama hatası yapıldı (`0 external follow-up IDs`).
+- `karakterler/CHR_001.md`..`CHR_030.md` ve `data/chr_runtime/CHR_001.tres`..`CHR_030.tres`: Açık yapısal bina kalıbıyla güncellendi, sayfasız `CHR_031`..`CHR_123` satırları temizlendi ve yeniden derlendi.
+- `src/soz/karar_donusu.gd` ve `src/veri/chr_sozlesmesi.gd`: Tek kuyruğa yazım (`tek_kuyruga_yaz`), `hedef_sistem` doğrulaması ve runtime spawn varlık kontrolü bağlandı.
+- Test: `tests/tools/test_chr_parser.py` (6 test OK), `tests/unit/soz/karar_donusu_test.gd`, `tests/unit/kvr/chr_derleme_test.gd`, `tests/unit/kvr/kvr_test.gd`, `tests/unit/kvr/chr_bina_test.gd` (0 hata, GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- kota görünmüyor

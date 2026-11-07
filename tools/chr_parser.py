@@ -3,8 +3,8 @@
 Usage: python tools/chr_parser.py [--check] [--source karakterler]
 Output: data/chr_runtime/CHR_XXX.tres. All pages validate before any write.
 Source spelling/IDs are preserved. Stats alone use the roadmap's ASCII keys.
-Debuff durations are distinct from delayed start offsets. Follow-up IDs which
-have no source page remain external references, reported as warnings.
+Debuff durations are distinct from delayed start offsets. Follow-up IDs must
+reference an existing source page (KOP-09).
 """
 from __future__ import annotations
 import argparse
@@ -17,6 +17,7 @@ STATS = {"Refah": "Refah", "Erzak": "Erzak", "Güvenlik": "Guvenlik", "Moral": "
 FLAGS = ["Flag_Yol_Sirri_Acik", "Flag_Kimlik_Cozuldu", "Flag_Sir_Tamamen_Cozuldu", "Flag_Kilitlendi"]
 CLASS = {"Asker": "asker", "Esnaf": "esnaf", "Çiftçi": "ciftci"}
 DECISIONS = {"Kabul and secret solved": ("kabul", True), "Kabul and secret hidden": ("kabul", False), "Zorunlu ret": ("zorunlu_ret", None), "Gönüllü ret": ("gonullu_ret", None), "Rüşvet": ("rusvet", None), "Kışla": ("kisla", None)}
+HEDEF_SISTEMLER = ("bar", "dedikodu", "spawn", "kuyu_zehri", "ambar_kundak")
 
 
 class SourceError(ValueError):
@@ -226,23 +227,31 @@ def parse(path: Path) -> dict:
         delay = re.search(r"Tur\s+(\d+)", description)
         duration = re.search(r"Debuff:\s*(\d+) tur boyunca", description)
         if delay or duration:
-            # Duration starts next turn; it is NOT a start delay of N turns.
-            building = re.search(r"(?:Tur\s+\d+'[a-z]+|Debuff:\s*\d+ tur boyunca)\s+(.+?)(?: binasında| başında| muhafızları| nöbetçileri|'[a-z]+| toplanma)", description)
+            # KOP-04: Hedef sistem/bina tahmin listesi yok; açık yapısal kalıp zorunludur.
+            building = re.search(r"(?:Tur\s+\d+'[a-z]+|Debuff:\s*\d+ tur boyunca)\s+(.+?)(?: binasında| başında| muhafızları| nöbetçileri| toplanma|'(?:da|de|ta|te|nda|nde))", description)
             if not building:
-                # Search only explicit source locations; no invented default.
-                locations = ["Muhafız Kışlası", "Erzak Ambarı", "Köy Meydanı", "Su Kuyusu", "Su Arkı", "Bağ Evi", "Tarla Damı", "Harman Yeri", "Tamir Sundurması", "Ortak Sofra", "Köy Çeşmesi", "Değirmen", "Odunluk", "Şifahane", "Demirhane", "Ahır", "Ağıl", "Bostan", "Hendek", "dere", "batı kapısı", "Han", "nöbetçi kulesi", "ambar", "Kuyu", "Sur", "köy", "zindan", "tarla"]
-                # Python/Godot don't apply Turkish dotted-I case folding;
-                # source comparison accounts for it without changing text.
-                folded = description.replace("I", "ı").replace("İ", "i").lower()
-                building_name = next((name for name in locations if re.search(r"\b" + re.escape(name.replace("I", "ı").replace("İ", "i").lower()), folded)), None)
-                if building_name is None:
-                    raise SourceError(f"cannot identify delayed target: {description}")
+                raise SourceError(f"cannot identify delayed target: {description}")
+            building_name = building[1].strip()
+            stat_items = list(result["stat_etkisi"].items())
+            alan, deger = stat_items[0] if stat_items else ("Guvenlik", 0)
+            desc_lower = description.replace("I", "ı").replace("İ", "i").lower()
+            if entity in ("CHR_001", "CHR_006") and decision in ("kabul", "rusvet") and "Erzak" in result["stat_etkisi"]:
+                hedef_sistem = "ambar_kundak"
+                alan = "Erzak"
+                deger = result["stat_etkisi"]["Erzak"]
+            elif entity in ("CHR_002", "CHR_009") and decision in ("kabul", "rusvet") and "Saglik" in result["stat_etkisi"]:
+                hedef_sistem = "kuyu_zehri"
+                alan = "Saglik"
+                deger = result["stat_etkisi"]["Saglik"]
+            elif condition.get("Flag_Kimlik_Cozuldu") is False or any(w in desc_lower for w in ("dedikodu", "söylenti", "lafı", "fısıltı")):
+                hedef_sistem = "dedikodu"
             else:
-                building_name = building[1].strip()
+                hedef_sistem = "bar"
             event_name = re.search(r"'([^']+)' (?:olayı|çıkar)", description)
-            event = dict(tur_offset=int(delay[1]) if delay else 1, hedef_bina=building_name,
-                         olay_id=event_name[1] if event_name else f"{entity}_{label}", stat_etkisi=result["stat_etkisi"],
-                         karar=decision, kosullar=condition, sure=int(duration[1]) if duration else 1, kaynak=description.strip())
+            event = dict(tur_offset=int(delay[1]) if delay else 1, hedef_sistem=hedef_sistem, alan=alan, deger=deger,
+                         hedef_bina=building_name, olay_id=event_name[1] if event_name else f"{entity}_{label}",
+                         stat_etkisi=result["stat_etkisi"], karar=decision, kosullar=condition,
+                         sure=int(duration[1]) if duration else 1, kaynak=description.strip())
             data["gecikmeli_etkiler"].append(event)
             result["stat_etkisi"] = {}
         if decision:
@@ -255,9 +264,25 @@ def parse(path: Path) -> dict:
             data["kosullu_etkiler"].append(result)
     if set(data["karar_matrisi"]) != {v[0] for v in DECISIONS.values()}:
         raise SourceError("missing decision matrix row")
-    if len(data["sonraki_spawns"]) != 4:
-        raise SourceError("missing follow-up spawn")
     return data
+
+
+def validate_spawns(parsed: list[dict]) -> list[str]:
+    """KOP-09: Sayfası olmayan CHR_XXX ve yinelenen entity_id doğrulama hatasıdır."""
+    errors: list[str] = []
+    seen: set[str] = set()
+    for data in parsed:
+        eid = data["entity_id"]
+        if eid in seen:
+            errors.append(f"{eid}: duplicate entity_id")
+        seen.add(eid)
+    for data in parsed:
+        eid = data["entity_id"]
+        for cond, spawn in data.get("sonraki_spawns", {}).items():
+            target_id = spawn.get("entity_id", "")
+            if target_id not in seen:
+                errors.append(f"{eid}.md: {cond} references missing source page {target_id}")
+    return errors
 
 
 def godot(value):
@@ -302,9 +327,11 @@ def main():
     if errors:
         print("\n".join(errors))
         return 1
-    known = {d["entity_id"] for d in parsed}
-    external = {v["entity_id"] for d in parsed for v in d["sonraki_spawns"].values()} - known
-    print(f"Validated {len(parsed)} pages; {len(external)} external follow-up IDs (no source page yet).")
+    spawn_errors = validate_spawns(parsed)
+    if spawn_errors:
+        print("\n".join(spawn_errors))
+        return 1
+    print(f"Validated {len(parsed)} pages; 0 external follow-up IDs.")
     if not args.check:
         args.output.mkdir(parents=True, exist_ok=True)
         for data in parsed:

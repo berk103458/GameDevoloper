@@ -5,6 +5,7 @@ extends RefCounted
 const BAYRAKLAR := ["Flag_Yol_Sirri_Acik", "Flag_Kimlik_Cozuldu", "Flag_Sir_Tamamen_Cozuldu", "Flag_Kilitlendi"]
 const STATLAR := ["Refah", "Erzak", "Guvenlik", "Moral", "Saglik"]
 const KARARLAR := ["kabul", "gonullu_ret", "zorunlu_ret", "rusvet", "kisla"]
+const HEDEF_SISTEMLER := ["bar", "dedikodu", "spawn", "kuyu_zehri", "ambar_kundak"]
 
 ## Derlenmiş CHR profili için katı kontrol; eski katalog profilleri bu kapıdan geçirilmez.
 static func karakter_hatalari(k: KarakterVerisi) -> PackedStringArray:
@@ -37,8 +38,11 @@ static func spawn_hatalari(spawns: Dictionary) -> PackedStringArray:
 		if not spawn is Dictionary:
 			hatalar.append("Spawn sözlük olmalı")
 			continue
-		if desen.search(String(spawn.get("entity_id", ""))) == null:
+		var hedef_id := String(spawn.get("entity_id", ""))
+		if desen.search(hedef_id) == null:
 			hatalar.append("Spawn entity_id CHR_XXX olmalı")
+		elif not ResourceLoader.exists("res://data/chr_runtime/%s.tres" % hedef_id):
+			hatalar.append("KOP-09: Sayfası olmayan spawn entity_id: %s" % hedef_id)
 		if not spawn.get("offset") is int or int(spawn.get("offset", -1)) < 1:
 			hatalar.append("Spawn offset pozitif int olmalı")
 	return hatalar
@@ -51,6 +55,12 @@ static func gecikmeli_hatalari(olaylar: Array[Dictionary]) -> PackedStringArray:
 		for alan in ["hedef_bina", "olay_id"]:
 			if String(olay.get(alan, "")).is_empty():
 				hatalar.append("Gecikmeli olay %s eksik" % alan)
+		if olay.has("hedef_sistem"):
+			var hs := String(olay.get("hedef_sistem", ""))
+			if not hs in HEDEF_SISTEMLER:
+				hatalar.append("KOP-04: Geçersiz hedef_sistem: %s" % hs)
+			if String(olay.get("alan", "")).is_empty() or not olay.has("deger"):
+				hatalar.append("KOP-04: Gecikmeli olay alan/deger eksik")
 		var stat: Variant = olay.get("stat_etkisi")
 		if stat is Dictionary:
 			hatalar.append_array(stat_hatalari(stat))

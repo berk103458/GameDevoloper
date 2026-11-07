@@ -21,8 +21,14 @@ class CompilerTest(unittest.TestCase):
         self.assertEqual(data["karar_matrisi"]["rusvet"]["stat_etkisi"], {})
         delayed = next(e for e in data["gecikmeli_etkiler"] if e["karar"] == "rusvet")
         self.assertEqual(delayed["tur_offset"], 4)
+        self.assertEqual(delayed["hedef_sistem"], "ambar_kundak")
+        self.assertEqual(delayed["alan"], "Erzak")
+        self.assertEqual(delayed["deger"], -3)
+        kabul_kundak = next(e for e in data["gecikmeli_etkiler"] if e["karar"] == "kabul")
+        self.assertEqual((kabul_kundak["hedef_sistem"], kabul_kundak["alan"], kabul_kundak["deger"]), ("ambar_kundak", "Erzak", -4))
         forced = next(e for e in data["gecikmeli_etkiler"] if e["karar"] == "zorunlu_ret")
         self.assertEqual((forced["tur_offset"], forced["sure"]), (1, 3))
+        self.assertEqual(forced["hedef_sistem"], "bar")
         self.assertEqual(data["sonraki_spawns"]["on_accept"]["entity_id"], "CHR_004")
         self.assertEqual(data["diyalog_dugumleri"]["3.2"]["gecisler"][0]["tansiyon_kosulu"], {"operator": ">=", "deger": 8})
 
@@ -30,10 +36,34 @@ class CompilerTest(unittest.TestCase):
         self.assertNotIn("Clue_", data["metinler"][accusation["metin_anahtari"]])
         self.assertEqual(len(accusation["gerekli_ipuclari"]), 3)
 
-    def test_source_variants_and_external_spawn(self):
+    def test_source_variants_and_kop09_spawns(self):
         self.assertIn("Çıngırak", parser.parse(ROOT / "karakterler/CHR_010.md")["sfx"])
-        data = parser.parse(ROOT / "karakterler/CHR_029.md")
-        self.assertGreater(int(data["sonraki_spawns"]["on_accept"]["entity_id"][-3:]), 30)
+        all_pages = [parser.parse(p) for p in sorted((ROOT / "karakterler").glob("CHR_*.md"))]
+        self.assertEqual(len(all_pages), 30)
+        self.assertEqual(parser.validate_spawns(all_pages), [])
+        # KOP-09: Characters may have 0, 3, or 4 real follow-up spawns, zero phantom IDs
+        chr007 = next(d for d in all_pages if d["entity_id"] == "CHR_007")
+        self.assertEqual(len(chr007["sonraki_spawns"]), 3)
+        chr029 = next(d for d in all_pages if d["entity_id"] == "CHR_029")
+        self.assertEqual(len(chr029["sonraki_spawns"]), 0)
+        # Leaving a phantom spawn ID must produce 1 validation error
+        chr029["sonraki_spawns"]["on_accept"] = {"entity_id": "CHR_099", "offset": 3, "kaynak": "test"}
+        errors = parser.validate_spawns(all_pages)
+        self.assertEqual(len(errors), 1)
+        self.assertIn("CHR_099", errors[0])
+
+    def test_kop04_delayed_target_guess_rejected(self):
+        source = (ROOT / "karakterler/CHR_001.md").read_text(encoding="utf-8")
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "CHR_001.md"
+            # Unstructured sentence relying on word-list guessing must fail with 1 error
+            unstructured = source.replace(
+                "Tur 4'te Erzak Ambarı binasında kundaklama yaşanır",
+                "Tur 4'te gece vakti ambar kundaklama yaşanır"
+            )
+            path.write_text(unstructured, encoding="utf-8")
+            with self.assertRaisesRegex(parser.SourceError, "cannot identify delayed target"):
+                parser.parse(path)
 
     def test_missing_field_and_broken_graph_rejected(self):
         source = (ROOT / "karakterler/CHR_001.md").read_text(encoding="utf-8")

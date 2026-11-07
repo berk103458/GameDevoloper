@@ -8907,7 +8907,7 @@ Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı
   - Bağımlılık: DYL-02. Boyut: S.
   - Dosya: `src/soz/bakis.gd` ile `src/kapi/hastalik_teshis_adaptoru.gd` aynı kaydı yazar.
   - Asset: asset gerekmedi.
-- [/] **KOP-04:** Tek gecikmeli kuyruk, tek spawn zinciri. (Antigravity)
+- [x] **KOP-04:** Tek gecikmeli kuyruk, tek spawn zinciri. (Antigravity)
   - Ne: Kararın dönüşü `gecikmeli_etkiler` ve `sonraki_spawns` alanlarına yazılır; ikinci kuyruk yoktur. Her satır `hedef_sistem`, `alan`, `deger` ve `tur_offset` taşır. Parser bina adını kelime listesinden tahmin etmez. Tahmin gerektiren satır `chr_parser --check` ile 1 hata verir.
   - Kurallar:
     1. DYL-08 dönüşleri ve karakter bağları `gecikmeli_etkiler` (KVR-08) ile `sonraki_spawns` (KVR-09) alanlarına yazılır. İkinci kuyruk yoktur.
@@ -8967,7 +8967,7 @@ Köprü maddeleri (KOP) aşağıdaki bölümlerin ön koşuludur. Kabul satırı
   - Bağımlılık: DIY-02. Boyut: S.
   - Dosya: `data/soz/tuccar_kapi.json`.
   - Asset: asset gerekmedi.
-- [/] **KOP-09:** Hayalet takip kimliği kalmaz. (Antigravity)
+- [x] **KOP-09:** Hayalet takip kimliği kalmaz. (Antigravity)
   - Ne: `chr_parser.py --check` sayfası olmayan takip kimliğini artık uyarı değil hata sayar. `sonraki_spawns` içindeki her kimlik ya bir CHR sayfasına sahiptir ya satır silinir. Olmayan kişi için "ileride gelir" cümlesi yazılmaz. Boş yuvayı doldurmak için yeni CHR üretilmez.
   - Kurallar:
     1. `chr_parser.py --check` bugün 30 sayfayı geçerli sayar ve 93 takip kimliğini sayfasız bırakır (uyarı). Bu uyarı hataya döner.
