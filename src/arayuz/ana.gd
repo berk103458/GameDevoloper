@@ -7,6 +7,7 @@ extends Control
 var katalog: Katalog
 var ayarlar: Ayarlar
 var kayit: GuvenliKayit
+var oyuncu_izi := OyuncuIzi.new()
 var oturum: Oturum
 var _ekran: Control
 var _kapi: KapiEkrani
@@ -91,7 +92,7 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 		adlar.append("Ana menüye dön")
 		var e := _bilgi("Muhafızın geçmişi", "Geçmişini seç. Bu seçim oyun boyunca değişmez.", adlar, -1, "")
 		e.secildi.connect(func(i: int) -> void:
-			if i >= 0 and i < g.SIRA.size(): yeni_oyun(tohum, g.SIRA[i])
+			if i >= 0 and i < g.SIRA.size(): _gecmis_secildi(tohum, g.SIRA[i])
 			else: ana_menu()
 		)
 		_goster(e)
@@ -228,8 +229,24 @@ func _duraklat() -> void:
 func _yeni_oyun_ekrani() -> void:
 	var e := preload("res://src/arayuz/yeni_oyun_ekrani.gd").new()
 	e.ayarlar = ayarlar
-	e.baslatildi.connect(func(tohum: int, gecmis: String) -> void: yeni_oyun(tohum, gecmis))
+	e.iz = oyuncu_izi
+	e.baslatildi.connect(_gecmis_secildi)
 	e.vazgecildi.connect(ana_menu)
+	_goster(e)
+
+
+func _gecmis_secildi(tohum: int, gecmis: String) -> void:
+	if not oyuncu_izi.kadraj_gosterilmeli_mi():
+		yeni_oyun(tohum, gecmis)
+		return
+	var satirlar := PackedStringArray()
+	for konu in ["muhafiz", "koy", "kapi"]:
+		satirlar.append(tr("acilis.kadraj." + konu))
+	var e := _bilgi("", "\n".join(satirlar), [tr("arayuz.menu.devam")], -1, "")
+	e.name = "IlkSaatKadraci"
+	e.secildi.connect(func(_indeks: int) -> void:
+		if _ekran == e: yeni_oyun(tohum, gecmis)
+	)
 	_goster(e)
 
 

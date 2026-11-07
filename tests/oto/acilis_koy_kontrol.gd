@@ -24,7 +24,15 @@ func _calistir() -> void:
 	add_child(ana)
 	GirdiEylemleri.kur("user://ogr22_%d.cfg" % OS.get_process_id())
 	dene(AyarlarEk.ayarla(ana.ayarlar, &"zorluk", &"siki"), "DEN-66 yeni oyunun zorluk tercihi")
-	ana.yeni_oyun(1401, "eski_levent")
+	ana.oyuncu_izi.sifirla()
+	ana._yeni_oyun_ekrani()
+	var secim := ana._ekran as YeniOyunEkrani
+	secim.baslatildi.emit(1401, "eski_levent")
+	var kadraj := ana._ekran as BilgiEkrani
+	dene(kadraj != null and kadraj.name == &"IlkSaatKadraci" and ana.oturum == null, "OGR-41 seçimden sonra tek kadraj")
+	await get_tree().process_frame
+	dene(ana._ekran == kadraj and kadraj.dugmeler.size() == 1 and kadraj.metin.split("\n").size() == 3, "OGR-41 üç satır ve tek ilerleme girdisi")
+	kadraj.secildi.emit(0)
 	await get_tree().process_frame
 	await _arazi_hazir(ana)
 	var e := ana._ekran as KoyEkrani
@@ -94,6 +102,9 @@ func _calistir() -> void:
 		dene(preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_acik(), "Gerçek kapı/köy fazı göç için oynanış sayılır")
 		dene(ACILIS.durum(ana.oturum).is_empty() and ana.oturum.yonetim.nufus() == 0 and ana.oturum.yonetim.binalar.is_empty(), "Eski kayda zorla ev/eş eklenmez")
 		dene(ana.oturum.kaydet().get("zorluk") == "olagan", "DEN-66 eksik veya bilinmeyen eski zorluk olağan açılır")
+	ana.oyuncu_izi.ilk_oyun_bitti = true
+	ana._gecmis_secildi(1401, "eski_levent")
+	dene(ana._ekran is KoyEkrani, "OGR-48 mevcut bitmiş oyuncu izinde kadraj atlanır")
 	ana.ana_menu()
 	dene(not preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_acik(), "Gerçek menü geçişi göç kilidini kaldırır")
 	ana.kayit.sil()

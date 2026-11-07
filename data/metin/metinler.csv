@@ -1809,6 +1809,9 @@ arayuz.ayarlar.kamera_eksen.kapali,Kapalı,Off
 acilis.kisi.muhafiz,Muhafız,Gatekeeper
 acilis.kisi.es,Eş,Spouse
 acilis.kapi.kapali,Kapı kapalı,Gate closed
+acilis.kadraj.muhafiz,Bu köyün muhafızısın.,You are the gatekeeper of this village.
+acilis.kadraj.koy,Köy sancağın sınır yolunda.,The village lies on the sanjak's frontier road.
+acilis.kadraj.kapi,Kapı ilk akşam ulak ayrılınca açılır.,The gate opens on the first evening after the messenger leaves.
 koy.bayrak.acl01_muhafiz,Muhafız,Muhafız
 koy.bayrak.acl01_es,Muhafızın eşi,Muhafızın eşi
 arayuz.ayarlar.grafik.baslik,Grafik,Graphics

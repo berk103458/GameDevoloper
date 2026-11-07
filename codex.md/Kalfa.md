@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OGR-41 tamamlandı (Kalfa)
+
+Geçmiş seçilince mevcut BilgiEkrani üç çevrilmiş satırı gösterir. Satırlar muhafızın görevini, uç köyünün konumunu ve ilk kapı açılışını anlatır. Yeni oyun ekranı ve doğrudan geçmiş seçimi aynı geçişi kullanır. Devam tek girdidir ve oyun o girdiden sonra başlatılır. Bitmiş oyuncu izi varsa mevcut OGR-48 yordamı kadrajı atlar. Hazır geçmişle yapılan doğrudan program çağrısı mevcut hızlı giriş sözleşmesini korur.
+
+CSV üç benzersiz anahtar, gerçek köy açılışı ve gerçek oyun köprüsü geçti. Üç satır, tek girdi ve bitmiş izde atlama doğrulandı. İlk import üç MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OGR-40 tamamlandı (Kalfa)
 
 Full pull 42358c12 güncel, Ajan Masası okundu. ACL-04 ulağı ve ilk aile kararı gerçekleştiyse mevcut ikinci gece kısa raporu, sancak beyinin teftişte kapı defterini isteyeceğini tek satırda bildirir. Gece 0 ve 2'de satır yok. Mevcut gece raporu ve kayıt düzeni kullanıldı.

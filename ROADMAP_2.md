@@ -4146,7 +4146,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: ACL-04. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı; metin `metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-41:** Yeni oyun başlangıç özeti tek kadraj.
+- [x] **OGR-41:** Yeni oyun başlangıç özeti tek kadraj. (Kalfa)
   - Ne: ACL-06 seçiminden sonra `bilgi_ekrani.gd` kadrajında üç satır: kimsin, köy nerede, kapı ne zaman açılır. Resim yok, metin koddan.
   - Kabul: kadraj bir girdiyle geçilir; süre sınırı yok. Test: anahtar sayısı 3.
   - Bağımlılık: ACL-06. Boyut: S.

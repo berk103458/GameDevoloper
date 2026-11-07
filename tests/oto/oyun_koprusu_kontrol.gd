@@ -11,6 +11,7 @@ func _ready() -> void:
 		await get_tree().process_frame
 	assert(ana.find_children("*", "OyunKoprusu", true, false).is_empty())
 	ana.kayit = GuvenliKayit.new("user://test_kopru_save.json")
+	ana.oyuncu_izi.sifirla()
 	# TEK-27: AdminHud oyuncu surumunde dogmaz; kopru kaydet/yukle snapshot aracini test kendisi saglar.
 	var test_admin := AdminHud.new()
 	test_admin.baglam = ana
@@ -25,6 +26,8 @@ func _ready() -> void:
 	# Geçmiş seçimi durur. İlk satır bir geçmiştir; sonra köy açılır.
 	assert(kopru.get_state().ekran == "rapor")
 	assert(not (await kopru.run_command("devam", {"indeks": 2})).has("error"))
+	assert(ana._ekran.name == &"IlkSaatKadraci" and ana.oturum == null)
+	assert(not (await kopru.run_command("devam", {"indeks": 0})).has("error"))
 	await get_tree().process_frame
 	# ACL-01: yeni oyunun ilk günü köydedir. Kapıya model günü atlayarak
 	# değil, gerçek gece ve rapor/olay düğmelerini köprüden kullanarak gideriz.
