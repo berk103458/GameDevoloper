@@ -44,7 +44,9 @@ static func ekle(o: Oturum,liste: Array[Gelen]) -> void:
  var kalan:=int(MogolOncusu.durum(o).kalan)
  var sira: Array=AYAR.oncelik.duplicate()
  sira.reverse()
+ var dis_hat = preload("res://src/sistemler/dis_hat_kapisi.gd")
  for tur in sira:
+  if tur=="mogol" and not dis_hat.izin(o.yonetim, dis_hat.TALEP): continue
   if tur=="tekfur" and (not o.yonetim.agalik or not o.yonetim.harac_bekliyor or d.tekfur_gun==o.gun): continue
   if tur=="mogol" and (not kalan in MogolOncusu._esikler() or not kalan in MogolOncusu.oku(o.mogol_oncusu).uyarilar or kalan in d.mogol): continue
   var var_mi:=false

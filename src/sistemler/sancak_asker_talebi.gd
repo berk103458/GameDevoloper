@@ -22,7 +22,8 @@ static func gece(o: Oturum, r: Dictionary) -> void:
 	var no := int(r.gun)+1
 	if o.yonetim.son!="" or no<=int(d.son_gece): return
 	d.son_gece = no
-	if not d.bekliyor and no>=int(AYAR.ilk_gece) and (no-int(AYAR.ilk_gece))%maxi(1,int(AYAR.aralik_gece))==0:
+	var dis_hat = preload("res://src/sistemler/dis_hat_kapisi.gd")
+	if not d.bekliyor and no>=int(AYAR.ilk_gece) and (no-int(AYAR.ilk_gece))%maxi(1,int(AYAR.aralik_gece))==0 and dis_hat.izin(o.yonetim, dis_hat.TALEP, -1):
 		d.gun = no
 		d.secim = -1
 		d.bekliyor = true

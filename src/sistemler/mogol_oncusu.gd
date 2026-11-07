@@ -29,7 +29,9 @@ static func gece(o: Oturum,r: Dictionary) -> void:
  var kalan:=maxi(0,int(AYAR.varis_gunu)-no)
  if kalan in _esikler() and not kalan in d.uyarilar:
   d.uyarilar.append(kalan)
-  r.olaylar.append({"anahtar":&"koy.olay.mogol_oncusu","deger":[],"mogol_oncusu":{"ad":String(AYAR.ad),"kalan":kalan,"sinirda":kalan==0}})
+  var dis_hat = preload("res://src/sistemler/dis_hat_kapisi.gd")
+  if dis_hat.izin(o.yonetim, dis_hat.SONUC if kalan == 0 else dis_hat.HABER, -1):
+   r.olaylar.append({"anahtar":&"koy.olay.mogol_oncusu","deger":[],"mogol_oncusu":{"ad":String(AYAR.ad),"kalan":kalan,"sinirda":kalan==0}})
  o.mogol_oncusu=d
 ## Aynı sabah raporu ve harita tek uyarı dilini kullanır; CSV anahtarı sızmaz.
 static func olay_metin(d: Dictionary) -> String:

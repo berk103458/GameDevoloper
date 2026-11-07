@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OMR-05 tamamlandı (Kalfa)
+
+Full pull 94544323 güncel, Ajan Masası okundu. Perde 2 başlangıcından türeyen ortak kapı dört dış hattı bağlar. İlk dalgada Moğol, Tekfur, oba ve sancak haberleri mevcut HAR-09 kuyruğuna gider. İkinci dalgada Tekfur ve ferman mevcut takvimleriyle, oba takası mevcut koşullarıyla, Moğol heyeti mevcut uyarı makbuzuyla açılır. Tekfur baskını ve dört hattın gerçek durumuna dayalı sonuç haberleri üçüncü dalgada çözülür. Mevcut taleplere cevap verme yolları ve perde başlangıcı yazılmamış kayıtların eski zamanlaması korunur. Yeni sayaç yok.
+
+Üç dalga Zaman Makinesi ile doğrulandı. İlk dalgada takvim denk geldiğinde Tekfur talebi 0, haber 1. Moğol takvimli uyarı, heyet ve varış geçti. Haraç, diplomatik heyet, haberci, köy yönetimi ve Zaman Makinesi dahil altı hedef geçti. CSV 13 iki dilli anahtar. Son import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OMR-03 tamamlandı (Kalfa)
 
 Full pull ed9859b1 güncel, Ajan Masası okundu. Perde 1'de gerçek kapı kuyruğunun uygun adlı adayları mevcut omurga.json dönem paylarıyla seçilir. Esnaf sınıfında mevcut zanaat kimliği tüccar ve uzmanı ayırır. Takvim ve kadro uygunluğundan geçen aynı roldeki adaylarda mevcut güvenlik ve ticaret ağırlıkları korunur. Adayı bulunmayan rolün payı adsız yolcuya gider. Kuruluş asker payı 0,10. Perde 2 mevcut seçim yolunda kalır.

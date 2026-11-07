@@ -24,11 +24,15 @@ static func gece(o: Oturum,r: Dictionary) -> void:
  var gun:=int(r.gun)+1
  if o.yonetim.son!="" or gun<=int(d.son_gece): return
  d.son_gece=gun
+ preload("res://src/sistemler/dis_hat_kapisi.gd").rapora_ekle(o, r)
  for x in r.olaylar:
   if not x is Dictionary: continue
   var kaynak:=""
   var metin:=""
-  if x.get("mogol_oncusu") is Dictionary:
+  if String(x.get("dis_hat_haberi", "")) in AYAR.kaynaklar:
+   kaynak=String(x.dis_hat_haberi)
+   metin=TranslationServer.translate(String(x.anahtar))
+  elif x.get("mogol_oncusu") is Dictionary:
    kaynak="mogol";metin=MogolOncusu.olay_metin(x.mogol_oncusu)
   elif x.get("tekfur_harac") is Dictionary:
    kaynak="tekfur";metin=TekfurHaracHeyeti.metin(x.tekfur_harac)

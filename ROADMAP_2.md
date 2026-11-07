@@ -4306,7 +4306,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-01. Boyut: S.
   - Dosya: `src/sistemler/omurga.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-05:** Dış hatlar dalgaya bağlanır.
+- [x] **OMR-05:** Dış hatlar dalgaya bağlanır. (Kalfa)
   - Ne: Moğol öncüsü, tekfur heyeti, oba ittifakı ve ferman tetikleri dalga numarasını okur; dalga 1'de yalnız haber, dalga 2'de talep, dalga 3'te sonuç. Hatların kendi aralığı (`harac_araligi`, ferman 12) korunur, dalga yalnız ön koşuldur.
   - Kabul: dalga 1'de tekfur talebi 0, haberi ≥ 1. Test: zaman makinesiyle üç dalga.
   - Bağımlılık: OMR-04, HAR-09. Boyut: M.

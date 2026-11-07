@@ -16,6 +16,8 @@ static func muttefik(o: Oturum) -> bool:
 static func uygun(o: Oturum,tur: String) -> bool:
  var y:=o.yonetim
  if y.son!="" or tur not in ["at","alp"] or int(oku(o.oba_ittifaki).son_gun)>=o.gun: return false
+ var dis_hat = preload("res://src/sistemler/dis_hat_kapisi.gd")
+ if not dis_hat.izin(y, dis_hat.TALEP): return false
  var bedel:=int(AYAR.at_bugday if tur=="at" else AYAR.alp_bugday)
  if y.kaynaklar.miktar("bugday")<bedel: return false
  if tur=="at": return CelepHamdullah.sayi(y.lojistik,"beygir")<CelepHamdullah.kapasite(y,"beygir")

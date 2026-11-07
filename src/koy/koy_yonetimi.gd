@@ -891,11 +891,12 @@ func _asamalar(olaylar: Array[Dictionary]) -> void:
 		olaylar.append({"anahtar": "koy.olay.agalik"})
 	if not agalik:
 		return
+	var dis_hat = preload("res://src/sistemler/dis_hat_kapisi.gd")
 	# Cevapsız haraç reddedilmiş sayılır; reddedilen haraç Tekfur baskınıyla döner.
 	if harac_bekliyor:
 		harac_reddet()
-		olaylar.append({"anahtar": "koy.olay.harac_cevapsiz"})
-	if tekfur_baski > savusturulan:
+		if dis_hat.izin(self, dis_hat.SONUC): olaylar.append({"anahtar": "koy.olay.harac_cevapsiz"})
+	if tekfur_baski > savusturulan and dis_hat.izin(self, dis_hat.SONUC):
 		var guc := tekfur_gucu()
 		var savunma := savunma_gucu()
 		olaylar.append({"anahtar": "koy.olay.tekfur_baskini", "deger": [guc, savunma]})
@@ -906,7 +907,7 @@ func _asamalar(olaylar: Array[Dictionary]) -> void:
 		if savusturulan >= a.zafer_bask_sayisi:
 			son = SON_ZAFER
 			return
-	if (gun + 1) % maxi(1,a.harac_araligi) == 0:
+	if not harac_bekliyor and (gun + 1) % maxi(1,a.harac_araligi) == 0 and dis_hat.izin(self, dis_hat.TALEP):
 		harac_bekliyor = true
 		olaylar.append(TekfurHaracHeyeti.olay(self))
 

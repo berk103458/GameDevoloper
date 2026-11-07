@@ -2447,6 +2447,19 @@ ogretici.usul.heybe.3,Beyanı gördüğün eşyalarla karşılaştır.,Compare t
 ogretici.usul.heybe.4,Gizli eşya için heybe içindeki arama noktalarını kontrol et.,Check the search spots inside the bag for hidden goods.
 ogretici.usul.heybe.5,Heybeyi kapatıp aynı sorguya dönebilirsin.,Close the bag to return to the same inquiry.
 koy.rapor.kisa.ulak_berat,Ulak döndü. Sancak beyi teftişte kapının defterini görmek ister.,The messenger returned. The Sanjak Bey wants to see the gate ledger at inspection.
+koy.olay.dis_hat.mogol.haber,Doğu geçidinden gelenler Moğol öncülerini soruyor.,Travelers from the eastern pass are asking about the Mongol scouts.
+koy.olay.dis_hat.tekfur.haber,Tekfurun adamları sınır yolunda köyün ambarını soruşturuyor.,The Tekfur's men are asking about the village granary along the frontier road.
+koy.olay.dis_hat.oba.haber,Obanın atlıları batı yamacında görüldü.,Riders from the clan were seen on the western slope.
+koy.olay.dis_hat.sancak.haber,Ulak sancak beyinin asker saydığını söyledi.,A messenger says the Sanjak Bey is counting his troops.
+koy.olay.dis_hat.mogol.sinirda,Moğol öncüleri sınıra vardı.,The Mongol scouts reached the frontier.
+koy.olay.dis_hat.mogol.uzakta,Moğol öncüleri henüz sınıra varmadı.,The Mongol scouts have yet to reach the frontier.
+koy.olay.dis_hat.tekfur.baski,Tekfur haraç meselesini silahlı baskıya çevirdi.,The Tekfur turned the tribute dispute into armed pressure.
+koy.olay.dis_hat.tekfur.baski_yok,Tekfurun bu köye karşı silahlı baskını kayda geçmedi.,No armed raid by the Tekfur was recorded against this village.
+koy.olay.dis_hat.oba.ittifak,Obayla ittifak kuruldu.,An alliance with the clan was made.
+koy.olay.dis_hat.oba.ittifak_yok,Obayla ittifak kurulmadı.,No alliance with the clan was made.
+koy.olay.dis_hat.sancak.bekliyor,Sancak beyinin asker talebi hâlâ cevap bekliyor.,The Sanjak Bey's request for troops still awaits an answer.
+koy.olay.dis_hat.sancak.gonderildi,Köyden sancak ordusuna levent gönderildi.,The village sent troops to the sanjak army.
+koy.olay.dis_hat.sancak.gonderilmedi,Köyden sancak ordusuna levent gönderilmedi.,The village sent no troops to the sanjak army.
 koy.rapor.kisa.ilk_saat_ozeti,"İlk altı gece. Gelen: %s. %d kişiyi aldın, %d kişiyi geri çevirdin. Köyde %d kişi var.","First six nights. Arrivals: %s. You admitted %d and turned away %d. %d villagers remain."
 karar.sukru.mahkeme.baslik,Çınar Meclisinde Aleni Mahkeme,Public Trial at Plane Tree Council
 karar.sukru.mahkeme.metin,"Molla Şükrü Çınar Meclisi önünde yargılandı. Sahte mühür tahrifatı kanıtlandı, berat yakıldı, kâtip demirhane cezasına çarptırıldı. Adalet 3, Moral 2 arttı, Asayiş Riski 2 azaldı.","Molla Sukru was tried before the Council. Forged seal was proven, charter burned, scribe sentenced to forge labor. Justice +3, Morale +2, Public Order Risk -2."
