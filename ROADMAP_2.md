@@ -3804,7 +3804,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-65. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-71:** Zorluk, son kimliğini değiştirmez.
+- [x] **DEN-71:** Zorluk, son kimliğini değiştirmez. (Kalfa)
   - Ne: SYS-20 beş sonu üç zorlukta da aynı kimliklerdir. Sıkı altıncı son açmaz.
   - Kabul: SYS-20 beş sonu üç zorlukta da aynı kimliklerdir. Sıkı altıncı son açmaz. Test: son kümesi eşit.
   - Bağımlılık: SYS-20, DEN-65. Boyut: S.
