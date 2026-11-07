@@ -954,3 +954,9 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - `src/soz/bakis.gd` ve `src/kapi/hastalik_teshis_adaptoru.gd`: yüz ve eller bölgesinden `KRI-11` belirtilerinin (`ateş`, `kanlı öksürük`, `irin`) aynı `IpucuYoneticisi` kaydına yazılması, ayrı teşhis düğmesinin 0 olması, belirtisiz/ışıksız bakışta enfeksiyon ipucunun 0 kalması ve kaçışta ipucunun kişi hafızasında tutulup karantina açmaması bağlandı.
 - Test: `tests/unit/kapi/kop03_bakis_hastalik_test.gd` ve `tests/unit/soz/bakis_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
 - kota görünmüyor
+
+## 7 Kasım 2026 — KOP-10 (Kapıdaki Sayı, Kişinin Karar Matrisinden Gelir)
+- `src/kapi/chr_karar_matrisi.gd`: CHR `karar_matrisi` satırı ve varyant seçimi (`Flag_Sir_Tamamen_Cozuldu`), `-4…+4` clamp ile 5 köy statının (`Erzak`, `Guvenlik`, `Refah`, `Moral`, `Saglik`) uygulanması ve matriste olmayan karar düğmelerinin elenmesi eklendi.
+- `src/sistemler/oturum.gd`, `src/sistemler/chr_sorgusu.gd`, `src/arayuz/kapi_ekrani.gd`: adlı CHR ziyaretinde sınıf şablonunun uygulanmaması, yalnız adsız figürlerin şablonda kalması ve rüşvet akçesinin yalnız `muhafiz_akce` hesabında kalması bağlandı.
+- Test: `tests/unit/kapi/kop10_karar_matrisi_test.gd` ve `tests/unit/kvr/chr_sorgu_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- kota görünmüyor

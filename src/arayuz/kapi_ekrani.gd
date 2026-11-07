@@ -487,6 +487,8 @@ func _karar_goster() -> void:
 	if chr != null:
 		_karar_anahtarlari = PackedStringArray()
 		for karar in gorunen:
+			if not preload("res://src/kapi/chr_karar_matrisi.gd").matriste_var_mi(chr, StringName(karar)):
+				continue
 			if chr.karar_acik(StringName(karar)) or karar == "kabul":
 				_karar_anahtarlari.append(karar)
 	_karar_anahtarlari = preload("res://src/arayuz/aile_kapi_paneli.gd").secenekler(_gelen, _karar_anahtarlari)

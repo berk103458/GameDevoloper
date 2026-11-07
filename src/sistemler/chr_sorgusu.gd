@@ -119,6 +119,8 @@ func devam_et() -> bool:
 	return false
 
 func karar_acik(karar: StringName) -> bool:
+	if not preload("res://src/kapi/chr_karar_matrisi.gd").matriste_var_mi(self, karar):
+		return false
 	return not bayraklar["Flag_Kilitlendi"] or karar in [&"kisla", &"ret", &"zorunlu_ret", &"rusvet"]
 
 func gorsel_incele() -> String:

@@ -208,11 +208,12 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	var h := gelen.heybe
 	var ek := {"kirilan": -1, "rusvet_harcandi": -1, "alinan": [], "alinan_akce": 0, "alinan_ambar": 0, "gasp": false,
 		"durust_arandi": false, "harc": karar == &"harc", "koylu_id": -1}
-	var bar_etkisi: PackedInt32Array = gelen.etkiler.get(&"ret" if karar == &"elkoy" else karar, PackedInt32Array()).duplicate()
-	# Eski rüşvet satırındaki Tüccarlar katkısı kamuya para üretemez.
-	if karar == &"rusvet" and bar_etkisi.size() > 2:
-		bar_etkisi[2] = 0
-	_bar_uygula(bar_etkisi)
+	if sorgu == null:
+		var bar_etkisi: PackedInt32Array = gelen.etkiler.get(&"ret" if karar == &"elkoy" else karar, PackedInt32Array()).duplicate()
+		# Eski rüşvet satırındaki Tüccarlar katkısı kamuya para üretemez.
+		if karar == &"rusvet" and bar_etkisi.size() > 2:
+			bar_etkisi[2] = 0
+		_bar_uygula(bar_etkisi)
 	var rusvet_akce := 0
 	if h != null:
 		if karar == &"rusvet" and not h.alinan_var():
@@ -268,6 +269,8 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	else:
 		akce += rusvet_akce
 		yonetim.ret(tr_gelen(gelen), not gelen.kusurlu(), _usta_uzmanlik(gelen))
+	if sorgu != null:
+		ek["chr_stat_etkisi"] = preload("res://src/kapi/chr_karar_matrisi.gd").uygula(self, sorgu, karar)
 	_koy_esitle()
 	if gelen.adli:
 		kadro.sonuc(gelen.id, kaldi, &"kabul" if karar == &"harc" else karar, gun)
@@ -637,9 +640,10 @@ func _adli_gelen(id: StringName) -> Gelen:
 		g.sorular.append(PackedStringArray([s.soru_anahtarlari[i], s.cevap_anahtarlari[i]]))
 	for i in s.sorular(ziyaret):
 		g.soru_ust.append(int(yerel.get(s.ust(i), -1)))
-	g.secenekler = _perde_secenekleri(k.karar_secenekleri)
-	for karar in g.secenekler:
-		g.etkiler[StringName(karar)] = k.etki(karar)
+	g.secenekler = preload("res://src/kapi/chr_karar_matrisi.gd").gorunen_secenekler(g.chr_sorgusu(), _perde_secenekleri(k.karar_secenekleri))
+	if g.chr_sorgusu() == null:
+		for karar in g.secenekler:
+			g.etkiler[StringName(karar)] = k.etki(karar)
 	g.azami_soru = k.azami_soru
 	g.tehlikeli = k.tehlikeli
 	g.stat = k.zanaat if k.zanaat > 0 else 4 + int(String(id).hash() % 4)
