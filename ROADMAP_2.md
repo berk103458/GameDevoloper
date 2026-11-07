@@ -4062,7 +4062,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-25. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/hud_katmani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-28:** Harita ilk kervandan sonra açılır.
+- [x] **OGR-28:** Harita ilk kervandan sonra açılır. (Kalfa)
   - Ne: `src/arayuz/harita_ekrani.gd` ilk kervan olayı (`data/olaylar/kervan.tres`, `koy.tres kervan_araligi 4`) ya da ilk haberciden sonra açılır.
   - Kabul: tetik öncesi harita düğmesi 0. Test: gece 3 anlık görüntüsü.
   - Bağımlılık: OGR-25. Boyut: S.

@@ -4,9 +4,11 @@ extends RefCounted
 static var AYAR: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/haberci_agi.json"))
 ## Sınırlı optional defter: her açık kaynak için yalnız en yeni bekleyen haber.
 static func oku(v: Variant) -> Dictionary:
- var d:={"son_gece":-1,"bekleyen":[]}
+ var d:={"son_gece":-1,"ilk_haber_gunu":-1,"bekleyen":[]}
  if not v is Dictionary: return d
  d.son_gece=KurtBaskini.oku(v.get("son_gece"))
+ var ilk := KurtBaskini.oku(v.get("ilk_haber_gunu"))
+ if ilk > 0 and ilk <= int(d.son_gece): d.ilk_haber_gunu=ilk
  if v.get("bekleyen") is Array:
   for x in v.bekleyen:
    if not x is Dictionary or not AYAR.kaynaklar.has(x.get("kaynak")) or not x.get("metin") is String: continue
@@ -14,6 +16,7 @@ static func oku(v: Variant) -> Dictionary:
    if gun<1 or String(x.metin).is_empty() or String(x.metin).length()>int(AYAR.azami_metin): continue
    var h:={"kaynak":String(x.kaynak),"gun":gun,"metin":String(x.metin)}
    _ekle(d.bekleyen,h)
+   if int(d.ilk_haber_gunu) < 0 or gun < int(d.ilk_haber_gunu): d.ilk_haber_gunu=gun
  return d
 ## Aynı gece yalnız açık Moğol/Tekfur/çete raporları; gizli bayrak/kanıt okumaz.
 static func gece(o: Oturum,r: Dictionary) -> void:
@@ -33,7 +36,9 @@ static func gece(o: Oturum,r: Dictionary) -> void:
    kaynak="cete"
    var a: Array=x.get("deger",[])
    if a.size()>=2: metin=String(AYAR.cete_metin)%[int(a[0]),int(a[1])]
-  if not metin.is_empty(): _ekle(d.bekleyen,{"kaynak":kaynak,"gun":gun,"metin":metin})
+  if not metin.is_empty():
+   _ekle(d.bekleyen,{"kaynak":kaynak,"gun":gun,"metin":metin})
+   if int(d.ilk_haber_gunu) < 0: d.ilk_haber_gunu=gun
  o.haberci_agi=d
 ## Aynı bekleyen kartın salt okunur görünümü; okumak teslim/para işlemi değildir.
 static func olay(o: Oturum) -> OlayVerisi:
