@@ -136,7 +136,9 @@ func get_state() -> Dictionary:
 	if faz == "rapor": r.rapor_satirlari = metinler(kok)
 	var o := ana.oturum
 	if o == null: return r
-	r["ILKSAAT"] = preload("res://src/debug/ilk_saat_kancasi.gd").satirlar(o)
+	var kanca = preload("res://src/debug/ilk_saat_kancasi.gd")
+	r["ILKSAAT"] = kanca.satirlar(o)
+	r["ILKSAAT_ARACLAR"] = kanca.araclar(o)
 	var barlar := {}
 	for i in 4: barlar[["halk", "soylular", "tuccarlar", "ordu"][i]] = o.gosterge(i)
 	r.merge({"gun": o.gun, "gece": o.gosterilen_gece(), "tamamlanan_gece": o.gun, "perde": o.perde,

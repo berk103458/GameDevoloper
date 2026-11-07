@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OGR-44 tamamlandı (Kalfa)
+
+Full pull fb5bb0ef güncel, Ajan Masası okundu. Mevcut tester sürücüsüne araç tablosu çıktısı eklendi. Heybe açma, beyan sorma ve nişan-yük inceleme gerçek UI eylemlerinde ölçülür. OGR-42 ile birlikte sekiz araç raporlanır. Canlı eylemi bulunmayan yemin ölçülmedi. Araç raporu, ölçülmeyeni kullanılmayan araçtan ayrı gösterir.
+
+İlk saat ve CHR kapı hedefleri ile altı Python testi geçti. Gerçek başsız temkinli politika, tohum 11 ile altı geceyi hatasız tamamladı. Üretilen tablo docs/tester/OGR-44_ILK_SAAT_ARACLARI.md içinde. Bir araç kullanıldı, yedisi kullanılmadı, yemin ölçülmedi. Başsız import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OGR-42 tamamlandı (Kalfa)
 
 Full pull 94c72487 güncel, Ajan Masası okundu. Gerçekte gösterilen köy hız ve atama ipuçları ile ilk kapının üç satırı ILKSAAT içinde birer kayıt üretir. İlk oyuncu kullanımı ayrı gecede tutulur. Otomatik hız değişimleri sayılmaz. İlk altı gecenin ölçümü normal oyun kaydına yazılmaz. Köprü anlık görüntüsünden dönerken aynı tester oturumunun ölçümü korunur. Python köprü sürücüsü tekil satırları mevcut JSON özetine alır.

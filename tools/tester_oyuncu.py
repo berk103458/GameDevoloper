@@ -121,6 +121,35 @@ def sureci_kapat(process):
             process.wait(timeout=5)
 
 
+def arac_raporu(ozet):
+    araclar = ozet["ILKSAAT_ARACLAR"]
+    adlar = {
+        "koy_hizi": "Köy hızı", "koy_atama": "İşçi atama",
+        "kapi_selam": "Kapı selamı", "kapi_konu": "İlk aileye konu sorusu",
+        "kapi_karar": "Kapı kararı", "heybe": "Heybeyi açma",
+        "beyan": "Heybe beyanını sorma", "bakmak": "Nişan ve yükü inceleme",
+        "yemin": "Yemin",
+    }
+    satirlar = [
+        "# İlk altı gecede araç kullanımı",
+        "",
+        f"Tohum {ozet['tohum']}, politika {ozet['politika']}, "
+        f"tamamlanan gece {ozet['gece_sayisi']}, hata {ozet['hata_sayisi']}.",
+        "Gece numaraları sıfır tabanlıdır.",
+        "",
+        "| Araç | Durum | İlk kullanım gecesi |",
+        "| --- | --- | --- |",
+    ]
+    for kimlik, ad in adlar.items():
+        gece = araclar.get(kimlik)
+        if gece is None:
+            durum = "Ölçülmedi"
+        else:
+            durum = "Kullanıldı" if gece >= 0 else "Kullanılmadı"
+        satirlar.append(f"| {ad} | {durum} | {gece if gece is not None and gece >= 0 else '—'} |")
+    return "\n".join(satirlar) + "\n"
+
+
 def oyna(args):
     cikti = args.cikti or ROOT / f"work/tester/oyun_{args.tohum}.jsonl"
     cikti = cikti.resolve()
@@ -141,6 +170,7 @@ def oyna(args):
     hatalar, adim, son, gece = 0, 0, "", 0
     neden = ""
     ilk_saat = []
+    ilk_saat_araclar = {}
     process = None
     baslangic = time.monotonic()
     log_path = cikti.with_suffix(".godot.log")
@@ -158,6 +188,7 @@ def oyna(args):
                 s = client.call("get_state")
                 gece = s.get("tamamlanan_gece", 0)
                 ilk_saat = s.get("ILKSAAT", ilk_saat)
+                ilk_saat_araclar = s.get("ILKSAAT_ARACLAR", ilk_saat_araclar)
                 kayit = {"adim": adim, "sure": round(time.monotonic() - baslangic, 3), "state": s}
                 if s["ekran"] == "son":
                     son = s["son"]["kimlik"]
@@ -205,7 +236,14 @@ def oyna(args):
         hatalar += 1
     ozet = {"son": son or None, "gece_sayisi": gece, "hata_sayisi": hatalar, "adim": adim,
             "durma": neden, "tohum": args.tohum, "politika": args.politika, "cikti": str(cikti),
-            "ILKSAAT": ilk_saat}
+            "ILKSAAT": ilk_saat, "ILKSAAT_ARACLAR": ilk_saat_araclar}
+    if args.arac_raporu:
+        if gece < 6 or hatalar or not ilk_saat_araclar:
+            print("Araç raporu için altı tamamlanmış gece ve araç ölçümü gerekli.", file=sys.stderr)
+            hatalar += 1
+            ozet["hata_sayisi"] = hatalar
+        else:
+            cikti.with_suffix(".araclar.md").write_text(arac_raporu(ozet), encoding="utf-8")
     cikti.with_suffix(".ozet.json").write_text(json.dumps(ozet, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(ozet, ensure_ascii=False))
     return 0 if neden in ("son", "gece_siniri") and hatalar == 0 else 1
@@ -219,12 +257,15 @@ def main(argv=None):
     parser.add_argument("--politika", choices=("rastgele", "temkinli", "rusvetci"), default="temkinli")
     parser.add_argument("--gece", type=int, default=30, help="Tamamlanan gece sınırı")
     parser.add_argument("--cikti", type=Path)
+    parser.add_argument("--arac-raporu", action="store_true", help="İlk altı gecenin araç tablosunu yaz")
     parser.add_argument("--port", type=int, default=0, help="0: boş localhost portu seç")
     parser.add_argument("--zaman-asimi", type=float, default=1800)
     parser.add_argument("--bekle", type=float, default=0.15)
     args = parser.parse_args(argv)
     if args.gece < 1 or args.zaman_asimi <= 0 or args.bekle < 0 or not 0 <= args.port <= 65535:
         parser.error("gece/zaman aşımı pozitif, bekle >= 0, port 0..65535 olmalı")
+    if args.arac_raporu and args.gece < 6:
+        parser.error("--arac-raporu en az 6 gece gerektirir")
     return oyna(args)
 
 
