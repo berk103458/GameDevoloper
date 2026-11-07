@@ -711,22 +711,8 @@ func _geceye_gec() -> void:
 	_dinamik_ortam.faz(&"gece")
 	var r: Dictionary = sonuc["rapor"]
 	var v := _kart_ac(tr("koy.rapor.baslik") % (int(r["gun"]) + 1))
-	var uretim: Dictionary = r["uretim"]
-	var parca: PackedStringArray = []
-	for t in uretim:
-		if int(uretim[t]) > 0:
-			parca.append("+%d %s" % [int(uretim[t]), tr("koy.kaynak." + String(t))])
-	_etiket(v, tr("koy.rapor.uretim") % (", ".join(parca) if not parca.is_empty() else "—"), Tema.KUCUK_PX)
-	var tuk: Dictionary = r["tuketim"]
-	_etiket(v, tr("koy.rapor.tuketim") % [int(tuk.get("gida", 0)), int(tuk.get("odun", 0))], Tema.KUCUK_PX)
-	_etiket(v, tr("koy.rapor.akce") % [int(r["akce_once"]), int(r["akce"])], Tema.KUCUK_PX).name = "gece_akce"
-	_etiket(v, tr("koy.rapor.huzur") % int(r["huzur"]), Tema.KUCUK_PX).name = "gece_huzur"
-	for o in r["olaylar"]:
-		var l := _etiket(v, IflasYoneticisi.olay_metin(o), Tema.KUCUK_PX)
-		if o.get("cenaze_yasi", false): l.name = "gece_yas"
-		l.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
-		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		l.custom_minimum_size.x = 900
+	if not preload("res://src/arayuz/gece_raporu_kisa.gd").ekle(self, v, sonuc["bilanco"]):
+		_rapor_ayrinti(v, r)
 	preload("res://src/sistemler/rapor_bekle.gd").uygula(v, ayarlar)
 	var tamam := _dugme(tr("koy.rapor.sabah"), v)
 	CenazeRaporu.ekle(self, v, tamam, r, sonuc)
@@ -745,6 +731,25 @@ func _geceye_gec() -> void:
 	)
 	if once.get("gida", 0) > 0 and _y.kaynaklar.miktar("gida") == 0:
 		Ses.cal(&"sfx_bar_catlak")
+
+
+func _rapor_ayrinti(v: VBoxContainer, r: Dictionary) -> void:
+	var uretim: Dictionary = r["uretim"]
+	var parca: PackedStringArray = []
+	for t in uretim:
+		if int(uretim[t]) > 0:
+			parca.append("+%d %s" % [int(uretim[t]), tr("koy.kaynak." + String(t))])
+	_etiket(v, tr("koy.rapor.uretim") % (", ".join(parca) if not parca.is_empty() else "—"), Tema.KUCUK_PX)
+	var tuk: Dictionary = r["tuketim"]
+	_etiket(v, tr("koy.rapor.tuketim") % [int(tuk.get("gida", 0)), int(tuk.get("odun", 0))], Tema.KUCUK_PX)
+	_etiket(v, tr("koy.rapor.akce") % [int(r["akce_once"]), int(r["akce"])], Tema.KUCUK_PX).name = "gece_akce"
+	_etiket(v, tr("koy.rapor.huzur") % int(r["huzur"]), Tema.KUCUK_PX).name = "gece_huzur"
+	for o in r["olaylar"]:
+		var l := _etiket(v, IflasYoneticisi.olay_metin(o), Tema.KUCUK_PX)
+		if o.get("cenaze_yasi", false): l.name = "gece_yas"
+		l.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
+		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		l.custom_minimum_size.x = 900
 
 
 func _olay_goster(olay: OlayVerisi, sonuc: Dictionary) -> void:

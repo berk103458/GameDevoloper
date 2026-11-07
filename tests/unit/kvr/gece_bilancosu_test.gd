@@ -60,5 +60,27 @@ func _initialize() -> void:
  borclu.yonetim.muhafiz_ata(asker.id)
  br = borclu.gece_sonu()
  dene(br.bilanco.kamu.maas == 2, "Eski borç ve yeni ücret gerçek ödemeye dahildir")
+ _ilk_geceler(kat)
  print("GECE BİLANÇOSU: GEÇTİ" if hata == 0 else "GECE BİLANÇOSU: KALDI")
  quit(hata)
+
+func _ilk_geceler(kat: Katalog) -> void:
+ var acilis = preload("res://src/sistemler/kapi_acilis_olayi.gd")
+ var o := Oturum.new(kat, 305)
+ preload("res://src/sistemler/acilis_senaryosu.gd").kur(o)
+ acilis.baslat(o)
+ acilis.ulak_bitir(o)
+ var aile: Gelen = acilis.kuyruk(o)[0]
+ o.ziyaret_basladi(aile)
+ dene(o.karar_ver(aile, &"kabul").get("kaldi", false), "OGR-05 gerçek kabul")
+ var yuklu := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
+ dene(yuklu != null, "OGR-05 gün içi ziyaret kaydı yüklenir")
+ if yuklu == null: return
+ var ilk: Dictionary = yuklu.gece_sonu().bilanco.kapi_ozeti
+ dene(ilk.gelenler.size() == 2 and ilk.gelenler.has(o.tr_gelen(aile)), "OGR-05 ulak ve aile ilk raporda")
+ dene(ilk.kalanlar == ["Ali", "Zeynep"], "OGR-05 yalnız gerçek kabul edilenler kalır")
+ for gun in [1, 2, 3]:
+  var b: Dictionary = yuklu.gece_sonu().bilanco
+  dene(b.gun == gun and b.has("kapi_ozeti") == (gun < 3), "OGR-05 gece sınırı: %d" % gun)
+  if b.has("kapi_ozeti"):
+   dene(b.kapi_ozeti.gelenler.is_empty() and b.kapi_ozeti.kalanlar.is_empty(), "OGR-05 önceki gece tekrar gösterilmez")

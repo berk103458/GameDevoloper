@@ -70,7 +70,13 @@ func _ready() -> void:
 		await get_tree().create_timer(0.08).timeout
 		if ana._ekran is KoyEkrani: break
 	assert(ana._ekran is KoyEkrani and ana.oturum.gun == 0 and ana.oturum.yonetim.nufus() == 4)
+	var ambar_once := ana.oturum.ambar
 	assert(not (await kopru.run_command("gece_bitir")).has("error"))
+	assert(_kisa_rapor(ambar_once))
+	var ilk_rapor := ana._ekran._ust_kart as Control
+	assert((ilk_rapor.find_child("kisa_gelenler", true, false) as Label).text.contains("ulağı"))
+	assert((ilk_rapor.find_child("kisa_gelenler", true, false) as Label).text.contains("Ali ve Zeynep"))
+	assert((ilk_rapor.find_child("kisa_kalanlar", true, false) as Label).text.ends_with("Ali, Zeynep"))
 	for _i in 100:
 		await get_tree().create_timer(0.08).timeout
 		var adim := kopru.get_state()
@@ -91,6 +97,7 @@ func _ready() -> void:
 			if not nokta_alindi:
 				assert(not (await kopru.run_command("kaydet")).has("error"))
 				var once := ana.oturum.kaydet()
+				assert(not once.get("ilk_gece_gelenleri", []).is_empty())
 				assert(not (await kopru.run_command("yukle")).has("error"))
 				assert(ana.oturum.kaydet() == once)
 				nokta_alindi = true
@@ -133,7 +140,10 @@ func _ready() -> void:
 	assert(not (await kopru.run_command("koy_eylem", {"tur": "kaldir", "bina": bina_id})).has("error"))
 	assert(ana.oturum.yonetim.bina(bina_id) == null)
 	var gun := ana.oturum.gun
+	ambar_once = ana.oturum.ambar
 	assert(not (await kopru.run_command("gece_bitir")).has("error"))
+	assert(_kisa_rapor(ambar_once))
+	assert(not (ana._ekran._ust_kart.find_child("kisa_gelenler", true, false) as Label).text.contains("ulağı"))
 	s = kopru.get_state()
 	assert(s.ekran == "rapor" and s.gun == gun + 1 and s.rapor_satirlari.size() > 0)
 	assert(s.erzak == ana.oturum.ambar and s.akce.muhafiz == ana.oturum.muhafiz_akce and s.barlar.size() == 4)
@@ -152,3 +162,10 @@ func _ready() -> void:
 	await Ses.sustur()
 	print("OYUN KÖPRÜSÜ GERÇEK AKIŞ: GEÇTİ")
 	get_tree().quit(0)
+
+func _kisa_rapor(ambar_once: int) -> bool:
+	var kart := ana._ekran._ust_kart as Control
+	if kart == null: return false
+	var kisa_satirlar := kart.find_children("kisa_*", "Label", true, false)
+	var ambar := kart.find_child("kisa_ambar", true, false) as Label
+	return kisa_satirlar.size() == 3 and ambar != null and ambar.text.ends_with("%d → %d" % [ambar_once, ana.oturum.ambar]) and kart.find_child("gece_akce", true, false) == null

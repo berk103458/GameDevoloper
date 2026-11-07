@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — OGR-05 tamamlandı (Kalfa)
+
+Full pull f187064e güncel, Ajan Masası okundu. Yeni oyunun 0–2 numaralı gecelerinde mevcut rapor gövdesi üç satırdır: gelenler, kalanlar, önceki ve sonraki ambar erzağı. Üçüncü geceden sonra mevcut ayrıntı yolu kullanılır. Ziyaret açılışları için sınırlı ad listesi yalnız bu dönemde optional oturum kaydına girer. Ulak mevcut ACL-04 işaretinden, kalanlar gerçek köy giriş gününden, erzak mevcut gece bilançosundan okunur. Gece bitince ziyaret listesi temizlenir. Cenaze kararları mevcut ayrı eylem akışındadır. Kayıt sürümü ve bilanço hesabı aynı.
+
+Gerçek köprü ilk iki gece raporunda üç satırı, ulak ve aile adlarını, kabul edilen iki kişiyi, gerçek ambar miktarlarını ve kapıda kayıt dönüşünü doğruladı. Bilanço birimi gece0–3 sınırını, JSON dönüşünü ve önceki adların temizlenmesini doğruladı. Denge kriz gerçek raporu ve CSV doğrulaması geçti. İkinci başsız import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. İlk import iki MD5 hatası yazdı. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — OGR-02 tamamlandı (Kalfa)
 
 Full pull 0a9aff04 güncel, Ajan Masası okundu. Mevcut ACL-04 ilk aile ziyaretinde tek kısıt sohbet/karar heybe ve sağlık incelemesi düğmelerini kapatır. Doğrudan heybe çağrıları da beyan/panel açmaz. Kabul ve ret mevcut ACL-04 yolundan, sorular mevcut azami_soru sınırından geçer. Öğreticideki heybe yönlendirmesi kaldırıldı. İlk ailede Söz/CHR zarı yoktur. Diğer ziyaretlerin mevcut akışı sürer.

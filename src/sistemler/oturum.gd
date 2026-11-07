@@ -181,6 +181,7 @@ func heybe_uret(sinif: StringName) -> Heybe:
 
 ## Sohbet açıldı (adlı karakterde ziyaret sayılır).
 func ziyaret_basladi(gelen: Gelen) -> void:
+	GeceBilancosu.gelen_yaz(self, gelen)
 	if gelen.adli:
 		kadro.ziyaret_basladi(gelen.id, gun)
 
@@ -311,6 +312,7 @@ func gece_sonu() -> Dictionary:
 	if r["son"] == "" and not sonuc["perde_degisti"]:
 		sonuc["olay"] = olay_sec()
 	sonuc["bilanco"] = GeceBilancosu.olustur(self, bilanco_once, r)
+	if has_meta(GeceBilancosu.GELEN_META): remove_meta(GeceBilancosu.GELEN_META)
 	return sonuc
 
 
@@ -792,6 +794,8 @@ func kaydet() -> Dictionary:
 	# 64 bit sayılar JSON'da float'a döner; metin olarak saklanır.
 	if SozKaydi.acik(ayarlar):
 		veri["soz"] = soz_kaydi.paket(kadro)
+	if GeceBilancosu.kisa_mi(self) and has_meta(GeceBilancosu.GELEN_META):
+		veri["ilk_gece_gelenleri"] = GeceBilancosu.gelenleri_oku(get_meta(GeceBilancosu.GELEN_META))
 	return veri
 
 
@@ -850,4 +854,6 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	if not dedikodu_verisi is Dictionary or not o.dedikodu.yukle(dedikodu_verisi): return null
 	o._koy_esitle()
 	o.ipucu_kaydi.kayittan_oku(veri)
+	if GeceBilancosu.kisa_mi(o) and veri.has("ilk_gece_gelenleri"):
+		o.set_meta(GeceBilancosu.GELEN_META, GeceBilancosu.gelenleri_oku(veri["ilk_gece_gelenleri"]))
 	return o

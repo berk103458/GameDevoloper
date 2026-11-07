@@ -3911,7 +3911,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: ACL-01, ISG-01. Boyut: S.
   - Dosya: yeni: `src/sistemler/ilk_saat.gd` içinde `koy_acik()`; `src/arayuz/ana.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OGR-05:** Gece raporu ilk kez üç satırla gelir.
+- [x] **OGR-05:** Gece raporu ilk kez üç satırla gelir. (Kalfa)
   - Ne: ilk gece raporu (`src/sistemler/gece_bilancosu.gd`) tam tablo yerine üç satır gösterir: kim geldi, kim kaldı, ambar ne oldu. Tam tablo üçüncü geceden sonra açılır.
   - Kabul: gece 0 ve 1 raporunda satır sayısı 3; gece 3'ten sonra tam. Test: iki anlık görüntü karşılaştırması.
   - Bağımlılık: OGR-01. Boyut: S.

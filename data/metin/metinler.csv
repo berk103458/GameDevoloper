@@ -352,6 +352,9 @@ koy.pazar.sat,Tezgâhta %d sat,Tezgâhta %d sat
 koy.pazar.tezgah,Köy tezgâhı kervan fiyatının %%%d'ini öder; günde en çok %d akçe.,Köy tezgâhı kervan fiyatının %%%d'ini öder; günde en çok %d akçe.
 koy.rapor.akce,Akçe: %d → %d,Akçe: %d → %d
 koy.rapor.baslik,%d. gecenin raporu,%d. gecenin raporu
+koy.rapor.kisa.gelenler,Gelenler: %s,Arrivals: %s
+koy.rapor.kisa.kalanlar,Kalanlar: %s,Stayed: %s
+koy.rapor.kisa.ambar,Ambar erzağı: %d → %d,Granary food: %d → %d
 koy.rapor.huzur,Köy huzuru: %d,Köy huzuru: %d
 koy.rapor.sabah,Sabah oldu — kapıya,Sabah oldu — kapıya
 koy.rapor.tuketim,"Tüketilen: %d gıda, %d odun",Grain Consumed: −%d bushels
