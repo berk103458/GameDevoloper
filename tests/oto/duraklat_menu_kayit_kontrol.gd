@@ -21,6 +21,29 @@ func _calistir() -> void:
 	await get_tree().process_frame
 	var ust: Node = ana._ust
 	_kontrol(ust != null and ust.has_signal("secildi"), "Duraklat penceresi açıldı")
+	var usul_dugmesi: Button = null
+	for dugme in ust.find_children("*", "Button", true, false):
+		if dugme.text == tr("arayuz.duraklat.kapi_usulu"): usul_dugmesi = dugme
+	_kontrol(usul_dugmesi != null, "OGR-35 duraklat menüsünde Kapı usulü var")
+	if usul_dugmesi != null:
+		usul_dugmesi.pressed.emit()
+		await get_tree().process_frame
+		var sayfa: Control = ana._ust
+		var kaydir := sayfa.find_child("UsulKaydirma", true, false) as ScrollContainer
+		var anahtarlar := {}
+		if kaydir != null:
+			for satir in kaydir.find_children("*", "Label", true, false):
+				var anahtar := String(satir.get_meta(&"usul_anahtari", ""))
+				if not anahtar.is_empty() and satir.text == tr(anahtar) and satir.text != anahtar:
+					anahtarlar[anahtar] = true
+		_kontrol(anahtarlar.size() == 25, "OGR-35 tek kaydırmada 25 çevrilmiş yardım satırı")
+		var geri := InputEventAction.new()
+		geri.action = &"geri"
+		geri.pressed = true
+		sayfa._unhandled_input(geri)
+		await get_tree().process_frame
+		ust = ana._ust
+		_kontrol(ust != null and ust.has_signal("secildi"), "OGR-35 Geri duraklat menüsüne döner")
 	if ust != null and ust.has_signal("secildi"):
 		ust.secildi.emit(2)  # 2: Menüye dön
 	await get_tree().create_timer(0.3).timeout
