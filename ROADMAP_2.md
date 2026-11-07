@@ -3893,7 +3893,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: ACL-04. Boyut: S.
   - Dosya: yeni: `data/ogretici/ilk_saat.json`; yeni: `src/sistemler/ilk_saat.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-02:** İlk gece yalnız kapı ve karar öğretir.
+- [x] **OGR-02:** İlk gece yalnız kapı ve karar öğretir. (Kalfa)
   - Ne: ulak ve ilk aile (ACL-04) geçerken oyuncu yalnız soru sormayı ve kabul/ret vermeyi görür. Rüşvet, arama, zar değiştiricisi ve heybe ilk gece kapalıdır.
   - Kabul: gece 0'da `rusvet_hakki` (`data/ayarlar/oyun.tres`) düğmesi görünmez; soru sayısı `azami_soru` (4) ile sınırlı kalır. Test: gece 0 anlık görüntüsünde rüşvet ve arama düğmesi 0.
   - Bağımlılık: OGR-01, ACL-04. Boyut: S.

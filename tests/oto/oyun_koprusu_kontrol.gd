@@ -44,18 +44,27 @@ func _ready() -> void:
 	await get_tree().process_frame
 	assert(not ana._kapi.has_node("AcilisOgretici"))
 	assert(ana.oturum.gece_sonu().get("engellendi", false))
-	# Aynı gerçek selam, konu, heybe ve karar düğmeleri; kaynak veya gün hilesi yok.
+	ana._kapi._tumunu_goster()
+	var ilk := kopru.get_state()
+	if ilk.eylemler.size() != 1 or ilk.eylemler[0].metin != tr("arayuz.sohbet.karar_ver") or ilk.kisi.sorular.size() != 1:
+		push_error("OGR-02: ilk ailede yalnız soru ve karar görünür. Eylemler: %s, sorular: %s" % [str(ilk.eylemler), str(ilk.kisi.sorular)])
+		get_tree().quit(1)
+		return
+	assert(ilk.kisi.kalan_soru_hakki <= ana.oturum.ayarlar.azami_soru and ana._kapi._gelen.chr_sorgusu() == null)
+	var beyan_once := ana._kapi._gelen.heybe.soruldu
+	ana._kapi._heybe_sor()
+	ana._kapi._heybe_ac()
+	assert(ana._kapi._heybe_paneli == null and ana._kapi._gelen.heybe.soruldu == beyan_once)
+	# Gerçek selam, konu ve karar düğmeleri; kaynak veya gün hilesi yok.
 	for _i in 2:
 		ana._kapi._tumunu_goster()
 		assert(not (await kopru.run_command("soru_sor", {"indeks": 0})).has("error"))
 		await get_tree().create_timer(0.3).timeout
-	ana._kapi._heybe_ac()
-	await get_tree().process_frame
-	assert(ana._kapi._heybe_paneli != null)
-	ana._kapi._heybe_paneli.kapandi.emit()
-	await get_tree().process_frame
 	ana._kapi._karar_goster()
 	ana._kapi._tumunu_goster()
+	await get_tree().process_frame
+	var ilk_karar := kopru.get_state()
+	assert(ilk_karar.kisi.kararlar == ["kabul", "ret"] and ilk_karar.eylemler.is_empty())
 	assert(not (await kopru.run_command("kapi_karar", {"karar": "kabul"})).has("error"))
 	for _i in 150:
 		await get_tree().create_timer(0.08).timeout

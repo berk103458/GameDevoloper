@@ -1,3 +1,11 @@
+## 6 Kasım 2026 — OGR-02 tamamlandı (Kalfa)
+
+Full pull 0a9aff04 güncel, Ajan Masası okundu. Mevcut ACL-04 ilk aile ziyaretinde tek kısıt sohbet/karar heybe ve sağlık incelemesi düğmelerini kapatır. Doğrudan heybe çağrıları da beyan/panel açmaz. Kabul ve ret mevcut ACL-04 yolundan, sorular mevcut azami_soru sınırından geçer. Öğreticideki heybe yönlendirmesi kaldırıldı. İlk ailede Söz/CHR zarı yoktur. Diğer ziyaretlerin mevcut akışı sürer.
+
+İlk RED heybe eylemi, sonraki RED sağlık inceleme eylemi. Gerçek köprü testi son koşuda ilk gece kontrolleri, selam/konu, kabul, ertesi gün, kapıda kayıt ve köye dönüşle PASS. Mevcut ACL-04 birimi PASS. İlk import iki MD5 hatası, ikinci exit0/script0/MD50. Üç kaynak ve bellek ayırıcı kapanış hatası sürer. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+OGR-04 ilk kabulden önce köy ekranını kapatmayı ister. Bu, kapanmış ACL-01 gerçek yeni oyun akışında köyde başlama kabulüyle çelişiyor. OGR-04 açık. OGR-05 bağımsız kısa rapor incelemesi sırada.
+
 ## 6 Kasım 2026 — DEN-72 tamamlandı (Kalfa)
 
 Denge tablosunda üç sayısal zorluk çarpanı ve menü, panel, sekme, yazı boyutu alanı0 doğrulandı. Denge doğrulayıcısı PASS. Mevcut menü kapsamı AYR-23, AYR-34 ve Bölüm43. DEN-66/69 adaptörü oturum tercihi ve başlangıç erzağına bağlanır. Bu madde yalnız veri/sorumluluk kabulüdür. Oyun kodu ve asset değişikliği yok. DEN-71 başsız hedefler ve import kanıtı güncel. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
