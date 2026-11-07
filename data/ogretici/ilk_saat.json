@@ -2,6 +2,22 @@
 	"tehdit_baslangic": "res://data/tehdit_takvimi.json",
 	"son_kilidi_gece": 6,
 	"azami_ipucu": 20,
+	"hud_katmanlari": {
+		"hud.gd": {"takvim": 0, "huzur": 1, "adalet_asayis": 1},
+		"kaynak_gostergesi.gd": {
+			"akce": 0, "gida": 0, "odun": 0, "tas": 0, "su": 0,
+			"kereste": 1, "alet": 1, "tomruk": 1, "bugday": 1, "un": 1,
+			"kirec": 2, "harc": 2, "cevher": 2, "demir": 2, "civi": 2,
+			"tirpan": 3, "balta": 3, "afyon": 3, "sargi": 3, "kece": 3,
+			"kumas": 3, "zirh": 3, "yay": 3, "kalkan": 3, "saman": 3
+		},
+		"acilis_kapi_bilgisi.gd": {"ana": 0},
+		"bosta_gostergesi.gd": {"ana": 1},
+		"kese_gostergesi.gd": {"ana": 2},
+		"ambar_kapisi_paneli.gd": {"ana": 2},
+		"cinar_meclis_paneli.gd": {"ana": 3},
+		"histeri_paneli.gd": {"ana": 3}
+	},
 	"kavramlar": [
 		{"id": "kapi_sorgusu", "gece_min": 0, "tetik": "kapi_ilk_aile", "atla_gecmis": ["medrese_talebesi", "katip"], "surum_min": 1},
 		{"id": "koy_atama", "gece_min": 0, "tetik": "ilk_kabul", "atla_gecmis": ["coban_oglu", "ciftci"], "surum_min": 1},

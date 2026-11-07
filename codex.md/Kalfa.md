@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — OGR-25 tamamlandı (Kalfa)
+
+Full pull 12c77358 güncel, Ajan Masası okundu. Köyün sürekli görünen üst HUD şeridinde ilk gece beş temel kaynak ve bir takvim/durum grubu vardır. Kaynak ve durum katmanları ilk_saat.json eşikleriyle ilk üç gecede açılır. Bekleyen kartlar hazırlanır ve eşik dolana kadar sahne ağacının dışında kalır. Acil uyarı ve onarımlar kendi durum verileriyle erken açılabilir. Bağlama bağlı menüler mevcut akışını korur.
+
+Köy HUD, gerçek açılış, HUD işlemleri, kriz ve ilk saat hedefleri geçti. İlk import bir MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — OGR-22 tamamlandı (Kalfa)
 
 Full pull 5cb8b631 güncel, Ajan Masası okundu. İlk köy açılışında mevcut IpucuSeridi, GIR-26 eylemlerinden üç hız ve duraklatma atamasını okur. ROADMAP eski 1–5/P notu yerine geçerli harita esas alındı. 4/5 kapı kısayollarıdır. P nüfusu açar. Görülen ipucu ilk köy kaydında yazılır ve yüklemede tekrarlanmaz. Kapalı ipucu tercihi AYR-12 üzerinden uygulanır. Ek ayar henüz birleşmemişse mevcut AYR varsayılanı kullanılır.

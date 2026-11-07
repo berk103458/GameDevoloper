@@ -72,6 +72,7 @@ func _ready() -> void:
 	sahne3b.yonetim = _y
 	_vp.add_child(sahne3b)
 	hud = Hud.new()
+	hud.katmanlari_kur(oturum, ayarlar)
 	add_child(hud)
 	hud.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
 	hud.bagla(oturum)

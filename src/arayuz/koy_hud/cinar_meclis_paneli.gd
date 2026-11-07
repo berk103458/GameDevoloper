@@ -5,9 +5,12 @@ extends RefCounted
 static func _ekran(n: Node) -> Node:
 	return AmbarKapisiPaneli._ekran(n)
 
-static func hud(h: Node, y: KoyYonetimi) -> void:
+static func hud(h: Node, y: KoyYonetimi, goster: bool = true) -> void:
 	CinarAltiMeclisi.esitle(y)
 	var ust: Node = h._huzur_bar.get_parent()
+	if not goster:
+		preload("res://src/arayuz/koy_hud/hud_katmani.gd").gecici_kaldir(ust, "cinar_meclisi")
+		return
 	var b := ust.get_node_or_null("cinar_meclisi") as Button
 	if b == null:
 		b = Button.new()

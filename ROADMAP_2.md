@@ -4044,7 +4044,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
 
 ### 33.5 Kademeli açılan arayüz
 
-- [ ] **OGR-25:** HUD katmanları gece sayısına göre açılır.
+- [x] **OGR-25:** HUD katmanları gece sayısına göre açılır. (Kalfa)
   - Ne: köy HUD'undaki ~45 panelin tümü ilk gece görünmez. `ilk_saat.json` her panelin dosya adına `gece_min` verir; panel o geceden önce ağaca eklenmez.
   - Kabul: gece 0 HUD'unda panel sayısı ≤ 6. Test: `tests/oto/koy_hud_kontrol.tscn` gece 0 ile çalıştırılır.
   - Bağımlılık: OGR-01. Boyut: M.

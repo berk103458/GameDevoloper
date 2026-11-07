@@ -27,6 +27,13 @@ var _onceki: Dictionary = {}
 var _onceki_gun := -1
 var _net: Dictionary = {}
 var _zaman := 0.0
+var _katman = preload("res://src/arayuz/koy_hud/hud_katmani.gd").new()
+
+func katmanlari_kur(oturum: Oturum, ayarlar: Ayarlar) -> void:
+	_katman.kur(oturum, ayarlar)
+
+func _notification(ne: int) -> void:
+	if ne == NOTIFICATION_PREDELETE: _katman.temizle()
 
 
 ## HUD'u bir oturuma bağlar.
@@ -41,7 +48,6 @@ func _ready() -> void:
 	add_theme_stylebox_override("panel", Tema.koy_paneli())
 	var kutu := HBoxContainer.new()
 	kutu.add_theme_constant_override("separation", 14)
-	add_child(kutu)
 	var kaynak_kaydir := ScrollContainer.new()
 	kaynak_kaydir.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	kaynak_kaydir.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -49,6 +55,7 @@ func _ready() -> void:
 	kutu.add_child(kaynak_kaydir)
 	_kese = KeseGostergesi.new()
 	kutu.add_child(_kese)
+	_katman.izle(_kese, "kese_gostergesi.gd")
 	var kaynaklar := HBoxContainer.new()
 	kaynaklar.add_theme_constant_override("separation", 8)
 	kaynak_kaydir.add_child(kaynaklar)
@@ -63,11 +70,13 @@ func _ready() -> void:
 	_huzur_etiket = _etiket(huzur, Tema.KUCUK_PX)
 	_huzur_bar = _bar(huzur)
 	kutu.add_child(huzur)
+	_katman.izle(huzur, "hud.gd", "huzur")
 	var gosterge := VBoxContainer.new()
 	_adalet = _etiket(gosterge, Tema.KUCUK_PX)
 	_adalet_bar = _bar(gosterge)
 	_asayis = _etiket(gosterge, Tema.KUCUK_PX)
 	kutu.add_child(gosterge)
+	_katman.izle(gosterge, "hud.gd", "adalet_asayis")
 	var sag := VBoxContainer.new()
 	_gun = _etiket(sag, Tema.BASLIK_PX)
 	_gun.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
@@ -77,6 +86,9 @@ func _ready() -> void:
 	_nufus.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_ambar_bar = _bar(sag)
 	kutu.add_child(sag)
+	_katman.izle(sag, "hud.gd", "takvim")
+	_katman.guncelle()
+	add_child(kutu)
 	set_process(false)
 	visibility_changed.connect(_islem_ayarla)
 
@@ -110,6 +122,12 @@ func guncelle() -> void:
 		return
 	_islem_ayarla()
 	var y := _oturum.yonetim
+	var meclis_gerekli: bool = not CinarAltiMeclisi._krizler(y).is_empty() or not CinarAltiMeclisi.durum(y).oylama.is_empty()
+	var histeri_gerekli := preload("res://src/koy/batil_inanc_histerisi.gd").bekliyor(y)
+	var zorunlular := PackedStringArray()
+	if meclis_gerekli or histeri_gerekli or y.isyan_kalan >= 0: zorunlular.append("hud.gd:huzur")
+	if y.asayis_riski >= ASAYIS_KRITIK: zorunlular.append("hud.gd:adalet_asayis")
+	_katman.guncelle(zorunlular)
 	var k := y.kaynaklar
 	if y.gun != _onceki_gun:
 		_net.clear()
@@ -123,7 +141,7 @@ func guncelle() -> void:
 			_onceki[t] = k.miktar(t)
 	_akce.guncelle(y.akce, int(_net.get("akce", 0)), y.akce < 0)
 	_akce.tooltip_text = IflasYoneticisi.tip(y)
-	_kese.guncelle(_oturum)
+	if _kese.is_inside_tree(): _kese.guncelle(_oturum)
 	for t in STOKLAR:
 		var l: KaynakGostergesi = _stok_etiketleri[t]
 		l.guncelle(k.miktar(t), int(_net.get(t, 0)), t == "gida" and y.gida_gunu() < 2.0 and y.nufus() > 0)
@@ -138,18 +156,28 @@ func guncelle() -> void:
 	_ambar_bar.max_value = maxi(1, k.kapasite)
 	_ambar_bar.value = k.toplam()
 	_ambar_bar.tooltip_text = (tr("koy.hud.ambar") % [k.toplam(), k.kapasite]) + "\n" + AmbarBakimi.tip()
-	AmbarKapisiPaneli.hud(self, y)
-	CinarMeclisPaneli.hud(self, y)
-	preload("res://src/arayuz/koy_hud/histeri_paneli.gd").hud(self, y)
+	if _katman.acik("ambar_kapisi_paneli.gd", "ana", KitlikIsyani.durum(y).kapi_kirik):
+		AmbarKapisiPaneli.hud(self, y)
+	else:
+		_katman.gecici_kaldir(_ambar_bar.get_parent(), "ambar_kapisi_onar")
+	CinarMeclisPaneli.hud(self, y, _katman.acik("cinar_meclis_paneli.gd", "ana", meclis_gerekli))
+	if _katman.acik("histeri_paneli.gd", "ana", histeri_gerekli):
+		preload("res://src/arayuz/koy_hud/histeri_paneli.gd").hud(self, y)
+	else:
+		_katman.gecici_kaldir(_huzur_bar.get_parent(), "histeri_karari")
 	_adalet.text = tr("arayuz.hud.adalet") % y.adalet
 	_asayis.text = tr("arayuz.hud.asayis") % y.asayis_riski
 	_asayis.add_theme_color_override("font_color", UYARI if y.asayis_riski >= ASAYIS_KRITIK else Renkler.KUL)
 	_gun.text = tr("arayuz.hud.gun") % (y.gun + 1)
 	MevsimTakvim.guncelle(_mevsim, y)
-	preload("res://src/arayuz/koy_hud/bosta_gostergesi.gd").guncelle(self, y)
+	if _katman.acik("bosta_gostergesi.gd"):
+		preload("res://src/arayuz/koy_hud/bosta_gostergesi.gd").guncelle(self, y)
+	else:
+		_katman.gecici_kaldir(_nufus.get_parent(), "BostaSayisi")
 	_nufus.text = tr("arayuz.hud.nufus") % [y.nufus(), y.yatak_kapasitesi(), k.toplam(), k.kapasite]
 	preload("res://src/arayuz/kapi/bar_bicimi.gd").isaretle(self)
-	preload("res://src/arayuz/koy_hud/acilis_kapi_bilgisi.gd").guncelle(self, _oturum)
+	if _katman.acik("acilis_kapi_bilgisi.gd"):
+		preload("res://src/arayuz/koy_hud/acilis_kapi_bilgisi.gd").guncelle(self, _oturum)
 
 
 func _bar(ust: Control) -> ProgressBar:
@@ -172,4 +200,5 @@ func _kaynak(ust: Control, tur: String) -> KaynakGostergesi:
 	ust.add_child(kart)
 	var olcek := float(get_theme_default_font_size()) / Tema.GOVDE_PX
 	kart.kur(tur, roundi(18 * olcek))
+	_katman.izle(kart, "kaynak_gostergesi.gd", tur)
 	return kart
