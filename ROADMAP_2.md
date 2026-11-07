@@ -1657,7 +1657,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `data/metin/metinler.csv`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-53:** Eşya kavga ganimeti olabilir
+- [/] **YAP-53:** Eşya kavga ganimeti olabilir (Antigravity)
   - Ne: Eşya kavga ganimeti olabilir. CAT ayrı eşya sınıfı açmaz.
   - Kabul: Eşya kavga ganimeti olabilir. Sınıf aynı. Test: CAT.
   - Bağımlılık: CAT-02. Boyut: S.
@@ -3466,7 +3466,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ZAR-01, DEN-03. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`, `data/chr_runtime/sorgu_kurallari.tres`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-18:** Başarılı ikna, rüşveti azaltan bir çarpan değildir.
+- [/] **DEN-18:** Başarılı ikna, rüşveti azaltan bir çarpan değildir. (Antigravity)
   - Ne: zar sonucu kasaya yazılmaz. Kasa, karar matrisinden yazar (KOP-10).
   - Kabul: zar sonucu kasaya yazılmaz. Kasa, karar matrisinden yazar (KOP-10). Test: 100 başarılı zar, kasa yalnız matris kadar değişir.
   - Bağımlılık: KOP-10, ZAR-01. Boyut: S.
@@ -3478,7 +3478,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ZAR-03, DIY-13. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-20:** d6 ve d12 aynı ekonomik kapıyı kullanır.
+- [/] **DEN-20:** d6 ve d12 aynı ekonomik kapıyı kullanır. (Antigravity)
   - Ne: yüzün türü zorluğu değiştirir, kasaya ayrı çarpan yazmaz.
   - Kabul: yüzün türü zorluğu değiştirir, kasaya ayrı çarpan yazmaz. Test: aynı karar, iki zar türü, kasa farkı 0.
   - Bağımlılık: ZAR-01, DEN-18. Boyut: S.
