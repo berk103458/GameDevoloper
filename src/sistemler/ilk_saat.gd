@@ -8,6 +8,11 @@ const VERI_YOLU := "res://data/ogretici/ilk_saat.json"
 const TEHDIT_YOLU := "res://data/tehdit_takvimi.json"
 const AZAMI_IPUCU := 20
 
+static func ipucu_metni(anahtar: String) -> String:
+	var metin := TranslationServer.translate(anahtar)
+	return GuvenliMetin.metin(anahtar) if metin == anahtar or metin.is_empty() else metin
+
+
 var _veri: Dictionary = {}
 var _kavramlar: Array[Dictionary] = []
 var _gorulen: Dictionary = {}
@@ -143,7 +148,7 @@ func zar_ipucu_kontrol(guncel_gece: int) -> Dictionary:
 	zar_gosterildi = true
 	return {
 		"ipucu_sayisi": 1,
-		"metin": "gerekli = değer + 1 + tansiyon eki",
+		"metin": ipucu_metni("ogretici.zar.formul"),
 		"zar_gosterildi": true,
 	}
 
@@ -162,7 +167,7 @@ func insa_kaynak_uyarisi(kaynak_yeterli: bool, eksik_kaynak: String = "tas") -> 
 		kaynak_yeri = "oduncu"
 	return {
 		"ipucu_sayisi": 1,
-		"metin": "Kaynak yetmiyor; %s üzerinden temin edilir." % kaynak_yeri,
+		"metin": ipucu_metni("ogretici.insa.kaynak") % kaynak_yeri,
 		"kaynak_yeri": kaynak_yeri,
 	}
 
@@ -175,7 +180,7 @@ func heybe_gizli_esya_ipucu(esya_gizli_var: bool, guncel_gece: int = 2) -> Dicti
 	tetikle("ilk_gizli_esya", maxi(2, guncel_gece))
 	return {
 		"ipucu_sayisi": 1,
-		"metin": "Şüpheli yolcuda heybe araması gizli eşyayı ortaya çıkarır.",
+		"metin": ipucu_metni("ogretici.heybe.gizli"),
 	}
 
 
@@ -187,7 +192,7 @@ func tansiyon_gergin_ipucu(kademe: String) -> Dictionary:
 	_gorulen["tansiyon_gergin"] = true
 	return {
 		"ipucu_sayisi": 1,
-		"metin": "Ortam gerildi; zar eşiği +1 zorlaştı.",
+		"metin": ipucu_metni("ogretici.zar.gergin"),
 	}
 
 
@@ -204,7 +209,7 @@ func bar_degisim_ipucu(bar_anahtari: String, delta: int, guncel_gece: int = 1) -
 	return {
 		"ipucu_sayisi": 1,
 		"bar_anahtari": tam_anahtar,
-		"metin": "Verdiğin karar %s dengesini etkiledi (%s)." % [tam_anahtar, yon],
+		"metin": ipucu_metni("ogretici.bar.degisim") % [tam_anahtar, yon],
 	}
 
 
@@ -215,7 +220,7 @@ func barinak_dolu_ipucu(bos_yatak: int) -> Dictionary:
 	_gorulen["barinak_ilk_dolu"] = true
 	return {
 		"ipucu_sayisi": 1,
-		"metin": "Barınakta yer kalmadı; kabul edilen dışarıda geceler.",
+		"metin": ipucu_metni("ogretici.barinak.dolu"),
 		"engeller": false,
 	}
 
@@ -230,7 +235,7 @@ func kaynak_eksilis_ipucu(tuketim_miktari: int, kaynak_adi: String = "erzak") ->
 		temiz_ad = "erzak"
 	return {
 		"ipucu_sayisi": 1,
-		"metin": "Köy nüfusu her gece %s tüketir (-%d)." % [temiz_ad, tuketim_miktari],
+		"metin": ipucu_metni("ogretici.kaynak.eksi") % [temiz_ad, tuketim_miktari],
 	}
 
 
@@ -241,7 +246,7 @@ func kitlik_esigi_ipucu(ambar_gece: float, ambar_yedek_gece: float = 1.0) -> Dic
 	_gorulen["kitlik_ilk_yaklasma"] = true
 	return {
 		"ipucu_sayisi": 1,
-		"metin": "Ambar yedek gecenin altına indi; kıtlık kapıda.",
+		"metin": ipucu_metni("ogretici.ambar.esik"),
 		"renk_uyarisi": true,
 	}
 
@@ -255,7 +260,7 @@ func iflas_uyarisi_ipucu(eksi_kasa_gece_sayisi: int, iflas_esigi_gece: int = 3) 
 	return {
 		"ipucu_sayisi": 1,
 		"kalan_gece": kalan,
-		"metin": "Kasa ekside; %d gece içinde düzelmezse iflas gelir." % kalan,
+		"metin": ipucu_metni("ogretici.kasa.iflas") % kalan,
 	}
 
 

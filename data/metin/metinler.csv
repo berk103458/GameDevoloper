@@ -2399,3 +2399,15 @@ koy.cozumleme.neden.kuyrukta,Defter sıraya eklenecek.,The notebook will be queu
 koy.cozumleme.neden.bedel,Köy kasasında yeterli akçe yok.,The village has insufficient funds.
 koy.cozumleme.durdu,İnceleme durdu. %s,Study paused. %s
 koy.cozumleme.siradaki,Bekliyor: %s,Waiting: %s
+ogretici.zar.formul,gerekli = değer + 1 + tansiyon eki,required = value + 1 + tension modifier
+ogretici.insa.kaynak,Eksik malzeme için %s işe yarar.,For the missing material: %s.
+ogretici.heybe.gizli,Şüphelenirsem gizli eşya için heybeyi arayabilirim.,"If I suspect hidden goods, I can search the bag."
+ogretici.zar.gergin,Ortam gerildi. Zar eşiği bir arttı.,Tension rose. The roll threshold went up by one.
+ogretici.bar.degisim,Kararımdan sonra %s değişti (%s).,"After my decision, %s changed (%s)."
+ogretici.barinak.dolu,Yatak kalmadı. İçeri alırsam dışarıda uyur.,"No beds left. If I admit them, they sleep outside."
+ogretici.kaynak.eksi,Köy bu gece %s tüketti (-%d).,The village used %s tonight (-%d).
+ogretici.ambar.esik,Ambar yedek payının altına indi. Erzak bulmalıyım.,The granary fell below its reserve. I need food.
+ogretici.kasa.iflas,Kasa ekside. %d gece içinde toparlayamazsam iflas ederim.,The treasury is short. I have %d nights to avoid bankruptcy.
+ogretici.kapi.selam,Önce sağdaki selamla söze gireyim.,I will start with the greeting on the right.
+ogretici.kapi.konu,Aileye neden geldiklerini sorayım.,I should ask why the family came.
+ogretici.kapi.karar,Dinledim. Şimdi kabul ya da ret kararımı onaylayayım.,I have heard them. Now I can confirm admission or refusal.

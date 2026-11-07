@@ -3938,7 +3938,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-07. Boyut: S.
   - Dosya: yeni: `src/arayuz/ipucu_seridi.gd`; `tools/metin_dogrula.py` tek kural.
   - Asset: asset gerekmedi.
-- [ ] **OGR-09:** İpucu kendi anahtarıyla yazılır, Üslup Rehberi'ne uyar.
+- [x] **OGR-09:** İpucu kendi anahtarıyla yazılır, Üslup Rehberi'ne uyar. (Kalfa)
   - Ne: ipucu metinleri `ogretici.` önekiyle `metinler.csv`'ye girer; USLUP_REHBERI §7 yapaylık denetiminden geçer ("Bu hatırlanacak" tonu değil, muhafızın kendi kendine notu tonu).
   - Kabul: `ogretici.` anahtarları yapaylık taramasından (YAZ-10) geçer. Test: tarama raporunda `ogretici.` ihlali 0.
   - Bağımlılık: YAZ-02, YAZ-10. Boyut: S.

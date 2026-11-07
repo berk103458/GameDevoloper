@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — OGR-09 tamamlandı (Kalfa)
+
+Full pull 141137de güncel, Ajan Masası okundu. Mevcut dokuz ilk saat ipucu ve üç açılış yönlendirmesi ayrı ogretici.* CSV anahtarlarına taşındı. Metinler kısa, somut ve muhafızın kendi notu tonunda. İlk saat ve gerçek kapı öğreticisi aynı çeviri okumasını kullanır. Metin parametreleri, ilk görülme kuralları ve zar formülü korunur.
+
+12 Türkçe satır Roadmap-2/soz_agaci/yapaylik.js mevcut YAZ-10 denetle API'sine muhafızın bağımsız satırları olarak verildi. Satır ihlali0. İki dilde 90 karakter sınırı ve biçim alanlarının eşleşmesi kontrol edildi. CSV, ilk saat birimi ve gerçek köprü akışı PASS. İlk başsız import iki MD5 hatası verdi. İkinci exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — OGR-05 tamamlandı (Kalfa)
 
 Full pull f187064e güncel, Ajan Masası okundu. Yeni oyunun 0–2 numaralı gecelerinde mevcut rapor gövdesi üç satırdır: gelenler, kalanlar, önceki ve sonraki ambar erzağı. Üçüncü geceden sonra mevcut ayrıntı yolu kullanılır. Ziyaret açılışları için sınırlı ad listesi yalnız bu dönemde optional oturum kaydına girer. Ulak mevcut ACL-04 işaretinden, kalanlar gerçek köy giriş gününden, erzak mevcut gece bilançosundan okunur. Gece bitince ziyaret listesi temizlenir. Cenaze kararları mevcut ayrı eylem akışındadır. Kayıt sürümü ve bilanço hesabı aynı.

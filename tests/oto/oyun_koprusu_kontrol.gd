@@ -40,6 +40,9 @@ func _ready() -> void:
 	assert(Time.get_ticks_msec() - baslangic < 60000 and ana.oturum.gun == 0)
 	assert(ana.oturum.yonetim.nufus() == 2 and ana._kapi._gelen.id == &"acl04_ilk_aile")
 	var ogretici := ana._kapi.get_node("AcilisOgretici")
+	var ogretici_satirlari := (ogretici.get_node("Adimlar") as Label).text.split("\n")
+	assert(ogretici_satirlari.size() == 3 and ogretici_satirlari[0] == IlkSaat.ipucu_metni("ogretici.kapi.selam"))
+	assert(not (ogretici.get_node("Adimlar") as Label).text.contains("ogretici."))
 	(ogretici.get_child(1) as Button).pressed.emit()
 	await get_tree().process_frame
 	assert(not ana._kapi.has_node("AcilisOgretici"))
