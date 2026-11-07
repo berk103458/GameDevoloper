@@ -72,6 +72,7 @@ func _ilk_geceler(kat: Katalog) -> void:
  acilis.ulak_bitir(o)
  var aile: Gelen = acilis.kuyruk(o)[0]
  o.ziyaret_basladi(aile)
+ o.ziyaret_basladi(aile)
  dene(o.karar_ver(aile, &"kabul").get("kaldi", false), "OGR-05 gerçek kabul")
  var yuklu := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
  dene(yuklu != null, "OGR-05 gün içi ziyaret kaydı yüklenir")
@@ -79,8 +80,17 @@ func _ilk_geceler(kat: Katalog) -> void:
  var ilk: Dictionary = yuklu.gece_sonu().bilanco.kapi_ozeti
  dene(ilk.gelenler.size() == 2 and ilk.gelenler.has(o.tr_gelen(aile)), "OGR-05 ulak ve aile ilk raporda")
  dene(ilk.kalanlar == ["Ali", "Zeynep"], "OGR-05 yalnız gerçek kabul edilenler kalır")
- for gun in [1, 2, 3]:
+ dene(yuklu.ilk_saat_gelen == 2, "OGR-36 aile kişi sayısı ve aynı ziyaretin tek kaydı JSON'da korunur")
+ for gun in [1, 2, 3, 4, 5, 6]:
+  if gun == 5:
+   var yolcu := Gelen.new()
+   yolcu.ad_anahtari = "Yolcu"
+   yuklu.ziyaret_basladi(yolcu)
+   yuklu.karar_ver(yolcu, &"ret")
   var b: Dictionary = yuklu.gece_sonu().bilanco
   dene(b.gun == gun and b.has("kapi_ozeti") == (gun < 3), "OGR-05 gece sınırı: %d" % gun)
+  dene(b.has("ilk_saat_ozeti") == (gun == 5), "OGR-36 altıncı geceyle sınırlı")
+  if b.has("ilk_saat_ozeti"):
+   dene(b.ilk_saat_ozeti == {"gelen": 4, "kabul": 2, "ret": 1, "nufus": yuklu.yonetim.nufus()}, "OGR-36 ulak, aile, ret ve canlı nüfus")
   if b.has("kapi_ozeti"):
    dene(b.kapi_ozeti.gelenler.is_empty() and b.kapi_ozeti.kalanlar.is_empty(), "OGR-05 önceki gece tekrar gösterilmez")

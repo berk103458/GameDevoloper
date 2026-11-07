@@ -181,6 +181,7 @@ func heybe_uret(sinif: StringName) -> Heybe:
 
 ## Sohbet açıldı (adlı karakterde ziyaret sayılır).
 func ziyaret_basladi(gelen: Gelen) -> void:
+	GeceBilancosu.ilk_saat_ziyaret_yaz(self, gelen)
 	GeceBilancosu.gelen_yaz(self, gelen)
 	if gelen.adli:
 		kadro.ziyaret_basladi(gelen.id, gun)
@@ -757,6 +758,7 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 
 ## Gün sonu kaydı için sözlük (oturum + köy yönetimi).
 var ipucu_kaydi := IpucuKaydi.new()
+var ilk_saat_gelen: int = 0
 
 
 func kaydet() -> Dictionary:
@@ -796,6 +798,8 @@ func kaydet() -> Dictionary:
 		veri["soz"] = soz_kaydi.paket(kadro)
 	if GeceBilancosu.kisa_mi(self) and has_meta(GeceBilancosu.GELEN_META):
 		veri["ilk_gece_gelenleri"] = GeceBilancosu.gelenleri_oku(get_meta(GeceBilancosu.GELEN_META))
+	if gun <= GeceBilancosu.ILK_SAAT_SON_GECE and ilk_saat_gelen >= 0:
+		veri["ilk_saat_gelen"] = ilk_saat_gelen
 	return veri
 
 
@@ -854,6 +858,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	if not dedikodu_verisi is Dictionary or not o.dedikodu.yukle(dedikodu_verisi): return null
 	o._koy_esitle()
 	o.ipucu_kaydi.kayittan_oku(veri)
+	o.ilk_saat_gelen = GeceBilancosu.ilk_saat_gelen_oku(veri.get("ilk_saat_gelen"))
 	if GeceBilancosu.kisa_mi(o) and veri.has("ilk_gece_gelenleri"):
 		o.set_meta(GeceBilancosu.GELEN_META, GeceBilancosu.gelenleri_oku(veri["ilk_gece_gelenleri"]))
 	return o
