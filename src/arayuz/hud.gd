@@ -31,6 +31,11 @@ var _katman = preload("res://src/arayuz/koy_hud/hud_katmani.gd").new()
 
 func katmanlari_kur(oturum: Oturum, ayarlar: Ayarlar) -> void:
 	_katman.kur(oturum, ayarlar)
+	if ayarlar != null and not ayarlar.degisti.is_connected(_katman_ayari_degisti):
+		ayarlar.degisti.connect(_katman_ayari_degisti)
+
+func _katman_ayari_degisti(anahtar: StringName) -> void:
+	if anahtar == &"kademeli_hud": guncelle()
 
 func _notification(ne: int) -> void:
 	if ne == NOTIFICATION_PREDELETE: _katman.temizle()

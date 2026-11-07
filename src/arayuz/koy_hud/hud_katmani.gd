@@ -16,7 +16,7 @@ func koy_hudu() -> bool:
 
 func acik(dosya: String, parca: String = "ana", zorunlu: bool = false) -> bool:
 	if zorunlu or _oturum == null or not ACILIS.durum(_oturum).get("kuruldu", false): return true
-	if _ayarlar != null and not _ayarlar.degerler.get(&"kademeli_hud", AyarlarEk.VARSAYILAN[&"kademeli_hud"]): return true
+	if not preload("res://src/sistemler/ipucu_anahtari.gd").kademeli_mi(_ayarlar): return true
 	if dosya == "muhafiz_odasi_baglantisi.gd":
 		return (int(SancakTeftisi.oku(_oturum.sancak_teftisi).son_gece) >= 0
 			or int(MuhafizTerazisi.durum(_oturum).yozlasma) > 0

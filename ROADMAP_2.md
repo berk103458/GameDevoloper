@@ -4068,13 +4068,13 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-25. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/hud_katmani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-29:** Kademeli açılış ayarlardan kapatılabilir.
+- [x] **OGR-29:** Kademeli açılış ayarlardan kapatılabilir. (Kalfa)
   - Ne: Bölüm 35'te "deneyimli oyuncu" anahtarı; açıkken bütün paneller ilk geceden görünür ve ipucu çıkmaz.
   - Kabul: anahtar açıkken gece 0 HUD tam. Test: iki anahtar durumunda panel sayısı.
   - Bağımlılık: AYR-12, OGR-25. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/hud_katmani.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-30:** Katman sırası tester ikizinde doğrulanır.
+- [x] **OGR-30:** Katman sırası tester ikizinde doğrulanır. (Kalfa)
   - Ne: TST-06 kayıt ikizi ile aynı tohumda iki açılışın panel açılış geceleri eşittir.
   - Kabul: iki koşunun `hud_katmani` günlüğü aynıdır. Test: `tests/oto/` yeni kontrol.
   - Bağımlılık: OGR-25. Boyut: S.

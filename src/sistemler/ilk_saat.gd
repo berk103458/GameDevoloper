@@ -22,6 +22,7 @@ static func koy_hizi_ipucunu_goster(ekran: Control, oturum: Oturum, ayarlar: Aya
 	serit.process_mode = Node.PROCESS_MODE_ALWAYS
 	ekran.add_child(serit)
 	serit.kapandi.connect(func(_id: String) -> void: serit.queue_free())
+	ayarlar.degisti.connect(serit.ayar_degisti.bind(ayarlar))
 	if serit.goster(ipucu_metni("ogretici.koy.hiz"), kimlik):
 		kayit.ipucu_ekle(kimlik)
 	else:

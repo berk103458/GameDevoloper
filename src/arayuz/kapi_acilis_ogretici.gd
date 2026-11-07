@@ -3,6 +3,7 @@ extends RefCounted
 const AK = preload("res://src/sistemler/kapi_acilis_olayi.gd")
 static func kur(k: KapiEkrani) -> void:
 	if not AK.aile_bekliyor(k.oturum) or k.has_node("AcilisOgretici"): return
+	if not preload("res://src/sistemler/ipucu_anahtari.gd").gosterim_acik(k.ayarlar): return
 	var kutu := VBoxContainer.new()
 	kutu.name = "AcilisOgretici"
 	kutu.position = Vector2(32, 130)

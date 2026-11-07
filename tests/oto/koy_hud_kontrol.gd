@@ -26,6 +26,11 @@ func _dene() -> void:
 		push_error("Köy HUD kurulamadı")
 		get_tree().quit(1)
 		return
+	_dogrula(AyarlarEk.ayarla(a, &"kademeli_hud", false), "OGR-29 deneyimli oyuncu tercihi")
+	_dogrula(_paneller(e.hud).size() == Hud.STOKLAR.size() + 5 and e.find_children("oda_ac", "Button", true, false).size() == 1 and e.find_children("harita_ac", "Button", true, false).size() == 1, "OGR-29 ilk gece ayar değişince tam HUD")
+	IlkSaat.koy_hizi_ipucunu_goster(e, o, a)
+	_dogrula(not e.has_node("IpucuSeridi") and not o.ipucu_kaydi.goruldu_mu("koy_hizi"), "OGR-29 deneyimli oyuncuya ipucu gösterilmez veya yazılmaz")
+	_dogrula(AyarlarEk.ayarla(a, &"kademeli_hud", true), "OGR-29 kademeli düzene dön")
 	var ilk_paneller := _paneller(e.hud)
 	_dogrula(ilk_paneller.size() <= 6 and ilk_paneller.has("hud.gd:takvim"), "OGR-25 ilk gece en çok altı gerçek panel")
 	for tur in ["akce", "gida", "odun", "tas", "su"]:
