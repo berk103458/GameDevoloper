@@ -45,6 +45,7 @@ func _defter() -> void:
 	y.gun += 1
 	var d := Defter.sabah(y)
 	_kontrol(d.satirlar.size() == 1 and d.hukum == "infaz", "SAB-01: infaz sabahında tek satır")
+	_kontrol(String(d.get("adalet", "")) == "adalet" and String(d.satirlar[0].get("adalet", "")) == "adalet", "OMR-27: SAB-01 satırında adalet değişimi tek kelime olarak anılır")
 	var tekrar := Defter.sabah(y)
 	_kontrol(tekrar.satirlar.size() == 1, "SAB-01: aynı sabah ikinci satır yok")
 	var metin := JSON.stringify(d)

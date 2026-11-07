@@ -39,6 +39,25 @@ func _initialize() -> void:
 			bulunan[kimlik] = true
 			dene(kimlik == hedef, "DEN-71 %s sonu %s kalır" % [mod, hedef])
 		dene(bulunan.size() == SONLAR.size() and bulunan.has_all(SONLAR), "DEN-71 %s aynı beş sonu üretir" % mod)
+
+	# DEN-63, DEN-70 & DEN-73: Sıkı kriz aralığı kesişmez; üç zorluk aralığı dosyada; beş sonun hedef toplamı 100, altıncı son 0.
+	var denge: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/ayarlar/denge.json"))
+	var kriz_z: Dictionary = denge.get("kriz_aralik_zorluk", {})
+	dene(kriz_z.has_all(["kolay", "olagan", "siki"]), "DEN-70: kriz_aralik_zorluk üç aralığı dosyada taşır")
+	dene(int(kriz_z.get("siki", {}).get("alt", 0)) > int(kriz_z.get("olagan", {}).get("ust", 999)), "DEN-63: sıkının alt sınırı olağanın üst sınırından büyüktür (iki aralık kesişmez)")
+	var iflas_z: Dictionary = denge.get("iflas_aralik_zorluk", {})
+	var rusvet_z: Dictionary = denge.get("rusvet_aralik_zorluk", {})
+	dene(iflas_z.has_all(["kolay", "olagan", "siki"]) and rusvet_z.has_all(["kolay", "olagan", "siki"]), "DEN-70: iflas ve rüşvet için de üçer zorluk aralığı dosyadadır")
+	var son_aralik: Dictionary = denge.get("son_aralik", {})
+	dene(son_aralik.size() == SONLAR.size() and son_aralik.has_all(SONLAR), "DEN-73: son_aralik yalnız beş son taşır, altıncı son 0")
+	var toplam_yuzde := 0
+	for s in SONLAR:
+		var kayit: Dictionary = son_aralik.get(s, {})
+		var h := int(kayit.get("hedef", 0))
+		dene(h >= int(kayit.get("alt", 101)) and h <= int(kayit.get("ust", -1)), "DEN-73: %s hedef yüzdesi alt ve üst sınır arasındadır" % s)
+		toplam_yuzde += h
+	dene(toplam_yuzde == 100, "DEN-73: beş sonun hedef yüzdeleri toplamı 100'dür (%d)" % toplam_yuzde)
+
 	print("ZORLUK SONLARI: GEÇTİ" if hata == 0 else "ZORLUK SONLARI: KALDI")
 	quit(hata)
 

@@ -11,7 +11,7 @@ static func bos() -> Dictionary:
 		"satirlar": [], "gun": -1, "yazilan_gun": -1, "kisi": -1, "hukum": "",
 		"hane": [], "evi_bos": false, "kapali": -1, "katki": 0,
 		"dedikodu": 0, "ekmek": 0, "ekmek_isaret": "", "yol": "",
-		"nufus_deltasi": 0, "cenaze": 0, "kapandi": false, "kayip": false,
+		"nufus_deltasi": 0, "cenaze": 0, "kapandi": false, "kayip": false, "adalet": "",
 	}
 
 
@@ -38,6 +38,8 @@ static func oku(v: Variant) -> Dictionary:
 		d.kapandi = v.kapandi
 	if v.get("kayip") is bool:
 		d.kayip = v.kayip
+	if v.get("adalet") is String:
+		d.adalet = String(v.adalet)
 	return d
 
 
@@ -114,7 +116,8 @@ static func sabah(y: KoyYonetimi, tohum: int = 0, tanik: String = "", yol_ver: V
 	d.hukum = tur
 	d.gun = 0
 	d.yazilan_gun = y.gun
-	d.satirlar = [{"kisi": kisi, "hukum": tur, "gun": 0, "anahtar": "sabah.hukum.satir"}]
+	d.adalet = "adalet" if tur in ["infaz", "surgun"] else ""
+	d.satirlar = [{"kisi": kisi, "hukum": tur, "gun": 0, "anahtar": "sabah.hukum.satir", "adalet": d.adalet}]
 	var hane := hane_kisiler(y, kisi)
 	d.hane = hane
 	d.evi_bos = hane.is_empty()

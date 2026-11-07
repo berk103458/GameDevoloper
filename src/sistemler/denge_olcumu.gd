@@ -113,3 +113,41 @@ static func is_raporu(olcumler: Array[Dictionary]) -> Dictionary:
 ## DEN-35: aynı süren istek her gece yeniden sayılmaz.
 static func bosta_terk_raporu(olcumler: Array[Dictionary]) -> Dictionary:
 	return preload("res://src/sistemler/bosta_terk_olcumu.gd").rapor(olcumler)
+
+
+## DEN-75: TST-04 personası burada tanımlanmaz.
+## Ölçüm, Tester TST-04 kimliğini okur; o maddenin adımları bu dosyada yoktur.
+## Kimlik yoksa ölçüm durur, uydurma persona yazılmaz.
+static func persona_kimligi_oku(kimlik: String, tst_kimlik_listesi: Array) -> Dictionary:
+	var temiz := kimlik.strip_edges()
+	var gosterge := false
+	for ad in tst_kimlik_listesi:
+		if String(ad).strip_edges() == temiz and not temiz.is_empty():
+			gosterge = true
+			break
+	return {
+		"gecerli": gosterge,
+		"olcum_durdu": not gosterge,
+		"persona": temiz if gosterge else "",
+		"kimlik_listesi": tst_kimlik_listesi.duplicate(),
+	}
+
+
+## DEN-76: TST-05 sonuç ölçüsü burada tanımlanmaz.
+## Son dağılımı TST-05'in sayacını salt-okunur okur; ikinci bir son sayacı yazılmaz.
+static func son_dagilimi_oku(tst_son_sayaci: Dictionary) -> Dictionary:
+	return tst_son_sayaci
+
+
+## DEN-80: Sapma, tabloyu kendisi değiştirmez.
+## Aralık dışındaki ölçüm yalnız rapor yazar; `denge.json` oyun sırasında yazılmaz.
+static func sapma_raporu(olcum_degeri: float, alt: float, ust: float, alan: String = "") -> Dictionary:
+	var sapma := olcum_degeri < alt or olcum_degeri > ust
+	return {
+		"alan": alan,
+		"deger": olcum_degeri,
+		"alt": alt,
+		"ust": ust,
+		"sapma_var": sapma,
+		"tablo_degisti": false,
+	}

@@ -149,6 +149,42 @@ class DengeDogrulaTest(unittest.TestCase):
     def test_eksik_dosya_kirmizi(self):
         self.assertEqual(dogrulayici.main(["--denge", "yok_boyle_dosya.json"]), 1)
 
+    def test_nitelikli_is_orani_birden_buyuk_olmali(self):
+        self.assertEqual(dogrulayici.nitelikli_is_orani_hatalari({"nitelikli_gecici_is_orani": 1.6}), [])
+        for oran in [0, 1.0, -1.5, float("inf"), "1.6", True]:
+            with self.subTest(oran=oran):
+                self.assertTrue(dogrulayici.nitelikli_is_orani_hatalari({"nitelikli_gecici_is_orani": oran}))
+
+    def test_siki_kriz_araligi_olaganla_kesismez_ve_uc_zorluk_vardir(self):
+        temiz = {
+            "kriz_aralik_zorluk": {
+                "kolay": {"alt": 0, "ust": 9},
+                "olagan": {"alt": 0, "ust": 12},
+                "siki": {"alt": 13, "ust": 20},
+            }
+        }
+        self.assertEqual(dogrulayici.zorluk_aralik_hatalari(temiz), [])
+        kesisen = {
+            "kriz_aralik_zorluk": {
+                "kolay": {"alt": 0, "ust": 9},
+                "olagan": {"alt": 0, "ust": 12},
+                "siki": {"alt": 12, "ust": 20},
+            }
+        }
+        self.assertTrue(dogrulayici.zorluk_aralik_hatalari(kesisen))
+        eksik = {"kriz_aralik_zorluk": {"kolay": {"alt": 0, "ust": 9}, "olagan": {"alt": 0, "ust": 12}}}
+        self.assertTrue(dogrulayici.zorluk_aralik_hatalari(eksik))
+
+    def test_son_aralik_toplam_100_ve_altinci_son_yok(self):
+        denge = dogrulayici.yukle(dogrulayici.DENGE_YOLU)
+        self.assertEqual(dogrulayici.son_aralik_hatalari(denge), [])
+        bozuk_toplam = json.loads(json.dumps(denge))
+        bozuk_toplam["son_aralik"]["uc_tutundu"]["hedef"] = 25
+        self.assertTrue(dogrulayici.son_aralik_hatalari(bozuk_toplam))
+        altinci = json.loads(json.dumps(denge))
+        altinci["son_aralik"]["altinci_son"] = {"alt": 0, "ust": 10, "hedef": 0}
+        self.assertTrue(dogrulayici.son_aralik_hatalari(altinci))
+
 
 if __name__ == "__main__":
     unittest.main()

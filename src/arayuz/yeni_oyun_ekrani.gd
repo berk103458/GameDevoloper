@@ -35,9 +35,11 @@ static func baslat_olur(yuva_dolu: bool, onay: bool) -> bool:
 
 
 static func iz_satiri(kayit: OyuncuIzi) -> String:
-	if kayit == null or (not kayit.ilk_oyun_bitti and kayit.bitirilen_oyun_sayisi <= 0):
+	if kayit == null or (not kayit.ilk_oyun_bitti and kayit.bitirilen_oyun_sayisi <= 0 and kayit.alinan_sonlar_listesi().is_empty()):
 		return ""
-	return TranslationServer.translate("arayuz.ayarlar.yeni_oyun.iz") % kayit.bitirilen_oyun_sayisi
+	var temel := TranslationServer.translate("arayuz.ayarlar.yeni_oyun.iz") % kayit.bitirilen_oyun_sayisi
+	var sonlar := kayit.daha_once_satiri()
+	return temel if sonlar.is_empty() else temel + " · " + sonlar
 
 
 func _ready() -> void:

@@ -273,10 +273,21 @@ static func rapor_satirlari(y: KoyYonetimi, kapi_acik: bool = true) -> Array:
 		ikinci = "nobet.rapor.tipi"
 	elif d.uyku:
 		ikinci = "nobet.rapor.uyudu"
-	return [
+	var satirlar: Array = [
 		{"anahtar": ilk, "brakan_id": int(d.devir.get("brakan_id", YUVA_YOK)), "alan_id": int(d.devir.get("alan_id", YUVA_YOK))},
 		{"anahtar": ikinci, "gorulen": int(d.gorulenler), "gorulmedi": d.gorulmedi.size()},
 	]
+	if y != null and y.agalik and bool(d.bos_direk):
+		satirlar.append({"anahtar": "nobet.rapor.perde2_bos_direk", "uyari": true})
+	return satirlar
+
+
+static func perde2_uyari_sayisi(y: KoyYonetimi) -> int:
+	return 1 if y != null and y.agalik and bool(durum(y).bos_direk) else 0
+
+
+static func gece_gecebilir_mi(y: KoyYonetimi) -> bool:
+	return y == null or not y.agalik or not bos_mu(y) or bool(durum(y).oyuncu_nobet)
 
 
 static func kapiya_gir(y: KoyYonetimi) -> Dictionary:

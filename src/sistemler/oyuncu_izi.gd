@@ -6,6 +6,8 @@ extends RefCounted
 
 const VARSAYILAN_YOL := "user://oyuncu_izi.cfg"
 const BOLUM_ANAHTARI := "oyuncu_izi"
+const NIHAI_SONLAR_YOLU := "res://data/nihai_sonlar.json"
+const BES_SON := ["uc_tutundu", "ahi_kasabasi", "beyin_uc_koyu", "ertugrul_obasi", "tekfur_haraccisi"]
 
 var dosya_yolu: String = VARSAYILAN_YOL
 var ilk_oyun_bitti: bool = false
@@ -13,6 +15,7 @@ var tamamlanan_geceler: int = 0
 var bitirilen_oyun_sayisi: int = 0
 var bilinen_surum: int = 1
 var ipucu_manuel_acik: bool = false
+var alinan_sonlar: PackedStringArray = PackedStringArray()
 
 
 func _init(ozel_yol: String = "") -> void:
@@ -27,6 +30,7 @@ func sifirla() -> void:
 	bitirilen_oyun_sayisi = 0
 	bilinen_surum = 1
 	ipucu_manuel_acik = false
+	alinan_sonlar = PackedStringArray()
 
 
 ## OGR-47: 6 gece gecildiyse ilk oyun bitmis sayilir.
@@ -37,10 +41,48 @@ func gece_kaydet(gece_sayisi: int) -> void:
 	kaydet()
 
 
-func oyunu_tamamla() -> void:
+func oyunu_tamamla(son_id: String = "") -> void:
+	var temiz := son_id.strip_edges()
+	if not temiz.is_empty():
+		son_kaydet(temiz)
+		return
 	ilk_oyun_bitti = true
 	bitirilen_oyun_sayisi += 1
 	kaydet()
+
+
+## OMR-47: Alinan son kaydi oyuncu_izi.cfg icine yazilir; bes sondan alinanlar listelenir.
+func son_kaydet(son_id: String) -> void:
+	var temiz := son_id.strip_edges()
+	if temiz in BES_SON and temiz not in alinan_sonlar:
+		alinan_sonlar.append(temiz)
+	ilk_oyun_bitti = true
+	bitirilen_oyun_sayisi += 1
+	kaydet()
+
+
+func alinan_sonlar_listesi() -> Array[String]:
+	var sonuc: Array[String] = []
+	for son_id in BES_SON:
+		if son_id in alinan_sonlar:
+			sonuc.append(son_id)
+	return sonuc
+
+
+func daha_once_satiri() -> String:
+	var liste := alinan_sonlar_listesi()
+	if liste.is_empty():
+		return ""
+	var sonlar_sozluk: Dictionary = {}
+	if FileAccess.file_exists(NIHAI_SONLAR_YOLU):
+		var veri: Variant = JSON.parse_string(FileAccess.get_file_as_string(NIHAI_SONLAR_YOLU))
+		if veri is Dictionary:
+			sonlar_sozluk = (veri as Dictionary).get("sonlar", {})
+	var adlar := PackedStringArray()
+	for son_id in liste:
+		var baslik := String(sonlar_sozluk.get(son_id, {}).get("baslik", son_id))
+		adlar.append(baslik if not baslik.is_empty() else son_id)
+	return "daha önce: " + ", ".join(adlar)
 
 
 ## OGR-47: Ikinci oyunda ipucu ve kademeli acilis varsayilan olarak kapalidir; ayarlardan acilabilir.
@@ -94,6 +136,12 @@ func yukle() -> void:
 	bitirilen_oyun_sayisi = int(cfg.get_value(BOLUM_ANAHTARI, "bitirilen_oyun_sayisi", 0))
 	bilinen_surum = int(cfg.get_value(BOLUM_ANAHTARI, "bilinen_surum", 1))
 	ipucu_manuel_acik = bool(cfg.get_value(BOLUM_ANAHTARI, "ipucu_manuel_acik", false))
+	var ham_sonlar: Variant = cfg.get_value(BOLUM_ANAHTARI, "alinan_sonlar", [])
+	if ham_sonlar is Array or ham_sonlar is PackedStringArray:
+		for s in ham_sonlar:
+			var temiz := String(s).strip_edges()
+			if temiz in BES_SON and temiz not in alinan_sonlar:
+				alinan_sonlar.append(temiz)
 
 
 func kaydet() -> void:
@@ -103,4 +151,5 @@ func kaydet() -> void:
 	cfg.set_value(BOLUM_ANAHTARI, "bitirilen_oyun_sayisi", bitirilen_oyun_sayisi)
 	cfg.set_value(BOLUM_ANAHTARI, "bilinen_surum", bilinen_surum)
 	cfg.set_value(BOLUM_ANAHTARI, "ipucu_manuel_acik", ipucu_manuel_acik)
+	cfg.set_value(BOLUM_ANAHTARI, "alinan_sonlar", alinan_sonlar_listesi())
 	cfg.save(dosya_yolu)

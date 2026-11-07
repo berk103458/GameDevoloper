@@ -20,6 +20,7 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	kulp.ekran = ekran
 	kulp.kisi = id
 	kulp.text = TranslationServer.translate("koy.gecici_is.kulp")
+	preload("res://src/arayuz/koy_hud/ilk_atama_vurgusu.gd").uygula(kulp, y, k)
 	v.add_child(kulp)
 	var kaydir := ScrollContainer.new()
 	kaydir.custom_minimum_size = Vector2(minf(760, ekran.size.x - 100), minf(440, ekran.size.y - 210))
@@ -80,7 +81,9 @@ static func _ata(ekran: KoyEkrani, id: int, hedef: int) -> void:
 	if not KoyluKartiVerisi.ata(ekran.oturum.yonetim, id, hedef):
 		ac(ekran, id) # Açık karttan sonra dolmuş/silinmiş yapıyı yeniden doğrula.
 		return
-	if hedef >= 0: preload("res://src/debug/ilk_saat_kancasi.gd").arac(ekran.oturum, "koy_atama")
+	if hedef >= 0:
+		preload("res://src/debug/ilk_saat_kancasi.gd").arac(ekran.oturum, "koy_atama")
+		preload("res://src/arayuz/koy_hud/ilk_atama_vurgusu.gd").atama_kaydet(ekran.oturum.yonetim)
 	ekran.oturum._koy_esitle()
 	ekran._yenile()
 	ac(ekran, id)

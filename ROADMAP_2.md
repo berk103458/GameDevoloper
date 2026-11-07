@@ -3581,19 +3581,19 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Ölçüm: son20 ardışık gece fotoğrafında yeni istek başlangıçları sayılır; aynı süren istek tekrarlanmaz. İlk pencere gecesinde öncesi bilinmiyorsa görünen istek başlangıç sayılır. Üç kişilik boş köy/tohum3535 sonucu3; başlangıç kabul bandı0–3 veridedir, otomatik denge ayarı yok. Test: `tests/unit/denge/bosta_terk_olcumu_test.gd`.
   - Dosya: `data/ayarlar/denge.json` `bosta_terk_aralik`.
   - Asset: asset gerekmedi.
-- [/] **DEN-36:** Nitelikli iş, geçici işten çok üretir. (Antigravity)
+- [x] **DEN-36:** Nitelikli iş, geçici işten çok üretir. (Antigravity)
   - Ne: atölyeli kumaşçının gecelik çıktısı, aynı kişinin geçici iş çıktısının üstündedir. Fark tabloda bir orandır.
   - Kabul: atölyeli kumaşçının gecelik çıktısı, aynı kişinin geçici iş çıktısının üstündedir. Fark tabloda bir orandır. Test: oran tutulur.
   - Bağımlılık: ISG-01, ISG-02, UZM-03. Boyut: M.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [/] **DEN-37:** Eşin mesleği demirhaneye yazılmaz. (Antigravity)
+- [ ] **DEN-37:** Eşin mesleği demirhaneye yazılmaz.
   - Ne: ACL-02 listesi dışındaki meslek hâlâ reddedilir. Denge bu listeyi genişletmez.
   - Kabul: ACL-02 listesi dışındaki meslek hâlâ reddedilir. Denge bu listeyi genişletmez. Test: demirci reddi durur.
   - Bağımlılık: ACL-02. Boyut: S.
   - Dosya: mevcut ACL-02 testi.
   - Asset: asset gerekmedi.
-- [/] **DEN-38:** Meslek değişiminin bir günlük kaybı durur. (Antigravity)
+- [ ] **DEN-38:** Meslek değişiminin bir günlük kaybı durur.
   - Ne: ACL-02'deki 1 gün verimsizlik ölçülür, uzatılmaz.
   - Kabul: ACL-02'deki 1 gün verimsizlik ölçülür, uzatılmaz. Test: değişim günü üretim, ertesi günden düşüktür.
   - Bağımlılık: ACL-02. Boyut: S.
@@ -3753,7 +3753,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: KRI-01, KRI-11. Boyut: M.
   - Dosya: `tests/oto/denge_kriz.tscn`.
   - Asset: asset gerekmedi.
-- [/] **DEN-63:** Sıkı zorluk kriz aralığını yükseltir. (Antigravity)
+- [x] **DEN-63:** Sıkı zorluk kriz aralığını yükseltir. (Antigravity)
   - Ne: DEN-04 çarpanı alt ve üst sınırı birlikte kaydırır. Olağanın üst sınırı, sıkının alt sınırından büyüktür.
   - Kabul: DEN-04 çarpanı alt ve üst sınırı birlikte kaydırır. Olağanın üst sınırı, sıkının alt sınırından büyüktür. Test: iki aralık kesişmez.
   - Bağımlılık: DEN-04, DEN-57. Boyut: S.
@@ -3798,7 +3798,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-13, DEN-04. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [/] **DEN-70:** Olağan, ölçümün referansıdır. (Antigravity)
+- [x] **DEN-70:** Olağan, ölçümün referansıdır. (Antigravity)
   - Ne: DEN-47, DEN-54 ve DEN-59 olağanda koşar. Kolay ve sıkı ayrı aralık taşır.
   - Kabul: DEN-47, DEN-54 ve DEN-59 olağanda koşar. Kolay ve sıkı ayrı aralık taşır. Test: üç aralık dosyada.
   - Bağımlılık: DEN-65. Boyut: S.
@@ -3820,7 +3820,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.10 Son dağılımı ve persona
 
-- [ ] **DEN-73:** Beş sonun hedef aralığı vardır.
+- [x] **DEN-73:** Beş sonun hedef aralığı vardır. (Antigravity)
   - Ne: 100 otomatik oyun, her son tablodaki alt ve üst yüzde arasındadır. Yüzdelerin toplamı 100'dür. Altıncı son 0'dır.
   - Kabul: 100 otomatik oyun, her son tablodaki alt ve üst yüzde arasındadır. Yüzdelerin toplamı 100'dür. Altıncı son 0'dır. Test: toplam 100, altıncı 0.
   - Bağımlılık: SYS-20, DEN-01. Boyut: M.
@@ -3832,13 +3832,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: EKO-10, DEN-73. Boyut: S.
   - Dosya: `tests/oto/denge_persona.tscn`.
   - Asset: asset gerekmedi.
-- [/] **DEN-75:** TST-04 personası burada tanımlanmaz. (Antigravity)
+- [x] **DEN-75:** TST-04 personası burada tanımlanmaz. (Antigravity)
   - Ne: ölçüm, Tester TST-04 kimliğini okur. O maddenin adımları bu dosyada yoktur. Kimlik yoksa ölçüm durur, uydurma persona yazılmaz.
   - Kabul: ölçüm, Tester TST-04 kimliğini okur. O maddenin adımları bu dosyada yoktur. Kimlik yoksa ölçüm durur, uydurma persona yazılmaz. Test: kimlik listesi TST dosyasıyla aynıdır.
   - Bağımlılık: DEN-05. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [/] **DEN-76:** TST-05 sonuç ölçüsü burada tanımlanmaz. (Antigravity)
+- [x] **DEN-76:** TST-05 sonuç ölçüsü burada tanımlanmaz. (Antigravity)
   - Ne: son dağılımı TST-05'in sayacını okur. İkinci bir son sayacı yazılmaz.
   - Kabul: son dağılımı TST-05'in sayacını okur. İkinci bir son sayacı yazılmaz. Test: sayaç bir.
   - Bağımlılık: DEN-73, SYS-20. Boyut: S.
@@ -3862,7 +3862,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: SYS-10, DEN-73. Boyut: M.
   - Dosya: `tools/sanity_check.py` tek satır.
   - Asset: asset gerekmedi.
-- [/] **DEN-80:** Sapma, tabloyu kendisi değiştirmez. (Antigravity)
+- [x] **DEN-80:** Sapma, tabloyu kendisi değiştirmez. (Antigravity)
   - Ne: aralık dışındaki ölçüm rapor yazar. `denge.json` oyun sırasında yazılmaz. Değişiklik insan eliyledir.
   - Kabul: aralık dışındaki ölçüm rapor yazar. `denge.json` oyun sırasında yazılmaz. Değişiklik insan eliyledir. Test: sapmalı koşu, dosya baytı aynı.
   - Bağımlılık: DEN-06, DEN-73. Boyut: S.
@@ -3905,7 +3905,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: ZAR-01, OGR-01. Boyut: S.
   - Dosya: yeni: `src/kapi/zar_ipucu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-04:** Köy ekranı ilk kez kabulden sonra açılır.
+- [x] **OGR-04:** Köy ekranı ilk kez kabulden sonra açılır. (Antigravity)
   - Ne: ilk kabul edilen kişi köye girince oyuncu köy ekranına geçer; ilk görev onu bir işe atamaktır (ISG-01 uyarısı burada ilk kez görünür).
   - Kabul: ilk kabulden önce köy ekranı düğmesi pasiftir. Test: kabul 0 iken köy ekranına geçiş 0.
   - Bağımlılık: ACL-01, ISG-01. Boyut: S.
@@ -4004,7 +4004,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
 
 ### 33.4 Köy ekranının öğretilmesi
 
-- [ ] **OGR-19:** İlk atama sürükle-bırakla gösterilir.
+- [x] **OGR-19:** İlk atama sürükle-bırakla gösterilir. (Antigravity)
   - Ne: ilk köylü kartı (`src/arayuz/koylu_karti.gd`, `koylu_surukleme_kulpu.gd`) sürüklenebilir olduğunda tek satır ipucu ve kartın kulpunda bir kez yanıp sönen vurgu.
   - Kabul: ilk atama sonrası vurgu kalkar. Test: ikinci köylüde vurgu 0.
   - Bağımlılık: OGR-04. Boyut: S.
@@ -4450,7 +4450,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-14, OMR-25. Boyut: S.
   - Dosya: `src/arayuz/oda_gidisat_paneli.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-27:** Divan hükmü omurgaya dokunur.
+- [x] **OMR-27:** Divan hükmü omurgaya dokunur. (Antigravity)
   - Ne: CAS-07 infaz ve sürgün sayısı adalet göstergesini (`y.adalet`) etkiler; bu zaten koddadır. Madde, bu etkinin SAB (Bölüm 28) sabah satırında anılmasını ister.
   - Kabul: SAB-01 satırında adalet değişimi tek kelime. Test: hüküm sonrası satır.
   - Bağımlılık: SAB-01. Boyut: S.
@@ -4528,7 +4528,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: HFZ-01. Boyut: S.
   - Dosya: `src/arayuz/hafiza_defteri.gd` sayfa adaptörü.
   - Asset: asset gerekmedi.
-- [ ] **OMR-39:** Sahte haber hat kapatmaz.
+- [x] **OMR-39:** Sahte haber hat kapatmaz. (Antigravity)
   - Ne: DIY-13 dedikodusu yanlış olabilir; omurga yalnız `haberci_agi` kaynaklı doğrulanmış haberi okur. Oyuncu farkı Bölüm 37'de görür.
   - Kabul: dedikodu bayrağı dış hat kapısını tetiklemez. Test: sahte dedikodu enjeksiyonu.
   - Bağımlılık: SOY-01. Boyut: S.
@@ -4543,13 +4543,13 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
 
 ### 34.8 Omurga ve köy sistemleri
 
-- [ ] **OMR-41:** Krizler dalgaya göre sıklaşır.
+- [x] **OMR-41:** Krizler dalgaya göre sıklaşır. (Antigravity)
   - Ne: KRI kriz tetik olasılığı (`data/koy/kriz_kenetlenmesi.json` ve ilgili) perde 2 dalga 2'de çarpanla artar; çarpan DEN tablosundadır.
   - Kabul: `denge.json` içinde `kriz_dalga_carpani`. Test: DEN-01 tablosu.
   - Bağımlılık: DEN-01, OMR-04. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-42:** Nüfus 18 öncesi savaş yok.
+- [x] **OMR-42:** Nüfus 18 öncesi savaş yok. (Antigravity)
   - Ne: BUG-18 tehdit alışma süresine ek olarak kurt baskını dışındaki saldırı hatları (çete, pusucu) oturma dönemine (nüfus ≥ 14) kadar gelmez.
   - Kabul: nüfus < 14 iken çete 0. Test: enjekte nüfus.
   - Bağımlılık: BUG-18, OMR-02. Boyut: S.
@@ -4567,7 +4567,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: MCL-05, OMR-04. Boyut: S.
   - Dosya: MCL-05 dosyasına tek koşul.
   - Asset: asset gerekmedi.
-- [ ] **OMR-45:** Nöbet devri perde 2'de zorunludur.
+- [x] **OMR-45:** Nöbet devri perde 2'de zorunludur. (Antigravity)
   - Ne: NBT (Bölüm 26) nöbetçi atanmadan perde 2 gecesi geçmez; boş direk (NBT-08) perde 2'de bir uyarı satırı alır.
   - Kabul: perde 2 boş direk gecesinde uyarı 1. Test: kayıt.
   - Bağımlılık: NBT-08. Boyut: S.
@@ -4582,13 +4582,13 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `design/omurga.md`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-47:** Alınan son kaydı ikinci oyunda hatırlanır.
+- [x] **OMR-47:** Alınan son kaydı ikinci oyunda hatırlanır. (Antigravity)
   - Ne: `oyuncu_izi.cfg` (OGR-47) içine alınan sonlar yazılır; yeni oyun ekranında "daha önce: …" satırı. Başarım değil, iz.
   - Kabul: beş sondan alınanlar listelenir. Test: iki oyun.
   - Bağımlılık: OGR-47, OMR-17. Boyut: S.
   - Dosya: `src/sistemler/oyuncu_izi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-48:** Alınmamış sona ipucu, yol tarifi değil.
+- [x] **OMR-48:** Alınmamış sona ipucu, yol tarifi değil. (Antigravity)
   - Ne: ikinci oyunda oda gidişat paneli (OMR-14) alınmamış sonları soluk gösterir; koşul yazmaz.
   - Kabul: panelde alınmamış son adı soluk, koşul metni 0. Test: anlık görüntü.
   - Bağımlılık: OMR-47. Boyut: S.

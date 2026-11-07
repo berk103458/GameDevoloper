@@ -974,3 +974,10 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - `DEN-41`, `DEN-42`, `DEN-45`: `tools/denge_dogrula.py` (`rusvet_tavan_hatalari`) ve `tests/unit/denge/rusvet_test.gd` içinde 20 rüşvette kişisel kasa artışı, matris=3 için +3 ve 20 rette 0 kasa deltası doğrulandı (GEÇTİ).
 - `DEN-67`: `tests/unit/denge/zorluk_test.gd` içinde üç zorlukta `ZAR-01` gerekli zar sayısının eşitliği doğrulandı (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
 - kota görünmüyor
+
+## 7 Kasım 2026 — DEN-36, DEN-63, DEN-70, DEN-73, DEN-75, DEN-76, DEN-80, OGR-04, OGR-19, OMR-27, OMR-39, OMR-41, OMR-42, OMR-45, OMR-47 ve OMR-48
+- `DEN-36`, `DEN-63`, `DEN-70`, `DEN-73`: `data/ayarlar/denge.json`, `data/ayarlar/denge_sinirlari.json`, `tools/denge_dogrula.py`, `src/koy/meslek_yapilari.gd` (`bez_evi`), `tests/tools/test_denge_dogrula.py`, `tests/unit/denge/meslek_verim_test.gd` ve `tests/unit/denge/zorluk_test.gd` tamamlandı (GEÇTİ).
+- `DEN-75`, `DEN-76`, `DEN-80`: `src/sistemler/denge_olcumu.gd` ve `tests/unit/denge/denge_olcumu_test.gd` tamamlandı (`denge.json` bayt farkı 0, GEÇTİ).
+- `OGR-04`, `OGR-19`: `src/sistemler/ilk_saat.gd`, `src/arayuz/ana.gd`, `src/arayuz/koy_hud/ilk_atama_vurgusu.gd`, `src/arayuz/koylu_karti.gd` ve `tests/unit/sistemler/ilk_saat_test.gd` tamamlandı (GEÇTİ).
+- `OMR-27`, `OMR-39`, `OMR-41`, `OMR-42`, `OMR-45`, `OMR-47`, `OMR-48`: `src/koy/sabah_defteri.gd`, `src/sistemler/dis_hat_kapisi.gd`, `src/sistemler/omurga_suzgeci.gd`, `src/koy/kapi_nobeti.gd`, `src/sistemler/oyuncu_izi.gd`, `src/arayuz/yeni_oyun_ekrani.gd`, `src/arayuz/oda_gidisat_paneli.gd` ve birim testleri (`sabah_defteri_test.gd`, `kapi_nobeti_test.gd`, `omurga_test.gd`, `oyuncu_izi_test.gd`) tamamlandı (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- kota görünmüyor

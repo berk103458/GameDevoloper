@@ -369,6 +369,66 @@ def is_olcumu_hatalari(denge: dict) -> list:
     return []
 
 
+def nitelikli_is_orani_hatalari(denge: dict) -> list:
+    """DEN-36: nitelikli is gecici isten cok uretir; fark tabloda 1'den buyuk bir orandir."""
+    oran = denge.get("nitelikli_gecici_is_orani")
+    if oran is None:
+        return []
+    if not (_sayi(oran) and math.isfinite(oran) and oran > 1.0):
+        return ["nitelikli_gecici_is_orani: 1.0 ustunde sonlu sayi olmali (DEN-36)"]
+    return []
+
+
+def zorluk_aralik_hatalari(denge: dict) -> list:
+    """DEN-63 ve DEN-70: olagan referanstir; kolay ve siki ayri aralik tasir; siki kriz araligi olagani kesmez."""
+    hatalar: list = []
+    for alan in ("kriz_aralik_zorluk", "iflas_aralik_zorluk", "rusvet_aralik_zorluk"):
+        tablo = denge.get(alan)
+        if tablo is None:
+            continue
+        if not isinstance(tablo, dict) or set(tablo) != {"kolay", "olagan", "siki"}:
+            hatalar.append(f"{alan}: kolay, olagan ve siki anahtarlari gerekli (DEN-70)")
+            continue
+        for mod, aralik in tablo.items():
+            if not isinstance(aralik, dict) or set(aralik) != {"alt", "ust"}:
+                hatalar.append(f"{alan}.{mod}: alt ve ust sinirlari gerekli (DEN-70)")
+                continue
+            if any(not (_sayi(aralik[k]) and math.isfinite(aralik[k]) and aralik[k] >= 0) for k in ("alt", "ust")):
+                hatalar.append(f"{alan}.{mod}: negatif olmayan sonlu sayilar gerekli (DEN-70)")
+                continue
+            if aralik["alt"] > aralik["ust"]:
+                hatalar.append(f"{alan}.{mod}: alt sinir ust siniri asamaz (DEN-70)")
+    kriz_z = denge.get("kriz_aralik_zorluk")
+    if isinstance(kriz_z, dict) and isinstance(kriz_z.get("olagan"), dict) and isinstance(kriz_z.get("siki"), dict):
+        olagan_ust = kriz_z["olagan"].get("ust")
+        siki_alt = kriz_z["siki"].get("alt")
+        if _sayi(olagan_ust) and _sayi(siki_alt) and siki_alt <= olagan_ust:
+            hatalar.append("kriz_aralik_zorluk: sikinin alt siniri olaganin ust sinirindan buyuk olmali; iki aralik kesisemez (DEN-63)")
+    return hatalar
+
+
+def son_aralik_hatalari(denge: dict) -> list:
+    """DEN-73: bes sonun hedef araligi vardir; yuzdelerin toplami 100'dur; altinci son 0'dir."""
+    tablo = denge.get("son_aralik")
+    if tablo is None:
+        return []
+    beklenen = {"uc_tutundu", "ahi_kasabasi", "beyin_uc_koyu", "ertugrul_obasi", "tekfur_haraccisi"}
+    if not isinstance(tablo, dict) or set(tablo) != beklenen:
+        return ["son_aralik: yalniz bes SYS-20 sonu olmali, altinci son olamaz (DEN-73)"]
+    toplam = 0
+    for ad, kayit in tablo.items():
+        if not isinstance(kayit, dict) or set(kayit) != {"alt", "ust", "hedef"}:
+            return [f"son_aralik.{ad}: alt, ust ve hedef alanlari gerekli (DEN-73)"]
+        if any(not (_sayi(kayit[k]) and math.isfinite(kayit[k])) for k in ("alt", "ust", "hedef")):
+            return [f"son_aralik.{ad}: alt, ust ve hedef sayisal olmali (DEN-73)"]
+        if not (0 <= kayit["alt"] <= kayit["hedef"] <= kayit["ust"] <= 100):
+            return [f"son_aralik.{ad}: 0 <= alt <= hedef <= ust <= 100 olmali (DEN-73)"]
+        toplam += kayit["hedef"]
+    if toplam != 100:
+        return [f"son_aralik: hedef yuzdelerin toplami 100 olmali, bulundu: {toplam} (DEN-73)"]
+    return []
+
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -400,11 +460,17 @@ def main(argv=None) -> int:
         hatalar += kriz_aralik_hatalari(denge)
         hatalar += is_olcumu_hatalari(denge)
         hatalar += bosta_terk_hatalari(denge)
+        hatalar += nitelikli_is_orani_hatalari(denge)
+        hatalar += zorluk_aralik_hatalari(denge)
+        hatalar += son_aralik_hatalari(denge)
         hatalar += teftis_esigi_hatalari(denge, yukle(ROOT / "data/muhafiz_terazisi.json"), yukle(ROOT / "data/sancak_teftisi.json"))
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]
     for h in hatalar:
-        print("DENGE SINIR HATASI: " + h)
+        try:
+            print("DENGE SINIR HATASI: " + h)
+        except UnicodeEncodeError:
+            print(("DENGE SINIR HATASI: " + h).encode("ascii", "replace").decode("ascii"))
     if hatalar:
         print(f"Denge dogrulama: {len(hatalar)} hata.")
         return 1

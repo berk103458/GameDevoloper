@@ -206,6 +206,26 @@ func _initialize() -> void:
 	_kontrol(isaret.isaret_sayisi("pazar") == 0 and int(isaret.dugme_etkinlesti("pazar").get("isaret", -1)) == 0, "OGR-24: iki kez tiklanmis dugmede isaret 0 olmali")
 	isaret.free()
 
+	# OGR-04: Kabul 0 iken koy ekranina gecis 0; kabul > 0 iken acik
+	var bos_oturum := Oturum.new(kat, 9)
+	_kontrol(not IlkSaatSinifi.koy_acik(0) and not IlkSaatSinifi.koy_acik(bos_oturum), "OGR-04: kabul 0 iken koy ekrani acik olmamali")
+	bos_oturum.yonetim.kabul({"ad": "IlkKoylu", "sinif": "ciftci", "stat": 4})
+	_kontrol(IlkSaatSinifi.koy_acik(1) and IlkSaatSinifi.koy_acik(bos_oturum), "OGR-04: ilk kabulden sonra koy ekrani acik olmali")
+
+	# OGR-19: Ilk atama surukle-birakla gosterilir; ilk atama sonrasi vurgu kalkar, ikinci koylude vurgu 0
+	var vurgu_sinifi := preload("res://src/arayuz/koy_hud/ilk_atama_vurgusu.gd")
+	var kulp1 := Button.new()
+	var ilk_koylu: Koylu = bos_oturum.yonetim.koylular[0]
+	var v1 := vurgu_sinifi.uygula(kulp1, bos_oturum.yonetim, ilk_koylu)
+	_kontrol(int(v1.get("vurgu", 0)) == 1 and kulp1.get_node_or_null("IlkAtamaVurgusu") != null, "OGR-19: ilk suruklenebilir koylude vurgu 1 olmali")
+	vurgu_sinifi.atama_kaydet(bos_oturum.yonetim)
+	var ikinci_koylu := bos_oturum.yonetim.kabul({"ad": "IkinciKoylu", "sinif": "ciftci", "stat": 4})
+	var kulp2 := Button.new()
+	var v2 := vurgu_sinifi.uygula(kulp2, bos_oturum.yonetim, ikinci_koylu)
+	_kontrol(int(v2.get("vurgu", -1)) == 0 and kulp2.get_node_or_null("IlkAtamaVurgusu") == null, "OGR-19: ilk atama sonrasi ikinci koylude vurgu 0 olmali")
+	kulp1.free()
+	kulp2.free()
+
 	# Ilk alti gecede (gece 0..5) tum kavramlar tetiklendiginde gosterilen ipucu sayisi kavram sayisiyla esittir
 	ilk.sifirla()
 	var gosterilen := 0

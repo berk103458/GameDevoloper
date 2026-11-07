@@ -93,6 +93,26 @@ func _initialize() -> void:
 		dene(olcum.perde1_gecis_gecesi == -1 and gecis_olcumu.perde1_gecis_gecesi == 1, "OMR-31: DEN geçiş makbuzunu okur")
 		dene(JSON.stringify(gecis.kaydet()) == gecis_once, "OMR-31: DEN ölçümü salt okunur")
 
+		# DEN-75: TST-04 personası burada tanımlanmaz; kimlik yoksa ölçüm durur, uydurma persona yazılmaz.
+		var tst_personalar := ["rusvetci", "reddeden", "ac", "tok"]
+		var gecerli_p := DENGE_OLCUMU.persona_kimligi_oku("rusvetci", tst_personalar)
+		var gecersiz_p := DENGE_OLCUMU.persona_kimligi_oku("uydurma_persona", tst_personalar)
+		dene(bool(gecerli_p.get("gecerli", false)) and not bool(gecerli_p.get("olcum_durdu", true)), "DEN-75: listedeki persona kimliği okunur")
+		dene(not bool(gecersiz_p.get("gecerli", true)) and bool(gecersiz_p.get("olcum_durdu", false)) and String(gecersiz_p.get("persona", "x")) == "", "DEN-75: olmayan kimlikte ölçüm durur, uydurma persona yazılmaz")
+		dene(gecerli_p.get("kimlik_listesi", []) == tst_personalar, "DEN-75: kimlik listesi TST listesiyle aynıdır")
+
+		# DEN-76: TST-05 sonuç ölçüsü burada tanımlanmaz; ikinci bir son sayacı yazılmaz.
+		var tst_sayaci := {"uc_tutundu": 20, "ahi_kasabasi": 20, "beyin_uc_koyu": 20, "ertugrul_obasi": 20, "tekfur_haraccisi": 20}
+		var okunan_sayac := DENGE_OLCUMU.son_dagilimi_oku(tst_sayaci)
+		dene(is_same(okunan_sayac, tst_sayaci), "DEN-76: son dağılımı aynı TST-05 sayacını okur (sayaç bir)")
+
+		# DEN-80: Sapma, tabloyu kendisi değiştirmez; sapmalı koşuda denge.json dosya baytı aynı kalır.
+		var denge_bayt_once := FileAccess.get_file_as_bytes("res://data/ayarlar/denge.json")
+		var sapma := DENGE_OLCUMU.sapma_raporu(999.0, 0.0, 12.0, "kriz_aralik")
+		var denge_bayt_sonra := FileAccess.get_file_as_bytes("res://data/ayarlar/denge.json")
+		dene(bool(sapma.get("sapma_var", false)) and not bool(sapma.get("tablo_degisti", true)), "DEN-80: aralık dışı ölçüm sapma raporu yazar")
+		dene(denge_bayt_once == denge_bayt_sonra, "DEN-80: sapmalı koşuda denge.json dosya baytı aynıdır")
+
 	else:
 		push_error("Katalog yüklenemedi")
 		_hata += 1

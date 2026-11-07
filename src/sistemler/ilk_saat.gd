@@ -305,8 +305,17 @@ func gorulen_ipuclari() -> Array[String]:
 
 
 ## OGR-04: Ilk kabul edilen kisi koye girmeden once koy ekrani dugmesi pasiftir.
-static func koy_acik(kabul_sayisi: int) -> bool:
-	return kabul_sayisi > 0
+static func koy_acik(kaynak: Variant = 0) -> bool:
+	if kaynak is int or kaynak is float:
+		return int(kaynak) > 0
+	if kaynak is Dictionary:
+		return int((kaynak as Dictionary).get("kabul_sayisi", (kaynak as Dictionary).get("kabul", 0))) > 0
+	if kaynak is KoyYonetimi:
+		return (kaynak as KoyYonetimi).kabul_sayisi > 0
+	if kaynak is Oturum:
+		var o := kaynak as Oturum
+		return o.yonetim != null and o.yonetim.kabul_sayisi > 0
+	return false
 
 
 func kaydet() -> Dictionary:

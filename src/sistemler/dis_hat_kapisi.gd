@@ -32,3 +32,16 @@ static func rapora_ekle(o: Oturum, r: Dictionary) -> void:
 static func _ekle(r: Dictionary, hat: String, durum: String) -> void:
 	if hat == "mogol" and r.olaylar.any(func(e: Dictionary) -> bool: return e.has("mogol_oncusu")): return
 	r.olaylar.append({"anahtar": "koy.olay.dis_hat.%s.%s" % [hat, durum], "dis_hat_haberi": hat})
+
+## OMR-39: Sahte haber hat kapatmaz. Omurga yalnız `haberci_agi` kaynaklı doğrulanmış haberi okur; DIY-13 dedikodu bayrağı dış hat kapısını tetiklemez veya kapatmaz.
+static func dogrulanmis_haber_var_mi(o: Oturum, hat: String) -> bool:
+	if o == null or not (o.haberci_agi is Dictionary): return false
+	var bekleyen: Variant = o.haberci_agi.get("bekleyen", [])
+	if bekleyen is Array:
+		for kayit in bekleyen:
+			if kayit is Dictionary and String(kayit.get("hat", kayit.get("kaynak", ""))) == hat:
+				return true
+	var kaynaklar: Variant = o.haberci_agi.get("kaynaklar", {})
+	if kaynaklar is Dictionary and kaynaklar.has(hat):
+		return bool(kaynaklar[hat])
+	return false

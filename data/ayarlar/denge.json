@@ -13,6 +13,30 @@
   "aclik_olum_aralik": {"alt": 0, "ust": 0},
   "iflas_aralik": {"alt": 0, "ust": 0},
   "kriz_aralik": {"alt": 0, "ust": 12},
+  "kriz_dalga_carpani": 1.25,
+  "nitelikli_gecici_is_orani": 1.6,
+  "kriz_aralik_zorluk": {
+    "kolay": {"alt": 0, "ust": 9},
+    "olagan": {"alt": 0, "ust": 12},
+    "siki": {"alt": 13, "ust": 20}
+  },
+  "iflas_aralik_zorluk": {
+    "kolay": {"alt": 0, "ust": 0},
+    "olagan": {"alt": 0, "ust": 0},
+    "siki": {"alt": 0, "ust": 3}
+  },
+  "rusvet_aralik_zorluk": {
+    "kolay": {"alt": 2, "ust": 90},
+    "olagan": {"alt": 4, "ust": 120},
+    "siki": {"alt": 6, "ust": 150}
+  },
+  "son_aralik": {
+    "uc_tutundu": {"alt": 5, "ust": 45, "hedef": 20},
+    "ahi_kasabasi": {"alt": 5, "ust": 45, "hedef": 20},
+    "beyin_uc_koyu": {"alt": 5, "ust": 45, "hedef": 20},
+    "ertugrul_obasi": {"alt": 5, "ust": 45, "hedef": 20},
+    "tekfur_haraccisi": {"alt": 5, "ust": 45, "hedef": 20}
+  },
   "gecici_isler": {"kaynak": "res://data/gecici_isler.json"},
   "acilis_stoku": {
     "kaynak": "res://data/ayarlar/koy.tres"

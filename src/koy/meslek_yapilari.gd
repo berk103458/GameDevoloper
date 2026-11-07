@@ -3,11 +3,13 @@ class_name MeslekYapilari
 extends RefCounted
 static func ekler(temel: Dictionary) -> Dictionary:
 	var ek := {}
-	for cift in [["bostan", "tarla", "bostanci"], ["demirhane", "atolye", "demirci"]]:
+	for cift in [["bostan", "tarla", "bostanci"], ["demirhane", "atolye", "demirci"], ["bez_evi", "atolye", "bezci"]]:
 		if not temel.has(cift[1]): continue
 		var veri: Dictionary = temel[cift[1]].duplicate(true)
 		veri["uzmanlik"] = cift[2]
 		veri["kurulabilir"] = true
+		if cift[0] == "bez_evi":
+			veri["receteler"] = {"kumas": {"uretim": {"kumas": 2.0}}}
 		ek[cift[0]] = veri
 	return ek
 static func ad(tur: String) -> String:

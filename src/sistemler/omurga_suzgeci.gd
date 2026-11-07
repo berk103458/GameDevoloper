@@ -8,10 +8,20 @@ static func rol(k: KarakterVerisi) -> String:
 			return "tuccar" if k.zanaat_turu in [ZanaatTuru.Tur.ESNAF, ZanaatTuru.Tur.BELIRSIZ] else "zanaat"
 		_: return "koylu"
 
+static func cete_acik_mi(kaynak: Variant) -> bool:
+	return Omurga.donem(kaynak) == Omurga.DONEM_OTURMA
+
+static func profil_uygun_mu(kaynak: Variant, id: StringName) -> bool:
+	return cete_acik_mi(kaynak) or String(id) not in GuvenlikKafileDengesi.AYAR.risk_profilleri
+
 static func agirliklar(o: Oturum, ids: Array[StringName]) -> Array[float]:
 	var taban := GuvenlikKafileDengesi.adli_agirliklar(o, ids)
 	var paylar: Dictionary = Omurga.sinif_agirliklari().get(Omurga.donem(o.yonetim), {})
 	if o.perde != 1 or paylar.is_empty(): return taban
+	if o.yonetim != null and not cete_acik_mi(o.yonetim):
+		for i in ids.size():
+			if not profil_uygun_mu(o.yonetim, ids[i]):
+				taban[i] = 0.0
 	var roller := PackedStringArray()
 	var toplamlar := {}
 	for i in ids.size():

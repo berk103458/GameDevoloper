@@ -146,6 +146,10 @@ func _kapiya_git(snapshot: Dictionary = {}) -> void:
 	_kapi_yukleniyor = false
 
 
+## OGR-04: İlk kabulden önce köy ekranı düğmesi pasiftir.
+func koy_acik_mi() -> bool: return IlkSaat.koy_acik(oturum)
+
+
 ## Kapı nöbeti bitti (Faz 1 → Faz 2): kayıt, sonra köy yönetimi.
 func _koye_git(_rapor: Dictionary = {}) -> void:
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(oturum, "koy")

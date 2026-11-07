@@ -5,6 +5,7 @@ extends RefCounted
 
 const NihaiSonSinifi = preload("res://src/sistemler/nihai_son.gd")
 const OmurgaSinifi = preload("res://src/sistemler/omurga.gd")
+const OyuncuIziSinifi = preload("res://src/sistemler/oyuncu_izi.gd")
 
 const GOSTERGE_SIRASI := ["huzur", "adalet", "refah", "guvenlik", "nufus", "yozlasma"]
 const KADEME_METNI := {
@@ -55,7 +56,26 @@ static func gidisat_cumlesi(o: Oturum) -> String:
 	return gidisat_cumlesi_son_icin(secilen)
 
 
-static func kur(e: MuhafizOdasiEkrani, v: VBoxContainer) -> void:
+## OMR-48: İkinci oyunda oda gidişat paneli alınmamış sonları soluk gösterir; koşul metni yazmaz.
+static func alinmamis_son_satirlari(iz: OyuncuIzi) -> Array[Dictionary]:
+	var sonuc: Array[Dictionary] = []
+	if iz == null or not iz.ilk_oyun_bitti:
+		return sonuc
+	var sonlar: Dictionary = NihaiSonSinifi.AYAR.get("sonlar", {})
+	var alinanlar := iz.alinan_sonlar_listesi()
+	for son_id: String in OyuncuIziSinifi.BES_SON:
+		var baslik := String(sonlar.get(son_id, {}).get("baslik", son_id))
+		var alindi: bool = alinanlar.has(son_id)
+		sonuc.append({
+			"id": son_id,
+			"baslik": baslik,
+			"soluk": not alindi,
+			"kosul_metni": "",
+		})
+	return sonuc
+
+
+static func kur(e: MuhafizOdasiEkrani, v: VBoxContainer, iz: OyuncuIzi = null) -> void:
 	if e == null or v == null or e.oturum == null or e.oturum.perde < 2:
 		return
 	var kutu := VBoxContainer.new()
@@ -73,4 +93,14 @@ static func kur(e: MuhafizOdasiEkrani, v: VBoxContainer) -> void:
 		c.text = cumle
 		c.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		kutu.add_child(c)
+	var etkin_iz := iz
+	if etkin_iz == null and e.has_meta(&"oyuncu_izi"):
+		etkin_iz = e.get_meta(&"oyuncu_izi") as OyuncuIzi
+	for kayit in alinmamis_son_satirlari(etkin_iz):
+		if bool(kayit.get("soluk", false)):
+			var s := Label.new()
+			s.name = "alinmamis_" + String(kayit.get("id", ""))
+			s.text = String(kayit.get("baslik", ""))
+			s.modulate = Color(1.0, 1.0, 1.0, 0.45)
+			kutu.add_child(s)
 	v.add_child(kutu)

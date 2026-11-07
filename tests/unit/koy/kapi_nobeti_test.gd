@@ -223,6 +223,12 @@ func _bos_ve_kapi() -> void:
 	_kontrol(once == KapiNobeti.YUVA_YOK, "NBT-09: önceki yuva boştu")
 	KapiNobeti.oyuncu_nobet_yaz(y)
 	_kontrol(not KapiNobeti.sorgu_acilir(y), "NBT-09: oyuncu nöbetinde sorgu açılmaz")
+	var p2 := _y()
+	p2.agalik = true
+	KapiNobeti.gece(p2, [{"id": "1"}], {"kapi_acik": true, "sahne": "koy", "firtina": false, "uyku": false})
+	_kontrol(KapiNobeti.perde2_uyari_sayisi(p2) == 1 and not KapiNobeti.gece_gecebilir_mi(p2), "OMR-45: Perde 2 boş direk gecesinde uyarı 1 ve nöbetçi olmadan gece geçmez")
+	var p2_satirlar := KapiNobeti.rapor_satirlari(p2, true)
+	_kontrol(p2_satirlar.size() == 3 and String(p2_satirlar[2].get("anahtar", "")) == "nobet.rapor.perde2_bos_direk", "OMR-45: Perde 2 boş direk raporunda uyarı satırı")
 
 
 func _kontrol(olur: bool, mesaj: String) -> void:

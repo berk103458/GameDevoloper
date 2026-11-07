@@ -54,6 +54,24 @@ func _initialize() -> void:
 	_kontrol(not izi2.kavram_ipucu_verilmeli_mi(eski_kavram), "Eski kavram icin ipucu verilmemeli")
 	_kontrol(izi2.kavram_ipucu_verilmeli_mi(yeni_kavram), "Yeni kavram icin (surum_min 2 > 1) ipucu verilmeli (OGR-49)")
 
+	# 7. OMR-47: Alinan son kaydi oyuncu_izi.cfg icine yazilir; iki oyunda bes sondan alinanlar listelenir
+	izi2.son_kaydet("uc_tutundu")
+	izi2.son_kaydet("ahi_kasabasi")
+	var izi3 := OyuncuIziSinifi.new(_test_yolu)
+	_kontrol(izi3.alinan_sonlar_listesi() == ["uc_tutundu", "ahi_kasabasi"], "OMR-47: iki oyunda alinan sonlar oyuncu_izi.cfg'den yuklenmeli")
+	_kontrol(izi3.daha_once_satiri().begins_with("daha önce: "), "OMR-47: daha önce satırı üretilmeli")
+
+	# 8. OMR-48: İkinci oyunda oda gidişat paneli alınmamış sonları soluk gösterir, koşul metni 0
+	var gidisat := preload("res://src/arayuz/oda_gidisat_paneli.gd")
+	var satirlar := gidisat.alinmamis_son_satirlari(izi3)
+	_kontrol(satirlar.size() == 5, "OMR-48: beş son kontrol edilir")
+	var soluk_sayisi := 0
+	for s in satirlar:
+		_kontrol(String(s.get("kosul_metni", "var")).is_empty(), "OMR-48: koşul metni 0 olmalı")
+		if bool(s.get("soluk", false)):
+			soluk_sayisi += 1
+	_kontrol(soluk_sayisi == 3, "OMR-48: iki son alındıysa kalan üç alınmamış son soluk olmalı")
+
 	_temizle()
 
 	if _hata == 0:
