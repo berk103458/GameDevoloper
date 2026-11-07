@@ -2095,7 +2095,7 @@ arayuz.ayarlar.koy_hizi_varsayilan_aciklama,Köy açılınca hız. Varsayılan 1
 arayuz.ayarlar.arka_planda_sustur_aciklama,Pencere odak kaybedince ses kısılır. Varsayılan açık.,Audio mutes when window loses focus. Default enabled.
 arayuz.ayarlar.otomatik_kayit_aciklama,"Gece sonu kaydı: her gece, üç gecede bir ya da kapalı. Varsayılan her gece.","Nightly save: every night, every three nights, or disabled. Default every night."
 arayuz.ayarlar.ipuclari_aciklama,İpucu satırları. Kapalıyken ipucu çıkmaz. Varsayılan açık.,"Contextual guide lines. When disabled, hints are hidden. Default enabled."
-arayuz.ayarlar.kademeli_hud_aciklama,Paneller ilk gecelerde sırayla açılır. Varsayılan açık.,Panels unlock progressively across initial nights. Default enabled.
+arayuz.ayarlar.kademeli_hud_aciklama,Kapalıyken deneyimli oyuncu düzeni kullanılır. Paneller hemen açılır ve öğretici ipuçları çıkmaz.,Turn off for experienced play. Panels open immediately and tutorial hints stay hidden.
 arayuz.ayarlar.okunmus_isaret_aciklama,Daha önce seçilen söz soluk görünür. Varsayılan açık.,Previously chosen options appear dimmed. Default enabled.
 arayuz.ayarlar.renk_paleti_aciklama,Renk körlüğü paleti. Varsayılan olağan.,Color blindness accessibility palette. Default standard.
 arayuz.ayarlar.yuksek_kontrast_aciklama,"Metin beyaz, zemin opak. Varsayılan kapalı.",Pure white text on opaque background. Default disabled.

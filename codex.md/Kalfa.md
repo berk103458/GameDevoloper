@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — OGR-29 tamamlandı (Kalfa)
+
+AYR-12 Kademeli arayüz tercihi kapalıyken deneyimli oyuncu düzeni açılır. Tam köy HUD'ı, oda ve harita aynı anda açılır. Mevcut köy hız ipucu ile ilk kapı öğreticisi susar. İpuçları tercihi ayrıca korunur, kademeli düzene dönüldüğünde tekrar geçerli olur. HUD ayar değişimini anında dinler. Oyun sekmesindeki açıklama bu davranışı belirtir.
+
+Köy HUD, gerçek açılış, Bölüm 35 ayarları ve ilk saat hedefleri geçti. İlk gece iki ayar durumu ve gösterilmeyen ipucunun kayda yazılmadığı doğrulandı. Başsız import exit0/script0/MD50. Üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — OGR-28 tamamlandı (Kalfa)
 
 Kademeli köyde harita düğmesi kervan olayı, takvimli tüccarın kapı makbuzu veya ilk haberci raporundan sonra açılır. Üçüncü gece tek başına tetik sayılmaz. İlk haber günü mevcut haberci kaydında tutulur ve kart okunup kaldırıldıktan sonra da yüklenir. Eski bekleyen haberler açılış için kanıt sayılır. Eski açılış düzenindeki kayıtlar ve kademeli HUD kapalıyken doğrudan erişim sürer.

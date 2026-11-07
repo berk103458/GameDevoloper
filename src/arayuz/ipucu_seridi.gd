@@ -72,6 +72,10 @@ func goster(metin: String, ipucu_id: String = "", sure_sn: float = GOSTERIM_SURE
 	return true
 
 
+func ayar_degisti(_anahtar: StringName, ayarlar: Ayarlar) -> void:
+	if not preload("res://src/sistemler/ipucu_anahtari.gd").gosterim_acik(ayarlar): kapat()
+
+
 func kapat() -> void:
 	if not visible and _kalan_sure <= 0.0:
 		return
