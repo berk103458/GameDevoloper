@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — DEN-65 tamamlandı (Kalfa)
+
+Zorluk tablosu üç adı zaten taşıyordu. Dördüncü ustalik anahtarı geçerli sayısal sınırla birlikte iki doğrulayıcıdan da geçiyordu. RED ardından mevcut Python araç ve Godot açılış doğrulaması tam kolay/olagan/siki anahtar kümesini istiyor. 22 Python testi, tablo doğrulaması ve iki hedefli Godot testi geçti. Çarpan değerleri aynı. DEN-63 metnindeki aralık kesişimi çelişkisi açık kalır.
+
+İlk başsız import MD5 ve kapanış hataları verdi. İkinci exit0, script/parse hatası0 ve üç mevcut kaynak/PagedAllocator kapanış hatası. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — Parley içe aktarım uyumu doğrulandı (Kalfa)
 
 Ahmet onayıyla 2139e6e2 yalnız iki meclis dosyasının title başlığını ekledi. Diğer JSON alanları birebir aynı. Commitli soğuk import ve iki gerçek AST yükleme exit0. Parley hatası0. Masaüstü FF ve eski iki geçersiz yan kayıt TEMP yedeği sonrası iki AST yüklendi. Üç soğuk kapanış hatası sürüyor. YAP-05 seçili21 koşuda20 PASS, atama/duraklatma kapanış kaynak hatası nedeniyle FAIL. ROADMAP[/] Kalfa. Ayrıntılar docs/denetim/YAP_05_SON_KABUL_2026-11-06.md ve JSON. Asset gerekmedi. ds yolları yok. kota görünmüyor.

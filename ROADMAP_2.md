@@ -3768,7 +3768,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.9 Zorluk
 
-- [ ] **DEN-65:** Üç zorluk vardır.
+- [x] **DEN-65:** Üç zorluk vardır. (Kalfa)
   - Ne: kolay, olağan, sıkı. Dördüncü ad yazılırsa doğrulayıcı hata verir.
   - Kabul: kolay, olağan, sıkı. Dördüncü ad yazılırsa doğrulayıcı hata verir. Test: üç anahtar.
   - Bağımlılık: DEN-04. Boyut: S.

@@ -375,6 +375,9 @@ def main(argv=None) -> int:
     try:
         denge = yukle(args.denge)
         hatalar = dogrula(denge, yukle(args.sinirlar))
+        zorluk = denge.get("zorluk")
+        if not isinstance(zorluk, dict) or set(zorluk) != {"kolay", "olagan", "siki"}:
+            hatalar.append("zorluk: yalnız kolay, olagan ve siki anahtarları olmalı (DEN-65)")
         hatalar += acilis_stoku_hatalari(denge, args.koy.read_text(encoding="utf-8"), ikinci_baslangic_dosyalari(koy=args.koy, denge=args.denge))
         hatalar += ilk_hafta_erzak_hatalari(denge, args.koy.read_text(encoding="utf-8"), args.koy_ayarlari.read_text(encoding="utf-8"))
         hatalar += zar_esigi_hatalari(denge, args.sorgu_kurallari.read_text(encoding="utf-8"))

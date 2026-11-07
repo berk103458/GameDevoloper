@@ -88,6 +88,18 @@ class DengeDogrulaTest(unittest.TestCase):
     def test_gercek_tablo_temiz(self):
         self.assertEqual(dogrulayici.main([]), 0)
 
+    def test_dorduncu_zorluk_siniri_olsa_da_reddedilir(self):
+        denge = dogrulayici.yukle(dogrulayici.DENGE_YOLU)
+        sinirlar = dogrulayici.yukle(dogrulayici.SINIR_YOLU)
+        denge["zorluk"]["ustalik"] = 1.5
+        sinirlar["zorluk.ustalik"] = {"alt": 1.0, "ust": 2.0}
+        with tempfile.TemporaryDirectory() as dizin:
+            denge_yolu = Path(dizin) / "denge.json"
+            sinir_yolu = Path(dizin) / "sinirlar.json"
+            denge_yolu.write_text(json.dumps(denge), encoding="utf-8")
+            sinir_yolu.write_text(json.dumps(sinirlar), encoding="utf-8")
+            self.assertEqual(dogrulayici.main(["--denge", str(denge_yolu), "--sinirlar", str(sinir_yolu)]), 1)
+
     def test_temiz_veri_hatasiz(self):
         self.assertEqual(dogrulayici.dogrula(DENGE, SINIR), [])
 
