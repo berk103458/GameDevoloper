@@ -4155,7 +4155,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
 
 ### 33.8 Ölçüm — ilk saat gerçekten öğretiyor mu
 
-- [ ] **OGR-42:** İlk saat ölçüm kancası.
+- [x] **OGR-42:** İlk saat ölçüm kancası. (Kalfa)
   - Ne: TST-03 ölçüm kancalarına `ILKSAAT` eklenir: her ipucunun gösterildiği gece, oyuncunun ilgili aracı ilk kullandığı gece.
   - Kabul: kanca günlüğü JSON'dur; tester runner okur. Test: altı gecelik koşuda satır sayısı = ipucu sayısı.
   - Bağımlılık: OGR-07, TST-03. Boyut: S.

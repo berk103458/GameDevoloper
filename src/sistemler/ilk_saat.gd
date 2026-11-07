@@ -42,6 +42,7 @@ static func koy_hizi_ipucunu_goster(ekran: Control, oturum: Oturum, ayarlar: Aya
 	ayarlar.degisti.connect(serit.ayar_degisti.bind(ayarlar))
 	if serit.goster(ipucu_metni("ogretici.koy.hiz"), kimlik):
 		kayit.ipucu_ekle(kimlik)
+		preload("res://src/debug/ilk_saat_kancasi.gd").ipucu(oturum, kimlik)
 	else:
 		serit.queue_free()
 

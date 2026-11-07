@@ -80,6 +80,7 @@ static func _ata(ekran: KoyEkrani, id: int, hedef: int) -> void:
 	if not KoyluKartiVerisi.ata(ekran.oturum.yonetim, id, hedef):
 		ac(ekran, id) # Açık karttan sonra dolmuş/silinmiş yapıyı yeniden doğrula.
 		return
+	if hedef >= 0: preload("res://src/debug/ilk_saat_kancasi.gd").arac(ekran.oturum, "koy_atama")
 	ekran.oturum._koy_esitle()
 	ekran._yenile()
 	ac(ekran, id)

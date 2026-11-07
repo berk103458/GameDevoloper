@@ -53,11 +53,16 @@ func _drop_data(yer: Vector2, veri: Variant) -> void:
 	if yeni.olur:
 		KoyluKarti._ata(ekran, veri.kisi, id)
 		var kayit := ekran.oturum.ipucu_kaydi
-		if ekran.oturum.yonetim.koylu(veri.kisi).is_yeri == id and kayit.ipucu_ekle("koy_atama"):
+		if ekran.oturum.yonetim.koylu(veri.kisi).is_yeri == id and preload("res://src/sistemler/ipucu_anahtari.gd").gosterilir_mi(ekran.ayarlar, kayit, "koy_atama"):
 			var serit := IpucuSeridi.new()
 			ekran.add_child(serit)
 			serit.kapandi.connect(func(_id: String) -> void: serit.queue_free())
-			serit.goster(tr("koy.atama.ilk_ipucu"), "koy_atama")
+			ekran.ayarlar.degisti.connect(serit.ayar_degisti.bind(ekran.ayarlar))
+			if serit.goster(tr("koy.atama.ilk_ipucu"), "koy_atama"):
+				kayit.ipucu_ekle("koy_atama")
+				preload("res://src/debug/ilk_saat_kancasi.gd").ipucu(ekran.oturum, "koy_atama")
+			else:
+				serit.queue_free()
 	onizleme.hide()
 func _notification(ne: int) -> void:
 	if not is_instance_valid(ekran): return

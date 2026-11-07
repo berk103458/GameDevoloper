@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OGR-42 tamamlandı (Kalfa)
+
+Full pull 94c72487 güncel, Ajan Masası okundu. Gerçekte gösterilen köy hız ve atama ipuçları ile ilk kapının üç satırı ILKSAAT içinde birer kayıt üretir. İlk oyuncu kullanımı ayrı gecede tutulur. Otomatik hız değişimleri sayılmaz. İlk altı gecenin ölçümü normal oyun kaydına yazılmaz. Köprü anlık görüntüsünden dönerken aynı tester oturumunun ölçümü korunur. Python köprü sürücüsü tekil satırları mevcut JSON özetine alır.
+
+İlk saat birimi, atama UI, gerçek oyun köprüsü ve beş Python tester testi geçti. Temkinli politika, tohum 11 ile gerçek başsız köprüde altı geceyi 201 saniyede tamamladı. Son yok, hata0, erzak38. Dört gösterim dört tekil JSON satırı verdi. İlk import dört MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OGR-41 tamamlandı (Kalfa)
 
 Geçmiş seçilince mevcut BilgiEkrani üç çevrilmiş satırı gösterir. Satırlar muhafızın görevini, uç köyünün konumunu ve ilk kapı açılışını anlatır. Yeni oyun ekranı ve doğrudan geçmiş seçimi aynı geçişi kullanır. Devam tek girdidir ve oyun o girdiden sonra başlatılır. Bitmiş oyuncu izi varsa mevcut OGR-48 yordamı kadrajı atlar. Hazır geçmişle yapılan doğrudan program çağrısı mevcut hızlı giriş sözleşmesini korur.

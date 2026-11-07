@@ -140,6 +140,7 @@ def oyna(args):
     client = Bridge(port=port, timeout=min(30, args.zaman_asimi))
     hatalar, adim, son, gece = 0, 0, "", 0
     neden = ""
+    ilk_saat = []
     process = None
     baslangic = time.monotonic()
     log_path = cikti.with_suffix(".godot.log")
@@ -156,6 +157,7 @@ def oyna(args):
                     raise BridgeError("Godot beklenmedik şekilde kapandı")
                 s = client.call("get_state")
                 gece = s.get("tamamlanan_gece", 0)
+                ilk_saat = s.get("ILKSAAT", ilk_saat)
                 kayit = {"adim": adim, "sure": round(time.monotonic() - baslangic, 3), "state": s}
                 if s["ekran"] == "son":
                     son = s["son"]["kimlik"]
@@ -202,7 +204,8 @@ def oyna(args):
     if engine_hata:
         hatalar += 1
     ozet = {"son": son or None, "gece_sayisi": gece, "hata_sayisi": hatalar, "adim": adim,
-            "durma": neden, "tohum": args.tohum, "politika": args.politika, "cikti": str(cikti)}
+            "durma": neden, "tohum": args.tohum, "politika": args.politika, "cikti": str(cikti),
+            "ILKSAAT": ilk_saat}
     cikti.with_suffix(".ozet.json").write_text(json.dumps(ozet, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(ozet, ensure_ascii=False))
     return 0 if neden in ("son", "gece_siniri") and hatalar == 0 else 1

@@ -436,6 +436,8 @@ func _soru_sor(i: int) -> void:
 	if i < 0 or i >= _gelen.sorular.size() or i in _sorulan or _sorulan.size() >= _gelen.soru_siniri(oturum.ayarlar.azami_soru):
 		return
 	_sorulan.append(i)
+	if ILK_GECE.etkin(oturum, _gelen) and i < 2:
+		preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "kapi_selam" if i == 0 else "kapi_konu")
 	var once := _gelen.acik_bayraklar.size()
 	_gelen.soru_soruldu(i)
 	_yaz("[color=#4A6B8A]%s:[/color] %s\n[b]%s:[/b] %s" % [tr("arayuz.sohbet.sen"), tr(_gelen.sorular[i][0]),
@@ -570,6 +572,8 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	_bolum.text = ""
 	Ses.cal(&"sfx_onay")
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar), is_yeri)
+	if not sonuc.get("engellendi", false):
+		preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "kapi_karar")
 	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").sonuc_yaz(self, sonuc)
 	set_meta(&"sonuclanan_gelen", _gelen)
 	if anahtar == "rusvet" or anahtar == "elkoy":

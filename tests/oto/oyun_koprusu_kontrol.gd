@@ -33,6 +33,9 @@ func _ready() -> void:
 	# değil, gerçek gece ve rapor/olay düğmelerini köprüden kullanarak gideriz.
 	var acilis := kopru.get_state()
 	assert(acilis.ekran == "koy" and acilis.koy.nufus == 2 and acilis.koy.yatak == 4)
+	assert(acilis.ILKSAAT == [{"ipucu": "koy_hizi", "gosterim_gecesi": 0, "ilk_kullanim_gecesi": -1}])
+	ana._ekran._hiz_dugmeleri[1].pressed.emit()
+	assert(kopru.get_state().ILKSAAT[0].ilk_kullanim_gecesi == 0)
 	assert(not (await kopru.run_command("gece_bitir")).has("error"))
 	# ACL-04: ilk akşam önce zorunlu ulak, sonra gerçek sorguda ilk aile.
 	assert(ana._ekran.has_node("KapiAcilisSunumu") and ana.oturum.gun == 0)
@@ -46,6 +49,7 @@ func _ready() -> void:
 	var ogretici_satirlari := (ogretici.get_node("Adimlar") as Label).text.split("\n")
 	assert(ogretici_satirlari.size() == 3 and ogretici_satirlari[0] == IlkSaat.ipucu_metni("ogretici.gecmis.medrese_talebesi"))
 	assert(not (ogretici.get_node("Adimlar") as Label).text.contains("ogretici."))
+	assert(kopru.get_state().ILKSAAT.size() == 1 + ogretici_satirlari.size())
 	(ogretici.get_child(1) as Button).pressed.emit()
 	await get_tree().process_frame
 	assert(not ana._kapi.has_node("AcilisOgretici"))
@@ -105,8 +109,10 @@ func _ready() -> void:
 				assert(not (await kopru.run_command("kaydet")).has("error"))
 				var once := ana.oturum.kaydet()
 				assert(not once.get("ilk_gece_gelenleri", []).is_empty())
+				var ilk_saat: Array = s.ILKSAAT
 				assert(not (await kopru.run_command("yukle")).has("error"))
 				assert(ana.oturum.kaydet() == once)
+				assert(kopru.get_state().ILKSAAT == ilk_saat)
 				nokta_alindi = true
 				continue
 			var once := ana.oturum.kaydet()

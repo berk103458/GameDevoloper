@@ -11,7 +11,11 @@ static func kur(k: KapiEkrani) -> void:
 	k.add_child(kutu)
 	var etiket := Label.new()
 	etiket.name = "Adimlar"
-	etiket.text = "\n".join(IlkSaat.kapi_acilis_satirlari(k.oturum))
+	var satirlar := IlkSaat.kapi_acilis_satirlari(k.oturum)
+	etiket.text = "\n".join(satirlar)
+	var kimlikler := ["kapi_selam", "kapi_konu", "kapi_karar"]
+	for i in mini(satirlar.size(), kimlikler.size()):
+		if not satirlar[i].is_empty(): preload("res://src/debug/ilk_saat_kancasi.gd").ipucu(k.oturum, kimlikler[i])
 	etiket.add_theme_font_size_override("font_size", 22)
 	kutu.add_child(etiket)
 	var atla := Button.new()

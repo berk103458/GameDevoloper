@@ -69,6 +69,14 @@ func _initialize() -> void:
 	oturum.gun = 5
 	oturum.yonetim.gun = 5
 	oturum.yonetim.adalet = 0
+	var kanca = preload("res://src/debug/ilk_saat_kancasi.gd")
+	kanca.arac(oturum, "koy_atama")
+	kanca.ipucu(oturum, "koy_atama")
+	kanca.ipucu(oturum, "koy_atama")
+	oturum.gun = 6
+	kanca.ipucu(oturum, "gec_ipucu")
+	_kontrol(kanca.satirlar(oturum) == [{"ipucu": "koy_atama", "gosterim_gecesi": 5, "ilk_kullanim_gecesi": 5}], "OGR-42: Gerçek ilk kullanım zamanı, tek satır ve altı gece sınırı")
+	oturum.gun = 5
 	_kontrol(NihaiSonSinifi.son(oturum, &"zafer").is_empty(), "OGR-33: gece 5 iken en kotu degerlerle bile nihai son 0 (bos) olmali")
 
 	# OMR-11: Gecis sonrasi (perde 2) alti gece ipucu 0

@@ -172,7 +172,7 @@ func _alt_panel_kur() -> void:
 		b.toggle_mode = true
 		b.set_pressed_no_signal(kat == 1)
 		b.tooltip_text = tr("koy.hiz.durdur") if kat == 0 else tr("koy.eylem.hiz") % kat
-		b.pressed.connect(func() -> void: _hiz_sec(kat))
+		b.pressed.connect(func() -> void: _oyuncu_hiz_sec(kat))
 		_hiz_dugmeleri[kat] = b
 	_gece_dugmesi = _dugme(tr("koy.eylem.gece"), yatay)
 	_gece_dugmesi.custom_minimum_size = Vector2(260, 150)
@@ -383,13 +383,19 @@ func _unhandled_input(olay: InputEvent) -> void:
 	elif InputMap.has_action("nufus") and olay.is_action_pressed("nufus"):
 		_nufus_ac()
 	elif InputMap.has_action("hiz_1") and olay.is_action_pressed("hiz_1"):
-		_hiz_sec(1)
+		_oyuncu_hiz_sec(1)
 	elif InputMap.has_action("hiz_2") and olay.is_action_pressed("hiz_2"):
-		_hiz_sec(2)
+		_oyuncu_hiz_sec(2)
 	elif InputMap.has_action("hiz_3") and olay.is_action_pressed("hiz_3"):
-		_hiz_sec(3)
+		_oyuncu_hiz_sec(3)
 	elif InputMap.has_action("hiz_dur") and olay.is_action_pressed("hiz_dur"):
-		_hiz_sec(_son_hiz if get_tree().paused else 0)
+		_oyuncu_hiz_sec(_son_hiz if get_tree().paused else 0)
+
+
+func _oyuncu_hiz_sec(kat: int) -> void:
+	if not _gece_kilidi.kilitli():
+		preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "koy_hizi")
+	_hiz_sec(kat)
 
 
 ## 1/2/3 hız seçer; boşluk durdurur veya son hızda sürdürür. Arayüz duraklamada çalışır.

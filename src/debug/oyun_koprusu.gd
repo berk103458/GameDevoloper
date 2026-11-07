@@ -136,6 +136,7 @@ func get_state() -> Dictionary:
 	if faz == "rapor": r.rapor_satirlari = metinler(kok)
 	var o := ana.oturum
 	if o == null: return r
+	r["ILKSAAT"] = preload("res://src/debug/ilk_saat_kancasi.gd").satirlar(o)
 	var barlar := {}
 	for i in 4: barlar[["halk", "soylular", "tuccarlar", "ordu"][i]] = o.gosterge(i)
 	r.merge({"gun": o.gun, "gece": o.gosterilen_gece(), "tamamlanan_gece": o.gun, "perde": o.perde,
@@ -315,7 +316,11 @@ func _kayit(cmd: String) -> Dictionary:
 			var b: Button = p.kaydet if cmd == "kaydet" else p.geri
 			if b.disabled: return hata("Kayıt için canlı kapı/köy, yükleme için mevcut kayıt noktası ve kapalı kartlar gerekli.")
 			if cmd == "kaydet": p._al()
-			else: await p._don()
+			else:
+				var eski := ana.oturum
+				await p._don()
+				if p.son_rapor.get("ok", false):
+					preload("res://src/debug/ilk_saat_kancasi.gd").aktar(eski, ana.oturum)
 			return {"ok": true} if p.son_rapor.get("ok", false) else hata(p.son_rapor.get("neden", "Kayıt işlemi başarısız."))
 	return hata("Kayıt UI bağlantısı bulunamadı.")
 
