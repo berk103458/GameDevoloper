@@ -78,6 +78,8 @@ func _dugmeler(kok: Node) -> Array[Button]:
 func _dongu() -> void:
 	await get_tree().create_timer(1.0).timeout
 	var menu_gecildi := false
+	var ilk_saat_olcumu := OS.get_environment("ILK_SAAT_OLCUMU") == "1"
+	var ilk_koy_ms := -1
 	for adim in 4000:
 		await get_tree().create_timer(0.12).timeout
 		var ekran: Control = ana._ust if ana._ust != null else ana._ekran
@@ -94,7 +96,7 @@ func _dongu() -> void:
 			var e := ekran as BilgiEkrani
 			if not menu_gecildi:
 				await _foto("01_menu")
-				if not _cekilen.has("ayarlar_denendi"):
+				if not ilk_saat_olcumu and not _cekilen.has("ayarlar_denendi"):
 					_cekilen["ayarlar_denendi"] = true
 					e.secildi.emit(2)
 					continue
@@ -108,6 +110,8 @@ func _dongu() -> void:
 			else:
 				await _foto("07_perde_gecisi")
 				e.secildi.emit(0)
+		elif ekran is YeniOyunEkrani:
+			(ekran as YeniOyunEkrani).baslatildi.emit(rng.seed, "eski_levent")
 		elif ekran is AyarlarEkrani:
 			var a := ekran as AyarlarEkrani
 			for satir in AyarlarEkrani.SATIRLAR:
@@ -118,6 +122,15 @@ func _dongu() -> void:
 			a._kapat()
 		elif ekran is KoyEkrani:
 			var koy := ekran as KoyEkrani
+			if ilk_saat_olcumu:
+				if ilk_koy_ms < 0: ilk_koy_ms = Time.get_ticks_msec()
+				var rapor_karti := koy._ust_kart
+				if ana.oturum.gun == 6 and rapor_karti != null and rapor_karti.find_child("kisa_ilk_saat_ozeti", true, false) != null:
+					var rapor := {"gece": ana.oturum.gun, "sure_ms": Time.get_ticks_msec() - ilk_koy_ms, "tohum": str(ana.oturum.tohum)}
+					print("ILKSAAT_SURE ", JSON.stringify(rapor))
+					Ses.cik()
+					return
+			if koy.has_node("KapiAcilisSunumu"): continue
 			await get_tree().create_timer(1.0).timeout
 			if not is_instance_valid(koy):
 				continue  # Beklerken ekran değişti (ör. perde geçişi); yeni ekranla devam.

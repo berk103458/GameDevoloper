@@ -4179,7 +4179,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-01. Boyut: S.
   - Dosya: `data/ogretici/ilk_saat.json`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-46:** İlk saat süresi ölçülür.
+- [x] **OGR-46:** İlk saat süresi ölçülür. (Kalfa)
   - Ne: altı gecenin gerçek süresi (otomatik oyuncu, `tests/oto/otomatik_oyuncu.tscn`) ölçülür; hedef 45–75 dakika (öneri). Sapınca `gece_basina_gelen` değil, ipucu ve kademeli açılış gecesi oynar.
   - Kabul: ölçüm raporda. Test: runner süre satırı.
   - Bağımlılık: OGR-42. Boyut: S.
