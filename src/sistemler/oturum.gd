@@ -146,6 +146,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 	TuccarKapiGecisi.ekle(self, sonuc)
 	DiplomatikHeyet.ekle(self, sonuc)
 	preload("res://src/kapi/aile_kafilesi.gd").ekle(self, sonuc)
+	preload("res://src/sistemler/sancak_ulagi.gd").ekle(self, sonuc)
 	return sonuc
 
 
@@ -203,6 +204,8 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	if TuccarKapiGecisi.ilgilenir(gelen): return TuccarKapiGecisi.karar(self, gelen, karar)
 	var oba = preload("res://src/sistemler/aydogdu_ziyareti.gd")
 	if oba.ilgilenir(gelen): return oba.karar(self, gelen, karar)
+	var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
+	if ulak.ilgilenir(gelen): return ulak.karar(self, gelen, karar)
 	var sorgu := gelen.chr_sorgusu()
 	if sorgu != null and not sorgu.karar_acik(karar):
 		return {"engellendi": true, "kaldi": false, "kirilan": -1}
@@ -315,6 +318,9 @@ func gece_sonu() -> Dictionary:
 	HaberciAgi.gece(self, r)
 	preload("res://src/sistemler/atil_bayraklar.gd").gece(self, r)
 	KoyYonetimi.PERDE_GECISI.denetle(yonetim, r, ayarlar.perde2_hedef_gece)
+	if r.son == "" and preload("res://src/sistemler/sancak_ulagi.gd").kapida(self):
+		r.olaylar = r.olaylar.filter(func(olay: Dictionary) -> bool:
+			return not olay.has("sancak_teftisi") and olay.get("anahtar") != SancakAskerTalebi.AYAR.haber)
 	_koy_esitle()
 	kadro.gece_bitti()
 	var sonuc := {"olaylar": r["olaylar"], "kirilan": -1, "rusvet_harcandi": -1, "son": StringName(r["son"]),
@@ -447,8 +453,9 @@ func olay_sec() -> OlayVerisi:
 	if tutanak != null: return tutanak
 	var pusula := FisiltiGazetesi.olay(self)
 	if pusula != null: return pusula
-	var ferman := SancakAskerTalebi.olay(self)
-	if ferman != null: return ferman
+	if not preload("res://src/sistemler/sancak_ulagi.gd").kapida(self):
+		var ferman := SancakAskerTalebi.olay(self)
+		if ferman != null: return ferman
 	var haber := HaberciAgi.olay(self)
 	if haber != null: return haber
 	var bekleyen := preload("res://src/sistemler/ozel_olay.gd").bekleyen(self, katalog)

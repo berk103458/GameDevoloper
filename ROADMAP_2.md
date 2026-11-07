@@ -4417,7 +4417,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: DIY-11, OMR-05. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-22:** Sancak hattı: ulak döner.
+- [x] **OMR-22:** Sancak hattı: ulak döner. (Kalfa)
   - Ne: ACL-04 ulağı `sancak_asker_talebi.gd` fermanını (gece 8) ve `sancak_teftisi.gd` teftişini kapıda bizzat getirir; yazılı haber yerine yüz.
   - Kabul: ferman gecesi ulak kuyrukta 1. Test: gece 8 kuyruğu.
   - Bağımlılık: ACL-04, OMR-05. Boyut: S.

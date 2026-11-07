@@ -57,9 +57,63 @@ func _ready() -> void:
 	bitir.pressed.emit()
 	await get_tree().process_frame
 	assert(devam[0] and e._ust_kart==null)
+	await _ulak_kapida(ana)
 	ana.kayit.sil()
 	ana.queue_free()
 	await get_tree().process_frame
 	await get_tree().create_timer(0.5).timeout
 	print("SANCAK ASKER UI: GEÇTİ")
 	await Ses.cik(0)
+
+
+func _ulak_kapida(ana: Ana) -> void:
+	var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
+	var o := Oturum.new(ana.katalog, 1403)
+	o.bayraklar[ulak.ACILIS.ULAK] = true
+	for i in 5: o.yonetim.kabul({"ad": "Levent %d" % i})
+	o.yonetim.kaynaklar.ekle("gida", 150)
+	o.yonetim.kaynaklar.ekle("su", 150)
+	o.gun = 5
+	assert(not ulak.ilgilenir(o.gece_kuyrugu().front()))
+	var teftis_raporu := o.gece_sonu()
+	assert(o.gun == 6 and o.sancak_teftisi.sonuc == "temiz")
+	assert(not teftis_raporu.olaylar.any(func(olay: Dictionary) -> bool: return olay.has("sancak_teftisi")))
+	o = Oturum.kayittan(ana.katalog, JSON.parse_string(JSON.stringify(o.kaydet())))
+	assert(o != null)
+	var haberci := o.gece_kuyrugu().front() as Gelen
+	assert(ulak.ilgilenir(haberci) and haberci.secenekler == PackedStringArray([ulak.DINLE]))
+	assert(haberci.acilis == SancakTeftisi.olay_metin(o.sancak_teftisi))
+	assert(not o.karar_ver(haberci, ulak.DINLE).engellendi)
+	assert(o.karar_ver(haberci, ulak.DINLE).engellendi)
+	o.gun = 7
+	var kuyruk := o.gece_kuyrugu()
+	assert(o.gosterilen_gece() == 8 and ulak.ilgilenir(kuyruk.front()))
+	assert(kuyruk.filter(func(g: Gelen) -> bool: return ulak.ilgilenir(g)).size() == 1)
+	assert(not SancakAskerTalebi.tanimli(o.olay_sec()))
+	var ziyaret: Dictionary = JSON.parse_string(JSON.stringify(KapiAnlikGoruntusu.gelen_kaydet(kuyruk.front())))
+	var g := KapiAnlikGoruntusu.gelen_yukle(ziyaret, ana.katalog)
+	assert(ulak.ilgilenir(g) and g.get_meta(ulak.META) == o.gun)
+	assert(o.karar_ver(haberci, ulak.DINLE).engellendi)
+	ana.oturum = o
+	var kapi := KapiEkrani.new()
+	kapi.oturum = o
+	kapi.ayarlar = ana.ayarlar
+	ana._goster(kapi)
+	kapi._kuyruk = [g]
+	kapi._siradaki()
+	while kapi.evre != &"karar": await get_tree().process_frame
+	assert(kapi._kayit.get_parsed_text().contains("Sancak Beyi 2 levent ister"))
+	kapi._tumunu_goster()
+	assert(kapi._karar_dugmeleri[0].text.contains("Uygun iş gücünden") and not kapi._karar_dugmeleri[0].disabled)
+	assert(kapi._karar_dugmeleri[1].disabled)
+	kapi._karar_dugmeleri[0].pressed.emit()
+	kapi._karar_dugmeleri[0].pressed.emit()
+	assert(kapi._kayit.get_parsed_text().contains("Sancak ordusuna gönderilen leventler"))
+	assert(o.yonetim.nufus() == 3 and not o.sancak_asker_talebi.bekliyor)
+	assert(o.karar_ver(g, &"ulak_levent").engellendi)
+	await kapi.gece_bitti
+	var ferman_raporu := o.gece_sonu()
+	assert(o.gun == 8 and not o.sancak_asker_talebi.bekliyor)
+	assert(not SancakAskerTalebi.tanimli(ferman_raporu.olay))
+	assert(not ulak.ilgilenir(o.gece_kuyrugu().front()))
+	print("SANCAK ULAK KAPI: GEÇTİ")

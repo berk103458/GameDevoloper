@@ -22,14 +22,25 @@ static func gece(o: Oturum, r: Dictionary) -> void:
 	var no := int(r.gun)+1
 	if o.yonetim.son!="" or no<=int(d.son_gece): return
 	d.son_gece = no
-	var dis_hat = preload("res://src/sistemler/dis_hat_kapisi.gd")
-	if not d.bekliyor and no>=int(AYAR.ilk_gece) and (no-int(AYAR.ilk_gece))%maxi(1,int(AYAR.aralik_gece))==0 and dis_hat.izin(o.yonetim, dis_hat.TALEP, -1):
-		d.gun = no
-		d.secim = -1
-		d.bekliyor = true
-		d.gonderilen = []
-		r.olaylar.append({"anahtar":String(AYAR.haber)})
 	o.sancak_asker_talebi = d
+	if ferman_ac(o, no, -1):
+		r.olaylar.append({"anahtar":String(AYAR.haber)})
+
+## Aynı ferman hem kapı hem gece sonu çalışsa da bir kez açılır.
+static func ferman_ac(o: Oturum, no: int, ofset: int = 0) -> bool:
+	var d := oku(o.sancak_asker_talebi)
+	var dis_hat = preload("res://src/sistemler/dis_hat_kapisi.gd")
+	var ilk := int(AYAR.ilk_gece)
+	if o.yonetim.son != "" or d.bekliyor or no <= int(d.gun) or no < ilk:
+		return false
+	if (no - ilk) % maxi(1, int(AYAR.aralik_gece)) != 0 or not dis_hat.izin(o.yonetim, dis_hat.TALEP, ofset):
+		return false
+	d.gun = no
+	d.secim = -1
+	d.bekliyor = true
+	d.gonderilen = []
+	o.sancak_asker_talebi = d
+	return true
 ## Salt okunur, ID sıralı gerçek adaylar; gizli suç veya söylenti isyan sayılmaz.
 static func adaylar(y: KoyYonetimi, isyanci: bool) -> Array[Koylu]:
 	var a: Array[Koylu] = []

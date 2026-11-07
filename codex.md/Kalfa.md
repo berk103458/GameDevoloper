@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OMR-22 tamamlandı (Kalfa)
+
+ACL-04 ulağı sekizinci nöbetin kuyruğuna ilk sırada ve bir kez girer. Kapıdaki üç ferman seçeneği mevcut HAR-04 aday, uygunluk ve karar kurallarını kullanır. Bir teftiş oyunu bitirmediyse ulak sonucunu sonraki nöbette iletir. İkisi aynı nöbete denk gelirse tek ziyaret ikisini taşır. Terminal teftiş raporu ve açılış ulağını görmemiş eski kayıtların yazılı akışı korunur. Kabul edilen teftiş haberi ve güncel kapı ziyareti kayda yansır. Ulak mevcut asker figürünü kullanır. Asset gerekmedi.
+
+Headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Sancak asker ve ulak kapı akışları, teftiş birim ve arayüz testleri geçti. Yeni testte JSON değeri açık Dictionary tipine çevrildikten sonra yeniden çalıştırıldı. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OMR-21 tamamlandı (Kalfa)
 
 Full pull 9a0ecaa1 güncel, Ajan Masası okundu. Aydoğdu ilk kapı ziyaretini mevcut adlı kadroda yapar. İlk gerçek karardan en az dört gece sonra, oba hattı açıksa aynı kimlikle ikinci kez kapıya gelir. İlk ret de dönüşe izin verir. Köyde kalmış Aydoğdu'nun dönüşü için canlı köylü kaydı gerekir. İkinci ziyaret mevcut oba olayının seçenek ve etkilerini kapıda kullanır. Kabul veya savaşçı kabulü ittifak bayrağını açar. Aydoğdu ikinci kez nüfusa eklenmez. Karar bir kez uygulanır. Kapı anlık görüntüsü ziyaret gününü korur.

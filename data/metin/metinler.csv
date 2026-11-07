@@ -2140,6 +2140,9 @@ Unlocked knowledge: %s
 %s"
 koy.kart.uzmanlik_yok,Özel uzmanlık eşleşmesi yok; yaş ve kapasite kuralları geçerli.,No special craft match; age and capacity rules apply.
 koy.levent.olay,"Levent firarı · %s: %s köyü terk etti. Nöbet hattı zayıfladı; Güvenlik %d → %d/100 (asayiş riski +%d). Aynı kriz boyunca yeni firar dalgası olmaz; erzak, maaş ve moral desteği ayrılmayı önler.","Levent desertion · %s: %s left the village. The watch line weakened; Security %d → %d/100 (order risk +%d). No further desertion wave occurs during the same crisis; rations, pay, and morale support prevent departure."
+koy.sancak.ulak_giris,Mühürlü tomar taşıyan ulak kapıya varıyor.,The messenger arrives at the gate with a sealed scroll.
+koy.sancak.ulak_dinle,Teftiş haberini al,Acknowledge the audit report
+koy.sancak.ulak_sonuc,Ulak haberi iletip ayrıldı.,The messenger delivered the news and left.
 koy.sancak.temiz,Sancak müfettişi teftişi: gizli kasada suç isnadını destekleyen içerik ve yozlaşma birlikte bulunmadı. Görev sürüyor.,Sanjak inspector audit: no incriminating stash contents and corruption were found together in the hidden chest. Duty continues.
 koy.sancak.bulunamadi,Sancak müfettişi teftişi: gizli kasa bu kez bulunamadı. Geçmiş yozlaşma ve kasa içeriği değişmedi.,Sanjak inspector audit: the hidden chest was not discovered this time. Past corruption and chest contents remain unchanged.
 koy.sancak.idam,Sancak müfettişi gizli kasayı buldu. Ağır yozlaşma nedeniyle muhafız hakkında idam hükmü verildi.,"The Sanjak inspector uncovered the hidden chest. Due to severe corruption, the gatekeeper was sentenced to execution."

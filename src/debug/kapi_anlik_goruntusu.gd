@@ -18,6 +18,8 @@ static func gelen_kaydet(g: Gelen) -> Dictionary:
 	v["diplomatik_heyet"] = DiplomatikHeyet.bilet(g)
 	var oba = preload("res://src/sistemler/aydogdu_ziyareti.gd")
 	if oba.ilgilenir(g): v[String(oba.META)] = int(g.get_meta(oba.META))
+	var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
+	if ulak.ilgilenir(g): v[String(ulak.META)] = int(g.get_meta(ulak.META))
 	v["sira_sonucu"] = g.get_meta(SiraOlayiSonucu.META, {}).duplicate()
 	v["hastalik_teshisi"] = preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kaydet(g)
 	v["sezgi_goruldu"] = bool(g.get_meta(&"zar06_goruldu", false))
@@ -62,6 +64,11 @@ static func gelen_yukle(v: Dictionary, katalog: Katalog) -> Gelen:
 	g.aile_id = String(v.get("aile_id", ""))
 	for alan in BASIT:
 		g.set(alan, StringName(v[alan]) if alan in ["id", "sinif"] else v[alan])
+	var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
+	if ulak.ilgilenir(g):
+		var gun := KurtBaskini.oku(v.get(String(ulak.META), -1))
+		if gun < 0: return null
+		g.set_meta(ulak.META, gun)
 	g.etkiler = {}
 	for karar in v["etkiler"]:
 		var etki: Variant = v["etkiler"][karar]
