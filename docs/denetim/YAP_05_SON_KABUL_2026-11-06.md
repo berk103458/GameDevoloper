@@ -9,3 +9,9 @@ Soğuk import exit0, SCRIPT ERROR/parse/Failed to load script0. Ancak mevcut iki
 20 benzersiz hedefin tamamı geçti (kayit_gocu_test aynı adla iki ayrı dizinde21 koşu). Liste ve sonuçlar yan JSON dosyasında. Bunlar seçilmiş hedeflerdir; tam sanity çalıştırılmadı. Gerçek oda UI, inşa/bilgi/atama, tek tahsilat, kuyruk, yıkım/yeniden inşa/etkin ve sıradaki işi bağlama, optional JSON, gerçek gece/ölüm/işten alma, mevsim ve üretim etkisi doğrulandı. Masaüstü headless import exit0 ve aynı gerçek UI exit0; importta kapanış hataları sürdü.
 
 YAP05-ODA mevcut düz renk kutu/etiketle envanterdedir; yeni asset yok. ds yolları yok; önceki Ahmet istisnası geçerli, eşitlendi denmez. DEN-54 plan2/7 regresyonu açık kalır. kota görünmüyor.
+
+## Parley içe aktarım uyumu sonrası tekrar (Kalfa)
+
+Ahmet yalnız içe aktarım uyumunu onayladı. 2139e6e2 iki meclis_davalari.ds dosyasına mevcut name değerini title olarak ekledi. JSON karşılaştırmasında diğer tüm alanlar aynı. Commitli önbelleksiz kopya import exit0, Parley ve script hatası0. Godot iki derlenmiş kaynağı title ve 32 düğüm / 37 bağlantıyla yükledi. Masaüstü güvenli FF sonrası iki eski geçersiz yan kayıt TEMP'e taşındı. Başsız import ve iki kaynak yüklemesi exit0. Masaüstü importunda ağaç dışında look_at hatası ve üç kapanış hatası görüldü.
+
+Seçili21 koşunun20'si geçti. Atama/duraklatma exit0 ve GEÇTİ verdi, ancak kapanıştaki bir kaynak hatası doğrulayıcıyı kırmızı yaptı. Soğuk importta üç kaynak/PagedAllocator kapanış hatası sürdü. Parley engeli çözüldü. YAP-05[/] sıfır hata kabulü açık. Tam sanity çalıştırılmadı. ds yolları yok. kota görünmüyor.

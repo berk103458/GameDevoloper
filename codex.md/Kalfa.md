@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — Parley içe aktarım uyumu doğrulandı (Kalfa)
+
+Ahmet onayıyla 2139e6e2 yalnız iki meclis dosyasının title başlığını ekledi. Diğer JSON alanları birebir aynı. Commitli soğuk import ve iki gerçek AST yükleme exit0. Parley hatası0. Masaüstü FF ve eski iki geçersiz yan kayıt TEMP yedeği sonrası iki AST yüklendi. Üç soğuk kapanış hatası sürüyor. YAP-05 seçili21 koşuda20 PASS, atama/duraklatma kapanış kaynak hatası nedeniyle FAIL. ROADMAP[/] Kalfa. Ayrıntılar docs/denetim/YAP_05_SON_KABUL_2026-11-06.md ve JSON. Asset gerekmedi. ds yolları yok. kota görünmüyor.
+
 ## 6 Kasım 2026 — DEN-62 tamamlandı (Kalfa)
 
 Sağlıklı çalışan ve teşhis kaydı olmayan JSON başlangıcından 28 gerçek gece oynandı. 14. gecede kayıt yüklenip devam edildi. Nüfus1, terminal boş, bulaşıcı enfeksiyon ve salgın gecesi0. Son pozitif kontrolde mevcut humma kabulü enfeksiyonu oluşturdu. MEV kış hastalığı ayrı ölçümdür. İlk denemelerde testin bina dönüş alanı ve sabit hücre kurulumu düzeltildi. Son denge_kriz hedefi exit0, GEÇTİ ve script hatası0. DEN-60/61 aynı hedefte geçti. Üretim kodu değişmedi. Asset gerekmedi. kota görünmüyor.

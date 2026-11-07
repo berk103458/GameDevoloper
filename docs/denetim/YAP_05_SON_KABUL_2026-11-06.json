@@ -121,5 +121,126 @@
   "blockers": [
     "Existing Parley importer rejects title field in two meclis_davalari.ds records",
     "Existing resource/PagedAllocator exit errors"
-  ]
+  ],
+  "parley_yeniden_kabul": {
+    "head": "2139e6e2a47324395398f59bf9f6433fa95213e3",
+    "base": "a0f4aca9d546338650cfaf57b4cdc22a9afe1a80",
+    "tree": "C:\\Users\\Ahmet\\AppData\\Local\\Temp\\kalfa-parley-kabul-zd22b_hz",
+    "initial_godot": false,
+    "results": [
+      {
+        "name": "metin-csv",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "denge_olcumu_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "cozumleme_gece_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "cozumleme_is_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "cozumleme_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "usta_defterleri_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "yapi_bilgisi_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "yapi_insaati_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "yapi_kilidi_sinir_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "yapi_kilidi_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "yapi_kurulum_kilidi_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "koy_yonetimi_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "kayit_gocu_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "kayit_gocu_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "muhafiz_gecmisi_akis_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "muhafiz_gecmisi_test",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "yapi_kademeleri",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "yapi_kilidi",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "usta_defteri_envanter",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "cozumleme",
+        "ok": true,
+        "exit": 0
+      },
+      {
+        "name": "atama_duraklat",
+        "ok": false,
+        "exit": 0
+      }
+    ],
+    "missing": [],
+    "ast_exit": 0,
+    "desktop_ast_exit": 0,
+    "import_exit": 0,
+    "parley_errors": 0,
+    "script_errors": 0,
+    "shutdown_errors": 3,
+    "accepted": false
+  }
 }
