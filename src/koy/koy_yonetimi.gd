@@ -222,6 +222,7 @@ func kabul(v: Dictionary, harc: bool = false, rusvet: int = 0, zengin: bool = fa
 	k.stat = clampi(int(v.get("stat", 5)), 1, 10)
 	k.bayraklar = PackedStringArray(v.get("bayraklar", []))
 	k.gizli_bayraklar = PackedStringArray(v.get("gizli", []))
+	k.yapi_bilgisi = preload("res://src/koy/yapi_bilgisi.gd").kabul_bilgisi(k, v)
 	k.gizli_egilim = GizliEgilimler.oku(v.get("gizli_egilim"), k)
 	k.moral = a.baslangic_moral
 	k.sadakat = a.baslangic_sadakat
@@ -256,6 +257,9 @@ func ret(ad: String, haksiz: bool, usta_uzmanlik: String = "") -> void:
 
 ## Yerleşim önizlemesi (hayalet): {olur, neden, maliyet}. Neden: `sinir`, `dolu`, `yol_yok`, `malzeme`, `akce`.
 func yerlesim(tur: String, hucre: Vector2i, yon: int = 0) -> Dictionary:
+	var kilit := YapiKilidi.durum(self, tur)
+	if not kilit.acik:
+		return {"olur": false, "neden": kilit.neden, "maliyet": katalog.maliyet(tur)}
 	var b := KoyBinasi.new()
 	b.tur = tur
 	b.hucre = hucre
@@ -569,6 +573,7 @@ func gece() -> Dictionary:
 	GeceDeneyi.uretimin_ardindan(self)
 	KoyluGelisimYoneticisi.gece(self, calismalar, olaylar)
 	CirakEgitimi.gece(self, calismalar, olaylar)
+	preload("res://src/koy/yapi_bilgisi.gd").ciraklar(self)
 	var uyanik_nobet := NobetYorgunlugu.nobetciler(self)
 	IsKazalari.gece(self, calismalar, olaylar)
 	ZanaatKazalari.gece(self, olaylar)
@@ -600,7 +605,9 @@ func gece() -> Dictionary:
 	_saglik_ve_moral(rapor["olenler"], olaylar, tedavi_artisi)
 	SiraOlayiSonucu.rapora_ekle(self, rapor)
 	CenazeYasi.gece(self, rapor, olum_kisileri)
-	IsMemnuniyeti.gece(self, calismalar, olaylar)
+	rapor["is_olcumu"] = preload("res://src/koy/bosta_kalma.gd").gozlem(self)
+	rapor["bosta_moral_bedeli"] = IsMemnuniyeti.gece(self, calismalar, olaylar)
+	rapor["bosta_terk"] = preload("res://src/koy/bosta_kalma.gd").terk_gozlem(self)
 	CasusDevriyesi.gece(self, olaylar)
 	FisiltiGazetesi.gece(self, olaylar)
 	_akce(olaylar)
@@ -704,7 +711,7 @@ func _uret(uretim: Dictionary, olaylar: Array[Dictionary], calismalar: Dictionar
 			var c := Uretim.koylu_carpani(k, uzmanlik, a, b.tur) * YasRolleri.carpan(self, b) * DemirZinciri.carpan(self, b.tur) * CenazeYasi.is_carpani(self, k)
 			var bonus := a.kritik_bonus if k.moral > a.kritik_moral else 0.0
 			for t in cikti:
-				var miktar := Uretim.gunluk(float(cikti[t]), k.stat, c) * b.uretim_carpani() * CanliHayvanTakasi.carpan(self, b, String(t))
+				var miktar := Uretim.gunluk(float(cikti[t]), k.stat, c) * b.uretim_carpani() * CanliHayvanTakasi.carpan(self, b, String(t)) * preload("res://src/koy/cozumleme.gd").uretim_carpani(self,b.tur)
 				_ambara(b, t, miktar, miktar * bonus, uretim, olaylar)
 			if not cikti.is_empty() and ambar_yeri_var: MeslekUyumu.alet_denetimi(self, k, b, olaylar)
 			if not cikti.is_empty() and ambar_yeri_var:
@@ -738,14 +745,7 @@ func _ambara(b: KoyBinasi, tur: String, miktar: float, bonus: float, uretim: Dic
 
 
 func _insaat() -> int:
-	var ilerleme := 0
-	var yardim := bostakiler().filter(func(k: Koylu) -> bool: return k.yas_grubu == &"yetiskin" and not KarantinaYoneticisi.aktif(k)).size() / maxi(1, a.insa_yardim_bolen)
-	yardim += GeciciIsler.insaat_yardimi(self)
-	for b in binalar:
-		if b.insa_kalan > 0:
-			var once := b.insa_kalan
-			b.insa_kalan = maxi(0, b.insa_kalan - 1 - yardim)
-			ilerleme += once - b.insa_kalan
+	var ilerleme := preload("res://src/koy/yapi_insaati.gd").ilerlet(self)
 	_ambar_kapasitesi()
 	return ilerleme
 
@@ -938,7 +938,7 @@ func kaydet() -> Dictionary:
 	var b: Array = []
 	for x in binalar:
 		b.append(x.kaydet())
-	return {"sira_olayi_raporu": SiraOlayiSonucu.durum(self), "tas_yatagi": tas_yatagi.kaydet() if tas_yatagi != null else null, "perde2_baslangic": PERDE_GECISI.baslangic(self), "kriz_kenetlenmesi": KRIZ_KENETLENMESI.durum(self), "levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kapi_nobeti": KapiNobeti.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
+	return {"cozumleme": preload("res://src/koy/cozumleme.gd").durum(self), "sira_olayi_raporu": SiraOlayiSonucu.durum(self), "tas_yatagi": tas_yatagi.kaydet() if tas_yatagi != null else null, "perde2_baslangic": PERDE_GECISI.baslangic(self), "kriz_kenetlenmesi": KRIZ_KENETLENMESI.durum(self), "levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kapi_nobeti": KapiNobeti.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
 		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "tuccar_girisi": tuccar_girisi.duplicate(true), "kervan_koruma": kervan_koruma.duplicate(true), "husumet": husumet.kaydet(), "cete_anlasmasi": CeteAnlasmasi.durum(self), "savunma_konuslanmasi": SavunmaKonuslanmasi.durum(self), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
@@ -1025,5 +1025,6 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	KapiNobeti.yukle(y, v.get("kapi_nobeti", {}))
 	FisiltiGazetesi.HISTERI.yukle(y, v.get("batil_inanc_histerisi", {}))
 	TasYatagi.yukle(y, v.get("tas_yatagi"))
+	preload("res://src/koy/cozumleme.gd").yukle(y, v.get("cozumleme"))
 	y._ambar_kapasitesi()
 	return y

@@ -281,6 +281,9 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 	if not b.hazir():
 		_iskele(n, en, derin)
 		return n
+	if b.tur == "cozumleme_odasi":
+		preload("res://src/koy/gorsel/cozumleme_oda_yer_tutucu.gd").kur(n,en,derin)
+		return n
 	if b.tur==GozcuKulesi.TUR:
 		GozcuKulesiGorseli.kur(n)
 		return n

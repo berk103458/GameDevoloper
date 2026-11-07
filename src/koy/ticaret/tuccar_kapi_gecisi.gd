@@ -52,6 +52,7 @@ static func karar(o: Oturum, g: Gelen, secim: StringName) -> Dictionary:
  sonuc.engellendi = false
  sonuc.kaldi = secim != &"ret"
  sonuc.alinan_akce = bedel
+ if sonuc.kaldi: preload("res://src/koy/usta_defterleri.gd").ganimet(o,"tuccar",str(makbuz.varis) + ":" + String(makbuz.uzman))
  return sonuc
 ## Eski kayıt boş: tarihi takvim erişimi korunur; yalnız geçerli makbuz yüklenir.
 static func oku(v: Variant) -> Dictionary:

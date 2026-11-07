@@ -1,3 +1,408 @@
+## 6 Kasım 2026 — OGR-25 tamamlandı (Kalfa)
+
+Full pull 12c77358 güncel, Ajan Masası okundu. Köyün sürekli görünen üst HUD şeridinde ilk gece beş temel kaynak ve bir takvim/durum grubu vardır. Kaynak ve durum katmanları ilk_saat.json eşikleriyle ilk üç gecede açılır. Bekleyen kartlar hazırlanır ve eşik dolana kadar sahne ağacının dışında kalır. Acil uyarı ve onarımlar kendi durum verileriyle erken açılabilir. Bağlama bağlı menüler mevcut akışını korur.
+
+Köy HUD, gerçek açılış, HUD işlemleri, kriz ve ilk saat hedefleri geçti. İlk import bir MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — OGR-22 tamamlandı (Kalfa)
+
+Full pull 5cb8b631 güncel, Ajan Masası okundu. İlk köy açılışında mevcut IpucuSeridi, GIR-26 eylemlerinden üç hız ve duraklatma atamasını okur. ROADMAP eski 1–5/P notu yerine geçerli harita esas alındı. 4/5 kapı kısayollarıdır. P nüfusu açar. Görülen ipucu ilk köy kaydında yazılır ve yüklemede tekrarlanmaz. Kapalı ipucu tercihi AYR-12 üzerinden uygulanır. Ek ayar henüz birleşmemişse mevcut AYR varsayılanı kullanılır.
+
+İlk gerçek açılış RED, sonra açılış/yükleme, girdi yeniden atama, ilk saat ve ayarlar dört hedef PASS. CSV PASS. Mevcut YAZ-10 taramasında 13 öğretici satırı ve ihlal0. İlk import dört MD5 hatası verdi. İkinci exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — OGR-09 tamamlandı (Kalfa)
+
+Full pull 141137de güncel, Ajan Masası okundu. Mevcut dokuz ilk saat ipucu ve üç açılış yönlendirmesi ayrı ogretici.* CSV anahtarlarına taşındı. Metinler kısa, somut ve muhafızın kendi notu tonunda. İlk saat ve gerçek kapı öğreticisi aynı çeviri okumasını kullanır. Metin parametreleri, ilk görülme kuralları ve zar formülü korunur.
+
+12 Türkçe satır Roadmap-2/soz_agaci/yapaylik.js mevcut YAZ-10 denetle API'sine muhafızın bağımsız satırları olarak verildi. Satır ihlali0. İki dilde 90 karakter sınırı ve biçim alanlarının eşleşmesi kontrol edildi. CSV, ilk saat birimi ve gerçek köprü akışı PASS. İlk başsız import iki MD5 hatası verdi. İkinci exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — OGR-05 tamamlandı (Kalfa)
+
+Full pull f187064e güncel, Ajan Masası okundu. Yeni oyunun 0–2 numaralı gecelerinde mevcut rapor gövdesi üç satırdır: gelenler, kalanlar, önceki ve sonraki ambar erzağı. Üçüncü geceden sonra mevcut ayrıntı yolu kullanılır. Ziyaret açılışları için sınırlı ad listesi yalnız bu dönemde optional oturum kaydına girer. Ulak mevcut ACL-04 işaretinden, kalanlar gerçek köy giriş gününden, erzak mevcut gece bilançosundan okunur. Gece bitince ziyaret listesi temizlenir. Cenaze kararları mevcut ayrı eylem akışındadır. Kayıt sürümü ve bilanço hesabı aynı.
+
+Gerçek köprü ilk iki gece raporunda üç satırı, ulak ve aile adlarını, kabul edilen iki kişiyi, gerçek ambar miktarlarını ve kapıda kayıt dönüşünü doğruladı. Bilanço birimi gece0–3 sınırını, JSON dönüşünü ve önceki adların temizlenmesini doğruladı. Denge kriz gerçek raporu ve CSV doğrulaması geçti. İkinci başsız import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. İlk import iki MD5 hatası yazdı. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — OGR-02 tamamlandı (Kalfa)
+
+Full pull 0a9aff04 güncel, Ajan Masası okundu. Mevcut ACL-04 ilk aile ziyaretinde tek kısıt sohbet/karar heybe ve sağlık incelemesi düğmelerini kapatır. Doğrudan heybe çağrıları da beyan/panel açmaz. Kabul ve ret mevcut ACL-04 yolundan, sorular mevcut azami_soru sınırından geçer. Öğreticideki heybe yönlendirmesi kaldırıldı. İlk ailede Söz/CHR zarı yoktur. Diğer ziyaretlerin mevcut akışı sürer.
+
+İlk RED heybe eylemi, sonraki RED sağlık inceleme eylemi. Gerçek köprü testi son koşuda ilk gece kontrolleri, selam/konu, kabul, ertesi gün, kapıda kayıt ve köye dönüşle PASS. Mevcut ACL-04 birimi PASS. İlk import iki MD5 hatası, ikinci exit0/script0/MD50. Üç kaynak ve bellek ayırıcı kapanış hatası sürer. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+OGR-04 ilk kabulden önce köy ekranını kapatmayı ister. Bu, kapanmış ACL-01 gerçek yeni oyun akışında köyde başlama kabulüyle çelişiyor. OGR-04 açık. OGR-05 bağımsız kısa rapor incelemesi sırada.
+
+## 6 Kasım 2026 — DEN-72 tamamlandı (Kalfa)
+
+Denge tablosunda üç sayısal zorluk çarpanı ve menü, panel, sekme, yazı boyutu alanı0 doğrulandı. Denge doğrulayıcısı PASS. Mevcut menü kapsamı AYR-23, AYR-34 ve Bölüm43. DEN-66/69 adaptörü oturum tercihi ve başlangıç erzağına bağlanır. Bu madde yalnız veri/sorumluluk kabulüdür. Oyun kodu ve asset değişikliği yok. DEN-71 başsız hedefler ve import kanıtı güncel. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-71 tamamlandı (Kalfa)
+
+Full pull 7c8911fa güncel, Ajan Masası okundu. DEN-70 kabulü tamamlanmamış DEN-47 ve DEN-59 koşularını kapsar. Bu nedenle üç aralık tek başına kapanış sayılmadı. DEN-71 hedefi gerçek SYS-20 seçicisinde beş sonun durumlarını Kolay, Olağan ve Sıkı için kurup 15 gerçek JSON yüklemesi üzerinden aynı kimlikleri doğrular. Veri tam beş son içerir. Oyun kodu ve son kuralları aynı.
+
+Yeni zorluk testi ve mevcut SYS-20 testi PASS. İlk import dört MD5 hatası verdi. İkinci exit0/script0, üç mevcut kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-69 tamamlandı (Kalfa)
+
+Gerçek yeni oyun, mevcut haftalık erzak tabanına Sıkı için aşağı yuvarlanmış pay/çarpan ekler. Alt sınır gerçek bir gecelik erzak ihtiyacıdır. Mevcut 2×7 taban ve 16 pay ile Sıkı açılış26, Olağan30. Kayıt yüklemede26 korunur. Seçilen işlem yalnız payı böler ve tam erzak birimine aşağı yuvarlar. Yeni sayısal tablo veya çarpan eklenmedi.
+
+Gerçek açılış RED iki hata, sonra açılış/devam, denge tablosu ve sınır denetimi üç hedef PASS. Python veri doğrulaması PASS. İkinci başsız import exit0/script0/MD50, üç mevcut kaynak/allocator kapanış hatası sürüyor. İlk import bir MD5 hatası yazdı. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+DEN-68 ön kontrolü mevcut acilis_denge_kontrol exit1. Beş sıra 20 geceye erişiyor fakat taş ocağı0/5. Yaz/kış odun dibi24/0 ve beklenen fark1. Plan/kurallar değiştirilmedi ve bu sonuç DEN-68 kabulü sayılmadı. DEN-67 Söz/zar çalışmasına bağlı. DEN-70 bağımsız veri/ölçüm incelemesi sırada.
+
+## 6 Kasım 2026 — DEN-66 tamamlandı (Kalfa)
+
+Full pull 5c91d4e0 güncel ve Ajan Masası okundu. Yeni oyun mevcut ayar seçimini kuruluşta bir kez köyün mevcut zorluk değerine bağlar. Oturum tek kök zorluk alanını yazar ve yükler. Sıkı kayıt, global tercih Kolay olsa da aynı tüketimle Sıkı açılır ve yeniden Sıkı kaydedilir. Eksik veya bilinmeyen eski değer Olağan açılır. OGR-50 mevcut seçim erişimi durur. Kayıt sürümü aynı.
+
+Gerçek açılış/devam testinde önce üç RED, sonra gerçek UI, kayıt göçü, denge tablosu, ayarlar ve çözümleme UI olmak üzere beş hedef PASS. İlk import üç MD5 hatası verdi. İkinci exit0, script/parse0 ve üç kapanış hatası. Kapanışta bildirilen kaynak sayısı 362'den 365'e çıktı. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-65 tamamlandı (Kalfa)
+
+Zorluk tablosu üç adı zaten taşıyordu. Dördüncü ustalik anahtarı geçerli sayısal sınırla birlikte iki doğrulayıcıdan da geçiyordu. RED ardından mevcut Python araç ve Godot açılış doğrulaması tam kolay/olagan/siki anahtar kümesini istiyor. 22 Python testi, tablo doğrulaması ve iki hedefli Godot testi geçti. Çarpan değerleri aynı. DEN-63 metnindeki aralık kesişimi çelişkisi açık kalır.
+
+İlk başsız import MD5 ve kapanış hataları verdi. İkinci exit0, script/parse hatası0 ve üç mevcut kaynak/PagedAllocator kapanış hatası. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — Parley içe aktarım uyumu doğrulandı (Kalfa)
+
+Ahmet onayıyla 2139e6e2 yalnız iki meclis dosyasının title başlığını ekledi. Diğer JSON alanları birebir aynı. Commitli soğuk import ve iki gerçek AST yükleme exit0. Parley hatası0. Masaüstü FF ve eski iki geçersiz yan kayıt TEMP yedeği sonrası iki AST yüklendi. Üç soğuk kapanış hatası sürüyor. YAP-05 seçili21 koşuda20 PASS, atama/duraklatma kapanış kaynak hatası nedeniyle FAIL. ROADMAP[/] Kalfa. Ayrıntılar docs/denetim/YAP_05_SON_KABUL_2026-11-06.md ve JSON. Asset gerekmedi. ds yolları yok. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-62 tamamlandı (Kalfa)
+
+Sağlıklı çalışan ve teşhis kaydı olmayan JSON başlangıcından 28 gerçek gece oynandı. 14. gecede kayıt yüklenip devam edildi. Nüfus1, terminal boş, bulaşıcı enfeksiyon ve salgın gecesi0. Son pozitif kontrolde mevcut humma kabulü enfeksiyonu oluşturdu. MEV kış hastalığı ayrı ölçümdür. İlk denemelerde testin bina dönüş alanı ve sabit hücre kurulumu düzeltildi. Son denge_kriz hedefi exit0, GEÇTİ ve script hatası0. DEN-60/61 aynı hedefte geçti. Üretim kodu değişmedi. Asset gerekmedi. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-62 başladı (Kalfa)
+
+DEN-61 e5579cd6 festive üzerinde. Mevcut sağlık/teşhis yolu korunur; yeni teşhis kapatma ayarı yazılmaz. Sağlıklı kişi ve teşhis kaydı olmayan gerçek JSON başlangıcından28 gece; KRI-01 salgını0, yaşayan nüfus ve14. gece yükleme devamı kontrol edilecek. Mevcut kış hastalığı ayrı MEV kaydıdır, bulaşıcı salgın sayılmayacak. Asset gerekmedi; kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-61 tamamlandı (Kalfa)
+
+Mevcut denge_kriz.tscn içine KRI-06 gerçek Oturum.gece_sonu ölçümü eklendi. İlk gece erzak0/sayaç1, tetikleme0 ve kıtlık isyan satırı0; ikinci gece sayaç2/tetikleme1 ve tam bir kıtlık satırı. İlk gecenin gerçek JSON kaydı yüklenip ikinci gece oynanınca hem kriz makbuzu hem olaylar aynıdır. Eşik/gece/üretim kodu değişmedi. Aynı hedefte DEN-60 gerçek raporu da geçmeye devam eder.
+
+Hedef exit0 ve SCRIPT ERROR0/PASS. Yalnız test/belge değişti; önceki DEN-60 import exit0/script0, mevcut kaynak/allocator kapanış hataları açık. Yeni import yapılmış denmedi. Tam sanity yok. Asset gerekmedi; ilgisiz dosyalar korundu. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-61 başladı (Kalfa)
+
+DEN-60 1e84fea8 festive ve masaüstüne aktarılıyor. Mevcut KRI-06 iki gece0 erzak eşiği gerçek Oturum.gece_sonu ve ilk geceden JSON yüklemesiyle ölçülecek. Yeni tetikleyici/eşik/formül yok. Asset gerekmedi; kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-60 tamamlandı (Kalfa)
+
+Yeni denge_kriz.tscn mevcut KRI-10 fixture/gerçek gece düğmesi ve mevcut rapor kartını kullanır. Aynı gece başında tam iki kriz (isyan ve belirtili salgın) vardır; fixture yalnız süreleri kapanış sınırına koyar. Mevcut gerçek gece ikisini kapatır. Tek rapor başlığı, iki kriz adını taşıyan tek kenetlenme satırı görünür; gün yalnız1 artar. DEN tekrar okuması kaydı/ödülü/geceyi değiştirmez. Yeni birleştirici, kriz veya formül yazılmadı.
+
+Yeni gerçek UI ve mevcut KRI-10 birimi exit0/PASS. Yeni hedef standart test listesine bir kez eklendi; tam sanity çalıştırılmadı. Import exit0/script/parse0, mevcut kaynak/PagedAllocator kapanış hataları sürer. Performans günlüğünün headless fps uyarısı ölçüm çıktısıdır, performans kabulü yapılmış sayılmadı. Asset gerekmedi. YAP-05 Parley engeli ve DEN-54 plan2/7 açık. İlgisiz dosyalar korundu; ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-60 başladı (Kalfa)
+
+Full pull016f928b güncel ve Ajan Masası okundu. DNY-01/YAP-06 YAZ-01 onayına bağlı; YAP-55 ARY-02, YAP-62 SAH hazır değil. DEN-59 gerçek persona plan2/7 regresyonu açık; kolay geçsin diye bilgi/plan uydurulmayacak. DEN-60 mevcut KRI-10 iki örtüşen kriz, tek gerçek gece/rapor başlığını doğrulayacak; yeni birleştirici yok. Asset gerekmedi; kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-60 tamamlandı (Kalfa)
+
+Eksik kilit çevirisi gerçek YapiKarti üzerinde printf biçimlendirme hatası üretiyordu (RED). Mevcut YapiKilidi.metin tek güvenli biçim okuyucusuyla bilgi ve fiziksel ön-kademe kilidinde eksik/bozuk şablonu biçimlendirmeden nötr CSV anahtarına düşürür. Kart ayakta kalır; kaynak/bilgi/ön-kademe kilidi, kayıt ve oyun mekaniği aynı kalır. Yeni pencere/ikon/font/asset yok.
+
+Dört hedef PASS: yeni gerçek kart birimi (iki eksik kilit ve bozuk şablon), yapı kilidi birimi, mevcut gerçek yapı UI ve çözümleme gerçek UI. CSV kaynak doğrulaması PASS. Headless import exit0; SCRIPT ERROR/parse/Failed to load script0. Mevcut kaynak/PagedAllocator kapanış hataları sürer; sıfır hata veya tam sanity denmedi. YAP-05 Parley soğuk import engeli ayrı ve açık. İlgisiz import/translation/project.godot korundu. Asset gerekmedi. ds yolları yok; önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-60 başladı (Kalfa)
+
+SYS-09 hazır. Eksik kilit çevirisinde mevcut kart nötr sebep gösterecek; kaynak/kişi bilgisi kilidi gevşetilmeyecek. Gerçek YapiKarti ile eksik çeviri testi önce yazılır. Asset gerekmedi; kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-38 tamamlandı (Kalfa)
+
+Mevcut KAY-04 göçü yeterli; üretim kodu ve kayıt sürümü değiştirilmedi. Gerçek JSON v2 kaydından muhafiz_esyalari ve çözümleme alt kaydı çıkarıldığında mevcut göç boş eşya listesiyle oturumu açar, kaynak kayıt değişmez ve defter uydurmaz. Güncel deftersiz JSON içindeki diğer alet yığını aynen korunur. Defter ayrı zorunlu alan veya ikinci eşya sınıfı değildir. tests/unit/sistemler/kayit_gocu_test.gd exit0; YAP-20/YAP-38/ISG-62 geçer. Dolu/yinelenen defter yüklemesi önceki YAP-04/cold hedeflerinde geçti; gereksiz migration eklenmedi.
+
+Asset gerekmedi. Yalnız kabul testi/belge değişti; oyun kodu değişmedi. Önceki YAP-46 import script0/exit0, mevcut import kapanış hataları açık. YAP-05 Parley soğuk import engeli ve DEN-54 plan2/7 açık. Tam sanity yok; ilgisiz dosyalar korundu. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-38 başladı (Kalfa)
+
+Mevcut defter tek kişisel eşya listesinde; yeni defter kökü yok. Gerçek v2 JSON kaydında eşya alanı yokken göçün boş listeyle açılması ve güncel kayıtta deftersiz diğer eşyaların korunması doğrulanacak. Yeni migration veya zorunlu alan açılmaz. Asset gerekmedi; kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-46 tamamlandı (Kalfa)
+
+Mevcut DengeOlcumu.olustur raporunda tek cozumleme satırı mevcut kayıt durumunun derin kopyasını okur. Etkin iş/ilerleme, kuyruk ve tamamlananlar mevcut sözleşmedir; yeni sayaç/formül/gece/tahsilat yok. Önce iki RED, sonra gerçek çözümleme gecesi, DEN-05 ve iş/kuyruk/kayıt olmak üzere3 hedef PASS. Dönen raporun içini değiştirmek ve tekrar okumak oturum kaydı/para/gün/RNG değiştirmez. Oyun arayüzüne denge satırı eklenmedi.
+
+Headless import exit0; script/parse/Failed to load script0. Mevcut kaynak/PagedAllocator kapanış hataları sürer. YAP-05 soğuk Parley import engeli ayrı raporda açık, çözülmüş denmedi. Asset gerekmedi. Tam sanity yok. İlgisiz import/translation/project.godot korundu. ds yolları yok; önceki istisna geçerli. Sonraki bağımsız hazır sıra YAP-38 optional eski defter kaydı kabulü; YAP-37 Söz, YAP-06 YAZ-01 onayı bekler. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-46 başladı (Kalfa)
+
+YAP-40 6d57857c festive ve masaüstünde. DEN-05 mevcut salt okunur ölçüm raporuna tek çözümleme durum satırı eklenecek; gece/bedel/formül tekrar çalıştırılmaz. Önce gerçek gece/kayıt/RNG saflık kontrolü. Asset gerekmedi; kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-40 tamamlandı; YAP-05 import engeli kayıtlı (Kalfa)
+
+YAP-40 mevcut yetişkin işgücü kapısını kullanır; yeni yaş/formül yok. Çocuk ve yaşlı bağlı işçiyle gerçek JSON yüklenip gerçek gece oynandı: ilerleme1'de kaldı, tamamlanma/üretim etkisi0. Yeniden bağlama salt okunur ret; yetişkin aynı ilerlemeden2'ye devam eder. Üç hedef geçti: çözümleme gerçek gece, çözümleme iş/kuyruk ve mevcut UZM-08 yaş rolleri. Eski yaş testi YAP-01/02 sonrası değirmeni K1/bilgi olmadan kuruyordu; mevcut işçiye testte ambar/değirmen bilgisi ve gerçek K1 ambar inşası eklendi, kurulum hatası artık zaman aşımı yerine exit1 verir. Oyun kilidi gevşetilmedi. Asset gerekmedi.
+
+YAP-05 c1569e66 commitli/önbelleksiz kabulü20 benzersiz hedefte21 koşu PASS; masaüstü gerçek UI PASS.9231 blob HEAD ile eşleşti; import sonrası project.godot hariç1973 kritik dosya aynı. Eklenti project.godot içine editor uzantı ayarı ekliyor ve sıralıyor, commit dışı. Import exit0/script0 ancak mevcut iki Parley title/AST hatası ve kaynak/allocator kapanış hataları nedeniyle sıfır hata kabulü sağlanmadı. YAP-05[/] kalır. Kanıt docs/denetim/YAP_05_SON_KABUL_2026-11-06.md ve JSON. Söz bekletildi, başkasının verisi/eklentisi değişmedi. Sonraki bağımsız hazır madde YAP-46 ölçümü. Tam sanity yok; ilgisiz dosyalar korundu. ds yolları yok; önceki istisna geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-40 yetişkin işçi kabulü başladı (Kalfa)
+
+YAP-05 arayüzü c1569e66 festive ve masaüstünde; gerçek UI tekrar geçti. Soğuk kopyada9231 blob HEAD ile doğrulandı (8257 yalnız CRLF ihracı), başlangıç .godot yok. Mevcut iki meclis_davalari.ds Parley title alanı hatası Ajan Masasında bildirildi; Söz/veri/eklentiye müdahale yok, YAP-05 kapanmadı. Bağımsız YAP-40 UZM-08 mevcut yaş kapısını doğrulayacak; yeni yaş/iş formülü yok. Asset gerekmedi. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-05 mevcut kart arayüzü doğrulandı (Kalfa)
+
+Oda kurulabilir=true; mevcut ambar yapımı bilgisi optional bilgi eşlemesiyle oda erişimini açar. Diğer yapı bilgileri ve geçmiş puanları değişmedi. Mevcut yapı kartına ince panel adaptörü eklendi: salt okunur ön kontrol, başlatma, ilerleme/durma sebebi, FIFO sıra, etkin ve sıradaki işi yeni oda/işçiye bağlama. Mevcut duraklatma kapısı her yazma çağrısında korunur. Yeni sahne/ikon/font yok; yalnız düz renk BoxMesh ve ad etiketi, YAP05-ODA envanteri güncel.
+
+Gerçek UI testi Medrese geçmişinden mevcut kartla oda kurma/işçi atama, tek bedel, duraklatılmış geri çağrıyı reddetme, ikinci defteri sıralama, gerçek gece, yıkım, yeniden inşa, iki işi yeni odaya bedelsiz bağlama ve bilgi açılışını doğruladı. Eksik metin güvenli geri dönüşü ve açıkça yüklenen İngilizce kaynak kontrolü geçti. Önceki kurulabilir=false notu yalnız gerçek kurulumu engelliyordu; kartı gizlemiyordu, önceki menü ifadesi düzeltilmiştir. UI ilk İngilizce kontrolü proje yalnız TR yüklediği için başarısızdı; test kendi EN kaynağını yükler, proje ayarı değiştirilmedi.
+
+Headless import exit0 ve script/parse hatası0; kaynak/allocator kapanış hataları sürüyor, hatasız import denmedi. YAP-05[/] kalır: commitli önbelleksiz son kabul sonraki adımdır. Tam sanity çalıştırılmadı. İlgisiz import/translation/project.godot korunur ve commit dışındadır. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-05 iş/gece/kayıt dilimi doğrulandı (Kalfa)
+
+Çözümleme işi köyün mevcut kayıt sözlüğünde surum1 optional alt kayıt taşır: tek aktif iş, FIFO kuyruk, tamamlanan kimlikler, tek başlatma/son gece makbuzu. Canlı nesne kaydedilmez. Eski/bozuk/gelecek alt kayıt iş veya ödül üretmez. Oda/defter/yetişkin sağlıklı atama/bedel doğrulanmadan mutasyon yok. İlk iş tek kamu bedeli alır, ikinci aynı gün başlamaz ve ücret alınmadan sırada bekler. İşçi/oda yeniden bağlanınca ilerleme ve tahsilat korunur.
+
+Oturum mevcut gece başında sıradaki işi başlatır; mevsim ve çalışma uygunluğunun salt okunur fotoğrafı alınır. Gece sonunda yine yaşayan/atanmış/defteri mevcut iş ilerler. Gece sonu iyileşmesi geçmişe çalışma yazmaz; ikinci çağrı aynı geceyi saymaz. Ölüm, yıkım, görevden alma ve defter yokluğu durdurur, ilerleme silinmez. Süre dolunca mevcut eşya çözüldü olur; mevcut kişi bilgi sözleşmesi kullanılır, sonuç kimliği bir kez saklanır ve tek köy bildirimidir. Hızarhane mevcut üretim hesabına tek ince çarpan okuması eklendi; başka hedef, bina seviyesi veya üretim motoru değişmedi.
+
+Önce eksik iş API RED; iş/kuyruk/JSON testi geçti. İlk ölüm fixture sağlık0'ı gerçek ölüm sandı, mevcut evde iyileşme kişiyi hayatta tuttu; mevcut gerçek açlık/ölüm ile ayrı ölüm kabulü ve iyileşmenin geriye iş yazmama testi eklendi. Sağlık motoru değiştirilmedi.9 hedef geçti: çözümleme veri/iş/gece, köy yönetimi, kayıt göçü, defter ganimetleri, yapı bilgisi, mevsim, DEN ölçümü. Gerçek görevden alma/dönüş, ölüm/yıkım, mevsim kaydına0.25, yarım iş JSON'dan aynı bitiş/ücret, tek bildirim ve gerçek üretim çarpanı doğrulandı. CSV PASS. İlk recovery import exit0/script0, dokuz MD5/kapanış hatası; ikinci exit0/script0, üç PagedAllocator kapanış hatası sürer. Hatasız import veya tam sanity denmedi.
+
+YAP-05[/] Kalfa kalır; oda kurulabilir=false. Sonraki dilim gerçek oyuncu inşa/bilgi/çalışan erişimi ve mevcut yapı kartında başlat/durum/kuyruktur; tamamlanınca oda açılır ve tam kabul yapılır. Bütün asıl gereksinimler tasks/yap05-todo.md içinde, kalanlar işaretlenmedi. Yeni asset gerekmedi; önceki YAP05-ODA envanteri durur. İlgisiz import/translation/project.godot commit dışında. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-05 veri dilimi doğrulandı; iş sürüyor (Kalfa)
+
+YAP-05 açık oda şartına özgü cozumleme_odasi katalog satırı/K1 tablosu/tek iş yuvası eklendi. Diğer yapı türleri/seviyeler değişmedi. Oda kurulabilir=false: gerçek iş/UI/kayıt bağlantısı tamamlanana kadar inşa menüsünde açılmaz. Defter verisi süre3, tek kamu bedeli2 ve mevcut hızarhane üretimi için tek1.1 sonuç çarpanını tanımlar; bu değerler henüz oyun hesabına uygulanmıyor. Mevsim kaynağı mevcut insa_carpani alanıdır, ayrı kış sabiti eklenmedi. Yeni cozumleme.gd yalnız veri doğrulayıcı ve hazır oda sorgusudur; başlat/gece/ödül varmış gibi çağıran stub yok.
+
+Önce eksik preload RED; sonra çözümleme veri testi, YAP kademe testi, defter/gerçek ganimet testi ve kademe CLI olmak üzere4 hedef geçti. Sıfır/negatif/bool/kesirli/sonsuz süre, bilinmeyen/çift hedef ve geçersiz çarpan reddedilir. CSV doğrulaması PASS. İlk recovery import exit0/script hatası0, yedi MD5/kapanış hatası; ikinci exit0/script hatası0, üç PagedAllocator kapanış hatası sürer. Hatasız import veya tam sanity denmedi. YAP05-ODA envanterde3D ölçü ve planlanan kutu/etiketle kayıtlı; asset üretimi/indirmesi yok.
+
+YAP-05[/] Kalfa kalır. Bütün orijinal kabul koşulları tasks/yap05-plan.md ve yap05-todo.md içinde; veri kanıtı tam iş kabulü sayılmadı. Sonraki dilim tek etkin iş/kuyruk, yetişkin çalışan ataması, optional kayıt ve gerçek gecelik ilerlemedir; sonrasında tek sonuç adaptörü/oyuncu UI/kabul. DEN-54 plan2/7 regresyonu açık. ds yolları yeniden kontrol edildi, ikisi de yok; önceki Ahmet istisnası geçerli. İlgisiz import/translation/project.godot korunup commit dışında. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-05 başladı (Kalfa)
+
+Full pull7a113f51 güncel; Ajan Masası okundu. Maddeye özgü açık katalog oda şartı yalnız bir K1 çözümleme odası kimliği için esas alınır. Bütün kabul koşulları tasks/yap05-plan.md ve yap05-todo.md içinde korunuyor. Önce veri/oda doğrulaması, sonra tek iş/kuyruk/kayıt ve gerçek UI. YAP-05 henüz tamamlanmadı. Asset YAP05-ODA kaydedilecek; kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-04 tamamlandı (Kalfa)
+
+Usta defteri mevcut Oturum.muhafiz_esyalari sözlük listesine yazılır; yeni eşya sınıfı veya envanter kökü yok. data/usta_defterleri.json ilk marangoz defterini ve dört kaynak ağırlığını tutar. Gerçek HAR-05/HAR-14 başarısı, mevcut kervan koruma görevinin yaşayan kişiyle dönüşü, gerçek gece baskın raporu ve mevcut tüccar harç/rüşvet kararı bağlandı; ret kaynak değildir. Yeni takvim veya savaş yok. Mevcut görevin RNG değiştirmeme sözleşmesi korunur: seçim oyun tohumu + kaynak + mevcut olay makbuzu hashinin toplam ağırlığa bölümüyle belirlenir; RNG nesnesi/draw yok. Bu rutin uygulama kararıdır; aynı makbuz yeniden zar atmaz. Satır yoksa defter yok, yok ağırlığı tüccarın her ziyarette bırakmamasını sağlar.
+
+Aynı kimlik tek kayıt/yığın1 kalır; gerçek JSON yükleyici de bilinen defter tekrarlarını tekleştirir ve diğer eşyaları korur. Çözümleme/bilgi/kademe yazılmaz; defter eldeyken veya çıkarıldıktan sonra hızarhane kilitli. Mevcut kişisel envanter gerçek UI kontrolünde tek adet ve adıyla görünür; okuma kayıt değiştirmez. Yeni UI hedefi standart listeye bir kez eklendi; tam sanity çalıştırılmadı. İkon YAP04-DEFTER tanımı/boyut/saydamlık/tekli İngilizce prompt docs/EKSIK_ASSET_ENVANTERI.md içinde; mevcut ColorRect/kutu ve ad etiketi kullanılır. Yeni png/ses/model üretilmedi/indirilmedi.
+
+Sekiz hedef geçti: yeni model ve gerçek dört akış, eski yol güvenliği, pusu ticaret akışı, tüccar kapısı, kervan koruması, çift kasa, yapı bilgisi, yeni gerçek envanter UI. Kervan testinin eski kurulumuna gerçek K1 ve bilgiyle K2 kurulum eklendi. Yeni gerçek dönüş testinin ilk erzak yığını ambar tavanını aşıp açlık/firar üretti; kapasitesi uygun barınaklı fixture ile düzeltildi, oyun kuralı gevşetilmedi. İlk recovery import exit0/script hatası0, altı MD5/kapanış hatası; ikinci exit0/script hatası0, üç PagedAllocator kapanış hatası sürer. Hatasız import denmedi. YAP-05 çözümlemesi bu maddede yapılmadı. DEN-54 plan2/7 regresyonu çözülmüş sayılmaz.
+
+İlgisiz import/translation/project.godot korunup commit dışında. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-04 başladı (Kalfa)
+
+Full pull6d9f44df güncel; Ajan Masası okundu. Mevcut kişisel eşya listesi kullanılacak. Yol/pusu görevi, süreli dış görev dönüşü, baskın raporu ve mevcut tüccar kararı veriden ağırlıklı defter düşürebilecek. Bilgi çözümleme olmadan açılmaz, aynı kimlik yığını1. Yeni eşya sınıfı/takvim/görsel yok. YAP-03 KAP-16 sahipliğine dokunulmadı. Asset ihtiyacı YAP04-DEFTER envantere yazılacak; kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-02 tamamlandı (Kalfa)
+
+Yeni yapi_bilgisi.gd kabul edilen kişinin optional bilgisini ve mevcut MeslekUyumu.UYGUN/usta sorgusunu okur; ikinci meslek/yetenek tablosu yok. Kabulden önce köyde bilgi yok, ret bilgi açmaz. ACL-06 geçmişi mevcut data/yapi_bilgisi.json kaynağından yalnız mevcut muhafıza bağlanır; seçim kuruluş öncesi/sonrası ve gerçek JSON yükleme sıraları geçer. Tekrar eden bilgi tektir. Üst kademe fiziksel ön şartları YAP-01 olarak durur.
+
+UZM-11 tam usta olan, aynı yerdeki yaşayan öğretmenin UZM-04 eğitim bağını taşıyan kişi bilgiyi edinir. Yarı usta tek başına yeterli değildir. Bilgi kendi kişi kaydında kalır; öğretmenin ölümü/ayrılışı yeni kişi veya para doğurmaz. Gerçek on üretim gecesi ve JSON kaydı bunu doğrular. İlk eksik dosya RED; sonraki tek hata, ölüm sonrası fiziksel temizleme olmadan nüfus düşmesi bekleyen fixture idi ve düzeltildi. UZM-11 eski test kurulumu mevcut kişiye gereken yapının bilgisini açıkça veriyor; oyun kilidi gevşetilmedi.
+
+Dokuz hedef geçti: yeni YAP-02 modeli/gerçek kapı ret-kabul/gerçek inşaat/on gece, geçmiş birimi, açılış, kayıt göçü, UZM-04, YAP kurulum, UZM-11, gerçek geçmiş UI akışı ve gerçek yapı UI. Son recovery import exit0/script hatası0; ilk import sekiz MD5/kapanış hatalı, ikinci üç PagedAllocator kapanış hatalı. Hatasız import denmedi. Ek DEN-54 persona tekrar exit1/plan2/7;28 gece ve iflas0 tek başına kabul değil. Bu regresyon giderilmiş sayılmadı. YAP-03 yeni ustaların gelişine bağlıdır ve KAP-16 hâlâ[/] testx; o sahipliğe dokunulmayacak.
+
+Asset gerekmedi. Tam sanity yok. Eski ilişkisiz import/translation/project.godot korunup commit dışında. Yeni kaynakla ilişkili mevcut UID kimliği korunur. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-02 başladı (Kalfa)
+
+Full pull c32b5de7 güncel; Ajan Masası okundu. Geçmiş mevcut MuhafizGecmisi verisini okuyacak; kabul edilen bilgi sahibi ustanın optional alanı tek kaynak. Çırak UZM-11 tam usta olduğunda mevcut öğretmen bilgisini kişide koruyacak; yarı ustalık tek başına yetmeyecek. Yeni kişi/para/yetenek sistemi yok. Asset gerekmedi; kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-01 son kabul tamamlandı (Kalfa)
+
+Ahmet mevcut katalog kaynaklarını koruma kararından sonra a0f4aca9 yalnız commitli git arşivinden yeni TEMP kopyaya çıkarıldı; başlangıçta .godot yoktu. Soğuk headless recovery import exit0, SCRIPT ERROR/Failed to load script0; üç PagedAllocator kapanış hatası sürer, tamamen hatasız import denmedi.14 hedefin tamamı bu kopyada exit0/script-error0 geçti: dört YAP model testi, köy yönetimi, bina seviyesi, geçici işler, DEN ölçümü, gerçek açılış, kapı kararları, divan, mevsim, veri CLI ve gerçek yapı UI kabulü. Kritik1960 kaynak/config dosyasının CRC ve boyutu commit arşiviyle aynı.22 yapı fiyatı önceki fotoğrafla birebir aynı. Sonuç yalnız YAP-01 kabulüdür, genel ROADMAP veya DEN-54 regresyonu tamamlandı demek değildir.
+
+Konak K3 mevcut Ağalık anlamını korur; yeni bina kimliği yok. Bilgi kaydı/kilit/kurulum/hayalet, yetersiz bedel, önceki kademe, ADM ayrımı, işçi/hasta/kış/kesirli kayıt ve kartın uzun metin/hız korunumu geçer. YAP-02 geçmiş/usta/çırak bilgi edinimi sıradaki iştir. DEN-54 plan2/7 güncel regresyonu bu bilgi edinimi sonrası yeniden sınanacak. Asset gerekmedi. Tam sanity yok. İlgisiz import/translation/project.godot korunup commit dışında. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-01 bedel kararı geldi (Kalfa)
+
+Ahmet mevcut katalog kaynaklarını korumayı seçti.22 yapının fiyatı koy.tres içine taşınmıyor; eski katalog .gd tanımları dahil kaynaklar korunuyor, yeni fiyat tablosu/sabiti eklenmiyor. ROADMAP ve kabul planındaki bedel şartı bu açık karara uyarlandı. Bu yalnız kaynak tercihi engelini kaldırır; YAP-01 henüz kapatılmadı. Son kabul ardından YAP-02 bilgi edinimi uygulanacak; DEN-54 plan2/7 regresyonu tamamlandı diye raporlanmaz. Asset gerekmedi. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-59 ön kontrolünde DEN-54 regresyonu (Kalfa)
+
+Full pull51b108ea güncel. DEN-59 için mevcut olağan oyuncu koşusu yeniden çalıştırıldı:28 gerçek gece tamam, terminal yok, iflas0; ancak yapı planı2/7 (kulübe/tarla/odunluk) ve test exit1. YAP-01 bilgi kilidi sonrası hızarhane ve devamındaki plan açılmıyor; önceki DEN-54 yeşil kanıtı güncel kaynaklar için yeterli değildir. Başarısız koşu DEN-59 kabulü sayılmadı, DEN-59 sahiplenilmedi veya kapatılmadı. Kilit gevşetilmedi ve persona fixture bilgisi uydurulmadı. YAP-01 bedel kaynağı kararı ve sonraki YAP-02 bilgi edinimi öncelikli açık bağlamdır. Bu not yeni üretim kodu içermez. Asset gerekmedi. Tam sanity yok. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-58 tamamlandı (Kalfa)
+
+Mevcut BUG-18 testi DEN-58 gözlemiyle genişletildi: ayardaki tüm alışma günlerinde DEN raporu alındıktan sonra her risk profili10000 taban ağırlıkta da0; süre dolunca2 taban değeri aynen2. Ölçüm kayıt/RNG/takvim değiştirmez. Mevcut13. gün gerçek kuyruk/sabotaj/baskın0, HAR-02 ilerleme, resmi ulak/heyet,15. gün dönüş, debug ve eski kayıt kontrolleri birlikte geçti. Üretim kodu/denge/tehdit süresi değişmedi, ikinci kapı yok. Hedefli headless test exit0 SCRIPT ERROR/ERROR0; son aynı üretim kaynaklarının recovery importu exit0/script hatası0, üç PagedAllocator kapanış hatası sürer. Tam sanity yok. Asset gerekmedi. YAP-01 bedel tercihi açık. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-58 başladı (Kalfa)
+
+Full pull güncel; BUG-18 kapısının DEN tarafından gevşetilmediği mevcut hedefli testte doğrulanacak. Asset gerekmedi; kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-35 tamamlandı (Kalfa)
+
+ISG-03 terk sorgusunun gece sonu kişi kimlikleri fotoğrafı mevcut gece/DEN raporuna eklendi. Yeni oyun sayacı veya eşik değişikliği yok. Salt okunur bosta_terk_raporu son20 ardışık geceyi toplar; aynı süren istek bir başlangıçtır, kapanıp yeniden açılırsa yeniden sayılır. Pencere öncesi fotoğraf varsa devam eden isteği ayırt eder; yoksa ilk gecedeki istek pencereye dahil sayılır. Mükerrer aynı fotoğraf sayılmaz; çelişen/bozuk/eksik/kesik kayıt kabul edilmez. Başlangıç bandı0–3 denge.json bosta_terk_aralik içindedir; bu kontrollü kabul bandıdır, genel denge sağlığı iddiası veya otomatik ayar değildir.
+
+Üç gerçek yetişkinli boş köy tohum3535 ile20 gerçek geceyi bitirdi; ilk iki gecede erken istek0, toplam yeni istek3 ve bantta. Tekrar ölçüm kayıt/RNG değiştirmedi. Yeniden başlayan istek, bant dışı dört istek, bozuk id/gece ve pencere testleri geçti. Mevcut ISG-03 model/gerçek HUD-sohbet ve30 günlük iş ölçümü de geçti.41 Python denge testi ve gerçek tablo doğrulaması başarılı. İlk Python modül yolu paket olmadığı için yanlış çağrıydı; doğru discover ile41 test geçti. İlk import exit0/script hatası0, sekiz MD5/kapanış hatası; ikinci recovery import exit0/script hatası0, üç PagedAllocator kapanış hatası sürer. Hatasız import veya tam sanity denmedi.
+
+Asset gerekmedi. YAP-01 bedel kaynağı kararı açık. İlgisiz import/translation/project.godot korunup commit dışında. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — DEN-35 başladı (Kalfa)
+
+Full pull güncel.20 gerçek gecede üç kişilik boş köyün terk isteği ölçülecek. ISG-03 eşiği değişmez; süren aynı istek her gece yeni olay sayılmaz, yeni istek başlangıcı ölçülür. Yeni oyun sayacı yok. Asset gerekmedi; kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-61 tamamlandı (Kalfa)
+
+Gerçek KoyEkrani hız düğmeleriyle1/2/3/duraklat seçildi; her seçimin gerçek Engine.time_scale ve SceneTree.paused sonucu önce doğrulandı. Mevcut yapı bilgi kartı açılıp kapandığında her iki değer aynen korunur. Yeni kart veya hız motoru/üretim kodu eklenmedi. Mevcut gerçek UI kabulü kilit, hayalet, bedel ve uzun bilgi kaydırmasıyla birlikte headless exit0, SCRIPT ERROR/ERROR0 geçti. Son aynı üretim kaynaklarının recovery importunda script hatası0, üç PagedAllocator kapanış hatası sürer; tam sanity yok. Asset gerekmedi. YAP-01 bedel tercihi bekleniyor; YAP-62 SAH bağımlılığı genel bölüm olduğundan hazır varsayılmadı. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-61 sahipliği (Kalfa)
+
+Full pull güncel. TEK-22 tamam; gerçek yapı bilgi kartının köy hızını değiştirmediği hedefli UI kabulü alınacak. YAP-01 bedel kararı bekliyor. Asset gerekmedi; kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-28 tamamlandı (Kalfa)
+
+Gerçek KAP-17 aile kapı kabulünden gelen usta ve çocuğun aynı kalıcı hanesi doğrulandı. Mevcut YasRolleri ağır iş atamasını çocukken reddeder; çalışma listesine adı girse bile eğitim sıfırdır. Yaşı uygun yetişkin fixture girdisi gerçek Oturum JSON kaydet/yükle üzerinden korunur; çocuk normal atamayla aynı ustanın yanında mevcut beş ortak çalışma ile stat6 yarı usta olur. Yaş büyümesi elle fixture girdisidir, DNY-01 takvimi uygulanmış veya tamamlanmış sayılmaz. Yeni aile/çırak sistemi veya üretim kodu yok.
+
+Genişletilmiş yaş kabulü, gerçek aile kafilesi ve mevcut UZM-04 eğitim/kayıt testi olmak üzere üç hedefli headless kontrol exit0, SCRIPT ERROR/ERROR0 geçti. Aynı üretim kaynaklarının son recovery importu exit0/script hatası0; üç PagedAllocator kapanış hatası ayrı sürer. Tam sanity yok. Asset gerekmedi. YAP-01 bedel kaynağı kararı hâlâ bekleniyor. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-29 tamamlandı (Kalfa)
+
+NBT-02 nöbet yasağı mevcut CirakEgitimi.usta sorgusunu okur: düşük statlı adlı kaynak ustası da nöbete yazılamaz. Yeni usta listesi/meslek veya asker kuralı eklenmedi; eski yüksek stat/bayrak yasağı ortak sorguda korunur. Gerçek chr_013 stat5 karşı örneği önce iki RED verdi, sonra nöbet kabulü60 kontrol/0 hata ve çırak eğitimi geçti. Ret nöbet kaydını ve kişinin işini değiştirmez.
+
+Ek nöbet yorgunluğu regresyonu YAP-01 bilgi kilidinden dolayı eski hızarhane fixture kurulumunda null üzerinde kaldı; ilgili headless süreç sonlandırıldı. Fixture gerçek hızarhane bilgisiyle kuruldu, null için çıkış koruması eklendi; tekrar test exit0, SCRIPT ERROR/ERROR0. Oyun kilidi gevşetilmedi. İlk recovery import exit0/script hatası0, yedi MD5/kapanış hatası; ikinci exit0/script hatası0, üç PagedAllocator kapanış hatası sürer. Tam sanity yok; hatasız import denmedi. Asset gerekmedi. YAP-28 usta ailesi kabulü doğrulanmadı ve açık; YAP-01 bedel kaynağı kararı bekleniyor. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-20 tamamlandı (Kalfa)
+
+KAY-04 bağımlılığı tamamlanmış bağımsız YAP-20 kabulü, mevcut kayit_gocu_test.gd içinde gerçek Oturum JSON kaydet/yükle üzerinden doğrulandı. Bilgili kişinin eski kaydından yapi_bilgisi alanı çıkarılınca yükleme açılır, bilgi boş ve K2 kilitli kalır; tekrar kayıtta boş optional alan yazılmaz. Alan bulunan karşı örnekte bilgi JSON yüklemede aynen korunur. ISG-62 eski iş alanları kabulü de geçti. Üretim kodunda ek göç veya uydurma bilgi yazılmadı; mevcut Koylu sözleşmesi yeterli. Hedefli headless test exit0, SCRIPT ERROR/ERROR0; aynı üretim kaynaklarının önceki recovery importu script hatasız exit0, üç PagedAllocator kapanış hatası sürer. Tam sanity yok. Asset gerekmedi. YAP-01 bedel tercihi hâlâ bekleniyor; bu madde onu kapatmaz. ds yolları yok, önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — Full pull ve Konak K3 düzeltmesi (Kalfa)
+
+Full fetch/pull --rebase tamamlandı; başlangıç festive 2b6dbe07 ile aynıydı. Ajan Masası son mesajları okundu. Mevcut Konak/Ağalık hedefi kademe verisinde K3 olarak sınıflandırıldı; katalog kimliği eklenmedi, eski Ağalık 0/1 anlamı korunuyor. Bozuk Konak verisi reddedilir. Veri, gerçek açılış/sur/kapı sınırı ve CLI doğrulayıcısı olmak üzere üç hedef geçti; SCRIPT ERROR/ERROR yok. Mevcut olay metni uyarıları ayrı sürüyor. İlk import exit0, script hatası0, beş MD5/kapanış hatası; ikinci recovery import exit0, script hatası0, üç PagedAllocator kapanış hatası. Hatasız import denmedi.
+
+Önceki 2b6dbe07 yalnız commitli, önbelleksiz arşivde14 hedefle doğrulanmıştı; bu kanıt yeni Konak deltasına mal edilmez. YAP-01 hâlâ[/]: ROADMAP koy.tres bedel kaynağı derken mevcut22 yapı katalog kaynaklarından fiyatlanıyor. Mevcut kaynakları koruma / tüm fiyatları koy.tres'e taşıma tercihi Ahmet'e soruldu, cevap gelmeden bedel mimarisi değiştirilmedi.22 mevcut fiyatın karşılaştırma fotoğrafı yerel TEMP içinde alındı; fiyat değişmedi. YAP-02 alınmadı. Asset gerekmedi. Tam sanity yok. İlgisiz import/translation/project.godot ve geçici dosyalar korunup commit dışında. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+## 6 Kasım 2026 — YAP-01 uygulama dilimi; temiz kabul bekleniyor (Kalfa)
+
+Gerçek yerlesim/bina_kur bilgi kilidi, mevcut kartta gri K0–K3 metni, canlı kilit kaybında hayalet gizleme, kişi üzerindeki optional bilgi ve kesirli inşaat kaydı tamamlandı. K3 için tam önceki hazır kademe aranır; daha yüksek yapı, yıkılan K2 yerine geçmez. İnşaat yalnız mevcut sağlıklı boş yetişkin işgücü veya o gece gerçekleşmiş geçici yardım varsa ilerler; mevsim çarpanı MevsimYoneticisi kaydından okunur. Kış artığı JSON ile korunur. ADM-08 ve sur taksit tutarı/akışı ayrı kalır.
+
+14 hedefli Godot kontrolü (dört yeni model, mevcut köy yönetimi/bina seviyesi/geçici iş/DEN/açılış/kapı/divan/mevsim, yeni veri CLI ve gerçek UI), CSV ve40 Python testi geçti. Kaynakta kilit/işçi varsayan iki eski fixture ilgili gerçek bilgi/işçiyle kuruldu; oyun kuralı gevşetilmedi. Sınır testi gerçek olayın1 akçe etkisini de doğrular, işlem uygulanmadan yanlış olumlu sonuç vermez. Modelde K2 yıkılıp K3 kaldığında yeniden K3 kurulumunun kapanması denetlenir.
+
+Son çalışma kopyası recovery import exit0, SCRIPT ERROR/Failed to load script0; editör kapanışında298 kaynak/PagedAllocator hatası raporlandı (önceki veri diliminde296 idi). Bu kapanış sorununa temiz import veya tamamen aynı sayı denmedi; hedefli çalışma koşularında SCRIPT ERROR/ERROR yok. Üretim uygulaması yerel commit sonrası yalnız commitli arşivden önbelleksiz kontrol edilecek. Bu kanıt gelmeden YAP-01[/] kalır. Bilginin ustadan/geçmişten/çıraktan edinimi sonraki YAP-02 maddesidir, bu işte tamamlandı sayılmaz.
+
+Asset gerekmedi. Tam sanity yapılmadı. ds yolları bu makinede yok; önceki Ahmet istisnası geçerli. Üretilmiş import/translation/project.godot korunup commit dışında. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-01 veri dilimi doğrulandı; madde sürüyor (Kalfa)
+
+K0–K3 tablosu22 mevcut kurulabilir bina kimliğiyle data/koy/yapi_kademeleri.json içine eklendi. YapiKilidi kademe/gereken bilgi/sur sorgusu ve veri doğrulayıcısı salt okunurdur; tablo dışı kurulabilir tür K0 ve uyarı listesi üretir. Sur1–3 mevcut seviyelerdir, yeni bina kimliği yoktur. KoyBinasi ADM-08 seviyesi/katalog bedelleri sorguda değişmez. Kış inşaat çarpanı0.5 rutin başlangıç seçimi olarak veridedir; henüz oyun hesabına bağlanmadı. JSON sayılarının Godot float okunması nedeniyle sur dizisi değer bazında doğrulanır, bool/kesirli/bozuk girdiler reddedilir.
+
+Önce eksik preload RED, sonra veri modeli hedefli testi geçti. İlk import MD5 hatalı, ikinci recovery import exit0 ve SCRIPT ERROR/Failed to load script0; mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürer. Temiz import denmedi. Yeni modül henüz kurulum/UI/gece hesabına bağlanmadı; bu yayın tamamlanmış veri bileşenidir, YAP-01 kabulü değildir. ROADMAP[/] Kalfa olarak kalır. Kalan bütün kabul şartları tasks/plan.md ve tasks/todo.md içinde tek tek korunuyor; doğrulanmayanlar[x] yapılmadı. Sonraki dilim gerçek bilgi kilidi + yerlesim/bina_kur ve mevcut kart/hayalet bağlantısıdır.
+
+Asset gerekmedi. Tam sanity yapılmadı; üretilmiş import/translation/project.godot korunup commit dışında tutuldu. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — YAP-01 başladı (Kalfa)
+
+ISG-78 693e68b5 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Genel hazır madde sırası doğrulandı: ISG-39 gerçek SOY-34 bağlantısını bekliyor; YAP-01 bağımlılıksız açık ve YAP-02 öncesinde. YAP-01 alındı. K0–K3 veri/kilit modeli, mevcut inşa menüsü/önizleme ve gerçek kayıt/inşaat kontrolleri küçük dilimlerle geliştirilecek. ADM-08 bina seviyesi ve sur taksiti korunacak. Tüm ek kabul şartları geçmeden madde kapanmayacak. Asset gerekmedi. kota görünmüyor.
+
+## 6 Kasım 2026 — ISG-78 tamamlandı (Kalfa)
+
+Mevcut TEZ-02 kabulüne normal KoyluKartiVerisi bina ataması/boşa alma ve GeciciIsler ataması eklendi. Bina ataması yeni yüz/sipariş oluşturmaz. Yüz yalnız TezgahtaGun.yuz_bagla ile bağlanır; bu yüzün gerçek TEZ durum fotoğrafı ve boş sipariş cümlesi sonraki ISG atamalarında aynen korunur. Üretim kodu değiştirilmedi; ikinci yüz/cümle kaynağı eklenmedi.
+
+İlk fixture bez_evi için normal atama istedi; mevcut katalogda iş yuvası0 olduğu için test kurulumu başarısızdı. Yer tutucu slot uydurulmadı; gerçek atama odunluk üzerinden yapıldı, TEZ bez yüzü ayrı korundu. Son TEZ paketi60 kontrol/0 hata ve headless parse exit0, SCRIPT ERROR/ERROR0. Aynı oyun kaynaklarının son ISG-77 importu script hatasız exit0;296 kaynak editör kapanış sızıntısı ayrı sürer ve giderildi sayılmadı. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — ISG-78 başladı (Kalfa)
+
+ISG-77 ce9e3f11 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Hazır ISG-78 alındı. TEZ-02 yüz bağlama tek kaynak; normal ISG bina/boşa alma/geçici iş ataması bu yüzü ve sipariş cümlesini yazmamalı. Mevcut TEZ kabulü bu gerçek model yollarıyla genişletilecek. Asset gerekmedi. kota görünmüyor.
+
+## 6 Kasım 2026 — ISG-77 tamamlandı (Kalfa)
+
+Gerçek Ana → AyarlarEkrani → Oyun sekmesi üzerinde dokuz ayar satırının ileri düğmeleri çalıştırıldı. Her ayarın değeri gerçekten değişti; köy kaydı (atamalar, nüfus, kasa ve RNG dahil) sabit kaldı. Başlangıçtaki dal_toplama geçici işi ve boşta kişi kapanışta korundu. Ayarlar ağacında hedef/gecici_is atama düğmesi bulunmadı. Üretim kodu değiştirilmedi; yeni kabul sahnesi standart hedef listesine bir kez eklendi.
+
+Hedefli headless gerçek sahne exit0 ve SCRIPT ERROR/ERROR0. Oyuncunun ayar dosyasına dokunulmadı; yalnız açıkça adlandırılan user://kalfa_isg77_test.cfg yazıldı ve test sonunda o dosya kaldırıldı. İlk recovery import MD5 hatalıydı; ikinci exit0, script yükleme/parse hatası0, mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — ISG-77 başladı (Kalfa)
+
+ISG-73 f07ffbce festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Hazır ISG-77 alındı. AYR sekme altyapısı ve Oyun sayfası mevcut/tamamlanmış; sayfadaki ayar düğmelerinin canlı köy modelinde atama/ekonomi/nüfus değişikliği yapmadığı gerçek sahnede doğrulanacak. Ayar dosyası test yoluna ayrılacak. Asset gerekmedi. kota görünmüyor.
+
+## 6 Kasım 2026 — ISG-73 tamamlandı (Kalfa)
+
+UZM-04 eğitiminde ve TEZ çırak okuyucusunda mevcut YasRolleri.atanabilir izni kullanılır. Yeni sayısal yaş/yaş grubu veya ikinci eğitim motoru eklenmedi. Eski/tutarsız ağır iş ataması ve çalışma listesi artık çocuk eğitimini ilerletmez; TEZ çırak titremesi de yazmaz. Mevcut hafif iş (örnekte bez_evi) izinleri ve5 ortak gecelik yarı ustalık korunur. DNY-01’in henüz açık28. gün büyüme mekanizması bu kabulün parçası değildir, tamamlandı denmedi.
+
+Önce2 RED, sonra yeni yaş kaynağı testi, UZM-04 eğitim/kayıt testi, yaş rolleri ve53 kontrollü TEZ testi geçti. Normal ağır iş atama reddi, eski kaydın aynı izni koruması ve hafif işte pozitif eğitim/TEZ yolu doğrulandı. İki kaynakta yalnız mevcut izin kontrolü eklendi. İlk recovery import MD5 hatalıydı; ikinci exit0 ve SCRIPT ERROR/Failed to load script0, mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 6 Kasım 2026 — ISG-73 başladı (Kalfa)
+
+ISG-67 905e9c74 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Hazır ISG-73 alındı. ROADMAP1 UZM-04 beş ortak üretim gecesi eğitimidir; ayrı sayısal çocuk yaşı içermez. Mevcut yaş kaynağı YasRolleri: çocuk yalnız COCUK_HAFIF listesindeki işlere atanır. Eğitim ve TEZ çırak okuyucusunun bu kaynağı kullanması doğrulanacak; yeni yaş grubu/sayısı veya eğitim motoru kurulmayacak. Asset gerekmedi. kota görünmüyor.
+
+## 6 Kasım 2026 — ISG-67 tamamlandı (Kalfa)
+
+Gece raporuna mevcut boşta kurallarından salt okunur yetişkin işgücü/boşta/gün fotoğrafı eklendi. Mevcut BostaKalma uygunluğu aynı sağlık/yaş kaynağına ayrıldı; HUD ve moral davranışı korunur. İşgücü çalışan/nöbetçi sağlıklı yetişkinleri içerir; çocuk, eş, oyuncu, hasta, karantina, zindan ve köy dışı kişiler hariçtir. DEN fotoğrafı kopyalar; DengeOlcumu.is_raporu son30 ardışık geceyi tek raporda toplar. Oran toplam boşta kişi-gün / toplam işgücü kişi-gündür. Aynı fotoğraf mükerrer sayılmaz, çelişen/bozuk/eksik gece hazır sayılmaz; işgücü olmayan pencere denge kabulü vermez.
+
+Başlangıç gözlem bandı Kalfa rutin kararıyla denge.json is_olcumu altında0–%25 olarak kondu; bu oyun dengesinin sağlıklı olduğu iddiası değildir.30 gerçek gece,6767 tohumlu kontrollü fixture’da kış hastalığı işgücünü azalttı;15/54≈%27,78 bant dışı raporlandı. Hastalık kapatılmadı, oyun formülü değişmedi. Sentetik sınır kontrolleri0/%25 dahil ve son30 pencereyi doğrular. Tekrarlanan gözlem kayıt/RNG/oyun durumunu değiştirmedi.
+
+Önce RED, sonra yeni30-gece kabulü, boşta/HUD/Parley, DEN ölçümü, köy yönetimi, iş memnuniyeti ve yerel denge sınır kontrolü olmak üzere6 hedefli Godot testi geçti.40 Python denge testi ve gerçek tablo doğrulaması geçti; bozuk/ters/sonsuz/bool/ek otomatik ayar alanı reddedilir. İlk recovery import MD5 hatalıydı. İkinci import exit0, SCRIPT ERROR/Failed to load script0; mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı; üretilmiş import/translation ve project.godot commit dışı. Asset gerekmedi. ds yolları bu makinede yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 5 Kasım 2026 — ISG-67 başladı, ISG-39 bağımlılığı doğrulanamadı (Kalfa)
+
+Full pull 20924037 güncel; Ajan Masası okundu. Önceki tur beş tamamlanmış madde/yayın ile ilerlemeydi. SOY-34 işaretli olsa da SoylentiAgi yalnız testlerde ve HafizaDefteri sözlük okuyucusunda bulunuyor; Oturum/KoyYonetimi bağlantısı veya MeslekGrevi söylenti okuyucusu yok. ISG-39 sahiplenilmedi ve kapatılmadı. Hazır ISG-67 alındı: otuz gerçek günlük boşta oranı tek DEN raporunda olacak; bant dışı sonuç hiçbir oyun formülünü değiştirmeyecek. Asset gerekmedi. kota görünmüyor.
+
+## 5 Kasım 2026 — ISG-37 tamamlandı (Kalfa)
+
+Eski yarım üretim başlığı, aynı maddenin açıkça yönlendirdiği tamamlanmış TEZ-07 ayrıntılı kabulüyle çelişiyordu. Rutin tutarlılık kararıyla TEZ-07 tek kaynak korundu: ustasız/çıraklı sabah gün ilerlemez, titreme1 artar, rütbe/teslim/ücret0’dır. ROADMAP başlığı ve kabulü buna uyarlandı. Yeni yarım üretim veya çırak motoru yazılmadı; oyun kodu değiştirilmedi.
+
+Mevcut TEZ testi53 kontrol/0 hata geçti. Ek kabul aynı sabah ikinci çağrının köy kaydı ve gerçek TezgahtaGun.isler durumunu değiştirmediğini, teslim/parça/ücret açılmadığını denetler. Headless parse exit0, SCRIPT ERROR/ERROR0. Önceki ISG-35 importuyla aynı oyun kaynakları korunuyor; o kontroldeki296 kaynak editör kapanış sızıntısı ayrı olarak sürer, bu temiz hedef koşusuyla giderildi sayılmadı. TEZ-07’nin diğer bütün uç durumlarının yeni denetimi iddia edilmez. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki istisna geçerli. kota görünmüyor.
+
+## 5 Kasım 2026 — ISG-37 başladı (Kalfa)
+
+ISG-35 83a11655 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Hazır ISG-37 alındı. Başlıktaki yarım üretim, açıkça referans verilen tamamlanmış TEZ-07 kabulüyle çelişiyor: orada gün ilerlemez, titreme1 olur. Ayrıntılı tek TEZ kaynağı korunacak; ikinci çırak motoru yazılmadan başlık uyumu ve mevcut kabul doğrulanacak. Asset gerekmedi. kota görünmüyor.
+
+## 5 Kasım 2026 — ISG-35 tamamlandı (Kalfa)
+
+Mevcut köylü kartı fare olmadan bina ataması, görevden çıkarma ve geçici iş atamasını destekliyor. Yeni gerçek sahne kabulü odak + ui_accept basma/bırakma ve TabBar ui_right girdilerini kullanır; fare olayı veya pressed.emit göndermez. Her kabul tam bir düğme sinyali üretir. İkinci UI/atama motoru eklenmedi. Test fixture’ı ISG-32 sahnesinin TestAna sınıfından yeniden kullanılır; standart hedef listesine bir kez eklendi.
+
+İlk koşu davranışı geçti fakat testin null varsayılanlı get_meta çağrısı hata bastı; has_meta kontrolüyle düzeltildi. Son kabul exit0 ve SCRIPT ERROR/ERROR0. Headless recovery import ilk koşu uzun yeniden içe alma/MD5 hatalarıyla exit0; ikinci import exit0, script yükleme/parse hatası0, mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok; önceki istisna geçerli. kota görünmüyor.
+
+## 5 Kasım 2026 — ISG-35 başladı (Kalfa)
+
+ISG-32 e0c8f73b festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Full pull güncel. Hazır ISG-35 alındı: mevcut kartın odak/ui_accept yolu gerçek klavye girdisiyle sınanacak. GIR-06 tamam; ikinci atama arayüzü açılmaz. Asset gerekmedi. kota görünmüyor.
+
+## 5 Kasım 2026 — ISG-32 tamamlandı (Kalfa)
+
+Duraklat menüsünün devre dışı bıraktığı ekran ile sıfır hızdaki sahne ağacı ortak koy_atama_kapisi tarafından doğrulanır. Kart, geçici iş/çıkarma, sürükleme başlatma/bırakma, bina bilgi atama/çıkarma ve konuşlanma düğmeleri mevcut model çağrısından önce döner. Ana duraklat altyapısı ve başsız model API’si korunur.
+
+İlk denemede SceneTree unit runner autoload Ses’i derleyemedi; kabul gerçek sahne runner’ına taşındı. Doğru runner menüde bina/geçici iş için2 RED üretti. Sonrasında gerçek düğme sinyalleri ve sürükleme bırakması menüde delta0, sıfır hızda atamalar delta0, devamdan sonra bina ve geçici iş başarılı. Yeni kabul, mevcut sürükle-bırak ve duraklat menü/kayıt sahneleri geçti; SCRIPT ERROR/ERROR yok. Yeni sahne standart hedef listesine eklendi, tam sanity çalıştırılmadı.
+
+İlk recovery import MD5 hatalı uzun yeniden içe alma yaptı; zaman sınırında süreç çalışıyordu, sonradan kapandı (çıkış kodu alınmadı). İkinci import exit0 ve script yükleme/parse hatası0;296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Üretilmiş dosyalar commit dışında. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 5 Kasım 2026 — ISG-32 başladı (Kalfa)
+
+ISG-25 ed69f207 festive üzerinde. Hazır ISG-32 alındı; duraklat menüsü ve sıfır hızda mevcut UI atama yolları ortak ince kapıyla korunacak. GIR-08 tamam. Modelin başsız atama API’si korunur. Asset gerekmedi. kota görünmüyor.
+
+## 5 Kasım 2026 — ISG-25 tamamlandı (Kalfa)
+
+Boşta modelinin mevcut moralden gerçekten kestiği toplam, IsMemnuniyeti dönüşü üzerinden gece raporuna bosta_moral_bedeli olarak aktarılır. DEN aynı raporun tek satırını okur; doğrudan köy ve Oturum rapor zarfı desteklenir. Yeni hesap veya ikinci gece çağrısı yoktur; formül değişmedi. Moral1 iken ölçüm1, aynı gece ikinci çağrıda0 sınırı doğrulandı.
+
+Önce9 RED, sonra boşta/HUD/Parley kabulü, DEN ölçümü, iş memnuniyeti ve köy yönetimi olmak üzere4 hedefli Godot testi geçti. Tekrarlanan DEN okuması kayıt ve RNG’yi değiştirmedi. Recovery import ilk koşu MD5 hatalı; ikinci exit0, SCRIPT ERROR/Failed to load script0, mevcut296 kaynak/PagedAllocator kapanış sızıntıları sürüyor. Hatasız import denmedi. Tam sanity yapılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 5 Kasım 2026 — ISG-25 başladı (Kalfa)
+
+ISG-03 9f2ad761 festive üzerinde, Ahmet masaüstü güvenli FF yapıldı. Full pull güncel. Hazır ISG-25 alındı: gerçekleşen boşta moral bedeli tek DEN ölçüm satırı olacak; formül veya gece ikinci kez çalışmayacak. Asset gerekmedi. kota görünmüyor.
+
+## 5 Kasım 2026 — ISG-03 tamamlandı (Kalfa)
+
+Boşta yetişkinin mevcut moralinden gecede bir kez veri tablosundaki 2 puan düşer. Optional kişi kaydı son bedel gecesini ve en çok üç günlük seriyi taşır; eski/bozuk kayıt güvenle boş başlar. Geçici iş, bina ve nöbet ataması seriyi anında sıfırlar, aynı gece damgasını korur. Çocuk, eş, hasta, karantina, oyuncu, zindan ve dış görev/nöbet hariçtir. Açlık sayacı ayrıdır. Mevsim çarpanı mevcut mevsim kaydından gelir; dört varsayılan çarpan 1’dir.
+
+Mevcut HUD nüfus sütununa CSV anahtarlı sayı, mevcut Parley köy muhabbetinin ilk repliğine meslekli kişide üç tam gün sonunda tek terk isteği eklendi. Kişi silinmez. Gerçek sohbet deneyi eski adaptörün gida/salgin_var_mi/hazine erişimlerini ortaya çıkardı; mevcut kaynaklar/SaglikYoneticisi/akce API’sine ince uyarlama yapıldı. Parley sonuç ve bağlam nesneleri serbest bırakıldı; yeni kabul koşusunda SCRIPT ERROR, ERROR ve kapanış sızıntısı yok.
+
+Yeni kabul testi ile geçici işler, kapı nöbeti, iş memnuniyeti, mevsim ve köy yönetimi hedefli testleri geçti. Eski boşta moral beklentisi yeni ISG-03 bedeline uyarlandı; diğer uyum/sabotaj beklentileri korundu. CSV kaynak doğrulaması geçti. Headless normal import exit0, script yükleme/parse hatası yok; 356 kaynak kapanış sızıntısı var. Recovery import exit0, script hatası yok; 296 kaynak/PagedAllocator sızıntısı var. Temiz import denmedi; tam sanity yapılmadı. Yerel üretilmiş translation/.import ve project.godot değişiklikleri commit dışında korundu. Asset gerekmedi. ds çalışma/ayna yolları yok, önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 5 Kasım 2026 — ISG-03 başladı (Kalfa)
+
+Hazır/sahipsiz maddelerin genel sıra denetiminde ISG-03 alındı. KAP-18 açık DNY-01’i bekler; ZAR-05 Söz bekleme kapsamında. Sayaç ve moral bedeli, optional kayıt, mevcut HUD ve sohbet bağlantısı küçük parçalarla doğrulanacak. ACL-02/testx sahipliği korunacak; eş bayrağı mevcut kaynaktan okunacak. Çalışma kopyası C:/Users/Ahmet/.codex/worktrees/kalfa-roadmap/Kapı_Muhafizi. Asset gerekmedi. kota görünmüyor.
+
+## 5 Kasım 2026 — DEN-57 tamamlandı (Kalfa)
+
+28 gecelik başlangıç denge hedefi kriz_aralik altında alt=0, ust=12 olarak kaydedildi. Bu rutin hedef seçimi Kalfa tarafından yapıldı; 20 tohumluk oyun ölçümü DEN-59 kabulüdür ve henüz yapılmadı. Sayısal sınır dosyası 0–140 fiziksel sayım tavanını tanımlar. Veri sözleşmesi yalnız alt/ust kabul eder; eksik, ters, kesirli, bool, sonsuz ve ek tetik kuralı içeren alanlar hata verir. KRI uygulamalarına kod eklenmedi.
+
+Önce RED, ardından 39 hedefli Python testi, gerçek tablo doğrulaması ve Godot denge sınır testi geçti. İlk recovery import MD5 hatalıydı. İkinci import exit0 ve SCRIPT ERROR/Failed to load script 0; ortak sürümün 295 kaynak kapanış sızıntısı sürüyor. Hatasız import iddiası verilmedi. Asset gerekmedi. ds yolları önceki izinli istisna kapsamında yok. kota görünmüyor.
+
+## 5 Kasım 2026 — DEN-57 başladı (Kalfa)
+
+DEN-54 4d868faa ile festive üzerinde tamamlandı; Ahmet masaüstü güvenli fast-forward yapıldı. Sıradaki hazır madde DEN-57 sahipliği alındı. Krizler mevcut KRI kaynaklarından ölçülecek, denge dosyasında 28 gecelik sayısal aralık tutulacak. KRI-10 krizler listesi isyan/salgın/kuyu/yas içeriyor; DEN-57 kundak ve zehri de anıyor. Sayım eşlemesi bu kaynaklar üzerinden netleştirilecek. Asset gerekmedi. kota görünmüyor.
+
+## 5 Kasım 2026 — DEN-54 tamamlandı (Kalfa)
+
+Olağan zorlukta, 5454 tohumlu köy odaklı persona 28 gerçek geceyi oyun sonuna düşmeden tamamladı. Mevcut açılış oyuncusunun kapı ve yapı işlemleri yeniden kullanıldı; yatak/huzur koşulu, esnaf tercihi, meslek uyumlu atama, kervan ticareti ve aş dağıtımı normal API üzerinden işler. Yedi kuruluş adımı tamamlanır. Erken terminal, eksik plan ve tanımsız/ihlal edilen aralık test hatasıdır.
+
+Ölçülen EKO-10 iflas olayı 0; iflas_aralik alt/üst 0/0 denge dosyasında, sayısal sınırlar ayrı sınır dosyasındadır. Bu persona ve tohum için ölçümdür. Son koşularda erzak 0, moral 7–8 çıktı; genel ekonomi sağlığı kabulü verilmedi. Yeni kontrol normal test listesine bir kez bağlandı; tam sanity çalıştırılmadı.
+
+Doğrudan ve önbelleksiz kabul kopyasında persona/açılış kontrolleri, köy yönetimi ve pozitif iflas birim testi, 38 Python testi ve gerçek denge doğrulaması geçti. Kabul kopyası 9.151 Git dosyası üzerinden doğrulandı; Windows satır sonu dönüşümleri içerik eşitliğiyle denetlendi. İlk arşiv işlemi kapanışta takıldı; kendi arşiv süreci sonlandırıldı, kopya içerikleri Git nesne kimlikleriyle tek tek doğrulanıp görev dosyaları eklendi. Kopya C:/Users/Ahmet/AppData/Local/Temp/kalfa-den54-kabul-ykx49yqw.
+
+Önbelleksiz recovery import exit0 ve SCRIPT ERROR/Failed to load script 0; ortak sürümdeki 295 kaynak/ObjectDB kapanış sızıntıları sürdü, temiz import diye raporlanmadı. Yeni asset gerekmedi. ds çalışma/ayna yolları bu makinede yok; önceki Ahmet istisnası geçerli. kota görünmüyor.
+
+## 5 Kasım 2026 — DEN-54 başladı (Kalfa)
+
+Güncel festive efae027d ile doğrulandı. DEN-54 sahipliği alındı; mevcut açılış oyuncusunu yeniden kullanarak 28 gecelik gerçek iflas olayları ölçülecek. İlk incelemede eski testin terminal sonrasında da gece çağırabildiği görüldü; ölçümün gerçek oyun süresini göstermesi doğrulanacak. Git kimliğiyle Ajan Masası erişimi sağlandı. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-53 tamamlandı (Kalfa)
+
+Mevcut anahtar tarayıcısı yeniden kullanılarak denge dosyasında ikinci faiz anahtarı reddedildi. İç içe sözlük ve diziler kapsanır; TUC-07 dosyasına kaynak yolu serbesttir. Önce RED, ardından 38 hedefli Python testi ve gerçek tablo doğrulaması geçti. Asset gerekmedi. kota görünmüyor.
+
+## 4 Kasım 2026 — DEN-49 tamamlandı (Kalfa)
+
+Full fetch/pull ile 936d6df5 alındı. Üretilmiş TR/EN translation çakışmaları güncel CSV çıktısıyla giderildi; yerel eski çıktılar autostash 0eaf88ec içinde korunuyor. project.godot yerel editör düzenlemesi korunup commit dışında tutuldu. Fiyat çarpanı yalnız TUC-09 dosyasını referans alır; sayı/dizi/iç içe ikinci tablo doğrulama hatası verir. Önce RED, ardından 37 hedefli Python testi ve gerçek denge doğrulaması geçti. Asset gerekmedi. kota görünmüyor.
+
 ## 4 Kasım 2026 — DEN-44, Ahmet kararı uygulandı (Kalfa)
 
 Ahmet teftiş riskinin 20 rüşvette açılmasını seçti. Tek kaynak data/muhafiz_terazisi.json içindeki rüşvet ağırlığı 5’ten 1’e indirildi; teftiş puan eşiği 20 kaldı. Bu tercih mevcut kayıt makbuzlarından türetilen diğer rüşvet/yozlaşma sonuçlarının katkısını da azaltır. Zimmet, haksızlık ve haraç ağırlıkları değişmedi. Denge tablosunda teftis_rusvet_sayisi=20; doğrulayıcı ilk risk sayısının terazi ve ODA-07 kaynağıyla uyuşmasını denetler.

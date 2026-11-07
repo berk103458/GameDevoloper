@@ -6,7 +6,7 @@ const MUHAFIZ := "acl01_muhafiz"
 const ES := "acl01_es"
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/acilis.json"))
 
-static func kur(o: Oturum) -> void:
+static func kur(o: Oturum, zorluk: Variant = "olagan") -> void:
 	var y := o.yonetim
 	# Devam/legacy üzerinde kurucu çalışmaz; yıkılmış ev de yeniden kurulmaz.
 	if not durum(o).is_empty() or y.gun != 0 or not y.binalar.is_empty() or not y.koylular.is_empty(): return
@@ -23,6 +23,7 @@ static func kur(o: Oturum) -> void:
 	if not bulundu:
 		push_error("Açılış evi için uygun yer bulunamadı")
 		return
+	y.set_meta(&"zorluk", preload("res://src/sistemler/zorluk_secimi.gd").oku(zorluk))
 	ev.id = y._sonraki_id
 	y._sonraki_id += 1
 	# Hazır kuruluş malı: bedeli/harcanan boş, yıkım para/malzeme yaratmaz.
@@ -42,6 +43,7 @@ static func kur(o: Oturum) -> void:
 	# Kuruluş sakinleri kapıda verilmiş iki kabul kararı sayılmaz.
 	y.kabul_sayisi = kapidan_kabul
 	o.set_meta(META, h)
+	preload("res://src/koy/yapi_bilgisi.gd").gecmis(o)
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(o, "koy")
 	o._koy_esitle()
 

@@ -1,5 +1,7 @@
 {
   "surum": 1,
+  "bosta_terk_aralik": {"gun": 20, "alt": 0, "ust": 3},
+  "is_olcumu": {"gun": 30, "alt": 0.0, "ust": 0.25},
   "teftis_rusvet_sayisi": 20,
   "kamera_surukleme": {
     "hiz": 1.0
@@ -9,6 +11,8 @@
   },
   "kis_odun_farki": 1,
   "aclik_olum_aralik": {"alt": 0, "ust": 0},
+  "iflas_aralik": {"alt": 0, "ust": 0},
+  "kriz_aralik": {"alt": 0, "ust": 12},
   "gecici_isler": {"kaynak": "res://data/gecici_isler.json"},
   "acilis_stoku": {
     "kaynak": "res://data/ayarlar/koy.tres"

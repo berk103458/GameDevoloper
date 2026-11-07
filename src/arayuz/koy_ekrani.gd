@@ -72,6 +72,7 @@ func _ready() -> void:
 	sahne3b.yonetim = _y
 	_vp.add_child(sahne3b)
 	hud = Hud.new()
+	hud.katmanlari_kur(oturum, ayarlar)
 	add_child(hud)
 	hud.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
 	hud.bagla(oturum)
@@ -224,6 +225,9 @@ func _savunma_satiri() -> void:
 
 
 func _kip_sec(k: String, tur: String = "") -> void:
+	if k == "insa" and not YapiKilidi.durum(_y, tur).acik:
+		_kip_sec("")
+		return
 	KoyluTakibi.kip(sahne3b, k)
 	kip = k
 	_insa_turu = tur
@@ -266,6 +270,10 @@ func _vp_konum(yerel: Vector2) -> Vector2:
 func _hayalet_guncelle() -> void:
 	match kip:
 		"insa":
+			if not YapiKilidi.durum(_y, _insa_turu).acik:
+				sahne3b.hayalet(_imlec, Vector2i.ZERO, false)
+				_ipucu.text = YapiKilidi.metin(_y, _insa_turu)
+				return
 			var d := _y.yerlesim(_insa_turu, _imlec, _yon)
 			var b := _y.katalog.boyut(_insa_turu)
 			sahne3b.hayalet(_imlec, Vector2i(b.y, b.x) if _yon == 1 else b, d["olur"])
@@ -447,6 +455,7 @@ func _bilgi_goster() -> void:
 	SamanBilgisi.ekle(_y, b, _bilgi_icerik)
 	KundakClueBilgisi.ekle(_y, b, _bilgi_icerik)
 	AmbarKapisiPaneli.ekle(self, b)
+	preload("res://src/arayuz/koy_hud/cozumleme_paneli.gd").ekle(self,b)
 	if b.tur == "sifahane": HekimIlacBilgisi.ekle(_y, _bilgi_icerik, b.id)
 	if b.tur in ["su_kuyusu", "su_arki"]: KuyuKireclemePaneli.ekle(self, _bilgi_icerik, b.id)
 	var yatak := b.yatak(_y.katalog)
@@ -483,6 +492,7 @@ func _bilgi_goster() -> void:
 			for k in _y.bostakiler():
 				var d := _dugme("%s  ·  %s %d" % [k.ad, tr("koy.bilgi.stat"), k.stat], _bilgi_icerik)
 				d.pressed.connect(func() -> void:
+					if not preload("res://src/arayuz/koy_atama_kapisi.gd").acik(self): return
 					if _y.ata(k.id, b.id):
 						Ses.cal(&"sfx_onay", -6.0)
 						_yenile()
@@ -512,6 +522,7 @@ func _koylu_satiri(k: Koylu, b: KoyBinasi) -> void:
 	kart.pressed.connect(func() -> void: KoyluKarti.ac(self, k.id))
 	var cikar := _dugme(tr("koy.bilgi.cikar"), satir)
 	cikar.pressed.connect(func() -> void:
+		if not preload("res://src/arayuz/koy_atama_kapisi.gd").acik(self): return
 		_y.bosalt(k.id)
 		_yenile()
 	)
@@ -701,22 +712,8 @@ func _geceye_gec() -> void:
 	_dinamik_ortam.faz(&"gece")
 	var r: Dictionary = sonuc["rapor"]
 	var v := _kart_ac(tr("koy.rapor.baslik") % (int(r["gun"]) + 1))
-	var uretim: Dictionary = r["uretim"]
-	var parca: PackedStringArray = []
-	for t in uretim:
-		if int(uretim[t]) > 0:
-			parca.append("+%d %s" % [int(uretim[t]), tr("koy.kaynak." + String(t))])
-	_etiket(v, tr("koy.rapor.uretim") % (", ".join(parca) if not parca.is_empty() else "—"), Tema.KUCUK_PX)
-	var tuk: Dictionary = r["tuketim"]
-	_etiket(v, tr("koy.rapor.tuketim") % [int(tuk.get("gida", 0)), int(tuk.get("odun", 0))], Tema.KUCUK_PX)
-	_etiket(v, tr("koy.rapor.akce") % [int(r["akce_once"]), int(r["akce"])], Tema.KUCUK_PX).name = "gece_akce"
-	_etiket(v, tr("koy.rapor.huzur") % int(r["huzur"]), Tema.KUCUK_PX).name = "gece_huzur"
-	for o in r["olaylar"]:
-		var l := _etiket(v, IflasYoneticisi.olay_metin(o), Tema.KUCUK_PX)
-		if o.get("cenaze_yasi", false): l.name = "gece_yas"
-		l.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
-		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		l.custom_minimum_size.x = 900
+	if not preload("res://src/arayuz/gece_raporu_kisa.gd").ekle(self, v, sonuc["bilanco"]):
+		_rapor_ayrinti(v, r)
 	preload("res://src/sistemler/rapor_bekle.gd").uygula(v, ayarlar)
 	var tamam := _dugme(tr("koy.rapor.sabah"), v)
 	CenazeRaporu.ekle(self, v, tamam, r, sonuc)
@@ -735,6 +732,25 @@ func _geceye_gec() -> void:
 	)
 	if once.get("gida", 0) > 0 and _y.kaynaklar.miktar("gida") == 0:
 		Ses.cal(&"sfx_bar_catlak")
+
+
+func _rapor_ayrinti(v: VBoxContainer, r: Dictionary) -> void:
+	var uretim: Dictionary = r["uretim"]
+	var parca: PackedStringArray = []
+	for t in uretim:
+		if int(uretim[t]) > 0:
+			parca.append("+%d %s" % [int(uretim[t]), tr("koy.kaynak." + String(t))])
+	_etiket(v, tr("koy.rapor.uretim") % (", ".join(parca) if not parca.is_empty() else "—"), Tema.KUCUK_PX)
+	var tuk: Dictionary = r["tuketim"]
+	_etiket(v, tr("koy.rapor.tuketim") % [int(tuk.get("gida", 0)), int(tuk.get("odun", 0))], Tema.KUCUK_PX)
+	_etiket(v, tr("koy.rapor.akce") % [int(r["akce_once"]), int(r["akce"])], Tema.KUCUK_PX).name = "gece_akce"
+	_etiket(v, tr("koy.rapor.huzur") % int(r["huzur"]), Tema.KUCUK_PX).name = "gece_huzur"
+	for o in r["olaylar"]:
+		var l := _etiket(v, IflasYoneticisi.olay_metin(o), Tema.KUCUK_PX)
+		if o.get("cenaze_yasi", false): l.name = "gece_yas"
+		l.add_theme_color_override("font_color", Renkler.SOGUK_MAVI)
+		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		l.custom_minimum_size.x = 900
 
 
 func _olay_goster(olay: OlayVerisi, sonuc: Dictionary) -> void:

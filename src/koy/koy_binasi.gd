@@ -10,6 +10,8 @@ var hucre: Vector2i = Vector2i.ZERO
 var yon: int = 0
 ## Kalan inşa günü; 0 = çalışıyor.
 var insa_kalan: int = 0
+## Mevsimden kalan kesirli inşaat günü; optional eski kayıt uyumlu.
+var insa_artik: float = 0.0
 var seviye: int = 1:
 	set(v):
 		seviye = maxi(1, v)
@@ -53,7 +55,7 @@ func hucreler(katalog: BinaKatalogu) -> Array[Vector2i]:
 
 
 func kaydet() -> Dictionary:
-	return {"id": id, "tur": tur, "x": hucre.x, "y": hucre.y, "yon": yon, "insa": insa_kalan, "seviye": seviye, "recete": recete, "harcanan": harcanan.duplicate(), "cati_kar": cati_kar.duplicate(), "agil_koyun": agil_koyun}
+	return {"id": id, "tur": tur, "x": hucre.x, "y": hucre.y, "yon": yon, "insa": insa_kalan, "insa_artik": insa_artik, "seviye": seviye, "recete": recete, "harcanan": harcanan.duplicate(), "cati_kar": cati_kar.duplicate(), "agil_koyun": agil_koyun}
 
 
 static func kayittan(v: Dictionary) -> KoyBinasi:
@@ -63,6 +65,9 @@ static func kayittan(v: Dictionary) -> KoyBinasi:
 	b.hucre = Vector2i(int(v.get("x", 0)), int(v.get("y", 0)))
 	b.yon = int(v.get("yon", 0))
 	b.insa_kalan = int(v.get("insa", 0))
+	var artik: Variant = v.get("insa_artik", 0.0)
+	if (artik is int or artik is float) and is_finite(float(artik)) and float(artik) >= 0 and float(artik) < 1:
+		b.insa_artik = float(artik)
 	b.seviye = int(v.get("seviye", 1))
 	b.recete = String(v.get("recete", ""))
 	b.harcanan = v.get("harcanan", {})

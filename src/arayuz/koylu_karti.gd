@@ -76,6 +76,7 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	kapat.pressed.connect(ekran._kart_kapat)
 	kapat.grab_focus.call_deferred()
 static func _ata(ekran: KoyEkrani, id: int, hedef: int) -> void:
+	if not preload("res://src/arayuz/koy_atama_kapisi.gd").acik(ekran): return
 	if not KoyluKartiVerisi.ata(ekran.oturum.yonetim, id, hedef):
 		ac(ekran, id) # Açık karttan sonra dolmuş/silinmiş yapıyı yeniden doğrula.
 		return

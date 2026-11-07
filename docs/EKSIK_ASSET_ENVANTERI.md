@@ -1,3 +1,11 @@
+## 6 Kasım 2026 — YAP05-ODA (Kalfa)
+
+3D çözümleme odası:13. yüzyıl Anadolu köyünde sade tek odalı ahşap/kâgir çalışma yapısı; yaklaşık4×4 m taban,3 m yükseklik. Öncelik orta. Yer tutucu src/koy/gorsel/cozumleme_oda_yer_tutucu.gd içindeki düz renk BoxMesh ve Türkçe isim etiketi; katalog kimliği cozumleme_odasi. Gerçek başsız sahnede kutu ve dokusuz malzeme doğrulandı. Yeni model/görsel üretilmedi veya indirilmedi. Ekleyen Kalfa.
+
+## 6 Kasım 2026 — YAP04-DEFTER (Kalfa)
+
+2D kişisel eşya ikonu: marangoz ustasının defteri / yapı resmi. Öncelik orta. Yer tutucu: src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd mevcut ColorRect ve ad etiketi; oda sergisinde mevcut kutu. Dosya adı: usta_defteri_marangoz.png. Boyut64×64. Saydamlık için kaynak düz #00FF00 yeşil. Tekli İngilizce prompt: "A single small worn leather bound carpenter notebook from thirteenth century Anatolia, closed plain cover with a simple cord, centered inventory icon, hand painted medieval game style, no writing, no letters, no symbols, isolated on a solid bright #00FF00 green background, 64 by 64 pixels." Üretim/indirme yapılmadı; png/ses/model eklenmedi. Ekleyen: Kalfa.
+
 # Kapı Muhafızı — Eksik asset envanteri
 
 ## 3 Kasım — SAB-03 kapalı tezgâh örtüsü (Cursor)

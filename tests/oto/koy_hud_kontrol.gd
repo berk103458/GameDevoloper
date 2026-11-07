@@ -12,6 +12,7 @@ func _dene() -> void:
 	var k := Katalog.new()
 	k.yukle()
 	var o := Oturum.new(k, 21)
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(o)
 	var a := Ayarlar.new()
 	var ana := Control.new()
 	ana.theme = Tema.olustur(a)
@@ -21,14 +22,37 @@ func _dene() -> void:
 	e.ayarlar = a
 	ana.add_child(e)
 	await get_tree().process_frame
+	if e.hud == null:
+		push_error("Köy HUD kurulamadı")
+		get_tree().quit(1)
+		return
+	var ilk_paneller := _paneller(e.hud)
+	_dogrula(ilk_paneller.size() <= 6 and ilk_paneller.has("hud.gd:takvim"), "OGR-25 ilk gece en çok altı gerçek panel")
+	for tur in ["akce", "gida", "odun", "tas", "su"]:
+		_dogrula(ilk_paneller.has("kaynak_gostergesi.gd:" + tur), "OGR-25 ilk gece temel kaynak: " + tur)
+	_dogrula(not e.hud._stok_etiketleri["kereste"].is_inside_tree() and not e.hud._kese.is_inside_tree(), "OGR-25 bekleyen paneller sahne ağacında yok")
+	var ambar := KitlikIsyani.durum(o.yonetim)
+	ambar.kapi_kirik = true
+	KitlikIsyani.yukle(o.yonetim, ambar)
+	e.hud.guncelle()
+	var ambar_grubu := e.hud._ambar_bar.get_parent()
+	_dogrula(ambar_grubu.has_node("ambar_kapisi_onar"), "İlk gece kırık kapının onarımı açılır")
+	ambar.kapi_kirik = false
+	KitlikIsyani.yukle(o.yonetim, ambar)
+	e.hud.guncelle()
+	_dogrula(not ambar_grubu.has_node("ambar_kapisi_onar"), "Onarılan kapının kontrolü ilk gece ağaçtan ayrılır")
 	var once := o.yonetim.akce
 	o.yonetim.akce += 3
 	o.yonetim.gun += 1
 	e.hud.guncelle()
+	_dogrula(e.hud._stok_etiketleri["kereste"].is_inside_tree() and not e.hud._kese.is_inside_tree(), "OGR-25 birinci gecede yalnız ilgili katman açılır")
 	_dogrula(e.hud._akce._miktar.text == str(once + 3), "Akçe güncellendi")
 	_dogrula(e.hud._akce._net.text == "+3", "Akçe net değişimi")
 	e.hud.guncelle()
 	_dogrula(e.hud._akce._net.text == "+3", "Aynı gün yenileme neti korur")
+	o.yonetim.gun = 3
+	e.hud.guncelle()
+	_dogrula(_paneller(e.hud).size() == Hud.STOKLAR.size() + 5 and e.hud._kese.is_inside_tree(), "OGR-25 üçüncü gecede tüm üst şerit panelleri bağlı")
 	e._hiz_sec(3)
 	_dogrula(Engine.time_scale == 3.0 and not get_tree().paused, "3x çalışıyor")
 	var bosluk := InputEventKey.new()
@@ -62,3 +86,9 @@ func _dogrula(olur: bool, ad: String) -> void:
 	if not olur:
 		_hata += 1
 		push_error(ad)
+
+func _paneller(hud: Hud) -> Array[String]:
+	var sonuc: Array[String] = []
+	for n in hud.find_children("*", "Control", true, false):
+		if n.has_meta(&"hud_katmani"): sonuc.append(String(n.get_meta(&"hud_katmani")))
+	return sonuc

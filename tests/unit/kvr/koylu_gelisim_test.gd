@@ -80,6 +80,9 @@ func _initialize() -> void:
 	print("KÖYLÜ GELİŞİMİ: GEÇTİ" if hata == 0 else "KÖYLÜ GELİŞİMİ: KALDI")
 	quit(hata)
 func _kur(y: KoyYonetimi, tur: String) -> KoyBinasi:
+	# XP fixture, YAP kilidini mevcut kişiye açıkça verilen gerçek bilgiyle karşılar.
+	if not y.koylular.is_empty():
+		preload("res://src/koy/yapi_bilgisi.gd").ekle(y.koylular[0], PackedStringArray([tur]))
 	for cy in y.a.izgara_boyut.y:
 		for cx in y.a.izgara_boyut.x:
 			var h := Vector2i(cx, cy)

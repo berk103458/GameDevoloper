@@ -6,7 +6,7 @@ class IsHedefi extends Button:
 	var kisi := -1
 	var is_id := ""
 	func _can_drop_data(_yer: Vector2, veri: Variant) -> bool:
-		return veri is Dictionary and veri.get("tur") == "koylu_atama" and veri.get("kisi") == kisi and veri.get("oturum") == ekran.oturum.get_instance_id() and GeciciIsler.neden(ekran.oturum.yonetim,ekran.oturum.yonetim.koylu(kisi),is_id).is_empty()
+		return preload("res://src/arayuz/koy_atama_kapisi.gd").acik(ekran) and veri is Dictionary and veri.get("tur") == "koylu_atama" and veri.get("kisi") == kisi and veri.get("oturum") == ekran.oturum.get_instance_id() and GeciciIsler.neden(ekran.oturum.yonetim,ekran.oturum.yonetim.koylu(kisi),is_id).is_empty()
 	func _drop_data(yer: Vector2, veri: Variant) -> void:
 		if _can_drop_data(yer,veri): KoyGeciciIslerPaneli.ata(ekran,kisi,is_id)
 
@@ -35,11 +35,13 @@ static func ekle(ekran: KoyEkrani, sekmeler: TabContainer, k: Koylu) -> void:
 	if not GeciciIsler.secili(k).is_empty():
 		var birak := ekran._dugme(TranslationServer.translate("koy.gecici_is.birak"),v)
 		birak.pressed.connect(func() -> void:
+			if not preload("res://src/arayuz/koy_atama_kapisi.gd").acik(ekran): return
 			GeciciIsler.birak(ekran.oturum.yonetim,k)
 			ekran._yenile()
 			KoyluKarti.ac(ekran,k.id))
 
 static func ata(ekran: KoyEkrani, kisi: int, is_id: String) -> void:
+	if not preload("res://src/arayuz/koy_atama_kapisi.gd").acik(ekran): return
 	if not GeciciIsler.ata(ekran.oturum.yonetim,kisi,is_id): return
 	ekran.oturum._koy_esitle()
 	ekran._yenile()

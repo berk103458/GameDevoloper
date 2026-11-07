@@ -25,6 +25,8 @@ func _initialize() -> void:
 		bina.tur = "tarla"
 		bina.insa_kalan = 3
 		oturum.yonetim.binalar.append(bina)
+		# YAP-01: inşaat ölçümü gerçek, sağlıklı boş işçi gerektirir.
+		oturum.yonetim.kabul({"ad": "Denge ölçüm işçisi"})
 		var gece_raporu := oturum.gece_sonu()
 		dene(gece_raporu.has("olaylar") or gece_raporu.has("rapor"), "Gece sonu raporu üretildi")
 

@@ -98,11 +98,13 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 		return
 	kayit.sil()
 	oturum = Oturum.new(katalog, tohum)
-	preload("res://src/sistemler/denge_tablosu.gd").acilis_erzagini_yaz(oturum.yonetim.kaynaklar)
-	if ayarlar != null and ayarlar.degerler.has(&"zorluk"):
-		oturum.set_meta(&"zorluk", String(ayarlar.al(&"zorluk")))
 	g.sec(oturum, gecmis)
-	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum)
+	var zorluk: Variant = ayarlar.al(&"zorluk") if ayarlar != null else null
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum, zorluk)
+	var koy_yonetimi := oturum.yonetim
+	var acilis_zorlugu := String(koy_yonetimi.get_meta(&"zorluk", "olagan"))
+	var gecelik_erzak := int(TuketimDengesi.gerek(koy_yonetimi).gida)
+	preload("res://src/sistemler/denge_tablosu.gd").acilis_erzagini_yaz(koy_yonetimi.kaynaklar, acilis_zorlugu, gecelik_erzak)
 	_koye_git()
 
 
@@ -146,7 +148,6 @@ func _kapiya_git(snapshot: Dictionary = {}) -> void:
 ## Kapı nöbeti bitti (Faz 1 → Faz 2): kayıt, sonra köy yönetimi.
 func _koye_git(_rapor: Dictionary = {}) -> void:
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(oturum, "koy")
-	_kayit_yaz()
 	var koy := KoyEkrani.new()
 	koy.oturum = oturum
 	koy.ayarlar = ayarlar
@@ -162,6 +163,8 @@ func _koye_git(_rapor: Dictionary = {}) -> void:
 			_kapiya_git()
 	)
 	_goster(koy)
+	IlkSaat.koy_hizi_ipucunu_goster(koy, oturum, ayarlar)
+	_kayit_yaz()
 
 
 func _son_goster(son: StringName) -> void:
@@ -224,10 +227,7 @@ func _yeni_oyun_ekrani() -> void:
 
 
 func _kayit_yaz() -> void:
-	var veri := oturum.kaydet()
-	if ayarlar != null and ayarlar.degerler.has(&"zorluk"):
-		preload("res://src/sistemler/zorluk_secimi.gd").kayda_yaz(veri, String(ayarlar.al(&"zorluk")))
-	kayit.yaz(veri)
+	kayit.yaz(oturum.kaydet())
 
 
 func _ayarlari_ac(sonra: Callable, ustte: bool = false) -> void:

@@ -302,6 +302,64 @@ def teftis_esigi_hatalari(denge: dict, terazi: dict, teftis: dict) -> list:
     return []
 
 
+def fiyat_kaynagi_hatalari(denge: dict) -> list:
+    """DEN-49: fiyat çarpanı TUC-09 kaynağından gelir."""
+    hatalar = []
+    for ad, veri in denge.items():
+        if ad == "fiyat_carpani":
+            if veri != {"kaynak": "res://data/ticaret_fiyatlari.json"}:
+                hatalar.append("fiyat_carpani: ikinci mevsim/fiyat tablosu olamaz; kaynak data/ticaret_fiyatlari.json (DEN-49)")
+        elif isinstance(veri, dict):
+            hatalar.extend(fiyat_kaynagi_hatalari(veri))
+    return hatalar
+
+
+def faiz_kaynagi_hatalari(denge: dict) -> list:
+    """DEN-53: faiz anahtarı yalnız TUC-07 tablosunda tutulur."""
+    return [
+        f"{ad}: ikinci faiz anahtarı olamaz; kaynak data/siparis_ihlali.json (DEN-53)"
+        for ad in sorted(set(anahtar_adlari(denge))) if "faiz" in ad
+    ]
+
+
+def kriz_aralik_hatalari(denge: dict) -> list:
+    """DEN-57: denge dosyası kriz sayısının alt/üst sınırını tutar."""
+    aralik = denge.get("kriz_aralik")
+    if not isinstance(aralik, dict) or set(aralik) != {"alt", "ust"}:
+        return ["kriz_aralik: yalnız alt ve ust sınırları bulunmalı (DEN-57)"]
+    for ad, deger in aralik.items():
+        if not (_sayi(deger) and math.isfinite(deger) and deger >= 0 and deger == int(deger)):
+            return [f"kriz_aralik.{ad}: negatif olmayan tam sayı gerekli (DEN-57)"]
+    if aralik["alt"] > aralik["ust"]:
+        return ["kriz_aralik: alt sınır üst sınırı aşamaz (DEN-57)"]
+    return []
+
+
+def bosta_terk_hatalari(denge: dict) -> list:
+    ayar = denge.get("bosta_terk_aralik")
+    if not isinstance(ayar, dict) or set(ayar) != {"gun", "alt", "ust"}:
+        return ["bosta_terk_aralik: yalnız gun/alt/ust gerekli (DEN-35)"]
+    if any(not _sayi(ayar[k]) or not math.isfinite(ayar[k]) or ayar[k] != int(ayar[k]) or ayar[k] < 0 for k in ayar):
+        return ["bosta_terk_aralik: negatif olmayan sonlu tam sayılar gerekli (DEN-35)"]
+    if ayar["gun"] != 20 or ayar["alt"] > ayar["ust"]:
+        return ["bosta_terk_aralik: yirmi gece ve sıralı sınırlar gerekli (DEN-35)"]
+    return []
+
+
+def is_olcumu_hatalari(denge: dict) -> list:
+    """ISG-67: rapor penceresi ve tek oran bandı, otomatik formül ayarı yok."""
+    ayar = denge.get("is_olcumu")
+    if not isinstance(ayar, dict) or set(ayar) != {"gun", "alt", "ust"}:
+        return ["is_olcumu: yalnız gun/alt/ust gerekli (ISG-67)"]
+    if not _sayi(ayar["gun"]) or ayar["gun"] != 30:
+        return ["is_olcumu.gun: otuz gerçek gece gerekli (ISG-67)"]
+    if any(not (_sayi(ayar[ad]) and math.isfinite(ayar[ad]) and 0 <= ayar[ad] <= 1) for ad in ("alt", "ust")):
+        return ["is_olcumu: alt/ust sonlu 0..1 oranı olmalı (ISG-67)"]
+    if ayar["alt"] > ayar["ust"]:
+        return ["is_olcumu: alt sınır üst sınırı aşamaz (ISG-67)"]
+    return []
+
+
 def yukle(yol: Path):
     return json.loads(yol.read_text(encoding="utf-8"))
 
@@ -317,6 +375,9 @@ def main(argv=None) -> int:
     try:
         denge = yukle(args.denge)
         hatalar = dogrula(denge, yukle(args.sinirlar))
+        zorluk = denge.get("zorluk")
+        if not isinstance(zorluk, dict) or set(zorluk) != {"kolay", "olagan", "siki"}:
+            hatalar.append("zorluk: yalnız kolay, olagan ve siki anahtarları olmalı (DEN-65)")
         hatalar += acilis_stoku_hatalari(denge, args.koy.read_text(encoding="utf-8"), ikinci_baslangic_dosyalari(koy=args.koy, denge=args.denge))
         hatalar += ilk_hafta_erzak_hatalari(denge, args.koy.read_text(encoding="utf-8"), args.koy_ayarlari.read_text(encoding="utf-8"))
         hatalar += zar_esigi_hatalari(denge, args.sorgu_kurallari.read_text(encoding="utf-8"))
@@ -324,6 +385,11 @@ def main(argv=None) -> int:
         hatalar += acilis_kasasi_hatalari(denge)
         hatalar += aclik_kademesi_hatalari(denge)
         hatalar += gecici_is_hatalari(denge)
+        hatalar += fiyat_kaynagi_hatalari(denge)
+        hatalar += faiz_kaynagi_hatalari(denge)
+        hatalar += kriz_aralik_hatalari(denge)
+        hatalar += is_olcumu_hatalari(denge)
+        hatalar += bosta_terk_hatalari(denge)
         hatalar += teftis_esigi_hatalari(denge, yukle(ROOT / "data/muhafiz_terazisi.json"), yukle(ROOT / "data/sancak_teftisi.json"))
     except (OSError, ValueError) as hata:
         hatalar = [f"dosya okunamadi: {hata}"]

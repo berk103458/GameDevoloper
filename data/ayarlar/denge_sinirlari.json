@@ -1,4 +1,10 @@
 {
+  "bosta_terk_aralik.gun": {"alt": 20, "ust": 20},
+  "bosta_terk_aralik.alt": {"alt": 0, "ust": 1000000},
+  "bosta_terk_aralik.ust": {"alt": 0, "ust": 1000000},
+  "is_olcumu.gun": {"alt": 30, "ust": 30, "not": "ISG-67: tam otuz ardışık gerçek gece."},
+  "is_olcumu.alt": {"alt": 0.0, "ust": 1.0, "not": "ISG-67: boşta kişi-gün oranı alt hedefi."},
+  "is_olcumu.ust": {"alt": 0.0, "ust": 1.0, "not": "ISG-67: başlangıç hedefi en çok yüzde25; ölçüm formül değiştirmez."},
   "teftis_rusvet_sayisi": {"alt": 20, "ust": 20, "not": "DEN-44: Ahmet karari, teftis riski yirmi rusvette acilir."},
   "surum": {
     "alt": 1,
@@ -15,6 +21,10 @@
     "ust": 14,
     "not": "Meclis oylama penceresi ve bekleme suresi, gun (src/koy/cinar_alti_meclisi.gd bekleme()). 0 olursa pencere hic acilmaz ve oylama aninda 'suresi_doldu' olur; 14 gunden uzunu (iki hafta) bir krizi meclise tasimayi anlamsiz kilar. Mevcut deger 2."
   },
+  "kriz_aralik.alt": {"alt": 0, "ust": 140, "not": "DEN-57: 28 gecede toplam yeni kriz sayisinin alt siniri."},
+  "kriz_aralik.ust": {"alt": 0, "ust": 140, "not": "DEN-57: bes mevcut kriz turu icin gece basina tek yeni donem, 28 gecelik sayim tavani."},
+  "iflas_aralik.alt": {"alt": 0, "ust": 28, "not": "DEN-54: Olagan 28 gecelik koy odakli persona icin iflas olayi alt siniri."},
+  "iflas_aralik.ust": {"alt": 0, "ust": 28, "not": "DEN-54: Olagan 28 gecelik koy odakli persona icin iflas olayi ust siniri."},
   "aclik_olum_aralik.alt": {"alt": 0, "ust": 3, "not": "DEN-29: uc kisilik, erzak sifir baslayan olcumun olum alt siniri."},
   "aclik_olum_aralik.ust": {"alt": 0, "ust": 3, "not": "DEN-29: uc kisilik, erzak sifir baslayan olcumun olum ust siniri."},
   "kis_odun_farki": {"alt": 1, "ust": 100, "not": "DEN-12: Ilk on gecenin yaz ve kis odun dipleri arasindaki pozitif fark."},

@@ -17,6 +17,12 @@ SINIR = {
 
 
 class DengeDogrulaTest(unittest.TestCase):
+    def test_is_olcumu_otuz_gece_ve_sirali_oran_gerektirir(self):
+        self.assertEqual(dogrulayici.is_olcumu_hatalari({"is_olcumu": {"gun": 30, "alt": 0, "ust": 0.25}}), [])
+        for ayar in [None, {}, {"gun": 29, "alt": 0, "ust": 1}, {"gun": 30, "alt": 0.5, "ust": 0.25}, {"gun": 30, "alt": False, "ust": 1}, {"gun": 30, "alt": 0, "ust": float("inf")}, {"gun": 30, "alt": 0, "ust": 1.1}, {"gun": 30, "alt": 0, "ust": 1, "otomatik_ayar": True}]:
+            with self.subTest(ayar=ayar):
+                self.assertTrue(dogrulayici.is_olcumu_hatalari({"is_olcumu": ayar}))
+
     def test_aclik_kademesi_ikinci_tablo_olamaz(self):
         for alan in ["aclik", "aclik_kademeleri", "aclik_uretim", "aclik_yatar_esigi"]:
             with self.subTest(alan=alan):
@@ -52,8 +58,47 @@ class DengeDogrulaTest(unittest.TestCase):
                     {"teftis_rusvet_sayisi": deger}, {"rusvet_agirlik": 1}, {"yozlasma_esigi": 20}))
         self.assertTrue(dogrulayici.teftis_esigi_hatalari({}, [], {}))
 
+    def test_kis_fiyati_ikinci_tablo_olamaz(self):
+        kaynak = {"kaynak": "res://data/ticaret_fiyatlari.json"}
+        self.assertEqual(dogrulayici.fiyat_kaynagi_hatalari({"fiyat_carpani": kaynak}), [])
+        for veri in [3, {"kis": 3}, {**kaynak, "mevsim_carpani": [1, 0.75, 1, 3]}]:
+            with self.subTest(veri=veri):
+                self.assertTrue(dogrulayici.fiyat_kaynagi_hatalari({"fiyat_carpani": veri}))
+        self.assertTrue(dogrulayici.fiyat_kaynagi_hatalari(
+            {"ekonomi": {"fiyat_carpani": {"kis": 3}}}))
+
+    def test_sozlesme_faizi_tek_kaynaktadir(self):
+        kaynak = {"sozlesme_cezasi": {"kaynak": "res://data/siparis_ihlali.json"}}
+        self.assertEqual(dogrulayici.faiz_kaynagi_hatalari(kaynak), [])
+        for veri in [{"gecelik_faiz": 0.1}, {"ekonomi": {"ceza_faizi": 0.1}},
+                     {"senaryolar": [{"siparis_faiz": 0.1}]}]:
+            with self.subTest(veri=veri):
+                self.assertTrue(dogrulayici.faiz_kaynagi_hatalari(veri))
+
+    def test_kriz_araligi_yalniz_sinirlardan_olusur(self):
+        self.assertEqual(dogrulayici.kriz_aralik_hatalari({"kriz_aralik": {"alt": 0, "ust": 12}}), [])
+        for aralik in [None, {}, {"alt": 0}, {"alt": 2, "ust": 1},
+                       {"alt": 0, "ust": 12, "tetikle": "salgin"},
+                       {"alt": -1, "ust": 12}, {"alt": True, "ust": 12},
+                       {"alt": 0, "ust": float("inf")}, {"alt": 0, "ust": 2.5}]:
+            with self.subTest(aralik=aralik):
+                self.assertTrue(dogrulayici.kriz_aralik_hatalari({"kriz_aralik": aralik}))
+        self.assertTrue(dogrulayici.kriz_aralik_hatalari({}))
+
     def test_gercek_tablo_temiz(self):
         self.assertEqual(dogrulayici.main([]), 0)
+
+    def test_dorduncu_zorluk_siniri_olsa_da_reddedilir(self):
+        denge = dogrulayici.yukle(dogrulayici.DENGE_YOLU)
+        sinirlar = dogrulayici.yukle(dogrulayici.SINIR_YOLU)
+        denge["zorluk"]["ustalik"] = 1.5
+        sinirlar["zorluk.ustalik"] = {"alt": 1.0, "ust": 2.0}
+        with tempfile.TemporaryDirectory() as dizin:
+            denge_yolu = Path(dizin) / "denge.json"
+            sinir_yolu = Path(dizin) / "sinirlar.json"
+            denge_yolu.write_text(json.dumps(denge), encoding="utf-8")
+            sinir_yolu.write_text(json.dumps(sinirlar), encoding="utf-8")
+            self.assertEqual(dogrulayici.main(["--denge", str(denge_yolu), "--sinirlar", str(sinir_yolu)]), 1)
 
     def test_temiz_veri_hatasiz(self):
         self.assertEqual(dogrulayici.dogrula(DENGE, SINIR), [])

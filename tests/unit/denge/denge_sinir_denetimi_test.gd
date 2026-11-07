@@ -11,5 +11,12 @@ func _initialize() -> void:
 		push_error("DEN-03b: geçerli tablo veya bozuk değer denetimi başarısız: " + hata)
 		quit(1)
 		return
-	print("DEN-03b: GEÇTİ")
+	tablo.zorluk.olagan = 1.0
+	tablo.zorluk.ustalik = 1.5
+	sinirlar["zorluk.ustalik"] = {"alt": 1.0, "ust": 2.0}
+	if Denetim.hata(tablo, sinirlar) != "zorluk":
+		push_error("DEN-65: dördüncü zorluk sınırı olsa da reddedilmeli")
+		quit(1)
+		return
+	print("DEN-03b ve DEN-65: GEÇTİ")
 	quit()

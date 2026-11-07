@@ -8,7 +8,7 @@ static func guncelle(hud: Hud, o: Oturum) -> void:
 		etiket = Label.new()
 		etiket.name = "acilis_kapi_durumu"
 		etiket.add_theme_color_override("font_color", Hud.UYARI)
-		hud.get_child(0).add_child(etiket)
+		hud._nufus.get_parent().add_child(etiket)
 	if etiket != null:
 		etiket.text = TranslationServer.translate("acilis.kapi.kapali" if kapali else "acilis.kapi.acik")
 		etiket.visible = true

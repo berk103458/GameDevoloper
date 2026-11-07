@@ -186,7 +186,7 @@ func _adim(y: KoyYonetimi, adim: String, idx: Array[int]) -> bool:
 	return false
 
 
-func _gate(o: Oturum) -> void:
+func _gate(o: Oturum, kapasiteyi_koru: bool = false, istenen_sinif: StringName = &"") -> void:
 	var ak = preload("res://src/sistemler/kapi_acilis_olayi.gd")
 	if ak.baslat(o): ak.ulak_bitir(o)
 	for g in o.gece_kuyrugu():
@@ -198,7 +198,10 @@ func _gate(o: Oturum) -> void:
 			if chr.secenek_sec(2):
 				chr.secenek_sec(0)
 				chr.secenek_sec(0)
-		var karar: StringName = &"ret" if g.tehlikeli else &"kabul"
+		var yer_var := o.yonetim.nufus() + preload("res://src/kapi/aile_kafilesi.gd").kisi_sayisi(g) <= o.yonetim.yatak_kapasitesi()
+		var kapasite_asildi := kapasiteyi_koru and not yer_var
+		var sinif_uygunsuz := not istenen_sinif.is_empty() and g.sinif != istenen_sinif
+		var karar: StringName = &"ret" if g.tehlikeli or kapasite_asildi or sinif_uygunsuz else &"kabul"
 		if not String(karar) in g.secenekler:
 			karar = StringName(g.secenekler[0])
 		o.karar_ver(g, karar)

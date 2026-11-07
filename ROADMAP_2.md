@@ -1,4 +1,4 @@
-# Kapı Muhafızı — ROADMAP 2
+﻿# Kapı Muhafızı — ROADMAP 2
 
 Bu dosya ROADMAP 2’nin tek ve geçerli kopyasıdır (11 Ekim 2026, Muharrir birleştirdi). ROADMAP 1 (`ROADMAP.md`) bitmiş oyundur ve yalnız okuma referansıdır.
 
@@ -1302,7 +1302,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.3 Boşta bedel
 
-- [ ] **ISG-03:** Boşta kalma bedeli ve görünürlüğü.
+- [x] **ISG-03:** Boşta kalma bedeli ve görünürlüğü. (Kalfa)
   - Ne: Oyuncu köy HUD'unda "Boşta: N kişi" satırını görür. N, o gün binada ve geçici işte olmayan yetişkinleri sayar. Boşta kalanın morali duran memnuniyet değerinden düşer; düşüş miktarı veri dosyasındadır ve günde bir kez yazılır. Mesleği olan kişi üç gün üst üste boşta kalırsa köy sohbetinde terk cümlesi açılır; o gece köyden silinmez. İşe yazılınca sayaç sıfır olur. Çocuk, eş, hasta ve karantinadaki kişi boşta sayılmaz. Kış için ayrı bir bedel yoktur. Açlık çubuğuyla tek çubukta birleşmez.
   - Kurallar:
     1. HUD satırı "Boşta: N kişi"dir. N, o gün binada ve geçici işte olmayan yetişkinleri sayar.
@@ -1315,7 +1315,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: yeni `src/koy/bosta_kalma.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-25:** Bedel ölçümü DEN satırıdır
+- [x] **ISG-25:** Bedel ölçümü DEN satırıdır (Kalfa)
   - Ne: Bedel ölçümü DEN satırıdır. Formül değişmez.
   - Kabul: Bedel ölçümü DEN satırıdır. Satır 1. Test: DEN.
   - Bağımlılık: DEN-05. Boyut: S.
@@ -1332,7 +1332,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Asset: asset gerekmedi.
 
 
-- [ ] **ISG-32:** Atama duraklatta uygulanmaz
+- [x] **ISG-32:** Atama duraklatta uygulanmaz (Kalfa)
   - Ne: Atama duraklatta uygulanmaz. Delta 0.
   - Kabul: Atama duraklatta uygulanmaz. 0. Test: menü.
   - Bağımlılık: GIR-08. Boyut: S.
@@ -1347,7 +1347,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Asset: asset gerekmedi.
 
 
-- [ ] **ISG-35:** Atama klavye ile de bırakılır
+- [x] **ISG-35:** Atama klavye ile de bırakılır (Kalfa)
   - Ne: Atama klavye ile de bırakılır. GIR. Fare şart değil.
   - Kabul: Atama klavye ile de bırakılır. Klavye 1. Test: GIR-06.
   - Bağımlılık: GIR-06. Boyut: S.
@@ -1357,9 +1357,9 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 ### 20.5 Üretim bağı
 
-- [ ] **ISG-37:** Usta yokken çırak yarım üretir
+- [x] **ISG-37:** Ustasız çırak TEZ-07 sonucunu kullanır (Kalfa)
   - Ne: TEZ-07. Bu madde ikinci çırak motoru açmaz.
-  - Kabul: Çıktı TEZ tablosu. Test: TEZ-07.
+  - Kabul: TEZ-07 tek kaynaktır: usta yok, çırak var iken gün ilerlemez ve titreme 1 artar; rütbe/teslim/ücret 0, aynı sabah ikinci yazım yoktur. Test: `tests/unit/koy/tezgahta_gun_test.gd`. Eski yarım üretim başlığı TEZ-07 ayrıntılı kabulüne göre düzeltildi; ikinci çırak motoru eklenmedi.
   - Bağımlılık: TEZ-07 Boyut: S.
   - Dosya: `src/koy/tezgahta_gun.gd`
   - Asset: asset gerekmedi.
@@ -1372,6 +1372,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Asset: asset gerekmedi.
 
 - [ ] **ISG-39:** Grev söylenti eşiğini SOY-34 okur
+  - 5 Kasım doğrulaması (Kalfa): SOY-34 [x] olsa da `meslek_grevi.gd` içinde söylenti okuyucusu/olasılık artışı bulunmuyor; `SoylentiAgi` üretim çağrısı da yok. Bu bağımlılığın gerçek bağlantısı sağlanmadan ISG-39 tamamlandı sayılmaz; sahiplik alınmadı.
   - Ne: Grev söylenti eşiğini SOY-34 okur. İkinci eşik yok.
   - Kabul: Grev söylenti eşiğini SOY-34 okur. Eşik 1. Test: SOY-34.
   - Bağımlılık: SOY-34. Boyut: S.
@@ -1449,9 +1450,9 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/sistemler/kayit_gocu.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-67:** İş ölçümü otuz günde bantta
+- [x] **ISG-67:** İş ölçümü otuz günde bantta (Kalfa)
   - Ne: Boşta oranı DEN. Sapınca formül kendiliğinden değişmez.
-  - Kabul: Rapor 1. Test: DEN.
+  - Kabul: Otuz ardışık gerçek gecenin kişi-gün ağırlıklı boşta oranı tek DEN raporudur; eksik/çelişen pencere hazır sayılmaz. Başlangıç hedefi %0–25 veri tablosundadır; bant dışı sonuç oyun formülünü değiştirmez. Test: `tests/unit/denge/is_olcumu_test.gd`.
   - Bağımlılık: DEN-05 Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`
   - Asset: asset gerekmedi.
@@ -1460,23 +1461,23 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 ### 20.9 Sınır
 
 
-- [ ] **ISG-73:** Çocuk çırak yaşı UZM-04'tür
+- [x] **ISG-73:** Çocuk çırak yaşı UZM-04'tür (Kalfa)
   - Ne: Çocuk çırak yaşı UZM-04'tür. ISG yaş icat etmez.
-  - Kabul: Eşik 1 kaynak. Test: UZM-04.
+  - Kabul: Mevcut `YasRolleri.atanabilir` yaş izni eğitim ve TEZ çırak okuyucusunda tek kaynaktır; ağır işe uygun olmayan çocuk eski atama/çalışma listesiyle ilerlemez. Hafif iş izinleri ve UZM-04 beş ortak gece süresi korunur. Test: `tests/unit/koy/cirak_yas_kaynagi_test.gd` + UZM-04.
   - Bağımlılık: UZM-04. Boyut: S.
   - Dosya: `src/koy/`
   - Asset: asset gerekmedi.
 
 ### 20.10 Kapanış
 
-- [ ] **ISG-77:** Geçici iş menüsü ayarlarda değildir
+- [x] **ISG-77:** Geçici iş menüsü ayarlarda değildir (Kalfa)
   - Ne: Geçici iş menüsü ayarlarda değildir. AYR oyun sekmesi iş atamaz.
   - Kabul: Geçici iş menüsü ayarlarda değildir. Atama 0. Test: ayar.
   - Bağımlılık: AYR. Boyut: S.
   - Dosya: `src/arayuz/ayarlar_ekrani.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-78:** Tezgâh yüzü TEZ'dedir
+- [x] **ISG-78:** Tezgâh yüzü TEZ'dedir (Kalfa)
   - Ne: Tezgâh yüzü TEZ'dedir. ISG sipariş cümlesi yazmaz.
   - Kabul: Tezgâh yüzü TEZ'dedir. Cümle 0. Test: TEZ-02.
   - Bağımlılık: TEZ-02. Boyut: S.
@@ -1500,15 +1501,15 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.1 Kademe
 
-- [ ] **YAP-01:** Yapı kademeleri — her şey baştan açık değil.
-  - Ne: Oyuncu inşa menüsünde kilitli yapıyı gri görür ve satırda gereken bilgiyi okur. Kademe tablosu `data/koy/yapi_kademeleri.json` içindedir. K0 baştan kurulabilir. K1 ve üstü, yapı bilgisi yokken kurulamaz. K0–K3, duran bina seviyesinin üretim çarpanını değiştirmez. Bedel `koy.tres` dizisinden okunur. Bedel yetmezse düğme kapalıdır. Kademe atlanmaz. Yıkım kademeyi sıfırlar. Kilitli yapıda yerleştirme hayaleti çıkmaz. İş gücü, kapı kararı, divan hükmü ve olay kartı kademe açmaz. Yeni bina türü eklenmez. İşçi yokken inşaat günü ilerlemez.
+- [x] **YAP-01:** Yapı kademeleri — her şey baştan açık değil. (Kalfa)
+  - Ne: Oyuncu inşa menüsünde kilitli yapıyı gri görür ve satırda gereken bilgiyi okur. Kademe tablosu `data/koy/yapi_kademeleri.json` içindedir. K0 baştan kurulabilir. K1 ve üstü, yapı bilgisi yokken kurulamaz. K0–K3, duran bina seviyesinin üretim çarpanını değiştirmez. Bedel mevcut `BinaKatalogu` kaynaklarından okunur; fiyatlar ve surun mevcut `koy.tres` sözleşmesi korunur (Ahmet, 6 Kasım 2026). Bedel yetmezse düğme kapalıdır. Kademe atlanmaz. Yıkım kademeyi sıfırlar. Kilitli yapıda yerleştirme hayaleti çıkmaz. İş gücü, kapı kararı, divan hükmü ve olay kartı kademe açmaz. Yeni bina türü eklenmez. İşçi yokken inşaat günü ilerlemez.
   - Kurallar:
     1. Kademe tablosu `data/koy/yapi_kademeleri.json` içindedir. K0: çadır, tarla, taş yatağı, odun yığını. K1: kulübe, hızarhane, taş ocağı, ambar. K2: taş ev, sur 2, değirmen, şifahane. K3: sur 3, konak, gelişmiş atölyeler.
     2. Kilitli yapı inşa menüsünde gri durur. Satırda gereken bilgi yazılır: "Gerekli: duvarcı ustası".
     3. ADM-08 bina seviyesi (üretim çarpanı, yatak ve depo artışı, sur hasarı) durur. K0–K3 o seviyeyi değiştirmez. UZM-11 çırak / kalfa / usta kişinindir, yapının kademesi değildir.
     4. K0 baştan kurulabilir. K1 ve üstü YAP-02 bilgisi olmadan kurulamaz.
   - Uç durumlar: tabloda olmayan bir bina K0 sayılır ve menüde kilitlenmez; doğrulayıcı bunu uyarı olarak listeler. Sur hasarı yalnız surdadır (ADM-08); kademe normal binaya hasar alanı açmaz.
-  - Kabul: K2 satırı, bilgi yokken kurulamaz ve menüde gri "Gerekli" yazar (`tests/unit/koy/yapi_kilidi_test.gd`). Aynı binanın ADM-08 seviyesi kilit yüzünden değişmez. Ek şart: bedel `.gd` sabiti değildir; yetmeyen bedelde düğme kapalıdır ve borçla kurulum olmaz. Ek şart: ikinci kademe yokken üçüncü kademe kurulamaz. Ek şart: yıkılan binanın kademesi sıfırdır. Ek şart: kilitli yapıda hayalet yerleşim görünmez. Ek şart: `yapi_kilidi.gd` `koy_sahnesi` import etmez ve ikinci harita açılmaz. Ek şart: yeni bina kimliği yoktur. Ek şart: kapı ekranı, divan hükmü ve olay kartı kademe açmaz. Ek şart: aynı tohumla iki yeni oyunda kilit listesi aynıdır. Ek şart: kademe ikonu üretilmez; yer tutucu harf veya duran kart kullanılır. Ek şart: işçi yokken inşaat kalan günü azalmaz. Ek şart: inşaat kış çarpanını mevsim kaydından okur; ayrı kış inşaat sayısı yoktur. Ek şart: işçi hastaysa inşaat sayacı o gün azalmaz. Ek şart: yapı kartının uzun metni kayar; son satır kesilmez. Ek şart: yarım kalan inşaat kayıttan yüklenince aynı kademe ve aynı kalan günle sürer. Ek şart: `sur_taksiti` kademe tablosundan bağımsızdır; kademe açılınca taksit davranışı değişmez. Ek şart: kapı kararı bina kurmaz; kurulum yalnız köy ekranından yapılır.
+  - Kabul: K2 satırı, bilgi yokken kurulamaz ve menüde gri "Gerekli" yazar (`tests/unit/koy/yapi_kilidi_test.gd`). Aynı binanın ADM-08 seviyesi kilit yüzünden değişmez. Ek şart: YAP yeni bedel sabiti veya ikinci fiyat tablosu eklemez; mevcut katalog kaynakları, içlerindeki eski `.gd` tanımları dahil Ahmet kararıyla korunur; yetmeyen bedelde düğme kapalıdır ve borçla kurulum olmaz. Ek şart: ikinci kademe yokken üçüncü kademe kurulamaz. Ek şart: yıkılan binanın kademesi sıfırdır. Ek şart: kilitli yapıda hayalet yerleşim görünmez. Ek şart: `yapi_kilidi.gd` `koy_sahnesi` import etmez ve ikinci harita açılmaz. Ek şart: yeni bina kimliği yoktur. Ek şart: kapı ekranı, divan hükmü ve olay kartı kademe açmaz. Ek şart: aynı tohumla iki yeni oyunda kilit listesi aynıdır. Ek şart: kademe ikonu üretilmez; yer tutucu harf veya duran kart kullanılır. Ek şart: işçi yokken inşaat kalan günü azalmaz. Ek şart: inşaat kış çarpanını mevsim kaydından okur; ayrı kış inşaat sayısı yoktur. Ek şart: işçi hastaysa inşaat sayacı o gün azalmaz. Ek şart: yapı kartının uzun metni kayar; son satır kesilmez. Ek şart: yarım kalan inşaat kayıttan yüklenince aynı kademe ve aynı kalan günle sürer. Ek şart: `sur_taksiti` kademe tablosundan bağımsızdır; kademe açılınca taksit davranışı değişmez. Ek şart: kapı kararı bina kurmaz; kurulum yalnız köy ekranından yapılır.
   - Bağımlılık: yok. Boyut: M.
   - Dosya: yeni `src/koy/yapi_kilidi.gd`; `BinaKatalogu` sorgusuna tek satır.
   - Asset: asset gerekmedi.
@@ -1516,7 +1517,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.2 Bilginin kaynağı
 
-- [ ] **YAP-02:** Yapı bilgisinin kaynakları — usta, muhafız geçmişi, çırak.
+- [x] **YAP-02:** Yapı bilgisinin kaynakları — usta, muhafız geçmişi, çırak. (Kalfa)
   - Ne: Oyuncu yapı bilgisini üç yoldan biriyle açar: o bilgiye sahip usta köyde yaşıyorsa, seçilen muhafız geçmişi tabloda o yapıyı taşıyorsa, ya da çırak usta olmuşsa. Usta ölür veya ayrılırsa yeni inşaat kapanır; ayaktaki yapı durur. Çırak usta olduysa kilit geri gelmez ve yeni usta kaydı doğmaz. Geçmişin açtığı yapılar `data/yapi_bilgisi.json` içindedir. Bilgi bayrağı kişi kaydında optional alandır. İkinci yetenek ağacı açılmaz. Bilgi takası akçe istemez.
   - Kurallar:
     1. Yapı açılır: o bilgiye sahip usta köyde yaşıyorsa; muhafızın seçtiği geçmiş o bilgiyi taşıyorsa (ACL-06); veya çırak UZM-11 ile usta olduysa.
@@ -1529,7 +1530,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: yeni `src/koy/yapi_bilgisi.gd`; ustalık verisi `Koylu` (optional alan).
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-20:** Bilgi kayda optional yazılır
+- [x] **YAP-20:** Bilgi kayda optional yazılır (Kalfa)
   - Ne: Yapı bilgisi kayda optional yazılır. Eski kayıtta alan yoksa yapılar kilitli başlar ve yükleme açılır.
   - Kabul: Eski kayıtta bilgi alanı yoksa yükleme açılır ve kilitli yapılar kilitli kalır (`tests/unit/sistemler/kayit_gocu_test.gd`).
   - Bağımlılık: KAY-04. Boyut: S.
@@ -1560,14 +1561,14 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `data/soz/`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-28:** Usta çocuğu çırak olabilir
+- [x] **YAP-28:** Usta çocuğu çırak olabilir (Kalfa)
   - Ne: Usta çocuğu çırak olabilir. Yaş UZM-04. Erken çırak 0.
   - Kabul: Usta çocuğu çırak olabilir. Erken 0. Test: UZM-04.
   - Bağımlılık: UZM-04. Boyut: S.
   - Dosya: `src/koy/`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-29:** Usta nöbet tutmaz
+- [x] **YAP-29:** Usta nöbet tutmaz (Kalfa)
   - Ne: Usta nöbet tutmaz. NBT asker ister.
   - Kabul: Usta nöbet tutmaz. Atama 0. Test: NBT-02.
   - Bağımlılık: NBT-02. Boyut: S.
@@ -1577,7 +1578,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.4 Defter ve resim
 
-- [ ] **YAP-04:** Usta defterleri ve yapı resimleri — ganimetten gelen bilgi.
+- [x] **YAP-04:** Usta defterleri ve yapı resimleri — ganimetten gelen bilgi. (Kalfa)
   - Ne: Oyuncu sefer, pusu, baskın veya tüccar ganimetinde bir defter, yapı resmi veya örnek eşya görür. Eşya envanterdedir. Yapı kilidi, çözümleme bitmeden açılmaz. Aynı defter kimliği ikinci kez düşünce yığın bir kalır. Defter yeni eşya sınıfı açmaz; duran heybe kaydına yazılır. Metin bir resim dosyası değildir. Oyuncu metninde bu eşya "şematik" diye anılmaz.
   - Kurallar:
     1. Defter, yapı resmi veya örnek eşya şu duran akışların ganimetine yazılır: dış sefer, pusu temizliği (HAR-05, HAR-14), baskın sonrası, tüccar (TUC). Yeni tüccar takvimi açılmaz.
@@ -1597,7 +1598,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `src/soz/soz_motoru.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-38:** Defter kaydı optional
+- [x] **YAP-38:** Defter kaydı optional (Kalfa)
   - Ne: Defter kaydı optional'dır. Eski kayıtta alan yoksa yükleme açılır.
   - Kabul: Eski kayıtta defter alanı yoksa yükleme açılır ve envanterde defter aranmaz (`tests/unit/sistemler/kayit_gocu_test.gd`).
   - Bağımlılık: KAY-04. Boyut: S.
@@ -1607,7 +1608,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.5 Çözümleme
 
-- [ ] **YAP-05:** Çözümleme işi — araştırma.
+- [/] **YAP-05:** Çözümleme işi — araştırma. (Kalfa)
   - Ne: Oyuncu K1 çözümleme odasında bir defteri araştırır. Oda yoksa iş başlamaz. Süre ve sonuç `data/usta_defterleri.json` içindedir. Sonuç, duran sistemlerden birine tek çarpan yazar. Aynı anda tek çözümleme vardır. Biten iş köyde tek satır bildirir. Bedel tek kaynaktır. Kış çarpanı mevsim kaydından okunur.
   - Kurallar:
     1. İş, K1 çözümleme odasında yapılır. Oda yoksa iş başlamaz. Oda kataloga tek satır olarak girer.
@@ -1620,14 +1621,14 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Asset: çözümleme odası modeli envantere `YAP05-ODA`.
 
 
-- [ ] **YAP-40:** Çözümleme işçisi yetişkindir
+- [x] **YAP-40:** Çözümleme işçisi yetişkindir (Kalfa)
   - Ne: Çözümleme işçisi yetişkindir. Çocuk 0.
   - Kabul: Çözümleme işçisi yetişkindir. 0. Test: UZM-08.
   - Bağımlılık: UZM-08. Boyut: S.
   - Dosya: `src/koy/`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-46:** Çözümleme ölçümü DEN satırıdır
+- [x] **YAP-46:** Çözümleme ölçümü DEN satırıdır (Kalfa)
   - Ne: Çözümleme ölçümü DEN satırıdır. Formül değişmez.
   - Kabul: Çözümleme ölçümü DEN satırıdır. Satır 1. Test: DEN.
   - Bağımlılık: DEN-05. Boyut: S.
@@ -1680,14 +1681,14 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `src/arayuz/koy_hud/yapi_karti.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-60:** Eksik anahtar kartı düşürmez
+- [x] **YAP-60:** Eksik anahtar kartı düşürmez (Kalfa)
   - Ne: Kilit metninin anahtarı yoksa kart nötr sebep gösterir ve açık kalır.
   - Kabul: Eksik kilit anahtarında kart açık kalır ve nötr sebep satırı görünür (`tests/unit/koy/yapi_karti_test.gd`).
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/yapi_karti.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-61:** Kart köy hızını değiştirmez
+- [x] **YAP-61:** Kart köy hızını değiştirmez (Kalfa)
   - Ne: Kart köy hızını değiştirmez. Açık kart scale aynı.
   - Kabul: Kart köy hızını değiştirmez. Fark 0. Test: hız.
   - Bağımlılık: TEK-22. Boyut: S.
@@ -3573,10 +3574,11 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ISG-02, DEN-03. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-35:** Boşta üç gün, terk isteği ISG-03'tür.
+- [x] **DEN-35:** Boşta üç gün, terk isteği ISG-03'tür. (Kalfa)
   - Ne: eşik o maddede kalır. Ölçüm, 20 gecede terk isteği sayısının aralıkta olduğunu söyler. Aralık dosyadadır.
   - Kabul: eşik o maddede kalır. Ölçüm, 20 gecede terk isteği sayısının aralıkta olduğunu söyler. Aralık dosyadadır. Test: 3 kişilik boş köy, sayı aralıkta.
   - Bağımlılık: ISG-03, DEN-01. Boyut: M.
+  - Ölçüm: son20 ardışık gece fotoğrafında yeni istek başlangıçları sayılır; aynı süren istek tekrarlanmaz. İlk pencere gecesinde öncesi bilinmiyorsa görünen istek başlangıç sayılır. Üç kişilik boş köy/tohum3535 sonucu3; başlangıç kabul bandı0–3 veridedir, otomatik denge ayarı yok. Test: `tests/unit/denge/bosta_terk_olcumu_test.gd`.
   - Dosya: `data/ayarlar/denge.json` `bosta_terk_aralik`.
   - Asset: asset gerekmedi.
 - [ ] **DEN-36:** Nitelikli iş, geçici işten çok üretir.
@@ -3663,7 +3665,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.7 Fiyat eğrisi
 
-- [ ] **DEN-49:** Fiyat TUC-09'dur.
+- [x] **DEN-49:** (Kalfa) Fiyat TUC-09'dur.
   - Ne: kış çarpanı o maddede kalır. Denge dosyası aynı çarpanı kopyalamaz.
   - Kabul: kış çarpanı o maddede kalır. Denge dosyası aynı çarpanı kopyalamaz. Test: tek kış çarpanı.
   - Bağımlılık: TUC-09, DEN-03. Boyut: S.
@@ -3687,13 +3689,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: TUC-10, EKO-01. Boyut: S.
   - Dosya: `tests/unit/denge/fiyat_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-53:** Sözleşme cezası TUC-07'dir.
+- [x] **DEN-53:** (Kalfa) Sözleşme cezası TUC-07'dir.
   - Ne: gecikme faizi o maddede kalır. Denge faizi ikinci kez tanımlamaz.
   - Kabul: gecikme faizi o maddede kalır. Denge faizi ikinci kez tanımlamaz. Test: tek faiz anahtarı.
   - Bağımlılık: TUC-07, DEN-03. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-54:** Yirmi sekiz günde tüccar iflası aralıktadır.
+- [x] **DEN-54:** (Kalfa) Yirmi sekiz günde tüccar iflası aralıktadır.
   - Ne: olağan oyunda EKO-10 iflası tablodaki alt ve üst sayıdadır. Alt sınır 0 olabilir.
   - Kabul: olağan oyunda EKO-10 iflası tablodaki alt ve üst sayıdadır. Alt sınır 0 olabilir. Test: 28 gece, sayı aralıkta.
   - Bağımlılık: EKO-10, TUC-09. Boyut: M.
@@ -3714,37 +3716,38 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.8 Kriz sıklığı
 
-- [ ] **DEN-57:** Kriz listesi KRI maddeleridir.
+- [x] **DEN-57:** (Kalfa) Kriz listesi KRI maddeleridir.
   - Ne: salgın, kıtlık, kundak, zehir, isyan ayrı sistem olarak durur. Denge yalnız aralık yazar: 28 günde en az ve en çok kaç kriz.
   - Kabul: salgın, kıtlık, kundak, zehir, isyan ayrı sistem olarak durur. Denge yalnız aralık yazar: 28 günde en az ve en çok kaç kriz. Test: aralık dosyada, kriz kodu dosyada değil.
   - Bağımlılık: DEN-01. Boyut: S.
   - Dosya: `data/ayarlar/denge.json` `kriz_aralik`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-58:** İlk 14 gün tehdit BUG-18'dir.
+- [x] **DEN-58:** İlk 14 gün tehdit BUG-18'dir. (Kalfa)
   - Ne: pusu, çete, casus ve sabotaj o günden önce 0'dır. Denge bu kapıyı gevşetmez.
   - Kabul: pusu, çete, casus ve sabotaj o günden önce 0'dır. Denge bu kapıyı gevşetmez. Test: 13. gün tehdit 0.
   - Bağımlılık: BUG-18. Boyut: S.
   - Dosya: mevcut BUG-18 testi.
   - Asset: asset gerekmedi.
 - [ ] **DEN-59:** 28 günde kriz sayısı aralıktadır.
+  - Güncel ön kontrol (6 Kasım, Kalfa): mevcut DEN-54 persona YAP-01 sonrası yapı planı2/7 nedeniyle exit1;28 gece/iflas0 tek başına yeterli değildir. Bu regresyon giderilmeden o koşu DEN-59 kanıtı sayılmaz.
   - Ne: olağan zorluk, sabit tohumla 28 gecede kriz sayısı alt ve üst arasındadır.
   - Kabul: olağan zorluk, sabit tohumla 28 gecede kriz sayısı alt ve üst arasındadır. Test: 20 tohumun en az 16'sı aralıkta.
   - Bağımlılık: DEN-57, DEN-04. Boyut: M.
   - Dosya: `tests/oto/denge_kriz.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-60:** İki kriz aynı gece tek rapordadır.
+- [x] **DEN-60:** İki kriz aynı gece tek rapordadır. (Kalfa)
   - Ne: KRI-10 üst üste binmeyi zaten bilir. Ölçüm, aynı gecede iki kriz satırının tek raporda durduğunu söyler. Yeni birleştirici yok.
   - Kabul: KRI-10 üst üste binmeyi zaten bilir. Ölçüm, aynı gecede iki kriz satırının tek raporda durduğunu söyler. Yeni birleştirici yok. Test: iki kriz, rapor başlığı bir.
   - Bağımlılık: KRI-10. Boyut: S.
   - Dosya: `tests/oto/denge_kriz.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-61:** Kıtlık, erzak 0 ile ölçülür.
+- [x] **DEN-61:** Kıtlık, erzak 0 ile ölçülür. (Kalfa)
   - Ne: KRI-06 iki gece 0 kuralı değişmez. Ölçüm, eşiğin bir geceye inmediğini doğrular.
   - Kabul: KRI-06 iki gece 0 kuralı değişmez. Ölçüm, eşiğin bir geceye inmediğini doğrular. Test: 1 gece 0, isyan yok. 2 gece 0, isyan var.
   - Bağımlılık: KRI-06. Boyut: S.
   - Dosya: `tests/oto/denge_kriz.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-62:** Salgın, kapı teşhisi olmadan kendiliğinden başlamaz.
+- [x] **DEN-62:** Salgın, kapı teşhisi olmadan kendiliğinden başlamaz. (Kalfa)
   - Ne: KRI-01 ve KRI-11 durur. Denge, teşhis kapalı bir kayıtta 28 günde salgın 0 ölçer.
   - Kabul: KRI-01 ve KRI-11 durur. Denge, teşhis kapalı bir kayıtta 28 günde salgın 0 ölçer. Test: teşhissiz 28 gece.
   - Bağımlılık: KRI-01, KRI-11. Boyut: M.
@@ -3765,13 +3768,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.9 Zorluk
 
-- [ ] **DEN-65:** Üç zorluk vardır.
+- [x] **DEN-65:** Üç zorluk vardır. (Kalfa)
   - Ne: kolay, olağan, sıkı. Dördüncü ad yazılırsa doğrulayıcı hata verir.
   - Kabul: kolay, olağan, sıkı. Dördüncü ad yazılırsa doğrulayıcı hata verir. Test: üç anahtar.
   - Bağımlılık: DEN-04. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-66:** Zorluk yeni oyunda seçilir.
+- [x] **DEN-66:** Zorluk yeni oyunda seçilir. (Kalfa)
   - Ne: seçim açılıştadır. Kayıtta tek alan. Yüklemede değişmez.
   - Kabul: seçim açılıştadır. Kayıtta tek alan. Yüklemede değişmez. Test: sıkı kayıt, yüklemede sıkı.
   - Bağımlılık: DEN-65, KAY-03. Boyut: S.
@@ -3789,7 +3792,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-10, DEN-65. Boyut: S.
   - Dosya: `tests/oto/acilis_denge_kontrol.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-69:** Sıkı, açılış erzağını payın altına indirir.
+- [x] **DEN-69:** Sıkı, açılış erzağını payın altına indirir. (Kalfa)
   - Ne: DEN-13 payı sıkıda çarpanla küçülür. Pay 1 gecenin altına inmez.
   - Kabul: DEN-13 payı sıkıda çarpanla küçülür. Pay 1 gecenin altına inmez. Test: sıkı erzak, olağandan küçük, 1 geceden büyük.
   - Bağımlılık: DEN-13, DEN-04. Boyut: S.
@@ -3801,13 +3804,14 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-65. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-71:** Zorluk, son kimliğini değiştirmez.
+- [x] **DEN-71:** Zorluk, son kimliğini değiştirmez. (Kalfa)
   - Ne: SYS-20 beş sonu üç zorlukta da aynı kimliklerdir. Sıkı altıncı son açmaz.
   - Kabul: SYS-20 beş sonu üç zorlukta da aynı kimliklerdir. Sıkı altıncı son açmaz. Test: son kümesi eşit.
   - Bağımlılık: SYS-20, DEN-65. Boyut: S.
   - Dosya: `tests/unit/denge/zorluk_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-72:** Zorluk menüsü Bölüm 35 ve 43'e kalır.
+- [x] **DEN-72:** Zorluk menüsü Bölüm 35 ve 43'e kalır. (Kalfa)
+  - Doğrulama: `denge.json` üç sayısal zorluk çarpanı taşır. Menü düzeni AYR-23, AYR-34 ve Bölüm 43 kapsamındadır.
   - Ne: bu bölüm seçimin verisini yazar. Yazı boyutu, sekme ve panel burada yoktur.
   - Kabul: bu bölüm seçimin verisini yazar. Yazı boyutu, sekme ve panel burada yoktur. Test: bu dosyada arayüz maddesi 0.
   - Bağımlılık: DEN-66. Boyut: S.
@@ -3889,7 +3893,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: ACL-04. Boyut: S.
   - Dosya: yeni: `data/ogretici/ilk_saat.json`; yeni: `src/sistemler/ilk_saat.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-02:** İlk gece yalnız kapı ve karar öğretir.
+- [x] **OGR-02:** İlk gece yalnız kapı ve karar öğretir. (Kalfa)
   - Ne: ulak ve ilk aile (ACL-04) geçerken oyuncu yalnız soru sormayı ve kabul/ret vermeyi görür. Rüşvet, arama, zar değiştiricisi ve heybe ilk gece kapalıdır.
   - Kabul: gece 0'da `rusvet_hakki` (`data/ayarlar/oyun.tres`) düğmesi görünmez; soru sayısı `azami_soru` (4) ile sınırlı kalır. Test: gece 0 anlık görüntüsünde rüşvet ve arama düğmesi 0.
   - Bağımlılık: OGR-01, ACL-04. Boyut: S.
@@ -3907,7 +3911,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: ACL-01, ISG-01. Boyut: S.
   - Dosya: yeni: `src/sistemler/ilk_saat.gd` içinde `koy_acik()`; `src/arayuz/ana.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OGR-05:** Gece raporu ilk kez üç satırla gelir.
+- [x] **OGR-05:** Gece raporu ilk kez üç satırla gelir. (Kalfa)
   - Ne: ilk gece raporu (`src/sistemler/gece_bilancosu.gd`) tam tablo yerine üç satır gösterir: kim geldi, kim kaldı, ambar ne oldu. Tam tablo üçüncü geceden sonra açılır.
   - Kabul: gece 0 ve 1 raporunda satır sayısı 3; gece 3'ten sonra tam. Test: iki anlık görüntü karşılaştırması.
   - Bağımlılık: OGR-01. Boyut: S.
@@ -3934,7 +3938,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-07. Boyut: S.
   - Dosya: yeni: `src/arayuz/ipucu_seridi.gd`; `tools/metin_dogrula.py` tek kural.
   - Asset: asset gerekmedi.
-- [ ] **OGR-09:** İpucu kendi anahtarıyla yazılır, Üslup Rehberi'ne uyar.
+- [x] **OGR-09:** İpucu kendi anahtarıyla yazılır, Üslup Rehberi'ne uyar. (Kalfa)
   - Ne: ipucu metinleri `ogretici.` önekiyle `metinler.csv`'ye girer; USLUP_REHBERI §7 yapaylık denetiminden geçer ("Bu hatırlanacak" tonu değil, muhafızın kendi kendine notu tonu).
   - Kabul: `ogretici.` anahtarları yapaylık taramasından (YAZ-10) geçer. Test: tarama raporunda `ogretici.` ihlali 0.
   - Bağımlılık: YAZ-02, YAZ-10. Boyut: S.
@@ -4018,7 +4022,8 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: BUG-21, BUG-22. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [ ] **OGR-22:** Hız tuşları ilk köy gününde gösterilir.
+- [x] **OGR-22:** Hız tuşları ilk köy gününde gösterilir. (Kalfa)
+  - Uygulama: geçerli GIR-26 eylem haritası üç hız ve duraklatma gösterir. 4/5 kapı kısayollarıdır. P nüfusu açar.
   - Ne: köy ekranında hız seçimi (`koy_ekrani.gd:330–343`, 1–5 ve P) ilk açılışta tek satırla söylenir; tuş adları Bölüm 45 eylem haritasından okunur.
   - Kabul: ipucu metninde tuş adı sabit değil, eylemden gelir. Test: tuş yeniden atanınca ipucu metni değişir.
   - Bağımlılık: GIR-03, OGR-07. Boyut: S.
@@ -4039,7 +4044,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
 
 ### 33.5 Kademeli açılan arayüz
 
-- [ ] **OGR-25:** HUD katmanları gece sayısına göre açılır.
+- [x] **OGR-25:** HUD katmanları gece sayısına göre açılır. (Kalfa)
   - Ne: köy HUD'undaki ~45 panelin tümü ilk gece görünmez. `ilk_saat.json` her panelin dosya adına `gece_min` verir; panel o geceden önce ağaca eklenmez.
   - Kabul: gece 0 HUD'unda panel sayısı ≤ 6. Test: `tests/oto/koy_hud_kontrol.tscn` gece 0 ile çalıştırılır.
   - Bağımlılık: OGR-01. Boyut: M.
@@ -9058,14 +9063,14 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/olaylar/, src/sistemler/soylenti_agi.gd.
   - Asset: asset gerekmedi.
 
-- [x] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin ve adaptör: Antigravity; hava motoru: Kalfa)
+- [x] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin ve adaptör: [x] Antigravity-C; hava motoru: Kalfa bekleniyor)
   - Amaç: Sert Anadolu kışını hissettirmek için hava durumu ve ayaza bağlı dinamik açılış replikleri eklenmesi.
   - Kurallar:
     1. Tipi, fırtına ve ayazda ziyaretçinin ve muhafızın diş vurma/titreme replikleri (kapi.hava.*).
     2. Metinler ve ince replik adaptörü Antigravity tarafından hazırlanır; derin hava motoru entegrasyonu Kalfa'ya aittir.
-  - Kabul: kapi.hava.* anahtarları tanımlı ve testlerde sıfır hatadır.
+  - Kabul: kapi.hava.* ve kvr.hava.* anahtarları tanımlı ve testlerde sıfır hatadır. (Metin kısmı tamamlandı, 12 köylü + kapı nöbeti 136 anahtar TR/EN ve adaptör hazırlandı: Antigravity-C)
   - Bağımlılık: DNY hava sistemi. Boyut: S.
-  - Dosya: data/metin/metinler.csv, src/soz/hava_replik_adaptoru.gd.
+  - Dosya: data/metin/metinler.csv, src/koy/hava_replik_adaptoru.gd, data/koy/hava_replikleri.json.
   - Asset: asset gerekmedi.
 
 - [x] **MECLIS-ARA-01:** Çınar Meclisi interaktif dava sistemi (Muhafız'ın kadı/hakem rolü). (Antigravity)

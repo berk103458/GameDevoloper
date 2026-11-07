@@ -1,4 +1,5 @@
 {
+  "title": "meclis_davalari",
   "schema_version": 1,
   "name": "meclis_davalari",
   "character_name": "Muhafız",
@@ -155,7 +156,7 @@
       "type": "DIALOGUE",
       "position": "(1050.0, 120.0)",
       "character": "Aydoğdu",
-      "text": "Bu güney pınarı yüz yıldır Avşar obasını sular! Kâtip efendi kâğıt sallayıp 'pınar vakfındır, sürü yaklaşamaz' der! Molla Şükrü ise beylik divan nizamını ve kütük kaydını savunur."
+      "text": "Bu güney pınarı yüz yıldır Avşar obasını sular! Kâtip Şükrü kâğıt sallayıp 'pınar eski vakıf mülküdür, sürü yaklaşamaz' der; kütükteki eski kaydı öne sürer!"
     },
     {
       "id": "node:opt_mera_h1",
@@ -187,20 +188,20 @@
       "type": "DIALOGUE_OPTION",
       "position": "(1400.0, 180.0)",
       "character": "Muhafız",
-      "text": "Vakıf beratı esastır; sürü aşağı vadideki dereden sulansın, divan kütüğü bozulmasın."
+      "text": "Yazılı kütük esastır; sürü aşağı vadideki dereden sulansın, köyün mülk kaydı bozulmasın."
     },
     {
       "id": "node:rep_mera_h2",
       "type": "DIALOGUE",
       "position": "(1750.0, 180.0)",
       "character": "Molla Şükrü",
-      "text": "Divan nizamını korudun muhafız; defter tamamdır. Lakin Aydoğdu obası diş biler."
+      "text": "Hükmün kütüğe böyle yazılır muhafız; defter tamamdır. Lakin Aydoğdu obası diş biler."
     },
     {
       "id": "node:act_mera_h2",
       "type": "ACTION",
       "position": "(2100.0, 180.0)",
-      "description": "Kâtip Düzeni",
+      "description": "Yazılı Kütük Nizamı",
       "action_type": "SCRIPT",
       "action_script_ref": "res://src/diyalog/actions/koy_moral_action.gd",
       "values": [

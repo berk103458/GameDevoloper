@@ -15,6 +15,7 @@ const KONUSMA := Rect2(36, 742, 1104, 314)
 ## Kamerayı yana kaydırır: gelen kişi ekranın sol-ortasında durur, defterin altında kalmaz.
 const KAMERA_KAYMA := 1.3
 const KARAR_SIMGE := {"kabul": "accept", "harc": "bribe", "ret": "reject", "rusvet": "bribe", "kisla": "barracks", "elkoy": "reject"}
+const ILK_GECE = preload("res://src/kapi/ilk_gece_kisiti.gd")
 
 var oturum: Oturum
 var ayarlar: Ayarlar
@@ -296,22 +297,24 @@ func _sohbet_goster() -> void:
 		b.girinti = 30.0 if ust >= 0 else 0.0
 		b.pressed.connect(_soru_sor.bind(i))
 		dugmeler.append(b)
-	if _gelen.heybe != null and not _gelen.heybe.soruldu:
+	var heybe_acik := ILK_GECE.heybe_acik(oturum, _gelen)
+	if heybe_acik and not _gelen.heybe.soruldu:
 		var h := _dugme("— " + tr("arayuz.sohbet.heybe_sor"))
 		h.pressed.connect(_heybe_sor)
 		dugmeler.append(h)
-	if _gelen.heybe != null:
+	if heybe_acik:
 		_heybe_dugmesi()
 	var k := _dugme(tr("arayuz.sohbet.karar_ver"), _eylemler)
 	k.ikon = MenuSatiri.Ikon.KAPI
 	k.pressed.connect(_karar_goster)
-	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").eylem(self, _gelen, _eylemler)
+	if not ILK_GECE.etkin(oturum, _gelen):
+		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").eylem(self, _gelen, _eylemler)
 	_sirayla_goster(dugmeler)
 
 
 ## "Heybende ne var?": gelen beyanını söyler (soru hakkından sayılmaz).
 func _heybe_sor() -> void:
-	if evre != &"sohbet":
+	if evre != &"sohbet" or not ILK_GECE.heybe_acik(oturum, _gelen):
 		return
 	_gelen.heybe.soruldu = true
 	_yaz("[color=#4A6B8A]%s:[/color] %s\n[b]%s:[/b] %s" % [tr("arayuz.sohbet.sen"), tr("arayuz.sohbet.heybe_sor"),
@@ -343,7 +346,7 @@ func _heybe_dugmesi() -> Button:
 
 ## Heybe panelini dünya alanının üstünde açar; kapanınca bulunulan evre yeniden çizilir.
 func _heybe_ac() -> void:
-	if _heybe_paneli != null or _gelen == null or _gelen.heybe == null:
+	if _heybe_paneli != null or not ILK_GECE.heybe_acik(oturum, _gelen):
 		return
 	var donus := evre
 	_secenekler.visible = false
@@ -430,6 +433,8 @@ func _soru_sor(i: int) -> void:
 		if chr.secenek_sec(i):
 			_sohbet_goster()
 		return
+	if i < 0 or i >= _gelen.sorular.size() or i in _sorulan or _sorulan.size() >= _gelen.soru_siniri(oturum.ayarlar.azami_soru):
+		return
 	_sorulan.append(i)
 	var once := _gelen.acik_bayraklar.size()
 	_gelen.soru_soruldu(i)
@@ -469,7 +474,8 @@ func _karar_goster() -> void:
 			gorunen.append(_gelen.secenekler[n])
 	if gorunen.is_empty():
 		gorunen = _gelen.secenekler
-	if _gelen.heybe != null and _gelen.heybe.yakalandi() and not gorunen.has("elkoy"):
+	var heybe_acik := ILK_GECE.heybe_acik(oturum, _gelen)
+	if heybe_acik and _gelen.heybe.yakalandi() and not gorunen.has("elkoy"):
 		gorunen = gorunen.duplicate()
 		gorunen.append("elkoy")
 	_karar_anahtarlari = gorunen
@@ -494,12 +500,13 @@ func _karar_goster() -> void:
 		_karar_dugmeleri.append(b)
 	OdakHalkasi.bagla(_karar_dugmeleri)
 	# Eylemler (defterin altı) hemen görünür; yalnız kararlar sırayla belirir.
-	if _gelen.heybe != null:
+	if heybe_acik:
 		_heybe_dugmesi()
 	if oturum.perde == 1 and _sorulan.size() < mini(_gelen.soru_siniri(oturum.ayarlar.azami_soru), _gelen.sorular.size()):
 		var g := _dugme(tr("arayuz.kapi.sohbete_don"), _eylemler)
 		g.pressed.connect(_sohbet_goster)
-	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").eylem(self, _gelen, _eylemler)
+	if not ILK_GECE.etkin(oturum, _gelen):
+		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").eylem(self, _gelen, _eylemler)
 	_sirayla_goster(_karar_dugmeleri)
 
 

@@ -1,0 +1,266 @@
+{
+  "karaca_usta": {
+    "yagmur": [
+      "Körük rutubet kokuyor, bu sağanakta ocak tütüyor muhafız.",
+      "Yağmur damdan sızarsa kömür ıslanır; kömür ıslanırsa ocak söner."
+    ],
+    "kar": [
+      "Ayazda tavlanan demir çabuk çatlar, körüğü harlamak gerek.",
+      "Kar kapıyı kesti amma ocak tütüyor çok şükür; gelen olursa ısıtırız."
+    ],
+    "ayaz": [
+      "Örs ayazdan buz kesmiş; eldivensiz tutanın derisi demire yapışır.",
+      "Nefesimiz donuyor dükkânda. Közün içine biraz daha meşe odunu atmalı."
+    ],
+    "sicak": [
+      "Gökten ateş yağıyor, ocak da cabası... Bugün örsün başında durulmaz.",
+      "Bu kavurucu sıcakta demir dövmek can pazarı; suyumuz tükendi tükenecek."
+    ],
+    "sis": [
+      "Sis dumanı bastırdı, atölyenin içi göz gözü görmez oldu.",
+      "Pustan çekiç sesleri bile boğuk geliyor; köy sanki uykuda gibi."
+    ]
+  },
+  "ayse_baci": {
+    "yagmur": [
+      "Gök boşandı bir kere; tavan akarsa çuvallardaki un heba olur!",
+      "Yağmur berekettir derler amma fırının bacası tütüp gözlerimi yaktı."
+    ],
+    "kar": [
+      "Gelin hele ocağın başına; karda kışta sıcak bir çorba içmeyen iflah olmaz.",
+      "Kar diz boyu oldu; fırından yeni çıkan ekmeğin buharı göğe tütüyor."
+    ],
+    "ayaz": [
+      "Su küpü taşa dönmüş ayazdan; sabah sabah buz kırmaktan kollarım tutuldu.",
+      "Bu gece ayaz can yakar; fırının külünü dökmeyin de kedi köpek donmasın."
+    ],
+    "sicak": [
+      "Sıcak hamuru erken kabarttı amma aş çabuk ekşir; serin kilerde saklamalı.",
+      "Güneş tepede alev gibi; fırının sıcağıyla birleşince nefesimiz tıkanıyor."
+    ],
+    "sis": [
+      "Bu koyu siste kurdun kokusu bile köye inermiş; evdeki bebeleri salmayın.",
+      "Sis her yanı sardı; çeşmeden su getirene kadar yolu iki defa şaşırdım."
+    ]
+  },
+  "es": {
+    "yagmur": [
+      "Üstün başın sırılsıklam olmuş... Geç ocağın yanına, sırtına kuru bir şal vereyim.",
+      "Çatı olukları taştı yine; kapıda nöbet beklerken üşütmeyesin sakın."
+    ],
+    "kar": [
+      "Tipi surun tepesini inletiyor... Kalın giyin muhafızım, rüzgâr kemik deşer.",
+      "Kar köyün sesini kesti; sen nöbetten dönünceye kadar çorbayı sıcak tutarım."
+    ],
+    "ayaz": [
+      "Ayaz tahtaları çatırdatıyor bu gece... Odunumuz azaldı amma ocak sönmesin.",
+      "Dışarıda demir bile donmuş; ellerin buz gibi, uzat hele kora doğru."
+    ],
+    "sicak": [
+      "Bozkır güneşi ovayı kavuruyor; surda nöbetteyken başına güneş geçmesin.",
+      "Kuyu suyu çekilir diye korkarım; bu sıcakta herkesin huyu suyu sertleşti."
+    ],
+    "sis": [
+      "Sis kapı kulesini bile yuttu; surda nöbetteyken gözünü dört aç muhafızım.",
+      "Bu puslu havada ayak sesleri tekin duyulmaz; dikkatli ol, canın bize emanet."
+    ]
+  },
+  "saruca_hatun": {
+    "yagmur": [
+      "Yağmur berekettir lakin nem şifalı otları çürütür; hemen sundurmaya asmalı.",
+      "Rutubet romatizması olanların sızısını azdırdı; hardal yakısı hazırlamalıyım."
+    ],
+    "kar": [
+      "Kar yağdı mı yaşlıların göğsü hırıldamaya başlar; ıhlamur ve bal kaynatmalı.",
+      "Tipi yolları kapamadan dağ kekiği toplamıştım bereket; kış ilacımız hazır."
+    ],
+    "ayaz": [
+      "Ayazda uzuvları donanı sakın birden ateşe sokmayın; önce kar suyuyla ovmalı.",
+      "Bu gece kuru soğuk ciğer yakar; uyumadan önce her haneye kekik buğusu gerek."
+    ],
+    "sicak": [
+      "Bu kavurucu sıcak yaraları çabuk cerahatlendirir; pansumana sirke katmalı.",
+      "Güneş çarpması can alır; tarlada çalışanlar başlarına ıslak bez bağlasın."
+    ],
+    "sis": [
+      "Bu ağır sis göğse oturur; astımı olanlara nane ve çam sakızı çiğnetmeli.",
+      "Puslu havalarda rutubet humması yayılır; kuyu suyunu kaynatmadan içmeyin."
+    ]
+  },
+  "hasan_celebi": {
+    "yagmur": [
+      "Yağmur damlarsa divan kütüğü mahvolur; parşömenleri derhal meşin torbaya koyun.",
+      "Çatı aktı akacak; nemli kâğıt mürekkebi dağıtır, bugün yazı yazmak beyhude."
+    ],
+    "kar": [
+      "Kar geçitleri tıkadı zahir; Konya'dan beklediğimiz ulak handa mahsur kalmıştır.",
+      "Tipi pencereyi dövüyor; böylesi kış gecelerinde eski vakayinameleri okumalı insan."
+    ],
+    "ayaz": [
+      "Mürekkep hokkada taş gibi dondu; diviti küle gömüp eritmeden tek harf yazamam.",
+      "Parmaklar donuktan kalemi tutmuyor; dondurucu ayaz ilmi bile yavaşlatıyor muhafız."
+    ],
+    "sicak": [
+      "Sıcak öyle bastırdı ki divan odasında kâğıtlar sıcaktan kıvrılıyor.",
+      "Zihin bu bunaltıcı güneşte uyuşuyor; hesap defterinde hata yapmamak için serinlik beklemeli."
+    ],
+    "sis": [
+      "Sis köyün ufkunu bir kuyuya çevirdi; gözün görmediği yerde rivayetler çoğalır.",
+      "Puslu havalarda harita çizilmez, hudut tayin edilmez; göz yanılır muhafız."
+    ]
+  },
+  "yusuf": {
+    "yagmur": [
+      "Dere coştu taştı! Değirmen savaklarını açmazsak su çarkı parçalayacak.",
+      "Yağmurda koyunların yünü su çeker, her biri iki kat ağırlaşır; sürmesi güçtür."
+    ],
+    "kar": [
+      "Kar ağılın boyunu aştı nerdeyse; sürüyü içeri tıktık amma samanımız yetecek mi?",
+      "Tipi kurtları köye doğru indirir; köpekleri zincirden çözüp tetikte tutmalıyım."
+    ],
+    "ayaz": [
+      "Bu gece ayaz can alır; yeni doğan kuzuları keçeye sarıp tandır başına aldım.",
+      "Çeşmenin oluğu buz tuttu; hayvanlara su vermek için buz kırmakla uğraşıyorum."
+    ],
+    "sicak": [
+      "Otlar güneşte kavruldu; merada ot kalmadı, sürü gölgede dilini dışarı sarkıtıyor.",
+      "Değirmen arkında su azaldı; çark ancak yarı hızla dönüyor, öğütme gecikir."
+    ],
+    "sis": [
+      "Siste çan sesini kaçırırsam koyunlar uçuruma yuvarlanır; gözümü kırpmamalıyım.",
+      "Sis bastırınca kurdun gözü parlar, çobanın gözü kör olur; Allah yardımcımız olsun."
+    ]
+  },
+  "miraen": {
+    "yagmur": [
+      "Yağmur toprağı yumuşattı; meyan ve adamotu köklerini sökmek için tam havası.",
+      "Nemli havada kurutulmuş baharatlar küflenir; kilerde tütsü yakıp havayı kurutmalıyım."
+    ],
+    "kar": [
+      "Dağ karları şifalı çam sakızlarını dondurur; toplamak zor amma şifası iki kattır.",
+      "Kar örtüsü altındaki toprağın kokusu başkadır; kışın dükkânda sıcak şerbet kaynatırım."
+    ],
+    "ayaz": [
+      "Şişelerdeki gül yağı katılaşmış; soğuk merhemi donmuş tahtaya çeviriyor.",
+      "Ayaz ciğeri yakarken zencefil ve tarçın kaynatıp içmeli; için ateşi sönmesin."
+    ],
+    "sicak": [
+      "Kavurucu sıcak esansları uçuruyor; amber ve misk şişelerini serin mahzene indirdim.",
+      "Güneş kuraklığı vurduğunda akrepler ve yılanlar deliklerinden çıkar; dikkatli yürüyün."
+    ],
+    "sis": [
+      "Bizim dağlarda bu sise 'cadı nefesi' derlerdi; insan yolunu da aklını da şaşırır.",
+      "Pus vadiden köye çöktü; nemli havada pelin otu tütsüsü yakmak zihni açar."
+    ]
+  },
+  "thessra": {
+    "yagmur": [
+      "Rutubet çözgü iplerini gevşetti; bu havada dokunan kilimin düğümü düzgün tutmaz.",
+      "Yağmur kokusu yünlere sindi; kurutmadan dokumaya kalkarsak kumaş kokar."
+    ],
+    "kar": [
+      "Kar bastırınca herkes kalın aba ve yün çorap sorar; tezgâhın mekiği hiç durmuyor.",
+      "Dışarıda bembeyaz bir örtü var; tezgâh başında oturup renk renk ipliklerle ısınırım."
+    ],
+    "ayaz": [
+      "Parmak uçlarım sızım sızım sızlıyor; bu ayazda ince ipeği eğirecek derman kalmadı.",
+      "Soğuk tahta tezgâhı taş gibi yaptı; mekik bile donmuş parmaklarımdan kayıp düşüyor."
+    ],
+    "sicak": [
+      "Kuru sıcak kök boyayı çabuk kurutur amma yün liflerini kırılgan yapar.",
+      "Bu bunaltıcı havada yünle uğraşmak çile; avuçlarım terden ipeğe yapışıyor."
+    ],
+    "sis": [
+      "Doğal ışık kayboldu sisin içinde; ilmek sayarken gözlerim yanıyor, fener yetmiyor.",
+      "Sis pencereleri buzlu cam gibi örttü; bu loşlukta dokunan kumaşın deseni kusurlu olur."
+    ]
+  },
+  "sorhan": {
+    "yagmur": [
+      "Yağmur toprakta iz bırakmaz, çamur avı ele verir amma kiriş nemden kendini saldı.",
+      "Sağanak ormanda kulakları sağır eder; rüzgârı arkana alırsan avın yanına sokulamazsın."
+    ],
+    "kar": [
+      "Kar üstündeki izler yalan söylemez; geyik sürüleri vadiye inmiş, takip vakti.",
+      "Tipi avcının da kurdun da gözünü bağlar; karda yönünü kaybeden donarak can verir."
+    ],
+    "ayaz": [
+      "Ayazda kuru dal kurşun gibi çatırdar; ormanda ses etmeden yürümek imkânsızdır.",
+      "Yayımın boynuzu soğuktan gevrekleşti; bu ayazda sert çekersen yay ortadan ikiye kırılır."
+    ],
+    "sicak": [
+      "Kavurucu sıcakta hiçbir av ortalıkta dolaşmaz; hepsi koyu gölgelerde pusuya yatmıştır.",
+      "Bu kuraklıkta av su kenarına inmeye mecburdur; pusu kuracaksan pınarın başına git."
+    ],
+    "sis": [
+      "Siste avlanılmaz; siste pusuyu atan sen değil, sisin ta kendisidir. Kulağını kirişe ver.",
+      "Puslu havada harami izi bile saklanır; surun dışına tek adım atmadan önce iki kere düşünün."
+    ]
+  },
+  "aydogdu": {
+    "yagmur": [
+      "Gök rahmetini verdi hamdolsun; ekin suya doydu amma saban balçığa saplanıp kalır.",
+      "Yağmur dereleri taşırdı; bendin kapaklarını açmazsak tarla göle döner, tohum çürür."
+    ],
+    "kar": [
+      "Kar ekine yorgan olur; kışın yağan kar yazın ambara dolan buğday demektir.",
+      "Kar diz boyunu geçti; samanlığın damını kürümezsek ağırlıktan direkler çatlar."
+    ],
+    "ayaz": [
+      "Ayaz körpe filizlerin damarını çatlatır; bahçedeki fidanların dibine sap saman dökmeliyiz.",
+      "Toprak demir kesilmiş ayazdan; kazma vursan kıvılcım çıkar amma bir karış delinmez."
+    ],
+    "sicak": [
+      "Toprak susuzluktan çatladı; ekin taneye duramadan sararıp kavrulacak diye ödüm kopuyor.",
+      "Güneş başımıza çekiç gibi iniyor; arkta su kalmadı, kuyudan su çekmekten bellerimiz büküldü."
+    ],
+    "sis": [
+      "Sabah sisi ekinde pas hastalığı yapar; öğleye doğru rüzgâr çıkmazsa taneler solar.",
+      "Siste tarlanın ucunu seçemezsin; öküzler bile yönünü şaşırıp çite tosluyor."
+    ]
+  },
+  "nogay": {
+    "yagmur": [
+      "Zırh pas tutacak bu sağanakta... Kılıcı her akşam koyun iç yağıyla ovmak gerek.",
+      "Çamurda at koşulmaz, levent yürüyemez; bu havada düşman gelse kendi çamuruna batar."
+    ],
+    "kar": [
+      "Kar sesi yutar muhafız; düşman atlısı surun dibine gelse nal sesini zor duyarsın.",
+      "Bozkırda kış baskınları çetin olur; nöbetçilerin göz kapakları donmasın, uyanık durun!"
+    ],
+    "ayaz": [
+      "Demir miğfer kafama yapıştı ayazdan; yayın kirişi donmuş, zorlarsan çatlar kopar.",
+      "Kuru ayazda hançerin kabzası buz tutar; elini zırhtan çekme, kanın soğumasına izin verme."
+    ],
+    "sicak": [
+      "Zırh gömlek fırın taşı gibi kızdı; güneşin altında nöbet tutmak dövüşmekten daha zor.",
+      "Mataradaki su kaynar çorbaya döndü; bu sıcakta askerin sabrı çabuk taşar, asabiyete dikkat."
+    ],
+    "sis": [
+      "Puslu hava harami havasıdır; okçular hedefini göremez, kılıcını kınında gevşek tut!",
+      "Siste nöbet tutanın kulağı gözü olmalı; surun altından çıtırtı gelse hemen meşale fırlat."
+    ]
+  },
+  "genel": {
+    "yagmur": [
+      "Yollar balçık gölüne döndü; eşikte durup yağmurun dinmesini beklemekten başka çare yok.",
+      "Yağmur çatıları dövüyor; hanesinde kuru bir köşesi olan şükretsin bugün."
+    ],
+    "kar": [
+      "Damdaki karları kürümezsek kirişler çökecek; bu kış bereketiyle geldi amma zahmeti çok.",
+      "Kar köyün üstüne sessizce indi; ocakta çırayı tutuşturan dışarı çıkmaya heves etmez."
+    ],
+    "ayaz": [
+      "Rüzgâr iliklere işliyor; kapı bacayı sıkı kapayın da ayaz hanenin dirlik düzenini bozmasın.",
+      "Dışarıda taş taşa vurulsa kırılır bu ayazda; nefesimiz önümüzde duman gibi tütüyor."
+    ],
+    "sicak": [
+      "Gölgelikte bile soluk alınmıyor; sıcaktan sokaklarda in cin top oynuyor bugün.",
+      "Güneş taşa vurdu mu kıvılcım saçacak sanki; serin bir rüzgâr için dua ediyoruz."
+    ],
+    "sis": [
+      "Sis köyün diğer ucunu yuttu; göz gözü görmüyor, kimin gelip geçtiği belirsiz.",
+      "Pus basınca köyün çan ve ezan sesleri bile kayboluyor; tekinsiz bir sessizlik çöktü."
+    ]
+  }
+}

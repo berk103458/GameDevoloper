@@ -3,6 +3,9 @@ extends RefCounted
 static func hata(tablo: Variant, sinirlar: Variant) -> String:
 	if not tablo is Dictionary or not sinirlar is Dictionary:
 		return "JSON"
+	var zorluk: Variant = tablo.get("zorluk")
+	if not zorluk is Dictionary or zorluk.size() != 3 or not zorluk.has_all(["kolay", "olagan", "siki"]):
+		return "zorluk"
 	for yol: String in sinirlar:
 		var deger: Variant = tablo
 		for parca in yol.trim_suffix("[]").split("."):

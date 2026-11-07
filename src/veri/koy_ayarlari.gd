@@ -7,6 +7,7 @@ extends Resource
 @export var mevsim_gun: int = 7
 ## Mevsim sırası (çeviri anahtarı soneki). Sonuncusu kış.
 @export var mevsimler: PackedStringArray = ["ilkbahar", "yaz", "sonbahar", "kis"]
+@export var bosta_moral_carpanlari: PackedFloat32Array = PackedFloat32Array([1.0, 1.0, 1.0, 1.0])
 
 @export_group("Ambar")
 @export var ambar_taban_kapasite: int = 150

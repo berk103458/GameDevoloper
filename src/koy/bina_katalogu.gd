@@ -73,3 +73,8 @@ func kategoridekiler(kategori_: String) -> PackedStringArray:
 		if kategori(t) == kategori_:
 			s.append(t)
 	return s
+
+
+## YAP-01: türün bilgi kademesi, ADM bina seviyesinden ayrı okunur.
+func kademe(tur: String) -> int:
+	return YapiKilidi.kademe(tur)

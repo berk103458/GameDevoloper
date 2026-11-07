@@ -1,4 +1,4 @@
-keys,tr,en
+﻿keys,tr,en
 anlati.ambar,"Ambar: +%d ürün, −%d tüketim.","Granary: +%d goods, −%d consumed."
 anlati.baski.gida,Ambar boşaldı. Halk aç yattı.,The granary ran empty. The folk went to bed hungry.
 anlati.baski.ordu,Uzakta Tekfur'un adamlarının ateşleri görüldü.,The fires of the Tekfur's men were sighted in the distance.
@@ -352,6 +352,9 @@ koy.pazar.sat,Tezgâhta %d sat,Tezgâhta %d sat
 koy.pazar.tezgah,Köy tezgâhı kervan fiyatının %%%d'ini öder; günde en çok %d akçe.,Köy tezgâhı kervan fiyatının %%%d'ini öder; günde en çok %d akçe.
 koy.rapor.akce,Akçe: %d → %d,Akçe: %d → %d
 koy.rapor.baslik,%d. gecenin raporu,%d. gecenin raporu
+koy.rapor.kisa.gelenler,Gelenler: %s,Arrivals: %s
+koy.rapor.kisa.kalanlar,Kalanlar: %s,Stayed: %s
+koy.rapor.kisa.ambar,Ambar erzağı: %d → %d,Granary food: %d → %d
 koy.rapor.huzur,Köy huzuru: %d,Köy huzuru: %d
 koy.rapor.sabah,Sabah oldu — kapıya,Sabah oldu — kapıya
 koy.rapor.tuketim,"Tüketilen: %d gıda, %d odun",Grain Consumed: −%d bushels
@@ -2226,3 +2229,186 @@ kapi.hava.ayaz.muhafiz,"Ayaz serttir amma kapı gevşek tutulmaz. Aç ağzını,
 kapi.hava.sis.ziyaretci.1,[sislerin arasından aniden belirip irkilerek] Meşalenin ışığını görünce koştum... Kurt uluması sandım rüzgârı. Neresidir burası?,"[emerging suddenly from mist, startled] I ran when I saw the torchlight... I mistook the howling wind for wolves. What place is this?"
 kapi.hava.sis.ziyaretci.2,[fenerini kaldırarak] Karanlıkta yol kayboldu ağam. Kapı kulesi olmasa uçuruma yuvarlanacaktık.,"[raising lantern] The path vanished in darkness, sir. Without the gate tower, we would have tumbled into the gorge."
 kapi.hava.sis.muhafiz,"Adımını yavaş at! Sisin ardında kimin yürüdüğünü göz görmez, yay kirişi bilir. Çık ışığa!",Tread slowly! Eyes cannot pierce who walks behind the fog; only the bowstring knows. Step into the light!
+kvr.hava.karaca_usta.yagmur.1,"Körük rutubet kokuyor, bu sağanakta ocak tütüyor muhafız.","The bellows reek of dampness, the forge is smoking in this downpour, guard."
+kvr.hava.karaca_usta.yagmur.2,Yağmur damdan sızarsa kömür ıslanır; kömür ıslanırsa ocak söner.,"If rain leaks from the roof, the charcoal gets wet; if charcoal gets wet, the hearth dies."
+kvr.hava.karaca_usta.kar.1,"Ayazda tavlanan demir çabuk çatlar, körüğü harlamak gerek.",Iron quenched in the frost cracks easily; we must stoke the bellows hard.
+kvr.hava.karaca_usta.kar.2,Kar kapıyı kesti amma ocak tütüyor çok şükür; gelen olursa ısıtırız.,"The snow has blocked the door, but thank heavens the forge still burns; if anyone comes, we'll warm them."
+kvr.hava.karaca_usta.ayaz.1,Örs ayazdan buz kesmiş; eldivensiz tutanın derisi demire yapışır.,The anvil is freezing cold; whoever touches it without gloves will leave skin on the iron.
+kvr.hava.karaca_usta.ayaz.2,Nefesimiz donuyor dükkânda. Közün içine biraz daha meşe odunu atmalı.,Our breath freezes in the workshop. We must throw more oak logs into the embers.
+kvr.hava.karaca_usta.sicak.1,"Gökten ateş yağıyor, ocak da cabası... Bugün örsün başında durulmaz.","Fire rains from the heavens, and the hearth adds to it... One cannot stand by the anvil today."
+kvr.hava.karaca_usta.sicak.2,Bu kavurucu sıcakta demir dövmek can pazarı; suyumuz tükendi tükenecek.,Forging iron in this sweltering heat is torment; our water is nearly exhausted.
+kvr.hava.karaca_usta.sis.1,"Sis dumanı bastırdı, atölyenin içi göz gözü görmez oldu.",The fog has trapped the smoke; you cannot see a span ahead inside the workshop.
+kvr.hava.karaca_usta.sis.2,Pustan çekiç sesleri bile boğuk geliyor; köy sanki uykuda gibi.,Even the hammer blows sound muffled in the mist; it is as though the village is asleep.
+kvr.hava.ayse_baci.yagmur.1,Gök boşandı bir kere; tavan akarsa çuvallardaki un heba olur!,"The skies have opened; if the roof leaks, the flour in the sacks will be ruined!"
+kvr.hava.ayse_baci.yagmur.2,Yağmur berekettir derler amma fırının bacası tütüp gözlerimi yaktı.,"They say rain is a blessing, but the oven chimney smokes back and stings my eyes."
+kvr.hava.ayse_baci.kar.1,Gelin hele ocağın başına; karda kışta sıcak bir çorba içmeyen iflah olmaz.,"Come by the hearth; in this bitter snow, a soul without warm soup will not fare well."
+kvr.hava.ayse_baci.kar.2,Kar diz boyu oldu; fırından yeni çıkan ekmeğin buharı göğe tütüyor.,The snow is knee-deep; steam rises high into the sky from the fresh bread out of the oven.
+kvr.hava.ayse_baci.ayaz.1,Su küpü taşa dönmüş ayazdan; sabah sabah buz kırmaktan kollarım tutuldu.,The water jar has turned to stone from the frost; my arms ache from breaking ice since dawn.
+kvr.hava.ayse_baci.ayaz.2,Bu gece ayaz can yakar; fırının külünü dökmeyin de kedi köpek donmasın.,Tonight's frost is cruel; leave the oven ashes warm so the stray creatures do not freeze.
+kvr.hava.ayse_baci.sicak.1,Sıcak hamuru erken kabarttı amma aş çabuk ekşir; serin kilerde saklamalı.,"The heat made the dough rise too quickly, but the stew sours fast; we must keep it in the cool cellar."
+kvr.hava.ayse_baci.sicak.2,Güneş tepede alev gibi; fırının sıcağıyla birleşince nefesimiz tıkanıyor.,"The midday sun burns like flame; combined with the oven heat, we can scarcely breathe."
+kvr.hava.ayse_baci.sis.1,Bu koyu siste kurdun kokusu bile köye inermiş; evdeki bebeleri salmayın.,They say even wolves creep into the village in this heavy fog; do not let the children outdoors.
+kvr.hava.ayse_baci.sis.2,Sis her yanı sardı; çeşmeden su getirene kadar yolu iki defa şaşırdım.,Mist shrouds everything; I lost my bearings twice just carrying water from the fountain.
+kvr.hava.es.yagmur.1,"Üstün başın sırılsıklam olmuş... Geç ocağın yanına, sırtına kuru bir şal vereyim.","You are soaked through... Come by the hearth, let me drape a dry shawl over your back."
+kvr.hava.es.yagmur.2,Çatı olukları taştı yine; kapıda nöbet beklerken üşütmeyesin sakın.,The eaves are overflowing again; take care not to catch a chill keeping watch at the gate.
+kvr.hava.es.kar.1,"Tipi surun tepesini inletiyor... Kalın giyin muhafızım, rüzgâr kemik deşer.","The blizzard howls atop the ramparts... Bundle up, my guard; that wind cuts to the marrow."
+kvr.hava.es.kar.2,Kar köyün sesini kesti; sen nöbetten dönünceye kadar çorbayı sıcak tutarım.,The snow has silenced the village; I will keep the soup piping hot until you return from watch.
+kvr.hava.es.ayaz.1,Ayaz tahtaları çatırdatıyor bu gece... Odunumuz azaldı amma ocak sönmesin.,"The frost makes the floorboards creak tonight... Our firewood runs low, but the fire must not die."
+kvr.hava.es.ayaz.2,"Dışarıda demir bile donmuş; ellerin buz gibi, uzat hele kora doğru.","Even iron freezes out there; your hands are ice, come stretch them toward the embers."
+kvr.hava.es.sicak.1,Bozkır güneşi ovayı kavuruyor; surda nöbetteyken başına güneş geçmesin.,The steppe sun scorches the plains; mind the heat does not strike your head on the ramparts.
+kvr.hava.es.sicak.2,Kuyu suyu çekilir diye korkarım; bu sıcakta herkesin huyu suyu sertleşti.,I fear the well might dry up; this relentless heat makes everyone's temper flare.
+kvr.hava.es.sis.1,Sis kapı kulesini bile yuttu; surda nöbetteyken gözünü dört aç muhafızım.,"The fog swallowed the gate tower whole; keep your eyes sharp on watch, my guard."
+kvr.hava.es.sis.2,"Bu puslu havada ayak sesleri tekin duyulmaz; dikkatli ol, canın bize emanet.","Footsteps sound deceptive in this haze; stay vigilant, your life is in our keeping."
+kvr.hava.saruca_hatun.yagmur.1,Yağmur berekettir lakin nem şifalı otları çürütür; hemen sundurmaya asmalı.,"Rain brings abundance, yet dampness rots healing herbs; hang them under the porch at once."
+kvr.hava.saruca_hatun.yagmur.2,Rutubet romatizması olanların sızısını azdırdı; hardal yakısı hazırlamalıyım.,The humidity stirs aches in stiff joints; I must prepare mustard poultices.
+kvr.hava.saruca_hatun.kar.1,Kar yağdı mı yaşlıların göğsü hırıldamaya başlar; ıhlamur ve bal kaynatmalı.,"When snow falls, the elders' chests begin to rattle; we must brew linden tea with honey."
+kvr.hava.saruca_hatun.kar.2,Tipi yolları kapamadan dağ kekiği toplamıştım bereket; kış ilacımız hazır.,By grace I gathered mountain thyme before the blizzard closed the paths; our winter cure is ready.
+kvr.hava.saruca_hatun.ayaz.1,Ayazda uzuvları donanı sakın birden ateşe sokmayın; önce kar suyuyla ovmalı.,Never bring frostbitten limbs directly to the fire; rub them gently with snowmelt first.
+kvr.hava.saruca_hatun.ayaz.2,Bu gece kuru soğuk ciğer yakar; uyumadan önce her haneye kekik buğusu gerek.,Tonight's dry freeze scorches the lungs; every hearth needs thyme steam before slumber.
+kvr.hava.saruca_hatun.sicak.1,Bu kavurucu sıcak yaraları çabuk cerahatlendirir; pansumana sirke katmalı.,This scorching heat festers wounds swiftly; we must dress them with herbal vinegar.
+kvr.hava.saruca_hatun.sicak.2,Güneş çarpması can alır; tarlada çalışanlar başlarına ıslak bez bağlasın.,Sunstroke can be deadly; those working the fields must bind wet cloths about their heads.
+kvr.hava.saruca_hatun.sis.1,Bu ağır sis göğse oturur; astımı olanlara nane ve çam sakızı çiğnetmeli.,This thick mist settles heavy on the chest; those short of breath should chew mint and pine resin.
+kvr.hava.saruca_hatun.sis.2,Puslu havalarda rutubet humması yayılır; kuyu suyunu kaynatmadan içmeyin.,Damp ague spreads in murky weather; do not drink well water without boiling it first.
+kvr.hava.hasan_celebi.yagmur.1,Yağmur damlarsa divan kütüğü mahvolur; parşömenleri derhal meşin torbaya koyun.,"If rain drips, the court registry is ruined; stow the parchments in leather pouches immediately."
+kvr.hava.hasan_celebi.yagmur.2,"Çatı aktı akacak; nemli kâğıt mürekkebi dağıtır, bugün yazı yazmak beyhude.","The roof is about to leak; damp paper bleeds ink, writing today is a futile chore."
+kvr.hava.hasan_celebi.kar.1,Kar geçitleri tıkadı zahir; Konya'dan beklediğimiz ulak handa mahsur kalmıştır.,The snow has surely choked the passes; the courier from Konya must be stranded at the inn.
+kvr.hava.hasan_celebi.kar.2,Tipi pencereyi dövüyor; böylesi kış gecelerinde eski vakayinameleri okumalı insan.,"The blizzard batters the shutter; on such winter nights, one ought to read the ancient chronicles."
+kvr.hava.hasan_celebi.ayaz.1,Mürekkep hokkada taş gibi dondu; diviti küle gömüp eritmeden tek harf yazamam.,Ink has frozen solid in the inkhorn; I cannot write a letter without thawing the quill in warm ash.
+kvr.hava.hasan_celebi.ayaz.2,Parmaklar donuktan kalemi tutmuyor; dondurucu ayaz ilmi bile yavaşlatıyor muhafız.,"Numb fingers cannot grip the reed; this biting frost slows even scholarship, guard."
+kvr.hava.hasan_celebi.sicak.1,Sıcak öyle bastırdı ki divan odasında kâğıtlar sıcaktan kıvrılıyor.,The heat presses so relentlessly that sheets of parchment curl in the scribe chamber.
+kvr.hava.hasan_celebi.sicak.2,Zihin bu bunaltıcı güneşte uyuşuyor; hesap defterinde hata yapmamak için serinlik beklemeli.,The mind turns sluggish under this oppressive sun; I must wait for dusk to avoid ledger mistakes.
+kvr.hava.hasan_celebi.sis.1,Sis köyün ufkunu bir kuyuya çevirdi; gözün görmediği yerde rivayetler çoğalır.,"The fog turns the horizon into a deep well; where sight fails, rumors breed aplenty."
+kvr.hava.hasan_celebi.sis.2,"Puslu havalarda harita çizilmez, hudut tayin edilmez; göz yanılır muhafız.","One does not survey boundaries in thick mist; the eyes easily deceive, guard."
+kvr.hava.yusuf.yagmur.1,Dere coştu taştı! Değirmen savaklarını açmazsak su çarkı parçalayacak.,"The brook swells in spate! If we don't open the sluices, the water will smash the millwheel."
+kvr.hava.yusuf.yagmur.2,"Yağmurda koyunların yünü su çeker, her biri iki kat ağırlaşır; sürmesi güçtür.","In rain the sheep's wool drinks water, making them twice as heavy; driving them is hard toil."
+kvr.hava.yusuf.kar.1,Kar ağılın boyunu aştı nerdeyse; sürüyü içeri tıktık amma samanımız yetecek mi?,"The snow drifts almost over the fold; the flock is penned within, but will our hay hold out?"
+kvr.hava.yusuf.kar.2,Tipi kurtları köye doğru indirir; köpekleri zincirden çözüp tetikte tutmalıyım.,The blizzard drives wolves toward human scent; I must unleash the hounds and keep sharp vigil.
+kvr.hava.yusuf.ayaz.1,Bu gece ayaz can alır; yeni doğan kuzuları keçeye sarıp tandır başına aldım.,Tonight's frost is lethal; I wrapped the newborn lambs in felt and placed them by the hearth.
+kvr.hava.yusuf.ayaz.2,Çeşmenin oluğu buz tuttu; hayvanlara su vermek için buz kırmakla uğraşıyorum.,The trough at the fountain froze over; I have been breaking ice all morning to water the beasts.
+kvr.hava.yusuf.sicak.1,"Otlar güneşte kavruldu; merada ot kalmadı, sürü gölgede dilini dışarı sarkıtıyor.","The grass has withered in the sun; no graze remains, the sheep pant with tongues out in the shade."
+kvr.hava.yusuf.sicak.2,"Değirmen arkında su azaldı; çark ancak yarı hızla dönüyor, öğütme gecikir.","The millrace runs shallow; the wheel barely turns at half speed, the milling will be delayed."
+kvr.hava.yusuf.sis.1,Siste çan sesini kaçırırsam koyunlar uçuruma yuvarlanır; gözümü kırpmamalıyım.,"If I lose the bell's chime in this mist, sheep will plunge off the cliff; I dare not blink."
+kvr.hava.yusuf.sis.2,"Sis bastırınca kurdun gözü parlar, çobanın gözü kör olur; Allah yardımcımız olsun.","When fog settles, the wolf's eyes glint while the shepherd is blinded; may God preserve us."
+kvr.hava.miraen.yagmur.1,Yağmur toprağı yumuşattı; meyan ve adamotu köklerini sökmek için tam havası.,Rain softened the earth; it is the ideal hour to dig out licorice and mandrake roots.
+kvr.hava.miraen.yagmur.2,Nemli havada kurutulmuş baharatlar küflenir; kilerde tütsü yakıp havayı kurutmalıyım.,Dried spices spoil in damp air; I must burn resin incense in the storehouse to dry the room.
+kvr.hava.miraen.kar.1,Dağ karları şifalı çam sakızlarını dondurur; toplamak zor amma şifası iki kattır.,"Mountain snow freezes medicinal pine sap; hard to harvest, yet twice as potent in healing."
+kvr.hava.miraen.kar.2,Kar örtüsü altındaki toprağın kokusu başkadır; kışın dükkânda sıcak şerbet kaynatırım.,Soil under a snowy blanket carries a peculiar fragrance; in winter I brew hot spiced elixirs.
+kvr.hava.miraen.ayaz.1,Şişelerdeki gül yağı katılaşmış; soğuk merhemi donmuş tahtaya çeviriyor.,Rose oil in the phials has congealed; the bitter chill turns soft salve into hardened wax.
+kvr.hava.miraen.ayaz.2,Ayaz ciğeri yakarken zencefil ve tarçın kaynatıp içmeli; için ateşi sönmesin.,"When frost burns the lungs, drink boiled ginger and cinnamon; keep the inner fire burning."
+kvr.hava.miraen.sicak.1,Kavurucu sıcak esansları uçuruyor; amber ve misk şişelerini serin mahzene indirdim.,The blistering heat evaporates volatile essences; I moved the musk and amber phials underground.
+kvr.hava.miraen.sicak.2,Güneş kuraklığı vurduğunda akrepler ve yılanlar deliklerinden çıkar; dikkatli yürüyün.,"When parching heat strikes, scorpions and vipers creep from their crevices; watch your step."
+kvr.hava.miraen.sis.1,Bizim dağlarda bu sise 'cadı nefesi' derlerdi; insan yolunu da aklını da şaşırır.,In our highlands they called this fog 'the witch's breath'; it steals both path and wits.
+kvr.hava.miraen.sis.2,Pus vadiden köye çöktü; nemli havada pelin otu tütsüsü yakmak zihni açar.,The haze drifted from valley to village; burning wormwood smoke clears the fogged head.
+kvr.hava.thessra.yagmur.1,Rutubet çözgü iplerini gevşetti; bu havada dokunan kilimin düğümü düzgün tutmaz.,Dampness slackened the warp threads; carpets woven in this weather will not hold even knots.
+kvr.hava.thessra.yagmur.2,Yağmur kokusu yünlere sindi; kurutmadan dokumaya kalkarsak kumaş kokar.,"The scent of rain soaked into the fleeces; if woven before drying, the cloth will sour."
+kvr.hava.thessra.kar.1,Kar bastırınca herkes kalın aba ve yün çorap sorar; tezgâhın mekiği hiç durmuyor.,"When snow arrives, all folk clamor for heavy felt coats and wool socks; the shuttle never rests."
+kvr.hava.thessra.kar.2,Dışarıda bembeyaz bir örtü var; tezgâh başında oturup renk renk ipliklerle ısınırım.,"A white shroud blankets outside; sitting at the loom, I warm myself with vibrant spools of yarn."
+kvr.hava.thessra.ayaz.1,Parmak uçlarım sızım sızım sızlıyor; bu ayazda ince ipeği eğirecek derman kalmadı.,My fingertips throb with icy pain; there is no feeling left to spin fine silk in this chill.
+kvr.hava.thessra.ayaz.2,Soğuk tahta tezgâhı taş gibi yaptı; mekik bile donmuş parmaklarımdan kayıp düşüyor.,The freezing cold turned the wooden loom to stone; even the shuttle slips from numb fingers.
+kvr.hava.thessra.sicak.1,Kuru sıcak kök boyayı çabuk kurutur amma yün liflerini kırılgan yapar.,"Dry heat sets madder dye swiftly, yet makes fragile wool strands brittle."
+kvr.hava.thessra.sicak.2,Bu bunaltıcı havada yünle uğraşmak çile; avuçlarım terden ipeğe yapışıyor.,Handling fleece in this stifling heat is torment; sweaty palms cling awkwardly to the thread.
+kvr.hava.thessra.sis.1,"Doğal ışık kayboldu sisin içinde; ilmek sayarken gözlerim yanıyor, fener yetmiyor.","Daylight vanished into the mist; my eyes ache counting warp knots, a lantern is barely enough."
+kvr.hava.thessra.sis.2,Sis pencereleri buzlu cam gibi örttü; bu loşlukta dokunan kumaşın deseni kusurlu olur.,The fog coats windows like frosted pane; patterns woven in this gloom will show flaws.
+kvr.hava.sorhan.yagmur.1,"Yağmur toprakta iz bırakmaz, çamur avı ele verir amma kiriş nemden kendini saldı.","Rain washes tracks away; mud reveals quarry, yet the bowstring has slackened with moisture."
+kvr.hava.sorhan.yagmur.2,Sağanak ormanda kulakları sağır eder; rüzgârı arkana alırsan avın yanına sokulamazsın.,A heavy downpour deafens the woods; keep downwind or you won't stalk a single beast.
+kvr.hava.sorhan.kar.1,"Kar üstündeki izler yalan söylemez; geyik sürüleri vadiye inmiş, takip vakti.","Tracks in fresh snow never lie; the deer herds moved down into the valley, time to hunt."
+kvr.hava.sorhan.kar.2,Tipi avcının da kurdun da gözünü bağlar; karda yönünü kaybeden donarak can verir.,Blizzard blinds both hunter and beast; whoever loses direction in the snow dies frozen.
+kvr.hava.sorhan.ayaz.1,Ayazda kuru dal kurşun gibi çatırdar; ormanda ses etmeden yürümek imkânsızdır.,In dry frost a snapped branch cracks like gunshot; walking silently in the forest is impossible.
+kvr.hava.sorhan.ayaz.2,Yayımın boynuzu soğuktan gevrekleşti; bu ayazda sert çekersen yay ortadan ikiye kırılır.,The horn backing of my bow has grown brittle; draw too hard in this frost and it will snap.
+kvr.hava.sorhan.sicak.1,Kavurucu sıcakta hiçbir av ortalıkta dolaşmaz; hepsi koyu gölgelerde pusuya yatmıştır.,No wild game stirs under scorching midday sun; all quarry lies motionless in deep thickets.
+kvr.hava.sorhan.sicak.2,Bu kuraklıkta av su kenarına inmeye mecburdur; pusu kuracaksan pınarın başına git.,"In this drought game must seek water; if you intend an ambush, wait beside the spring."
+kvr.hava.sorhan.sis.1,"Siste avlanılmaz; siste pusuyu atan sen değil, sisin ta kendisidir. Kulağını kirişe ver.","One does not hunt in thick mist; in mist, you are the hunted. Keep your ears tuned to the string."
+kvr.hava.sorhan.sis.2,Puslu havada harami izi bile saklanır; surun dışına tek adım atmadan önce iki kere düşünün.,Murky weather hides even bandit footprints; think twice before stepping outside the palisade.
+kvr.hava.aydogdu.yagmur.1,Gök rahmetini verdi hamdolsun; ekin suya doydu amma saban balçığa saplanıp kalır.,"The heavens granted mercy, praise be; the crops drank deep, yet the plow sticks in heavy mud."
+kvr.hava.aydogdu.yagmur.2,"Yağmur dereleri taşırdı; bendin kapaklarını açmazsak tarla göle döner, tohum çürür.","The rains overflow the gullies; unless we clear the ditch sluices, seed will rot under standing water."
+kvr.hava.aydogdu.kar.1,Kar ekine yorgan olur; kışın yağan kar yazın ambara dolan buğday demektir.,Snow serves as blanket to winter wheat; snow in winter means brimming granaries in harvest.
+kvr.hava.aydogdu.kar.2,Kar diz boyunu geçti; samanlığın damını kürümezsek ağırlıktan direkler çatlar.,"The snow exceeds knee depth; if we don't shovel the barn roof, the rafters will split under weight."
+kvr.hava.aydogdu.ayaz.1,Ayaz körpe filizlerin damarını çatlatır; bahçedeki fidanların dibine sap saman dökmeliyiz.,Frost bites tender shoots to the core; we must mulch straw around the young orchard saplings.
+kvr.hava.aydogdu.ayaz.2,Toprak demir kesilmiş ayazdan; kazma vursan kıvılcım çıkar amma bir karış delinmez.,"Soil has turned to iron with the freeze; strike it with a pickaxe and sparks fly, but it won't budge."
+kvr.hava.aydogdu.sicak.1,Toprak susuzluktan çatladı; ekin taneye duramadan sararıp kavrulacak diye ödüm kopuyor.,The ground has cracked with drought; I dread the grain will wither before heads can fill.
+kvr.hava.aydogdu.sicak.2,"Güneş başımıza çekiç gibi iniyor; arkta su kalmadı, kuyudan su çekmekten bellerimiz büküldü.","The sun hammers like an iron mallet; no water flows in the ditch, our backs break hauling buckets."
+kvr.hava.aydogdu.sis.1,Sabah sisi ekinde pas hastalığı yapar; öğleye doğru rüzgâr çıkmazsa taneler solar.,"Morning fog brings blight rust to the grain; unless wind clears it by noon, ears will mildew."
+kvr.hava.aydogdu.sis.2,Siste tarlanın ucunu seçemezsin; öküzler bile yönünü şaşırıp çite tosluyor.,You cannot see the field's edge in this mist; even the oxen lose their furrow and nudge the fence.
+kvr.hava.nogay.yagmur.1,Zırh pas tutacak bu sağanakta... Kılıcı her akşam koyun iç yağıyla ovmak gerek.,Mail armor will rust in this downpour... The blade must be rubbed with sheep tallow every night.
+kvr.hava.nogay.yagmur.2,"Çamurda at koşulmaz, levent yürüyemez; bu havada düşman gelse kendi çamuruna batar.","Neither horse nor soldier gallops in mud; if foes advance in this mire, their own weight drowns them."
+kvr.hava.nogay.kar.1,Kar sesi yutar muhafız; düşman atlısı surun dibine gelse nal sesini zor duyarsın.,"Snow swallows sound, guard; even if enemy riders reached the rampart base, you'd barely hear hooves."
+kvr.hava.nogay.kar.2,"Bozkırda kış baskınları çetin olur; nöbetçilerin göz kapakları donmasın, uyanık durun!","Winter raids on the steppe are ruthless; let not sentries' eyelashes freeze together, keep alert!"
+kvr.hava.nogay.ayaz.1,"Demir miğfer kafama yapıştı ayazdan; yayın kirişi donmuş, zorlarsan çatlar kopar.","The iron helm clings frozen to my brow; the bowstring is stiff, pull it rashly and it snaps."
+kvr.hava.nogay.ayaz.2,"Kuru ayazda hançerin kabzası buz tutar; elini zırhtan çekme, kanın soğumasına izin verme.","In dry freeze the dagger hilt glazes over; keep fingers inside your gauntlets, let not blood cool."
+kvr.hava.nogay.sicak.1,Zırh gömlek fırın taşı gibi kızdı; güneşin altında nöbet tutmak dövüşmekten daha zor.,Chainmail heats like an oven plate; standing guard under this glare is fiercer than battle.
+kvr.hava.nogay.sicak.2,"Mataradaki su kaynar çorbaya döndü; bu sıcakta askerin sabrı çabuk taşar, asabiyete dikkat.","Water in the flask has turned scalding; soldiers' tempers fray easily under such sun, beware fights."
+kvr.hava.nogay.sis.1,"Puslu hava harami havasıdır; okçular hedefini göremez, kılıcını kınında gevşek tut!","Foggy weather is outlaw weather; archers cannot sight targets, keep your blade loose in scabbard!"
+kvr.hava.nogay.sis.2,Siste nöbet tutanın kulağı gözü olmalı; surun altından çıtırtı gelse hemen meşale fırlat.,"On watch in mist, ears must be your eyes; if twigs snap beneath the wall, cast a torch down."
+kvr.hava.genel.yagmur.1,Yollar balçık gölüne döndü; eşikte durup yağmurun dinmesini beklemekten başka çare yok.,Lanes turned to mire lakes; nothing to do but stand on the threshold and wait for rain to abate.
+kvr.hava.genel.yagmur.2,Yağmur çatıları dövüyor; hanesinde kuru bir köşesi olan şükretsin bugün.,Rain hammers upon the shingles; whoever has a dry nook in their home ought to give thanks today.
+kvr.hava.genel.kar.1,Damdaki karları kürümezsek kirişler çökecek; bu kış bereketiyle geldi amma zahmeti çok.,"If we don't shovel the rooftop snow, rafters will collapse; winter brought abundance but harsh toil."
+kvr.hava.genel.kar.2,Kar köyün üstüne sessizce indi; ocakta çırayı tutuşturan dışarı çıkmaya heves etmez.,Snow settled silently over the roofs; whoever kindles pine kindling has no yearning to wander out.
+kvr.hava.genel.ayaz.1,Rüzgâr iliklere işliyor; kapı bacayı sıkı kapayın da ayaz hanenin dirlik düzenini bozmasın.,The wind pierces to the bone; batten doors and flues so frost does not pierce the dwelling's peace.
+kvr.hava.genel.ayaz.2,Dışarıda taş taşa vurulsa kırılır bu ayazda; nefesimiz önümüzde duman gibi tütüyor.,Stones would shatter struck together in this freeze; our breath rises before us like smoke clouds.
+kvr.hava.genel.sicak.1,Gölgelikte bile soluk alınmıyor; sıcaktan sokaklarda in cin top oynuyor bugün.,One cannot draw breath even in shaded nooks; streets lie deserted under this oppressive glare.
+kvr.hava.genel.sicak.2,Güneş taşa vurdu mu kıvılcım saçacak sanki; serin bir rüzgâr için dua ediyoruz.,The sun beats so fierce it could spark dry rocks; we pray for any whisper of cool breeze.
+kvr.hava.genel.sis.1,"Sis köyün diğer ucunu yuttu; göz gözü görmüyor, kimin gelip geçtiği belirsiz.","Fog swallowed the far end of the village; you cannot see a span ahead, none know who passes."
+kvr.hava.genel.sis.2,Pus basınca köyün çan ve ezan sesleri bile kayboluyor; tekinsiz bir sessizlik çöktü.,"When mist thickens, even bells and calls vanish; an eerie quiet has claimed the hamlet."
+kapi.hava.firtina_1,"[titreyerek, dişleri birbirine çarparak] A-ağam... dondum... İki adım daha atsam şu surun dibinde karlar örtecekti üstümü...","[shivering, teeth chattering] M-my lord... I am frozen... Two more steps and the snowdrifts would have buried me against the wall..."
+kapi.hava.firtina_2,"[kaşlarından sarkan buzları silkeleyerek] Boran dağ yolunu kapattı muhafız! Göz gözü görmez, atlar karda saplandı kaldı! Aç şu kapıyı kurbanın olayım!","[shaking icicles from brow and beard] The blizzard shut the pass, guard! Cannot see a hand before you, horses trapped in drifts! Open the gate, I beg of you!"
+kapi.hava.firtina_3,"[hırkasına sıkıca sarılmış, titrek sesle] Rüzgâr kemiklerimi dondurdu... Bir avuç ocak sıcaklığı, bir yudum sıcak çorba için sığındım...","[clutching rags tight, trembling] The wind has chilled my very bones... I sought shelter for a handful of hearth warmth and a sip of hot broth..."
+kapi.hava.firtina_muhafiz,"Dur hele! Ayazdan sesin boğulmuş amma kapının nizamı karda da birdir, yazda da. Kimsin, nereden gelirsin?","Hold fast! The frost chokes your voice, yet the gate's decree is identical in snow as in summer. Who are you, and whence do you come?"
+kapi.hava.yagmur_1,"[cübbesinden şakır şakır sular süzülerek] Sırılsıklam olduk beyim... Dağ deresi taştı, köprü çöktü. Üstümdeki çaput bile on okka çeker oldu.","[water streaming copiously from cloak] Soaked to the skin, sir... The mountain stream burst, bridge collapsed. Even my ragged cloak weighs ten oka now."
+kapi.hava.yagmur_2,[çamurlu çizmelerini eşiğe vurarak] Yol çamur deryası... Ayaklarımız balçığa saplana saplana geldik. Bir kuru tahta verin dinlenelim.,[knocking caked boots on stone threshold] The road is a sea of mire... Slogged through knee-deep mud to get here. Grant us dry boards to rest upon.
+kapi.hava.yagmur_muhafiz,"Geldin amma yükünle geldin. Çöz heybeni, dök eteğindeki çamuru. Neyin nesisin?","You have arrived, yet with heavy burden. Untie your pack, shake the clay from your hems. Who are you?"
+kapi.hava.ayaz_1,[avuçlarını ağzına götürüp hohlayarak] Bıçak gibi kesiyor ayaz... Demir kapının tokmağı elime yapıştı kaldı. Bir nefeslik dirlik verin.,[blowing warm breath into cupped palms] Frost cuts like a keen blade... The iron knocker seized my hand fast. Grant a breath of respite.
+kapi.hava.ayaz_2,"[dudakları morarmış, fısıltıyla] Nefes aldıkça göğsüm yırtılıyor muhafız... Bu gece dışarıda kalan sabaha canlı çıkmaz...","[lips purple, whispering hoarsely] Each breath tears at my lungs, guard... Whoever lingers outdoors tonight will not draw breath come morning..."
+kapi.hava.ayaz_muhafiz,"Ayaz serttir amma kapı gevşek tutulmaz. Aç ağzını, kimsin?","The freeze bites harsh, yet this gate is never left slack. Speak plainly, who are you?"
+kapi.hava.sis_1,[sislerin arasından aniden belirip irkilerek] Meşalenin ışığını görünce koştum... Kurt uluması sandım rüzgârı. Neresidir burası?,"[startled, emerging abruptly through the shroud] I ran when torchlight caught my eye... Thought the howling wind was a wolf pack. What haven is this?"
+kapi.hava.sis_2,[fenerini kaldırarak] Karanlıkta yol kayboldu ağam. Kapı kulesi olmasa uçuruma yuvarlanacaktık.,"[lifting dim lantern] The track was swallowed by the dark, elder. Had it not been for your watchtower, we'd have plunged down the gorge."
+kapi.hava.sis_muhafiz,"Adımını yavaş at! Sisin ardında kimin yürüdüğünü göz görmez, yay kirişi bilir. Çık ışığa!","Step slow and measured! Who walks behind the mist no eye can tell, only a taut bowstring knows. Step into the light!"
+kapi.hava.sicak_1,"[alnındaki teri silerek, soluk soluğa] Kavrulduk muhafız... Bozkır yolu alev fırını gibi yanıyor, matarada tek damla su kalmadı...","[wiping dripping brow, panting] We are scorched, guard... The steppe trail burns like an oven, not a drop remains in the waterskin..."
+kapi.hava.sicak_2,"[güneşten çatlamış dudaklarla] Gün tepemizde çekiç gibi indi... Bir gölge, bir tas kuyu suyu için yalvarırım kapıyı aç...","[sun-cracked lips, pleading] The sun hammered down upon our crowns... For a patch of shade and a cup of well water, I beg you open the gate..."
+kapi.hava.sicak_muhafiz,"Güneş beynini kaynatmış amma nizam nizamdır. Çekil hele gölgeye, önce söyle bakalım kimlerdensin?","The sun has boiled your wits, yet order is order. Step into the shadow here, and tell us first: whose kin are you?"
+koy.bosta.hud,Boşta: %d kişi,Idle: %d villagers
+koy.bosta.terk,Üç gündür elim iş tutmadı. Böyle sürerse başka bir köye varırım.,"I have had no work for three days. If this continues, I will seek another village."
+koy.yapi_kilidi.gerekli,Gerekli: %s bilgisi,Required: %s knowledge
+koy.yapi_kilidi.on_kademe,Önce hazır K%d yapı gerekir,Requires a completed K%d building first
+koy.neden.yapi_bilgisi,Yapı bilgisi eksik,Building knowledge is missing
+koy.neden.yapi_on_kademe,Önce alt kademe bir yapıyı tamamlayın,Complete a building of the preceding tier first
+koy.yapi.cozumleme_odasi,Çözümleme odası,Study room
+koy.yapi.cozumleme_odasi_aciklama,Defterleri incelemek için tek kişilik çalışma odası.,A room for one villager to study notebooks.
+koy.cozumleme.bitti,%s çözümlendi.,Study of %s is complete.
+koy.cozumleme.baslik,Köy incelemesi,Village study
+koy.cozumleme.hazir_degil,Oda hazır olunca inceleme yapılabilir.,The room must be ready before studying.
+koy.cozumleme.isci_yok,Bu odaya sağlıklı bir yetişkin ata.,Assign a healthy adult to this room.
+koy.cozumleme.bedel,Başlarken %d köy akçesi alınır.,Starting costs %d village coins.
+koy.cozumleme.bos,Etkin inceleme yok.,No active study.
+koy.cozumleme.ilerleme,%s · %s / %d iş günü,%s · %s / %d working days
+koy.cozumleme.kuyruk,Sırada %d defter var.,Notebooks waiting: %d.
+koy.cozumleme.devam,Bu odadaki çalışanla devam et,Continue with this room and worker
+koy.cozumleme.baslat,İncele,Study
+koy.yapi_kilidi.neden_yok,Bilgi bekleniyor.,Information pending.
+koy.cozumleme.sirala,Sıraya ekle,Queue
+koy.cozumleme.cozuldu,Çözümlendi,Studied
+koy.cozumleme.defter_yok,İncelenecek defter yok.,No notebook to study.
+koy.cozumleme.neden.oyun_bitti,Oturum sona erdi.,The session has ended.
+koy.cozumleme.neden.defter_yok,Defter heybe içinde olmalı.,The notebook must be in your inventory.
+koy.cozumleme.neden.oda_yok,Hazır bir çözümleme odası gerekli.,A ready study room is required.
+koy.cozumleme.neden.isci_uygun_degil,Sağlıklı bir yetişkin çalışan gerekli.,A healthy adult worker is required.
+koy.cozumleme.neden.isci_atanmamis,Çalışanı bu odaya ata.,Assign the worker to this room.
+koy.cozumleme.neden.bozuk_veri,Bu defter şu anda incelenemiyor.,This notebook cannot be studied now.
+koy.cozumleme.neden.zaten_listede,Defter zaten sırada ya da çözümlenmiş.,The notebook is already in progress or studied.
+koy.cozumleme.neden.kuyruk_dolu,İnceleme sırası dolu.,The study queue is full.
+koy.cozumleme.neden.kuyrukta,Defter sıraya eklenecek.,The notebook will be queued.
+koy.cozumleme.neden.bedel,Köy kasasında yeterli akçe yok.,The village has insufficient funds.
+koy.cozumleme.durdu,İnceleme durdu. %s,Study paused. %s
+koy.cozumleme.siradaki,Bekliyor: %s,Waiting: %s
+ogretici.zar.formul,gerekli = değer + 1 + tansiyon eki,required = value + 1 + tension modifier
+ogretici.insa.kaynak,Eksik malzeme için %s işe yarar.,For the missing material: %s.
+ogretici.heybe.gizli,Şüphelenirsem gizli eşya için heybeyi arayabilirim.,"If I suspect hidden goods, I can search the bag."
+ogretici.zar.gergin,Ortam gerildi. Zar eşiği bir arttı.,Tension rose. The roll threshold went up by one.
+ogretici.bar.degisim,Kararımdan sonra %s değişti (%s).,"After my decision, %s changed (%s)."
+ogretici.barinak.dolu,Yatak kalmadı. İçeri alırsam dışarıda uyur.,"No beds left. If I admit them, they sleep outside."
+ogretici.kaynak.eksi,Köy bu gece %s tüketti (-%d).,The village used %s tonight (-%d).
+ogretici.ambar.esik,Ambar yedek payının altına indi. Erzak bulmalıyım.,The granary fell below its reserve. I need food.
+ogretici.kasa.iflas,Kasa ekside. %d gece içinde toparlayamazsam iflas ederim.,The treasury is short. I have %d nights to avoid bankruptcy.
+ogretici.kapi.selam,Önce sağdaki selamla söze gireyim.,I will start with the greeting on the right.
+ogretici.kapi.konu,Aileye neden geldiklerini sorayım.,I should ask why the family came.
+ogretici.kapi.karar,Dinledim. Şimdi kabul ya da ret kararımı onaylayayım.,I have heard them. Now I can confirm admission or refusal.
+ogretici.koy.hiz,Hız: {hiz_1} · {hiz_2} · {hiz_3}. Dur: {hiz_dur}.,Speed: {hiz_1} · {hiz_2} · {hiz_3}. Pause: {hiz_dur}.

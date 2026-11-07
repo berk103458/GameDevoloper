@@ -44,12 +44,13 @@ static func metin_kirp(metin: String) -> String:
 	return tek_satir.substr(0, AZAMI_KARAKTER).strip_edges()
 
 
-## GIR-21: `{hiz_1}` yer tutucusu eylemin görünen tuş adıdır.
+## GIR-21 / OGR-22: hız yer tutucuları geçerli eylem atamasından okunur.
 static func eylem_yerlestir(metin: String) -> String:
-	var yer := "{hiz_1}"
-	if not yer in metin:
-		return metin
-	return metin.replace(yer, GirdiEylemleri.tus_adi("hiz_1"))
+	for eylem: String in ["hiz_1", "hiz_2", "hiz_3", "hiz_dur"]:
+		var yer := "{" + eylem + "}"
+		if yer in metin:
+			metin = metin.replace(yer, GirdiEylemleri.tus_adi(eylem))
+	return metin
 
 
 static func hiz_ipucu() -> String:

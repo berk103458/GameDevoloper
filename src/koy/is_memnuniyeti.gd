@@ -34,7 +34,7 @@ static func sabotaj_riski(k: Koylu, y: KoyYonetimi) -> float:
 	var r := ISYAN_SABOTAJ if isyanci(k, y) else SABOTAJ
 	return r * 2.0 if IsKazalari.nobet(k, y) else r
 
-static func gece(y: KoyYonetimi, calismalar: Dictionary, olaylar: Array[Dictionary]) -> void:
+static func gece(y: KoyYonetimi, calismalar: Dictionary, olaylar: Array[Dictionary]) -> int:
 	for k in y.koylular:
 		if MeslekGrevi.aktif(k, y): continue
 		if not YasRolleri.atanabilir(k, gorev(k, y)): continue
@@ -52,6 +52,8 @@ static func gece(y: KoyYonetimi, calismalar: Dictionary, olaylar: Array[Dictiona
 		k.sadakat = maxi(0, k.sadakat - 2)
 		CasusGeceTakibi.kaydet(y, k, "cephanelik" if kaynak == "alet" else "ambar", -1, "sabotaj", kaynak, kayip, false)
 		olaylar.append({"anahtar": "Köylü %d iş uyumsuzluğu nedeniyle sabotaj yaptı: %d %s kayıp.", "deger": [k.id, kayip, kaynak]})
+
+	return preload("res://src/koy/bosta_kalma.gd").gece(y, calismalar)
 
 static func metin(k: Koylu, y: KoyYonetimi) -> String:
 	var u := uyum(k, y)

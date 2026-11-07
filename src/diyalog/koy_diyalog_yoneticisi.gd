@@ -16,6 +16,7 @@ var koylu: Koylu
 var yonetim: KoyYonetimi
 var son_secenekler: Array = []
 var calisiyor: bool = false
+var _bosta_soylendi := false
 
 
 ## Verilen .ds dosyasını yükler ve AST döner
@@ -44,6 +45,7 @@ static func sekans_yukle(ds_yolu: String) -> ParleyDialogueSequenceAst:
 ## Köylüye tıklandığında muhabbet ağacını başlatır
 func muhabbet_baslat(k: Koylu, y: KoyYonetimi = null) -> bool:
 	koylu = k
+	_bosta_soylendi = false
 	yonetim = y
 	var ds_yolu := "res://data/parley/koy/koylu_muhabbet_genel.ds"
 	if koylu:
@@ -129,6 +131,7 @@ func _ilerlet(secilen: ParleyNodeAst = null) -> void:
 		return
 	var res: ParleyRunResult = await ParleyDialogueSequenceAst.run(ctx, ast, secilen)
 	if not res or res.node_asts.is_empty():
+		if res: res.free()
 		bitir()
 		return
 		
@@ -153,18 +156,25 @@ func _ilerlet(secilen: ParleyNodeAst = null) -> void:
 						secenekler.append(on)
 			elif sonraki_res.node_asts.front() is ParleyEndNodeAst:
 				bitti = true
-			sonraki_res.free()
+		if sonraki_res: sonraki_res.free()
 
 	son_secenekler = secenekler
 	if son_replik:
 		var konusan: String = son_replik.character
 		if konusan.is_empty() and koylu:
 			konusan = koylu.ad
-		replik_geldi.emit(konusan, son_replik.text, secenekler)
+		var metin := son_replik.text
+		if not _bosta_soylendi and koylu != null:
+			var bosta := preload("res://src/koy/bosta_kalma.gd").sohbet_satiri(yonetim, koylu)
+			if not bosta.is_empty():
+				metin = bosta + "\n" + metin
+			_bosta_soylendi = true
+		replik_geldi.emit(konusan, metin, secenekler)
 	elif not secenekler.is_empty():
 		replik_geldi.emit("Seçim", "", secenekler)
 	elif bitti:
 		bitir()
+	res.free()
 
 
 ## Diyaloğu kapatır ve etkileri uygular
@@ -174,6 +184,11 @@ func bitir() -> void:
 	calisiyor = false
 	if ctx and ctx.p_data is Dictionary:
 		ParleyKoyAdaptoru.etkileri_uygula(ctx.p_data, koylu, yonetim)
+	if ctx:
+		ctx.free()
+		ctx = null
+	ast = null
+	son_secenekler.clear()
 	diyalog_sonlandi.emit()
 	if aktif_yonetici == self:
 		aktif_yonetici = null

@@ -1,0 +1,40 @@
+{
+  "binalar": {
+    "cozumleme_odasi": 1,
+    "cadir": 0,
+    "tarla": 0,
+    "odunluk": 0,
+    "bostan": 0,
+    "kulube": 1,
+    "hizarhane": 1,
+    "tas_ocagi": 1,
+    "ambar": 1,
+    "avci": 1,
+    "ahir": 1,
+    "agil": 1,
+    "firin": 1,
+    "kirec_kuyusu": 1,
+    "tas_ev": 2,
+    "degirmen": 2,
+    "sifahane": 2,
+    "demirhane": 2,
+    "demir_madeni": 2,
+    "muhafiz_kislasi": 2,
+    "nobetci_kulesi": 2,
+    "atolye": 3,
+    "demir_ocagi": 3
+  },
+  "bilgi_eslesmeleri": {"cozumleme_odasi": "ambar"},
+  "konak": 3,
+  "sur": [
+    1,
+    2,
+    3
+  ],
+  "insa_mevsim_carpanlari": [
+    1.0,
+    1.0,
+    1.0,
+    0.5
+  ]
+}

@@ -27,6 +27,7 @@ func _calistir() -> void:
 	_izgara_disi()
 	_sabitler()
 	_yuz()
+	_isg_yuzu_yazmaz()
 	_bes_sabah()
 	_usta_yok()
 	_sayim()
@@ -99,6 +100,22 @@ func _yuz() -> void:
 	_kontrol(not kayit.contains("kalp") and not kayit.contains(".ogg"), "TEZ-02: yüzde ses ve kalp yok")
 
 
+## ISG-78: gerçek atama API’leri sipariş yüzü/cümlesi üretmez.
+func _isg_yuzu_yazmaz() -> void:
+	var y := _y()
+	_bina(y, "bez_evi", Vector2i(2, 2))
+	var odunluk := _bina(y, "odunluk", Vector2i(6, 2))
+	var k := _usta(y)
+	_kontrol(KoyluKartiVerisi.ata(y, k.id, odunluk.id), "ISG-78: gerçek bina ataması")
+	_kontrol(TezgahtaGun.isler(y).is_empty(), "ISG-78: bina ataması yeni yüz/sipariş yazmaz")
+	_kontrol(TezgahtaGun.yuz_bagla(y, "bez", str(k.id), "usta", true) == 0, "ISG-78: yüzü yalnız TEZ-02 bağlar")
+	var once := TezgahtaGun.isler(y)
+	_kontrol(String(once.bez.cumle).is_empty(), "ISG-78: başlangıçta sipariş cümlesi yok")
+	_kontrol(KoyluKartiVerisi.ata(y, k.id, KoyYonetimi.BOSTA), "ISG-78: gerçek boşa alma")
+	_kontrol(GeciciIsler.ata(y, k.id, "dal_toplama"), "ISG-78: gerçek geçici iş ataması")
+	_kontrol(TezgahtaGun.isler(y) == once, "ISG-78: atamalar TEZ yüzü ve cümlesini değiştirmez")
+
+
 func _bes_sabah() -> void:
 	var y := _y()
 	_bina(y, "bez_evi", Vector2i(2, 2))
@@ -142,6 +159,11 @@ func _usta_yok() -> void:
 	y.gun += 1
 	var yok := TezgahtaGun.sabah(y, "demirhane", {"usta": -1, "cirak": cirak.id, "stok": 1, "ucret": 2})
 	_kontrol(int(yok.gun) == once and int(yok.titreme) == 1 and int(yok.rutbe_delta) == 0, "TEZ-07: usta yoksa gün durur, titreme 1")
+	_kontrol(int(yok.teslim) == 0 and int(yok.ev_parca) == 0 and int(yok.ucret) == 0, "ISG-37: ustasız sabah yarım üretim/teslim/ücret açmaz")
+	var foto := y.kaydet()
+	var tez_foto := TezgahtaGun.isler(y)
+	TezgahtaGun.sabah(y, "demirhane", {"usta": -1, "cirak": cirak.id, "stok": 1, "ucret": 2})
+	_kontrol(y.kaydet() == foto and TezgahtaGun.isler(y) == tez_foto, "ISG-37: aynı sabah ikinci titreme veya ilerleme yok")
 	y.gun += 1
 	var ciraksiz := TezgahtaGun.sabah(y, "demirhane", {"usta": -1, "cirak": -1, "stok": 1})
 	_kontrol(int(ciraksiz.titreme) == 1, "TEZ-07: çırak yokken titreme artmaz")

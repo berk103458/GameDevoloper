@@ -21,7 +21,7 @@ func _ready() -> void:
 	aciklama.add_theme_font_size_override("font_size", Kabuk.KUCUK)
 	onizleme.add_child(aciklama)
 func veri_gecerli(veri: Variant) -> bool:
-	return veri is Dictionary and veri.get("tur") == "koylu_atama" and veri.get("kisi") is int and veri.get("oturum") == ekran.oturum.get_instance_id()
+	return preload("res://src/arayuz/koy_atama_kapisi.gd").acik(ekran) and veri is Dictionary and veri.get("tur") == "koylu_atama" and veri.get("kisi") is int and veri.get("oturum") == ekran.oturum.get_instance_id()
 func hedef(yer: Vector2) -> int:
 	var h := ekran.sahne3b.isaret(ekran._vp_konum(yer))
 	var b := ekran._bina_altinda(h)

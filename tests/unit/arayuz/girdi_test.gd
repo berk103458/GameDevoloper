@@ -137,6 +137,11 @@ func _metin_ve_surum() -> void:
 	GirdiEylemleri.ata("hiz_1", _tus("R"))
 	var ipucu := IpucuSeridi.hiz_ipucu()
 	_kontrol(ipucu.contains("R") and not ipucu.contains("1"), "GIR-21: ipucu R söyler, 1 söylemez")
+	var sablon := IlkSaat.ipucu_metni("ogretici.koy.hiz")
+	var once := IpucuSeridi.eylem_yerlestir(sablon)
+	GirdiEylemleri.ata("hiz_dur", _tus("V"))
+	var sonra := IpucuSeridi.eylem_yerlestir(sablon)
+	_kontrol(once != sonra and sonra.contains("V") and sonra.contains("R") and not sonra.contains("{hiz_"), "OGR-22: hız ve duraklatma ipucu atamayla değişir")
 	var csv := FileAccess.get_file_as_string("res://data/metin/metinler.csv")
 	var yapay := 0
 	for satir in csv.split("\n"):

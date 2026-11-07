@@ -23,6 +23,13 @@ static func gecerli(deger: String) -> bool:
 	return deger in anahtarlar()
 
 
+static func oku(deger: Variant) -> String:
+	if deger is String or deger is StringName:
+		var ad := String(deger)
+		if gecerli(ad): return ad
+	return "olagan"
+
+
 static func kayda_yaz(kayit: Dictionary, deger: String) -> Dictionary:
 	if gecerli(deger):
 		kayit["zorluk"] = deger

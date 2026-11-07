@@ -104,6 +104,11 @@ func _yanlis() -> void:
 	usta.stat = 8
 	_kontrol(not KapiNobeti.yaz(y, cocuk.id) and not KapiNobeti.yaz(y, es.id) and not KapiNobeti.yaz(y, usta.id), "NBT-02: eş, çocuk ve usta yazılmaz")
 	_kontrol(KapiNobeti.bos_mu(y), "NBT-02: yasak atama kayda 0 yazar")
+	var kaynak_ustasi := y.kabul({"adli_id": "chr_013", "sinif": "ciftci", "stat": 5})
+	_kontrol(CirakEgitimi.usta(kaynak_ustasi) and not kaynak_ustasi.usta_mi(), "YAP-29: kaynak ustası düşük statla da ustadır")
+	var onceki_nobet := JSON.stringify(KapiNobeti.durum(y))
+	_kontrol(not KapiNobeti.yaz(y, kaynak_ustasi.id), "YAP-29: kaynak ustası nöbete yazılmaz")
+	_kontrol(JSON.stringify(KapiNobeti.durum(y)) == onceki_nobet and kaynak_ustasi.is_yeri == KoyYonetimi.BOSTA, "YAP-29: ret nöbet ve işi değiştirmez")
 	var asker := _kisi(y, "Asker")
 	asker.sinif = &"asker"
 	var ciftci := _kisi(y, "Ciftci")

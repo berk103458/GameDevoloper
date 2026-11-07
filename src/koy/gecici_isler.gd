@@ -128,5 +128,5 @@ static func gece(y: KoyYonetimi, rapor: Dictionary, calismalar: Dictionary) -> v
 static func insaat_yardimi(y: KoyYonetimi) -> int:
 	var yardim := 0
 	for k in y.koylular:
-		if tanim(secili(k)).get("etki") == "insaat" and int(k.gecici_is.get("son_gece",-1)) == y.gun: yardim += int(k.gecici_is.son_miktar)
+		if preload("res://src/koy/bosta_kalma.gd").isgucunde(y, k) and tanim(secili(k)).get("etki") == "insaat" and int(k.gecici_is.get("son_gece",-1)) == y.gun: yardim += int(k.gecici_is.son_miktar)
 	return yardim

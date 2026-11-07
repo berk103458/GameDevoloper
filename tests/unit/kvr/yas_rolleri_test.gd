@@ -11,12 +11,19 @@ func _initialize() -> void:
 	y.akce = 100
 	for tur in ["gida", "odun", "tas", "kereste", "demir"]: y.kaynaklar.ekle(tur, 100)
 	var tarla := _kur(y, "tarla")
-	var m := _kur(y, "degirmen")
 	var cocuk := y.kabul({"adli_id": "chr_006", "sinif": "ciftci"})
 	var yasli := y.kabul({"adli_id": "chr_013", "sinif": "ciftci", "stat": 5})
 	var dudu := y.kabul({"adli_id": "chr_008", "sinif": "esnaf"})
 	var genc := y.kabul({"adli_id": "chr_014", "sinif": "ciftci"})
 	var isci := y.kabul({"adli_id": "chr_030", "sinif": "esnaf", "stat": 5})
+	# YAP-01/02: yaş testi gerçek yapı bilgisini taşıyan mevcut kişiyi kullanır.
+	preload("res://src/koy/yapi_bilgisi.gd").ekle(isci,PackedStringArray(["ambar","degirmen"]))
+	var ambar := _kur(y,"ambar")
+	var m := _kur(y, "degirmen")
+	_kontrol(ambar != null and m != null,"Yaş testi gerçek K1/K2 ön şartlarıyla kurulur")
+	if ambar == null or m == null:
+		quit(1)
+		return
 	for k in y.koylular: k.moral = 50
 	_kontrol(cocuk.yas_grubu == &"cocuk" and yasli.yas_grubu == &"yasli" and genc.yas_grubu == &"yetiskin", "Kaynak çocuk/yaşlı; genç etiketi çocuk yapılmaz")
 	_kontrol(not y.ata(cocuk.id, tarla.id) and not y.muhafiz_ata(cocuk.id) and not y.muhafiz_ata(yasli.id), "Çocuk ağır tarla, çocuk/yaşlı nöbet ataması reddedilir")

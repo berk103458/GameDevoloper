@@ -1,5 +1,6 @@
 {
  "_aciklama": "Köy yapı kataloğu (design/gdd/koy-yonetimi.md, 7). boyut: ızgara hücresi (1 hücre = 2 m). maliyet ambardan (ve akçe) düşer. uretim: çalışan başına günlük temel üretim (formül F4). receteler: girdi ambardan düşer. kis_durur: kışın üretim yok.",
+ "cozumleme_odasi": {"kurulabilir":true,"kategori":"hizmet","boyut":[2,2],"maliyet":{"odun":6,"tas":2,"kereste":2},"slot":1,"insa_gun":2,"receteler":{},"uzmanlik":"katip"},
  "cadir":       {"kategori": "barinma", "boyut": [2, 2], "maliyet": {"odun": 4}, "yatak": 3, "insa_gun": 1, "model": "yapi/cadir"},
  "kulube":      {"kategori": "barinma", "boyut": [2, 2], "maliyet": {"odun": 6, "tas": 2, "kereste": 2}, "yatak": 4, "insa_gun": 2, "model": "yapi/ev"},
  "tarla":       {"kategori": "uretim", "boyut": [3, 3], "maliyet": {"odun": 3}, "slot": 3, "insa_gun": 1, "kis_durur": true,

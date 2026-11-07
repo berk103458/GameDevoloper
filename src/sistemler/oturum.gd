@@ -181,6 +181,7 @@ func heybe_uret(sinif: StringName) -> Heybe:
 
 ## Sohbet açıldı (adlı karakterde ziyaret sayılır).
 func ziyaret_basladi(gelen: Gelen) -> void:
+	GeceBilancosu.gelen_yaz(self, gelen)
 	if gelen.adli:
 		kadro.ziyaret_basladi(gelen.id, gun)
 
@@ -283,12 +284,17 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 func gece_sonu() -> Dictionary:
 	if preload("res://src/sistemler/kapi_acilis_olayi.gd").gece_engelli(self): return {"engellendi": true, "neden": "İlk ailenin kararı bekleniyor"}
 	var bilanco_once := GeceBilancosu.fotograf(self)
+	preload("res://src/koy/cozumleme.gd").gece_baslat(self)
+	var cozumleme_mevsimi := MevsimYoneticisi.durum(yonetim)
+	var cozumleme_calisma := preload("res://src/koy/cozumleme.gd").gece_fotografi(self)
 	var agalik_once := yonetim.agalik
 	MuhafizOdaGelisimi.gece(self)
 	var harac := MuhafizYetenekleri.harac(self)
 	MuhafizAdaletYetenekleri.bagla(self)
 	yonetim.perde2_hedef = ayarlar.perde2_hedef_gece
 	var r := yonetim.gece()
+	preload("res://src/koy/usta_defterleri.gd").gece(self,r)
+	preload("res://src/koy/cozumleme.gd").gece(self,r,cozumleme_mevsimi,cozumleme_calisma)
 	dedikodu.gece_ilerlet(gun)
 	preload("res://src/sistemler/kayit_gocu_bildirimi.gd").gece(self, r)
 	MuhafizYetenekleri.rapora_ekle(r, harac)
@@ -306,6 +312,7 @@ func gece_sonu() -> Dictionary:
 	if r["son"] == "" and not sonuc["perde_degisti"]:
 		sonuc["olay"] = olay_sec()
 	sonuc["bilanco"] = GeceBilancosu.olustur(self, bilanco_once, r)
+	if has_meta(GeceBilancosu.GELEN_META): remove_meta(GeceBilancosu.GELEN_META)
 	return sonuc
 
 
@@ -754,6 +761,7 @@ var ipucu_kaydi := IpucuKaydi.new()
 
 func kaydet() -> Dictionary:
 	var veri := {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
+		"zorluk": yonetim.get_meta(&"zorluk", "olagan"),
 		"ogretici": ipucu_kaydi.sozluge(),
 		"dedikodu": dedikodu.kaydet(),
 		"grup_itibari": grup_itibari.kaydet(),
@@ -786,6 +794,8 @@ func kaydet() -> Dictionary:
 	# 64 bit sayılar JSON'da float'a döner; metin olarak saklanır.
 	if SozKaydi.acik(ayarlar):
 		veri["soz"] = soz_kaydi.paket(kadro)
+	if GeceBilancosu.kisa_mi(self) and has_meta(GeceBilancosu.GELEN_META):
+		veri["ilk_gece_gelenleri"] = GeceBilancosu.gelenleri_oku(get_meta(GeceBilancosu.GELEN_META))
 	return veri
 
 
@@ -798,6 +808,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	var o := Oturum.new(katalog_, String(veri["tohum"]).to_int())
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(o, preload("res://src/sistemler/oturum_fazi.gd").oku(veri.get("faz")))
 	o.yonetim = KoyYonetimi.kayittan(katalog_.koy_ayarlari, katalog_.binalar, veri["koy_yonetimi"])
+	o.yonetim.set_meta(&"zorluk", preload("res://src/sistemler/zorluk_secimi.gd").oku(veri.get("zorluk")))
 	o.sonraki_gelen_ek = int(veri.get("sonraki_gelen_ek", 0))
 	for b in veri.get("bayraklar", []):
 		o.bayraklar[StringName(b)] = true
@@ -843,4 +854,6 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	if not dedikodu_verisi is Dictionary or not o.dedikodu.yukle(dedikodu_verisi): return null
 	o._koy_esitle()
 	o.ipucu_kaydi.kayittan_oku(veri)
+	if GeceBilancosu.kisa_mi(o) and veri.has("ilk_gece_gelenleri"):
+		o.set_meta(GeceBilancosu.GELEN_META, GeceBilancosu.gelenleri_oku(veri["ilk_gece_gelenleri"]))
 	return o

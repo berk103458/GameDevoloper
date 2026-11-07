@@ -1,0 +1,39 @@
+{
+  "defterler": {
+    "usta_defteri_marangoz": {
+      "ad": "Marangoz ustasının defteri",
+      "yapi": "hizarhane",
+      "deger": 4,
+      "arastirma": {
+        "sure_gun": 3,
+        "sonuc": {
+          "hedef_sistem": "hizarhane_uretimi",
+          "carpan": 1.1
+        }
+      }
+    }
+  },
+  "ganimet": {
+    "pusu": {
+      "yok": 3,
+      "usta_defteri_marangoz": 1
+    },
+    "sefer": {
+      "yok": 3,
+      "usta_defteri_marangoz": 1
+    },
+    "baskin": {
+      "yok": 4,
+      "usta_defteri_marangoz": 1
+    },
+    "tuccar": {
+      "yok": 4,
+      "usta_defteri_marangoz": 1
+    }
+  },
+  "cozumleme": {
+    "oda_turu": "cozumleme_odasi",
+    "kamu_bedel": 2,
+    "mevsim_carpani": "insa_carpani"
+  }
+}
