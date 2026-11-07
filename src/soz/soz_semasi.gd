@@ -76,12 +76,22 @@ static func dogrula(dosya: Dictionary) -> Array[String]:
 		if satir_val is String and (satir_val as String).is_empty():
 			hatalar.append("bos_metin_anahtari_%s" % str(d_id))
 
+		# ZAR-05: Düğüm zar kontrol türü denetimi
+		if dugum_veri.has("zar") and dugum_veri.get("zar") is Dictionary:
+			_zar_kontrol_dogrula(str(d_id), dugum_veri, dugum_veri.get("zar"), hatalar)
+
 		var secenekler: Array = dugum_veri.get("secenekler", [])
 		for sec in secenekler:
 			if not (sec is Dictionary):
 				continue
 			var sec_id: String = str(sec.get("id", ""))
 			var hedef: String = str(sec.get("hedef", ""))
+
+			# ZAR-05: Seçenek zar kontrol türü denetimi
+			if sec.has("zar") and sec.get("zar") is Dictionary:
+				_zar_kontrol_dogrula(str(d_id), dugum_veri, sec.get("zar"), hatalar)
+			elif sec.has("kontrol_turu"):
+				_zar_kontrol_dogrula(str(d_id), dugum_veri, {"kontrol_turu": sec.get("kontrol_turu")}, hatalar)
 
 			# Çift seçenek kimliği kontrolü
 			if gorulen_secenek_idleri.has(sec_id):
@@ -101,3 +111,28 @@ static func dogrula(dosya: Dictionary) -> Array[String]:
 					hatalar.append("gecersiz_etki_anahtari_%s" % a_str)
 
 	return hatalar
+
+static func _sir_veya_ikilem_dugumu_mu(dugum_id: String, dugum_veri: Dictionary) -> bool:
+	var id_kucuk := dugum_id.to_lower()
+	if id_kucuk.find("sir") >= 0 or id_kucuk.find("ikilem") >= 0 or id_kucuk.find("yuzles") >= 0 or id_kucuk.find("neden") >= 0:
+		return true
+	var d_tur := str(dugum_veri.get("dugum_turu", dugum_veri.get("tur", ""))).to_lower()
+	if d_tur in ["sir", "ikilem", "yuzlesme", "neden"]:
+		return true
+	if bool(dugum_veri.get("sir_dugumu", false)) or bool(dugum_veri.get("ikilem_dugumu", false)):
+		return true
+	return false
+
+static func _zar_kontrol_dogrula(dugum_id: String, dugum_veri: Dictionary, zar_veri: Dictionary, hatalar: Array[String]) -> void:
+	if zar_veri.is_empty():
+		return
+	var k_tur := str(zar_veri.get("kontrol_turu", zar_veri.get("tur_kontrol", ""))).strip_edges()
+	if k_tur.is_empty():
+		hatalar.append("zar_kontrol_turu_bos_%s" % dugum_id)
+		return
+	if k_tur != "tekrar" and k_tur != "tek_sans":
+		hatalar.append("gecersiz_zar_kontrol_turu_%s_%s" % [dugum_id, k_tur])
+		return
+	if k_tur == "tek_sans" and not _sir_veya_ikilem_dugumu_mu(dugum_id, dugum_veri):
+		hatalar.append("sir_disinda_tek_sans_%s" % dugum_id)
+

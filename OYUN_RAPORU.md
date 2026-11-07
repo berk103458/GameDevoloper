@@ -1,3 +1,7 @@
+## 7 Kasım 2026 — ZAR-05 tamamlandı (Antigravity)
+
+`src/kapi/sorgu_zari.gd` içine beyaz (`tekrar`) ve kırmızı (`tek_sans`) zar kontrol türleri, koşul imzası (`kanitlar`, `tansiyon_bandi`, `guven_esigi`), aynı koşulla ikinci beyaz atış kilidi, kanıt eklenince yeniden açılma, `tek_sans` kontrolünün yalnız sır/ikilem düğümünde durması ve kalıcı kapanışı eklendi. `src/soz/soz_semasi.gd` içine şema düzeyinde `zar` kontrol türü doğrulaması bağlandı. Menü/odak değişimi tekrar hakkını düşürmez. `tests/unit/kapi/zar_tur_test.gd` ve `tests/unit/soz/sema_test.gd` 0 hatayla geçti. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OGR-42 tamamlandı (Kalfa)
 
 Full pull 94c72487 güncel, Ajan Masası okundu. Gerçekte gösterilen köy hız ve atama ipuçları ile ilk kapının üç satırı ILKSAAT içinde birer kayıt üretir. İlk oyuncu kullanımı ayrı gecede tutulur. Otomatik hız değişimleri sayılmaz. İlk altı gecenin ölçümü normal oyun kaydına yazılmaz. Köprü anlık görüntüsünden dönerken aynı tester oturumunun ölçümü korunur. Python köprü sürücüsü tekil satırları mevcut JSON özetine alır.

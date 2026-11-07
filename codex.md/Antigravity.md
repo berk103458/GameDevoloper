@@ -943,3 +943,9 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - `docs/DENETIM_6KASIM.md` denetim raporu oluşturuldu (`dogrula_ingilizce_taslak.py`: 0 hata, 0 uyarı; `metin_dogrula.py --kaynak`: PASS; `soz_dogrula.py`: PASS; `soz_tasarimi_dogrula.py`: PASS).
 - **İlerleme Dosyası:** `codex.md/Antigravity_ilerleme_18.md` son satırı `GOREV18_TAMAM` ile mühürlendi.
 - **Kota:** kota görünmüyor
+
+## 7 Kasım 2026 — ZAR-05 (Tekrar Edilebilir ve Tek Şanslık Kontroller)
+- `src/kapi/sorgu_zari.gd`: `kontrol_dogrula`, `kosul_imzasi`, `kontrol_acik_mi`, `kontrol_at` ve `menu_veya_odak_degisti` eklendi (`tekrar` / `tek_sans`).
+- `src/soz/soz_semasi.gd`: düğüm ve seçenek zar kontrol türü doğrulaması eklendi (boş tür ve sır/ikilem dışı `tek_sans` hatası).
+- Test: `tests/unit/kapi/zar_tur_test.gd` ve `tests/unit/soz/sema_test.gd` (Godot headless, 0 hata, GEÇTİ). Asset gerekmedi.
+- kota görünmüyor

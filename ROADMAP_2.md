@@ -774,7 +774,7 @@ ZAR-01 … ZAR-06 gövdesi durur. Yeni maddeler ZAR-07 … ZAR-86. İkinci zar s
 
 ### 17.5 Beyaz ve kırmızı
 
-- [/] **ZAR-05:** (Antigravity) Tekrar edilebilir ve tek şanslık kontroller.
+- [x] **ZAR-05:** (Antigravity) Tekrar edilebilir ve tek şanslık kontroller.
   - Ne: Beyaz kontrol aynı koşul kümesiyle ikinci kez atılmaz; kanıt veya tansiyon bandı değişince yeniden açılır. Kırmızı kontrol bir kez atılır ve sonuç kalıcıdır; başarı da başarısızlık da dalı kapatır. Kod türü kendiliğinden değiştirmez. Menü açılıp kapanınca tekrar hakkı düşmez. Odak değişimi zarı yeniden atmaz.
   - Kurallar:
     1. Kontrol türü `tekrar` veya `tek_sans` olarak veride yazar.
