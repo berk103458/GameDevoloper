@@ -4501,7 +4501,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `src/sistemler/omurga.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-35:** Tempo ölçümü ikizle doğrulanır.
+- [x] **OMR-35:** Tempo ölçümü ikizle doğrulanır. (Kalfa)
   - Ne: aynı tohumla iki koşuda dönem/dalga geçiş geceleri eşittir.
   - Kabul: iki günlük eşit. Test: TST-06 ikizi.
   - Bağımlılık: TST-06. Boyut: S.

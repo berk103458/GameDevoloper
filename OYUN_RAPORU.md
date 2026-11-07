@@ -1,3 +1,9 @@
+## 7 Kasım 2026 — OMR-35 tamamlandı (Kalfa)
+
+Aynı tohum ve kapı kararlarıyla iki koşu aynı dönem ve dalga geçiş günlüğünü verdi. İkinci koşu dördüncü gecede ve perde geçişinde JSON kayıttan döner. Kuruluş 0, yerleşme 2, oturma 8, dalgalar 10, 14 ve 18. İlk provalarda iki koşu da isyanla erken bitti. Son test köyünde açlık ve evsizlik etkisini ayırmak için barınak ve ambar kapasitesi ile temel erzak yardımı kullanıldı. Üretim ayarları değişmedi.
+
+Tempo ikizi, mevcut omurga ve dış hat dalgaları hedefli testleri geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OMR-31 tamamlandı (Kalfa)
 
 Başsız otomatik oyuncunun gerçek ikinci perde geçiş makbuzu Python runner ve DEN raporuna bağlandı. Yeni gece hesabı çağrılmaz. Ölçüm 30. gecede, perde geçişinde veya oyun sonunda kapanır. Ayar: `python -B tools/python_test_runner.py --perde1-suresi --godot C:/Users/Ahmet/Desktop/Godot.exe --tohum 11 --kabul-orani 0.75`. Aynı tohum ve olağan zorlukta kabul tercih eşiği 0,75 ve 0,15 ile iki bağımsız koşu da 18 nüfusta 5. geceyi verdi. Bu eşik, rastgele seçilen diğer kararların da köye alımla sonuçlanabilmesi nedeniyle gerçekleşen kabul oranı değildir. 20–30 gecelik öneri bandı sağlanmadı. Bir tohumdaki iki koşudan üretim dengesi veya OMR-03 rol ağırlığı değişikliği çıkarılmadı.
