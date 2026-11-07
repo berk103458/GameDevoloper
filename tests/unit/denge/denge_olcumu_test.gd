@@ -82,6 +82,17 @@ func _initialize() -> void:
 			dene(JSON.stringify(oturum.yonetim.kaydet()) == once, "DEN-33: uyarı ölçümü salt okunur")
 		dene(uyarili_gece == 10, "DEN-33: atölyesiz kumaşçı on gecede mevcut uyarıyı taşır")
 
+		var gecis := Oturum.new(k, 555)
+		for i in gecis.yonetim.a.agalik_nufus:
+			gecis.yonetim.kabul({"ad": "Köylü %d" % i})
+		gecis.yonetim.kaynaklar.ekle("gida", 200)
+		gecis.yonetim.kaynaklar.ekle("su", 200)
+		var gecis_raporu := gecis.gece_sonu()
+		var gecis_once := JSON.stringify(gecis.kaydet())
+		var gecis_olcumu := DENGE_OLCUMU.olustur(gecis, gecis_raporu)
+		dene(olcum.perde1_gecis_gecesi == -1 and gecis_olcumu.perde1_gecis_gecesi == 1, "OMR-31: DEN geçiş makbuzunu okur")
+		dene(JSON.stringify(gecis.kaydet()) == gecis_once, "OMR-31: DEN ölçümü salt okunur")
+
 	else:
 		push_error("Katalog yüklenemedi")
 		_hata += 1

@@ -4306,7 +4306,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-01. Boyut: S.
   - Dosya: `src/sistemler/omurga.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-05:** Dış hatlar dalgaya bağlanır.
+- [x] **OMR-05:** Dış hatlar dalgaya bağlanır. (Kalfa)
   - Ne: Moğol öncüsü, tekfur heyeti, oba ittifakı ve ferman tetikleri dalga numarasını okur; dalga 1'de yalnız haber, dalga 2'de talep, dalga 3'te sonuç. Hatların kendi aralığı (`harac_araligi`, ferman 12) korunur, dalga yalnız ön koşuldur.
   - Kabul: dalga 1'de tekfur talebi 0, haberi ≥ 1. Test: zaman makinesiyle üç dalga.
   - Bağımlılık: OMR-04, HAR-09. Boyut: M.
@@ -4411,13 +4411,13 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-05, KOP-02. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-21:** Oba hattı: Aydoğdu iki kez gelir.
+- [x] **OMR-21:** Oba hattı: Aydoğdu iki kez gelir. (Kalfa)
   - Ne: `aydogdu_oba.tres` ve `oba_ittifaki.gd`; Aydoğdu ilk gelişte tanışır, ikincide ittifak ister. İki geliş arası ≥ 4 gece (öneri). Kişi hafızası (DIY-11) ikinci gelişi tanır.
   - Kabul: ikinci gelişte `durumlar[id].ziyaret` ≥ 1. Test: iki ziyaret.
   - Bağımlılık: DIY-11, OMR-05. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-22:** Sancak hattı: ulak döner.
+- [x] **OMR-22:** Sancak hattı: ulak döner. (Kalfa)
   - Ne: ACL-04 ulağı `sancak_asker_talebi.gd` fermanını (gece 8) ve `sancak_teftisi.gd` teftişini kapıda bizzat getirir; yazılı haber yerine yüz.
   - Kabul: ferman gecesi ulak kuyrukta 1. Test: gece 8 kuyruğu.
   - Bağımlılık: ACL-04, OMR-05. Boyut: S.
@@ -4477,7 +4477,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
 
 ### 34.6 Zamanlama ve tempo
 
-- [ ] **OMR-31:** Perde 1 hedef süresi ölçülür.
+- [x] **OMR-31:** Perde 1 hedef süresi ölçülür. (Kalfa)
   - Ne: 18 nüfusa ulaşma gecesi otomatik oyuncuyla ölçülür; hedef 20–30 gece (öneri). Sapınca `gece_basina_gelen` değil kabul oranı ve omurga süzgeci (OMR-03) oynar.
   - Kabul: ölçüm raporda, DEN tablosuyla paylaşılır. Test: runner.
   - Bağımlılık: DEN-05, OMR-03. Boyut: S.
@@ -4501,7 +4501,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `src/sistemler/omurga.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-35:** Tempo ölçümü ikizle doğrulanır.
+- [x] **OMR-35:** Tempo ölçümü ikizle doğrulanır. (Kalfa)
   - Ne: aynı tohumla iki koşuda dönem/dalga geçiş geceleri eşittir.
   - Kabul: iki günlük eşit. Test: TST-06 ikizi.
   - Bağımlılık: TST-06. Boyut: S.

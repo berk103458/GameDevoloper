@@ -411,6 +411,10 @@ func _esya_yazisi(e: Dictionary, adet: int) -> String:
 
 ## Karar düğmesinin yazısı; rüşvette miktar görünür.
 func _karar_etiketi(anahtar: String) -> String:
+	var oba = preload("res://src/sistemler/aydogdu_ziyareti.gd")
+	if oba.ilgilenir(_gelen): return oba.etiket(StringName(anahtar))
+	var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
+	if ulak.ilgilenir(_gelen): return ulak.etiket(anahtar)
 	if anahtar == "cocuklari_al": return "Yalnız çocukları al"
 	if DiplomatikHeyet.ilgilenir(_gelen): return HeyetKapiPaneli.etiket(anahtar)
 	if TuccarKapiGecisi.ilgilenir(_gelen): return TuccarKapiPaneli.etiket(anahtar)
@@ -501,6 +505,8 @@ func _karar_goster() -> void:
 		b.alt_yazi = _karar_alt_yazi(anahtar)
 		preload("res://src/arayuz/chr_kapi_adaptoru.gd").karar_kilidi(b, chr, StringName(anahtar))
 		HeyetKapiPaneli.kilit(b, oturum, _gelen, anahtar)
+		var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
+		if ulak.ilgilenir(_gelen): b.disabled = not ulak.uygun(oturum, _gelen, anahtar)
 		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kilit(b, oturum, _gelen, StringName(anahtar))
 		b.pressed.connect(_karar_bas.bind(anahtar))
 		_karar_dugmeleri.append(b)
@@ -539,6 +545,8 @@ func _karar_bas(anahtar: String) -> void:
 		return
 	if evre != &"karar":
 		return
+	var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
+	if ulak.ilgilenir(_gelen) and not ulak.uygun(oturum, _gelen, anahtar): return
 	if _secili == anahtar:
 		_karar_ver(anahtar)
 		return
@@ -587,6 +595,8 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	if preload("res://src/arayuz/aile_kapi_paneli.gd").sonuc(self, _gelen, sonuc): pass
 	elif HeyetKapiPaneli.sonuc(self, _gelen, sonuc): pass
 	elif TuccarKapiPaneli.sonuc(self, _gelen, sonuc): pass
+	elif sonuc.get("oba_ziyareti", false) or sonuc.get("ulak_ziyareti", false):
+		_yaz(tr(String(sonuc.sonuc_anahtari)))
 	elif replik.ilgilendirir(anahtar):
 		_karar_replik_dusur(replik, anahtar)
 	else:

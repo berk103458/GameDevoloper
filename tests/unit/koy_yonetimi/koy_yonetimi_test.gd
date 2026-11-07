@@ -281,18 +281,25 @@ func _tekfur() -> void:
 	y.kaynaklar.kapasite = 10000
 	y.kaynaklar.ekle("gida", 2000)
 	y.kaynaklar.ekle("bugday", 200)
+	y.perde2_hedef = 36
 	y.gece()
 	_esit("ağalık", y.agalik, true)
-	while not y.harac_bekliyor:
-		y.gece()
+	var baslangic := KoyYonetimi.PERDE_GECISI.baslangic(y)
+	y.gun = baslangic + 12
+	y.gun += posmod(-y.gun - 1, y.a.harac_araligi)
+	y.gece()
 	y.akce = 100
 	_esit("haraç ödendi", y.harac_ode(), true)
-	while not y.harac_bekliyor:
-		y.gece()
+	y.gun += y.a.harac_araligi - 1
+	y.gece()
+	_esit("mevcut aralıkta ikinci talep", y.harac_bekliyor, true)
 	y.harac_reddet()
 	y.sur_seviye = 0
 	for k in y.koylular:
 		k.sinif = &"ciftci"
+	y.gece()
+	_esit("ikinci dalgada baskın henüz çözülmez", y.son, KoyYonetimi.SON_YOK)
+	y.gun = baslangic + 24
 	y.gece()
 	_esit("savunmasız köy Tekfur'a düşer", y.son, KoyYonetimi.SON_TEKFUR)
 

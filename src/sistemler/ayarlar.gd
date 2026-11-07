@@ -85,9 +85,11 @@ func ayarla(anahtar: StringName, deger: Variant) -> void:
 
 
 func varsayilana_don() -> void:
-	degerler = VARSAYILAN.duplicate()
+	degerler.merge(VARSAYILAN, true)
+	degerler.merge(AyarlarEk.VARSAYILAN, true)
 	GirdiEylemleri.varsayilana_don(yol)
 	uygula()
+	AyarlarEk.uygula_ek(self)
 	degisti.emit(&"")
 
 

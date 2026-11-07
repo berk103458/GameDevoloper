@@ -1,3 +1,37 @@
+## 7 Kasım 2026 — OMR-35 tamamlandı (Kalfa)
+
+Aynı tohum ve kapı kararlarıyla iki koşu aynı dönem ve dalga geçiş günlüğünü verdi. İkinci koşu dördüncü gecede ve perde geçişinde JSON kayıttan döner. Kuruluş 0, yerleşme 2, oturma 8, dalgalar 10, 14 ve 18. İlk provalarda iki koşu da isyanla erken bitti. Son test köyünde açlık ve evsizlik etkisini ayırmak için barınak ve ambar kapasitesi ile temel erzak yardımı kullanıldı. Üretim ayarları değişmedi.
+
+Tempo ikizi, mevcut omurga ve dış hat dalgaları hedefli testleri geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 7 Kasım 2026 — OMR-31 tamamlandı (Kalfa)
+
+Başsız otomatik oyuncunun gerçek ikinci perde geçiş makbuzu Python runner ve DEN raporuna bağlandı. Yeni gece hesabı çağrılmaz. Ölçüm 30. gecede, perde geçişinde veya oyun sonunda kapanır. Ayar: `python -B tools/python_test_runner.py --perde1-suresi --godot C:/Users/Ahmet/Desktop/Godot.exe --tohum 11 --kabul-orani 0.75`. Aynı tohum ve olağan zorlukta kabul tercih eşiği 0,75 ve 0,15 ile iki bağımsız koşu da 18 nüfusta 5. geceyi verdi. Bu eşik, rastgele seçilen diğer kararların da köye alımla sonuçlanabilmesi nedeniyle gerçekleşen kabul oranı değildir. 20–30 gecelik öneri bandı sağlanmadı. Bir tohumdaki iki koşudan üretim dengesi veya OMR-03 rol ağırlığı değişikliği çıkarılmadı.
+
+DEN birim testi, iki Perde 1 koşusu ve mevcut ilk saat ölçümü (6. gece, 171060 ms) geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 7 Kasım 2026 — Ayar sıfırlama düzeltmesi (Kalfa)
+
+OMR-31 otomatik oyuncu provasında tüm ayarları sıfırlama, ek anahtarları siliyor ve yeni oyunun zorluk okumasında script hatası veriyordu. Çekirdek ve ek anahtarlar kendi varsayılanlarına döner. Tanınmayan ileri sürüm alanları korunur ve ek ayarlar hemen uygulanır. Ayarlar, ek ayarlar ve bozuk ayar dosyasıyla gerçek menü testleri geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 7 Kasım 2026 — OMR-22 tamamlandı (Kalfa)
+
+ACL-04 ulağı sekizinci nöbetin kuyruğuna ilk sırada ve bir kez girer. Kapıdaki üç ferman seçeneği mevcut HAR-04 aday, uygunluk ve karar kurallarını kullanır. Bir teftiş oyunu bitirmediyse ulak sonucunu sonraki nöbette iletir. İkisi aynı nöbete denk gelirse tek ziyaret ikisini taşır. Terminal teftiş raporu ve açılış ulağını görmemiş eski kayıtların yazılı akışı korunur. Kabul edilen teftiş haberi ve güncel kapı ziyareti kayda yansır. Ulak mevcut asker figürünü kullanır. Asset gerekmedi.
+
+Headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Sancak asker ve ulak kapı akışları, teftiş birim ve arayüz testleri geçti. Yeni testte JSON değeri açık Dictionary tipine çevrildikten sonra yeniden çalıştırıldı. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 7 Kasım 2026 — OMR-21 tamamlandı (Kalfa)
+
+Full pull 9a0ecaa1 güncel, Ajan Masası okundu. Aydoğdu ilk kapı ziyaretini mevcut adlı kadroda yapar. İlk gerçek karardan en az dört gece sonra, oba hattı açıksa aynı kimlikle ikinci kez kapıya gelir. İlk ret de dönüşe izin verir. Köyde kalmış Aydoğdu'nun dönüşü için canlı köylü kaydı gerekir. İkinci ziyaret mevcut oba olayının seçenek ve etkilerini kapıda kullanır. Kabul veya savaşçı kabulü ittifak bayrağını açar. Aydoğdu ikinci kez nüfusa eklenmez. Karar bir kez uygulanır. Kapı anlık görüntüsü ziyaret gününü korur.
+
+İki ziyaret, oba ittifakı, gerçek kapı arayüzü ve gerçek oyun köprüsü geçti. İlk UI koşusunda sohbet aşaması bekleniyordu. Test ikinci gelişin doğrudan karar aşamasına uyarlandı. İki CSV anahtarı iki dilde doğrulandı. Headless import çıkış 0, script ve MD5 hatası yok. Üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 7 Kasım 2026 — OMR-05 tamamlandı (Kalfa)
+
+Full pull 94544323 güncel, Ajan Masası okundu. Perde 2 başlangıcından türeyen ortak kapı dört dış hattı bağlar. İlk dalgada Moğol, Tekfur, oba ve sancak haberleri mevcut HAR-09 kuyruğuna gider. İkinci dalgada Tekfur ve ferman mevcut takvimleriyle, oba takası mevcut koşullarıyla, Moğol heyeti mevcut uyarı makbuzuyla açılır. Tekfur baskını ve dört hattın gerçek durumuna dayalı sonuç haberleri üçüncü dalgada çözülür. Mevcut taleplere cevap verme yolları ve perde başlangıcı yazılmamış kayıtların eski zamanlaması korunur. Yeni sayaç yok.
+
+Üç dalga Zaman Makinesi ile doğrulandı. İlk dalgada takvim denk geldiğinde Tekfur talebi 0, haber 1. Moğol takvimli uyarı, heyet ve varış geçti. Haraç, diplomatik heyet, haberci, köy yönetimi ve Zaman Makinesi dahil altı hedef geçti. CSV 13 iki dilli anahtar. Son import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 
 ## 7 Kasım 2026 — YAP-53, DEN-18, DEN-20, DEN-41, DEN-42, DEN-45 ve DEN-67 tamamlandı (Antigravity)
 

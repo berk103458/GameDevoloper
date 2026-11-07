@@ -19,6 +19,8 @@
   "kaynaklar": {
     "mogol": "guvercin",
     "tekfur": "ulak",
+    "oba": "ulak",
+    "sancak": "ulak",
     "cete": "ulak"
   },
   "cete_metin": "Çevrede çete hareketi bildirildi. Son olayda ambardan alınan: %d gıda, %d diğer malzeme. Bu haber tek başına bir kişinin suçuna kanıt değildir.",

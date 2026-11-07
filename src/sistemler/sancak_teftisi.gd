@@ -14,6 +14,7 @@ static func oku(v: Variant) -> Dictionary:
   if (n is int or n is float) and is_finite(float(n)) and floor(float(n))==float(n) and float(n)>=(-1 if key=="son_gece" else 0) and float(n)<=1000000000: d[key]=int(n)
  if v.get("sonuc","") in ["temiz","bulunamadi",String(SON_AZIL),String(SON_IDAM)]: d.sonuc=v.sonuc
  d.bulundu=v.get("bulundu") is bool and v.bulundu
+ if v.get("ulak_bildirdi", false) == true: d.ulak_bildirdi=true
  var zar: Variant=v.get("zar")
  if (zar is int or zar is float) and is_finite(float(zar)) and floor(float(zar))==float(zar) and float(zar)>=0 and float(zar)<int(AYAR.zar_cozunurlugu): d.zar=int(zar)
  return d

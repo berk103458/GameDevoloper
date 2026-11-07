@@ -16,6 +16,10 @@ static func gelen_kaydet(g: Gelen) -> Dictionary:
 	if g.heybe != null:
 		v["heybe"] = {"esyalar": g.heybe.esyalar.duplicate(true), "teklif": g.heybe.teklif, "astar_yoklandi": g.heybe.astar_yoklandi, "soruldu": g.heybe.soruldu}
 	v["diplomatik_heyet"] = DiplomatikHeyet.bilet(g)
+	var oba = preload("res://src/sistemler/aydogdu_ziyareti.gd")
+	if oba.ilgilenir(g): v[String(oba.META)] = int(g.get_meta(oba.META))
+	var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
+	if ulak.ilgilenir(g): v[String(ulak.META)] = int(g.get_meta(ulak.META))
 	v["sira_sonucu"] = g.get_meta(SiraOlayiSonucu.META, {}).duplicate()
 	v["hastalik_teshisi"] = preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kaydet(g)
 	v["sezgi_goruldu"] = bool(g.get_meta(&"zar06_goruldu", false))
@@ -60,6 +64,11 @@ static func gelen_yukle(v: Dictionary, katalog: Katalog) -> Gelen:
 	g.aile_id = String(v.get("aile_id", ""))
 	for alan in BASIT:
 		g.set(alan, StringName(v[alan]) if alan in ["id", "sinif"] else v[alan])
+	var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
+	if ulak.ilgilenir(g):
+		var gun := KurtBaskini.oku(v.get(String(ulak.META), -1))
+		if gun < 0: return null
+		g.set_meta(ulak.META, gun)
 	g.etkiler = {}
 	for karar in v["etkiler"]:
 		var etki: Variant = v["etkiler"][karar]
@@ -111,6 +120,9 @@ static func gelen_yukle(v: Dictionary, katalog: Katalog) -> Gelen:
 	var heyet := DiplomatikHeyet.bilet_oku(v.get("diplomatik_heyet"))
 	if v.has("diplomatik_heyet") and v.diplomatik_heyet != {} and heyet.is_empty(): return null
 	if not heyet.is_empty(): g.set_meta(DiplomatikHeyet.META, heyet)
+	var oba = preload("res://src/sistemler/aydogdu_ziyareti.gd")
+	var oba_gunu := KurtBaskini.oku(v.get(String(oba.META), -1))
+	if g.adli and g.id == oba.ID and oba_gunu >= 0: g.set_meta(oba.META, oba_gunu)
 	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").yukle(g, v.get("hastalik_teshisi"))
 	var sira: Variant = v.get("sira_sonucu")
 	if sira is Dictionary and sira.get("sonuc") in SiraOlayiSonucu.TURLER: g.set_meta(SiraOlayiSonucu.META, {"sonuc": String(sira.sonuc)})

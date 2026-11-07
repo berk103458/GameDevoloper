@@ -756,6 +756,8 @@ sablon.esnaf.c2_s6,Ödeyecek misin?,Ödeyecek misin?
 sablon.esnaf.giris1,"Elinde alet torbası, genç bir çırak.","Elinde alet torbası, genç bir çırak."
 sablon.esnaf.giris2,Sırtında birkaç bakır kap.,Sırtında birkaç bakır kap.
 sohbet.aydogdu.acilis1,"Aydoğdu. Türkmen'im, okçuyum. Kolum yaralı ama yayı hâlâ gerebilirim. Arkamdan obam geliyor; önden ben bakayım dedim.","Aydogdu. I am a Turkmen, an archer. My arm is wounded, yet I can still draw the bowstring."
+sohbet.aydogdu.giris2,Aydoğdu yeniden kapıda durdu.,Aydogdu is at the gate again.
+sohbet.aydogdu.acilis2,Obamı getirdim. Bize yer verirseniz nöbeti sizinle tutarız.,I brought my clan. Give us a place here and we will stand watch with you.
 sohbet.aydogdu.c1,Aydoğdu. Türkmen'im.,Aydogdu. I am a Turkmen.
 sohbet.aydogdu.c2,"Avşar. Babam beydi, ben değilim. Bey olmak için önce sağ kalmak gerek.","Avsar. My father was a bey; I am not. To become a bey, one must first stay alive."
 sohbet.aydogdu.c3,Kösedağ'dan hatıra.,"A wound from a Byzantine arrow. It healed, yet on damp cold nights it throbs deep in the marrow."
@@ -2138,6 +2140,9 @@ Unlocked knowledge: %s
 %s"
 koy.kart.uzmanlik_yok,Özel uzmanlık eşleşmesi yok; yaş ve kapasite kuralları geçerli.,No special craft match; age and capacity rules apply.
 koy.levent.olay,"Levent firarı · %s: %s köyü terk etti. Nöbet hattı zayıfladı; Güvenlik %d → %d/100 (asayiş riski +%d). Aynı kriz boyunca yeni firar dalgası olmaz; erzak, maaş ve moral desteği ayrılmayı önler.","Levent desertion · %s: %s left the village. The watch line weakened; Security %d → %d/100 (order risk +%d). No further desertion wave occurs during the same crisis; rations, pay, and morale support prevent departure."
+koy.sancak.ulak_giris,Mühürlü tomar taşıyan ulak kapıya varıyor.,The messenger arrives at the gate with a sealed scroll.
+koy.sancak.ulak_dinle,Teftiş haberini al,Acknowledge the audit report
+koy.sancak.ulak_sonuc,Ulak haberi iletip ayrıldı.,The messenger delivered the news and left.
 koy.sancak.temiz,Sancak müfettişi teftişi: gizli kasada suç isnadını destekleyen içerik ve yozlaşma birlikte bulunmadı. Görev sürüyor.,Sanjak inspector audit: no incriminating stash contents and corruption were found together in the hidden chest. Duty continues.
 koy.sancak.bulunamadi,Sancak müfettişi teftişi: gizli kasa bu kez bulunamadı. Geçmiş yozlaşma ve kasa içeriği değişmedi.,Sanjak inspector audit: the hidden chest was not discovered this time. Past corruption and chest contents remain unchanged.
 koy.sancak.idam,Sancak müfettişi gizli kasayı buldu. Ağır yozlaşma nedeniyle muhafız hakkında idam hükmü verildi.,"The Sanjak inspector uncovered the hidden chest. Due to severe corruption, the gatekeeper was sentenced to execution."
@@ -2447,6 +2452,19 @@ ogretici.usul.heybe.3,Beyanı gördüğün eşyalarla karşılaştır.,Compare t
 ogretici.usul.heybe.4,Gizli eşya için heybe içindeki arama noktalarını kontrol et.,Check the search spots inside the bag for hidden goods.
 ogretici.usul.heybe.5,Heybeyi kapatıp aynı sorguya dönebilirsin.,Close the bag to return to the same inquiry.
 koy.rapor.kisa.ulak_berat,Ulak döndü. Sancak beyi teftişte kapının defterini görmek ister.,The messenger returned. The Sanjak Bey wants to see the gate ledger at inspection.
+koy.olay.dis_hat.mogol.haber,Doğu geçidinden gelenler Moğol öncülerini soruyor.,Travelers from the eastern pass are asking about the Mongol scouts.
+koy.olay.dis_hat.tekfur.haber,Tekfurun adamları sınır yolunda köyün ambarını soruşturuyor.,The Tekfur's men are asking about the village granary along the frontier road.
+koy.olay.dis_hat.oba.haber,Obanın atlıları batı yamacında görüldü.,Riders from the clan were seen on the western slope.
+koy.olay.dis_hat.sancak.haber,Ulak sancak beyinin asker saydığını söyledi.,A messenger says the Sanjak Bey is counting his troops.
+koy.olay.dis_hat.mogol.sinirda,Moğol öncüleri sınıra vardı.,The Mongol scouts reached the frontier.
+koy.olay.dis_hat.mogol.uzakta,Moğol öncüleri henüz sınıra varmadı.,The Mongol scouts have yet to reach the frontier.
+koy.olay.dis_hat.tekfur.baski,Tekfur haraç meselesini silahlı baskıya çevirdi.,The Tekfur turned the tribute dispute into armed pressure.
+koy.olay.dis_hat.tekfur.baski_yok,Tekfurun bu köye karşı silahlı baskını kayda geçmedi.,No armed raid by the Tekfur was recorded against this village.
+koy.olay.dis_hat.oba.ittifak,Obayla ittifak kuruldu.,An alliance with the clan was made.
+koy.olay.dis_hat.oba.ittifak_yok,Obayla ittifak kurulmadı.,No alliance with the clan was made.
+koy.olay.dis_hat.sancak.bekliyor,Sancak beyinin asker talebi hâlâ cevap bekliyor.,The Sanjak Bey's request for troops still awaits an answer.
+koy.olay.dis_hat.sancak.gonderildi,Köyden sancak ordusuna levent gönderildi.,The village sent troops to the sanjak army.
+koy.olay.dis_hat.sancak.gonderilmedi,Köyden sancak ordusuna levent gönderilmedi.,The village sent no troops to the sanjak army.
 koy.rapor.kisa.ilk_saat_ozeti,"İlk altı gece. Gelen: %s. %d kişiyi aldın, %d kişiyi geri çevirdin. Köyde %d kişi var.","First six nights. Arrivals: %s. You admitted %d and turned away %d. %d villagers remain."
 karar.sukru.mahkeme.baslik,Çınar Meclisinde Aleni Mahkeme,Public Trial at Plane Tree Council
 karar.sukru.mahkeme.metin,"Molla Şükrü Çınar Meclisi önünde yargılandı. Sahte mühür tahrifatı kanıtlandı, berat yakıldı, kâtip demirhane cezasına çarptırıldı. Adalet 3, Moral 2 arttı, Asayiş Riski 2 azaldı.","Molla Sukru was tried before the Council. Forged seal was proven, charter burned, scribe sentenced to forge labor. Justice +3, Morale +2, Public Order Risk -2."
