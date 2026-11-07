@@ -4113,7 +4113,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-09. Boyut: S.
   - Dosya: yeni: `src/arayuz/kapi_usulu_sayfasi.gd`; `menu_ekrani.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OGR-36:** İlk saat sonu özet satırı.
+- [x] **OGR-36:** İlk saat sonu özet satırı. (Kalfa)
   - Ne: altıncı gecenin raporunda bir satır: kaç kişi geldi, kaç kabul, kaç ret, köy nüfusu. `ana.gd:125 arayuz.son.istatistik` biçimi kullanılır.
   - Kabul: gece 5 raporunda satır 1, başka gecede 0. Test: anlık görüntü.
   - Bağımlılık: OGR-05. Boyut: S.

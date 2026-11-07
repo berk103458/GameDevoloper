@@ -10,6 +10,12 @@ static func ekle(e: KoyEkrani, v: VBoxContainer, bilanco: Dictionary) -> bool:
 	_satir(e, v, "ambar", [int(gida.once), int(gida.sonra)])
 	return true
 
+static func ilk_saat_ozetini_ekle(e: KoyEkrani, v: VBoxContainer, bilanco: Dictionary) -> void:
+	if not bilanco.has("ilk_saat_ozeti"): return
+	var ozet: Dictionary = bilanco.ilk_saat_ozeti
+	var gelen := str(ozet.gelen) if int(ozet.gelen) >= 0 else "—"
+	_satir(e, v, "ilk_saat_ozeti", [gelen, int(ozet.kabul), int(ozet.ret), int(ozet.nufus)])
+
 static func _adlar(liste: Array) -> String:
 	return "—" if liste.is_empty() else ", ".join(PackedStringArray(liste))
 

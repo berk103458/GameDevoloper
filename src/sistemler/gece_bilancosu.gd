@@ -4,6 +4,18 @@ extends RefCounted
 const ACILIS = preload("res://src/sistemler/acilis_senaryosu.gd")
 const KAPI_ACILIS = preload("res://src/sistemler/kapi_acilis_olayi.gd")
 const GELEN_META := &"ogr05_gece_gelenleri"
+const ILK_SAAT_SON_GECE := 5
+const ZIYARET_GUNU_META := &"ogr36_ziyaret_gunu"
+
+static func ilk_saat_gelen_oku(v: Variant) -> int:
+ if not (v is int or v is float): return -1
+ var n := float(v)
+ return int(n) if is_finite(n) and n == floor(n) and n >= 0 and n <= 1000000000 else -1
+
+static func ilk_saat_ziyaret_yaz(o: Oturum, gelen: Gelen) -> void:
+ if o.gun > ILK_SAAT_SON_GECE or o.ilk_saat_gelen < 0 or gelen.get_meta(ZIYARET_GUNU_META, -1) == o.gun: return
+ gelen.set_meta(ZIYARET_GUNU_META, o.gun)
+ o.ilk_saat_gelen = mini(1000000000, o.ilk_saat_gelen + maxi(1, gelen.aile.size()))
 
 static func kisa_mi(o: Oturum) -> bool:
  return o.gun < 3 and ACILIS.durum(o).get("kuruldu", false)
@@ -67,6 +79,10 @@ static func olustur(o: Oturum, once: Dictionary, rapor: Dictionary) -> Dictionar
   stok[tur] = {"once": ilk, "sonra": son, "net": son - ilk, "uretim": u, "tuketim": t, "bozulma": b, "tasma_bildirimi": bildirim, "tasma_gece": tasma, "diger_net": son - ilk - u + t + b + tasma}
  var sonuc := {"surum": 1, "gun": int(rapor.gun), "kamu": kamu, "kisisel": kisisel, "stok": stok, "alet_asinma": {"once": float(once.asinma), "sonra": y.alet_asinma}, "transfer_ozeti": o.kasa_transferleri.duplicate(true)}
  if not once.get("kapi_ozeti", {}).is_empty(): sonuc["kapi_ozeti"] = once.kapi_ozeti
+ if int(rapor.gun) == ILK_SAAT_SON_GECE:
+  var gelen := o.ilk_saat_gelen
+  if gelen >= 0 and o.bayraklar.has(KAPI_ACILIS.ULAK): gelen += 1
+  sonuc["ilk_saat_ozeti"] = {"gelen": gelen, "kabul": y.kabul_sayisi, "ret": y.ret_sayisi, "nufus": y.nufus()}
  ## DEN-55: fiyat kaynağıyla durur; kış çarpanı ayrı satır, tablo TUC-09'dur ve yeni bilanço yoktur.
  var mevsim := y.mevsim()
  if mevsim == MevsimYoneticisi.MEVSIM_SAYISI - 1:

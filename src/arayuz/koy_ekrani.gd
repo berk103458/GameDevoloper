@@ -714,6 +714,7 @@ func _geceye_gec() -> void:
 	var v := _kart_ac(tr("koy.rapor.baslik") % (int(r["gun"]) + 1))
 	if not preload("res://src/arayuz/gece_raporu_kisa.gd").ekle(self, v, sonuc["bilanco"]):
 		_rapor_ayrinti(v, r)
+	preload("res://src/arayuz/gece_raporu_kisa.gd").ilk_saat_ozetini_ekle(self, v, sonuc["bilanco"])
 	preload("res://src/sistemler/rapor_bekle.gd").uygula(v, ayarlar)
 	var tamam := _dugme(tr("koy.rapor.sabah"), v)
 	CenazeRaporu.ekle(self, v, tamam, r, sonuc)

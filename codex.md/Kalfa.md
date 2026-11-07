@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — OGR-36 tamamlandı (Kalfa)
+
+Full pull efa023e9, Ajan Masası okundu. Altıncı gecenin mevcut bilançosu kapıya gelen kişi sayısını, mevcut kabul ve ret sayaçlarını ve gecenin sonundaki köy nüfusunu tek satırda gösterir. Bir ailedeki kişiler ayrı sayılır. Aynı ziyaret aynı gece ikinci kez sayılmaz. İlk ulak mevcut açılış bayrağından bir kez eklenir. Geliş sayısı ilk altı gece için isteğe bağlı JSON alanında korunur. Alanı olmayan eski kayıtta geliş değeri çizgiyle gösterilir.
+
+Bilanço, gerçek gece geçişi, oyun köprüsü ve HUD kayıt ikizi geçti. JSON dönüşü, altıncı gece tek satır ve diğer gecelerde yokluğu doğrulandı. İlk import üç MD5 hatası verdi. İkinci import exit0/script0/MD50, üç kaynak ve bellek ayırıcı kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — OGR-35 tamamlandı (Kalfa)
 
 Kapı usulü, Esc ile açılan mevcut duraklat menüsünde. Bağlantı ana menü sınıfı yerine duraklat menüsünü kuran Ana'da. Tek kaydırılabilir sayfada kapı, köy, zar, göstergeler ve heybe için beşer satır var. 25 satır Türkçe ve İngilizce CSV'den okunur. Geri düğmesi veya mevcut geri eylemi duraklat menüsüne döndürür.
