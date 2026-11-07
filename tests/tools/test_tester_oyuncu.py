@@ -42,6 +42,14 @@ class TesterOyuncuTest(unittest.TestCase):
         p = tester.Politika("temkinli", 1)
         self.assertEqual([p.sec(s)[1]["indeks"] for _ in range(4)], [0, 1, 0, 1])
 
+    def test_arac_raporu_olculmeyeni_kullanilmayanla_karistirmaz(self):
+        ozet = {"tohum": 11, "politika": "temkinli", "gece_sayisi": 6, "hata_sayisi": 0,
+                "ILKSAAT_ARACLAR": {"heybe": 2, "beyan": -1}}
+        rapor = tester.arac_raporu(ozet)
+        self.assertIn("| Heybeyi açma | Kullanıldı | 2 |", rapor)
+        self.assertIn("| Heybe beyanını sorma | Kullanılmadı | — |", rapor)
+        self.assertIn("| Yemin | Ölçülmedi | — |", rapor)
+
     def test_kayip_yanit_eylemi_tekrarlamaz(self):
         received = []
         with socket.socket() as server:

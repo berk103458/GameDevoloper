@@ -3,6 +3,7 @@ extends RefCounted
 
 const META := &"ogr42_ilk_saat"
 const ILK_ALTI_GECE := 6
+const ARACLAR := ["koy_hizi", "koy_atama", "kapi_selam", "kapi_konu", "kapi_karar", "heybe", "beyan", "bakmak"]
 
 static func ipucu(o: Oturum, id: String) -> void:
 	_yaz(o, "ipucu", id)
@@ -22,6 +23,13 @@ static func satirlar(o: Oturum) -> Array[Dictionary]:
 	var sonuc: Array[Dictionary] = []
 	for id in iz.ipucu:
 		sonuc.append({"ipucu": id, "gosterim_gecesi": iz.ipucu[id], "ilk_kullanim_gecesi": iz.arac.get(id, -1)})
+	return sonuc
+
+static func araclar(o: Oturum) -> Dictionary:
+	var kullanilan: Dictionary = o.get_meta(META, {}).get("arac", {})
+	var sonuc := {}
+	for id in ARACLAR:
+		sonuc[id] = int(kullanilan.get(id, -1))
 	return sonuc
 
 static func aktar(eski: Oturum, yeni: Oturum) -> void:

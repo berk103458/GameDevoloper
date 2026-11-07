@@ -46,7 +46,9 @@ static func inceleme_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxContain
 		panel.name = "ChrInceleme"
 		panel.sorgu = sorgu
 		ekran.add_child(panel)
-		MuhafizAdaletYetenekleri.chr_incele(ekran.get("oturum") as Oturum, panel)
+		var oturum := ekran.get("oturum") as Oturum
+		preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "bakmak")
+		MuhafizAdaletYetenekleri.chr_incele(oturum, panel)
 		KapiGorusAdaptoru.bagla(panel, ekran)
 		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").chr_bagla(panel, ekran, gelen)
 	)

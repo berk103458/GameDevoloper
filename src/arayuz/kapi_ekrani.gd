@@ -317,6 +317,7 @@ func _heybe_sor() -> void:
 	if evre != &"sohbet" or not ILK_GECE.heybe_acik(oturum, _gelen):
 		return
 	_gelen.heybe.soruldu = true
+	preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "beyan")
 	_yaz("[color=#4A6B8A]%s:[/color] %s\n[b]%s:[/b] %s" % [tr("arayuz.sohbet.sen"), tr("arayuz.sohbet.heybe_sor"),
 		tr(_gelen.ad_anahtari), _beyan_metni()])
 	_sohbet_goster()
@@ -360,6 +361,7 @@ func _heybe_ac() -> void:
 	_heybe_paneli.beyan_metni = _beyan_metni()
 	_heybe_paneli.position = _dunya.position
 	add_child(_heybe_paneli)
+	preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "heybe")
 	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").heybe_bagla(_heybe_paneli, self, _gelen)
 	_heybe_paneli.degisti.connect(_heybe_degisti)
 	await _heybe_paneli.kapandi

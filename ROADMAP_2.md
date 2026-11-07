@@ -4167,7 +4167,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-33, TST-07. Boyut: S.
   - Dosya: `tools/python_test_runner.py` senaryo satırı.
   - Asset: asset gerekmedi.
-- [ ] **OGR-44:** Kullanılmayan araç raporu.
+- [x] **OGR-44:** Kullanılmayan araç raporu. (Kalfa)
   - Ne: ölçüm, altı gecede hiç kullanılmayan aracı (heybe, beyan, yemin, bakmak…) listeler. Tasarım bu listeye göre ipucu gecesini kaydırır; kod değişmez.
   - Kabul: rapor `docs/tester/` altında tablo. Test: tablo üretilir.
   - Bağımlılık: OGR-42. Boyut: S.
