@@ -1,3 +1,9 @@
+## 6 Kasım 2026 — DEN-66 tamamlandı (Kalfa)
+
+Full pull 5c91d4e0 güncel ve Ajan Masası okundu. Yeni oyun mevcut ayar seçimini kuruluşta bir kez köyün mevcut zorluk değerine bağlar. Oturum tek kök zorluk alanını yazar ve yükler. Sıkı kayıt, global tercih Kolay olsa da aynı tüketimle Sıkı açılır ve yeniden Sıkı kaydedilir. Eksik veya bilinmeyen eski değer Olağan açılır. OGR-50 mevcut seçim erişimi durur. Kayıt sürümü aynı.
+
+Gerçek açılış/devam testinde önce üç RED, sonra gerçek UI, kayıt göçü, denge tablosu, ayarlar ve çözümleme UI olmak üzere beş hedef PASS. İlk import üç MD5 hatası verdi. İkinci exit0, script/parse0 ve üç kapanış hatası. Kapanışta bildirilen kaynak sayısı 362'den 365'e çıktı. Asset gerekmedi. Tam sanity yok. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 6 Kasım 2026 — DEN-65 tamamlandı (Kalfa)
 
 Zorluk tablosu üç adı zaten taşıyordu. Dördüncü ustalik anahtarı geçerli sayısal sınırla birlikte iki doğrulayıcıdan da geçiyordu. RED ardından mevcut Python araç ve Godot açılış doğrulaması tam kolay/olagan/siki anahtar kümesini istiyor. 22 Python testi, tablo doğrulaması ve iki hedefli Godot testi geçti. Çarpan değerleri aynı. DEN-63 metnindeki aralık kesişimi çelişkisi açık kalır.

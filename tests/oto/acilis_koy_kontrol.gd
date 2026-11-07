@@ -22,6 +22,7 @@ func _calistir() -> void:
 	get_tree().create_timer(90.0).timeout.connect(func() -> void: get_tree().quit(1))
 	var ana := TestAna.new()
 	add_child(ana)
+	dene(AyarlarEk.ayarla(ana.ayarlar, &"zorluk", &"siki"), "DEN-66 yeni oyunun zorluk tercihi")
 	ana.yeni_oyun(1401, "eski_levent")
 	await get_tree().process_frame
 	await _arazi_hazir(ana)
@@ -48,11 +49,18 @@ func _calistir() -> void:
 	dene(ana._ekran is KoyEkrani and ana._kapi == null, "İlk gün doğrudan kapı çağrısı da kuyruk kurmaz")
 	dene(ana._ekran == e, "Kapalı kapı çağrısı mevcut köy ekranını yeniden kurmaz")
 	var kayit := ana.kayit.oku()
+	dene(kayit.get("zorluk") == "siki" and not kayit.koy_yonetimi.has("zorluk"), "DEN-66 sıkı zorluk kayıt kökünde tek alan")
+	var gerek := TuketimDengesi.gerek(ana.oturum.yonetim)
+	dene(String(ana.oturum.yonetim.get_meta(&"zorluk", "olagan")) == "siki", "DEN-66 yeni oyun sıkı zorluğu köy hesabına bağlar")
+	dene(AyarlarEk.ayarla(ana.ayarlar, &"zorluk", &"kolay"), "DEN-66 yüklemeden önce global tercih değişir")
 	dene(kayit.get("faz") == "koy" and kayit.koy_yonetimi.koylular.size() == 2, "Gerçek kayıt köy fazını/iki kişiyi taşır")
 	ana.devam_et()
 	await get_tree().process_frame
 	await _arazi_hazir(ana)
 	dene(ana._ekran is KoyEkrani and ana.oturum.gun == 0 and ana.oturum.yonetim.yatak_kapasitesi() == 4, "Yeni kuruluş kaydından aynı köye devam")
+	dene(String(ana.oturum.yonetim.get_meta(&"zorluk", "olagan")) == "siki" and TuketimDengesi.gerek(ana.oturum.yonetim) == gerek, "DEN-66 yükleme sıkı zorluğu ve tüketim hesabını korur")
+	ana._kayit_yaz()
+	dene(ana.kayit.oku().get("zorluk") == "siki", "DEN-66 yeni kayıt yüklenen oyunun zorluğunu korur")
 	var cikti := OS.get_environment("ACL01_TEST_CIKTI")
 	if not cikti.is_empty() and DisplayServer.get_name() != "headless":
 		await get_tree().create_timer(0.5).timeout
@@ -64,6 +72,10 @@ func _calistir() -> void:
 		FAZ.ayarla(eski, faz)
 		var v := eski.kaydet()
 		v.erase("acilis_hanesi")
+		if faz == "kapi":
+			v.erase("zorluk")
+		else:
+			v["zorluk"] = "ustalik"
 		v.surum = 2 # KAY-71: açık Devam et isteği önce yükleme aşamasına geçer.
 		ana.kayit.yaz(v)
 		ana.devam_et()
@@ -74,6 +86,7 @@ func _calistir() -> void:
 		dene((ana._ekran is KapiEkrani if faz == "kapi" else ana._ekran is KoyEkrani) and ana.oturum.gun == 8, "Eski kayıt gerçek aynı faz/günde açılır")
 		dene(preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_acik(), "Gerçek kapı/köy fazı göç için oynanış sayılır")
 		dene(ACILIS.durum(ana.oturum).is_empty() and ana.oturum.yonetim.nufus() == 0 and ana.oturum.yonetim.binalar.is_empty(), "Eski kayda zorla ev/eş eklenmez")
+		dene(ana.oturum.kaydet().get("zorluk") == "olagan", "DEN-66 eksik veya bilinmeyen eski zorluk olağan açılır")
 	ana.ana_menu()
 	dene(not preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_acik(), "Gerçek menü geçişi göç kilidini kaldırır")
 	ana.kayit.sil()

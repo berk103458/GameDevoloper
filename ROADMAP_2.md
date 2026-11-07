@@ -3774,7 +3774,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-04. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-66:** Zorluk yeni oyunda seçilir.
+- [x] **DEN-66:** Zorluk yeni oyunda seçilir. (Kalfa)
   - Ne: seçim açılıştadır. Kayıtta tek alan. Yüklemede değişmez.
   - Kabul: seçim açılıştadır. Kayıtta tek alan. Yüklemede değişmez. Test: sıkı kayıt, yüklemede sıkı.
   - Bağımlılık: DEN-65, KAY-03. Boyut: S.

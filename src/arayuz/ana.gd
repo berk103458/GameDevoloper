@@ -99,10 +99,9 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 	kayit.sil()
 	oturum = Oturum.new(katalog, tohum)
 	preload("res://src/sistemler/denge_tablosu.gd").acilis_erzagini_yaz(oturum.yonetim.kaynaklar)
-	if ayarlar != null and ayarlar.degerler.has(&"zorluk"):
-		oturum.set_meta(&"zorluk", String(ayarlar.al(&"zorluk")))
 	g.sec(oturum, gecmis)
-	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum)
+	var zorluk: Variant = ayarlar.al(&"zorluk") if ayarlar != null else null
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum, zorluk)
 	_koye_git()
 
 
@@ -224,10 +223,7 @@ func _yeni_oyun_ekrani() -> void:
 
 
 func _kayit_yaz() -> void:
-	var veri := oturum.kaydet()
-	if ayarlar != null and ayarlar.degerler.has(&"zorluk"):
-		preload("res://src/sistemler/zorluk_secimi.gd").kayda_yaz(veri, String(ayarlar.al(&"zorluk")))
-	kayit.yaz(veri)
+	kayit.yaz(oturum.kaydet())
 
 
 func _ayarlari_ac(sonra: Callable, ustte: bool = false) -> void:

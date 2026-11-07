@@ -759,6 +759,7 @@ var ipucu_kaydi := IpucuKaydi.new()
 
 func kaydet() -> Dictionary:
 	var veri := {"surum": KAYIT_SURUMU, "tohum": str(tohum), "sonraki_gelen_ek": sonraki_gelen_ek,
+		"zorluk": yonetim.get_meta(&"zorluk", "olagan"),
 		"ogretici": ipucu_kaydi.sozluge(),
 		"dedikodu": dedikodu.kaydet(),
 		"grup_itibari": grup_itibari.kaydet(),
@@ -803,6 +804,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	var o := Oturum.new(katalog_, String(veri["tohum"]).to_int())
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(o, preload("res://src/sistemler/oturum_fazi.gd").oku(veri.get("faz")))
 	o.yonetim = KoyYonetimi.kayittan(katalog_.koy_ayarlari, katalog_.binalar, veri["koy_yonetimi"])
+	o.yonetim.set_meta(&"zorluk", preload("res://src/sistemler/zorluk_secimi.gd").oku(veri.get("zorluk")))
 	o.sonraki_gelen_ek = int(veri.get("sonraki_gelen_ek", 0))
 	for b in veri.get("bayraklar", []):
 		o.bayraklar[StringName(b)] = true
