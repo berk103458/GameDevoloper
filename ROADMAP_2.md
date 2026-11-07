@@ -3747,7 +3747,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: KRI-06. Boyut: S.
   - Dosya: `tests/oto/denge_kriz.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-62:** Salgın, kapı teşhisi olmadan kendiliğinden başlamaz.
+- [x] **DEN-62:** Salgın, kapı teşhisi olmadan kendiliğinden başlamaz. (Kalfa)
   - Ne: KRI-01 ve KRI-11 durur. Denge, teşhis kapalı bir kayıtta 28 günde salgın 0 ölçer.
   - Kabul: KRI-01 ve KRI-11 durur. Denge, teşhis kapalı bir kayıtta 28 günde salgın 0 ölçer. Test: teşhissiz 28 gece.
   - Bağımlılık: KRI-01, KRI-11. Boyut: M.

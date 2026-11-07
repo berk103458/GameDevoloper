@@ -1,3 +1,7 @@
+## 6 Kasım 2026 — DEN-62 tamamlandı (Kalfa)
+
+Sağlıklı çalışan ve teşhis kaydı olmayan JSON başlangıcından 28 gerçek gece oynandı. 14. gecede kayıt yüklenip devam edildi. Nüfus1, terminal boş, bulaşıcı enfeksiyon ve salgın gecesi0. Son pozitif kontrolde mevcut humma kabulü enfeksiyonu oluşturdu. MEV kış hastalığı ayrı ölçümdür. İlk denemelerde testin bina dönüş alanı ve sabit hücre kurulumu düzeltildi. Son denge_kriz hedefi exit0, GEÇTİ ve script hatası0. DEN-60/61 aynı hedefte geçti. Üretim kodu değişmedi. Asset gerekmedi. kota görünmüyor.
+
 ## 6 Kasım 2026 — DEN-61 tamamlandı (Kalfa)
 
 Mevcut denge_kriz.tscn içine KRI-06 gerçek Oturum.gece_sonu ölçümü eklendi. İlk gece erzak0/sayaç1, tetikleme0 ve kıtlık isyan satırı0; ikinci gece sayaç2/tetikleme1 ve tam bir kıtlık satırı. İlk gecenin gerçek JSON kaydı yüklenip ikinci gece oynanınca hem kriz makbuzu hem olaylar aynıdır. Eşik/gece/üretim kodu değişmedi. Aynı hedefte DEN-60 gerçek raporu da geçmeye devam eder.
