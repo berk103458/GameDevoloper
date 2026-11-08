@@ -151,3 +151,16 @@ static func sapma_raporu(olcum_degeri: float, alt: float, ust: float, alan: Stri
 		"sapma_var": sapma,
 		"tablo_degisti": false,
 	}
+
+
+## DEN-74: İflas ve yıkım ayrı sayılır. EKO-10 iflası bir son değildir, son dağılımına karışmaz.
+static func iflas_son_sayilir_mi() -> bool:
+	return false
+
+
+static func son_veya_surum_coz(son_kimligi: String, iflas_var: bool) -> Dictionary:
+	return {
+		"iflas_ayri": iflas_var,
+		"son_kimligi": son_kimligi,
+		"son_dagilimina_dahil": not son_kimligi.is_empty() and son_kimligi != "iflas",
+	}

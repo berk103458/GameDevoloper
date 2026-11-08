@@ -58,6 +58,16 @@ func _initialize() -> void:
 		toplam_yuzde += h
 	dene(toplam_yuzde == 100, "DEN-73: beş sonun hedef yüzdeleri toplamı 100'dür (%d)" % toplam_yuzde)
 
+	# DEN-68: Kolay, ilk 10 günde odun bitirmez (odun dibi 0 değil, odun sonsuz değil).
+	var o_kolay := Oturum.new(kat, 6868)
+	o_kolay.yonetim.set_meta(&"zorluk", "kolay")
+	var baslangic_odun: int = int(o_kolay.yonetim.kaynaklar.stok.odun)
+	for g in 10:
+		o_kolay.yonetim.gece()
+	var kalan_odun: int = int(o_kolay.yonetim.kaynaklar.stok.odun)
+	dene(kalan_odun > 0, "DEN-68: kolay zorlukta 10 gece sonra odun 0'a inmez (kalan: %d)" % kalan_odun)
+	dene(kalan_odun < 1000000 and kalan_odun <= baslangic_odun + 200, "DEN-68: kolay zorluk odunu sonsuz yapmaz")
+
 	print("ZORLUK SONLARI: GEÇTİ" if hata == 0 else "ZORLUK SONLARI: KALDI")
 	quit(hata)
 

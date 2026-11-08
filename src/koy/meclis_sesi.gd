@@ -56,12 +56,21 @@ static func oyu_uygula(degerler: Dictionary, oy_sonucu: String) -> void:
 		"ertele":
 			degerler["asayis"] = int(degerler.get("asayis", 50)) - 1
 
-## MCL-05: Meclis her gece açılmaz.
-static func meclis_acik_mi(gun: int, kriz_var: bool) -> bool:
+## MCL-05 / OMR-44: Meclis her gece açılmaz. Perde 2'de hafta_basi gecelerinde meclis açılır ve dış hat konusu konuşulur.
+## Aynı gecede köy şikâyeti ile dış hat konusu birlikte açılmaz; dış hat varsa konuşulan konu odur.
+static func meclis_acik_mi(gun: int, kriz_var: bool, perde: int = 1, mevsim_gun: int = 7, _dis_hat_var: bool = false) -> bool:
+	if perde >= 2:
+		if Takvim.hafta_basi(gun, mevsim_gun):
+			return true
 	if not kriz_var:
 		return false
 	# Her gece açılmaz; kriz varken en çok 2 günde bir açılır
 	return (gun % 2 == 1)
+
+static func meclis_konusu(_y: KoyYonetimi, dis_hat_konusu: String = "") -> String:
+	if not dis_hat_konusu.is_empty():
+		return dis_hat_konusu
+	return "koy_sikayeti"
 
 ## MCL-06: Uygula ve reddet, konuşulan adı söyler.
 static func karar_metni(uygula: bool, konusulan_ad: String) -> String:

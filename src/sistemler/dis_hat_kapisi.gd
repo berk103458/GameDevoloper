@@ -218,3 +218,38 @@ static func oncu_haber_planla(o: Oturum, hat: String, yuz_gecesi: int, ofset: in
 		return {"hat": hat, "yuz_gecesi": yuz_gecesi, "haber_gecesi": haber_gecesi, "yazili_satir": 1}
 	return {"hat": hat, "yuz_gecesi": yuz_gecesi, "haber_gecesi": haber_gecesi, "yazili_satir": 0}
 
+## OMR-49: Muhafızın geçmişi hat yüzlerinin ilk cümlesini değiştirir (5 yüz x 4 geçmiş).
+static func hat_selami(hat_veya_yuz: String, gecmis_id: String) -> String:
+	var yol := "res://data/soz/hat_selamlari.json"
+	if not FileAccess.file_exists(yol): return ""
+	var veri: Variant = JSON.parse_string(FileAccess.get_file_as_string(yol))
+	if not (veri is Dictionary): return ""
+	var dict: Dictionary = veri
+	var hat := hat_veya_yuz.to_lower()
+	if not dict.has(hat):
+		for h in dict.keys():
+			var eslesme := String(Omurga.yuz_eslemesi().get(h, ""))
+			if eslesme == hat:
+				hat = h
+				break
+	if not dict.has(hat): return ""
+	var selamlari: Dictionary = dict[hat]
+	return String(selamlari.get(gecmis_id, selamlari.get("eski_levent", "")))
+
+## OMR-50: Oyun tohumu (RNG) hat yüzlerinin geliş gecesini dalga içinde kaydırır; dalga dışına çıkaramaz.
+static func tohumlu_yuz_gecesi(tohum: int, dalga_no: int, hedef_gece: int = 12) -> int:
+	var sinirlar := Omurga.dalga_sinirlari(hedef_gece)
+	var baslangic := 0
+	var bitis := int(sinirlar.dalga_1_bitis) - 1
+	if dalga_no == 2:
+		baslangic = int(sinirlar.dalga_1_bitis)
+		bitis = int(sinirlar.dalga_2_bitis) - 1
+	elif dalga_no == 3:
+		baslangic = int(sinirlar.dalga_2_bitis)
+		bitis = int(sinirlar.hedef_gece) - 1
+	var aralik: int = maxi(1, bitis - baslangic + 1)
+	var rng: int = int((abs(tohum) * 1103515245 + 12345 + dalga_no * 31) & 0x7fffffff)
+	var ofset: int = rng % aralik
+	return baslangic + ofset
+
+

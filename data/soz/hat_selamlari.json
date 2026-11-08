@@ -1,0 +1,32 @@
+{
+  "sancak": {
+    "eski_levent": "Selam olsun levent muhafız, sancağın buyruğu hisarın kalesine erişti.",
+    "ahi_ciragi": "Selam sana ahi ocağında yetişen muhafız, beyimizin fermanı kapına dayandı.",
+    "medrese_talebesi": "Kelamın kadrini bilen kâtip muhafız, sancağın mührünü getirdim.",
+    "coban_oglu": "Dağın kurdunu tanıyan muhafız, sancak beyinin buyruğu kapındadır."
+  },
+  "tekfur": {
+    "eski_levent": "Kılıç çeken levent bilesin ki Tekfur efendimiz sınır boyunda intizam ister.",
+    "ahi_ciragi": "Tezgâhtan kapıya çıkan usta, Tekfur efendimiz kervan hakkını ve haracı bekler.",
+    "medrese_talebesi": "Kitap ehli muhafız, Tekfur efendimizin adalet şartını arz etmeye geldim.",
+    "coban_oglu": "Toprağın eri muhafız, Tekfur efendimizin fermanına kulak veresin."
+  },
+  "mogol": {
+    "eski_levent": "Engin sulardan gelen levent, Noyanımızın dumanı dağları sardı.",
+    "ahi_ciragi": "Demir döven usta, ordumuzun pusatı karşısında duracak güç yoktur.",
+    "medrese_talebesi": "Yazıyı bilen kulak, Hanımızın buyruğunu dinle ve canını kurtar.",
+    "coban_oglu": "Sürüsünü koruyan bekçi, bozkırın asıl sahipleri kapına vardı."
+  },
+  "oba": {
+    "eski_levent": "Selam sana deniz ardı yoldaş, Ertuğrul obasının selamını getirdim.",
+    "ahi_ciragi": "Selam ahi yoldaşı, obamızın tezgâhı ile köyünüzün ocağı bir olsun.",
+    "medrese_talebesi": "Hayırlı nöbetler ilim ehli kardeş, obamızın kelamı seninledir.",
+    "coban_oglu": "Kutlu olsun günün yayla yoldaşı, obamızın atları kapında dinlenir."
+  },
+  "ahi": {
+    "eski_levent": "Pusatını adalete bağlayan levent kardeş, Ahi Evran selamıyla geldik.",
+    "ahi_ciragi": "Tuz ekmek hakkını bilen ahi çırağı, tezgâhımızın bereketi köye yayılsın.",
+    "medrese_talebesi": "Hikmet sahibi muhafız, loncamızın nizamını kasabaya taşımaya geldik.",
+    "coban_oglu": "Alın teriyle ekmeğini bölen çoban eri, kethüdamız sana selam eder."
+  }
+}

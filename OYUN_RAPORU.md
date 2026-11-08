@@ -1,3 +1,15 @@
+## 8 Kasım 2026 — DEN-68, DEN-74, OGR-14, OGR-31, OMR-44, OMR-49 ve OMR-50 tamamlandı (Antigravity)
+
+- DEN-68: 	ests/unit/denge/zorluk_test.gd güncellendi; kolay zorlukta ilk 10 günde odun rezervi bitmez (odun dibi 0 değil, sonsuz da değil).
+- DEN-74: src/sistemler/denge_olcumu.gd ve 	ests/unit/denge/denge_olcumu_test.gd güncellendi; iflas (EKO-10) ve yıkım ayrı sayılır, iflas bir son değildir ve beş son dağılımına 6. son olarak karışmaz (iflas_son_sayilir_mi == false, son_veya_surum_coz).
+- OGR-14: src/kapi/defter_tanitimi.gd oluşturuldu; beyan defteri ilk çelişkide tanıtılır, çelişki görülene kadar veya kademeli HUD kapalı değilse kapıdaki defter düğmesi görünmez (celiski_goruldu_mu, celiski_kaydet, dugme_gorunur_mu, ipucu_ver).
+- OGR-31: src/sistemler/ilk_saat.gd güncellendi; ilk kötü kararın (DYL-08) sabah raporunda bir açıklama satırı alması (ilk_kotu_karar_satiri) ve yalnızca bir kez hatırlatma verilmesi bağlandı.
+- OMR-44: src/koy/meclis_sesi.gd güncellendi; Çınar meclisi Perde 2'de kriz olmasa bile hafta başında toplanır (Takvim.hafta_basi), dış hat konusu varsa köy şikayeti yerine dış hat konusu açılır.
+- OMR-49: data/soz/hat_selamlari.json oluşturuldu ve src/sistemler/dis_hat_kapisi.gd içine hat_selami eklendi; muhafızın geçmişi hat yüzlerinin ilk cümlesini değiştirir (5 yüz × 4 geçmiş = 20 selam satırı).
+- OMR-50: src/sistemler/dis_hat_kapisi.gd içine 	ohumlu_yuz_gecesi eklendi; oyun tohumu (RNG) dalga sınırları içinde kalarak hat yüzlerinin geliş gecesini belirler, dalga dışına çıkamaz.
+- Testler: 	ests/unit/sistemler/omurga_test.gd, 	ests/unit/sistemler/ilk_saat_test.gd, 	ests/unit/denge/zorluk_test.gd, 	ests/unit/denge/denge_olcumu_test.gd, python tests/tools/test_omurga.py (hepsi 0 hata ile GEÇTİ).
+Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — OMR-19, OMR-20, OMR-23, OMR-24, OMR-25, OMR-26, OMR-29, OMR-30, OMR-32, OMR-36, OMR-37 ve OMR-38 tamamlandı (Antigravity)
 
 - `OMR-19` ve `OMR-20`: `src/sistemler/dis_hat_kapisi.gd` güncellendi; Moğol hattı 3 adım (duman -> haber -> öncü) dalga 1/2/3 sırasına bağlandı, adım atlanırsa sonraki tetiklenmez. Tekfur hattı 3 adım (elçi -> haraç -> heyet) sırasına bağlandı, elçi gelmeden haraç talebi 0'dır.

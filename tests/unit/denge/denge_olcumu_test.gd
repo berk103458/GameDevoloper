@@ -113,6 +113,14 @@ func _initialize() -> void:
 		dene(bool(sapma.get("sapma_var", false)) and not bool(sapma.get("tablo_degisti", true)), "DEN-80: aralık dışı ölçüm sapma raporu yazar")
 		dene(denge_bayt_once == denge_bayt_sonra, "DEN-80: sapmalı koşuda denge.json dosya baytı aynıdır")
 
+		# DEN-74: İflas ve yıkım ayrı sayılır. EKO-10 iflası bir son değildir, son dağılımına karışmaz.
+		dene(not DENGE_OLCUMU.iflas_son_sayilir_mi(), "DEN-74: iflas bir nihai son değildir")
+		var iflas_cozum := DENGE_OLCUMU.son_veya_surum_coz("uc_tutundu", true)
+		dene(bool(iflas_cozum.get("iflas_ayri", false)) and String(iflas_cozum.get("son_kimligi", "")) == "uc_tutundu", "DEN-74: iflaslı oyunda son kimliği beş sondan biridir")
+		dene(bool(iflas_cozum.get("son_dagilimina_dahil", false)), "DEN-74: beş son dağılımı iflas olmadan kendi kimliğiyle kalır")
+		var iflas_tek := DENGE_OLCUMU.son_veya_surum_coz("iflas", true)
+		dene(not bool(iflas_tek.get("son_dagilimina_dahil", true)), "DEN-74: iflas son dağılımına 6. son olarak karışmaz")
+
 	else:
 		push_error("Katalog yüklenemedi")
 		_hata += 1

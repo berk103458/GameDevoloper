@@ -335,3 +335,28 @@ func yukle(veri: Dictionary) -> bool:
 			if not s.is_empty():
 				_gorulen[s] = true
 	return true
+
+
+const META_KOTU_DONUS := &"ilk_kotu_karar_satiri_gosterildi"
+
+
+## OGR-31: Oyuncunun ilk reddi ya da kabulü kötü sonuç verince (DYL-08 kararın dönüşü)
+## sabah raporunda bir satır bağlantı kurar: "Üç gece önce kapıda …". Ders değil, hatırlatma.
+static func ilk_kotu_karar_satiri(o: Oturum, donus: Dictionary, gun_farki: int = 3) -> String:
+	if o == null or donus.is_empty():
+		return ""
+	if bool(o.get_meta(META_KOTU_DONUS, false)):
+		return ""
+	var olumsuz := false
+	if int(donus.get("deger", 0)) < 0 or int(donus.get("moral_etkisi", 0)) < 0:
+		olumsuz = true
+	elif String(donus.get("tur", "")).contains("kaybi") or String(donus.get("tur", "")).contains("kotu") or bool(donus.get("olumsuz", false)):
+		olumsuz = true
+	if not olumsuz:
+		return ""
+	o.set_meta(META_KOTU_DONUS, true)
+	var gece_metni := "%d gece önce" % gun_farki
+	var kalip := TranslationServer.translate("ogretici.sabah.ilk_kotu_karar")
+	if kalip == "ogretici.sabah.ilk_kotu_karar" or kalip.is_empty():
+		kalip = "%s kapıda verdiğin kararın sonucu köye ulaştı."
+	return kalip % gece_metni

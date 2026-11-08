@@ -3786,7 +3786,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ZAR-01, DEN-65. Boyut: S.
   - Dosya: `tests/unit/denge/zorluk_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-68:** Kolay, ilk 10 günde odun bitirmez.
+- [x] **DEN-68:** Kolay, ilk 10 günde odun bitirmez. (Antigravity)
   - Ne: DEN-10 koşulu kolayda da 0'dır. Kolay, odunu sonsuz yapmaz.
   - Kabul: DEN-10 koşulu kolayda da 0'dır. Kolay, odunu sonsuz yapmaz. Test: 10 gece, odun dibi 0 değil.
   - Bağımlılık: DEN-10, DEN-65. Boyut: S.
@@ -3826,7 +3826,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: SYS-20, DEN-01. Boyut: M.
   - Dosya: `data/ayarlar/denge.json` `son_aralik`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-74:** İflas ve yıkım ayrı sayılır.
+- [x] **DEN-74:** İflas ve yıkım ayrı sayılır. (Antigravity)
   - Ne: EKO-10 iflası bir son değildir. Son dağılımına karışmaz.
   - Kabul: EKO-10 iflası bir son değildir. Son dağılımına karışmaz. Test: iflaslı oyun, son kimliği hâlâ beşten biridir veya oyun sürmektedir.
   - Bağımlılık: EKO-10, DEN-73. Boyut: S.
@@ -3971,7 +3971,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: DIY-04, ACL-04. Boyut: S.
   - Dosya: Söz veri dosyası (DIY-02 şeması) `gece_min` alanı; ilk aile dosyası YAZ-05 pilotunda.
   - Asset: asset gerekmedi.
-- [ ] **OGR-14:** Beyan defteri ilk çelişkide tanıtılır.
+- [x] **OGR-14:** Beyan defteri ilk çelişkide tanıtılır. (Antigravity)
   - Ne: beyan defteri (DIY-07) ilk kez bir karakter kendi sözüyle çelişince açılır; o ana kadar HUD'da düğmesi görünmez.
   - Kabul: ilk çelişki öncesi defter düğmesi 0; sonrası 1 ve ipucu bir kez. Test: çelişkisiz üç ziyaret sonrası düğme 0.
   - Bağımlılık: DIY-07, DIY-08, OGR-07. Boyut: S.
@@ -4083,7 +4083,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
 
 ### 33.6 İlk başarısızlık ve kurtarma
 
-- [ ] **OGR-31:** İlk kötü karar bir açıklama satırı alır.
+- [x] **OGR-31:** İlk kötü karar bir açıklama satırı alır. (Antigravity)
   - Ne: oyuncunun ilk reddi ya da kabulü kötü sonuç verince (DYL-08 kararın dönüşü) sabah raporunda bir satır bağlantı kurar: "Üç gece önce kapıda …". Ders değil, hatırlatma.
   - Kabul: ilk olumsuz dönüşte satır bir kez. Test: dönüş olmayan kayıtta 0.
   - Bağımlılık: DYL-08. Boyut: S.
@@ -4561,7 +4561,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: DEN-05. Boyut: S.
   - Dosya: `tools/python_test_runner.py`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-44:** Çınar meclisi perde 2'de her hafta toplanır.
+- [x] **OMR-44:** Çınar meclisi perde 2'de her hafta toplanır. (Antigravity)
   - Ne: MCL-05 "her gece açılmaz" kuralına perde 2 istisnası: `takvim.hafta_basi` gecelerinde meclis açılır ve dış hat konusu konuşulur.
   - Kabul: perde 2 hafta başı meclis 1. Test: 12 gece. Ek şart: Aynı gecede köy şikâyeti ile dış hat konusu birlikte açılmaz; dış hat varsa konuşulan konu odur.
   - Bağımlılık: MCL-05, OMR-04. Boyut: S.
@@ -4594,13 +4594,13 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-47. Boyut: S.
   - Dosya: `src/arayuz/oda_gidisat_paneli.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-49:** Muhafızın geçmişi hat yüzlerinin ilk cümlesini değiştirir.
+- [x] **OMR-49:** Muhafızın geçmişi hat yüzlerinin ilk cümlesini değiştirir. (Antigravity)
   - Ne: ACL-06 geçmişine göre ulak, elçi ve Aydoğdu ilk selamı farklı verir (DIY-04 selam). Beş yüz × geçmiş sayısı kadar selam satırı.
   - Kabul: iki geçmişle selam farkı ≥ 1. Test: Söz dosyası.
   - Bağımlılık: ACL-06, DIY-04. Boyut: S.
   - Dosya: Söz dosyaları.
   - Asset: asset gerekmedi.
-- [ ] **OMR-50:** Tohum ve omurga.
+- [x] **OMR-50:** Tohum ve omurga. (Antigravity)
   - Ne: oyun tohumu (RNG) hat yüzlerinin geliş gecesini dalga içinde kaydırır; dalga dışına çıkaramaz.
   - Kabul: 20 tohumda yüz gecesi dalga sınırı içinde. Test: runner.
   - Bağımlılık: OMR-05. Boyut: S.

@@ -147,6 +147,28 @@ func _initialize() -> void:
 	var insan_plan := dis_hat.oncu_haber_planla(o_insan, "mogol", 6, 1)
 	_kontrol(int(insan_plan["yazili_satir"]) == 0, "OMR-37: ziyaretçi haberi söylediyse yazılı satır 0 olmalı")
 
+	# OMR-44: Çınar meclisi Perde 2'de hafta başı toplanır; dış hat konusu varsa köy şikayeti yerine dış hat konuşulur
+	var meclis_sesi := preload("res://src/koy/meclis_sesi.gd")
+	var p2_acik_hafta := meclis_sesi.meclis_acik_mi(7, false, 2, 7)
+	var p2_kapali_hafta_disi := meclis_sesi.meclis_acik_mi(8, false, 2, 7)
+	_kontrol(p2_acik_hafta and not p2_kapali_hafta_disi, "OMR-44: perde 2'de kriz olmasa da hafta başı meclis 1, hafta dışı 0")
+	var konu_dis_hat := meclis_sesi.meclis_konusu(o_son.yonetim, "mogol_oncusu")
+	var konu_varsayilan := meclis_sesi.meclis_konusu(o_son.yonetim, "")
+	_kontrol(konu_dis_hat == "mogol_oncusu" and konu_varsayilan == "koy_sikayeti", "OMR-44: dış hat varsa konuşulan konu odur, aynı gece ikisi birlikte açılmaz")
+
+	# OMR-49: Muhafızın geçmişi hat yüzlerinin ilk cümlesini değiştirir (iki geçmişle selam farkı >= 1)
+	for yuz in ["sancak", "tekfur", "mogol", "oba", "ahi"]:
+		var selam_levent := dis_hat.hat_selami(yuz, "eski_levent")
+		var selam_katip := dis_hat.hat_selami(yuz, "medrese_talebesi")
+		_kontrol(not selam_levent.is_empty() and not selam_katip.is_empty() and selam_levent != selam_katip, "OMR-49: %s yüzünde levent ve kâtip selamı farklıdır" % yuz)
+
+	# OMR-50: Tohum ve omurga (20 tohumda yüz gecesi daima dalga sınırı içindedir)
+	for d in [1, 2, 3]:
+		for t in 20:
+			var tohum := 1000 + t * 37
+			var gece := dis_hat.tohumlu_yuz_gecesi(tohum, d, 12)
+			_kontrol(OmurgaSinifi.dalga(gece, 12) == d, "OMR-50: tohum %d için dalga %d gecesi (%d) dalga sınırları içindedir" % [tohum, d, gece])
+
 	if _hata == 0:
 		print("OMURGA: GEÇTİ (0 hata)")
 	else:

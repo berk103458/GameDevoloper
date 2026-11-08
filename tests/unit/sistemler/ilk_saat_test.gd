@@ -236,6 +236,27 @@ func _initialize() -> void:
 				gosterilen += 1
 	_kontrol(gosterilen == ilk.kavram_sayisi(), "Dosyadaki kavram sayisi ile ilk alti gecede gosterilen ipucu sayisi esit olmali")
 
+	# OGR-14: Beyan defteri ilk celiskide tanitilir; kademeli HUD kapaliyken dogrudan acik
+	var defter_tanitimi := preload("res://src/kapi/defter_tanitimi.gd")
+	var defter_oturum := Oturum.new(kat, 1)
+	_kontrol(not defter_tanitimi.celiski_goruldu_mu(defter_oturum), "OGR-14: baslangicta celiski gorulmemis olmali")
+	_kontrol(not defter_tanitimi.dugme_gorunur_mu(defter_oturum, true), "OGR-14: kademeli hud acikken baslangicta defter dugmesi gorunmemeli")
+	_kontrol(defter_tanitimi.dugme_gorunur_mu(defter_oturum, false), "OGR-14: kademeli hud kapaliyken defter dugmesi gorunmeli")
+	defter_tanitimi.celiski_kaydet(defter_oturum)
+	_kontrol(defter_tanitimi.celiski_goruldu_mu(defter_oturum), "OGR-14: kayit sonrasi celiski goruldu olmali")
+	_kontrol(defter_tanitimi.dugme_gorunur_mu(defter_oturum, true), "OGR-14: ilk celiskiden sonra defter dugmesi gorunmeli")
+	var ipucu_res: Dictionary = defter_tanitimi.ipucu_ver(defter_oturum)
+	_kontrol(bool(ipucu_res.get("ipucu_goster", false)), "OGR-14: ilk celiskide ipucu verilmeli")
+	var ipucu_tekrar: Dictionary = defter_tanitimi.ipucu_ver(defter_oturum)
+	_kontrol(not bool(ipucu_tekrar.get("ipucu_goster", true)), "OGR-14: ipucu yalniz bir kez verilmeli")
+
+	# OGR-31: Ilk kotu karar bir aciklama satiri alir
+	var kotu_oturum := Oturum.new(kat, 1)
+	var aciklama_ilk := IlkSaatSinifi.ilk_kotu_karar_satiri(kotu_oturum, {"deger": -5, "tur": "kaybi"}, 3)
+	_kontrol(not aciklama_ilk.is_empty() and aciklama_ilk.contains("3 gece önce"), "OGR-31: ilk kotu donus bir aciklama satiri almali")
+	var aciklama_tekrar := IlkSaatSinifi.ilk_kotu_karar_satiri(kotu_oturum, {"deger": -10, "tur": "kaybi"}, 2)
+	_kontrol(aciklama_tekrar.is_empty(), "OGR-31: kotu karar aciklamasi yalniz ilk sefer verilmeli")
+
 	if _hata == 0:
 		print("ILK SAAT: GEÇTİ (0 hata)")
 	else:
