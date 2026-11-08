@@ -30,4 +30,11 @@ Hata kopyayı keser. Uyarı kesmez.
 
 KLT-19 kapsamında K6 ses turu açılmaz. Kör okumadaki ağız karşılaştırması metin üzerinden yapılır. Ses dosyası veya seslendirme bu yazım denetiminin girdisi değildir.
 
+## Tester turunda diyalog kabulü
+
+Tur raporunda diyalog kutusunu yalnız `python -B tools/soz_kapi.py --paket <paket>` çıkış kodu 0 ise işaretle. Yazım kapısı hata verirse rapora hata sayısını ve paket yolunu yaz. Oyun testleri geçmiş olsa bile diyalog kutusu açık kalır.
+
+- [x] Oyun testleri geçti.
+- [ ] Diyalog geçti. Yazım kapısı çıkış 1, yasak kalıp.
+
 Kapı Godot başlatmaz, `user://` yazmaz, `data/soz` dosyası silmez. Red listesi ayrı `red/` klasörüne yazılır.

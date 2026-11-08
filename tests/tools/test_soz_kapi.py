@@ -27,6 +27,22 @@ KOR = [{"id": "ornek", "skor": 0.9, "agiz": 3}]
 
 
 class SozKapiTest(unittest.TestCase):
+    def test_kirmizi_yazim_kapisi_tur_diyalog_kutusunu_acik_birakir(self):
+        paket = _temiz_paket()
+        paket["satirlar"][0]["metin"] = "Kaldı; bekler."
+        with tempfile.TemporaryDirectory() as klasor:
+            yol = Path(klasor) / "paket.json"
+            yol.write_text(json.dumps(paket), encoding="utf-8")
+            sonuc = subprocess.run(
+                [sys.executable, "-B", str(ROOT / "tools" / "soz_kapi.py"), "--paket", str(yol)],
+                capture_output=True, text=True, encoding="utf-8", timeout=15,
+            )
+        self.assertEqual(sonuc.returncode, 1)
+        self.assertIn("hata=1", sonuc.stdout)
+        sablon = (ROOT / "docs" / "soz" / "HAT.md").read_text(encoding="utf-8")
+        self.assertIn("- [x] Oyun testleri geçti.", sablon)
+        self.assertIn("- [ ] Diyalog geçti. Yazım kapısı çıkış 1", sablon)
+
     def test_yazim_kapisinda_ses_turu_yok(self):
         paket = _temiz_paket()
         sonuc = denetle(paket, KOR)
