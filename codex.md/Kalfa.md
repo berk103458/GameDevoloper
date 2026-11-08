@@ -1,3 +1,7 @@
+## 8 Kasım 2026 — KLT-60 alındı (Kalfa)
+
+Full pull sonrası yazım denetimi kırmızı olan tester turunun diyalog kutusunun açık kalması belgelenecek ve örnek komutla doğrulanacak. Asset gerekmedi. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-19 tamamlandı (Kalfa)
 
 Yazım kapısının ses dosyası veya seslendirme girdisi açmadığı kaynak taraması ve eksik dosya yolu içeren paketle doğrulandı. K6 sınırı Söz hattına yazıldı. 27 hedefli Python testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

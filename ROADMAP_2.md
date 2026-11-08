@@ -6548,7 +6548,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: TST-0006. Boyut: S.
   - Dosya: `docs/tester/`
   - Asset: asset gerekmedi.
-- [ ] **KLT-60:** Kapı kırmızıysa tur diyaloğu geçti sayılmaz
+- [/] **KLT-60:** Kapı kırmızıysa tur diyaloğu geçti sayılmaz (Kalfa)
   - Ne: Kapı kırmızıysa tur diyaloğu geçti sayılmaz. Sanity yeşil olsa da kapı kırmızıysa diyalog kutusu açık kalır.
   - Kabul: Kutu açık. Test: örnek.
   - Bağımlılık: KLT-04. Boyut: S.
