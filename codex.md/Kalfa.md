@@ -1,3 +1,7 @@
+## 8 Kasım 2026 — KLT-20 alındı (Kalfa)
+
+Full pull sonrası yazım kapısı mevcut kadro sır kotasını okuyacak. Asset gerekmedi. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-60 tamamlandı (Kalfa)
 
 Tester turu için örnek raporda oyun testi ve diyalog kabulü ayrıldı. Gerçek yazım komutu yasak kalıpta çıkış 1 ve tek hata verdi. Örnek turda oyun testi işaretli kalırken diyalog kutusu açık. 28 hedefli Python testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
