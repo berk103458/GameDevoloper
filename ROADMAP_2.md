@@ -6415,7 +6415,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `metinler.csv`.
   - Asset: asset gerekmedi.
-- [/] **KLT-12:** `ogretici.` uzunluk kuralı (OGR-08) kapıdadır. (Kalfa)
+- [x] **KLT-12:** `ogretici.` uzunluk kuralı (OGR-08) kapıdadır. (Kalfa)
   - Ne: `ogretici.*` ≤ 90 karakter; `soz_kapi.py` bunu `metin_dogrula` ile paylaşır, ikinci limit yazılmaz.
   - Kabul: 91 karakter 1 hata. Test: fixtures.
   - Bağımlılık: OGR-08. Boyut: S.

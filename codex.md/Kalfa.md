@@ -1,3 +1,7 @@
+## 8 Kasım 2026 — KLT-12 tamamlandı (Kalfa)
+
+CSV ve yazım kapısı aynı OGR-08 öğretici uzunluk kuralını çağırır. Öğretici satırı 90 karakterde geçer, 91 karakterde tek hata verir. Söz motoru beklemede. 25 yazım kapısı, 21 metin denetimi testi ve gerçek metin CSV kontrolü geçti. Betik doğrudan ve Python modülü olarak açıldı. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-12 alındı (Kalfa)
 
 Full pull sonrası OGR-08 öğretici metin uzunluk kuralı mevcut yazım denetimine bağlanacak. Asset gerekmedi. kota görünmüyor.
