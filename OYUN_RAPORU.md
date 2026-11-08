@@ -16,6 +16,10 @@ eden_yola_dustun), gece_min >= 1 olan konular sonraki ziyaretlerde açılır.
 - Testler: 	ests/unit/denge/denge_olcumu_test.gd, 	ests/unit/soz/konu_merkezi_test.gd, 	ests/unit/denge/rusvet_test.gd, python tests/tools/test_denge_dogrula.py (hepsi 0 hata ile GEÇTİ).
 Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
 
+## 8 Kasım 2026 — KLT-64 tamamlandı (Kalfa)
+
+Yazım kapısının paket raporuna toplam, sır ve dinleyici sütunları eklendi. Rapor ile sır eşiği aynı sayımı kullanıyor. Dört kişilik gerçek komut örneğinde bir sır ve iki dinleyici ayrı sütunlarda çıktı, paket kabul edildi. 30 yazım kapısı testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-20 tamamlandı (Kalfa)
 
 Yazım kapısı sır çekirdeği sınırını mevcut kadro_ozgunluk.json dosyasından okur. Sır ve başkasının sırrı etiketleri birlikte sayılır. Koruma yalanı ile dinlenmek isteyen ayrı kalır. Mevcut %50 sınırı geçerli, %100 sır kadrosu tek KLT-20 hatası üretir. Okunamayan veya geçersiz kota red verir. 29 yazım kapısı ve 2 kadro denetimi testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

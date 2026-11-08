@@ -143,6 +143,19 @@ class SozKapiTest(unittest.TestCase):
         hatalar, _ = denetle(_temiz_paket(), [])
         self.assertTrue(any(h["kod"] == "KLT-05" for h in hatalar))
 
+    def test_dinleyici_kotasi_ayri_sutundur(self):
+        paket = _temiz_paket()
+        paket["cekirdekler"] = ["dinlenmek_isteyen", "dinlenmek_isteyen", "baskasinin_sirri", "durust"]
+        with tempfile.TemporaryDirectory() as klasor:
+            yol = Path(klasor) / "paket.json"
+            yol.write_text(json.dumps(paket), encoding="utf-8")
+            sonuc = subprocess.run(
+                [sys.executable, "-B", str(ROOT / "tools" / "soz_kapi.py"), "--paket", str(yol)],
+                capture_output=True, text=True, encoding="utf-8", timeout=15,
+            )
+        self.assertEqual(sonuc.returncode, 0)
+        self.assertEqual(sonuc.stdout.splitlines()[-2:], ["toplam\tsır\tdinleyici", "4\t1\t2"])
+
     def test_yaz09_sir_kotasi(self):
         paket = _temiz_paket()
         paket["cekirdekler"] = ["baskasinin_sirri", "sir"]

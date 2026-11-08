@@ -1,3 +1,7 @@
+## 8 Kasım 2026 — KLT-64 tamamlandı (Kalfa)
+
+Yazım kapısının paket raporuna toplam, sır ve dinleyici sütunları eklendi. Rapor ile sır eşiği aynı sayımı kullanıyor. Dört kişilik gerçek komut örneğinde bir sır ve iki dinleyici ayrı sütunlarda çıktı, paket kabul edildi. 30 yazım kapısı testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-64 alındı (Kalfa)
 
 Full pull sonrası yazım kapısı raporunda dinleyici ve sır çekirdeği ayrı sütunlarda gösterilecek. Asset gerekmedi. kota görünmüyor.

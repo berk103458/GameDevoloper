@@ -6570,7 +6570,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Dosya: —.
   - Asset: asset gerekmedi.
 
-- [/] **KLT-64:** Dinleyici kotası ayrı sütundur (Kalfa)
+- [x] **KLT-64:** Dinleyici kotası ayrı sütundur (Kalfa)
   - Ne: Dinleyici kotası ayrı sütundur. Sır ile toplanmaz.
   - Kabul: Tek sütun 0. Test: rapor.
   - Bağımlılık: YAZ-09. Boyut: S.

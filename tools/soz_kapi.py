@@ -87,14 +87,22 @@ def denetle(paket: dict, kor_satirlari: list[dict] | None = None) -> tuple[list[
     cekirdek = [str(c) for c in paket.get("cekirdekler", [])]
     if cekirdek and sum(c == "dedikodu" for c in cekirdek) / len(cekirdek) > KOTA_DEDIKODU:
         hatalar.append({"tur": "hata", "kod": "KLT-06", "mesaj": "dedikodu kotasi"})
-    if cekirdek and (sir_hatasi := _sir_kotasi_hatasi(cekirdek)):
+    if cekirdek and (sir_hatasi := _sir_kotasi_hatasi(_cekirdek_kota_sayimi(cekirdek))):
         hatalar.append({"tur": "hata", "kod": "KLT-20", "mesaj": sir_hatasi})
     hatalar.extend(_satir_hatalari(paket))
     uyarilar.extend(_satir_uyarilari(paket))
     return hatalar, uyarilar
 
 
-def _sir_kotasi_hatasi(cekirdekler: list[str]) -> str | None:
+def _cekirdek_kota_sayimi(cekirdekler: list[str]) -> dict[str, int]:
+    return {
+        "toplam": len(cekirdekler),
+        "sir": sum(c in {"sir", "baskasinin_sirri"} for c in cekirdekler),
+        "dinleyici": cekirdekler.count("dinlenmek_isteyen"),
+    }
+
+
+def _sir_kotasi_hatasi(sayim: dict[str, int]) -> str | None:
     try:
         veri = json.loads(KADRO_OZGUNLUK.read_text(encoding="utf-8"))
         tavan = veri["sir_cekirdegi_kotasi_yuzde_max"]
@@ -102,9 +110,10 @@ def _sir_kotasi_hatasi(cekirdekler: list[str]) -> str | None:
         return "Kadro sır kotası okunamadı"
     if type(tavan) is not int or not 0 <= tavan < 100:
         return "Kadro sır kotası 0–99 arasında tam sayı olmalı"
-    sir = sum(c in {"sir", "baskasinin_sirri"} for c in cekirdekler)
-    if sir * 100 > len(cekirdekler) * tavan:
-        return f"Sır çekirdeği kotası aşıldı ({sir}/{len(cekirdekler)}, en çok %{tavan})"
+    sir = sayim["sir"]
+    toplam = sayim["toplam"]
+    if sir * 100 > toplam * tavan:
+        return f"Sır çekirdeği kotası aşıldı ({sir}/{toplam}, en çok %{tavan})"
     return None
 
 
@@ -251,6 +260,9 @@ def main(argv: list[str] | None = None) -> int:
     if arg.hedef is None:
         hatalar, uyarilar = denetle(paket, _ornek_kor(str(paket.get("id", ""))))
         print("hata=%d uyari=%d" % (len(hatalar), len(uyarilar)))
+        sayim = _cekirdek_kota_sayimi([str(c) for c in paket.get("cekirdekler", [])])
+        print("toplam\tsır\tdinleyici")
+        print("\t".join(str(sayi) for sayi in sayim.values()))
         return 1 if hatalar else 0
     return 0 if kopyala(paket, arg.hedef, _ornek_kor(str(paket.get("id", "")))) == 1 else 1
 
