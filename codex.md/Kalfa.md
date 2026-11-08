@@ -1,3 +1,7 @@
+## 8 Kasım 2026 — KLT-73 tamamlandı (Kalfa)
+
+Bu çalışma turunun başlangıç commit’i b58a5078 ile son ağaç arasında assets/ses altında WAV sayısı 47 → 47. Yol listesi, dosya içeriği ve yerel WAV durumu farkı sıfır. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-73 alındı (Kalfa)
 
 Full pull sonrası WAV dosyaları bu turun başlangıç commit’i ile karşılaştırılacak. Asset gerekmedi. kota görünmüyor.

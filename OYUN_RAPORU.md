@@ -1,3 +1,7 @@
+## 8 Kasım 2026 — KLT-73 tamamlandı (Kalfa)
+
+Bu çalışma turunun başlangıç commit’i b58a5078 ile son ağaç arasında assets/ses altında WAV sayısı 47 → 47. Yol listesi, dosya içeriği ve yerel WAV durumu farkı sıfır. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-72 tamamlandı (Kalfa)
 
 Tüm src GDScript dosyalarındaki Söz motoru veya yürütücü sınıfı bildirimleri tarandı. Tek eşleşme src/soz/soz_motoru.gd içindeki mevcut SozMotoru. 32 yazım kapısı testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Söz motoru akışı değiştirilmedi. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

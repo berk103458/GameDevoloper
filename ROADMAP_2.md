@@ -6634,7 +6634,7 @@ Alt başlıklarda madde sayısı iki ile üç arasındadır; onuncu madde YAZ ve
   - Bağımlılık: DIY-02. Boyut: S.
   - Dosya: `src/soz/soz_motoru.gd`
   - Asset: asset gerekmedi.
-- [/] **KLT-73:** Wav eklenmez (Kalfa)
+- [x] **KLT-73:** Wav eklenmez (Kalfa)
   - Ne: Wav eklenmez. Sayı aynı.
   - Kabul: Sayım. Test: sayım.
   - Bağımlılık: KLT-19. Boyut: S.
