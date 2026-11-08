@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 
+from metin_dogrula import validate_text  # noqa: E402
 from soz_kapi import (  # noqa: E402
     denetle,
     godot_baslatir_mi,
@@ -26,6 +27,19 @@ KOR = [{"id": "ornek", "skor": 0.9, "agiz": 3}]
 
 
 class SozKapiTest(unittest.TestCase):
+    def test_ogretici_uzunlugu_csv_ile_ortak(self):
+        paket = _temiz_paket()
+        anahtar = "ogretici.test.ipucu"
+        for uzunluk in (90, 91):
+            with self.subTest(uzunluk=uzunluk):
+                metin = "a" * uzunluk
+                paket["satirlar"] = [{"anahtar": anahtar, "metin": metin, "agiz": "kitap"}]
+                hatalar, _ = denetle(paket, KOR)
+                kapi = [h["mesaj"] for h in hatalar if h["kod"] == "KLT-12"]
+                csv = validate_text(f"keys,tr\n{anahtar},{metin}\n")
+                self.assertEqual(kapi, [s.removeprefix("line 2: ") for s in csv])
+                self.assertEqual(len(kapi), int(uzunluk > 90))
+
     def test_onaysiz_kopya_yok(self):
         paket = _temiz_paket()
         paket["onay"] = ["anlati"]

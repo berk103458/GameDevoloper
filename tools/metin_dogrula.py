@@ -30,6 +30,15 @@ ESKI_IKI_PARCALI = frozenset(s.strip() for s in _ESKI.read_text(encoding="utf-8"
                              if s.strip() and not s.startswith("#")) if _ESKI.is_file() else frozenset()
 
 
+def ogretici_uzunluk_hatasi(anahtar: str, metin: str) -> str | None:
+    """OGR-08: CSV ve yazım kapısının ortak öğretici uzunluk kuralı."""
+    sinir = 90
+    uzunluk = len(metin.strip())
+    if anahtar.startswith("ogretici.") and uzunluk > sinir:
+        return f"OGR-08 ogretici.* text exceeds {sinir} chars ({uzunluk}): {anahtar!r}"
+    return None
+
+
 def validate_text(text: str) -> list[str]:
     """Return diagnostics without rewriting keys, translations or source files.
 
@@ -85,8 +94,8 @@ def validate_text(text: str) -> list[str]:
                     errors.append(f"line {line}: YER-17 character name {key!r} must match tr")
             if turkish is not None and turkish < len(row) and key.startswith("ogretici."):
                 tr_text = row[turkish].strip()
-                if len(tr_text) > 90:
-                    errors.append(f"line {line}: OGR-08 ogretici.* text exceeds 90 chars ({len(tr_text)}): {key!r}")
+                if hata := ogretici_uzunluk_hatasi(key, tr_text):
+                    errors.append(f"line {line}: {hata}")
                 if re.search(r"\bF1\b", tr_text, re.IGNORECASE):
                     errors.append(f"line {line}: OGR-55 ogretici.* text must not mention F1/Admin HUD: {key!r}")
     except csv.Error as exc:

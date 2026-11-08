@@ -11,6 +11,11 @@ import re
 import sys
 from pathlib import Path
 
+if __package__:
+    from .metin_dogrula import ogretici_uzunluk_hatasi
+else:
+    from metin_dogrula import ogretici_uzunluk_hatasi
+
 ROOT = Path(__file__).resolve().parents[1]
 SIRA = ("kitap", "taslak", "yapaylik", "kor_okuma", "kota", "onay", "kopya")
 ONAY = ("anlati", "ahmet")
@@ -99,6 +104,8 @@ def _satir_hatalari(paket: dict) -> list[dict]:
         metin = str(satir.get("metin", ""))
         agiz = str(satir.get("agiz", ""))
         anahtar = str(satir.get("anahtar", ""))
+        if hata := ogretici_uzunluk_hatasi(anahtar, metin):
+            hatalar.append({"tur": "hata", "kod": "KLT-12", "mesaj": hata})
         if agiz != "kitap":
             if ";" in metin or re.search(r"değil,\s+\w", metin, re.I):
                 hatalar.append({"tur": "hata", "kod": "KLT-04", "mesaj": "yasak kalip"})

@@ -10,6 +10,11 @@
 - Testler: 	ests/unit/sistemler/omurga_test.gd, 	ests/unit/sistemler/ilk_saat_test.gd, 	ests/unit/denge/zorluk_test.gd, 	ests/unit/denge/denge_olcumu_test.gd, python tests/tools/test_omurga.py (hepsi 0 hata ile GEÇTİ).
 Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
 
+## 8 Kasım 2026 — KLT-12 tamamlandı (Kalfa)
+
+CSV ve yazım kapısı aynı OGR-08 öğretici uzunluk kuralını çağırır. Öğretici satırı 90 karakterde geçer, 91 karakterde tek hata verir. Söz motoru beklemede. 25 yazım kapısı, 21 metin denetimi testi ve gerçek metin CSV kontrolü geçti. Betik doğrudan ve Python modülü olarak açıldı. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+
 ## 8 Kasım 2026 — OMR-44 tamamlandı (Kalfa)
 
 Çınar meclisi gerçek ikinci perdede Takvim.hafta_basi günlerinde köy ekranında açılır ve toplantı bitene kadar gece hesabı bekler. Öncelikli güncel dış hat haberi mevcut HaberciAgi kaydından okunur. Haber yoksa dış ilişkiler gündemi açılır. O hafta başında yeni köy şikâyeti açılmaz ve mevcut kriz ertesi uygun günde yeniden değerlendirilebilir. Önceki günden kalmış açık oylama korunur. Tamamlanmış toplantının tarihi mevcut meclis kaydında tutulur. Asset gerekmedi.
