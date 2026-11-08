@@ -6557,7 +6557,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.8 Kapsam ve kota disiplini
 
-- [/] **KLT-20:** Her karakterin sırrı yoktur (YAZ-09). (Kalfa)
+- [x] **KLT-20:** Her karakterin sırrı yoktur (YAZ-09). (Kalfa)
   - Ne: kapı, kadroda sır çekirdeği kotasını okur; %100 sır red.
   - Kabul: kota aşımı 1 hata. Test: YAZ-09. Taşınan: KLT-61: Sır kotası yüzde yüzü reddeder.
   - Bağımlılık: YAZ-09. Boyut: S.
@@ -6570,7 +6570,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Dosya: —.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-64:** Dinleyici kotası ayrı sütundur
+- [/] **KLT-64:** Dinleyici kotası ayrı sütundur (Kalfa)
   - Ne: Dinleyici kotası ayrı sütundur. Sır ile toplanmaz.
   - Kabul: Tek sütun 0. Test: rapor.
   - Bağımlılık: YAZ-09. Boyut: S.

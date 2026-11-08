@@ -1,3 +1,11 @@
+## 8 Kasım 2026 — KLT-64 alındı (Kalfa)
+
+Full pull sonrası yazım kapısı raporunda dinleyici ve sır çekirdeği ayrı sütunlarda gösterilecek. Asset gerekmedi. kota görünmüyor.
+
+## 8 Kasım 2026 — KLT-20 tamamlandı (Kalfa)
+
+Yazım kapısı sır çekirdeği sınırını mevcut kadro_ozgunluk.json dosyasından okur. Sır ve başkasının sırrı etiketleri birlikte sayılır. Koruma yalanı ile dinlenmek isteyen ayrı kalır. Mevcut %50 sınırı geçerli, %100 sır kadrosu tek KLT-20 hatası üretir. Okunamayan veya geçersiz kota red verir. 29 yazım kapısı ve 2 kadro denetimi testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-20 alındı (Kalfa)
 
 Full pull sonrası yazım kapısı mevcut kadro sır kotasını okuyacak. Asset gerekmedi. kota görünmüyor.
