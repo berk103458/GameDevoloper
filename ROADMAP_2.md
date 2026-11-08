@@ -6455,7 +6455,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: DYL-14. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [/] **KLT-15:** DYL-12 son dağılımı yazım kapısı değildir. (Kalfa)
+- [x] **KLT-15:** DYL-12 son dağılımı yazım kapısı değildir. (Kalfa)
   - Ne: muhafız tipi tarama denge içindir (32); yazım hattını kilitlemez. Bu madde o taramayı buraya taşımaz.
   - Kabul: `soz_kapi.py` içinde son eşiği 0. Test: tarama.
   - Bağımlılık: DYL-12, DEN. Boyut: S.
@@ -6529,7 +6529,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ADM-16. Boyut: S.
   - Dosya: tester rapor şablonu (oyun deposu `docs/tester/`, bu klasörden yazılmaz — madde oraya işaret eder).
   - Asset: asset gerekmedi.
-- [ ] **KLT-19:** Ses testi yoktur.
+- [x] **KLT-19:** Ses testi yoktur. (Kalfa)
   - Ne: tester K6 (ses) ve R2 seslendirme yasağı; bu bölüm ses taraması açmaz.
   - Kabul: `soz_kapi.py` içinde ses kuralı 0. Test: tarama. Taşınan: KLT-58: Ses turu açılmaz.
   - Bağımlılık: yok. Boyut: S.
@@ -6548,7 +6548,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: TST-0006. Boyut: S.
   - Dosya: `docs/tester/`
   - Asset: asset gerekmedi.
-- [ ] **KLT-60:** Kapı kırmızıysa tur diyaloğu geçti sayılmaz
+- [x] **KLT-60:** Kapı kırmızıysa tur diyaloğu geçti sayılmaz (Kalfa)
   - Ne: Kapı kırmızıysa tur diyaloğu geçti sayılmaz. Sanity yeşil olsa da kapı kırmızıysa diyalog kutusu açık kalır.
   - Kabul: Kutu açık. Test: örnek.
   - Bağımlılık: KLT-04. Boyut: S.
@@ -6557,7 +6557,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.8 Kapsam ve kota disiplini
 
-- [ ] **KLT-20:** Her karakterin sırrı yoktur (YAZ-09).
+- [/] **KLT-20:** Her karakterin sırrı yoktur (YAZ-09). (Kalfa)
   - Ne: kapı, kadroda sır çekirdeği kotasını okur; %100 sır red.
   - Kabul: kota aşımı 1 hata. Test: YAZ-09. Taşınan: KLT-61: Sır kotası yüzde yüzü reddeder.
   - Bağımlılık: YAZ-09. Boyut: S.

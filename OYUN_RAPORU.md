@@ -16,6 +16,15 @@ eden_yola_dustun), gece_min >= 1 olan konular sonraki ziyaretlerde açılır.
 - Testler: 	ests/unit/denge/denge_olcumu_test.gd, 	ests/unit/soz/konu_merkezi_test.gd, 	ests/unit/denge/rusvet_test.gd, python tests/tools/test_denge_dogrula.py (hepsi 0 hata ile GEÇTİ).
 Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
 
+## 8 Kasım 2026 — KLT-60 tamamlandı (Kalfa)
+
+Tester turu için örnek raporda oyun testi ve diyalog kabulü ayrıldı. Gerçek yazım komutu yasak kalıpta çıkış 1 ve tek hata verdi. Örnek turda oyun testi işaretli kalırken diyalog kutusu açık. 28 hedefli Python testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 8 Kasım 2026 — KLT-19 tamamlandı (Kalfa)
+
+Yazım kapısının ses dosyası veya seslendirme girdisi açmadığı kaynak taraması ve eksik dosya yolu içeren paketle doğrulandı. K6 sınırı Söz hattına yazıldı. 27 hedefli Python testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+
 ## 8 Kasım 2026 — DEN-68, DEN-74, OGR-14, OGR-31, OMR-44, OMR-49 ve OMR-50 tamamlandı (Antigravity)
 
 - DEN-68: 	ests/unit/denge/zorluk_test.gd güncellendi; kolay zorlukta ilk 10 günde odun rezervi bitmez (odun dibi 0 değil, sonsuz da değil).
@@ -27,6 +36,10 @@ Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istis
 - OMR-50: src/sistemler/dis_hat_kapisi.gd içine 	ohumlu_yuz_gecesi eklendi; oyun tohumu (RNG) dalga sınırları içinde kalarak hat yüzlerinin geliş gecesini belirler, dalga dışına çıkamaz.
 - Testler: 	ests/unit/sistemler/omurga_test.gd, 	ests/unit/sistemler/ilk_saat_test.gd, 	ests/unit/denge/zorluk_test.gd, 	ests/unit/denge/denge_olcumu_test.gd, python tests/tools/test_omurga.py (hepsi 0 hata ile GEÇTİ).
 Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 8 Kasım 2026 — KLT-15 tamamlandı (Kalfa)
+
+Yazım denetimi muhafız personası ve beş sonun dağılımı eklenmiş pakette aynı sonucu verdi. Bütün sonuçların tek sona yığıldığı örnek paket geçici test hedefine kopyalandı. Yazım kapısında son dağılımı eşiği taraması sıfır. 26 yazım kapısı testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
 
 ## 8 Kasım 2026 — KLT-12 tamamlandı (Kalfa)
 

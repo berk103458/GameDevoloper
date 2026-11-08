@@ -1,3 +1,27 @@
+## 8 Kasım 2026 — KLT-20 alındı (Kalfa)
+
+Full pull sonrası yazım kapısı mevcut kadro sır kotasını okuyacak. Asset gerekmedi. kota görünmüyor.
+
+## 8 Kasım 2026 — KLT-60 tamamlandı (Kalfa)
+
+Tester turu için örnek raporda oyun testi ve diyalog kabulü ayrıldı. Gerçek yazım komutu yasak kalıpta çıkış 1 ve tek hata verdi. Örnek turda oyun testi işaretli kalırken diyalog kutusu açık. 28 hedefli Python testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 8 Kasım 2026 — KLT-60 alındı (Kalfa)
+
+Full pull sonrası yazım denetimi kırmızı olan tester turunun diyalog kutusunun açık kalması belgelenecek ve örnek komutla doğrulanacak. Asset gerekmedi. kota görünmüyor.
+
+## 8 Kasım 2026 — KLT-19 tamamlandı (Kalfa)
+
+Yazım kapısının ses dosyası veya seslendirme girdisi açmadığı kaynak taraması ve eksik dosya yolu içeren paketle doğrulandı. K6 sınırı Söz hattına yazıldı. 27 hedefli Python testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 8 Kasım 2026 — KLT-19 alındı (Kalfa)
+
+Full pull sonrası yazım denetiminin ses turu açmadığı doğrulanacak. Asset gerekmedi. kota görünmüyor.
+
+## 8 Kasım 2026 — KLT-15 tamamlandı (Kalfa)
+
+Yazım denetimi muhafız personası ve beş sonun dağılımı eklenmiş pakette aynı sonucu verdi. Bütün sonuçların tek sona yığıldığı örnek paket geçici test hedefine kopyalandı. Yazım kapısında son dağılımı eşiği taraması sıfır. 26 yazım kapısı testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-15 alındı (Kalfa)
 
 Full pull sonrası muhafız tipi son dağılımının yazım kapısından bağımsızlığı doğrulanacak. Asset gerekmedi. kota görünmüyor.

@@ -27,6 +27,44 @@ KOR = [{"id": "ornek", "skor": 0.9, "agiz": 3}]
 
 
 class SozKapiTest(unittest.TestCase):
+    def test_kirmizi_yazim_kapisi_tur_diyalog_kutusunu_acik_birakir(self):
+        paket = _temiz_paket()
+        paket["satirlar"][0]["metin"] = "Kaldı; bekler."
+        with tempfile.TemporaryDirectory() as klasor:
+            yol = Path(klasor) / "paket.json"
+            yol.write_text(json.dumps(paket), encoding="utf-8")
+            sonuc = subprocess.run(
+                [sys.executable, "-B", str(ROOT / "tools" / "soz_kapi.py"), "--paket", str(yol)],
+                capture_output=True, text=True, encoding="utf-8", timeout=15,
+            )
+        self.assertEqual(sonuc.returncode, 1)
+        self.assertIn("hata=1", sonuc.stdout)
+        sablon = (ROOT / "docs" / "soz" / "HAT.md").read_text(encoding="utf-8")
+        self.assertIn("- [x] Oyun testleri geçti.", sablon)
+        self.assertIn("- [ ] Diyalog geçti. Yazım kapısı çıkış 1", sablon)
+
+    def test_yazim_kapisinda_ses_turu_yok(self):
+        paket = _temiz_paket()
+        sonuc = denetle(paket, KOR)
+        paket["ses"] = "olmayan/klt19.wav"
+        paket["satirlar"][0]["ses"] = "olmayan/klt19.wav"
+        self.assertEqual(denetle(paket, KOR), sonuc)
+        kaynak = (ROOT / "tools" / "soz_kapi.py").read_text(encoding="utf-8")
+        self.assertNotRegex(kaynak, r"(?i)\.wav|\b(?:audio|wave|seslendirme)\b")
+
+    def test_dyl12_son_dagilimi_yazim_kapisini_etkilemez(self):
+        paket = _temiz_paket()
+        sonuc = denetle(paket, KOR)
+        self.assertEqual(sonuc, ([], []))
+        paket["persona"] = "rusvetci"
+        paket["son_dagilimi"] = {
+            "tekfur_haraccisi": 100, "ertugrul_obasi": 0, "beyin_uc_koyu": 0,
+            "ahi_kasabasi": 0, "uc_tutundu": 0,
+        }
+        self.assertEqual(denetle(paket, KOR), sonuc)
+        with tempfile.TemporaryDirectory() as klasor:
+            self.assertEqual(kopyala(paket, Path(klasor), KOR), 1)
+
     def test_ogretici_uzunlugu_csv_ile_ortak(self):
         paket = _temiz_paket()
         anahtar = "ogretici.test.ipucu"
