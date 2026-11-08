@@ -1,3 +1,7 @@
+## 8 Kasım 2026 — KLT-73 alındı (Kalfa)
+
+Full pull sonrası WAV dosyaları bu turun başlangıç commit’i ile karşılaştırılacak. Asset gerekmedi. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-72 tamamlandı (Kalfa)
 
 Tüm src GDScript dosyalarındaki Söz motoru veya yürütücü sınıfı bildirimleri tarandı. Tek eşleşme src/soz/soz_motoru.gd içindeki mevcut SozMotoru. 32 yazım kapısı testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Söz motoru akışı değiştirilmedi. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
