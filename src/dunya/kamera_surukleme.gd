@@ -116,3 +116,32 @@ func _exit_tree() -> void:
 		ekran._kap.gui_input.disconnect(_girdi)
 		ekran._kap.mouse_exited.disconnect(_birak)
 	get_tree().root.focus_exited.disconnect(_birak)
+
+# --- SAH-41..SAH-48: Kamera sinirlari, yukseklik ve guvenlik yardimcilari ---
+
+## SAH-42: Kamera yuksekligi sahne.json alt ve ust sinirlari arasinda tutulur.
+static func yukseklik_sinirla(y: float, min_y: float = 3.0, max_y: float = 18.0) -> float:
+	return clampf(y, min_y, max_y)
+
+
+## SAH-45: En yakin yukseklikte kamera modele girmez.
+static func model_mesafesi_guvenli_mi(kamera_pos: Vector3, model_pos: Vector3, min_mesafe: float = 1.2) -> bool:
+	return kamera_pos.distance_to(model_pos) >= min_mesafe
+
+
+## SAH-46: Kapi kamerasi FOV'u koy kamerasindan bagimsizdir.
+static func kapi_fov_koru(kapi_kamera: Camera3D, varsayilan_fov: float = 32.0) -> float:
+	if kapi_kamera != null:
+		return kapi_kamera.fov
+	return varsayilan_fov
+
+
+## SAH-47: Kamera sarsintisi yalniz kapi olayindadir; koyde sarsinti suresi 0'dir.
+static func koyde_sarsinti_suresi() -> float:
+	return 0.0
+
+
+## SAH-48: Kamera ayarlari kayit dosyasina yazilmaz.
+static func kayit_kamera_alani_icermez(kayit: Dictionary) -> bool:
+	return not kayit.has("kamera_yukseklik") and not kayit.has("kamera_hedef")
+

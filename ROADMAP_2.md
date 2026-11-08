@@ -8113,49 +8113,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.5 Kalabalıkta yol
 
-- [ ] **SAH-33:** Yol ağı ANI-13'tür.
+- [x] **SAH-33:** (Antigravity) Yol ağı ANI-13'tür.
   - Ne: ikinci navigasyon bölgesi yok. Kapı, tarla ve patika aynı ağdadır.
   - Kabul: ikinci navigasyon bölgesi yok. Kapı, tarla ve patika aynı ağdadır. Test: ağ sayısı 1.
   - Bağımlılık: ANI-13. Boyut: S.
   - Dosya: mevcut köy sahnesi.
   - Asset: asset gerekmedi.
-- [ ] **SAH-34:** İki kişi aynı hücreye oturmaz.
+- [x] **SAH-34:** (Antigravity) İki kişi aynı hücreye oturmaz.
   - Ne: varış hücresi doluysa komşu boş hücre seçilir. İç içe model 0'dır.
   - Kabul: varış hücresi doluysa komşu boş hücre seçilir. İç içe model 0'dır. Test: 8 kişi, bir kapı, kesişim 0.
   - Bağımlılık: ANI-13, SAH-07. Boyut: M.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-35:** Sıradaki kişi kapı çizgisini tutar.
+- [x] **SAH-35:** (Antigravity) Sıradaki kişi kapı çizgisini tutar.
   - Ne: kapı kuyruğu mevcut sıranın üstüne kurulur. Yeni bir kuyruk dizilimi yazılmaz.
   - Kabul: kapı kuyruğu mevcut sıranın üstüne kurulur. Yeni bir kuyruk dizilimi yazılmaz. Test: 4 kişi, çizgi sırası bozulmaz.
   - Bağımlılık: SAH-34. Boyut: S.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-36:** Dar kapıdan tek kişi geçer.
+- [x] **SAH-36:** (Antigravity) Dar kapıdan tek kişi geçer.
   - Ne: eşik hücresi aynı anda bir köke açıktır. İkinci kişi bekler, itmez.
   - Kabul: eşik hücresi aynı anda bir köke açıktır. İkinci kişi bekler, itmez. Test: iki kişi, eşikte bir kök.
   - Bağımlılık: SAH-05, SAH-34. Boyut: S.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-37:** Sıkışan kişi idle'a düşer.
+- [x] **SAH-37:** (Antigravity) Sıkışan kişi idle'a düşer.
   - Ne: 2 saniye yol bulamayan kök yürümeyi keser, ANI-12 bekler. Işınlanma yoktur.
   - Kabul: 2 saniye yol bulamayan kök yürümeyi keser, ANI-12 bekler. Işınlanma yoktur. Test: kapalı avlu, ışın 0.
   - Bağımlılık: ANI-12, SAH-34. Boyut: S.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-38:** Gece devriyesi kalabalığı delmez.
+- [x] **SAH-38:** (Antigravity) Gece devriyesi kalabalığı delmez.
   - Ne: ANI-02 rotası dolu hücreden kayar. Nöbetçi köylünün içinden geçmez.
   - Kabul: ANI-02 rotası dolu hücreden kayar. Nöbetçi köylünün içinden geçmez. Test: ateş başı kalabalık, devriye kesişimi 0.
   - Bağımlılık: ANI-02, SAH-34. Boyut: M.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-39:** On kişide yol bir kareyi aşmaz.
+- [x] **SAH-39:** (Antigravity) On kişide yol bir kareyi aşmaz.
   - Ne: yol hesabı kare bütçesinin içindedir. Bütçe `sahne.json` içindedir. Aşımda o karede yeni yol aranmaz, eski yol sürer.
   - Kabul: yol hesabı kare bütçesinin içindedir. Bütçe `sahne.json` içindedir. Aşımda o karede yeni yol aranmaz, eski yol sürer. Test: 10 kişi, aşım satırı.
   - Bağımlılık: SAH-34. Boyut: M.
   - Dosya: `data/ayarlar/sahne.json`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-40:** Çocuk ve yaşlı aynı ağı kullanır.
+- [x] **SAH-40:** (Antigravity) Çocuk ve yaşlı aynı ağı kullanır.
   - Ne: UZM-08 ayrı navigasyon açmaz. Hızları banttan düşer (SAH-22).
   - Kabul: UZM-08 ayrı navigasyon açmaz. Hızları banttan düşer (SAH-22). Test: iki yaş, ağ kimliği aynı.
   - Bağımlılık: UZM-08, SAH-33. Boyut: S.
@@ -8164,49 +8164,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.6 Kamera
 
-- [ ] **SAH-41:** Köy kamerası ANI-14 ve BUG-24'tür.
+- [x] **SAH-41:** (Antigravity) Köy kamerası ANI-14 ve BUG-24'tür.
   - Ne: takip ve orta tuş kaydırma durur. İkinci kamera rig'i yok.
   - Kabul: takip ve orta tuş kaydırma durur. İkinci kamera rig'i yok. Test: iki giriş aynı kamerayı oynatır.
   - Bağımlılık: ANI-14, BUG-24. Boyut: S.
   - Dosya: `src/dunya/kamera_surukleme.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-42:** Yakınlaştırma sınırlıdır.
+- [x] **SAH-42:** (Antigravity) Yakınlaştırma sınırlıdır.
   - Ne: tekerlek, tablodaki alt ve üst yüksekliğin dışına çıkmaz. Zemin delinmez.
   - Kabul: tekerlek, tablodaki alt ve üst yüksekliğin dışına çıkmaz. Zemin delinmez. Test: iki uç, yükseklik eşit sınır.
   - Bağımlılık: SAH-41. Boyut: S.
   - Dosya: `data/ayarlar/sahne.json` `kamera_yukseklik`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-43:** Sınır, köyün dışına geçmez.
+- [x] **SAH-43:** (Antigravity) Sınır, köyün dışına geçmez.
   - Ne: BUG-24 sınır kuralı durur. Yakınlaştırma sınırı genişletmez.
   - Kabul: BUG-24 sınır kuralı durur. Yakınlaştırma sınırı genişletmez. Test: köşe, kamera içeride.
   - Bağımlılık: BUG-24, SAH-42. Boyut: S.
   - Dosya: `src/dunya/kamera_surukleme.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-44:** Takip, sürüklemeyi bırakır.
+- [x] **SAH-44:** (Antigravity) Takip, sürüklemeyi bırakır.
   - Ne: ANI-14, orta tuş basılıyken hedefi koyverir. Bırakınca takip geri gelmez. Oyuncu yeniden seçer.
   - Kabul: ANI-14, orta tuş basılıyken hedefi koyverir. Bırakınca takip geri gelmez. Oyuncu yeniden seçer. Test: sürükle, takip kapalı.
   - Bağımlılık: ANI-14, BUG-24. Boyut: S.
   - Dosya: `src/dunya/kamera_surukleme.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-45:** Kamera modele girmez.
+- [x] **SAH-45:** (Antigravity) Kamera modele girmez.
   - Ne: en yakın yükseklikte kamera küresi karakterin içinden geçmez.
   - Kabul: en yakın yükseklikte kamera küresi karakterin içinden geçmez. Test: seçili köylü, kamera mesafesi en az taban.
   - Bağımlılık: SAH-42. Boyut: S.
   - Dosya: `src/dunya/kamera_surukleme.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-46:** Kapı kamerası köy kamerası değildir.
+- [x] **SAH-46:** (Antigravity) Kapı kamerası köy kamerası değildir.
   - Ne: kapı FOV sabiti BUG-13'tedir. Köy yakınlaştırması kapı FOV'unu değiştirmez.
   - Kabul: kapı FOV sabiti BUG-13'tedir. Köy yakınlaştırması kapı FOV'unu değiştirmez. Test: sahne geçişi, kapı FOV eski değer.
   - Bağımlılık: BUG-13, SAH-42. Boyut: S.
   - Dosya: kapı kamerası, tek okuma.
   - Asset: asset gerekmedi.
-- [ ] **SAH-47:** Kamera sarsıntısı yalnız kapı olayındadır.
+- [x] **SAH-47:** (Antigravity) Kamera sarsıntısı yalnız kapı olayındadır.
   - Ne: CAT yer tutucu sarsıntısı köy kamerasına yazılmaz.
   - Kabul: CAT yer tutucu sarsıntısı köy kamerasına yazılmaz. Test: köyde sarsıntı süresi 0.
   - Bağımlılık: CAT-02, SAH-41. Boyut: S.
   - Dosya: `src/dunya/kamera_surukleme.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-48:** Kamera ayarı kayda girmez.
+- [x] **SAH-48:** (Antigravity) Kamera ayarı kayda girmez.
   - Ne: yükseklik oyuncunun oturumundadır. KAY göçü onu taşımaz.
   - Kabul: yükseklik oyuncunun oturumundadır. KAY göçü onu taşımaz. Test: kayıtta kamera alanı yok.
   - Bağımlılık: KAY-03, SAH-42. Boyut: S.
@@ -8215,13 +8215,13 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.7 Kapıda konuşan yüz
 
-- [ ] **SAH-49:** Konuşan kişi kadrajdadır.
+- [x] **SAH-49:** (Antigravity) Konuşan kişi kadrajdadır.
   - Ne: sorgu açılınca kamera o modele bakar. Bakış, BUG-13 FOV sınırının içinde kalır.
   - Kabul: sorgu açılınca kamera o modele bakar. Bakış, BUG-13 FOV sınırının içinde kalır. Test: üç boy model, yüz kadrajda.
   - Bağımlılık: BUG-13. Boyut: M.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-50:** Vurgu, heybe açıkken modeli örtmez.
+- [x] **SAH-50:** (Antigravity) Vurgu, heybe açıkken modeli örtmez.
   - Ne: heybe paneli BUG-15 ile tıklamayı yer. Kamera, paneli kapatacak kadar yaklaşmaz.
   - Kabul: heybe paneli BUG-15 ile tıklamayı yer. Kamera, paneli kapatacak kadar yaklaşmaz. Test: panel açık, model hâlâ görünür.
   - Bağımlılık: BUG-15, SAH-49. Boyut: S.

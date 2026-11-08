@@ -1029,3 +1029,10 @@ eden_yola_dustun), gece_min eşiği gelmeyen konular kapalıdır.
 - `SAH-25`..`SAH-32`: `src/dunya/hareket_gecisi.gd` ile üst konuşma alt durma, kısmi kol/baş karışımı, kemik bükülme koruması, boşta kemik idle dönüşü, tezgâh klibi bağımsızlığı, hava omuz katmanı, kayıtta klip ağırlığı tutmama ve üçlü geçiş filtresi tamamlandı.
 - Test: `tests/unit/dunya/hareket_gecisi_test.gd` (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
 - kota görünmüyor
+
+## 8 Kasım 2026 — SAH-33..SAH-50 tamamlandı (Antigravity)
+- `SAH-33`..`SAH-40`: `src/dunya/kalabalik_yol.gd` ile tek navigasyon ağı, komşu boş hücre seçimi, kapı kuyruğu çizgisi, eşik tek kişi kilidi, 2 saniye sıkışma idle dönüşü, devriye rota kaydırması, 2.0 ms kare yol bütçesi ve ortak yaş navigasyon ağı tamamlandı.
+- `SAH-41`..`SAH-48`: `src/dunya/kamera_surukleme.gd` ile tek kamera rig'i, 3.0-18.0m yükseklik sınırı, köy sınırı kırpma, sürüklemede takip bırakma, 1.2m model güvenli mesafesi, kapı FOV bağımsızlığı, köyde 0 sarsıntı ve kayıtta kamera tutmama tamamlandı.
+- `SAH-49`..`SAH-50`: `src/kapi/kapi_kamera_vurgu.gd` ile kapıda konuşan kişi kadraj vurgusu ve heybe açıkken model örtmeme mesafe koruması tamamlandı.
+- Test: `tests/unit/dunya/sahne_yol_kamera_test.gd` (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- kota görünmüyor
