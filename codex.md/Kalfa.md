@@ -1,3 +1,7 @@
+## 8 Kasım 2026 — KLT-12 alındı (Kalfa)
+
+Full pull sonrası OGR-08 öğretici metin uzunluk kuralı mevcut yazım denetimine bağlanacak. Asset gerekmedi. kota görünmüyor.
+
 ## 8 Kasım 2026 — OMR-44 tamamlandı (Kalfa)
 
 Çınar meclisi gerçek ikinci perdede Takvim.hafta_basi günlerinde köy ekranında açılır ve toplantı bitene kadar gece hesabı bekler. Öncelikli güncel dış hat haberi mevcut HaberciAgi kaydından okunur. Haber yoksa dış ilişkiler gündemi açılır. O hafta başında yeni köy şikâyeti açılmaz ve mevcut kriz ertesi uygun günde yeniden değerlendirilebilir. Önceki günden kalmış açık oylama korunur. Tamamlanmış toplantının tarihi mevcut meclis kaydında tutulur. Asset gerekmedi.
