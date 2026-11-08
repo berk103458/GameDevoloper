@@ -1,3 +1,9 @@
+## 8 Kasım 2026 — OMR-43 tamamlandı (Kalfa)
+
+DEN, ikinci perdenin tamamlanan gecelerindeki gıda açılış, kapanış ve net farkını mevcut bilanço üzerinden okur. Geçiş gecesi dışarıda kalır. Yeni gece veya tüketim hesabı çalışmaz. Python runner komutu `python -B tools/python_test_runner.py --perde2-ambar --godot C:/Users/Ahmet/Desktop/Godot.exe --tohum 11`. Altı ardışık geceyi ve bilanço farkını doğrulayıp gecelik ortalamayı verir. Tohum 11 ve 23 ile kontrollü köyde stok 404 birimden 257 birime indi. İki koşunun ortalaması da gece başına −24,5 gıdaydı. Bu ölçüm, kurulmuş test köyündeki gece hesabına aittir. Gündüz ticareti veya oyuncu kararları örneklenmedi ve kriz çarpanının etkisi ayrıştırılmadı.
+
+İki runner ölçümü ve DEN birim testi geçti. Headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — OMR-38 oyun arayüzü tamamlandı (Kalfa)
 
 Full pull ile Antigravity güncellemeleri alındı, Ajan Masası okundu. Köy veya duraklat menüsünden açılan hafıza defteri, HaberciAgi tarafından doğrulanan bekleyen listeyi kendi sırasıyla okur. Bekleyen haber varken Haber sekmesi dört temel sayfaya eklenir. En yeni kaynak kaydı ve azami metin sınırı HaberciAgi üzerinden korunur. Defteri okumak haber kartını tüketmez. Yedi Türkçe ve İngilizce metin anahtarı doğrulandı.

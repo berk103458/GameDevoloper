@@ -4555,7 +4555,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: BUG-18, OMR-02. Boyut: S.
   - Dosya: `src/sistemler/omurga_suzgeci.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-43:** Perde 2'de ambar baskısı artar.
+- [x] **OMR-43:** Perde 2'de ambar baskısı artar. (Kalfa)
   - Ne: perde 2 gelen sayısı düşer (2) ama hane büyür; tüketim `tuketim_dengesi.json` değişmez, köy olayları (KRI) sıklaşır (OMR-41). Madde bu ilişkiyi DEN raporunda ölçer.
   - Kabul: perde 2 ortalama ambar eğimi raporda. Test: runner.
   - Bağımlılık: DEN-05. Boyut: S.

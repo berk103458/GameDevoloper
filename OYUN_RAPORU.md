@@ -1,3 +1,9 @@
+## 8 Kasım 2026 — OMR-43 tamamlandı (Kalfa)
+
+DEN, ikinci perdenin tamamlanan gecelerindeki gıda açılış, kapanış ve net farkını mevcut bilanço üzerinden okur. Geçiş gecesi dışarıda kalır. Yeni gece veya tüketim hesabı çalışmaz. Python runner komutu `python -B tools/python_test_runner.py --perde2-ambar --godot C:/Users/Ahmet/Desktop/Godot.exe --tohum 11`. Altı ardışık geceyi ve bilanço farkını doğrulayıp gecelik ortalamayı verir. Tohum 11 ve 23 ile kontrollü köyde stok 404 birimden 257 birime indi. İki koşunun ortalaması da gece başına −24,5 gıdaydı. Bu ölçüm, kurulmuş test köyündeki gece hesabına aittir. Gündüz ticareti veya oyuncu kararları örneklenmedi ve kriz çarpanının etkisi ayrıştırılmadı.
+
+İki runner ölçümü ve DEN birim testi geçti. Headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — OMR-19, OMR-20, OMR-23, OMR-24, OMR-25, OMR-26, OMR-29, OMR-30, OMR-32, OMR-36, OMR-37 ve OMR-38 tamamlandı (Antigravity)
 
 - `OMR-19` ve `OMR-20`: `src/sistemler/dis_hat_kapisi.gd` güncellendi; Moğol hattı 3 adım (duman -> haber -> öncü) dalga 1/2/3 sırasına bağlandı, adım atlanırsa sonraki tetiklenmez. Tekfur hattı 3 adım (elçi -> haraç -> heyet) sırasına bağlandı, elçi gelmeden haraç talebi 0'dır.
