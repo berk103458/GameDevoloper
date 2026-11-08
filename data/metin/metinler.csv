@@ -2001,6 +2001,13 @@ hafiza.sayfa.karar,Kapı Kararları,Gate Decisions
 hafiza.sayfa.beyan,Ziyaretçi Beyanları,Visitor Declarations
 hafiza.sayfa.soylenti,Köy Söylentileri,Village Rumors
 hafiza.sayfa.not,Muhafız Notları,Gatekeeper's Notes
+hafiza.sayfa.haber,Haber,News
+hafiza.bos.haber,Bu görünümde bekleyen haber yok.,No pending news matches this view.
+hafiza.haber.mogol,Moğol hattı,Mongol front
+hafiza.haber.tekfur,Tekfur hattı,Tekfur front
+hafiza.haber.oba,Oba hattı,Tribal front
+hafiza.haber.sancak,Sancak hattı,Sanjak front
+hafiza.haber.cete,Çete hareketi,Bandit activity
 hafiza.ekran.baslik,Hafıza Defteri,Ledger of Memory
 hafiza.filtre.kisi,Kişi adına göre ara...,Search by name...
 koy.eylem.defter,Defteri İncele,Defteri İncele

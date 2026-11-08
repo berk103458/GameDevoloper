@@ -1,3 +1,9 @@
+## 8 Kasım 2026 — OMR-38 oyun arayüzü tamamlandı (Kalfa)
+
+Full pull ile Antigravity güncellemeleri alındı, Ajan Masası okundu. Köy veya duraklat menüsünden açılan hafıza defteri, HaberciAgi tarafından doğrulanan bekleyen listeyi kendi sırasıyla okur. Bekleyen haber varken Haber sekmesi dört temel sayfaya eklenir. En yeni kaynak kaydı ve azami metin sınırı HaberciAgi üzerinden korunur. Defteri okumak haber kartını tüketmez. Yedi Türkçe ve İngilizce metin anahtarı doğrulandı.
+
+Hafıza defteri, haberci birim ve gerçek haberci arayüzü testleri geçti. İlk defter koşusunda duraklat menüsü testi mevcut Kapı Usulü seçeneğini saymıyordu. Test beklentisi güncellendi. Son headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OMR-35 tamamlandı (Kalfa)
 
 Aynı tohum ve kapı kararlarıyla iki koşu aynı dönem ve dalga geçiş günlüğünü verdi. İkinci koşu dördüncü gecede ve perde geçişinde JSON kayıttan döner. Kuruluş 0, yerleşme 2, oturma 8, dalgalar 10, 14 ve 18. İlk provalarda iki koşu da isyanla erken bitti. Son test köyünde açlık ve evsizlik etkisini ayırmak için barınak ve ambar kapasitesi ile temel erzak yardımı kullanıldı. Üretim ayarları değişmedi.

@@ -4522,7 +4522,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: DNY-02, DIY-13. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **OMR-38:** Haber defteri Bölüm 39'a yazar. (Antigravity)
+- [x] **OMR-38:** Haber defteri Bölüm 39'a yazar. (Antigravity) (Kalfa)
   - Ne: haberci ağının `bekleyen` listesi hafıza defterinin "Haber" sayfasına geçer; `azami_metin` sınırı korunur.
   - Kabul: defter sayfası ile `haberci_agi.oku` listesi eşit. Test: karşılaştırma.
   - Bağımlılık: HFZ-01. Boyut: S.

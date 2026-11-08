@@ -9,6 +9,12 @@
 - Testler: `python tests/tools/test_omurga.py`, `tests/unit/sistemler/omurga_test.gd`, `tests/unit/sistemler/hafiza_defteri_test.gd`, `tests/unit/kvr/dis_hat_kapisi_test.gd` (hepsi 0 hata ile GEÇTİ).
 Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
 
+## 8 Kasım 2026 — OMR-38 oyun arayüzü tamamlandı (Kalfa)
+
+Full pull ile Antigravity güncellemeleri alındı, Ajan Masası okundu. Köy veya duraklat menüsünden açılan hafıza defteri, HaberciAgi tarafından doğrulanan bekleyen listeyi kendi sırasıyla okur. Bekleyen haber varken Haber sekmesi dört temel sayfaya eklenir. En yeni kaynak kaydı ve azami metin sınırı HaberciAgi üzerinden korunur. Defteri okumak haber kartını tüketmez. Yedi Türkçe ve İngilizce metin anahtarı doğrulandı.
+
+Hafıza defteri, haberci birim ve gerçek haberci arayüzü testleri geçti. İlk defter koşusunda duraklat menüsü testi mevcut Kapı Usulü seçeneğini saymıyordu. Test beklentisi güncellendi. Son headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — DEN-36, DEN-63, DEN-70, DEN-73, DEN-75, DEN-76, DEN-80, OGR-04, OGR-19, OMR-27, OMR-39, OMR-41, OMR-42, OMR-45, OMR-47 ve OMR-48 tamamlandı (Antigravity)
 
 - `DEN-36`, `DEN-63`, `DEN-70`, `DEN-73`: `data/ayarlar/denge.json`, `data/ayarlar/denge_sinirlari.json`, `tools/denge_dogrula.py`, `src/koy/meslek_yapilari.gd` ve testleri (`tests/tools/test_denge_dogrula.py`, `tests/unit/denge/meslek_verim_test.gd`, `tests/unit/denge/zorluk_test.gd`) güncellendi; nitelikli/geçici iş üretim oranı (`nitelikli_gecici_is_orani: 1.6`), üç zorlukta kriz/iflas/rüşvet aralıkları (`kriz_aralik_zorluk.siki.alt > olagan.ust`) ve beş sonun `%100`'e toplanan hedef aralıkları (`son_aralik`) doğrulandı.

@@ -20,6 +20,7 @@ func _initialize() -> void:
 	_beyan_soylenti_not()
 	_siralama_ve_kayit()
 	_ekran()
+	_haber()
 	_tarama()
 	_kapanis()
 	if _hata == 0:
@@ -235,6 +236,37 @@ func _ekran() -> void:
 	_kontrol(BagSinifi.dugme_gorunur(true, &""), "koyde dugme 1")
 	_kontrol(BagSinifi.kaynak_derle(null).is_empty(), "oturumsuz kaynak bos")
 	_kontrol(BagSinifi.duraklatdan_ac(null) == null, "duraklat bos hedef")
+
+
+func _haber() -> void:
+	var kat := Katalog.new()
+	kat.yukle()
+	var o := Oturum.new(kat, 3838)
+	var gecersiz := "a".repeat(int(HaberciAgi.AYAR.azami_metin) + 1)
+	o.haberci_agi = {"bekleyen": [
+		{"kaynak": "oba", "gun": 3, "metin": "Eski oba haberi"},
+		{"kaynak": "tekfur", "gun": 4, "metin": gecersiz},
+		{"kaynak": "oba", "gun": 5, "metin": "Yeni oba haberi"},
+		{"kaynak": "sancak", "gun": 5, "metin": "Sancak haberi"},
+	]}
+	var bekleyen: Array = HaberciAgi.oku(o.haberci_agi).bekleyen
+	var once := JSON.stringify(o.kaydet())
+	var kaynak := BagSinifi.kaynak_derle(o)
+	var ekran := EkranSinifi.new()
+	ekran.kaynak = kaynak
+	root.add_child(ekran)
+	ekran.kur()
+	var sayfalar := ekran.defter.oku(kaynak)
+	_kontrol(sayfalar.haber == bekleyen and bekleyen.size() == 2, "OMR-38: gerçek haberci sırası ve metin sınırı aynı")
+	_kontrol(sayfalar.sayfa_sayisi == 5, "OMR-38: dört ana sayfaya bekleyen Haber sayfası eklenir")
+	var sekme := ekran.find_child("sayfa_haber", true, false) as Button
+	_kontrol(sekme != null, "OMR-38: haber sekmesi açılır")
+	if sekme != null:
+		sekme.pressed.emit()
+		var metinler := ekran.gorunen_satirlar().map(func(satir: Dictionary) -> String: return satir.govde_anahtari)
+		_kontrol(metinler == ["Yeni oba haberi", "Sancak haberi"], "OMR-38: görünen haber metni ve sıra korunur")
+	_kontrol(JSON.stringify(o.kaydet()) == once, "OMR-38: defter haberi tüketmez veya kaynağı değiştirmez")
+	ekran.free()
 
 
 func _eylem(ad: String) -> void:
