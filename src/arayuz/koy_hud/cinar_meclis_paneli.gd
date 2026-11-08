@@ -24,13 +24,20 @@ static func hud(h: Node, y: KoyYonetimi, goster: bool = true) -> void:
 		)
 	var e := _ekran(h)
 	var d := CinarAltiMeclisi.durum(y)
-	b.visible = not CinarAltiMeclisi._krizler(y).is_empty() or not d.oylama.is_empty()
+	var haftalik := MeclisSesi.haftalik_mi(y)
+	var oy_bekliyor: bool = not d.oylama.is_empty() and d.oylama.karar == ""
+	b.visible = CinarAltiMeclisi.haftalik_bekliyor(y) or oy_bekliyor
+	if not haftalik: b.visible = b.visible or not CinarAltiMeclisi._krizler(y).is_empty() or not d.oylama.is_empty()
 	b.disabled = e == null or AmbarKapisiPaneli._kilitli(e)
 	b.tooltip_text = "Kriz başına bir meclis · 2 gün bekleme · yalnız toplu oy dağılımı"
 
 static func yukleme(e: Node) -> void:
 	var o: Dictionary = CinarAltiMeclisi.durum(e.oturum.yonetim).oylama
-	if e._ust_kart == null and not o.is_empty() and o.karar == "": sonuc(e)
+	if e._ust_kart != null: return
+	if not o.is_empty() and o.karar == "":
+		sonuc(e)
+	else:
+		haftalik_ac(e)
 
 static func _metin(e: Node, v: Control, metin: String, ad: String = "") -> Label:
 	var l: Label = e._etiket(v, metin, Tema.KUCUK_PX)
@@ -52,11 +59,31 @@ static func _bekliyor(e: Node) -> bool:
 	var o: Dictionary = CinarAltiMeclisi.durum(e.oturum.yonetim).oylama
 	return not o.is_empty() and o.karar == ""
 
+static func haftalik_ac(e: Node) -> bool:
+	var y: KoyYonetimi = e.oturum.yonetim
+	if not CinarAltiMeclisi.haftalik_bekliyor(y): return false
+	if e._ust_kart != null: return true
+	var gun := y.gun
+	var v: VBoxContainer = e._kart_ac(e.tr("koy.meclis.haftalik.baslik"))
+	_metin(e, v, MeclisSesi.dis_hat_konusu(e.oturum), "meclis_dis_hat_konusu")
+	var b: Button = e._dugme(e.tr("koy.meclis.haftalik.kapat"), v)
+	b.name = "meclis_haftalik_bitti"
+	b.pressed.connect(func() -> void:
+		if not CinarAltiMeclisi.haftalik_bitir(y, gun): return
+		e._kart_kapat()
+		e._yenile()
+	)
+	return true
+
+
 static func ac(e: Node) -> void:
 	var y: KoyYonetimi = e.oturum.yonetim
 	CinarAltiMeclisi.esitle(y)
 	if _bekliyor(e):
 		sonuc(e)
+		return
+	if MeclisSesi.haftalik_mi(y):
+		haftalik_ac(e)
 		return
 	var v: VBoxContainer = e._kart_ac("Çınar altı köy meclisi")
 	_metin(e, v, "Meydan meclisi · Kriz başına bir oylama, arada 2 gün. Oylar temel ihtiyaç, moral, sadakat ve toplumsal bağa göre verilir. Kimlikler ve tekil oylar gösterilmez; karantinadakiler temsil yoluyla katılır.")

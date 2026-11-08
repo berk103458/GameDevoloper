@@ -4561,7 +4561,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: DEN-05. Boyut: S.
   - Dosya: `tools/python_test_runner.py`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-44:** Çınar meclisi perde 2'de her hafta toplanır.
+- [x] **OMR-44:** Çınar meclisi perde 2'de her hafta toplanır. (Kalfa)
   - Ne: MCL-05 "her gece açılmaz" kuralına perde 2 istisnası: `takvim.hafta_basi` gecelerinde meclis açılır ve dış hat konusu konuşulur.
   - Kabul: perde 2 hafta başı meclis 1. Test: 12 gece. Ek şart: Aynı gecede köy şikâyeti ile dış hat konusu birlikte açılmaz; dış hat varsa konuşulan konu odur.
   - Bağımlılık: MCL-05, OMR-04. Boyut: S.

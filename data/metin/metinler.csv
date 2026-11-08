@@ -1825,6 +1825,10 @@ arayuz.ayarlar.grafik.not,"Düşük profil duman ve alev efektlerini kapatır.
 3B ölçek arayüzün netliğini değiştirmez.",Low profile disables smoke and flame particle effects.\n3D scaling does not affect UI crispness.
 arayuz.yukleme.hazirlaniyor,Hazırlanıyor…,Preparing...
 arayuz.yukleme.ilerleme,Hazırlanıyor… %d/%d,Preparing... %d/%d
+koy.meclis.haftalik.baslik,Çınar meclisi · Dış hatlar,Plane tree council · Border affairs
+koy.meclis.haftalik.bos,Bu hafta dış hatlardan yeni haber yok. Köy yolları ve elçi geçişleri gündemde.,There is no new word from the border this week. The council reviews roads and envoy crossings.
+koy.meclis.haftalik.kapat,Toplantıyı bitir,Close the meeting
+koy.meclis.haftalik.sikayet,Bugün meclis dış hatları görüşüyor.,The council is discussing border affairs today.
 koy.meclis.konusanlar,Çınarın altında konuşanlar: %s,Çınarın altında konuşanlar: %s
 koy.meclis.konusan_yok,Çınarın altında konuşan kimse yok; oylama adsız açılır.,Çınarın altında konuşan kimse yok; oylama adsız açılır.
 koy.yasam.baslik,Yaşam barları,Yaşam barları

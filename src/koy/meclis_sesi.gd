@@ -63,6 +63,19 @@ static func meclis_acik_mi(gun: int, kriz_var: bool) -> bool:
 	# Her gece açılmaz; kriz varken en çok 2 günde bir açılır
 	return (gun % 2 == 1)
 
+## OMR-44: normal oyun takvimindeki hafta başı, ikinci perdede dış hatlara ayrılır.
+static func haftalik_mi(y: KoyYonetimi) -> bool:
+	return y.agalik and KoyYonetimi.PERDE_GECISI.baslangic(y) >= 0 and y.son == "" and Takvim.hafta_basi(y.gun, y.a.mevsim_gun)
+
+
+static func dis_hat_konusu(o: Oturum) -> String:
+	var haberler: Array = HaberciAgi.oku(o.haberci_agi).bekleyen
+	for hat in Omurga.hat_onceligi():
+		for haber in haberler:
+			if haber.kaynak == hat and int(haber.gun) <= o.gun: return haber.metin
+	return TranslationServer.translate("koy.meclis.haftalik.bos")
+
+
 ## MCL-06: Uygula ve reddet, konuşulan adı söyler.
 static func karar_metni(uygula: bool, konusulan_ad: String) -> String:
 	if uygula:

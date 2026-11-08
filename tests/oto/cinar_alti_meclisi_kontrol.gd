@@ -18,6 +18,7 @@ func _ready() -> void:
 	await _kuyu_uygulama_ve_ret()
 	await _kitlik_gecesi()
 	await _salgin_ve_yas()
+	await _haftalik_dis_hat()
 	print("ÇINAR ALTI MECLİSİ UI: GEÇTİ" if hata == 0 else "ÇINAR ALTI MECLİSİ UI: KALDI")
 	await Ses.cik(hata)
 
@@ -150,6 +151,50 @@ func _kitlik_gecesi() -> void:
 	_kontrol(ana.kayit.yaz(ana.oturum.kaydet()), "Gerçek kıtlık meclisi kaydı")
 	await _bitir(ana)
 
+func _haftalik_dis_hat() -> void:
+	var ana := TestAna.new()
+	add_child(ana)
+	var y := _hazir(ana)
+	y.agalik = true
+	y.set_meta(KoyYonetimi.PERDE_GECISI.META, 1)
+	var hafta := y.a.mevsim_gun
+	var hafta_baslari: Array[int] = []
+	for gun in range(hafta, hafta + 12):
+		y.gun = gun
+		if CinarAltiMeclisi.haftalik_bekliyor(y): hafta_baslari.append(gun)
+	var beklenen: Array[int] = []
+	for gun in range(hafta, hafta + 12, hafta): beklenen.append(gun)
+	_kontrol(hafta_baslari == beklenen, "OMR-44: 12 gecede yalnız takvimin hafta başları")
+	y.gun = hafta
+	ana.oturum.haberci_agi = {"bekleyen": [
+		{"kaynak": "oba", "gun": y.gun, "metin": "Oba anlaşması görüşülüyor."},
+		{"kaynak": "sancak", "gun": y.gun, "metin": "Sancak fermanı görüşülüyor."},
+	]}
+	KuyuKirliligi.kirlet(y)
+	ana._koye_git()
+	await get_tree().process_frame
+	var e := ana._ekran as KoyEkrani
+	_kontrol(KuyuKirliligi.kirli(y), "OMR-44: aynı gece canlı kuyu şikâyeti")
+	_kontrol(_metin(e._ust_kart).contains("Sancak fermanı görüşülüyor.") and not _metin(e._ust_kart).contains("Oba anlaşması"), "OMR-44: dış hat önceliği mevcut HaberciAgi kaydından")
+	_kontrol(not CinarAltiMeclisi.topla(y, "kuyu"), "OMR-44: aynı gece yeni köy şikâyeti açılmaz")
+	e._geceye_gec()
+	_kontrol(y.gun == hafta and e._ust_kart != null and e._ust_kart.find_child("meclis_haftalik_bitti", true, false) != null, "OMR-44: toplantı gece hesabından önce")
+	await _bas(e._ust_kart, "meclis_haftalik_bitti")
+	_kontrol(not CinarAltiMeclisi.haftalik_bekliyor(y) and not CinarAltiMeclisi.topla(y, "kuyu"), "OMR-44: bitince aynı gece tekrar açılmaz")
+	CinarMeclisPaneli.ac(e)
+	_kontrol(e._ust_kart == null, "OMR-44: bitince aynı gece şikâyet kartı açılmaz")
+	var veri: Dictionary = JSON.parse_string(JSON.stringify(ana.oturum.kaydet()))
+	ana.oturum = Oturum.kayittan(ana.katalog, veri)
+	y = ana.oturum.yonetim
+	ana._koye_git()
+	await get_tree().process_frame
+	e = ana._ekran
+	_kontrol(e._ust_kart == null and not CinarAltiMeclisi.haftalik_bekliyor(y), "OMR-44: kayıt dönüşünde tamamlanan toplantı açılmaz")
+	y.gun = hafta + 1
+	_kontrol(CinarAltiMeclisi.topla(y, "kuyu"), "OMR-44: ertesi uygun gece köy şikâyeti sürebilir")
+	await _bitir(ana)
+
+
 func _bas(n: Node, ad: String) -> void:
 	var b := n.find_child(ad, true, false) as Button if n != null else null
 	_kontrol(b != null and not b.disabled, "Gerçek düğme: " + ad)
@@ -160,10 +205,15 @@ func _salgin_ve_yas() -> void:
 	var ana := TestAna.new()
 	add_child(ana)
 	var y := _hazir(ana)
-	var sif := _kur(y, "sifahane")
 	var hekim := y.kabul({"ad": "Hekim"})
 	hekim.zanaat_turu = ZanaatTuru.Tur.CERRAH
+	hekim.yapi_bilgisi = PackedStringArray(["ambar", "sifahane"])
+	_kontrol(_kur(y, "ambar") != null, "Şifahane için mevcut yapı kademesi")
+	var sif := _kur(y, "sifahane")
 	_kontrol(sif != null and y.ata(hekim.id, sif.id), "Gerçek Şifahane/hekim")
+	if sif == null:
+		await _bitir(ana)
+		return
 	ana._koye_git()
 	await get_tree().process_frame
 	var e: KoyEkrani = ana._ekran

@@ -1,3 +1,9 @@
+## 8 Kasım 2026 — OMR-44 tamamlandı (Kalfa)
+
+Çınar meclisi gerçek ikinci perdede Takvim.hafta_basi günlerinde köy ekranında açılır ve toplantı bitene kadar gece hesabı bekler. Öncelikli güncel dış hat haberi mevcut HaberciAgi kaydından okunur. Haber yoksa dış ilişkiler gündemi açılır. O hafta başında yeni köy şikâyeti açılmaz ve mevcut kriz ertesi uygun günde yeniden değerlendirilebilir. Önceki günden kalmış açık oylama korunur. Tamamlanmış toplantının tarihi mevcut meclis kaydında tutulur. Asset gerekmedi.
+
+12 gecelik takvim taraması, öncelik, gerçek toplantı kartı, aynı gece şikâyet engeli, kayıt dönüşü, ertesi gece kriz ve mevcut meclis testleri geçti. Eski salgın testine mevcut Şifahane yapı bilgisi ve birinci kademe önkoşulu eklendi. İlk importta MD5 hataları görüldü, ikinci deneme autoload taramasında çıkış −1 verdi. Son headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — OMR-43 tamamlandı (Kalfa)
 
 DEN, ikinci perdenin tamamlanan gecelerindeki gıda açılış, kapanış ve net farkını mevcut bilanço üzerinden okur. Geçiş gecesi dışarıda kalır. Yeni gece veya tüketim hesabı çalışmaz. Python runner komutu `python -B tools/python_test_runner.py --perde2-ambar --godot C:/Users/Ahmet/Desktop/Godot.exe --tohum 11`. Altı ardışık geceyi ve bilanço farkını doğrulayıp gecelik ortalamayı verir. Tohum 11 ve 23 ile kontrollü köyde stok 404 birimden 257 birime indi. İki koşunun ortalaması da gece başına −24,5 gıdaydı. Bu ölçüm, kurulmuş test köyündeki gece hesabına aittir. Gündüz ticareti veya oyuncu kararları örneklenmedi ve kriz çarpanının etkisi ayrıştırılmadı.

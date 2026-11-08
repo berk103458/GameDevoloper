@@ -24,6 +24,7 @@ static func oku(v: Variant) -> Dictionary:
 		if not i is Dictionary or not _tam(i.get("sira"), 1) or not _tam(i.get("iz"), -1) or not i.get("aktif") is bool or not i.get("toplandi") is bool: return bos
 		izler[tur] = {"sira": int(i.sira), "iz": int(i.iz), "aktif": i.aktif, "toplandi": i.toplandi}
 	var d := {"son_gun": int(v.son_gun), "izler": izler, "oylama": {}}
+	if _tam(v.get("haftalik_gun"), 0): d.haftalik_gun = int(v.haftalik_gun)
 	var o: Variant = v.get("oylama", {})
 	if not o is Dictionary: return bos
 	if o.is_empty(): return d
@@ -98,6 +99,7 @@ static func esitle(y: KoyYonetimi) -> void:
 static func yukle(y: KoyYonetimi, v: Variant) -> void:
 	var d := oku(v)
 	if int(d.son_gun) > y.gun: d = oku({})
+	if int(d.get("haftalik_gun", -1)) > y.gun: d.erase("haftalik_gun")
 	y.set_meta(META, d)
 	# Yükleme yeni kriz gözlemi üretmez; save/load birebir kalır.
 	# Gece/HUD/karar kapısı dönem ve süreyi işlemden önce doğrular.
@@ -140,8 +142,21 @@ static func puan(y: KoyYonetimi, k: Koylu, tur: String, secim: String) -> int:
 		"toplu_mezar": return 12 + (100 - clampi(k.sadakat, 0, 100)) / 10 + (18 if k.ac else 0)
 	return 0
 
+static func haftalik_bekliyor(y: KoyYonetimi) -> bool:
+	return MeclisSesi.haftalik_mi(y) and int(durum(y).get("haftalik_gun", -1)) != y.gun
+
+
+static func haftalik_bitir(y: KoyYonetimi, gun: int) -> bool:
+	if y.gun != gun or not haftalik_bekliyor(y): return false
+	var d := durum(y)
+	d.haftalik_gun = gun
+	y.set_meta(META, d)
+	return true
+
+
 static func toplanma_nedeni(y: KoyYonetimi, tur: String) -> String:
 	if y.son != "": return "Oyun sona erdi"
+	if MeclisSesi.haftalik_mi(y): return TranslationServer.translate("koy.meclis.haftalik.sikayet")
 	if not _krizler(y).has(tur): return "Bu kriz artık aktif değil"
 	if secmenler(y).is_empty(): return "Oy verebilecek köylü yok"
 	var d := durum(y)
