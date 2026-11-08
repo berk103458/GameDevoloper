@@ -1,3 +1,7 @@
+## 8 Kasım 2026 — KLT-20 tamamlandı (Kalfa)
+
+Yazım kapısı sır çekirdeği sınırını mevcut kadro_ozgunluk.json dosyasından okur. Sır ve başkasının sırrı etiketleri birlikte sayılır. Koruma yalanı ile dinlenmek isteyen ayrı kalır. Mevcut %50 sınırı geçerli, %100 sır kadrosu tek KLT-20 hatası üretir. Okunamayan veya geçersiz kota red verir. 29 yazım kapısı ve 2 kadro denetimi testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-60 tamamlandı (Kalfa)
 
 Tester turu için örnek raporda oyun testi ve diyalog kabulü ayrıldı. Gerçek yazım komutu yasak kalıpta çıkış 1 ve tek hata verdi. Örnek turda oyun testi işaretli kalırken diyalog kutusu açık. 28 hedefli Python testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

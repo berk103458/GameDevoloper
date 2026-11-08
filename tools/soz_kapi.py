@@ -28,6 +28,7 @@ IS_EMRI = ("is_ata", "gorev_ver")
 USLUP = ROOT / "Roadmap-2" / "USLUP_REHBERI.md"
 BINA = ROOT / "data" / "koy" / "binalar.json"
 MESLEK = ROOT / "data" / "meslek_binalari.json"
+KADRO_OZGUNLUK = ROOT / "data" / "soz" / "kadro_ozgunluk.json"
 
 
 def _modern_kelimeler() -> list[str]:
@@ -86,9 +87,25 @@ def denetle(paket: dict, kor_satirlari: list[dict] | None = None) -> tuple[list[
     cekirdek = [str(c) for c in paket.get("cekirdekler", [])]
     if cekirdek and sum(c == "dedikodu" for c in cekirdek) / len(cekirdek) > KOTA_DEDIKODU:
         hatalar.append({"tur": "hata", "kod": "KLT-06", "mesaj": "dedikodu kotasi"})
+    if cekirdek and (sir_hatasi := _sir_kotasi_hatasi(cekirdek)):
+        hatalar.append({"tur": "hata", "kod": "KLT-20", "mesaj": sir_hatasi})
     hatalar.extend(_satir_hatalari(paket))
     uyarilar.extend(_satir_uyarilari(paket))
     return hatalar, uyarilar
+
+
+def _sir_kotasi_hatasi(cekirdekler: list[str]) -> str | None:
+    try:
+        veri = json.loads(KADRO_OZGUNLUK.read_text(encoding="utf-8"))
+        tavan = veri["sir_cekirdegi_kotasi_yuzde_max"]
+    except (OSError, ValueError, KeyError, TypeError):
+        return "Kadro sır kotası okunamadı"
+    if type(tavan) is not int or not 0 <= tavan < 100:
+        return "Kadro sır kotası 0–99 arasında tam sayı olmalı"
+    sir = sum(c in {"sir", "baskasinin_sirri"} for c in cekirdekler)
+    if sir * 100 > len(cekirdekler) * tavan:
+        return f"Sır çekirdeği kotası aşıldı ({sir}/{len(cekirdekler)}, en çok %{tavan})"
+    return None
 
 
 def _satir_hatalari(paket: dict) -> list[dict]:

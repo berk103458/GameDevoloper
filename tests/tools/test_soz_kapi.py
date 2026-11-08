@@ -143,6 +143,15 @@ class SozKapiTest(unittest.TestCase):
         hatalar, _ = denetle(_temiz_paket(), [])
         self.assertTrue(any(h["kod"] == "KLT-05" for h in hatalar))
 
+    def test_yaz09_sir_kotasi(self):
+        paket = _temiz_paket()
+        paket["cekirdekler"] = ["baskasinin_sirri", "sir"]
+        hatalar, _ = denetle(paket, KOR)
+        self.assertEqual([h["kod"] for h in hatalar], ["KLT-20"])
+        paket["cekirdekler"].extend(["dinlenmek_isteyen", "koruma_yalani"])
+        hatalar, _ = denetle(paket, KOR)
+        self.assertEqual(hatalar, [])
+
     def test_dedikodu_kotasi(self):
         paket = _temiz_paket()
         paket["cekirdekler"] = ["dedikodu", "dedikodu", "gunluk"]
