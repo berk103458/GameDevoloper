@@ -75,7 +75,7 @@ static func alinmamis_son_satirlari(iz: OyuncuIzi) -> Array[Dictionary]:
 	return sonuc
 
 
-static func kur(e: MuhafizOdasiEkrani, v: VBoxContainer, iz: OyuncuIzi = null) -> void:
+static func kur(e: Control, v: VBoxContainer, iz: OyuncuIzi = null) -> void:
 	if e == null or v == null or e.oturum == null or e.oturum.perde < 2:
 		return
 	var kutu := VBoxContainer.new()

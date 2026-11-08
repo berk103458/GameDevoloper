@@ -39,7 +39,7 @@ static func uygula(kulp: Control, y: KoyYonetimi, k: Koylu = null) -> Dictionary
 	if not vurgu_gerekli_mi(y, k):
 		return {"vurgu": 0, "ipucu": ""}
 	if kulp != null:
-		var vurgu := IlkAtamaVurgusu.new()
+		var vurgu := (load("res://src/arayuz/koy_hud/ilk_atama_vurgusu.gd") as GDScript).new() as ColorRect
 		vurgu.name = VURGU_ADI
 		vurgu.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		vurgu.color = Color(0.95, 0.78, 0.25, 0.35)

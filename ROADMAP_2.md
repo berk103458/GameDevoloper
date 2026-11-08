@@ -4399,13 +4399,13 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
 
 ### 34.4 Dış hatların yüzleri
 
-- [ ] **OMR-19:** Moğol hattı üç adımdır: duman, haber, öncü.
+- [x] **OMR-19:** Moğol hattı üç adımdır: duman, haber, öncü. (Antigravity)
   - Ne: `mogol_duman.tres` (olay) → `nogay_haber.tres` → `mogol_oncusu.gd`; üç adım dalga 1/2/3'e bağlanır. Öncü kapıya gelirse Söz motoru sahnesi (KOP-02 heyet biçimi).
   - Kabul: üç adım sırası bozulmaz; adım atlanırsa sonraki tetiklenmez. Test: dalga sırası.
   - Bağımlılık: OMR-05. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-20:** Tekfur hattı: elçi, haraç, heyet.
+- [x] **OMR-20:** Tekfur hattı: elçi, haraç, heyet. (Antigravity)
   - Ne: `tekfur_elcisi.tres` → `tekfur_harac_heyeti.gd` → `tekfur_heyeti_paneli.gd`. Elçi kapıda konuşur (KOP-02); haraç kararı divan değil muhafızındır (CAS-07 dışı).
   - Kabul: elçi gelmeden haraç talebi 0. Test: dalga sırası.
   - Bağımlılık: OMR-05, KOP-02. Boyut: S.
@@ -4423,13 +4423,13 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: ACL-04, OMR-05. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-23:** Ahi hattı: tezgâhtan kasabaya.
+- [x] **OMR-23:** Ahi hattı: tezgâhtan kasabaya. (Antigravity)
   - Ne: `ahi_haber.tres` ve `ahi_kasabasi` sonu; ahi, TEZ (Bölüm 29) teslimlerini ve refah/adalet göstergesini okur, dalga 2'de köye gelir.
   - Kabul: TEZ teslim sayısı ≥ 1 değilse ahi gelmez. Test: iki kayıt.
   - Bağımlılık: TEZ-08, OMR-05. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-24:** Hatlar aynı gece çakışmaz.
+- [x] **OMR-24:** Hatlar aynı gece çakışmaz. (Antigravity)
   - Ne: bir gecede en çok bir dış hat yüzü gelir; öncelik sırası `data/omurga.json`'da (sancak > tekfur > Moğol > oba > ahi).
   - Kabul: aynı gece iki hat yüzü 0. Test: hepsi uygunken bir gece. Ek şart: Dış hat yüzü çınarın altında durmaz; mecliste yalnız adı anılır, modeli kapıda kalır.
   - Bağımlılık: OMR-19…23. Boyut: S.
@@ -4438,13 +4438,13 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
 
 ### 34.5 Oyuncunun kararı omurgayı büker
 
-- [ ] **OMR-25:** Üç karar üç hattı kapatır.
+- [x] **OMR-25:** Üç karar üç hattı kapatır. (Antigravity)
   - Ne: tekfur elçisini reddetmek tekfur hattını sertleştirir, Moğol öncüsünü kabul etmek haraççı yolunu açar, ulağı aldatmak sancak hattını kapatır. Bu etkiler mevcut bar ve bayraklarla olur, yeni sayaç yok.
   - Kabul: üç karar → üç bayrak; bayrak `atil_bayraklar.json` zincirine uyar. Test: üç kayıt.
   - Bağımlılık: OMR-19…22. Boyut: M.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-26:** Kapatılan hat sona yansır.
+- [x] **OMR-26:** Kapatılan hat sona yansır. (Antigravity)
   - Ne: hat kapanınca `nihai_son.son` öncelik sırası değişmez ama koşul sağlanamaz hale gelir; oyuncu oda panelinde (OMR-14) gidişat değişimini görür.
   - Kabul: hat kapatıldıktan sonra panel cümlesi değişir. Test: önce/sonra.
   - Bağımlılık: OMR-14, OMR-25. Boyut: S.
@@ -4462,13 +4462,13 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: ODA-12. Boyut: S.
   - Dosya: yeni: `src/arayuz/oda_yozlasma_uyarisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-29:** Verilen söz omurgaya girer.
+- [x] **OMR-29:** Verilen söz omurgaya girer. (Antigravity)
   - Ne: DYL-05 verilen sözlerden dış hat yüzlerine verilenler (`"Aydoğdu'ya söz"`) `data/omurga.json`'da hat koşulu olarak okunur; tutulmayan söz hattı kapatır.
   - Kabul: söz tutulmadı → ilgili hat bayrağı. Test: iki kayıt.
   - Bağımlılık: DYL-05, OMR-25. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-30:** Omurga oyuncuyu zorlamaz.
+- [x] **OMR-30:** Omurga oyuncuyu zorlamaz. (Antigravity)
   - Ne: hiçbir hat zorunlu değildir; hepsi reddedilirse `uc_tutundu` yolu açık kalır. Bu, `nihai_son.son` son satırının (varsayılan dönüş) belgelenmesidir.
   - Kabul: dört hat kapalı, yozlaşma düşük → son `uc_tutundu`. Test: kayıt.
   - Bağımlılık: OMR-25. Boyut: S.
@@ -4483,7 +4483,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: DEN-05, OMR-03. Boyut: S.
   - Dosya: `tools/python_test_runner.py` satırı.
   - Asset: asset gerekmedi.
-- [ ] **OMR-32:** Dalga başına en az bir yüz.
+- [x] **OMR-32:** Dalga başına en az bir yüz. (Antigravity)
   - Ne: perde 2'nin her dalgasında en az bir dış hat yüzü gelir; hiçbiri uygun değilse ulak gelir.
   - Kabul: üç dalgada yüz sayısı ≥ 3. Test: hatları kapatılmış kayıt.
   - Bağımlılık: OMR-24. Boyut: S.
@@ -4510,19 +4510,19 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
 
 ### 34.7 Haberci ağı omurgaya bağlanır
 
-- [ ] **OMR-36:** Haber dalgayı önceler.
+- [x] **OMR-36:** Haber dalgayı önceler. (Antigravity)
   - Ne: `haberci_agi.gd` her dış hat yüzünden 1–2 gece önce yazılı haber düşürür (kaynaklar `data/haberci_agi.json kaynaklar`). Yüz gelmeden haber gelir.
   - Kabul: yüz gecesi − haber gecesi ∈ {1, 2}. Test: dört hat.
   - Bağımlılık: OMR-05, HAR-09. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd` → `haberci_agi.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OMR-37:** Haber önce insandan duyulur (DNY-02 ile aynı kural).
+- [x] **OMR-37:** Haber önce insandan duyulur (DNY-02 ile aynı kural). (Antigravity)
   - Ne: haber kapıdaki bir kişinin ağzından da gelebilir (DIY-13 dedikodu); yazılı haber yalnız kimse söylemediyse düşer.
   - Kabul: bir ziyaretçi haberi söylediyse yazılı satır 0. Test: iki kayıt.
   - Bağımlılık: DNY-02, DIY-13. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-38:** Haber defteri Bölüm 39'a yazar.
+- [x] **OMR-38:** Haber defteri Bölüm 39'a yazar. (Antigravity)
   - Ne: haberci ağının `bekleyen` listesi hafıza defterinin "Haber" sayfasına geçer; `azami_metin` sınırı korunur.
   - Kabul: defter sayfası ile `haberci_agi.oku` listesi eşit. Test: karşılaştırma.
   - Bağımlılık: HFZ-01. Boyut: S.

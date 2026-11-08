@@ -981,3 +981,13 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - `OGR-04`, `OGR-19`: `src/sistemler/ilk_saat.gd`, `src/arayuz/ana.gd`, `src/arayuz/koy_hud/ilk_atama_vurgusu.gd`, `src/arayuz/koylu_karti.gd` ve `tests/unit/sistemler/ilk_saat_test.gd` tamamlandı (GEÇTİ).
 - `OMR-27`, `OMR-39`, `OMR-41`, `OMR-42`, `OMR-45`, `OMR-47`, `OMR-48`: `src/koy/sabah_defteri.gd`, `src/sistemler/dis_hat_kapisi.gd`, `src/sistemler/omurga_suzgeci.gd`, `src/koy/kapi_nobeti.gd`, `src/sistemler/oyuncu_izi.gd`, `src/arayuz/yeni_oyun_ekrani.gd`, `src/arayuz/oda_gidisat_paneli.gd` ve birim testleri (`sabah_defteri_test.gd`, `kapi_nobeti_test.gd`, `omurga_test.gd`, `oyuncu_izi_test.gd`) tamamlandı (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
 - kota görünmüyor
+
+## 8 Kasım 2026 — OMR-19, OMR-20, OMR-23, OMR-24, OMR-25, OMR-26, OMR-29, OMR-30, OMR-32, OMR-36, OMR-37 ve OMR-38
+- `OMR-19`, `OMR-20`: `src/sistemler/dis_hat_kapisi.gd` içinde Moğol 3 adım (duman -> haber -> öncü) ve Tekfur 3 adım (elçi -> haraç -> heyet) sıraları tamamlandı.
+- `OMR-23`: `src/sistemler/dis_hat_kapisi.gd` içinde Ahi hattının TEZ teslim sayısı >= 1 şartı bağlandı.
+- `OMR-24`, `OMR-32`: `dis_hat_kapisi.gd` içinde aynı gecede en çok bir dış hat yüzü (sancak > tekfur > Moğol > oba > ahi), model kapıda kalır; dalga başına en az 1 yüz (ulak yedeği) bağlandı.
+- `OMR-25`, `OMR-26`, `OMR-29`, `OMR-30`: `dis_hat_kapisi.gd`, `src/sistemler/nihai_son.gd` ve `src/arayuz/oda_gidisat_paneli.gd` içinde 3 kararın hat kapatması, tutulmayan sözlerin hat kapatması, oda gidişat panelinde kapanan hat cümlesi değişimi ve tüm dış hatlar kapalıyken `uc_tutundu` dönüşü doğrulandı.
+- `OMR-36`, `OMR-37`: `dis_hat_kapisi.gd` içinde yüz gelmeden 1-2 gece önce yazılı haber planlama ve ziyaretçiden duyulduysa yazılı satır 0 kuralı uygulandı.
+- `OMR-38`: `src/sistemler/hafiza_defteri.gd` içinde haberci ağı bekleyen haber listesinin Hafıza Defteri "Haber" sayfasına aktarılması (`haber_sayfasi`) bağlandı.
+- Testler: `python tests/tools/test_omurga.py`, `tests/unit/sistemler/omurga_test.gd`, `tests/unit/sistemler/hafiza_defteri_test.gd` ve `tests/unit/kvr/dis_hat_kapisi_test.gd` (hepsi 0 hata ile GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- kota görünmüyor

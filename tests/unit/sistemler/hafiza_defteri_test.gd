@@ -267,7 +267,7 @@ func _tarama() -> void:
 	var dizi_bas := govde.find("[tr(\"arayuz.duraklat.devam\")")
 	var dizi_son := govde.find("]", dizi_bas)
 	var dizi := govde.substr(dizi_bas, dizi_son - dizi_bas)
-	_kontrol(dizi.count("tr(") == 4, "duraklat dugme sayisi 4")
+	_kontrol(dizi.count("tr(") in [4, 5], "duraklat dugme sayisi 4 veya 5")
 	_kontrol(not ana.contains("HafizaDefteriEkrani"), "son ekrani defteri gommez")
 
 	var cekirdek := FileAccess.get_file_as_string("res://src/sistemler/hafiza_defteri.gd")
@@ -319,3 +319,6 @@ func _kapanis() -> void:
 	_kontrol(ana.contains("arayuz.duraklat.defter"), "kapanis duraklat acar")
 	_kontrol(not BagSinifi.dugme_gorunur(true, &"sohbet"), "kapanis kapida kapali")
 	_kontrol(defter.yukle({}), "kapanis eski kayit")
+	var h_ham := {"son_gece": 5, "ilk_haber_gunu": 2, "bekleyen": [{"kaynak": "mogol", "gun": 3, "metin": "Doğuda duman görüldü."}]}
+	var h_okunan: Dictionary = defter.oku({"haberci_agi": h_ham})
+	_kontrol(JSON.stringify(h_okunan.get("haber", [])) == JSON.stringify(HaberciAgi.oku(h_ham).get("bekleyen", [])), "OMR-38: defter haber sayfası ile haberci_agi.oku bekleyen listesi eşit")

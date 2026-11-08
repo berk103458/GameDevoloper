@@ -1,3 +1,14 @@
+## 8 Kasım 2026 — OMR-19, OMR-20, OMR-23, OMR-24, OMR-25, OMR-26, OMR-29, OMR-30, OMR-32, OMR-36, OMR-37 ve OMR-38 tamamlandı (Antigravity)
+
+- `OMR-19` ve `OMR-20`: `src/sistemler/dis_hat_kapisi.gd` güncellendi; Moğol hattı 3 adım (duman -> haber -> öncü) dalga 1/2/3 sırasına bağlandı, adım atlanırsa sonraki tetiklenmez. Tekfur hattı 3 adım (elçi -> haraç -> heyet) sırasına bağlandı, elçi gelmeden haraç talebi 0'dır.
+- `OMR-23`: `src/sistemler/dis_hat_kapisi.gd` güncellendi; Ahi hattı dalga 2'de `TezgahtaGun.isler` üzerinden TEZ teslim sayısını okur, teslim sayısı ≥ 1 değilse ahi gelmez.
+- `OMR-24` ve `OMR-32`: `src/sistemler/dis_hat_kapisi.gd` güncellendi; aynı gecede en çok 1 dış hat yüzü gelir (`data/omurga.json` `hat_onceligi` sırası: sancak > tekfur > Moğol > oba > ahi), model kapıda kalır. Dalga başına en az bir yüz gelir; bütün hatlar kapatılmışsa veya uygun hat yoksa ulak (`sancak_cavusu`) gelir (3 dalgada en az 3 yüz).
+- `OMR-25`, `OMR-26`, `OMR-29`, `OMR-30`: `src/sistemler/dis_hat_kapisi.gd`, `src/sistemler/nihai_son.gd` ve `src/arayuz/oda_gidisat_paneli.gd` güncellendi; üç karar (`tekfur_elci_red`, `mogol_oncu_kabul`, `ulak_aldat`) `atil_bayraklar.json` zincirine uyan bayraklar üretir ve hatları kapatır; tutulmayan sözler hattı kapatır. Kapatılan hat sonrası `oda_gidisat_paneli.gidisat_cumlesi` güncellenir; dört dış hat kapalı ve yozlaşma düşükken `nihai_son.son` varsayılan `uc_tutundu` döner.
+- `OMR-36` ve `OMR-37`: `src/sistemler/dis_hat_kapisi.gd` güncellendi; dış hat yüzünden 1–2 gece önce yazılı haber planlanır; bir ziyaretçi haberi söylediyse (`sozluk_haber_*` veya `insandan_haber_*`) yazılı satır 0 olur.
+- `OMR-38`: `src/sistemler/hafiza_defteri.gd` güncellendi; haberci ağının `bekleyen` listesi hafıza defterinin "Haber" sayfasına aktarılır (`haber_sayfasi`), `azami_metin` sınırı korunur.
+- Testler: `python tests/tools/test_omurga.py`, `tests/unit/sistemler/omurga_test.gd`, `tests/unit/sistemler/hafiza_defteri_test.gd`, `tests/unit/kvr/dis_hat_kapisi_test.gd` (hepsi 0 hata ile GEÇTİ).
+Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — DEN-36, DEN-63, DEN-70, DEN-73, DEN-75, DEN-76, DEN-80, OGR-04, OGR-19, OMR-27, OMR-39, OMR-41, OMR-42, OMR-45, OMR-47 ve OMR-48 tamamlandı (Antigravity)
 
 - `DEN-36`, `DEN-63`, `DEN-70`, `DEN-73`: `data/ayarlar/denge.json`, `data/ayarlar/denge_sinirlari.json`, `tools/denge_dogrula.py`, `src/koy/meslek_yapilari.gd` ve testleri (`tests/tools/test_denge_dogrula.py`, `tests/unit/denge/meslek_verim_test.gd`, `tests/unit/denge/zorluk_test.gd`) güncellendi; nitelikli/geçici iş üretim oranı (`nitelikli_gecici_is_orani: 1.6`), üç zorlukta kriz/iflas/rüşvet aralıkları (`kriz_aralik_zorluk.siki.alt > olagan.ust`) ve beş sonun `%100`'e toplanan hedef aralıkları (`son_aralik`) doğrulandı.

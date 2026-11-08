@@ -154,6 +154,7 @@ func oku(kaynak: Dictionary) -> Dictionary:
 	var beyan := sirala(_benzersiz(_beyan_sayfasi(kaynak)))
 	var soylenti := sirala(_soylenti_sayfasi(kaynak))
 	var notlar := _not_sayfasi(kaynak)
+	var haber := haber_sayfasi(kaynak)
 	return {
 		"sayfa_sayisi": SAYFALAR.size(),
 		"sayfalar": SAYFALAR.duplicate(),
@@ -161,10 +162,21 @@ func oku(kaynak: Dictionary) -> Dictionary:
 		"beyan": beyan,
 		"soylenti": soylenti,
 		"not": notlar,
+		"haber": haber,
 		"yazim": yazim_sayisi,
 		"sabah_kopyasi": 0,
 		"sabah_acilisi": sabah_evresinde_acilir_mi(),
 	}
+
+
+## OMR-38: Haberci ağının `bekleyen` listesi hafıza defterinin "Haber" sayfasına geçer; `azami_metin` sınırı korunur.
+func haber_sayfasi(kaynak: Variant) -> Array:
+	var veri: Variant = kaynak
+	if kaynak is Dictionary and (kaynak as Dictionary).has("haberci_agi"):
+		veri = (kaynak as Dictionary)["haberci_agi"]
+	var okunan_ag := HaberciAgi.oku(veri)
+	var bekleyen: Variant = okunan_ag.get("bekleyen", [])
+	return (bekleyen as Array).duplicate(true) if bekleyen is Array else []
 
 
 func _karar_sayfasi(kaynak: Dictionary) -> Array:
