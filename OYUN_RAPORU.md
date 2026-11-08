@@ -10,6 +10,10 @@
 - Testler: 	ests/unit/sistemler/omurga_test.gd, 	ests/unit/sistemler/ilk_saat_test.gd, 	ests/unit/denge/zorluk_test.gd, 	ests/unit/denge/denge_olcumu_test.gd, python tests/tools/test_omurga.py (hepsi 0 hata ile GEÇTİ).
 Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
 
+## 8 Kasım 2026 — KLT-15 tamamlandı (Kalfa)
+
+Yazım denetimi muhafız personası ve beş sonun dağılımı eklenmiş pakette aynı sonucu verdi. Bütün sonuçların tek sona yığıldığı örnek paket geçici test hedefine kopyalandı. Yazım kapısında son dağılımı eşiği taraması sıfır. 26 yazım kapısı testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-12 tamamlandı (Kalfa)
 
 CSV ve yazım kapısı aynı OGR-08 öğretici uzunluk kuralını çağırır. Öğretici satırı 90 karakterde geçer, 91 karakterde tek hata verir. Söz motoru beklemede. 25 yazım kapısı, 21 metin denetimi testi ve gerçek metin CSV kontrolü geçti. Betik doğrudan ve Python modülü olarak açıldı. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

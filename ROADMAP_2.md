@@ -6455,7 +6455,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: DYL-14. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [/] **KLT-15:** DYL-12 son dağılımı yazım kapısı değildir. (Kalfa)
+- [x] **KLT-15:** DYL-12 son dağılımı yazım kapısı değildir. (Kalfa)
   - Ne: muhafız tipi tarama denge içindir (32); yazım hattını kilitlemez. Bu madde o taramayı buraya taşımaz.
   - Kabul: `soz_kapi.py` içinde son eşiği 0. Test: tarama.
   - Bağımlılık: DYL-12, DEN. Boyut: S.

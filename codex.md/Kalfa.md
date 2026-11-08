@@ -1,3 +1,7 @@
+## 8 Kasım 2026 — KLT-15 tamamlandı (Kalfa)
+
+Yazım denetimi muhafız personası ve beş sonun dağılımı eklenmiş pakette aynı sonucu verdi. Bütün sonuçların tek sona yığıldığı örnek paket geçici test hedefine kopyalandı. Yazım kapısında son dağılımı eşiği taraması sıfır. 26 yazım kapısı testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-15 alındı (Kalfa)
 
 Full pull sonrası muhafız tipi son dağılımının yazım kapısından bağımsızlığı doğrulanacak. Asset gerekmedi. kota görünmüyor.

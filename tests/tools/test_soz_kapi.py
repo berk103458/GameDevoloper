@@ -27,6 +27,19 @@ KOR = [{"id": "ornek", "skor": 0.9, "agiz": 3}]
 
 
 class SozKapiTest(unittest.TestCase):
+    def test_dyl12_son_dagilimi_yazim_kapisini_etkilemez(self):
+        paket = _temiz_paket()
+        sonuc = denetle(paket, KOR)
+        self.assertEqual(sonuc, ([], []))
+        paket["persona"] = "rusvetci"
+        paket["son_dagilimi"] = {
+            "tekfur_haraccisi": 100, "ertugrul_obasi": 0, "beyin_uc_koyu": 0,
+            "ahi_kasabasi": 0, "uc_tutundu": 0,
+        }
+        self.assertEqual(denetle(paket, KOR), sonuc)
+        with tempfile.TemporaryDirectory() as klasor:
+            self.assertEqual(kopyala(paket, Path(klasor), KOR), 1)
+
     def test_ogretici_uzunlugu_csv_ile_ortak(self):
         paket = _temiz_paket()
         anahtar = "ogretici.test.ipucu"
