@@ -6628,7 +6628,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 Alt başlıklarda madde sayısı iki ile üç arasındadır; onuncu madde YAZ veya DYL gövdesini tekrar edeceği için konmadı. Toplam 25 madde.
 
-- [/] **KLT-72:** Yeni madde ikinci motor açmaz (Kalfa)
+- [x] **KLT-72:** Yeni madde ikinci motor açmaz (Kalfa)
   - Ne: Yeni madde ikinci motor açmaz. Sınıf ek 0.
   - Kabul: Sınıf 1. Test: tarama.
   - Bağımlılık: DIY-02. Boyut: S.

@@ -1,3 +1,7 @@
+## 8 Kasım 2026 — KLT-72 tamamlandı (Kalfa)
+
+Tüm src GDScript dosyalarındaki Söz motoru veya yürütücü sınıfı bildirimleri tarandı. Tek eşleşme src/soz/soz_motoru.gd içindeki mevcut SozMotoru. 32 yazım kapısı testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Söz motoru akışı değiştirilmedi. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-65 tamamlandı (Kalfa)
 
 Mevcut kadro sır kotası ile kurallar.json içindeki aynı alan eşit olmalı. Geçerli iki dosyada değer %50. Eksik, geçersiz veya farklı değer KLT-65 ile kopyayı keser. %50/%51 örneğinde, kadro boş olsa veya sır oranı da aşılmış olsa, tek kota tutarsızlığı döndü ve kabul dosyası yazılmadı. Söz motoru akışı değiştirilmedi. 31 yazım kapısı, 7 Söz dosyası denetimi ve headless şema testi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

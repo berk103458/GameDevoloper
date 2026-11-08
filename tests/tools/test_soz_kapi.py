@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -28,6 +29,14 @@ KOR = [{"id": "ornek", "skor": 0.9, "agiz": 3}]
 
 
 class SozKapiTest(unittest.TestCase):
+    def test_tek_soz_motoru_sinifi(self):
+        sinif = re.compile(r"^class_name +\w*Soz\w*(?:Motor|Yurutucu)\w*\b", re.M)
+        bulunan = []
+        for yol in (ROOT / "src").rglob("*.gd"):
+            kaynak = yol.read_text(encoding="utf-8-sig")
+            bulunan.extend((yol.relative_to(ROOT).as_posix(), ad) for ad in sinif.findall(kaynak))
+        self.assertEqual(bulunan, [("src/soz/soz_motoru.gd", "class_name SozMotoru")])
+
     def test_kirmizi_yazim_kapisi_tur_diyalog_kutusunu_acik_birakir(self):
         paket = _temiz_paket()
         paket["satirlar"][0]["metin"] = "Kaldı; bekler."
