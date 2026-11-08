@@ -1,3 +1,9 @@
+## 8 Kasım 2026 — YAP-05 tamamlandı (Kalfa)
+
+Güncel festive üretim kaynakları 9cdbbdcb arşivinden önbelleksiz TEMP kopyaya alındı. 21 hedefli kontrol geçti. Atama/duraklatma testinde aralıklı kapanış sızıntısı mevcut Ses.cik ile giderildi, üç tekrar geçti. Geçmiş akışı testi ilk saat kadrajını doğrulayacak ve sinyal yayan ekranı ertelemeli temizleyecek biçimde güncellendi. Başka üretim kaynağı değişmedi. Oda arayüzü, tek kuyruk ve bedel, gerçek gece sonucu, kayıt, yapı kilidi ve DEN geçti.
+
+Soğuk import çıkış 0, Parley, script, parse ve MD5 hatası yok. YAP-05 öncesi a0f4aca9 kabulünde de görülen üç motor kapanış hatası sürüyor. Ayrıntı docs/denetim/YAP_05_SON_KABUL_2026-11-06.md ve JSON. Tam sanity çalıştırılmadı. Asset gerekmedi, mevcut YAP05-ODA kaydı korunuyor. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — KLT-73 tamamlandı (Kalfa)
 
 Bu çalışma turunun başlangıç commit’i b58a5078 ile son ağaç arasında assets/ses altında WAV sayısı 47 → 47. Yol listesi, dosya içeriği ve yerel WAV durumu farkı sıfır. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.

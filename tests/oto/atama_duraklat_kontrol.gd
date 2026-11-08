@@ -61,4 +61,4 @@ func _calistir() -> void:
 	ana.queue_free()
 	await get_tree().process_frame
 	print("ATAMA DURAKLAT: GEÇTİ" if hata == 0 else "ATAMA DURAKLAT: KALDI")
-	get_tree().quit(hata)
+	await Ses.cik(hata)

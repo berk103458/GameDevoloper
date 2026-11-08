@@ -242,5 +242,21 @@
     "script_errors": 0,
     "shutdown_errors": 3,
     "accepted": false
+  },
+  "kabul_2026_11_08": {
+    "head": "9cdbbdcb584e3fb323fd7e744407d0b036c0e61f",
+    "initial_godot": false,
+    "headless_import_exit": 0,
+    "script_or_parley_import_errors": 0,
+    "md5_errors": 0,
+    "known_import_shutdown_errors": 3,
+    "selected_checks_passed": 21,
+    "selected_checks_total": 21,
+    "assignment_teardown_repeats_passed": 3,
+    "updated_fixtures": [
+      "tests/oto/atama_duraklat_kontrol.gd",
+      "tests/unit/sistemler/muhafiz_gecmisi_akis_test.gd"
+    ],
+    "full_sanity": false
   }
 }

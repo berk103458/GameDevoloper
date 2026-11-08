@@ -1608,7 +1608,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.5 Çözümleme
 
-- [/] **YAP-05:** Çözümleme işi — araştırma. (Kalfa)
+- [x] **YAP-05:** Çözümleme işi — araştırma. (Kalfa)
   - Ne: Oyuncu K1 çözümleme odasında bir defteri araştırır. Oda yoksa iş başlamaz. Süre ve sonuç `data/usta_defterleri.json` içindedir. Sonuç, duran sistemlerden birine tek çarpan yazar. Aynı anda tek çözümleme vardır. Biten iş köyde tek satır bildirir. Bedel tek kaynaktır. Kış çarpanı mevsim kaydından okunur.
   - Kurallar:
     1. İş, K1 çözümleme odasında yapılır. Oda yoksa iş başlamaz. Oda kataloga tek satır olarak girer.
