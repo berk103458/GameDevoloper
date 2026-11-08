@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -142,6 +143,22 @@ class SozKapiTest(unittest.TestCase):
     def test_kor_okuma_yoksa_red(self):
         hatalar, _ = denetle(_temiz_paket(), [])
         self.assertTrue(any(h["kod"] == "KLT-05" for h in hatalar))
+
+    def test_celisen_kota_dosyalari_kapiyi_durdurur(self):
+        paket = _temiz_paket()
+        with tempfile.TemporaryDirectory() as klasor:
+            yol = Path(klasor) / "kurallar.json"
+            yol.write_text('{"sir_cekirdegi_kotasi_yuzde_max": 51}', encoding="utf-8")
+            with patch("soz_kapi.KURALLAR", yol):
+                for cekirdekler in ([], ["sir", "sir"]):
+                    with self.subTest(cekirdekler=cekirdekler):
+                        paket["cekirdekler"] = cekirdekler
+                        hatalar, _ = denetle(paket, KOR)
+                        self.assertEqual([h["kod"] for h in hatalar], ["KLT-65"])
+                        self.assertIn("%50", hatalar[0]["mesaj"])
+                        self.assertIn("%51", hatalar[0]["mesaj"])
+                        self.assertEqual(kopyala(paket, Path(klasor), KOR), 0)
+            self.assertFalse((Path(klasor) / "ornek.json").exists())
 
     def test_dinleyici_kotasi_ayri_sutundur(self):
         paket = _temiz_paket()

@@ -29,6 +29,8 @@ USLUP = ROOT / "Roadmap-2" / "USLUP_REHBERI.md"
 BINA = ROOT / "data" / "koy" / "binalar.json"
 MESLEK = ROOT / "data" / "meslek_binalari.json"
 KADRO_OZGUNLUK = ROOT / "data" / "soz" / "kadro_ozgunluk.json"
+KURALLAR = KADRO_OZGUNLUK.with_name("kurallar.json")
+SIR_KOTASI = "sir_cekirdegi_kotasi_yuzde_max"
 
 
 def _modern_kelimeler() -> list[str]:
@@ -87,8 +89,9 @@ def denetle(paket: dict, kor_satirlari: list[dict] | None = None) -> tuple[list[
     cekirdek = [str(c) for c in paket.get("cekirdekler", [])]
     if cekirdek and sum(c == "dedikodu" for c in cekirdek) / len(cekirdek) > KOTA_DEDIKODU:
         hatalar.append({"tur": "hata", "kod": "KLT-06", "mesaj": "dedikodu kotasi"})
-    if cekirdek and (sir_hatasi := _sir_kotasi_hatasi(_cekirdek_kota_sayimi(cekirdek))):
-        hatalar.append({"tur": "hata", "kod": "KLT-20", "mesaj": sir_hatasi})
+    if kota_hatasi := _sir_kotasi_hatasi(_cekirdek_kota_sayimi(cekirdek)):
+        kod, mesaj = kota_hatasi
+        hatalar.append({"tur": "hata", "kod": kod, "mesaj": mesaj})
     hatalar.extend(_satir_hatalari(paket))
     uyarilar.extend(_satir_uyarilari(paket))
     return hatalar, uyarilar
@@ -102,18 +105,20 @@ def _cekirdek_kota_sayimi(cekirdekler: list[str]) -> dict[str, int]:
     }
 
 
-def _sir_kotasi_hatasi(sayim: dict[str, int]) -> str | None:
+def _sir_kotasi_hatasi(sayim: dict[str, int]) -> tuple[str, str] | None:
     try:
-        veri = json.loads(KADRO_OZGUNLUK.read_text(encoding="utf-8"))
-        tavan = veri["sir_cekirdegi_kotasi_yuzde_max"]
+        tavan, kural = (json.loads(yol.read_text(encoding="utf-8"))[SIR_KOTASI]
+                       for yol in (KADRO_OZGUNLUK, KURALLAR))
     except (OSError, ValueError, KeyError, TypeError):
-        return "Kadro sır kotası okunamadı"
-    if type(tavan) is not int or not 0 <= tavan < 100:
-        return "Kadro sır kotası 0–99 arasında tam sayı olmalı"
+        return "KLT-65", "Kadro dosyası ve kurallar.json sır kotası okunamadı"
+    if any(type(deger) is not int or not 0 <= deger < 100 for deger in (tavan, kural)):
+        return "KLT-65", "Sır kotası her iki dosyada 0–99 arasında tam sayı olmalı"
+    if tavan != kural:
+        return "KLT-65", f"Kadro kotası %{tavan}, kurallar.json kotası %{kural}"
     sir = sayim["sir"]
     toplam = sayim["toplam"]
     if sir * 100 > toplam * tavan:
-        return f"Sır çekirdeği kotası aşıldı ({sir}/{toplam}, en çok %{tavan})"
+        return "KLT-20", f"Sır çekirdeği kotası aşıldı ({sir}/{toplam}, en çok %{tavan})"
     return None
 
 

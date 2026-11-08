@@ -1,5 +1,6 @@
 {
   "derinlik_tavani": 12,
+  "sir_cekirdegi_kotasi_yuzde_max": 50,
   "izinli_etki_alanlari": ["bar", "akce", "ambar", "bayrak", "tansiyon", "ziyaret"],
   "baslangic_guven": 3,
   "baslangic_sabir": 5,
