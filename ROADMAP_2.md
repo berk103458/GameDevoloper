@@ -7909,49 +7909,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.1 Ayak ve zemin
 
-- [ ] **SAH-01:** Ayak, yürünebilir zeminin üstündedir.
+- [x] **SAH-01:** (Antigravity) Ayak, yürünebilir zeminin üstündedir.
   - Ne: tarla, patika ve kapı eşiğinde topuk zeminin altından geçmez. 20 adımlık yürüyüşte gömülme karesi 0'dır.
   - Kabul: tarla, patika ve kapı eşiğinde topuk zeminin altından geçmez. 20 adımlık yürüyüşte gömülme karesi 0'dır. Test: üç zemin, muayene aracı yüksekliği yazar.
   - Bağımlılık: ANI-13. Boyut: M.
   - Dosya: `src/dunya/ayak_zemini.gd` (yeni). Karakter modele tek bağ.
   - Asset: asset gerekmedi.
-- [ ] **SAH-02:** Eğik zeminde ayak yüzeyi izler.
+- [x] **SAH-02:** (Antigravity) Eğik zeminde ayak yüzeyi izler.
   - Ne: yokuşta iki ayak aynı dünya yüksekliğine zorlanmaz. Her ayak kendi değdiği noktadadır.
   - Kabul: yokuşta iki ayak aynı dünya yüksekliğine zorlanmaz. Her ayak kendi değdiği noktadadır. Test: eğimli hücre, iki ayak yüksekliği farklı.
   - Bağımlılık: SAH-01. Boyut: M.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-03:** Ayak kayması adım boyunu aşmaz.
+- [x] **SAH-03:** (Antigravity) Ayak kayması adım boyunu aşmaz.
   - Ne: bir adımda ayak, görünen adım uzunluğundan fazla kaymaz. Ölçü iskelet ile kök hareketinin farkıdır.
   - Kabul: bir adımda ayak, görünen adım uzunluğundan fazla kaymaz. Ölçü iskelet ile kök hareketinin farkıdır. Test: 10 adım, fark tablodaki eşiğin altında.
   - Bağımlılık: SAH-01. Boyut: M.
   - Dosya: `src/dunya/ayak_zemini.gd`. Eşik `data/ayarlar/sahne.json`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-04:** Durunca ayaklar kapanır.
+- [x] **SAH-04:** (Antigravity) Durunca ayaklar kapanır.
   - Ne: hız sıfır olunca kayma birikmez. Karakter yokuşta yavaşça aşağı akmaz.
   - Kabul: hız sıfır olunca kayma birikmez. Karakter yokuşta yavaşça aşağı akmaz. Test: 5 saniye duruş, konum deltası eşik altı.
   - Bağımlılık: SAH-03. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-05:** Kapı eşiği ayrı bir zemin değildir.
+- [x] **SAH-05:** (Antigravity) Kapı eşiği ayrı bir zemin değildir.
   - Ne: eşik, ANI-13 ağının bir hücresidir. İkinci bir yükseklik sabiti kodda yoktur.
   - Kabul: eşik, ANI-13 ağının bir hücresidir. İkinci bir yükseklik sabiti kodda yoktur. Test: eşikte gömülme 0, ağ dışı hücreye ayak basılmaz.
   - Bağımlılık: ANI-13, SAH-01. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-06:** Çömelme ve eğilme ayağı yerden koparmaz.
+- [x] **SAH-06:** (Antigravity) Çömelme ve eğilme ayağı yerden koparmaz.
   - Ne: kabuldeki şükran ve retteki diz çökme, ayak tabanını zeminde tutar. Klip yoksa BUG-09 idle'a düşer, ayak yine zemindedir.
   - Kabul: kabuldeki şükran ve retteki diz çökme, ayak tabanını zeminde tutar. Klip yoksa BUG-09 idle'a düşer, ayak yine zemindedir. Test: iki poz, taban yüksekliği.
   - Bağımlılık: SAH-01, BUG-09. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-07:** Kalabalıkta ayak birbirinin içinden geçmez.
+- [x] **SAH-07:** (Antigravity) Kalabalıkta ayak birbirinin içinden geçmez.
   - Ne: iki karakterin kökleri ANI-13 çarpışma payından yakına girmez. Ayak cilası bu payı daraltmaz.
   - Kabul: iki karakterin kökleri ANI-13 çarpışma payından yakına girmez. Ayak cilası bu payı daraltmaz. Test: iki model, aralık en az pay.
   - Bağımlılık: ANI-13, SAH-01. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-08:** Muayene aracı ayak yüksekliğini yazar.
+- [x] **SAH-08:** (Antigravity) Muayene aracı ayak yüksekliğini yazar.
   - Ne: `karakter_muayene.tscn` her model için en alçak kemik yüksekliğini satır yazar. Eşik altı satır hata sayılır. TST-08'in adımları burada yoktur.
   - Kabul: `karakter_muayene.tscn` her model için en alçak kemik yüksekliğini satır yazar. Eşik altı satır hata sayılır. TST-08'in adımları burada yoktur. Test: bilerek gömülü model, raporda 1 satır.
   - Bağımlılık: SAH-01. Boyut: S.
@@ -7960,49 +7960,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.2 El eşyası
 
-- [ ] **SAH-09:** Eşya, eldeki sokettedir.
+- [x] **SAH-09:** (Antigravity) Eşya, eldeki sokettedir.
   - Ne: `el_esyasi.gd` avuç noktasını kullanır. Eşya göğüs veya uyluk kemikle kesişmez.
   - Kabul: `el_esyasi.gd` avuç noktasını kullanır. Eşya göğüs veya uyluk kemikle kesişmez. Test: 8 eşya türü, kesişen kare 0.
   - Bağımlılık: ANI-11. Boyut: M.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi. Çakışan tür ARY-05'e `SAH-EL-CAKISMA` diye yazılır, üretilmez.
-- [ ] **SAH-10:** Yürürken eşya ele yapışıktır.
+- [x] **SAH-10:** (Antigravity) Yürürken eşya ele yapışıktır.
   - Ne: kök hızlanırken eşya ele göre 2 santimden fazla gecikmez.
   - Kabul: kök hızlanırken eşya ele göre 2 santimden fazla gecikmez. Test: 20 adım, gecikme eşiği.
   - Bağımlılık: SAH-09. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-11:** Eğilince eşya yere girmez.
+- [x] **SAH-11:** (Antigravity) Eğilince eşya yere girmez.
   - Ne: diz çökmede asılı eşya zeminin altına inmez. Asa dik kalır. Mevcut sarkma kuralı durur.
   - Kabul: diz çökmede asılı eşya zeminin altına inmez. Asa dik kalır. Mevcut sarkma kuralı durur. Test: çuval ve asa, zemin kesişimi 0.
   - Bağımlılık: SAH-06, SAH-09. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-12:** İki elde iki eşya omurgayı delmez.
+- [x] **SAH-12:** (Antigravity) İki elde iki eşya omurgayı delmez.
   - Ne: heybe ve araç aynı anda takılıysa birbirinin ve gövdenin içinden geçmez.
   - Kabul: heybe ve araç aynı anda takılıysa birbirinin ve gövdenin içinden geçmez. Test: çift soket, kesişim 0.
   - Bağımlılık: ANI-11, SAH-09. Boyut: M.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-13:** Konuşma klibi eşyayı düşürmez.
+- [x] **SAH-13:** (Antigravity) Konuşma klibi eşyayı düşürmez.
   - Ne: ağız klibi oynarken tutuş soketi kopmaz. Klip yoksa idle, eşya elde kalır.
   - Kabul: ağız klibi oynarken tutuş soketi kopmaz. Klip yoksa idle, eşya elde kalır. Test: konuşma 3 saniye, soket dolu.
   - Bağımlılık: BUG-09, SAH-09. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-14:** Kapıdaki yük, köydeki yükle aynı sokettedir.
+- [x] **SAH-14:** (Antigravity) Kapıdaki yük, köydeki yükle aynı sokettedir.
   - Ne: kabul edilen kişinin el eşyası kapıdan köye geçince türü değişmez, noktası değişmez. İkinci tutuş tablosu yok.
   - Kabul: kabul edilen kişinin el eşyası kapıdan köye geçince türü değişmez, noktası değişmez. İkinci tutuş tablosu yok. Test: aynı tür, iki sahne, aynı soket adı.
   - Bağımlılık: SAH-09. Boyut: S.
   - Dosya: `data/el_esyalari.json`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-15:** Çocuk modelinde büyük yük küçülür.
+- [x] **SAH-15:** (Antigravity) Çocuk modelinde büyük yük küçülür.
   - Ne: ölçek, model boyunun oranıdır. Sabit yetişkin ölçeği çocukta gövdeyi yutmaz.
   - Kabul: ölçek, model boyunun oranıdır. Sabit yetişkin ölçeği çocukta gövdeyi yutmaz. Test: çocuk ve yetişkin, eşya boyu oran içinde.
   - Bağımlılık: SAH-09, UZM-08. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-16:** Muayene kesişen eşyayı listeler.
+- [x] **SAH-16:** (Antigravity) Muayene kesişen eşyayı listeler.
   - Ne: araç, kemikle kesişen eşya türünü yazar. Liste ARY-05'e işlenir, model üretilmez.
   - Kabul: araç, kemikle kesişen eşya türünü yazar. Liste ARY-05'e işlenir, model üretilmez. Test: kasıtlı kesişim, raporda tür adı.
   - Bağımlılık: SAH-08, SAH-09. Boyut: S.

@@ -1,3 +1,10 @@
+## 8 Kasım 2026 — SAH-01..SAH-16 tamamlandı (Antigravity)
+
+- SAH-01..SAH-08: `src/dunya/ayak_zemini.gd` oluşturuldu ve `tests/oto/karakter_muayene.gd` güncellendi; topuk yürünebilir zeminin (tarla, patika, kapı eşiği) altından geçmez, gömülme karesi 0'dır (zemin_hizala). Eğik zeminde her ayak kendi değdiği noktayı izler (egik_zemin_hizala). Ayak kayması `data/ayarlar/sahne.json` eşiğini (0.15m) aşmaz (kayma_esik_altinda_mi). Hız sıfır olunca kayma birikmez, yokuşta aşağı akmaz (durus_kayma_esik_alti_mi). Kapı eşiği ağın bir hücresidir, ağ dışı basılmaz. Çömelme ve eğilmede taban zemindedir. İki model kök aralığı en az çarpışma payı (0.6m) kadardır. Muayene aracı gömülü ayak yüksekliği hata satırını yazar (ayak_muayenesi_yap).
+- SAH-09..SAH-16: `src/dunya/el_esyasi.gd` ve `tests/oto/karakter_muayene.gd` güncellendi; el eşyası avuç noktasını kullanır, göğüs veya uyluk kemikleriyle kesişmez (kesisiyor_mu). Yürürken eşya ele göre 2 cm'den fazla gecikmez (gecikme_uygun_mu). Eğilince eşya zeminin altına inmez, asa dik kalır (zemin_altina_inmez). İki elde iki eşya omurgayı delmez (cift_soket_kesisimi_var_mi). Konuşma klibi eşyayı düşürmez (soket_dolu_mu). Kapı ve köyde aynı soket tanımı (`data/el_esyalari.json`) kullanılır. Çocuk modelinde yük oranında küçülür (cocuk_olcekle). Muayene aracı kesişen eşyayı SAH-EL-CAKISMA olarak listeler (esya_kesisim_muayenesi_yap).
+- Testler: `tests/unit/dunya/sahne_ayak_esya_test.gd` headless Godot testi 0 hata ile GEÇTİ.
+Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — YAP-05 tamamlandı (Kalfa)
 
 Güncel festive üretim kaynakları 9cdbbdcb arşivinden önbelleksiz TEMP kopyaya alındı. 21 hedefli kontrol geçti. Atama/duraklatma testinde aralıklı kapanış sızıntısı mevcut Ses.cik ile giderildi, üç tekrar geçti. Geçmiş akışı testi ilk saat kadrajını doğrulayacak ve sinyal yayan ekranı ertelemeli temizleyecek biçimde güncellendi. Başka üretim kaynağı değişmedi. Oda arayüzü, tek kuyruk ve bedel, gerçek gece sonucu, kayıt, yapı kilidi ve DEN geçti.

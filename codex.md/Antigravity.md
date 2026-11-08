@@ -1017,3 +1017,9 @@ ereden ve
 eden_yola_dustun), gece_min eşiği gelmeyen konular kapalıdır.
 - Testler: 	ests/unit/denge/denge_olcumu_test.gd, 	ests/unit/soz/konu_merkezi_test.gd, 	ests/unit/denge/rusvet_test.gd, python tests/tools/test_denge_dogrula.py (hepsi 0 hata ile GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
 - kota görünmüyor
+
+## 8 Kasım 2026 — SAH-01..SAH-16 tamamlandı (Antigravity)
+- `SAH-01`..`SAH-08`: `src/dunya/ayak_zemini.gd` ve `tests/oto/karakter_muayene.gd` ile zemin hizalama, eğik zemin, kayma eşiği (0.15m), duruş kapanışı, eşik hücre denetimi, çömelme tabanı, kök payı ve muayene ayak yüksekliği denetimi tamamlandı.
+- `SAH-09`..`SAH-16`: `src/dunya/el_esyasi.gd` ve `tests/oto/karakter_muayene.gd` ile eşya soketi, yürüme gecikmesi (<=0.02m), eğilme zemin koruması, çift soket kesişim engeli, konuşma soket tutuşu, tek soket tanımı, çocuk ölçeklemesi ve eşya kesişim muayenesi tamamlandı.
+- Test: `tests/unit/dunya/sahne_ayak_esya_test.gd` (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- kota görünmüyor

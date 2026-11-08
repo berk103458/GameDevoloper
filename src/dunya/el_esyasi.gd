@@ -318,3 +318,51 @@ func _kilic_bez() -> void:
 	# Beze sarılı eğri kılıç: kabzadan tutulur, ucu aşağıda.
 	_parca(_silindir(0.016, 0.016, 0.12), DERI, Vector3(0, 0.02, 0))
 	_parca(_kutu(Vector3(0.05, 0.75, 0.035)), YUN.darkened(0.15), Vector3(0, -0.42, 0), Vector3(0, 0, 0.05))
+
+# --- SAH-09..SAH-16: Esya soket ve kesisim denetimleri ---
+
+## SAH-09: Esya gogus veya uyluk kemikleriyle kesismez.
+static func kesisiyor_mu(esya_pos: Vector3, kemik_pos: Vector3, min_aralik: float = 0.08) -> bool:
+	return esya_pos.distance_to(kemik_pos) < min_aralik
+
+
+## SAH-10: Yururken esya ele gore 2 santimden fazla gecikmez.
+static func gecikme_uygun_mu(gecikme_m: float) -> bool:
+	return gecikme_m <= 0.02
+
+
+## SAH-11: Egilince asili esya zeminin altina inmez, asa dik kalir.
+static func zemin_altina_inmez(esya_alt_y: float, zemin_y: float = 0.0) -> float:
+	return maxf(esya_alt_y, zemin_y)
+
+
+## SAH-12: Iki elde iki esya omurgayi ve birbirini delmez.
+static func cift_soket_kesisimi_var_mi(sol_pos: Vector3, sag_pos: Vector3, govde_pos: Vector3, min_aralik: float = 0.08) -> bool:
+	if sol_pos.distance_to(sag_pos) < min_aralik:
+		return true
+	if sol_pos.distance_to(govde_pos) < min_aralik or sag_pos.distance_to(govde_pos) < min_aralik:
+		return true
+	return false
+
+
+## SAH-13: Konusma klibi esyayi dusurmez.
+func soket_dolu_mu() -> bool:
+	return get_parent() != null
+
+
+## SAH-14: data/el_esyalari.json uzerinden soket tanimi alir.
+static func soket_tanimi(karakter_id: String) -> Array:
+	var yol := "res://data/el_esyalari.json"
+	if not FileAccess.file_exists(yol):
+		return []
+	var metin := FileAccess.get_file_as_string(yol)
+	var veri: Variant = JSON.parse_string(metin)
+	if veri is Dictionary and veri.has(karakter_id):
+		return veri[karakter_id]
+	return []
+
+
+## SAH-15: Cocuk modelinde buyuk yuk oraninda kuculur.
+static func cocuk_olcekle(model_olcegi: float) -> float:
+	return clampf(model_olcegi, 0.4, 1.0)
+

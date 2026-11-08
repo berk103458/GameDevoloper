@@ -216,3 +216,35 @@ func _uyar(h: String, oz: Dictionary) -> PackedStringArray:
 	if oz.has("boy") and (oz["boy"][1] < 1.2 or oz["boy"][1] > 2.3):
 		u.append("%s: baş yüksekliği olağandışı (%.2f m) — ölçek hatası" % [h, oz["boy"][1]])
 	return u
+
+# --- SAH-08, SAH-16, SAH-77: Muayene ve raporlama yardimcilari ---
+
+static func ayak_muayenesi_yap(en_alt_y: float, esik: float = 0.08) -> Dictionary:
+	var hata := en_alt_y < -esik or en_alt_y > esik
+	var mesaj := ""
+	if en_alt_y < -esik:
+		mesaj = "ayak zemine gomulu (%.2f m)" % en_alt_y
+	elif en_alt_y > esik:
+		mesaj = "ayaklar yerden kopuk (%.2f m)" % en_alt_y
+	return {"hata": hata, "en_alt_y": en_alt_y, "mesaj": mesaj}
+
+
+static func esya_kesisim_muayenesi_yap(esya_turu: String, esya_pos: Vector3, kemik_noktalari: Array, min_aralik: float = 0.08) -> Dictionary:
+	var kesisim := false
+	for k_pos in kemik_noktalari:
+		if k_pos is Vector3 and esya_pos.distance_to(k_pos) < min_aralik:
+			kesisim = true
+			break
+	var mesaj := ""
+	if kesisim:
+		mesaj = "SAH-EL-CAKISMA: %s kemik ile kesisiyor" % esya_turu
+	return {"kesisim_var": kesisim, "tur": esya_turu, "mesaj": mesaj}
+
+
+static func uclu_rapor_olustur(ayak_listesi: Array, esya_listesi: Array, klip_listesi: Array) -> Dictionary:
+	return {
+		"ayak": ayak_listesi,
+		"esya": esya_listesi,
+		"klip": klip_listesi
+	}
+

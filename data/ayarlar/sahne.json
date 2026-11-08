@@ -1,0 +1,34 @@
+{
+  "ayak_kayma_esigi": 0.15,
+  "hiz_bantlari": {
+    "dur": [0.0, 0.1],
+    "yuru": [0.1, 2.5],
+    "kos": [2.5, 6.0]
+  },
+  "klipler": {
+    "dur": "bekle",
+    "yuru": "yuru",
+    "kos": "kos"
+  },
+  "gecis_suresi": 0.25,
+  "yol_butcesi_ms": 2.0,
+  "kamera_yukseklik": {
+    "min": 3.0,
+    "max": 18.0,
+    "varsayilan": 8.0
+  },
+  "kamera_taban_mesafe": 1.2,
+  "kapi_isik": {
+    "enerji": 1.0,
+    "menzil": 10.0
+  },
+  "koy_isik": {
+    "enerji": 0.6,
+    "menzil": 15.0
+  },
+  "ates_isik": {
+    "enerji": 1.8,
+    "menzil": 12.0
+  },
+  "isik_tavan": 16
+}
