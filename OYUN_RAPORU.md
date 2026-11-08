@@ -10,6 +10,19 @@
 - Testler: 	ests/unit/sistemler/omurga_test.gd, 	ests/unit/sistemler/ilk_saat_test.gd, 	ests/unit/denge/zorluk_test.gd, 	ests/unit/denge/denge_olcumu_test.gd, python tests/tools/test_omurga.py (hepsi 0 hata ile GEÇTİ).
 Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
 
+## 8 Kasım 2026 — OMR-44 tamamlandı (Kalfa)
+
+Çınar meclisi gerçek ikinci perdede Takvim.hafta_basi günlerinde köy ekranında açılır ve toplantı bitene kadar gece hesabı bekler. Öncelikli güncel dış hat haberi mevcut HaberciAgi kaydından okunur. Haber yoksa dış ilişkiler gündemi açılır. O hafta başında yeni köy şikâyeti açılmaz ve mevcut kriz ertesi uygun günde yeniden değerlendirilebilir. Önceki günden kalmış açık oylama korunur. Tamamlanmış toplantının tarihi mevcut meclis kaydında tutulur. Asset gerekmedi.
+
+12 gecelik takvim taraması, öncelik, gerçek toplantı kartı, aynı gece şikâyet engeli, kayıt dönüşü, ertesi gece kriz ve mevcut meclis testleri geçti. Eski salgın testine mevcut Şifahane yapı bilgisi ve birinci kademe önkoşulu eklendi. İlk importta MD5 hataları görüldü, ikinci deneme autoload taramasında çıkış −1 verdi. Son headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 8 Kasım 2026 — OMR-43 tamamlandı (Kalfa)
+
+DEN, ikinci perdenin tamamlanan gecelerindeki gıda açılış, kapanış ve net farkını mevcut bilanço üzerinden okur. Geçiş gecesi dışarıda kalır. Yeni gece veya tüketim hesabı çalışmaz. Python runner komutu `python -B tools/python_test_runner.py --perde2-ambar --godot C:/Users/Ahmet/Desktop/Godot.exe --tohum 11`. Altı ardışık geceyi ve bilanço farkını doğrulayıp gecelik ortalamayı verir. Tohum 11 ve 23 ile kontrollü köyde stok 404 birimden 257 birime indi. İki koşunun ortalaması da gece başına −24,5 gıdaydı. Bu ölçüm, kurulmuş test köyündeki gece hesabına aittir. Gündüz ticareti veya oyuncu kararları örneklenmedi ve kriz çarpanının etkisi ayrıştırılmadı.
+
+İki runner ölçümü ve DEN birim testi geçti. Headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+
 ## 8 Kasım 2026 — OMR-19, OMR-20, OMR-23, OMR-24, OMR-25, OMR-26, OMR-29, OMR-30, OMR-32, OMR-36, OMR-37 ve OMR-38 tamamlandı (Antigravity)
 
 - `OMR-19` ve `OMR-20`: `src/sistemler/dis_hat_kapisi.gd` güncellendi; Moğol hattı 3 adım (duman -> haber -> öncü) dalga 1/2/3 sırasına bağlandı, adım atlanırsa sonraki tetiklenmez. Tekfur hattı 3 adım (elçi -> haraç -> heyet) sırasına bağlandı, elçi gelmeden haraç talebi 0'dır.
@@ -20,6 +33,12 @@ Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istis
 - `OMR-38`: `src/sistemler/hafiza_defteri.gd` güncellendi; haberci ağının `bekleyen` listesi hafıza defterinin "Haber" sayfasına aktarılır (`haber_sayfasi`), `azami_metin` sınırı korunur.
 - Testler: `python tests/tools/test_omurga.py`, `tests/unit/sistemler/omurga_test.gd`, `tests/unit/sistemler/hafiza_defteri_test.gd`, `tests/unit/kvr/dis_hat_kapisi_test.gd` (hepsi 0 hata ile GEÇTİ).
 Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 8 Kasım 2026 — OMR-38 oyun arayüzü tamamlandı (Kalfa)
+
+Full pull ile Antigravity güncellemeleri alındı, Ajan Masası okundu. Köy veya duraklat menüsünden açılan hafıza defteri, HaberciAgi tarafından doğrulanan bekleyen listeyi kendi sırasıyla okur. Bekleyen haber varken Haber sekmesi dört temel sayfaya eklenir. En yeni kaynak kaydı ve azami metin sınırı HaberciAgi üzerinden korunur. Defteri okumak haber kartını tüketmez. Yedi Türkçe ve İngilizce metin anahtarı doğrulandı.
+
+Hafıza defteri, haberci birim ve gerçek haberci arayüzü testleri geçti. İlk defter koşusunda duraklat menüsü testi mevcut Kapı Usulü seçeneğini saymıyordu. Test beklentisi güncellendi. Son headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
 
 ## 7 Kasım 2026 — DEN-36, DEN-63, DEN-70, DEN-73, DEN-75, DEN-76, DEN-80, OGR-04, OGR-19, OMR-27, OMR-39, OMR-41, OMR-42, OMR-45, OMR-47 ve OMR-48 tamamlandı (Antigravity)
 

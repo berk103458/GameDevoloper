@@ -66,6 +66,11 @@ static func olustur(oturum: RefCounted, gece_raporu: Dictionary, ek_baglam: Dict
 		"oyuncuya_gorunur": false # DEN-06: oyuncuya açılmaz
 	}
 
+	var gecis := int(rapor.perde1_gecis_gecesi)
+	var gida: Dictionary = bilanco.get("stok", {}).get("gida", {})
+	var biten_gece := int(bilanco.get("gun", -1))
+	if gecis >= 0 and biten_gece >= gecis and gida.has_all(["once", "sonra", "net"]):
+		rapor["perde2_ambar"] = {"gece": biten_gece + 1, "once": gida.once, "sonra": gida.sonra, "net": gida.net}
 	return rapor
 
 

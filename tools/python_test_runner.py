@@ -39,7 +39,7 @@ def main():
         tempfile.mkdtemp = original
 
 
-def olcum_calistir(args, ad, ortam_ekleri, etiket):
+def olcum_calistir(args, ad, ortam_ekleri, etiket, hedef=None):
     # Otomatik oyuncu kendi user:// kaydını temizler. Gerçek oyuncu dizininden ayır.
     calisma = ROOT / "work" / (ad + "_" + uuid.uuid4().hex)
     veri = calisma / "veri"
@@ -51,7 +51,8 @@ def olcum_calistir(args, ad, ortam_ekleri, etiket):
         ortam.pop(bayrak, None)
     ortam.update(ortam_ekleri)
     log_yolu = calisma / "godot.log"
-    komut = [args.godot, "--headless", "--path", str(ROOT), "res://tests/oto/otomatik_oyuncu.tscn"]
+    komut = [args.godot, "--headless", "--path", str(ROOT)]
+    komut += ["--script", hedef] if hedef else ["res://tests/oto/otomatik_oyuncu.tscn"]
     secenekler = {"creationflags": subprocess.CREATE_NO_WINDOW} if os.name == "nt" else {}
     try:
         with log_yolu.open("w", encoding="utf-8") as log:
@@ -68,6 +69,14 @@ def olcum_calistir(args, ad, ortam_ekleri, etiket):
         if etiket == "ILKSAAT_SURE":
             if rapor["gece"] != 6 or rapor["sure_ms"] <= 0:
                 raise ValueError("Ölçümün gece veya süre değeri geçersiz")
+        elif etiket == "PERDE2_AMBAR":
+            geceler = rapor["geceler"]
+            gunler = [g["gece"] for g in geceler]
+            if len(gunler) != 6 or gunler != list(range(gunler[0], gunler[0] + 6)):
+                raise ValueError("Perde 2 ambar ölçümü altı ardışık geceyi gerektirir")
+            if any(g["sonra"] - g["once"] != g["net"] for g in geceler):
+                raise ValueError("Ambar ölçümü mevcut gece bilançosuyla uyuşmuyor")
+            rapor["gece_basina_ortalama_gida_degisim"] = sum(g["net"] for g in geceler) / len(geceler)
         else:
             gece = rapor["gece"]
             gecis = rapor["gecis_gecesi"]
@@ -89,6 +98,7 @@ def cli():
     kip = parser.add_mutually_exclusive_group()
     kip.add_argument("--ilk-saat-suresi", action="store_true")
     kip.add_argument("--perde1-suresi", action="store_true")
+    kip.add_argument("--perde2-ambar", action="store_true")
     parser.add_argument("--kabul-orani", type=float, default=0.75)
     parser.add_argument("--godot", default=os.environ.get("GODOT_BIN", "godot"))
     parser.add_argument("--tohum", type=int, default=11)
@@ -102,6 +112,8 @@ def cli():
         return olcum_calistir(args, "ilk_saat_olcumu", {"ILK_SAAT_OLCUMU": "1", "GECE_SINIRI": "6"}, "ILKSAAT_SURE")
     if args.perde1_suresi:
         return olcum_calistir(args, "perde1_olcumu", {"PERDE1_OLCUMU": "1", "GECE_SINIRI": "30"}, "PERDE1_SURE")
+    if args.perde2_ambar:
+        return olcum_calistir(args, "perde2_ambar", {}, "PERDE2_AMBAR", "res://tests/unit/denge/perde2_ambar_olcum.gd")
     return main()
 
 

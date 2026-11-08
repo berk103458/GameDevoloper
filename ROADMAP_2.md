@@ -4522,7 +4522,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: DNY-02, DIY-13. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **OMR-38:** Haber defteri Bölüm 39'a yazar. (Antigravity)
+- [x] **OMR-38:** Haber defteri Bölüm 39'a yazar. (Antigravity) (Kalfa)
   - Ne: haberci ağının `bekleyen` listesi hafıza defterinin "Haber" sayfasına geçer; `azami_metin` sınırı korunur.
   - Kabul: defter sayfası ile `haberci_agi.oku` listesi eşit. Test: karşılaştırma.
   - Bağımlılık: HFZ-01. Boyut: S.
@@ -4555,13 +4555,13 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: BUG-18, OMR-02. Boyut: S.
   - Dosya: `src/sistemler/omurga_suzgeci.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-43:** Perde 2'de ambar baskısı artar.
+- [x] **OMR-43:** Perde 2'de ambar baskısı artar. (Kalfa)
   - Ne: perde 2 gelen sayısı düşer (2) ama hane büyür; tüketim `tuketim_dengesi.json` değişmez, köy olayları (KRI) sıklaşır (OMR-41). Madde bu ilişkiyi DEN raporunda ölçer.
   - Kabul: perde 2 ortalama ambar eğimi raporda. Test: runner.
   - Bağımlılık: DEN-05. Boyut: S.
   - Dosya: `tools/python_test_runner.py`.
   - Asset: asset gerekmedi.
-- [x] **OMR-44:** Çınar meclisi perde 2'de her hafta toplanır. (Antigravity)
+- [x] **OMR-44:** Çınar meclisi Perde 2'de hafta başı toplanır (`Takvim.hafta_basi`); dış hat konusu varsa köy şikayeti yerine dış hat konuşulur. (Kalfa, Antigravity)
   - Ne: MCL-05 "her gece açılmaz" kuralına perde 2 istisnası: `takvim.hafta_basi` gecelerinde meclis açılır ve dış hat konusu konuşulur.
   - Kabul: perde 2 hafta başı meclis 1. Test: 12 gece. Ek şart: Aynı gecede köy şikâyeti ile dış hat konusu birlikte açılmaz; dış hat varsa konuşulan konu odur.
   - Bağımlılık: MCL-05, OMR-04. Boyut: S.
@@ -6415,7 +6415,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-12:** `ogretici.` uzunluk kuralı (OGR-08) kapıdadır.
+- [/] **KLT-12:** `ogretici.` uzunluk kuralı (OGR-08) kapıdadır. (Kalfa)
   - Ne: `ogretici.*` ≤ 90 karakter; `soz_kapi.py` bunu `metin_dogrula` ile paylaşır, ikinci limit yazılmaz.
   - Kabul: 91 karakter 1 hata. Test: fixtures.
   - Bağımlılık: OGR-08. Boyut: S.

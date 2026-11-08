@@ -17,6 +17,7 @@ var okunmus_isaret: bool = false
 var ilk_sayfa_odakta: bool = false
 
 var _sayfa_dugmeleri: Array[Button] = []
+var _sayfalar: Array[String] = []
 var _liste: VBoxContainer
 var _bos: Label
 var _filtre: LineEdit
@@ -40,6 +41,7 @@ func kur() -> void:
 	if defter == null:
 		defter = HafizaDefteri.new()
 	defter.tavan_yukle()
+	_sayfalar.assign(defter.oku(kaynak).sayfalar)
 	_kur()
 	sayfa_sec(0)
 	ilk_sayfa_odakta = true
@@ -56,9 +58,9 @@ func hiz_korunur(onceki: int) -> bool:
 
 
 func sayfa_sec(indeks: int) -> void:
-	if HafizaDefteri.SAYFALAR.is_empty():
+	if _sayfalar.is_empty():
 		return
-	sayfa = posmod(indeks, HafizaDefteri.SAYFALAR.size())
+	sayfa = posmod(indeks, _sayfalar.size())
 	for i in _sayfa_dugmeleri.size():
 		_sayfa_dugmeleri[i].set_pressed_no_signal(i == sayfa)
 	_listeyi_ciz()
@@ -91,11 +93,17 @@ func kapat() -> void:
 
 
 func gorunen_satirlar() -> Array:
-	if defter == null:
+	if defter == null or _sayfalar.is_empty():
 		return []
-	var sayfa_adi := HafizaDefteri.SAYFALAR[sayfa]
+	var sayfa_adi := _sayfalar[sayfa]
 	var hepsi: Dictionary = defter.oku(kaynak)
-	return defter.suz(hepsi.get(sayfa_adi, []), filtre)
+	var satirlar: Array = hepsi.get(sayfa_adi, [])
+	if sayfa_adi == "haber":
+		satirlar = satirlar.map(func(haber: Dictionary) -> Dictionary:
+			var ad := tr("hafiza.haber." + String(haber.kaynak))
+			return {"id": "haber:%s:%d" % [haber.kaynak, haber.gun], "kisi": haber.kaynak, "ad": ad,
+				"baslik": defter.baslik_metni(ad, int(haber.gun)), "govde_anahtari": haber.metin})
+	return defter.suz(satirlar, filtre)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -131,7 +139,7 @@ func _kur() -> void:
 	var sekmeler := HBoxContainer.new()
 	sekmeler.add_theme_constant_override("separation", 8)
 	dikey.add_child(sekmeler)
-	for sayfa_adi in HafizaDefteri.SAYFALAR:
+	for sayfa_adi in _sayfalar:
 		var dugme := Button.new()
 		dugme.name = "sayfa_" + sayfa_adi
 		dugme.text = _sayfa_adi(sayfa_adi)
@@ -168,10 +176,10 @@ func _listeyi_ciz() -> void:
 	for cocuk in _liste.get_children():
 		_liste.remove_child(cocuk)
 		cocuk.queue_free()
-	var sayfa_adi := HafizaDefteri.SAYFALAR[sayfa]
+	var sayfa_adi := _sayfalar[sayfa]
 	var satirlar := gorunen_satirlar()
 	_bos.visible = satirlar.is_empty()
-	_bos.text = _bos_metni(sayfa_adi)
+	_bos.text = tr(defter.bos_anahtari(sayfa_adi))
 	for satir in satirlar:
 		if not satir is Dictionary:
 			continue
@@ -209,18 +217,6 @@ func _yazi(metin: String, taban: int) -> Label:
 	return etiket
 
 
-func _bos_metni(sayfa_adi: String) -> String:
-	match sayfa_adi:
-		"beyan":
-			return tr("hafiza.bos.beyan")
-		"soylenti":
-			return tr("hafiza.bos.soylenti")
-		"not":
-			return tr("hafiza.bos.not")
-		_:
-			return tr("hafiza.bos.karar")
-
-
 func _sayfa_adi(sayfa_adi: String) -> String:
 	match sayfa_adi:
 		"beyan":
@@ -229,5 +225,7 @@ func _sayfa_adi(sayfa_adi: String) -> String:
 			return tr("hafiza.sayfa.soylenti")
 		"not":
 			return tr("hafiza.sayfa.not")
+		"haber":
+			return tr("hafiza.sayfa.haber")
 		_:
 			return tr("hafiza.sayfa.karar")

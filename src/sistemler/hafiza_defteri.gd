@@ -52,6 +52,8 @@ func bos_anahtari(sayfa: String) -> String:
 			return "hafiza.bos.soylenti"
 		"not":
 			return "hafiza.bos.not"
+		"haber":
+			return "hafiza.bos.haber"
 		_:
 			return "hafiza.bos.karar"
 
@@ -155,9 +157,11 @@ func oku(kaynak: Dictionary) -> Dictionary:
 	var soylenti := sirala(_soylenti_sayfasi(kaynak))
 	var notlar := _not_sayfasi(kaynak)
 	var haber := haber_sayfasi(kaynak)
+	var sayfalar := SAYFALAR.duplicate()
+	if not haber.is_empty(): sayfalar.append("haber")
 	return {
-		"sayfa_sayisi": SAYFALAR.size(),
-		"sayfalar": SAYFALAR.duplicate(),
+		"sayfa_sayisi": sayfalar.size(),
+		"sayfalar": sayfalar,
 		"karar": karar,
 		"beyan": beyan,
 		"soylenti": soylenti,

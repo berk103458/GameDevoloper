@@ -1,3 +1,25 @@
+## 8 Kasım 2026 — KLT-12 alındı (Kalfa)
+
+Full pull sonrası OGR-08 öğretici metin uzunluk kuralı mevcut yazım denetimine bağlanacak. Asset gerekmedi. kota görünmüyor.
+
+## 8 Kasım 2026 — OMR-44 tamamlandı (Kalfa)
+
+Çınar meclisi gerçek ikinci perdede Takvim.hafta_basi günlerinde köy ekranında açılır ve toplantı bitene kadar gece hesabı bekler. Öncelikli güncel dış hat haberi mevcut HaberciAgi kaydından okunur. Haber yoksa dış ilişkiler gündemi açılır. O hafta başında yeni köy şikâyeti açılmaz ve mevcut kriz ertesi uygun günde yeniden değerlendirilebilir. Önceki günden kalmış açık oylama korunur. Tamamlanmış toplantının tarihi mevcut meclis kaydında tutulur. Asset gerekmedi.
+
+12 gecelik takvim taraması, öncelik, gerçek toplantı kartı, aynı gece şikâyet engeli, kayıt dönüşü, ertesi gece kriz ve mevcut meclis testleri geçti. Eski salgın testine mevcut Şifahane yapı bilgisi ve birinci kademe önkoşulu eklendi. İlk importta MD5 hataları görüldü, ikinci deneme autoload taramasında çıkış −1 verdi. Son headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 8 Kasım 2026 — OMR-43 tamamlandı (Kalfa)
+
+DEN, ikinci perdenin tamamlanan gecelerindeki gıda açılış, kapanış ve net farkını mevcut bilanço üzerinden okur. Geçiş gecesi dışarıda kalır. Yeni gece veya tüketim hesabı çalışmaz. Python runner komutu `python -B tools/python_test_runner.py --perde2-ambar --godot C:/Users/Ahmet/Desktop/Godot.exe --tohum 11`. Altı ardışık geceyi ve bilanço farkını doğrulayıp gecelik ortalamayı verir. Tohum 11 ve 23 ile kontrollü köyde stok 404 birimden 257 birime indi. İki koşunun ortalaması da gece başına −24,5 gıdaydı. Bu ölçüm, kurulmuş test köyündeki gece hesabına aittir. Gündüz ticareti veya oyuncu kararları örneklenmedi ve kriz çarpanının etkisi ayrıştırılmadı.
+
+İki runner ölçümü ve DEN birim testi geçti. Headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 8 Kasım 2026 — OMR-38 oyun arayüzü tamamlandı (Kalfa)
+
+Full pull ile Antigravity güncellemeleri alındı, Ajan Masası okundu. Köy veya duraklat menüsünden açılan hafıza defteri, HaberciAgi tarafından doğrulanan bekleyen listeyi kendi sırasıyla okur. Bekleyen haber varken Haber sekmesi dört temel sayfaya eklenir. En yeni kaynak kaydı ve azami metin sınırı HaberciAgi üzerinden korunur. Defteri okumak haber kartını tüketmez. Yedi Türkçe ve İngilizce metin anahtarı doğrulandı.
+
+Hafıza defteri, haberci birim ve gerçek haberci arayüzü testleri geçti. İlk defter koşusunda duraklat menüsü testi mevcut Kapı Usulü seçeneğini saymıyordu. Test beklentisi güncellendi. Son headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 7 Kasım 2026 — OMR-35 tamamlandı (Kalfa)
 
 Aynı tohum ve kapı kararlarıyla iki koşu aynı dönem ve dalga geçiş günlüğünü verdi. İkinci koşu dördüncü gecede ve perde geçişinde JSON kayıttan döner. Kuruluş 0, yerleşme 2, oturma 8, dalgalar 10, 14 ve 18. İlk provalarda iki koşu da isyanla erken bitti. Son test köyünde açlık ve evsizlik etkisini ayırmak için barınak ve ambar kapasitesi ile temel erzak yardımı kullanıldı. Üretim ayarları değişmedi.
