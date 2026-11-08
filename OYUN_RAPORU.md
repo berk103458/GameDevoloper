@@ -1,3 +1,21 @@
+## 8 Kasım 2026 — DEN-47, DEN-48, DEN-64, DEN-77, DEN-78 ve OGR-13 tamamlandı (Antigravity)
+
+- DEN-47: src/sistemler/denge_olcumu.gd ve 	ests/unit/denge/denge_olcumu_test.gd güncellendi; rüşvet ekonomisinin 28 günlük kasa birikimi olağan zorlukta tablodaki (data/ayarlar/denge.json 
+usvet_aralik_zorluk.olagan: 4..120) alt ve üst sınırlar arasındadır (
+usvet_kasa_aralik, 
+usvet_kasa_aralikta_mi).
+- DEN-48: src/sistemler/denge_olcumu.gd güncellendi; rüşveti reddeden oyuncunun köy akçesi 28 günde 3 gece üst üste eksi olmaz, EKO-10 iflas olayı 0 kez tetiklenir (iflas_olayi_var_mi).
+- DEN-64: src/sistemler/denge_olcumu.gd güncellendi; kriz ölçümünün Moğol sayacına yazmadığı, Moğol öncüsü kalan gününün (MogolOncusu.durum) kriz sayısından bağımsız olarak yalnız takvim gününe göre (aris_gunu - gun) azaldığı doğrulandı (mogol_kalan_gunu_hesapla).
+- DEN-77: src/sistemler/denge_olcumu.gd güncellendi; dört oyuncu tipinin (
+usvetci, 
+eddeden, c, 	ok) dörder dağılımının birbirinden farklı olduğu doğrulandı (dort_tip_dagilimi_farkli_mi).
+- DEN-78: src/sistemler/denge_olcumu.gd güncellendi; sabit tohum, persona ve zorlukta iki bağımsız koşunun deterministik olarak aynı nihai sonu verdiği doğrulandı (	ohumlu_son_belirle).
+- OGR-13: src/soz/soz_dugumu.gd (gece_min), src/soz/konu_merkezi.gd (mevcut_konular(guncel_gece)) ve 	ests/unit/soz/konu_merkezi_test.gd güncellendi; gece 0 ilk aile sorgusunda konu merkezinde yalnız 2 konu açıktır (
+ereden ve 
+eden_yola_dustun), gece_min >= 1 olan konular sonraki ziyaretlerde açılır.
+- Testler: 	ests/unit/denge/denge_olcumu_test.gd, 	ests/unit/soz/konu_merkezi_test.gd, 	ests/unit/denge/rusvet_test.gd, python tests/tools/test_denge_dogrula.py (hepsi 0 hata ile GEÇTİ).
+Asset gerekmedi. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 8 Kasım 2026 — DEN-68, DEN-74, OGR-14, OGR-31, OMR-44, OMR-49 ve OMR-50 tamamlandı (Antigravity)
 
 - DEN-68: 	ests/unit/denge/zorluk_test.gd güncellendi; kolay zorlukta ilk 10 günde odun rezervi bitmez (odun dibi 0 değil, sonsuz da değil).

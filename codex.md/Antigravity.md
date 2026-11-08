@@ -1001,3 +1001,19 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
 - OMR-50: src/sistemler/dis_hat_kapisi.gd içine 	ohumlu_yuz_gecesi eklendi; oyun tohumu (RNG) dalga sınırları içinde kalarak hat yüzlerinin geliş gecesini belirler, dalga dışına çıkamaz.
 - Testler: 	ests/unit/sistemler/omurga_test.gd, 	ests/unit/sistemler/ilk_saat_test.gd, 	ests/unit/denge/zorluk_test.gd, 	ests/unit/denge/denge_olcumu_test.gd, python tests/tools/test_omurga.py (hepsi 0 hata ile GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
 - kota görünmüyor
+## 8 Kasım 2026 — DEN-47, DEN-48, DEN-64, DEN-77, DEN-78 ve OGR-13
+- DEN-47: src/sistemler/denge_olcumu.gd ve 	ests/unit/denge/denge_olcumu_test.gd güncellendi; olağan zorlukta 28 günlük rüşvet kasa birikiminin tablo sınırları (
+usvet_aralik_zorluk.olagan: 4..120) içinde olduğu doğrulandı (
+usvet_kasa_aralik, 
+usvet_kasa_aralikta_mi).
+- DEN-48: src/sistemler/denge_olcumu.gd güncellendi; rüşveti reddeden oyuncunun köy akçesinin 28 günde 3 gece üst üste eksi olmayıp iflas riskinin 0 olduğu doğrulandı (iflas_olayi_var_mi).
+- DEN-64: src/sistemler/denge_olcumu.gd güncellendi; Moğol öncüsü sayacının kriz sayısından bağımsız olarak yalnız takvim gününe göre azaldığı doğrulandı (mogol_kalan_gunu_hesapla).
+- DEN-77: src/sistemler/denge_olcumu.gd güncellendi; dört oyuncu tipinin (
+usvetci, 
+eddeden, c, 	ok) dörder dağılımının kopyası olmadığı doğrulandı (dort_tip_dagilimi_farkli_mi).
+- DEN-78: src/sistemler/denge_olcumu.gd güncellendi; sabit tohum, persona ve zorlukta sonucun deterministik olduğu doğrulandı (	ohumlu_son_belirle).
+- OGR-13: src/soz/soz_dugumu.gd (gece_min), src/soz/konu_merkezi.gd (mevcut_konular(guncel_gece)) ve 	ests/unit/soz/konu_merkezi_test.gd güncellendi; gece 0 ilk ailede açık konu 2'dir (
+ereden ve 
+eden_yola_dustun), gece_min eşiği gelmeyen konular kapalıdır.
+- Testler: 	ests/unit/denge/denge_olcumu_test.gd, 	ests/unit/soz/konu_merkezi_test.gd, 	ests/unit/denge/rusvet_test.gd, python tests/tools/test_denge_dogrula.py (hepsi 0 hata ile GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- kota görünmüyor

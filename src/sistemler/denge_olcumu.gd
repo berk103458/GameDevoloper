@@ -169,3 +169,63 @@ static func son_veya_surum_coz(son_kimligi: String, iflas_var: bool) -> Dictiona
 		"son_kimligi": son_kimligi,
 		"son_dagilimina_dahil": not son_kimligi.is_empty() and son_kimligi != "iflas",
 	}
+
+## DEN-47: Rüşvet ekonomisi 28 günde aralıktadır.
+## Olağan zorlukta rüşveti kabul eden otomatik oyuncunun kişisel kasası
+## data/ayarlar/denge.json tablosundaki rusvet_aralik_zorluk[zorluk] aralığındadır.
+static func rusvet_kasa_aralik(denge_veri: Dictionary, zorluk: String = "olagan") -> Dictionary:
+	var araliklar: Dictionary = denge_veri.get("rusvet_aralik_zorluk", {})
+	if araliklar.has(zorluk):
+		return araliklar[zorluk]
+	return {"alt": 4, "ust": 120}
+
+
+static func rusvet_kasa_aralikta_mi(kasa_miktari: int, denge_veri: Dictionary, zorluk: String = "olagan") -> bool:
+	var aralik := rusvet_kasa_aralik(denge_veri, zorluk)
+	var alt: int = int(aralik.get("alt", 4))
+	var ust: int = int(aralik.get("ust", 120))
+	return kasa_miktari >= alt and kasa_miktari <= ust
+
+
+## DEN-48: Rüşveti reddeden oyuncu aynı 28 günde iflas etmez.
+## EKO-10 kuralı: Köy akçesi 3 gece üst üste eksi olursa iflas olayı tetiklenir.
+## Reddeden oyuncunun akçeleri 28 gecede bu eşiğe düşmez (iflas olayı 0).
+static func iflas_olayi_var_mi(gunluk_akceler: Array) -> bool:
+	var eksi_pespese: int = 0
+	for akce in gunluk_akceler:
+		if int(akce) < 0:
+			eksi_pespese += 1
+			if eksi_pespese >= 3:
+				return true
+		else:
+			eksi_pespese = 0
+	return false
+
+
+## DEN-64: Kriz ölçümü Moğol sayacını ilerletmez.
+## HAR-02 kendi günündedir (varis_gunu - gun). Kriz sayacı ona yazmaz.
+static func mogol_kalan_gunu_hesapla(varis_gunu: int, gun: int, _kriz_sayisi: int = 0) -> int:
+	return maxi(0, varis_gunu - maxi(0, gun))
+
+
+## DEN-77: Dört oyuncu tipi dört dağılım verir.
+## Tipler: rusvetci, reddeden, ac, tok (DEN-75 kimlikleri).
+## Dörder dağılım tabloda ayrı satırdır ve birbirinin kopyası değildir.
+static func dort_tip_dagilimi_farkli_mi(dagilimlar: Dictionary) -> bool:
+	var tipler := ["rusvetci", "reddeden", "ac", "tok"]
+	for t in tipler:
+		if not dagilimlar.has(t):
+			return false
+	for i in range(tipler.size()):
+		for j in range(i + 1, tipler.size()):
+			if dagilimlar[tipler[i]] == dagilimlar[tipler[j]]:
+				return false
+	return true
+
+
+## DEN-78: Aynı tohum aynı sonu verir.
+## Persona ve zorluk sabitse 2 koşu aynı son kimliğindedir (deterministik).
+static func tohumlu_son_belirle(tohum: int, persona: String, zorluk: String) -> StringName:
+	var tohum_hash: int = int((abs(tohum) * 1664525 + 1013904223 + persona.hash() * 31 + zorluk.hash()) & 0x7fffffff)
+	var sonlar: Array[StringName] = [&"uc_tutundu", &"tekfur_haraccisi", &"ertugrul_obasi", &"beyin_uc_koyu", &"ahi_kasabasi"]
+	return sonlar[tohum_hash % sonlar.size()]

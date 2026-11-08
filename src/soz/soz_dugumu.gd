@@ -14,6 +14,7 @@ var zar: Dictionary = {}
 var secenekler: Array[Dictionary] = []
 var kilitler: Dictionary = {}
 var son_dugum: bool = false
+var gece_min: int = 0
 
 func _init(p_id: String = "", veri: Dictionary = {}) -> void:
 	id = p_id
@@ -25,6 +26,7 @@ func _init(p_id: String = "", veri: Dictionary = {}) -> void:
 	elif veri.get("beyan") is String:
 		beyan = {"id": "beyan_" + id, "metin": veri.get("beyan"), "dogru": true}
 	ikram = str(veri.get("ikram", ""))
+	gece_min = int(veri.get("gece_min", 0))
 	if veri.get("zar") is Dictionary:
 		zar = veri.get("zar")
 	if veri.get("kilitler") is Dictionary:

@@ -36,7 +36,7 @@ func selam_oku() -> String:
 	koy_gecisi_yasak = true
 	return satir
 
-func mevcut_konular() -> Array[Dictionary]:
+func mevcut_konular(guncel_gece: int = -1) -> Array[Dictionary]:
 	# Selam öncesi konu listesi 0 düğümdür (Kural 1 & Kabul)
 	if not selam_goruldu or motor == null:
 		return []
@@ -48,6 +48,10 @@ func mevcut_konular() -> Array[Dictionary]:
 		var hedef_id: String = str(s.get("hedef", ""))
 		if motor.dugumler.has(hedef_id):
 			var d: SozDugumu = motor.dugumler[hedef_id]
+			# OGR-13: İlk aile sorgusu kılavuzsuz ama dar.
+			# gece_min şartı: güncel gece eşikten küçükse konu henüz açılmaz
+			if guncel_gece >= 0 and d.gece_min > guncel_gece:
+				continue
 			if not d.konu.is_empty():
 				var baslik = SABIT_KONU_BASLIKLARI.get(d.konu, s.get("metin", ""))
 				sonuc.append({

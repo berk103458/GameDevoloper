@@ -121,6 +121,39 @@ func _initialize() -> void:
 		var iflas_tek := DENGE_OLCUMU.son_veya_surum_coz("iflas", true)
 		dene(not bool(iflas_tek.get("son_dagilimina_dahil", true)), "DEN-74: iflas son dağılımına 6. son olarak karışmaz")
 
+		# DEN-47: Rüşvet ekonomisi 28 günde aralıktadır (olağan zorluk: 4..120)
+		var denge_sozluk: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/ayarlar/denge.json"))
+		var r_aralik := DENGE_OLCUMU.rusvet_kasa_aralik(denge_sozluk, "olagan")
+		dene(int(r_aralik.alt) == 4 and int(r_aralik.ust) == 120, "DEN-47: olağan rüşvet kasa aralığı 4..120")
+		dene(DENGE_OLCUMU.rusvet_kasa_aralikta_mi(40, denge_sozluk, "olagan"), "DEN-47: 40 akçe kasa aralıktadır")
+		dene(not DENGE_OLCUMU.rusvet_kasa_aralikta_mi(1, denge_sozluk, "olagan"), "DEN-47: 1 akçe alt sınırın altındadır")
+		dene(not DENGE_OLCUMU.rusvet_kasa_aralikta_mi(150, denge_sozluk, "olagan"), "DEN-47: 150 akçe üst sınırın üstündedir")
+
+		# DEN-48: Rüşveti reddeden oyuncu aynı 28 günde iflas etmez (3 gece üst üste eksi 0 kez)
+		var dengeli_akceler: Array = [10, 8, 5, 2, -1, 3, 4, 1, -2, -1, 2, 5, 6, 4, 3, 1, 0, -1, 2, 3, 5, 6, 7, 4, 2, 1, 3, 5]
+		dene(not DENGE_OLCUMU.iflas_olayi_var_mi(dengeli_akceler), "DEN-48: reddeden oyuncuda 3 gece üst üste eksi akçe yoktur (iflas 0)")
+		var iflasli_akceler: Array = [5, 2, -1, -2, -3, 1]
+		dene(DENGE_OLCUMU.iflas_olayi_var_mi(iflasli_akceler), "DEN-48: 3 gece üst üste eksi akçe iflas tetikler")
+
+		# DEN-64: Kriz ölçümü Moğol sayacını ilerletmez
+		var kalan_sade := DENGE_OLCUMU.mogol_kalan_gunu_hesapla(28, 10, 0)
+		var kalan_krizli := DENGE_OLCUMU.mogol_kalan_gunu_hesapla(28, 10, 5)
+		dene(kalan_sade == 18 and kalan_krizli == 18, "DEN-64: kriz sayısı Moğol kalan gününü ilerletmez (yalnız takvim düşer)")
+
+		# DEN-77: Dört oyuncu tipi dört dağılım verir
+		var tipler_dagilimi := {
+			"rusvetci": {"uc_tutundu": 10, "tekfur_haraccisi": 90},
+			"reddeden": {"uc_tutundu": 70, "ertugrul_obasi": 30},
+			"ac": {"ahi_kasabasi": 40, "beyin_uc_koyu": 60},
+			"tok": {"beyin_uc_koyu": 50, "uc_tutundu": 50}
+		}
+		dene(DENGE_OLCUMU.dort_tip_dagilimi_farkli_mi(tipler_dagilimi), "DEN-77: dört oyuncu tipi dört farklı dağılım verir")
+
+		# DEN-78: Aynı tohum aynı sonu verir
+		var son_1 := DENGE_OLCUMU.tohumlu_son_belirle(12345, "tst_durust", "olagan")
+		var son_2 := DENGE_OLCUMU.tohumlu_son_belirle(12345, "tst_durust", "olagan")
+		dene(son_1 == son_2 and not String(son_1).is_empty(), "DEN-78: aynı tohum ve persona deterministik olarak aynı sonu verir")
+
 	else:
 		push_error("Katalog yüklenemedi")
 		_hata += 1

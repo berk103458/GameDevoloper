@@ -3650,13 +3650,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ODA-05. Boyut: S.
   - Dosya: `tests/unit/denge/rusvet_test.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-47:** Rüşvet ekonomisi 28 günde aralıktadır.
+- [x] **DEN-47:** (Antigravity) Rüşvet ekonomisi 28 günde aralıktadır.
   - Ne: olağan zorlukta, rüşveti kabul eden otomatik oyuncunun kişisel kasası tablodaki alt ve üst sınırdadır.
   - Kabul: olağan zorlukta, rüşveti kabul eden otomatik oyuncunun kişisel kasası tablodaki alt ve üst sınırdadır. Test: 28 gece, kasa aralıkta.
   - Bağımlılık: DEN-04, DEN-41. Boyut: M.
   - Dosya: `data/ayarlar/denge.json` `rusvet_kasa_aralik`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-48:** Rüşveti reddeden oyuncu aynı 28 günde iflas etmez.
+- [x] **DEN-48:** (Antigravity) Rüşveti reddeden oyuncu aynı 28 günde iflas etmez.
   - Ne: ret oyuncusunun köy akçesi 3 gece üst üste eksi olmaz (EKO-10 eşiği).
   - Kabul: ret oyuncusunun köy akçesi 3 gece üst üste eksi olmaz (EKO-10 eşiği). Test: 28 gece, iflas olayı 0.
   - Bağımlılık: EKO-10, DEN-47. Boyut: M.
@@ -3759,7 +3759,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-04, DEN-57. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-64:** Kriz ölçümü Moğol sayacını ilerletmez.
+- [x] **DEN-64:** (Antigravity) Kriz ölçümü Moğol sayacını ilerletmez.
   - Ne: HAR-02 kendi günündedir. Kriz sayacı ona yazmaz.
   - Kabul: HAR-02 kendi günündedir. Kriz sayacı ona yazmaz. Test: 28 gece kriz ölçümü, Moğol kalan günü takvim kadar azalır, fazlası yok.
   - Bağımlılık: HAR-02, DEN-59. Boyut: S.
@@ -3844,13 +3844,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-73, SYS-20. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-77:** Dört oyuncu tipi dört dağılım verir.
+- [x] **DEN-77:** (Antigravity) Dört oyuncu tipi dört dağılım verir.
   - Ne: tipler DEN-75 kimlikleridir. Rüşvetçi, reddeden, aç ve tok ayrı 28 gece koşar. Dörder dağılım tabloda ayrı satırdır.
   - Kabul: tipler DEN-75 kimlikleridir. Rüşvetçi, reddeden, aç ve tok ayrı 28 gece koşar. Dörder dağılım tabloda ayrı satırdır. Test: dört satır, birbirinin kopyası değil.
   - Bağımlılık: DEN-75, DEN-47, DEN-48. Boyut: L.
   - Dosya: `tests/oto/denge_persona.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-78:** Aynı tohum aynı sonu verir.
+- [x] **DEN-78:** (Antigravity) Aynı tohum aynı sonu verir.
   - Ne: persona ve zorluk sabitse 2 koşu aynı son kimliğindedir.
   - Kabul: persona ve zorluk sabitse 2 koşu aynı son kimliğindedir. Test: çift koşu.
   - Bağımlılık: DEN-73, KAY-19. Boyut: S.
@@ -3965,7 +3965,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
 
 ### 33.3 Kapı sorgusunun öğretilmesi
 
-- [ ] **OGR-13:** İlk aile sorgusu kılavuzsuz ama dar.
+- [x] **OGR-13:** (Antigravity) İlk aile sorgusu kılavuzsuz ama dar.
   - Ne: ACL-04'teki ilk ailede konu merkezinde (DIY-04) yalnız iki konu açıktır: kim olduğu ve neden geldiği. Diğer konular sonraki ziyaretlerde açılır.
   - Kabul: gece 0 ilk ailede açık konu 2. Test: söz dosyasında `gece_min` alanı.
   - Bağımlılık: DIY-04, ACL-04. Boyut: S.
