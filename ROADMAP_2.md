@@ -8011,49 +8011,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.3 Yürüme, koşma, durma
 
-- [ ] **SAH-17:** Hız üç bandadır.
+- [x] **SAH-17:** (Antigravity) Hız üç bandadır.
   - Ne: dur, yürü, koş. Bant eşikleri `sahne.json` içindedir. Kodda sabit hız yoktur.
   - Kabul: dur, yürü, koş. Bant eşikleri `sahne.json` içindedir. Kodda sabit hız yoktur. Test: üç bant, üç klip adı.
   - Bağımlılık: DEN-01 ile aynı kural, dosya ayrı. Boyut: S.
   - Dosya: `data/ayarlar/sahne.json`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-18:** Durmadan yürümeye geçiş karışıktır.
+- [x] **SAH-18:** (Antigravity) Durmadan yürümeye geçiş karışıktır.
   - Ne: geçiş bir karede zıplamaz. Karışım süresi tablodadır.
   - Kabul: geçiş bir karede zıplamaz. Karışım süresi tablodadır. Test: geçişin ilk karesinde poz, dur klibine daha yakındır.
   - Bağımlılık: SAH-17. Boyut: M.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-19:** Koşu yalnız kovalama ve kaçışta açılır.
+- [x] **SAH-19:** (Antigravity) Koşu yalnız kovalama ve kaçışta açılır.
   - Ne: günlük devriye yürür. Koşu, mevcut kaçış ve kovalama olayına bağlıdır. Yeni bir koşu hali yazılmaz.
   - Kabul: günlük devriye yürür. Koşu, mevcut kaçış ve kovalama olayına bağlıdır. Yeni bir koşu hali yazılmaz. Test: devriyede koşu klibi 0.
   - Bağımlılık: ANI-02, SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-20:** Durunca kayma SAH-04 ile kapanır.
+- [x] **SAH-20:** (Antigravity) Durunca kayma SAH-04 ile kapanır.
   - Ne: hız bandı dura düşünce ayak cilası aynı karede devreye girer. İki sistem bir kare gecikmez.
   - Kabul: hız bandı dura düşünce ayak cilası aynı karede devreye girer. İki sistem bir kare gecikmez. Test: duruş karesi, kayma 0.
   - Bağımlılık: SAH-04, SAH-18. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-21:** Yokuşta bant değişmez, adım kısalır.
+- [x] **SAH-21:** (Antigravity) Yokuşta bant değişmez, adım kısalır.
   - Ne: eğim hızı ANI-13 ile gelir. Koşu bandı eğim yüzünden kendiliğinden açılmaz.
   - Kabul: eğim hızı ANI-13 ile gelir. Koşu bandı eğim yüzünden kendiliğinden açılmaz. Test: yokuşta bant yürü, kök hız düşük.
   - Bağımlılık: ANI-13, SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-22:** Yorgun yürüyüş ayrı bir klip istemez.
+- [x] **SAH-22:** (Antigravity) Yorgun yürüyüş ayrı bir klip istemez.
   - Ne: YSM yorgunluğu mevcut yürüyüşün hızını düşürür. Yeni yorgun klip üretilmez. Klip yoksa listeye yazılır, idle oynar.
   - Kabul: YSM yorgunluğu mevcut yürüyüşün hızını düşürür. Yeni yorgun klip üretilmez. Klip yoksa listeye yazılır, idle oynar. Test: yorgun hız < tok hız, klip adı aynı.
   - Bağımlılık: YSM-01, BUG-09. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: yorgun klip gerekirse `SAH-YORGUN-YURU`. Üretilmez.
-- [ ] **SAH-23:** Kapıdaki bekleme yürümeyi keser.
+- [x] **SAH-23:** (Antigravity) Kapıdaki bekleme yürümeyi keser.
   - Ne: sorgu sırasında kök hız 0'dır. Konuşma klibi yürüyüşle karışmaz.
   - Kabul: sorgu sırasında kök hız 0'dır. Konuşma klibi yürüyüşle karışmaz. Test: sorgu 5 saniye, konum deltası eşik altı.
   - Bağımlılık: SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-24:** Geçiş süresi zorluğu değiştirmez.
+- [x] **SAH-24:** (Antigravity) Geçiş süresi zorluğu değiştirmez.
   - Ne: DEN-65 üç zorlukta da karışım süresi aynıdır.
   - Kabul: DEN-65 üç zorlukta da karışım süresi aynıdır. Test: iki zorluk, süre eşit.
   - Bağımlılık: SAH-18, DEN-65. Boyut: S.
@@ -8062,49 +8062,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.4 Animasyon karıştırma
 
-- [ ] **SAH-25:** İki klip birden tam ağırlıkta oynamaz.
+- [x] **SAH-25:** (Antigravity) İki klip birden tam ağırlıkta oynamaz.
   - Ne: karışım ağırlıkları toplamı 1'dir.
   - Kabul: karışım ağırlıkları toplamı 1'dir. Test: yürüyüşten duruşa, ara karede toplam 1.
   - Bağımlılık: SAH-18. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-26:** Üst gövde konuşur, alt gövde yürür.
+- [x] **SAH-26:** (Antigravity) Üst gövde konuşur, alt gövde yürür.
   - Ne: yalnız köyde, elde iş varken. Kapı sorgusunda alt gövde durur (SAH-23).
   - Kabul: yalnız köyde, elde iş varken. Kapı sorgusunda alt gövde durur (SAH-23). Test: tarlada konuşma, bacak klibi yürüyüş.
   - Bağımlılık: SAH-23, ANI-08. Boyut: M.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-27:** Eksik klip karışımı bozmaz.
+- [x] **SAH-27:** (Antigravity) Eksik klip karışımı bozmaz.
   - Ne: BUG-09 idle'a düşer. Karışım, olmayan klibi ağırlığa katmaz.
   - Kabul: BUG-09 idle'a düşer. Karışım, olmayan klibi ağırlığa katmaz. Test: silinmiş klip, çökme yok, idle ağırlığı 1.
   - Bağımlılık: BUG-09, SAH-25. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-28:** Bekleme çeşitliliği karışımı kesmez.
+- [x] **SAH-28:** (Antigravity) Bekleme çeşitliliği karışımı kesmez.
   - Ne: ANI-12 ofseti durur. Ofset, geçiş ortasında klibi sıfırlamaz.
   - Kabul: ANI-12 ofseti durur. Ofset, geçiş ortasında klibi sıfırlamaz. Test: iki karakter, geçiş sırasında ofset korunur.
   - Bağımlılık: ANI-12, SAH-18. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-29:** Tezgâh klibi yürüyüşle karışmaz.
+- [x] **SAH-29:** (Antigravity) Tezgâh klibi yürüyüşle karışmaz.
   - Ne: ANI-08 iş noktasında kök hız 0, üst gövde iş klibidir. Yürüyüş ağırlığı 0.
   - Kabul: ANI-08 iş noktasında kök hız 0, üst gövde iş klibidir. Yürüyüş ağırlığı 0. Test: örs başında bacak klibi değil.
   - Bağımlılık: ANI-08, SAH-26. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-30:** Hava tepkisi ayrı bir karışım katmanıdır.
+- [x] **SAH-30:** (Antigravity) Hava tepkisi ayrı bir karışım katmanıdır.
   - Ne: ANI-09 üşüme, yürüyüşü değiştirmez. Üst üste biner, yerine geçmez.
   - Kabul: ANI-09 üşüme, yürüyüşü değiştirmez. Üst üste biner, yerine geçmez. Test: karda yürüme klibi durur, omuz katmanı eklenir.
   - Bağımlılık: ANI-09, SAH-26. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-31:** Karışım kayda yazılmaz.
+- [x] **SAH-31:** (Antigravity) Karışım kayda yazılmaz.
   - Ne: KAY göçü klip ağırlığı tutmaz. Yüklemede bant, hızdan yeniden kurulur.
   - Kabul: KAY göçü klip ağırlığı tutmaz. Yüklemede bant, hızdan yeniden kurulur. Test: kayıtta ağırlık alanı yok.
   - Bağımlılık: KAY-03, SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-32:** Aynı karede üç geçiş olmaz.
+- [x] **SAH-32:** (Antigravity) Aynı karede üç geçiş olmaz.
   - Ne: dur, yürü, koş aynı karede sıralanırsa ortadaki atlanır. Titreme yok.
   - Kabul: dur, yürü, koş aynı karede sıralanırsa ortadaki atlanır. Titreme yok. Test: hız zıplaması, tek geçiş.
   - Bağımlılık: SAH-18. Boyut: S.

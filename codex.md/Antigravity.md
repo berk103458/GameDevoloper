@@ -1023,3 +1023,9 @@ eden_yola_dustun), gece_min eşiği gelmeyen konular kapalıdır.
 - `SAH-09`..`SAH-16`: `src/dunya/el_esyasi.gd` ve `tests/oto/karakter_muayene.gd` ile eşya soketi, yürüme gecikmesi (<=0.02m), eğilme zemin koruması, çift soket kesişim engeli, konuşma soket tutuşu, tek soket tanımı, çocuk ölçeklemesi ve eşya kesişim muayenesi tamamlandı.
 - Test: `tests/unit/dunya/sahne_ayak_esya_test.gd` (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
 - kota görünmüyor
+
+## 8 Kasım 2026 — SAH-17..SAH-32 tamamlandı (Antigravity)
+- `SAH-17`..`SAH-24`: `src/dunya/hareket_gecisi.gd` ile hız bantları (dur, yürü, koş), karışık geçiş, kovalama/kaçış koşu koşulu, duruş cila bağlantısı, yokuş adım kısalması, yorgun yürüyüş, kapı sorgu duruşu ve sabit geçiş süresi tamamlandı.
+- `SAH-25`..`SAH-32`: `src/dunya/hareket_gecisi.gd` ile üst konuşma alt durma, kısmi kol/baş karışımı, kemik bükülme koruması, boşta kemik idle dönüşü, tezgâh klibi bağımsızlığı, hava omuz katmanı, kayıtta klip ağırlığı tutmama ve üçlü geçiş filtresi tamamlandı.
+- Test: `tests/unit/dunya/hareket_gecisi_test.gd` (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- kota görünmüyor
