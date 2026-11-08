@@ -6576,7 +6576,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: YAZ-09. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-65:** Kota dosyası `kurallar.json` ile çelişirse kapı durur
+- [/] **KLT-65:** Kota dosyası `kurallar.json` ile çelişirse kapı durur (Kalfa)
   - Ne: Kota dosyası `kurallar.json` ile çelişirse kapı durur. İki sayı. Büyük olan değil, kapı hatası.
   - Kabul: Hata 1. Test: fixtures.
   - Bağımlılık: YAZ-09. Boyut: S.
