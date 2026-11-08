@@ -6529,7 +6529,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ADM-16. Boyut: S.
   - Dosya: tester rapor şablonu (oyun deposu `docs/tester/`, bu klasörden yazılmaz — madde oraya işaret eder).
   - Asset: asset gerekmedi.
-- [/] **KLT-19:** Ses testi yoktur. (Kalfa)
+- [x] **KLT-19:** Ses testi yoktur. (Kalfa)
   - Ne: tester K6 (ses) ve R2 seslendirme yasağı; bu bölüm ses taraması açmaz.
   - Kabul: `soz_kapi.py` içinde ses kuralı 0. Test: tarama. Taşınan: KLT-58: Ses turu açılmaz.
   - Bağımlılık: yok. Boyut: S.

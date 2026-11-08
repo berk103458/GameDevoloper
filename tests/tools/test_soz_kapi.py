@@ -27,6 +27,15 @@ KOR = [{"id": "ornek", "skor": 0.9, "agiz": 3}]
 
 
 class SozKapiTest(unittest.TestCase):
+    def test_yazim_kapisinda_ses_turu_yok(self):
+        paket = _temiz_paket()
+        sonuc = denetle(paket, KOR)
+        paket["ses"] = "olmayan/klt19.wav"
+        paket["satirlar"][0]["ses"] = "olmayan/klt19.wav"
+        self.assertEqual(denetle(paket, KOR), sonuc)
+        kaynak = (ROOT / "tools" / "soz_kapi.py").read_text(encoding="utf-8")
+        self.assertNotRegex(kaynak, r"(?i)\.wav|\b(?:audio|wave|seslendirme)\b")
+
     def test_dyl12_son_dagilimi_yazim_kapisini_etkilemez(self):
         paket = _temiz_paket()
         sonuc = denetle(paket, KOR)

@@ -28,4 +28,6 @@ Sebepsiz atlama reddedilir. Atlama satırında `sebep` boşsa kopya yoktur.
 
 Hata kopyayı keser. Uyarı kesmez.
 
+KLT-19 kapsamında K6 ses turu açılmaz. Kör okumadaki ağız karşılaştırması metin üzerinden yapılır. Ses dosyası veya seslendirme bu yazım denetiminin girdisi değildir.
+
 Kapı Godot başlatmaz, `user://` yazmaz, `data/soz` dosyası silmez. Red listesi ayrı `red/` klasörüne yazılır.
