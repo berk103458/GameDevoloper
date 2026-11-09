@@ -1,3 +1,9 @@
+## 9 Kasım 2026 — SAH-56 tamamlandı (Kalfa)
+
+Gerçek ilk aile kararında geri çekilmiş kapı kamerası doğrulandı. Kabul ve köy açılışında eski kamera serbest bırakılmış, köy kamerası kendi viewportunda etkin, hedefi (0, 0, 4), uzaklığı 38 ve kamera sürükleme bileşeni bağlıdır. Köy kökünde kapı kamera geçişi yoktur. İlk test sohbet konumunu son soru karar panelini açtıktan sonra örnekledi. Başlangıç ölçümü sorudan önceye alındı. Üretim dosyası değişmedi.
+
+Gerçek oyun köprüsü son iki koşuda geçti; ikinci koşu APPDATA ve XDG_DATA_HOME ayrılmış geçici profildeydi. İlk koşular normal Godot profilinde performans günlükleri bıraktı. İçe aktarım ilk çıkış 0, betik hatası 0, iki MD5 hatası. Ayrı profilde tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Headless köprüde genel kare süresi uyarıları vardı. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-56 başlıyor (Kalfa)
 
 Festive 5f7b6928 güncel. Gerçek ilk aile kararı sonrası kapı kamerasının kapanışı ve köyde bağımsız ANI-14 hedefi doğrulanacak. SAH-55 açık bırakıldı: ZAR-03 yardımcı işlevi var, canlı CHR akışı tansiyonu 10'da sınırlıyor ve kaçış adaptörünü çağırmıyor. Asset gerekmedi. kota görünmüyor.

@@ -8257,7 +8257,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ZAR-03, SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-56:** Vurgu köy kamerasına yazılmaz. (Kalfa)
+- [x] **SAH-56:** Vurgu köy kamerasına yazılmaz. (Kalfa)
   - Ne: sahne değişince kapı bakışı sıfırlanır. Köy, ANI-14 ile açılır.
   - Kabul: sahne değişince kapı bakışı sıfırlanır. Köy, ANI-14 ile açılır. Test: köyde kapı hedefi yok.
   - Bağımlılık: SAH-41, SAH-49. Boyut: S.

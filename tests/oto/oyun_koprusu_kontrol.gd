@@ -76,13 +76,15 @@ func _ready() -> void:
 	ana._kapi._heybe_ac()
 	assert(ana._kapi._heybe_paneli == null and ana._kapi._gelen.heybe.soruldu == beyan_once)
 	# Gerçek selam, konu ve karar düğmeleri; kaynak veya gün hilesi yok.
+	var sohbet_konumu := kamera.position
 	for _i in 2:
 		ana._kapi._tumunu_goster()
 		assert(not (await kopru.run_command("soru_sor", {"indeks": 0})).has("error"))
 		await get_tree().create_timer(0.3).timeout
 	ana._kapi._karar_goster()
 	ana._kapi._tumunu_goster()
-	await get_tree().process_frame
+	await get_tree().create_timer(0.35).timeout
+	assert(kamera.position.z > sohbet_konumu.z)
 	assert(sahne.find_children("*", "Camera3D", true, false).size() == 1)
 	assert(kamera.get_viewport().get_camera_3d() == kamera)
 	var ilk_karar := kopru.get_state()
@@ -92,6 +94,14 @@ func _ready() -> void:
 		await get_tree().create_timer(0.08).timeout
 		if ana._ekran is KoyEkrani: break
 	assert(ana._ekran is KoyEkrani and ana.oturum.gun == 0 and ana.oturum.yonetim.nufus() == 4)
+	await get_tree().process_frame
+	var koy3b := (ana._ekran as KoyEkrani).sahne3b
+	var koy_kamera := koy3b.kamera
+	assert(not is_instance_valid(kamera) and koy_kamera.get_viewport().get_camera_3d() == koy_kamera)
+	assert(koy3b.hedef.is_equal_approx(Vector3(0, 0, 4)) and is_equal_approx(koy3b.uzaklik, 38.0))
+	assert(koy3b.get_node_or_null("kamera_surukleme") is KameraSurukleme)
+	assert(not koy3b.get_children().any(func(dugum: Node) -> bool: return dugum is KapiKameraGecisi))
+	print("SAH-56 KÖY KAMERASI AYRI: GEÇTİ")
 	var ambar_once := ana.oturum.ambar
 	assert(not (await kopru.run_command("gece_bitir")).has("error"))
 	assert(_kisa_rapor(ambar_once))
