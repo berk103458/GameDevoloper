@@ -90,6 +90,7 @@ func _ready() -> void:
 	sahne.yakinlik = clampf(float(oturum.yonetim.tekfur_baski + oturum.yonetim.savusturulan) / maxf(1.0, oturum.yonetim.a.zafer_bask_sayisi), 0.0, 1.0)
 	vp.add_child(sahne)
 	sahne.kamera.h_offset = KAMERA_KAYMA
+	preload("res://src/dunya/ilk_aile_es_kadraji.gd").kur(self)
 
 	_konusma_kur()
 	_defter_kur()

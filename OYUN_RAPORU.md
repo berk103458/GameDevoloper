@@ -1,3 +1,9 @@
+## 9 Kasım 2026 — SAH-53 tamamlandı (Kalfa)
+
+İlk aile kapısında gerçek kuruluş kaydındaki yaşayan eş, mevcut köylü modeli ve hane görünümüyle mevcut kapı sahnesine eklenir. Konumu kapı açıklığının sol yanında seçildi. Öğretici ipucunu atlamak sahnedeki eşi kaldırmaz. Gece çıkışında model temizlenir, sonraki gece kurulmaz. Bir kamera ve bir etkin bakış. ACL-02 kaydı, köy nüfusu ve replikler korunur.
+
+Gerçek oyun köprüsü önce eş görünmediği için kaldı, sonra ilk ailede aynı kamera, öğretici atlama, karar ve sonraki gece kontrolleriyle geçti. Kamera görünürlüğü frustum üzerinden doğrulandı. İki genel headless kare süresi uyarısı vardı. Açılış olayı ve ipucu kayıt ikizi geçti. İlk headless import çıkış 0, betik hatası 0, yedi MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-53 başlıyor (Kalfa)
 
 Festive e3a14805 güncel. İlk aile öğreticisinde mevcut hane eşinin kapıdaki görünümü ve tek etkin kamera doğrulanacak. ACL-02 sahipliği ve hane kaydı korunur. Asset gerekmedi. kota görünmüyor.

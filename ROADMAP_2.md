@@ -8239,7 +8239,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-53:** Eş kapıdaysa ikinci kadraj açılmaz. (Kalfa)
+- [x] **SAH-53:** Eş kapıdaysa ikinci kadraj açılmaz. (Kalfa)
   - Ne: ACL öğreticisinde eş yanında durur. Kamera muhafızı ayrıca kadraja almaz. Tek bakış.
   - Kabul: ACL öğreticisinde eş yanında durur. Kamera muhafızı ayrıca kadraja almaz. Tek bakış. Test: eş varken kamera sayısı 1.
   - Bağımlılık: ACL-04, SAH-49. Boyut: S.
