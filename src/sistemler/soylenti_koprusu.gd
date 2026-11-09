@@ -96,6 +96,22 @@ static func gece(o: Object, r: Dictionary) -> void:
 				r.olaylar.append({"anahtar": "Köy bunu konuşuyor: %s", "deger": [satir], "soylenti": id})
 
 
+## SOY-33: canlı kamuoyu konusu çınar meclisine şikâyet olarak gelir; ağzı, haberi içeri taşıyan köylüdür.
+## Kaynak köyde yaşamıyorsa satır basılmaz (SOY-45).
+static func meclis_sikayeti(o: Object) -> String:
+	if o == null or not o.has_meta(META):
+		return ""
+	var a: RefCounted = ag(o)
+	var konu: Dictionary = a.meclis_sikayeti_sec()
+	if konu.is_empty() or not String(konu.kaynak).is_valid_int():
+		return ""
+	var k: Koylu = o.yonetim.koylu(int(konu.kaynak))
+	if k == null or k.saglik <= 0:
+		return ""
+	var adlar: Dictionary = a.veri_yapilandirma.get("meclis_karar_adlari", {})
+	return MeclisSesi.sikayet_metni(String(adlar.get(String(konu.tur), konu.tur)), k.ad)
+
+
 static func kaydet(o: Object) -> Dictionary:
 	if not o.has_meta(META) and bekleyenler(o).is_empty():
 		return {}

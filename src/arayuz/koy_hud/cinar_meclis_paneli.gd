@@ -28,6 +28,7 @@ static func hud(h: Node, y: KoyYonetimi, goster: bool = true) -> void:
 	var oy_bekliyor: bool = not d.oylama.is_empty() and d.oylama.karar == ""
 	b.visible = CinarAltiMeclisi.haftalik_bekliyor(y) or oy_bekliyor
 	if not haftalik: b.visible = b.visible or not CinarAltiMeclisi._krizler(y).is_empty() or not d.oylama.is_empty()
+	if not haftalik and e != null: b.visible = b.visible or not SoylentiKoprusu.meclis_sikayeti(e.oturum).is_empty()
 	b.disabled = e == null or AmbarKapisiPaneli._kilitli(e)
 	b.tooltip_text = "Kriz başına bir meclis · 2 gün bekleme · yalnız toplu oy dağılımı"
 
@@ -92,6 +93,8 @@ static func ac(e: Node) -> void:
 		_metin(e, v, GuvenliMetin.metin("koy.meclis.konusanlar") % ", ".join(konusan))
 	elif MeclisSesi.kriz_var_mi(y):
 		_metin(e, v, GuvenliMetin.metin("koy.meclis.konusan_yok"))
+	var soylenti := SoylentiKoprusu.meclis_sikayeti(e.oturum)
+	if not soylenti.is_empty(): _metin(e, v, soylenti, "meclis_soylenti_sikayeti")
 	var krizler := CinarAltiMeclisi._krizler(y)
 	for tur in CinarAltiMeclisi.TUR:
 		if not krizler.has(tur): continue

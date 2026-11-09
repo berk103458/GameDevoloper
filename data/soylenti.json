@@ -21,6 +21,12 @@
     "yer_kaymasi": "Hadise kapıda değil pazar yerinde olmuş derler.",
     "abarti": "Birkaç akçe değil koca bir kese altın dönmüş derler."
   },
+  "meclis_karar_adlari": {
+    "rusvet": "rüşvet",
+    "haksiz_ret": "ret",
+    "siddet": "şiddet",
+    "aileyi_bolme": "aileyi bölme"
+  },
   "soylenti_kaliplari": {
     "rusvet": "Kapıda el altından akçe alındığı konuşuluyor.",
     "siddet": "Kapı önünde sert bir arbede çıktığı fısıldanıyor.",

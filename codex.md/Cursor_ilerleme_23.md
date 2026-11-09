@@ -63,3 +63,12 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 
 - Çağrı zinciri: `Oturum.kayittan` → `SoylentiKoprusu.yukle(o, veri.get("soylenti_agi"))`. Eski kayıtta alan yoksa ağ boş başlar ve DIY-13 satırı kaynaksız sayılır. Bozuk alan reddedilir, oyun çökmez.
 - Test: `soylenti_koprusu_test` → GEÇTİ. Tür denetimi silinince `KALDI (1 hata)` ve SCRIPT ERROR.
+
+### SOY-33
+
+- Çağrı zinciri: köy HUD yenilemesi → `CinarMeclisPaneli.hud` → `SoylentiKoprusu.meclis_sikayeti(e.oturum)`. Canlı kamuoyu konusu varsa düğme görünür.
+  - Düğmeye basınca `CinarMeclisPaneli.ac` → aynı fonksiyon → `MeclisSesi.sikayet_metni(karar adı, taşıyanın adı)` → `meclis_soylenti_sikayeti` satırı.
+  - Kaynak köyde yaşamıyorsa satır basılmaz. Karar adları `data/soylenti.json` `meclis_karar_adlari`'nda.
+- Test: `tests/oto/soylenti_meclis_kontrol.tscn` → `SÖYLENTİ MECLİS UI: GEÇTİ`. 1. gece kamuoyu yok ve düğme görünmüyor. 2. gece düğme açılıyor, satır "ret kararı" ile taşıyanın adını taşıyor.
+- Bozma kanıtı: panel satırı silinince `KALDI (1 hata)`, düğme görünürlük satırı silinince `KALDI (1 hata)`.
+- Mevcut `cinar_alti_meclisi_kontrol`, `meclis_sesi_test`, `cinar_meclisi_genisletme_test` yeşil.

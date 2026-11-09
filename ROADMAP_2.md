@@ -5607,7 +5607,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.7 Dedikodu ve köy sistemleri
 
-- [ ] **SOY-33:** Çınar meclisi kamuoyu konusunu alır (MCL-02). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-33:** Çınar meclisi kamuoyu konusunu alır (MCL-02). (Cursor)
   - Ne: MCL-02 şikâyeti SOY-12 konusundan gelir; şikâyet metni kaynak adını taşır (MCL-06).
   - Kabul: kamuoyu konusu varken meclis şikâyeti onu seçer. Test: meclis.
   - Bağımlılık: MCL-02, SOY-12. Boyut: S.
