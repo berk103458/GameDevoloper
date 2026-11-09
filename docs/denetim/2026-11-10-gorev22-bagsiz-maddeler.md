@@ -55,4 +55,6 @@ Sınıfı ulaşılamayan ama madde kodu oyunda bağlı başka bir dosyada da ge�
 
 - `data/metin/metinler.tr.translation` ve `.en.translation` CSV'nin gerisindeydi; 433 anahtar yoktu. Oyunda `GuvenliMetin` ham CSV'ye düşüp uyarı basıyordu; `GuvenliMetin.kur()` çağırmayan testlerde HUD satırları ham anahtarla `%` biçimlemesi yapıp "String formatting error" veriyordu (örnek: `koy.bosta.hud`, `koy.karantina.hud`). Çeviriler yeniden üretildi.
 - `karakter_model.gd` içindeki sahte `AyakZemini` bağı kaldırıldı (bkz. SAH tablosu).
+- `koy_ekrani.gd` `_unhandled_input` her olayda `olay.pressed` okuyordu; köyde fare her kıpırdadığında `SCRIPT ERROR` düşüyordu. `is_pressed()` ile düzeltildi.
+- Risk, düzeltilmedi: `-s` ile koşan ve `YapiKarti` gibi `koy_ekrani.gd`'ye zincirlenen sınıfı adıyla anan testler (ör. Kalfa'nın `tests/unit/koy/yapi_karti_test.gd`), autoload kurulmadan derlendiği için açılışta `Identifier not found: Ses` basar, sonra yine geçer. Sınıfı betik yoluyla anmak bu çıktıyı kaldırır (`tests/unit/koy/yapi_karti_model_test.gd`).
 - Risk, düzeltilmedi: `tests/unit/kvr/*`, `tests/unit/diyalog/*` ve başka yerlerde 29 test yalnız `assert` ile denetleyip sonda `quit(0)` çağırıyor. Bu testler hata sayacı ve `quit(1)` kullanmıyor.

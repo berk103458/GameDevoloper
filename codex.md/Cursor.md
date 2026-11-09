@@ -145,3 +145,8 @@ Festive PR. Yeni özellik yok. ODA-01 açılınca TUC-11 tekrar yazılmaz.
 
 Durum: BUG-07, SYS-09, SYS-11, SYS-12, KVR-11 `[x] (Cursor)`. Başlarken ROADMAP'te `[/] üzerindeyim (Cursor)` kilidi `1e898fd` ile push edildi.
 Yeni dosya + ince adaptör: `GuvenliMetin` (yeni), `ana.gd` 1 satır, `katalog.gd` 4 satır, `sanity_check.py` 1 satır. Asset gerekmedi. Tam sanity 0 başarısız.
+
+## Görev 22 — SAH kanıt denetimi ve genel düzeltme (10 Kasım 2026)
+
+Ayrıntı: `codex.md/Cursor_ilerleme_22.md`. SAH: 8 `[x]`, 38 geri açıldı. Oyuna bağlı olmayan 74 `[x]` geri açıldı (`docs/denetim/2026-11-10-gorev22-bagsiz-maddeler.md`). Düzeltmeler: YAZ-06 testi, çeviri dosyaları, köy girdisi SCRIPT ERROR, sahte AyakZemini bağı. Yeni: YAP-62, KLT-48 `[x] (Cursor)`. Asset gerekmedi. Windows kopyaları bu ortamda yok; eşitlendi denmez.
+kota görünmüyor
