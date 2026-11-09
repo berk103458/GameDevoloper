@@ -61,7 +61,7 @@ Muharrir'in 9 Kasım tarihli denetim bulguları incelendi ve maddeler eksiksiz u
 
 ### 6. Dal ve Entegrasyon
 - `feature/diyalog-yeniden-yazim` dalına commit atıldı ve origin'e push edildi.
-- `claude/festive-volta-li1sfm` dalındaki en son değişiklikler (Kalfa SAH-51..60 ve DEN) ile `feature/diyalog-yeniden-yazim` birleştirildi (`5b663843`).
+- `claude/festive-volta-li1sfm` dalındaki en son değişiklikler (Kalfa SAH-51..60 ve DEN) ile `feature/diyalog-yeniden-yazim` birleştirildi (`bc09da26`).
 - Bütün hedefli birim testler yeniden çalıştırıldı ve hepsi 0 hata ile geçti:
   - `tests/unit/diyalog/kap18_yetim_metinleri_test.gd` -> CODE: 0
   - `tests/unit/diyalog/ustalar_metin_test.gd` -> CODE: 0
@@ -71,7 +71,7 @@ Muharrir'in 9 Kasım tarihli denetim bulguları incelendi ve maddeler eksiksiz u
   - `tests/unit/kvr/kapi_kamera_test.gd` -> CODE: 0
   - `tools/metin_dogrula.py --kaynak` -> PASS
   - `tools/soz_dogrula.py` -> PASS
-- Festive dalına fast-forward push yapıldı (`git push origin HEAD:claude/festive-volta-li1sfm`). Commit: `5b663843`.
+- Festive dalına fast-forward push yapıldı (`git push origin HEAD:claude/festive-volta-li1sfm`). Commit: `bc09da26`.
 - `ilerleme_20` dosyası `GOREV20_TAMAM` ile tamamlandı.
 
 GOREV20_TAMAM

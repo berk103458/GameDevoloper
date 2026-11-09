@@ -119,13 +119,13 @@ func test_sah41_kamera_tek_rig() -> void:
 
 
 func test_sah42_yukseklik_siniri() -> void:
-	var sinirlar := KameraSurukleme.yukseklik_sinirlari_al()
-	_kontrol(sinirlar.x == 14.0 and sinirlar.y == 80.0, "SAH-42: sahne.json kamera_yukseklik sınırları 14.0-80.0 olmalı")
-	var y1 := KameraSurukleme.yukseklik_sinirla(5.0)
+	var sinirlar := KameraSurukleme.uzaklik_sinirlari_al()
+	_kontrol(sinirlar.x == 14.0 and sinirlar.y == 80.0, "SAH-42: sahne.json kamera_uzaklik sınırları 14.0-80.0 olmalı")
+	var y1 := KameraSurukleme.uzaklik_sinirla(5.0)
 	_kontrol(y1 == sinirlar.x, "SAH-42: Alt sınır altına inilmemeli (zemin delinmez)")
-	var y2 := KameraSurukleme.yukseklik_sinirla(100.0)
+	var y2 := KameraSurukleme.uzaklik_sinirla(100.0)
 	_kontrol(y2 == sinirlar.y, "SAH-42: Üst sınır aşılmamalı")
-	print("SAH-42: Yükseklik sınırı testi geçti.")
+	print("SAH-42: Yükseklik/uzaklık sınırı testi geçti.")
 
 
 func test_sah43_koy_sinirina_kirp() -> void:

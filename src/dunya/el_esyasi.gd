@@ -345,9 +345,13 @@ static func cift_soket_kesisimi_var_mi(sol_pos: Vector3, sag_pos: Vector3, govde
 	return false
 
 
-## SAH-13: Konusma klibi esyayi dusurmez.
+## SAH-13: Konuşma klibi eşyayı düşürmez; el kemiği ve iskelet bağlantısı geçerlidir.
 func soket_dolu_mu() -> bool:
-	return get_parent() != null
+	if get_parent() == null:
+		return false
+	if _iskelet != null:
+		return is_instance_valid(_iskelet) and _el >= 0
+	return true
 
 
 ## SAH-14: data/el_esyalari.json uzerinden soket tanimi alir.

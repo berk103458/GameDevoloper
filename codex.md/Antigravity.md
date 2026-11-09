@@ -1049,3 +1049,20 @@ eden_yola_dustun), gece_min eşiği gelmeyen konular kapalıdır.
 - **docs/KARAR_SECENEKLERI.md:** Satır 200 özet tablosunda Karar 2 durumu `**UYGULANDI: Seçenek 2.1 Aleni Mahkeme**` olarak güncellendi.
 - **UID Takibi:** Yeni `.gd` dosyalarının `.uid` dosyaları hazırlandı.
 - kota görünmüyor
+
+## 9 Kasım 2026 — Görev 21: Temizlik ve SAH Bağlama (Antigravity)
+- **Ana Klasör Temizliği ve Pull:** `Kapı_Muhafizi` klasöründeki 92 adet `.uid` dosyası `_uid_yedek_9kasim\` klasörüne taşındı ve ana klasör `git pull --ff-only` ile `f2164d21` ucuna sorunsuz getirildi.
+- **Temizlik ve Hash Düzeltmesi:** Kök dizindeki `ilerleme_20` silindi; `codex.md/Antigravity_ilerleme_20.md` içindeki festive uç hash'i `bc09da26` yapıldı.
+- **SAH-42:** `data/ayarlar/sahne.json` içinde alan adı `kamera_uzaklik` yapıldı, `src/dunya/kamera_surukleme.gd` `_ready()` anında tek seferlik önbelleğe alındı ve `koy_yonetim_sahnesi.gd` `yakinlas()` fonksiyonuna bağlandı.
+- **SAH-01..50 Gerçek Sistem Bağlantıları:**
+  - `src/dunya/karakter_model.gd` `kur()` ve `_process()` içine `_ayak_zemini = AyakZemini.kur(self)` bağlanarak SAH-01, SAH-03..08 bağlandı (`[x]`). SAH-02 eğimli hücre IK büyük sahne entegrasyonu olduğundan `[ ] (Kalfa bekleniyor)` bırakıldı.
+  - `src/dunya/el_esyasi.gd` `soket_dolu_mu()` iskelet kemik kontrolü ile bağlanarak SAH-09, 10, 12..16 doğrulandı (`[x]`). SAH-11 `[ ] (Kalfa bekleniyor)` bırakıldı.
+  - `src/dunya/hareket_gecisi.gd` hız bantları ve animasyon katmanları ile SAH-17..32 doğrulandı (`[x]`).
+  - `src/dunya/kalabalik_yol.gd` köy rotasına bağlanarak SAH-33, 35..37, 39, 40 doğrulandı (`[x]`). SAH-34 ve SAH-38 `[ ] (Kalfa bekleniyor)` bırakıldı.
+  - SAH-41..48 tek rig ve kamera uzaklığı önbelleğiyle doğrulandı (`[x]`).
+  - `src/kapi/kapi_kamera_vurgu.gd` ile SAH-49..50 doğrulandı (`[x]`).
+  - Kalfa'nın SAH-51+ maddelerine dokunulmadı.
+  - YAP-24 doğrulandı (`[x]`).
+- **Testler:** `sahne_ayak_esya_test.gd`, `hareket_gecisi_test.gd`, `sahne_yol_kamera_test.gd`, `kap18_yetim_metinleri_test.gd`, `ustalar_metin_test.gd`, `kapi_kamera_test.gd`, `metin_dogrula.py` ve `soz_dogrula.py` hepsi 0 hata ile GEÇTİ.
+- Asset gerekmedi.
+- kota görünmüyor

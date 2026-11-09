@@ -24,7 +24,9 @@ func _ayarlari_yukle() -> void:
 
 
 ## SAH-33: İkinci navigasyon bölgesi yok; kapı, tarla ve patika tek ağdadır.
-func tek_ag_var_mi() -> bool:
+func tek_ag_var_mi(sahne: KoyYonetimSahnesi = null) -> bool:
+	if sahne != null and is_instance_valid(sahne.halk_hareketi):
+		return sahne.halk_hareketi.rotaci != null
 	return true
 
 
@@ -89,5 +91,7 @@ func butce_asildi_mi(harcanan_ms: float) -> bool:
 
 
 ## SAH-40: Çocuk ve yaşlı aynı ağı kullanır; ayrı navigasyon açılmaz.
-func ag_kimligi(_karakter_turu: String) -> String:
-	return "ana_koy_navigasyon_agi"
+func ag_kimligi(karakter_turu: String) -> String:
+	# Tüm karakter türleri (çocuk, yaşlı, usta, muhafız) tek ortak ağa bağlanır
+	var _tur := karakter_turu.to_lower()
+	return "koy_ortak_izgara_agi"

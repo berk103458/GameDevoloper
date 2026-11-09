@@ -1,3 +1,9 @@
+## 9 Kasım 2026 — Görev 21: Temizlik ve SAH bağlama tamamlandı (Antigravity)
+
+- Ana klasördeki 92 adet .uid dosyası yedeklenerek `Kapı_Muhafizi` `git pull --ff-only` ile güncellendi; kökteki `ilerleme_20` temizlendi ve ilerleme_20'deki uç hash `bc09da26` olarak düzeltildi.
+- SAH-42 `data/ayarlar/sahne.json` içinde `kamera_uzaklik` olarak adlandırıldı; `src/dunya/kamera_surukleme.gd` `_ready()` anında tek seferlik önbelleğe alındı ve `koy_yonetim_sahnesi.gd` `yakinlas()` fonksiyonuna bağlandı.
+- SAH-01..50 gerçek sistemlere (`karakter_model.gd`, `el_esyasi.gd`, `kalabalik_yol.gd`, `hareket_gecisi.gd`, `kamera_surukleme.gd`) bağlandı; büyük sahne entegrasyonu gerektirenler (SAH-02, 11, 34, 38) `[ ] (Kalfa bekleniyor)` bırakıldı, Kalfa'nın SAH-51+ maddelerine dokunulmadı; hedefli testler 0 hata ile GEÇTİ.
+
 ## 9 Kasım 2026 — Görev 20: SAH-01..SAH-50 ve YAP-24 denetim düzeltmesi (Antigravity)
 
 - Muharrir'in 9 Kasım denetim bulguları doğrultusunda SAH-01..SAH-50 ve YAP-24 maddeleri `ROADMAP_2.md`'de `[ ]` durumuna geri alındı ve `(doğrulanmadı, oyuna bağlı değil — Görev 20)` olarak işaretlendi.

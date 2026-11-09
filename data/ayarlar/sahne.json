@@ -12,7 +12,7 @@
   },
   "gecis_suresi": 0.25,
   "yol_butcesi_ms": 2.0,
-  "kamera_yukseklik": {
+  "kamera_uzaklik": {
     "min": 14.0,
     "max": 80.0,
     "varsayilan": 38.0

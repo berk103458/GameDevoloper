@@ -31,6 +31,7 @@ func _ready() -> void:
 	# Duraklama sırasında yalnız iptal kontrolü sürer; kamera oynatılmaz.
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	denge_yukle()
+	sahne_ayarlari_yukle()
 	ekran._kap.gui_input.connect(_girdi)
 	ekran._kap.mouse_exited.connect(_birak)
 	get_tree().root.focus_exited.connect(_birak)
@@ -117,25 +118,44 @@ func _exit_tree() -> void:
 		ekran._kap.mouse_exited.disconnect(_birak)
 	get_tree().root.focus_exited.disconnect(_birak)
 
-# --- SAH-41..SAH-48: Kamera sinirlari, yukseklik ve guvenlik yardimcilari ---
+# --- SAH-41..SAH-48: Kamera sinirlari, yukseklik/uzaklik ve guvenlik yardimcilari ---
 
 const SAHNE_AYAR_YOLU := "res://data/ayarlar/sahne.json"
 
-static func yukseklik_sinirlari_al(ayar_yolu: String = SAHNE_AYAR_YOLU) -> Vector2:
+static var _uzaklik_sinirlar := Vector2(14.0, 80.0)
+static var _ayarlar_yuklendi := false
+
+static func sahne_ayarlari_yukle(ayar_yolu: String = SAHNE_AYAR_YOLU) -> void:
 	if FileAccess.file_exists(ayar_yolu):
 		var veri: Variant = JSON.parse_string(FileAccess.get_file_as_string(ayar_yolu))
-		if veri is Dictionary and veri.has("kamera_yukseklik") and veri["kamera_yukseklik"] is Dictionary:
-			var ky: Dictionary = veri["kamera_yukseklik"]
-			return Vector2(float(ky.get("min", 14.0)), float(ky.get("max", 80.0)))
-	return Vector2(14.0, 80.0)
+		if veri is Dictionary:
+			var ky: Dictionary = {}
+			if veri.has("kamera_uzaklik") and veri["kamera_uzaklik"] is Dictionary:
+				ky = veri["kamera_uzaklik"]
+			elif veri.has("kamera_yukseklik") and veri["kamera_yukseklik"] is Dictionary:
+				ky = veri["kamera_yukseklik"]
+			if not ky.is_empty():
+				_uzaklik_sinirlar = Vector2(float(ky.get("min", 14.0)), float(ky.get("max", 80.0)))
+				_ayarlar_yuklendi = true
+
+static func uzaklik_sinirlari_al(ayar_yolu: String = SAHNE_AYAR_YOLU) -> Vector2:
+	if not _ayarlar_yuklendi or ayar_yolu != SAHNE_AYAR_YOLU:
+		sahne_ayarlari_yukle(ayar_yolu)
+	return _uzaklik_sinirlar
+
+static func yukseklik_sinirlari_al(ayar_yolu: String = SAHNE_AYAR_YOLU) -> Vector2:
+	return uzaklik_sinirlari_al(ayar_yolu)
 
 
-## SAH-42: Kamera yuksekligi sahne.json alt ve ust sinirlari arasinda tutulur.
+## SAH-42: Kamera uzaklığı sahne.json alt ve üst sınırları arasında tutulur.
+static func uzaklik_sinirla(u: float, min_u: float = -1.0, max_u: float = -1.0) -> float:
+	if min_u < 0.0 or max_u < 0.0:
+		var s := uzaklik_sinirlari_al()
+		return clampf(u, s.x, s.y)
+	return clampf(u, min_u, max_u)
+
 static func yukseklik_sinirla(y: float, min_y: float = -1.0, max_y: float = -1.0) -> float:
-	if min_y < 0.0 or max_y < 0.0:
-		var s := yukseklik_sinirlari_al()
-		return clampf(y, s.x, s.y)
-	return clampf(y, min_y, max_y)
+	return uzaklik_sinirla(y, min_y, max_y)
 
 
 ## SAH-45: En yakin yukseklikte kamera modele girmez.
@@ -157,5 +177,5 @@ static func koyde_sarsinti_suresi() -> float:
 
 ## SAH-48: Kamera ayarlari kayit dosyasina yazilmaz.
 static func kayit_kamera_alani_icermez(kayit: Dictionary) -> bool:
-	return not kayit.has("kamera_yukseklik") and not kayit.has("kamera_hedef")
+	return not kayit.has("kamera_uzaklik") and not kayit.has("kamera_yukseklik") and not kayit.has("kamera_hedef")
 
