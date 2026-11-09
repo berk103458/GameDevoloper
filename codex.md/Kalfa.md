@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-03 başlıyor (Kalfa)
+
+Festive 0a4c8031 güncel. Canlı yürüyüşte topuğun temas boyunca dünya konumu, iskelet ve hareket kökünün farkından ölçülecek. Mevcut sahne ayarındaki 0,15 m eşik kullanılır. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-02 tamamlandı (Kalfa)
 
 Mevcut iskelet pozundan iki topuk ve varsa parmak noktaları okunur. Eğimde her bacak kendi zeminine, uyluk ve baldır uzunluğu korunarak hizalanır. Taban yönü yerel topuk/parmak yüksekliği farkını izler. Adımın havadaki ayağı yere çekilmez. Uzanma sınırında görsel gövde en çok 8 cm iner; kök ve rota etkilenmez. Sayısal temas için 4 mm yüzey farkı, 35 mm salınım açıklığı ve 0,55 radyan azami taban yön düzeltmesi seçildi.
