@@ -6,6 +6,7 @@ Yasak kalıplar USLUP_REHBERI.md §1 ve §3'tedir; ikinci yasak dosyası yoktur.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import re
 import sys
@@ -31,6 +32,12 @@ MESLEK = ROOT / "data" / "meslek_binalari.json"
 KADRO_OZGUNLUK = ROOT / "data" / "soz" / "kadro_ozgunluk.json"
 KURALLAR = KADRO_OZGUNLUK.with_name("kurallar.json")
 SIR_KOTASI = "sir_cekirdegi_kotasi_yuzde_max"
+SOZ = ROOT / "data" / "soz"
+ESKI_DIYALOG = ROOT / "data" / "diyalog" / "diyalog_01_20.json"
+ESKI_SOHBET = ROOT / "data" / "sohbetler"
+METIN_TABLOSU = ROOT / "data" / "metin" / "metinler.csv"
+# Kısa selam ve tek kelimelik cevaplar ortak dildir; kopya sayılmaz.
+ESKI_ASGARI_KELIME = 4
 
 
 def _modern_kelimeler() -> list[str]:
@@ -93,8 +100,60 @@ def denetle(paket: dict, kor_satirlari: list[dict] | None = None) -> tuple[list[
         kod, mesaj = kota_hatasi
         hatalar.append({"tur": "hata", "kod": kod, "mesaj": mesaj})
     hatalar.extend(_satir_hatalari(paket))
+    hatalar.extend(_kopya_hatalari(paket))
     uyarilar.extend(_satir_uyarilari(paket))
     return hatalar, uyarilar
+
+
+def _cumle_anahtari(metin: str) -> str:
+    kucuk = metin.replace("İ", "i").replace("I", "i").casefold().replace("ı", "i")
+    sade = re.sub(r"[^\w\s]", " ", kucuk)
+    return " ".join(sade.split())
+
+
+def _json_metinleri(veri) -> list[str]:
+    if isinstance(veri, str):
+        return [veri]
+    if isinstance(veri, dict):
+        return [m for v in veri.values() for m in _json_metinleri(v)]
+    if isinstance(veri, list):
+        return [m for v in veri for m in _json_metinleri(v)]
+    return []
+
+
+def eski_cumleler() -> set[str]:
+    """DIY-16 öncesi konuşma metni: eski soru dizisi ve SohbetVerisi'nin metin tablosundaki satırları."""
+    metinler = _json_metinleri(json.loads(ESKI_DIYALOG.read_text(encoding="utf-8-sig")))
+    anahtarlar: set[str] = set()
+    for yol in sorted(ESKI_SOHBET.glob("*.tres")):
+        anahtarlar.update(re.findall(r'"(sohbet\.[^"]+)"', yol.read_text(encoding="utf-8-sig")))
+    with METIN_TABLOSU.open(encoding="utf-8-sig", newline="") as dosya:
+        metinler.extend(s.get("tr", "") for s in csv.DictReader(dosya) if s.get("keys") in anahtarlar)
+    return {a for a in map(_cumle_anahtari, metinler) if len(a.split()) >= ESKI_ASGARI_KELIME}
+
+
+def _kopya_hatalari(paket: dict, eski: set[str] | None = None) -> list[dict]:
+    eski = eski_cumleler() if eski is None else eski
+    hatalar = []
+    for satir in paket.get("satirlar", []):
+        if isinstance(satir, dict) and _cumle_anahtari(str(satir.get("metin", ""))) in eski:
+            hatalar.append({"tur": "hata", "kod": "KLT-48", "mesaj": "eski metin kopyasi: " + str(satir.get("id", ""))})
+    return hatalar
+
+
+def soz_kopya_taramasi(klasor: Path = SOZ, eski: set[str] | None = None) -> list[tuple[str, str]]:
+    """`data/soz` altındaki her metinde eski konuşma cümlesi arar; bulunan her cümle bir hatadır."""
+    eski = eski_cumleler() if eski is None else eski
+    bulunan = []
+    for yol in sorted(klasor.rglob("*.json")):
+        try:
+            veri = json.loads(yol.read_text(encoding="utf-8-sig"))
+        except ValueError:
+            continue
+        for metin in _json_metinleri(veri):
+            if _cumle_anahtari(metin) in eski:
+                bulunan.append((yol.relative_to(klasor).as_posix(), metin))
+    return bulunan
 
 
 def _cekirdek_kota_sayimi(cekirdekler: list[str]) -> dict[str, int]:
@@ -257,7 +316,14 @@ def main(argv: list[str] | None = None) -> int:
     ayr = argparse.ArgumentParser(description="Söz kapısı")
     ayr.add_argument("--paket", type=Path)
     ayr.add_argument("--hedef", type=Path)
+    ayr.add_argument("--eski-tara", action="store_true", help="data/soz içinde eski konuşma cümlesi arar (KLT-48)")
     arg = ayr.parse_args(argv)
+    if arg.eski_tara:
+        bulunan = soz_kopya_taramasi()
+        for dosya, metin in bulunan:
+            print("KLT-48 %s: %s" % (dosya, metin))
+        print("eski_kopya=%d" % len(bulunan))
+        return 1 if bulunan else 0
     if arg.paket is None:
         print("KLT kapı hazır")
         return 0

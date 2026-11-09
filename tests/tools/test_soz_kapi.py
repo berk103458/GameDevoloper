@@ -1,6 +1,7 @@
 """KLT kapı testleri. Oyun diyaloğu yazılmaz; paketler anahtar ve kural fişidir."""
 from __future__ import annotations
 
+import csv
 import json
 import re
 import shutil
@@ -17,9 +18,11 @@ sys.path.insert(0, str(ROOT / "tools"))
 from metin_dogrula import validate_text  # noqa: E402
 from soz_kapi import (  # noqa: E402
     denetle,
+    eski_cumleler,
     godot_baslatir_mi,
     kitap_exportta_mi,
     kopyala,
+    soz_kopya_taramasi,
     src_editor_sayisi,
     _temiz_paket,
 )
@@ -305,6 +308,52 @@ class SozKapiTest(unittest.TestCase):
             self.assertTrue(dosya.is_file())
             self.assertTrue((hedef / "red" / "ornek.json").is_file())
             shutil.rmtree(hedef)
+
+
+class EskiMetinKopyasiTest(unittest.TestCase):
+    """KLT-48: DIY-16 öncesi konuşma cümlesi yeni söz dosyasına geçemez."""
+
+    def _eski_cumle(self) -> str:
+        veri = json.loads((ROOT / "data" / "diyalog" / "diyalog_01_20.json").read_text(encoding="utf-8-sig"))
+        return veri[0]["sorular"][0][1]
+
+    def test_eski_cumle_pakette_bir_hata(self):
+        paket = _temiz_paket()
+        paket["satirlar"][0]["metin"] = "  " + self._eski_cumle().upper() + "  "
+        kodlar = [h["kod"] for h in denetle(paket, KOR)[0]]
+        self.assertEqual(kodlar.count("KLT-48"), 1)
+
+    def test_temiz_pakette_kopya_hatasi_yok(self):
+        kodlar = [h["kod"] for h in denetle(_temiz_paket(), KOR)[0]]
+        self.assertEqual(kodlar.count("KLT-48"), 0)
+
+    def test_eski_sohbet_kaynagi_da_okunur(self):
+        self.assertGreater(len(eski_cumleler()), 100)
+        self.assertIn('"sohbet.chr_001.c1"', (ROOT / "data" / "sohbetler" / "chr_001.tres").read_text(encoding="utf-8-sig"))
+        with (ROOT / "data" / "metin" / "metinler.csv").open(encoding="utf-8-sig", newline="") as dosya:
+            satir = next(s for s in csv.DictReader(dosya) if s["keys"] == "sohbet.chr_001.c1")
+        paket = _temiz_paket()
+        paket["satirlar"][0]["metin"] = satir["tr"]
+        self.assertEqual([h["kod"] for h in denetle(paket, KOR)[0]].count("KLT-48"), 1)
+
+    def test_gercek_data_soz_kopya_sifir(self):
+        self.assertEqual(soz_kopya_taramasi(), [])
+        sonuc = subprocess.run(
+            [sys.executable, "-B", str(ROOT / "tools" / "soz_kapi.py"), "--eski-tara"],
+            capture_output=True, text=True, encoding="utf-8", timeout=30,
+        )
+        self.assertEqual(sonuc.returncode, 0)
+        self.assertIn("eski_kopya=0", sonuc.stdout)
+
+    def test_data_soz_icine_dusen_eski_cumle_bir_hata(self):
+        with tempfile.TemporaryDirectory() as klasor:
+            hedef = Path(klasor) / "soz"
+            shutil.copytree(ROOT / "data" / "soz", hedef)
+            (hedef / "kopya.json").write_text(
+                json.dumps({"satirlar": [{"metin": self._eski_cumle()}]}, ensure_ascii=False), encoding="utf-8")
+            bulunan = soz_kopya_taramasi(hedef)
+        self.assertEqual(len(bulunan), 1)
+        self.assertEqual(bulunan[0][0], "kopya.json")
 
 
 if __name__ == "__main__":

@@ -6475,9 +6475,9 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: DYL-14. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-48:** Yan yana bakış eski metni kopyalamaz
+- [x] **KLT-48:** Yan yana bakış eski metni kopyalamaz (Cursor)
   - Ne: Yan yana bakış eski metni kopyalamaz. Eski cümle `data/soz` içine düşerse 1 hata.
-  - Kabul: Hata 1. Test: diff.
+  - Kabul: Hata 1. Test: diff. Kanıt: `tools/soz_kapi.py` eski metni `data/diyalog/diyalog_01_20.json` ve `data/sohbetler/*.tres` anahtarlarının `metinler.csv` satırlarından okur (dört kelimeden kısa satır sayılmaz); pakette ve `--eski-tara` ile `data/soz` taramasında her kopya 1 hata (`tests/tools/test_soz_kapi.py` `EskiMetinKopyasiTest`). Bugünkü `data/soz`: `eski_kopya=0`.
   - Bağımlılık: DIY-16. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
