@@ -8233,7 +8233,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-49, SAH-35. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-52:** Konuşma bitince vurgu gevşer.
+- [/] **SAH-52:** Konuşma bitince vurgu gevşer. (Kalfa)
   - Ne: karar panelinde kamera bir adım geri durur. Yüz hâlâ kadrajdadır.
   - Kabul: karar panelinde kamera bir adım geri durur. Yüz hâlâ kadrajdadır. Test: iki mesafe, karar mesafesi büyük.
   - Bağımlılık: SAH-49. Boyut: S.

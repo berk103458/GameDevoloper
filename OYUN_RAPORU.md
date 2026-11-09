@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — SAH-52 başlıyor (Kalfa)
+
+Festive 02da50e6 güncel. Gerçek karar paneline geçişte kapı kamerası bir adım geri alınacak, konuşan yüzün kadrajı ve mevcut geçiş iptalleri korunacak. Sonraki kişi ve sohbet dönüşü de doğrulanacak. Asset gerekmedi. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-51 tamamlandı (Kalfa)
 
 Mevcut fırtına kuyruğu kabulüne normal havada dört gerçek kayıtlı kişi ve model eklendi. Gerçek kapı sıradaki akışı ilk nesneyi konuşturur ve ikinci nesneyi sıranın başına ilerletir. On iki karede etkin kamera, dönüşüm ve görüş açısı sabit. Konuşan yüz kadrajda, sıradaki yüze göre merkeze daha yakın. Mevcut oyun davranışı kabulü sağladı, üretim dosyası değişmedi.
