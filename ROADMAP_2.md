@@ -7940,7 +7940,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-13, SAH-01. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-06:** Çömelme ve eğilme ayağı yerden koparmaz. (doğrulanmadı — Görev 22; Kalfa bekleniyor — AyakZemini oyunda topuğu ölçmüyor, KarakterModel ayak kemiği/zemin entegrasyonu gerekli)
+- [/] **SAH-06:** Çömelme ve eğilme ayağı yerden koparmaz. (Kalfa — gerçek kabul, ret ve eksik klip)
   - Ne: kabuldeki şükran ve retteki diz çökme, ayak tabanını zeminde tutar. Klip yoksa BUG-09 idle'a düşer, ayak yine zemindedir.
   - Kabul: kabuldeki şükran ve retteki diz çökme, ayak tabanını zeminde tutar. Klip yoksa BUG-09 idle'a düşer, ayak yine zemindedir. Test: iki poz, taban yüksekliği.
   - Bağımlılık: SAH-01, BUG-09. Boyut: S.

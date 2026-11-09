@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-06 başlıyor (Kalfa)
+
+Festive 5ae55e88 güncel. Cursor Görev 23(a) test güncellemeleri alındı. Gerçek kapı kararında şükran, diz çökme ve eksik klipte bekleme ayrı ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-05 tamamlandı (Kalfa)
 
 Köy kapısının görseli ızgara kenarının 1 m dışındaydı. Eşik, mevcut muhafız durağı olan son sıra hücresinin merkezine alındı. Kapı görseli, nöbet ve devriye aynı hücreyi okur. Görsel yüksekliği mevcut köy arazisinden gelir. ANI-13 bölgesi ve kayıt şeması aynı kalır.
