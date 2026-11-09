@@ -87,6 +87,11 @@ func soylenti_ekle(
 
 	return { "olur": true, "kayit": ag_kaydi }
 
+## SOY-01: DIY-13 kaydının kaynağı ve doğruluğu; ağda karşılığı olmayan eski kayıt kaynaksız ve doğru sayılır.
+func kaynak_ve_dogruluk(olay_id: String) -> Dictionary:
+	var k: Dictionary = ag_kayitlari.get(olay_id, {})
+	return {"kaynak": String(k.get("kaynak", "")), "dogru": bool(k.get("dogru", true))}
+
 ## SOY-07 & SOY-08: Köylü söz güvenilirliği (0..3).
 func guvenilirlik_al(koylu_id: String) -> int:
 	return int(guvenilirlikler.get(koylu_id, int(veri_yapilandirma.get("varsayilan_guvenilirlik", 2))))
@@ -167,8 +172,8 @@ func gece_ilerlet(
 			if yeni_duyanlar.size() >= yayilim_hizi:
 				break
 
-		# Eğer komsuluk verilmemişse nüfustan temsili köylüler eklenir
-		if yeni_duyanlar.is_empty() and duyanlar.size() < koy_nufusu:
+		# Eğer komsuluk verilmemişse nüfustan temsili köylüler eklenir; gerçek harita varken uydurma ad yok (SOY-45)
+		if komsuluklar.is_empty() and calisma_arkadaslari.is_empty() and yeni_duyanlar.is_empty() and duyanlar.size() < koy_nufusu:
 			for i in range(1, koy_nufusu + 1):
 				var aday := "koylu_%d" % i
 				if not (aday in duyanlar):

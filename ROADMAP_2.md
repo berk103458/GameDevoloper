@@ -5397,7 +5397,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.1 Söylentinin anatomisi — kaynak, yol, doğruluk
 
-- [ ] **SOY-01:** Her dedikodu kaydının kaynağı ve doğruluğu vardır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-01:** Her dedikodu kaydının kaynağı ve doğruluğu vardır. (Cursor)
   - Ne: DIY-13 kaydına optional iki alan: `kaynak` (tanık köylü kimliği) ve `dogru` (bool; olay gerçekten oldu mu). Yanlış söylenti SOY-05 ile üretilir. Omurga (OMR-39) yalnız `dogru` kayıtları okur.
   - Kabul: alanlar optional; eski kayıt `dogru=true`, `kaynak=""` sayılır. Test: KAY birimi.
   - Bağımlılık: DIY-13, KAY-04. Boyut: S.
@@ -5409,13 +5409,13 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-01, HAN-18. Boyut: M.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-03:** Taşıyıcı — kapıdan giren haber. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-03:** Taşıyıcı — kapıdan giren haber. (Cursor)
   - Ne: kapıdan kabul edilen kişi dış haber taşıyabilir (DNY-02 söylentisi, hane misafiri HAN-14); içeri girince ilk düğüm odur.
   - Kabul: kabul edilen taşıyıcı kayıtta `kaynak`. Test: kabul.
   - Bağımlılık: DNY-02, SOY-02. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-04:** Reddedilen de haber bırakır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-04:** Reddedilen de haber bırakır. (Cursor)
   - Ne: reddedilen kişi sıradakilere (kapı kuyruğu, `kapi_firtina_kuyrugu.gd` sırası) bir cümle bırakabilir; kuyruktaki kabul edilirse haberi taşır.
   - Kabul: red sonrası kuyrukta `tasinan_haber` 1. Test: red + kabul.
   - Bağımlılık: SOY-03. Boyut: S.

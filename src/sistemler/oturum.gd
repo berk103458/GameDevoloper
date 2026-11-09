@@ -287,6 +287,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	muhafiz_tecrubesi += 1
 	MuhafizOdaGelisimi.karar(self)
 	MuhafizVicdani.karar(self, gelen, karar)
+	SoylentiKoprusu.karar(self, gelen, karar, ek)
 	preload("res://src/sistemler/kapi_acilis_olayi.gd").karar_sonrasi(self, gelen, ek)
 	return ek
 
@@ -309,6 +310,7 @@ func gece_sonu() -> Dictionary:
 	preload("res://src/koy/usta_defterleri.gd").gece(self,r)
 	preload("res://src/koy/cozumleme.gd").gece(self,r,cozumleme_mevsimi,cozumleme_calisma)
 	dedikodu.gece_ilerlet(gun)
+	SoylentiKoprusu.gece(self, r)
 	preload("res://src/sistemler/kayit_gocu_bildirimi.gd").gece(self, r)
 	MuhafizYetenekleri.rapora_ekle(r, harac)
 	MuhafizVicdani.gece(self, r)
@@ -783,6 +785,7 @@ func kaydet() -> Dictionary:
 		"zorluk": yonetim.get_meta(&"zorluk", "olagan"),
 		"ogretici": ipucu_kaydi.sozluge(),
 		"dedikodu": dedikodu.kaydet(),
+		"soylenti_agi": SoylentiKoprusu.kaydet(self),
 		"grup_itibari": grup_itibari.kaydet(),
 		"kayit_gocu_bildirimi": preload("res://src/sistemler/kayit_gocu_bildirimi.gd").durum(self),
 		"aile_kararlari": preload("res://src/kapi/aile_kafilesi.gd").durum(self),
@@ -873,6 +876,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	if not grup_verisi is Dictionary or not o.grup_itibari.yukle(grup_verisi): return null
 	var dedikodu_verisi: Variant = veri.get("dedikodu", {})
 	if not dedikodu_verisi is Dictionary or not o.dedikodu.yukle(dedikodu_verisi): return null
+	SoylentiKoprusu.yukle(o, veri.get("soylenti_agi"))
 	o._koy_esitle()
 	o.ipucu_kaydi.kayittan_oku(veri)
 	o.ilk_saat_gelen = GeceBilancosu.ilk_saat_gelen_oku(veri.get("ilk_saat_gelen"))
