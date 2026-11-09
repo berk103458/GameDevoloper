@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — SAH-59 başlıyor (Kalfa)
+
+Festive fc18738b güncel. Aynı gerçek çalışan açık havada tarla durağında, yağmurda mevcut ANI-09 saçak durağında ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-58 tamamlandı (Kalfa)
 
 Ateş kontrolünde beş gerçek iskelet ve beş ayrı durak kullanıldı. Yalnız testte 5812 tohumu seçildi. Mevcut modelin beş farklı ofseti aynı 0,5 saniyelik animasyon anına uygulanınca hem akşam hem gece beş farklı önkol yüksekliği ölçüldü. Doğru ısınma durumu ve mevcut görev/yol kontrolleri geçti. Oyun kodu ve RNG kullanımı değişmedi.

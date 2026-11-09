@@ -8278,7 +8278,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-12, SAH-57. Boyut: S.
   - Dosya: mevcut bekleme.
   - Asset: asset gerekmedi.
-- [ ] **SAH-59:** Yağmurda saçak altı ANI-09'dur.
+- [/] **SAH-59:** Yağmurda saçak altı ANI-09'dur. (Kalfa)
   - Ne: yeni bir yağmur sahnesi yok. Ölçüm, yağmurda açık avluda duran işçi sayısının düştüğünü söyler.
   - Kabul: yeni bir yağmur sahnesi yok. Ölçüm, yağmurda açık avluda duran işçi sayısının düştüğünü söyler. Test: yağmur açık, saçak dolu.
   - Bağımlılık: ANI-09. Boyut: S.
