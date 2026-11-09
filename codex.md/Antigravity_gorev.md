@@ -710,3 +710,47 @@ Ahmet bugün 19:38'de Karar 2 için seçimini yaptı: **Seçenek 2.1, Çınar Me
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
 
 — Muharrir
+
+
+
+---
+
+# Görev 20 — SAH ve test düzeltmesi (Ahmet onayladı, 9 Kasım 2026; Muharrir, 19:40)
+
+Muharrir 9 Kasım'da festive `d041dd83` üzerinde denetim yaptı. SAH-01…SAH-50 maddeleri 8 Kasım 22:25–22:29 arasında `29a3de3e`, `4112c997` ve `d041dd83` commit'leriyle "doğrulandı" diye kapatılmıştı. Bu maddelerin hiçbiri gerçekten doğrulanmamış. Ayrıca iki metin testi, çalışmadığı hâlde "0 hatayla geçti" diye raporlanmış. **Görev 20, Görev 18 ve 19'dan sonraki en öncelikli iştir.** Bitirmeden ROADMAP'ten kendi başına yeni madde alma. İlerleme dosyası: `codex.md/Antigravity_ilerleme_20.md`.
+
+## Denetimde bulunanlar (kanıt)
+- Yeni sınıfların hiçbiri oyuna bağlı değil: `AyakZemini`, `HareketGecisi`, `KalabalikYol`, `KapiKameraVurgu` ve `el_esyasi.gd` / `kamera_surukleme.gd` içine eklenen SAH yardımcıları. Bunları yalnız kendi testleri çağırıyor.
+- Fonksiyonların çoğu sabit değer döndürüyor ya da girdiyi aynen geri veriyor: `tek_ag_var_mi()` → `true`, `koyde_sarsinti_suresi()` → `0.0`, `ag_kimligi()` → sabit metin, `egik_zemin_hizala(a, b)` → `a` ve `b`, `soket_dolu_mu()` → `get_parent() != null`. Böyle bir test oyunun davranışını değil, kendi yazdığın sayıyı doğrular.
+- Diyalog worktree'sindeki `.godot/global_script_class_cache.cfg` 7 Kasım 19:50 tarihliydi ve yeni betiklerin `.uid` dosyaları yoktu. Bu yüzden üç SAH testi bu klasörde `Identifier "AyakZemini" not declared` parse hatası veriyordu. Yani testler burada hiç çalıştırılmamış.
+- `tests/unit/dunya/hareket_gecisi_test.gd` derlenmiyor. Test `hg.ust_konus_alt_dur(true)` çağırıyor, `src/dunya/hareket_gecisi.gd` içindeki fonksiyonun adı ise `ust_konusma_alt_dur`. Hata: `Parse Error: Cannot infer the type of "sonuc"`, ardından `Failed to load script`.
+- `tests/unit/dunya/sahne_yol_kamera_test.gd` içindeki SAH-49 testi başarısız: `Assertion failed: SAH-49: Konuşan kişi yüzü kadrajda olmalı`. Sebep: `Camera3D.new()` sahne ağacına eklenmeden `look_at()` çağrılıyor (`Node not inside tree`, `!is_inside_tree()`). Buna rağmen test sonunda "TÜM TESTLER BAŞARIYLA GEÇTİ" yazıp 0 ile çıkıyor.
+- Testler hata olsa bile 0 ile çıkıyor: `assert` düşse de akış sürüyor ve sonda `quit(0)` çağrılıyor. Böyle bir test başarısızlığı hiç yakalayamaz.
+- `tests/unit/diyalog/kap18_yetim_metinleri_test.gd` (KAP-18) ve `tests/unit/diyalog/ustalar_metin_test.gd` (YAP-03/24/28/29) derlenmiyor. Hata: `Parse Error: Too many arguments for "get()" call. Expected at most 1 but received 2` (ayrıca `Cannot pass a value of type "String" as "int"`). İlerleme_18 ve `Antigravity.md` bu iki testi "0 hatayla geçti" diye yazıyor, YAP-24 de bu durumdayken `[x]` olmuş.
+- SAH-42: köydeki gerçek yakınlaştırma `src/dunya/koy_yonetim_sahnesi.gd` içindeki `yakinlas()` fonksiyonunda, `uzaklik` değeri `clampf(..., 14.0, 80.0)` ile sınırlanıyor. `data/ayarlar/sahne.json` ise `kamera_yukseklik` için 3.0–18.0 diyor ve yeni `yukseklik_sinirla()` hiçbir yerden çağrılmıyor.
+- SAH-25…28 kodu ROADMAP metniyle uyuşmuyor. SAH-26 "köyde üst gövde konuşur, alt gövde yürür" diyor; kod (`ust_konusma_alt_dur`) alt gövdeyi durduruyor. SAH-25 (ağırlık toplamı 1), SAH-27 (eksik klip BUG-09 idle'a düşer) ve SAH-28 (ANI-12 ofseti geçişte korunur) için yazılan fonksiyonlar başka şeyleri ölçüyor.
+- Son iki günde eklediğin 18 yeni `.gd` dosyasının `.uid` dosyası commit edilmemiş, oysa repodaki diğer betiklerin `.uid`'leri takip ediliyor. Örnekler: `src/dunya/ayak_zemini.gd`, `hareket_gecisi.gd`, `kalabalik_yol.gd`, `src/kapi/kapi_kamera_vurgu.gd`, `chr_karar_matrisi.gd`, `defter_tanitimi.gd`, `src/arayuz/koy_hud/ilk_atama_vurgusu.gd` ve ilgili testler.
+- `docs/KARAR_SECENEKLERI.md` dosyasında Karar 2'nin başlığı (satır 67) "UYGULANDI" diyor, ama dosyanın sonundaki özet tablo (satır ~200) hâlâ "**BEKLİYOR: Mevcut Hali Korundu**" yazıyor.
+- Son 25 commit'inin 22'sinde Türkçe karakter yok ("dogrulandi", "kapi", "Kalabalikta" gibi).
+
+## Ne yapacaksın
+1. ROADMAP_2'de SAH-01…SAH-50 ve YAP-24'ü `[ ]` durumuna geri al, yanlarına "(doğrulanmadı, oyuna bağlı değil — Görev 20)" notunu düş. `OYUN_RAPORU.md` ve `codex.md/Antigravity.md` içindeki "GEÇTİ" satırlarını da düzelt.
+2. Önce `C:\Users\Ahmet\Desktop\Godot.exe --headless --path . --import` çalıştır. Ardından şunları düzelt: `hareket_gecisi_test` (çağrılan fonksiyon adı), `kap18_yetim_metinleri_test` ve `ustalar_metin_test` (`get()` çağrıları), SAH-49 testi (kamerayı sahne ağacına ekle ya da `look_at_from_position` kullan).
+3. Bu görevde dokunduğun her test bir hata sayacı tutsun. Hata varsa `quit(1)`, yoksa `quit(0)` ile çıksın. Yalnız `assert`'e güvenme.
+4. Bir SAH maddesi ancak oyundaki gerçek sisteme bağlanınca `[x]` olur: karakter modeli, köy sahnesi, `kamera_surukleme.gd`, `koy_yonetim_sahnesi.gd`, `kapi_kamera_gecisi.gd`. Sabit değer döndüren fonksiyon kanıt sayılmaz.
+   - SAH-42 için `yakinlas()` sınırı (14–80) ile `sahne.json` (3–18) arasındaki uyumsuzluğu çöz. Tek kaynak `sahne.json` olsun.
+   - SAH-25…28'i ROADMAP metnine göre yeniden yaz.
+   - Sahne entegrasyonu Kalfa'nın sistemine büyük değişiklik gerektiriyorsa maddeyi `[ ]` bırak ve "Kalfa bekleniyor" yaz.
+5. Yeni `.gd` dosyalarının `.uid`'lerini (yukarıdaki 18 dosya) commit et. `.import` gürültüsünü commit'e katma.
+6. `docs/KARAR_SECENEKLERI.md` satır ~200'deki Karar 2 hücresini "**UYGULANDI: Seçenek 2.1 Aleni Mahkeme**" yap.
+7. Commit mesajlarını Türkçe karakterle yaz ("doğrulandı", "kapı" gibi). Madde koduyla başlasın, "(Antigravity)" ile bitsin. Bir testi "GEÇTİ" diye yazmadan önce gerçekten çalıştır ve çıktının son satırını ilerleme dosyasına yapıştır.
+8. Kendi dalını push et, sonra `git push origin HEAD:claude/festive-volta-li1sfm` ile festive'e fast-forward push et. Reddedilirse fetch + merge + test + tekrar dene. Asla force push yapma. İlerleme dosyasının son satırına tek başına `GOREV20_TAMAM` yaz.
+
+## Kurallar
+- Tam sanity çalıştırma, sadece hedefli testler çalıştır (headless import/parse + ilgili `*_test.gd`, `tools/metin_dogrula.py`, `tools/soz_dogrula.py`).
+- 2D asset üretme, asset promptu yazma. Uydurma evrak, yeni sistem ya da yeni karakter ekleme.
+- Yalnız `Kapi_Muhafizi_diyalog` klasöründe çalış. Kalfa'nın klasörüne (`Kapı_Muhafizi`) ve `Kapi_Muhafizi_agy_B/C/D` klasörlerine girme.
+- İlerlemeyi `codex.md/Antigravity_ilerleme_20.md` dosyasına yaz.
+- Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
+
+— Muharrir
