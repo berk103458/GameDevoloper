@@ -279,6 +279,8 @@ func _siradaki() -> void:
 
 
 func _sohbet_goster() -> void:
+	if evre == &"karar":
+		_daralt(false)
 	evre = &"sohbet"
 	_temizle()
 	_bolum.text = tr("arayuz.kapi.sorular")

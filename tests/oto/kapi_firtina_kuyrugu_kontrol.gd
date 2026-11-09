@@ -71,6 +71,7 @@ func _kapi_kadraji(e: KapiEkrani, o: Oturum) -> bool:
  var adlar: Array[String] = []
  for id in [&"chr_001", &"chr_002", &"chr_003", &"chr_004"]:
   var gelen := o._adli_gelen(id)
+  gelen.heybe = Heybe.new()
   kuyruk.append(gelen)
   adlar.append(e._model_adi(gelen))
  e._gece_gelen = 0
@@ -107,4 +108,26 @@ func _kapi_kadraji(e: KapiEkrani, o: Oturum) -> bool:
   push_error("SAH-51: Bekleyen model sırada ilerlemedi.")
   return false
  print("SAH-51 DÖRT KİŞİLİK KADRAJ: GEÇTİ")
+ return await _karar_kadraji(e, birinci)
+
+
+func _karar_kadraji(e: KapiEkrani, konusan: KarakterModel) -> bool:
+ var kamera := e.sahne.kamera
+ var yuz := KapiKameraVurgu.kadraj_hesapla(konusan.global_position)
+ var sohbet_konumu := kamera.global_position
+ var sohbet_mesafesi := sohbet_konumu.distance_to(yuz)
+ e._karar_goster()
+ await get_tree().create_timer(0.6).timeout
+ if e.evre != &"karar" or kamera.global_position.distance_to(yuz) <= sohbet_mesafesi:
+  push_error("SAH-52: Karar panelinde kamera yüzden uzaklaşmalı.")
+  return false
+ if not KapiKameraVurgu.kadrajda_mi(kamera, konusan.global_position):
+  push_error("SAH-52: Karar panelinde konuşanın yüzü kadrajda kalmalı.")
+  return false
+ e._sohbet_goster()
+ await get_tree().create_timer(0.6).timeout
+ if e.evre != &"sohbet" or not kamera.global_position.is_equal_approx(sohbet_konumu):
+  push_error("SAH-52: Sohbete dönünce kamera başlangıç mesafesine dönmeli.")
+  return false
+ print("SAH-52 KARAR KADRAJI: GEÇTİ")
  return true

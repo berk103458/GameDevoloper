@@ -81,6 +81,7 @@ func _ready() -> void:
 	kamera.look_at(Vector3(0.0, 1.35, -6.0))
 	_kamera_gecisi = KapiKameraGecisi.new()
 	_kamera_gecisi.kamera = kamera
+	_kamera_gecisi.taban_konum = kamera.position
 	add_child(_kamera_gecisi)
 	_ortam_ayarla()
 
@@ -398,9 +399,9 @@ func heybe_koy() -> void:
 	create_tween().tween_property(_heybe, "scale", Vector3.ONE, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
-## Karar anında kadraj daralır (kamera görüş açısı sert adımlarla).
+## Karar panelinde kamera geri durur, sorgu/ayrılışta taban konumuna döner.
 func daralt(icerden: bool) -> void:
-	await _kamera_gecisi.karar(icerden, GORUS, _bakis_ayarla, BAKIS_KAPI)
+	await _kamera_gecisi.karar(icerden, GORUS, _bakis_ayarla, _bakis, BAKIS_KAPI)
 
 
 ## Sinematik gece ışığı (Forward+): HDRI gökyüzü, ay ışığı, hacimsel sis (meşale ışığı sisin içinde huzme yapar),

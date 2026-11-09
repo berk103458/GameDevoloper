@@ -1,3 +1,9 @@
+## 9 Kasım 2026 — SAH-52 tamamlandı (Kalfa)
+
+Gerçek karar paneli testi eski davranışta mesafe değişmediği için kaldı. Tek kapı kamera bileşeni karar açılınca yerel Z ekseninde 0,5 metre geri gelir; görüş açısı 46 derecede kalır. Bu adımı küçük ve kadrajı koruyacak mesafe olarak seçtim. Sohbete, ayrılışa ve kuyruk geçişine dönüş taban konumunu getirir. Hareket azaltma hedefi anında uygular, yeni istek eski tweeni iptal eder. Replik ve karar kayıtlarına yazılmaz.
+
+Gerçek karar/sohbet dönüşü ve SAH-51/fırtına sahnesi, kamera iptal testi, Bölüm 35 ayarlar, CHR kapı ve sıra atlama geçti. İlk headless import çıkış 0, betik hatası 0, dört MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Kadraj headless kamera geometrisiyle sınandı. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-52 başlıyor (Kalfa)
 
 Festive 02da50e6 güncel. Gerçek karar paneline geçişte kapı kamerası bir adım geri alınacak, konuşan yüzün kadrajı ve mevcut geçiş iptalleri korunacak. Sonraki kişi ve sohbet dönüşü de doğrulanacak. Asset gerekmedi. kota görünmüyor.

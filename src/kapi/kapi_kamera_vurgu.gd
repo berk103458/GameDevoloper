@@ -5,6 +5,7 @@ extends Node
 
 const KAPI_VARSAYILAN_FOV := 32.0
 const ASGARI_KAMERA_MESAFESI := 1.8
+const KARAR_GERI_ADIM := 0.5
 
 
 ## SAH-49: Konuşan kişi kadrajdadır; bakış BUG-13 FOV sınırları içinde kalır.
