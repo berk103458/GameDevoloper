@@ -122,13 +122,22 @@ func _ready() -> void:
 	print("KARANTINA UI: GEÇTİ" if hata == 0 else "KARANTINA UI: KALDI")
 	await Ses.cik(hata)
 func _kur(y: KoyYonetimi,tur: String) -> KoyBinasi:
+	# YAP: oyundaki gibi önce yapı bilgisi, 2. kademe için hazır bir 1. kademe yapı.
+	var gecici: Koylu = null
+	if YapiKilidi.durum(y, tur).neden == "yapi_bilgisi":
+		if y.koylular.is_empty(): gecici = y.kabul({"ad": "Kurulum bilgisi", "sinif": "ciftci", "stat": 8})
+		preload("res://src/koy/yapi_bilgisi.gd").ekle(y.koylular[0], PackedStringArray([tur]))
+	if YapiKilidi.durum(y, tur).neden == "yapi_on_kademe":
+		_kur(y, "tas_ocagi")  # barınak olmayan 1. kademe; sağlık hesabını değiştirmez
 	for cy in y.a.izgara_boyut.y:
 		for cx in y.a.izgara_boyut.x:
 			var h := Vector2i(cx,cy)
 			if y.yerlesim(tur,h).olur:
 				var b := y.bina(y.bina_kur(tur,h).id)
 				b.insa_kalan = 0
+				if gecici != null: y.koylular.erase(gecici)
 				return b
+	if gecici != null: y.koylular.erase(gecici)
 	return null
 func _metin(n: Node) -> String:
 	var sonuc: String = n.text + "\n" if n is Label or n is Button else ""
