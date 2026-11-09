@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — DEN-79 alındı (Kalfa)
+
+Full pull sonrası SYS-10 duman akışını kullanan 100 kısa oyun hedefi, tam sanity çalıştırmadan doğrulanacak. Asset gerekmedi. kota görünmüyor.
+
 ## 9 Kasım 2026 — DEN-59 tamamlandı (Kalfa)
 
 Olağan zorlukta 5454–5473 tohumları mevcut persona ve gerçek gece hesabıyla ölçüldü. İki bağımsız koşuda 20 tohumun aynı 16 tanesi 28 geceyi tamamladı ve tabloda tanımlı 0–12 bandında kaldı. Bu 16 koşuda 0–1 kriz görüldü. Dört erken bitiş 23, 27, 27 ve 27. gecelerdeydi ve kabul sayısına girmedi. 5469 tam 28. gecede sonlandı, tamamlanmış pencereye dahil edildi. Kıtlığın başlattığı isyan ikinci kez sayılmıyor. Salgın başlangıcı mevcut açık hastalık durumundan, kundak ve zehir mevcut uygulama makbuzundan okunur. Ölçüm düzeneği başlangıç yapı bilgisini taşıyor. Sonuç bu oyuncu stratejisine aittir.
