@@ -15,6 +15,9 @@ func _calistir() -> void:
 		return
 	var o := Oturum.new(kat, 5454)
 	preload("res://src/sistemler/acilis_senaryosu.gd").kur(o)
+	# Persona, ölçtüğü üretim planının bilgilerini taşıyan başlangıç hanesini temsil eder.
+	# Yapı kilidi, kademe, gerçek maliyet ve inşaat süresi yine üretim API'sinden geçer.
+	preload("res://src/koy/yapi_bilgisi.gd").ekle(o.yonetim.koylular[0], PackedStringArray(["hizarhane", "degirmen", "firin"]))
 	var oyuncu := OYUNCU.new()
 	var y := o.yonetim
 	if String(y.get_meta(&"zorluk", "olagan")) != "olagan":

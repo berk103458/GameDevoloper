@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — DEN-54 ölçüm düzeneği düzeltildi (Kalfa)
+
+Full pull sonrası yapı planı 2/7’de durdu. Kontrollü persona hanesine mevcut yapı bilgisi API’siyle hızarhane, değirmen ve fırın bilgisi verildi. Gerçek kademe, maliyet ve inşaat akışı kullanıldı. Tohum 5454, plan 7/7, 28 gece ve iflas 0 ile geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Asset gerekmedi. ds yolları yok. kota görünmüyor.
+
 ## 8 Kasım 2026 — YAP-05 tamamlandı (Kalfa)
 
 Güncel festive üretim kaynakları 9cdbbdcb arşivinden önbelleksiz TEMP kopyaya alındı. 21 hedefli kontrol geçti. Atama/duraklatma testinde aralıklı kapanış sızıntısı mevcut Ses.cik ile giderildi, üç tekrar geçti. Geçmiş akışı testi ilk saat kadrajını doğrulayacak ve sinyal yayan ekranı ertelemeli temizleyecek biçimde güncellendi. Başka üretim kaynağı değişmedi. Oda arayüzü, tek kuyruk ve bedel, gerçek gece sonucu, kayıt, yapı kilidi ve DEN geçti.
