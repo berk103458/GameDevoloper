@@ -7946,7 +7946,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-01, BUG-09. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-07:** Kalabalıkta ayak birbirinin içinden geçmez. (Kalfa — ANI-13 koridorunda gerçek iki kök)
+- [x] **SAH-07:** Kalabalıkta ayak birbirinin içinden geçmez. (Kalfa — 1 ve 2 hücrede karşılıklı geçiş, en az 60 cm, ağ dışı 0)
   - Ne: iki karakterin kökleri ANI-13 çarpışma payından yakına girmez. Ayak cilası bu payı daraltmaz.
   - Kabul: iki karakterin kökleri ANI-13 çarpışma payından yakına girmez. Ayak cilası bu payı daraltmaz. Test: iki model, aralık en az pay.
   - Bağımlılık: ANI-13, SAH-01. Boyut: S.

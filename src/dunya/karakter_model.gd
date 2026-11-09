@@ -30,6 +30,9 @@ var _duzeltici_hedef := 1.0
 var _klip_sirasi := 0
 ## Süren yürüyüş: yeni bir yürüyüş eskisini keser (iki hareket aynı anda konumu çekiştirmez).
 var _yurume: Tween
+## Köyün gezinme aralığı için görsel kök adımını süzebilir.
+var rota_adimi: Callable
+var _rota_ilerlemesi := 0.0
 ## Görünürlük önbelleği (`gorunurluk`): boyanan parçalar ve fener ışıklarının taban güçleri.
 var _parcalar: Array[GeometryInstance3D] = []
 var _gorunurluk := 1.0
@@ -96,11 +99,22 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI) -> void:
 	# Gövde yürüyüş yönüne yumuşakça döner (yerinde fırıldak gibi değil); yürüyüşün ilk adımlarıyla birlikte.
 	var t := create_tween().set_parallel()
 	t.tween_property(self, "rotation:y", _hedef_aci(fark), DONUS_SURESI).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	t.tween_property(self, "position", hedef, fark.length() / hiz)
+	if rota_adimi.is_valid():
+		_rota_ilerlemesi = 0.0
+		t.tween_method(_rota_ilerlet.bind(hedef), 0.0, fark.length(), fark.length() / hiz)
+	else:
+		t.tween_property(self, "position", hedef, fark.length() / hiz)
 	_yurume = t
 	await t.finished
 	if is_inside_tree() and _yurume == t:
 		dur()
+
+
+func _rota_ilerlet(ilerleme: float, hedef: Vector3) -> void:
+	var metre := ilerleme - _rota_ilerlemesi
+	_rota_ilerlemesi = ilerleme
+	if metre > 0.0:
+		position = rota_adimi.call(hedef, metre)
 
 
 func _yuruyus_taban_hizi() -> float:

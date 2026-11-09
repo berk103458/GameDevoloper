@@ -2,6 +2,8 @@
 class_name KoyHalkHareketi
 extends Node
 
+const ADIM_TEKRAR_SURESI := 0.25
+
 var sahne: KoyYonetimSahnesi
 var modeller: Dictionary = {}
 var rotaci := KoyRotasi.new()
@@ -41,17 +43,22 @@ func yenile() -> void:
 	for k in sahne.yonetim.koylular.slice(0, KoyYonetimSahnesi.AZAMI_KOYLU):
 		kalan[k.id] = true
 		if not modeller.has(k.id):
+			var m := sahne.yonetim.a.meydan
+			var tercih := m.position + Vector2i(k.id % m.size.x, (k.id / m.size.x) % m.size.y)
+			var h := KoyRotaAraligi.bos_hucre(self, tercih)
+			if h.x < 0:
+				continue
 			var f := Dunya3B.karakter(HazirKarakterler.koy_adi(k, Dunya3B.karakter_adi(k.adli_id, k.portre, k.sinif)))
+			f.position = _konum(h)
 			sahne._halk.add_child(f)
 			f.set_meta("koylu_id", k.id)
-			var m := sahne.yonetim.a.meydan
-			var h := rotaci.yakin(m.position + Vector2i(k.id % m.size.x, (k.id / m.size.x) % m.size.y))
-			f.position = _konum(h)
 			modeller[k.id] = f
 			KarakterBeklemeCesitliligi.uygula(f, k.id)
 			preload("res://src/koy/gorsel/acilis_hane_gorunumu.gd").kur(f, k)
 			_durum[k.id] = {"yol": [], "adim": 0, "bekle": 0.0, "dinlen": false, "is": false, "bak": f.position, "devriye_i": k.id, "devriye": false}
 		HazirKarakterler.gorunumu_yenile(self, k)
+		var aktor: KarakterModel = modeller[k.id]
+		aktor.rota_adimi = KoyRotaAraligi.adim.bind(self, aktor)
 		_iste(k.id)
 	for id in modeller.keys():
 		if not kalan.has(id):
@@ -96,7 +103,8 @@ func _process(delta: float) -> void:
 		if SinsiGeceRutini.guncelle(self, id, delta): continue
 		if d.adim < d.yol.size():
 			var hedef: Vector3 = d.yol[d.adim]
-			if f.position.distance_to(hedef) <= float(_ayar.varis_mesafesi):
+			var varis_mesafesi := float(_ayar.varis_mesafesi)
+			if f.position.distance_to(hedef) <= varis_mesafesi or KoyRotaAraligi.duz_nokta_gecildi(self, f.position, d.yol, d.adim, varis_mesafesi):
 				d.adim += 1
 				if d.adim < d.yol.size():
 					_adim(id)
@@ -105,6 +113,12 @@ func _process(delta: float) -> void:
 					SulamaRutini.varis(f, d.get("sulama", false) and int(d.get("sulama_i", 0)) == 1)
 					f.bak(d.bak)
 					f.calis(&"isin" if d.get("ates_basi", false) else (StringName(d.get("zanaat_hareket", "calis")) if d.is else &""))
+					d.bekle = 0.0
+			elif f._yurume == null or not f._yurume.is_running():
+				d.bekle += delta
+				if d.bekle >= ADIM_TEKRAR_SURESI:
+					d.bekle = 0.0
+					_adim(id)
 		elif d.get("oduncu", false):
 			d.bekle += delta
 			if d.bekle >= float(OduncuRutini.AYAR.sureler[d.oduncu_i]):
@@ -146,10 +160,11 @@ func _planla(id: int) -> void:
 		return
 	var orta := Vector2(sahne.yonetim.a.meydan.position) + Vector2(sahne.yonetim.a.meydan.size) / 2.0
 	var ham := Vector2i(floori(f.position.x / sahne.HUCRE + orta.x), floori(f.position.z / sahne.HUCRE + orta.y))
-	var bas := rotaci.yakin(ham)
-	if bas.x < 0:
-		return
+	var bas := ham
 	if not rotaci.gecilir(ham):
+		bas = KoyRotaAraligi.bos_hucre(self, ham, f)
+		if bas.x < 0:
+			return
 		f.position = _konum(bas)
 	var m := sahne.yonetim.a.meydan
 	var son := rotaci.yakin(m.position + Vector2i(id % m.size.x, (id / m.size.x) % m.size.y))

@@ -70,6 +70,7 @@ func _ready() -> void:
  y.izgara.engeller.erase(engel)
  h.yenile()
  kontrol(JSON.stringify(ana.oturum.kaydet()) == once, "Navigasyon kayıt/stok/RNG değiştirmez")
+ await _karsilasma(s, n, y.koylular[0].id)
  ana.kayit.sil()
  ana.queue_free()
  await get_tree().process_frame
@@ -127,6 +128,73 @@ func _esikten_yuru(s: KoyYonetimSahnesi, n: KoyZeminNavigasyonu, yol: Array[Vect
  kontrol(gomulme == 0 and ag_disi == 0, "SAH-05: Eşik yürüyüşünde gömülme ve ağ dışı basış yok")
  print("SAH-05: %d kare, eşik teması=%d, gömülme=%d, ağ dışı=%d" % [kare, esik_temasi, gomulme, ag_disi])
  f.queue_free()
+
+
+func _karsilasma(s: KoyYonetimSahnesi, n: KoyZeminNavigasyonu, ilk_id: int) -> void:
+ var y := s.yonetim
+ var h := s.halk_hareketi
+ var ikinci := y.kabul({"sinif": "ciftci", "stat": 5})
+ var m := y.a.meydan
+ var tercih := m.position + Vector2i(ikinci.id % m.size.x, (ikinci.id / m.size.x) % m.size.y)
+ var ilk: KarakterModel = h.modeller[ilk_id]
+ ilk.position = h._konum(h.rotaci.yakin(tercih))
+ h.yenile()
+ var yeni: KarakterModel = h.modeller[ikinci.id]
+ kontrol(ilk.position.distance_to(yeni.position) >= AyakZemini.CARPISMA_PAYI, "SAH-07: Yeni model dolu kök konumuna doğmaz")
+ h._bekleyen.clear()
+ for i in 120:
+  if n.hazir(): break
+  await get_tree().physics_frame
+ for uzaklik in [1, 2]:
+  await _karsi_yuru(h, n, ilk_id, ikinci.id, uzaklik)
+
+
+func _karsi_yuru(h: KoyHalkHareketi, n: KoyZeminNavigasyonu, ilk_id: int, ikinci_id: int, uzaklik: int) -> void:
+ var y := h.sahne.yonetim
+ var bas := y.a.meydan.position
+ var son := bas + Vector2i.RIGHT * uzaklik
+ var ileri := KoyZeminNavigasyonu.yol(h, h.rotaci.yol(bas, son))
+ kontrol(n.hazir() and ileri.size() >= 2 and n.yedek_sayisi == 0, "SAH-07: Aynı canlı ANI-13 koridoru kullanılır")
+ if ileri.size() < 2:
+  return
+ var geri := ileri.duplicate()
+ geri.reverse()
+ var a: KarakterModel = h.modeller[ilk_id]
+ var b: KarakterModel = h.modeller[ikinci_id]
+ a.position = ileri[0]
+ b.position = geri[0]
+ a.bak(ileri[-1])
+ b.bak(geri[-1])
+ h._durum[ilk_id].yol = ileri
+ h._durum[ikinci_id].yol = geri
+ h._durum[ilk_id].adim = 0
+ h._durum[ikinci_id].adim = 0
+ var once := JSON.stringify(y.kaydet())
+ h._adim(ilk_id)
+ h._adim(ikinci_id)
+ var en_yakin := a.position.distance_to(b.position)
+ var ag_disi := 0
+ var sure := 0.0
+ var kare := 0
+ while sure < 5.0:
+  await get_tree().process_frame
+  var dt := get_process_delta_time()
+  h._process(dt)
+  en_yakin = minf(en_yakin, a.position.distance_to(b.position))
+  for aktor in [a, b]:
+   var kok: Vector3 = aktor.global_position
+   var en_yakin_ag := NavigationServer3D.map_get_closest_point(n.get_navigation_map(), kok)
+   if kok.distance_to(en_yakin_ag) > 0.021:
+    ag_disi += 1
+  sure += dt
+  kare += 1
+  if a.position.distance_to(ileri[-1]) <= 0.03 and b.position.distance_to(geri[-1]) <= 0.03:
+   break
+ kontrol(kare >= 30 and en_yakin >= AyakZemini.CARPISMA_PAYI - 0.001, "SAH-07: İki kök hiçbir karede çarpışma payından yakına girmez")
+ kontrol(a.position.distance_to(ileri[-1]) <= 0.03 and b.position.distance_to(geri[-1]) <= 0.03, "SAH-07: İki köylü karşılıklı geçip hedefe varır")
+ kontrol(ag_disi == 0, "SAH-07: Yan adımlar aynı ANI-13 bölgesinde kalır")
+ kontrol(JSON.stringify(y.kaydet()) == once, "SAH-07: Kök ayırma kalıcı köy durumunu değiştirmez")
+ print("SAH-07: %d hücre, %d kare, en yakın iki kök=%.5f m, geçiş süresi=%.2f s, ağ dışı=%d" % [uzaklik, kare, en_yakin, sure, ag_disi])
 
 func kontrol(v: bool, ad: String) -> void:
  if not v:

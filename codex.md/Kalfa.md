@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-07 tamamlandı (Kalfa)
+
+Köy yürüyüşündeki her görsel kök adımı, mevcut 0,60 m payla diğer köklere karşı süpürülerek sınanır. Geçiş gerekirse aynı ANI-13 bölgesinde yan adım denenir. Dolu başlangıçta uygun boş hücre seçilir. Hedefe varılamayan kısa hareket 250 ms sonra denenir. Düz koridorun ara noktası güvenli yandan geçilmişse geri dönülmez. Köşeler ve son hedef mevcut kesin varış şartını kullanır. Kapı sahnesindeki yürüyüş mevcut doğrudan çağrıyı kullanır.
+
+İlk temiz koşuda iki kök 5,10 mm yaklaştı. Son gerçek ANI-13 karşılaşmaları bir hücrede 343 kare ve 2,74 s, iki hücrede 430 kare ve 3,47 s. En az aralık 0,60005 m ve 0,60030 m, ağ dışı 0. İki köylü karşı hedefe vardı. Dolu başlangıç testi ve kayıt değişmezliği geçti. Yedi hedef geçti. Cursor Görev 23 ile gelen sınıf önbelleği headless importla yenilendi. Son import çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-07 başlıyor (Kalfa)
 
 Festive eb0c07bf güncel. Aynı ANI-13 koridorunda karşı yönlere yürüyen iki gerçek köylünün kök aralığı mevcut 0,60 m sınırına göre ölçülecek. Asset gerekmedi. kota görünmüyor.
