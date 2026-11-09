@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — SAH-56 başlıyor (Kalfa)
+
+Festive 5f7b6928 güncel. Gerçek ilk aile kararı sonrası kapı kamerasının kapanışı ve köyde bağımsız ANI-14 hedefi doğrulanacak. SAH-55 açık bırakıldı: ZAR-03 yardımcı işlevi var, canlı CHR akışı tansiyonu 10'da sınırlıyor ve kaçış adaptörünü çağırmıyor. Asset gerekmedi. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-54 tamamlandı (Kalfa)
 
 Mevcut gerçek kapı sahnesinde aynı kişinin beş farklı kaynak repliği CHR replik sinyalinden geçti. Fixture mevcut düğüm kimliklerini sırayla seçer. Replik başına sekiz karede aynı kişi, etkin kamera, kamera dönüşümü ve FOV doğrulandı. Mevcut davranış kabulü karşılıyor, üretim dosyası değişmedi.
