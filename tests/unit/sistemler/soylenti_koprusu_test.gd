@@ -49,5 +49,11 @@ func _initialize() -> void:
 	veri.erase("soylenti_agi")
 	var eski := Oturum.kayittan(kat, veri)
 	dene(eski != null and SoylentiKoprusu.ag(eski).ag_kayitlari.is_empty(), "Eski kayıt ağsız açılır")
+	dene(eski != null and eski.dedikodu.kayitlar().size() == 1 and SoylentiKoprusu.ag(eski).kaynak_ve_dogruluk(olay_id).kaynak == "", "Eski kayıtta DIY-13 satırı kaynaksız kalır")
+	veri["soylenti_agi"] = {"ag_kayitlari": "bozuk", "guvenilirlikler": 3, "bekleyen": "x"}
+	var bozuk := Oturum.kayittan(kat, veri)
+	dene(not SoylentiKoprusu.yukle(Oturum.new(kat, 1), veri["soylenti_agi"]), "Bozuk ağ kaydı reddedilir")
+	dene(SoylentiKoprusu.yukle(Oturum.new(kat, 1), JSON.parse_string(JSON.stringify(o.kaydet())).soylenti_agi), "Sağlam ağ kaydı yüklenir")
+	dene(bozuk != null and SoylentiKoprusu.ag(bozuk).ag_kayitlari.is_empty() and SoylentiKoprusu.bekleyenler(bozuk).is_empty(), "Bozuk ağ kaydı çökmeden boş açılır")
 	print("SÖYLENTİ KÖPRÜSÜ: GEÇTİ" if hata == 0 else "SÖYLENTİ KÖPRÜSÜ: KALDI (%d hata)" % hata)
 	quit(1 if hata > 0 else 0)

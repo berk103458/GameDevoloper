@@ -58,3 +58,8 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   - Moral satırı silinince `KALDI (1 hata)`.
   - Kamp komşuluğu geri alınınca `KALDI (9 hata)`.
 - Açık kalan: Çınar meclisinin kamuoyu konusunu oyunda gerçekten alması SOY-33'tür. `meclis_sikayeti_sec` henüz `CinarAltiMeclisi`'ne bağlı değil. SOY-13'teki tüccar barı ayrımı yok; kapıdaki rüşvet ve haksız ret halka dokunuyor.
+
+### SOY-42
+
+- Çağrı zinciri: `Oturum.kayittan` → `SoylentiKoprusu.yukle(o, veri.get("soylenti_agi"))`. Eski kayıtta alan yoksa ağ boş başlar ve DIY-13 satırı kaynaksız sayılır. Bozuk alan reddedilir, oyun çökmez.
+- Test: `soylenti_koprusu_test` → GEÇTİ. Tür denetimi silinince `KALDI (1 hata)` ve SCRIPT ERROR.

@@ -5664,7 +5664,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: TST-06. Boyut: S.
   - Dosya: yeni: `tests/oto/soylenti_ikiz_kontrol.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-42:** Kayıt göçü. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-42:** Kayıt göçü. (Cursor)
   - Ne: ağ alanları optional; eski kayıt açılınca DIY-13 kayıtları kaynaksız sayılır, ağ sıfırdan başlar; oyun çökmez.
   - Kabul: eski kayıt KAY testi. Test: KAY zinciri.
   - Bağımlılık: KAY-04. Boyut: S.

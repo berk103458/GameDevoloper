@@ -105,12 +105,13 @@ static func kaydet(o: Object) -> Dictionary:
 
 
 ## Eski kayıtta alan yoktur; ağ boş başlar, dedikodu kayıtları kaynaksız sayılır (SOY-42).
-static func yukle(o: Object, v: Variant) -> void:
+static func yukle(o: Object, v: Variant) -> bool:
 	if not v is Dictionary or (v as Dictionary).is_empty():
-		return
+		return false
 	if not v.get("ag_kayitlari", {}) is Dictionary or not v.get("guvenilirlikler", {}) is Dictionary or not v.get("teftis_sorulari", []) is Array:
-		return
+		return false
 	ag(o).kayit_verisi_yukle(v)
 	var b: Variant = v.get("bekleyen", [])
 	if b is Array:
 		o.set_meta(BEKLEYEN, (b as Array).filter(func(h: Variant) -> bool: return h is Dictionary and h.get("olay_id") is String and h.get("tur") is String))
+	return true
