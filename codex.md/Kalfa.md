@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-01 başlıyor (Kalfa)
+
+Festive 0783819b güncel. Görev 22'nin yeniden açtığı SAH-01'de gerçek iskelet ve yürünebilir zemin teması ölçülecek. Tarla, patika ve kapı eşiğinde mevcut zemin kaynakları kullanılacak. SAH-02 ve diğer ayak maddeleri ayrı kabul bekler. Masaüstü 0783819b sürümüne ilerletildi; iki yerel üretilmiş çeviri bb151acb Git stash kaydında. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-60 tamamlandı (Kalfa)
 
 Eski değirmen ve atölye hedefleri yapı kilidinde durdu. Fixture kişilerine mevcut yapı bilgisi API'siyle gereken bilgi verildi. Hazır K1 kulübeden sonra gerçek inşaat API'si K2 yapılarını kurar. İki mevcut duman kaynağı yakında çalışır, uzakta emisyon ve görünürlük kapanır, aynı nesne yakına dönünce yeniden açılır. Orta mesafe bütçesi, düşük profil, reçete girdisi ve kayıt eşitliği de sınandı. Değirmen çarkı girdili gündüz döner, girdi yokken ve gece durur. Çuval rotası korunur. Oyun kodu ve parçacık tanımı değişmedi.

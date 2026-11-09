@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-01 başlıyor (Kalfa)
+
+Festive 0783819b güncel. Görev 22'nin yeniden açtığı SAH-01'de gerçek iskelet ve yürünebilir zemin teması ölçülecek. Tarla, patika ve kapı eşiğinde mevcut zemin kaynakları kullanılacak. SAH-02 ve diğer ayak maddeleri ayrı kabul bekler. Masaüstü 0783819b sürümüne ilerletildi; iki yerel üretilmiş çeviri bb151acb Git stash kaydında. Asset gerekmedi. kota görünmüyor.
+
 ## 9 Kasım 2026 — Görev 21: Temizlik ve SAH bağlama tamamlandı (Antigravity)
 
 - Ana klasördeki 92 adet .uid dosyası yedeklenerek `Kapı_Muhafizi` `git pull --ff-only` ile güncellendi; kökteki `ilerleme_20` temizlendi ve ilerleme_20'deki uç hash `bc09da26` olarak düzeltildi.

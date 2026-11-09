@@ -7910,7 +7910,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.1 Ayak ve zemin
 
-- [ ] **SAH-01:** Ayak, yürünebilir zeminin üstündedir. (doğrulanmadı — Görev 22; Kalfa bekleniyor — AyakZemini oyunda topuğu ölçmüyor, KarakterModel ayak kemiği/zemin entegrasyonu gerekli)
+- [/] **SAH-01:** Ayak, yürünebilir zeminin üstündedir. (Kalfa — gerçek iskelet ve zemin entegrasyonu)
   - Ne: tarla, patika ve kapı eşiğinde topuk zeminin altından geçmez. 20 adımlık yürüyüşte gömülme karesi 0'dır.
   - Kabul: tarla, patika ve kapı eşiğinde topuk zeminin altından geçmez. 20 adımlık yürüyüşte gömülme karesi 0'dır. Test: üç zemin, muayene aracı yüksekliği yazar.
   - Bağımlılık: ANI-13. Boyut: M.
