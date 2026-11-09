@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — SAH-53 başlıyor (Kalfa)
+
+Festive e3a14805 güncel. İlk aile öğreticisinde mevcut hane eşinin kapıdaki görünümü ve tek etkin kamera doğrulanacak. ACL-02 sahipliği ve hane kaydı korunur. Asset gerekmedi. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-52 tamamlandı (Kalfa)
 
 Gerçek karar paneli testi eski davranışta mesafe değişmediği için kaldı. Tek kapı kamera bileşeni karar açılınca yerel Z ekseninde 0,5 metre geri gelir; görüş açısı 46 derecede kalır. Bu adımı küçük ve kadrajı koruyacak mesafe olarak seçtim. Sohbete, ayrılışa ve kuyruk geçişine dönüş taban konumunu getirir. Hareket azaltma hedefi anında uygular, yeni istek eski tweeni iptal eder. Replik ve karar kayıtlarına yazılmaz.
