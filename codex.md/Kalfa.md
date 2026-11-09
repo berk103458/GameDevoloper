@@ -1,3 +1,9 @@
+## 9 Kasım 2026 — SAH-57 tamamlandı (Kalfa)
+
+Muayene sayımı rotayı tamamlamış ve doğru hareketi oynatan gerçek modelleri okur. İlk tezgâh kabulü güncel yapı kilidinde bina kuramadı. Test kişisine mevcut API ile kulübe, demirhane ve fırın bilgisi verildi. Mevcut inşaat API'sinden K1 kulübe kurulup yatağı kullanıldı, K2 demirhane önkoşulu karşılandı. Fixture gerçek rotayı konum adımlarıyla ilerletir. Gündüz tezgâh 2 ve ateş 0, gece tezgâh 0 ve ateş 1. Oyun rutini veya yapı kuralları değişmedi.
+
+İzole headless tezgâh sahnesi, ateş sahnesi ve iki birim hedefi geçti. İlk headless import çıkış 0, betik hatası 0, üç MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-57 başlıyor (Kalfa)
 
 Festive 8cae5a39 güncel. Gündüz tezgâha, gece ateşe ulaşan gerçek modeller ölçülecek. Eski tezgâh kabulü mevcut yapı bilgi/kademe önkoşulu altında bina kuramıyor. Test hanesi üretimdeki bilgi ve kademe API'leriyle hazırlanacak. Asset gerekmedi. kota görünmüyor.
