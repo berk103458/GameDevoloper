@@ -1696,9 +1696,9 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Dosya: `src/arayuz/koy_ekrani.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **YAP-62:** Kart 3B modeli değiştirmez
+- [x] **YAP-62:** Kart 3B modeli değiştirmez (Cursor)
   - Ne: Kart 3B modeli değiştirmez. SAH. Mesh diff 0.
-  - Kabul: Kart 3B modeli değiştirmez. 0. Test: tarama.
+  - Kabul: Kart 3B modeli değiştirmez. 0. Test: tarama. Kanıt: `tests/unit/koy/yapi_karti_model_test.gd` gerçek köy ekranında dört kategori düğmesine ve kartlara fareyle basar; hayalet ve seçim kutusu dışındaki mesh farkı 0, kayıt farkı 0.
   - Bağımlılık: SAH. Boyut: S.
   - Dosya: `src/koy/gorsel/`
   - Asset: asset gerekmedi.
