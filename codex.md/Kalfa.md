@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-02 başlıyor (Kalfa)
+
+Festive 97b824c6 güncel. Mevcut SAH-01 ölçümünde eğimli kapı yolundaki iki topuğun farklı yüzey noktalarına ayrı temas etmesi doğrulanacak. Kök ve mevcut yürüyüş yolu korunur. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-01 tamamlandı (Kalfa)
 
 KarakterModel gerçek ayak ve parmak kemiklerinden dinlenme tabanını kalibre eder. AyakZemini son iskelet pozunu ve kök hareketini ayrı dinler; gereken düşey farkı yalnız görsel modele uygular. Tarla ve patika mevcut köy arazisini, kapı mevcut manzara ile eşikteki gerçek kalas ve taş üst yüzeylerini okur. Ayar verisi tek sefer yüklenir. Muayene iskeletin son pozundan imzalı ayak zemin farkını yazar. Kök/yürüyüş rotası korunur. Eğimde bağımsız ayak teması SAH-02 kabulüdür.

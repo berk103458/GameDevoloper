@@ -7916,7 +7916,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-13. Boyut: M.
   - Dosya: `src/dunya/ayak_zemini.gd` (yeni). Karakter modele tek bağ.
   - Asset: asset gerekmedi.
-- [ ] **SAH-02:** Eğik zeminde ayak yüzeyi izler. (Kalfa bekleniyor — eğimli hücre IK entegrasyonu)
+- [/] **SAH-02:** Eğik zeminde ayak yüzeyi izler. (Kalfa — bağımsız ayak teması)
   - Ne: yokuşta iki ayak aynı dünya yüksekliğine zorlanmaz. Her ayak kendi değdiği noktadadır.
   - Kabul: yokuşta iki ayak aynı dünya yüksekliğine zorlanmaz. Her ayak kendi değdiği noktadadır. Test: eğimli hücre, iki ayak yüksekliği farklı.
   - Bağımlılık: SAH-01. Boyut: M.
