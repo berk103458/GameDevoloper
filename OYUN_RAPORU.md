@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-04 başlıyor (Kalfa)
+
+Festive f67cb635 güncel. Gerçek eğimli kapı yolunda yürüyüş doğal bitince ve iptal edilince beş saniye boyunca kök konumu ve ayak teması ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-03 tamamlandı (Kalfa)
 
 Hazır iskeletin ağaç dışındaki örneklemesinde küresel poz önbelleği donuyordu. Yerel pozlar her örnekte ebeveyn sırasıyla birleştirilir. UAL ve KayKit kaynak seçimi korunur. LOWPO yürüyüş klibinin hızı model boyuna ve rota hızına uyar. Yürümeye giriş karışımı 80 ms, duruş geçişi 300 ms. Mevcut bacak çözücüsü basan topuğun dünya temasını izler, yatay düzeltmeyi 18 cm ile sınırlar ve yükseltiye giren salınım ayağının açıklığını korur. Kök, rota ve hareket süresi korunur.
