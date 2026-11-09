@@ -764,3 +764,14 @@ Muharrir 9 Kasım'da festive `d041dd83` üzerinde denetim yaptı. SAH-01…SAH-5
 7. Commit mesajları Türkçe karakterli, (Antigravity) imzalı; festive ile merge edip ff push; force yok.
 8. İlerlemeyi codex.md/Antigravity_ilerleme_21.md'ye yaz, son satır GOREV21_TAMAM.
 — Muharrir
+
+## Görev 22 — SAH kanıt denetimi (Ahmet onayladı, 9 Kasım 2026, 23:30)
+Görev 21'de SAH-01…50'nin 46'sı tek commit'te (42ff73e8, 14 dosya, +215 satır) yeniden [x] yapıldı. Bu kadar az değişiklikle 46 maddenin gerçek oyun sistemine bağlanmış olması şüpheli. Yeni madde alma, önce bunu bitir.
+1. `docs/SAH_KANIT_TABLOSU.md` oluştur. Her SAH-01…50 için bir satır: madde no, ROADMAP'in istediği davranış (kısa), bağlandığı GERÇEK oyun dosyası ve satır numarası (oyun akışında çağrılan kod; sadece testten çağrılan yardımcı sayılmaz), çağıran yer (hangi sahne/betik çağırıyor), kanıtlayan test ve son satırı.
+2. Gerçek çağrı zinciri gösteremediğin, sabit değer döndüren, girdiyi aynen geri veren ya da yalnız testten çağrılan her maddeyi ROADMAP'te [ ] yap ve yanına "doğrulanmadı — Görev 22" yaz. Şüphedeysen [ ] yap; dürüst [ ] yanlış [x]'ten iyidir.
+3. Bağlanması büyük sahne işi gerektirenlere "Kalfa bekleniyor" yaz. Kalfa'nın SAH-51+ maddelerine dokunma.
+4. Repo kökündeki gereksiz `ilerleme_21` dosyasını sil. Köke bir daha ilerleme dosyası koyma; ilerleme yalnız codex.md/ altına.
+5. Tam sanity yok; `godot --headless --import` sonrası yalnız hedefli testler. 2D asset üretme.
+6. Commit mesajı Türkçe karakterli, (Antigravity) imzalı. Festive'i merge et, ff push; force yok.
+7. İlerleme: codex.md/Antigravity_ilerleme_22.md; içinde kaç madde [x] kaldı, kaç madde geri açıldı yaz. Son satır GOREV22_TAMAM.
+— Muharrir
