@@ -97,6 +97,15 @@ static func hava_say(halk: KoyHalkHareketi) -> Dictionary:
 	return sayim
 
 
+func ayak_zemini_yuksekligi(_konum: Vector3) -> float:
+	return global_position.y
+
+
+static func ayak_zemin_farklari(model: KarakterModel) -> PackedFloat32Array:
+	var ayak := model.get_node_or_null("AyakZemini") as AyakZemini
+	return ayak.temas_farklari() if ayak != null else PackedFloat32Array()
+
+
 func _model_adlari() -> PackedStringArray:
 	var secili := OS.get_environment("MODELLER")
 	if secili != "":
@@ -146,7 +155,7 @@ func _muayene(ad: String, klasor: String) -> void:
 				img.convert(Image.FORMAT_RGB8)
 				sayfa.blit_rect(img, Rect2i(Vector2i.ZERO, KARE), Vector2i((yan * ANLAR.size() + i) * KARE.x, satir * KARE.y))
 				if yan == 0 and sk != null:
-					olcumler.append(_olc(sk))
+					olcumler.append(_olc(sk, k))
 		kayit["hareketler"][h] = _ozetle(olcumler)
 		for u in _uyar(h, kayit["hareketler"][h]):
 			kayit["uyarilar"].append(u)
@@ -200,7 +209,7 @@ func _kemik(sk: Skeleton3D, parcalar: Array) -> Array:
 	return sonuc
 
 
-func _olc(sk: Skeleton3D) -> Dictionary:
+func _olc(sk: Skeleton3D, k: KarakterModel) -> Dictionary:
 	var ayaklar := _kemik(sk, ["foot", "toe"])
 	var eller := _kemik(sk, ["hand", "wrist"])
 	var kalca := _kemik(sk, ["hips", "pelvis"])
@@ -210,6 +219,9 @@ func _olc(sk: Skeleton3D) -> Dictionary:
 		var en_alt := INF
 		for a in ayaklar: en_alt = minf(en_alt, a.y)
 		o["ayak_y"] = en_alt
+	var farklar := ayak_zemin_farklari(k)
+	if not farklar.is_empty():
+		o["ayak_zemin_farki"] = Array(farklar).min()
 	if not bas.is_empty():
 		o["boy"] = bas[0].y
 	if not eller.is_empty() and not kalca.is_empty():
@@ -226,7 +238,7 @@ func _olc(sk: Skeleton3D) -> Dictionary:
 
 func _ozetle(olcumler: Array) -> Dictionary:
 	var oz := {}
-	for anahtar in ["ayak_y", "boy", "el_aci", "el_y"]:
+	for anahtar in ["ayak_y", "ayak_zemin_farki", "boy", "el_aci", "el_y"]:
 		var degerler: Array = []
 		for o in olcumler:
 			if o.has(anahtar): degerler.append(o[anahtar])

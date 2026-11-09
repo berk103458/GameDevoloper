@@ -86,6 +86,14 @@ func _ready() -> void:
 	_ortam_ayarla()
 
 
+func ayak_zemini_yuksekligi(konum: Vector3) -> float:
+	var nokta := to_local(konum)
+	nokta.y = KapiManzarasi.yukseklik(nokta.x, nokta.z)
+	var taban := to_global(nokta).y
+	# Manzaradaki figürler, kapı çerçevesinden önce kurulabilir.
+	return maxf(taban, cerceve.esik_yuksekligi(konum)) if is_instance_valid(cerceve) else taban
+
+
 func _process(delta: float) -> void:
 	_zaman += delta
 	# Öküz: arada başını sallar gibi hafifçe öne eğilip kalkar.

@@ -59,11 +59,13 @@ func kur(model: Node3D, ad: String = "") -> void:
 	_oynatici.get_animation(_anim).loop_mode = Animation.LOOP_LINEAR
 	var sk := model.find_children("*", "Skeleton3D", true, false)
 	if not sk.is_empty():
-		_bekle_animasyonu_kur(sk[0] as Skeleton3D)
+		var iskelet := sk[0] as Skeleton3D
+		_bekle_animasyonu_kur(iskelet)
 		_duzeltici = DurusDuzeltici.new()
 		_duzeltici.faz = randf() * 20.0
 		_duzeltici.bekleme = 1.0
-		sk[0].add_child(_duzeltici)
+		iskelet.add_child(_duzeltici)
+		AyakZemini.kur(self, model, iskelet)
 	if ad != "":
 		_klipleri_yukle(ad)
 	dur()

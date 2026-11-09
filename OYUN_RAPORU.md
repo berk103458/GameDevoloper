@@ -1,3 +1,11 @@
+## 10 Kasım 2026 — SAH-01 tamamlandı (Kalfa)
+
+KarakterModel gerçek ayak ve parmak kemiklerinden dinlenme tabanını kalibre eder. AyakZemini son iskelet pozunu ve kök hareketini ayrı dinler; gereken düşey farkı yalnız görsel modele uygular. Tarla ve patika mevcut köy arazisini, kapı mevcut manzara ile eşikteki gerçek kalas ve taş üst yüzeylerini okur. Ayar verisi tek sefer yüklenir. Muayene iskeletin son pozundan imzalı ayak zemin farkını yazar. Kök/yürüyüş rotası korunur. Eğimde bağımsız ayak teması SAH-02 kabulüdür.
+
+İlk gerçek hedef ölçer bağlı olmadığı için kaldı. İlk entegrasyonda kapı arka planı çerçeveden önce hazırlandı ve iskelet/kök örnekleri farklı zamanda okundu. Erken çerçeve için manzara yüzeyi ve iki güncelleme yolu bağlandı. Son gözlemde seçilen 0,1 mm sayısal toleransla tarla 21 tur/1039 kare, patika 20/1071, kapı eşiği 20/989, üçünde gömülme 0. Köylü, LOWPO demirci ve CHR gerçek klipleri kullanıldı. Her zeminde 8 cm alçaltılmış görsel kurtarıldı, kök aynı kaldı. Eşiğin üst yüzeyi gerçek kalasla eşleşti.
+
+Altı izole headless hedef ve 13 Python testi geçti. Ekipman regresyonu eski yapı önkoşulunda takıldı; yaşayan kişi bilgisi ve K1 kulübe fixture içine eklendi. İlk headless import çıkış 0, betik hatası 0, beş MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-01 başlıyor (Kalfa)
 
 Festive 0783819b güncel. Görev 22'nin yeniden açtığı SAH-01'de gerçek iskelet ve yürünebilir zemin teması ölçülecek. Tarla, patika ve kapı eşiğinde mevcut zemin kaynakları kullanılacak. SAH-02 ve diğer ayak maddeleri ayrı kabul bekler. Masaüstü 0783819b sürümüne ilerletildi; iki yerel üretilmiş çeviri bb151acb Git stash kaydında. Asset gerekmedi. kota görünmüyor.

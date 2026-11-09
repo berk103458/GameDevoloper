@@ -1,4 +1,6 @@
 extends Node
+
+const YAPI_BILGISI = preload("res://src/koy/yapi_bilgisi.gd")
 class TestAna extends Ana:
 	func _ready() -> void:
 		set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -16,6 +18,13 @@ func _ready() -> void:
 	var y := ana.oturum.yonetim
 	y.kaynaklar.kapasite = 10000
 	for t in ["odun", "tas", "kereste", "demir", "un"]: y.kaynaklar.ekle(t, 100)
+	var bilgi_sahibi := y.kabul({"sinif": "ciftci", "stat": 5})
+	YAPI_BILGISI.ekle(bilgi_sahibi, PackedStringArray(["kulube", "demirhane", "firin"]))
+	var onceki_kademe := _kur(y, "kulube")
+	kontrol(onceki_kademe != null, "K2 demirhane için hazır K1 kulübe")
+	if onceki_kademe == null:
+		await Ses.cik(1)
+		return
 	var bs: Array[KoyBinasi] = []
 	var ids: Array[int] = []
 	for tur in ["demirhane", "firin"]:

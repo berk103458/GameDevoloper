@@ -105,6 +105,12 @@ func _process(delta: float) -> void:
 
 
 ## Işığı gündüz / akşam / gece fazına geçirir (KoyAtmosferi).
+func ayak_zemini_yuksekligi(konum: Vector3) -> float:
+	var nokta := to_local(konum)
+	nokta.y = arazi.yukseklik_burada(nokta.x, nokta.z)
+	return to_global(nokta).y
+
+
 func faz(ad: StringName, sure: float = 2.0) -> void:
 	atmosfer.faz(ad, sure)
 	halk_hareketi.faz(ad)

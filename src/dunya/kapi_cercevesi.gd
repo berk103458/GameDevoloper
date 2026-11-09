@@ -15,6 +15,7 @@ const Z := -1.2
 var seviye := 0
 ## Meşale ışıkları (KapiSahnesi titretir).
 var isiklar: Array[OmniLight3D] = []
+var _esik_yuzeyleri: Array[MeshInstance3D] = []
 
 var _ahsap: StandardMaterial3D
 var _koyu_ahsap: StandardMaterial3D
@@ -270,6 +271,7 @@ func _esik() -> void:
 	for i in 6:
 		var k := _kutu(Vector3(0.53, 0.07, 2.2), Vector3(-1.4 + i * 0.56, 0.035 + (i % 2) * 0.008, Z - 0.6), _koyu_ahsap)
 		k.rotation.y = (i % 3 - 1) * 0.015
+		_esik_yuzeyleri.append(k)
 	var r := RandomNumberGenerator.new()
 	r.seed = 5
 	for i in 14:
@@ -277,6 +279,19 @@ func _esik() -> void:
 		var z := r.randf_range(-5.5, -2.0)
 		var tas := _kutu(Vector3(r.randf_range(0.4, 0.8), 0.06, r.randf_range(0.3, 0.6)), Vector3(x, 0.02, z), _tas)
 		tas.rotation.y = r.randf() * PI
+		_esik_yuzeyleri.append(tas)
+
+
+## Mevcut eşik geometrisinin üst yüzeyini okur.
+func esik_yuksekligi(konum: Vector3) -> float:
+	var yukseklik := -INF
+	for yuzey in _esik_yuzeyleri:
+		var nokta := yuzey.to_local(konum)
+		var sinir := yuzey.get_aabb()
+		if nokta.x >= sinir.position.x and nokta.x <= sinir.end.x and nokta.z >= sinir.position.z and nokta.z <= sinir.end.z:
+			nokta.y = sinir.end.y
+			yukseklik = maxf(yukseklik, yuzey.to_global(nokta).y)
+	return yukseklik
 
 
 func _on_plan() -> void:
