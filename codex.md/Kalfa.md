@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — SAH-58 başlıyor (Kalfa)
+
+Festive 45a7a84a güncel. Beş gerçek ateş başı modelinin mevcut hareket ofseti ve ortak karede ürettiği kol pozu ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-57 tamamlandı (Kalfa)
 
 Muayene sayımı rotayı tamamlamış ve doğru hareketi oynatan gerçek modelleri okur. İlk tezgâh kabulü güncel yapı kilidinde bina kuramadı. Test kişisine mevcut API ile kulübe, demirhane ve fırın bilgisi verildi. Mevcut inşaat API'sinden K1 kulübe kurulup yatağı kullanıldı, K2 demirhane önkoşulu karşılandı. Fixture gerçek rotayı konum adımlarıyla ilerletir. Gündüz tezgâh 2 ve ateş 0, gece tezgâh 0 ve ateş 1. Oyun rutini veya yapı kuralları değişmedi.

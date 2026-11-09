@@ -8272,7 +8272,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-07, ANI-08. Boyut: S.
   - Dosya: `tests/oto/karakter_muayene.gd` sayım satırı.
   - Asset: asset gerekmedi.
-- [ ] **SAH-58:** Rutinler aynı karede aynı pozu tutmaz.
+- [/] **SAH-58:** Rutinler aynı karede aynı pozu tutmaz. (Kalfa)
   - Ne: ANI-12 ofseti durur. Beş kişi ateşte aynı karede eğilmez.
   - Kabul: ANI-12 ofseti durur. Beş kişi ateşte aynı karede eğilmez. Test: beş ofset, en az iki farklı faz.
   - Bağımlılık: ANI-12, SAH-57. Boyut: S.
