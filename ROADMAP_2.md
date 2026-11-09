@@ -2162,7 +2162,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.8 Eylem kadrajı
 
-- [x] **DYL-14:** (Antigravity) Kaynaklı örnek defteri — bir köylü buna nasıl cevap verir?
+- [ ] **DYL-14:** (Antigravity) Kaynaklı örnek defteri — bir köylü buna nasıl cevap verir? (doğrulanmadı — Görev 22; `docs/dunya_kitabi/ornek_defteri/` ve `tests/tools/test_ornek_defteri.py` yok; `docs/ORNEK_DEFTERI.md` kaynaksız 11 örnek tutuyor, 12 tür × 3 kayıt ve kaynak alanı yok)
   - Ne: Yazar, yapı türü ve durum için kaynaklı kısa örnekleri `docs/dunya_kitabi/ornek_defteri/` altında görür. İnceleme aracında yapaylık uyarısının yanında "örnek gör" bağlantısı, uyarının türüne uyan kayıtları açar. Model bu deftere satır yazmaz; kaynaksız kayıt listeye girmez.
   - Kurallar:
     1. `docs/dunya_kitabi/ornek_defteri/` altında kayıtlar tutulur. Her kayıtta:

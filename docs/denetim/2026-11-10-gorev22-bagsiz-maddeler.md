@@ -30,6 +30,8 @@ Sınıf var, ama oyunda hiçbir sahne ya da betik onu çağırmıyor; yalnız te
 | `AksamSohbeti` (`src/koy/aksam_sohbeti.gd`) | HAN-13, HAN-34 |
 | `HavaReplikAdaptoru` (`src/soz/hava_replik_adaptoru.gd`) | KVR-SES-01 |
 
+Ayrıca DYL-14 geri açıldı: `docs/dunya_kitabi/ornek_defteri/` ve kabul testi `tests/tools/test_ornek_defteri.py` yok. `docs/ORNEK_DEFTERI.md` kaynak alanı olmayan 11 örnek tutuyor; madde 12 tür × 3 kaynaklı kayıt istiyor ve deftere modelin yazmasını yasaklıyor. KLT-14 ve KLT-47 bu yüzden alınmadı.
+
 SOY-31, SOY-47 ve SOY-49 (Claude, kapsam kuralları) ile SOY-48 ("ikinci dedikodu kaydı yoktur", oyunda doğru) `[x]` bırakıldı. ISG-39, `SoylentiAgi` oyuna bağlanmadan yapılamaz; ROADMAP'e not düşüldü.
 
 SAH-01…50 ayrıca `docs/SAH_KANIT_TABLOSU.md`'dedir.
