@@ -1,3 +1,9 @@
+## 9 Kasım 2026 — SAH-54 tamamlandı (Kalfa)
+
+Mevcut gerçek kapı sahnesinde aynı kişinin beş farklı kaynak repliği CHR replik sinyalinden geçti. Fixture mevcut düğüm kimliklerini sırayla seçer. Replik başına sekiz karede aynı kişi, etkin kamera, kamera dönüşümü ve FOV doğrulandı. Mevcut davranış kabulü karşılıyor, üretim dosyası değişmedi.
+
+Fırtına, dört kişilik kadraj, karar mesafesi ve beş replik aynı hedefte geçti. İlk headless import çıkış 0, betik hatası 0, altı MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-54 başlıyor (Kalfa)
 
 Festive 7d1657f4 güncel. Aynı CHR kişisinin beş gerçek repliği okunurken kamera ve FOV izlenecek. Asset gerekmedi. kota görünmüyor.

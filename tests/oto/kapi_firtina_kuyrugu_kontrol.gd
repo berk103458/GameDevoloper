@@ -130,4 +130,33 @@ func _karar_kadraji(e: KapiEkrani, konusan: KarakterModel) -> bool:
   push_error("SAH-52: Sohbete dönünce kamera başlangıç mesafesine dönmeli.")
   return false
  print("SAH-52 KARAR KADRAJI: GEÇTİ")
+ return await _replik_kadraji(e, konusan)
+
+
+## SAH-54: Aynı kişinin farklı replikleri canlı CHR bağlantısından geçer.
+func _replik_kadraji(e: KapiEkrani, konusan: KarakterModel) -> bool:
+ var sorgu := e._gelen.chr_sorgusu()
+ var kamera := e.sahne.kamera
+ var kadraj := kamera.global_transform
+ var fov := kamera.fov
+ var replikler := {}
+ var yakala := func(metin: String) -> void: replikler[metin] = true
+ sorgu.replik_basladi.connect(yakala)
+ for dugum in sorgu.karakter.diyalog_dugumleri:
+  sorgu.dugum_id = StringName(dugum)
+  if not sorgu.replik_baslat():
+   continue
+  for _kare in 8:
+   await get_tree().process_frame
+   if e.sahne._gelen != konusan or kamera.get_viewport().get_camera_3d() != kamera or not kamera.global_transform.is_equal_approx(kadraj) or not is_equal_approx(kamera.fov, fov):
+    sorgu.replik_basladi.disconnect(yakala)
+    push_error("SAH-54: Aynı kişinin yeni repliğinde kadraj değişti.")
+    return false
+  if replikler.size() == 5:
+   break
+ sorgu.replik_basladi.disconnect(yakala)
+ if replikler.size() != 5:
+  push_error("SAH-54: Aynı kişi için beş farklı replik okunmalı.")
+  return false
+ print("SAH-54 BEŞ REPLİK TEK KADRAJ: GEÇTİ")
  return true
