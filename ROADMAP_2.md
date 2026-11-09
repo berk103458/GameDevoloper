@@ -5580,13 +5580,13 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-01. Boyut: S.
   - Dosya: yeni: `src/arayuz/koy_hud/pusula_kaynak.gd`; gazete görünümüne tek satır.
   - Asset: asset gerekmedi.
-- [ ] **SOY-29:** Defterde "Söylenti" sayfası. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-29:** Defterde "Söylenti" sayfası. (Cursor)
   - Ne: Bölüm 39 defterinde canlı söylentiler: olay, kaynak, kaç kişi duydu (sayı değil kademe: birkaç / yarı köy / herkes), doğrulandı mı.
   - Kabul: sayfa ağ kaydıyla eşit. Test: defter.
   - Bağımlılık: HFZ-01, SOY-02. Boyut: S.
   - Dosya: defter adaptörü.
   - Asset: asset gerekmedi.
-- [ ] **SOY-30:** Kamuoyu konusu HUD'da tek satırdır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `src/arayuz/koy_hud/kamuoyu_seridi.gd` dosyası yok)
+- [x] **SOY-30:** Kamuoyu konusu HUD'da tek satırdır. (Cursor)
   - Ne: kamuoyu konusu varken köy HUD'unda tek satır "köy … konuşuyor"; tıklanınca defter sayfası.
   - Kabul: konu yokken satır 0. Test: ekran.
   - Bağımlılık: SOY-12, SOY-29. Boyut: S.

@@ -112,6 +112,37 @@ static func meclis_sikayeti(o: Object) -> String:
 	return MeclisSesi.sikayet_metni(String(adlar.get(String(konu.tur), konu.tur)), k.ad)
 
 
+## SOY-29: defterin Söylenti sayfası canlı ağ kayıtlarıdır; olay oyuncu dilinde, kaynak köydeki adıyla.
+static func defter_satirlari(o: Object) -> Array:
+	var satirlar: Array = []
+	if o == null or not o.has_meta(META):
+		return satirlar
+	var a: RefCounted = ag(o)
+	var kaliplar: Dictionary = a.veri_yapilandirma.get("soylenti_kaliplari", {})
+	for s in a.soylenti_sayfasi_al(o.yonetim.koylular.size()):
+		var k: Dictionary = a.ag_kayitlari.get(s.olay, {})
+		var kaynak := String(s.kaynak)
+		var koylu: Koylu = o.yonetim.koylu(int(kaynak)) if kaynak.is_valid_int() else null
+		if koylu == null:
+			continue
+		satirlar.append({"id": "soy:" + String(s.olay), "kisi": kaynak, "ad": koylu.ad, "gece": int(k.get("gece", -1)),
+			"olay": String(kaliplar.get(String(k.get("tur", "")), "")), "kaynak": koylu.ad, "kademe": String(s.kademe), "dogrulandi": false})
+	return satirlar
+
+
+## SOY-30: canlı kamuoyu konusu köy HUD'unda tek satırdır; konu yoksa boştur.
+static func kamuoyu_satiri(o: Object) -> String:
+	if o == null or not o.has_meta(META):
+		return ""
+	var a: RefCounted = ag(o)
+	var konu: Dictionary = a.meclis_sikayeti_sec()
+	if konu.is_empty():
+		return ""
+	var kaliplar: Dictionary = a.veri_yapilandirma.get("soylenti_kaliplari", {})
+	var satir := String(kaliplar.get(String(konu.tur), ""))
+	return "" if satir.is_empty() else "Köy konuşuyor: " + satir
+
+
 static func kaydet(o: Object) -> Dictionary:
 	if not o.has_meta(META) and bekleyenler(o).is_empty():
 		return {}

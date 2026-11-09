@@ -72,3 +72,17 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - Test: `tests/oto/soylenti_meclis_kontrol.tscn` → `SÖYLENTİ MECLİS UI: GEÇTİ`. 1. gece kamuoyu yok ve düğme görünmüyor. 2. gece düğme açılıyor, satır "ret kararı" ile taşıyanın adını taşıyor.
 - Bozma kanıtı: panel satırı silinince `KALDI (1 hata)`, düğme görünürlük satırı silinince `KALDI (1 hata)`.
 - Mevcut `cinar_alti_meclisi_kontrol`, `meclis_sesi_test`, `cinar_meclisi_genisletme_test` yeşil.
+
+### SOY-29, SOY-30
+
+- SOY-29 çağrı zinciri: köy HUD "Defter" düğmesi → `HafizaDefteriBaglantisi.ac` → `kaynak_derle` → `kaynak["soylenti_agi"] = SoylentiKoprusu.defter_satirlari(oturum)` → `HafizaDefteri._soylenti_sayfasi`.
+  - Satırda olay (oyuncu dilinde kalıp), kaynak (köydeki ad), kademe (birkaç / yarı köy / herkes) var. Kaynak köyde değilse satır yok.
+  - Önceden `kaynak_derle` bu alanı hiç doldurmuyordu; ekran da olay ve kademe alanlarını çizmiyordu. `hafiza_defteri_ekrani.gd`'ye iki alanlık döngü eklendi.
+- SOY-30 çağrı zinciri: `hud.gd` yenilemesi → yeni `src/arayuz/koy_hud/kamuoyu_seridi.gd` `KamuoyuSeridi.guncelle` → `SoylentiKoprusu.kamuoyu_satiri`.
+  - Konu yokken satır yok. Tıklanınca `HafizaDefteriBaglantisi.ac` çalışır ve defter Söylenti sayfasında açılır.
+- Test: `tests/oto/soylenti_meclis_kontrol.tscn` → GEÇTİ. Satır kamuoyundan önce 0, sonra 1. Defter Söylenti sayfasında açılıyor; sayfa ağ kaydıyla eşit ve olayı + kaynağı gösteriyor.
+- Bozma kanıtı:
+  - `hud.gd` satırı silinince `KALDI (3 hata)`.
+  - `kaynak_derle` satırı silinince `KALDI (2 hata)`.
+  - Ekrandaki olay/kademe çizimi kapatılınca `KALDI (1 hata)`.
+- Yeşil kalanlar: `hafiza_defteri_test`, `defter_aday_test`, `koy_hud_kontrol`, `yapi_karti_test`, `bosta_kalma_test`, `denge_hud_test`. `Ses` derleme zinciri temiz.

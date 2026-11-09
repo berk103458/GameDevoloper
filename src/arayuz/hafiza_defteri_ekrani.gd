@@ -195,6 +195,10 @@ func _satir_kutusu(satir: Dictionary) -> Control:
 	kutu.modulate = Color(1, 1, 1, 0.45) if soluk else Color(1, 1, 1, 1)
 	var baslik := _yazi(String(satir.get("baslik", "")), Tema.GOVDE_PX)
 	kutu.add_child(baslik)
+	for alan in ["olay_anahtari", "kademe_anahtari"]:
+		var deger := String(satir.get(alan, ""))
+		if not deger.is_empty():
+			kutu.add_child(_yazi(tr(deger), Tema.KUCUK_PX))
 	var govde := String(satir.get("govde_anahtari", satir.get("metin_anahtari", "")))
 	if not govde.is_empty():
 		kutu.add_child(_yazi(govde, Tema.KUCUK_PX))

@@ -63,6 +63,7 @@ static func kaynak_derle(oturum: Variant) -> Dictionary:
 		return kaynak
 	if oturum is Oturum:
 		kaynak["haberci_agi"] = oturum.haberci_agi.duplicate(true)
+		kaynak["soylenti_agi"] = SoylentiKoprusu.defter_satirlari(oturum)
 	var ipucu: Variant = oturum.get("ipucu_kaydi")
 	if ipucu != null and ipucu.has_method("sozluge"):
 		kaynak["ogretici"] = ipucu.sozluge()
