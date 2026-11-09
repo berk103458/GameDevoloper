@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-08 başlıyor (Kalfa)
+
+Festive c7d54fa1 güncel. Mevcut karakter muayene sahnesinde çizim gerektirmeyen gerçek iskelet ölçümü ve model başına gömülme hata satırı doğrulanacak. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-07 tamamlandı (Kalfa)
 
 Köy yürüyüşündeki her görsel kök adımı, mevcut 0,60 m payla diğer köklere karşı süpürülerek sınanır. Geçiş gerekirse aynı ANI-13 bölgesinde yan adım denenir. Dolu başlangıçta uygun boş hücre seçilir. Hedefe varılamayan kısa hareket 250 ms sonra denenir. Düz koridorun ara noktası güvenli yandan geçilmişse geri dönülmez. Köşeler ve son hedef mevcut kesin varış şartını kullanır. Kapı sahnesindeki yürüyüş mevcut doğrudan çağrıyı kullanır.
