@@ -31,7 +31,6 @@ var _yurume: Tween
 ## Görünürlük önbelleği (`gorunurluk`): boyanan parçalar ve fener ışıklarının taban güçleri.
 var _parcalar: Array[GeometryInstance3D] = []
 var _gorunurluk := 1.0
-var _ayak_zemini: AyakZemini
 
 ## Klip dosyalarından çıkarılan animasyonlar (yol → Animation); aynı karakterin kopyaları paylaşır.
 static var _klip_onbellek: Dictionary = {}
@@ -48,7 +47,6 @@ func kur(model: Node3D, ad: String = "") -> void:
 		m.position.y = 0.85
 		m.material_override = Dunya3B.duz_malzeme(Renkler.SOGUK_MAVI)
 		add_child(m)
-		_ayak_zemini = AyakZemini.kur(self)
 		return
 	add_child(model)
 	var ap := model.find_children("*", "AnimationPlayer", true, false)
@@ -68,7 +66,6 @@ func kur(model: Node3D, ad: String = "") -> void:
 		sk[0].add_child(_duzeltici)
 	if ad != "":
 		_klipleri_yukle(ad)
-	_ayak_zemini = AyakZemini.kur(self)
 	dur()
 
 
@@ -76,8 +73,6 @@ func _process(delta: float) -> void:
 	if _duzeltici != null:
 		_duzeltici.bekleme = move_toward(_duzeltici.bekleme, _bekleme_hedef, delta / GECIS)
 		_duzeltici.influence = move_toward(_duzeltici.influence, _duzeltici_hedef, delta / GECIS)
-	if _ayak_zemini != null:
-		position.y = _ayak_zemini.zemin_hizala(position.y, 0.0)
 
 
 ## Hedefe yürür (dünya konumu), yüzünü yürüdüğü yöne çevirir.
