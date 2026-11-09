@@ -13,9 +13,9 @@
   "gecis_suresi": 0.25,
   "yol_butcesi_ms": 2.0,
   "kamera_yukseklik": {
-    "min": 3.0,
-    "max": 18.0,
-    "varsayilan": 8.0
+    "min": 14.0,
+    "max": 80.0,
+    "varsayilan": 38.0
   },
   "kamera_taban_mesafe": 1.2,
   "kapi_isik": {

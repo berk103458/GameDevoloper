@@ -17,8 +17,10 @@ static func kadrajda_mi(kamera: Camera3D, model_pos: Vector3) -> bool:
 	if kamera == null:
 		return true
 	var odak := kadraj_hesapla(model_pos)
-	var kamera_on := -kamera.global_transform.basis.z
-	var hedefe := (odak - kamera.global_position).normalized()
+	var xform: Transform3D = kamera.global_transform if kamera.is_inside_tree() else kamera.transform
+	var kamera_on: Vector3 = -xform.basis.z
+	var cam_pos: Vector3 = kamera.global_position if kamera.is_inside_tree() else kamera.position
+	var hedefe := (odak - cam_pos).normalized()
 	var aci := rad_to_deg(kamera_on.angle_to(hedefe))
 	# Kamera yarı-açısı (FOV / 2) içinde mi?
 	return aci <= (kamera.fov * 0.5)

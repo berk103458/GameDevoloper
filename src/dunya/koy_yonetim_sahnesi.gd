@@ -118,7 +118,7 @@ func kapi_noktasi() -> Vector2:
 
 
 func yakinlas(adim: float) -> void:
-	uzaklik = clampf(uzaklik * (1.0 - adim * 0.1), 14.0, 80.0)
+	uzaklik = KameraSurukleme.yukseklik_sinirla(uzaklik * (1.0 - adim * 0.1))
 
 
 func _kamera_yerlestir() -> void:

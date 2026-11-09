@@ -8,6 +8,8 @@
     {
       "ad": "Elif",
       "yas_grubu": "cocuk",
+      "calisir_mi": false,
+      "gence_gecis_gunu": 28,
       "sinif": "ciftci",
       "stat": 3,
       "portre": "peasant_01",
@@ -16,6 +18,8 @@
     {
       "ad": "Sungurcuk",
       "yas_grubu": "cocuk",
+      "calisir_mi": false,
+      "gence_gecis_gunu": 28,
       "sinif": "ciftci",
       "stat": 3,
       "portre": "peasant_01",
@@ -24,6 +28,8 @@
     {
       "ad": "Bala",
       "yas_grubu": "cocuk",
+      "calisir_mi": false,
+      "gence_gecis_gunu": 28,
       "sinif": "ciftci",
       "stat": 2,
       "portre": "peasant_01",

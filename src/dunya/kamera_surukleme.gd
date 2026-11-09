@@ -119,8 +119,22 @@ func _exit_tree() -> void:
 
 # --- SAH-41..SAH-48: Kamera sinirlari, yukseklik ve guvenlik yardimcilari ---
 
+const SAHNE_AYAR_YOLU := "res://data/ayarlar/sahne.json"
+
+static func yukseklik_sinirlari_al(ayar_yolu: String = SAHNE_AYAR_YOLU) -> Vector2:
+	if FileAccess.file_exists(ayar_yolu):
+		var veri: Variant = JSON.parse_string(FileAccess.get_file_as_string(ayar_yolu))
+		if veri is Dictionary and veri.has("kamera_yukseklik") and veri["kamera_yukseklik"] is Dictionary:
+			var ky: Dictionary = veri["kamera_yukseklik"]
+			return Vector2(float(ky.get("min", 14.0)), float(ky.get("max", 80.0)))
+	return Vector2(14.0, 80.0)
+
+
 ## SAH-42: Kamera yuksekligi sahne.json alt ve ust sinirlari arasinda tutulur.
-static func yukseklik_sinirla(y: float, min_y: float = 3.0, max_y: float = 18.0) -> float:
+static func yukseklik_sinirla(y: float, min_y: float = -1.0, max_y: float = -1.0) -> float:
+	if min_y < 0.0 or max_y < 0.0:
+		var s := yukseklik_sinirlari_al()
+		return clampf(y, s.x, s.y)
 	return clampf(y, min_y, max_y)
 
 

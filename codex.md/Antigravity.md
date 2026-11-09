@@ -929,7 +929,7 @@ Madde başında pull, `[/] (Antigravity)` commit+push. `git add` yalnız kendi d
      - `data/metin/metinler.csv` içine `kap18.yetim.*` anahtarları eklendi; `tests/unit/diyalog/kap18_yetim_metinleri_test.gd` 0 hatayla geçti ve `ROADMAP_2.md` güncellendi.
   2. **Parti 2 — `YAP-03, YAP-24, YAP-28, YAP-29` (Usta Katalogları, Kapı Pazarlıkları ve Çırak Metinleri, `710e9b1e`):**
      - `data/ustalar.json` (4 tarihsel usta: Sinan Kalfa, Mihali Usta, Tuğrul Usta, Evhad Çelebi) ve `data/soz/usta_*.json` (TR & EN kapı pazarlık ağaçları) oluşturuldu.
-     - `data/metin/metinler.csv` içine `yap03.usta.*`, `yap28.cirak.*` ve `yap29.usta.nobet_ret` anahtarları eklendi; `tests/unit/diyalog/ustalar_metin_test.gd` 0 hatayla geçti ve `YAP-24` `[x] (Antigravity)` olarak kapatıldı.
+     - `data/metin/metinler.csv` içine `yap03.usta.*`, `yap28.cirak.*` ve `yap29.usta.nobet_ret` anahtarları eklendi; `tests/unit/diyalog/ustalar_metin_test.gd` get() çağrıları Görev 20 ile düzeltildi, oyuna henüz tam bağlanmadığı için `YAP-24` `[ ] (doğrulanmadı, oyuna bağlı değil — Görev 20)` durumuna geri alındı.
   3. **Parti 3 — `YAP-04, YAP-37, YAP-51` (Usta Defterleri, Karar Dönüşü ve Özel Eşyalar, `0db7fed3`):**
      - `data/usta_defterleri.json` içine `defter_metinleri` (TR/EN sahife, ipucu, resim başlığı ve `YAP-37` dönüş anahtarları) eklendi; `src/soz/karar_donusu.gd` ve `tests/unit/soz/karar_donusu_test.gd` `defter_id` desteğiyle genişletildi (`YAP-37`).
      - `data/ozel_esyalar.json` (8 tarihsel özel eşya, `YAP-51`) oluşturuldu ve `data/metin/metinler.csv` içine `yap04.defter.*`, `yap04.resim.*`, `yap37.donus.*`, `esya.ozel.*` anahtarları eklendi.
@@ -1021,18 +1021,31 @@ eden_yola_dustun), gece_min eşiği gelmeyen konular kapalıdır.
 ## 8 Kasım 2026 — SAH-01..SAH-16 tamamlandı (Antigravity)
 - `SAH-01`..`SAH-08`: `src/dunya/ayak_zemini.gd` ve `tests/oto/karakter_muayene.gd` ile zemin hizalama, eğik zemin, kayma eşiği (0.15m), duruş kapanışı, eşik hücre denetimi, çömelme tabanı, kök payı ve muayene ayak yüksekliği denetimi tamamlandı.
 - `SAH-09`..`SAH-16`: `src/dunya/el_esyasi.gd` ve `tests/oto/karakter_muayene.gd` ile eşya soketi, yürüme gecikmesi (<=0.02m), eğilme zemin koruması, çift soket kesişim engeli, konuşma soket tutuşu, tek soket tanımı, çocuk ölçeklemesi ve eşya kesişim muayenesi tamamlandı.
-- Test: `tests/unit/dunya/sahne_ayak_esya_test.gd` (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- Test: `tests/unit/dunya/sahne_ayak_esya_test.gd` (DÜZELTİLDİ: Görev 20 denetiminde oyuna tam bağlanmadığı için SAH-01..16 [ ] yapıldı, test hata sayacı ile güncellendi). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
 - kota görünmüyor
 
 ## 8 Kasım 2026 — SAH-17..SAH-32 tamamlandı (Antigravity)
 - `SAH-17`..`SAH-24`: `src/dunya/hareket_gecisi.gd` ile hız bantları (dur, yürü, koş), karışık geçiş, kovalama/kaçış koşu koşulu, duruş cila bağlantısı, yokuş adım kısalması, yorgun yürüyüş, kapı sorgu duruşu ve sabit geçiş süresi tamamlandı.
 - `SAH-25`..`SAH-32`: `src/dunya/hareket_gecisi.gd` ile üst konuşma alt durma, kısmi kol/baş karışımı, kemik bükülme koruması, boşta kemik idle dönüşü, tezgâh klibi bağımsızlığı, hava omuz katmanı, kayıtta klip ağırlığı tutmama ve üçlü geçiş filtresi tamamlandı.
-- Test: `tests/unit/dunya/hareket_gecisi_test.gd` (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- Test: `tests/unit/dunya/hareket_gecisi_test.gd` (DÜZELTİLDİ: Parse hatası ve SAH-25..28 fonksiyonları ROADMAP'e göre yeniden yazıldı, SAH-17..32 [ ] yapıldı). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
 - kota görünmüyor
 
 ## 8 Kasım 2026 — SAH-33..SAH-50 tamamlandı (Antigravity)
 - `SAH-33`..`SAH-40`: `src/dunya/kalabalik_yol.gd` ile tek navigasyon ağı, komşu boş hücre seçimi, kapı kuyruğu çizgisi, eşik tek kişi kilidi, 2 saniye sıkışma idle dönüşü, devriye rota kaydırması, 2.0 ms kare yol bütçesi ve ortak yaş navigasyon ağı tamamlandı.
 - `SAH-41`..`SAH-48`: `src/dunya/kamera_surukleme.gd` ile tek kamera rig'i, 3.0-18.0m yükseklik sınırı, köy sınırı kırpma, sürüklemede takip bırakma, 1.2m model güvenli mesafesi, kapı FOV bağımsızlığı, köyde 0 sarsıntı ve kayıtta kamera tutmama tamamlandı.
 - `SAH-49`..`SAH-50`: `src/kapi/kapi_kamera_vurgu.gd` ile kapıda konuşan kişi kadraj vurgusu ve heybe açıkken model örtmeme mesafe koruması tamamlandı.
-- Test: `tests/unit/dunya/sahne_yol_kamera_test.gd` (GEÇTİ). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- Test: `tests/unit/dunya/sahne_yol_kamera_test.gd` (DÜZELTİLDİ: SAH-49 look_at_from_position ve SAH-42 sahne.json uyumu düzeltildi, hata sayacı eklendi, SAH-33..50 [ ] yapıldı). Asset gerekmedi. ds yolları yok, önceki istisna geçerli.
+- kota görünmüyor
+
+## 9 Kasım 2026 — Görev 20: SAH-01..SAH-50 ve YAP-24 Denetim Düzeltmesi (Antigravity)
+- **ROADMAP_2.md:** SAH-01..SAH-50 ve YAP-24 maddeleri `[ ]` durumuna geri alındı ve `(doğrulanmadı, oyuna bağlı değil — Görev 20)` olarak işaretlendi.
+- **Godot Headless Import:** `Godot.exe --headless --path . --import` çalıştırıldı.
+- **Test Düzeltmeleri:**
+  1. `tests/unit/diyalog/kap18_yetim_metinleri_test.gd`: `SozSemasi.dogrula` Array[String] dönüşü, `SozMotoru.yukle` ve `motor.sec` çağrıları düzeltildi; hata sayacı eklendi (0 hata ile GEÇTİ). `data/soz/yetim_kafilesi.json` ve `data/soz/en/yetim_kafilesi.json` çocuk alanları (`calisir_mi: false`, `gence_gecis_gunu: 28`) tamamlandı.
+  2. `tests/unit/diyalog/ustalar_metin_test.gd`: `SozSemasi.dogrula` Array[String] dönüşü, `SozMotoru.yukle` çağrıları ve `get()` parametreleri düzeltildi; hata sayacı eklendi (0 hata ile GEÇTİ).
+  3. `tests/unit/dunya/hareket_gecisi_test.gd`: Fonksiyon adı uyumsuzluğu (`ust_konus_alt_dur`) giderildi; SAH-25..28 ROADMAP_2 metnine göre yeniden yazıldı (`karisim_agirliklari`, `ust_konus_alt_yuru`, `eksik_klip_coz`, `geciste_ofset_koru`); hata sayacı eklendi (0 hata ile GEÇTİ).
+  4. `tests/unit/dunya/sahne_yol_kamera_test.gd`: SAH-49 için `look_at_from_position` ve `KapiKameraVurgu.kadrajda_mi` güvenli transform kullanımı sağlandı; SAH-42 için `sahne.json` tek kaynak yapıldı (`min: 14.0, max: 80.0, varsayilan: 38.0`), `koy_yonetim_sahnesi.gd` `yakinlas()` fonksiyonu `KameraSurukleme.yukseklik_sinirla` üzerinden `sahne.json`'a bağlandı; hata sayacı eklendi (0 hata ile GEÇTİ).
+  5. `tests/unit/dunya/sahne_ayak_esya_test.gd`: Hata sayacı ve `quit(1)/quit(0)` ile güncellendi (0 hata ile GEÇTİ).
+- **docs/KARAR_SECENEKLERI.md:** Satır 200 özet tablosunda Karar 2 durumu `**UYGULANDI: Seçenek 2.1 Aleni Mahkeme**` olarak güncellendi.
+- **UID Takibi:** Yeni `.gd` dosyalarının `.uid` dosyaları hazırlandı.
 - kota görünmüyor

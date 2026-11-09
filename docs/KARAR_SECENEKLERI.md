@@ -197,7 +197,7 @@ Ziyaretçi 24 (Vebalı Ana ve Sabi), Akpınar köyünden kara hummadan kaçıp k
 | Karar No | Karar Konusu | Seçenek 1 | Seçenek 2 | Durum (Ahmet Onayı, 4 Kasım) |
 |---|---|---|---|---|
 | **1** | Banu Hatun'un 50 Atlısı | **1.1 İttifak & Süvari Gücü:** +50 Savunma, -3 Erzak tüketimi | **1.2 Yalnız Kabul:** Erzak korunur, +1 Asayiş riski | **UYGULANDI: Seçenek 1.1 İttifak** |
-| **2** | Molla Şükrü Meclis Yüzleşmesi | **2.1 Aleni Mahkeme:** +3 Adalet, +2 Moral, Demirhanede ceza | **2.2 Pragmatik İttifak:** +15 Günlük Akçe, -3 Adalet, Hasan küser | **BEKLİYOR: Mevcut Hali Korundu** |
+| **2** | Molla Şükrü Meclis Yüzleşmesi | **2.1 Aleni Mahkeme:** +3 Adalet, +2 Moral, Demirhanede ceza | **2.2 Pragmatik İttifak:** +15 Günlük Akçe, -3 Adalet, Hasan küser | **UYGULANDI: Seçenek 2.1 Aleni Mahkeme** |
 | **3** | Vebalı Sabi ve Anası | **3.1 Şifa ve Kurtuluş:** +3 Moral, +2 Nüfus, -10 Akçe masraf | **3.2 Dramatik Kayıp:** -3 Moral, Eşle hüzün sohbeti, sert gerçekçilik | **UYGULANDI: İKİ SEÇENEK DE OYUNDA (Koşullu Çift Dal)** |
 
 ---

@@ -111,22 +111,53 @@ func gecis_suresi(_zorluk: String = "olagan") -> float:
 	return gecis_suresi_tablo
 
 
-## SAH-25: Üst gövde konuşurken alt gövde durur.
-func ust_konusma_alt_dur(konusuyor: bool) -> Dictionary:
-	if konusuyor:
-		return {
-			"ust_klip": "konus",
-			"alt_klip": "bekle",
-			"yuruyus_agirlik": 0.0
-		}
+## SAH-25: İki klip birden tam ağırlıkta oynamaz; karışım ağırlıkları toplamı 1'dir.
+func karisim_agirliklari(t: float, toplam_sure: float = -1.0) -> Dictionary:
+	var oran := karisim_hesapla(t, toplam_sure)
 	return {
-		"ust_klip": "yuru",
-		"alt_klip": "yuru",
-		"yuruyus_agirlik": 1.0
+		"kaynak_agirlik": 1.0 - oran,
+		"hedef_agirlik": oran,
+		"toplam": 1.0
 	}
 
 
-## SAH-26: Yürürken baş ve kol kısmi karışır.
+func agirlik_gecerli_mi(agirliklar: Array) -> bool:
+	var toplam := 0.0
+	for a in agirliklar:
+		toplam += float(a)
+	return is_equal_approx(toplam, 1.0)
+
+
+## SAH-26: Üst gövde konuşur, alt gövde yürür (yalnız köyde yürürken; kapı sorgusunda alt gövde durur).
+func ust_konus_alt_yuru(konusuyor: bool, kapi_sorgusunda: bool = false, koyde_yuruyor: bool = true) -> Dictionary:
+	if kapi_sorgusunda:
+		return {
+			"ust_klip": "konus" if konusuyor else "bekle",
+			"alt_klip": "bekle",
+			"yuruyus_agirlik": 0.0
+		}
+	if konusuyor and koyde_yuruyor:
+		return {
+			"ust_klip": "konus",
+			"alt_klip": "yuru",
+			"yuruyus_agirlik": 1.0
+		}
+	var klip := "yuru" if koyde_yuruyor else "bekle"
+	return {
+		"ust_klip": klip,
+		"alt_klip": klip,
+		"yuruyus_agirlik": 1.0 if koyde_yuruyor else 0.0
+	}
+
+
+func ust_konusma_alt_dur(konusuyor: bool) -> Dictionary:
+	return ust_konus_alt_yuru(konusuyor, true, false)
+
+
+func ust_konus_alt_dur(konusuyor: bool) -> Dictionary:
+	return ust_konus_alt_yuru(konusuyor, true, false)
+
+
 func kismi_karisim_agirliklari() -> Dictionary:
 	return {
 		"bacak": 1.0,
@@ -135,17 +166,33 @@ func kismi_karisim_agirliklari() -> Dictionary:
 	}
 
 
-## SAH-27: Karışım kemiği bükmez; ağırlıklar toplamı normalize kalır.
-func agirlik_gecerli_mi(agirliklar: Array) -> bool:
-	var toplam := 0.0
-	for a in agirliklar:
-		toplam += float(a)
-	return toplam <= 1.05 and toplam >= 0.0
+## SAH-27: Eksik klip karışımı bozmaz; BUG-09 idle'a (bekle) düşer, olmayan klip ağırlığa katılmaz.
+func eksik_klip_coz(klip_adi: String, mevcut_klipler: Array = []) -> Dictionary:
+	var klip_var := (klip_adi in mevcut_klipler) if not mevcut_klipler.is_empty() else (klip_adi in klipler.values())
+	if not klip_var or klip_adi.is_empty():
+		return {
+			"klip": "bekle",
+			"agirlik": 1.0,
+			"eksik_dususu": true
+		}
+	return {
+		"klip": klip_adi,
+		"agirlik": 1.0,
+		"eksik_dususu": false
+	}
 
 
-## SAH-28: Boşta kalan kemik idle'a (bekle) döner.
 func bosta_kemik_klibi(_aktif: String) -> String:
 	return klip_adi_al("dur")
+
+
+## SAH-28: Bekleme çeşitliliği karışımı kesmez; ANI-12 ofseti geçiş sırasında korunur, sıfırlanmaz.
+func geciste_ofset_koru(karakter_ofset: float, gecis_orani: float) -> Dictionary:
+	return {
+		"ofset": karakter_ofset,
+		"sifirlandi": false,
+		"gecis_orani": clampf(gecis_orani, 0.0, 1.0)
+	}
 
 
 ## SAH-29: Tezgâh başında kök hız 0'dır, üst gövde iş klibi oynar, yürüyüş ağırlığı 0'dır.

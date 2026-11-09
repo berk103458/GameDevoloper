@@ -1554,7 +1554,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
   - Asset: usta modelleri envantere `YAP03-USTALAR`.
 
 
-- [x] **YAP-24:** Usta adsız şablon değildir (Antigravity)
+- [ ] **YAP-24:** Usta adsız şablon değildir (doğrulanmadı, oyuna bağlı değil — Görev 20)
   - Ne: Usta adsız şablon değildir. Adlı dosya. KOP-10 adsız kalanı açmaz.
   - Kabul: Adsız usta 0. Test: KOP-10.
   - Bağımlılık: KOP-10. Boyut: S.
@@ -7909,49 +7909,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.1 Ayak ve zemin
 
-- [x] **SAH-01:** (Antigravity) Ayak, yürünebilir zeminin üstündedir.
+- [ ] **SAH-01:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Ayak, yürünebilir zeminin üstündedir.
   - Ne: tarla, patika ve kapı eşiğinde topuk zeminin altından geçmez. 20 adımlık yürüyüşte gömülme karesi 0'dır.
   - Kabul: tarla, patika ve kapı eşiğinde topuk zeminin altından geçmez. 20 adımlık yürüyüşte gömülme karesi 0'dır. Test: üç zemin, muayene aracı yüksekliği yazar.
   - Bağımlılık: ANI-13. Boyut: M.
   - Dosya: `src/dunya/ayak_zemini.gd` (yeni). Karakter modele tek bağ.
   - Asset: asset gerekmedi.
-- [x] **SAH-02:** (Antigravity) Eğik zeminde ayak yüzeyi izler.
+- [ ] **SAH-02:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Eğik zeminde ayak yüzeyi izler.
   - Ne: yokuşta iki ayak aynı dünya yüksekliğine zorlanmaz. Her ayak kendi değdiği noktadadır.
   - Kabul: yokuşta iki ayak aynı dünya yüksekliğine zorlanmaz. Her ayak kendi değdiği noktadadır. Test: eğimli hücre, iki ayak yüksekliği farklı.
   - Bağımlılık: SAH-01. Boyut: M.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-03:** (Antigravity) Ayak kayması adım boyunu aşmaz.
+- [ ] **SAH-03:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Ayak kayması adım boyunu aşmaz.
   - Ne: bir adımda ayak, görünen adım uzunluğundan fazla kaymaz. Ölçü iskelet ile kök hareketinin farkıdır.
   - Kabul: bir adımda ayak, görünen adım uzunluğundan fazla kaymaz. Ölçü iskelet ile kök hareketinin farkıdır. Test: 10 adım, fark tablodaki eşiğin altında.
   - Bağımlılık: SAH-01. Boyut: M.
   - Dosya: `src/dunya/ayak_zemini.gd`. Eşik `data/ayarlar/sahne.json`.
   - Asset: asset gerekmedi.
-- [x] **SAH-04:** (Antigravity) Durunca ayaklar kapanır.
+- [ ] **SAH-04:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Durunca ayaklar kapanır.
   - Ne: hız sıfır olunca kayma birikmez. Karakter yokuşta yavaşça aşağı akmaz.
   - Kabul: hız sıfır olunca kayma birikmez. Karakter yokuşta yavaşça aşağı akmaz. Test: 5 saniye duruş, konum deltası eşik altı.
   - Bağımlılık: SAH-03. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-05:** (Antigravity) Kapı eşiği ayrı bir zemin değildir.
+- [ ] **SAH-05:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Kapı eşiği ayrı bir zemin değildir.
   - Ne: eşik, ANI-13 ağının bir hücresidir. İkinci bir yükseklik sabiti kodda yoktur.
   - Kabul: eşik, ANI-13 ağının bir hücresidir. İkinci bir yükseklik sabiti kodda yoktur. Test: eşikte gömülme 0, ağ dışı hücreye ayak basılmaz.
   - Bağımlılık: ANI-13, SAH-01. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-06:** (Antigravity) Çömelme ve eğilme ayağı yerden koparmaz.
+- [ ] **SAH-06:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Çömelme ve eğilme ayağı yerden koparmaz.
   - Ne: kabuldeki şükran ve retteki diz çökme, ayak tabanını zeminde tutar. Klip yoksa BUG-09 idle'a düşer, ayak yine zemindedir.
   - Kabul: kabuldeki şükran ve retteki diz çökme, ayak tabanını zeminde tutar. Klip yoksa BUG-09 idle'a düşer, ayak yine zemindedir. Test: iki poz, taban yüksekliği.
   - Bağımlılık: SAH-01, BUG-09. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-07:** (Antigravity) Kalabalıkta ayak birbirinin içinden geçmez.
+- [ ] **SAH-07:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Kalabalıkta ayak birbirinin içinden geçmez.
   - Ne: iki karakterin kökleri ANI-13 çarpışma payından yakına girmez. Ayak cilası bu payı daraltmaz.
   - Kabul: iki karakterin kökleri ANI-13 çarpışma payından yakına girmez. Ayak cilası bu payı daraltmaz. Test: iki model, aralık en az pay.
   - Bağımlılık: ANI-13, SAH-01. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-08:** (Antigravity) Muayene aracı ayak yüksekliğini yazar.
+- [ ] **SAH-08:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Muayene aracı ayak yüksekliğini yazar.
   - Ne: `karakter_muayene.tscn` her model için en alçak kemik yüksekliğini satır yazar. Eşik altı satır hata sayılır. TST-08'in adımları burada yoktur.
   - Kabul: `karakter_muayene.tscn` her model için en alçak kemik yüksekliğini satır yazar. Eşik altı satır hata sayılır. TST-08'in adımları burada yoktur. Test: bilerek gömülü model, raporda 1 satır.
   - Bağımlılık: SAH-01. Boyut: S.
@@ -7960,49 +7960,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.2 El eşyası
 
-- [x] **SAH-09:** (Antigravity) Eşya, eldeki sokettedir.
+- [ ] **SAH-09:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Eşya, eldeki sokettedir.
   - Ne: `el_esyasi.gd` avuç noktasını kullanır. Eşya göğüs veya uyluk kemikle kesişmez.
   - Kabul: `el_esyasi.gd` avuç noktasını kullanır. Eşya göğüs veya uyluk kemikle kesişmez. Test: 8 eşya türü, kesişen kare 0.
   - Bağımlılık: ANI-11. Boyut: M.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi. Çakışan tür ARY-05'e `SAH-EL-CAKISMA` diye yazılır, üretilmez.
-- [x] **SAH-10:** (Antigravity) Yürürken eşya ele yapışıktır.
+- [ ] **SAH-10:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Yürürken eşya ele yapışıktır.
   - Ne: kök hızlanırken eşya ele göre 2 santimden fazla gecikmez.
   - Kabul: kök hızlanırken eşya ele göre 2 santimden fazla gecikmez. Test: 20 adım, gecikme eşiği.
   - Bağımlılık: SAH-09. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-11:** (Antigravity) Eğilince eşya yere girmez.
+- [ ] **SAH-11:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Eğilince eşya yere girmez.
   - Ne: diz çökmede asılı eşya zeminin altına inmez. Asa dik kalır. Mevcut sarkma kuralı durur.
   - Kabul: diz çökmede asılı eşya zeminin altına inmez. Asa dik kalır. Mevcut sarkma kuralı durur. Test: çuval ve asa, zemin kesişimi 0.
   - Bağımlılık: SAH-06, SAH-09. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-12:** (Antigravity) İki elde iki eşya omurgayı delmez.
+- [ ] **SAH-12:** (doğrulanmadı, oyuna bağlı değil — Görev 20) İki elde iki eşya omurgayı delmez.
   - Ne: heybe ve araç aynı anda takılıysa birbirinin ve gövdenin içinden geçmez.
   - Kabul: heybe ve araç aynı anda takılıysa birbirinin ve gövdenin içinden geçmez. Test: çift soket, kesişim 0.
   - Bağımlılık: ANI-11, SAH-09. Boyut: M.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-13:** (Antigravity) Konuşma klibi eşyayı düşürmez.
+- [ ] **SAH-13:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Konuşma klibi eşyayı düşürmez.
   - Ne: ağız klibi oynarken tutuş soketi kopmaz. Klip yoksa idle, eşya elde kalır.
   - Kabul: ağız klibi oynarken tutuş soketi kopmaz. Klip yoksa idle, eşya elde kalır. Test: konuşma 3 saniye, soket dolu.
   - Bağımlılık: BUG-09, SAH-09. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-14:** (Antigravity) Kapıdaki yük, köydeki yükle aynı sokettedir.
+- [ ] **SAH-14:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Kapıdaki yük, köydeki yükle aynı sokettedir.
   - Ne: kabul edilen kişinin el eşyası kapıdan köye geçince türü değişmez, noktası değişmez. İkinci tutuş tablosu yok.
   - Kabul: kabul edilen kişinin el eşyası kapıdan köye geçince türü değişmez, noktası değişmez. İkinci tutuş tablosu yok. Test: aynı tür, iki sahne, aynı soket adı.
   - Bağımlılık: SAH-09. Boyut: S.
   - Dosya: `data/el_esyalari.json`.
   - Asset: asset gerekmedi.
-- [x] **SAH-15:** (Antigravity) Çocuk modelinde büyük yük küçülür.
+- [ ] **SAH-15:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Çocuk modelinde büyük yük küçülür.
   - Ne: ölçek, model boyunun oranıdır. Sabit yetişkin ölçeği çocukta gövdeyi yutmaz.
   - Kabul: ölçek, model boyunun oranıdır. Sabit yetişkin ölçeği çocukta gövdeyi yutmaz. Test: çocuk ve yetişkin, eşya boyu oran içinde.
   - Bağımlılık: SAH-09, UZM-08. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-16:** (Antigravity) Muayene kesişen eşyayı listeler.
+- [ ] **SAH-16:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Muayene kesişen eşyayı listeler.
   - Ne: araç, kemikle kesişen eşya türünü yazar. Liste ARY-05'e işlenir, model üretilmez.
   - Kabul: araç, kemikle kesişen eşya türünü yazar. Liste ARY-05'e işlenir, model üretilmez. Test: kasıtlı kesişim, raporda tür adı.
   - Bağımlılık: SAH-08, SAH-09. Boyut: S.
@@ -8011,49 +8011,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.3 Yürüme, koşma, durma
 
-- [x] **SAH-17:** (Antigravity) Hız üç bandadır.
+- [ ] **SAH-17:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Hız üç bandadır.
   - Ne: dur, yürü, koş. Bant eşikleri `sahne.json` içindedir. Kodda sabit hız yoktur.
   - Kabul: dur, yürü, koş. Bant eşikleri `sahne.json` içindedir. Kodda sabit hız yoktur. Test: üç bant, üç klip adı.
   - Bağımlılık: DEN-01 ile aynı kural, dosya ayrı. Boyut: S.
   - Dosya: `data/ayarlar/sahne.json`.
   - Asset: asset gerekmedi.
-- [x] **SAH-18:** (Antigravity) Durmadan yürümeye geçiş karışıktır.
+- [ ] **SAH-18:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Durmadan yürümeye geçiş karışıktır.
   - Ne: geçiş bir karede zıplamaz. Karışım süresi tablodadır.
   - Kabul: geçiş bir karede zıplamaz. Karışım süresi tablodadır. Test: geçişin ilk karesinde poz, dur klibine daha yakındır.
   - Bağımlılık: SAH-17. Boyut: M.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-19:** (Antigravity) Koşu yalnız kovalama ve kaçışta açılır.
+- [ ] **SAH-19:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Koşu yalnız kovalama ve kaçışta açılır.
   - Ne: günlük devriye yürür. Koşu, mevcut kaçış ve kovalama olayına bağlıdır. Yeni bir koşu hali yazılmaz.
   - Kabul: günlük devriye yürür. Koşu, mevcut kaçış ve kovalama olayına bağlıdır. Yeni bir koşu hali yazılmaz. Test: devriyede koşu klibi 0.
   - Bağımlılık: ANI-02, SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-20:** (Antigravity) Durunca kayma SAH-04 ile kapanır.
+- [ ] **SAH-20:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Durunca kayma SAH-04 ile kapanır.
   - Ne: hız bandı dura düşünce ayak cilası aynı karede devreye girer. İki sistem bir kare gecikmez.
   - Kabul: hız bandı dura düşünce ayak cilası aynı karede devreye girer. İki sistem bir kare gecikmez. Test: duruş karesi, kayma 0.
   - Bağımlılık: SAH-04, SAH-18. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-21:** (Antigravity) Yokuşta bant değişmez, adım kısalır.
+- [ ] **SAH-21:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Yokuşta bant değişmez, adım kısalır.
   - Ne: eğim hızı ANI-13 ile gelir. Koşu bandı eğim yüzünden kendiliğinden açılmaz.
   - Kabul: eğim hızı ANI-13 ile gelir. Koşu bandı eğim yüzünden kendiliğinden açılmaz. Test: yokuşta bant yürü, kök hız düşük.
   - Bağımlılık: ANI-13, SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-22:** (Antigravity) Yorgun yürüyüş ayrı bir klip istemez.
+- [ ] **SAH-22:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Yorgun yürüyüş ayrı bir klip istemez.
   - Ne: YSM yorgunluğu mevcut yürüyüşün hızını düşürür. Yeni yorgun klip üretilmez. Klip yoksa listeye yazılır, idle oynar.
   - Kabul: YSM yorgunluğu mevcut yürüyüşün hızını düşürür. Yeni yorgun klip üretilmez. Klip yoksa listeye yazılır, idle oynar. Test: yorgun hız < tok hız, klip adı aynı.
   - Bağımlılık: YSM-01, BUG-09. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: yorgun klip gerekirse `SAH-YORGUN-YURU`. Üretilmez.
-- [x] **SAH-23:** (Antigravity) Kapıdaki bekleme yürümeyi keser.
+- [ ] **SAH-23:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Kapıdaki bekleme yürümeyi keser.
   - Ne: sorgu sırasında kök hız 0'dır. Konuşma klibi yürüyüşle karışmaz.
   - Kabul: sorgu sırasında kök hız 0'dır. Konuşma klibi yürüyüşle karışmaz. Test: sorgu 5 saniye, konum deltası eşik altı.
   - Bağımlılık: SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-24:** (Antigravity) Geçiş süresi zorluğu değiştirmez.
+- [ ] **SAH-24:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Geçiş süresi zorluğu değiştirmez.
   - Ne: DEN-65 üç zorlukta da karışım süresi aynıdır.
   - Kabul: DEN-65 üç zorlukta da karışım süresi aynıdır. Test: iki zorluk, süre eşit.
   - Bağımlılık: SAH-18, DEN-65. Boyut: S.
@@ -8062,49 +8062,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.4 Animasyon karıştırma
 
-- [x] **SAH-25:** (Antigravity) İki klip birden tam ağırlıkta oynamaz.
+- [ ] **SAH-25:** (doğrulanmadı, oyuna bağlı değil — Görev 20) İki klip birden tam ağırlıkta oynamaz.
   - Ne: karışım ağırlıkları toplamı 1'dir.
   - Kabul: karışım ağırlıkları toplamı 1'dir. Test: yürüyüşten duruşa, ara karede toplam 1.
   - Bağımlılık: SAH-18. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-26:** (Antigravity) Üst gövde konuşur, alt gövde yürür.
+- [ ] **SAH-26:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Üst gövde konuşur, alt gövde yürür.
   - Ne: yalnız köyde, elde iş varken. Kapı sorgusunda alt gövde durur (SAH-23).
   - Kabul: yalnız köyde, elde iş varken. Kapı sorgusunda alt gövde durur (SAH-23). Test: tarlada konuşma, bacak klibi yürüyüş.
   - Bağımlılık: SAH-23, ANI-08. Boyut: M.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-27:** (Antigravity) Eksik klip karışımı bozmaz.
+- [ ] **SAH-27:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Eksik klip karışımı bozmaz.
   - Ne: BUG-09 idle'a düşer. Karışım, olmayan klibi ağırlığa katmaz.
   - Kabul: BUG-09 idle'a düşer. Karışım, olmayan klibi ağırlığa katmaz. Test: silinmiş klip, çökme yok, idle ağırlığı 1.
   - Bağımlılık: BUG-09, SAH-25. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-28:** (Antigravity) Bekleme çeşitliliği karışımı kesmez.
+- [ ] **SAH-28:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Bekleme çeşitliliği karışımı kesmez.
   - Ne: ANI-12 ofseti durur. Ofset, geçiş ortasında klibi sıfırlamaz.
   - Kabul: ANI-12 ofseti durur. Ofset, geçiş ortasında klibi sıfırlamaz. Test: iki karakter, geçiş sırasında ofset korunur.
   - Bağımlılık: ANI-12, SAH-18. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-29:** (Antigravity) Tezgâh klibi yürüyüşle karışmaz.
+- [ ] **SAH-29:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Tezgâh klibi yürüyüşle karışmaz.
   - Ne: ANI-08 iş noktasında kök hız 0, üst gövde iş klibidir. Yürüyüş ağırlığı 0.
   - Kabul: ANI-08 iş noktasında kök hız 0, üst gövde iş klibidir. Yürüyüş ağırlığı 0. Test: örs başında bacak klibi değil.
   - Bağımlılık: ANI-08, SAH-26. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-30:** (Antigravity) Hava tepkisi ayrı bir karışım katmanıdır.
+- [ ] **SAH-30:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Hava tepkisi ayrı bir karışım katmanıdır.
   - Ne: ANI-09 üşüme, yürüyüşü değiştirmez. Üst üste biner, yerine geçmez.
   - Kabul: ANI-09 üşüme, yürüyüşü değiştirmez. Üst üste biner, yerine geçmez. Test: karda yürüme klibi durur, omuz katmanı eklenir.
   - Bağımlılık: ANI-09, SAH-26. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-31:** (Antigravity) Karışım kayda yazılmaz.
+- [ ] **SAH-31:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Karışım kayda yazılmaz.
   - Ne: KAY göçü klip ağırlığı tutmaz. Yüklemede bant, hızdan yeniden kurulur.
   - Kabul: KAY göçü klip ağırlığı tutmaz. Yüklemede bant, hızdan yeniden kurulur. Test: kayıtta ağırlık alanı yok.
   - Bağımlılık: KAY-03, SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-32:** (Antigravity) Aynı karede üç geçiş olmaz.
+- [ ] **SAH-32:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Aynı karede üç geçiş olmaz.
   - Ne: dur, yürü, koş aynı karede sıralanırsa ortadaki atlanır. Titreme yok.
   - Kabul: dur, yürü, koş aynı karede sıralanırsa ortadaki atlanır. Titreme yok. Test: hız zıplaması, tek geçiş.
   - Bağımlılık: SAH-18. Boyut: S.
@@ -8113,49 +8113,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.5 Kalabalıkta yol
 
-- [x] **SAH-33:** (Antigravity) Yol ağı ANI-13'tür.
+- [ ] **SAH-33:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Yol ağı ANI-13'tür.
   - Ne: ikinci navigasyon bölgesi yok. Kapı, tarla ve patika aynı ağdadır.
   - Kabul: ikinci navigasyon bölgesi yok. Kapı, tarla ve patika aynı ağdadır. Test: ağ sayısı 1.
   - Bağımlılık: ANI-13. Boyut: S.
   - Dosya: mevcut köy sahnesi.
   - Asset: asset gerekmedi.
-- [x] **SAH-34:** (Antigravity) İki kişi aynı hücreye oturmaz.
+- [ ] **SAH-34:** (doğrulanmadı, oyuna bağlı değil — Görev 20) İki kişi aynı hücreye oturmaz.
   - Ne: varış hücresi doluysa komşu boş hücre seçilir. İç içe model 0'dır.
   - Kabul: varış hücresi doluysa komşu boş hücre seçilir. İç içe model 0'dır. Test: 8 kişi, bir kapı, kesişim 0.
   - Bağımlılık: ANI-13, SAH-07. Boyut: M.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-35:** (Antigravity) Sıradaki kişi kapı çizgisini tutar.
+- [ ] **SAH-35:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Sıradaki kişi kapı çizgisini tutar.
   - Ne: kapı kuyruğu mevcut sıranın üstüne kurulur. Yeni bir kuyruk dizilimi yazılmaz.
   - Kabul: kapı kuyruğu mevcut sıranın üstüne kurulur. Yeni bir kuyruk dizilimi yazılmaz. Test: 4 kişi, çizgi sırası bozulmaz.
   - Bağımlılık: SAH-34. Boyut: S.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-36:** (Antigravity) Dar kapıdan tek kişi geçer.
+- [ ] **SAH-36:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Dar kapıdan tek kişi geçer.
   - Ne: eşik hücresi aynı anda bir köke açıktır. İkinci kişi bekler, itmez.
   - Kabul: eşik hücresi aynı anda bir köke açıktır. İkinci kişi bekler, itmez. Test: iki kişi, eşikte bir kök.
   - Bağımlılık: SAH-05, SAH-34. Boyut: S.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-37:** (Antigravity) Sıkışan kişi idle'a düşer.
+- [ ] **SAH-37:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Sıkışan kişi idle'a düşer.
   - Ne: 2 saniye yol bulamayan kök yürümeyi keser, ANI-12 bekler. Işınlanma yoktur.
   - Kabul: 2 saniye yol bulamayan kök yürümeyi keser, ANI-12 bekler. Işınlanma yoktur. Test: kapalı avlu, ışın 0.
   - Bağımlılık: ANI-12, SAH-34. Boyut: S.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-38:** (Antigravity) Gece devriyesi kalabalığı delmez.
+- [ ] **SAH-38:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Gece devriyesi kalabalığı delmez.
   - Ne: ANI-02 rotası dolu hücreden kayar. Nöbetçi köylünün içinden geçmez.
   - Kabul: ANI-02 rotası dolu hücreden kayar. Nöbetçi köylünün içinden geçmez. Test: ateş başı kalabalık, devriye kesişimi 0.
   - Bağımlılık: ANI-02, SAH-34. Boyut: M.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-39:** (Antigravity) On kişide yol bir kareyi aşmaz.
+- [ ] **SAH-39:** (doğrulanmadı, oyuna bağlı değil — Görev 20) On kişide yol bir kareyi aşmaz.
   - Ne: yol hesabı kare bütçesinin içindedir. Bütçe `sahne.json` içindedir. Aşımda o karede yeni yol aranmaz, eski yol sürer.
   - Kabul: yol hesabı kare bütçesinin içindedir. Bütçe `sahne.json` içindedir. Aşımda o karede yeni yol aranmaz, eski yol sürer. Test: 10 kişi, aşım satırı.
   - Bağımlılık: SAH-34. Boyut: M.
   - Dosya: `data/ayarlar/sahne.json`.
   - Asset: asset gerekmedi.
-- [x] **SAH-40:** (Antigravity) Çocuk ve yaşlı aynı ağı kullanır.
+- [ ] **SAH-40:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Çocuk ve yaşlı aynı ağı kullanır.
   - Ne: UZM-08 ayrı navigasyon açmaz. Hızları banttan düşer (SAH-22).
   - Kabul: UZM-08 ayrı navigasyon açmaz. Hızları banttan düşer (SAH-22). Test: iki yaş, ağ kimliği aynı.
   - Bağımlılık: UZM-08, SAH-33. Boyut: S.
@@ -8164,49 +8164,49 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.6 Kamera
 
-- [x] **SAH-41:** (Antigravity) Köy kamerası ANI-14 ve BUG-24'tür.
+- [ ] **SAH-41:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Köy kamerası ANI-14 ve BUG-24'tür.
   - Ne: takip ve orta tuş kaydırma durur. İkinci kamera rig'i yok.
   - Kabul: takip ve orta tuş kaydırma durur. İkinci kamera rig'i yok. Test: iki giriş aynı kamerayı oynatır.
   - Bağımlılık: ANI-14, BUG-24. Boyut: S.
   - Dosya: `src/dunya/kamera_surukleme.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-42:** (Antigravity) Yakınlaştırma sınırlıdır.
+- [ ] **SAH-42:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Yakınlaştırma sınırlıdır.
   - Ne: tekerlek, tablodaki alt ve üst yüksekliğin dışına çıkmaz. Zemin delinmez.
   - Kabul: tekerlek, tablodaki alt ve üst yüksekliğin dışına çıkmaz. Zemin delinmez. Test: iki uç, yükseklik eşit sınır.
   - Bağımlılık: SAH-41. Boyut: S.
   - Dosya: `data/ayarlar/sahne.json` `kamera_yukseklik`.
   - Asset: asset gerekmedi.
-- [x] **SAH-43:** (Antigravity) Sınır, köyün dışına geçmez.
+- [ ] **SAH-43:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Sınır, köyün dışına geçmez.
   - Ne: BUG-24 sınır kuralı durur. Yakınlaştırma sınırı genişletmez.
   - Kabul: BUG-24 sınır kuralı durur. Yakınlaştırma sınırı genişletmez. Test: köşe, kamera içeride.
   - Bağımlılık: BUG-24, SAH-42. Boyut: S.
   - Dosya: `src/dunya/kamera_surukleme.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-44:** (Antigravity) Takip, sürüklemeyi bırakır.
+- [ ] **SAH-44:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Takip, sürüklemeyi bırakır.
   - Ne: ANI-14, orta tuş basılıyken hedefi koyverir. Bırakınca takip geri gelmez. Oyuncu yeniden seçer.
   - Kabul: ANI-14, orta tuş basılıyken hedefi koyverir. Bırakınca takip geri gelmez. Oyuncu yeniden seçer. Test: sürükle, takip kapalı.
   - Bağımlılık: ANI-14, BUG-24. Boyut: S.
   - Dosya: `src/dunya/kamera_surukleme.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-45:** (Antigravity) Kamera modele girmez.
+- [ ] **SAH-45:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Kamera modele girmez.
   - Ne: en yakın yükseklikte kamera küresi karakterin içinden geçmez.
   - Kabul: en yakın yükseklikte kamera küresi karakterin içinden geçmez. Test: seçili köylü, kamera mesafesi en az taban.
   - Bağımlılık: SAH-42. Boyut: S.
   - Dosya: `src/dunya/kamera_surukleme.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-46:** (Antigravity) Kapı kamerası köy kamerası değildir.
+- [ ] **SAH-46:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Kapı kamerası köy kamerası değildir.
   - Ne: kapı FOV sabiti BUG-13'tedir. Köy yakınlaştırması kapı FOV'unu değiştirmez.
   - Kabul: kapı FOV sabiti BUG-13'tedir. Köy yakınlaştırması kapı FOV'unu değiştirmez. Test: sahne geçişi, kapı FOV eski değer.
   - Bağımlılık: BUG-13, SAH-42. Boyut: S.
   - Dosya: kapı kamerası, tek okuma.
   - Asset: asset gerekmedi.
-- [x] **SAH-47:** (Antigravity) Kamera sarsıntısı yalnız kapı olayındadır.
+- [ ] **SAH-47:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Kamera sarsıntısı yalnız kapı olayındadır.
   - Ne: CAT yer tutucu sarsıntısı köy kamerasına yazılmaz.
   - Kabul: CAT yer tutucu sarsıntısı köy kamerasına yazılmaz. Test: köyde sarsıntı süresi 0.
   - Bağımlılık: CAT-02, SAH-41. Boyut: S.
   - Dosya: `src/dunya/kamera_surukleme.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-48:** (Antigravity) Kamera ayarı kayda girmez.
+- [ ] **SAH-48:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Kamera ayarı kayda girmez.
   - Ne: yükseklik oyuncunun oturumundadır. KAY göçü onu taşımaz.
   - Kabul: yükseklik oyuncunun oturumundadır. KAY göçü onu taşımaz. Test: kayıtta kamera alanı yok.
   - Bağımlılık: KAY-03, SAH-42. Boyut: S.
@@ -8215,13 +8215,13 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.7 Kapıda konuşan yüz
 
-- [x] **SAH-49:** (Antigravity) Konuşan kişi kadrajdadır.
+- [ ] **SAH-49:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Konuşan kişi kadrajdadır.
   - Ne: sorgu açılınca kamera o modele bakar. Bakış, BUG-13 FOV sınırının içinde kalır.
   - Kabul: sorgu açılınca kamera o modele bakar. Bakış, BUG-13 FOV sınırının içinde kalır. Test: üç boy model, yüz kadrajda.
   - Bağımlılık: BUG-13. Boyut: M.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-50:** (Antigravity) Vurgu, heybe açıkken modeli örtmez.
+- [ ] **SAH-50:** (doğrulanmadı, oyuna bağlı değil — Görev 20) Vurgu, heybe açıkken modeli örtmez.
   - Ne: heybe paneli BUG-15 ile tıklamayı yer. Kamera, paneli kapatacak kadar yaklaşmaz.
   - Kabul: heybe paneli BUG-15 ile tıklamayı yer. Kamera, paneli kapatacak kadar yaklaşmaz. Test: panel açık, model hâlâ görünür.
   - Bağımlılık: BUG-15, SAH-49. Boyut: S.
