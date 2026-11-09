@@ -1,3 +1,111 @@
+## 9 Kasım 2026 — SAH-60 başlıyor (Kalfa)
+
+Festive b2dc430d güncel. Mevcut değirmen hareketi ve mevcut iki duman kaynağında yakın, uzak ve geri dönüş davranışı headless ölçülecek. Asset gerekmedi. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-59 tamamlandı (Kalfa)
+
+Muayene aynı gerçek çalışanı iki hava durumunda sayıyor. İlk eski hava sahnesi kulübe bilgi önkoşuluna takıldı. Test kişisine mevcut API ile kulübe bilgisi verildi, kulübe ve tarla gerçek inşaat/atamayla kuruldu. Açık hava örneği mevcut sulama süresiyle kuyu durağından çalışma durağına geçer. Açık havada tarlada 1, saçakta 0. Yağmurda tarlada 0, erişilebilir gerçek saçakta 1. Mevcut nöbet, kar hareketi, saçak yıkımı ve kayıt eşitliği korundu. Üretim ve hava rutini değişmedi.
+
+İzole headless hava sahnesi, hava ve tarla birimleri ve SAH-57 tezgâh regresyonu geçti. İlk headless import çıkış 0, betik hatası 0, dokuz MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-59 başlıyor (Kalfa)
+
+Festive fc18738b güncel. Aynı gerçek çalışan açık havada tarla durağında, yağmurda mevcut ANI-09 saçak durağında ölçülecek. Asset gerekmedi. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-58 tamamlandı (Kalfa)
+
+Ateş kontrolünde beş gerçek iskelet ve beş ayrı durak kullanıldı. Yalnız testte 5812 tohumu seçildi. Mevcut modelin beş farklı ofseti aynı 0,5 saniyelik animasyon anına uygulanınca hem akşam hem gece beş farklı önkol yüksekliği ölçüldü. Doğru ısınma durumu ve mevcut görev/yol kontrolleri geçti. Oyun kodu ve RNG kullanımı değişmedi.
+
+İzole headless ateş sahnesi geçti. İlk headless import çıkış 0, betik hatası 0, dört MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-58 başlıyor (Kalfa)
+
+Festive 45a7a84a güncel. Beş gerçek ateş başı modelinin mevcut hareket ofseti ve ortak karede ürettiği kol pozu ölçülecek. Asset gerekmedi. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-57 tamamlandı (Kalfa)
+
+Muayene sayımı rotayı tamamlamış ve doğru hareketi oynatan gerçek modelleri okur. İlk tezgâh kabulü güncel yapı kilidinde bina kuramadı. Test kişisine mevcut API ile kulübe, demirhane ve fırın bilgisi verildi. Mevcut inşaat API'sinden K1 kulübe kurulup yatağı kullanıldı, K2 demirhane önkoşulu karşılandı. Fixture gerçek rotayı konum adımlarıyla ilerletir. Gündüz tezgâh 2 ve ateş 0, gece tezgâh 0 ve ateş 1. Oyun rutini veya yapı kuralları değişmedi.
+
+İzole headless tezgâh sahnesi, ateş sahnesi ve iki birim hedefi geçti. İlk headless import çıkış 0, betik hatası 0, üç MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-57 başlıyor (Kalfa)
+
+Festive 8cae5a39 güncel. Gündüz tezgâha, gece ateşe ulaşan gerçek modeller ölçülecek. Eski tezgâh kabulü mevcut yapı bilgi/kademe önkoşulu altında bina kuramıyor. Test hanesi üretimdeki bilgi ve kademe API'leriyle hazırlanacak. Asset gerekmedi. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-56 tamamlandı (Kalfa)
+
+Gerçek ilk aile kararında geri çekilmiş kapı kamerası doğrulandı. Kabul ve köy açılışında eski kamera serbest bırakılmış, köy kamerası kendi viewportunda etkin, hedefi (0, 0, 4), uzaklığı 38 ve kamera sürükleme bileşeni bağlıdır. Köy kökünde kapı kamera geçişi yoktur. İlk test sohbet konumunu son soru karar panelini açtıktan sonra örnekledi. Başlangıç ölçümü sorudan önceye alındı. Üretim dosyası değişmedi.
+
+Gerçek oyun köprüsü son iki koşuda geçti; ikinci koşu APPDATA ve XDG_DATA_HOME ayrılmış geçici profildeydi. İlk koşular normal Godot profilinde performans günlükleri bıraktı. İçe aktarım ilk çıkış 0, betik hatası 0, iki MD5 hatası. Ayrı profilde tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Headless köprüde genel kare süresi uyarıları vardı. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-56 başlıyor (Kalfa)
+
+Festive 5f7b6928 güncel. Gerçek ilk aile kararı sonrası kapı kamerasının kapanışı ve köyde bağımsız ANI-14 hedefi doğrulanacak. SAH-55 açık bırakıldı: ZAR-03 yardımcı işlevi var, canlı CHR akışı tansiyonu 10'da sınırlıyor ve kaçış adaptörünü çağırmıyor. Asset gerekmedi. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-54 tamamlandı (Kalfa)
+
+Mevcut gerçek kapı sahnesinde aynı kişinin beş farklı kaynak repliği CHR replik sinyalinden geçti. Fixture mevcut düğüm kimliklerini sırayla seçer. Replik başına sekiz karede aynı kişi, etkin kamera, kamera dönüşümü ve FOV doğrulandı. Mevcut davranış kabulü karşılıyor, üretim dosyası değişmedi.
+
+Fırtına, dört kişilik kadraj, karar mesafesi ve beş replik aynı hedefte geçti. İlk headless import çıkış 0, betik hatası 0, altı MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-54 başlıyor (Kalfa)
+
+Festive 7d1657f4 güncel. Aynı CHR kişisinin beş gerçek repliği okunurken kamera ve FOV izlenecek. Asset gerekmedi. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-53 tamamlandı (Kalfa)
+
+İlk aile kapısında gerçek kuruluş kaydındaki yaşayan eş, mevcut köylü modeli ve hane görünümüyle mevcut kapı sahnesine eklenir. Konumu kapı açıklığının sol yanında seçildi. Öğretici ipucunu atlamak sahnedeki eşi kaldırmaz. Gece çıkışında model temizlenir, sonraki gece kurulmaz. Bir kamera ve bir etkin bakış. ACL-02 kaydı, köy nüfusu ve replikler korunur.
+
+Gerçek oyun köprüsü önce eş görünmediği için kaldı, sonra ilk ailede aynı kamera, öğretici atlama, karar ve sonraki gece kontrolleriyle geçti. Kamera görünürlüğü frustum üzerinden doğrulandı. İki genel headless kare süresi uyarısı vardı. Açılış olayı ve ipucu kayıt ikizi geçti. İlk headless import çıkış 0, betik hatası 0, yedi MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-53 başlıyor (Kalfa)
+
+Festive e3a14805 güncel. İlk aile öğreticisinde mevcut hane eşinin kapıdaki görünümü ve tek etkin kamera doğrulanacak. ACL-02 sahipliği ve hane kaydı korunur. Asset gerekmedi. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-52 tamamlandı (Kalfa)
+
+Gerçek karar paneli testi eski davranışta mesafe değişmediği için kaldı. Tek kapı kamera bileşeni karar açılınca yerel Z ekseninde 0,5 metre geri gelir; görüş açısı 46 derecede kalır. Bu adımı küçük ve kadrajı koruyacak mesafe olarak seçtim. Sohbete, ayrılışa ve kuyruk geçişine dönüş taban konumunu getirir. Hareket azaltma hedefi anında uygular, yeni istek eski tweeni iptal eder. Replik ve karar kayıtlarına yazılmaz.
+
+Gerçek karar/sohbet dönüşü ve SAH-51/fırtına sahnesi, kamera iptal testi, Bölüm 35 ayarlar, CHR kapı ve sıra atlama geçti. İlk headless import çıkış 0, betik hatası 0, dört MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Kadraj headless kamera geometrisiyle sınandı. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-52 başlıyor (Kalfa)
+
+Festive 02da50e6 güncel. Gerçek karar paneline geçişte kapı kamerası bir adım geri alınacak, konuşan yüzün kadrajı ve mevcut geçiş iptalleri korunacak. Sonraki kişi ve sohbet dönüşü de doğrulanacak. Asset gerekmedi. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-51 tamamlandı (Kalfa)
+
+Mevcut fırtına kuyruğu kabulüne normal havada dört gerçek kayıtlı kişi ve model eklendi. Gerçek kapı sıradaki akışı ilk nesneyi konuşturur ve ikinci nesneyi sıranın başına ilerletir. On iki karede etkin kamera, dönüşüm ve görüş açısı sabit. Konuşan yüz kadrajda, sıradaki yüze göre merkeze daha yakın. Mevcut oyun davranışı kabulü sağladı, üretim dosyası değişmedi.
+
+Fırtına kuyruğu ve SAH-51 aynı headless sahnede iki koşuda geçti, sonuncusu standart Python çalıştırıcısı üzerinden. İlk headless import çıkış 0 ve betik hatası 0, yedi MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 9 Kasım 2026 — SAH-51 başlıyor (Kalfa)
+
+Festive 6a9d75a9 güncel. Mevcut kapı sahnesinde dört gerçek modelle normal yaklaşma ve konuşma sırasında kadrajın sıradaki kişiye geçmediği doğrulanacak. Önceki SAH sahiplikleri korunuyor. Asset gerekmedi. kota görünmüyor.
+
+## 9 Kasım 2026 — DEN-79 tamamlandı (Kalfa)
+
+Mevcut SYS-10 20 gece hedefi ve üç yıllık kayıt modu korunur. Aynı otomatik oyuncu, gece hesabı ve her gecenin JSON yüklemesiyle ayrı headless paket 1–100 tohumlarını çalıştırır. İlk saat dilimiyle uyumlu olarak kısa koşuyu altı gece veya daha önceki gerçek son olarak seçtim. İlerlemeyen gece ve bozuk kayıt koşuyu düşürür. Süre raporlanır; yeni süre tavanı eklenmedi.
+
+İlk koşuda 100 oyun ve 600 gece 62,812 saniye, son Python çalıştırıcısında 100 oyun ve 600 gece 64,434 saniye sürdü. İkisinde erken son 0. Aynı çalıştırıcıdan eski 20 gece hedefi ve 13 Python birim testi geçti. Headless import ilk çıkış 0, betik hatası 0, bir MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 9 Kasım 2026 — DEN-79 alındı (Kalfa)
+
+Full pull sonrası SYS-10 duman akışını kullanan 100 kısa oyun hedefi, tam sanity çalıştırmadan doğrulanacak. Asset gerekmedi. kota görünmüyor.
+
+## 9 Kasım 2026 — DEN-59 tamamlandı (Kalfa)
+
+Olağan zorlukta 5454–5473 tohumları mevcut persona ve gerçek gece hesabıyla ölçüldü. İki bağımsız koşuda 20 tohumun aynı 16 tanesi 28 geceyi tamamladı ve tabloda tanımlı 0–12 bandında kaldı. Bu 16 koşuda 0–1 kriz görüldü. Dört erken bitiş 23, 27, 27 ve 27. gecelerdeydi ve kabul sayısına girmedi. 5469 tam 28. gecede sonlandı, tamamlanmış pencereye dahil edildi. Kıtlığın başlattığı isyan ikinci kez sayılmıyor. Salgın başlangıcı mevcut açık hastalık durumundan, kundak ve zehir mevcut uygulama makbuzundan okunur. Ölçüm düzeneği başlangıç yapı bilgisini taşıyor. Sonuç bu oyuncu stratejisine aittir.
+
+Mevcut DEN-54 persona ve iki DEN kriz sahnesi geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+## 9 Kasım 2026 — DEN-59 alındı (Kalfa)
+
+Full pull sonrası hazır persona düzeneğiyle 20 sabit tohumda 28 gerçek gece ve kriz başlangıçları ölçülecek. Asset gerekmedi. kota görünmüyor.
+
+## 9 Kasım 2026 — DEN-54 ölçüm düzeneği düzeltildi (Kalfa)
+
+Full pull sonrası yapı planı 2/7’de durdu. Kontrollü persona hanesine mevcut yapı bilgisi API’siyle hızarhane, değirmen ve fırın bilgisi verildi. Gerçek kademe, maliyet ve inşaat akışı kullanıldı. Tohum 5454, plan 7/7, 28 gece ve iflas 0 ile geçti. İkinci headless import çıkış 0, script ve MD5 hatası yok. Bilinen üç kapanış hatası sürüyor. Asset gerekmedi. ds yolları yok. kota görünmüyor.
+
 ## 8 Kasım 2026 — YAP-05 tamamlandı (Kalfa)
 
 Güncel festive üretim kaynakları 9cdbbdcb arşivinden önbelleksiz TEMP kopyaya alındı. 21 hedefli kontrol geçti. Atama/duraklatma testinde aralıklı kapanış sızıntısı mevcut Ses.cik ile giderildi, üç tekrar geçti. Geçmiş akışı testi ilk saat kadrajını doğrulayacak ve sinyal yayan ekranı ertelemeli temizleyecek biçimde güncellendi. Başka üretim kaynağı değişmedi. Oda arayüzü, tek kuyruk ve bedel, gerçek gece sonucu, kayıt, yapı kilidi ve DEN geçti.

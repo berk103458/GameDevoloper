@@ -1,4 +1,7 @@
 extends Node
+
+const MUAYENE = preload("res://tests/oto/karakter_muayene.gd")
+const YAPI_BILGISI = preload("res://src/koy/yapi_bilgisi.gd")
 class TestAna extends Ana:
 	func _ready() -> void:
 		set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -16,6 +19,15 @@ func _ready() -> void:
 	var y := ana.oturum.yonetim
 	y.kaynaklar.kapasite = 10000
 	for t in ["odun", "tas", "kereste", "demir", "un"]: y.kaynaklar.ekle(t, 100)
+	# K1 yatak ve yaşayan yapı bilgisi, K2 demirhanenin gerçek önkoşuludur.
+	var bos := y.kabul({"sinif": "ciftci", "stat": 5})
+	YAPI_BILGISI.ekle(bos, PackedStringArray(["kulube", "demirhane", "firin"]))
+	var ev := _kur(y, "kulube")
+	kontrol(ev != null and y.yatak_kapasitesi() > 0, "SAH-57: Ölçümde kullanılabilir yatak")
+	if ev == null:
+		await Ses.cik(1)
+		return
+	bos.ev = ev.id
 	var bs: Array[KoyBinasi] = []
 	var ids: Array[int] = []
 	for tur in ["demirhane", "firin"]:
@@ -42,12 +54,10 @@ func _ready() -> void:
 		var d: Dictionary = h._durum[id]
 		kontrol(d.zanaat and d.is, "Çalışan/girdili tezgâh aktif")
 		kontrol(f.get_node_or_null("zanaat_tezgahi") != null, "Gerçek el bağlantısı")
-		for adim in range(d.yol.size() + 1):
-			if int(d.adim) >= d.yol.size(): break
-			f.position = d.yol[d.adim]
-			h._process(0.0)
-		f.yurumeyi_durdur()
+		_varis(h, f, d)
 		kontrol(f.duzeltici().surekli == StringName(d.zanaat_hareket), "Varınca çekiç/kürek döngüsü")
+	var gunduz := MUAYENE.rutin_say(h)
+	kontrol(gunduz.tezgah >= 1 and gunduz.ates == 0, "SAH-57: Gündüz çalışan tezgâh")
 	var dizin := OS.get_environment("ADMIN_TEST_CIKTI")
 	if not dizin.is_empty() and DisplayServer.get_name() != "headless":
 		s.set_process(false)
@@ -76,6 +86,10 @@ func _ready() -> void:
 	for i in 3: h._process(0.0)
 	await get_tree().process_frame
 	for id in ids: kontrol(h.modeller[id].get_node_or_null("zanaat_tezgahi") == null, "Gece iş eşyası temizlenir")
+	_varis(h, h.modeller[bos.id], h._durum[bos.id])
+	var gece := MUAYENE.rutin_say(h)
+	kontrol(gece.ates >= 1 and gece.tezgah == 0, "SAH-57: Gece gerçek ısınma, tezgâh kapalı")
+	print("SAH-57 RUTİN SAYIMI: ", JSON.stringify({"gunduz": gunduz, "gece": gece}))
 	var un := y.kaynaklar.miktar("un")
 	y.kaynaklar.harca({"un": un})
 	s.faz(&"gunduz", 0.0)
@@ -88,6 +102,14 @@ func _ready() -> void:
 	await get_tree().create_timer(0.3).timeout
 	print("ZANAAT TEZGÂHI UI: GEÇTİ" if hata == 0 else "ZANAAT TEZGÂHI UI: KALDI")
 	await Ses.cik(hata)
+func _varis(h: KoyHalkHareketi, model: KarakterModel, d: Dictionary) -> void:
+	for _adim in range(d.yol.size() + 1):
+		if int(d.adim) >= d.yol.size(): break
+		model.position = d.yol[d.adim]
+		h._process(0.0)
+	model.yurumeyi_durdur()
+
+
 func _kur(y: KoyYonetimi, tur: String) -> KoyBinasi:
 	for cy in y.a.izgara_boyut.y:
 		for cx in y.a.izgara_boyut.x:

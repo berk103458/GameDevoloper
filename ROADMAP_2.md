@@ -3728,8 +3728,8 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: BUG-18. Boyut: S.
   - Dosya: mevcut BUG-18 testi.
   - Asset: asset gerekmedi.
-- [ ] **DEN-59:** 28 günde kriz sayısı aralıktadır.
-  - Güncel ön kontrol (6 Kasım, Kalfa): mevcut DEN-54 persona YAP-01 sonrası yapı planı2/7 nedeniyle exit1;28 gece/iflas0 tek başına yeterli değildir. Bu regresyon giderilmeden o koşu DEN-59 kanıtı sayılmaz.
+- [x] **DEN-59:** 28 günde kriz sayısı aralıktadır. (Kalfa)
+  - Önceki ön kontrol (6 Kasım, Kalfa): DEN-54 personası YAP-01 sonrası yapı planı2/7 nedeniyle exit1;28 gece/iflas0 tek başına yeterli değildir. Bu regresyon giderilmeden o koşu DEN-59 kanıtı sayılmaz.
   - Ne: olağan zorluk, sabit tohumla 28 gecede kriz sayısı alt ve üst arasındadır.
   - Kabul: olağan zorluk, sabit tohumla 28 gecede kriz sayısı alt ve üst arasındadır. Test: 20 tohumun en az 16'sı aralıkta.
   - Bağımlılık: DEN-57, DEN-04. Boyut: M.
@@ -3856,7 +3856,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-73, KAY-19. Boyut: S.
   - Dosya: `tests/oto/denge_persona.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-79:** Ölçüm 100 oyunu bir gecede bitirir.
+- [x] **DEN-79:** Ölçüm 100 oyunu bir gecede bitirir. (Kalfa)
   - Ne: headless paket, SYS-10 dumanının üstüne 100 kısa oyun ekler. Süre raporda. Yeni tavan uydurulmaz. Paket kırmızıysa birleşme yok.
   - Kabul: headless paket, SYS-10 dumanının üstüne 100 kısa oyun ekler. Süre raporda. Yeni tavan uydurulmaz. Paket kırmızıysa birleşme yok. Test: 100 koşu biter.
   - Bağımlılık: SYS-10, DEN-73. Boyut: M.
@@ -8227,25 +8227,25 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: BUG-15, SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-51:** Sıradaki kişi vurgulanmaz.
+- [x] **SAH-51:** Sıradaki kişi vurgulanmaz. (Kalfa)
   - Ne: kadraj kapıdaki kişidir. Sıradaki ikinci modele kesme yoktur.
   - Kabul: kadraj kapıdaki kişidir. Sıradaki ikinci modele kesme yoktur. Test: 4 kişilik sıra, kamera birincidedir.
   - Bağımlılık: SAH-49, SAH-35. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-52:** Konuşma bitince vurgu gevşer.
+- [x] **SAH-52:** Konuşma bitince vurgu gevşer. (Kalfa)
   - Ne: karar panelinde kamera bir adım geri durur. Yüz hâlâ kadrajdadır.
   - Kabul: karar panelinde kamera bir adım geri durur. Yüz hâlâ kadrajdadır. Test: iki mesafe, karar mesafesi büyük.
   - Bağımlılık: SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-53:** Eş kapıdaysa ikinci kadraj açılmaz.
+- [x] **SAH-53:** Eş kapıdaysa ikinci kadraj açılmaz. (Kalfa)
   - Ne: ACL öğreticisinde eş yanında durur. Kamera muhafızı ayrıca kadraja almaz. Tek bakış.
   - Kabul: ACL öğreticisinde eş yanında durur. Kamera muhafızı ayrıca kadraja almaz. Tek bakış. Test: eş varken kamera sayısı 1.
   - Bağımlılık: ACL-04, SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-54:** Vurgu titreşmez.
+- [x] **SAH-54:** Vurgu titreşmez. (Kalfa)
   - Ne: aynı kişi konuşurken kamera her satırda yeniden kesmez. Yeni cümle, aynı kadraj.
   - Kabul: aynı kişi konuşurken kamera her satırda yeniden kesmez. Yeni cümle, aynı kadraj. Test: 5 satır, kamera konumu sabit.
   - Bağımlılık: SAH-49. Boyut: S.
@@ -8257,7 +8257,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ZAR-03, SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-56:** Vurgu köy kamerasına yazılmaz.
+- [x] **SAH-56:** Vurgu köy kamerasına yazılmaz. (Kalfa)
   - Ne: sahne değişince kapı bakışı sıfırlanır. Köy, ANI-14 ile açılır.
   - Kabul: sahne değişince kapı bakışı sıfırlanır. Köy, ANI-14 ile açılır. Test: köyde kapı hedefi yok.
   - Bağımlılık: SAH-41, SAH-49. Boyut: S.
@@ -8266,25 +8266,25 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.8 Köyün canlılığı
 
-- [ ] **SAH-57:** Gündüz iş, gece ateş.
+- [x] **SAH-57:** Gündüz iş, gece ateş. (Kalfa)
   - Ne: ANI-07 ve ANI-08 kendi saatindedir. Bu bölüm yeni rutin eklemez. Ölçüm: gündüz tezgâhta en az bir kişi, gece ateşte en az bir kişi, yatak varsa.
   - Kabul: ANI-07 ve ANI-08 kendi saatindedir. Bu bölüm yeni rutin eklemez. Ölçüm: gündüz tezgâhta en az bir kişi, gece ateşte en az bir kişi, yatak varsa. Test: iki saat.
   - Bağımlılık: ANI-07, ANI-08. Boyut: S.
   - Dosya: `tests/oto/karakter_muayene.gd` sayım satırı.
   - Asset: asset gerekmedi.
-- [ ] **SAH-58:** Rutinler aynı karede aynı pozu tutmaz.
+- [x] **SAH-58:** Rutinler aynı karede aynı pozu tutmaz. (Kalfa)
   - Ne: ANI-12 ofseti durur. Beş kişi ateşte aynı karede eğilmez.
   - Kabul: ANI-12 ofseti durur. Beş kişi ateşte aynı karede eğilmez. Test: beş ofset, en az iki farklı faz.
   - Bağımlılık: ANI-12, SAH-57. Boyut: S.
   - Dosya: mevcut bekleme.
   - Asset: asset gerekmedi.
-- [ ] **SAH-59:** Yağmurda saçak altı ANI-09'dur.
+- [x] **SAH-59:** Yağmurda saçak altı ANI-09'dur. (Kalfa)
   - Ne: yeni bir yağmur sahnesi yok. Ölçüm, yağmurda açık avluda duran işçi sayısının düştüğünü söyler.
   - Kabul: yeni bir yağmur sahnesi yok. Ölçüm, yağmurda açık avluda duran işçi sayısının düştüğünü söyler. Test: yağmur açık, saçak dolu.
   - Bağımlılık: ANI-09. Boyut: S.
   - Dosya: `tests/oto/karakter_muayene.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-60:** Değirmen ve duman LOD'dur.
+- [/] **SAH-60:** Değirmen ve duman LOD'dur. (Kalfa)
   - Ne: ANI-06 ve ANI-15 durur. Uzak kamerada parçacık kapanır, yakın açılır. Yeni parçacık üretilmez.
   - Kabul: ANI-06 ve ANI-15 durur. Uzak kamerada parçacık kapanır, yakın açılır. Yeni parçacık üretilmez. Test: iki mesafe, iki durum.
   - Bağımlılık: ANI-15, SAH-42. Boyut: S.

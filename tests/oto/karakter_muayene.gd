@@ -61,6 +61,42 @@ func _ready() -> void:
 	get_tree().quit()
 
 
+## Rota sonuna varmış ve ilgili hareketi oynatan modelleri sayar.
+## Çizim veya temas sayfası gerektirmediği için headless kontrolde de kullanılır.
+static func rutin_say(halk: KoyHalkHareketi) -> Dictionary:
+	var sayim := {"tezgah": 0, "ates": 0}
+	for id in halk.modeller:
+		var d: Dictionary = halk._durum[id]
+		if d.yol.is_empty() or int(d.adim) < d.yol.size():
+			continue
+		var model: KarakterModel = halk.modeller[id]
+		var poz := model.duzeltici()
+		if poz == null:
+			continue
+		if d.get("zanaat", false) and d.is and poz.surekli == StringName(d.zanaat_hareket):
+			sayim.tezgah += 1
+		if d.get("ates_basi", false) and poz.surekli == &"isin":
+			sayim.ates += 1
+	return sayim
+
+
+## ANI-09: rota sonundaki açık tarla çalışanı ve sığınan model sayısı.
+static func hava_say(halk: KoyHalkHareketi) -> Dictionary:
+	var sayim := {"acikta": 0, "sacak": 0}
+	var yonetim := halk.sahne.yonetim
+	for id in halk.modeller:
+		var d: Dictionary = halk._durum[id]
+		if d.yol.is_empty() or int(d.adim) < d.yol.size():
+			continue
+		if d.siginma:
+			sayim.sacak += 1
+		elif d.is:
+			var kisi := yonetim.koylu(id)
+			if kisi != null and TarlaIsNoktalari.tarla(yonetim.bina(kisi.is_yeri)):
+				sayim.acikta += 1
+	return sayim
+
+
 func _model_adlari() -> PackedStringArray:
 	var secili := OS.get_environment("MODELLER")
 	if secili != "":

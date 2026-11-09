@@ -2,6 +2,7 @@
 extends Node
 const F = preload("res://tests/oto/kriz_kenetlenmesi_kontrol.gd")
 const KENET = preload("res://src/koy/kriz_kenetlenmesi.gd")
+const PERSONA = preload("res://tests/oto/denge_persona.gd")
 var hata := 0
 func dene(v: bool, ad: String) -> void:
 	if not v:
@@ -49,10 +50,39 @@ func _calistir() -> void:
 	dene(ana.oturum.kaydet() == once,"DEN-60 ölçüm ikinci gece/ödül üretmez")
 	_kitlik(ana.katalog)
 	_teshissiz(ana.katalog)
+	await _kriz_araligi()
 	ana.queue_free()
 	await get_tree().process_frame
 	print("DENGE KRİZ: GEÇTİ" if hata == 0 else "DENGE KRİZ: KALDI")
 	await Ses.cik(hata)
+
+func _kriz_araligi() -> void:
+	var kat := Katalog.new()
+	if kat.yukle() != Katalog.Durum.HAZIR:
+		dene(false, "DEN-59 katalog yüklenmedi")
+		return
+	var tablo: Dictionary = preload("res://src/sistemler/denge_tablosu.gd").oku()
+	var aralik: Dictionary = tablo.get("kriz_aralik", {})
+	if not aralik.has_all(["alt", "ust"]):
+		dene(false, "DEN-59 kriz aralığı eksik")
+		return
+	var persona := PERSONA.new()
+	var gecerli := 0
+	var aralikta := 0
+	for tohum in range(5454, 5474):
+		var sonuc := await persona.kos(kat, tohum)
+		if sonuc.get("gece", 0) == 28 and sonuc.get("plan_bitti", false):
+			gecerli += 1
+			var toplam := 0
+			for adet in sonuc.krizler.values(): toplam += int(adet)
+			sonuc.toplam = toplam
+			if toplam >= int(aralik.alt) and toplam <= int(aralik.ust): aralikta += 1
+		print("DEN-59: ", JSON.stringify(sonuc))
+		await get_tree().process_frame
+	persona.free()
+	print("DEN-59: %d/20 tam koşu, %d/20 aralıkta" % [gecerli, aralikta])
+	dene(aralikta >= 16, "DEN-59: 20 tohumun en az 16 tanesi 28 geceyi aralıkta bitirir")
+
 
 func _kitlik(kat: Katalog) -> void:
 	var o := Oturum.new(kat,6161)

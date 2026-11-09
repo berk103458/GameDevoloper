@@ -45,6 +45,15 @@ func _ready() -> void:
 		if ana._ekran is KapiEkrani and not ana._kapi_yukleniyor and ana._kapi.evre == &"sohbet": break
 	assert(Time.get_ticks_msec() - baslangic < 60000 and ana.oturum.gun == 0)
 	assert(ana.oturum.yonetim.nufus() == 2 and ana._kapi._gelen.id == &"acl04_ilk_aile")
+	var sahne := ana._kapi.sahne
+	var es := sahne.get_node_or_null("IlkAileEs") as KarakterModel
+	var kamera := sahne.kamera
+	if es == null or not kamera.is_position_in_frustum(KapiKameraVurgu.kadraj_hesapla(es.global_position)):
+		push_error("SAH-53: Kuruluş eşi ilk aileyle aynı kadrajda olmalı.")
+		get_tree().quit(1)
+		return
+	assert(sahne.find_children("*", "Camera3D", true, false).size() == 1)
+	assert(kamera.get_viewport().get_camera_3d() == kamera)
 	var ogretici := ana._kapi.get_node("AcilisOgretici")
 	var ogretici_satirlari := (ogretici.get_node("Adimlar") as Label).text.split("\n")
 	assert(ogretici_satirlari.size() == 3 and ogretici_satirlari[0] == IlkSaat.ipucu_metni("ogretici.gecmis.medrese_talebesi"))
@@ -53,6 +62,7 @@ func _ready() -> void:
 	(ogretici.get_child(1) as Button).pressed.emit()
 	await get_tree().process_frame
 	assert(not ana._kapi.has_node("AcilisOgretici"))
+	assert(es.is_inside_tree() and kamera.get_viewport().get_camera_3d() == kamera)
 	assert(ana.oturum.gece_sonu().get("engellendi", false))
 	ana._kapi._tumunu_goster()
 	var ilk := kopru.get_state()
@@ -66,13 +76,17 @@ func _ready() -> void:
 	ana._kapi._heybe_ac()
 	assert(ana._kapi._heybe_paneli == null and ana._kapi._gelen.heybe.soruldu == beyan_once)
 	# Gerçek selam, konu ve karar düğmeleri; kaynak veya gün hilesi yok.
+	var sohbet_konumu := kamera.position
 	for _i in 2:
 		ana._kapi._tumunu_goster()
 		assert(not (await kopru.run_command("soru_sor", {"indeks": 0})).has("error"))
 		await get_tree().create_timer(0.3).timeout
 	ana._kapi._karar_goster()
 	ana._kapi._tumunu_goster()
-	await get_tree().process_frame
+	await get_tree().create_timer(0.35).timeout
+	assert(kamera.position.z > sohbet_konumu.z)
+	assert(sahne.find_children("*", "Camera3D", true, false).size() == 1)
+	assert(kamera.get_viewport().get_camera_3d() == kamera)
 	var ilk_karar := kopru.get_state()
 	assert(ilk_karar.kisi.kararlar == ["kabul", "ret"] and ilk_karar.eylemler.is_empty())
 	assert(not (await kopru.run_command("kapi_karar", {"karar": "kabul"})).has("error"))
@@ -80,6 +94,14 @@ func _ready() -> void:
 		await get_tree().create_timer(0.08).timeout
 		if ana._ekran is KoyEkrani: break
 	assert(ana._ekran is KoyEkrani and ana.oturum.gun == 0 and ana.oturum.yonetim.nufus() == 4)
+	await get_tree().process_frame
+	var koy3b := (ana._ekran as KoyEkrani).sahne3b
+	var koy_kamera := koy3b.kamera
+	assert(not is_instance_valid(kamera) and koy_kamera.get_viewport().get_camera_3d() == koy_kamera)
+	assert(koy3b.hedef.is_equal_approx(Vector3(0, 0, 4)) and is_equal_approx(koy3b.uzaklik, 38.0))
+	assert(koy3b.get_node_or_null("kamera_surukleme") is KameraSurukleme)
+	assert(not koy3b.get_children().any(func(dugum: Node) -> bool: return dugum is KapiKameraGecisi))
+	print("SAH-56 KÖY KAMERASI AYRI: GEÇTİ")
 	var ambar_once := ana.oturum.ambar
 	assert(not (await kopru.run_command("gece_bitir")).has("error"))
 	assert(_kisa_rapor(ambar_once))
@@ -96,6 +118,8 @@ func _ready() -> void:
 		assert(adim.ekran == "rapor")
 		assert(not (await kopru.run_command("devam", {"indeks": 0})).has("error"))
 	assert(ana._ekran is KapiEkrani and ana.oturum.gun == 1)
+	assert(not is_instance_valid(es) and not ana._kapi.sahne.has_node("IlkAileEs"))
+	print("SAH-53 İLK AİLE TEK KADRAJ: GEÇTİ")
 	var karar_sayisi := 0
 	var nokta_alindi := false
 	for _i in 1000:

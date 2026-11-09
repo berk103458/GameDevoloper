@@ -1,4 +1,5 @@
 extends SceneTree
+const HAREKET = preload("res://src/sistemler/hareket_azalt.gd")
 var hata := 0
 var _iptal_bitti := false
 func _initialize() -> void:
@@ -6,6 +7,7 @@ func _initialize() -> void:
 func _calistir() -> void:
 	var sahne := KapiSahnesi.new()
 	root.add_child(sahne)
+	var taban_konum := sahne.kamera.position
 	_uzun_bakis(sahne)
 	await create_timer(0.1).timeout
 	await sahne.daralt(false)
@@ -19,11 +21,20 @@ func _calistir() -> void:
 	await create_timer(0.1).timeout
 	await sahne.kuyruga_bak(false)
 	await create_timer(0.3).timeout
-	_kontrol(is_equal_approx(sahne.kamera.fov, 46.0), "Yeni kuyruk dönüşü eski karar adımlarını iptal eder")
+	_kontrol(is_equal_approx(sahne.kamera.fov, 46.0), "Yeni kuyruk dönüşü eski karar geçişini iptal eder")
+	_kontrol(sahne.kamera.position.is_equal_approx(taban_konum), "İptal edilen karar konumda iz bırakmaz")
 	await sahne.daralt(true)
-	_kontrol(is_equal_approx(sahne.kamera.fov, 37.0), "Karar yakın planı korunur")
+	_kontrol(is_equal_approx(sahne.kamera.fov, 46.0), "Karar görüş açısını daraltmaz")
+	_kontrol(sahne.kamera.position.z > taban_konum.z, "Karar kamerası fiziksel olarak geri çekilir")
 	await sahne.daralt(false)
-	_kontrol(is_equal_approx(sahne.kamera.fov, 46.0), "Karar sonrası FOV tam tabana döner")
+	_kontrol(sahne.kamera.position.is_equal_approx(taban_konum), "Karar sonrası kamera tam tabana döner")
+	var hareket_once := HAREKET.acik
+	HAREKET.acik = true
+	sahne.daralt(true)
+	_kontrol(sahne.kamera.position.z > taban_konum.z, "Hareket azaltmada karar konumu anında uygulanır")
+	sahne.daralt(false)
+	_kontrol(sahne.kamera.position.is_equal_approx(taban_konum), "Hareket azaltmada sohbet konumu anında geri gelir")
+	HAREKET.acik = hareket_once
 	sahne.kuyruga_bak(true)
 	await process_frame
 	sahne.free()

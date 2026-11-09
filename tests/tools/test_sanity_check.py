@@ -86,6 +86,16 @@ class RunnerTest(unittest.TestCase):
         self.assertIn("performans_gunlugu_test", commands)
         self.assertIn("20-night-smoke", commands)
 
+    def test_short_games_are_separate_from_twenty_night_smoke(self):
+        jobs = {name: (command, marker) for name, command, marker in sanity.checks("godot", ROOT)}
+        command, marker = jobs["den79-short-games"]
+        self.assertEqual(jobs["20-night-smoke"][0], command)
+        self.assertEqual("100 KISA OYUN: GEÇTİ", marker)
+        self.assertEqual("1", sanity.check_env("den79-short-games")["DUMAN_TESTI_20"])
+        self.assertEqual("1", sanity.check_env("den79-short-games")["DUMAN_KISA_OYUNLAR"])
+        self.assertEqual("0", sanity.check_env("20-night-smoke")["DUMAN_KISA_OYUNLAR"])
+
+
 
 if __name__ == "__main__":
     unittest.main()
