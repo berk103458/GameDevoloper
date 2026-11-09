@@ -8266,7 +8266,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.8 Köyün canlılığı
 
-- [ ] **SAH-57:** Gündüz iş, gece ateş.
+- [/] **SAH-57:** Gündüz iş, gece ateş. (Kalfa)
   - Ne: ANI-07 ve ANI-08 kendi saatindedir. Bu bölüm yeni rutin eklemez. Ölçüm: gündüz tezgâhta en az bir kişi, gece ateşte en az bir kişi, yatak varsa.
   - Kabul: ANI-07 ve ANI-08 kendi saatindedir. Bu bölüm yeni rutin eklemez. Ölçüm: gündüz tezgâhta en az bir kişi, gece ateşte en az bir kişi, yatak varsa. Test: iki saat.
   - Bağımlılık: ANI-07, ANI-08. Boyut: S.

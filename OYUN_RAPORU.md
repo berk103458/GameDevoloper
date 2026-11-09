@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — SAH-57 başlıyor (Kalfa)
+
+Festive 8cae5a39 güncel. Gündüz tezgâha, gece ateşe ulaşan gerçek modeller ölçülecek. Eski tezgâh kabulü mevcut yapı bilgi/kademe önkoşulu altında bina kuramıyor. Test hanesi üretimdeki bilgi ve kademe API'leriyle hazırlanacak. Asset gerekmedi. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-56 tamamlandı (Kalfa)
 
 Gerçek ilk aile kararında geri çekilmiş kapı kamerası doğrulandı. Kabul ve köy açılışında eski kamera serbest bırakılmış, köy kamerası kendi viewportunda etkin, hedefi (0, 0, 4), uzaklığı 38 ve kamera sürükleme bileşeni bağlıdır. Köy kökünde kapı kamera geçişi yoktur. İlk test sohbet konumunu son soru karar panelini açtıktan sonra örnekledi. Başlangıç ölçümü sorudan önceye alındı. Üretim dosyası değişmedi.
