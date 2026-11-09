@@ -8285,7 +8285,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-09. Boyut: S.
   - Dosya: `tests/oto/karakter_muayene.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-60:** Değirmen ve duman LOD'dur. (Kalfa)
+- [x] **SAH-60:** Değirmen ve duman LOD'dur. (Kalfa)
   - Ne: ANI-06 ve ANI-15 durur. Uzak kamerada parçacık kapanır, yakın açılır. Yeni parçacık üretilmez.
   - Kabul: ANI-06 ve ANI-15 durur. Uzak kamerada parçacık kapanır, yakın açılır. Yeni parçacık üretilmez. Test: iki mesafe, iki durum.
   - Bağımlılık: ANI-15, SAH-42. Boyut: S.

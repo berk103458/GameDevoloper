@@ -1,4 +1,6 @@
 extends Node
+
+const YAPI_BILGISI = preload("res://src/koy/yapi_bilgisi.gd")
 class TestAna extends Ana:
 	func _ready() -> void:
 		set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -17,13 +19,15 @@ func _ready() -> void:
 	y.a = y.a.duplicate(true)
 	y.a.ambar_taban_kapasite = 10000
 	y.kaynaklar.kapasite = 10000
-	for t in ["odun", "bugday"]: y.kaynaklar.ekle(t, 100)
-	var b := _kur(y)
-	kontrol(b != null, "Gerçek değirmen")
-	if b == null:
+	for t in ["odun", "tas", "kereste", "bugday"]: y.kaynaklar.ekle(t, 100)
+	var k := y.kabul({"sinif": "ciftci", "stat": 5})
+	YAPI_BILGISI.ekle(k, PackedStringArray(["kulube", "degirmen"]))
+	var onceki_kademe := _kur(y, "kulube")
+	var b := _kur(y, "degirmen")
+	kontrol(onceki_kademe != null and b != null, "Gerçek K1 kulübe ve K2 değirmen")
+	if onceki_kademe == null or b == null:
 		await Ses.cik(1)
 		return
-	var k := y.kabul({"sinif": "ciftci", "stat": 5})
 	k.zanaat_turu = ZanaatTuru.Tur.DEGIRMENCI
 	kontrol(y.ata(k.id, b.id) and y.recete_sec(b.id, "un"), "Gerçek değirmenci/un ataması")
 	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
@@ -94,12 +98,12 @@ func _ready() -> void:
 	await get_tree().create_timer(0.3).timeout
 	print("DEĞİRMEN HAREKETİ UI: GEÇTİ" if hata == 0 else "DEĞİRMEN HAREKETİ UI: KALDI")
 	await Ses.cik(hata)
-func _kur(y: KoyYonetimi) -> KoyBinasi:
+func _kur(y: KoyYonetimi, tur: String) -> KoyBinasi:
 	for cy in y.a.izgara_boyut.y:
 		for cx in y.a.izgara_boyut.x:
 			var h := Vector2i(cx, cy)
-			if y.yerlesim("degirmen", h).olur:
-				var b := y.bina(y.bina_kur("degirmen", h).id)
+			if y.yerlesim(tur, h).olur:
+				var b := y.bina(y.bina_kur(tur, h).id)
 				if b == null: return null
 				b.insa_kalan = 0
 				return b

@@ -14,6 +14,14 @@
 - Testler: Hedefli headless testler 0 hata ile GEÇTİ.
 
 
+## 10 Kasım 2026 — SAH-60 tamamlandı (Kalfa)
+
+Eski değirmen ve atölye hedefleri yapı kilidinde durdu. Fixture kişilerine mevcut yapı bilgisi API'siyle gereken bilgi verildi. Hazır K1 kulübeden sonra gerçek inşaat API'si K2 yapılarını kurar. İki mevcut duman kaynağı yakında çalışır, uzakta emisyon ve görünürlük kapanır, aynı nesne yakına dönünce yeniden açılır. Orta mesafe bütçesi, düşük profil, reçete girdisi ve kayıt eşitliği de sınandı. Değirmen çarkı girdili gündüz döner, girdi yokken ve gece durur. Çuval rotası korunur. Oyun kodu ve parçacık tanımı değişmedi.
+
+İzole headless atölye ve değirmen sahneleri ile iki birim hedefi geçti. İlk import çıkış 0, betik hatası 0, dört MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
+938c1f40 alındı. Oyun raporunda iki katkı korundu. Yerel 88 UID ve iki üretilmiş çeviri 880c43f6 Git stash kaydında durur. Güncel tabanda iki sahne, iki birim, kapı replik ve gerçek oyun köprüsü olmak üzere altı hedef yeniden geçti. Güncel importta ilk altı MD5 hatası tekrarda sıfıra indi; betik hatası sıfır, bilinen üç kapanış hatası sürüyor.
+
 ## 9 Kasım 2026 — SAH-60 başlıyor (Kalfa)
 
 Festive b2dc430d güncel. Mevcut değirmen hareketi ve mevcut iki duman kaynağında yakın, uzak ve geri dönüş davranışı headless ölçülecek. Asset gerekmedi. kota görünmüyor.

@@ -1,4 +1,6 @@
 extends Node
+
+const YAPI_BILGISI = preload("res://src/koy/yapi_bilgisi.gd")
 class TestAna extends Ana:
  func _ready() -> void:
   set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -16,6 +18,13 @@ func _ready() -> void:
  var y := ana.oturum.yonetim
  y.kaynaklar.kapasite = 10000
  for t in ["odun", "tas", "kereste", "demir", "un"]: y.kaynaklar.ekle(t, 100)
+ var bilgi_sahibi := y.kabul({"sinif": "ciftci", "stat": 5})
+ YAPI_BILGISI.ekle(bilgi_sahibi, PackedStringArray(["kulube", "demirhane", "firin"]))
+ var onceki_kademe := _kur(y, "kulube")
+ kontrol(onceki_kademe != null, "K2 demirhane için hazır K1 kulübe")
+ if onceki_kademe == null:
+  await Ses.cik(1)
+  return
  var bs: Array[KoyBinasi] = []
  var ids: Array[int] = []
  for tur in ["demirhane", "firin", "tarla"]:
@@ -56,6 +65,7 @@ func _ready() -> void:
  var fxler: Array[AtolyeParcaciklari] = []
  for node in s.find_children("atolye_parcaciklari", "", true, false): fxler.append(node)
  kontrol(fxler.size() == 3, "Üç hazır binada birer efekt grubu")
+ var duman_sayisi := 0
  for fx in fxler:
   s.kamera.position = fx.global_position + Vector3(0, 5, 8)
   s.kamera.look_at(fx.global_position)
@@ -72,6 +82,15 @@ func _ready() -> void:
   s.kamera.look_at(fx.global_position)
   fx.guncelle()
   for p in fx.efektler.values(): kontrol(not p.emitting and not p.visible, "Uzakta emisyon ve çizim kapalı")
+  var duman: Variant = fx.efektler.get("duman")
+  if duman != null:
+   duman_sayisi += 1
+   s.kamera.position = fx.global_position + Vector3(0, 5, 8)
+   s.kamera.look_at(fx.global_position)
+   fx.guncelle()
+   kontrol(fx.efektler.duman == duman and duman.emitting and duman.visible, "SAH-60: Yakına dönünce aynı duman kaynağı açılır")
+ kontrol(duman_sayisi == 2, "SAH-60: Fırın ve demirhanenin mevcut iki duman kaynağı")
+ print("SAH-60 DUMAN LOD: %d kaynak, yakın → uzak → yakın" % duman_sayisi)
  var grafik := GrafikProfiliAdaptoru.new()
  grafik.ayarlar = ana.ayarlar
  grafik.hedef = ana
