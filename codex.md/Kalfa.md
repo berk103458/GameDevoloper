@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — SAH-51 başlıyor (Kalfa)
+
+Festive 6a9d75a9 güncel. Mevcut kapı sahnesinde dört gerçek modelle normal yaklaşma ve konuşma sırasında kadrajın sıradaki kişiye geçmediği doğrulanacak. Önceki SAH sahiplikleri korunuyor. Asset gerekmedi. kota görünmüyor.
+
 ## 9 Kasım 2026 — DEN-79 tamamlandı (Kalfa)
 
 Mevcut SYS-10 20 gece hedefi ve üç yıllık kayıt modu korunur. Aynı otomatik oyuncu, gece hesabı ve her gecenin JSON yüklemesiyle ayrı headless paket 1–100 tohumlarını çalıştırır. İlk saat dilimiyle uyumlu olarak kısa koşuyu altı gece veya daha önceki gerçek son olarak seçtim. İlerlemeyen gece ve bozuk kayıt koşuyu düşürür. Süre raporlanır; yeni süre tavanı eklenmedi.
