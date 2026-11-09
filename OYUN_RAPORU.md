@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — DEN-59 alındı (Kalfa)
+
+Full pull sonrası hazır persona düzeneğiyle 20 sabit tohumda 28 gerçek gece ve kriz başlangıçları ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 8 Kasım 2026 — SAH-33..SAH-50 tamamlandı (Antigravity)
 
 - SAH-33..SAH-40: `src/dunya/kalabalik_yol.gd` oluşturuldu; yol ağı tek navigasyon ağıdır (tek_ag_var_mi). Varış hücresi doluysa komşu boş hücre seçilir, iç içe model 0'dır (bos_hucre_bul). Kapı kuyruğu çizgi sırasını tutar (kuyruk_cizgisi). Dar kapı eşiği tek köke açıktır (esik_rezerve_et, esik_musait_mi). 2 saniye yol bulamayan kök bekle durumuna düşer, ışınlanma 0'dır (sikisma_durumu). Gece devriyesi kalabalığı delmez, rotası dolu hücreden kayar (devriye_rotasi_kaydir). 10 kişide yol hesabı kare bütçesi (sahne.json yol_butcesi_ms: 2.0) içindedir (butce_asildi_mi). Çocuk ve yaşlı aynı navigasyon ağını kullanır (ag_kimligi).
