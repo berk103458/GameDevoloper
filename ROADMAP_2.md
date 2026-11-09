@@ -7928,7 +7928,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-01. Boyut: M.
   - Dosya: `src/dunya/ayak_zemini.gd`. Eşik `data/ayarlar/sahne.json`.
   - Asset: asset gerekmedi.
-- [/] **SAH-04:** Durunca ayaklar kapanır. (Kalfa — gerçek yokuşta 5 saniye duruş)
+- [x] **SAH-04:** Durunca ayaklar kapanır. (Kalfa — gerçek yokuşta 2 × 5 saniye, azami kök deltası 0)
   - Ne: hız sıfır olunca kayma birikmez. Karakter yokuşta yavaşça aşağı akmaz.
   - Kabul: hız sıfır olunca kayma birikmez. Karakter yokuşta yavaşça aşağı akmaz. Test: 5 saniye duruş, konum deltası eşik altı.
   - Bağımlılık: SAH-03. Boyut: S.

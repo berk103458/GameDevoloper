@@ -48,10 +48,13 @@ func _calistir() -> void:
 	var kayma_gecerli := true
 	for ornek in [["ciftci", 1.35], ["lowpo_demirci", 1.35], ["chr_006", KarakterModel.YURUME_HIZI]]:
 		kayma_gecerli = (await _kayma(kapi, ornek[0], ornek[1])) and kayma_gecerli
-	Engine.time_scale = 4.0
 	if not kayma_gecerli:
 		await _bitir(false, "SAH-03: Ayak kayması")
 		return
+	if not await _durus(kapi, "ciftci", false) or not await _durus(kapi, "lowpo_demirci", true):
+		await _bitir(false, "SAH-04: Eğimde duruş")
+		return
+	Engine.time_scale = 4.0
 	var tarla_bas := koy.alan_merkezi(tarla.hucre, Vector2i.ONE)
 	var tarla_son := koy.alan_merkezi(tarla.hucre + tarla.boyut(y.katalog) - Vector2i.ONE, Vector2i.ONE)
 	if not await _yuru(koy, "tarla", "ciftci", tarla_bas, tarla_son):
@@ -154,6 +157,55 @@ func _kayma(kapi: KapiSahnesi, ad: String, hiz: float) -> bool:
 	f.queue_free()
 	print("SAH-03 %s: adım=%d, azami kayma=%.4f m, eşik=%.2f m, adım boyu aşımı=%d" % [ad, tamamlanan, azami, ayak.kayma_esigi, boy_asimi])
 	return tamamlanan == ADIM_SAYISI and azami <= ayak.kayma_esigi and boy_asimi == 0
+
+
+func _durus(kapi: KapiSahnesi, ad: String, iptal: bool) -> bool:
+	const SURE := 5.0
+	var bas := KapiManzarasi.yol_noktasi(0.72)
+	var son := KapiManzarasi.yol_noktasi(0.74)
+	var f := Dunya3B.karakter(ad)
+	f.position = bas
+	kapi.add_child(f)
+	f.bak(son)
+	var ayak := f.get_node("AyakZemini") as AyakZemini
+	if iptal:
+		f.yuru(son, 1.35)
+		await get_tree().create_timer(0.45).timeout
+		f.yurumeyi_durdur()
+	else:
+		await f.yuru(son, 1.35)
+	var durak := f.global_position
+	var zemin_farki := absf(kapi.ayak_zemini_yuksekligi(bas) - kapi.ayak_zemini_yuksekligi(durak))
+	var gecti := bas.distance_to(durak) > 0.25 and zemin_farki > 0.02
+	gecti = gecti and (not durak.is_equal_approx(son) if iptal else durak.is_equal_approx(son))
+	var son_konum := durak
+	var azami_delta := 0.0
+	var azami_aciklik := 0.0
+	var sure := 0.0
+	var kare := 0
+	while sure < SURE:
+		await get_tree().process_frame
+		var delta := get_process_delta_time()
+		var kok := f.global_position
+		var hiz := kok.distance_to(son_konum) / delta
+		var konum_farki := kok - durak
+		azami_delta = maxf(azami_delta, konum_farki.length())
+		gecti = gecti and hiz <= 0.05 and ayak.durus_kayma_esik_alti_mi(hiz, konum_farki)
+		gecti = gecti and (f._yurume == null or not f._yurume.is_running())
+		# İlk karışım bittiğinde canlı iskelet tabanı ve bekleme klibi de denetlenir.
+		if sure >= KarakterModel.GECIS:
+			var farklar := ayak.temas_farklari()
+			var en_yakin := float(Array(farklar).min()) if farklar.size() >= 2 else INF
+			azami_aciklik = maxf(azami_aciklik, en_yakin)
+			gecti = gecti and en_yakin >= -GOMULME_PAYI and en_yakin <= 0.025
+			gecti = gecti and f._oynatici.current_animation != f._anim
+		son_konum = kok
+		sure += delta
+		kare += 1
+	print("SAH-04 %s (%s): %.2f s, %d kare, yükselti farkı=%.4f m, azami kök deltası=%.5f m, taban açıklığı=%.5f m" % [
+		ad, "iptal" if iptal else "doğal bitiş", sure, kare, zemin_farki, azami_delta, azami_aciklik])
+	f.queue_free()
+	return gecti
 
 
 func _tarla(y: KoyYonetimi) -> KoyBinasi:
