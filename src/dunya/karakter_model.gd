@@ -137,8 +137,8 @@ func calis(ad: StringName) -> void:
 
 
 ## Anlık duygu hareketi (&"sevinc" / &"ofke" / &"panik"); süresi kadar bekler.
-## Meshy klibi varsa o oynar (en çok 3 s), yoksa prosedürel hareket (panik → öfke hareketi).
-func duygu(ad: StringName) -> void:
+## Meshy klibi varsa o oynar. Eksik klipte çağıran beklemeyi seçebilir, varsayılan prosedürel tepkidir.
+func duygu(ad: StringName, eksikte_bekle: bool = false) -> void:
 	if hareket_var(String(ad)):
 		var sira := _klip_oynat(String(ad))
 		var uzunluk := _oynatici.get_animation(_klipler[String(ad)]).length
@@ -149,7 +149,11 @@ func duygu(ad: StringName) -> void:
 	if _duzeltici == null:
 		dur()
 		return
-	_duzeltici.duygu_baslat(&"ofke" if ad == &"panik" else ad)
+	if eksikte_bekle:
+		_duzeltici.duygu = &""
+		dur()
+	else:
+		_duzeltici.duygu_baslat(&"ofke" if ad == &"panik" else ad)
 	await get_tree().create_timer(_duzeltici.duygu_suresi * 0.8).timeout
 
 

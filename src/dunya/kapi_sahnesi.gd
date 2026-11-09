@@ -261,7 +261,7 @@ func gelen_git(kaldi: bool, tehlikeli: bool = true) -> void:
 
 func _ayril(g: KarakterModel, kaldi: bool, tehlikeli: bool = true) -> void:
 	# Önce tepki: kabulde şükran; retde kötü niyetli öfkelenir, masum diz çöker. Sonra yürür.
-	await g.duygu(&"sevinc" if kaldi else (&"ofke" if tehlikeli else &"panik"))
+	await g.duygu(&"sevinc" if kaldi else (&"ofke" if tehlikeli else &"panik"), kaldi or not tehlikeli)
 	if not is_instance_valid(g):
 		return
 	if kaldi:

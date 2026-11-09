@@ -66,6 +66,13 @@ func _calistir() -> void:
 	if not await _yuru(kapi, "kapı eşiği", "chr_001", KapiSahnesi.DURMA, Vector3(0, 0, 1.2)):
 		await _bitir(false, "Kapı eşiği ayak teması")
 		return
+	var pozlar := [["chr_002", true, "sevinc"], ["chr_002", false, "panik"], ["ciftci", true, ""]]
+	var poz_gecerli := true
+	for ornek in pozlar:
+		poz_gecerli = (await _karar_pozu(kapi, ornek[0], ornek[1], ornek[2])) and poz_gecerli
+	if not poz_gecerli:
+		await _bitir(false, "SAH-06: Karar pozunda taban")
+		return
 	koy.queue_free()
 	kapi.queue_free()
 	await get_tree().process_frame
@@ -112,6 +119,7 @@ func _egim(kapi: KapiSahnesi, ad: String, yon: float, tohum: int) -> bool:
 func _kayma(kapi: KapiSahnesi, ad: String, hiz: float) -> bool:
 	const ADIM_SAYISI := 10
 	const TEMAS_YUKSEKLIGI := 0.025
+	const KAREDE_KLIP_PAYI := 0.2
 	var f := Dunya3B.karakter(ad)
 	var hedef := KapiManzarasi.yol_noktasi(0.22)
 	kapi.add_child(f)
@@ -121,10 +129,18 @@ func _kayma(kapi: KapiSahnesi, ad: String, hiz: float) -> bool:
 	var tamamlanan := 0
 	var azami := 0.0
 	var boy_asimi := 0
+	var atlanan_kare := 0
+	var klip_turu := f._oynatici.get_animation(f._anim).length
 	f.yuru(hedef, hiz)
 	while f._yurume != null and f._yurume.is_running() and tamamlanan < ADIM_SAYISI:
 		await get_tree().process_frame
 		if f._oynatici.current_animation != f._anim:
+			continue
+		# Geniş örnek aralığı bir salınımı tümden atlayabilir. Ayrı iki teması birleştirme.
+		var klip_ilerlemesi := get_process_delta_time() * absf(f._oynatici.get_playing_speed())
+		if klip_ilerlemesi > klip_turu * KAREDE_KLIP_PAYI:
+			temaslar.clear()
+			atlanan_kare += 1
 			continue
 		var kok := Vector2(f.global_position.x, f.global_position.z)
 		var farklar := ayak.temas_farklari()
@@ -155,7 +171,7 @@ func _kayma(kapi: KapiSahnesi, ad: String, hiz: float) -> bool:
 					break
 	f.yurumeyi_durdur()
 	f.queue_free()
-	print("SAH-03 %s: adım=%d, azami kayma=%.4f m, eşik=%.2f m, adım boyu aşımı=%d" % [ad, tamamlanan, azami, ayak.kayma_esigi, boy_asimi])
+	print("SAH-03 %s: adım=%d, azami kayma=%.4f m, eşik=%.2f m, adım boyu aşımı=%d, atlanan kare=%d" % [ad, tamamlanan, azami, ayak.kayma_esigi, boy_asimi, atlanan_kare])
 	return tamamlanan == ADIM_SAYISI and azami <= ayak.kayma_esigi and boy_asimi == 0
 
 
@@ -206,6 +222,42 @@ func _durus(kapi: KapiSahnesi, ad: String, iptal: bool) -> bool:
 		ad, "iptal" if iptal else "doğal bitiş", sure, kare, zemin_farki, azami_delta, azami_aciklik])
 	f.queue_free()
 	return gecti
+
+
+func _karar_pozu(kapi: KapiSahnesi, model_adi: String, kabul: bool, klip: String) -> bool:
+	var f := Dunya3B.karakter(model_adi)
+	f.position = KapiSahnesi.DURMA
+	kapi.add_child(f)
+	f.bak(kapi.kamera.position)
+	var ayak := f.get_node("AyakZemini") as AyakZemini
+	var beklenen := String(f._klipler.get(klip, ""))
+	var gecti := not beklenen.is_empty() if not klip.is_empty() else not f.hareket_var("sevinc")
+	await get_tree().process_frame
+	kapi._gelen = f
+	kapi.gelen_git(kabul, false)
+	var kare := 0
+	var en_alt := INF
+	var azami_aciklik := 0.0
+	while f._yurume == null:
+		await get_tree().process_frame
+		if f._yurume != null:
+			break
+		if klip.is_empty():
+			var duzeltici := f.duzeltici()
+			gecti = gecti and (duzeltici == null or duzeltici.duygu == &"")
+			gecti = gecti and f._oynatici.current_animation != f._anim
+		else:
+			gecti = gecti and f._oynatici.current_animation == beklenen
+		var farklar := ayak.temas_farklari()
+		var en_yakin := float(Array(farklar).min()) if farklar.size() >= 2 else INF
+		en_alt = minf(en_alt, en_yakin)
+		azami_aciklik = maxf(azami_aciklik, en_yakin)
+		gecti = gecti and en_yakin >= -GOMULME_PAYI and en_yakin <= 0.05
+		gecti = gecti and f.position.is_equal_approx(KapiSahnesi.DURMA)
+		kare += 1
+	print("SAH-06 %s/%s: kare=%d, en alt=%.5f m, azami taban açıklığı=%.5f m, geçti=%s" % [
+		model_adi, klip if not klip.is_empty() else "eksik klip", kare, en_alt, azami_aciklik, gecti])
+	return gecti and kare >= 10
 
 
 func _tarla(y: KoyYonetimi) -> KoyBinasi:

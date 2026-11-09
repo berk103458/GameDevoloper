@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-06 tamamlandı (Kalfa)
+
+Gerçek kabul şükran ve zararsız ret diz çökme kliplerini oynatır. Klip yoksa bu iki karar mevcut güvenli beklemeye döner, mevcut tepki süresi korunur. Öfkeli ret ve diğer duygu çağrılarının varsayılanı aynı kalır. Taban ölçümü canlı AyakZemini temaslarından yapılır.
+
+İlk koşuda CHR-002 iki klipte geçti, klipsiz çiftçi prosedürel tepki verdiği için kaldı. Son değişken kareli koşuda şükran 89 kare ve 0 açıklık, diz çökme 74 kare ve en çok 3,41 cm, eksik klip 40 kare ve 0 açıklık. Kök sabit ve gömülme yok. Sabit 120 kare/s koşusunda üç senaryo da geçti. Değişken kareli bir yürüyüş koşusunda kısa çocuk klibi için örnek aralığı büyüdüğünde iki teması birleştiren ölçüm görüldü. Bir klibin beşte birini aşan örnek aralığında temas yeniden başlatılır ve 10 tam temas zorunlu kalır. Son koşuda çocukta bir kare atlandı, 10 tamamlanan temasta en çok 3,96 cm. Dört hedef geçti. İlk headless importta betik hatası 0 ve üç MD5 hatası, tekrarda betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-06 başlıyor (Kalfa)
 
 Festive 5ae55e88 güncel. Cursor Görev 23(a) test güncellemeleri alındı. Gerçek kapı kararında şükran, diz çökme ve eksik klipte bekleme ayrı ölçülecek. Asset gerekmedi. kota görünmüyor.
