@@ -814,7 +814,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.1 Kavga ne zaman
 
-- [x] **CAT-01:** Geri çevrilen kavga çıkarabilir. (Antigravity)
+- [ ] **CAT-01:** Geri çevrilen kavga çıkarabilir. (Antigravity) (doğrulanmadı — Görev 22; KapiKavgasi (src/kapi/kapi_kavgasi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Yer yokluğu veya sert ret, tip listesindeki genç erkek, aç aile reisi ya da asker kaçağında kavga isteği doğurur. Kavga yalnız kapıda ve en az bir asker varken açılır. Asker yoksa kişi tehdit edip gider; tanık varsa bu gidiş dedikoduya yazılır. Köy meydanı, şifahane ve divanda kavga sahnesi yoktur. Heyet sırasında kavga açılmaz.
   - Kurallar:
     1. Kavga isteği iki koşulla doğar: yer yokluğu veya sert ret; karakter tipi genç erkek, aç aile reisi veya asker kaçağı. Tip veridedir.
@@ -831,7 +831,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.2 Dört seçenek
 
-- [x] **CAT-02:** Kavga seçenekleri — askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. (Antigravity)
+- [ ] **CAT-02:** Kavga seçenekleri — askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. (Antigravity) (doğrulanmadı — Görev 22; KapiKavgasi (src/kapi/kapi_kavgasi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Kapıdaki kavgada oyuncu dört yoldan birini seçer: askerle karşılık, akçeyle erteleme, sözle yatıştırma veya reddetme. Askerle karşılık zar atar ve yaralanma, ölüm, kaçış ya da kin bırakır. Akçe yetmezse erteleme kilitli görünür. Beşinci seçenek yoktur. Kalp alanı yazılmaz.
   - Kurallar:
     1. Dört seçenek vardır: askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. Beşinci seçenek yazılamaz.
@@ -864,7 +864,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.4 Sıranın korkusu
 
-- [x] **CAT-04:** Kapıda şiddet sırayı korkutur. (Antigravity)
+- [ ] **CAT-04:** Kapıda şiddet sırayı korkutur. (Antigravity) (doğrulanmadı — Görev 22; SiddetKorkusu (src/kapi/siddet_korkusu.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Askerle karşılık veya ölüm, sıradaki kişilerin tansiyonunu okur. Eşik üstündekiler tablodaki olasılıkla ayrılabilir; herkes ayrılmaz. Yatıştırma ve erteleme bu ayrılmayı tetiklemez. Yeni korku barı açılmaz. Menü açıkken artış donar.
   - Kurallar:
     1. Şiddet, karşılık veya ölüm sonucudur. Sıradaki kişilerin sabrı ve tansiyonu okunur.
@@ -1373,6 +1373,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
 
 - [ ] **ISG-39:** Grev söylenti eşiğini SOY-34 okur
   - 5 Kasım doğrulaması (Kalfa): SOY-34 [x] olsa da `meslek_grevi.gd` içinde söylenti okuyucusu/olasılık artışı bulunmuyor; `SoylentiAgi` üretim çağrısı da yok. Bu bağımlılığın gerçek bağlantısı sağlanmadan ISG-39 tamamlandı sayılmaz; sahiplik alınmadı.
+  - Görev 22 (Cursor): SOY-34 ve tüm `SoylentiAgi` maddeleri geri açıldı; ağ oyunda kurulmuyor. ISG-39, `SoylentiAgi` oyuna bağlanmadan alınamaz.
   - Ne: Grev söylenti eşiğini SOY-34 okur. İkinci eşik yok.
   - Kabul: Grev söylenti eşiğini SOY-34 okur. Eşik 1. Test: SOY-34.
   - Bağımlılık: SOY-34. Boyut: S.
@@ -1960,7 +1961,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.2 Yemin, yalan, söz
 
-- [x] **DYL-03:** (Antigravity) Yemin ettirmek.
+- [ ] **DYL-03:** (Antigravity) Yemin ettirmek. (doğrulanmadı — Görev 22; Yemin (src/soz/yemin.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Oyuncu ziyarette bir kez "El bas, yemin et" der. Yemin şekli karakterin inancına göre dünya kitabından gelir; uymayan şekil hakarettir. Tutum dört türden biridir: eder, kıvranır, rahat ya da reddeder. Yemin zar açmaz. Bozulan yemin bir kez ceza yazar. İnanç alanı boşsa düğme gizlenir.
   - Kurallar:
     1. Seçenek: "El bas, yemin et." Ziyaret başına bir kez kullanılır.
@@ -2235,7 +2236,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.1 Boş gün
 
-- [x] **SEV-01:** (Antigravity) Boş gün köy günüdür.
+- [ ] **SEV-01:** (Antigravity) Boş gün köy günüdür. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Boş günü KAP-16 üretir; bu madde ikinci bir "kimse gelmesin" zarı açmaz. O gün oyuncu ateş başına veya bir tezgâha yürüyebilir ve orada en çok iki satır duyar. Satır, orada duran kişinin işinden gelir; ödül, eşya veya bar vermez. Kişi yoksa satır da yoktur. Gözcü boş günü bildirmeye devam eder. İki boş gün art arda aynı satırı tekrarlamaz; havuz bitince o gün sessizdir.
   - Kabul: KAP-16'nın ürettiği bir boş günde ateş veya tezgâh etkileşimi açılır ve bar değerleri değişmez (`tests/unit/koy/sevilen_yuz_test.gd`). Dolu günde bu etkileşim kapalıdır. Kapı kapalıyken ateş satırı yine gelebilir. Ek şart: Boş gün yeni panel sınıfı açmaz; köy kadrajı durur. Ek şart: `bos_gun_durusu.gd` `koy_sahnesi` import etmez ve ikinci harita açmaz.
   - Bağımlılık: KAP-16, YAZ-08. Boyut: S.
@@ -2245,7 +2246,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.2 Ateş
 
-- [x] **SEV-02:** (Antigravity) Tanıdık yüz ateşe gelir.
+- [ ] **SEV-02:** (Antigravity) Tanıdık yüz ateşe gelir. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Boş günde ateşe gelen kişi köyde yaşayan adlı biridir; kapı kuyruğuna eklenmez, yatak ve kabul kararı istenmez. Selam `son_karar` ile bir somut anıyı kullanır: verilen ekmek, sorulan ad veya çevrilen akraba. Anı yoksa genel selam da yoktur ve kişi o akşam gelmez. Kadrodan 2 veya 3 kişi `hitap: aliskanlik` ile Jorji tipindedir; yeni kişilik sistemi açılmaz. Aynı kişi art arda iki boş olmayan akşamda zorla getirilmez; aralık veri dosyasındadır. Ölen, köyü terk eden veya ret yemiş ve köyde olmayan kişi içeri alınmaz.
   - Kabul: Köydeki bir kişi için `son_karar` kayıtlıyken ateş selamı o kararı anar (`tests/unit/koy/sevilen_yuz_test.gd`). Anı silinince selam gelmez ve kuyruk uzunluğu değişmez. Ek şart: Bir boş günde ateşe en çok bir kişi gelir. Ek şart: Çocuk ateşe yalnız çağrılmaz; yanında yetişkin yoksa o akşam geliş olmaz. Ek şart: Eş akşam sohbeti aynı gecede açıksa ateş selamı açılmaz. Ek şart: Ateş selamı yeni sahne açmaz; duran köy kadrajında iki satırdır. Ek şart: Yeni ateş ses dosyası eklenmez.
   - Bağımlılık: SEV-01, DIY-11. Boyut: M.
@@ -2255,7 +2256,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.3 İz
 
-- [x] **SEV-03:** (Antigravity) Kişisel iz köyde kalır.
+- [ ] **SEV-03:** (Antigravity) Kişisel iz köyde kalır. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: İz, heybede duran `Clue_*` eşyasının küçük yer tutucusudur; yeni heybe motoru yoktur. Yer, kişinin iş binasıdır; bina yoksa iz evin yanında durur ve bina kendiliğinden kurulmaz. Rüşvetle alınan eşya muhafız odasındaki raftadır ve etiketi ekşidir. Gönüllü verilen lokmanın etiketi sıcaktır. İkisi de aynı raftadır. Kişi ölünce veya temelli gidince iz kalkar. İz üretim vermez. Aynı eşya hem köy izi hem oda rafı olamaz.
   - Kabul: CHR_017 kabul ve sır çözülmüşken kurdele ağıl yerinde görünür (`tests/unit/koy/sevilen_yuz_test.gd`). Rüşvet eşyası yalnız odada ve ekşi etikettedir. Kişi köyden düşünce iz kalkar. Ek şart: Bir kişinin köyde aynı anda bir izi vardır. Ek şart: İz dururken o iş noktasına otomatik işçi yazılmaz. Ek şart: Kartta iz bir kelime olarak durur, sayı olarak durmaz. Ek şart: Kayıtta iz alanı yoksa kişi izsiz açılır.
   - Bağımlılık: DIY-11, SEV-07. Boyut: M.
@@ -2265,7 +2266,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.4 Tek istek
 
-- [x] **SEV-04:** (Antigravity) Tek istek.
+- [ ] **SEV-04:** (Antigravity) Tek istek. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Kişi köye yerleştikten sonra bir kez, bir cümleyle bir şey ister. İstek `gun_min` ve `gun_max` taşır. Tutmak isteğe bağlıdır; tutulmazsa süre bitince bir satır değişir. Ceza barı, yeni düşman veya zorunlu görev doğmaz. Aynı anda oyuncunun önünde en çok bir istek cümlesi durur. İstek muhafızın borcu değildir (DYL-05). Süre dolmadan kişi ölürse istek kapanır. Şart olan bina yoksa istek açılmaz.
   - Kabul: Bir test kişisinde istek bir kez konuşulur, süre bitince satır değişir ve ikinci istek açılmaz (`tests/unit/koy/sevilen_yuz_test.gd`). Görev listesi düğümü yoktur. Ek şart: İstek kapıdaki kabul veya ret düğmesini açmaz. Ek şart: İstenen kaynak yoksa istek kapanır ve bedelsiz tamamlanmaz. Ek şart: Çocuk istek sahibi olmaz. Ek şart: Reddedilen istek yeni bar açmaz; husumet artışı varsa duran `husumet.gd` kaydına yazılır. Ek şart: Yükleme aynı isteği ikinci kez açmaz. Ek şart: Hediye takvimi yazılmaz.
   - Bağımlılık: YAZ-08, DIY-11. Boyut: S.
@@ -2275,7 +2276,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.5 Bağ
 
-- [x] **SEV-05:** (Antigravity) Köylüler birbirine bağlanır.
+- [ ] **SEV-05:** (Antigravity) Köylüler birbirine bağlanır. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Bağ, UZM-07 kaydının dostluk ucudur. Düşman çifti aynı binada üretimi durduruyor; bu madde o kavgayı ikinci kez kurmaz. Dost çift aynı binada çalışırken verime dosyadaki küçük farkı ekler ve ateşte bir cümle duyulur. Fark koda gömülmez. Bağ `baglar` alanından gelir. Yeni ilişki ekranı yoktur. Taraflardan biri köyde değilse cümle ve verim farkı uygulanmaz. Düşman bağı ile dost bağ aynı çifte yazılamaz.
   - Kabul: Dost çift aynı binadayken verim, tablodaki fark kadar artar ve ateşte bir satır duyulur (`tests/unit/koy/sevilen_yuz_test.gd`). Düşman çiftte UZM-07 davranışı değişmez. Biri köyde değilken fark uygulanmaz. Ek şart: Bağ grup itibarına yazılmaz. Ek şart: Bağ kartta tek kelime olarak durur, sayı olarak durmaz. Ek şart: Aynı günde yeni bağ en çok bir çift için kurulur. Ek şart: Kayıtta bağ alanı yoksa çift bağsız açılır. Ek şart: Bağ kalp alanı, romans veya hediye isteği yazmaz.
   - Bağımlılık: YAZ-09, SEV-01. Boyut: S.
@@ -2764,7 +2765,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.1 Yılın yüzü
 
-- [x] **YIL-01:** (Cursor) Yılın yüzü bir kişidir
+- [ ] **YIL-01:** (Cursor) Yılın yüzü bir kişidir (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Mevsim yılı açılırken köyde yaşayan adlı yetişkinlerden biri `yil_izi` alanına bir kez yazılır; tarla işi olan varsa o seçilir, tek adlı yetişkin eş ise o seçilir. Dört mevsim aynı kimliği okur; adsız, ölü ve köyden ayrılmış kişi seçilmez, kişi ölürse kalan slotlar boş kalır.
   - Kabul: Bir yılda `yil_izi` en çok bir kimliktir ve dört mevsim slotu o kimliği taşır (`tests/unit/koy/yil_izi_test.gd`). Köyde adlı kimse yokken satır 0'dır; boş günde yıl satırı 0'dır; ölümden sonra açılan slot 0 ve cenaze seçeneği 2'dir. Ek şart: aynı tohumla iki açılış aynı kimliği seçer. Ek şart: eski kayıtta `yil_izi` yoksa alan boş kalır ve mevsim günü artar. Ek şart: satır düz cümle gömmez, `data/soz/yil_izi.json` anahtarını okur. Ek şart: `yil_izi.gd` takvim düğümü açmaz ve `koy_sahnesi` import etmez. Ek şart: nöbet ataması değişmez ve nöbet gecesinde duyulmuş satır silinmez. Ek şart: anahtar yoksa o slot 0 sayılır, mevsim günü yine artar.
   - Bağımlılık: MEV-01, YAZ-08. Boyut: M.
@@ -2773,7 +2774,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.2 Güz
 
-- [x] **YIL-02:** (Cursor) Güz sofrasında ad söylenir
+- [ ] **YIL-02:** (Cursor) Güz sofrasında ad söylenir (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Ambar doluyken MEV-08 şenliği açıksa sofrada bir satır, `yil_izi` kişisinin görünen adını söyler; şenliği bu madde kurmaz. Cümle ödül ve eşya vermez, moral artışı MEV-08 tablosunda kalır.
   - Kabul: Ambar dolu bir güz gününde sofra satırı 1'dir ve yıl dosyasından gelen moral 0'dır (`tests/unit/koy/yil_izi_test.gd`). Şenlik kapalıyken sofra satırı 0'dır. Ek şart: Söz motoru dosyası yokken sofra satırı yine 1'dir.
   - Bağımlılık: YIL-01, MEV-08, SEV-06. Boyut: S.
@@ -2796,7 +2797,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
   - Dosya: `data/soz/yil_izi.json` anahtarları `kis_disari`, `kis_ev`.
   - Asset: asset gerekmedi.
 
-- [x] **YIL-05:** (Cursor) Kışın tarla susar
+- [ ] **YIL-05:** (Cursor) Kışın tarla susar (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Mevsim kış ve iş noktası tarla ise yıl satırı 0'dır; üretim, don ve ürün MEV-03 değerinde kalır. Kışın `ilkbahar_tarla` cümlesi açılmaz.
   - Kabul: Kışın tarla yıl satırı 0'dır ve tarla üretimi MEV-03 ile aynıdır (`tests/unit/koy/yil_izi_test.gd`). Kış gününde `ilkbahar_tarla` satırı 0'dır.
   - Bağımlılık: YIL-01, MEV-03. Boyut: S.
@@ -2830,14 +2831,14 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.6 Ad ve kapanış
 
-- [x] **YIL-09:** (Cursor) Söylenen ad karttaki addır
+- [ ] **YIL-09:** (Cursor) Söylenen ad karttaki addır (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Güz cümlesi SEV-06 görünen adını okur; ad bayrağı yoksa maskenin kısa adı, bayrak varsa gerçek ad söylenir. Yıl ortasında ad açılırsa sonraki slot yeni adı söyler, yazılmış satır değişmez.
   - Kabul: `CHR_017` ad bayrağı yokken güz cümlesinde "çoban" geçer ve "Fadime" 0'dır; bayrak varken "Fadime" 1'dir (`tests/unit/koy/yil_izi_test.gd`). Kartın kendi yazısı değişmez.
   - Bağımlılık: YIL-02, SEV-06. Boyut: S.
   - Dosya: `src/koy/yil_izi.gd` ad okuması. Kart dosyasına yazılmaz.
   - Asset: asset gerekmedi.
 
-- [x] **YIL-10:** (Cursor) Yıl kapanışında slotlar sayılır
+- [ ] **YIL-10:** (Cursor) Yıl kapanışında slotlar sayılır (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Kapanış, dördüncü mevsimin yedinci gününün gecesidir; rapor güz, kış, ilkbahar tarlası, taşkın ve yaz slotlarından duyulanları sayar, en çok 5 olur. Rapor SYS-20 son kimliğine yazılmaz, ardından `yil_izi` temizlenir.
   - Kabul: 28. gece raporundaki sayı, o yıl duyulan satır sayısıyla aynıdır ve SYS-20 kimliği kapanıştan önce ve sonra aynıdır (`tests/unit/koy/yil_izi_test.gd`). Ölümden sonraki slot rapora girmez; boş izde rapor 0'dır. `yil_izi.json` içinde kalp, hediye, romans ve ses anahtarı 0'dır. Ek şart: hız 3 iken aynı slot bir gecede bir kez sayılır. Ek şart: kayıt yüklenince duyulmuş slot yeniden sayılmaz. Ek şart: kapanış satırı dünya zaman çizelgesine yazılmaz.
   - Bağımlılık: YIL-01, MEV-01, SYS-20. Boyut: S.
@@ -3971,7 +3972,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: DIY-04, ACL-04. Boyut: S.
   - Dosya: Söz veri dosyası (DIY-02 şeması) `gece_min` alanı; ilk aile dosyası YAZ-05 pilotunda.
   - Asset: asset gerekmedi.
-- [x] **OGR-14:** Beyan defteri ilk çelişkide tanıtılır. (Antigravity)
+- [ ] **OGR-14:** Beyan defteri ilk çelişkide tanıtılır. (Antigravity) (doğrulanmadı — Görev 22; DefterTanitimi (src/kapi/defter_tanitimi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: beyan defteri (DIY-07) ilk kez bir karakter kendi sözüyle çelişince açılır; o ana kadar HUD'da düğmesi görünmez.
   - Kabul: ilk çelişki öncesi defter düğmesi 0; sonrası 1 ve ipucu bir kez. Test: çelişkisiz üç ziyaret sonrası düğme 0.
   - Bağımlılık: DIY-07, DIY-08, OGR-07. Boyut: S.
@@ -4035,7 +4036,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: KAP-16, SEV-01. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [x] **OGR-24:** Pazar ve divan düğmeleri açılınca işaretlenir. (Antigravity)
+- [ ] **OGR-24:** Pazar ve divan düğmeleri açılınca işaretlenir. (Antigravity) (doğrulanmadı — Görev 22; YeniDugmeIsareti (src/arayuz/koy_hud/yeni_dugme_isareti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: pazar (TUC) ve divan (CAS-07) HUD düğmeleri ilk kez etkin olunca kenarında bir kez yanıp sönen işaret ve tek satır.
   - Kabul: ilk açılışta işaret; girince kalkar. Test: iki kez tıklanmış düğmede işaret 0.
   - Bağımlılık: OGR-07. Boyut: S.
@@ -4327,7 +4328,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: KOP-07. Boyut: S.
   - Dosya: yeni: `src/sistemler/perde_metni.gd`; `perde_gecisi.gd` tek satır.
   - Asset: asset gerekmedi.
-- [x] **OMR-08:** (Antigravity) Geçiş gecesinde kapı kapalıdır.
+- [ ] **OMR-08:** (Antigravity) Geçiş gecesinde kapı kapalıdır. (doğrulanmadı — Görev 22; GecisGecesi (src/sistemler/gecis_gecesi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: "Köy oturdu" gecesi kapıya kimse gelmez (KAP-16 boş gün zorlanır); oyuncu köyde ağalık kararını verir.
   - Kabul: geçiş gecesi `gece_basina_gelen` 0. Test: nüfus 18'e enjekte, o gece kuyruk boş.
   - Bağımlılık: KAP-16. Boyut: S.
@@ -4339,7 +4340,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: DYL-07, MCL-01, DIY-09. Boyut: S.
   - Dosya: eş ve meclis söz dosyaları (YAZ-06 kapsamı) dal satırı.
   - Asset: asset gerekmedi.
-- [x] **OMR-10:** (Antigravity) Geçiş kadrajında köyün özeti.
+- [ ] **OMR-10:** (Antigravity) Geçiş kadrajında köyün özeti. (doğrulanmadı — Görev 22; PerdeOzeti (src/arayuz/perde_ozeti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: `bilgi_ekrani.gd` kadrajında perde 1 özeti: gün, gelen, kabul, ret, ölü, en çok anılan karar (Bölüm 39 defterinden). Resim yok.
   - Kabul: altı satır, hepsi kayıttan. Test: anlık görüntü.
   - Bağımlılık: HFZ-01. Boyut: S.
@@ -4730,7 +4731,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: DIY-11. Boyut: S.
   - Dosya: Söz motoru görünümüne tek satır; `ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [x] **AYR-11:** (Cursor) Konuşma geçmişi kaydırılabilir.
+- [ ] **AYR-11:** (Cursor) Konuşma geçmişi kaydırılabilir. (doğrulanmadı — Görev 22; KonusmaGecmisi (src/arayuz/kapi/konusma_gecmisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: sorgu sırasında önceki satırlar yukarı kaydırılarak okunur (beyan defteri DIY-07'den ayrı, yalnız bu ziyaretin akışı). Fare tekeri ve gamepad sağ çubuk.
   - Kabul: 20 satırlık sorguda ilk satıra dönülür. Test: ekran.
   - Bağımlılık: DIY-03. Boyut: S.
@@ -4850,7 +4851,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: KAY-04, SYS-01. Boyut: M.
   - Dosya: yeni: `src/sistemler/kayit_yuvalari.gd`.
   - Asset: asset gerekmedi.
-- [x] **AYR-29:** Yuva kartı. (Antigravity)
+- [ ] **AYR-29:** Yuva kartı. (Antigravity) (doğrulanmadı — Görev 22; KayitYuvaKarti (src/arayuz/kayit_yuva_karti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: her yuvada gün, nüfus, perde, son kayıt saati ve muhafızın geçmişi (ACL-06) yazar; ekran görüntüsü yok.
   - Kabul: beş alan kayıt başlığından okunur; bozuk kayıt "okunamadı" yazar, çökmez. Test: bozuk dosya.
   - Bağımlılık: AYR-28. Boyut: S.
@@ -4874,7 +4875,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-28. Boyut: S.
   - Dosya: `src/sistemler/kayit_yuvalari.gd`.
   - Asset: asset gerekmedi.
-- [x] **AYR-33:** Uyumsuz kayıt açılmaz, açıklanır. (Antigravity)
+- [ ] **AYR-33:** Uyumsuz kayıt açılmaz, açıklanır. (Antigravity) (doğrulanmadı — Görev 22; KayitYuvaKarti (src/arayuz/kayit_yuva_karti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: `KAYIT_SURUMU` ileri olan dosya yuva kartında "yeni sürüm kaydı" yazar; açılmaz, silinmez.
   - Kabul: sürüm 99 dosyası → kart uyarısı, çökme 0. Test: birim.
   - Bağımlılık: AYR-29, KAY-04. Boyut: S.
@@ -4928,7 +4929,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-01. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/goruntu_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [x] **AYR-41:** (Cursor) Düşük profil otomatik önerisi.
+- [ ] **AYR-41:** (Cursor) Düşük profil otomatik önerisi. (doğrulanmadı — Görev 22; ProfilOnerisi (src/sistemler/profil_onerisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: `performans_seridi` üç gece ortalaması 30 fps altında kalırsa bir kez "düşük profil?" satırı; otomatik değiştirmez.
   - Kabul: öneri bir kez; `grafik_profili` kendi kendine değişmez. Test: birim.
   - Bağımlılık: TEK-10. Boyut: S.
@@ -5109,7 +5110,7 @@ Kimlikler HAN-01 … HAN-52. Asset üretilmez; ocak görseli DYL-07 envanterinde
   - Bağımlılık: ACL-05, HAN-01. Boyut: M.
   - Dosya: yeni: `src/koy/hane_misafiri.gd`; kapı karar adaptörüne tek seçenek.
   - Asset: asset gerekmedi.
-- [x] **HAN-13:** (Antigravity) Misafir eşle konuşur.
+- [ ] **HAN-13:** (Antigravity) Misafir eşle konuşur. (doğrulanmadı — Görev 22; AksamSohbeti (src/koy/aksam_sohbeti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: misafir gecesi akşam sohbeti (ACL-03) üç ağızlı olur: eş, misafir, muhafız. Misafirin repliği kendi Söz dosyasından (kişi hafızası DIY-11 kaydı) tek dal.
   - Kabul: misafir gecesi sohbet katılımcı 3. Test: misafir.
   - Bağımlılık: HAN-12, DYL-07, DIY-11. Boyut: S.
@@ -5247,7 +5248,7 @@ Kimlikler HAN-01 … HAN-52. Asset üretilmez; ocak görseli DYL-07 envanterinde
   - Bağımlılık: HAN-18. Boyut: S.
   - Dosya: `src/koy/es_duyumu.gd`.
   - Asset: asset gerekmedi.
-- [x] **HAN-34:** (Antigravity) Eş çınarda söz alır (MCL-03'ün hane tarafı).
+- [ ] **HAN-34:** (Antigravity) Eş çınarda söz alır (MCL-03'ün hane tarafı). (doğrulanmadı — Görev 22; AksamSohbeti (src/koy/aksam_sohbeti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: eş meclis sözü aldığı gece akşam sohbeti yerine meclis repliği gelir; iki sahne üst üste binmez.
   - Kabul: meclis gecesi akşam sohbeti 0. Test: MCL gecesi.
   - Bağımlılık: MCL-03, ACL-03. Boyut: S.
@@ -5396,37 +5397,37 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.1 Söylentinin anatomisi — kaynak, yol, doğruluk
 
-- [x] **SOY-01:** (Antigravity) Her dedikodu kaydının kaynağı ve doğruluğu vardır.
+- [ ] **SOY-01:** Her dedikodu kaydının kaynağı ve doğruluğu vardır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: DIY-13 kaydına optional iki alan: `kaynak` (tanık köylü kimliği) ve `dogru` (bool; olay gerçekten oldu mu). Yanlış söylenti SOY-05 ile üretilir. Omurga (OMR-39) yalnız `dogru` kayıtları okur.
   - Kabul: alanlar optional; eski kayıt `dogru=true`, `kaynak=""` sayılır. Test: KAY birimi.
   - Bağımlılık: DIY-13, KAY-04. Boyut: S.
   - Dosya: yeni: `src/sistemler/soylenti_agi.gd` (kaydı okur, alan ekler).
   - Asset: asset gerekmedi.
-- [x] **SOY-02:** (Antigravity) Düğüm — kim duydu.
+- [ ] **SOY-02:** Düğüm — kim duydu. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: her kayıt için "duyanlar" kümesi: başlangıçta tanık; her gece yayılım adımında (DIY-13 1–3 gece) tanığın komşuları (`izgara.gd` komşuluk) ve aynı iş yerindekiler (`meslek_yapilari.gd`) eklenir. Eşin duyumu (HAN-18) bu kümeden gelir.
   - Kabul: gece başına yeni duyan ≤ 4 (öneri, `data/soylenti.json`); duyanlar kümesi kayıtta. Test: üç gece.
   - Bağımlılık: SOY-01, HAN-18. Boyut: M.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-03:** (Antigravity) Taşıyıcı — kapıdan giren haber.
+- [ ] **SOY-03:** Taşıyıcı — kapıdan giren haber. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: kapıdan kabul edilen kişi dış haber taşıyabilir (DNY-02 söylentisi, hane misafiri HAN-14); içeri girince ilk düğüm odur.
   - Kabul: kabul edilen taşıyıcı kayıtta `kaynak`. Test: kabul.
   - Bağımlılık: DNY-02, SOY-02. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-04:** (Antigravity) Reddedilen de haber bırakır.
+- [ ] **SOY-04:** Reddedilen de haber bırakır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: reddedilen kişi sıradakilere (kapı kuyruğu, `kapi_firtina_kuyrugu.gd` sırası) bir cümle bırakabilir; kuyruktaki kabul edilirse haberi taşır.
   - Kabul: red sonrası kuyrukta `tasinan_haber` 1. Test: red + kabul.
   - Bağımlılık: SOY-03. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`; kuyruk adaptörü tek satır.
   - Asset: asset gerekmedi.
-- [x] **SOY-05:** (Antigravity) Yanlış söylenti.
+- [ ] **SOY-05:** Yanlış söylenti. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: kayıt yayılırken her adımda bozulma olasılığı (`yalan_olasiligi` 0.35'in çeyreği, öneri `data/soylenti.json`): kişi adı, yer veya miktar değişir; `dogru=false` kopyası oluşur. Asıl kayıt silinmez.
   - Kabul: 100 yayılımda bozulma oranı tablo ±%5; bozulan kopya `kaynak` alanında bozanı taşır. Test: simülasyon.
   - Bağımlılık: SOY-01. Boyut: M.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-06:** (Antigravity) Söylenti ölür.
+- [ ] **SOY-06:** Söylenti ölür. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: DIY-13 "üçüncü geceden sonra basılmamış satır silinir" kuralı korunur; ağ kaydı 7 gece (öneri) sonra düşer, kamuoyuna (SOY-13) dönüştüyse izi orada kalır.
   - Kabul: 8. gece kayıt 0. Test: zaman makinesi.
   - Bağımlılık: SOY-02. Boyut: S.
@@ -5435,31 +5436,31 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.2 Kaynak güvenilirliği
 
-- [x] **SOY-07:** (Antigravity) Her köylünün söz güvenilirliği vardır.
+- [ ] **SOY-07:** Her köylünün söz güvenilirliği vardır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: köylüde optional `guvenilirlik` 0–3 (başlangıç 2): yaydığı söylenti doğru çıkınca +1, yanlış çıkınca −1. Kalp puanı değil; yalnız haber doğruluğu.
   - Kabul: alan `koylu.gd` dışında ağ sözlüğünde (çekirdek değişmez). Test: iki olay.
   - Bağımlılık: SOY-05. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-08:** (Antigravity) Güvenilirlik köylü kartında bir kelimedir.
+- [ ] **SOY-08:** Güvenilirlik köylü kartında bir kelimedir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: `koylu_karti_verisi.gd` adaptörüne tek alan: "ağzı sıkı / konuşkan / uyduruyor" (3/2/0–1).
   - Kabul: kartta kelime; sayı yok. Test: ekran.
   - Bağımlılık: SOY-07. Boyut: S.
   - Dosya: kart adaptörü tek alan.
   - Asset: asset gerekmedi.
-- [x] **SOY-09:** (Antigravity) Doğrulama — oyuncu kaynağa sorar.
+- [ ] **SOY-09:** Doğrulama — oyuncu kaynağa sorar. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `src/koy/ne_duydun.gd` dosyası yok)
   - Ne: köy ekranında köylüye tıklayınca (`koylu_secimi.gd`) "ne duydun?" tek seçenek: köylü bildiği söylentiyi kendi ağzından söyler (YAZ-08 köy sohbeti dalı). Oyuncu iki kaynağı karşılaştırır; sistem doğruyu söylemez.
   - Kabul: duyan köylüde dal 1, duymayanda 0. Test: iki köylü.
   - Bağımlılık: YAZ-08, SOY-02. Boyut: M.
   - Dosya: yeni: `src/koy/ne_duydun.gd`; köylü seçim adaptörüne tek satır.
   - Asset: asset gerekmedi.
-- [x] **SOY-10:** (Antigravity) Kapıda doğrulama (DYL-01 ile bağ).
+- [ ] **SOY-10:** Kapıda doğrulama (DYL-01 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: sorguda beyan defterine (DIY-07) düşen söz, ağdaki bir kayıtla çelişiyorsa oyuncu "köyde başka duydum" diyebilir (DYL-01 çelişki yolu). Ağ kaydı `dogru=false` ise muhafız yanılır; tansiyon +1.
   - Kabul: doğru kayıtla çelişki zarsız geçer; yanlış kayıtla tansiyon +1. Test: iki kayıt.
   - Bağımlılık: DYL-01, SOY-01. Boyut: S.
   - Dosya: DYL-01 adaptörüne tek koşul.
   - Asset: asset gerekmedi.
-- [x] **SOY-11:** (Antigravity) Yanlış söylenti doğrulanınca kaynağı düşer.
+- [ ] **SOY-11:** Yanlış söylenti doğrulanınca kaynağı düşer. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: SOY-09/10 ile yanlış çıkan söylentinin bozan kaynağının güvenilirliği −1, doğru çıkanın +1; defter satırı yazılır.
   - Kabul: iki yön. Test: birim.
   - Bağımlılık: SOY-07, SOY-09. Boyut: S.
@@ -5468,37 +5469,37 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.3 Kamuoyu — söylenti bara dönüşür
 
-- [x] **SOY-12:** (Antigravity) Kamuoyu konusu.
+- [ ] **SOY-12:** Kamuoyu konusu. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: aynı olay kimliğini köyün ≥ %40'ı (öneri) duyduğunda kayıt "kamuoyu konusu" olur; o andan sonra çınar meclisi (MCL-02) şikâyet olarak alabilir.
   - Kabul: eşik `data/soylenti.json`; eşik altında meclis adayı 0. Test: iki nüfus.
   - Bağımlılık: SOY-02, MCL-02. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-13:** (Antigravity) Kamuoyu barı oynatır, gazete oynatmaz.
+- [ ] **SOY-13:** Kamuoyu barı oynatır, gazete oynatmaz. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: bar değişimi (`barlar.gd`) yalnız kamuoyu konusu olunca ve bir kez: ağır olay türüne göre `bar.halk` ya da `bar.tuccarlar` −1. Gazete satırı bar değiştirmez (KOP-05 kural 2 korunur).
   - Kabul: eşik altında bar deltası 0; eşik üstünde bir kez −1. Test: simülasyon. Ek şart: Haber satırı kamuoyu barını tek başına değiştirmez.
   - Bağımlılık: SOY-12. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd` → bar adaptörü tek satır.
   - Asset: asset gerekmedi.
-- [x] **SOY-14:** (Antigravity) Grup itibarı kamuoyuna girer (DIY-12 ile bağ).
+- [ ] **SOY-14:** Grup itibarı kamuoyuna girer (DIY-12 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: kamuoyu konusu bir grubu anıyorsa (Türkmen/Rum/Ahi…) grup itibarı DIY-12 bir kez yazılır; iki kez yazılmaz (DIY-12 kural 2).
   - Kabul: aynı konu için grup yazımı 1. Test: birim.
   - Bağımlılık: DIY-12, SOY-12. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-15:** (Antigravity) Histeri kamuoyundan beslenir (KRI-08 ile bağ).
+- [ ] **SOY-15:** Histeri kamuoyundan beslenir (KRI-08 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: `BatilInancHisterisi` yanlış söylentileri (`dogru=false`) kamuoyu konusu olunca ek tetik sayar; histeri motoru değişmez, yalnız girdi kaynağı genişler.
   - Kabul: yanlış kamuoyu konusu histeri sayacına +1. Test: KRI-08 birimi.
   - Bağımlılık: KRI-08, SOY-05. Boyut: S.
   - Dosya: `batil_inanc_histerisi.gd` okuyucusuna tek satır.
   - Asset: asset gerekmedi.
-- [x] **SOY-16:** (Antigravity) Kamuoyu söner.
+- [ ] **SOY-16:** Kamuoyu söner. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: kamuoyu konusu 5 gece (öneri) sonra "eski konu" olur; meclis almaz, bar değişmez, defterde kalır.
   - Kabul: 6. gece meclis adayı 0. Test: zaman makinesi. Ek şart: Çınar meclisi kamuoyu değerini tek başına değiştirmez; düşüş divan hükmü veya süre dolumudur.
   - Bağımlılık: SOY-12. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-17:** (Antigravity) Olumlu söylenti de vardır.
+- [ ] **SOY-17:** Olumlu söylenti de vardır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: DIY-13 ağır olay listesine karşılık "iyi olay" listesi: haksızlığa karşı durma (divan), yaralıyı tedavi (CAT-03), aileyi birlikte alma. Olumlu kamuoyu `bar.halk` +1. Liste veridedir.
   - Kabul: `data/soylenti.json iyi_olaylar`; olumlu kamuoyu bir kez +1. Test: birim.
   - Bağımlılık: SOY-13. Boyut: S.
@@ -5507,31 +5508,31 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.4 Oyuncunun söylenti üzerindeki etkisi
 
-- [x] **SOY-18:** (Antigravity) Muhafız söylenti yayabilir.
+- [ ] **SOY-18:** Muhafız söylenti yayabilir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: akşam sohbetinde (DYL-07) ya da çınarda (MCL) muhafız bir söylentiyi "doğru" ya da "yalan" diye niteleyebilir; nitelik ağa muhafız kaynaklı düğüm olarak girer; muhafızın da güvenilirliği vardır (SOY-07).
   - Kabul: muhafız düğümü kayıtta; yanlış nitelik güvenilirlik −1. Test: birim.
   - Bağımlılık: SOY-07, DYL-07. Boyut: M.
   - Dosya: `src/sistemler/soylenti_agi.gd`; DYL-07 ve MCL dalı.
   - Asset: asset gerekmedi.
-- [x] **SOY-19:** (Antigravity) Muhafızın yalanı ağa düşer (DYL-04 ile bağ).
+- [ ] **SOY-19:** Muhafızın yalanı ağa düşer (DYL-04 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: DYL-04 muhafız yalanı, tanık varsa DIY-13 kaydı açar (ağır olay listesine "muhafızın yalanı" eklenir).
   - Kabul: tanıklı yalan kayıt 1, tanıksız 0. Test: iki durum.
   - Bağımlılık: DYL-04, DIY-13. Boyut: S.
   - Dosya: DIY-13 olay listesi satırı.
   - Asset: asset gerekmedi.
-- [x] **SOY-20:** (Antigravity) Susturma.
+- [ ] **SOY-20:** Susturma. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `src/koy/ne_duydun.gd` dosyası yok)
   - Ne: oyuncu bir kaynağa "bunu konuşma" diyebilir (SOY-09 ekranında ikinci seçenek): kaynak güvenilirliği yüksekse yayılım durur, düşükse hızlanır. Sonucu oyuncu bilmez.
   - Kabul: iki güvenilirlik düzeyinde iki sonuç. Test: birim.
   - Bağımlılık: SOY-09. Boyut: S.
   - Dosya: `src/koy/ne_duydun.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-21:** (Antigravity) Divan söylentiyi keser (CAS-07 ile bağ).
+- [ ] **SOY-21:** Divan söylentiyi keser (CAS-07 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: divan hükmü verilen olay için kamuoyu konusu kapanır; SAB-04 tek satırı yazılır, ağ kaydı "hükme bağlandı" olur.
   - Kabul: hüküm sonrası kamuoyu 0, SAB-04 satırı 1. Test: hüküm.
   - Bağımlılık: CAS-07, SAB-04. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-22:** (Antigravity) Rüşvetin söylentisi oda kasasına bakar.
+- [ ] **SOY-22:** Rüşvetin söylentisi oda kasasına bakar. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: tanıklı rüşvet (DIY-13 kural) kamuoyu olunca sancak teftişi (`sancak_teftisi.gd`) o olayı sorar; teftiş yeniden kurulmaz, soru listesine girdi.
   - Kabul: rüşvet kamuoyu + teftiş → soru 1. Test: birim.
   - Bağımlılık: SOY-12, ODA. Boyut: S.
@@ -5540,31 +5541,31 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.5 Söz motorunda söylenti
 
-- [x] **SOY-23:** (Antigravity) Bağlam sorgusunda söylenti anahtarları.
+- [ ] **SOY-23:** Bağlam sorgusunda söylenti anahtarları. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: DIY-09 sözlüğüne `soylenti.<olay_id>.duydu`, `.dogru`, `.kaynak` anahtarları; satır seçimi "duydum ki…" dalını açar.
   - Kabul: duyan karakterde anahtar true. Test: birim.
   - Bağımlılık: DIY-09, SOY-02. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd` → bağlam sözlüğü.
   - Asset: asset gerekmedi.
-- [x] **SOY-24:** (Antigravity) Dönen karakter söylentiyi getirir.
+- [ ] **SOY-24:** Dönen karakter söylentiyi getirir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: DIY-11 dönen karakter köyde duyduğunu (ağ kaydı) ilk cümlesinde anabilir; söz dosyasında `soylenti` dalı.
   - Kabul: dönen + duyan → dal 1. Test: iki ziyaret.
   - Bağımlılık: DIY-11, SOY-23. Boyut: S.
   - Dosya: Söz dosyaları.
   - Asset: asset gerekmedi.
-- [x] **SOY-25:** (Antigravity) Dış söylenti çelişir (DNY-02 kural 1).
+- [ ] **SOY-25:** Dış söylenti çelişir (DNY-02 kural 1). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: iki kapı ziyaretçisi aynı dünya olayını farklı söyler; iki satır farklı `kaynak`, biri `dogru=false`. Oyuncu beyan defterinde ikisini görür.
   - Kabul: aynı olay iki satır, metinler farklı (DNY-02 kural 2). Test: iki ziyaret.
   - Bağımlılık: DNY-02, SOY-05. Boyut: S.
   - Dosya: Söz dosyaları; `soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-26:** (Antigravity) "Bu hatırlanacak" söylentide de çıkar (DIY-14).
+- [ ] **SOY-26:** "Bu hatırlanacak" söylentide de çıkar (DIY-14). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: oyuncunun seçimi ağa muhafız düğümü yazıyorsa DIY-14 notu çıkar; kural DIY-14'ündür.
   - Kabul: not bir kez. Test: birim.
   - Bağımlılık: DIY-14, SOY-18. Boyut: S.
   - Dosya: DIY-14 tetik listesi satırı.
   - Asset: asset gerekmedi.
-- [x] **SOY-27:** (Antigravity) Söylenti satırları YAZ kotasına girer.
+- [ ] **SOY-27:** Söylenti satırları YAZ kotasına girer. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: "duydum ki" satırları OZGUNLUK kotasında (YAZ-09) "dedikodu çekirdeği" türüne sayılır; kadroda ≤ %20 (öneri).
   - Kabul: kota raporu. Test: YAZ-09 denetimi.
   - Bağımlılık: YAZ-09. Boyut: S.
@@ -5573,19 +5574,19 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.6 Görünürlük — oyuncu ağı nasıl okur
 
-- [x] **SOY-28:** (Antigravity) Fısıltı gazetesi aynı kalır, kaynak sütunu eklenir.
+- [ ] **SOY-28:** Fısıltı gazetesi aynı kalır, kaynak sütunu eklenir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `src/arayuz/koy_hud/pusula_kaynak.gd` dosyası yok)
   - Ne: sabah pusulası satırının altına küçük yazı: "duyan: Fatma" (SOY-01 `kaynak`). Satır sayısı ve kalıp değişmez.
   - Kabul: pusula satırında kaynak 1; kaynaksız kayıtta boş. Test: ekran.
   - Bağımlılık: SOY-01. Boyut: S.
   - Dosya: yeni: `src/arayuz/koy_hud/pusula_kaynak.gd`; gazete görünümüne tek satır.
   - Asset: asset gerekmedi.
-- [x] **SOY-29:** (Antigravity) Defterde "Söylenti" sayfası.
+- [ ] **SOY-29:** Defterde "Söylenti" sayfası. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: Bölüm 39 defterinde canlı söylentiler: olay, kaynak, kaç kişi duydu (sayı değil kademe: birkaç / yarı köy / herkes), doğrulandı mı.
   - Kabul: sayfa ağ kaydıyla eşit. Test: defter.
   - Bağımlılık: HFZ-01, SOY-02. Boyut: S.
   - Dosya: defter adaptörü.
   - Asset: asset gerekmedi.
-- [x] **SOY-30:** (Antigravity) Kamuoyu konusu HUD'da tek satırdır.
+- [ ] **SOY-30:** Kamuoyu konusu HUD'da tek satırdır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `src/arayuz/koy_hud/kamuoyu_seridi.gd` dosyası yok)
   - Ne: kamuoyu konusu varken köy HUD'unda tek satır "köy … konuşuyor"; tıklanınca defter sayfası.
   - Kabul: konu yokken satır 0. Test: ekran.
   - Bağımlılık: SOY-12, SOY-29. Boyut: S.
@@ -5597,7 +5598,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [x] **SOY-32:** (Antigravity) Yayılım haritası yalnız debug'da.
+- [ ] **SOY-32:** Yayılım haritası yalnız debug'da. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `src/debug/soylenti_paneli.gd` dosyası yok)
   - Ne: `src/debug/` panelinde ağ grafiği (kim kime, hangi gece); oyuncuya kapalı.
   - Kabul: debug kapalıyken panel 0. Test: tarama.
   - Bağımlılık: SOY-02. Boyut: S.
@@ -5606,31 +5607,31 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.7 Dedikodu ve köy sistemleri
 
-- [x] **SOY-33:** (Antigravity) Çınar meclisi kamuoyu konusunu alır (MCL-02).
+- [ ] **SOY-33:** Çınar meclisi kamuoyu konusunu alır (MCL-02). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: MCL-02 şikâyeti SOY-12 konusundan gelir; şikâyet metni kaynak adını taşır (MCL-06).
   - Kabul: kamuoyu konusu varken meclis şikâyeti onu seçer. Test: meclis.
   - Bağımlılık: MCL-02, SOY-12. Boyut: S.
   - Dosya: MCL-02 adaptörüne tek satır.
   - Asset: asset gerekmedi.
-- [x] **SOY-34:** (Antigravity) Grev söylentiden tetiklenebilir (`meslek_grevi.gd`).
+- [ ] **SOY-34:** Grev söylentiden tetiklenebilir (`meslek_grevi.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: iş kazası ya da ücret söylentisi kamuoyu olursa meslek grevi olasılığı artar; grev motoru değişmez, girdi eklenir.
   - Kabul: kamuoyu + meslek eşleşmesi → grev olasılığı +0.1 (öneri). Test: birim.
   - Bağımlılık: SOY-12. Boyut: S.
   - Dosya: grev okuyucusuna tek satır.
   - Asset: asset gerekmedi.
-- [x] **SOY-35:** (Antigravity) Husumet söylentiyle büyür (`husumet.gd`, `kan_davasi.gd`).
+- [ ] **SOY-35:** Husumet söylentiyle büyür (`husumet.gd`, `kan_davasi.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: iki köylü arasındaki husumet, biri diğeri hakkında yanlış söylenti yaydığında +1; kan davası eşiği değişmez.
   - Kabul: yanlış söylenti kaynağı ve hedefi → husumet +1. Test: birim.
   - Bağımlılık: SOY-05. Boyut: S.
   - Dosya: husumet okuyucusuna tek satır.
   - Asset: asset gerekmedi.
-- [x] **SOY-36:** (Antigravity) Pazar fiyatı söylentiye tepki verir (`ticaret_fiyatlari.gd`).
+- [ ] **SOY-36:** Pazar fiyatı söylentiye tepki verir (`ticaret_fiyatlari.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: "kervan gelmeyecek" türü dış söylenti kamuoyu olunca pazar fiyat çarpanı bir gün +%10 (öneri); yanlışsa ertesi gün düzelir. Fiyat motoru değişmez.
   - Kabul: çarpan bir gün; DEN tablosunda. Test: birim.
   - Bağımlılık: SOY-12, DEN-01. Boyut: S.
   - Dosya: fiyat okuyucusuna tek satır; `denge.json`.
   - Asset: asset gerekmedi.
-- [x] **SOY-37:** (Antigravity) Göç söylentisi (`goc_yolu_guvenligi.gd`).
+- [ ] **SOY-37:** Göç söylentisi (`goc_yolu_guvenligi.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: "yol güvensiz" söylentisi kamuoyu olunca kapıya gelen sayısı o gece −1 (öneri); doğruysa ertesi gün de.
   - Kabul: gelen sayısı −1. Test: birim.
   - Bağımlılık: SOY-12. Boyut: S.
@@ -5639,31 +5640,31 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.8 Veri ve ölçüm
 
-- [x] **SOY-38:** (Antigravity) Ağ sayıları tek dosyadadır.
+- [ ] **SOY-38:** Ağ sayıları tek dosyadadır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: yayılım hızı, bozulma oranı, kamuoyu eşiği, ömür, bar etkisi `data/soylenti.json`; DEN-01 tablosu bu dosyayı okur.
   - Kabul: `.gd` içinde sayı sabiti 0. Test: tarama.
   - Bağımlılık: DEN-01. Boyut: S.
   - Dosya: yeni: `data/soylenti.json`.
   - Asset: asset gerekmedi.
-- [x] **SOY-39:** (Antigravity) Söylenti yoğunluğu ölçülür.
+- [ ] **SOY-39:** Söylenti yoğunluğu ölçülür. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: 30 gecelik koşuda gece başına canlı söylenti sayısı, kamuoyu konusu sayısı, yanlış oranı raporlanır; hedef canlı ≤ 3, kamuoyu ≤ 1 (öneri).
   - Kabul: rapor DEN raporunun satırıdır. Test: runner.
   - Bağımlılık: DEN-05. Boyut: S.
   - Dosya: `tools/python_test_runner.py`.
   - Asset: asset gerekmedi.
-- [x] **SOY-40:** (Antigravity) Küçük köyde ağ susar.
+- [ ] **SOY-40:** Küçük köyde ağ susar. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: nüfus < 5 iken yayılım yoktur (duyan = tanık); kamuoyu konusu olmaz. BUG-16 ön koşul kuralı burada da geçerlidir.
   - Kabul: nüfus 4'te kamuoyu 0. Test: birim.
   - Bağımlılık: BUG-16. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-41:** (Antigravity) İkiz koşu.
+- [ ] **SOY-41:** İkiz koşu. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `tests/oto/soylenti_ikiz_kontrol.tscn` dosyası yok)
   - Ne: aynı tohumla iki koşuda yayılım günlüğü eşit (RNG tek kaynaktan, `_rng_donus` kalıbı).
   - Kabul: iki günlük eşit. Test: TST-06.
   - Bağımlılık: TST-06. Boyut: S.
   - Dosya: yeni: `tests/oto/soylenti_ikiz_kontrol.tscn`.
   - Asset: asset gerekmedi.
-- [x] **SOY-42:** (Antigravity) Kayıt göçü.
+- [ ] **SOY-42:** Kayıt göçü. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: ağ alanları optional; eski kayıt açılınca DIY-13 kayıtları kaynaksız sayılır, ağ sıfırdan başlar; oyun çökmez.
   - Kabul: eski kayıt KAY testi. Test: KAY zinciri.
   - Bağımlılık: KAY-04. Boyut: S.
@@ -5672,25 +5673,25 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.9 Yazım
 
-- [x] **SOY-43:** (Antigravity) "Duydum ki" kalıpları şablon dilbilgisidir (YAZ-09).
+- [ ] **SOY-43:** "Duydum ki" kalıpları şablon dilbilgisidir (YAZ-09). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: söylenti satırı şablonu `{kaynak} dedi, {olay}` değil; her karakter kendi ağzından söyler, şablon yalnız olay alanlarını doldurur. USLUP §1 yapay kalıp listesi geçerlidir.
   - Kabul: aynı olay için iki karakterde iki farklı cümle yapısı. Test: inceleme.
   - Bağımlılık: YAZ-09. Boyut: S.
   - Dosya: Söz dosyaları.
   - Asset: asset gerekmedi.
-- [x] **SOY-44:** (Antigravity) Yanlış söylentinin bozulma biçimi yazılıdır.
+- [ ] **SOY-44:** Yanlış söylentinin bozulma biçimi yazılıdır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: SOY-05 bozulması üç biçimden biri: ad kayması, yer kayması, abartı; her biçimin metin kalıbı `fisilti_gazetesi.json` kalıplarına paralel.
   - Kabul: üç biçim üç kalıp. Test: birim.
   - Bağımlılık: SOY-05. Boyut: S.
   - Dosya: `data/soylenti.json` kalıpları.
   - Asset: asset gerekmedi.
-- [x] **SOY-45:** (Antigravity) Kaynak adı yalnız köyde var olan kişidir (BUG-17 ile aynı kural).
+- [ ] **SOY-45:** Kaynak adı yalnız köyde var olan kişidir (BUG-17 ile aynı kural). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: `kaynak` köy listesinde yoksa satır basılmaz; uydurma ad yok.
   - Kabul: ölen kaynaklı satır 0. Test: birim.
   - Bağımlılık: BUG-17. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [x] **SOY-46:** (Antigravity) Köy sohbeti söylentiyi okur (YAZ-08).
+- [ ] **SOY-46:** Köy sohbeti söylentiyi okur (YAZ-08). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: YAZ-08 köylü sohbetleri canlı söylentiyi konu alabilir; iki köylü aynı olayı farklı söyler (DNY-02 kuralı).
   - Kabul: sohbette söylenti konusu varken iki satır farklı. Test: inceleme.
   - Bağımlılık: YAZ-08. Boyut: S.
@@ -5717,7 +5718,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [x] **SOY-50:** (Antigravity) Kapanış testi.
+- [ ] **SOY-50:** Kapanış testi. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: tek koşu: tanıklı rüşvet → 3 gece yayılım → kamuoyu → bar −1 bir kez → meclis şikâyeti → divan hükmü → kamuoyu 0; yanlış kopya → kaynak güvenilirliği −1.
   - Kabul: yedi adım tek testte. Test: `tests/unit/kvr/soylenti_agi_test.gd`.
   - Bağımlılık: SOY-01…49. Boyut: M.
@@ -9053,7 +9054,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/metin/metinler.csv, src/sistemler/epilog_metin_verisi.gd.
   - Asset: asset gerekmedi.
 
-- [x] **SOY-SON-01:** Söylenti ağının somut olaylara ve hesaplaşmalara kapanışı. (Antigravity)
+- [ ] **SOY-SON-01:** Söylenti ağının somut olaylara ve hesaplaşmalara kapanışı. (Antigravity) (doğrulanmadı — Görev 22; SoylentiAgi (src/sistemler/soylenti_agi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Amaç: soylenti_agi.gd içinde yayılan fısıltıların 2-3 gün sonra köy meydanında veya kapıda somut bir çözüme bağlanması.
   - Kurallar:
     1. 5 kritik söylenti (Değirmenci un hırsızlığı, kuyu zehri, Tekfur arabası, sahte hekim, gece ışığı) sonuca kavuşur.
@@ -9063,7 +9064,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/olaylar/, src/sistemler/soylenti_agi.gd.
   - Asset: asset gerekmedi.
 
-- [x] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin ve adaptör: [x] Antigravity-C; hava motoru: Kalfa bekleniyor)
+- [ ] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin ve adaptör: [x] Antigravity-C; hava motoru: Kalfa bekleniyor) (doğrulanmadı — Görev 22; HavaReplikAdaptoru (src/soz/hava_replik_adaptoru.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Amaç: Sert Anadolu kışını hissettirmek için hava durumu ve ayaza bağlı dinamik açılış replikleri eklenmesi.
   - Kurallar:
     1. Tipi, fırtına ve ayazda ziyaretçinin ve muhafızın diş vurma/titreme replikleri (kapi.hava.*).
