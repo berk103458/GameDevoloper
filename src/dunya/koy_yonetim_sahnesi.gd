@@ -118,9 +118,8 @@ func faz(ad: StringName, sure: float = 2.0) -> void:
 
 ## Kapının dünya konumu (x, z): kapı yolu ve arazi buradan güneye uzanır.
 func kapi_noktasi() -> Vector2:
-	var m := yonetim.a.meydan
-	var x := hucre_kosesi(Vector2i(m.position.x + m.size.x / 2, 0)).x + HUCRE * 0.5
-	return Vector2(x, hucre_kosesi(yonetim.a.izgara_boyut).z + 1.0)
+	var merkez := alan_merkezi(KapiNobeti.esik_hucresi(yonetim), Vector2i.ONE)
+	return Vector2(merkez.x, merkez.z)
 
 
 func yakinlas(adim: float) -> void:
@@ -252,7 +251,8 @@ func _sur_kur() -> void:
 	var kapi_x := kp.x
 	var kapi := Dunya3B.nesne("kapi", 3.6 + yonetim.sur_seviye * 0.5, "yapi")
 	SurHasarGorseli.uygula(kapi, yonetim.sur_hasar)
-	kapi.position = Vector3(kapi_x, 0, kp.y)
+	kapi.add_to_group(&"koy_kapisi")
+	kapi.position = Vector3(kapi_x, arazi.yukseklik_burada(kapi_x, kp.y), kp.y)
 	_yapilar.add_child(kapi)
 	Dunya3B.mesale_kur(_yapilar, kapi.position + Vector3(-2.6, 0, 0.4), 2.0, 8.0)
 	if yonetim.sur_seviye <= 0:

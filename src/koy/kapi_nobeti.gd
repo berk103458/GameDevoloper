@@ -7,6 +7,12 @@ extends RefCounted
 const META := &"kapi_nobeti"
 const YUVA_YOK := -1
 
+
+## Köy kapısı, nöbet ve ANI-13 için aynı son sıra hücresi.
+static func esik_hucresi(y: KoyYonetimi) -> Vector2i:
+	var m := y.a.meydan
+	return Vector2i(m.position.x + m.size.x / 2, y.a.izgara_boyut.y - 1)
+
 ## Oyun açılışında yuva boştur; oyuncu kendiliğinden nöbetçi yazılmaz.
 static func bos_kayit() -> Dictionary:
 	return {

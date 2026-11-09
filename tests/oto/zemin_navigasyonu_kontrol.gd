@@ -28,11 +28,12 @@ func _ready() -> void:
  kontrol(n.hazir(), "Gerçek NavigationRegion3D haritası senkronize olur")
  var m := y.a.meydan
  var bas := m.position
- var son := Vector2i(m.position.x + m.size.x / 2, y.izgara.boyut.y - 1)
+ var son := KapiNobeti.esik_hucresi(y)
  var cells := h.rotaci.yol(bas, son)
  var yol := KoyZeminNavigasyonu.yol(h, cells)
  kontrol(not yol.is_empty() and n.sorgu_sayisi > 0 and n.yedek_sayisi == 0, "Patika/kapı rotası NavigationServer3D kullanır")
  kontrol(yol[-1].is_equal_approx(h._konum(son)), "Kapı hedefi aynen korunur")
+ await _esikten_yuru(s, n, yol, son)
  # Gerçek bina hücreleri navmesh dışındadır; geçilmez arazi de aynı süzgeçten geçer.
  var mesh := n.navigation_mesh
  var vertices := mesh.vertices
@@ -75,6 +76,58 @@ func _ready() -> void:
  await get_tree().create_timer(0.3).timeout
  print("ZEMİN NAVİGASYONU UI: GEÇTİ" if hata == 0 else "ZEMİN NAVİGASYONU UI: KALDI")
  await Ses.cik(hata)
+
+func _esikten_yuru(s: KoyYonetimSahnesi, n: KoyZeminNavigasyonu, yol: Array[Vector3], esik: Vector2i) -> void:
+ var kp := s.kapi_noktasi()
+ var hedef := Vector3(kp.x, 0.0, kp.y)
+ hedef.y = s.ayak_zemini_yuksekligi(hedef)
+ var gorsel: Node3D
+ for aday in get_tree().get_nodes_in_group(&"koy_kapisi"):
+  if aday.get_parent() == s._yapilar and not aday.is_queued_for_deletion():
+   gorsel = aday
+   break
+ kontrol(gorsel != null and gorsel.position.is_equal_approx(hedef), "SAH-05: Köy kapısı ortak zemindeki eşik konumuna yerleşir")
+ var harita := n.get_navigation_map()
+ var gecis := NavigationServer3D.map_get_closest_point(harita, hedef)
+ kontrol(gecis.distance_to(hedef) < 0.02, "SAH-05: Görünür köy eşiği gerçek gezinme ağında")
+ kontrol(yol[-1].is_equal_approx(hedef), "SAH-05: Muhafız durağı ile eşik aynı hücrede")
+ var dis := esik + Vector2i.DOWN
+ kontrol(KoyZeminNavigasyonu.yol(s.halk_hareketi, [esik, dis]).is_empty(), "SAH-05: Sınır dışındaki komşuya rota verilmez")
+ if yol.size() < 2 or not yol[-1].is_equal_approx(hedef):
+  return
+ var f := Dunya3B.karakter("ciftci")
+ f.position = yol[-2]
+ s.add_child(f)
+ f.bak(hedef)
+ var ayak := f.get_node("AyakZemini") as AyakZemini
+ var kose := s.hucre_kosesi(Vector2i.ZERO)
+ var gomulme := 0
+ var ag_disi := 0
+ var esik_temasi := 0
+ var kare := 0
+ f.yuru(hedef, 1.35)
+ while f._yurume != null and f._yurume.is_running():
+  await get_tree().process_frame
+  var farklar := ayak.temas_farklari()
+  for i in farklar.size():
+   if farklar[i] < -0.0001:
+    gomulme += 1
+   if farklar[i] > 0.025:
+    continue
+   var taban := f.position + f.basis * (ayak._ham_tabanlar[i] + ayak._gorsel.position - ayak._taban_konum)
+   var hucre := Vector2i(floori((taban.x - kose.x) / s.HUCRE), floori((taban.z - kose.z) / s.HUCRE))
+   var yakin := NavigationServer3D.map_get_closest_point(harita, taban)
+   var yatay_fark := Vector2(taban.x - yakin.x, taban.z - yakin.z).length()
+   if not s.halk_hareketi.rotaci.gecilir(hucre) or yatay_fark > 0.02:
+    ag_disi += 1
+   elif hucre == esik:
+    esik_temasi += 1
+  kare += 1
+ kontrol(f.position.is_equal_approx(hedef) and kare > 0 and esik_temasi > 0, "SAH-05: Gerçek karakter eşik hücresine basar")
+ kontrol(gomulme == 0 and ag_disi == 0, "SAH-05: Eşik yürüyüşünde gömülme ve ağ dışı basış yok")
+ print("SAH-05: %d kare, eşik teması=%d, gömülme=%d, ağ dışı=%d" % [kare, esik_temasi, gomulme, ag_disi])
+ f.queue_free()
+
 func kontrol(v: bool, ad: String) -> void:
  if not v:
   hata += 1

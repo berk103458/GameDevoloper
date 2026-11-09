@@ -5,8 +5,7 @@ static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("r
 ## Kapı, hazır kışlalar ve işlevli sur kulelerinin kararlı hücre sırası.
 static func duraklar(y: KoyYonetimi) -> Array[Dictionary]:
  var s: Array[Dictionary] = KurtBaskini.duraklar(y)
- var m := y.a.meydan
- s.append({"hucre": Vector2i(m.position.x + m.size.x / 2, y.a.izgara_boyut.y - 1), "kisi": KapiNobeti.yuva(y), "ad": "Kapıda nöbet"})
+ s.append({"hucre": KapiNobeti.esik_hucresi(y), "kisi": KapiNobeti.yuva(y), "ad": "Kapıda nöbet"})
  for b in y.binalar:
   if b.tur == "muhafiz_kislasi" and b.hazir():
    s.append({"bina": b, "ad": "Kışlada nöbet"})

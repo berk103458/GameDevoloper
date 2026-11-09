@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-05 tamamlandı (Kalfa)
+
+Köy kapısının görseli ızgara kenarının 1 m dışındaydı. Eşik, mevcut muhafız durağı olan son sıra hücresinin merkezine alındı. Kapı görseli, nöbet ve devriye aynı hücreyi okur. Görsel yüksekliği mevcut köy arazisinden gelir. ANI-13 bölgesi ve kayıt şeması aynı kalır.
+
+İlk gerçek navigasyon hedefi eski görsel eşik konumunu iki kontrolde reddetti. Son koşu gerçek NavigationServer3D rotasında çiftçiyi son segmente yürüttü. 56 karede 21 eşik teması, gömülme ve ağ dışı basış 0. Izgara dışındaki komşuya rota verilmedi. Devriye testinin eski kurulumuna güncel K2 kışla önkoşulları, yaşayan kişinin yapı bilgisi ve hazır K1 kulübe eklendi. Beş hedef geçti. İlk headless import çıkış 0, betik hatası 0 ve dört MD5 hatası. Tekrarda betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-05 başlıyor (Kalfa)
 
 Festive 5b87091e güncel. Köy kapısının gerçek eşik konumu, mevcut muhafız durağı ve ANI-13 bölgesinde yürüyen bir modelin tabanları birlikte ölçülecek. Asset gerekmedi. kota görünmüyor.

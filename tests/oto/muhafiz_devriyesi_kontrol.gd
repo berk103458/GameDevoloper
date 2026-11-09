@@ -1,4 +1,6 @@
 extends Node
+
+const YAPI_BILGISI = preload("res://src/koy/yapi_bilgisi.gd")
 class TestAna extends Ana:
 	func _ready() -> void:
 		set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -19,13 +21,19 @@ func _ready() -> void:
 	y.kaynaklar.kapasite = 10000
 	y.akce = 1000
 	for t in ["odun", "tas", "kereste"]: y.kaynaklar.ekle(t, 100)
-	var b := _kur(y)
+	var k := y.kabul({"sinif": "asker", "stat": 5})
+	YAPI_BILGISI.ekle(k, PackedStringArray(["kulube", "muhafiz_kislasi"]))
+	var kulube := _kur(y, "kulube")
+	kontrol(kulube != null, "K2 kışla için hazır K1 kulübe")
+	if kulube == null:
+		await Ses.cik(1)
+		return
+	var b := _kur(y, "muhafiz_kislasi")
 	kontrol(b != null, "Gerçek hazır kışla")
 	if b == null:
 		await Ses.cik(1)
 		return
 	y.sur_seviye = 1
-	var k := y.kabul({"sinif": "asker", "stat": 5})
 	kontrol(y.ata(k.id, b.id), "Kışla görevlisi")
 	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
 	ana._koye_git()
@@ -84,12 +92,12 @@ func _ready() -> void:
 	await get_tree().create_timer(0.3).timeout
 	print("MUHAFIZ DEVRİYESİ UI: GEÇTİ" if hata == 0 else "MUHAFIZ DEVRİYESİ UI: KALDI")
 	await Ses.cik(hata)
-func _kur(y: KoyYonetimi) -> KoyBinasi:
+func _kur(y: KoyYonetimi, tur: String) -> KoyBinasi:
 	for cy in y.a.izgara_boyut.y:
 		for cx in y.a.izgara_boyut.x:
 			var h := Vector2i(cx, cy)
-			if y.yerlesim("muhafiz_kislasi", h).olur:
-				var b := y.bina(y.bina_kur("muhafiz_kislasi", h).id)
+			if y.yerlesim(tur, h).olur:
+				var b := y.bina(y.bina_kur(tur, h).id)
 				if b == null: return null
 				b.insa_kalan = 0
 				return b

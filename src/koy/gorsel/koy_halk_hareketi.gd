@@ -161,7 +161,7 @@ func _planla(id: int) -> void:
 		d.bak = sahne.alan_merkezi(b.hucre, b.boyut(sahne.yonetim.katalog))
 		d.is = faz_adi == &"gunduz"
 	elif k.is_yeri == KoyYonetimi.MUHAFIZ and faz_adi == &"gunduz" and not d.dinlen:
-		son = rotaci.yakin(Vector2i(m.position.x + m.size.x / 2, sahne.yonetim.a.izgara_boyut.y - 1))
+		son = rotaci.yakin(KapiNobeti.esik_hucresi(sahne.yonetim))
 		d.bak = _konum(son) + Vector3.FORWARD * -sahne.HUCRE
 	son = TasYatagiGorseli.planla(self, k, bas, son, d)
 	d.devriye = MuhafizMaasi.aday(k, sahne.yonetim)
