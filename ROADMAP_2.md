@@ -7934,7 +7934,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-03. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-05:** Kapı eşiği ayrı bir zemin değildir. (doğrulanmadı — Görev 22; Kalfa bekleniyor — AyakZemini oyunda topuğu ölçmüyor, KarakterModel ayak kemiği/zemin entegrasyonu gerekli)
+- [/] **SAH-05:** Kapı eşiği ayrı bir zemin değildir. (Kalfa — ANI-13 gerçek kapı hücresi)
   - Ne: eşik, ANI-13 ağının bir hücresidir. İkinci bir yükseklik sabiti kodda yoktur.
   - Kabul: eşik, ANI-13 ağının bir hücresidir. İkinci bir yükseklik sabiti kodda yoktur. Test: eşikte gömülme 0, ağ dışı hücreye ayak basılmaz.
   - Bağımlılık: ANI-13, SAH-01. Boyut: S.

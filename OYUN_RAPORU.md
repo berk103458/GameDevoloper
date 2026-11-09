@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-05 başlıyor (Kalfa)
+
+Festive 5b87091e güncel. Köy kapısının gerçek eşik konumu, mevcut muhafız durağı ve ANI-13 bölgesinde yürüyen bir modelin tabanları birlikte ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-04 tamamlandı (Kalfa)
 
 Gerçek kapı yolunda çiftçi 29,58 cm yükselti farkıyla hedefe ulaştı, LOWPO demirci 4,89 cm yükselti farkından sonra yürüyüşü iptal etti. Normal oyun hızındaki 5,00 ve 5,01 saniyelik 620 ve 618 karede azami kök deltası 0, mevcut 1 cm eşik altında. Beklemeye karışım sonrasında yürüyüş klibi kapandı ve zemine en yakın taban noktası sıfır açıklık gösterdi. Yeni çalışma zamanı kodu gerekmedi. Aynı hedef SAH-01..03 gerçek sahne ölçümlerini de geçti. Headless import ilk çalıştırmada 0 betik hatası ve beş MD5 hatası, tekrarda 0 betik/MD5 ve üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
