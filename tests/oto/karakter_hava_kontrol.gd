@@ -1,4 +1,7 @@
 extends Node
+
+const MUAYENE = preload("res://tests/oto/karakter_muayene.gd")
+const YAPI_BILGISI = preload("res://src/koy/yapi_bilgisi.gd")
 class TestAna extends Ana:
 	func _ready() -> void:
 		set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -16,16 +19,18 @@ func _ready() -> void:
 	var y := ana.oturum.yonetim
 	y.kaynaklar.kapasite = 10000
 	for t in ["odun", "tas", "kereste"]: y.kaynaklar.ekle(t, 100)
-	var b := _kur(y)
-	kontrol(b != null, "Gerçek kulübe saçağı")
-	if b == null:
+	var k := y.kabul({"sinif": "ciftci", "stat": 5})
+	YAPI_BILGISI.ekle(k, PackedStringArray(["kulube"]))
+	var b := _kur(y, "kulube")
+	var tarla := _kur(y, "tarla")
+	kontrol(b != null and tarla != null, "Gerçek kulübe saçağı ve açık tarla")
+	if b == null or tarla == null:
 		await Ses.cik(1)
 		return
-	var k := y.kabul({"sinif": "ciftci", "stat": 5})
+	kontrol(y.ata(k.id, tarla.id), "SAH-59: Gerçek tarla ataması")
 	var guard := y.kabul({"sinif": "asker", "stat": 5})
 	guard.is_yeri = KoyYonetimi.MUHAFIZ
-	IklimDeneyi.degistir(ana.oturum, 0, "yagmur")
-	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
+	IklimDeneyi.degistir(ana.oturum, 0, "normal")
 	ana._koye_git()
 	await get_tree().process_frame
 	var s: KoyYonetimSahnesi = ana._ekran.sahne3b
@@ -34,13 +39,25 @@ func _ready() -> void:
 	for i in 3: h._process(0.0)
 	var d: Dictionary = h._durum[k.id]
 	var f: KarakterModel = h.modeller[k.id]
+	_varis(h, f, d)
+	# Sulama rotası kuyu durağında başlar. Mevcut süreyi ilerletip iş durağına var.
+	h._process(float(SulamaRutini.AYAR.sureler[0]) + 0.01)
+	h._process(0.0)
+	_varis(h, f, d)
+	var kuru := MUAYENE.hava_say(h)
+	var kose := s.hucre_kosesi(tarla.hucre)
+	var acik_alan := Rect2(Vector2(kose.x, kose.z), Vector2(tarla.boyut(y.katalog)) * s.HUCRE)
+	kontrol(kuru.acikta == 1 and kuru.sacak == 0 and acik_alan.has_point(Vector2(f.position.x, f.position.z)), "SAH-59: Açık havada işçi tarla içinde")
+	IklimDeneyi.degistir(ana.oturum, 0, "yagmur")
+	var once := JSON.stringify(ana.oturum.kaydet())
+	h.yenile()
+	for i in 3: h._process(0.0)
 	kontrol(d.siginma and not d.is and not d.ates_basi, "Yağmurda iş/ateş yerine saçak")
 	kontrol(h._durum[guard.id].devriye and not h._durum[guard.id].siginma, "Yağmurda muhafız görevi korunur")
-	for adim in range(d.yol.size() + 1):
-		if int(d.adim) >= d.yol.size(): break
-		f.position = d.yol[d.adim]
-		h._process(0.0)
-	f.yurumeyi_durdur()
+	_varis(h, f, d)
+	var yagmur := MUAYENE.hava_say(h)
+	kontrol(yagmur.acikta < kuru.acikta and yagmur.sacak > kuru.sacak, "SAH-59: Yağmurda açık tarla azalır, saçak dolar")
+	print("SAH-59 HAVA SAYIMI: ", JSON.stringify({"kuru": kuru, "yagmur": yagmur}))
 	kontrol(f.position.distance_to(h._konum(KarakterHavaTepkisi.durak(y, b))) < s.HUCRE / 2 and h.eylem(k.id).contains("saçak"), "Erişilebilir gerçek saçak altında")
 	kontrol(s.find_children("hava_sacagi_hazir", "", true, false).size() == 1, "Tek hazır MegaKit saçağı")
 	kontrol(JSON.stringify(ana.oturum.kaydet()) == once, "Sığınma kayıt/RNG/stok değiştirmez")
@@ -100,12 +117,20 @@ func _goruntu(s: KoyYonetimSahnesi, f: KarakterModel, ad: String) -> void:
 	await get_tree().create_timer(0.3).timeout
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(dizin.path_join(ad))
-func _kur(y: KoyYonetimi) -> KoyBinasi:
+func _varis(h: KoyHalkHareketi, model: KarakterModel, d: Dictionary) -> void:
+	for _adim in range(d.yol.size() + 1):
+		if int(d.adim) >= d.yol.size(): break
+		model.position = d.yol[d.adim]
+		h._process(0.0)
+	model.yurumeyi_durdur()
+
+
+func _kur(y: KoyYonetimi, tur: String) -> KoyBinasi:
 	for cy in y.a.izgara_boyut.y:
 		for cx in y.a.izgara_boyut.x:
 			var h := Vector2i(cx, cy)
-			if y.yerlesim("kulube", h).olur:
-				var b := y.bina(y.bina_kur("kulube", h).id)
+			if y.yerlesim(tur, h).olur:
+				var b := y.bina(y.bina_kur(tur, h).id)
 				if b == null: return null
 				b.insa_kalan = 0
 				return b
