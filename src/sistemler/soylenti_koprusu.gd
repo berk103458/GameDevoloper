@@ -50,20 +50,19 @@ static func karar(o: Object, gelen: Gelen, karar_adi: StringName, ek: Dictionary
 	return acilan
 
 
-## Komşu: aynı evde oturanlar. İş arkadaşı: aynı yapıda çalışanlar.
+## Komşu: aynı evde oturanlar; evi olmayanlar ortak kampta aynı ateşin başındadır. İş arkadaşı: aynı yapıda çalışanlar.
 static func baglar(y: KoyYonetimi) -> Array[Dictionary]:
 	var evler := {}
 	var isler := {}
 	for k in y.koylular:
-		if k.ev >= 0:
-			evler[k.ev] = evler.get(k.ev, []) + [str(k.id)]
+		evler[k.ev] = evler.get(k.ev, []) + [str(k.id)]
 		if k.is_yeri >= 0:
 			isler[k.is_yeri] = isler.get(k.is_yeri, []) + [str(k.id)]
 	var komsu := {}
 	var ark := {}
 	for k in y.koylular:
 		var id := str(k.id)
-		komsu[id] = (evler.get(k.ev, []) as Array).filter(func(x: String) -> bool: return x != id) if k.ev >= 0 else []
+		komsu[id] = (evler.get(k.ev, []) as Array).filter(func(x: String) -> bool: return x != id)
 		ark[id] = (isler.get(k.is_yeri, []) as Array).filter(func(x: String) -> bool: return x != id) if k.is_yeri >= 0 else []
 	return [komsu, ark]
 

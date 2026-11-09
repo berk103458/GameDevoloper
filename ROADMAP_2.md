@@ -5403,7 +5403,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: DIY-13, KAY-04. Boyut: S.
   - Dosya: yeni: `src/sistemler/soylenti_agi.gd` (kaydı okur, alan ekler).
   - Asset: asset gerekmedi.
-- [ ] **SOY-02:** Düğüm — kim duydu. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-02:** Düğüm — kim duydu. (Cursor)
   - Ne: her kayıt için "duyanlar" kümesi: başlangıçta tanık; her gece yayılım adımında (DIY-13 1–3 gece) tanığın komşuları (`izgara.gd` komşuluk) ve aynı iş yerindekiler (`meslek_yapilari.gd`) eklenir. Eşin duyumu (HAN-18) bu kümeden gelir.
   - Kabul: gece başına yeni duyan ≤ 4 (öneri, `data/soylenti.json`); duyanlar kümesi kayıtta. Test: üç gece.
   - Bağımlılık: SOY-01, HAN-18. Boyut: M.
@@ -5427,7 +5427,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-01. Boyut: M.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-06:** Söylenti ölür. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-06:** Söylenti ölür. (Cursor)
   - Ne: DIY-13 "üçüncü geceden sonra basılmamış satır silinir" kuralı korunur; ağ kaydı 7 gece (öneri) sonra düşer, kamuoyuna (SOY-13) dönüştüyse izi orada kalır.
   - Kabul: 8. gece kayıt 0. Test: zaman makinesi.
   - Bağımlılık: SOY-02. Boyut: S.
@@ -5469,13 +5469,13 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.3 Kamuoyu — söylenti bara dönüşür
 
-- [ ] **SOY-12:** Kamuoyu konusu. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-12:** Kamuoyu konusu. (Cursor)
   - Ne: aynı olay kimliğini köyün ≥ %40'ı (öneri) duyduğunda kayıt "kamuoyu konusu" olur; o andan sonra çınar meclisi (MCL-02) şikâyet olarak alabilir.
   - Kabul: eşik `data/soylenti.json`; eşik altında meclis adayı 0. Test: iki nüfus.
   - Bağımlılık: SOY-02, MCL-02. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-13:** Kamuoyu barı oynatır, gazete oynatmaz. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-13:** Kamuoyu barı oynatır, gazete oynatmaz. (Cursor)
   - Ne: bar değişimi (`barlar.gd`) yalnız kamuoyu konusu olunca ve bir kez: ağır olay türüne göre `bar.halk` ya da `bar.tuccarlar` −1. Gazete satırı bar değiştirmez (KOP-05 kural 2 korunur).
   - Kabul: eşik altında bar deltası 0; eşik üstünde bir kez −1. Test: simülasyon. Ek şart: Haber satırı kamuoyu barını tek başına değiştirmez.
   - Bağımlılık: SOY-12. Boyut: S.
@@ -5493,7 +5493,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: KRI-08, SOY-05. Boyut: S.
   - Dosya: `batil_inanc_histerisi.gd` okuyucusuna tek satır.
   - Asset: asset gerekmedi.
-- [ ] **SOY-16:** Kamuoyu söner. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-16:** Kamuoyu söner. (Cursor)
   - Ne: kamuoyu konusu 5 gece (öneri) sonra "eski konu" olur; meclis almaz, bar değişmez, defterde kalır.
   - Kabul: 6. gece meclis adayı 0. Test: zaman makinesi. Ek şart: Çınar meclisi kamuoyu değerini tek başına değiştirmez; düşüş divan hükmü veya süre dolumudur.
   - Bağımlılık: SOY-12. Boyut: S.
@@ -5652,7 +5652,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: DEN-05. Boyut: S.
   - Dosya: `tools/python_test_runner.py`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-40:** Küçük köyde ağ susar. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-40:** Küçük köyde ağ susar. (Cursor)
   - Ne: nüfus < 5 iken yayılım yoktur (duyan = tanık); kamuoyu konusu olmaz. BUG-16 ön koşul kuralı burada da geçerlidir.
   - Kabul: nüfus 4'te kamuoyu 0. Test: birim.
   - Bağımlılık: BUG-16. Boyut: S.

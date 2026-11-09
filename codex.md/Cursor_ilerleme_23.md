@@ -46,3 +46,15 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - Test: `tests/unit/sistemler/soylenti_koprusu_test.gd` → `SÖYLENTİ KÖPRÜSÜ: GEÇTİ`.
 - Bozma kanıtı: `oturum.gd`'den kapı kancası silinince `KALDI (5 hata)`, yükleme satırı silinince `KALDI (1 hata)`.
 - Not: `tas_yatagi_test`, `tehdit_takvimi_test`, `baglam_sorgusu_test` bu değişiklikten önce de kırmızı (stash ile doğrulandı); bu maddeyle ilgisiz.
+
+### SOY-02, SOY-06, SOY-12, SOY-13, SOY-16, SOY-40
+
+- Çağrı zinciri: `Oturum.gece_sonu` → `SoylentiKoprusu.gece(self, r)` → `SoylentiKoprusu.baglar` (gerçek köylülerden komşu/iş arkadaşı haritası) → `SoylentiAgi.gece_ilerlet(gun, nüfus, komşu, iş)`.
+  - Kamuoyu olunca `Oturum._herkese_moral(fark * KOPRU_MORAL)` çalışır ve gece raporuna "Köy bunu konuşuyor" satırı düşer.
+- Karar: evi olmayan köylüler ortak kampta birbirinin komşusudur. Açılış köyünde kimsenin evi ya da işi yok; aksi halde ağ hiç yayılmazdı.
+- Test: `tests/unit/sistemler/soylenti_gecesi_test.gd` → `SÖYLENTİ GECESİ: GEÇTİ`. 15 kişilik köyde gece başına en çok 4 yeni duyan var ve hepsi köyde. 2. gece %40 eşiğinde kamuoyu oluyor, bar bir kez −1 ve moral bir kez düşüyor. Konu 5 gece sonra sönüyor, 8. gece kayıt düşüyor. 4 kişilik köyde ağ susuyor.
+- Bozma kanıtı:
+  - Gece kancası silinince `KALDI (10 hata)`.
+  - Moral satırı silinince `KALDI (1 hata)`.
+  - Kamp komşuluğu geri alınınca `KALDI (9 hata)`.
+- Açık kalan: Çınar meclisinin kamuoyu konusunu oyunda gerçekten alması SOY-33'tür. `meclis_sikayeti_sec` henüz `CinarAltiMeclisi`'ne bağlı değil. SOY-13'teki tüccar barı ayrımı yok; kapıdaki rüşvet ve haksız ret halka dokunuyor.
