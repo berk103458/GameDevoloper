@@ -1,3 +1,9 @@
+## 9 Kasım 2026 — SAH-51 tamamlandı (Kalfa)
+
+Mevcut fırtına kuyruğu kabulüne normal havada dört gerçek kayıtlı kişi ve model eklendi. Gerçek kapı sıradaki akışı ilk nesneyi konuşturur ve ikinci nesneyi sıranın başına ilerletir. On iki karede etkin kamera, dönüşüm ve görüş açısı sabit. Konuşan yüz kadrajda, sıradaki yüze göre merkeze daha yakın. Mevcut oyun davranışı kabulü sağladı, üretim dosyası değişmedi.
+
+Fırtına kuyruğu ve SAH-51 aynı headless sahnede iki koşuda geçti, sonuncusu standart Python çalıştırıcısı üzerinden. İlk headless import çıkış 0 ve betik hatası 0, yedi MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-51 başlıyor (Kalfa)
 
 Festive 6a9d75a9 güncel. Mevcut kapı sahnesinde dört gerçek modelle normal yaklaşma ve konuşma sırasında kadrajın sıradaki kişiye geçmediği doğrulanacak. Önceki SAH sahiplikleri korunuyor. Asset gerekmedi. kota görünmüyor.

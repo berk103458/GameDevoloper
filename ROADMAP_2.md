@@ -8227,7 +8227,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: BUG-15, SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-51:** Sıradaki kişi vurgulanmaz. (Kalfa)
+- [x] **SAH-51:** Sıradaki kişi vurgulanmaz. (Kalfa)
   - Ne: kadraj kapıdaki kişidir. Sıradaki ikinci modele kesme yoktur.
   - Kabul: kadraj kapıdaki kişidir. Sıradaki ikinci modele kesme yoktur. Test: 4 kişilik sıra, kamera birincidedir.
   - Bağımlılık: SAH-49, SAH-35. Boyut: S.
