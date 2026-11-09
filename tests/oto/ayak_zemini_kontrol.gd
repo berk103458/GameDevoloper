@@ -1,4 +1,4 @@
-## SAH-01: Gerçek sahneler ve yürüyüş klipleriyle ayak teması.
+## Gerçek sahneler ve yürüyüş klipleriyle ayak teması, eğim ve kayma.
 extends Node
 
 const MUAYENE = preload("res://tests/oto/karakter_muayene.gd")
@@ -43,6 +43,15 @@ func _calistir() -> void:
 		if not await _egim(kapi, ornek[0], ornek[1], ornek[2]):
 			await _bitir(false, "Eğik yolda bağımsız topuk teması")
 			return
+	# Kısa LOWPO temaslarını hızlandırılmış karelerde kaçırma.
+	Engine.time_scale = 1.0
+	var kayma_gecerli := true
+	for ornek in [["ciftci", 1.35], ["lowpo_demirci", 1.35], ["chr_006", KarakterModel.YURUME_HIZI]]:
+		kayma_gecerli = (await _kayma(kapi, ornek[0], ornek[1])) and kayma_gecerli
+	Engine.time_scale = 4.0
+	if not kayma_gecerli:
+		await _bitir(false, "SAH-03: Ayak kayması")
+		return
 	var tarla_bas := koy.alan_merkezi(tarla.hucre, Vector2i.ONE)
 	var tarla_son := koy.alan_merkezi(tarla.hucre + tarla.boyut(y.katalog) - Vector2i.ONE, Vector2i.ONE)
 	if not await _yuru(koy, "tarla", "ciftci", tarla_bas, tarla_son):
@@ -95,6 +104,56 @@ func _egim(kapi: KapiSahnesi, ad: String, yon: float, tohum: int) -> bool:
 	model.queue_free()
 	push_error("SAH-02: Ölçülebilir eğim veya iki topuk bulunamadı")
 	return false
+
+
+func _kayma(kapi: KapiSahnesi, ad: String, hiz: float) -> bool:
+	const ADIM_SAYISI := 10
+	const TEMAS_YUKSEKLIGI := 0.025
+	var f := Dunya3B.karakter(ad)
+	var hedef := KapiManzarasi.yol_noktasi(0.22)
+	kapi.add_child(f)
+	f.bak(hedef)
+	var ayak := f.get_node("AyakZemini") as AyakZemini
+	var temaslar := {}
+	var tamamlanan := 0
+	var azami := 0.0
+	var boy_asimi := 0
+	f.yuru(hedef, hiz)
+	while f._yurume != null and f._yurume.is_running() and tamamlanan < ADIM_SAYISI:
+		await get_tree().process_frame
+		if f._oynatici.current_animation != f._anim:
+			continue
+		var kok := Vector2(f.global_position.x, f.global_position.z)
+		var farklar := ayak.temas_farklari()
+		for i in farklar.size():
+			if not ayak._iskelet.get_bone_name(ayak._kemikler[i]).to_lower().ends_with("foot"):
+				continue
+			var topuk := f.to_global(ayak._ham_tabanlar[i] + ayak._gorsel.position - ayak._taban_konum)
+			var iskelet := Vector2(topuk.x, topuk.z) - kok
+			if farklar[i] <= TEMAS_YUKSEKLIGI:
+				if not temaslar.has(i):
+					temaslar[i] = {"kok": kok, "iskelet": iskelet, "kok_boyu": 0.0, "adim_boyu": 0.0, "kayma": 0.0}
+				var d: Dictionary = temaslar[i]
+				var kok_adimi: Vector2 = kok - d.kok
+				var iskelet_adimi: Vector2 = iskelet - d.iskelet
+				d.kok_boyu = maxf(d.kok_boyu, kok_adimi.length())
+				d.adim_boyu = maxf(d.adim_boyu, maxf(kok_adimi.length(), iskelet_adimi.length()))
+				d.kayma = maxf(d.kayma, (kok_adimi + iskelet_adimi).length())
+			elif temaslar.has(i):
+				var d: Dictionary = temaslar[i]
+				temaslar.erase(i)
+				if float(d.kok_boyu) < 0.05:
+					continue
+				tamamlanan += 1
+				azami = maxf(azami, d.kayma)
+				if float(d.kayma) > float(d.adim_boyu) + 0.001:
+					boy_asimi += 1
+				if tamamlanan == ADIM_SAYISI:
+					break
+	f.yurumeyi_durdur()
+	f.queue_free()
+	print("SAH-03 %s: adım=%d, azami kayma=%.4f m, eşik=%.2f m, adım boyu aşımı=%d" % [ad, tamamlanan, azami, ayak.kayma_esigi, boy_asimi])
+	return tamamlanan == ADIM_SAYISI and azami <= ayak.kayma_esigi and boy_asimi == 0
 
 
 func _tarla(y: KoyYonetimi) -> KoyBinasi:

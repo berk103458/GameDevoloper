@@ -30,6 +30,12 @@ func _ready() -> void:
       var dunya_farki := sk.global_transform.basis * (v-referans)
       assert(absf(dunya_farki.x)<0.001 and absf(dunya_farki.z)<0.001)
    k._oynatici.play(isim)
+   if isim == "yuru":
+    var ayak := sk.find_bone("LeftFoot")
+    k._oynatici.seek(0.0, true)
+    var ilk := sk.get_bone_global_pose(ayak).origin
+    k._oynatici.seek(anim.length * 0.5, true)
+    assert(ilk.distance_to(sk.get_bone_global_pose(ayak).origin) > 0.01)
    k._oynatici.seek(anim.length * 0.4, true)
    sk.force_update_all_bone_transforms()
    for i in sk.get_bone_count():

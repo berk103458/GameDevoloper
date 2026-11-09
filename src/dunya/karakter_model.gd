@@ -9,8 +9,10 @@ extends Node3D
 
 const YURUME_HIZI := 1.9  # m/s (oyun temposu için gerçekten biraz hızlı)
 const BEKLE := "bekle"
-## Yürüme ile durma arasındaki karışım süresi (s).
+## Bekleme ve diğer hareketlere geçiş süresi (s).
 const GECIS := 0.3
+## Kök ilerlemeye başladığında ilk basışın bekleme pozuna takılmasını önler.
+const YURUYUS_GECISI := 0.08
 const HAREKETLER := ["bekle", "konus", "sevinc", "ofke", "panik", "gergin"]
 const DONGULU := ["bekle", "konus", "gergin"]
 ## Bir klip dosyasının izlerinin en az bu payı bu iskelette çözülmeli; yoksa klip alınmaz.
@@ -86,8 +88,8 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI) -> void:
 	if _yurume != null and _yurume.is_valid():
 		_yurume.kill()
 	if is_instance_valid(_oynatici) and preload("res://src/dunya/guvenli_karakter_animasyonu.gd").var_mi(_oynatici, _anim):
-		_oynatici.play(_anim, GECIS)
-		_oynatici.speed_scale = hiz / 1.35
+		_oynatici.play(_anim, YURUYUS_GECISI)
+		_oynatici.speed_scale = hiz / _yuruyus_taban_hizi()
 	_bekleme_hedef = 0.0
 	_duzeltici_hedef = 1.0
 	_klip_sirasi += 1
@@ -99,6 +101,10 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI) -> void:
 	await t.finished
 	if is_inside_tree() and _yurume == t:
 		dur()
+
+
+func _yuruyus_taban_hizi() -> float:
+	return 1.35
 
 
 ## Yeni rota veya iptal için konum tween'ini durdurur ve bekleme pozuna geçer.

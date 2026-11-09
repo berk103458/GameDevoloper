@@ -7922,7 +7922,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-01. Boyut: M.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-03:** Ayak kayması adım boyunu aşmaz. (Kalfa — gerçek adım ölçümü)
+- [x] **SAH-03:** Ayak kayması adım boyunu aşmaz. (Kalfa — 3 model × 10 gerçek temas, azami 5,74 cm, adım boyu aşımı 0)
   - Ne: bir adımda ayak, görünen adım uzunluğundan fazla kaymaz. Ölçü iskelet ile kök hareketinin farkıdır.
   - Kabul: bir adımda ayak, görünen adım uzunluğundan fazla kaymaz. Ölçü iskelet ile kök hareketinin farkıdır. Test: 10 adım, fark tablodaki eşiğin altında.
   - Bağımlılık: SAH-01. Boyut: M.

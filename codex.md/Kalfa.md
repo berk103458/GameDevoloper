@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-03 tamamlandı (Kalfa)
+
+Hazır iskeletin ağaç dışındaki örneklemesinde küresel poz önbelleği donuyordu. Yerel pozlar her örnekte ebeveyn sırasıyla birleştirilir. UAL ve KayKit kaynak seçimi korunur. LOWPO yürüyüş klibinin hızı model boyuna ve rota hızına uyar. Yürümeye giriş karışımı 80 ms, duruş geçişi 300 ms. Mevcut bacak çözücüsü basan topuğun dünya temasını izler, yatay düzeltmeyi 18 cm ile sınırlar ve yükseltiye giren salınım ayağının açıklığını korur. Kök, rota ve hareket süresi korunur.
+
+İlk gerçek ölçümde çiftçi 58,1 cm ve donuk LOWPO 149,3 cm kaydı. Normal hızdaki son kapı yolu koşusunda çiftçi 5,11 cm, demirci 5,74 cm ve CHR-006 çocuk 4,71 cm azami kayma gösterdi. Her modelde 10 temas, 15 cm eşik ve sıfır adım boyu aşımı. Tarla, patika ve eşikte 20+ klip turunda gömülme sıfır. İki LOWPO modelinde yürüyüş klibinin iki farklı iskelet pozu ürettiği doğrulandı. Yedi hedef geçti. İlk headless import çıkış 0, betik hatası 0, altı MD5 hatası. Tekrarda betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-03 başlıyor (Kalfa)
 
 Festive 0a4c8031 güncel. Canlı yürüyüşte topuğun temas boyunca dünya konumu, iskelet ve hareket kökünün farkından ölçülecek. Mevcut sahne ayarındaki 0,15 m eşik kullanılır. Asset gerekmedi. kota görünmüyor.

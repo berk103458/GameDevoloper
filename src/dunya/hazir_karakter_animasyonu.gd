@@ -69,6 +69,13 @@ static func _uyarla(anim: Animation, veri: Dictionary, harita: Dictionary, model
 	var iz_kemikleri := []
 	for i in anim.get_track_count():
 		iz_kemikleri.append(kaynak.find_bone(String(anim.track_get_path(i).get_concatenated_subnames())))
+	var kemik_sirasi := kaynak.get_parentless_bones()
+	var siradaki := 0
+	while siradaki < kemik_sirasi.size():
+		kemik_sirasi.append_array(kaynak.get_bone_children(kemik_sirasi[siradaki]))
+		siradaki += 1
+	var kaynak_pozlari: Array[Transform3D] = []
+	kaynak_pozlari.resize(kaynak.get_bone_count())
 	for kare in range(adet + 1):
 		var zaman := minf(kare * adim, anim.length)
 		kaynak.reset_bone_poses()
@@ -81,7 +88,11 @@ static func _uyarla(anim: Animation, veri: Dictionary, harita: Dictionary, model
 					kaynak.set_bone_pose_rotation(ki, anim.rotation_track_interpolate(i, zaman))
 				Animation.TYPE_POSITION_3D:
 					kaynak.set_bone_pose_position(ki, anim.position_track_interpolate(i, zaman))
-		kaynak.force_update_all_bone_transforms()
+		# Ağaç dışındaki kaynakta yerel poz değişimi dünya önbelleğini kirli işaretlemez.
+		for ki in kemik_sirasi:
+			var ebeveyn := kaynak.get_bone_parent(ki)
+			var yerel := kaynak.get_bone_pose(ki)
+			kaynak_pozlari[ki] = kaynak_pozlari[ebeveyn] * yerel if ebeveyn >= 0 else yerel
 		var pozlar: Array[Quaternion] = []
 		for hi in hedef.get_bone_count():
 			var ebeveyn := hedef.get_bone_parent(hi)
@@ -90,14 +101,14 @@ static func _uyarla(anim: Animation, veri: Dictionary, harita: Dictionary, model
 			if ciftler.has(hi):
 				var ki: int = ciftler[hi]
 				var dinlenme := (kaynak_kok * kaynak.get_bone_global_rest(ki)).basis.orthonormalized().get_rotation_quaternion()
-				var hareket := (kaynak_kok * kaynak.get_bone_global_pose(ki)).basis.orthonormalized().get_rotation_quaternion()
+				var hareket := (kaynak_kok * kaynak_pozlari[ki]).basis.orthonormalized().get_rotation_quaternion()
 				var hedef_rest := (hedef_kok * hedef.get_bone_global_rest(hi)).basis.orthonormalized().get_rotation_quaternion()
 				var dunya := hareket * dinlenme.inverse() * hedef_rest
 				yerel = (ebeveyn_poz.inverse() * dunya).normalized()
 				sonuc.rotation_track_insert_key(izler[hi], zaman, yerel)
 			pozlar.append(ebeveyn_poz * yerel)
 		# Kaynak kök hareketi rota tween'ini sürüklemez; yalnız sınırlı dikey nefes/adım.
-		var fark := (kaynak_kok * kaynak.get_bone_global_pose(kaynak_hips)).origin.y - (kaynak_kok * kaynak.get_bone_global_rest(kaynak_hips)).origin.y
+		var fark := (kaynak_kok * kaynak_pozlari[kaynak_hips]).origin.y - (kaynak_kok * kaynak.get_bone_global_rest(kaynak_hips)).origin.y
 		var yukari := hedef_kok.basis.inverse() * Vector3(0, clampf(fark * boy / 1.8, -0.12, 0.12), 0)
 		sonuc.position_track_insert_key(konum_izi, zaman, hedef.get_bone_rest(hips).origin + yukari)
 	kaynak.free()

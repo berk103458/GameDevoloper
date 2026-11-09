@@ -44,6 +44,7 @@ static func olustur(ad: String) -> KarakterModel:
 	model.add_child(oynatici)
 	oynatici.add_animation_library("", kitap)
 	var k := HazirKarakterModeli.new()
+	k.boy = boy
 	k.set_meta("hazir_kaynak", tur)
 	k.kur(model, "")
 	return k
