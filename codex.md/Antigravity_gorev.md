@@ -775,3 +775,10 @@ Görev 21'de SAH-01…50'nin 46'sı tek commit'te (42ff73e8, 14 dosya, +215 sat�
 6. Commit mesajı Türkçe karakterli, (Antigravity) imzalı. Festive'i merge et, ff push; force yok.
 7. İlerleme: codex.md/Antigravity_ilerleme_22.md; içinde kaç madde [x] kaldı, kaç madde geri açıldı yaz. Son satır GOREV22_TAMAM.
 — Muharrir
+
+### Görev 22 eki — Genel düzeltme ve yeni ROADMAP adımları (Ahmet, 9 Kasım 2026, 23:50)
+SAH kanıt denetimini (1–7) bitirdikten sonra durma, şunlarla devam et:
+8. Genel düzeltme: ROADMAP'te [x] olup testi derlenmeyen, SCRIPT ERROR/parse hatası veren ya da oyuna bağlı olmayan maddeleri bul ve düzelt; düzeltemiyorsan [ ] yap ve nedenini yaz. Kökteki `_tmp_*`/`_doc_*` artıklarına dokunma (Kalfa'nın).
+9. Yeni ROADMAP adımları: ROADMAP_2'de sıradaki açık [ ] maddeleri sırayla al. Kalfa'nın üstlendiği (`üstlen (Kalfa)` commit'i olan) maddelere dokunma. Her maddeyi gerçek oyun sistemine bağla, hedefli testini çalıştır, ancak geçince [x] yap. Her madde ayrı commit, Türkçe karakterli, (Antigravity) imzalı; madde başına festive ile merge + ff push.
+10. Her madde için ilerleme_22'ye: madde no, değişen dosyalar, test adı ve son satırı. Kotan bitene kadar devam et; bitmeden önce son durumu yaz ve son satıra GOREV22_TAMAM ekle.
+— Muharrir
