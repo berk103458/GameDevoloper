@@ -8245,7 +8245,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ACL-04, SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-54:** Vurgu titreşmez.
+- [/] **SAH-54:** Vurgu titreşmez. (Kalfa)
   - Ne: aynı kişi konuşurken kamera her satırda yeniden kesmez. Yeni cümle, aynı kadraj.
   - Kabul: aynı kişi konuşurken kamera her satırda yeniden kesmez. Yeni cümle, aynı kadraj. Test: 5 satır, kamera konumu sabit.
   - Bağımlılık: SAH-49. Boyut: S.

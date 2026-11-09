@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — SAH-54 başlıyor (Kalfa)
+
+Festive 7d1657f4 güncel. Aynı CHR kişisinin beş gerçek repliği okunurken kamera ve FOV izlenecek. Asset gerekmedi. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-53 tamamlandı (Kalfa)
 
 İlk aile kapısında gerçek kuruluş kaydındaki yaşayan eş, mevcut köylü modeli ve hane görünümüyle mevcut kapı sahnesine eklenir. Konumu kapı açıklığının sol yanında seçildi. Öğretici ipucunu atlamak sahnedeki eşi kaldırmaz. Gece çıkışında model temizlenir, sonraki gece kurulmaz. Bir kamera ve bir etkin bakış. ACL-02 kaydı, köy nüfusu ve replikler korunur.
