@@ -352,7 +352,7 @@ func _unhandled_input(olay: InputEvent) -> void:
 	if preload("res://src/sistemler/hizli_kayit.gd").girdi(self, olay):
 		get_viewport().set_input_as_handled()
 		return
-	if not olay.pressed:
+	if not olay.is_pressed():
 		return
 	if olay is InputEventKey and (olay as InputEventKey).echo:
 		return
