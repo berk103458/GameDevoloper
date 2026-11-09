@@ -754,3 +754,13 @@ Muharrir 9 Kasım'da festive `d041dd83` üzerinde denetim yaptı. SAH-01…SAH-5
 - Emin değilsen "Antigravity sorusu" başlığıyla yaz, en mantıklı varsayımla devam et.
 
 — Muharrir
+## Görev 21 — Temizlik ve SAH bağlama (Ahmet onayladı, 9 Kasım 2026)
+1. Ana klasör C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi festive'i ff çekemiyor: senin commit ettiğin ~70 .uid dosyası orada takip edilmeyen dosya olarak duruyor. Bu çakışan takip edilmeyen .uid dosyalarını (yalnızca bunları) C:\Users\Ahmet\Desktop\Cursor_All_DAta\_uid_yedek_9kasim\ klasörüne yol yapısını koruyarak TAŞI, sonra ana klasörde `git pull --ff-only` yap. Kalfa'nın başka kirli dosyalarına dokunma; stash/reset/force yok.
+2. Repo kökündeki gereksiz `ilerleme_20` dosyasını sil.
+3. codex.md/Antigravity_ilerleme_20.md'deki festive uç hash'ini bc09da26 olarak düzelt.
+4. SAH-42: `kamera_yukseklik` alan adını gerçek anlamına uygun (ör. `kamera_uzaklik`) yap; sahne.json'u her tekerlek adımında değil bir kez (_ready) oku.
+5. SAH-01…50'yi ROADMAP sırasıyla gerçek oyun sistemlerine bağla (karakter modeli, köy sahnesi, kamera_surukleme, kapi_kamera_gecisi vb.). Sabit değer döndüren fonksiyon kanıt değildir. Bir madde ancak gerçek sisteme bağlanıp hedefli testi geçince [x] olur; sahne entegrasyonu büyükse 'Kalfa bekleniyor' yaz. Kalfa'nın SAH-51+ maddelerine dokunma.
+6. Tam sanity yok, sadece hedefli testler; `godot --headless --import` sonrası çalıştır, her testin son satırını ilerleme dosyasına yapıştır. 2D asset üretme.
+7. Commit mesajları Türkçe karakterli, (Antigravity) imzalı; festive ile merge edip ff push; force yok.
+8. İlerlemeyi codex.md/Antigravity_ilerleme_21.md'ye yaz, son satır GOREV21_TAMAM.
+— Muharrir
