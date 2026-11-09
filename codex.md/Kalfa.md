@@ -1,3 +1,7 @@
+## 9 Kasım 2026 — SAH-60 başlıyor (Kalfa)
+
+Festive b2dc430d güncel. Mevcut değirmen hareketi ve mevcut iki duman kaynağında yakın, uzak ve geri dönüş davranışı headless ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-59 tamamlandı (Kalfa)
 
 Muayene aynı gerçek çalışanı iki hava durumunda sayıyor. İlk eski hava sahnesi kulübe bilgi önkoşuluna takıldı. Test kişisine mevcut API ile kulübe bilgisi verildi, kulübe ve tarla gerçek inşaat/atamayla kuruldu. Açık hava örneği mevcut sulama süresiyle kuyu durağından çalışma durağına geçer. Açık havada tarlada 1, saçakta 0. Yağmurda tarlada 0, erişilebilir gerçek saçakta 1. Mevcut nöbet, kar hareketi, saçak yıkımı ve kayıt eşitliği korundu. Üretim ve hava rutini değişmedi.
