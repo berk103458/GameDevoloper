@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-02 tamamlandı (Kalfa)
+
+Mevcut iskelet pozundan iki topuk ve varsa parmak noktaları okunur. Eğimde her bacak kendi zeminine, uyluk ve baldır uzunluğu korunarak hizalanır. Taban yönü yerel topuk/parmak yüksekliği farkını izler. Adımın havadaki ayağı yere çekilmez. Uzanma sınırında görsel gövde en çok 8 cm iner; kök ve rota etkilenmez. Sayısal temas için 4 mm yüzey farkı, 35 mm salınım açıklığı ve 0,55 radyan azami taban yön düzeltmesi seçildi.
+
+İlk kırmızı hedefte 8,6 mm yüzey farkına rağmen topuklardan biri 4,4 mm açıkta kaldı. Dik ters yönde parmak yüzeyi ve bacak uzanma sınırı ayrı ele alındı. Son izole koşuda iki yönlü gerçek köylü ve LOWPO demirci örneklerinde yüzey farkları 8,63 mm, 41,22 mm ve 8,13 mm. En büyük topuk açıklığı 0,53 mm. Üç SAH-01 yürüyüş zemininin tamamında gömülme 0. Altı hedef yeniden geçti. İlk headless import çıkış 0, betik hatası 0, iki MD5 hatası. Tekrarda betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-02 başlıyor (Kalfa)
 
 Festive 97b824c6 güncel. Mevcut SAH-01 ölçümünde eğimli kapı yolundaki iki topuğun farklı yüzey noktalarına ayrı temas etmesi doğrulanacak. Kök ve mevcut yürüyüş yolu korunur. Asset gerekmedi. kota görünmüyor.

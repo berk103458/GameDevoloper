@@ -38,6 +38,11 @@ func _calistir() -> void:
 	if not is_equal_approx(kapi.ayak_zemini_yuksekligi(ust), ust.y) or ust.y <= KapiManzarasi.yukseklik(ust.x, ust.z):
 		await _bitir(false, "Eşik yüksekliği gerçek kalastan okunmalı")
 		return
+	var egim_ornekleri := [["ciftci", PI / 2.0, 4402], ["ciftci", -PI / 2.0, 4403], ["lowpo_demirci", PI / 2.0, 4404]]
+	for ornek in egim_ornekleri:
+		if not await _egim(kapi, ornek[0], ornek[1], ornek[2]):
+			await _bitir(false, "Eğik yolda bağımsız topuk teması")
+			return
 	var tarla_bas := koy.alan_merkezi(tarla.hucre, Vector2i.ONE)
 	var tarla_son := koy.alan_merkezi(tarla.hucre + tarla.boyut(y.katalog) - Vector2i.ONE, Vector2i.ONE)
 	if not await _yuru(koy, "tarla", "ciftci", tarla_bas, tarla_son):
@@ -53,6 +58,43 @@ func _calistir() -> void:
 	kapi.queue_free()
 	await get_tree().process_frame
 	await _bitir(true, "")
+
+
+func _egim(kapi: KapiSahnesi, ad: String, yon: float, tohum: int) -> bool:
+	seed(tohum)
+	var model := Dunya3B.karakter(ad)
+	model.rotation.y = yon
+	kapi.add_child(model)
+	var ayak := model.get_node("AyakZemini") as AyakZemini
+	for yol in [0.32, 0.4, 0.48, 0.56, 0.64, 0.72, 0.8, 0.88]:
+		var nokta := KapiManzarasi.yol_noktasi(yol)
+		model.position = nokta
+		for _kare in 4:
+			await get_tree().process_frame
+		var farklar := ayak.temas_farklari()
+		var topuklar := PackedVector3Array()
+		var topuk_farklari := PackedFloat32Array()
+		for i in farklar.size():
+			var kemik := ayak._iskelet.get_bone_name(ayak._kemikler[i]).to_lower()
+			if kemik.ends_with("foot"):
+				topuklar.append(model.to_global(ayak._ham_tabanlar[i] + ayak._gorsel.position - ayak._taban_konum))
+				topuk_farklari.append(farklar[i])
+		if topuklar.size() != 2:
+			push_error("SAH-02: %s için %d topuk ölçüldü" % [ad, topuklar.size()])
+			break
+		var zemin_farki := absf(kapi.ayak_zemini_yuksekligi(topuklar[0]) - kapi.ayak_zemini_yuksekligi(topuklar[1]))
+		if zemin_farki < 0.008:
+			continue
+		var topuk_yuksekligi := absf(topuklar[0].y - topuklar[1].y)
+		print("SAH-02 %s: yüzey farkı=%.5f m, topuk farkı=%.5f m, iki temas=%s" % [ad, zemin_farki, topuk_yuksekligi, topuk_farklari])
+		var gecti := model.position.is_equal_approx(nokta) and topuk_yuksekligi > 0.005
+		for fark in topuk_farklari:
+			gecti = gecti and absf(fark) <= 0.003
+		model.queue_free()
+		return gecti
+	model.queue_free()
+	push_error("SAH-02: Ölçülebilir eğim veya iki topuk bulunamadı")
+	return false
 
 
 func _tarla(y: KoyYonetimi) -> KoyBinasi:

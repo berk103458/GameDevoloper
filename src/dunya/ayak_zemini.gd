@@ -18,6 +18,7 @@ var _gorsel: Node3D
 var _iskelet: Skeleton3D
 var _zemin: Callable
 var _taban_konum: Vector3
+var _egim_ofseti := 0.0
 var _kemikler := PackedInt32Array()
 var _kemik_tabanlari := PackedVector3Array()
 var _ham_tabanlar := PackedVector3Array()
@@ -48,6 +49,8 @@ func _ready() -> void:
 		return
 	_zemin = Callable(sahne, "ayak_zemini_yuksekligi")
 	_taban_konum = _gorsel.position
+	var topuklar := PackedInt32Array()
+	var topuk_tabanlari := PackedVector3Array()
 	for i in _iskelet.get_bone_count():
 		var ad := _iskelet.get_bone_name(i).to_lower()
 		for son in TEMAS_KEMIKLERI:
@@ -55,9 +58,32 @@ func _ready() -> void:
 				continue
 			var dinlenme := _iskelet.global_transform * _iskelet.get_bone_global_rest(i)
 			var taban := Vector3(dinlenme.origin.x, model.global_position.y, dinlenme.origin.z)
+			var kemik_tabani := dinlenme.affine_inverse() * taban
 			_kemikler.append(i)
-			_kemik_tabanlari.append(dinlenme.affine_inverse() * taban)
+			_kemik_tabanlari.append(kemik_tabani)
+			if ad.ends_with("foot"):
+				topuklar.append(i)
+				topuk_tabanlari.append(kemik_tabani)
 			break
+	if topuklar.size() == 2:
+		var egim := preload("res://src/dunya/ayak_egim_cozucu.gd").new()
+		egim.model = model
+		egim.gorsel = _gorsel
+		egim.taban_konum = _taban_konum
+		egim.zemin = _zemin
+		egim.ofset_ayarla = _egim_ofsetini_ayarla
+		egim.topuklar = topuklar
+		egim.topuk_tabanlari = topuk_tabanlari
+		var parmaklar := PackedInt32Array([-1, -1])
+		var parmak_tabanlari := PackedVector3Array([Vector3.ZERO, Vector3.ZERO])
+		for i in _kemikler.size():
+			var taraf := topuklar.find(_iskelet.get_bone_parent(_kemikler[i]))
+			if taraf >= 0:
+				parmaklar[taraf] = _kemikler[i]
+				parmak_tabanlari[taraf] = _kemik_tabanlari[i]
+		egim.parmaklar = parmaklar
+		egim.parmak_tabanlari = parmak_tabanlari
+		_iskelet.add_child(egim)
 	if not _kemikler.is_empty():
 		_ham_tabanlar.resize(_kemikler.size())
 		_iskelet.skeleton_updated.connect(_son_pozu_oku)
@@ -82,11 +108,22 @@ func _son_pozu_oku() -> void:
 
 ## Kök konumu ve hareket yolu görsel kaldırmadan ayrıdır.
 func _gorseli_yukselt() -> void:
-	var yukselme := 0.0
+	var yukselme := _egim_ofseti
 	for ham in _ham_tabanlar:
 		var taban := model.to_global(ham)
 		yukselme = maxf(yukselme, float(_zemin.call(taban)) - taban.y)
-	var konum := _taban_konum + model.global_basis.inverse() * Vector3.UP * yukselme
+	_gorsel_konumu_ayarla(yukselme)
+
+
+func _egim_ofsetini_ayarla(yukseklik: float, egimli: bool) -> void:
+	if not egimli and is_zero_approx(_egim_ofseti):
+		return
+	_egim_ofseti = yukseklik
+	_gorsel_konumu_ayarla(yukseklik)
+
+
+func _gorsel_konumu_ayarla(yukseklik: float) -> void:
+	var konum := _taban_konum + model.global_basis.inverse() * Vector3.UP * yukseklik
 	if not _gorsel.position.is_equal_approx(konum):
 		_gorsel.position = konum
 
