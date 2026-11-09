@@ -1,6 +1,8 @@
 ## Köy gündüz/gece ses bağlantısı; test oturumu kullanıcı kaydına yazılmaz.
 extends Node
 
+var _hata := 0
+
 func _ready() -> void:
 	get_tree().create_timer(20).timeout.connect(func() -> void: get_tree().quit(1))
 	var katalog := Katalog.new()
@@ -11,12 +13,18 @@ func _ready() -> void:
 	ekran.theme = Tema.olustur(ekran.ayarlar)
 	add_child(ekran)
 	ekran.ortam_baslat()
-	assert(Ses.ortam_adi() == &"ortam_koy_gunduz" and Ses.ortam_busu_adi() == &"Ambiance")
+	_dene(Ses.ortam_adi() == &"ortam_koy_gunduz" and Ses.ortam_busu_adi() == &"Ambiance", "koy_ortam_kontrol.gd:14")
 	ekran._geceye_gec()
-	assert(Ses.ortam_adi() == &"ortam_koy_gece")
+	_dene(Ses.ortam_adi() == &"ortam_koy_gece", "koy_ortam_kontrol.gd:16")
 	await Ses.sustur()
 	ekran.queue_free()
 	await get_tree().process_frame
-	assert(Ses.ortam_busu_adi() == &"Efekt")
-	print("KÖY ORTAM UI: GEÇTİ")
-	get_tree().quit(0)
+	_dene(Ses.ortam_busu_adi() == &"Efekt", "koy_ortam_kontrol.gd:20")
+	print("KÖY ORTAM UI: GEÇTİ" if _hata == 0 else "KÖY ORTAM UI: KALDI (%d hata)" % _hata)
+	get_tree().quit(1 if _hata > 0 else 0)
+
+
+func _dene(kosul: bool, ad: String) -> void:
+	if not kosul:
+		_hata += 1
+		push_error(ad)

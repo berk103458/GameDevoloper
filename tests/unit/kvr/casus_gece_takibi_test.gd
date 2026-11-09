@@ -1,4 +1,6 @@
 extends SceneTree
+
+var _hata := 0
 func _initialize() -> void:
  # Kaynak takip testi; alışma kapısı ayrı tehdit_takvimi_test içindedir.
  preload("res://src/sistemler/tehdit_takvimi.gd").AYAR.tehdit_baslangic_gunu = 0
@@ -20,56 +22,56 @@ func _initialize() -> void:
  var zehir := y.kabul({"ad":"Meryem", "adli_id":"chr_002"})
  var casus := y.kabul({"ad":"İlyas", "adli_id":"chr_004"})
  var masum := y.kabul({"ad":"Kerem", "adli_id":"chr_003"})
- assert(CasusGeceTakibi.plan(y,kundak) == {"hedef":"ambar","bina":ambar.id})
- assert(CasusGeceTakibi.plan(y,zehir) == {"hedef":"kuyu","bina":kuyu.id})
- assert(CasusGeceTakibi.plan(y,casus) == {"hedef":"cephanelik","bina":kisla.id})
- assert(CasusGeceTakibi.plan(y,masum).is_empty())
+ _dene(CasusGeceTakibi.plan(y,kundak) == {"hedef":"ambar","bina":ambar.id}, "casus_gece_takibi_test.gd:23")
+ _dene(CasusGeceTakibi.plan(y,zehir) == {"hedef":"kuyu","bina":kuyu.id}, "casus_gece_takibi_test.gd:24")
+ _dene(CasusGeceTakibi.plan(y,casus) == {"hedef":"cephanelik","bina":kisla.id}, "casus_gece_takibi_test.gd:25")
+ _dene(CasusGeceTakibi.plan(y,masum).is_empty(), "casus_gece_takibi_test.gd:26")
  var once := y.kaynaklar.kaydet()
  var rng := y._rng.state
  var bayrak := kundak.bayraklar.duplicate()
  var gizli := kundak.gizli_bayraklar.duplicate()
  CasusGeceTakibi.gece(y)
- assert(CasusGeceTakibi.durum(y).izler.size() == 3 and CasusGeceTakibi.acik_izler(y).is_empty())
- assert(y._rng.state == rng and y.kaynaklar.kaydet() == once and kundak.bayraklar == bayrak and kundak.gizli_bayraklar == gizli)
+ _dene(CasusGeceTakibi.durum(y).izler.size() == 3 and CasusGeceTakibi.acik_izler(y).is_empty(), "casus_gece_takibi_test.gd:32")
+ _dene(y._rng.state == rng and y.kaynaklar.kaydet() == once and kundak.bayraklar == bayrak and kundak.gizli_bayraklar == gizli, "casus_gece_takibi_test.gd:33")
  var kayit := JSON.stringify(o.kaydet())
  CasusGeceTakibi.gece(y)
- assert(JSON.stringify(o.kaydet()) == kayit)
+ _dene(JSON.stringify(o.kaydet()) == kayit, "casus_gece_takibi_test.gd:36")
  var geri := Oturum.kayittan(kat, JSON.parse_string(kayit))
  CasusGeceTakibi.gece(geri.yonetim)
- assert(normal(geri.kaydet()) == normal(o.kaydet()))
+ _dene(normal(geri.kaydet()) == normal(o.kaydet()), "casus_gece_takibi_test.gd:39")
  var d := CasusGeceTakibi.durum(y)
  d.izler.clear()
- assert(CasusGeceTakibi.durum(y).izler.size() == 3)
+ _dene(CasusGeceTakibi.durum(y).izler.size() == 3, "casus_gece_takibi_test.gd:42")
  CasusGeceTakibi.kaydet(y,kundak,"ambar",ambar.id,"hirsizlik","gida",0,true)
- assert(CasusGeceTakibi.acik_izler(y).size() == 1 and CasusGeceTakibi.acik_izler(y)[0].kisi == kundak.id)
+ _dene(CasusGeceTakibi.acik_izler(y).size() == 1 and CasusGeceTakibi.acik_izler(y)[0].kisi == kundak.id, "casus_gece_takibi_test.gd:44")
  CasusGeceTakibi.gece(y)
- assert(CasusGeceTakibi.acik_izler(y).size() == 1)
+ _dene(CasusGeceTakibi.acik_izler(y).size() == 1, "casus_gece_takibi_test.gd:46")
  CasusGeceTakibi.kaydet(y,kundak,"ambar",ambar.id,"hedef","",0,false)
- assert(CasusGeceTakibi.acik_izler(y).size() == 1)
+ _dene(CasusGeceTakibi.acik_izler(y).size() == 1, "casus_gece_takibi_test.gd:48")
  kuyu.insa_kalan = 2
- assert(CasusGeceTakibi.plan(y,zehir).bina == -1)
+ _dene(CasusGeceTakibi.plan(y,zehir).bina == -1, "casus_gece_takibi_test.gd:50")
  kuyu.insa_kalan = 0
  zehir.saglik = 0
- assert(CasusGeceTakibi.plan(y,zehir).is_empty())
+ _dene(CasusGeceTakibi.plan(y,zehir).is_empty(), "casus_gece_takibi_test.gd:53")
  zehir.saglik = 100
  zehir.kis_hastaligi = {"bitis":3,"son_gece":0}
  zehir.bayrak_ekle(KisHastaligi.FLAG)
- assert(CasusGeceTakibi.plan(y,zehir).is_empty())
+ _dene(CasusGeceTakibi.plan(y,zehir).is_empty(), "casus_gece_takibi_test.gd:57")
  zehir.bayraklar.erase(KisHastaligi.FLAG)
  zehir.kis_hastaligi = {}
  zehir.is_yeri = KoyYonetimi.MUHAFIZ
- assert(CasusGeceTakibi.plan(y,zehir).is_empty())
+ _dene(CasusGeceTakibi.plan(y,zehir).is_empty(), "casus_gece_takibi_test.gd:61")
  zehir.is_yeri = -1
  y.bina_el_koy(kuyu.id)
- assert(CasusGeceTakibi.plan(y,zehir).bina == -1)
- assert(CasusGeceTakibi.oku(null).izler.is_empty() and CasusGeceTakibi.oku({"izler":[{"kisi":1}]}).izler.is_empty())
+ _dene(CasusGeceTakibi.plan(y,zehir).bina == -1, "casus_gece_takibi_test.gd:64")
+ _dene(CasusGeceTakibi.oku(null).izler.is_empty() and CasusGeceTakibi.oku({"izler":[{"kisi":1}]}).izler.is_empty(), "casus_gece_takibi_test.gd:65")
  for i in range(1, 12):
   y.gun = i
   CasusGeceTakibi.gece(y)
- assert(CasusGeceTakibi.durum(y).izler.all(func(x: Dictionary) -> bool: return int(x.gun) >= 5) and CasusGeceTakibi.durum(y).izler.size() <= int(CasusGeceTakibi.AYAR.iz_azami))
+ _dene(CasusGeceTakibi.durum(y).izler.all(func(x: Dictionary) -> bool: return int(x.gun) >= 5) and CasusGeceTakibi.durum(y).izler.size() <= int(CasusGeceTakibi.AYAR.iz_azami), "casus_gece_takibi_test.gd:69")
  geri = Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
  var rapor := y.gece()
- assert(geri.yonetim.gece() == rapor and normal(geri.yonetim.kaydet()) == normal(y.kaydet()))
+ _dene(geri.yonetim.gece() == rapor and normal(geri.yonetim.kaydet()) == normal(y.kaydet()), "casus_gece_takibi_test.gd:72")
  var bulundu := false
  var gorulmedi := false
  for tohum in range(1, 100):
@@ -82,21 +84,27 @@ func _initialize() -> void:
   var giris := beklenen.randf() < GizliEgilimler.HIRSIZLIK_RISKI
   if giris: beklenen.randf()
   GizliEgilimler.gece(t, {}, [])
-  assert(t._rng.state == beklenen.state)
+  _dene(t._rng.state == beklenen.state, "casus_gece_takibi_test.gd:85")
   var izler: Array = CasusGeceTakibi.durum(t).izler
   if not giris:
-   assert(izler.is_empty())
+   _dene(izler.is_empty(), "casus_gece_takibi_test.gd:88")
   elif h.gizli_egilim.yakalanma:
-   assert(izler.size() == 1 and izler[0].goruldu and izler[0].kayip == 0 and t.kaynaklar.miktar("gida") == gida)
+   _dene(izler.size() == 1 and izler[0].goruldu and izler[0].kayip == 0 and t.kaynaklar.miktar("gida") == gida, "casus_gece_takibi_test.gd:90")
    bulundu = true
   else:
-   assert(izler.size() == 1 and not izler[0].goruldu and izler[0].kayip == gida - t.kaynaklar.miktar("gida") and CasusGeceTakibi.acik_izler(t).is_empty())
+   _dene(izler.size() == 1 and not izler[0].goruldu and izler[0].kayip == gida - t.kaynaklar.miktar("gida") and CasusGeceTakibi.acik_izler(t).is_empty(), "casus_gece_takibi_test.gd:93")
    gorulmedi = true
  print("Yakalandı:",bulundu," görülmedi:",gorulmedi)
- assert(bulundu and gorulmedi)
- print("CASUS GECE TAKİBİ: GEÇTİ")
- quit(0)
+ _dene(bulundu and gorulmedi, "casus_gece_takibi_test.gd:96")
+ print("CASUS GECE TAKİBİ: GEÇTİ" if _hata == 0 else "CASUS GECE TAKİBİ: KALDI (%d hata)" % _hata)
+ quit(1 if _hata > 0 else 0)
 func kur(y: KoyYonetimi, tur: String) -> KoyBinasi:
+ # YAP: oyundaki gibi önce yapı bilgisi, 2. kademe için hazır bir 1. kademe yapı.
+ if YapiKilidi.durum(y, tur).neden == "yapi_bilgisi":
+  var usta: Koylu = y.koylular[0] if not y.koylular.is_empty() else y.kabul({"ad": "Kurulum bilgisi", "sinif": "ciftci", "stat": 8})
+  preload("res://src/koy/yapi_bilgisi.gd").ekle(usta, PackedStringArray([tur]))
+ if YapiKilidi.durum(y, tur).neden == "yapi_on_kademe":
+  kur(y, "kulube")
  for cy in y.a.izgara_boyut.y:
   for cx in y.a.izgara_boyut.x:
    var h := Vector2i(cx, cy)
@@ -104,7 +112,14 @@ func kur(y: KoyYonetimi, tur: String) -> KoyBinasi:
     var b := y.bina(y.bina_kur(tur, h).id)
     b.insa_kalan = 0
     return b
+ _dene(false, "Yer bulunamadı: " + tur)
  return null
 
 func normal(v: Dictionary) -> Variant:
  return JSON.parse_string(JSON.stringify(v))
+
+
+func _dene(kosul: bool, ad: String) -> void:
+ if not kosul:
+  _hata += 1
+  push_error(ad)

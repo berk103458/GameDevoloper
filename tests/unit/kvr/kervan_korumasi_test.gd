@@ -62,7 +62,7 @@ func kur(y: KoyYonetimi, tur: String = "muhafiz_kislasi") -> KoyBinasi:
     var b := y.bina(y.bina_kur(tur, h).id)
     b.insa_kalan = 0
     return b
- assert(false)
+ dene(false, "Kışla yeri bulunamadı")
  return null
 func dene(v: bool, ad: String) -> void:
  if not v:

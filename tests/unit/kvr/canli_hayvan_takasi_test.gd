@@ -57,6 +57,9 @@ func _initialize() -> void:
  print("CANLI HAYVAN TAKASI: GEÇTİ" if hata == 0 else "CANLI HAYVAN TAKASI: KALDI")
  quit(hata)
 func kur(y: KoyYonetimi, tur: String) -> KoyBinasi:
+ if YapiKilidi.durum(y, tur).neden == "yapi_bilgisi":
+  var usta: Koylu = y.koylular[0] if not y.koylular.is_empty() else y.kabul({"ad": "Kurulum bilgisi", "sinif": "ciftci", "stat": 8})
+  preload("res://src/koy/yapi_bilgisi.gd").ekle(usta, PackedStringArray([tur]))
  for cy in y.a.izgara_boyut.y:
   for cx in y.a.izgara_boyut.x:
    var h := Vector2i(cx, cy)
@@ -64,7 +67,7 @@ func kur(y: KoyYonetimi, tur: String) -> KoyBinasi:
     var b := y.bina(y.bina_kur(tur, h).id)
     b.insa_kalan = 0
     return b
- assert(false, "Barınak yeri bulunamadı")
+ dene(false, "Barınak yeri bulunamadı")
  return null
 func dene(v: bool, ad: String) -> void:
  if not v:

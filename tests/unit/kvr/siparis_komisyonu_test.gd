@@ -50,7 +50,7 @@ func _initialize() -> void:
 func hazir() -> Oturum:
  var o := Oturum.new(kat, 76)
  o.yonetim.gun = 3
- assert(o.yonetim.siparisler.kabul(o.yonetim))
+ dene(o.yonetim.siparisler.kabul(o.yonetim), "Sipariş kabul edilir")
  o.yonetim.kaynaklar.ekle("un", 12)
  return o
 func dene(v: bool, ad: String) -> void:

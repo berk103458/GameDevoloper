@@ -1,5 +1,7 @@
 extends SceneTree
 
+var _hata := 0
+
 class SahteSes:
 	extends Node
 	var bus: StringName = &"Efekt"
@@ -22,17 +24,23 @@ func _calistir() -> void:
 	var ortam := preload("res://src/sistemler/koy_ortam_sesi.gd").new()
 	ortam._ses = ses
 	root.add_child(ortam)
-	assert(ses.bus == &"Ambiance" and AudioServer.get_bus_send(AudioServer.get_bus_index("Ambiance")) == &"Efekt")
+	_dene(ses.bus == &"Ambiance" and AudioServer.get_bus_send(AudioServer.get_bus_index("Ambiance")) == &"Efekt", "koy_ortam_test.gd:25")
 	ortam.faz(&"gunduz")
-	assert(ses.parca == &"ortam_koy_gunduz")
+	_dene(ses.parca == &"ortam_koy_gunduz", "koy_ortam_test.gd:27")
 	ortam.faz(&"aksam")
-	assert(ses.degisim == 1)
+	_dene(ses.degisim == 1, "koy_ortam_test.gd:29")
 	ortam.faz(&"gece")
-	assert(ses.parca == &"ortam_koy_gece" and ses.degisim == 2)
+	_dene(ses.parca == &"ortam_koy_gece" and ses.degisim == 2, "koy_ortam_test.gd:31")
 	ortam.free()
-	assert(ses.bus == &"Efekt")
+	_dene(ses.bus == &"Efekt", "koy_ortam_test.gd:33")
 	ses.free()
 	for parca in ["gunduz", "gece"]:
-		assert(ResourceLoader.exists("res://assets/ses/ortam_koy_%s.wav" % parca))
-	print("KÖY ORTAMI: GEÇTİ")
-	quit(0)
+		_dene(ResourceLoader.exists("res://assets/ses/ortam_koy_%s.wav" % parca), "koy_ortam_test.gd:36")
+	print("KÖY ORTAMI: GEÇTİ" if _hata == 0 else "KÖY ORTAMI: KALDI (%d hata)" % _hata)
+	quit(1 if _hata > 0 else 0)
+
+
+func _dene(kosul: bool, ad: String) -> void:
+	if not kosul:
+		_hata += 1
+		push_error(ad)

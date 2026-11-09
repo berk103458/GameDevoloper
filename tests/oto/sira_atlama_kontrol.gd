@@ -1,6 +1,8 @@
 ## Gerçek model kuyruğu ve gerçek olay etkisi; kullanıcı kaydına yazmaz.
 extends Node
 
+var _hata := 0
+
 const ADLAR := ["ciftci", "esnaf", "ciftci_kadin", "asker", "ciftci", "esnaf", "asker", "ciftci_kadin"]
 
 func _ready() -> void:
@@ -25,32 +27,38 @@ func _ready() -> void:
 	for anahtar in ["atlama", "bayilma", "kavga", "panik", "vazgecme"]:
 		var i := SiraOlayiKisisi.indeks(anahtar, sahne._kuyruktakiler.size())
 		var secilen := SiraOlayiKisisi.sec(sahne, anahtar)
-		assert(secilen == sahne._kuyruktakiler[i])
-		assert(secilen.get_meta("cinsiyet", "") == SiraOlayiKisisi.BILGI[sahne._kuyruk_adlari[i]])
-		assert(not GuvenliMetin.metin(SiraOlayiKisisi.anahtar(secilen)).contains("KEY_NOT_FOUND"))
+		_dene(secilen == sahne._kuyruktakiler[i], "sira_atlama_kontrol.gd:28")
+		_dene(secilen.get_meta("cinsiyet", "") == SiraOlayiKisisi.BILGI[sahne._kuyruk_adlari[i]], "sira_atlama_kontrol.gd:29")
+		_dene(not GuvenliMetin.metin(SiraOlayiKisisi.anahtar(secilen)).contains("KEY_NOT_FOUND"), "sira_atlama_kontrol.gd:30")
 
 	var aday: Gelen = ekran._kuyruk[KapiSahnesi.KUYRUK_GORUNEN - 1]
 	var model: KarakterModel = sahne._kuyruktakiler[KapiSahnesi.KUYRUK_GORUNEN - 1]
 	var eski_sira := ekran._kuyruk.duplicate()
 	var eski_adlar := sahne._kuyruk_adlari.duplicate()
 	var adapt := preload("res://src/kapi/sira_atlama_adaptoru.gd")
-	assert(not await adapt.uygula(ekran, "atlama", {"geri": true}))
-	assert(ekran._kuyruk == eski_sira and sahne._kuyruk_adlari == eski_adlar)
+	_dene(not await adapt.uygula(ekran, "atlama", {"geri": true}), "sira_atlama_kontrol.gd:37")
+	_dene(ekran._kuyruk == eski_sira and sahne._kuyruk_adlari == eski_adlar, "sira_atlama_kontrol.gd:38")
 	var kamu := o.koy_akce
 	var kisisel := o.muhafiz_akce
 	var olay := load("res://data/sira_olaylari/sira_atlama.tres") as OlayVerisi
 	o.olay_uygula(olay, 1)
-	assert(await adapt.uygula(ekran, "atlama", olay.secenek_etkileri[1]))
-	assert(ekran._kuyruk[0] == aday and ekran._kuyruk.size() == ADLAR.size())
-	assert(sahne._kuyruktakiler[0] == model and model.position.distance_to(KapiSahnesi.DURMA) < 0.05)
-	assert(o.koy_akce == kamu and o.muhafiz_akce == kisisel + 2)
+	_dene(await adapt.uygula(ekran, "atlama", olay.secenek_etkileri[1]), "sira_atlama_kontrol.gd:43")
+	_dene(ekran._kuyruk[0] == aday and ekran._kuyruk.size() == ADLAR.size(), "sira_atlama_kontrol.gd:44")
+	_dene(sahne._kuyruktakiler[0] == model and model.position.distance_to(KapiSahnesi.DURMA) < 0.05, "sira_atlama_kontrol.gd:45")
+	_dene(o.koy_akce == kamu and o.muhafiz_akce == kisisel + 2, "sira_atlama_kontrol.gd:46")
 	for i in sahne._kuyruktakiler.size():
-		assert(ekran._model_adi(ekran._kuyruk[i]) == sahne._kuyruk_adlari[i])
+		_dene(ekran._model_adi(ekran._kuyruk[i]) == sahne._kuyruk_adlari[i], "sira_atlama_kontrol.gd:48")
 	# Aynı adlı figürler olsa da öne gelen gerçek nesne kapıda yeniden yaratılmaz.
 	await sahne.gelen_yaklas(ekran._model_adi(aday))
-	assert(sahne._gelen == model)
+	_dene(sahne._gelen == model, "sira_atlama_kontrol.gd:51")
 	ekran.free()
 	sahne.queue_free()
 	await get_tree().process_frame
-	print("SIRA ATLAMA UI: GEÇTİ")
-	get_tree().quit(0)
+	print("SIRA ATLAMA UI: GEÇTİ" if _hata == 0 else "SIRA ATLAMA UI: KALDI (%d hata)" % _hata)
+	get_tree().quit(1 if _hata > 0 else 0)
+
+
+func _dene(kosul: bool, ad: String) -> void:
+	if not kosul:
+		_hata += 1
+		push_error(ad)
