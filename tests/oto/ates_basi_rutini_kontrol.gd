@@ -10,12 +10,13 @@ class TestAna extends Ana:
 		theme = Tema.olustur(ayarlar)
 var hata := 0
 func _ready() -> void:
+	seed(5812)
 	get_tree().create_timer(60.0).timeout.connect(func() -> void: get_tree().quit(1))
 	var ana := TestAna.new()
 	add_child(ana)
 	var y := ana.oturum.yonetim
 	var ids: Array[int] = []
-	for i in 4:
+	for i in 5:
 		ids.append(y.kabul({"sinif": "ciftci", "stat": 5}).id)
 	var guard := y.kabul({"sinif": "asker", "stat": 5})
 	guard.is_yeri = KoyYonetimi.MUHAFIZ
@@ -31,6 +32,8 @@ func _ready() -> void:
 		s.faz(faz, 0.0)
 		for i in 3: h._process(0.0)
 		var duraklar: Array[Vector3] = []
+		var ofsetler := {}
+		var kol_pozlari := {}
 		for id in ids:
 			var d: Dictionary = h._durum[id]
 			var f: KarakterModel = h.modeller[id]
@@ -47,7 +50,15 @@ func _ready() -> void:
 				h._process(0.0)
 			kontrol(int(d.adim) >= d.yol.size(), "Rota sonuna ulaşılır")
 			f.yurumeyi_durdur()
-			kontrol(f.duzeltici() != null and f.duzeltici().surekli == &"isin" and h.eylem(id) == "Ateş başında ısınıyor", "Varınca gerçek iskelette ısınma")
+			var poz := f.duzeltici()
+			kontrol(poz != null and poz.surekli == &"isin" and h.eylem(id) == "Ateş başında ısınıyor", "Varınca gerçek iskelette ısınma")
+			if poz != null and poz.surekli == &"isin":
+				ofsetler[poz.faz] = true
+				# Aynı animasyon anında yalnız gerçek modelin faz ofseti değişir.
+				var onkol := AtesBasiRutini.kol(1.0, 0.5 + poz.faz)[1]
+				kol_pozlari[snappedf(onkol.y, 0.0001)] = true
+		kontrol(ofsetler.size() == 5 and kol_pozlari.size() >= 2, "SAH-58: Beş modelin ısınma pozu aynı kareye yığılmaz")
+		print("SAH-58 %s: ofset=%d, farklı önkol pozu=%d" % [faz, ofsetler.size(), kol_pozlari.size()])
 		kontrol(h._durum[guard.id].devriye and not h._durum[guard.id].ates_basi, "Muhafız devriyesi korunur")
 		kontrol(not h._durum[worker.id].ates_basi, "Atanmış işçinin ev rutini korunur")
 	var dizin := OS.get_environment("ADMIN_TEST_CIKTI")

@@ -1,3 +1,9 @@
+## 9 Kasım 2026 — SAH-58 tamamlandı (Kalfa)
+
+Ateş kontrolünde beş gerçek iskelet ve beş ayrı durak kullanıldı. Yalnız testte 5812 tohumu seçildi. Mevcut modelin beş farklı ofseti aynı 0,5 saniyelik animasyon anına uygulanınca hem akşam hem gece beş farklı önkol yüksekliği ölçüldü. Doğru ısınma durumu ve mevcut görev/yol kontrolleri geçti. Oyun kodu ve RNG kullanımı değişmedi.
+
+İzole headless ateş sahnesi geçti. İlk headless import çıkış 0, betik hatası 0, dört MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 9 Kasım 2026 — SAH-58 başlıyor (Kalfa)
 
 Festive 45a7a84a güncel. Beş gerçek ateş başı modelinin mevcut hareket ofseti ve ortak karede ürettiği kol pozu ölçülecek. Asset gerekmedi. kota görünmüyor.
