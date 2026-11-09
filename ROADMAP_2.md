@@ -3856,7 +3856,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-73, KAY-19. Boyut: S.
   - Dosya: `tests/oto/denge_persona.tscn`.
   - Asset: asset gerekmedi.
-- [/] **DEN-79:** Ölçüm 100 oyunu bir gecede bitirir. (Kalfa)
+- [x] **DEN-79:** Ölçüm 100 oyunu bir gecede bitirir. (Kalfa)
   - Ne: headless paket, SYS-10 dumanının üstüne 100 kısa oyun ekler. Süre raporda. Yeni tavan uydurulmaz. Paket kırmızıysa birleşme yok.
   - Kabul: headless paket, SYS-10 dumanının üstüne 100 kısa oyun ekler. Süre raporda. Yeni tavan uydurulmaz. Paket kırmızıysa birleşme yok. Test: 100 koşu biter.
   - Bağımlılık: SYS-10, DEN-73. Boyut: M.

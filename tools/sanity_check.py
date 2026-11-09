@@ -149,6 +149,7 @@ def checks(godot, root):
     yield "acilis_koy_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/acilis_koy_kontrol.tscn"], "GEÇTİ"
     yield "performans_gunlugu_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/performans_gunlugu_kontrol.tscn"], "GEÇTİ"
     yield "20-night-smoke", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "20 GECE DUMAN: GEÇTİ"
+    yield "den79-short-games", [godot, "--headless", "--path", str(root), "tests/oto/otomatik_oyuncu.tscn"], "100 KISA OYUN: GEÇTİ"
 
 
 # KLT-10: temiz turda çalışma anı eksik anahtar listesi (GuvenliMetin.eksikler) boştur; 20 gece dumanı
@@ -159,6 +160,14 @@ EKSIK_ANAHTAR = re.compile(r"Metin tablosu: eksik anahtar (\S+?);")
 def eksik_anahtar_hatasi(name, output):
     """20 gece dumanında görülen eksik anahtarlar; başka adımlarda boş."""
     return sorted(set(EKSIK_ANAHTAR.findall(output))) if name == "20-night-smoke" else []
+
+
+def check_env(name):
+    return {
+        "20-night-smoke": {"DUMAN_TESTI_20": "1", "DUMAN_KISA_OYUNLAR": "0"},
+        "den79-short-games": {"DUMAN_TESTI_20": "1", "DUMAN_KISA_OYUNLAR": "1"},
+        "acilis_denge_kontrol": {"DUMAN_TESTI_ACILIS": "1"},
+    }.get(name)
 
 
 def main():
@@ -173,8 +182,7 @@ def main():
     args.logs.mkdir(parents=True, exist_ok=True)
     failed = []
     for name, command, marker in checks(godot, ROOT):
-        env = {"DUMAN_TESTI_20": "1"} if name == "20-night-smoke" else {"DUMAN_TESTI_ACILIS": "1"} if name == "acilis_denge_kontrol" else None
-        ok, output = run(command, ROOT, args.timeout, env=env)
+        ok, output = run(command, ROOT, args.timeout, env=check_env(name))
         if marker and marker not in output:
             ok = False
             output += "\nMissing completion marker: " + marker

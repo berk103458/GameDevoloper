@@ -1,3 +1,9 @@
+## 9 Kasım 2026 — DEN-79 tamamlandı (Kalfa)
+
+Mevcut SYS-10 20 gece hedefi ve üç yıllık kayıt modu korunur. Aynı otomatik oyuncu, gece hesabı ve her gecenin JSON yüklemesiyle ayrı headless paket 1–100 tohumlarını çalıştırır. İlk saat dilimiyle uyumlu olarak kısa koşuyu altı gece veya daha önceki gerçek son olarak seçtim. İlerlemeyen gece ve bozuk kayıt koşuyu düşürür. Süre raporlanır; yeni süre tavanı eklenmedi.
+
+İlk koşuda 100 oyun ve 600 gece 62,812 saniye, son Python çalıştırıcısında 100 oyun ve 600 gece 64,434 saniye sürdü. İkisinde erken son 0. Aynı çalıştırıcıdan eski 20 gece hedefi ve 13 Python birim testi geçti. Headless import ilk çıkış 0, betik hatası 0, bir MD5 hatası. Tekrarda çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 9 Kasım 2026 — DEN-79 alındı (Kalfa)
 
 Full pull sonrası SYS-10 duman akışını kullanan 100 kısa oyun hedefi, tam sanity çalıştırmadan doğrulanacak. Asset gerekmedi. kota görünmüyor.
