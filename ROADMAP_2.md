@@ -7952,7 +7952,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-13, SAH-01. Boyut: S.
   - Dosya: `src/dunya/ayak_zemini.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-08:** Muayene aracı ayak yüksekliğini yazar. (Kalfa — headless gerçek kemik raporu)
+- [x] **SAH-08:** Muayene aracı ayak yüksekliğini yazar. (Kalfa — 46 model, gömülü örnekte tek hata satırı ve çıkış 1)
   - Ne: `karakter_muayene.tscn` her model için en alçak kemik yüksekliğini satır yazar. Eşik altı satır hata sayılır. TST-08'in adımları burada yoktur.
   - Kabul: `karakter_muayene.tscn` her model için en alçak kemik yüksekliğini satır yazar. Eşik altı satır hata sayılır. TST-08'in adımları burada yoktur. Test: bilerek gömülü model, raporda 1 satır.
   - Bağımlılık: SAH-01. Boyut: S.

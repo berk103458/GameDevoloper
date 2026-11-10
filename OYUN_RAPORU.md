@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-08 tamamlandı (Kalfa)
+
+Karakter muayenesi headless koşuda çizim karesi beklemeden mevcut karakterleri ve gerçek kliplerini örnekler. Model başına zemine göre en alçak ayak kemiği yüksekliğini hem JSON hem konsola yazar. Yuvarlamadan önce −8 cm altı hata sayılır. Görsel kipte mevcut temas sayfası kodu korunur. Hazır modeller aynı karakter listesinden alınır.
+
+Önceki headless sahne rapora ulaşmadı. Son varsayılan koşuda 46 model ve 46 sayısal satır, sıfır gömülme hatası, çıkış 0. Geçici testte CHR-002 kök kemiği ölçüm anında 25 cm aşağı alındı. −20,47 cm, tek hata satırı, tek model kaydı ve çıkış 1 doğrulandı. Başsız koşular JPG üretmedi. Son headless import çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-08 başlıyor (Kalfa)
 
 Festive c7d54fa1 güncel. Mevcut karakter muayene sahnesinde çizim gerektirmeyen gerçek iskelet ölçümü ve model başına gömülme hata satırı doğrulanacak. Asset gerekmedi. kota görünmüyor.

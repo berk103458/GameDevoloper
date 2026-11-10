@@ -1,6 +1,7 @@
 class_name HazirKarakterler
 extends RefCounted
 
+const MODEL_ADLARI := ["chr_006", "lowpo_cocuk", "lowpo_demirci"]
 const ISIMLER := {"spine":"Hips", "spine_001":"Spine", "spine_002":"Spine01", "spine_003":"Spine02", "spine_004":"neck", "spine_005":"Head", "spine_006":"head_end", "shoulder_L":"LeftShoulder", "upper_arm_L":"LeftArm", "forearm_L":"LeftForeArm", "hand_L":"LeftHand", "shoulder_R":"RightShoulder", "upper_arm_R":"RightArm", "forearm_R":"RightForeArm", "hand_R":"RightHand", "thigh_L":"LeftUpLeg", "shin_L":"LeftLeg", "foot_L":"LeftFoot", "toe_L":"LeftToeBase", "thigh_R":"RightUpLeg", "shin_R":"RightLeg", "foot_R":"RightFoot", "toe_R":"RightToeBase"}
 static var _kitaplar: Dictionary = {}
 
@@ -12,7 +13,7 @@ static func koy_adi(k: Koylu, eski: String) -> String:
 	return eski
 
 static func olustur(ad: String) -> KarakterModel:
-	if ad not in ["chr_006", "lowpo_cocuk", "lowpo_demirci"]:
+	if ad not in MODEL_ADLARI:
 		return null
 	var tur := "demirci" if ad == "lowpo_demirci" else "cocuk"
 	var boy := 1.8 if tur == "demirci" else 1.15

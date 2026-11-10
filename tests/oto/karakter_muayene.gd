@@ -7,18 +7,47 @@
 ##   boy      : görünen boy (m); ölçek hatası
 ##   eksik    : beklenen ama yüklenemeyen hareket klipleri
 ## Çalıştırma: KLASOR=<cikti> [MODELLER=ad1,ad2] godot --path . --audio-driver Dummy tests/oto/karakter_muayene.tscn
-## Pencere gerekir (headless'ta çizim yok). Çıktı: <KLASOR>/<ad>.jpg, <KLASOR>/muayene.json
+## --headless sayısal JSON raporu yazar. Pencereli koşuda ayrıca JPG üretilir.
 extends Node3D
 
 const KARE := Vector2i(200, 300)
 const ANLAR := [0.25, 0.75, 1.25]
+const AYAK_ESIGI := 0.08
 const HAREKET_SIRASI := ["bekle", "yuru", "konus", "sevinc", "ofke", "panik", "gergin"]
 
 var _kamera: Camera3D
 var _sonuc := {}
+var _ayak_hatasi := 0
 
 
 func _ready() -> void:
+	var ciz := DisplayServer.get_name() != "headless"
+	if ciz:
+		_cekimi_kur()
+	await get_tree().process_frame
+	var klasor := OS.get_environment("KLASOR")
+	if klasor.is_empty():
+		klasor = "user://karakter_muayene"
+	if DirAccess.make_dir_recursive_absolute(klasor) != OK:
+		push_error("Muayene klasörü açılamadı: " + klasor)
+		get_tree().quit(2)
+		return
+	var adlar := _model_adlari()
+	print("MUAYENE başlıyor: %d model" % adlar.size())
+	for ad in adlar:
+		await _muayene(ad, klasor, ciz)
+	var f := FileAccess.open(klasor.path_join("muayene.json"), FileAccess.WRITE)
+	if f == null:
+		push_error("Muayene raporu yazılamadı: " + klasor)
+		get_tree().quit(2)
+		return
+	f.store_string(JSON.stringify(_sonuc, "  "))
+	f.close()
+	print("MUAYENE BİTTİ: %s, ayak hatası=%d" % [klasor, _ayak_hatasi])
+	get_tree().quit(1 if _ayak_hatasi > 0 else 0)
+
+
+func _cekimi_kur() -> void:
 	get_window().size = KARE
 	var ortam := WorldEnvironment.new()
 	var env := Environment.new()
@@ -45,21 +74,6 @@ func _ready() -> void:
 	_kamera.fov = 32
 	add_child(_kamera)
 	_kamera.make_current()
-	await get_tree().process_frame
-	var klasor := OS.get_environment("KLASOR")
-	if klasor == "":
-		klasor = "user://karakter_muayene"
-	DirAccess.make_dir_recursive_absolute(klasor)
-	var adlar := _model_adlari()
-	print("MUAYENE başlıyor: %d model" % adlar.size())
-	for ad in adlar:
-		await _muayene(ad, klasor)
-	var f := FileAccess.open(klasor.path_join("muayene.json"), FileAccess.WRITE)
-	f.store_string(JSON.stringify(_sonuc, "  "))
-	f.close()
-	print("MUAYENE BİTTİ: ", klasor)
-	get_tree().quit()
-
 
 ## Rota sonuna varmış ve ilgili hareketi oynatan modelleri sayar.
 ## Çizim veya temas sayfası gerektirmediği için headless kontrolde de kullanılır.
@@ -110,7 +124,7 @@ func _model_adlari() -> PackedStringArray:
 	var secili := OS.get_environment("MODELLER")
 	if secili != "":
 		return secili.split(",")
-	var adlar: PackedStringArray = []
+	var adlar := PackedStringArray(HazirKarakterler.MODEL_ADLARI)
 	for d in DirAccess.get_files_at("res://assets/model/karakter"):
 		var f := d.trim_suffix(".import").trim_suffix(".remap")
 		if f.ends_with("_yuru.glb"):
@@ -121,7 +135,7 @@ func _model_adlari() -> PackedStringArray:
 	return adlar
 
 
-func _muayene(ad: String, klasor: String) -> void:
+func _muayene(ad: String, klasor: String, ciz: bool) -> void:
 	var k := Dunya3B.karakter(ad)
 	add_child(k)
 	await get_tree().process_frame
@@ -138,30 +152,41 @@ func _muayene(ad: String, klasor: String) -> void:
 			kayit["eksik"].append(h)
 	if sk == null:
 		kayit["uyarilar"].append("İskelet yok: animasyonsuz kapsül/yer tutucu olabilir")
-	var sayfa := Image.create(KARE.x * ANLAR.size() * 2, KARE.y * var_olan.size(), false, Image.FORMAT_RGB8)
-	sayfa.fill(Color.BLACK)
+	var sayfa: Image
+	if ciz:
+		sayfa = Image.create(KARE.x * ANLAR.size() * 2, KARE.y * var_olan.size(), false, Image.FORMAT_RGB8)
+		sayfa.fill(Color.BLACK)
+	var en_alt := INF
 	for satir in var_olan.size():
 		var h: String = var_olan[satir]
 		_baslat(k, h)
 		var olcumler: Array = []
-		for yan in 2:
-			_kamera_yerlestir(yan == 1)
+		for yan in (2 if ciz else 1):
+			if ciz:
+				_kamera_yerlestir(yan == 1)
 			for i in ANLAR.size():
 				_baslat(k, h)
 				await get_tree().create_timer(ANLAR[i]).timeout
-				await RenderingServer.frame_post_draw
-				var img := get_viewport().get_texture().get_image()
-				img.resize(KARE.x, KARE.y)
-				img.convert(Image.FORMAT_RGB8)
-				sayfa.blit_rect(img, Rect2i(Vector2i.ZERO, KARE), Vector2i((yan * ANLAR.size() + i) * KARE.x, satir * KARE.y))
+				if ciz:
+					await RenderingServer.frame_post_draw
+					var img := get_viewport().get_texture().get_image()
+					img.resize(KARE.x, KARE.y)
+					img.convert(Image.FORMAT_RGB8)
+					sayfa.blit_rect(img, Rect2i(Vector2i.ZERO, KARE), Vector2i((yan * ANLAR.size() + i) * KARE.x, satir * KARE.y))
+				else:
+					await get_tree().process_frame
 				if yan == 0 and sk != null:
-					olcumler.append(_olc(sk, k))
+					var olcum := _olc(sk, k)
+					olcumler.append(olcum)
+					en_alt = minf(en_alt, float(olcum.get("ayak_y", INF)))
 		kayit["hareketler"][h] = _ozetle(olcumler)
 		for u in _uyar(h, kayit["hareketler"][h]):
 			kayit["uyarilar"].append(u)
 	k.yurumeyi_durdur()
-	sayfa.save_jpg(klasor.path_join(ad + ".jpg"), 0.8)
-	kayit["sayfa"] = klasor.path_join(ad + ".jpg")
+	if ciz:
+		sayfa.save_jpg(klasor.path_join(ad + ".jpg"), 0.8)
+		kayit["sayfa"] = klasor.path_join(ad + ".jpg")
+	kayit["ayak_muayenesi"] = _ayak_satiri(ad, en_alt)
 	kayit["satirlar"] = var_olan
 	_sonuc[ad] = kayit
 	print("MUAYENE %s kemik=%d hareket=%s eksik=%s uyari=%d" % [ad, kayit["kemik_sayisi"], var_olan, kayit["eksik"], kayit["uyarilar"].size()])
@@ -171,19 +196,33 @@ func _muayene(ad: String, klasor: String) -> void:
 	await get_tree().process_frame
 
 
+func _ayak_satiri(ad: String, en_alt: float) -> Dictionary:
+	if not is_finite(en_alt):
+		print("AYAK MUAYENE %s: ölçülemedi" % ad)
+		return {"en_alt_y": null, "hata": false, "mesaj": "Ayak kemiği bulunamadı"}
+	var olcum := ayak_muayenesi_yap(en_alt)
+	# Yerden kopuk ayak uyarıdır, eşik altındaki kemik hata sayılır.
+	olcum.hata = bool(olcum.hata) and en_alt < 0.0
+	if olcum.hata:
+		_ayak_hatasi += 1
+	print("AYAK MUAYENE %s: en alt=%.5f m %s" % [ad, en_alt, "HATA" if olcum.hata else ""])
+	return olcum
+
+
 func _baslat(k: KarakterModel, h: String) -> void:
 	k.position = Vector3.ZERO
 	k.rotation = Vector3.ZERO
 	if h == "yuru":
 		# Yerinde yürüme: yürüme klibini oynat, konumu sabit tut (ayak kayması görsel olarak seçilir).
 		if k._oynatici != null and k._anim != "":
+			k._oynatici.speed_scale = 1.0
 			if k._oynatici.current_animation != k._anim:
 				k._oynatici.play(k._anim)
 	elif h == "bekle":
 		k.dur()
 	else:
-		if k._oynatici != null and k._klipler.has(h) and k._oynatici.current_animation != k._klipler[h]:
-			k.calis(StringName(h))
+		if k.hareket_var(h) and k._oynatici.current_animation != k._klipler[h]:
+			k._klip_oynat(h)
 
 
 func _kamera_yerlestir(yan: bool) -> void:
@@ -217,7 +256,7 @@ func _olc(sk: Skeleton3D, k: KarakterModel) -> Dictionary:
 	var o := {}
 	if not ayaklar.is_empty():
 		var en_alt := INF
-		for a in ayaklar: en_alt = minf(en_alt, a.y)
+		for a in ayaklar: en_alt = minf(en_alt, a.y - ayak_zemini_yuksekligi(a))
 		o["ayak_y"] = en_alt
 	var farklar := ayak_zemin_farklari(k)
 	if not farklar.is_empty():
@@ -253,8 +292,8 @@ func _ozetle(olcumler: Array) -> Dictionary:
 func _uyar(h: String, oz: Dictionary) -> PackedStringArray:
 	var u: PackedStringArray = []
 	if oz.has("ayak_y"):
-		if oz["ayak_y"][0] > 0.08: u.append("%s: ayaklar yerden kopuk (en alt %.2f m) — havada duruyor" % [h, oz["ayak_y"][0]])
-		if oz["ayak_y"][0] < -0.08: u.append("%s: ayak zemine gömülü (%.2f m)" % [h, oz["ayak_y"][0]])
+		if oz["ayak_y"][0] > AYAK_ESIGI: u.append("%s: ayaklar yerden kopuk (en alt %.2f m) — havada duruyor" % [h, oz["ayak_y"][0]])
+		if oz["ayak_y"][0] < -AYAK_ESIGI: u.append("%s: ayak zemine gömülü (%.2f m)" % [h, oz["ayak_y"][0]])
 	else:
 		u.append("%s: ayak kemiği bulunamadı (ölçülemedi)" % h)
 	if oz.has("el_aci") and oz["el_aci"][1] > 0.45 and h in ["bekle", "yuru"]:
@@ -267,7 +306,7 @@ func _uyar(h: String, oz: Dictionary) -> PackedStringArray:
 
 # --- SAH-08, SAH-16, SAH-77: Muayene ve raporlama yardimcilari ---
 
-static func ayak_muayenesi_yap(en_alt_y: float, esik: float = 0.08) -> Dictionary:
+static func ayak_muayenesi_yap(en_alt_y: float, esik: float = AYAK_ESIGI) -> Dictionary:
 	var hata := en_alt_y < -esik or en_alt_y > esik
 	var mesaj := ""
 	if en_alt_y < -esik:
