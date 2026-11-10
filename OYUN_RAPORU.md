@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-20 sahipliği (Kalfa)
+
+- SAH-04 ve SAH-18 hazır. Doğal bitiş ile hız bandı duruşunun ilk karesinde kök konumunu ve ayak tabanını birlikte ölçeceğim. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-19 mevcut gece kaçışı ve devriye (Kalfa)
 
 - ANI-10 tehdit yeniden planlaması, yakın nöbetçiden uzaklaşan mevcut güvenli rotada `kacis` bağlamını veriyor. Koşu alt eşiği sahne tablosundan geliyor. Açlık ve hava çarpanları uygulanıyor. Muhafız uzaklaşınca yürüyüş geri geliyor. Rota niyeti geçici, kayıt şemasına yazılmıyor.
