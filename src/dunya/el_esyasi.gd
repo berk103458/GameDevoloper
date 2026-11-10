@@ -18,6 +18,7 @@ const DEMIR := Color("#5C5F63")
 const SAZ := Color("#6E5F3A")
 ## Avuç ölçülemezse: bilekten önkol yönünde bu kadar ileri (m).
 const AVUC := 0.06
+const TEMAS = preload("res://src/dunya/el_esyasi_temas.gd")
 ## Asılı eşyanın gövdesi bacağa girmesin diye yana kaydırılır (tutma noktası elde kalır) (m).
 const BACAKTAN := 0.06
 ## Asılı eşyanın el hızına bağlı sallanma katsayısı ve en büyük açısı.
@@ -34,6 +35,7 @@ var _avuc: Variant = null
 var _duzeltici: DurusDuzeltici
 var _onceki := Vector3.ZERO
 var _aci := Vector2.ZERO
+var _temas: TEMAS
 ## Dik eşya (asa, çapa): sallanmaz, avuçtan aşağı/yukarı uzanır.
 var dik := false
 
@@ -110,6 +112,7 @@ func bagla(govde: Node3D, iskelet: Skeleton3D, sag: bool, duzeltici: DurusDuzelt
 	_yan = -1.0 if sag else 1.0
 	# Konum, değiştiriciler (DurusDuzeltici) uygulandıktan sonraki son pozdan okunur; _process'te okunursa
 	# kolu indirilmemiş animasyon pozu gelir ve eşya elin dışında kalır.
+	_temas = TEMAS.new(self, iskelet)
 	iskelet.skeleton_updated.connect(_guncelle)
 
 
@@ -138,7 +141,7 @@ func _guncelle() -> void:
 	var taban := Basis(yan, Vector3.UP, -ileri)
 	global_position = avuc
 	if dik:
-		global_basis = taban
+		global_basis = _temas.yon(avuc, taban, true)
 		return
 	# Sarkaç: el hızlanınca eşya geride kalır, yavaşça dik konuma döner.
 	var hiz := (avuc - _onceki) / maxf(delta, 0.001)
@@ -148,7 +151,8 @@ func _guncelle() -> void:
 	_aci = _aci.lerp(hedef, clampf(delta * 6.0, 0.0, 1.0))
 	# Bacaktan uzak: gövde dışa doğru hafif açılı sarkar (tutma noktası elde kalır).
 	var aci_disa := atan2(BACAKTAN, 0.3) * -_yan
-	global_basis = taban * Basis(Vector3.RIGHT, -_aci.x) * Basis(Vector3.BACK, _aci.y + aci_disa)
+	var tercih := taban * Basis(Vector3.RIGHT, -_aci.x) * Basis(Vector3.BACK, _aci.y + aci_disa)
+	global_basis = _temas.yon(avuc, tercih, false)
 
 
 # ── Biçimler: tutma noktası orijinde; asılı eşyalar −Y yönünde sarkar. ──

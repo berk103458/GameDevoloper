@@ -40,9 +40,12 @@ func _ready() -> void:
 		bs.append(b)
 		ids.append(k.id)
 	var ilk_aletler: Dictionary = {}
-	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
+	var ilk_kayit := ana.oturum.kaydet().merged({"faz": "koy"}, true)
 	ana._koye_git()
 	await get_tree().process_frame
+	# Köy açılırken OGR-24 pazar ve divanın ilk görülmesini kaydeder.
+	ilk_kayit["ogretici"] = ana.oturum.kaydet()["ogretici"]
+	var once := JSON.stringify(ilk_kayit)
 	var s: KoyYonetimSahnesi = ana._ekran.sahne3b
 	var h := s.halk_hareketi
 	h.set_process(false)

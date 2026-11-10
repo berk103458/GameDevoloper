@@ -7961,7 +7961,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.2 El eşyası
 
-- [/] **SAH-09:** Eşya, eldeki sokettedir. (Kalfa — sekiz canlı eşya ve kemik kesişimi)
+- [x] **SAH-09:** Eşya, eldeki sokettedir. (Kalfa — 8 eşya × 312 kare, kemik kesişimi 0)
   - Ne: `el_esyasi.gd` avuç noktasını kullanır. Eşya göğüs veya uyluk kemikle kesişmez.
   - Kabul: `el_esyasi.gd` avuç noktasını kullanır. Eşya göğüs veya uyluk kemikle kesişmez. Test: 8 eşya türü, kesişen kare 0.
   - Bağımlılık: ANI-11. Boyut: M.

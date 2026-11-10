@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-09 tamamlandı (Kalfa)
+
+El eşyası mevcut avuç konumunu kullanır. Son iskelet pozundaki göğüs ve uyluk kemik doğrularına karşı gerçek mesh parçalarının yerel sınırları ölçülür. Yalnız kesişim varsa avuç etrafında güvenli yön denenir. Dik eşyada düzeltme yalnız dik eksen çevresindedir. Bağlama ağaç dışında da yapılabildiği için parça dönüşümleri yerel düğüm zincirinden alınır.
+
+İlk koşuda torba, sepet, çekiç, büyük sepet ve sandık kesişti. Son sabit kareli koşuda mevcut sekiz türün her biri 312 karede sıfır kesişim ve sıfır avuç sapması gösterdi. Ekipman testinin başlangıç kaydı, OGR-24 ilk görüş öğretici kaydını köy açılışından sonra okur ve diğer kayıt alanlarını önceki gibi karşılaştırır. Toplam beş headless hedef geçti. Headless import çıkış 0, betik/MD5 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-09 başlıyor (Kalfa)
 
 Festive 700545ab güncel. Gerçek karakterlerin sekiz mevcut el eşyası ve göğüs/uyluk kemiklerinin kesişimi ölçülecek. Asset gerekmedi. kota görünmüyor.
