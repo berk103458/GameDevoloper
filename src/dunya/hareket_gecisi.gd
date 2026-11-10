@@ -3,52 +3,37 @@ extends Node
 
 ## SAH-17..SAH-32: Yürüme, koşma, durma hız bantları ve animasyon karıştırma denetleyicisi.
 
-const AYAR_YOLU := "res://data/ayarlar/sahne.json"
+const AYAR: Dictionary = preload("res://data/ayarlar/sahne.json").data
 
-var hiz_bantlari := {
-	"dur": [0.0, 0.1],
-	"yuru": [0.1, 2.5],
-	"kos": [2.5, 6.0]
-}
-var klipler := {
-	"dur": "bekle",
-	"yuru": "yuru",
-	"kos": "kos"
-}
-var gecis_suresi_tablo := 0.25
-
-
-func _init() -> void:
-	_ayarlari_yukle()
-
-
-func _ayarlari_yukle() -> void:
-	if not FileAccess.file_exists(AYAR_YOLU):
-		return
-	var metin := FileAccess.get_file_as_string(AYAR_YOLU)
-	var veri: Variant = JSON.parse_string(metin)
-	if veri is Dictionary:
-		if veri.has("hiz_bantlari") and veri["hiz_bantlari"] is Dictionary:
-			hiz_bantlari = veri["hiz_bantlari"]
-		if veri.has("klipler") and veri["klipler"] is Dictionary:
-			klipler = veri["klipler"]
-		if veri.has("gecis_suresi"):
-			gecis_suresi_tablo = float(veri["gecis_suresi"])
+var hiz_bantlari: Dictionary = AYAR.hiz_bantlari.duplicate(true)
+var klipler: Dictionary = AYAR.klipler.duplicate()
+var gecis_suresi_tablo := float(AYAR.gecis_suresi)
 
 
 ## SAH-17: Hız üç bandadır: dur, yürü, koş.
 func hiz_bandi_bul(hiz: float) -> String:
+	return tablo_bandi(hiz, hiz_bantlari)
+
+
+static func tablo_bandi(hiz: float, bantlar: Dictionary = AYAR.hiz_bantlari) -> String:
 	var h := absf(hiz)
-	if h < hiz_bantlari["dur"][1]:
+	if h < float(bantlar.dur[1]):
 		return "dur"
-	elif h < hiz_bantlari["yuru"][1]:
+	if h < float(bantlar.yuru[1]):
 		return "yuru"
-	else:
-		return "kos"
+	return "kos"
 
 
 func klip_adi_al(band: String) -> String:
-	return klipler.get(band, "bekle")
+	return String(klipler.get(band, klipler.dur))
+
+
+static func tablo_klibi(band: String) -> String:
+	return String(AYAR.klipler.get(band, AYAR.klipler.dur))
+
+
+static func kosu_taban_hizi() -> float:
+	return float(AYAR.hiz_bantlari.kos[0])
 
 
 ## SAH-18: Durmadan yürümeye geçiş karışıktır, ilk karede dur pozuna daha yakındır.
@@ -62,7 +47,11 @@ func karisim_hesapla(t: float, toplam_sure: float = -1.0) -> float:
 
 ## SAH-19: Koşu yalnız kovalama ve kaçışta açılır; devriyede koşu 0'dır.
 func kosu_acik_mi(durum: String) -> bool:
-	return durum in ["kovalama", "kacis"]
+	return kosu_izni(StringName(durum))
+
+
+static func kosu_izni(durum: StringName) -> bool:
+	return durum in [&"kovalama", &"kacis"]
 
 
 ## SAH-20: Durunca ayak cilası aynı karede devreye girer.

@@ -1,3 +1,9 @@
+## 2026-11-10 — SAH-17 canlı hız bantları (Kalfa)
+
+- `sahne.json` eşikleri gerçek `KarakterModel` oynatıcısında dur, yürü ve koş seçiyor. Hazır LOWPO koşusu mevcut UAL `Jog_Fwd_Loop` klibinden geliyor. Yüksek hızda koşu klibi için kaçış veya kovalama bağlamı gerekiyor. Tablo klibi bulunmayan modellerin mevcut güvenli klip yolu korunuyor.
+- Altı hedef geçti. Canlı bantlar `dur/yuru/kos`, klipler `bekle/yuru/kos`. Hareket geçişi birimi, hazır karakter, ayak zemini, sekiz eşya teması ve zemin navigasyonu geçti. Tekrar headless importta betik ve MD5 hatası 0. Bilinen üç kapanış çıktısı sürüyor. Tam sanity çalıştırılmadı.
+- Asset gerekmedi. Sonraki adım SAH-18. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-17 başlıyor (Kalfa)
 
 Festive e2ada191 güncel. Mevcut sahne tablosundaki hız bantları ve klip adları gerçek KarakterModel oynatıcısında doğrulanacak. Asset gerekmedi. kota görünmüyor.

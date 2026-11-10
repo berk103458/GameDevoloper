@@ -8,6 +8,7 @@ const KAYKIT := {"hips":"Hips", "spine":"Spine", "chest":"Spine02", "head":"Head
 const KLIPLER := {
 	"bekle": ["A01", "quaternius/general.res", "Idle_Loop"],
 	"yuru": ["A01", "quaternius/movement.res", "Walk_Loop"],
+	"kos": ["A01", "quaternius/movement.res", "Jog_Fwd_Loop"],
 	"konus": ["A01", "quaternius/general.res", "Idle_Talking_Loop"],
 	"calis": ["A02", "quaternius/ual2_tarim.res", "Farm_Harvest"],
 	"dov": ["A03", "kaykit/tools.res", "Hammering"],

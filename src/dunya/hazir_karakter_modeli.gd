@@ -21,11 +21,16 @@ func _yuruyus_taban_hizi() -> float:
 	return 0.405 * boy / YETISKIN_BOYU
 
 func dur() -> void:
+	_hareket_bandi = "dur"
 	_bekleme_hedef = 1.0
 	_duzeltici_hedef = 0.0
 	if is_instance_valid(_oynatici):
 		_oynatici.speed_scale = 1.0
-		_oynatici.play("bekle", GECIS)
+		var bekle := HareketGecisi.tablo_klibi("dur")
+		if _oynatici.has_animation(bekle):
+			_oynatici.play(bekle, GECIS)
+		else:
+			preload("res://src/dunya/guvenli_karakter_animasyonu.gd").dur(_oynatici, _anim, GECIS)
 
 func calis(ad: StringName) -> void:
 	super.calis(ad)

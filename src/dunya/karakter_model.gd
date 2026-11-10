@@ -30,6 +30,7 @@ var _duzeltici_hedef := 1.0
 var _klip_sirasi := 0
 ## Süren yürüyüş: yeni bir yürüyüş eskisini keser (iki hareket aynı anda konumu çekiştirmez).
 var _yurume: Tween
+var _hareket_bandi := "dur"
 ## Köyün gezinme aralığı için görsel kök adımını süzebilir.
 var rota_adimi: Callable
 var _rota_ilerlemesi := 0.0
@@ -83,16 +84,26 @@ func _process(delta: float) -> void:
 
 
 ## Hedefe yürür (dünya konumu), yüzünü yürüdüğü yöne çevirir.
-func yuru(hedef: Vector3, hiz: float = YURUME_HIZI) -> void:
+func yuru(hedef: Vector3, hiz: float = YURUME_HIZI, durum: StringName = &"") -> void:
+	hiz = absf(hiz)
+	var band := HareketGecisi.tablo_bandi(hiz)
+	if band == "dur":
+		yurumeyi_durdur()
+		return
 	var fark := hedef - position
 	fark.y = 0.0
 	if fark.length() < 0.01:
 		return
 	if _yurume != null and _yurume.is_valid():
 		_yurume.kill()
-	if is_instance_valid(_oynatici) and preload("res://src/dunya/guvenli_karakter_animasyonu.gd").var_mi(_oynatici, _anim):
-		_oynatici.play(_anim, YURUYUS_GECISI)
-		_oynatici.speed_scale = hiz / _yuruyus_taban_hizi()
+	_hareket_bandi = "kos" if band == "kos" and HareketGecisi.kosu_izni(durum) else "yuru"
+	if is_instance_valid(_oynatici):
+		var tablo_klibi := HareketGecisi.tablo_klibi(_hareket_bandi)
+		var gercek_klip := tablo_klibi if _oynatici.has_animation(tablo_klibi) else _anim
+		if preload("res://src/dunya/guvenli_karakter_animasyonu.gd").var_mi(_oynatici, gercek_klip):
+			_oynatici.play(gercek_klip, YURUYUS_GECISI)
+			var taban_hiz := HareketGecisi.kosu_taban_hizi() if _hareket_bandi == "kos" and gercek_klip == tablo_klibi else _yuruyus_taban_hizi()
+			_oynatici.speed_scale = hiz / taban_hiz
 	_bekleme_hedef = 0.0
 	_duzeltici_hedef = 1.0
 	_klip_sirasi += 1
@@ -108,6 +119,10 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI) -> void:
 	await t.finished
 	if is_inside_tree() and _yurume == t:
 		dur()
+
+
+func hareket_bandi() -> String:
+	return _hareket_bandi
 
 
 func _rota_ilerlet(ilerleme: float, hedef: Vector3) -> void:
@@ -131,15 +146,20 @@ func yurumeyi_durdur() -> void:
 
 ## Durur: "bekle" animasyonuna yumuşak geçiş; nefes ve kıpırtıyı DurusDuzeltici verir.
 func dur() -> void:
+	_hareket_bandi = "dur"
 	_bekleme_hedef = 1.0
 	if not is_instance_valid(_oynatici):
 		return
 	_oynatici.speed_scale = 1.0
-	if hareket_var("bekle"):
-		_klip_oynat("bekle")
+	var bekle := HareketGecisi.tablo_klibi("dur")
+	if hareket_var(bekle):
+		_klip_oynat(bekle)
 		return
 	_duzeltici_hedef = 1.0
-	preload("res://src/dunya/guvenli_karakter_animasyonu.gd").dur(_oynatici, _anim, GECIS)
+	if _oynatici.has_animation(bekle):
+		_oynatici.play(bekle, GECIS)
+	else:
+		preload("res://src/dunya/guvenli_karakter_animasyonu.gd").dur(_oynatici, _anim, GECIS)
 
 
 ## Sürekli iş hareketini açar/kapatır (&"calis" ya da &"").
