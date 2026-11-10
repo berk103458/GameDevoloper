@@ -51,13 +51,30 @@ func _ready() -> void:
 	var h := s.halk_hareketi
 	h.set_process(false)
 	for i in 3: h._process(0.0)
+	var tezgah_kokleri := {}
 	for id in ids:
 		var f: KarakterModel = h.modeller[id]
 		var d: Dictionary = h._durum[id]
 		kontrol(d.zanaat and d.is, "Çalışan/girdili tezgâh aktif")
 		kontrol(f.get_node_or_null("zanaat_tezgahi") != null, "Gerçek el bağlantısı")
-		_varis(h, f, d)
+		var olcer: Node3D = _yuruyus_olceri_kur(f) if id == ids[0] else null
+		_varis(h, f, d, false)
+		tezgah_kokleri[id] = f.global_position
+		kontrol(f.hareket_bandi() == "dur" and (f._yurume == null or not f._yurume.is_running()), "SAH-29: İşe varış yürüyüşü bitirir")
 		kontrol(f.duzeltici().surekli == StringName(d.zanaat_hareket), "Varınca çekiç/kürek döngüsü")
+		if olcer != null:
+			f._oynatici.advance(1.0 / 120.0)
+			kontrol(is_zero_approx(olcer.position.x) and f._oynatici.current_animation == "dov", "SAH-29: Örsün ilk karesinde gerçek çekiç klibi ve sıfır yürüyüş ağırlığı")
+			print("SAH-29 ilk yürüyüş ağırlığı=%.6f, klip=%s" % [olcer.position.x, f._oynatici.current_animation])
+			f._oynatici.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_IDLE
+	await get_tree().create_timer(0.45).timeout
+	for id in ids:
+		var f: KarakterModel = h.modeller[id]
+		var kok_farki := f.global_position.distance_to(tezgah_kokleri[id])
+		kontrol(kok_farki <= 0.00001 and f._oynatici.current_animation != f._anim, "SAH-29: Tezgâh çalışırken kök ve yürüyüş durur")
+		if id == ids[0]:
+			kontrol(f._oynatici.current_animation == "dov", "SAH-29: Çekiç klibi yürüyüş tween'i tarafından kesilmez")
+		print("SAH-29 tezgâh=%d, kök farkı=%.6f m, klip=%s" % [id, kok_farki, f._oynatici.current_animation])
 	var gunduz := MUAYENE.rutin_say(h)
 	kontrol(gunduz.tezgah >= 1 and gunduz.ates == 0, "SAH-57: Gündüz çalışan tezgâh")
 	var dizin := OS.get_environment("ADMIN_TEST_CIKTI")
@@ -104,12 +121,35 @@ func _ready() -> void:
 	await get_tree().create_timer(0.3).timeout
 	print("ZANAAT TEZGÂHI UI: GEÇTİ" if hata == 0 else "ZANAAT TEZGÂHI UI: KALDI")
 	await Ses.cik(hata)
-func _varis(h: KoyHalkHareketi, model: KarakterModel, d: Dictionary) -> void:
+func _varis(h: KoyHalkHareketi, model: KarakterModel, d: Dictionary, durdur: bool = true) -> void:
 	for _adim in range(d.yol.size() + 1):
 		if int(d.adim) >= d.yol.size(): break
 		model.position = d.yol[d.adim]
 		h._process(0.0)
-	model.yurumeyi_durdur()
+	if durdur:
+		model.yurumeyi_durdur()
+
+
+func _yuruyus_olceri_kur(model: KarakterModel) -> Node3D:
+	var oynatici := model._oynatici
+	var olcer := Node3D.new()
+	olcer.name = "YuruyusOlceri"
+	oynatici.get_node(oynatici.root_node).add_child(olcer)
+	var kitap := oynatici.get_animation_library(&"").duplicate() as AnimationLibrary
+	for ad in [&"yuru", &"bekle", &"dov"]:
+		var klip := kitap.get_animation(ad).duplicate() as Animation
+		var iz := klip.add_track(Animation.TYPE_POSITION_3D)
+		klip.track_set_path(iz, NodePath("YuruyusOlceri"))
+		klip.position_track_insert_key(iz, 0.0, Vector3.RIGHT if ad == &"yuru" else Vector3.ZERO)
+		kitap.remove_animation(ad)
+		kitap.add_animation(ad, klip)
+	oynatici.remove_animation_library(&"")
+	oynatici.add_animation_library(&"", kitap)
+	oynatici.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+	oynatici.play(&"yuru", 0.0)
+	oynatici.advance(0.0)
+	kontrol(is_equal_approx(olcer.position.x, 1.0), "SAH-29: Ölçer gerçek yürüyüşü tam ağırlıkta okur")
+	return olcer
 
 
 func _kur(y: KoyYonetimi, tur: String) -> KoyBinasi:

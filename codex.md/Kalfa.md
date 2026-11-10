@@ -1,3 +1,9 @@
+## 2026-11-10 — SAH-29 tezgâhta yürüyüşün kesilmesi (Kalfa)
+
+- Aktif tezgâh rotası varışta hareket tween’ini ve yürüyüş karışımını bitiriyor. Örs mevcut `dov` çekiç klibini, fırın mevcut bekleme ve prosedürel kürek hareketini kullanıyor.
+- İlk örs karesinde yürüyüş ağırlığı değişiklik öncesi 1, şimdi 0. İlk karede ve 0,45 saniye sonra çekiç klibi `dov`. İki tezgâhta kök farkı 0,000000 m. Tezgâh sahnesi ve birimi, köy konuşması, navigasyon ve canlı karışım hedefleri geçti. Headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor.
+- Asset gerekmedi. Sonraki adım SAH-30. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-29 sahipliği (Kalfa)
 
 - ANI-08 ve SAH-26 hazır. Varışın doğal akışında kök konumu, gerçek çekiç klibi ve ilk iş karesindeki yürüyüş ağırlığı ölçülecek. Kota görünmüyor.

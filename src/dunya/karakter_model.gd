@@ -154,10 +154,12 @@ func _yuruyus_taban_hizi() -> float:
 
 
 ## Yeni rota veya iptal için konum tween'ini durdurur ve bekleme pozuna geçer.
-func yurumeyi_durdur() -> void:
+func yurumeyi_durdur(karisimi_kes: bool = false) -> void:
 	if _yurume != null and _yurume.is_valid():
 		_yurume.kill()
 	_yurume = null
+	if karisimi_kes and is_instance_valid(_oynatici):
+		_oynatici.stop()
 	dur()
 
 

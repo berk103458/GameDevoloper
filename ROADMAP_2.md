@@ -8087,7 +8087,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-12, SAH-18. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-29:** Tezgâh klibi yürüyüşle karışmaz. (Kalfa — tezgâha varışta klip ve kök hızı)
+- [x] **SAH-29:** Tezgâh klibi yürüyüşle karışmaz. (Kalfa — ilk örs karesi yürüyüş ağırlığı ve kök farkı 0)
   - Ne: ANI-08 iş noktasında kök hız 0, üst gövde iş klibidir. Yürüyüş ağırlığı 0.
   - Kabul: ANI-08 iş noktasında kök hız 0, üst gövde iş klibidir. Yürüyüş ağırlığı 0. Test: örs başında bacak klibi değil.
   - Bağımlılık: ANI-08, SAH-26. Boyut: S.

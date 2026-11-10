@@ -142,6 +142,8 @@ func _process(delta: float) -> void:
 				if d.adim < d.yol.size():
 					_adim(id)
 				else:
+					if d.is and d.get("zanaat", false):
+						f.yurumeyi_durdur(true)
 					OduncuRutini.varis(f, d.get("oduncu", false) and int(d.get("oduncu_i", 0)) == 0)
 					SulamaRutini.varis(f, d.get("sulama", false) and int(d.get("sulama_i", 0)) == 1)
 					f.bak(d.bak)
