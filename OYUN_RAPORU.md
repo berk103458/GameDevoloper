@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-32 sahipliği (Kalfa)
+
+- SAH-18 hazır. Dur, yürü ve koş istekleri aynı karede verilecek. Gerçek ağırlık izi doğrudan duruş→koşu ile karşılaştırılacak. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-31 animasyon karışımı ve kayıt (Kalfa)
 
 - Gerçek yürüyüş sırasında `GuvenliKayit` ile diske yazılan JSON’da karışım ağırlığı, katman ve hız bandı alanları yok. Test kopyası v2 şeması ve görsel alan işaretleriyle yüklenince KAY-03 göçü v3 oturumu kurdu. Eski dosya değişmedi, yeniden kayda işaretler taşınmadı.
