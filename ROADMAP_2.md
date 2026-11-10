@@ -7985,7 +7985,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-11, SAH-09. Boyut: M.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-13:** Konuşma klibi eşyayı düşürmez. (Kalfa — gerçek klip ve bekleme geri dönüşü)
+- [x] **SAH-13:** Konuşma klibi eşyayı düşürmez. (Kalfa — gerçek klip ve bekleme 3 saniye, ayrılan 0)
   - Ne: ağız klibi oynarken tutuş soketi kopmaz. Klip yoksa idle, eşya elde kalır.
   - Kabul: ağız klibi oynarken tutuş soketi kopmaz. Klip yoksa idle, eşya elde kalır. Test: konuşma 3 saniye, soket dolu.
   - Bağımlılık: BUG-09, SAH-09. Boyut: S.

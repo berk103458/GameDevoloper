@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-13 tamamlandı (Kalfa)
+
+Mevcut KapiSahnesi konuşma çağrısı ile CHR-005 ve heybe 3,000 saniye m_konus klibinde, klipsiz çiftçi ve odun 3,008 saniye mevcut bekleme klibinde ölçüldü. 363 ve 364 karede soket kopması ve avuç farkı 0. Konuşan model süre sonunda aynı eşya nesnesiyle beklemeye döndü. Çalışma zamanı değişikliği gerekmedi. El eşyası hedefi, CHR kapı, fırtına kuyruğu ve ayak/eşya birim hedefleri geçti. İlk headless import çıkış 0, betik 0 ve beş MD5 hatası. Tekrarda çıkış 0, betik ve MD5 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-13 başlıyor (Kalfa)
 
 Festive 7f98708c güncel. Mevcut kapı konuşma klibi üç saniye ölçülecek. Klipsiz gerçek modelde bekleme ve aynı eşya soketi denetlenecek. Asset gerekmedi. kota görünmüyor.

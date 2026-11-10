@@ -55,6 +55,8 @@ func _calistir() -> void:
 	]
 	for ornek in ciftler:
 		gecti = (await _cift_soket(ornek[0], ornek[1], ornek[2])) and gecti
+	gecti = (await _konusma_soketi("chr_005", "heybe", true)) and gecti
+	gecti = (await _konusma_soketi("ciftci", "odun", false)) and gecti
 	print("EL EŞYASI TEMASI: GEÇTİ" if gecti else "EL EŞYASI TEMASI: KALDI")
 	await root.get_node("Ses").cik(0 if gecti else 1)
 
@@ -250,6 +252,52 @@ func _cift_soket(ad: String, sag_tur: String, sol_tur: String) -> bool:
 		sag_tur, sol_tur, sonuc.kare, sonuc.esya, sonuc.govde, sonuc.avuc])
 	kapi.free()
 	return iki_el and not sag_parcalar.is_empty() and not sol_parcalar.is_empty() and sonuc.kare >= 120 and sonuc.esya == 0 and sonuc.govde == 0 and sonuc.avuc <= 0.001
+
+
+func _konusma_soketi(ad: String, tur: String, klip_var: bool) -> bool:
+	const SURE := 3.0
+	var kapi := KapiSahnesi.new()
+	root.add_child(kapi)
+	var figur := Dunya3B.karakter(ad)
+	figur.position = KapiSahnesi.DURMA
+	kapi.add_child(figur)
+	figur.bak(kapi.kamera.position)
+	var iskelet := (figur.get_node("AyakZemini") as AyakZemini)._iskelet
+	var esya := figur.get_node_or_null("esya_" + tur) as ElEsyasi
+	if esya == null:
+		esya = ElEsyasi.olustur(tur)
+		figur.add_child(esya)
+		esya.bagla(figur, iskelet, true, figur.duzeltici())
+	var olcum := {"kare": 0, "ayrilan": 0, "fark": 0.0}
+	iskelet.skeleton_updated.connect(func() -> void:
+		var avuc := _avuc_noktasi(figur, iskelet, esya)
+		olcum.kare += 1
+		olcum.fark = maxf(olcum.fark, avuc.distance_to(esya.global_position))
+		if not esya.soket_dolu_mu() or not esya.visible or esya.get_parent() != figur:
+			olcum.ayrilan += 1
+	)
+	figur.dur()
+	await process_frame
+	var bekle := String(figur._oynatici.current_animation)
+	var beklenen: String = String(figur._klipler.get("konus", "")) if klip_var else bekle
+	var gecti: bool = figur.hareket_var("konus") == klip_var and not beklenen.is_empty()
+	gecti = gecti and (klip_var or bekle != figur._anim)
+	kapi._gelen = figur
+	kapi.gelen_konus(SURE)
+	var zamanlayici := create_timer(SURE)
+	var beklenen_sure := 0.0
+	while zamanlayici.time_left > 0.0:
+		await process_frame
+		if figur._oynatici.current_animation == beklenen:
+			beklenen_sure += figur.get_process_delta_time()
+	await process_frame
+	gecti = gecti and figur._oynatici.current_animation == bekle and figur.get_node_or_null("esya_" + tur) == esya
+	gecti = gecti and beklenen_sure >= SURE - 0.02 and olcum.kare >= 120
+	gecti = gecti and olcum.ayrilan == 0 and olcum.fark <= 0.001
+	print("SAH-13 %s/%s: %.3f s, kare=%d, ayrılan=%d, avuç farkı=%.5f m" % [
+		ad, beklenen, beklenen_sure, olcum.kare, olcum.ayrilan, olcum.fark])
+	kapi.free()
+	return gecti
 
 
 func _esya_kutulari_kesisir(sag: Array, sol: Array) -> bool:
