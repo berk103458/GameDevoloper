@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-33 sahipliği (Kalfa)
+
+- ANI-13 hazır. Kapı, patika ve tarla rotasının aynı gerçek navigasyon bölgesine ait olduğu doğrulanacak. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-32 aynı karede hız değişimi (Kalfa)
 
 - Gerçek LOWPO oynatıcısına dur, yürü ve koş istekleri kare ilerlemeden verildi. Test kopyalarındaki ölçüm izleri 38 karede yürüyüş ağırlığı 0,000000 ve doğrudan duruş→koşu izine fark 0,000000 gösterdi. Mevcut oynatıcı ilk ve son klibi karıştırıyor.
