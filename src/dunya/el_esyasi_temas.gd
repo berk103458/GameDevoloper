@@ -10,6 +10,7 @@ var _iskelet: Skeleton3D
 var _kemikler := PackedInt32Array()
 var _kesitler := PackedVector3Array()
 var _kutular: Array[AABB] = []
+var _yuzeyler: Array[TriangleMesh] = []
 var _parca_tersleri: Array[Transform3D] = []
 var _koseler := PackedVector3Array()
 
@@ -25,6 +26,7 @@ func _init(esya: Node3D, iskelet: Skeleton3D) -> void:
 	for dugum in esya.find_children("*", "MeshInstance3D", true, false):
 		var parca := dugum as MeshInstance3D
 		_kutular.append(parca.get_aabb())
+		_yuzeyler.append(parca.mesh.generate_triangle_mesh() if parca.mesh is ArrayMesh else null)
 		var yerel := parca.transform
 		var ata := parca.get_parent()
 		while ata != esya:
@@ -80,6 +82,12 @@ func _kesisir(yonelim: Basis) -> bool:
 		for i in range(0, _kesitler.size(), 2):
 			var bas := parcaya * (ters * _kesitler[i])
 			var son := parcaya * (ters * _kesitler[i + 1])
-			if kutu.intersects_segment(bas, son) != null:
-				return true
+			if kutu.intersects_segment(bas, son) == null:
+				continue
+			# İçe alınan birleşik mesh kutusunda sap ve baş arasında boşluk kalabilir.
+			var yuzey := _yuzeyler[p]
+			if yuzey != null and not (kutu.has_point(bas) and kutu.has_point(son)):
+				if yuzey.intersect_segment(bas, son).is_empty():
+					continue
+			return true
 	return false

@@ -7979,7 +7979,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-06, SAH-09. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-12:** İki elde iki eşya omurgayı delmez. (Kalfa — çift gerçek el soketi)
+- [x] **SAH-12:** İki elde iki eşya omurgayı delmez. (Kalfa — 8 çift × 448 kare, eşya ve gövde kesişimi 0)
   - Ne: heybe ve araç aynı anda takılıysa birbirinin ve gövdenin içinden geçmez.
   - Kabul: heybe ve araç aynı anda takılıysa birbirinin ve gövdenin içinden geçmez. Test: çift soket, kesişim 0.
   - Bağımlılık: ANI-11, SAH-09. Boyut: M.

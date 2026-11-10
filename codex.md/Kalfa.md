@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-12 tamamlandı (Kalfa)
+
+İçe alınmış birleşik meshlerin AABB testi gerçek üçgen yüzey sorgusuyla doğrulanır. Kutu içinde kalan iki uç için korumalı kontrol sürer. İlkel meshler mevcut sınır kontrolünü kullanır. Dönüş aralığı ve iki elin ayrı avuçları korunur.
+
+İlk koşuda çekiç ve sepet çiftinde çekiç kutusu bir kare gövde çizgisini kesti. Aynı karede çizginin iki ucu kutu dışındaydı ve gerçek mesh yüzeyinde temas yoktu. Son koşuda heybe/kazma ve mevcut yedi çiftin her birinde 448 kare, eşya-eşya ve eşya-gövde kesişimi 0, avuç farkı 0. Her çift için ayrı sağ ve sol el doğrulandı. Aynı koşuda SAH-09..11 ve dört ek hedef geçti. İlk headless import çıkış 0, betik 0, altı MD5 hatası. Son import çıkış 0, betik/MD5 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-12 başlıyor (Kalfa)
 
 Festive 8c7d06ba güncel. İki gerçek sokette heybe ve araç birlikte bağlanacak. Parça sınırlarıyla birbirine ve gövde kemiklerine kesişim ölçülecek. Asset gerekmedi. kota görünmüyor.

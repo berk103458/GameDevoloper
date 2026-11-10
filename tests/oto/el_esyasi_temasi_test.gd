@@ -47,20 +47,20 @@ func _calistir() -> void:
 	gecti = (await _yuruyus_soketi()) and gecti
 	for tur in ["cuval", "asa"]:
 		gecti = (await _diz_cokme(tur)) and gecti
+	var ciftler := [
+		["chr_005", "heybe", "kazma"], ["chr_003", "cekic", "sepet"],
+		["chr_004", "kamci", "kurk"], ["chr_013", "degnek", "testi"],
+		["chr_018", "capa", "kabak"], ["chr_019", "kazma", "cubuk"],
+		["chr_025", "kova", "kova"], ["chr_030", "kile", "torba"],
+	]
+	for ornek in ciftler:
+		gecti = (await _cift_soket(ornek[0], ornek[1], ornek[2])) and gecti
 	print("EL EŞYASI TEMASI: GEÇTİ" if gecti else "EL EŞYASI TEMASI: KALDI")
 	await root.get_node("Ses").cik(0 if gecti else 1)
 
 
 func _olc(figur: KarakterModel, iskelet: Skeleton3D, turler: Array) -> void:
-	var kesitler := PackedVector3Array()
-	for ad in KEMIKLER:
-		var id := iskelet.find_bone(ad)
-		if id < 0:
-			continue
-		var ebeveyn := iskelet.get_bone_parent(id)
-		if ebeveyn >= 0:
-			kesitler.append(iskelet.to_global(iskelet.get_bone_global_pose(ebeveyn).origin))
-			kesitler.append(iskelet.to_global(iskelet.get_bone_global_pose(id).origin))
+	var kesitler := _kemik_kesitleri(iskelet)
 	if kesitler.is_empty():
 		return
 	for tur in turler:
@@ -193,11 +193,86 @@ func _diz_cokme(tur: String) -> bool:
 	return kare >= 30 and gomulen == 0 and avuc_farki <= 0.001 and (tur != "asa" or diklik >= 0.9999)
 
 
+func _kemik_kesitleri(iskelet: Skeleton3D) -> PackedVector3Array:
+	var kesitler := PackedVector3Array()
+	for ad in KEMIKLER:
+		var id := iskelet.find_bone(ad)
+		if id < 0:
+			continue
+		var ebeveyn := iskelet.get_bone_parent(id)
+		if ebeveyn >= 0:
+			kesitler.append(iskelet.to_global(iskelet.get_bone_global_pose(ebeveyn).origin))
+			kesitler.append(iskelet.to_global(iskelet.get_bone_global_pose(id).origin))
+	return kesitler
+
+
+func _cift_soket(ad: String, sag_tur: String, sol_tur: String) -> bool:
+	var kapi := KapiSahnesi.new()
+	root.add_child(kapi)
+	var figur := Dunya3B.karakter(ad)
+	kapi.add_child(figur)
+	var iskelet := (figur.get_node("AyakZemini") as AyakZemini)._iskelet
+	var sag: ElEsyasi
+	var sol: ElEsyasi
+	for cocuk in figur.get_children():
+		if not cocuk is ElEsyasi:
+			continue
+		if cocuk._el == iskelet.find_bone("RightHand"):
+			sag = cocuk
+		elif cocuk._el == iskelet.find_bone("LeftHand"):
+			sol = cocuk
+	if sol == null:
+		sol = ElEsyasi.olustur(sol_tur)
+		figur.add_child(sol)
+		sol.bagla(figur, iskelet, false, figur.duzeltici())
+	if sag == null:
+		kapi.free()
+		return false
+	var sag_parcalar := sag.find_children("*", "MeshInstance3D", true, false)
+	var sol_parcalar := sol.find_children("*", "MeshInstance3D", true, false)
+	var sonuc := {"kare": 0, "esya": 0, "govde": 0, "avuc": 0.0}
+	iskelet.skeleton_updated.connect(func() -> void:
+		var kesitler := _kemik_kesitleri(iskelet)
+		sonuc.kare += 1
+		if _kemige_deger(sag, kesitler) or _kemige_deger(sol, kesitler):
+			sonuc.govde += 1
+		if _esya_kutulari_kesisir(sag_parcalar, sol_parcalar):
+			sonuc.esya += 1
+		for esya in [sag, sol]:
+			var avuc := _avuc_noktasi(figur, iskelet, esya)
+			sonuc.avuc = maxf(sonuc.avuc, avuc.distance_to(esya.global_position))
+	)
+	await create_timer(0.5).timeout
+	await figur.yuru(Vector3(0.0, 0.0, -3.0), 1.35)
+	await figur.konus(1.0)
+	var iki_el := sag._el == iskelet.find_bone("RightHand") and sol._el == iskelet.find_bone("LeftHand")
+	print("SAH-12 %s/%s: kare=%d, eşya=%d, gövde=%d, avuç=%.5f m" % [
+		sag_tur, sol_tur, sonuc.kare, sonuc.esya, sonuc.govde, sonuc.avuc])
+	kapi.free()
+	return iki_el and not sag_parcalar.is_empty() and not sol_parcalar.is_empty() and sonuc.kare >= 120 and sonuc.esya == 0 and sonuc.govde == 0 and sonuc.avuc <= 0.001
+
+
+func _esya_kutulari_kesisir(sag: Array, sol: Array) -> bool:
+	for a: MeshInstance3D in sag:
+		var a_kutu := a.global_transform * a.get_aabb()
+		for b: MeshInstance3D in sol:
+			if a_kutu.intersects(b.global_transform * b.get_aabb()):
+				return true
+	return false
+
+
 func _kemige_deger(esya: ElEsyasi, kesitler: PackedVector3Array) -> bool:
 	for dugum in esya.find_children("*", "MeshInstance3D", true, false):
 		var parca := dugum as MeshInstance3D
 		var kutu := parca.get_aabb()
 		for i in range(0, kesitler.size(), 2):
-			if kutu.intersects_segment(parca.to_local(kesitler[i]), parca.to_local(kesitler[i + 1])) != null:
-				return true
+			var bas := parca.to_local(kesitler[i])
+			var son := parca.to_local(kesitler[i + 1])
+			if kutu.intersects_segment(bas, son) == null:
+				continue
+			if parca.mesh is ArrayMesh and not (kutu.has_point(bas) and kutu.has_point(son)):
+				var yuzey := parca.mesh.generate_triangle_mesh()
+				if yuzey != null and yuzey.intersect_segment(bas, son).is_empty():
+					continue
+			return true
 	return false
