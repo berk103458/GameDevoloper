@@ -1,3 +1,8 @@
+## 2026-11-10 — SAH-25 canlı karışım ağırlıkları (Kalfa)
+
+- LOWPO yürüyüş ve duruş kliplerinin yalnız test kopyalarındaki iki ölçüm bileşeni, gerçek oynatıcının ağırlığını okudu. Ara karede yürüyüş 0,485714 ve duruş 0,514286. İki klip 34 kare beraber etkili, toplamın 1’den azami sapması 0,000000. Saf uç pozların ölçümü 1/0 ve 0/1.
+- Canlı poz, hareket geçişi ve canlı hız bandı hedefleri geçti. Tekrar headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor. Asset gerekmedi. Sonraki adım SAH-26. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-25 sahipliği (Kalfa)
 
 - SAH-18 hazır. Gerçek yürüyüş ve duruş karışımında motorun iki ağırlığı ayrı ölçülecek. Kota görünmüyor.

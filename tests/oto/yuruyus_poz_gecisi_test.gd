@@ -1,4 +1,4 @@
-## SAH-18 ve SAH-24: Gerçek LOWPO iskeletinde poz karışımı ve zorluklar arası süre.
+## SAH-18, SAH-24 ve SAH-25: Gerçek LOWPO oynatıcısında poz, süre ve ağırlık.
 extends SceneTree
 
 const AYAR: Dictionary = preload("res://data/ayarlar/sahne.json").data
@@ -35,7 +35,8 @@ func _calistir() -> void:
 	print("SAH-18 ilk dur=%.6f rad, ilk yürü=%.6f rad, orta yürü=%.6f rad, son yürü=%.6f rad" % [ilk_dur, ilk_yuru, orta_yuru, son_yuru])
 	figur.free()
 	var zorluklar_esit := await _zorluklari_dene()
-	gecti = gecti and zorluklar_esit
+	var agirliklar_gecerli := _agirliklari_dene()
+	gecti = gecti and zorluklar_esit and agirliklar_gecerli
 	print("DURUŞ YÜRÜYÜŞ KARIŞIMI: GEÇTİ" if gecti else "DURUŞ YÜRÜYÜŞ KARIŞIMI: KALDI")
 	await root.get_node("Ses").cik(0 if gecti else 1)
 
@@ -83,6 +84,52 @@ func _tam_klibe_gecis(figur: KarakterModel, son_kare: int) -> int:
 		if fark >= 0.0 and fark < 0.003:
 			return kare
 	return -1
+
+
+func _agirliklari_dene() -> bool:
+	var figur := Dunya3B.karakter("lowpo_demirci")
+	root.add_child(figur)
+	var oynatici := figur._oynatici
+	var olcer := Node3D.new()
+	olcer.name = "AgirlikOlcer"
+	oynatici.get_node(oynatici.root_node).add_child(olcer)
+	var kitap := AnimationLibrary.new()
+	_olcum_klibi_ekle(kitap, oynatici, StringName(AYAR.klipler.yuru), Vector3.RIGHT)
+	_olcum_klibi_ekle(kitap, oynatici, StringName(AYAR.klipler.dur), Vector3.UP)
+	oynatici.remove_animation_library(&"")
+	oynatici.add_animation_library(&"", kitap)
+	_elle_durusu_baslat(oynatici)
+	figur.yuru(Vector3(0, 0, 4), 1.0)
+	for i in range(ceili(float(AYAR.yuruyus_gecisi_suresi) / KARE) + 2):
+		oynatici.advance(KARE)
+	var saf_yuruyus := olcer.position
+	figur.yurumeyi_durdur()
+	var durus_kareleri := ceili(KarakterModel.GECIS / KARE)
+	var ortak_kare := 0
+	var en_buyuk_sapma := 0.0
+	var orta := Vector3.ZERO
+	for i in range(durus_kareleri + 2):
+		oynatici.advance(KARE)
+		var agirlik := olcer.position
+		en_buyuk_sapma = maxf(en_buyuk_sapma, absf(agirlik.x + agirlik.y - 1.0))
+		if agirlik.x > 0.001 and agirlik.y > 0.001:
+			ortak_kare += 1
+		if i == floori(durus_kareleri * 0.5):
+			orta = agirlik
+	var gecti := saf_yuruyus.is_equal_approx(Vector3.RIGHT) and olcer.position.is_equal_approx(Vector3.UP)
+	gecti = gecti and ortak_kare > 0 and en_buyuk_sapma < 0.0001
+	print("SAH-25 orta yürüyüş=%.6f, duruş=%.6f, ortak kare=%d, toplam sapması=%.6f" % [orta.x, orta.y, ortak_kare, en_buyuk_sapma])
+	figur.free()
+	return gecti
+
+
+func _olcum_klibi_ekle(kitap: AnimationLibrary, oynatici: AnimationPlayer, ad: StringName, deger: Vector3) -> void:
+	# Yalnız test kopyasındaki bir iz, motorun gerçek karışım ağırlığını ölçer.
+	var klip := oynatici.get_animation(ad).duplicate() as Animation
+	var iz := klip.add_track(Animation.TYPE_POSITION_3D)
+	klip.track_set_path(iz, NodePath("AgirlikOlcer"))
+	klip.position_track_insert_key(iz, 0.0, deger)
+	kitap.add_animation(ad, klip)
 
 
 func _poz_farki(iskelet: Skeleton3D, klip: Animation, zaman: float) -> float:
