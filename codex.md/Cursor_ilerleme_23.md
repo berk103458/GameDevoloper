@@ -133,3 +133,9 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   - 31 kişilik köyde 4 gerçek gece; her yeni duyanda kopya zarla birebir tutarlı. Asıl doğru kalıyor, dedikoduda kopya yok, defterde biçim kalıbı görünüyor.
   - 1000 örnekte oran tablo ±%5; üç biçim, üç kalıp.
 - Bozma kanıtı: kopya ekleme kapatılınca `KALDI (2 hata)`, defter biçim metni kapatılınca `KALDI (1 hata)`.
+
+### SOY-41
+
+- Çağrı zinciri: SOY-01/02/05 zinciri (kapı kararı → gece sonu → ağ). Ağ oyun RNG'sini tüketmez; bozulma zarı olay + bozan + gece karmasıdır.
+- Test: yeni `tests/unit/sistemler/soylenti_ikiz_test.gd`. Aynı tohumla iki gerçek koşu, 31 kişi, 6 gece; gece gece ağ kaydı birebir eşit.
+- Bozma kanıtı: zara `randi()` karıştırılınca `KALDI (1 hata)`.

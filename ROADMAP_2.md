@@ -5658,7 +5658,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: BUG-16. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-41:** İkiz koşu. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `tests/oto/soylenti_ikiz_kontrol.tscn` dosyası yok)
+- [x] **SOY-41:** İkiz koşu. (Cursor)
   - Ne: aynı tohumla iki koşuda yayılım günlüğü eşit (RNG tek kaynaktan, `_rng_donus` kalıbı).
   - Kabul: iki günlük eşit. Test: TST-06.
   - Bağımlılık: TST-06. Boyut: S.
