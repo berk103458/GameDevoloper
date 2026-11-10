@@ -1,3 +1,8 @@
+## 2026-11-10 — SAH-24 zorluktan bağımsız karışım (Kalfa)
+
+- DEN-65 tablosundaki `kolay`, `olagan` ve `siki` ile üç gerçek açılış oturumu kuruldu. Her köy sahnesinde LOWPO kemiklerinin saf yürüyüşe yerleştiği kare 10. Üçü de yürüyüş için 0,080 saniyelik tablo ayarını kullanıyor. Genel 0,25 saniye değerinin zorluktan bağımsızlığı birim testinde doğrulandı.
+- Canlı geçiş, hareket geçişi, zorluk sonuçları ve kapı duruşu hedefleri geçti. Tekrar headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor. Asset gerekmedi. Sonraki adım SAH-25. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-24 sahipliği (Kalfa)
 
 - SAH-18 ve DEN-65 hazır. Üç gerçek açılış zorluğunda aynı oynatıcı karışımının yerleştiği kare ölçülecek. Kota görünmüyor.

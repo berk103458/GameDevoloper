@@ -8054,7 +8054,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-24:** Geçiş süresi zorluğu değiştirmez. (Kalfa — üç DEN-65 ayarında gerçek poz süresi)
+- [x] **SAH-24:** Geçiş süresi zorluğu değiştirmez. (Kalfa — üç gerçek zorlukta saf yürüyüş 10. kare)
   - Ne: DEN-65 üç zorlukta da karışım süresi aynıdır.
   - Kabul: DEN-65 üç zorlukta da karışım süresi aynıdır. Test: iki zorluk, süre eşit.
   - Bağımlılık: SAH-18, DEN-65. Boyut: S.
