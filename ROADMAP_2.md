@@ -5646,7 +5646,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: DEN-01. Boyut: S.
   - Dosya: yeni: `data/soylenti.json`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-39:** Söylenti yoğunluğu ölçülür. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-39:** Söylenti yoğunluğu ölçülür. (Cursor)
   - Ne: 30 gecelik koşuda gece başına canlı söylenti sayısı, kamuoyu konusu sayısı, yanlış oranı raporlanır; hedef canlı ≤ 3, kamuoyu ≤ 1 (öneri).
   - Kabul: rapor DEN raporunun satırıdır. Test: runner.
   - Bağımlılık: DEN-05. Boyut: S.

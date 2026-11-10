@@ -228,6 +228,23 @@ static func olay_metni(a: RefCounted, k: Dictionary) -> String:
 	return String(a.veri_yapilandirma.get("soylenti_kaliplari", {}).get(String(k.get("tur", "")), ""))
 
 
+## SOY-39: denge ölçümü için salt okuma — canlı (hükme bağlanmamış) kayıt, kamuoyu ve yanlış sayısı.
+static func olcum(o: Object) -> Dictionary:
+	var r := {"canli": 0, "kamuoyu": 0, "yanlis": 0, "yanlis_orani": 0.0}
+	if o == null or not o.has_meta(META):
+		return r
+	var a: RefCounted = o.get_meta(META)
+	for id in a.ag_kayitlari:
+		var k: Dictionary = a.ag_kayitlari[id]
+		if bool(k.get("hukme_baglandi", false)):
+			continue
+		r.canli += 1
+		r.kamuoyu += int(bool(k.get("kamuoyu_oldu", false)))
+		r.yanlis += int(not bool(k.get("dogru", true)))
+	r.yanlis_orani = float(r.yanlis) / float(r.canli) if r.canli > 0 else 0.0
+	return r
+
+
 ## SOY-30: canlı kamuoyu konusu köy HUD'unda tek satırdır; konu yoksa boştur.
 static func kamuoyu_satiri(o: Object) -> String:
 	if o == null or not o.has_meta(META):

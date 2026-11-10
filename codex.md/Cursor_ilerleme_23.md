@@ -254,3 +254,16 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - Test: yeni `tests/unit/sistemler/soylenti_paneli_test.gd` → GEÇTİ (debug kapalı 0, boş oturum ağ kurmaz, gerçek gecede kaynak→duyanlar ve gece). `admin_zaman_kontrol` GEÇTİ.
 - Bozma kanıtı: debug koşulu kaldırılınca `KALDI (1 hata)`, satır üretimi kapatılınca `KALDI (1 hata)`.
 - Not: kim kime aktardı kenarı ağda tutulmuyor. Panel kaynaktan başlayan duyma sırasını gösteriyor.
+
+### SOY-39
+
+- Çağrı zinciri: `DengeOlcumu.olustur(oturum, gece_raporu)` DEN raporuna `soylenti` satırı ekler: `SoylentiKoprusu.olcum` → canlı, kamuoyu, yanlış, yanlış oranı. Salt okuma; ağ kurmaz.
+- Test: yeni `tests/unit/denge/soylenti_yogunlugu_test.gd` → GEÇTİ. 30 gerçek gece (üç gecede bir ret/rüşvet, her gece bir kabul); her gecenin DEN raporunda ağla uyuşan satır var.
+- Bozma kanıtı: DEN satırı silinince `KALDI (2 hata)`.
+- **Ölçüm sonucu (denge riski):**
+  - En çok canlı 10 (öneri ≤ 3).
+  - En çok kamuoyu 8 (öneri ≤ 1).
+  - Ortalama yanlış oranı 0.58.
+  - Sebep: SOY-05 her yeni duyanda %8.75 zarla ayrı kopya kaydı açıyor; kopyalar da yayılıp kamuoyu oluyor.
+  - Hedefler öneri olduğu için rapor otomatik düzeltilmedi. Denge kararı (kopya sayımı ya da oranı) Claude/Muharrir'e bırakıldı.
+- `tools/python_test_runner.py` yerine DEN birim testi kullanıldı; madde "rapor DEN raporunun satırıdır" diyor.

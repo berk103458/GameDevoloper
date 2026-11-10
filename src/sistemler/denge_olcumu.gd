@@ -63,6 +63,7 @@ static func olustur(oturum: RefCounted, gece_raporu: Dictionary, ek_baglam: Dict
 		"zindan_ekmek_payi": zindan_ekmek,
 		"sorgu_eylemleri": sorgu_eylemleri,
 		"basarisiz_zar_sayisi": basarisiz_zar_sayisi,
+		"soylenti": SoylentiKoprusu.olcum(oturum),
 		"oyuncuya_gorunur": false # DEN-06: oyuncuya açılmaz
 	}
 
