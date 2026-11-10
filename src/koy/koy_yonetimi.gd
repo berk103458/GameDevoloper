@@ -623,6 +623,7 @@ func gece() -> Dictionary:
 	IflasYoneticisi.gece(self, olaylar)
 	_son_denetimi()
 	KRIZ_KENETLENMESI.bitir(self, olaylar)
+	YilIziGecesi.gece(self, olaylar)
 	rapor["akce"] = akce
 	rapor["huzur"] = huzur()
 	rapor["son"] = son
@@ -944,7 +945,7 @@ func kaydet() -> Dictionary:
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
-		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self), "hasat_senligi_yili": HasatSenligi.son_yil(self), "kurt_baskini_son_gece": KurtBaskini.oku(get_meta(KurtBaskini.META, -1)), "kis_hastaligi_son_gece": KisHastaligi.gece_oku(get_meta(KisHastaligi.META, -1)), "sifahane_kontenjani": SifahaneKontenjani.durum(self), "saman_son_gece": KurtBaskini.oku(get_meta(SamanBakimi.META, -1)), "casus_gece_takibi": CasusGeceTakibi.durum(self), "casus_devriyesi": CasusDevriyesi.durum(self), "kuyu_zehirleme": KuyuZehirleme.durum(self), "ambar_kundaklamasi": AmbarKundaklamasi.durum(self), "divan_oturumu": DivanOturumu.durum(self), "divan_hukumleri": DivanHukmu.durum(self), "karaboran_intikami": KaraboranIntikami.durum(self), "fisilti_gazetesi": FisiltiGazetesi.durum(self), "divan_haksizligi": DivanHaksizligi.durum(self)}
+		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self), "hasat_senligi_yili": HasatSenligi.son_yil(self), "kurt_baskini_son_gece": KurtBaskini.oku(get_meta(KurtBaskini.META, -1)), "kis_hastaligi_son_gece": KisHastaligi.gece_oku(get_meta(KisHastaligi.META, -1)), "sifahane_kontenjani": SifahaneKontenjani.durum(self), "saman_son_gece": KurtBaskini.oku(get_meta(SamanBakimi.META, -1)), "casus_gece_takibi": CasusGeceTakibi.durum(self), "casus_devriyesi": CasusDevriyesi.durum(self), "kuyu_zehirleme": KuyuZehirleme.durum(self), "ambar_kundaklamasi": AmbarKundaklamasi.durum(self), "divan_oturumu": DivanOturumu.durum(self), "divan_hukumleri": DivanHukmu.durum(self), "karaboran_intikami": KaraboranIntikami.durum(self), "fisilti_gazetesi": FisiltiGazetesi.durum(self), "divan_haksizligi": DivanHaksizligi.durum(self), "yil_izi": YilIzi.durum(self)}
 
 
 static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary) -> KoyYonetimi:
@@ -957,6 +958,8 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	IlkbaharTaskini.yukle(y, v.get("ilkbahar_taskini", {}))
 	SuDengesi.yukle(y, v.get("su_doldurma", {}))
 	y.set_meta(HasatSenligi.META, HasatSenligi.oku(v.get("hasat_senligi_yili", 0)))
+	if v.get("yil_izi") is Dictionary:
+		y.set_meta(YilIzi.META, YilIzi.oku(v.yil_izi))
 	y.set_meta(KurtBaskini.META, KurtBaskini.oku(v.get("kurt_baskini_son_gece", -1)))
 	y.set_meta(KisHastaligi.META, KisHastaligi.gece_oku(v.get("kis_hastaligi_son_gece", -1)))
 	y.set_meta(SifahaneKontenjani.META, SifahaneKontenjani.oku(v.get("sifahane_kontenjani", {})))

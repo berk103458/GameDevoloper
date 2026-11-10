@@ -70,7 +70,7 @@ static func sec(y: KoyYonetimi, tohum: int) -> String:
 	for k in y.koylular:
 		if not _adli(k):
 			continue
-		if k.bayrak_var("tarla"):
+		if YilIziGecesi.tarlada(y, k):
 			tarla.append(k)
 		else:
 			diger.append(k)

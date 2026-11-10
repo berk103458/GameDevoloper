@@ -2765,7 +2765,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.1 Yılın yüzü
 
-- [ ] **YIL-01:** (Cursor) Yılın yüzü bir kişidir (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **YIL-01:** (Cursor) Yılın yüzü bir kişidir (Cursor — Görev 23: KoyYonetimi.gece → YilIziGecesi.gece → gece raporu; tests/unit/koy/yil_izi_oyun_test.gd)
   - Ne: Mevsim yılı açılırken köyde yaşayan adlı yetişkinlerden biri `yil_izi` alanına bir kez yazılır; tarla işi olan varsa o seçilir, tek adlı yetişkin eş ise o seçilir. Dört mevsim aynı kimliği okur; adsız, ölü ve köyden ayrılmış kişi seçilmez, kişi ölürse kalan slotlar boş kalır.
   - Kabul: Bir yılda `yil_izi` en çok bir kimliktir ve dört mevsim slotu o kimliği taşır (`tests/unit/koy/yil_izi_test.gd`). Köyde adlı kimse yokken satır 0'dır; boş günde yıl satırı 0'dır; ölümden sonra açılan slot 0 ve cenaze seçeneği 2'dir. Ek şart: aynı tohumla iki açılış aynı kimliği seçer. Ek şart: eski kayıtta `yil_izi` yoksa alan boş kalır ve mevsim günü artar. Ek şart: satır düz cümle gömmez, `data/soz/yil_izi.json` anahtarını okur. Ek şart: `yil_izi.gd` takvim düğümü açmaz ve `koy_sahnesi` import etmez. Ek şart: nöbet ataması değişmez ve nöbet gecesinde duyulmuş satır silinmez. Ek şart: anahtar yoksa o slot 0 sayılır, mevsim günü yine artar.
   - Bağımlılık: MEV-01, YAZ-08. Boyut: M.
@@ -2774,7 +2774,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.2 Güz
 
-- [ ] **YIL-02:** (Cursor) Güz sofrasında ad söylenir (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **YIL-02:** (Cursor) Güz sofrasında ad söylenir (Cursor — Görev 23: KoyYonetimi.gece → YilIziGecesi.gece → gece raporu; tests/unit/koy/yil_izi_oyun_test.gd)
   - Ne: Ambar doluyken MEV-08 şenliği açıksa sofrada bir satır, `yil_izi` kişisinin görünen adını söyler; şenliği bu madde kurmaz. Cümle ödül ve eşya vermez, moral artışı MEV-08 tablosunda kalır.
   - Kabul: Ambar dolu bir güz gününde sofra satırı 1'dir ve yıl dosyasından gelen moral 0'dır (`tests/unit/koy/yil_izi_test.gd`). Şenlik kapalıyken sofra satırı 0'dır. Ek şart: Söz motoru dosyası yokken sofra satırı yine 1'dir.
   - Bağımlılık: YIL-01, MEV-08, SEV-06. Boyut: S.
@@ -2797,7 +2797,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
   - Dosya: `data/soz/yil_izi.json` anahtarları `kis_disari`, `kis_ev`.
   - Asset: asset gerekmedi.
 
-- [ ] **YIL-05:** (Cursor) Kışın tarla susar (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **YIL-05:** (Cursor) Kışın tarla susar (Cursor — Görev 23: KoyYonetimi.gece → YilIziGecesi.gece → gece raporu; tests/unit/koy/yil_izi_oyun_test.gd)
   - Ne: Mevsim kış ve iş noktası tarla ise yıl satırı 0'dır; üretim, don ve ürün MEV-03 değerinde kalır. Kışın `ilkbahar_tarla` cümlesi açılmaz.
   - Kabul: Kışın tarla yıl satırı 0'dır ve tarla üretimi MEV-03 ile aynıdır (`tests/unit/koy/yil_izi_test.gd`). Kış gününde `ilkbahar_tarla` satırı 0'dır.
   - Bağımlılık: YIL-01, MEV-03. Boyut: S.
@@ -2831,14 +2831,14 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.6 Ad ve kapanış
 
-- [ ] **YIL-09:** (Cursor) Söylenen ad karttaki addır (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [ ] **YIL-09:** (Cursor) Söylenen ad karttaki addır (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten; Görev 23: yıl satırı artık oyunda ve kartta duran adı (Koylu.ad) söyler, ama SEV-06 maske/gerçek ad ayrımı oyunda yok, çoban/Fadime kabulü sınanamaz)
   - Ne: Güz cümlesi SEV-06 görünen adını okur; ad bayrağı yoksa maskenin kısa adı, bayrak varsa gerçek ad söylenir. Yıl ortasında ad açılırsa sonraki slot yeni adı söyler, yazılmış satır değişmez.
   - Kabul: `CHR_017` ad bayrağı yokken güz cümlesinde "çoban" geçer ve "Fadime" 0'dır; bayrak varken "Fadime" 1'dir (`tests/unit/koy/yil_izi_test.gd`). Kartın kendi yazısı değişmez.
   - Bağımlılık: YIL-02, SEV-06. Boyut: S.
   - Dosya: `src/koy/yil_izi.gd` ad okuması. Kart dosyasına yazılmaz.
   - Asset: asset gerekmedi.
 
-- [ ] **YIL-10:** (Cursor) Yıl kapanışında slotlar sayılır (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **YIL-10:** (Cursor) Yıl kapanışında slotlar sayılır (Cursor — Görev 23: KoyYonetimi.gece → YilIziGecesi.gece → gece raporu; tests/unit/koy/yil_izi_oyun_test.gd)
   - Ne: Kapanış, dördüncü mevsimin yedinci gününün gecesidir; rapor güz, kış, ilkbahar tarlası, taşkın ve yaz slotlarından duyulanları sayar, en çok 5 olur. Rapor SYS-20 son kimliğine yazılmaz, ardından `yil_izi` temizlenir.
   - Kabul: 28. gece raporundaki sayı, o yıl duyulan satır sayısıyla aynıdır ve SYS-20 kimliği kapanıştan önce ve sonra aynıdır (`tests/unit/koy/yil_izi_test.gd`). Ölümden sonraki slot rapora girmez; boş izde rapor 0'dır. `yil_izi.json` içinde kalp, hediye, romans ve ses anahtarı 0'dır. Ek şart: hız 3 iken aynı slot bir gecede bir kez sayılır. Ek şart: kayıt yüklenince duyulmuş slot yeniden sayılmaz. Ek şart: kapanış satırı dünya zaman çizelgesine yazılmaz.
   - Bağımlılık: YIL-01, MEV-01, SYS-20. Boyut: S.

@@ -281,3 +281,35 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - **SOY-46:** YAZ-08 köylü sohbet konu tablosu yok.
 - **SOY-SON-01:** değirmen/kuyu/Tekfur/hekim/ışık söylentileri ağa hiçbir oyun olayından girmiyor. Kapanış olaylarının metin anahtarları da tabloda eksik (import uyarısı: `olay.soylenti_degirmen_kapanis.sonuc1`).
   - `soylenti_ve_meclis_davalari_test` bu yüzden hâlâ `KALDI (3 hata)`.
+
+### CAT-01/02/04 — açık bırakıldı
+
+- `KapiKavgasi.ret_degerlendir` kavga tipi (`genc_erkek`, `ac_aile_reisi`, `asker_kacagi`) ve neden (`yer_yoklugu`, `sert_ret`) istiyor.
+- Bu değerler yalnız `data/kapi_kavgasi.json` ile `kapi_kavgasi.gd` içinde var. Hiçbir gelen veya karakter verisi kavga tipi taşımıyor; "sert ret" üreten bir kapı yolu da yok.
+- Bağlamak için gelenlere tip uydurmak gerekir, bu yüzden açık kaldı. Tip verisi tasarımı Claude/Muharrir'de.
+
+### SEV-01 … SEV-05 — açık bırakıldı
+
+- SEV-01 ve SEV-02 boş güne dayanıyor. Boş günü üreten KAP-16 testx'in `[/]` maddesi, ona dokunulmadı.
+- SEV-03, SEV-04 ve SEV-05 her biri yeni sistem istiyor (`kisisel_iz.gd`, `tek_istek.gd`, `koylu_bagi.gd`). `SevilenYuz` 60 satırlık bir iskelet; çağrılacak gerçek bir motoru yok. Görev 23 kapsamında yarım kalma riski yüzünden alınmadı.
+
+### YIL-01, YIL-02, YIL-05, YIL-10 — kapandı
+
+- Çağrı zinciri: `Oturum.gece_sonu` → `KoyYonetimi.gece` → (gün artmadan önce) `YilIziGecesi.gece(self, olaylar)`. Bu adım şunları yapar:
+  - `YilIzi.sec` ile yılın yüzünü seçer; tarla iş yeri `KoyBinasi.tur == "tarla"` üzerinden okunur.
+  - `YilIzi.satir` çağrılır. Bağlam duran kayıtlardan gelir: MEV-08 `HasatSenligi.son_yil`, MEV-06 `IlkbaharTaskini.hasar`, ev ve iş yeri.
+  - Yeni satır gece raporuna "Ad: metin" olarak girer.
+  - 28. gecede `YilIzi.kapanis` "Yıl kapandı; … %d mevsim sözü" satırını yazar.
+- Kayıt: `KoyYonetimi.kaydet` içine `yil_izi` anahtarı, `kayittan` içine `YilIzi.oku` eklendi. Eski kayıtta alan yoksa iz boş açılır.
+- Test: yeni `tests/unit/koy/yil_izi_oyun_test.gd` → GEÇTİ. 28 gerçek gece; şenlik gecesinde güz sofrası, kışın tarla işçisinde satır yok, kapanışta 3 sayımı, kayıt yüklemesi. `yil_izi_test`, `yasam_test`, `hasat_senligi_test` ve kayıt testleri de GEÇTİ.
+- Bozma kanıtı (hepsi kırmızıya döndü):
+
+  | Bozulan bağ | Sonuç |
+  |---|---|
+  | Gece bağı silinince | `KALDI (6)` |
+  | Şenlik bağlamı kapatılınca | `KALDI (1)` |
+  | Tarla okuması kapatılınca | `KALDI (1)` |
+  | Kayıt anahtarı silinince | `KALDI (1)` |
+
+- Not: Yılın başında köyde adlı kimse yoksa, yıl ortasında gelen ilk adlı kişi seçilir.
+- **YIL-09 açık kaldı:** satır kartta duran adı (`Koylu.ad`) söylüyor. Ancak SEV-06'nın maske/gerçek ad ayrımı (`persona_maskesi`, `Flag_Kimlik_Cozuldu`) oyunda karta bağlı değil, bu yüzden çoban/Fadime kabulü sınanamaz.
