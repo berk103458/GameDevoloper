@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-26 sahipliği (Kalfa)
+
+- SAH-23 ve ANI-08 hazır. Köyün mevcut replik sinyalini, iş rotasında yürüyen karakterin üst gövde klibine bağlayıp tarla ve kapı pozunu doğrulayacağım. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-25 canlı karışım ağırlıkları (Kalfa)
 
 - LOWPO yürüyüş ve duruş kliplerinin yalnız test kopyalarındaki iki ölçüm bileşeni, gerçek oynatıcının ağırlığını okudu. Ara karede yürüyüş 0,485714 ve duruş 0,514286. İki klip 34 kare beraber etkili, toplamın 1’den azami sapması 0,000000. Saf uç pozların ölçümü 1/0 ve 0/1.

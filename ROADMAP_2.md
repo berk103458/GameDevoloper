@@ -8069,7 +8069,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-18. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-26:** Üst gövde konuşur, alt gövde yürür. (doğrulanmadı — Görev 22; Kalfa bekleniyor — HareketGecisi oyunda hiçbir yerden çağrılmıyor, KarakterModel karışım entegrasyonu gerekli)
+- [/] **SAH-26:** Üst gövde konuşur, alt gövde yürür. (Kalfa — köy repliği ve mevcut yürüyüş katmanı)
   - Ne: yalnız köyde, elde iş varken. Kapı sorgusunda alt gövde durur (SAH-23).
   - Kabul: yalnız köyde, elde iş varken. Kapı sorgusunda alt gövde durur (SAH-23). Test: tarlada konuşma, bacak klibi yürüyüş.
   - Bağımlılık: SAH-23, ANI-08. Boyut: M.
