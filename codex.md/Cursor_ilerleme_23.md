@@ -267,3 +267,17 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   - Sebep: SOY-05 her yeni duyanda %8.75 zarla ayrı kopya kaydı açıyor; kopyalar da yayılıp kamuoyu oluyor.
   - Hedefler öneri olduğu için rapor otomatik düzeltilmedi. Denge kararı (kopya sayımı ya da oranı) Claude/Muharrir'e bırakıldı.
 - `tools/python_test_runner.py` yerine DEN birim testi kullanıldı; madde "rapor DEN raporunun satırıdır" diyor.
+
+### SOY — açık bırakılanlar ve nedenleri
+
+- **SOY-10:** DYL-01 "Göster" yolu (`CeliskiYuzlesme`) oyunda hiçbir ekrandan çağrılmıyor.
+- **SOY-23, SOY-24, SOY-43:** `SozMotoru`/`SatirSecici` oyunda başlatılmıyor (`SozKaydi.motor` yalnız kaydedilip yükleniyor). Bağlam anahtarlarını okuyacak canlı söz akışı yok.
+- **SOY-25, SOY-36, SOY-37:** dış dünya söylentisi ("kervan gelmeyecek", "yol güvensiz") türü ağa giren hiçbir oyun olayı yok.
+- **SOY-26:** DIY-14 `HatirlanmaNotu` oyunda hiçbir sahneye eklenmiyor.
+- **SOY-27:** YAZ-09 kota tablosu ve "duydum ki" satırları yok.
+- **SOY-28:** DIY-13 pusula satırlarını (`FisiltiGazetesi.dedikodu_pusulasi_oku`) oyunda okuyan ekran yok.
+- **SOY-34:** iş kazası/ücret söylentisi türü yok.
+- **SOY-35:** kapı söylentisinin hedefi köylü değil, muhafız; köylüler arası yanlış söylenti üreten yol yok.
+- **SOY-46:** YAZ-08 köylü sohbet konu tablosu yok.
+- **SOY-SON-01:** değirmen/kuyu/Tekfur/hekim/ışık söylentileri ağa hiçbir oyun olayından girmiyor. Kapanış olaylarının metin anahtarları da tabloda eksik (import uyarısı: `olay.soylenti_degirmen_kapanis.sonuc1`).
+  - `soylenti_ve_meclis_davalari_test` bu yüzden hâlâ `KALDI (3 hata)`.
