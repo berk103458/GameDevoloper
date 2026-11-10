@@ -309,7 +309,7 @@ func _planla(id: int) -> void:
 		DegirmenHareketi.esya(f, false, false)
 		ZanaatTezgahi.esya(f, "")
 	son = SinsiGeceRutini.planla(self, k, bas, son)
-	if f.duzeltici() != null: f.duzeltici().hava_egimi = KarakterHavaTepkisi.egim(sahne.yonetim)
+	KoyHavaKatmani.uygula(f, KarakterHavaTepkisi.egim(sahne.yonetim))
 	son = CatiKarRutini.hedef(self, k, d, bas, son)
 	son = KervanKorumaGorseli.hedef(self, k, d, bas, son)
 	son = KarantinaRutini.hedef(self, k, d, bas, son)

@@ -14,7 +14,6 @@ var faz: float = 0.0
 ## ANI-12: -1 eski profil; köy modeli üç idle yer tutucusundan birini alır.
 var bekleme_varyanti := -1
 ## ANI-09: salt görsel hava büzülmesi; mevcut modifier içinde uygulanır.
-var hava_egimi := 0.0
 
 ## Kol hedef yönü (iskelet uzayı; x yana, z öne). Durmada kollar gövdenin yanında hafif önde.
 @export var kol_yana := 0.13
@@ -76,7 +75,6 @@ func _process_modification() -> void:
 		_nefes(sk)
 	if duygu != &"":
 		_duygu_govde(sk)
-	_dondur_global(sk, _k["Spine01"], Vector3.RIGHT, hava_egimi)
 	_kol(sk, "Left", 1.0)
 	_kol(sk, "Right", -1.0)
 

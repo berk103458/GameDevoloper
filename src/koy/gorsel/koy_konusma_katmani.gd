@@ -31,6 +31,9 @@ static func oynat(figur: KarakterModel, oturum: int, sure: float, gecerli: Calla
 			katman.free()
 			return
 		iskelet.add_child(katman)
+		var hava := iskelet.get_node_or_null(NodePath(KoyHavaKatmani.DUGUM_ADI))
+		if hava != null:
+			iskelet.move_child(katman, hava.get_index())
 	katman._baslat(oturum, sure, gecerli)
 
 

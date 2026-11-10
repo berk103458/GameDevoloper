@@ -1,3 +1,9 @@
+## 2026-11-10 — SAH-30 ayrı kar tepkisi (Kalfa)
+
+- ANI-09 kar büzülmesi mevcut yürüyüş oynatıcısından bağımsız bir iskelet katmanına taşındı. Omuz kuşağına ekleniyor ve varsa konuşma katmanından sonra uygulanıyor. Kışın mevcut hız çarpanı kullanılıyor. Kar bitince katman kapanıyor.
+- Gerçek LOWPO modelde duruş düzelticisinin etkisi 0, yürüyüş klibi `yuru`. Aynı iskelet karesinde omuz farkı 0,16000 rad ve bacak farkı 0. Hava sahnesi, iklim birimi, köy konuşması ve ayak zemini geçti. Köy konuşmasının ilk sabit kare hızlı koşusunda bir kapanış kaynak bildirimi çıktı. Tekrar koşu temiz geçti. Headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor.
+- Asset gerekmedi. Sonraki adım SAH-31. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-30 sahipliği (Kalfa)
 
 - ANI-09 ve SAH-26 hazır. Kar tepkisinin yürüyüş klibine etkisi gerçek LOWPO omuz ve bacak pozlarından ölçülecek. Kota görünmüyor.

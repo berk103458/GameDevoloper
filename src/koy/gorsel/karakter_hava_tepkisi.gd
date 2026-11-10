@@ -8,7 +8,7 @@ static func yagmur(y: KoyYonetimi) -> bool:
 ## Kar fırtınasında görsel yürüyüş çarpanı; ekonomik tüketim aynı kalır.
 static func hiz(y: KoyYonetimi) -> float:
  return float(AYAR.kar_hiz) if IklimDeneyi.hava(y) == "kar_firtinasi" else 1.0
-## Mevcut iskelet değiştiricisine eklenen hafif gövde büzülmesi (radyan).
+## Ayrı iskelet katmanına verilen hafif omuz büzülmesi (radyan).
 static func egim(y: KoyYonetimi) -> float:
  return float(AYAR.kar_egim) if IklimDeneyi.hava(y) == "kar_firtinasi" else 0.0
 ## Hazır yapının dış, yürünebilir ön hücresi; yapı içine rota yapılmaz.

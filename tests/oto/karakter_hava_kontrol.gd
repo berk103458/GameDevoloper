@@ -12,6 +12,18 @@ class TestAna extends Ana:
 		kayit = GuvenliKayit.new("user://test_weather_ui.json")
 		theme = Tema.olustur(ayarlar)
 var hata := 0
+
+class OmuzOlcer extends SkeletonModifier3D:
+	var omuz_no: int
+	var bacak_no: int
+	var omuz := Quaternion.IDENTITY
+	var bacak := Quaternion.IDENTITY
+
+	func _process_modification_with_delta(_delta: float) -> void:
+		var iskelet := get_skeleton()
+		omuz = iskelet.get_bone_global_pose(omuz_no).basis.get_rotation_quaternion()
+		bacak = iskelet.get_bone_global_pose(bacak_no).basis.get_rotation_quaternion()
+
 func _ready() -> void:
 	get_tree().create_timer(60.0).timeout.connect(func() -> void: get_tree().quit(1))
 	var ana := TestAna.new()
@@ -20,6 +32,7 @@ func _ready() -> void:
 	y.kaynaklar.kapasite = 10000
 	for t in ["odun", "tas", "kereste"]: y.kaynaklar.ekle(t, 100)
 	var k := y.kabul({"sinif": "ciftci", "stat": 5})
+	k.zanaat_turu = ZanaatTuru.Tur.DEMIRCI
 	YAPI_BILGISI.ekle(k, PackedStringArray(["kulube"]))
 	var b := _kur(y, "kulube")
 	var tarla := _kur(y, "tarla")
@@ -71,7 +84,7 @@ func _ready() -> void:
 	IklimDeneyi.degistir(ana.oturum, 0, "normal")
 	h.yenile()
 	for i in 3: h._process(0.0)
-	kontrol(not d.siginma and f.duzeltici().hava_egimi == 0, "Yağmur bitince günlük rutin")
+	kontrol(not d.siginma and f.find_child("KoyHavaKatmani", true, false) == null, "Yağmur bitince günlük rutin")
 	var bas := f.position
 	d.yol = [bas + Vector3(2, 0, 0)]
 	d.adim = 0
@@ -79,6 +92,7 @@ func _ready() -> void:
 	f._yurume.pause()
 	f._yurume.custom_step(0.25)
 	var normal := f.position.distance_to(bas)
+	var normal_klip := f._oynatici.current_animation
 	f.yurumeyi_durdur()
 	f.position = bas
 	IklimDeneyi.degistir(ana.oturum, 0, "kar_firtinasi")
@@ -93,8 +107,8 @@ func _ready() -> void:
 	f._yurume.custom_step(0.25)
 	var karda := f.position.distance_to(bas)
 	kontrol(karda > 0 and karda < normal * 0.9, "Gerçek yürüyüş tweeni karda yavaş")
+	await _hava_katmanini_olc(f, normal_klip)
 	f.yurumeyi_durdur()
-	kontrol(f.duzeltici().hava_egimi > 0, "Gerçek iskelette büzülmüş gövde")
 	IklimGorseli.uygula(s)
 	await _goruntu(s, f, "ani09_kar.png")
 	IklimDeneyi.degistir(ana.oturum, 0, "yagmur")
@@ -102,12 +116,37 @@ func _ready() -> void:
 	h.yenile()
 	for i in 3: h._process(0.0)
 	kontrol(not d.siginma, "Hazır saçak kalmayınca geçersiz hedef yok")
+	var katman := f.find_child("KoyHavaKatmani", true, false) as SkeletonModifier3D
+	kontrol(katman != null and not katman.active, "SAH-30: Kar bittiğinde omuz katmanı kapanır")
 	ana.kayit.sil()
 	ana.queue_free()
 	await get_tree().process_frame
 	await get_tree().create_timer(0.3).timeout
 	print("KARAKTER HAVA UI: GEÇTİ" if hata == 0 else "KARAKTER HAVA UI: KALDI")
 	await Ses.cik(hata)
+func _hava_katmanini_olc(f: KarakterModel, normal_klip: StringName) -> void:
+	var katman := f.find_child("KoyHavaKatmani", true, false) as SkeletonModifier3D
+	kontrol(f is HazirKarakterModeli and is_zero_approx(f.duzeltici().influence), "SAH-30: LOWPO kendi yürüyüş oynatıcısını kullanır")
+	kontrol(f.hareket_bandi() == "yuru" and f._oynatici.current_animation == normal_klip, "SAH-30: Kar aynı yürüyüş klibini korur")
+	kontrol(katman != null and katman.active, "SAH-30: Ayrı kar katmanı canlı")
+	if katman == null:
+		return
+	var iskelet := katman.get_skeleton()
+	var once := OmuzOlcer.new()
+	var sonra := OmuzOlcer.new()
+	for olcer in [once, sonra]:
+		olcer.omuz_no = iskelet.find_bone("RightShoulder")
+		olcer.bacak_no = iskelet.find_bone("RightUpLeg")
+		iskelet.add_child(olcer)
+	iskelet.move_child(once, katman.get_index())
+	await sonra.modification_processed
+	var omuz := sonra.omuz.angle_to(once.omuz)
+	var bacak := sonra.bacak.angle_to(once.bacak)
+	kontrol(absf(omuz - float(KarakterHavaTepkisi.AYAR.kar_egim)) < 0.003 and bacak < 0.003, "SAH-30: Kar omuza biner, bacak yürüyüş pozu korunur")
+	print("SAH-30 klip=%s, omuz farkı=%.5f rad, bacak farkı=%.5f rad" % [f._oynatici.current_animation, omuz, bacak])
+	once.queue_free()
+	sonra.queue_free()
+
 func _goruntu(s: KoyYonetimSahnesi, f: KarakterModel, ad: String) -> void:
 	var dizin := OS.get_environment("ADMIN_TEST_CIKTI")
 	if dizin.is_empty() or DisplayServer.get_name() == "headless": return
