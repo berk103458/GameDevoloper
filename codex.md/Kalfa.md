@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-28 sahipliği (Kalfa)
+
+- ANI-12 ve SAH-18 hazır. İki gerçek köylüde yürüme ve duruş karışımı boyunca kimlik ofseti, poz saati ve klip zamanı ölçülecek. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-27 eksik hareket klibinde bekleme (Kalfa)
 
 - Gerçek yürüyüş veya koşu klibi bulunamadığında BUG-09 beklemesi aynı karede başlıyor. Modelin kendi içe alınmış yürüyüş klibi, tablo takma adı olmayan yürüyüşlerde geçerli kaynak olarak kullanılıyor. Koşu eksiği güvenli beklemeye düşüyor.
