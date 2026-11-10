@@ -8075,7 +8075,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-23, ANI-08. Boyut: M.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-27:** Eksik klip karışımı bozmaz. (doğrulanmadı — Görev 22; Kalfa bekleniyor — HareketGecisi oyunda hiçbir yerden çağrılmıyor, KarakterModel karışım entegrasyonu gerekli)
+- [/] **SAH-27:** Eksik klip karışımı bozmaz. (Kalfa — eksik hareket klibinde gerçek idle ağırlığı)
   - Ne: BUG-09 idle'a düşer. Karışım, olmayan klibi ağırlığa katmaz.
   - Kabul: BUG-09 idle'a düşer. Karışım, olmayan klibi ağırlığa katmaz. Test: silinmiş klip, çökme yok, idle ağırlığı 1.
   - Bağımlılık: BUG-09, SAH-25. Boyut: S.

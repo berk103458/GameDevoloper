@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-27 sahipliği (Kalfa)
+
+- BUG-09 ve SAH-25 hazır. Yürüme veya koşma klibi test kopyasından çıkarılınca gerçek oynatıcıdaki bekleme ağırlığı ölçülecek. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-26 köyde yürürken konuşma (Kalfa)
 
 - Köylü kartı mevcut Parley replik sinyalini çalışan ve yürüyen karakterin görsel katmanına bağlıyor. Mevcut konuşma klibinin omurga ve üst gövde dönüşleri süreli karışımla uygulanıyor. Kök ve bacaklar yürüyüşten geliyor. Katman iş rotası sırasında uygulanıyor. Muhafız repliği ve konuşma kapanışı katmanı durduruyor. Konuşma klibi eksikleri önceki envanterde, mevcut yürüyüş devam ediyor. Söz beklemede.
