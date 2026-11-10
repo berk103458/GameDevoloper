@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-25 sahipliği (Kalfa)
+
+- SAH-18 hazır. Gerçek yürüyüş ve duruş karışımında motorun iki ağırlığı ayrı ölçülecek. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-24 zorluktan bağımsız karışım (Kalfa)
 
 - DEN-65 tablosundaki `kolay`, `olagan` ve `siki` ile üç gerçek açılış oturumu kuruldu. Her köy sahnesinde LOWPO kemiklerinin saf yürüyüşe yerleştiği kare 10. Üçü de yürüyüş için 0,080 saniyelik tablo ayarını kullanıyor. Genel 0,25 saniye değerinin zorluktan bağımsızlığı birim testinde doğrulandı.

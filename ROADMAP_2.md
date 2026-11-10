@@ -8063,7 +8063,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.4 Animasyon karıştırma
 
-- [ ] **SAH-25:** İki klip birden tam ağırlıkta oynamaz. (doğrulanmadı — Görev 22; Kalfa bekleniyor — HareketGecisi oyunda hiçbir yerden çağrılmıyor, KarakterModel karışım entegrasyonu gerekli)
+- [/] **SAH-25:** İki klip birden tam ağırlıkta oynamaz. (Kalfa — gerçek oynatıcıda karışım ağırlıkları)
   - Ne: karışım ağırlıkları toplamı 1'dir.
   - Kabul: karışım ağırlıkları toplamı 1'dir. Test: yürüyüşten duruşa, ara karede toplam 1.
   - Bağımlılık: SAH-18. Boyut: S.
