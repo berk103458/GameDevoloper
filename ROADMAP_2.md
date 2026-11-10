@@ -4036,7 +4036,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: KAP-16, SEV-01. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [ ] **OGR-24:** Pazar ve divan düğmeleri açılınca işaretlenir. (Antigravity) (doğrulanmadı — Görev 22; YeniDugmeIsareti (src/arayuz/koy_hud/yeni_dugme_isareti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **OGR-24:** Pazar ve divan düğmeleri açılınca işaretlenir. (Antigravity) (Cursor — Görev 23: KoyEkrani._alt_panel_kur → YeniDugmeBaglantisi.kur → YeniDugmeIsareti; tests/oto/yeni_dugme_kontrol.tscn)
   - Ne: pazar (TUC) ve divan (CAS-07) HUD düğmeleri ilk kez etkin olunca kenarında bir kez yanıp sönen işaret ve tek satır.
   - Kabul: ilk açılışta işaret; girince kalkar. Test: iki kez tıklanmış düğmede işaret 0.
   - Bağımlılık: OGR-07. Boyut: S.

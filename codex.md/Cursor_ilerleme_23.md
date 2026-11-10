@@ -313,3 +313,17 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 
 - Not: Yılın başında köyde adlı kimse yoksa, yıl ortasında gelen ilk adlı kişi seçilir.
 - **YIL-09 açık kaldı:** satır kartta duran adı (`Koylu.ad`) söylüyor. Ancak SEV-06'nın maske/gerçek ad ayrımı (`persona_maskesi`, `Flag_Kimlik_Cozuldu`) oyunda karta bağlı değil, bu yüzden çoban/Fadime kabulü sınanamaz.
+
+### OGR-24 — kapandı
+
+- Çağrı zinciri: `KoyEkrani._alt_panel_kur` → `YeniDugmeBaglantisi.kur(sag, oturum.ipucu_kaydi, {pazar, divan_ac})`. Her düğmeye `YeniDugmeIsareti` takılır. İlk görüşte bir kez yanıp sönen çerçeve ve düğmenin altında tek satır çıkar; basınca `dugmeye_girildi` işareti, satır da kendisi kalkar.
+- Görüldü bilgisi `Oturum.ipucu_kaydi`ndadır ve kayda girer.
+- Not: pazar ve divan düğmeleri oyunda baştan etkin. "İlk kez etkin olunca" burada ilk köy ekranı demek.
+- Test: yeni `tests/oto/yeni_dugme_kontrol.tscn` → GEÇTİ. Gerçek `Ana` ve köy ekranı; ikinci açılışta işaret 0. `ilk_saat_test` de koşuldu.
+- Bozma kanıtı (hepsi kırmızıya döndü):
+
+  | Bozulan bağ | Sonuç |
+  |---|---|
+  | Köy ekranı bağı silinince | kırmızı |
+  | Basınca kaldırma kapatılınca | `KALDI (1)` |
+  | Kayıt bağı kesilince | `KALDI (3)` |

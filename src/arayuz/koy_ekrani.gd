@@ -158,6 +158,7 @@ func _alt_panel_kur() -> void:
 	var nufus := _dugme(tr("koy.eylem.nufus"), sag)
 	nufus.pressed.connect(_nufus_ac)
 	DivanBaglantisi.kur(self, sag)
+	YeniDugmeBaglantisi.kur(sag, oturum.ipucu_kaydi if oturum != null else null, {"pazar": pazar, "divan": sag.get_node_or_null("divan_ac")})
 	MuhafizOdasiBaglantisi.kur(self, sag)
 	HaritaBaglantisi.kur(self, sag)
 	AyarlarBaglantisi.kur(self, sag)  # AYR-06: oyun içinden aynı ayar ekranı
