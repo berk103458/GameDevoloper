@@ -136,6 +136,8 @@ static func defter_satirlari(o: Object) -> Array:
 		return satirlar
 	var a: RefCounted = ag(o)
 	var kaliplar: Dictionary = a.veri_yapilandirma.get("soylenti_kaliplari", {})
+	var bozuk: Dictionary = a.veri_yapilandirma.get("bozulma_kaliplari", {})
+	var fail := String(a.veri_yapilandirma.get("bozulma_faili", ""))
 	for s in a.soylenti_sayfasi_al(o.yonetim.koylular.size()):
 		var k: Dictionary = a.ag_kayitlari.get(s.olay, {})
 		var kaynak := String(s.kaynak)
@@ -143,7 +145,7 @@ static func defter_satirlari(o: Object) -> Array:
 		if koylu == null or koylu.saglik <= 0:
 			continue
 		satirlar.append({"id": "soy:" + String(s.olay), "kisi": kaynak, "ad": koylu.ad, "gece": int(k.get("gece", -1)),
-			"olay": String(kaliplar.get(String(k.get("tur", "")), "")), "kaynak": koylu.ad, "kademe": String(s.kademe), "dogrulandi": false})
+			"olay": String(bozuk.get(String(k.bicim), "")).replace("{kaynak}", fail) if k.has("bicim") else String(kaliplar.get(String(k.get("tur", "")), "")), "kaynak": koylu.ad, "kademe": String(s.kademe), "dogrulandi": false})
 	return satirlar
 
 

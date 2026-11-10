@@ -5421,7 +5421,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-03. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`; kuyruk adaptörü tek satır.
   - Asset: asset gerekmedi.
-- [ ] **SOY-05:** Yanlış söylenti. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-05:** Yanlış söylenti. (Cursor)
   - Ne: kayıt yayılırken her adımda bozulma olasılığı (`yalan_olasiligi` 0.35'in çeyreği, öneri `data/soylenti.json`): kişi adı, yer veya miktar değişir; `dogru=false` kopyası oluşur. Asıl kayıt silinmez.
   - Kabul: 100 yayılımda bozulma oranı tablo ±%5; bozulan kopya `kaynak` alanında bozanı taşır. Test: simülasyon.
   - Bağımlılık: SOY-01. Boyut: M.
@@ -5679,7 +5679,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: YAZ-09. Boyut: S.
   - Dosya: Söz dosyaları.
   - Asset: asset gerekmedi.
-- [ ] **SOY-44:** Yanlış söylentinin bozulma biçimi yazılıdır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-44:** Yanlış söylentinin bozulma biçimi yazılıdır. (Cursor)
   - Ne: SOY-05 bozulması üç biçimden biri: ad kayması, yer kayması, abartı; her biçimin metin kalıbı `fisilti_gazetesi.json` kalıplarına paralel.
   - Kabul: üç biçim üç kalıp. Test: birim.
   - Bağımlılık: SOY-05. Boyut: S.

@@ -1,6 +1,8 @@
 {
   "yayilim_hizi_gece_basi_azami": 4,
   "bozulma_orani": 0.0875,
+  "bozulma_zar_cozunurlugu": 10000,
+  "bozulma_faili": "kapıdaki muhafız",
   "kamuoyu_esigi_oran": 0.40,
   "ag_kayit_omru_gece": 7,
   "kamuoyu_omru_gece": 5,

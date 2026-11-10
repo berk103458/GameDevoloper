@@ -120,3 +120,16 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - Bozma kanıtı: teftiş kancası silinince `KALDI (4 hata)`, metin eki silinince `KALDI (1 hata)`.
 - Yeşil kalanlar: `sancak_teftis_kontrol`, `sancak_teftisi_test`, `koy_hud_kontrol`.
 - Önceden kırmızı (stash ile doğrulandı, ilgisiz): `tests/oto/muhafiz_epilogu_kontrol` (satır 33 assert) ve `tests/unit/kvr/sancak_kayit_slotu_test` ("Yüklenen kişisel kasa gerçek gece teftişinde bulunur").
+
+### SOY-05, SOY-44
+
+- Çağrı zinciri: `Oturum.gece_sonu` → `SoylentiKoprusu.gece` → `SoylentiAgi.gece_ilerlet` → her yeni duyan için `bozulma_bicimi(olay, bozan, gece)`.
+  - Zar tutarsa `_bozuk_kopya` açılır: `dogru=false`, kaynak bozandır, `asil` ve `bicim` (ad kayması / yer kayması / abartı) taşır. Asıl kayıt silinmez.
+  - Kopya yalnız doğru asıldan doğar (kopyadan kopya yok). DIY-13'e ikinci kayıt açmaz, bar etkisini ikinci kez uygulamaz, teftişe soru olmaz.
+  - Defter kopyayı `bozulma_kaliplari` metniyle yazar.
+- Karar: zar, olay + bozan + gece karmasından gelir, oyun RNG'sini tüketmez. Aynı koşu aynı sonucu verir.
+  - Oran ve çözünürlük `data/soylenti.json`'da (`bozulma_orani` 0.0875, `bozulma_zar_cozunurlugu`, `bozulma_faili`).
+- Test: yeni `tests/unit/sistemler/soylenti_bozulma_test.gd` → GEÇTİ.
+  - 31 kişilik köyde 4 gerçek gece; her yeni duyanda kopya zarla birebir tutarlı. Asıl doğru kalıyor, dedikoduda kopya yok, defterde biçim kalıbı görünüyor.
+  - 1000 örnekte oran tablo ±%5; üç biçim, üç kalıp.
+- Bozma kanıtı: kopya ekleme kapatılınca `KALDI (2 hata)`, defter biçim metni kapatılınca `KALDI (1 hata)`.

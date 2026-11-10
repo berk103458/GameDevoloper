@@ -136,6 +136,7 @@ func gece_ilerlet(
 	var iyi_olaylar: Array = veri_yapilandirma.get("iyi_olaylar", [])
 
 	var silinecekler: Array[String] = []
+	var kopyalar: Array[Dictionary] = []
 
 	for olay_id in ag_kayitlari:
 		var k: Dictionary = ag_kayitlari[olay_id]
@@ -192,6 +193,13 @@ func gece_ilerlet(
 			duyanlar.append(yd)
 		k["duyanlar"] = duyanlar
 
+		# SOY-05/44: doğru asıl kayıt her yeni duyanda bozulabilir; kopya `dogru=false`, kaynağı bozandır, asıl silinmez
+		if bool(k.get("dogru", true)) and not k.has("asil"):
+			for yd in yeni_duyanlar:
+				var bicim := bozulma_bicimi(olay_id, yd, guncel_gece)
+				if not bicim.is_empty():
+					kopyalar.append(_bozuk_kopya(k, olay_id, yd, bicim, guncel_gece))
+
 		# SOY-12: Kamuoyu konusu olma kontrolü (>= %40)
 		var gereken_kisi := int(ceil(float(koy_nufusu) * kamuoyu_esik_oran))
 		if duyanlar.size() >= gereken_kisi and not bool(k.get("kamuoyu_oldu", false)):
@@ -212,7 +220,7 @@ func gece_ilerlet(
 				histeri_tetik_sayisi += 1
 
 			# SOY-22: Tanıklı rüşvet kamuoyu olunca teftişe eklenir
-			if str(k.get("tur", "")) == "rusvet":
+			if str(k.get("tur", "")) == "rusvet" and bool(k.get("dogru", true)):
 				teftis_sorulari.append(olay_id)
 
 		# SOY-16: Kamuoyu 5 gece sonra söner
@@ -223,6 +231,41 @@ func gece_ilerlet(
 
 	for s in silinecekler:
 		ag_kayitlari.erase(s)
+	for c in kopyalar:
+		if not ag_kayitlari.has(c.olay_id):
+			ag_kayitlari[c.olay_id] = c
+			if not guvenilirlikler.has(c.kaynak):
+				guvenilirlikler[c.kaynak] = int(_ayar("varsayilan_guvenilirlik"))
+
+## SOY-05/41/44: bozulma zarı tohumdan bağımsız ve tekrarlanabilir (olay, bozan, gece); biçim veridedir.
+func bozulma_bicimi(olay_id: String, bozan: String, gece: int) -> String:
+	var olcek := int(_ayar("bozulma_zar_cozunurlugu"))
+	var h := hash("%s|%s|%d" % [olay_id, bozan, gece])
+	if olcek <= 0 or posmod(h, olcek) >= int(round(_ayar("bozulma_orani") * olcek)):
+		return ""
+	var bicimler: Array = (veri_yapilandirma.get("bozulma_kaliplari", {}) as Dictionary).keys()
+	if bicimler.is_empty():
+		return ""
+	bicimler.sort()
+	return String(bicimler[posmod(h / olcek, bicimler.size())])
+
+func _bozuk_kopya(k: Dictionary, olay_id: String, bozan: String, bicim: String, gece: int) -> Dictionary:
+	return {
+		"olay_id": "%s~%s" % [olay_id, bozan],
+		"asil": olay_id,
+		"bicim": bicim,
+		"tur": k.get("tur", ""),
+		"kaynak": bozan,
+		"dogru": false,
+		"duyanlar": [bozan],
+		"gece": gece,
+		"omur": 0,
+		"kamuoyu_oldu": false,
+		"kamuoyu_gecesi": 0,
+		"hukme_baglandi": false,
+		"susturuldu": false,
+		"bar_etkisi_uygulandi": true
+	}
 
 ## SOY-12 & SOY-33: Çınar meclisi için canlı kamuoyu konusu seçimi.
 func meclis_sikayeti_sec() -> Dictionary:
