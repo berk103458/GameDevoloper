@@ -1,3 +1,9 @@
+## 2026-11-10 — SAH-26 köyde yürürken konuşma (Kalfa)
+
+- Köylü kartı mevcut Parley replik sinyalini çalışan ve yürüyen karakterin görsel katmanına bağlıyor. Mevcut konuşma klibinin omurga ve üst gövde dönüşleri süreli karışımla uygulanıyor. Kök ve bacaklar yürüyüşten geliyor. Katman iş rotası sırasında uygulanıyor. Muhafız repliği ve konuşma kapanışı katmanı durduruyor. Konuşma klibi eksikleri önceki envanterde, mevcut yürüyüş devam ediyor. Söz beklemede.
+- Gerçek köylü kartı ve CHR-002 tarla rotasında 41 iskelet örneği. Kol farkı 0,43304 rad, bacak farkı 0,00098 rad, aynı yürüyüşle kök ilerlemesi 0,6021 m. Köy konuşması, kapı duruşu, köy hareketi ve zanaat tezgâhı hedefleri geçti. Tezgâh testinin köy girişindeki `ogretici` alanı başlangıç örneğine alındı. Bağımsız Parley testinde davranış hatası 0, kapanışta 10 kaynak bildirimi var. Aynı kapanış çıktısı önceki kodla doğrulandı. Headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor.
+- Asset gerekmedi. Sonraki adım SAH-27. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-26 sahipliği (Kalfa)
 
 - SAH-23 ve ANI-08 hazır. Köyün mevcut replik sinyalini, iş rotasında yürüyen karakterin üst gövde klibine bağlayıp tarla ve kapı pozunu doğrulayacağım. Kota görünmüyor.

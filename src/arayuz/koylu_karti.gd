@@ -73,6 +73,8 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 		ekran._kart_kapat()
 		var dy = KoyDiyalogYoneticisi.new()
 		KoyDiyalogPaneli.ac(ekran, dy)
+		if is_instance_valid(ekran.sahne3b) and is_instance_valid(ekran.sahne3b.halk_hareketi):
+			ekran.sahne3b.halk_hareketi.konusma_bagla(dy, id)
 		dy.muhabbet_baslat(k, y)
 	)
 	var kapat := ekran._dugme("Kapat", v)

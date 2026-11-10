@@ -42,9 +42,11 @@ func _ready() -> void:
 		kontrol(y.recete_sec(b.id, "alet" if tur == "demirhane" else "ekmek"), "Gerçek reçete")
 		bs.append(b)
 		ids.append(k.id)
-	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
+	var once := ana.oturum.kaydet().merged({"faz": "koy"}, true)
 	ana._koye_git()
 	await get_tree().process_frame
+	# Köy girişindeki ilk görüş kaydı, tezgâh hareketi başlamadan yazılır.
+	once["ogretici"] = ana.oturum.kaydet()["ogretici"]
 	var s: KoyYonetimSahnesi = ana._ekran.sahne3b
 	var h := s.halk_hareketi
 	h.set_process(false)
@@ -71,7 +73,7 @@ func _ready() -> void:
 			await get_tree().create_timer(0.4).timeout
 			await RenderingServer.frame_post_draw
 			get_viewport().get_texture().get_image().save_png(dizin.path_join("ani08_%s.png" % bs[i].tur))
-	kontrol(JSON.stringify(ana.oturum.kaydet()) == once, "Görsel zanaat kayıt/RNG/stok değiştirmez")
+	kontrol(JSON.stringify(ana.oturum.kaydet()) == JSON.stringify(once), "Görsel zanaat kayıt/RNG/stok değiştirmez")
 	h._process(float(h._ayar.calisma_suresi) + 0.1)
 	for i in 3: h._process(0.0)
 	await get_tree().process_frame

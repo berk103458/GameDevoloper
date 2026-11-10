@@ -12,6 +12,37 @@ var _ayar: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://d
 var _durum: Dictionary = {}
 var _bekleyen: Array[int] = []
 
+
+func konusma_bagla(yonetici: KoyDiyalogYoneticisi, id: int) -> void:
+	var oturum := yonetici.get_instance_id()
+	yonetici.replik_geldi.connect(_is_konusmasi.bind(id, oturum))
+	yonetici.diyalog_sonlandi.connect(_is_konusmasini_bitir.bind(id, oturum))
+
+
+func _is_konusmasi(konusan: String, metin: String, _secenekler: Array, id: int, oturum: int) -> void:
+	var kisi := sahne.yonetim.koylu(id)
+	var figur: KarakterModel = modeller.get(id)
+	if kisi == null or not is_instance_valid(figur):
+		return
+	var koylu_konusuyor := konusan in ["Köylü", "Villager"] or konusan.nocasecmp_to(kisi.ad) == 0
+	if metin.is_empty() or not koylu_konusuyor or konusan in ["Muhafız", "Gatekeeper"]:
+		KoyKonusmaKatmani.durdur(figur, oturum)
+		return
+	if _is_yuruyusu(id):
+		KoyKonusmaKatmani.oynat(figur, oturum, clampf(metin.length() / 28.0, 1.5, 5.0), _is_yuruyusu.bind(id))
+
+
+func _is_konusmasini_bitir(id: int, oturum: int) -> void:
+	KoyKonusmaKatmani.durdur(modeller.get(id), oturum)
+
+
+func _is_yuruyusu(id: int) -> bool:
+	var figur: KarakterModel = modeller.get(id)
+	var durum: Dictionary = _durum.get(id, {})
+	return (is_instance_valid(figur) and durum.get("is", false) and figur.hareket_bandi() == "yuru"
+		and figur._yurume != null and figur._yurume.is_running())
+
+
 ## Salt okunur debug gözlemi; rota/animasyon veya kalıcı model ilerletilmez.
 func eylem(id: int) -> String:
 	if not modeller.has(id): return "Sahne sınırı dışında"
