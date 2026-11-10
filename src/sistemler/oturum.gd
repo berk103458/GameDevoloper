@@ -120,6 +120,7 @@ func gosterilen_gece() -> int:
 func gece_kuyrugu() -> Array[Gelen]:
 	if preload("res://src/sistemler/kapi_acilis_olayi.gd").aile_bekliyor(self): return preload("res://src/sistemler/kapi_acilis_olayi.gd").kuyruk(self)
 	if preload("res://src/sistemler/acilis_senaryosu.gd").kapi_kapali(self): return []
+	if GecisGecesi.gecis_gecesi_mi(yonetim): return []
 	koy.bu_gece_girenler = []
 	var sayi := ayarlar.gece_basina_gelen if perde == 1 else ayarlar.perde2_gece_basina_gelen
 	sayi = maxi(1, sayi + sonraki_gelen_ek)

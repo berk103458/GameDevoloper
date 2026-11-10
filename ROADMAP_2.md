@@ -4328,7 +4328,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: KOP-07. Boyut: S.
   - Dosya: yeni: `src/sistemler/perde_metni.gd`; `perde_gecisi.gd` tek satır.
   - Asset: asset gerekmedi.
-- [ ] **OMR-08:** (Antigravity) Geçiş gecesinde kapı kapalıdır. (doğrulanmadı — Görev 22; GecisGecesi (src/sistemler/gecis_gecesi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **OMR-08:** (Antigravity) Geçiş gecesinde kapı kapalıdır. (Cursor — Görev 23: Oturum.gece_kuyrugu → GecisGecesi.gecis_gecesi_mi; tests/unit/sistemler/gecis_gecesi_oyun_test.gd)
   - Ne: "Köy oturdu" gecesi kapıya kimse gelmez (KAP-16 boş gün zorlanır); oyuncu köyde ağalık kararını verir.
   - Kabul: geçiş gecesi `gece_basina_gelen` 0. Test: nüfus 18'e enjekte, o gece kuyruk boş.
   - Bağımlılık: KAP-16. Boyut: S.

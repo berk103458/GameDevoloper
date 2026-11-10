@@ -327,3 +327,15 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   | Köy ekranı bağı silinince | kırmızı |
   | Basınca kaldırma kapatılınca | `KALDI (1)` |
   | Kayıt bağı kesilince | `KALDI (3)` |
+
+### OGR-14 — açık bırakıldı
+
+- Beyan defteri düğmesi "kendi sözüyle çelişki" anını bekliyor. Bu çelişkiyi yalnız `SozMotoru` ve DYL-01 `CeliskiYuzlesme` üretiyor, ikisi de oyunda çalışmıyor (bkz. SOY-10/23). `DefterTanitimi.celiski_kaydet` bu yüzden bağlanamadı.
+
+### OMR-08 — kapandı
+
+- Çağrı zinciri: `Oturum.gece_kuyrugu` içinde, açılış kapı kapalı denetiminden sonra tek satır: `GecisGecesi.gecis_gecesi_mi(yonetim)` doğruysa kuyruk boş döner.
+  - Nüfus 18'e varınca `_asamalar` ağalığı açar, `PerdeGecisi.isaretle` de `perde2_baslangic = gün+1` yazar. Geçiş gecesi bu başlangıç günüdür.
+  - KAP-16 testx'te olduğu için boş gün zarına dokunulmadı; kuyruk doğrudan boş döner. Boş kuyruk yolu açılıştaki `kapi_kapali` ile aynıdır.
+- Test: yeni `tests/unit/sistemler/gecis_gecesi_oyun_test.gd` → GEÇTİ. Gerçek kabul ve gece; geçiş gecesinde kuyruk 0, ertesi gece dolu. `perde_gecisi_test` ve `acilis_senaryosu_test` de GEÇTİ.
+- Bozma kanıtı: satır kapatılınca `KALDI (1)`.
