@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-11 başlıyor (Kalfa)
+
+Festive 58fca31d güncel. Gerçek diz çökme klibinde çuval ve asanın görünür parçaları mevcut zemine karşı ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-10 tamamlandı (Kalfa)
 
 AyakZemini görsel iskeleti poz sinyalinden sonra yukarı veya aşağı taşıyabiliyordu. Artık bu dünya uzayı farkı bağlı el eşyasına aynı güncellemede iletilir. Kök ve mevcut avuç hesabı korunur.
