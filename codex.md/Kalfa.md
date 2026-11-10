@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-29 sahipliği (Kalfa)
+
+- ANI-08 ve SAH-26 hazır. Varışın doğal akışında kök konumu, gerçek çekiç klibi ve ilk iş karesindeki yürüyüş ağırlığı ölçülecek. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-28 geçişte bekleme ofseti (Kalfa)
 
 - Gerçek köyde iki köylünün ANI-12 ofseti 0,618 ve 1,136 saniye. Yürüyüşe girişte ve duruşta 42’şer kare izlendi. Her iki model iki geçişte de ara bekleme pozu üretti. Kimlik ofseti ve varyantı korundu, iskelet ve klip saatleri geriye gitmedi.
