@@ -218,3 +218,17 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   - Sabah satırı kapatılınca `KALDI (1 hata)`.
   - Panel adaptörü kaldırılınca UI `KALDI (3 hata)`.
 - Açık kalan: SOY-10 (kapıda "köyde başka duydum") ayrı yoldur, bağlanmadı.
+
+### SOY-50
+
+- Çağrı zinciri: `tests/unit/kvr/soylenti_agi_test.gd`'deki eski ağ birim testi (Antigravity) korundu. Yanına aynı yedi adımın gerçek oyun koşusu (`_oyun_kosusu`) eklendi:
+  1. `Oturum.karar_ver(rüşvet)`: tanıklı kayıt, kaynak köylü.
+  2. 4 × `gece_sonu`: yayılım.
+  3. Kamuoyu.
+  4. Bar bir kez −1.
+  5. `SoylentiKoprusu.meclis_sikayeti` rüşveti anar.
+  6. `hukme_bagla`: kamuoyu 0.
+  7. Bozuk kopyanın bozanı −1.
+- Test: GEÇTİ.
+- Bozma kanıtı: hükümde bozan −1 kapatılınca ve kayıt kapatma kapatılınca test `quit(1)` ile düştü.
+- Not: SOY-10/18/19/23/24/25/39 açık. Bu yedi adımın zincirine girmiyorlar.

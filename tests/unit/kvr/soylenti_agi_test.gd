@@ -100,6 +100,8 @@ func _init() -> void:
 	if yeni_ag.guvenilirlik_al("yalanci_ali") != 1:
 		hatalar.append("SOY-42: KAY yüklemesinde güvenilirlik eşleşmedi!")
 
+	_oyun_kosusu(hatalar)
+
 	if not hatalar.is_empty():
 		for h in hatalar:
 			push_error(h)
@@ -108,3 +110,49 @@ func _init() -> void:
 
 	print("PASS: SOY-01..50 Soylenti Agi kapanis testi basariyla gecti.")
 	quit(0)
+
+
+func _gelen(id: String) -> Gelen:
+	var g := Gelen.new()
+	g.id = StringName(id)
+	g.ad_anahtari = "test"
+	g.sinif = &"koylu"
+	return g
+
+
+## Aynı yedi adım gerçek oyun zincirinde: kapı kararı → gece sonu → meclis hükmü (Görev 23).
+func _oyun_kosusu(hatalar: Array[String]) -> void:
+	var kat := Katalog.new()
+	kat.yukle()
+	var o := Oturum.new(kat, 3112)
+	o.yonetim.gun = 5
+	o.gun = 5
+	o.yonetim.a = o.yonetim.a.duplicate(true)
+	o.yonetim.a.ambar_taban_kapasite = 100000
+	o.karar_ver(_gelen("rusvetci"), &"rusvet")
+	for i in 30:
+		o.karar_ver(_gelen("koylu_%d" % i), &"kabul")
+	o.yonetim.kaynaklar = Kaynaklar.new(100000, {"gida": 20000, "odun": 2000})
+	var a: RefCounted = SoylentiKoprusu.ag(o)
+	var asil := "kapi_rusvet_5_rusvetci"
+	if not a.ag_kayitlari.has(asil) or not String(a.ag_kayitlari[asil].kaynak).is_valid_int():
+		hatalar.append("Oyun 1: Tanıklı rüşvet ağa girmedi ya da kaynak köylü değil")
+		return
+	var duyan: Array[int] = []
+	var bar: Array[int] = []
+	var kamuoyu_gecesi := -1
+	for gece in 4:
+		o.gece_sonu()
+		duyan.append((a.ag_kayitlari[asil].duyanlar as Array).size())
+		bar.append(int(a.bar_degisimi_toplam))
+		if kamuoyu_gecesi < 0 and bool(a.ag_kayitlari[asil].kamuoyu_oldu): kamuoyu_gecesi = gece
+	if not (duyan[0] > 1 and duyan[2] > duyan[0]): hatalar.append("Oyun 2: Üç gecede yayılmadı")
+	if kamuoyu_gecesi < 0: hatalar.append("Oyun 3: Kamuoyu olmadı")
+	if not (bar[bar.size() - 1] == -1 and bar.count(-1) == bar.size() - kamuoyu_gecesi): hatalar.append("Oyun 4: Bar bir kez −1 değil")
+	if not SoylentiKoprusu.meclis_sikayeti(o).contains("rüşvet"): hatalar.append("Oyun 5: Meclis şikâyeti rüşveti anmıyor")
+	var kopyalar: Array = a.ag_kayitlari.keys().filter(func(id: String) -> bool: return id.begins_with(asil + "~"))
+	var bozan := String(a.ag_kayitlari[kopyalar[0]].kaynak) if not kopyalar.is_empty() else ""
+	var g_bozan: int = a.guvenilirlik_al(bozan)
+	if SoylentiKoprusu.hukme_bagla(o).is_empty(): hatalar.append("Oyun 6: Hüküm verilmedi")
+	if not SoylentiKoprusu.kamuoyu_satiri(o).is_empty() or not SoylentiKoprusu.meclis_sikayeti(o).is_empty(): hatalar.append("Oyun 6: Hükümden sonra kamuoyu sönmedi")
+	if bozan.is_empty() or a.guvenilirlik_al(bozan) != g_bozan - 1: hatalar.append("Oyun 7: Yanlış kopyanın bozanı −1 olmadı")

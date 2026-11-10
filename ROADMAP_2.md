@@ -5718,7 +5718,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **SOY-50:** Kapanış testi. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-50:** Kapanış testi. (Cursor)
   - Ne: tek koşu: tanıklı rüşvet → 3 gece yayılım → kamuoyu → bar −1 bir kez → meclis şikâyeti → divan hükmü → kamuoyu 0; yanlış kopya → kaynak güvenilirliği −1.
   - Kabul: yedi adım tek testte. Test: `tests/unit/kvr/soylenti_agi_test.gd`.
   - Bağımlılık: SOY-01…49. Boyut: M.
