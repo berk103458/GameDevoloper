@@ -37,6 +37,10 @@ static func kosu_taban_hizi() -> float:
 
 
 ## SAH-18: Durmadan yürümeye geçiş karışıktır, ilk karede dur pozuna daha yakındır.
+static func yuruyus_gecisi_suresi() -> float:
+	return float(AYAR.yuruyus_gecisi_suresi)
+
+
 func karisim_hesapla(t: float, toplam_sure: float = -1.0) -> float:
 	var sure := gecis_suresi_tablo if toplam_sure <= 0.0 else toplam_sure
 	if sure <= 0.0:

@@ -1,3 +1,9 @@
+## 2026-11-10 — SAH-18 gerçek yürüyüş karışımı (Kalfa)
+
+- `sahne.json` yürüyüş giriş süresi 0,08 saniye. Klip temposu ayrı verildiği için hız karışımın süresini değiştirmiyor. Genel 0,25 saniye değeriyle çiftçinin kayması 26,8 cm oldu. Yürüyüşe ayrı ayarla üç modelde azami kayma 10,4 cm, 15 cm eşiği ve adım boyu aşımı 0.
+- Gerçek LOWPO kemiklerinde ilk kare duruşa 0,000303 rad, saf yürüyüşe 0,241045 rad uzakta. Karışım ortasında yürüyüş farkı 0,133115 rad, tamamlanınca 0,000994 rad. Poz, bant, hareket geçişi, ayak zemini, ve eşya teması hedefleri geçti. Ek muhafız devriyesi kontrolü kayıt karşılaştırmasında kaldı. Aynı hata değişiklik öncesi karakter koduyla da oluştu ve SAH-19 doğrulamasına ayrıldı. Tekrar headless importta betik ve MD5 hatası 0. Üç bilinen kapanış çıktısı sürüyor. Tam sanity çalıştırılmadı.
+- Asset gerekmedi. Sonraki adım SAH-19. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-18 sahipliği (Kalfa)
 
 - SAH-17 festive’de. Tablo süresini gerçek karakter oynatıcısına bağlayıp ilk yürüyüş karesinin duruşa yakınlığını kemiklerden ölçeceğim. Kota görünmüyor.

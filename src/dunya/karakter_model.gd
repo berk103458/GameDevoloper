@@ -12,7 +12,6 @@ const BEKLE := "bekle"
 ## Bekleme ve diğer hareketlere geçiş süresi (s).
 const GECIS := 0.3
 ## Kök ilerlemeye başladığında ilk basışın bekleme pozuna takılmasını önler.
-const YURUYUS_GECISI := 0.08
 const HAREKETLER := ["bekle", "konus", "sevinc", "ofke", "panik", "gergin"]
 const DONGULU := ["bekle", "konus", "gergin"]
 ## Bir klip dosyasının izlerinin en az bu payı bu iskelette çözülmeli; yoksa klip alınmaz.
@@ -101,9 +100,10 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI, durum: StringName = &"") -> 
 		var tablo_klibi := HareketGecisi.tablo_klibi(_hareket_bandi)
 		var gercek_klip := tablo_klibi if _oynatici.has_animation(tablo_klibi) else _anim
 		if preload("res://src/dunya/guvenli_karakter_animasyonu.gd").var_mi(_oynatici, gercek_klip):
-			_oynatici.play(gercek_klip, YURUYUS_GECISI)
 			var taban_hiz := HareketGecisi.kosu_taban_hizi() if _hareket_bandi == "kos" and gercek_klip == tablo_klibi else _yuruyus_taban_hizi()
-			_oynatici.speed_scale = hiz / taban_hiz
+			# Klip temposu karışım süresini değiştirmesin.
+			_oynatici.speed_scale = 1.0
+			_oynatici.play(gercek_klip, HareketGecisi.yuruyus_gecisi_suresi(), hiz / taban_hiz)
 	_bekleme_hedef = 0.0
 	_duzeltici_hedef = 1.0
 	_klip_sirasi += 1

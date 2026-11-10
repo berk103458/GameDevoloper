@@ -8018,7 +8018,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: DEN-01 ile aynı kural, dosya ayrı. Boyut: S.
   - Dosya: `data/ayarlar/sahne.json`.
   - Asset: asset gerekmedi.
-- [/] **SAH-18:** Durmadan yürümeye geçiş karışıktır. (Kalfa — canlı iskelet poz karışımı)
+- [x] **SAH-18:** Durmadan yürümeye geçiş karışıktır. (Kalfa — ilk iskelet pozu duruşa yakın, süre tabloda)
   - Ne: geçiş bir karede zıplamaz. Karışım süresi tablodadır.
   - Kabul: geçiş bir karede zıplamaz. Karışım süresi tablodadır. Test: geçişin ilk karesinde poz, dur klibine daha yakındır.
   - Bağımlılık: SAH-17. Boyut: M.

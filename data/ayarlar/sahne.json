@@ -11,6 +11,7 @@
     "kos": "kos"
   },
   "gecis_suresi": 0.25,
+  "yuruyus_gecisi_suresi": 0.08,
   "yol_butcesi_ms": 2.0,
   "kamera_uzaklik": {
     "min": 14.0,
