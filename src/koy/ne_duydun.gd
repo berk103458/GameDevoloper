@@ -1,6 +1,7 @@
 ## SOY-09: köylü kartında "Ne duydun?" — köylü ağda duyduğu söylentiyi kendi ağzından söyler.
 ## En son duyduğu sürümü söyler (bozan kendi bozuk kopyasını); sistem doğru mu yanlış mı olduğunu söylemez.
 ## Duymayan köylüde dal yoktur; kart okuması ağı kurmaz.
+## SOY-20: ikinci seçenek "Bunu konuşma" — güvenilir köylü susar, güvenilmez olan daha çok yayar; oyuncuya sonuç söylenmez.
 class_name NeDuydun
 extends RefCounted
 
@@ -45,4 +46,18 @@ static func ekle(ekran: Control, ust: Control, k: Koylu) -> void:
 		cevap.name = "ne_duydun_cevabi"
 		cevap.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		ust.move_child(cevap, sor.get_index() + 1)
+		var sustur: Button = ekran._dugme("Bunu konuşma", ust)
+		sustur.name = "bunu_konusma"
+		ust.move_child(sustur, cevap.get_index() + 1)
+		sustur.pressed.connect(func() -> void:
+			sustur.disabled = true
+			sustur.text = susturma_cevabi(ekran.oturum, k)
+		)
 	)
+
+
+static func susturma_cevabi(o: Object, k: Koylu) -> String:
+	var r := kayit(o, k)
+	if not r.is_empty():
+		SoylentiKoprusu.ag(o).sustur(str(k.id), String(r.olay_id))
+	return "%s başını salladı." % k.ad

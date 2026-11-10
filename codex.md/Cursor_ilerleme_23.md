@@ -169,3 +169,14 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   - Karttaki tek satır silinince UI `KALDI (2 hata)`.
   - Son kaydı seçme kuralı ilk kayda çevrilince birim testi `KALDI (1 hata)`.
 - YAZ-08 sohbet dalı yerine kart düğmesi kullanıldı: köylü seçim kartı oyunda zaten açılan gerçek yüzey.
+
+### SOY-20
+
+- Çağrı zinciri: `KoyluKarti.ac` → `NeDuydun.ekle` → "Ne duydun?" cevabından sonra "Bunu konuşma" → `NeDuydun.susturma_cevabi` → `SoylentiAgi.sustur`.
+  - Güvenilirlik varsayılanın (2) altında değilse kayıt susturulur, yayılım durur.
+  - Altındaysa kayıt `hizlandi` olur ve `gece_ilerlet` o kaydı `susturma_ters_carpan` (2) katı hızla yayar.
+  - Oyuncu iki durumda da yalnız "… başını salladı." görür.
+- Test: yeni `tests/unit/sistemler/susturma_test.gd` → GEÇTİ.
+  - 41 kişilik gerçek köy, gerçek gece: susturmasız yayılım > 0, güvenilir kaynakta 0, güvenilmezde susturmasızdan fazla. Söz aynı.
+  - `soylenti_meclis_kontrol` kartta seçeneği bastı → GEÇTİ.
+- Bozma kanıtı: ters tepme kapatılınca `KALDI (1 hata)`, karttaki `sustur` çağrısı kapatılınca `KALDI (2 hata)`.

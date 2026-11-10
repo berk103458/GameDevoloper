@@ -66,6 +66,10 @@ func _ready() -> void:
 	if sor != null: sor.pressed.emit()
 	var cevap := e._ust_kart.find_child("ne_duydun_cevabi", true, false) as Label if e._ust_kart != null else null
 	_kontrol(cevap != null and cevap.text.begins_with(o.yonetim.koylu(tasiyan).ad + ":") and cevap.text.contains("Garip bir yolcunun") and sor.disabled, "Köylü duyduğunu kendi ağzından söyler")
+	var sus := e._ust_kart.find_child("bunu_konusma", true, false) as Button if e._ust_kart != null else null
+	_kontrol(sus != null and not sus.disabled, "Cevaptan sonra Bunu konuşma seçeneği")
+	if sus != null: sus.pressed.emit()
+	_kontrol(sus != null and sus.disabled and sus.text.ends_with("başını salladı."), "Susturma sonucu oyuncuya söylenmez")
 	e._kart_kapat()
 	var duymayan := -1
 	for k in o.yonetim.koylular:

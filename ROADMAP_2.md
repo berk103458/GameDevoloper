@@ -5520,7 +5520,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: DYL-04, DIY-13. Boyut: S.
   - Dosya: DIY-13 olay listesi satırı.
   - Asset: asset gerekmedi.
-- [ ] **SOY-20:** Susturma. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `src/koy/ne_duydun.gd` dosyası yok)
+- [x] **SOY-20:** Susturma. (Cursor)
   - Ne: oyuncu bir kaynağa "bunu konuşma" diyebilir (SOY-09 ekranında ikinci seçenek): kaynak güvenilirliği yüksekse yayılım durur, düşükse hızlanır. Sonucu oyuncu bilmez.
   - Kabul: iki güvenilirlik düzeyinde iki sonuç. Test: birim.
   - Bağımlılık: SOY-09. Boyut: S.

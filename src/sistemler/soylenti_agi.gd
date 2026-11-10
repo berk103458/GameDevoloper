@@ -158,6 +158,7 @@ func gece_ilerlet(
 		# SOY-02: Duyanlar kümesi genişler (komşular ve iş arkadaşları)
 		var duyanlar: Array = k.get("duyanlar", [])
 		var yeni_duyanlar: Array[String] = []
+		var hiz := yayilim_hizi * (int(_ayar("susturma_ters_carpan")) if bool(k.get("hizlandi", false)) else 1)
 
 		for duyan in duyanlar:
 			var komsular: Array = komsuluklar.get(duyan, [])
@@ -165,9 +166,9 @@ func gece_ilerlet(
 				var koms_str := str(koms)
 				if not (koms_str in duyanlar) and not (koms_str in yeni_duyanlar):
 					yeni_duyanlar.append(koms_str)
-					if yeni_duyanlar.size() >= yayilim_hizi:
+					if yeni_duyanlar.size() >= hiz:
 						break
-			if yeni_duyanlar.size() >= yayilim_hizi:
+			if yeni_duyanlar.size() >= hiz:
 				break
 
 			var arkadaslar: Array = calisma_arkadaslari.get(duyan, [])
@@ -175,9 +176,9 @@ func gece_ilerlet(
 				var ark_str := str(ark)
 				if not (ark_str in duyanlar) and not (ark_str in yeni_duyanlar):
 					yeni_duyanlar.append(ark_str)
-					if yeni_duyanlar.size() >= yayilim_hizi:
+					if yeni_duyanlar.size() >= hiz:
 						break
-			if yeni_duyanlar.size() >= yayilim_hizi:
+			if yeni_duyanlar.size() >= hiz:
 				break
 
 		# Eğer komsuluk verilmemişse nüfustan temsili köylüler eklenir; gerçek harita varken uydurma ad yok (SOY-45)
@@ -186,7 +187,7 @@ func gece_ilerlet(
 				var aday := "koylu_%d" % i
 				if not (aday in duyanlar):
 					yeni_duyanlar.append(aday)
-					if yeni_duyanlar.size() >= yayilim_hizi:
+					if yeni_duyanlar.size() >= hiz:
 						break
 
 		for yd in yeni_duyanlar:
@@ -339,6 +340,7 @@ func sustur(koylu_id: String, olay_id: String) -> bool:
 			return true
 		else:
 			# Düşük güvenilirlikte susturma ters teper, yayılım hızlanır
+			ag_kayitlari[olay_id]["hizlandi"] = true
 			return false
 	return false
 
