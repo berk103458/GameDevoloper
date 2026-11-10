@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-16 başlıyor (Kalfa)
+
+Festive 569c9233 güncel. Headless muayenede gerçek eşya meshlerinin kemik kesişimi tür adıyla raporlanacak ve ARY-05 envanterine doğrulanan bulgular işlenecek. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-15 tamamlandı (Kalfa)
 
 LOWPO yük boyutu model boyunun mevcut yetişkin referansına oranından gelir. Avuç konumu ayrı kalır. Eşya sınırları ve dik şaftın zemin hareketi aynı ölçeği kullanır.

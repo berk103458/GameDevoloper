@@ -8003,7 +8003,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-09, UZM-08. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-16:** Muayene kesişen eşyayı listeler. (doğrulanmadı — Görev 22; karakter_muayene yardımcıları araçta çağrılmıyor, araç yalnız uyarı basıyor ve headless çalışmıyor)
+- [/] **SAH-16:** Muayene kesişen eşyayı listeler. (Kalfa — gerçek kemik ve eşya raporu)
   - Ne: araç, kemikle kesişen eşya türünü yazar. Liste ARY-05'e işlenir, model üretilmez.
   - Kabul: araç, kemikle kesişen eşya türünü yazar. Liste ARY-05'e işlenir, model üretilmez. Test: kasıtlı kesişim, raporda tür adı.
   - Bağımlılık: SAH-08, SAH-09. Boyut: S.
