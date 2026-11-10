@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-09 başlıyor (Kalfa)
+
+Festive 700545ab güncel. Gerçek karakterlerin sekiz mevcut el eşyası ve göğüs/uyluk kemiklerinin kesişimi ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-08 tamamlandı (Kalfa)
 
 Karakter muayenesi headless koşuda çizim karesi beklemeden mevcut karakterleri ve gerçek kliplerini örnekler. Model başına zemine göre en alçak ayak kemiği yüksekliğini hem JSON hem konsola yazar. Yuvarlamadan önce −8 cm altı hata sayılır. Görsel kipte mevcut temas sayfası kodu korunur. Hazır modeller aynı karakter listesinden alınır.
