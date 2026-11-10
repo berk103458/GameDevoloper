@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-18 sahipliği (Kalfa)
+
+- SAH-17 festive’de. Tablo süresini gerçek karakter oynatıcısına bağlayıp ilk yürüyüş karesinin duruşa yakınlığını kemiklerden ölçeceğim. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-17 canlı hız bantları (Kalfa)
 
 - `sahne.json` eşikleri gerçek `KarakterModel` oynatıcısında dur, yürü ve koş seçiyor. Hazır LOWPO koşusu mevcut UAL `Jog_Fwd_Loop` klibinden geliyor. Yüksek hızda koşu klibi için kaçış veya kovalama bağlamı gerekiyor. Tablo klibi bulunmayan modellerin mevcut güvenli klip yolu korunuyor.
