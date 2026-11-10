@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-15 tamamlandı (Kalfa)
+
+LOWPO yük boyutu model boyunun mevcut yetişkin referansına oranından gelir. Avuç konumu ayrı kalır. Eşya sınırları ve dik şaftın zemin hareketi aynı ölçeği kullanır.
+
+Aynı büyük sepet, gerçek 1,15 m çocuk ve 1,80 m yetişkin modelinde bekleme ve yürüyüş boyunca ölçüldü. İlk yük oranı 1,00000, model oranı 0,63889 idi. Son koşuda 180 karede yük oranı 0,63889 ve avuç farkı 0. El eşyası, hazır karakter, ekipman, yaş rolleri ve ayak zemini hedefleri geçti. İlk headless import çıkış 0, betik 0, üç MD5 hatası. Tekrarda çıkış 0, betik ve MD5 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-15 başlıyor (Kalfa)
 
 Festive ede43490 güncel. Mevcut çocuk ve yetişkin LOWPO modellerindeki aynı yükün gerçek boy oranı, avuç konumu ve yürüyüş boyunca ölçeği ölçülecek. Asset gerekmedi. kota görünmüyor.

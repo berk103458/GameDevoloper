@@ -41,6 +41,7 @@ var _ayak: AyakZemini
 var _tercih := Basis.IDENTITY
 var _sapta_kayabilir := false
 var _sap_kaymasi := 0.0
+var _yuk_olcegi := 1.0
 ## Dik eşya (asa, çapa): sallanmaz, avuçtan aşağı/yukarı uzanır.
 var dik := false
 
@@ -110,6 +111,8 @@ static func olustur(tur: String) -> ElEsyasi:
 ## Eşyayı karakterin bir eline bağlar (`sag` = true sağ el). Karakterin altına eklenir, el kemiğini izler.
 func bagla(govde: Node3D, iskelet: Skeleton3D, sag: bool, duzeltici: DurusDuzeltici = null) -> void:
 	_govde = govde
+	var hazir := govde as HazirKarakterModeli
+	_yuk_olcegi = cocuk_olcekle(hazir.boy / HazirKarakterModeli.YETISKIN_BOYU) if hazir != null else 1.0
 	_duzeltici = duzeltici
 	_iskelet = iskelet
 	_el = iskelet.find_bone("RightHand" if sag else "LeftHand")
@@ -146,7 +149,7 @@ func _sapi_kaydir(zemin: Callable) -> void:
 	if is_zero_approx(fark):
 		return
 	for parca: Node3D in get_children():
-		parca.position.y += fark
+		parca.position.y += fark / _yuk_olcegi
 	_sap_kaymasi = kayma
 
 
@@ -172,7 +175,7 @@ func _guncelle() -> void:
 	ileri.y = 0.0
 	ileri = ileri.normalized() if ileri.length() > 0.01 else Vector3.FORWARD
 	var yan := Vector3.UP.cross(ileri).normalized()
-	var taban := Basis(yan, Vector3.UP, -ileri)
+	var taban := Basis(yan, Vector3.UP, -ileri).scaled(Vector3.ONE * _yuk_olcegi)
 	global_position = avuc
 	_soket_hazir = true
 	var zemin := _zemin_olcer()

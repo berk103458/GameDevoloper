@@ -16,7 +16,7 @@ static func olustur(ad: String) -> KarakterModel:
 	if ad not in MODEL_ADLARI:
 		return null
 	var tur := "demirci" if ad == "lowpo_demirci" else "cocuk"
-	var boy := 1.8 if tur == "demirci" else 1.15
+	var boy := HazirKarakterModeli.YETISKIN_BOYU if tur == "demirci" else 1.15
 	var model := HazirSahneModeli.al("res://assets/karakter/lowpo/" + tur + ".gltf", Vector3(3, boy, 3), true)
 	if model == null:
 		return null

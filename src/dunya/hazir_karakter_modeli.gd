@@ -2,7 +2,9 @@
 class_name HazirKarakterModeli
 extends KarakterModel
 
-var boy := 1.8
+const YETISKIN_BOYU := 1.8
+
+var boy := YETISKIN_BOYU
 
 func kur(model: Node3D, ad: String = "") -> void:
 	super.kur(model, ad)
@@ -16,7 +18,7 @@ func kur(model: Node3D, ad: String = "") -> void:
 
 # UAL yürüyüş döngüsünde temas eden ayağın geriye doğru taban hızı (m/s).
 func _yuruyus_taban_hizi() -> float:
-	return 0.405 * boy / 1.8
+	return 0.405 * boy / YETISKIN_BOYU
 
 func dur() -> void:
 	_bekleme_hedef = 1.0

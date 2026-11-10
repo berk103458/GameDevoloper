@@ -58,6 +58,7 @@ func _calistir() -> void:
 	gecti = (await _konusma_soketi("chr_005", "heybe", true)) and gecti
 	gecti = (await _konusma_soketi("ciftci", "odun", false)) and gecti
 	gecti = (await _kapi_koy_yuku()) and gecti
+	gecti = (await _cocuk_yuku()) and gecti
 	print("EL EŞYASI TEMASI: GEÇTİ" if gecti else "EL EŞYASI TEMASI: KALDI")
 	await root.get_node("Ses").cik(0 if gecti else 1)
 
@@ -354,6 +355,45 @@ func _yuk_soketi(figur: KarakterModel, tur: String) -> String:
 	if esya == null or not esya.soket_dolu_mu() or esya._el < 0:
 		return ""
 	return esya._iskelet.get_bone_name(esya._el)
+
+
+func _cocuk_yuku() -> bool:
+	var yetiskin := Dunya3B.karakter("lowpo_demirci")
+	var cocuk := Dunya3B.karakter("chr_006")
+	yetiskin.position.x = -3.0
+	cocuk.position.x = 3.0
+	root.add_child(yetiskin)
+	root.add_child(cocuk)
+	var yetiskin_iskelet := yetiskin.find_children("*", "Skeleton3D", true, false)[0] as Skeleton3D
+	var yetiskin_yuku := ElEsyasi.olustur("sepet_buyuk")
+	yetiskin.add_child(yetiskin_yuku)
+	yetiskin_yuku.bagla(yetiskin, yetiskin_iskelet, true, yetiskin.duzeltici())
+	var cocuk_yuku := cocuk.get_node("esya_sepet_buyuk") as ElEsyasi
+	var cocuk_iskelet := cocuk_yuku._iskelet
+	var yetiskin_boyu := Dunya3B.boyut(yetiskin.get_child(0)).y
+	var cocuk_boyu := Dunya3B.boyut(cocuk.get_child(0)).y
+	var oran := cocuk_boyu / yetiskin_boyu
+	var kutu := Dunya3B.boyut(yetiskin_yuku)
+	var cocuk_kutu := Dunya3B.boyut(cocuk_yuku)
+	var olcum := {"fark": 0.0}
+	cocuk_iskelet.skeleton_updated.connect(func() -> void:
+		var avuc := _avuc_noktasi(cocuk, cocuk_iskelet, cocuk_yuku)
+		olcum.fark = maxf(olcum.fark, avuc.distance_to(cocuk_yuku.global_position))
+	)
+	var en_az := INF
+	var en_cok := 0.0
+	for i in 180:
+		if i == 30:
+			yetiskin.yuru(yetiskin.position + Vector3(0.0, 0.0, 2.5), 1.35)
+			cocuk.yuru(cocuk.position + Vector3(0.0, 0.0, 2.5), 1.35)
+		await process_frame
+		var yuk_orani := cocuk_kutu.y * cocuk_yuku.global_basis.y.length() / (kutu.y * yetiskin_yuku.global_basis.y.length())
+		en_az = minf(en_az, yuk_orani)
+		en_cok = maxf(en_cok, yuk_orani)
+	print("SAH-15 sepet: model=%.5f, yük=%.5f..%.5f, avuç farkı=%.5f m" % [oran, en_az, en_cok, olcum.fark])
+	yetiskin.free()
+	cocuk.free()
+	return oran > 0.5 and oran < 0.8 and absf(en_az - oran) <= 0.001 and absf(en_cok - oran) <= 0.001 and olcum.fark <= 0.001
 
 
 func _esya_kutulari_kesisir(sag: Array, sol: Array) -> bool:
