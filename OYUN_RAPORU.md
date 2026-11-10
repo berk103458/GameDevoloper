@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-13 başlıyor (Kalfa)
+
+Festive 7f98708c güncel. Mevcut kapı konuşma klibi üç saniye ölçülecek. Klipsiz gerçek modelde bekleme ve aynı eşya soketi denetlenecek. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-12 tamamlandı (Kalfa)
 
 İçe alınmış birleşik meshlerin AABB testi gerçek üçgen yüzey sorgusuyla doğrulanır. Kutu içinde kalan iki uç için korumalı kontrol sürer. İlkel meshler mevcut sınır kontrolünü kullanır. Dönüş aralığı ve iki elin ayrı avuçları korunur.
