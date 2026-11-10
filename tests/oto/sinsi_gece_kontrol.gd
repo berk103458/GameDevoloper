@@ -16,12 +16,14 @@ func _ready() -> void:
 	var y := ana.oturum.yonetim
 	var k := y.kabul({"sinif": "ciftci", "stat": 5})
 	k.gizli_egilim = {"tur": "haydut"}
+	k.zanaat_turu = ZanaatTuru.Tur.DEMIRCI
+	k.portre = "farmer_01"
 	var guard := y.kabul({"sinif": "asker", "stat": 5})
 	guard.is_yeri = KoyYonetimi.MUHAFIZ
 	var normal := y.kabul({"sinif": "ciftci", "stat": 5})
-	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
 	ana._koye_git()
 	await get_tree().process_frame
+	var once := JSON.stringify(ana.oturum.kaydet())
 	var s: KoyYonetimSahnesi = ana._ekran.sahne3b
 	var h := s.halk_hareketi
 	h.set_process(false)
@@ -29,6 +31,8 @@ func _ready() -> void:
 	for i in 3: h._process(0.0)
 	var d: Dictionary = h._durum[k.id]
 	var f: KarakterModel = h.modeller[k.id]
+	var kosu_klibi := HareketGecisi.tablo_klibi("kos")
+	kontrol(f._oynatici.has_animation(kosu_klibi) and f.hareket_bandi() != "kos", "Kuytu rutini koşu klibi bulunan modelde yürür")
 	kontrol(d.sinsi and not d.ates_basi and not d.is, "Gece kuytu, ateş ve iş kapalı")
 	kontrol(h._durum[guard.id].devriye and not h._durum[guard.id].sinsi, "Nöbetçi rutini korunur")
 	kontrol(not h._durum[normal.id].sinsi and h._durum[normal.id].ates_basi, "Normal köylü ateşe gider")
@@ -48,6 +52,12 @@ func _ready() -> void:
 	for i in 3: h._process(0.0)
 	kontrol(not d.yol.is_empty() and d.yol[-1].distance_to(ilk) >= float(SinsiGeceRutini.AYAR.yer_degistirme) - 0.5, "Aynı bütçeli A* kuyruğunda yön değişir")
 	kontrol(not SinsiGeceRutini.tehdit(h, k.id), "Güvenli kaçış hedefi yeniden planlama döngüsü oluşturmaz")
+	kontrol(f.hareket_bandi() == "kos" and f._oynatici.current_animation == kosu_klibi, "Yakın nöbetçiden mevcut kaçış rotası gerçek koşu klibini açar")
+	g.position = ilk + Vector3(0, 0, 24)
+	while int(d.adim) + 1 < d.yol.size() and f.hareket_bandi() == "kos":
+		f.position = d.yol[d.adim]
+		h._process(0.0)
+	kontrol(f.hareket_bandi() == "yuru", "Nöbetçi uzaklaşınca aynı rota yürüyüşe döner")
 	kontrol(JSON.stringify(ana.oturum.kaydet()) == once, "Rota stok/kayıt/RNG ve suç hesabı değiştirmez")
 	await _goruntu(s, f, "ani10_gece.png")
 	guard.is_yeri = KoyYonetimi.BOSTA

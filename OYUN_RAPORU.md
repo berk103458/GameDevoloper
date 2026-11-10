@@ -1,3 +1,10 @@
+## 2026-11-10 — SAH-19 mevcut gece kaçışı ve devriye (Kalfa)
+
+- ANI-10 tehdit yeniden planlaması, yakın nöbetçiden uzaklaşan mevcut güvenli rotada `kacis` bağlamını veriyor. Koşu alt eşiği sahne tablosundan geliyor. Açlık ve hava çarpanları uygulanıyor. Muhafız uzaklaşınca yürüyüş geri geliyor. Rota niyeti geçici, kayıt şemasına yazılmıyor.
+- Gerçek LOWPO koşu klibi gece kaçışında görüldü. Olağan kuytu rutini yürüdü ve muhafızın kapı/kışla/sur devriyesinde koşu seçimi 0. İki sahne testinin kayıt referansı köy girişinin sonrasına taşındı. Önceki fark yalnız OGR ilk görüşünün `ogretici` alanıydı. Köy açıldıktan sonra kayıt karşılaştırması iki sahnede de eşit.
+- Gerçek oynatıcı `kovalama` bağlamını hedefli testte kabul ediyor. Kaynakta bağlanabilecek canlı kovalama tetikleyicisi bulunmadı. ROADMAP maddesi bu kanıt gelene kadar açık. ZAR-03 ve Söz beklemede. Altı hedef geçti. Tekrar headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor.
+- Asset gerekmedi. Sonraki bağımsız adım SAH-20. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-19 sahipliği (Kalfa)
 
 - SAH-18 festive’de. Mevcut devriye ve gece kaçış yolunu canlı oynatıcı üzerinden inceleyeceğim. Ek devriye testinde değişiklik öncesinden gelen kayıt karşılaştırması da araştırılacak. Kota görünmüyor.

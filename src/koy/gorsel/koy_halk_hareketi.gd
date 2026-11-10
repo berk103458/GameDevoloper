@@ -89,6 +89,7 @@ func _iste(id: int) -> void:
 	f.yurumeyi_durdur()
 	f.calis(&"")
 	_durum[id].yol = []
+	_durum[id].sinsi_kacis = false
 	_durum[id].bekle = 0.0
 
 func _process(delta: float) -> void:
@@ -301,7 +302,13 @@ func _planla(id: int) -> void:
 
 func _adim(id: int) -> void:
 	var fark := sin(float(id) * 2.4) * float(_ayar.hiz_farki)
-	modeller[id].yuru(_durum[id].yol[_durum[id].adim], float(_ayar.yurume_hizi) * (1.0 + fark) * KarakterHavaTepkisi.hiz(sahne.yonetim) * SinsiGeceRutini.hiz(_durum[id]) * preload("res://src/koy/aclik_kademesi.gd").yurume(sahne.yonetim.koylu(id)))
+	var d: Dictionary = _durum[id]
+	var durum := SinsiGeceRutini.hareket_baglami(self, id)
+	var hiz := float(_ayar.yurume_hizi) * (1.0 + fark) * SinsiGeceRutini.hiz(d)
+	if durum == &"kacis":
+		hiz = maxf(hiz, HareketGecisi.kosu_taban_hizi())
+	hiz *= KarakterHavaTepkisi.hiz(sahne.yonetim) * preload("res://src/koy/aclik_kademesi.gd").yurume(sahne.yonetim.koylu(id))
+	modeller[id].yuru(d.yol[d.adim], hiz, durum)
 
 func _konum(h: Vector2i) -> Vector3:
 	return sahne.alan_merkezi(h, Vector2i.ONE)

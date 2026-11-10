@@ -8024,7 +8024,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-17. Boyut: M.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-19:** Koşu yalnız kovalama ve kaçışta açılır. (Kalfa — canlı devriye ve mevcut kaçış yolu)
+- [ ] **SAH-19:** Koşu yalnız kovalama ve kaçışta açılır. (Kalfa — devriye ve ANI-10 kaçışı doğrulandı; canlı kovalama tetikleyicisi bekliyor)
   - Ne: günlük devriye yürür. Koşu, mevcut kaçış ve kovalama olayına bağlıdır. Yeni bir koşu hali yazılmaz.
   - Kabul: günlük devriye yürür. Koşu, mevcut kaçış ve kovalama olayına bağlıdır. Yeni bir koşu hali yazılmaz. Test: devriyede koşu klibi 0.
   - Bağımlılık: ANI-02, SAH-17. Boyut: S.

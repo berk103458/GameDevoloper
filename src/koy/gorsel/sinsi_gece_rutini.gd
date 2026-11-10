@@ -78,7 +78,19 @@ static func guncelle(h: KoyHalkHareketi, id: int, delta: float) -> bool:
  if d.sinsi_bekle < float(AYAR.yeniden_planlama) or not tehdit(h, id): return false
  d.sinsi_bekle = 0.0
  h._iste(id)
+ d.sinsi_kacis = true
  return true
 ## Mevcut yürüyüş hızına yalnız görsel çarpan.
 static func hiz(d: Dictionary) -> float:
  return float(AYAR.hiz) if d.get("sinsi", false) else 1.0
+
+## Koşu izni yalnız yakın nöbetçiden uzaklaşan mevcut kuytu rotasındadır.
+static func hareket_baglami(h: KoyHalkHareketi, id: int) -> StringName:
+ var d: Dictionary = h._durum[id]
+ if not d.get("sinsi_kacis", false) or not d.get("sinsi", false) or d.yol.is_empty(): return &""
+ var p: Vector3 = h.modeller[id].position
+ var son: Vector3 = d.yol[-1]
+ var mesafe := float(AYAR.muhafiz_mesafesi)
+ for n in nobetciler(h):
+  if p.distance_to(n) < mesafe and son.distance_to(n) > mesafe: return &"kacis"
+ return &""

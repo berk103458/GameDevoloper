@@ -37,6 +37,9 @@ func _calistir() -> void:
 	gecti = gecti and secilen_bantlar == PackedStringArray(["dur", "yuru", "kos"])
 	var kos := oynatici.get_animation(klipler.kos)
 	gecti = gecti and kos != null and kos != oynatici.get_animation(klipler.yuru) and kos.get_track_count() >= 17
+	figur.yurumeyi_durdur()
+	figur.yuru(hedef, kosu_hizi, &"kovalama")
+	gecti = gecti and figur.hareket_bandi() == "kos" and oynatici.current_animation == klipler.kos
 	figur.yuru(hedef, kosu_hizi)
 	gecti = gecti and figur.hareket_bandi() == "yuru" and oynatici.current_animation == klipler.yuru
 	figur.yurumeyi_durdur()

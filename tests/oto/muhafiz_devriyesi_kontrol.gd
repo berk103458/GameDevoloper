@@ -35,9 +35,9 @@ func _ready() -> void:
 		return
 	y.sur_seviye = 1
 	kontrol(y.ata(k.id, b.id), "Kışla görevlisi")
-	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
 	ana._koye_git()
 	await get_tree().process_frame
+	var once := JSON.stringify(ana.oturum.kaydet())
 	var s: KoyYonetimSahnesi = ana._ekran.sahne3b
 	var h := s.halk_hareketi
 	h.set_process(false)
@@ -54,6 +54,7 @@ func _ready() -> void:
 		var d: Dictionary = h._durum[k.id]
 		adlar[d.devriye_ad] = true
 		while int(d.adim) < d.yol.size():
+			kontrol(f.hareket_bandi() != "kos" and f._oynatici.current_animation != HareketGecisi.tablo_klibi("kos"), "Devriye koşu bandı ve klibini kullanmaz")
 			f.position = d.yol[d.adim]
 			h._process(0.0)
 		f.yurumeyi_durdur()
