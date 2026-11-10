@@ -5487,7 +5487,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: DIY-12, SOY-12. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-15:** Histeri kamuoyundan beslenir (KRI-08 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-15:** Histeri kamuoyundan beslenir (KRI-08 ile bağ). (Cursor)
   - Ne: `BatilInancHisterisi` yanlış söylentileri (`dogru=false`) kamuoyu konusu olunca ek tetik sayar; histeri motoru değişmez, yalnız girdi kaynağı genişler.
   - Kabul: yanlış kamuoyu konusu histeri sayacına +1. Test: KRI-08 birimi.
   - Bağımlılık: KRI-08, SOY-05. Boyut: S.

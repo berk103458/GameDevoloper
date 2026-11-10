@@ -99,6 +99,15 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 	y.set_meta(META, d)
 	if bekliyor(y): olaylar.append({"anahtar": "Haksız söylenti yayılıyor: masum bir komşu hedef alındı. Histeri %d/3; koruma ve gerçek sebebi açıklama gerekli.", "deger": [x.seviye]})
 
+## SOY-15: kamuoyuna dönen yanlış söylenti açık vakanın histerisini artırır;
+## vaka yoksa yeni hedef seçmez, motorun kriz/hedef kuralı aynı kalır.
+static func soylenti_tetigi(y: KoyYonetimi, adet: int) -> bool:
+	if adet <= 0 or not bekliyor(y): return false
+	var d := durum(y)
+	d.vaka.seviye = mini(3, int(d.vaka.seviye) + adet)
+	y.set_meta(META, d)
+	return true
+
 ## Histeri gerçek çözüme güveni aşındırır; hedefin kendi/toplumsal grubunun
 ## oyunu önyargı lehine zorlamaz. Meclise sürgün seçeneği eklenmez.
 static func oy_cezasi(y: KoyYonetimi, k: Koylu) -> int:

@@ -82,6 +82,7 @@ static func gece(o: Object, r: Dictionary) -> void:
 	var a: RefCounted = ag(o)
 	var y: KoyYonetimi = o.yonetim
 	var once := int(a.bar_degisimi_toplam)
+	var histeri_once := int(a.histeri_tetik_sayisi)
 	var onceki_kamuoyu := {}
 	for id in a.ag_kayitlari:
 		if bool(a.ag_kayitlari[id].get("kamuoyu_oldu", false)):
@@ -91,8 +92,11 @@ static func gece(o: Object, r: Dictionary) -> void:
 	var fark := int(a.bar_degisimi_toplam) - once
 	if fark != 0:
 		o._herkese_moral(fark * o.KOPRU_MORAL)
+	var histeri := FisiltiGazetesi.HISTERI.soylenti_tetigi(y, int(a.histeri_tetik_sayisi) - histeri_once)
 	if not r.get("olaylar") is Array:
 		return
+	if histeri:
+		r.olaylar.append({"anahtar": "Yanlış bir söylenti köyün diline düştü; histeri %d/3.", "deger": [FisiltiGazetesi.HISTERI.durum(y).vaka.seviye]})
 	var kaliplar: Dictionary = a.veri_yapilandirma.get("soylenti_kaliplari", {})
 	for id in a.ag_kayitlari:
 		var k: Dictionary = a.ag_kayitlari[id]

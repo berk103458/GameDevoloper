@@ -139,3 +139,18 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - Çağrı zinciri: SOY-01/02/05 zinciri (kapı kararı → gece sonu → ağ). Ağ oyun RNG'sini tüketmez; bozulma zarı olay + bozan + gece karmasıdır.
 - Test: yeni `tests/unit/sistemler/soylenti_ikiz_test.gd`. Aynı tohumla iki gerçek koşu, 31 kişi, 6 gece; gece gece ağ kaydı birebir eşit.
 - Bozma kanıtı: zara `randi()` karıştırılınca `KALDI (1 hata)`.
+
+### SOY-15
+
+- Çağrı zinciri: `Oturum.gece_sonu` → `SoylentiKoprusu.gece` → `SoylentiAgi.gece_ilerlet`. Yanlış kayıt (SOY-05 kopyası) kamuoyu olunca `histeri_tetik_sayisi` artar.
+  - Köprü artışı `BatilInancHisterisi.soylenti_tetigi(y, adet)` okuyucusuna verir. Açık vaka varsa seviye +1 (en çok 3) ve sabah raporuna satır düşer.
+  - Vaka yoksa yeni hedef seçilmez; histeri motorunun kriz/hedef kuralı aynı kalır.
+  - Seviye histeri durumunda saklandığı için kayıttan döner.
+- Test: yeni `tests/unit/sistemler/soylenti_histeri_test.gd` → GEÇTİ.
+  - Kirli kuyu vakası 1/3 iken yanlış kamuoyu 2/3 yapıyor ve rapor satırı çıkıyor.
+  - Doğru kamuoyu 1/3'te kalıyor. Vakasız köyde hedef seçilmiyor.
+- Bozma kanıtı: köprü çağrısı 0 adetle verilince `KALDI (3 hata)`, ağdaki sayaç kapatılınca `KALDI (3 hata)`.
+- Önceden kırmızı, ilgisiz (değişiklik saklanarak aynı sonuç alındı):
+  - `tests/unit/kvr/batil_inanc_histerisi_test.gd` → "Gerçek Dudu/Şifahane kapasitesi".
+  - `tests/oto/batil_inanc_histerisi_kontrol.gd:51` → Nil `id`.
+- Açık kalan: vaka yokken yanlış kamuoyu kendi başına histeri başlatmaz; bunun için motorda yeni bir sebep gerekir.
