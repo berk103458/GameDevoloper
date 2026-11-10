@@ -2156,6 +2156,7 @@ koy.sancak.ulak_dinle,Teftiş haberini al,Acknowledge the audit report
 koy.sancak.ulak_sonuc,Ulak haberi iletip ayrıldı.,The messenger delivered the news and left.
 koy.sancak.temiz,Sancak müfettişi teftişi: gizli kasada suç isnadını destekleyen içerik ve yozlaşma birlikte bulunmadı. Görev sürüyor.,Sanjak inspector audit: no incriminating stash contents and corruption were found together in the hidden chest. Duty continues.
 koy.sancak.bulunamadi,Sancak müfettişi teftişi: gizli kasa bu kez bulunamadı. Geçmiş yozlaşma ve kasa içeriği değişmedi.,Sanjak inspector audit: the hidden chest was not discovered this time. Past corruption and chest contents remain unchanged.
+koy.sancak.soylenti_sorusu,"Müfettiş, köyde dilden dile dolaşan kapı rüşvetini de sordu.","The inspector also asked about the gate bribe the village keeps talking about."
 koy.sancak.idam,Sancak müfettişi gizli kasayı buldu. Ağır yozlaşma nedeniyle muhafız hakkında idam hükmü verildi.,"The Sanjak inspector uncovered the hidden chest. Due to severe corruption, the gatekeeper was sentenced to execution."
 koy.sancak.azil,Sancak müfettişi gizli kasayı buldu. Muhafız görevden azledildi.,The Sanjak inspector uncovered the hidden chest. The gatekeeper was dismissed from duty.
 koy.sancak.son_azil_baslik,Muhafız azledildi,Gatekeeper Dismissed

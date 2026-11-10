@@ -118,6 +118,17 @@ static func meclis_sikayeti(o: Object) -> String:
 	return MeclisSesi.sikayet_metni(String(adlar.get(String(konu.tur), konu.tur)), k.ad)
 
 
+## SOY-22: kamuoyu olmuş tanıklı rüşvet teftiş gecesinde müfettişin sorusu olur; her olay bir kez sorulur.
+static func teftis(o: Object, d: Dictionary) -> void:
+	if not o.has_meta(META):
+		return
+	var a: RefCounted = ag(o)
+	if a.teftis_sorulari.is_empty():
+		return
+	d["soylenti_sorusu"] = a.teftis_sorulari.size()
+	a.teftis_sorulari.clear()
+
+
 ## SOY-29: defterin Söylenti sayfası canlı ağ kayıtlarıdır; olay oyuncu dilinde, kaynak köydeki adıyla.
 static func defter_satirlari(o: Object) -> Array:
 	var satirlar: Array = []

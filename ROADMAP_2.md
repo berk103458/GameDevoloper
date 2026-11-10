@@ -5532,7 +5532,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: CAS-07, SAB-04. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-22:** Rüşvetin söylentisi oda kasasına bakar. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-22:** Rüşvetin söylentisi oda kasasına bakar. (Cursor)
   - Ne: tanıklı rüşvet (DIY-13 kural) kamuoyu olunca sancak teftişi (`sancak_teftisi.gd`) o olayı sorar; teftiş yeniden kurulmaz, soru listesine girdi.
   - Kabul: rüşvet kamuoyu + teftiş → soru 1. Test: birim.
   - Bağımlılık: SOY-12, ODA. Boyut: S.

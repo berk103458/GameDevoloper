@@ -107,3 +107,16 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - Test: `soylenti_meclis_kontrol.tscn`. Kartta "Sözü: konuşkan" görünüyor; güvenilirlik 3 olunca "Sözü: ağzı sıkı", sayı yok. Kart okuması oturuma ağ yazmıyor.
 - Bozma kanıtı: kart satırı silinince `KALDI (2 hata)`. `koylu_karti_kontrol` yeşil.
 - Not: güvenilirliğin oyunda değişmesi (SOY-07/09/11) hâlâ açık. Bugün herkes "konuşkan" görünür.
+
+### SOY-22
+
+- Çağrı zinciri: `Oturum.gece_sonu` → `SancakTeftisi.gece` → `SoylentiKoprusu.teftis(o, d)`.
+  - Kamuoyu olmuş tanıklı rüşvet varsa makbuza `soylenti_sorusu` yazılır ve soru listesi boşalır; her olay bir kez sorulur.
+  - Sabah kartı `SancakTeftisi.olay_metin` metne `koy.sancak.soylenti_sorusu` cümlesini ekler (metinler.csv'ye tek anahtar).
+  - Teftiş yeniden kurulmadı; `oku()` yeni alanı güvenli okur.
+- Test: yeni `tests/unit/sistemler/soylenti_teftis_test.gd` → GEÇTİ.
+  - 6. gece teftişinde kamuoyu yok, soru 0. 11. gece teftişinde soru 1 ve sabah metninde görünüyor.
+  - Soru kayıttan dönüyor; ikinci kez sorulmuyor.
+- Bozma kanıtı: teftiş kancası silinince `KALDI (4 hata)`, metin eki silinince `KALDI (1 hata)`.
+- Yeşil kalanlar: `sancak_teftis_kontrol`, `sancak_teftisi_test`, `koy_hud_kontrol`.
+- Önceden kırmızı (stash ile doğrulandı, ilgisiz): `tests/oto/muhafiz_epilogu_kontrol` (satır 33 assert) ve `tests/unit/kvr/sancak_kayit_slotu_test` ("Yüklenen kişisel kasa gerçek gece teftişinde bulunur").

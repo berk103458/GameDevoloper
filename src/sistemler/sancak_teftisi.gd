@@ -15,6 +15,8 @@ static func oku(v: Variant) -> Dictionary:
  if v.get("sonuc","") in ["temiz","bulunamadi",String(SON_AZIL),String(SON_IDAM)]: d.sonuc=v.sonuc
  d.bulundu=v.get("bulundu") is bool and v.bulundu
  if v.get("ulak_bildirdi", false) == true: d.ulak_bildirdi=true
+ var soru: Variant=v.get("soylenti_sorusu")
+ if (soru is int or soru is float) and is_finite(float(soru)) and floor(float(soru))==float(soru) and float(soru)>0 and float(soru)<=1000: d.soylenti_sorusu=int(soru)
  var zar: Variant=v.get("zar")
  if (zar is int or zar is float) and is_finite(float(zar)) and floor(float(zar))==float(zar) and float(zar)>=0 and float(zar)<int(AYAR.zar_cozunurlugu): d.zar=int(zar)
  return d
@@ -41,11 +43,16 @@ static func gece(o: Oturum,r: Dictionary) -> void:
   if d.bulundu:
    o.yonetim.son=String(d.sonuc)
    r.son=o.yonetim.son
+ SoylentiKoprusu.teftis(o, d)
  o.sancak_teftisi=d
  r.olaylar.append({"anahtar":&"koy.olay.sancak_teftisi","deger":[],"sancak_teftisi":d.duplicate(true)})
 
 ## Aynı sabah kartının olay metni; içerik ikinci kasaya veya Clue'a dönüştürülmez.
 static func olay_metin(d: Dictionary) -> String:
+ var soru:="" if int(d.get("soylenti_sorusu",0))<=0 else " "+TranslationServer.translate("koy.sancak.soylenti_sorusu")
+ return _sonuc_metni(d)+soru
+
+static func _sonuc_metni(d: Dictionary) -> String:
  match String(d.sonuc):
   "temiz": return TranslationServer.translate("koy.sancak.temiz")
   "bulunamadi": return TranslationServer.translate("koy.sancak.bulunamadi")
