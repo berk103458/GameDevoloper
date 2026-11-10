@@ -10,6 +10,7 @@ func _dene() -> void:
 	var katalog := Katalog.new()
 	katalog.yukle()
 	var o := Oturum.new(katalog, 21)
+	preload("res://src/sistemler/oturum_fazi.gd").ayarla(o, "koy")
 	var y := o.yonetim
 	# ANI-10 (sinsi gece): uyumsuz meslek sabotaj riski doğurup gece hedefini değiştirir. Bu test
 	# yalnız genel iş/dinlenme/gece-eve-dönüş döngüsünü sınadığı için zanaat türü nötr (belirsiz) seçilir.
@@ -44,6 +45,8 @@ func _dene() -> void:
 	var bas := f.position
 	await get_tree().create_timer(0.5).timeout
 	_kontrol(f.position.distance_to(bas) > 0.1, "Köylü işyerine yürüyor")
+	_kontrol(f.hareket_bandi() == "yuru", "SAH-31: Kayıt sırasında gerçek yürüyüş var")
+	await _karisim_kaydini_dene(o, katalog, k.id)
 	var kimlik := f.get_instance_id()
 	var konum := f.position
 	s.yenile()
@@ -73,6 +76,67 @@ func _dene() -> void:
 	await get_tree().process_frame
 	print("KÖY HAREKET TEST: %s (%d hata)" % ["GEÇTİ" if _hata == 0 else "KALDI", _hata])
 	get_tree().quit(_hata)
+
+func _karisim_kaydini_dene(oturum: Oturum, katalog: Katalog, id: int) -> void:
+	var dosya := GuvenliKayit.new("user://test_sah31_%d.json" % Time.get_ticks_usec())
+	var yazildi := dosya.yaz(oturum.kaydet())
+	var eski := dosya.oku()
+	_kontrol(yazildi and not eski.is_empty() and _karisim_alanlari_yok(eski), "SAH-31: Gerçek diskte hareket/karışım alanı yok")
+	if not yazildi or eski.is_empty():
+		dosya.sil()
+		return
+	eski["surum"] = 2
+	eski.erase("muhafiz_esyalari")
+	eski.erase("muhafiz_tecrubesi")
+	eski["klip_agirligi"] = {"kos": 1.0}
+	var kisi: Dictionary = eski["koy_yonetimi"]["koylular"][0]
+	kisi["karisim_katmani"] = {"kos": 1.0}
+	kisi["hareket_bandi"] = "kos"
+	var eski_yazildi := dosya.yaz(eski)
+	var okunan := dosya.oku()
+	var yeniden := Oturum.kayittan(katalog, okunan) if eski_yazildi else null
+	_kontrol(yeniden != null and int(okunan.get("surum", 0)) == 2 and dosya.oku() == okunan, "SAH-31: Gerçek v2 dosyası yerinde kalır ve göç yüklemede yapılır")
+	dosya.sil()
+	if yeniden == null:
+		return
+	var kayit := yeniden.kaydet()
+	var goc: Dictionary = kayit["kayit_gocu_bildirimi"]
+	_kontrol(goc.get("kaynak") == 2 and goc.get("hedef") == Oturum.KAYIT_SURUMU and kayit.faz == "koy", "SAH-31: KAY-03 bildirimi ve köy fazı")
+	_kontrol(_karisim_alanlari_yok(kayit), "SAH-31: Yeniden yazılan kayıtta eski görsel alanlar yok")
+	var sahne := KoyYonetimSahnesi.new()
+	sahne.yonetim = yeniden.yonetim
+	add_child(sahne)
+	var halk := sahne.halk_hareketi
+	halk.set_process(false)
+	var figur: KarakterModel = halk.modeller.get(id)
+	_kontrol(figur != null and figur.hareket_bandi() == "dur", "SAH-31: Yeni aktör eski kayıttaki koşu bandını almaz")
+	if figur != null:
+		for i in 3:
+			halk._process(0.0)
+		var bas := figur.position
+		_kontrol(figur.hareket_bandi() == "yuru" and figur._oynatici.current_animation == figur._anim, "SAH-31: Gerçek rota bandı ve klibi hızdan kurar")
+		_kontrol(_karisim_alanlari_yok(yeniden.kaydet()), "SAH-31: Yeni yürüyüşe giriş de kayıttan ayrı")
+		if figur._yurume != null:
+			figur._yurume.pause()
+			figur._yurume.custom_step(0.15)
+		var ilerleme := figur.position.distance_to(bas)
+		_kontrol(ilerleme > 0.05, "SAH-31: Yüklenen köylü gerçek rotada ilerler")
+		print("SAH-31 v%d→v%d, yüklenen bant=%s, kök ilerlemesi=%.5f m" % [goc.get("kaynak", 0), goc.get("hedef", 0), figur.hareket_bandi(), ilerleme])
+	sahne.queue_free()
+	await get_tree().process_frame
+
+
+func _karisim_alanlari_yok(deger: Variant) -> bool:
+	if deger is Dictionary:
+		for anahtar in deger:
+			if str(anahtar) in ["klip_agirligi", "karisim_katmani", "hareket_bandi"] or not _karisim_alanlari_yok(deger[anahtar]):
+				return false
+	elif deger is Array:
+		for oge in deger:
+			if not _karisim_alanlari_yok(oge):
+				return false
+	return true
+
 
 func _kontrol(olur: bool, mesaj: String) -> void:
 	if not olur:

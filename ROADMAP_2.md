@@ -8099,7 +8099,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-09, SAH-26. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-31:** Karışım kayda yazılmaz. (Kalfa — gerçek kayıt göçü ve hareket bandı)
+- [x] **SAH-31:** Karışım kayda yazılmaz. (Kalfa — gerçek v2→v3 dosyası ve yüklemede yürüyüş bandı)
   - Ne: KAY göçü klip ağırlığı tutmaz. Yüklemede bant, hızdan yeniden kurulur.
   - Kabul: KAY göçü klip ağırlığı tutmaz. Yüklemede bant, hızdan yeniden kurulur. Test: kayıtta ağırlık alanı yok.
   - Bağımlılık: KAY-03, SAH-17. Boyut: S.

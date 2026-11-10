@@ -1,3 +1,9 @@
+## 2026-11-10 — SAH-31 animasyon karışımı ve kayıt (Kalfa)
+
+- Gerçek yürüyüş sırasında `GuvenliKayit` ile diske yazılan JSON’da karışım ağırlığı, katman ve hız bandı alanları yok. Test kopyası v2 şeması ve görsel alan işaretleriyle yüklenince KAY-03 göçü v3 oturumu kurdu. Eski dosya değişmedi, yeniden kayda işaretler taşınmadı.
+- Yeni köy sahnesinde aktör duruşta kuruldu, gerçek rota onu `yuru` bandına ve kaynak yürüyüş klibine geçirdi. 0,15 saniyede kök ilerlemesi 0,26432 m. Köy hareketi, KAY-04 ve hareket geçişi hedefleri geçti. Ek başarısız göç menüsü davranışı geçti ve exit 0 verdi, kapanışta kaynak/RID sızıntısı bildirildi. Headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor.
+- Asset gerekmedi. Sonraki adım SAH-32. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-31 sahipliği (Kalfa)
 
 - KAY-03 ve SAH-17 hazır. Gerçek kayıt dosyası, v2 göçü ve yeniden kurulan köyde hareket bandı test edilecek. Kota görünmüyor.
