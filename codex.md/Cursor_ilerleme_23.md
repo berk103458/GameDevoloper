@@ -367,3 +367,23 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - **AYR-41:** Gece başı FPS ölçümü yalnız TEK-10 `PerformansGunlugu`nda var, o da yalnız debug yapıda ya da `--perf-log` ile açılıyor.
   - Normal oyuncu için üç gece ortalaması üretilmiyor. Yayın yapısında yeni bir ölçüm hattı açmak ayrı tasarım kararı.
 - **HAN-13, HAN-34:** İkisi de ACL-03 akşam sohbetinin dalları. `AksamSohbeti` oyunda hiçbir yerden açılmıyor, akşam sohbeti sahnesi yok. Dalı bağlanacak ana sahne olmadığı için açık kaldı.
+
+### (d) Diğer açık ROADMAP_2 maddeleri — alınmadı
+
+- **GRV-02, GRV-32 … GRV-63, YAP-55:** hepsi ARY-02 tema kaynağına bağlı. ARY-02 açık ve ARY-01 seçimini bekliyor. Önceki Cursor'un GRV-34/36/38 `[/] yarım` kayıtları da bu yüzden duruyor.
+- **DEN-37, DEN-38:** ACL-02'ye bağlı, ACL-02 testx'in `[/]` maddesi.
+- **OGR-23, OMR-33:** boş gün KAP-16'ya bağlı, KAP-16 testx'in `[/]` maddesi.
+- **OGR-39:** akşam sohbeti (ACL-03) oyunda açılmıyor.
+- **ISG-39:** SOY-34'e bağlı; iş kazası/ücret söylentisi türü yok.
+- **KAP-18, YAP-03, YAP-06, DNY-01 … 04:** "Kalfa bekleniyor".
+- **OGR-43, OGR-57, OMR-55, KLT-25:** kapanış ve persona koşuları; tam koşu istiyorlar, Görev 23'te tam sanity yasak.
+- **KLT-13/14/18/46/47/50/57, ARY-03/04/70:** süreç ve belge maddeleri, ya da ARY-02'ye bağlı. Kabulleri oyun dışı yazım hattında; alınmadı.
+
+### Kalan riskler
+
+- **SOY-39 yoğunluk:** 30 gecede canlı söylenti 10, kamuoyu 8, yanlış oranı 0.58; öneri hedeflerin üstünde. Sebep SOY-05 kopyalarının çoğalması. Denge kararı Claude/Muharrir'de.
+- **Görev 22'den önce [x] kalmış YIL-03/04/06/07/08:** artık gerçekten oyunda (`YilIziGecesi` aynı `satir` çağrısını yapıyor). Yine de oyun içi testte doğrudan sınananlar yalnız ilkbahar, yaz, güz sofrası ve kış-tarla.
+- **YIL seçimi:** yıl başında adlı köylü yoksa, yıl ortasında gelen ilk adlı kişi yılın yüzü olur.
+- **Önceden kırmızı olan, bu işle ilgisiz testler:** `batil_inanc_histerisi_test`, `tests/oto/batil_inanc_histerisi_kontrol.gd:51`, `tas_yatagi`, `tehdit_takvimi`, `baglam_sorgusu`, `muhafiz_epilogu_kontrol`, `sancak_kayit_slotu`, `soylenti_ve_meclis_davalari_test` (SOY-SON-01 açık).
+
+GOREV23_TAMAM

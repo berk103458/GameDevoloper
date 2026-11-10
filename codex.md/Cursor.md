@@ -151,11 +151,18 @@ Yeni dosya + ince adaptör: `GuvenliMetin` (yeni), `ana.gd` 1 satır, `katalog.g
 Ayrıntı: `codex.md/Cursor_ilerleme_22.md`. SAH: 8 `[x]`, 38 geri açıldı. Oyuna bağlı olmayan 74 `[x]` geri açıldı (`docs/denetim/2026-11-10-gorev22-bagsiz-maddeler.md`). Düzeltmeler: YAZ-06 testi, çeviri dosyaları, köy girdisi SCRIPT ERROR, sahte AyakZemini bağı. Yeni: YAP-62, KLT-48 `[x] (Cursor)`. Asset gerekmedi. Windows kopyaları bu ortamda yok; eşitlendi denmez.
 kota görünmüyor
 
-## Görev 23 — ROADMAP sürekli çalışma (devam ediyor)
+## Görev 23 — ROADMAP sürekli çalışma (bitti)
 
 Ayrıntı: `codex.md/Cursor_ilerleme_23.md`.
+
 - (a) 32 testte assert yerine hata sayacı ve `quit(1)` kullanılıyor.
 - (b) `Ses bulunamadı` hatası kökten düzeltildi (`KarantinaHudSayaci`).
-- (c) Söylenti ağı oyuna bağlandı (yeni `SoylentiKoprusu`). Kapandı (Cursor): SOY-01, 02, 03, 04, 06, 08, 12, 13, 16, 22, 29, 30, 33, 38, 40, 42, 45.
-Asset gerekmedi. Windows kopyaları bu ortamda yok; eşitlendi denmez.
+- (c) Söylenti ağı oyuna bağlandı (`SoylentiKoprusu`). Kapanan maddeler (Cursor):
+  - SOY-01, 02, 03, 04, 05, 06, 07, 08, 09, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 29, 30, 32, 33, 38, 39, 40, 41, 42, 44, 45, 50.
+  - YIL-01, 02, 05, 10 (`YilIziGecesi`).
+  - OGR-24 (`YeniDugmeBaglantisi`).
+  - OMR-08, OMR-10.
+- Açık kalanlar ve nedenleri ilerleme notunda: CAT, SEV, OGR-14, AYR-11/29/33/41, HAN-13/34, YIL-09 ve kalan SOY maddeleri.
+- Asset gerekmedi. Windows kopyaları bu ortamda yok; eşitlendi denmez.
+
 kota görünmüyor
