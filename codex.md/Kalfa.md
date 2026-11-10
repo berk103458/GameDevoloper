@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-12 başlıyor (Kalfa)
+
+Festive 8c7d06ba güncel. İki gerçek sokette heybe ve araç birlikte bağlanacak. Parça sınırlarıyla birbirine ve gövde kemiklerine kesişim ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-11 tamamlandı (Kalfa)
 
 Eşyanın mevcut mesh sınırları gerçek ayak zeminiyle ölçülür. Asılı eşya açıkken mevcut sarkma yönüyle durur. Zemine veya kemiğe girerse avuç çevresinde uygun bir yön seçilir. Asa ve değnekte dik şaft avuç boyunca gereken kadar kayar. Avuç soketi sabit kalır. Ayak ofseti sonradan değişirse zemin sınırı yeniden uygulanır.
