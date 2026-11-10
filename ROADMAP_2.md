@@ -5481,7 +5481,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-12. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd` → bar adaptörü tek satır.
   - Asset: asset gerekmedi.
-- [ ] **SOY-14:** Grup itibarı kamuoyuna girer (DIY-12 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-14:** Grup itibarı kamuoyuna girer (DIY-12 ile bağ). (Cursor)
   - Ne: kamuoyu konusu bir grubu anıyorsa (Türkmen/Rum/Ahi…) grup itibarı DIY-12 bir kez yazılır; iki kez yazılmaz (DIY-12 kural 2).
   - Kabul: aynı konu için grup yazımı 1. Test: birim.
   - Bağımlılık: DIY-12, SOY-12. Boyut: S.

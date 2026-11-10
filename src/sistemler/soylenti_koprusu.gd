@@ -42,6 +42,7 @@ static func karar(o: Object, gelen: Gelen, karar_adi: StringName, ek: Dictionary
 			var r: Dictionary = ag(o).soylenti_ekle(String(h.olay_id), String(h.tur), str(tasiyici), true,
 				{"gece": int(h.gece), "kisisel_kasa": String(h.tur) == "rusvet"})
 			if bool(r.get("olur", false)):
+				r.kayit["grup"] = String(h.get("grup", ""))
 				acilan.append(r.kayit)
 		else:
 			kalan.append(h)
@@ -51,7 +52,8 @@ static func karar(o: Object, gelen: Gelen, karar_adi: StringName, ek: Dictionary
 	elif karar_adi == &"ret" and not gelen.kusurlu():
 		tur = "haksiz_ret"
 	if not tur.is_empty():
-		kalan.append({"olay_id": "kapi_%s_%d_%s" % [tur, int(o.gun), String(gelen.id)], "tur": tur, "gece": int(o.gun), "gelen": String(gelen.id)})
+		kalan.append({"olay_id": "kapi_%s_%d_%s" % [tur, int(o.gun), String(gelen.id)], "tur": tur, "gece": int(o.gun), "gelen": String(gelen.id),
+			"grup": String(gelen.sinif) if GrupItibari.gecerli_grup_mu(gelen.sinif) else ""})
 	o.set_meta(BEKLEYEN, kalan)
 	return acilan
 
@@ -92,6 +94,7 @@ static func gece(o: Object, r: Dictionary) -> void:
 	var fark := int(a.bar_degisimi_toplam) - once
 	if fark != 0:
 		o._herkese_moral(fark * o.KOPRU_MORAL)
+	grup_yaz(o, a)
 	var histeri := FisiltiGazetesi.HISTERI.soylenti_tetigi(y, int(a.histeri_tetik_sayisi) - histeri_once)
 	if not r.get("olaylar") is Array:
 		return
@@ -104,6 +107,18 @@ static func gece(o: Object, r: Dictionary) -> void:
 			var satir := String(kaliplar.get(String(k.get("tur", "")), ""))
 			if not satir.is_empty():
 				r.olaylar.append({"anahtar": "Köy bunu konuşuyor: %s", "deger": [satir], "soylenti": id})
+
+
+## SOY-14: kamuoyu olan konu, kapıdaki kişinin grubunu anıyorsa (sınıfı altı gruptan biriyse) grup itibarına
+## kararın deltasıyla bir kez yazılır; bozuk kopya ve ikinci gece yeniden yazmaz.
+static func grup_yaz(o: Object, a: RefCounted) -> void:
+	for id in a.ag_kayitlari:
+		var k: Dictionary = a.ag_kayitlari[id]
+		var grup := String(k.get("grup", ""))
+		if grup.is_empty() or not bool(k.get("kamuoyu_oldu", false)) or bool(k.get("grup_yazildi", false)):
+			continue
+		k["grup_yazildi"] = true
+		o.grup_itibari.karar_uygula(grup, "rusvet" if String(k.get("tur", "")) == "rusvet" else "ret", false)
 
 
 ## SOY-33: canlı kamuoyu konusu çınar meclisine şikâyet olarak gelir; ağzı, haberi içeri taşıyan köylüdür.

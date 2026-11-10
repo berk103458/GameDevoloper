@@ -180,3 +180,14 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   - 41 kişilik gerçek köy, gerçek gece: susturmasız yayılım > 0, güvenilir kaynakta 0, güvenilmezde susturmasızdan fazla. Söz aynı.
   - `soylenti_meclis_kontrol` kartta seçeneği bastı → GEÇTİ.
 - Bozma kanıtı: ters tepme kapatılınca `KALDI (1 hata)`, karttaki `sustur` çağrısı kapatılınca `KALDI (2 hata)`.
+
+### SOY-14
+
+- Çağrı zinciri: `Oturum.karar_ver` → `SoylentiKoprusu.karar`. Kapıdaki kişinin sınıfı altı DIY-12 grubundan biriyse (tüccar, asker, köylü…) bekleyen olay grubu taşır; taşıyan köylüyle ağ kaydına geçer.
+  - `Oturum.gece_sonu` → `SoylentiKoprusu.gece` → `grup_yaz`: kamuoyu olan konu `Oturum.grup_itibari.karar_uygula` ile kararın deltasını (ret/rüşvet −1) bir kez yazar.
+  - `grup_yazildi` kayıtta durur. Bozuk kopya grup taşımaz.
+- Test: yeni `tests/unit/sistemler/soylenti_grup_test.gd` → GEÇTİ.
+  - Tüccar reti kamuoyu olunca tüccar itibarı bir kez −1. Kayıttan sonra iki gece daha geçince yazım hâlâ 1.
+  - Çiftçi (grup değil) konusu yazmaz.
+- Bozma kanıtı: tek yazım bayrağı, `grup_yaz` çağrısı ya da grubun kayda taşınması ayrı ayrı kapatılınca her biri `KALDI (2 hata)`.
+- Açık kalan: Gelen verisinde Türkmen/Rum/Ahi kimliği yok. Bu üç grup ancak veri gelirse yazılır; sınıftan etnik grup uydurulmadı.
