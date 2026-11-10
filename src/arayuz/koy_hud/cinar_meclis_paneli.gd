@@ -94,7 +94,7 @@ static func ac(e: Node) -> void:
 	elif MeclisSesi.kriz_var_mi(y):
 		_metin(e, v, GuvenliMetin.metin("koy.meclis.konusan_yok"))
 	var soylenti := SoylentiKoprusu.meclis_sikayeti(e.oturum)
-	if not soylenti.is_empty(): _metin(e, v, soylenti, "meclis_soylenti_sikayeti")
+	if not soylenti.is_empty(): SoylentiHukmu.ekle(e, v, soylenti)
 	var krizler := CinarAltiMeclisi._krizler(y)
 	for tur in CinarAltiMeclisi.TUR:
 		if not krizler.has(tur): continue

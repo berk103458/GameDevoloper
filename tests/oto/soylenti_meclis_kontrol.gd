@@ -86,6 +86,12 @@ func _ready() -> void:
 	var satir := e._ust_kart.find_child("meclis_soylenti_sikayeti", true, false) as Label if e._ust_kart != null else null
 	var ad := o.yonetim.koylu(tasiyan).ad
 	_kontrol(satir != null and satir.text.contains("ret kararı") and satir.text.begins_with(ad + ":"), "Şikâyet kararı ve taşıyanın adını taşır")
+	var hukum := e._ust_kart.find_child("meclis_soylenti_hukum", true, false) as Button if e._ust_kart != null else null
+	_kontrol(hukum != null and not hukum.disabled, "Şikâyetin altında hüküm kararı")
+	if hukum != null: hukum.pressed.emit()
+	var sonuc := e._ust_kart.find_child("meclis_soylenti_sonucu", true, false) as Label if e._ust_kart != null else null
+	_kontrol(sonuc != null and sonuc.text.contains("Garip bir yolcunun") and hukum.disabled, "Hüküm kartta yazılır")
+	_kontrol(SoylentiKoprusu.kamuoyu_satiri(o).is_empty(), "Hükümden sonra kamuoyu söner")
 	print("SÖYLENTİ MECLİS UI: GEÇTİ" if hata == 0 else "SÖYLENTİ MECLİS UI: KALDI (%d hata)" % hata)
 	ana.kayit.sil()
 	await Ses.cik(hata)

@@ -7,6 +7,7 @@ extends RefCounted
 const META := &"soylenti_agi"
 const AG := preload("res://src/sistemler/soylenti_agi.gd")
 const BEKLEYEN := &"soylenti_bekleyen"
+const HUKUM := &"soylenti_hukum_satiri"
 
 
 static func ag(o: Object) -> RefCounted:
@@ -81,6 +82,10 @@ static func baglar(y: KoyYonetimi) -> Array[Dictionary]:
 static func gece(o: Object, r: Dictionary) -> void:
 	if o.has_meta(BEKLEYEN):
 		o.remove_meta(BEKLEYEN)
+	if o.has_meta(HUKUM):
+		if r.get("olaylar") is Array:
+			r.olaylar.append({"anahtar": "Çınar altında hüküm: %s", "deger": [String(o.get_meta(HUKUM))]})
+		o.remove_meta(HUKUM)
 	if not o.has_meta(META):
 		return
 	var a: RefCounted = ag(o)
@@ -140,6 +145,28 @@ static func meclis_sikayeti(o: Object) -> String:
 	return MeclisSesi.sikayet_metni(String(adlar.get(String(konu.tur), konu.tur)), k.ad)
 
 
+## SOY-21/07/11: meclis şikâyeti dinler ve konuyu hükme bağlar. Asıl kayıt ve bütün bozuk kopyaları kapanır,
+## kamuoyu söner; doğru çıkan asılın kaynağı +1, yanlış çıkan her kopyanın bozanı −1. Sabaha tek satır düşer.
+static func hukme_bagla(o: Object) -> String:
+	if meclis_sikayeti(o).is_empty():
+		return ""
+	var a: RefCounted = ag(o)
+	var konu: Dictionary = a.meclis_sikayeti_sec()
+	var asil := String(a.ag_kayitlari[konu.olay_id].get("asil", konu.olay_id))
+	for id in a.ag_kayitlari.keys():
+		var k: Dictionary = a.ag_kayitlari[id]
+		if id != asil and String(k.get("asil", "")) != asil:
+			continue
+		a.divan_hukmu_ver(id)
+		if bool(k.get("dogru", true)):
+			a.dogru_soylenti_dogrulandi(id)
+		else:
+			a.yanlis_soylenti_dogrulandi(id)
+	var satir := olay_metni(a, a.ag_kayitlari.get(asil, {}))
+	o.set_meta(HUKUM, satir)
+	return satir
+
+
 ## SOY-22: kamuoyu olmuş tanıklı rüşvet teftiş gecesinde müfettişin sorusu olur; her olay bir kez sorulur.
 static func teftis(o: Object, d: Dictionary) -> void:
 	if not o.has_meta(META):
@@ -164,7 +191,7 @@ static func defter_satirlari(o: Object) -> Array:
 		if koylu == null or koylu.saglik <= 0:
 			continue
 		satirlar.append({"id": "soy:" + String(s.olay), "kisi": kaynak, "ad": koylu.ad, "gece": int(k.get("gece", -1)),
-			"olay": olay_metni(a, k), "kaynak": koylu.ad, "kademe": String(s.kademe), "dogrulandi": false})
+			"olay": olay_metni(a, k), "kaynak": koylu.ad, "kademe": String(s.kademe), "dogrulandi": bool(k.get("hukme_baglandi", false))})
 	return satirlar
 
 
@@ -190,10 +217,12 @@ static func kamuoyu_satiri(o: Object) -> String:
 
 
 static func kaydet(o: Object) -> Dictionary:
-	if not o.has_meta(META) and bekleyenler(o).is_empty():
+	if not o.has_meta(META) and bekleyenler(o).is_empty() and not o.has_meta(HUKUM):
 		return {}
 	var v: Dictionary = ag(o).kayit_verisi_al()
 	v["bekleyen"] = bekleyenler(o).duplicate(true)
+	if o.has_meta(HUKUM):
+		v["hukum_satiri"] = String(o.get_meta(HUKUM))
 	return v
 
 
@@ -204,6 +233,8 @@ static func yukle(o: Object, v: Variant) -> bool:
 	if not v.get("ag_kayitlari", {}) is Dictionary or not v.get("guvenilirlikler", {}) is Dictionary or not v.get("teftis_sorulari", []) is Array:
 		return false
 	ag(o).kayit_verisi_yukle(v)
+	if v.get("hukum_satiri") is String:
+		o.set_meta(HUKUM, v.hukum_satiri)
 	var b: Variant = v.get("bekleyen", [])
 	if b is Array:
 		o.set_meta(BEKLEYEN, (b as Array).filter(func(h: Variant) -> bool: return h is Dictionary and h.get("olay_id") is String and h.get("tur") is String))

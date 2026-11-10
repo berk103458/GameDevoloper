@@ -201,3 +201,20 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - Test: yeni `tests/unit/sistemler/soylenti_iyi_olay_test.gd` → GEÇTİ. Gerçek kafile kabulü, 4 gece; kamuoyu, bar toplamı +1 bir kez, rapor satırı, meclis 0, histeri 0.
 - Bozma kanıtı: köprüdeki aile koşulu kapatılınca `KALDI (4 hata)`, meclis filtresi kaldırılınca `KALDI (1 hata)`.
 - Açık kalan: listedeki "haksızlığa karşı durma" (divan) ve "yaralı tedavi" (CAT-03) için oyunda henüz yazar yok; yalnız ailece kabul bağlı.
+
+### SOY-21, SOY-07, SOY-11
+
+- Çağrı zinciri: köy HUD'unda "Çınar altı meclisi" → `CinarMeclisPaneli.ac` → `SoylentiHukmu.ekle` (yeni `src/arayuz/koy_hud/soylenti_hukmu.gd`) → "Şikâyeti dinle, hükme bağla" → `SoylentiKoprusu.hukme_bagla`.
+  - Asıl kayıt ve bütün bozuk kopyaları `divan_hukmu_ver` ile kapanır; kamuoyu, HUD satırı ve şikâyet söner.
+  - Doğru asılın kaynağı `dogru_soylenti_dogrulandi` ile +1 (SOY-07/11). Yanlış her kopyanın bozanı `yanlis_soylenti_dogrulandi` ile −1.
+  - Defter satırı "doğrulandı" olur. Ertesi sabah `SoylentiKoprusu.gece` tek "Çınar altında hüküm" satırı basar; satır kayıtta `hukum_satiri` olarak taşınır.
+- Karar: kapı söylentisinin konusu muhafızın kendi kapı kararı. Köylü divanı (CAS-07, köylüyü yargılar) yerine SOY-33 şikâyetinin geldiği çınar meclisi hüküm yüzeyi oldu. SOY-50 akışı da "meclis şikâyeti → hüküm → kamuoyu 0" diyor.
+- Test:
+  - Yeni `tests/unit/sistemler/soylenti_hukum_test.gd` → GEÇTİ. 31 kişi, 4 gerçek gece: hüküm, kamuoyu 0, kopyalar kapalı, kaynak +1, bozan −1, ikinci hüküm 0, defter doğrulandı; kayıttan sonra sabah satırı 1, ertesi sabah 0.
+  - `soylenti_meclis_kontrol` gerçek meclis kartında düğmeye bastı → GEÇTİ.
+- Bozma kanıtı:
+  - Kopya kapatma kapatılınca `KALDI (2 hata)`.
+  - Bozan −1 kapatılınca `KALDI (1 hata)`.
+  - Sabah satırı kapatılınca `KALDI (1 hata)`.
+  - Panel adaptörü kaldırılınca UI `KALDI (3 hata)`.
+- Açık kalan: SOY-10 (kapıda "köyde başka duydum") ayrı yoldur, bağlanmadı.

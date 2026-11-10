@@ -5436,7 +5436,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.2 Kaynak güvenilirliği
 
-- [ ] **SOY-07:** Her köylünün söz güvenilirliği vardır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-07:** Her köylünün söz güvenilirliği vardır. (Cursor)
   - Ne: köylüde optional `guvenilirlik` 0–3 (başlangıç 2): yaydığı söylenti doğru çıkınca +1, yanlış çıkınca −1. Kalp puanı değil; yalnız haber doğruluğu.
   - Kabul: alan `koylu.gd` dışında ağ sözlüğünde (çekirdek değişmez). Test: iki olay.
   - Bağımlılık: SOY-05. Boyut: S.
@@ -5460,7 +5460,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: DYL-01, SOY-01. Boyut: S.
   - Dosya: DYL-01 adaptörüne tek koşul.
   - Asset: asset gerekmedi.
-- [ ] **SOY-11:** Yanlış söylenti doğrulanınca kaynağı düşer. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-11:** Yanlış söylenti doğrulanınca kaynağı düşer. (Cursor)
   - Ne: SOY-09/10 ile yanlış çıkan söylentinin bozan kaynağının güvenilirliği −1, doğru çıkanın +1; defter satırı yazılır.
   - Kabul: iki yön. Test: birim.
   - Bağımlılık: SOY-07, SOY-09. Boyut: S.
@@ -5526,7 +5526,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-09. Boyut: S.
   - Dosya: `src/koy/ne_duydun.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-21:** Divan söylentiyi keser (CAS-07 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-21:** Divan söylentiyi keser (CAS-07 ile bağ). (Cursor)
   - Ne: divan hükmü verilen olay için kamuoyu konusu kapanır; SAB-04 tek satırı yazılır, ağ kaydı "hükme bağlandı" olur.
   - Kabul: hüküm sonrası kamuoyu 0, SAB-04 satırı 1. Test: hüküm.
   - Bağımlılık: CAS-07, SAB-04. Boyut: S.
