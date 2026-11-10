@@ -44,6 +44,7 @@ func _calistir() -> void:
 		gecti = gecti and kare >= 60 and kesisen == 0 and fark <= 0.001
 	for figur in figurlar:
 		figur.free()
+	gecti = (await _yuruyus_soketi()) and gecti
 	print("EL EŞYASI TEMASI: GEÇTİ" if gecti else "EL EŞYASI TEMASI: KALDI")
 	await root.get_node("Ses").cik(0 if gecti else 1)
 
@@ -64,18 +65,81 @@ func _olc(figur: KarakterModel, iskelet: Skeleton3D, turler: Array) -> void:
 		var esya := figur.get_node_or_null("esya_" + tur) as ElEsyasi
 		if esya == null or esya._el < 0:
 			continue
-		var poz := iskelet.get_bone_global_pose(esya._el)
-		var nokta := iskelet.to_global(poz.origin)
-		var avuc: Variant = figur.duzeltici().avuc(iskelet.get_bone_name(esya._el))
-		if avuc != null:
-			nokta = iskelet.to_global(poz * (avuc as Vector3))
-		elif esya._onkol >= 0:
-			var dirsek := iskelet.to_global(iskelet.get_bone_global_pose(esya._onkol).origin)
-			nokta += (nokta - dirsek).normalized() * ElEsyasi.AVUC
+		var nokta := _avuc_noktasi(figur, iskelet, esya)
 		_soket_farki[tur] = maxf(float(_soket_farki.get(tur, 0.0)), nokta.distance_to(esya.global_position))
 		_kareler[tur] = int(_kareler.get(tur, 0)) + 1
 		if _kemige_deger(esya, kesitler):
 			_kesisen[tur] = int(_kesisen.get(tur, 0)) + 1
+
+
+func _avuc_noktasi(figur: KarakterModel, iskelet: Skeleton3D, esya: ElEsyasi) -> Vector3:
+	var poz := iskelet.get_bone_global_pose(esya._el)
+	var nokta := iskelet.to_global(poz.origin)
+	var avuc: Variant = figur.duzeltici().avuc(iskelet.get_bone_name(esya._el))
+	if avuc != null:
+		nokta = iskelet.to_global(poz * (avuc as Vector3))
+	elif esya._onkol >= 0:
+		var dirsek := iskelet.to_global(iskelet.get_bone_global_pose(esya._onkol).origin)
+		nokta += (nokta - dirsek).normalized() * ElEsyasi.AVUC
+	return nokta
+
+
+func _yuruyus_soketi() -> bool:
+	const ADIM_SAYISI := 20
+	var kapi := KapiSahnesi.new()
+	root.add_child(kapi)
+	var figur := Dunya3B.karakter("chr_001")
+	kapi.add_child(figur)
+	var hedef := Vector3(0.0, 0.0, -35.0)
+	figur.bak(hedef)
+	var ayak := figur.get_node("AyakZemini") as AyakZemini
+	var iskelet := ayak._iskelet
+	var esya := figur.get_node("esya_odun") as ElEsyasi
+	var son_poz := {}
+	iskelet.skeleton_updated.connect(func() -> void:
+		son_poz["avuc"] = iskelet.to_local(_avuc_noktasi(figur, iskelet, esya))
+	)
+	await process_frame
+	var onceki_kok := figur.global_position
+	var onceki_hiz := 0.0
+	var hizlanma := 0
+	var adim := 0
+	var azami_fark := 0.0
+	var temaslar := {}
+	var son_temasta_kok := {}
+	var hizlandi := false
+	figur.yuru(hedef, 1.35)
+	while figur._yurume.is_running() and adim < ADIM_SAYISI:
+		await process_frame
+		var kok := figur.global_position
+		var hiz := kok.distance_to(onceki_kok) / figur.get_process_delta_time()
+		onceki_kok = kok
+		if hiz > onceki_hiz + 0.5:
+			hizlanma += 1
+		onceki_hiz = hiz
+		if hiz < 0.1 or not son_poz.has("avuc"):
+			continue
+		# Kök, iskeletin son yaydığı pozdan sonra ilerlese de el eşyası aynı noktayı izler.
+		var avuc := iskelet.to_global(son_poz["avuc"])
+		azami_fark = maxf(azami_fark, avuc.distance_to(esya.global_position))
+		var farklar := ayak.temas_farklari()
+		for i in farklar.size():
+			if not iskelet.get_bone_name(ayak._kemikler[i]).to_lower().ends_with("foot"):
+				continue
+			var temas := farklar[i] <= 0.025
+			var onceki_temas_koku: Vector3 = son_temasta_kok.get(i, Vector3.INF)
+			if temas and not temaslar.get(i, true) and kok.distance_to(onceki_temas_koku) > 0.12:
+				adim += 1
+				son_temasta_kok[i] = kok
+			temaslar[i] = temas
+			if adim >= ADIM_SAYISI:
+				break
+		if adim >= 4 and not hizlandi:
+			hizlandi = true
+			figur.yuru(hedef, 2.5)
+	print("SAH-10: gerçek adım=%d, hızlanma=%d, azami avuç farkı=%.5f m" % [adim, hizlanma, azami_fark])
+	kapi.free()
+	return adim == ADIM_SAYISI and hizlanma >= 2 and ElEsyasi.gecikme_uygun_mu(azami_fark)
 
 
 func _kemige_deger(esya: ElEsyasi, kesitler: PackedVector3Array) -> bool:

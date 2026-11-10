@@ -1,6 +1,8 @@
 class_name AyakZemini
 extends Node3D
 
+signal gorsel_ofset_degisti(fark: Vector3)
+
 ## SAH-01..SAH-08: Ayak ve zemin uyumu, eğik zemin izleme ve kayma denetimi.
 
 const AYAR: Dictionary = preload("res://data/ayarlar/sahne.json").data
@@ -125,7 +127,9 @@ func _egim_ofsetini_ayarla(yukseklik: float, egimli: bool) -> void:
 func _gorsel_konumu_ayarla(yukseklik: float) -> void:
 	var konum := _taban_konum + model.global_basis.inverse() * Vector3.UP * yukseklik
 	if not _gorsel.position.is_equal_approx(konum):
+		var fark := model.global_basis * (konum - _gorsel.position)
 		_gorsel.position = konum
+		gorsel_ofset_degisti.emit(fark)
 
 
 ## İskelet değiştiricilerinin cilde verdiği son poz ve mevcut görsel dönüşümü okunur.

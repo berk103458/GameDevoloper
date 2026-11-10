@@ -36,6 +36,7 @@ var _duzeltici: DurusDuzeltici
 var _onceki := Vector3.ZERO
 var _aci := Vector2.ZERO
 var _temas: TEMAS
+var _soket_hazir := false
 ## Dik eşya (asa, çapa): sallanmaz, avuçtan aşağı/yukarı uzanır.
 var dik := false
 
@@ -114,6 +115,15 @@ func bagla(govde: Node3D, iskelet: Skeleton3D, sag: bool, duzeltici: DurusDuzelt
 	# kolu indirilmemiş animasyon pozu gelir ve eşya elin dışında kalır.
 	_temas = TEMAS.new(self, iskelet)
 	iskelet.skeleton_updated.connect(_guncelle)
+	var ayak := govde.get_node_or_null("AyakZemini") as AyakZemini
+	if ayak != null:
+		ayak.gorsel_ofset_degisti.connect(_gorsel_kaydir)
+
+
+## Yürüyüş kökü güncellenince ayak çözümü iskeleti poz sinyalinden sonra kaldırabilir.
+func _gorsel_kaydir(fark: Vector3) -> void:
+	if _soket_hazir and is_inside_tree():
+		global_position += fark
 
 
 func _guncelle() -> void:
@@ -140,6 +150,7 @@ func _guncelle() -> void:
 	var yan := Vector3.UP.cross(ileri).normalized()
 	var taban := Basis(yan, Vector3.UP, -ileri)
 	global_position = avuc
+	_soket_hazir = true
 	if dik:
 		global_basis = _temas.yon(avuc, taban, true)
 		return

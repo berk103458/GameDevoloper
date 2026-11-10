@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-10 tamamlandı (Kalfa)
+
+AyakZemini görsel iskeleti poz sinyalinden sonra yukarı veya aşağı taşıyabiliyordu. Artık bu dünya uzayı farkı bağlı el eşyasına aynı güncellemede iletilir. Kök ve mevcut avuç hesabı korunur.
+
+Gerçek kapı yolunda CHR-001 odunla 20 topuk basışı ve iki hızlanma gösterdi. Yürüyüş 1,35 m/s ile başladı ve 2,5 m/s hıza çıktı. İlk doğru iskelet uzayı ölçümünde 2,46 cm fark vardı. Son koşuda azami fark 0,00000 m, mevcut eşik 2 cm. SAH-09, ayak zemini, ekipman ve hazır karakter hedefleri geçti. İlk headless import motor erişim ihlaliyle kapandı. Tekrarda ilk çıkış 0, altı MD5 hatası ve betik hatası 0. Son import çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-10 başlıyor (Kalfa)
 
 Festive a58796b5 güncel. Mevcut el eşyasının yürüyüş ve kök hız değişimi sırasında canlı avuç noktasına göre gecikmesi ölçülecek. Asset gerekmedi. kota görünmüyor.
