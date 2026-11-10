@@ -8081,7 +8081,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: BUG-09, SAH-25. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-28:** Bekleme çeşitliliği karışımı kesmez. (Kalfa — iki canlı ANI-12 ofseti)
+- [x] **SAH-28:** Bekleme çeşitliliği karışımı kesmez. (Kalfa — iki farklı ANI-12 ofseti iki geçişte korundu)
   - Ne: ANI-12 ofseti durur. Ofset, geçiş ortasında klibi sıfırlamaz.
   - Kabul: ANI-12 ofseti durur. Ofset, geçiş ortasında klibi sıfırlamaz. Test: iki karakter, geçiş sırasında ofset korunur.
   - Bağımlılık: ANI-12, SAH-18. Boyut: S.

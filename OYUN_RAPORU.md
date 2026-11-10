@@ -1,3 +1,9 @@
+## 2026-11-10 — SAH-28 geçişte bekleme ofseti (Kalfa)
+
+- Gerçek köyde iki köylünün ANI-12 ofseti 0,618 ve 1,136 saniye. Yürüyüşe girişte ve duruşta 42’şer kare izlendi. Her iki model iki geçişte de ara bekleme pozu üretti. Kimlik ofseti ve varyantı korundu, iskelet ve klip saatleri geriye gitmedi.
+- Mevcut bekleme sahne testi bu ölçümle genişletildi. Köy ilk görüşünün `ogretici` alanı başlangıç örneğine alındı. Bekleme sahnesi, bekleme birimi, hareket geçişi ve canlı klip karışımı hedefleri geçti. Tekrar headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor.
+- Asset gerekmedi. Sonraki adım SAH-29. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-28 sahipliği (Kalfa)
 
 - ANI-12 ve SAH-18 hazır. İki gerçek köylüde yürüme ve duruş karışımı boyunca kimlik ofseti, poz saati ve klip zamanı ölçülecek. Kota görünmüyor.
