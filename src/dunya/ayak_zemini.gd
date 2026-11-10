@@ -132,6 +132,10 @@ func _gorsel_konumu_ayarla(yukseklik: float) -> void:
 		gorsel_ofset_degisti.emit(fark)
 
 
+func zemin_olcer() -> Callable:
+	return _zemin
+
+
 ## İskelet değiştiricilerinin cilde verdiği son poz ve mevcut görsel dönüşümü okunur.
 func temas_farklari() -> PackedFloat32Array:
 	var farklar := PackedFloat32Array()

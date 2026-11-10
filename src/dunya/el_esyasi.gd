@@ -37,6 +37,10 @@ var _onceki := Vector3.ZERO
 var _aci := Vector2.ZERO
 var _temas: TEMAS
 var _soket_hazir := false
+var _ayak: AyakZemini
+var _tercih := Basis.IDENTITY
+var _sapta_kayabilir := false
+var _sap_kaymasi := 0.0
 ## Dik eşya (asa, çapa): sallanmaz, avuçtan aşağı/yukarı uzanır.
 var dik := false
 
@@ -115,15 +119,35 @@ func bagla(govde: Node3D, iskelet: Skeleton3D, sag: bool, duzeltici: DurusDuzelt
 	# kolu indirilmemiş animasyon pozu gelir ve eşya elin dışında kalır.
 	_temas = TEMAS.new(self, iskelet)
 	iskelet.skeleton_updated.connect(_guncelle)
-	var ayak := govde.get_node_or_null("AyakZemini") as AyakZemini
-	if ayak != null:
-		ayak.gorsel_ofset_degisti.connect(_gorsel_kaydir)
+	_ayak = govde.get_node_or_null("AyakZemini") as AyakZemini
+	if _ayak != null:
+		_ayak.gorsel_ofset_degisti.connect(_gorsel_kaydir)
 
 
 ## Yürüyüş kökü güncellenince ayak çözümü iskeleti poz sinyalinden sonra kaldırabilir.
 func _gorsel_kaydir(fark: Vector3) -> void:
 	if _soket_hazir and is_inside_tree():
 		global_position += fark
+		var zemin := _zemin_olcer()
+		if _sapta_kayabilir:
+			_sapi_kaydir(zemin)
+		elif not dik and _temas.zemin_farki(global_position, global_basis, zemin) > 0.00001:
+			global_basis = _temas.yon(global_position, _tercih, false, zemin)
+
+
+func _zemin_olcer() -> Callable:
+	return _ayak.zemin_olcer() if is_instance_valid(_ayak) else Callable()
+
+
+## Düz şaft avuçta kalır. Alt uç yere değince yalnız şaft yukarı kayar.
+func _sapi_kaydir(zemin: Callable) -> void:
+	var kayma := _temas.zemin_farki(global_position, global_basis, zemin)
+	var fark := kayma - _sap_kaymasi
+	if is_zero_approx(fark):
+		return
+	for parca: Node3D in get_children():
+		parca.position.y += fark
+	_sap_kaymasi = kayma
 
 
 func _guncelle() -> void:
@@ -151,8 +175,11 @@ func _guncelle() -> void:
 	var taban := Basis(yan, Vector3.UP, -ileri)
 	global_position = avuc
 	_soket_hazir = true
+	var zemin := _zemin_olcer()
 	if dik:
 		global_basis = _temas.yon(avuc, taban, true)
+		if _sapta_kayabilir:
+			_sapi_kaydir(zemin)
 		return
 	# Sarkaç: el hızlanınca eşya geride kalır, yavaşça dik konuma döner.
 	var hiz := (avuc - _onceki) / maxf(delta, 0.001)
@@ -162,8 +189,8 @@ func _guncelle() -> void:
 	_aci = _aci.lerp(hedef, clampf(delta * 6.0, 0.0, 1.0))
 	# Bacaktan uzak: gövde dışa doğru hafif açılı sarkar (tutma noktası elde kalır).
 	var aci_disa := atan2(BACAKTAN, 0.3) * -_yan
-	var tercih := taban * Basis(Vector3.RIGHT, -_aci.x) * Basis(Vector3.BACK, _aci.y + aci_disa)
-	global_basis = _temas.yon(avuc, tercih, false)
+	_tercih = taban * Basis(Vector3.RIGHT, -_aci.x) * Basis(Vector3.BACK, _aci.y + aci_disa)
+	global_basis = _temas.yon(avuc, _tercih, false, zemin)
 
 
 # ── Biçimler: tutma noktası orijinde; asılı eşyalar −Y yönünde sarkar. ──
@@ -295,6 +322,7 @@ func _odun() -> void:
 func _asa(boy: float, tutma: float, renk: Color, kivrik := false) -> void:
 	# Dik asa / değnek: avuç asanın `tutma` yüksekliğinde, alt ucu yere yakın.
 	dik = true
+	_sapta_kayabilir = true
 	_parca(_silindir(0.016, 0.02, boy), renk, Vector3(0, boy * 0.5 - tutma, 0))
 	if kivrik:
 		var k := TorusMesh.new()

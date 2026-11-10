@@ -45,6 +45,8 @@ func _calistir() -> void:
 	for figur in figurlar:
 		figur.free()
 	gecti = (await _yuruyus_soketi()) and gecti
+	for tur in ["cuval", "asa"]:
+		gecti = (await _diz_cokme(tur)) and gecti
 	print("EL EŞYASI TEMASI: GEÇTİ" if gecti else "EL EŞYASI TEMASI: KALDI")
 	await root.get_node("Ses").cik(0 if gecti else 1)
 
@@ -140,6 +142,55 @@ func _yuruyus_soketi() -> bool:
 	print("SAH-10: gerçek adım=%d, hızlanma=%d, azami avuç farkı=%.5f m" % [adim, hizlanma, azami_fark])
 	kapi.free()
 	return adim == ADIM_SAYISI and hizlanma >= 2 and ElEsyasi.gecikme_uygun_mu(azami_fark)
+
+
+func _diz_cokme(tur: String) -> bool:
+	var kapi := KapiSahnesi.new()
+	root.add_child(kapi)
+	var figur := Dunya3B.karakter("chr_002")
+	figur.position = KapiSahnesi.DURMA
+	kapi.add_child(figur)
+	figur.bak(kapi.kamera.position)
+	figur.get_node("esya_torba").hide()
+	var ayak := figur.get_node("AyakZemini") as AyakZemini
+	var esya := ElEsyasi.olustur(tur)
+	figur.add_child(esya)
+	esya.bagla(figur, ayak._iskelet, true, figur.duzeltici())
+	var parcalar := esya.find_children("*", "MeshInstance3D", true, false)
+	await process_frame
+	kapi._gelen = figur
+	kapi.gelen_git(false, false)
+	var kare := 0
+	var gomulen := 0
+	var en_alt := INF
+	var diklik := 1.0
+	var avuc_farki := 0.0
+	var son_avuc := {}
+	ayak._iskelet.skeleton_updated.connect(func() -> void:
+		son_avuc["yerel"] = ayak._iskelet.to_local(_avuc_noktasi(figur, ayak._iskelet, esya))
+	)
+	while figur._yurume == null:
+		await process_frame
+		if figur._yurume != null:
+			break
+		if figur._oynatici.current_animation != figur._klipler.get("panik"):
+			continue
+		var alt := INF
+		for dugum in parcalar:
+			var parca := dugum as MeshInstance3D
+			for i in 8:
+				var nokta := parca.to_global(parca.get_aabb().get_endpoint(i))
+				alt = minf(alt, nokta.y - kapi.ayak_zemini_yuksekligi(nokta))
+		if alt < -0.0001:
+			gomulen += 1
+		en_alt = minf(en_alt, alt)
+		diklik = minf(diklik, esya.global_basis.y.normalized().dot(Vector3.UP))
+		if son_avuc.has("yerel"):
+			avuc_farki = maxf(avuc_farki, esya.global_position.distance_to(ayak._iskelet.to_global(son_avuc.yerel)))
+		kare += 1
+	print("SAH-11 %s: kare=%d, gömülen=%d, en alt=%.5f m, diklik=%.5f, avuç farkı=%.5f m" % [tur, kare, gomulen, en_alt, diklik, avuc_farki])
+	kapi.free()
+	return kare >= 30 and gomulen == 0 and avuc_farki <= 0.001 and (tur != "asa" or diklik >= 0.9999)
 
 
 func _kemige_deger(esya: ElEsyasi, kesitler: PackedVector3Array) -> bool:

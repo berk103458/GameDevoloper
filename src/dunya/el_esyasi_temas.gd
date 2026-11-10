@@ -11,6 +11,7 @@ var _kemikler := PackedInt32Array()
 var _kesitler := PackedVector3Array()
 var _kutular: Array[AABB] = []
 var _parca_tersleri: Array[Transform3D] = []
+var _koseler := PackedVector3Array()
 
 
 func _init(esya: Node3D, iskelet: Skeleton3D) -> void:
@@ -31,22 +32,44 @@ func _init(esya: Node3D, iskelet: Skeleton3D) -> void:
 				yerel = ata.transform * yerel
 			ata = ata.get_parent()
 		_parca_tersleri.append(yerel.affine_inverse())
+		for i in 8:
+			_koseler.append(yerel * _kutular[-1].get_endpoint(i))
 
 
-func yon(avuc: Vector3, tercih: Basis, dik: bool) -> Basis:
-	if _kemikler.is_empty() or _kutular.is_empty():
+func yon(avuc: Vector3, tercih: Basis, dik: bool, zemin: Callable = Callable()) -> Basis:
+	if _kutular.is_empty():
 		return tercih
 	var iskelet_dunya := _iskelet.global_transform
 	for i in _kemikler.size():
 		_kesitler[i] = iskelet_dunya * _iskelet.get_bone_global_pose(_kemikler[i]).origin - avuc
+	var en_iyi := tercih
+	var en_az_yukselme := INF
 	if not _kesisir(tercih):
-		return tercih
+		en_az_yukselme = zemin_farki(avuc, tercih, zemin)
+		if en_az_yukselme <= 0.00001:
+			return tercih
 	for aci in ACILAR:
 		for eksen in (DIK_EKSENLER if dik else ASILI_EKSENLER):
 			var aday := tercih * Basis(eksen, aci)
-			if not _kesisir(aday):
+			if _kesisir(aday):
+				continue
+			var yukselme := zemin_farki(avuc, aday, zemin)
+			if yukselme <= 0.00001:
 				return aday
-	return tercih
+			if yukselme < en_az_yukselme:
+				en_az_yukselme = yukselme
+				en_iyi = aday
+	return en_iyi
+
+
+func zemin_farki(avuc: Vector3, yonelim: Basis, zemin: Callable) -> float:
+	if not zemin.is_valid():
+		return 0.0
+	var yukselme := 0.0
+	for kose in _koseler:
+		var nokta := avuc + yonelim * kose
+		yukselme = maxf(yukselme, float(zemin.call(nokta)) - nokta.y)
+	return yukselme
 
 
 func _kesisir(yonelim: Basis) -> bool:

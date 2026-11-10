@@ -7973,7 +7973,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-09. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-11:** Eğilince eşya yere girmez. (Kalfa — gerçek diz çökmede çuval ve asa)
+- [x] **SAH-11:** Eğilince eşya yere girmez. (Kalfa — çuval ve asa 277 kare, gömülme ve avuç farkı 0)
   - Ne: diz çökmede asılı eşya zeminin altına inmez. Asa dik kalır. Mevcut sarkma kuralı durur.
   - Kabul: diz çökmede asılı eşya zeminin altına inmez. Asa dik kalır. Mevcut sarkma kuralı durur. Test: çuval ve asa, zemin kesişimi 0.
   - Bağımlılık: SAH-06, SAH-09. Boyut: S.

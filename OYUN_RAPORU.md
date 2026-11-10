@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-11 tamamlandı (Kalfa)
+
+Eşyanın mevcut mesh sınırları gerçek ayak zeminiyle ölçülür. Asılı eşya açıkken mevcut sarkma yönüyle durur. Zemine veya kemiğe girerse avuç çevresinde uygun bir yön seçilir. Asa ve değnekte dik şaft avuç boyunca gereken kadar kayar. Avuç soketi sabit kalır. Ayak ofseti sonradan değişirse zemin sınırı yeniden uygulanır.
+
+Gerçek zararsız ret klibinde ilk çuval ölçümü −21,91 cm ve ilk asa ölçümü −42,95 cm idi. Son koşuda her eşya 277 kare, gömülen kare 0, avuç farkı 0. Çuvalın en altı 1,68 mm, asanın en altı 0 ve dik eksen skoru 1,00000. SAH-09 ve SAH-10 aynı koşuda geçti. Ekipman, kapı kuyruğu ve ayak/eşya birim hedefleri geçti. Son headless import çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Tam sanity çalıştırılmadı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-11 başlıyor (Kalfa)
 
 Festive 58fca31d güncel. Gerçek diz çökme klibinde çuval ve asanın görünür parçaları mevcut zemine karşı ölçülecek. Asset gerekmedi. kota görünmüyor.
