@@ -245,3 +245,12 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   - `soylenti_meclis_kontrol` gerçek kartta seçeneğe bastı → GEÇTİ.
 - Bozma kanıtı: güvenilirlik değişimi ya da DIY-13 listesindeki tür kaldırılınca `KALDI (2 hata)`, panel döngüsü boşaltılınca UI `KALDI (2 hata)`.
 - Diğer testler: `dedikodu_test` ve `dedikodu_kayit_test` GEÇTİ.
+
+### SOY-32
+
+- Çağrı zinciri: `Ana` (`--debug-arac`) → `AdminHud._ready` → `SoylentiPaneli.kur(dikey, baglam)` (yeni `src/debug/soylenti_paneli.gd`).
+  - Panel saniyede bir oturumun ağını okur. Her kayıt için tür, gece, kaynak → duyanlar (duyma sırasıyla), KAMUOYU işareti ve kopyada asıl/biçim yazar.
+  - Debug kapalıyken panel kurulmaz. Okuma ağı kurmaz.
+- Test: yeni `tests/unit/sistemler/soylenti_paneli_test.gd` → GEÇTİ (debug kapalı 0, boş oturum ağ kurmaz, gerçek gecede kaynak→duyanlar ve gece). `admin_zaman_kontrol` GEÇTİ.
+- Bozma kanıtı: debug koşulu kaldırılınca `KALDI (1 hata)`, satır üretimi kapatılınca `KALDI (1 hata)`.
+- Not: kim kime aktardı kenarı ağda tutulmuyor. Panel kaynaktan başlayan duyma sırasını gösteriyor.

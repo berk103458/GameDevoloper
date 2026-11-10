@@ -5598,7 +5598,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: yok. Boyut: S.
   - Dosya: —.
   - Asset: asset gerekmedi.
-- [ ] **SOY-32:** Yayılım haritası yalnız debug'da. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `src/debug/soylenti_paneli.gd` dosyası yok)
+- [x] **SOY-32:** Yayılım haritası yalnız debug'da. (Cursor)
   - Ne: `src/debug/` panelinde ağ grafiği (kim kime, hangi gece); oyuncuya kapalı.
   - Kabul: debug kapalıyken panel 0. Test: tarama.
   - Bağımlılık: SOY-02. Boyut: S.
