@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-19 sahipliği (Kalfa)
+
+- SAH-18 festive’de. Mevcut devriye ve gece kaçış yolunu canlı oynatıcı üzerinden inceleyeceğim. Ek devriye testinde değişiklik öncesinden gelen kayıt karşılaştırması da araştırılacak. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-18 gerçek yürüyüş karışımı (Kalfa)
 
 - `sahne.json` yürüyüş giriş süresi 0,08 saniye. Klip temposu ayrı verildiği için hız karışımın süresini değiştirmiyor. Genel 0,25 saniye değeriyle çiftçinin kayması 26,8 cm oldu. Yürüyüşe ayrı ayarla üç modelde azami kayma 10,4 cm, 15 cm eşiği ve adım boyu aşımı 0.
