@@ -7997,7 +7997,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-09. Boyut: S.
   - Dosya: `data/el_esyalari.json`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-15:** Çocuk modelinde büyük yük küçülür. (doğrulanmadı — Görev 22; ElEsyasi SAH yardımcıları yalnız testten çağrılıyor)
+- [/] **SAH-15:** Çocuk modelinde büyük yük küçülür. (Kalfa — gerçek çocuk/yetişkin boy oranı)
   - Ne: ölçek, model boyunun oranıdır. Sabit yetişkin ölçeği çocukta gövdeyi yutmaz.
   - Kabul: ölçek, model boyunun oranıdır. Sabit yetişkin ölçeği çocukta gövdeyi yutmaz. Test: çocuk ve yetişkin, eşya boyu oran içinde.
   - Bağımlılık: SAH-09, UZM-08. Boyut: S.

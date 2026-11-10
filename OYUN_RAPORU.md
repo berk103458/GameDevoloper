@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-15 başlıyor (Kalfa)
+
+Festive ede43490 güncel. Mevcut çocuk ve yetişkin LOWPO modellerindeki aynı yükün gerçek boy oranı, avuç konumu ve yürüyüş boyunca ölçeği ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-14 tamamlandı (Kalfa)
 
 Köydeki gerçek görsel seçim ve kapıdaki eşya kaynak adı ayrı geçirilir. Mevcut data/el_esyalari.json satırı aynı eşya türünü ve sağ/sol eli seçer. Yeni tutuş tablosu ve kayıt alanı gerekmedi. Hem ilk köy kurulumu hem model değişimi aynı kaynak adıyla bağlanır.
