@@ -8093,7 +8093,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-08, SAH-26. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-30:** Hava tepkisi ayrı bir karışım katmanıdır. (doğrulanmadı — Görev 22; Kalfa bekleniyor — HareketGecisi oyunda hiçbir yerden çağrılmıyor, KarakterModel karışım entegrasyonu gerekli)
+- [/] **SAH-30:** Hava tepkisi ayrı bir karışım katmanıdır. (Kalfa — canlı kar yürüyüşü ve omuz katmanı)
   - Ne: ANI-09 üşüme, yürüyüşü değiştirmez. Üst üste biner, yerine geçmez.
   - Kabul: ANI-09 üşüme, yürüyüşü değiştirmez. Üst üste biner, yerine geçmez. Test: karda yürüme klibi durur, omuz katmanı eklenir.
   - Bağımlılık: ANI-09, SAH-26. Boyut: S.

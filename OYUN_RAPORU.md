@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-30 sahipliği (Kalfa)
+
+- ANI-09 ve SAH-26 hazır. Kar tepkisinin yürüyüş klibine etkisi gerçek LOWPO omuz ve bacak pozlarından ölçülecek. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-29 tezgâhta yürüyüşün kesilmesi (Kalfa)
 
 - Aktif tezgâh rotası varışta hareket tween’ini ve yürüyüş karışımını bitiriyor. Örs mevcut `dov` çekiç klibini, fırın mevcut bekleme ve prosedürel kürek hareketini kullanıyor.
