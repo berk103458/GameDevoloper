@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-34 sahipliği (Kalfa)
+
+- ANI-13 ve SAH-07 hazır. Gerçek köy rotalarında tek kapıya gelen sekiz muhafızın hedef hücreleri ve fiziksel ayrımı ölçülecek. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-33 tek ANI-13 yol ağı (Kalfa)
 
 - Gerçek köy sahnesi ve NavigationServer3D aynı tek bölgeyi gösterdi. Kapı, bağlı patika ve hazır tarla arasında 110 yol noktasının bölge kimliği aynı. 27 sunucu sorgusu, yedek rota 0. Doluluk değişip ağ yeniden hesaplanınca bölge kimliği korundu.

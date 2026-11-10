@@ -8120,7 +8120,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-13. Boyut: S.
   - Dosya: mevcut köy sahnesi.
   - Asset: asset gerekmedi.
-- [ ] **SAH-34:** İki kişi aynı hücreye oturmaz. (Kalfa bekleniyor — köy canlı halk simülasyonu hücre tahsisi)
+- [/] **SAH-34:** İki kişi aynı hücreye oturmaz. (Kalfa — sekiz gerçek köylü ve kapı çevresi)
   - Ne: varış hücresi doluysa komşu boş hücre seçilir. İç içe model 0'dır.
   - Kabul: varış hücresi doluysa komşu boş hücre seçilir. İç içe model 0'dır. Test: 8 kişi, bir kapı, kesişim 0.
   - Bağımlılık: ANI-13, SAH-07. Boyut: M.
