@@ -1,3 +1,9 @@
+## 2026-11-10 — SAH-27 eksik hareket klibinde bekleme (Kalfa)
+
+- Gerçek yürüyüş veya koşu klibi bulunamadığında BUG-09 beklemesi aynı karede başlıyor. Modelin kendi içe alınmış yürüyüş klibi, tablo takma adı olmayan yürüyüşlerde geçerli kaynak olarak kullanılıyor. Koşu eksiği güvenli beklemeye düşüyor.
+- İki test kopyasında birer klip çıkarıldı. İlk karede konuşma/bekleme/yürüyüş ağırlıkları ikisinde de `0/1/0`. Canlı karışım, hareket geçişi, hız bandı, gece kaçışı ve köy konuşma hedefleri geçti. Tekrar headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor.
+- Asset gerekmedi. Sonraki adım SAH-28. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-27 sahipliği (Kalfa)
 
 - BUG-09 ve SAH-25 hazır. Yürüme veya koşma klibi test kopyasından çıkarılınca gerçek oynatıcıdaki bekleme ağırlığı ölçülecek. Kota görünmüyor.

@@ -1,4 +1,4 @@
-## SAH-18, SAH-24 ve SAH-25: Gerçek LOWPO oynatıcısında poz, süre ve ağırlık.
+## Gerçek LOWPO oynatıcısında poz, süre ve ağırlık kontrolleri.
 extends SceneTree
 
 const AYAR: Dictionary = preload("res://data/ayarlar/sahne.json").data
@@ -36,7 +36,9 @@ func _calistir() -> void:
 	figur.free()
 	var zorluklar_esit := await _zorluklari_dene()
 	var agirliklar_gecerli := _agirliklari_dene()
-	gecti = gecti and zorluklar_esit and agirliklar_gecerli
+	var eksik_yuru_gecerli := _eksik_klibi_dene("yuru")
+	var eksik_kos_gecerli := _eksik_klibi_dene("kos")
+	gecti = gecti and zorluklar_esit and agirliklar_gecerli and eksik_yuru_gecerli and eksik_kos_gecerli
 	print("DURUŞ YÜRÜYÜŞ KARIŞIMI: GEÇTİ" if gecti else "DURUŞ YÜRÜYÜŞ KARIŞIMI: KALDI")
 	await root.get_node("Ses").cik(0 if gecti else 1)
 
@@ -90,9 +92,7 @@ func _agirliklari_dene() -> bool:
 	var figur := Dunya3B.karakter("lowpo_demirci")
 	root.add_child(figur)
 	var oynatici := figur._oynatici
-	var olcer := Node3D.new()
-	olcer.name = "AgirlikOlcer"
-	oynatici.get_node(oynatici.root_node).add_child(olcer)
+	var olcer := _olcer_kur(oynatici)
 	var kitap := AnimationLibrary.new()
 	_olcum_klibi_ekle(kitap, oynatici, StringName(AYAR.klipler.yuru), Vector3.RIGHT)
 	_olcum_klibi_ekle(kitap, oynatici, StringName(AYAR.klipler.dur), Vector3.UP)
@@ -121,6 +121,41 @@ func _agirliklari_dene() -> bool:
 	print("SAH-25 orta yürüyüş=%.6f, duruş=%.6f, ortak kare=%d, toplam sapması=%.6f" % [orta.x, orta.y, ortak_kare, en_buyuk_sapma])
 	figur.free()
 	return gecti
+
+
+func _eksik_klibi_dene(eksik: String) -> bool:
+	var figur := Dunya3B.karakter("lowpo_demirci")
+	root.add_child(figur)
+	var oynatici := figur._oynatici
+	var olcer := _olcer_kur(oynatici)
+	var kitap := AnimationLibrary.new()
+	var bekle := StringName(AYAR.klipler.dur)
+	_olcum_klibi_ekle(kitap, oynatici, bekle, Vector3.UP)
+	_olcum_klibi_ekle(kitap, oynatici, &"konus", Vector3.RIGHT)
+	if eksik == "kos":
+		_olcum_klibi_ekle(kitap, oynatici, StringName(AYAR.klipler.yuru), Vector3.BACK)
+	oynatici.remove_animation_library(&"")
+	oynatici.add_animation_library(&"", kitap)
+	oynatici.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+	oynatici.play(&"konus", 0.0)
+	oynatici.advance(0.0)
+	var gecti := olcer.position.is_equal_approx(Vector3.RIGHT)
+	var hiz := HareketGecisi.kosu_taban_hizi() + 0.5 if eksik == "kos" else 1.0
+	var baglam := &"kacis" if eksik == "kos" else &""
+	figur.yuru(Vector3(0, 0, 4), hiz, baglam)
+	oynatici.advance(KARE)
+	var agirlik := olcer.position
+	gecti = gecti and oynatici.current_animation == bekle and agirlik.is_equal_approx(Vector3.UP)
+	print("SAH-27 eksik=%s, oynayan=%s, konuşma/bekleme/yürüyüş ağırlığı=%s" % [eksik, oynatici.current_animation, agirlik])
+	figur.free()
+	return gecti
+
+
+func _olcer_kur(oynatici: AnimationPlayer) -> Node3D:
+	var olcer := Node3D.new()
+	olcer.name = "AgirlikOlcer"
+	oynatici.get_node(oynatici.root_node).add_child(olcer)
+	return olcer
 
 
 func _olcum_klibi_ekle(kitap: AnimationLibrary, oynatici: AnimationPlayer, ad: StringName, deger: Vector3) -> void:
