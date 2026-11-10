@@ -65,14 +65,17 @@ func durus_cila_etkin_mi(band: String) -> bool:
 
 ## SAH-21: Yokuşta bant değişmez ("yuru"), adım ve kök hız kısalır.
 func yokusta_hiz_uyarla(kok_hiz: float, egim: float) -> Dictionary:
-	var dusus := clampf(absf(egim) * 0.02, 0.0, 0.4)
-	var yeni_hiz := maxf(kok_hiz * (1.0 - dusus), 0.15)
+	var yeni_hiz := maxf(kok_hiz * yokus_carpani(egim), 0.15)
 	var band := hiz_bandi_bul(yeni_hiz)
 	return {
 		"band": "yuru" if band in ["dur", "yuru"] else band,
 		"hiz": yeni_hiz,
 		"klip": klip_adi_al("yuru")
 	}
+
+
+static func yokus_carpani(egim: float) -> float:
+	return 1.0 - clampf(absf(egim) * 0.02, 0.0, 0.4)
 
 
 ## SAH-22: Yorgun yürüyüş ayrı bir klip istemez; hız düşer, klip aynı kalır.

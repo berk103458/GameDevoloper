@@ -11,7 +11,6 @@ const YURUME_HIZI := 1.9  # m/s (oyun temposu için gerçekten biraz hızlı)
 const BEKLE := "bekle"
 ## Bekleme ve diğer hareketlere geçiş süresi (s).
 const GECIS := 0.3
-## Kök ilerlemeye başladığında ilk basışın bekleme pozuna takılmasını önler.
 const HAREKETLER := ["bekle", "konus", "sevinc", "ofke", "panik", "gergin"]
 const DONGULU := ["bekle", "konus", "gergin"]
 ## Bir klip dosyasının izlerinin en az bu payı bu iskelette çözülmeli; yoksa klip alınmaz.
@@ -112,7 +111,8 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI, durum: StringName = &"") -> 
 	t.tween_property(self, "rotation:y", _hedef_aci(fark), DONUS_SURESI).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	if rota_adimi.is_valid():
 		_rota_ilerlemesi = 0.0
-		t.tween_method(_rota_ilerlet.bind(hedef), 0.0, fark.length(), fark.length() / hiz)
+		var kok_hizi := _rotada_yatay_hiz(hedef, hiz)
+		t.tween_method(_rota_ilerlet.bind(hedef), 0.0, fark.length(), fark.length() / kok_hizi)
 	else:
 		t.tween_property(self, "position", hedef, fark.length() / hiz)
 	_yurume = t
@@ -123,6 +123,19 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI, durum: StringName = &"") -> 
 
 func hareket_bandi() -> String:
 	return _hareket_bandi
+
+
+func _rotada_yatay_hiz(hedef: Vector3, hiz: float) -> float:
+	var ayak := get_node_or_null("AyakZemini") as AyakZemini
+	var zemin := ayak.zemin_olcer() if ayak != null else Callable()
+	if not zemin.is_valid():
+		return hiz
+	var ust := get_parent_node_3d()
+	var bas := global_position
+	var son := ust.to_global(hedef) if ust != null else hedef
+	var yatay := Vector2(son.x - bas.x, son.z - bas.z).length()
+	var yukselti := float(zemin.call(son)) - float(zemin.call(bas))
+	return hiz * HareketGecisi.yokus_carpani(rad_to_deg(atan2(yukselti, yatay)))
 
 
 func _rota_ilerlet(ilerleme: float, hedef: Vector3) -> void:

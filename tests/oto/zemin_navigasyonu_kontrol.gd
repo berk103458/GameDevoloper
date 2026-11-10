@@ -1,4 +1,9 @@
 extends Node
+class EgimliArazi extends KoyArazisi:
+ var bas := Vector2.ZERO
+ var yon := Vector2.ZERO
+ func yukseklik_burada(x: float, z: float) -> float:
+  return (Vector2(x, z) - bas).dot(yon) * 0.25
 class TestAna extends Ana:
  func _ready() -> void:
   set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -37,6 +42,7 @@ func _ready() -> void:
  kontrol(not yol.is_empty() and n.sorgu_sayisi > 0 and n.yedek_sayisi == 0, "Patika/kapı rotası NavigationServer3D kullanır")
  kontrol(yol[-1].is_equal_approx(h._konum(son)), "Kapı hedefi aynen korunur")
  await _esikten_yuru(s, n, yol, son)
+ await _yokus_hizi(s, yol)
  # Gerçek bina hücreleri navmesh dışındadır; geçilmez arazi de aynı süzgeçten geçer.
  var mesh := n.navigation_mesh
  var vertices := mesh.vertices
@@ -80,6 +86,46 @@ func _ready() -> void:
  await get_tree().create_timer(0.3).timeout
  print("ZEMİN NAVİGASYONU UI: GEÇTİ" if hata == 0 else "ZEMİN NAVİGASYONU UI: KALDI")
  await Ses.cik(hata)
+
+func _yokus_hizi(s: KoyYonetimSahnesi, yol: Array[Vector3]) -> void:
+ if yol.size() < 2: return
+ var bas := yol[-2]
+ var hedef := yol[-1]
+ var duz := await _rota_hizi(s, bas, hedef)
+ var asil_arazi := s.arazi
+ var egimli := EgimliArazi.new()
+ egimli.bas = Vector2(bas.x, bas.z)
+ egimli.yon = (Vector2(hedef.x, hedef.z) - egimli.bas).normalized()
+ s.arazi = egimli
+ var yokus := await _rota_hizi(s, bas, hedef)
+ s.arazi = asil_arazi
+ egimli.free()
+ var klip := HareketGecisi.tablo_klibi("yuru")
+ kontrol(duz.band == "yuru" and yokus.band == "yuru" and duz.klip == klip and yokus.klip == klip, "SAH-21: Yokuşta canlı bant ve klip yürü kalır")
+ kontrol(duz.hiz > 1.0 and yokus.hiz > 0.4 and yokus.hiz < duz.hiz * 0.9, "SAH-21: Yokuşta aynı rotanın yatay kök hızı düşer")
+ kontrol(is_equal_approx(duz.tempo, yokus.tempo) and duz.vardi and yokus.vardi, "SAH-21: Aynı klip temposunda adım kısalır ve rota hedefe ulaşır")
+ print("SAH-21 düz=%.4f m/s, yokuş=%.4f m/s, bant=%s, klip=%s, tempo=%.4f/%.4f" % [duz.hiz, yokus.hiz, yokus.band, yokus.klip, duz.tempo, yokus.tempo])
+
+func _rota_hizi(s: KoyYonetimSahnesi, bas: Vector3, hedef: Vector3) -> Dictionary:
+ var f := Dunya3B.karakter("lowpo_demirci")
+ f.position = bas
+ s._halk.add_child(f)
+ f.bak(hedef)
+ f.rota_adimi = KoyRotaAraligi.adim.bind(s.halk_hareketi, f)
+ f.yuru(hedef, 1.6)
+ await get_tree().create_timer(0.25).timeout
+ var fark := f.position - bas
+ var ornek := {
+  "hiz": Vector2(fark.x, fark.z).length() / 0.25,
+  "band": f.hareket_bandi(),
+  "klip": f._oynatici.current_animation,
+  "tempo": f._oynatici.get_playing_speed(),
+ }
+ if f._yurume != null and f._yurume.is_running():
+  await f._yurume.finished
+ ornek.vardi = f.position.is_equal_approx(hedef)
+ f.queue_free()
+ return ornek
 
 func _esikten_yuru(s: KoyYonetimSahnesi, n: KoyZeminNavigasyonu, yol: Array[Vector3], esik: Vector2i) -> void:
  var kp := s.kapi_noktasi()

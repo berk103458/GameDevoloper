@@ -1,3 +1,9 @@
+## 2026-11-10 — SAH-21 eğimde yürüyüş (Kalfa)
+
+- ANI-13 yolunda eğim, ayak düzeltmesinin kullandığı gerçek yüzeyden iki rota noktası arasında okunuyor. Mevcut eğim çarpanı yalnız yatay kök hızını düşürüyor. Bant, klip ve tempo hız isteğinden belirleniyor. Normal köy ızgarası düz kalıyor.
+- Aynı rotada test arazisi 1:4 eğimde. Düz ölçüm 1,5612 m/s, eğimli 1,1482 m/s. Bant ve klip `yuru`, iki tempo da 3,9506. İki yol hedefe vardı. Navi, hareket geçişi, ayak zemini, gece kaçışı ve devriye hedefleri geçti. Tekrar headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor.
+- Asset gerekmedi. Sonraki adım SAH-22. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-21 sahipliği (Kalfa)
 
 - SAH-17 ve ANI-13 hazır. Düz köy arazisini değiştirmeden, testte eğimli zemin örneğiyle gerçek rotadaki kök hızı ve klip temposu ölçülecek. Kota görünmüyor.

@@ -8036,7 +8036,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-04, SAH-18. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-21:** Yokuşta bant değişmez, adım kısalır. (Kalfa — ANI-13 rota hızı ve yürüyüş bandı)
+- [x] **SAH-21:** Yokuşta bant değişmez, adım kısalır. (Kalfa — ANI-13 rotasında aynı klip, daha kısa yatay adım)
   - Ne: eğim hızı ANI-13 ile gelir. Koşu bandı eğim yüzünden kendiliğinden açılmaz.
   - Kabul: eğim hızı ANI-13 ile gelir. Koşu bandı eğim yüzünden kendiliğinden açılmaz. Test: yokuşta bant yürü, kök hız düşük.
   - Bağımlılık: ANI-13, SAH-17. Boyut: S.
