@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-24 sahipliği (Kalfa)
+
+- SAH-18 ve DEN-65 hazır. Üç gerçek açılış zorluğunda aynı oynatıcı karışımının yerleştiği kare ölçülecek. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-23 kapı sorgusunda duruş (Kalfa)
 
 - Mevcut kapı yaklaşma ve dönme akışından sonra CHR-001 ile 5 saniye ölçüldü. Gerçek konuşma klibi 600 kare, yürüyüş 0 kare, azami kök farkı 0,000000 m. Canlı test eklendi. Söz motoru beklemede.
