@@ -98,11 +98,14 @@ func yuru(hedef: Vector3, hiz: float = YURUME_HIZI, durum: StringName = &"") -> 
 	if is_instance_valid(_oynatici):
 		var tablo_klibi := HareketGecisi.tablo_klibi(_hareket_bandi)
 		var gercek_klip := tablo_klibi if _oynatici.has_animation(tablo_klibi) else _anim
-		if preload("res://src/dunya/guvenli_karakter_animasyonu.gd").var_mi(_oynatici, gercek_klip):
+		var guvenli := preload("res://src/dunya/guvenli_karakter_animasyonu.gd")
+		if guvenli.var_mi(_oynatici, gercek_klip):
 			var taban_hiz := HareketGecisi.kosu_taban_hizi() if _hareket_bandi == "kos" and gercek_klip == tablo_klibi else _yuruyus_taban_hizi()
 			# Klip temposu karışım süresini değiştirmesin.
 			_oynatici.speed_scale = 1.0
 			_oynatici.play(gercek_klip, HareketGecisi.yuruyus_gecisi_suresi(), hiz / taban_hiz)
+		else:
+			guvenli.dur(_oynatici, _anim, GECIS)
 	_bekleme_hedef = 0.0
 	_duzeltici_hedef = 1.0
 	_klip_sirasi += 1

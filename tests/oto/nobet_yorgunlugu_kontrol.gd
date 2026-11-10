@@ -47,7 +47,8 @@ func _ready() -> void:
 		if c is KoyEkrani: ekran = c
 	_kontrol(ekran != null, "Canlı köy ekranı")
 	await get_tree().process_frame
-	var model: Node3D = ekran.sahne3b.halk_hareketi.modeller[k.id]
+	var model: KarakterModel = ekran.sahne3b.halk_hareketi.modeller[k.id]
+	_yorgun_yuruyus(ekran.sahne3b.halk_hareketi, k, model)
 	# Gerçek giriş yolunu kontrollü bir görünür figür konumunda doğrula.
 	model.position = Vector3.ZERO
 	var nokta := ekran.sahne3b.kamera.unproject_position(model.global_position + Vector3.UP * 0.9)
@@ -83,6 +84,36 @@ func _ready() -> void:
 	await get_tree().create_timer(0.3).timeout
 	print("YORGUNLUK UI: GEÇTİ" if hata == 0 else "YORGUNLUK UI: KALDI")
 	await Ses.cik(hata)
+func _yorgun_yuruyus(h: KoyHalkHareketi, k: Koylu, model: KarakterModel) -> void:
+	var y := h.sahne.yonetim
+	_kontrol(NobetYorgunlugu.aktif(k, y) and k.aclik == 0, "SAH-22: Nöbetten gelen gerçek yorgunluk, açlık yok")
+	var meydan := y.a.meydan.position
+	var bas := h._konum(meydan)
+	var son := h._konum(meydan + Vector2i.RIGHT)
+	var yorgunluk := k.yorgunluk.duplicate(true)
+	var durum: Dictionary = h._durum[k.id].duplicate(true)
+	var yorgun := _yuruyusu_olc(h, model, k.id, bas, son)
+	k.yorgunluk = {}
+	var dinlenmis := _yuruyusu_olc(h, model, k.id, bas, son)
+	k.yorgunluk = yorgunluk
+	h._durum[k.id] = durum
+	h._iste(k.id)
+	_kontrol(dinlenmis.hiz > 1.0 and yorgun.hiz > 0.5 and yorgun.hiz < dinlenmis.hiz * 0.85, "SAH-22: Aynı rotada yorgun kök daha yavaş")
+	_kontrol(not String(yorgun.klip).is_empty() and yorgun.klip == dinlenmis.klip and yorgun.band == "yuru" and dinlenmis.band == "yuru", "SAH-22: Yorgun ve dinlenmiş durumda aynı gerçek yürüyüş klibi")
+	print("SAH-22 dinlenmiş=%.4f m/s, yorgun=%.4f m/s, klip=%s" % [dinlenmis.hiz, yorgun.hiz, yorgun.klip])
+
+func _yuruyusu_olc(h: KoyHalkHareketi, model: KarakterModel, id: int, bas: Vector3, son: Vector3) -> Dictionary:
+	model.yurumeyi_durdur()
+	model.position = bas
+	model.bak(son)
+	h._durum[id].yol = [son]
+	h._durum[id].adim = 0
+	h._adim(id)
+	if model._yurume != null:
+		model._yurume.pause()
+		model._yurume.custom_step(0.25)
+	return {"hiz": model.position.distance_to(bas) / 0.25, "klip": model._oynatici.current_animation, "band": model.hareket_bandi()}
+
 func _hedef(n: Node, id: int) -> Button:
 	if n is Button and n.get_meta("hedef", 99999) == id: return n
 	for c in n.get_children():

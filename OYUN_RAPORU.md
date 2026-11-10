@@ -1,3 +1,9 @@
+## 2026-11-10 — SAH-22 yorgun yürüyüş (Kalfa)
+
+- Köy rotası, YSM-01 ile aynı `NobetYorgunlugu.aktif` kaydını okuyup yorgun yürüyüşü mevcut 0,70 katsayısıyla yavaşlatıyor. Kaçış bağlamı SAH-19 koşu eşiğini, her rota açlık ve hava çarpanlarını kullanıyor.
+- Gerçek gece nöbetinden sonra aynı rotanın 0,25 saniyelik hareketinde dinlenmiş 1,3609 m/s, yorgun 0,9526 m/s. İkisi de `yuru` bandında ve `Armature|walking_man|baselayer` klibinde. Yürüyüş klibi kontrollü olarak çıkarılınca BUG-09 gerçek `bekle` klibine döndü. 46 yerel modelin yürüyüş klibi tarandı, yeni eksik bulunmadı ve asset gerekmedi.
+- Bant, canlı yorgunluk, UZM-14, YSM, hareket geçişi ve gece kaçışı hedefleri geçti. Tekrar headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor. Sonraki adım SAH-23. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-22 sahipliği (Kalfa)
 
 - YSM-01 ve BUG-09 hazır. Mevcut yorgunluk kaydını rota hızına bağlayıp aynı klip ve eksik yürüyüşte bekleme davranışını doğrulayacağım. Kota görünmüyor.

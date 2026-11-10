@@ -80,11 +80,15 @@ static func yokus_carpani(egim: float) -> float:
 
 ## SAH-22: Yorgun yürüyüş ayrı bir klip istemez; hız düşer, klip aynı kalır.
 func yorgun_hiz(hiz: float, yorgun: bool) -> Dictionary:
-	var son_hiz := hiz * 0.7 if yorgun else hiz
+	var son_hiz := yorgun_yuruyus_hizi(hiz) if yorgun else hiz
 	return {
 		"hiz": son_hiz,
 		"klip": klip_adi_al("yuru")
 	}
+
+
+static func yorgun_yuruyus_hizi(hiz: float) -> float:
+	return hiz * 0.7
 
 
 ## SAH-23: Kapıdaki sorgu sırasında kök hız 0'dır, konuşma yürüyüşle karışmaz.

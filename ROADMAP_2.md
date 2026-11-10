@@ -8042,7 +8042,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-13, SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-22:** Yorgun yürüyüş ayrı bir klip istemez. (Kalfa — YSM kaydı ve gerçek rota hızı)
+- [x] **SAH-22:** Yorgun yürüyüş ayrı bir klip istemez. (Kalfa — YSM kaydıyla 0,70 hız, aynı klip)
   - Ne: YSM yorgunluğu mevcut yürüyüşün hızını düşürür. Yeni yorgun klip üretilmez. Klip yoksa listeye yazılır, idle oynar.
   - Kabul: YSM yorgunluğu mevcut yürüyüşün hızını düşürür. Yeni yorgun klip üretilmez. Klip yoksa listeye yazılır, idle oynar. Test: yorgun hız < tok hız, klip adı aynı.
   - Bağımlılık: YSM-01, BUG-09. Boyut: S.

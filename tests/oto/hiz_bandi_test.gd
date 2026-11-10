@@ -44,6 +44,14 @@ func _calistir() -> void:
 	gecti = gecti and figur.hareket_bandi() == "yuru" and oynatici.current_animation == klipler.yuru
 	figur.yurumeyi_durdur()
 	gecti = gecti and oynatici.current_animation == klipler.dur
+	var kitap := oynatici.get_animation_library(&"").duplicate() as AnimationLibrary
+	kitap.remove_animation(StringName(klipler.yuru))
+	oynatici.remove_animation_library(&"")
+	oynatici.add_animation_library(&"", kitap)
+	oynatici.play("konus")
+	figur.yuru(hedef, float(bantlar.yuru[0]) + 0.5)
+	gecti = gecti and figur.hareket_bandi() == "yuru" and oynatici.current_animation == klipler.dur
+	print("SAH-22 eksik yürüyüşte oynayan klip=%s" % oynatici.current_animation)
 	print("SAH-17 bantlar=%s, canlı klipler=%s" % [secilen_bantlar, secimler])
 	figur.free()
 	print("CANLI HIZ BANTLARI: GEÇTİ" if gecti else "CANLI HIZ BANTLARI: KALDI")

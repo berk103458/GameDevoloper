@@ -303,11 +303,14 @@ func _planla(id: int) -> void:
 func _adim(id: int) -> void:
 	var fark := sin(float(id) * 2.4) * float(_ayar.hiz_farki)
 	var d: Dictionary = _durum[id]
+	var kisi := sahne.yonetim.koylu(id)
 	var durum := SinsiGeceRutini.hareket_baglami(self, id)
 	var hiz := float(_ayar.yurume_hizi) * (1.0 + fark) * SinsiGeceRutini.hiz(d)
 	if durum == &"kacis":
 		hiz = maxf(hiz, HareketGecisi.kosu_taban_hizi())
-	hiz *= KarakterHavaTepkisi.hiz(sahne.yonetim) * preload("res://src/koy/aclik_kademesi.gd").yurume(sahne.yonetim.koylu(id))
+	elif kisi != null and NobetYorgunlugu.aktif(kisi, sahne.yonetim):
+		hiz = HareketGecisi.yorgun_yuruyus_hizi(hiz)
+	hiz *= KarakterHavaTepkisi.hiz(sahne.yonetim) * preload("res://src/koy/aclik_kademesi.gd").yurume(kisi)
 	modeller[id].yuru(d.yol[d.adim], hiz, durum)
 
 func _konum(h: Vector2i) -> Vector3:
