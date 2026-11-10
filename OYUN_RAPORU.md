@@ -1,3 +1,9 @@
+## 2026-11-10 — SAH-20 duruşun ilk karesi (Kalfa)
+
+- Mevcut SAH-04 ayak düzeltmesiyle gerçek eğimde doğal çiftçi bitişi ve LOWPO demircinin dur eşiği altındaki isteği ölçüldü. Aynı karede ikisi de dur bandında. Anlık taban farkı çiftçide −0,06 mm, demircide 0. İlk işlenen karede iki modelde de kök kayması ve taban farkı 0,00000 m. Beş saniyelik duruş ölçümleri de geçti.
+- Uygulama mevcut entegrasyonla koşulu karşıladı. Gerçek kapı arazisindeki ayak testine kalıcı ilk kare kontrolü eklendi. Ayak zemini, canlı karışım, canlı hız bantları ve hareket geçişi birimi geçti. Tekrar headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor.
+- Asset gerekmedi. Sonraki adım SAH-21. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-20 sahipliği (Kalfa)
 
 - SAH-04 ve SAH-18 hazır. Doğal bitiş ile hız bandı duruşunun ilk karesinde kök konumunu ve ayak tabanını birlikte ölçeceğim. Kota görünmüyor.

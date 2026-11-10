@@ -187,12 +187,18 @@ func _durus(kapi: KapiSahnesi, ad: String, iptal: bool) -> bool:
 	if iptal:
 		f.yuru(son, 1.35)
 		await get_tree().create_timer(0.45).timeout
-		f.yurumeyi_durdur()
+		var sahne_ayari: Dictionary = preload("res://data/ayarlar/sahne.json").data
+		f.yuru(son, float(sahne_ayari.hiz_bantlari.dur[1]) * 0.5)
 	else:
 		await f.yuru(son, 1.35)
 	var durak := f.global_position
+	var baslama_temaslari := ayak.temas_farklari()
+	var baslama_acikligi := float(Array(baslama_temaslari).min()) if baslama_temaslari.size() >= 2 else INF
+	var aninda_dur := f.hareket_bandi() == "dur"
+	var aninda_temas := baslama_acikligi >= -GOMULME_PAYI and baslama_acikligi <= 0.025
 	var zemin_farki := absf(kapi.ayak_zemini_yuksekligi(bas) - kapi.ayak_zemini_yuksekligi(durak))
 	var gecti := bas.distance_to(durak) > 0.25 and zemin_farki > 0.02
+	gecti = gecti and aninda_dur and aninda_temas
 	gecti = gecti and (not durak.is_equal_approx(son) if iptal else durak.is_equal_approx(son))
 	var son_konum := durak
 	var azami_delta := 0.0
@@ -205,6 +211,12 @@ func _durus(kapi: KapiSahnesi, ad: String, iptal: bool) -> bool:
 		var kok := f.global_position
 		var hiz := kok.distance_to(son_konum) / delta
 		var konum_farki := kok - durak
+		if kare == 0:
+			var ilk_temaslari := ayak.temas_farklari()
+			var ilk_aciklik := float(Array(ilk_temaslari).min()) if ilk_temaslari.size() >= 2 else INF
+			gecti = gecti and konum_farki.length() <= 0.00001 and ilk_aciklik >= -GOMULME_PAYI and ilk_aciklik <= 0.025
+			print("SAH-20 %s: aynı kare dur=%s, taban=%.5f m, ilk kare kök kayması=%.5f m, taban=%.5f m" % [
+				ad, aninda_dur, baslama_acikligi, konum_farki.length(), ilk_aciklik])
 		azami_delta = maxf(azami_delta, konum_farki.length())
 		gecti = gecti and hiz <= 0.05 and ayak.durus_kayma_esik_alti_mi(hiz, konum_farki)
 		gecti = gecti and (f._yurume == null or not f._yurume.is_running())

@@ -8030,7 +8030,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-02, SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-20:** Durunca kayma SAH-04 ile kapanır. (Kalfa — duruşun ilk karesinde gerçek ayak teması)
+- [x] **SAH-20:** Durunca kayma SAH-04 ile kapanır. (Kalfa — doğal bitiş ve düşük hızda ilk kare kayması 0)
   - Ne: hız bandı dura düşünce ayak cilası aynı karede devreye girer. İki sistem bir kare gecikmez.
   - Kabul: hız bandı dura düşünce ayak cilası aynı karede devreye girer. İki sistem bir kare gecikmez. Test: duruş karesi, kayma 0.
   - Bağımlılık: SAH-04, SAH-18. Boyut: S.
