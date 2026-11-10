@@ -7967,7 +7967,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-11. Boyut: M.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi. Çakışan tür ARY-05'e `SAH-EL-CAKISMA` diye yazılır, üretilmez.
-- [ ] **SAH-10:** Yürürken eşya ele yapışıktır. (doğrulanmadı — Görev 22; ElEsyasi SAH yardımcıları yalnız testten çağrılıyor)
+- [/] **SAH-10:** Yürürken eşya ele yapışıktır. (Kalfa — 20 gerçek adımda avuç gecikmesi)
   - Ne: kök hızlanırken eşya ele göre 2 santimden fazla gecikmez.
   - Kabul: kök hızlanırken eşya ele göre 2 santimden fazla gecikmez. Test: 20 adım, gecikme eşiği.
   - Bağımlılık: SAH-09. Boyut: S.

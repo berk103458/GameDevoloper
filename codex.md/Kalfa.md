@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-10 başlıyor (Kalfa)
+
+Festive a58796b5 güncel. Mevcut el eşyasının yürüyüş ve kök hız değişimi sırasında canlı avuç noktasına göre gecikmesi ölçülecek. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-09 tamamlandı (Kalfa)
 
 El eşyası mevcut avuç konumunu kullanır. Son iskelet pozundaki göğüs ve uyluk kemik doğrularına karşı gerçek mesh parçalarının yerel sınırları ölçülür. Yalnız kesişim varsa avuç etrafında güvenli yön denenir. Dik eşyada düzeltme yalnız dik eksen çevresindedir. Bağlama ağaç dışında da yapılabildiği için parça dönüşümleri yerel düğüm zincirinden alınır.
