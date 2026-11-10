@@ -48,7 +48,8 @@ func yenile() -> void:
 			var h := KoyRotaAraligi.bos_hucre(self, tercih)
 			if h.x < 0:
 				continue
-			var f := Dunya3B.karakter(HazirKarakterler.koy_adi(k, Dunya3B.karakter_adi(k.adli_id, k.portre, k.sinif)))
+			var temel_ad := Dunya3B.karakter_adi(k.adli_id, k.portre, k.sinif)
+			var f := Dunya3B.karakter(HazirKarakterler.koy_adi(k, temel_ad), temel_ad)
 			f.position = _konum(h)
 			sahne._halk.add_child(f)
 			f.set_meta("koylu_id", k.id)

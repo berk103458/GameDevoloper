@@ -54,11 +54,12 @@ static func olustur(ad: String) -> KarakterModel:
 static func gorunumu_yenile(h: KoyHalkHareketi, k: Koylu) -> void:
 	if not h.modeller.has(k.id):
 		return
-	var ad := koy_adi(k, Dunya3B.karakter_adi(k.adli_id, k.portre, k.sinif))
+	var temel_ad := Dunya3B.karakter_adi(k.adli_id, k.portre, k.sinif)
+	var ad := koy_adi(k, temel_ad)
 	var eski: KarakterModel = h.modeller[k.id]
 	if String(eski.get_meta("model_adi", "")) == ad:
 		return
-	var yeni := Dunya3B.karakter(ad)
+	var yeni := Dunya3B.karakter(ad, temel_ad)
 	yeni.transform = eski.transform
 	yeni.set_meta("koylu_id", k.id)
 	h.sahne._halk.add_child(yeni)

@@ -7991,7 +7991,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: BUG-09, SAH-09. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-14:** Kapıdaki yük, köydeki yükle aynı sokettedir. (Kalfa — gerçek kabul ve model değişiminde yük)
+- [x] **SAH-14:** Kapıdaki yük, köydeki yükle aynı sokettedir. (Kalfa — kapı, köy, model değişimi ve yeniden kurulumda RightHand)
   - Ne: kabul edilen kişinin el eşyası kapıdan köye geçince türü değişmez, noktası değişmez. İkinci tutuş tablosu yok.
   - Kabul: kabul edilen kişinin el eşyası kapıdan köye geçince türü değişmez, noktası değişmez. İkinci tutuş tablosu yok. Test: aynı tür, iki sahne, aynı soket adı.
   - Bağımlılık: SAH-09. Boyut: S.

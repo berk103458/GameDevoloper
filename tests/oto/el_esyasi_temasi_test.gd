@@ -57,6 +57,7 @@ func _calistir() -> void:
 		gecti = (await _cift_soket(ornek[0], ornek[1], ornek[2])) and gecti
 	gecti = (await _konusma_soketi("chr_005", "heybe", true)) and gecti
 	gecti = (await _konusma_soketi("ciftci", "odun", false)) and gecti
+	gecti = (await _kapi_koy_yuku()) and gecti
 	print("EL EŞYASI TEMASI: GEÇTİ" if gecti else "EL EŞYASI TEMASI: KALDI")
 	await root.get_node("Ses").cik(0 if gecti else 1)
 
@@ -298,6 +299,61 @@ func _konusma_soketi(ad: String, tur: String, klip_var: bool) -> bool:
 		ad, beklenen, beklenen_sure, olcum.kare, olcum.ayrilan, olcum.fark])
 	kapi.free()
 	return gecti
+
+
+func _kapi_koy_yuku() -> bool:
+	var katalog := Katalog.new()
+	katalog.yukle()
+	var oturum := Oturum.new(katalog, 914)
+	var gelen := oturum._adli_gelen(&"chr_005")
+	var kapi := KapiSahnesi.new()
+	root.add_child(kapi)
+	var ad := Dunya3B.karakter_adi(gelen.id, gelen.portre, gelen.sinif)
+	kapi.kuyruk_doldur([ad])
+	await kapi.gelen_yaklas(ad)
+	var kapida := _yuk_soketi(kapi._gelen, "heybe")
+	var karar := oturum.karar_ver(gelen, &"kabul")
+	var kimlik := int(karar.get("koylu_id", -1))
+	var koylu := oturum.yonetim.koylu(kimlik)
+	if not karar.get("kaldi", false) or koylu == null:
+		push_error("SAH-14: Gerçek kabul köylü üretmedi")
+		kapi.free()
+		return false
+	var koy := KoyYonetimSahnesi.new()
+	koy.yonetim = oturum.yonetim
+	root.add_child(koy)
+	var halk := koy.halk_hareketi
+	halk.set_process(false)
+	var koyde := _yuk_soketi(halk.modeller[kimlik], "heybe")
+	# Eski kayıttaki yaş alanı görünümü değiştirir, taşıdığı eşya kaynağını değiştirmez.
+	var kayit := koylu.kaydet()
+	kayit["yas_grubu"] = "cocuk"
+	var yuklenen := Koylu.kayittan(kayit)
+	oturum.yonetim.koylular[oturum.yonetim.koylular.find(koylu)] = yuklenen
+	var once := JSON.stringify(oturum.yonetim.kaydet())
+	halk.yenile()
+	var degisen: KarakterModel = halk.modeller[kimlik]
+	var degisince := _yuk_soketi(degisen, "heybe")
+	var model := String(degisen.get_meta("model_adi"))
+	koy.free()
+	var yeniden := KoyYonetimSahnesi.new()
+	yeniden.yonetim = oturum.yonetim
+	root.add_child(yeniden)
+	var yeniden_figur: KarakterModel = yeniden.halk_hareketi.modeller[kimlik]
+	var yeniden_soket := _yuk_soketi(yeniden_figur, "heybe")
+	var ayni_kayit := JSON.stringify(oturum.yonetim.kaydet()) == once
+	print("SAH-14 heybe: kapı=%s, köy=%s, %s dönüşümü=%s, yeniden kurulum=%s" % [
+		kapida, koyde, model, degisince, yeniden_soket])
+	kapi.free()
+	yeniden.free()
+	return kapida == "RightHand" and koyde == kapida and degisince == kapida and yeniden_soket == kapida and model == "lowpo_cocuk" and ayni_kayit
+
+
+func _yuk_soketi(figur: KarakterModel, tur: String) -> String:
+	var esya := figur.get_node_or_null("esya_" + tur) as ElEsyasi
+	if esya == null or not esya.soket_dolu_mu() or esya._el < 0:
+		return ""
+	return esya._iskelet.get_bone_name(esya._el)
 
 
 func _esya_kutulari_kesisir(sag: Array, sol: Array) -> bool:

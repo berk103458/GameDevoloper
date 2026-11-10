@@ -15,9 +15,12 @@ func _ready() -> void:
  add_child(ana)
  var y := ana.oturum.yonetim
  y.kabul({"sinif": "ciftci", "stat": 5})
- var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
+ var ilk_kayit := ana.oturum.kaydet().merged({"faz": "koy"}, true)
  ana._koye_git()
  await get_tree().process_frame
+ # OGR-24 köy açılışında pazar ve divanın ilk görüşünü kaydeder.
+ ilk_kayit["ogretici"] = ana.oturum.kaydet()["ogretici"]
+ var once := JSON.stringify(ilk_kayit)
  var s: KoyYonetimSahnesi = ana._ekran.sahne3b
  var h := s.halk_hareketi
  h.set_process(false)

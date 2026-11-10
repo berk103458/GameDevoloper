@@ -189,14 +189,16 @@ static func _kutu(n: Node) -> AABB:
 
 
 ## Yürüyen karakter: `<ad>_yuru.glb` (iskelet + yürüme animasyonu); yoksa kapsül.
-static func karakter(ad: String) -> KarakterModel:
+static func karakter(ad: String, esya_kaynagi: String = "") -> KarakterModel:
+	# Görsel model değişebilir. Verilen kapı kaynağı aynı eşya ve el satırını seçer.
+	var esya_adi := ad if esya_kaynagi.is_empty() else esya_kaynagi
 	var hazir := HazirKarakterler.olustur(ad)
 	if hazir != null:
 		hazir.name = ad
 		hazir.set_meta("model_adi", ad)
 		hazir.add_child(preload("res://src/ses/hazir_adim_sesi.gd").new())
 		SiraOlayiKisisi.model_kur(hazir, ad)
-		_el_esyalari_tak(hazir, ad)
+		_el_esyalari_tak(hazir, esya_adi)
 		return hazir
 	var k := KarakterModel.new()
 	k.name = ad
@@ -206,7 +208,7 @@ static func karakter(ad: String) -> KarakterModel:
 	if yol != "":
 		k.kur((_sahne(yol)).instantiate(), ad)
 		SiraOlayiKisisi.model_kur(k, ad)
-		_el_esyalari_tak(k, ad)
+		_el_esyalari_tak(k, esya_adi)
 	else:
 		k.kur(null)
 	return k
