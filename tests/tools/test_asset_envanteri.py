@@ -6,7 +6,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[2]
 ENVANTER = (ROOT / "docs/EKSIK_ASSET_ENVANTERI.md").read_text(encoding="utf-8")
 ROADMAP = (ROOT / "ROADMAP_2.md").read_text(encoding="utf-8")
-KIMLIK = re.compile(r"`([A-Z]{2,4}\d{2}[a-z]?-[A-Z0-9*-]+)`")
+KIMLIK = re.compile(r"`([A-Z]{2,4}\d{2}[a-z]?-[A-Z0-9*-]+|SAH-EL-(?!CAKISMA`)[A-Z0-9-]+)`")
 
 
 def roadmap_kimlikleri(metin=ROADMAP):
@@ -54,6 +54,10 @@ class AssetEnvanteriTest(unittest.TestCase):
         ornek = "  - Asset: 8 yükleme görseli envantere `ARY04-YUKLEME-01` … `ARY04-YUKLEME-08`."
         self.assertEqual({f"ARY04-YUKLEME-{n:02d}" for n in range(1, 9)}, roadmap_kimlikleri(ornek))
 
+
+    def test_sah_el_kimligi_rapor_etiketinden_ayrilir(self):
+        ornek = "  - Asset: `SAH-EL-TORBA`, rapor etiketi `SAH-EL-CAKISMA`."
+        self.assertEqual({"SAH-EL-TORBA"}, roadmap_kimlikleri(ornek))
 
 
 class SurumIkonuTest(unittest.TestCase):

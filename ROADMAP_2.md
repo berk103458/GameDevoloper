@@ -8003,12 +8003,12 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-09, UZM-08. Boyut: S.
   - Dosya: `src/dunya/el_esyasi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-16:** Muayene kesişen eşyayı listeler. (Kalfa — gerçek kemik ve eşya raporu)
+- [x] **SAH-16:** Muayene kesişen eşyayı listeler. (Kalfa — 46 model, 7 eşya türü ARY-05 kayıtlı)
   - Ne: araç, kemikle kesişen eşya türünü yazar. Liste ARY-05'e işlenir, model üretilmez.
   - Kabul: araç, kemikle kesişen eşya türünü yazar. Liste ARY-05'e işlenir, model üretilmez. Test: kasıtlı kesişim, raporda tür adı.
   - Bağımlılık: SAH-08, SAH-09. Boyut: S.
   - Dosya: `tests/oto/karakter_muayene.gd`. `docs/EKSIK_ASSET_ENVANTERI.md` satırı.
-  - Asset: çakışan eşya `SAH-EL-*`. Yer tutucu mevcut kutu.
+  - Asset: Muayene bulguları ARY-05 envanterine `SAH-EL-TORBA`, `SAH-EL-CEKIC`, `SAH-EL-ASA`, `SAH-EL-DEGNEK`, `SAH-EL-SEPET`, `SAH-EL-KAZMA`, `SAH-EL-KILE`. Mevcut yer tutucular kullanılır.
 
 ### 44.3 Yürüme, koşma, durma
 

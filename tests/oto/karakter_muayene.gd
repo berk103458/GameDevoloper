@@ -13,6 +13,7 @@ extends Node3D
 const KARE := Vector2i(200, 300)
 const ANLAR := [0.25, 0.75, 1.25]
 const AYAK_ESIGI := 0.08
+const ESYA_KESISIM_ETIKETI := "SAH-EL-CAKISMA"
 const HAREKET_SIRASI := ["bekle", "yuru", "konus", "sevinc", "ofke", "panik", "gergin"]
 
 var _kamera: Camera3D
@@ -143,6 +144,13 @@ func _muayene(ad: String, klasor: String, ciz: bool) -> void:
 	var bulunan := k.find_children("*", "Skeleton3D", true, false)
 	if not bulunan.is_empty():
 		sk = bulunan[0]
+	var kesisen := {}
+	var esyalar: Array[ElEsyasi] = []
+	for cocuk in k.get_children():
+		if cocuk is ElEsyasi:
+			esyalar.append(cocuk)
+	if sk != null and not esyalar.is_empty():
+		sk.skeleton_updated.connect(_esya_kesisimlerini_olc.bind(esyalar, kesisen))
 	var kayit := {"kemik_sayisi": sk.get_bone_count() if sk != null else 0, "kemikler": _kemik_adlari(sk), "hareketler": {}, "eksik": [], "uyarilar": []}
 	var var_olan: Array = []
 	for h in HAREKET_SIRASI:
@@ -187,6 +195,11 @@ func _muayene(ad: String, klasor: String, ciz: bool) -> void:
 		sayfa.save_jpg(klasor.path_join(ad + ".jpg"), 0.8)
 		kayit["sayfa"] = klasor.path_join(ad + ".jpg")
 	kayit["ayak_muayenesi"] = _ayak_satiri(ad, en_alt)
+	var turler := kesisen.keys()
+	turler.sort()
+	kayit["esya_kesisimleri"] = turler
+	for tur in turler:
+		print("%s %s: %s" % [ESYA_KESISIM_ETIKETI, ad, tur])
 	kayit["satirlar"] = var_olan
 	_sonuc[ad] = kayit
 	print("MUAYENE %s kemik=%d hareket=%s eksik=%s uyari=%d" % [ad, kayit["kemik_sayisi"], var_olan, kayit["eksik"], kayit["uyarilar"].size()])
@@ -194,6 +207,13 @@ func _muayene(ad: String, klasor: String, ciz: bool) -> void:
 		print("  UYARI %s: %s" % [ad, u])
 	k.queue_free()
 	await get_tree().process_frame
+
+
+func _esya_kesisimlerini_olc(esyalar: Array[ElEsyasi], kesisen: Dictionary) -> void:
+	for esya in esyalar:
+		var tur := esya.kemik_kesisimi_turu()
+		if not tur.is_empty():
+			kesisen[tur] = true
 
 
 func _ayak_satiri(ad: String, en_alt: float) -> Dictionary:
@@ -324,7 +344,7 @@ static func esya_kesisim_muayenesi_yap(esya_turu: String, esya_pos: Vector3, kem
 			break
 	var mesaj := ""
 	if kesisim:
-		mesaj = "SAH-EL-CAKISMA: %s kemik ile kesisiyor" % esya_turu
+		mesaj = "%s: %s kemik ile kesisiyor" % [ESYA_KESISIM_ETIKETI, esya_turu]
 	return {"kesisim_var": kesisim, "tur": esya_turu, "mesaj": mesaj}
 
 

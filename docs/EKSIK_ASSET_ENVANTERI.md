@@ -485,6 +485,10 @@ Her yuva [tekli UI kataloğunda](arayuz/GEMINI_TEKLI_URETIM_PROMPTLARI.md) kendi
 
 ## 3D assetler — açık üretim ihtiyaçları
 
+### SAH-16 el eşyası temas bulguları (Kalfa)
+
+46 modelin gerçek headless muayenesinde 8 model-eşya eşleşmesi bulundu. Kayıtlar ARY-05 izleme tablosundaki yedi türe bağlıdır. Torba, sepet, çekiç, asa ve değnek için ölçü referansı mevcut EL satırlarıdır. Kazma 0,60 × 0,80 × 0,15 m kaynak sınırını, kile yaklaşık 0,22 × 0,13 × 0,22 m mevcut ahşap ölçeği kullanır. Kapı dönemi ve mevcut avuç soketi esas alınır. Doğrulama için kasıtlı kesiştirilen heybe üretim listesine eklenmedi.
+
 **114 satır/grup**, tek tek model dosyası sayısı değildir. Bir grup birden çok model/klip içerebilir. Kimlik / kısa tanım / ölçü aşağıdadır; eski yer tutucu, format, öncelik ve ajan kaydı kaynak taramasında korunur. 2D doku promptu bağlı geometriyi kapatmaz.
 
 | ID / grup | Kısa tanım | Hedef ölçü (metre) |
@@ -689,6 +693,13 @@ ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik bura
 
 | ID | ROADMAP | Ne | Tür / format | Yer tutucu yolu | Anahtar kelimeler (TR + EN) | Öncelik | Ekleyen |
 |---|---|---|---|---|---|---|---|
+| SAH-EL-TORBA | SAH-16 | CHR-002 keten torba, gövde temasını azalt | 3B temas düzeltmesi | res://src/dunya/el_esyasi.gd (_torba, mevcut torba) | keten torba, avuç tutuşu; linen sack, palm grip | düşük | Kalfa |
+| SAH-EL-CEKIC | SAH-16 | CHR-003 ve CHR-029 el çekici, gövde temasını azalt | 3B temas düzeltmesi | res://assets/esya/kaykit_alet/hammer.gltf | küçük el çekici, sap; small hand hammer, handle | düşük | Kalfa |
+| SAH-EL-ASA | SAH-16 | CHR-008 ahşap asa, gövde temasını azalt | 3B temas düzeltmesi | res://src/dunya/el_esyasi.gd (_asa, mevcut dik asa) | düz ahşap asa, tutuş; straight wooden staff, grip | düşük | Kalfa |
+| SAH-EL-DEGNEK | SAH-16 | CHR-014 eğri değnek, gövde temasını azalt | 3B temas düzeltmesi | res://src/dunya/el_esyasi.gd (_asa, mevcut eğri değnek) | eğri ahşap değnek, tutuş; curved wooden cane, grip | düşük | Kalfa |
+| SAH-EL-SEPET | SAH-16 | CHR-015 hasır sepet, gövde temasını azalt | 3B temas düzeltmesi | res://src/dunya/el_esyasi.gd (_sepet, mevcut sepet) | kulplu hasır sepet; handled wicker basket | düşük | Kalfa |
+| SAH-EL-KAZMA | SAH-16 | CHR-019 kazma, gövde temasını azalt | 3B temas düzeltmesi | res://assets/esya/kaykit_alet/pickaxe.gltf | tahta saplı kazma, tutuş; wooden-handled pickaxe, grip | düşük | Kalfa |
+| SAH-EL-KILE | SAH-16 | CHR-030 ahşap kile, gövde temasını azalt | 3B temas düzeltmesi | res://src/dunya/el_esyasi.gd (_kile, mevcut ölçek) | ahşap kile, tahıl ölçeği; wooden grain measure, scoop | düşük | Kalfa |
 | BUG21-TASYATAGI | BUG-21 | Kazılabilir başlangıç ve kurtarıcı taş yatağı modeli | glTF / 3B model | res://src/koy/gorsel/tas_yatagi_gorseli.gd (kur: düz gri BoxMesh öbeği) | taş yatağı kaya öbeği taş toplama; stone deposit rock pile gathering | yüksek | Codex |
 | BUG25-MESALE | BUG-25 | Kapı meşalesi gerçek modeli (gerekirse) | glTF / 3B model | res://assets/model/nesne/mesale.glb (duran modelin düzeltilmiş hali) | kapı meşalesi duvar; medieval gate wall torch | orta | Claude |
 | BUG25-KUYU | BUG-25 | Köy kuyusu gerçek modeli (gerekirse) | glTF / 3B model | res://assets/model/nesne/kuyu.glb (duran modelin düzeltilmiş hali) | taş köy kuyusu; medieval stone village well | orta | Claude |

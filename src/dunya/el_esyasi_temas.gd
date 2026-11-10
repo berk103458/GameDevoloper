@@ -41,9 +41,7 @@ func _init(esya: Node3D, iskelet: Skeleton3D) -> void:
 func yon(avuc: Vector3, tercih: Basis, dik: bool, zemin: Callable = Callable()) -> Basis:
 	if _kutular.is_empty():
 		return tercih
-	var iskelet_dunya := _iskelet.global_transform
-	for i in _kemikler.size():
-		_kesitler[i] = iskelet_dunya * _iskelet.get_bone_global_pose(_kemikler[i]).origin - avuc
+	_kesitleri_olc(avuc)
 	var en_iyi := tercih
 	var en_az_yukselme := INF
 	if not _kesisir(tercih):
@@ -63,6 +61,16 @@ func yon(avuc: Vector3, tercih: Basis, dik: bool, zemin: Callable = Callable()) 
 				en_iyi = aday
 	return en_iyi
 
+
+func kesisir(konum: Vector3, yonelim: Basis) -> bool:
+	_kesitleri_olc(konum)
+	return _kesisir(yonelim)
+
+
+func _kesitleri_olc(avuc: Vector3) -> void:
+	var iskelet_dunya := _iskelet.global_transform
+	for i in _kemikler.size():
+		_kesitler[i] = iskelet_dunya * _iskelet.get_bone_global_pose(_kemikler[i]).origin - avuc
 
 func zemin_farki(avuc: Vector3, yonelim: Basis, zemin: Callable) -> float:
 	if not zemin.is_valid():

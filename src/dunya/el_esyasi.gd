@@ -42,6 +42,7 @@ var _tercih := Basis.IDENTITY
 var _sapta_kayabilir := false
 var _sap_kaymasi := 0.0
 var _yuk_olcegi := 1.0
+var _tur := ""
 ## Dik eşya (asa, çapa): sallanmaz, avuçtan aşağı/yukarı uzanır.
 var dik := false
 
@@ -50,6 +51,7 @@ var dik := false
 static func olustur(tur: String) -> ElEsyasi:
 	var e := ElEsyasi.new()
 	e.name = "esya_" + tur
+	e._tur = tur
 	if tur in ["cekic", "kazma", "odun"]:
 		var hazir := HazirEsyaHayvan.esya(tur)
 		if hazir != null:
@@ -389,6 +391,16 @@ static func cift_soket_kesisimi_var_mi(sol_pos: Vector3, sag_pos: Vector3, govde
 	if sol_pos.distance_to(govde_pos) < min_aralik or sag_pos.distance_to(govde_pos) < min_aralik:
 		return true
 	return false
+
+
+## Muayene bunu iskeletin son poz sinyalinde, eşya soketi güncellendikten sonra okur.
+func kemik_kesisimi_turu() -> String:
+	if not _soket_hazir or not is_visible_in_tree() or _temas == null:
+		return ""
+	var konum := global_position + Vector3.UP * _sap_kaymasi
+	if not _temas.kesisir(konum, global_basis):
+		return ""
+	return _tur if not _tur.is_empty() else String(name).trim_prefix("esya_")
 
 
 ## SAH-13: Konuşma klibi eşyayı düşürmez; el kemiği ve iskelet bağlantısı geçerlidir.

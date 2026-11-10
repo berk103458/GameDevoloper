@@ -1,3 +1,9 @@
+## 10 Kasım 2026 — SAH-16 tamamlandı (Kalfa)
+
+Muayene, eşya soketi güncellendikten sonra gerçek iskelet ve görünür mesh temasını okur. Model başına tekilleştirilmiş eşya türleri JSON esya_kesisimleri alanında ve SAH-EL-CAKISMA satırlarında yer alır. Önceki raporda bu alan yoktu.
+
+46 modelin headless taramasında 8 model-eşya eşleşmesi ve 7 eşya türü bulundu. Yedi türün mevcut mesh yolu ve ölçü referansı ARY-05 envanterine işlendi. Normal taramada temiz CHR-005, geçici kasıtlı heybe kesişiminde tam bir heybe satırı üretti. Bu test eşyası envantere eklenmedi. Envanterin 7 Python denetimi, el eşyası gerçek hedefi ve ayak/eşya birim hedefi geçti. İlk headless import çıkış 0, betik 0, beş MD5 hatası. Son import çıkış 0, betik ve MD5 hatası 0, üç bilinen kapanış hatası. Yeni asset üretimi veya indirme yok. Tam sanity çalıştırılmadı. ds yolları yok, önceki istisna geçerli. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-16 başlıyor (Kalfa)
 
 Festive 569c9233 güncel. Headless muayenede gerçek eşya meshlerinin kemik kesişimi tür adıyla raporlanacak ve ARY-05 envanterine doğrulanan bulgular işlenecek. kota görünmüyor.
