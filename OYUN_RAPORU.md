@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-31 sahipliği (Kalfa)
+
+- KAY-03 ve SAH-17 hazır. Gerçek kayıt dosyası, v2 göçü ve yeniden kurulan köyde hareket bandı test edilecek. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-30 ayrı kar tepkisi (Kalfa)
 
 - ANI-09 kar büzülmesi mevcut yürüyüş oynatıcısından bağımsız bir iskelet katmanına taşındı. Omuz kuşağına ekleniyor ve varsa konuşma katmanından sonra uygulanıyor. Kışın mevcut hız çarpanı kullanılıyor. Kar bitince katman kapanıyor.
