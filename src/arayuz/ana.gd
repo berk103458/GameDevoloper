@@ -196,7 +196,7 @@ func _perde_gecisi() -> void:
 	if DemoKesiti.acik():
 		_son_goster(&"demo")
 		return
-	var e := _bilgi(tr("arayuz.perde.baslik"), tr("arayuz.perde.metin"), [tr("arayuz.perde.devam")], -1, "3d_koy")
+	var e := _bilgi(tr("arayuz.perde.baslik"), tr("arayuz.perde.metin") + "\n\n" + "\n".join(PerdeOzeti.oturumdan(oturum)), [tr("arayuz.perde.devam")], -1, "3d_koy")
 	e.oturum = oturum
 	e.secildi.connect(func(_i: int) -> void: _kapiya_git())
 	_goster(e)

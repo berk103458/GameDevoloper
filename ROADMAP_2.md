@@ -4340,7 +4340,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: DYL-07, MCL-01, DIY-09. Boyut: S.
   - Dosya: eş ve meclis söz dosyaları (YAZ-06 kapsamı) dal satırı.
   - Asset: asset gerekmedi.
-- [ ] **OMR-10:** (Antigravity) Geçiş kadrajında köyün özeti. (doğrulanmadı — Görev 22; PerdeOzeti (src/arayuz/perde_ozeti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **OMR-10:** (Antigravity) Geçiş kadrajında köyün özeti. (Cursor — Görev 23: Ana._perde_gecisi → PerdeOzeti.oturumdan; ölü sayacı KoyYonetimi.gece → PerdeOzeti.olum_say, kayıtta; tests/oto/perde_ozeti_kontrol.tscn)
   - Ne: `bilgi_ekrani.gd` kadrajında perde 1 özeti: gün, gelen, kabul, ret, ölü, en çok anılan karar (Bölüm 39 defterinden). Resim yok.
   - Kabul: altı satır, hepsi kayıttan. Test: anlık görüntü.
   - Bağımlılık: HFZ-01. Boyut: S.

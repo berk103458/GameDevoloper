@@ -339,3 +339,20 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   - KAP-16 testx'te olduğu için boş gün zarına dokunulmadı; kuyruk doğrudan boş döner. Boş kuyruk yolu açılıştaki `kapi_kapali` ile aynıdır.
 - Test: yeni `tests/unit/sistemler/gecis_gecesi_oyun_test.gd` → GEÇTİ. Gerçek kabul ve gece; geçiş gecesinde kuyruk 0, ertesi gece dolu. `perde_gecisi_test` ve `acilis_senaryosu_test` de GEÇTİ.
 - Bozma kanıtı: satır kapatılınca `KALDI (1)`.
+
+### OMR-10 — kapandı
+
+- Çağrı zinciri: Ağalık gecesi `Oturum.gece_sonu` `perde_degisti` döndürür → `Ana` `_perde_gecisi` → `BilgiEkrani` metni. Kadraj metninin altına `PerdeOzeti.oturumdan(oturum)` altı satırı eklenir.
+- Satırların kaynağı:
+  - Gün: `KoyYonetimi.gun`.
+  - Gelen, kabul ve ret: `kabul_sayisi` ve `ret_sayisi`.
+  - Ölü: yeni `toplam_olen` sayacı. `KoyYonetimi.gece` içinde `_saglik_ve_moral`dan sonra `PerdeOzeti.olum_say` çağrılır; sayaç `kaydet`/`kayittan` ile korunur. Önceden kümülatif bir ölü kaydı yoktu.
+  - En çok anılan karar: söylenti ağında en çok duyanı olan doğru kaydın kalıp metni. Bozuk kopya ve yalan sayılmaz. Defterde "anılma" sayımı olmadığı için ağ kullanıldı.
+- Test: yeni `tests/oto/perde_ozeti_kontrol.tscn` → GEÇTİ. Gerçek `Ana`, 19 kabul ve bir ret, bir ölüm, ağalık gecesi, perde kadrajı ve kayıttan dönüş. `perde_gecisi_test` de GEÇTİ.
+- Bozma kanıtı (hepsi kırmızıya döndü):
+
+  | Bozulan bağ | Sonuç |
+  |---|---|
+  | Ana bağı silinince | `KALDI (6)` |
+  | Ölüm sayacı kapatılınca | `KALDI (1)` |
+  | Anılan karar kapatılınca | `KALDI (1)` |
