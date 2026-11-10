@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-22 sahipliği (Kalfa)
+
+- YSM-01 ve BUG-09 hazır. Mevcut yorgunluk kaydını rota hızına bağlayıp aynı klip ve eksik yürüyüşte bekleme davranışını doğrulayacağım. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-21 eğimde yürüyüş (Kalfa)
 
 - ANI-13 yolunda eğim, ayak düzeltmesinin kullandığı gerçek yüzeyden iki rota noktası arasında okunuyor. Mevcut eğim çarpanı yalnız yatay kök hızını düşürüyor. Bant, klip ve tempo hız isteğinden belirleniyor. Normal köy ızgarası düz kalıyor.
