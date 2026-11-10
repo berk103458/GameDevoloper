@@ -86,6 +86,11 @@ func _ready() -> void:
 	var satir := e._ust_kart.find_child("meclis_soylenti_sikayeti", true, false) as Label if e._ust_kart != null else null
 	var ad := o.yonetim.koylu(tasiyan).ad
 	_kontrol(satir != null and satir.text.contains("ret kararı") and satir.text.begins_with(ad + ":"), "Şikâyet kararı ve taşıyanın adını taşır")
+	var nitele := e._ust_kart.find_child("meclis_soylenti_nitele_yalan", true, false) as Button if e._ust_kart != null else null
+	_kontrol(nitele != null and e._ust_kart.find_child("meclis_soylenti_nitele_dogru", true, false) != null, "Muhafızın iki nitelik seçeneği")
+	if nitele != null: nitele.pressed.emit()
+	var nl := e._ust_kart.find_child("meclis_soylenti_niteleme", true, false) as Label if e._ust_kart != null else null
+	_kontrol(nl != null and nl.text.contains("yalan") and nitele.disabled and SoylentiKoprusu.ag(o).guvenilirlik_al(SoylentiKoprusu.MUHAFIZ) == 1, "Nitelik kartta, muhafız −1")
 	var hukum := e._ust_kart.find_child("meclis_soylenti_hukum", true, false) as Button if e._ust_kart != null else null
 	_kontrol(hukum != null and not hukum.disabled, "Şikâyetin altında hüküm kararı")
 	if hukum != null: hukum.pressed.emit()

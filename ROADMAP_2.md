@@ -5508,13 +5508,13 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.4 Oyuncunun söylenti üzerindeki etkisi
 
-- [ ] **SOY-18:** Muhafız söylenti yayabilir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-18:** Muhafız söylenti yayabilir. (Cursor)
   - Ne: akşam sohbetinde (DYL-07) ya da çınarda (MCL) muhafız bir söylentiyi "doğru" ya da "yalan" diye niteleyebilir; nitelik ağa muhafız kaynaklı düğüm olarak girer; muhafızın da güvenilirliği vardır (SOY-07).
   - Kabul: muhafız düğümü kayıtta; yanlış nitelik güvenilirlik −1. Test: birim.
   - Bağımlılık: SOY-07, DYL-07. Boyut: M.
   - Dosya: `src/sistemler/soylenti_agi.gd`; DYL-07 ve MCL dalı.
   - Asset: asset gerekmedi.
-- [ ] **SOY-19:** Muhafızın yalanı ağa düşer (DYL-04 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-19:** Muhafızın yalanı ağa düşer (DYL-04 ile bağ). (Cursor)
   - Ne: DYL-04 muhafız yalanı, tanık varsa DIY-13 kaydı açar (ağır olay listesine "muhafızın yalanı" eklenir).
   - Kabul: tanıklı yalan kayıt 1, tanıksız 0. Test: iki durum.
   - Bağımlılık: DYL-04, DIY-13. Boyut: S.

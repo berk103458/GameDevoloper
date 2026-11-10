@@ -232,3 +232,16 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - Test: GEÇTİ.
 - Bozma kanıtı: hükümde bozan −1 kapatılınca ve kayıt kapatma kapatılınca test `quit(1)` ile düştü.
 - Not: SOY-10/18/19/23/24/25/39 açık. Bu yedi adımın zincirine girmiyorlar.
+
+### SOY-18, SOY-19
+
+- Çağrı zinciri: `CinarMeclisPaneli.ac` → `SoylentiHukmu.ekle` → "Muhafız olarak: Bu söz doğru/yalan" → `SoylentiKoprusu.nitele`.
+  - Nitelik kayda `muhafiz_dugumu` olarak yazılır. Kayıtla uyan nitelik muhafızın (`muhafiz`) güvenilirliğini +1, uymayan −1 yapar.
+  - Doğru bir konuyu yalanlamak, şikâyeti getiren köylünün tanıklığında `muhafizin_yalani` DIY-13 kaydı açar. Bu tür `dedikodu.gd` ağır olay listesine ve kalıplara eklendi. Tanık köyde değilse kayıt açılmaz.
+  - Meclis şikâyet şablonu "karar" olmayan türlerde (yalan) kalıp metnini kullanır.
+- DYL-07 akşam sohbeti oyunda yok. Madde "ya da çınarda (MCL)" dediği için meclis yolu bağlandı. DYL-04 muhafız yalanı yerine meclis önündeki inkâr yalandır.
+- Test:
+  - Yeni `tests/unit/sistemler/soylenti_muhafiz_test.gd` → GEÇTİ: yalan dedi, düğüm kayıtta, muhafız −1, yalan kaydı 1, ikinci nitelik 0, kayıttan döner; doğru nitelik +1 ve kayıt 0; tanık sürgündeyse 0.
+  - `soylenti_meclis_kontrol` gerçek kartta seçeneğe bastı → GEÇTİ.
+- Bozma kanıtı: güvenilirlik değişimi ya da DIY-13 listesindeki tür kaldırılınca `KALDI (2 hata)`, panel döngüsü boşaltılınca UI `KALDI (2 hata)`.
+- Diğer testler: `dedikodu_test` ve `dedikodu_kayit_test` GEÇTİ.

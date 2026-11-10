@@ -142,7 +142,9 @@ static func meclis_sikayeti(o: Object) -> String:
 	if k == null or k.saglik <= 0:
 		return ""
 	var adlar: Dictionary = a.veri_yapilandirma.get("meclis_karar_adlari", {})
-	return MeclisSesi.sikayet_metni(String(adlar.get(String(konu.tur), konu.tur)), k.ad)
+	if not adlar.has(String(konu.tur)):
+		return "%s: '%s'" % [k.ad, olay_metni(a, a.ag_kayitlari[konu.olay_id])]
+	return MeclisSesi.sikayet_metni(String(adlar[String(konu.tur)]), k.ad)
 
 
 ## SOY-21/07/11: meclis şikâyeti dinler ve konuyu hükme bağlar. Asıl kayıt ve bütün bozuk kopyaları kapanır,
@@ -165,6 +167,29 @@ static func hukme_bagla(o: Object) -> String:
 	var satir := olay_metni(a, a.ag_kayitlari.get(asil, {}))
 	o.set_meta(HUKUM, satir)
 	return satir
+
+
+## SOY-18/19: muhafız meclis önünde konuyu "doğru" ya da "yalan" diye niteler; nitelik kayda muhafız düğümü olarak girer.
+## Kayıtla uyan nitelik muhafızın güvenilirliğini +1, uymayan −1 yapar. Doğru bir konuyu yalanlamak, şikâyeti getiren
+## köylünün tanıklığında "muhafızın yalanı" DIY-13 kaydı açar; tanık köyde yoksa kayıt açılmaz.
+const MUHAFIZ := "muhafiz"
+
+
+static func nitele(o: Object, dogru_der: bool) -> String:
+	if meclis_sikayeti(o).is_empty():
+		return ""
+	var a: RefCounted = ag(o)
+	var konu: Dictionary = a.meclis_sikayeti_sec()
+	var k: Dictionary = a.ag_kayitlari[konu.olay_id]
+	if k.has("muhafiz_dugumu"):
+		return ""
+	k["muhafiz_dugumu"] = {"nitelik": "dogru" if dogru_der else "yalan", "gece": int(o.gun)}
+	var dogru := bool(k.get("dogru", true))
+	var adim := int(a._ayar("dogrulama_guvenilirlik_degisimi"))
+	a.guvenilirlik_degistir(MUHAFIZ, adim if dogru_der == dogru else -adim)
+	if dogru and not dogru_der:
+		a.soylenti_ekle("%s_yalan" % konu.olay_id, "muhafizin_yalani", String(konu.kaynak), true, {"gece": int(o.gun)})
+	return "Muhafız meclis önünde bu söze \"%s\" dedi." % ("doğru" if dogru_der else "yalan")
 
 
 ## SOY-22: kamuoyu olmuş tanıklı rüşvet teftiş gecesinde müfettişin sorusu olur; her olay bir kez sorulur.

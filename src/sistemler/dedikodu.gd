@@ -15,6 +15,7 @@ const AGIR_OLAY_TURLERI := [
 	"siddet",
 	"aileyi_bolme",
 	"haksiz_ret",
+	"muhafizin_yalani",
 ]
 
 const VARSAYILAN_SATIRLAR := {
@@ -22,6 +23,7 @@ const VARSAYILAN_SATIRLAR := {
 	"siddet": "Kapı önünde yaşanan sert arbede köy içinde konuşuluyor.",
 	"aileyi_bolme": "Kapıda bir ailenin birbirinden koparıldığı söylentisi dolaşıyor.",
 	"haksiz_ret": "Kapıdan geri çevrilen yolcuya haksızlık edildiği fısıldanıyor.",
+	"muhafizin_yalani": "Muhafızın meclis önünde bildiğini inkâr ettiği konuşuluyor.",
 }
 
 var _kayitlar: Array[Dictionary] = []
