@@ -123,7 +123,7 @@ static func defter_satirlari(o: Object) -> Array:
 		var k: Dictionary = a.ag_kayitlari.get(s.olay, {})
 		var kaynak := String(s.kaynak)
 		var koylu: Koylu = o.yonetim.koylu(int(kaynak)) if kaynak.is_valid_int() else null
-		if koylu == null:
+		if koylu == null or koylu.saglik <= 0:
 			continue
 		satirlar.append({"id": "soy:" + String(s.olay), "kisi": kaynak, "ad": koylu.ad, "gece": int(k.get("gece", -1)),
 			"olay": String(kaliplar.get(String(k.get("tur", "")), "")), "kaynak": koylu.ad, "kademe": String(s.kademe), "dogrulandi": false})

@@ -5685,7 +5685,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-05. Boyut: S.
   - Dosya: `data/soylenti.json` kalıpları.
   - Asset: asset gerekmedi.
-- [ ] **SOY-45:** Kaynak adı yalnız köyde var olan kişidir (BUG-17 ile aynı kural). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-45:** Kaynak adı yalnız köyde var olan kişidir (BUG-17 ile aynı kural). (Cursor)
   - Ne: `kaynak` köy listesinde yoksa satır basılmaz; uydurma ad yok.
   - Kabul: ölen kaynaklı satır 0. Test: birim.
   - Bağımlılık: BUG-17. Boyut: S.

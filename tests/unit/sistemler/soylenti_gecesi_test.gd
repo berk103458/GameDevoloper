@@ -1,5 +1,5 @@
 extends SceneTree
-## SOY-02/06/12/13/16/40: kapıdan giren söylenti gerçek gece sonunda köyün gerçek kişilerine yayılır,
+## SOY-02/06/12/13/16/40/45: kapıdan giren söylenti gerçek gece sonunda köyün gerçek kişilerine yayılır,
 ## kamuoyu olunca halkın moralini bir kez düşürür, söner ve düşer; küçük köyde susar.
 
 var hata := 0
@@ -70,6 +70,13 @@ func _initialize() -> void:
 	dene(bool(_kayit(o).get("kamuoyu_oldu", false)) and ag.bar_degisimi_toplam == -1, "%40 eşiğinde kamuoyu, bar bir kez")
 	dene((sonuc.olaylar as Array).any(func(x: Dictionary) -> bool: return x.get("soylenti", "") != ""), "Gerçek gece raporunda kamuoyu satırı")
 	dene(not ag.meclis_sikayeti_sec().is_empty(), "Kamuoyu meclis adayıdır")
+	var kaynak := int(_kayit(o).kaynak)
+	dene(not SoylentiKoprusu.meclis_sikayeti(o).is_empty() and SoylentiKoprusu.defter_satirlari(o).size() == 1, "Yaşayan kaynak satır basar")
+	var olu := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
+	olu.yonetim.koylu(kaynak).saglik = 0
+	dene(SoylentiKoprusu.meclis_sikayeti(olu).is_empty() and SoylentiKoprusu.defter_satirlari(olu).is_empty(), "Ölen kaynaklı satır 0")
+	olu.yonetim.koylular.erase(olu.yonetim.koylu(kaynak))
+	dene(SoylentiKoprusu.meclis_sikayeti(olu).is_empty() and SoylentiKoprusu.defter_satirlari(olu).is_empty(), "Köyde olmayan kaynak satır basmaz")
 	for i in 4:
 		o.gece_sonu()
 	dene(ag.bar_degisimi_toplam == -1, "Bar ikinci kez oynamaz")

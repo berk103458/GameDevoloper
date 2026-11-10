@@ -86,3 +86,9 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   - `kaynak_derle` satırı silinince `KALDI (2 hata)`.
   - Ekrandaki olay/kademe çizimi kapatılınca `KALDI (1 hata)`.
 - Yeşil kalanlar: `hafiza_defteri_test`, `defter_aday_test`, `koy_hud_kontrol`, `yapi_karti_test`, `bosta_kalma_test`, `denge_hud_test`. `Ses` derleme zinciri temiz.
+
+### SOY-45
+
+- Çağrı zinciri: meclis satırı (`CinarMeclisPaneli` → `SoylentiKoprusu.meclis_sikayeti`) ve defter satırı (`kaynak_derle` → `SoylentiKoprusu.defter_satirlari`) kaynağı köy kaydında arar. Ölü ya da köyde olmayan kaynak satır basmaz. Ağdaki uydurma `koylu_N` dinleyicileri gerçek haritada yok (SOY-01 commit'i).
+- Test: `soylenti_gecesi_test`. Yaşayan kaynak 1 satır, ölen kaynak 0, köyden silinen kaynak 0.
+- Bozma kanıtı: defterdeki sağlık denetimi silinince `KALDI (1 hata)`.
