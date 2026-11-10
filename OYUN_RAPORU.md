@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-21 sahipliği (Kalfa)
+
+- SAH-17 ve ANI-13 hazır. Düz köy arazisini değiştirmeden, testte eğimli zemin örneğiyle gerçek rotadaki kök hızı ve klip temposu ölçülecek. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-20 duruşun ilk karesi (Kalfa)
 
 - Mevcut SAH-04 ayak düzeltmesiyle gerçek eğimde doğal çiftçi bitişi ve LOWPO demircinin dur eşiği altındaki isteği ölçüldü. Aynı karede ikisi de dur bandında. Anlık taban farkı çiftçide −0,06 mm, demircide 0. İlk işlenen karede iki modelde de kök kayması ve taban farkı 0,00000 m. Beş saniyelik duruş ölçümleri de geçti.
