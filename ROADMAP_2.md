@@ -5448,7 +5448,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-07. Boyut: S.
   - Dosya: kart adaptörü tek alan.
   - Asset: asset gerekmedi.
-- [ ] **SOY-09:** Doğrulama — oyuncu kaynağa sorar. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `src/koy/ne_duydun.gd` dosyası yok)
+- [x] **SOY-09:** Doğrulama — oyuncu kaynağa sorar. (Cursor)
   - Ne: köy ekranında köylüye tıklayınca (`koylu_secimi.gd`) "ne duydun?" tek seçenek: köylü bildiği söylentiyi kendi ağzından söyler (YAZ-08 köy sohbeti dalı). Oyuncu iki kaynağı karşılaştırır; sistem doğruyu söylemez.
   - Kabul: duyan köylüde dal 1, duymayanda 0. Test: iki köylü.
   - Bağımlılık: YAZ-08, SOY-02. Boyut: M.

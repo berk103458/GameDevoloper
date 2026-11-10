@@ -67,6 +67,7 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	bos.disabled = k.is_yeri == KoyYonetimi.BOSTA
 	bos.pressed.connect(func() -> void: _ata(ekran, id, KoyYonetimi.BOSTA))
 	KoyGeciciIslerPaneli.ekle(ekran,sekmeler,k)
+	NeDuydun.ekle(ekran, v, k)
 	var konus := ekran._dugme("Muhabbet Et (Konuş)", v)
 	konus.pressed.connect(func() -> void:
 		ekran._kart_kapat()

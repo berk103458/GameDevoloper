@@ -139,9 +139,6 @@ static func defter_satirlari(o: Object) -> Array:
 	if o == null or not o.has_meta(META):
 		return satirlar
 	var a: RefCounted = ag(o)
-	var kaliplar: Dictionary = a.veri_yapilandirma.get("soylenti_kaliplari", {})
-	var bozuk: Dictionary = a.veri_yapilandirma.get("bozulma_kaliplari", {})
-	var fail := String(a.veri_yapilandirma.get("bozulma_faili", ""))
 	for s in a.soylenti_sayfasi_al(o.yonetim.koylular.size()):
 		var k: Dictionary = a.ag_kayitlari.get(s.olay, {})
 		var kaynak := String(s.kaynak)
@@ -149,8 +146,16 @@ static func defter_satirlari(o: Object) -> Array:
 		if koylu == null or koylu.saglik <= 0:
 			continue
 		satirlar.append({"id": "soy:" + String(s.olay), "kisi": kaynak, "ad": koylu.ad, "gece": int(k.get("gece", -1)),
-			"olay": String(bozuk.get(String(k.bicim), "")).replace("{kaynak}", fail) if k.has("bicim") else String(kaliplar.get(String(k.get("tur", "")), "")), "kaynak": koylu.ad, "kademe": String(s.kademe), "dogrulandi": false})
+			"olay": olay_metni(a, k), "kaynak": koylu.ad, "kademe": String(s.kademe), "dogrulandi": false})
 	return satirlar
+
+
+## Oyuncu dilinde olay: bozuk kopya biçim kalıbıyla, asıl kayıt tür kalıbıyla söylenir (SOY-44).
+static func olay_metni(a: RefCounted, k: Dictionary) -> String:
+	if k.has("bicim"):
+		var bozuk: Dictionary = a.veri_yapilandirma.get("bozulma_kaliplari", {})
+		return String(bozuk.get(String(k.bicim), "")).replace("{kaynak}", String(a.veri_yapilandirma.get("bozulma_faili", "")))
+	return String(a.veri_yapilandirma.get("soylenti_kaliplari", {}).get(String(k.get("tur", "")), ""))
 
 
 ## SOY-30: canlı kamuoyu konusu köy HUD'unda tek satırdır; konu yoksa boştur.

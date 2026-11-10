@@ -61,6 +61,18 @@ func _ready() -> void:
 	KoyluKarti.ac(e, tasiyan)
 	soz = e._ust_kart.find_child("soz_guvenilirligi", true, false) as Label if e._ust_kart != null else null
 	_kontrol(soz != null and soz.text == "Sözü: ağzı sıkı" and not RegEx.create_from_string("[0-9]").search(soz.text), "Kelime değişir, sayı yok")
+	var sor := e._ust_kart.find_child("ne_duydun", true, false) as Button if e._ust_kart != null else null
+	_kontrol(sor != null and e._ust_kart.find_child("ne_duydun_cevabi", true, false) == null, "Duyan köylüde Ne duydun? dalı var, cevap basılmadan yok")
+	if sor != null: sor.pressed.emit()
+	var cevap := e._ust_kart.find_child("ne_duydun_cevabi", true, false) as Label if e._ust_kart != null else null
+	_kontrol(cevap != null and cevap.text.begins_with(o.yonetim.koylu(tasiyan).ad + ":") and cevap.text.contains("Garip bir yolcunun") and sor.disabled, "Köylü duyduğunu kendi ağzından söyler")
+	e._kart_kapat()
+	var duymayan := -1
+	for k in o.yonetim.koylular:
+		if NeDuydun.kayit(o, k).is_empty(): duymayan = k.id
+	_kontrol(duymayan > 0, "Köyde henüz duymayan biri var")
+	KoyluKarti.ac(e, duymayan)
+	_kontrol(e._ust_kart != null and e._ust_kart.find_child("ne_duydun", true, false) == null, "Duymayan köylüde dal yok")
 	e._kart_kapat()
 	await get_tree().process_frame
 	b = e.hud.find_child("cinar_meclisi", true, false) as Button

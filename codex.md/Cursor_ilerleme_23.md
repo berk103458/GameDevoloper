@@ -154,3 +154,18 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   - `tests/unit/kvr/batil_inanc_histerisi_test.gd` → "Gerçek Dudu/Şifahane kapasitesi".
   - `tests/oto/batil_inanc_histerisi_kontrol.gd:51` → Nil `id`.
 - Açık kalan: vaka yokken yanlış kamuoyu kendi başına histeri başlatmaz; bunun için motorda yeni bir sebep gerekir.
+
+### SOY-09
+
+- Çağrı zinciri: köy ekranında köylüye tıklama → `KoyluKarti.ac` → `NeDuydun.ekle` (yeni `src/koy/ne_duydun.gd`).
+  - Köylü ağda bir söylenti duyduysa kartta "Ne duydun?" düğmesi çıkar. Basınca köylü en son duyduğu sürümü kendi ağzından söyler (`Ad: «…»`).
+  - Bozan köylü kendi bozuk kopyasını söyler; metin `SoylentiKoprusu.olay_metni` ile defterle aynı kalıptan gelir.
+  - Sistem doğru ya da yanlış demez. Hükme bağlanan konu sorulmaz.
+  - Duymayan köylüde dal yok; kart okuması ağı kurmaz.
+- Test:
+  - Yeni `tests/unit/sistemler/ne_duydun_test.gd` → GEÇTİ: taşıyan asıl haberi, bozan bozuk sürümü söylüyor; duymayan 0, hükümlü konu 0.
+  - `tests/oto/soylenti_meclis_kontrol.gd` gerçek kartta düğme, cevap ve duymayan dalı için genişletildi → GEÇTİ.
+- Bozma kanıtı:
+  - Karttaki tek satır silinince UI `KALDI (2 hata)`.
+  - Son kaydı seçme kuralı ilk kayda çevrilince birim testi `KALDI (1 hata)`.
+- YAZ-08 sohbet dalı yerine kart düğmesi kullanıldı: köylü seçim kartı oyunda zaten açılan gerçek yüzey.
