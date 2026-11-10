@@ -38,7 +38,8 @@ func _calistir() -> void:
 	var agirliklar_gecerli := _agirliklari_dene()
 	var eksik_yuru_gecerli := _eksik_klibi_dene("yuru")
 	var eksik_kos_gecerli := _eksik_klibi_dene("kos")
-	gecti = gecti and zorluklar_esit and agirliklar_gecerli and eksik_yuru_gecerli and eksik_kos_gecerli
+	var tek_gecis := _tek_gecisi_dene()
+	gecti = gecti and zorluklar_esit and agirliklar_gecerli and eksik_yuru_gecerli and eksik_kos_gecerli and tek_gecis
 	print("DURUŞ YÜRÜYÜŞ KARIŞIMI: GEÇTİ" if gecti else "DURUŞ YÜRÜYÜŞ KARIŞIMI: KALDI")
 	await root.get_node("Ses").cik(0 if gecti else 1)
 
@@ -149,6 +150,45 @@ func _eksik_klibi_dene(eksik: String) -> bool:
 	print("SAH-27 eksik=%s, oynayan=%s, konuşma/bekleme/yürüyüş ağırlığı=%s" % [eksik, oynatici.current_animation, agirlik])
 	figur.free()
 	return gecti
+
+
+func _tek_gecisi_dene() -> bool:
+	var dogrudan := _gecisi_izle(false)
+	var uc_istek := _gecisi_izle(true)
+	var yuruyus := 0.0
+	var fark := 0.0
+	for i in uc_istek.size():
+		yuruyus = maxf(yuruyus, absf(uc_istek[i].x))
+		fark = maxf(fark, uc_istek[i].distance_to(dogrudan[i]))
+	var gecti := uc_istek[0].y > 0.5 and uc_istek[-1].is_equal_approx(Vector3.BACK)
+	gecti = gecti and yuruyus < 0.0001 and fark < 0.0001
+	print("SAH-32 aynı kare dur/yürü/koş, yürüyüş azami=%.6f, doğrudan geçişe fark=%.6f, kare=%d" % [yuruyus, fark, uc_istek.size()])
+	return gecti
+
+
+func _gecisi_izle(ortada_yuru: bool) -> PackedVector3Array:
+	var figur := Dunya3B.karakter("lowpo_demirci")
+	root.add_child(figur)
+	var oynatici := figur._oynatici
+	var olcer := _olcer_kur(oynatici)
+	var kitap := AnimationLibrary.new()
+	_olcum_klibi_ekle(kitap, oynatici, StringName(AYAR.klipler.dur), Vector3.UP)
+	_olcum_klibi_ekle(kitap, oynatici, StringName(AYAR.klipler.yuru), Vector3.RIGHT)
+	_olcum_klibi_ekle(kitap, oynatici, StringName(AYAR.klipler.kos), Vector3.BACK)
+	oynatici.remove_animation_library(&"")
+	oynatici.add_animation_library(&"", kitap)
+	_elle_durusu_baslat(oynatici)
+	var hedef := Vector3(0, 0, 4)
+	figur.yuru(hedef, float(AYAR.hiz_bantlari.dur[1]) * 0.5)
+	if ortada_yuru:
+		figur.yuru(hedef, 1.0)
+	figur.yuru(hedef, HareketGecisi.kosu_taban_hizi() + 0.5, &"kacis")
+	var sonuc := PackedVector3Array()
+	for i in range(ceili(KarakterModel.GECIS / KARE) + 2):
+		oynatici.advance(KARE)
+		sonuc.append(olcer.position)
+	figur.free()
+	return sonuc
 
 
 func _olcer_kur(oynatici: AnimationPlayer) -> Node3D:

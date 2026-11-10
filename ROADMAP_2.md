@@ -8105,7 +8105,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: KAY-03, SAH-17. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-32:** Aynı karede üç geçiş olmaz. (Kalfa — gerçek oynatıcıda ara hız ağırlığı)
+- [x] **SAH-32:** Aynı karede üç geçiş olmaz. (Kalfa — 38 kare ara yürüyüş ağırlığı 0)
   - Ne: dur, yürü, koş aynı karede sıralanırsa ortadaki atlanır. Titreme yok.
   - Kabul: dur, yürü, koş aynı karede sıralanırsa ortadaki atlanır. Titreme yok. Test: hız zıplaması, tek geçiş.
   - Bağımlılık: SAH-18. Boyut: S.

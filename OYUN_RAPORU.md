@@ -1,3 +1,8 @@
+## 2026-11-10 — SAH-32 aynı karede hız değişimi (Kalfa)
+
+- Gerçek LOWPO oynatıcısına dur, yürü ve koş istekleri kare ilerlemeden verildi. Test kopyalarındaki ölçüm izleri 38 karede yürüyüş ağırlığı 0,000000 ve doğrudan duruş→koşu izine fark 0,000000 gösterdi. Mevcut oynatıcı ilk ve son klibi karıştırıyor.
+- Canlı karışım, hız bandı, hareket geçişi ve gece kaçışı hedefleri geçti. Tekrar headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor. Asset gerekmedi. Sonraki adım SAH-33. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-32 sahipliği (Kalfa)
 
 - SAH-18 hazır. Dur, yürü ve koş istekleri aynı karede verilecek. Gerçek ağırlık izi doğrudan duruş→koşu ile karşılaştırılacak. Kota görünmüyor.
