@@ -1,3 +1,8 @@
+## 2026-11-10 — SAH-23 kapı sorgusunda duruş (Kalfa)
+
+- Mevcut kapı yaklaşma ve dönme akışından sonra CHR-001 ile 5 saniye ölçüldü. Gerçek konuşma klibi 600 kare, yürüyüş 0 kare, azami kök farkı 0,000000 m. Canlı test eklendi. Söz motoru beklemede.
+- Kapı sorgusu duruşu, CHR sorgu birimi, karakter ömrü ve canlı hız bantları geçti. Tekrar headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor. Asset gerekmedi. Sonraki adım SAH-24. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-23 sahipliği (Kalfa)
 
 - SAH-17 hazır. Mevcut kapı yaklaşması sonrası gerçek CHR konuşma klibinde kök hareketi ve yürüyüş kareleri ölçülecek. Söz beklemede. Kota görünmüyor.
