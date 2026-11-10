@@ -31,6 +31,9 @@ static func ozet(y: KoyYonetimi, k: Koylu) -> String:
 	var acik: Array[String] = []
 	for f in k.bayraklar: acik.append("Zindanda" if f == DivanHukmu.FLAG else "Kış hastası" if f == KisHastaligi.FLAG else TranslationServer.translate("koy.bayrak." + f))
 	return TranslationServer.translate("koy.kart.ozet") % [ZanaatTuru.ad(k.zanaat_turu), k.stat, k.moral, k.saglik, k.sadakat, k.refah, k.giris_gunu + 1, maxi(0, y.gun - k.giris_gunu), PasifOzellikler.metin(k.pasif_ozellikler, true), PasifOzellikler.metin(k.pasif_ozellikler, false), YasRolleri.metin(k, y), CirakEgitimi.metin(k), ", ".join(acik) if not acik.is_empty() else "Henüz yok", GizliEgilimler.oyuncu_metin(k)] + "\n" + YasamBarlari.metin(k, y)
+## SOY-08: söz güvenilirliği kartta bir kelimedir (ağzı sıkı / konuşkan / uyduruyor); sayı gösterilmez.
+static func soz_guvenilirligi(o: Object, k: Koylu) -> String:
+	return "Sözü: " + SoylentiKoprusu.guvenilirlik_kelimesi(o, k.id)
 static func uygun_turler(k: Koylu) -> String:
 	var adlar: Array[String] = []
 	for tur in MeslekUyumu.UYGUN.get(k.zanaat_turu, []):

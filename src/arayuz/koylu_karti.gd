@@ -35,6 +35,7 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	sekmeler.add_child(ic)
 	var bilgi := ekran._etiket(ic, KoyluKartiVerisi.ozet(y, k), Tema.KUCUK_PX)
 	bilgi.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	ekran._etiket(ic, KoyluKartiVerisi.soz_guvenilirligi(ekran.oturum, k), Tema.KUCUK_PX).name = "soz_guvenilirligi"
 	ekran._etiket(ic, KoyluGelisimYoneticisi.metin(k), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, KisHastaligi.metin(k, y), Tema.KUCUK_PX).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	var salgin := SaglikYoneticisi.metin(k, y)

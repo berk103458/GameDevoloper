@@ -99,3 +99,11 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - Oyunda okunur: ağ artık `Oturum` üzerinden kuruluyor (SOY-01 zinciri).
 - Test: yeni `tests/unit/sistemler/soylenti_ayar_tarama_test.gd` → GEÇTİ. `soylenti_agi.gd` ve `soylenti_koprusu.gd` içinde `.get("…", sayı)` ya da oran yok; okunan her ayar json'da var.
 - Bozma kanıtı: kademe oranı koda `0.8` yazılınca `KALDI (1 hata)`.
+
+### SOY-08
+
+- Çağrı zinciri: köyde figüre tıklama → `KoyluKarti.ac` → `KoyluKartiVerisi.soz_guvenilirligi(oturum, k)` → `SoylentiKoprusu.guvenilirlik_kelimesi` → `SoylentiAgi.guvenilirlik_kelimesi`. Kartta `soz_guvenilirligi` satırı görünür.
+- Okuma ağ kurmaz: ağ yoksa geçici nesneden varsayılan kelime gelir.
+- Test: `soylenti_meclis_kontrol.tscn`. Kartta "Sözü: konuşkan" görünüyor; güvenilirlik 3 olunca "Sözü: ağzı sıkı", sayı yok. Kart okuması oturuma ağ yazmıyor.
+- Bozma kanıtı: kart satırı silinince `KALDI (2 hata)`. `koylu_karti_kontrol` yeşil.
+- Not: güvenilirliğin oyunda değişmesi (SOY-07/09/11) hâlâ açık. Bugün herkes "konuşkan" görünür.

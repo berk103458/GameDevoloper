@@ -1,4 +1,4 @@
-## SOY-29/30/33: kapıdan giren söylenti kamuoyu olunca gerçek köy HUD'unda tek satır olur, defterde görünür ve çınar meclisini açar;
+## SOY-08/29/30/33: kapıdan giren söylenti kamuoyu olunca gerçek köy HUD'unda tek satır olur, defterde görünür ve çınar meclisini açar;
 ## şikâyet satırı kararın adını ve haberi taşıyan köylünün adını taşır.
 extends Node
 class OlaysizOturum extends Oturum:
@@ -31,6 +31,8 @@ func _ready() -> void:
 	ana._koye_git()
 	await get_tree().process_frame
 	var e: KoyEkrani = ana._ekran
+	var bos := Oturum.new(ana.katalog, 1)
+	dene_bos(bos)
 	var b := e.hud.find_child("cinar_meclisi", true, false) as Button
 	_kontrol(b == null or not b.visible, "Kamuoyu yokken meclis düğmesi görünmez")
 	_kontrol(e.hud.find_child("kamuoyu_seridi", true, false) == null, "Kamuoyu yokken HUD satırı yok")
@@ -51,6 +53,16 @@ func _ready() -> void:
 		_kontrol(_metin(defter).contains("Garip bir yolcunun") and _metin(defter).contains(o.yonetim.koylu(tasiyan).ad), "Satır olayı ve kaynağı gösterir")
 		defter.kapat()
 		await get_tree().process_frame
+	KoyluKarti.ac(e, tasiyan)
+	var soz := e._ust_kart.find_child("soz_guvenilirligi", true, false) as Label if e._ust_kart != null else null
+	_kontrol(soz != null and soz.text == "Sözü: konuşkan", "Kartta güvenilirlik kelimesi")
+	e._kart_kapat()
+	SoylentiKoprusu.ag(o).guvenilirlik_degistir(str(tasiyan), 1)
+	KoyluKarti.ac(e, tasiyan)
+	soz = e._ust_kart.find_child("soz_guvenilirligi", true, false) as Label if e._ust_kart != null else null
+	_kontrol(soz != null and soz.text == "Sözü: ağzı sıkı" and not RegEx.create_from_string("[0-9]").search(soz.text), "Kelime değişir, sayı yok")
+	e._kart_kapat()
+	await get_tree().process_frame
 	b = e.hud.find_child("cinar_meclisi", true, false) as Button
 	_kontrol(b != null and b.visible and not b.disabled, "Kamuoyu konusu meclisi açar")
 	if b != null and not b.disabled: b.pressed.emit()
@@ -69,6 +81,11 @@ func _gelen(id: String) -> Gelen:
 	g.ad_anahtari = "test"
 	g.sinif = &"koylu"
 	return g
+
+
+func dene_bos(bos: Oturum) -> void:
+	var k := bos.yonetim.kabul({"ad": "Kart"})
+	_kontrol(KoyluKartiVerisi.soz_guvenilirligi(bos, k) == "Sözü: konuşkan" and not bos.has_meta(SoylentiKoprusu.META), "Kart okuması ağ kurmaz")
 
 
 func _metin(n: Node) -> String:

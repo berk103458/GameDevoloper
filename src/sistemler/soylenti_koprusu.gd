@@ -17,6 +17,12 @@ static func ag(o: Object) -> RefCounted:
 	return yeni
 
 
+## Salt okuma: ağ henüz kurulmadıysa oturuma yazmadan varsayılan kelimeyi verir.
+static func guvenilirlik_kelimesi(o: Object, koylu_id: int) -> String:
+	var a: RefCounted = o.get_meta(META) if o.has_meta(META) else AG.new(o.dedikodu)
+	return a.guvenilirlik_kelimesi(str(koylu_id))
+
+
 ## Kapıdaki ağır olay o gece sıradakilerin gözü önünde olur; taşıyan çıkana dek bekler.
 static func bekleyenler(o: Object) -> Array:
 	return o.get_meta(BEKLEYEN, [])

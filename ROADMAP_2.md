@@ -5442,7 +5442,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-05. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-08:** Güvenilirlik köylü kartında bir kelimedir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-08:** Güvenilirlik köylü kartında bir kelimedir. (Cursor)
   - Ne: `koylu_karti_verisi.gd` adaptörüne tek alan: "ağzı sıkı / konuşkan / uyduruyor" (3/2/0–1).
   - Kabul: kartta kelime; sayı yok. Test: ekran.
   - Bağımlılık: SOY-07. Boyut: S.
