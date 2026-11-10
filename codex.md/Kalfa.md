@@ -1,3 +1,7 @@
+## 10 Kasım 2026 — SAH-17 başlıyor (Kalfa)
+
+Festive e2ada191 güncel. Mevcut sahne tablosundaki hız bantları ve klip adları gerçek KarakterModel oynatıcısında doğrulanacak. Asset gerekmedi. kota görünmüyor.
+
 ## 10 Kasım 2026 — SAH-16 tamamlandı (Kalfa)
 
 Muayene, eşya soketi güncellendikten sonra gerçek iskelet ve görünür mesh temasını okur. Model başına tekilleştirilmiş eşya türleri JSON esya_kesisimleri alanında ve SAH-EL-CAKISMA satırlarında yer alır. Önceki raporda bu alan yoktu.

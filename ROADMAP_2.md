@@ -8012,7 +8012,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.3 Yürüme, koşma, durma
 
-- [ ] **SAH-17:** Hız üç bandadır. (doğrulanmadı — Görev 22; Kalfa bekleniyor — HareketGecisi oyunda hiçbir yerden çağrılmıyor, KarakterModel karışım entegrasyonu gerekli)
+- [/] **SAH-17:** Hız üç bandadır. (Kalfa — canlı hız bandı ve klip seçimi)
   - Ne: dur, yürü, koş. Bant eşikleri `sahne.json` içindedir. Kodda sabit hız yoktur.
   - Kabul: dur, yürü, koş. Bant eşikleri `sahne.json` içindedir. Kodda sabit hız yoktur. Test: üç bant, üç klip adı.
   - Bağımlılık: DEN-01 ile aynı kural, dosya ayrı. Boyut: S.
