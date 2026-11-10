@@ -11,6 +11,9 @@
   "varsayilan_guvenilirlik": 2,
   "azami_guvenilirlik": 3,
   "asgari_guvenilirlik": 0,
+  "dogrulama_guvenilirlik_degisimi": 1,
+  "kademe_yari_koy_orani": 0.40,
+  "kademe_herkes_orani": 0.80,
   "iyi_olaylar": [
     "haksizlik_karsi_durma",
     "yarali_tedavi",

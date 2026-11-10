@@ -35,6 +35,13 @@ func _yapilandirmayi_yukle() -> void:
 		if parsed is Dictionary:
 			veri_yapilandirma = parsed
 
+## SOY-38: ağın bütün ayar sayıları `data/soylenti.json`'dadır; eksik alan sessizce varsayılana düşmez.
+func _ayar(ad: String) -> float:
+	if not veri_yapilandirma.has(ad):
+		push_error("soylenti.json alanı eksik: " + ad)
+		return 0
+	return float(veri_yapilandirma[ad])
+
 ## SOY-01, SOY-03, SOY-04: Söylenti ekleme.
 func soylenti_ekle(
 	olay_id: String,
@@ -83,7 +90,7 @@ func soylenti_ekle(
 	ag_kayitlari[temiz_id] = ag_kaydi
 
 	if not guvenilirlikler.has(tanik) and not tanik.is_empty():
-		guvenilirlikler[tanik] = int(veri_yapilandirma.get("varsayilan_guvenilirlik", 2))
+		guvenilirlikler[tanik] = int(_ayar("varsayilan_guvenilirlik"))
 
 	return { "olur": true, "kayit": ag_kaydi }
 
@@ -94,21 +101,21 @@ func kaynak_ve_dogruluk(olay_id: String) -> Dictionary:
 
 ## SOY-07 & SOY-08: Köylü söz güvenilirliği (0..3).
 func guvenilirlik_al(koylu_id: String) -> int:
-	return int(guvenilirlikler.get(koylu_id, int(veri_yapilandirma.get("varsayilan_guvenilirlik", 2))))
+	return int(guvenilirlikler.get(koylu_id, _ayar("varsayilan_guvenilirlik")))
 
 func guvenilirlik_degistir(koylu_id: String, delta: int) -> int:
 	var mevcut := guvenilirlik_al(koylu_id)
-	var asgari := int(veri_yapilandirma.get("asgari_guvenilirlik", 0))
-	var azami := int(veri_yapilandirma.get("azami_guvenilirlik", 3))
+	var asgari := int(_ayar("asgari_guvenilirlik"))
+	var azami := int(_ayar("azami_guvenilirlik"))
 	var yeni := clampi(mevcut + delta, asgari, azami)
 	guvenilirlikler[koylu_id] = yeni
 	return yeni
 
 func guvenilirlik_kelimesi(koylu_id: String) -> String:
 	var g := guvenilirlik_al(koylu_id)
-	if g >= int(veri_yapilandirma.get("azami_guvenilirlik", 3)):
+	if g >= int(_ayar("azami_guvenilirlik")):
 		return "ağzı sıkı"
-	if g == int(veri_yapilandirma.get("varsayilan_guvenilirlik", 2)):
+	if g == _ayar("varsayilan_guvenilirlik"):
 		return "konuşkan"
 	return "uyduruyor"
 
@@ -121,11 +128,11 @@ func gece_ilerlet(
 ) -> void:
 	dedikodu.gece_ilerlet(guncel_gece)
 
-	var asgari_nufus := int(veri_yapilandirma.get("asgari_nufus", 5))
-	var yayilim_hizi := int(veri_yapilandirma.get("yayilim_hizi_gece_basi_azami", 4))
-	var kamuoyu_esik_oran := float(veri_yapilandirma.get("kamuoyu_esigi_oran", 0.40))
-	var ag_omru := int(veri_yapilandirma.get("ag_kayit_omru_gece", 7))
-	var kamuoyu_omru := int(veri_yapilandirma.get("kamuoyu_omru_gece", 5))
+	var asgari_nufus := int(_ayar("asgari_nufus"))
+	var yayilim_hizi := int(_ayar("yayilim_hizi_gece_basi_azami"))
+	var kamuoyu_esik_oran := _ayar("kamuoyu_esigi_oran")
+	var ag_omru := int(_ayar("ag_kayit_omru_gece"))
+	var kamuoyu_omru := int(_ayar("kamuoyu_omru_gece"))
 	var iyi_olaylar: Array = veri_yapilandirma.get("iyi_olaylar", [])
 
 	var silinecekler: Array[String] = []
@@ -196,9 +203,9 @@ func gece_ilerlet(
 				k["bar_etkisi_uygulandi"] = true
 				var tur := str(k.get("tur", ""))
 				if tur in iyi_olaylar:
-					bar_degisimi_toplam += int(veri_yapilandirma.get("iyi_olay_bar_etkisi", 1))
+					bar_degisimi_toplam += int(_ayar("iyi_olay_bar_etkisi"))
 				else:
-					bar_degisimi_toplam += int(veri_yapilandirma.get("bar_etkisi_halk", -1))
+					bar_degisimi_toplam += int(_ayar("bar_etkisi_halk"))
 
 			# SOY-15: Yanlış söylenti kamuoyu olursa histeri sayacını artırır
 			if not bool(k.get("dogru", true)):
@@ -272,19 +279,19 @@ func yanlis_soylenti_dogrulandi(olay_id: String) -> void:
 	if ag_kayitlari.has(olay_id):
 		var kaynak := str(ag_kayitlari[olay_id].get("kaynak", ""))
 		if not kaynak.is_empty():
-			guvenilirlik_degistir(kaynak, -1)
+			guvenilirlik_degistir(kaynak, -int(_ayar("dogrulama_guvenilirlik_degisimi")))
 
 func dogru_soylenti_dogrulandi(olay_id: String) -> void:
 	if ag_kayitlari.has(olay_id):
 		var kaynak := str(ag_kayitlari[olay_id].get("kaynak", ""))
 		if not kaynak.is_empty():
-			guvenilirlik_degistir(kaynak, 1)
+			guvenilirlik_degistir(kaynak, int(_ayar("dogrulama_guvenilirlik_degisimi")))
 
 ## SOY-20: Susturma eylemi.
 func sustur(koylu_id: String, olay_id: String) -> bool:
 	var g := guvenilirlik_al(koylu_id)
 	if ag_kayitlari.has(olay_id):
-		if g >= int(veri_yapilandirma.get("varsayilan_guvenilirlik", 2)):
+		if g >= _ayar("varsayilan_guvenilirlik"):
 			ag_kayitlari[olay_id]["susturuldu"] = true
 			return true
 		else:
@@ -311,9 +318,9 @@ func soylenti_sayfasi_al(koy_nufusu: int = 10) -> Array[Dictionary]:
 		var k: Dictionary = ag_kayitlari[olay_id]
 		var duyan_sayisi: int = (k.get("duyanlar", []) as Array).size()
 		var kademe := "birkaç"
-		if duyan_sayisi >= int(ceil(float(koy_nufusu) * 0.8)):
+		if duyan_sayisi >= int(ceil(float(koy_nufusu) * _ayar("kademe_herkes_orani"))):
 			kademe = "herkes"
-		elif duyan_sayisi >= int(ceil(float(koy_nufusu) * 0.4)):
+		elif duyan_sayisi >= int(ceil(float(koy_nufusu) * _ayar("kademe_yari_koy_orani"))):
 			kademe = "yarı köy"
 
 		sonuc.append({

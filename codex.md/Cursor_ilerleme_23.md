@@ -92,3 +92,10 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
 - Çağrı zinciri: meclis satırı (`CinarMeclisPaneli` → `SoylentiKoprusu.meclis_sikayeti`) ve defter satırı (`kaynak_derle` → `SoylentiKoprusu.defter_satirlari`) kaynağı köy kaydında arar. Ölü ya da köyde olmayan kaynak satır basmaz. Ağdaki uydurma `koylu_N` dinleyicileri gerçek haritada yok (SOY-01 commit'i).
 - Test: `soylenti_gecesi_test`. Yaşayan kaynak 1 satır, ölen kaynak 0, köyden silinen kaynak 0.
 - Bozma kanıtı: defterdeki sağlık denetimi silinince `KALDI (1 hata)`.
+
+### SOY-38
+
+- Ağın bütün ayar sayıları `SoylentiAgi._ayar` ile `data/soylenti.json`'dan okunuyor. Kademe oranları ve doğrulama güvenilirlik değişimi veriye taşındı; eksik alan `push_error` verir, sessiz varsayılan yok.
+- Oyunda okunur: ağ artık `Oturum` üzerinden kuruluyor (SOY-01 zinciri).
+- Test: yeni `tests/unit/sistemler/soylenti_ayar_tarama_test.gd` → GEÇTİ. `soylenti_agi.gd` ve `soylenti_koprusu.gd` içinde `.get("…", sayı)` ya da oran yok; okunan her ayar json'da var.
+- Bozma kanıtı: kademe oranı koda `0.8` yazılınca `KALDI (1 hata)`.
