@@ -356,3 +356,14 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   | Ana bağı silinince | `KALDI (6)` |
   | Ölüm sayacı kapatılınca | `KALDI (1)` |
   | Anılan karar kapatılınca | `KALDI (1)` |
+
+### AYR-11, AYR-29, AYR-33, AYR-41, HAN-13, HAN-34 — açık bırakıldı
+
+- **AYR-11:** Kapı ekranındaki konuşma akışı (`KapiEkrani._kayit`, RichTextLabel, `scroll_following`) fare tekeriyle zaten yukarı kayıyor.
+  - `KonusmaGecmisi` ikinci bir akış (Label yığını) kurar ve tekerin her iki yönünde ilk satıra atlar. Bağlamak mevcut davranışı bozar.
+  - Eksik olan yalnız gamepad sağ çubuğu. Bunun `_kayit`'a ince bir adaptörle eklenmesi ayrı karar.
+- **AYR-29, AYR-33:** `Ana` tek `GuvenliKayit` dosyasına yazıyor. Yeni oyun ekranındaki yuva seçimi (`KayitYuvalari`) kayıt yoluna bağlanmıyor; AYR-28 oyunda yarım.
+  - Yuva kartı gerçek kaydı değil, hep boş yuvaları gösterir. Önce yuva yolunun `Ana.kayit`a bağlanması gerekir; bu, korumalı `ana.gd` kayıt akışını değiştirir.
+- **AYR-41:** Gece başı FPS ölçümü yalnız TEK-10 `PerformansGunlugu`nda var, o da yalnız debug yapıda ya da `--perf-log` ile açılıyor.
+  - Normal oyuncu için üç gece ortalaması üretilmiyor. Yayın yapısında yeni bir ölçüm hattı açmak ayrı tasarım kararı.
+- **HAN-13, HAN-34:** İkisi de ACL-03 akşam sohbetinin dalları. `AksamSohbeti` oyunda hiçbir yerden açılmıyor, akşam sohbeti sahnesi yok. Dalı bağlanacak ana sahne olmadığı için açık kaldı.
