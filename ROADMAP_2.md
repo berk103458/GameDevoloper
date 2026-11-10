@@ -5499,7 +5499,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-12. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-17:** Olumlu söylenti de vardır. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-17:** Olumlu söylenti de vardır. (Cursor)
   - Ne: DIY-13 ağır olay listesine karşılık "iyi olay" listesi: haksızlığa karşı durma (divan), yaralıyı tedavi (CAT-03), aileyi birlikte alma. Olumlu kamuoyu `bar.halk` +1. Liste veridedir.
   - Kabul: `data/soylenti.json iyi_olaylar`; olumlu kamuoyu bir kez +1. Test: birim.
   - Bağımlılık: SOY-13. Boyut: S.

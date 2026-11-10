@@ -191,3 +191,13 @@ Test: Godot 4.7.2 headless, `--import` + hedefli testler; tam sanity yok.
   - Çiftçi (grup değil) konusu yazmaz.
 - Bozma kanıtı: tek yazım bayrağı, `grup_yaz` çağrısı ya da grubun kayda taşınması ayrı ayrı kapatılınca her biri `KALDI (2 hata)`.
 - Açık kalan: Gelen verisinde Türkmen/Rum/Ahi kimliği yok. Bu üç grup ancak veri gelirse yazılır; sınıftan etnik grup uydurulmadı.
+
+### SOY-17
+
+- Çağrı zinciri: `Oturum.karar_ver` → `AileKafilesi.karar` → (reis) `karar_ver` → `SoylentiKoprusu.karar`. Kafileyi ailece kabul `aile_birlikte_alma` olumlu olayı bekletir; sonra kabul edilen köylü onu taşır.
+  - `gece_sonu` → `SoylentiKoprusu.gece` → `gece_ilerlet`: kamuoyu olunca `iyi_olay_bar_etkisi` +1 bir kez uygulanır; köprü bunu halk moraline çevirir ve sabaha olumlu satır düşer.
+  - Olumlu konu meclise şikâyet olmaz. Bozuk kopyası histeriyi beslemez.
+- Veri: `data/soylenti.json` `iyi_olaylar` + üç olumlu kalıp.
+- Test: yeni `tests/unit/sistemler/soylenti_iyi_olay_test.gd` → GEÇTİ. Gerçek kafile kabulü, 4 gece; kamuoyu, bar toplamı +1 bir kez, rapor satırı, meclis 0, histeri 0.
+- Bozma kanıtı: köprüdeki aile koşulu kapatılınca `KALDI (4 hata)`, meclis filtresi kaldırılınca `KALDI (1 hata)`.
+- Açık kalan: listedeki "haksızlığa karşı durma" (divan) ve "yaralı tedavi" (CAT-03) için oyunda henüz yazar yok; yalnız ailece kabul bağlı.

@@ -51,6 +51,8 @@ static func karar(o: Object, gelen: Gelen, karar_adi: StringName, ek: Dictionary
 		tur = "rusvet"
 	elif karar_adi == &"ret" and not gelen.kusurlu():
 		tur = "haksiz_ret"
+	elif karar_adi == &"kabul" and gelen.aile.size() > 1:
+		tur = "aile_birlikte_alma"
 	if not tur.is_empty():
 		kalan.append({"olay_id": "kapi_%s_%d_%s" % [tur, int(o.gun), String(gelen.id)], "tur": tur, "gece": int(o.gun), "gelen": String(gelen.id),
 			"grup": String(gelen.sinif) if GrupItibari.gecerli_grup_mu(gelen.sinif) else ""})
@@ -118,7 +120,8 @@ static func grup_yaz(o: Object, a: RefCounted) -> void:
 		if grup.is_empty() or not bool(k.get("kamuoyu_oldu", false)) or bool(k.get("grup_yazildi", false)):
 			continue
 		k["grup_yazildi"] = true
-		o.grup_itibari.karar_uygula(grup, "rusvet" if String(k.get("tur", "")) == "rusvet" else "ret", false)
+		var tur := String(k.get("tur", ""))
+		o.grup_itibari.karar_uygula(grup, "kabul" if tur in a.veri_yapilandirma.get("iyi_olaylar", []) else tur if tur == "rusvet" else "ret", false)
 
 
 ## SOY-33: canlı kamuoyu konusu çınar meclisine şikâyet olarak gelir; ağzı, haberi içeri taşıyan köylüdür.

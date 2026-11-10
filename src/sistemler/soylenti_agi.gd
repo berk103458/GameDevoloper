@@ -217,7 +217,7 @@ func gece_ilerlet(
 					bar_degisimi_toplam += int(_ayar("bar_etkisi_halk"))
 
 			# SOY-15: Yanlış söylenti kamuoyu olursa histeri sayacını artırır
-			if not bool(k.get("dogru", true)):
+			if not bool(k.get("dogru", true)) and not str(k.get("tur", "")) in iyi_olaylar:
 				histeri_tetik_sayisi += 1
 
 			# SOY-22: Tanıklı rüşvet kamuoyu olunca teftişe eklenir
@@ -272,7 +272,7 @@ func _bozuk_kopya(k: Dictionary, olay_id: String, bozan: String, bicim: String, 
 func meclis_sikayeti_sec() -> Dictionary:
 	for olay_id in ag_kayitlari:
 		var k: Dictionary = ag_kayitlari[olay_id]
-		if bool(k.get("kamuoyu_oldu", false)) and not bool(k.get("hukme_baglandi", false)):
+		if bool(k.get("kamuoyu_oldu", false)) and not bool(k.get("hukme_baglandi", false)) and not String(k.get("tur", "")) in veri_yapilandirma.get("iyi_olaylar", []):
 			return {
 				"olay_id": olay_id,
 				"tur": k.get("tur", ""),

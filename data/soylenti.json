@@ -37,6 +37,9 @@
     "rusvet": "Kapıda el altından akçe alındığı konuşuluyor.",
     "siddet": "Kapı önünde sert bir arbede çıktığı fısıldanıyor.",
     "aileyi_bolme": "Bir ailenin kapıda zorla koparıldığı söyleniyor.",
-    "haksiz_ret": "Garip bir yolcunun haksız yere kovulduğu anlatılıyor."
+    "haksiz_ret": "Garip bir yolcunun haksız yere kovulduğu anlatılıyor.",
+    "aile_birlikte_alma": "Kapıda bir kafilenin dağıtılmadan, ailece içeri alındığı anlatılıyor.",
+    "haksizlik_karsi_durma": "Muhafızın bir haksızlığa karşı durduğu konuşuluyor.",
+    "yarali_tedavi": "Kapıdaki yaralının sarılıp kurtarıldığı anlatılıyor."
   }
 }
