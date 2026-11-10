@@ -1,3 +1,7 @@
+## 2026-11-10 — SAH-23 sahipliği (Kalfa)
+
+- SAH-17 hazır. Mevcut kapı yaklaşması sonrası gerçek CHR konuşma klibinde kök hareketi ve yürüyüş kareleri ölçülecek. Söz beklemede. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-22 yorgun yürüyüş (Kalfa)
 
 - Köy rotası, YSM-01 ile aynı `NobetYorgunlugu.aktif` kaydını okuyup yorgun yürüyüşü mevcut 0,70 katsayısıyla yavaşlatıyor. Kaçış bağlamı SAH-19 koşu eşiğini, her rota açlık ve hava çarpanlarını kullanıyor.

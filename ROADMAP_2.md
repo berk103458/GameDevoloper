@@ -8048,7 +8048,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: YSM-01, BUG-09. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: yorgun klip gerekirse `SAH-YORGUN-YURU`. Üretilmez.
-- [ ] **SAH-23:** Kapıdaki bekleme yürümeyi keser. (doğrulanmadı — Görev 22; Kalfa bekleniyor — HareketGecisi oyunda hiçbir yerden çağrılmıyor, KarakterModel karışım entegrasyonu gerekli)
+- [/] **SAH-23:** Kapıdaki bekleme yürümeyi keser. (Kalfa — beş saniye gerçek kapı sorgusu)
   - Ne: sorgu sırasında kök hız 0'dır. Konuşma klibi yürüyüşle karışmaz.
   - Kabul: sorgu sırasında kök hız 0'dır. Konuşma klibi yürüyüşle karışmaz. Test: sorgu 5 saniye, konum deltası eşik altı.
   - Bağımlılık: SAH-17. Boyut: S.
