@@ -1,3 +1,8 @@
+## 2026-11-10 — SAH-33 tek ANI-13 yol ağı (Kalfa)
+
+- Gerçek köy sahnesi ve NavigationServer3D aynı tek bölgeyi gösterdi. Kapı, bağlı patika ve hazır tarla arasında 110 yol noktasının bölge kimliği aynı. 27 sunucu sorgusu, yedek rota 0. Doluluk değişip ağ yeniden hesaplanınca bölge kimliği korundu.
+- Navigasyon sahnesi ve birimi, tarla iş noktaları ve muhafız devriyesi geçti. Tekrar headless importta betik ve MD5 hatası 0, üç bilinen kapanış çıktısı sürüyor. Asset gerekmedi. Sonraki adım SAH-34. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-33 sahipliği (Kalfa)
 
 - ANI-13 hazır. Kapı, patika ve tarla rotasının aynı gerçek navigasyon bölgesine ait olduğu doğrulanacak. Kota görünmüyor.

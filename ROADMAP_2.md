@@ -8114,7 +8114,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.5 Kalabalıkta yol
 
-- [/] **SAH-33:** Yol ağı ANI-13'tür. (Kalfa — canlı tek bölge ve kapı/patika/tarla)
+- [x] **SAH-33:** Yol ağı ANI-13'tür. (Kalfa — kapı, patika ve tarla tek gerçek bölge)
   - Ne: ikinci navigasyon bölgesi yok. Kapı, tarla ve patika aynı ağdadır.
   - Kabul: ikinci navigasyon bölgesi yok. Kapı, tarla ve patika aynı ağdadır. Test: ağ sayısı 1.
   - Bağımlılık: ANI-13. Boyut: S.

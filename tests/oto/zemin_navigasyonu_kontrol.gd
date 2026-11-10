@@ -20,6 +20,14 @@ func _ready() -> void:
  add_child(ana)
  var y := ana.oturum.yonetim
  y.kabul({"sinif": "ciftci", "stat": 5})
+ var tarla := KoyBinasi.new()
+ tarla.id = 700
+ tarla.tur = "tarla"
+ tarla.hucre = y.a.meydan.end + Vector2i(2, 0)
+ y.binalar.append(tarla)
+ y.izgara.yerlestir(tarla.id, tarla.hucreler(y.katalog))
+ var patika := y.a.meydan.position + Vector2i.UP
+ kontrol(y.izgara.yol_kur(patika), "SAH-33: Hazır patika hücresi")
  var ilk_kayit := ana.oturum.kaydet().merged({"faz": "koy"}, true)
  ana._koye_git()
  await get_tree().process_frame
@@ -37,6 +45,8 @@ func _ready() -> void:
  var m := y.a.meydan
  var bas := m.position
  var son := KapiNobeti.esik_hucresi(y)
+ var bolge_kimligi := n.get_rid()
+ _tek_ag_kontrolu(s, n, [son, patika, tarla.hucre])
  var cells := h.rotaci.yol(bas, son)
  var yol := KoyZeminNavigasyonu.yol(h, cells)
  kontrol(not yol.is_empty() and n.sorgu_sayisi > 0 and n.yedek_sayisi == 0, "Patika/kapı rotası NavigationServer3D kullanır")
@@ -65,6 +75,8 @@ func _ready() -> void:
   if n.hazir(): break
   await get_tree().physics_frame
  kontrol(n.hazir(), "Yenilenen bölge yeniden senkronize")
+ kontrol(n.get_rid() == bolge_kimligi and NavigationServer3D.map_get_regions(n.get_navigation_map()).size() == 1,
+  "SAH-33: Doluluk yenilemesi aynı ağ bölgesinde kalır")
  kontrol(NavigationServer3D.map_get_closest_point(n.get_navigation_map(), h._konum(engel)).distance_to(h._konum(engel)) > 0.5, "Yeni engel gerçek server haritasından da çıkar")
  var dolambac := h.rotaci.yol(bas, son)
  kontrol(not dolambac.is_empty() and not dolambac.has(engel), "Yeni engel A* hedef sırasından çıkar")
@@ -86,6 +98,30 @@ func _ready() -> void:
  await get_tree().create_timer(0.3).timeout
  print("ZEMİN NAVİGASYONU UI: GEÇTİ" if hata == 0 else "ZEMİN NAVİGASYONU UI: KALDI")
  await Ses.cik(hata)
+
+func _tek_ag_kontrolu(s: KoyYonetimSahnesi, n: KoyZeminNavigasyonu, hucreler: Array[Vector2i]) -> void:
+ var h := s.halk_hareketi
+ var harita := n.get_navigation_map()
+ var bolgeler := NavigationServer3D.map_get_regions(harita)
+ var kimlik := n.get_rid()
+ kontrol(bolgeler.size() == 1 and bolgeler.has(kimlik) and s.find_children("*", "NavigationRegion3D", true, false).size() == 1,
+  "SAH-33: Sahne ve sunucuda tek ANI-13 bölgesi")
+ var sorgu := n.sorgu_sayisi
+ var yedek := n.yedek_sayisi
+ var ayni_ag := true
+ var nokta_sayisi := 0
+ for i in range(1, hucreler.size()):
+  var yol := KoyZeminNavigasyonu.yol(h, h.rotaci.yol(hucreler[i - 1], hucreler[i]))
+  if yol.is_empty():
+   ayni_ag = false
+   continue
+  ayni_ag = ayni_ag and yol[0].is_equal_approx(h._konum(hucreler[i - 1])) and yol[-1].is_equal_approx(h._konum(hucreler[i]))
+  for nokta in yol:
+   ayni_ag = ayni_ag and NavigationServer3D.map_get_closest_point_owner(harita, nokta) == kimlik
+   nokta_sayisi += 1
+ kontrol(ayni_ag and n.sorgu_sayisi > sorgu and n.yedek_sayisi == yedek, "SAH-33: Kapı, patika ve tarla tek sunucu rotasında")
+ print("SAH-33 bölge=%d, ortak ağ noktası=%d, sunucu sorgusu=%d, yedek=%d" % [
+  bolgeler.size(), nokta_sayisi, n.sorgu_sayisi - sorgu, n.yedek_sayisi - yedek])
 
 func _yokus_hizi(s: KoyYonetimSahnesi, yol: Array[Vector3]) -> void:
  if yol.size() < 2: return
