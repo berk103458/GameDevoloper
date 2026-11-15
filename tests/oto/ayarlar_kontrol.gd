@@ -99,6 +99,14 @@ func _ready() -> void:
 	yeni_ekran.queue_free()
 	await get_tree().process_frame
 	ana_ornek.free()
+	GuvenliMetin.kur()
+	DilAyari.bagla(a)
+	var ana_kaynak := FileAccess.get_file_as_string("res://src/arayuz/ana.gd")
+	_kontrol(not ana_kaynak.contains("set_locale(\"tr\")"), "YER-03: ana.gd sabit set_locale(\"tr\") çağrısı içermez")
+	DilAyari.sec(a, "en")
+	_kontrol(TranslationServer.get_locale() == "en", "YER-03: DilAyari en locale uygular")
+	DilAyari.sec(a, "tr")
+	_kontrol(TranslationServer.get_locale() == "tr", "YER-03: DilAyari tr locale geri döner")
 	_temizle()
 	print("AYARLAR KONTROL: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
 	get_tree().quit(hata)
@@ -107,6 +115,10 @@ func _ready() -> void:
 func _temizle() -> void:
 	if FileAccess.file_exists(YOL):
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(YOL))
+	for n in range(1, KayitYuvalari.YUVA_SAYISI + 1):
+		for yol in ["%skayit_%d.json" % [KOK, n], "%skayit_%d.json.bak" % [KOK, n]]:
+			if FileAccess.file_exists(yol):
+				DirAccess.remove_absolute(ProjectSettings.globalize_path(yol))
 
 
 func _kontrol(olur: bool, mesaj: String) -> void:
