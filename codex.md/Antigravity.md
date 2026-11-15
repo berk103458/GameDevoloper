@@ -1536,3 +1536,12 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`), `mogol_oncusu_test.gd` (`MOGOL ONCUSU: GEÇTİ`), `fiyat_test.gd` (`FİYAT ÖLÇÜMÜ: GEÇTİ`), `ticaret_fiyatlari_test.gd` (`TİCARET FİYATLARI: GEÇTİ`), `tekfur_harac_heyeti_test.gd` (`TEKFUR HEYETI: GEÇTİ`), `gelen_akisi_test.gd` (`GELEN AKISI: GEÇTİ`), `usta_gelisi_test.gd` (`USTA GELISI (YAP-03): GEÇTİ`), `acilis_bagimlilik_kontrol.tscn` (`RC=0`). (`tuketim_dengesi_test.gd` ve `soz_ikiz_test.gd` mevcut `YapiKilidi`/`AcilisSenaryosu` gün-0/1 kapı-inşa kilidinden bağımsız ön-mevcut kaldı.)
 - **Asset:** asset gerekmedi.
 - kota görünmüyor
+
+### 2026-11-16 — YAP-06 Tamamlandı (Antigravity-Berk)
+- **Değişiklikler:**
+  - `src/koy/ozel_esyalar.gd`: `OzelEsyalar` sınıfı eklendi (`data/ozel_esyalar.json` doğrulama — en az 8 dolu kaynak notlu ve tek geçerli kapılı satır, boş kaynak notu satırının sayılmaması, çift/geçersiz kapıda 1 hata; `coz` ile idempotent çözümleme, `heybedeki_ozeller`/`sahip_adet` ile çocuk heybesi okuma, `sat` sonrası çözülmüş kademenin açık kalması, `carpan`/`sur_hasari`, `Sanat.doku` üzerinden ikon okuma).
+  - `src/koy/koy_yonetimi.gd`, `src/dunya/mevsim_tuketim_adaptoru.gd`, `src/koy/saglik_yoneticisi.gd`, `src/koy/ticaret/kervan_korumasi.gd`: 7 hedef kapı (`sur_hasari`, `degirmen_uretimi`, `kis_odun_tuketimi`, `savunma_formulu`, `erzak`, `saglik`, `guvenlik`) ve `"ozel_esyalar"` kayıt/yükleme adaptörleri bağlandı.
+  - `tests/unit/koy/ozel_esyalar_test.gd`: 8 eşya doğrulaması, çift/geçersiz kapı hataları, boş kaynak notu kenar durumu, çocuk heybesinden okuma (ikinci kayıt yok), iki kez çözmede tek çarpan, satıştan sonra açık kademe, 7 kapı etkisi ve `Sanat` ikon kontrolü doğrulandı.
+- **Doğrulama:** `ozel_esyalar_test.gd` (`OZEL ESYALAR (YAP-06): GEÇTİ (0 hata)`), `ozel_esyalar_ve_defter_metin_test.gd` (`RC=0`), `kavga_secenek_test.gd` (`KAVGA SECENEK: GEÇTİ (0 hata)`), `koy_yonetimi_test.gd` (`KOY YONETIMI TEST: GEÇTİ (0 hata)`), `cozumleme_test.gd` (`ÇÖZÜMLEME VERİ: GEÇTİ`), `kervan_korumasi_test.gd` (`KERVAN KORUMASI: GEÇTİ`), `savunma_guvenligi_test.gd` (`SAVUNMA GUVENLIGI: GEÇTİ`), `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`), `acilis_bagimlilik_kontrol.tscn` (`RC=0`).
+- **Asset:** asset gerekmedi (`YAP06-ESYA` `docs/EKSIK_ASSET_ENVANTERI.md` içinde mevcut; yeni PNG üretilmedi).
+- kota görünmüyor

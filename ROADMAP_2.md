@@ -1642,7 +1642,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.6 Özel eşya
 
-- [/] **YAP-06:** (Antigravity-Berk) Özel eşyalar. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/ozel_esyalar.json` içinde 8 özel eşya ve `esya.ozel.*` metin anahtarları eklendi)*
+- [x] **YAP-06:** (Antigravity-Berk) Özel eşyalar. *(metin tamam — `src/koy/ozel_esyalar.gd` ve `koy_yonetimi.gd`/`mevsim_tuketim_adaptoru.gd`/`saglik_yoneticisi.gd`/`kervan_korumasi.gd` adaptörleri bağlandı; `ozel_esyalar_test.gd` (`OZEL ESYALAR (YAP-06): GEÇTİ (0 hata)`), `ozel_esyalar_ve_defter_metin_test.gd`, `kavga_secenek_test.gd`, `koy_yonetimi_test.gd`, `cozumleme_test.gd`, `kervan_korumasi_test.gd`, `savunma_guvenligi_test.gd`, `dunya_test.gd`, `acilis_bagimlilik_kontrol.tscn` GEÇTİ; asset gerekmedi (`YAP06-ESYA` envanterde mevcut))*
   - Ne: Oyuncu en az sekiz özel eşyadan birini çözer. Her satırda ad, dünya kitabı kaynak notu ve tek hedef sistem vardır. Hedef, oyunda duran bir kapıdır. Bir eşya iki kapıya yazamaz. Etki, o kapının gece hesabına tek çarpandır. Çözülmüş eşya satılınca açılmış kademe geri kapanmaz. Eşya çocuk heybesinden de okunur; ikinci kayıt açılmaz. İkon `Sanat` üzerinden gelir; yeni png üretilmez.
   - Kurallar:
     1. `data/ozel_esyalar.json` en az 8 satırdır. Her satırda ad, YAZ-01 kaynak notu ve tek `hedef_sistem` vardır.

@@ -15,7 +15,9 @@ static func sayi(y: KoyYonetimi) -> int:
  return n
 ## Tek Güvenlik hesabı: temel asayiş + HAR-15 hazırlık − geçici dış görev kaybı.
 static func guvenlik(y: KoyYonetimi) -> int:
- return clampi(100 - y.asayis_riski + SAVUNMA_GUVENLIGI.katkisi(y) - sayi(y) * int(AYAR.guvenlik_kaybi), 0, 100)
+ var taban := float(100 - y.asayis_riski + SAVUNMA_GUVENLIGI.katkisi(y) - sayi(y) * int(AYAR.guvenlik_kaybi))
+ var c := OzelEsyalar.carpan(y, "guvenlik")
+ return clampi(roundi(taban) if is_equal_approx(c, 1.0) else ceili(taban * c), 0, 100)
 ## Kışlanın gerçekten etkin, borçsuz ve boşta kiralanabilir yetişkin nöbetçisi.
 static func aday(y: KoyYonetimi, id: int) -> bool:
  var k := y.koylu(id)

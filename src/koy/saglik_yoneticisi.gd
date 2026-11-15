@@ -78,7 +78,7 @@ static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> int:
 			temas += 1
 			var risk := KoyYonetimi.ACLIK_SAGLIK.risk(y, int(AYAR[kaynak.enfeksiyon.tur].risk))
 			risk += preload("res://src/koy/aclik_kademesi.gd").hastalik_riski(aday)
-			risk = roundi(float(risk) * DunyaEtkisi.y_carpani(y, "saglik_yoneticisi"))
+			risk = roundi(float(risk) * DunyaEtkisi.y_carpani(y, "saglik_yoneticisi") / OzelEsyalar.carpan(y, "saglik"))
 			if y._rng.randi_range(1, 100) > mini(100, risk): continue
 			if enfekte(y, aday, String(kaynak.enfeksiyon.tur)):
 				aday.enfeksiyon.son_gece = y.gun

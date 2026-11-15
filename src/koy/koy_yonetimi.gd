@@ -539,13 +539,23 @@ func harac_reddet() -> void:
 		set_meta("tekfur_haraci_karar", "ret")
 
 
+func sur_hasari_ekle(ham_hasar: int) -> int:
+	var ek := OzelEsyalar.sur_hasari(self, ham_hasar)
+	sur_hasar += ek
+	return ek
+
+
 func savunma_gucu() -> int:
 	var asker := 0
 	for k in koylular:
 		if KarantinaYoneticisi.aktif(k): continue
 		if k.sinif == &"asker" and k.yas_grubu == &"yetiskin" and not IsKazalari.uyuyor(k) and not IsMemnuniyeti.isyanci(k, self):
 			asker += 1
-	return BinaSeviyesi.sur_gucu(sur_seviye, sur_hasar) + etkin_muhafiz_sayisi() + asker / 2
+	var temel := BinaSeviyesi.sur_gucu(sur_seviye, sur_hasar) + etkin_muhafiz_sayisi() + asker / 2
+	var c := OzelEsyalar.carpan(self, "savunma_formulu")
+	if is_equal_approx(c, 1.0) or temel <= 0:
+		return temel
+	return ceili(float(temel) * c)
 
 
 func tekfur_gucu() -> int:
@@ -736,7 +746,8 @@ func _uret(uretim: Dictionary, olaylar: Array[Dictionary], calismalar: Dictionar
 			var c := Uretim.koylu_carpani(k, uzmanlik, a, b.tur) * YasRolleri.carpan(self, b) * DemirZinciri.carpan(self, b.tur) * CenazeYasi.is_carpani(self, k) + KoyluBagi.verim_farki(self, k, b.id)
 			var bonus := a.kritik_bonus if k.moral > a.kritik_moral else 0.0
 			for t in cikti:
-				var miktar := Uretim.gunluk(float(cikti[t]), k.stat, c) * clampf(k.is_gucu, 0.0, 1.0) * b.uretim_carpani() * CanliHayvanTakasi.carpan(self, b, String(t)) * preload("res://src/koy/cozumleme.gd").uretim_carpani(self,b.tur)
+				var ozel_carpan := (OzelEsyalar.carpan(self, "degirmen_uretimi") if b.tur == "degirmen" else 1.0) * (OzelEsyalar.carpan(self, "erzak") if String(t) == "gida" else 1.0)
+				var miktar := Uretim.gunluk(float(cikti[t]), k.stat, c) * clampf(k.is_gucu, 0.0, 1.0) * b.uretim_carpani() * CanliHayvanTakasi.carpan(self, b, String(t)) * preload("res://src/koy/cozumleme.gd").uretim_carpani(self,b.tur) * ozel_carpan
 				_ambara(b, t, miktar, miktar * bonus, uretim, olaylar)
 			if not cikti.is_empty() and ambar_yeri_var: MeslekUyumu.alet_denetimi(self, k, b, olaylar)
 			if not cikti.is_empty() and ambar_yeri_var:
@@ -848,7 +859,11 @@ func _saglik_ve_moral(olenler: Array, olaylar: Array[Dictionary], tedavi_artisi:
 		else:
 			k.moral += a.tok_moral
 			if k.ev >= 0 or DivanHukmu.zindanda(k):
-				k.saglik += maxi(0, a.iyilesme - int(tedavi_artisi.get(k.id, 0)))
+				var iyilesme := maxi(0, a.iyilesme - int(tedavi_artisi.get(k.id, 0)))
+				var saglik_c := OzelEsyalar.carpan(self, "saglik")
+				if not is_equal_approx(saglik_c, 1.0) and iyilesme > 0:
+					iyilesme = ceili(float(iyilesme) * saglik_c)
+				k.saglik += iyilesme
 		if k.ev < 0 and not DivanHukmu.zindanda(k):
 			k.moral -= a.evsiz_moral
 		if guvensiz:
@@ -965,7 +980,7 @@ func kaydet() -> Dictionary:
 	var b: Array = []
 	for x in binalar:
 		b.append(x.kaydet())
-	return {"cozumleme": preload("res://src/koy/cozumleme.gd").durum(self), "sira_olayi_raporu": SiraOlayiSonucu.durum(self), "tas_yatagi": tas_yatagi.kaydet() if tas_yatagi != null else null, "perde2_baslangic": PERDE_GECISI.baslangic(self), "kriz_kenetlenmesi": KRIZ_KENETLENMESI.durum(self), "levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kapi_nobeti": KapiNobeti.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
+	return {"cozumleme": preload("res://src/koy/cozumleme.gd").durum(self), "ozel_esyalar": OzelEsyalar.durum(self), "sira_olayi_raporu": SiraOlayiSonucu.durum(self), "tas_yatagi": tas_yatagi.kaydet() if tas_yatagi != null else null, "perde2_baslangic": PERDE_GECISI.baslangic(self), "kriz_kenetlenmesi": KRIZ_KENETLENMESI.durum(self), "levent_firari": LEVENT_FIRARI.durum(self), "batil_inanc_histerisi": FisiltiGazetesi.HISTERI.durum(self), "cinar_alti_meclisi": CinarAltiMeclisi.durum(self), "kapi_nobeti": KapiNobeti.durum(self), "kitlik_isyani": KitlikIsyani.durum(self), "cenaze_yasi": CenazeYasi.durum(self), "kuyu_kirliligi": KuyuKirliligi.durum(self), "salgin_son_gece": KisHastaligi.gece_oku(get_meta(SaglikYoneticisi.META, -1)), "surum": KAYIT_SURUMU, "kaynaklar": kaynaklar.kaydet(), "koylular": k, "binalar": b, "izgara": izgara.kaydet(),
 		"iflas": iflas_durumu.duplicate(true), "vergi_politikasi": {"oran": vergi_orani, "son_gece": son_vergi_gece}, "maas_durumu": maas_durumu.duplicate(true), "alet_asinma": alet_asinma, "lojistik": lojistik.kaydet(), "gezgin_ticaret": gezgin_ticaret.kaydet(), "siparisler": siparisler.kaydet(), "tuccar_itibari": tuccar_itibari.duplicate(true), "tuccar_cezasi": tuccar_cezasi.duplicate(true), "tuccar_girisi": tuccar_girisi.duplicate(true), "kervan_koruma": kervan_koruma.duplicate(true), "husumet": husumet.kaydet(), "cete_anlasmasi": CeteAnlasmasi.durum(self), "savunma_konuslanmasi": SavunmaKonuslanmasi.durum(self), "akce": akce, "gun": gun, "adalet": adalet, "asayis": asayis_riski,
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
@@ -1057,6 +1072,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 	FisiltiGazetesi.HISTERI.yukle(y, v.get("batil_inanc_histerisi", {}))
 	TasYatagi.yukle(y, v.get("tas_yatagi"))
 	preload("res://src/koy/cozumleme.gd").yukle(y, v.get("cozumleme"))
+	OzelEsyalar.yukle(y, v.get("ozel_esyalar"))
 	if v.get("hane") is Dictionary:
 		y.hane.kayit_verisi_yukle(v["hane"])
 	else:
