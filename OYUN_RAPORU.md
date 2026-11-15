@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-76 (Kalfa)
+
+MODELLER=CHR ile tek headless koşuda CHR_001–030 için tam 30 benzersiz kayıt doğrulandı. Ayrı eksik model örneği kapsüle düştü ve yedek olarak raporlandı. Asset gerekmedi.
+
 ## 2026-11-15 — SAH-75 (Kalfa)
 
 Envanterdeki CHR_002 gergin klibi oyunun karakter API’siyle çağrıldığında yürüyüşten m_bekle klibine hatasız döndü. Hedefli ayak zemini sahnesi geçti. Asset gerekmedi.

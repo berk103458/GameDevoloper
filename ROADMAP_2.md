@@ -8387,7 +8387,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-74, BUG-12. Boyut: S.
   - Dosya: `src/dunya/guvenli_karakter_animasyonu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-76:** Muayene 30 karakteri tek koşuda görür.
+- [x] **SAH-76:** Muayene 30 karakteri tek koşuda görür.
   - Ne: CHR_001…030 modelleri araçtan geçer. Çökme yok. Rapor 30 satırdır. Eksik model yedek modele düşer, satırda yedek yazar.
   - Kabul: CHR_001…030 modelleri araçtan geçer. Çökme yok. Rapor 30 satırdır. Eksik model yedek modele düşer, satırda yedek yazar. Test: 30 satır.
   - Bağımlılık: SAH-73. Boyut: M.

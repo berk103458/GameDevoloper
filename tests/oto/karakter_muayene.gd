@@ -6,7 +6,7 @@
 ##   el_y     : ellerin kalça yüksekliğine göre konumu / boy (kollar havada şüphesi > 0.35)
 ##   boy      : görünen boy (m); ölçek hatası
 ##   eksik    : beklenen ama yüklenemeyen hareket klipleri
-## Çalıştırma: KLASOR=<cikti> [MODELLER=ad1,ad2] godot --path . --audio-driver Dummy tests/oto/karakter_muayene.tscn
+## Çalıştırma: KLASOR=<cikti> [MODELLER=ad1,ad2|CHR] godot --path . --audio-driver Dummy tests/oto/karakter_muayene.tscn
 ## --headless sayısal JSON raporu yazar. Pencereli koşuda ayrıca JPG üretilir.
 extends Node3D
 
@@ -123,6 +123,11 @@ static func ayak_zemin_farklari(model: KarakterModel) -> PackedFloat32Array:
 
 func _model_adlari() -> PackedStringArray:
 	var secili := OS.get_environment("MODELLER")
+	if secili == "CHR":
+		var adli := PackedStringArray()
+		for sira in range(1, 31):
+			adli.append("chr_%03d" % sira)
+		return adli
 	if secili != "":
 		return secili.split(",")
 	var adlar := PackedStringArray(HazirKarakterler.MODEL_ADLARI)
@@ -158,8 +163,9 @@ func _muayene(ad: String, klasor: String, ciz: bool) -> void:
 			var_olan.append(h)
 		else:
 			kayit["eksik"].append(h)
+	kayit["model_durumu"] = "yedek" if sk == null else "asıl"
 	if sk == null:
-		kayit["uyarilar"].append("İskelet yok: animasyonsuz kapsül/yer tutucu olabilir")
+		kayit["uyarilar"].append("Yedek model: animasyonsuz kapsül")
 	var sayfa: Image
 	if ciz:
 		sayfa = Image.create(KARE.x * ANLAR.size() * 2, KARE.y * var_olan.size(), false, Image.FORMAT_RGB8)
