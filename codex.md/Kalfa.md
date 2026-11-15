@@ -1970,3 +1970,15 @@ src/koy/gorsel/hazir_ates_efektleri.gd: meşalede Kenney alevi, meydan/çalışa
 ## 28 Ekim — HAE-02 LOWPO karakter ve UAL hareket bağlantıları (Kalfa)
 
 src/dunya/hazir_karakterler.gd LOWPO çocuğu 1,15 m ve adsız demirci rolünü 1,80 m kurar. Adlı ustaların kimliği/modeli korunur. UAL A01 idle/yürüme/konuşma, A02 hasat; yalnız UAL'de olmayan çekiç için A03 Hammering. Ahmet yerel referans kullanımını açıkça onayladı: data/animasyon/ual_referans.json yalnız sayısal rig/rest ve kaynak hash, ham model ve yeni indirme yok. Skin bind adları eşlendi, kaynak global rest/poz farkı hedef rest üzerine 30 FPS uyarlandı. Rota yönünde kök hareketi yok. Meslek değişiminde aktör dönüşümü, kayıt/RNG ve rota durumu korunur. Prosedürel düzeltici LOWPO'da ikinci kez uygulanmaz. Hedefli karakter, CHR kapı/sıra sonucu/köy hareket/zanaat/ses testleri geçti. 44 Meshy karakterin tamamı yeniden retarget edildi sayılmaz. Orak aleti ve özgül usta varyantları açık. 452bb671 kod yayını; son talimat: görünür Godot açılmaz. Tam sanity yok. Kullanıcı talimatıyla project.godot korunur. Kota sonraki kontrol noktasında ölçülür.
+
+## 2026-11-15 — ROADMAP 3 son denetimi (Kalfa)
+
+Festive'e `fc78322d` ile gönderildi. Görev 27'nin TAMAMLANDI kaydı ve A–G gruplarındaki 70 iş birimi doğrulandı. Baştan 44, sondan 26. Madde eklenmedi, silinmedi, birleştirilmedi ve hiçbir durum işareti değişmedi.
+
+SVS-06.b ile SVS-11.a arasındaki bağımlılık döngüsü kaldırıldı. SVS-13 kilitli zar ile açık zarın sınırını belirtiyor. SVS-14 düşme, savaş sonu yara ve esir adaylığını ayırıyor ve Muhafız'ın mağlubiyet kilidini koruyor. SVS-23.a/SVS-31, SVS-24/SVS-37 ve SVS-25.b/SVS-51 arasındaki sorumluluklar netleştirildi. SVS-48 aynı karşılaşmanın ilk raunttan açılmasını kapsıyor. SVS-49.b performans ölçümü ve SVS-52 kapanış raporu eşlendi. Beş mevcut dosya yolu düzeltildi.
+
+70 kimliğin 10 zorunlu alanı, kapsam metinlerinin benzersizliği, aralıklar dahil tüm iç bağımlılıklar ve ROADMAP 2 sınırı doğrulandı. Kod, sahne, test veya asset değişikliği yok. SVS-06.b emir yeteneğinin ek eylem dalı için bir karar sorusu kaldı. KVR-SES-01'in önceki çalışma farkı yerel stash'te saklandı.
+
+Masaüstü kopyasında başka çalışmanın assets/meshy_manifest.json çakışması var. Fast-forward uygulanamadı. ds çalışma ve ayna yolları bulunamadı, önceki izinli istisna geçerli. kota görünmüyor.
+
+TAMAMLANDI
