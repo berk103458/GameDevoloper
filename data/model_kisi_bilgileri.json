@@ -46,5 +46,9 @@
   "aktar": "e",
   "celep": "e",
   "denetci": "e",
-  "erkek_cirak": "e"
+  "erkek_cirak": "e",
+  "kiz_cirak": "k",
+  "kumasci": "e",
+  "muhafiz": "e",
+  "muhafiz_esi": "k"
 }

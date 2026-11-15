@@ -51,6 +51,126 @@ HARICI_LISANS = [
 ]
 ONCELIK_ESLE = {"yüksek": "yuksek", "yuksek": "yuksek", "orta": "orta", "düşük": "dusuk", "dusuk": "dusuk"}
 
+# Görev 26 (15 Kasım 2026): Oyunda görünme sıklığına göre üretim öncelik sırası (1=Kapı, 2=Muhafız/Ev, 3=Köy sürekli, 4=Sık olay, 5=Nadir/Süs).
+TAM_ANIMASYON_KARAKTERLERI = {
+    "asker", "ciftci", "ciftci_kadin", "esnaf", "cocuk", "yasli",
+    "muhafiz", "muhafiz_esi", "usta", "erkek_cirak", "kiz_cirak",
+    "bey", "cavus", "haberci", "tahsildar", "dervis", "tekfur_askeri", "tekfur_elcisi", "turkmen_bey_adami",
+    "aktar", "celep", "denetci", "kumasci",
+}
+
+KULLANIM_SIRASI = {
+    # 1. Kapı nöbeti ekranı: kapı çevresi, nöbet kulübesi, meşale, kapıya her gün gelen ziyaretçi tipleri ve el eşyaları
+    "kapi": (101, "1_kapi_nobeti"), "kapi_ic": (102, "1_kapi_nobeti"),
+    "mesale": (103, "1_kapi_nobeti"), "mesale_el": (104, "1_kapi_nobeti"),
+    "nobet_ocagi": (105, "1_kapi_nobeti"), "mizrak_sehpasi": (106, "1_kapi_nobeti"),
+    "mizrak": (107, "1_kapi_nobeti"), "kalkan": (108, "1_kapi_nobeti"),
+    "kilic": (109, "1_kapi_nobeti"), "yay": (110, "1_kapi_nobeti"),
+    "fener": (111, "1_kapi_nobeti"), "sancak": (112, "1_kapi_nobeti"),
+    "sur_2_palisat": (113, "1_kapi_nobeti"), "sur_3_tas": (114, "1_kapi_nobeti"),
+    "kazik_cit": (115, "1_kapi_nobeti"), "araba": (116, "1_kapi_nobeti"),
+    "cuval_yigini": (117, "1_kapi_nobeti"), "zar": (118, "1_kapi_nobeti"),
+    "ciftci": (120, "1_kapi_nobeti"), "ciftci_kadin": (121, "1_kapi_nobeti"),
+    "esnaf": (122, "1_kapi_nobeti"), "asker": (123, "1_kapi_nobeti"),
+    "cocuk": (124, "1_kapi_nobeti"), "yasli": (125, "1_kapi_nobeti"),
+    "usta": (126, "1_kapi_nobeti"), "nalbur": (127, "1_kapi_nobeti"),
+    "silah_tuccari": (128, "1_kapi_nobeti"), "celep": (129, "1_kapi_nobeti"),
+    "kumasci": (130, "1_kapi_nobeti"), "aktar": (131, "1_kapi_nobeti"),
+    "el_torba": (140, "1_kapi_nobeti"), "el_heybe": (141, "1_kapi_nobeti"),
+    "el_sepet": (142, "1_kapi_nobeti"), "el_sepet_buyuk": (143, "1_kapi_nobeti"),
+    "el_asa": (144, "1_kapi_nobeti"), "el_degnek": (145, "1_kapi_nobeti"),
+    "el_odun": (146, "1_kapi_nobeti"), "el_sandik": (147, "1_kapi_nobeti"),
+    "el_cekic": (148, "1_kapi_nobeti"), "el_kamci": (149, "1_kapi_nobeti"),
+    "el_kurk_bohca": (150, "1_kapi_nobeti"),
+
+    # 2. Muhafızın kendisi, eşi ve evi (her akşam görülen sahne)
+    "muhafiz": (201, "2_muhafiz_ve_evi"), "muhafiz_esi": (202, "2_muhafiz_ve_evi"),
+    "muhafiz_odasi": (203, "2_muhafiz_ve_evi"), "yatak": (204, "2_muhafiz_ve_evi"),
+    "masa": (205, "2_muhafiz_ve_evi"), "kasa": (206, "2_muhafiz_ve_evi"),
+    "rahat_yatak": (207, "2_muhafiz_ve_evi"), "askilik": (208, "2_muhafiz_ve_evi"),
+    "kutuphane": (209, "2_muhafiz_ve_evi"),
+
+    # 3. Köy yönetimi ekranında her zaman görünen yapılar, tarlalar, tezgâhlar, hayvanlar ve köylüler
+    "ev": (301, "3_koy_yonetimi_surekli"), "cadir": (302, "3_koy_yonetimi_surekli"),
+    "tas_ev": (303, "3_koy_yonetimi_surekli"), "ambar": (304, "3_koy_yonetimi_surekli"),
+    "firin": (305, "3_koy_yonetimi_surekli"), "degirmen": (306, "3_koy_yonetimi_surekli"),
+    "tarla": (307, "3_koy_yonetimi_surekli"), "bostan": (308, "3_koy_yonetimi_surekli"),
+    "kuyu": (309, "3_koy_yonetimi_surekli"), "dizili_taslar": (310, "3_koy_yonetimi_surekli"),
+    "pazar_tezgahi": (311, "3_koy_yonetimi_surekli"), "kervansaray": (312, "3_koy_yonetimi_surekli"),
+    "hizarhane": (313, "3_koy_yonetimi_surekli"), "odunluk": (314, "3_koy_yonetimi_surekli"),
+    "tas_ocagi": (315, "3_koy_yonetimi_surekli"), "tas_yatagi": (316, "3_koy_yonetimi_surekli"),
+    "atolye": (317, "3_koy_yonetimi_surekli"), "demirhane": (318, "3_koy_yonetimi_surekli"),
+    "sifahane": (319, "3_koy_yonetimi_surekli"), "avci_cadiri": (320, "3_koy_yonetimi_surekli"),
+    "agil": (321, "3_koy_yonetimi_surekli"), "ahir": (322, "3_koy_yonetimi_surekli"),
+    "kirec_kuyusu": (323, "3_koy_yonetimi_surekli"), "demir_madeni": (324, "3_koy_yonetimi_surekli"),
+    "demir_ocagi": (325, "3_koy_yonetimi_surekli"), "muhafiz_kislasi": (326, "3_koy_yonetimi_surekli"),
+    "gozetleme_kulesi": (327, "3_koy_yonetimi_surekli"), "cozumleme_odasi": (328, "3_koy_yonetimi_surekli"),
+    "ors": (330, "3_koy_yonetimi_surekli"), "firin_agzi": (331, "3_koy_yonetimi_surekli"),
+    "dokuma_tezgahi": (332, "3_koy_yonetimi_surekli"), "divan_masasi": (333, "3_koy_yonetimi_surekli"),
+    "divan_oturak": (334, "3_koy_yonetimi_surekli"), "zindan_kapisi": (335, "3_koy_yonetimi_surekli"),
+    "sacak": (336, "3_koy_yonetimi_surekli"), "agac": (337, "3_koy_yonetimi_surekli"),
+    "agac_02": (338, "3_koy_yonetimi_surekli"), "kaya": (339, "3_koy_yonetimi_surekli"),
+    "kaya_02": (340, "3_koy_yonetimi_surekli"),
+    "okuz": (345, "3_koy_yonetimi_surekli"), "koyun": (346, "3_koy_yonetimi_surekli"),
+    "kopek": (347, "3_koy_yonetimi_surekli"), "inek": (348, "3_koy_yonetimi_surekli"),
+    "koc": (349, "3_koy_yonetimi_surekli"), "beygir": (350, "3_koy_yonetimi_surekli"),
+    "at": (351, "3_koy_yonetimi_surekli"), "keci": (352, "3_koy_yonetimi_surekli"),
+    "deve": (353, "3_koy_yonetimi_surekli"),
+    "erkek_cirak": (355, "3_koy_yonetimi_surekli"), "kiz_cirak": (356, "3_koy_yonetimi_surekli"),
+    "balta": (360, "3_koy_yonetimi_surekli"), "orak": (361, "3_koy_yonetimi_surekli"),
+    "kova": (362, "3_koy_yonetimi_surekli"), "kurek": (363, "3_koy_yonetimi_surekli"),
+    "firin_kuregi": (364, "3_koy_yonetimi_surekli"), "su_kabi": (365, "3_koy_yonetimi_surekli"),
+    "kirmen": (366, "3_koy_yonetimi_surekli"), "bakim_bezi": (367, "3_koy_yonetimi_surekli"),
+    "anim_idle_nefes": (370, "3_koy_yonetimi_surekli"), "anim_idle_agirlik": (371, "3_koy_yonetimi_surekli"),
+    "anim_idle_bakis": (372, "3_koy_yonetimi_surekli"), "anim_nobet": (373, "3_koy_yonetimi_surekli"),
+    "anim_cekic_vurma": (374, "3_koy_yonetimi_surekli"), "anim_firin_kuregi": (375, "3_koy_yonetimi_surekli"),
+    "anim_orak": (376, "3_koy_yonetimi_surekli"), "anim_isinma": (377, "3_koy_yonetimi_surekli"),
+    "anim_kar_kureme": (378, "3_koy_yonetimi_surekli"), "anim_yagmur_yuru": (379, "3_koy_yonetimi_surekli"),
+    "anim_buzulme": (380, "3_koy_yonetimi_surekli"), "anim_kos": (381, "3_koy_yonetimi_surekli"),
+    "anim_otur": (382, "3_koy_yonetimi_surekli"),
+
+    # 4. Sık görülen olay karakterleri ve olay varlıkları
+    "bey": (401, "4_sik_olaylar"), "cavus": (402, "4_sik_olaylar"),
+    "haberci": (403, "4_sik_olaylar"), "tahsildar": (404, "4_sik_olaylar"),
+    "dervis": (405, "4_sik_olaylar"), "tekfur_elcisi": (406, "4_sik_olaylar"),
+    "tekfur_askeri": (407, "4_sik_olaylar"), "turkmen_bey_adami": (408, "4_sik_olaylar"),
+    "denetci": (409, "4_sik_olaylar"), "kurt": (410, "4_sik_olaylar"),
+    "su_bendi": (411, "4_sik_olaylar"), "yanik_ev": (412, "4_sik_olaylar"),
+    "kervan_yuku": (413, "4_sik_olaylar"), "hasta_cadiri": (414, "4_sik_olaylar"),
+    "sonen_ates": (415, "4_sik_olaylar"),
+    "anim_kavga": (420, "4_sik_olaylar"), "anim_saldir": (421, "4_sik_olaylar"),
+    "anim_dus": (422, "4_sik_olaylar"), "anim_sinsi_yuru": (423, "4_sik_olaylar"),
+    "anim_temkinli_bekle": (424, "4_sik_olaylar"),
+
+    # 5. Nadir olaylar, tek seferlik karakterler, süs nesneleri en son
+    "sorhan_karisi": (501, "5_nadir_ve_sus"), "kabus_golgesi": (502, "5_nadir_ve_sus"),
+    "mezar": (510, "5_nadir_ve_sus"), "toplu_mezar": (511, "5_nadir_ve_sus"),
+    "yemin_nesneleri": (512, "5_nadir_ve_sus"), "ahi_kusagi": (513, "5_nadir_ve_sus"),
+    "davul_zurna": (514, "5_nadir_ve_sus"), "ilac_kutusu": (515, "5_nadir_ve_sus"),
+    "kirik_kin": (516, "5_nadir_ve_sus"), "tezgah_ortusu": (520, "5_nadir_ve_sus"),
+    "blok_ham": (521, "5_nadir_ve_sus"), "blok_iz": (522, "5_nadir_ve_sus"),
+    "blok_bicim": (523, "5_nadir_ve_sus"), "blok_agiz": (524, "5_nadir_ve_sus"),
+    "teslim_parcasi": (525, "5_nadir_ve_sus"), "hediye_bohcasi": (530, "5_nadir_ve_sus"),
+    "iksir_sisesi": (531, "5_nadir_ve_sus"), "kisisel_iz": (532, "5_nadir_ve_sus"),
+    "muhur": (533, "5_nadir_ve_sus"),
+}
+
+
+def kullanim_bilgisi(row):
+    aid = row["asset_id"]
+    if aid in KULLANIM_SIRASI:
+        return KULLANIM_SIRASI[aid]
+    if aid.startswith("chr_"):
+        return (160, "1_kapi_nobeti")
+    if aid.startswith("klip_eksik:"):
+        hedef = aid.split(":", 1)[1]
+        if hedef in ("ciftci", "ciftci_kadin", "esnaf", "asker"):
+            return (390, "3_koy_yonetimi_surekli")
+        return (550, "5_nadir_ve_sus")
+    if row["tur"] in ("topluluk", "duzeltme", "harici") or aid.startswith(("klip:", "meshy_dosya:", "harici:", "dal:")):
+        return (900, "mevcut_veya_harici")
+    return (540, "5_nadir_ve_sus")
+
 
 def _git(*arg):
     return subprocess.run(["git", "-C", KOK] + list(arg), capture_output=True, check=False)
@@ -111,7 +231,7 @@ def _bos_satir(asset_id, tur, ad=""):
     return {
         "asset_id": asset_id, "ad": ad or asset_id, "tur": tur, "kaynak_plan": [], "plan_kimlikleri": [],
         "prompt": "", "prompt_ozeti": "", "poly_hedef": None, "boy_m": None, "olcu": "",
-        "doku": False, "iskelet": False, "hareketler": [], "oncelik": "orta",
+        "doku": False, "iskelet": False, "hareketler": [], "oncelik": "orta", "sira": 500, "kullanim_grubu": "5_nadir_ve_sus",
         "durum": "planli", "meshy_uygun": True, "uygun_degil_nedeni": "",
         "meshy_task_id": "", "meshy_gorevleri": {}, "dosya": "", "ek_dosyalar": [], "sha256": "",
         "kredi_tahmini": 0, "kredi_harcanan": 0, "kaynak": "", "lisans_notu": "",
@@ -329,7 +449,10 @@ def kur(ayar=None, eski_dal=True):
                     r["iskelet"] = tv.get("iskelet", False)
             r["poly_hedef"] = r["poly_hedef"] or tv.get("poly")
             if r["tur"] == "karakter" and r["iskelet"]:
-                r["hareketler"] = list(ayar["karakter_hareketleri"])
+                if r["asset_id"] in TAM_ANIMASYON_KARAKTERLERI:
+                    r["hareketler"] = list(ayar["karakter_hareketleri"])
+                else:
+                    r["hareketler"] = ["bekle", "konus"]
             r["kaynak"] = r["kaynak"] or "Meshy"
             r["lisans_notu"] = lisans
         elif r["tur"] == "animasyon":
@@ -479,6 +602,7 @@ def kur(ayar=None, eski_dal=True):
                 r.update(durum="mevcut", dosya=hedef, sha256=sha(hedef))
                 r["notlar"].append("hedef dosya diskte bulundu; üretilmez")
         r["hedef_dosya"] = hedef_dosya(r, ayar) if r["meshy_uygun"] else r.get("hedef_yol", "")
+        r["sira"], r["kullanim_grubu"] = kullanim_bilgisi(r)
     return satirlar, {"eslenmeyen_envanter": sorted(set(eslenmeyen)), "eski_dal_uyari": dal_uyari}
 
 
@@ -561,7 +685,10 @@ def tekrar_istemleri(satirlar):
 
 def sirala(satirlar):
     tur_sira = {"karakter": 0, "yapi": 1, "hayvan": 2, "nesne": 3, "animasyon": 4, "topluluk": 5, "duzeltme": 6, "harici": 7}
-    return sorted(satirlar.values(), key=lambda r: (ortak.ONCELIK_SIRASI.get(r["oncelik"], 1), tur_sira.get(r["tur"], 9), r["asset_id"]))
+    for r in satirlar.values():
+        if "sira" not in r or "kullanim_grubu" not in r:
+            r["sira"], r["kullanim_grubu"] = kullanim_bilgisi(r)
+    return sorted(satirlar.values(), key=lambda r: (r.get("sira", 500), ortak.ONCELIK_SIRASI.get(r["oncelik"], 1), tur_sira.get(r["tur"], 9), r["asset_id"]))
 
 
 def oku():
@@ -588,7 +715,7 @@ def manifest_nesnesi(satirlar, ayar, ek_bilgi):
 
 def yaz(nesne):
     ortak.json_yaz_atomik(ortak.MANIFEST, nesne)
-    alanlar = ["asset_id", "ad", "tur", "durum", "oncelik", "meshy_uygun", "kredi_tahmini", "kredi_harcanan",
+    alanlar = ["sira", "kullanim_grubu", "asset_id", "ad", "tur", "durum", "oncelik", "meshy_uygun", "kredi_tahmini", "kredi_harcanan",
                "poly_hedef", "boy_m", "doku", "iskelet", "hareketler", "meshy_task_id", "dosya", "sha256",
                "kaynak", "plan_kimlikleri", "kaynak_plan", "topluluk_adayi", "uygun_degil_nedeni", "prompt"]
     with ortak.yazi_ac_atomik(ortak.MANIFEST_CSV) as f:

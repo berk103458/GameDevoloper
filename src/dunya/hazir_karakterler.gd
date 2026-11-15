@@ -6,6 +6,10 @@ const ISIMLER := {"spine":"Hips", "spine_001":"Spine", "spine_002":"Spine01", "s
 static var _kitaplar: Dictionary = {}
 
 static func koy_adi(k: Koylu, eski: String) -> String:
+	if k.bayrak_var("acl01_muhafiz") and Dunya3B.model_var_mi("muhafiz_yuru", "karakter"):
+		return "muhafiz"
+	if k.bayrak_var("acl01_es") and Dunya3B.model_var_mi("muhafiz_esi_yuru", "karakter"):
+		return "muhafiz_esi"
 	if k.yas_grubu == &"cocuk":
 		if k.adli_id == &"chr_006":
 			return "chr_006"

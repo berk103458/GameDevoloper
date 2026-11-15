@@ -16,7 +16,7 @@ static func kur(ekran: KapiEkrani) -> void:
 	var es := o.yonetim.koylu(es_id)
 	if es == null or es.saglik <= 0 or not es.bayrak_var(ACILIS.ES):
 		return
-	var model := Dunya3B.karakter(Dunya3B.karakter_adi(es.adli_id, es.portre, es.sinif))
+	var model := Dunya3B.karakter(HazirKarakterler.koy_adi(es, Dunya3B.karakter_adi(es.adli_id, es.portre, es.sinif)))
 	model.name = "IlkAileEs"
 	model.position = KONUM + Vector3.UP * KapiManzarasi.yukseklik(KONUM.x, KONUM.z)
 	sahne.add_child(model)

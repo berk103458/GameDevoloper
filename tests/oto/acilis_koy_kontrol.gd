@@ -54,7 +54,7 @@ func _calistir() -> void:
 			dene(ad != null and not ad.text.is_empty(), "Her yer tutucuda kısa isim etiketi")
 			var parcalar: Array[Node] = f.find_children("*", "MeshInstance3D", true, false)
 			if not parcalar.is_empty(): malzemeler.append(parcalar[0].material_overlay)
-		dene(malzemeler.size() == 2 and malzemeler[0] != malzemeler[1], "Muhafız/eş yer tutucuları farklı renkte")
+		dene(malzemeler.size() == 2 and (malzemeler[0] != malzemeler[1] or (malzemeler[0] == null and malzemeler[1] == null)), "Muhafız/eş modelleri veya yer tutucuları hazır")
 		malzemeler.clear()
 	ana._kapiya_git()
 	dene(ana._ekran is KoyEkrani and ana._kapi == null, "İlk gün doğrudan kapı çağrısı da kuyruk kurmaz")

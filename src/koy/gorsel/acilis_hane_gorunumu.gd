@@ -15,8 +15,9 @@ static func kur(f: KarakterModel, k: Koylu) -> void:
 		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		mat.albedo_color.a = 0.55
 		Pbr._onbellek[anahtar] = mat
-	for n in f.find_children("*", "MeshInstance3D", true, false):
-		(n as MeshInstance3D).material_overlay = Pbr._onbellek[anahtar]
+	if String(f.get_meta("model_adi", "")) not in ["muhafiz", "muhafiz_esi"]:
+		for n in f.find_children("*", "MeshInstance3D", true, false):
+			(n as MeshInstance3D).material_overlay = Pbr._onbellek[anahtar]
 	var etiket := Label3D.new()
 	etiket.name = "acilis_hane_etiketi"
 	etiket.text = TranslationServer.translate(String(ayar.etiket))
