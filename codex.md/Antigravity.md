@@ -1099,3 +1099,26 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **2.4 Uygula ve doğrula:** `son_kaydi_test.gd`, `hafiza_defteri_test.gd` ve `nihai_son_kontrol.tscn` testlerini genişletip `Godot.exe --headless` ile koştur, denetim listesini güncelle ve commit/push et.
 - **Sonuç:** `oturum.gd`, `ana.gd`, `hafiza_defteri_baglantisi.gd`, `hafiza_defteri.gd` ve `son_kaydi_test.gd` güncellendi; `son_kaydi_test.gd` (`SON KAYDI (OMR-17): GEÇTİ (0 hata)`), `hafiza_defteri_test.gd` (`HAFIZA DEFTERI (HFZ-01…32): GEÇTİ (0 hata)`), `nihai_son_kontrol.tscn` (`NIHAI SON UI: GEÇTİ`) ve `kayit_surum_kapisi_test.gd` (`KAYIT SÜRÜM KAPISI: GEÇTİ (0 hata)`) 0 script hatasıyla geçti. Asset gerekmedi. kota görünmüyor.
 
+### Madde 3A — `KOP-04` (Tek gecikmeli kuyruk, tek spawn zinciri) Alt Madde Planı
+- **3A.1 Sorunu anla:** `docs/ANTIGRAVITY_DENETIM_LISTESI.md` (`KOP-04`) `src/soz/karar_donusu.gd` sınıfının testte geçtiğini ancak hiçbir gerçek oyun akışının onu çağırmadığını, dolayısıyla kapı kararlarının `Oturum` üzerinde tek gecikmeli kuyruğa (`gecikmeli_kuyruk`) yazılmadığını ve `sonraki_spawns` zincirinin kapı sırasına girmediğini belirtir.
+- **3A.2 Oyuna nasıl bağlandığını kontrol et:**
+  - `src/sistemler/oturum.gd` `karar_ver(gelen, karar)` kapıda karar verilen tek yer; `gece_kuyrugu()` kapı ziyaretçilerini kuran tek yer; `kaydet()` / `kayittan()` tüm kalıcı kuyrukları serileştirir.
+  - `src/sistemler/gelen.gd` (`chr_sorgusu()`) -> `ChrSorgusu.karakter` (`KarakterVerisi`) zaten `sonraki_spawns` ve `gecikmeli_etkiler` alanlarını taşıyor.
+- **3A.3 «Daha iyi olur» iyileştirmeleri:**
+  - `Oturum` üzerine tek `var gecikmeli_kuyruk: Array[Dictionary] = []` kuyruğu eklenip `kaydet()` / `kayittan()` ile kalıcı kılınsın (eski kayıtlarda yoksa boş başlar; ikinci kuyruk yok).
+  - `KararDonusu.kapi_kararini_yaz(o, gelen, karar, ek)` `karar_ver()` içinden çağrılarak hem `tek_kuyruga_yaz` + `KarakterVerisi.sonraki_spawns` birleşimini hem `gecikmeli_etkiler` satırlarını tek `o.gecikmeli_kuyruk` dizisine yinelenmeden (`chr_id + karar + olay_id`) `hedef_gun = o.gun + tur_offset` damgasıyla yazsın.
+  - `KararDonusu.spawn_ekle(o, sonuc)` `gece_kuyrugu()` içinden çağrılarak vadesi gelen canlı `spawn` hedeflerini tek kuyruk üzerinden kapı listesine eklesin.
+- **3A.4 Uygula ve doğrula:** `karar_donusu_test.gd` içine gerçek `Oturum.karar_ver` -> `gecikmeli_kuyruk` -> `kaydet/kayittan` -> `gece_kuyrugu` tek-kuyruk/tek-satır testini ekleyip `karar_donusu_test.gd` ve `kvr_test.gd` çalıştır, `KOP-04` denetim satırını güncelle ve ayrı commit/push yap.
+- **Sonuç:** `karar_donusu.gd`, `oturum.gd` ve `karar_donusu_test.gd` güncellendi; `karar_donusu_test.gd` (`TEST PASS: karar_donusu_test.gd`) ve `kvr_test.gd` (`KVR TEST: GEÇTİ (0 hata)`) 0 script hatasıyla geçti. Asset gerekmedi. kota görünmüyor.
+
+### Madde 3B — `DYL-08` (Kararın sonradan dönüşü) Alt Madde Planı
+- **3B.1 Sorunu anla:** `KOP-04` tek gecikmeli kuyruğu yazıp spawn ederken, `Oturum.gece_sonu()` hâlâ `KararDonusu.ilerlet` çağırmadığı için vadesi gelen karar dönüşleri (`sabah`, `haberci`, `koylu` kanalları, `bar`/`dedikodu` etkileri) geceler ilerledikçe işlenmiyordu.
+- **3B.2 Oyuna nasıl bağlandığını kontrol et:**
+  - `src/sistemler/oturum.gd` (`gece_sonu()`): `dedikodu.gece_ilerlet(gun)` sonrası ve `HaberciAgi.gece(self, r)` öncesi tüm gece sistemleri çalışır; burada `SabahDefteri` (`SAB-01`) yalnız divan hükümleri içindir (`DYL-08` ikinci sabah satırı yazmamalıdır!).
+  - `src/arayuz/koy_hud/hafiza_defteri_baglantisi.gd` & `src/sistemler/hafiza_defteri.gd`: `HafizaDefteri._karar_sayfasi` zaten `kaynak["dyl08"]` okur; `kaynak_derle` ise henüz `"dyl08"` üretmiyor.
+- **3B.3 «Daha iyi olur» iyileştirmeleri:**
+  - `KararDonusu.ilerlet(o: Oturum, r: Dictionary = {})`: `Oturum.gece_sonu()` içinden çağrılsın; `o.gecikmeli_kuyruk` içinde `hedef_gun <= o.gun` ve `not uygulandi` satırlarını **günde en çok 2 (`AZAMI_GUNLUK_DONUS = 2`)** sınırıyla işlesin, 3. ve sonraki satırları aynı kuyrukta ertesi güne bıraksın.
+  - Ölen veya köyden kalıcı ayrılan karakterin (`HafizaDefteri.GITTI_DURUMLARI`) dönüş kanalı daima `"haberci"`ye zorlansın ve `gitti = true` işaretlensin (`sabah` veya `koylu` seçilmesin).
+  - Bar/dedikodu/haber etkileri **yalnız bir kez** (`uygulandi = true` + `olay_id` koruması) uygulansın; ertesi gece delta 0 olsun; tanıklı dönüş `o.dedikodu.olay_kaydet` ile dedikoduya 1 satır düşsün, tanıksız dönüş 0 satır düşsün; `SabahDefteri`'ne (`SAB-01`) yazılmasın; `haberci` kanalı dönen satırlar `HaberciAgi` / `r["karar_donusleri"]` ve Bölüm 39 defterinin `"dyl08"` okumasına yansısın.
+- **3B.4 Uygula ve doğrula:** `karar_donusu_test.gd` ve `hafiza_defteri_test.gd` içinde `Oturum.gece_sonu()` ile 2/gün sınırı, ertesi gün sıfır-tekrar bar, tanıklı/tanıksız dedikodu, ölen kişinin `haberci` kanalı ve sıfır `SAB-01` sızması doğrulanıp `DYL-08` güncellenecek ve ayrı commit/push yapılacak.
+

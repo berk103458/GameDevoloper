@@ -53,6 +53,38 @@ func _init() -> void:
 	if ChrSozlesmesi.spawn_hatalari({"on_accept": {"entity_id": &"CHR_099", "offset": 3}}).is_empty():
 		hatalar.append("KOP-09: Sayfası olmayan CHR_099 spawn doğrulamasından geçti!")
 
+	# 8. KOP-04 gerçek oyun akışı: Oturum.karar_ver -> tek gecikmeli_kuyruk -> kaydet/yukle -> gece_kuyrugu
+	var kat := Katalog.new()
+	if kat.yukle() != Katalog.Durum.HAZIR:
+		hatalar.append("Katalog yüklenemedi!")
+	else:
+		var o := Oturum.new(kat, 42)
+		var g: Gelen = o._adli_gelen(&"chr_001")
+		o.karar_ver(g, &"kabul")
+		if o.gecikmeli_kuyruk.size() != 1:
+			hatalar.append("Oturum.karar_ver tek gecikmeli_kuyruk satırı üretmeli, bulunan: %d" % o.gecikmeli_kuyruk.size())
+		o.karar_ver(g, &"kabul")
+		if o.gecikmeli_kuyruk.size() != 1:
+			hatalar.append("Aynı karar iki kez tek kuyruğa yazılmamalı!")
+		if not o.gecikmeli_kuyruk.is_empty():
+			var kayit_satir: Dictionary = o.gecikmeli_kuyruk[0]
+			if String(kayit_satir.get("hedef_sistem", "")) != "spawn" or String(kayit_satir.get("deger", "")) != "CHR_004":
+				hatalar.append("chr_001 kabul sonrası sonraki_spawns CHR_004 tek kuyruğa yazılmalı!")
+		var paket := o.kaydet()
+		var yuklenen := Oturum.kayittan(kat, paket)
+		if yuklenen == null or yuklenen.gecikmeli_kuyruk.size() != 1:
+			hatalar.append("Kayıt/yükleme sonrasında gecikmeli_kuyruk korunmalı!")
+		elif o.katalog.karakter(&"chr_004") != null:
+			yuklenen.yonetim.gun = 10
+			var beklenen_kuyruk := yuklenen.gece_kuyrugu()
+			var geldi := false
+			for gelen_kisi in beklenen_kuyruk:
+				if String(gelen_kisi.id).to_lower() == "chr_004":
+					geldi = true
+					break
+			if not geldi:
+				hatalar.append("Vadesi gelen tek spawn kuyruğu gece_kuyrugu içinde görünmeli!")
+
 	if not hatalar.is_empty():
 		for h in hatalar:
 			push_error(h)

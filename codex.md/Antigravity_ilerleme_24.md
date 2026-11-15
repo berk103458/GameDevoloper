@@ -37,3 +37,15 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . -s res://tests/unit/kvr/kayit_surum_kapisi_test.gd` → `KAYIT SÜRÜM KAPISI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+### Madde 3A — `KOP-04` (`TAM`)
+- **Değişiklikler:**
+  - `src/soz/karar_donusu.gd`: `oku(ham)`, `kapi_kararini_yaz(o, gelen, karar, ek)` ve `spawn_ekle(o, sonuc)` eklendi; kapı kararları tek `Oturum.gecikmeli_kuyruk` içinde `sonraki_spawns` ile birleşip yinelenmeden tutuluyor ve vadesi gelen canlı spawnlar kapı sırasına ekleniyor.
+  - `src/sistemler/oturum.gd`: `gecikmeli_kuyruk` alanı, `karar_ver` içinde `KararDonusu.kapi_kararini_yaz`, `gece_kuyrugu` içinde `KararDonusu.spawn_ekle`, `kaydet`/`kayittan` serileştirmesi eklendi.
+  - `tests/unit/soz/karar_donusu_test.gd`: Gerçek `Oturum.karar_ver` -> `gecikmeli_kuyruk` -> `kaydet/kayittan` -> `gece_kuyrugu` tek-kuyruk ve spawn zinciri sınamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `KOP-04` → `TAM`.
+- **Hedefli test çıktıları (son satırlar):**
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/karar_donusu_test.gd` → `TEST PASS: karar_donusu_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/kvr/kvr_test.gd` → `KVR TEST: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

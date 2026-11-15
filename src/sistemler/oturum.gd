@@ -148,6 +148,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 	DiplomatikHeyet.ekle(self, sonuc)
 	preload("res://src/kapi/aile_kafilesi.gd").ekle(self, sonuc)
 	preload("res://src/sistemler/sancak_ulagi.gd").ekle(self, sonuc)
+	KararDonusu.spawn_ekle(self, sonuc)
 	return sonuc
 
 
@@ -288,6 +289,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	muhafiz_tecrubesi += 1
 	MuhafizOdaGelisimi.karar(self)
 	MuhafizVicdani.karar(self, gelen, karar)
+	KararDonusu.kapi_kararini_yaz(self, gelen, karar, ek)
 	SoylentiKoprusu.karar(self, gelen, karar, ek)
 	preload("res://src/sistemler/kapi_acilis_olayi.gd").karar_sonrasi(self, gelen, ek)
 	return ek
@@ -779,6 +781,7 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 ## Gün sonu kaydı için sözlük (oturum + köy yönetimi).
 var ipucu_kaydi := IpucuKaydi.new()
 var son_kaydi := SonKaydi.new()
+var gecikmeli_kuyruk: Array[Dictionary] = []
 var ilk_saat_gelen: int = 0
 
 
@@ -827,6 +830,8 @@ func kaydet() -> Dictionary:
 		veri["ilk_gece_gelenleri"] = GeceBilancosu.gelenleri_oku(get_meta(GeceBilancosu.GELEN_META))
 	if gun <= GeceBilancosu.ILK_SAAT_SON_GECE and ilk_saat_gelen >= 0:
 		veri["ilk_saat_gelen"] = ilk_saat_gelen
+	if not gecikmeli_kuyruk.is_empty():
+		veri["gecikmeli_kuyruk"] = gecikmeli_kuyruk.duplicate(true)
 	son_kaydi.kayda_yaz(veri)
 	return veri
 
@@ -888,6 +893,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o._koy_esitle()
 	o.ipucu_kaydi.kayittan_oku(veri)
 	o.son_kaydi.kayittan_oku(veri)
+	o.gecikmeli_kuyruk = KararDonusu.oku(veri.get("gecikmeli_kuyruk", []))
 	o.ilk_saat_gelen = GeceBilancosu.ilk_saat_gelen_oku(veri.get("ilk_saat_gelen"))
 	if GeceBilancosu.kisa_mi(o) and veri.has("ilk_gece_gelenleri"):
 		o.set_meta(GeceBilancosu.GELEN_META, GeceBilancosu.gelenleri_oku(veri["ilk_gece_gelenleri"]))
