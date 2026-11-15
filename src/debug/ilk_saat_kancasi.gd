@@ -35,3 +35,34 @@ static func araclar(o: Oturum) -> Dictionary:
 static func aktar(eski: Oturum, yeni: Oturum) -> void:
 	if eski != null and yeni != null and eski != yeni and eski.has_meta(META):
 		yeni.set_meta(META, eski.get_meta(META).duplicate(true))
+
+
+## Aynı izi kayda yazar. Anahtar yoksa eski kayıt biçimi değişmez.
+static func kayda_yaz(o: Oturum, veri: Dictionary) -> void:
+	if o == null or not o.has_meta(META):
+		return
+	var iz: Variant = o.get_meta(META)
+	if iz is Dictionary and not (iz as Dictionary).is_empty():
+		veri["ilk_saat_iz"] = (iz as Dictionary).duplicate(true)
+
+
+## Eski kayıtta alan yoksa çağrılmaz. Bozuk satır atılır, oturum açılır.
+static func kayittan_oku(o: Oturum, v: Variant) -> void:
+	if o == null or not (v is Dictionary):
+		return
+	var d: Dictionary = v
+	var ipucu := {}
+	var arac := {}
+	var ham_ipucu: Variant = d.get("ipucu", {})
+	if ham_ipucu is Dictionary:
+		for k in (ham_ipucu as Dictionary).keys():
+			var ipucu_deger: Variant = ham_ipucu[k]
+			if ipucu_deger is int or ipucu_deger is float:
+				ipucu[String(k)] = int(ipucu_deger)
+	var ham_arac: Variant = d.get("arac", {})
+	if ham_arac is Dictionary:
+		for k in (ham_arac as Dictionary).keys():
+			var deger: Variant = ham_arac[k]
+			if deger is int or deger is float:
+				arac[String(k)] = int(deger)
+	o.set_meta(META, {"ipucu": ipucu, "arac": arac})

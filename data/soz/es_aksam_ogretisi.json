@@ -1,0 +1,24 @@
+{
+  "dallar": [
+    {
+      "id": "heybe",
+      "metin_anahtari": "es.aksam.ogreti.heybe",
+      "oncelik": 2,
+      "kosullar": {
+        "gun_min": 1,
+        "gun_max": 3,
+        "heybe_kullanildi": false
+      }
+    },
+    {
+      "id": "beyan",
+      "metin_anahtari": "es.aksam.ogreti.beyan",
+      "oncelik": 1,
+      "kosullar": {
+        "gun_min": 1,
+        "gun_max": 3,
+        "beyan_kullanildi": false
+      }
+    }
+  ]
+}
