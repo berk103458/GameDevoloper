@@ -27,8 +27,15 @@ static func aktif(y: KoyYonetimi, id: int, faz: StringName) -> bool:
 ## Mevcut bina kökünde kapalı değirmen gövdesi/çarkı; sahne ekonomi kurmaz.
 func kur(en: float, derin: float) -> void:
  var renk := Color(AYAR.ahsap_renk)
- _kutu(self, Vector3(en * 0.72, 2.4, derin * 0.62), Vector3(0, 1.2, 0), renk)
- _kutu(self, Vector3(en * 0.85, 0.16, derin * 0.8), Vector3(0, 2.5, 0), renk.darkened(0.15))
+ if Dunya3B.model_var_mi("degirmen", "yapi"):
+  add_child(Dunya3B.nesne("degirmen", 3.2, "yapi"))
+ else:
+  _kutu(self, Vector3(en * 0.72, 2.4, derin * 0.62), Vector3(0, 1.2, 0), renk)
+  _kutu(self, Vector3(en * 0.85, 0.16, derin * 0.8), Vector3(0, 2.5, 0), renk.darkened(0.15))
+ if Dunya3B.model_var_mi("dizili_taslar"):
+  var dt := Dunya3B.nesne("dizili_taslar", 0.35)
+  dt.position = Vector3(-en * 0.28, 0.0, derin * 0.45)
+  add_child(dt)
  teker = Node3D.new()
  teker.position = Vector3(-en * 0.28, float(AYAR.cark_yukseklik), derin * 0.45)
  add_child(teker)
