@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-72 (Kalfa)
+
+Kapı eşiğinde dört temas örneği normal ve düşük gölge profillerinde aynı kaldı (0,000000 m fark). Hedefli ayak zemini sahnesi geçti. Asset gerekmedi.
+
 ## 2026-11-15 — SAH-71 (Kalfa)
 
 Köy ışık tavanı tablodan okunuyor. Mevcut ortam ve yapı ışıkları sayıldıktan sonra eldeki meşalelere kalan pay ayrılıyor. Normal dört muhafız ışığı sınırı korunuyor. Yerel sınırı geçici yükselten headless testte 17 meşale, toplam 16 etkin ışık ve soketinde ışıksız kalan 4 meşale ölçüldü. Muhafız donanımı testi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

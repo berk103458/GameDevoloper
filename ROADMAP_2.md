@@ -8360,7 +8360,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-66. Boyut: M.
   - Dosya: `data/ayarlar/sahne.json` `isik_tavan`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-72:** Gölge, ayak testini bozmaz.
+- [x] **SAH-72:** Gölge, ayak testini bozmaz.
   - Ne: SAH-01 yüksekliği gölge açık ve kapalıyken aynıdır.
   - Kabul: SAH-01 yüksekliği gölge açık ve kapalıyken aynıdır. Test: iki profil, aynı taban.
   - Bağımlılık: SAH-01, SAH-68. Boyut: S.

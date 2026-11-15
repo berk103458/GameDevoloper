@@ -38,6 +38,9 @@ func _calistir() -> void:
 	if not is_equal_approx(kapi.ayak_zemini_yuksekligi(ust), ust.y) or ust.y <= KapiManzarasi.yukseklik(ust.x, ust.z):
 		await _bitir(false, "Eşik yüksekliği gerçek kalastan okunmalı")
 		return
+	if not await _golgeli_ayak_temasi(kapi, ust):
+		await _bitir(false, "SAH-72: İki gölge profilinde aynı gerçek taban")
+		return
 	var egim_ornekleri := [["ciftci", PI / 2.0, 4402], ["ciftci", -PI / 2.0, 4403], ["lowpo_demirci", PI / 2.0, 4404]]
 	for ornek in egim_ornekleri:
 		if not await _egim(kapi, ornek[0], ornek[1], ornek[2]):
@@ -77,6 +80,40 @@ func _calistir() -> void:
 	kapi.queue_free()
 	await get_tree().process_frame
 	await _bitir(true, "")
+
+
+func _golgeli_ayak_temasi(kapi: KapiSahnesi, ust: Vector3) -> bool:
+	var figur := Dunya3B.karakter("chr_001")
+	kapi.add_child(figur)
+	figur.global_position = ust
+	figur.duzeltici().active = false
+	var oynatici := figur._oynatici
+	oynatici.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+	oynatici.advance(0.0)
+	var ayak := figur.get_node("AyakZemini") as AyakZemini
+	var ayarlar := Ayarlar.new()
+	var profil := GrafikProfiliAdaptoru.new()
+	profil.ayarlar = ayarlar
+	profil.hedef = kapi
+	kapi.add_child(profil)
+	var olcumler: Array[PackedFloat32Array] = []
+	var gecti := true
+	for ad in [&"normal", &"dusuk"]:
+		ayarlar.ayarla(&"grafik_profili", ad)
+		await get_tree().process_frame
+		await get_tree().process_frame
+		olcumler.append(ayak.temas_farklari())
+		gecti = gecti and kapi._isiklar[0].shadow_enabled == (ad == &"normal")
+	ayarlar.ayarla(&"grafik_profili", &"normal")
+	profil.queue_free()
+	figur.queue_free()
+	if olcumler[0].size() < 2 or olcumler[0].size() != olcumler[1].size():
+		return false
+	var fark := 0.0
+	for i in olcumler[0].size():
+		fark = maxf(fark, absf(olcumler[0][i] - olcumler[1][i]))
+	print("SAH-72 ayak örneği=%d, iki gölge profili farkı=%.6f m" % [olcumler[0].size(), fark])
+	return gecti and fark <= 0.00001
 
 
 func _egim(kapi: KapiSahnesi, ad: String, yon: float, tohum: int) -> bool:
