@@ -57,6 +57,7 @@ static func bos_hucre(h: KoyHalkHareketi, tercih: Vector2i, f: KarakterModel = n
 static func varis_yolu(h: KoyHalkHareketi, figur: KarakterModel, bas: Vector2i, hedef: Vector2i) -> Array[Vector2i]:
 	var dolu := {}
 	var trafik := {}
+	var yaklasma := Vector2i(-1, -1)
 	for id in h.modeller:
 		var diger: KarakterModel = h.modeller[id]
 		if diger == figur or not is_instance_valid(diger) or diger.is_queued_for_deletion():
@@ -68,25 +69,19 @@ static func varis_yolu(h: KoyHalkHareketi, figur: KarakterModel, bas: Vector2i, 
 		if not yol.is_empty():
 			var durak := hucre(h, yol[-1])
 			dolu[durak] = true
+			if durak == hedef and int(durum.adim) < yol.size():
+				for i in range(yol.size() - 2, -1, -1):
+					var aday := hucre(h, yol[i])
+					if aday != durak:
+						yaklasma = aday
+						break
 			if durak.distance_squared_to(hedef) <= 8:
 				var iz := {}
 				for i in range(int(durum.adim), yol.size()):
 					iz[hucre(h, yol[i])] = true
 				for nokta in iz:
 					trafik[nokta] = int(trafik.get(nokta, 0)) + 1
-	return KalabalikYol.bos_varis_yolu(h.rotaci, bas, hedef, dolu, trafik)
-
-
-static func adim_dolu(h: KoyHalkHareketi, figur: KarakterModel, hedef: Vector3) -> bool:
-	var hedef_hucresi := hucre(h, hedef)
-	for id in h.modeller:
-		var diger: KarakterModel = h.modeller[id]
-		if diger == figur or not is_instance_valid(diger) or diger.is_queued_for_deletion():
-			continue
-		var durum: Dictionary = h._durum[id]
-		if int(durum.adim) >= durum.yol.size() and hucre(h, diger.position) == hedef_hucresi:
-			return true
-	return false
+	return KalabalikYol.bos_varis_yolu(h.rotaci, bas, hedef, dolu, trafik, yaklasma)
 
 
 static func hucre(h: KoyHalkHareketi, konum: Vector3) -> Vector2i:

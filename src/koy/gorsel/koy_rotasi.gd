@@ -64,6 +64,11 @@ func kalabalik_yolu(bas: Vector2i, adaylar: Array[Vector2i], dolu: Dictionary, t
 		_ag.set_point_weight_scale(id, float(agirliklar[id]))
 	for id in kapatilanlar:
 		_ag.set_point_disabled(id, false)
+	if sonuc.is_empty():
+		for aday in adaylar:
+			sonuc = yol(bas, aday)
+			if not sonuc.is_empty():
+				break
 	return sonuc
 
 ## Kapalı hücrede kalan karakteri en yakın açık hücreye taşımak için güvenli başlangıç.

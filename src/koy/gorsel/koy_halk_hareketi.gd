@@ -154,7 +154,7 @@ func _process(delta: float) -> void:
 				d.bekle += delta
 				if d.bekle >= ADIM_TEKRAR_SURESI:
 					d.bekle = 0.0
-					if d.get("ortak_durak", false) and KoyRotaAraligi.adim_dolu(self, f, hedef):
+					if d.get("ortak_durak", false):
 						_iste(id, true)
 					else:
 						_adim(id)

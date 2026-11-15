@@ -47,14 +47,14 @@ func bos_hucre_bul(hedef: Vector2i, dolu_hucreler: Array) -> Vector2i:
 
 
 ## Sınırdaki kapıda ilk halka dolarsa ikinci yakın halkaya bakar.
-static func bos_varis_yolu(rotaci: KoyRotasi, bas: Vector2i, hedef: Vector2i, dolu: Dictionary, trafik: Dictionary) -> Array[Vector2i]:
+static func bos_varis_yolu(rotaci: KoyRotasi, bas: Vector2i, hedef: Vector2i, dolu: Dictionary, trafik: Dictionary, yaklasma: Vector2i) -> Array[Vector2i]:
 	if not dolu.has(hedef):
 		return rotaci.kalabalik_yolu(bas, [hedef], dolu, trafik)
 	var adaylar: Array[Vector2i] = []
 	for y in range(hedef.y - VARIS_YARICAPI, hedef.y + VARIS_YARICAPI + 1):
 		for x in range(hedef.x - VARIS_YARICAPI, hedef.x + VARIS_YARICAPI + 1):
 			var aday := Vector2i(x, y)
-			if not dolu.has(aday) and rotaci.gecilir(aday):
+			if aday != yaklasma and not dolu.has(aday) and rotaci.gecilir(aday):
 				adaylar.append(aday)
 	adaylar.sort_custom(func(a: Vector2i, b: Vector2i) -> bool:
 		var trafik_farki := int(trafik.get(a, 0)) - int(trafik.get(b, 0))

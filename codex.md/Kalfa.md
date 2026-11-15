@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-34 kapı çevresinde ayrı varış hücreleri (Kalfa)
+
+Sekiz muhafız mevcut ANI-13 ağı üzerinden sekiz ayrı hücreye 8,36 saniyede vardı. Kapı sahibinin yaklaşma hücresi geçişe ayrıldı. Kesişim 0, en küçük kök aralığı 0,60004 m. Kalabalık varış, zemin navigasyonu ve muhafız devriyesi headless testleri geçti. Asset gerekmedi. Sırada SAH-35, Görev 24 Kalfa maddeleri de sırada. ds çalışma ve ayna yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-10 — SAH-34 sahipliği (Kalfa)
 
 - ANI-13 ve SAH-07 hazır. Gerçek köy rotalarında tek kapıya gelen sekiz muhafızın hedef hücreleri ve fiziksel ayrımı ölçülecek. Kota görünmüyor.

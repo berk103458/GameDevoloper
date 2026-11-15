@@ -88,6 +88,13 @@ func _varislari_olc(s: KoyYonetimSahnesi, ids: Array[int]) -> void:
 				min_aralik = minf(min_aralik, aralik)
 				if aralik + 0.001 < AyakZemini.CARPISMA_PAYI:
 					kesismeler += 1
+	if varis < ids.size():
+		for id in ids:
+			var d: Dictionary = h._durum[id]
+			if int(d.adim) < d.yol.size():
+				print("SAH-34 bekleyen=%d, konum=%s, sıradaki=%s, varış=%s" % [id, h.modeller[id].position, d.yol[d.adim], d.yol[-1]])
+			else:
+				print("SAH-34 varan=%d, konum=%s" % [id, h.modeller[id].position])
 	_kontrol(varis == ids.size() and kesismeler == 0, "SAH-34: Sekiz canlı varışta kesişim sıfır")
 	print("SAH-34 varış=%d, kesişim=%d, en küçük aralık=%.5f m, süre=%.2f s" % [varis, kesismeler, min_aralik, sure])
 
