@@ -782,3 +782,80 @@ SAH kanıt denetimini (1–7) bitirdikten sonra durma, şunlarla devam et:
 9. Yeni ROADMAP adımları: ROADMAP_2'de sıradaki açık [ ] maddeleri sırayla al. Kalfa'nın üstlendiği (`üstlen (Kalfa)` commit'i olan) maddelere dokunma. Her maddeyi gerçek oyun sistemine bağla, hedefli testini çalıştır, ancak geçince [x] yap. Her madde ayrı commit, Türkçe karakterli, (Antigravity) imzalı; madde başına festive ile merge + ff push.
 10. Her madde için ilerleme_22'ye: madde no, değişen dosyalar, test adı ve son satırı. Kotan bitene kadar devam et; bitmeden önce son durumu yaz ve son satıra GOREV22_TAMAM ekle.
 — Muharrir
+
+# Görev 24 — Antigravity denetim listesini bitir (Ahmet onayladı, 15 Kasım 2026; Muharrir)
+
+Cursor, 15 Kasım'da docs/ANTIGRAVITY_DENETIM_LISTESI.md belgesini yazdı (commit 99c011de, festive'e 614566fc ile alındı). Belge, 14 Ekim–9 Kasım arasındaki 232 (Antigravity) imzalı commit'i taradı: 112 TAM, 27 EKSİK, 23 SAHTE-BAĞSIZ, 2 YOK. Kod, veri ve ROADMAP işaretlerine dokunulmadı; düzeltme bu görevin işi.
+
+Bu görev Gemini 4 Hydrogen High ile çalışır. gemini-3.8-flash (low, medium veya high) kullanma. Kota biterse flash'a düşme; ilerleme dosyasına yaz ve dur.
+
+Çalışma yeri: C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi, dal claude/festive-volta-li1sfm. Kapi_Muhafizi_diyalog ve Kapi_Muhafizi_agy_B/C/D klasörlerine girme. Kalfa'nın kirli .import dosyalarına, kökteki _tmp_* / _doc_* artıklarına ve work/ altındaki başkasının işine dokunma. Force push, eset --hard, stash ile başkasının dosyasını silme yok.
+
+Kaynak belge: docs/ANTIGRAVITY_DENETIM_LISTESI.md. Sayılar özet tablo ile satır satır tablolar arasında 1 sapabilir (özet 23/27/2 der; tablolarda bu yazım anında SAHTE-BAĞSIZ 22, EKSİK 26, YOK olarak açıkça işaretli 1 satır — DYL-01 — göründü). Kaynak doğruluk tablolardadır; atlanan satır varsa belgeyi baştan sona tara ve ilerleme dosyasına yaz.
+
+## Sıra
+
+Önce belgedeki «oyunu en çok etkileyenler» listesini, aşağıda yazılı sırayla bitir. Bunların bir kısmı EKSİK veya YOK'tur; yine de önce onlar gelir.
+
+1. OGR-33 — son kilidi (
+ihai_son.son() başında, beş son için)
+2. OMR-17 — SonKaydi'yi kayda bağla
+3. DYL-08 ve KOP-04 — KararDonusu.ilerlet (madde başına ayrı commit; art arda yap)
+4. ZAR-04 — zar atılmadan önce ZarDegistiricileri
+5. DYL-06 — ortak dil yokken DilEngeli
+6. ACL-03 ve DYL-07 — gece raporundan önce AksamSohbeti (madde başına ayrı commit)
+7. HAN-01 — hane kaydını KoyYonetimi.kaydet'e ekle
+8. KOP-03 — bakışı kapı bölgesi seçimine bağla
+9. DIY-14 — hatırlanma notunu kapı kararına bağla
+10. SOY-01 — kaynak ve dogru alanları (SoylentiAgi kaydı)
+11. DYL-01 — çelişki yüzleştirmesi (YOK; yoksa yeniden yaz, söz motoru bağlanmadan kapanmaz)
+12. YAZ-02 — yasak kelime listesi ve üslup testi
+
+Sonra kalan SAHTE-BAĞSIZ ve kalan YOK maddeleri:
+
+- OGR-03, OGR-14, AYR-22, AYR-29, AYR-33
+- CAT-01, CAT-02, CAT-04 (CAT-01 ile birlikte, yine madde başına ayrı commit)
+- ANL-DON-01, MECLIS-ARA-01, SOY-SON-01
+- Tablolarda gördüğün ikinci YOK satırı varsa (özet 2 diyor) onu da al
+- SAH-50 — heybe_ile_mesafe_koru() oyunda çağrılmıyor; belgedeki açık SAH maddesi. SAH-01…34'e ve SAH-51+'ya dokunma (Kalfa). SAH-42'ye dokunma (Görev 22'de kanıtlandı)
+
+Sonra kalan EKSİK maddeleri:
+
+- DEN-05, DEN-06, DEN-18, DEN-22 (DEN-05 ile birlikte bağla, madde başına ayrı commit)
+- OGR-13, OGR-53, OMR-38, OMR-49, OMR-50
+- OZL-05, OZL-12, OZL-18
+- AYR-28, AYR-32 (AYR-29/33 zaten yukarıda; AYR-28 önce gerekebilir — gerekirse AYR-28'i ilgili SAHTE maddeden önce al)
+- YAP-28, YAP-29, YAP-37, YAP-53
+- YER-03, ES-GECM-01
+
+En sonda belgenin «Belirleyemediklerim» bölümü. DEN-48, DEN-64, DEN-74, DEN-77, DEN-78 bu denetimde çalıştırılmamış; hedefli testle totolojik olup olmadıklarını gör, gerekirse bağla veya [ ] bırak. OMR-50, YAP-28, YAP-29, OZL-12, ES-GECM-01 zaten EKSİK sırasında ele alındıysa ikinci kez işleme; sonucu satıra yaz.
+
+## Kalfa'ya bırak (alma, [x] yapma)
+
+Belge açıkça «Kalfa'ya bırak» diyor: ANL-EPI-01, KAP-18, YAP-03, KVR-SES-01. İlerleme dosyasına «alınmadı — Kalfa» yaz, satırı belgede güncelle ama ROADMAP'i [x] yapma.
+
+SOY-SON-01 ve OGR-14 söz motoruna bağlı. Gerçekten bloklanıyorsan dürüst [ ] bırak ve nedenini yaz; sahte [x] yok.
+
+## Her madde için
+
+1. ROADMAP_2.md içindeki tanımı oku. Yalnız gerekeni yaz; yeni sistem, yeni karakter, uydurma evrak yok.
+2. Davranışı oyuna gerçekten bağla (sahne, gece akışı, autoload veya sinyal). Yalnız testten 
+ew() ile kurulan sınıf kabul değildir. Sabit değer döndüren veya girdiyi aynen geri veren kodu ve totolojik testi sil.
+3. O alanın hedefli testini yaz veya mevcut testi gerçek çağrı zincirine çevir. Tam sanity yok. C:\Users\Ahmet\Desktop\Godot.exe --headless --path . --import sonrası yalnız o maddenin testini çalıştır. Test hata sayacı tutsun; hata varsa quit(1), yoksa quit(0). Çıktının son satırını ilerleme dosyasına yapıştır.
+4. Önce docs/ANTIGRAVITY_DENETIM_LISTESI.md içindeki o maddenin satırını güncelle (karar, ne var, ne eksik, not). Ancak gerçek bağ ve geçen hedefli testten sonra ROADMAP_2.md'de [x] yap. Şüphedeysen [ ] bırak; dürüst boş kutu yanlış [x]	en iyidir.
+5. Asset üretme (görsel, doku, 3B, ses, AI generate yok). Yer tutucu + gerekirse docs/EKSIK_ASSET_ENVANTERI.md. Asset gerekmiyorsa commit mesajında «asset gerekmedi» yaz. 24 Ekim'de üretilmiş gece_kapisi PNG'lerini bu görevde silme.
+6. Bir madde, bir commit. Mesaj Türkçe karakterli, madde koduyla başlasın, (Antigravity) ile bitsin.
+7. Her commit'ten önce git pull --ff-only, sonra git push origin HEAD:claude/festive-volta-li1sfm. Reddedilirse fetch + merge (ff tercih) + ilgili testi tekrar + dene. Force yok. .import gürültüsünü ve izlenmeyen geçici dosyaları commit'e katma.
+8. İlerleme: codex.md/Antigravity_ilerleme_24.md. Her maddeden sonra: madde no, karar (eski → yeni), değişen dosyalar, test adı ve son satırı, commit hash. Kota görünüyorsa yaz, görünmüyorsa «kota görünmüyor». Kotan %15'in altına düşerse veya Hydrogen kotası biterse yeni madde alma, son durumu yaz, dur. Tüm alınacak maddeler (Kalfa'ya bırakılanlar hariç) bitince dosyanın son satırına tek başına GOREV24_TAMAM yaz. codex.md/Antigravity.md günlüğüne kısa özet ekle.
+
+## Kurallar
+
+- Yeni ROADMAP maddesi alma; bu listenin dışına çıkma.
+- Emin değilsen aşağıdaki «Antigravity sorusu» başlığına yaz, en mantıklı varsayımla devam et.
+- Meshy kurulumu için başka bir Cursor ajanı festive'e sonra birleşebilir; bekleme, çakışırsa ff pull ile al, force yok.
+
+## Antigravity sorusu
+
+(Sorularını buraya yaz.)
+
+— Muharrir
