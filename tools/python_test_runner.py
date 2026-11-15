@@ -15,6 +15,16 @@ import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
 
+YEDI_PERSONA = [
+    {"ad": "hepsini_kabul", "kabul_orani": 1.0, "gecmis": "eski_levent", "tohum_ek": 0},
+    {"ad": "hepsini_ret", "kabul_orani": 0.0, "gecmis": "eski_levent", "tohum_ek": 1},
+    {"ad": "secici_asker", "kabul_orani": 0.5, "gecmis": "eski_levent", "tohum_ek": 2},
+    {"ad": "secici_katip", "kabul_orani": 0.75, "gecmis": "medrese_talebesi", "tohum_ek": 3},
+    {"ad": "secici_ciftci", "kabul_orani": 0.75, "gecmis": "coban_oglu", "tohum_ek": 4},
+    {"ad": "temkinli_katip", "kabul_orani": 0.25, "gecmis": "medrese_talebesi", "tohum_ek": 5},
+    {"ad": "comert_ciftci", "kabul_orani": 0.9, "gecmis": "coban_oglu", "tohum_ek": 6},
+]
+
 
 def main():
     original = tempfile.mkdtemp
@@ -69,6 +79,8 @@ def olcum_calistir(args, ad, ortam_ekleri, etiket, hedef=None):
         if etiket == "ILKSAAT_SURE":
             if rapor["gece"] != 6 or rapor["sure_ms"] <= 0:
                 raise ValueError("Ölçümün gece veya süre değeri geçersiz")
+            if int(rapor.get("son", 0)) != 0 or int(rapor.get("ambar", 0)) < 0:
+                raise ValueError("İlk saat ölçümünde oyun sonu veya negatif ambar oluştu")
         elif etiket == "PERDE2_AMBAR":
             geceler = rapor["geceler"]
             gunler = [g["gece"] for g in geceler]
@@ -93,10 +105,33 @@ def olcum_calistir(args, ad, ortam_ekleri, etiket, hedef=None):
     return 0
 
 
+def yedi_persona_calistir(args):
+    sonuclar = []
+    taban_tohum = args.tohum
+    for p in YEDI_PERSONA:
+        p_args = argparse.Namespace(**vars(args))
+        p_args.tohum = taban_tohum + int(p["tohum_ek"])
+        p_args.kabul_orani = float(p["kabul_orani"])
+        ortam_ek = {
+            "ILK_SAAT_OLCUMU": "1",
+            "GECE_SINIRI": "6",
+            "MUHAFIZ_GECMISI": p["gecmis"],
+        }
+        # olcum_calistir prints ILKSAAT_SURE {...}; capture via return code and re-run check
+        calisma_once = set((ROOT / "work").glob("ogr43_*")) if (ROOT / "work").exists() else set()
+        kod = olcum_calistir(p_args, f"ogr43_{p['ad']}", ortam_ek, "ILKSAAT_SURE")
+        if kod != 0:
+            return 1
+        sonuclar.append({"persona": p["ad"], "gecmis": p["gecmis"], "kabul_orani": p["kabul_orani"], "tohum": p_args.tohum, "son": 0})
+    print("OGR43_YEDI_PERSONA " + json.dumps({"toplam": len(sonuclar), "gecen": len(sonuclar), "kosular": sonuclar}, ensure_ascii=False))
+    return 0
+
+
 def cli():
     parser = argparse.ArgumentParser(description=__doc__)
     kip = parser.add_mutually_exclusive_group()
     kip.add_argument("--ilk-saat-suresi", action="store_true")
+    kip.add_argument("--yedi-persona", action="store_true")
     kip.add_argument("--perde1-suresi", action="store_true")
     kip.add_argument("--perde2-ambar", action="store_true")
     parser.add_argument("--kabul-orani", type=float, default=0.75)
@@ -110,6 +145,8 @@ def cli():
         parser.error("Kabul oranı 0 ile 1 arasında olmalı")
     if args.ilk_saat_suresi:
         return olcum_calistir(args, "ilk_saat_olcumu", {"ILK_SAAT_OLCUMU": "1", "GECE_SINIRI": "6"}, "ILKSAAT_SURE")
+    if args.yedi_persona:
+        return yedi_persona_calistir(args)
     if args.perde1_suresi:
         return olcum_calistir(args, "perde1_olcumu", {"PERDE1_OLCUMU": "1", "GECE_SINIRI": "30"}, "PERDE1_SURE")
     if args.perde2_ambar:

@@ -119,8 +119,8 @@ func kaydet() -> Dictionary:
 	var veri := {}
 	for id in durumlar:
 		var d: Dictionary = durumlar[id]
-		var giris := {"durum": String(d["durum"]), "ziyaret": d["ziyaret"], "son_gece": d["son_gece"],
-			"son_karar": String(d["son_karar"]), "donus": d["donus"]}
+		var giris := {"durum": String(d.get("durum", "gelmedi")), "ziyaret": int(d.get("ziyaret", 0)), "son_gece": int(d.get("son_gece", -1)),
+			"son_karar": String(d.get("son_karar", "")), "donus": d.get("donus", [])}
 		for alan in _OPSIYONEL_HAFIZA_ALANLARI:
 			if d.has(alan):
 				var val: Variant = d[alan]

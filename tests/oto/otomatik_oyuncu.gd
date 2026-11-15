@@ -115,7 +115,8 @@ func _dongu() -> void:
 				await _foto("07_perde_gecisi")
 				e.secildi.emit(0)
 		elif ekran is YeniOyunEkrani:
-			(ekran as YeniOyunEkrani).baslatildi.emit(rng.seed, "eski_levent")
+			var gecmis := OS.get_environment("MUHAFIZ_GECMISI")
+			(ekran as YeniOyunEkrani).baslatildi.emit(rng.seed, gecmis if not gecmis.is_empty() else "eski_levent")
 		elif ekran is AyarlarEkrani:
 			var a := ekran as AyarlarEkrani
 			for satir in AyarlarEkrani.SATIRLAR:
@@ -130,7 +131,7 @@ func _dongu() -> void:
 				if ilk_koy_ms < 0: ilk_koy_ms = Time.get_ticks_msec()
 				var rapor_karti := koy._ust_kart
 				if ana.oturum.gun == 6 and rapor_karti != null and rapor_karti.find_child("kisa_ilk_saat_ozeti", true, false) != null:
-					var rapor := {"gece": ana.oturum.gun, "sure_ms": Time.get_ticks_msec() - ilk_koy_ms, "tohum": str(ana.oturum.tohum)}
+					var rapor := {"gece": ana.oturum.gun, "sure_ms": Time.get_ticks_msec() - ilk_koy_ms, "tohum": str(ana.oturum.tohum), "son": 0, "ambar": ana.oturum.ambar}
 					print("ILKSAAT_SURE ", JSON.stringify(rapor))
 					Ses.cik()
 					return
