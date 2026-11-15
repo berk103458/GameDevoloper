@@ -4,7 +4,7 @@ extends VBoxContainer
 var sorgu: RefCounted
 var etiket: Label
 var bar: ProgressBar
-const RENKLER := [Color("#82b689"), Color("#d1aa59"), Color("#c45b51")]
+const RENKLER := [Kabuk.MORAL, Kabuk.BAR_DOLU, Hud.UYARI]
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -34,7 +34,4 @@ func guncelle(deger: int, kilitli: bool = false) -> void:
 	etiket.text = "Tansiyon: %d / 10 — %s%s" % [tansiyon, ["Sakin", "Gergin", "Panik"][bolge], " · kabul kapalı" if kilitli else ""]
 	bar.value = tansiyon
 	preload("res://src/arayuz/kapi/tansiyon_bicimi.gd").uygula(self, bolge)
-	var dolgu := StyleBoxFlat.new()
-	dolgu.bg_color = RENKLER[bolge]
-	dolgu.set_corner_radius_all(3)
-	bar.add_theme_stylebox_override("fill", dolgu)
+	bar.self_modulate = RENKLER[bolge]

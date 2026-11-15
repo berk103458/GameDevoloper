@@ -1366,3 +1366,6 @@ Atama önizlemesinin olumlu ve olumsuz rengi mevcut Kabuk.MORAL ve Hud.UYARI kay
 
 ## 15 Kasım 2026 — GRV-34 (Codex-Berk)
 Eşya kartı yerel boş düğme stilleri yerine ortak tema ve flat davranışını kullanır; kenar alfa değerleri ortak renk kopyasında ayarlanır. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-48 (Codex-Berk)
+Tansiyon üç rengi ortak kabuk kaynaklarına bağlandı; ProgressBar stili tema mirasından gelir ve mevcut kademe rengi çubuğa uygulanır. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

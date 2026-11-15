@@ -3344,3 +3344,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-38 (Codex-Berk): Atama önizlemesinin olumlu ve olumsuz rengi mevcut Kabuk.MORAL ve Hud.UYARI kaynaklarına bağlandı; atama kuralları değişmedi. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-34 (Codex-Berk): Eşya kartı yerel boş düğme stilleri yerine ortak tema ve flat davranışını kullanır; kenar alfa değerleri ortak renk kopyasında ayarlanır. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-48 (Codex-Berk): Tansiyon üç rengi ortak kabuk kaynaklarına bağlandı; ProgressBar stili tema mirasından gelir ve mevcut kademe rengi çubuğa uygulanır. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
