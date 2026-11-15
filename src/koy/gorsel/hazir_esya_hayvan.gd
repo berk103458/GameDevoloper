@@ -18,8 +18,9 @@ static func esya(ad: String, boy: Vector3 = Vector3.ZERO) -> Node3D:
 		return null
 	var veri: Array = MODELLER[ad]
 	var hedef: Vector3 = veri[1] if boy == Vector3.ZERO else boy
-	if ad in ["masa", "yatak", "ors"] and Dunya3B.model_var_mi(ad):
-		var m := HazirSahneModeli.al("res://assets/model/nesne/" + ad + ".glb", hedef)
+	var meshy_ad := "el_cekic" if ad == "cekic" else ad
+	if ad in ["masa", "yatak", "ors", "balta", "cekic"] and Dunya3B.model_var_mi(meshy_ad):
+		var m := HazirSahneModeli.al("res://assets/model/nesne/" + meshy_ad + ".glb", hedef)
 		if m != null:
 			m.name = "hazir_" + ad
 			return m
@@ -36,11 +37,41 @@ static func hayvan(tur: String) -> Node3D:
 			yol = "res://assets/hayvan/vertexcat/koyun.gltf"
 			boy = Vector3(1.5, 0.8, 1.5)
 		"inek":
-			yol = "res://assets/hayvan/vertexcat/inek.gltf"
+			yol = "res://assets/model/hayvan/inek.glb" if Dunya3B.model_var_mi("inek", "hayvan") else "res://assets/hayvan/vertexcat/inek.gltf"
 			boy = Vector3(2.2, 1.45, 2.2)
 		"kopek":
-			yol = "res://assets/hayvan/styloo/kopek.glb"
+			yol = "res://assets/model/hayvan/kopek.glb" if Dunya3B.model_var_mi("kopek", "hayvan") else "res://assets/hayvan/styloo/kopek.glb"
 			boy = Vector3(1.6, 0.8, 1.6)
+		"koc":
+			if not Dunya3B.model_var_mi("koc", "hayvan"):
+				return null
+			yol = "res://assets/model/hayvan/koc.glb"
+			boy = Vector3(1.55, 0.9, 1.55)
+		"beygir":
+			if not Dunya3B.model_var_mi("beygir", "hayvan"):
+				return null
+			yol = "res://assets/model/hayvan/beygir.glb"
+			boy = Vector3(2.3, 1.65, 2.3)
+		"at":
+			if not Dunya3B.model_var_mi("at", "hayvan"):
+				return null
+			yol = "res://assets/model/hayvan/at.glb"
+			boy = Vector3(2.3, 1.65, 2.3)
+		"keci":
+			if not Dunya3B.model_var_mi("keci", "hayvan"):
+				return null
+			yol = "res://assets/model/hayvan/keci.glb"
+			boy = Vector3(1.4, 0.85, 1.4)
+		"deve":
+			if not Dunya3B.model_var_mi("deve", "hayvan"):
+				return null
+			yol = "res://assets/model/hayvan/deve.glb"
+			boy = Vector3(2.6, 2.1, 2.6)
+		"okuz":
+			if not Dunya3B.model_var_mi("okuz"):
+				return null
+			yol = "res://assets/model/nesne/okuz.glb"
+			boy = Vector3(2.3, 1.55, 2.3)
 		_:
 			return null
 	var n := HazirSahneModeli.al(yol, boy, true)

@@ -64,6 +64,15 @@ static func olustur(tur: String) -> ElEsyasi:
 		"cekic": ["el_cekic", 0.32, -0.28, true, false],
 		"kamci": ["el_kamci", 0.55, -0.50, false, false],
 		"kurk": ["el_kurk_bohca", 0.32, -0.32, false, false],
+		"kova": ["kova", 0.32, -0.32, false, false],
+		"balta": ["balta", 0.55, -0.25, true, false],
+		"orak": ["orak", 0.38, -0.20, true, false],
+		"kurek": ["kurek", 1.15, -0.55, true, false],
+		"firin_kuregi": ["firin_kuregi", 1.15, -0.55, true, false],
+		"su_kabi": ["su_kabi", 0.35, -0.35, false, false],
+		"kirmen": ["kirmen", 0.30, -0.20, true, false],
+		"bakim_bezi": ["bakim_bezi", 0.25, -0.15, false, false],
+		"kilic_bez": ["bakim_bezi", 0.25, -0.15, false, false],
 	}
 	if el_map.has(tur):
 		var m_bilgi: Array = el_map[tur]
