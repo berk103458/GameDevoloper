@@ -8026,7 +8026,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-17. Boyut: M.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-19:** Koşu yalnız kovalama ve kaçışta açılır. (Kalfa — devriye ve ANI-10 kaçışı doğrulandı; canlı kovalama tetikleyicisi bekliyor)
+- [/] **SAH-19:** (Claude-Berk) Koşu yalnız kovalama ve kaçışta açılır. (Kalfa — devriye ve ANI-10 kaçışı doğrulandı; canlı kovalama tetikleyicisi bekliyor)
   - Ne: günlük devriye yürür. Koşu, mevcut kaçış ve kovalama olayına bağlıdır. Yeni bir koşu hali yazılmaz.
   - Kabul: günlük devriye yürür. Koşu, mevcut kaçış ve kovalama olayına bağlıdır. Yeni bir koşu hali yazılmaz. Test: devriyede koşu klibi 0.
   - Bağımlılık: ANI-02, SAH-17. Boyut: S.
@@ -8203,7 +8203,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: BUG-13, SAH-42. Boyut: S.
   - Dosya: kapı kamerası, tek okuma.
   - Asset: asset gerekmedi.
-- [ ] **SAH-47:** Kamera sarsıntısı yalnız kapı olayındadır. (doğrulanmadı — Görev 22; koyde_sarsinti_suresi() sabit 0 döndürüyor, gerçek sarsıntı yolu ölçülmedi)
+- [/] **SAH-47:** (Claude-Berk) Kamera sarsıntısı yalnız kapı olayındadır. (doğrulanmadı — Görev 22; koyde_sarsinti_suresi() sabit 0 döndürüyor, gerçek sarsıntı yolu ölçülmedi)
   - Ne: CAT yer tutucu sarsıntısı köy kamerasına yazılmaz.
   - Kabul: CAT yer tutucu sarsıntısı köy kamerasına yazılmaz. Test: köyde sarsıntı süresi 0.
   - Bağımlılık: CAT-02, SAH-41. Boyut: S.
@@ -8254,7 +8254,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-55:** (Cursor bıraktı; 15 Kas: ZAR-03 kaçışı 9e750843 ile oyuna bağlandı (TansiyonKacisAkisi.ekranda → sahne.gelen_git), kaçış yürüyüşünün 1 sn kadraj testi yazılmadı, madde açık) Kaçan kişi kadrajdan yürür.
+- [/] **SAH-55:** (Claude-Berk) (Cursor bıraktı; 15 Kas: ZAR-03 kaçışı 9e750843 ile oyuna bağlandı (TansiyonKacisAkisi.ekranda → sahne.gelen_git), kaçış yürüyüşünün 1 sn kadraj testi yazılmadı, madde açık) Kaçan kişi kadrajdan yürür.
   - Ne: ZAR-03 kaçışında kamera ışınlanmaz. Kişi eşiğe kadar görünür.
   - Kabul: ZAR-03 kaçışında kamera ışınlanmaz. Kişi eşiğe kadar görünür. Test: kaçış, kadrajda en az 1 saniye.
   - Bağımlılık: ZAR-03, SAH-49. Boyut: S.
@@ -9056,7 +9056,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/metin/metinler.csv, src/sistemler/epilog_metin_verisi.gd.
   - Asset: asset gerekmedi.
 
-- [ ] **SOY-SON-01:** Söylenti ağının somut olaylara ve hesaplaşmalara kapanışı. (Antigravity) (doğrulanmadı — Görev 22; SoylentiAgi (src/sistemler/soylenti_agi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **SOY-SON-01:** (Claude-Berk) Söylenti ağının somut olaylara ve hesaplaşmalara kapanışı. (Antigravity) (doğrulanmadı — Görev 22; SoylentiAgi (src/sistemler/soylenti_agi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Amaç: soylenti_agi.gd içinde yayılan fısıltıların 2-3 gün sonra köy meydanında veya kapıda somut bir çözüme bağlanması.
   - Kurallar:
     1. 5 kritik söylenti (Değirmenci un hırsızlığı, kuyu zehri, Tekfur arabası, sahte hekim, gece ışığı) sonuca kavuşur.
