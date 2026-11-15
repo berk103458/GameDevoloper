@@ -96,6 +96,8 @@ func _bekleyen_klip(kapi: KapiSahnesi) -> bool:
 	oynatici.play(model._anim)
 	await get_tree().process_frame
 	var yurudu := oynatici.current_animation == model._anim
+	# MESHY-27 sonrası chr_002 gergin klibine sahip; eksik klip geri düşüşünü test etmek için örnekten kaldırılır.
+	model._klipler.erase("gergin")
 	model.gergin()
 	await get_tree().process_frame
 	var sonuc := yurudu and not model.hareket_var("gergin") and not bekleme.is_empty()
@@ -302,6 +304,9 @@ func _karar_pozu(kapi: KapiSahnesi, model_adi: String, kabul: bool, klip: String
 	kapi.add_child(f)
 	f.bak(kapi.kamera.position)
 	var ayak := f.get_node("AyakZemini") as AyakZemini
+	if klip.is_empty():
+		# MESHY-27 sonrası ciftci sevinc klibine sahip; eksik klip geri düşüşünü test etmek için örnekten kaldırılır.
+		f._klipler.erase("sevinc")
 	var beklenen := String(f._klipler.get(klip, ""))
 	var gecti := not beklenen.is_empty() if not klip.is_empty() else not f.hareket_var("sevinc")
 	await get_tree().process_frame
