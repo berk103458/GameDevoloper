@@ -7832,7 +7832,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/vergi_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-94:** (Codex-Berk) `gezgin_stok_ikonu.gd` temaya bağlanır.
+- [x] **GRV-94:** (Codex-Berk) `gezgin_stok_ikonu.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/gezgin_stok_ikonu.gd` bugün ColorRect 1 ve 0 düz düğmeyle duruyor; notu: Tek ColorRect var, tema kaynağına bağlı değil. Tema bağlanınca yalnız `gezgin_stok_ikonu.gd` ARY-02 zeminini ve düğme durumunu okur, Tek ColorRect var, tema kaynağına bağlı değil davranışı değişmez.
   - Kabul: `gezgin_stok_ikonu.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `gezgin_stok_ikonu.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

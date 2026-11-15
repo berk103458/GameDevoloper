@@ -1375,3 +1375,6 @@ Kaynak kartının renkleri Kabuk kaynaklarına bağlandı; PanelContainer ortak 
 
 ## 15 Kasım 2026 — GRV-70 (Codex-Berk)
 Yapı kartındaki özel düğme stilleri kaldırıldı; normal, odak, basılı ve kapalı stiller ortak temadan gelir. Kilit ve maliyet koşulları korundu. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-94 (Codex-Berk)
+Gezgin stok kutusu Kabuk.yer_tutucu üzerinden kurulur; saman rengi veriden, su ve kumaş renkleri ortak kabuktan gelir. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
