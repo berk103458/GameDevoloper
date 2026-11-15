@@ -1961,7 +1961,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.2 Yemin, yalan, söz
 
-- [/] **DYL-03:** (Codex) Yemin ettirmek. (Görev 22: kapı eylem yoluna YeminAdaptoru ile bağlandı; veri tablosu, ziyaret kilidi, CHR/bekleme tansiyonu, güven/grup itibarı, kayıt ve DYL-08 dönüşü bağlı. Usta doğrulaması GEÇTİ 8c6e037b; bu turdaki açık talimat gereği madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.)
+- [x] **DYL-03:** (Codex) Yemin ettirmek. (Görev 22: kapı eylem yoluna YeminAdaptoru ile bağlandı; veri tablosu, ziyaret kilidi, CHR/bekleme tansiyonu, güven/grup itibarı, kayıt ve DYL-08 dönüşü bağlı. Usta doğrulaması GEÇTİ 8c6e037b.)
   - Ne: Oyuncu ziyarette bir kez "El bas, yemin et" der. Yemin şekli karakterin inancına göre dünya kitabından gelir; uymayan şekil hakarettir. Tutum dört türden biridir: eder, kıvranır, rahat ya da reddeder. Yemin zar açmaz. Bozulan yemin bir kez ceza yazar. İnanç alanı boşsa düğme gizlenir.
   - Kurallar:
     1. Seçenek: "El bas, yemin et." Ziyaret başına bir kez kullanılır.

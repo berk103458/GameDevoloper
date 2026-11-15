@@ -9,8 +9,8 @@ Berk tarafındaki Codex; yalnız /workspace/codex/GameDevoloper ve festive dalı
 Fetch/prune + ff-only pull ile 6d81e680 claim üzerine 8c6e037b alındı; yeniden üstlenilmedi.
 Dört istenen Godot skill'i uygulandı. Issue #11'e yazılmadı, başka madde alınmadı.
 Normal push uzak dal ilerlediğinden reddedildi; 66af8144 üzerine rebase yapıldı.
-CAT-04 için uzaktan gelen Cursor onarım açıklaması korundu. DYL-03 uzak doğrulama notu
-korunarak bu turdaki açık talimat gereği kutusu `[/]` tutuldu. Birleşik CSV’den TR/EN
+CAT-04 için uzaktan gelen Cursor onarım açıklaması korundu. DYL-03 Usta 8c6e037b ile `[x]` doğrulamıştı;
+rebase sırasında yanlışlıkla `[/]` tutulmuştu, sonraki düzeltmede `[x]` olarak geri kondu. Birleşik CSV’den TR/EN
 translation dosyaları yeniden import edildi. kota görünmüyor
 
 Bağ: KoyEkrani._tikla içinde tek ince kanca → src/koy/bos_gun_durusu_adaptoru.gd
@@ -45,8 +45,8 @@ project.godot ve önceden izlenmeyen .import/.uid dosyaları commit dışında t
 
 CAT-04 `[x]`: Usta 0d84162f ile doğruladı; f6b7ee66 rebase regresyonu bu commit'te
 yalnız ROADMAP kutusu onarılarak düzeltildi, CAT-04 metni korunuyor.
-DYL-03 `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor; pull'daki `[x]` geri alındı.
-Sonraki adım: Usta doğrulaması; SEV-01/DYL-03 onay kutuları kapatılmadı.
+DYL-03 `[x]`: Usta 8c6e037b ile doğruladı; rebase sırasında yanlışlıkla `[/]` tutulması düzeltildi.
+Sonraki adım: Usta'nın SEV-01 doğrulaması; SEV-01 kutusu `[/] (Codex)` kaldı.
 Windows aynaları kullanılmadı; son talimat gereği tek çalışma kopyası.
 
 ## DYL-03 — Kapıda yemin ettirme bağlantısı / 15 Kasım 2026 (Codex, Berk)
@@ -90,7 +90,7 @@ Yeni betikler import ve gerçek test yüklemelerinde parse edildi. Kasıtlı boz
 Mevcut katalog eksik metin uyarıları ve import/kapanış resource/RID uyarıları sürüyor;
 bunlar bu pakette değiştirilmedi. project.godot ve eski untracked .import/.uid pakette yok.
 
-Durum: madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor. DYL-03 pull’da gelen `[x]` kutusu SEV-01 turunda `[/]` olarak düzeltildi;
+Durum: DYL-03 `[x]`; Usta 8c6e037b ile doğruladı. SEV-01 rebase sırasında kutu yanlışlıkla `[/]` tutulmuştu, düzeltildi.
 CAT-04 Usta onaylı `[x]` olarak onarıldı; CAT-01/02 Usta onaylı `[x]` kaldı.
 Sonraki aday: Usta'nın ROADMAP sırasına göre vereceği boş madde; bu tur başka iş alınmadı.
 Windows aynaları bu ortamda kullanılmadı; son talimat gereği tek çalışma kopyası.
