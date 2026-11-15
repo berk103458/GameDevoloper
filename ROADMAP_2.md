@@ -7502,7 +7502,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/kapi/tansiyon_gostergesi.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-49:** (Codex-Berk) `kapi_gorus_adaptoru.gd` temaya bağlanır.
+- [x] **GRV-49:** (Codex-Berk) `kapi_gorus_adaptoru.gd` temaya bağlanır.
   - Ne: `src/arayuz/kapi/kapi_gorus_adaptoru.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Görüş satırı zeminsiz. Tema bağlanınca yalnız `kapi_gorus_adaptoru.gd` ARY-02 zeminini ve düğme durumunu okur, Görüş satırı zeminsiz davranışı değişmez.
   - Kabul: `kapi_gorus_adaptoru.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kapi_gorus_adaptoru.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

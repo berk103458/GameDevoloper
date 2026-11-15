@@ -1316,3 +1316,6 @@ Claude döngüsü limit çıktısını görünce 23:10'a kadar uyuyacak şekilde
 
 ## 15 Kasım 2026 — GRV-47 (Codex-Berk)
 Okçuluk hedefi ve ok çizimleri ortak Kabuk/Renkler/Hud paletini okur; gerçek merkez atışı ve ıska puanı sınandı. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-49 (Codex-Berk)
+Kapı görüş uyarısındaki 22 sabiti Kabuk.KUCUK kaynağına bağlandı; shader ve hava davranışı korundu. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

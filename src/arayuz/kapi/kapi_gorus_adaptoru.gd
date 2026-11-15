@@ -38,7 +38,7 @@ static func uygula(panel: Control, y: KoyYonetimi) -> void:
 		uyari = Label.new()
 		uyari.name = "KapiGorusUyarisi"
 		uyari.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		uyari.add_theme_font_size_override("font_size", 22)
+		uyari.add_theme_font_size_override("font_size", Kabuk.KUCUK)
 		kutu.add_child(uyari)
 		kutu.move_child(uyari, portre.get_index() + 1)
 	uyari.text = "Tipi görüşü daraltıyor; fiziksel iz için portreyi yakından incele." if IklimDeneyi.hava(y) == "kar_firtinasi" else "Sis görüşü daraltıyor; fiziksel iz için portreyi yakından incele."
