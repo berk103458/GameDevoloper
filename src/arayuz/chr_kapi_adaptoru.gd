@@ -118,6 +118,7 @@ static func beyan_defteri_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxCo
 			"defter": defter,
 			"sorgu": sorgu,
 			"oturum": oturum,
+			"gelen_id": String(gelen.id) if gelen != null else "",
 		})
 		bpanel.yuzlesildi.connect(func(sonuc: Dictionary) -> void:
 			guncel.call()

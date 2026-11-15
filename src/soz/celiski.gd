@@ -128,10 +128,33 @@ func kayitlari_al(motor: SozMotoru = null, defter: BeyanDefteri = null, sorgu: R
 	return sonuc
 
 
-func goster_acik(motor: SozMotoru = null, defter: BeyanDefteri = null, sorgu: RefCounted = null) -> bool:
+## SOY-10: oturum verilirse ağa düşen kayıt deftere tek satır olarak eklenir.
+func kayitlari_al_oturumla(
+	motor: SozMotoru = null,
+	defter: BeyanDefteri = null,
+	sorgu: RefCounted = null,
+	oturum: Object = null,
+	gelen_id: String = ""
+) -> Array[Dictionary]:
+	var sonuc := _kayit_govdesi(motor, defter, sorgu)
+	var goruldu := {}
+	for k in sonuc:
+		goruldu[String(k.get("id", ""))] = true
+	var yedek: String = _soylenti_betik().gelen_kimligi(sorgu)
+	var gid: String = gelen_id if not gelen_id.is_empty() else yedek
+	return _soylenti_ekle(sonuc, goruldu, oturum, gid)
+
+
+func goster_acik(
+	motor: SozMotoru = null,
+	defter: BeyanDefteri = null,
+	sorgu: RefCounted = null,
+	oturum: Object = null,
+	gelen_id: String = ""
+) -> bool:
 	if goster_kapali or yanlis_sayisi >= AZAMI_YANLIS:
 		return false
-	return kayitlari_al(motor, defter, sorgu).size() >= 2
+	return kayitlari_al_oturumla(motor, defter, sorgu, oturum, gelen_id).size() >= 2
 
 
 func cozuldu_mu(id_1: String, id_2: String = "") -> bool:
@@ -164,8 +187,10 @@ func yuzles(id_1: String, id_2: String, ctx: Dictionary = {}) -> Dictionary:
 	var motor: SozMotoru = ctx.get("motor") as SozMotoru
 	var defter: BeyanDefteri = ctx.get("defter") as BeyanDefteri
 	var sorgu: RefCounted = ctx.get("sorgu")
+	var oturum: Object = ctx.get("oturum")
+	var gelen_id := String(ctx.get("gelen_id", ""))
 
-	if not goster_acik(motor, defter, sorgu):
+	if not goster_acik(motor, defter, sorgu, oturum, gelen_id):
 		var sebep := "goster_kapali" if (goster_kapali or yanlis_sayisi >= AZAMI_YANLIS) else "tek_kayit"
 		return {"basarili": false, "sebep": sebep, "goster_kapali": goster_kapali}
 
@@ -175,11 +200,16 @@ func yuzles(id_1: String, id_2: String, ctx: Dictionary = {}) -> Dictionary:
 	if yanlis_denemeler.has(cift_anahtar):
 		return {"basarili": false, "sebep": "tekrar_deneme", "tepki": tepki_satiri}
 
-	var tum := kayitlari_al(motor, defter, sorgu)
+	var tum := kayitlari_al_oturumla(motor, defter, sorgu, oturum, gelen_id)
 	var k1 := _kayit_bul(tum, a)
 	var k2 := _kayit_bul(tum, b)
 	if k1.is_empty() or k2.is_empty():
 		return {"basarili": false, "sebep": "kayit_bulunamadi"}
+
+	# SOY-10: ağ kaydı doğruysa zarsız yüzleşme, yanlışsa yalnız tansiyon +1.
+	var soylenti_sonuc: Dictionary = _soylenti_betik().dene(self, a, b, k1, k2, ctx)
+	if not soylenti_sonuc.is_empty():
+		return soylenti_sonuc
 
 	var eslesen_celiski := _celiski_bul(a, b, motor)
 	var eslesme_var := not eslesen_celiski.is_empty()
@@ -274,6 +304,30 @@ func _celiski_bul(a: String, b: String, motor: SozMotoru = null) -> Dictionary:
 			if c is Dictionary and anahtar(String(c.get("a", "")), String(c.get("b", ""))) == hedef_anahtar:
 				return c
 	return {}
+
+
+func _kayit_govdesi(motor: SozMotoru, defter: BeyanDefteri, sorgu: RefCounted) -> Array[Dictionary]:
+	return kayitlari_al(motor, defter, sorgu)
+
+
+func _soylenti_ekle(sonuc: Array[Dictionary], goruldu: Dictionary, oturum: Object, gelen_id: String) -> Array[Dictionary]:
+	if oturum == null:
+		return sonuc
+	var ekler: Array = _soylenti_betik().defter_kayitlari(oturum, sonuc, gelen_id)
+	for ham in ekler:
+		if not ham is Dictionary:
+			continue
+		var ek: Dictionary = ham
+		var eid := String(ek.get("id", ""))
+		if eid.is_empty() or goruldu.has(eid):
+			continue
+		goruldu[eid] = true
+		sonuc.append(_kayit_durumuyla(ek))
+	return sonuc
+
+
+func _soylenti_betik() -> GDScript:
+	return load("res://src/kapi/soylenti_dogrulama.gd") as GDScript
 
 
 func _ipucu_basligi(sorgu: RefCounted, iid: String) -> String:
