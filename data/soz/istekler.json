@@ -1,0 +1,11 @@
+[
+  {
+    "id": "bir_cuval_tohum",
+    "kisiler": ["chr_002", "chr_011", "chr_013", "chr_020"],
+    "bina": "ambar",
+    "gun_min": 1,
+    "gun_max": 3,
+    "maliyet": {"bugday": 2},
+    "metin": "koy.istek.bir_cuval_tohum"
+  }
+]

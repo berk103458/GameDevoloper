@@ -295,6 +295,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 			"alinan_akce": int(ek.get("alinan_akce", 0)) + rusvet_akce,
 		}, gun):
 			ek["hafiza_yazildi"] = true
+	preload("res://src/koy/tek_istek.gd").kabul(self, gelen, kaldi)
 	preload("res://src/koy/kisisel_iz.gd").karar(self, gelen, karar)
 	preload("res://src/soz/yemin_adaptoru.gd").karar(self, gelen, kaldi)
 	ek["kaldi"] = kaldi
@@ -343,6 +344,7 @@ func gece_sonu() -> Dictionary:
 		r.olaylar = r.olaylar.filter(func(olay: Dictionary) -> bool:
 			return not olay.has("sancak_teftisi") and olay.get("anahtar") != SancakAskerTalebi.AYAR.haber)
 	_koy_esitle()
+	preload("res://src/koy/tek_istek.gd").ilerlet(self)
 	kadro.gece_bitti()
 	gunun_aksam_kararlari.clear()
 	var sonuc := {"olaylar": r["olaylar"], "kirilan": -1, "rusvet_harcandi": -1, "son": StringName(r["son"]),

@@ -2686,3 +2686,10 @@ arayuz.koy.iz_kurdele,Kurdele,Ribbon
 arayuz.koy.iz_hatira,Hatıra,Keepsake
 arayuz.oda.etiket_eksi,Ekşi bir hatıra,A bitter keepsake
 arayuz.oda.etiket_sicak,Sıcak bir hatıra,A warm keepsake
+koy.istek.bir_cuval_tohum,Ekine başlamak için ambardan bir çuval tohumluk buğday dilerim.,I ask for a sack of seed wheat from the granary to start sowing.
+koy.istek.suresi_doldu,Tohumluğu başka türlü buldum; o isteğim geride kaldı.,I found seed another way; that request is behind me.
+koy.istek.tutuldu,Tohumluk elime geçti; sağ olasın.,I have the seed wheat; thank you.
+koy.istek.reddedildi,O isteğimi bir daha açmayacağım.,I will not bring up that request again.
+koy.istek.kaynak_yok,Ambarda tohumluk yokmuş; o isteğim kapandı.,There was no seed wheat in the granary; that request is closed.
+koy.istek.tut,Tohumluğu ver,Give the seed wheat
+koy.istek.birak,İsteği geri çevir,Decline the request

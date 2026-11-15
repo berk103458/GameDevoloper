@@ -6,6 +6,7 @@ extends RefCounted
 const _OPSIYONEL_HAFIZA_ALANLARI := [
 	"ates_son_gun",
 	"kisisel_iz",
+	"tek_istek",
 	"verilen_soz",
 	"yapilan_yardim",
 	"yuzlesilen_yalan",
@@ -150,5 +151,8 @@ func yukle(veri: Dictionary) -> bool:
 			if v.has(alan):
 				var val: Variant = v[alan]
 				giris[alan] = val.duplicate(true) if (val is Dictionary or val is Array) else val
+		# SEV-04: eski kayıtta bilinmeyen geçmiş yeniden ilk istek sayılmaz.
+		if not giris.has("tek_istek") and (giris.durum != &"gelmedi" or giris.ziyaret > 0 or giris.son_karar != &""):
+			giris["tek_istek"] = {"durum": "eski_kayit"}
 		durumlar[StringName(id)] = giris
 	return true

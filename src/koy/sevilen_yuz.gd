@@ -57,7 +57,8 @@ func kart_gorunum_adi(chr_id: String, gercek_ad: String, meslek: String) -> Stri
 func isim_sor(chr_id: String) -> void:
 	taninan_isimler[chr_id] = true
 
-func veda_et(chr_id: String) -> Dictionary:
+func veda_et(chr_id: String, oturum: Oturum = null) -> Dictionary:
+	if oturum != null: preload("res://src/koy/tek_istek.gd").kapat(oturum, StringName(chr_id))
 	kisisel_izler.erase(chr_id)
 	# SEV-07: Veda o kişiyi götürür
 	if not ayrilanlar.has(chr_id):
