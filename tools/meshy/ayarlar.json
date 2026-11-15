@@ -1,6 +1,6 @@
 {
  "_aciklama": "Meshy üretim hattı ayarları. Fiyatlar https://docs.meshy.ai/en/api/pricing sayfasından (15 Kasım 2026). Fiyat değişirse yalnız burası güncellenir; tahmin buradan hesaplanır, gerçek harcama görevin consumed_credits alanından manifeste yazılır.",
- "hesap_plani": "bilinmiyor",
+ "hesap_plani": "ucretli",
  "_hesap_plani_aciklama": "Gerçek üretimden önce 'ucretli' ya da 'ucretsiz' yazılmalı. Ücretli planda çıktı kullanıcıya aittir; ücretsiz planda CC BY 4.0'dır ve atıf gerekir. Manifest lisans notu buradan yazılır. 'bilinmiyor' iken gerçek üretim reddedilir.",
  "fiyat_kaynagi": "https://docs.meshy.ai/en/api/pricing (erişim 2026-11-15)",
  "fiyat": {
@@ -25,16 +25,16 @@
   "poly_sinir": [100, 30000]
  },
  "tur_varsayilan": {
-  "karakter": {"doku": true, "iskelet": true, "poly": 8000, "pose_mode": "a-pose", "klasor": "assets/model/karakter"},
+  "karakter": {"doku": true, "iskelet": true, "poly": 8000, "pose_mode": "t-pose", "klasor": "assets/model/karakter"},
   "yapi": {"doku": true, "iskelet": false, "poly": 8000, "klasor": "assets/model/yapi"},
-  "nesne": {"doku": true, "iskelet": false, "poly": 2500, "klasor": "assets/model/nesne"},
+  "nesne": {"doku": false, "iskelet": false, "poly": 2500, "klasor": "assets/model/nesne"},
   "hayvan": {"doku": true, "iskelet": false, "poly": 5000, "klasor": "assets/model/hayvan"},
   "animasyon": {"klasor": "assets/model/karakter"}
  },
  "karakter_hareketleri": ["bekle", "konus", "sevinc", "ofke", "panik", "gergin"],
  "_karakter_hareketleri_aciklama": "src/dunya/karakter_model.gd HAREKETLER ile aynı. Kitaplık anahtarları tools/model/chr_istemleri.py HAREKETLER'den okunur.",
- "stil_oneki": "Stylized realistic game asset for a 13th-century Anatolian frontier setting (year 1243, Seljuk borderland). Simple clean shapes, readable silhouette, hand-made rustic materials, muted earthy colours. No text, no logos, no modern items. ",
- "karakter_oneki": "Full body single character standing in A-pose, arms slightly away from body, feet apart, facing forward. Period clothing of 13th-century Anatolia. No armour plates, no horned helmets. ",
+ "stil_oneki": "Late medieval 14th century Anatolian frontier game asset, Ottoman border, worn and dusty physical materials, grounded historical realistic style, serious tone, single connected object. No text, no letters, no modern elements. ",
+ "karakter_oneki": "A detailed bipedal human character, normal human anatomy, standing in T-pose, arms extended horizontally, feet apart, facing forward. Period clothing of 14th-century Ottoman Anatolian frontier. No armour plates, no horned helmets, no chibi or stylized proportions. ",
  "referans_iskelet": "muhafiz",
  "_referans_iskelet_aciklama": "Paylaşımlı anim_* klipleri bu karakterin (yeni hatla üretilmiş) Meshy iskelet görevine uygulanır; ek iskelet kredisi gerekmez. Karakter henüz üretilmediyse anim_* satırları kredi harcamadan durur.",
  "gecmis_sayfa_sayisi": 10,
