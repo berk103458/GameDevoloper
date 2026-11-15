@@ -657,13 +657,13 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `chr_002, 003, 008, 011–030` | eksik klipler: ofke, gergin. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf` | eksik klipler: altı duygu klibinin hepsi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `KAR-CAVUS` | [ÜRETİLDİ: `assets/model/karakter/cavus_yuru.glb`] `miraen_cavus` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
-| `KAR-TAHSILDAR` | `vergi_tahsildari` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
-| `KAR-ELCI` | `tekfur_elcisi` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-TAHSILDAR` | [ÜRETİLDİ: `assets/model/karakter/tahsildar_yuru.glb`] `vergi_tahsildari` (`Dunya3B.PORTRE_MODEL`) | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-ELCI` | [ÜRETİLDİ: `assets/model/karakter/tekfur_elcisi_yuru.glb`] `tekfur_elcisi` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `KAR-DERVIS` | [ÜRETİLDİ: `assets/model/karakter/dervis_yuru.glb`] `dervis` + `diyalog_21` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
-| `KAR-HABERCI` | Ahi / Ertuğrul haberi | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-HABERCI` | [ÜRETİLDİ: `assets/model/karakter/haberci_yuru.glb`] `haberci`, `diyalog_29` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `KAR-BEY` | [ÜRETİLDİ: `assets/model/karakter/bey_yuru.glb`] `bey_daveti` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `KAR-COCUK` | [ÜRETİLDİ: `assets/model/karakter/cocuk_yuru.glb`] Kapı refakatçileri (`aile_kapi_gorunumu.gd`), `diyalog_25`, köy çocukları (`HazirKarakterler`) | 0,40 × 1,15 × 0,30 m |
-| `KAR-TEKFUR-ASKER` | Uzak siluet. 2D `crowd_tekfur_spear_01_far.png` atıl. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-TEKFUR-ASKER` | [ÜRETİLDİ: `assets/model/karakter/tekfur_askeri_yuru.glb`] Uzak siluet + tekfur askeri | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `YAPI-tarla, bostan` | düzlem + kutu sap | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-hizarhane` | sundurma kutusu + `dead_tree_trunk_02` | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-odunluk` | aynı sundurma | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
@@ -879,7 +879,7 @@ ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik bura
 | DYL03-YEMIN | DYL-03 | Yemin nesneleri (dünya kitabına göre) | glTF | yer tutucu kutu+etiket oyuna bağlandı (`src/soz/yemin_adaptoru.gd`); gerçek nesne hâlâ eksik | yemin ekmek tuz kitap; oath bread salt holy book | orta | Claude |
 | DYL07-OCAK | DYL-07 | Ocak başı ara sahne arka planı — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + metin, ARY-04 çerçevesi | ocak başı akşam ev içi; hearth evening cottage interior | orta | Claude |
 | DYL09-DENETCI | DYL-09 | Beyin denetçisi modeli | glTF / 3B model | planlı — madde kodlanınca: mevcut köylü modeli + renk farkı | Selçuklu bey denetçi memur; seljuk inspector official | orta | Claude |
-| SEV03-IZ | SEV-03 | Kişisel iz | glTF | yer tutucu düz renk küçük kutu oyuna bağlandı (`src/koy/kisisel_iz.gd`), gerçek glTF hâlâ eksik | kişisel eşya hatıra; personal keepsake trinket | düşük | Claude |
+| SEV03-IZ | SEV-03 | Kişisel iz | glTF | planlı — madde kodlanınca: düz renk küçük kutu | kişisel eşya hatıra; personal keepsake trinket | düşük | Claude |
 | SAB03-ORTU | SAB-03 | Kapalı iş yeri örtüsü — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: düz renk bez, ANI-08 düğümü üstünde | kapalı tezgâh örtü bez; covered workshop cloth | düşük | Claude |
 | TEZ01-ORTU | TEZ-01 | Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: düz renk | tezgâh örtüsü ağıl değirmen demirhane; workshop cover sheepfold mill forge | düşük | Claude |
 | TEZ03-HAM | TEZ-03 | Ham blok | glTF | planlı — madde kodlanınca: düz renk küp, örtünün üstünde | ham malzeme blok; raw material block | düşük | Claude |
