@@ -348,6 +348,8 @@ func gece_sonu() -> Dictionary:
 		"perde_degisti": not agalik_once and yonetim.agalik, "olay": null, "rapor": r}
 	if r["son"] == "" and not sonuc["perde_degisti"]:
 		sonuc["olay"] = olay_sec()
+		if (r["olaylar"] as Array).is_empty():
+			GeceBilancosu.sessiz_gece_kontrol(sonuc["olay"], r)
 	sonuc["bilanco"] = GeceBilancosu.olustur(self, bilanco_once, r)
 	if has_meta(GeceBilancosu.GELEN_META): remove_meta(GeceBilancosu.GELEN_META)
 	return sonuc

@@ -70,6 +70,9 @@ func _initialize() -> void:
 	var bos_rapor := {"olaylar": []}
 	GeceBilancosu.sessiz_gece_kontrol(bos_kart, bos_rapor)
 	_kontrol(bos_kart == null and bos_rapor.olaylar.size() == 1 and bos_rapor.olaylar[0].get("anahtar") == "bu gece köy sessiz", "Havuz bosken kart 0 olmali ve 'bu gece köy sessiz' satiri yazilmali")
+	var bos_sonuc := bos_oturum.gece_sonu()
+	_kontrol(bos_sonuc.get("olay") == null and (bos_sonuc.get("olaylar", []) as Array).any(func(e: Dictionary) -> bool: return e.get("anahtar", "") == "bu gece köy sessiz"), "Gercek gece_sonu() havuz bosken 'bu gece köy sessiz' satiri uretmeli")
+	_kontrol(IflasYoneticisi.olay_metin({"anahtar": "bu gece köy sessiz"}) == "bu gece köy sessiz", "Sessiz gece satiri IflasYoneticisi.olay_metin ile okunabilmeli")
 
 	# OZL-12: Tarla kartlari dort mevsimde Takvim (mevsim, kis_mi) okur; kista tarla_yagmur 0
 	var tarla_bina := KoyBinasi.new()

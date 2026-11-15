@@ -332,3 +332,17 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/celiski_goster_kontrol.tscn` → `CELISKI GOSTER UI: GEÇTİ` (`RC=0`, ön-mevcut `12 resources still in use at exit` uyarısı)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 21 — `OZL-05` (`TAM`)
+- **Değişiklikler:**
+  - `src/sistemler/oturum.gd`: `gece_sonu()` içinde `sonuc["olay"] = olay_sec()` sonrası gece olayı satırı yoksa `GeceBilancosu.sessiz_gece_kontrol(sonuc["olay"], r)` çağrısı eklendi.
+  - `tests/unit/sistemler/ozl_kart_tarama_test.gd`: Boş katalogla `bos_oturum.gece_sonu()` sonucunda `olay == null`, `"bu gece köy sessiz"` satırı ve `IflasYoneticisi.olay_metin` okunuşu doğrulandı.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `OZL-05` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ozl_kart_tarama_test.gd` → `OZL KART TARAMA: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/kvr/gece_bilancosu_test.gd` → `GECE BİLANÇOSU: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/soylenti_gecesi_test.gd` → `SÖYLENTİ GECESİ: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor
