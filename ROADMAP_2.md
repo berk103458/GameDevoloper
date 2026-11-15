@@ -4493,7 +4493,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: OMR-24. Boyut: S.
   - Dosya: `src/sistemler/dis_hat_kapisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OMR-33:** Boş gün oranı perdeye göre değişir.
+- [x] **OMR-33:** (Claude) Boş gün oranı perdeye göre değişir.
   - Ne: KAP-16 boş gün olasılığı perde 1 oturma döneminde artar, perde 2 dalga 3'te sıfırlanır. Değer `data/omurga.json`'dadır.
   - Kabul: dalga 3'te boş gün 0. Test: 12 gece.
   - Bağımlılık: KAP-16, OMR-04. Boyut: S.

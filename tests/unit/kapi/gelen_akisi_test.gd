@@ -164,5 +164,22 @@ func _initialize() -> void:
 		fk.moral = 65
 	dene(not GelenAkisi.bar_kosulu_uygun(ofad, "Tur > 3 ve Moral < 6"), "Moral >= 6 iken bar_kosulu_uygun yanlis")
 
+	# OMR-33: Perde 2 dalga 3'te bos gun 0 (12 gece; garanti dahil). Oran data/omurga.json'da.
+	var oo := Oturum.new(kat, 3333)
+	oo.yonetim.agalik = true
+	oo.yonetim.set_meta(&"perde2_baslangic", 0)
+	var d3_bos := 0
+	var d3_gece := 0
+	for gn in 12:
+		oo.yonetim.gun = gn
+		if Omurga.dalga(oo.yonetim) >= 3:
+			d3_gece += 1
+			if GelenAkisi.bos_gun_mu(oo):
+				d3_bos += 1
+	dene(d3_gece > 0, "OMR-33: 12 gecede dalga 3 gecesi var (%d)" % d3_gece)
+	dene(d3_bos == 0, "OMR-33: dalga 3'te bos gun 0 (%d)" % d3_bos)
+	var oranlar := Omurga.bos_gun_olasiliklari()
+	dene(float(oranlar.get("perde1_oturma", 0.0)) > float(oranlar.get("perde2_dalga3", 1.0)), "OMR-33: perde 1 oturma orani dalga 3 oranindan buyuk")
+
 	print("GELEN AKISI: %s" % ("GEÇTİ" if _hata == 0 else "KALDI (%d hata)" % _hata))
 	quit(0 if _hata == 0 else 1)
