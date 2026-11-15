@@ -304,3 +304,17 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - Not: Ön-mevcut `tests/unit/kvr/soylenti_ve_meclis_davalari_test.gd` 31. satırda `"suc"` söylenti türü reddi nedeniyle kalmaktadır (`SOY-SON-01` maddesinde incelenecek).
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 19 — `YER-03` (`TAM`)
+- **Değişiklikler:**
+  - `src/arayuz/ana.gd`: `_ready()` içindeki sabit `TranslationServer.set_locale("tr")` satırı kaldırıldı; locale yalnız `DilAyari.bagla(ayarlar)` + `DilAyari.uygula(ayarlar)` ile kuruluyor.
+  - `tests/oto/ayarlar_kontrol.gd`: `ana.gd` kaynağında `set_locale("tr")` geçmediği, `DilAyari.sec` ile `"en"`/`"tr"` locale geçişleri ve `_temizle()` içinde test yuvası `KOK` kalıntılarının temizlenmesi doğrulandı.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `YER-03` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/arayuz/dil_test.gd` → `DIL: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/diyalog/ingilizce_entegrasyon_test.gd` → `INGILIZCE ENTEGRASYON TESTI: GECTI (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/ayarlar_kontrol.tscn` → `AYARLAR KONTROL: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor
