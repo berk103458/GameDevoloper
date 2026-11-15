@@ -295,6 +295,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 			"alinan_akce": int(ek.get("alinan_akce", 0)) + rusvet_akce,
 		}, gun):
 			ek["hafiza_yazildi"] = true
+	preload("res://src/koy/kisisel_iz.gd").karar(self, gelen, karar)
 	preload("res://src/soz/yemin_adaptoru.gd").karar(self, gelen, kaldi)
 	ek["kaldi"] = kaldi
 	muhafiz_tecrubesi += 1
@@ -348,6 +349,8 @@ func gece_sonu() -> Dictionary:
 		"perde_degisti": not agalik_once and yonetim.agalik, "olay": null, "rapor": r}
 	if r["son"] == "" and not sonuc["perde_degisti"]:
 		sonuc["olay"] = olay_sec()
+		if (r["olaylar"] as Array).is_empty():
+			GeceBilancosu.sessiz_gece_kontrol(sonuc["olay"], r)
 	sonuc["bilanco"] = GeceBilancosu.olustur(self, bilanco_once, r)
 	if has_meta(GeceBilancosu.GELEN_META): remove_meta(GeceBilancosu.GELEN_META)
 	return sonuc
@@ -716,7 +719,7 @@ func _figur_gelen() -> Gelen:
 	var g := Gelen.new()
 	g.ad_anahtari = ornek["ad_anahtari"]
 	g.sinif = sablon.sinif
-	g.portre = sablon.portreler[0]
+	g.portre = String(d.get("portre", sablon.portreler[0]))
 	g.giris_anahtari = String(d["sahne"])
 	g.acilis = String(d.get("acilis", ""))
 	_json_sorular(g, d["sorular"], -1)

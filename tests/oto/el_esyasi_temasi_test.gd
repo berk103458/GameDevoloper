@@ -347,7 +347,7 @@ func _kapi_koy_yuku() -> bool:
 		kapida, koyde, model, degisince, yeniden_soket])
 	kapi.free()
 	yeniden.free()
-	return kapida == "RightHand" and koyde == kapida and degisince == kapida and yeniden_soket == kapida and model == "lowpo_cocuk" and ayni_kayit
+	return kapida == "RightHand" and koyde == kapida and degisince == kapida and yeniden_soket == kapida and model in ["cocuk", "lowpo_cocuk"] and ayni_kayit
 
 
 func _yuk_soketi(figur: KarakterModel, tur: String) -> String:

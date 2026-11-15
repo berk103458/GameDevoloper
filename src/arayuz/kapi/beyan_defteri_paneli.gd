@@ -10,6 +10,7 @@ var motor: SozMotoru
 var defter: BeyanDefteri
 var sorgu: RefCounted
 var oturum: Oturum
+var gelen_id: String = ""
 
 var _secili: Array[String] = []
 var _liste: VBoxContainer
@@ -77,6 +78,7 @@ func kur(ctx: Dictionary) -> void:
 	defter = ctx.get("defter") as BeyanDefteri
 	sorgu = ctx.get("sorgu")
 	oturum = ctx.get("oturum") as Oturum
+	gelen_id = String(ctx.get("gelen_id", ""))
 	if celiski == null:
 		celiski = Celiski.new()
 	if is_inside_tree():
@@ -91,10 +93,11 @@ func guncelle() -> void:
 		c.queue_free()
 	if celiski == null:
 		celiski = Celiski.new()
-	var kayitlar := celiski.kayitlari_al(motor, defter, sorgu)
+	var kayitlar := celiski.kayitlari_al_oturumla(motor, defter, sorgu, oturum, gelen_id)
 	for k in kayitlar:
 		var kid := String(k.get("id", ""))
-		var tur := "İpucu" if String(k.get("tur", "")) == "ipucu" else "Beyan"
+		var tur_kod := String(k.get("tur", ""))
+		var tur := "İpucu" if tur_kod == "ipucu" else "Beyan"
 		var kaynak := String(k.get("kaynak", ""))
 		var metin := String(k.get("metin", kid))
 		var cozuldu := bool(k.get("cozuldu", false))
@@ -105,6 +108,9 @@ func guncelle() -> void:
 		b.toggle_mode = true
 		b.button_pressed = kid in _secili
 		var etiket := "[%s · %s] %s" % [tur, kaynak, metin]
+		if tur_kod == "soylenti":
+			var soz := String(k.get("etiket", kaynak))
+			etiket = soz if metin.is_empty() or metin == soz else "%s %s" % [soz, metin]
 		b.text = ("✓ [Çözüldü] " + etiket) if cozuldu else etiket
 		b.disabled = cozuldu
 		b.pressed.connect(_kayit_sec.bind(kid))
@@ -138,6 +144,7 @@ func _goster_tiklandi() -> Dictionary:
 		"defter": defter,
 		"sorgu": sorgu,
 		"oturum": oturum,
+		"gelen_id": gelen_id,
 	})
 	_secili.clear()
 	guncelle()

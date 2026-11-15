@@ -70,6 +70,9 @@ func _initialize() -> void:
 	var bos_rapor := {"olaylar": []}
 	GeceBilancosu.sessiz_gece_kontrol(bos_kart, bos_rapor)
 	_kontrol(bos_kart == null and bos_rapor.olaylar.size() == 1 and bos_rapor.olaylar[0].get("anahtar") == "bu gece köy sessiz", "Havuz bosken kart 0 olmali ve 'bu gece köy sessiz' satiri yazilmali")
+	var bos_sonuc := bos_oturum.gece_sonu()
+	_kontrol(bos_sonuc.get("olay") == null and (bos_sonuc.get("olaylar", []) as Array).any(func(e: Dictionary) -> bool: return e.get("anahtar", "") == "bu gece köy sessiz"), "Gercek gece_sonu() havuz bosken 'bu gece köy sessiz' satiri uretmeli")
+	_kontrol(IflasYoneticisi.olay_metin({"anahtar": "bu gece köy sessiz"}) == "bu gece köy sessiz", "Sessiz gece satiri IflasYoneticisi.olay_metin ile okunabilmeli")
 
 	# OZL-12: Tarla kartlari dort mevsimde Takvim (mevsim, kis_mi) okur; kista tarla_yagmur 0
 	var tarla_bina := KoyBinasi.new()
@@ -84,6 +87,18 @@ func _initialize() -> void:
 			_kontrol(not uygun_mu, "Kista (mevsim 3) tarla_yagmur 0 olmali")
 		else:
 			_kontrol(uygun_mu, "Kis disindaki mevsimlerde tarla_yagmur uygun olmali")
+	var mevsim_kat := Katalog.new()
+	mevsim_kat.yukle()
+	mevsim_kat._olaylar.clear()
+	mevsim_kat._olaylar[yagmur_kart.id] = yagmur_kart
+	var mevsim_o := Oturum.new(mevsim_kat, 88)
+	mevsim_o.ayarlar.olay_olasiligi = 1.0
+	mevsim_o.yonetim.binalar.append(tarla_bina)
+	mevsim_o.yonetim.gun = 3 * m_gun
+	_kontrol(mevsim_o.olay_sec() == null, "OZL-12: Gercek olay_sec() kista tarla_yagmur secmemeli")
+	mevsim_o.yonetim.gun = 0
+	var bahar_olay := mevsim_o.olay_sec()
+	_kontrol(bahar_olay != null and bahar_olay.id == &"tarla_yagmur", "OZL-12: Gercek olay_sec() kis disinda tarla_yagmur secebilmeli")
 
 	# OZL-13: 7 gece boyunca harman ve pazar_gunu hafta basi olmayan gecede taban, hafta basinda carpan alir
 	var harman_kart := kat.olay(&"harman")

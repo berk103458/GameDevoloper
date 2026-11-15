@@ -297,6 +297,8 @@ def kur(ayar=None, eski_dal=True):
                 r["boy_m"] = alan["boy_m"]
             if "poly" in alan:
                 r["poly_hedef"] = alan["poly"]
+            if "doku" in alan:
+                r["doku"] = alan["doku"]
             if "iskelet" in alan:
                 r["iskelet"] = alan["iskelet"]
             if "prompt" in alan:
@@ -589,7 +591,7 @@ def yaz(nesne):
     alanlar = ["asset_id", "ad", "tur", "durum", "oncelik", "meshy_uygun", "kredi_tahmini", "kredi_harcanan",
                "poly_hedef", "boy_m", "doku", "iskelet", "hareketler", "meshy_task_id", "dosya", "sha256",
                "kaynak", "plan_kimlikleri", "kaynak_plan", "topluluk_adayi", "uygun_degil_nedeni", "prompt"]
-    with open(ortak.MANIFEST_CSV, "w", encoding="utf-8", newline="") as f:
+    with ortak.yazi_ac_atomik(ortak.MANIFEST_CSV) as f:
         w = csv.writer(f, lineterminator="\n")
         w.writerow(alanlar)
         for r in nesne["assetler"]:

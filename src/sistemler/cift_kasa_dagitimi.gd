@@ -21,7 +21,7 @@ static func kisisel_rusvet(gelen: Gelen, varsayilan: int) -> Dictionary:
 		var karar: Dictionary = sorgu.karakter.karar_verisi(&"rusvet")
 		sonuc["akce"] = int(karar.get("muhafiz_akce", 0))
 		for esya in karar.get("esyalar", []):
-			sonuc["esyalar"].append({"kaynak": String(esya), "adet": 1})
+			sonuc["esyalar"].append({"kaynak": String(esya), "adet": 1, "edinim": "rusvet"})
 		return sonuc
 	if gelen.heybe == null:
 		sonuc["akce"] = varsayilan
@@ -33,5 +33,5 @@ static func kisisel_rusvet(gelen: Gelen, varsayilan: int) -> Dictionary:
 		if esya["tur"] == "akce":
 			sonuc["akce"] += adet * int(esya["deger"])
 		else:
-			sonuc["esyalar"].append({"id": esya["id"], "tur": esya["tur"], "adet": adet, "deger": esya["deger"]})
+			sonuc["esyalar"].append({"id": esya["id"], "tur": esya["tur"], "adet": adet, "deger": esya["deger"], "edinim": "rusvet"})
 	return sonuc

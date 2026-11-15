@@ -14,6 +14,7 @@ const NESNE_RENK := {
 ## Portre kökü → karakter modeli.
 const PORTRE_MODEL := {
 	"soldier_01": "asker", "craftsman_01": "esnaf", "farmer_01": "ciftci", "farmer_02": "ciftci_kadin",
+	"vergi_tahsildari": "tahsildar",
 }
 const SINIF_MODEL := {&"asker": "asker", &"esnaf": "esnaf", &"ciftci": "ciftci"}
 
@@ -151,8 +152,12 @@ static func karakter_adi(adli_id: StringName, portre: String, sinif: StringName)
 		return String(adli_id)
 	if adli_id != &"" and _yol(String(adli_id) + "_yuru", "karakter") != "":
 		return String(adli_id)
+	if adli_id != &"" and PORTRE_MODEL.has(String(adli_id)):
+		return PORTRE_MODEL[String(adli_id)]
 	if PORTRE_MODEL.has(portre):
 		return PORTRE_MODEL[portre]
+	if not portre.is_empty() and model_var_mi(portre + "_yuru", "karakter"):
+		return portre
 	return SINIF_MODEL.get(sinif, "ciftci")
 
 

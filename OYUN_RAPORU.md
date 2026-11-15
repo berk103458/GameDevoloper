@@ -1,3 +1,7 @@
+## 2026-11-15 — SEV-03 kişisel izin oyun bağı (Codex, Berk)
+
+CHR_017 kabul + çözülmüş sır kurdeleyi köyde iş binası/ağıl kenarındaki etiketli kutuya bağlar; iş binası yoksa mevcut ev yanına gider. İz üretim veya otomatik işçi yazmaz; ölüm/ayrılışta kalkar. Kartta kelime, opsiyonel kadro alanıyla oturum kaydı, eski kayıtta izsiz açılış bağlıdır. ODA-03 aynı rafta rüşvete ekşi, kabul tablosundan gelen gönüllü lokmaya sıcak etiket gösterir; Clue iki yerde tutulmaz. Hedefli oyun testi 25, SEV-01 17, SEV-02 35 kontrol / 0 hata; birim, import, parse ve metin kontrolü geçti. SEV03-IZ kutusu oyunda, gerçek glTF eksik; asset gerekmedi. SEV-03 `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor. SEV-02 Usta 958258d8 ile `[x]`; korundu. Kota görünmüyor.
+
 ## 2026-11-15 — DYL-03 kapı bağlantısı (Codex, Berk)
 
 KapiEkrani sohbetinde "El bas, yemin et." gerçek ziyaret eylemine bağlandı. İnanç/şekil ve dört tutum JSON tablosundan gelir; şekil seçimi, yanlış şekil hakareti, saygın güven bedeli, CHR/bekleme tansiyonu, ziyaret kilidi ve sır sonrası satır değişimi oyundadır. Kalıcı söz kaydı ve mevcut DYL-08 kuyruğundan gelen yalan yemin haberi grup itibarını ve mevcut muhafız terazisini yalnız bir kez etkiler. DYL03-YEMIN kutu+etiketi oyunda, gerçek nesne eksik. Mevcut birim testi, 44 kontrollü oyun testi ve gerçek kapı ekranı testi geçti; metin doğrulaması PASS. DYL-03 ve CAT-04 `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor; CAT-01/02 onaylı `[x]` korunuyor. Kota görünmüyor.

@@ -33,6 +33,8 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	ic.name = TranslationServer.translate("koy.gecici_is.yapi_sekmesi")
 	ic.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	sekmeler.add_child(ic)
+	var iz := preload("res://src/koy/kisisel_iz.gd").iz(ekran.oturum, k)
+	if not iz.is_empty(): ekran._etiket(ic, preload("res://src/koy/kisisel_iz.gd").kelime(iz), Tema.KUCUK_PX).name = "kisisel_iz"
 	var bilgi := ekran._etiket(ic, KoyluKartiVerisi.ozet(y, k), Tema.KUCUK_PX)
 	bilgi.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ekran._etiket(ic, KoyluKartiVerisi.soz_guvenilirligi(ekran.oturum, k), Tema.KUCUK_PX).name = "soz_guvenilirligi"

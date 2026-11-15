@@ -4,6 +4,8 @@ class_name KarakterKadrosu
 extends RefCounted
 
 const _OPSIYONEL_HAFIZA_ALANLARI := [
+	"ates_son_gun",
+	"kisisel_iz",
 	"verilen_soz",
 	"yapilan_yardim",
 	"yuzlesilen_yalan",

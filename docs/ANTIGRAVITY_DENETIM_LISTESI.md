@@ -122,7 +122,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | OGR-37 | Geçmişe göre ipucu | `[x]` | `data/ogretici/ilk_saat.json` | `atla_gecmis` dokuz kez geçiyor | — | TAM | — |
 | OGR-45 | İpucu tavanı | `[x]` | `data/ogretici/ilk_saat.json` | `kavramlar` listesi 9, tavan 20 | — | TAM | — |
 | OGR-47 | Oyuncu izi | `[x]` | `src/sistemler/oyuncu_izi.gd` | `OyuncuIzi.new` çağrılıyor | — | TAM | — |
-| OGR-53 | Çekirdekte öğretici anahtarı yok | `[x]` | `src/arayuz/kapi_ekrani.gd` | Dört dosyanın üçü temiz | `kapi_ekrani.gd:226` hâlâ `kapi_acilis_ogretici.gd` çağırıyor; kabul "dört dosyada 0" diyor | EKSİK | Çağrıyı adaptör dosyasına taşı ya da kabulü güncelle |
+| OGR-53 | Çekirdekte öğretici anahtarı yok | `[x]` | `src/arayuz/kapi_ekrani.gd`, `src/arayuz/chr_kapi_adaptoru.gd` | Dört çekirdek dosyanın tümü (`ana.gd`, `kapi_ekrani.gd`, `koy_ekrani.gd`, `hud.gd`) `ogretici` referansından temiz; açılış öğreticisi `ChrKapiAdaptoru.acilis_kur` üzerinden kuruluyor (`chr_kapi_kontrol.tscn`, `celiski_goster_kontrol.tscn`, `acilis_koy_kontrol.tscn` `RC=0`) | — | TAM | `kapi_acilis_ogretici.gd` çağrısı `chr_kapi_adaptoru.gd` adaptörüne taşındı (Antigravity) |
 | OGR-55 | F1 anılmaz | `[x]` | `data/ogretici/ilk_saat.json` | Öğretici metinlerinde "F1" yok | — | TAM | — |
 
 ## OMR — Omurga
@@ -164,9 +164,9 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | OZL-01 | Tek seçici | `[x]` | `src/sistemler/oturum.gd` | `olay_sec` tek yerde; ikinci `olay_secici` dosyası yok | — | TAM | — |
 | OZL-02 | Olay söz bağı | `[x]` | `src/sistemler/olay_soz_bagi.gd` | `sira_atlama_adaptoru.gd` çağırıyor | — | TAM | — |
 | OZL-04 | Tek sefer | `[x]` | `data/olaylar/*.tres` | `tek_sefer` alanı şemada | — | TAM | — |
-| OZL-05 | Boş havuz | `[x]` | `src/sistemler/gece_bilancosu.gd` | Bilanço dosyası var | "Bu gece köy sessiz" satırı bulunamadı | EKSİK | Havuz boşken gece raporuna tek satır ekle |
+| OZL-05 | Boş havuz | `[x]` | `src/sistemler/gece_bilancosu.gd`, `src/sistemler/oturum.gd` | `Oturum.gece_sonu()` olay havuzu boşken `GeceBilancosu.sessiz_gece_kontrol(sonuc["olay"], r)` ile `{"anahtar": "bu gece köy sessiz"}` satırını rapora ekliyor (`ozl_kart_tarama_test.gd`, `gece_bilancosu_test.gd`, `soylenti_gecesi_test.gd`, `acilis_koy_kontrol.tscn` `RC=0, ERRS=0`) | — | TAM | `sessiz_gece_kontrol` `gece_sonu()` akışına bağlandı (Antigravity) |
 | OZL-07 | Olay söz bağı | `[x]` | `src/sistemler/olay_soz_bagi.gd` | Aynı bağ | — | TAM | — |
-| OZL-12 | Mevsim koşulu | `[x]` | `data/olaylar/*.tres` | `kosullar` alanı var | Dört mevsim için ayrı koşul doğrulanamadı | EKSİK | `tarla_yagmur` kartına kış koşulunu yaz |
+| OZL-12 | Mevsim koşulu | `[x]` | `data/olaylar/tarla_yagmur.tres`, `tests/unit/sistemler/ozl_kart_tarama_test.gd` | `tarla_yagmur.tres` içinde `"kis_mi": false` var; `ozl_kart_tarama_test.gd` hem 4 mevsim `_kosul_tutar` hem tek kartlı gerçek `Oturum.olay_sec()` seçiminde kışın `null`, baharda `&"tarla_yagmur"` döndüğünü doğruluyor (`RC=0, ERRS=0`) | — | TAM | `tarla_yagmur` 4 mevsim ve kış dışlaması gerçek `olay_sec()` ile doğrulandı (Antigravity) |
 | OZL-13 | Hafta başı ağırlığı | `[x]` | `data/olay_agirlik.json` | `olay_on_kosulu.gd:91` dosyayı okuyor | — | TAM | — |
 | OZL-14 | Kış odunu kartı yok | `[x]` | `data/olaylar/` | `kis_odun` kimliği yok | — | TAM | — |
 | OZL-15 | Düğün koşulu | `[x]` | `data/olaylar/dugun.tres` | `yetiskin_hane_min: 2` yazıyor; `nufus_katmani_test.gd` gerçek `olay_sec` çağırıyor | — | TAM | — |

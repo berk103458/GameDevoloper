@@ -1,5 +1,140 @@
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
+## SEV-03 — Köyde kişisel iz ve oda rafı bağı / 15 Kasım 2026 (Codex, Berk)
+
+Durum: madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.
+SEV-02 artık `[x]`; Usta 958258d8 ile doğruladı. SEV-01, CAT-04 ve DYL-03 işaretleri korundu.
+kota görünmüyor; asset gerekmedi. Yeni asset üretilmedi/indirilmedi.
+
+Yalnız /workspace/codex/GameDevoloper, claude/festive-volta-li1sfm üzerinde çalışıldı;
+fetch --all --prune ve pull --ff-only güncel döndü, 38a90342 claim yeniden alınmadı.
+İstenen GDScript/sinyal/UI/headless test skill'leri okundu. Issue #11'e yazılmadı.
+Yeni src/koy/kisisel_iz.gd: gerçek Oturum.karar_ver kancası, SevilenYuz.kisisel_iz_birak,
+opsiyonel kadro kisisel_iz alanı, KoyEkrani kadrajında tek BoxMesh + Label3D.
+CHR_017 kabul ve çözülmüş sır kurdeleyi gerçek iş binasına / uygun mevcut ağıla,
+iş binası yokken mevcut ev yanına koyar. Bina/işçi kurulmaz; üretim yazılmaz.
+Kutu bina modelinin dış kenarında zeminin üstündedir. Ölüm, temelli ayrılış ve köyden düşme
+izi siler. Mevcut SevilenYuz.veda_et kendi iz sözlüğünü temizler. Eski kayıt izsiz açılır.
+KoyluKarti'da Kurdele/ Hatıra kelimesi görünür. Rüşvet dağıtımında edinim=rusvet;
+kabul karar tablosundaki gönüllü eşya edinim=gonullu ile mevcut kişisel envantere girer.
+Clue köy izi bu rafa kopyalanmaz; raf aynı Clue'yu tutuyorsa köy izi kaldırılır.
+ODA-03 mevcut sergisinde ekşi/sıcak etiket vardır; yeni raf/model/panel yok.
+CSV'ye dört anahtar eklendi; TR/EN translation dosyaları aynı pakette.
+SEV03-IZ mevcut envanter satırı: yer tutucu düz renk küçük kutu oyuna bağlandı,
+gerçek glTF hâlâ eksik (0,30 m kutu). Başka envanter satırı açılmadı.
+
+Hedefli doğrulama (Godot 4.7.2):
+- godot --headless --path . --import --quit: çıkış 0, SCRIPT ERROR/Failed to load script yok.
+- godot --headless --path . -s res://tests/unit/koy/sevilen_yuz_test.gd: TEST PASS, çıkış 0.
+  İlk koşudaki Ses derleme hatası yeni adaptörün ekran tipi bağımlılığından geldi;
+  Node arayüzü kullanılarak giderildi; sonraki doğrudan -s koşusu hatasız.
+- godot --headless --path . tests/unit/koy/kisisel_iz_oyun_test.tscn: GEÇTİ, 25 kontrol / 0 hata.
+  Gerçek karar, KoyEkrani, kart, MuhafizOdasiEkrani ve oda kutuları; kayıt gidiş dönüşü,
+  eski kayıt, tek iz, ev alternatifi, ölüm/ayrılış, üretim/atama koruması, çift yer engeli.
+- bos_gun_durusu_oyun_test.tscn: GEÇTİ 17 kontrol / 0 hata.
+- tanidik_yuz_oyun_test.tscn: GEÇTİ 35 kontrol / 0 hata.
+- python3 -B tools/metin_dogrula.py --kaynak: PASS.
+- godot --headless --path . --check-only --script res://src/koy/kisisel_iz.gd: çıkış 0.
+- Tam sanity çalıştırılmadı. Mevcut katalog/öğretici eksik metin uyarıları kapsam dışıdır;
+  görsel pencereyle insan doğrulaması yapılmadı. Usta doğrulaması bekleniyor.
+
+Push koruması: fetch origin ardından origin/claude/festive-volta-li1sfm ile ROADMAP diff'i
+satır bazlı denetlendi: fark yalnız SEV-03'ün kendi Görev 22 satırı. Diğer ajan kutuları korundu.
+Eski izlenmeyen .import/.uid dosyaları ve project.godot pakete alınmaz.
+Windows aynaları bu ortamda erişilebilir değil; son kullanıcı talimatıyla yalnız bu çalışma kopyası kullanıldı.
+Sonraki aday SEV-04 hâlâ [ ]; bu görevde üstlenilmedi.
+
+## SEV-02 — Tanıdık yüzün gerçek ateş bağı / 15 Kasım 2026 (Codex, Berk)
+
+Durum: madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.
+kota görünmüyor; asset gerekmedi.
+
+Yalnız /workspace/codex/GameDevoloper ve festive dalında çalışıldı. 5b317598 claim yeniden alınmadı;
+fetch/prune ve ff-only pull ile 548a3ac6 alındı. İstenen dört Godot skill'i okundu ve uygulandı.
+KoyEkrani yönetimine zayıf oturum referansı eklendi; ANI-07 gerçek yürüyüş adaylığı,
+boş gün duruşu ve mevcut _tikla/bilgi alanı kadro hafızasına bağlandı. Tezgâh iş satırı korundu.
+Yaşayan, köydeki adlı Koylu seçilir. Anısız/ayrılmış/ölü kişi konuşmaz. Son karar çeviri
+anahtarını seçer; kabul + kayıtlı ekmek yardımı birlikte anılır. Genel selam üretilmez.
+Çocuk tek başına çağrılmaz; yürüyüş seçimi yetişkinlerden yapılır. Eş sohbeti hazırlanmışsa
+veya mevcut kart açıksa selam açılmaz. Yeni sahne, panel sınıfı, ses veya asset eklenmedi.
+`data/soz/tanidik_yuz.json`: chr_004 ve chr_002 için hitap=aliskanlik; aralik_gun=2.
+Bu tür zar değiştirmez. `ates_son_gun` mevcut kadro kaydında saklanır; yükleme günlük
+sınırı sıfırlamaz. Kapı kuyruğu üreticisi çağrılmadı; kuyruk/yatak/kabul kararı yazılmadı.
+
+Hedefli doğrulama (Godot 4.7.2):
+- `godot --headless --path . --import --quit`: çıkış 0; SCRIPT ERROR/Failed to load script yok.
+  Kapanış kaynak/RID uyarıları var.
+- `godot --headless --path . -s res://tests/unit/koy/sevilen_yuz_test.gd`: PASS.
+- `godot --headless --path . res://tests/unit/koy/tanidik_yuz_oyun_test.tscn`: GEÇTİ, 35 kontrol / 0 hata.
+  Gerçek KoyEkrani._tikla, ANI-07 hedef/rotacı, hafıza silme, günlük sınır, kayıt,
+  aralık, yalnız çocuk, iki eş sohbeti kilidi, ölüm/ayrılma, kuyruk ve aynı kadraj sınandı.
+- `godot --headless --path . res://tests/unit/koy/bos_gun_durusu_oyun_test.tscn`: GEÇTİ, 17 kontrol / 0 hata.
+- `python3 -B tools/metin_dogrula.py --kaynak`: PASS; CSV ve iki translation aynı pakette.
+- Yeni test betiği gerçek sahnede yüklenip çalıştı; parse hatası yok. Tam sanity çalıştırılmadı.
+
+Rebase ile c1f8cea6 alındı; CSV satır çatışmasında uzak soylenti.duydum_ki anahtarı ve
+SEV-02 ekleri birlikte korundu, iki translation birleşik CSV’den yeniden üretildi.
+İlk normal push uzak dal ilerlediği için reddedildi. Fetch/diff ile push aynı komutta
+olduğu için SOY-23/26 farkına rağmen deneme yapıldı; uzak dal değişmedi. İkinci rebase
+bad86b3a üzerine çatışmasız uygulandı, iki uzak sahiplik işareti korundu. Son push
+kontrolü ayrı adımda, yalnız SEV-02 değişen satırlarını doğrulayarak yapıldı.
+Commit sonrası kota: kota görünmüyor.
+Push öncesi fetch + origin/ROADMAP diff denetimi: yalnız SEV-02 Görev 22 satırı değiştirildi.
+SEV-01, CAT-04, DYL-03 uzak sürümleri aynen korundu. Özellikle pull ile gelen SEV-01
+[x] satırına dokunulmadı; eski durumla ezilmedi. Issue #11'e yazılmadı. Eski izlenmeyen
+.import/.uid dosyaları ve project.godot pakete alınmadı. Windows aynaları bu görevde
+çalışma alanı dışında; yeni talimat gereği yalnız belirtilen Linux kopyasında çalışıldı.
+Sonraki aday: Usta'nın SEV-02 görsel doğrulaması; yeni ROADMAP maddesi alınmadı.
+
+## SEV-01 — Boş günün köy kadrajına bağlanması / 15 Kasım 2026 (Codex, Berk)
+
+Durum: madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.
+kota görünmüyor
+
+Berk tarafındaki Codex; yalnız /workspace/codex/GameDevoloper ve festive dalı.
+Fetch/prune + ff-only pull ile 6d81e680 claim üzerine 8c6e037b alındı; yeniden üstlenilmedi.
+Dört istenen Godot skill'i uygulandı. Issue #11'e yazılmadı, başka madde alınmadı.
+Normal push uzak dal ilerlediğinden reddedildi; 66af8144 üzerine rebase yapıldı.
+CAT-04 için uzaktan gelen Cursor onarım açıklaması korundu. DYL-03 Usta 8c6e037b ile `[x]` doğrulamıştı;
+rebase sırasında yanlışlıkla `[/]` tutulmuştu, sonraki düzeltmede `[x]` olarak geri kondu. Birleşik CSV’den TR/EN
+translation dosyaları yeniden import edildi. kota görünmüyor
+
+Bağ: KoyEkrani._tikla içinde tek ince kanca → src/koy/bos_gun_durusu_adaptoru.gd
+→ src/koy/bos_gun_durusu.gd → SevilenYuz.bos_gun_isareti.
+OzelOlay.bos_mu oturum metası okunur; açılışta kapı kapalıysa mevcut boş kuyruk
+sözleşmesi de kabul edilir. Üretici gece_kuyrugu çağrılmaz; RNG ve KAP-16/gözcü yolu
+değişmez, ikinci zar yok. KAP-16 gelen akışı uygulanmadı.
+
+Ateş ANI-07 konumundan, tezgâh ANI-08 bina/atama ve konumundan okunur.
+Gerçek halk modelleri içinde yakında duran ve yürüyüşü bitmiş kişi gerekir.
+Kişinin ZanaatTuru mesleğinden kısa iş satırı seçilir; bilinmeyen/bitmiş havuz sessizdir.
+Oturum metasında gün, günlük adet, kullanılan havuz ve son anahtar tutulur;
+günde toplam en çok iki satır, art arda boş günde aynı satır yok.
+YAZ-08 yeniden yazılmadı; yanında salt metin adaptörü, mevcut _bilgi alanı kullanıldı.
+Yeni panel sınıfı, harita, ödül/eşya veya bar yazımı yok. Köy kadrajı korunur.
+Metin: anlati.bos_gun.* altında sekiz TR/EN anahtar; CSV ile import edilen iki
+translation aynı pakette. Asset gerekmedi; envantere satır açılmadı.
+
+Hedefli doğrulama (Godot 4.7.2):
+- godot --headless --path . --import --quit: çıkış 0; SCRIPT ERROR/Failed to load yok.
+- godot --headless --path . -s res://tests/unit/koy/sevilen_yuz_test.gd: mevcut test PASS, çıkış 0.
+- godot --headless --path . res://tests/unit/koy/bos_gun_durusu_oyun_test.tscn:
+  gerçek KoyEkrani ve _tikla; 17 kontrol / 0 hata, çıkış 0. Boş/dolu gün, ateş/tezgâh,
+  kapı kapalı, kişi yok/uzakta/yürüyor, iki satır, havuz/tekrar, köy kaydı ve RNG eşitliği.
+- Testin bir beklentisi kasıtlı bozulunca çıkış 1 / 1 hata; aslı geri konup tekrar yeşil.
+- python3 -B tools/metin_dogrula.py --kaynak: PASS. git diff --check temiz.
+Yeni betikler son import ve gerçek ekran testiyle parse edildi; tam sanity çalıştırılmadı.
+-s test başlangıcında Ses autoload derleme sırası sorunu görüldü; gerçek ekran testi
+normal .tscn başlangıcıyla çalışır. Mevcut katalog eksik metin uyarıları ve import
+kapanışındaki allocator/RID uyarıları sürüyor.
+project.godot ve önceden izlenmeyen .import/.uid dosyaları commit dışında tutuldu.
+
+CAT-04 `[x]`: Usta 0d84162f ile doğruladı; f6b7ee66 rebase regresyonu bu commit'te
+yalnız ROADMAP kutusu onarılarak düzeltildi, CAT-04 metni korunuyor.
+DYL-03 `[x]`: Usta 8c6e037b ile doğruladı; rebase sırasında yanlışlıkla `[/]` tutulması düzeltildi.
+Sonraki adım: Usta'nın SEV-01 doğrulaması; SEV-01 kutusu `[/] (Codex)` kaldı.
+Windows aynaları kullanılmadı; son talimat gereği tek çalışma kopyası.
+
 ## DYL-03 — Kapıda yemin ettirme bağlantısı / 15 Kasım 2026 (Codex, Berk)
 
 Giriş: Berk tarafındaki Codex; yalnız /workspace/codex/GameDevoloper ve festive dalı.
@@ -41,8 +176,8 @@ Yeni betikler import ve gerçek test yüklemelerinde parse edildi. Kasıtlı boz
 Mevcut katalog eksik metin uyarıları ve import/kapanış resource/RID uyarıları sürüyor;
 bunlar bu pakette değiştirilmedi. project.godot ve eski untracked .import/.uid pakette yok.
 
-Durum: madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor. CAT-04 kutusu ve yalnız
-CAT-04 günlük durum paragrafı talimata göre düzeltildi; CAT-01/02 Usta onaylı `[x]` kaldı.
+Durum: DYL-03 `[x]`; Usta 8c6e037b ile doğruladı. SEV-01 rebase sırasında kutu yanlışlıkla `[/]` tutulmuştu, düzeltildi.
+CAT-04 Usta onaylı `[x]` olarak onarıldı; CAT-01/02 Usta onaylı `[x]` kaldı.
 Sonraki aday: Usta'nın ROADMAP sırasına göre vereceği boş madde; bu tur başka iş alınmadı.
 Windows aynaları bu ortamda kullanılmadı; son talimat gereği tek çalışma kopyası.
 kota görünmüyor
@@ -75,7 +210,7 @@ python3 -B tools/metin_dogrula.py --kaynak: PASS. Tam sanity çalıştırılmad�
 Yeni betikler import ve gerçek test yüklemelerinde parse edildi. Test kapanışında mevcut
 ObjectDB/resource sızıntı uyarıları var; çalışma zamanı script hatası yok.
 
-Durum: CAT-04 ROADMAP’te `[/] (Codex)` duruyor; Usta’nın doğrulamasını bekliyor. Asset gerekmedi; envantere satır eklenmedi.
+Durum: CAT-04 `[x]`; Usta 0d84162f ile doğruladı. DYL-03 rebase regresyonunun ROADMAP kutusu SEV-01 commit’inde onarıldı. Asset gerekmedi; envantere satır eklenmedi.
 CAT-01 ve CAT-02 Usta tarafından doğrulandı, `[x]` olarak kalır.
 Sonraki plan: üstlenilmiş DYL-03 kapı bağlantısı; yeniden üstlenme yok.
 Issue #11'e yazılmadı. Windows aynalarına erişim/güncelleme iddiası yok; son talimat gereği tek çalışma kopyası.

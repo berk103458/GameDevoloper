@@ -7,7 +7,9 @@ static var _kitaplar: Dictionary = {}
 
 static func koy_adi(k: Koylu, eski: String) -> String:
 	if k.yas_grubu == &"cocuk":
-		return String(k.adli_id) if k.adli_id == &"chr_006" else "lowpo_cocuk"
+		if k.adli_id == &"chr_006":
+			return "chr_006"
+		return "cocuk" if Dunya3B.model_var_mi("cocuk_yuru", "karakter") else "lowpo_cocuk"
 	if k.adli_id == &"" and k.zanaat_turu == ZanaatTuru.Tur.DEMIRCI and k.portre != "farmer_02":
 		return "lowpo_demirci"
 	return eski

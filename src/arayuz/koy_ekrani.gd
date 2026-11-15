@@ -54,6 +54,7 @@ func _ready() -> void:
 	_onceki_fizik_adimi = Engine.max_physics_steps_per_frame
 	Engine.max_physics_steps_per_frame = 8
 	_y = oturum.yonetim
+	_y.set_meta(&"sev02_oturum", weakref(oturum))
 	_dinamik_ortam = preload("res://src/sistemler/koy_ortam_sesi.gd").new()
 	add_child(_dinamik_ortam)
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -297,6 +298,7 @@ func _bina_altinda(h: Vector2i) -> KoyBinasi:
 
 
 func _tikla() -> void:
+	if kip.is_empty() and preload("res://src/koy/bos_gun_durusu_adaptoru.gd").tikla(self): return
 	if _imlec.x < 0:
 		return
 	match kip:
@@ -327,6 +329,7 @@ func _tikla() -> void:
 
 
 func _process(_delta: float) -> void:
+	preload("res://src/koy/kisisel_iz.gd").yenile(self)
 	_cubuk_imleci()
 
 

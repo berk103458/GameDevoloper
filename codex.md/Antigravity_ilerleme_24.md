@@ -318,3 +318,42 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 20 — `OGR-53` (`TAM`)
+- **Değişiklikler:**
+  - `src/arayuz/chr_kapi_adaptoru.gd`: `acilis_kur(k: Control)` eklendi (`kapi_acilis_ogretici.gd.kur(k)`).
+  - `src/arayuz/kapi_ekrani.gd`: Doğrudan `kapi_acilis_ogretici.gd` çağrısı kaldırılıp `chr_kapi_adaptoru.gd.acilis_kur(self)` bağlantısı kuruldu (4 çekirdek dosyada `ogretici` = 0).
+  - `tests/oto/chr_kapi_kontrol.gd`: `_ogr53_kontrol(katalog)` ile 4 çekirdek dosyada 0 `ogretici` ve `AcilisOgretici` kurulumu doğrulandı; inceleme düğmesi metinle aranacak şekilde güncellendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `OGR-53` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` → `CHR KAPI UI: GEÇTİ` (`RC=0`, ön-mevcut `12 resources still in use at exit` uyarısı)
+  - `Godot.exe --headless --path . res://tests/oto/celiski_goster_kontrol.tscn` → `CELISKI GOSTER UI: GEÇTİ` (`RC=0`, ön-mevcut `12 resources still in use at exit` uyarısı)
+- Asset gerekmedi.
+- kota görünmüyor
+
+
+### Madde 21 — `OZL-05` (`TAM`)
+- **Değişiklikler:**
+  - `src/sistemler/oturum.gd`: `gece_sonu()` içinde `sonuc["olay"] = olay_sec()` sonrası gece olayı satırı yoksa `GeceBilancosu.sessiz_gece_kontrol(sonuc["olay"], r)` çağrısı eklendi.
+  - `tests/unit/sistemler/ozl_kart_tarama_test.gd`: Boş katalogla `bos_oturum.gece_sonu()` sonucunda `olay == null`, `"bu gece köy sessiz"` satırı ve `IflasYoneticisi.olay_metin` okunuşu doğrulandı.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `OZL-05` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ozl_kart_tarama_test.gd` → `OZL KART TARAMA: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/kvr/gece_bilancosu_test.gd` → `GECE BİLANÇOSU: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/soylenti_gecesi_test.gd` → `SÖYLENTİ GECESİ: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor
+
+
+### Madde 22 — `OZL-12` (`TAM`)
+- **Değişiklikler:**
+  - `tests/unit/sistemler/ozl_kart_tarama_test.gd`: Tek kartlı `Katalog` ile kış mevsiminde `mevsim_o.olay_sec() == null`, baharda `mevsim_o.olay_sec().id == &"tarla_yagmur"` doğrulaması eklendi (`tarla_yagmur.tres` içinde `"kis_mi": false` mevcut).
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `OZL-12` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ozl_kart_tarama_test.gd` → `OZL KART TARAMA: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/koy/tarla_is_noktalari_test.gd` → `TARLA İŞ NOKTALARI: GEÇTİ (759 kontrol; 20 deneme; dışarıda=0; çakışma=0)` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

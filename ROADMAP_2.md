@@ -864,7 +864,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.4 Sıranın korkusu
 
-- [/] **CAT-04:** (Codex) Kapıda şiddet sırayı korkutur. (İlk mantık: Antigravity; Görev 22 bağlantısı giderildi: gerçek CAT-02 sec sonucu → SiddetKorkusuAdaptoru → aynı gerçek kuyruk, CHR/bekleme tansiyonu ve Dedikodu.olay_kaydet; görünür sıra ve menü donması bağlı. Birim, 39 kontrollü oyun ve gerçek ekran testleri GEÇTİ; asset gerekmedi.)
+- [x] **CAT-04:** (Codex) Kapıda şiddet sırayı korkutur. (İlk mantık: Antigravity; Görev 22 bağlantısı giderildi: gerçek CAT-02 sec sonucu → SiddetKorkusuAdaptoru → aynı gerçek kuyruk, CHR/bekleme tansiyonu ve Dedikodu.olay_kaydet; görünür sıra ve menü donması bağlı. Birim, 39 kontrollü oyun ve gerçek ekran testleri GEÇTİ; asset gerekmedi.) (Sahiplik düzeltmesi, Cursor 15 Kas: Usta doğrulaması GEÇTİ 0d84162f ile [x] olmuştu; f6b7ee66 eski satırla [/]'e geri çevirmişti, [x] geri alındı. Sahip Codex.)
   - Ne: Askerle karşılık veya ölüm, sıradaki kişilerin tansiyonunu okur. Eşik üstündekiler tablodaki olasılıkla ayrılabilir; herkes ayrılmaz. Yatıştırma ve erteleme bu ayrılmayı tetiklemez. Yeni korku barı açılmaz. Menü açıkken artış donar.
   - Kurallar:
     1. Şiddet, karşılık veya ölüm sonucudur. Sıradaki kişilerin sabrı ve tansiyonu okunur.
@@ -1219,7 +1219,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.10 Sınır ve kapanış
 
-- [x] **YAZ-10:** (Antigravity) İnceleme modu ve kapsam taraması. (Cursor — düzeltme: f833c5c6 kapanışı yalnız gecis.json karakter sayımıydı; gerçek uygulama tools/soz_inceleme.py: satır işaretleri doğal/yapay/yeniden yaz JSON, metin değişince metin_degisti, eşleşmeyen işaret listesi, tohumlu ağaç yürütme ile ulaşılmayan düğüm/sunulmayan seçenek, tohum boşsa çalışmadı; soz_dogrula.py --kapsam ve soz_kapi paket "inceleme" alanı bağlı; test tests/tools/test_soz_kapsam.py 7 OK, mutasyonda kırmızı. Godot önizleme arayüzü yok, işaretleme JSON/araç üzerinden)
+- [x] **YAZ-10:** (Cursor) İnceleme modu ve kapsam taraması. (Sahiplik düzeltmesi, Cursor 15 Kas: Antigravity f833c5c6 toplu [x] yapmıştı ama yalnız gecis.json sayımıydı; gerçek iş Cursor 45cd9153, sahiplik bitirene taşındı. Ayrıntı: f833c5c6 kapanışı yalnız gecis.json karakter sayımıydı; gerçek uygulama tools/soz_inceleme.py: satır işaretleri doğal/yapay/yeniden yaz JSON, metin değişince metin_degisti, eşleşmeyen işaret listesi, tohumlu ağaç yürütme ile ulaşılmayan düğüm/sunulmayan seçenek, tohum boşsa çalışmadı; soz_dogrula.py --kapsam ve soz_kapi paket "inceleme" alanı bağlı; test tests/tools/test_soz_kapsam.py 7 OK, mutasyonda kırmızı. Godot önizleme arayüzü yok, işaretleme JSON/araç üzerinden)
   - Ne: Önizlemede yazar her satıra doğal, yapay veya yeniden yaz işaretini koyar. İşaretler JSON olarak dışa ve içe aktarılır. Metin değişince işaret "metin değişti" olur. Kapsam taraması kayıtlı tohumlarla ağacı yürütür, seçilmeyen satırı ve ulaşılmayan düğümü listeler. Oyuncu bu taramayı görmez. Yapay veya yeniden yaz işareti dururken ya da görünmeyen satır varken sahne onaya gitmez.
   - Kurallar:
     1. Önizlemede her satır üç işaretten birini alır: doğal, yapay, yeniden yaz. İşaretler JSON olarak dışa ve içe aktarılır.
@@ -1961,7 +1961,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.2 Yemin, yalan, söz
 
-- [x] **DYL-03:** (Codex) Yemin ettirmek. (Görev 22: kapı eylem yoluna YeminAdaptoru ile bağlandı; veri tablosu, ziyaret kilidi, CHR/bekleme tansiyonu, güven/grup itibarı, kayıt ve DYL-08 dönüşü bağlı. Madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.)
+- [x] **DYL-03:** (Codex) Yemin ettirmek. (Görev 22: kapı eylem yoluna YeminAdaptoru ile bağlandı; veri tablosu, ziyaret kilidi, CHR/bekleme tansiyonu, güven/grup itibarı, kayıt ve DYL-08 dönüşü bağlı. Usta doğrulaması GEÇTİ 8c6e037b.)
   - Ne: Oyuncu ziyarette bir kez "El bas, yemin et" der. Yemin şekli karakterin inancına göre dünya kitabından gelir; uymayan şekil hakarettir. Tutum dört türden biridir: eder, kıvranır, rahat ya da reddeder. Yemin zar açmaz. Bozulan yemin bir kez ceza yazar. İnanç alanı boşsa düğme gizlenir.
   - Kurallar:
     1. Seçenek: "El bas, yemin et." Ziyaret başına bir kez kullanılır.
@@ -2236,7 +2236,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.1 Boş gün
 
-- [/] **SEV-01:** (Codex) Boş gün köy günüdür. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **SEV-01:** (Codex) Boş gün köy günüdür. (Görev 22: SevilenYuz → boş gün duruşu adaptörü gerçek KoyEkrani._tikla yolunda ANI-07 ateşine ve zanaat tezgâhına bağlı; mevcut bilgi alanı, kişi/konum süzgeci ve günlük iki iş satırı sınırı. İkinci zar yok; hedefli gerçek ekran testi 17 kontrol / 0 hata. Madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor; asset gerekmedi.)
   - Ne: Boş günü KAP-16 üretir; bu madde ikinci bir "kimse gelmesin" zarı açmaz. O gün oyuncu ateş başına veya bir tezgâha yürüyebilir ve orada en çok iki satır duyar. Satır, orada duran kişinin işinden gelir; ödül, eşya veya bar vermez. Kişi yoksa satır da yoktur. Gözcü boş günü bildirmeye devam eder. İki boş gün art arda aynı satırı tekrarlamaz; havuz bitince o gün sessizdir.
   - Kabul: KAP-16'nın ürettiği bir boş günde ateş veya tezgâh etkileşimi açılır ve bar değerleri değişmez (`tests/unit/koy/sevilen_yuz_test.gd`). Dolu günde bu etkileşim kapalıdır. Kapı kapalıyken ateş satırı yine gelebilir. Ek şart: Boş gün yeni panel sınıfı açmaz; köy kadrajı durur. Ek şart: `bos_gun_durusu.gd` `koy_sahnesi` import etmez ve ikinci harita açmaz.
   - Bağımlılık: KAP-16, YAZ-08. Boyut: S.
@@ -2246,7 +2246,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.2 Ateş
 
-- [ ] **SEV-02:** (Antigravity) Tanıdık yüz ateşe gelir. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **SEV-02:** (Codex) Tanıdık yüz ateşe gelir. (Görev 22: gerçek ANI-07 yürüyüş süzgeci ve KoyEkrani._tikla → boş gün adaptörü → KisiHafizasi/SevilenYuz bağlı; adlı köylü, son karar/anı, günlük tek selam ve kayıtlı aralık, çocuk/eş sohbeti koruması. Oyun testi 35 kontrol / 0 hata, SEV-01 17 kontrol / 0 hata; asset gerekmedi. Madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.)
   - Ne: Boş günde ateşe gelen kişi köyde yaşayan adlı biridir; kapı kuyruğuna eklenmez, yatak ve kabul kararı istenmez. Selam `son_karar` ile bir somut anıyı kullanır: verilen ekmek, sorulan ad veya çevrilen akraba. Anı yoksa genel selam da yoktur ve kişi o akşam gelmez. Kadrodan 2 veya 3 kişi `hitap: aliskanlik` ile Jorji tipindedir; yeni kişilik sistemi açılmaz. Aynı kişi art arda iki boş olmayan akşamda zorla getirilmez; aralık veri dosyasındadır. Ölen, köyü terk eden veya ret yemiş ve köyde olmayan kişi içeri alınmaz.
   - Kabul: Köydeki bir kişi için `son_karar` kayıtlıyken ateş selamı o kararı anar (`tests/unit/koy/sevilen_yuz_test.gd`). Anı silinince selam gelmez ve kuyruk uzunluğu değişmez. Ek şart: Bir boş günde ateşe en çok bir kişi gelir. Ek şart: Çocuk ateşe yalnız çağrılmaz; yanında yetişkin yoksa o akşam geliş olmaz. Ek şart: Eş akşam sohbeti aynı gecede açıksa ateş selamı açılmaz. Ek şart: Ateş selamı yeni sahne açmaz; duran köy kadrajında iki satırdır. Ek şart: Yeni ateş ses dosyası eklenmez.
   - Bağımlılık: SEV-01, DIY-11. Boyut: M.
@@ -2256,7 +2256,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.3 İz
 
-- [ ] **SEV-03:** (Antigravity) Kişisel iz köyde kalır. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **SEV-03:** (Codex) Kişisel iz köyde kalır. (Görev 22: KisiselIz adaptörü gerçek kabul → kadro kaydı → KoyEkrani kutu/etiket, iş binası/ev yanı, oda rafında ekşi/sıcak etiket ve kartta kelime yoluna bağlı; CHR_017 kurdelesi ağıl yerinde, ayrılış/ölümde iz silinir, çift yer ve otomatik işçi yok. Hedefli oyun testi 25 kontrol / 0 hata; madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor. SEV03-IZ yer tutucu; asset gerekmedi.)
   - Ne: İz, heybede duran `Clue_*` eşyasının küçük yer tutucusudur; yeni heybe motoru yoktur. Yer, kişinin iş binasıdır; bina yoksa iz evin yanında durur ve bina kendiliğinden kurulmaz. Rüşvetle alınan eşya muhafız odasındaki raftadır ve etiketi ekşidir. Gönüllü verilen lokmanın etiketi sıcaktır. İkisi de aynı raftadır. Kişi ölünce veya temelli gidince iz kalkar. İz üretim vermez. Aynı eşya hem köy izi hem oda rafı olamaz.
   - Kabul: CHR_017 kabul ve sır çözülmüşken kurdele ağıl yerinde görünür (`tests/unit/koy/sevilen_yuz_test.gd`). Rüşvet eşyası yalnız odada ve ekşi etikettedir. Kişi köyden düşünce iz kalkar. Ek şart: Bir kişinin köyde aynı anda bir izi vardır. Ek şart: İz dururken o iş noktasına otomatik işçi yazılmaz. Ek şart: Kartta iz bir kelime olarak durur, sayı olarak durmaz. Ek şart: Kayıtta iz alanı yoksa kişi izsiz açılır.
   - Bağımlılık: DIY-11, SEV-07. Boyut: M.
@@ -2266,7 +2266,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.4 Tek istek
 
-- [ ] **SEV-04:** (Antigravity) Tek istek. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **SEV-04:** (Codex) Tek istek. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Kişi köye yerleştikten sonra bir kez, bir cümleyle bir şey ister. İstek `gun_min` ve `gun_max` taşır. Tutmak isteğe bağlıdır; tutulmazsa süre bitince bir satır değişir. Ceza barı, yeni düşman veya zorunlu görev doğmaz. Aynı anda oyuncunun önünde en çok bir istek cümlesi durur. İstek muhafızın borcu değildir (DYL-05). Süre dolmadan kişi ölürse istek kapanır. Şart olan bina yoksa istek açılmaz.
   - Kabul: Bir test kişisinde istek bir kez konuşulur, süre bitince satır değişir ve ikinci istek açılmaz (`tests/unit/koy/sevilen_yuz_test.gd`). Görev listesi düğümü yoktur. Ek şart: İstek kapıdaki kabul veya ret düğmesini açmaz. Ek şart: İstenen kaynak yoksa istek kapanır ve bedelsiz tamamlanmaz. Ek şart: Çocuk istek sahibi olmaz. Ek şart: Reddedilen istek yeni bar açmaz; husumet artışı varsa duran `husumet.gd` kaydına yazılır. Ek şart: Yükleme aynı isteği ikinci kez açmaz. Ek şart: Hediye takvimi yazılmaz.
   - Bağımlılık: YAZ-08, DIY-11. Boyut: S.
@@ -3972,7 +3972,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: DIY-04, ACL-04. Boyut: S.
   - Dosya: Söz veri dosyası (DIY-02 şeması) `gece_min` alanı; ilk aile dosyası YAZ-05 pilotunda.
   - Asset: asset gerekmedi.
-- [/] **OGR-14:** (Antigravity) Beyan defteri ilk çelişkide tanıtılır. (Kanıt: `src/arayuz/kapi_ekrani.gd:337` ve `src/arayuz/chr_kapi_adaptoru.gd:42` → `chr_kapi_adaptoru.gd:93` `DefterTanitimi.oturumda_kontrol_et`; `tests/unit/kapi/defter_tanitimi_test.tscn` GEÇTİ)
+- [x] **OGR-14:** (Antigravity) Beyan defteri ilk çelişkide tanıtılır. (Kanıt: `src/arayuz/kapi_ekrani.gd:337` ve `src/arayuz/chr_kapi_adaptoru.gd:42` → `chr_kapi_adaptoru.gd:93` `DefterTanitimi.oturumda_kontrol_et`; `tests/unit/kapi/defter_tanitimi_test.tscn` GEÇTİ)
   - Ne: beyan defteri (DIY-07) ilk kez bir karakter kendi sözüyle çelişince açılır; o ana kadar HUD'da düğmesi görünmez.
   - Kabul: ilk çelişki öncesi defter düğmesi 0; sonrası 1 ve ipucu bir kez. Test: çelişkisiz üç ziyaret sonrası düğme 0.
   - Bağımlılık: DIY-07, DIY-08, OGR-07. Boyut: S.
@@ -5397,7 +5397,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.1 Söylentinin anatomisi — kaynak, yol, doğruluk
 
-- [x] **SOY-01:** Her dedikodu kaydının kaynağı ve doğruluğu vardır. (Cursor)
+- [x] **SOY-01:** Her dedikodu kaydının kaynağı ve doğruluğu vardır. (Cursor) (Çift yazım notu, Cursor 15 Kas: madde Cursor ee863efa ile kapalıyken Antigravity c27ca221 SoylentiAgi.dogru_kayit_mi/dogru_kayitlar ekledi; mevcut kaynak_ve_dogruluk ile örtüşüyor. soz_kayit_test GEÇTİ, kod silinmedi; karar Ahmet'te.)
   - Ne: DIY-13 kaydına optional iki alan: `kaynak` (tanık köylü kimliği) ve `dogru` (bool; olay gerçekten oldu mu). Yanlış söylenti SOY-05 ile üretilir. Omurga (OMR-39) yalnız `dogru` kayıtları okur.
   - Kabul: alanlar optional; eski kayıt `dogru=true`, `kaynak=""` sayılır. Test: KAY birimi.
   - Bağımlılık: DIY-13, KAY-04. Boyut: S.
@@ -5454,7 +5454,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: YAZ-08, SOY-02. Boyut: M.
   - Dosya: yeni: `src/koy/ne_duydun.gd`; köylü seçim adaptörüne tek satır.
   - Asset: asset gerekmedi.
-- [/] **SOY-10:** (Cursor-Berk) Kapıda doğrulama (DYL-01 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-10:** (Cursor-Berk) Kapıda doğrulama (DYL-01 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: sorguda beyan defterine (DIY-07) düşen söz, ağdaki bir kayıtla çelişiyorsa oyuncu "köyde başka duydum" diyebilir (DYL-01 çelişki yolu). Ağ kaydı `dogru=false` ise muhafız yanılır; tansiyon +1.
   - Kabul: doğru kayıtla çelişki zarsız geçer; yanlış kayıtla tansiyon +1. Test: iki kayıt.
   - Bağımlılık: DYL-01, SOY-01. Boyut: S.
@@ -5541,13 +5541,13 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.5 Söz motorunda söylenti
 
-- [ ] **SOY-23:** Bağlam sorgusunda söylenti anahtarları. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-23:** (Cursor-Berk) Bağlam sorgusunda söylenti anahtarları. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: DIY-09 sözlüğüne `soylenti.<olay_id>.duydu`, `.dogru`, `.kaynak` anahtarları; satır seçimi "duydum ki…" dalını açar.
   - Kabul: duyan karakterde anahtar true. Test: birim.
   - Bağımlılık: DIY-09, SOY-02. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd` → bağlam sözlüğü.
   - Asset: asset gerekmedi.
-- [ ] **SOY-24:** Dönen karakter söylentiyi getirir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [/] **SOY-24:** (Cursor-Berk) Dönen karakter söylentiyi getirir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: DIY-11 dönen karakter köyde duyduğunu (ağ kaydı) ilk cümlesinde anabilir; söz dosyasında `soylenti` dalı.
   - Kabul: dönen + duyan → dal 1. Test: iki ziyaret.
   - Bağımlılık: DIY-11, SOY-23. Boyut: S.
@@ -5559,7 +5559,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: DNY-02, SOY-05. Boyut: S.
   - Dosya: Söz dosyaları; `soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-26:** "Bu hatırlanacak" söylentide de çıkar (DIY-14). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-26:** (Cursor-Berk) "Bu hatırlanacak" söylentide de çıkar (DIY-14). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: oyuncunun seçimi ağa muhafız düğümü yazıyorsa DIY-14 notu çıkar; kural DIY-14'ündür.
   - Kabul: not bir kez. Test: birim.
   - Bağımlılık: DIY-14, SOY-18. Boyut: S.
@@ -8662,7 +8662,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `docs/METIN_ANAHTAR_STANDARDI.md`; `tools/metin_dogrula.py`.
   - Asset: asset gerekmedi.
-- [x] **YER-03:** (Cursor) `set_locale` sabiti kalkar.
+- [x] **YER-03:** (Antigravity) `set_locale` sabiti kalkar. (Sahiplik düzeltmesi, Cursor 15 Kas: ilk kapanış Cursor b5f88a8f idi ama ana.gd'deki sabit TranslationServer.set_locale("tr") kalmıştı; işi Antigravity 9dee819c bitirdi, tests/oto/ayarlar_kontrol GEÇTİ. Sahiplik bitirene taşındı.)
   - Ne: `ana.gd:23` `"tr"` yazmaz. `ayarlar` içindeki `dil` okunur; geçersizse fallback `tr`.
   - Kabul: ayar `tr` iken locale `tr`; çöp değerde locale `tr` ve uyarı 1. Test: birim.
   - Bağımlılık: YER-01. Boyut: S.

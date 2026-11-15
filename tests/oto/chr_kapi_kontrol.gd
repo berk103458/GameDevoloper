@@ -28,7 +28,14 @@ func _ready() -> void:
 	_dene((panel.get_node("Secenek2") as Button).disabled, "chr_kapi_kontrol.gd:26")
 	ekran._soru_sor(2)
 	_dene(g.chr_sorgusu().dugum_id == &"00", "chr_kapi_kontrol.gd:28")
-	(ekran._eylemler.get_child(0) as Button).pressed.emit()
+	var incele_dugme: Button = null
+	for c in ekran._eylemler.get_children():
+		if c is Button and (c as Button).text == "Nişan ve yükü incele":
+			incele_dugme = c as Button
+			break
+	_dene(incele_dugme != null, "chr_kapi_kontrol.gd:31 incele düğmesi bulunmalı")
+	if incele_dugme != null:
+		incele_dugme.pressed.emit()
 	await get_tree().process_frame
 	var inceleme := ekran.get_node("ChrInceleme")
 	(inceleme.get_child(0).get_child(1) as Button).pressed.emit()
@@ -54,9 +61,31 @@ func _ready() -> void:
 	_dene(ekran.evre == &"karar" and o.koy_akce == kamu, "chr_kapi_kontrol.gd:52")
 	kok.queue_free()
 	await get_tree().process_frame
+	_ogr53_kontrol(katalog)
 	await get_tree().create_timer(0.8).timeout
 	print("CHR KAPI UI: GEÇTİ" if _hata == 0 else "CHR KAPI UI: KALDI (%d hata)" % _hata)
 	get_tree().quit(1 if _hata > 0 else 0)
+
+func _ogr53_kontrol(katalog: Katalog) -> void:
+	for cekirdek in ["res://src/arayuz/ana.gd", "res://src/arayuz/kapi_ekrani.gd", "res://src/arayuz/koy_ekrani.gd", "res://src/arayuz/hud.gd"]:
+		_dene(not FileAccess.get_file_as_string(cekirdek).to_lower().contains("ogretici"), "OGR-53: çekirdekte ogretici olmamalı: " + cekirdek)
+	var ogr_ayar := Ayarlar.new()
+	ogr_ayar.degerler[&"ipuclari"] = true
+	var ogr_o := Oturum.new(katalog, 85)
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(ogr_o)
+	var acilis := preload("res://src/sistemler/kapi_acilis_olayi.gd")
+	acilis.baslat(ogr_o)
+	acilis.ulak_bitir(ogr_o)
+	var ogr_kok := Control.new()
+	ogr_kok.theme = Tema.olustur(ogr_ayar)
+	add_child(ogr_kok)
+	var ogr_kapi := KapiEkrani.new()
+	ogr_kapi.oturum = ogr_o
+	ogr_kapi.ayarlar = ogr_ayar
+	ogr_kok.add_child(ogr_kapi)
+	preload("res://src/arayuz/chr_kapi_adaptoru.gd").acilis_kur(ogr_kapi)
+	_dene(ogr_kapi.get_node_or_null("AcilisOgretici") != null, "OGR-53: KapiEkrani açılış öğreticisi adaptör üzerinden kurulmalı")
+	ogr_kok.free()
 
 func _foto(ad: String) -> void:
 	var klasor := OS.get_environment("CHR_TEST_CIKTI")

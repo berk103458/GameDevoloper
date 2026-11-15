@@ -135,6 +135,21 @@ Bu kural bütün ajanlar için geçerlidir: Claude, Kalfa, Codex, testx ve sonra
 2. **Kota satırı:** Her commit'ten sonra `codex.md/<AjanAdı>.md` günlüğüne, iş bitince de Ajan Masası'na (GitHub issue #11) kalan kotanı yaz. Örnek: `kota: %40 kaldı`. Kotanı göremiyorsan `kota görünmüyor` yaz.
 3. **Kota azalınca:** Kotan **%15'in altına** düştüğünde yeni işe başlama. Elindeki işi commit'le ve push et; bitiremediğin `[/]` maddelerini `[ ]` yap ve maddenin yanına ya da Ajan Masası'na `kota bitti, bırakıldı` notu düş.
 
+## Madde sahipliği ve bölüşüm (Ahmet, 15 Kasım 2026)
+Bütün ajanlar için geçerlidir: Antigravity, Cursor, Cursor-Berk, Codex, Claude, Kalfa, Usta, testx ve sonradan katılanlar.
+
+1. **Önce pull:** Madde almadan önce `claude/festive-volta-li1sfm` dalını tam pull et.
+2. **Alınmış maddeye dokunma:** ROADMAP'te maddenin başında `[/] (AjanAdı)` varsa o madde o ajanındır. Ona kod, test, `[x]` ya da not yazma. Başkasının `[x]` maddesine de iş eklenmez; ek iş gerekiyorsa yeni madde ya da Ajan Masası notu açılır.
+3. **Sahiplenme push edilmeden iş yok:** Önce yalnız `[ ]` → `[/] (AjanAdı)` değişikliğini commit'le ve push et. Push başarılı olmadan koda başlama.
+4. **Push reddedilirse:** Pull et, maddeye yeniden bak. Hâlâ boşsa sahiplenmeyi tekrar push et ve devam et. Bu arada başkası almışsa kendi değişikliğini geri al ve maddeyi bırak.
+5. **İlk push eden sahiptir:** Aynı maddeyi iki ajan aldıysa, ROADMAP'e ilk `[/]` push eden sahiptir. İş ikinci ajan tarafından bitirilmiş ve testleri geçiyorsa kod silinmez; sahiplik ROADMAP'te bitirene taşınır ve notlanır. Çift yazılmış kod raporlanır; silme kararı insanındır.
+6. **Eski satırla ezme yok:** Rebase veya merge sırasında ROADMAP satırını kendi eski hâlinle ezme. Satırın güncel durumunu (`[x]`, doğrulama notu) koru.
+7. **Bölüşüm:**
+   - Antigravity `ROADMAP_2.md` başından ileri çalışır.
+   - Cursor (Ahmet tarafı) sonundan geriye çalışır.
+   - Berk tarafı (Usta, Codex, Cursor-Berk) Usta'nın Ajan Masası'nda (issue #11) bildirdiği orta bölümlerde çalışır.
+   - Bölge dışına çıkmak için insan ya da koordinatör (Muharrir veya Usta) onayı gerekir.
+
 ## Güncel asset teslim kuralı — 12 Ekim 2026 (Ahmet/Muharrir)
 
 Önceki ekleme/üretim sırası yerine: üretim tamamlanana kadar mekanikler isim etiketli kutu yer tutucuyla bitirilir; asset beklenmez. Assetler üretim sonunda ayrı entegrasyonla eklenir. docs/EKSIK_ASSET_ENVANTERI.md aktif 2D / 3D başlıklarıdır; eski G tablosuna ekleme yönlendirmesi geçersizdir. Her yeni 2D ihtiyacı için aynı maddede gece_kapisi stilinde tekli İngilizce Nano Banana promptu, dosya adı, boyut ve saydamlık hazırlanır; saydam kaynak düz #00FF00 yeşildir. 3D için kısa tanım ve metreyle ölçü yeterlidir.

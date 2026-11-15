@@ -228,7 +228,7 @@ func gece_baslat() -> void:
 	evre = &"gecis"
 	_temizle()
 	_kuyruk = oturum.gece_kuyrugu()
-	preload("res://src/arayuz/kapi_acilis_ogretici.gd").kur(self)
+	preload("res://src/arayuz/chr_kapi_adaptoru.gd").acilis_kur(self)
 	var adlar: Array[String] = []
 	for g in _kuyruk:
 		adlar.append(_model_adi(g))

@@ -1,5 +1,7 @@
 ## DIY-14: "Bu hatirlanacak" bildirimi.
-## Hafiza (DIY-11) veya dedikodu (DIY-13) yazan secimde oyuncu 2 saniye "Bu hatirlanacak" notunu gorur.
+## Hafiza (DIY-11), dedikodu (DIY-13), kacis (ZAR-03) veya aga yazilan muhafiz dugumu
+## (SOY-26, anahtar soylenti_muhafiz) olan secimde oyuncu 2 saniye notu gorur.
+## Kural bu siniftadir; ikinci bir not sistemi yoktur.
 ## Notta isim, grup ve gece sayisi yoktur; metin ceviri anahtaridir.
 ## Ayar kapatilirsa not gizlenir, kayit yine yazilir. Ayni secimde not bir kez cikar.
 class_name HatirlanmaNotu
@@ -9,6 +11,8 @@ extends PanelContainer
 const CEVIRI_ANAHTARI := &"UI_BU_HATIRLANACAK"
 const VARSAYILAN_METIN := "Bu hatırlanacak"
 const SURE_SANIYE := 2.0
+## Yeni yazim turu buraya tek anahtar ekler. Notun cikis kurali degismez.
+const TETIK_ANAHTARLARI: Array[String] = ["hafiza", "kacis_hafiza", "dedikodu", "soylenti_muhafiz"]
 
 var bildirim_acik: bool = true
 var _etiket: Label = null
@@ -72,14 +76,12 @@ func kalan_sure() -> float:
 	return _kalan_sure
 
 
-## Bir secim veya kacis (ZAR-03) sonucunda hafiza/dedikodu yazimini isler ve gerekiyorsa notu acar.
+## Bir secim sonucunda tetik listesindeki yazimi isler ve gerekiyorsa notu acar.
 ## - Ayar kapaliyken de `kayit_islemi` calisir ve kayit sayaci 1 artar; yalniz not gizlenir.
-## - Ayni secimde hem hafiza hem dedikodu varsa not 1 kez cikar.
+## - Ayni secimde birden fazla tetik varsa not 1 kez cikar.
 ## - Ikinci not birincinin ustune binmez; birincisi kapanir, kuyruk birikmez.
 func secim_bildir(olay: Dictionary, kayit_islemi: Callable = Callable()) -> Dictionary:
-	var hafiza_var := bool(olay.get("hafiza", false)) or bool(olay.get("kacis_hafiza", false))
-	var dedikodu_var := bool(olay.get("dedikodu", false))
-	if not hafiza_var and not dedikodu_var:
+	if not _tetik_var(olay):
 		return {
 			"kayit_yazildi": false,
 			"not_gorundu": false,
@@ -139,6 +141,13 @@ func kapat() -> void:
 	visible = false
 	_kalan_sure = 0.0
 	_aktif_not_sayisi = 0
+
+
+func _tetik_var(olay: Dictionary) -> bool:
+	for anahtar in TETIK_ANAHTARLARI:
+		if bool(olay.get(anahtar, false)):
+			return true
+	return false
 
 
 func _metni_guncelle() -> void:

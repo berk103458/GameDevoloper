@@ -2256,6 +2256,8 @@ epilog.vebali_ana.sifa,Vebalı Ana ve Sabi: Kireç ocağındaki hummayı Miraen'
 epilog.vebali_ana.kayip,"Vebalı Ana: Gözyaşlarıyla kucağındaki yavrusunu sarıp gece karanlığına yürüdü. Akpınar köyü harabelerinde kış sonu bulunan adsız bir mezar taşı, sınır boyunun en acı hikâyesi olarak kaldı.","Plague Mother: Wrapping the babe in her arms through tears, she walked into the night's darkness. A nameless headstone found at the end of winter among the ruins of Akpınar village remained the most sorrowful tale of the frontier."
 epilog.hane.sadakat,Hane Ocağı: Kışın dondurucu ayazı ve sınır boyunun kanlı kavgaları onların ocağını söndüremedi. Kapıdaki sadakat eve bereket getirdi; bahar geldiğinde hanelerinde yeni bir evlat müjdesi yankılandı.,"Hearth and Home: The freezing winter frost and the bloody clashes of the frontier could not extinguish their hearth fire. Loyalty at the gate brought abundance home; when spring arrived, the joy of a new child echoed through their dwelling."
 epilog.hane.yabanci,"Hane Ocağı: Kapı tutuldu, köy kurtuldu amma hanenin içindeki güven bağı soğudu. Muhafız ile eşi, kapının ve kışın getirdiği ağır veballerin yükü altında birbirine yabancı iki gölgeye dönüştü.","Hearth and Home: The gate held and the village was saved, yet the bond of trust within the home grew cold. Under the heavy burden of consequences brought by the gate and winter, the Gatekeeper and his wife turned into two strangers walking like shadows."
+kapi.soylenti.koyde_baska,Köyde başka duydum.,"I heard otherwise in the village."
+kapi.soylenti.yanilma,Bu laf köyde eğrilmiş. Gelen doğru söylüyormuş.,The village bent this tale. The visitor was right.
 kapi.hava.firtina.ziyaretci.1,"[titreyerek, dişleri birbirine çarparak] A-ağam... dondum... nefesim buz tuttu... İki adım daha atsam şu surun dibinde karlar örtecekti üstümü...","[shivering, teeth chattering] M-my lord... I am frozen... my breath turned to ice... Two more steps and the snow would have buried me by this wall..."
 kapi.hava.firtina.ziyaretci.2,"[kaşlarından ve bıyıklarından sarkan buzları silkeleyerek] Boran dağ yolunu kapattı muhafız! Göz gözü görmez, atlar karda saplandı kaldı! Aç şu kapıyı kurbanın olayım!","[brushing off icicles hanging from eyebrows and mustache] The blizzard shut the mountain pass, guard! You cannot see a hand before your eyes; horses are trapped in snow! Open the gate, I beg you!"
 kapi.hava.firtina.ziyaretci.3,"[hırkasına sıkıca sarılmış, titrek bir sesle] Rüzgâr kemiklerimi dondurdu... Bir avuç ocak sıcaklığı, bir yudum sıcak çorba için sığındım...","[clutching cloak tightly, in a trembling voice] The wind froze my very bones... I sought refuge for a handful of hearth warmth, a sip of hot soup..."
@@ -2665,3 +2667,22 @@ anlati.yemin.reddeder,İnancım gereği bu yemini etmeyeceğim.,My faith will no
 anlati.yemin.sir_acik,Yeminimde doğruyu söylemedim.,I did not speak truth in my oath.
 anlati.yemin.hakaret,İnancıma uymayan bir yemin istiyorsun.,You demand an oath against my faith.
 anlati.yemin.bozuldu,Yalan yemin edeni içeri aldın.,You admitted someone who swore falsely.
+anlati.bos_gun.ekin,Ekini biçmeden orağı bilerim.,I sharpen the sickle before reaping.
+anlati.bos_gun.tohum,Tohumluğu harmandan ayrı tutarım.,I keep seed grain apart from the harvest.
+anlati.bos_gun.ors,Demiri örste döverim.,I work the iron on the anvil.
+anlati.bos_gun.cekic,Çekicin sapını sıkı tutarım.,I keep a firm grip on the hammer.
+anlati.bos_gun.tezgah,Malı tezgâha dizerim.,I lay the goods on the stall.
+anlati.bos_gun.mal,Malı kaldırmadan sayarım.,I count the goods before putting them away.
+anlati.bos_gun.suru,Sürüyü otlağa götürürüm.,I take the flock to pasture.
+anlati.bos_gun.otlak,Koyunları dönüşte sayarım.,I count the sheep on the way back.
+soz.soylenti.duydum_ki,Duydum ki köyde bir laf dolaşıyor.,I heard that a tale is going about the village.
+anlati.ates_selam.kabul,Kapıda beni köye kabul ettiğin günü hatırlıyorum.,I remember the day you admitted me to the village.
+anlati.ates_selam.ret,Kapıda beni geri çevirdiğini unutmadım.,I remember you turning me away at the gate.
+anlati.ates_selam.rusvet,Kapıda aldığın akçe hâlâ aklımda.,I still remember the coins you took at the gate.
+anlati.ates_selam.kisla,Beni kışlaya gönderdiğin günü hatırlıyorum.,I remember the day you sent me to the barracks.
+anlati.ates_selam.kacti,Kapıdan kaçtığım günü unutmadım.,I remember the day I fled the gate.
+anlati.ates_selam.ekmek,Beni köye kabul ederken verdiğin ekmeği unutmadım.,I remember the bread you gave me when you admitted me to the village.
+arayuz.koy.iz_kurdele,Kurdele,Ribbon
+arayuz.koy.iz_hatira,Hatıra,Keepsake
+arayuz.oda.etiket_eksi,Ekşi bir hatıra,A bitter keepsake
+arayuz.oda.etiket_sicak,Sıcak bir hatıra,A warm keepsake

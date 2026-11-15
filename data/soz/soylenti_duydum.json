@@ -1,0 +1,13 @@
+{
+  "aciklama": "SOY-23. Olay kimliği değişkendir; dal soylenti_duydu özetine bakar. Ayrıntı anahtarları bağlamda düzdür: soylenti.<olay_id>.duydu, .dogru, .kaynak.",
+  "dallar": [
+    {
+      "id": "duydum_ki",
+      "metin_anahtari": "soz.soylenti.duydum_ki",
+      "oncelik": 1,
+      "kosullar": {
+        "soylenti_duydu": true
+      }
+    }
+  ]
+}
