@@ -668,19 +668,19 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `YAPI-hizarhane` | [ÜRETİLDİ: `assets/model/yapi/hizarhane.glb`] sundurma kutusu (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-odunluk` | [ÜRETİLDİ: `assets/model/yapi/odunluk.glb`] aynı sundurma (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-tas_ocagi` | [ÜRETİLDİ: `assets/model/yapi/tas_ocagi.glb`] Poly Haven kaya (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
-| `YAPI-avci` | çadır + sırık | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-avci` | [ÜRETİLDİ: `assets/model/yapi/avci_cadiri.glb`] çadır + sırık (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-atolye, demirhane` | [ÜRETİLDİ: `assets/model/yapi/atolye.glb`, `demirhane.glb`] sundurma + sandık (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-ambar` | [ÜRETİLDİ: `assets/model/yapi/ambar.glb`] `kervansaray.glb` (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-firin` | [ÜRETİLDİ: `assets/model/yapi/firin.glb`] ahşap kutu (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-degirmen` | [ÜRETİLDİ: `assets/model/yapi/degirmen.glb`] kutu (`DegirmenHareketi`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-sifahane` | [ÜRETİLDİ: `assets/model/yapi/sifahane.glb`] kutu (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
-| `YAPI-ahir` | kutu | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
-| `YAPI-agil` | CHR hedefi, kurulamaz, görsel yok | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
-| `YAPI-kirec_kuyusu` | kutu | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-ahir` | [ÜRETİLDİ: `assets/model/yapi/ahir.glb`] kutu (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-agil` | [ÜRETİLDİ: `assets/model/yapi/agil.glb`] CHR hedefi (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-kirec_kuyusu` | [ÜRETİLDİ: `assets/model/yapi/kirec_kuyusu.glb`] kutu (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-tas_ev` | [ÜRETİLDİ: `assets/model/yapi/tas_ev.glb`] kutu, ikon kulübe (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
-| `YAPI-demir_madeni` | kutu | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
-| `YAPI-demir_ocagi` | kutu | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
-| `YAPI-muhafiz_kislasi` | kutu | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `YAPI-demir_madeni` | [ÜRETİLDİ: `assets/model/yapi/demir_madeni.glb`] kutu (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-demir_ocagi` | [ÜRETİLDİ: `assets/model/yapi/demir_ocagi.glb`] kutu (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-muhafiz_kislasi` | [ÜRETİLDİ: `assets/model/yapi/muhafiz_kislasi.glb`] kutu (`koy_yonetim_sahnesi.gd`) | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `YAPI-gozetleme_kulesi` | menü `model_var_mi` ile atlar | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
 | `YAPI-pazar_tezgahi` | GLB var, sahne kurmuyor | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-sur 2–3` | [ÜRETİLDİ: `assets/model/yapi/sur_2_palisat.glb`, `sur_3_tas.glb`] kazık çit ölçeklenir, `SurHasarGorseli`, `koy_yonetim_sahnesi.gd` | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |

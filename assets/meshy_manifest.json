@@ -7867,18 +7867,19 @@
    "oncelik": "orta",
    "sira": 322,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretiliyor",
+   "durum": "uretildi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
-   "meshy_task_id": "01a1e008-a79f-775f-965b-613f208691ae",
+   "meshy_task_id": "01a1e009-1dbd-77ff-996b-c9d0214e17c3",
    "meshy_gorevleri": {
-    "onizleme": "01a1e008-a79f-775f-965b-613f208691ae"
+    "onizleme": "01a1e008-a79f-775f-965b-613f208691ae",
+    "doku": "01a1e009-1dbd-77ff-996b-c9d0214e17c3"
    },
-   "dosya": "",
+   "dosya": "assets/model/yapi/ahir.glb",
    "ek_dosyalar": [],
-   "sha256": "",
+   "sha256": "c2cc0d56998a0a74723818bea7f919f9ec21cbceb4822c814ef60682279e99ea",
    "kredi_tahmini": 0,
-   "kredi_harcanan": 0,
+   "kredi_harcanan": 15,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
@@ -7886,8 +7887,60 @@
    "hedef_dosya": "assets/model/yapi/ahir.glb",
    "uretim_gunlugu": [
     "2026-11-15T16:27:06Z gönderiliyor: onizleme",
-    "2026-11-15T16:27:09Z görev açıldı: onizleme=01a1e008-a79f-775f-965b-613f208691ae"
-   ]
+    "2026-11-15T16:27:09Z görev açıldı: onizleme=01a1e008-a79f-775f-965b-613f208691ae",
+    "2026-11-15T16:27:36Z gönderiliyor: doku",
+    "2026-11-15T16:27:36Z görev açıldı: doku=01a1e009-1dbd-77ff-996b-c9d0214e17c3",
+    "2026-11-15T16:28:12Z üretildi: assets/model/yapi/ahir.glb"
+   ],
+   "_sayilan_gorev": [
+    "01a1e008-a79f-775f-965b-613f208691ae",
+    "01a1e009-1dbd-77ff-996b-c9d0214e17c3"
+   ],
+   "dogrulama": {
+    "zaman": "2026-11-15T16:28:12Z",
+    "bilgi": {
+     "dosya": "C:\\Users\\Ahmet\\Desktop\\Cursor_All_DAta\\Kapı_Muhafizi\\assets/model/yapi/ahir.glb",
+     "bayt": 4177292,
+     "gecerli": true,
+     "ucgen": 6309,
+     "mesh": 1,
+     "boyut_m": [
+      0.953,
+      0.651,
+      0.061
+     ],
+     "taban_y": -0.325,
+     "iskelet": 0,
+     "kemik": 0,
+     "animasyon": [],
+     "malzeme": 1,
+     "doku": 3,
+     "uretici": "pygltflib@v1.16.5"
+    },
+    "gozlem": [
+     [
+      "ucgen",
+      "tamam",
+      "6309 üçgen, hedef 6000 (oran 1.05)"
+     ],
+     [
+      "boy",
+      "uyari",
+      "yükseklik 0.65 m, hedef 3.00 m (sapma %78)"
+     ],
+     [
+      "taban",
+      "uyari",
+      "en alt nokta y=-0.325 (pivot ayak tabanında olmalı)"
+     ],
+     [
+      "doku",
+      "tamam",
+      "3 gömülü görsel"
+     ]
+    ]
+   },
+   "hesap_plani_uretimde": "ucretli"
   },
   {
    "asset_id": "kirec_kuyusu",
@@ -7910,21 +7963,80 @@
    "oncelik": "orta",
    "sira": 323,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "planli",
+   "durum": "uretildi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
-   "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "",
+   "meshy_task_id": "01a1e009-fb27-71ba-8d36-85cfc19b3b74",
+   "meshy_gorevleri": {
+    "onizleme": "01a1e009-ab50-76e3-935c-8a1adfee8cfe",
+    "doku": "01a1e009-fb27-71ba-8d36-85cfc19b3b74"
+   },
+   "dosya": "assets/model/yapi/kirec_kuyusu.glb",
    "ek_dosyalar": [],
-   "sha256": "",
-   "kredi_tahmini": 15,
-   "kredi_harcanan": 0,
+   "sha256": "a3ecbf455c7924f777c452ebdbc939820f38f9647e199f5b49d541d570619bc4",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 15,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
    "notlar": [],
-   "hedef_dosya": "assets/model/yapi/kirec_kuyusu.glb"
+   "hedef_dosya": "assets/model/yapi/kirec_kuyusu.glb",
+   "uretim_gunlugu": [
+    "2026-11-15T16:28:12Z gönderiliyor: onizleme",
+    "2026-11-15T16:28:15Z görev açıldı: onizleme=01a1e009-ab50-76e3-935c-8a1adfee8cfe",
+    "2026-11-15T16:28:32Z gönderiliyor: doku",
+    "2026-11-15T16:28:33Z görev açıldı: doku=01a1e009-fb27-71ba-8d36-85cfc19b3b74",
+    "2026-11-15T16:29:17Z üretildi: assets/model/yapi/kirec_kuyusu.glb"
+   ],
+   "_sayilan_gorev": [
+    "01a1e009-ab50-76e3-935c-8a1adfee8cfe",
+    "01a1e009-fb27-71ba-8d36-85cfc19b3b74"
+   ],
+   "dogrulama": {
+    "zaman": "2026-11-15T16:29:17Z",
+    "bilgi": {
+     "dosya": "C:\\Users\\Ahmet\\Desktop\\Cursor_All_DAta\\Kapı_Muhafizi\\assets/model/yapi/kirec_kuyusu.glb",
+     "bayt": 6719752,
+     "gecerli": true,
+     "ucgen": 3962,
+     "mesh": 1,
+     "boyut_m": [
+      0.959,
+      0.641,
+      0.95
+     ],
+     "taban_y": -0.322,
+     "iskelet": 0,
+     "kemik": 0,
+     "animasyon": [],
+     "malzeme": 1,
+     "doku": 3,
+     "uretici": "pygltflib@v1.16.5"
+    },
+    "gozlem": [
+     [
+      "ucgen",
+      "tamam",
+      "3962 üçgen, hedef 4000 (oran 0.99)"
+     ],
+     [
+      "boy",
+      "uyari",
+      "yükseklik 0.64 m, hedef 2.00 m (sapma %68)"
+     ],
+     [
+      "taban",
+      "uyari",
+      "en alt nokta y=-0.322 (pivot ayak tabanında olmalı)"
+     ],
+     [
+      "doku",
+      "tamam",
+      "3 gömülü görsel"
+     ]
+    ]
+   },
+   "hesap_plani_uretimde": "ucretli"
   },
   {
    "asset_id": "demir_madeni",
@@ -7947,21 +8059,80 @@
    "oncelik": "orta",
    "sira": 324,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "planli",
+   "durum": "uretildi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
-   "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "",
+   "meshy_task_id": "01a1e00b-2118-7724-9634-e0be22120f1b",
+   "meshy_gorevleri": {
+    "onizleme": "01a1e00a-ab0b-7532-be29-68fb5fefb71e",
+    "doku": "01a1e00b-2118-7724-9634-e0be22120f1b"
+   },
+   "dosya": "assets/model/yapi/demir_madeni.glb",
    "ek_dosyalar": [],
-   "sha256": "",
-   "kredi_tahmini": 15,
-   "kredi_harcanan": 0,
+   "sha256": "1b44031ca9d2e17c3cf1cd6868d07958094447841baaacac3f0aaf44dff51361",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 15,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
    "notlar": [],
-   "hedef_dosya": "assets/model/yapi/demir_madeni.glb"
+   "hedef_dosya": "assets/model/yapi/demir_madeni.glb",
+   "uretim_gunlugu": [
+    "2026-11-15T16:29:17Z gönderiliyor: onizleme",
+    "2026-11-15T16:29:21Z görev açıldı: onizleme=01a1e00a-ab0b-7532-be29-68fb5fefb71e",
+    "2026-11-15T16:29:48Z gönderiliyor: doku",
+    "2026-11-15T16:29:48Z görev açıldı: doku=01a1e00b-2118-7724-9634-e0be22120f1b",
+    "2026-11-15T16:30:32Z üretildi: assets/model/yapi/demir_madeni.glb"
+   ],
+   "_sayilan_gorev": [
+    "01a1e00a-ab0b-7532-be29-68fb5fefb71e",
+    "01a1e00b-2118-7724-9634-e0be22120f1b"
+   ],
+   "dogrulama": {
+    "zaman": "2026-11-15T16:30:32Z",
+    "bilgi": {
+     "dosya": "C:\\Users\\Ahmet\\Desktop\\Cursor_All_DAta\\Kapı_Muhafizi\\assets/model/yapi/demir_madeni.glb",
+     "bayt": 5697336,
+     "gecerli": true,
+     "ucgen": 5801,
+     "mesh": 1,
+     "boyut_m": [
+      0.96,
+      0.392,
+      0.84
+     ],
+     "taban_y": -0.198,
+     "iskelet": 0,
+     "kemik": 0,
+     "animasyon": [],
+     "malzeme": 1,
+     "doku": 3,
+     "uretici": "pygltflib@v1.16.5"
+    },
+    "gozlem": [
+     [
+      "ucgen",
+      "tamam",
+      "5801 üçgen, hedef 6000 (oran 0.97)"
+     ],
+     [
+      "boy",
+      "uyari",
+      "yükseklik 0.39 m, hedef 3.00 m (sapma %87)"
+     ],
+     [
+      "taban",
+      "uyari",
+      "en alt nokta y=-0.198 (pivot ayak tabanında olmalı)"
+     ],
+     [
+      "doku",
+      "tamam",
+      "3 gömülü görsel"
+     ]
+    ]
+   },
+   "hesap_plani_uretimde": "ucretli"
   },
   {
    "asset_id": "demir_ocagi",
@@ -7984,21 +8155,80 @@
    "oncelik": "orta",
    "sira": 325,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "planli",
+   "durum": "uretildi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
-   "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "",
+   "meshy_task_id": "01a1e00c-4357-7013-ac71-e6634c097a04",
+   "meshy_gorevleri": {
+    "onizleme": "01a1e00b-d036-7464-9558-719d3d28e0a1",
+    "doku": "01a1e00c-4357-7013-ac71-e6634c097a04"
+   },
+   "dosya": "assets/model/yapi/demir_ocagi.glb",
    "ek_dosyalar": [],
-   "sha256": "",
-   "kredi_tahmini": 15,
-   "kredi_harcanan": 0,
+   "sha256": "e0ea71d93f413063f8ed5d895ac5106f08a5d43511566065e30c63ce30c94b7c",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 15,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
    "notlar": [],
-   "hedef_dosya": "assets/model/yapi/demir_ocagi.glb"
+   "hedef_dosya": "assets/model/yapi/demir_ocagi.glb",
+   "uretim_gunlugu": [
+    "2026-11-15T16:30:33Z gönderiliyor: onizleme",
+    "2026-11-15T16:30:36Z görev açıldı: onizleme=01a1e00b-d036-7464-9558-719d3d28e0a1",
+    "2026-11-15T16:31:02Z gönderiliyor: doku",
+    "2026-11-15T16:31:03Z görev açıldı: doku=01a1e00c-4357-7013-ac71-e6634c097a04",
+    "2026-11-15T16:31:56Z üretildi: assets/model/yapi/demir_ocagi.glb"
+   ],
+   "_sayilan_gorev": [
+    "01a1e00b-d036-7464-9558-719d3d28e0a1",
+    "01a1e00c-4357-7013-ac71-e6634c097a04"
+   ],
+   "dogrulama": {
+    "zaman": "2026-11-15T16:31:56Z",
+    "bilgi": {
+     "dosya": "C:\\Users\\Ahmet\\Desktop\\Cursor_All_DAta\\Kapı_Muhafizi\\assets/model/yapi/demir_ocagi.glb",
+     "bayt": 7339384,
+     "gecerli": true,
+     "ucgen": 5546,
+     "mesh": 1,
+     "boyut_m": [
+      0.945,
+      0.588,
+      0.94
+     ],
+     "taban_y": -0.297,
+     "iskelet": 0,
+     "kemik": 0,
+     "animasyon": [],
+     "malzeme": 1,
+     "doku": 3,
+     "uretici": "pygltflib@v1.16.5"
+    },
+    "gozlem": [
+     [
+      "ucgen",
+      "tamam",
+      "5546 üçgen, hedef 6000 (oran 0.92)"
+     ],
+     [
+      "boy",
+      "uyari",
+      "yükseklik 0.59 m, hedef 3.00 m (sapma %80)"
+     ],
+     [
+      "taban",
+      "uyari",
+      "en alt nokta y=-0.297 (pivot ayak tabanında olmalı)"
+     ],
+     [
+      "doku",
+      "tamam",
+      "3 gömülü görsel"
+     ]
+    ]
+   },
+   "hesap_plani_uretimde": "ucretli"
   },
   {
    "asset_id": "muhafiz_kislasi",
@@ -8021,21 +8251,80 @@
    "oncelik": "orta",
    "sira": 326,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "planli",
+   "durum": "uretildi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
-   "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "",
+   "meshy_task_id": "01a1e00d-8911-7342-b1a4-30f2b6a0f5b7",
+   "meshy_gorevleri": {
+    "onizleme": "01a1e00d-150a-762f-aac7-f842ee6472b2",
+    "doku": "01a1e00d-8911-7342-b1a4-30f2b6a0f5b7"
+   },
+   "dosya": "assets/model/yapi/muhafiz_kislasi.glb",
    "ek_dosyalar": [],
-   "sha256": "",
-   "kredi_tahmini": 15,
-   "kredi_harcanan": 0,
+   "sha256": "e749992f56b8388d82d9c8d4b85020dd5934709994213ba39146e0cb22049029",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 15,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
    "notlar": [],
-   "hedef_dosya": "assets/model/yapi/muhafiz_kislasi.glb"
+   "hedef_dosya": "assets/model/yapi/muhafiz_kislasi.glb",
+   "uretim_gunlugu": [
+    "2026-11-15T16:31:56Z gönderiliyor: onizleme",
+    "2026-11-15T16:31:59Z görev açıldı: onizleme=01a1e00d-150a-762f-aac7-f842ee6472b2",
+    "2026-11-15T16:32:25Z gönderiliyor: doku",
+    "2026-11-15T16:32:26Z görev açıldı: doku=01a1e00d-8911-7342-b1a4-30f2b6a0f5b7",
+    "2026-11-15T16:33:28Z üretildi: assets/model/yapi/muhafiz_kislasi.glb"
+   ],
+   "_sayilan_gorev": [
+    "01a1e00d-150a-762f-aac7-f842ee6472b2",
+    "01a1e00d-8911-7342-b1a4-30f2b6a0f5b7"
+   ],
+   "dogrulama": {
+    "zaman": "2026-11-15T16:33:28Z",
+    "bilgi": {
+     "dosya": "C:\\Users\\Ahmet\\Desktop\\Cursor_All_DAta\\Kapı_Muhafizi\\assets/model/yapi/muhafiz_kislasi.glb",
+     "bayt": 6073104,
+     "gecerli": true,
+     "ucgen": 6286,
+     "mesh": 1,
+     "boyut_m": [
+      0.944,
+      0.332,
+      0.759
+     ],
+     "taban_y": -0.163,
+     "iskelet": 0,
+     "kemik": 0,
+     "animasyon": [],
+     "malzeme": 1,
+     "doku": 3,
+     "uretici": "pygltflib@v1.16.5"
+    },
+    "gozlem": [
+     [
+      "ucgen",
+      "tamam",
+      "6286 üçgen, hedef 8000 (oran 0.79)"
+     ],
+     [
+      "boy",
+      "uyari",
+      "yükseklik 0.33 m, hedef 3.50 m (sapma %91)"
+     ],
+     [
+      "taban",
+      "uyari",
+      "en alt nokta y=-0.163 (pivot ayak tabanında olmalı)"
+     ],
+     [
+      "doku",
+      "tamam",
+      "3 gömülü görsel"
+     ]
+    ]
+   },
+   "hesap_plani_uretimde": "ucretli"
   },
   {
    "asset_id": "gozetleme_kulesi",
