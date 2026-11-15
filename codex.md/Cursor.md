@@ -208,3 +208,9 @@ kota görünmüyor
   - SOY-01: Cursor ee863efa kapalıyken Antigravity c27ca221 örtüşen yardımcılar ekledi. Çift yazım; silme kararı Ahmet'te.
 - Çakışma sayılmayanlar: Kalfa→Cursor devri (SAH-50, SAH-55, KVR-SES-01, KAP-18, YAP-03; Ahmet'in talimatı), Usta doğrulamaları (CAT-04, DYL-03), ANL-EPI-01 (veri Antigravity, ekran Kalfa, açıkça bölünmüş), ACL-04 acil hata düzeltmesi.
 - AGENTS.md'ye "Madde sahipliği ve bölüşüm" kuralı eklendi. Ajan Masası'na yazılmadı.
+
+## ROADMAP_3 savaş ön raporu (15 Kasım 2026)
+- Yazılan: `docs/ROADMAP_3_SAVAS_ON_RAPOR.md`. Mevcut savaş kodu ve verisi tarandı (CAT-01..04, ZAR, husumet/tekfur baskını, HAR-10/15), kısa ilham notları, mekanik, dost/düşman ve motor taslağı, ROADMAP_2 bağlantıları, 16 açık soru ve 52 madde başlığı (SVS-01..52).
+- Kod yazılmadı, ROADMAP_2'ye dokunulmadı, ROADMAP_3 dosyası açılmadı. Asset gerekmedi.
+- Dikkat: dünya kitabı oyunu 1243 sonrasına (13. yy Selçuklu ucu) koyuyor, istekte 14. yy Osmanlı uç beyliği yazıyor. Karar açık soru 7.2'de.
+- kota görünmüyor
