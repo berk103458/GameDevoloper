@@ -329,6 +329,7 @@ func _tikla() -> void:
 
 
 func _process(_delta: float) -> void:
+	preload("res://src/koy/kisisel_iz.gd").yenile(self)
 	_cubuk_imleci()
 
 

@@ -295,6 +295,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 			"alinan_akce": int(ek.get("alinan_akce", 0)) + rusvet_akce,
 		}, gun):
 			ek["hafiza_yazildi"] = true
+	preload("res://src/koy/kisisel_iz.gd").karar(self, gelen, karar)
 	preload("res://src/soz/yemin_adaptoru.gd").karar(self, gelen, kaldi)
 	ek["kaldi"] = kaldi
 	muhafiz_tecrubesi += 1

@@ -1,5 +1,49 @@
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
+## SEV-03 — Köyde kişisel iz ve oda rafı bağı / 15 Kasım 2026 (Codex, Berk)
+
+Durum: madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.
+SEV-02 artık `[x]`; Usta 958258d8 ile doğruladı. SEV-01, CAT-04 ve DYL-03 işaretleri korundu.
+kota görünmüyor; asset gerekmedi. Yeni asset üretilmedi/indirilmedi.
+
+Yalnız /workspace/codex/GameDevoloper, claude/festive-volta-li1sfm üzerinde çalışıldı;
+fetch --all --prune ve pull --ff-only güncel döndü, 38a90342 claim yeniden alınmadı.
+İstenen GDScript/sinyal/UI/headless test skill'leri okundu. Issue #11'e yazılmadı.
+Yeni src/koy/kisisel_iz.gd: gerçek Oturum.karar_ver kancası, SevilenYuz.kisisel_iz_birak,
+opsiyonel kadro kisisel_iz alanı, KoyEkrani kadrajında tek BoxMesh + Label3D.
+CHR_017 kabul ve çözülmüş sır kurdeleyi gerçek iş binasına / uygun mevcut ağıla,
+iş binası yokken mevcut ev yanına koyar. Bina/işçi kurulmaz; üretim yazılmaz.
+Kutu bina modelinin dış kenarında zeminin üstündedir. Ölüm, temelli ayrılış ve köyden düşme
+izi siler. Mevcut SevilenYuz.veda_et kendi iz sözlüğünü temizler. Eski kayıt izsiz açılır.
+KoyluKarti'da Kurdele/ Hatıra kelimesi görünür. Rüşvet dağıtımında edinim=rusvet;
+kabul karar tablosundaki gönüllü eşya edinim=gonullu ile mevcut kişisel envantere girer.
+Clue köy izi bu rafa kopyalanmaz; raf aynı Clue'yu tutuyorsa köy izi kaldırılır.
+ODA-03 mevcut sergisinde ekşi/sıcak etiket vardır; yeni raf/model/panel yok.
+CSV'ye dört anahtar eklendi; TR/EN translation dosyaları aynı pakette.
+SEV03-IZ mevcut envanter satırı: yer tutucu düz renk küçük kutu oyuna bağlandı,
+gerçek glTF hâlâ eksik (0,30 m kutu). Başka envanter satırı açılmadı.
+
+Hedefli doğrulama (Godot 4.7.2):
+- godot --headless --path . --import --quit: çıkış 0, SCRIPT ERROR/Failed to load script yok.
+- godot --headless --path . -s res://tests/unit/koy/sevilen_yuz_test.gd: TEST PASS, çıkış 0.
+  İlk koşudaki Ses derleme hatası yeni adaptörün ekran tipi bağımlılığından geldi;
+  Node arayüzü kullanılarak giderildi; sonraki doğrudan -s koşusu hatasız.
+- godot --headless --path . tests/unit/koy/kisisel_iz_oyun_test.tscn: GEÇTİ, 25 kontrol / 0 hata.
+  Gerçek karar, KoyEkrani, kart, MuhafizOdasiEkrani ve oda kutuları; kayıt gidiş dönüşü,
+  eski kayıt, tek iz, ev alternatifi, ölüm/ayrılış, üretim/atama koruması, çift yer engeli.
+- bos_gun_durusu_oyun_test.tscn: GEÇTİ 17 kontrol / 0 hata.
+- tanidik_yuz_oyun_test.tscn: GEÇTİ 35 kontrol / 0 hata.
+- python3 -B tools/metin_dogrula.py --kaynak: PASS.
+- godot --headless --path . --check-only --script res://src/koy/kisisel_iz.gd: çıkış 0.
+- Tam sanity çalıştırılmadı. Mevcut katalog/öğretici eksik metin uyarıları kapsam dışıdır;
+  görsel pencereyle insan doğrulaması yapılmadı. Usta doğrulaması bekleniyor.
+
+Push koruması: fetch origin ardından origin/claude/festive-volta-li1sfm ile ROADMAP diff'i
+satır bazlı denetlendi: fark yalnız SEV-03'ün kendi Görev 22 satırı. Diğer ajan kutuları korundu.
+Eski izlenmeyen .import/.uid dosyaları ve project.godot pakete alınmaz.
+Windows aynaları bu ortamda erişilebilir değil; son kullanıcı talimatıyla yalnız bu çalışma kopyası kullanıldı.
+Sonraki aday SEV-04 hâlâ [ ]; bu görevde üstlenilmedi.
+
 ## SEV-02 — Tanıdık yüzün gerçek ateş bağı / 15 Kasım 2026 (Codex, Berk)
 
 Durum: madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.

@@ -30,6 +30,8 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
   var l:=Label.new()
   l.name="esya_adi"
   l.text="%s · %d adet"%[_ad(kayit),adet]
+  var etiket: String = preload("res://src/koy/kisisel_iz.gd").raf_etiketi(kayit)
+  if not etiket.is_empty(): l.text += " · " + etiket
   l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
   l.size_flags_horizontal=Control.SIZE_EXPAND_FILL
   h.add_child(l)

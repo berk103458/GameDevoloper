@@ -58,6 +58,7 @@ func isim_sor(chr_id: String) -> void:
 	taninan_isimler[chr_id] = true
 
 func veda_et(chr_id: String) -> Dictionary:
+	kisisel_izler.erase(chr_id)
 	# SEV-07: Veda o kişiyi götürür
 	if not ayrilanlar.has(chr_id):
 		ayrilanlar.append(chr_id)
