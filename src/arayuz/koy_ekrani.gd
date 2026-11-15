@@ -706,6 +706,11 @@ func _geceye_gec() -> void:
 	if CenazeYasi.bekliyor(_y): return
 	if preload("res://src/arayuz/koy_hud/kapi_acilis_paneli.gd").ac(self): return
 	if CinarMeclisPaneli.haftalik_ac(self): return
+	if AksamSohbetiPaneli.ac(self, Callable(self, "_geceye_gec_rapor")): return
+	_geceye_gec_rapor()
+
+
+func _geceye_gec_rapor() -> void:
 	if not _gece_kilidi.al():
 		return
 	_gece_dugmesi.disabled = true

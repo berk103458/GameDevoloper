@@ -93,3 +93,18 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` → `CHR KAPI UI: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+### Madde 6A — `ACL-03` (`TAM`)
+- **Değişiklikler:**
+  - `src/koy/aksam_sohbeti.gd`: `durum_al()` / `durum_yukle(v)` ile oturum kayıt serileştirme desteği eklendi.
+  - `src/sistemler/oturum.gd`: `_init` içinde `AksamSohbeti.sifirla()`, `gunun_aksam_kararlari`, `aksam_sohbeti_gece`, `_es_bilgisi()`, `_meclis_gecesi_mi()`, `aksam_sohbeti_ekle`, `aksam_sohbeti_hazirla`, `aksam_sohbeti_uygula`, `aksam_sohbeti_atla` ve `kaydet`/`kayittan` eklendi.
+  - `src/arayuz/koy_hud/aksam_sohbeti_paneli.gd`: Yeni `AksamSohbetiPaneli` (`ARY-04` `_kart_ac` çerçevesi, cevap düğmeleri + `AksamAtla` düğmesi, kalp/ses yok) eklendi.
+  - `src/arayuz/koy_ekrani.gd`: `_geceye_gec()` içinde rapor öncesinde tek satır `AksamSohbetiPaneli.ac(...)` çağrısı ile `_geceye_gec_rapor()` bağlandı.
+  - `tests/unit/koy/aksam_sohbeti_test.gd` & `tests/oto/aksam_sohbeti_kontrol.{gd,tscn}`: Gerçek `Oturum` + `KoyEkrani` akşam sohbeti UI tetik, atlama, tekrar=0 ve meclis=0 doğrulamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `ACL-03` → `TAM`.
+- **Hedefli test çıktıları (son satırlar):**
+  - `Godot.exe --headless --path . -s res://tests/unit/koy/aksam_sohbeti_test.gd` → `TEST PASS: aksam_sohbeti_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/aksam_sohbeti_kontrol.tscn` → `AKSAM SOHBETI UI: GEÇTİ (0 hata)` (`RC=0`)
+  - `Godot.exe --headless --path . res://tests/oto/gece_gecis_kontrol.tscn` → `GECE GEÇİŞİ: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

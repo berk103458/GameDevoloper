@@ -35,6 +35,25 @@ static func sifirla() -> void:
 static func hafiza_al() -> Dictionary:
 	return _es_hafizasi.duplicate(true)
 
+
+static func durum_al() -> Dictionary:
+	return {
+		"islenen": _islenen_karar_anahtarlari.duplicate(),
+		"es_hafizasi": _es_hafizasi.duplicate(true)
+	}
+
+
+static func durum_yukle(v: Variant) -> void:
+	sifirla()
+	if not (v is Dictionary):
+		return
+	var d: Dictionary = v
+	for a in d.get("islenen", []):
+		_islenen_karar_anahtarlari.append(str(a))
+	var h: Variant = d.get("es_hafizasi", {})
+	if h is Dictionary:
+		_es_hafizasi = (h as Dictionary).duplicate(true)
+
 ## Konu seçimi: Kararlar arasından ağırlığı en yüksek, eşitlikte ziyaret sırası en büyük olanı seçer.
 static func konu_sec(kararlar: Array, gun: int = 1, baglam: Dictionary = {}) -> Dictionary:
 	# Uç durumlar: eş ölmüşse veya meclis gecesiyse sohbet açılmaz.

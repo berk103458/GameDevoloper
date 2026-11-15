@@ -107,6 +107,7 @@ func _init(katalog_: Katalog, tohum_: int = 0) -> void:
 	yonetim = KoyYonetimi.new(katalog.koy_ayarlari, katalog.binalar, tohum + 4)
 	koy = KoyNufusu.new()
 	kadro = KarakterKadrosu.new(katalog, _rng_donus, _rng_ad)
+	AksamSohbeti.sifirla()
 
 
 
@@ -329,6 +330,7 @@ func gece_sonu() -> Dictionary:
 			return not olay.has("sancak_teftisi") and olay.get("anahtar") != SancakAskerTalebi.AYAR.haber)
 	_koy_esitle()
 	kadro.gece_bitti()
+	gunun_aksam_kararlari.clear()
 	var sonuc := {"olaylar": r["olaylar"], "kirilan": -1, "rusvet_harcandi": -1, "son": StringName(r["son"]),
 		"perde_degisti": not agalik_once and yonetim.agalik, "olay": null, "rapor": r}
 	if r["son"] == "" and not sonuc["perde_degisti"]:
@@ -783,7 +785,92 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 var ipucu_kaydi := IpucuKaydi.new()
 var son_kaydi := SonKaydi.new()
 var gecikmeli_kuyruk: Array[Dictionary] = []
+var gunun_aksam_kararlari: Array[Dictionary] = []
+var aksam_sohbeti_gece: int = -1
 var ilk_saat_gelen: int = 0
+
+
+func _es_bilgisi() -> Dictionary:
+	var es_id := int(preload("res://src/sistemler/acilis_senaryosu.gd").durum(self).get("es_id", -1))
+	if es_id <= 0:
+		return {"es_id": -1, "es": null, "es_hayatta": false, "es_meslegi": "dokumaci"}
+	var es := yonetim.koylu(es_id)
+	var hayatta := es != null and es.saglik > 0
+	var meslek := "dokumaci"
+	if es != null:
+		var s := String(es.sinif).to_lower()
+		if s in ["dokumaci", "firinci", "ebe"]:
+			meslek = s
+		elif es.zanaat_turu == ZanaatTuru.Tur.BEZCI:
+			meslek = "dokumaci"
+		elif es.zanaat_turu == ZanaatTuru.Tur.DEGIRMENCI:
+			meslek = "firinci"
+		elif es.zanaat_turu == ZanaatTuru.Tur.OTACI or es.zanaat_turu == ZanaatTuru.Tur.CERRAH:
+			meslek = "ebe"
+		elif not s.is_empty():
+			meslek = s
+	return {"es_id": es_id, "es": es, "es_hayatta": hayatta, "es_meslegi": meslek}
+
+
+func aksam_sohbeti_ekle(konu_id: String, ziyaret_sirasi: int = -1) -> void:
+	if konu_id.strip_edges().is_empty():
+		return
+	var sira := ziyaret_sirasi if ziyaret_sirasi >= 0 else gunun_aksam_kararlari.size()
+	gunun_aksam_kararlari.append({"konu_id": konu_id, "ziyaret_sirasi": sira})
+
+
+func _meclis_gecesi_mi() -> bool:
+	var md := CinarAltiMeclisi.durum(yonetim)
+	if CinarAltiMeclisi.haftalik_bekliyor(yonetim) or MeclisSesi.haftalik_mi(yonetim):
+		return true
+	if int(md.get("son_gun", -1)) == yonetim.gun or int(md.get("haftalik_gun", -1)) == yonetim.gun:
+		return true
+	var oylama: Variant = md.get("oylama", {})
+	return oylama is Dictionary and not (oylama as Dictionary).is_empty() and String((oylama as Dictionary).get("karar", "")) == ""
+
+
+## ACL-03: Gece raporundan önce en çok 1 akşam sohbeti konusu seçer; meclis/ölü eş/tekrarda boş döner.
+func aksam_sohbeti_hazirla(ek_baglam: Dictionary = {}) -> Dictionary:
+	if aksam_sohbeti_gece == gun:
+		return {}
+	if preload("res://src/sistemler/kapi_acilis_olayi.gd").gece_engelli(self):
+		return {}
+	if _meclis_gecesi_mi() or bool(ek_baglam.get("meclis_gecesi", false)):
+		return {}
+	if gunun_aksam_kararlari.is_empty():
+		return {}
+	var es_bilgi := _es_bilgisi()
+	if bool(ek_baglam.get("es_oldu", false)) or not bool(es_bilgi["es_hayatta"]):
+		return {}
+	var baglam := {
+		"es_hayatta": true,
+		"es_oldu": false,
+		"es_meslegi": String(ek_baglam.get("es_meslegi", es_bilgi["es_meslegi"])),
+		"meclis_gecesi": false,
+	}
+	var secim := AksamSohbeti.konu_sec(gunun_aksam_kararlari, gun + 1, baglam)
+	if not secim.is_empty():
+		aksam_sohbeti_gece = gun
+	return secim
+
+
+func aksam_sohbeti_uygula(konu_id: String, cevap_tipi: String) -> Dictionary:
+	aksam_sohbeti_gece = gun
+	var sonuc := AksamSohbeti.cevap_ver(konu_id, cevap_tipi, {"gun": gun + 1})
+	if sonuc.is_empty():
+		return {}
+	var es := _es_bilgisi().get("es") as Koylu
+	var delta := int(sonuc.get("moral_etkisi", 0))
+	if es != null and es.saglik > 0 and delta != 0:
+		es.moral = clampi(es.moral + delta, 0, 100)
+	if not String(sonuc.get("terazi", "")).is_empty():
+		set_meta(&"aksam_son_terazi", String(sonuc.get("terazi", "")))
+	return sonuc
+
+
+func aksam_sohbeti_atla() -> Dictionary:
+	aksam_sohbeti_gece = gun
+	return AksamSohbeti.atla()
 
 
 ## OMR-17: Seçilen son ve epilog verisini oturumun son kaydına işler.
@@ -833,6 +920,12 @@ func kaydet() -> Dictionary:
 		veri["ilk_saat_gelen"] = ilk_saat_gelen
 	if not gecikmeli_kuyruk.is_empty():
 		veri["gecikmeli_kuyruk"] = gecikmeli_kuyruk.duplicate(true)
+	if aksam_sohbeti_gece >= 0 or not gunun_aksam_kararlari.is_empty():
+		veri["aksam_sohbeti"] = {
+			"gece": aksam_sohbeti_gece,
+			"kararlar": gunun_aksam_kararlari.duplicate(true),
+			"durum": AksamSohbeti.durum_al(),
+		}
 	son_kaydi.kayda_yaz(veri)
 	return veri
 
@@ -895,6 +988,14 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.ipucu_kaydi.kayittan_oku(veri)
 	o.son_kaydi.kayittan_oku(veri)
 	o.gecikmeli_kuyruk = KararDonusu.oku(veri.get("gecikmeli_kuyruk", []))
+	var ak_v: Variant = veri.get("aksam_sohbeti", {})
+	if ak_v is Dictionary:
+		var ak_d: Dictionary = ak_v
+		o.aksam_sohbeti_gece = int(ak_d.get("gece", -1))
+		for k_item in ak_d.get("kararlar", []):
+			if k_item is Dictionary:
+				o.gunun_aksam_kararlari.append((k_item as Dictionary).duplicate(true))
+		AksamSohbeti.durum_yukle(ak_d.get("durum", {}))
 	o.ilk_saat_gelen = GeceBilancosu.ilk_saat_gelen_oku(veri.get("ilk_saat_gelen"))
 	if GeceBilancosu.kisa_mi(o) and veri.has("ilk_gece_gelenleri"):
 		o.set_meta(GeceBilancosu.GELEN_META, GeceBilancosu.gelenleri_oku(veri["ilk_gece_gelenleri"]))

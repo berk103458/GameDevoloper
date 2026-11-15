@@ -48,6 +48,36 @@ func _init() -> void:
 	if ".ogg" in json_str.to_lower() or ".wav" in json_str.to_lower() or ".mp3" in json_str.to_lower():
 		hatalar.append("Sohbet verisinde ses dosyası referansı bulundu!")
 
+	# 7. Gerçek Oturum üzerinden ACL-03 tetik, tek-gece kilidi, atlama, ölü eş ve meclis engeli
+	var katalog := Katalog.new()
+	katalog.yukle()
+	var oturum := Oturum.new(katalog, 9101)
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum)
+	var es_id := int(preload("res://src/sistemler/acilis_senaryosu.gd").durum(oturum).get("es_id", -1))
+	var es := oturum.yonetim.koylu(es_id)
+	var es_once_moral := es.moral if es != null else 60
+	oturum.aksam_sohbeti_ekle("aileyi_bolmek", 1)
+	if not oturum.aksam_sohbeti_hazirla({"meclis_gecesi": false}).is_empty():
+		hatalar.append("ACL-04 ilk aile kararı öncesi akşam sohbeti açılmamalı!")
+	oturum.gun = 1
+	var ilk := oturum.aksam_sohbeti_hazirla({"meclis_gecesi": false})
+	if String(ilk.get("konu_id", "")) != "aileyi_bolmek":
+		hatalar.append("Gerçek oturumda akşam sohbeti konusu seçilmedi!")
+	var ikinci := oturum.aksam_sohbeti_hazirla({"meclis_gecesi": false})
+	if not ikinci.is_empty():
+		hatalar.append("Aynı gecede ikinci kez akşam sohbeti açılmamalı!")
+	oturum.aksam_sohbeti_atla()
+	if es != null and es.moral != es_once_moral:
+		hatalar.append("Atlama gerçek eşin moralini değiştirmemeli!")
+	oturum.gun += 1
+	oturum.aksam_sohbeti_ekle("rusvet_almak", 2)
+	if not oturum.aksam_sohbeti_hazirla({"meclis_gecesi": true}).is_empty():
+		hatalar.append("Meclis gecesinde gerçek oturum akşam sohbeti açmamalı!")
+	if es != null:
+		es.saglik = 0
+	if not oturum.aksam_sohbeti_hazirla({"meclis_gecesi": false}).is_empty():
+		hatalar.append("Eş ölmüşken gerçek oturum akşam sohbeti açmamalı!")
+
 	if not hatalar.is_empty():
 		for h in hatalar:
 			push_error(h)
