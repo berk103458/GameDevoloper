@@ -40,6 +40,7 @@ func faz(ad: StringName, izin: bool) -> void:
  mesale.visible = _gece
  kalkan.visible = not _gece
  isik.visible = _isik_acik
+ isik.light_energy = float(AYAR.isik_gucu) if _isik_acik else 0.0
 ## Görev kalkınca mevcut CHR taşıma eşyalarını geri görünür yapar.
 func kaldir() -> void:
  for e in _eski:
