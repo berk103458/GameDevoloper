@@ -1,4 +1,4 @@
-﻿keys,tr,en
+keys,tr,en
 anlati.ambar,"Ambar: +%d ürün, −%d tüketim.","Granary: +%d goods, −%d consumed."
 anlati.baski.gida,Ambar boşaldı. Halk aç yattı.,The granary ran empty. The folk went to bed hungry.
 anlati.baski.ordu,Uzakta Tekfur'un adamlarının ateşleri görüldü.,The fires of the Tekfur's men were sighted in the distance.
@@ -2437,6 +2437,7 @@ ogretici.gecmis.medrese_talebesi,Kamış kalemin ucu çatlayınca hoca elime yen
 ogretici.gecmis.coban_oglu,Babam koyunları sayarken değneği dizine dayardı.,Father rested his staff on his knee as he counted the sheep.
 ogretici.kapi.konu,Aileye neden geldiklerini sorayım.,I should ask why the family came.
 ogretici.kapi.karar,Dinledim. Şimdi kabul ya da ret kararımı onaylayayım.,I have heard them. Now I can confirm admission or refusal.
+ogretici.kapi.beyan_defteri,Sözlerinde çelişki yakalandı! Beyan defterinden önceki sözlerini inceleyebilirsin.,A contradiction appeared! Check the statement book to review earlier words.
 ogretici.koy.hiz,Hız: {hiz_1} · {hiz_2} · {hiz_3}. Dur: {hiz_dur}.,Speed: {hiz_1} · {hiz_2} · {hiz_3}. Pause: {hiz_dur}.
 arayuz.duraklat.kapi_usulu,Kapı usulü,Gate handbook
 ogretici.usul.kapi.1,Kapı: Önce selam ver ve geliş nedenini sor.,Gate: Greet the visitor and ask why they came.

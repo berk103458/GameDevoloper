@@ -40,6 +40,13 @@ static func diyalog_goster(ekran: Control, gelen: Gelen, secenekler: VBoxContain
 	secenekler.add_child(panel)
 	inceleme_dugmesi(ekran, gelen, eylemler)
 	beyan_defteri_dugmesi(ekran, gelen, eylemler, panel)
+	var guncelle_defter := func(_arg: Variant = null) -> void:
+		if is_instance_valid(ekran) and is_instance_valid(eylemler):
+			beyan_defteri_dugmesi(ekran, gelen, eylemler, panel)
+	if not sorgu.ipucu_bulundu.is_connected(guncelle_defter):
+		sorgu.ipucu_bulundu.connect(guncelle_defter)
+	if not sorgu.replik_basladi.is_connected(guncelle_defter):
+		sorgu.replik_basladi.connect(guncelle_defter)
 	return true
 
 static func inceleme_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxContainer) -> Button:
@@ -74,6 +81,15 @@ static func beyan_defteri_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxCo
 	var celiski: RefCounted = sorgu.celiski_durumu if sorgu != null else (motor.celiski() if motor != null else null)
 	if sorgu == null and (motor == null or motor.beyan_defteri.is_empty()):
 		return null
+	if eylemler == null:
+		return null
+	if not DefterTanitimi.kontrol_ve_tanit(ekran, oturum, celiski, motor, defter, sorgu):
+		return null
+	for c in eylemler.get_children():
+		if c.name == "BeyanDefteriDugmesi":
+			if not c.is_queued_for_deletion():
+				return c as Button
+			eylemler.remove_child(c)
 	var dugme := Button.new()
 	dugme.name = "BeyanDefteriDugmesi"
 	dugme.text = "Göster · Beyan Defteri"
