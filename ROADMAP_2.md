@@ -1961,7 +1961,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.2 Yemin, yalan, söz
 
-- [ ] **DYL-03:** (Antigravity) Yemin ettirmek. (doğrulanmadı — Görev 22; Yemin (src/soz/yemin.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **DYL-03:** (Codex) Yemin ettirmek. (doğrulanmadı — Görev 22; Yemin (src/soz/yemin.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Oyuncu ziyarette bir kez "El bas, yemin et" der. Yemin şekli karakterin inancına göre dünya kitabından gelir; uymayan şekil hakarettir. Tutum dört türden biridir: eder, kıvranır, rahat ya da reddeder. Yemin zar açmaz. Bozulan yemin bir kez ceza yazar. İnanç alanı boşsa düğme gizlenir.
   - Kurallar:
     1. Seçenek: "El bas, yemin et." Ziyaret başına bir kez kullanılır.
