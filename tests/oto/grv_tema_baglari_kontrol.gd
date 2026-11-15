@@ -5,6 +5,7 @@ extends Node
 ## her dosya oyunda başka bir betikten çağrılır.
 
 const DOSYALAR := {
+	"GRV-32": "res://src/arayuz/chr_inceleme_paneli.gd",
 	"GRV-65": "res://src/arayuz/koy_hud/muhafiz_odasi_baglantisi.gd",
 	"GRV-66": "res://src/arayuz/koy_hud/pazar_satis_paneli.gd",
 	"GRV-67": "res://src/arayuz/koy_hud/saman_bilgisi.gd",

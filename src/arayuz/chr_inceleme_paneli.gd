@@ -22,7 +22,7 @@ func _ready() -> void:
 	add_child(kutu)
 	var baslik := Label.new()
 	baslik.text = "Nişan ve yük incelemesi"
-	baslik.add_theme_font_size_override("font_size", 28)
+	baslik.add_theme_font_size_override("font_size", Tema.BASLIK_PX)
 	kutu.add_child(baslik)
 	var nisani := Button.new()
 	nisani.text = "Nişanı / mührü incele"
@@ -51,7 +51,7 @@ func _ready() -> void:
 	kutu.add_child(iz_etiketi)
 	_aciklama = RichTextLabel.new()
 	_aciklama.custom_minimum_size = Vector2(950, 290)
-	_aciklama.add_theme_font_size_override("normal_font_size", 24)
+	_aciklama.add_theme_font_size_override("normal_font_size", Tema.KUCUK_PX)
 	kutu.add_child(_aciklama)
 	var kapat := Button.new()
 	kapat.text = "Sorguya dön"

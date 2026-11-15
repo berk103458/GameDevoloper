@@ -1390,3 +1390,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `sevilen_yuz_test.gd`, `koy_yonetimi_test.gd`, `bos_gun_durusu_oyun_test.tscn`, `kisisel_iz_oyun_test.tscn`, `tek_istek_oyun_test.tscn`, `ates_basi_rutini_kontrol.tscn`, `admin_koylu_kontrol.tscn`, `acilis_koy_kontrol.tscn` 0 hata ile geçti.
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor.
+
+### 2026-11-15 — `GRV-32` Tamamlandı
+- **Yapılan:** `src/arayuz/chr_inceleme_paneli.gd` içindeki ham punto değerleri (`28`, `24`) `Tema.BASLIK_PX` ve `Tema.KUCUK_PX` ile değiştirildi; `tests/oto/grv_tema_baglari_kontrol.gd` taramasına `GRV-32` eklendi.
+- **Testler:** `grv_tema_baglari_kontrol.tscn` (34 dosya) ve `chr_kapi_kontrol.tscn` 0 hata ile geçti.
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.
