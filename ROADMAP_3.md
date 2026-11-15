@@ -70,7 +70,7 @@
   - **Amaç:** Oyuncunun kadın ve genç köylülerin savaşa katılıp katılmayacağını oyun başında ve oyun ortasında belirleyebilmesini sağlamak.
   - **Kapsam:** Katılım bayrağı (varsayılan `true`), ayarlar paneli ve yeni oyun seçeneği bağlantısı, çocukların (`yas_grubu == "cocuk"`) her koşulda savaş dışı bırakılması dahildir. Birim dönüştürme mantığı `SVS-03`'tedir.
   - **Bağımlılıklar:** `SVS-01`, `ROADMAP_2` Bölüm 35 (ayarlar paneli).
-  - **Etkilenen dosya ve klasörler:** Yeni `src/savas/katilim_ayari.gd`; mevcut `src/arayuz/ayarlar_paneli.gd` ve `src/arayuz/yeni_oyun_ekrani.gd` içine ince adaptör. Korumalı çekirdeğe dokunulmaz.
+  - **Etkilenen dosya ve klasörler:** Yeni `src/savas/katilim_ayari.gd`; mevcut `src/arayuz/ayarlar_ekrani.gd` ve `src/arayuz/yeni_oyun_ekrani.gd` içine ince adaptör. Korumalı çekirdeğe dokunulmaz.
   - **Veri şeması:** `ayarlar`: `{"savas_kadin_genc_katilimi": bool}` (varsayılan `true`).
   - **Kabul ölçütleri:** Varsayılan değer `true`'dur; ayar oyun ortasında `false` yapılınca sonraki savaş aday listesinde kadın/genç sayısı `0` olur; çocuk sayısı her iki durumda `0` kalır.
   - **Testler:** `tests/unit/savas/katilim_ayari_test.gd` (varsayılan açık, oyun ortası değişim, çocuk hariç tutma).
@@ -169,7 +169,7 @@
 - [ ] **SVS-06.b:** Sınıf ve birim özel yetenekleri tablosu (maliyet, bekleme, karşı oynanış)
   - **Amaç:** Her sınıf ve birimin aktif/pasif yeteneklerini bekleme süresi, eylem/yorgunluk maliyeti ve açık karşı oynanış kuralıyla tek tabloda yönetmek. Yetenek başına ayrı madde açılmaz.
   - **Kapsam:** Tek `yetenekler.json` tablosunda tüm yetenekler:
-    1. `emir` (Muhafız/Çavuş — `1` eylem, `2` yorgunluk, bekleme `2` tur, menzil `3`, dost birime `+1` eylem veya `+15` moral; **karşı oynanış:** komutanı kuşat/sersemlet).
+    1. `emir` (Muhafız/Çavuş — `1` eylem, `2` yorgunluk, bekleme `2` tur, menzil `3`, dost birime `+15` moral, ek eylem dalı K2 nedeniyle karar bekler; **karşı oynanış:** komutanı kuşat/sersemlet).
     2. `kalkan_duvari` (Yaya/Tekfur — `1` eylem, `2` yorgunluk, bekleme `1` tur, `+2` savunma ve ok atışına `+3`; **karşı oynanış:** `topuz`/`arbalet` zırh delme veya `yan_saldiri`).
     3. `karsilama_mizragi` (Mızraklı — `1` eylem, `1` yorgunluk, bekleme `0`, yaklaşan ilk düşmana öncelikli saldırı; **karşı oynanış:** menzilli ateş veya `sersemledi`).
     4. `bandaj_kaldir` (Hekim — `2` eylem, `2` yorgunluk, bekleme `2` tur, menzil `1`, düşen dostu `3` HP ile ayağa kaldırır; **karşı oynanış:** hekime menzilli baskı).
@@ -185,6 +185,7 @@
   - **Asset:** Eylem çubuğu yetenek ikonları `docs/EKSIK_ASSET_ENVANTERI.md` (2B başlığı) altına yazılır.
   - **Metin anahtarları:** `svs.yetenek.<id>`, `svs.yetenek.<id>_aciklama` (TR ve EN).
   - **Sahip:** baştan.
+  - **Kabul engeli:** Ek eylem dalı, Antigravity sorusu yanıtlanınca doğrulanır.
 
 ---
 
@@ -250,9 +251,9 @@
     2. Geçerli birleşimler: `hareket + eylem`, `eylem + hareket`, `hareket + hareket` (koşu), `eylem + pas`.
     3. Ağır eylemler (`arbalet` atışı, `nisanli_atis`, `kapi_baltasi`, `bandaj_kaldir`): yalnızca `2` eylem mevcutken kullanılabilir ve turu sonlandırır.
     4. Yorgunluk tavanı (`SVS-16`) veya `sersemledi` durumu altındaki birimin `1` eylemle sınırlanması; `düştü` (`can == 0`) birimin `0` eylemi olması.
-  - **Bağımlılıklar:** `SVS-04.a`, `SVS-06.b`, `SVS-10`, `K2`.
+  - **Bağımlılıklar:** `SVS-04.a`, `SVS-10`, `K2`.
   - **Etkilenen dosya ve klasörler:** Yeni `src/savas/eylem_modeli.gd`. Korumalı çekirdeğe dokunulmaz.
-  - **Veri şeması:** veri yok (`silahlar.json` ve `yetenekler.json` içindeki `eylem_bedeli` / `agir_eylem_mi` alanlarını okur).
+  - **Veri şeması:** veri yok (motor, çağıranın geçtiği `eylem_bedeli` / `agir_eylem_mi` değerini uygular, yetenek tablosu SVS-06.b'de bağlanır).
   - **Kabul ölçütleri:** `1` eylem harcandıktan sonra `agir_eylem_mi == true` olan eylem seçilemez; ağır eylem kullanılınca kalan eylem `0` olur; düştü durumundaki birimin eylem hakkı `0`'dır.
   - **Testler:** `tests/unit/savas/eylem_modeli_test.gd` (tüm ikili kombinasyonlar, ağır eylem kilidi, düştü/kısıtlı tur).
   - **Asset:** asset gerekmedi.
@@ -291,7 +292,7 @@
   - **Amaç:** Savaş zarını mevcut `SorguZari` kurallarıyla (`d6`/`d12`, `zar >= gerekli`, tavan daima başarı, `1` daima başarısız, tek `basari_olasiligi` yolu) kurmak ve isabet eden saldırıda sayısal HP hasarını düşmek.
   - **Kapsam:**
     1. `SavasZari` adaptörü (`SorguZari.olasilik` ve `SorguZari.basarili` üzerinden, ikinci hesap yolu açmadan).
-    2. İsabet formülü: `d12 >= hedef_savunma + mesafe_eki + siper_eki + moral_eki + yorgunluk_eki - saldiri` (`1` her zaman ıska, `12` her zaman isabet).
+    2. İsabet formülü: `d12 >= hedef_savunma + mesafe_eki + siper_eki + moral_eki + yorgunluk_eki - saldiri` (eşik `12` üstündeyse `SorguZari.kilitli` ile atış yok ve olasılık `0`. Açık atışta `1` ıska, `12` isabet).
     3. HP hasarı (K3): `max(1, silah_hasari + d6 - max(0, zirh_puani - zirh_delme))`.
   - **Bağımlılıklar:** `SVS-11.a`, `SVS-12`, `ROADMAP_2` (`ZAR-01..06`), `K3`.
   - **Etkilenen dosya ve klasörler:** Yeni `src/savas/savas_zari.gd`, `data/savas/isabet_kurallari.json`. Korumalı çekirdeğe dokunulmaz.
@@ -305,7 +306,7 @@
 - [ ] **SVS-14:** HP sıfırda "düştü" durumu ve savaş sonu yara/sakatlık zarı (K3, K4)
   - **Amaç:** Savaş içinde HP `0`'a inen karakterin eylemsiz `"düştü"` durumuna geçmesini ve savaş sonunda düşenler için ağır sonuçlu ama okunaklı yara/sakatlık zarı atılmasını sağlamak.
   - **Kapsam:**
-    1. HP `0` anında `"düştü"` bayrağı (haritada yatar, düşman esir alabilir/öldürebilir, hekim `bandaj_kaldir` ile kaldırabilir).
+    1. HP `0` anında birim `"düştü"` durumunda haritada yatar. Esir adaylığını SVS-34.a belirler. Ölüm ve yarayı savaş sonu zarı belirler. Hekimin `bandaj_kaldir` yeteneği Muhafız'ın SVS-18.a mağlubiyet kilidini açamaz.
     2. Savaş sonunda her düşen için `d12` yara/sakatlık zarı (`1–3` ölüm, `4–6` ağır yara, `7–8` kalıcı sakatlık, `9–12` hafif yara) ve değiştiriciler (hekim `+2`, şifahane `+1`, ağır silah `-1`, düşman elinde kaldı `-2`).
     3. **Muhafız kuralı (K4):** Muhafız ölüm satırına asla girmez; `d12 <= 6` gelse bile sonuç en kötü `agir_yara` olur.
   - **Bağımlılıklar:** `SVS-13`, `K3`, `K4`.
@@ -535,7 +536,7 @@
     2. "Askerle karşılık" seçilince alt seçim: `adamlari_gonder` (`1–3` asker vs `1–3` saldırgan) veya `muhafiz_duellosu` (`1v1` Muhafız vs kapıdaki karakter).
     3. Eski tek zar sonucunun oyuncuya kapalı kalması.
   - **Bağımlılıklar:** `SVS-09`, `ROADMAP_1` (`CAT-01`, `CAT-02`), `K11`.
-  - **Etkilenen dosya ve klasörler:** Mevcut `src/kapi/kapi_kavgasi.gd` ve `src/arayuz/kapi_kavgasi_paneli.gd` içine ince adaptör. Korumalı çekirdeğe dokunulmaz.
+  - **Etkilenen dosya ve klasörler:** Mevcut `src/kapi/kapi_kavgasi.gd` ve `src/kapi/kapi_kavgasi_paneli.gd` içine ince adaptör. K11 seçeneklerinin sahibi bu adaptördür, SVS-31 aynı seçenekleri buradan alır. Korumalı çekirdeğe dokunulmaz.
   - **Veri şeması:** veri yok (`data/kapi_kavgasi.json` tetikleyicisini okur).
   - **Kabul ölçütleri:** Kapı kavgası panelinde ana seçenek sayısı `4` kalır; "askerle karşılık" tıklandığında eski tek zar sonucu yerine iki K11 yolu sunulur.
   - **Testler:** `tests/unit/savas/kapi_arbedesi_secim_test.gd` (4 seçenek sınırı, 2 yol açılışı, eski tek zar yolunun kapalı olması).
@@ -564,7 +565,7 @@
   - **Bağımlılıklar:** `SVS-12`, `SVS-18.a`, `SVS-21`, `ROADMAP_1` (`CAS-08`, `MEV-10`, `BUG-18`).
   - **Etkilenen dosya ve klasörler:** Yeni `src/savas/turler/gece_baskini_akisi.gd`; mevcut `src/koy/husumet_baskini.gd` içine ince adaptör. Korumalı çekirdeğe dokunulmaz.
   - **Veri şeması:** `data/savas/senaryolar/gece_baskini.json`: `{hedef_binalar, ganimet_calma_turu, kurt_varyanti_parametreleri}`.
-  - **Kabul ölçütleri:** Nüfus eşiği altındayken (`BUG-18` / `OMR-42`) kurt dışı gece baskını açılmaz; gece görüş kısıtı aktiftir; baskın sonucu mevcut husumet/stok alanlarına yazar.
+  - **Kabul ölçütleri:** Nüfus eşiği altındayken (`BUG-18` / `OMR-42`) kurt dışı gece baskını açılmaz; gece görüş kısıtı aktiftir; baskın sonucu, hedef bina ve kayıp verileriyle sonuç adaptörüne iletilir. Ortak husumet güncellemesi SVS-37'ye aittir.
   - **Testler:** `tests/unit/savas/gece_baskini_test.gd` (gece görüşü, `BUG-18` kapısı, ambar hedefleme).
   - **Asset:** asset gerekmedi.
   - **Metin anahtarları:** `svs.baskin.baslik`, `svs.baskin.karaboran` (TR ve EN).
@@ -588,15 +589,15 @@
   - **Sahip:** baştan.
 
 - [ ] **SVS-25.b:** Çok aşamalı kuşatma akışı (kapı, gedik ve iç avlu)
-  - **Amaç:** Tekfur kuşatmasının kapı zorlama, gedik açılışı ve iç avlu savunması aşamalarıyla oynanmasını ve `SON_TEKFUR` sonucuna bağlanmasını sağlamak.
+  - **Amaç:** Tekfur kuşatmasının kapı zorlama, gedik açılışı ve iç avlu savunması aşamalarıyla oynanmasını ve köy sonu adaptörüne kuşatma sonucunu teslim etmek.
   - **Kapsam:**
     1. **Evre 1 (Yaklaşma ve sur ateşi):** Tekfur yayaları kalkan duvarıyla kapıya yaklaşırken sur okçuları yüksekten ateş eder.
     2. **Evre 2 (Kapı ve sur zorlama):** Balta ve ateşle kapı sağlamlığı (`SVS-26`) düşürülür.
-    3. **Evre 3 (Gedik ve iç avlu):** Kapı sağlamlığı `0` olunca iç avlu geçidi açılır; savunma veya mağlubiyet (`SON_TEKFUR`) burada kesinleşir. `savunma_gucu()` formülü silinmez ama kuşatma sonucu savaşla belirlenir.
+    3. **Evre 3 (Gedik ve iç avlu):** Kapı sağlamlığı `0` olunca iç avlu geçidi açılır; savaşın galibiyet veya mağlubiyeti burada kesinleşir. `SON_TEKFUR` dönüşümü SVS-51'e aittir. `savunma_gucu()` formülü silinmez ama kuşatma sonucu savaşla belirlenir.
   - **Bağımlılıklar:** `SVS-25.a`, `SVS-26`, `SVS-18.b`.
   - **Etkilenen dosya ve klasörler:** `src/savas/turler/kusatma_akisi.gd` (evre geçişleri). Korumalı çekirdeğe dokunulmaz.
   - **Veri şeması:** `tekfur_kusatmasi.json` içindeki `evre_gecis_kosullari` alanı.
-  - **Kabul ölçütleri:** Kapı sağlamlığı `0` olunca iç avlu hücreleri geçilebilir hale gelir; kuşatma mağlubiyeti `SON_TEKFUR` bayrağını tetikler; `savunma_gucu()` mevcut testleri bozulmaz.
+  - **Kabul ölçütleri:** Kapı sağlamlığı `0` olunca iç avlu hücreleri geçilebilir hale gelir; kuşatma mağlubiyeti SVS-51'in okuyacağı savaş sonucu olarak döner; `savunma_gucu()` mevcut testleri bozulmaz.
   - **Testler:** `tests/unit/savas/kusatma_akisi_test.gd` (kapı gediği açılışı, 3 evre geçişi, mağlubiyet/galibiyet bayrağı).
   - **Asset:** asset gerekmedi.
   - **Metin anahtarları:** `svs.kusatma.gedik_acildi`, `svs.kusatma.ic_avlu` (TR ve EN).
@@ -654,7 +655,7 @@
   - **Amaç:** İttifak (`HAR-07`) veya büyük tehditte uç beyi/subaşı talebiyle (`HAR-04`) savaşa dost takviye birimlerinin katılmasını sağlamak.
   - **Kapsam:** `oba_ittifaki.gd` aktifken Türkmen oba atlısı (alp) takviyesi; büyük kuşatmada uç beyi/subaşı askerlerinin geç ve pazarlıklı (borç/ferman doğurarak) sahaya girmesi; `20` birim tavanına (`K15`) takılmadan yedek sırası dahildir.
   - **Bağımlılıklar:** `SVS-06.a`, `SVS-08`, `SVS-10`, `ROADMAP_1` (`HAR-04`, `HAR-07`), `K1`.
-  - **Etkilenen dosya ve klasörler:** Yeni `src/savas/muttefik_takviyesi.gd`; mevcut `src/koy/oba_ittifaki.gd` ve `src/sistemler/sancak_asker_talebi.gd` içine ince adaptör. Korumalı çekirdeğe dokunulmaz.
+  - **Etkilenen dosya ve klasörler:** Yeni `src/savas/muttefik_takviyesi.gd`; mevcut `src/sistemler/oba_ittifaki.gd` ve `src/sistemler/sancak_asker_talebi.gd` içine ince adaptör. Korumalı çekirdeğe dokunulmaz.
   - **Veri şeması:** `data/savas/takviye_kurallari.json`: `{turkmen_alp_sayisi: 2, uc_beyi_gecikme_raundu: 3, uc_beyi_borc_akcesi: 30}`.
   - **Kabul ölçütleri:** İttifak yokken Türkmen takviyesi gelmez; toplam birim sayısı takviye dahil `20`'yi geçmez (`K15`); uç beyi yardımı kabul edilirse borç/ferman kayda yazılır.
   - **Testler:** `tests/unit/savas/muttefik_takviyesi_test.gd` (ittifak açık/kapalı, 20 birim tavanı koruması, borç kaydı).
@@ -942,8 +943,8 @@
   - **Kapsam:** Savaş tetiklenmeden hemen önce `GuvenliKayit` üzerinden otomatik kayıt çağrısı, savaş ekranında kaydetme düğmesinin kapalı olması ve gerekirse `SYS-14` adım göçüyle yeni savaş kalıcılık alanlarının (ör. katılım ayarı, `sur_hasar`) eklenmesi dahildir.
   - **Bağımlılıklar:** `SVS-31`, `SVS-53`, `ROADMAP_1` (`SYS-02`, `SYS-14`), `K12`.
   - **Etkilenen dosya ve klasörler:** Yeni `src/savas/savas_kayit_bagi.gd`; mevcut `src/sistemler/guvenli_kayit.gd` içine gerekirse yalnız `SYS-14` göç adımı eklenir (atomik yazım korunur).
-  - **Veri şeması:** Kayıt sözlüğü: `{"savas_kadin_genc_katilimi": bool, "savas_oncesi_oto": bool}`.
-  - **Kabul ölçütleri:** Savaş ekranındayken kayıt alma eylemi `0` kez çalışır; savaş başlamadan `1` otomatik kayıt alınır; eski `ROADMAP_2` kayıtları göçle hatasız açılır.
+  - **Veri şeması:** Savaş öncesi kayıt bekleyen karşılaşmanın kimliğini, senaryo kimliğini ve SVS-07 başlangıç RNG durumunu saklar. SVS-53 katılım ayarı aynı kayıttan okunur. Aktif raunt, birim konumları ve harcanan eylemler kaydedilmez.
+  - **Kabul ölçütleri:** Savaş ekranındayken kayıt alma eylemi `0` kez çalışır; savaş başlamadan `1` otomatik kayıt alınır. Kapatıp açınca aynı karşılaşma ilk raunttan ve aynı başlangıç durumundan oynanır. Bekleyen karşılaşması bulunmayan eski kayıt normal akışı sürdürür.
   - **Testler:** `tests/unit/savas/savas_kayit_bagi_test.gd` (savaş ortası kayıt engeli, savaş öncesi oto-kayıt, eski kayıt göçü).
   - **Asset:** asset gerekmedi.
   - **Metin anahtarları:** `svs.kayit.savas_oncesi_bildirim` (TR ve EN).
@@ -966,13 +967,13 @@
   - **Sahip:** sondan.
 
 - [ ] **SVS-49.b:** Sabit tohumlu `senaryo_kosucusu` ölçüm koşusu
-  - **Amaç:** Gerçek savaş motorunu 5 temel denge senaryosunda sabit tohumlarla 100'er kez koşturup kazanma oranlarını ve ortalama tur süresini ölçmek.
+  - **Amaç:** Gerçek savaş motorunu 5 temel denge senaryosunda sabit tohumlarla 100'er kez koşturup kazanma oranlarını, ortalama raunt sayısını ve gerçek hesaplama süresini ölçmek.
   - **Kapsam:** `senaryo_kosucusu.gd` üzerinde 5 ölçüm senaryosu (`3 harami / 2 muhafız`, `kapı düellosu`, `tekfur kuşatması`, `Moğol öncü 4v4`, `hep yay vs kalkan duvarı`).
   - **Bağımlılıklar:** `SVS-49.a`, `SVS-19`, `SVS-23.b`, `SVS-25.b`, `SVS-27`.
   - **Etkilenen dosya ve klasörler:** Yeni `src/savas/senaryo_kosucusu.gd`. Korumalı çekirdeğe dokunulmaz.
   - **Veri şeması:** veri yok.
-  - **Kabul ölçütleri:** Sabit tohumlu `100` ölçüm koşusunda `3 harami / 2 muhafız` senaryosu `%35–%75` kazanma bandında sonuçlanır; `"hep yay"` takımı `kalkan_duvari` karşısında `%50`'nin altında kalır; Muhafız HP=`0` olduğunda `0` kez galibiyet yazılır.
-  - **Testler:** `tests/unit/savas/senaryo_kosucusu_test.gd` (5 senaryo istatistik bandı doğrulaması).
+  - **Kabul ölçütleri:** Sabit tohumlu `100` ölçüm koşusunda `3 harami / 2 muhafız` senaryosu `%35–%75` kazanma bandında sonuçlanır; `"hep yay"` takımı `kalkan_duvari` karşısında `%50`'nin altında kalır; Muhafız HP=`0` olduğunda `0` kez galibiyet yazılır. K15 tavanındaki ayrı ölçümde sabit tohum ve ortam bilgisiyle karar/raunt süreleri kaydedilir. İstemci kare süresi ayrı bir ölçümdür.
+  - **Testler:** `tests/unit/savas/senaryo_kosucusu_test.gd` (5 senaryo istatistik bandı ve 20 birimlik hesaplama ölçümünün raporlanması).
   - **Asset:** asset gerekmedi.
   - **Metin anahtarları:** metin yok.
   - **Sahip:** sondan.
@@ -993,7 +994,7 @@
   - **Amaç:** 2. perde savunma savaşını, Tekfur ve haraç sonlarını (`SYS-19`, `SYS-20`) sıra tabanlı savaş sonuçlarına bağlamak; `BUG-18`/`OMR-42` nüfus eşiğini ve `MCL-09` meclis yasağını korumak.
   - **Kapsam:** `SON_TEKFUR` ve 2. perde savunma tetiklerinin `SVS-25.b` kuşatma sonucuna bağlanması, `BUG-18` (`nufus < 14` iken kurt dışı baskın yok) ve `MCL-09` (meclis savaş açamaz) sınır kontrollerinin korunması dahildir.
   - **Bağımlılıklar:** `SVS-25.b`, `SVS-37`, `ROADMAP_1` (`SYS-19`, `SYS-20`), `ROADMAP_2` (`BUG-18`, `OMR-42`, `MCL-09`).
-  - **Etkilenen dosya ve klasörler:** Yeni `src/savas/perde_son_bagi.gd`; mevcut `src/sistemler/perde_yoneticisi.gd` içine tek satırlık adaptör. Korumalı çekirdeğe dokunulmaz.
+  - **Etkilenen dosya ve klasörler:** Yeni `src/savas/perde_son_bagi.gd`; mevcut `src/koy/perde_gecisi.gd` içine tek satırlık adaptör. Korumalı çekirdeğe dokunulmaz.
   - **Veri şeması:** veri yok.
   - **Kabul ölçütleri:** Kuşatma mağlubiyeti `SON_TEKFUR` sonunu tetikler; nüfus eşiği altındayken kurt dışı savaş `0` kez açılır; meclis kararlarından savaş tetiklenmez.
   - **Testler:** `tests/unit/savas/perde_son_bagi_test.gd` (Tekfur sonu, `BUG-18` ve `MCL-09` sınır doğrulaması).
@@ -1003,7 +1004,7 @@
 
 - [ ] **SVS-52:** `ROADMAP_3` kapanış testi
   - **Amaç:** Tüm `SVS-01..58` katmanlarının uçtan uca bir arada hatasız çalıştığını tek kapanış kapısında doğrulamak.
-  - **Kapsam:** Godot headless import + parse kontrolü, tüm `tests/unit/savas/*.gd`, `tests/oto/savas_*.tscn`, `tools/savas_denge_dogrula.py`, `tools/metin_dogrula.py`, `ROADMAP_2` sınır testlerinin (`MCL-09`, `BUG-18`, `YAP-56`, `HAR-02`) bozulmadığının doğrulanması ve `docs/OYUN_RAPORU.md` kapanış notu dahildir.
+  - **Kapsam:** Godot headless import + parse kontrolü, tüm `tests/unit/savas/*.gd`, `tests/oto/savas_*.tscn`, `tools/savas_denge_dogrula.py`, `tools/metin_dogrula.py`, `ROADMAP_2` sınır testlerinin (`MCL-09`, `BUG-18`, `YAP-56`, `HAR-02`) bozulmadığının doğrulanması, SVS-49.b hesaplama ölçümlerinin kapanış raporuna eklenmesi ve `OYUN_RAPORU.md` kapanış notu dahildir.
   - **Bağımlılıklar:** `SVS-01..51`, `SVS-53..58`.
   - **Etkilenen dosya ve klasörler:** Yeni `tests/oto/savas_kapanis_kontrol.gd` ve `.tscn`. Korumalı çekirdeğe dokunulmaz.
   - **Veri şeması:** veri yok.
@@ -1018,3 +1019,7 @@
 **Toplam:** **70 iş birimi** (`47` tekil ana madde + `11` bölünmüş ana başlıktan `23` alt madde [`SVS-04.a/b`, `SVS-06.a/b`, `SVS-11.a/b`, `SVS-15.a/b`, `SVS-18.a/b`, `SVS-20.a/b/c`, `SVS-23.a/b`, `SVS-25.a/b`, `SVS-34.a/b`, `SVS-41.a/b`, `SVS-49.a/b`]; `baştan`: `44` iş birimi [`A–D`], `sondan`: `26` iş birimi [`E–G`]).
 
 **Kapsam dışı (K7, gelecek notu):** Kıtlık / açlık isyanı ve ambar yağması (`KRI-06`, `KRI-14`) `ROADMAP_3` kapsamı dışındadır; mevcut akış olduğu gibi kalır, ayrı `SVS-*` maddesi açılmaz.
+
+## Antigravity sorusu
+
+- **SVS-06.b** — Muhafız ve çavuşun `emir` yeteneğindeki `+1` eylem dalı K2’nin iki eylem tavanını aşmadan nasıl işleyecek?
