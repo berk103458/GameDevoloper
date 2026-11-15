@@ -3338,3 +3338,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-50 (Codex-Berk): Divan panelindeki yerel stil kopyası kaldırıldı; aynı PanelContainer ortak tema stilini miras alır. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-54 (Codex-Berk): Divan kanıt kartındaki yerel panel stili kaldırıldı; ortak tema mirası ve canlı çağrı doğrulandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-101 (Codex-Berk): Teşhis adaptörünün ortak tema mirası, yerel renk/stil yokluğu ve canlı kapı çağrısı doğrulandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.

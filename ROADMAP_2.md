@@ -7884,7 +7884,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.18 Ekran
 
-- [/] **GRV-101:** (Codex-Berk) `hastalik_teshis_adaptoru.gd` temaya bağlanır.
+- [x] **GRV-101:** (Codex-Berk) `hastalik_teshis_adaptoru.gd` temaya bağlanır.
   - Ne: `src/kapi/hastalik_teshis_adaptoru.gd` bugün ColorRect 0 ve 2 düz düğmeyle duruyor; notu: Teşhis düğmeleri düz. Tema bağlanınca yalnız `hastalik_teshis_adaptoru.gd` ARY-02 zeminini ve düğme durumunu okur, Teşhis düğmeleri düz davranışı değişmez.
   - Kabul: `hastalik_teshis_adaptoru.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `hastalik_teshis_adaptoru.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
