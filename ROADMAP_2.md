@@ -6526,7 +6526,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.7 Tester köprüsü
 
-- [ ] **KLT-18:** Tester K7 kör noktası bu kapıya bağlanır.
+- [/] **KLT-18:** (Antigravity-Berk) Tester K7 kör noktası bu kapıya bağlanır.
   - Ne: tur raporunda `soz_kapi.py` özeti bir satır: ihlal, kota, eksik anahtar. Persona "hikâye odaklı" (TESTER planı §3) diyalog dalını gezer; kalite puanı kanaat değildir, kapı sayısıdır.
   - Kabul: tur raporunda `soz_kapi` satırı. Test: örnek rapor. Taşınan: KLT-56: Tur satırı `soz_kapi` özetidir.
   - Bağımlılık: ADM-16. Boyut: S.
@@ -6539,7 +6539,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Dosya: —.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-57:** Hikâye personası dal gezmez diye kalite puanı yazılmaz
+- [/] **KLT-57:** (Antigravity-Berk) Hikâye personası dal gezmez diye kalite puanı yazılmaz
   - Ne: Hikâye personası dal gezmez diye kalite puanı yazılmaz. Puan kapı sayısıdır. Kanaat satırı raporda 0.
   - Kabul: Kanaat 0. Test: şablon.
   - Bağımlılık: KLT-18. Boyut: S.
