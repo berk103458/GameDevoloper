@@ -7241,7 +7241,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-02. Boyut: S.
   - Dosya: `tema.gd`.
   - Asset: asset gerekmedi.
-- [ ] **GRV-14:** ADV-01 kart düzeni GRV ile aynı geçişte kapanır.
+- [/] **GRV-14:** (Codex-Berk) ADV-01 kart düzeni GRV ile aynı geçişte kapanır.
   - Ne: TEK-03 güvenlik satırı, kart teması değişirken kaybolmaz. İki iş aynı dosyada çakışırsa satır üstte kalır.
   - Kabul: tema sonrası satır görünür. Test: TEK-03.
   - Bağımlılık: TEK-03. Boyut: S.
