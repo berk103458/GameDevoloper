@@ -1,3 +1,7 @@
+## 2026-11-15 — DYL-03 kapı bağlantısı (Codex, Berk)
+
+KapiEkrani sohbetinde "El bas, yemin et." gerçek ziyaret eylemine bağlandı. İnanç/şekil ve dört tutum JSON tablosundan gelir; şekil seçimi, yanlış şekil hakareti, saygın güven bedeli, CHR/bekleme tansiyonu, ziyaret kilidi ve sır sonrası satır değişimi oyundadır. Kalıcı söz kaydı ve mevcut DYL-08 kuyruğundan gelen yalan yemin haberi grup itibarını ve mevcut muhafız terazisini yalnız bir kez etkiler. DYL03-YEMIN kutu+etiketi oyunda, gerçek nesne eksik. Mevcut birim testi, 44 kontrollü oyun testi ve gerçek kapı ekranı testi geçti; metin doğrulaması PASS. DYL-03 ve CAT-04 `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor; CAT-01/02 onaylı `[x]` korunuyor. Kota görünmüyor.
+
 ## 2026-11-15 — CAT-02 (Codex, Berk)
 
 Kapı retindeki kavga artık dört gerçek düğmeyle seçim bekler. Aynı oturum kavga motoru asker becerisi/SorguZari, kişisel kasa, beş açık söz sınırı ve çift tık kilidini uygular. Erteleme mevcut söz kaydına ve KararDonusu kuyruğuna bağlıdır; adlı/figür kişi 2–4 gün sonra kayıt yüklenince de döner, tutulmayan söz grup itibarını bir kez düşürür. Ölüm mevcut kalıcı ölüm makbuzuyla gece cenazesine gider. Gerçek oturum testi 54 kontrol, dört düğmeli ekran testi ve CAT-01 testleri geçti. CAT02-KAVGA sarsıntı + metin yer tutucusu oyunda; gerçek animasyon eksik, envanter güncellendi. CSV ve Godot'un ürettiği TR/EN tabloları aynı pakette. CAT-04'e dokunulmadı. Kota görünmüyor.

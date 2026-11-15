@@ -18,7 +18,7 @@ static func durum(o: Oturum) -> Dictionary:
  var unvan:="Kararsız muhafız"
  if denge>=int(AYAR.adil_esik): unvan="Adil muhafız"
  elif denge<=int(AYAR.yoz_esik): unvan="Yozlaşmış derebeyi"
- return {"adalet":adalet,"yozlasma":yoz,"denge":denge,"unvan":unvan,"rusvet":rusvet,"zimmet":zimmet,"haksizlik":haksizlik,"harac":harac}
+ return {"adalet":adalet,"yozlasma":yoz,"denge":denge,"unvan":unvan,"rusvet":rusvet,"zimmet":zimmet,"haksizlik":haksizlik,"harac":harac,"yemin_kayitlari":preload("res://src/soz/yemin_adaptoru.gd").terazi_kayitlari(o)}
 
 static func _sayi(v: Variant) -> int:
  if not (v is int or v is float) or not is_finite(float(v)) or float(v)<0 or floor(float(v))!=float(v): return 0

@@ -299,6 +299,7 @@ func _sohbet_goster() -> void:
 	evre = &"sohbet"
 	_temizle()
 	_bolum.text = tr("arayuz.kapi.sorular")
+	preload("res://src/soz/yemin_adaptoru.gd").eylem(self, _gelen, _eylemler)
 	if preload("res://src/arayuz/chr_kapi_adaptoru.gd").diyalog_goster(self, _gelen, _secenekler, _eylemler):
 		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").eylem(self, _gelen, _eylemler)
 		if tercuman_dugmesi_gorunur_mu():

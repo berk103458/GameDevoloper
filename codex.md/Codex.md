@@ -1,5 +1,52 @@
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
+## DYL-03 — Kapıda yemin ettirme bağlantısı / 15 Kasım 2026 (Codex, Berk)
+
+Giriş: Berk tarafındaki Codex; yalnız /workspace/codex/GameDevoloper ve festive dalı.
+Fetch/prune + ff-only pull ile d18b4597 claim üstüne 0d84162f alındı; yeniden üstlenilmedi.
+Normal push uzak dal ilerlediği için reddedilince 1442fa1f üzerine rebase yapıldı;
+metin tablosu satırları birleştirildi, iki binary translation birleşik CSV’den yeniden import edildi.
+Dört istenen Godot skill'i uygulandı; asset üretilmedi/indirilmedi, Issue #11'e yazılmadı.
+
+Bağ: KapiEkrani._sohbet_goster → yeni src/soz/yemin_adaptoru.gd. CHR ve eski sohbet
+aynı gerçek düğmeyi, şekil seçimini ve kutu+etiketi kullanır. Gelen'in inanc/yemin/saygin/
+yemin_grubu alanları gerçek ziyaretçi üretiminde data/yemin_sekilleri.json'dan okunur. İnanç adları kodda sabitlenmez;
+şekiller docs/dunya_kitabi/inanc_yemin.md olgu kimliklerine bağlıdır. Figür ciftci/esnaf/asker
+ve veri tanımlı saygın derviş tutumları ile chr_001/chr_007 kayıtları dört tutumu taşır;
+verisiz adlı karaktere inanç uydurulmaz. Şekil metinleri ant, Tanrı adı, ekmek/tuz hakkı,
+halk İslamı ve haç/İncil/aziz kaynak kapsamıyla sınırlıdır.
+
+Ziyaret metası Yemin örneğini saklar; ikinci basış sonuç üretmez. Yanlış şekil güven −3,
+grup itibarı −1; yemin tansiyon +1 (gerçek ChrSorgusu veya mevcut BEKLEME.toplam),
+saygın güven −2. Kaçamak ziyaret bayrağı yemin_kacamak + gerçek Clue_Yemin_Kacamak;
+rahat gizli yalan_yemin, reddeder ikisini de üretmez. Sır sonrası satır eski görünen satırı
+yerinde değiştirir. SozKaydi.yeminler kalıcı kayıt; adlı kişinin güveni KisiHafizasi'na da yazılır.
+Kabul edilen yalan yemin mevcut KararDonusu kuyruğunda üç gün sonraki habere bağlanır;
+haberde grup itibarı −3 ve mevcut adalet terazisi −1, tek makbuz. Yüklemeden sonra da
+ikinci ceza yok. Yeni son/terazi veya ikinci dönüş kuyruğu yok. Yemin zar açmaz.
+
+Metin: arayuz.kapi.yemin_et ve anlati.yemin.* altında 13 TR/EN anahtar;
+CSV + import'un ürettiği iki translation aynı pakette. DYL03-YEMIN mevcut envanter satırı
+oyuna bağlı kutu+etiket olarak güncellendi; gerçek yemin nesneleri hâlâ eksik.
+
+Testler (Godot 4.7.2):
+- godot --headless --path . --import --quit: çıkış 0; SCRIPT ERROR/Failed to load yok.
+- godot --headless --path . -s res://tests/unit/soz/yemin_test.gd: mevcut test GEÇTİ, korunuyor.
+- godot --headless --path . -s res://tests/unit/soz/yemin_oyun_test.gd: 44 kontrol / 0 hata.
+- godot --headless --path . res://tests/unit/soz/yemin_ekran_test.tscn: GEÇTİ;
+  gerçek KapiEkrani, dört tutum+CHR, boş inanç, çift tık, şekil hakareti ve sır satırı.
+- python3 -B tools/metin_dogrula.py --kaynak: PASS. git diff --check temiz.
+Yeni betikler import ve gerçek test yüklemelerinde parse edildi. Kasıtlı bozulan test
+çıkış 1 verdi; aslı geri konup test tekrar geçirildi. Tam sanity/CAT regresyonu çalıştırılmadı.
+Mevcut katalog eksik metin uyarıları ve import/kapanış resource/RID uyarıları sürüyor;
+bunlar bu pakette değiştirilmedi. project.godot ve eski untracked .import/.uid pakette yok.
+
+Durum: madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor. CAT-04 kutusu ve yalnız
+CAT-04 günlük durum paragrafı talimata göre düzeltildi; CAT-01/02 Usta onaylı `[x]` kaldı.
+Sonraki aday: Usta'nın ROADMAP sırasına göre vereceği boş madde; bu tur başka iş alınmadı.
+Windows aynaları bu ortamda kullanılmadı; son talimat gereği tek çalışma kopyası.
+kota görünmüyor
+
 ## CAT-04 — Şiddetin gerçek sıra etkisi / 15 Kasım 2026 (Codex, Berk)
 
 Giriş: Berk tarafındaki Codex. Yalnız /workspace/codex/GameDevoloper ve festive dalında çalışıldı.
@@ -28,8 +75,9 @@ python3 -B tools/metin_dogrula.py --kaynak: PASS. Tam sanity çalıştırılmad�
 Yeni betikler import ve gerçek test yüklemelerinde parse edildi. Test kapanışında mevcut
 ObjectDB/resource sızıntı uyarıları var; çalışma zamanı script hatası yok.
 
-Durum: CAT-04 tamamlandı, asset gerekmedi; envantere satır eklenmedi.
-Sonraki plan: CAT serisi bitti; Faz 2'de boş S madde DYL-03 bağlantısını incelemek (üstlenilmedi).
+Durum: CAT-04 ROADMAP’te `[/] (Codex)` duruyor; Usta’nın doğrulamasını bekliyor. Asset gerekmedi; envantere satır eklenmedi.
+CAT-01 ve CAT-02 Usta tarafından doğrulandı, `[x]` olarak kalır.
+Sonraki plan: üstlenilmiş DYL-03 kapı bağlantısı; yeniden üstlenme yok.
 Issue #11'e yazılmadı. Windows aynalarına erişim/güncelleme iddiası yok; son talimat gereği tek çalışma kopyası.
 İlgisiz .import/.uid ve import'un project.godot değişikliği pakete alınmadı.
 kota görünmüyor

@@ -864,7 +864,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.4 Sıranın korkusu
 
-- [x] **CAT-04:** (Codex) Kapıda şiddet sırayı korkutur. (İlk mantık: Antigravity; Görev 22 bağlantısı giderildi: gerçek CAT-02 sec sonucu → SiddetKorkusuAdaptoru → aynı gerçek kuyruk, CHR/bekleme tansiyonu ve Dedikodu.olay_kaydet; görünür sıra ve menü donması bağlı. Birim, 39 kontrollü oyun ve gerçek ekran testleri GEÇTİ; asset gerekmedi.)
+- [/] **CAT-04:** (Codex) Kapıda şiddet sırayı korkutur. (İlk mantık: Antigravity; Görev 22 bağlantısı giderildi: gerçek CAT-02 sec sonucu → SiddetKorkusuAdaptoru → aynı gerçek kuyruk, CHR/bekleme tansiyonu ve Dedikodu.olay_kaydet; görünür sıra ve menü donması bağlı. Birim, 39 kontrollü oyun ve gerçek ekran testleri GEÇTİ; asset gerekmedi.)
   - Ne: Askerle karşılık veya ölüm, sıradaki kişilerin tansiyonunu okur. Eşik üstündekiler tablodaki olasılıkla ayrılabilir; herkes ayrılmaz. Yatıştırma ve erteleme bu ayrılmayı tetiklemez. Yeni korku barı açılmaz. Menü açıkken artış donar.
   - Kurallar:
     1. Şiddet, karşılık veya ölüm sonucudur. Sıradaki kişilerin sabrı ve tansiyonu okunur.
@@ -1961,7 +1961,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.2 Yemin, yalan, söz
 
-- [/] **DYL-03:** (Codex) Yemin ettirmek. (doğrulanmadı — Görev 22; Yemin (src/soz/yemin.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **DYL-03:** (Codex) Yemin ettirmek. (Görev 22: kapı eylem yoluna YeminAdaptoru ile bağlandı; veri tablosu, ziyaret kilidi, CHR/bekleme tansiyonu, güven/grup itibarı, kayıt ve DYL-08 dönüşü bağlı. Madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.)
   - Ne: Oyuncu ziyarette bir kez "El bas, yemin et" der. Yemin şekli karakterin inancına göre dünya kitabından gelir; uymayan şekil hakarettir. Tutum dört türden biridir: eder, kıvranır, rahat ya da reddeder. Yemin zar açmaz. Bozulan yemin bir kez ceza yazar. İnanç alanı boşsa düğme gizlenir.
   - Kurallar:
     1. Seçenek: "El bas, yemin et." Ziyaret başına bir kez kullanılır.

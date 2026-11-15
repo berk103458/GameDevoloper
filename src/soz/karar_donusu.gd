@@ -337,6 +337,7 @@ static func _karakter_durumu(o: Oturum, chr_id: String) -> String:
 
 
 static func _etki_uygula(o: Oturum, satir: Dictionary) -> void:
+	if satir.has("yemin_id"): preload("res://src/soz/yemin_adaptoru.gd").bozuldu(o, String(satir.yemin_id))
 	var hs := String(satir.get("hedef_sistem", ""))
 	var alan := String(satir.get("alan", "")).to_lower()
 	if hs == "bar":

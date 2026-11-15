@@ -1,0 +1,106 @@
+{
+  "kaynak": "docs/dunya_kitabi/inanc_yemin.md",
+  "agir_itibar": -3,
+  "terazi_adalet": -1,
+  "sekiller": {
+    "ant": {
+      "anahtar": "anlati.yemin.ant",
+      "kaynak": "and_icmek"
+    },
+    "tanri": {
+      "anahtar": "anlati.yemin.tanri",
+      "kaynak": "tanri_adi"
+    },
+    "sofra": {
+      "anahtar": "anlati.yemin.sofra",
+      "kaynak": "ekmek_hakki"
+    },
+    "halk": {
+      "anahtar": "anlati.yemin.halk",
+      "kaynak": "dervis_inanci"
+    },
+    "hristiyan": {
+      "anahtar": "anlati.yemin.hristiyan",
+      "kaynak": "hristiyan_yemin"
+    }
+  },
+  "inanclar": {
+    "turkmen_halk": [
+      "ant",
+      "tanri",
+      "sofra",
+      "halk"
+    ],
+    "hristiyan": [
+      "hristiyan"
+    ]
+  },
+  "figurler": {
+    "ciftci": {
+      "inanc": "turkmen_halk",
+      "grup": "koylu",
+      "yemin": {
+        "tutum": "eder",
+        "satirlar": [
+          "anlati.yemin.eder"
+        ]
+      }
+    },
+    "asker": {
+      "inanc": "turkmen_halk",
+      "grup": "asker",
+      "yemin": {
+        "tutum": "rahat",
+        "satirlar": [
+          "anlati.yemin.rahat",
+          "anlati.yemin.sir_acik"
+        ]
+      }
+    },
+    "dervis": {
+      "inanc": "turkmen_halk",
+      "grup": "turkmen",
+      "saygin": true,
+      "yemin": {
+        "tutum": "reddeder",
+        "satirlar": [
+          "anlati.yemin.reddeder"
+        ]
+      }
+    },
+    "esnaf": {
+      "inanc": "turkmen_halk",
+      "grup": "tuccar",
+      "yemin": {
+        "tutum": "kivranir",
+        "satirlar": [
+          "anlati.yemin.kivranir"
+        ]
+      }
+    }
+  },
+  "karakterler": {
+    "chr_001": {
+      "inanc": "turkmen_halk",
+      "grup": "asker",
+      "yemin": {
+        "tutum": "rahat",
+        "satirlar": [
+          "anlati.yemin.rahat",
+          "anlati.yemin.sir_acik"
+        ]
+      }
+    },
+    "chr_007": {
+      "inanc": "turkmen_halk",
+      "grup": "turkmen",
+      "saygin": true,
+      "yemin": {
+        "tutum": "reddeder",
+        "satirlar": [
+          "anlati.yemin.reddeder"
+        ]
+      }
+    }
+  }
+}

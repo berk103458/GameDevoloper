@@ -2652,3 +2652,16 @@ dunya.donus.turkmen_ittifaki.bekliyor,Türkmen beyiyle ittifak sözü henüz kes
 es.aksam.ogreti.heybe,"Heybesini aramadın beyim, kuşak altında ne sakladığını görmedin.","You left his bag unsearched, bey, and never saw what he kept under his sash."
 es.aksam.ogreti.beyan,"Heybesinde ne var diye sormadın beyim, adamın kendi sözünü duymadan kapıyı kapattın.","You never asked what he carried in his bag, bey, and shut the gate without his own words."
 anlati.kavga.sira_ayrildi,Şiddetten ürken %d kişi sıradan ayrıldı.,%d people left the queue in fear of the violence.
+arayuz.kapi.yemin_et,"El bas, yemin et.",Place your hand and swear.
+anlati.yemin.ant,Ant içmek,Swear an oath
+anlati.yemin.tanri,Tanrı adıyla,In the name of God
+anlati.yemin.sofra,Ekmek ve tuz hakkı,By bread and salt
+anlati.yemin.halk,Halk İslamı: Tanrı adıyla,Folk Islam: in the name of God
+anlati.yemin.hristiyan,"Haç, İncil ve azizler üzerine","Upon the cross, Gospel and saints"
+anlati.yemin.eder,Doğru söylediğime ant içerim.,I swear that I speak the truth.
+anlati.yemin.kivranir,Yemin ağır sözdür... Başka bir şey sor.,An oath is a weighty word... Ask something else.
+anlati.yemin.rahat,"Ant içerim, sözüm doğrudur.",I swear my word is true.
+anlati.yemin.reddeder,İnancım gereği bu yemini etmeyeceğim.,My faith will not permit this oath.
+anlati.yemin.sir_acik,Yeminimde doğruyu söylemedim.,I did not speak truth in my oath.
+anlati.yemin.hakaret,İnancıma uymayan bir yemin istiyorsun.,You demand an oath against my faith.
+anlati.yemin.bozuldu,Yalan yemin edeni içeri aldın.,You admitted someone who swore falsely.

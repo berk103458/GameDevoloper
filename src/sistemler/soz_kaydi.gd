@@ -2,6 +2,8 @@
 class_name SozKaydi
 extends RefCounted
 
+var yeminler: Dictionary = {}
+
 var beyanlar := BeyanDefteri.new()
 var sozler := VerilenSoz.new()
 var yalanlar := YalanDenetimi.new()
@@ -21,6 +23,7 @@ static func acik(ayarlar: Object) -> bool:
 func paket(kadro: KarakterKadrosu) -> Dictionary:
 	var cekirdek_kaydi := cekirdek.kaydet()
 	var veri := {
+		"yeminler": yeminler.duplicate(true),
 		"hafiza": KisiHafizasi.hafiza_paketi(kadro),
 		"beyanlar": beyanlar.kaydet(),
 		"sozler": sozler.kaydet(),
@@ -36,6 +39,7 @@ func uygula(kadro: KarakterKadrosu, veri: Variant) -> void:
 	if not veri is Dictionary:
 		return
 	var blok: Dictionary = veri
+	yeminler = blok.get("yeminler", {}).duplicate(true)
 	if blok.get("hafiza") is Array:
 		KisiHafizasi.hafiza_uygula(kadro, blok["hafiza"])
 	beyanlar.yukle(blok.get("beyanlar", []))

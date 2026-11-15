@@ -2,6 +2,11 @@
 class_name Gelen
 extends RefCounted
 
+var inanc: String = ""
+var yemin: Dictionary = {}
+var yemin_grubu: String = ""
+var saygin: bool = false
+
 var aile: Array[Dictionary] = []
 var aile_id: String = ""
 ## CAT-01: boş tip sıradan rettir; eşleme yalnız veri tablosundan gelir.

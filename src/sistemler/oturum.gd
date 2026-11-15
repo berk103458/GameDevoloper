@@ -190,6 +190,7 @@ func heybe_uret(sinif: StringName) -> Heybe:
 
 ## Sohbet açıldı (adlı karakterde ziyaret sayılır).
 func ziyaret_basladi(gelen: Gelen) -> void:
+	preload("res://src/soz/yemin_adaptoru.gd").ziyaret(self, gelen)
 	GeceBilancosu.ilk_saat_ziyaret_yaz(self, gelen)
 	GeceBilancosu.gelen_yaz(self, gelen)
 	if gelen.adli:
@@ -294,6 +295,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 			"alinan_akce": int(ek.get("alinan_akce", 0)) + rusvet_akce,
 		}, gun):
 			ek["hafiza_yazildi"] = true
+	preload("res://src/soz/yemin_adaptoru.gd").karar(self, gelen, kaldi)
 	ek["kaldi"] = kaldi
 	muhafiz_tecrubesi += 1
 	MuhafizOdaGelisimi.karar(self)
@@ -683,6 +685,7 @@ func _adli_gelen(id: StringName) -> Gelen:
 	if g.tehlikeli and g.gizli_bayraklar.is_empty():
 		g.gizli_bayraklar.append("casus_suphesi")
 	g.soru_bayraklari = s.soru_bayraklari_ziyaret(ziyaret)
+	preload("res://src/soz/yemin_adaptoru.gd").veri_isle(g)
 	return g
 
 
@@ -738,6 +741,7 @@ func _figur_gelen() -> Gelen:
 		if karar == "kabul":
 			etki[_rng.randi_range(0, etki.size() - 1)] += 1 if _rng.randf() < 0.5 else -1
 		g.etkiler[StringName(karar)] = etki
+	preload("res://src/soz/yemin_adaptoru.gd").veri_isle(g)
 	return g
 
 
@@ -781,6 +785,7 @@ func _figur_sablon() -> Gelen:
 		if karar == "kabul":
 			etki[_rng.randi_range(0, etki.size() - 1)] += 1 if _rng.randf() < 0.5 else -1
 		g.etkiler[StringName(karar)] = etki
+	preload("res://src/soz/yemin_adaptoru.gd").veri_isle(g)
 	return g
 
 
