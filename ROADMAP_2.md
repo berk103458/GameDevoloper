@@ -2236,7 +2236,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.1 Boş gün
 
-- [ ] **SEV-01:** (Antigravity) Boş gün köy günüdür. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **SEV-01:** (Codex) Boş gün köy günüdür. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Boş günü KAP-16 üretir; bu madde ikinci bir "kimse gelmesin" zarı açmaz. O gün oyuncu ateş başına veya bir tezgâha yürüyebilir ve orada en çok iki satır duyar. Satır, orada duran kişinin işinden gelir; ödül, eşya veya bar vermez. Kişi yoksa satır da yoktur. Gözcü boş günü bildirmeye devam eder. İki boş gün art arda aynı satırı tekrarlamaz; havuz bitince o gün sessizdir.
   - Kabul: KAP-16'nın ürettiği bir boş günde ateş veya tezgâh etkileşimi açılır ve bar değerleri değişmez (`tests/unit/koy/sevilen_yuz_test.gd`). Dolu günde bu etkileşim kapalıdır. Kapı kapalıyken ateş satırı yine gelebilir. Ek şart: Boş gün yeni panel sınıfı açmaz; köy kadrajı durur. Ek şart: `bos_gun_durusu.gd` `koy_sahnesi` import etmez ve ikinci harita açmaz.
   - Bağımlılık: KAP-16, YAZ-08. Boyut: S.
