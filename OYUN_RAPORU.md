@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-71 (Kalfa)
+
+Köy ışık tavanı tablodan okunuyor. Mevcut ortam ve yapı ışıkları sayıldıktan sonra eldeki meşalelere kalan pay ayrılıyor. Normal dört muhafız ışığı sınırı korunuyor. Yerel sınırı geçici yükselten headless testte 17 meşale, toplam 16 etkin ışık ve soketinde ışıksız kalan 4 meşale ölçüldü. Muhafız donanımı testi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-70 (Kalfa)
 
 Gece izni kalktığında eldeki meşalenin enerjisi ve görünürlüğü kapanıyor. Gündüze geçişte altı gerçek donanımın enerjisi 0 ölçüldü. Öncesinde gece devriyesi ve meşale başına tek ışık kontrolleri de geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

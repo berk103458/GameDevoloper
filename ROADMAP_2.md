@@ -8354,7 +8354,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-63. Boyut: S.
   - Dosya: `src/dunya/karakter_ekipman_yoneticisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-71:** Işık sayısı tavandadır.
+- [x] **SAH-71:** Işık sayısı tavandadır. (Kalfa — 17 meşale ve toplam 16 ışık)
   - Ne: sahnedeki dinamik ışık en çok tablodaki sayıdır. Aşan meşale ışıksız sokette kalır, model durur.
   - Kabul: sahnedeki dinamik ışık en çok tablodaki sayıdır. Aşan meşale ışıksız sokette kalır, model durur. Test: tavan artı bir, ışık sayısı tavan.
   - Bağımlılık: SAH-66. Boyut: M.

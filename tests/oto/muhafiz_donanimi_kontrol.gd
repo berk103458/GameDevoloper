@@ -79,12 +79,46 @@ func _ready() -> void:
 	h.yenile()
 	await get_tree().process_frame
 	kontrol(f.get_node_or_null("muhafiz_donanimi") == null, "Görev bitince donanım silinir")
+	await _isik_tavanini_dene(sahne)
 	ana.kayit.sil()
 	ana.queue_free()
 	await get_tree().process_frame
 	await get_tree().create_timer(0.3).timeout
 	print("MUHAFIZ DONANIMI UI: GEÇTİ" if hata == 0 else "MUHAFIZ DONANIMI UI: KALDI")
 	await Ses.cik(hata)
+func _isik_tavanini_dene(s: KoyYonetimSahnesi) -> void:
+	var h := s.halk_hareketi
+	h.set_process(false)
+	var y := s.yonetim
+	var tavan := int(MuhafizDonanimi.SAHNE_AYARI.isik_tavan)
+	y.a.muhafiz_azami = tavan + 1
+	for k in y.koylular:
+		k.is_yeri = KoyYonetimi.MUHAFIZ
+	for i in range(y.koylular.size(), tavan + 1):
+		var k := y.kabul({"sinif": "asker", "stat": 5})
+		k.is_yeri = KoyYonetimi.MUHAFIZ
+	var eski: Variant = MuhafizDonanimi.AYAR.azami_isik
+	# Testte yerel sınır yükseltilince sahne tavanı devreye girmeli.
+	MuhafizDonanimi.AYAR.azami_isik = tavan + 1
+	h.yenile()
+	s.faz(&"gece", 0.0)
+	await get_tree().process_frame
+	var tum_isiklar := 0
+	for isik: Light3D in s.find_children("*", "Light3D", true, false):
+		tum_isiklar += int(isik.is_visible_in_tree() and isik.light_energy > 0.0)
+	var mesaleler := 0
+	var isiksiz := 0
+	for figur: KarakterModel in h.modeller.values():
+		var d := figur.get_node_or_null("muhafiz_donanimi") as MuhafizDonanimi
+		if d == null or not d.mesale.visible:
+			continue
+		mesaleler += 1
+		isiksiz += int(not d.isik.visible and is_zero_approx(d.isik.light_energy))
+	kontrol(tum_isiklar == tavan and mesaleler == tavan + 1 and isiksiz >= 1, "SAH-71: Işık sayısı tavan, artan meşaleler sokette ve enerjisiz")
+	print("SAH-71 meşale=%d, ışık=%d, tavan=%d, ışıksız meşale=%d" % [mesaleler, tum_isiklar, tavan, isiksiz])
+	MuhafizDonanimi.AYAR.azami_isik = eski
+
+
 func kontrol(v: bool, ad: String) -> void:
 	if not v:
 		hata += 1

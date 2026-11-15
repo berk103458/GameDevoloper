@@ -1,6 +1,7 @@
 ## ANI-01: mevcut ElEsyasi soketinde görev donanımı; kalıcı modeli değiştirmez.
 class_name MuhafizDonanimi
 extends Node3D
+const SAHNE_AYARI: Dictionary = preload("res://data/ayarlar/sahne.json").data
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/muhafiz_donanimi.json"))
 var silah: ElEsyasi
 var kalkan: ElEsyasi
@@ -88,6 +89,7 @@ func _esya(tur: String, f: KarakterModel, sk: Skeleton3D, sag: bool) -> ElEsyasi
 ## Mevcut halk modellerini görev/fazla eşler; aynı modele çift donanım kurmaz.
 static func yenile(h: Node) -> void:
  var isik_sayisi := 0
+ var tavan := _bos_isik_sayisi(h)
  for id in h.modeller:
   var f: KarakterModel = h.modeller[id]
   var k: Koylu = h.sahne.yonetim.koylu(id)
@@ -103,5 +105,18 @@ static func yenile(h: Node) -> void:
    if not d.kur(f, int(id)):
     d.queue_free()
     continue
-  d.faz(h.faz_adi, isik_sayisi < int(AYAR.azami_isik))
+  d.faz(h.faz_adi, isik_sayisi < tavan)
   isik_sayisi += 1
+
+
+static func _bos_isik_sayisi(h: Node) -> int:
+ var sabit := 0
+ for isik: Light3D in h.sahne.find_children("*", "Light3D", true, false):
+  if h.sahne._halk.is_ancestor_of(isik) or not isik.is_visible_in_tree() or isik.light_energy <= 0:
+   continue
+  var ust: Node = isik
+  while ust != h.sahne and not ust.is_queued_for_deletion():
+   ust = ust.get_parent()
+  if ust == h.sahne:
+   sabit += 1
+ return clampi(int(SAHNE_AYARI.isik_tavan) - sabit, 0, int(AYAR.azami_isik))
