@@ -16,6 +16,7 @@ const NESNE_RENK := {
 const PORTRE_MODEL := {
 	"soldier_01": "asker", "craftsman_01": "esnaf", "farmer_01": "ciftci", "farmer_02": "ciftci_kadin",
 	"vergi_tahsildari": "tahsildar", "aydogdu_oba": "turkmen_bey_adami",
+	"celep_hamdullah": "celep", "beyin_denetcisi": "denetci",
 }
 const SINIF_MODEL := {&"asker": "asker", &"esnaf": "esnaf", &"ciftci": "ciftci"}
 

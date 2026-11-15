@@ -745,7 +745,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `YAP05-ODA` | Çözümleme odası modeli; glTF / 3B model. | 4,0 × 2,8 × 4,0 m |
 | `DYL02-AYRINTI-*` | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | Çarık 0,12 × 0,08 × 0,28 m; el/yara/giysi mevcut karakter rigine bağlı, ölçek değişmez |
 | `DYL03-YEMIN` | Yemin nesneleri (dünya kitabına göre); glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
-| `DYL09-DENETCI` | Beyin denetçisi modeli; glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `DYL09-DENETCI` | [ÜRETİLDİ: `assets/model/karakter/denetci_yuru.glb`] Beyin denetçisi modeli; glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `SEV03-IZ` | Kişisel iz; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
 | `SAB03-ORTU` | Kapalı iş yeri örtüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | 1,50 × 1,00 × 0,80 m; örtü aynı taşıyıcının zarfına oturur |
 | `TEZ01-ORTU` | Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | 1,50 × 1,00 × 0,80 m; örtü aynı taşıyıcının zarfına oturur |
@@ -878,7 +878,7 @@ ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik bura
 | DYL02-AYRINTI-* | DYL-02 | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: modelin bölgesinde düz renkli küçük kutu + gözlem metni | yamalı çarık nasırlı el yara; patched sandals calloused hands wound | yüksek | Claude |
 | DYL03-YEMIN | DYL-03 | Yemin nesneleri (dünya kitabına göre) | glTF | yer tutucu kutu+etiket oyuna bağlandı (`src/soz/yemin_adaptoru.gd`); gerçek nesne hâlâ eksik | yemin ekmek tuz kitap; oath bread salt holy book | orta | Claude |
 | DYL07-OCAK | DYL-07 | Ocak başı ara sahne arka planı — prompt hazır, Ahmet üretecek | PNG 1920×1080 | planlı — madde kodlanınca: düz renk + metin, ARY-04 çerçevesi | ocak başı akşam ev içi; hearth evening cottage interior | orta | Claude |
-| DYL09-DENETCI | DYL-09 | Beyin denetçisi modeli | glTF / 3B model | planlı — madde kodlanınca: mevcut köylü modeli + renk farkı | Selçuklu bey denetçi memur; seljuk inspector official | orta | Claude |
+| DYL09-DENETCI | DYL-09 | Beyin denetçisi modeli | glTF / 3B model | Meshy ile üretildi: ssets/model/karakter/denetci_yuru.glb (Dunya3B.PORTRE_MODEL) | Selçuklu bey denetçi memur; seljuk inspector official | orta | Claude |
 | SEV03-IZ | SEV-03 | Kişisel iz | glTF | planlı — madde kodlanınca: düz renk küçük kutu | kişisel eşya hatıra; personal keepsake trinket | düşük | Claude |
 | SAB03-ORTU | SAB-03 | Kapalı iş yeri örtüsü — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: düz renk bez, ANI-08 düğümü üstünde | kapalı tezgâh örtü bez; covered workshop cloth | düşük | Claude |
 | TEZ01-ORTU | TEZ-01 | Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) — prompt hazır, Ahmet üretecek; 3D geometri açık | glTF / doku | planlı — madde kodlanınca: düz renk | tezgâh örtüsü ağıl değirmen demirhane; workshop cover sheepfold mill forge | düşük | Claude |

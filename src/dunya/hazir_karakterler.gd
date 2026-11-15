@@ -12,6 +12,10 @@ static func koy_adi(k: Koylu, eski: String) -> String:
 		return "cocuk" if Dunya3B.model_var_mi("cocuk_yuru", "karakter") else "lowpo_cocuk"
 	if k.yas_grubu == &"yasli" and k.adli_id == &"" and Dunya3B.model_var_mi("yasli_yuru", "karakter"):
 		return "yasli"
+	if k.adli_id == &"" and not k.egitim.is_empty() and not bool(k.egitim.get("tamamlandi", false)):
+		var cirak_ad := "kiz_cirak" if k.portre == "farmer_02" else "erkek_cirak"
+		if Dunya3B.model_var_mi(cirak_ad + "_yuru", "karakter"):
+			return cirak_ad
 	if k.adli_id == &"" and k.zanaat_turu == ZanaatTuru.Tur.DEMIRCI and k.portre != "farmer_02":
 		return "lowpo_demirci"
 	return eski

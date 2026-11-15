@@ -21,7 +21,7 @@ static func ekle(o: Oturum, liste: Array[Gelen]) -> void:
  var g := Gelen.new()
  g.ad_anahtari = d.tuccar.ad
  g.sinif = StringName(AYAR.sinif)
- g.portre = AYAR.portre
+ g.portre = String({"celep_hamdullah": "celep", "nalbur": "nalbur", "kumasci_aktar": "kumasci", "silah_tuccari": "silah_tuccari"}.get(String(d.tuccar.id), AYAR.portre))
  g.giris_anahtari = "Gezgin tüccar pazar konaklaması için kapıya geldi."
  g.acilis = "Resmi geçiş bacını ödeyebilirim; hızlı giriş istersen kesene ayrıca akçe bırakırım."
  g.secenekler = PackedStringArray(["harc", "rusvet", "ret"])
