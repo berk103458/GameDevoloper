@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-79 (Kalfa)
+
+Yalnız kayıtlı karakter_muayene adımı çalıştırıldı. Başsız koşu 30 modeli ve bitiş işaretini doğruladı. Tam sanity çalıştırılmadı. Asset gerekmedi.
+
 ## 2026-11-15 — SAH-78 (Kalfa)
 
 Başsız doğrudan koşu rapor üretti. Aynı sahne oyun ağacına gömülü eklendiğinde panel ve alt düğüm sayısı sıfır kaldı, süreç açık kaldı. Asset gerekmedi.

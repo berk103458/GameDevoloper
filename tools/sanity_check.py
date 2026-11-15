@@ -96,6 +96,7 @@ def checks(godot, root):
     # oyun_koprusu_test.gd and tests/tools/test_tester_oyuncu.py are discovered below.
     yield "oyun_koprusu_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/oyun_koprusu_kontrol.tscn"], "GEÇTİ"
     yield "ayak_zemini_kontrol", [godot, "--headless", "--path", str(root), "tests/oto/ayak_zemini_kontrol.tscn"], "AYAK ZEMİNİ: GEÇTİ"
+    yield "karakter_muayene", [godot, "--headless", "--fixed-fps", "120", "--path", str(root), "tests/oto/karakter_muayene.tscn"], "MUAYENE BİTTİ"
     # BUG-0011..15: oturum_fazi, levent_gonderim_gecmisi, atil_bayrak_kapanis,
     # kitlik_nobet_tekrar, aclik_saglik_rng_sinir unit tests are included by discovery.
     # KAY-37: kayit_gocu_soz_test.gd (KAY-03) bu keşifle tek kez pakete girer.
@@ -169,6 +170,7 @@ def check_env(name):
         "20-night-smoke": {"DUMAN_TESTI_20": "1", "DUMAN_KISA_OYUNLAR": "0"},
         "den79-short-games": {"DUMAN_TESTI_20": "1", "DUMAN_KISA_OYUNLAR": "1"},
         "acilis_denge_kontrol": {"DUMAN_TESTI_ACILIS": "1"},
+        "karakter_muayene": {"MODELLER": "CHR", "KLASOR": "user://karakter_muayene"},
     }.get(name)
 
 

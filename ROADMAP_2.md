@@ -8405,7 +8405,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-73. Boyut: S.
   - Dosya: `tests/oto/karakter_muayene.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-79:** Sanity muayeneyi çağırır.
+- [x] **SAH-79:** Sanity muayeneyi çağırır.
   - Ne: `sanity_check.py` aracı tek satırla koşar. Yeni sanity paketi yok.
   - Kabul: `sanity_check.py` aracı tek satırla koşar. Yeni sanity paketi yok. Test: listede muayene adı.
   - Bağımlılık: SYS-11, SAH-76. Boyut: S.
