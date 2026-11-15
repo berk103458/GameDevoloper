@@ -5,6 +5,7 @@ extends Node
 
 const AYAR_YOLU := "res://data/ayarlar/sahne.json"
 const KAPI_ESIK_HUCESI := Vector2i(10, 0)
+const VARIS_YARICAPI := 2
 
 var yol_butcesi_ms: float = 2.0
 var _esik_kullanici: String = ""
@@ -43,6 +44,31 @@ func bos_hucre_bul(hedef: Vector2i, dolu_hucreler: Array) -> Vector2i:
 		if not aday in dolu_hucreler:
 			return aday
 	return hedef
+
+
+## Sınırdaki kapıda ilk halka dolarsa ikinci yakın halkaya bakar.
+static func bos_varis_yolu(rotaci: KoyRotasi, bas: Vector2i, hedef: Vector2i, dolu: Dictionary, trafik: Dictionary) -> Array[Vector2i]:
+	if not dolu.has(hedef):
+		return rotaci.kalabalik_yolu(bas, [hedef], dolu, trafik)
+	var adaylar: Array[Vector2i] = []
+	for y in range(hedef.y - VARIS_YARICAPI, hedef.y + VARIS_YARICAPI + 1):
+		for x in range(hedef.x - VARIS_YARICAPI, hedef.x + VARIS_YARICAPI + 1):
+			var aday := Vector2i(x, y)
+			if not dolu.has(aday) and rotaci.gecilir(aday):
+				adaylar.append(aday)
+	adaylar.sort_custom(func(a: Vector2i, b: Vector2i) -> bool:
+		var trafik_farki := int(trafik.get(a, 0)) - int(trafik.get(b, 0))
+		if trafik_farki != 0:
+			return trafik_farki < 0
+		var hedef_farki := a.distance_squared_to(hedef) - b.distance_squared_to(hedef)
+		if hedef_farki != 0:
+			return hedef_farki < 0
+		var bas_farki := a.distance_squared_to(bas) - b.distance_squared_to(bas)
+		if bas_farki != 0:
+			return bas_farki < 0
+		return a.y < b.y if a.y != b.y else a.x < b.x
+	)
+	return rotaci.kalabalik_yolu(bas, adaylar, dolu, trafik)
 
 
 ## SAH-35: Kapı kuyruğu çizgi sırasını tutar.

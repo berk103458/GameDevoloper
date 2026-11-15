@@ -113,7 +113,7 @@ func faz(ad: StringName) -> void:
 	CobanSurusu.yenile(self)
 	KurtSurusu.yenile(self)
 
-func _iste(id: int) -> void:
+func _iste(id: int, dolu_adimdan: bool = false) -> void:
 	if not _bekleyen.has(id):
 		_bekleyen.append(id)
 	var f: KarakterModel = modeller[id]
@@ -121,6 +121,7 @@ func _iste(id: int) -> void:
 	f.calis(&"")
 	_durum[id].yol = []
 	_durum[id].sinsi_kacis = false
+	_durum[id].dolu_adimdan = dolu_adimdan
 	_durum[id].bekle = 0.0
 
 func _process(delta: float) -> void:
@@ -153,7 +154,10 @@ func _process(delta: float) -> void:
 				d.bekle += delta
 				if d.bekle >= ADIM_TEKRAR_SURESI:
 					d.bekle = 0.0
-					_adim(id)
+					if d.get("ortak_durak", false) and KoyRotaAraligi.adim_dolu(self, f, hedef):
+						_iste(id, true)
+					else:
+						_adim(id)
 		elif d.get("oduncu", false):
 			d.bekle += delta
 			if d.bekle >= float(OduncuRutini.AYAR.sureler[d.oduncu_i]):
@@ -193,8 +197,7 @@ func _planla(id: int) -> void:
 			break
 	if k == null:
 		return
-	var orta := Vector2(sahne.yonetim.a.meydan.position) + Vector2(sahne.yonetim.a.meydan.size) / 2.0
-	var ham := Vector2i(floori(f.position.x / sahne.HUCRE + orta.x), floori(f.position.z / sahne.HUCRE + orta.y))
+	var ham := KoyRotaAraligi.hucre(self, f.position)
 	var bas := ham
 	if not rotaci.gecilir(ham):
 		bas = KoyRotaAraligi.bos_hucre(self, ham, f)
@@ -202,7 +205,8 @@ func _planla(id: int) -> void:
 			return
 		f.position = _konum(bas)
 	var m := sahne.yonetim.a.meydan
-	var son := rotaci.yakin(m.position + Vector2i(id % m.size.x, (id / m.size.x) % m.size.y))
+	var bekleme := rotaci.yakin(m.position + Vector2i(id % m.size.x, (id / m.size.x) % m.size.y))
+	var son := bekleme
 	var b := sahne.yonetim.bina(k.ev if faz_adi == &"gece" else k.is_yeri)
 	d.is = false
 	d.bak = sahne.alan_merkezi(m.position, m.size)
@@ -320,7 +324,9 @@ func _planla(id: int) -> void:
 			son = rotaci.bina_duragi(bas, Rect2i(ev.hucre, ev.boyut(sahne.yonetim.katalog)), id)
 		d.is = false
 		d.dinlen = true
-	var hucreler := rotaci.yol(bas, son)
+	var ortak_durak: bool = d.devriye or (not d.is and son == bekleme)
+	d.ortak_durak = ortak_durak
+	var hucreler := KoyRotaAraligi.varis_yolu(self, f, bas, son) if ortak_durak else rotaci.yol(bas, son)
 	if hucreler.is_empty():
 		d.is = false
 	d.yol = KoyZeminNavigasyonu.yol(self, hucreler)
@@ -328,7 +334,8 @@ func _planla(id: int) -> void:
 		# Küçük, hücre içinde kalan durak farkı: aynı durakta üst üste binmeyi azaltır.
 		d.yol[-1] += Vector3((id % 3 - 1) * float(_ayar.durak_araligi), 0, ((id / 3) % 3 - 1) * float(_ayar.durak_araligi))
 	TarlaIsNoktalari.bitir(d)
-	d.adim = 0
+	d.adim = 1 if d.get("dolu_adimdan", false) and bas == ham and d.yol.size() > 1 else 0
+	d.dolu_adimdan = false
 	if d.coban: CobanSurusu.plan(self, k, d.yol)
 	if not d.yol.is_empty():
 		_adim(id)

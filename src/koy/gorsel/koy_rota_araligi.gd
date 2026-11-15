@@ -53,6 +53,48 @@ static func bos_hucre(h: KoyHalkHareketi, tercih: Vector2i, f: KarakterModel = n
 	return en_yakin
 
 
+## Yerinde duran kök ve planlanmış varış aynı hücreyi başka kişiye ayırmaz.
+static func varis_yolu(h: KoyHalkHareketi, figur: KarakterModel, bas: Vector2i, hedef: Vector2i) -> Array[Vector2i]:
+	var dolu := {}
+	var trafik := {}
+	for id in h.modeller:
+		var diger: KarakterModel = h.modeller[id]
+		if diger == figur or not is_instance_valid(diger) or diger.is_queued_for_deletion():
+			continue
+		var durum: Dictionary = h._durum[id]
+		var yol: Array = durum.yol
+		if int(durum.adim) >= yol.size():
+			dolu[hucre(h, diger.position)] = true
+		if not yol.is_empty():
+			var durak := hucre(h, yol[-1])
+			dolu[durak] = true
+			if durak.distance_squared_to(hedef) <= 8:
+				var iz := {}
+				for i in range(int(durum.adim), yol.size()):
+					iz[hucre(h, yol[i])] = true
+				for nokta in iz:
+					trafik[nokta] = int(trafik.get(nokta, 0)) + 1
+	return KalabalikYol.bos_varis_yolu(h.rotaci, bas, hedef, dolu, trafik)
+
+
+static func adim_dolu(h: KoyHalkHareketi, figur: KarakterModel, hedef: Vector3) -> bool:
+	var hedef_hucresi := hucre(h, hedef)
+	for id in h.modeller:
+		var diger: KarakterModel = h.modeller[id]
+		if diger == figur or not is_instance_valid(diger) or diger.is_queued_for_deletion():
+			continue
+		var durum: Dictionary = h._durum[id]
+		if int(durum.adim) >= durum.yol.size() and hucre(h, diger.position) == hedef_hucresi:
+			return true
+	return false
+
+
+static func hucre(h: KoyHalkHareketi, konum: Vector3) -> Vector2i:
+	var kose := h.sahne.hucre_kosesi(Vector2i.ZERO)
+	var boy := h.sahne.HUCRE
+	return Vector2i(floori((konum.x - kose.x) / boy), floori((konum.z - kose.z) / boy))
+
+
 static func _hucre_bos(h: KoyHalkHareketi, f: KarakterModel, hucre: Vector2i) -> bool:
 	var konum := h._konum(hucre)
 	var nokta := Vector2(konum.x, konum.z)
@@ -74,10 +116,7 @@ static func _aralik_var(h: KoyHalkHareketi, f: KarakterModel, bas: Vector2, son:
 
 
 static func _agda(h: KoyHalkHareketi, konum: Vector2, yan_adim: bool) -> bool:
-	var kose := h.sahne.hucre_kosesi(Vector2i.ZERO)
-	var boy := h.sahne.HUCRE
-	var hucre := Vector2i(floori((konum.x - kose.x) / boy), floori((konum.y - kose.z) / boy))
-	if not h.rotaci.gecilir(hucre):
+	if not h.rotaci.gecilir(hucre(h, Vector3(konum.x, 0.0, konum.y))):
 		return false
 	if not yan_adim:
 		return true

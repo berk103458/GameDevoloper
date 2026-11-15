@@ -4,10 +4,12 @@ extends RefCounted
 
 var _ag := AStar3D.new()
 var _izgara: Izgara
+var _zemin_maliyeti := 1.0
 
 ## Doluluk değişince grafiği kurar. Ekonomi ve kayıt durumunu değiştirmez.
 func kur(izgara: Izgara, zemin_maliyeti: float) -> void:
 	_izgara = izgara
+	_zemin_maliyeti = maxf(1.0, zemin_maliyeti)
 	_ag.clear()
 	for y in izgara.boyut.y:
 		for x in izgara.boyut.x:
@@ -15,7 +17,7 @@ func kur(izgara: Izgara, zemin_maliyeti: float) -> void:
 			if not gecilir(h):
 				continue
 			var ucuz := izgara.yollar.has(h) or izgara.meydanda(h)
-			_ag.add_point(_id(h), Vector3(x, 0, y), 1.0 if ucuz else maxf(1.0, zemin_maliyeti))
+			_ag.add_point(_id(h), Vector3(x, 0, y), 1.0 if ucuz else _zemin_maliyeti)
 	for id in _ag.get_point_ids():
 		var h := _hucre(id)
 		for d in [Vector2i.RIGHT, Vector2i.DOWN]:
@@ -34,6 +36,34 @@ func yol(bas: Vector2i, son: Vector2i) -> Array[Vector2i]:
 		return sonuc
 	for id in _ag.get_id_path(_id(bas), _id(son)):
 		sonuc.append(_hucre(id))
+	return sonuc
+
+
+## Yalnız bu sorguda duran kökleri ve ayrılmış varışları kapatır, yakın trafiği daha pahalı sayar.
+func kalabalik_yolu(bas: Vector2i, adaylar: Array[Vector2i], dolu: Dictionary, trafik: Dictionary) -> Array[Vector2i]:
+	var kapatilanlar := PackedInt64Array()
+	var agirliklar := {}
+	for h in dolu:
+		if h != bas and gecilir(h):
+			var id := _id(h)
+			if not _ag.is_point_disabled(id):
+				_ag.set_point_disabled(id)
+				kapatilanlar.append(id)
+	for h in trafik:
+		if h != bas and not dolu.has(h) and gecilir(h):
+			var id := _id(h)
+			var agirlik := _ag.get_point_weight_scale(id)
+			agirliklar[id] = agirlik
+			_ag.set_point_weight_scale(id, agirlik + 2.0 * _zemin_maliyeti * int(trafik[h]))
+	var sonuc: Array[Vector2i] = []
+	for aday in adaylar:
+		sonuc = yol(bas, aday)
+		if not sonuc.is_empty():
+			break
+	for id in agirliklar:
+		_ag.set_point_weight_scale(id, float(agirliklar[id]))
+	for id in kapatilanlar:
+		_ag.set_point_disabled(id, false)
 	return sonuc
 
 ## Kapalı hücrede kalan karakteri en yakın açık hücreye taşımak için güvenli başlangıç.
