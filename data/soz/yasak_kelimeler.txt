@@ -1,0 +1,13 @@
+# YAZ-02: Dönem dışı modern yasak sözler (tek üslup kaynağı: Roadmap-2/USLUP_REHBERI.md §3)
+# YAZ-07 (tools/soz_dogrulayici.py) bu listeyi tarar ve uyarı üretir; satırı silmez.
+aslında
+kesinlikle
+harika
+mükemmel
+inanılmaz
+problem
+stres
+travma
+sistem
+organize
+okey

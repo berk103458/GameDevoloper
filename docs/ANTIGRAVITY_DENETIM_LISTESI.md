@@ -247,7 +247,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | YAP-37 | Söz motoru | `[x]` | `src/soz/soz_motoru.gd` | `SozKaydi.motor` olarak kuruluyor | Motor yalnız kaydedilip yükleniyor, oyunda bir söz akışı başlatmıyor | EKSİK | Motoru bir sahneye bağla |
 | YAP-51 | Eşya açıklaması anahtardır | `[x]` | `data/metin/metinler.csv` | Metinler anahtarlı | — | TAM | — |
 | YAP-53 | Kavga ganimeti | `[x]` | `src/kapi/` | Kural kapı tarafında | CAT açık olduğu için ganimet yolu da kapalı | EKSİK | CAT-01 bağlanınca çalışır |
-| YAZ-02 | Üslup kapısı | `[x]` | — | Kabul `data/soz/yasak_kelimeler.txt` ve `tests/tools/test_uslup_kapisi.py` istiyor | İkisi de yok | EKSİK | Yasak kelime listesini ve testi yaz |
+| YAZ-02 | Üslup kapısı | `[x]` | `data/soz/yasak_kelimeler.txt`, `tools/soz_dogrulayici.py`, `tests/tools/test_uslup_kapisi.py` | Yasak modern söz listesi (`11` sözcük), satır silmeden uyarı üreten `YAZ-07` taraması ve `test_uslup_kapisi.py` (`14` yapaylık kuralı, tek üslup rehberi, `dogaclama` dışa aktarımda yok) eklendi | — | TAM | `yasak_kelimeler.txt` + `test_uslup_kapisi.py` + `test_soz_kapi.py` doğrulandı (Antigravity) |
 | YER-01 | Dil sekmesi | `[x]` | `src/arayuz/dil_sekmesi.gd` | Ayar ekranına ekleniyor | — | TAM | — |
 | YER-02 | Metin anahtar standardı | `[x]` | `docs/METIN_ANAHTAR_STANDARDI.md`, `tools/metin_dogrula.py` | Belge ve araç var | — | TAM | — |
 | YER-03 | Dil ayardan okunur | `[x]` | `src/sistemler/dil_ayari.gd` | `DilAyari.uygula` ayarı okuyup locale kuruyor | `ana.gd:24` hâlâ `set_locale("tr")` yazıyor; kabul "yazmaz" diyor | EKSİK | Sabit satırı kaldır, yalnız `DilAyari.uygula` kalsın |

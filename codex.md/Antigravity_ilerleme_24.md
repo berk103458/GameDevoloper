@@ -203,3 +203,19 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+
+### Madde 12 — `YAZ-02` (`TAM`)
+- **Değişiklikler:**
+  - `data/soz/yasak_kelimeler.txt`: `Roadmap-2/USLUP_REHBERI.md` §3 modern yasak sözlerinin tamamı (`aslında`, `kesinlikle`, `harika`, `mükemmel`, `inanılmaz`, `problem`, `stres`, `travma`, `sistem`, `organize`, `okey`) eklendi.
+  - `tools/soz_dogrulayici.py`: `yasak_kelimeler_oku`, `metni_tara` ve `replik_uyarilari` eklendi (yasak söz uyarısı üretir, listeden satır silmez; `dogrula()` dosyayı denetler).
+  - `tests/tools/test_uslup_kapisi.py`: Rehber modern sözlerinin tamamının listede olduğu, `"aslında"` içeren repliğin 1 uyarı üretip satırı silmediği, `yapaylik.js` kural sayısının 14 olduğu, ikinci üslup dosyası ve dışa aktarımda `dogaclama` bulunmadığı doğrulandı.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `YAZ-02` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `python tests/tools/test_uslup_kapisi.py` → `Ran 3 tests in 1.082s / OK` (`RC=0`)
+  - `python tests/tools/test_soz_kapi.py` → `Ran 39 tests in 9.162s / OK` (`RC=0`)
+  - `python tools/soz_dogrulayici.py` → `YAZ-07 DOGRULAMA: 30 karakter ses karti ve 11 yasak kelime eksiksiz gecti.` (`RC=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/uslup_test.gd` → `TEST PASS: uslup_test.gd` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

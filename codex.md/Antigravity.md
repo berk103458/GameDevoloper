@@ -1244,3 +1244,17 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **11.4 Uygula ve doğrula:** `tests/unit/soz/celiski_goster_test.gd` (yeni kapsamlı kabul testi: doğru/yanlış çift, güven −2 / tansiyon +1 / sabır −1, aynı yanlış çiftin tekrarlanamaması, 3 yanlıştan sonra Göster kapanışı, tek kayıtta Göster kilidi, `SozMotoru` + `ChrSorgusu` + `BeyanDefteriPaneli` UI akışı), `celiski_yuzlesme_test.gd`, `beyan_defteri_test.gd`, `soz_motoru_test.gd` ve `chr_kapi_kontrol.tscn` çalıştır (`RC=0, ERRS=0`), `DYL-01` → `TAM` güncelle ve commit/push et.
 
 - **Sonuç:** `src/soz/celiski.gd`, `src/arayuz/kapi/beyan_defteri_paneli.gd`, `soz_motoru.gd`, `celiski_yuzlesme.gd`, `chr_sorgusu.gd`, `chr_diyalog_paneli.gd`, `chr_kapi_adaptoru.gd`, `kapi_ekrani.gd`, `celiski_goster_test.gd` ve `celiski_goster_kontrol.{gd,tscn}` eklendi/güncellendi; 6 hedefli test sıfır script hatasıyla geçti. Asset gerekmedi. kota görünmüyor.
+
+
+### Madde 12 — `YAZ-02` (Üslup kapısı: `data/soz/yasak_kelimeler.txt`, `soz_dogrulayici.py` taraması ve `tests/tools/test_uslup_kapisi.py`) Alt Madde Planı
+- **12.1 Sorunu anla:** `docs/ANTIGRAVITY_DENETIM_LISTESI.md` (`YAZ-02`) kabul ölçütü `data/soz/yasak_kelimeler.txt` ve `tests/tools/test_uslup_kapisi.py` dosyalarını istediği halde ikisinin de repoda olmadığını belirtir.
+- **12.2 Araçlara nasıl bağlandığını kontrol et:**
+  - `Roadmap-2/USLUP_REHBERI.md` §3 (`Kaçınılacak modern sözler`) ve §7 (14 yapaylık kuralı) ile `Roadmap-2/soz_agaci/yapaylik.js` (`KURALLAR`: 14 kural) repoda mevcut; fakat `data/soz/yasak_kelimeler.txt` yok ve `tools/soz_dogrulayici.py` (`YAZ-07`) bu listeyi taramıyor.
+  - `tools/soz_kapi.py` & `tests/tools/test_soz_kapi.py` `tools/*yasak*` olmamasını ve tek üslup rehberi ilkesini denetliyor; `ROADMAP_2.md` gereği ikinci üslup rehberi açılmamalı ve doğaçlama taslağı dışa aktarım listesinde bulunmamalı.
+- **12.3 «Daha iyi olur» iyileştirmeleri:**
+  - `data/soz/yasak_kelimeler.txt`: `Roadmap-2/USLUP_REHBERI.md` §3 modern sözlerinin tamamını (`aslında, kesinlikle, harika, mükemmel, inanılmaz, problem, stres, travma, sistem, organize, okey`) içeren tek yasak kelime listesi oluştur.
+  - `tools/soz_dogrulayici.py`: `data/soz/yasak_kelimeler.txt` listesini okuyan (`yasak_kelimeler_oku`) ve bir replikte geçen yasak sözcük için satırı silmeden uyarı üreten (`metni_tara` / `replik_uyarilari`) `YAZ-07` doğrulayıcı işlevlerini ekle; `tools/soz_kapi.py` modern kelime okuması da bu listeyle uyumlu kalsın.
+  - `tests/tools/test_uslup_kapisi.py`: Rehberdeki tüm modern sözlerin `data/soz/yasak_kelimeler.txt` içinde bulunduğunu, `"aslında"` içeren bir repliğin 1 uyarı üretip satırı silmediğini, `yapaylik.js` içindeki kural sayısının 14 olduğunu, ikinci üslup rehberi ve dışa aktarımda doğaçlama taslağı bulunmadığını doğrulayan kapsamlı `unittest` paketi yaz.
+- **12.4 Uygula ve doğrula:** `test_uslup_kapisi.py`, `test_soz_kapi.py`, `tools/soz_dogrulayici.py` ve `uslup_test.gd` çalıştır, `YAZ-02` → `TAM` işaretle ve commit/push et.
+
+- **Sonuç:** `data/soz/yasak_kelimeler.txt`, `tools/soz_dogrulayici.py` ve `tests/tools/test_uslup_kapisi.py` eklendi/güncellendi; `test_uslup_kapisi.py` (3/3), `test_soz_kapi.py` (39/39), `soz_dogrulayici.py` ve `uslup_test.gd` geçti. Asset gerekmedi. kota görünmüyor.
