@@ -642,17 +642,17 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | ID / grup | Kısa tanım | Hedef ölçü (metre) |
 |---|---|---|
 | `KAPI-3D-IC` | [ÜRETİLDİ: `assets/model/yapi/kapi_ic.glb`] Bekçi kadrajı (`KapiCercevesi`). | 4,0 × 4,0 × 0,35 m; kanat başına 2,0 m |
-| `EL-TORBA` | chr_002; keten torba, linen sack. | 0,35 × 0,50 × 0,20 m |
-| `EL-SEPET` | chr_003; hasır sepet, wicker basket. | 0,45 × 0,40 × 0,35 m |
-| `EL-CEKIC` | chr_003; küçük çekiç, hand hammer. | 0,12 × 0,35 × 0,06 m |
-| `EL-KAMCI` | chr_004; at kamçısı, horse whip. | 0,10 × 0,80 × 0,10 m |
-| `EL-KURK` | chr_004; kürk bohça, fur bundle. | 0,45 × 0,30 × 0,30 m |
-| `EL-HEYBE` | chr_005, 009, 010; çift göz heybe, saddlebags. | 0,65 × 0,40 × 0,25 m |
-| `EL-SEPET-BUYUK` | chr_006, 012; büyük sepet. | 0,65 × 0,60 × 0,45 m |
-| `EL-SANDIK` | chr_007; küçük sandık, small chest. | 0,60 × 0,35 × 0,35 m |
-| `EL-ASA` | chr_008; ahşap asa, staff. | 0,06 × 1,60 × 0,06 m |
-| `EL-DEGNEK` | chr_013; eğri değnek, cane. | 0,08 × 1,00 × 0,08 m |
-| `EL-ODUN` | chr_001; iki odun, firewood. | 0,25 × 0,60 × 0,20 m |
+| `EL-TORBA` | [ÜRETİLDİ: `assets/model/nesne/el_torba.glb`] chr_002; keten torba, linen sack (`ElEsyasi`). | 0,35 × 0,50 × 0,20 m |
+| `EL-SEPET` | [ÜRETİLDİ: `assets/model/nesne/el_sepet.glb`] chr_003; hasır sepet, wicker basket (`ElEsyasi`). | 0,45 × 0,40 × 0,35 m |
+| `EL-CEKIC` | [ÜRETİLDİ: `assets/model/nesne/el_cekic.glb`] chr_003; küçük çekiç, hand hammer (`ElEsyasi`). | 0,12 × 0,35 × 0,06 m |
+| `EL-KAMCI` | [ÜRETİLDİ: `assets/model/nesne/el_kamci.glb`] chr_004; at kamçısı, horse whip (`ElEsyasi`). | 0,10 × 0,80 × 0,10 m |
+| `EL-KURK` | [ÜRETİLDİ: `assets/model/nesne/el_kurk_bohca.glb`] chr_004; kürk bohça, fur bundle (`ElEsyasi`). | 0,45 × 0,30 × 0,30 m |
+| `EL-HEYBE` | [ÜRETİLDİ: `assets/model/nesne/el_heybe.glb`] chr_005, 009, 010; çift göz heybe, saddlebags (`ElEsyasi`). | 0,65 × 0,40 × 0,25 m |
+| `EL-SEPET-BUYUK` | [ÜRETİLDİ: `assets/model/nesne/el_sepet_buyuk.glb`] chr_006, 012; büyük sepet (`ElEsyasi`). | 0,65 × 0,60 × 0,45 m |
+| `EL-SANDIK` | [ÜRETİLDİ: `assets/model/nesne/el_sandik.glb`] chr_007; küçük sandık, small chest (`ElEsyasi`). | 0,60 × 0,35 × 0,35 m |
+| `EL-ASA` | [ÜRETİLDİ: `assets/model/nesne/el_asa.glb`] chr_008; ahşap asa, staff (`ElEsyasi`). | 0,06 × 1,60 × 0,06 m |
+| `EL-DEGNEK` | [ÜRETİLDİ: `assets/model/nesne/el_degnek.glb`] chr_013; eğri değnek, cane (`ElEsyasi`). | 0,08 × 1,00 × 0,08 m |
+| `EL-ODUN` | [ÜRETİLDİ: `assets/model/nesne/el_odun.glb`] chr_001; iki odun, firewood (`ElEsyasi`). | 0,25 × 0,60 × 0,20 m |
 | `chr_001, 004, 005, 006, 007, 009, 010` | eksik klipler: panik, gergin. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `chr_002, 003, 008, 011–030` | eksik klipler: ofke, gergin. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf` | eksik klipler: altı duygu klibinin hepsi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |

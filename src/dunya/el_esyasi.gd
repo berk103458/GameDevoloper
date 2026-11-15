@@ -52,6 +52,28 @@ static func olustur(tur: String) -> ElEsyasi:
 	var e := ElEsyasi.new()
 	e.name = "esya_" + tur
 	e._tur = tur
+	var el_map := {
+		"torba": ["el_torba", 0.36, -0.36, false, false],
+		"heybe": ["el_heybe", 0.34, -0.34, false, false],
+		"sepet": ["el_sepet", 0.36, -0.36, false, false],
+		"sepet_buyuk": ["el_sepet_buyuk", 0.48, -0.48, false, false],
+		"asa": ["el_asa", 1.45, -0.72, true, true],
+		"degnek": ["el_degnek", 1.50, -0.74, true, true],
+		"odun": ["el_odun", 0.35, -0.35, false, false],
+		"sandik": ["el_sandik", 0.25, -0.25, false, false],
+		"cekic": ["el_cekic", 0.32, -0.28, true, false],
+		"kamci": ["el_kamci", 0.55, -0.50, false, false],
+		"kurk": ["el_kurk_bohca", 0.32, -0.32, false, false],
+	}
+	if el_map.has(tur):
+		var m_bilgi: Array = el_map[tur]
+		if Dunya3B.model_var_mi(String(m_bilgi[0])):
+			var glb := Dunya3B.nesne(String(m_bilgi[0]), float(m_bilgi[1]))
+			glb.position.y = float(m_bilgi[2])
+			e.dik = bool(m_bilgi[3])
+			e._sapta_kayabilir = bool(m_bilgi[4])
+			e.add_child(glb)
+			return e
 	if tur in ["cekic", "kazma", "odun"]:
 		var hazir := HazirEsyaHayvan.esya(tur)
 		if hazir != null:
