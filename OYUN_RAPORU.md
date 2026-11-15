@@ -3334,3 +3334,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-31 (Codex-Berk): CHR konuşma seçeneklerinde yerel renk/stil yokluğu ve canlı oyun çağrısı bağı doğrulandı; mevcut ortak tema korunur. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-36 (Codex-Berk): Köy alt kabuğu ve eylem düğmesindeki yerel stil kopyaları kaldırıldı; ortak panel ve dört düğme durumu doğrudan tema mirasından gelir. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-50 (Codex-Berk): Divan panelindeki yerel stil kopyası kaldırıldı; aynı PanelContainer ortak tema stilini miras alır. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.

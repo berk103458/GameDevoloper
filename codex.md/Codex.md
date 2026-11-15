@@ -1351,3 +1351,6 @@ CHR konuşma seçeneklerinde yerel renk/stil yokluğu ve canlı oyun çağrısı
 
 ## 15 Kasım 2026 — GRV-36 (Codex-Berk)
 Köy alt kabuğu ve eylem düğmesindeki yerel stil kopyaları kaldırıldı; ortak panel ve dört düğme durumu doğrudan tema mirasından gelir. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-50 (Codex-Berk)
+Divan panelindeki yerel stil kopyası kaldırıldı; aynı PanelContainer ortak tema stilini miras alır. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

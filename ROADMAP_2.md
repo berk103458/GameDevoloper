@@ -7509,7 +7509,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/kapi/kapi_gorus_adaptoru.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-50:** (Codex-Berk) `divan_ekrani.gd` temaya bağlanır.
+- [x] **GRV-50:** (Codex-Berk) `divan_ekrani.gd` temaya bağlanır.
   - Ne: `src/kapi/divan_ekrani.gd` bugün ColorRect 0 ve 2 düz düğmeyle duruyor; notu: Divan ekranı zeminsiz, düz düğme. Tema bağlanınca yalnız `divan_ekrani.gd` ARY-02 zeminini ve düğme durumunu okur, Divan ekranı zeminsiz, düz düğme davranışı değişmez.
   - Kabul: `divan_ekrani.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `divan_ekrani.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
