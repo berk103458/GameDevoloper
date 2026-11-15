@@ -41,7 +41,9 @@ func _calistir() -> void:
 		f.position = h._konum(bas)
 		h._durum[id].devriye_i = 0
 		h._iste(id)
-	for i in 3:
+	for i in ids.size():
+		if h._bekleyen.is_empty():
+			break
 		h._process(0.0)
 	var hedefler := {}
 	for id in ids:
@@ -57,10 +59,37 @@ func _calistir() -> void:
 	if hata == 0:
 		await _varislari_olc(s, ids)
 	_kontrol(JSON.stringify(y.kaydet()) == once, "SAH-34: Rota kayıt ve RNG durumundan ayrı")
+	await _rota_butcesini_dene(h)
 	s.queue_free()
 	await get_tree().process_frame
 	print("KALABALIK VARIŞ: GEÇTİ" if hata == 0 else "KALABALIK VARIŞ: KALDI")
 	await Ses.cik(hata)
+
+
+func _rota_butcesini_dene(h: KoyHalkHareketi) -> void:
+	var y := h.sahne.yonetim
+	y.kabul({"sinif": "ciftci", "stat": 5})
+	var son := y.kabul({"sinif": "ciftci", "stat": 5})
+	h.yenile()
+	var f: KarakterModel = h.modeller[son.id]
+	var bas := h._konum(y.a.meydan.position)
+	f.position = bas
+	var hedef := bas + Vector3(0.45, 0, 0)
+	h._durum[son.id].yol = [hedef]
+	h._durum[son.id].adim = 0
+	f.yuru(hedef, 1.35)
+	h._iste(son.id)
+	var ilk := h._bekleyen.size()
+	var once := h.rota_butcesi_asimlari
+	var butce := h._rota_butcesi_us
+	# Sınırın dolmasını makine hızından bağımsız sınamak için bütçeyi bu karede sıfırla.
+	h._rota_butcesi_us = 0
+	h._process(0.0)
+	_kontrol(ilk == 10 and h._bekleyen.size() == 9 and h.rota_butcesi_asimlari == once + 1, "SAH-39: On istekten ilk plan biter ve diğer istekler sırada kalır")
+	_kontrol(h._bekleyen.has(son.id) and f._yurume != null and f._yurume.is_running(), "SAH-39: Ertelenen kök eski yolunda yürür")
+	print("SAH-39 istek=%d, ertelenen=%d, bütçe aşımı=%d, yapılandırılan bütçe=%d µs" % [ilk, h._bekleyen.size(), h.rota_butcesi_asimlari - once, butce])
+	h._rota_butcesi_us = butce
+	await get_tree().process_frame
 
 
 func _tek_esigi_dene(h: KoyHalkHareketi, ids: Array[int], kapi: Vector2i) -> void:

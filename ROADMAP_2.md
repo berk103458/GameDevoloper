@@ -8150,7 +8150,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-02, SAH-34. Boyut: M.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-39:** On kişide yol bir kareyi aşmaz. (doğrulanmadı — Görev 22; Kalfa bekleniyor — KalabalikYol oyunda çağrılmıyor, KoyHalkHareketi/kapı kuyruğu entegrasyonu gerekli)
+- [x] **SAH-39:** On kişide yol bir kareyi aşmaz. (Kalfa — bütçe dolunca sıradaki plan ertelenir)
   - Ne: yol hesabı kare bütçesinin içindedir. Bütçe `sahne.json` içindedir. Aşımda o karede yeni yol aranmaz, eski yol sürer.
   - Kabul: yol hesabı kare bütçesinin içindedir. Bütçe `sahne.json` içindedir. Aşımda o karede yeni yol aranmaz, eski yol sürer. Test: 10 kişi, aşım satırı.
   - Bağımlılık: SAH-34. Boyut: M.

@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-39 (Kalfa)
+
+Rota planlaması sahne tablosundaki 2 ms bütçeyi her plan arasında kontrol ediyor. Bütçe bittiğinde yeni arama sonraki kareye kalıyor ve mevcut hareketi olan kök eski rotasını sürdürüyor. Tek A* sorgusu bölünemediği için ilk iş tamamlanır. Kontrollü on istek testinde 9 istek ertelendi, bir bütçe aşımı kaydedildi ve devam eden tween korundu. Kalabalık varış, muhafız devriyesi ve köy hareketi headless geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-38 (Kalfa)
 
 Gerçek ANI-02 devriyesi, normal rotası ateş başındaki altı köylünün arasından geçecekken mevcut kalabalık rotasıyla kapıya yürüdü. Dolu hücrelerden geçiş ve kök kesişimi 0, asgari kök aralığı 1,99974 m. Muhafız devriyesi headless testi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

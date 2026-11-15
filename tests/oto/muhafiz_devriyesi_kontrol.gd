@@ -101,7 +101,9 @@ func _ates_devriyesi(h: KoyHalkHareketi, muhafiz: int) -> void:
 		y.kabul({"sinif": "ciftci", "stat": 5})
 	h.yenile()
 	h.faz(&"gece")
-	for i in 3:
+	for i in h.modeller.size():
+		if h._bekleyen.is_empty():
+			break
 		h._process(0.0)
 	var dolu := {}
 	for id in h.modeller:

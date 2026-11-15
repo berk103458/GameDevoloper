@@ -3,6 +3,7 @@ class_name KoyHalkHareketi
 extends Node
 
 const ADIM_TEKRAR_SURESI := 0.25
+const SAHNE_AYARI: Dictionary = preload("res://data/ayarlar/sahne.json").data
 
 var sahne: KoyYonetimSahnesi
 var modeller: Dictionary = {}
@@ -11,6 +12,8 @@ var faz_adi: StringName = &"gunduz"
 var _ayar: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/koy_hareket.json"))
 var _durum: Dictionary = {}
 var _bekleyen: Array[int] = []
+var _rota_butcesi_us := roundi(float(SAHNE_AYARI.yol_butcesi_ms) * 1000.0)
+var rota_butcesi_asimlari := 0
 
 
 func konusma_bagla(yonetici: KoyDiyalogYoneticisi, id: int) -> void:
@@ -117,9 +120,10 @@ func _iste(id: int, dolu_adimdan: bool = false) -> void:
 	if not _bekleyen.has(id):
 		_bekleyen.append(id)
 	var f: KarakterModel = modeller[id]
-	f.yurumeyi_durdur()
-	f.calis(&"")
-	_durum[id].yol = []
+	if f._yurume == null or not f._yurume.is_running():
+		f.yurumeyi_durdur()
+		f.calis(&"")
+		_durum[id].yol = []
 	_durum[id].sinsi_kacis = false
 	_durum[id].dolu_adimdan = dolu_adimdan
 	if not dolu_adimdan:
@@ -128,14 +132,18 @@ func _iste(id: int, dolu_adimdan: bool = false) -> void:
 	_durum[id].bekle = 0.0
 
 func _process(delta: float) -> void:
+	var rota_baslangici := Time.get_ticks_usec()
 	for i in mini(int(_ayar.kare_basina_rota), _bekleyen.size()):
+		if i > 0 and Time.get_ticks_usec() - rota_baslangici >= _rota_butcesi_us:
+			rota_butcesi_asimlari += 1
+			break
 		var id: int = _bekleyen.pop_front()
 		if modeller.has(id):
 			_planla(id)
 	for id in modeller:
-		if _bekleyen.has(id):
-			continue
 		var d: Dictionary = _durum[id]
+		if _bekleyen.has(id) and int(d.adim) >= d.yol.size():
+			continue
 		var f: KarakterModel = modeller[id]
 		if SinsiGeceRutini.guncelle(self, id, delta): continue
 		if d.adim < d.yol.size():
@@ -227,6 +235,9 @@ func _planla(id: int) -> void:
 			break
 	if k == null:
 		return
+	f.yurumeyi_durdur()
+	f.calis(&"")
+	d.yol = []
 	var ham := KoyRotaAraligi.hucre(self, f.position)
 	var bas := ham
 	if not rotaci.gecilir(ham):
