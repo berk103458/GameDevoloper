@@ -41,3 +41,31 @@ Test: `godot --headless --path . -s tests/unit/soz/soylenti_kapi_dogrulama_test.
 Asset gerekmedi.
 
 kota: kota görünmüyor
+
+## SOY-23 — Bağlam sorgusunda söylenti anahtarları (15 Kasım 2026)
+
+Ne yapıldı: Ağdaki her kayıt, konuşan karakter için DIY-09 bağlamına yazılır. Tek yardımcı `SoylentiBaglami.baglama_yaz` `baglam_sorgusu_al` okur; ikinci söylenti kaydı açmaz. Anahtarlar düzdür: `soylenti.<olay_id>.duydu`, `.dogru`, `.kaynak`. SatirSecici koşulu ilk noktadan böldüğü için iç içe sözlük yetmez. Olay kimliği kayıttan kayda değiştiği için veri dalı `soylenti_duydu` özetine bakar (karakter en az bir kaydı duyduysa true). Duyan köylüde "Duydum ki…" dalı seçilir; duymayanda dal seçilmez. Cümle `soz.soylenti.duydum_ki` anahtarındadır (TR+EN). Kart okuması ağı kurmaz. Eski kayıt biçimi değişmedi.
+
+Oyuna bağlantı: `KoyluKarti` → `NeDuydun.ekle` ("Ne duydun?") → `duydum_ki_metin` → `duydum_ki_sec` → `sohbet_baglami` → `SoylentiBaglami.baglama_yaz` → `SoylentiAgi.baglam_sorgusu_al`. Ağ `SoylentiKoprusu.ag` ile oturumdadır. Seçilen cümle, köylünün kendi sürümünün üstüne yazılır.
+
+Değişen dosyalar:
+- `src/soz/soylenti_baglami.gd` (yeni)
+- `src/koy/ne_duydun.gd` (ince adaptör)
+- `src/soz/satir_secici.gd` (`soylenti.` ve `soylenti_duydu` geçerli koşul)
+- `data/soz/soylenti_duydum.json` (yeni)
+- `data/metin/metinler.csv` ve üretilen `metinler.tr.translation`, `metinler.en.translation`
+- `tests/unit/sistemler/soylenti_baglam_test.gd` (yeni)
+- Yeni betiklerin `.uid` dosyaları duruyor.
+
+Test:
+- `godot --headless --path . -s tests/unit/sistemler/soylenti_baglam_test.gd` → `SOY-23 GECTI`, çıkış kodu 0.
+- `godot --headless --path . -s tests/unit/kvr/soylenti_agi_test.gd` → `PASS: SOY-01..50 Soylenti Agi kapanis testi basariyla gecti.`, çıkış kodu 0.
+- `godot --headless --path . -s tests/unit/sistemler/ne_duydun_test.gd` → `NE DUYDUN: GEÇTİ`, çıkış kodu 0.
+- `godot --headless --path . -s tests/unit/soz/satir_secici_test.gd` → `SATIR SECICI: GEÇTİ (0 hata)`, çıkış kodu 0.
+- `--import` sonrası `project.godot` değişmedi. SCRIPT ERROR yok. Tam sanity koşulmadı.
+
+Asset gerekmedi.
+
+kota: kota görünmüyor
+
+Bu makinede `C:\Users\ds\Documents\GitHub\GameDevoloper` kopyası yok; eşitlendi denmez. Durum: kod ve testler festive'e push edildi; madde ROADMAP_2'de `[/] (Cursor-Berk)` kalır, `[x]` Usta doğrulamasından sonra.
