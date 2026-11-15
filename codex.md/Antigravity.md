@@ -1545,6 +1545,12 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `ozel_esyalar_test.gd` (`OZEL ESYALAR (YAP-06): GEÇTİ (0 hata)`), `ozel_esyalar_ve_defter_metin_test.gd` (`RC=0`), `kavga_secenek_test.gd` (`KAVGA SECENEK: GEÇTİ (0 hata)`), `koy_yonetimi_test.gd` (`KOY YONETIMI TEST: GEÇTİ (0 hata)`), `cozumleme_test.gd` (`ÇÖZÜMLEME VERİ: GEÇTİ`), `kervan_korumasi_test.gd` (`KERVAN KORUMASI: GEÇTİ`), `savunma_guvenligi_test.gd` (`SAVUNMA GUVENLIGI: GEÇTİ`), `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`), `acilis_bagimlilik_kontrol.tscn` (`RC=0`).
 - **Asset:** asset gerekmedi (`YAP06-ESYA` `docs/EKSIK_ASSET_ENVANTERI.md` içinde mevcut; yeni PNG üretilmedi).
 - kota görünmüyor
+---
+
+## Oturum — 16 Kasım 2026 (ROADMAP_4.md Tam Sürüm)
+- **Yapılan:** Ahmet'in 12 kesinleşmiş kararına (`A1`–`F2`) göre [ROADMAP_4.md](ROADMAP_4.md) yazıldı ve [docs/ROADMAP_4_ON_RAPOR.md](docs/ROADMAP_4_ON_RAPOR.md) başına dönüşüm notu eklendi.
+- **İçerik özeti:** `47` ana madde (`TST`: 8, `ICR`: 14, `TEL`: 6, `SES`: 7, `PKT`: 6, `ING`: 6) ve `33` alt madde (toplam `65` yürütülebilir birim); başında "Ahmet Kararları", sonunda tekil bağımlılık zinciri, Ajan Masası (#11) çakışma listesi ve "Sonraya Bırakılanlar".
+- **Kota:** kota görünmüyor. (Antigravity)
 
 ### 2026-11-16 — SOY-25 Tamamlandı (Antigravity-Berk)
 - **Değişiklikler:**

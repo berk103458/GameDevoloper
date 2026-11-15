@@ -1,3 +1,5 @@
+> Bu rapor ROADMAP_4.md'ye dönüştürüldü; kararlar 16 Kasım 2026'da Ahmet tarafından verildi.
+
 # ROADMAP 4 Hazırlık Ön Raporu — Kapı Muhafızı
 
 **Tarih:** 15 Kasım 2026  
