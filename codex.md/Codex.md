@@ -1393,3 +1393,40 @@ Odanın yerel zemin rengi ve panel stili kaldırıldı; mevcut 3B oda korunarak 
 
 ## 15 Kasım 2026 — GRV-08 (Codex-Berk)
 Köy HUD klasörünün tamamı ortak kaynak taramasından geçti; kalan yerel renk/punto ve kutu kurulumları Kabuk/Tema kaynaklarına taşındı. İşlevler değiştirilmedi. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+GRV-51 commit/push doğrulandı: d8b9fb1f; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-52 commit/push doğrulandı: bb2bafbc; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-53 commit/push doğrulandı: eab2196d; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-55 commit/push doğrulandı: 1ef9d02f; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-57 commit/push doğrulandı: c5d6c886; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-58 commit/push doğrulandı: 63396262; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-59 commit/push doğrulandı: df6b85e7; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-62 commit/push doğrulandı: d6e8c47c; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-31 commit/push doğrulandı: efe3a340; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-36 commit/push doğrulandı: bbc66c3e; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-50 commit/push doğrulandı: 3ff8b6c2; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-54 commit/push doğrulandı: 7ebcbb9c; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-101 commit/push doğrulandı: 44a12b87; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-38 commit/push doğrulandı: 91445dd7; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-34 commit/push doğrulandı: ce4501ab; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-48 commit/push doğrulandı: cb00be61; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-61 commit/push doğrulandı: 54836ebd; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-70 commit/push doğrulandı: e585751c; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-94 commit/push doğrulandı: 7bf4b289; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-96 commit/push doğrulandı: f2fd0a6b; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-06 commit/push doğrulandı: bf779dac; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-10 commit/push doğrulandı: 9895f836; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+GRV-08 commit/push doğrulandı: 2abc143d; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+
+## 15 Kasım 2026 — GRV paketi kapanış denetimi (Codex-Berk)
+
+Bu tur 27 GRV maddesi tamamlandı ve her biri normal push ile yayımlandı. KLT-13/14/47 kullanıcının talimatıyla bekletildi; grubu durdurmadı. Tam liste ve kanıt: docs/denetim/2026-11-15-grv-codex.md. GRV-08 bütün 63 köy HUD betiğini kapsar. 27 maddenin normal test logu temiz, geçici ham renk mutasyonu çıkış1; kaynaklar geri yüklendi. Köy yönetimi birim testi geçti. Yeni asset gerekmedi.
+
+2abc143d yalnız commitli dosyalardan git archive ile ayrı kopyaya çıkarıldı; başta .godot yoktu. İlk headless recovery import exit0 / script0 / parse0, fakat editör kapanışında3 kaynak/PagedAllocator ERROR var. Aynı kopyada gerçek ana menü açılış-bağımlılık testi exit0 / script0 / ERROR0. Tam sanity veya bütünüyle hatasız import denmedi. Kaynak/UID denetiminde çakışma ve eksik bağımlılık yok; eski denetimin iki sütun CSV varsayımı mevcut keys,tr,en şemasıyla uyuşmuyor. Güncel metin doğrulaması Ahmet/Gemini alanındaki dört anahtarda kaldı. Kabuk Python testleri8 geçti/2 kaldı; kapsam dışı koy_diyalog_paneli.gd ham renk ve18 punto.
+
+GRV-56/60/63/64 [/] kaldı: sırasıyla kulübe kurulumu, otacı/Şifahane kabulü ve null id, kundak testinin bina kurulumu, chr_008 uygunsuz karakter ERROR. GRV-64 exit0 yazsa da ERROR içerdiği için başarılı sayılmadı. GRV-05'in ARY-03 görsel geçişi/ARY-01 seçim kaydı, GRV-07/16 özel menü stilleri, GRV-15 uzun metin kabulü ve GRV-30 üst kapanışı tamamlanmadı. Sahte [x] yazılmadı. Başka ajanların oyun kuralları, metin anahtarları ve bağımsız yerel değişiklikleri korundu.
+
+Zorunlu ds ayna ve Ahmet yolları bulunamadı; eşitleme yapılamadı. kota görünmüyor.
+
+ENGEL
+GRV oyun kabul testlerinde gerçek hatalar ve genel metin/kabuk kapanışında kapsam dışı ihlaller var; ayrıntı ve tekrar komutları denetim raporunda. KLT ön koşulları bu duruşun gerekçesi değildir.
