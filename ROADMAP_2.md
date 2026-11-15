@@ -5547,7 +5547,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: DIY-09, SOY-02. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd` → bağlam sözlüğü.
   - Asset: asset gerekmedi.
-- [/] **SOY-24:** (Cursor-Berk) Dönen karakter söylentiyi getirir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-24:** (Cursor-Berk) Dönen karakter söylentiyi getirir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor) **Doğrulama (Cursor-Berk): GEÇTİ** — 8eb72592; kapı `_siradaki` yolunda `DonenSoylenti` bağlı (kapi_ekrani.gd:286-287), donen_soylenti/kisi_hafizasi/soylenti_baglam testleri ve metin_dogrula çıkış 0.
   - Ne: DIY-11 dönen karakter köyde duyduğunu (ağ kaydı) ilk cümlesinde anabilir; söz dosyasında `soylenti` dalı.
   - Kabul: dönen + duyan → dal 1. Test: iki ziyaret.
   - Bağımlılık: DIY-11, SOY-23. Boyut: S.
