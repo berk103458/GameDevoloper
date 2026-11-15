@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-73 (Kalfa)
+
+CHR_002 ile hedefli headless muayenede ayak ölçümü ve eşya kesişimi raporlandı. Sahne ile betikte TST-08 adımı bulunmadı. Asset gerekmedi.
+
 ## 2026-11-15 — SAH-72 (Kalfa)
 
 Kapı eşiğinde dört temas örneği normal ve düşük gölge profillerinde aynı kaldı (0,000000 m fark). Hedefli ayak zemini sahnesi geçti. Asset gerekmedi.

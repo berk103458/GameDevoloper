@@ -8369,7 +8369,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.10 Muayene ve eksik klipler
 
-- [ ] **SAH-73:** Muayene aracı TST-08'in yerine geçmez.
+- [x] **SAH-73:** Muayene aracı TST-08'in yerine geçmez.
   - Ne: `tests/oto/karakter_muayene.tscn` durur. TST-08 adımları bu dosyada yazılmaz. Araç, bu bölümün ölçümlerini satır olarak ekler.
   - Kabul: `tests/oto/karakter_muayene.tscn` durur. TST-08 adımları bu dosyada yazılmaz. Araç, bu bölümün ölçümlerini satır olarak ekler. Test: araç açılır, TST metni bu bölümde 0.
   - Bağımlılık: SAH-08. Boyut: S.
