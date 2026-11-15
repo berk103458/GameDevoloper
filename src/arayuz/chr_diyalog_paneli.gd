@@ -85,6 +85,9 @@ func guncelle() -> void:
 		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		b.custom_minimum_size.y = 80
 		b.disabled = not sorgu.secenek_acik(secenek, i)
+		if b.disabled and sorgu.has_method("zar_kilitli") and sorgu.zar_kilitli(secenek, baglam):
+			var kilit_sozu := tr("ZAR_KILITLI")
+			b.tooltip_text = kilit_sozu if b.tooltip_text.is_empty() else "%s — %s" % [b.tooltip_text, kilit_sozu]
 		acik_var = acik_var or not b.disabled
 		if not secenek.get("gerekli_ipuclari", []).is_empty():
 			b.tooltip_text = "Önce nişan, yük veya fiziksel izi incele" if b.disabled else "Bulunan kanıtla yüzleş"

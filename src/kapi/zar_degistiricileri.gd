@@ -22,6 +22,10 @@ const TABLO_YOLU := "res://data/zar_degistiricileri.json"
 const ASGARI_TOPLAM := -3
 const AZAMI_TOPLAM := 3
 
+## Oyuncu satırı `zar.degistirici.<tur>` anahtarından gelir; metin tabloda yoksa anahtarın kendisi yazılır.
+static func _satir(tur: String, deger: int) -> Dictionary:
+	return {"tur": tur, "metin": String(TranslationServer.translate("zar.degistirici." + tur)), "deger": deger}
+
 static func gecerli_yaklasim(yaklasim: Variant) -> bool:
 	var y_str := String(yaklasim).to_lower().strip_edges()
 	if y_str == "kalp" or y_str == "romans":
@@ -89,11 +93,11 @@ static func hesapla(yaklasim: Variant, baglam: Dictionary = {}, tablo_override: 
 
 	if terazi_adil:
 		if y == YAKLASIM_IKNA or y == YAKLASIM_GONUL_ALMA:
-			satirlar.append({"tur": "terazi_adil", "metin": "Adil terazi", "deger": -1})
+			satirlar.append(_satir("terazi_adil", -1))
 			ham_toplam -= 1
 	elif terazi_yoz:
 		if y == YAKLASIM_GOZDAGI:
-			satirlar.append({"tur": "terazi_yoz", "metin": "Yoz terazi", "deger": -1})
+			satirlar.append(_satir("terazi_yoz", -1))
 			ham_toplam -= 1
 
 	# 2. Grup itibarı: uçta en çok ±1
@@ -101,43 +105,42 @@ static func hesapla(yaklasim: Variant, baglam: Dictionary = {}, tablo_override: 
 	if itibar != 0:
 		var itibar_etki := clampi(itibar, -1, 1)
 		var mod := -itibar_etki
-		satirlar.append({"tur": "grup_itibari", "metin": "Grup itibarı", "deger": mod})
+		satirlar.append(_satir("grup_itibari", mod))
 		ham_toplam += mod
 
 	# 3. Bulunmuş kanıt: -1
 	# İki kanıt ikinci -1 vermez; "bulundu mu" sayılır.
 	var kanit_var: bool = bool(baglam.get("kanit", false) or int(baglam.get("kanit_sayisi", 0)) > 0)
 	if kanit_var:
-		satirlar.append({"tur": "kanit", "metin": "Bulunmuş kanıt", "deger": -1})
+		satirlar.append(_satir("kanit", -1))
 		ham_toplam -= 1
 
 	# 4. Yanındaki asker: yalnız gözdağı -1
 	# Asker yokken asker satırı listede hiç yazılmaz. Asker iknaya yazmaz.
 	var asker_var: bool = bool(baglam.get("asker", false) or int(baglam.get("asker_sayisi", 0)) > 0)
 	if asker_var and y == YAKLASIM_GOZDAGI:
-		satirlar.append({"tur": "asker", "metin": "Yanındaki asker", "deger": -1})
+		satirlar.append(_satir("asker", -1))
 		ham_toplam -= 1
 
 	# 5. Yorgunluk: +1
 	var yorgunluk: bool = bool(baglam.get("yorgunluk", false) or int(baglam.get("yorgunluk_seviyesi", 0)) > 0)
 	if yorgunluk:
-		satirlar.append({"tur": "yorgunluk", "metin": "Nöbet yorgunluğu", "deger": 1})
+		satirlar.append(_satir("yorgunluk", 1))
 		ham_toplam += 1
 
 	# 6. Muhafız tecrübesi: ZAR-06 sezgi eşiğini geçince -1 (ikinci eşik yok; KAP-09 tecrübesi buradan yazar).
 	if bool(baglam.get("tecrube_esigi_gecti", false)):
-		satirlar.append({"tur": "tecrube", "metin": "Muhafız tecrüben", "deger": -1})
+		satirlar.append(_satir("tecrube", -1))
 		ham_toplam -= 1
 
 	# Toplam -3...+3 dışında kesilir.
 	var toplam := clampi(ham_toplam, ASGARI_TOPLAM, AZAMI_TOPLAM)
 	var kesildi := (toplam != ham_toplam)
 	if kesildi:
-		satirlar.append({
-			"tur": "kesilme",
-			"metin": "Sınır kesintisi (en çok %d)" % (AZAMI_TOPLAM if ham_toplam > 0 else ASGARI_TOPLAM),
-			"deger": toplam - ham_toplam
-		})
+		var sinir := AZAMI_TOPLAM if ham_toplam > 0 else ASGARI_TOPLAM
+		var kesilme := _satir("kesilme", toplam - ham_toplam)
+		kesilme["metin"] = String(TranslationServer.translate("zar.degistirici.kesilme")) % sinir
+		satirlar.append(kesilme)
 
 	return {
 		"gecerli": true,

@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Gemini metin anahtarları bağlandı — 15 Kasım 2026
+
+`docs/GEMINI_METIN_ISLERI.md` anahtarlarının hepsi `data/metin/metinler.csv` içinde, TR karşılıkları dolu. Eksik anahtar yok. `zar.degistirici.<tur>` satırları `ZarDegistiricileri._satir` ile anahtardan geliyor; `ZAR_KILITLI` kilitli seçeneğin ipucunda. `dedikodu.kacis`, `arayuz.kapi.karar_kacti`, `ZAR_BASARILI` ve `ZAR_BASARISIZ` zaten kapı akışında ve zar sonucunda kullanılıyordu. ROADMAP_2 işaretine dokunulmadı, Gemini metinleri değiştirilmedi. Test: `zar_oyun_baglanti_kontrol` ve `zar_degistirici_test`. Asset gerekmedi. Kota görünmüyor.
+
 ## Bölüşüm kararı yazıldı — 15 Kasım 2026
 
 Ahmet'in 19:39 kararı repoya yazıldı, kod yazılmadı. AGENTS.md "Madde sahipliği ve bölüşüm" bölümüne "15 Kas 2026 bölüşümü" alt başlığı ve tablosu eklendi: ROADMAP_2'de kalan bütün açık/yarım maddeler Berk tarafının (Usta, Codex-Berk, Cursor-Berk, testx). Ahmet tarafında Meshy (Antigravity), Gemini metin anahtarları ve kod bağlantısı (Cursor), ROADMAP 3 savaş (Google ajanları ve Cursor) kalıyor. ROADMAP_2.md başına kısa not, ROADMAP_3 ön raporuna "Sahip: Ahmet tarafı", CLAUDE.md ve codex.md/SOUL.md'ye tek satır atıf eklendi. Madde satırlarındaki sahip adları değiştirilmedi. Asset gerekmedi. Test gerekmedi (yalnız belge). Kota görünmüyor.

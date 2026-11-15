@@ -1,355 +1,1523 @@
 {
  "_aciklama": "Dağınık asset planlarını tek kanonik asset kimliğine bağlayan eşleme. 'envanter': docs/EKSIK_ASSET_ENVANTERI.md 3D tablosundaki ve ARY-05 tablosundaki her 3B kimlik -> kanonik asset kimlikleri. Aynı nesneyi isteyen farklı satırlar aynı kimliğe bağlanır; böylece bir kez üretilir. 'mevcut:<ad>' mevcut dosyaya bağlar (üretilmez). 'meshy_disi:<neden>' Meshy ile üretilemeyen ihtiyaçtır. 'otomatik:karakter_klipleri' diskteki eksik hareket kliplerinden hesaplanır. 'assetler': yalnız envanterde olan ya da eski plan satırını değiştiren kayıtlar. production/eksikler/01 tablosundaki Meshy satırları betikle okunur; burada aynı kimlik varsa alanları onların üstüne yazılır.",
  "envanter": {
-  "KAPI-3D-IC": ["kapi_ic"],
-  "EL-TORBA": ["el_torba"],
-  "EL-SEPET": ["el_sepet"],
-  "EL-CEKIC": ["el_cekic"],
-  "EL-KAMCI": ["el_kamci"],
-  "EL-KURK": ["el_kurk_bohca"],
-  "EL-HEYBE": ["el_heybe"],
-  "EL-SEPET-BUYUK": ["el_sepet_buyuk"],
-  "EL-SANDIK": ["el_sandik"],
-  "EL-ASA": ["el_asa"],
-  "EL-DEGNEK": ["el_degnek"],
-  "EL-ODUN": ["el_odun"],
-  "chr_001, 004, 005, 006, 007, 009, 010": ["otomatik:karakter_klipleri"],
-  "chr_002, 003, 008, 011–030": ["otomatik:karakter_klipleri"],
-  "asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf": ["otomatik:karakter_klipleri"],
-  "KAR-CAVUS": ["cavus"],
-  "KAR-TAHSILDAR": ["tahsildar"],
-  "KAR-ELCI": ["tekfur_elcisi"],
-  "KAR-DERVIS": ["dervis"],
-  "KAR-HABERCI": ["haberci"],
-  "KAR-BEY": ["bey"],
-  "KAR-COCUK": ["cocuk"],
-  "KAR-TEKFUR-ASKER": ["tekfur_askeri"],
-  "YAPI-tarla, bostan": ["tarla", "bostan"],
-  "YAPI-hizarhane": ["hizarhane"],
-  "YAPI-odunluk": ["odunluk"],
-  "YAPI-tas_ocagi": ["tas_ocagi"],
-  "YAPI-avci": ["avci_cadiri"],
-  "YAPI-atolye, demirhane": ["atolye", "demirhane"],
-  "YAPI-ambar": ["ambar"],
-  "YAPI-firin": ["firin"],
-  "YAPI-degirmen": ["degirmen"],
-  "YAPI-sifahane": ["sifahane"],
-  "YAPI-ahir": ["ahir"],
-  "YAPI-agil": ["agil"],
-  "YAPI-kirec_kuyusu": ["kirec_kuyusu"],
-  "YAPI-tas_ev": ["tas_ev"],
-  "YAPI-demir_madeni": ["demir_madeni"],
-  "YAPI-demir_ocagi": ["demir_ocagi"],
-  "YAPI-muhafiz_kislasi": ["muhafiz_kislasi"],
-  "YAPI-gozetleme_kulesi": ["gozetleme_kulesi"],
-  "YAPI-pazar_tezgahi": ["mevcut:pazar_tezgahi"],
-  "YAPI-sur 2–3": ["sur_2_palisat", "sur_3_tas"],
-  "HYV-AT": ["at"],
-  "HYV-KOYUN": ["koyun"],
-  "HYV-KECI": ["keci"],
-  "HYV-DEVE": ["deve"],
-  "HYV-KOPEK": ["kopek"],
-  "PROP-ORS": ["ors"],
-  "PROP-TEZGAH": ["dokuma_tezgahi"],
-  "PROP-AGAC-2": ["agac_02", "kaya_02"],
-  "ANI-SILAH": ["kilic", "kalkan", "mizrak", "mesale_el"],
-  "ANI-ALET": ["kova", "orak", "balta", "el_cekic", "firin_kuregi"],
-  "ANI-HAYVAN-SURU": ["meshy_disi:Meshy otomatik iskeleti yalnız insan biçimli karakterler içindir; öküz yürüyüşü ve koyun otlama klibi ayrı kaynak (elle rig / hazır paket) ister"],
-  "TUC-TACIR": ["celep", "nalbur", "kumasci", "aktar", "silah_tuccari"],
-  "TUC-HAYVAN": ["inek", "koc", "beygir"],
-  "MEV-ZEMIN": ["kurek", "meshy_disi:Kar örtüsü ve çatı karı shader + 2D doku işidir; Meshy model üretimi değil"],
-  "MEV-AFET": ["su_bendi", "kurt", "meshy_disi:Yangın parçacık/VFX işidir; Meshy model üretimi değil"],
-  "CAS-GECE": ["fener", "kova"],
-  "ODA-ODA": ["muhafiz_odasi", "yatak", "masa", "kasa", "kutuphane"],
-  "KRI-MEZAR": ["toplu_mezar"],
-  "ANI07-ISINMA": ["anim_isinma"],
-  "ANI08-TEZGAH": ["ors", "firin_agzi"],
-  "ANI08-HAREKET": ["anim_cekic_vurma", "anim_firin_kuregi"],
-  "ANI09-SACAK": ["sacak"],
-  "ANI09-BUZULME": ["anim_buzulme"],
-  "ANI10-SINSI": ["anim_sinsi_yuru", "anim_temkinli_bekle"],
-  "ANI11-ALET": ["el_cekic", "firin_kuregi"],
-  "ANI12-IDLE": ["anim_idle_nefes", "anim_idle_agirlik", "anim_idle_bakis"],
-  "TUC02-OKUZ": ["mevcut:okuz"],
-  "TUC02-INEK": ["inek"],
-  "TUC02-BEYGIR": ["beygir"],
-  "TUC02-KOC": ["koc"],
-  "HAR06-KULE": ["gozetleme_kulesi"],
-  "HAR10-YAY": ["yay"],
-  "HAR10-MIZRAK": ["mizrak"],
-  "MEV05-KUREK": ["kurek", "anim_kar_kureme"],
-  "MEV10-KURT": ["kurt", "meshy_disi:Kurt yürüyüş/kaçış klibi: Meshy otomatik iskeleti dört ayaklı desteklemez"],
-  "CAS05-DIVAN": ["divan_masasi", "divan_oturak"],
-  "CAS07-ZINDAN": ["zindan_kapisi"],
-  "ODA01-ICMEKAN": ["muhafiz_odasi"],
-  "ODA01-YATAK": ["yatak"],
-  "ODA01-MASA": ["masa"],
-  "ODA01-MESALE": ["mesale_el"],
-  "ODA01-KASA": ["kasa"],
-  "ODA09-KABUS": ["kabus_golgesi"],
-  "ODA08-YATAK": ["rahat_yatak"],
-  "ODA08-ASKILIK": ["askilik"],
-  "ODA08-KUTUPHANE": ["kutuphane"],
-  "ODA03-ESYA": ["muhur", "iksir_sisesi", "hediye_bohcasi"],
-  "KRI05-MEZAR": ["toplu_mezar"],
-  "BUG21-TASYATAGI": ["tas_yatagi"],
-  "BUG25-MESALE": ["mevcut:mesale"],
-  "BUG25-KUYU": ["mevcut:kuyu"],
-  "ACL01-MUHAFIZ": ["muhafiz"],
-  "ACL01-ES": ["muhafiz_esi"],
-  "KAP17-COCUK": ["cocuk"],
-  "KAP17-YASLI": ["yasli"],
-  "CAT02-KAVGA": ["anim_kavga"],
-  "ISG02-ALETLER": ["kurek", "el_sepet", "su_kabi", "kirmen", "bakim_bezi"],
-  "YAP03-USTALAR": ["usta"],
-  "YAP05-ODA": ["cozumleme_odasi"],
-  "DYL02-AYRINTI-*": ["meshy_disi:Mevcut karakter dokusu/ayrıntısı (yamalı çarık, yara, yanık giysi); yeni model değil, doku düzeltmesi ya da retexture kararı ister"],
-  "DYL03-YEMIN": ["yemin_nesneleri"],
-  "DYL09-DENETCI": ["denetci"],
-  "SEV03-IZ": ["kisisel_iz"],
-  "SAB03-ORTU": ["tezgah_ortusu"],
-  "TEZ01-ORTU": ["tezgah_ortusu"],
-  "TEZ03-HAM": ["blok_ham"],
-  "TEZ04-IZ": ["blok_iz"],
-  "TEZ05-BICIM": ["blok_bicim"],
-  "TEZ06-AGIZ": ["blok_agiz"],
-  "TEZ08-PARCA": ["teslim_parcasi"],
-  "B4-ILERI-KLIPLER": ["anim_kos", "anim_otur", "anim_orak", "anim_cekic_vurma", "anim_nobet", "anim_saldir", "anim_dus", "anim_yagmur_yuru", "anim_buzulme"],
-  "SAH-EL-TORBA": ["meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"],
-  "SAH-EL-CEKIC": ["meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"],
-  "SAH-EL-ASA": ["meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"],
-  "SAH-EL-DEGNEK": ["meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"],
-  "SAH-EL-SEPET": ["meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"],
-  "SAH-EL-KAZMA": ["meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"],
-  "SAH-EL-KILE": ["meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"],
-  "ZAR01-ZAR": ["zar"]
+  "KAPI-3D-IC": [
+   "kapi_ic"
+  ],
+  "EL-TORBA": [
+   "el_torba"
+  ],
+  "EL-SEPET": [
+   "el_sepet"
+  ],
+  "EL-CEKIC": [
+   "el_cekic"
+  ],
+  "EL-KAMCI": [
+   "el_kamci"
+  ],
+  "EL-KURK": [
+   "el_kurk_bohca"
+  ],
+  "EL-HEYBE": [
+   "el_heybe"
+  ],
+  "EL-SEPET-BUYUK": [
+   "el_sepet_buyuk"
+  ],
+  "EL-SANDIK": [
+   "el_sandik"
+  ],
+  "EL-ASA": [
+   "el_asa"
+  ],
+  "EL-DEGNEK": [
+   "el_degnek"
+  ],
+  "EL-ODUN": [
+   "el_odun"
+  ],
+  "chr_001, 004, 005, 006, 007, 009, 010": [
+   "otomatik:karakter_klipleri"
+  ],
+  "chr_002, 003, 008, 011–030": [
+   "otomatik:karakter_klipleri"
+  ],
+  "asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf": [
+   "otomatik:karakter_klipleri"
+  ],
+  "KAR-CAVUS": [
+   "cavus"
+  ],
+  "KAR-TAHSILDAR": [
+   "tahsildar"
+  ],
+  "KAR-ELCI": [
+   "tekfur_elcisi"
+  ],
+  "KAR-DERVIS": [
+   "dervis"
+  ],
+  "KAR-HABERCI": [
+   "haberci"
+  ],
+  "KAR-BEY": [
+   "bey"
+  ],
+  "KAR-COCUK": [
+   "cocuk"
+  ],
+  "KAR-TEKFUR-ASKER": [
+   "tekfur_askeri"
+  ],
+  "YAPI-tarla, bostan": [
+   "tarla",
+   "bostan"
+  ],
+  "YAPI-hizarhane": [
+   "hizarhane"
+  ],
+  "YAPI-odunluk": [
+   "odunluk"
+  ],
+  "YAPI-tas_ocagi": [
+   "tas_ocagi"
+  ],
+  "YAPI-avci": [
+   "avci_cadiri"
+  ],
+  "YAPI-atolye, demirhane": [
+   "atolye",
+   "demirhane"
+  ],
+  "YAPI-ambar": [
+   "ambar"
+  ],
+  "YAPI-firin": [
+   "firin"
+  ],
+  "YAPI-degirmen": [
+   "degirmen"
+  ],
+  "YAPI-sifahane": [
+   "sifahane"
+  ],
+  "YAPI-ahir": [
+   "ahir"
+  ],
+  "YAPI-agil": [
+   "agil"
+  ],
+  "YAPI-kirec_kuyusu": [
+   "kirec_kuyusu"
+  ],
+  "YAPI-tas_ev": [
+   "tas_ev"
+  ],
+  "YAPI-demir_madeni": [
+   "demir_madeni"
+  ],
+  "YAPI-demir_ocagi": [
+   "demir_ocagi"
+  ],
+  "YAPI-muhafiz_kislasi": [
+   "muhafiz_kislasi"
+  ],
+  "YAPI-gozetleme_kulesi": [
+   "gozetleme_kulesi"
+  ],
+  "YAPI-pazar_tezgahi": [
+   "mevcut:pazar_tezgahi"
+  ],
+  "YAPI-sur 2–3": [
+   "sur_2_palisat",
+   "sur_3_tas"
+  ],
+  "HYV-AT": [
+   "at"
+  ],
+  "HYV-KOYUN": [
+   "koyun"
+  ],
+  "HYV-KECI": [
+   "keci"
+  ],
+  "HYV-DEVE": [
+   "deve"
+  ],
+  "HYV-KOPEK": [
+   "kopek"
+  ],
+  "PROP-ORS": [
+   "ors"
+  ],
+  "PROP-TEZGAH": [
+   "dokuma_tezgahi"
+  ],
+  "PROP-AGAC-2": [
+   "agac_02",
+   "kaya_02"
+  ],
+  "ANI-SILAH": [
+   "kilic",
+   "kalkan",
+   "mizrak",
+   "mesale_el"
+  ],
+  "ANI-ALET": [
+   "kova",
+   "orak",
+   "balta",
+   "el_cekic",
+   "firin_kuregi"
+  ],
+  "ANI-HAYVAN-SURU": [
+   "meshy_disi:Meshy otomatik iskeleti yalnız insan biçimli karakterler içindir; öküz yürüyüşü ve koyun otlama klibi ayrı kaynak (elle rig / hazır paket) ister"
+  ],
+  "TUC-TACIR": [
+   "celep",
+   "nalbur",
+   "kumasci",
+   "aktar",
+   "silah_tuccari"
+  ],
+  "TUC-HAYVAN": [
+   "inek",
+   "koc",
+   "beygir"
+  ],
+  "MEV-ZEMIN": [
+   "kurek",
+   "meshy_disi:Kar örtüsü ve çatı karı shader + 2D doku işidir; Meshy model üretimi değil"
+  ],
+  "MEV-AFET": [
+   "su_bendi",
+   "kurt",
+   "meshy_disi:Yangın parçacık/VFX işidir; Meshy model üretimi değil"
+  ],
+  "CAS-GECE": [
+   "fener",
+   "kova"
+  ],
+  "ODA-ODA": [
+   "muhafiz_odasi",
+   "yatak",
+   "masa",
+   "kasa",
+   "kutuphane"
+  ],
+  "KRI-MEZAR": [
+   "toplu_mezar"
+  ],
+  "ANI07-ISINMA": [
+   "anim_isinma"
+  ],
+  "ANI08-TEZGAH": [
+   "ors",
+   "firin_agzi"
+  ],
+  "ANI08-HAREKET": [
+   "anim_cekic_vurma",
+   "anim_firin_kuregi"
+  ],
+  "ANI09-SACAK": [
+   "sacak"
+  ],
+  "ANI09-BUZULME": [
+   "anim_buzulme"
+  ],
+  "ANI10-SINSI": [
+   "anim_sinsi_yuru",
+   "anim_temkinli_bekle"
+  ],
+  "ANI11-ALET": [
+   "el_cekic",
+   "firin_kuregi"
+  ],
+  "ANI12-IDLE": [
+   "anim_idle_nefes",
+   "anim_idle_agirlik",
+   "anim_idle_bakis"
+  ],
+  "TUC02-OKUZ": [
+   "mevcut:okuz"
+  ],
+  "TUC02-INEK": [
+   "inek"
+  ],
+  "TUC02-BEYGIR": [
+   "beygir"
+  ],
+  "TUC02-KOC": [
+   "koc"
+  ],
+  "HAR06-KULE": [
+   "gozetleme_kulesi"
+  ],
+  "HAR10-YAY": [
+   "yay"
+  ],
+  "HAR10-MIZRAK": [
+   "mizrak"
+  ],
+  "MEV05-KUREK": [
+   "kurek",
+   "anim_kar_kureme"
+  ],
+  "MEV10-KURT": [
+   "kurt",
+   "meshy_disi:Kurt yürüyüş/kaçış klibi: Meshy otomatik iskeleti dört ayaklı desteklemez"
+  ],
+  "CAS05-DIVAN": [
+   "divan_masasi",
+   "divan_oturak"
+  ],
+  "CAS07-ZINDAN": [
+   "zindan_kapisi"
+  ],
+  "ODA01-ICMEKAN": [
+   "muhafiz_odasi"
+  ],
+  "ODA01-YATAK": [
+   "yatak"
+  ],
+  "ODA01-MASA": [
+   "masa"
+  ],
+  "ODA01-MESALE": [
+   "mesale_el"
+  ],
+  "ODA01-KASA": [
+   "kasa"
+  ],
+  "ODA09-KABUS": [
+   "kabus_golgesi"
+  ],
+  "ODA08-YATAK": [
+   "rahat_yatak"
+  ],
+  "ODA08-ASKILIK": [
+   "askilik"
+  ],
+  "ODA08-KUTUPHANE": [
+   "kutuphane"
+  ],
+  "ODA03-ESYA": [
+   "muhur",
+   "iksir_sisesi",
+   "hediye_bohcasi"
+  ],
+  "KRI05-MEZAR": [
+   "toplu_mezar"
+  ],
+  "BUG21-TASYATAGI": [
+   "tas_yatagi"
+  ],
+  "BUG25-MESALE": [
+   "mevcut:mesale"
+  ],
+  "BUG25-KUYU": [
+   "mevcut:kuyu"
+  ],
+  "ACL01-MUHAFIZ": [
+   "muhafiz"
+  ],
+  "ACL01-ES": [
+   "muhafiz_esi"
+  ],
+  "KAP17-COCUK": [
+   "cocuk"
+  ],
+  "KAP17-YASLI": [
+   "yasli"
+  ],
+  "CAT02-KAVGA": [
+   "anim_kavga"
+  ],
+  "ISG02-ALETLER": [
+   "kurek",
+   "el_sepet",
+   "su_kabi",
+   "kirmen",
+   "bakim_bezi"
+  ],
+  "YAP03-USTALAR": [
+   "usta"
+  ],
+  "YAP05-ODA": [
+   "cozumleme_odasi"
+  ],
+  "DYL02-AYRINTI-*": [
+   "meshy_disi:Mevcut karakter dokusu/ayrıntısı (yamalı çarık, yara, yanık giysi); yeni model değil, doku düzeltmesi ya da retexture kararı ister"
+  ],
+  "DYL03-YEMIN": [
+   "yemin_nesneleri"
+  ],
+  "DYL09-DENETCI": [
+   "denetci"
+  ],
+  "SEV03-IZ": [
+   "kisisel_iz"
+  ],
+  "SAB03-ORTU": [
+   "tezgah_ortusu"
+  ],
+  "TEZ01-ORTU": [
+   "tezgah_ortusu"
+  ],
+  "TEZ03-HAM": [
+   "blok_ham"
+  ],
+  "TEZ04-IZ": [
+   "blok_iz"
+  ],
+  "TEZ05-BICIM": [
+   "blok_bicim"
+  ],
+  "TEZ06-AGIZ": [
+   "blok_agiz"
+  ],
+  "TEZ08-PARCA": [
+   "teslim_parcasi"
+  ],
+  "B4-ILERI-KLIPLER": [
+   "anim_kos",
+   "anim_otur",
+   "anim_orak",
+   "anim_cekic_vurma",
+   "anim_nobet",
+   "anim_saldir",
+   "anim_dus",
+   "anim_yagmur_yuru",
+   "anim_buzulme"
+  ],
+  "SAH-EL-TORBA": [
+   "meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"
+  ],
+  "SAH-EL-CEKIC": [
+   "meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"
+  ],
+  "SAH-EL-ASA": [
+   "meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"
+  ],
+  "SAH-EL-DEGNEK": [
+   "meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"
+  ],
+  "SAH-EL-SEPET": [
+   "meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"
+  ],
+  "SAH-EL-KAZMA": [
+   "meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"
+  ],
+  "SAH-EL-KILE": [
+   "meshy_disi:SAH-16 temas düzeltmesi: el soketi/ölçü ayarı, yeni model değil"
+  ],
+  "ZAR01-ZAR": [
+   "zar"
+  ]
  },
  "topluluk_adayi": {
   "_aciklama": "design/art/meshy/meshy-secim.json içindeki CC0 Meshy topluluk modeli bu ihtiyacı karşılayabilir. İndirmek kredi harcamaz (hesapla elle indirilir). Üretimden önce bakılmalı; hat bu satırları 'topluluk adayı var' diye işaretler ve kredi tasarrufunu ayrıca gösterir.",
-  "at": ["K05"], "koyun": ["K13"], "deve": ["A140"], "keci": ["A163"], "kopek": ["B019"],
-  "ors": ["A040"], "dokuma_tezgahi": ["A236"], "mizrak_sehpasi": ["A016"], "mizrak": ["A012"], "kalkan": ["A002"],
-  "gozetleme_kulesi": ["A113"], "sur_2_palisat": ["O81"], "sur_3_tas": ["O90", "O92"], "firin": ["A177", "A181"],
-  "degirmen": ["O76"], "el_sepet": ["O51", "O01"], "orak": ["A211"], "kervan_yuku": ["O49"], "nobet_ocagi": ["O05", "A060"],
-  "toplu_mezar": [], "kova": [], "celep": ["K12", "K14"], "kumasci": ["K15"], "tekfur_askeri": ["B104"]
+  "at": [
+   "K05"
+  ],
+  "koyun": [
+   "K13"
+  ],
+  "deve": [
+   "A140"
+  ],
+  "keci": [
+   "A163"
+  ],
+  "kopek": [
+   "B019"
+  ],
+  "ors": [
+   "A040"
+  ],
+  "dokuma_tezgahi": [
+   "A236"
+  ],
+  "mizrak_sehpasi": [
+   "A016"
+  ],
+  "mizrak": [
+   "A012"
+  ],
+  "kalkan": [
+   "A002"
+  ],
+  "gozetleme_kulesi": [
+   "A113"
+  ],
+  "sur_2_palisat": [
+   "O81"
+  ],
+  "sur_3_tas": [
+   "O90",
+   "O92"
+  ],
+  "firin": [
+   "A177",
+   "A181"
+  ],
+  "degirmen": [
+   "O76"
+  ],
+  "el_sepet": [
+   "O51",
+   "O01"
+  ],
+  "orak": [
+   "A211"
+  ],
+  "kervan_yuku": [
+   "O49"
+  ],
+  "nobet_ocagi": [
+   "O05",
+   "A060"
+  ],
+  "toplu_mezar": [],
+  "kova": [],
+  "celep": [
+   "K12",
+   "K14"
+  ],
+  "kumasci": [
+   "K15"
+  ],
+  "tekfur_askeri": [
+   "B104"
+  ]
  },
  "assetler": {
-  "cavus": {"oncelik": "yuksek", "prompt": "An older veteran Ottoman frontier sergeant (cavus) wearing a worn leather vest over a coarse wool kaftan, tall felt cap, iron belt buckle, mace hanging at his belt, stern weathered face."},
-  "davul_zurna": {"doku": false},
-  "dokuma_tezgahi": {"doku": false},
-  "ilac_kutusu": {"doku": false},
-  "kirik_kin": {"doku": false},
-  "tahsildar": {"oncelik": "yuksek"},
-  "tekfur_elcisi": {"oncelik": "yuksek"},
-  "dervis": {"oncelik": "yuksek"},
-  "haberci": {"oncelik": "yuksek"},
-  "turkmen_bey_adami": {"oncelik": "yuksek"},
-  "bey": {"oncelik": "yuksek"},
-  "tekfur_askeri": {"tur": "karakter", "ad": "Tekfur askeri", "oncelik": "yuksek", "karakter_oneki_zirhsiz": true, "boy_m": 1.8, "poly": 8000,
+  "cavus": {
+   "oncelik": "yuksek",
+   "prompt": "An older veteran Ottoman frontier sergeant (cavus) wearing a worn leather vest over a coarse wool kaftan, tall felt cap, iron belt buckle, mace hanging at his belt, stern weathered face."
+  },
+  "davul_zurna": {
+   "doku": false
+  },
+  "dokuma_tezgahi": {
+   "doku": false
+  },
+  "ilac_kutusu": {
+   "doku": false
+  },
+  "kirik_kin": {
+   "doku": false
+  },
+  "tahsildar": {
+   "oncelik": "yuksek"
+  },
+  "tekfur_elcisi": {
+   "oncelik": "yuksek"
+  },
+  "dervis": {
+   "oncelik": "yuksek"
+  },
+  "haberci": {
+   "oncelik": "yuksek"
+  },
+  "turkmen_bey_adami": {
+   "oncelik": "yuksek"
+  },
+  "bey": {
+   "oncelik": "yuksek"
+  },
+  "tekfur_askeri": {
+   "tur": "karakter",
+   "ad": "Tekfur askeri",
+   "oncelik": "yuksek",
+   "karakter_oneki_zirhsiz": true,
+   "boy_m": 1.8,
+   "poly": 8000,
    "not": "İstem production/eksikler/01 kod bloğundan (KARAKTER.replace biçimi düzenli ifadeye uymadığı için buraya taşındı).",
-   "prompt": "A Byzantine frontier foot soldier (akritai): conical iron helmet with a mail aventail, long kite shield, tall spear, padded coat. Readable spiky silhouette."},
-  "cocuk": {"oncelik": "yuksek"},
-  "yasli": {"oncelik": "yuksek"},
-  "at": {"tur": "hayvan"}, "keci": {"tur": "hayvan"}, "koyun": {"tur": "hayvan"}, "okuz": {"tur": "hayvan"},
-  "deve": {"tur": "hayvan"}, "kopek": {"tur": "hayvan"},
-  "kapi_ic": {"ad": "Kapı iç yüzü", "tur": "yapi", "boy_m": 4.0, "poly": 9000, "oncelik": "yuksek", "olcu": "4,0 × 4,0 × 0,35 m; kanat başına 2,0 m",
-   "prompt": "A wide-open medieval timber palisade gatehouse archway with a completely empty unobstructed central doorway passage, thick weathered brown oak vertical logs framing the left and right sides, horizontal bracing beams, dark rusted iron rivets, two heavy wooden gate doors swung wide open flat against the inner walls, worn dirt base."},
-  "agac_02": {"ad": "Ağaç çeşidi 2", "tur": "nesne", "boy_m": 5.0, "poly": 3000, "oncelik": "orta", "olcu": "2,0 × 5,0 × 2,0 m",
-   "prompt": "A lone gnarled Anatolian oak tree with a sparse dry autumn canopy, twisted trunk, low poly game tree."},
-  "kaya_02": {"ad": "Kaya çeşidi 2", "tur": "nesne", "boy_m": 0.8, "poly": 800, "oncelik": "orta", "olcu": "1,2 × 0,8 × 1,0 m",
-   "prompt": "A single weathered flat grey limestone boulder with cracks and a little dry moss."},
-  "el_torba": {"ad": "Keten torba (chr_002)", "tur": "nesne", "boy_m": 0.5, "poly": 1200, "oncelik": "orta", "olcu": "0,35 × 0,50 × 0,20 m",
-   "prompt": "A rough hemp linen sack tied at the top with a cord, half full, held in the arms."},
-  "el_sepet": {"ad": "Hasır sepet (el / dal sepeti)", "tur": "nesne", "boy_m": 0.4, "poly": 1500, "oncelik": "orta", "olcu": "0,45 × 0,40 × 0,35 m",
-   "prompt": "A small handled wicker basket woven from willow branches, empty, sturdy round handle."},
-  "el_cekic": {"ad": "Küçük el çekici / örs çekici", "tur": "nesne", "boy_m": 0.35, "poly": 600, "oncelik": "orta", "olcu": "0,12 × 0,35 × 0,06 m",
-   "prompt": "A small medieval blacksmith hand hammer with a wooden handle and a forged iron head, grip end at the bottom."},
-  "el_kamci": {"ad": "At kamçısı", "tur": "nesne", "boy_m": 0.8, "poly": 600, "oncelik": "orta", "olcu": "0,10 × 0,80 × 0,10 m",
-   "prompt": "A steppe horse whip with a short braided leather handle and a stiff braided lash held straight."},
-  "el_kurk_bohca": {"ad": "Kürk bohça", "tur": "nesne", "boy_m": 0.3, "poly": 1500, "oncelik": "orta", "olcu": "0,45 × 0,30 × 0,30 m",
-   "prompt": "A bundle of sable and fox furs rolled and tied with a leather strap."},
-  "el_heybe": {"ad": "Çift gözlü heybe", "tur": "nesne", "boy_m": 0.4, "poly": 1500, "oncelik": "orta", "olcu": "0,65 × 0,40 × 0,25 m",
-   "prompt": "A double-pocket woven wool saddlebag (heybe) with geometric kilim pattern, worn over the shoulder, both pockets filled."},
-  "el_sepet_buyuk": {"ad": "Büyük sırt sepeti", "tur": "nesne", "boy_m": 0.6, "poly": 1800, "oncelik": "orta", "olcu": "0,65 × 0,60 × 0,45 m",
-   "prompt": "A large woven reed back basket with two rope shoulder straps, filled with straw."},
-  "el_sandik": {"ad": "Küçük sandık", "tur": "nesne", "boy_m": 0.35, "poly": 1200, "oncelik": "orta", "olcu": "0,60 × 0,35 × 0,35 m",
-   "prompt": "A small wooden chest with a flat lid, carved simple border, wooden latch, no metal."},
-  "el_asa": {"ad": "Ahşap asa", "tur": "nesne", "boy_m": 1.6, "poly": 500, "oncelik": "orta", "olcu": "0,06 × 1,60 × 0,06 m",
-   "prompt": "A straight wooden walking staff, slightly knotted juniper wood, worn grip."},
-  "el_degnek": {"ad": "Eğri değnek", "tur": "nesne", "boy_m": 1.0, "poly": 500, "oncelik": "orta", "olcu": "0,08 × 1,00 × 0,08 m",
-   "prompt": "A short curved wooden shepherd's cane with a hooked top."},
-  "el_odun": {"ad": "İki odun", "tur": "nesne", "boy_m": 0.25, "poly": 800, "oncelik": "orta", "olcu": "0,25 × 0,60 × 0,20 m",
-   "prompt": "Two split oak firewood logs tied together with a reed rope."},
-  "tarla": {"tur": "nesne", "boy_m": 0.3, "olcu": "6,0 × 3,0 × 5,0 m zarf", "oncelik": "orta"},
-  "bostan": {"ad": "Bostan", "tur": "nesne", "boy_m": 0.6, "poly": 2500, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m zarf",
-   "prompt": "A small square vegetable garden patch with rows of melons and beans, a low wattle fence on two sides, flat ground."},
-  "hizarhane": {"ad": "Hızarhane", "tur": "yapi", "boy_m": 3.0, "poly": 6000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A rustic open-sided timber sawpit shed with a thatched lean-to roof, a log on trestles and a long two-man frame saw."},
-  "odunluk": {"ad": "Odunluk", "tur": "yapi", "boy_m": 2.5, "poly": 4000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A simple lean-to woodshed with a flat earth-covered roof on wooden posts, stacked split firewood inside, a chopping stump with an axe."},
-  "tas_ocagi": {"ad": "Taş ocağı", "tur": "yapi", "boy_m": 3.0, "poly": 6000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A small open stone quarry face cut into a rocky hillside, rough cut limestone blocks stacked in front, a wooden lever and wedges."},
-  "avci_cadiri": {"ad": "Avcı çadırı", "tur": "yapi", "boy_m": 2.5, "poly": 4000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A small hunter's hide tent of stitched leather on poles, a drying rack with pelts beside it."},
-  "atolye": {"ad": "Atölye", "tur": "yapi", "boy_m": 3.0, "poly": 6000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A small rustic craftsman's workshop: mud-brick walls, open front with a timber awning, a workbench and tool rack inside."},
-  "demirhane": {"ad": "Demirhane", "tur": "yapi", "boy_m": 3.0, "poly": 7000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A small village forge: rough stone hearth with a chimney, a leather bellows, an anvil on a stump, open-sided timber roof."},
-  "ambar": {"ad": "Ambar", "tur": "yapi", "boy_m": 3.0, "poly": 6000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A village granary: low rectangular stone and mud-brick storehouse with a flat earth roof, a heavy wooden door, grain sacks stacked by the door."},
-  "firin": {"ad": "Fırın", "tur": "yapi", "boy_m": 2.5, "poly": 5000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A village bakehouse: a domed clay bread oven under a small timber shed roof, a wooden peel leaning on it, firewood stack."},
-  "degirmen": {"ad": "Değirmen", "tur": "yapi", "boy_m": 3.5, "poly": 8000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A small Anatolian stone watermill with a flat earth roof and a horizontal wooden water wheel chute on the side."},
-  "sifahane": {"ad": "Şifahane", "tur": "yapi", "boy_m": 3.0, "poly": 7000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A modest frontier house of healing: whitewashed mud-brick walls, flat roof, a small arched doorway, herb bundles hanging under the eaves, clay jars by the door."},
-  "ahir": {"ad": "Ahır", "tur": "yapi", "boy_m": 3.0, "poly": 6000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A rustic village stable: low stone walls with a timber and thatch roof, open wide doorway, wooden manger and hay inside."},
-  "agil": {"ad": "Ağıl", "tur": "yapi", "boy_m": 2.0, "poly": 5000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A sheepfold: a ring of dry-stone wall with a wattle gate and a small brushwood-roofed shelter on one side."},
-  "kirec_kuyusu": {"ad": "Kireç kuyusu", "tur": "yapi", "boy_m": 2.0, "poly": 4000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A traditional lime kiln: a squat round stone kiln with an arched fire opening, white lime dust around, firewood pile."},
-  "tas_ev": {"ad": "Taş ev", "tur": "yapi", "boy_m": 3.5, "poly": 7000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A sturdy one-storey Anatolian village house of rough fieldstone with a flat earth roof, a low wooden door and one small window."},
-  "demir_madeni": {"ad": "Demir madeni", "tur": "yapi", "boy_m": 3.0, "poly": 6000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A small hillside iron mine entrance framed with rough timber props, reddish ore heap and a wooden barrow."},
-  "demir_ocagi": {"ad": "Demir ocağı", "tur": "yapi", "boy_m": 3.0, "poly": 6000, "oncelik": "orta", "olcu": "6,0 × 3,0 × 5,0 m",
-   "prompt": "A primitive bloomery furnace: a conical clay smelting furnace with a tuyere and bellows, charcoal heap beside it."},
-  "muhafiz_kislasi": {"ad": "Muhafız kışlası", "tur": "yapi", "boy_m": 3.5, "poly": 8000, "oncelik": "orta", "olcu": "envanterde insan ölçüsü yazılı (veri hatası olabilir); yapı zarfı 6,0 × 3,0 × 5,0 m varsayıldı",
-   "prompt": "A small frontier guard barracks: long low stone building with a flat timber roof, spear rack by the door, a wooden bench."},
-  "gozetleme_kulesi": {"boy_m": 6.0, "olcu": "3,0 × 6,0 × 3,0 m"},
-  "sur_2_palisat": {"ad": "Sur 2 — palisat ve nöbet yolu", "tur": "yapi", "boy_m": 3.0, "poly": 5000, "oncelik": "orta", "olcu": "sur modülü 4,0 × 3,0 × 0,6 m",
-   "prompt": "A straight 4-metre modular section of sharpened log palisade wall with an inner wooden walkway for guards."},
-  "sur_3_tas": {"ad": "Sur 3 — kaba taş sur", "tur": "yapi", "boy_m": 3.0, "poly": 6000, "oncelik": "orta", "olcu": "sur modülü 4,0 × 3,0 × 0,6 m",
-   "prompt": "A straight 4-metre modular section of rough fieldstone defensive wall with a simple flat parapet, no castle crenellations."},
-  "kilic": {"ad": "Kılıç (hafif eğri)", "tur": "nesne", "boy_m": 0.85, "poly": 800, "oncelik": "orta", "olcu": "0,08 × 0,85 × 0,04 m",
-   "prompt": "A slightly curved Turkic sabre with a simple cross guard and leather-wrapped grip, plain blade, upright with grip at the bottom."},
-  "kalkan": {"ad": "Yuvarlak kalkan", "tur": "nesne", "boy_m": 0.6, "poly": 800, "oncelik": "orta", "olcu": "çap 0,60 m",
-   "prompt": "A round wooden shield covered with leather, an iron boss in the centre, plain undecorated."},
-  "mizrak": {"ad": "Mızrak", "tur": "nesne", "boy_m": 2.0, "poly": 500, "oncelik": "orta", "olcu": "0,06 × 2,00 × 0,06 m",
-   "prompt": "A tall infantry spear with a straight ash wood shaft and a leaf-shaped iron head, upright."},
-  "mesale_el": {"ad": "El meşalesi / oda meşalesi", "tur": "nesne", "boy_m": 0.6, "poly": 600, "oncelik": "orta", "olcu": "0,12 × 0,60 × 0,12 m",
-   "prompt": "A short handheld wooden torch with the head wrapped in oiled cloth, no flame, grip end at the bottom."},
-  "kova": {"ad": "Kova (yangın kovası)", "tur": "nesne", "boy_m": 0.35, "poly": 800, "oncelik": "orta", "olcu": "0,30 × 0,35 × 0,30 m",
-   "prompt": "A wooden stave bucket bound with rope hoops and a rope handle."},
-  "orak": {"ad": "Orak", "tur": "nesne", "boy_m": 0.4, "poly": 500, "oncelik": "orta", "olcu": "0,40 m",
-   "prompt": "A hand sickle with a curved iron blade and a short wooden handle."},
-  "balta": {"ad": "Balta", "tur": "nesne", "boy_m": 0.6, "poly": 500, "oncelik": "orta", "olcu": "0,60 m",
-   "prompt": "A woodcutter's axe with a straight wooden haft and a forged iron head, upright."},
-  "firin_kuregi": {"ad": "Fırın küreği", "tur": "nesne", "boy_m": 1.2, "poly": 400, "oncelik": "orta", "olcu": "0,20 × 1,20 × 0,06 m",
-   "prompt": "A long flat wooden bread oven peel with a thin rectangular blade."},
-  "celep": {"ad": "Celep (hayvan tüccarı)", "tur": "karakter", "boy_m": 1.75, "oncelik": "orta", "olcu": "0,55 × 1,75 × 0,40 m",
-   "prompt": "A Turkmen livestock dealer: weathered face, felt cap, sheepskin coat, a long herding stick and a coin pouch at the belt."},
-  "nalbur": {"ad": "Nalbur", "tur": "karakter", "boy_m": 1.75, "oncelik": "orta", "olcu": "0,55 × 1,75 × 0,40 m",
-   "prompt": "A travelling ironmonger: leather apron over a kaftan, strings of horseshoes and nails hanging from his shoulder bag."},
-  "kumasci": {"ad": "Kumaşçı", "tur": "karakter", "boy_m": 1.75, "oncelik": "orta", "olcu": "0,55 × 1,75 × 0,40 m",
-   "prompt": "A cloth merchant: neat long robe with a wide sash, small turban, folded bolts of wool cloth over one arm."},
-  "aktar": {"ad": "Aktar", "tur": "karakter", "boy_m": 1.72, "oncelik": "orta", "olcu": "0,55 × 1,75 × 0,40 m",
-   "prompt": "A herb and spice seller: modest kaftan, felt cap, small cloth pouches and dried herb bundles hanging from his belt, a wooden box of spices."},
-  "silah_tuccari": {"ad": "Silah tüccarı", "tur": "karakter", "boy_m": 1.78, "oncelik": "orta", "olcu": "0,55 × 1,75 × 0,40 m",
-   "prompt": "A weapons trader: quilted kaftan, leather belt, a bundle of wrapped spears on his back and a curved sabre at the hip."},
-  "inek": {"ad": "İnek", "tur": "hayvan", "boy_m": 1.45, "poly": 5000, "oncelik": "orta", "olcu": "0,85 × 1,45 × 2,20 m",
-   "prompt": "A thin Anatolian brown village cow standing still, short horns, side view."},
-  "koc": {"ad": "Koç", "tur": "hayvan", "boy_m": 0.85, "poly": 3000, "oncelik": "orta", "olcu": "0,55 × 0,85 × 1,10 m",
-   "prompt": "An Akkaraman ram standing still, cream wool, dark face, curled horns."},
-  "beygir": {"ad": "Beygir (iş atı)", "tur": "hayvan", "boy_m": 1.6, "poly": 5000, "oncelik": "orta", "olcu": "0,80 × 1,60 × 2,30 m",
-   "prompt": "A sturdy brown work horse standing still with a simple rope halter and a felt saddle pad, side view."},
-  "kurek": {"ad": "Ahşap kürek (kar / iş küreği)", "tur": "nesne", "boy_m": 1.2, "poly": 500, "oncelik": "orta", "olcu": "0,25 × 1,20 × 0,08 m",
-   "prompt": "A hand-carved wooden shovel with a long handle and a flat wide blade."},
-  "su_bendi": {"ad": "Su bendi modülü", "tur": "yapi", "boy_m": 0.8, "poly": 3000, "oncelik": "orta", "olcu": "3,0 × 0,8 × 0,6 m",
-   "prompt": "A short straight flood barrier made of stacked stones, earth-filled sacks and wooden stakes."},
-  "kurt": {"ad": "Kurt", "tur": "hayvan", "boy_m": 0.8, "poly": 3000, "oncelik": "orta", "olcu": "0,45 × 0,80 × 1,10 m",
-   "prompt": "A lean grey Anatolian wolf standing alert, side view."},
-  "fener": {"ad": "Fener / açık kandil", "tur": "nesne", "boy_m": 0.12, "poly": 600, "oncelik": "orta", "olcu": "0,18 × 0,08 × 0,12 m",
-   "prompt": "A small open clay oil lamp with a spout and a handle, no flame."},
-  "muhafiz_odasi": {"ad": "Muhafız odası iç mekânı", "tur": "yapi", "boy_m": 2.8, "poly": 8000, "oncelik": "orta", "olcu": "4,0 × 2,8 × 4,0 m",
-   "prompt": "Interior shell of a small guardroom: rough plastered stone walls, timber ceiling beams, packed earth floor, one small window and a doorway, empty room."},
-  "yatak": {"ad": "Muhafız yatağı", "tur": "nesne", "boy_m": 0.5, "poly": 1500, "oncelik": "orta", "olcu": "0,90 × 0,50 × 2,00 m",
-   "prompt": "A simple low wooden bed frame with a straw mattress and a rough wool blanket."},
-  "rahat_yatak": {"ad": "Rahat muhafız yatağı", "tur": "nesne", "boy_m": 0.55, "poly": 2000, "oncelik": "dusuk", "olcu": "1,10 × 0,55 × 2,00 m",
-   "prompt": "A comfortable low wooden bed with a thick felt mattress, kilim blanket and two cushions."},
-  "masa": {"ad": "Muhafız masası", "tur": "nesne", "boy_m": 0.75, "poly": 1200, "oncelik": "orta", "olcu": "1,20 × 0,75 × 0,70 m",
-   "prompt": "A sturdy rustic wooden table with thick legs, a candle stub and a rolled document on it."},
-  "kasa": {"ad": "Gizli zemin kasası", "tur": "nesne", "boy_m": 0.4, "poly": 1000, "oncelik": "orta", "olcu": "0,60 × 0,40 × 0,40 m",
-   "prompt": "A small heavy wooden strongbox with a hinged lid, made to be hidden under floorboards."},
-  "kutuphane": {"ad": "Muhafız kütüphanesi", "tur": "nesne", "boy_m": 1.8, "poly": 2500, "oncelik": "dusuk", "olcu": "1,00 × 1,80 × 0,35 m",
-   "prompt": "A narrow wooden wall shelf with a few bound manuscripts, scrolls and a small box."},
-  "askilik": {"ad": "Donanım askılığı", "tur": "nesne", "boy_m": 1.6, "poly": 1200, "oncelik": "dusuk", "olcu": "0,60 × 1,60 × 0,40 m",
-   "prompt": "A wooden armour and clothing stand with a hanging quilted kaftan and a belt."},
-  "toplu_mezar": {"tur": "nesne", "ad": "Toplu mezar", "boy_m": 0.6, "poly": 1500, "oncelik": "orta", "olcu": "2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m",
-   "prompt": "A long low mound of freshly dug earth for several bodies, with a single small unmarked upright stone at one end and a few scattered field stones (no text, no symbols)."},
-  "firin_agzi": {"ad": "Fırın ağzı", "tur": "nesne", "boy_m": 0.7, "poly": 1500, "oncelik": "orta", "olcu": "0,80 × 0,70 × 0,40 m",
-   "prompt": "The arched front opening of a clay bread oven with a stone sill, soot marks, no fire."},
-  "sacak": {"ad": "Saçak", "tur": "nesne", "boy_m": 0.25, "poly": 1000, "oncelik": "orta", "olcu": "2,00 × 0,25 × 1,20 m",
-   "prompt": "A short timber and reed rain awning (eave) attached to a wall, supported by two diagonal wooden brackets."},
-  "yay": {"ad": "Kısa Türk yayı", "tur": "nesne", "boy_m": 1.1, "poly": 600, "oncelik": "orta", "olcu": "0,08 × 1,10 × 0,35 m",
-   "prompt": "A short Turkic composite recurve bow, strung, horn and sinew look, upright."},
-  "divan_masasi": {"ad": "Divan masası", "tur": "nesne", "boy_m": 0.8, "poly": 1500, "oncelik": "orta", "olcu": "2,00 × 0,80 × 1,00 m",
-   "prompt": "A long low wooden council table for a village square, plain planks, an inkwell and a ledger on it."},
-  "divan_oturak": {"ad": "Divan oturağı", "tur": "nesne", "boy_m": 0.45, "poly": 600, "oncelik": "orta", "olcu": "0,50 × 0,45 × 0,50 m",
-   "prompt": "A simple wooden stool with a felt cushion."},
-  "zindan_kapisi": {"ad": "Zindan hücre kapısı", "tur": "nesne", "boy_m": 2.0, "poly": 1500, "oncelik": "orta", "olcu": "1,50 × 2,00 × 0,10 m",
-   "prompt": "A heavy wooden lattice cell door made of thick crossed timber bars in a stone frame, a wooden bolt."},
-  "kabus_golgesi": {"ad": "Rüya gölgesi figürü", "tur": "karakter", "boy_m": 1.75, "iskelet": false, "oncelik": "dusuk", "olcu": "0,55 × 1,75 × 0,40 m",
-   "prompt": "A tall faceless hooded shadow figure in a ragged dark cloak, featureless, standing still."},
-  "muhur": {"ad": "Mühür", "tur": "nesne", "boy_m": 0.06, "poly": 400, "oncelik": "dusuk", "olcu": "0,05 × 0,06 × 0,05 m",
-   "prompt": "A small brass seal stamp with a short wooden handle, blank face, no text."},
-  "iksir_sisesi": {"ad": "İksir şişesi", "tur": "nesne", "boy_m": 0.15, "poly": 400, "oncelik": "dusuk", "olcu": "0,06 × 0,15 × 0,06 m",
-   "prompt": "A small hand-blown greenish glass vial with a cork stopper and a cord around the neck."},
-  "hediye_bohcasi": {"ad": "Hediye bohçası", "tur": "nesne", "boy_m": 0.15, "poly": 600, "oncelik": "dusuk", "olcu": "0,30 m",
-   "prompt": "A small square gift bundle wrapped in embroidered cloth and tied with a knot on top."},
-  "tas_yatagi": {"ad": "Taş yatağı", "tur": "yapi", "boy_m": 0.6, "poly": 3000, "oncelik": "yuksek", "olcu": "3,0 × 0,6 × 2,0 m",
-   "prompt": "A static game prop, a cluster of exposed raw stone outcroppings emerging from flat dirt, showing pickaxe marks, isolated object."},
-  "muhafiz": {"ad": "Muhafız (oyuncu)", "tur": "karakter", "boy_m": 1.76, "oncelik": "orta", "olcu": "0,55 × 1,75 × 0,40 m",
-   "prompt": "A 14th-century Ottoman Anatolian frontier gate guard: weathered calm face, short beard, felt cap, quilted padded kaftan with a sash, leather belt with a short sword, leg wraps and boots."},
-  "muhafiz_esi": {"ad": "Muhafızın eşi", "tur": "karakter", "boy_m": 1.62, "oncelik": "orta", "olcu": "0,55 × 1,75 × 0,40 m",
-   "prompt": "A 14th-century Ottoman Anatolian village woman, the guard's wife: calm tired face, long dress, apron, large headscarf tied under the chin, simple leather shoes."},
-  "usta": {"ad": "Usta (zanaatkâr)", "tur": "karakter", "boy_m": 1.74, "oncelik": "orta", "olcu": "0,55 × 1,75 × 0,40 m",
-   "prompt": "A 14th-century Ottoman Anatolian master craftsman arriving at the gate: leather apron over a kaftan, rolled sleeves, felt cap, leather tool pouch at the belt."},
-  "cozumleme_odasi": {"ad": "Çözümleme odası", "tur": "yapi", "boy_m": 2.8, "poly": 8000, "oncelik": "orta", "olcu": "4,0 × 2,8 × 4,0 m",
-   "prompt": "Interior shell of a small study workshop room: plastered walls, timber beams, a low work table with scrolls, shelves with jars, one window."},
-  "yemin_nesneleri": {"ad": "Yemin nesneleri (ekmek, tuz, kitap)", "tur": "nesne", "boy_m": 0.2, "poly": 1200, "oncelik": "orta", "olcu": "0,30 × 0,30 × 0,30 m",
-   "prompt": "A small set on a cloth: a round flat bread, a small clay bowl of salt and a closed leather-bound book with a plain cover."},
-  "denetci": {"ad": "Beyin denetçisi", "tur": "karakter", "boy_m": 1.74, "oncelik": "orta", "olcu": "0,55 × 1,75 × 0,40 m",
-   "prompt": "A 14th-century Ottoman frontier bey's inspector official: fine dark kaftan, white turban, a reed pen case at the belt, stern upright posture."},
-  "kisisel_iz": {"ad": "Kişisel iz (hatıra)", "tur": "nesne", "boy_m": 0.1, "poly": 500, "oncelik": "dusuk", "olcu": "0,30 × 0,30 × 0,30 m",
-   "prompt": "A small personal keepsake: a carved wooden amulet on a leather cord beside a folded embroidered handkerchief."},
-  "tezgah_ortusu": {"ad": "Tezgâh örtüsü", "tur": "nesne", "boy_m": 0.8, "poly": 1500, "oncelik": "dusuk", "olcu": "1,50 × 1,00 × 0,80 m",
-   "prompt": "A coarse undyed cloth draped over a closed workbench, tied with a rope, folds hanging to the ground."},
-  "blok_ham": {"ad": "Ham blok", "tur": "nesne", "boy_m": 0.3, "poly": 300, "oncelik": "dusuk", "olcu": "0,30 × 0,30 × 0,30 m",
-   "prompt": "A rough unworked block of raw material, rough-hewn surfaces."},
-  "blok_iz": {"ad": "İz bloğu", "tur": "nesne", "boy_m": 0.3, "poly": 300, "oncelik": "dusuk", "olcu": "0,30 × 0,30 × 0,30 m",
-   "prompt": "A roughly shaped block with the first chisel marks on one side."},
-  "blok_bicim": {"ad": "Biçim bloğu", "tur": "nesne", "boy_m": 0.3, "poly": 400, "oncelik": "dusuk", "olcu": "0,30 × 0,30 × 0,30 m",
-   "prompt": "A half-finished workpiece block with a clear basic shape carved in."},
-  "blok_agiz": {"ad": "Ağız bloğu", "tur": "nesne", "boy_m": 0.3, "poly": 400, "oncelik": "dusuk", "olcu": "0,30 × 0,30 × 0,30 m",
-   "prompt": "A workpiece block with one end ground to a sharp bright edge."},
-  "teslim_parcasi": {"ad": "Teslim parçası", "tur": "nesne", "boy_m": 0.3, "poly": 600, "oncelik": "dusuk", "olcu": "0,30 × 0,30 × 0,30 m",
-   "prompt": "A finished handcrafted piece resting on a small cloth: a carved and polished wooden box."},
-  "zar": {"ad": "Kemik zar (d6)", "tur": "nesne", "boy_m": 0.02, "poly": 300, "oncelik": "dusuk", "olcu": "isteğe bağlı 3B; envanter önceliği 2D için yüksek",
-   "prompt": "A small worn bone six-sided die with carved dot pips."},
-  "su_kabi": {"ad": "Su kabı", "tur": "nesne", "boy_m": 0.4, "poly": 700, "oncelik": "orta", "olcu": "0,25 × 0,40 × 0,25 m",
-   "prompt": "A round clay water jug with one handle and a narrow neck."},
-  "kirmen": {"ad": "Kirmen (el iği)", "tur": "nesne", "boy_m": 0.3, "poly": 400, "oncelik": "orta", "olcu": "0,05 × 0,30 × 0,05 m",
-   "prompt": "A traditional Anatolian drop spindle (kirmen) with a wooden shaft and crossed arms, some wool yarn wound on it."},
-  "bakim_bezi": {"ad": "Bakım bezi", "tur": "nesne", "boy_m": 0.03, "poly": 300, "oncelik": "dusuk", "olcu": "0,25 × 0,25 m",
-   "prompt": "A folded square of coarse linen cleaning cloth."},
-  "anim_isinma": {"ad": "Isınma döngüsü (iki el ateşe)", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Warm_Hands", "Idle"]},
-  "anim_cekic_vurma": {"ad": "Çekiç vurma döngüsü", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Hammering", "Hammer"]},
-  "anim_firin_kuregi": {"ad": "Fırın küreği döngüsü", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Shoveling", "Shovel"]},
-  "anim_buzulme": {"ad": "Soğukta büzülmüş / karda yürüyüş", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Cold_Walk", "Walk_Cold"]},
-  "anim_sinsi_yuru": {"ad": "Sinsi yürüyüş", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Sneak_Walk", "Sneaking"]},
-  "anim_temkinli_bekle": {"ad": "Temkinli kuytu bekleyiş", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Crouch_Idle", "Alert"]},
-  "anim_idle_nefes": {"ad": "Bekleme: nefes", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Idle", "Breathing_Idle"]},
-  "anim_idle_agirlik": {"ad": "Bekleme: ağırlık aktarma", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Idle_02", "Weight_Shift"]},
-  "anim_idle_bakis": {"ad": "Bekleme: çevreye bakış", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Look_Around", "Idle_Look"]},
-  "anim_kar_kureme": {"ad": "Kar küreme", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Shoveling", "Shovel"]},
-  "anim_kavga": {"ad": "Kapıda itişme / kavga", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Punch", "Push", "Brawl"]},
-  "anim_kos": {"ad": "Koşma", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Run", "Running"], "not": "Yeni iskelet görevinde koşma klibi ücretsiz gelir (basic_animations.running_glb_url); yalnız mevcut iskelete uygulanacaksa kredi harcar."},
-  "anim_otur": {"ad": "Oturma", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Sit", "Sitting_Idle"]},
-  "anim_orak": {"ad": "Orak biçme", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Harvest", "Scythe"]},
-  "anim_nobet": {"ad": "Nöbet / mızrağa dayanma", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Guard_Idle", "Stand_Guard"]},
-  "anim_saldir": {"ad": "Saldırı", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Sword_Attack", "Attack"]},
-  "anim_dus": {"ad": "Düşme", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Fall", "Death"]},
-  "anim_yagmur_yuru": {"ad": "Yağmurda yürüyüş", "tur": "animasyon", "oncelik": "orta", "kitaplik": ["Walk_Hunched", "Cold_Walk"]}
+   "prompt": "A Byzantine frontier foot soldier (akritai): conical iron helmet with a mail aventail, long kite shield, tall spear, padded coat. Readable spiky silhouette."
+  },
+  "cocuk": {
+   "oncelik": "yuksek"
+  },
+  "yasli": {
+   "oncelik": "yuksek"
+  },
+  "at": {
+   "tur": "hayvan"
+  },
+  "keci": {
+   "tur": "hayvan"
+  },
+  "koyun": {
+   "tur": "hayvan"
+  },
+  "okuz": {
+   "tur": "hayvan"
+  },
+  "deve": {
+   "tur": "hayvan"
+  },
+  "kopek": {
+   "tur": "hayvan"
+  },
+  "kapi_ic": {
+   "ad": "Kapı iç yüzü",
+   "tur": "yapi",
+   "boy_m": 4.0,
+   "poly": 9000,
+   "oncelik": "yuksek",
+   "olcu": "4,0 × 4,0 × 0,35 m; kanat başına 2,0 m",
+   "prompt": "A wide-open medieval timber palisade gatehouse archway with a completely empty unobstructed central doorway passage, thick weathered brown oak vertical logs framing the left and right sides, horizontal bracing beams, dark rusted iron rivets, two heavy wooden gate doors swung wide open flat against the inner walls, worn dirt base."
+  },
+  "agac_02": {
+   "ad": "Ağaç çeşidi 2",
+   "tur": "nesne",
+   "boy_m": 5.0,
+   "poly": 3000,
+   "oncelik": "orta",
+   "olcu": "2,0 × 5,0 × 2,0 m",
+   "prompt": "A lone gnarled Anatolian oak tree with a sparse dry autumn canopy, twisted trunk, low poly game tree."
+  },
+  "kaya_02": {
+   "ad": "Kaya çeşidi 2",
+   "tur": "nesne",
+   "boy_m": 0.8,
+   "poly": 800,
+   "oncelik": "orta",
+   "olcu": "1,2 × 0,8 × 1,0 m",
+   "prompt": "A single weathered flat grey limestone boulder with cracks and a little dry moss."
+  },
+  "el_torba": {
+   "ad": "Keten torba (chr_002)",
+   "tur": "nesne",
+   "boy_m": 0.5,
+   "poly": 1200,
+   "oncelik": "orta",
+   "olcu": "0,35 × 0,50 × 0,20 m",
+   "prompt": "A rough hemp linen sack tied at the top with a cord, half full, held in the arms."
+  },
+  "el_sepet": {
+   "ad": "Hasır sepet (el / dal sepeti)",
+   "tur": "nesne",
+   "boy_m": 0.4,
+   "poly": 1500,
+   "oncelik": "orta",
+   "olcu": "0,45 × 0,40 × 0,35 m",
+   "prompt": "A small handled wicker basket woven from willow branches, empty, sturdy round handle."
+  },
+  "el_cekic": {
+   "ad": "Küçük el çekici / örs çekici",
+   "tur": "nesne",
+   "boy_m": 0.35,
+   "poly": 600,
+   "oncelik": "orta",
+   "olcu": "0,12 × 0,35 × 0,06 m",
+   "prompt": "A small medieval blacksmith hand hammer with a wooden handle and a forged iron head, grip end at the bottom."
+  },
+  "el_kamci": {
+   "ad": "At kamçısı",
+   "tur": "nesne",
+   "boy_m": 0.8,
+   "poly": 600,
+   "oncelik": "orta",
+   "olcu": "0,10 × 0,80 × 0,10 m",
+   "prompt": "A steppe horse whip with a short braided leather handle and a stiff braided lash held straight."
+  },
+  "el_kurk_bohca": {
+   "ad": "Kürk bohça",
+   "tur": "nesne",
+   "boy_m": 0.3,
+   "poly": 1500,
+   "oncelik": "orta",
+   "olcu": "0,45 × 0,30 × 0,30 m",
+   "prompt": "A bundle of sable and fox furs rolled and tied with a leather strap."
+  },
+  "el_heybe": {
+   "ad": "Çift gözlü heybe",
+   "tur": "nesne",
+   "boy_m": 0.4,
+   "poly": 1500,
+   "oncelik": "orta",
+   "olcu": "0,65 × 0,40 × 0,25 m",
+   "prompt": "A double-pocket woven wool saddlebag (heybe) with geometric kilim pattern, worn over the shoulder, both pockets filled."
+  },
+  "el_sepet_buyuk": {
+   "ad": "Büyük sırt sepeti",
+   "tur": "nesne",
+   "boy_m": 0.6,
+   "poly": 1800,
+   "oncelik": "orta",
+   "olcu": "0,65 × 0,60 × 0,45 m",
+   "prompt": "A large woven reed back basket with two rope shoulder straps, filled with straw."
+  },
+  "el_sandik": {
+   "ad": "Küçük sandık",
+   "tur": "nesne",
+   "boy_m": 0.35,
+   "poly": 1200,
+   "oncelik": "orta",
+   "olcu": "0,60 × 0,35 × 0,35 m",
+   "prompt": "A small wooden chest with a flat lid, carved simple border, wooden latch, no metal."
+  },
+  "el_asa": {
+   "ad": "Ahşap asa",
+   "tur": "nesne",
+   "boy_m": 1.6,
+   "poly": 500,
+   "oncelik": "orta",
+   "olcu": "0,06 × 1,60 × 0,06 m",
+   "prompt": "A straight wooden walking staff, slightly knotted juniper wood, worn grip."
+  },
+  "el_degnek": {
+   "ad": "Eğri değnek",
+   "tur": "nesne",
+   "boy_m": 1.0,
+   "poly": 500,
+   "oncelik": "orta",
+   "olcu": "0,08 × 1,00 × 0,08 m",
+   "prompt": "A short curved wooden shepherd's cane with a hooked top."
+  },
+  "el_odun": {
+   "ad": "İki odun",
+   "tur": "nesne",
+   "boy_m": 0.25,
+   "poly": 800,
+   "oncelik": "orta",
+   "olcu": "0,25 × 0,60 × 0,20 m",
+   "prompt": "Two split oak firewood logs tied together with a reed rope."
+  },
+  "tarla": {
+   "tur": "nesne",
+   "boy_m": 0.3,
+   "olcu": "6,0 × 3,0 × 5,0 m zarf",
+   "oncelik": "orta"
+  },
+  "bostan": {
+   "ad": "Bostan",
+   "tur": "nesne",
+   "boy_m": 0.6,
+   "poly": 2500,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m zarf",
+   "prompt": "A small square vegetable garden patch with rows of melons and beans, a low wattle fence on two sides, flat ground."
+  },
+  "hizarhane": {
+   "ad": "Hızarhane",
+   "tur": "yapi",
+   "boy_m": 3.0,
+   "poly": 6000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A rustic open-sided timber sawpit shed with a thatched lean-to roof, a log on trestles and a long two-man frame saw."
+  },
+  "odunluk": {
+   "ad": "Odunluk",
+   "tur": "yapi",
+   "boy_m": 2.5,
+   "poly": 4000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A simple lean-to woodshed with a flat earth-covered roof on wooden posts, stacked split firewood inside, a chopping stump with an axe."
+  },
+  "tas_ocagi": {
+   "ad": "Taş ocağı",
+   "tur": "yapi",
+   "boy_m": 3.0,
+   "poly": 6000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A small open stone quarry face cut into a rocky hillside, rough cut limestone blocks stacked in front, a wooden lever and wedges."
+  },
+  "avci_cadiri": {
+   "ad": "Avcı çadırı",
+   "tur": "yapi",
+   "boy_m": 2.5,
+   "poly": 4000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A small hunter's hide tent of stitched leather on poles, a drying rack with pelts beside it."
+  },
+  "atolye": {
+   "ad": "Atölye",
+   "tur": "yapi",
+   "boy_m": 3.0,
+   "poly": 6000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A small rustic craftsman's workshop: mud-brick walls, open front with a timber awning, a workbench and tool rack inside."
+  },
+  "demirhane": {
+   "ad": "Demirhane",
+   "tur": "yapi",
+   "boy_m": 3.0,
+   "poly": 7000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A small village forge: rough stone hearth with a chimney, a leather bellows, an anvil on a stump, open-sided timber roof."
+  },
+  "ambar": {
+   "ad": "Ambar",
+   "tur": "yapi",
+   "boy_m": 3.0,
+   "poly": 6000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A village granary: low rectangular stone and mud-brick storehouse with a flat earth roof, a heavy wooden door, grain sacks stacked by the door."
+  },
+  "firin": {
+   "ad": "Fırın",
+   "tur": "yapi",
+   "boy_m": 2.5,
+   "poly": 5000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A village bakehouse: a domed clay bread oven under a small timber shed roof, a wooden peel leaning on it, firewood stack."
+  },
+  "degirmen": {
+   "ad": "Değirmen",
+   "tur": "yapi",
+   "boy_m": 3.5,
+   "poly": 8000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A small Anatolian stone watermill with a flat earth roof and a horizontal wooden water wheel chute on the side."
+  },
+  "sifahane": {
+   "ad": "Şifahane",
+   "tur": "yapi",
+   "boy_m": 3.0,
+   "poly": 7000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A modest frontier house of healing: whitewashed mud-brick walls, flat roof, a small arched doorway, herb bundles hanging under the eaves, clay jars by the door."
+  },
+  "ahir": {
+   "ad": "Ahır",
+   "tur": "yapi",
+   "boy_m": 3.0,
+   "poly": 6000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A rustic village stable: low stone walls with a timber and thatch roof, open wide doorway, wooden manger and hay inside."
+  },
+  "agil": {
+   "ad": "Ağıl",
+   "tur": "yapi",
+   "boy_m": 2.0,
+   "poly": 5000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A sheepfold: a ring of dry-stone wall with a wattle gate and a small brushwood-roofed shelter on one side."
+  },
+  "kirec_kuyusu": {
+   "ad": "Kireç kuyusu",
+   "tur": "yapi",
+   "boy_m": 2.0,
+   "poly": 4000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A traditional lime kiln: a squat round stone kiln with an arched fire opening, white lime dust around, firewood pile."
+  },
+  "tas_ev": {
+   "ad": "Taş ev",
+   "tur": "yapi",
+   "boy_m": 3.5,
+   "poly": 7000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A sturdy one-storey Anatolian village house of rough fieldstone with a flat earth roof, a low wooden door and one small window."
+  },
+  "demir_madeni": {
+   "ad": "Demir madeni",
+   "tur": "yapi",
+   "boy_m": 3.0,
+   "poly": 6000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A small hillside iron mine entrance framed with rough timber props, reddish ore heap and a wooden barrow."
+  },
+  "demir_ocagi": {
+   "ad": "Demir ocağı",
+   "tur": "yapi",
+   "boy_m": 3.0,
+   "poly": 6000,
+   "oncelik": "orta",
+   "olcu": "6,0 × 3,0 × 5,0 m",
+   "prompt": "A primitive bloomery furnace: a conical clay smelting furnace with a tuyere and bellows, charcoal heap beside it."
+  },
+  "muhafiz_kislasi": {
+   "ad": "Muhafız kışlası",
+   "tur": "yapi",
+   "boy_m": 3.5,
+   "poly": 8000,
+   "oncelik": "orta",
+   "olcu": "envanterde insan ölçüsü yazılı (veri hatası olabilir); yapı zarfı 6,0 × 3,0 × 5,0 m varsayıldı",
+   "prompt": "A small frontier guard barracks: long low stone building with a flat timber roof, spear rack by the door, a wooden bench."
+  },
+  "gozetleme_kulesi": {
+   "boy_m": 6.0,
+   "olcu": "3,0 × 6,0 × 3,0 m"
+  },
+  "sur_2_palisat": {
+   "ad": "Sur 2 — palisat ve nöbet yolu",
+   "tur": "yapi",
+   "boy_m": 3.0,
+   "poly": 5000,
+   "oncelik": "orta",
+   "olcu": "sur modülü 4,0 × 3,0 × 0,6 m",
+   "prompt": "A straight 4-metre modular section of sharpened log palisade wall with an inner wooden walkway for guards."
+  },
+  "sur_3_tas": {
+   "ad": "Sur 3 — kaba taş sur",
+   "tur": "yapi",
+   "boy_m": 3.0,
+   "poly": 6000,
+   "oncelik": "orta",
+   "olcu": "sur modülü 4,0 × 3,0 × 0,6 m",
+   "prompt": "A straight 4-metre modular section of rough fieldstone defensive wall with a simple flat parapet, no castle crenellations."
+  },
+  "kilic": {
+   "ad": "Kılıç (hafif eğri)",
+   "tur": "nesne",
+   "boy_m": 0.85,
+   "poly": 800,
+   "oncelik": "orta",
+   "olcu": "0,08 × 0,85 × 0,04 m",
+   "prompt": "A slightly curved Turkic sabre with a simple cross guard and leather-wrapped grip, plain blade, upright with grip at the bottom."
+  },
+  "kalkan": {
+   "ad": "Yuvarlak kalkan",
+   "tur": "nesne",
+   "boy_m": 0.6,
+   "poly": 800,
+   "oncelik": "orta",
+   "olcu": "çap 0,60 m",
+   "prompt": "A round wooden shield covered with leather, an iron boss in the centre, plain undecorated."
+  },
+  "mizrak": {
+   "ad": "Mızrak",
+   "tur": "nesne",
+   "boy_m": 2.0,
+   "poly": 500,
+   "oncelik": "orta",
+   "olcu": "0,06 × 2,00 × 0,06 m",
+   "prompt": "A tall infantry spear with a straight ash wood shaft and a leaf-shaped iron head, upright."
+  },
+  "mesale_el": {
+   "ad": "El meşalesi / oda meşalesi",
+   "tur": "nesne",
+   "boy_m": 0.6,
+   "poly": 600,
+   "oncelik": "orta",
+   "olcu": "0,12 × 0,60 × 0,12 m",
+   "prompt": "A short handheld wooden torch with the head wrapped in oiled cloth, no flame, grip end at the bottom."
+  },
+  "kova": {
+   "ad": "Kova (yangın kovası)",
+   "tur": "nesne",
+   "boy_m": 0.35,
+   "poly": 800,
+   "oncelik": "orta",
+   "olcu": "0,30 × 0,35 × 0,30 m",
+   "prompt": "A wooden stave bucket bound with rope hoops and a rope handle."
+  },
+  "orak": {
+   "ad": "Orak",
+   "tur": "nesne",
+   "boy_m": 0.4,
+   "poly": 500,
+   "oncelik": "orta",
+   "olcu": "0,40 m",
+   "prompt": "A hand sickle with a curved iron blade and a short wooden handle."
+  },
+  "balta": {
+   "ad": "Balta",
+   "tur": "nesne",
+   "boy_m": 0.6,
+   "poly": 500,
+   "oncelik": "orta",
+   "olcu": "0,60 m",
+   "prompt": "A woodcutter's axe with a straight wooden haft and a forged iron head, upright."
+  },
+  "firin_kuregi": {
+   "ad": "Fırın küreği",
+   "tur": "nesne",
+   "boy_m": 1.2,
+   "poly": 400,
+   "oncelik": "orta",
+   "olcu": "0,20 × 1,20 × 0,06 m",
+   "prompt": "A long flat wooden bread oven peel with a thin rectangular blade."
+  },
+  "celep": {
+   "ad": "Celep (hayvan tüccarı)",
+   "tur": "karakter",
+   "boy_m": 1.75,
+   "oncelik": "orta",
+   "olcu": "0,55 × 1,75 × 0,40 m",
+   "prompt": "A Turkmen livestock dealer: weathered face, felt cap, sheepskin coat, a long herding stick and a coin pouch at the belt."
+  },
+  "nalbur": {
+   "ad": "Nalbur",
+   "tur": "karakter",
+   "boy_m": 1.75,
+   "oncelik": "orta",
+   "olcu": "0,55 × 1,75 × 0,40 m",
+   "prompt": "A travelling ironmonger: leather apron over a kaftan, strings of horseshoes and nails hanging from his shoulder bag."
+  },
+  "kumasci": {
+   "ad": "Kumaşçı",
+   "tur": "karakter",
+   "boy_m": 1.75,
+   "oncelik": "orta",
+   "olcu": "0,55 × 1,75 × 0,40 m",
+   "prompt": "A cloth merchant: neat long robe with a wide sash, small turban, folded bolts of wool cloth over one arm."
+  },
+  "aktar": {
+   "ad": "Aktar",
+   "tur": "karakter",
+   "boy_m": 1.72,
+   "oncelik": "orta",
+   "olcu": "0,55 × 1,75 × 0,40 m",
+   "prompt": "A herb and spice seller: modest kaftan, felt cap, small cloth pouches and dried herb bundles hanging from his belt, a wooden box of spices."
+  },
+  "silah_tuccari": {
+   "ad": "Silah tüccarı",
+   "tur": "karakter",
+   "boy_m": 1.78,
+   "oncelik": "orta",
+   "olcu": "0,55 × 1,75 × 0,40 m",
+   "prompt": "A weapons trader: quilted kaftan, leather belt, a bundle of wrapped spears on his back and a curved sabre at the hip."
+  },
+  "inek": {
+   "ad": "İnek",
+   "tur": "hayvan",
+   "boy_m": 1.45,
+   "poly": 5000,
+   "oncelik": "orta",
+   "olcu": "0,85 × 1,45 × 2,20 m",
+   "prompt": "A thin Anatolian brown village cow standing still, short horns, side view."
+  },
+  "koc": {
+   "ad": "Koç",
+   "tur": "hayvan",
+   "boy_m": 0.85,
+   "poly": 3000,
+   "oncelik": "orta",
+   "olcu": "0,55 × 0,85 × 1,10 m",
+   "prompt": "An Akkaraman ram standing still, cream wool, dark face, curled horns."
+  },
+  "beygir": {
+   "ad": "Beygir (iş atı)",
+   "tur": "hayvan",
+   "boy_m": 1.6,
+   "poly": 5000,
+   "oncelik": "orta",
+   "olcu": "0,80 × 1,60 × 2,30 m",
+   "prompt": "A sturdy brown work horse standing still with a simple rope halter and a felt saddle pad, side view."
+  },
+  "kurek": {
+   "ad": "Ahşap kürek (kar / iş küreği)",
+   "tur": "nesne",
+   "boy_m": 1.2,
+   "poly": 500,
+   "oncelik": "orta",
+   "olcu": "0,25 × 1,20 × 0,08 m",
+   "prompt": "A hand-carved wooden shovel with a long handle and a flat wide blade."
+  },
+  "su_bendi": {
+   "ad": "Su bendi modülü",
+   "tur": "yapi",
+   "boy_m": 0.8,
+   "poly": 3000,
+   "oncelik": "orta",
+   "olcu": "3,0 × 0,8 × 0,6 m",
+   "prompt": "A short straight flood barrier made of stacked stones, earth-filled sacks and wooden stakes."
+  },
+  "kurt": {
+   "ad": "Kurt",
+   "tur": "hayvan",
+   "boy_m": 0.8,
+   "poly": 3000,
+   "oncelik": "orta",
+   "olcu": "0,45 × 0,80 × 1,10 m",
+   "prompt": "A lean grey Anatolian wolf standing alert, side view."
+  },
+  "fener": {
+   "ad": "Fener / açık kandil",
+   "tur": "nesne",
+   "boy_m": 0.12,
+   "poly": 600,
+   "oncelik": "orta",
+   "olcu": "0,18 × 0,08 × 0,12 m",
+   "prompt": "A small open clay oil lamp with a spout and a handle, no flame."
+  },
+  "muhafiz_odasi": {
+   "ad": "Muhafız odası iç mekânı",
+   "tur": "yapi",
+   "boy_m": 2.8,
+   "poly": 8000,
+   "oncelik": "orta",
+   "olcu": "4,0 × 2,8 × 4,0 m",
+   "prompt": "Interior shell of a small guardroom: rough plastered stone walls, timber ceiling beams, packed earth floor, one small window and a doorway, empty room."
+  },
+  "yatak": {
+   "ad": "Muhafız yatağı",
+   "tur": "nesne",
+   "boy_m": 0.5,
+   "poly": 1500,
+   "oncelik": "orta",
+   "olcu": "0,90 × 0,50 × 2,00 m",
+   "prompt": "A simple low wooden bed frame with a straw mattress and a rough wool blanket."
+  },
+  "rahat_yatak": {
+   "ad": "Rahat muhafız yatağı",
+   "tur": "nesne",
+   "boy_m": 0.55,
+   "poly": 2000,
+   "oncelik": "dusuk",
+   "olcu": "1,10 × 0,55 × 2,00 m",
+   "prompt": "A comfortable low wooden bed with a thick felt mattress, kilim blanket and two cushions."
+  },
+  "masa": {
+   "ad": "Muhafız masası",
+   "tur": "nesne",
+   "boy_m": 0.75,
+   "poly": 1200,
+   "oncelik": "orta",
+   "olcu": "1,20 × 0,75 × 0,70 m",
+   "prompt": "A sturdy rustic wooden table with thick legs, a candle stub and a rolled document on it."
+  },
+  "kasa": {
+   "ad": "Gizli zemin kasası",
+   "tur": "nesne",
+   "boy_m": 0.4,
+   "poly": 1000,
+   "oncelik": "orta",
+   "olcu": "0,60 × 0,40 × 0,40 m",
+   "prompt": "A small heavy wooden strongbox with a hinged lid, made to be hidden under floorboards."
+  },
+  "kutuphane": {
+   "ad": "Muhafız kütüphanesi",
+   "tur": "nesne",
+   "boy_m": 1.8,
+   "poly": 2500,
+   "oncelik": "dusuk",
+   "olcu": "1,00 × 1,80 × 0,35 m",
+   "prompt": "A narrow wooden wall shelf with a few bound manuscripts, scrolls and a small box."
+  },
+  "askilik": {
+   "ad": "Donanım askılığı",
+   "tur": "nesne",
+   "boy_m": 1.6,
+   "poly": 1200,
+   "oncelik": "dusuk",
+   "olcu": "0,60 × 1,60 × 0,40 m",
+   "prompt": "A wooden armour and clothing stand with a hanging quilted kaftan and a belt."
+  },
+  "toplu_mezar": {
+   "tur": "nesne",
+   "ad": "Toplu mezar",
+   "boy_m": 0.6,
+   "poly": 1500,
+   "oncelik": "orta",
+   "olcu": "2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m",
+   "prompt": "A long low mound of freshly dug earth for several bodies, with a single small unmarked upright stone at one end and a few scattered field stones (no text, no symbols)."
+  },
+  "firin_agzi": {
+   "ad": "Fırın ağzı",
+   "tur": "nesne",
+   "boy_m": 0.7,
+   "poly": 1500,
+   "oncelik": "orta",
+   "olcu": "0,80 × 0,70 × 0,40 m",
+   "prompt": "The arched front opening of a clay bread oven with a stone sill, soot marks, no fire."
+  },
+  "sacak": {
+   "ad": "Saçak",
+   "tur": "nesne",
+   "boy_m": 0.25,
+   "poly": 1000,
+   "oncelik": "orta",
+   "olcu": "2,00 × 0,25 × 1,20 m",
+   "prompt": "A short timber and reed rain awning (eave) attached to a wall, supported by two diagonal wooden brackets."
+  },
+  "yay": {
+   "ad": "Kısa Türk yayı",
+   "tur": "nesne",
+   "boy_m": 1.1,
+   "poly": 600,
+   "oncelik": "orta",
+   "olcu": "0,08 × 1,10 × 0,35 m",
+   "prompt": "A short Turkic composite recurve bow, strung, horn and sinew look, upright."
+  },
+  "divan_masasi": {
+   "ad": "Divan masası",
+   "tur": "nesne",
+   "boy_m": 0.8,
+   "poly": 1500,
+   "oncelik": "orta",
+   "olcu": "2,00 × 0,80 × 1,00 m",
+   "prompt": "A long low wooden council table for a village square, plain planks, an inkwell and a ledger on it."
+  },
+  "divan_oturak": {
+   "ad": "Divan oturağı",
+   "tur": "nesne",
+   "boy_m": 0.45,
+   "poly": 600,
+   "oncelik": "orta",
+   "olcu": "0,50 × 0,45 × 0,50 m",
+   "prompt": "A simple wooden stool with a felt cushion."
+  },
+  "zindan_kapisi": {
+   "ad": "Zindan hücre kapısı",
+   "tur": "nesne",
+   "boy_m": 2.0,
+   "poly": 1500,
+   "oncelik": "orta",
+   "olcu": "1,50 × 2,00 × 0,10 m",
+   "prompt": "A heavy wooden lattice cell door made of thick crossed timber bars in a stone frame, a wooden bolt."
+  },
+  "kabus_golgesi": {
+   "ad": "Rüya gölgesi figürü",
+   "tur": "karakter",
+   "boy_m": 1.75,
+   "iskelet": false,
+   "oncelik": "dusuk",
+   "olcu": "0,55 × 1,75 × 0,40 m",
+   "prompt": "A tall faceless hooded shadow figure in a ragged dark cloak, featureless, standing still."
+  },
+  "muhur": {
+   "ad": "Mühür",
+   "tur": "nesne",
+   "boy_m": 0.06,
+   "poly": 400,
+   "oncelik": "dusuk",
+   "olcu": "0,05 × 0,06 × 0,05 m",
+   "prompt": "A small brass seal stamp with a short wooden handle, blank face, no text."
+  },
+  "iksir_sisesi": {
+   "ad": "İksir şişesi",
+   "tur": "nesne",
+   "boy_m": 0.15,
+   "poly": 400,
+   "oncelik": "dusuk",
+   "olcu": "0,06 × 0,15 × 0,06 m",
+   "prompt": "A small hand-blown greenish glass vial with a cork stopper and a cord around the neck."
+  },
+  "hediye_bohcasi": {
+   "ad": "Hediye bohçası",
+   "tur": "nesne",
+   "boy_m": 0.15,
+   "poly": 600,
+   "oncelik": "dusuk",
+   "olcu": "0,30 m",
+   "prompt": "A small square gift bundle wrapped in embroidered cloth and tied with a knot on top."
+  },
+  "tas_yatagi": {
+   "ad": "Taş yatağı",
+   "tur": "yapi",
+   "boy_m": 0.6,
+   "poly": 3000,
+   "oncelik": "yuksek",
+   "olcu": "3,0 × 0,6 × 2,0 m",
+   "prompt": "A static game prop, a cluster of exposed raw stone outcroppings emerging from flat dirt, showing pickaxe marks, isolated object."
+  },
+  "muhafiz": {
+   "ad": "Muhafız (oyuncu)",
+   "tur": "karakter",
+   "boy_m": 1.76,
+   "oncelik": "orta",
+   "olcu": "0,55 × 1,75 × 0,40 m",
+   "prompt": "A 14th-century Ottoman Anatolian frontier gate guard: weathered calm face, short beard, felt cap, quilted padded kaftan with a sash, leather belt with a short sword, leg wraps and boots."
+  },
+  "muhafiz_esi": {
+   "ad": "Muhafızın eşi",
+   "tur": "karakter",
+   "boy_m": 1.62,
+   "oncelik": "orta",
+   "olcu": "0,55 × 1,75 × 0,40 m",
+   "prompt": "A 14th-century Ottoman Anatolian village woman, the guard's wife: calm tired face, long dress, apron, large headscarf tied under the chin, simple leather shoes."
+  },
+  "usta": {
+   "ad": "Usta (zanaatkâr)",
+   "tur": "karakter",
+   "boy_m": 1.74,
+   "oncelik": "orta",
+   "olcu": "0,55 × 1,75 × 0,40 m",
+   "prompt": "A 14th-century Ottoman Anatolian master craftsman arriving at the gate: leather apron over a kaftan, rolled sleeves, felt cap, leather tool pouch at the belt."
+  },
+  "cozumleme_odasi": {
+   "ad": "Çözümleme odası",
+   "tur": "yapi",
+   "boy_m": 2.8,
+   "poly": 8000,
+   "oncelik": "orta",
+   "olcu": "4,0 × 2,8 × 4,0 m",
+   "prompt": "Interior shell of a small study workshop room: plastered walls, timber beams, a low work table with scrolls, shelves with jars, one window."
+  },
+  "yemin_nesneleri": {
+   "ad": "Yemin nesneleri (ekmek, tuz, kitap)",
+   "tur": "nesne",
+   "boy_m": 0.2,
+   "poly": 1200,
+   "oncelik": "orta",
+   "olcu": "0,30 × 0,30 × 0,30 m",
+   "prompt": "A small set on a cloth: a round flat bread, a small clay bowl of salt and a closed leather-bound book with a plain cover."
+  },
+  "denetci": {
+   "ad": "Beyin denetçisi",
+   "tur": "karakter",
+   "boy_m": 1.74,
+   "oncelik": "orta",
+   "olcu": "0,55 × 1,75 × 0,40 m",
+   "prompt": "A 14th-century Ottoman frontier bey's inspector official: fine dark kaftan, white turban, a reed pen case at the belt, stern upright posture."
+  },
+  "kisisel_iz": {
+   "ad": "Kişisel iz (hatıra)",
+   "tur": "nesne",
+   "boy_m": 0.1,
+   "poly": 500,
+   "oncelik": "dusuk",
+   "olcu": "0,30 × 0,30 × 0,30 m",
+   "prompt": "A small personal keepsake: a carved wooden amulet on a leather cord beside a folded embroidered handkerchief."
+  },
+  "tezgah_ortusu": {
+   "ad": "Tezgâh örtüsü",
+   "tur": "nesne",
+   "boy_m": 0.8,
+   "poly": 1500,
+   "oncelik": "dusuk",
+   "olcu": "1,50 × 1,00 × 0,80 m",
+   "prompt": "A coarse undyed cloth draped over a closed workbench, tied with a rope, folds hanging to the ground."
+  },
+  "blok_ham": {
+   "ad": "Ham blok",
+   "tur": "nesne",
+   "boy_m": 0.3,
+   "poly": 300,
+   "oncelik": "dusuk",
+   "olcu": "0,30 × 0,30 × 0,30 m",
+   "prompt": "A rough unworked block of raw material, rough-hewn surfaces."
+  },
+  "blok_iz": {
+   "ad": "İz bloğu",
+   "tur": "nesne",
+   "boy_m": 0.3,
+   "poly": 300,
+   "oncelik": "dusuk",
+   "olcu": "0,30 × 0,30 × 0,30 m",
+   "prompt": "A roughly shaped block with the first chisel marks on one side."
+  },
+  "blok_bicim": {
+   "ad": "Biçim bloğu",
+   "tur": "nesne",
+   "boy_m": 0.3,
+   "poly": 400,
+   "oncelik": "dusuk",
+   "olcu": "0,30 × 0,30 × 0,30 m",
+   "prompt": "A half-finished workpiece block with a clear basic shape carved in."
+  },
+  "blok_agiz": {
+   "ad": "Ağız bloğu",
+   "tur": "nesne",
+   "boy_m": 0.3,
+   "poly": 400,
+   "oncelik": "dusuk",
+   "olcu": "0,30 × 0,30 × 0,30 m",
+   "prompt": "A workpiece block with one end ground to a sharp bright edge."
+  },
+  "teslim_parcasi": {
+   "ad": "Teslim parçası",
+   "tur": "nesne",
+   "boy_m": 0.3,
+   "poly": 600,
+   "oncelik": "dusuk",
+   "olcu": "0,30 × 0,30 × 0,30 m",
+   "prompt": "A finished handcrafted piece resting on a small cloth: a carved and polished wooden box."
+  },
+  "zar": {
+   "ad": "Kemik zar (d6)",
+   "tur": "nesne",
+   "boy_m": 0.02,
+   "poly": 300,
+   "oncelik": "dusuk",
+   "olcu": "isteğe bağlı 3B; envanter önceliği 2D için yüksek",
+   "prompt": "A small worn bone six-sided die with carved dot pips."
+  },
+  "su_kabi": {
+   "ad": "Su kabı",
+   "tur": "nesne",
+   "boy_m": 0.4,
+   "poly": 700,
+   "oncelik": "orta",
+   "olcu": "0,25 × 0,40 × 0,25 m",
+   "prompt": "A round clay water jug with one handle and a narrow neck."
+  },
+  "kirmen": {
+   "ad": "Kirmen (el iği)",
+   "tur": "nesne",
+   "boy_m": 0.3,
+   "poly": 400,
+   "oncelik": "orta",
+   "olcu": "0,05 × 0,30 × 0,05 m",
+   "prompt": "A traditional Anatolian drop spindle (kirmen) with a wooden shaft and crossed arms, some wool yarn wound on it."
+  },
+  "bakim_bezi": {
+   "ad": "Bakım bezi",
+   "tur": "nesne",
+   "boy_m": 0.03,
+   "poly": 300,
+   "oncelik": "dusuk",
+   "olcu": "0,25 × 0,25 m",
+   "prompt": "A folded square of coarse linen cleaning cloth."
+  },
+  "anim_isinma": {
+   "ad": "Isınma döngüsü (iki el ateşe)",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Idle_3"
+   ]
+  },
+  "anim_cekic_vurma": {
+   "ad": "Çekiç vurma döngüsü",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Heavy_Hammer_Swing"
+   ]
+  },
+  "anim_firin_kuregi": {
+   "ad": "Fırın küreği döngüsü",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Step_Forward_and_Push"
+   ]
+  },
+  "anim_buzulme": {
+   "ad": "Soğukta büzülmüş / karda yürüyüş",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Casual_Walk"
+   ]
+  },
+  "anim_sinsi_yuru": {
+   "ad": "Sinsi yürüyüş",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Sneaky_Walk"
+   ]
+  },
+  "anim_temkinli_bekle": {
+   "ad": "Temkinli kuytu bekleyiş",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Alert"
+   ]
+  },
+  "anim_idle_nefes": {
+   "ad": "Bekleme: nefes",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Idle",
+    "Breathing_Idle"
+   ]
+  },
+  "anim_idle_agirlik": {
+   "ad": "Bekleme: ağırlık aktarma",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Idle_02",
+    "Weight_Shift"
+   ]
+  },
+  "anim_idle_bakis": {
+   "ad": "Bekleme: çevreye bakış",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Short_Breathe_and_Look_Around"
+   ]
+  },
+  "anim_kar_kureme": {
+   "ad": "Kar küreme",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Push_Forward_and_Stop"
+   ]
+  },
+  "anim_kavga": {
+   "ad": "Kapıda itişme / kavga",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Punch_Combo"
+   ]
+  },
+  "anim_kos": {
+   "ad": "Koşma",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Run_02"
+   ],
+   "not": "Yeni iskelet görevinde koşma klibi ücretsiz gelir (basic_animations.running_glb_url); yalnız mevcut iskelete uygulanacaksa kredi harcar."
+  },
+  "anim_otur": {
+   "ad": "Oturma",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Chair_Sit_Idle_M"
+   ]
+  },
+  "anim_orak": {
+   "ad": "Orak biçme",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Reaping_Swing"
+   ]
+  },
+  "anim_nobet": {
+   "ad": "Nöbet / mızrağa dayanma",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Long_Breathe_and_Look_Around"
+   ]
+  },
+  "anim_saldir": {
+   "ad": "Saldırı",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Attack"
+   ]
+  },
+  "anim_dus": {
+   "ad": "Düşme",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "falling_down"
+   ]
+  },
+  "anim_yagmur_yuru": {
+   "ad": "Yağmurda yürüyüş",
+   "tur": "animasyon",
+   "oncelik": "orta",
+   "kitaplik": [
+    "Walk_Slowly_and_Look_Around"
+   ]
+  }
  }
 }
