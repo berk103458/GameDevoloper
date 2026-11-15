@@ -1348,3 +1348,6 @@ Kese göstergesi mevcut ortak renk kaynağını kullanır; tarama ve kişisel pa
 
 ## 15 Kasım 2026 — GRV-31 (Codex-Berk)
 CHR konuşma seçeneklerinde yerel renk/stil yokluğu ve canlı oyun çağrısı bağı doğrulandı; mevcut ortak tema korunur. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-36 (Codex-Berk)
+Köy alt kabuğu ve eylem düğmesindeki yerel stil kopyaları kaldırıldı; ortak panel ve dört düğme durumu doğrudan tema mirasından gelir. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

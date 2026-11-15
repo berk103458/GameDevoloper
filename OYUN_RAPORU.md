@@ -3332,3 +3332,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-62 (Codex-Berk): Kese göstergesi mevcut ortak renk kaynağını kullanır; tarama ve kişisel para göstergesi regresyonu doğrulandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-31 (Codex-Berk): CHR konuşma seçeneklerinde yerel renk/stil yokluğu ve canlı oyun çağrısı bağı doğrulandı; mevcut ortak tema korunur. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-36 (Codex-Berk): Köy alt kabuğu ve eylem düğmesindeki yerel stil kopyaları kaldırıldı; ortak panel ve dört düğme durumu doğrudan tema mirasından gelir. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.

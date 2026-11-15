@@ -114,7 +114,6 @@ func _alt_panel_kur() -> void:
 	_alt = PanelContainer.new()
 	_alt.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
 	_alt.custom_minimum_size.y = ayarlar.boyut(260)
-	_alt.add_theme_stylebox_override("panel", Tema.koy_paneli())
 	_alt.offset_top = -ayarlar.boyut(260)
 	add_child(_alt)
 	var kenar := MarginContainer.new()
@@ -171,7 +170,6 @@ func _alt_panel_kur() -> void:
 	for kat in [0, 1, 2, 3]:
 		var b := _dugme("Ⅱ" if kat == 0 else "%dx" % kat, hizlar)
 		b.add_theme_font_size_override("font_size", ayarlar.boyut(Kabuk.KUCUK))
-		b.add_theme_stylebox_override("normal", Tema.koy_paneli())
 		b.toggle_mode = true
 		b.set_pressed_no_signal(kat == 1)
 		b.tooltip_text = tr("koy.hiz.durdur") if kat == 0 else tr("koy.eylem.hiz") % kat

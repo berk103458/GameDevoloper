@@ -7408,7 +7408,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/hud.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-36:** (Codex-Berk) `koy_ekrani.gd` temaya bağlanır.
+- [x] **GRV-36:** (Codex-Berk) `koy_ekrani.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_ekrani.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Köy araç şeridi düz düğme; 3B sahne zemin sayılmaz. Tema bağlanınca yalnız `koy_ekrani.gd` ARY-02 zeminini ve düğme durumunu okur, Köy araç şeridi düz düğme; 3B sahne zemin sayılmaz davranışı değişmez.
   - Kabul: `koy_ekrani.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `koy_ekrani.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
