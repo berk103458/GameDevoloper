@@ -278,3 +278,16 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 17 — `AYR-29` & `AYR-33` (`TAM`)
+- **Değişiklikler:**
+  - `src/arayuz/yeni_oyun_ekrani.gd`: `_yuva_satiri()` içinde her yuva için `KayitYuvaKarti` (`yuva_karti(no)`), `yuvalari_yenile()` ve iki adımlı `"SilYuvaDugmesi_<n>"` eklendi; ileri sürüm (`durum_kodu == "yeni_surum"`) yuvada silme düğmesi gizlendi/kilitlendi ve `_baslat()` içinde üzerine yazarak başlatma engellendi.
+  - `tests/oto/ayarlar_kontrol.gd`: Gerçek `YeniOyunEkrani` üzerinde bozuk yuva (`"okunamadı"`), dolu yuva (5 alan), sürüm +50 yuva (`"yeni sürüm kaydı"`, dosya korunumu ve silme düğmesi gizliliği) ile iki adımlı yuva silme akışı doğrulandı.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `AYR-29`, `AYR-33` → `[x]` `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ayarlar_ek_test.gd` → `AYARLAR EK: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/ayarlar_kontrol.tscn` → `AYARLAR KONTROL: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

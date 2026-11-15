@@ -21,6 +21,9 @@ static func kur(ekran: KapiEkrani) -> void:
 	model.position = KONUM + Vector3.UP * KapiManzarasi.yukseklik(KONUM.x, KONUM.z)
 	sahne.add_child(model)
 	GORUNUM.kur(model, es)
+	var etiket := model.get_node_or_null("acilis_hane_etiketi") as Label3D
+	if etiket != null:
+		EtiketEkranSiniri.bagla(etiket, sahne.kamera)
 	model.bak(sahne.kamera.position)
 	ekran.gece_bitti.connect(func(_rapor: Dictionary) -> void:
 		if is_instance_valid(model):

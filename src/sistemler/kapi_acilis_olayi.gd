@@ -35,9 +35,12 @@ static func kuyruk(o: Oturum) -> Array[Gelen]:
 	g.ad_anahtari = String(AYAR.aile_adi)
 	g.portre = String(AYAR.aile[0].portre)
 	g.giris_anahtari = "Kapıda iki yetişkin yan yana bekliyor."
-	g.acilis = String(AYAR.es_sozu)
+	g.acilis = String(AYAR.acilis)
 	g.sorular = [PackedStringArray(AYAR.selam), PackedStringArray(AYAR.konu)]
 	g.soru_ust = PackedInt32Array([-1, 0])
+	for ek: Array in AYAR.ek_sorular:
+		g.sorular.append(PackedStringArray(ek))
+		g.soru_ust.append(-1)
 	g.secenekler = PackedStringArray(["kabul", "ret"])
 	g.esikler = PackedInt32Array([0, 0])
 	g.heybe = Heybe.new()
