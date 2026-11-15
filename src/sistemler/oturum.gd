@@ -153,6 +153,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 	YetimBakimi.ekle(self, sonuc)
 	preload("res://src/sistemler/sancak_ulagi.gd").ekle(self, sonuc)
 	KararDonusu.spawn_ekle(self, sonuc)
+	DunyaZamani.kapi_haberi_ekle(self, sonuc)
 	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").kuyruk_hazirla(self, sonuc)
 	return sonuc
 

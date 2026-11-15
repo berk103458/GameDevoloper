@@ -185,6 +185,7 @@ static func oku(v: Variant) -> Dictionary:
 		"taban_gun": 0,
 		"etki_uygulananlar": [],
 		"kararlar": {},
+		"iletildi": [],
 	}
 	if not (v is Dictionary):
 		return d
@@ -211,6 +212,12 @@ static func oku(v: Variant) -> Dictionary:
 	if kr is Dictionary:
 		for k in (kr as Dictionary).keys():
 			d["kararlar"][String(k)] = String((kr as Dictionary)[k])
+	var il: Variant = ham.get("iletildi", [])
+	if il is Array:
+		for x in il:
+			var s := String(x).strip_edges()
+			if not s.is_empty() and not (s in d["iletildi"]):
+				(d["iletildi"] as Array).append(s)
 	return d
 
 
@@ -283,5 +290,152 @@ static func gece(o: Oturum, r: Dictionary, ozel_cizelge: Variant = null, kitap_d
 			else:
 				(d["isaretler"] as Array).append(isaret)
 				yazilan_evreler.append(isaret)
+				_koy_dedikodusu_yaz(o, olay, evre, no)
 	o.dunya_zamani = d
 	return {"gece": no, "yeni_isaretler": yazilan_evreler}
+
+
+static func _replik_metni(rep: Dictionary) -> String:
+	var anahtar := String(rep.get("anahtar", "")).strip_edges()
+	if not anahtar.is_empty():
+		var ceviri := TranslationServer.translate(anahtar)
+		if not ceviri.is_empty() and ceviri != anahtar:
+			return ceviri
+	return String(rep.get("metin", "")).strip_edges()
+
+
+static func _canli_tanik_id(y: KoyYonetimi, konusmaci: String) -> String:
+	if y == null or y.koylular.is_empty():
+		return ""
+	var en_kucuk := -1
+	for k in y.koylular:
+		if k.saglik <= 0:
+			continue
+		if not konusmaci.is_empty() and String(k.adli_id) == konusmaci:
+			return str(k.id)
+		if en_kucuk < 0 or k.id < en_kucuk:
+			en_kucuk = k.id
+	return "" if en_kucuk < 0 else str(en_kucuk)
+
+
+static func _koy_dedikodusu_yaz(o: Oturum, olay: Dictionary, evre: String, gece_no: int) -> void:
+	if o == null or o.dedikodu == null or o.yonetim == null:
+		return
+	var evreler: Variant = olay.get("evreler", {})
+	if not (evreler is Dictionary):
+		return
+	var ev_d: Variant = (evreler as Dictionary).get(evre, {})
+	if not (ev_d is Dictionary):
+		return
+	var replikler: Variant = (ev_d as Dictionary).get("replikler", [])
+	if not (replikler is Array):
+		return
+	var olay_id := String(olay.get("id", "")).strip_edges()
+	for rep in replikler:
+		if not (rep is Dictionary):
+			continue
+		var rd: Dictionary = rep
+		if String(rd.get("konu", "")) != "koy_dedikodusu":
+			continue
+		var tanik := _canli_tanik_id(o.yonetim, String(rd.get("konusmaci", "")))
+		if tanik.is_empty():
+			return
+		var metin := _replik_metni(rd)
+		if metin.is_empty():
+			return
+		o.dedikodu.olay_kaydet("dunya_%s_%s" % [olay_id, evre], "dunya_haberi", gece_no, tanik, 1, {"satir": metin, "olay": olay_id, "evre": evre})
+		return
+
+
+## DNY-02: erken söylenti ve kesin haber satırlarını salt-okunur döner.
+static func haber_satirlari(o: Oturum, konu: String = "", ozel_cizelge: Variant = null, kitap_dizin: String = KITAP_DIZINI, sadece_olay_id: String = "") -> Array[Dictionary]:
+	var sonuc: Array[Dictionary] = []
+	if o == null:
+		return sonuc
+	var aktif_isaretler := isaretler(o)
+	for olay in gecerli_olaylar(ozel_cizelge, kitap_dizin):
+		var oid := String(olay.get("id", "")).strip_edges()
+		if not sadece_olay_id.is_empty() and oid != sadece_olay_id:
+			continue
+		var evreler: Variant = olay.get("evreler", {})
+		if not (evreler is Dictionary):
+			continue
+		for evre in ["erken_soylenti", "kesin_haber"]:
+			if not ("%s.%s" % [oid, evre] in aktif_isaretler):
+				continue
+			var ev_d: Variant = (evreler as Dictionary).get(evre, {})
+			if not (ev_d is Dictionary):
+				continue
+			var replikler: Variant = (ev_d as Dictionary).get("replikler", [])
+			if not (replikler is Array):
+				continue
+			for rep in replikler:
+				if not (rep is Dictionary):
+					continue
+				var rd: Dictionary = rep
+				var r_konu := String(rd.get("konu", ""))
+				if not konu.is_empty() and r_konu != konu:
+					continue
+				var metin := _replik_metni(rd)
+				if metin.is_empty():
+					continue
+				sonuc.append({
+					"olay_id": oid,
+					"evre": evre,
+					"konu": r_konu,
+					"konusmaci": String(rd.get("konusmaci", "")),
+					"anahtar": String(rd.get("anahtar", "")),
+					"metin": metin,
+				})
+	return sonuc
+
+
+static func koy_dedikodu_satirlari(o: Oturum) -> Array[Dictionary]:
+	var sonuc: Array[Dictionary] = []
+	if o == null or o.dedikodu == null:
+		return sonuc
+	for k in o.dedikodu.kayitlar():
+		if String(k.get("tur", "")) == "dunya_haberi":
+			sonuc.append(k)
+	return sonuc
+
+
+## DNY-02: boş günde yüz üretmez ve bekleyen haberi silmez; bir sonraki gerçek gelende "Yolda ne gördün?" dalına bağlar.
+static func kapi_haberi_ekle(o: Oturum, kuyruk: Array[Gelen], ozel_cizelge: Variant = null, kitap_dizin: String = KITAP_DIZINI) -> void:
+	if o == null or kuyruk.is_empty():
+		return
+	var d := oku(o.dunya_zamani)
+	var iletildi: Array = d.get("iletildi", [])
+	var adaylar := haber_satirlari(o, "yolda_ne_gordun", ozel_cizelge, kitap_dizin)
+	if adaylar.is_empty():
+		return
+	var soru_baslik := String(KonuMerkezi.SABIT_KONU_BASLIKLARI.get("yolda_ne_gordun", "Yolda ne gördün?"))
+	var degisti := false
+	for h in adaylar:
+		var isaret := "%s.%s" % [String(h.olay_id), String(h.evre)]
+		if isaret in iletildi:
+			continue
+		var hedef: Gelen = null
+		for g in kuyruk:
+			if g != null and String(g.id) == String(h.konusmaci):
+				hedef = g
+				break
+		if hedef == null:
+			for g in kuyruk:
+				if g != null:
+					hedef = g
+					break
+		if hedef == null:
+			continue
+		hedef.sorular.append(PackedStringArray([soru_baslik, String(h.metin)]))
+		var ust := hedef.soru_ust.duplicate()
+		ust.append(-1)
+		hedef.soru_ust = ust
+		var bay := hedef.soru_bayraklari.duplicate()
+		bay.append("")
+		hedef.soru_bayraklari = bay
+		iletildi.append(isaret)
+		degisti = true
+	if degisti:
+		d["iletildi"] = iletildi
+		o.dunya_zamani = d

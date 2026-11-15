@@ -137,7 +137,7 @@ static func _salgin(y: KoyYonetimi) -> bool:
 ## Aktif dunya olaylari: tehdit takvimi acik mi ve gorulen olay kimlikleri.
 ## Ikinci olay motoru yoktur; mevcut okuma yuzeylerinden derlenir.
 static func _dunya_olaylari(o: Oturum, y: KoyYonetimi) -> Dictionary:
-	var r: Dictionary = {"tehdit_kapisi": false, "gorulenler": []}
+	var r: Dictionary = {"tehdit_kapisi": false, "gorulenler": [], "isaretler": {}, "haberler": []}
 	if o == null:
 		return r
 	r["tehdit_kapisi"] = TEHDIT_TAKVIMI.acik(y.gun) if y != null else false
@@ -146,6 +146,15 @@ static func _dunya_olaylari(o: Oturum, y: KoyYonetimi) -> Dictionary:
 		gorulenler.append(String(id))
 	gorulenler.sort()
 	r["gorulenler"] = gorulenler
+	var isaret_sozluk := {}
+	for isaret in DunyaZamani.isaretler(o):
+		isaret_sozluk[isaret] = true
+	var kararlar: Variant = DunyaZamani.durum(o).get("kararlar", {})
+	if kararlar is Dictionary:
+		for k in (kararlar as Dictionary).keys():
+			isaret_sozluk[String(k)] = (kararlar as Dictionary)[k]
+	r["isaretler"] = isaret_sozluk
+	r["haberler"] = DunyaZamani.haber_satirlari(o)
 	return r
 
 

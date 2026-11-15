@@ -1362,3 +1362,14 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `yetim_bakimi_test.gd` (`YETIM BAKIMI TESTI: GEÇTİ`), `kap18_yetim_metinleri_test.gd` (`gecti (0 hata)`), `aile_kafilesi_test.gd` (`AİLE KAFİLESİ: GEÇTİ`), `cirak_yas_kaynagi_test.gd` (`ÇIRAK YAŞ KAYNAĞI: GEÇTİ`), `hane_test.gd` (`PASS`), `kay04_icerik_surumu_test.gd` (`KAY-04: GEÇTİ (0 hata)`) ve `acilis_koy_kontrol.tscn` (RC=0) geçti.
 - **Asset:** asset gerekmedi (KAP-17 çocuk modeli ve mevcut `kap18.yetim.*` metinleri kullanıldı).
 - **Kota:** kota görünmüyor.
+
+## 15 Kasım 2026 — `DNY-02` (Haber Önce İnsanlardan Duyulur)
+- **Yapılanlar:**
+  - `src/sistemler/dedikodu.gd`: `"dunya_haberi"` türü `AGIR_OLAY_TURLERI` içine eklendi.
+  - `src/sistemler/dunya_zamani.gd`: `erken_soylenti` ve `kesin_haber` repliklerini (`replikler` / `dunya.haber.*`) kalıcı `"iletildi"` izlemesiyle okuyan `haber_satirlari()`, `koy_dedikodusu_satirlari()` (yalnız yaşayan köylü varsa DIY-13 `Oturum.dedikodu` `"dunya_haberi"` kaydı yazar, boş köyde 0 satır üretir; sağlık/hastalık yöneticisine dokunmaz) ve `kapi_haberi_ekle()` (kuyruk boşsa 0 yüz üretir ve haberi bir sonraki gerçek yolcunun `"Yolda ne gördün?"` konusuna saklar) eklendi.
+  - `src/soz/baglam_sorgusu.gd`: `_dunya_olaylari()` salt-okunur `"isaretler"` (`DunyaZamani.isaretler`) ve `"haberler"` (`DunyaZamani.haber_satirlari`) alanlarını bağladı.
+  - `src/sistemler/oturum.gd`: `gece_kuyrugu()` içinde `DunyaZamani.kapi_haberi_ekle(self, sonuc)` bağlandı.
+  - `tests/unit/sistemler/dunya_test.gd`: `_test_dny02_haber` ile 8 kabul şartı doğrulandı.
+- **Testler:** `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`), `dunya_cizelge_metin_test.gd` (`gecti`), `dedikodu_test.gd` (`DEDIKODU: GEÇTİ (0 hata)`), `kop05_dedikodu_fisilti_test.gd` (`KOP05 DEDIKODU FISILTI: GEÇTİ (0 hata)`), `satir_secici_test.gd` (`SATIR SECICI: GEÇTİ (0 hata)`) ve `acilis_koy_kontrol.tscn` (RC=0; `divan_baglantisi.gd` / `DivanMeydani` başka ajan kaynaklı önceden var olan parse uyarısı dışında 0 hata) geçti. (`baglam_sorgusu_test.gd` 72/75. satırlarda `_kur_bina("sifahane")` önkoşulu nedeniyle başarısız; `DNY-02` ve `BaglamSorgusu` kontrolleri geçti.)
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.

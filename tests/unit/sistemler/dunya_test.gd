@@ -201,9 +201,94 @@ func _initialize() -> void:
 	var dz_kod := FileAccess.get_file_as_string("res://src/sistemler/dunya_zamani.gd")
 	_kontrol(not dz_kod.contains("koy_sahnesi"), "dunya_zamani.gd koy_sahnesi import etmemeli")
 
+	# 10. DNY-02: Haber önce insanlardan duyulur
+	_test_dny02_haber(kat)
+
 	if _hata == 0:
 		print("DUNYA ZAMANI TESTI: GEÇTİ (0 hata)")
 		quit(0)
 	else:
 		print("DUNYA ZAMANI TESTI: KALDI (%d hata)" % _hata)
 		quit(1)
+
+
+func _test_dny02_haber(kat: Katalog) -> void:
+	# a) Etki evresinden önceki pencerede (>=2 satır, birbirinin kopyası değil) + aynı tohum determinizmi
+	var o_a := Oturum.new(kat, 2021)
+	var o_b := Oturum.new(kat, 2021)
+	o_a.yonetim.kabul({"ad": "Veli", "sinif": &"ciftci", "stat": 5})
+	o_b.yonetim.kabul({"ad": "Veli", "sinif": &"ciftci", "stat": 5})
+	for _i in 14:
+		_besle(o_a)
+		_besle(o_b)
+		o_a.gece_sonu()
+		o_b.gece_sonu()
+		_kontrol(DunyaZamaniSinifi.haber_satirlari(o_a) == DunyaZamaniSinifi.haber_satirlari(o_b), "Aynı tohum aynı günde aynı haber satırını üretmeli (gun=%d)" % o_a.gun)
+
+	var taht_satirlari := DunyaZamaniSinifi.haber_satirlari(o_a, "", null, DunyaZamaniSinifi.KITAP_DIZINI, "selcuklu_taht_kavgasi")
+	_kontrol(not ("selcuklu_taht_kavgasi.etki" in DunyaZamaniSinifi.isaretler(o_a)), "Gün 14'te etki henüz açılmamış olmalı")
+	_kontrol(taht_satirlari.size() >= 2, "Etki öncesi pencerede aynı olay için en az 2 satır olmalı (bulunan=%d)" % taht_satirlari.size())
+	if taht_satirlari.size() >= 2:
+		_kontrol(String(taht_satirlari[0].metin) != String(taht_satirlari[1].metin), "Etki öncesi karakter satırları birebir aynı olamaz")
+	var dedikodu_once := DunyaZamaniSinifi.koy_dedikodu_satirlari(o_a)
+	_kontrol(dedikodu_once.size() >= 1, "Köyde konuşacak kimse varken DIY-13 köy dedikodusu üretilmeli")
+	var baglam := BaglamSorgusu.new().kur(o_a, null)
+	_kontrol((baglam.get("dunya_olaylari", {}).get("haberler", []) as Array).size() >= 2, "BaglamSorgusu dunya_olaylari.haberler aktif haberleri taşımalı")
+
+	# b) Gözcü özeti açıkken dünya olay satırı sayısı artmaz
+	var kule := KoyBinasi.new()
+	kule.id = 91
+	kule.tur = GozcuKulesi.TUR
+	kule.hucre = Vector2i(3, 3)
+	kule.insa_kalan = 0
+	o_a.yonetim.binalar.append(kule)
+	var gozcu := o_a.yonetim.kabul({"ad": "Gözcü", "sinif": &"ciftci", "stat": 5})
+	o_a.yonetim.ata(gozcu.id, kule.id)
+	var isaret_gozcu_once := DunyaZamaniSinifi.isaretler(o_a).size()
+	var haber_gozcu_once := DunyaZamaniSinifi.haber_satirlari(o_a).size()
+	var ddk_gozcu_once := o_a.dedikodu.kayitlar().size()
+	var ozet_metin := GozcuOngoru.metin(o_a)
+	_kontrol(not ozet_metin.is_empty(), "Gözcü özeti açılmalı")
+	_kontrol(DunyaZamaniSinifi.isaretler(o_a).size() == isaret_gozcu_once, "Gözcü özeti dünya işaretlerini artırmamalı")
+	_kontrol(DunyaZamaniSinifi.haber_satirlari(o_a).size() == haber_gozcu_once, "Gözcü özeti dünya haber satırı sayısını artırmamalı")
+	_kontrol(o_a.dedikodu.kayitlar().size() == ddk_gozcu_once, "Gözcü özeti dedikodu kaydını artırmamalı")
+
+	# c) Boş günde yazılı haber satırı durur ve silinmez, yüz o gece gelmez; bir sonraki gerçek gelene bağlanır
+	var bos_kuyruk: Array[Gelen] = []
+	DunyaZamaniSinifi.kapi_haberi_ekle(o_a, bos_kuyruk)
+	_kontrol(bos_kuyruk.is_empty(), "Boş günde sahte yüz üretilmemeli")
+	_kontrol(DunyaZamaniSinifi.haber_satirlari(o_a).size() == haber_gozcu_once, "Boş günde yazılı haber silinmemeli")
+	var gercek_kuyruk := o_a.gece_kuyrugu()
+	if not gercek_kuyruk.is_empty():
+		var soru_var := false
+		for g in gercek_kuyruk:
+			for s in g.sorular:
+				if String(s[0]).contains("Yolda ne gördün"):
+					soru_var = true
+					break
+		_kontrol(soru_var, "Bir sonraki gerçek gelende 'Yolda ne gördün?' sorusu açılmalı")
+
+	# d) Köyde konuşacak kimse yoksa dedikodu satırı 0'dır ve etki DNY-01 gününü bekler
+	var o_bos := Oturum.new(kat, 2022)
+	for _i in 15:
+		o_bos.gun += 1
+		o_bos.yonetim.gun = o_bos.gun
+		DunyaZamaniSinifi.gece(o_bos, {"gun": o_bos.gun - 1, "olaylar": []})
+	_kontrol(DunyaZamaniSinifi.koy_dedikodu_satirlari(o_bos).is_empty(), "Köyde konuşacak kimse yoksa köy dedikodusu 0 olmalı")
+	_kontrol(not ("selcuklu_taht_kavgasi.etki" in DunyaZamaniSinifi.isaretler(o_bos)), "Boş köyde etki öne çekilmemeli (gün 15)")
+	o_bos.gun += 1
+	o_bos.yonetim.gun = o_bos.gun
+	DunyaZamaniSinifi.gece(o_bos, {"gun": o_bos.gun - 1, "olaylar": []})
+	_kontrol("selcuklu_taht_kavgasi.etki" in DunyaZamaniSinifi.isaretler(o_bos), "Etki DNY-01 gününü bekleyip gün 16'da gelmeli")
+
+	# e) Salgın haber satırı hastalık yöneticisini çağırmaz + dalı olmayan karar işareti yazılı haberde kalır
+	var o_salgin := Oturum.new(kat, 2023)
+	var saglam := o_salgin.yonetim.kabul({"ad": "Mehmet", "sinif": &"ciftci", "stat": 4})
+	for g_no in range(1, 51):
+		o_salgin.yonetim.gun = g_no
+		DunyaZamaniSinifi.gece(o_salgin, {"gun": g_no - 1, "olaylar": []})
+	_kontrol("salgin_dalgasi.kesin_haber" in DunyaZamaniSinifi.isaretler(o_salgin), "Salgın kesin_haber gün 50'de gelmeli")
+	_kontrol(not SaglikYoneticisi.hasta(saglam), "Salgın haber satırı hastalık yöneticisini çağırmamalı")
+	var b_karar := SatirSecici.baglama_dunya_isareti_yaz(BaglamSorgusu.new().kur(o_salgin, null), "mogol_elcisi", "kabul")
+	var dalsiz_sec := SatirSecici.new().sec([{"id": "varsayilan", "metin": "Sıradan söz.", "kosullar": {}}], b_karar)
+	_kontrol(String(dalsiz_sec.get("id", "")) == "varsayilan" and String(b_karar.get("dunya.mogol_elcisi", "")) == "kabul", "Dalı olmayan karar işareti yalnızca yazılı bağlamda kalmalı")
