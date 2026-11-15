@@ -29,12 +29,13 @@ func _ready() -> void:
 		ekran._ad.text = "Ziyaret %d" % (ziyaret + 1)
 		ekran._sohbet_goster()
 		await get_tree().process_frame
+		var dugme_0 := ekran._eylemler.get_node_or_null("BeyanDefteriDugmesi") as Button
 		_dene(
-			ekran._eylemler.get_node_or_null("BeyanDefteriDugmesi") == null,
+			dugme_0 == null or not dugme_0.visible,
 			"OGR-14: celiskisiz ziyaret %d dugme 0 olmali" % (ziyaret + 1)
 		)
 		_dene(
-			ekran.get_node_or_null("IpucuSeridi") == null,
+			not o.ipucu_kaydi.goruldu_mu(DefterTanitimi.IPUCU_ID),
 			"OGR-14: celiskisiz ziyaret %d ipucu 0 olmali" % (ziyaret + 1)
 		)
 
@@ -47,27 +48,26 @@ func _ready() -> void:
 	ekran._ad.text = "Rüstem oğlu Hamza"
 	ekran._sohbet_goster()
 	await get_tree().process_frame
-	_dene(ekran._eylemler.get_node_or_null("BeyanDefteriDugmesi") == null, "OGR-14: ilk celiski oncesi dugme 0 olmali")
+	var dugme_once := ekran._eylemler.get_node_or_null("BeyanDefteriDugmesi") as Button
+	_dene(dugme_once == null or not dugme_once.visible, "OGR-14: ilk celiski oncesi dugme 0 olmali")
 
 	sorgu.gorsel_incele()
 	await get_tree().process_frame
-	_dene(ekran._eylemler.get_node_or_null("BeyanDefteriDugmesi") != null, "OGR-14: ilk celiski sonrasi dugme 1 olmali")
-	_dene(ekran.get_node_or_null("IpucuSeridi") != null, "OGR-14: ilk celiskide ipucu seridi gosterilmeli")
-	_dene(o.ipucu_kaydi.goruldu_mu("beyan_defteri"), "OGR-14: ipucu_kaydi beyan_defteri isaretli olmali")
+	var dugme_sonra := ekran._eylemler.get_node_or_null("BeyanDefteriDugmesi") as Button
+	_dene(dugme_sonra != null and dugme_sonra.visible, "OGR-14: ilk celiski sonrasi dugme 1 olmali")
+	_dene(DefterTanitimi.celiski_goruldu_mu(o), "OGR-14: ilk celiskide oturumda celiski isaretlenmeli")
+	_dene(o.ipucu_kaydi.goruldu_mu(DefterTanitimi.IPUCU_ID), "OGR-14: ipucu_kaydi isaretli olmali")
 	_dene(not bool(DefterTanitimi.ipucu_ver(o).get("ipucu_goster", true)), "OGR-14: ipucu ikinci kez verilmemeli")
 
 	# 3) Sonraki ziyarette düğme görünür kalır, yeni ipucu çıkmaz
-	var eski_serit := ekran.get_node_or_null("IpucuSeridi")
-	if eski_serit != null:
-		eski_serit.queue_free()
-		await get_tree().process_frame
 	var g2 := o._adli_gelen(&"chr_001")
 	g2.heybe = Heybe.new()
 	ekran._gelen = g2
 	ekran._sohbet_goster()
 	await get_tree().process_frame
-	_dene(ekran._eylemler.get_node_or_null("BeyanDefteriDugmesi") != null, "OGR-14: sonraki ziyarette dugme gorunur kalmali")
-	_dene(ekran.get_node_or_null("IpucuSeridi") == null, "OGR-14: sonraki ziyarette ipucu tekrar cikmamali")
+	var dugme_sonraki := ekran._eylemler.get_node_or_null("BeyanDefteriDugmesi") as Button
+	_dene(dugme_sonraki != null and dugme_sonraki.visible, "OGR-14: sonraki ziyarette dugme gorunur kalmali")
+	_dene(not bool(DefterTanitimi.ipucu_ver(o).get("ipucu_goster", true)), "OGR-14: sonraki ziyarette ipucu tekrar verilmemeli")
 
 	# 4) Kademeli HUD kapalıyken çelişkisiz yeni oturumda düğme doğrudan açık
 	var o_deneyimli := Oturum.new(katalog, 85)
@@ -79,7 +79,8 @@ func _ready() -> void:
 	ekran._gelen = g3
 	ekran._sohbet_goster()
 	await get_tree().process_frame
-	_dene(ekran._eylemler.get_node_or_null("BeyanDefteriDugmesi") != null, "OGR-14: kademeli_hud kapaliyken dugme gorunmeli")
+	var dugme_deneyimli := ekran._eylemler.get_node_or_null("BeyanDefteriDugmesi") as Button
+	_dene(dugme_deneyimli != null and dugme_deneyimli.visible, "OGR-14: kademeli_hud kapaliyken dugme gorunmeli")
 
 	if _hata == 0:
 		print("DEFTER TANITIMI TESTI: GEÇTİ (0 hata)")

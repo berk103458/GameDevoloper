@@ -863,6 +863,7 @@ func aksam_sohbeti_hazirla(ek_baglam: Dictionary = {}) -> Dictionary:
 	var secim := AksamSohbeti.konu_sec(gunun_aksam_kararlari, gun + 1, baglam)
 	if not secim.is_empty():
 		aksam_sohbeti_gece = gun
+		preload("res://src/koy/es_aksam_ogretisi.gd").ekle(self, secim)
 	return secim
 
 
@@ -953,6 +954,7 @@ func kaydet() -> Dictionary:
 			"kararlar": gunun_aksam_kararlari.duplicate(true),
 			"durum": AksamSohbeti.durum_al(),
 		}
+	preload("res://src/debug/ilk_saat_kancasi.gd").kayda_yaz(self, veri)
 	son_kaydi.kayda_yaz(veri)
 	return veri
 
@@ -1023,6 +1025,8 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 			if k_item is Dictionary:
 				o.gunun_aksam_kararlari.append((k_item as Dictionary).duplicate(true))
 		AksamSohbeti.durum_yukle(ak_d.get("durum", {}))
+	if veri.has("ilk_saat_iz"):
+		preload("res://src/debug/ilk_saat_kancasi.gd").kayittan_oku(o, veri.get("ilk_saat_iz"))
 	o.ilk_saat_gelen = GeceBilancosu.ilk_saat_gelen_oku(veri.get("ilk_saat_gelen"))
 	if GeceBilancosu.kisa_mi(o) and veri.has("ilk_gece_gelenleri"):
 		o.set_meta(GeceBilancosu.GELEN_META, GeceBilancosu.gelenleri_oku(veri["ilk_gece_gelenleri"]))

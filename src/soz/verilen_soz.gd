@@ -32,7 +32,7 @@ func ekle(id: String, kisi: String, gun: int, tur: String, tutuldu: bool) -> boo
 func acik_sayisi() -> int:
 	var adet := 0
 	for satir in _satirlar:
-		if not bool(satir.get("tutuldu", false)):
+		if not bool(satir.get("tutuldu", false)) and String(satir.get("sonuc", "")).is_empty():
 			adet += 1
 	return adet
 

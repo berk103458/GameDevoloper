@@ -12,9 +12,9 @@ config_version=5
 
 config/name="Uçta bir kapı."
 config/version="0.2.0"
+run/main_scene="res://src/arayuz/ana.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="KapiMuhafizi"
-run/main_scene="res://src/arayuz/ana.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [autoload]
@@ -31,11 +31,15 @@ window/size/window_height_override=900
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
-[internationalization]
+[editor]
 
-locale/translations=PackedStringArray("res://data/metin/metinler.tr.translation")
-locale/fallback="tr"
+script/search_in_file_extensions=PackedStringArray("gd", "gdshader", "dlg")
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/parley/plugin.cfg", "res://addons/Theatre/plugin.cfg")
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://data/metin/metinler.tr.translation")
+locale/fallback="tr"

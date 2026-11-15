@@ -831,7 +831,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.2 Dört seçenek
 
-- [/] **CAT-02:** (Codex) Kavga seçenekleri — askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. (Antigravity) (doğrulanmadı — Görev 22; KapiKavgasi (src/kapi/kapi_kavgasi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **CAT-02:** (Codex) Kavga seçenekleri — askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. (Antigravity) (Görev 22 doğrulandı — gerçek kapı kavga panelinde dört seçenek aynı oturum nesnesine bağlı; kasa/söz/dönüş/cenaze ve çift tık oyun testleri geçti)
   - Ne: Kapıdaki kavgada oyuncu dört yoldan birini seçer: askerle karşılık, akçeyle erteleme, sözle yatıştırma veya reddetme. Askerle karşılık zar atar ve yaralanma, ölüm, kaçış ya da kin bırakır. Akçe yetmezse erteleme kilitli görünür. Beşinci seçenek yoktur. Kalp alanı yazılmaz.
   - Kurallar:
     1. Dört seçenek vardır: askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. Beşinci seçenek yazılamaz.
@@ -864,7 +864,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.4 Sıranın korkusu
 
-- [ ] **CAT-04:** Kapıda şiddet sırayı korkutur. (Antigravity) (doğrulanmadı — Görev 22; SiddetKorkusu (src/kapi/siddet_korkusu.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **CAT-04:** (Codex) Kapıda şiddet sırayı korkutur. (İlk mantık: Antigravity; Görev 22 bağlantısı giderildi: gerçek CAT-02 sec sonucu → SiddetKorkusuAdaptoru → aynı gerçek kuyruk, CHR/bekleme tansiyonu ve Dedikodu.olay_kaydet; görünür sıra ve menü donması bağlı. Birim, 39 kontrollü oyun ve gerçek ekran testleri GEÇTİ; asset gerekmedi.)
   - Ne: Askerle karşılık veya ölüm, sıradaki kişilerin tansiyonunu okur. Eşik üstündekiler tablodaki olasılıkla ayrılabilir; herkes ayrılmaz. Yatıştırma ve erteleme bu ayrılmayı tetiklemez. Yeni korku barı açılmaz. Menü açıkken artış donar.
   - Kurallar:
     1. Şiddet, karşılık veya ölüm sonucudur. Sıradaki kişilerin sabrı ve tansiyonu okunur.
@@ -1961,7 +1961,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.2 Yemin, yalan, söz
 
-- [ ] **DYL-03:** (Antigravity) Yemin ettirmek. (doğrulanmadı — Görev 22; Yemin (src/soz/yemin.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **DYL-03:** (Codex) Yemin ettirmek. (doğrulanmadı — Görev 22; Yemin (src/soz/yemin.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Oyuncu ziyarette bir kez "El bas, yemin et" der. Yemin şekli karakterin inancına göre dünya kitabından gelir; uymayan şekil hakarettir. Tutum dört türden biridir: eder, kıvranır, rahat ya da reddeder. Yemin zar açmaz. Bozulan yemin bir kez ceza yazar. İnanç alanı boşsa düğme gizlenir.
   - Kurallar:
     1. Seçenek: "El bas, yemin et." Ziyaret başına bir kez kullanılır.
@@ -4135,7 +4135,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-37, YAZ-03. Boyut: S.
   - Dosya: `data/metin/metinler.csv`.
   - Asset: asset gerekmedi.
-- [/] **OGR-39:** (Cursor-Berk) Eş ilk akşam sohbetinde bir şey öğretir.
+- [x] **OGR-39:** (Cursor-Berk) Eş ilk akşam sohbetinde bir şey öğretir.
   - Ne: ACL-03 / DYL-07 akşam sohbetinin ilk gecesinde eş, gün içinde kullanılmayan bir aracı tek cümleyle anar (heybe, beyan). Bu Söz motorunda bir bağlam sorgusu dalıdır (DIY-09).
   - Kabul: dal yalnız ilk üç gecede ve araç kullanılmadıysa açılır. Test: aracı kullanan kayıtta dal 0.
   - Bağımlılık: DYL-07, DIY-09. Boyut: S.
@@ -5454,7 +5454,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: YAZ-08, SOY-02. Boyut: M.
   - Dosya: yeni: `src/koy/ne_duydun.gd`; köylü seçim adaptörüne tek satır.
   - Asset: asset gerekmedi.
-- [ ] **SOY-10:** Kapıda doğrulama (DYL-01 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [/] **SOY-10:** (Cursor-Berk) Kapıda doğrulama (DYL-01 ile bağ). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: sorguda beyan defterine (DIY-07) düşen söz, ağdaki bir kayıtla çelişiyorsa oyuncu "köyde başka duydum" diyebilir (DYL-01 çelişki yolu). Ağ kaydı `dogru=false` ise muhafız yanılır; tansiyon +1.
   - Kabul: doğru kayıtla çelişki zarsız geçer; yanlış kayıtla tansiyon +1. Test: iki kayıt.
   - Bağımlılık: DYL-01, SOY-01. Boyut: S.

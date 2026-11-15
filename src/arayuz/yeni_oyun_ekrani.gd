@@ -102,17 +102,29 @@ func _gecmis_sec(id: String, dugme: Button, satir: HBoxContainer) -> void:
 			(c as Button).set_pressed_no_signal(c == dugme)
 
 
+func secilen_yuva() -> int:
+	return _yuva
+
+
+func yuva_sec(no: int) -> void:
+	_yuva = clampi(no, 1, KayitYuvalari.YUVA_SAYISI)
+	_onay = false
+
+
 func _yuva_satiri(dikey: VBoxContainer) -> void:
 	var satir := HBoxContainer.new()
 	dikey.add_child(satir)
 	for n in [1, 2, 3]:
 		var d := Button.new()
+		d.name = "YuvaDugmesi_%d" % n
 		d.text = tr("arayuz.ayarlar.yeni_oyun.yuva") % n
 		d.toggle_mode = true
 		d.button_pressed = n == _yuva
 		d.pressed.connect(func() -> void:
-			_yuva = n
-			_onay = false
+			yuva_sec(n)
+			for c in satir.get_children():
+				if c is Button:
+					(c as Button).set_pressed_no_signal(c == d)
 		)
 		satir.add_child(d)
 

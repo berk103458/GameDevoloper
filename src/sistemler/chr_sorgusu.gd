@@ -171,12 +171,16 @@ func _init(k: KarakterVerisi) -> void:
 	k = karakter
 	bayraklar = k.yeni_sorgu_bayraklari()
 	tansiyon = k.baslangic_tansiyonu
+	var oz: WeakRef = weakref(self)
 	_ipucu_servisi.ipucu_bulundu.connect(func(ipucu: StringName) -> void:
-		celiski_durumu.kayit_ekle({
+		var s: ChrSorgusu = oz.get_ref() as ChrSorgusu
+		if s == null:
+			return
+		s.celiski_durumu.kayit_ekle({
 			"id": String(ipucu),
 			"ipucu_id": String(ipucu),
 			"tur": "ipucu",
-			"metin": _ipucu_metni(ipucu),
+			"metin": s._ipucu_metni(ipucu),
 			"kaynak": "İnceleme / Bakış",
 		})
 	)

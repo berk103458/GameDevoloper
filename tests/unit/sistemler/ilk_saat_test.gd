@@ -249,6 +249,33 @@ func _initialize() -> void:
 	_kontrol(bool(ipucu_res.get("ipucu_goster", false)), "OGR-14: ilk celiskide ipucu verilmeli")
 	var ipucu_tekrar: Dictionary = defter_tanitimi.ipucu_ver(defter_oturum)
 	_kontrol(not bool(ipucu_tekrar.get("ipucu_goster", true)), "OGR-14: ipucu yalniz bir kez verilmeli")
+	var dk_kayit := defter_oturum.kaydet()
+	var dk_yuk := Oturum.kayittan(kat, dk_kayit)
+	_kontrol(defter_tanitimi.dugme_gorunur_mu(dk_yuk, true) and not bool(defter_tanitimi.ipucu_ver(dk_yuk).get("ipucu_goster", true)), "OGR-14: kayit/yukleme sonrasi dugme acik kalmali ve ipucu tekrar cikmamali")
+	var dt_ot := Oturum.new(kat, 1)
+	var dt_ay := Ayarlar.new()
+	var dt_cel := preload("res://src/soz/celiski.gd").new()
+	dt_cel.kayit_ekle({"id": "b1", "tur": "beyan", "metin": "Silah yok"})
+	dt_cel.celiski_ekle("b1", "ip1", "3.1", "guclu")
+	_kontrol(not bool(defter_tanitimi.oturumda_kontrol_et(dt_ot, dt_ay, dt_cel).get("gorunur", true)), "OGR-14: tek kayitta dugme gizli kalmali")
+	dt_cel.kayit_ekle({"id": "ip1", "tur": "ipucu", "metin": "Hancer izi"})
+	var dt_ac: Dictionary = defter_tanitimi.oturumda_kontrol_et(dt_ot, dt_ay, dt_cel)
+	_kontrol(bool(dt_ac.get("gorunur", false)) and bool((dt_ac.get("ipucu", {}) as Dictionary).get("ipucu_goster", false)), "OGR-14: cift yakalaninca dugme ve tek seferlik ipucu acilmali")
+	_kontrol(not bool((defter_tanitimi.oturumda_kontrol_et(dt_ot, dt_ay, dt_cel).get("ipucu", {}) as Dictionary).get("ipucu_goster", false)), "OGR-14: ikinci kontrolde ipucu tekrar etmemeli")
+
+	# OGR-03: Gercek Oturum + IlkSaat.zar_ipucu_kontrol + kayit/yukleme ile tek seferlik zar ipucu
+	var zar_ilk2 := ilk.zar_ipucu_kontrol(1)
+	_kontrol(int(zar_ilk2.get("ipucu_sayisi", -1)) == 0, "IlkSaat.zar_ipucu_kontrol ZarIpucu ile tutarli kalmali")
+	var zo := Oturum.new(kat, 1)
+	zo.gun = 0
+	_kontrol(int(ZarIpucuSinifi.oturumda_goster(zo).get("ipucu_sayisi", -1)) == 0, "OGR-03: gece 0'da zar ipucu cikmamali")
+	zo.gun = 1
+	var z_res1 := ZarIpucuSinifi.oturumda_goster(zo)
+	_kontrol(int(z_res1.get("ipucu_sayisi", 0)) == 1 and zo.ipucu_kaydi.goruldu_mu("zar"), "OGR-03: gece 1'de Oturum uzerinden zar ipucu 1 kez donmeli")
+	var z_kayit := zo.kaydet()
+	var zo_yuk := Oturum.kayittan(kat, z_kayit)
+	var z_res2 := ZarIpucuSinifi.oturumda_goster(zo_yuk)
+	_kontrol(int(z_res2.get("ipucu_sayisi", -1)) == 0, "OGR-03: kayit/yukleme sonrasi zar ipucu tekrar cikmamali")
 
 	# OGR-31: Ilk kotu karar bir aciklama satiri alir
 	var kotu_oturum := Oturum.new(kat, 1)

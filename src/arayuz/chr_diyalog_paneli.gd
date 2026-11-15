@@ -7,6 +7,7 @@ var oturum: Oturum
 var ayarlar: Ayarlar
 var baglam: Dictionary = {}
 var _ton_tepkisi := ""
+var _zar_ipucu := ""
 const TON = preload("res://src/soz/muhafiz_tonu.gd")
 
 func _ready() -> void:
@@ -41,6 +42,12 @@ func guncelle() -> void:
 			"gonul_alma": yak_ad = "Gönül alma"
 		sonuc.text = "%s: %s" % [yak_ad, "başarılı" if sorgu.son_zar["basarili"] else "başarısız — tansiyon arttı"]
 		add_child(sonuc)
+		if not _zar_ipucu.is_empty():
+			var ipucu_lbl := Label.new()
+			ipucu_lbl.name = "ZarIpucuNotu"
+			ipucu_lbl.text = _zar_ipucu
+			ipucu_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			add_child(ipucu_lbl)
 	var replik := Label.new()
 	replik.text = sorgu.metin(StringName(dugum.get("replik_anahtari", "")))
 	replik.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -74,8 +81,13 @@ func guncelle() -> void:
 			if not b.disabled:
 				b.modulate = Kabuk.vurgu()
 		b.pressed.connect(func() -> void:
+			_zar_ipucu = ""
 			if sorgu.secenek_sec(i, baglam):
 				_ton_tepkisi = TON.tepki(oturum, secenek, baglam)
+				if not sorgu.son_zar.is_empty():
+					var z_res := preload("res://src/kapi/zar_ipucu.gd").oturumda_goster(oturum, ayarlar)
+					if int(z_res.get("ipucu_sayisi", 0)) > 0:
+						_zar_ipucu = String(z_res.get("metin", ""))
 				guncelle()
 		)
 		add_child(b)

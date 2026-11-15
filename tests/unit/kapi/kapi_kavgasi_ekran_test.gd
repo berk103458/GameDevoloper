@@ -43,7 +43,7 @@ func _ekran() -> bool:
 	e._kuyruk.clear()
 	e._karar_ver("ret")
 	var a = preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").al(ana.oturum)
-	if a.son.get("kavga_bayragi", 0) != 1 or not e._kayit.get_parsed_text().contains(KapiKavgasi.YER_TUTUCU_CANLANDIRMA.metin):
+	if a.son.get("kavga_bayragi", 0) != 1 or not e._kayit.get_parsed_text().contains(tr(KapiKavgasi.YER_TUTUCU_CANLANDIRMA.metin)):
 		hata += 1
 		push_error("Gerçek kapı kararı kavga bayrağını ve arbede metnini üretmeli")
 	ana.queue_free()

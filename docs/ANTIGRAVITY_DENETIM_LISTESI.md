@@ -98,7 +98,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | Madde | Başlık | ROADMAP | İlgili dosyalar | Ne var | Ne eksik | Karar | Antigravity'ye not |
 |---|---|---|---|---|---|---|---|
 | OGR-01 | İlk saat | `[x]` | `src/sistemler/ilk_saat.gd` | `koy_hizi_ipucunu_goster` oyunda çağrılıyor | — | TAM | — |
-| OGR-03 | Zar ipucu | `[x]` | `src/kapi/zar_ipucu.gd` | Sınıf ve testi var | `ZarIpucu` oyunda hiç çağrılmıyor; `ilk_saat.gd` içindeki `zar_ipucu_kontrol` ayrı bir fonksiyon | SAHTE-BAĞSIZ | `ilk_saat.gd:175` içindeki kontrolü `ZarIpucu`'ya bağla |
+| OGR-03 | Zar ipucu | `[x]` | `src/kapi/zar_ipucu.gd` | Sınıf ve testi var | `ilk_saat.gd:175` `zar_ipucu_kontrol`, `ZarIpucu.uygula()`'ya; `chr_diyalog_paneli.gd` zar atışı `ZarIpucu.oturumda_goster()` ve `"ZarIpucuNotu"` ipucu bandına bağlandı | TAM | — |
 | OGR-04 | İlk saat bağları | `[x]` | `src/sistemler/ilk_saat.gd`, `src/arayuz/ana.gd` | `Ana._ready` çağırıyor | — | TAM | — |
 | OGR-06 | Tehdit başlangıcı | `[x]` | `data/ogretici/ilk_saat.json` | `tehdit_baslangic` alanı var | — | TAM | — |
 | OGR-07 | İpucu kaydı | `[x]` | `src/sistemler/ipucu_kaydi.gd` | `Oturum` içinde kuruluyor, kayda giriyor | — | TAM | — |
@@ -107,7 +107,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | OGR-11 | İpucu şeridi | `[x]` | `src/arayuz/koy_hud/ipucu_seridi.gd` | OGR-08 ile aynı bağ | — | TAM | — |
 | OGR-12 | İpucu paneli | `[x]` | `src/debug/ipucu_paneli.gd` | `IpucuPaneli.kur` çağrılıyor | — | TAM | — |
 | OGR-13 | İlk aile konuları | `[x]` | — | Kabul `gece_min` alanı istiyor | `data/soz` altında `gece_min` bulunamadı | EKSİK | İlk aile dosyasına `gece_min` ekle |
-| OGR-14 | Beyan defteri tanıtımı | `[ ]` | `src/kapi/defter_tanitimi.gd` | Kod var | Görev 22 geri açtı; Görev 23'te de bağlanamadı, çünkü çelişkiyi üreten söz motoru oyunda çalışmıyor | SAHTE-BAĞSIZ | Söz motoru bağlanmadan bu madde kapanmaz |
+| OGR-14 | Beyan defteri tanıtımı | `[x]` | `src/kapi/defter_tanitimi.gd` | `DefterTanitimi.celiski_yakalandi_mi`/`oturumda_kontrol_et` eklendi (`ipucu_kaydi` + meta kalıcılığı); `chr_kapi_adaptoru.gd` `BeyanDefteriDugmesi`'ni çelişki yakalanana dek kademeli HUD'da gizleyip çelişkide açıyor ve tek seferlik ipucunu gösteriyor; `chr_sorgusu.gd` WeakRef döngü sızıntısı giderildi | TAM | — |
 | OGR-15 | Heybe ipucu | `[x]` | `src/sistemler/ilk_saat.gd` | `IlkSaat` oyunda çağrılıyor | — | TAM | — |
 | OGR-16 | İlk saat | `[x]` | `src/sistemler/ilk_saat.gd` | Aynı bağ | — | TAM | — |
 | OGR-17 | İlk saat | `[x]` | `src/sistemler/ilk_saat.gd` | Aynı bağ | — | TAM | — |
@@ -179,11 +179,11 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | Madde | Başlık | ROADMAP | İlgili dosyalar | Ne var | Ne eksik | Karar | Antigravity'ye not |
 |---|---|---|---|---|---|---|---|
 | AYR-05 | Ayarlar eki | `[x]` | `src/sistemler/ayarlar_ek.gd` | `ana.gd:28` `bagla` çağırıyor, ayar satırı `ayarla` çağırıyor | — | TAM | — |
-| AYR-22 | Odak kaybında ses | `[x]` | `src/sistemler/odak_sesi.gd` | Sınıf var | `OdakSesi` oyunda hiç çağrılmıyor; pencere odak kaybedince ses kısılmıyor | SAHTE-BAĞSIZ | `ana.gd` içine `NOTIFICATION_APPLICATION_FOCUS_OUT` bağla |
-| AYR-28 | Üç kayıt yuvası | `[x]` | `src/sistemler/kayit_yuvalari.gd` | `yeni_oyun_ekrani.gd` yuva seçiyor | Seçilen yuva `Ana.kayit`'a bağlanmıyor; oyun tek `GuvenliKayit` dosyasına yazıyor | EKSİK | `Ana.kayit` yolunu seçilen yuvanın yoluna çevir |
+| AYR-22 | Odak kaybında ses | `[x]` | `src/sistemler/odak_sesi.gd` | Sınıf ve testi var | `ana.gd` `_odak_sesini_kur()` (`OdakSesi` çocuğu) ve `_notification(NOTIFICATION_APPLICATION_FOCUS_OUT/IN)` bağlantısı ile odak kaybında ses kısılıp dönüşte geri yükleniyor | TAM | — |
+| AYR-28 | Üç kayıt yuvası | `[x]` | `src/sistemler/kayit_yuvalari.gd` | `KayitYuvalari.en_son_dolu_yuva()`, `YeniOyunEkrani.secilen_yuva()`/`yuva_sec()`, `Ana.yuva_sec()` ile seçili yuvanın `kayit_<n>.json` yoluna bağlandı | — | TAM | — |
 | AYR-29 | Yuva kartı | `[ ]` | `src/arayuz/kayit_yuva_karti.gd` | Kod var | Görev 22 geri açtı; AYR-28 bağlanmadan kart gerçek kaydı göstermez | SAHTE-BAĞSIZ | Önce AYR-28'i bağla |
 | AYR-31 | Ayarlar eki | `[x]` | `src/sistemler/ayarlar_ek.gd` | Aynı bağ | — | TAM | — |
-| AYR-32 | Kayıt yuvaları | `[x]` | `src/sistemler/kayit_yuvalari.gd` | AYR-28 ile aynı durum | Yuva seçimi kayda yazılmıyor | EKSİK | AYR-28 ile birlikte bağla |
+| AYR-32 | Kayıt yuvaları | `[x]` | `src/sistemler/kayit_yuvalari.gd` | `Ana._kayit_yaz()` kayda `"yuva": aktif_yuva` yazıyor, `devam_et()` son dolu yuvadan yüklüyor | — | TAM | — |
 | AYR-33 | Uyumsuz kayıt | `[ ]` | `src/arayuz/kayit_yuva_karti.gd` | Kod var | Görev 22 geri açtı | SAHTE-BAĞSIZ | AYR-28 bağlanınca kartın sürüm kontrolü de çalışır |
 | AYR-43 | Ayarlar eki | `[x]` | `src/sistemler/ayarlar_ek.gd` | Aynı bağ | — | TAM | — |
 | AYR-46 | Ayarlar eki | `[x]` | `src/sistemler/ayarlar_ek.gd` | Aynı bağ | — | TAM | — |
@@ -247,7 +247,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | YAP-37 | Söz motoru | `[x]` | `src/soz/soz_motoru.gd` | `SozKaydi.motor` olarak kuruluyor | Motor yalnız kaydedilip yükleniyor, oyunda bir söz akışı başlatmıyor | EKSİK | Motoru bir sahneye bağla |
 | YAP-51 | Eşya açıklaması anahtardır | `[x]` | `data/metin/metinler.csv` | Metinler anahtarlı | — | TAM | — |
 | YAP-53 | Kavga ganimeti | `[x]` | `src/kapi/` | Kural kapı tarafında | CAT açık olduğu için ganimet yolu da kapalı | EKSİK | CAT-01 bağlanınca çalışır |
-| YAZ-02 | Üslup kapısı | `[x]` | — | Kabul `data/soz/yasak_kelimeler.txt` ve `tests/tools/test_uslup_kapisi.py` istiyor | İkisi de yok | EKSİK | Yasak kelime listesini ve testi yaz |
+| YAZ-02 | Üslup kapısı | `[x]` | `data/soz/yasak_kelimeler.txt`, `tools/soz_dogrulayici.py`, `tests/tools/test_uslup_kapisi.py` | Yasak modern söz listesi (`11` sözcük), satır silmeden uyarı üreten `YAZ-07` taraması ve `test_uslup_kapisi.py` (`14` yapaylık kuralı, tek üslup rehberi, `dogaclama` dışa aktarımda yok) eklendi | — | TAM | `yasak_kelimeler.txt` + `test_uslup_kapisi.py` + `test_soz_kapi.py` doğrulandı (Antigravity) |
 | YER-01 | Dil sekmesi | `[x]` | `src/arayuz/dil_sekmesi.gd` | Ayar ekranına ekleniyor | — | TAM | — |
 | YER-02 | Metin anahtar standardı | `[x]` | `docs/METIN_ANAHTAR_STANDARDI.md`, `tools/metin_dogrula.py` | Belge ve araç var | — | TAM | — |
 | YER-03 | Dil ayardan okunur | `[x]` | `src/sistemler/dil_ayari.gd` | `DilAyari.uygula` ayarı okuyup locale kuruyor | `ana.gd:24` hâlâ `set_locale("tr")` yazıyor; kabul "yazmaz" diyor | EKSİK | Sabit satırı kaldır, yalnız `DilAyari.uygula` kalsın |

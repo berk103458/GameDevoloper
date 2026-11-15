@@ -31,10 +31,14 @@ func _ready() -> void:
 
 	var dpanel := ekran._secenekler.get_child(0)
 	_dene(not dpanel.has_node("Secenek2"), "celiski_goster_kontrol: Gun 4 hazir Secenek2 gizlenmeli")
-	sorgu.gorsel_incele()
-	await get_tree().process_frame
 	var b_dugme := ekran._eylemler.get_node_or_null("BeyanDefteriDugmesi") as Button
 	_dene(b_dugme != null, "celiski_goster_kontrol: BeyanDefteriDugmesi yok")
+	_dene(b_dugme != null and not b_dugme.visible, "celiski_goster_kontrol: OGR-14 ilk celiski oncesi BeyanDefteriDugmesi gizli olmali")
+	sorgu.gorsel_incele()
+	await get_tree().process_frame
+	_dene(b_dugme != null and b_dugme.visible, "celiski_goster_kontrol: OGR-14 ilk celiskiden sonra BeyanDefteriDugmesi acilmali")
+	_dene(DefterTanitimi.celiski_goruldu_mu(o), "celiski_goster_kontrol: OGR-14 oturumda ilk celiski isaretlenmeli")
+	_dene(not bool(DefterTanitimi.ipucu_ver(o).get("ipucu_goster", true)), "celiski_goster_kontrol: OGR-14 ipucu yalniz bir kez verilmeli")
 	if b_dugme != null:
 		b_dugme.pressed.emit()
 		await get_tree().process_frame

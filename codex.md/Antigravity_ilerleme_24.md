@@ -203,3 +203,78 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+
+### Madde 12 — `YAZ-02` (`TAM`)
+- **Değişiklikler:**
+  - `data/soz/yasak_kelimeler.txt`: `Roadmap-2/USLUP_REHBERI.md` §3 modern yasak sözlerinin tamamı (`aslında`, `kesinlikle`, `harika`, `mükemmel`, `inanılmaz`, `problem`, `stres`, `travma`, `sistem`, `organize`, `okey`) eklendi.
+  - `tools/soz_dogrulayici.py`: `yasak_kelimeler_oku`, `metni_tara` ve `replik_uyarilari` eklendi (yasak söz uyarısı üretir, listeden satır silmez; `dogrula()` dosyayı denetler).
+  - `tests/tools/test_uslup_kapisi.py`: Rehber modern sözlerinin tamamının listede olduğu, `"aslında"` içeren repliğin 1 uyarı üretip satırı silmediği, `yapaylik.js` kural sayısının 14 olduğu, ikinci üslup dosyası ve dışa aktarımda `dogaclama` bulunmadığı doğrulandı.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `YAZ-02` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `python tests/tools/test_uslup_kapisi.py` → `Ran 3 tests in 1.082s / OK` (`RC=0`)
+  - `python tests/tools/test_soz_kapi.py` → `Ran 39 tests in 9.162s / OK` (`RC=0`)
+  - `python tools/soz_dogrulayici.py` → `YAZ-07 DOGRULAMA: 30 karakter ses karti ve 11 yasak kelime eksiksiz gecti.` (`RC=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/uslup_test.gd` → `TEST PASS: uslup_test.gd` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor
+
+
+
+### Madde 13 — `OGR-03` (`TAM`)
+- **Değişiklikler:**
+  - `src/kapi/zar_ipucu.gd`: `ZarIpucu.uygula(ilk_saat, guncel_gece)` ve `ZarIpucu.oturumda_goster(o, ayarlar)` eklendi (`ayarlar != null` kontrolü ve `o.ipucu_kaydi` + `ilk_saat_kancasi.ipucu`/`arac` bağlantısı); `ilk_atis_ipucu` kanonik `uygula`'ya bağlandı.
+  - `src/sistemler/ilk_saat.gd`: `zar_ipucu_kontrol(guncel_gece)` doğrudan `ZarIpucu.uygula(self, guncel_gece)`'ya bağlandı.
+  - `src/arayuz/chr_diyalog_paneli.gd`: Zar atışı sonrası `ZarIpucu.oturumda_goster(oturum, ayarlar)` çağrısı ve `"ZarIpucuNotu"` göstergesi bağlandı.
+  - `tests/unit/sistemler/ilk_saat_test.gd`: Gerçek `Oturum` + `Oturum.kaydet`/`Oturum.kayittan(kat, z_kayit)` + `ZarIpucu.oturumda_goster` doğrulamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `OGR-03` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ilk_saat_test.gd` → `ILK SAAT: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` → `CHR KAPI UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/celiski_goster_kontrol.tscn` → `CELISKI GOSTER UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor
+
+
+### Madde 14 — `OGR-14` (`TAM`)
+- **Değişiklikler:**
+  - `src/kapi/defter_tanitimi.gd`: `celiski_yakalandi_mi(celiski, motor, defter, sorgu)` ve `oturumda_kontrol_et(o, ayarlar, celiski, motor, defter, sorgu, ekran)` eklendi; `o.ipucu_kaydi` (`ogretici.kapi.beyan_defteri`) ile kayıt/yükleme kalıcılığı ve tek seferlik `ilk_saat_kancasi.ipucu` + ekran bildirimi bağlandı.
+  - `src/arayuz/chr_kapi_adaptoru.gd`: `beyan_defteri_dugmesi(...)` görünürlüğü `DefterTanitimi.oturumda_kontrol_et` ile bağlandı (`kademeli_hud` açıkken çelişki öncesi 0, çelişkide 1; `sorgu.ipucu_bulundu`, `sorgu.replik_basladi` ve `bpanel.yuzlesildi` sinyallerinde güncellenir, `tree_exited` ile koparılır).
+  - `src/sistemler/chr_sorgusu.gd`: `_ipucu_servisi.ipucu_bulundu` lambdası `weakref(self)` ile düzeltildi (çıkışta kaynak sızıntısı 0).
+  - `tests/oto/celiski_goster_kontrol.gd` & `tests/unit/sistemler/ilk_saat_test.gd`: Çelişki öncesi gizli / sonrası görünür, tek seferlik ipucu ve kayıt/yükleme gidiş-dönüş kontrolleri eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `OGR-14` → `[x]` `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ilk_saat_test.gd` → `ILK SAAT: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/celiski_goster_test.gd` → `TEST PASS: celiski_goster_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/celiski_goster_kontrol.tscn` → `CELISKI GOSTER UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` → `CHR KAPI UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor
+
+
+### Madde 15 — `AYR-22` (`TAM`)
+- **Değişiklikler:**
+  - `src/arayuz/ana.gd`: `_ready()` içinde `_odak_sesini_kur()` ile `OdakSesi` (`"OdakSesi"`) düğümü bağlandı ve `_notification` içinde `NOTIFICATION_APPLICATION_FOCUS_OUT` / `WM_WINDOW_FOCUS_OUT` / `IN` bildirimleri `OdakSesi`'ne iletildi.
+  - `tests/oto/ayarlar_kontrol.gd`: Gerçek `Ana` örneği üzerinde `OdakSesi` çocuğu ve `NOTIFICATION_APPLICATION_FOCUS_OUT` / `IN` ile `ses_ana` kısılma ve geri dönüşü doğrulandı.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `AYR-22` → `[x]` `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ayarlar_ek_test.gd` → `AYARLAR EK: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/ayarlar_kontrol.tscn` → `AYARLAR KONTROL: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor
+
+
+### Madde 16 — `AYR-28` & `AYR-32` (`TAM`)
+- **Değişiklikler:**
+  - `src/sistemler/kayit_yuvalari.gd`: `en_son_dolu_yuva()` eklendi (1..3 yuvalarının `.json`/`.bak` zamanına göre en son dolu yuvayı seçer).
+  - `src/arayuz/yeni_oyun_ekrani.gd`: `secilen_yuva()` ve `yuva_sec(no)` eklendi; yuva düğmeleri tekil toggle durumunu günceller.
+  - `src/arayuz/ana.gd`: `yuvalar`, `aktif_yuva` ve `yuva_sec(no)` eklendi; `Ana._ready()` aktif yuvanın `kayit_<n>.json` yoluna bağlanır (`yuvalar == null` test alt sınıflarını bozmaz), `_yeni_oyun_ekrani()` seçilen yuvayı `Ana.kayit`'a aktarır, `_kayit_yaz()` içine `"yuva": aktif_yuva` yazar, `devam_et()` son dolu yuvadan yükler.
+  - `tests/oto/ayarlar_kontrol.gd`: `Ana.yuva_sec(2)` ile `kayit.yol` (`kayit_2.json`) ve kayıt dosyasında `"yuva": 2` kalıcılığı doğrulandı.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `AYR-28`, `AYR-32` → `[x]` `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ayarlar_ek_test.gd` → `AYARLAR EK: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/ayarlar_kontrol.tscn` → `AYARLAR KONTROL: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor
