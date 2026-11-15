@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Arayüz araştırması — 15 Kasım 2026
+
+Yalnız belge: `docs/arayuz/ARAYUZ_ARASTIRMA_RAPORU.md`. Kod, sahne, tema, asset ve ROADMAP_2 değişmedi. Üç yön: gece şeridi, mühürlü defter, rumi kabuk. Asset gerekmedi. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## Gemini metin anahtarları bağlandı — 15 Kasım 2026
 
 `docs/GEMINI_METIN_ISLERI.md` anahtarlarının hepsi `data/metin/metinler.csv` içinde, TR karşılıkları dolu. Eksik anahtar yok. `zar.degistirici.<tur>` satırları `ZarDegistiricileri._satir` ile anahtardan geliyor; `ZAR_KILITLI` kilitli seçeneğin ipucunda. `dedikodu.kacis`, `arayuz.kapi.karar_kacti`, `ZAR_BASARILI` ve `ZAR_BASARISIZ` zaten kapı akışında ve zar sonucunda kullanılıyordu. ROADMAP_2 işaretine dokunulmadı, Gemini metinleri değiştirilmedi. Test: `zar_oyun_baglanti_kontrol` ve `zar_degistirici_test`. Asset gerekmedi. Kota görünmüyor.
