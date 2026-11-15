@@ -15,7 +15,8 @@ static func gostergeler(o: Oturum) -> Dictionary:
 
 ## Yalnız zafer için: öncelik sırasıyla beş sondan biri.
 static func son(o: Oturum, s: StringName) -> String:
-	if s != &"zafer" or preload("res://src/sistemler/son_kilidi.gd").kilitli_mi(o): return ""
+	if o == null or preload("res://src/sistemler/son_kilidi.gd").kilitli_mi(o): return ""
+	if s != &"zafer": return ""
 	var dis_hat := preload("res://src/sistemler/dis_hat_kapisi.gd")
 	var y := o.yonetim
 	var g := gostergeler(o)

@@ -117,7 +117,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | OGR-24 | Yeni düğme işareti | `[x]` | `src/arayuz/koy_hud/yeni_dugme_isareti.gd` | Görev 23'te `YeniDugmeBaglantisi` ile köy ekranına bağlandı | — | TAM | — |
 | OGR-31 | İlk saat | `[x]` | `src/sistemler/ilk_saat.gd` | Aynı bağ | — | TAM | — |
 | OGR-32 | İlk saat | `[x]` | `src/sistemler/ilk_saat.gd` | Aynı bağ | — | TAM | — |
-| OGR-33 | Son kilidi | `[x]` | `src/sistemler/son_kilidi.gd`, `src/sistemler/nihai_son.gd` | `kilitli_mi` var | `nihai_son.gd:18` yalnız zafer kolunda çağırıyor; diğer dört son ilk gecede de açılabiliyor | EKSİK | Kilidi `son()` fonksiyonunun en başına taşı, beş son için de geçerli olsun |
+| OGR-33 | Son kilidi | `[x]` | `src/sistemler/son_kilidi.gd`, `src/sistemler/nihai_son.gd` | `kilitli_mi` + `son()` en başında tüm beş son kilitli | — (`null` güvenlik + 5 son için ayrı `gun=5` testi eklendi) | TAM | `nihai_son.gd` `son()` en başında `o == null` + `SonKilidi.kilitli_mi(o)`; `nihai_son_test.gd` 5 sonu tek tek test eder |
 | OGR-34 | İlk saat | `[x]` | `src/sistemler/ilk_saat.gd` | Aynı bağ | — | TAM | — |
 | OGR-37 | Geçmişe göre ipucu | `[x]` | `data/ogretici/ilk_saat.json` | `atla_gecmis` dokuz kez geçiyor | — | TAM | — |
 | OGR-45 | İpucu tavanı | `[x]` | `data/ogretici/ilk_saat.json` | `kavramlar` listesi 9, tavan 20 | — | TAM | — |

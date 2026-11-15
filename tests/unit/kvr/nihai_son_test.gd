@@ -28,7 +28,26 @@ func _initialize() -> void:
 	kat.yukle()
 	var kilitli := hazir()
 	kilitli.yonetim.gun = maxi(0, SonKilidi.kilit_gecesi() - 1)
-	dene(NIHAI.son(kilitli, &"zafer") == "", "İlk saat kilidi nihai son üretmez")
+	dene(NIHAI.son(null, &"zafer") == "", "OGR-33: null oturum son üretmez")
+	dene(NIHAI.son(kilitli, &"zafer") == "" and NIHAI.son(kilitli, &"isyan") == "", "İlk saat kilidi Uç Tutundu ve kayıp kollarını engeller")
+	var kilit_ahi := hazir()
+	kilit_ahi.yonetim.gun = kilitli.yonetim.gun
+	kilit_ahi.yonetim.adalet = 80
+	for k in kilit_ahi.yonetim.koylular: k.refah = 90
+	dene(NIHAI.son(kilit_ahi, &"zafer") == "", "İlk saat kilidi Ahi Kasabası sonunu engeller")
+	var kilit_bey := hazir()
+	kilit_bey.yonetim.gun = kilitli.yonetim.gun
+	kilit_bey.sancak_asker_talebi = {"son_gece": 5, "gun": 5, "bekliyor": false, "secim": 0, "gonderilen": [1, 2]}
+	dene(NIHAI.son(kilit_bey, &"zafer") == "", "İlk saat kilidi Beyin Uç Köyü sonunu engeller")
+	var kilit_oba := hazir()
+	kilit_oba.yonetim.gun = kilitli.yonetim.gun
+	kilit_oba.bayraklar[StringName(ObaIttifaki.AYAR.ittifak_bayragi)] = true
+	dene(NIHAI.son(kilit_oba, &"zafer") == "", "İlk saat kilidi Ertuğrul Obası sonunu engeller")
+	var kilit_tekfur := hazir()
+	kilit_tekfur.yonetim.gun = kilitli.yonetim.gun
+	kilit_tekfur.bayraklar[&"rusvet_sayisi"] = 200
+	dene(NIHAI.son(kilit_tekfur, &"zafer") == "", "İlk saat kilidi Tekfur Haraççısı sonunu engeller")
+	dene(NIHAI.son_metni(kilit_tekfur, &"zafer", {"baslik": "Zafer", "metin": "Köy kurtuldu."}).nihai == "", "İlk saat kilidinde son_metni nihai son atamaz")
 	var o := hazir()
 	dene(NIHAI.son(o, &"zafer") == "uc_tutundu", "Varsayılan: Uç Tutundu (%s)" % NIHAI.son(o, &"zafer"))
 	dene(NIHAI.son(o, &"isyan") == "", "Kayıp sonu nihai son seçmez")

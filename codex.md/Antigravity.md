@@ -1066,3 +1066,23 @@ eden_yola_dustun), gece_min eşiği gelmeyen konular kapalıdır.
 - **Testler:** `sahne_ayak_esya_test.gd`, `hareket_gecisi_test.gd`, `sahne_yol_kamera_test.gd`, `kap18_yetim_metinleri_test.gd`, `ustalar_metin_test.gd`, `kapi_kamera_test.gd`, `metin_dogrula.py` ve `soz_dogrula.py` hepsi 0 hata ile GEÇTİ.
 - Asset gerekmedi.
 - kota görünmüyor
+
+---
+
+## 15 Kasım 2026 — Görev 24: Denetim Listesi Düzeltme Planı ve Alt Maddeler (Antigravity)
+
+Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md` (commit `99c011de`), `codex.md/Antigravity_gorev.md` (Sürekli çalışma döngüsü + Görev 24).
+Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) dışındaki tüm EKSİK, SAHTE-BAĞSIZ, YOK ve Belirleyemediklerim maddelerini alt maddelere bölerek gerçek oyun sistemlerine bağlamak ve hedefli headless testlerle doğrulamak.
+
+### Madde 1 — `OGR-33` (İlk saat içinde son kilidi) Alt Madde Planı
+- **1.1 Sorunu anla:** `docs/ANTIGRAVITY_DENETIM_LISTESI.md` (`OGR-33`) ilk altı gecede (`gun < 6`, `ilk_saat.json` `son_kilidi_gece`) beş nihai sonun (SYS-20) açılmamasını ister; `nihai_son.gd:18` içinde kilit kontrolünün `s != &"zafer"` sonrasına yazılmış olması nedeniyle beş sonun tamamının `son()` başında kilitlendiği net değildi.
+- **1.2 Oyuna nasıl bağlandığını kontrol et:**
+  - `src/arayuz/ana.gd:183` `_son_goster(son)` içinde `nihai_son.son_metni(oturum, son, ...)` çağrılır; `son_metni` ise `son(o, s)` sonucunu okur.
+  - `src/arayuz/oda_gidisat_paneli.gd:55` ve `src/debug/oyun_koprusu.gd:160` doğrudan `nihai_son.son(...)` çağırır.
+  - `src/sistemler/sancak_teftisi.gd` (`ilk_gece = 6`) ve `src/koy/perde_gecisi.gd` (`perde2_hedef = 12`) ilk altı gecede zaten son üretmez; `son_kilidi.gd` `Oturum.gun` üzerinden `kilitli_mi(o)` kontrolü yapar.
+- **1.3 «Daha iyi olur» iyileştirmeleri:**
+  - `nihai_son.gd` `son(o, s)` en başında hem `o == null` güvenlik denetimi hem `SonKilidi.kilitli_mi(o)` çağrısı yer alsın.
+  - `tests/unit/kvr/nihai_son_test.gd` yalnız bileşik senaryoyu değil, **beş nihai sonun her birini** (`tekfur_haraccisi`, `ertugrul_obasi`, `beyin_uc_koyu`, `ahi_kasabasi`, `uc_tutundu`) ayrı ayrı `gun = 5` (`kilit_gecesi() - 1`) ile sınasın ve `son_metni()` dönüşünde `nihai == ""` kaldığını kanıtlasın; `gun = 6` olduğunda açıldığını da doğrulamaya devam etsin.
+- **1.4 Uygula ve doğrula:** `nihai_son_test.gd`, `ilk_saat_test.gd` ve `nihai_son_kontrol.tscn` hedefli testlerini `Godot.exe --headless` ile koştur, denetim listesini güncelle ve commit/push et.
+- **Sonuç:** `src/sistemler/nihai_son.gd` ve `tests/unit/kvr/nihai_son_test.gd` güncellendi; `nihai_son_test.gd` (`NIHAI SON: GEÇTİ`), `ilk_saat_test.gd` (`ILK SAAT: GEÇTİ (0 hata)`) ve `nihai_son_kontrol.tscn` (`NIHAI SON UI: GEÇTİ`) sıfır hata ile geçti. Asset gerekmedi. kota görünmüyor.
+
