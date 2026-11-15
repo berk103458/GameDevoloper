@@ -3,6 +3,18 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## 30 madde doğrulama — 15 Kasım 2026
+
+Ahmet'in görevi: ROADMAP_2'de çekince notu taşıyan 30 [x] madde. 21 Antigravity "sanity bekliyor" ve 4 Görev 22 "doğrulanmadı" notu kanıtla değişti; hiçbir madde geri çekilmedi. SOY-10/23/24/26/28 Cursor-Berk'in, dokunulmadı (SOY-28 başlığındaki "şu anda bu işlemi yapıyorum" ibaresi Berk tarafında bayat duruyor).
+
+- 20af62d6: `muhafiz_odasi.gd:51` parse hatası (Antigravity 3002e507) — headless import kırmızıydı.
+- c93dccd7: ZAR-01/02/03/04, DEN-19 oyuna bağlandı. Zar `SorguZari` ile, KAP-09 ikinci olasılık yolu kalktı, tecrübe görünür −1 satırı (karar), kaçış `ChrSorgusu.tansiyon_artir` + `TansiyonKacisAkisi`. Test `tests/oto/zar_oyun_baglanti_kontrol.tscn` 17 GEÇTİ, mutasyonda kırmızı.
+- 0145f92d: DEN-05/06/22 — `DengeGunlugu` gece sonu ölçümünü geliştirme günlüğüne yazar. Test `tests/oto/denge_gunlugu_kontrol.tscn` 9 GEÇTİ, mutasyonda kırmızı.
+- 50ab0973: DEN-08 oyun tarafı testi; DEN-03b açılış testi bayat sahte tablo yüzünden kırmızıydı, düzeldi.
+- Metin işleri Gemini'ye: `docs/GEMINI_METIN_ISLERI.md` (dedikodu.kacis, arayuz.kapi.karar_kacti, ZAR_* sözleri, değiştirici adları). Kod anahtar yokken bugünkü sözle çalışır.
+- Var olan, bu işe ait olmayan kırmızılar: `sezgi_kapi_test` (ZAR-06 ek satır), `acilis_denge_kontrol` taş ocağı 10 gün ve DEN-12, `tuketim_dengesi_test` "Gerçek kulübe kurulabilir".
+Asset gerekmedi. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## Meshy üretim sistemi — 15 Kasım 2026
 
 Ahmet'in kararıyla 3D asset işi Meshy'ye geçiyor; bu turda yalnız üretim hattı kuruldu. Hiçbir asset üretilmedi, kredi harcanmadı. `tools/meshy/meshy_hat.py` varsayılanı kuru çalıştırmadır. `assets/meshy_manifest.json/.csv`: 531 satır, 247 mevcut (58 Meshy modeli, 120 klip; keen-cerf'teki `koyun.glb` dahil, dal birleştirilmedi), 186 planlı, tahmini 2962 kredi. Tekrar üretim engelleri, araç kaynakları, anahtar yeri ve AGENTS.md önerisi: `docs/MESHY_URETIM_SISTEMI.md`. Skill `meshy-uretim` (`.agents/skills/`, `.cursor/skills/`), MCP `.cursor/mcp.json`. Eski hat `MESHY_ESKI_HAT_ONAY=1` olmadan çalışmaz. Anahtar yok (MESHY_API_KEY de `.meshy-api-key` de yok). Hedefli test `tests/tools/test_meshy_hat.py` 17/17 GEÇTİ; Godot 4.7.2 headless import 0 hata, `godot_dogrula.gd` mevcut modellerde GEÇTİ. Tam sanity yok. Asset üretilmedi; envanterdeki her 3D kimlik manifeste bağlı. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.

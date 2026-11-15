@@ -708,7 +708,7 @@ ZAR-01 … ZAR-06 gövdesi durur. Yeni maddeler ZAR-07 … ZAR-86. İkinci zar s
 
 ### 17.1 Zarın kendisi
 
-- [x] **ZAR-01:** (Antigravity) Görünür zar — d6 ve d12. _(sanity bekliyor)_
+- [x] **ZAR-01:** (Antigravity) Görünür zar — d6 ve d12. _(doğrulandı (Cursor, 15 Kas 2026): c93dccd7 — ChrSorgusu.secenek_sec zarı SorguZari.sonuc ile atar, basari_olasiligi SorguZari.olasilik'e döner (ikinci yol 0), tavan aşılınca seçenek kilitli, panel sayı+gereken+söz yazar; sorgu_zari_test GEÇTİ, tests/oto/zar_oyun_baglanti_kontrol.tscn 17 GEÇTİ, mutasyonda kırmızı. Karar: KAP-09 tecrübesi ZAR-06 sezgi eşiğinde görünür −1 değiştirici satırıdır)_
   - Ne: İkna, blöf, gözdağı ve gönül almada oyuncu atılan zarın sayısını görür. Başarı `zar ≥ gerekli` kuralıdır; gerekli değer karakter değeri artı bir artı tansiyon ekidir. Sakin ek 0, gergin ek 1, panik ek 2'dir. Değer 2 ve sakin iken gerekli 3, panikte 5 olur. d20 reddedilir. Aynı tohum aynı sonucu verir.
   - Kurallar:
     1. İkna, blöf, gözdağı ve gönül alma seçeneklerinde ekranda zar atılır. Karakter verisinde `zar` alanı `d6` veya `d12` olur.
@@ -725,7 +725,7 @@ ZAR-01 … ZAR-06 gövdesi durur. Yeni maddeler ZAR-07 … ZAR-86. İkinci zar s
 
 ### 17.2 Karakter değeri
 
-- [x] **ZAR-02:** (Antigravity) Karakter değeri — kişiye göre taban zorluk. _(sanity bekliyor)_ — kişiye göre taban zorluk.
+- [x] **ZAR-02:** (Antigravity) Karakter değeri — kişiye göre taban zorluk. _(doğrulandı (Cursor, 15 Kas 2026): c93dccd7 — karakter sorgu_degeri artık oyundaki zarın tabanı (SorguZari.sonuc); test_chr_sorgu_degeri OK, zar_oyun_baglanti 'gerekli = değer+1+ek+değiştirici' GEÇTİ)_ — kişiye göre taban zorluk.
   - Ne: Her adlı karakterin `sorgu_degeri` vardır; d6 için 1–5, d12 için 2–10. Alan CHR sayfasının dördüncü bölümündedir ve `chr_parser.py` okur. Eksik alanda sınıfa göre varsayılan yazılır ve doğrulama 1 hata verir. Aynı ziyarette iki atış aynı tabanı kullanır. Adsız figür bu alanı kullanmaz.
   - Kurallar:
     1. Her CHR ve adlı karakterde `sorgu_degeri` vardır. d6 için 1–5, d12 için 2–10.
@@ -741,7 +741,7 @@ ZAR-01 … ZAR-06 gövdesi durur. Yeni maddeler ZAR-07 … ZAR-86. İkinci zar s
 
 ### 17.3 Tansiyon
 
-- [x] **ZAR-03:** (Antigravity) Tansiyon 10'u aşarsa karakter gider. _(sanity bekliyor)_
+- [x] **ZAR-03:** (Antigravity) Tansiyon 10'u aşarsa karakter gider. _(doğrulandı (Cursor, 15 Kas 2026): c93dccd7 — başarısız zar ve çelişki/yemin/söylenti artışı ChrSorgusu.tansiyon_artir ile eşiği aşınca Flag_Kacti; TansiyonKacisAkisi ziyareti 'kaçtı' ile kapatır, karar_ver çağrılmaz; tansiyon_kacis_test GEÇTİ, zar_oyun_baglanti kaçış/ret/+0 kontrolleri GEÇTİ. Not: panik kilidi (8) beceri seçeneğini Final_Ret'e götürdüğü için oyunda kaçış çoğunlukla zarsız artışla gelir. Dedikodu satırı metni Gemini'de (docs/GEMINI_METIN_ISLERI.md))_
   - Ne: Başarısız zar tansiyonu seçenekte yazan kadar artırır; yazılmamışsa bir artar. Tansiyon onu aşarsa karakter kaçar ve karar "kaçtı" olur; ret sayacı artmaz. Konu değişince tansiyon sıfırlanmaz, veda sıfırlar. Menü açıkken değer değişmez. Başarılı zar, tansiyon ondayken karakteri kaçırmaz.
   - Kurallar:
     1. Başarısız zar tansiyonu seçenekte yazan kadar artırır. Yazılmamışsa +1’dir.
@@ -758,7 +758,7 @@ ZAR-01 … ZAR-06 gövdesi durur. Yeni maddeler ZAR-07 … ZAR-86. İkinci zar s
 
 ### 17.4 Yaklaşım
 
-- [x] **ZAR-04:** (Antigravity) Yaklaşım türleri ve değiştiriciler. _(sanity bekliyor)_
+- [x] **ZAR-04:** (Antigravity) Yaklaşım türleri ve değiştiriciler. _(doğrulandı (Cursor, 15 Kas 2026): c93dccd7 — değiştiriciler secenek_sec ve panelde (ZarDegistiricilerN) gerçek zar bağlamıyla; zar_degistirici_test GEÇTİ, zar_oyun_baglanti tecrübe satırı GEÇTİ. Karar: altıncı satır 'muhafız tecrübesi −1' (KAP-09 tecrübesinin ZAR-01'e dönüşü), gizli değil)_
   - Ne: Dört yaklaşım vardır: ikna, blöf, gözdağı ve gönül alma. Terazi, grup itibarı, kanıt, asker ve yorgunluk `gerekli` değeri en çok eksi üç ile artı üç arasında değiştirir. Zar atılmadan önce tutan her madde ayrı satırda görünür. Beşinci yaklaşım adı reddedilir. Kalp veya romans eşiği yoktur.
   - Kurallar:
     1. Dört yaklaşım vardır: ikna, blöf, gözdağı, gönül alma. Beşinci tür yazılamaz.
@@ -3353,13 +3353,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: yok. Boyut: M.
   - Dosya: `data/ayarlar/denge.json`. Okuyanlar mevcut sistemlere tek satır.
   - Asset: asset gerekmedi.
-- [x] **DEN-02:** (Antigravity) Tablo sürümü kayıtla birlikte durur. _(sanity bekliyor)_
+- [x] **DEN-02:** (Antigravity) Tablo sürümü kayıtla birlikte durur. _(doğrulandı (Cursor, 15 Kas 2026): tablo_surumu_test GEÇTİ (gerçek Oturum, sürüm artınca köylü sayısı aynı))_
   - Ne: denge dosyasının sürümü KAY-04 içeriğinden ayrıdır. Eski kayıt yeni tabloyla açılır. Kayıt, tabloyu içine gömmez.
   - Kabul: denge dosyasının sürümü KAY-04 içeriğinden ayrıdır. Eski kayıt yeni tabloyla açılır. Kayıt, tabloyu içine gömmez. Test: tablo sürümü artınca köylü sayısı değişmez.
   - Bağımlılık: KAY-04, DEN-01. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [x] **DEN-03:** (Antigravity) Aralık dışındaki tablo değeri oyunu açmaz. _(sanity bekliyor; oyun açılış tarafı DEN-03b)_
+- [x] **DEN-03:** (Antigravity) Aralık dışındaki tablo değeri oyunu açmaz. _(doğrulandı (Cursor, 15 Kas 2026): tools/sanity_check.py denge_dogrula adımı; denge_dogrula GECTI, test_denge_dogrula OK; açılış tarafı denge_sinir_acilis_kontrol 50ab0973 ile yeniden yeşil (hata ekranı 1))_
   - Ne: doğrulama, her anahtarın alt ve üst sınırına bakar. Sınır dışı değer kırpılmaz. Katalog hatalı olur.
   - Kabul: doğrulama, her anahtarın alt ve üst sınırına bakar. Sınır dışı değer kırpılmaz. Katalog hatalı olur. Test: negatif fiyat çarpanı, açılış hatası.
   - Bağımlılık: DEN-01. Boyut: S.
@@ -3377,31 +3377,31 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: DEN-04, DEN-13, DEN-03b. Boyut: M.
   - Dosya: yeni src/sistemler/denge_tablosu.gd; mevcut sistemlere tek satır çağrı.
   - Asset: asset gerekmedi.
-- [x] **DEN-04:** (Antigravity) Zorluk, tabloyu çarpar, ikinci tablo açmaz. _(sanity bekliyor)_
+- [x] **DEN-04:** (Antigravity) Zorluk, tabloyu çarpar, ikinci tablo açmaz. _(doğrulandı (Cursor, 15 Kas 2026): DengeTablosu ana.gd açılışında okunur; zorluk_test ve denge_tablosu_test GEÇTİ)_
   - Ne: kolay, olağan ve sıkı yalnız çarpandır. Anahtarlar üç kez yazılmaz.
   - Kabul: kolay, olağan ve sıkı yalnız çarpandır. Anahtarlar üç kez yazılmaz. Test: olağanda çarpan 1, diğer iki çarpan dosyada.
   - Bağımlılık: DEN-01. Boyut: S.
   - Dosya: `data/ayarlar/denge.json` içindeki `zorluk`.
   - Asset: asset gerekmedi.
-- [x] **DEN-05:** (Antigravity) Ölçüm raporu gece hesabını ikinci kez çalıştırmaz. _(sanity bekliyor)_
+- [x] **DEN-05:** (Antigravity) Ölçüm raporu gece hesabını ikinci kez çalıştırmaz. _(doğrulandı (Cursor, 15 Kas 2026): 0145f92d — koy_ekrani gece_sonu() dönüşü DengeGunlugu → DengeOlcumu.olustur; tests/oto/denge_gunlugu_kontrol.tscn gün tam +1, rapor günü aynı; denge_olcumu_test GEÇTİ)_
   - Ne: rapor, `gece_sonu()` dönüşünü okur. Yeni bir tüketim fonksiyonu yok.
   - Kabul: rapor, `gece_sonu()` dönüşünü okur. Yeni bir tüketim fonksiyonu yok. Test: bir gecede tüketim fonksiyonu bir kez çağrılır. Ek şart: Nöbet maaşı ölçümü denge raporunun bir satırıdır; maaş formülü bu satırda değişmez. Ek şart: Çınar meclisinin oy farkı denge formülünü değiştirmez; ölçüm yeni bir tüketim fonksiyonu açmaz. Ek şart: Zindan ekmek payı denge formülünü değiştirmez; ölçüm mevcut gece raporunu okur. Ek şart: Ölçüm raporunda her sorgu eyleminin kullanım sayısı bir satırdır; gece formülü değişmez. Ek şart: Aç kişi oranı gece ölçümüne bir satır eklenir; denge hesabı ikinci kez çalışmaz.
   - Bağımlılık: EKO-15, DEN-01. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [x] **DEN-06:** (Antigravity) Rapor oyuncuya açılmaz. _(sanity bekliyor)_
+- [x] **DEN-06:** (Antigravity) Rapor oyuncuya açılmaz. _(doğrulandı (Cursor, 15 Kas 2026): 0145f92d — rapor yalnız PerformansGunlugu etkinken user://denge_*.jsonl'a; denge_gunlugu_kontrol 'köy ekranında ölçüm alanı yok', 'günlük kapalıyken yazılmaz' GEÇTİ; denge_hud_test GEÇTİ)_
   - Ne: ölçüm geliştirme günlüğündedir. Kapı ve köy HUD'unda denge sayısı görünmez.
   - Kabul: ölçüm geliştirme günlüğündedir. Kapı ve köy HUD'unda denge sayısı görünmez. Test: oyuncu arayüzünde "denge" anahtarı 0.
   - Bağımlılık: DEN-05. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [x] **DEN-07:** (Antigravity) Tablo anahtarı Türkçe harf taşımaz. _(sanity bekliyor)_
+- [x] **DEN-07:** (Antigravity) Tablo anahtarı Türkçe harf taşımaz. _(doğrulandı (Cursor, 15 Kas 2026): test_denge_anahtar OK (odun_carpani geçer, Türkçe harf reddedilir))_
   - Ne: anahtar ASCII snake_case'dir. İçerik hattındaki id kuralı geçerlidir.
   - Kabul: anahtar ASCII snake_case'dir. İçerik hattındaki id kuralı geçerlidir. Test: `odun_carpani` geçer, `odun çarpanı` reddedilir.
   - Bağımlılık: DEN-03. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [x] **DEN-08:** (Antigravity) Eksik anahtar, kod içi yedek sayı kullanmaz. _(sanity bekliyor)_
+- [x] **DEN-08:** (Antigravity) Eksik anahtar, kod içi yedek sayı kullanmaz. _(doğrulandı (Cursor, 15 Kas 2026): 50ab0973 — oyun tarafı: denge_sinir_denetimi_test'te gerçek tablodan silinen anahtar açılış hatası; araç tarafı test_denge_anahtar silinmiş baslangic_odun OK)_
   - Ne: anahtar yoksa oyun açılmaz. Sessiz varsayılan yoktur.
   - Kabul: anahtar yoksa oyun açılmaz. Sessiz varsayılan yoktur. Test: silinmiş `baslangic_odun`, açılış hatası.
   - Bağımlılık: DEN-03. Boyut: S.
@@ -3410,7 +3410,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.2 Açılış stoku ve odun
 
-- [x] **DEN-09:** (Antigravity) Açılış stoku BUG-22 tablosudur. _(sanity bekliyor)_
+- [x] **DEN-09:** (Antigravity) Açılış stoku BUG-22 tablosudur. _(doğrulandı (Cursor, 15 Kas 2026): test_denge_dogrula / denge_dogrula GECTI (iki dosyada farklı odun hata verir))_
   - Ne: ikinci bir başlangıç dosyası yok. `denge.json` BUG-22'nin okuduğu sayıları gösterir.
   - Kabul: ikinci bir başlangıç dosyası yok. `denge.json` BUG-22'nin okuduğu sayıları gösterir. Test: iki dosyada farklı odun sayısı varsa doğrulayıcı hata verir.
   - Bağımlılık: BUG-22, DEN-01. Boyut: S.
@@ -3422,7 +3422,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: BUG-22, EKO-02, MEV-11. Boyut: M.
   - Dosya: `tests/oto/acilis_denge_kontrol.tscn` genişler.
   - Asset: asset gerekmedi.
-- [x] **DEN-11:** (Antigravity) Taş yatağı ikinci kez yazılmaz. _(sanity bekliyor)_
+- [x] **DEN-11:** (Antigravity) Taş yatağı ikinci kez yazılmaz. _(doğrulandı (Cursor, 15 Kas 2026): tests/oto/acilis_denge_kontrol DEN-11'in dört kontrolü (yatak var, 20 taş, yatak 1, kurtarıcı tavanı 3) geçiyor; aynı dosyadaki 'taş ocağı 10 günde' ve DEN-12 hataları bu maddeye ait değil)_
   - Ne: 20 taş ve kurtarıcı yatak BUG-21'dir. Bu bölüm o sayıyı ölçer, yeni yatak eklemez.
   - Kabul: 20 taş ve kurtarıcı yatak BUG-21'dir. Bu bölüm o sayıyı ölçer, yeni yatak eklemez. Test: yatak sayısı oyun başında 1, kurtarıcı tavanı 3.
   - Bağımlılık: BUG-21. Boyut: S.
@@ -3434,13 +3434,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: MEV-11, DEN-10. Boyut: M.
   - Dosya: `data/ayarlar/denge.json` `kis_odun_farki`.
   - Asset: asset gerekmedi.
-- [x] **DEN-13:** (Antigravity) İlk hafta erzak, nüfus çarpı gece artı paydır. _(sanity bekliyor)_
+- [x] **DEN-13:** (Antigravity) İlk hafta erzak, nüfus çarpı gece artı paydır. _(doğrulandı (Cursor, 15 Kas 2026): tuketim_dengesi_kontrol GEÇTİ, acilis_kasasi_test GEÇTİ)_
   - Ne: açılış erzağı, evdeki kişi sayısı çarpı 7 artı tablodaki paydır. Pay kodda sabit değildir.
   - Kabul: açılış erzağı, evdeki kişi sayısı çarpı 7 artı tablodaki paydır. Pay kodda sabit değildir. Test: 2 kişilik açılışta erzak formüle eşittir.
   - Bağımlılık: ACL-01, EKO-09. Boyut: S.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [x] **DEN-14:** (Antigravity) Açılışta akçe iki kasada da tablodadır. _(sanity bekliyor)_
+- [x] **DEN-14:** (Antigravity) Açılışta akçe iki kasada da tablodadır. _(doğrulandı (Cursor, 15 Kas 2026): acilis_kasasi_test GEÇTİ (iki kasa ayrı satır))_
   - Ne: köy akçesi ve muhafız akçesi ayrı satırdır. Göç onları birbirine katmaz (KAY-45).
   - Kabul: köy akçesi ve muhafız akçesi ayrı satırdır. Göç onları birbirine katmaz (KAY-45). Test: iki satır, toplam kodda yazılmaz.
   - Bağımlılık: EKO-01, DEN-01. Boyut: S.
@@ -3461,7 +3461,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
 
 ### 32.3 Zarın ekonomiye yazılması
 
-- [x] **DEN-17:** (Antigravity) Zar formülü ZAR-01'de kalır. _(sanity bekliyor)_
+- [x] **DEN-17:** (Antigravity) Zar formülü ZAR-01'de kalır. _(doğrulandı (Cursor, 15 Kas 2026): test_denge_zar_esigi OK (denge.json eşiği = sorgu_kurallari.tres))_
   - Ne: denge dosyası eşikleri okur, formülü yeniden yazmaz.
   - Kabul: denge dosyası eşikleri okur, formülü yeniden yazmaz. Test: dosyadaki eşik ile `sorgu_kurallari.tres` aynı sayıdır. Farklıysa doğrulayıcı hata verir.
   - Bağımlılık: ZAR-01, DEN-03. Boyut: S.
@@ -3473,7 +3473,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: KOP-10, ZAR-01. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [x] **DEN-19:** (Antigravity) Kaçan kişinin ekonomik bedeli ölçülür. _(sanity bekliyor)_
+- [x] **DEN-19:** (Antigravity) Kaçan kişinin ekonomik bedeli ölçülür. _(doğrulandı (Cursor, 15 Kas 2026): c93dccd7 — zar_oyun_baglanti: kaçışta muhafiz_akce ve koy_akce aynı, ret sayısı aynı, kadroya 'kaçtı'. Kaçış dedikodusu metni Gemini'de; anahtar gelince yazılır)_
   - Ne: ZAR-03 kaçışı, o kişinin kabul matrisindeki erzak satırının tersi değildir. Bedel, tablodaki tek satırdır: kaçan kişi başına dedikodu, kasa değil.
   - Kabul: ZAR-03 kaçışı, o kişinin kabul matrisindeki erzak satırının tersi değildir. Bedel, tablodaki tek satırdır: kaçan kişi başına dedikodu, kasa değil. Test: kaçışta `muhafiz_akce` değişmez.
   - Bağımlılık: ZAR-03, DIY-13. Boyut: S.
@@ -3485,25 +3485,25 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ZAR-01, DEN-18. Boyut: S.
   - Dosya: `tests/unit/denge/zar_kasa_test.gd`.
   - Asset: asset gerekmedi.
-- [x] **DEN-21:** (Antigravity) Değiştirici listesi ekonomi üretmez. _(sanity bekliyor)_
+- [x] **DEN-21:** (Antigravity) Değiştirici listesi ekonomi üretmez. _(doğrulandı (Cursor, 15 Kas 2026): zar_kasa_test GEÇTİ (asker yanında kasa aynı))_
   - Ne: ZAR-04 değiştiricisi yalnız gereken sayıyı değiştirir. Akçe satırı yoktur.
   - Kabul: ZAR-04 değiştiricisi yalnız gereken sayıyı değiştirir. Akçe satırı yoktur. Test: asker yanındayken kasa aynı kararda aynıdır.
   - Bağımlılık: ZAR-04. Boyut: S.
   - Dosya: `tests/unit/denge/zar_kasa_test.gd`.
   - Asset: asset gerekmedi.
-- [x] **DEN-22:** (Antigravity) Yüz başarısız zarın gece raporu tek satırdır. _(sanity bekliyor)_
+- [x] **DEN-22:** (Antigravity) Yüz başarısız zarın gece raporu tek satırdır. _(doğrulandı (Cursor, 15 Kas 2026): 0145f92d — denge_gunlugu_kontrol: 100 başarısız zar gece raporunda tek sayı; denge_zar_raporu_test GEÇTİ)_
   - Ne: rapor, o gecenin başarısız zar sayısını yazar. Her zar için ayrı ekonomik satır açmaz.
   - Kabul: rapor, o gecenin başarısız zar sayısını yazar. Her zar için ayrı ekonomik satır açmaz. Test: 3 başarısızlık, raporda bir sayı.
   - Bağımlılık: EKO-15, ZAR-01. Boyut: S.
   - Dosya: `src/sistemler/denge_olcumu.gd`.
   - Asset: asset gerekmedi.
-- [x] **DEN-23:** (Antigravity) Tansiyon eki üç kademedir. _(sanity bekliyor)_
+- [x] **DEN-23:** (Antigravity) Tansiyon eki üç kademedir. _(doğrulandı (Cursor, 15 Kas 2026): test_denge_zar_esigi OK (ikinci ek anahtarı yok); SorguZari.tansiyon_eki .tres'ten okur)_
   - Ne: sakin, gergin, panik ekleri ZAR-01 kararındaki 0, 1, 2'dir. Denge dosyası bu üç sayıyı tekrar tanımlamaz, okur.
   - Kabul: sakin, gergin, panik ekleri ZAR-01 kararındaki 0, 1, 2'dir. Denge dosyası bu üç sayıyı tekrar tanımlamaz, okur. Test: dosyada ikinci bir ek anahtarı yoktur.
   - Bağımlılık: ZAR-01, DEN-17. Boyut: S.
   - Dosya: `tools/denge_dogrula.py`.
   - Asset: asset gerekmedi.
-- [x] **DEN-24:** (Antigravity) Ölçüm, 10.000 atışın dağılım kapısını yeniden koymaz. _(sanity bekliyor)_
+- [x] **DEN-24:** (Antigravity) Ölçüm, 10.000 atışın dağılım kapısını yeniden koymaz. _(doğrulandı (Cursor, 15 Kas 2026): sorgu_zari_test 10.000 atış ±%2 GEÇTİ)_
   - Ne: ZAR-01'in ±%2 testi durur. Bu bölüm o testi çağırır, eşiği değiştirmez.
   - Kabul: ZAR-01'in ±%2 testi durur. Bu bölüm o testi çağırır, eşiği değiştirmez. Test: mevcut zar testi yeşil.
   - Bağımlılık: ZAR-01. Boyut: S.
@@ -4731,7 +4731,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: DIY-11. Boyut: S.
   - Dosya: Söz motoru görünümüne tek satır; `ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [x] **AYR-11:** Konuşma geçmişi kaydırılabilir. (doğrulanmadı — Görev 22; KonusmaGecmisi (src/arayuz/kapi/konusma_gecmisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten) (Cursor — KonusmaGecmisi kapı ekranının _kayit akışını sağ çubukla kaydırır, kapi_ekrani._input bağlı, yeni ziyarette takip açılır; fare tekeri RichTextLabel; test tests/oto/konusma_gecmisi_kontrol.tscn 6 GEÇTİ (20 satırda ilk satır); mutasyonda kırmızı)
+- [x] **AYR-11:** Konuşma geçmişi kaydırılabilir. (Görev 22 notu kapandı — doğrulandı (Cursor, 15 Kas 2026): kapi_ekrani._input → KonusmaGecmisi; konusma_gecmisi_kontrol yeniden koşu GEÇTİ) (Cursor — KonusmaGecmisi kapı ekranının _kayit akışını sağ çubukla kaydırır, kapi_ekrani._input bağlı, yeni ziyarette takip açılır; fare tekeri RichTextLabel; test tests/oto/konusma_gecmisi_kontrol.tscn 6 GEÇTİ (20 satırda ilk satır); mutasyonda kırmızı)
   - Ne: sorgu sırasında önceki satırlar yukarı kaydırılarak okunur (beyan defteri DIY-07'den ayrı, yalnız bu ziyaretin akışı). Fare tekeri ve gamepad sağ çubuk.
   - Kabul: 20 satırlık sorguda ilk satıra dönülür. Test: ekran.
   - Bağımlılık: DIY-03. Boyut: S.
@@ -4929,7 +4929,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-01. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/goruntu_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [x] **AYR-41:** Düşük profil otomatik önerisi. (doğrulanmadı — Görev 22; ProfilOnerisi (src/sistemler/profil_onerisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten) (Cursor — ProfilOnerisiBaglantisi köy günü kare hızını yayın yapısında da örnekler, gece raporunda ProfilOnerisi'ne verir, satırı bir kez ekler; koy_ekrani _ready ve _geceye_gec bağlı; test tests/oto/profil_onerisi_kontrol.tscn 4 GEÇTİ (60-20-20 yok, 20-20-20 bir kez, profil değişmez); mutasyonda kırmızı)
+- [x] **AYR-41:** Düşük profil otomatik önerisi. (Görev 22 notu kapandı — doğrulandı (Cursor, 15 Kas 2026): koy_ekrani gece raporu → ProfilOnerisiBaglantisi.gece; profil_onerisi_kontrol yeniden koşu GEÇTİ) (Cursor — ProfilOnerisiBaglantisi köy günü kare hızını yayın yapısında da örnekler, gece raporunda ProfilOnerisi'ne verir, satırı bir kez ekler; koy_ekrani _ready ve _geceye_gec bağlı; test tests/oto/profil_onerisi_kontrol.tscn 4 GEÇTİ (60-20-20 yok, 20-20-20 bir kez, profil değişmez); mutasyonda kırmızı)
   - Ne: `performans_seridi` üç gece ortalaması 30 fps altında kalırsa bir kez "düşük profil?" satırı; otomatik değiştirmez.
   - Kabul: öneri bir kez; `grafik_profili` kendi kendine değişmez. Test: birim.
   - Bağımlılık: TEK-10. Boyut: S.
@@ -8222,7 +8222,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: BUG-13. Boyut: M.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [x] **SAH-50:** Vurgu, heybe açıkken modeli örtmez. (doğrulanmadı — Görev 22; heybe_ile_mesafe_koru() oyunda çağrılmıyor) (Cursor — heybe açıkken model x=659'da panelin (0–1140) altında kalıyordu; HeybeKadraji + KapiKameraGecisi.kaydir kişiyi panelin sağına (x=1530) alır, mesafe değişmez, kapanınca geri döner; kapi_ekrani._heybe_ac bağlı; test tests/oto/heybe_kadraji_kontrol.tscn 5 GEÇTİ; mutasyonda kırmızı)
+- [x] **SAH-50:** Vurgu, heybe açıkken modeli örtmez. (Görev 22 notu kapandı — doğrulandı (Cursor, 15 Kas 2026): kapi_ekrani._heybe_ac → HeybeKadraji; heybe_kadraji_kontrol yeniden koşu GEÇTİ) (Cursor — heybe açıkken model x=659'da panelin (0–1140) altında kalıyordu; HeybeKadraji + KapiKameraGecisi.kaydir kişiyi panelin sağına (x=1530) alır, mesafe değişmez, kapanınca geri döner; kapi_ekrani._heybe_ac bağlı; test tests/oto/heybe_kadraji_kontrol.tscn 5 GEÇTİ; mutasyonda kırmızı)
   - Ne: heybe paneli BUG-15 ile tıklamayı yer. Kamera, paneli kapatacak kadar yaklaşmaz.
   - Kabul: heybe paneli BUG-15 ile tıklamayı yer. Kamera, paneli kapatacak kadar yaklaşmaz. Test: panel açık, model hâlâ görünür.
   - Bağımlılık: BUG-15, SAH-49. Boyut: S.
@@ -8252,7 +8252,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-55:** (Cursor bıraktı: ZAR-03 kaçışı oyunda çağrılmıyor; TansiyonKacisAdaptoru/SorguZari.kacis_kontrol bağsız) Kaçan kişi kadrajdan yürür.
+- [ ] **SAH-55:** (Cursor bıraktı; 15 Kas: ZAR-03 kaçışı c93dccd7 ile oyuna bağlandı (TansiyonKacisAkisi.ekranda → sahne.gelen_git), kaçış yürüyüşünün 1 sn kadraj testi yazılmadı, madde açık) Kaçan kişi kadrajdan yürür.
   - Ne: ZAR-03 kaçışında kamera ışınlanmaz. Kişi eşiğe kadar görünür.
   - Kabul: ZAR-03 kaçışında kamera ışınlanmaz. Kişi eşiğe kadar görünür. Test: kaçış, kadrajda en az 1 saniye.
   - Bağımlılık: ZAR-03, SAH-49. Boyut: S.
@@ -9064,7 +9064,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/olaylar/, src/sistemler/soylenti_agi.gd.
   - Asset: asset gerekmedi.
 
-- [x] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin ve adaptör: [x] Antigravity-C; hava motoru: Kalfa bekleniyor) (doğrulanmadı — Görev 22; HavaReplikAdaptoru (src/soz/hava_replik_adaptoru.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten) (Cursor — KapiHavaRepligi havayı ANI-09 sözleşmesinden (IklimDeneyi.hava) okur, kış gecesinde açık havayı ayaz sayar; kapi_ekrani._siradaki ziyaretçi açılışından önce muhafız karşılaması + ziyaretçi ön eki yazar; test tests/oto/kapi_hava_kontrol.tscn 4 GEÇTİ (ayaz, fırtına, yazda yok); mutasyonda kırmızı. Not: ayrı rastgele hava üreteci yok, normal oyunda hava mevsimden ve iklim ayarından gelir)
+- [x] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin ve adaptör: [x] Antigravity-C; hava motoru: Kalfa bekleniyor) (Görev 22 notu kapandı — doğrulandı (Cursor, 15 Kas 2026): kapi_ekrani._siradaki → KapiHavaRepligi → HavaReplikAdaptoru (normalize_hava, muhafiz_karsilama_anahtari, ziyaretci_on_ek_anahtari); kapi_hava_kontrol yeniden koşu GEÇTİ; tüm üretilen kapi.hava.* anahtarları metinler.csv'de var) (Cursor — KapiHavaRepligi havayı ANI-09 sözleşmesinden (IklimDeneyi.hava) okur, kış gecesinde açık havayı ayaz sayar; kapi_ekrani._siradaki ziyaretçi açılışından önce muhafız karşılaması + ziyaretçi ön eki yazar; test tests/oto/kapi_hava_kontrol.tscn 4 GEÇTİ (ayaz, fırtına, yazda yok); mutasyonda kırmızı. Not: ayrı rastgele hava üreteci yok, normal oyunda hava mevsimden ve iklim ayarından gelir)
   - Amaç: Sert Anadolu kışını hissettirmek için hava durumu ve ayaza bağlı dinamik açılış replikleri eklenmesi.
   - Kurallar:
     1. Tipi, fırtına ve ayazda ziyaretçinin ve muhafızın diş vurma/titreme replikleri (kapi.hava.*).
