@@ -77,3 +77,7 @@ Grup dışındaki boş maddelere, kendi grubun bitmeden başlama. Grup bitince k
 İlerlemeyi `codex.md/Codex.md` dosyasının sonuna ekle: hangi maddeyi aldığın, ne yaptığın, testin nasıl geçtiği, kalan kota (göremiyorsan `kota görünmüyor`). Her commit/push sonrası güncelle.
 
 onay bekleyip durma; maddeler bitene ya da gerçek bir engel çıkana kadar devam et
+
+
+## GÜNCEL (15 Kasım 2026 21:05, Usta): Codex limiti sıfırlandı, iade edilen 18 madde
+Başlanmamış olduğu için ROADMAP_2'de [/] (Codex-Berk) yapıldı; yalnız bunlar senin: KLT-13, KLT-14, KLT-47, GRV-46, GRV-47, GRV-49, GRV-51, GRV-52, GRV-53, GRV-55, GRV-56, GRV-57, GRV-58, GRV-59, GRV-60, GRV-62, GRV-63, GRV-64. Yukarıdaki listede olup bunlar dışında kalan maddelere (Antigravity/Claude bitirdi) dokunma.

@@ -6446,13 +6446,13 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.5 İnsan incelemesi — araçları tekrar tarif etmez
 
-- [ ] **KLT-13:** DYL-13 yan yana bakış kapı adımıdır.
+- [/] **KLT-13:** (Codex-Berk) DYL-13 yan yana bakış kapı adımıdır.
   - Ne: eski/yeni metin bakılmadan "taşındı" sayılmaz. DIY-16 eski diyalogları taşımama kararı durur; bakış, silinenle yeninin aynı ağız olmadığını doğrular.
   - Kabul: bakış kaydı olmayan karakter "hazır" değil. Test: `HAT.md` kutusu.
   - Bağımlılık: DYL-13, DIY-16. Boyut: S.
   - Dosya: `docs/soz/HAT.md`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-14:** DYL-14 örnek defteri yazarın elindedir.
+- [/] **KLT-14:** (Codex-Berk) DYL-14 örnek defteri yazarın elindedir.
   - Ne: "bir köylü buna nasıl cevap verir?" sorusu üretimde zorunlu; çıktı DYL-14 defterine gider, burada ikinci defter yok.
   - Kabul: örnek satırı 0 olan taslak red. Test: kapı.
   - Bağımlılık: DYL-14. Boyut: S.
@@ -6471,7 +6471,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: DYL-11. Boyut: S.
   - Dosya: `docs/soz/kor_okuma.csv`
   - Asset: asset gerekmedi.
-- [ ] **KLT-47:** (Cursor bıraktı: DYL-14 örnek defteri yok (Antigravity Görev 24)) Örnek cümle kadro adıdır
+- [/] **KLT-47:** (Codex-Berk) (Cursor bıraktı: DYL-14 örnek defteri yok (Antigravity Görev 24)) Örnek cümle kadro adıdır
   - Ne: Örnek cümle kadro adıdır. Örnekteki ad kadroda yoksa 1 hata.
   - Kabul: Hata 1. Test: fixtures.
   - Bağımlılık: DYL-14. Boyut: S.
@@ -7481,14 +7481,14 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/oda_yetenek_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-46:** `harman_oyunu.gd` temaya bağlanır.
+- [/] **GRV-46:** (Codex-Berk) `harman_oyunu.gd` temaya bağlanır.
   - Ne: `src/arayuz/harman_oyunu.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Harman kadrajı zeminsiz. Tema bağlanınca yalnız `harman_oyunu.gd` ARY-02 zeminini ve düğme durumunu okur, Harman kadrajı zeminsiz davranışı değişmez.
   - Kabul: `harman_oyunu.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `harman_oyunu.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/harman_oyunu.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-47:** `okculuk_oyunu.gd` temaya bağlanır.
+- [/] **GRV-47:** (Codex-Berk) `okculuk_oyunu.gd` temaya bağlanır.
   - Ne: `src/arayuz/okculuk_oyunu.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Okçuluk kadrajı zeminsiz. Tema bağlanınca yalnız `okculuk_oyunu.gd` ARY-02 zeminini ve düğme durumunu okur, Okçuluk kadrajı zeminsiz davranışı değişmez.
   - Kabul: `okculuk_oyunu.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `okculuk_oyunu.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7502,7 +7502,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/kapi/tansiyon_gostergesi.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-49:** `kapi_gorus_adaptoru.gd` temaya bağlanır.
+- [/] **GRV-49:** (Codex-Berk) `kapi_gorus_adaptoru.gd` temaya bağlanır.
   - Ne: `src/arayuz/kapi/kapi_gorus_adaptoru.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Görüş satırı zeminsiz. Tema bağlanınca yalnız `kapi_gorus_adaptoru.gd` ARY-02 zeminini ve düğme durumunu okur, Görüş satırı zeminsiz davranışı değişmez.
   - Kabul: `kapi_gorus_adaptoru.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kapi_gorus_adaptoru.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7519,21 +7519,21 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.13 Divan
 
-- [ ] **GRV-51:** `divan_sorgu_paneli.gd` temaya bağlanır.
+- [/] **GRV-51:** (Codex-Berk) `divan_sorgu_paneli.gd` temaya bağlanır.
   - Ne: `src/kapi/divan_sorgu_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Divan sorgu düğmesi düz. Tema bağlanınca yalnız `divan_sorgu_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Divan sorgu düğmesi düz davranışı değişmez.
   - Kabul: `divan_sorgu_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `divan_sorgu_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/kapi/divan_sorgu_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-52:** `divan_hukum_paneli.gd` temaya bağlanır.
+- [/] **GRV-52:** (Codex-Berk) `divan_hukum_paneli.gd` temaya bağlanır.
   - Ne: `src/kapi/divan_hukum_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Hüküm düğmesi düz. Tema bağlanınca yalnız `divan_hukum_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Hüküm düğmesi düz davranışı değişmez.
   - Kabul: `divan_hukum_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `divan_hukum_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/kapi/divan_hukum_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-53:** `divan_haksizlik_paneli.gd` temaya bağlanır.
+- [/] **GRV-53:** (Codex-Berk) `divan_haksizlik_paneli.gd` temaya bağlanır.
   - Ne: `src/kapi/divan_haksizlik_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Haksızlık düğmesi düz. Tema bağlanınca yalnız `divan_haksizlik_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Haksızlık düğmesi düz davranışı değişmez.
   - Kabul: `divan_haksizlik_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `divan_haksizlik_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7547,42 +7547,42 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/kapi/divan_kanit_karti.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-55:** `ambar_kapisi_paneli.gd` temaya bağlanır.
+- [/] **GRV-55:** (Codex-Berk) `ambar_kapisi_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/ambar_kapisi_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Ambar düğmesi düz. Tema bağlanınca yalnız `ambar_kapisi_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Ambar düğmesi düz davranışı değişmez.
   - Kabul: `ambar_kapisi_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `ambar_kapisi_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/ambar_kapisi_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-56:** `cati_kar_bilgisi.gd` temaya bağlanır.
+- [/] **GRV-56:** (Codex-Berk) `cati_kar_bilgisi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/cati_kar_bilgisi.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Çatı satırı zeminsiz. Tema bağlanınca yalnız `cati_kar_bilgisi.gd` ARY-02 zeminini ve düğme durumunu okur, Çatı satırı zeminsiz davranışı değişmez.
   - Kabul: `cati_kar_bilgisi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `cati_kar_bilgisi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/cati_kar_bilgisi.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-57:** `cinar_meclis_paneli.gd` temaya bağlanır.
+- [/] **GRV-57:** (Codex-Berk) `cinar_meclis_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/cinar_meclis_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Meclis düğmesi düz. Tema bağlanınca yalnız `cinar_meclis_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Meclis düğmesi düz davranışı değişmez.
   - Kabul: `cinar_meclis_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `cinar_meclis_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/cinar_meclis_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-58:** `harita_baglantisi.gd` temaya bağlanır.
+- [/] **GRV-58:** (Codex-Berk) `harita_baglantisi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/harita_baglantisi.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Harita düğmesi düz. Tema bağlanınca yalnız `harita_baglantisi.gd` ARY-02 zeminini ve düğme durumunu okur, Harita düğmesi düz davranışı değişmez.
   - Kabul: `harita_baglantisi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `harita_baglantisi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/harita_baglantisi.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-59:** `hekim_ilac_bilgisi.gd` temaya bağlanır.
+- [/] **GRV-59:** (Codex-Berk) `hekim_ilac_bilgisi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/hekim_ilac_bilgisi.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Hekim satırı zeminsiz. Tema bağlanınca yalnız `hekim_ilac_bilgisi.gd` ARY-02 zeminini ve düğme durumunu okur, Hekim satırı zeminsiz davranışı değişmez.
   - Kabul: `hekim_ilac_bilgisi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `hekim_ilac_bilgisi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/hekim_ilac_bilgisi.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-60:** `histeri_paneli.gd` temaya bağlanır.
+- [/] **GRV-60:** (Codex-Berk) `histeri_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/histeri_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Histeri düğmesi düz. Tema bağlanınca yalnız `histeri_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Histeri düğmesi düz davranışı değişmez.
   - Kabul: `histeri_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `histeri_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7599,21 +7599,21 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/kaynak_gostergesi.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-62:** `kese_gostergesi.gd` temaya bağlanır.
+- [/] **GRV-62:** (Codex-Berk) `kese_gostergesi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/kese_gostergesi.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Kese yazısı zeminsiz. Tema bağlanınca yalnız `kese_gostergesi.gd` ARY-02 zeminini ve düğme durumunu okur, Kese yazısı zeminsiz davranışı değişmez.
   - Kabul: `kese_gostergesi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kese_gostergesi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/kese_gostergesi.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-63:** `kundak_clue_bilgisi.gd` temaya bağlanır.
+- [/] **GRV-63:** (Codex-Berk) `kundak_clue_bilgisi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/kundak_clue_bilgisi.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Kundak satırı zeminsiz. Tema bağlanınca yalnız `kundak_clue_bilgisi.gd` ARY-02 zeminini ve düğme durumunu okur, Kundak satırı zeminsiz davranışı değişmez.
   - Kabul: `kundak_clue_bilgisi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kundak_clue_bilgisi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/kundak_clue_bilgisi.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-64:** `kuyu_kirecleme_paneli.gd` temaya bağlanır.
+- [/] **GRV-64:** (Codex-Berk) `kuyu_kirecleme_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/kuyu_kirecleme_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Kuyu düğmesi düz. Tema bağlanınca yalnız `kuyu_kirecleme_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Kuyu düğmesi düz davranışı değişmez.
   - Kabul: `kuyu_kirecleme_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kuyu_kirecleme_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
