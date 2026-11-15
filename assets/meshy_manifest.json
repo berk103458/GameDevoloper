@@ -6890,6 +6890,7 @@
    "sira": 311,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
    "durum": "mevcut",
+   "oyun_baglantisi": "baglandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -6903,7 +6904,8 @@
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
    "notlar": [
-    "YAPI-pazar_tezgahi bu dosyaya bağlı; yeniden üretim yalnız `uret --yeniden pazar_tezgahi` ile (açık karar)."
+    "YAPI-pazar_tezgahi bu dosyaya bağlı; yeniden üretim yalnız `uret --yeniden pazar_tezgahi` ile (açık karar).",
+    "Oyuna bağlandı (Cursor, 15 Kas 2026): han kutusu koy_yonetim_sahnesi.gd, han yoksa meydan kenarı olay_yapilari.gd."
    ],
    "meshy_model": "meshy-6-lite (eski hat)",
    "hedef_dosya": "assets/model/yapi/pazar_tezgahi.glb"
@@ -14033,6 +14035,7 @@
    "sira": 411,
    "kullanim_grubu": "4_sik_olaylar",
    "durum": "onaylandi",
+   "oyun_baglantisi": "baglandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e041-d119-7585-a4b1-a4b81ff66ee7",
@@ -14108,7 +14111,7 @@
     "01a1e041-7e7d-7159-b562-2a389afe91d5",
     "01a1e041-d119-7585-a4b1-a4b81ff66ee7"
    ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity). Oyuna bağlandı: src/koy/gorsel/olay_yapilari.gd (Cursor, 15 Kas 2026)"
   },
   {
    "asset_id": "yanik_ev",
@@ -14132,6 +14135,7 @@
    "sira": 412,
    "kullanim_grubu": "4_sik_olaylar",
    "durum": "onaylandi",
+   "oyun_baglantisi": "baglandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e042-d367-7074-95a5-2e969cd80828",
@@ -14202,7 +14206,7 @@
     "01a1e042-5f5f-7745-88aa-c54e0f3d7a34",
     "01a1e042-d367-7074-95a5-2e969cd80828"
    ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity). Oyuna bağlandı: src/koy/gorsel/olay_yapilari.gd (Cursor, 15 Kas 2026)"
   },
   {
    "asset_id": "kervan_yuku",

@@ -682,7 +682,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `YAPI-demir_ocagi` | [ÜRETİLDİ: `assets/model/yapi/demir_ocagi.glb`] kutu (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-muhafiz_kislasi` | [ÜRETİLDİ: `assets/model/yapi/muhafiz_kislasi.glb`] kutu (`koy_yonetim_sahnesi.gd`) | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `YAPI-gozetleme_kulesi` | [ÜRETİLDİ: `assets/model/yapi/gozetleme_kulesi.glb`] menü ve devriye kulesi (`GozcuKulesiGorseli`, `MuhafizDevriyesi`) | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
-| `YAPI-pazar_tezgahi` | GLB var, sahne kurmuyor | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
+| `YAPI-pazar_tezgahi` | [BAĞLANDI: `assets/model/yapi/pazar_tezgahi.glb`] Hanın kutu yer tutucusu (`koy_yonetim_sahnesi.gd`); han yoksa meydan kenarı (`olay_yapilari.gd`) | 1,9 × 1,2 × 1,6 m; ayak tabanı y=0, han hücresine sığar |
 | `YAPI-sur 2–3` | [ÜRETİLDİ: `assets/model/yapi/sur_2_palisat.glb`, `sur_3_tas.glb`] kazık çit ölçeklenir, `SurHasarGorseli`, `koy_yonetim_sahnesi.gd` | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
 | `HYV-AT` | [ÜRETİLDİ: `assets/model/hayvan/at.glb` (Antigravity)] Sorhan, Nogay, kervan, TUC, HAR-07 | 0,80 × 1,60 × 2,30 m; deve yüksekliği 2,10 m |
 | `HYV-KOYUN` | Ağıl, ANI-05, TUC-02 | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
@@ -698,7 +698,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `TUC-TACIR` | [ÜRETİLDİ: `assets/model/karakter/celep_yuru.glb`, `nalbur_yuru.glb`, `kumasci_yuru.glb`, `aktar_yuru.glb`, `silah_tuccari_yuru.glb`] Celep, nalbur, kumaşçı, aktar, silah tüccarı (`TuccarKapiGecisi`, `Dunya3B.PORTRE_MODEL`). | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `TUC-HAYVAN` | [ÜRETİLDİ: `inek.glb`, `koc.glb`, `beygir.glb` (Antigravity)] İnek, koç, beygir; glTF. | İnek 0,85 × 1,45 × 2,20 m; koç 0,55 × 0,85 × 1,10 m; beygir 0,80 × 1,60 × 2,30 m |
 | `MEV-ZEMIN` | [ÜRETİLDİ: `assets/model/nesne/kurek.glb` (Antigravity)] Kar örtüsü, çatı karı, kürek — prompt hazır, Ahmet üretecek; 3D geometri açık; shader + PNG; `kurek.glb`. | Kürek 0,25 × 1,20 × 0,08 m; kar geometri katmanı mevcut çatı/zemin zarfında |
-| `MEV-AFET` | [ÜRETİLDİ: `su_bendi.glb`, `yanik_ev.glb`, `kurt.glb` (Antigravity)] Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF + PNG. | Bent modülü 3,0 × 0,8 × 0,6 m; kurt 0,45 × 0,8 × 1,1 m |
+| `MEV-AFET` | [BAĞLANDI: `su_bendi.glb`, `yanik_ev.glb`] İlkbahar bendi ve yanık kulübe (`olay_yapilari.gd`); yangında hücre boşsa kulübe oraya kayar (`yaz_yangin_riski.gd`). Kurt zaten bağlı. | Bent iki modül, boy 0,8 m; yanık kulübe boy 2,2 m; ayak tabanı y=0 |
 | `CAS-GECE` | Fener, yangın kovası; glTF. | Açık kandil 0,18 × 0,08 × 0,12 m; kova 0,30 × 0,35 × 0,30 m |
 | `ODA-ODA` | [ÜRETİLDİ: `assets/model/yapi/muhafiz_odasi.glb`, `yatak.glb`, `masa.glb`, `kasa.glb`, `kutuphane.glb`] Muhafız odası, yatak, masa, kasa, kütüphane (`MuhafizOdasi`). | Oda 4,0 × 2,8 × 4,0 m; yatak 0,9 × 0,5 × 2,0 m; masa 1,2 × 0,75 × 0,7 m |
 | `KRI-MEZAR` | [ÜRETİLDİ: `mezar.glb`, `toplu_mezar.glb` (Antigravity)] Toplu mezar, yazısız taş; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |

@@ -193,6 +193,7 @@ func yenile() -> void:
 	arazi.kuruluk_ayarla(KURULUK[clampi(yonetim.mevsim(), 0, KURULUK.size() - 1)])
 	_meydan_kur()
 	CenazeMezari.kur(self, _yapilar)
+	OlayYapilari.kur(self, _yapilar)
 	TasYatagiGorseli.kur(self, _yapilar)
 	for b in yonetim.binalar:
 		var n := _bina_dugumu(b)
@@ -368,9 +369,9 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 			"ambar":
 				n.add_child(Dunya3B.nesne("ambar" if Dunya3B.model_var_mi("ambar", "yapi") else "kervansaray", 3.0, "yapi"))
 			_:
-				var yapi_ad := "muhafiz_kislasi" if b.tur == "kisla" else b.tur
+				var yapi_ad := OlayYapilari.yapi_adi(b.tur)
 				if Dunya3B.model_var_mi(yapi_ad, "yapi"):
-					n.add_child(Dunya3B.nesne(yapi_ad, 2.8, "yapi"))
+					n.add_child(Dunya3B.nesne(yapi_ad, OlayYapilari.yukseklik(yapi_ad, 2.8), "yapi"))
 				else:
 					_kutu(n, Vector3(en * 0.8, 1.5, derin * 0.8), Vector3(0, 0.75, 0), Pbr.malzeme("medieval_wood", 2.0))
 					HazirSahneModeli.etiket(n, b.tur.replace("_", " ").capitalize(), 1.8)

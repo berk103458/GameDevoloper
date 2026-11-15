@@ -32,6 +32,7 @@ static func sondur(y: KoyYonetimi,b: KoyBinasi,olaylar: Array[Dictionary],sebep:
   r.kurtuldu = true
   olaylar.append({"anahtar":"%s: %d su rezerviyle yangın söndürüldü; %s (#%d) kurtarıldı.","deger":[sebep,su,MeslekYapilari.ad(b.tur),b.id]})
  elif y.bina_el_koy(b.id):
+  y.set_meta(&"yanik_ev_hucre", b.hucre)
   r.kaybedildi = true
   olaylar.append({"anahtar":"%s: su rezervi yoktu, %s (#%d) kaybedildi.","deger":[sebep,MeslekYapilari.ad(b.tur),b.id]})
  return r
