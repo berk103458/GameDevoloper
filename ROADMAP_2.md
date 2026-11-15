@@ -250,7 +250,7 @@ ACL-01 … ACL-06 gövdesi durur. Yeni maddeler ACL-07 … ACL-86. İkinci hane 
 
 ### 14.4 Ulak ve ilk aile
 
-- [x] **ACL-04:** (Kalfa) Kapıyı açan olay — ilk gün akşamı: Sancak Beyi'nin ulağı ve kapıdaki ilk aile.
+- [x] **ACL-04:** (Kalfa) Kapıyı açan olay — ilk gün akşamı: Sancak Beyi'nin ulağı ve kapıdaki ilk aile. (Cursor düzeltmesi, 15 Kas 2026: eş ipucu ziyaretçi açılışı gibi yazılıyordu — IlkAileEsIpucu ayrı "Eşin (fısıltıyla)" satırı, aileye kendi açılış repliği; ilk aileye özel iki soru açılışta; Zeynep ciftci_kadin modeliyle, yer tutucu etiketi yalnız debug'da, kapı etiketleri EtiketEkranSiniri ile ekran içinde; test tests/oto/ilk_aile_kapi_kontrol)
   - Ne: İlk gün akşamı Sancak Beyi'nin ulağı beratı okur ve gider; ardından kapıda ilk aile durur. Öğretici selam, konu, heybe ve kararı gösterir, atlanabilir. Ulak bölümü 60 saniyeyi geçmez. Ulak köylü olmaz, nüfus artmaz. Ertesi sabah kapı açılır. Aynı kayıtta ulak ikinci kez gelmez.
   - Kurallar:
     1. İlk gün akşamı ulak gelir. Berat: muhafız uç kapısını tutacak, "bu yurt sığınana açıktır". Bey, HAR-04'teki sancak beyidir. Yeni bey yazılmaz.
