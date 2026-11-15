@@ -8254,7 +8254,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-55:** (Claude-Berk) (Cursor bıraktı; 15 Kas: ZAR-03 kaçışı 9e750843 ile oyuna bağlandı (TansiyonKacisAkisi.ekranda → sahne.gelen_git), kaçış yürüyüşünün 1 sn kadraj testi yazılmadı, madde açık) Kaçan kişi kadrajdan yürür.
+- [x] **SAH-55:** (Claude-Berk — tests/oto/sah55_kacis_kadraj_kontrol.tscn: gerçek KapiSahnesi.gelen_yaklas → TansiyonKacisAkisi.ekranda → gelen_git; kaçan kişi 3 sn kadrajda yürür, kamera adımı 0; kişi yürümeden kaybolunca ve kamera sıçrayınca KALDI) (Cursor bıraktı; 15 Kas: ZAR-03 kaçışı 9e750843 ile oyuna bağlandı (TansiyonKacisAkisi.ekranda → sahne.gelen_git), kaçış yürüyüşünün 1 sn kadraj testi yazılmadı, madde açık) Kaçan kişi kadrajdan yürür.
   - Ne: ZAR-03 kaçışında kamera ışınlanmaz. Kişi eşiğe kadar görünür.
   - Kabul: ZAR-03 kaçışında kamera ışınlanmaz. Kişi eşiğe kadar görünür. Test: kaçış, kadrajda en az 1 saniye.
   - Bağımlılık: ZAR-03, SAH-49. Boyut: S.
