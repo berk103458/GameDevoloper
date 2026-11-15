@@ -1345,3 +1345,6 @@ Hekim bilgi satırı tema mirasını kullanır; kaynak ve gerçek ilaç bilgi ek
 
 ## 15 Kasım 2026 — GRV-62 (Codex-Berk)
 Kese göstergesi mevcut ortak renk kaynağını kullanır; tarama ve kişisel para göstergesi regresyonu doğrulandı. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-31 (Codex-Berk)
+CHR konuşma seçeneklerinde yerel renk/stil yokluğu ve canlı oyun çağrısı bağı doğrulandı; mevcut ortak tema korunur. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

@@ -7373,7 +7373,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.11 Kapı ve inceleme
 
-- [/] **GRV-31:** (Codex-Berk) `chr_diyalog_paneli.gd` temaya bağlanır.
+- [x] **GRV-31:** (Codex-Berk) `chr_diyalog_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/chr_diyalog_paneli.gd` bugün ColorRect 0 ve 3 düz düğmeyle duruyor; notu: Konuşma seçenekleri düz düğme. Tema bağlanınca yalnız `chr_diyalog_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Konuşma seçenekleri düz düğme davranışı değişmez.
   - Kabul: `chr_diyalog_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `chr_diyalog_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
