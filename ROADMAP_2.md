@@ -1373,7 +1373,7 @@ ISG-01 … ISG-03 gövdesi durur. Yeni maddeler ISG-04 … ISG-83. İkinci mesle
   - Dosya: `src/koy/meslek_grevi.gd`
   - Asset: asset gerekmedi.
 
-- [ ] **ISG-39:** Grev söylenti eşiğini SOY-34 okur
+- [/] **ISG-39:** Grev söylenti eşiğini SOY-34 okur (Antigravity-Berk)
   - 5 Kasım doğrulaması (Kalfa): SOY-34 [x] olsa da `meslek_grevi.gd` içinde söylenti okuyucusu/olasılık artışı bulunmuyor; `SoylentiAgi` üretim çağrısı da yok. Bu bağımlılığın gerçek bağlantısı sağlanmadan ISG-39 tamamlandı sayılmaz; sahiplik alınmadı.
   - Görev 22 (Cursor): SOY-34 ve tüm `SoylentiAgi` maddeleri geri açıldı; ağ oyunda kurulmuyor. ISG-39, `SoylentiAgi` oyuna bağlanmadan alınamaz.
   - Ne: Grev söylenti eşiğini SOY-34 okur. İkinci eşik yok.
@@ -5615,7 +5615,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: MCL-02, SOY-12. Boyut: S.
   - Dosya: MCL-02 adaptörüne tek satır.
   - Asset: asset gerekmedi.
-- [ ] **SOY-34:** Grev söylentiden tetiklenebilir (`meslek_grevi.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [/] **SOY-34:** Grev söylentiden tetiklenebilir (`meslek_grevi.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor) (Antigravity-Berk)
   - Ne: iş kazası ya da ücret söylentisi kamuoyu olursa meslek grevi olasılığı artar; grev motoru değişmez, girdi eklenir.
   - Kabul: kamuoyu + meslek eşleşmesi → grev olasılığı +0.1 (öneri). Test: birim.
   - Bağımlılık: SOY-12. Boyut: S.
