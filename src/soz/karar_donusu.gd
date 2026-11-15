@@ -7,6 +7,7 @@ extends RefCounted
 ## Her gecikmeli satır açık alanlarla taşınır: hedef_sistem, alan, deger, tur_offset.
 
 const GECERLI_HEDEF_SISTEMLER := ["bar", "dedikodu", "spawn", "kuyu_zehri", "ambar_kundak"]
+const AZAMI_GUNLUK_DONUS := 2
 
 static func gecikmeli_satir_gecerli_mi(satir: Dictionary) -> bool:
 	var hs := String(satir.get("hedef_sistem", ""))
@@ -239,3 +240,106 @@ static func _karakter_kimligi_bul(o: Oturum, ham_id: String) -> StringName:
 		if o.kadro.durumlar.has(aday) and o.katalog.karakter(aday) != null:
 			return aday
 	return &""
+
+
+## DYL-08: Gece sonunda vadesi gelen karar dönüşlerini günde en çok 2 sınırıyla ilerletir.
+## Ölen/giden karakterler yalnız haberci kanalına düşer; SAB-01 sabah defterine yazmaz; bar etkisi bir kez uygulanır.
+static func ilerlet(o: Oturum, r: Dictionary = {}) -> Array[Dictionary]:
+	var donen: Array[Dictionary] = []
+	if o == null or o.gecikmeli_kuyruk.is_empty():
+		return donen
+	for satir in o.gecikmeli_kuyruk:
+		if donen.size() >= AZAMI_GUNLUK_DONUS:
+			break
+		if not (satir is Dictionary):
+			continue
+		if bool(satir.get("uygulandi", false)):
+			continue
+		if int(satir.get("hedef_gun", 999999)) > o.gun:
+			continue
+		var chr_id := String(satir.get("chr_id", ""))
+		var durum := _karakter_durumu(o, chr_id)
+		var gitti := HafizaDefteri.GITTI_DURUMLARI.has(durum)
+		var kanal := "haberci" if gitti else String(satir.get("kanal", "sabah"))
+		if not kanal in ["sabah", "haberci", "koylu"]:
+			kanal = "haberci" if gitti else "sabah"
+		satir["uygulandi"] = true
+		satir["uygulanan_gun"] = o.gun
+		satir["kanal"] = kanal
+		if gitti:
+			satir["gitti"] = true
+			satir["ad_etiketi"] = "gitti"
+		_etki_uygula(o, satir)
+		var ozet := {
+			"chr_id": chr_id,
+			"karar": String(satir.get("karar", "")),
+			"olay_id": String(satir.get("olay_id", "")),
+			"hedef_sistem": String(satir.get("hedef_sistem", "")),
+			"kanal": kanal,
+			"gitti": gitti,
+			"metin": String(satir.get("metin", "")),
+			"gece": o.gun,
+		}
+		donen.append(ozet)
+	if not donen.is_empty() and not r.is_empty():
+		var liste: Array = r.get("karar_donusleri", [])
+		liste.append_array(donen)
+		r["karar_donusleri"] = liste
+	return donen
+
+
+## DYL-08 / HFZ: Bölüm 39 hafıza defteri için çözülmüş dönüş satırlarını üretir.
+static func defter_donusleri(o: Oturum) -> Array[Dictionary]:
+	var sonuc: Array[Dictionary] = []
+	if o == null:
+		return sonuc
+	for satir in o.gecikmeli_kuyruk:
+		if not (satir is Dictionary) or not bool(satir.get("uygulandi", false)):
+			continue
+		var chr_id := String(satir.get("chr_id", ""))
+		var gece := int(satir.get("eklenme_gunu", 0))
+		var karar := String(satir.get("karar", ""))
+		var ad := "gitti" if bool(satir.get("gitti", false)) else chr_id
+		sonuc.append({
+			"hedef": "karar:%s:%d:%s" % [chr_id, gece, karar],
+			"kisi": chr_id,
+			"ad": ad,
+			"durum": "gitti" if bool(satir.get("gitti", false)) else "",
+			"gece": int(satir.get("uygulanan_gun", gece)),
+			"sonuc_anahtari": String(satir.get("metin", "")),
+		})
+	return sonuc
+
+
+static func _karakter_durumu(o: Oturum, chr_id: String) -> String:
+	for aday in [StringName(chr_id.to_lower()), StringName(chr_id)]:
+		if o.kadro.durumlar.has(aday):
+			return String(o.kadro.durumlar[aday].get("durum", ""))
+	return ""
+
+
+static func _etki_uygula(o: Oturum, satir: Dictionary) -> void:
+	var hs := String(satir.get("hedef_sistem", ""))
+	var alan := String(satir.get("alan", "")).to_lower()
+	if hs == "bar":
+		var v := int(satir.get("deger", 0))
+		if v != 0:
+			match alan:
+				"erzak", "gida":
+					o.ambar += v
+				"moral", "huzur":
+					o._bar_uygula(PackedInt32Array([v, 0, 0, 0]))
+				"adalet":
+					o._bar_uygula(PackedInt32Array([0, v, 0, 0]))
+				"akce":
+					o.akce += v
+				"guvenlik", "asayis":
+					o._bar_uygula(PackedInt32Array([0, 0, 0, v]))
+	var tanikli := bool(satir.get("tanikli", false))
+	var olay_id := "dyl08_%s" % String(satir.get("olay_id", ""))
+	if tanikli and (hs == "dedikodu" or olay_id.contains("intikam")):
+		var tanik_id := "koy_tanigi" if o.yonetim.koylular.is_empty() else str(o.yonetim.koylular[0].id)
+		var metin := String(satir.get("metin", "")).strip_edges()
+		if metin.is_empty():
+			metin = "Kapı kararının yankısı köyde konuşuluyor."
+		o.dedikodu.olay_kaydet(olay_id, "siddet" if olay_id.contains("intikam") else "haksiz_ret", o.gun, tanik_id, 1, {"satir": metin, "hedef_id": String(satir.get("chr_id", ""))})

@@ -49,3 +49,16 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . -s res://tests/unit/kvr/kvr_test.gd` → `KVR TEST: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+### Madde 3B — `DYL-08` (`TAM`)
+- **Değişiklikler:**
+  - `src/soz/karar_donusu.gd`: `AZAMI_GUNLUK_DONUS = 2`, `ilerlet(o, r)`, `defter_donusleri(o)`, `_karakter_durumu` ve `_etki_uygula` eklendi. Günde en çok 2 dönüş işlenir, fazlası aynı kuyrukta ertesi güne kalır; ölen/giden yalnız `haberci` kanalına düşer; `bar` etkisi bir kez uygulanır; tanıklı dönüş dedikoduya 1 satır düşer, tanıksız düşmez; `SAB-01` sabah defterine yazılmaz.
+  - `src/sistemler/oturum.gd` & `src/arayuz/koy_hud/hafiza_defteri_baglantisi.gd`: `gece_sonu()` içinde `KararDonusu.ilerlet(self, r)` ve defterde `"dyl08"` bağlantısı kuruldu.
+  - `tests/unit/soz/karar_donusu_test.gd`: Gerçek `Oturum.gece_sonu()` ile 2/gün sınırı, ölen kişinin haberci kanalı, ertesi gece sıfır bar tekrarı, tanıklı/tanıksız dedikodu ve 0 `SAB-01` yazımı test edildi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `DYL-08` → `TAM`.
+- **Hedefli test çıktıları (son satırlar):**
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/karar_donusu_test.gd` → `TEST PASS: karar_donusu_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/hafiza_defteri_test.gd` → `HAFIZA DEFTERI (HFZ-01…32): GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/kisi_hafizasi_test.gd` → `KISI HAFIZASI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

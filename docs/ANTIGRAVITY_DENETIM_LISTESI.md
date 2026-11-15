@@ -216,7 +216,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | DYL-01 | Çelişki yüzleştirme | `[x]` | — | ROADMAP `src/soz/celiski.gd` diyor | Dosya yok. Görev 23'te de bağlanamadı | YOK | Çelişki yüzleştirmesini yeniden yaz; söz motoru bağlanmadan çalışmaz |
 | DYL-06 | Dil engeli | `[x]` | `src/soz/dil_engeli.gd` | 233 satır, testi var | Hiç çağrılmıyor; tercüman düğmesi çıkmıyor | SAHTE-BAĞSIZ | Kapı ekranında ortak dil yokken `DilEngeli` çağır |
 | DYL-07 | Akşam konusu | `[x]` | `src/koy/aksam_sohbeti.gd` | Konu seçimi ve testi var | `AksamSohbeti` hiç açılmıyor | SAHTE-BAĞSIZ | ACL-03 ile birlikte gece raporundan önce aç |
-| DYL-08 | Karar dönüşü | `[x]` | `src/soz/karar_donusu.gd` | KOP-04 ile aynı sınıf | Hiç çağrılmıyor | SAHTE-BAĞSIZ | KOP-04 ile birlikte bağla |
+| DYL-08 | Karar dönüşü | `[x]` | `src/soz/karar_donusu.gd`, `src/sistemler/oturum.gd`, `src/arayuz/koy_hud/hafiza_defteri_baglantisi.gd` | `Oturum.gece_sonu()` -> `KararDonusu.ilerlet` + `HafizaDefteri` `dyl08` bağlantısı kuruldu | — | TAM | 2/gün sınırı, ölen/giden->haberci, tek-sefer bar, tanıklı/tanıksız dedikodu, 0 SAB-01 sızması doğrulu |
 
 ## CAT, ZAR, KAP
 

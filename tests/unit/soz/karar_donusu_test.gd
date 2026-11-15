@@ -85,6 +85,41 @@ func _init() -> void:
 			if not geldi:
 				hatalar.append("Vadesi gelen tek spawn kuyruğu gece_kuyrugu içinde görünmeli!")
 
+		# 9. DYL-08 gerçek gece_sonu: 2/gün sınırı (3. aynı kuyrukta kalır), ölen -> haberci, tanıklı/tanıksız dedikodu, tek sefer bar, SAB-01'e yazmaz
+		var o2 := Oturum.new(kat, 77)
+		o2.yonetim.koylular.clear()
+		o2.gecikmeli_kuyruk = [
+			{"chr_id": "chr_001", "karar": "ret", "hedef_sistem": "bar", "alan": "Adalet", "deger": -2, "tur_offset": 2, "eklenme_gunu": 0, "hedef_gun": 2, "uygulandi": false, "tanikli": false, "kanal": "sabah", "olay_id": "d1_bar", "metin": "Bar değişti"},
+			{"chr_id": "chr_002", "karar": "ret", "hedef_sistem": "dedikodu", "alan": "Etki", "deger": 1, "tur_offset": 2, "eklenme_gunu": 0, "hedef_gun": 2, "uygulandi": false, "tanikli": true, "kanal": "koylu", "olay_id": "d2_ded", "metin": "Tanıklı dönüş haberi"},
+			{"chr_id": "chr_003", "karar": "ret", "hedef_sistem": "dedikodu", "alan": "Etki", "deger": 1, "tur_offset": 2, "eklenme_gunu": 0, "hedef_gun": 2, "uygulandi": false, "tanikli": false, "kanal": "koylu", "olay_id": "d3_taniksiz", "metin": "Tanıksız satır"},
+		]
+		o2.kadro.durumlar[&"chr_002"]["durum"] = &"oldu"
+		o2.yonetim.gun = 2
+		var sabah_once: Dictionary = SabahDefteri.durum(o2.yonetim).duplicate(true)
+		var adalet_once := o2.yonetim.adalet
+		var rapor2 := o2.gece_sonu()
+		var donen2: Array = rapor2.get("rapor", {}).get("karar_donusleri", [])
+		if donen2.size() != 2:
+			hatalar.append("Günde en çok 2 dönüş işlenmeli, işlenen: %d" % donen2.size())
+		if String(donen2[1].get("kanal", "")) != "haberci" or not bool(donen2[1].get("gitti", false)):
+			hatalar.append("Ölen karakter dönüşü yalnız haberci kanalına yönlenmeli!")
+		if bool(o2.gecikmeli_kuyruk[2].get("uygulandi", false)):
+			hatalar.append("3. dönüş ertesi güne aynı kuyrukta beklemeli!")
+		if o2.yonetim.adalet == adalet_once:
+			hatalar.append("DYL-08 bar etkisi bir kez uygulanmalıydı!")
+		var adalet_iki := o2.yonetim.adalet
+		if o2.dedikodu.kaydet().get("kayitlar", []).size() != 1:
+			hatalar.append("Tanıklı dönüş mevcut dedikodu kaydına tam 1 satır düşmeli!")
+		if JSON.stringify(SabahDefteri.durum(o2.yonetim)) != JSON.stringify(sabah_once):
+			hatalar.append("DYL-08 SAB-01 sabah defterine yazmamalı!")
+		# Ertesi gece 3. dönüş tanıksız olduğundan 0 dedikodu ekler ve önceki bar tekrar uygulanmaz
+		o2.yonetim.gun = 3
+		o2.gece_sonu()
+		if o2.yonetim.adalet != adalet_iki:
+			hatalar.append("Aynı dönüş ertesi gecede barı ikinci kez değiştirmemeli!")
+		if o2.dedikodu.kaydet().get("kayitlar", []).size() != 1:
+			hatalar.append("Tanıksız dönüş dedikoduya 0 satır düşmeli!")
+
 	if not hatalar.is_empty():
 		for h in hatalar:
 			push_error(h)

@@ -313,6 +313,7 @@ func gece_sonu() -> Dictionary:
 	preload("res://src/koy/usta_defterleri.gd").gece(self,r)
 	preload("res://src/koy/cozumleme.gd").gece(self,r,cozumleme_mevsimi,cozumleme_calisma)
 	dedikodu.gece_ilerlet(gun)
+	KararDonusu.ilerlet(self, r)
 	SoylentiKoprusu.gece(self, r)
 	preload("res://src/sistemler/kayit_gocu_bildirimi.gd").gece(self, r)
 	MuhafizYetenekleri.rapora_ekle(r, harac)
