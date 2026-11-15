@@ -253,13 +253,14 @@ func _mesale(konum: Vector3, yan: float) -> void:
 	add_child(kor)
 	var isik := OmniLight3D.new()
 	isik.light_color = Renkler.MESALE
-	isik.light_energy = 1.9
-	isik.omni_range = 9.0
+	var ayar: Dictionary = preload("res://data/ayarlar/sahne.json").data.kapi_isik
+	isik.light_energy = float(ayar.enerji)
+	isik.omni_range = float(ayar.menzil)
 	isik.omni_attenuation = 1.3
 	isik.shadow_enabled = true
 	# Hacimsel siste hafif sıcak hale: kamera ışığa çok yakın, tam güçte sis küresi ekranı kaplar.
 	isik.light_volumetric_fog_energy = 0.12
-	isik.set_meta("taban", 1.9)
+	isik.set_meta("taban", isik.light_energy)
 	isik.set_meta("alev", alev)
 	add_child(isik)
 	KapiKuyuAyari.sokete_bagla(isik, alev)

@@ -38,9 +38,23 @@ func _calistir() -> void:
 	for mesale in kapi._isiklar:
 		_kontrol(mesale.distance_fade_enabled and mesale.distance_fade_shadow == 16.0, "SAH-65: Gerçek kapı meşalesinin gölge mesafesi sınırlı")
 	print("SAH-65 kapı atlası=%d, meşale=%d" % [root.positional_shadow_atlas_size, kapi._isiklar.size()])
+	var ilk_enerji := kapi._isiklar[0].light_energy
 	kapi.queue_free()
 	await process_frame
 	_kontrol(root.positional_shadow_atlas_size == 4096, "SAH-65: Kapı kapanınca önceki atlas geri gelir")
+	var koy := KoyAtmosferi.new()
+	root.add_child(koy)
+	koy.faz(&"gece", 0.0)
+	var ayar: Dictionary = preload("res://data/ayarlar/sahne.json").data
+	_kontrol(is_equal_approx(koy.cevre.ambient_light_energy, float(ayar.koy_isik.ortam_enerjisi.gece)), "SAH-67: Köy gecesi kendi ortam değerini kullanır")
+	koy.queue_free()
+	await process_frame
+	kapi = KapiSahnesi.new()
+	root.add_child(kapi)
+	_kontrol(is_equal_approx(kapi._isiklar[0].light_energy, ilk_enerji) and is_equal_approx(ilk_enerji, float(ayar.kapi_isik.enerji)), "SAH-67: Köyden kapıya geçişte meşale enerjisi aynıdır")
+	print("SAH-67 kapı öncesi/sonrası enerji=%.2f / %.2f" % [ilk_enerji, kapi._isiklar[0].light_energy])
+	kapi.queue_free()
+	await process_frame
 	root.positional_shadow_atlas_size = atlas_once
 	isik.free()
 	await process_frame

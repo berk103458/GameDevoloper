@@ -4,14 +4,16 @@
 class_name KoyAtmosferi
 extends Node3D
 
+const ORTAM_ENERJISI: Dictionary = preload("res://data/ayarlar/sahne.json").data.koy_isik.ortam_enerjisi
+
 ## Faz → görünüm. Gök: Poly Haven HDRI kimliği (assets/ph/gok).
 const FAZLAR := {
 	&"gunduz": {"gok": "kloofendal_48d_partly_cloudy_puresky", "gok_enerji": 0.9, "gunes": Color("#fff0da"),
-		"gunes_enerji": 1.6, "aci": Vector3(-48, 30, 0), "ortam": 0.75, "sis": Color("#b4c0c8"), "ates": 1.2},
+		"gunes_enerji": 1.6, "aci": Vector3(-48, 30, 0), "sis": Color("#b4c0c8"), "ates": 1.2},
 	&"aksam": {"gok": "kloppenheim_06_puresky", "gok_enerji": 0.55, "gunes": Color("#ffc58a"),
-		"gunes_enerji": 1.1, "aci": Vector3(-18, -60, 0), "ortam": 0.55, "sis": Color("#a08670"), "ates": 2.4},
+		"gunes_enerji": 1.1, "aci": Vector3(-18, -60, 0), "sis": Color("#a08670"), "ates": 2.4},
 	&"gece": {"gok": "satara_night_no_lamps", "gok_enerji": 0.4, "gunes": Color("#7d93c4"),
-		"gunes_enerji": 0.34, "aci": Vector3(-55, 120, 0), "ortam": 0.4, "sis": Color("#1c2433"), "ates": 3.4},
+		"gunes_enerji": 0.34, "aci": Vector3(-55, 120, 0), "sis": Color("#1c2433"), "ates": 3.4},
 }
 
 var faz_adi: StringName = &"aksam"
@@ -58,6 +60,7 @@ func _ready() -> void:
 ## Işığı `ad` fazına geçirir (`sure` saniyede; 0 = anında).
 func faz(ad: StringName, sure: float = 2.0) -> void:
 	var f: Dictionary = FAZLAR.get(ad, FAZLAR[&"aksam"])
+	var ortam := float(ORTAM_ENERJISI.get(String(ad), ORTAM_ENERJISI.aksam))
 	faz_adi = ad
 	if _tween != null and _tween.is_valid():
 		_tween.kill()
@@ -67,7 +70,7 @@ func faz(ad: StringName, sure: float = 2.0) -> void:
 		gunes.light_color = f["gunes"]
 		gunes.light_energy = f["gunes_enerji"]
 		gunes.rotation_degrees = f["aci"]
-		cevre.ambient_light_energy = f["ortam"]
+		cevre.ambient_light_energy = ortam
 		cevre.fog_light_color = f["sis"]
 		ates_gucu = f["ates"]
 		return
@@ -75,7 +78,7 @@ func faz(ad: StringName, sure: float = 2.0) -> void:
 	_tween.tween_property(gunes, "light_color", f["gunes"], sure)
 	_tween.tween_property(gunes, "light_energy", f["gunes_enerji"], sure)
 	_tween.tween_property(gunes, "rotation_degrees", f["aci"], sure)
-	_tween.tween_property(cevre, "ambient_light_energy", f["ortam"], sure)
+	_tween.tween_property(cevre, "ambient_light_energy", ortam, sure)
 	_tween.tween_property(cevre, "fog_light_color", f["sis"], sure)
 	_tween.tween_property(self, "ates_gucu", f["ates"], sure)
 	# Gök: yarı yolda kararır, değişir, yeniden açılır.

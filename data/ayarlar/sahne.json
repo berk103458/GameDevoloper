@@ -21,12 +21,11 @@
   },
   "kamera_taban_mesafe": 1.2,
   "kapi_isik": {
-    "enerji": 1.0,
-    "menzil": 10.0
+    "enerji": 1.9,
+    "menzil": 9.0
   },
   "koy_isik": {
-    "enerji": 0.6,
-    "menzil": 15.0
+    "ortam_enerjisi": {"gunduz": 0.75, "aksam": 0.55, "gece": 0.4}
   },
   "ates_isik": {
     "enerji": 1.8,

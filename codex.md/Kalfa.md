@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-67 (Kalfa)
+
+Sahne tablosundaki kapı ve köy bölümleri mevcut ışık değerlerine bağlandı. Gerçek kapıdan köy gecesine ve yeni kapıya geçişte meşale enerjisi 1,90 olarak kaldı. Köy gecesi ortamı kendi 0,40 değerini kullandı. Kapı gölge profili headless testi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-66 (Kalfa)
 
 Altı gerçek muhafız meşalesinin alt ağacı ölçüldü. Her el soketinde aynı tek OmniLight3D var. Mevcut ışık bütçesi ve 209 gece yürüyüş karesi aynı headless sahnede geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

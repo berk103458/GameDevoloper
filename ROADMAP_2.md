@@ -8330,7 +8330,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-01, SAH-65. Boyut: S.
   - Dosya: `src/dunya/karakter_ekipman_yoneticisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-67:** Köy gecesi, kapı gecesinden ayrıdır.
+- [x] **SAH-67:** Köy gecesi, kapı gecesinden ayrıdır. (Kalfa — açık sahne geçişinde kapı enerjisi 1,90)
   - Ne: köy ortam ışığı kapı meşalesini büyütmez. İki sahne iki ışık ayarı.
   - Kabul: köy ortam ışığı kapı meşalesini büyütmez. İki sahne iki ışık ayarı. Test: sahne geçişi, kapı ışık enerjisi eski değer.
   - Bağımlılık: SAH-65. Boyut: S.
