@@ -251,6 +251,10 @@ def main():
     a.add_argument("--hareketsiz", action="store_true", help="animasyon adımını atla")
     a.add_argument("--hareket-listesi", action="store_true", help="kitaplıktaki hareketleri yaz ve çık")
     o = a.parse_args()
+    if not o.kuru and not o.hareket_listesi and os.environ.get("MESHY_ESKI_HAT_ONAY") != "1":
+        sys.exit("Eski hat kapalı: görevler assets/meshy_manifest.json'a yazılmadığı için aynı asset iki kez üretilebilir.\n"
+                 "Yeni hat: python3 tools/meshy/meshy_hat.py (kuru) — ayrıntı docs/MESHY_URETIM_SISTEMI.md.\n"
+                 "Bilerek eski hattı çalıştırmak için MESHY_ESKI_HAT_ONAY=1.")
     global HAREKETSIZ
     HAREKETSIZ = o.hareketsiz
     durum = json.load(open(DURUM)) if os.path.exists(DURUM) else {}
