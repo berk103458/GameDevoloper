@@ -229,7 +229,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | ZAR-01 | Sorgu zarı | `[x]` | `src/kapi/sorgu_zari.gd` | `kapi_kavgasi.gd` ve `tansiyon_kacis_adaptoru.gd` çağırıyor | — | TAM | — |
 | ZAR-02 | Sorgu değeri | `[x]` | `tools/chr_parser.py`, `tests/tools/test_chr_sorgu_degeri.py` | Ayrıştırıcı ve testi var | — | TAM | — |
 | ZAR-03 | Sorgu zarı | `[x]` | `src/kapi/sorgu_zari.gd` | Aynı bağ | — | TAM | — |
-| ZAR-04 | Yaklaşım değiştiricileri | `[x]` | `src/kapi/zar_degistiricileri.gd` | Testi var ve geçiyor | Sınıf oyunda hiç çağrılmıyor; zar eşiği değişmiyor | SAHTE-BAĞSIZ | Zar atılmadan önce `ZarDegistiricileri` çağır |
+| ZAR-04 | Yaklaşım değiştiricileri | `[x]` | `src/kapi/zar_degistiricileri.gd`, `src/kapi/sorgu_zari.gd`, `src/sistemler/chr_sorgusu.gd`, `src/arayuz/chr_kapi_adaptoru.gd`, `src/arayuz/chr_diyalog_paneli.gd` | Hem `SorguZari.degistiricili_sonuc` hem `ChrSorgusu.secenek_sec` + `ChrDiyalogPaneli` ön-liste bağlı | — | TAM | `MuhafizTerazisi`, `GrupItibari`, `ipuclari` ve asker durumu zar atılmadan listelenip eşiğe/olasılığa uygulanıyor |
 | ZAR-05 | Beyaz ve kırmızı kontrol | `[x]` | `src/kapi/sorgu_zari.gd`, `tests/unit/kapi/zar_tur_test.gd` | Test gerçek sınıfı çağırıyor | — | TAM | — |
 | KAP-17 | Aile kafilesi | `[x]` | `src/kapi/aile_kafilesi.gd` | Beş yerden çağrılıyor | — | TAM | — |
 | KAP-18 | Yetimler | `[ ]` | — | "Kalfa bekleniyor" | — | EKSİK | Kalfa'ya bırak |

@@ -65,6 +65,21 @@ static func sonuc(rng: RandomNumberGenerator, tur: StringName, deger: int, tansi
 	return {"tur": tur, "gerekli": gerek, "zar": zar, "atildi": true, "basarili": iyi,
 		"sozcuk": SOZCUK_BASARILI if iyi else SOZCUK_BASARISIZ}
 
+
+## ZAR-04: Yaklaşım değiştiricilerini zar atılmadan önce hesaplayıp SorguZari.sonuc eşiğine uygular.
+static func degistiricili_sonuc(rng: RandomNumberGenerator, tur: StringName, deger: int, tansiyon: int, yaklasim: String, baglam: Dictionary = {}, kurallar: Resource = null, tablo_override: Dictionary = {}) -> Dictionary:
+	var deg: Dictionary = preload("res://src/kapi/zar_degistiricileri.gd").hesapla(yaklasim, baglam, tablo_override)
+	if not bool(deg.get("gecerli", false)):
+		return {"tur": tur, "gerekli": deger + 1, "zar": 0, "atildi": false, "basarili": false, "sozcuk": SOZCUK_KILITLI,
+			"hata": String(deg.get("hata", "gecersiz_yaklasim")), "satirlar": [], "toplam": 0, "kesildi": false}
+	var res := sonuc(rng, tur, deger, tansiyon, int(deg.get("toplam", 0)), kurallar)
+	res["yaklasim"] = yaklasim
+	res["toplam"] = int(deg.get("toplam", 0))
+	res["ham_toplam"] = int(deg.get("ham_toplam", 0))
+	res["kesildi"] = bool(deg.get("kesildi", false))
+	res["satirlar"] = deg.get("satirlar", [])
+	return res
+
 ## ZAR-03: Tansiyon 10'u aşarsa karakter gider.
 const KARAR_KACTI := &"kacti"
 const KARAR_KACTI_TR := "kaçtı"

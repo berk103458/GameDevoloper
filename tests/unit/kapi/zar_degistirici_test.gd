@@ -87,5 +87,39 @@ func _initialize() -> void:
 	var r_gonul := ZAR_DEGISTIRICI.hesapla("gonul_alma", {"terazi": "adil"})
 	dene(r_gonul["toplam"] == -1, "Adil terazi gönül almayı 1 düşürür")
 
+	# 12. Gerçek oyun bağı: SorguZari.degistiricili_sonuc + ChrSorgusu + ChrDiyalogPaneli ön-liste
+	var kur := load("res://data/chr_runtime/sorgu_kurallari.tres")
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 99
+	var sz_baz := SorguZari.sonuc(rng, SorguZari.TUR_D6, 3, 0, 0, kur)
+	rng.seed = 99
+	var sz_mod := SorguZari.degistiricili_sonuc(rng, SorguZari.TUR_D6, 3, 0, "ikna", {"terazi": "adil", "kanit": true}, kur)
+	dene(int(sz_mod["gerekli"]) == int(sz_baz["gerekli"]) - 2, "SorguZari.degistiricili_sonuc gerekli değerini 2 düşürür")
+	var sz_kalp := SorguZari.degistiricili_sonuc(rng, SorguZari.TUR_D6, 3, 0, "kalp", {}, kur)
+	dene(not bool(sz_kalp["atildi"]) and String(sz_kalp["sozcuk"]) == String(SorguZari.SOZCUK_KILITLI), "SorguZari reddedilen yaklaşımı kilitler")
+
+	var kat := Katalog.new()
+	dene(kat.yukle() == Katalog.Durum.HAZIR, "Katalog yüklendi")
+	var o := Oturum.new(kat, 11)
+	var g := o._adli_gelen(&"chr_001")
+	var sorgu := g.chr_sorgusu()
+	dene(sorgu != null, "chr_001 sorgusu hazır")
+	if sorgu != null:
+		sorgu.zar_baglami = {"terazi": "adil", "kanit": false}
+		var once_olasilik: float = sorgu.basari_olasiligi()
+		var ikna_secenek := {"beceri": "ikna"}
+		var deg_hesap: Dictionary = sorgu.yaklasim_degistiricisi(ikna_secenek)
+		dene(int(deg_hesap["toplam"]) == -1 and sorgu.basari_olasiligi(int(deg_hesap["toplam"])) > once_olasilik, "Adil terazi ChrSorgusu başarı olasılığını yükseltir")
+		sorgu.zar_baglami = {"terazi": "adil", "kanit": true, "itibar": -1}
+		sorgu.secenek_sec(0) # Dal 1.1: beceri="blof" secenegi burada
+		var panel_sinif := preload("res://src/arayuz/chr_diyalog_paneli.gd")
+		var panel: VBoxContainer = panel_sinif.new()
+		panel.sorgu = sorgu
+		panel.oturum = o
+		panel.guncelle()
+		var on_liste := panel.get_node_or_null("ZarDegistiriciler1")
+		dene(on_liste != null and on_liste.get_child_count() == 2, "ChrDiyalogPaneli zar öncesi değiştirici satırlarını ayrı gösterir")
+		panel.free()
+
 	print("ZAR DEGISTIRICI TEST: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
 	quit(hata)

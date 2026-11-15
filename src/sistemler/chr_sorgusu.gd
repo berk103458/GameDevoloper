@@ -18,6 +18,7 @@ var dugum_id: StringName = &"00"
 var tecrube: int = 0
 var kurallar: Resource = preload("res://data/chr_runtime/sorgu_kurallari.tres")
 var son_zar: Dictionary = {}
+var zar_baglami: Dictionary = {}
 var _rng := RandomNumberGenerator.new()
 var _denemeler: Dictionary = {}
 var _son_konusulan: StringName = &""
@@ -36,8 +37,29 @@ func replik_baslat() -> bool:
 func tohumla(tohum: int) -> void:
 	_rng.seed = tohum
 
-func basari_olasiligi() -> float:
-	return kurallar.olasilik(tecrube, tansiyon)
+func basari_olasiligi(degistirici: int = 0) -> float:
+	var taban: float = kurallar.olasilik(tecrube, tansiyon)
+	if degistirici == 0:
+		return taban
+	return clampf(taban - float(degistirici) * 0.08, kurallar.asgari, kurallar.azami)
+
+
+## ZAR-04: Seçeneğin yaklaşımına göre tutan zar değiştiricilerini döner (gizli ek yok).
+func yaklasim_degistiricisi(secenek: Dictionary, ek_baglam: Dictionary = {}) -> Dictionary:
+	var ham_yaklasim := String(secenek.get("yaklasim", secenek.get("beceri", ""))).strip_edges().to_lower()
+	match ham_yaklasim:
+		"blöf":
+			ham_yaklasim = "blof"
+		"gözdağı":
+			ham_yaklasim = "gozdagi"
+		"gönül alma", "gönül_alma":
+			ham_yaklasim = "gonul_alma"
+	var birlesik := zar_baglami.duplicate(true)
+	for k in ek_baglam.keys():
+		birlesik[k] = ek_baglam[k]
+	if not ipuclari.is_empty():
+		birlesik["kanit"] = true
+	return preload("res://src/kapi/zar_degistiricileri.gd").hesapla(ham_yaklasim, birlesik)
 
 func metin(anahtar: StringName) -> String:
 	return preload("res://src/veri/chr_guvenli_okuma.gd").metin(karakter.metinler.get(String(anahtar)), String(anahtar))
@@ -58,7 +80,7 @@ func secenek_acik(secenek: Dictionary, indeks: int = -1) -> bool:
 			return false
 	return true
 
-func secenek_sec(indeks: int) -> bool:
+func secenek_sec(indeks: int, ek_baglam: Dictionary = {}) -> bool:
 	var dugum := karakter.diyalog_dugumu(dugum_id)
 	var secenekler: Array = dugum.get("secenekler", [])
 	if indeks < 0 or indeks >= secenekler.size() or not secenek_acik(secenekler[indeks], indeks):
@@ -69,9 +91,19 @@ func secenek_sec(indeks: int) -> bool:
 		if _denemeler.has(deneme_id):
 			return false
 		_denemeler[deneme_id] = true
-		var olasilik := basari_olasiligi()
+		var deg := yaklasim_degistiricisi(secenek, ek_baglam)
+		var deg_toplam: int = int(deg.get("toplam", 0)) if bool(deg.get("gecerli", false)) else 0
+		var olasilik := basari_olasiligi(deg_toplam)
 		var zar := _rng.randf()
-		son_zar = {"beceri": secenek["beceri"], "olasilik": olasilik, "zar": zar, "basarili": zar < olasilik}
+		son_zar = {
+			"beceri": secenek["beceri"],
+			"olasilik": olasilik,
+			"zar": zar,
+			"basarili": zar < olasilik,
+			"degistirici": deg_toplam,
+			"degistirici_satirlari": deg.get("satirlar", []),
+			"kesildi": bool(deg.get("kesildi", false)),
+		}
 		if not son_zar["basarili"]:
 			tansiyon = clampi(tansiyon + kurallar.basarisiz_tansiyon_delta, 0, 10)
 			_dugume_git(dugum_id)

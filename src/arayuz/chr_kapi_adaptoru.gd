@@ -14,6 +14,15 @@ static func diyalog_goster(ekran: Control, gelen: Gelen, secenekler: VBoxContain
 	if sorgu == null:
 		return false
 	sorgu.tecrube = MuhafizOdaGelisimi.etkin_tecrube(ekran.oturum)
+	var o: Oturum = ekran.get("oturum") as Oturum
+	if o != null:
+		var asker_var: bool = o.yonetim.etkin_muhafiz_sayisi() > 0 or o.yonetim.koylular.any(func(k: Koylu) -> bool: return k.sinif == &"asker" and k.saglik > 0)
+		sorgu.zar_baglami = {
+			"terazi": MuhafizTerazisi.durum(o),
+			"itibar": o.grup_itibari.zar_etkisi(gelen.id),
+			"asker": asker_var,
+			"kanit": not sorgu.ipuclari.is_empty(),
+		}
 	preload("res://src/soz/muhafiz_sezgisi.gd").goster(ekran, gelen)
 	ekran.call("_chr_tansiyon_degisti", sorgu.tansiyon)
 	var animasyon := Callable(ekran, "_chr_tansiyon_degisti")

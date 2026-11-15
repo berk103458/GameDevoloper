@@ -33,7 +33,12 @@ func guncelle() -> void:
 	add_child(durum)
 	if not sorgu.son_zar.is_empty():
 		var sonuc := Label.new()
-		sonuc.text = "%s: %s" % ["İkna" if sorgu.son_zar["beceri"] == "ikna" else "Blöf", "başarılı" if sorgu.son_zar["basarili"] else "başarısız — tansiyon arttı"]
+		var yak_ad := "İkna"
+		match String(sorgu.son_zar["beceri"]):
+			"blof": yak_ad = "Blöf"
+			"gozdagi": yak_ad = "Gözdağı"
+			"gonul_alma": yak_ad = "Gönül alma"
+		sonuc.text = "%s: %s" % [yak_ad, "başarılı" if sorgu.son_zar["basarili"] else "başarısız — tansiyon arttı"]
 		add_child(sonuc)
 	var replik := Label.new()
 	replik.text = sorgu.metin(StringName(dugum.get("replik_anahtari", "")))
@@ -66,11 +71,24 @@ func guncelle() -> void:
 			if not b.disabled:
 				b.modulate = Kabuk.vurgu()
 		b.pressed.connect(func() -> void:
-			if sorgu.secenek_sec(i):
+			if sorgu.secenek_sec(i, baglam):
 				_ton_tepkisi = TON.tepki(oturum, secenek, baglam)
 				guncelle()
 		)
 		add_child(b)
+		if not String(secenek.get("beceri", "")).is_empty() and not b.disabled and sorgu.has_method("yaklasim_degistiricisi"):
+			var deg: Dictionary = sorgu.yaklasim_degistiricisi(secenek, baglam)
+			var satirlar: Array = deg.get("satirlar", [])
+			if not satirlar.is_empty():
+				var liste := VBoxContainer.new()
+				liste.name = "ZarDegistiriciler%d" % i
+				for satir in satirlar:
+					if satir is Dictionary:
+						var lbl := Label.new()
+						var d_val := int(satir.get("deger", 0))
+						lbl.text = "%s (%+d)" % [String(satir.get("metin", "")), d_val] if d_val != 0 else String(satir.get("metin", ""))
+						liste.add_child(lbl)
+				add_child(liste)
 	if not secenekler.is_empty() and not acik_var:
 		# Tüm cevaplar denenmiş ya da ipucu kilitli: oyuncu sıkışmasın, kanıt aramadan karara geçebilsin.
 		var cikis := Button.new()

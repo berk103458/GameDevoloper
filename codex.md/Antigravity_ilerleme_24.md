@@ -62,3 +62,17 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . -s res://tests/unit/soz/kisi_hafizasi_test.gd` → `KISI HAFIZASI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+### Madde 4 — `ZAR-04` (`TAM`)
+- **Değişiklikler:**
+  - `src/kapi/sorgu_zari.gd`: `degistiricili_sonuc(...)` ile `ZarDegistiricileri.hesapla` sonucu doğrudan `SorguZari.sonuc` eşiğine bağlandı.
+  - `src/sistemler/chr_sorgusu.gd`: `zar_baglami`, `yaklasim_degistiricisi(secenek, ek_baglam)` ve `basari_olasiligi(degistirici)` / `secenek_sec(indeks, ek_baglam)` eklendi.
+  - `src/arayuz/chr_kapi_adaptoru.gd` & `src/arayuz/chr_diyalog_paneli.gd`: `Oturum`'dan (`MuhafizTerazisi`, `GrupItibari`, asker durumu, bulunan kanıt) bağlam kurulup zar atılmadan önce her aktif değiştirici satırı ayrı satırda gösterildi.
+  - `tests/unit/kapi/zar_degistirici_test.gd`: `SorguZari.degistiricili_sonuc`, `ChrSorgusu` ve `ChrDiyalogPaneli` ön-liste sınamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `ZAR-04` → `TAM`.
+- **Hedefli test çıktıları (son satırlar):**
+  - `Godot.exe --headless --path . -s res://tests/unit/kapi/zar_degistirici_test.gd` → `ZAR DEGISTIRICI TEST: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/kvr/chr_sorgu_test.gd` → `CHR SORGU: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/kapi/zar_tur_test.gd` → `ZAR TUR TESTI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor
