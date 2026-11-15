@@ -111,5 +111,21 @@ func _initialize() -> void:
 	dene(o.aksam_sohbeti_hazirla().is_empty(), "ACL-02: Eş ölünce akşam sohbeti açılmaz")
 	dene(HaneEsi.agir_yas_var_mi(o) and NihaiSon.epilog(o).contains("Ağır yas"), "ACL-02: Duran epilog ağır yas satırını içerir")
 
+	# DEN-37: Denge katmanı eş meslek listesini genişletmez; demirci reddi durur.
+	var denge: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/ayarlar/denge.json"))
+	var denge_anahtarlari: Array = denge.keys() if denge is Dictionary else []
+	var es_anahtari := 0
+	for a in denge_anahtarlari:
+		var s := String(a)
+		if s.contains("hane_esi") or s.contains("es_meslek"):
+			es_anahtari += 1
+	dene(es_anahtari == 0, "DEN-37: denge.json eş meslek listesine anahtar eklemez")
+	var den_o := Oturum.new(kat, 1437)
+	AcilisSenaryosu.kur(den_o, "olagan")
+	var den_once := String(HaneEsi.durum(den_o.yonetim, den_o).meslek)
+	dene(not bool(HaneEsi.meslek_sec(den_o.yonetim, "demirci", den_o).ok), "DEN-37: Demirci reddi durur")
+	dene(String(HaneEsi.durum(den_o.yonetim, den_o).meslek) == den_once, "DEN-37: Ret sonrası eşin mesleği değişmez")
+	dene(HaneEsi.meslekler(den_o, HaneEsi.es_bul(den_o.yonetim)).size() == 6, "DEN-37: Liste 6 meslekte kalır")
+
 	print("HANE EŞİ: GEÇTİ" if hata == 0 else "HANE EŞİ: KALDI")
 	quit(hata)

@@ -307,7 +307,7 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ### 15.1 Gelen sayısı
 
-- [/] **KAP-16:** (Antigravity-Berk) Değişken gelen sayısı, boş gün ve sayfadaki bar eşiği.
+- [x] **KAP-16:** (Antigravity-Berk) Değişken gelen sayısı, boş gün ve sayfadaki bar eşiği. *(data/gelen_akisi.json, GelenAkisi, Oturum.gece_kuyrugu/karar_ver, KapiEkrani._siradaki, OyunAyarlari/oyun.tres ve chr_parser.py --check canlı bar değerlendirmesi tamamlandı; gelen_akisi_test.gd, gelen_akisi_ekran_test.tscn, test_chr_parser.py, test_chr_sorgu_degeri.py, test_omurga.py, kapi_firtina_kuyrugu_test.gd, goc_yolu_guvenligi_test.gd, gecis_gecesi_oyun_test.gd, gozcu_kafile_ozeti_test.gd, pusu_ticaret_akisi_test.gd, omurga_kadro_test.gd, ozel_olay_test.gd, bos_gun_durusu_oyun_test.tscn ve acilis_bagimlilik_kontrol.tscn RC=0 ile geçti; asset gerekmedi — Antigravity-Berk)*
   - Ne: Her gece kapıya gelen kişi sayısı sabit 3 olmaktan çıkar; köyün refahı, güvenliği, yatağı, mevsimi ve dünya olayı `data/gelen_akisi.json` üzerinden sayıyı belirler. 28 günde en az 4 gece kapı açık kalır ama kimse gelmez. Perde 2, perde 1 formülünü kullanmaz; `perde2_gece_basina_gelen` okunur. Aynı kadro kimliği bir gecede bir kez gelir. Ayrılmış ya da ölü kimlik kuyruğa yazılmaz. Tavan dolunca fazla kişi ertesi güne kalmaz. Fadime sayfasındaki "Moral < 6" gibi bar cümlesi ya canlı barla değerlendirilir ya sayfadan silinir.
   - Kurallar:
     1. `gece_basina_gelen = 3` sabiti kalkar. Günlük sayı köy çekiciliği (refah, güvenlik, yatak), mevsim ve dünya olayından gelir. Mevsim motoru (MEV) okunur, yeniden yazılmaz. Kışın sayı düşer, çünkü duran mevsim çarpanı okunur.
@@ -3591,13 +3591,13 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ISG-01, ISG-02, UZM-03. Boyut: M.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [/] **DEN-37:** (Claude-Berk) Eşin mesleği demirhaneye yazılmaz.
+- [x] **DEN-37:** (Claude) Eşin mesleği demirhaneye yazılmaz.
   - Ne: ACL-02 listesi dışındaki meslek hâlâ reddedilir. Denge bu listeyi genişletmez.
   - Kabul: ACL-02 listesi dışındaki meslek hâlâ reddedilir. Denge bu listeyi genişletmez. Test: demirci reddi durur.
   - Bağımlılık: ACL-02. Boyut: S.
   - Dosya: mevcut ACL-02 testi.
   - Asset: asset gerekmedi.
-- [ ] **DEN-38:** Meslek değişiminin bir günlük kaybı durur.
+- [/] **DEN-38:** (Claude-Berk) Meslek değişiminin bir günlük kaybı durur.
   - Ne: ACL-02'deki 1 gün verimsizlik ölçülür, uzatılmaz.
   - Kabul: ACL-02'deki 1 gün verimsizlik ölçülür, uzatılmaz. Test: değişim günü üretim, ertesi günden düşüktür.
   - Bağımlılık: ACL-02. Boyut: S.
