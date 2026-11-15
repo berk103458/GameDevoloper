@@ -77,6 +77,35 @@ def istem_ozeti(metin):
     return hashlib.sha256(istem_normal(metin).encode()).hexdigest()[:16]
 
 
+def _dosya_degistir(gecici, yol):
+    for deneme in range(12):
+        try:
+            os.replace(gecici, yol)
+            return
+        except OSError:
+            if deneme == 11:
+                raise
+            time.sleep(0.15)
+
+
+@contextlib.contextmanager
+def yazi_ac_atomik(yol):
+    """Windows kilitlenmelerine karşı CSV/metni atomik olarak yazar."""
+    klasor = os.path.dirname(yol)
+    os.makedirs(klasor, exist_ok=True)
+    fd, gecici = tempfile.mkstemp(prefix=".tmp_", dir=klasor)
+    basarili = False
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8", newline="") as f:
+            yield f
+        _dosya_degistir(gecici, yol)
+        basarili = True
+    finally:
+        if not basarili:
+            with contextlib.suppress(OSError):
+                os.unlink(gecici)
+
+
 def json_yaz_atomik(yol, veri):
     """Yarım yazılmış manifest bırakmamak için geçici dosyaya yazıp yerine taşır."""
     klasor = os.path.dirname(yol)
@@ -86,7 +115,7 @@ def json_yaz_atomik(yol, veri):
         with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as f:
             json.dump(veri, f, ensure_ascii=False, indent=1)
             f.write("\n")
-        os.replace(gecici, yol)
+        _dosya_degistir(gecici, yol)
     except BaseException:
         with contextlib.suppress(OSError):
             os.unlink(gecici)

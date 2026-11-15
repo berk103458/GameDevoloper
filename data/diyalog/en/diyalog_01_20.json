@@ -1375,6 +1375,7 @@
   {
     "id": "diyalog_21",
     "sinif": "ciftci",
+    "portre": "dervis",
     "sahne": "A barefoot dervish wearing a patched wool cloak approached the threshold. As he struck his gnarled juniper staff against stone, the large beads of his prayer rosary rattled; his wind-burned smile seemed to temper the frosty wind at the gate.",
     "acilis": "To the wayfarer no gate is questioned, to the stone no earth is barred, gatekeeper... I crossed the highland mist; behind me lies the ash of torched camps, upon my chest I bring a morsel of holy remembrance.",
     "sorular": [
@@ -1721,6 +1722,7 @@
   {
     "id": "diyalog_25",
     "sinif": "ciftci",
+    "portre": "cocuk",
     "sahne": "At the portal stood a trembling boy, scarce taller than a spear, wearing a tattered wool vest. His arms were covered in scratches from dough kneading troughs; flour stains on his cheeks had turned to mud with tears.",
     "acilis": "Master guard, I beg you, do not send me back to the cruel baker in Erzincan! Jackals chased me through the forest for three days; I chewed pine bark to stave off hunger!",
     "sorular": [

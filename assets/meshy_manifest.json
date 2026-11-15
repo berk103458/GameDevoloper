@@ -34,21 +34,43 @@
     "gergin"
    ],
    "oncelik": "yuksek",
-   "durum": "planli",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
-   "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "",
+   "meshy_task_id": "01a1df62-25b9-720b-bd27-f494e61bd389",
+   "meshy_gorevleri": {
+    "doku": "01a1df62-25b9-720b-bd27-f494e61bd389",
+    "onizleme": "01a1df61-8b89-7339-b003-47ea5ece7acc",
+    "iskelet": "01a1df63-3a4b-7152-984a-92674d87b25e",
+    "hareket:panik": "01a1df65-42da-7616-b2c3-9c192469e642",
+    "hareket:ofke": "01a1df64-b057-73c1-839d-10ba8e83bc41",
+    "hareket:sevinc": "01a1df64-3e5b-77f0-ba70-83c983f85d2a",
+    "hareket:konus": "01a1df63-eebf-754b-9862-a387b8b16fe4",
+    "hareket:bekle": "01a1df63-9f15-70cd-b36e-9528e0e0e4be"
+   },
+   "dosya": "assets/model/karakter/bey_yuru.glb",
    "ek_dosyalar": [],
-   "sha256": "",
-   "kredi_tahmini": 38,
-   "kredi_harcanan": 0,
+   "sha256": "8be52ee53b6177f4b79bb9787aa3ce732b8d8d5defabddded86e844de0eda8b8",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 35,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
-   "hedef_dosya": "assets/model/karakter/bey_yuru.glb"
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
+   "hedef_dosya": "assets/model/karakter/bey_yuru.glb",
+   "uretim_gunlugu": [
+    "2026-11-15T13:30:43Z Meshy geçmişinden benimsendi: doku=01a1df62-25b9-720b-bd27-f494e61bd389 (SUCCEEDED)",
+    "2026-11-15T13:30:43Z Meshy geçmişinden benimsendi: onizleme=01a1df61-8b89-7339-b003-47ea5ece7acc (SUCCEEDED)",
+    "2026-11-15T13:30:43Z Meshy geçmişinden benimsendi: iskelet=01a1df63-3a4b-7152-984a-92674d87b25e (SUCCEEDED)",
+    "2026-11-15T13:30:43Z Meshy geçmişinden benimsendi: hareket:panik=01a1df65-42da-7616-b2c3-9c192469e642 (SUCCEEDED)",
+    "2026-11-15T13:30:43Z Meshy geçmişinden benimsendi: hareket:ofke=01a1df64-b057-73c1-839d-10ba8e83bc41 (SUCCEEDED)",
+    "2026-11-15T13:30:43Z Meshy geçmişinden benimsendi: hareket:sevinc=01a1df64-3e5b-77f0-ba70-83c983f85d2a (SUCCEEDED)",
+    "2026-11-15T13:30:43Z Meshy geçmişinden benimsendi: hareket:konus=01a1df63-eebf-754b-9862-a387b8b16fe4 (SUCCEEDED)",
+    "2026-11-15T13:30:43Z Meshy geçmişinden benimsendi: hareket:bekle=01a1df63-9f15-70cd-b36e-9528e0e0e4be (SUCCEEDED)"
+   ],
+   "onay_notu": "dogrula+godot_dogrula tamam, 8474 tris, 1.80m (5 klip)"
   },
   {
    "asset_id": "cavus",
@@ -62,8 +84,8 @@
     "cavus",
     "KAR-CAVUS"
    ],
-   "prompt": "Late medieval 14th century Anatolian frontier game asset, Ottoman border, worn and dusty physical materials, grounded historical realistic style, serious tone, single connected object. No text, no letters, no modern elements. A detailed bipedal human character, normal human anatomy, standing in T-pose, arms extended horizontally, feet apart, facing forward. Period clothing of 14th-century Ottoman Anatolian frontier. No armour plates, no horned helmets, no chibi or stylized proportions. A Seljuk sergeant (cavus) on duty: lamellar vest over a kaftan, a tall felt cap, a mace at his belt, holding a folded list. Stern, tired.",
-   "prompt_ozeti": "4bb57e47765f307a",
+   "prompt": "Late medieval 14th century Anatolian frontier game asset, Ottoman border, worn and dusty physical materials, grounded historical realistic style, serious tone, single connected object. No text, no letters, no modern elements. A detailed bipedal human character, normal human anatomy, standing in T-pose, arms extended horizontally, feet apart, facing forward. Period clothing of 14th-century Ottoman Anatolian frontier. No armour plates, no horned helmets, no chibi or stylized proportions. An older veteran Ottoman frontier sergeant (cavus) wearing a worn leather vest over a coarse wool kaftan, tall felt cap, iron belt buckle, mace hanging at his belt, stern weathered face.",
+   "prompt_ozeti": "494adfff065a090b",
    "poly_hedef": 8000,
    "boy_m": 1.78,
    "olcu": "0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0",
@@ -78,21 +100,128 @@
     "gergin"
    ],
    "oncelik": "yuksek",
-   "durum": "planli",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
-   "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "",
-   "ek_dosyalar": [],
-   "sha256": "",
-   "kredi_tahmini": 38,
-   "kredi_harcanan": 0,
+   "meshy_task_id": "01a1df67-c9d2-7786-ab35-e2701ba6b6fc",
+   "meshy_gorevleri": {
+    "onizleme": "01a1df67-3223-74ab-85b9-9c41c48859f1",
+    "doku": "01a1df67-c9d2-7786-ab35-e2701ba6b6fc",
+    "iskelet": "01a1df68-5890-7136-89df-90ccd1a0435a",
+    "hareket:bekle": "01a1df68-ba02-7508-92dd-7ac335d00983",
+    "hareket:konus": "01a1df69-0b7e-72a6-8a13-a3b9f7c74ef8",
+    "hareket:sevinc": "01a1df69-5a4d-752e-89f6-8d2c9ae1ec0a",
+    "hareket:ofke": "01a1df69-cb51-75b7-a599-4dd11349c558",
+    "hareket:panik": "01a1df6a-5e0c-7452-80a6-ebd1984ca6a8",
+    "hareket:gergin": "01a1df6a-cefc-719a-8df9-768aa52d890c"
+   },
+   "dosya": "assets/model/karakter/cavus_yuru.glb",
+   "ek_dosyalar": [
+    "assets/model/karakter/cavus.glb",
+    "assets/model/karakter/cavus_bekle.glb",
+    "assets/model/karakter/cavus_gergin.glb",
+    "assets/model/karakter/cavus_iskelet.glb",
+    "assets/model/karakter/cavus_konus.glb",
+    "assets/model/karakter/cavus_kos.glb",
+    "assets/model/karakter/cavus_ofke.glb",
+    "assets/model/karakter/cavus_panik.glb",
+    "assets/model/karakter/cavus_sevinc.glb"
+   ],
+   "sha256": "ee75c565cf3c75320e551ea9f83de7adb69f8e452fa68f3a66f4a7fc55d7fa6c",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 38,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
    "notlar": [],
-   "hedef_dosya": "assets/model/karakter/cavus_yuru.glb"
+   "hedef_dosya": "assets/model/karakter/cavus_yuru.glb",
+   "uretim_gunlugu": [
+    "2026-11-15T13:30:44Z gönderiliyor: onizleme",
+    "2026-11-15T13:30:48Z görev açıldı: onizleme=01a1df67-3223-74ab-85b9-9c41c48859f1",
+    "2026-11-15T13:31:23Z gönderiliyor: doku",
+    "2026-11-15T13:31:24Z görev açıldı: doku=01a1df67-c9d2-7786-ab35-e2701ba6b6fc",
+    "2026-11-15T13:32:00Z gönderiliyor: iskelet",
+    "2026-11-15T13:32:03Z görev açıldı: iskelet=01a1df68-5890-7136-89df-90ccd1a0435a",
+    "2026-11-15T13:32:24Z gönderiliyor: hareket:bekle",
+    "2026-11-15T13:32:25Z görev açıldı: hareket:bekle=01a1df68-ba02-7508-92dd-7ac335d00983",
+    "2026-11-15T13:32:45Z gönderiliyor: hareket:konus",
+    "2026-11-15T13:32:46Z görev açıldı: hareket:konus=01a1df69-0b7e-72a6-8a13-a3b9f7c74ef8",
+    "2026-11-15T13:33:05Z gönderiliyor: hareket:sevinc",
+    "2026-11-15T13:33:06Z görev açıldı: hareket:sevinc=01a1df69-5a4d-752e-89f6-8d2c9ae1ec0a",
+    "2026-11-15T13:33:34Z gönderiliyor: hareket:ofke",
+    "2026-11-15T13:33:35Z görev açıldı: hareket:ofke=01a1df69-cb51-75b7-a599-4dd11349c558",
+    "2026-11-15T13:34:12Z gönderiliyor: hareket:panik",
+    "2026-11-15T13:34:13Z görev açıldı: hareket:panik=01a1df6a-5e0c-7452-80a6-ebd1984ca6a8",
+    "2026-11-15T13:34:41Z gönderiliyor: hareket:gergin",
+    "2026-11-15T13:34:42Z görev açıldı: hareket:gergin=01a1df6a-cefc-719a-8df9-768aa52d890c",
+    "2026-11-15T13:35:01Z üretildi: assets/model/karakter/cavus_yuru.glb",
+    "2026-11-15T13:47:47Z onaylandi: dogrula+godot_dogrula tamam, 8441 tris, 1.78m"
+   ],
+   "_sayilan_gorev": [
+    "01a1df67-3223-74ab-85b9-9c41c48859f1",
+    "01a1df67-c9d2-7786-ab35-e2701ba6b6fc",
+    "01a1df68-5890-7136-89df-90ccd1a0435a",
+    "01a1df68-ba02-7508-92dd-7ac335d00983",
+    "01a1df69-0b7e-72a6-8a13-a3b9f7c74ef8",
+    "01a1df69-5a4d-752e-89f6-8d2c9ae1ec0a",
+    "01a1df69-cb51-75b7-a599-4dd11349c558",
+    "01a1df6a-5e0c-7452-80a6-ebd1984ca6a8",
+    "01a1df6a-cefc-719a-8df9-768aa52d890c"
+   ],
+   "dogrulama": {
+    "zaman": "2026-11-15T13:43:11Z",
+    "bilgi": {
+     "dosya": "C:\\Users\\Ahmet\\Desktop\\Cursor_All_DAta\\Kapı_Muhafizi\\assets/model/karakter/cavus_yuru.glb",
+     "bayt": 7782684,
+     "gecerli": true,
+     "ucgen": 8441,
+     "mesh": 1,
+     "boyut_m": [
+      1.659,
+      1.78,
+      0.406
+     ],
+     "taban_y": 0.0,
+     "iskelet": 1,
+     "kemik": 24,
+     "animasyon": [
+      "Armature|walking_man|baselayer"
+     ],
+     "malzeme": 1,
+     "doku": 3,
+     "uretici": "Khronos glTF Blender I/O v4.5.51"
+    },
+    "gozlem": [
+     [
+      "ucgen",
+      "tamam",
+      "8441 üçgen, hedef 8000 (oran 1.06)"
+     ],
+     [
+      "boy",
+      "tamam",
+      "yükseklik 1.78 m, hedef 1.78 m (sapma %0)"
+     ],
+     [
+      "taban",
+      "tamam",
+      "en alt nokta y=0.000 (pivot ayak tabanında olmalı)"
+     ],
+     [
+      "iskelet",
+      "tamam",
+      "1 deri, 24 kemik"
+     ],
+     [
+      "doku",
+      "tamam",
+      "3 gömülü görsel"
+     ]
+    ]
+   },
+   "hesap_plani_uretimde": "ucretli",
+   "sha256_simdi": "ee75c565cf3c75320e551ea9f83de7adb69f8e452fa68f3a66f4a7fc55d7fa6c",
+   "onay_notu": "dogrula+godot_dogrula tamam, 8441 tris, 1.78m"
   },
   {
    "asset_id": "cocuk",
@@ -124,21 +253,128 @@
     "gergin"
    ],
    "oncelik": "yuksek",
-   "durum": "planli",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
-   "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "",
-   "ek_dosyalar": [],
-   "sha256": "",
-   "kredi_tahmini": 38,
-   "kredi_harcanan": 0,
+   "meshy_task_id": "01a1df6b-8ff1-7113-9dea-a5365344cb6c",
+   "meshy_gorevleri": {
+    "onizleme": "01a1df6b-1cbc-7414-ac50-f73bea234cf6",
+    "doku": "01a1df6b-8ff1-7113-9dea-a5365344cb6c",
+    "iskelet": "01a1df6b-fcd3-748a-8397-ef9aad996a26",
+    "hareket:bekle": "01a1df6c-5b95-72d4-b490-cc6e1ea05819",
+    "hareket:konus": "01a1df6c-a7b8-72db-a2f6-2c5fc232050c",
+    "hareket:sevinc": "01a1df6c-f47f-727c-9081-c6dd6dd9a3f3",
+    "hareket:ofke": "01a1df6d-6253-70c2-82aa-f09fffb01936",
+    "hareket:panik": "01a1df6e-1340-726b-b31d-21eba120ccf8",
+    "hareket:gergin": "01a1df6e-5f33-7743-8553-bc7777f4db40"
+   },
+   "dosya": "assets/model/karakter/cocuk_yuru.glb",
+   "ek_dosyalar": [
+    "assets/model/karakter/cocuk.glb",
+    "assets/model/karakter/cocuk_bekle.glb",
+    "assets/model/karakter/cocuk_gergin.glb",
+    "assets/model/karakter/cocuk_iskelet.glb",
+    "assets/model/karakter/cocuk_konus.glb",
+    "assets/model/karakter/cocuk_kos.glb",
+    "assets/model/karakter/cocuk_ofke.glb",
+    "assets/model/karakter/cocuk_panik.glb",
+    "assets/model/karakter/cocuk_sevinc.glb"
+   ],
+   "sha256": "b99a0ba944fd8278ed137738a1323d20b7b33dbd52a0fc7bbdb0ff5769e87f40",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 38,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
    "notlar": [],
-   "hedef_dosya": "assets/model/karakter/cocuk_yuru.glb"
+   "hedef_dosya": "assets/model/karakter/cocuk_yuru.glb",
+   "uretim_gunlugu": [
+    "2026-11-15T13:35:01Z gönderiliyor: onizleme",
+    "2026-11-15T13:35:04Z görev açıldı: onizleme=01a1df6b-1cbc-7414-ac50-f73bea234cf6",
+    "2026-11-15T13:35:30Z gönderiliyor: doku",
+    "2026-11-15T13:35:31Z görev açıldı: doku=01a1df6b-8ff1-7113-9dea-a5365344cb6c",
+    "2026-11-15T13:35:58Z gönderiliyor: iskelet",
+    "2026-11-15T13:36:02Z görev açıldı: iskelet=01a1df6b-fcd3-748a-8397-ef9aad996a26",
+    "2026-11-15T13:36:22Z gönderiliyor: hareket:bekle",
+    "2026-11-15T13:36:23Z görev açıldı: hareket:bekle=01a1df6c-5b95-72d4-b490-cc6e1ea05819",
+    "2026-11-15T13:36:42Z gönderiliyor: hareket:konus",
+    "2026-11-15T13:36:43Z görev açıldı: hareket:konus=01a1df6c-a7b8-72db-a2f6-2c5fc232050c",
+    "2026-11-15T13:37:02Z gönderiliyor: hareket:sevinc",
+    "2026-11-15T13:37:02Z görev açıldı: hareket:sevinc=01a1df6c-f47f-727c-9081-c6dd6dd9a3f3",
+    "2026-11-15T13:37:30Z gönderiliyor: hareket:ofke",
+    "2026-11-15T13:37:31Z görev açıldı: hareket:ofke=01a1df6d-6253-70c2-82aa-f09fffb01936",
+    "2026-11-15T13:38:15Z gönderiliyor: hareket:panik",
+    "2026-11-15T13:38:16Z görev açıldı: hareket:panik=01a1df6e-1340-726b-b31d-21eba120ccf8",
+    "2026-11-15T13:38:34Z gönderiliyor: hareket:gergin",
+    "2026-11-15T13:38:35Z görev açıldı: hareket:gergin=01a1df6e-5f33-7743-8553-bc7777f4db40",
+    "2026-11-15T13:38:54Z üretildi: assets/model/karakter/cocuk_yuru.glb",
+    "2026-11-15T13:47:48Z onaylandi: dogrula+godot_dogrula tamam, 5174 tris, 1.10m"
+   ],
+   "_sayilan_gorev": [
+    "01a1df6b-1cbc-7414-ac50-f73bea234cf6",
+    "01a1df6b-8ff1-7113-9dea-a5365344cb6c",
+    "01a1df6b-fcd3-748a-8397-ef9aad996a26",
+    "01a1df6c-5b95-72d4-b490-cc6e1ea05819",
+    "01a1df6c-a7b8-72db-a2f6-2c5fc232050c",
+    "01a1df6c-f47f-727c-9081-c6dd6dd9a3f3",
+    "01a1df6d-6253-70c2-82aa-f09fffb01936",
+    "01a1df6e-1340-726b-b31d-21eba120ccf8",
+    "01a1df6e-5f33-7743-8553-bc7777f4db40"
+   ],
+   "dogrulama": {
+    "zaman": "2026-11-15T13:43:11Z",
+    "bilgi": {
+     "dosya": "C:\\Users\\Ahmet\\Desktop\\Cursor_All_DAta\\Kapı_Muhafizi\\assets/model/karakter/cocuk_yuru.glb",
+     "bayt": 7205672,
+     "gecerli": true,
+     "ucgen": 5174,
+     "mesh": 1,
+     "boyut_m": [
+      1.03,
+      1.1,
+      0.247
+     ],
+     "taban_y": 0.0,
+     "iskelet": 1,
+     "kemik": 24,
+     "animasyon": [
+      "Armature|walking_man|baselayer"
+     ],
+     "malzeme": 1,
+     "doku": 3,
+     "uretici": "Khronos glTF Blender I/O v4.5.51"
+    },
+    "gozlem": [
+     [
+      "ucgen",
+      "tamam",
+      "5174 üçgen, hedef 5000 (oran 1.03)"
+     ],
+     [
+      "boy",
+      "tamam",
+      "yükseklik 1.10 m, hedef 1.10 m (sapma %0)"
+     ],
+     [
+      "taban",
+      "tamam",
+      "en alt nokta y=0.000 (pivot ayak tabanında olmalı)"
+     ],
+     [
+      "iskelet",
+      "tamam",
+      "1 deri, 24 kemik"
+     ],
+     [
+      "doku",
+      "tamam",
+      "3 gömülü görsel"
+     ]
+    ]
+   },
+   "hesap_plani_uretimde": "ucretli",
+   "sha256_simdi": "b99a0ba944fd8278ed137738a1323d20b7b33dbd52a0fc7bbdb0ff5769e87f40",
+   "onay_notu": "dogrula+godot_dogrula tamam, 5174 tris, 1.10m"
   },
   {
    "asset_id": "dervis",
@@ -168,21 +404,128 @@
     "gergin"
    ],
    "oncelik": "yuksek",
-   "durum": "planli",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
-   "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "",
-   "ek_dosyalar": [],
-   "sha256": "",
-   "kredi_tahmini": 38,
-   "kredi_harcanan": 0,
+   "meshy_task_id": "01a1df6f-41a3-708e-bdee-ce1e544a280c",
+   "meshy_gorevleri": {
+    "onizleme": "01a1df6e-ada4-77bf-b59e-3da8e1066fef",
+    "doku": "01a1df6f-41a3-708e-bdee-ce1e544a280c",
+    "iskelet": "01a1df6f-b0bb-7603-a31f-7b47f2a69a00",
+    "hareket:bekle": "01a1df70-10df-7021-9c39-0eb45de32bba",
+    "hareket:konus": "01a1df70-5d69-71df-8eb8-94f36b1a1751",
+    "hareket:sevinc": "01a1df70-b0e1-7053-94f5-577cd5c99680",
+    "hareket:ofke": "01a1df71-1f23-719d-a476-062bff969691",
+    "hareket:panik": "01a1df71-d01f-7424-bd10-67fce5ad7599",
+    "hareket:gergin": "01a1df72-1d50-7764-86a2-86404c23f6b9"
+   },
+   "dosya": "assets/model/karakter/dervis_yuru.glb",
+   "ek_dosyalar": [
+    "assets/model/karakter/dervis.glb",
+    "assets/model/karakter/dervis_bekle.glb",
+    "assets/model/karakter/dervis_gergin.glb",
+    "assets/model/karakter/dervis_iskelet.glb",
+    "assets/model/karakter/dervis_konus.glb",
+    "assets/model/karakter/dervis_kos.glb",
+    "assets/model/karakter/dervis_ofke.glb",
+    "assets/model/karakter/dervis_panik.glb",
+    "assets/model/karakter/dervis_sevinc.glb"
+   ],
+   "sha256": "93f465ace425b9a4411c1f5df0af9398dd4334058105fd38f3090744421fc3b7",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 38,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
    "notlar": [],
-   "hedef_dosya": "assets/model/karakter/dervis_yuru.glb"
+   "hedef_dosya": "assets/model/karakter/dervis_yuru.glb",
+   "uretim_gunlugu": [
+    "2026-11-15T13:38:55Z gönderiliyor: onizleme",
+    "2026-11-15T13:38:58Z görev açıldı: onizleme=01a1df6e-ada4-77bf-b59e-3da8e1066fef",
+    "2026-11-15T13:39:32Z gönderiliyor: doku",
+    "2026-11-15T13:39:33Z görev açıldı: doku=01a1df6f-41a3-708e-bdee-ce1e544a280c",
+    "2026-11-15T13:40:01Z gönderiliyor: iskelet",
+    "2026-11-15T13:40:04Z görev açıldı: iskelet=01a1df6f-b0bb-7603-a31f-7b47f2a69a00",
+    "2026-11-15T13:40:25Z gönderiliyor: hareket:bekle",
+    "2026-11-15T13:40:26Z görev açıldı: hareket:bekle=01a1df70-10df-7021-9c39-0eb45de32bba",
+    "2026-11-15T13:40:45Z gönderiliyor: hareket:konus",
+    "2026-11-15T13:40:46Z görev açıldı: hareket:konus=01a1df70-5d69-71df-8eb8-94f36b1a1751",
+    "2026-11-15T13:41:06Z gönderiliyor: hareket:sevinc",
+    "2026-11-15T13:41:07Z görev açıldı: hareket:sevinc=01a1df70-b0e1-7053-94f5-577cd5c99680",
+    "2026-11-15T13:41:35Z gönderiliyor: hareket:ofke",
+    "2026-11-15T13:41:35Z görev açıldı: hareket:ofke=01a1df71-1f23-719d-a476-062bff969691",
+    "2026-11-15T13:42:20Z gönderiliyor: hareket:panik",
+    "2026-11-15T13:42:21Z görev açıldı: hareket:panik=01a1df71-d01f-7424-bd10-67fce5ad7599",
+    "2026-11-15T13:42:40Z gönderiliyor: hareket:gergin",
+    "2026-11-15T13:42:41Z görev açıldı: hareket:gergin=01a1df72-1d50-7764-86a2-86404c23f6b9",
+    "2026-11-15T13:43:00Z üretildi: assets/model/karakter/dervis_yuru.glb",
+    "2026-11-15T13:47:48Z onaylandi: dogrula+godot_dogrula tamam, 8453 tris, 1.74m"
+   ],
+   "_sayilan_gorev": [
+    "01a1df6e-ada4-77bf-b59e-3da8e1066fef",
+    "01a1df6f-41a3-708e-bdee-ce1e544a280c",
+    "01a1df6f-b0bb-7603-a31f-7b47f2a69a00",
+    "01a1df70-10df-7021-9c39-0eb45de32bba",
+    "01a1df70-5d69-71df-8eb8-94f36b1a1751",
+    "01a1df70-b0e1-7053-94f5-577cd5c99680",
+    "01a1df71-1f23-719d-a476-062bff969691",
+    "01a1df71-d01f-7424-bd10-67fce5ad7599",
+    "01a1df72-1d50-7764-86a2-86404c23f6b9"
+   ],
+   "dogrulama": {
+    "zaman": "2026-11-15T13:43:11Z",
+    "bilgi": {
+     "dosya": "C:\\Users\\Ahmet\\Desktop\\Cursor_All_DAta\\Kapı_Muhafizi\\assets/model/karakter/dervis_yuru.glb",
+     "bayt": 8193972,
+     "gecerli": true,
+     "ucgen": 8453,
+     "mesh": 1,
+     "boyut_m": [
+      1.614,
+      1.74,
+      0.422
+     ],
+     "taban_y": 0.0,
+     "iskelet": 1,
+     "kemik": 24,
+     "animasyon": [
+      "Armature|walking_man|baselayer"
+     ],
+     "malzeme": 1,
+     "doku": 3,
+     "uretici": "Khronos glTF Blender I/O v4.5.51"
+    },
+    "gozlem": [
+     [
+      "ucgen",
+      "tamam",
+      "8453 üçgen, hedef 8000 (oran 1.06)"
+     ],
+     [
+      "boy",
+      "tamam",
+      "yükseklik 1.74 m, hedef 1.74 m (sapma %0)"
+     ],
+     [
+      "taban",
+      "tamam",
+      "en alt nokta y=0.000 (pivot ayak tabanında olmalı)"
+     ],
+     [
+      "iskelet",
+      "tamam",
+      "1 deri, 24 kemik"
+     ],
+     [
+      "doku",
+      "tamam",
+      "3 gömülü görsel"
+     ]
+    ]
+   },
+   "hesap_plani_uretimde": "ucretli",
+   "sha256_simdi": "93f465ace425b9a4411c1f5df0af9398dd4334058105fd38f3090744421fc3b7",
+   "onay_notu": "dogrula+godot_dogrula tamam, 8453 tris, 1.74m"
   },
   {
    "asset_id": "haberci",
@@ -485,8 +828,7 @@
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
    "notlar": [
-    "hedef dosya diskte bulundu; üretilmez",
-    "Plan istemi değişti; üretimde kullanılan istem korundu."
+    "hedef dosya diskte bulundu; üretilmez"
    ],
    "hedef_dosya": "assets/model/yapi/kapi_ic.glb",
    "dogrulama": {
@@ -533,6 +875,7 @@
      ]
     ]
    },
+   "onay_notu": "Acik merkez gecitli ahsap hisar kapi ic yuzu; 8897 ucgen, 3 PBR doku",
    "red_nedeni": "Orta kapı açıklığı kapalı/tıkalı (kamerayı ve gelen ziyaretçiyi kapatıyor) ve doku tekdüze gri",
    "uretim_gunlugu": [
     "2026-11-15T12:38:55Z gönderiliyor: onizleme",
@@ -556,7 +899,6 @@
     "01a1df3f-bdb0-76c5-804c-8cd1876a8fbd",
     "01a1df40-5255-703a-826b-c20782586fe4"
    ],
-   "sha256_simdi": "4c22e7324eb31b54cc2f4578234cfa8044cf364eec8773287455a89abb8c75a8",
    "onceki_uretimler": [
     {
      "durum": "reddedildi",
@@ -569,7 +911,7 @@
      "meshy_task_id": "01a1df38-55c9-74a6-b36d-31457d53df6b"
     }
    ],
-   "onay_notu": "Acik merkez gecitli ahsap hisar kapi ic yuzu; 8897 ucgen, 3 PBR doku"
+   "sha256_simdi": "4c22e7324eb31b54cc2f4578234cfa8044cf364eec8773287455a89abb8c75a8"
   },
   {
    "asset_id": "tas_yatagi",
@@ -655,6 +997,7 @@
      ]
     ]
    },
+   "onay_notu": "Dokulu koyu gri-kahve Anadolu tas ocagi/yatagi; 3152 ucgen, 3 PBR doku",
    "uretim_gunlugu": [
     "2026-11-15T12:40:27Z gönderiliyor: onizleme",
     "2026-11-15T12:40:31Z görev açıldı: onizleme=01a1df39-26fa-750f-8588-f71c714bee3c",
@@ -668,8 +1011,7 @@
     "01a1df39-26fa-750f-8588-f71c714bee3c",
     "01a1df39-7efd-7737-8d8f-2cf446fa322e"
    ],
-   "sha256_simdi": "8a92120ea54ce55a47b33cf3774ab8201d8a357118efaa40246ed5ef65ec796a",
-   "onay_notu": "Dokulu koyu gri-kahve Anadolu tas ocagi/yatagi; 3152 ucgen, 3 PBR doku"
+   "sha256_simdi": "8a92120ea54ce55a47b33cf3774ab8201d8a357118efaa40246ed5ef65ec796a"
   },
   {
    "asset_id": "zar",
@@ -2252,8 +2594,8 @@
    "plan_kimlikleri": [
     "DYL09-DENETCI"
    ],
-   "prompt": "Late medieval 14th century Anatolian frontier game asset, Ottoman border, worn and dusty physical materials, grounded historical realistic style, serious tone, single connected object. No text, no letters, no modern elements. A detailed bipedal human character, normal human anatomy, standing in T-pose, arms extended horizontally, feet apart, facing forward. Period clothing of 14th-century Ottoman Anatolian frontier. No armour plates, no horned helmets, no chibi or stylized proportions. A Seljuk bey's inspector official: fine dark kaftan, white turban, a ledger and a reed pen case at the belt, stern upright posture.",
-   "prompt_ozeti": "a45efa4ab1782f2f",
+   "prompt": "Late medieval 14th century Anatolian frontier game asset, Ottoman border, worn and dusty physical materials, grounded historical realistic style, serious tone, single connected object. No text, no letters, no modern elements. A detailed bipedal human character, normal human anatomy, standing in T-pose, arms extended horizontally, feet apart, facing forward. Period clothing of 14th-century Ottoman Anatolian frontier. No armour plates, no horned helmets, no chibi or stylized proportions. A 14th-century Ottoman frontier bey's inspector official: fine dark kaftan, white turban, a reed pen case at the belt, stern upright posture.",
+   "prompt_ozeti": "ed5fe4a3d2e6222e",
    "poly_hedef": 8000,
    "boy_m": 1.74,
    "olcu": "0,55 × 1,75 × 0,40 m",
@@ -2567,8 +2909,8 @@
    "plan_kimlikleri": [
     "ACL01-MUHAFIZ"
    ],
-   "prompt": "Late medieval 14th century Anatolian frontier game asset, Ottoman border, worn and dusty physical materials, grounded historical realistic style, serious tone, single connected object. No text, no letters, no modern elements. A detailed bipedal human character, normal human anatomy, standing in T-pose, arms extended horizontally, feet apart, facing forward. Period clothing of 14th-century Ottoman Anatolian frontier. No armour plates, no horned helmets, no chibi or stylized proportions. A 13th-century Anatolian frontier gate guard: weathered calm face, short beard, felt cap, quilted padded kaftan with a sash, leather belt with a short sword, leg wraps and boots.",
-   "prompt_ozeti": "ac2522483a6a424e",
+   "prompt": "Late medieval 14th century Anatolian frontier game asset, Ottoman border, worn and dusty physical materials, grounded historical realistic style, serious tone, single connected object. No text, no letters, no modern elements. A detailed bipedal human character, normal human anatomy, standing in T-pose, arms extended horizontally, feet apart, facing forward. Period clothing of 14th-century Ottoman Anatolian frontier. No armour plates, no horned helmets, no chibi or stylized proportions. A 14th-century Ottoman Anatolian frontier gate guard: weathered calm face, short beard, felt cap, quilted padded kaftan with a sash, leather belt with a short sword, leg wraps and boots.",
+   "prompt_ozeti": "932ea15e787ebf94",
    "poly_hedef": 8000,
    "boy_m": 1.76,
    "olcu": "0,55 × 1,75 × 0,40 m",
@@ -2610,8 +2952,8 @@
    "plan_kimlikleri": [
     "ACL01-ES"
    ],
-   "prompt": "Late medieval 14th century Anatolian frontier game asset, Ottoman border, worn and dusty physical materials, grounded historical realistic style, serious tone, single connected object. No text, no letters, no modern elements. A detailed bipedal human character, normal human anatomy, standing in T-pose, arms extended horizontally, feet apart, facing forward. Period clothing of 14th-century Ottoman Anatolian frontier. No armour plates, no horned helmets, no chibi or stylized proportions. A 13th-century Anatolian village woman, the guard's wife: calm tired face, long dress, apron, large headscarf tied under the chin, simple leather shoes.",
-   "prompt_ozeti": "9b3e8837b5f46856",
+   "prompt": "Late medieval 14th century Anatolian frontier game asset, Ottoman border, worn and dusty physical materials, grounded historical realistic style, serious tone, single connected object. No text, no letters, no modern elements. A detailed bipedal human character, normal human anatomy, standing in T-pose, arms extended horizontally, feet apart, facing forward. Period clothing of 14th-century Ottoman Anatolian frontier. No armour plates, no horned helmets, no chibi or stylized proportions. A 14th-century Ottoman Anatolian village woman, the guard's wife: calm tired face, long dress, apron, large headscarf tied under the chin, simple leather shoes.",
+   "prompt_ozeti": "e0a0c340b921d2a0",
    "poly_hedef": 8000,
    "boy_m": 1.62,
    "olcu": "0,55 × 1,75 × 0,40 m",
@@ -2923,8 +3265,8 @@
    "plan_kimlikleri": [
     "YAP03-USTALAR"
    ],
-   "prompt": "Late medieval 14th century Anatolian frontier game asset, Ottoman border, worn and dusty physical materials, grounded historical realistic style, serious tone, single connected object. No text, no letters, no modern elements. A detailed bipedal human character, normal human anatomy, standing in T-pose, arms extended horizontally, feet apart, facing forward. Period clothing of 14th-century Ottoman Anatolian frontier. No armour plates, no horned helmets, no chibi or stylized proportions. A Seljuk master craftsman arriving at the gate: leather apron over a kaftan, rolled sleeves, felt cap, a tool roll under one arm.",
-   "prompt_ozeti": "16a3e378223cdbb6",
+   "prompt": "Late medieval 14th century Anatolian frontier game asset, Ottoman border, worn and dusty physical materials, grounded historical realistic style, serious tone, single connected object. No text, no letters, no modern elements. A detailed bipedal human character, normal human anatomy, standing in T-pose, arms extended horizontally, feet apart, facing forward. Period clothing of 14th-century Ottoman Anatolian frontier. No armour plates, no horned helmets, no chibi or stylized proportions. A 14th-century Ottoman Anatolian master craftsman arriving at the gate: leather apron over a kaftan, rolled sleeves, felt cap, leather tool pouch at the belt.",
+   "prompt_ozeti": "ab2854a9e47eb095",
    "poly_hedef": 8000,
    "boy_m": 1.74,
    "olcu": "0,55 × 1,75 × 0,40 m",
@@ -4715,7 +5057,7 @@
    "poly_hedef": 1000,
    "boy_m": null,
    "olcu": "",
-   "doku": true,
+   "doku": false,
    "iskelet": false,
    "hareketler": [],
    "oncelik": "orta",
@@ -4727,7 +5069,7 @@
    "dosya": "",
    "ek_dosyalar": [],
    "sha256": "",
-   "kredi_tahmini": 15,
+   "kredi_tahmini": 5,
    "kredi_harcanan": 0,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
@@ -4857,7 +5199,7 @@
    "poly_hedef": 2000,
    "boy_m": null,
    "olcu": "1,50 × 1,60 × 0,60 m",
-   "doku": true,
+   "doku": false,
    "iskelet": false,
    "hareketler": [],
    "oncelik": "orta",
@@ -4869,7 +5211,7 @@
    "dosya": "",
    "ek_dosyalar": [],
    "sha256": "",
-   "kredi_tahmini": 15,
+   "kredi_tahmini": 5,
    "kredi_harcanan": 0,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
@@ -5427,7 +5769,7 @@
    "poly_hedef": 800,
    "boy_m": null,
    "olcu": "",
-   "doku": true,
+   "doku": false,
    "iskelet": false,
    "hareketler": [],
    "oncelik": "orta",
@@ -5439,7 +5781,7 @@
    "dosya": "",
    "ek_dosyalar": [],
    "sha256": "",
-   "kredi_tahmini": 15,
+   "kredi_tahmini": 5,
    "kredi_harcanan": 0,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
@@ -5714,7 +6056,7 @@
    "poly_hedef": 500,
    "boy_m": null,
    "olcu": "",
-   "doku": true,
+   "doku": false,
    "iskelet": false,
    "hareketler": [],
    "oncelik": "orta",
@@ -5726,7 +6068,7 @@
    "dosya": "",
    "ek_dosyalar": [],
    "sha256": "",
-   "kredi_tahmini": 15,
+   "kredi_tahmini": 5,
    "kredi_harcanan": 0,
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
@@ -19121,6 +19463,285 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:bey",
+   "ad": "bey",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/bey.glb",
+   "ek_dosyalar": [],
+   "sha256": "54ddc251232aff46f7b5885a8d696b04ebbc2ad13d65b15af7968546f6171a73",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:bey_bekle",
+   "ad": "bey_bekle",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/bey_bekle.glb",
+   "ek_dosyalar": [],
+   "sha256": "2145e5cea9b1efb5f32e742a3a25ae8fb08f9ff0cc00fce1e8151c8519b1cfbb",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:bey_iskelet",
+   "ad": "bey_iskelet",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/bey_iskelet.glb",
+   "ek_dosyalar": [],
+   "sha256": "13b83b3847a70d37cd2056f6cba727a3a2f8dea9f2e2ac10bae672596fa1b803",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:bey_konus",
+   "ad": "bey_konus",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/bey_konus.glb",
+   "ek_dosyalar": [],
+   "sha256": "9d81279f7a503ccd5a80c4be753161edd80e9603a5a5ac24a93b475e646ea9cf",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:bey_kos",
+   "ad": "bey_kos",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/bey_kos.glb",
+   "ek_dosyalar": [],
+   "sha256": "1d992ee70ef2b634b445e59fa69f762f61af80d3b62048e924b349af01d4af4e",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:bey_ofke",
+   "ad": "bey_ofke",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/bey_ofke.glb",
+   "ek_dosyalar": [],
+   "sha256": "01507087872403ffba43365e2883193e0a116912ad7b712af2f01f6204bfe5b5",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:bey_panik",
+   "ad": "bey_panik",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/bey_panik.glb",
+   "ek_dosyalar": [],
+   "sha256": "456018e3d75323072c15cdb71d81b65507e2cf7de6b6b42d27518cd2f24252a7",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:bey_sevinc",
+   "ad": "bey_sevinc",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/bey_sevinc.glb",
+   "ek_dosyalar": [],
+   "sha256": "6287345a1f50fb319bb162d3c35d04f5b37e8448a62a7404366952c206aeb828",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:bey_yuru",
+   "ad": "bey_yuru",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/bey_yuru.glb",
+   "ek_dosyalar": [],
+   "sha256": "8be52ee53b6177f4b79bb9787aa3ce732b8d8d5defabddded86e844de0eda8b8",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:kapi_ic",
    "ad": "kapi_ic",
    "tur": "harici",
@@ -19142,7 +19763,7 @@
    "meshy_gorevleri": {},
    "dosya": "assets/model/yapi/kapi_ic.glb",
    "ek_dosyalar": [],
-   "sha256": "7c4b52fa4fdb801e25b26328e873b07097ac1052a6aa77beeeb5cb4c68022a59",
+   "sha256": "4c22e7324eb31b54cc2f4578234cfa8044cf364eec8773287455a89abb8c75a8",
    "kredi_tahmini": 0,
    "kredi_harcanan": 0,
    "kaynak": "Meshy (eski hat, plan satırı yok)",
@@ -19681,5 +20302,31 @@
    "notlar": [],
    "hedef_dosya": "assets/model/nesne/tezgah_ortusu.glb"
   }
- ]
+ ],
+ "_kitaplik": {
+  "bekle": {
+   "id": 0,
+   "ad": "Idle"
+  },
+  "konus": {
+   "id": 313,
+   "ad": "Talk with Hands Open"
+  },
+  "sevinc": {
+   "id": 41,
+   "ad": "Formal Bow"
+  },
+  "ofke": {
+   "id": 311,
+   "ad": "Stand Talking Angry"
+  },
+  "panik": {
+   "id": 365,
+   "ad": "Kneel on One Knee and Stand"
+  },
+  "gergin": {
+   "id": 2,
+   "ad": "Alert"
+  }
+ }
 }

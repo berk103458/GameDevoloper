@@ -11,8 +11,12 @@ static func kur(reis: Node3D, g: Gelen) -> void:
 		var u: Dictionary = g.aile[i]
 		var boy := 1.15 if u.get("yas_grubu") == "cocuk" else (1.65 if u.get("yas_grubu") == "yasli" else 1.8)
 		var yer := Vector3((1.0 if i % 2 else -1.0) * ceilf(i / 2.0) * 0.75, 0.0, 0.6)
-		var model_adi := Dunya3B.karakter_adi(&"", String(u.get("portre", "")), StringName(u.get("sinif", "ciftci")))
-		if u.get("yas_grubu", "yetiskin") != "cocuk" and Dunya3B.model_var_mi(model_adi + "_yuru", "karakter"):
+		var yas := String(u.get("yas_grubu", "yetiskin"))
+		var model_adi := "cocuk" if yas == "cocuk" and Dunya3B.model_var_mi("cocuk_yuru", "karakter") else (
+			"yasli" if yas == "yasli" and Dunya3B.model_var_mi("yasli_yuru", "karakter") else
+			Dunya3B.karakter_adi(&"", String(u.get("portre", "")), StringName(u.get("sinif", "ciftci")))
+		)
+		if Dunya3B.model_var_mi(model_adi + "_yuru", "karakter"):
 			var model := Dunya3B.karakter(model_adi)
 			model.position = yer
 			grup.add_child(model)

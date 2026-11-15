@@ -641,7 +641,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 
 | ID / grup | Kısa tanım | Hedef ölçü (metre) |
 |---|---|---|
-| `KAPI-3D-IC` | Bekçi kadrajı. `KapiCercevesi` seviye 0 kütük kutuları; seviye 1+ `Pbr.model("large_castle_door")`. `kapi.glb` köyde, kapı sahnesinin iç yüzünde değil. | 4,0 × 4,0 × 0,35 m; kanat başına 2,0 m |
+| `KAPI-3D-IC` | [ÜRETİLDİ: `assets/model/yapi/kapi_ic.glb`] Bekçi kadrajı (`KapiCercevesi`). | 4,0 × 4,0 × 0,35 m; kanat başına 2,0 m |
 | `EL-TORBA` | chr_002; keten torba, linen sack. | 0,35 × 0,50 × 0,20 m |
 | `EL-SEPET` | chr_003; hasır sepet, wicker basket. | 0,45 × 0,40 × 0,35 m |
 | `EL-CEKIC` | chr_003; küçük çekiç, hand hammer. | 0,12 × 0,35 × 0,06 m |
@@ -656,13 +656,13 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `chr_001, 004, 005, 006, 007, 009, 010` | eksik klipler: panik, gergin. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `chr_002, 003, 008, 011–030` | eksik klipler: ofke, gergin. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf` | eksik klipler: altı duygu klibinin hepsi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
-| `KAR-CAVUS` | `miraen_cavus` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-CAVUS` | [ÜRETİLDİ: `assets/model/karakter/cavus_yuru.glb`] `miraen_cavus` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `KAR-TAHSILDAR` | `vergi_tahsildari` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `KAR-ELCI` | `tekfur_elcisi` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
-| `KAR-DERVIS` | `dervis` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-DERVIS` | [ÜRETİLDİ: `assets/model/karakter/dervis_yuru.glb`] `dervis` + `diyalog_21` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `KAR-HABERCI` | Ahi / Ertuğrul haberi | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
-| `KAR-BEY` | `bey_daveti` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
-| `KAR-COCUK` | Saruca, Sorhan, kalabalık | 0,40 × 1,15 × 0,30 m |
+| `KAR-BEY` | [ÜRETİLDİ: `assets/model/karakter/bey_yuru.glb`] `bey_daveti` | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `KAR-COCUK` | [ÜRETİLDİ: `assets/model/karakter/cocuk_yuru.glb`] Kapı refakatçileri (`aile_kapi_gorunumu.gd`), `diyalog_25`, köy çocukları (`HazirKarakterler`) | 0,40 × 1,15 × 0,30 m |
 | `KAR-TEKFUR-ASKER` | Uzak siluet. 2D `crowd_tekfur_spear_01_far.png` atıl. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `YAPI-tarla, bostan` | düzlem + kutu sap | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-hizarhane` | sundurma kutusu + `dead_tree_trunk_02` | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
@@ -732,7 +732,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `ODA08-KUTUPHANE` | Muhafız kütüphanesi; glTF. | 1,00 × 1,80 × 0,35 m |
 | `ODA03-ESYA` | Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri); glTF / set. | Mühür 0,05 × 0,06 × 0,05 m; iksir 0,06 × 0,15 × 0,06 m; hediye zarfı 0,30 m |
 | `KRI05-MEZAR` | Toplu mezar ve cenaze töreni mezar işareti; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |
-| `BUG21-TASYATAGI` | Kazılabilir başlangıç ve kurtarıcı taş yatağı modeli; glTF / 3B model. | 3,0 × 0,6 × 2,0 m; açık taş yatağı |
+| `BUG21-TASYATAGI` | [ÜRETİLDİ: `assets/model/yapi/tas_yatagi.glb`] Kazılabilir taş yatağı (`tas_yatagi_gorseli.gd`); glTF / 3B model. | 3,0 × 0,6 × 2,0 m; açık taş yatağı |
 | `BUG25-MESALE` | Kapı meşalesi gerçek modeli (gerekirse); glTF / 3B model. | 0,12 × 0,60 × 0,12 m; mevcut sokete uygun |
 | `BUG25-KUYU` | Köy kuyusu gerçek modeli (gerekirse); glTF / 3B model. | 1,20 × 1,20 × 1,20 m; taban y=0, mevcut kuyu yüksekliği korunur |
 | `ACL01-MUHAFIZ` | 13. yy Anadolu muhafız gövdesi; glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
@@ -848,13 +848,13 @@ ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik bura
 | SAH-EL-SEPET | SAH-16 | CHR-015 hasır sepet, gövde temasını azalt | 3B temas düzeltmesi | res://src/dunya/el_esyasi.gd (_sepet, mevcut sepet) | kulplu hasır sepet; handled wicker basket | düşük | Kalfa |
 | SAH-EL-KAZMA | SAH-16 | CHR-019 kazma, gövde temasını azalt | 3B temas düzeltmesi | res://assets/esya/kaykit_alet/pickaxe.gltf | tahta saplı kazma, tutuş; wooden-handled pickaxe, grip | düşük | Kalfa |
 | SAH-EL-KILE | SAH-16 | CHR-030 ahşap kile, gövde temasını azalt | 3B temas düzeltmesi | res://src/dunya/el_esyasi.gd (_kile, mevcut ölçek) | ahşap kile, tahıl ölçeği; wooden grain measure, scoop | düşük | Kalfa |
-| BUG21-TASYATAGI | BUG-21 | Kazılabilir başlangıç ve kurtarıcı taş yatağı modeli | glTF / 3B model | res://src/koy/gorsel/tas_yatagi_gorseli.gd (kur: düz gri BoxMesh öbeği) | taş yatağı kaya öbeği taş toplama; stone deposit rock pile gathering | yüksek | Codex |
+| BUG21-TASYATAGI | BUG-21 | Kazılabilir başlangıç ve kurtarıcı taş yatağı modeli | glTF / 3B model | Meshy ile üretildi: `assets/model/yapi/tas_yatagi.glb` (`res://src/koy/gorsel/tas_yatagi_gorseli.gd`) | taş yatağı kaya öbeği taş toplama; stone deposit rock pile gathering | yüksek | Codex |
 | BUG25-MESALE | BUG-25 | Kapı meşalesi gerçek modeli (gerekirse) | glTF / 3B model | res://assets/model/nesne/mesale.glb (duran modelin düzeltilmiş hali) | kapı meşalesi duvar; medieval gate wall torch | orta | Claude |
 | BUG25-KUYU | BUG-25 | Köy kuyusu gerçek modeli (gerekirse) | glTF / 3B model | res://assets/model/nesne/kuyu.glb (duran modelin düzeltilmiş hali) | taş köy kuyusu; medieval stone village well | orta | Claude |
 | ACL01-MUHAFIZ | ACL-01 | 13. yy Anadolu muhafız gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci modeli, mavi renk ve Muhafız etiketi; tek ayar data/acilis.json | Anadolu muhafız Selçuklu köylü; Anatolian medieval Seljuk guard villager | orta | Kalfa |
 | ACL01-ES | ACL-01 | Muhafızın eşi gövdesi | glTF / 3B model | res://src/koy/gorsel/acilis_hane_gorunumu.gd; mevcut ciftci_kadin modeli, toprak rengi ve Eş etiketi; tek ayar data/acilis.json | Anadolu köylü kadın Selçuklu eş; Anatolian medieval female villager spouse | orta | Kalfa |
 | ACL04-ARASAHNE | ACL-04 | Sancak Beyi ulağı ara sahne arka planı — prompt hazır, Ahmet üretecek | PNG 1920×1080 | res://src/arayuz/koy_hud/kapi_acilis_paneli.gd (ColorRect + kısa isim etiketi; ARY-04 entegrasyonu üretim sonu) | ulak berat ara sahne akşam; medieval courier cutscene dusk | yüksek | Claude |
-| KAP17-COCUK | KAP-17 | Çocuk köylü modeli | glTF / 3B model | KAP-17 uygulandı: kapıda `src/dunya/aile_kapi_gorunumu.gd` isimli kutu; köyde mevcut LOWPO çocuk (`HazirKarakterler`), aile etiketi `src/koy/gorsel/aile_yas_gorunumu.gd` | Anadolu köylü çocuk; medieval anatolian peasant child | yüksek | Claude |
+| KAP17-COCUK | KAP-17 | Çocuk köylü modeli | glTF / 3B model | Meshy ile üretildi: `assets/model/karakter/cocuk_yuru.glb` (`aile_kapi_gorunumu.gd`, `HazirKarakterler`, `aile_yas_gorunumu.gd`) | Anadolu köylü çocuk; medieval anatolian peasant child | yüksek | Claude |
 | KAP17-YASLI | KAP-17 | Yaşlı köylü modeli | glTF / 3B model | KAP-17 uygulandı: kapıda `src/dunya/aile_kapi_gorunumu.gd` isimli kutu; köyde duran yetişkinin %92 boyu + Yaşlı yer tutucu etiketi, `src/koy/gorsel/aile_yas_gorunumu.gd` | Anadolu yaşlı köylü; medieval anatolian elder peasant | yüksek | Claude |
 | ZAR01-ZAR | ZAR-01 | Görünür zar (d6, d12) — prompt hazır, Ahmet üretecek | PNG / SVG + 3B isteğe bağlı | planlı — madde kodlanınca: düz renk kutu + sayı | kemik zar d6 d12; medieval bone dice d6 d12 | yüksek | Claude |
 | CAT02-KAVGA | CAT-02 | Kapıda kavga canlandırması | glTF / iskelet animasyon klibi | yer tutucu sarsıntı + metin oyuna bağlandı (`src/kapi/kapi_kavgasi_paneli.gd`); gerçek animasyon hâlâ eksik | kapı itişme kavga; medieval gate scuffle brawl animation | orta | Claude |

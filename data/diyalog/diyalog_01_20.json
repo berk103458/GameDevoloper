@@ -1375,6 +1375,7 @@
   {
     "id": "diyalog_21",
     "sinif": "ciftci",
+    "portre": "dervis",
     "sahne": "Kapı eşiğine yamalı keçe abalı, yalınayak bir derviş yanaştı. Elindeki budaklı ardıç asayı taşa vurduğunda boynundaki iri taneli tespih şakırdıyor; yüzündeki rüzgâr yanığı gülümseme kapının ayazını kırar gibi.",
     "acilis": "Yolcuya kapı, taşa toprak sorulmaz muhafız... Yaylanın dumanını aştım; ardımda yanan obaların külü, göğsümde bir lokma zikirle geldim.",
     "sorular": [
@@ -1721,6 +1722,7 @@
   {
     "id": "diyalog_25",
     "sinif": "ciftci",
+    "portre": "cocuk",
     "sahne": "Kapının eşiğinde tir tir titreyen, boyu kargıya yetmez, yırtık keçe yelekli bir oğlan belirdi. Kolları hamur teknesi çizikleriyle dolu; yüzündeki un lekeleri gözyaşlarıyla çamur olmuş.",
     "acilis": "Muhafız emmi kurbanın olayım beni Erzincan'daki zalim fırıncıya geri gönderme! Üç gündür ormanda çakallar kovaladı; açlıktan çam kabuğu kemirdim!",
     "sorular": [

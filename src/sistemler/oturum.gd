@@ -716,7 +716,7 @@ func _figur_gelen() -> Gelen:
 	var g := Gelen.new()
 	g.ad_anahtari = ornek["ad_anahtari"]
 	g.sinif = sablon.sinif
-	g.portre = sablon.portreler[0]
+	g.portre = String(d.get("portre", sablon.portreler[0]))
 	g.giris_anahtari = String(d["sahne"])
 	g.acilis = String(d.get("acilis", ""))
 	_json_sorular(g, d["sorular"], -1)

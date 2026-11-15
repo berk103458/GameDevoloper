@@ -153,6 +153,8 @@ static func karakter_adi(adli_id: StringName, portre: String, sinif: StringName)
 		return String(adli_id)
 	if PORTRE_MODEL.has(portre):
 		return PORTRE_MODEL[portre]
+	if not portre.is_empty() and model_var_mi(portre + "_yuru", "karakter"):
+		return portre
 	return SINIF_MODEL.get(sinif, "ciftci")
 
 
