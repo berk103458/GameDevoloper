@@ -2278,7 +2278,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.5 Bağ
 
-- [ ] **SEV-05:** (Antigravity) Köylüler birbirine bağlanır. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **SEV-05:** (Antigravity-Berk) Köylüler birbirine bağlanır. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Bağ, UZM-07 kaydının dostluk ucudur. Düşman çifti aynı binada üretimi durduruyor; bu madde o kavgayı ikinci kez kurmaz. Dost çift aynı binada çalışırken verime dosyadaki küçük farkı ekler ve ateşte bir cümle duyulur. Fark koda gömülmez. Bağ `baglar` alanından gelir. Yeni ilişki ekranı yoktur. Taraflardan biri köyde değilse cümle ve verim farkı uygulanmaz. Düşman bağı ile dost bağ aynı çifte yazılamaz.
   - Kabul: Dost çift aynı binadayken verim, tablodaki fark kadar artar ve ateşte bir satır duyulur (`tests/unit/koy/sevilen_yuz_test.gd`). Düşman çiftte UZM-07 davranışı değişmez. Biri köyde değilken fark uygulanmaz. Ek şart: Bağ grup itibarına yazılmaz. Ek şart: Bağ kartta tek kelime olarak durur, sayı olarak durmaz. Ek şart: Aynı günde yeni bağ en çok bir çift için kurulur. Ek şart: Kayıtta bağ alanı yoksa çift bağsız açılır. Ek şart: Bağ kalp alanı, romans veya hediye isteği yazmaz.
   - Bağımlılık: YAZ-09, SEV-01. Boyut: S.
