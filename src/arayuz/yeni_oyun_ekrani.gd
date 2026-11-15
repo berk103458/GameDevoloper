@@ -11,6 +11,10 @@ var yuvalar: KayitYuvalari
 var _gecmis := ""
 var _yuva := 1
 var _onay := false
+var _sil_onay := 0
+var _kartlar: Dictionary = {}
+var _sil_dugmeleri: Dictionary = {}
+var _yuva_dugmeleri: Dictionary = {}
 var _tohum: LineEdit
 
 
@@ -109,28 +113,77 @@ func secilen_yuva() -> int:
 func yuva_sec(no: int) -> void:
 	_yuva = clampi(no, 1, KayitYuvalari.YUVA_SAYISI)
 	_onay = false
+	_sil_onay = 0
+	for k in _yuva_dugmeleri:
+		var dug := _yuva_dugmeleri[k] as Button
+		if dug != null:
+			dug.set_pressed_no_signal(int(k) == _yuva)
+
+
+func yuva_karti(no: int) -> KayitYuvaKarti:
+	return _kartlar.get(clampi(no, 1, KayitYuvalari.YUVA_SAYISI), null) as KayitYuvaKarti
+
+
+func yuvalari_yenile() -> void:
+	if yuvalar == null:
+		return
+	for n in [1, 2, 3]:
+		var kart := yuva_karti(n)
+		if kart != null:
+			kart.dosyadan_yukle(yuvalar.yuva_yolu(n))
+		var sil := _sil_dugmeleri.get(n, null) as Button
+		if sil != null and kart != null:
+			sil.visible = kart.durum_kodu != "bos" and kart.durum_kodu != "yeni_surum"
+			sil.text = "Silmeyi onayla" if _sil_onay == n else "Yuvayı sil"
 
 
 func _yuva_satiri(dikey: VBoxContainer) -> void:
 	var satir := HBoxContainer.new()
+	satir.add_theme_constant_override("separation", 12)
 	dikey.add_child(satir)
+	_kartlar.clear()
+	_sil_dugmeleri.clear()
+	_yuva_dugmeleri.clear()
 	for n in [1, 2, 3]:
+		var sutun := VBoxContainer.new()
+		sutun.custom_minimum_size = Vector2(280, 0)
+		satir.add_child(sutun)
 		var d := Button.new()
 		d.name = "YuvaDugmesi_%d" % n
 		d.text = tr("arayuz.ayarlar.yeni_oyun.yuva") % n
 		d.toggle_mode = true
 		d.button_pressed = n == _yuva
-		d.pressed.connect(func() -> void:
-			yuva_sec(n)
-			for c in satir.get_children():
-				if c is Button:
-					(c as Button).set_pressed_no_signal(c == d)
+		d.pressed.connect(func() -> void: yuva_sec(n))
+		sutun.add_child(d)
+		_yuva_dugmeleri[n] = d
+		var kart := KayitYuvaKarti.new(n)
+		sutun.add_child(kart)
+		_kartlar[n] = kart
+		var sil := Button.new()
+		sil.name = "SilYuvaDugmesi_%d" % n
+		sil.text = "Yuvayı sil"
+		sil.pressed.connect(func() -> void:
+			if kart.durum_kodu == "yeni_surum" or yuvalar == null:
+				return
+			if _sil_onay != n:
+				_sil_onay = n
+				yuvalari_yenile()
+				return
+			if yuvalar.yuva_sil(n, true):
+				_sil_onay = 0
+				_onay = false
+				yuvalari_yenile()
 		)
-		satir.add_child(d)
+		sutun.add_child(sil)
+		_sil_dugmeleri[n] = sil
+	yuvalari_yenile()
 
 
 func _baslat() -> void:
 	if _gecmis.is_empty():
+		return
+	var kart := yuva_karti(_yuva)
+	if kart != null and kart.durum_kodu == "yeni_surum":
 		return
 	var dolu := yuvalar.var_mi(_yuva)
 	if not baslat_olur(dolu, _onay):

@@ -70,6 +70,34 @@ func _ready() -> void:
 	ana_ornek._kayit_yaz()
 	var yuva2_veri := ana_ornek.kayit.oku()
 	_kontrol(int(yuva2_veri.get("yuva", 0)) == 2 and ana_yuva.var_mi(2), "AYR-32: kayıt dosyasına seçili yuva (2) yazılır")
+	var bf := FileAccess.open(ana_yuva.yuva_yolu(1), FileAccess.WRITE)
+	bf.store_string("{bozuk_json")
+	bf.close()
+	var jf := FileAccess.open(ana_yuva.yuva_yolu(3), FileAccess.WRITE)
+	jf.store_string(JSON.stringify({"surum": Oturum.KAYIT_SURUMU + 50, "gun": 12}))
+	jf.close()
+	var yeni_ekran := preload("res://src/arayuz/yeni_oyun_ekrani.gd").new()
+	yeni_ekran.ayarlar = a
+	yeni_ekran.yuvalar = ana_yuva
+	add_child(yeni_ekran)
+	await get_tree().process_frame
+	var k1 := yeni_ekran.yuva_karti(1)
+	var k2 := yeni_ekran.yuva_karti(2)
+	var k3 := yeni_ekran.yuva_karti(3)
+	_kontrol(k1 != null and k1.durum_kodu == "okunamadi" and k1.baslik_etiketi.text.contains("okunamadı"), "AYR-29: bozuk yuva kartı okunamadı yazar")
+	_kontrol(k2 != null and k2.acilabilir and int(k2.ozet.get("nufus", -1)) >= 0 and k2.detay_etiketi.text.contains("Saat:"), "AYR-29: dolu yuva kartı gerçek kayıttan okur")
+	_kontrol(k3 != null and k3.durum_kodu == "yeni_surum" and not k3.acilabilir and k3.baslik_etiketi.text.contains("yeni sürüm kaydı"), "AYR-33: ileri sürüm yuva kartı yeni sürüm kaydı yazar")
+	var sil3 := yeni_ekran.find_child("SilYuvaDugmesi_3", true, false) as Button
+	_kontrol(sil3 != null and not sil3.visible, "AYR-33: ileri sürüm yuvada silme düğmesi gizli/kapalıdır")
+	var sil2 := yeni_ekran.find_child("SilYuvaDugmesi_2", true, false) as Button
+	_kontrol(sil2 != null and sil2.visible, "AYR-32: normal yuvada silme düğmesi açıktır")
+	sil2.pressed.emit()
+	_kontrol(ana_yuva.var_mi(2), "AYR-32: ilk silme tıklamasında yuva silinmez (onay ister)")
+	sil2.pressed.emit()
+	_kontrol(not ana_yuva.var_mi(2) and k2.durum_kodu == "bos", "AYR-32: onaylı ikinci tıklamada yuva silinir ve kart güncellenir")
+	_kontrol(FileAccess.file_exists(ana_yuva.yuva_yolu(3)), "AYR-33: ileri sürüm kayıt dosyası korunur")
+	yeni_ekran.queue_free()
+	await get_tree().process_frame
 	ana_ornek.free()
 	_temizle()
 	print("AYARLAR KONTROL: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
