@@ -2,6 +2,7 @@
 extends Node
 
 const GRUPLAR := {
+	"GRV-46": ["res://src/arayuz/harman_oyunu.gd"],
 	"GRV-24": ["res://src/arayuz/hafiza_defteri_ekrani.gd"],
 	"GRV-17": [],
 	"GRV-09": [
@@ -19,6 +20,8 @@ func _ready() -> void:
 	var args := OS.get_cmdline_user_args()
 	var grup := args[0] if args.size() > 0 else ""
 	_kontrol(GRUPLAR.has(grup), "bilinen madde seçilmeli")
+	if grup in ["GRV-46", "GRV-47"]:
+		await _mini(grup)
 	if grup == "GRV-17":
 		await _odak()
 	if grup == "GRV-24":
@@ -44,7 +47,7 @@ func _ready() -> void:
 	for durum in ["normal", "hover", "pressed", "disabled"]:
 		_kontrol(tema.has_stylebox(durum, "Button"), "tema düğme durumu " + durum)
 	print("%s %s (%d hata)" % [grup, "GEÇTİ" if _hata == 0 else "KALDI", _hata])
-	get_tree().quit(0 if _hata == 0 else 1)
+	await Ses.cik(0 if _hata == 0 else 1)
 
 
 func _kaynaklar(kok: String) -> Dictionary:
@@ -110,3 +113,33 @@ func _kontrol(durum: bool, mesaj: String) -> void:
 	if not durum:
 		_hata += 1
 		push_error(mesaj)
+
+
+func _mini(grup: String) -> void:
+	var ayar := Ayarlar.new("user://grv_mini_kullanilmaz.cfg")
+	var oyun := OyunAyarlari.new()
+	var kok := Control.new()
+	kok.theme = Tema.olustur(ayar)
+	add_child(kok)
+	var m := MiniOyun.olustur(&"harman" if grup == "GRV-46" else &"okculuk", ayar, oyun)
+	_kontrol(m != null, "fabrika gercek mini oyunu kurar")
+	kok.add_child(m)
+	m.set_process(false)
+	_kontrol(m._alan != null and m._durum != null, "mini oyun kadraji bagli")
+	if m is HarmanOyunu:
+		m._t = m._vurus[0]
+		m.bas()
+		_kontrol(m.puan == 1 and m._vuruldu[0], "harman gercek isabet puan verir")
+		m._t = m._vurus[1] + oyun.harman_tolerans + 0.01
+		m._ilerle(0.01)
+		_kontrol(m.puan == 1 and m._vuruldu[1], "kacan vurus puan vermez")
+	else:
+		m._konum = Vector2.ZERO
+		m.bas()
+		_kontrol(m.puan == 2 and m._ok == 1, "okculuk merkez iki puan verir")
+		m._ilerle(1.0)
+		m._konum = Vector2(2, 2)
+		m.bas()
+		_kontrol(m.puan == 2 and m._ok == 2, "iska puan vermez")
+	await get_tree().process_frame
+	kok.free()

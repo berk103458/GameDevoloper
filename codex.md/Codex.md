@@ -1299,3 +1299,6 @@ Kodex kotası açıldı (tiny `codex exec` PONG, exit 0). 27 sahipsiz/yarım mad
 - Antigravity-Berk (0): yeni pay yok; iade edilen KLT-13/14/47'yi almasın
 
 21 GRV maddesinin ortak WIP commit'i `8c9acb91`. OGR-43'te Antigravity uygulaması ve bekleyen Cursor doğrulaması var. KAP/ACL `(testx)` yalnız ROADMAP sahipliği. agy (21644) ve Claude (21332) durdurulmadı.
+
+## 15 Kasım 2026 — GRV-46 (Codex-Berk)
+Harman çizimi ve ıska geri bildirimi mevcut Kabuk/Renkler/Hud paletine bağlandı; gerçek fabrika, isabet ve kaçırma davranışı sınandı. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

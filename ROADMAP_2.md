@@ -7481,7 +7481,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/oda_yetenek_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-46:** (Codex-Berk) `harman_oyunu.gd` temaya bağlanır.
+- [x] **GRV-46:** (Codex-Berk) `harman_oyunu.gd` temaya bağlanır.
   - Ne: `src/arayuz/harman_oyunu.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Harman kadrajı zeminsiz. Tema bağlanınca yalnız `harman_oyunu.gd` ARY-02 zeminini ve düğme durumunu okur, Harman kadrajı zeminsiz davranışı değişmez.
   - Kabul: `harman_oyunu.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `harman_oyunu.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
