@@ -7316,7 +7316,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 43.8 Yeni ekranlar — kabuk hazır, sistem değil
 
-- [/] **GRV-24:** (Codex-Berk) Hafıza defteri kabuğu bu temadadır.
+- [x] **GRV-24:** (Codex-Berk) Hafıza defteri kabuğu bu temadadır.
   - Ne: HFZ-01 ekranı bilgi ekranı yerleşimini kullanır, kendi paletini açmaz.
   - Kabul: `hafiza_defteri_ekrani.gd` içinde `Color("#` 0. Test: tarama.
   - Bağımlılık: HFZ-01, ARY-02. Boyut: S.

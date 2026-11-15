@@ -2,6 +2,7 @@
 extends Node
 
 const GRUPLAR := {
+	"GRV-24": ["res://src/arayuz/hafiza_defteri_ekrani.gd"],
 	"GRV-17": [],
 	"GRV-09": [
 		"res://src/arayuz/koy_hud/pazar_satis_paneli.gd",
@@ -20,6 +21,8 @@ func _ready() -> void:
 	_kontrol(GRUPLAR.has(grup), "bilinen madde seçilmeli")
 	if grup == "GRV-17":
 		await _odak()
+	if grup == "GRV-24":
+		_defter()
 	var kaynaklar := _kaynaklar("res://src")
 	var ihlal := RegEx.create_from_string("\\bColor\\s*\\(|\\bColor8\\s*\\(|Color\\.from_|Color\\.html|ColorRect\\.new|StyleBoxFlat\\.new|add_theme_stylebox_override|font_size[\\\"']\\s*,\\s*\\d")
 	for yol in GRUPLAR.get(grup, []):
@@ -79,6 +82,27 @@ func _odak() -> void:
 			_kontrol(odak.border_width_left == (3 if deger == &"kalin" else 1), "odak kalınlığı AYR anahtarından gelir")
 			_kontrol(not odak.draw_center, "odak içeriği örtmez")
 			_kontrol(odak.border_color == palet.metin_rengi(ayar), "ikinci çerçeve rengi yok")
+	kok.free()
+
+
+func _defter() -> void:
+	var ayar := Ayarlar.new("user://grv24_kullanilmaz.cfg")
+	var kok := Control.new()
+	kok.theme = Tema.olustur(ayar)
+	add_child(kok)
+	var defter := HafizaDefteriEkrani.new()
+	defter.ayarlar = ayar
+	kok.add_child(defter)
+	var paneller := defter.get_children().filter(func(n: Node) -> bool: return n is PanelContainer)
+	_kontrol(not paneller.is_empty(), "hafıza defteri kabuğu mevcut")
+	for panel in paneller:
+		if panel.has_meta(&"defter_aday"):
+			# Mevcut seçilmiş sayfa dokusu palet değildir; aday tercihi korunur.
+			var stil := panel.get_theme_stylebox("panel") as StyleBoxTexture
+			_kontrol(stil != null and stil.texture != null, "mevcut defter sayfa dokusu korunur")
+		else:
+			_kontrol(not panel.has_theme_stylebox_override("panel"), "defter yerel palet/stil açmaz: " + String(panel.get_path()))
+			_kontrol(panel.get_theme_stylebox("panel") == kok.theme.get_stylebox("panel", "PanelContainer"), "defter ortak panel kaynağını miras alır: " + String(panel.get_path()))
 	kok.free()
 
 

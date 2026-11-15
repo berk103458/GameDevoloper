@@ -3302,3 +3302,6 @@ Tema kullanan gerçek köylü kartındaki güvenlik satırı iki çözünürlük
 
 ## 15 Kasım 2026 — GRV-17 (Codex-Berk)
 Ortak odak stili AYR odak_cercevesi normal/kalın/normal geçişinde 1/3/1 kalınlık verir; iki düğme aynı kaynak ve metin rengini kullanır. Hedefli test exit0, bozuk kalınlık mutasyonu exit1. Üretim kodu değişmedi; asset gerekmedi.
+
+## 15 Kasım 2026 — GRV-24 (Codex-Berk)
+Hafıza defteri ortak panel stilini miras alır; var olan seçilmiş sayfa dokusu korunur. Soluk satır renk tanımlamak yerine yalnız saydamlığı değiştirir. Hedef kabul ve HFZ-01…32 birim testi exit0/0 hata. Asset gerekmedi.

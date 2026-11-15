@@ -125,7 +125,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func _kur() -> void:
 	var zemin := PanelContainer.new()
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	zemin.add_theme_stylebox_override("panel", Tema.koy_paneli())
 	add_child(zemin)
 	var kenar := MarginContainer.new()
 	for yon in ["margin_left", "margin_right", "margin_top", "margin_bottom"]:
@@ -192,7 +191,7 @@ func _listeyi_ciz() -> void:
 func _satir_kutusu(satir: Dictionary) -> Control:
 	var kutu := VBoxContainer.new()
 	var soluk := defter.soluk_mu(okunmus_isaret, String(satir.get("id", "")))
-	kutu.modulate = Color(1, 1, 1, 0.45) if soluk else Color(1, 1, 1, 1)
+	kutu.modulate.a = 0.45 if soluk else 1.0
 	var baslik := _yazi(String(satir.get("baslik", "")), Tema.GOVDE_PX)
 	kutu.add_child(baslik)
 	for alan in ["olay_anahtari", "kademe_anahtari"]:
