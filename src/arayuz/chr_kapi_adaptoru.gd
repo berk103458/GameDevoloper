@@ -40,13 +40,6 @@ static func diyalog_goster(ekran: Control, gelen: Gelen, secenekler: VBoxContain
 	secenekler.add_child(panel)
 	inceleme_dugmesi(ekran, gelen, eylemler)
 	beyan_defteri_dugmesi(ekran, gelen, eylemler, panel)
-	var guncelle_defter := func(_arg: Variant = null) -> void:
-		if is_instance_valid(ekran) and is_instance_valid(eylemler):
-			beyan_defteri_dugmesi(ekran, gelen, eylemler, panel)
-	if not sorgu.ipucu_bulundu.is_connected(guncelle_defter):
-		sorgu.ipucu_bulundu.connect(guncelle_defter)
-	if not sorgu.replik_basladi.is_connected(guncelle_defter):
-		sorgu.replik_basladi.connect(guncelle_defter)
 	return true
 
 static func inceleme_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxContainer) -> Button:
