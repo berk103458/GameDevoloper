@@ -4,16 +4,15 @@
 Gemini — planlama / analiz ajanı (ROADMAP, mimari not, doğrulama).
 
 ## Şu an üzerinde çalışılan
-- `OGR-14` (`[/] (Antigravity)`): Beyan defteri ilk çelişkide tanıtılır. Canlı yol `kapi_ekrani.gd:337` ve `chr_kapi_adaptoru.gd:42` → `chr_kapi_adaptoru.gd:93` (`DefterTanitimi.oturumda_kontrol_et`). `defter_tanitimi_test.tscn` ve `ilk_saat_test.gd` GEÇTİ.
-- `OGR-43` (`[x] (Antigravity)`): Yedi persona ilk saati geçer. `tools/python_test_runner.py --yedi-persona` eklendi, `tests/oto/otomatik_oyuncu.gd` `MUHAFIZ_GECMISI`/`son`/`ambar` raporlar, `src/sistemler/karakter_kadrosu.gd:122` eksik anahtar koruması eklendi. 7/7 koşu (`hepsini_kabul`..`comert_ciftci`) `gece=6, son=0, ambar=11..37` ile GEÇTİ.
+- **Görev 25 & Görev 26 — Meshy 3B Toplu Üretim (`[x] (Antigravity)`):** `assets/meshy_manifest.json` içindeki **142 üretilebilir 3B asset'in tamamı** (5 öncelik grubunun hepsi: `1_kapi_nobeti`, `2_muhafiz_ve_evi`, `3_koy_yonetimi_surekli`, `4_sik_olaylar`, `5_nadir_ve_sus`) üretildi, yer tutucuların yerine oyuna bağlandı, Godot 4.7.2 ile import edildi ve `tools/meshy/godot_dogrula.gd` ile doğrulandı (`exit code: 0`, 141 GLB model).
+- **Harcanan Kredi:** Toplam **`1751` kredi** (`.meshy-api-key` üzerinde `1198` kredi harcandı, `2` kredi kaldı; `.meshy-api-key-yedek` üzerinde `553` kredi harcandı, `857` kredi kaldı).
 
 ## Sonraki plan
-Sıradaki açık madde: Faz 1 `OGR-23` / `OGR-57` (veya Faz 2 açık maddeleri).
+Ahmet'in yeni görev veya inceleme talimatı bekleniyor.
 
 ## Güncel durum
-- ROADMAP push’lu (`4f7c460`); festive ana dal.
-- festive+keen WIP **unstaged** olabilir — bu commit’e alınmadı.
-- Kardeş günlükler: `CLAUDE.md`, `codex.md/Codex.md`, isteğe bağlı `codex.md/Muharrir.md`.
+- Tüm 142 Meshy 3B asset (`onaylandi`) `claude/festive-volta-li1sfm` dalına push'lu.
+- Kardeş günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `codex.md/Antigravity.md`, isteğe bağlı `codex.md/Muharrir.md`.
 
 ## Kural
 Bu projede her çalıştığında **önce** bu dosyayı ve `AGENTS.md`’yi oku. Her **commit** ve **pull** sonrası buradaki durum bölümünü güncelle. ROADMAP’te kapattığın adımları `[x]` yap ve satır sonuna `(Gemini)` yaz.

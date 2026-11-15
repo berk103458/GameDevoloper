@@ -7675,7 +7675,7 @@
    "oncelik": "orta",
    "sira": 320,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e007-377e-7496-a41b-aa49d70a9d3b",
@@ -7750,7 +7750,8 @@
    "_sayilan_gorev": [
     "01a1e006-e532-7445-ac07-bee2622fb0b8",
     "01a1e007-377e-7496-a41b-aa49d70a9d3b"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "agil",
@@ -7773,7 +7774,7 @@
    "oncelik": "orta",
    "sira": 321,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e008-1947-72bb-b6a0-18a2f1027b68",
@@ -7848,7 +7849,8 @@
    "_sayilan_gorev": [
     "01a1e007-c5aa-703a-8cc1-1c5a2751f590",
     "01a1e008-1947-72bb-b6a0-18a2f1027b68"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "ahir",
@@ -7871,7 +7873,7 @@
    "oncelik": "orta",
    "sira": 322,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e009-1dbd-77ff-996b-c9d0214e17c3",
@@ -7946,7 +7948,8 @@
    "_sayilan_gorev": [
     "01a1e008-a79f-775f-965b-613f208691ae",
     "01a1e009-1dbd-77ff-996b-c9d0214e17c3"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "kirec_kuyusu",
@@ -7969,7 +7972,7 @@
    "oncelik": "orta",
    "sira": 323,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e009-fb27-71ba-8d36-85cfc19b3b74",
@@ -8044,7 +8047,8 @@
    "_sayilan_gorev": [
     "01a1e009-ab50-76e3-935c-8a1adfee8cfe",
     "01a1e009-fb27-71ba-8d36-85cfc19b3b74"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "demir_madeni",
@@ -8067,7 +8071,7 @@
    "oncelik": "orta",
    "sira": 324,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e00b-2118-7724-9634-e0be22120f1b",
@@ -8142,7 +8146,8 @@
    "_sayilan_gorev": [
     "01a1e00a-ab0b-7532-be29-68fb5fefb71e",
     "01a1e00b-2118-7724-9634-e0be22120f1b"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "demir_ocagi",
@@ -8165,7 +8170,7 @@
    "oncelik": "orta",
    "sira": 325,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e00c-4357-7013-ac71-e6634c097a04",
@@ -8240,7 +8245,8 @@
    "_sayilan_gorev": [
     "01a1e00b-d036-7464-9558-719d3d28e0a1",
     "01a1e00c-4357-7013-ac71-e6634c097a04"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "muhafiz_kislasi",
@@ -8263,7 +8269,7 @@
    "oncelik": "orta",
    "sira": 326,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e00d-8911-7342-b1a4-30f2b6a0f5b7",
@@ -8338,7 +8344,8 @@
    "_sayilan_gorev": [
     "01a1e00d-150a-762f-aac7-f842ee6472b2",
     "01a1e00d-8911-7342-b1a4-30f2b6a0f5b7"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "gozetleme_kulesi",
@@ -8364,7 +8371,7 @@
    "oncelik": "orta",
    "sira": 327,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e015-d306-77b2-a8b9-27f2eda81076",
@@ -8441,7 +8448,8 @@
    "_sayilan_gorev": [
     "01a1e015-5f88-72e4-9579-cec24ce0fe54",
     "01a1e015-d306-77b2-a8b9-27f2eda81076"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "cozumleme_odasi",
@@ -8465,7 +8473,7 @@
    "oncelik": "orta",
    "sira": 328,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e016-f60c-75a4-8c63-272ca00c70a0",
@@ -8540,7 +8548,8 @@
    "_sayilan_gorev": [
     "01a1e016-8322-70a9-9c77-7ed2b3a9c8a6",
     "01a1e016-f60c-75a4-8c63-272ca00c70a0"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "ors",
@@ -8566,7 +8575,7 @@
    "oncelik": "orta",
    "sira": 330,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e017-a48e-73ac-9be7-7212360accb2",
@@ -8629,7 +8638,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e017-a48e-73ac-9be7-7212360accb2"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "firin_agzi",
@@ -8652,7 +8662,7 @@
    "oncelik": "orta",
    "sira": 331,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e017-f87f-7787-8f0e-719dc86944f6",
@@ -8718,7 +8728,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e017-f87f-7787-8f0e-719dc86944f6"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "dokuma_tezgahi",
@@ -8743,7 +8754,7 @@
    "oncelik": "orta",
    "sira": 332,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e018-4cb3-751d-b3b7-87e0d42cb4b6",
@@ -8806,7 +8817,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e018-4cb3-751d-b3b7-87e0d42cb4b6"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "divan_masasi",
@@ -8829,7 +8841,7 @@
    "oncelik": "orta",
    "sira": 333,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e018-9e8e-72d7-8311-e0a7419bdd88",
@@ -8895,7 +8907,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e018-9e8e-72d7-8311-e0a7419bdd88"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "divan_oturak",
@@ -8918,7 +8931,7 @@
    "oncelik": "orta",
    "sira": 334,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e018-ef7d-7550-928c-b2a2f15b687c",
@@ -8984,7 +8997,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e018-ef7d-7550-928c-b2a2f15b687c"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "zindan_kapisi",
@@ -9007,7 +9021,7 @@
    "oncelik": "orta",
    "sira": 335,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e019-434f-701a-a8ae-8d77737204f2",
@@ -9073,7 +9087,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e019-434f-701a-a8ae-8d77737204f2"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "sacak",
@@ -9096,7 +9111,7 @@
    "oncelik": "orta",
    "sira": 336,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e019-b73b-779b-ad0d-3aa2f5d2c03a",
@@ -9162,7 +9177,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e019-b73b-779b-ad0d-3aa2f5d2c03a"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "agac",
@@ -9223,7 +9239,7 @@
    "oncelik": "orta",
    "sira": 338,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e01a-0a49-743b-b512-30415e2c71b4",
@@ -9289,7 +9305,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e01a-0a49-743b-b512-30415e2c71b4"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "kaya",
@@ -9350,7 +9367,7 @@
    "oncelik": "orta",
    "sira": 340,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e01a-5e38-71ad-a166-4eef5ad615e7",
@@ -9416,7 +9433,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e01a-5e38-71ad-a166-4eef5ad615e7"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "okuz",
@@ -9529,7 +9547,7 @@
    "oncelik": "orta",
    "sira": 347,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e020-c8a3-7514-94b7-60a0f27ad6cf",
@@ -9601,7 +9619,8 @@
    "_sayilan_gorev": [
     "01a1e020-5465-7339-8e51-3b3b517a27f8",
     "01a1e020-c8a3-7514-94b7-60a0f27ad6cf"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "inek",
@@ -9625,7 +9644,7 @@
    "oncelik": "orta",
    "sira": 348,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e021-a907-7109-8dde-dde9068de73d",
@@ -9700,7 +9719,8 @@
    "_sayilan_gorev": [
     "01a1e021-572c-7187-ac1a-7b7535f6c937",
     "01a1e021-a907-7109-8dde-dde9068de73d"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "koc",
@@ -9724,7 +9744,7 @@
    "oncelik": "orta",
    "sira": 349,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e022-8d40-70a9-965d-b414f662b1d4",
@@ -9799,7 +9819,8 @@
    "_sayilan_gorev": [
     "01a1e022-3832-7695-9812-505ff9e82675",
     "01a1e022-8d40-70a9-965d-b414f662b1d4"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "beygir",
@@ -9823,7 +9844,7 @@
    "oncelik": "orta",
    "sira": 350,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e023-b4e3-764f-a094-c1f04fe96473",
@@ -9898,7 +9919,8 @@
    "_sayilan_gorev": [
     "01a1e023-1c0e-71a4-af5c-5b14ef567be8",
     "01a1e023-b4e3-764f-a094-c1f04fe96473"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "at",
@@ -9923,7 +9945,7 @@
    "oncelik": "orta",
    "sira": 351,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e026-cb5f-714c-a3ea-eb0b9efbf9b5",
@@ -9995,7 +10017,8 @@
    "_sayilan_gorev": [
     "01a1e024-8584-77c4-b67d-89b39efff090",
     "01a1e026-cb5f-714c-a3ea-eb0b9efbf9b5"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "keci",
@@ -10020,7 +10043,7 @@
    "oncelik": "orta",
    "sira": 352,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e028-a194-73ee-ae17-c40015734fb8",
@@ -10092,7 +10115,8 @@
    "_sayilan_gorev": [
     "01a1e027-597c-771d-9966-ed17f6cf1fbf",
     "01a1e028-a194-73ee-ae17-c40015734fb8"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "deve",
@@ -10117,7 +10141,7 @@
    "oncelik": "orta",
    "sira": 353,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e029-c5f6-746e-a932-074073f5359b",
@@ -10189,7 +10213,8 @@
    "_sayilan_gorev": [
     "01a1e029-741e-7173-85c8-94b9bf22570d",
     "01a1e029-c5f6-746e-a932-074073f5359b"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "erkek_cirak",
@@ -10518,7 +10543,7 @@
    "oncelik": "orta",
    "sira": 360,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e02a-76ec-73fd-872a-ca83621887dd",
@@ -10584,7 +10609,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02a-76ec-73fd-872a-ca83621887dd"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "orak",
@@ -10607,7 +10633,7 @@
    "oncelik": "orta",
    "sira": 361,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e02a-c8d3-73e1-bdbd-455f2ee1f936",
@@ -10675,7 +10701,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02a-c8d3-73e1-bdbd-455f2ee1f936"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "kova",
@@ -10699,7 +10726,7 @@
    "oncelik": "orta",
    "sira": 362,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e02b-21fc-70ca-96a4-20394f1e8c3a",
@@ -10765,7 +10792,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02b-21fc-70ca-96a4-20394f1e8c3a"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "kurek",
@@ -10791,7 +10819,7 @@
    "oncelik": "orta",
    "sira": 363,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e02b-96d7-7676-b61c-309a54d8e44d",
@@ -10857,7 +10885,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02b-96d7-7676-b61c-309a54d8e44d"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "firin_kuregi",
@@ -10881,7 +10910,7 @@
    "oncelik": "orta",
    "sira": 364,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e02c-0a91-7332-9b53-40d3229bb465",
@@ -10947,7 +10976,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02c-0a91-7332-9b53-40d3229bb465"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "su_kabi",
@@ -10971,7 +11001,7 @@
    "oncelik": "orta",
    "sira": 365,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e02c-5c64-771d-8088-f57aeb5a3772",
@@ -11037,7 +11067,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02c-5c64-771d-8088-f57aeb5a3772"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "kirmen",
@@ -11061,7 +11092,7 @@
    "oncelik": "orta",
    "sira": 366,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e02c-b0ca-763e-a5b2-575fe84c4764",
@@ -11127,7 +11158,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02c-b0ca-763e-a5b2-575fe84c4764"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "bakim_bezi",
@@ -11151,7 +11183,7 @@
    "oncelik": "orta",
    "sira": 367,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e02d-03db-74f6-9462-d5da1b33addd",
@@ -11217,7 +11249,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02d-03db-74f6-9462-d5da1b33addd"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_idle_nefes",
@@ -11242,7 +11275,7 @@
    "oncelik": "orta",
    "sira": 370,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -11308,7 +11341,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e036-668a-7393-b5f6-d9187e71449e"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_idle_agirlik",
@@ -11333,7 +11367,7 @@
    "oncelik": "orta",
    "sira": 371,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -11399,7 +11433,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e036-b5d0-7360-941e-63d00c46a070"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_idle_bakis",
@@ -11424,7 +11459,7 @@
    "oncelik": "orta",
    "sira": 372,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -11489,7 +11524,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e03a-c61f-762a-897b-973ec3d2326a"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_nobet",
@@ -11514,7 +11550,7 @@
    "oncelik": "orta",
    "sira": 373,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -11579,7 +11615,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_cekic_vurma",
@@ -11605,7 +11642,7 @@
    "oncelik": "orta",
    "sira": 374,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -11670,7 +11707,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_firin_kuregi",
@@ -11695,7 +11733,7 @@
    "oncelik": "orta",
    "sira": 375,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -11760,7 +11798,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_orak",
@@ -11785,7 +11824,7 @@
    "oncelik": "orta",
    "sira": 376,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -11850,7 +11889,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_isinma",
@@ -11875,7 +11915,7 @@
    "oncelik": "orta",
    "sira": 377,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -11940,7 +11980,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_kar_kureme",
@@ -11965,7 +12006,7 @@
    "oncelik": "orta",
    "sira": 378,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -12030,7 +12071,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_yagmur_yuru",
@@ -12055,7 +12097,7 @@
    "oncelik": "orta",
    "sira": 379,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -12120,7 +12162,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_buzulme",
@@ -12146,7 +12189,7 @@
    "oncelik": "orta",
    "sira": 380,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -12211,7 +12254,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_kos",
@@ -12236,7 +12280,7 @@
    "oncelik": "orta",
    "sira": 381,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -12263,7 +12307,8 @@
     "2026-11-15T17:23:21Z klip diskte var, atlandı: assets/model/karakter/muhafiz_kos.glb",
     "2026-11-15T17:23:21Z üretildi: "
    ],
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_otur",
@@ -12288,7 +12333,7 @@
    "oncelik": "orta",
    "sira": 382,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -12353,7 +12398,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "klip_eksik:asker",
@@ -13887,7 +13933,7 @@
    "oncelik": "orta",
    "sira": 410,
    "kullanim_grubu": "4_sik_olaylar",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e040-ef79-7122-9162-0726f1d4edd6",
@@ -13962,7 +14008,8 @@
    "_sayilan_gorev": [
     "01a1e040-9e6a-72cb-8a49-1bef644a4556",
     "01a1e040-ef79-7122-9162-0726f1d4edd6"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "su_bendi",
@@ -13985,7 +14032,7 @@
    "oncelik": "orta",
    "sira": 411,
    "kullanim_grubu": "4_sik_olaylar",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e041-d119-7585-a4b1-a4b81ff66ee7",
@@ -14060,7 +14107,8 @@
    "_sayilan_gorev": [
     "01a1e041-7e7d-7159-b562-2a389afe91d5",
     "01a1e041-d119-7585-a4b1-a4b81ff66ee7"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "yanik_ev",
@@ -14083,7 +14131,7 @@
    "oncelik": "orta",
    "sira": 412,
    "kullanim_grubu": "4_sik_olaylar",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e042-d367-7074-95a5-2e969cd80828",
@@ -14153,7 +14201,8 @@
    "_sayilan_gorev": [
     "01a1e042-5f5f-7745-88aa-c54e0f3d7a34",
     "01a1e042-d367-7074-95a5-2e969cd80828"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "kervan_yuku",
@@ -14176,7 +14225,7 @@
    "oncelik": "orta",
    "sira": 413,
    "kullanim_grubu": "4_sik_olaylar",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e043-636b-76ef-b4ef-4847c5662edd",
@@ -14239,7 +14288,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e043-636b-76ef-b4ef-4847c5662edd"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "hasta_cadiri",
@@ -14262,7 +14312,7 @@
    "oncelik": "orta",
    "sira": 414,
    "kullanim_grubu": "4_sik_olaylar",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e043-b6a6-728f-a631-6e0f0eccd09c",
@@ -14323,7 +14373,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e043-b6a6-728f-a631-6e0f0eccd09c"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "sonen_ates",
@@ -14346,7 +14397,7 @@
    "oncelik": "orta",
    "sira": 415,
    "kullanim_grubu": "4_sik_olaylar",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e044-2bb5-7006-a600-b636d7a60324",
@@ -14407,7 +14458,8 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e044-2bb5-7006-a600-b636d7a60324"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_kavga",
@@ -14433,7 +14485,7 @@
    "oncelik": "orta",
    "sira": 420,
    "kullanim_grubu": "4_sik_olaylar",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -14498,7 +14550,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_saldir",
@@ -14523,7 +14576,7 @@
    "oncelik": "orta",
    "sira": 421,
    "kullanim_grubu": "4_sik_olaylar",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -14588,7 +14641,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_dus",
@@ -14613,7 +14667,7 @@
    "oncelik": "orta",
    "sira": 422,
    "kullanim_grubu": "4_sik_olaylar",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -14678,7 +14732,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_sinsi_yuru",
@@ -14703,7 +14758,7 @@
    "oncelik": "orta",
    "sira": 423,
    "kullanim_grubu": "4_sik_olaylar",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -14768,7 +14823,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "anim_temkinli_bekle",
@@ -14793,7 +14849,7 @@
    "oncelik": "orta",
    "sira": 424,
    "kullanim_grubu": "4_sik_olaylar",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -14858,7 +14914,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "sorhan_karisi",
@@ -14884,7 +14941,7 @@
    "oncelik": "orta",
    "sira": 501,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e045-18f3-73c9-adc9-e564aefedfd3",
@@ -14984,7 +15041,8 @@
     "01a1e045-87dd-7211-8e6c-7f98eb1feb63",
     "01a1e045-f9c2-7138-ba07-b324939c63e1",
     "01a1e046-487d-7216-a3fd-c48fee21bcd3"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "kabus_golgesi",
@@ -15007,7 +15065,7 @@
    "oncelik": "dusuk",
    "sira": 502,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e047-28a9-70f2-be13-06619673b716",
@@ -15082,7 +15140,8 @@
    "_sayilan_gorev": [
     "01a1e046-9587-7674-a99e-4616bfd12793",
     "01a1e047-28a9-70f2-be13-06619673b716"
-   ]
+   ],
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "mezar",
@@ -15105,7 +15164,7 @@
    "oncelik": "orta",
    "sira": 510,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e054-1d80-7308-8d46-b8ccdfc09358",
@@ -15164,7 +15223,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "toplu_mezar",
@@ -15188,7 +15248,7 @@
    "oncelik": "orta",
    "sira": 511,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e054-93e8-7787-8004-835b646e1b46",
@@ -15252,7 +15312,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "yemin_nesneleri",
@@ -15276,7 +15337,7 @@
    "oncelik": "orta",
    "sira": 512,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e054-ec07-7763-b0c0-a38b260e067b",
@@ -15340,7 +15401,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "ahi_kusagi",
@@ -15363,7 +15425,7 @@
    "oncelik": "orta",
    "sira": 513,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e055-62c5-737e-88a3-13f8a67cb6dc",
@@ -15422,7 +15484,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "davul_zurna",
@@ -15445,7 +15508,7 @@
    "oncelik": "orta",
    "sira": 514,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e055-b884-75ee-9609-b7de917436ae",
@@ -15504,7 +15567,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "ilac_kutusu",
@@ -15527,7 +15591,7 @@
    "oncelik": "orta",
    "sira": 515,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e056-305a-72a5-8621-7fa276ebb4c2",
@@ -15586,7 +15650,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "kirik_kin",
@@ -15609,7 +15674,7 @@
    "oncelik": "orta",
    "sira": 516,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e056-a67b-7762-b035-48d1ed7b53f8",
@@ -15668,7 +15733,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "tezgah_ortusu",
@@ -15693,7 +15759,7 @@
    "oncelik": "dusuk",
    "sira": 520,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e057-1dcc-7387-8513-e6c8d2e1a15c",
@@ -15757,7 +15823,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "blok_ham",
@@ -15781,7 +15848,7 @@
    "oncelik": "dusuk",
    "sira": 521,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e057-77f7-7181-b82b-25c996833bb1",
@@ -15845,7 +15912,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "blok_iz",
@@ -15869,7 +15937,7 @@
    "oncelik": "dusuk",
    "sira": 522,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e057-f787-74a9-9084-9bb8b7115d40",
@@ -15933,7 +16001,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "blok_bicim",
@@ -15957,7 +16026,7 @@
    "oncelik": "dusuk",
    "sira": 523,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e058-7283-76d2-8c20-1fdfdecd68ea",
@@ -16021,7 +16090,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "blok_agiz",
@@ -16045,7 +16115,7 @@
    "oncelik": "dusuk",
    "sira": 524,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e058-c585-7682-837b-b14da83891a3",
@@ -16109,7 +16179,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "teslim_parcasi",
@@ -16133,7 +16204,7 @@
    "oncelik": "dusuk",
    "sira": 525,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e059-1dc4-7693-8263-2dfc38a1d70e",
@@ -16197,7 +16268,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "hediye_bohcasi",
@@ -16220,7 +16292,7 @@
    "oncelik": "dusuk",
    "sira": 530,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e059-988c-7056-bf57-126ada814df7",
@@ -16284,7 +16356,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "iksir_sisesi",
@@ -16307,7 +16380,7 @@
    "oncelik": "dusuk",
    "sira": 531,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e059-ef8a-7257-acb3-62fb77c36563",
@@ -16371,7 +16444,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "kisisel_iz",
@@ -16395,7 +16469,7 @@
    "oncelik": "dusuk",
    "sira": 532,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e05a-44c7-758d-81c7-16551a733a6e",
@@ -16459,7 +16533,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "muhur",
@@ -16482,7 +16557,7 @@
    "oncelik": "dusuk",
    "sira": 533,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "uretildi",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e05a-bf43-7688-8dc4-f5902d2faf0d",
@@ -16546,7 +16621,8 @@
      ]
     ]
    },
-   "hesap_plani_uretimde": "ucretli"
+   "hesap_plani_uretimde": "ucretli",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
   },
   {
    "asset_id": "aydogdu",

@@ -119,23 +119,23 @@ görevi bulamazsa **kredi harcamadan durur**. Seçenekler: eski makinedeki `duru
 `iskelet_kaynagi`nı doldurmak (o zaman yalnız 3/klip), ya da bu karakterleri yeniden üretmek (karar Ahmet'in).
 
 <!-- MESHY_OZET_BASLA -->
-_Üreten: `python3 tools/meshy/meshy_hat.py kuru --belgeye-yaz` — 2026-11-15T10:56:27Z. Fiyat kaynağı: https://docs.meshy.ai/en/api/pricing (erişim 2026-11-15)._
+_Üreten: `python3 tools/meshy/meshy_hat.py kuru --belgeye-yaz` — 2026-11-15T18:30:59Z. Fiyat kaynağı: https://docs.meshy.ai/en/api/pricing (erişim 2026-11-15)._
 
 | Ölçü | Değer |
 |---|---|
-| Manifest satırı (toplam) | 531 |
-| Zaten var (`mevcut`) | 247 |
+| Manifest satırı (toplam) | 933 |
+| Zaten var (`mevcut`) | 649 |
 | — Meshy modeli (eski hat; festive + keen-cerf) | 58 |
-| — Meshy hareket klibi (`assets/model/hareket`) | 120 |
+| — Meshy hareket klibi (`assets/model/hareket`) | 227 |
 | — yalnız eski dalda (`claude/keen-cerf-42meo7`) | 32 |
-| — hazır paket / diğer 3D dosya | 69 |
-| Meshy ile üretilecek (`planli`) | 186 |
-| **Tahmini toplam kredi (planlı hepsi)** | **2962** |
-| Topluluk adayı olan planlı satır / kredisi | 21 / 344 |
+| — hazır paket / diğer 3D dosya | 364 |
+| Meshy ile üretilecek (`planli`) | 44 |
+| **Tahmini toplam kredi (planlı hepsi)** | **652** |
+| Topluluk adayı olan planlı satır / kredisi | 0 / 0 |
 | İskelet ön koşullu klip satırı (eski karakterler) | 44 |
 | Meshy topluluğundan kredisiz indirilecek (CC0) | 86 |
 | Meshy dışı ihtiyaç (düzeltme, VFX, dört ayaklı klip) | 12 |
-| Üretimde / üretildi / onaylı / reddedildi | 0 / 0 / 0 / 0 |
+| Üretimde / üretildi / onaylı / reddedildi | 0 / 0 / 142 / 0 |
 | Aynı istemli üretilecek satır grubu | 0 |
 | Eşlemesiz envanter kimliği | 0 |
 
@@ -143,210 +143,64 @@ _Üreten: `python3 tools/meshy/meshy_hat.py kuru --belgeye-yaz` — 2026-11-15T1
 
 | Tür | Satır | Tahmini kredi |
 |---|---:|---:|
-| animasyon | 62 | 706 |
-| hayvan | 8 | 120 |
-| karakter | 23 | 851 |
-| nesne | 67 | 895 |
-| yapi | 26 | 390 |
+| animasyon | 44 | 652 |
 
 **Önceliğe göre (planlı):**
 
 | Öncelik | Satır | Tahmini kredi | Birikimli kredi |
 |---|---:|---:|---:|
-| yuksek | 13 | 425 | 425 |
-| orta | 159 | 2327 | 2752 |
-| dusuk | 14 | 210 | 2962 |
+| yuksek | 0 | 0 | 0 |
+| orta | 44 | 652 | 652 |
+| dusuk | 0 | 0 | 652 |
 
 **Öncelik sırası (üretim kuyruğu):**
 
 | # | asset_id | Ad | Tür | Öncelik | Kredi | Plan kimlikleri | Not |
 |---:|---|---|---|---|---:|---|---|
-| 1 | `bey` | bey | karakter | yuksek | 38 | bey, KAR-BEY |  |
-| 2 | `cavus` | cavus | karakter | yuksek | 38 | cavus, KAR-CAVUS |  |
-| 3 | `cocuk` | cocuk | karakter | yuksek | 38 | cocuk, KAR-COCUK, KAP17-COCUK |  |
-| 4 | `dervis` | dervis | karakter | yuksek | 38 | dervis, KAR-DERVIS |  |
-| 5 | `haberci` | haberci | karakter | yuksek | 38 | haberci, KAR-HABERCI |  |
-| 6 | `tahsildar` | tahsildar | karakter | yuksek | 38 | tahsildar, KAR-TAHSILDAR |  |
-| 7 | `tekfur_askeri` | Tekfur askeri | karakter | yuksek | 38 | KAR-TEKFUR-ASKER | topluluk adayı: B104 |
-| 8 | `tekfur_elcisi` | tekfur_elcisi | karakter | yuksek | 38 | tekfur_elcisi, KAR-ELCI |  |
-| 9 | `turkmen_bey_adami` | turkmen_bey_adami | karakter | yuksek | 38 | turkmen_bey_adami |  |
-| 10 | `yasli` | yasli | karakter | yuksek | 38 | yasli, KAP17-YASLI |  |
-| 11 | `kapi_ic` | Kapı iç yüzü | yapi | yuksek | 15 | KAPI-3D-IC |  |
-| 12 | `tas_yatagi` | Taş yatağı | yapi | yuksek | 15 | BUG21-TASYATAGI |  |
-| 13 | `zar` | Kemik zar (d6) | nesne | yuksek | 15 | ZAR01-ZAR |  |
-| 14 | `aktar` | Aktar | karakter | orta | 38 | TUC-TACIR |  |
-| 15 | `celep` | Celep (hayvan tüccarı) | karakter | orta | 38 | TUC-TACIR | topluluk adayı: K12, K14 |
-| 16 | `denetci` | Beyin denetçisi | karakter | orta | 38 | DYL09-DENETCI |  |
-| 17 | `erkek_cirak` | erkek_cirak | karakter | orta | 38 | erkek_cirak |  |
-| 18 | `kiz_cirak` | kiz_cirak | karakter | orta | 38 | kiz_cirak |  |
-| 19 | `kumasci` | Kumaşçı | karakter | orta | 38 | TUC-TACIR | topluluk adayı: K15 |
-| 20 | `muhafiz` | Muhafız (oyuncu) | karakter | orta | 38 | ACL01-MUHAFIZ |  |
-| 21 | `muhafiz_esi` | Muhafızın eşi | karakter | orta | 38 | ACL01-ES |  |
-| 22 | `nalbur` | Nalbur | karakter | orta | 38 | TUC-TACIR |  |
-| 23 | `silah_tuccari` | Silah tüccarı | karakter | orta | 38 | TUC-TACIR |  |
-| 24 | `sorhan_karisi` | sorhan_karisi | karakter | orta | 38 | sorhan_karisi |  |
-| 25 | `usta` | Usta (zanaatkâr) | karakter | orta | 38 | YAP03-USTALAR |  |
-| 26 | `agil` | Ağıl | yapi | orta | 15 | YAPI-agil |  |
-| 27 | `ahir` | Ahır | yapi | orta | 15 | YAPI-ahir |  |
-| 28 | `ambar` | Ambar | yapi | orta | 15 | YAPI-ambar |  |
-| 29 | `atolye` | Atölye | yapi | orta | 15 | YAPI-atolye, demirhane |  |
-| 30 | `avci_cadiri` | Avcı çadırı | yapi | orta | 15 | YAPI-avci |  |
-| 31 | `cozumleme_odasi` | Çözümleme odası | yapi | orta | 15 | YAP05-ODA |  |
-| 32 | `degirmen` | Değirmen | yapi | orta | 15 | YAPI-degirmen | topluluk adayı: O76 |
-| 33 | `demir_madeni` | Demir madeni | yapi | orta | 15 | YAPI-demir_madeni |  |
-| 34 | `demir_ocagi` | Demir ocağı | yapi | orta | 15 | YAPI-demir_ocagi |  |
-| 35 | `demirhane` | Demirhane | yapi | orta | 15 | YAPI-atolye, demirhane |  |
-| 36 | `firin` | Fırın | yapi | orta | 15 | YAPI-firin | topluluk adayı: A177, A181 |
-| 37 | `gozetleme_kulesi` | gozetleme_kulesi | yapi | orta | 15 | gozetleme_kulesi, YAPI-gozetleme_kulesi, HAR06-KULE | topluluk adayı: A113 |
-| 38 | `hizarhane` | Hızarhane | yapi | orta | 15 | YAPI-hizarhane |  |
-| 39 | `kirec_kuyusu` | Kireç kuyusu | yapi | orta | 15 | YAPI-kirec_kuyusu |  |
-| 40 | `muhafiz_kislasi` | Muhafız kışlası | yapi | orta | 15 | YAPI-muhafiz_kislasi |  |
-| 41 | `muhafiz_odasi` | Muhafız odası iç mekânı | yapi | orta | 15 | ODA-ODA, ODA01-ICMEKAN |  |
-| 42 | `odunluk` | Odunluk | yapi | orta | 15 | YAPI-odunluk |  |
-| 43 | `sifahane` | Şifahane | yapi | orta | 15 | YAPI-sifahane |  |
-| 44 | `su_bendi` | Su bendi modülü | yapi | orta | 15 | MEV-AFET |  |
-| 45 | `sur_2_palisat` | Sur 2 — palisat ve nöbet yolu | yapi | orta | 15 | YAPI-sur 2–3 | topluluk adayı: O81 |
-| 46 | `sur_3_tas` | Sur 3 — kaba taş sur | yapi | orta | 15 | YAPI-sur 2–3 | topluluk adayı: O90, O92 |
-| 47 | `tas_ev` | Taş ev | yapi | orta | 15 | YAPI-tas_ev |  |
-| 48 | `tas_ocagi` | Taş ocağı | yapi | orta | 15 | YAPI-tas_ocagi |  |
-| 49 | `yanik_ev` | yanik_ev | yapi | orta | 15 | yanik_ev |  |
-| 50 | `at` | at | hayvan | orta | 15 | at, HYV-AT | topluluk adayı: K05 |
-| 51 | `beygir` | Beygir (iş atı) | hayvan | orta | 15 | TUC-HAYVAN, TUC02-BEYGIR |  |
-| 52 | `deve` | deve | hayvan | orta | 15 | deve, HYV-DEVE | topluluk adayı: A140 |
-| 53 | `inek` | İnek | hayvan | orta | 15 | TUC-HAYVAN, TUC02-INEK |  |
-| 54 | `keci` | keci | hayvan | orta | 15 | keci, HYV-KECI | topluluk adayı: A163 |
-| 55 | `koc` | Koç | hayvan | orta | 15 | TUC-HAYVAN, TUC02-KOC |  |
-| 56 | `kopek` | kopek | hayvan | orta | 15 | kopek, HYV-KOPEK | topluluk adayı: B019 |
-| 57 | `kurt` | Kurt | hayvan | orta | 15 | MEV-AFET, MEV10-KURT |  |
-| 58 | `agac_02` | Ağaç çeşidi 2 | nesne | orta | 15 | PROP-AGAC-2 |  |
-| 59 | `ahi_kusagi` | ahi_kusagi | nesne | orta | 5 | ahi_kusagi |  |
-| 60 | `bakim_bezi` | Bakım bezi | nesne | orta | 15 | ISG02-ALETLER |  |
-| 61 | `balta` | Balta | nesne | orta | 15 | ANI-ALET |  |
-| 62 | `bostan` | Bostan | nesne | orta | 15 | YAPI-tarla, bostan |  |
-| 63 | `davul_zurna` | davul_zurna | nesne | orta | 15 | davul_zurna |  |
-| 64 | `divan_masasi` | Divan masası | nesne | orta | 15 | CAS05-DIVAN |  |
-| 65 | `divan_oturak` | Divan oturağı | nesne | orta | 15 | CAS05-DIVAN |  |
-| 66 | `dizili_taslar` | dizili_taslar | nesne | orta | 5 | dizili_taslar |  |
-| 67 | `dokuma_tezgahi` | dokuma_tezgahi | nesne | orta | 15 | dokuma_tezgahi, PROP-TEZGAH | topluluk adayı: A236 |
-| 68 | `el_asa` | Ahşap asa | nesne | orta | 15 | EL-ASA |  |
-| 69 | `el_cekic` | Küçük el çekici / örs çekici | nesne | orta | 15 | EL-CEKIC, ANI-ALET, ANI11-ALET |  |
-| 70 | `el_degnek` | Eğri değnek | nesne | orta | 15 | EL-DEGNEK |  |
-| 71 | `el_heybe` | Çift gözlü heybe | nesne | orta | 15 | EL-HEYBE |  |
-| 72 | `el_kamci` | At kamçısı | nesne | orta | 15 | EL-KAMCI |  |
-| 73 | `el_kurk_bohca` | Kürk bohça | nesne | orta | 15 | EL-KURK |  |
-| 74 | `el_odun` | İki odun | nesne | orta | 15 | EL-ODUN |  |
-| 75 | `el_sandik` | Küçük sandık | nesne | orta | 15 | EL-SANDIK |  |
-| 76 | `el_sepet` | Hasır sepet (el / dal sepeti) | nesne | orta | 15 | EL-SEPET, ISG02-ALETLER | topluluk adayı: O51, O01 |
-| 77 | `el_sepet_buyuk` | Büyük sırt sepeti | nesne | orta | 15 | EL-SEPET-BUYUK |  |
-| 78 | `el_torba` | Keten torba (chr_002) | nesne | orta | 15 | EL-TORBA |  |
-| 79 | `fener` | Fener / açık kandil | nesne | orta | 15 | CAS-GECE |  |
-| 80 | `firin_agzi` | Fırın ağzı | nesne | orta | 15 | ANI08-TEZGAH |  |
-| 81 | `firin_kuregi` | Fırın küreği | nesne | orta | 15 | ANI-ALET, ANI11-ALET |  |
-| 82 | `hasta_cadiri` | hasta_cadiri | nesne | orta | 5 | hasta_cadiri |  |
-| 83 | `ilac_kutusu` | ilac_kutusu | nesne | orta | 15 | ilac_kutusu |  |
-| 84 | `kalkan` | Yuvarlak kalkan | nesne | orta | 15 | ANI-SILAH | topluluk adayı: A002 |
-| 85 | `kasa` | Gizli zemin kasası | nesne | orta | 15 | ODA-ODA, ODA01-KASA |  |
-| 86 | `kaya_02` | Kaya çeşidi 2 | nesne | orta | 15 | PROP-AGAC-2 |  |
-| 87 | `kervan_yuku` | kervan_yuku | nesne | orta | 5 | kervan_yuku | topluluk adayı: O49 |
-| 88 | `kilic` | Kılıç (hafif eğri) | nesne | orta | 15 | ANI-SILAH |  |
-| 89 | `kirik_kin` | kirik_kin | nesne | orta | 15 | kirik_kin |  |
-| 90 | `kirmen` | Kirmen (el iği) | nesne | orta | 15 | ISG02-ALETLER |  |
-| 91 | `kova` | Kova (yangın kovası) | nesne | orta | 15 | ANI-ALET, CAS-GECE |  |
-| 92 | `kurek` | Ahşap kürek (kar / iş küreği) | nesne | orta | 15 | MEV-ZEMIN, MEV05-KUREK, ISG02-ALETLER |  |
-| 93 | `masa` | Muhafız masası | nesne | orta | 15 | ODA-ODA, ODA01-MASA |  |
-| 94 | `mesale_el` | El meşalesi / oda meşalesi | nesne | orta | 15 | ANI-SILAH, ODA01-MESALE |  |
-| 95 | `mezar` | mezar | nesne | orta | 5 | mezar |  |
-| 96 | `mizrak` | Mızrak | nesne | orta | 15 | ANI-SILAH, HAR10-MIZRAK | topluluk adayı: A012 |
-| 97 | `mizrak_sehpasi` | mizrak_sehpasi | nesne | orta | 5 | mizrak_sehpasi | topluluk adayı: A016 |
-| 98 | `nobet_ocagi` | nobet_ocagi | nesne | orta | 5 | nobet_ocagi | topluluk adayı: O05, A060 |
-| 99 | `orak` | Orak | nesne | orta | 15 | ANI-ALET | topluluk adayı: A211 |
-| 100 | `ors` | ors | nesne | orta | 5 | ors, PROP-ORS, ANI08-TEZGAH | topluluk adayı: A040 |
-| 101 | `sacak` | Saçak | nesne | orta | 15 | ANI09-SACAK |  |
-| 102 | `sancak` | sancak | nesne | orta | 5 | sancak |  |
-| 103 | `sonen_ates` | sonen_ates | nesne | orta | 5 | sonen_ates |  |
-| 104 | `su_kabi` | Su kabı | nesne | orta | 15 | ISG02-ALETLER |  |
-| 105 | `tarla` | tarla | nesne | orta | 5 | tarla, YAPI-tarla, bostan |  |
-| 106 | `toplu_mezar` | Toplu mezar | nesne | orta | 15 | KRI-MEZAR, KRI05-MEZAR |  |
-| 107 | `yatak` | Muhafız yatağı | nesne | orta | 15 | ODA-ODA, ODA01-YATAK |  |
-| 108 | `yay` | Kısa Türk yayı | nesne | orta | 15 | HAR10-YAY |  |
-| 109 | `yemin_nesneleri` | Yemin nesneleri (ekmek, tuz, kitap) | nesne | orta | 15 | DYL03-YEMIN |  |
-| 110 | `zindan_kapisi` | Zindan hücre kapısı | nesne | orta | 15 | CAS07-ZINDAN |  |
-| 111 | `anim_buzulme` | Soğukta büzülmüş / karda yürüyüş | animasyon | orta | 3 | ANI09-BUZULME, B4-ILERI-KLIPLER |  |
-| 112 | `anim_cekic_vurma` | Çekiç vurma döngüsü | animasyon | orta | 3 | ANI08-HAREKET, B4-ILERI-KLIPLER |  |
-| 113 | `anim_dus` | Düşme | animasyon | orta | 3 | B4-ILERI-KLIPLER |  |
-| 114 | `anim_firin_kuregi` | Fırın küreği döngüsü | animasyon | orta | 3 | ANI08-HAREKET |  |
-| 115 | `anim_idle_agirlik` | Bekleme: ağırlık aktarma | animasyon | orta | 3 | ANI12-IDLE |  |
-| 116 | `anim_idle_bakis` | Bekleme: çevreye bakış | animasyon | orta | 3 | ANI12-IDLE |  |
-| 117 | `anim_idle_nefes` | Bekleme: nefes | animasyon | orta | 3 | ANI12-IDLE |  |
-| 118 | `anim_isinma` | Isınma döngüsü (iki el ateşe) | animasyon | orta | 3 | ANI07-ISINMA |  |
-| 119 | `anim_kar_kureme` | Kar küreme | animasyon | orta | 3 | MEV05-KUREK |  |
-| 120 | `anim_kavga` | Kapıda itişme / kavga | animasyon | orta | 3 | CAT02-KAVGA |  |
-| 121 | `anim_kos` | Koşma | animasyon | orta | 3 | B4-ILERI-KLIPLER |  |
-| 122 | `anim_nobet` | Nöbet / mızrağa dayanma | animasyon | orta | 3 | B4-ILERI-KLIPLER |  |
-| 123 | `anim_orak` | Orak biçme | animasyon | orta | 3 | B4-ILERI-KLIPLER |  |
-| 124 | `anim_otur` | Oturma | animasyon | orta | 3 | B4-ILERI-KLIPLER |  |
-| 125 | `anim_saldir` | Saldırı | animasyon | orta | 3 | B4-ILERI-KLIPLER |  |
-| 126 | `anim_sinsi_yuru` | Sinsi yürüyüş | animasyon | orta | 3 | ANI10-SINSI |  |
-| 127 | `anim_temkinli_bekle` | Temkinli kuytu bekleyiş | animasyon | orta | 3 | ANI10-SINSI |  |
-| 128 | `anim_yagmur_yuru` | Yağmurda yürüyüş | animasyon | orta | 3 | B4-ILERI-KLIPLER |  |
-| 129 | `klip_eksik:asker` | asker eksik klipler | animasyon | orta | 23 | klip:asker, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 130 | `klip_eksik:aydogdu` | aydogdu eksik klipler | animasyon | orta | 23 | klip:aydogdu, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 131 | `klip_eksik:ayse_baci` | ayse_baci eksik klipler | animasyon | orta | 23 | klip:ayse_baci, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 132 | `klip_eksik:chr_001` | chr_001 eksik klipler | animasyon | orta | 11 | klip:chr_001, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
-| 133 | `klip_eksik:chr_002` | chr_002 eksik klipler | animasyon | orta | 11 | klip:chr_002, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 134 | `klip_eksik:chr_003` | chr_003 eksik klipler | animasyon | orta | 11 | klip:chr_003, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 135 | `klip_eksik:chr_004` | chr_004 eksik klipler | animasyon | orta | 11 | klip:chr_004, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
-| 136 | `klip_eksik:chr_005` | chr_005 eksik klipler | animasyon | orta | 11 | klip:chr_005, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
-| 137 | `klip_eksik:chr_006` | chr_006 eksik klipler | animasyon | orta | 11 | klip:chr_006, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
-| 138 | `klip_eksik:chr_007` | chr_007 eksik klipler | animasyon | orta | 11 | klip:chr_007, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
-| 139 | `klip_eksik:chr_008` | chr_008 eksik klipler | animasyon | orta | 11 | klip:chr_008, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 140 | `klip_eksik:chr_009` | chr_009 eksik klipler | animasyon | orta | 11 | klip:chr_009, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
-| 141 | `klip_eksik:chr_010` | chr_010 eksik klipler | animasyon | orta | 11 | klip:chr_010, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
-| 142 | `klip_eksik:chr_011` | chr_011 eksik klipler | animasyon | orta | 11 | klip:chr_011, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 143 | `klip_eksik:chr_012` | chr_012 eksik klipler | animasyon | orta | 11 | klip:chr_012, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 144 | `klip_eksik:chr_013` | chr_013 eksik klipler | animasyon | orta | 11 | klip:chr_013, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 145 | `klip_eksik:chr_014` | chr_014 eksik klipler | animasyon | orta | 11 | klip:chr_014, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 146 | `klip_eksik:chr_015` | chr_015 eksik klipler | animasyon | orta | 11 | klip:chr_015, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 147 | `klip_eksik:chr_016` | chr_016 eksik klipler | animasyon | orta | 11 | klip:chr_016, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 148 | `klip_eksik:chr_017` | chr_017 eksik klipler | animasyon | orta | 11 | klip:chr_017, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 149 | `klip_eksik:chr_018` | chr_018 eksik klipler | animasyon | orta | 11 | klip:chr_018, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 150 | `klip_eksik:chr_019` | chr_019 eksik klipler | animasyon | orta | 11 | klip:chr_019, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 151 | `klip_eksik:chr_020` | chr_020 eksik klipler | animasyon | orta | 11 | klip:chr_020, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 152 | `klip_eksik:chr_021` | chr_021 eksik klipler | animasyon | orta | 11 | klip:chr_021, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 153 | `klip_eksik:chr_022` | chr_022 eksik klipler | animasyon | orta | 11 | klip:chr_022, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 154 | `klip_eksik:chr_023` | chr_023 eksik klipler | animasyon | orta | 11 | klip:chr_023, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 155 | `klip_eksik:chr_024` | chr_024 eksik klipler | animasyon | orta | 11 | klip:chr_024, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 156 | `klip_eksik:chr_025` | chr_025 eksik klipler | animasyon | orta | 11 | klip:chr_025, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 157 | `klip_eksik:chr_026` | chr_026 eksik klipler | animasyon | orta | 11 | klip:chr_026, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 158 | `klip_eksik:chr_027` | chr_027 eksik klipler | animasyon | orta | 11 | klip:chr_027, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 159 | `klip_eksik:chr_028` | chr_028 eksik klipler | animasyon | orta | 11 | klip:chr_028, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 160 | `klip_eksik:chr_029` | chr_029 eksik klipler | animasyon | orta | 11 | klip:chr_029, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 161 | `klip_eksik:chr_030` | chr_030 eksik klipler | animasyon | orta | 11 | klip:chr_030, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
-| 162 | `klip_eksik:ciftci` | ciftci eksik klipler | animasyon | orta | 23 | klip:ciftci, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 163 | `klip_eksik:ciftci_kadin` | ciftci_kadin eksik klipler | animasyon | orta | 23 | klip:ciftci_kadin, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 164 | `klip_eksik:esnaf` | esnaf eksik klipler | animasyon | orta | 23 | klip:esnaf, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 165 | `klip_eksik:hasan_celebi` | hasan_celebi eksik klipler | animasyon | orta | 23 | klip:hasan_celebi, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 166 | `klip_eksik:karaca_usta` | karaca_usta eksik klipler | animasyon | orta | 23 | klip:karaca_usta, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 167 | `klip_eksik:miraen` | miraen eksik klipler | animasyon | orta | 23 | klip:miraen, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 168 | `klip_eksik:nogay` | nogay eksik klipler | animasyon | orta | 23 | klip:nogay, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 169 | `klip_eksik:saruca_hatun` | saruca_hatun eksik klipler | animasyon | orta | 23 | klip:saruca_hatun, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 170 | `klip_eksik:sorhan` | sorhan eksik klipler | animasyon | orta | 23 | klip:sorhan, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 171 | `klip_eksik:thessra` | thessra eksik klipler | animasyon | orta | 23 | klip:thessra, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 172 | `klip_eksik:yusuf` | yusuf eksik klipler | animasyon | orta | 23 | klip:yusuf, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
-| 173 | `kabus_golgesi` | Rüya gölgesi figürü | karakter | dusuk | 15 | ODA09-KABUS |  |
-| 174 | `askilik` | Donanım askılığı | nesne | dusuk | 15 | ODA08-ASKILIK |  |
-| 175 | `blok_agiz` | Ağız bloğu | nesne | dusuk | 15 | TEZ06-AGIZ |  |
-| 176 | `blok_bicim` | Biçim bloğu | nesne | dusuk | 15 | TEZ05-BICIM |  |
-| 177 | `blok_ham` | Ham blok | nesne | dusuk | 15 | TEZ03-HAM |  |
-| 178 | `blok_iz` | İz bloğu | nesne | dusuk | 15 | TEZ04-IZ |  |
-| 179 | `hediye_bohcasi` | Hediye bohçası | nesne | dusuk | 15 | ODA03-ESYA |  |
-| 180 | `iksir_sisesi` | İksir şişesi | nesne | dusuk | 15 | ODA03-ESYA |  |
-| 181 | `kisisel_iz` | Kişisel iz (hatıra) | nesne | dusuk | 15 | SEV03-IZ |  |
-| 182 | `kutuphane` | Muhafız kütüphanesi | nesne | dusuk | 15 | ODA-ODA, ODA08-KUTUPHANE |  |
-| 183 | `muhur` | Mühür | nesne | dusuk | 15 | ODA03-ESYA |  |
-| 184 | `rahat_yatak` | Rahat muhafız yatağı | nesne | dusuk | 15 | ODA08-YATAK |  |
-| 185 | `teslim_parcasi` | Teslim parçası | nesne | dusuk | 15 | TEZ08-PARCA |  |
-| 186 | `tezgah_ortusu` | Tezgâh örtüsü | nesne | dusuk | 15 | SAB03-ORTU, TEZ01-ORTU |  |
+| 1 | `klip_eksik:asker` | asker eksik klipler | animasyon | orta | 23 | klip:asker, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 2 | `klip_eksik:ciftci` | ciftci eksik klipler | animasyon | orta | 23 | klip:ciftci, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 3 | `klip_eksik:ciftci_kadin` | ciftci_kadin eksik klipler | animasyon | orta | 23 | klip:ciftci_kadin, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 4 | `klip_eksik:esnaf` | esnaf eksik klipler | animasyon | orta | 23 | klip:esnaf, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 5 | `klip_eksik:aydogdu` | aydogdu eksik klipler | animasyon | orta | 23 | klip:aydogdu, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 6 | `klip_eksik:ayse_baci` | ayse_baci eksik klipler | animasyon | orta | 23 | klip:ayse_baci, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 7 | `klip_eksik:chr_001` | chr_001 eksik klipler | animasyon | orta | 11 | klip:chr_001, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
+| 8 | `klip_eksik:chr_002` | chr_002 eksik klipler | animasyon | orta | 11 | klip:chr_002, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 9 | `klip_eksik:chr_003` | chr_003 eksik klipler | animasyon | orta | 11 | klip:chr_003, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 10 | `klip_eksik:chr_004` | chr_004 eksik klipler | animasyon | orta | 11 | klip:chr_004, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
+| 11 | `klip_eksik:chr_005` | chr_005 eksik klipler | animasyon | orta | 11 | klip:chr_005, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
+| 12 | `klip_eksik:chr_006` | chr_006 eksik klipler | animasyon | orta | 11 | klip:chr_006, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
+| 13 | `klip_eksik:chr_007` | chr_007 eksik klipler | animasyon | orta | 11 | klip:chr_007, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
+| 14 | `klip_eksik:chr_008` | chr_008 eksik klipler | animasyon | orta | 11 | klip:chr_008, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 15 | `klip_eksik:chr_009` | chr_009 eksik klipler | animasyon | orta | 11 | klip:chr_009, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
+| 16 | `klip_eksik:chr_010` | chr_010 eksik klipler | animasyon | orta | 11 | klip:chr_010, chr_001, 004, 005, 006, 007, 009, 010 | iskelet ön koşulu; klipler: panik, gergin |
+| 17 | `klip_eksik:chr_011` | chr_011 eksik klipler | animasyon | orta | 11 | klip:chr_011, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 18 | `klip_eksik:chr_012` | chr_012 eksik klipler | animasyon | orta | 11 | klip:chr_012, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 19 | `klip_eksik:chr_013` | chr_013 eksik klipler | animasyon | orta | 11 | klip:chr_013, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 20 | `klip_eksik:chr_014` | chr_014 eksik klipler | animasyon | orta | 11 | klip:chr_014, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 21 | `klip_eksik:chr_015` | chr_015 eksik klipler | animasyon | orta | 11 | klip:chr_015, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 22 | `klip_eksik:chr_016` | chr_016 eksik klipler | animasyon | orta | 11 | klip:chr_016, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 23 | `klip_eksik:chr_017` | chr_017 eksik klipler | animasyon | orta | 11 | klip:chr_017, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 24 | `klip_eksik:chr_018` | chr_018 eksik klipler | animasyon | orta | 11 | klip:chr_018, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 25 | `klip_eksik:chr_019` | chr_019 eksik klipler | animasyon | orta | 11 | klip:chr_019, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 26 | `klip_eksik:chr_020` | chr_020 eksik klipler | animasyon | orta | 11 | klip:chr_020, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 27 | `klip_eksik:chr_021` | chr_021 eksik klipler | animasyon | orta | 11 | klip:chr_021, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 28 | `klip_eksik:chr_022` | chr_022 eksik klipler | animasyon | orta | 11 | klip:chr_022, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 29 | `klip_eksik:chr_023` | chr_023 eksik klipler | animasyon | orta | 11 | klip:chr_023, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 30 | `klip_eksik:chr_024` | chr_024 eksik klipler | animasyon | orta | 11 | klip:chr_024, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 31 | `klip_eksik:chr_025` | chr_025 eksik klipler | animasyon | orta | 11 | klip:chr_025, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 32 | `klip_eksik:chr_026` | chr_026 eksik klipler | animasyon | orta | 11 | klip:chr_026, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 33 | `klip_eksik:chr_027` | chr_027 eksik klipler | animasyon | orta | 11 | klip:chr_027, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 34 | `klip_eksik:chr_028` | chr_028 eksik klipler | animasyon | orta | 11 | klip:chr_028, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 35 | `klip_eksik:chr_029` | chr_029 eksik klipler | animasyon | orta | 11 | klip:chr_029, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 36 | `klip_eksik:chr_030` | chr_030 eksik klipler | animasyon | orta | 11 | klip:chr_030, chr_002, 003, 008, 011–030 | iskelet ön koşulu; klipler: ofke, gergin |
+| 37 | `klip_eksik:hasan_celebi` | hasan_celebi eksik klipler | animasyon | orta | 23 | klip:hasan_celebi, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 38 | `klip_eksik:karaca_usta` | karaca_usta eksik klipler | animasyon | orta | 23 | klip:karaca_usta, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 39 | `klip_eksik:miraen` | miraen eksik klipler | animasyon | orta | 23 | klip:miraen, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 40 | `klip_eksik:nogay` | nogay eksik klipler | animasyon | orta | 23 | klip:nogay, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 41 | `klip_eksik:saruca_hatun` | saruca_hatun eksik klipler | animasyon | orta | 23 | klip:saruca_hatun, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 42 | `klip_eksik:sorhan` | sorhan eksik klipler | animasyon | orta | 23 | klip:sorhan, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 43 | `klip_eksik:thessra` | thessra eksik klipler | animasyon | orta | 23 | klip:thessra, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
+| 44 | `klip_eksik:yusuf` | yusuf eksik klipler | animasyon | orta | 23 | klip:yusuf, asker, ciftci, ciftci_kadin, esnaf, aydogdu, ayse_baci, hasan_celebi, karaca_usta, miraen, nogay, saruca_hatun, sorhan, thessra, yusuf | iskelet ön koşulu; klipler: bekle, konus, sevinc, ofke, panik, gergin |
 <!-- MESHY_OZET_BITIR -->
 
 ## 6. Godot'a alma

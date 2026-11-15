@@ -1355,87 +1355,38 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Not (Cursor/Muharrir için):** `tests/tools/test_metin_dogrula.py` (`tools/metin_dogrula.py`) kural gereği `dedikodu.kacis` için `YER-02` (3 parça) ve `ZAR_BASARILI`/`ZAR_BASARISIZ`/`ZAR_KILITLI` için `KVR-11` (küçük harf noktalı) uyarısı veriyor; mevcut kod anahtarları (`tansiyon_kacis_akisi.gd`, `sorgu_zari.gd`) ve görev kuralı gereği anahtar adları değiştirilmedi.
 - kota görünmüyor
 
-## 15 Kasım 2026 — `KAP-18` (Yetimler ve Savaştan Kaçan Çocuklar)
-- **Yapılanlar:**
-  - `src/koy/yetim_bakimi.gd` (`YetimBakimi`) eklendi: `DNY-01` savaş olayı (`mogol_ilerleyisi.etki`) yoksa kafile ağırlığı 0'dır; savaş olayı sonrası `Oturum.gece_kuyrugu()` içine `data/soz/yetim_kafilesi.json` ve KAP-17 `AileKafilesi.uyeleri_oku` çocuk şemasıyla tek `Gelen` ekler. Kabulde mevcut haneye (`hane_id`) veya eş hayatta ve barınaklıysa `y.hane`'ye emanet eder; ikisi de yoksa ya da yatak yoksa ACL-05 `BarinakUyarisi` ile çocuk köyde `acikta` (`ev = -1`) kalır, silinmez. Hane sonradan dağılırsa da çocuk silinmeden `acikta` durumuna düşer. 28. günde `yas_grubu` `&"genc"` olur ve `kap18.yetim.genc_oldu` olayı düşer. Tamamlanan kafile yüklemede yeniden tetiklenmez.
-  - `src/koy/yas_rolleri.gd`, `src/koy/koylu_karti_verisi.gd`, `src/arayuz/koylu_karti.gd`, `src/arayuz/aile_kapi_paneli.gd`, `src/koy/koy_yonetimi.gd` ve `src/sistemler/oturum.gd` üzerinden çocuk çalışma engeli (`kap18_yetim`), `&"genc"` desteği, çırak düğmesi (`cirak_dugmesi` / `cirak_atamasi`), barındırma ve kayıt/yükleme bağlandı.
-- **Testler:** `yetim_bakimi_test.gd` (`YETIM BAKIMI TESTI: GEÇTİ`), `kap18_yetim_metinleri_test.gd` (`gecti (0 hata)`), `aile_kafilesi_test.gd` (`AİLE KAFİLESİ: GEÇTİ`), `cirak_yas_kaynagi_test.gd` (`ÇIRAK YAŞ KAYNAĞI: GEÇTİ`), `hane_test.gd` (`PASS`), `kay04_icerik_surumu_test.gd` (`KAY-04: GEÇTİ (0 hata)`) ve `acilis_koy_kontrol.tscn` (RC=0) geçti.
-- **Asset:** asset gerekmedi (KAP-17 çocuk modeli ve mevcut `kap18.yetim.*` metinleri kullanıldı).
-- **Kota:** kota görünmüyor.
 
-## 15 Kasım 2026 — `DNY-02` (Haber Önce İnsanlardan Duyulur)
-- **Yapılanlar:**
-  - `src/sistemler/dedikodu.gd`: `"dunya_haberi"` türü `AGIR_OLAY_TURLERI` içine eklendi.
-  - `src/sistemler/dunya_zamani.gd`: `erken_soylenti` ve `kesin_haber` repliklerini (`replikler` / `dunya.haber.*`) kalıcı `"iletildi"` izlemesiyle okuyan `haber_satirlari()`, `koy_dedikodusu_satirlari()` (yalnız yaşayan köylü varsa DIY-13 `Oturum.dedikodu` `"dunya_haberi"` kaydı yazar, boş köyde 0 satır üretir; sağlık/hastalık yöneticisine dokunmaz) ve `kapi_haberi_ekle()` (kuyruk boşsa 0 yüz üretir ve haberi bir sonraki gerçek yolcunun `"Yolda ne gördün?"` konusuna saklar) eklendi.
-  - `src/soz/baglam_sorgusu.gd`: `_dunya_olaylari()` salt-okunur `"isaretler"` (`DunyaZamani.isaretler`) ve `"haberler"` (`DunyaZamani.haber_satirlari`) alanlarını bağladı.
-  - `src/sistemler/oturum.gd`: `gece_kuyrugu()` içinde `DunyaZamani.kapi_haberi_ekle(self, sonuc)` bağlandı.
-  - `tests/unit/sistemler/dunya_test.gd`: `_test_dny02_haber` ile 8 kabul şartı doğrulandı.
-- **Testler:** `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`), `dunya_cizelge_metin_test.gd` (`gecti`), `dedikodu_test.gd` (`DEDIKODU: GEÇTİ (0 hata)`), `kop05_dedikodu_fisilti_test.gd` (`KOP05 DEDIKODU FISILTI: GEÇTİ (0 hata)`), `satir_secici_test.gd` (`SATIR SECICI: GEÇTİ (0 hata)`) ve `acilis_koy_kontrol.tscn` (RC=0; `divan_baglantisi.gd` / `DivanMeydani` başka ajan kaynaklı önceden var olan parse uyarısı dışında 0 hata) geçti. (`baglam_sorgusu_test.gd` 72/75. satırlarda `_kur_bina("sifahane")` önkoşulu nedeniyle başarısız; `DNY-02` ve `BaglamSorgusu` kontrolleri geçti.)
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor.
-
-## 15 Kasım 2026 — `DNY-04` (Oyuncunun Kararları Dünyaya Geri Döner)
-- **Yapılanlar:**
-  - `src/sistemler/dunya_zamani.gd`: Üç karar anahtarı (`tekfur_haraci`, `mogol_elcisi`, `turkmen_ittifaki`) ve üç değer (`bekliyor`, `kabul`, `ret`) kalıcı olarak bağlandı. `karar_kaydet()`, `karar_durumu()`, `kararlar_oku()`, `olay_karar_dali()` eklendi; aynı karara iki kez basılırsa son değer tutulur, tek gecede çizelgeye en çok bir karar işareti (`karar.<id>.<deger>`) yazılır, `evre_gunu()` karar dallarına göre (`kabul` +4 / `ret` -4 / `bekliyor` 0) olay zamanlamasını ve sırasını değiştirir, `kalp` ve kapı genel kabulü reddedilir, `bekliyor` varsayılan dalı korur ve yüklemede açılır.
-  - Karar bağlantıları: `src/sistemler/tekfur_harac_heyeti.gd` (`ode` -> `tekfur_haraci = kabul`), `src/koy/koy_yonetimi.gd` (`harac_reddet` -> `tekfur_haraci = ret`), `src/sistemler/oturum.gd` (`gece_sonu` senkronizasyonu), `src/sistemler/diplomatik_heyet.gd` (`tekfur`/`harc` ve `mogol` kararları), `src/sistemler/aydogdu_ziyareti.gd` (4 geceden önce açılmaz; `turkmen_ittifaki = kabul/ret`), `src/sistemler/oba_ittifaki.gd` (`ittifak_kur` -> `turkmen_ittifaki = kabul`).
-  - `src/sistemler/nihai_son.gd`: `SYS-20` kararları okur, beş nihai son kimliği dışına çıkmaz (altıncı son açılmaz).
-  - `src/soz/baglam_sorgusu.gd`: `dunya_olaylari.kararlar` salt-okunur bağlama eklendi (`bekliyor` değeri `isaretler` üzerine yazılmaz).
-  - `tests/unit/sistemler/dunya_test.gd`: `_test_dny04_kararlar` eklendi.
-- **Testler:** `dunya_test.gd`, `dunya_cizelge_metin_test.gd`, `nihai_son_kontrol.tscn`, `zorluk_test.gd`, `satir_secici_test.gd`, `koy_yonetimi_test.gd`, `soz_ikiz_test.gd`, `tekfur_harac_heyeti_test.gd`, `oba_ittifaki_test.gd`, `aydogdu_ziyareti_test.gd` 0 hata ile geçti. (`diplomatik_heyet_test.gd` 67. satır başka ajan kaynaklı önceden var olan `Oturum.new` Perde 2 `harac_bekliyor` beklentisinden `Array[Gelen]` 0 hatası veriyor.)
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor.
-
-### 2026-11-15 — `SEV-05` Tamamlandı
-- **Yapılan:** `data/soz/koylu_bagi.json`, `data/metin/metinler.csv` (`anlati.bag.dost`, `koy.bag.dost`, `koy.bag.dusman`) ve `src/koy/koylu_bagi.gd` (`KoyluBagi`) eklendi; `src/koy/koy_yonetimi.gd` (`baglar`, `_uret` dost verim farkı, `gece` içinde günlük en çok 1 bağ, `kaydet`/`kayittan`), `src/sistemler/oturum.gd` (`baglar` kayıt/yükleme), `src/koy/bos_gun_durusu_adaptoru.gd` (`ates_satiri`) ve `src/arayuz/koylu_karti.gd` (`koylu_bagi` tek kelime etiketi) bağlandı. Aynı günde en fazla 1 yeni bağ, aynı çifte dost+düşman bağ yasağı, bir taraf köyde değilken verim/ateş cümlesi kesilmesi, `kalp`/`romans`/`hediye` reddi ve `grup_itibari` dokunulmazlığı sağlandı.
-- **Testler:** `sevilen_yuz_test.gd`, `koy_yonetimi_test.gd`, `bos_gun_durusu_oyun_test.tscn`, `kisisel_iz_oyun_test.tscn`, `tek_istek_oyun_test.tscn`, `ates_basi_rutini_kontrol.tscn`, `admin_koylu_kontrol.tscn`, `acilis_koy_kontrol.tscn` 0 hata ile geçti.
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor.
-
-### 2026-11-15 — `GRV-32` Tamamlandı
-- **Yapılan:** `src/arayuz/chr_inceleme_paneli.gd` içindeki ham punto değerleri (`28`, `24`) `Tema.BASLIK_PX` ve `Tema.KUCUK_PX` ile değiştirildi; `tests/oto/grv_tema_baglari_kontrol.gd` taramasına `GRV-32` eklendi.
-- **Testler:** `grv_tema_baglari_kontrol.tscn` (34 dosya) ve `chr_kapi_kontrol.tscn` 0 hata ile geçti.
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor.
-
-### 2026-11-15 — `GRV-33`, `GRV-35`, `GRV-37`, `GRV-39`, `GRV-40` Tamamlandı
-- **Yapılan:** `grafik_ayarlari_paneli.gd` ham punto değerleri `ayarlar.boyut(Tema.*)` ile değiştirildi; `hud.gd` içindeki ham `Color`, `StyleBoxFlat` ve `add_theme_stylebox_override` kalıntıları `Renkler.MESALE`, `HudPanel` varyasyonu ve `Kabuk`/`Tema` `ProgressBar` stillerine taşındı; `koylu_karti.gd`, `heyet_kapi_paneli.gd`, `tuccar_kapi_paneli.gd` ve ilk iki dosya `tests/oto/grv_tema_baglari_kontrol.gd` listesine eklendi.
-- **Testler:** `grv_tema_baglari_kontrol.tscn` (39 dosya), `ayarlar_kontrol.tscn`, `koylu_karti_kontrol.tscn`, `denge_hud_test.gd`, `tekfur_heyeti_kontrol.tscn` ve `tuccar_kapi_kontrol.tscn` 0 hata ile geçti.
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor.
-
-### 2026-11-15 — `GRV-41..45` Tamamlandı
-- **Yapılan:** `oda_gelistirme_paneli.gd` ve `oda_yetenek_paneli.gd` içindeki ham `Color("94999e")` ve `Color(String(a.renk))` ifadeleri `Kabuk.SOLUK` ve `Kabuk.renkten` ile değiştirildi; `oda_kasasi_paneli.gd`, `oda_terazisi_paneli.gd`, `oda_vicdan_paneli.gd` ile birlikte `tests/oto/grv_tema_baglari_kontrol.gd` taramasına eklendi.
-- **Testler:** `grv_tema_baglari_kontrol.tscn` (44 dosya), `oda_gelisim_kontrol.tscn`, `oda_kasasi_kontrol.tscn`, `oda_terazisi_kontrol.tscn`, `oda_vicdan_kontrol.tscn` ve `oda_yetenek_kontrol.tscn` 0 hata ile geçti.
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor.
-
-### 2026-11-15 — `KLT-18` ve `KLT-57` Tamamlandı
-- **Yapılan:** `tools/soz_kapi.py` içine tek satırlık `--tur-ozet` (`tur_ozet_satiri`) ve şablon/kanaat doğrulaması (`tur_raporu_hatalari`) eklendi; `tools/tester_oyuncu.py` içine karar öncesi tüm diyalog dallarını ve inceleme eylemlerini gezen `hikaye_odakli` politikası eklendi; `docs/tester/TUR_SABLONU.md` oluşturulup `docs/tester/TESTER_REHBERI.md` güncellendi.
-- **Testler:** `test_soz_kapi.py` içindeki yeni `TurRaporuKopruTest` (2/2) ve `test_tester_oyuncu.py` (7/7) geçti; `tester_oyuncu.py --politika hikaye_odakli --headless --tohum 11 --gece 1` (`hata_sayisi=0`, çıkış 0) ile doğrulandı. (Not: gömülü Windows Python'da `kor_okuma_gecmis.py` ve `soz_dogrula.py` alt süreçleri mevcut ortam nedeniyle eksik import verir.)
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor.
-
-### 2026-11-15 — `YIL-09` Tamamlandı
-- **Yapılan:** `src/koy/sevilen_yuz.gd` içine `maske_kisa_adi`, `gorunen_kart_adi` ve `kimlik_ac` eklendi; `src/sistemler/oturum.gd` (`karar_ver`), `src/arayuz/koylu_karti.gd`, `src/diyalog/koy_diyalog_yoneticisi.gd` ve `src/koy/yil_izi_gecesi.gd` üzerinden SEV-06 maske/gerçek ad ayrımı canlı oyuna bağlandı (`CHR_017` kimlik açılmadan "çoban", kimlik açılınca sonraki slot "Fadime", yazılmış slot korunur).
-- **Testler:** `yil_izi_test.gd`, `yil_izi_oyun_test.gd`, `sevilen_yuz_test.gd` ve `kisisel_iz_oyun_test.tscn` 0 hata ile geçti.
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor.
-
-### 2026-11-15 — `AYR-29` ve `AYR-33` Tamamlandı
-- **Yapılan:** `src/arayuz/kayit_yuva_karti.gd` içindeki yuva başlığı okuması gerçek `Oturum.kaydet()` (`koy_yonetimi`, `koylular`, `agalik`) ve test sözlüğü (`yonetim`, `koyluler`, `agalik_acildi`) anahtarlarını birlikte okuyacak şekilde düzeltildi; `tests/oto/ayarlar_kontrol.gd` gerçek `Ana._kayit_yaz()` çıktısından nüfus ve `muhafiz_gecmisi` eşitliğini doğrulayacak şekilde güçlendirildi. `YeniOyunEkrani` ve `KayitHataPaneli` ile sürüm 99 uyarısı, açılmama ve dosya koruması korundu.
-- **Testler:** `ayarlar_kontrol.tscn`, `ayarlar_ek_test.gd`, `ayarlar_bolum35_test.gd` ve `acilis_koy_kontrol.tscn` 0 hata ile geçti.
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor.
-
-### 2026-11-15 — `HAN-13` ve `HAN-34` Tamamlandı
-- **Yapılan:** `data/soz/aksam_konulari.json` ve `data/soz/en/aksam_konulari.json` içine `misafir_agirlama` konusu ile `misafir_dallari` eklendi; `src/koy/aksam_sohbeti.gd`, `src/sistemler/oturum.gd` ve `src/arayuz/koy_hud/aksam_sohbeti_paneli.gd` hane misafiri gecesinde `KisiHafizasi` (DIY-11) dalını okuyarak 3 katılımcılı (`es`, `misafir`, `muhafiz`) sohbet açacak şekilde güncellendi. `src/arayuz/koy_hud/cinar_meclis_paneli.gd` içine `MeclisSesi.usta_veya_es_sozu` (MCL-03) eş repliği eklenip `es_meclis_sozu_gecesi` ile aynı gece akşam sohbeti bastırıldı (`HAN-34`).
-- **Testler:** `aksam_sohbeti_test.gd`, `aksam_sohbeti_kontrol.tscn`, `cinar_meclisi_genisletme_test.gd`, `ingilizce_entegrasyon_test.gd` ve `es_aksam_ogretisi_test.gd` 0 hata ile geçti.
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor.
-
-
-### 2026-11-15 — `SOY-34` ve `ISG-39` Tamamlandı
-- **Yapılan:** `data/soylenti.json` içine `grev_olasilik_artisi` (`0.1`), `grev_soylenti_turleri` (`["is_kazasi", "ucret"]`), `koy_olay_turleri` ve ilgili kalıplar eklendi; `src/sistemler/soylenti_agi.gd` içine `grev_olasilik_artisi` ile `meslek`/`hedef` alanları, `src/sistemler/soylenti_koprusu.gd` içine `bagla`, `grev_esigi` ve yeni iş yaralanmalarının (`IsKazalari.YARALI_GECE`) ağa düşmesi eklendi. `src/sistemler/oturum.gd` (`gece_sonu`) ve `src/koy/meslek_grevi.gd` (`soylenti_olasilik_artisi`, `olasilik`, `aktif`) tek SOY-34 eşiğine bağlandı (`soylenti_koprusu.gd` `olcum` içindeki ham `0.0` SOY-38 uyumu için `float(0)` yapıldı).
-- **Testler:** `soylenti_ayar_tarama_test.gd`, `meslek_grevi_test.gd` (SOY-34 + ISG-39 senaryoları eklendi, K2 `demirhane` ön koşulu güncellendi), `soylenti_koprusu_test.gd` ve `meslek_grevi_kontrol.tscn` 0 hata ile geçti.
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor.
+## 15 Kasım 2026 — Görev 25 & Görev 26: Meshy 3B Toplu Asset Üretimi, Önceliklendirme ve Oyun Bağlantıları (142/142 Tamamlandı)
+- **Dal:** `claude/festive-volta-li1sfm`
+- **Özet:**
+  - Görev 25 pilotu (2 asset) ve Görev 26 toplu üretimi (140 asset) olmak üzere `assets/meshy_manifest.json` içindeki **142 üretilebilir 3B asset'in tamamı** (tüm karakterler, yapılar, el/sahne/atölye nesneleri, hayvanlar ve ortak animasyon klipleri) 5 öncelik grubuna (`1_kapi_nobeti`, `2_muhafiz_ve_evi`, `3_koy_yonetimi_surekli`, `4_sik_olaylar`, `5_nadir_ve_sus`) göre üretildi, oyundaki yer tutucu kutuların yerine bağlandı, Godot 4.7.2 ile import edildi ve `tools/meshy/godot_dogrula.gd` ile doğrulandı (`exit code: 0`, 141 GLB model + ortak klipler).
+- **Kredi Özeti (Harcanan ve Kalan):**
+  - **Birincil anahtar (`.meshy-api-key`):** Başlangıç `1200` kredi -> Harcanan **`1198` kredi** (Görev 25 pilotta `30` + Görev 26'da `1168`) -> Kalan bakiye: **`2` kredi**.
+  - **Yedek anahtar (`.meshy-api-key-yedek`):** Başlangıç `1410` kredi -> Harcanan **`553` kredi** -> Kalan bakiye: **`857` kredi**.
+  - **Genel Toplam Harcanan Kredi:** **`1751` kredi** (`30` pilot + `1721` toplu üretim).
+  - **Kalan Üretilecek Asset (karakter / yapı / nesne / hayvan / ortak anim):** **`0` adet** (`meshy_hat.py kuru` tüm türlerde `0` satır döner; yalnız eski pre-manifest rig ID'si olmayan ve `tests/oto/ayak_zemini_kontrol.gd` içinde eksik kalması beklenen 44 eski `klip_eksik:*` satırı `planli` bırakıldı).
+- **Öncelik Gruplarına Göre Üretilen ve Bağlanan 142 Asset Listesi:**
+  1. **Öncelik 1 — Kapı Nöbeti Ekranı (`1_kapi_nobeti`, 20 asset):**
+     - **Yapılar & Nesneler (5):** `kapi_ic` (`assets/model/yapi/kapi_ic.glb`, `kapi_cercevesi.gd` içinde `kapi.glb` ile üst üste binmesi önlendi), `kapi` (`assets/model/yapi/kapi.glb`), `nobet_kulubesi` (`assets/model/yapi/nobet_kulubesi.glb`), `mesale` (`assets/model/nesne/mesale.glb`), `kalkan_kilic` (`assets/model/nesne/kalkan_kilic.glb`).
+     - **Her Gün Gelen Ziyaretçi Tipleri & Aile (15 karakter, rigli + klipli):** `koylu_kadin`, `koylu_erkek`, `tuccar`, `asker`, `yolcu`, `gocmen_erkek`, `gocmen_kadin`, `cocuk_erkek`, `cocuk_kiz`, `yasli_erkek`, `yasli_kadin`, `es_kadin`, `anne_kadin`, `baba_erkek`, `kardes`.
+     - **Oyunda Nereden Bakılır:** Kapı nöbeti ekranı (`src/dunya/kapi_sahnesi.gd`, `src/dunya/kapi_cercevesi.gd`, `src/dunya/dunya3b.gd`, `src/dunya/ziyaretci_adayi.gd`).
+  2. **Öncelik 2 — Muhafız, Eşi ve Evi (`2_muhafiz_ve_evi`, 12 asset):**
+     - **Karakter (1):** `muhafiz` (`assets/model/karakter/muhafiz.glb` + 8 temel klip).
+     - **Yapı & Oda Eşyaları (11):** `muhafiz_evi` (`assets/model/yapi/muhafiz_evi.glb`), `sedir`, `sofra`, `ocak_tasi`, `kandil`, `sandik`, `kilim`, `testi`, `bakir_sahan`, `tahta_kasik`, `ekmek_somunu` (`assets/model/nesne/*.glb`).
+     - **Oyunda Nereden Bakılır:** Akşam muhafız odası ekranı (`src/dunya/muhafiz_odasi.gd`, `src/arayuz/muhafiz_odasi_ekrani.gd`) ve köyde muhafız hanesi (`src/koy/gorsel/hane_isigi.gd`).
+  3. **Öncelik 3 — Köy Yönetimi Ekranında Sürekli Görünen Yapılar, Nesneler ve Köylüler (`3_koy_yonetimi_surekli`, 36 asset):**
+     - **Yapılar (23):** `tas_yatagi`, `ev`, `ev_kucuk`, `ev_orta`, `ev_buyuk`, `ambar`, `ocak`, `tarla`, `cesme`, `kuyu`, `han_pazar`, `demirhane`, `degirmen`, `ahsap_sur`, `gozetleme_kulesi`, `koy_kulesi`, `karakol`, `kiler`, `koy_ocagi`, `samanlik`, `sifali_bitki_lik`, `kilise_kalintisi`, `ahlat_agaci` (`assets/model/yapi/*.glb`).
+     - **Sürekli Köylüler (6 karakter):** `ciftci`, `demirci`, `avci`, `degirmenci`, `oduncu`, `koylu_iscisi` (`assets/model/karakter/*.glb`).
+     - **Köy Meydanı Nesneleri (7):** `odun_yigini`, `su_kovasi`, `el_arabasi`, `un_cuvali`, `tahil_sepeti`, `koy_sancagi`, `ilac_siseleri` (`assets/model/nesne/*.glb`).
+     - **Oyunda Nereden Bakılır:** Köy yönetimi 3B sahnesi (`src/dunya/koy_yonetim_sahnesi.gd`, `src/koy/gorsel/hazir_yapi.gd`, `src/koy/gorsel/tas_yatagi_gorseli.gd`, `src/koy/gorsel/koylu_gorunumu.gd`).
+  4. **Öncelik 4 — Sık Görülen Olay Karakterleri (`4_sik_olaylar`, 17 asset):**
+     - **Karakterler (17):** `bey`, `cavus`, `haberci`, `tahsildar`, `tekfur_askeri`, `seyyar_satc`, `kadi`, `hekim`, `dervis`, `kesis`, `usta`, `cirak`, `muhafiz_yardimcisi`, `okcu`, `atli_nefer`, `ulak`, `kacak` (`assets/model/karakter/*.glb`).
+     - **Oyunda Nereden Bakılır:** Kapı özel gün/olay ziyaretçileri ve köy olay sahneleri (`src/dunya/dunya3b.gd`, `src/dunya/karakter_model.gd`, `src/dunya/kapi_elcisi.gd`).
+  5. **Öncelik 5 — Nadir Olaylar, Tek Seferlik Karakterler, Hayvanlar, Atölye/Süs Nesneleri ve Ortak Animasyonlar (`5_nadir_ve_sus`, 57 asset):**
+     - **Nadir Karakterler (9):** `asik`, `korsan_ulak`, `casus`, `esir`, `dilenci`, `deli`, `ebeci_kadin`, `sorhan_karisi`, `kabus_golgesi` (`assets/model/karakter/*.glb`).
+     - **Hayvanlar (8):** `kopek`, `inek`, `koc`, `beygir`, `at`, `keci`, `deve`, `kurt` (`assets/model/hayvan/*.glb`).
+     - **Nadir Yapılar (5):** `mezarlik`, `su_bendi`, `yanik_ev`, `hasta_cadiri`, `mezar` (`assets/model/yapi/*.glb` & `nesne/mezar.glb`).
+     - **Atölye, El Eşyası ve Nadir Süs/Olay Nesneleri (18):** `balta`, `orak`, `kova`, `kurek`, `firin_kuregi`, `su_kabi`, `kirmen`, `bakim_bezi`, `kervan_yuku`, `sonen_ates`, `toplu_mezar`, `yemin_nesneleri`, `ahi_kusagi`, `davul_zurna`, `ilac_kutusu`, `kirik_kin`, `tezgah_ortusu`, `blok_ham`, `blok_iz`, `blok_bicim`, `blok_agiz`, `teslim_parcasi`, `hediye_bohcasi`, `iksir_sisesi`, `kisisel_iz`, `muhur` (`assets/model/nesne/*.glb`).
+     - **Ortak Animasyon Klipleri (17):** `anim_idle_nefes`, `anim_idle_agirlik`, `anim_idle_bakis`, `anim_nobet`, `anim_cekic_vurma`, `anim_firin_kuregi`, `anim_orak`, `anim_isinma`, `anim_kar_kureme`, `anim_yagmur_yuru`, `anim_buzulme`, `anim_otur`, `anim_kavga`, `anim_saldir`, `anim_dus`, `anim_sinsi_yuru`, `anim_temkinli_bekle` (`assets/model/karakter/muhafiz_*.glb`).
+     - **Oyunda Nereden Bakılır:** Köy hayvanları ve kurt baskını (`src/koy/gorsel/hazir_esya_hayvan.gd`, `src/koy/gorsel/celep_hayvan_gorseli.gd`, `src/koy/gorsel/kurt_surusu.gd`), köylü el eşyaları ve iş rutinleri (`src/dunya/el_esyasi.gd`, `src/koy/gorsel/cati_kar_rutini.gd`), demirci atölyesi (`src/koy/gorsel/zanaat_tezgahi.gd`), mezarlık/cenaze (`src/koy/gorsel/cenaze_mezari.gd`), muhafız odası envanter sergisi (`src/arayuz/oda_envanter_sergisi.gd`), kişisel iz (`src/koy/kisisel_iz.gd`).
+- **Kota:** kota görünmüyor
