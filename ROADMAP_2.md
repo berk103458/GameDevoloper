@@ -2833,7 +2833,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.6 Ad ve kapanış
 
-- [ ] **YIL-09:** (Cursor) Söylenen ad karttaki addır (doğrulanmadı — Görev 22; YilIzi (src/koy/yil_izi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten; Görev 23: yıl satırı artık oyunda ve kartta duran adı (Koylu.ad) söyler, ama SEV-06 maske/gerçek ad ayrımı oyunda yok, çoban/Fadime kabulü sınanamaz)
+- [/] **YIL-09:** (Antigravity-Berk) Söylenen ad karttaki addır
   - Ne: Güz cümlesi SEV-06 görünen adını okur; ad bayrağı yoksa maskenin kısa adı, bayrak varsa gerçek ad söylenir. Yıl ortasında ad açılırsa sonraki slot yeni adı söyler, yazılmış satır değişmez.
   - Kabul: `CHR_017` ad bayrağı yokken güz cümlesinde "çoban" geçer ve "Fadime" 0'dır; bayrak varken "Fadime" 1'dir (`tests/unit/koy/yil_izi_test.gd`). Kartın kendi yazısı değişmez.
   - Bağımlılık: YIL-02, SEV-06. Boyut: S.
