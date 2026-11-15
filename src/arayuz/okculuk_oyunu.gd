@@ -54,7 +54,7 @@ func _bas() -> void:
 		1:
 			_bildir(tr("arayuz.oyun.kenar"), Renkler.KUL)
 		_:
-			_bildir(tr("arayuz.oyun.iska"), Color("#B5523B"))
+			_bildir(tr("arayuz.oyun.iska"), Hud.UYARI)
 	_durum_yaz()
 
 
@@ -66,21 +66,21 @@ func _durum_yaz() -> void:
 func _alan_ciz(c: Control, m: Vector2) -> void:
 	# Hedef: saman balyası üstünde boyalı halkalar (dış krem, halka kızıl, merkez altın).
 	var balya := Rect2(m - Vector2(HEDEF_R + 40, HEDEF_R + 30), Vector2(HEDEF_R * 2 + 80, HEDEF_R * 2 + 60))
-	c.draw_rect(balya, Color("#6B5530"))
+	c.draw_rect(balya, Kabuk.PANEL_KENAR)
 	for k in 7:
 		var y := balya.position.y + 18 + k * (balya.size.y - 36) / 6.0
-		c.draw_line(Vector2(balya.position.x + 8, y), Vector2(balya.end.x - 8, y), Color("#57431F"), 3.0)
-	c.draw_circle(m, HEDEF_R, Color("#E6D8B8"))
-	c.draw_circle(m, HEDEF_R * oyun.okculuk_halka, Color("#9A3B2E"))
+		c.draw_line(Vector2(balya.position.x + 8, y), Vector2(balya.end.x - 8, y), Renkler.AHSAP, 3.0)
+	c.draw_circle(m, HEDEF_R, Kabuk.yazi())
+	c.draw_circle(m, HEDEF_R * oyun.okculuk_halka, Hud.UYARI)
 	c.draw_circle(m, HEDEF_R * oyun.okculuk_merkez, MenuSatiri.ALTIN)
 	for r in [1.0, oyun.okculuk_halka, oyun.okculuk_merkez]:
 		c.draw_arc(m, HEDEF_R * r, 0.0, TAU, 64, Renkler.MUREKKEP, 2.0)
 	# Saplanmış oklar: gövde ve tüy.
 	for iz in _izler:
 		var p := m + iz * HEDEF_R
-		c.draw_line(p, p + Vector2(26, 34), Color("#4A3520"), 4.0)
-		c.draw_line(p + Vector2(22, 28), p + Vector2(34, 30), Color("#D9D2C0"), 3.0)
-		c.draw_line(p + Vector2(22, 28), p + Vector2(24, 42), Color("#D9D2C0"), 3.0)
+		c.draw_line(p, p + Vector2(26, 34), Renkler.AHSAP, 4.0)
+		c.draw_line(p + Vector2(22, 28), p + Vector2(34, 30), Kabuk.yazi(), 3.0)
+		c.draw_line(p + Vector2(22, 28), p + Vector2(24, 42), Kabuk.yazi(), 3.0)
 		c.draw_circle(p, 4.0, Renkler.MUREKKEP)
 	# Nişangâh.
 	if _durak <= 0.0 and not _bitti:
@@ -91,5 +91,5 @@ func _alan_ciz(c: Control, m: Vector2) -> void:
 	# Kalan oklar (sol alt).
 	for k in oyun.okculuk_ok - _ok:
 		var x := 20.0 + k * 22.0
-		c.draw_line(Vector2(x, c.size.y - 10), Vector2(x, c.size.y - 80), Color("#8A6A40"), 4.0)
+		c.draw_line(Vector2(x, c.size.y - 10), Vector2(x, c.size.y - 80), Kabuk.PANEL_KENAR, 4.0)
 		c.draw_colored_polygon(PackedVector2Array([Vector2(x - 7, c.size.y - 78), Vector2(x + 7, c.size.y - 78), Vector2(x, c.size.y - 94)]), Renkler.KUL)

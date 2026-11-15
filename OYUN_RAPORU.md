@@ -3310,3 +3310,5 @@ Hafıza defteri ortak panel stilini miras alır; var olan seçilmiş sayfa dokus
 Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni ince köprü, mevcut tuş eşleme ve dil API'sini kullanır. Yedi gerçek sekme geçişinde tek ekran/tek içerik; negatif köprü testi ve ayarlar regresyonu geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-46 (Codex-Berk): Harman çizimi ve ıska geri bildirimi mevcut Kabuk/Renkler/Hud paletine bağlandı; gerçek fabrika, isabet ve kaçırma davranışı sınandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-47 (Codex-Berk): Okçuluk hedefi ve ok çizimleri ortak Kabuk/Renkler/Hud paletini okur; gerçek merkez atışı ve ıska puanı sınandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.

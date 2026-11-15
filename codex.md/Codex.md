@@ -1302,3 +1302,17 @@ Kodex kotası açıldı (tiny `codex exec` PONG, exit 0). 27 sahipsiz/yarım mad
 
 ## 15 Kasım 2026 — GRV-46 (Codex-Berk)
 Harman çizimi ve ıska geri bildirimi mevcut Kabuk/Renkler/Hud paletine bağlandı; gerçek fabrika, isabet ve kaçırma davranışı sınandı. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+GRV-46 commit/push doğrulandı: 9a19410f; sonraki madde öncesi pull tamamlandı. kota görünmüyor.
+## 15 Kasım 2026 — Claude limiti, 6 madde Antigravity'ye alındı (Usta)
+
+Berk'in ek emri: Claude 5 saatlik limitte (sıfırlanma 23:10 Europe/Istanbul), 27 maddeden pay almaz. `dde5e055` ile Claude-Berk'e verilen 6 madde yüküne göre Antigravity-Berk'e kaydırıldı (iade + 21 GRV sonrası yük: Antigravity 24, Codex 39).
+
+- Codex-Berk (21, değişmedi): GRV-05, GRV-06, GRV-07, GRV-08, GRV-10, GRV-11, GRV-15, GRV-16, GRV-30, GRV-31, GRV-34, GRV-36, GRV-38, GRV-48, GRV-50, GRV-54, GRV-61, GRV-70, GRV-94, GRV-96, GRV-101
+- Antigravity-Berk (6): OGR-43, KAP-16, KAP-39, KAP-45, KAP-48, ACL-02
+- Claude-Berk (0)
+
+Claude döngüsü limit çıktısını görünce 23:10'a kadar uyuyacak şekilde düzeltildi; dönen kopya açılmadan gizli yeniden başlatıldı. agy (21644) ve Codex (16388) durdurulmadı.
+
+## 15 Kasım 2026 — GRV-47 (Codex-Berk)
+Okçuluk hedefi ve ok çizimleri ortak Kabuk/Renkler/Hud paletini okur; gerçek merkez atışı ve ıska puanı sınandı. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

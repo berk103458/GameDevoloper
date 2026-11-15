@@ -220,7 +220,7 @@ ACL-01 … ACL-06 gövdesi durur. Yeni maddeler ACL-07 … ACL-86. İkinci hane 
 
 ### 14.2 Eş ve meslek
 
-- [/] **ACL-02:** (Claude-Berk) Eş — oynanabilir ama sıradan köylü değil.
+- [/] **ACL-02:** (Antigravity-Berk) Eş — oynanabilir ama sıradan köylü değil.
   - Ne: Eş köylü listesinde ayrı satırdadır; kışla, kervan, sürgün ve divan düğmeleri onda kapalıdır ve kapı kuyruğuna yazılmaz. Meslek yalnız `data/hane_esi.json` listesinden seçilir: dokumacı, ebe, fırıncı, bostancı, sütçü, yün eğirici; okuryazar geçmişte kâtiplik açılır. Demirci, taşçı, oduncu, asker ve madenci listede yoktur. Meslek değişince bir gün verimsiz çalışır. Ölümde yeni son yazılmaz, duran epilog ağır yas olarak açılır.
   - Kurallar:
     1. Eş köylü listesinde ayrı satırdadır. Kışla, kervan, sürgün ve divan düğmeleri onda kapalıdır.
@@ -307,7 +307,7 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ### 15.1 Gelen sayısı
 
-- [/] **KAP-16:** (Claude-Berk) Değişken gelen sayısı, boş gün ve sayfadaki bar eşiği.
+- [/] **KAP-16:** (Antigravity-Berk) Değişken gelen sayısı, boş gün ve sayfadaki bar eşiği.
   - Ne: Her gece kapıya gelen kişi sayısı sabit 3 olmaktan çıkar; köyün refahı, güvenliği, yatağı, mevsimi ve dünya olayı `data/gelen_akisi.json` üzerinden sayıyı belirler. 28 günde en az 4 gece kapı açık kalır ama kimse gelmez. Perde 2, perde 1 formülünü kullanmaz; `perde2_gece_basina_gelen` okunur. Aynı kadro kimliği bir gecede bir kez gelir. Ayrılmış ya da ölü kimlik kuyruğa yazılmaz. Tavan dolunca fazla kişi ertesi güne kalmaz. Fadime sayfasındaki "Moral < 6" gibi bar cümlesi ya canlı barla değerlendirilir ya sayfadan silinir.
   - Kurallar:
     1. `gece_basina_gelen = 3` sabiti kalkar. Günlük sayı köy çekiciliği (refah, güvenlik, yatak), mevsim ve dünya olayından gelir. Mevsim motoru (MEV) okunur, yeniden yazılmaz. Kışın sayı düşer, çünkü duran mevsim çarpanı okunur.
@@ -353,7 +353,7 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
   - Dosya: yeni `src/koy/yetim_bakimi.gd`; `Koylu.yas_grubu` geçişine adaptör.
   - Asset: KAP-17 çocuk modeli. Yeni satır yok.
 
-- [/] **KAP-39:** (Claude-Berk) Heybe açıkken soru seçilmez
+- [/] **KAP-39:** (Antigravity-Berk) Heybe açıkken soru seçilmez
   - Ne: Heybe paneli açıkken oyuncu yeni bir soru seçemez ve soru hakkı düşmez. Panel kapanınca kalan hak aynı sayıda durur. Karar düğmesi de bu sırada etki yazmaz.
   - Kabul: Heybe açıkken soru düğmesine basmak hak sayısını değiştirmez ve yeni dal açmaz (`tests/unit/kapi/heybe_kilit_test.gd`). Panel kapanınca hak, açılmadan önceki değerle aynıdır. Ek şart: Heybe açıkken sorgu eylemi seçilmez; panel kapanınca aynı düğme durur.
   - Bağımlılık: yok. Boyut: S.
@@ -377,14 +377,14 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ---
 
-- [/] **KAP-45:** (Claude-Berk) Karar bir kez uygulanır
+- [/] **KAP-45:** (Antigravity-Berk) Karar bir kez uygulanır
   - Ne: Oyuncu kabul ya da ret düğmesine art arda bassa bile gece sonu etkisi bir kez yazılır. Bar kırılınca `oturum_bitti` bir kez gider; ikinci kırılma ikinci sinyal üretmez. Heybe açıkken bu düğmeler de etki yazmaz.
   - Kabul: Aynı karara iki tıkta bar deltası 1'dir (`tests/unit/kapi/karar_bir_kez_test.gd`). Bar sıfıra inince `oturum_bitti` 1 kez yayılır.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `src/arayuz/kapi_ekrani.gd`
   - Asset: asset gerekmedi.
 
-- [/] **KAP-48:** (Claude-Berk) Rüşvet hakkı ayardadır
+- [/] **KAP-48:** (Antigravity-Berk) Rüşvet hakkı ayardadır
   - Ne: Kapı, rüşvet düğmesini `oyun_ayarlari.gd` içindeki `rusvet_hakki` değerine göre kapatır. Alan bugün yalnız tanımlı, kapı onu okumuyor. Ayar 1 iken ikinci rüşvet denemesi düğmeyi kapalı bırakır. Sayı kapi ekranının içine gömülmez.
   - Kabul: `rusvet_hakki` 1 iken ikinci rüşvet denemesinde düğme kapalıdır ve gece sonuna ikinci rüşvet yazılmaz (`tests/unit/kapi/rusvet_hakki_test.gd`). Alan `src/veri/oyun_ayarlari.gd` dışında ikinci bir 3 sabiti olarak durmaz.
   - Bağımlılık: yok. Boyut: S.
@@ -4164,7 +4164,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-07, TST-03. Boyut: S.
   - Dosya: yeni: `src/debug/ilk_saat_kancasi.gd`.
   - Asset: asset gerekmedi.
-- [/] **OGR-43:** (Claude-Berk) Yedi persona ilk saati geçer. (Kanıt: `tests/oto/otomatik_oyuncu.gd:134` artık gerçek `ana.oturum.yonetim.son` durumunu okur ve `tools/python_test_runner.py` gerçek `gece`/`son`/`ambar` değerlerini raporlayıp `son != 0` durumunda kalır; `python3 tools/python_test_runner.py --yedi-persona --godot ~/.local/bin/godot`: 7/7 koşuda `gece: 6`, `son: 0`, `ambar: 12..37`, 0 SCRIPT ERROR; asset gerekmedi — Cursor doğrulaması bekleniyor)
+- [/] **OGR-43:** (Antigravity-Berk) Yedi persona ilk saati geçer. (Kanıt: `tests/oto/otomatik_oyuncu.gd:134` artık gerçek `ana.oturum.yonetim.son` durumunu okur ve `tools/python_test_runner.py` gerçek `gece`/`son`/`ambar` değerlerini raporlayıp `son != 0` durumunda kalır; `python3 tools/python_test_runner.py --yedi-persona --godot ~/.local/bin/godot`: 7/7 koşuda `gece: 6`, `son: 0`, `ambar: 12..37`, 0 SCRIPT ERROR; asset gerekmedi — Cursor doğrulaması bekleniyor)
   - Ne: TST-07 personaları (`tools/python_test_runner.py`) ilk altı geceyi oynar; hiçbiri OGR-33 kilidi yüzünden değil, oyun yüzünden kaybetmemelidir.
   - Kabul: yedi koşuda son 0, ambar ≥ 0. Test: runner raporu.
   - Bağımlılık: OGR-33, TST-07. Boyut: S.
@@ -7488,7 +7488,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/harman_oyunu.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-47:** (Codex-Berk) `okculuk_oyunu.gd` temaya bağlanır.
+- [x] **GRV-47:** (Codex-Berk) `okculuk_oyunu.gd` temaya bağlanır.
   - Ne: `src/arayuz/okculuk_oyunu.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Okçuluk kadrajı zeminsiz. Tema bağlanınca yalnız `okculuk_oyunu.gd` ARY-02 zeminini ve düğme durumunu okur, Okçuluk kadrajı zeminsiz davranışı değişmez.
   - Kabul: `okculuk_oyunu.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `okculuk_oyunu.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
