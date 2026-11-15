@@ -1335,3 +1335,13 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **22.3 Doğrula:** `ozl_kart_tarama_test.gd` ve `tarla_is_noktalari_test.gd` çalıştır (`RC=0, ERRS=0`).
 - **22.4 Kaydet:** `docs/ANTIGRAVITY_DENETIM_LISTESI.md` üzerinde `OZL-12` → `TAM` işaretle, günlükleri güncelle ve commit/push et.
 - **Sonuç:** `OZL-12` tamamlandı (`data/olaylar/tarla_yagmur.tres` içindeki `kosullar = {"tarla_ekili_min": 1, "kis_mi": false}` koşulunun gerçek `Oturum._kosul_tutar` ve tek kartlı `Oturum.olay_sec()` üzerinde kışın `null`, kış dışında `&"tarla_yagmur"` ürettiği `tests/unit/sistemler/ozl_kart_tarama_test.gd` içinde doğrulandı). `ozl_kart_tarama_test.gd` (`OZL KART TARAMA: GEÇTİ (0 hata)`) ve `tarla_is_noktalari_test.gd` (`TARLA İŞ NOKTALARI: GEÇTİ`) `RC=0 ERRS=0` geçti; `OZL-12` → `TAM`. (kota görünmüyor)
+
+
+## 15 Kasım 2026 — `DNY-01` (Dünya Zaman Çizelgesi)
+- **Yapılanlar:**
+  - `src/sistemler/dunya_zamani.gd` (`DunyaZamani`) tamamlandı: `data/dunya/zaman_cizelgesi.json` üzerinden 6 dünya olayını (`erken_soylenti` -> `kesin_haber` -> `etki`), HAR-02 (`MogolOncusu`) gün okumasını, dünya kitabı çelişki/olgu doğrulamasını, gecede en çok tek `etki` sınırını, mevsim değişimine karşı sabit gün korumasını ve eski/yarım kayıt uyumluluğunu işler.
+  - `src/sistemler/oturum.gd` içine `dunya_zamani` alanı, `gece_sonu()` içinde `DunyaZamani.gece(self, r)`, `kaydet()` ve `kayittan()` içinde `DunyaZamani.oku` / `kayittan_oku` bağlantıları eklendi.
+  - `tests/unit/sistemler/dunya_test.gd` düzeltildi (`IklimDeneyi.yukle`, `DivanHukmu.uygula`, geçersiz `tehdit` alanı kaldırıldı).
+- **Testler:** `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`), `dunya_cizelge_metin_test.gd` (`gecti`), `kay04_icerik_surumu_test.gd` (`KAY-04: GEÇTİ (0 hata)`), `soz_kayit_test.gd` (`SÖZ KAYDI: GEÇTİ`) ve `acilis_koy_kontrol.tscn` (`AÇILIŞ KÖY: GEÇTİ`) 0 script hatasıyla geçti.
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.

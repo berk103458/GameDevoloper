@@ -24,6 +24,8 @@ var soz_kaydi := SozKaydi.new() # KAY-07…10: söz alanlarının tek paketi.
 var muhafiz_tecrubesi: int = 0
 ## HAR-02 optional tek gece uyarı defteri; kalan süre gerçek günden türetilir.
 var mogol_oncusu: Dictionary = {}
+## DNY-01 dünya zaman çizelgesi işaretleri (metin gömülmez).
+var dunya_zamani: Dictionary = {}
 ## HAR-04 optional ferman/seçim makbuzu; tek OlayVerisi akışı.
 var sancak_asker_talebi: Dictionary = {}
 ## HAR-05 optional yol görevi/ek ziyaret makbuzu; nüfus eski kuyruğa bağlıdır.
@@ -336,6 +338,7 @@ func gece_sonu() -> Dictionary:
 	MuhafizVicdani.gece(self, r)
 	SancakTeftisi.gece(self, r)
 	MogolOncusu.gece(self, r)
+	DunyaZamani.gece(self, r)
 	SancakAskerTalebi.gece(self, r)
 	HaberciAgi.gece(self, r)
 	preload("res://src/sistemler/atil_bayraklar.gd").gece(self, r)
@@ -940,6 +943,7 @@ func kaydet() -> Dictionary:
 		"oda_gelisimi": MuhafizOdaGelisimi.oku(oda_gelisimi),
 		"sancak_teftisi": SancakTeftisi.oku(sancak_teftisi),
 		"mogol_oncusu": MogolOncusu.oku(mogol_oncusu),
+		"dunya_zamani": DunyaZamani.oku(dunya_zamani),
 		"sancak_asker_talebi": SancakAskerTalebi.oku(sancak_asker_talebi),
 		"goc_yolu_guvenligi": GocYoluGuvenligi.oku(goc_yolu_guvenligi),
 		"pusu_ticaret_akisi": preload("res://src/koy/ticaret/pusu_ticaret_akisi.gd").durum(self),
@@ -1004,6 +1008,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	o.oda_gelisimi = MuhafizOdaGelisimi.oku(veri.get("oda_gelisimi"))
 	o.sancak_teftisi = SancakTeftisi.oku(veri.get("sancak_teftisi"))
 	o.mogol_oncusu = MogolOncusu.oku(veri.get("mogol_oncusu"))
+	DunyaZamani.kayittan_oku(o, veri)
 	o.sancak_asker_talebi = SancakAskerTalebi.oku(veri.get("sancak_asker_talebi"))
 	o.goc_yolu_guvenligi = GocYoluGuvenligi.oku(veri.get("goc_yolu_guvenligi"))
 	o.set_meta(&"har14_ticaret_akisi", preload("res://src/koy/ticaret/pusu_ticaret_akisi.gd").oku(veri.get("pusu_ticaret_akisi")))
