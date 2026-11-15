@@ -864,7 +864,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.4 Sıranın korkusu
 
-- [/] **CAT-04:** (Codex) Kapıda şiddet sırayı korkutur. (İlk mantık: Antigravity; Görev 22 bağlantısı giderildi: gerçek CAT-02 sec sonucu → SiddetKorkusuAdaptoru → aynı gerçek kuyruk, CHR/bekleme tansiyonu ve Dedikodu.olay_kaydet; görünür sıra ve menü donması bağlı. Birim, 39 kontrollü oyun ve gerçek ekran testleri GEÇTİ; asset gerekmedi.)
+- [x] **CAT-04:** (Codex) Kapıda şiddet sırayı korkutur. (İlk mantık: Antigravity; Görev 22 bağlantısı giderildi: gerçek CAT-02 sec sonucu → SiddetKorkusuAdaptoru → aynı gerçek kuyruk, CHR/bekleme tansiyonu ve Dedikodu.olay_kaydet; görünür sıra ve menü donması bağlı. Birim, 39 kontrollü oyun ve gerçek ekran testleri GEÇTİ; asset gerekmedi.) (Sahiplik düzeltmesi, Cursor 15 Kas: Usta doğrulaması GEÇTİ 0d84162f ile [x] olmuştu; f6b7ee66 eski satırla [/]'e geri çevirmişti, [x] geri alındı. Sahip Codex.)
   - Ne: Askerle karşılık veya ölüm, sıradaki kişilerin tansiyonunu okur. Eşik üstündekiler tablodaki olasılıkla ayrılabilir; herkes ayrılmaz. Yatıştırma ve erteleme bu ayrılmayı tetiklemez. Yeni korku barı açılmaz. Menü açıkken artış donar.
   - Kurallar:
     1. Şiddet, karşılık veya ölüm sonucudur. Sıradaki kişilerin sabrı ve tansiyonu okunur.
@@ -1219,7 +1219,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.10 Sınır ve kapanış
 
-- [x] **YAZ-10:** (Antigravity) İnceleme modu ve kapsam taraması. (Cursor — düzeltme: f833c5c6 kapanışı yalnız gecis.json karakter sayımıydı; gerçek uygulama tools/soz_inceleme.py: satır işaretleri doğal/yapay/yeniden yaz JSON, metin değişince metin_degisti, eşleşmeyen işaret listesi, tohumlu ağaç yürütme ile ulaşılmayan düğüm/sunulmayan seçenek, tohum boşsa çalışmadı; soz_dogrula.py --kapsam ve soz_kapi paket "inceleme" alanı bağlı; test tests/tools/test_soz_kapsam.py 7 OK, mutasyonda kırmızı. Godot önizleme arayüzü yok, işaretleme JSON/araç üzerinden)
+- [x] **YAZ-10:** (Cursor) İnceleme modu ve kapsam taraması. (Sahiplik düzeltmesi, Cursor 15 Kas: Antigravity f833c5c6 toplu [x] yapmıştı ama yalnız gecis.json sayımıydı; gerçek iş Cursor 45cd9153, sahiplik bitirene taşındı. Ayrıntı: f833c5c6 kapanışı yalnız gecis.json karakter sayımıydı; gerçek uygulama tools/soz_inceleme.py: satır işaretleri doğal/yapay/yeniden yaz JSON, metin değişince metin_degisti, eşleşmeyen işaret listesi, tohumlu ağaç yürütme ile ulaşılmayan düğüm/sunulmayan seçenek, tohum boşsa çalışmadı; soz_dogrula.py --kapsam ve soz_kapi paket "inceleme" alanı bağlı; test tests/tools/test_soz_kapsam.py 7 OK, mutasyonda kırmızı. Godot önizleme arayüzü yok, işaretleme JSON/araç üzerinden)
   - Ne: Önizlemede yazar her satıra doğal, yapay veya yeniden yaz işaretini koyar. İşaretler JSON olarak dışa ve içe aktarılır. Metin değişince işaret "metin değişti" olur. Kapsam taraması kayıtlı tohumlarla ağacı yürütür, seçilmeyen satırı ve ulaşılmayan düğümü listeler. Oyuncu bu taramayı görmez. Yapay veya yeniden yaz işareti dururken ya da görünmeyen satır varken sahne onaya gitmez.
   - Kurallar:
     1. Önizlemede her satır üç işaretten birini alır: doğal, yapay, yeniden yaz. İşaretler JSON olarak dışa ve içe aktarılır.
@@ -1961,7 +1961,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25.2 Yemin, yalan, söz
 
-- [x] **DYL-03:** (Codex) Yemin ettirmek. (Görev 22: kapı eylem yoluna YeminAdaptoru ile bağlandı; veri tablosu, ziyaret kilidi, CHR/bekleme tansiyonu, güven/grup itibarı, kayıt ve DYL-08 dönüşü bağlı. Madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.)
+- [x] **DYL-03:** (Codex) Yemin ettirmek. (Görev 22: kapı eylem yoluna YeminAdaptoru ile bağlandı; veri tablosu, ziyaret kilidi, CHR/bekleme tansiyonu, güven/grup itibarı, kayıt ve DYL-08 dönüşü bağlı. Usta doğrulaması GEÇTİ 8c6e037b.)
   - Ne: Oyuncu ziyarette bir kez "El bas, yemin et" der. Yemin şekli karakterin inancına göre dünya kitabından gelir; uymayan şekil hakarettir. Tutum dört türden biridir: eder, kıvranır, rahat ya da reddeder. Yemin zar açmaz. Bozulan yemin bir kez ceza yazar. İnanç alanı boşsa düğme gizlenir.
   - Kurallar:
     1. Seçenek: "El bas, yemin et." Ziyaret başına bir kez kullanılır.
@@ -5397,7 +5397,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.1 Söylentinin anatomisi — kaynak, yol, doğruluk
 
-- [x] **SOY-01:** Her dedikodu kaydının kaynağı ve doğruluğu vardır. (Cursor)
+- [x] **SOY-01:** Her dedikodu kaydının kaynağı ve doğruluğu vardır. (Cursor) (Çift yazım notu, Cursor 15 Kas: madde Cursor ee863efa ile kapalıyken Antigravity c27ca221 SoylentiAgi.dogru_kayit_mi/dogru_kayitlar ekledi; mevcut kaynak_ve_dogruluk ile örtüşüyor. soz_kayit_test GEÇTİ, kod silinmedi; karar Ahmet'te.)
   - Ne: DIY-13 kaydına optional iki alan: `kaynak` (tanık köylü kimliği) ve `dogru` (bool; olay gerçekten oldu mu). Yanlış söylenti SOY-05 ile üretilir. Omurga (OMR-39) yalnız `dogru` kayıtları okur.
   - Kabul: alanlar optional; eski kayıt `dogru=true`, `kaynak=""` sayılır. Test: KAY birimi.
   - Bağımlılık: DIY-13, KAY-04. Boyut: S.
@@ -8662,7 +8662,7 @@ Kimlikler YER-01 … YER-23. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: SYS-09. Boyut: S.
   - Dosya: `docs/METIN_ANAHTAR_STANDARDI.md`; `tools/metin_dogrula.py`.
   - Asset: asset gerekmedi.
-- [x] **YER-03:** (Cursor) `set_locale` sabiti kalkar.
+- [x] **YER-03:** (Antigravity) `set_locale` sabiti kalkar. (Sahiplik düzeltmesi, Cursor 15 Kas: ilk kapanış Cursor b5f88a8f idi ama ana.gd'deki sabit TranslationServer.set_locale("tr") kalmıştı; işi Antigravity 9dee819c bitirdi, tests/oto/ayarlar_kontrol GEÇTİ. Sahiplik bitirene taşındı.)
   - Ne: `ana.gd:23` `"tr"` yazmaz. `ayarlar` içindeki `dil` okunur; geçersizse fallback `tr`.
   - Kabul: ayar `tr` iken locale `tr`; çöp değerde locale `tr` ve uyarı 1. Test: birim.
   - Bağımlılık: YER-01. Boyut: S.
