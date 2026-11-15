@@ -1,0 +1,30 @@
+{
+  "surum": 1,
+  "min_gelen": 0,
+  "tavan": 3,
+  "taban_sayi": 2.0,
+  "bar_araligi": 10.0,
+  "erzak_tavan_gun": 10.0,
+  "bos_gun": {
+    "hafta_gunu": 7,
+    "haftalik_garanti": 1,
+    "ilk_hafta_izinli_gunler": [1, 2, 6],
+    "yasak_gunler": [0],
+    "olasilik": 0.08,
+    "kis_ek_olasilik": 0.14
+  },
+  "cekicilik": {
+    "refah_referans": 50.0,
+    "refah_olcek": 50.0,
+    "refah_agirlik": 0.45,
+    "guvenlik_referans": 70.0,
+    "guvenlik_olcek": 30.0,
+    "guvenlik_agirlik": 0.45,
+    "bos_yatak_basina": 0.15,
+    "yatak_tavan_bonus": 0.75,
+    "acikta_cezasi": -0.45,
+    "alt_sinir": 0.4,
+    "ust_sinir": 3.0
+  },
+  "mevsim_carpani": [1.15, 1.2, 0.95, 0.5]
+}

@@ -121,14 +121,24 @@ func gosterilen_gece() -> int:
 
 ## Bu gecenin varış listesi.
 func gece_kuyrugu() -> Array[Gelen]:
-	if preload("res://src/sistemler/kapi_acilis_olayi.gd").aile_bekliyor(self): return preload("res://src/sistemler/kapi_acilis_olayi.gd").kuyruk(self)
-	if preload("res://src/sistemler/acilis_senaryosu.gd").kapi_kapali(self): return []
-	if GecisGecesi.gecis_gecesi_mi(yonetim): return []
+	if preload("res://src/sistemler/kapi_acilis_olayi.gd").aile_bekliyor(self):
+		set_meta(&"bos_gun", false)
+		return preload("res://src/sistemler/kapi_acilis_olayi.gd").kuyruk(self)
+	if preload("res://src/sistemler/acilis_senaryosu.gd").kapi_kapali(self):
+		set_meta(&"bos_gun", false)
+		return []
+	if GecisGecesi.gecis_gecesi_mi(yonetim):
+		set_meta(&"bos_gun", false)
+		return []
 	koy.bu_gece_girenler = []
-	var sayi := ayarlar.gece_basina_gelen if perde == 1 else ayarlar.perde2_gece_basina_gelen
-	sayi = maxi(1, sayi + sonraki_gelen_ek + GocYoluGuvenligi.soylenti_gelen_farki(self))
+	var sayi := GelenAkisi.gunluk_sayi(self)
+	var fark := GocYoluGuvenligi.soylenti_gelen_farki(self)
+	if GelenAkisi.serbest_akis_mi(self):
+		sayi = 0 if (sayi == 0 and sonraki_gelen_ek <= 0) else clampi(sayi + sonraki_gelen_ek + fark, 0, GelenAkisi.tavan())
+	else:
+		sayi = maxi(1, sayi + sonraki_gelen_ek + fark)
 	sonraki_gelen_ek = 0
-	var uygun := preload("res://src/sistemler/tehdit_takvimi.gd").adaylar(gun, kadro.uygunlar(gun))
+	var uygun := GelenAkisi.uygun_adaylar(self, gun)
 	var sonuc: Array[Gelen] = []
 	for i in sayi:
 		var indeks := -1
@@ -153,9 +163,11 @@ func gece_kuyrugu() -> Array[Gelen]:
 	YetimBakimi.ekle(self, sonuc)
 	preload("res://src/sistemler/sancak_ulagi.gd").ekle(self, sonuc)
 	KararDonusu.spawn_ekle(self, sonuc)
+	sonuc = GelenAkisi.kuyrugu_temizle_ve_sinirla(self, sonuc)
 	DunyaZamani.kapi_haberi_ekle(self, sonuc)
 	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").kuyruk_hazirla(self, sonuc)
-	return sonuc.filter(func(g: Gelen) -> bool: return not HaneEsi.gelen_es_mi(g, self))
+	set_meta(&"bos_gun", sonuc.is_empty())
+	return sonuc
 
 
 
@@ -205,17 +217,23 @@ func ziyaret_basladi(gelen: Gelen) -> void:
 ## alinan, alinan_akce, alinan_ambar, gasp, durust_arandi, harc, koylu_id}.
 ## Kararlar: `kabul`, `harc` (yoksuldan zorla geçiş akçesi), `rusvet` (teklifini alıp içeri), `kisla` (asker, muhafız),
 ## `ret`, `elkoy` (astardan çıkanlara el konur, geri çevrilir; yalnız yalan yakalanınca).
+func _karar_sonucu(gelen: Gelen, res: Dictionary) -> Dictionary:
+	if not bool(res.get("engellendi", false)):
+		GelenAkisi.kapi_cikisi_kaydet(self, gelen)
+	return res
+
+
 func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> Dictionary:
-	if YetimBakimi.ilgilenir(gelen): return YetimBakimi.karar(self, gelen, karar, _is_yeri)
-	if preload("res://src/kapi/aile_kafilesi.gd").ilgilenir(gelen): return preload("res://src/kapi/aile_kafilesi.gd").karar(self, gelen, karar, _is_yeri)
+	if YetimBakimi.ilgilenir(gelen): return _karar_sonucu(gelen, YetimBakimi.karar(self, gelen, karar, _is_yeri))
+	if preload("res://src/kapi/aile_kafilesi.gd").ilgilenir(gelen): return _karar_sonucu(gelen, preload("res://src/kapi/aile_kafilesi.gd").karar(self, gelen, karar, _is_yeri))
 	if preload("res://src/sistemler/kapi_acilis_olayi.gd").karar_engelli(self, gelen, karar): return {"engellendi": true, "kaldi": false, "kirilan": -1}
 	if not SiraOlayiSonucu.neden(gelen).is_empty(): return {"engellendi": true, "kaldi": false, "kirilan": -1}
-	if DiplomatikHeyet.ilgilenir(gelen): return DiplomatikHeyet.karar(self, gelen, karar)
-	if TuccarKapiGecisi.ilgilenir(gelen): return TuccarKapiGecisi.karar(self, gelen, karar)
+	if DiplomatikHeyet.ilgilenir(gelen): return _karar_sonucu(gelen, DiplomatikHeyet.karar(self, gelen, karar))
+	if TuccarKapiGecisi.ilgilenir(gelen): return _karar_sonucu(gelen, TuccarKapiGecisi.karar(self, gelen, karar))
 	var oba = preload("res://src/sistemler/aydogdu_ziyareti.gd")
-	if oba.ilgilenir(gelen): return oba.karar(self, gelen, karar)
+	if oba.ilgilenir(gelen): return _karar_sonucu(gelen, oba.karar(self, gelen, karar))
 	var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
-	if ulak.ilgilenir(gelen): return ulak.karar(self, gelen, karar)
+	if ulak.ilgilenir(gelen): return _karar_sonucu(gelen, ulak.karar(self, gelen, karar))
 	var sorgu := gelen.chr_sorgusu()
 	if sorgu != null and not sorgu.karar_acik(karar):
 		return {"engellendi": true, "kaldi": false, "kirilan": -1}
@@ -318,6 +336,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	if dedikodu.yazma_sayisi() > dedikodu_once or bool(ek.get("dedikodu_yazildi", false)):
 		ek["dedikodu_yazildi"] = true
 	preload("res://src/sistemler/kapi_acilis_olayi.gd").karar_sonrasi(self, gelen, ek)
+	GelenAkisi.kapi_cikisi_kaydet(self, gelen)
 	return ek
 
 

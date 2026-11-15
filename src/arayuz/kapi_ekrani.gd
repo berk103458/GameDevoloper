@@ -245,6 +245,8 @@ func gece_baslat() -> void:
 
 
 func _siradaki() -> void:
+	if evre == &"sohbet" or evre == &"karar":
+		return
 	if DiplomatikHeyet.gecis_engeli(oturum, _gelen): return
 	if _kuyruk.is_empty():
 		_ad.text = ""

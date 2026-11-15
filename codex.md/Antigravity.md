@@ -1484,3 +1484,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `hane_esi_test.gd` (`HANE EŞİ: GEÇTİ`), `hane_test.gd`, `koy_yonetimi_test.gd`, `aksam_sohbeti_test.gd`, `divan_hukmu_test.gd`, `kervan_korumasi_test.gd`, `sabah_defteri_test.gd`, `acilis_bagimlilik_kontrol.tscn` (RC=0, 0 SCRIPT ERROR).
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+### 2026-11-16 — KAP-16 Tamamlandı (Antigravity-Berk)
+- **Kapsam:** `data/gelen_akisi.json`, `src/kapi/gelen_akisi.gd`, `src/kapi/gelen_akisi.gd.uid`, `src/veri/oyun_ayarlari.gd`, `data/ayarlar/oyun.tres`, `src/sistemler/oturum.gd`, `src/arayuz/kapi_ekrani.gd`, `tools/chr_parser.py`, `tests/tools/test_chr_parser.py`, `tests/unit/kapi/gelen_akisi_test.gd`, `tests/unit/kapi/gelen_akisi_ekran_test.gd`, `tests/unit/kapi/gelen_akisi_ekran_test.tscn`.
+- **Doğrulama:** `gelen_akisi_test.gd` (`GELEN AKISI: GEÇTİ`, 100 tohum en az 4/28 boş gün), `gelen_akisi_ekran_test.tscn` (`GELEN AKISI EKRAN: GEÇTİ`), `chr_parser.py --check`, `test_chr_parser.py` + `test_chr_sorgu_degeri.py` (12 test OK), `kapi_firtina_kuyrugu_test.gd`, `goc_yolu_guvenligi_test.gd`, `gecis_gecesi_oyun_test.gd`, `gozcu_kafile_ozeti_test.gd`, `pusu_ticaret_akisi_test.gd`, `omurga_kadro_test.gd`, `ozel_olay_test.gd`, `bos_gun_durusu_oyun_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (tümü RC=0, 0 SCRIPT ERROR).
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor

@@ -14,7 +14,7 @@ extends Resource
 @export_group("Kapı")
 ## Heybesinde en az bu kadar akçe söyleyen zengin sayılır: harç kararı sunulmaz, alınırsa iltimas sayılabilir.
 @export var zengin_esigi: int = 6
-@export var gece_basina_gelen: int = 3
+@export var gece_basina_gelen: int = 0
 ## Bir yuvaya adlı karakter gelme olasılığı (uygun varsa).
 @export var adli_olasiligi: float = 0.6
 @export var azami_soru: int = 2

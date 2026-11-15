@@ -45,6 +45,35 @@ def key_node(text: str) -> str:
     return re.sub(r"[^A-Za-z0-9_]+", "_", text).upper()
 
 
+BAR_KOSUL_RE = re.compile(
+    r"^(Refah|Erzak|Güvenlik|Guvenlik|Moral|Sağlık|Saglik)\s*(<=|>=|==|<|>)\s*(\d+)$"
+)
+TUR_KOSUL_RE = re.compile(r"^Tur\s*(>|>=)\s*(\d+)$")
+
+
+def parse_spawn_kosulu(spawn: str) -> tuple[int, list[dict]]:
+    parcalar = [p.strip() for p in re.split(r"\s+ve\s+", spawn.strip()) if p.strip()]
+    if not parcalar:
+        raise SourceError("Spawn_Koşulu empty")
+    en_erken_tur = None
+    bar_kosullari = []
+    for parca in parcalar:
+        tur_m = TUR_KOSUL_RE.fullmatch(parca)
+        if tur_m:
+            op, sayi = tur_m[1], int(tur_m[2])
+            en_erken_tur = sayi + 1 if op == ">" else sayi
+            continue
+        bar_m = BAR_KOSUL_RE.fullmatch(parca)
+        if bar_m:
+            bar_ad = STATS.get(bar_m[1], bar_m[1])
+            bar_kosullari.append({"bar": bar_ad, "op": bar_m[2], "deger": int(bar_m[3])})
+            continue
+        raise SourceError(f"Değerlendirilmeyen Spawn_Koşulu bar cümlesi: {parca}")
+    if en_erken_tur is None:
+        raise SourceError("Spawn_Koşulu missing Tur > N")
+    return en_erken_tur, bar_kosullari
+
+
 def parse(path: Path) -> dict:
     text = path.read_text(encoding="utf-8-sig").replace("\\>", ">").replace("\\<", "<")
     entity = field(text, "Entity_ID")
@@ -55,9 +84,7 @@ def parse(path: Path) -> dict:
     if len(classes) != 1:
         raise SourceError("Tag_Array must identify exactly one supported class")
     spawn = field(text, "Spawn_Koşulu")
-    first = re.search(r"Tur\s*>\s*(\d+)", spawn)
-    if not first:
-        raise SourceError("Spawn_Koşulu missing Tur > N")
+    en_erken_tur, _ = parse_spawn_kosulu(spawn)
     def parts(name, keys):
         value = field(text, name)
         result = {}
@@ -94,7 +121,7 @@ def parse(path: Path) -> dict:
     elif zar_turu == "d12" and not (2 <= sorgu_degeri <= 10):
         raise SourceError(f"d12 icin Sorgu_Degeri 2-10 araliginda olmalidir; bulunan: {sorgu_degeri}")
 
-    data = dict(entity_id=entity, ad=field(text, "Gerçek_Kimlik").split(";")[0], sinif=classes[0], fraksiyon=field(text, "Sadakat_Fraksiyonu"), en_erken_tur=int(first[1]) + 1, spawn_kosulu=spawn,
+    data = dict(entity_id=entity, ad=field(text, "Gerçek_Kimlik").split(";")[0], sinif=classes[0], fraksiyon=field(text, "Sadakat_Fraksiyonu"), en_erken_tur=en_erken_tur, spawn_kosulu=spawn,
                 secere_matrisi=parts("Secere_Matrisi", ["Doğum_Yeri", "Aile_Bağı", "Kırılma_Olayı"]),
                 koy_ici_davranis=parts("Köy_içi_Davranış", ["Gündüz_Döngüsü", "Gece_Döngüsü"]),
                 persona_maskesi=field(text, "Persona_Maskesi"), gizlenen_gercek=field(text, "Gizlenen_Gerçek"),

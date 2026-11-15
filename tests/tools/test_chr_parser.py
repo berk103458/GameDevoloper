@@ -88,6 +88,14 @@ class CompilerTest(unittest.TestCase):
         for n in (22, 24, 26, 28, 30):
             self.assertEqual(parser.parse(ROOT / f"karakterler/CHR_{n:03}.md")["baslangic_tansiyonu"], 1)
 
+    def test_kap16_unsupported_bar_condition_rejected(self):
+        source = (ROOT / "karakterler/CHR_017.md").read_text(encoding="utf-8")
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "CHR_017.md"
+            path.write_text(source.replace("Tur > 3 ve Moral < 6", "Tur > 3 ve Itibar < 6"), encoding="utf-8")
+            with self.assertRaisesRegex(parser.SourceError, "Değerlendirilmeyen Spawn_Koşulu"):
+                parser.parse(path)
+
 
 if __name__ == "__main__":
     unittest.main()
