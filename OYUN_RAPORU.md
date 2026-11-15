@@ -3356,3 +3356,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-96 (Codex-Berk): Kişisel eşya kutusu ortak Kabuk.yer_tutucu fabrikasına bağlandı; kişisel para ve stok davranışı değişmedi. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-06 (Codex-Berk): Kapının tam ekran zemin kutusu ortak Panel stilini miras alır; 3B sahne ve konuşma akışı korunur. İki konuşma dosyasında yerel stil taraması sıfırdır. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-10 (Codex-Berk): Divan ekranı ile sorgu, hüküm ve haksızlık panellerinin dördü ortak temayı kullanır; birleşik dosya kabulü sıfır yerel stil doğruladı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.

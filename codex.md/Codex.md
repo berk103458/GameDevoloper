@@ -1384,3 +1384,6 @@ Kişisel eşya kutusu ortak Kabuk.yer_tutucu fabrikasına bağlandı; kişisel p
 
 ## 15 Kasım 2026 — GRV-06 (Codex-Berk)
 Kapının tam ekran zemin kutusu ortak Panel stilini miras alır; 3B sahne ve konuşma akışı korunur. İki konuşma dosyasında yerel stil taraması sıfırdır. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-10 (Codex-Berk)
+Divan ekranı ile sorgu, hüküm ve haksızlık panellerinin dördü ortak temayı kullanır; birleşik dosya kabulü sıfır yerel stil doğruladı. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

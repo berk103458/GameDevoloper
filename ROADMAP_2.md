@@ -7214,7 +7214,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-03. Boyut: S.
   - Dosya: adı geçen üç dosya.
   - Asset: asset gerekmedi.
-- [/] **GRV-10:** (Codex-Berk) Divan `divan_ekrani.gd`.
+- [x] **GRV-10:** (Codex-Berk) Divan `divan_ekrani.gd`.
   - Ne: sorgu, hüküm, kanıt, haksızlık panelleri aynı tema. `divan_meydani.gd` 3B'dir, kabuk işi değildir (Bölüm 44).
   - Kabul: dört panel dosyasında yerel renk 0. Test: tarama.
   - Bağımlılık: ARY-03. Boyut: M.
