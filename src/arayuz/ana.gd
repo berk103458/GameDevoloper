@@ -283,6 +283,7 @@ func _ayarlari_ac(sonra: Callable, ustte: bool = false) -> void:
 
 
 func _ust_ac(e: Control) -> void:
+	preload("res://src/kapi/siddet_korkusu_adaptoru.gd").menu(oturum, true)
 	_ust = e
 	add_child(e)
 	if _ekran != null:
@@ -290,6 +291,7 @@ func _ust_ac(e: Control) -> void:
 
 
 func _ust_kapat() -> void:
+	preload("res://src/kapi/siddet_korkusu_adaptoru.gd").menu(oturum, false)
 	if _ust != null:
 		_ust.queue_free()
 		_ust = null

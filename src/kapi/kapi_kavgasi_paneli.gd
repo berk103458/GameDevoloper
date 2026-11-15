@@ -56,6 +56,7 @@ func _sec(e: KapiEkrani, id: String) -> void:
 	if not r.get("olur", false):
 		_yenile(e)
 		return
+	preload("res://src/kapi/siddet_korkusu_adaptoru.gd").ekran(e, r)
 	_bitti = true
 	_yenile(e)
 	e._yaz(TranslationServer.translate("anlati.kavga." + String(r.sonuc_kimligi)))

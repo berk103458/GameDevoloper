@@ -1,5 +1,39 @@
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
+## CAT-04 — Şiddetin gerçek sıra etkisi / 15 Kasım 2026 (Codex, Berk)
+
+Giriş: Berk tarafındaki Codex. Yalnız /workspace/codex/GameDevoloper ve festive dalında çalışıldı.
+Fetch/prune + ff-only pull günceldi; e6a09190 claim tekrar alınmadı. İstenen dört Godot skill'i uygulandı.
+
+Yapılan: yeni siddet_korkusu_adaptoru.gd, CAT-02 sec sonrasında tek oturum metasındaki
+SiddetKorkusu'nu çağırır. Askerle karşılık/ölüm tablodan okunur; oran/eşik eklenmedi.
+Kalan kuyruk kopyası yerine gerçek Array referansı tutulur; ayrılan Gelen yerinde çıkarılır.
+Panel görünür sırayı mevcut kuyruk_doldur ile yeniler; anlati.kavga.sira_ayrildi yazılır.
+CSV ve Godot'un ürettiği TR/EN translation aynı pakettedir.
+
+Tansiyon kaynağı: ChrSorgusu.tansiyon; CHR'siz figürde KarakterVerisi başlangıcı +
+mevcut KapiFirtinaKuyrugu.BEKLEME.toplam. Sabır mevcut ziyaret azami_soru/oturum ayarıdır;
+varsa ziyaretin sabir metası okunur. Yeni bar yok. RNG o._rng. Ayrılan tanık mevcut
+Dedikodu.olay_kaydet üzerinden ertesi gün pusula/fısıltı kanalına gider; API korunmuştur.
+Ana._ust_ac/_ust_kapat'a birer çağrı: duraklat, ayarlar ve defter boyunca motor donar;
+bekleyen olay kapanışta tek kez uygulanır. Heyet ve ziyaret konusu kilitleri korunur.
+
+Testler: godot --headless --path . --import --quit: çıkış 0, SCRIPT ERROR/Failed to load yok.
+-s res://tests/unit/kapi/siddet_korkusu_test.gd: GEÇTİ.
+-s res://tests/unit/kapi/siddet_korkusu_oyun_test.gd: 39 kontrol / 0 hata.
+res://tests/unit/kapi/siddet_korkusu_ekran_test.tscn: GEÇTİ (gerçek panel, sıra, metin ve menü).
+CAT-01/02: kapi_kavgasi_test.gd, kapi_kavgasi_oyun_test.gd (143), kapi_kavgasi_ekran_test.tscn,
+kavga_secenek_test.gd, kavga_secenek_oyun_test.gd (54), kavga_secenek_ekran_test.tscn GEÇTİ.
+python3 -B tools/metin_dogrula.py --kaynak: PASS. Tam sanity çalıştırılmadı.
+Yeni betikler import ve gerçek test yüklemelerinde parse edildi. Test kapanışında mevcut
+ObjectDB/resource sızıntı uyarıları var; çalışma zamanı script hatası yok.
+
+Durum: CAT-04 tamamlandı, asset gerekmedi; envantere satır eklenmedi.
+Sonraki plan: CAT serisi bitti; Faz 2'de boş S madde DYL-03 bağlantısını incelemek (üstlenilmedi).
+Issue #11'e yazılmadı. Windows aynalarına erişim/güncelleme iddiası yok; son talimat gereği tek çalışma kopyası.
+İlgisiz .import/.uid ve import'un project.godot değişikliği pakete alınmadı.
+kota görünmüyor
+
 ## CAT-02 — Dört seçenek gerçek kapıda / 15 Kasım 2026 (Codex, Berk)
 
 Giriş: Berk tarafındaki Codex ajanıyım. Yalnız /workspace/codex/GameDevoloper,

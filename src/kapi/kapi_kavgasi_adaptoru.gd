@@ -39,7 +39,7 @@ static func kuyruk_hazirla(o: Oturum, kuyruk: Array[Gelen]) -> void:
 
 ## Gerçek ekran kalan sırayı verir; motor kuyruğu da aynı kuralı kullanır.
 static func tanik_hazirla(o: Oturum, kuyruk: Array[Gelen]) -> void:
-	al(o)._kuyruk = kuyruk.duplicate()
+	al(o)._kuyruk = kuyruk
 
 static func ret(o: Oturum, g: Gelen, karar: StringName, ek: Dictionary) -> void:
 	var a = al(o)
@@ -130,6 +130,7 @@ static func sec(o: Oturum, secenek: String, test_baglami: Dictionary = {}) -> Di
 			"chr_id": String(b.kisi_id), "karar": "yarin_gel", "tur_offset": int(r.donus_gun) - o.gun,
 			"hedef_gun": int(r.donus_gun), "eklenme_gunu": o.gun, "cat02_soz": kim,
 			"cat02_figur": figur if not g.adli else {}, "spawned": false, "uygulandi": false})
+	preload("res://src/kapi/siddet_korkusu_adaptoru.gd").uygula(o, "olum" if r.get("alt_sonuc", "") == "olum" else secenek, r)
 	a.son.merge(r, true)
 	a.son["durum"] = "kavga_bitti"
 	a.son["secenekler_acik"] = false
