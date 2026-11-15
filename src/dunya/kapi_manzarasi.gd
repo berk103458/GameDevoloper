@@ -412,7 +412,8 @@ func _yol_kenari_kur() -> void:
 			[Vector3(-3.4, 0, -11.0), 0.35, "boulder_01"]]:
 		var k: Node3D = Pbr.model(y[2])
 		if k == null:
-			k = Dunya3B.nesne("kaya", y[1])
+			var kaya_ad := "kaya_02" if (int(absf(y[0].x * 10.0)) % 2 == 1 and Dunya3B.model_var_mi("kaya_02")) else "kaya"
+			k = Dunya3B.nesne(kaya_ad, y[1])
 		else:
 			k.scale = Vector3.ONE * float(y[1])
 		k.position = y[0] + Vector3(0, yukseklik(y[0].x, y[0].z) - 0.1, 0)
@@ -442,7 +443,7 @@ func _yol_kenari_kur() -> void:
 	agac.rotation.y = 0.6
 	add_child(agac)
 	_dallar.append(agac)
-	var agac2 := Dunya3B.nesne("agac", 4.5)
+	var agac2 := Dunya3B.nesne("agac_02" if Dunya3B.model_var_mi("agac_02") else "agac", 4.5)
 	agac2.position = Vector3(-11.0, yukseklik(-11.0, -34.0), -34.0)
 	add_child(agac2)
 

@@ -142,8 +142,11 @@ static func orman_kur(s: KoyYonetimSahnesi, kok: Node3D) -> void:
  for k in s.yonetim.koylular:
   if aday(s.yonetim, k, &"gunduz"): var_mi = true
  if not var_mi or not Dunya3B.model_var_mi("agac"): return
+ var idx := 0
  for h in MuhafizDevriyesi.kuleler(s.yonetim):
-  var n := Dunya3B.nesne("agac", float(AYAR.agac_boy))
+  var agac_ad := "agac_02" if (idx % 2 == 1 and Dunya3B.model_var_mi("agac_02")) else "agac"
+  idx += 1
+  var n := Dunya3B.nesne(agac_ad, float(AYAR.agac_boy))
   n.position = s.alan_merkezi(h, Vector2i.ONE) + Vector3(-float(AYAR.orman_ofset) if h.x == 0 else float(AYAR.orman_ofset), 0, -float(AYAR.orman_ofset) if h.y == 0 else float(AYAR.orman_ofset))
   n.position.y = s.arazi.yukseklik_burada(n.position.x, n.position.z)
   kok.add_child(n)

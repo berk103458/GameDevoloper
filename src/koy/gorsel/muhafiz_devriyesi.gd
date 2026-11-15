@@ -41,6 +41,9 @@ static func kule_kur(s: KoyYonetimSahnesi, kok: Node3D) -> void:
   # Izgara dışına taşan kule; yürüyüş zeminde iç köşe durağına yapılır.
   n.position += Vector3(-s.HUCRE if h.x == 0 else s.HUCRE, 0, -s.HUCRE if h.y == 0 else s.HUCRE)
   kok.add_child(n)
+  if Dunya3B.model_var_mi("gozetleme_kulesi", "yapi"):
+   n.add_child(Dunya3B.nesne("gozetleme_kulesi", boy, "yapi"))
+   continue
   for x in [-1, 1]:
    for z in [-1, 1]: _kutu(n, Vector3(d, boy, d), Vector3(x * en / 2, boy / 2, z * en / 2))
   _kutu(n, Vector3(en + d, float(AYAR.platform_kalinlik), en + d), Vector3(0, boy * 0.65, 0))

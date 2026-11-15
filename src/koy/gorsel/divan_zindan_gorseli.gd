@@ -20,6 +20,11 @@ static func kur(s: KoyYonetimSahnesi,n: Node3D) -> void:
  var kapı:=s.kapi_noktasi()
  k.position=Vector3(kapı.x+2,1,kapı.y)
  n.add_child(k)
+ if Dunya3B.model_var_mi("zindan_kapisi"):
+  k.visible=false
+  var zk:=Dunya3B.nesne("zindan_kapisi",2.0)
+  zk.position=Vector3(kapı.x+2,0,kapı.y)
+  n.add_child(zk)
  var l:=Label3D.new()
  l.text="Zindan · %d kişi" % sayi
  l.position=k.position+Vector3(0,1.2,0)

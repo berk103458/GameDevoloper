@@ -681,7 +681,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `YAPI-demir_madeni` | [ÜRETİLDİ: `assets/model/yapi/demir_madeni.glb`] kutu (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-demir_ocagi` | [ÜRETİLDİ: `assets/model/yapi/demir_ocagi.glb`] kutu (`koy_yonetim_sahnesi.gd`) | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-muhafiz_kislasi` | [ÜRETİLDİ: `assets/model/yapi/muhafiz_kislasi.glb`] kutu (`koy_yonetim_sahnesi.gd`) | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
-| `YAPI-gozetleme_kulesi` | menü `model_var_mi` ile atlar | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
+| `YAPI-gozetleme_kulesi` | [ÜRETİLDİ: `assets/model/yapi/gozetleme_kulesi.glb`] menü ve devriye kulesi (`GozcuKulesiGorseli`, `MuhafizDevriyesi`) | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
 | `YAPI-pazar_tezgahi` | GLB var, sahne kurmuyor | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
 | `YAPI-sur 2–3` | [ÜRETİLDİ: `assets/model/yapi/sur_2_palisat.glb`, `sur_3_tas.glb`] kazık çit ölçeklenir, `SurHasarGorseli`, `koy_yonetim_sahnesi.gd` | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
 | `HYV-AT` | Sorhan, Nogay, kervan, TUC, HAR-07 | 0,80 × 1,60 × 2,30 m; deve yüksekliği 2,10 m |
@@ -689,9 +689,9 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `HYV-KECI` | Yusuf olayı | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
 | `HYV-DEVE` | Kervan | 0,80 × 1,60 × 2,30 m; deve yüksekliği 2,10 m |
 | `HYV-KOPEK` | Gece köy | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
-| `PROP-ORS` | Demirhane izi | 0,50 × 0,75 × 0,35 m; kütük dahil |
-| `PROP-TEZGAH` | Ayşe / bez | 1,50 × 1,60 × 0,60 m |
-| `PROP-AGAC-2` | Tek `agac.glb` | Ağaç 2,0 × 5,0 × 2,0 m; kaya 1,2 × 0,8 × 1,0 m |
+| `PROP-ORS` | [ÜRETİLDİ: `assets/model/nesne/ors.glb`] Demirhane izi (`ZanaatTezgahi`) | 0,50 × 0,75 × 0,35 m; kütük dahil |
+| `PROP-TEZGAH` | [ÜRETİLDİ: `assets/model/nesne/dokuma_tezgahi.glb`] Ayşe / bez (`HazirEsyaHayvan`) | 1,50 × 1,60 × 0,60 m |
+| `PROP-AGAC-2` | [ÜRETİLDİ: `assets/model/nesne/agac_02.glb`, `kaya_02.glb`] İkinci ağaç ve kaya modeli (`OduncuRutini`, `KapiManzarasi`) | Ağaç 2,0 × 5,0 × 2,0 m; kaya 1,2 × 0,8 × 1,0 m |
 | `ANI-SILAH` | [ÜRETİLDİ: `assets/model/nesne/kilic.glb`, `kalkan.glb`, `mizrak.glb`, `mesale_el.glb`] Kılıç, kalkan, mızrak, meşale soketi (`MuhafizDonanimi`, `ElEsyasi`); glTF, el kemiği. | Kılıç 0,08 × 0,85 × 0,04 m; kalkan çapı 0,60 m; mızrak boyu 2,0 m; alet boyu 0,35–1,20 m |
 | `ANI-ALET` | Kova, orak, balta, örs çekici, fırın küreği; glTF. | Kova 0,30 × 0,35 × 0,30 m; orak 0,40 m; balta 0,60 m; çekiç 0,35 m; kürek 1,20 m |
 | `ANI-HAYVAN-SURU` | Öküz yürüyüş, koyun otlama; glTF klip. | Mevcut öküz ve koyun riginde yürüyüş/otlama klibi; model ölçeği korunur |
@@ -703,9 +703,9 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `ODA-ODA` | [ÜRETİLDİ: `assets/model/yapi/muhafiz_odasi.glb`, `yatak.glb`, `masa.glb`, `kasa.glb`, `kutuphane.glb`] Muhafız odası, yatak, masa, kasa, kütüphane (`MuhafizOdasi`). | Oda 4,0 × 2,8 × 4,0 m; yatak 0,9 × 0,5 × 2,0 m; masa 1,2 × 0,75 × 0,7 m |
 | `KRI-MEZAR` | Toplu mezar, yazısız taş; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |
 | `ANI07-ISINMA` | İki el ateşe uzatılan ısınma döngüsü; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
-| `ANI08-TEZGAH` | Örs ve fırın ağzı; glTF. | Örs/kütük 0,50 × 0,75 × 0,35 m; fırın ağzı 0,80 × 0,70 × 0,40 m |
+| `ANI08-TEZGAH` | [ÜRETİLDİ: `assets/model/nesne/ors.glb`, `firin_agzi.glb`] Örs ve fırın ağzı (`ZanaatTezgahi`); glTF. | Örs/kütük 0,50 × 0,75 × 0,35 m; fırın ağzı 0,80 × 0,70 × 0,40 m |
 | `ANI08-HAREKET` | Çekiç vurma ve fırın küreği döngüsü; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
-| `ANI09-SACAK` | Yağmurdan korunma saçağı; glTF. | 2,00 × 0,25 × 1,20 m; taşıyıcı ev kenarına uygun |
+| `ANI09-SACAK` | [ÜRETİLDİ: `assets/model/nesne/sacak.glb`] Yağmurdan korunma saçağı (`KarakterHavaTepkisi`); glTF. | 2,00 × 0,25 × 1,20 m; taşıyıcı ev kenarına uygun |
 | `ANI09-BUZULME` | Soğukta büzülmüş yürüyüş; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `ANI10-SINSI` | Sinsi yürüyüş ve temkinli kuytu bekleyiş; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `ANI11-ALET` | Gerçek çekiç ve fırın küreği; sokete hazır tutma noktası; glTF. | Çekiç 0,12 × 0,35 × 0,06 m; kürek 0,20 × 1,20 × 0,06 m |
@@ -714,13 +714,13 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `TUC02-INEK` | İnek barınak modeli; glTF. | 0,85 × 1,45 × 2,20 m; ayak tabanı y=0 |
 | `TUC02-BEYGIR` | Beygir barınak modeli; glTF. | 0,80 × 1,60 × 2,30 m |
 | `TUC02-KOC` | Koç barınak ve sürü modeli; glTF. | 0,55 × 0,85 × 1,10 m |
-| `HAR06-KULE` | Gözcü kulesi yapı modeli; glTF. | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
+| `HAR06-KULE` | [ÜRETİLDİ: `assets/model/yapi/gozetleme_kulesi.glb`] Gözcü kulesi yapı modeli (`GozcuKulesiGorseli`); glTF. | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
 | `HAR10-YAY` | [ÜRETİLDİ: `assets/model/nesne/yay.glb`] Sur okçusu el yayı (`KonuslanmaDonanimi`); glTF. | 0,08 × 1,10 × 0,35 m |
 | `HAR10-MIZRAK` | [ÜRETİLDİ: `assets/model/nesne/mizrak.glb`] Kapı mızraklısı görev mızrağı (`KonuslanmaDonanimi`); glTF. | 0,06 × 2,00 × 0,06 m |
 | `MEV05-KUREK` | Kar küreme küreği ve temizlik klibi; glTF / iskelet klibi. | 0,25 × 1,20 × 0,08 m |
 | `MEV10-KURT` | Kurt modeli, yürüyüş ve kaçış klibi; glTF / iskelet klibi. | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
-| `CAS05-DIVAN` | Meydan divan masası ve oturma sıraları; glTF. | Masa 2,00 × 0,80 × 1,00 m; oturak 0,50 × 0,45 × 0,50 m |
-| `CAS07-ZINDAN` | Kapı zindan hücresi kapısı; glTF. | Parmaklık modülü 1,50 × 2,00 × 0,10 m |
+| `CAS05-DIVAN` | [ÜRETİLDİ: `assets/model/nesne/divan_masasi.glb`, `divan_oturak.glb`] Meydan divan masası ve oturma sıraları (`DivanMeydani`); glTF. | Masa 2,00 × 0,80 × 1,00 m; oturak 0,50 × 0,45 × 0,50 m |
+| `CAS07-ZINDAN` | [ÜRETİLDİ: `assets/model/nesne/zindan_kapisi.glb`] Kapı zindan hücresi kapısı (`DivanZindanGorseli`); glTF. | Parmaklık modülü 1,50 × 2,00 × 0,10 m |
 | `ODA01-ICMEKAN` | [ÜRETİLDİ: `assets/model/yapi/muhafiz_odasi.glb`] Oda zemin ve duvarları (`MuhafizOdasi`); glTF. | 4,0 × 2,8 × 4,0 m; mevcut oda tabanı y=0 |
 | `ODA01-YATAK` | [ÜRETİLDİ: `assets/model/nesne/yatak.glb`] Muhafız yatağı (`MuhafizOdasi`); glTF. | 0,90 × 0,50 × 2,00 m |
 | `ODA01-MASA` | [ÜRETİLDİ: `assets/model/nesne/masa.glb`] Muhafız masası (`MuhafizOdasi`); glTF. | 1,20 × 0,75 × 0,70 m |
@@ -742,7 +742,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `CAT02-KAVGA` | Kapıda kavga canlandırması; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `ISG02-ALETLER` | Geçici işlere özel el aletleri; glTF. | Kürek 0,20 × 1,20 × 0,08 m; sepet 0,35 × 0,35 × 0,35 m; su kabı 0,25 × 0,40 × 0,25 m; kirmen 0,05 × 0,30 × 0,05 m; bakım bezi 0,25 × 0,25 m. |
 | `YAP03-USTALAR` | [ÜRETİLDİ: `assets/model/karakter/usta_yuru.glb`] Kapıdan gelen usta modelleri (`Dunya3B.PORTRE_MODEL`, `HazirKarakterler`); glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
-| `YAP05-ODA` | Çözümleme odası modeli; glTF / 3B model. | 4,0 × 2,8 × 4,0 m |
+| `YAP05-ODA` | [ÜRETİLDİ: `assets/model/yapi/cozumleme_odasi.glb`] Çözümleme odası modeli (`cozumleme_oda_yer_tutucu.gd`); glTF / 3B model. | 4,0 × 2,8 × 4,0 m |
 | `DYL02-AYRINTI-*` | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | Çarık 0,12 × 0,08 × 0,28 m; el/yara/giysi mevcut karakter rigine bağlı, ölçek değişmez |
 | `DYL03-YEMIN` | Yemin nesneleri (dünya kitabına göre); glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
 | `DYL09-DENETCI` | [ÜRETİLDİ: `assets/model/karakter/denetci_yuru.glb`] Beyin denetçisi modeli; glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
@@ -861,7 +861,7 @@ ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik bura
 | ISG02-ALETLER | ISG-02 | Geçici işler: kürek, dal sepeti, su kabı, kirmen ve bakım bezi | glTF | Mekanik (Kalfa): mevcut köylü figürü ve kartta iş adı; özel alet görseli henüz bağlanmadı. Entegrasyon noktası `src/dunya/karakter_ekipman_yoneticisi.gd` (ANI-11); mevcut kutu soketi korunur. | ortaçağ el aleti kürek kirmen su kabı; medieval shovel spindle basket water jug tools | orta | Claude (ilk kayıt), Kalfa (mekanik durumu) |
 | YAP03-USTALAR | YAP-03 | Kapıdan gelen usta modelleri | glTF / 3B model | Meshy ile üretildi: `assets/model/karakter/usta_yuru.glb` (`Dunya3B.PORTRE_MODEL`, `HazirKarakterler`) | Selçuklu usta zanaatkâr; seljuk master craftsman | orta | Claude |
 | YAP04-DEFTER | YAP-04 | Usta defteri ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | planlı — madde kodlanınca: düz ColorRect + etiket | usta defteri kitap; medieval master's notebook icon | orta | Claude |
-| YAP05-ODA | YAP-05 | Çözümleme odası modeli | glTF / 3B model | planlı — madde kodlanınca: düz renk BoxMesh + etiket | araştırma odası masa; medieval study workshop room | orta | Claude |
+| YAP05-ODA | YAP-05 | Çözümleme odası modeli | glTF / 3B model | Meshy ile üretildi: `assets/model/yapi/cozumleme_odasi.glb` (`cozumleme_oda_yer_tutucu.gd`) | araştırma odası masa; medieval study workshop room | orta | Claude |
 | YAP06-ESYA | YAP-06 | Özel eşya ikonları — prompt hazır, Ahmet üretecek; ortak ikon, türler YAP-06 tanımını bekler | SVG / PNG | planlı — madde kodlanınca: düz ColorRect + etiket | özel eşya ikon; medieval special item icons | orta | Claude |
 | YSM01-IKON | YSM-01 | Açlık, yorgunluk, moral bar ikonları — prompt hazır, Ahmet üretecek | SVG / PNG | planlı — madde kodlanınca: düz ColorRect | açlık yorgunluk moral ikon; hunger fatigue morale icons | yüksek | Claude |
 | ARY01-* | ARY-01 | Görsel dil şablonları: doku, çerçeve, yazı tipi — prompt hazır, Ahmet üretecek; çerçeve: mevcut UI paketi; font mevcut lisanslı kaynak | PNG / SVG / font | planlı — madde kodlanınca: StyleBoxFlat | Selçuklu çini çerçeve parşömen; seljuk tile frame parchment UI | yüksek | Claude |
