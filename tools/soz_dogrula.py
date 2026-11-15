@@ -12,6 +12,7 @@ import time
 from pathlib import Path
 
 from soz_kadro_denetimi import denetle as kadro_denetle
+import soz_inceleme
 
 ROOT = Path(__file__).resolve().parents[1]
 KIMLIK = re.compile(r'(?:entity_id|id)\s*=\s*&"([^"]+)"')
@@ -222,6 +223,22 @@ def sema_kosusu(root: Path = ROOT) -> tuple[list[dict], dict]:
     return hatalar, {"sure_ms": round(sure_ms, 2), "chr": len(chrler), "adli": len(adlilar)}
 
 
+def _kapsam_kosusu(sahne_yolu: Path, tohum_yolu: Path | None, isaret_yolu: Path | None) -> int:
+    sahne = json.loads(sahne_yolu.read_text(encoding="utf-8-sig"))
+    tohumlar = json.loads(tohum_yolu.read_text(encoding="utf-8")) if tohum_yolu and tohum_yolu.is_file() else []
+    tarama = soz_inceleme.kapsam(sahne, tohumlar)
+    if tarama["calismadi"]:
+        print("YAZ-10 kapsam calismadi: tohum yok")
+    for k in tarama["ulasilmayan"]:
+        print("YAZ-10 ulasilmayan dugum: " + k)
+    for k in tarama["secilmeyen"]:
+        print("YAZ-10 secilmeyen satir: " + k)
+    isaret = json.loads(isaret_yolu.read_text(encoding="utf-8")) if isaret_yolu and isaret_yolu.is_file() else {}
+    hatalar = soz_inceleme.onay_hatalari(sahne, isaret, tohumlar)
+    print("YAZ-10 onay=%s hata=%d" % ("hazir" if not hatalar else "red", len(hatalar)))
+    return 1 if hatalar else 0
+
+
 def main(argv: list[str] | None = None) -> int:
     if str(ROOT) not in sys.path:
         sys.path.insert(0, str(ROOT / "tools"))
@@ -231,7 +248,12 @@ def main(argv: list[str] | None = None) -> int:
     ayr.add_argument("--yasak", type=Path)
     ayr.add_argument("--anahtarlar", type=Path)
     ayr.add_argument("--tum", action="store_true", help="KAY-53: 30 CHR ve adlı karakterler")
+    ayr.add_argument("--kapsam", type=Path, help="YAZ-10: sahneyi kayıtlı tohumlarla yürütür")
+    ayr.add_argument("--tohum", type=Path, help="YAZ-10: bağlam tohumları (JSON liste)")
+    ayr.add_argument("--isaret", type=Path, help="YAZ-10: inceleme işaret dosyası")
     arg = ayr.parse_args(argv)
+    if arg.kapsam is not None:
+        return _kapsam_kosusu(arg.kapsam, arg.tohum, arg.isaret)
     if not arg.sema and arg.kayit is None and not arg.tum:
         arg.sema = True
         arg.tum = True

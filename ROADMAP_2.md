@@ -1219,7 +1219,7 @@ YAZ-01 … YAZ-10 gövdesi durur. Yeni maddeler YAZ-11 … YAZ-90. İkinci üslu
 
 ### 19.10 Sınır ve kapanış
 
-- [x] **YAZ-10:** (Antigravity) İnceleme modu ve kapsam taraması.
+- [x] **YAZ-10:** (Antigravity) İnceleme modu ve kapsam taraması. (Cursor — düzeltme: f833c5c6 kapanışı yalnız gecis.json karakter sayımıydı; gerçek uygulama tools/soz_inceleme.py: satır işaretleri doğal/yapay/yeniden yaz JSON, metin değişince metin_degisti, eşleşmeyen işaret listesi, tohumlu ağaç yürütme ile ulaşılmayan düğüm/sunulmayan seçenek, tohum boşsa çalışmadı; soz_dogrula.py --kapsam ve soz_kapi paket "inceleme" alanı bağlı; test tests/tools/test_soz_kapsam.py 7 OK, mutasyonda kırmızı. Godot önizleme arayüzü yok, işaretleme JSON/araç üzerinden)
   - Ne: Önizlemede yazar her satıra doğal, yapay veya yeniden yaz işaretini koyar. İşaretler JSON olarak dışa ve içe aktarılır. Metin değişince işaret "metin değişti" olur. Kapsam taraması kayıtlı tohumlarla ağacı yürütür, seçilmeyen satırı ve ulaşılmayan düğümü listeler. Oyuncu bu taramayı görmez. Yapay veya yeniden yaz işareti dururken ya da görünmeyen satır varken sahne onaya gitmez.
   - Kurallar:
     1. Önizlemede her satır üç işaretten birini alır: doğal, yapay, yeniden yaz. İşaretler JSON olarak dışa ve içe aktarılır.

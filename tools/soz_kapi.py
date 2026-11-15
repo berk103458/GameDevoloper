@@ -14,8 +14,10 @@ from pathlib import Path
 
 if __package__:
     from .metin_dogrula import ogretici_uzunluk_hatasi
+    from .soz_inceleme import onay_hatalari as inceleme_hatalari
 else:
     from metin_dogrula import ogretici_uzunluk_hatasi
+    from soz_inceleme import onay_hatalari as inceleme_hatalari
 
 ROOT = Path(__file__).resolve().parents[1]
 SIRA = ("kitap", "taslak", "yapaylik", "kor_okuma", "kota", "onay", "kopya")
@@ -102,6 +104,9 @@ def denetle(paket: dict, kor_satirlari: list[dict] | None = None) -> tuple[list[
         hatalar.append({"tur": "hata", "kod": kod, "mesaj": mesaj})
     hatalar.extend(_satir_hatalari(paket))
     hatalar.extend(_kopya_hatalari(paket))
+    inceleme = paket.get("inceleme")
+    if isinstance(inceleme, dict):
+        hatalar.extend(inceleme_hatalari(inceleme.get("sahne", {}), inceleme.get("isaret", {}), inceleme.get("tohumlar", [])))
     uyarilar.extend(_satir_uyarilari(paket))
     return hatalar, uyarilar
 
