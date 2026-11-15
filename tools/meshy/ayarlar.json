@@ -1,0 +1,43 @@
+{
+ "_aciklama": "Meshy üretim hattı ayarları. Fiyatlar https://docs.meshy.ai/en/api/pricing sayfasından (15 Kasım 2026). Fiyat değişirse yalnız burası güncellenir; tahmin buradan hesaplanır, gerçek harcama görevin consumed_credits alanından manifeste yazılır.",
+ "hesap_plani": "bilinmiyor",
+ "_hesap_plani_aciklama": "Gerçek üretimden önce 'ucretli' ya da 'ucretsiz' yazılmalı. Ücretli planda çıktı kullanıcıya aittir; ücretsiz planda CC BY 4.0'dır ve atıf gerekir. Manifest lisans notu buradan yazılır. 'bilinmiyor' iken gerçek üretim reddedilir.",
+ "fiyat_kaynagi": "https://docs.meshy.ai/en/api/pricing (erişim 2026-11-15)",
+ "fiyat": {
+  "onizleme": {"meshy-t2.5": 5, "meshy-t2": 5, "meshy-6-lite": 5, "meshy-6": 20, "meshy-7.1": 20, "latest": 20},
+  "doku_2k_4k": 10,
+  "doku_8k": 15,
+  "iskelet": 5,
+  "hareket": 3,
+  "remesh": 5,
+  "retexture": 10
+ },
+ "varsayilan": {
+  "_aciklama": "Oyun varlığı için Meshy'nin önerdiği yol: smart-topology + meshy-t2.5 (target_polycount 100–30000). Eski hat (tools/model/meshy_uret.py) meshy-6-lite kullanıyordu; ikisi de 5 kredi.",
+  "model_type": "smart-topology",
+  "ai_model": "meshy-t2.5",
+  "topology": "triangle",
+  "texture_resolution": "2k",
+  "enable_pbr": true,
+  "remove_lighting": true,
+  "origin_at": "bottom",
+  "target_formats": ["glb"],
+  "poly_sinir": [100, 30000]
+ },
+ "tur_varsayilan": {
+  "karakter": {"doku": true, "iskelet": true, "poly": 8000, "pose_mode": "a-pose", "klasor": "assets/model/karakter"},
+  "yapi": {"doku": true, "iskelet": false, "poly": 8000, "klasor": "assets/model/yapi"},
+  "nesne": {"doku": true, "iskelet": false, "poly": 2500, "klasor": "assets/model/nesne"},
+  "hayvan": {"doku": true, "iskelet": false, "poly": 5000, "klasor": "assets/model/hayvan"},
+  "animasyon": {"klasor": "assets/model/karakter"}
+ },
+ "karakter_hareketleri": ["bekle", "konus", "sevinc", "ofke", "panik", "gergin"],
+ "_karakter_hareketleri_aciklama": "src/dunya/karakter_model.gd HAREKETLER ile aynı. Kitaplık anahtarları tools/model/chr_istemleri.py HAREKETLER'den okunur.",
+ "stil_oneki": "Stylized realistic game asset for a 13th-century Anatolian frontier setting (year 1243, Seljuk borderland). Simple clean shapes, readable silhouette, hand-made rustic materials, muted earthy colours. No text, no logos, no modern items. ",
+ "karakter_oneki": "Full body single character standing in A-pose, arms slightly away from body, feet apart, facing forward. Period clothing of 13th-century Anatolia. No armour plates, no horned helmets. ",
+ "referans_iskelet": "muhafiz",
+ "_referans_iskelet_aciklama": "Paylaşımlı anim_* klipleri bu karakterin (yeni hatla üretilmiş) Meshy iskelet görevine uygulanır; ek iskelet kredisi gerekmez. Karakter henüz üretilmediyse anim_* satırları kredi harcamadan durur.",
+ "gecmis_sayfa_sayisi": 10,
+ "belirsiz_bekleme_sn": 90,
+ "gorev_bekleme_sn": 3600
+}

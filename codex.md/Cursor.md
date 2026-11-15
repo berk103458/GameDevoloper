@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Meshy üretim sistemi — 15 Kasım 2026
+
+Ahmet'in kararıyla 3D asset işi Meshy'ye geçiyor; bu turda yalnız üretim hattı kuruldu. Hiçbir asset üretilmedi, kredi harcanmadı. `tools/meshy/meshy_hat.py` varsayılanı kuru çalıştırmadır. `assets/meshy_manifest.json/.csv`: 531 satır, 247 mevcut (58 Meshy modeli, 120 klip; keen-cerf'teki `koyun.glb` dahil, dal birleştirilmedi), 186 planlı, tahmini 2962 kredi. Tekrar üretim engelleri, araç kaynakları, anahtar yeri ve AGENTS.md önerisi: `docs/MESHY_URETIM_SISTEMI.md`. Skill `meshy-uretim` (`.agents/skills/`, `.cursor/skills/`), MCP `.cursor/mcp.json`. Eski hat `MESHY_ESKI_HAT_ONAY=1` olmadan çalışmaz. Anahtar yok (MESHY_API_KEY de `.meshy-api-key` de yok). Hedefli test `tests/tools/test_meshy_hat.py` 17/17 GEÇTİ; Godot 4.7.2 headless import 0 hata, `godot_dogrula.gd` mevcut modellerde GEÇTİ. Tam sanity yok. Asset üretilmedi; envanterdeki her 3D kimlik manifeste bağlı. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## Bölüm 39 — 3 Kasım 2026
 
 HFZ-01…21, HFZ-23…29 ve HFZ-32. Tek hafıza defteri, dört sayfa: karar, beyan, söylenti, not. Kaynak sistemlere yazılmaz; diyalog cümlesi yazılmadı, oyuncu metni yer tutucu anahtardır. Köy düğmesi ve duraklat dördüncü satırı açar; kapı sorgu defterine çağrı yok. HFZ-22, HFZ-30, HFZ-31 Claude'da duruyor. Asset gerekmedi. Godot 4.7.2 headless `tests/unit/sistemler/hafiza_defteri_test.gd` GEÇTİ, 0 hata. Tam sanity çalıştırılmadı. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.

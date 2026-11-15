@@ -35,6 +35,10 @@ assets/ph/model/island_tree_02/
 
 # Local Meshy API credential
 /.meshy-api-key
+# Meshy üretim hattı (tools/meshy): süreç kilidi, hesap geçmişi önbelleği, yarım indirme
+/tools/meshy/.uretim.kilit
+/tools/meshy/.meshy_gecmis.json
+*.iniyor
 
 # Local sanity-check logs
 /work/sanity/
