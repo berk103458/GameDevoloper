@@ -3305,3 +3305,6 @@ Ortak odak stili AYR odak_cercevesi normal/kalın/normal geçişinde 1/3/1 kalı
 
 ## 15 Kasım 2026 — GRV-24 (Codex-Berk)
 Hafıza defteri ortak panel stilini miras alır; var olan seçilmiş sayfa dokusu korunur. Soluk satır renk tanımlamak yerine yalnız saydamlığı değiştirir. Hedef kabul ve HFZ-01…32 birim testi exit0/0 hata. Asset gerekmedi.
+
+## 15 Kasım 2026 — GRV-25 (Codex-Berk)
+Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni ince köprü, mevcut tuş eşleme ve dil API'sini kullanır. Yedi gerçek sekme geçişinde tek ekran/tek içerik; negatif köprü testi ve ayarlar regresyonu geçti. Asset gerekmedi.

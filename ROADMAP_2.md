@@ -7322,7 +7322,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: HFZ-01, ARY-02. Boyut: S.
   - Dosya: `hafiza_defteri_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [/] **GRV-25:** (Codex-Berk) Ayar sekmeleri (35, 45, 46) aynı paneldedir.
+- [x] **GRV-25:** (Codex-Berk) Ayar sekmeleri (35, 45, 46) aynı paneldedir.
   - Ne: ses, görüntü, oyun, kontroller (GIR-01), dil (YER-01) ayrı pencere açmaz. Ayarlar ekranı sekmeli tek kabuktur.
   - Kabul: aynı anda açık ayar penceresi 1. Test: sekme geçişi.
   - Bağımlılık: GIR-01, YER-01, ARY-02. Boyut: M.

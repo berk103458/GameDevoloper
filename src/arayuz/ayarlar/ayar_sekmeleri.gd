@@ -21,6 +21,7 @@ var _onay_sekmesi := &""
 
 static func kur(hedef: Control) -> AyarSekmeleri:
 	var s := AyarSekmeleri.new()
+	s.name = "AyarSekmeleri"
 	s.ayarlar = hedef.get("ayarlar")
 	s.ekran = hedef
 	hedef.add_child(s)
@@ -93,6 +94,7 @@ func _ready() -> void:
 func _ac(indeks: int) -> void:
 	_onay_sekmesi = &""
 	for c in _icerik.get_children():
+		_icerik.remove_child(c)
 		c.queue_free()
 	var betik: GDScript = load(String(SEKMELER[indeks][2]))
 	var sayfa: Control = betik.new()
@@ -101,6 +103,7 @@ func _ac(indeks: int) -> void:
 	if ekran != null and ekran.has_meta(&"ipucu_kaydi"):
 		sayfa.set("ipucu_kaydi", ekran.get_meta(&"ipucu_kaydi"))
 	_icerik.add_child(sayfa)
+	preload("res://src/arayuz/ayarlar/grv_sekme_koprusu.gd").bagla(sayfa, StringName(SEKMELER[indeks][0]), ayarlar)
 	_icerik.set_meta(&"sekme", SEKMELER[indeks][0])
 
 
