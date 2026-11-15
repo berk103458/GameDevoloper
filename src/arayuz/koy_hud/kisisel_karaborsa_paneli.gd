@@ -29,9 +29,7 @@ static func ac(e: KoyEkrani) -> void:
  for esya in e.oturum.muhafiz_esyalari:
   var h := HBoxContainer.new()
   v.add_child(h)
-  var kutu := ColorRect.new()
-  kutu.custom_minimum_size = Vector2(28, 28)
-  kutu.color = Kabuk.STOK_KUMAS
+  var kutu := Kabuk.yer_tutucu("KisiselEsya", Kabuk.STOK_KUMAS.to_html(), Vector2(28, 28))
   h.add_child(kutu)
   e._etiket(h, "%s · %d adet" % [esya.get("ad", esya.get("kaynak", esya.get("tur", "Eşya"))), esya.get("adet", 0)], Tema.KUCUK_PX)
  var kapat := PazarKartKaydirma.dugme(e, v, "Pazara dön")

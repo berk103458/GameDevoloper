@@ -7846,7 +7846,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/haberci_anlati_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-96:** (Codex-Berk) `kisisel_karaborsa_paneli.gd` temaya bağlanır.
+- [x] **GRV-96:** (Codex-Berk) `kisisel_karaborsa_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd` bugün ColorRect 1 ve 0 düz düğmeyle duruyor; notu: Tek ColorRect, tema dışı. Tema bağlanınca yalnız `kisisel_karaborsa_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Tek ColorRect, tema dışı davranışı değişmez.
   - Kabul: `kisisel_karaborsa_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kisisel_karaborsa_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
