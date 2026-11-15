@@ -6,6 +6,58 @@ Bu dosya Muharrir'in (koordinatör) sana iş verdiği kanaldır. Ahmet sana "gö
 - Ajan adı: **Antigravity** (ROADMAP'te ve commit'lerde bu adla imzala)
 - Çalışma klasörü: bu repo (C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi), dal: claude/festive-volta-li1sfm (festive). Tek dal budur, başka dal açma.
 
+## Sürekli çalışma döngüsü (Ahmet, 15 Kasım 2026; Muharrir)
+
+Bu bölüm dosyanın en üstüne yakındır. Görev 24 ve Görev 25'ten **önce** oku ve uygula. Turu «onayınızla devam ederim» diye bitirme.
+
+### 1) Görev 24 — alt madde yöntemi
+
+Her ana maddeyi (critical olanlardan başlayarak) uygulamadan önce alt maddelere böl (1.1, 1.2, 1.3, 2.1, …):
+
+- sorunu anla
+- oyuna nasıl bağlandığını kontrol et
+- «daha iyi olur» dediğin iyileştirmeleri ekle
+- alt madde planlarını `codex.md/Antigravity.md` günlüğüne yaz
+- sonra sırayla uygula
+
+Direkt 1-2-3-4 yapıp geçme.
+
+### 2) Görev 24 bitince Görev 25
+
+Görev 24 bitince (ilerleme dosyasında `GOREV24_TAMAM`) Görev 25 (Meshy pilotu) yapılır. Pilot sonucu `codex.md/Antigravity.md`'ye yazılır ve Meshy tarafında Ahmet'in onayı beklenir. Onay gelmeden kalan yüksek öncelikli asset'lere geçilmez.
+
+### 3) Onay beklerken ve sonrasında boş durma
+
+ROADMAP_2.md'den sahipsiz açık maddeleri bul. Aşağıdakileri **alma**:
+
+- Kalfa'nın SAH bölümü
+- ANL-EPI-01, KAP-18, YAP-03, KVR-SES-01
+- Cursor'un ROADMAP'te `(Cursor)` diye işaretlediği maddeler
+- başkasının sahiplik notu olan maddeler
+- son 3 günde commit'i olan maddeler
+
+Aldığın maddeyi ROADMAP'te `(Antigravity)` diye işaretleyip push et; aynı alt madde yöntemiyle uygula. ROADMAP_2'nin başından ileriye git (Cursor sondan geriye gidiyor).
+
+### 4) Her alt madde / madde
+
+- Gerçek, oyuna bağlı kod; sahte GEÇTİ yok
+- Hedefli headless Godot testi: `C:\Users\Ahmet\Desktop\Godot.exe` (sürüm 4.7.2)
+- Ayrı Türkçe `(Antigravity)` commit, festive'e normal push
+- Her maddeden önce pull (`git pull --ff-only`)
+- Force push, `reset --hard` ve tam sanity yok
+- `project.godot` ve `.import` farklarını commit etme
+
+### 5) Durma koşulları
+
+- Kota biterse dur
+- Gerçek bir kullanıcı kararı gerekirse: soruyu bu dosyaya «Antigravity sorusu» başlığıyla yaz ve karar gerektirmeyen başka maddeye geç
+- ROADMAP'te sahipsiz madde kalmazsa dur
+
+Turu «onayınızla devam ederim» diye bitirme.
+
+---
+
+
 ## Görev 1 — Projeye katıl ve Codex gibi çalışmaya başla (14 Ekim, Muharrir)
 1. git pull yap. AGENTS.md, ROADMAP_2.md'nin başındaki AJAN İLERLEME PANOSU ve docs/EKSIK_ASSET_ENVANTERI.md dosyalarını oku. Kurallar zorunludur.
 2. Kendine codex.md/Antigravity.md günlüğünü aç (diğer ajanların codex.md/Kalfa.md günlüğüne benzer).
@@ -785,6 +837,8 @@ SAH kanıt denetimini (1–7) bitirdikten sonra durma, şunlarla devam et:
 
 # Görev 24 — Antigravity denetim listesini bitir (Ahmet onayladı, 15 Kasım 2026; Muharrir)
 
+Önce dosyanın başındaki «Sürekli çalışma döngüsü» bölümünü oku. Her ana maddeyi uygulamadan önce alt maddelere böl; planı `codex.md/Antigravity.md` günlüğüne yaz, sonra sırayla uygula. Bu görev sürerken listenin dışına çıkma; `GOREV24_TAMAM` yazıldıktan sonra döngü bölümündeki Görev 25 ve ROADMAP kuralları geçerlidir.
+
 Cursor, 15 Kasım'da docs/ANTIGRAVITY_DENETIM_LISTESI.md belgesini yazdı (commit 99c011de, festive'e 614566fc ile alındı). Belge, 14 Ekim–9 Kasım arasındaki 232 (Antigravity) imzalı commit'i taradı: 112 TAM, 27 EKSİK, 23 SAHTE-BAĞSIZ, 2 YOK. Kod, veri ve ROADMAP işaretlerine dokunulmadı; düzeltme bu görevin işi.
 
 Bu görev Gemini 4 Hydrogen High ile çalışır. gemini-3.8-flash (low, medium veya high) kullanma. Kota biterse flash'a düşme; ilerleme dosyasına yaz ve dur.
@@ -851,12 +905,69 @@ ew() ile kurulan sınıf kabul değildir. Sabit değer döndüren veya girdiyi a
 
 ## Kurallar
 
-- Yeni ROADMAP maddesi alma; bu listenin dışına çıkma.
+- Görev 24 bitene kadar yeni ROADMAP maddesi alma; bu listenin dışına çıkma. `GOREV24_TAMAM` sonrası için dosyanın başındaki sürekli çalışma döngüsüne uy.
 - Emin değilsen aşağıdaki «Antigravity sorusu» başlığına yaz, en mantıklı varsayımla devam et.
 - Meshy kurulumu için başka bir Cursor ajanı festive'e sonra birleşebilir; bekleme, çakışırsa ff pull ile al, force yok.
 
 ## Antigravity sorusu
 
 (Sorularını buraya yaz.)
+
+— Muharrir
+
+# Görev 25 — Meshy pilotu (Ahmet onayladı, 15 Kasım 2026; Muharrir)
+
+Görev 24 bitince (ilerleme dosyasında `GOREV24_TAMAM`) başlar. Önce dosyanın başındaki «Sürekli çalışma döngüsü» bölümünü oku. Bu görev Gemini 4 Hydrogen High ile çalışır; gemini-3.8-flash kullanma. Kota biterse flash'a düşme, dur.
+
+Çalışma yeri: C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi, dal `claude/festive-volta-li1sfm`. Force push, `reset --hard` yok. `project.godot`, `.import`, kökteki `_tmp_*` / `_doc_*` artıklarına ve Görev 24'ün commitlenmemiş işine dokunma.
+
+## Pilot seçimi
+
+`assets/meshy_manifest.json` içinde durumu `planli` ve önceliği `yuksek` olan 13 Meshy-uygun satır var (10 karakter, 2 yapı, 1 nesne; `meshy_disi:DYL02-AYRINTI-*` uygun değil, hariç). Bunlardan oyunda hemen görülebilen yapı türü yalnız ikidir; pilot bu ikisidir. Tahmini toplam **30 kredi** (tavan: pilot ≤ 60, mutlak 425).
+
+### 1. `kapi_ic` — Kapı iç yüzü (`KAPI-3D-IC`)
+
+- Tür: `yapi`. Hedef: `assets/model/yapi/kapi_ic.glb`. Tahmini kredi: **15** (t2.5 dokulu; iskelet yok).
+- Prompt kaynağı: `docs/meshy/MESHY_TUM_PROMPTLAR.md` başlığı `### kapi_ic (`KAPI-3D-IC`)`. Manifestteki eski 13. yy Selçuklu önekini kullanma; üretimden önce bu Gemini (14. yy Osmanlı uç beyliği, ciddi gerçekçi) promptunu manifeste yaz.
+- Oyunda duracağı yer: kapı nöbeti / sorgu sahnesi. Kod: `src/dunya/kapi_sahnesi.gd` ve `src/dunya/kapi_cercevesi.gd` (`KapiCercevesi`). Bekçi kadrajının **iç yüzü**. Bugün seviye 0 kaba kütük kutuları; seviye 1+ `Pbr.model("large_castle_door")`. Köydeki `kapi.glb` (`src/dunya/koy_yonetim_sahnesi.gd` içindeki sur kapısı) bu iç yüz değildir; onu değiştirme.
+- Ahmet nereye bakacak: oyunu aç, kapı nöbetine gir (muhafızın gözünden açık kapı, gelenle konuşulan sahne). Kadrajın iki yanındaki kapı çerçevesi ve açık kanatlar burada değişecek.
+
+### 2. `tas_yatagi` — Taş yatağı (`BUG21-TASYATAGI`)
+
+- Tür: manifestte `yapi` (dokulu). Hedef: `assets/model/yapi/tas_yatagi.glb`. Tahmini kredi: **15**. Prompt dosyasında aynı kimlik bir kez `prop` / dokusuz (5 kredi) yazılmış; Gemini kuralı «yapılar dokulu» ve manifest türü `yapi` olduğu için **dokulu 15 kredi** üret. Prompt metnini yine `docs/meshy/MESHY_TUM_PROMPTLAR.md` başlığı `### tas_yatagi (`BUG21-TASYATAGI`)` altından al; `should_texture: true` kullan.
+- Oyunda duracağı yer: köy yönetim sahnesi. Çağrı: `src/dunya/koy_yonetim_sahnesi.gd` (`TasYatagiGorseli.kur`). Yer tutucu: `src/koy/gorsel/tas_yatagi_gorseli.gd` (düz gri BoxMesh öbeği, düğüm adı `TasYatagi`). Konum: köy ızgarasının kenarında rastgele boş hücre (`src/koy/tas_yatagi.gd`, her yeni oyunda değişir). HUD'da «Taş yatağı» paneli: `src/arayuz/koy_hud/tas_yatagi_paneli.gd`.
+- Ahmet nereye bakacak: oyunu aç, köy ekranına gir. Köyün kenarındaki üç gri kutuyu (taş yatağı yer tutucusu) bul; HUD'da «Taş yatağı» yazısı da görünür. Üretimden sonra gri kutuların yerine `tas_yatagi.glb` durmalı.
+
+## Üretim hattı
+
+Opus'un hattı ile `docs/meshy` kuralları birlikte kullanılır:
+
+- Araç: `tools/meshy/meshy_hat.py`. Manifest dedup'ına uy. Gerçek üretim yalnız `uret --gercek` ile ve tahmini krediye **eşit** `--onay-kredi` kapısıyla açılır. `--gercek` veya doğru `--onay-kredi` yoksa üretim yok.
+- Önce kuru tahmin: `python tools/meshy/meshy_hat.py kuru --yenileme --sadece kapi_ic tas_yatagi`. İlk üretimden önce `gecmis --esle` zaten çalıştırıldı; gerekirse tekrarla (kredi harcamaz).
+- Ayarlar: `tools/meshy/ayarlar.json` — `hesap_plani` = `ucretli`; stil 14. yy Osmanlı uç beyliği, ciddi gerçekçi; `nesne` dokusuz, `yapi` dokulu, `karakter` dokulu + rigli (T-pose).
+- Anahtar: önce repo kökündeki gitignore'lu `.meshy-api-key` (son 4: **xXff**, aylık yenileme 4 Aralık). Bu hesap biterse aynı içeriği `.meshy-api-key-yedek` (son 4: **AqQC**, yenileme 8 Aralık) dosyasından `.meshy-api-key` üzerine kopyala ve devam et. Hat otomatik geçiş yapmaz. Anahtarın tam metnini hiçbir commit'e, loga, md dosyasına, ilerleme veya rapor satırına yazma; yalnız son 4 karakterle an.
+- MUTLAK kredi tavanı **425**. Pilot tek başına ≤ 60 (bu iki asset 30). Tavanı aşma.
+- Her üretimden sonra `docs/meshy/MESHY_PROMPT_KURALLARI.md` bölüm 5 reddetme kontrol listesiyle bak. Kötüyse en fazla 1 yeniden deneme (`uret --gercek --yeniden ID --onay-kredi …`). Aynı asset iki kez reddedilirse dur.
+- Üretilen glb'leri doğru klasöre koy (`assets/model/yapi/`). Yer tutucunun yerine sahneye bağla (`KapiCercevesi` iç yüzü; `TasYatagiGorseli.kur`). Godot headless import: `C:\Users\Ahmet\Desktop\Godot.exe --headless --path . --import`, sonra hedefli test. Manifestte gerçek `kredi_harcanan` değerini yaz.
+- Ayrı Türkçe `(Antigravity)` commit'ler, festive'e normal push. Her commit'ten önce `git pull --ff-only`. `project.godot` ve `.import` commit etme.
+
+## Pilot bitince DUR
+
+Pilotun iki asset'i bağlanıp test edilince dur. `codex.md/Antigravity.md` günlüğüne yaz:
+
+- hangi asset'ler üretildi
+- harcanan kredi (asset başına ve toplam)
+- Ahmet'in oyunda nereden bakacağı (yukarıdaki yerler)
+
+Ahmet'in onayı gelmeden kalan yüksek öncelikli asset'lere geçme. Onay beklerken boş durma: «Sürekli çalışma döngüsü» bölümünün 3. maddesine göre ROADMAP_2'den sahipsiz açık madde al.
+
+## Onaydan sonraki döngü
+
+Ahmet onaylarsa kalan yüksek öncelikliler 425 tavanına kadar sürekli döngüde üretilir (yine `uret --gercek` + tam `--onay-kredi`, kontrol listesi, en fazla 1 yeniden deneme, yerleştirme, hedefli test, ayrı commit). Durma koşulları:
+
+- 425 kredi tavanı
+- iki anahtar da boş
+- aynı asset iki kez reddedildi
+- kullanıcı kararı gereken durum (soruyu bu dosyaya «Antigravity sorusu» başlığıyla yaz; Meshy onayını beklemeden ROADMAP maddesine geç)
 
 — Muharrir
