@@ -8222,7 +8222,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: BUG-13. Boyut: M.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-50:** (Cursor — Kalfa devri, üzerinde) Vurgu, heybe açıkken modeli örtmez. (doğrulanmadı — Görev 22; heybe_ile_mesafe_koru() oyunda çağrılmıyor)
+- [x] **SAH-50:** Vurgu, heybe açıkken modeli örtmez. (doğrulanmadı — Görev 22; heybe_ile_mesafe_koru() oyunda çağrılmıyor) (Cursor — heybe açıkken model x=659'da panelin (0–1140) altında kalıyordu; HeybeKadraji + KapiKameraGecisi.kaydir kişiyi panelin sağına (x=1530) alır, mesafe değişmez, kapanınca geri döner; kapi_ekrani._heybe_ac bağlı; test tests/oto/heybe_kadraji_kontrol.tscn 5 GEÇTİ; mutasyonda kırmızı)
   - Ne: heybe paneli BUG-15 ile tıklamayı yer. Kamera, paneli kapatacak kadar yaklaşmaz.
   - Kabul: heybe paneli BUG-15 ile tıklamayı yer. Kamera, paneli kapatacak kadar yaklaşmaz. Test: panel açık, model hâlâ görünür.
   - Bağımlılık: BUG-15, SAH-49. Boyut: S.

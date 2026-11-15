@@ -34,6 +34,18 @@ static func heybe_ile_mesafe_koru(kamera_mesafesi: float, heybe_acik: bool) -> f
 	return kamera_mesafesi
 
 
+## Odak noktasını görüntüde `hedef_x` pikseline taşıyan h_offset; izdüşüm h_offset'e doğrusal bağlıdır.
+static func kaydirma_bul(kamera: Camera3D, odak: Vector3, hedef_x: float) -> float:
+	var eski := kamera.h_offset
+	var x0 := kamera.unproject_position(odak).x
+	kamera.h_offset = eski + 1.0
+	var egim := kamera.unproject_position(odak).x - x0
+	kamera.h_offset = eski
+	if absf(egim) < 0.001:
+		return eski
+	return eski + (hedef_x - x0) / egim
+
+
 static func heybe_acikken_model_gorunur_mu(heybe_acik: bool, kamera_mesafesi: float) -> bool:
 	if heybe_acik:
 		return kamera_mesafesi >= ASGARI_KAMERA_MESAFESI

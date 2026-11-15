@@ -382,12 +382,14 @@ func _heybe_ac() -> void:
 	_heybe_paneli.beyan_metni = _beyan_metni()
 	_heybe_paneli.position = _dunya.position
 	add_child(_heybe_paneli)
+	HeybeKadraji.ac(self, _heybe_paneli)
 	preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "heybe")
 	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").heybe_bagla(_heybe_paneli, self, _gelen)
 	_heybe_paneli.degisti.connect(_heybe_degisti)
 	await _heybe_paneli.kapandi
 	_heybe_paneli.queue_free()
 	_heybe_paneli = null
+	HeybeKadraji.kapat(self, KAMERA_KAYMA)
 	_secenekler.visible = true
 	_eylemler.visible = true
 	if donus == &"karar":
