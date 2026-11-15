@@ -10,7 +10,7 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	if k == null: return
 	KoyluTakibi.sec(ekran.sahne3b, id)
 	var y := ekran.oturum.yonetim
-	var v := ekran._kart_ac(k.ad + " · Köylü kartı")
+	var v := ekran._kart_ac(SevilenYuz.gorunen_kart_adi(k) + " · Köylü kartı")
 	var guvenlik := ekran._etiket(v, SavunmaGuvenligi.metin(y), Tema.KUCUK_PX)
 	guvenlik.name = "guvenlik_satiri"
 	guvenlik.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

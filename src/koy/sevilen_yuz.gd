@@ -6,6 +6,9 @@ extends RefCounted
 ## Boş gün köy günüdür; tanıdık yüz ateşe gelir; kişisel iz kalır; tek istek; köylü bağları;
 ## isim ancak sorulunca kartta durur; veda o kişiyi götürür.
 
+const MASKE_BAYRAGI := "sev06_maskeli"
+const KIMLIK_BAYRAGI := "Flag_Kimlik_Cozuldu"
+
 var taninan_isimler: Dictionary = {} # chr_id -> bool
 var kisisel_izler: Dictionary = {} # chr_id -> iz_turu
 var koylu_baglari: Array[Dictionary] = [] # [{chr1, chr2, tur}]
@@ -56,6 +59,29 @@ func kart_gorunum_adi(chr_id: String, gercek_ad: String, meslek: String) -> Stri
 
 func isim_sor(chr_id: String) -> void:
 	taninan_isimler[chr_id] = true
+
+static func _tr_kucuk(metin: String) -> String:
+	return metin.replace("Ç", "ç").replace("Ğ", "ğ").replace("İ", "i").replace("I", "ı").replace("Ö", "ö").replace("Ş", "ş").replace("Ü", "ü").to_lower()
+
+static func maske_kisa_adi(k: Koylu) -> String:
+	if k == null:
+		return ""
+	var zanaat := ZanaatTuru.ad(k.zanaat_turu)
+	if zanaat != ZanaatTuru.ADLAR[0]:
+		return _tr_kucuk(zanaat)
+	var sinif_adi := TranslationServer.translate("arayuz.sinif." + String(k.sinif))
+	return _tr_kucuk(sinif_adi) if not sinif_adi.is_empty() else k.ad
+
+static func gorunen_kart_adi(k: Koylu) -> String:
+	if k == null:
+		return ""
+	if k.bayrak_var(MASKE_BAYRAGI) and not k.bayrak_var(KIMLIK_BAYRAGI) and not k.bayrak_var("acl01_es"):
+		return maske_kisa_adi(k)
+	return k.ad
+
+static func kimlik_ac(k: Koylu) -> void:
+	if k != null:
+		k.bayrak_ekle(KIMLIK_BAYRAGI)
 
 func veda_et(chr_id: String, oturum: Oturum = null) -> Dictionary:
 	if oturum != null: preload("res://src/koy/tek_istek.gd").kapat(oturum, StringName(chr_id))

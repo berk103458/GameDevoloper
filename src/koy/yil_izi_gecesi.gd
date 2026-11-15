@@ -41,14 +41,16 @@ static func gece(y: KoyYonetimi, olaylar: Array) -> void:
 	var k := kisi(y)
 	if k != null:
 		var d := YilIzi.durum(y)
-		d.maske = k.ad
+		d.maske = SevilenYuz.maske_kisa_adi(k) if k.bayrak_var(SevilenYuz.MASKE_BAYRAGI) else k.ad
+		d.gercek = k.ad
+		d.ad_bayragi = not k.bayrak_var(SevilenYuz.MASKE_BAYRAGI) or k.bayrak_var(SevilenYuz.KIMLIK_BAYRAGI) or k.bayrak_var("acl01_es")
 		y.set_meta(YilIzi.META, d)
 		var gecmis: Variant = d.slotlar.get(String(MevsimYoneticisi.durum(y).ad) + "_satir")
 		var once := String(gecmis.get("anahtar", "")) if gecmis is Dictionary else ""
 		var s := YilIzi.satir(y, baglam(y, k))
 		if String(s.anahtar) != "" and String(s.anahtar) != once:
 			olaylar.append({"anahtar": "%s: %s", "deger": [String(s.ad), TranslationServer.translate(String(s.anahtar))]})
-	var ad := String(YilIzi.durum(y).maske)
+	var ad := YilIzi.gorunen_ad(y)
 	var son := YilIzi.kapanis(y, String(y.son))
 	if int(son.sayi) > 0 and ad != "":
 		olaylar.append({"anahtar": KAPANIS, "deger": [ad, int(son.sayi)]})

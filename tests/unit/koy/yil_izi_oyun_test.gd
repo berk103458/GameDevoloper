@@ -87,5 +87,28 @@ func _calistir() -> void:
 	_kontrol(YilIziGecesi.tarlada(y, k) and kis_tarla == 0, "YIL-05: kışın tarla işçisinde yıl satırı yok")
 	_kontrol(kapanis.size() == 2 and String(kapanis[0]) == "Fadime" and int(kapanis[1]) >= 1 and int(kapanis[1]) <= 5, "YIL-10: 28. gece kapanış satırı sayar (%s)" % str(kapanis))
 	_kontrol(String(YilIzi.durum(y).kisi) == "" or MevsimYoneticisi.durum(y).yil_gunu == 1, "YIL-10: kapanıştan sonra iz temizlenir")
+	_test_sev06_maske_ve_yil_izi()
 	print("YIL IZI OYUN: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
 	quit(1 if hata > 0 else 0)
+
+
+func _test_sev06_maske_ve_yil_izi() -> void:
+	var kat := Katalog.new()
+	kat.yukle()
+	var o := Oturum.new(kat, 19)
+	o.yonetim.gun = 14
+	var g := o._adli_gelen(&"chr_017")
+	var s := o.karar_ver(g, &"kabul")
+	var kid := int(s.get("koylu_id", -1))
+	var k := o.yonetim.koylu(kid)
+	_kontrol(k != null and SevilenYuz.gorunen_kart_adi(k) == "çoban", "YIL-09/SEV-06: bayraksız CHR_017 kart adı çoban kalır")
+	var r_guz := o.yonetim.gece()
+	_kontrol(_satirlar(r_guz, "çoban") == 1 and _satirlar(r_guz, "Fadime") == 0, "YIL-09: bayrak yokken güz cümlesinde çoban geçer, Fadime 0")
+	SevilenYuz.kimlik_ac(k)
+	_kontrol(SevilenYuz.gorunen_kart_adi(k) == "Fadime", "SEV-06: kimlik açılınca kart adı Fadime olur")
+	_kontrol(String(YilIzi.durum(o.yonetim).slotlar.get("sonbahar_satir", {}).get("ad", "")) == "çoban", "YIL-09: yazılmış güz satırı değişmez")
+	o.yonetim.gun = 21
+	var r_kis := o.yonetim.gece()
+	_kontrol(_satirlar(r_kis, "Fadime") == 1, "YIL-09: kimlik açıldıktan sonraki slot Fadime söyler")
+	var veri: Resource = ResourceLoader.load("res://data/chr_runtime/CHR_017.tres")
+	_kontrol(TranslationServer.translate(kat.karakter(&"chr_017").ad_anahtari) == "Fadime" and veri != null and String(veri.ad) == "Fadime", "YIL-09: karakter verisi yazısı değişmez")

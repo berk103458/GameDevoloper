@@ -45,6 +45,8 @@ static func sekans_yukle(ds_yolu: String) -> ParleyDialogueSequenceAst:
 ## Köylüye tıklandığında muhabbet ağacını başlatır
 func muhabbet_baslat(k: Koylu, y: KoyYonetimi = null) -> bool:
 	koylu = k
+	if koylu != null and koylu.bayrak_var(SevilenYuz.MASKE_BAYRAGI):
+		SevilenYuz.kimlik_ac(koylu)
 	_bosta_soylendi = false
 	yonetim = y
 	var ds_yolu := "res://data/parley/koy/koylu_muhabbet_genel.ds"

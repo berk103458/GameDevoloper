@@ -2833,7 +2833,7 @@ Kalp puanı, hediye takvimi, romans ve seslendirme bu bölümde yoktur. Asset ü
 
 #### 30.6 Ad ve kapanış
 
-- [/] **YIL-09:** (Antigravity-Berk) Söylenen ad karttaki addır
+- [x] **YIL-09:** (Antigravity-Berk) Söylenen ad karttaki addır (`SevilenYuz.gorunen_kart_adi`/`maske_kisa_adi`/`kimlik_ac` ile `oturum.gd`, `koylu_karti.gd`, `koy_diyalog_yoneticisi.gd`, `yil_izi_gecesi.gd` SEV-06 maske/gerçek ad ayrımına bağlandı; `yil_izi_test.gd`, `yil_izi_oyun_test.gd`, `sevilen_yuz_test.gd` ve `kisisel_iz_oyun_test.tscn` 0 hata ile geçti)
   - Ne: Güz cümlesi SEV-06 görünen adını okur; ad bayrağı yoksa maskenin kısa adı, bayrak varsa gerçek ad söylenir. Yıl ortasında ad açılırsa sonraki slot yeni adı söyler, yazılmış satır değişmez.
   - Kabul: `CHR_017` ad bayrağı yokken güz cümlesinde "çoban" geçer ve "Fadime" 0'dır; bayrak varken "Fadime" 1'dir (`tests/unit/koy/yil_izi_test.gd`). Kartın kendi yazısı değişmez.
   - Bağımlılık: YIL-02, SEV-06. Boyut: S.

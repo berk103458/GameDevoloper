@@ -280,6 +280,11 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 			gelen.zengin(ayarlar.zengin_esigi), false)
 		if karar == &"kisla":
 			yonetim.muhafiz_ata(k.id)
+		if gelen.adli and not k.bayrak_var("acl01_es"):
+			if sorgu != null and bool(sorgu.bayraklar.get(SevilenYuz.KIMLIK_BAYRAGI, false)):
+				SevilenYuz.kimlik_ac(k)
+			else:
+				k.bayrak_ekle(SevilenYuz.MASKE_BAYRAGI)
 		ek["koylu_id"] = k.id
 		SiraOlayiSonucu.kabul(gelen, k)
 		KuyuZehirleme.kabul(yonetim, k, gelen, karar)

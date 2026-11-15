@@ -1414,3 +1414,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `test_soz_kapi.py` içindeki yeni `TurRaporuKopruTest` (2/2) ve `test_tester_oyuncu.py` (7/7) geçti; `tester_oyuncu.py --politika hikaye_odakli --headless --tohum 11 --gece 1` (`hata_sayisi=0`, çıkış 0) ile doğrulandı. (Not: gömülü Windows Python'da `kor_okuma_gecmis.py` ve `soz_dogrula.py` alt süreçleri mevcut ortam nedeniyle eksik import verir.)
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor.
+
+### 2026-11-15 — `YIL-09` Tamamlandı
+- **Yapılan:** `src/koy/sevilen_yuz.gd` içine `maske_kisa_adi`, `gorunen_kart_adi` ve `kimlik_ac` eklendi; `src/sistemler/oturum.gd` (`karar_ver`), `src/arayuz/koylu_karti.gd`, `src/diyalog/koy_diyalog_yoneticisi.gd` ve `src/koy/yil_izi_gecesi.gd` üzerinden SEV-06 maske/gerçek ad ayrımı canlı oyuna bağlandı (`CHR_017` kimlik açılmadan "çoban", kimlik açılınca sonraki slot "Fadime", yazılmış slot korunur).
+- **Testler:** `yil_izi_test.gd`, `yil_izi_oyun_test.gd`, `sevilen_yuz_test.gd` ve `kisisel_iz_oyun_test.tscn` 0 hata ile geçti.
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.
