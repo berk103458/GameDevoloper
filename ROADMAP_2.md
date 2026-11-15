@@ -8375,7 +8375,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-08. Boyut: S.
   - Dosya: `tests/oto/karakter_muayene.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-74:** Eksik klip listesi ARY-05'e yazılır.
+- [x] **SAH-74:** Eksik klip listesi ARY-05'e yazılır.
   - Ne: BUG-09'un düştüğü her klip adı envanterde bir satırdır. Satırda sahne, model ve istenen klip vardır. Dosya üretilmez.
   - Kabul: BUG-09'un düştüğü her klip adı envanterde bir satırdır. Satırda sahne, model ve istenen klip vardır. Dosya üretilmez. Test: bilerek silinen klip, envanterde 1 satır.
   - Bağımlılık: BUG-09, ARY-05. Boyut: S.

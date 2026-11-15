@@ -485,6 +485,154 @@ Her yuva [tekli UI kataloğunda](arayuz/GEMINI_TEKLI_URETIM_PROMPTLARI.md) kendi
 
 ## 3D assetler — açık üretim ihtiyaçları
 
+### SAH-74 / ARY-05 eksik hareket klipleri (Kalfa)
+
+Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi veya duruş pozu. Düşük öncelik. Hareketler modelin mevcut iskelet ve ölçeğine uyarlanır. Arama terimleri: karakter hareketi, medieval character animation, idle fallback.
+
+| Kimlik | Sahne | Model | İstenen klip | Durum |
+|---|---|---|---|---|
+| SAH-KLIP-asker-gergin | `tests/oto/karakter_muayene.tscn` | `asker` | `gergin` | bekliyor |
+| SAH-KLIP-asker-konus | `tests/oto/karakter_muayene.tscn` | `asker` | `konus` | bekliyor |
+| SAH-KLIP-asker-ofke | `tests/oto/karakter_muayene.tscn` | `asker` | `ofke` | bekliyor |
+| SAH-KLIP-asker-panik | `tests/oto/karakter_muayene.tscn` | `asker` | `panik` | bekliyor |
+| SAH-KLIP-asker-sevinc | `tests/oto/karakter_muayene.tscn` | `asker` | `sevinc` | bekliyor |
+| SAH-KLIP-aydogdu-gergin | `tests/oto/karakter_muayene.tscn` | `aydogdu` | `gergin` | bekliyor |
+| SAH-KLIP-aydogdu-konus | `tests/oto/karakter_muayene.tscn` | `aydogdu` | `konus` | bekliyor |
+| SAH-KLIP-aydogdu-ofke | `tests/oto/karakter_muayene.tscn` | `aydogdu` | `ofke` | bekliyor |
+| SAH-KLIP-aydogdu-panik | `tests/oto/karakter_muayene.tscn` | `aydogdu` | `panik` | bekliyor |
+| SAH-KLIP-aydogdu-sevinc | `tests/oto/karakter_muayene.tscn` | `aydogdu` | `sevinc` | bekliyor |
+| SAH-KLIP-ayse_baci-gergin | `tests/oto/karakter_muayene.tscn` | `ayse_baci` | `gergin` | bekliyor |
+| SAH-KLIP-ayse_baci-konus | `tests/oto/karakter_muayene.tscn` | `ayse_baci` | `konus` | bekliyor |
+| SAH-KLIP-ayse_baci-ofke | `tests/oto/karakter_muayene.tscn` | `ayse_baci` | `ofke` | bekliyor |
+| SAH-KLIP-ayse_baci-panik | `tests/oto/karakter_muayene.tscn` | `ayse_baci` | `panik` | bekliyor |
+| SAH-KLIP-ayse_baci-sevinc | `tests/oto/karakter_muayene.tscn` | `ayse_baci` | `sevinc` | bekliyor |
+| SAH-KLIP-chr_001-gergin | `tests/oto/karakter_muayene.tscn` | `chr_001` | `gergin` | bekliyor |
+| SAH-KLIP-chr_001-panik | `tests/oto/karakter_muayene.tscn` | `chr_001` | `panik` | bekliyor |
+| SAH-KLIP-chr_002-gergin | `tests/oto/karakter_muayene.tscn` | `chr_002` | `gergin` | bekliyor |
+| SAH-KLIP-chr_002-ofke | `tests/oto/karakter_muayene.tscn` | `chr_002` | `ofke` | bekliyor |
+| SAH-KLIP-chr_003-gergin | `tests/oto/karakter_muayene.tscn` | `chr_003` | `gergin` | bekliyor |
+| SAH-KLIP-chr_003-ofke | `tests/oto/karakter_muayene.tscn` | `chr_003` | `ofke` | bekliyor |
+| SAH-KLIP-chr_004-gergin | `tests/oto/karakter_muayene.tscn` | `chr_004` | `gergin` | bekliyor |
+| SAH-KLIP-chr_004-panik | `tests/oto/karakter_muayene.tscn` | `chr_004` | `panik` | bekliyor |
+| SAH-KLIP-chr_005-gergin | `tests/oto/karakter_muayene.tscn` | `chr_005` | `gergin` | bekliyor |
+| SAH-KLIP-chr_005-panik | `tests/oto/karakter_muayene.tscn` | `chr_005` | `panik` | bekliyor |
+| SAH-KLIP-chr_006-gergin | `tests/oto/karakter_muayene.tscn` | `chr_006` | `gergin` | bekliyor |
+| SAH-KLIP-chr_006-ofke | `tests/oto/karakter_muayene.tscn` | `chr_006` | `ofke` | bekliyor |
+| SAH-KLIP-chr_006-panik | `tests/oto/karakter_muayene.tscn` | `chr_006` | `panik` | bekliyor |
+| SAH-KLIP-chr_006-sevinc | `tests/oto/karakter_muayene.tscn` | `chr_006` | `sevinc` | bekliyor |
+| SAH-KLIP-chr_007-gergin | `tests/oto/karakter_muayene.tscn` | `chr_007` | `gergin` | bekliyor |
+| SAH-KLIP-chr_007-panik | `tests/oto/karakter_muayene.tscn` | `chr_007` | `panik` | bekliyor |
+| SAH-KLIP-chr_008-gergin | `tests/oto/karakter_muayene.tscn` | `chr_008` | `gergin` | bekliyor |
+| SAH-KLIP-chr_008-ofke | `tests/oto/karakter_muayene.tscn` | `chr_008` | `ofke` | bekliyor |
+| SAH-KLIP-chr_009-gergin | `tests/oto/karakter_muayene.tscn` | `chr_009` | `gergin` | bekliyor |
+| SAH-KLIP-chr_009-panik | `tests/oto/karakter_muayene.tscn` | `chr_009` | `panik` | bekliyor |
+| SAH-KLIP-chr_010-gergin | `tests/oto/karakter_muayene.tscn` | `chr_010` | `gergin` | bekliyor |
+| SAH-KLIP-chr_010-panik | `tests/oto/karakter_muayene.tscn` | `chr_010` | `panik` | bekliyor |
+| SAH-KLIP-chr_011-gergin | `tests/oto/karakter_muayene.tscn` | `chr_011` | `gergin` | bekliyor |
+| SAH-KLIP-chr_011-ofke | `tests/oto/karakter_muayene.tscn` | `chr_011` | `ofke` | bekliyor |
+| SAH-KLIP-chr_012-gergin | `tests/oto/karakter_muayene.tscn` | `chr_012` | `gergin` | bekliyor |
+| SAH-KLIP-chr_012-ofke | `tests/oto/karakter_muayene.tscn` | `chr_012` | `ofke` | bekliyor |
+| SAH-KLIP-chr_013-gergin | `tests/oto/karakter_muayene.tscn` | `chr_013` | `gergin` | bekliyor |
+| SAH-KLIP-chr_013-ofke | `tests/oto/karakter_muayene.tscn` | `chr_013` | `ofke` | bekliyor |
+| SAH-KLIP-chr_014-gergin | `tests/oto/karakter_muayene.tscn` | `chr_014` | `gergin` | bekliyor |
+| SAH-KLIP-chr_014-ofke | `tests/oto/karakter_muayene.tscn` | `chr_014` | `ofke` | bekliyor |
+| SAH-KLIP-chr_015-gergin | `tests/oto/karakter_muayene.tscn` | `chr_015` | `gergin` | bekliyor |
+| SAH-KLIP-chr_015-ofke | `tests/oto/karakter_muayene.tscn` | `chr_015` | `ofke` | bekliyor |
+| SAH-KLIP-chr_016-gergin | `tests/oto/karakter_muayene.tscn` | `chr_016` | `gergin` | bekliyor |
+| SAH-KLIP-chr_016-ofke | `tests/oto/karakter_muayene.tscn` | `chr_016` | `ofke` | bekliyor |
+| SAH-KLIP-chr_017-gergin | `tests/oto/karakter_muayene.tscn` | `chr_017` | `gergin` | bekliyor |
+| SAH-KLIP-chr_017-ofke | `tests/oto/karakter_muayene.tscn` | `chr_017` | `ofke` | bekliyor |
+| SAH-KLIP-chr_018-gergin | `tests/oto/karakter_muayene.tscn` | `chr_018` | `gergin` | bekliyor |
+| SAH-KLIP-chr_018-ofke | `tests/oto/karakter_muayene.tscn` | `chr_018` | `ofke` | bekliyor |
+| SAH-KLIP-chr_019-gergin | `tests/oto/karakter_muayene.tscn` | `chr_019` | `gergin` | bekliyor |
+| SAH-KLIP-chr_019-ofke | `tests/oto/karakter_muayene.tscn` | `chr_019` | `ofke` | bekliyor |
+| SAH-KLIP-chr_020-gergin | `tests/oto/karakter_muayene.tscn` | `chr_020` | `gergin` | bekliyor |
+| SAH-KLIP-chr_020-ofke | `tests/oto/karakter_muayene.tscn` | `chr_020` | `ofke` | bekliyor |
+| SAH-KLIP-chr_021-gergin | `tests/oto/karakter_muayene.tscn` | `chr_021` | `gergin` | bekliyor |
+| SAH-KLIP-chr_021-ofke | `tests/oto/karakter_muayene.tscn` | `chr_021` | `ofke` | bekliyor |
+| SAH-KLIP-chr_022-gergin | `tests/oto/karakter_muayene.tscn` | `chr_022` | `gergin` | bekliyor |
+| SAH-KLIP-chr_022-ofke | `tests/oto/karakter_muayene.tscn` | `chr_022` | `ofke` | bekliyor |
+| SAH-KLIP-chr_023-gergin | `tests/oto/karakter_muayene.tscn` | `chr_023` | `gergin` | bekliyor |
+| SAH-KLIP-chr_023-ofke | `tests/oto/karakter_muayene.tscn` | `chr_023` | `ofke` | bekliyor |
+| SAH-KLIP-chr_024-gergin | `tests/oto/karakter_muayene.tscn` | `chr_024` | `gergin` | bekliyor |
+| SAH-KLIP-chr_024-ofke | `tests/oto/karakter_muayene.tscn` | `chr_024` | `ofke` | bekliyor |
+| SAH-KLIP-chr_025-gergin | `tests/oto/karakter_muayene.tscn` | `chr_025` | `gergin` | bekliyor |
+| SAH-KLIP-chr_025-ofke | `tests/oto/karakter_muayene.tscn` | `chr_025` | `ofke` | bekliyor |
+| SAH-KLIP-chr_026-gergin | `tests/oto/karakter_muayene.tscn` | `chr_026` | `gergin` | bekliyor |
+| SAH-KLIP-chr_026-ofke | `tests/oto/karakter_muayene.tscn` | `chr_026` | `ofke` | bekliyor |
+| SAH-KLIP-chr_027-gergin | `tests/oto/karakter_muayene.tscn` | `chr_027` | `gergin` | bekliyor |
+| SAH-KLIP-chr_027-ofke | `tests/oto/karakter_muayene.tscn` | `chr_027` | `ofke` | bekliyor |
+| SAH-KLIP-chr_028-gergin | `tests/oto/karakter_muayene.tscn` | `chr_028` | `gergin` | bekliyor |
+| SAH-KLIP-chr_028-ofke | `tests/oto/karakter_muayene.tscn` | `chr_028` | `ofke` | bekliyor |
+| SAH-KLIP-chr_029-gergin | `tests/oto/karakter_muayene.tscn` | `chr_029` | `gergin` | bekliyor |
+| SAH-KLIP-chr_029-ofke | `tests/oto/karakter_muayene.tscn` | `chr_029` | `ofke` | bekliyor |
+| SAH-KLIP-chr_030-gergin | `tests/oto/karakter_muayene.tscn` | `chr_030` | `gergin` | bekliyor |
+| SAH-KLIP-chr_030-ofke | `tests/oto/karakter_muayene.tscn` | `chr_030` | `ofke` | bekliyor |
+| SAH-KLIP-ciftci-gergin | `tests/oto/karakter_muayene.tscn` | `ciftci` | `gergin` | bekliyor |
+| SAH-KLIP-ciftci-konus | `tests/oto/karakter_muayene.tscn` | `ciftci` | `konus` | bekliyor |
+| SAH-KLIP-ciftci-ofke | `tests/oto/karakter_muayene.tscn` | `ciftci` | `ofke` | bekliyor |
+| SAH-KLIP-ciftci-panik | `tests/oto/karakter_muayene.tscn` | `ciftci` | `panik` | bekliyor |
+| SAH-KLIP-ciftci-sevinc | `tests/oto/karakter_muayene.tscn` | `ciftci` | `sevinc` | bekliyor |
+| SAH-KLIP-ciftci_kadin-gergin | `tests/oto/karakter_muayene.tscn` | `ciftci_kadin` | `gergin` | bekliyor |
+| SAH-KLIP-ciftci_kadin-konus | `tests/oto/karakter_muayene.tscn` | `ciftci_kadin` | `konus` | bekliyor |
+| SAH-KLIP-ciftci_kadin-ofke | `tests/oto/karakter_muayene.tscn` | `ciftci_kadin` | `ofke` | bekliyor |
+| SAH-KLIP-ciftci_kadin-panik | `tests/oto/karakter_muayene.tscn` | `ciftci_kadin` | `panik` | bekliyor |
+| SAH-KLIP-ciftci_kadin-sevinc | `tests/oto/karakter_muayene.tscn` | `ciftci_kadin` | `sevinc` | bekliyor |
+| SAH-KLIP-esnaf-gergin | `tests/oto/karakter_muayene.tscn` | `esnaf` | `gergin` | bekliyor |
+| SAH-KLIP-esnaf-konus | `tests/oto/karakter_muayene.tscn` | `esnaf` | `konus` | bekliyor |
+| SAH-KLIP-esnaf-ofke | `tests/oto/karakter_muayene.tscn` | `esnaf` | `ofke` | bekliyor |
+| SAH-KLIP-esnaf-panik | `tests/oto/karakter_muayene.tscn` | `esnaf` | `panik` | bekliyor |
+| SAH-KLIP-esnaf-sevinc | `tests/oto/karakter_muayene.tscn` | `esnaf` | `sevinc` | bekliyor |
+| SAH-KLIP-hasan_celebi-gergin | `tests/oto/karakter_muayene.tscn` | `hasan_celebi` | `gergin` | bekliyor |
+| SAH-KLIP-hasan_celebi-konus | `tests/oto/karakter_muayene.tscn` | `hasan_celebi` | `konus` | bekliyor |
+| SAH-KLIP-hasan_celebi-ofke | `tests/oto/karakter_muayene.tscn` | `hasan_celebi` | `ofke` | bekliyor |
+| SAH-KLIP-hasan_celebi-panik | `tests/oto/karakter_muayene.tscn` | `hasan_celebi` | `panik` | bekliyor |
+| SAH-KLIP-hasan_celebi-sevinc | `tests/oto/karakter_muayene.tscn` | `hasan_celebi` | `sevinc` | bekliyor |
+| SAH-KLIP-karaca_usta-gergin | `tests/oto/karakter_muayene.tscn` | `karaca_usta` | `gergin` | bekliyor |
+| SAH-KLIP-karaca_usta-konus | `tests/oto/karakter_muayene.tscn` | `karaca_usta` | `konus` | bekliyor |
+| SAH-KLIP-karaca_usta-ofke | `tests/oto/karakter_muayene.tscn` | `karaca_usta` | `ofke` | bekliyor |
+| SAH-KLIP-karaca_usta-panik | `tests/oto/karakter_muayene.tscn` | `karaca_usta` | `panik` | bekliyor |
+| SAH-KLIP-karaca_usta-sevinc | `tests/oto/karakter_muayene.tscn` | `karaca_usta` | `sevinc` | bekliyor |
+| SAH-KLIP-lowpo_cocuk-gergin | `tests/oto/karakter_muayene.tscn` | `lowpo_cocuk` | `gergin` | bekliyor |
+| SAH-KLIP-lowpo_cocuk-ofke | `tests/oto/karakter_muayene.tscn` | `lowpo_cocuk` | `ofke` | bekliyor |
+| SAH-KLIP-lowpo_cocuk-panik | `tests/oto/karakter_muayene.tscn` | `lowpo_cocuk` | `panik` | bekliyor |
+| SAH-KLIP-lowpo_cocuk-sevinc | `tests/oto/karakter_muayene.tscn` | `lowpo_cocuk` | `sevinc` | bekliyor |
+| SAH-KLIP-lowpo_demirci-gergin | `tests/oto/karakter_muayene.tscn` | `lowpo_demirci` | `gergin` | bekliyor |
+| SAH-KLIP-lowpo_demirci-ofke | `tests/oto/karakter_muayene.tscn` | `lowpo_demirci` | `ofke` | bekliyor |
+| SAH-KLIP-lowpo_demirci-panik | `tests/oto/karakter_muayene.tscn` | `lowpo_demirci` | `panik` | bekliyor |
+| SAH-KLIP-lowpo_demirci-sevinc | `tests/oto/karakter_muayene.tscn` | `lowpo_demirci` | `sevinc` | bekliyor |
+| SAH-KLIP-miraen-gergin | `tests/oto/karakter_muayene.tscn` | `miraen` | `gergin` | bekliyor |
+| SAH-KLIP-miraen-konus | `tests/oto/karakter_muayene.tscn` | `miraen` | `konus` | bekliyor |
+| SAH-KLIP-miraen-ofke | `tests/oto/karakter_muayene.tscn` | `miraen` | `ofke` | bekliyor |
+| SAH-KLIP-miraen-panik | `tests/oto/karakter_muayene.tscn` | `miraen` | `panik` | bekliyor |
+| SAH-KLIP-miraen-sevinc | `tests/oto/karakter_muayene.tscn` | `miraen` | `sevinc` | bekliyor |
+| SAH-KLIP-nogay-gergin | `tests/oto/karakter_muayene.tscn` | `nogay` | `gergin` | bekliyor |
+| SAH-KLIP-nogay-konus | `tests/oto/karakter_muayene.tscn` | `nogay` | `konus` | bekliyor |
+| SAH-KLIP-nogay-ofke | `tests/oto/karakter_muayene.tscn` | `nogay` | `ofke` | bekliyor |
+| SAH-KLIP-nogay-panik | `tests/oto/karakter_muayene.tscn` | `nogay` | `panik` | bekliyor |
+| SAH-KLIP-nogay-sevinc | `tests/oto/karakter_muayene.tscn` | `nogay` | `sevinc` | bekliyor |
+| SAH-KLIP-saruca_hatun-gergin | `tests/oto/karakter_muayene.tscn` | `saruca_hatun` | `gergin` | bekliyor |
+| SAH-KLIP-saruca_hatun-konus | `tests/oto/karakter_muayene.tscn` | `saruca_hatun` | `konus` | bekliyor |
+| SAH-KLIP-saruca_hatun-ofke | `tests/oto/karakter_muayene.tscn` | `saruca_hatun` | `ofke` | bekliyor |
+| SAH-KLIP-saruca_hatun-panik | `tests/oto/karakter_muayene.tscn` | `saruca_hatun` | `panik` | bekliyor |
+| SAH-KLIP-saruca_hatun-sevinc | `tests/oto/karakter_muayene.tscn` | `saruca_hatun` | `sevinc` | bekliyor |
+| SAH-KLIP-sorhan-gergin | `tests/oto/karakter_muayene.tscn` | `sorhan` | `gergin` | bekliyor |
+| SAH-KLIP-sorhan-konus | `tests/oto/karakter_muayene.tscn` | `sorhan` | `konus` | bekliyor |
+| SAH-KLIP-sorhan-ofke | `tests/oto/karakter_muayene.tscn` | `sorhan` | `ofke` | bekliyor |
+| SAH-KLIP-sorhan-panik | `tests/oto/karakter_muayene.tscn` | `sorhan` | `panik` | bekliyor |
+| SAH-KLIP-sorhan-sevinc | `tests/oto/karakter_muayene.tscn` | `sorhan` | `sevinc` | bekliyor |
+| SAH-KLIP-thessra-gergin | `tests/oto/karakter_muayene.tscn` | `thessra` | `gergin` | bekliyor |
+| SAH-KLIP-thessra-konus | `tests/oto/karakter_muayene.tscn` | `thessra` | `konus` | bekliyor |
+| SAH-KLIP-thessra-ofke | `tests/oto/karakter_muayene.tscn` | `thessra` | `ofke` | bekliyor |
+| SAH-KLIP-thessra-panik | `tests/oto/karakter_muayene.tscn` | `thessra` | `panik` | bekliyor |
+| SAH-KLIP-thessra-sevinc | `tests/oto/karakter_muayene.tscn` | `thessra` | `sevinc` | bekliyor |
+| SAH-KLIP-yusuf-gergin | `tests/oto/karakter_muayene.tscn` | `yusuf` | `gergin` | bekliyor |
+| SAH-KLIP-yusuf-konus | `tests/oto/karakter_muayene.tscn` | `yusuf` | `konus` | bekliyor |
+| SAH-KLIP-yusuf-ofke | `tests/oto/karakter_muayene.tscn` | `yusuf` | `ofke` | bekliyor |
+| SAH-KLIP-yusuf-panik | `tests/oto/karakter_muayene.tscn` | `yusuf` | `panik` | bekliyor |
+| SAH-KLIP-yusuf-sevinc | `tests/oto/karakter_muayene.tscn` | `yusuf` | `sevinc` | bekliyor |
+
+
 ### SAH-16 el eşyası temas bulguları (Kalfa)
 
 46 modelin gerçek headless muayenesinde 8 model-eşya eşleşmesi bulundu. Kayıtlar ARY-05 izleme tablosundaki yedi türe bağlıdır. Torba, sepet, çekiç, asa ve değnek için ölçü referansı mevcut EL satırlarıdır. Kazma 0,60 × 0,80 × 0,15 m kaynak sınırını, kile yaklaşık 0,22 × 0,13 × 0,22 m mevcut ahşap ölçeği kullanır. Kapı dönemi ve mevcut avuç soketi esas alınır. Doğrulama için kasıtlı kesiştirilen heybe üretim listesine eklenmedi.
