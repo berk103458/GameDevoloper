@@ -7519,7 +7519,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.13 Divan
 
-- [/] **GRV-51:** (Codex-Berk) `divan_sorgu_paneli.gd` temaya bağlanır.
+- [x] **GRV-51:** (Codex-Berk) `divan_sorgu_paneli.gd` temaya bağlanır.
   - Ne: `src/kapi/divan_sorgu_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Divan sorgu düğmesi düz. Tema bağlanınca yalnız `divan_sorgu_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Divan sorgu düğmesi düz davranışı değişmez.
   - Kabul: `divan_sorgu_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `divan_sorgu_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

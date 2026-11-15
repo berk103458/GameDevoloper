@@ -1321,3 +1321,6 @@ GRV-47 commit/push doğrulandı: d79e2b77; sonraki madde öncesi pull tamamland�
 
 ## 15 Kasım 2026 — GRV-49 (Codex-Berk)
 Kapı görüş uyarısındaki 22 sabiti Kabuk.KUCUK kaynağına bağlandı; shader ve hava davranışı korundu. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-51 (Codex-Berk)
+Divan sorgusu zaten tema mirasını kullanıyor; dosya taraması, canlı çağrı bağı ve dört düğme durumu kabul testine eklendi. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

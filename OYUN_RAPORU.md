@@ -3314,3 +3314,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-47 (Codex-Berk): Okçuluk hedefi ve ok çizimleri ortak Kabuk/Renkler/Hud paletini okur; gerçek merkez atışı ve ıska puanı sınandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-49 (Codex-Berk): Kapı görüş uyarısındaki 22 sabiti Kabuk.KUCUK kaynağına bağlandı; shader ve hava davranışı korundu. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-51 (Codex-Berk): Divan sorgusu zaten tema mirasını kullanıyor; dosya taraması, canlı çağrı bağı ve dört düğme durumu kabul testine eklendi. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
