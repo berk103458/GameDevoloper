@@ -77,7 +77,7 @@ static func _bayrak_var_mi(context: Variant, bayrak: StringName) -> bool:
 	return false
 
 static func _dursun_turna_anahtari(context: Variant) -> String:
-	if _bayrak_var_mi(context, &"dursun_turna_kabul") or \
+	if _bayrak_var_mi(context, &"dursun_ve_turna_kabul") or _bayrak_var_mi(context, &"dursun_turna_kabul") or \
 		(_bayrak_var_mi(context, &"turna_kabul") and _bayrak_var_mi(context, &"dursun_kabul")):
 		return "epilog.dursun_turna.kabul"
 	return "epilog.dursun_turna.ret"
@@ -95,7 +95,7 @@ static func _banu_anahtari(context: Variant) -> String:
 	return "epilog.banu.ret"
 
 static func _sungur_anahtari(context: Variant) -> String:
-	if _bayrak_var_mi(context, &"sungur_ittifak") or _bayrak_var_mi(context, &"sungur_isbirligi") or _bayrak_var_mi(context, &"sungur_muttefik"):
+	if _bayrak_var_mi(context, &"sungur_tatmin_edildi") or _bayrak_var_mi(context, &"sungur_ittifak") or _bayrak_var_mi(context, &"sungur_isbirligi") or _bayrak_var_mi(context, &"sungur_muttefik"):
 		return "epilog.sungur.ittifak"
 	return "epilog.sungur.hasim"
 
@@ -110,7 +110,7 @@ static func _hane_anahtari(context: Variant) -> String:
 	if _bayrak_var_mi(context, &"hane_yabanci") or _bayrak_var_mi(context, &"es_guvensizlik"):
 		return "epilog.hane.yabanci"
 	if context is Oturum and context.yonetim != null:
-		if context.yonetim.moral >= 40:
+		if context.yonetim.huzur() >= 40:
 			return "epilog.hane.sadakat"
 		else:
 			return "epilog.hane.yabanci"

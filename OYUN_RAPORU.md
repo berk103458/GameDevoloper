@@ -1,3 +1,7 @@
+## 2026-11-15 — ANL-EPI-01 (Kalfa)
+
+Gerçek sonuç ekranında mevcut kaydırma alanı içinde altı kişisel kart, karar bayraklarının seçtiği metinler ve kayıt eşitliği hedefli headless testte doğrulandı. Geçersiz moral üyeliği için köyün huzur göstergesi kullanıldı. Editor importta mevcut MD5 ve RID kapanış uyarıları görüldü, hedefli son ekranı koşusunda betik hatası yoktu. Asset gerekmedi. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-80 (Kalfa)
 
 Gerçek CHR_012 kamera kadrajı ve oynayan konuşma klibi altında 4 altın satır değişmedi. Yusuf’un 15 kayıtlı oynanışı da hedefli headless testte geçti. Söz motoru beklemede. Asset gerekmedi.

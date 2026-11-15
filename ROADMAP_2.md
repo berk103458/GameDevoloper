@@ -9044,7 +9044,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/parley/koy/koylu_muhabbet_es.ds, data/parley/en/koy/koylu_muhabbet_es.ds.
   - Asset: asset gerekmedi.
 
-- [x] **ANL-EPI-01:** 30. gün / kış sonu kişisel epilog ve akıbet raporu. (Metin ve veri adaptörü: Antigravity; UI arayüz kodu: Kalfa bekleniyor)
+- [x] **ANL-EPI-01:** 30. gün / kış sonu kişisel epilog ve akıbet raporu. (Metin ve veri adaptörü: Antigravity; sonuç ekranı: Kalfa)
   - Amaç: Ağalık kışının sonunda kapı kararlarının her karakter için somut sonucunu gösteren kişisel epilog kartları.
   - Kurallar:
     1. Metin ve veri adaptörü: Antigravity tarafından hazırlanır (epilog.* anahtarları ve bayrak eşleşmeleri).

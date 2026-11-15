@@ -197,6 +197,7 @@ func _son_goster(son: StringName) -> void:
 	_goster(e)
 	OdaTeftisNotu.son_kur(e, son)
 	MuhafizEpiloguSunumu.kur(e)
+	preload("res://src/sistemler/sonuc_epilog_olusturucu.gd").kur(e, oturum, son)
 
 
 func _perde_gecisi() -> void:

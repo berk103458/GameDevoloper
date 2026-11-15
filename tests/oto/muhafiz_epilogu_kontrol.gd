@@ -22,9 +22,15 @@ func _ready() -> void:
  assert(e.metin.contains("Adil kahraman") and e.metin.contains("köyün akıbetinden ayrı"))
  assert(e.has_node("epilogue_okuma_zemini") and e.find_children("*","Button",true,false).size()==2)
  o.yonetim.adalet=40
- o.bayraklar[&"rusvet_sayisi"]=14
+ o.bayraklar[&"rusvet_sayisi"]=int(MuhafizEpilogu.AYAR.kacak_yoz)
  o.muhafiz_akce=50
  o.yonetim.son="zafer"
+ o.yonetim.gun=30
+ o.bayraklar[&"dursun_ve_turna_kabul"]=true
+ o.bayraklar[&"lokman_kabul"]=true
+ o.bayraklar[&"banu_ittifak_kabul"]=true
+ o.bayraklar[&"sungur_tatmin_edildi"]=true
+ o.bayraklar[&"veba_kirec_karantina_basarili"]=true
  var once:=JSON.stringify(o.kaydet())
  ana._son_goster(&"zafer")
  await get_tree().process_frame
@@ -32,6 +38,12 @@ func _ready() -> void:
  e=ana._ekran as BilgiEkrani
  assert(e.metin.contains("Venedik kaçağı") and e.metin.contains("Venedik yoluna"))
  assert(JSON.stringify(o.kaydet())==once)
+ var kartlar:=e.find_child("kisisel_akibet_kartlari",true,false)
+ assert(kartlar!=null and kartlar.get_child_count()==6)
+ for c in [["dursun_turna","epilog.dursun_turna.kabul"],["lokman","epilog.lokman.iyilesti"],["banu","epilog.banu.ittifak"],["sungur","epilog.sungur.ittifak"],["vebali_ana","epilog.vebali_ana.sifa"]]:
+  var metin:=kartlar.get_node(c[0]+"/Metin") as Label
+  assert(metin.text==GuvenliMetin.metin(c[1]) and metin.text!=c[1])
+ print("ANL-EPI-01: 6 kişisel kart")
  var dizin:=OS.get_environment("ADMIN_TEST_CIKTI")
  if not dizin.is_empty() and DisplayServer.get_name()!="headless":
   await get_tree().create_timer(0.5).timeout
