@@ -384,11 +384,11 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
   - Dosya: `src/arayuz/kapi_ekrani.gd`, `tests/unit/kapi/karar_bir_kez_test.gd`
   - Asset: asset gerekmedi.
 
-- [/] **KAP-48:** (Antigravity-Berk) Rüşvet hakkı ayardadır
+- [x] **KAP-48:** (Antigravity-Berk) Rüşvet hakkı ayardadır — Doğrulama: `rusvet_hakki_test.tscn` (`RUSVET HAKKI: GEÇTİ`), `chr_kapi_kontrol.tscn`, `tuccar_kapi_kontrol.tscn`, `hastalik_teshis_kontrol.tscn`, `karar_bir_kez_test.tscn`, `heybe_kilit_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (RC=0); asset gerekmedi.
   - Ne: Kapı, rüşvet düğmesini `oyun_ayarlari.gd` içindeki `rusvet_hakki` değerine göre kapatır. Alan bugün yalnız tanımlı, kapı onu okumuyor. Ayar 1 iken ikinci rüşvet denemesi düğmeyi kapalı bırakır. Sayı kapi ekranının içine gömülmez.
   - Kabul: `rusvet_hakki` 1 iken ikinci rüşvet denemesinde düğme kapalıdır ve gece sonuna ikinci rüşvet yazılmaz (`tests/unit/kapi/rusvet_hakki_test.gd`). Alan `src/veri/oyun_ayarlari.gd` dışında ikinci bir 3 sabiti olarak durmaz.
   - Bağımlılık: yok. Boyut: S.
-  - Dosya: `src/arayuz/kapi_ekrani.gd`; okuma `src/veri/oyun_ayarlari.gd`.
+  - Dosya: `src/arayuz/kapi_ekrani.gd`, `tests/unit/kapi/rusvet_hakki_test.gd`; okuma `src/veri/oyun_ayarlari.gd`.
   - Asset: asset gerekmedi.
 
 ARY-01 … ARY-05 gövdesi durur. Yeni maddeler ARY-06 … ARY-85. Dosya dosya iş GRV-31 ve sonrasındadır; burada ikinci palet yok.

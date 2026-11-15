@@ -578,6 +578,10 @@ func _karar_goster() -> void:
 		var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
 		if ulak.ilgilenir(_gelen): b.disabled = not ulak.uygun(oturum, _gelen, anahtar)
 		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").kilit(b, oturum, _gelen, StringName(anahtar))
+		if anahtar == "rusvet" and _rusvet_hakki_doldu_mu():
+			b.disabled = true
+			if b.tooltip_text.is_empty():
+				b.tooltip_text = "Rüşvet hakkı doldu"
 		b.pressed.connect(_karar_bas.bind(anahtar))
 		_karar_dugmeleri.append(b)
 	OdakHalkasi.bagla(_karar_dugmeleri)
@@ -611,6 +615,8 @@ func _karar_alt_yazi(anahtar: String) -> String:
 func _karar_bas(anahtar: String) -> void:
 	if heybe_acik_mi() or _oturum_bitti_yayildi or evre != &"karar":
 		return
+	if anahtar == "rusvet" and _rusvet_hakki_doldu_mu():
+		return
 	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	var sorgu := _gelen.chr_sorgusu()
 	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)) and not (anahtar == "cocuklari_al" and preload("res://src/kapi/aile_kafilesi.gd").bolunur(_gelen)):
@@ -642,6 +648,12 @@ func _karar_birak() -> void:
 		_karar_dugmeleri[i].queue_redraw()
 
 
+func _rusvet_hakki_doldu_mu() -> bool:
+	if oturum == null or oturum.ayarlar == null:
+		return false
+	return int(oturum.bayraklar.get(&"rusvet_sayisi", 0)) >= oturum.ayarlar.rusvet_hakki
+
+
 func _karar_kilitli() -> bool:
 	return heybe_acik_mi() or _oturum_bitti_yayildi or evre == &"kavga" or evre == &"sonuc" or evre == &"gecis"
 
@@ -657,6 +669,7 @@ func _oturum_bitir(kirilan: int) -> bool:
 
 func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	if _karar_kilitli(): return
+	if anahtar == "rusvet" and _rusvet_hakki_doldu_mu(): return
 	if not preload("res://src/sistemler/karar_onayi.gd").izinli(ayarlar, anahtar): return
 	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	if DiplomatikHeyet.ilgilenir(_gelen) and not DiplomatikHeyet.karar_olur(oturum, _gelen, StringName(anahtar)): return

@@ -1497,3 +1497,11 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `karar_bir_kez_test.tscn` (`KARAR BIR KEZ: GEÇTİ`), `diplomatik_heyet_kontrol.tscn`, `kapi_kavgasi_ekran_test.tscn`, `kavga_secenek_ekran_test.tscn`, `hatirlanma_notu_kontrol.tscn`, `heybe_kilit_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (RC=0).
 - **Asset:** asset gerekmedi.
 - kota görünmüyor
+
+### 2026-11-16 — KAP-48 Tamamlandı (Antigravity-Berk)
+- **Değişiklikler:**
+  - `src/arayuz/kapi_ekrani.gd`: `_rusvet_hakki_doldu_mu()` eklendi; `oturum.ayarlar.rusvet_hakki` değerini okur (`src/veri/oyun_ayarlari.gd` dışında ikinci bir `3` sabiti tutulmaz). Hak dolduğunda `_karar_goster()` rüşvet düğmesini kapatır; `_karar_bas()` ve `_karar_ver()` ikinci rüşveti engeller.
+  - `tests/unit/kapi/rusvet_hakki_test.gd` ve `.tscn`: `rusvet_hakki = 1` iken ilk rüşvet sonrası düğmenin kapandığı, ikinci rüşvetin ne UI/klavyeden ne gece sonu raporuna yazılmadığı ve `rusvet_hakki = 2` yapıldığında düğmenin yeniden açıldığı doğrulandı.
+- **Doğrulama:** `rusvet_hakki_test.tscn` (`RUSVET HAKKI: GEÇTİ`), `chr_kapi_kontrol.tscn`, `tuccar_kapi_kontrol.tscn`, `hastalik_teshis_kontrol.tscn`, `karar_bir_kez_test.tscn`, `heybe_kilit_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (RC=0).
+- **Asset:** asset gerekmedi.
+- kota görünmüyor
