@@ -33,6 +33,14 @@ static func _yer_tutucu(tur: String) -> Node3D:
  box.size = Vector3(a[0], a[1], a[2])
  n.mesh = box
  var mat := StandardMaterial3D.new()
+ var model := HazirEsyaHayvan.hayvan(tur)
+ if model != null:
+  mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+  mat.albedo_color = Color(0, 0, 0, 0)
+  n.material_override = mat
+  model.position.y = -box.size.y / 2
+  n.add_child(model)
+  return n
  mat.albedo_color = Color(CelepHamdullah.AYAR.hayvanlar[tur].renk)
  n.material_override = mat
  HazirSahneModeli.etiket(n, String(CelepHamdullah.AYAR.hayvanlar[tur].ad), box.size.y / 2 + 0.25)

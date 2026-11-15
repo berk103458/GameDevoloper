@@ -77,6 +77,10 @@ func _kur(f: KarakterModel, tur: String) -> bool:
  if hazir_cekic != null:
   hazir_cekic.position.y = -float(AYAR.sap_boy[1])
   _uc.add_child(hazir_cekic)
+ elif AYAR.turler[tur] == "pisir" and Dunya3B.model_var_mi("firin_kuregi"):
+  var fk := Dunya3B.nesne("firin_kuregi", float(AYAR.sap_boy[1]) + float(AYAR.kurek_boy[1]))
+  fk.position.y = -float(AYAR.sap_boy[1])
+  _uc.add_child(fk)
  else:
   var sap := _kutu(AYAR.sap_boy, Color(AYAR.ahsap))
   sap.position.y = -float(AYAR.sap_boy[1]) / 2

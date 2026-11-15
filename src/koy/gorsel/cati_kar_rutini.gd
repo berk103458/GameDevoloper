@@ -43,15 +43,19 @@ static func esya(f: KarakterModel, etkin: bool) -> void:
   if c is ElEsyasi:
    r._eski[c] = c.visible
    c.visible = false
- for alan in ["sap", "agiz"]:
-  var mesh := MeshInstance3D.new()
-  var kutu := BoxMesh.new()
-  var boy: Array = AYAR[alan]
-  kutu.size = Vector3(boy[0], boy[1], boy[2])
-  mesh.mesh = kutu
-  mesh.material_override = Dunya3B.duz_malzeme(Color("#705035") if alan == "sap" else Color("#9ca4ab"))
-  mesh.position.y = 0.3 if alan == "sap" else 0.65
-  yeni.add_child(mesh)
+ if Dunya3B.model_var_mi("kurek"):
+  var glb_kurek := Dunya3B.nesne("kurek", 1.1)
+  yeni.add_child(glb_kurek)
+ else:
+  for alan in ["sap", "agiz"]:
+   var mesh := MeshInstance3D.new()
+   var kutu := BoxMesh.new()
+   var boy: Array = AYAR[alan]
+   kutu.size = Vector3(boy[0], boy[1], boy[2])
+   mesh.mesh = kutu
+   mesh.material_override = Dunya3B.duz_malzeme(Color("#705035") if alan == "sap" else Color("#9ca4ab"))
+   mesh.position.y = 0.3 if alan == "sap" else 0.65
+   yeni.add_child(mesh)
  r._kurek = yonetici.tak("kar_kuregi", yeni, r)
 ## Faz/görev bitince eski CHR eşya görünürlüğü döner.
 func kaldir() -> void:
