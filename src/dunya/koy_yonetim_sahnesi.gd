@@ -194,6 +194,7 @@ func yenile() -> void:
 	_meydan_kur()
 	CenazeMezari.kur(self, _yapilar)
 	OlayYapilari.kur(self, _yapilar)
+	ToplulukDekoru.kur(self, _yapilar)
 	TasYatagiGorseli.kur(self, _yapilar)
 	for b in yonetim.binalar:
 		var n := _bina_dugumu(b)

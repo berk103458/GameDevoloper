@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Kalan topluluk modelleri köyün dışına kondu — 16 Kasım 2026
+
+PR #31 festive'e alındı (`2c968ec4`). Kalan 39 model `ToplulukDekoru` ile köy ızgarasının dışına, her birinden bir kopya, statik dekor olarak kondu: kuzey kenarda üç ev, kuzeybatı ve kuzeydoğuda birer kule, batıda eşek, öküz, yalak, karasaban, saman, iki tavuk, ayı ve iki kısa çit, doğuda mutfak kabı, fırın, körük, heykel, debbaghane, kervan konağı ve su değirmeni, güney kenarda (kapı yolunun doğusunda) oturak, kandil, sepet, un çuvalı, kovan, değirmen taşı, el değirmeni, odun ve taş. Mekanik, yol ve kayıt değişmedi. Görüş 120 m, Godot LOD açık; çoğaltma yok. İkinci pazar, ikinci kapı, ikinci sur, mevcut hayvanın kopyası, iskeletsiz figür ve Koreli tüccar dosyası konmadı. Manifestte 54 satır `oyun_baglantisi: baglandi`. ROADMAP_4'te bu işe denk madde yok. Test: `topluluk_dekor_kontrol`, `acilis_menu_kontrol` ve mevcut köy testleri. Tam sanity yok. Üretim yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez. Stash'e dokunulmadı.
+
 ## Topluluk modelleri inceldi ve bağlandı — 16 Kasım 2026
 
 70 GLB Blender 4.2 ile inceldi (1.501,9 MB → 83,8 MB). 50 binin altındaki geometri durdu, hiçbiri 60 bini geçmiyor, iskelet ve klipler duruyor. 12 kod mevcut yer tutucunun adıyla `Dunya3B.nesne` üzerinden bağlandı: kuyu, kazık çit, nöbet ocağı, mızrak sehpası, çuval, dokuma tezgâhı, fırın ağzı, araba, orak, mızrak, sepet, büyük sepet. Karşılığı olmayanlar sahneye sokulmadı. `pazar_tezgahi`, `su_bendi`, `yanik_ev` bağları manifeste geri yazıldı. Üretim yok, kredi yok. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
