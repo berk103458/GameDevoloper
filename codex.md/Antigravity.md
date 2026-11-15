@@ -1576,3 +1576,12 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `soylenti_duydum_uslup_test.gd` (`TEST PASS`, RC=0), `soylenti_meclis_kontrol.tscn` (`SÖYLENTİ MECLİS UI: GEÇTİ`, RC=0), `ne_duydun_test.gd` (`NE DUYDUN: GEÇTİ`, RC=0), `soylenti_baglam_test.gd` (`SOY-23 GECTI`, RC=0), `acilis_bagimlilik_kontrol.tscn` (RC=0), `test_soz_soylenti_kotasi.py` (3/3 OK), `test_uslup_kapisi.py` (3/3 OK), `soz_kadro_denetimi.py` (`hatalar: []`), `api_sozlesmesi.py` (`PASS`), `yapaylik.js` (9 ağız satırında 0 uyarı).
 - **Asset:** asset gerekmedi.
 - kota görünmüyor
+
+### 2026-11-16 — SOY-46 Tamamlandı (Antigravity-Berk)
+- **Değişiklikler:**
+  - `data/soz/soylenti_duydum.json`, `data/metin/metinler.csv`, `src/koy/ne_duydun.gd`: `ciftci_tek` / `soz.soylenti.agiz.ciftci_2` eklendi, `olay_cumlesi_kayittan`, `canli_sohbet_kaydi` ve `sohbet_soylenti_satiri` yardımcıları kuruldu (ağ yokken `SoylentiAgi` kurulmaz, ikinci `Dedikodu` satırı açılmaz; aynı sınıftaki iki ardışık çiftçi de DNY-02 gereği farklı cümle kurar).
+  - `src/diyalog/parley_koy_adaptoru.gd`, `src/diyalog/facts/koy_havadis_fact.gd`, `src/diyalog/koy_diyalog_yoneticisi.gd`: YAZ-08 Parley köy sohbeti bağlamına `canli_soylenti`, `soylenti` havadis koşulu ve `havadis`/`karar` düğümlerinde köylünün kendi ağzından canlı söylenti repliği bağlandı (`sohbet_soylenti_satiri`, `canli_soylenti_metni`).
+  - `tests/unit/soz/koy_sohbeti_soylenti_test.gd`: Ağ yokken `SoylentiAgi` kurulmadığı, canlı söylenti varken ikinci `Dedikodu` kaydı açılmadığı, `ParleyKoyAdaptoru` + `KoyHavadisFact` ve gerçek `KoyDiyalogYoneticisi.muhabbet_baslat` (`opt_havadis` / `opt_karar`) akışında iki köylünün aynı olayı farklı satırlarla söylediği doğrulandı.
+- **Doğrulama:** `koy_sohbeti_soylenti_test.gd` (`TEST PASS`, RC=0), `soylenti_duydum_uslup_test.gd` (`TEST PASS`, RC=0), `ne_duydun_test.gd` (`NE DUYDUN: GEÇTİ`, RC=0), `soylenti_baglam_test.gd` (`SOY-23 GECTI`, RC=0), `soylenti_meclis_kontrol.tscn` (`SÖYLENTİ MECLİS UI: GEÇTİ`, RC=0), `acilis_bagimlilik_kontrol.tscn` (RC=0), `test_soz_soylenti_kotasi.py` (3/3 OK), `test_uslup_kapisi.py` (3/3 OK), `api_sozlesmesi.py` (`PASS`), `yapaylik.js` (10 ağız satırında 0 uyarı).
+- **Asset:** asset gerekmedi.
+- kota görünmüyor

@@ -17,6 +17,7 @@ var yonetim: KoyYonetimi
 var son_secenekler: Array = []
 var calisiyor: bool = false
 var _bosta_soylendi := false
+var _soylenti_soylendi := false
 
 
 ## Verilen .ds dosyasını yükler ve AST döner
@@ -48,6 +49,7 @@ func muhabbet_baslat(k: Koylu, y: KoyYonetimi = null) -> bool:
 	if koylu != null and koylu.bayrak_var(SevilenYuz.MASKE_BAYRAGI):
 		SevilenYuz.kimlik_ac(koylu)
 	_bosta_soylendi = false
+	_soylenti_soylendi = false
 	yonetim = y
 	var ds_yolu := "res://data/parley/koy/koylu_muhabbet_genel.ds"
 	if koylu:
@@ -166,6 +168,13 @@ func _ilerlet(secilen: ParleyNodeAst = null) -> void:
 		if konusan.is_empty() and koylu:
 			konusan = koylu.ad
 		var metin := son_replik.text
+		if not _soylenti_soylendi and koylu != null and ctx != null and ctx.p_data is Dictionary:
+			var rid := String(son_replik.id)
+			if rid.contains("havadis") or rid.contains("karar"):
+				var soylenti_soz := ParleyKoyAdaptoru.canli_soylenti_satiri(ctx.p_data)
+				if not soylenti_soz.is_empty():
+					metin = soylenti_soz if rid == "node:rep_havadis_sakin" else soylenti_soz + "\n" + metin
+					_soylenti_soylendi = true
 		if not _bosta_soylendi and koylu != null:
 			var bosta := preload("res://src/koy/bosta_kalma.gd").sohbet_satiri(yonetim, koylu)
 			if not bosta.is_empty():
@@ -177,6 +186,16 @@ func _ilerlet(secilen: ParleyNodeAst = null) -> void:
 	elif bitti:
 		bitir()
 	res.free()
+
+
+static func sohbet_soylenti_satiri(k: Koylu, y: KoyYonetimi) -> String:
+	return NeDuydun.sohbet_soylenti_satiri(y, k)
+
+
+func canli_soylenti_metni() -> String:
+	if ctx != null and ctx.p_data is Dictionary:
+		return ParleyKoyAdaptoru.canli_soylenti_satiri(ctx.p_data)
+	return ""
 
 
 ## Diyaloğu kapatır ve etkileri uygular

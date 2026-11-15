@@ -17,6 +17,9 @@ static func baglam_olustur(koylu: Koylu, yonetim: KoyYonetimi = null) -> Diction
 		"is_yeri": koylu.is_yeri if koylu else -1,
 		"havadisler": [],
 		"baskil_havadis": "harami",
+		"canli_soylenti": "",
+		"canli_soylenti_olay": "",
+		"canli_soylenti_tur": "",
 		"uygulanan_etkiler": []
 	}
 	
@@ -28,11 +31,24 @@ static func baglam_olustur(koylu: Koylu, yonetim: KoyYonetimi = null) -> Diction
 			havadis_listesi.append("hastalik")
 		if yonetim.asayis_riski > 40:
 			havadis_listesi.append("harami")
+		if koylu != null and yonetim.has_meta(SoylentiKoprusu.META):
+			var canli := NeDuydun.canli_sohbet_kaydi(yonetim, koylu)
+			if not canli.is_empty():
+				var soz := NeDuydun.olay_cumlesi_kayittan(yonetim, koylu, canli)
+				veri["canli_soylenti"] = soz
+				veri["canli_soylenti_olay"] = String(canli.get("olay_id", ""))
+				veri["canli_soylenti_tur"] = String(canli.get("tur", ""))
+				if not soz.is_empty() and not havadis_listesi.has("soylenti"):
+					havadis_listesi.append("soylenti")
 		veri["havadisler"] = havadis_listesi
 		if not havadis_listesi.is_empty():
 			veri["baskil_havadis"] = havadis_listesi[0]
 			
 	return veri
+
+
+static func canli_soylenti_satiri(p_data: Dictionary) -> String:
+	return String(p_data.get("canli_soylenti", "")).strip_edges()
 
 
 ## Parley diyaloğu sonucunda oluşan etkileri köy ve köylüye yansıtır

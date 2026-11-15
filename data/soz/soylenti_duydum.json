@@ -14,6 +14,7 @@
     "varsayilan": "soz.soylenti.agiz.varsayilan",
     "sinif": {
       "ciftci": "soz.soylenti.agiz.ciftci",
+      "ciftci_tek": "soz.soylenti.agiz.ciftci_2",
       "esnaf": "soz.soylenti.agiz.esnaf",
       "asker": "soz.soylenti.agiz.asker"
     },

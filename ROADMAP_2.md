@@ -5694,7 +5694,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: BUG-17. Boyut: S.
   - Dosya: `src/sistemler/soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [/] (Antigravity-Berk) **SOY-46:** Köy sohbeti söylentiyi okur (YAZ-08). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] (Antigravity-Berk) **SOY-46:** Köy sohbeti söylentiyi okur (YAZ-08). (doğrulandı: `ParleyKoyAdaptoru` + `KoyHavadisFact` + `KoyDiyalogYoneticisi` canlı söylentiyi karakter ağzıyla okur, ikinci dedikodu açmaz; `koy_sohbeti_soylenti_test.gd` geçti)
   - Ne: YAZ-08 köylü sohbetleri canlı söylentiyi konu alabilir; iki köylü aynı olayı farklı söyler (DNY-02 kuralı).
   - Kabul: sohbette söylenti konusu varken iki satır farklı. Test: inceleme.
   - Bağımlılık: YAZ-08. Boyut: S.

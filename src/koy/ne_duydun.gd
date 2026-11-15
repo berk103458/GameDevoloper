@@ -80,14 +80,15 @@ static func karakter_agiz_anahtari(k: Koylu) -> String:
 				return String(hitap_map[hitap])
 		var sinif := String(k.sinif).strip_edges()
 		var sinif_map: Dictionary = sablonlar.get("sinif", {})
+		if sinif == "ciftci" and adli.is_empty() and (absi(k.id) % 2) == 1 and sinif_map.has("ciftci_tek"):
+			return String(sinif_map["ciftci_tek"])
 		if sinif_map.has(sinif):
 			return String(sinif_map[sinif])
 	return String(sablonlar.get("varsayilan", "soz.soylenti.agiz.varsayilan"))
 
 
 ## SOY-43: Söylenti şablonu yalnızca olay alanlarını ({yer}, {hadise}) doldurur; "{kaynak} dedi" kalıbı yoktur.
-static func olay_cumlesi(o: Object, k: Koylu) -> String:
-	var r := kayit(o, k)
+static func olay_cumlesi_kayittan(o: Object, k: Koylu, r: Dictionary) -> String:
 	if r.is_empty():
 		return ""
 	var sablon := _cumle(karakter_agiz_anahtari(k))
@@ -104,6 +105,45 @@ static func olay_cumlesi(o: Object, k: Koylu) -> String:
 	var yer := _cumle(String(alan.get("yer", "")))
 	var hadise := _cumle(String(alan.get("hadise", "")))
 	return sablon.replace("{yer}", yer).replace("{hadise}", hadise)
+
+
+static func olay_cumlesi(o: Object, k: Koylu) -> String:
+	return olay_cumlesi_kayittan(o, k, kayit(o, k))
+
+
+## SOY-46: YAZ-08 köy sohbeti için canlı söylenti kaydını okur; ağ yoksa kurmaz ve ikinci dedikodu satırı açmaz.
+static func canli_sohbet_kaydi(o: Object, k: Koylu) -> Dictionary:
+	if o == null or k == null or not o.has_meta(SoylentiKoprusu.META):
+		return {}
+	var r := kayit(o, k)
+	if not r.is_empty():
+		return r
+	var a: RefCounted = SoylentiKoprusu.ag(o)
+	var sikayet: Dictionary = a.meclis_sikayeti_sec()
+	if not sikayet.is_empty():
+		var secilen_id := String(sikayet.get("olay_id", ""))
+		if a.ag_kayitlari.has(secilen_id):
+			return a.ag_kayitlari[secilen_id]
+	var anahtarlar: Array = a.ag_kayitlari.keys()
+	anahtarlar.sort()
+	var en_son := {}
+	var en_iyi := -1
+	for olay_id in anahtarlar:
+		var aday: Dictionary = a.ag_kayitlari[olay_id]
+		if bool(aday.get("hukme_baglandi", false)) or not bool(aday.get("kamuoyu_oldu", false)):
+			continue
+		var puan := int(aday.get("gece", 0))
+		if puan > en_iyi:
+			en_iyi = puan
+			en_son = aday
+	return en_son
+
+
+static func sohbet_soylenti_satiri(o: Object, k: Koylu) -> String:
+	var r := canli_sohbet_kaydi(o, k)
+	if r.is_empty():
+		return ""
+	return olay_cumlesi_kayittan(o, k, r)
 
 
 static func agizdan_metin(o: Object, k: Koylu) -> String:
