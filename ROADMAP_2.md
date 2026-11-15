@@ -5622,19 +5622,19 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-12. Boyut: S.
   - Dosya: grev okuyucusuna tek satır.
   - Asset: asset gerekmedi.
-- [ ] **SOY-35:** Husumet söylentiyle büyür (`husumet.gd`, `kan_davasi.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [/] **SOY-35:** Husumet söylentiyle büyür (`husumet.gd`, `kan_davasi.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor) (Antigravity-Berk)
   - Ne: iki köylü arasındaki husumet, biri diğeri hakkında yanlış söylenti yaydığında +1; kan davası eşiği değişmez.
   - Kabul: yanlış söylenti kaynağı ve hedefi → husumet +1. Test: birim.
   - Bağımlılık: SOY-05. Boyut: S.
   - Dosya: husumet okuyucusuna tek satır.
   - Asset: asset gerekmedi.
-- [ ] **SOY-36:** Pazar fiyatı söylentiye tepki verir (`ticaret_fiyatlari.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [/] **SOY-36:** Pazar fiyatı söylentiye tepki verir (`ticaret_fiyatlari.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor) (Antigravity-Berk)
   - Ne: "kervan gelmeyecek" türü dış söylenti kamuoyu olunca pazar fiyat çarpanı bir gün +%10 (öneri); yanlışsa ertesi gün düzelir. Fiyat motoru değişmez.
   - Kabul: çarpan bir gün; DEN tablosunda. Test: birim.
   - Bağımlılık: SOY-12, DEN-01. Boyut: S.
   - Dosya: fiyat okuyucusuna tek satır; `denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **SOY-37:** Göç söylentisi (`goc_yolu_guvenligi.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [/] **SOY-37:** Göç söylentisi (`goc_yolu_guvenligi.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor) (Antigravity-Berk)
   - Ne: "yol güvensiz" söylentisi kamuoyu olunca kapıya gelen sayısı o gece −1 (öneri); doğruysa ertesi gün de.
   - Kabul: gelen sayısı −1. Test: birim.
   - Bağımlılık: SOY-12. Boyut: S.
