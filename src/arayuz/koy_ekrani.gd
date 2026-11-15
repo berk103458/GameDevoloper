@@ -54,6 +54,7 @@ func _ready() -> void:
 	_onceki_fizik_adimi = Engine.max_physics_steps_per_frame
 	Engine.max_physics_steps_per_frame = 8
 	_y = oturum.yonetim
+	_y.set_meta(&"sev02_oturum", weakref(oturum))
 	_dinamik_ortam = preload("res://src/sistemler/koy_ortam_sesi.gd").new()
 	add_child(_dinamik_ortam)
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)

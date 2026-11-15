@@ -1,5 +1,47 @@
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
+## SEV-02 — Tanıdık yüzün gerçek ateş bağı / 15 Kasım 2026 (Codex, Berk)
+
+Durum: madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.
+kota görünmüyor; asset gerekmedi.
+
+Yalnız /workspace/codex/GameDevoloper ve festive dalında çalışıldı. 5b317598 claim yeniden alınmadı;
+fetch/prune ve ff-only pull ile 548a3ac6 alındı. İstenen dört Godot skill'i okundu ve uygulandı.
+KoyEkrani yönetimine zayıf oturum referansı eklendi; ANI-07 gerçek yürüyüş adaylığı,
+boş gün duruşu ve mevcut _tikla/bilgi alanı kadro hafızasına bağlandı. Tezgâh iş satırı korundu.
+Yaşayan, köydeki adlı Koylu seçilir. Anısız/ayrılmış/ölü kişi konuşmaz. Son karar çeviri
+anahtarını seçer; kabul + kayıtlı ekmek yardımı birlikte anılır. Genel selam üretilmez.
+Çocuk tek başına çağrılmaz; yürüyüş seçimi yetişkinlerden yapılır. Eş sohbeti hazırlanmışsa
+veya mevcut kart açıksa selam açılmaz. Yeni sahne, panel sınıfı, ses veya asset eklenmedi.
+`data/soz/tanidik_yuz.json`: chr_004 ve chr_002 için hitap=aliskanlik; aralik_gun=2.
+Bu tür zar değiştirmez. `ates_son_gun` mevcut kadro kaydında saklanır; yükleme günlük
+sınırı sıfırlamaz. Kapı kuyruğu üreticisi çağrılmadı; kuyruk/yatak/kabul kararı yazılmadı.
+
+Hedefli doğrulama (Godot 4.7.2):
+- `godot --headless --path . --import --quit`: çıkış 0; SCRIPT ERROR/Failed to load script yok.
+  Kapanış kaynak/RID uyarıları var.
+- `godot --headless --path . -s res://tests/unit/koy/sevilen_yuz_test.gd`: PASS.
+- `godot --headless --path . res://tests/unit/koy/tanidik_yuz_oyun_test.tscn`: GEÇTİ, 35 kontrol / 0 hata.
+  Gerçek KoyEkrani._tikla, ANI-07 hedef/rotacı, hafıza silme, günlük sınır, kayıt,
+  aralık, yalnız çocuk, iki eş sohbeti kilidi, ölüm/ayrılma, kuyruk ve aynı kadraj sınandı.
+- `godot --headless --path . res://tests/unit/koy/bos_gun_durusu_oyun_test.tscn`: GEÇTİ, 17 kontrol / 0 hata.
+- `python3 -B tools/metin_dogrula.py --kaynak`: PASS; CSV ve iki translation aynı pakette.
+- Yeni test betiği gerçek sahnede yüklenip çalıştı; parse hatası yok. Tam sanity çalıştırılmadı.
+
+Rebase ile c1f8cea6 alındı; CSV satır çatışmasında uzak soylenti.duydum_ki anahtarı ve
+SEV-02 ekleri birlikte korundu, iki translation birleşik CSV’den yeniden üretildi.
+İlk normal push uzak dal ilerlediği için reddedildi. Fetch/diff ile push aynı komutta
+olduğu için SOY-23/26 farkına rağmen deneme yapıldı; uzak dal değişmedi. İkinci rebase
+bad86b3a üzerine çatışmasız uygulandı, iki uzak sahiplik işareti korundu. Son push
+kontrolü ayrı adımda, yalnız SEV-02 değişen satırlarını doğrulayarak yapıldı.
+Commit sonrası kota: kota görünmüyor.
+Push öncesi fetch + origin/ROADMAP diff denetimi: yalnız SEV-02 Görev 22 satırı değiştirildi.
+SEV-01, CAT-04, DYL-03 uzak sürümleri aynen korundu. Özellikle pull ile gelen SEV-01
+[x] satırına dokunulmadı; eski durumla ezilmedi. Issue #11'e yazılmadı. Eski izlenmeyen
+.import/.uid dosyaları ve project.godot pakete alınmadı. Windows aynaları bu görevde
+çalışma alanı dışında; yeni talimat gereği yalnız belirtilen Linux kopyasında çalışıldı.
+Sonraki aday: Usta'nın SEV-02 görsel doğrulaması; yeni ROADMAP maddesi alınmadı.
+
 ## SEV-01 — Boş günün köy kadrajına bağlanması / 15 Kasım 2026 (Codex, Berk)
 
 Durum: madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.

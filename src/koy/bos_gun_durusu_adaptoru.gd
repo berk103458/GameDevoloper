@@ -24,9 +24,37 @@ static func kisi(e: KoyEkrani, hucre: Vector2i) -> Koylu:
 			if f.position.distance_to(hedef) <= s.HUCRE: return k
 	return null
 
+static func atestekiler(e: KoyEkrani) -> Array[Koylu]:
+	var sonuc: Array[Koylu] = []
+	var s := e.sahne3b
+	var ates := AtesBasiRutini.konum(s)
+	var tik := s.alan_merkezi(e._imlec, Vector2i.ONE)
+	if Vector2(tik.x - ates.x, tik.z - ates.z).length() > s.HUCRE: return sonuc
+	for id in s.halk_hareketi.modeller:
+		var k := s.yonetim.koylu(int(id))
+		var f: Node3D = s.halk_hareketi.modeller[id]
+		var d: Dictionary = s.halk_hareketi._durum.get(id, {})
+		if k == null or not is_instance_valid(f): continue
+		if int(d.get("adim", 0)) < d.get("yol", []).size(): continue
+		if f.position.distance_to(ates) <= float(AtesBasiRutini.AYAR.en_uzak) + 0.5: sonuc.append(k)
+	return sonuc
+
 static func tikla(e: KoyEkrani) -> bool:
 	var k := kisi(e, e._imlec)
-	var anahtar := DURUS.satir(e.oturum, k)
+	var anahtar := ""
+	var adaylar := atestekiler(e)
+	if not adaylar.is_empty():
+		if e.oturum.aksam_sohbeti_gece == e.oturum.gun: return false
+		if e._ust_kart != null and e._ust_kart.has_meta(&"aksam_sohbeti"): return false
+		var secim := DURUS.ates_selami(e.oturum, adaylar)
+		if not secim.is_empty():
+			k = secim.koylu
+			anahtar = secim.ates_sozu
+		else:
+			# Adlı kişinin hafızası yoksa genel iş satırıyla selam uydurma.
+			for aday in adaylar:
+				if aday.adli_id != &"": return false
+	if anahtar.is_empty(): anahtar = DURUS.satir(e.oturum, k)
 	if anahtar.is_empty(): return false
 	# Yeni panel/sahne yok; YAZ-08 sohbetinin yanındaki salt metin adaptörü.
 	for c in e._bilgi_icerik.get_children():

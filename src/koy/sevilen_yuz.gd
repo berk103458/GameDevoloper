@@ -16,14 +16,16 @@ func bos_gun_mu(ziyaretciler: Array) -> bool:
 	return ziyaretciler.is_empty()
 
 func ates_ziyaretcisi_sec(koy_kayitlari: Array) -> Dictionary:
-	# SEV-02: Tanıdık yüz ateşe gelir
+	# Oyun adaptörü yalnız gerçek köylü ve kadro hafızası ile aday gönderir.
 	for k in koy_kayitlari:
-		if k is Dictionary and k.get("kabul_edildi", false) and not ayrilanlar.has(k.get("id")):
-			return {
-				"chr_id": k.get("id"),
-				"ad": k.get("ad", "Tanıdık Köylü"),
-				"ates_sozu": "Ateşin başı sıcaktır muhafız bey; kapıda verdiğin destur ile ocağımız tütüyor."
-			}
+		if not k is Dictionary: continue
+		if String(k.get("durum", "")) != "koyde" or ayrilanlar.has(k.get("id")): continue
+		var karar := String(k.get("son_karar", ""))
+		if karar.is_empty() or String(k.get("id", "")).is_empty(): continue
+		var anahtar := "anlati.ates_selam." + karar
+		if karar not in ["kabul", "ret", "rusvet", "kisla", "kacti"]: continue
+		if karar == "kabul" and String(k.get("yapilan_yardim", "")) == "ekmek": anahtar = "anlati.ates_selam.ekmek"
+		return {"chr_id": k.id, "ad": k.get("ad", ""), "ates_sozu": anahtar}
 	return {}
 
 func kisisel_iz_birak(chr_id: String, iz_turu: String) -> void:

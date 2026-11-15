@@ -2246,7 +2246,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.2 Ateş
 
-- [/] **SEV-02:** (Codex) Tanıdık yüz ateşe gelir. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **SEV-02:** (Codex) Tanıdık yüz ateşe gelir. (Görev 22: gerçek ANI-07 yürüyüş süzgeci ve KoyEkrani._tikla → boş gün adaptörü → KisiHafizasi/SevilenYuz bağlı; adlı köylü, son karar/anı, günlük tek selam ve kayıtlı aralık, çocuk/eş sohbeti koruması. Oyun testi 35 kontrol / 0 hata, SEV-01 17 kontrol / 0 hata; asset gerekmedi. Madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.)
   - Ne: Boş günde ateşe gelen kişi köyde yaşayan adlı biridir; kapı kuyruğuna eklenmez, yatak ve kabul kararı istenmez. Selam `son_karar` ile bir somut anıyı kullanır: verilen ekmek, sorulan ad veya çevrilen akraba. Anı yoksa genel selam da yoktur ve kişi o akşam gelmez. Kadrodan 2 veya 3 kişi `hitap: aliskanlik` ile Jorji tipindedir; yeni kişilik sistemi açılmaz. Aynı kişi art arda iki boş olmayan akşamda zorla getirilmez; aralık veri dosyasındadır. Ölen, köyü terk eden veya ret yemiş ve köyde olmayan kişi içeri alınmaz.
   - Kabul: Köydeki bir kişi için `son_karar` kayıtlıyken ateş selamı o kararı anar (`tests/unit/koy/sevilen_yuz_test.gd`). Anı silinince selam gelmez ve kuyruk uzunluğu değişmez. Ek şart: Bir boş günde ateşe en çok bir kişi gelir. Ek şart: Çocuk ateşe yalnız çağrılmaz; yanında yetişkin yoksa o akşam geliş olmaz. Ek şart: Eş akşam sohbeti aynı gecede açıksa ateş selamı açılmaz. Ek şart: Ateş selamı yeni sahne açmaz; duran köy kadrajında iki satırdır. Ek şart: Yeni ateş ses dosyası eklenmez.
   - Bağımlılık: SEV-01, DIY-11. Boyut: M.

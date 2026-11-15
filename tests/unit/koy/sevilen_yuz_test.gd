@@ -16,7 +16,7 @@ func _init() -> void:
 
 	# 2. SEV-02: Tanıdık yüz ateşe gelir
 	var koy_kaydi := [
-		{"id": "chr_004", "ad": "Yusuf", "kabul_edildi": true}
+		{"id": "chr_004", "ad": "Yusuf", "durum": "koyde", "son_karar": "kabul"}
 	]
 	var ates_kisi := sy.ates_ziyaretcisi_sec(koy_kaydi)
 	if ates_kisi.get("ad") != "Yusuf" or not ates_kisi.has("ates_sozu"):
