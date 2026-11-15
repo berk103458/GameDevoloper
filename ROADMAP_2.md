@@ -7561,7 +7561,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/cati_kar_bilgisi.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-57:** (Codex-Berk) `cinar_meclis_paneli.gd` temaya bağlanır.
+- [x] **GRV-57:** (Codex-Berk) `cinar_meclis_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/cinar_meclis_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Meclis düğmesi düz. Tema bağlanınca yalnız `cinar_meclis_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Meclis düğmesi düz davranışı değişmez.
   - Kabul: `cinar_meclis_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `cinar_meclis_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

@@ -3322,3 +3322,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-53 (Codex-Berk): Haksızlık paneli ortak tema mirasıyla çalışır; tarama ve gerçek tazminat ekranı regresyonu doğrulandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-55 (Codex-Berk): Ambar onarım düğmesi ortak temayı miras alır; yerel renk/stil yokluğu ve canlı HUD çağrısı doğrulandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-57 (Codex-Berk): Meclis kabuğu tema mirasını kullanır; kaynak taraması ve gerçek meclis UI regresyonu doğrulandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
