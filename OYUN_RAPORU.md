@@ -1,3 +1,7 @@
+## 2026-11-15 — CAT-01 (Codex, Berk)
+
+Kapı ret kararı mevcut KapiKavgasi motoruna bağlandı. Tipler JSON eşlemelerinden gerçek kuyruğa atanır; yatak/kusur/CHR kilidi ret nedenini, köy kaydı asker sayısını verir. Askersiz tehdit tanık varsa Dedikodu'ya yazılır; son nöbetçinin görevden alınması/sürgünü aktif isteği kaçışa veya tehdide çevirir. Gerçek kapı ekranı arbede metnini gösterir. Mevcut birim testi, 143 kontrollü gerçek Oturum testi ve gerçek ekran testi geçti. Import 0, betik/parse hatası yok; mevcut editor kapanış ve katalog metin uyarıları sürüyor. Asset gerekmedi. CAT-02 alınmadı.
+
 ## 2026-11-15 — ANL-EPI-01 (Kalfa)
 
 Gerçek sonuç ekranında mevcut kaydırma alanı içinde altı kişisel kart, karar bayraklarının seçtiği metinler ve kayıt eşitliği hedefli headless testte doğrulandı. Geçersiz moral üyeliği için köyün huzur göstergesi kullanıldı. Editor importta mevcut MD5 ve RID kapanış uyarıları görüldü, hedefli son ekranı koşusunda betik hatası yoktu. Asset gerekmedi. Kota görünmüyor.

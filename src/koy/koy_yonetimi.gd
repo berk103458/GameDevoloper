@@ -14,6 +14,8 @@ const KRIZ_KENETLENMESI = preload("res://src/koy/kriz_kenetlenmesi.gd")
 
 ## KRI-14 bu tek tetikleyiciye bağlanabilir; gece/yağmayı tekrar çalıştırmaz.
 signal kitlik_tetiklendi(rapor: Dictionary)
+## CAT-01: görev/ayrılış/gece sonunda mevcut nöbet kaydı yeniden okunur.
+signal nobet_degisti
 
 const KAYIT_SURUMU := 1
 ## Sonlar.
@@ -355,7 +357,10 @@ func recete_sec(bina_id: int, recete: String) -> bool:
 
 ## Köylüyü bir yapının iş yuvasına atar (yapı hazır ve yuva boş olmalı).
 func ata(koylu_id: int, bina_id: int) -> bool:
-	if bina_id == TasYatagi.IS_YERI: return TasYatagi.ata(self, koylu_id)
+	if bina_id == TasYatagi.IS_YERI:
+		var atandi := TasYatagi.ata(self, koylu_id)
+		if atandi: nobet_degisti.emit()
+		return atandi
 	if KarantinaYoneticisi.aktif(koylu(koylu_id)): return false
 	if KervanKorumasi.disarida(self, koylu_id): return false
 	var k := koylu(koylu_id)
@@ -369,6 +374,7 @@ func ata(koylu_id: int, bina_id: int) -> bool:
 		return false
 	GeciciIsler.birak(self,k)
 	k.is_yeri = bina_id
+	nobet_degisti.emit()
 	return true
 
 
@@ -383,6 +389,7 @@ func muhafiz_ata(koylu_id: int) -> bool:
 		return false
 	GeciciIsler.birak(self,k)
 	k.is_yeri = MUHAFIZ
+	nobet_degisti.emit()
 	return true
 
 
@@ -393,6 +400,7 @@ func bosalt(koylu_id: int) -> void:
 	if k != null:
 		GeciciIsler.birak(self,k)
 		k.is_yeri = BOSTA
+		nobet_degisti.emit()
 
 
 ## Köylüyü köyden sürer (10.5, 12.4). Tekrar gelirse husumet gerekçeli rettir.
@@ -401,6 +409,7 @@ func surgun(koylu_id: int) -> bool:
 	if k == null:
 		return false
 	koylular.erase(k)
+	nobet_degisti.emit()
 	husumet.ret(k.ad, gun, false, "", a)
 	return true
 
@@ -641,6 +650,7 @@ func gece() -> Dictionary:
 		vergi_muaf = false
 	for k in koylular:
 		k.is_gucu = 1.0
+	nobet_degisti.emit()
 	return rapor
 
 

@@ -814,7 +814,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.1 Kavga ne zaman
 
-- [/] **CAT-01:** (Codex) Geri çevrilen kavga çıkarabilir. (Antigravity) (doğrulanmadı — Görev 22; KapiKavgasi (src/kapi/kapi_kavgasi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **CAT-01:** (Codex) Geri çevrilen kavga çıkarabilir. (İlk mantık: Antigravity; Görev 22 bağlantı eksiği giderildi: Oturum.karar_ver ret dalı → KapiKavgasiAdaptoru.ret → KapiKavgasi.ret_degerlendir; gerçek kuyrukta veri tipi, nöbet ayrılış sinyali ve kapı sonuç metni bağlı. Hedefli oyun testi 143 kontrol / 0 hata; gerçek ekran ve mevcut birim testi GEÇTİ. Asset gerekmedi.)
   - Ne: Yer yokluğu veya sert ret, tip listesindeki genç erkek, aç aile reisi ya da asker kaçağında kavga isteği doğurur. Kavga yalnız kapıda ve en az bir asker varken açılır. Asker yoksa kişi tehdit edip gider; tanık varsa bu gidiş dedikoduya yazılır. Köy meydanı, şifahane ve divanda kavga sahnesi yoktur. Heyet sırasında kavga açılmaz.
   - Kurallar:
     1. Kavga isteği iki koşulla doğar: yer yokluğu veya sert ret; karakter tipi genç erkek, aç aile reisi veya asker kaçağı. Tip veridedir.
@@ -831,7 +831,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.2 Dört seçenek
 
-- [ ] **CAT-02:** Kavga seçenekleri — askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. (Antigravity) (doğrulanmadı — Görev 22; KapiKavgasi (src/kapi/kapi_kavgasi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **CAT-02:** (Codex) Kavga seçenekleri — askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. (Antigravity) (doğrulanmadı — Görev 22; KapiKavgasi (src/kapi/kapi_kavgasi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Kapıdaki kavgada oyuncu dört yoldan birini seçer: askerle karşılık, akçeyle erteleme, sözle yatıştırma veya reddetme. Askerle karşılık zar atar ve yaralanma, ölüm, kaçış ya da kin bırakır. Akçe yetmezse erteleme kilitli görünür. Beşinci seçenek yoktur. Kalp alanı yazılmaz.
   - Kurallar:
     1. Dört seçenek vardır: askerle karşılık, akçeyle erteleme, sözle yatıştırma, reddetme. Beşinci seçenek yazılamaz.

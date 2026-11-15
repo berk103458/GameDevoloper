@@ -53,7 +53,7 @@ func _veri_yukle() -> void:
 		_veri = okunan
 	else:
 		_veri = {
-			"kavga_tipleri": ["genc_erkek", "ac_aile_reisi", "asker_kacagi"],
+			"kavga_tipleri": [], # Veri yoksa yeni kavga tipi uydurulmaz.
 			"kavga_nedenleri": ["yer_yoklugu", "sert_ret"],
 			"izinli_mekan": "kapi",
 			"yasak_mekanlar": ["koy_meydani", "sifahane", "divan"],
@@ -521,7 +521,7 @@ static func _tehdit_dedikodusu_yaz(dedikodu: Dedikodu, kisi_id: String, gun: int
 	if dedikodu == null:
 		return false
 	var olay_id := "kapi_tehdit_%d_%s" % [gun, kisi_id]
-	var r: Dictionary = dedikodu.olay_kaydet(olay_id, "haksiz_ret", gun, tanik, 1)
+	var r: Dictionary = dedikodu.olay_kaydet(olay_id, "haksiz_ret", gun, tanik, 1, {"satir": "Kapıdan geri çevrilen kişi tehdit edip gitti."})
 	return bool(r.get("olur", false))
 
 

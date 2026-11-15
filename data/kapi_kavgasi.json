@@ -63,5 +63,22 @@
         "olasilik": 1.0
       }
     ]
-  }
+  },
+  "tip_eslemeleri": [
+    {
+      "alan": "giris_anahtari",
+      "deger": "sablon.esnaf.giris1",
+      "tip": "genc_erkek"
+    },
+    {
+      "alan": "giris_anahtari",
+      "deger": "sablon.asker.giris2",
+      "tip": "asker_kacagi"
+    },
+    {
+      "alan": "aile_ac",
+      "deger": "true",
+      "tip": "ac_aile_reisi"
+    }
+  ]
 }

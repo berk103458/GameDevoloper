@@ -624,6 +624,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	_bolum.text = ""
 	Ses.cal(&"sfx_onay")
 	var dedikodu_once := oturum.dedikodu.yazma_sayisi() if oturum != null else 0
+	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").tanik_hazirla(oturum, _kuyruk)
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar), is_yeri)
 	if not _dil_notlari.is_empty():
 		_gelen.set_meta(&"dil_notlari", _dil_notlari.duplicate(true))
@@ -666,6 +667,7 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 		_yaz("[i][color=#C4843A]%s[/color][/i]" % tr("anlati.heybe.durust"))
 	if not replik.ilgilendirir(anahtar) and _gelen.yanitlar.has(anahtar):
 		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), str(_gelen.yanitlar[anahtar])])
+	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").sonuc_yaz(self, sonuc)
 	hud.guncelle()
 	_daralt(false)
 	_adim_sesi(8)

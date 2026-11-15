@@ -150,6 +150,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 	preload("res://src/kapi/aile_kafilesi.gd").ekle(self, sonuc)
 	preload("res://src/sistemler/sancak_ulagi.gd").ekle(self, sonuc)
 	KararDonusu.spawn_ekle(self, sonuc)
+	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").kuyruk_hazirla(self, sonuc)
 	return sonuc
 
 
@@ -282,6 +283,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	else:
 		akce += rusvet_akce
 		yonetim.ret(tr_gelen(gelen), not gelen.kusurlu(), _usta_uzmanlik(gelen))
+		preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").ret(self, gelen, karar, ek)
 	if sorgu != null:
 		ek["chr_stat_etkisi"] = preload("res://src/kapi/chr_karar_matrisi.gd").uygula(self, sorgu, karar)
 	_koy_esitle()
