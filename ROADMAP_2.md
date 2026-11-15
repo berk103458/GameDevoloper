@@ -3591,7 +3591,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ISG-01, ISG-02, UZM-03. Boyut: M.
   - Dosya: `data/ayarlar/denge.json`.
   - Asset: asset gerekmedi.
-- [ ] **DEN-37:** Eşin mesleği demirhaneye yazılmaz.
+- [/] **DEN-37:** (Claude-Berk) Eşin mesleği demirhaneye yazılmaz.
   - Ne: ACL-02 listesi dışındaki meslek hâlâ reddedilir. Denge bu listeyi genişletmez.
   - Kabul: ACL-02 listesi dışındaki meslek hâlâ reddedilir. Denge bu listeyi genişletmez. Test: demirci reddi durur.
   - Bağımlılık: ACL-02. Boyut: S.
