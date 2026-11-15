@@ -3838,7 +3838,9 @@
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
-   "meshy_gorevleri": {},
+   "meshy_gorevleri": {
+    "iskelet": "01a1e0b1-84cf-706a-8aed-72a215a06c25"
+   },
    "dosya": "assets/model/karakter/chr_001_yuru.glb",
    "ek_dosyalar": [],
    "sha256": "74bf5d97e7e004f4771b2ec4c13ae7fd993289cfa8e64af33b010223922b1975",
@@ -6890,7 +6892,6 @@
    "sira": 311,
    "kullanim_grubu": "3_koy_yonetimi_surekli",
    "durum": "mevcut",
-   "oyun_baglantisi": "baglandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
@@ -6904,8 +6905,7 @@
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
    "notlar": [
-    "YAPI-pazar_tezgahi bu dosyaya bağlı; yeniden üretim yalnız `uret --yeniden pazar_tezgahi` ile (açık karar).",
-    "Oyuna bağlandı (Cursor, 15 Kas 2026): han kutusu koy_yonetim_sahnesi.gd, han yoksa meydan kenarı olay_yapilari.gd."
+    "YAPI-pazar_tezgahi bu dosyaya bağlı; yeniden üretim yalnız `uret --yeniden pazar_tezgahi` ile (açık karar)."
    ],
    "meshy_model": "meshy-6-lite (eski hat)",
    "hedef_dosya": "assets/model/yapi/pazar_tezgahi.glb"
@@ -7741,6 +7741,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:25:10Z gönderiliyor: onizleme",
     "2026-11-15T16:25:14Z görev açıldı: onizleme=01a1e006-e532-7445-ac07-bee2622fb0b8",
@@ -7752,8 +7753,7 @@
    "_sayilan_gorev": [
     "01a1e006-e532-7445-ac07-bee2622fb0b8",
     "01a1e007-377e-7496-a41b-aa49d70a9d3b"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "agil",
@@ -7840,6 +7840,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:26:08Z gönderiliyor: onizleme",
     "2026-11-15T16:26:11Z görev açıldı: onizleme=01a1e007-c5aa-703a-8cc1-1c5a2751f590",
@@ -7851,8 +7852,7 @@
    "_sayilan_gorev": [
     "01a1e007-c5aa-703a-8cc1-1c5a2751f590",
     "01a1e008-1947-72bb-b6a0-18a2f1027b68"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "ahir",
@@ -7939,6 +7939,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:27:06Z gönderiliyor: onizleme",
     "2026-11-15T16:27:09Z görev açıldı: onizleme=01a1e008-a79f-775f-965b-613f208691ae",
@@ -7950,8 +7951,7 @@
    "_sayilan_gorev": [
     "01a1e008-a79f-775f-965b-613f208691ae",
     "01a1e009-1dbd-77ff-996b-c9d0214e17c3"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "kirec_kuyusu",
@@ -8038,6 +8038,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:28:12Z gönderiliyor: onizleme",
     "2026-11-15T16:28:15Z görev açıldı: onizleme=01a1e009-ab50-76e3-935c-8a1adfee8cfe",
@@ -8049,8 +8050,7 @@
    "_sayilan_gorev": [
     "01a1e009-ab50-76e3-935c-8a1adfee8cfe",
     "01a1e009-fb27-71ba-8d36-85cfc19b3b74"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "demir_madeni",
@@ -8137,6 +8137,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:29:17Z gönderiliyor: onizleme",
     "2026-11-15T16:29:21Z görev açıldı: onizleme=01a1e00a-ab0b-7532-be29-68fb5fefb71e",
@@ -8148,8 +8149,7 @@
    "_sayilan_gorev": [
     "01a1e00a-ab0b-7532-be29-68fb5fefb71e",
     "01a1e00b-2118-7724-9634-e0be22120f1b"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "demir_ocagi",
@@ -8236,6 +8236,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:30:33Z gönderiliyor: onizleme",
     "2026-11-15T16:30:36Z görev açıldı: onizleme=01a1e00b-d036-7464-9558-719d3d28e0a1",
@@ -8247,8 +8248,7 @@
    "_sayilan_gorev": [
     "01a1e00b-d036-7464-9558-719d3d28e0a1",
     "01a1e00c-4357-7013-ac71-e6634c097a04"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "muhafiz_kislasi",
@@ -8335,6 +8335,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:31:56Z gönderiliyor: onizleme",
     "2026-11-15T16:31:59Z görev açıldı: onizleme=01a1e00d-150a-762f-aac7-f842ee6472b2",
@@ -8346,8 +8347,7 @@
    "_sayilan_gorev": [
     "01a1e00d-150a-762f-aac7-f842ee6472b2",
     "01a1e00d-8911-7342-b1a4-30f2b6a0f5b7"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "gozetleme_kulesi",
@@ -8439,6 +8439,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:40:59Z gönderiliyor: onizleme",
     "2026-11-15T16:41:02Z görev açıldı: onizleme=01a1e015-5f88-72e4-9579-cec24ce0fe54",
@@ -8450,8 +8451,7 @@
    "_sayilan_gorev": [
     "01a1e015-5f88-72e4-9579-cec24ce0fe54",
     "01a1e015-d306-77b2-a8b9-27f2eda81076"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "cozumleme_odasi",
@@ -8539,6 +8539,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:42:14Z gönderiliyor: onizleme",
     "2026-11-15T16:42:17Z görev açıldı: onizleme=01a1e016-8322-70a9-9c77-7ed2b3a9c8a6",
@@ -8550,8 +8551,7 @@
    "_sayilan_gorev": [
     "01a1e016-8322-70a9-9c77-7ed2b3a9c8a6",
     "01a1e016-f60c-75a4-8c63-272ca00c70a0"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "ors",
@@ -8632,6 +8632,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:43:28Z gönderiliyor: onizleme",
     "2026-11-15T16:43:31Z görev açıldı: onizleme=01a1e017-a48e-73ac-9be7-7212360accb2",
@@ -8640,8 +8641,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e017-a48e-73ac-9be7-7212360accb2"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "firin_agzi",
@@ -8722,6 +8722,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:43:49Z gönderiliyor: onizleme",
     "2026-11-15T16:43:53Z görev açıldı: onizleme=01a1e017-f87f-7787-8f0e-719dc86944f6",
@@ -8730,8 +8731,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e017-f87f-7787-8f0e-719dc86944f6"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "dokuma_tezgahi",
@@ -8811,6 +8811,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:44:11Z gönderiliyor: onizleme",
     "2026-11-15T16:44:14Z görev açıldı: onizleme=01a1e018-4cb3-751d-b3b7-87e0d42cb4b6",
@@ -8819,8 +8820,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e018-4cb3-751d-b3b7-87e0d42cb4b6"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "divan_masasi",
@@ -8901,6 +8901,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:44:32Z gönderiliyor: onizleme",
     "2026-11-15T16:44:35Z görev açıldı: onizleme=01a1e018-9e8e-72d7-8311-e0a7419bdd88",
@@ -8909,8 +8910,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e018-9e8e-72d7-8311-e0a7419bdd88"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "divan_oturak",
@@ -8991,6 +8991,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:44:53Z gönderiliyor: onizleme",
     "2026-11-15T16:44:56Z görev açıldı: onizleme=01a1e018-ef7d-7550-928c-b2a2f15b687c",
@@ -8999,8 +9000,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e018-ef7d-7550-928c-b2a2f15b687c"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "zindan_kapisi",
@@ -9081,6 +9081,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:45:14Z gönderiliyor: onizleme",
     "2026-11-15T16:45:17Z görev açıldı: onizleme=01a1e019-434f-701a-a8ae-8d77737204f2",
@@ -9089,8 +9090,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e019-434f-701a-a8ae-8d77737204f2"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "sacak",
@@ -9171,6 +9171,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:45:44Z gönderiliyor: onizleme",
     "2026-11-15T16:45:47Z görev açıldı: onizleme=01a1e019-b73b-779b-ad0d-3aa2f5d2c03a",
@@ -9179,8 +9180,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e019-b73b-779b-ad0d-3aa2f5d2c03a"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "agac",
@@ -9299,6 +9299,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:46:05Z gönderiliyor: onizleme",
     "2026-11-15T16:46:08Z görev açıldı: onizleme=01a1e01a-0a49-743b-b512-30415e2c71b4",
@@ -9307,8 +9308,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e01a-0a49-743b-b512-30415e2c71b4"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "kaya",
@@ -9427,6 +9427,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:46:26Z gönderiliyor: onizleme",
     "2026-11-15T16:46:31Z görev açıldı: onizleme=01a1e01a-5e38-71ad-a166-4eef5ad615e7",
@@ -9435,8 +9436,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e01a-5e38-71ad-a166-4eef5ad615e7"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "okuz",
@@ -9610,6 +9610,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:52:57Z gönderiliyor: onizleme",
     "2026-11-15T16:53:00Z görev açıldı: onizleme=01a1e020-5465-7339-8e51-3b3b517a27f8",
@@ -9621,8 +9622,7 @@
    "_sayilan_gorev": [
     "01a1e020-5465-7339-8e51-3b3b517a27f8",
     "01a1e020-c8a3-7514-94b7-60a0f27ad6cf"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "inek",
@@ -9710,6 +9710,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:54:03Z gönderiliyor: onizleme",
     "2026-11-15T16:54:07Z görev açıldı: onizleme=01a1e021-572c-7187-ac1a-7b7535f6c937",
@@ -9721,8 +9722,7 @@
    "_sayilan_gorev": [
     "01a1e021-572c-7187-ac1a-7b7535f6c937",
     "01a1e021-a907-7109-8dde-dde9068de73d"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "koc",
@@ -9810,6 +9810,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:55:01Z gönderiliyor: onizleme",
     "2026-11-15T16:55:05Z görev açıldı: onizleme=01a1e022-3832-7695-9812-505ff9e82675",
@@ -9821,8 +9822,7 @@
    "_sayilan_gorev": [
     "01a1e022-3832-7695-9812-505ff9e82675",
     "01a1e022-8d40-70a9-965d-b414f662b1d4"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "beygir",
@@ -9910,6 +9910,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:55:59Z gönderiliyor: onizleme",
     "2026-11-15T16:56:04Z görev açıldı: onizleme=01a1e023-1c0e-71a4-af5c-5b14ef567be8",
@@ -9921,8 +9922,7 @@
    "_sayilan_gorev": [
     "01a1e023-1c0e-71a4-af5c-5b14ef567be8",
     "01a1e023-b4e3-764f-a094-c1f04fe96473"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "at",
@@ -10008,6 +10008,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T16:57:32Z gönderiliyor: onizleme",
     "2026-11-15T16:57:35Z görev açıldı: onizleme=01a1e024-8584-77c4-b67d-89b39efff090",
@@ -10019,8 +10020,7 @@
    "_sayilan_gorev": [
     "01a1e024-8584-77c4-b67d-89b39efff090",
     "01a1e026-cb5f-714c-a3ea-eb0b9efbf9b5"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "keci",
@@ -10106,6 +10106,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:00:37Z gönderiliyor: onizleme",
     "2026-11-15T17:00:44Z görev açıldı: onizleme=01a1e027-597c-771d-9966-ed17f6cf1fbf",
@@ -10117,8 +10118,7 @@
    "_sayilan_gorev": [
     "01a1e027-597c-771d-9966-ed17f6cf1fbf",
     "01a1e028-a194-73ee-ae17-c40015734fb8"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "deve",
@@ -10204,6 +10204,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:02:55Z gönderiliyor: onizleme",
     "2026-11-15T17:02:58Z görev açıldı: onizleme=01a1e029-741e-7173-85c8-94b9bf22570d",
@@ -10215,8 +10216,7 @@
    "_sayilan_gorev": [
     "01a1e029-741e-7173-85c8-94b9bf22570d",
     "01a1e029-c5f6-746e-a932-074073f5359b"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "erkek_cirak",
@@ -10603,6 +10603,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:04:01Z gönderiliyor: onizleme",
     "2026-11-15T17:04:04Z görev açıldı: onizleme=01a1e02a-76ec-73fd-872a-ca83621887dd",
@@ -10611,8 +10612,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02a-76ec-73fd-872a-ca83621887dd"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "orak",
@@ -10695,6 +10695,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:04:22Z gönderiliyor: onizleme",
     "2026-11-15T17:04:27Z görev açıldı: onizleme=01a1e02a-c8d3-73e1-bdbd-455f2ee1f936",
@@ -10703,8 +10704,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02a-c8d3-73e1-bdbd-455f2ee1f936"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "kova",
@@ -10786,6 +10786,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:04:45Z gönderiliyor: onizleme",
     "2026-11-15T17:04:48Z görev açıldı: onizleme=01a1e02b-21fc-70ca-96a4-20394f1e8c3a",
@@ -10794,8 +10795,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02b-21fc-70ca-96a4-20394f1e8c3a"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "kurek",
@@ -10879,6 +10879,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:05:15Z gönderiliyor: onizleme",
     "2026-11-15T17:05:18Z görev açıldı: onizleme=01a1e02b-96d7-7676-b61c-309a54d8e44d",
@@ -10887,8 +10888,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02b-96d7-7676-b61c-309a54d8e44d"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "firin_kuregi",
@@ -10970,6 +10970,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:05:45Z gönderiliyor: onizleme",
     "2026-11-15T17:05:48Z görev açıldı: onizleme=01a1e02c-0a91-7332-9b53-40d3229bb465",
@@ -10978,8 +10979,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02c-0a91-7332-9b53-40d3229bb465"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "su_kabi",
@@ -11061,6 +11061,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:06:06Z gönderiliyor: onizleme",
     "2026-11-15T17:06:09Z görev açıldı: onizleme=01a1e02c-5c64-771d-8088-f57aeb5a3772",
@@ -11069,8 +11070,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02c-5c64-771d-8088-f57aeb5a3772"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "kirmen",
@@ -11152,6 +11152,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:06:27Z gönderiliyor: onizleme",
     "2026-11-15T17:06:30Z görev açıldı: onizleme=01a1e02c-b0ca-763e-a5b2-575fe84c4764",
@@ -11160,8 +11161,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02c-b0ca-763e-a5b2-575fe84c4764"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "bakim_bezi",
@@ -11243,6 +11243,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:06:48Z gönderiliyor: onizleme",
     "2026-11-15T17:06:51Z görev açıldı: onizleme=01a1e02d-03db-74f6-9462-d5da1b33addd",
@@ -11251,8 +11252,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e02d-03db-74f6-9462-d5da1b33addd"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "anim_idle_nefes",
@@ -11335,6 +11335,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:17:04Z gönderiliyor: hareket:anim_idle_nefes",
     "2026-11-15T17:17:04Z görev açıldı: hareket:anim_idle_nefes=01a1e036-668a-7393-b5f6-d9187e71449e",
@@ -11343,8 +11344,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e036-668a-7393-b5f6-d9187e71449e"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "anim_idle_agirlik",
@@ -11427,6 +11427,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:17:24Z gönderiliyor: hareket:anim_idle_agirlik",
     "2026-11-15T17:17:25Z görev açıldı: hareket:anim_idle_agirlik=01a1e036-b5d0-7360-941e-63d00c46a070",
@@ -11435,8 +11436,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e036-b5d0-7360-941e-63d00c46a070"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "anim_idle_bakis",
@@ -11518,6 +11518,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:21:50Z gönderiliyor: hareket:anim_idle_bakis",
     "2026-11-15T17:21:51Z görev açıldı: hareket:anim_idle_bakis=01a1e03a-c61f-762a-897b-973ec3d2326a",
@@ -11526,8 +11527,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e03a-c61f-762a-897b-973ec3d2326a"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "anim_nobet",
@@ -11578,14 +11578,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_nobet.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:43:21Z gönderiliyor: hareket:anim_nobet",
-    "2026-11-15T17:43:22Z görev açıldı: hareket:anim_nobet=01a1e04e-7797-755d-b5c8-e3d8219136e1",
-    "2026-11-15T17:43:57Z üretildi: assets/model/karakter/muhafiz_nobet.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e04e-7797-755d-b5c8-e3d8219136e1"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:43:57Z",
     "bilgi": {
@@ -11617,8 +11609,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:43:21Z gönderiliyor: hareket:anim_nobet",
+    "2026-11-15T17:43:22Z görev açıldı: hareket:anim_nobet=01a1e04e-7797-755d-b5c8-e3d8219136e1",
+    "2026-11-15T17:43:57Z üretildi: assets/model/karakter/muhafiz_nobet.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e04e-7797-755d-b5c8-e3d8219136e1"
+   ]
   },
   {
    "asset_id": "anim_cekic_vurma",
@@ -11670,14 +11670,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_cekic_vurma.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:43:58Z gönderiliyor: hareket:anim_cekic_vurma",
-    "2026-11-15T17:43:59Z görev açıldı: hareket:anim_cekic_vurma=01a1e04f-09c6-7617-8330-215d4c631c5f",
-    "2026-11-15T17:44:18Z üretildi: assets/model/karakter/muhafiz_cekic_vurma.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e04f-09c6-7617-8330-215d4c631c5f"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:44:18Z",
     "bilgi": {
@@ -11709,8 +11701,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:43:58Z gönderiliyor: hareket:anim_cekic_vurma",
+    "2026-11-15T17:43:59Z görev açıldı: hareket:anim_cekic_vurma=01a1e04f-09c6-7617-8330-215d4c631c5f",
+    "2026-11-15T17:44:18Z üretildi: assets/model/karakter/muhafiz_cekic_vurma.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e04f-09c6-7617-8330-215d4c631c5f"
+   ]
   },
   {
    "asset_id": "anim_firin_kuregi",
@@ -11761,14 +11761,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_firin_kuregi.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:44:18Z gönderiliyor: hareket:anim_firin_kuregi",
-    "2026-11-15T17:44:19Z görev açıldı: hareket:anim_firin_kuregi=01a1e04f-58bd-770b-900b-643b8ddb4adb",
-    "2026-11-15T17:44:47Z üretildi: assets/model/karakter/muhafiz_firin_kuregi.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e04f-58bd-770b-900b-643b8ddb4adb"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:44:47Z",
     "bilgi": {
@@ -11800,8 +11792,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:44:18Z gönderiliyor: hareket:anim_firin_kuregi",
+    "2026-11-15T17:44:19Z görev açıldı: hareket:anim_firin_kuregi=01a1e04f-58bd-770b-900b-643b8ddb4adb",
+    "2026-11-15T17:44:47Z üretildi: assets/model/karakter/muhafiz_firin_kuregi.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e04f-58bd-770b-900b-643b8ddb4adb"
+   ]
   },
   {
    "asset_id": "anim_orak",
@@ -11852,14 +11852,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_orak.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:44:47Z gönderiliyor: hareket:anim_orak",
-    "2026-11-15T17:44:48Z görev açıldı: hareket:anim_orak=01a1e04f-c956-77ee-92e2-95c4e098b1d4",
-    "2026-11-15T17:45:15Z üretildi: assets/model/karakter/muhafiz_orak.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e04f-c956-77ee-92e2-95c4e098b1d4"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:45:15Z",
     "bilgi": {
@@ -11891,8 +11883,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:44:47Z gönderiliyor: hareket:anim_orak",
+    "2026-11-15T17:44:48Z görev açıldı: hareket:anim_orak=01a1e04f-c956-77ee-92e2-95c4e098b1d4",
+    "2026-11-15T17:45:15Z üretildi: assets/model/karakter/muhafiz_orak.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e04f-c956-77ee-92e2-95c4e098b1d4"
+   ]
   },
   {
    "asset_id": "anim_isinma",
@@ -11943,14 +11943,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_isinma.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:45:16Z gönderiliyor: hareket:anim_isinma",
-    "2026-11-15T17:45:17Z görev açıldı: hareket:anim_isinma=01a1e050-3a41-71c4-9d6c-6c088af49bbf",
-    "2026-11-15T17:45:45Z üretildi: assets/model/karakter/muhafiz_isinma.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e050-3a41-71c4-9d6c-6c088af49bbf"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:45:45Z",
     "bilgi": {
@@ -11982,8 +11974,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:45:16Z gönderiliyor: hareket:anim_isinma",
+    "2026-11-15T17:45:17Z görev açıldı: hareket:anim_isinma=01a1e050-3a41-71c4-9d6c-6c088af49bbf",
+    "2026-11-15T17:45:45Z üretildi: assets/model/karakter/muhafiz_isinma.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e050-3a41-71c4-9d6c-6c088af49bbf"
+   ]
   },
   {
    "asset_id": "anim_kar_kureme",
@@ -12034,14 +12034,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_kar_kureme.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:45:46Z gönderiliyor: hareket:anim_kar_kureme",
-    "2026-11-15T17:45:47Z görev açıldı: hareket:anim_kar_kureme=01a1e050-af1e-7625-85a1-91dda8094d21",
-    "2026-11-15T17:46:06Z üretildi: assets/model/karakter/muhafiz_kar_kureme.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e050-af1e-7625-85a1-91dda8094d21"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:46:06Z",
     "bilgi": {
@@ -12073,8 +12065,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:45:46Z gönderiliyor: hareket:anim_kar_kureme",
+    "2026-11-15T17:45:47Z görev açıldı: hareket:anim_kar_kureme=01a1e050-af1e-7625-85a1-91dda8094d21",
+    "2026-11-15T17:46:06Z üretildi: assets/model/karakter/muhafiz_kar_kureme.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e050-af1e-7625-85a1-91dda8094d21"
+   ]
   },
   {
    "asset_id": "anim_yagmur_yuru",
@@ -12125,14 +12125,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_yagmur_yuru.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:46:07Z gönderiliyor: hareket:anim_yagmur_yuru",
-    "2026-11-15T17:46:08Z görev açıldı: hareket:anim_yagmur_yuru=01a1e051-0077-749e-8468-e86a79d5ae4d",
-    "2026-11-15T17:46:53Z üretildi: assets/model/karakter/muhafiz_yagmur_yuru.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e051-0077-749e-8468-e86a79d5ae4d"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:46:53Z",
     "bilgi": {
@@ -12164,8 +12156,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:46:07Z gönderiliyor: hareket:anim_yagmur_yuru",
+    "2026-11-15T17:46:08Z görev açıldı: hareket:anim_yagmur_yuru=01a1e051-0077-749e-8468-e86a79d5ae4d",
+    "2026-11-15T17:46:53Z üretildi: assets/model/karakter/muhafiz_yagmur_yuru.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e051-0077-749e-8468-e86a79d5ae4d"
+   ]
   },
   {
    "asset_id": "anim_buzulme",
@@ -12217,14 +12217,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_buzulme.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:46:55Z gönderiliyor: hareket:anim_buzulme",
-    "2026-11-15T17:46:56Z görev açıldı: hareket:anim_buzulme=01a1e051-bc2a-72f2-8dd9-50cd23da32dc",
-    "2026-11-15T17:47:15Z üretildi: assets/model/karakter/muhafiz_buzulme.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e051-bc2a-72f2-8dd9-50cd23da32dc"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:47:15Z",
     "bilgi": {
@@ -12256,8 +12248,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:46:55Z gönderiliyor: hareket:anim_buzulme",
+    "2026-11-15T17:46:56Z görev açıldı: hareket:anim_buzulme=01a1e051-bc2a-72f2-8dd9-50cd23da32dc",
+    "2026-11-15T17:47:15Z üretildi: assets/model/karakter/muhafiz_buzulme.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e051-bc2a-72f2-8dd9-50cd23da32dc"
+   ]
   },
   {
    "asset_id": "anim_kos",
@@ -12305,12 +12305,12 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_kos.glb",
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:23:21Z klip diskte var, atlandı: assets/model/karakter/muhafiz_kos.glb",
     "2026-11-15T17:23:21Z üretildi: "
    ],
-   "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "hesap_plani_uretimde": "ucretli"
   },
   {
    "asset_id": "anim_otur",
@@ -12361,14 +12361,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_otur.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:47:16Z gönderiliyor: hareket:anim_otur",
-    "2026-11-15T17:47:17Z görev açıldı: hareket:anim_otur=01a1e052-1051-741d-9181-162492fdda92",
-    "2026-11-15T17:47:45Z üretildi: assets/model/karakter/muhafiz_otur.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e052-1051-741d-9181-162492fdda92"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:47:45Z",
     "bilgi": {
@@ -12400,8 +12392,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:47:16Z gönderiliyor: hareket:anim_otur",
+    "2026-11-15T17:47:17Z görev açıldı: hareket:anim_otur=01a1e052-1051-741d-9181-162492fdda92",
+    "2026-11-15T17:47:45Z üretildi: assets/model/karakter/muhafiz_otur.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e052-1051-741d-9181-162492fdda92"
+   ]
   },
   {
    "asset_id": "klip_eksik:asker",
@@ -13999,6 +13999,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:28:13Z gönderiliyor: onizleme",
     "2026-11-15T17:28:16Z görev açıldı: onizleme=01a1e040-9e6a-72cb-8a49-1bef644a4556",
@@ -14010,8 +14011,7 @@
    "_sayilan_gorev": [
     "01a1e040-9e6a-72cb-8a49-1bef644a4556",
     "01a1e040-ef79-7122-9162-0726f1d4edd6"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "su_bendi",
@@ -14035,7 +14035,6 @@
    "sira": 411,
    "kullanim_grubu": "4_sik_olaylar",
    "durum": "onaylandi",
-   "oyun_baglantisi": "baglandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e041-d119-7585-a4b1-a4b81ff66ee7",
@@ -14099,6 +14098,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:29:11Z gönderiliyor: onizleme",
     "2026-11-15T17:29:14Z görev açıldı: onizleme=01a1e041-7e7d-7159-b562-2a389afe91d5",
@@ -14110,8 +14110,7 @@
    "_sayilan_gorev": [
     "01a1e041-7e7d-7159-b562-2a389afe91d5",
     "01a1e041-d119-7585-a4b1-a4b81ff66ee7"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity). Oyuna bağlandı: src/koy/gorsel/olay_yapilari.gd (Cursor, 15 Kas 2026)"
+   ]
   },
   {
    "asset_id": "yanik_ev",
@@ -14135,7 +14134,6 @@
    "sira": 412,
    "kullanim_grubu": "4_sik_olaylar",
    "durum": "onaylandi",
-   "oyun_baglantisi": "baglandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "01a1e042-d367-7074-95a5-2e969cd80828",
@@ -14194,6 +14192,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:30:08Z gönderiliyor: onizleme",
     "2026-11-15T17:30:12Z görev açıldı: onizleme=01a1e042-5f5f-7745-88aa-c54e0f3d7a34",
@@ -14205,8 +14204,7 @@
    "_sayilan_gorev": [
     "01a1e042-5f5f-7745-88aa-c54e0f3d7a34",
     "01a1e042-d367-7074-95a5-2e969cd80828"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity). Oyuna bağlandı: src/koy/gorsel/olay_yapilari.gd (Cursor, 15 Kas 2026)"
+   ]
   },
   {
    "asset_id": "kervan_yuku",
@@ -14284,6 +14282,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:31:15Z gönderiliyor: onizleme",
     "2026-11-15T17:31:18Z görev açıldı: onizleme=01a1e043-636b-76ef-b4ef-4847c5662edd",
@@ -14292,8 +14291,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e043-636b-76ef-b4ef-4847c5662edd"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "hasta_cadiri",
@@ -14369,6 +14367,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:31:36Z gönderiliyor: onizleme",
     "2026-11-15T17:31:39Z görev açıldı: onizleme=01a1e043-b6a6-728f-a631-6e0f0eccd09c",
@@ -14377,8 +14376,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e043-b6a6-728f-a631-6e0f0eccd09c"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "sonen_ates",
@@ -14454,6 +14452,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:32:06Z gönderiliyor: onizleme",
     "2026-11-15T17:32:10Z görev açıldı: onizleme=01a1e044-2bb5-7006-a600-b636d7a60324",
@@ -14462,8 +14461,7 @@
    "hesap_plani_uretimde": "ucretli",
    "_sayilan_gorev": [
     "01a1e044-2bb5-7006-a600-b636d7a60324"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "anim_kavga",
@@ -14515,14 +14513,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_kavga.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:47:46Z gönderiliyor: hareket:anim_kavga",
-    "2026-11-15T17:47:47Z görev açıldı: hareket:anim_kavga=01a1e052-8466-73b5-8e27-cffd50135335",
-    "2026-11-15T17:48:07Z üretildi: assets/model/karakter/muhafiz_kavga.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e052-8466-73b5-8e27-cffd50135335"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:48:07Z",
     "bilgi": {
@@ -14554,8 +14544,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:47:46Z gönderiliyor: hareket:anim_kavga",
+    "2026-11-15T17:47:47Z görev açıldı: hareket:anim_kavga=01a1e052-8466-73b5-8e27-cffd50135335",
+    "2026-11-15T17:48:07Z üretildi: assets/model/karakter/muhafiz_kavga.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e052-8466-73b5-8e27-cffd50135335"
+   ]
   },
   {
    "asset_id": "anim_saldir",
@@ -14606,14 +14604,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_saldir.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:48:07Z gönderiliyor: hareket:anim_saldir",
-    "2026-11-15T17:48:08Z görev açıldı: hareket:anim_saldir=01a1e052-d697-7313-99de-39c854c7cb19",
-    "2026-11-15T17:48:27Z üretildi: assets/model/karakter/muhafiz_saldir.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e052-d697-7313-99de-39c854c7cb19"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:48:27Z",
     "bilgi": {
@@ -14645,8 +14635,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:48:07Z gönderiliyor: hareket:anim_saldir",
+    "2026-11-15T17:48:08Z görev açıldı: hareket:anim_saldir=01a1e052-d697-7313-99de-39c854c7cb19",
+    "2026-11-15T17:48:27Z üretildi: assets/model/karakter/muhafiz_saldir.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e052-d697-7313-99de-39c854c7cb19"
+   ]
   },
   {
    "asset_id": "anim_dus",
@@ -14697,14 +14695,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_dus.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:48:28Z gönderiliyor: hareket:anim_dus",
-    "2026-11-15T17:48:29Z görev açıldı: hareket:anim_dus=01a1e053-2792-7510-9c2a-fcc773b3e89e",
-    "2026-11-15T17:48:49Z üretildi: assets/model/karakter/muhafiz_dus.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e053-2792-7510-9c2a-fcc773b3e89e"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:48:49Z",
     "bilgi": {
@@ -14736,8 +14726,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:48:28Z gönderiliyor: hareket:anim_dus",
+    "2026-11-15T17:48:29Z görev açıldı: hareket:anim_dus=01a1e053-2792-7510-9c2a-fcc773b3e89e",
+    "2026-11-15T17:48:49Z üretildi: assets/model/karakter/muhafiz_dus.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e053-2792-7510-9c2a-fcc773b3e89e"
+   ]
   },
   {
    "asset_id": "anim_sinsi_yuru",
@@ -14788,14 +14786,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_sinsi_yuru.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:48:50Z gönderiliyor: hareket:anim_sinsi_yuru",
-    "2026-11-15T17:48:51Z görev açıldı: hareket:anim_sinsi_yuru=01a1e053-7c80-77b7-864d-dff6eb629d51",
-    "2026-11-15T17:49:10Z üretildi: assets/model/karakter/muhafiz_sinsi_yuru.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e053-7c80-77b7-864d-dff6eb629d51"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:49:10Z",
     "bilgi": {
@@ -14827,8 +14817,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:48:50Z gönderiliyor: hareket:anim_sinsi_yuru",
+    "2026-11-15T17:48:51Z görev açıldı: hareket:anim_sinsi_yuru=01a1e053-7c80-77b7-864d-dff6eb629d51",
+    "2026-11-15T17:49:10Z üretildi: assets/model/karakter/muhafiz_sinsi_yuru.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e053-7c80-77b7-864d-dff6eb629d51"
+   ]
   },
   {
    "asset_id": "anim_temkinli_bekle",
@@ -14879,14 +14877,6 @@
    "iskelet_gerekli": false,
    "iskelet_kaynagi": "",
    "hedef_dosya": "assets/model/karakter/anim_temkinli_bekle.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:49:11Z gönderiliyor: hareket:anim_temkinli_bekle",
-    "2026-11-15T17:49:12Z görev açıldı: hareket:anim_temkinli_bekle=01a1e053-cea7-75ab-a322-ebf04cc7151c",
-    "2026-11-15T17:49:31Z üretildi: assets/model/karakter/muhafiz_temkinli_bekle.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e053-cea7-75ab-a322-ebf04cc7151c"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:49:31Z",
     "bilgi": {
@@ -14918,8 +14908,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:49:11Z gönderiliyor: hareket:anim_temkinli_bekle",
+    "2026-11-15T17:49:12Z görev açıldı: hareket:anim_temkinli_bekle=01a1e053-cea7-75ab-a322-ebf04cc7151c",
+    "2026-11-15T17:49:31Z üretildi: assets/model/karakter/muhafiz_temkinli_bekle.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e053-cea7-75ab-a322-ebf04cc7151c"
+   ]
   },
   {
    "asset_id": "sorhan_karisi",
@@ -15025,6 +15023,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:32:28Z gönderiliyor: onizleme",
     "2026-11-15T17:32:32Z görev açıldı: onizleme=01a1e044-8331-75c6-941c-01c1ca766fc4",
@@ -15045,8 +15044,7 @@
     "01a1e045-87dd-7211-8e6c-7f98eb1feb63",
     "01a1e045-f9c2-7138-ba07-b324939c63e1",
     "01a1e046-487d-7216-a3fd-c48fee21bcd3"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "kabus_golgesi",
@@ -15133,6 +15131,7 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
    "uretim_gunlugu": [
     "2026-11-15T17:34:44Z gönderiliyor: onizleme",
     "2026-11-15T17:34:47Z görev açıldı: onizleme=01a1e046-9587-7674-a99e-4616bfd12793",
@@ -15144,8 +15143,7 @@
    "_sayilan_gorev": [
     "01a1e046-9587-7674-a99e-4616bfd12793",
     "01a1e047-28a9-70f2-be13-06619673b716"
-   ],
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   ]
   },
   {
    "asset_id": "mezar",
@@ -15183,16 +15181,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/mezar.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:49:31Z gönderiliyor: onizleme",
-    "2026-11-15T17:49:34Z görev açıldı: onizleme=01a1e054-1d80-7308-8d46-b8ccdfc09358",
-    "2026-11-15T17:50:01Z üretildi: assets/model/nesne/mezar.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e054-1d80-7308-8d46-b8ccdfc09358"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:50:01Z",
     "bilgi": {
@@ -15227,8 +15219,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:49:31Z gönderiliyor: onizleme",
+    "2026-11-15T17:49:34Z görev açıldı: onizleme=01a1e054-1d80-7308-8d46-b8ccdfc09358",
+    "2026-11-15T17:50:01Z üretildi: assets/model/nesne/mezar.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e054-1d80-7308-8d46-b8ccdfc09358"
+   ]
   },
   {
    "asset_id": "toplu_mezar",
@@ -15267,16 +15267,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/toplu_mezar.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:50:01Z gönderiliyor: onizleme",
-    "2026-11-15T17:50:05Z görev açıldı: onizleme=01a1e054-93e8-7787-8004-835b646e1b46",
-    "2026-11-15T17:50:24Z üretildi: assets/model/nesne/toplu_mezar.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e054-93e8-7787-8004-835b646e1b46"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:50:24Z",
     "bilgi": {
@@ -15316,8 +15310,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:50:01Z gönderiliyor: onizleme",
+    "2026-11-15T17:50:05Z görev açıldı: onizleme=01a1e054-93e8-7787-8004-835b646e1b46",
+    "2026-11-15T17:50:24Z üretildi: assets/model/nesne/toplu_mezar.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e054-93e8-7787-8004-835b646e1b46"
+   ]
   },
   {
    "asset_id": "yemin_nesneleri",
@@ -15356,16 +15358,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/yemin_nesneleri.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:50:24Z gönderiliyor: onizleme",
-    "2026-11-15T17:50:27Z görev açıldı: onizleme=01a1e054-ec07-7763-b0c0-a38b260e067b",
-    "2026-11-15T17:50:54Z üretildi: assets/model/nesne/yemin_nesneleri.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e054-ec07-7763-b0c0-a38b260e067b"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:50:54Z",
     "bilgi": {
@@ -15405,8 +15401,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:50:24Z gönderiliyor: onizleme",
+    "2026-11-15T17:50:27Z görev açıldı: onizleme=01a1e054-ec07-7763-b0c0-a38b260e067b",
+    "2026-11-15T17:50:54Z üretildi: assets/model/nesne/yemin_nesneleri.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e054-ec07-7763-b0c0-a38b260e067b"
+   ]
   },
   {
    "asset_id": "ahi_kusagi",
@@ -15444,16 +15448,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/ahi_kusagi.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:50:54Z gönderiliyor: onizleme",
-    "2026-11-15T17:50:58Z görev açıldı: onizleme=01a1e055-62c5-737e-88a3-13f8a67cb6dc",
-    "2026-11-15T17:51:16Z üretildi: assets/model/nesne/ahi_kusagi.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e055-62c5-737e-88a3-13f8a67cb6dc"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:51:16Z",
     "bilgi": {
@@ -15488,8 +15486,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:50:54Z gönderiliyor: onizleme",
+    "2026-11-15T17:50:58Z görev açıldı: onizleme=01a1e055-62c5-737e-88a3-13f8a67cb6dc",
+    "2026-11-15T17:51:16Z üretildi: assets/model/nesne/ahi_kusagi.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e055-62c5-737e-88a3-13f8a67cb6dc"
+   ]
   },
   {
    "asset_id": "davul_zurna",
@@ -15527,16 +15533,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/davul_zurna.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:51:16Z gönderiliyor: onizleme",
-    "2026-11-15T17:51:20Z görev açıldı: onizleme=01a1e055-b884-75ee-9609-b7de917436ae",
-    "2026-11-15T17:51:47Z üretildi: assets/model/nesne/davul_zurna.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e055-b884-75ee-9609-b7de917436ae"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:51:47Z",
     "bilgi": {
@@ -15571,8 +15571,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:51:16Z gönderiliyor: onizleme",
+    "2026-11-15T17:51:20Z görev açıldı: onizleme=01a1e055-b884-75ee-9609-b7de917436ae",
+    "2026-11-15T17:51:47Z üretildi: assets/model/nesne/davul_zurna.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e055-b884-75ee-9609-b7de917436ae"
+   ]
   },
   {
    "asset_id": "ilac_kutusu",
@@ -15610,16 +15618,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/ilac_kutusu.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:51:47Z gönderiliyor: onizleme",
-    "2026-11-15T17:51:50Z görev açıldı: onizleme=01a1e056-305a-72a5-8621-7fa276ebb4c2",
-    "2026-11-15T17:52:17Z üretildi: assets/model/nesne/ilac_kutusu.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e056-305a-72a5-8621-7fa276ebb4c2"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:52:17Z",
     "bilgi": {
@@ -15654,8 +15656,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:51:47Z gönderiliyor: onizleme",
+    "2026-11-15T17:51:50Z görev açıldı: onizleme=01a1e056-305a-72a5-8621-7fa276ebb4c2",
+    "2026-11-15T17:52:17Z üretildi: assets/model/nesne/ilac_kutusu.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e056-305a-72a5-8621-7fa276ebb4c2"
+   ]
   },
   {
    "asset_id": "kirik_kin",
@@ -15693,16 +15703,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/kirik_kin.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:52:17Z gönderiliyor: onizleme",
-    "2026-11-15T17:52:21Z görev açıldı: onizleme=01a1e056-a67b-7762-b035-48d1ed7b53f8",
-    "2026-11-15T17:52:47Z üretildi: assets/model/nesne/kirik_kin.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e056-a67b-7762-b035-48d1ed7b53f8"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:52:47Z",
     "bilgi": {
@@ -15737,8 +15741,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:52:17Z gönderiliyor: onizleme",
+    "2026-11-15T17:52:21Z görev açıldı: onizleme=01a1e056-a67b-7762-b035-48d1ed7b53f8",
+    "2026-11-15T17:52:47Z üretildi: assets/model/nesne/kirik_kin.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e056-a67b-7762-b035-48d1ed7b53f8"
+   ]
   },
   {
    "asset_id": "tezgah_ortusu",
@@ -15778,16 +15790,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/tezgah_ortusu.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:52:48Z gönderiliyor: onizleme",
-    "2026-11-15T17:52:52Z görev açıldı: onizleme=01a1e057-1dcc-7387-8513-e6c8d2e1a15c",
-    "2026-11-15T17:53:10Z üretildi: assets/model/nesne/tezgah_ortusu.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e057-1dcc-7387-8513-e6c8d2e1a15c"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:53:10Z",
     "bilgi": {
@@ -15827,8 +15833,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:52:48Z gönderiliyor: onizleme",
+    "2026-11-15T17:52:52Z görev açıldı: onizleme=01a1e057-1dcc-7387-8513-e6c8d2e1a15c",
+    "2026-11-15T17:53:10Z üretildi: assets/model/nesne/tezgah_ortusu.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e057-1dcc-7387-8513-e6c8d2e1a15c"
+   ]
   },
   {
    "asset_id": "blok_ham",
@@ -15867,16 +15881,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/blok_ham.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:53:11Z gönderiliyor: onizleme",
-    "2026-11-15T17:53:14Z görev açıldı: onizleme=01a1e057-77f7-7181-b82b-25c996833bb1",
-    "2026-11-15T17:53:41Z üretildi: assets/model/nesne/blok_ham.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e057-77f7-7181-b82b-25c996833bb1"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:53:41Z",
     "bilgi": {
@@ -15916,8 +15924,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:53:11Z gönderiliyor: onizleme",
+    "2026-11-15T17:53:14Z görev açıldı: onizleme=01a1e057-77f7-7181-b82b-25c996833bb1",
+    "2026-11-15T17:53:41Z üretildi: assets/model/nesne/blok_ham.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e057-77f7-7181-b82b-25c996833bb1"
+   ]
   },
   {
    "asset_id": "blok_iz",
@@ -15956,16 +15972,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/blok_iz.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:53:42Z gönderiliyor: onizleme",
-    "2026-11-15T17:53:47Z görev açıldı: onizleme=01a1e057-f787-74a9-9084-9bb8b7115d40",
-    "2026-11-15T17:54:15Z üretildi: assets/model/nesne/blok_iz.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e057-f787-74a9-9084-9bb8b7115d40"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:54:15Z",
     "bilgi": {
@@ -16005,8 +16015,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:53:42Z gönderiliyor: onizleme",
+    "2026-11-15T17:53:47Z görev açıldı: onizleme=01a1e057-f787-74a9-9084-9bb8b7115d40",
+    "2026-11-15T17:54:15Z üretildi: assets/model/nesne/blok_iz.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e057-f787-74a9-9084-9bb8b7115d40"
+   ]
   },
   {
    "asset_id": "blok_bicim",
@@ -16045,16 +16063,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/blok_bicim.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:54:15Z gönderiliyor: onizleme",
-    "2026-11-15T17:54:18Z görev açıldı: onizleme=01a1e058-7283-76d2-8c20-1fdfdecd68ea",
-    "2026-11-15T17:54:36Z üretildi: assets/model/nesne/blok_bicim.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e058-7283-76d2-8c20-1fdfdecd68ea"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:54:36Z",
     "bilgi": {
@@ -16094,8 +16106,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:54:15Z gönderiliyor: onizleme",
+    "2026-11-15T17:54:18Z görev açıldı: onizleme=01a1e058-7283-76d2-8c20-1fdfdecd68ea",
+    "2026-11-15T17:54:36Z üretildi: assets/model/nesne/blok_bicim.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e058-7283-76d2-8c20-1fdfdecd68ea"
+   ]
   },
   {
    "asset_id": "blok_agiz",
@@ -16134,16 +16154,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/blok_agiz.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:54:36Z gönderiliyor: onizleme",
-    "2026-11-15T17:54:40Z görev açıldı: onizleme=01a1e058-c585-7682-837b-b14da83891a3",
-    "2026-11-15T17:54:58Z üretildi: assets/model/nesne/blok_agiz.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e058-c585-7682-837b-b14da83891a3"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:54:58Z",
     "bilgi": {
@@ -16183,8 +16197,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:54:36Z gönderiliyor: onizleme",
+    "2026-11-15T17:54:40Z görev açıldı: onizleme=01a1e058-c585-7682-837b-b14da83891a3",
+    "2026-11-15T17:54:58Z üretildi: assets/model/nesne/blok_agiz.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e058-c585-7682-837b-b14da83891a3"
+   ]
   },
   {
    "asset_id": "teslim_parcasi",
@@ -16223,16 +16245,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/teslim_parcasi.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:54:59Z gönderiliyor: onizleme",
-    "2026-11-15T17:55:02Z görev açıldı: onizleme=01a1e059-1dc4-7693-8263-2dfc38a1d70e",
-    "2026-11-15T17:55:29Z üretildi: assets/model/nesne/teslim_parcasi.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e059-1dc4-7693-8263-2dfc38a1d70e"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:55:29Z",
     "bilgi": {
@@ -16272,8 +16288,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:54:59Z gönderiliyor: onizleme",
+    "2026-11-15T17:55:02Z görev açıldı: onizleme=01a1e059-1dc4-7693-8263-2dfc38a1d70e",
+    "2026-11-15T17:55:29Z üretildi: assets/model/nesne/teslim_parcasi.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e059-1dc4-7693-8263-2dfc38a1d70e"
+   ]
   },
   {
    "asset_id": "hediye_bohcasi",
@@ -16311,16 +16335,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/hediye_bohcasi.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:55:30Z gönderiliyor: onizleme",
-    "2026-11-15T17:55:34Z görev açıldı: onizleme=01a1e059-988c-7056-bf57-126ada814df7",
-    "2026-11-15T17:55:52Z üretildi: assets/model/nesne/hediye_bohcasi.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e059-988c-7056-bf57-126ada814df7"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:55:52Z",
     "bilgi": {
@@ -16360,8 +16378,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:55:30Z gönderiliyor: onizleme",
+    "2026-11-15T17:55:34Z görev açıldı: onizleme=01a1e059-988c-7056-bf57-126ada814df7",
+    "2026-11-15T17:55:52Z üretildi: assets/model/nesne/hediye_bohcasi.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e059-988c-7056-bf57-126ada814df7"
+   ]
   },
   {
    "asset_id": "iksir_sisesi",
@@ -16399,16 +16425,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/iksir_sisesi.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:55:52Z gönderiliyor: onizleme",
-    "2026-11-15T17:55:56Z görev açıldı: onizleme=01a1e059-ef8a-7257-acb3-62fb77c36563",
-    "2026-11-15T17:56:14Z üretildi: assets/model/nesne/iksir_sisesi.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e059-ef8a-7257-acb3-62fb77c36563"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:56:14Z",
     "bilgi": {
@@ -16448,8 +16468,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:55:52Z gönderiliyor: onizleme",
+    "2026-11-15T17:55:56Z görev açıldı: onizleme=01a1e059-ef8a-7257-acb3-62fb77c36563",
+    "2026-11-15T17:56:14Z üretildi: assets/model/nesne/iksir_sisesi.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e059-ef8a-7257-acb3-62fb77c36563"
+   ]
   },
   {
    "asset_id": "kisisel_iz",
@@ -16488,16 +16516,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/kisisel_iz.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:56:14Z gönderiliyor: onizleme",
-    "2026-11-15T17:56:18Z görev açıldı: onizleme=01a1e05a-44c7-758d-81c7-16551a733a6e",
-    "2026-11-15T17:56:45Z üretildi: assets/model/nesne/kisisel_iz.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e05a-44c7-758d-81c7-16551a733a6e"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:56:45Z",
     "bilgi": {
@@ -16537,8 +16559,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:56:14Z gönderiliyor: onizleme",
+    "2026-11-15T17:56:18Z görev açıldı: onizleme=01a1e05a-44c7-758d-81c7-16551a733a6e",
+    "2026-11-15T17:56:45Z üretildi: assets/model/nesne/kisisel_iz.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e05a-44c7-758d-81c7-16551a733a6e"
+   ]
   },
   {
    "asset_id": "muhur",
@@ -16576,16 +16606,10 @@
    "kaynak": "Meshy",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
-   "notlar": [],
+   "notlar": [
+    "hedef dosya diskte bulundu; üretilmez"
+   ],
    "hedef_dosya": "assets/model/nesne/muhur.glb",
-   "uretim_gunlugu": [
-    "2026-11-15T17:56:45Z gönderiliyor: onizleme",
-    "2026-11-15T17:56:48Z görev açıldı: onizleme=01a1e05a-bf43-7688-8dc4-f5902d2faf0d",
-    "2026-11-15T17:57:15Z üretildi: assets/model/nesne/muhur.glb"
-   ],
-   "_sayilan_gorev": [
-    "01a1e05a-bf43-7688-8dc4-f5902d2faf0d"
-   ],
    "dogrulama": {
     "zaman": "2026-11-15T17:57:15Z",
     "bilgi": {
@@ -16625,8 +16649,16 @@
      ]
     ]
    },
+   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)",
+   "uretim_gunlugu": [
+    "2026-11-15T17:56:45Z gönderiliyor: onizleme",
+    "2026-11-15T17:56:48Z görev açıldı: onizleme=01a1e05a-bf43-7688-8dc4-f5902d2faf0d",
+    "2026-11-15T17:57:15Z üretildi: assets/model/nesne/muhur.glb"
+   ],
    "hesap_plani_uretimde": "ucretli",
-   "onay_notu": "Görev 26 toplu üretim ve Godot doğrulaması geçti (Antigravity)"
+   "_sayilan_gorev": [
+    "01a1e05a-bf43-7688-8dc4-f5902d2faf0d"
+   ]
   },
   {
    "asset_id": "aydogdu",
@@ -16881,7 +16913,9 @@
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
-   "meshy_gorevleri": {},
+   "meshy_gorevleri": {
+    "iskelet": "01a1e0b2-4696-7240-bc71-59537530e4e0"
+   },
    "dosya": "assets/model/karakter/saruca_hatun_yuru.glb",
    "ek_dosyalar": [],
    "sha256": "7ed79c40c21003999cacfa84484440e86ed7927bdd3e91fcb7fdfc338f540f0a",
@@ -17136,16 +17170,23 @@
    "oncelik": "orta",
    "sira": 550,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "planli",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "",
-   "ek_dosyalar": [],
-   "sha256": "",
-   "kredi_tahmini": 11,
-   "kredi_harcanan": 0,
+   "meshy_gorevleri": {
+    "iskelet": "01a1e0b1-84cf-706a-8aed-72a215a06c25",
+    "hareket:panik": "01a1e0b1-c942-71ba-ab6b-26fe5b8ee47d",
+    "hareket:gergin": "01a1e0b1-f6f1-708a-ab36-936cc84a55d2"
+   },
+   "dosya": "assets/model/karakter/chr_001_gergin.glb",
+   "ek_dosyalar": [
+    "assets/model/karakter/chr_001_gergin.glb",
+    "assets/model/karakter/chr_001_panik.glb"
+   ],
+   "sha256": "17bf49569e87727a7b0dfa8c41421a10dc22c72627e89527d7847a0c137f6510",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 11,
    "kaynak": "Meshy (animasyon kitaplığı)",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
@@ -17154,8 +17195,57 @@
    ],
    "hedef_karakter": "chr_001",
    "iskelet_gerekli": true,
-   "iskelet_kaynagi": "",
-   "hedef_dosya": "assets/model/karakter/klip_eksik:chr_001.glb"
+   "iskelet_kaynagi": "01a1e0b1-84cf-706a-8aed-72a215a06c25",
+   "hedef_dosya": "assets/model/karakter/klip_eksik:chr_001.glb",
+   "uretim_gunlugu": [
+    "2026-11-15T19:31:32Z gönderiliyor: iskelet",
+    "2026-11-15T19:31:40Z görev açıldı: iskelet=01a1e0b1-84cf-706a-8aed-72a215a06c25",
+    "2026-11-15T19:31:50Z gönderiliyor: hareket:panik",
+    "2026-11-15T19:31:50Z görev açıldı: hareket:panik=01a1e0b1-c942-71ba-ab6b-26fe5b8ee47d",
+    "2026-11-15T19:32:01Z gönderiliyor: hareket:gergin",
+    "2026-11-15T19:32:02Z görev açıldı: hareket:gergin=01a1e0b1-f6f1-708a-ab36-936cc84a55d2",
+    "2026-11-15T19:32:21Z üretildi: assets/model/karakter/chr_001_gergin.glb",
+    "2026-11-15T19:38:07Z onaylandi: Pilot onay: iskelet+panik+gergin (11 kredi), Godot klip ve ayak zemini dogrulandi"
+   ],
+   "_sayilan_gorev": [
+    "01a1e0b1-84cf-706a-8aed-72a215a06c25",
+    "01a1e0b1-c942-71ba-ab6b-26fe5b8ee47d",
+    "01a1e0b1-f6f1-708a-ab36-936cc84a55d2"
+   ],
+   "dogrulama": {
+    "zaman": "2026-11-15T19:35:02Z",
+    "bilgi": {
+     "dosya": "C:\\Users\\Ahmet\\Desktop\\Cursor_All_DAta\\Kapı_Muhafizi\\assets/model/karakter/chr_001_gergin.glb",
+     "bayt": 2989628,
+     "gecerli": true,
+     "ucgen": 8340,
+     "mesh": 1,
+     "boyut_m": [
+      1.247,
+      1.78,
+      0.581
+     ],
+     "taban_y": -0.059,
+     "iskelet": 1,
+     "kemik": 24,
+     "animasyon": [
+      "Armature|Alert|baselayer"
+     ],
+     "malzeme": 1,
+     "doku": 1,
+     "uretici": "Khronos glTF Blender I/O v4.5.51"
+    },
+    "gozlem": [
+     [
+      "taban",
+      "uyari",
+      "en alt nokta y=-0.059 (pivot ayak tabanında olmalı)"
+     ]
+    ]
+   },
+   "hesap_plani_uretimde": "ucretli",
+   "sha256_simdi": "17bf49569e87727a7b0dfa8c41421a10dc22c72627e89527d7847a0c137f6510",
+   "onay_notu": "Pilot onay: iskelet+panik+gergin (11 kredi), Godot klip ve ayak zemini dogrulandi"
   },
   {
    "asset_id": "klip_eksik:chr_002",
@@ -18754,16 +18844,31 @@
    "oncelik": "orta",
    "sira": 550,
    "kullanim_grubu": "5_nadir_ve_sus",
-   "durum": "planli",
+   "durum": "onaylandi",
    "meshy_uygun": true,
    "uygun_degil_nedeni": "",
    "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "",
-   "ek_dosyalar": [],
-   "sha256": "",
-   "kredi_tahmini": 23,
-   "kredi_harcanan": 0,
+   "meshy_gorevleri": {
+    "iskelet": "01a1e0b2-4696-7240-bc71-59537530e4e0",
+    "hareket:bekle": "01a1e0b2-839d-77e5-95ed-5c77f505b59a",
+    "hareket:konus": "01a1e0b2-d2d2-727c-95b8-391100d64770",
+    "hareket:sevinc": "01a1e0b3-2182-7504-8ae6-a9b3cc267ee3",
+    "hareket:ofke": "01a1e0b3-707c-767b-a35f-39641abc15b8",
+    "hareket:panik": "01a1e0b4-222b-72cb-a3c1-4935b5ba73d2",
+    "hareket:gergin": "01a1e0b4-4d74-730f-beb5-ce66834e131e"
+   },
+   "dosya": "assets/model/karakter/saruca_hatun_bekle.glb",
+   "ek_dosyalar": [
+    "assets/model/karakter/saruca_hatun_bekle.glb",
+    "assets/model/karakter/saruca_hatun_gergin.glb",
+    "assets/model/karakter/saruca_hatun_konus.glb",
+    "assets/model/karakter/saruca_hatun_ofke.glb",
+    "assets/model/karakter/saruca_hatun_panik.glb",
+    "assets/model/karakter/saruca_hatun_sevinc.glb"
+   ],
+   "sha256": "b5780b57392f07d54a83bcb9fcb8a8c89b4d76728bcf80e6619f5dab9a10ebb9",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 23,
    "kaynak": "Meshy (animasyon kitaplığı)",
    "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
    "topluluk_adayi": [],
@@ -18772,8 +18877,69 @@
    ],
    "hedef_karakter": "saruca_hatun",
    "iskelet_gerekli": true,
-   "iskelet_kaynagi": "",
-   "hedef_dosya": "assets/model/karakter/klip_eksik:saruca_hatun.glb"
+   "iskelet_kaynagi": "01a1e0b2-4696-7240-bc71-59537530e4e0",
+   "hedef_dosya": "assets/model/karakter/klip_eksik:saruca_hatun.glb",
+   "uretim_gunlugu": [
+    "2026-11-15T19:32:22Z gönderiliyor: iskelet",
+    "2026-11-15T19:32:27Z görev açıldı: iskelet=01a1e0b2-4696-7240-bc71-59537530e4e0",
+    "2026-11-15T19:32:37Z gönderiliyor: hareket:bekle",
+    "2026-11-15T19:32:38Z görev açıldı: hareket:bekle=01a1e0b2-839d-77e5-95ed-5c77f505b59a",
+    "2026-11-15T19:32:58Z gönderiliyor: hareket:konus",
+    "2026-11-15T19:32:58Z görev açıldı: hareket:konus=01a1e0b2-d2d2-727c-95b8-391100d64770",
+    "2026-11-15T19:33:18Z gönderiliyor: hareket:sevinc",
+    "2026-11-15T19:33:19Z görev açıldı: hareket:sevinc=01a1e0b3-2182-7504-8ae6-a9b3cc267ee3",
+    "2026-11-15T19:33:38Z gönderiliyor: hareket:ofke",
+    "2026-11-15T19:33:39Z görev açıldı: hareket:ofke=01a1e0b3-707c-767b-a35f-39641abc15b8",
+    "2026-11-15T19:34:24Z gönderiliyor: hareket:panik",
+    "2026-11-15T19:34:24Z görev açıldı: hareket:panik=01a1e0b4-222b-72cb-a3c1-4935b5ba73d2",
+    "2026-11-15T19:34:35Z gönderiliyor: hareket:gergin",
+    "2026-11-15T19:34:35Z görev açıldı: hareket:gergin=01a1e0b4-4d74-730f-beb5-ce66834e131e",
+    "2026-11-15T19:34:54Z üretildi: assets/model/karakter/saruca_hatun_bekle.glb",
+    "2026-11-15T19:38:07Z onaylandi: Pilot onay: iskelet+6 klip (23 kredi), Godot klip ve ayak zemini dogrulandi"
+   ],
+   "_sayilan_gorev": [
+    "01a1e0b2-4696-7240-bc71-59537530e4e0",
+    "01a1e0b2-839d-77e5-95ed-5c77f505b59a",
+    "01a1e0b2-d2d2-727c-95b8-391100d64770",
+    "01a1e0b3-2182-7504-8ae6-a9b3cc267ee3",
+    "01a1e0b3-707c-767b-a35f-39641abc15b8",
+    "01a1e0b4-222b-72cb-a3c1-4935b5ba73d2",
+    "01a1e0b4-4d74-730f-beb5-ce66834e131e"
+   ],
+   "dogrulama": {
+    "zaman": "2026-11-15T19:35:02Z",
+    "bilgi": {
+     "dosya": "C:\\Users\\Ahmet\\Desktop\\Cursor_All_DAta\\Kapı_Muhafizi\\assets/model/karakter/saruca_hatun_bekle.glb",
+     "bayt": 3050080,
+     "gecerli": true,
+     "ucgen": 8313,
+     "mesh": 1,
+     "boyut_m": [
+      0.96,
+      1.6,
+      0.63
+     ],
+     "taban_y": -0.037,
+     "iskelet": 1,
+     "kemik": 24,
+     "animasyon": [
+      "Armature|Idle|baselayer"
+     ],
+     "malzeme": 1,
+     "doku": 1,
+     "uretici": "Khronos glTF Blender I/O v4.5.51"
+    },
+    "gozlem": [
+     [
+      "taban",
+      "tamam",
+      "en alt nokta y=-0.037 (pivot ayak tabanında olmalı)"
+     ]
+    ]
+   },
+   "hesap_plani_uretimde": "ucretli",
+   "sha256_simdi": "b5780b57392f07d54a83bcb9fcb8a8c89b4d76728bcf80e6619f5dab9a10ebb9",
+   "onay_notu": "Pilot onay: iskelet+6 klip (23 kredi), Godot klip ve ayak zemini dogrulandi"
   },
   {
    "asset_id": "klip_eksik:sorhan",
@@ -33040,6 +33206,39 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:ahi_kusagi",
+   "ad": "ahi_kusagi",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/ahi_kusagi.glb",
+   "ek_dosyalar": [],
+   "sha256": "5558cb9224e7c9b691ec81a67ed05b429cc76d4087a9f65fcda754601e20bd4f",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:ahir",
    "ad": "ahir",
    "tur": "harici",
@@ -33955,6 +34154,138 @@
    "dosya": "assets/model/hayvan/beygir.glb",
    "ek_dosyalar": [],
    "sha256": "03bc4e7781ad64cbfce70da6a621a49cfe227d20c0a5a14e65ea323f80fe212f",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:blok_agiz",
+   "ad": "blok_agiz",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/blok_agiz.glb",
+   "ek_dosyalar": [],
+   "sha256": "4e186e4abaddb4e2e334f601bccfa0ede3ae89613e6e7c4b24a6dc90faa0d1a4",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:blok_bicim",
+   "ad": "blok_bicim",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/blok_bicim.glb",
+   "ek_dosyalar": [],
+   "sha256": "bee6fc171f0de5a0c84a996686da9cb63e194067caba9f3c9ff009e4ca3e3a35",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:blok_ham",
+   "ad": "blok_ham",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/blok_ham.glb",
+   "ek_dosyalar": [],
+   "sha256": "a66a01806dc1fc2a1ea72a4193ffd4bfdc1853121a1f489649c2ba2d069baa6c",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:blok_iz",
+   "ad": "blok_iz",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/blok_iz.glb",
+   "ek_dosyalar": [],
+   "sha256": "1f7ee3fc04fdefcd47939a16e315945b1ca6330057870d6672de16ec10fc82f0",
    "kredi_tahmini": 0,
    "kredi_harcanan": 0,
    "kaynak": "Meshy (eski hat, plan satırı yok)",
@@ -35011,6 +35342,39 @@
    "dosya": "assets/model/yapi/cozumleme_odasi.glb",
    "ek_dosyalar": [],
    "sha256": "ebbd5a7674a0026f7d8746e3074ac3e07c3714346e475e4a225d91af71273973",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:davul_zurna",
+   "ad": "davul_zurna",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/davul_zurna.glb",
+   "ek_dosyalar": [],
+   "sha256": "fce91255384d1ee9ef7822dd9969943072361a0ba6d26c4f1c4bfb8fe6809f5a",
    "kredi_tahmini": 0,
    "kredi_harcanan": 0,
    "kaynak": "Meshy (eski hat, plan satırı yok)",
@@ -37198,6 +37562,39 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:hediye_bohcasi",
+   "ad": "hediye_bohcasi",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/hediye_bohcasi.glb",
+   "ek_dosyalar": [],
+   "sha256": "e58e834ff17e2743890e71be44693591333a92e714ddb60b7b14655959c88b01",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:hizarhane",
    "ad": "hizarhane",
    "tur": "harici",
@@ -37222,6 +37619,72 @@
    "dosya": "assets/model/yapi/hizarhane.glb",
    "ek_dosyalar": [],
    "sha256": "db6dde3f6654c0b52cc8cbbe76e0288451929eceec4722ed1ee0d1ace039f666",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:iksir_sisesi",
+   "ad": "iksir_sisesi",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/iksir_sisesi.glb",
+   "ek_dosyalar": [],
+   "sha256": "600e945030ea3e833b53a1a1ea91588ec4c91e917deb710a920692a6d66db550",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:ilac_kutusu",
+   "ad": "ilac_kutusu",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/ilac_kutusu.glb",
+   "ek_dosyalar": [],
+   "sha256": "fb851330782379bf31372b4533422c08a33143286466321f4073656fef4ec07c",
    "kredi_tahmini": 0,
    "kredi_harcanan": 0,
    "kaynak": "Meshy (eski hat, plan satırı yok)",
@@ -37561,6 +38024,39 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:kirik_kin",
+   "ad": "kirik_kin",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/kirik_kin.glb",
+   "ek_dosyalar": [],
+   "sha256": "18aa6c090aa707376a59ce08434dd2dfd31aff741a119e541518c965438d2886",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:kirmen",
    "ad": "kirmen",
    "tur": "harici",
@@ -37585,6 +38081,39 @@
    "dosya": "assets/model/nesne/kirmen.glb",
    "ek_dosyalar": [],
    "sha256": "ed8f0918fb907d46c4d5f28550d3ace362a863495f4d78485ddda4cc9c6ce454",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:kisisel_iz",
+   "ad": "kisisel_iz",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/kisisel_iz.glb",
+   "ek_dosyalar": [],
+   "sha256": "a25782e5c3ad3ca02fa89deb1af7a7778d5a75f04b51bd61836f01fd6f7ce4f6",
    "kredi_tahmini": 0,
    "kredi_harcanan": 0,
    "kaynak": "Meshy (eski hat, plan satırı yok)",
@@ -38518,6 +39047,39 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:mezar",
+   "ad": "mezar",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/mezar.glb",
+   "ek_dosyalar": [],
+   "sha256": "3930bb3f4130b0df87c5a1c45115aaf888a05e66d9a3d27ae9cbb38599f79f00",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:mizrak",
    "ad": "mizrak",
    "tur": "harici",
@@ -38641,6 +39203,105 @@
    "dosya": "assets/model/karakter/muhafiz_bekle.glb",
    "ek_dosyalar": [],
    "sha256": "37223df6349494342244cf65507ee8512b9a6b51af7d0136d140a52acc994edc",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:muhafiz_buzulme",
+   "ad": "muhafiz_buzulme",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_buzulme.glb",
+   "ek_dosyalar": [],
+   "sha256": "4ce404a8ad59e30879ca719e116b8678f108ce1f5e651cf52f2363d3e3e8bfe1",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:muhafiz_cekic_vurma",
+   "ad": "muhafiz_cekic_vurma",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_cekic_vurma.glb",
+   "ek_dosyalar": [],
+   "sha256": "890f395d4c677db62ad87004b75184fefc21c55c2e82205bb265df7bca487d6c",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:muhafiz_dus",
+   "ad": "muhafiz_dus",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_dus.glb",
+   "ek_dosyalar": [],
+   "sha256": "46558058938a4d44975099711eb80a4f768796292637b1d830c7aac1770e2682",
    "kredi_tahmini": 0,
    "kredi_harcanan": 0,
    "kaynak": "Meshy (eski hat, plan satırı yok)",
@@ -38980,6 +39641,39 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:muhafiz_firin_kuregi",
+   "ad": "muhafiz_firin_kuregi",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_firin_kuregi.glb",
+   "ek_dosyalar": [],
+   "sha256": "0dceffa8236c224f947e3d3197f577dd1399b47fad63e63e1aafc134c019b1c9",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:muhafiz_gergin",
    "ad": "muhafiz_gergin",
    "tur": "harici",
@@ -39112,6 +39806,39 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:muhafiz_isinma",
+   "ad": "muhafiz_isinma",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_isinma.glb",
+   "ek_dosyalar": [],
+   "sha256": "4a6cb290528693fafb5e7215264c603b71bd07f20a39b4d49c66491e03ff0f1b",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:muhafiz_iskelet",
    "ad": "muhafiz_iskelet",
    "tur": "harici",
@@ -39136,6 +39863,72 @@
    "dosya": "assets/model/karakter/muhafiz_iskelet.glb",
    "ek_dosyalar": [],
    "sha256": "6756b3e02b9df169a7e90425e93aa742e188c86d5289ccde7370b3cc2778f694",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:muhafiz_kar_kureme",
+   "ad": "muhafiz_kar_kureme",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_kar_kureme.glb",
+   "ek_dosyalar": [],
+   "sha256": "decf31ce1b7434b480f187633e6138b0a90fd332848bd2c699884e1c507ca503",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:muhafiz_kavga",
+   "ad": "muhafiz_kavga",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_kavga.glb",
+   "ek_dosyalar": [],
+   "sha256": "c337a8f050e8b9a77a3a870cfa14db8428b971d5f41d8ef173a608d24697bb91",
    "kredi_tahmini": 0,
    "kredi_harcanan": 0,
    "kaynak": "Meshy (eski hat, plan satırı yok)",
@@ -39244,6 +40037,39 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:muhafiz_nobet",
+   "ad": "muhafiz_nobet",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_nobet.glb",
+   "ek_dosyalar": [],
+   "sha256": "64431123e069a6f85ba1243a6469389cdb5615746ae5f88bb2f88bd2a8347611",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:muhafiz_odasi",
    "ad": "muhafiz_odasi",
    "tur": "harici",
@@ -39310,6 +40136,72 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:muhafiz_orak",
+   "ad": "muhafiz_orak",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_orak.glb",
+   "ek_dosyalar": [],
+   "sha256": "8e720a77b49f2c9a2eda86074e2624a4471262e1368181373bbf6dbb6058f95d",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:muhafiz_otur",
+   "ad": "muhafiz_otur",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_otur.glb",
+   "ek_dosyalar": [],
+   "sha256": "910393cd8fd3509f3fda2c84318f7562d01aae9e07072633ba8098991b07cb2c",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:muhafiz_panik",
    "ad": "muhafiz_panik",
    "tur": "harici",
@@ -39334,6 +40226,39 @@
    "dosya": "assets/model/karakter/muhafiz_panik.glb",
    "ek_dosyalar": [],
    "sha256": "564918736f17c78eaf8d0528db8503a90eb71e40044f2506f50dfd0a54448fdc",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:muhafiz_saldir",
+   "ad": "muhafiz_saldir",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_saldir.glb",
+   "ek_dosyalar": [],
+   "sha256": "193f1ca402d598d98e82f48e5929f1a9f1c2ac965a8af0d6cb5a37ae1def3cc4",
    "kredi_tahmini": 0,
    "kredi_harcanan": 0,
    "kaynak": "Meshy (eski hat, plan satırı yok)",
@@ -39376,6 +40301,105 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:muhafiz_sinsi_yuru",
+   "ad": "muhafiz_sinsi_yuru",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_sinsi_yuru.glb",
+   "ek_dosyalar": [],
+   "sha256": "37034ef0d25bf1d6a14eab28c29a44452ff52aa18ee0bc892b8a7f4dbd14206c",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:muhafiz_temkinli_bekle",
+   "ad": "muhafiz_temkinli_bekle",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_temkinli_bekle.glb",
+   "ek_dosyalar": [],
+   "sha256": "6d5371017b461dcf2d6618c9bb08eaae50484045351b60e324d7e04c157eb190",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:muhafiz_yagmur_yuru",
+   "ad": "muhafiz_yagmur_yuru",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/karakter/muhafiz_yagmur_yuru.glb",
+   "ek_dosyalar": [],
+   "sha256": "3cf649a2ea05a2aa3bb499a3d5dc90cde55eaf49f040b2b025d93718d16c43f7",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:muhafiz_yuru",
    "ad": "muhafiz_yuru",
    "tur": "harici",
@@ -39400,6 +40424,39 @@
    "dosya": "assets/model/karakter/muhafiz_yuru.glb",
    "ek_dosyalar": [],
    "sha256": "b9aa34433980d13d1772fae3de7f8cd3e79f65f844e7e79941021487bac18c64",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:muhur",
+   "ad": "muhur",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/muhur.glb",
+   "ek_dosyalar": [],
+   "sha256": "2cfbac4f8b19c2b90882f64a5fd1615251dabffff52bf3f4447e446a78940209",
    "kredi_tahmini": 0,
    "kredi_harcanan": 0,
    "kaynak": "Meshy (eski hat, plan satırı yok)",
@@ -41554,6 +42611,105 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:teslim_parcasi",
+   "ad": "teslim_parcasi",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/teslim_parcasi.glb",
+   "ek_dosyalar": [],
+   "sha256": "024ec1895bc4afb24172c1b2ec108d749bb08e5ea9e7b11a1b42b8bd0c958eba",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:tezgah_ortusu",
+   "ad": "tezgah_ortusu",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/tezgah_ortusu.glb",
+   "ek_dosyalar": [],
+   "sha256": "764db706a9dc36b8c75ce5463567511fc2ea2f90704012e2b495136d7f86eddc",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
+   "asset_id": "meshy_dosya:toplu_mezar",
+   "ad": "toplu_mezar",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/toplu_mezar.glb",
+   "ek_dosyalar": [],
+   "sha256": "bfbe5fc3fbfc7be3da157e8a57285af968b5cd033fbe1203051e4eb834007951",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:turkmen_bey_adami",
    "ad": "turkmen_bey_adami",
    "tur": "harici",
@@ -42643,6 +43799,39 @@
    "hedef_dosya": ""
   },
   {
+   "asset_id": "meshy_dosya:yemin_nesneleri",
+   "ad": "yemin_nesneleri",
+   "tur": "harici",
+   "kaynak_plan": [],
+   "plan_kimlikleri": [],
+   "prompt": "",
+   "prompt_ozeti": "",
+   "poly_hedef": null,
+   "boy_m": null,
+   "olcu": "",
+   "doku": false,
+   "iskelet": false,
+   "hareketler": [],
+   "oncelik": "orta",
+   "sira": 900,
+   "kullanim_grubu": "mevcut_veya_harici",
+   "durum": "mevcut",
+   "meshy_uygun": false,
+   "uygun_degil_nedeni": "mevcut dosya",
+   "meshy_task_id": "",
+   "meshy_gorevleri": {},
+   "dosya": "assets/model/nesne/yemin_nesneleri.glb",
+   "ek_dosyalar": [],
+   "sha256": "662ca8c33c803adc691c498194f6f394772cef88dec945f9769c70f6fbbb697c",
+   "kredi_tahmini": 0,
+   "kredi_harcanan": 0,
+   "kaynak": "Meshy (eski hat, plan satırı yok)",
+   "lisans_notu": "Meshy ücretli plan çıktısı: kullanıcıya ait, atıf gerekmez (Meshy Terms of Use 3.2).",
+   "topluluk_adayi": [],
+   "notlar": [],
+   "hedef_dosya": ""
+  },
+  {
    "asset_id": "meshy_dosya:zar",
    "ad": "zar",
    "tur": "harici",
@@ -42710,61 +43899,29 @@
   }
  ],
  "_kitaplik": {
-  "anim_nobet": {
-   "id": 336,
-   "ad": "Long Breathe and Look Around"
+  "panik": {
+   "id": 365,
+   "ad": "Kneel on One Knee and Stand"
   },
-  "anim_cekic_vurma": {
-   "id": 128,
-   "ad": "Heavy Hammer Swing"
-  },
-  "anim_firin_kuregi": {
-   "id": 259,
-   "ad": "Step Forward and Push"
-  },
-  "anim_orak": {
-   "id": 99,
-   "ad": "Reaping Swing"
-  },
-  "anim_isinma": {
-   "id": 243,
-   "ad": "Idle 3"
-  },
-  "anim_kar_kureme": {
-   "id": 260,
-   "ad": "Push Forward and Stop"
-  },
-  "anim_yagmur_yuru": {
-   "id": 341,
-   "ad": "Walk Slowly and Look Around"
-  },
-  "anim_buzulme": {
-   "id": 30,
-   "ad": "Casual Walk"
-  },
-  "anim_otur": {
-   "id": 33,
-   "ad": "Chair Sit Idle Male"
-  },
-  "anim_kavga": {
-   "id": 198,
-   "ad": "Punch Combo"
-  },
-  "anim_saldir": {
-   "id": 4,
-   "ad": "Attack"
-  },
-  "anim_dus": {
-   "id": 366,
-   "ad": "Falling Down"
-  },
-  "anim_sinsi_yuru": {
-   "id": 559,
-   "ad": "Sneaky Walk"
-  },
-  "anim_temkinli_bekle": {
+  "gergin": {
    "id": 2,
    "ad": "Alert"
+  },
+  "bekle": {
+   "id": 0,
+   "ad": "Idle"
+  },
+  "konus": {
+   "id": 313,
+   "ad": "Talk with Hands Open"
+  },
+  "sevinc": {
+   "id": 41,
+   "ad": "Formal Bow"
+  },
+  "ofke": {
+   "id": 311,
+   "ad": "Stand Talking Angry"
   }
  }
 }

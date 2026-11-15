@@ -25,6 +25,7 @@ Tekrar üretim engelleri (hepsi her görev açılışından önce):
   7. Manifestte aynı istem iki üretilecek satırda varsa üretim reddedilir.
 """
 import argparse
+import base64
 import os
 import subprocess
 import sys
@@ -421,7 +422,7 @@ def uret_satir(istemci, nesne, r, ayar, o):
             for h in r.get("hareketler") or []:
                 _hareket_uret(istemci, nesne, r, h, r["meshy_gorevleri"]["iskelet"], ad, ayar, o)
     elif r["tur"] == "animasyon":
-        rig, hedef = _rig_bul(nesne, r, ayar)
+        rig, hedef = _rig_bul(nesne, r, ayar, istemci, o)
         for h in r.get("hareketler") or []:
             _hareket_uret(istemci, nesne, r, h, rig, hedef, ayar, o)
         r["dosya"] = r["ek_dosyalar"][0] if r.get("ek_dosyalar") else ""
@@ -437,11 +438,30 @@ def uret_satir(istemci, nesne, r, ayar, o):
     kaydet(nesne)
 
 
-def _rig_bul(nesne, r, ayar):
+def _eski_iskelet_uret(istemci, nesne, r, k, ayar, o):
+    yol_rel = k.get("dosya") or ""
+    yol = os.path.join(KOK, yol_rel) if yol_rel else ""
+    if not yol_rel or not os.path.isfile(yol):
+        raise Durdur("%s: hedef karakterin model dosyası diskte yok (%s). Kredi harcanmadı." % (r["asset_id"], yol_rel))
+    with open(yol, "rb") as f:
+        veri_uri = "data:model/gltf-binary;base64," + base64.b64encode(f.read()).decode("ascii")
+    govde = {"model_url": veri_uri, "height_meters": k.get("boy_m") or 1.7, "name": ortak.etiket(r["asset_id"], "iskelet")}
+    _gorev_ac(istemci, nesne, r, "iskelet", govde, o)
+    _bekle(istemci, nesne, r, "iskelet", ayar)
+    rig = r["meshy_gorevleri"]["iskelet"]
+    r["iskelet_kaynagi"] = rig
+    k.setdefault("meshy_gorevleri", {})["iskelet"] = rig
+    kaydet(nesne)
+    return rig
+
+
+def _rig_bul(nesne, r, ayar, istemci=None, o=None):
     harita = satir_haritasi(nesne)
     if r.get("hedef_karakter"):
         k = harita.get(r["hedef_karakter"], {})
         rig = r.get("iskelet_kaynagi") or (k.get("meshy_gorevleri") or {}).get("iskelet")
+        if not rig and r.get("iskelet_gerekli") and istemci is not None:
+            rig = _eski_iskelet_uret(istemci, nesne, r, k, ayar, o)
         if not rig:
             raise Durdur("%s: hedef karakterin iskelet görevi yok (ön koşul). Kredi harcanmadı." % r["asset_id"])
         return rig, r["hedef_karakter"]
@@ -535,6 +555,10 @@ def uretim(o, sadece_yarim=False):
             sys.exit("--onay-kredi %d ≠ tahmini %d; seçim değişmiş olabilir. Kredi harcanmadı." % (o.onay_kredi, toplam))
         harcanan = 0
         for r in secilen:
+            guncel_bakiye = istemci.bakiye()
+            if guncel_bakiye is not None and guncel_bakiye < 30:
+                print("Bakiye 30'un altına indi (%s); duruluyor." % guncel_bakiye)
+                break
             m = r["kredi_tahmini"]
             if o.butce is not None and harcanan + m > o.butce:
                 print("Bütçe doldu; %s atlandı." % r["asset_id"])

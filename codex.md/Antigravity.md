@@ -1409,3 +1409,26 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Commit:** `64bf3ba1` (`ROADMAP_3.md` push edildi), günlük güncellemesi bu commit ile pushlandı.
 - **Kota:** kota görünmüyor
 - **Durum:** TAMAMLANDI
+
+
+## 15 Kasım 2026 — MESHY-27 Pilotu (`klip_eksik:chr_001` & `klip_eksik:saruca_hatun`)
+- **Dal:** `claude/festive-volta-li1sfm`
+- **Kullanılan Anahtar:** Yedek anahtar (`...AqQC`; birincil anahtarda 2 kredi kaldığı için kullanılmadı).
+- **Kuru Tahmin (`meshy_hat.py kuru`):**
+  - 44 `klip_eksik:*` satırı için toplam tahmini maliyet: **`652` kredi**.
+  - Pilot (`klip_eksik:chr_001` + `klip_eksik:saruca_hatun`): **`34` kredi** (`11` + `23`).
+- **Hat Güncellemesi (`tools/meshy/meshy_hat.py`):**
+  - Eski modellerin Meshy rig kimliği bulunmadığı için `iskelet_gerekli` animasyon satırlarında mevcut `*_yuru.glb` dosyasını `data:model/gltf-binary;base64,...` (`model_url`) üzerinden `/v1/rigging` ile rigleyip ardından eksik klipleri `/v1/animations` ile üreten `_eski_iskelet_uret` desteği ve `bakiye < 30` durma koruması eklendi.
+- **Pilot Üretim & Gerçek Maliyet:**
+  - `klip_eksik:chr_001` (`panik`, `gergin`): Rig + 2 klip üretildi -> **`11` kredi** -> `onaylandi`.
+  - `klip_eksik:saruca_hatun` (`bekle`, `konus`, `sevinc`, `ofke`, `panik`, `gergin`): Rig + 6 klip üretildi -> **`23` kredi** -> `onaylandi`.
+  - **Pilot Gerçek Harcanan:** **`34` kredi** (`857` -> **`823` kredi** kaldı, anahtar `...AqQC`).
+  - **Atlanan Karakter:** Yok (2/2 başarılı).
+- **Doğrulama & Test Sonuçları:**
+  - `meshy_hat.py dogrula`: `chr_001` (`taban:uyari y=-0.059`), `saruca_hatun` (`taban:tamam y=-0.037`).
+  - `meshy_hat.py yerlestir` (`--import` + `klip_ayikla.gd` + `godot_dogrula.gd`): `RC=0`, 8 yeni `.res` klibi (`chr_001_panik.res`, `chr_001_gergin.res`, `saruca_hatun_*.res`) `assets/model/hareket/` içine ayıklandı.
+  - `KarakterModel` klip bağlantı kontrolü: `chr_001` ve `saruca_hatun` için 6/6 klip (`bekle`, `konus`, `sevinc`, `ofke`, `panik`, `gergin`) iskelette eksiksiz çözüldü (`eksik=[]`).
+  - `tests/oto/ayak_zemini_kontrol.tscn`: `AYAK ZEMİNİ: GEÇTİ` (`RC=0`).
+  - `tests/oto/chr_kapi_kontrol.tscn`: `CHR KAPI UI: GEÇTİ` (`RC=0`).
+- **Durum:** Pilot tamamlandı; kalan 42 karakter için Ahmet'in `"devam"` onayı bekleniyor.
+- **Kota:** kota görünmüyor
