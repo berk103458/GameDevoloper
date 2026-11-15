@@ -8203,7 +8203,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: BUG-13, SAH-42. Boyut: S.
   - Dosya: kapı kamerası, tek okuma.
   - Asset: asset gerekmedi.
-- [/] **SAH-47:** (Claude-Berk) Kamera sarsıntısı yalnız kapı olayındadır. (doğrulanmadı — Görev 22; koyde_sarsinti_suresi() sabit 0 döndürüyor, gerçek sarsıntı yolu ölçülmedi)
+- [x] **SAH-47:** (Claude-Berk) Kamera sarsıntısı yalnız kapı olayındadır. (Claude-Berk: koyde_sarsinti_suresi artık örneklerden ölçer; tests/unit/dunya/sah47_sarsinti_test.tscn gerçek kapı kavgasında sarsıntı > 0, Ana._koye_git sonrası köy kamerasında 0; köy kamerasına sarsıntı eklenince KALDI)
   - Ne: CAT yer tutucu sarsıntısı köy kamerasına yazılmaz.
   - Kabul: CAT yer tutucu sarsıntısı köy kamerasına yazılmaz. Test: köyde sarsıntı süresi 0.
   - Bağımlılık: CAT-02, SAH-41. Boyut: S.

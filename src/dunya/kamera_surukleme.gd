@@ -170,9 +170,23 @@ static func kapi_fov_koru(kapi_kamera: Camera3D, varsayilan_fov: float = 32.0) -
 	return varsayilan_fov
 
 
-## SAH-47: Kamera sarsintisi yalniz kapi olayindadir; koyde sarsinti suresi 0'dir.
-static func koyde_sarsinti_suresi() -> float:
-	return 0.0
+## SAH-47: Kamera sarsintisi yalniz kapi olayindadir. Kare kare ornek konumlardan
+## sarsinti suresini olcer: ilk ornekten `esik`'ten fazla sapan her kare `dt` sayilir.
+## Koyde (girdi yokken) bu sure 0'dir; kapi kavgasinda (CAT-02) sifirdan buyuktur.
+static func sarsinti_suresi(ornekler: Array, dt: float, esik: float = 0.001) -> float:
+	if ornekler.size() < 2:
+		return 0.0
+	var sure := 0.0
+	for i in range(1, ornekler.size()):
+		if (ornekler[i] - ornekler[0]).length() > esik:
+			sure += dt
+	return sure
+
+
+## SAH-47: Koy kamerasinin ornekleri verilirse olculen sarsinti suresi; ornek yoksa 0.
+static func koyde_sarsinti_suresi(ornekler: Array = [], dt: float = 0.0) -> float:
+	return sarsinti_suresi(ornekler, dt)
+
 
 
 ## SAH-48: Kamera ayarlari kayit dosyasina yazilmaz.
