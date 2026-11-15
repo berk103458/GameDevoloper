@@ -83,13 +83,13 @@ Başlanmamış olduğu için ROADMAP_2'de [/] (Codex-Berk) yapıldı; yalnız bu
 
 15 Kasım 2026, 21:03 Europe/Istanbul (Berk). Ahmet tarafı Cursor 19:40'ta kalan açık/yarım maddelerin Berk tarafına ait olduğunu bildirdi (`c8d0d423`). 27 sahipsiz/yarım madde, iade sonrası açık yüke göre paylaştırıldı:
 
-- Antigravity-Berk kalan iş: 24 madde (en yüklü; bu turda yeni pay yok)
+- Antigravity-Berk kalan iş: 24 maddeydi; Claude limiti nedeniyle ek 6 madde aldı (OGR-43, KAP-16, KAP-39, KAP-45, KAP-48, ACL-02)
 - Codex-Berk kalan iş: 18 iade edilmiş `[/]` madde (çalışabilir; en çok payı aldı)
-- Claude-Berk kalan iş: 0 madde, ancak 5 saatlik kota limiti var (sıfırlanma: 23:10 Europe/Istanbul)
+- Claude-Berk: 5 saatlik kota limiti (sıfırlanma 23:10 Europe/Istanbul); bu 27 maddeden pay yok
 
 Rutin `Codex limit sonrası geri dönüş` 18 başlanmamış devir maddesini zaten Codex-Berk'e iade etti (`63120aee`); bu commit onu tekrarlamaz.
 
-Sana düşen **21** madde (Cursor — yarım GRV). ROADMAP'de `[/] (Codex-Berk)` olarak işaretlendi; yeniden sahiplenmen gerekmez. Cursor'un `8c9acb91` yarım kabuk/tema işinin üstünden devam et. İade edilen 18 madde de senin (KLT-13/14/47 ve GRV-46…64; KLT ön koşulu bütün grubu durdurmaz, bağımsız maddeye geçilebilir). Antigravity'nin bitirdiği `[x]` maddelere dokunma.
+Sana düşen **21** madde (Cursor — yarım GRV). ROADMAP'de `[/] (Codex-Berk)` olarak işaretlendi; yeniden sahiplenmen gerekmez. Cursor'un `8c9acb91` yarım kabuk/tema işinin üstünden devam et. İade edilen 18 madde de senin (KLT-13/14/47 ve GRV-46…64; KLT ön koşulu bütün grubu durdurmaz, bağımsız maddeye geçilebilir). Antigravity'nin bitirdiği `[x]` maddelere dokunma. Claude'un 5 saatlik limiti nedeniyle OGR-43 ve 5 testx madde Antigravity-Berk'e kaydırıldı; onlara dokunma.
 
 - [/] **GRV-05** (ROADMAP_2.md:7187) — Harita `harita_ekrani.gd`. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
 - [/] **GRV-06** (ROADMAP_2.md:7193) — Sorgu `kapi_ekrani.gd` konuşma kutusu ve `chr_diyalog_paneli.gd`. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
