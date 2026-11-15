@@ -7,6 +7,7 @@ extends RefCounted
 ## kaynak güvenilirliğini, kamuoyuna dönüşmeyi ve bar etkilerini yönetir.
 
 const SOYLENTI_VERI_YOLU := "res://data/soylenti.json"
+const DIS_SOYLENTI_VERI_YOLU := "res://data/soz/dis_soylenti.json"
 const DedikoduMotoru = preload("res://src/sistemler/dedikodu.gd")
 
 var dedikodu: RefCounted
@@ -42,7 +43,7 @@ func _ayar(ad: String) -> float:
 		return 0
 	return float(veri_yapilandirma[ad])
 
-## SOY-01, SOY-03, SOY-04: Söylenti ekleme.
+## SOY-01, SOY-03, SOY-04, SOY-25: Söylenti ekleme.
 func soylenti_ekle(
 	olay_id: String,
 	tur: String,
@@ -66,20 +67,32 @@ func soylenti_ekle(
 
 	# SOY-SON-01: kritik söylenti muhafızın fiili değildir, DIY-13 dedikodu kapısından geçmez.
 	var kritik := bool(ek.get("kritik", false))
+	var dis_soylenti := tur == "dunya_haberi" or bool(ek.get("dis_soylenti", false))
 	var koy_olayi: bool = tur in (veri_yapilandirma.get("koy_olay_turleri", []) as Array)
 	if koy_olayi and (temiz_id.is_empty() or tanik.is_empty() or ag_kayitlari.has(temiz_id)):
 		return dedikodu_sonuc
 	if not kritik and not koy_olayi and not dedikodu_sonuc.get("olur", false) and not ag_kayitlari.has(temiz_id):
 		# Dedikodu doğrudan kabul etmese bile (örneğin iyi_olay ise) ağ kaydı açılabilir
-		if not (tur in veri_yapilandirma.get("iyi_olaylar", [])):
+		if not (tur in veri_yapilandirma.get("iyi_olaylar", [])) and not dis_soylenti:
 			return dedikodu_sonuc
+
+	var kayit_id := temiz_id
+	if dis_soylenti and ag_kayitlari.has(temiz_id):
+		var mevcut_kaynak := String(ag_kayitlari[temiz_id].get("kaynak", ""))
+		if not tanik.is_empty() and tanik != mevcut_kaynak:
+			kayit_id = "%s~%s" % [temiz_id, tanik]
 
 	var duyan_dizi: Array[String] = []
 	if not tanik.is_empty():
 		duyan_dizi.append(tanik)
 
+	var dis_olay := String(ek.get("olay", temiz_id)).strip_edges()
+	var satir_metni := String(ek.get("satir", ek.get("metin", ""))).strip_edges()
+	if dis_soylenti and satir_metni.is_empty():
+		satir_metni = dis_soylenti_metni(dis_olay, dogru)
+
 	var ag_kaydi := {
-		"olay_id": temiz_id,
+		"olay_id": kayit_id,
 		"tur": tur,
 		"kaynak": tanik,
 		"dogru": dogru,
@@ -92,18 +105,59 @@ func soylenti_ekle(
 		"susturuldu": false,
 		"bar_etkisi_uygulandi": false
 	}
+	if dis_soylenti:
+		ag_kaydi["dis_soylenti"] = true
+		ag_kaydi["olay"] = dis_olay
+		if kayit_id != temiz_id:
+			ag_kaydi["asil"] = temiz_id
+	if not satir_metni.is_empty():
+		ag_kaydi["satir"] = satir_metni
 	if not String(ek.get("meslek", "")).is_empty():
 		ag_kaydi["meslek"] = String(ek.get("meslek", ""))
 	if not String(ek.get("hedef", "")).is_empty():
 		ag_kaydi["hedef"] = String(ek.get("hedef", ""))
 	if kritik:
 		ag_kaydi["kritik"] = true
-	ag_kayitlari[temiz_id] = ag_kaydi
+	ag_kayitlari[kayit_id] = ag_kaydi
 
 	if not guvenilirlikler.has(tanik) and not tanik.is_empty():
 		guvenilirlikler[tanik] = int(_ayar("varsayilan_guvenilirlik"))
 
 	return { "olur": true, "kayit": ag_kaydi }
+
+
+## SOY-25: dünya olayına bağlı tüm dış söylenti satırlarını (doğru ve yanlış kaynaklarıyla) döner.
+func olay_satirlari(olay_id: String) -> Array[Dictionary]:
+	var sonuc: Array[Dictionary] = []
+	var hedef := olay_id.strip_edges()
+	if hedef.is_empty():
+		return sonuc
+	for k in ag_kayitlari.values():
+		if not (k is Dictionary):
+			continue
+		var kd := k as Dictionary
+		if String(kd.get("olay_id", "")) == hedef or String(kd.get("asil", "")) == hedef or String(kd.get("olay", "")) == hedef:
+			sonuc.append(kd)
+	return sonuc
+
+
+## SOY-25: Söz dosyasından (dis_soylenti.json) dış dünya söylentisi satırı çözer.
+static func dis_soylenti_metni(olay_id: String, dogru: bool) -> String:
+	var yol := DIS_SOYLENTI_VERI_YOLU
+	if not FileAccess.file_exists(yol):
+		return ""
+	var okunan: Variant = JSON.parse_string(FileAccess.get_file_as_string(yol))
+	if not (okunan is Dictionary):
+		return ""
+	var kok := okunan as Dictionary
+	var olaylar: Dictionary = kok.get("olaylar", {})
+	var kayit: Dictionary = olaylar.get(olay_id, kok.get("varsayilan", {}))
+	var anahtar := String(kayit.get("dogru_anahtar" if dogru else "yanlis_anahtar", "")).strip_edges()
+	if not anahtar.is_empty():
+		var cevrilen := TranslationServer.translate(anahtar)
+		if not cevrilen.is_empty() and cevrilen != anahtar:
+			return cevrilen
+	return String(kayit.get("varsayilan_dogru" if dogru else "varsayilan_yanlis", "")).strip_edges()
 
 ## SOY-01: DIY-13 kaydının kaynağı ve doğruluğu; ağda karşılığı olmayan eski kayıt kaynaksız ve doğru sayılır.
 func kaynak_ve_dogruluk(olay_id: String) -> Dictionary:

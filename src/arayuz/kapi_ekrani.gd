@@ -509,6 +509,10 @@ func _soru_sor(i: int) -> void:
 	var kirik_yazi := "%s bir şeyler söylüyor..." % String(diller[0]).capitalize()
 	var cozum := DilEngeli.satir_coz({"id": soru_metni, "tam": cevap_tam, "kirik": kirik_yazi}, ortak_dil, _tercuman_durumu)
 	var gosterilen := String(cozum.get("metin", cevap_tam))
+	var d_sorular: Dictionary = _gelen.get_meta(&"dunya_haberi_sorulari", {})
+	if d_sorular.has(i) and d_sorular[i] is Dictionary:
+		var dbilgi: Dictionary = d_sorular[i]
+		SoylentiKoprusu.dis_soylenti_kaydet(oturum, _gelen, String(dbilgi.get("olay_id", "")), gosterilen, bool(dbilgi.get("dogru", true)))
 	if bool(cozum.get("kirik_mi", false)):
 		_dil_notlari.append(DilEngeli.tercumansiz_beyan_kaydi(soru_metni))
 	if not String(cozum.get("es_aksam_anisi", "")).is_empty():

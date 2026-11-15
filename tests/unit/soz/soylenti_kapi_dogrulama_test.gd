@@ -19,6 +19,8 @@ func _calistir() -> void:
 		hatalar.append("yanlış kayıt testi yarıda kaldı")
 	if await _yok(hatalar) != true:
 		hatalar.append("kayıtsız testi yarıda kaldı")
+	if await _dis_soylenti_celisir(hatalar) != true:
+		hatalar.append("dış söylenti çelişir testi yarıda kaldı")
 	if not hatalar.is_empty():
 		for h in hatalar:
 			push_error(h)
@@ -192,5 +194,68 @@ func _yok(hatalar: Array[String]) -> bool:
 		hatalar.append("başka kişinin kaydı köyde başka duydum diye göründü")
 	if panel2 != null:
 		panel2.queue_free()
+	await process_frame
+	return true
+
+
+func _dis_soylenti_celisir(hatalar: Array[String]) -> bool:
+	var o := _oturum(913)
+	for g_no in range(1, 11):
+		o.gun = g_no
+		o.yonetim.gun = g_no
+		DunyaZamani.gece(o, {"gun": g_no})
+	var g1 := o._adli_gelen(&"chr_009")
+	var g2 := o._adli_gelen(&"chr_001")
+	g1.heybe = Heybe.new()
+	g2.heybe = Heybe.new()
+	var kuyruk: Array[Gelen] = [g1, g2]
+	DunyaZamani.kapi_haberi_ekle(o, kuyruk)
+	var m1_meta: Dictionary = g1.get_meta(&"dunya_haberi_sorulari", {})
+	var m2_meta: Dictionary = g2.get_meta(&"dunya_haberi_sorulari", {})
+	var b1 := {}
+	var b2 := {}
+	for k in m1_meta.keys():
+		if String(m1_meta[k].get("olay_id", "")) == "selcuklu_taht_kavgasi":
+			b1 = m1_meta[k]
+			break
+	for k in m2_meta.keys():
+		if String(m2_meta[k].get("olay_id", "")) == "selcuklu_taht_kavgasi":
+			b2 = m2_meta[k]
+			break
+	if b1.is_empty() or b2.is_empty():
+		hatalar.append("SOY-25: iki ziyaretçiye dünya olayı sorusu bağlanmadı")
+		return true
+	# İki ziyaret: ziyaretçi 1 doğru, ziyaretçi 2 çelişen yanlış söylenti bırakır
+	SoylentiKoprusu.dis_soylenti_kaydet(o, g1, "selcuklu_taht_kavgasi", String(b1.get("metin", "")), bool(b1.get("dogru", true)))
+	SoylentiKoprusu.dis_soylenti_kaydet(o, g2, "selcuklu_taht_kavgasi", String(b2.get("metin", "")), bool(b2.get("dogru", false)))
+	var ag := SoylentiKoprusu.ag(o) as SoylentiAgi
+	var satirlar: Array[Dictionary] = ag.olay_satirlari("selcuklu_taht_kavgasi")
+	if satirlar.size() != 2:
+		hatalar.append("SOY-25: aynı olay için 2 ağ satırı bekleniyordu, gelen=%d" % satirlar.size())
+		return true
+	if String(satirlar[0].get("kaynak", "")) == String(satirlar[1].get("kaynak", "")):
+		hatalar.append("SOY-25: iki satırın kaynağı farklı olmalı")
+	var bir_yanlis := (not bool(satirlar[0].get("dogru", true))) or (not bool(satirlar[1].get("dogru", true)))
+	var bir_dogru := bool(satirlar[0].get("dogru", false)) or bool(satirlar[1].get("dogru", false))
+	if not (bir_yanlis and bir_dogru):
+		hatalar.append("SOY-25: satırlardan biri dogru=false, öbürü dogru=true olmalı")
+	var t0 := SoylentiKoprusu.olay_metni(ag, satirlar[0])
+	var t1 := SoylentiKoprusu.olay_metni(ag, satirlar[1])
+	if t0.is_empty() or t1.is_empty() or t0 == t1:
+		hatalar.append("SOY-25: iki ziyaretçi metni farklı ve boş olmamalı: '%s' vs '%s'" % [t0, t1])
+	# Beyan defterinde ikisini de görür
+	var panel := await _panel(o, g2, hatalar)
+	var dugmeler := panel.find_children("Kayit_soylenti_*", "Button", true, false) if panel != null else []
+	if dugmeler.size() < 2:
+		hatalar.append("SOY-25: beyan defterinde 2 dış söylenti satırı görünmeli, gelen=%d" % dugmeler.size())
+	else:
+		var dt0 := (dugmeler[0] as Button).text
+		var dt1 := (dugmeler[1] as Button).text
+		if dt0 == dt1 or not ((dt0.contains(String(g1.id)) and dt1.contains(String(g2.id))) or (dt1.contains(String(g1.id)) and dt0.contains(String(g2.id)))):
+			hatalar.append("SOY-25: defter satırları farklı kaynak/metin göstermeli: '%s' vs '%s'" % [dt0, dt1])
+	if not DefterTanitimi.celiski_goruldu_mu(o):
+		hatalar.append("SOY-25: iki çelişen dış söylenti sonrası beyan defteri açılmalı")
+	if panel != null:
+		panel.queue_free()
 	await process_frame
 	return true

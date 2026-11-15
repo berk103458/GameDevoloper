@@ -1545,3 +1545,13 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `ozel_esyalar_test.gd` (`OZEL ESYALAR (YAP-06): GEÇTİ (0 hata)`), `ozel_esyalar_ve_defter_metin_test.gd` (`RC=0`), `kavga_secenek_test.gd` (`KAVGA SECENEK: GEÇTİ (0 hata)`), `koy_yonetimi_test.gd` (`KOY YONETIMI TEST: GEÇTİ (0 hata)`), `cozumleme_test.gd` (`ÇÖZÜMLEME VERİ: GEÇTİ`), `kervan_korumasi_test.gd` (`KERVAN KORUMASI: GEÇTİ`), `savunma_guvenligi_test.gd` (`SAVUNMA GUVENLIGI: GEÇTİ`), `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`), `acilis_bagimlilik_kontrol.tscn` (`RC=0`).
 - **Asset:** asset gerekmedi (`YAP06-ESYA` `docs/EKSIK_ASSET_ENVANTERI.md` içinde mevcut; yeni PNG üretilmedi).
 - kota görünmüyor
+
+### 2026-11-16 — SOY-25 Tamamlandı (Antigravity-Berk)
+- **Değişiklikler:**
+  - `data/soz/dis_soylenti.json`, `data/metin/metinler.csv`, `data/soylenti.json`: Altı dünya olayı için çelişen dış söylenti (`soz.dis_soylenti.*.yanlis`) TR/EN metin anahtarları, `varsayilan` kalıp ve `dunya_haberi` söylenti kalıbı eklendi.
+  - `src/sistemler/soylenti_agi.gd`: `soylenti_ekle`, aynı dünya olayı için farklı kaynaktan gelen ikinci dış söylentiyi `olay~tanik` anahtarıyla saklayarak iki kaynak / biri `dogru=false` ayrımını korur (ikinci dedikodu kaydı açılmaz); `olay_satirlari` ve `dis_soylenti_metni` yardımcıları eklendi.
+  - `src/sistemler/soylenti_koprusu.gd`, `src/kapi/soylenti_dogrulama.gd`, `src/sistemler/dunya_zamani.gd`, `src/arayuz/kapi_ekrani.gd`, `src/arayuz/chr_kapi_adaptoru.gd`: İki ziyaretçiye aynı dünya olayı için farklı metinli `Yolda ne gördün?` sorusu ve beyan defteri (`defter_kayitlari`) görünürlüğü bağlandı.
+  - `tests/unit/soz/soylenti_kapi_dogrulama_test.gd`: `_dis_soylenti_celisir` ile iki ziyaretçinin aynı dünya olayını farklı `kaynak`, farklı metin ve biri `dogru=false` olarak beyan defterinde göstermesi doğrulandı.
+- **Doğrulama:** `soylenti_kapi_dogrulama_test.gd` (`SOY-10 GECTI`, RC=0), `soylenti_agi_test.gd` (`PASS: SOY-01..50`, RC=0), `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`, RC=0), `defter_tanitimi_test.tscn` (`DEFTER TANITIMI TESTI: GEÇTİ (0 hata)`, RC=0), `celiski_goster_test.gd` (`TEST PASS`, RC=0), `beyan_defteri_test.gd` (`TEST PASS`, RC=0), `donen_soylenti_test.gd` (RC=0), `ilk_saat_test.gd` (`ILK SAAT: GEÇTİ (0 hata)`, RC=0), `dunya_cizelge_metin_test.gd` (`DNY-01..DNY-04`, RC=0), `acilis_bagimlilik_kontrol.tscn` (RC=0), `api_sozlesmesi.py` (`PASS`).
+- **Asset:** asset gerekmedi.
+- kota görünmüyor

@@ -64,6 +64,7 @@
     "is_kazasi": "Bir işyerinde kaza olduğu, tedbir alınmadığı konuşuluyor.",
     "ucret": "Emeğin karşılığının eksildiği, ücretlerin yetmediği konuşuluyor.",
     "kervan_gelmeyecek": "Kervanın uzun süre köye uğramayacağı konuşuluyor.",
-    "yol_guvensiz": "Yolların güvensiz olduğu, yolcuların önünün kesildiği söyleniyor."
+    "yol_guvensiz": "Yolların güvensiz olduğu, yolcuların önünün kesildiği söyleniyor.",
+    "dunya_haberi": "Uzak yollardan çelişkili haberler ulaşıyor."
   }
 }

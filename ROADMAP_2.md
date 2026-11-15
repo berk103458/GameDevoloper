@@ -5556,7 +5556,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: DIY-11, SOY-23. Boyut: S.
   - Dosya: Söz dosyaları.
   - Asset: asset gerekmedi.
-- [/] (Antigravity-Berk) **SOY-25:** Dış söylenti çelişir (DNY-02 kural 1). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-25:** (Antigravity-Berk) Dış söylenti çelişir (DNY-02 kural 1). *(Tamamlandı: `data/soz/dis_soylenti.json` + TR/EN `soz.dis_soylenti.*.yanlis` metinleri, `data/soylenti.json` `dunya_haberi` kalıbı, `SoylentiAgi.soylenti_ekle` / `olay_satirlari` / `dis_soylenti_metni`, `SoylentiKoprusu.dis_soylenti_kaydet` / `olay_metni`, `SoylentiDogrulama.defter_kayitlari`, `DunyaZamani.kapi_haberi_ekle` ve `kapi_ekrani` / `chr_kapi_adaptoru` bağlandı; iki kapı ziyaretçisi aynı dünya olayı için farklı kaynak, farklı metin ve biri `dogru=false` olarak beyan defterinde görünür; `soylenti_kapi_dogrulama_test.gd` (`SOY-10 GECTI`), `soylenti_agi_test.gd`, `dunya_test.gd`, `defter_tanitimi_test.tscn`, `celiski_goster_test.gd`, `beyan_defteri_test.gd`, `ilk_saat_test.gd`, `dunya_cizelge_metin_test.gd`, `acilis_bagimlilik_kontrol.tscn` ve `api_sozlesmesi.py` GEÇTİ; asset gerekmedi.)*
   - Ne: iki kapı ziyaretçisi aynı dünya olayını farklı söyler; iki satır farklı `kaynak`, biri `dogru=false`. Oyuncu beyan defterinde ikisini görür.
   - Kabul: aynı olay iki satır, metinler farklı (DNY-02 kural 2). Test: iki ziyaret.
   - Bağımlılık: DNY-02, SOY-05. Boyut: S.

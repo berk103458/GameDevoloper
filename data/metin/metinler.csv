@@ -2712,3 +2712,10 @@ zar.degistirici.kesilme,Sınır kesintisi (en çok %d),Cap limit (at most %d)
 anlati.bag.dost,Ocak başında iki dost omuz omuza gülüştü.,Two friends shared a warm word by the hearth.
 koy.bag.dost,Dost,Friend
 koy.bag.dusman,Düşman,Enemy
+soz.dis_soylenti.mogol_ilerleyisi.yanlis,"Doğu yollarından döndüm; ortalık sütliman, atlı filan gören yok, tüccarlar fiyat şişiriyor.","I just returned from the eastern roads; all is calm, no riders in sight, and merchants are only inflating prices."
+soz.dis_soylenti.selcuklu_taht_kavgasi.yanlis,"Konya'dan yeni geçtim; iki sultan da barıştı derler, mülteci falan yok, hanlar bomboş.","I just passed through Konya; they say the two sultans reconciled, there are no refugees, and the inns stand quiet."
+soz.dis_soylenti.bizans_uc_baskisi.yanlis,"Batı geçidinde tekfur askeri yoktu; sınır köyleri kendi arasında bayram kurmuş.","There were no tekfur troops at the western pass; the border villages were holding a feast among themselves."
+soz.dis_soylenti.kitlik_yili.yanlis,"Güney ovalarında ambarlar taşıyor; çekirge diye laf çıkaranlar stokçu kervancılar.","Granaries in the southern plains are overflowing; those spreading locust talk are hoarding caravaneers."
+soz.dis_soylenti.salgin_dalgasi.yanlis,"Aşağı hanlarda salgın filan yok; yolcular soğuk almış, hekimler korku satıyor.","There is no plague at the lower inns; travelers merely caught a chill and physicians are selling fear."
+soz.dis_soylenti.ticaret_yolunun_kapanmasi.yanlis,"Erzurum menzili açık; köprüler sapasağlam, kervanlar sadece gümrükten kaçıyor.","The Erzurum post road is open; the bridges stand sound and caravans are only dodging the toll."
+soz.dis_soylenti.varsayilan.yanlis,"Yolda böyle bir şeye rastlamadım muhafız; bu lafı çıkaranlar halkı ürkütmeye çalışıyor.","I saw nothing of the sort on the road, gatekeeper; whoever started that rumor is trying to frighten folk."

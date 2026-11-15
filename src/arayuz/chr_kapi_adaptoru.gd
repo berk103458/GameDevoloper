@@ -74,7 +74,8 @@ static func beyan_defteri_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxCo
 	var motor: SozMotoru = oturum.soz_kaydi.motor if oturum != null and oturum.soz_kaydi != null else null
 	var defter: BeyanDefteri = sorgu.beyan_defteri if sorgu != null else (oturum.soz_kaydi.beyanlar if oturum != null and oturum.soz_kaydi != null else null)
 	var celiski: RefCounted = sorgu.celiski_durumu if sorgu != null else (motor.celiski() if motor != null else null)
-	if sorgu == null and (motor == null or motor.beyan_defteri.is_empty()):
+	var dis_var := oturum != null and oturum.has_meta(SoylentiKoprusu.META) and not SoylentiDogrulama.defter_kayitlari(oturum, [], String(gelen.id) if gelen != null else "").is_empty()
+	if sorgu == null and (motor == null or motor.beyan_defteri.is_empty()) and not dis_var:
 		return null
 	if eylemler == null:
 		return null

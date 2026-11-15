@@ -259,7 +259,35 @@ static func olay_metni(a: RefCounted, k: Dictionary) -> String:
 	if k.has("bicim"):
 		var bozuk: Dictionary = a.veri_yapilandirma.get("bozulma_kaliplari", {})
 		return String(bozuk.get(String(k.bicim), "")).replace("{kaynak}", String(a.veri_yapilandirma.get("bozulma_faili", "")))
+	var ozel := String(k.get("satir", "")).strip_edges()
+	if not ozel.is_empty():
+		return ozel
 	return String(a.veri_yapilandirma.get("soylenti_kaliplari", {}).get(String(k.get("tur", "")), ""))
+
+
+## SOY-25: Kapı ziyaretçisinin söylediği dış dünya söylentisini ağa yazar; aynı olayda iki farklı kaynak çelişirse defteri açar.
+static func dis_soylenti_kaydet(o: Object, gelen: Gelen, olay_id: String, metin: String, dogru: bool = true) -> Dictionary:
+	if o == null or olay_id.strip_edges().is_empty():
+		return {}
+	var tanik := String(gelen.id) if gelen != null else "ziyaretci"
+	var a: RefCounted = ag(o)
+	var sonuc: Dictionary = a.call("soylenti_ekle", olay_id, "dunya_haberi", tanik, dogru, {
+		"gece": int(o.get("gun")) if o.get("gun") != null else 1,
+		"satir": metin,
+		"dis_soylenti": true,
+		"olay": olay_id,
+	})
+	var satirlar_dizi: Array = a.call("olay_satirlari", olay_id)
+	var farkli_dogruluk := false
+	if satirlar_dizi.size() >= 2:
+		var ilk_dogru := bool((satirlar_dizi[0] as Dictionary).get("dogru", true))
+		for s in satirlar_dizi:
+			if bool((s as Dictionary).get("dogru", true)) != ilk_dogru:
+				farkli_dogruluk = true
+				break
+	if farkli_dogruluk and o is Oturum:
+		preload("res://src/kapi/defter_tanitimi.gd").celiski_kaydet(o as Oturum)
+	return sonuc
 
 
 ## SOY-39: denge ölçümü için salt okuma — canlı (hükme bağlanmamış) kayıt, kamuoyu ve yanlış sayısı.

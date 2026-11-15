@@ -30,14 +30,12 @@ static func kayit_kimligi(olay_id: String) -> String:
 	return s
 
 
-## Defterde duran beyana uyan canlı ağ kayıtları. Ağ yoksa boş dizi; oturuma yazılmaz.
+## Defterde duran beyana uyan canlı ağ kayıtları ile dış dünya söylentileri (SOY-25). Ağ yoksa boş dizi; oturuma yazılmaz.
 static func defter_kayitlari(oturum: Object, beyanlar: Array, gelen_id: String) -> Array[Dictionary]:
 	var bos: Array[Dictionary] = []
 	if oturum == null or not oturum.has_meta(SoylentiKoprusu.META):
 		return bos
 	var kume := _beyan_kumesu(beyanlar, gelen_id)
-	if kume.is_empty():
-		return bos
 	var ag := SoylentiKoprusu.ag(oturum) as SoylentiAgi
 	if ag == null:
 		return bos
@@ -48,19 +46,25 @@ static func defter_kayitlari(oturum: Object, beyanlar: Array, gelen_id: String) 
 		var kayit: Dictionary = ag.ag_kayitlari[ham]
 		if bool(kayit.get("susturuldu", false)) or bool(kayit.get("hukme_baglandi", false)):
 			continue
-		if not _celisir(olay_id, kayit, kume, gelen_id):
+		var dis_soylenti := bool(kayit.get("dis_soylenti", false)) or String(kayit.get("tur", "")) == "dunya_haberi"
+		if not dis_soylenti and (kume.is_empty() or not _celisir(olay_id, kayit, kume, gelen_id)):
 			continue
 		var cumle := SoylentiKoprusu.olay_metni(ag, kayit).strip_edges()
 		if cumle.is_empty():
 			cumle = ifade
+		var ham_kaynak := String(kayit.get("kaynak", "")).strip_edges()
+		var kaynak_etiketi := ham_kaynak if dis_soylenti and not ham_kaynak.is_empty() else ifade
+		var etiket := "%s (%s):" % [ifade, kaynak_etiketi] if dis_soylenti and not ham_kaynak.is_empty() else ifade
 		sonuc.append({
 			"id": kayit_kimligi(olay_id),
 			"olay_id": olay_id,
+			"olay": String(kayit.get("olay", kayit.get("asil", olay_id))),
 			"tur": TUR,
+			"dis_soylenti": dis_soylenti,
 			"dogru": bool(kayit.get("dogru", true)),
 			"metin": cumle,
-			"kaynak": ifade,
-			"etiket": ifade,
+			"kaynak": kaynak_etiketi,
+			"etiket": etiket,
 		})
 	return sonuc
 

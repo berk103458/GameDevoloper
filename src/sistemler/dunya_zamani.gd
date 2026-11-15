@@ -533,42 +533,65 @@ static func koy_dedikodu_satirlari(o: Oturum) -> Array[Dictionary]:
 	return sonuc
 
 
-## DNY-02: boş günde yüz üretmez ve bekleyen haberi silmez; bir sonraki gerçek gelende "Yolda ne gördün?" dalına bağlar.
+## DNY-02 & SOY-25: boş günde yüz üretmez ve bekleyen haberi silmez; bir sonraki gerçek gelende "Yolda ne gördün?" dalına bağlar.
+## İkinci kapı ziyaretçisi aynı dünya olayı için çelişen dış söylenti (`dogru=false`) taşıyabilir.
 static func kapi_haberi_ekle(o: Oturum, kuyruk: Array[Gelen], ozel_cizelge: Variant = null, kitap_dizin: String = KITAP_DIZINI) -> void:
 	if o == null or kuyruk.is_empty():
 		return
 	var d := oku(o.dunya_zamani)
 	var iletildi: Array = d.get("iletildi", [])
+	var celiski_iletildi: Array = d.get("celiski_iletildi", [])
+	var aktif_isaretler := isaretler(o)
 	var adaylar := haber_satirlari(o, "yolda_ne_gordun", ozel_cizelge, kitap_dizin)
 	if adaylar.is_empty():
 		return
 	var soru_baslik := String(KonuMerkezi.SABIT_KONU_BASLIKLARI.get("yolda_ne_gordun", "Yolda ne gördün?"))
+	var ilk_hedefler := {}
 	var degisti := false
 	for h in adaylar:
-		var isaret := "%s.%s" % [String(h.olay_id), String(h.evre)]
-		if isaret in iletildi:
-			continue
-		var hedef: Gelen = null
-		for g in kuyruk:
-			if g != null and String(g.id) == String(h.konusmaci):
-				hedef = g
-				break
-		if hedef == null:
-			for g in kuyruk:
-				if g != null:
-					hedef = g
-					break
-		if hedef == null:
-			continue
-		hedef.sorular.append(PackedStringArray([soru_baslik, String(h.metin)]))
-		var ust := hedef.soru_ust.duplicate()
-		ust.append(-1)
-		hedef.soru_ust = ust
-		var bay := hedef.soru_bayraklari.duplicate()
-		bay.append("")
-		hedef.soru_bayraklari = bay
-		iletildi.append(isaret)
-		degisti = true
+		var oid := String(h.olay_id)
+		var isaret := "%s.%s" % [oid, String(h.evre)]
+		if not (isaret in iletildi):
+			var hedef := _haber_hedefi_sec(kuyruk, String(h.konusmaci), null)
+			if hedef != null:
+				_yolda_ne_gordun_bagla(hedef, soru_baslik, oid, String(h.evre), String(h.metin), true)
+				ilk_hedefler[oid] = hedef
+				iletildi.append(isaret)
+				degisti = true
+		if isaret in iletildi and not (oid in celiski_iletildi) and not ("%s.etki" % oid in aktif_isaretler):
+			var dis_hedef := _haber_hedefi_sec(kuyruk, "", ilk_hedefler.get(oid, null))
+			if dis_hedef != null:
+				var yanlis_metin := SoylentiAgi.dis_soylenti_metni(oid, false)
+				if not yanlis_metin.is_empty() and yanlis_metin != String(h.metin):
+					_yolda_ne_gordun_bagla(dis_hedef, soru_baslik, oid, String(h.evre), yanlis_metin, false)
+					celiski_iletildi.append(oid)
+					degisti = true
 	if degisti:
 		d["iletildi"] = iletildi
+		d["celiski_iletildi"] = celiski_iletildi
 		o.dunya_zamani = d
+
+
+static func _haber_hedefi_sec(kuyruk: Array[Gelen], tercih_id: String, haric: Gelen) -> Gelen:
+	if not tercih_id.is_empty():
+		for g in kuyruk:
+			if g != null and g != haric and String(g.id) == tercih_id:
+				return g
+	for g in kuyruk:
+		if g != null and g != haric:
+			return g
+	return null
+
+
+static func _yolda_ne_gordun_bagla(hedef: Gelen, soru_baslik: String, olay_id: String, evre: String, metin: String, dogru: bool) -> void:
+	var idx := hedef.sorular.size()
+	hedef.sorular.append(PackedStringArray([soru_baslik, metin]))
+	var ust := hedef.soru_ust.duplicate()
+	ust.append(-1)
+	hedef.soru_ust = ust
+	var bay := hedef.soru_bayraklari.duplicate()
+	bay.append("")
+	hedef.soru_bayraklari = bay
+	var d_meta: Dictionary = hedef.get_meta(&"dunya_haberi_sorulari", {})
+	d_meta[idx] = {"olay_id": olay_id, "evre": evre, "dogru": dogru, "metin": metin}
+	hedef.set_meta(&"dunya_haberi_sorulari", d_meta)

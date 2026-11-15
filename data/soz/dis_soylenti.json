@@ -1,0 +1,47 @@
+{
+  "aciklama": "SOY-25: Dış dünya olayları için kapı ziyaretçileri arasında çelişen söz kalıpları (DNY-02 + SOY-05).",
+  "olaylar": {
+    "mogol_ilerleyisi": {
+      "dogru_anahtar": "dunya.haber.mogol.soylenti_1",
+      "yanlis_anahtar": "soz.dis_soylenti.mogol_ilerleyisi.yanlis",
+      "varsayilan_dogru": "Erzincan boğazından gelen kervancılar doğu ufkunda dumanların hiç sönmediğini, Baycu Noyan'ın öncü atlılarının Sivas çayırlarına indiğini fısıldıyor.",
+      "varsayilan_yanlis": "Doğu yollarından döndüm; ortalık sütliman, atlı filan gören yok, tüccarlar fiyat şişiriyor."
+    },
+    "selcuklu_taht_kavgasi": {
+      "dogru_anahtar": "dunya.haber.taht.soylenti_1",
+      "yanlis_anahtar": "soz.dis_soylenti.selcuklu_taht_kavgasi.yanlis",
+      "varsayilan_dogru": "Konya divanında iki sultan kardeşin emirleri birbirine kılıç çekmiş derler; kervansaraylarda hangi sultanın sikkesinin geçeceği tartışılıyor.",
+      "varsayilan_yanlis": "Konya'dan yeni geçtim; iki sultan da barıştı derler, mülteci falan yok, hanlar bomboş."
+    },
+    "bizans_uc_baskisi": {
+      "dogru_anahtar": "dunya.haber.bizans.soylenti_1",
+      "yanlis_anahtar": "soz.dis_soylenti.bizans_uc_baskisi.yanlis",
+      "varsayilan_dogru": "Batı sınırındaki İznik tekfuru akritai garnizonlarını takviye etmiş; sınır kalelerinde gece gündüz boru sesleri duyuluyormuş.",
+      "varsayilan_yanlis": "Batı geçidinde tekfur askeri yoktu; sınır köyleri kendi arasında bayram kurmuş."
+    },
+    "kitlik_yili": {
+      "dogru_anahtar": "dunya.haber.kitlik.soylenti_1",
+      "yanlis_anahtar": "soz.dis_soylenti.kitlik_yili.yanlis",
+      "varsayilan_dogru": "Güney ovalarında bahar yağmuru hiç düşmemiş; başaklar diz boyuna gelmeden sararıp kavrulmuş diyorlar.",
+      "varsayilan_yanlis": "Güney ovalarında ambarlar taşıyor; çekirge diye laf çıkaranlar stokçu kervancılar."
+    },
+    "salgin_dalgasi": {
+      "dogru_anahtar": "dunya.haber.salgin.soylenti_1",
+      "yanlis_anahtar": "soz.dis_soylenti.salgin_dalgasi.yanlis",
+      "varsayilan_dogru": "Limanlardan gelen katırcılar kara humma nöbetinden söz ediyor; konakladıkları hanlarda geceleri sirke dumanı yakılıyormuş.",
+      "varsayilan_yanlis": "Aşağı hanlarda salgın filan yok; yolcular soğuk almış, hekimler korku satıyor."
+    },
+    "ticaret_yolunun_kapanmasi": {
+      "dogru_anahtar": "dunya.haber.ticaret.soylenti_1",
+      "yanlis_anahtar": "soz.dis_soylenti.ticaret_yolunun_kapanmasi.yanlis",
+      "varsayilan_dogru": "Büyük kervan başları Erzurum-Sivas menzilinde köprülerin yıkıldığını, haramilerin her geçitte pusu kurduğunu anlatıyor.",
+      "varsayilan_yanlis": "Erzurum menzili açık; köprüler sapasağlam, kervanlar sadece gümrükten kaçıyor."
+    }
+  },
+  "varsayilan": {
+    "dogru_anahtar": "dunya.haber.mogol.soylenti_1",
+    "yanlis_anahtar": "soz.dis_soylenti.varsayilan.yanlis",
+    "varsayilan_dogru": "Uzak yollardan tehlike haberi geliyor muhafız.",
+    "varsayilan_yanlis": "Yolda böyle bir şeye rastlamadım muhafız; bu lafı çıkaranlar halkı ürkütmeye çalışıyor."
+  }
+}
