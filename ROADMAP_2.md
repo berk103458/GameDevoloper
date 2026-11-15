@@ -7592,7 +7592,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.14 Köy şeridi — düğmeli
 
-- [/] **GRV-61:** (Codex-Berk) `kaynak_gostergesi.gd` temaya bağlanır.
+- [x] **GRV-61:** (Codex-Berk) `kaynak_gostergesi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/kaynak_gostergesi.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Kaynak yazısı zeminsiz. Tema bağlanınca yalnız `kaynak_gostergesi.gd` ARY-02 zeminini ve düğme durumunu okur, Kaynak yazısı zeminsiz davranışı değişmez.
   - Kabul: `kaynak_gostergesi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kaynak_gostergesi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

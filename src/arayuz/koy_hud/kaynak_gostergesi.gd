@@ -2,15 +2,14 @@
 class_name KaynakGostergesi
 extends PanelContainer
 
-const BRONZ := Color("c6a56b")
-const ARTIS := Color("b9cba0")
+const BRONZ := Kabuk.BAR_DOLU
+const ARTIS := Kabuk.MORAL
 var _miktar: Label
 var _net: Label
 
 ## Kartı kaynak adıyla oluşturur; etiketler yalnız veri değişiminde güncellenir.
 func kur(tur: String, punto: int) -> void:
 	focus_mode = Control.FOCUS_ALL
-	add_theme_stylebox_override("panel", Kabuk.panel())
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 0)
 	add_child(v)
@@ -39,7 +38,7 @@ func tip_bildir(tur: String) -> void:
 func guncelle(miktar: int, net: int, kritik: bool = false) -> void:
 	_miktar.text = str(miktar)
 	_net.text = "%+d" % net if net != 0 else "—"
-	_net.add_theme_color_override("font_color", ARTIS if net > 0 else (Hud.UYARI if net < 0 else Color("8e887b")))
+	_net.add_theme_color_override("font_color", ARTIS if net > 0 else (Hud.UYARI if net < 0 else Kabuk.SOLUK))
 	_miktar.add_theme_color_override("font_color", Hud.UYARI if kritik else Renkler.KUL)
 
 ## Hazır lisanslı SVG ikonunu belirtilen boyutta kurar.
