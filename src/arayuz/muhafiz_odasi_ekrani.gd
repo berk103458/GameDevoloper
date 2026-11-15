@@ -7,8 +7,7 @@ var oda: MuhafizOdasi
 func _ready() -> void:
  process_mode=Node.PROCESS_MODE_ALWAYS
  set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
- var arka:=ColorRect.new()
- arka.color=Color("181c22")
+ var arka:=Panel.new()
  arka.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  add_child(arka)
  var kap:=SubViewportContainer.new()
@@ -30,7 +29,6 @@ func _ready() -> void:
  panel.offset_right=-12
  panel.offset_top=24
  panel.offset_bottom=-24
- panel.add_theme_stylebox_override("panel",Kabuk.panel())
  add_child(panel)
  var kenar:=MarginContainer.new()
  for y in ["margin_left","margin_right","margin_top","margin_bottom"]: kenar.add_theme_constant_override(y,16)

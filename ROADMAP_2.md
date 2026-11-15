@@ -7220,7 +7220,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-03. Boyut: M.
   - Dosya: `src/kapi/divan_ekrani.gd` ve üç panel.
   - Asset: asset gerekmedi.
-- [/] **GRV-11:** (Codex-Berk) Oda `muhafiz_odasi_ekrani.gd`.
+- [x] **GRV-11:** (Codex-Berk) Oda `muhafiz_odasi_ekrani.gd`.
   - Ne: yedi `oda_*` paneli tema. Terazi, vicdan, kasa kuralları ODA maddelerindedir, burada değişmez.
   - Kabul: oda ekranında yerel renk 0. Test: tarama.
   - Bağımlılık: ARY-03. Boyut: M.

@@ -1387,3 +1387,6 @@ Kapının tam ekran zemin kutusu ortak Panel stilini miras alır; 3B sahne ve ko
 
 ## 15 Kasım 2026 — GRV-10 (Codex-Berk)
 Divan ekranı ile sorgu, hüküm ve haksızlık panellerinin dördü ortak temayı kullanır; birleşik dosya kabulü sıfır yerel stil doğruladı. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-11 (Codex-Berk)
+Odanın yerel zemin rengi ve panel stili kaldırıldı; mevcut 3B oda korunarak Panel ve PanelContainer ortak temayı miras alır. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
