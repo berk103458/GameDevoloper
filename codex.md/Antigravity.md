@@ -1390,3 +1390,22 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
      - **Ortak Animasyon Klipleri (17):** `anim_idle_nefes`, `anim_idle_agirlik`, `anim_idle_bakis`, `anim_nobet`, `anim_cekic_vurma`, `anim_firin_kuregi`, `anim_orak`, `anim_isinma`, `anim_kar_kureme`, `anim_yagmur_yuru`, `anim_buzulme`, `anim_otur`, `anim_kavga`, `anim_saldir`, `anim_dus`, `anim_sinsi_yuru`, `anim_temkinli_bekle` (`assets/model/karakter/muhafiz_*.glb`).
      - **Oyunda Nereden Bakılır:** Köy hayvanları ve kurt baskını (`src/koy/gorsel/hazir_esya_hayvan.gd`, `src/koy/gorsel/celep_hayvan_gorseli.gd`, `src/koy/gorsel/kurt_surusu.gd`), köylü el eşyaları ve iş rutinleri (`src/dunya/el_esyasi.gd`, `src/koy/gorsel/cati_kar_rutini.gd`), demirci atölyesi (`src/koy/gorsel/zanaat_tezgahi.gd`), mezarlık/cenaze (`src/koy/gorsel/cenaze_mezari.gd`), muhafız odası envanter sergisi (`src/arayuz/oda_envanter_sergisi.gd`), kişisel iz (`src/koy/kisisel_iz.gd`).
 - **Kota:** kota görünmüyor
+
+
+## 15 Kasım 2026 — Görev 27: `ROADMAP_3.md` Sıra Tabanlı Savaş Yol Haritası
+- **Dosya:** `ROADMAP_3.md` (kökte; kod, test, asset ve `ROADMAP_2.md` değişmedi).
+- **Madde sayısı:** `54` adet `SVS-xx` maddesi (`SVS-01` … `SVS-54`, `0` alt madde; `baştan`: `32`, `sondan`: `22`).
+- **Bölüm listesi:**
+  - `AJAN İLERLEME PANOSU` & `Oyun Sistemleri Analizi` (XCOM 2, Battle Brothers, Into the Breach, Darkest Dungeon, Mount & Blade, The Banner Saga)
+  - `A. Temel, Veri ve Katılım` (`SVS-01`, `SVS-53`, `SVS-02..06`) — `baştan`
+  - `B. Motor Çekirdeği` (`SVS-07..19`) — `baştan`
+  - `C. Yapay Zekâ ve Zorluk` (`SVS-20..22`) — `baştan`
+  - `D. Savaş Türleri` (`SVS-23..30`, `SVS-54`) — `baştan`
+  - `E. Savaş Öncesi ve Sonrası` (`SVS-31..40`) — `sondan`
+  - `F. Arayüz, Erişilebilirlik ve Asset` (`SVS-41..47`) — `sondan`
+  - `G. Kayıt, Denge ve Kapanış` (`SVS-48..52`) — `sondan`
+- **Tekrar denetimi sonucu:** `54` maddenin tamamı benzersizdir; `0` birleştirme, `0` ayırma gerekti; kalan benzersiz madde sayısı `54`. Tüm maddelerde 10 zorunlu alan (`Amaç`, `Kapsam`, `Bağımlılıklar`, `Etkilenen dosya ve klasörler`, `Veri şeması`, `Kabul ölçütleri`, `Testler`, `Asset`, `Metin anahtarları`, `Sahip`) eksiksizdir (`Missing fields: []`). Kopya düşman, kopya silah, kopya savaş türü yoktur; 7 sistem analizi konusu (`Dengeleme` → `SVS-49`, `Buff/Debuff` → `SVS-11`, `Yetenekler` → `SVS-06`, `Teçhizat` → `SVS-04`, `Moral–yorgunluk` → `SVS-15`, `Baskın strateji yasağı` & `Zorluk eğrisi` → `SVS-20`) tekil maddelerde tutulmuştur.
+- **Açık `Antigravity sorusu`:** `0` adet (§7A K1–K18 kararları tüm kapsam için yeterlidir).
+- **Commit:** `64bf3ba1` (`ROADMAP_3.md` push edildi), günlük güncellemesi bu commit ile pushlandı.
+- **Kota:** kota görünmüyor
+- **Durum:** TAMAMLANDI
