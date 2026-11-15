@@ -5541,7 +5541,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.5 Söz motorunda söylenti
 
-- [ ] **SOY-23:** Bağlam sorgusunda söylenti anahtarları. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [/] **SOY-23:** (Cursor-Berk) Bağlam sorgusunda söylenti anahtarları. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: DIY-09 sözlüğüne `soylenti.<olay_id>.duydu`, `.dogru`, `.kaynak` anahtarları; satır seçimi "duydum ki…" dalını açar.
   - Kabul: duyan karakterde anahtar true. Test: birim.
   - Bağımlılık: DIY-09, SOY-02. Boyut: S.
