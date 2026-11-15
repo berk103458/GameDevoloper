@@ -19,18 +19,21 @@ func _ready() -> void:
 	for i in 5:
 		ids.append(y.kabul({"sinif": "ciftci", "stat": 5}).id)
 	var guard := y.kabul({"sinif": "asker", "stat": 5})
-	guard.is_yeri = KoyYonetimi.MUHAFIZ
+	kontrol(KapiNobeti.yaz(y, guard.id), "SAH-62: Nöbetçi gerçek NBT yuvasına atanır")
 	var worker := y.kabul({"sinif": "ciftci", "stat": 5})
 	worker.is_yeri = 900
-	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
 	ana._koye_git()
 	await get_tree().process_frame
+	var once := JSON.stringify(ana.oturum.kaydet())
 	var s: KoyYonetimSahnesi = ana._ekran.sahne3b
 	var h := s.halk_hareketi
 	h.set_process(false)
 	for faz in [&"aksam", &"gece"]:
 		s.faz(faz, 0.0)
-		for i in 3: h._process(0.0)
+		for i in h.modeller.size():
+			if h._bekleyen.is_empty():
+				break
+			h._process(0.0)
 		var duraklar: Array[Vector3] = []
 		var ofsetler := {}
 		var kol_pozlari := {}
@@ -60,6 +63,20 @@ func _ready() -> void:
 		kontrol(ofsetler.size() == 5 and kol_pozlari.size() >= 2, "SAH-58: Beş modelin ısınma pozu aynı kareye yığılmaz")
 		print("SAH-58 %s: ofset=%d, farklı önkol pozu=%d" % [faz, ofsetler.size(), kol_pozlari.size()])
 		kontrol(h._durum[guard.id].devriye and not h._durum[guard.id].ates_basi, "Muhafız devriyesi korunur")
+		var nobet: Dictionary = h._durum[guard.id]
+		var figur: KarakterModel = h.modeller[guard.id]
+		for i in nobet.yol.size() + 1:
+			if int(nobet.adim) >= nobet.yol.size():
+				break
+			figur.position = nobet.yol[nobet.adim]
+			h._process(0.0)
+		figur.yurumeyi_durdur()
+		var yer := figur.position
+		var mesafe := yer.distance_to(AtesBasiRutini.konum(s))
+		h._process(float(MuhafizDevriyesi.AYAR.durak_suresi) + 0.1)
+		kontrol(KoyRotaAraligi.hucre(h, yer) == KapiNobeti.esik_hucresi(y) and mesafe > float(AtesBasiRutini.AYAR.en_uzak), "SAH-62: Nöbetçi ateş halkasının dışında ve kendi direğinde")
+		kontrol(figur.position == yer and not h._bekleyen.has(guard.id), "SAH-62: Nöbetçi devriye süresi dolsa da direğinde kalır")
+		print("SAH-62 %s, ateş uzaklığı=%.3f m" % [faz, mesafe])
 		kontrol(not h._durum[worker.id].ates_basi, "Atanmış işçinin ev rutini korunur")
 	var dizin := OS.get_environment("ADMIN_TEST_CIKTI")
 	if not dizin.is_empty() and DisplayServer.get_name() != "headless":

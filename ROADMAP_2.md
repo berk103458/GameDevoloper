@@ -8297,7 +8297,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-57. Boyut: S.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-62:** Nöbetçi ateşe oturmaz.
+- [x] **SAH-62:** Nöbetçi ateşe oturmaz. (Kalfa — NBT yuvası akşam ve gece kapıda)
   - Ne: NBT nöbetindeki kişi ANI-07 halkasına girmez. Direğinde durur.
   - Kabul: NBT nöbetindeki kişi ANI-07 halkasına girmez. Direğinde durur. Test: nöbetçi, ateş merkezi uzaklığı payın üstü.
   - Bağımlılık: NBT-01, ANI-07. Boyut: S.

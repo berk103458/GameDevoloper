@@ -70,6 +70,10 @@ static func varis_yolu(h: KoyHalkHareketi, figur: KarakterModel, bas: Vector2i, 
 	var dolu := {}
 	var trafik := {}
 	var yaklasma := Vector2i(-1, -1)
+	var y := h.sahne.yonetim
+	var nobetci := KapiNobeti.yuva(y)
+	if h.faz_adi in [&"aksam", &"gece"] and nobetci >= 0 and h.modeller.get(nobetci) != figur:
+		dolu[KapiNobeti.esik_hucresi(y)] = true
 	for id in h.modeller:
 		var diger: KarakterModel = h.modeller[id]
 		if diger == figur or not is_instance_valid(diger) or diger.is_queued_for_deletion():

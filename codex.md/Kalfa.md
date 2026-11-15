@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-62 (Kalfa)
+
+NBT yuvasındaki kişi akşam ve gece kendi eşiğine yönelir, ateş halkasına girmez ve devriye bekleme süresi dolduğunda direğinde kalır. İki fazda ateşten uzaklık 22,157 m. Ateş başı headless sahnesi, ayrı duraklar ve kayıt eşitliği geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-61 (Kalfa)
 
 Gerçek köy sahnesinde üç hazır yapı kaldı ve nüfus sıfıra indirildi. Gündüz ve gece tezgâh, ateş ve rota kuyruğu sayıları 0. Zanaat tezgâhı headless sahnesi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

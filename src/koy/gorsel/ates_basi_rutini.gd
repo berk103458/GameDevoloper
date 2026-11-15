@@ -4,7 +4,7 @@ extends RefCounted
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/ates_basi_rutini.json"))
 ## Yalnız boşta köylüler; atanmış çalışan ve nöbetçiler mevcut rutinde kalır.
 static func aday(y: KoyYonetimi, k: Koylu, faz: StringName) -> bool:
- return k != null and faz in [&"aksam", &"gece"] and k.is_yeri == KoyYonetimi.BOSTA and not MuhafizMaasi.aday(k, y)
+ return k != null and faz in [&"aksam", &"gece"] and k.is_yeri == KoyYonetimi.BOSTA and not MuhafizMaasi.aday(k, y) and KapiNobeti.yuva(y) != k.id
 ## Görsel ocak ve yönelme aynı ayardan gelir; ikinci ateş kurulmaz.
 static func konum(s: KoyYonetimSahnesi) -> Vector3:
  var m := s.yonetim.a.meydan

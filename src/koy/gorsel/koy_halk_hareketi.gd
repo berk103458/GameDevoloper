@@ -182,6 +182,8 @@ func _process(delta: float) -> void:
 				d.sulama_i = (int(d.sulama_i) + 1) % 3
 				_iste(id)
 		elif d.get("devriye", false):
+			if d.get("kapi_nobeti", false) and KapiNobeti.yuva(sahne.yonetim) == id:
+				continue
 			d.bekle += delta
 			if d.bekle >= float(MuhafizDevriyesi.AYAR.durak_suresi):
 				d.devriye_i += 1
@@ -259,7 +261,8 @@ func _planla(id: int) -> void:
 		son = rotaci.yakin(KapiNobeti.esik_hucresi(sahne.yonetim))
 		d.bak = _konum(son) + Vector3.FORWARD * -sahne.HUCRE
 	son = TasYatagiGorseli.planla(self, k, bas, son, d)
-	d.devriye = MuhafizMaasi.aday(k, sahne.yonetim)
+	d.kapi_nobeti = faz_adi in [&"aksam", &"gece"] and KapiNobeti.yuva(sahne.yonetim) == id
+	d.devriye = d.kapi_nobeti or MuhafizMaasi.aday(k, sahne.yonetim)
 	if d.devriye:
 		var nobet := MuhafizDevriyesi.hedef(sahne.yonetim, rotaci, bas, int(d.devriye_i), id)
 		d.is = false
@@ -365,6 +368,10 @@ func _planla(id: int) -> void:
 			son = rotaci.bina_duragi(bas, Rect2i(ev.hucre, ev.boyut(sahne.yonetim.katalog)), id)
 		d.is = false
 		d.dinlen = true
+	if d.kapi_nobeti:
+		son = rotaci.yakin(KapiNobeti.esik_hucresi(sahne.yonetim))
+		d.devriye_ad = "Kapıda nöbet"
+		d.bak = _konum(son) - Vector3.FORWARD * sahne.HUCRE
 	var ortak_durak: bool = d.devriye or (not d.is and son == bekleme)
 	d.ortak_durak = ortak_durak
 	var hucreler := KoyRotaAraligi.varis_yolu(self, f, bas, son) if ortak_durak else rotaci.yol(bas, son)
