@@ -64,3 +64,7 @@ func veda_et(chr_id: String) -> Dictionary:
 		"ayrildi": true,
 		"veda_metni": "Helallik almaya geldim muhafız bey; yolum gayrı dağ ardınadır."
 	}
+
+## SEV-01 oyun adaptörü: üretici gece_kuyrugu API'sini tekrar çalıştırmaz.
+func bos_gun_isareti(oturum: Oturum) -> bool:
+	return OzelOlay.bos_mu(oturum) or (oturum != null and preload("res://src/sistemler/acilis_senaryosu.gd").kapi_kapali(oturum))

@@ -297,6 +297,7 @@ func _bina_altinda(h: Vector2i) -> KoyBinasi:
 
 
 func _tikla() -> void:
+	if kip.is_empty() and preload("res://src/koy/bos_gun_durusu_adaptoru.gd").tikla(self): return
 	if _imlec.x < 0:
 		return
 	match kip:
