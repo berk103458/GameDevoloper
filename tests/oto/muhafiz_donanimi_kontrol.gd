@@ -34,9 +34,18 @@ func _ready() -> void:
 	sahne.faz(&"gece", 0.0)
 	await get_tree().process_frame
 	var isiklar := 0
+	var mesaleler := 0
 	for model in h.modeller.values():
 		var e := model.get_node_or_null("muhafiz_donanimi") as MuhafizDonanimi
-		if e != null and e.isik.visible: isiklar += 1
+		if e == null:
+			continue
+		if e.isik.visible:
+			isiklar += 1
+		mesaleler += 1
+		var soket_isiklari := e.mesale.find_children("*", "Light3D", true, false)
+		kontrol(soket_isiklari.size() == 1 and soket_isiklari.has(e.isik), "SAH-66: Her meşale soketinde yalnız kendi ışığı var")
+	kontrol(mesaleler == 6, "SAH-66: Altı gerçek muhafızın meşalesi ölçüldü")
+	print("SAH-66 meşale=%d, meşale başına ışık=1" % mesaleler)
 	kontrol(isiklar == int(MuhafizDonanimi.AYAR.azami_isik), "Gerçek sahnede ışık bütçesi")
 	kontrol(d != null and d.mesale.visible, "Gece meşalesi elde")
 	if d != null:

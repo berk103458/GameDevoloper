@@ -8324,7 +8324,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: BUG-04. Boyut: S.
   - Dosya: kapı ışığı.
   - Asset: asset gerekmedi.
-- [ ] **SAH-66:** Meşale, modeli çift aydınlatmaz.
+- [x] **SAH-66:** Meşale, modeli çift aydınlatmaz. (Kalfa — altı soketin her birinde tek ışık)
   - Ne: aynı meşalenin iki ışığı yoktur. ANI-01 soketi tek ışıktır.
   - Kabul: aynı meşalenin iki ışığı yoktur. ANI-01 soketi tek ışıktır. Test: meşale başına ışık sayısı 1.
   - Bağımlılık: ANI-01, SAH-65. Boyut: S.

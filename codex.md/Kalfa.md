@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-66 (Kalfa)
+
+Altı gerçek muhafız meşalesinin alt ağacı ölçüldü. Her el soketinde aynı tek OmniLight3D var. Mevcut ışık bütçesi ve 209 gece yürüyüş karesi aynı headless sahnede geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-65 (Kalfa)
 
 Gerçek kapı sahnesi 4096 atlası 2048 sınırına indirdi. İki meşalenin gölge sönümü 16 m, kapı kapanınca atlas 4096 değerine döndü. Kapı gölge profili headless testi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
