@@ -32,7 +32,7 @@ func _initialize() -> void:
 		var geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(o.kaydet())))
 		dene(not ak.baslat(geri) and ak.aile_bekliyor(geri), "Ulak sonrasında yükleme ulağı tekrarlamaz")
 		var aile: Array[Gelen] = geri.gece_kuyrugu()
-		dene(aile.size() == 1 and aile[0].sorular.size() == 2 and aile[0].heybe != null, "Tehdit takvimine takılmadan ilk aile, selam/konu/heybe")
+		dene(aile.size() == 1 and aile[0].sorular.size() == 2 + ak.AYAR.ek_sorular.size() and aile[0].acilis == String(ak.AYAR.acilis) and aile[0].heybe != null, "Tehdit takvimine takılmadan ilk aile, selam/konu/ek sorular/açılış/heybe")
 		dene(geri.gece_sonu().get("engellendi", false) and geri.gun == 0, "Öğretici atlanınca da aile kararı gerekir")
 		dene(geri.karar_ver(aile[0], &"rusvet").get("engellendi", false), "İlk aile için geçersiz karar reddedilir")
 		var sonuc := geri.karar_ver(aile[0], karar)

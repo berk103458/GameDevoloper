@@ -103,6 +103,7 @@ arayuz.kapi.yatak_uyari,Yatacak yer yok; açıkta kalır.,No beds available; wil
 arayuz.kapi.sira,Sırada,In Queue
 arayuz.kapi.sohbete_don,Sohbete dön,Return to Conversation
 arayuz.kapi.sorular,Sorular,Questions
+arayuz.kapi.es_ipucu,Eşin (fısıltıyla),Your spouse (whispering)
 arayuz.karar.elkoy,"El koy, geri çevir","Confiscate, Turn Away"
 arayuz.karar.harc,"Harç al, içeri al","Levy Toll, Admit"
 arayuz.karar.kabul,Kabul,Admit

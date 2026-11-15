@@ -285,6 +285,8 @@ func _siradaki() -> void:
 		_yaz(satir)
 	if _gelen.acilis != "":
 		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), tr(_gelen.acilis)])
+	for satir in IlkAileEsIpucu.satirlar(oturum, _gelen):
+		_yaz(satir)
 	if oturum.perde == 2 or _gelen.sorular.is_empty():
 		_karar_goster()
 	else:
