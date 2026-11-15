@@ -19,7 +19,7 @@ static func guvenlik(y: KoyYonetimi) -> int:
 ## Kışlanın gerçekten etkin, borçsuz ve boşta kiralanabilir yetişkin nöbetçisi.
 static func aday(y: KoyYonetimi, id: int) -> bool:
  var k := y.koylu(id)
- if KarantinaYoneticisi.aktif(k): return false
+ if KarantinaYoneticisi.aktif(k) or not HaneEsi.izinli_mi(k, "kervan"): return false
  if k == null or disarida(y, id) or k.yas_grubu != &"yetiskin": return false
  var b := y.bina(k.is_yeri)
  return b != null and b.hazir() and b.tur == "muhafiz_kislasi" and MuhafizMaasi.aday(k, y) and not MuhafizMaasi.borclu(k, y) and not IsKazalari.uyuyor(k) and not IsMemnuniyeti.isyanci(k, y)

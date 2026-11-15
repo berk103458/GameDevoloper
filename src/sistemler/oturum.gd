@@ -155,7 +155,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 	KararDonusu.spawn_ekle(self, sonuc)
 	DunyaZamani.kapi_haberi_ekle(self, sonuc)
 	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").kuyruk_hazirla(self, sonuc)
-	return sonuc
+	return sonuc.filter(func(g: Gelen) -> bool: return not HaneEsi.gelen_es_mi(g, self))
 
 
 
@@ -837,8 +837,8 @@ func _es_bilgisi() -> Dictionary:
 		return {"es_id": -1, "es": null, "es_hayatta": false, "es_meslegi": "dokumaci"}
 	var es := yonetim.koylu(es_id)
 	var hayatta := es != null and es.saglik > 0
-	var meslek := "dokumaci"
-	if es != null:
+	var meslek := String(HaneEsi.durum(yonetim, self).meslek)
+	if es != null and not HaneEsi.meslek_gecerli_mi(meslek, self, es):
 		var s := String(es.sinif).to_lower()
 		if s in ["dokumaci", "firinci", "ebe"]:
 			meslek = s
@@ -848,8 +848,6 @@ func _es_bilgisi() -> Dictionary:
 			meslek = "firinci"
 		elif es.zanaat_turu == ZanaatTuru.Tur.OTACI or es.zanaat_turu == ZanaatTuru.Tur.CERRAH:
 			meslek = "ebe"
-		elif not s.is_empty():
-			meslek = s
 	return {"es_id": es_id, "es": es, "es_hayatta": hayatta, "es_meslegi": meslek}
 
 

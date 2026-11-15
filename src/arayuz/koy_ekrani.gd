@@ -537,6 +537,7 @@ func _koylu_satiri(k: Koylu, b: KoyBinasi) -> void:
 		_yenile()
 	)
 	var surgun := _dugme(tr("koy.bilgi.surgun"), satir)
+	surgun.disabled = not HaneEsi.izinli_mi(k, "surgun")
 	surgun.pressed.connect(func() -> void:
 		if _y.surgun(k.id):
 			oturum._koy_esitle()
@@ -579,7 +580,20 @@ func _nufus_ac() -> void:
 	v.add_child(kaydir)
 	var ic := VBoxContainer.new()
 	kaydir.add_child(ic)
+	var es_liste: Array = []
+	var diger_liste: Array = []
 	for k: Koylu in liste:
+		if HaneEsi.es_mi(k): es_liste.append(k)
+		else: diger_liste.append(k)
+	for k: Koylu in es_liste:
+		var es_satir := HBoxContainer.new()
+		es_satir.name = "nufus_es_satiri"
+		ic.add_child(es_satir)
+		var kisi_karti := _dugme("Eş (Hane) · " + k.ad + " · Köylü kartı", es_satir)
+		kisi_karti.pressed.connect(func() -> void: KoyluKarti.ac(self, k.id))
+		_etiket(ic, "Hane Eşi · Meslek: %s · Moral %3d · Sağlık %3d · Kışla/Kervan/Sürgün/Divan kapalı" % [
+			String(HaneEsi.durum(_y, oturum).meslek), k.moral, k.saglik], Tema.KUCUK_PX)
+	for k: Koylu in diger_liste:
 		var bayrak: PackedStringArray = []
 		for f in k.bayraklar:
 			bayrak.append(tr("koy.bayrak." + f))

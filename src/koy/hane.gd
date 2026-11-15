@@ -202,7 +202,7 @@ static func acilis_hanesinden_turet(y: KoyYonetimi, mevcut: Hane = null, acilis_
 				h.es_hayatta = k.saglik > 0
 				h.es_moral = k.moral
 				var s := String(k.sinif).to_lower()
-				if s in ["dokumaci", "firinci", "ebe", "bostanci", "sutcu", "yun_egirici"]:
+				if s in ["dokumaci", "firinci", "ebe", "bostanci", "sutcu", "yun_egirici", "katip"]:
 					h.es_meslegi = s
 	if not bulunan_uyeler.is_empty():
 		h.uyeler = bulunan_uyeler

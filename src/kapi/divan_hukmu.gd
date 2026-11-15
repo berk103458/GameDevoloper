@@ -32,7 +32,7 @@ static func kalan(y: KoyYonetimi) -> int:
 ## Canlı kişi, gerçek açık fiil, bir hüküm; dış görev ve dolu hücre güvenli reddedilir.
 static func uygun(o: Oturum,id: int,karar: String) -> bool:
  var y:=o.yonetim
- return karar in KARARLAR and y.son=="" and not verildi(y,id) and y.koylu(id)!=null and y.koylu(id).saglik>0 and not KervanKorumasi.disarida(y,id) and (not DivanOturumu.izler(y,id).is_empty() or (karar=="zindan" and DivanHaksizligi.suphe(y,id))) and (karar!="zindan" or kalan(y)>0)
+ return karar in KARARLAR and y.son=="" and not verildi(y,id) and y.koylu(id)!=null and HaneEsi.izinli_mi(y.koylu(id),"divan") and y.koylu(id).saglik>0 and not KervanKorumasi.disarida(y,id) and (not DivanOturumu.izler(y,id).is_empty() or (karar=="zindan" and DivanHaksizligi.suphe(y,id))) and (karar!="zindan" or kalan(y)>0)
 ## Gerçek tek karar; kamu/kişisel para ve kaynak RNG değişmez. Tek sosyal denge delta.
 static func uygula(o: Oturum,id: int,karar: String) -> bool:
  if not uygun(o,id,karar): return false

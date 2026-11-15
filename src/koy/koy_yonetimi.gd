@@ -370,6 +370,7 @@ func ata(koylu_id: int, bina_id: int) -> bool:
 		return false
 	if not b.hucreler(katalog).all(izgara.icinde): return false
 	if not YasRolleri.atanabilir(k, b.tur): return false
+	if b.tur == "muhafiz_kislasi" and not HaneEsi.izinli_mi(k, "kisla"): return false
 	if b.tur == "muhafiz_kislasi" and (k.yas_grubu != &"yetiskin" or (not MuhafizMaasi.aday(k, self) and muhafiz_sayisi() >= a.muhafiz_azami)): return false
 	if calisanlar(bina_id).size() >= katalog.slot(b.tur) and k.is_yeri != bina_id:
 		return false
@@ -384,6 +385,7 @@ func muhafiz_ata(koylu_id: int) -> bool:
 	if KarantinaYoneticisi.aktif(koylu(koylu_id)): return false
 	if KervanKorumasi.disarida(self, koylu_id): return false
 	var k := koylu(koylu_id)
+	if not HaneEsi.izinli_mi(k, "muhafiz"): return false
 	if DivanHukmu.zindanda(k): return false
 	if k != null and k.yas_grubu != &"yetiskin": return false
 	if k == null or (not MuhafizMaasi.aday(k, self) and muhafiz_sayisi() >= a.muhafiz_azami):
@@ -408,6 +410,9 @@ func bosalt(koylu_id: int) -> void:
 func surgun(koylu_id: int) -> bool:
 	var k := koylu(koylu_id)
 	if k == null:
+		return false
+	if not HaneEsi.izinli_mi(k, "surgun"):
+		HaneEsi.surgun_uyarisi(self, k)
 		return false
 	koylular.erase(k)
 	nobet_degisti.emit()
@@ -616,6 +621,7 @@ func gece() -> Dictionary:
 	FisiltiGazetesi.HISTERI.kaldir(self)
 	var olum_kisileri: Array[Koylu] = koylular.duplicate()
 	_saglik_ve_moral(rapor["olenler"], olaylar, tedavi_artisi)
+	HaneEsi.gece(self, olaylar)
 	PerdeOzeti.olum_say(self, rapor["olenler"])
 	SiraOlayiSonucu.rapora_ekle(self, rapor)
 	CenazeYasi.gece(self, rapor, olum_kisileri)
@@ -964,7 +970,7 @@ func kaydet() -> Dictionary:
 		"isyan": isyan_kalan, "en_yuksek": en_yuksek_nufus, "kabul": kabul_sayisi, "ret": ret_sayisi, "agalik": agalik,
 		"sur": sur_seviye, "sur_hasar": sur_hasar, "sur_taksit": sur_taksit_odenen, "vergi_muaf": vergi_muaf, "harac": harac_bekliyor,
 		"tekfur": tekfur_baski, "savusturulan": savusturulan, "son": son, "sonraki_id": _sonraki_id, "artik": _artik.duplicate(),
-		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self), "hasat_senligi_yili": HasatSenligi.son_yil(self), "kurt_baskini_son_gece": KurtBaskini.oku(get_meta(KurtBaskini.META, -1)), "kis_hastaligi_son_gece": KisHastaligi.gece_oku(get_meta(KisHastaligi.META, -1)), "sifahane_kontenjani": SifahaneKontenjani.durum(self), "saman_son_gece": KurtBaskini.oku(get_meta(SamanBakimi.META, -1)), "casus_gece_takibi": CasusGeceTakibi.durum(self), "casus_devriyesi": CasusDevriyesi.durum(self), "kuyu_zehirleme": KuyuZehirleme.durum(self), "ambar_kundaklamasi": AmbarKundaklamasi.durum(self), "divan_oturumu": DivanOturumu.durum(self), "divan_hukumleri": DivanHukmu.durum(self), "karaboran_intikami": KaraboranIntikami.durum(self), "fisilti_gazetesi": FisiltiGazetesi.durum(self), "divan_haksizligi": DivanHaksizligi.durum(self), "yil_izi": YilIzi.durum(self), "toplam_olen": int(get_meta(PerdeOzeti.OLU_META, 0)), "hane": hane.kayit_verisi_al(), "baglar": KoyluBagi.oku(baglar)}
+		"tezgah": _tezgah_bugun, "rng": str(_rng.state), "iklim_deneyi": IklimDeneyi.ayar(self), "debug_kuyu_zehri": KrizEnjektoru.kalan(self), "ilkbahar_taskini": IlkbaharTaskini.durum(self), "su_doldurma": SuDengesi.durum(self), "hasat_senligi_yili": HasatSenligi.son_yil(self), "kurt_baskini_son_gece": KurtBaskini.oku(get_meta(KurtBaskini.META, -1)), "kis_hastaligi_son_gece": KisHastaligi.gece_oku(get_meta(KisHastaligi.META, -1)), "sifahane_kontenjani": SifahaneKontenjani.durum(self), "saman_son_gece": KurtBaskini.oku(get_meta(SamanBakimi.META, -1)), "casus_gece_takibi": CasusGeceTakibi.durum(self), "casus_devriyesi": CasusDevriyesi.durum(self), "kuyu_zehirleme": KuyuZehirleme.durum(self), "ambar_kundaklamasi": AmbarKundaklamasi.durum(self), "divan_oturumu": DivanOturumu.durum(self), "divan_hukumleri": DivanHukmu.durum(self), "karaboran_intikami": KaraboranIntikami.durum(self), "fisilti_gazetesi": FisiltiGazetesi.durum(self), "divan_haksizligi": DivanHaksizligi.durum(self), "yil_izi": YilIzi.durum(self), "toplam_olen": int(get_meta(PerdeOzeti.OLU_META, 0)), "hane": hane.kayit_verisi_al(), "hane_esi": HaneEsi.kaydet(self), "baglar": KoyluBagi.oku(baglar)}
 
 
 static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary) -> KoyYonetimi:
@@ -1055,6 +1061,7 @@ static func kayittan(ayarlar: KoyAyarlari, katalog_: BinaKatalogu, v: Dictionary
 		y.hane.kayit_verisi_yukle(v["hane"])
 	else:
 		Hane.acilis_hanesinden_turet(y, y.hane)
+	HaneEsi.yukle(y, v.get("hane_esi", {}))
 	y.baglar = KoyluBagi.oku(v.get("baglar", []))
 	y._ambar_kapasitesi()
 	return y

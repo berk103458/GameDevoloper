@@ -1,0 +1,19 @@
+{
+  "bayrak": "acl01_es",
+  "varsayilan_meslek": "dokumaci",
+  "meslekler": [
+    {"id": "dokumaci", "ad": "Dokumacı / Keçeci", "cikti": "kumas", "miktar": 1},
+    {"id": "ebe", "ad": "Ebe / Şifacı", "cikti": "sifahane_triyaj", "miktar": 1},
+    {"id": "firinci", "ad": "Fırıncı / Aşçı", "cikti": "ekmek", "miktar": 1},
+    {"id": "bostanci", "ad": "Bostancı", "cikti": "gida", "miktar": 1},
+    {"id": "sutcu", "ad": "Sütçü / Yoğurtçu", "cikti": "gida", "miktar": 1},
+    {"id": "yun_egirici", "ad": "Yün eğirici", "cikti": "kumas_girdisi", "miktar": 1}
+  ],
+  "okuryazar_meslegi": {"id": "katip", "ad": "Kâtip", "cikti": "bilgi", "miktar": 1, "gecmisler": ["medrese_talebesi"]},
+  "yasak_meslekler": ["demirci", "tasci", "oduncu", "asker", "madenci"],
+  "kapali_eylemler": ["kisla", "muhafiz", "kervan", "surgun", "divan"],
+  "verimsiz_gun": 1,
+  "arabuluculuk_moral": 2,
+  "uyari_surgun": "Hane uyarısı: Eşin köy halkı arasında sürgün edilemez.",
+  "agir_yas_epilog": "Ağır yas: Ocak soğudu; muhafız eşinin yasını köyün dirliği içinde sessizce tutuyor."
+}

@@ -9,6 +9,7 @@ static func secenekler(y: KoyYonetimi, k: Koylu) -> Array[Dictionary]:
 		if KarantinaYoneticisi.aktif(k): neden = "Karantinada; atama korunuyor"
 		elif not b.hazir(): neden = "İnşaat tamamlanmadı"
 		elif not YasRolleri.atanabilir(k, b.tur): neden = "Yaş grubu uygun değil"
+		elif b.tur == "muhafiz_kislasi" and not HaneEsi.izinli_mi(k, "kisla"): neden = "Eş kışlaya atanmaz"
 		elif b.tur == "muhafiz_kislasi" and not MuhafizMaasi.aday(k, y) and y.muhafiz_sayisi() >= y.a.muhafiz_azami: neden = "Muhafız sınırı dolu"
 		elif k.is_yeri != b.id and y.calisanlar(b.id).size() >= y.katalog.slot(b.tur): neden = "İş yuvaları dolu"
 		var uyum := MeslekUyumu.carpan(k, b.tur)

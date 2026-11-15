@@ -1478,3 +1478,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `goc_yolu_guvenligi_test.gd` (`GOC YOLU: GEÇTİ`), `tests/oto/goc_yolu_kontrol.tscn` (RC=0, 0 SCRIPT ERROR), `soylenti_ayar_tarama_test.gd` (`SÖYLENTİ AYAR TARAMA: GEÇTİ`).
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+### 2026-11-15 — ACL-02 Tamamlandı (Antigravity-Berk)
+- **Kapsam:** `data/hane_esi.json`, `src/koy/hane_esi.gd`, `src/koy/hane_esi.gd.uid`, `src/koy/hane.gd`, `src/koy/koy_yonetimi.gd`, `src/koy/koylu_karti_verisi.gd`, `src/koy/sabah_defteri.gd`, `src/koy/ticaret/kervan_korumasi.gd`, `src/kapi/divan_oturumu.gd`, `src/kapi/divan_hukmu.gd`, `src/arayuz/koylu_karti.gd`, `src/arayuz/koy_ekrani.gd`, `src/sistemler/acilis_senaryosu.gd`, `src/sistemler/oturum.gd`, `src/sistemler/nihai_son.gd`, `tests/unit/koy/hane_esi_test.gd`.
+- **Doğrulama:** `hane_esi_test.gd` (`HANE EŞİ: GEÇTİ`), `hane_test.gd`, `koy_yonetimi_test.gd`, `aksam_sohbeti_test.gd`, `divan_hukmu_test.gd`, `kervan_korumasi_test.gd`, `sabah_defteri_test.gd`, `acilis_bagimlilik_kontrol.tscn` (RC=0, 0 SCRIPT ERROR).
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor

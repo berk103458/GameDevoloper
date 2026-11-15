@@ -220,7 +220,7 @@ ACL-01 … ACL-06 gövdesi durur. Yeni maddeler ACL-07 … ACL-86. İkinci hane 
 
 ### 14.2 Eş ve meslek
 
-- [/] **ACL-02:** (Antigravity-Berk) Eş — oynanabilir ama sıradan köylü değil.
+- [x] **ACL-02:** (Antigravity-Berk: `data/hane_esi.json`, `src/koy/hane_esi.gd`, `tests/unit/koy/hane_esi_test.gd` ile 6 meslek + okuryazar kâtiplik, yasak meslek/kayıt reddi, birikmeyen 1 günlük değişim verimsizliği, her meslekte açık arabuluculuk, kışla/kervan/sürgün/divan/kuyruk engeli, köylü listesi ayrı eş satırı ve ölümde duran epilog ağır yas satırı bağlandı; `hane_esi_test.gd`, `hane_test.gd`, `koy_yonetimi_test.gd`, `aksam_sohbeti_test.gd`, `divan_hukmu_test.gd`, `kervan_korumasi_test.gd`, `sabah_defteri_test.gd`, `acilis_bagimlilik_kontrol.tscn` geçti) Eş — oynanabilir ama sıradan köylü değil.
   - Ne: Eş köylü listesinde ayrı satırdadır; kışla, kervan, sürgün ve divan düğmeleri onda kapalıdır ve kapı kuyruğuna yazılmaz. Meslek yalnız `data/hane_esi.json` listesinden seçilir: dokumacı, ebe, fırıncı, bostancı, sütçü, yün eğirici; okuryazar geçmişte kâtiplik açılır. Demirci, taşçı, oduncu, asker ve madenci listede yoktur. Meslek değişince bir gün verimsiz çalışır. Ölümde yeni son yazılmaz, duran epilog ağır yas olarak açılır.
   - Kurallar:
     1. Eş köylü listesinde ayrı satırdadır. Kışla, kervan, sürgün ve divan düğmeleri onda kapalıdır.

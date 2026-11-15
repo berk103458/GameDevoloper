@@ -44,6 +44,7 @@ static func kur(o: Oturum, zorluk: Variant = "olagan") -> void:
 	y.kabul_sayisi = kapidan_kabul
 	o.set_meta(META, h)
 	Hane.acilis_hanesinden_turet(y, y.hane, h)
+	HaneEsi.yukle(y, {}, o)
 	preload("res://src/koy/yapi_bilgisi.gd").gecmis(o)
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(o, "koy")
 	o._koy_esitle()

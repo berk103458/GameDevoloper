@@ -135,13 +135,18 @@ static func sabah(y: KoyYonetimi, tohum: int = 0, tanik: String = "", yol_ver: V
 	d.ekmek_isaret = ""
 	d.dedikodu = 0
 	if tur == "surgun":
-		d.yol = String(yol_ver) if yol_ver is String else yol_sec(tohum)
-		if d.yol.is_empty():
+		if y.koylu(kisi) != null and not HaneEsi.izinli_mi(y.koylu(kisi), "surgun"):
+			d.yol = ""
 			d.nufus_deltasi = 0
-		elif y.koylu(kisi) != null and y.surgun(kisi):
-			d.nufus_deltasi = -1
-		elif y.koylu(kisi) == null:
-			d.nufus_deltasi = -1
+			d.uyari = HaneEsi.surgun_uyarisi(y, y.koylu(kisi))
+		else:
+			d.yol = String(yol_ver) if yol_ver is String else yol_sec(tohum)
+			if d.yol.is_empty():
+				d.nufus_deltasi = 0
+			elif y.koylu(kisi) != null and y.surgun(kisi):
+				d.nufus_deltasi = -1
+			elif y.koylu(kisi) == null:
+				d.nufus_deltasi = -1
 	if tur == "infaz":
 		d.cenaze = _cenaze_bir(y)
 	var plan := preload("res://src/koy/zindan_ekmegi.gd").plan(tur, not d.evi_bos, _ambar(y))

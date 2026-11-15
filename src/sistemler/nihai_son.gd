@@ -41,6 +41,9 @@ static func epilog(o: Oturum) -> String:
 	for ad in ["huzur", "adalet", "refah", "guvenlik", "nufus", "yozlasma"]:
 		var m: Dictionary = AYAR.gostergeler[ad]
 		satirlar.append("%s %d/100 — %s" % [m.ad, int(g[ad]), m[_kademe(int(g[ad]))]])
+	var agir_yas := HaneEsi.agir_yas_satiri(o)
+	if not agir_yas.is_empty():
+		satirlar.append(agir_yas)
 	return "\n".join(satirlar)
 
 ## Ana._son_goster adaptörü: mevcut {baslik, metin} sözleşmesi korunur.

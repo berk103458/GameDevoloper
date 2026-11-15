@@ -72,9 +72,34 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 		cirak_dugme.pressed.connect(func() -> void: _ata(ekran, id, int(cirak_bilgi.hedef)))
 	var muhafiz := ekran._dugme("Muhafız görevi", ic)
 	muhafiz.set_meta("hedef", KoyYonetimi.MUHAFIZ)
-	if KarantinaYoneticisi.aktif(k): muhafiz.hide()
-	muhafiz.disabled = k.yas_grubu != &"yetiskin" or k.is_yeri == KoyYonetimi.MUHAFIZ or y.muhafiz_sayisi() >= y.a.muhafiz_azami
+	if KarantinaYoneticisi.aktif(k) or not HaneEsi.izinli_mi(k, "muhafiz"):
+		muhafiz.disabled = true
+		muhafiz.hide()
+	else:
+		muhafiz.disabled = k.yas_grubu != &"yetiskin" or k.is_yeri == KoyYonetimi.MUHAFIZ or y.muhafiz_sayisi() >= y.a.muhafiz_azami
 	muhafiz.pressed.connect(func() -> void: _ata(ekran, id, KoyYonetimi.MUHAFIZ))
+	if HaneEsi.es_mi(k):
+		var es_d := HaneEsi.durum(y, ekran.oturum)
+		ekran._etiket(ic, "Hane Eşi · Kışla, Kervan, Sürgün ve Divan kapalı · Verim ×%.1f" % HaneEsi.verim_carpani(y), Tema.KUCUK_PX).name = "hane_esi_bilgi"
+		for m in HaneEsi.meslekler(ekran.oturum, k):
+			var md := ekran._dugme("Eş mesleği: %s" % String(m.ad), ic)
+			md.name = "es_meslek_" + String(m.id)
+			md.disabled = String(es_d.meslek) == String(m.id)
+			md.pressed.connect(func() -> void:
+				if HaneEsi.meslek_sec(y, String(m.id), ekran.oturum).ok:
+					ekran._kart_kapat()
+					ac(ekran, id)
+					ekran._yenile()
+			)
+		var ara := ekran._dugme("Arabuluculuk Yap (+Moral)", ic)
+		ara.name = "es_arabuluculuk"
+		ara.disabled = int(es_d.son_arabuluculuk_gun) >= y.gun
+		ara.pressed.connect(func() -> void:
+			if HaneEsi.arabuluculuk_yap(y).ok:
+				ekran._kart_kapat()
+				ac(ekran, id)
+				ekran._yenile()
+		)
 	var bos := ekran._dugme("Görevden çıkar", ic)
 	bos.set_meta("hedef", KoyYonetimi.BOSTA)
 	if KarantinaYoneticisi.aktif(k): bos.hide()
