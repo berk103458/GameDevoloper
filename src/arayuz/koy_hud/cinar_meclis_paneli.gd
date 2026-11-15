@@ -56,6 +56,20 @@ static func _don(e: Node, v: Control) -> void:
 		e._yenile()
 	)
 
+static func _es_sozu_ekle(e: Node, v: Control) -> void:
+	if e == null or e.get("oturum") == null:
+		return
+	var y: KoyYonetimi = e.oturum.yonetim
+	if y == null or y.hane == null or not y.hane.es_hayatta or y.hane.yas_donemi:
+		return
+	var es_id := int(preload("res://src/sistemler/acilis_senaryosu.gd").durum(e.oturum).get("es_id", -1))
+	var es_k := y.koylu(es_id) if es_id > 0 else null
+	var es_ad := es_k.ad if es_k != null and not es_k.ad.is_empty() else "Eş"
+	var soz := MeclisSesi.usta_veya_es_sozu("eş", es_ad)
+	_metin(e, v, String(soz.get("satir", "")), "meclis_es_sozu")
+	e.oturum.set_meta(&"es_meclis_sozu_gecesi", y.gun)
+
+
 static func _bekliyor(e: Node) -> bool:
 	var o: Dictionary = CinarAltiMeclisi.durum(e.oturum.yonetim).oylama
 	return not o.is_empty() and o.karar == ""
@@ -66,6 +80,7 @@ static func haftalik_ac(e: Node) -> bool:
 	if e._ust_kart != null: return true
 	var gun := y.gun
 	var v: VBoxContainer = e._kart_ac(e.tr("koy.meclis.haftalik.baslik"))
+	_es_sozu_ekle(e, v)
 	_metin(e, v, MeclisSesi.dis_hat_konusu(e.oturum), "meclis_dis_hat_konusu")
 	var b: Button = e._dugme(e.tr("koy.meclis.haftalik.kapat"), v)
 	b.name = "meclis_haftalik_bitti"
@@ -93,6 +108,7 @@ static func ac(e: Node) -> void:
 		_metin(e, v, GuvenliMetin.metin("koy.meclis.konusanlar") % ", ".join(konusan))
 	elif MeclisSesi.kriz_var_mi(y):
 		_metin(e, v, GuvenliMetin.metin("koy.meclis.konusan_yok"))
+	_es_sozu_ekle(e, v)
 	var soylenti := SoylentiKoprusu.meclis_sikayeti(e.oturum)
 	if not soylenti.is_empty(): SoylentiHukmu.ekle(e, v, soylenti)
 	var krizler := CinarAltiMeclisi._krizler(y)

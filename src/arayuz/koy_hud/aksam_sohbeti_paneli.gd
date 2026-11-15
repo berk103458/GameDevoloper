@@ -25,6 +25,7 @@ static func ac(koy: KoyEkrani, devam_cb: Callable) -> bool:
 	if koy._ust_kart != null:
 		koy._ust_kart.name = "AksamSohbetiKart"
 		koy._ust_kart.set_meta(&"aksam_sohbeti", true)
+		koy._ust_kart.set_meta(&"katilimci_sayisi", (sohbet.get("katilimcilar", []) as Array).size())
 	var yer := Label.new()
 	yer.text = "[Ocak Başı — Yer Tutucu]"
 	yer.add_theme_font_size_override("font_size", 14)

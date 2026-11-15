@@ -1426,3 +1426,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `ayarlar_kontrol.tscn`, `ayarlar_ek_test.gd`, `ayarlar_bolum35_test.gd` ve `acilis_koy_kontrol.tscn` 0 hata ile geçti.
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor.
+
+### 2026-11-15 — `HAN-13` ve `HAN-34` Tamamlandı
+- **Yapılan:** `data/soz/aksam_konulari.json` ve `data/soz/en/aksam_konulari.json` içine `misafir_agirlama` konusu ile `misafir_dallari` eklendi; `src/koy/aksam_sohbeti.gd`, `src/sistemler/oturum.gd` ve `src/arayuz/koy_hud/aksam_sohbeti_paneli.gd` hane misafiri gecesinde `KisiHafizasi` (DIY-11) dalını okuyarak 3 katılımcılı (`es`, `misafir`, `muhafiz`) sohbet açacak şekilde güncellendi. `src/arayuz/koy_hud/cinar_meclis_paneli.gd` içine `MeclisSesi.usta_veya_es_sozu` (MCL-03) eş repliği eklenip `es_meclis_sozu_gecesi` ile aynı gece akşam sohbeti bastırıldı (`HAN-34`).
+- **Testler:** `aksam_sohbeti_test.gd`, `aksam_sohbeti_kontrol.tscn`, `cinar_meclisi_genisletme_test.gd`, `ingilizce_entegrasyon_test.gd` ve `es_aksam_ogretisi_test.gd` 0 hata ile geçti.
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.

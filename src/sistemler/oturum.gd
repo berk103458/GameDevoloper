@@ -869,15 +869,28 @@ func _meclis_gecesi_mi() -> bool:
 	return oylama is Dictionary and not (oylama as Dictionary).is_empty() and String((oylama as Dictionary).get("karar", "")) == ""
 
 
-## ACL-03: Gece raporundan önce en çok 1 akşam sohbeti konusu seçer; meclis/ölü eş/tekrarda boş döner.
+## ACL-03 / HAN-13 / HAN-34: Gece raporundan önce en çok 1 akşam sohbeti konusu seçer; meclis/ölü eş/tekrarda boş döner.
 func aksam_sohbeti_hazirla(ek_baglam: Dictionary = {}) -> Dictionary:
 	if aksam_sohbeti_gece == gun:
 		return {}
 	if preload("res://src/sistemler/kapi_acilis_olayi.gd").gece_engelli(self):
 		return {}
-	if _meclis_gecesi_mi() or bool(ek_baglam.get("meclis_gecesi", false)):
+	if _meclis_gecesi_mi() or bool(ek_baglam.get("meclis_gecesi", false)) or bool(ek_baglam.get("es_meclis_sozu", false)) or int(get_meta(&"es_meclis_sozu_gecesi", -1)) == gun:
 		return {}
-	if gunun_aksam_kararlari.is_empty():
+	var misafir_veri: Dictionary = {}
+	if ek_baglam.get("misafir") is Dictionary and not (ek_baglam["misafir"] as Dictionary).is_empty():
+		misafir_veri = (ek_baglam["misafir"] as Dictionary).duplicate(true)
+	elif yonetim != null and yonetim.hane != null and not yonetim.hane.misafirler.is_empty():
+		misafir_veri = (yonetim.hane.misafirler.back() as Dictionary).duplicate(true)
+	if not misafir_veri.is_empty():
+		var m_id := StringName(misafir_veri.get("chr_id", ""))
+		if m_id != &"":
+			var m_hafiza := KisiHafizasi.oku(kadro, m_id, gun + 1)
+			if not misafir_veri.has("ziyaret"):
+				misafir_veri["ziyaret"] = int(m_hafiza.get("ziyaret", 0))
+			if not misafir_veri.has("son_karar"):
+				misafir_veri["son_karar"] = String(m_hafiza.get("son_karar", ""))
+	if gunun_aksam_kararlari.is_empty() and misafir_veri.is_empty():
 		return {}
 	var es_bilgi := _es_bilgisi()
 	if bool(ek_baglam.get("es_oldu", false)) or not bool(es_bilgi["es_hayatta"]):
@@ -888,6 +901,8 @@ func aksam_sohbeti_hazirla(ek_baglam: Dictionary = {}) -> Dictionary:
 		"es_meslegi": String(ek_baglam.get("es_meslegi", es_bilgi["es_meslegi"])),
 		"es_gecmis": KisiHafizasi.es_hafizasi_oku(kadro, &"es"),
 		"meclis_gecesi": false,
+		"es_meclis_sozu": false,
+		"misafir": misafir_veri,
 	}
 	var secim := AksamSohbeti.konu_sec(gunun_aksam_kararlari, gun + 1, baglam)
 	if not secim.is_empty():

@@ -5112,7 +5112,7 @@ Kimlikler HAN-01 … HAN-52. Asset üretilmez; ocak görseli DYL-07 envanterinde
   - Bağımlılık: ACL-05, HAN-01. Boyut: M.
   - Dosya: yeni: `src/koy/hane_misafiri.gd`; kapı karar adaptörüne tek seçenek.
   - Asset: asset gerekmedi.
-- [/] **HAN-13:** (Antigravity-Berk) Misafir eşle konuşur. (doğrulanmadı — Görev 22; AksamSohbeti (src/koy/aksam_sohbeti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **HAN-13:** (Antigravity-Berk) Misafir eşle konuşur. (`AksamSohbeti`, `Oturum.aksam_sohbeti_hazirla` ve `AksamSohbetiPaneli` misafir gecesi 3 katılımcı + DIY-11 dalıyla çalışır; `aksam_sohbeti_test.gd`, `aksam_sohbeti_kontrol.tscn` GEÇTİ)
   - Ne: misafir gecesi akşam sohbeti (ACL-03) üç ağızlı olur: eş, misafir, muhafız. Misafirin repliği kendi Söz dosyasından (kişi hafızası DIY-11 kaydı) tek dal.
   - Kabul: misafir gecesi sohbet katılımcı 3. Test: misafir.
   - Bağımlılık: HAN-12, DYL-07, DIY-11. Boyut: S.
@@ -5250,7 +5250,7 @@ Kimlikler HAN-01 … HAN-52. Asset üretilmez; ocak görseli DYL-07 envanterinde
   - Bağımlılık: HAN-18. Boyut: S.
   - Dosya: `src/koy/es_duyumu.gd`.
   - Asset: asset gerekmedi.
-- [/] **HAN-34:** (Antigravity-Berk) Eş çınarda söz alır (MCL-03'ün hane tarafı). (doğrulanmadı — Görev 22; AksamSohbeti (src/koy/aksam_sohbeti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **HAN-34:** (Antigravity-Berk) Eş çınarda söz alır (MCL-03'ün hane tarafı). (`CinarMeclisPaneli` `MeclisSesi.usta_veya_es_sozu` ile eş repliğini gösterir ve `Oturum.aksam_sohbeti_hazirla` aynı gece akşam sohbetini bastırır; `aksam_sohbeti_test.gd`, `aksam_sohbeti_kontrol.tscn`, `cinar_meclisi_genisletme_test.gd` GEÇTİ)
   - Ne: eş meclis sözü aldığı gece akşam sohbeti yerine meclis repliği gelir; iki sahne üst üste binmez.
   - Kabul: meclis gecesi akşam sohbeti 0. Test: MCL gecesi.
   - Bağımlılık: MCL-03, ACL-03. Boyut: S.

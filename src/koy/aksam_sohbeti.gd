@@ -59,9 +59,13 @@ static func konu_sec(kararlar: Array, gun: int = 1, baglam: Dictionary = {}) -> 
 	# Uç durumlar: eş ölmüşse veya meclis gecesiyse sohbet açılmaz.
 	if baglam.get("es_oldu", false) or not baglam.get("es_hayatta", true):
 		return {}
-	if baglam.get("meclis_gecesi", false):
+	if baglam.get("meclis_gecesi", false) or baglam.get("es_meclis_sozu", false):
 		return {}
-	if kararlar.is_empty():
+	var misafir: Dictionary = baglam.get("misafir", {}) if baglam.get("misafir", null) is Dictionary else {}
+	var etkin_kararlar: Array = kararlar
+	if etkin_kararlar.is_empty() and not misafir.is_empty():
+		etkin_kararlar = [{"konu_id": "misafir_agirlama", "ziyaret_sirasi": 0}]
+	if etkin_kararlar.is_empty():
 		return {}
 
 	var veri := veri_al()
@@ -74,8 +78,8 @@ static func konu_sec(kararlar: Array, gun: int = 1, baglam: Dictionary = {}) -> 
 	var en_buyuk_ziyaret_sirasi: int = -1
 	var secilen_karar_anahtari: String = ""
 
-	for i in range(kararlar.size()):
-		var karar_veri = kararlar[i]
+	for i in range(etkin_kararlar.size()):
+		var karar_veri = etkin_kararlar[i]
 		var konu_id: String = ""
 		var ziyaret_sirasi: int = i
 
@@ -131,15 +135,45 @@ static func konu_sec(kararlar: Array, gun: int = 1, baglam: Dictionary = {}) -> 
 		if not onceki_konu.is_empty() and not onceki_cevap.is_empty():
 			replikler.append("Geçen günlerde de böyle demiştin...")
 
+	var katilimcilar := ["es", "muhafiz"]
+	var misafir_replik := ""
+	if not misafir.is_empty():
+		misafir_replik = _misafir_dal_satiri(konu_sablonu, veri, misafir)
+		if not misafir_replik.is_empty():
+			replikler.append(misafir_replik)
+			katilimcilar = ["es", "misafir", "muhafiz"]
+
 	return {
 		"konu_id": secilen_konu_id,
 		"baslik": konu_sablonu.get("baslik", ""),
 		"agirlik": en_yuksek_agirlik,
 		"ziyaret_sirasi": en_buyuk_ziyaret_sirasi,
 		"es_replikleri": replikler,
+		"misafir_replik": misafir_replik,
+		"katilimcilar": katilimcilar,
 		"cevaplar": konu_sablonu.get("cevaplar", {}),
 		"ipucu": konu_sablonu.get("ipucu", "")
 	}
+
+
+static func _misafir_dal_satiri(konu_sablonu: Dictionary, veri: Dictionary, misafir: Dictionary) -> String:
+	var dallar: Dictionary = {}
+	if konu_sablonu.get("misafir_dallari") is Dictionary and not (konu_sablonu["misafir_dallari"] as Dictionary).is_empty():
+		dallar = konu_sablonu["misafir_dallari"]
+	else:
+		var m_konu: Variant = veri.get("konular", {}).get("misafir_agirlama", {})
+		if m_konu is Dictionary:
+			dallar = (m_konu as Dictionary).get("misafir_dallari", {})
+	if dallar.is_empty():
+		return ""
+	var olay := String(misafir.get("olay", "varsayilan"))
+	var tanidik := int(misafir.get("ziyaret", 0)) > 1 or not String(misafir.get("son_karar", "")).is_empty()
+	var dal_anahtari := "tanidik" if (tanidik and dallar.has("tanidik") and olay == "normal") else olay
+	if not dallar.has(dal_anahtari):
+		dal_anahtari = "varsayilan"
+	var sablon := String(dallar.get(dal_anahtari, dallar.values()[0]))
+	var ad := String(misafir.get("ad", misafir.get("chr_id", "Yolcu")))
+	return sablon % ad if "%s" in sablon else sablon
 
 ## Oyuncunun cevabını işler; eşin moralini ve muhafız terazisini döndürür.
 static func cevap_ver(konu_id: String, cevap_tipi: String, baglam: Dictionary = {}) -> Dictionary:
@@ -184,7 +218,7 @@ static func atla() -> Dictionary:
 
 ## Ağır karar yoksa isteğe bağlı tek satırlık gündelik ocak başı cümlesi döner.
 static func gundelik_satir(baglam: Dictionary = {}) -> String:
-	if baglam.get("es_oldu", false) or not baglam.get("es_hayatta", true):
+	if baglam.get("es_oldu", false) or not baglam.get("es_hayatta", true) or baglam.get("meclis_gecesi", false) or baglam.get("es_meclis_sozu", false):
 		return ""
 	var veri := veri_al()
 	var gundelik: Dictionary = veri.get("konular", {}).get("gundelik_sessizlik", {})

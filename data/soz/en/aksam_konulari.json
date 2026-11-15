@@ -387,6 +387,37 @@
           "moral_etkisi": 1
         }
       }
+    },
+    "misafir_agirlama": {
+      "agirlik": 3,
+      "baslik": "Guest by the Hearth",
+      "es_replikleri": [
+        "I have filled our guest's bowl, husband; tonight let the hearth speak, not the gate."
+      ],
+      "misafir_dallari": {
+        "varsayilan": "Guest (%s): 'Your household is blessed; a warm bowl of stew kept us through the night.'",
+        "tanidik": "Guest (%s): 'I passed your gate once before; I knew the smoke of your hearth from afar.'",
+        "hediye": "Guest (%s): 'May kindness never go unreturned; I left a share from my pack for your home.'",
+        "hirsizlik": "Guest (%s): 'The road is long and the night is frostbitten; I must be off before dawn.'"
+      },
+      "ipucu": "hane_misafir_sohbeti",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Even when bunks grow scarce at the gate, there is always room for one bowl at our table.",
+          "terazi": "savundu",
+          "moral_etkisi": 1
+        },
+        "kabul_etmek": {
+          "metin": "Do not fret, wife; a guest comes with fortune and leaves with fortune.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "The sentry stirs the embers and nods quietly toward the guest.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
     }
   }
 }

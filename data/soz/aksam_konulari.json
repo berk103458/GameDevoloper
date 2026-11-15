@@ -387,6 +387,37 @@
           "moral_etkisi": 1
         }
       }
+    },
+    "misafir_agirlama": {
+      "agirlik": 3,
+      "baslik": "Ocak Başında Misafir",
+      "es_replikleri": [
+        "Misafirimizin çanağını doldurdum beyim; bu gece eşik değil ocak konuşsun."
+      ],
+      "misafir_dallari": {
+        "varsayilan": "Misafir (%s): 'Haneniz bereketliymiş, bir tas sıcak aş bizi yoldan döndürdü.'",
+        "tanidik": "Misafir (%s): 'Evvelce de kapınızdan geçtimdi; ocağınızın dumanını yine tanıdım.'",
+        "hediye": "Misafir (%s): 'İyiliğiniz yerde kalmasın, heybedeki azıktan bir pay da size bıraktım.'",
+        "hirsizlik": "Misafir (%s): 'Yol uzun, gece ayazdır; sabah olmadan yola düşmek gerek.'"
+      },
+      "ipucu": "hane_misafir_sohbeti",
+      "cevaplar": {
+        "savunmak": {
+          "metin": "Kapımızda yer daralsa da soframızda bir kaşık yer bulunur.",
+          "terazi": "savundu",
+          "moral_etkisi": 1
+        },
+        "kabul_etmek": {
+          "metin": "İçimiz daralmasın hatun; misafir kısmetiyle gelir, kısmetiyle gider.",
+          "terazi": "kabul_etti",
+          "moral_etkisi": 2
+        },
+        "susmak": {
+          "metin": "Muhafız ocağın közünü düzeltir, misafire başıyla selam verir.",
+          "terazi": "kacti",
+          "moral_etkisi": 0
+        }
+      }
     }
   }
 }

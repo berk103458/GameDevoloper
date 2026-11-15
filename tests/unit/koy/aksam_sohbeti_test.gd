@@ -78,6 +78,31 @@ func _init() -> void:
 	if not oturum.aksam_sohbeti_hazirla({"meclis_gecesi": false}).is_empty():
 		hatalar.append("Eş ölmüşken gerçek oturum akşam sohbeti açmamalı!")
 
+	# 8. HAN-13: Misafir gecesi akşam sohbeti 3 katılımcılı açılır ve DIY-11 dalını Söz'den okur
+	var o_misafir := Oturum.new(katalog, 9102)
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(o_misafir)
+	o_misafir.gun = 1
+	o_misafir.yonetim.gun = 1
+	KisiHafizasi.kaydet_olay(o_misafir.kadro, &"chr_004", {"karar": "kabul"}, 0)
+	KisiHafizasi.kaydet_olay(o_misafir.kadro, &"chr_004", {"karar": "kabul"}, 1)
+	o_misafir.yonetim.hane.misafir_al("chr_004", "normal")
+	var misafir_sohbet := o_misafir.aksam_sohbeti_hazirla({"meclis_gecesi": false})
+	var katilimcilar: Array = misafir_sohbet.get("katilimcilar", [])
+	if katilimcilar.size() != 3 or not ("misafir" in katilimcilar) or String(misafir_sohbet.get("misafir_replik", "")).is_empty():
+		hatalar.append("HAN-13: misafir gecesi akşam sohbeti 3 katılımcı ve misafir repliği vermeli!")
+
+	# 9. HAN-34: Eş çınarda söz aldığında akşam sohbeti açılmaz
+	var o_mcl := Oturum.new(katalog, 9103)
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(o_mcl)
+	o_mcl.gun = 2
+	o_mcl.yonetim.gun = 2
+	o_mcl.aksam_sohbeti_ekle("rusvet_almak", 1)
+	o_mcl.set_meta(&"es_meclis_sozu_gecesi", 2)
+	if not o_mcl.aksam_sohbeti_hazirla({}).is_empty():
+		hatalar.append("HAN-34: eş çınarda söz aldıysa aynı gece akşam sohbeti açılmamalı!")
+	if not AksamSohbeti.konu_sec([{"konu_id": "rusvet_almak", "ziyaret_sirasi": 1}], 3, {"es_meclis_sozu": true, "es_hayatta": true}).is_empty():
+		hatalar.append("HAN-34: AksamSohbeti.konu_sec es_meclis_sozu=true iken boş dönmeli!")
+
 	if not hatalar.is_empty():
 		for h in hatalar:
 			push_error(h)

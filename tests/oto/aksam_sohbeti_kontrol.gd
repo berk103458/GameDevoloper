@@ -62,6 +62,39 @@ func _ready() -> void:
 	ekran2.queue_free()
 	await get_tree().process_frame
 
+	# 3. HAN-13: Hane misafiri olan gecede AksamSohbetiKart 3 katılımcıyla açılır
+	var ekran3 := KoyEkrani.new()
+	ekran3.oturum = Oturum.new(katalog, 6103)
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(ekran3.oturum)
+	ekran3.oturum.gun = 1
+	ekran3.oturum.yonetim.gun = 1
+	ekran3.oturum.yonetim.hane.misafir_al("chr_004", "normal")
+	ekran3.ayarlar = Ayarlar.new()
+	ekran3.theme = Tema.olustur(ekran3.ayarlar)
+	add_child(ekran3)
+	ekran3._geceye_gec()
+	_dene(ekran3._ust_kart != null and ekran3._ust_kart.name == "AksamSohbetiKart" and int(ekran3._ust_kart.get_meta(&"katilimci_sayisi", 0)) == 3, "HAN-13: misafir gecesinde AksamSohbetiKart 3 katılımcıyla açılmalı")
+	ekran3.queue_free()
+	await get_tree().process_frame
+
+	# 4. HAN-34: Çınar meclisinde eş söz alınca meclis repliği görünür ve akşam sohbeti bastırılır
+	var ekran4 := KoyEkrani.new()
+	ekran4.oturum = Oturum.new(katalog, 6104)
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(ekran4.oturum)
+	ekran4.oturum.gun = 2
+	ekran4.oturum.yonetim.gun = 2
+	ekran4.ayarlar = Ayarlar.new()
+	ekran4.theme = Tema.olustur(ekran4.ayarlar)
+	add_child(ekran4)
+	CinarMeclisPaneli.ac(ekran4)
+	var es_sozu_etiket := ekran4._ust_kart.find_child("meclis_es_sozu", true, false) as Label if ekran4._ust_kart != null else null
+	_dene(es_sozu_etiket != null and not es_sozu_etiket.text.is_empty(), "HAN-34: Çınar meclisinde eş sözü gösterilmeli")
+	ekran4._kart_kapat()
+	ekran4.oturum.aksam_sohbeti_ekle("aileyi_bolmek", 1)
+	_dene(not AksamSohbetiPaneli.ac(ekran4, func() -> void: pass), "HAN-34: eş çınarda söz aldığı gece akşam sohbeti açılmamalı")
+	ekran4.queue_free()
+	await get_tree().process_frame
+
 	print("AKSAM SOHBETI UI: %s (%d hata)" % ["GEÇTİ" if _hata == 0 else "KALDI", _hata])
 	get_tree().quit(1 if _hata > 0 else 0)
 
