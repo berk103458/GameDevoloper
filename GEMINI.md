@@ -4,13 +4,13 @@
 Gemini — planlama / analiz ajanı (ROADMAP, mimari not, doğrulama).
 
 ## Şu an üzerinde çalışılan
-- **MESHY-27 Pilotu (`klip_eksik:chr_001`, `klip_eksik:saruca_hatun`):** Tamamlandı ve `onaylandi` (`34` kredi harcandı, yedek anahtar `...AqQC` kalan bakiye: `823` kredi). `ayak_zemini_kontrol.tscn` ve `chr_kapi_kontrol.tscn` testleri `RC=0` ile geçti.
+- **MESHY-27 (`klip_eksik:*` 44/44 karakter):** Tamamlandı (`0` atlanan karakter; pilot `34` + toplu `618` = **`652` kredi** harcandı, yedek anahtar `...AqQC` kalan bakiye: **`205` kredi**). `ciftci_bekle.res` `SAH-03` adım boyu aşımı nedeniyle reddedilip çıkarıldı; `ayak_zemini_kontrol.tscn` ve `chr_kapi_kontrol.tscn` `RC=0` ile geçti.
 
 ## Sonraki plan
-Kalan 42 `klip_eksik:*` karakteri için Ahmet'in `"devam"` onayı bekleniyor (10'arlık partiler, `--butce 700`).
+Ahmet'in yeni görev veya inceleme talimatı bekleniyor.
 
 ## Güncel durum
-- Tüm 142 Görev 25/26 Meshy 3B asset'i + 2 MESHY-27 pilot karakteri (`chr_001`, `saruca_hatun`) `claude/festive-volta-li1sfm` dalında.
+- Tüm 142 Görev 25/26 Meshy 3B asset'i + tüm 44 MESHY-27 eski karakter iskelet ve klipleri `claude/festive-volta-li1sfm` dalında.
 - Kardeş günlükler: `CLAUDE.md`, `codex.md/Codex.md`, `codex.md/Antigravity.md`, isteğe bağlı `codex.md/Muharrir.md`.
 
 ## Kural

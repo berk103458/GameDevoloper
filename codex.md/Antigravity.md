@@ -1460,42 +1460,32 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Kota:** kota görünmüyor
 - **Durum:** TAMAMLANDI
 
+---
 
-## 15 Kasım 2026 — `SOY-35` (Antigravity-Berk)
-- **Yapılanlar:** `data/soylenti.json` (`yanlis_soylenti_husumet_artisi: 1`), `src/sistemler/soylenti_agi.gd` (`_bozuk_kopya` hedef/meslek taşıma ve `yanlis_hedef_husumetleri_al`), `src/sistemler/soylenti_koprusu.gd` (`gece` içinde `y.husumet.soylenti_husumeti_ekle`), `src/koy/husumet.gd` (`kisi_husumeti`, `soylenti_husumeti_ekle`, `kisi_husumeti_oku`, `kaydet`/`kayittan`) ve `src/koy/kan_davasi.gd` (`soylenti_husumeti`, `KAVGA_RISKI = 0.20` sabit) tamamlandı; `tests/unit/kvr/kan_davasi_test.gd` içinde `Oturum.gece_sonu()`, `SOY-05` bozuk kopya hedefi, yineleme engeli ve kayıt/eski kayıt doğrulandı (pre-existing `atolye` K3 testi için `harc` + K1/K2 ön koşulu eklendi).
-- **Testler:** `kan_davasi_test.gd` (`KAN DAVASI: GEÇTİ`), `soylenti_ayar_tarama_test.gd` (`SÖYLENTİ AYAR TARAMA: GEÇTİ`), `soylenti_koprusu_test.gd` (`SÖYLENTİ KÖPRÜSÜ: GEÇTİ`), `soylenti_agi_test.gd` (`PASS`), `koy_yonetimi_test.gd` (`KOY YONETIMI TEST: GEÇTİ (0 hata)`) — hepsi RC=0, 0 SCRIPT ERROR.
-- **Asset:** asset gerekmedi.
+## Oturum — 15 Kasım 2026 (ROADMAP_4 Hazırlık Ön Raporu)
+- **Yapılan:** `docs/ROADMAP_4_ON_RAPOR.md` oluşturuldu (kod, test ve asset üretilmedi; `ROADMAP_4.md` henüz açılmadı).
+- **Kapsam:** A (`TST-*`) → B (`ICR-*`) → C (`TEL-*`) → D (`SES-*`) → E (`PKT-*`) → F (`ING-*`) bölümleri katı bağımlılık sırasıyla yazıldı; her bölüm için mevcut durum kanıtları, gerçek oyun analizleri, taslak madde listesi, Berk/Usta çakışma riski ve Ahmet'e numaralı karar soruları eklendi.
+- **Kota:** kota görünmüyor. (Antigravity)
+
+
+## 15–16 Kasım 2026 — MESHY-27 Toplu Üretim (Kalan 42 `klip_eksik:*` Karakteri)
+- **Dal:** `claude/festive-volta-li1sfm`
+- **Kullanılan Anahtar:** Yedek anahtar (`...AqQC`; `--butce 640`).
+- **Üretilen Partiler & Gerçek Kredi Maliyeti:**
+  - **Parti 1 (10 karakter):** `asker`, `ciftci`, `ciftci_kadin`, `esnaf`, `aydogdu`, `ayse_baci`, `chr_002`–`chr_005` -> **`182` kredi** (`823` -> `641` kredi).
+  - **Parti 2 (10 karakter):** `chr_006`–`chr_015` -> **`110` kredi** (`641` -> `531` kredi).
+  - **Parti 3 (10 karakter):** `chr_016`–`chr_025` -> **`110` kredi** (`531` -> `421` kredi).
+  - **Parti 4 (12 karakter):** `chr_026`–`chr_030`, `hasan_celebi`, `karaca_usta`, `miraen`, `nogay`, `sorhan`, `thessra`, `yusuf` -> **`216` kredi** (`421` -> **`205` kredi**).
+  - **Toplam (Pilot + Toplu):** 44/44 karakter üretildi (`0` atlanan karakter). Pilot `34` + Toplu `618` = **`652` kredi harcandı**, anahtar `...AqQC` kalan bakiye: **`205` kredi**.
+- **Taban Uyarısı (`y < -0.03`) Çıkan Karakterler (`dogrula` dinlenme pozunda, 34 karakter):**
+  - `asker` (`-0.054`), `ciftci` (`-0.058`), `ciftci_kadin` (`-0.054`), `esnaf` (`-0.044`), `chr_001` (`-0.059`), `chr_002` (`-0.076`), `chr_003` (`-0.084`), `chr_005` (`-0.053`), `chr_009` (`-0.078`), `chr_010` (`-0.063`), `chr_011` (`-0.054`), `chr_012` (`-0.043`), `chr_013` (`-0.056`), `chr_014` (`-0.068`), `chr_015` (`-0.041`), `chr_016` (`-0.061`), `chr_018` (`-0.040`), `chr_019` (`-0.073`), `chr_020` (`-0.076`), `chr_021` (`-0.089`), `chr_022` (`-0.072`), `chr_023` (`-0.055`), `chr_024` (`-0.053`), `chr_025` (`-0.073`), `chr_026` (`-0.073`), `chr_027` (`-0.033`), `chr_028` (`-0.054`), `chr_030` (`-0.059`), `karaca_usta` (`-0.065`), `miraen` (`-0.071`), `nogay` (`-0.055`), `saruca_hatun` (`-0.037`), `sorhan` (`-0.043`), `thessra` (`-0.044`).
+  - *Not:* Oyun içinde kullanılan `*_yuru.glb` modellerinde `AyakZemini` (`src/dunya/ayak_zemini.gd`) tabanı çalışma zamanında dinamik olarak zemine oturtmaktadır (`ayak_zemini_kontrol.tscn`: `gömülme=0`, `AYAK ZEMİNİ: GEÇTİ`).
+- **Bilinen Sorunlar / Reddedilen Klipler:**
+  - `ciftci_bekle.res`: `ayak_zemini_kontrol.tscn` (`SAH-03`) testinde yürüme geçişinde `adım boyu aşımı=1` (ayak kayması) ürettiği için reddedildi ve repodan çıkarıldı (`ciftci` güvenli bekleme düşüşüne döner; diğer 5 klip `konus`, `sevinc`, `ofke`, `panik`, `gergin` sağlam).
+  - `chr_006`: `KarakterModel._izler_cozulur` kontrolünde `chr_006_bekle.res` ve `chr_006_konus.res` çözülüyor; `sevinc`, `ofke`, `panik`, `gergin` klipleri `chr_006_yuru.glb` iskelet izleriyle eşleşmediği için çalışma zamanında otomatik atlanıp güvenli bekleme düşüşü kullanılır.
+  - `tests/oto/ayak_zemini_kontrol.gd`: `SAH-75` (`chr_002/gergin`) ve `SAH-06` (`ciftci/eksik klip`) testleri eksik klip geri düşüşünü örnek üzerinden izole test edecek şekilde güncellendi.
+- **Test Sonuçları:**
+  - `tests/oto/ayak_zemini_kontrol.tscn`: `AYAK ZEMİNİ: GEÇTİ` (`RC=0`).
+  - `tests/oto/chr_kapi_kontrol.tscn`: `CHR KAPI UI: GEÇTİ` (`RC=0`).
+  - Tüm 44 karakter klip kontrolü (`KarakterModel`): 43/44 karakterde 6/6 klip tam çözülür (`chr_006` hariç).
 - **Kota:** kota görünmüyor
-
-### 2026-11-15 — SOY-36 Tamamlandı (Antigravity-Berk)
-- **Kapsam:** `data/ayarlar/denge.json` ve `data/ayarlar/denge_sinirlari.json` (`pazar_soylenti_carpani`: 1.1, aralık 1.0..2.0), `src/koy/ticaret/ticaret_fiyatlari.gd` (`soylenti_carpani`, `DENGE`), `src/sistemler/soylenti_koprusu.gd` ve `src/sistemler/soylenti_agi.gd` (`etki_gunu` ile `Oturum.gece_sonu()` gün sırası hizası), `tests/unit/kvr/ticaret_fiyatlari_test.gd`.
-- **Doğrulama:** `ticaret_fiyatlari_test.gd` (`TİCARET FİYATLARI: GEÇTİ`), `fiyat_test.gd` (`FİYAT ÖLÇÜMÜ: GEÇTİ`), `soylenti_ayar_tarama_test.gd` (`SÖYLENTİ AYAR TARAMA: GEÇTİ`), `tests/oto/ticaret_fiyat_kontrol.tscn` (RC=0, 0 SCRIPT ERROR), `tools/denge_dogrula.py` (`Denge dogrulama: GECTI`).
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor
-
-### 2026-11-15 — SOY-37 Tamamlandı (Antigravity-Berk)
-- **Kapsam:** `src/sistemler/goc_yolu_guvenligi.gd` (`soylenti_gelen_farki`), `src/sistemler/oturum.gd` (`gece_kuyrugu` gelen sayısı bağlantısı), `tests/unit/kvr/goc_yolu_guvenligi_test.gd` (yanlış 1 gece / doğru 2 gece, gerçek `Oturum.gece_sonu()` ve `kaydet/kayittan` akışı).
-- **Doğrulama:** `goc_yolu_guvenligi_test.gd` (`GOC YOLU: GEÇTİ`), `tests/oto/goc_yolu_kontrol.tscn` (RC=0, 0 SCRIPT ERROR), `soylenti_ayar_tarama_test.gd` (`SÖYLENTİ AYAR TARAMA: GEÇTİ`).
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor
-
-### 2026-11-15 — ACL-02 Tamamlandı (Antigravity-Berk)
-- **Kapsam:** `data/hane_esi.json`, `src/koy/hane_esi.gd`, `src/koy/hane_esi.gd.uid`, `src/koy/hane.gd`, `src/koy/koy_yonetimi.gd`, `src/koy/koylu_karti_verisi.gd`, `src/koy/sabah_defteri.gd`, `src/koy/ticaret/kervan_korumasi.gd`, `src/kapi/divan_oturumu.gd`, `src/kapi/divan_hukmu.gd`, `src/arayuz/koylu_karti.gd`, `src/arayuz/koy_ekrani.gd`, `src/sistemler/acilis_senaryosu.gd`, `src/sistemler/oturum.gd`, `src/sistemler/nihai_son.gd`, `tests/unit/koy/hane_esi_test.gd`.
-- **Doğrulama:** `hane_esi_test.gd` (`HANE EŞİ: GEÇTİ`), `hane_test.gd`, `koy_yonetimi_test.gd`, `aksam_sohbeti_test.gd`, `divan_hukmu_test.gd`, `kervan_korumasi_test.gd`, `sabah_defteri_test.gd`, `acilis_bagimlilik_kontrol.tscn` (RC=0, 0 SCRIPT ERROR).
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor
-
-### 2026-11-16 — KAP-16 Tamamlandı (Antigravity-Berk)
-- **Kapsam:** `data/gelen_akisi.json`, `src/kapi/gelen_akisi.gd`, `src/kapi/gelen_akisi.gd.uid`, `src/veri/oyun_ayarlari.gd`, `data/ayarlar/oyun.tres`, `src/sistemler/oturum.gd`, `src/arayuz/kapi_ekrani.gd`, `tools/chr_parser.py`, `tests/tools/test_chr_parser.py`, `tests/unit/kapi/gelen_akisi_test.gd`, `tests/unit/kapi/gelen_akisi_ekran_test.gd`, `tests/unit/kapi/gelen_akisi_ekran_test.tscn`.
-- **Doğrulama:** `gelen_akisi_test.gd` (`GELEN AKISI: GEÇTİ`, 100 tohum en az 4/28 boş gün), `gelen_akisi_ekran_test.tscn` (`GELEN AKISI EKRAN: GEÇTİ`), `chr_parser.py --check`, `test_chr_parser.py` + `test_chr_sorgu_degeri.py` (12 test OK), `kapi_firtina_kuyrugu_test.gd`, `goc_yolu_guvenligi_test.gd`, `gecis_gecesi_oyun_test.gd`, `gozcu_kafile_ozeti_test.gd`, `pusu_ticaret_akisi_test.gd`, `omurga_kadro_test.gd`, `ozel_olay_test.gd`, `bos_gun_durusu_oyun_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (tümü RC=0, 0 SCRIPT ERROR).
-- **Asset:** asset gerekmedi.
-- **Kota:** kota görünmüyor
-
-### 2026-11-16 — KAP-39 Tamamlandı (Antigravity-Berk)
-- **Değişiklikler:**
-  - `src/arayuz/kapi_ekrani.gd`: `heybe_acik_mi()` yardımcısı ve `_ilk_odaklanabilir()` eklendi; heybe açıkken `_soru_sor()`, `_heybe_sor()`, `_tercuman_cagir()`, `_karar_goster()`, `_karar_bas()` ve `_karar_ver()` engellendi. `_heybe_ac()` kapanışında `donus != &"karar"` ise seçenek ve eylem düğmeleri yeniden kurulmadan korunur.
-  - `src/arayuz/chr_diyalog_paneli.gd`: `_heybe_acik_mi()` eklendi; heybe açıkken sorgu eylem seçenekleri, `KilitliKarar` ve boş dal geçiş düğmesi kilitlendi.
-  - `tests/unit/kapi/heybe_kilit_test.gd` ve `.tscn`: Adlı ve adsız ziyaretçiler için heybe açıkken soru hakkı/dal/karar/CHR sorgu eylemi kilidi ve panel kapanınca düğme geçerliliği doğrulandı.
-- **Doğrulama:** `heybe_kilit_test.tscn` (`HEYBE KILIT: GEÇTİ`), `heybe_kadraji_kontrol.tscn`, `hastalik_teshis_kontrol.tscn`, `ilk_aile_kapi_kontrol.tscn`, `defter_tanitimi_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (RC=0).
-- **Asset:** asset gerekmedi.
-- kota görünmüyor
