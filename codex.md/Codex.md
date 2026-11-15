@@ -1240,3 +1240,16 @@ Codex (Berk): kullanıcının sırasıyla faz kaydı, kalıcı levent gönderim 
 
 İlk eksik faz-fikstürü koşusu ve ikinci koşudaki tek kuyu-zehirleme eksik işareti nihai başarı sayılmadı; son kaynaklarda import + bütün sanity yeniden tamamlandı. Önceki kanıtlar work/bugfix_0011_0015_onceki/, son kanıt work/bugfix_0011_0015/sonuc_ozeti.json ve *.log. Kaynak/test/veri 1799 hash sabit; metinler.csv ve AGENTS birebir aynı, 10 UID tekil. ROADMAP'in Sıradaki/ADM-16 satırları tur sırasında bağımsız değişti; bu görevde ROADMAP düzenlenmedi, bağımsız iş korunarak manifest dışında tutuldu. Tester belgelerine dokunulmadı. Denetim tablosunda beş DÜZELTİLDİ (Codex) kaydı ve dosyalar var. 56 proje dosyasının listesi work/bugfix_0011_0015/degisen_dosyalar.md. Asset gerekmedi; commit/push/.git işlemi yapılmadı. Zorunlu ds aynası salt okunur olduğundan eşitlenemedi; Ahmet kopyası güncellenmedi. Bu düzeltme görevinin kod/test işi kalmadı; ayna aktarımı izin engeli nedeniyle açık.
 
+
+## 15 Kasım 2026 — Codex_gorev.md başlangıç denetimi (Codex-Berk)
+
+Codex (Berk): görev dosyası, AGENTS.md, SOUL.md, ROADMAP panosu ve Ajan Masası okundu. Festive git pull --ff-only sonucu güncel; kontrol edilen HEAD 440589fa. Bu 37 maddelik göreve önceki günlükte başlanmamış; çalışma ağacı temizdi. gh PATH üzerinde yoktu; D:\Araclar\gh\bin\gh.exe ve GH_CONFIG_DIR=D:\Araclar\gh-config ile Ajan Masası erişimi sağlandı.
+
+İlk madde KLT-13 için gerçek ön koşul engeli: DYL-13 [x] (Antigravity) görünmesine rağmen tools/metin_karsilastir.py yalnız JSON kayıt sayılarını karşılaştırıyor; satır geçmişi/iki inceleyen/karakter hazır kaydı sözleşmesi bulunmuyor. Mevcut tests/unit/soz/yan_yana_bakis_test.gd yalnız Python dosyasının varlığını denetliyor. ROADMAP kabulünde geçen tests/unit/soz/metin_farki_test.gd ve src/debug/soz_onizleme.gd mevcut değil. Bu inceleme test başarısı değildir; Godot testi çalıştırılmadı ve hiçbir madde [x] yapılmadı. Başka ajanın tamamladığı DYL-13'e kod veya test eklenmedi, ROADMAP sahipliği değiştirilmedi.
+
+KLT-14/KLT-47 için de DYL-14 kaynaklı örnek defteri yok; ROADMAP bu kayıtlara yalnız insanın kaynak doğrulayarak yazmasını zorunlu tutuyor. Kaynaksız örnek üretilmedi. Görev dosyasının gerçek engelde dur talimatı uygulandı. Sonraki adım: DYL-13 sahibinin kayıt sözleşmesi teslimi veya Usta'nın bağımsız GRV maddesine geçiş yönlendirmesi üzerine devam etmek.
+
+Ajan Masası sorun kaydı: https://github.com/berk103458/GameDevoloper/issues/11#issuecomment-6897698093 . Asset gerekmedi. Kota görünmüyor. Bu tur yalnız günlük değişti; kayıt anlamlı Türkçe commit ile festive'e yayımlanıyor. Görev dosyasının D: dışına çıkma yasağı gereği C: üzerinde yazılmadı; ds çalışma kopyası ve zorunlu ayna yolları varlık kontrolünde bulunamadı, eşitlenemedi. Ahmet kopyası güncellenmedi. Commit/push sonucu git çıktısıyla doğrulanacak.
+
+ENGEL
+KLT-13'ün DYL-13 inceleme kaydı sözleşmesi mevcut değil; başka ajanın [x] maddesine müdahale yasağı nedeniyle ön koşul tamamlanmadan madde kapatılamaz.
