@@ -10,11 +10,12 @@ const MESALE_ALEV_IC := Color("#FFD27A")
 const NESNE_RENK := {
 	"mesale": Renkler.AHSAP, "kazik_cit": Renkler.AHSAP, "araba": Renkler.AHSAP, "agac": Renkler.DERIN_MAVI,
 	"kuyu": Renkler.SOGUK_MAVI, "kaya": Renkler.SOGUK_MAVI, "cuval_yigini": Renkler.AHSAP,
+	"zar": Renkler.PARSOMEN,
 }
 ## Portre kökü → karakter modeli.
 const PORTRE_MODEL := {
 	"soldier_01": "asker", "craftsman_01": "esnaf", "farmer_01": "ciftci", "farmer_02": "ciftci_kadin",
-	"vergi_tahsildari": "tahsildar",
+	"vergi_tahsildari": "tahsildar", "aydogdu_oba": "turkmen_bey_adami",
 }
 const SINIF_MODEL := {&"asker": "asker", &"esnaf": "esnaf", &"ciftci": "ciftci"}
 

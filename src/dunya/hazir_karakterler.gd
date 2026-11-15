@@ -10,6 +10,8 @@ static func koy_adi(k: Koylu, eski: String) -> String:
 		if k.adli_id == &"chr_006":
 			return "chr_006"
 		return "cocuk" if Dunya3B.model_var_mi("cocuk_yuru", "karakter") else "lowpo_cocuk"
+	if k.yas_grubu == &"yasli" and k.adli_id == &"" and Dunya3B.model_var_mi("yasli_yuru", "karakter"):
+		return "yasli"
 	if k.adli_id == &"" and k.zanaat_turu == ZanaatTuru.Tur.DEMIRCI and k.portre != "farmer_02":
 		return "lowpo_demirci"
 	return eski
