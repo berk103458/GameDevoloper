@@ -1,5 +1,5 @@
 {
-  "aciklama": "SOY-23. Olay kimliği değişkendir; dal soylenti_duydu özetine bakar. Ayrıntı anahtarları bağlamda düzdür: soylenti.<olay_id>.duydu, .dogru, .kaynak.",
+  "aciklama": "SOY-23/SOY-43. Olay kimliği değişkendir; dal soylenti_duydu özetine bakar. Karakterler kendi ağzından söyler; şablonlar yalnızca olay alanlarını ({yer}, {hadise}) doldurur, {kaynak} dedi kalıbı kullanılmaz.",
   "dallar": [
     {
       "id": "duydum_ki",
@@ -9,5 +9,90 @@
         "soylenti_duydu": true
       }
     }
-  ]
+  ],
+  "agiz_sablonlari": {
+    "varsayilan": "soz.soylenti.agiz.varsayilan",
+    "sinif": {
+      "ciftci": "soz.soylenti.agiz.ciftci",
+      "esnaf": "soz.soylenti.agiz.esnaf",
+      "asker": "soz.soylenti.agiz.asker"
+    },
+    "hitap": {
+      "saygi": "soz.soylenti.agiz.saygi",
+      "sefkat": "soz.soylenti.agiz.sefkat",
+      "aliskanlik": "soz.soylenti.agiz.aliskanlik",
+      "agirlik": "soz.soylenti.agiz.agirlik",
+      "gulus": "soz.soylenti.agiz.gulus"
+    }
+  },
+  "olay_alanlari": {
+    "varsayilan": {
+      "yer": "soz.soylenti.olay.varsayilan.yer",
+      "hadise": "soz.soylenti.olay.varsayilan.hadise"
+    },
+    "rusvet": {
+      "yer": "soz.soylenti.olay.rusvet.yer",
+      "hadise": "soz.soylenti.olay.rusvet.hadise"
+    },
+    "siddet": {
+      "yer": "soz.soylenti.olay.siddet.yer",
+      "hadise": "soz.soylenti.olay.siddet.hadise"
+    },
+    "aileyi_bolme": {
+      "yer": "soz.soylenti.olay.aileyi_bolme.yer",
+      "hadise": "soz.soylenti.olay.aileyi_bolme.hadise"
+    },
+    "haksiz_ret": {
+      "yer": "soz.soylenti.olay.haksiz_ret.yer",
+      "hadise": "soz.soylenti.olay.haksiz_ret.hadise"
+    },
+    "muhafizin_yalani": {
+      "yer": "soz.soylenti.olay.muhafizin_yalani.yer",
+      "hadise": "soz.soylenti.olay.muhafizin_yalani.hadise"
+    },
+    "aile_birlikte_alma": {
+      "yer": "soz.soylenti.olay.aile_birlikte_alma.yer",
+      "hadise": "soz.soylenti.olay.aile_birlikte_alma.hadise"
+    },
+    "haksizlik_karsi_durma": {
+      "yer": "soz.soylenti.olay.haksizlik_karsi_durma.yer",
+      "hadise": "soz.soylenti.olay.haksizlik_karsi_durma.hadise"
+    },
+    "yarali_tedavi": {
+      "yer": "soz.soylenti.olay.yarali_tedavi.yer",
+      "hadise": "soz.soylenti.olay.yarali_tedavi.hadise"
+    },
+    "is_kazasi": {
+      "yer": "soz.soylenti.olay.is_kazasi.yer",
+      "hadise": "soz.soylenti.olay.is_kazasi.hadise"
+    },
+    "ucret": {
+      "yer": "soz.soylenti.olay.ucret.yer",
+      "hadise": "soz.soylenti.olay.ucret.hadise"
+    },
+    "kervan_gelmeyecek": {
+      "yer": "soz.soylenti.olay.kervan_gelmeyecek.yer",
+      "hadise": "soz.soylenti.olay.kervan_gelmeyecek.hadise"
+    },
+    "yol_guvensiz": {
+      "yer": "soz.soylenti.olay.yol_guvensiz.yer",
+      "hadise": "soz.soylenti.olay.yol_guvensiz.hadise"
+    },
+    "dunya_haberi": {
+      "yer": "soz.soylenti.olay.dunya_haberi.yer",
+      "hadise": "soz.soylenti.olay.dunya_haberi.hadise"
+    },
+    "ad_kaymasi": {
+      "yer": "soz.soylenti.olay.ad_kaymasi.yer",
+      "hadise": "soz.soylenti.olay.ad_kaymasi.hadise"
+    },
+    "yer_kaymasi": {
+      "yer": "soz.soylenti.olay.yer_kaymasi.yer",
+      "hadise": "soz.soylenti.olay.yer_kaymasi.hadise"
+    },
+    "abarti": {
+      "yer": "soz.soylenti.olay.abarti.yer",
+      "hadise": "soz.soylenti.olay.abarti.hadise"
+    }
+  }
 }

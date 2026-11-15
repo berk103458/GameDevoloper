@@ -1561,3 +1561,12 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `soylenti_kapi_dogrulama_test.gd` (`SOY-10 GECTI`, RC=0), `soylenti_agi_test.gd` (`PASS: SOY-01..50`, RC=0), `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`, RC=0), `defter_tanitimi_test.tscn` (`DEFTER TANITIMI TESTI: GEÇTİ (0 hata)`, RC=0), `celiski_goster_test.gd` (`TEST PASS`, RC=0), `beyan_defteri_test.gd` (`TEST PASS`, RC=0), `donen_soylenti_test.gd` (RC=0), `ilk_saat_test.gd` (`ILK SAAT: GEÇTİ (0 hata)`, RC=0), `dunya_cizelge_metin_test.gd` (`DNY-01..DNY-04`, RC=0), `acilis_bagimlilik_kontrol.tscn` (RC=0), `api_sozlesmesi.py` (`PASS`).
 - **Asset:** asset gerekmedi.
 - kota görünmüyor
+
+### 2026-11-16 — SOY-43 Tamamlandı (Antigravity-Berk)
+- **Değişiklikler:**
+  - `data/soz/soylenti_duydum.json`, `data/metin/metinler.csv`: `dallar` (`duydum_ki`) korunarak 3 sınıf (`ciftci`, `esnaf`, `asker`), 5 YAZ-09 hitap (`saygi`, `sefkat`, `aliskanlik`, `agirlik`, `gulus`) ve `varsayilan` ağız şablonları (`soz.soylenti.agiz.*`) ile 17 olayın `{yer}` / `{hadise}` olay alanları (`soz.soylenti.olay.*`) TR/EN eklendi; `{kaynak} dedi, {olay}` kalıbı kullanılmadı.
+  - `src/koy/ne_duydun.gd`: `karakter_agiz_anahtari`, `olay_cumlesi`, `agizdan_metin` ve `ekle` adaptörü bağlandı (`metin`, `duydum_ki_sec`, `duydum_ki_metin` imzaları ve davranışı korundu).
+  - `tests/unit/soz/soylenti_duydum_uslup_test.gd`: Aynı olayda iki farklı karakterin (sınıf ve `chr_002` hitap ayrımı) iki farklı cümle yapısı ürettiği, şablonların yalnız olay alanlarını doldurduğu ve USLUP §1 ihlali bulunmadığı TR/EN doğrulandı.
+- **Doğrulama:** `soylenti_duydum_uslup_test.gd` (`TEST PASS`, RC=0), `soylenti_meclis_kontrol.tscn` (`SÖYLENTİ MECLİS UI: GEÇTİ`, RC=0), `ne_duydun_test.gd` (`NE DUYDUN: GEÇTİ`, RC=0), `soylenti_baglam_test.gd` (`SOY-23 GECTI`, RC=0), `acilis_bagimlilik_kontrol.tscn` (RC=0), `test_soz_soylenti_kotasi.py` (3/3 OK), `test_uslup_kapisi.py` (3/3 OK), `soz_kadro_denetimi.py` (`hatalar: []`), `api_sozlesmesi.py` (`PASS`), `yapaylik.js` (9 ağız satırında 0 uyarı).
+- **Asset:** asset gerekmedi.
+- kota görünmüyor

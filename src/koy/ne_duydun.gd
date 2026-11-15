@@ -8,8 +8,11 @@ extends RefCounted
 
 const SOYLENTI_BAGLAMI = preload("res://src/soz/soylenti_baglami.gd")
 const DUYDUM_YOLU := "res://data/soz/soylenti_duydum.json"
+const TANIDIK_YOLU := "res://data/soz/tanidik_yuz.json"
 
 static var _duydum_dallar: Array = []
+static var _duydum_veri: Dictionary = {}
+static var _tanidik_veri: Dictionary = {}
 
 
 static func kayit(o: Object, k: Koylu) -> Dictionary:
@@ -64,6 +67,52 @@ static func duydum_ki_metin(o: Object, k: Koylu) -> String:
 	return _cumle(String(dal.get("metin_anahtari", "")))
 
 
+## SOY-43: Karakterin kendi ağzından (hitap veya sınıf) şablon anahtarını seçer.
+static func karakter_agiz_anahtari(k: Koylu) -> String:
+	var sablonlar: Dictionary = _duydum_oku().get("agiz_sablonlari", {})
+	if k != null:
+		var adli := String(k.adli_id).strip_edges()
+		if not adli.is_empty():
+			var kisiler: Dictionary = _tanidik_oku().get("kisiler", {})
+			var hitap := String((kisiler.get(adli, {}) as Dictionary).get("hitap", "")).strip_edges()
+			var hitap_map: Dictionary = sablonlar.get("hitap", {})
+			if hitap_map.has(hitap):
+				return String(hitap_map[hitap])
+		var sinif := String(k.sinif).strip_edges()
+		var sinif_map: Dictionary = sablonlar.get("sinif", {})
+		if sinif_map.has(sinif):
+			return String(sinif_map[sinif])
+	return String(sablonlar.get("varsayilan", "soz.soylenti.agiz.varsayilan"))
+
+
+## SOY-43: Söylenti şablonu yalnızca olay alanlarını ({yer}, {hadise}) doldurur; "{kaynak} dedi" kalıbı yoktur.
+static func olay_cumlesi(o: Object, k: Koylu) -> String:
+	var r := kayit(o, k)
+	if r.is_empty():
+		return ""
+	var sablon := _cumle(karakter_agiz_anahtari(k))
+	if sablon.is_empty():
+		return ""
+	var alan_sozluk: Dictionary = _duydum_oku().get("olay_alanlari", {})
+	var anahtar := String(r.get("bicim", "")) if r.has("bicim") else String(r.get("tur", ""))
+	if bool(r.get("kritik", false)) or (anahtar.is_empty() or not alan_sozluk.has(anahtar)):
+		var ozel := SoylentiKoprusu.olay_metni(SoylentiKoprusu.ag(o), r).strip_edges()
+		if not ozel.is_empty():
+			var govde := ozel.substr(0, ozel.length() - 1) if ozel.ends_with(".") else ozel
+			return sablon.replace("{yer}", _cumle(String((alan_sozluk.get("varsayilan", {}) as Dictionary).get("yer", "")))).replace("{hadise}", govde.substr(0, 1).to_lower() + govde.substr(1))
+	var alan: Dictionary = alan_sozluk.get(anahtar, alan_sozluk.get("varsayilan", {}))
+	var yer := _cumle(String(alan.get("yer", "")))
+	var hadise := _cumle(String(alan.get("hadise", "")))
+	return sablon.replace("{yer}", yer).replace("{hadise}", hadise)
+
+
+static func agizdan_metin(o: Object, k: Koylu) -> String:
+	var cumle := olay_cumlesi(o, k)
+	if cumle.is_empty():
+		return metin(o, k)
+	return "%s: «%s»" % [k.ad, cumle]
+
+
 static func ekle(ekran: Control, ust: Control, k: Koylu) -> void:
 	var soz := metin(ekran.oturum, k)
 	if soz.is_empty():
@@ -72,8 +121,8 @@ static func ekle(ekran: Control, ust: Control, k: Koylu) -> void:
 	sor.name = "ne_duydun"
 	sor.pressed.connect(func() -> void:
 		sor.disabled = true
-		var giris := duydum_ki_metin(ekran.oturum, k)
-		var goster := soz if giris.is_empty() else "%s\n%s" % [giris, soz]
+		var agiz_cumle := olay_cumlesi(ekran.oturum, k)
+		var goster := soz if agiz_cumle.is_empty() else "%s\n%s" % [soz, agiz_cumle]
 		var cevap: Label = ekran._etiket(ust, goster, Tema.KUCUK_PX)
 		cevap.name = "ne_duydun_cevabi"
 		cevap.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -95,14 +144,34 @@ static func susturma_cevabi(o: Object, k: Koylu) -> String:
 	return "%s başını salladı." % k.ad
 
 
+static func _duydum_oku() -> Dictionary:
+	if not _duydum_veri.is_empty():
+		return _duydum_veri
+	if not FileAccess.file_exists(DUYDUM_YOLU):
+		return {}
+	var okunan: Variant = JSON.parse_string(FileAccess.get_file_as_string(DUYDUM_YOLU))
+	if okunan is Dictionary:
+		_duydum_veri = okunan
+	return _duydum_veri
+
+
+static func _tanidik_oku() -> Dictionary:
+	if not _tanidik_veri.is_empty():
+		return _tanidik_veri
+	if not FileAccess.file_exists(TANIDIK_YOLU):
+		return {}
+	var okunan: Variant = JSON.parse_string(FileAccess.get_file_as_string(TANIDIK_YOLU))
+	if okunan is Dictionary:
+		_tanidik_veri = okunan
+	return _tanidik_veri
+
+
 static func _duydum_dallari() -> Array:
 	if not _duydum_dallar.is_empty():
 		return _duydum_dallar
-	if not FileAccess.file_exists(DUYDUM_YOLU):
-		return []
-	var okunan: Variant = JSON.parse_string(FileAccess.get_file_as_string(DUYDUM_YOLU))
-	if okunan is Dictionary and (okunan as Dictionary).get("dallar") is Array:
-		_duydum_dallar = (okunan as Dictionary).get("dallar")
+	var okunan := _duydum_oku()
+	if okunan.get("dallar") is Array:
+		_duydum_dallar = okunan.get("dallar")
 	return _duydum_dallar
 
 
