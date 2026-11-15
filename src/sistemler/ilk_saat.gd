@@ -248,6 +248,14 @@ func barinak_dolu_ipucu(bos_yatak: int) -> Dictionary:
 	}
 
 
+## OGR-23: KAP-16 bos gunu ilk kez dusunce tek satir: kapiya kimse gelmedi, koy gunu (SEV-01).
+func bos_gun_ipucu(bos_gun: bool) -> Dictionary:
+	if not bos_gun or _gorulen.has("bos_gun_ilk"):
+		return {"ipucu_sayisi": 0, "metin": ""}
+	_gorulen["bos_gun_ilk"] = true
+	return {"ipucu_sayisi": 1, "metin": ipucu_metni("ogretici.bos_gun.ilk")}
+
+
 ## OGR-20: Kaynak gostergesi ilk kez bir kaynak dusunce tuketim satiri tek satirla soylenir.
 func kaynak_eksilis_ipucu(tuketim_miktari: int, kaynak_adi: String = "erzak") -> Dictionary:
 	if tuketim_miktari <= 0 or _gorulen.has("kaynak_ilk_eksilis"):

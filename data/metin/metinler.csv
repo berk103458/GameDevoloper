@@ -2449,6 +2449,7 @@ ogretici.zar.gergin,Ortam gerildi. Zar eşiği bir arttı.,Tension rose. The rol
 ogretici.bar.degisim,Kararımdan sonra %s değişti (%s).,"After my decision, %s changed (%s)."
 ogretici.barinak.dolu,Yatak kalmadı. İçeri alırsam dışarıda uyur.,"No beds left. If I admit them, they sleep outside."
 ogretici.kaynak.eksi,Köy bu gece %s tüketti (-%d).,The village used %s tonight (-%d).
+ogretici.bos_gun.ilk,Bugün kapıya kimse gelmedi. Köy günü: köylülerle ilgilenebilirim.,"No one came to the gate today. A village day: I can tend to the villagers."
 ogretici.ambar.esik,Ambar yedek payının altına indi. Erzak bulmalıyım.,The granary fell below its reserve. I need food.
 ogretici.kasa.iflas,Kasa ekside. %d gece içinde toparlayamazsam iflas ederim.,The treasury is short. I have %d nights to avoid bankruptcy.
 ogretici.kapi.selam,Önce sağdaki selamla söze gireyim.,I will start with the greeting on the right.

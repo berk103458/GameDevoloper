@@ -158,6 +158,16 @@ func _initialize() -> void:
 	_kontrol(int(ilk.kaynak_eksilis_ipucu(3, "erzak").get("ipucu_sayisi", 0)) == 1, "OGR-20: ilk eksiliste ipucu 1 olmali")
 	_kontrol(int(ilk.kaynak_eksilis_ipucu(4, "odun").get("ipucu_sayisi", -1)) == 0, "OGR-20: ikinci eksiliste ipucu 0 olmali")
 
+	# OGR-23: Bos gun olmayan alti gecede 0, ilk bos gunde 1, ikincide 0
+	ilk.sifirla()
+	var bos_toplam := 0
+	for _g in 6:
+		bos_toplam += int(ilk.bos_gun_ipucu(false).get("ipucu_sayisi", -1))
+	_kontrol(bos_toplam == 0, "OGR-23: bos gun olmayan alti gecede ipucu 0 olmali")
+	var bos_sonuc := ilk.bos_gun_ipucu(true)
+	_kontrol(int(bos_sonuc.get("ipucu_sayisi", 0)) == 1 and not String(bos_sonuc.get("metin", "")).is_empty(), "OGR-23: ilk bos gunde ipucu 1 olmali")
+	_kontrol(int(ilk.bos_gun_ipucu(true).get("ipucu_sayisi", -1)) == 0, "OGR-23: ikinci bos gunde ipucu 0 olmali")
+
 	# OGR-32: Kitlik esigi ilk yaklasmada 1 kez, bol ambarli kayitta 0
 	ilk.sifirla()
 	_kontrol(int(ilk.kitlik_esigi_ipucu(3.0, 1.0).get("ipucu_sayisi", -1)) == 0, "OGR-32: bol ambarli kayitta ipucu 0 olmali")

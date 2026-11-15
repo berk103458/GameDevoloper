@@ -4033,7 +4033,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: GIR-03, OGR-07. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [/] **OGR-23:** (Claude-Berk) Boş gün ilk kez gelince açıklanır.
+- [x] **OGR-23:** (Claude) Boş gün ilk kez gelince açıklanır.
   - Ne: KAP-16 boş gün ilk kez düşünce ipucu: bugün kapıya kimse gelmedi, köy günü (SEV-01).
   - Kabul: ilk boş günde bir kez. Test: boş gün olmayan altı gecede 0.
   - Bağımlılık: KAP-16, SEV-01. Boyut: S.
