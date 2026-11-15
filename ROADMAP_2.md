@@ -8336,7 +8336,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-65. Boyut: S.
   - Dosya: `data/ayarlar/sahne.json` iki blok.
   - Asset: asset gerekmedi.
-- [ ] **SAH-68:** Düşük donanım gölgeyi kapatır.
+- [x] **SAH-68:** Düşük donanım gölgeyi kapatır. (Kalfa — iki gerçek kapı ışığı gölgesiz yanar)
   - Ne: BUG-10 profili durur. Düşükte dinamik gölge kapalı, ışık açık.
   - Kabul: BUG-10 profili durur. Düşükte dinamik gölge kapalı, ışık açık. Test: profil, gölge bayrağı.
   - Bağımlılık: BUG-10, SAH-65. Boyut: S.

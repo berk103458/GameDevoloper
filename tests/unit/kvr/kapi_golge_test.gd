@@ -53,6 +53,18 @@ func _calistir() -> void:
 	root.add_child(kapi)
 	_kontrol(is_equal_approx(kapi._isiklar[0].light_energy, ilk_enerji) and is_equal_approx(ilk_enerji, float(ayar.kapi_isik.enerji)), "SAH-67: Köyden kapıya geçişte meşale enerjisi aynıdır")
 	print("SAH-67 kapı öncesi/sonrası enerji=%.2f / %.2f" % [ilk_enerji, kapi._isiklar[0].light_energy])
+	var ayarlar := Ayarlar.new()
+	var grafik := GrafikProfiliAdaptoru.new()
+	grafik.ayarlar = ayarlar
+	grafik.hedef = kapi
+	kapi.add_child(grafik)
+	ayarlar.ayarla(&"grafik_profili", &"dusuk")
+	for l in kapi._isiklar:
+		_kontrol(not l.shadow_enabled and l.visible and l.light_energy > 0.0, "SAH-68: Düşükte gerçek kapı gölgesi kapalı ve ışık açık")
+	ayarlar.ayarla(&"grafik_profili", &"normal")
+	for l in kapi._isiklar:
+		_kontrol(l.shadow_enabled, "SAH-68: Normalde özgün gölge geri gelir")
+	print("SAH-68 düşükte gölgesiz yanan kapı ışığı=%d" % kapi._isiklar.size())
 	kapi.queue_free()
 	await process_frame
 	root.positional_shadow_atlas_size = atlas_once

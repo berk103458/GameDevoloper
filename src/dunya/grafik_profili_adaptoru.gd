@@ -3,6 +3,7 @@ class_name GrafikProfiliAdaptoru
 extends Node
 
 const EFEKT := &"grafik_efekti"
+const GOLGE := &"grafik_asli_golge"
 var ayarlar: Ayarlar
 var hedef: Node
 
@@ -44,10 +45,18 @@ func _gec_uygula(referans: WeakRef) -> void:
 func _dugum(n: Node) -> void:
 	if n is SubViewport:
 		n.scaling_3d_scale = float(ayarlar.al(&"cozunurluk_3d")) / 100.0
+	var dusuk: bool = ayarlar.al(&"grafik_profili") == &"dusuk"
+	if n is Light3D:
+		if dusuk:
+			if not n.has_meta(GOLGE):
+				n.set_meta(GOLGE, n.shadow_enabled)
+			n.shadow_enabled = false
+		elif n.has_meta(GOLGE):
+			n.shadow_enabled = bool(n.get_meta(GOLGE))
+			n.remove_meta(GOLGE)
 	var parcacik := n is CPUParticles3D or n is GPUParticles3D
 	if not parcacik and not (n is VisualInstance3D and n.get_meta(EFEKT, false)):
 		return
-	var dusuk: bool = ayarlar.al(&"grafik_profili") == &"dusuk"
 	if not n.has_meta(&"grafik_asli_katman"):
 		n.set_meta(&"grafik_asli_katman", n.layers)
 		if parcacik:
