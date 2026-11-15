@@ -89,7 +89,7 @@ class PlanTest(unittest.TestCase):
         for r in NESNE["assetler"]:
             if r["tur"] in ("karakter", "yapi", "nesne", "hayvan", "animasyon"):
                 self.assertTrue(r["kaynak"].startswith("Meshy") or r["tur"] == "harici", r["asset_id"])
-                self.assertIn("CC BY 4.0", r["lisans_notu"], r["asset_id"])
+                self.assertIn("kullanıcıya ait" if ortak.ayarlar_oku().get("hesap_plani") == "ucretli" else "CC BY 4.0", r["lisans_notu"], r["asset_id"])
 
 
 class TekrarUretimTest(unittest.TestCase):

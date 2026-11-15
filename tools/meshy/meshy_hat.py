@@ -504,6 +504,10 @@ def uretim(o, sadece_yarim=False):
                 _gunluk(r, "AÇIK KARARLA yeniden üretim: önceki durum %s, dosya %s" % (r["durum"], r.get("dosya")))
                 r.setdefault("onceki_uretimler", []).append({k: r.get(k) for k in ("durum", "dosya", "sha256", "meshy_gorevleri", "meshy_task_id")})
                 r.update(durum="planli", meshy_gorevleri={}, meshy_task_id="", meshy_uygun=True)
+                taze_satir = mf.kur(ayar)[0].get(aid)
+                if taze_satir and taze_satir.get("prompt"):
+                    r["prompt"] = taze_satir["prompt"]
+                    r["prompt_ozeti"] = taze_satir["prompt_ozeti"]
                 if r["tur"] == "harici":
                     sys.exit("%s hazır paket dosyası; Meshy ile yeniden üretilmez." % aid)
         kaydet(nesne)

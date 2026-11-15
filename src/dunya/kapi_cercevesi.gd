@@ -44,7 +44,7 @@ func _ready() -> void:
 		_:
 			_tas_sur(5.6, true)
 	for yan in [-1.0, 1.0]:
-		_mesale(Vector3(yan * (YARI - 0.3), 2.05, Z + 0.4), yan)
+		_mesale(Vector3(yan * (YARI - 0.3), 2.05, Z + (0.85 if seviye <= 1 and Dunya3B.model_var_mi("kapi_ic", "yapi") else 0.4)), yan)
 	_esik()
 	_on_plan()
 
@@ -77,7 +77,22 @@ func _silindir(r: float, boy: float, konum: Vector3, mat: Material, donus := Vec
 
 
 # ── 0: kütük kapı ──
+func _kapi_ic_kur(yukseklik: float) -> void:
+	var k := Dunya3B.nesne("kapi_ic", yukseklik, "yapi")
+	k.position = Vector3(0, 0, Z - 0.15)
+	add_child(k)
+
+
 func _kutuk_kapi() -> void:
+	if Dunya3B.model_var_mi("kapi_ic", "yapi"):
+		_kapi_ic_kur(4.9)
+		for yan in [-1.0, 1.0]:
+			for i in 6:
+				var x: float = yan * (4.0 + i * 0.45)
+				_silindir(0.04, 1.3, Vector3(x, 0.65, Z + 0.1), _kutuk, Vector3(0, 0, yan * 0.05))
+			for h in [0.45, 0.95]:
+				_kutu(Vector3(2.8, 0.07, 0.07), Vector3(yan * 5.2, h, Z + 0.1), _ahsap)
+		return
 	for yan in [-1.0, 1.0]:
 		_silindir(0.22, 4.0, Vector3(yan * YARI, 2.0, Z), _kutuk)
 		# Alçak örgü çit (çubuklar + yatay sırıklar).
@@ -94,6 +109,17 @@ func _kutuk_kapi() -> void:
 
 # ── 1: ahşap kapı + kazık çit ──
 func _ahsap_kapi() -> void:
+	if Dunya3B.model_var_mi("kapi_ic", "yapi"):
+		_kapi_ic_kur(5.4)
+		for yan in [-1.0, 1.0]:
+			var ornek := Dunya3B.nesne("kazik_cit", 3.6)
+			var w := clampf(Dunya3B.boyut(ornek).x, 1.0, 6.0)
+			ornek.free()
+			for i in 4:
+				var c := Dunya3B.nesne("kazik_cit", 3.6)
+				c.position = Vector3(yan * (4.1 + w / 2.0 + i * w * 0.95), 0, Z - 0.1)
+				add_child(c)
+		return
 	for yan in [-1.0, 1.0]:
 		_direk(yan, 4.6)
 		_kanat(yan)

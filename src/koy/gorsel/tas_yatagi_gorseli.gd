@@ -1,4 +1,4 @@
-## BUG21-TASYATAGI: tek değişim noktası, yalnız düz gri BoxMesh yer tutucu.
+## BUG21-TASYATAGI: tek değişim noktası; Meshy tas_yatagi.glb (yoksa gri BoxMesh yer tutucu).
 class_name TasYatagiGorseli
 extends RefCounted
 
@@ -9,6 +9,10 @@ static func kur(sahne: Node3D, ust: Node3D) -> void:
 	obek.name = "TasYatagi"
 	obek.set_meta("tas_yatagi", true)
 	obek.position = sahne.alan_merkezi(t.hucre, Vector2i.ONE)
+	if Dunya3B.model_var_mi("tas_yatagi", "yapi"):
+		obek.add_child(Dunya3B.nesne("tas_yatagi", 0.65, "yapi"))
+		ust.add_child(obek)
+		return
 	var m := StandardMaterial3D.new()
 	m.albedo_color = Color("777777")
 	for i in 3:

@@ -23,7 +23,7 @@ func _ready() -> void:
 	var bilgi: HBoxContainer = kart.get_child(0).get_node("TasYatagiBilgisi")
 	_kontrol(bilgi.get_node("Bilgi").text == "Taş yatağı: 20 taştan 20 kaldı", "Gerçek taş kartındaki bilgi CSV'den okunur")
 	var obek: Node3D = _obek(ekran)
-	_kontrol(obek != null and obek.get_child_count() == 3 and obek.get_child(0).mesh is BoxMesh, "Gerçek sahnede gri BoxMesh öbeği")
+	_kontrol(obek != null and obek.get_node_or_null("tas_yatagi") != null and not obek.find_children("*", "MeshInstance3D", true, false).is_empty(), "Gerçek sahnede taş yatağı 3B modeli")
 	var kazi: Button = bilgi.get_node("Kazi")
 	_kontrol(not kazi.disabled, "İşçi ve taş varsa gerçek kazı düğmesi açık")
 	kazi.pressed.emit()
