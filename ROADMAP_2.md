@@ -8126,7 +8126,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-13, SAH-07. Boyut: M.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-35:** Sıradaki kişi kapı çizgisini tutar. (doğrulanmadı — Görev 22; Kalfa bekleniyor — KalabalikYol oyunda çağrılmıyor, KoyHalkHareketi/kapı kuyruğu entegrasyonu gerekli)
+- [x] **SAH-35:** Sıradaki kişi kapı çizgisini tutar. (Kalfa — dört modelde sıra değişimi 0)
   - Ne: kapı kuyruğu mevcut sıranın üstüne kurulur. Yeni bir kuyruk dizilimi yazılmaz.
   - Kabul: kapı kuyruğu mevcut sıranın üstüne kurulur. Yeni bir kuyruk dizilimi yazılmaz. Test: 4 kişi, çizgi sırası bozulmaz.
   - Bağımlılık: SAH-34. Boyut: S.

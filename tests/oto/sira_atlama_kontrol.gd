@@ -15,6 +15,7 @@ func _ready() -> void:
 	var sahne := KapiSahnesi.new()
 	add_child(sahne)
 	ekran.sahne = sahne
+	await _cizgi_sirasini_dene(sahne)
 	var adlar: Array[String] = []
 	for ad in ADLAR:
 		var g := Gelen.new()
@@ -56,6 +57,29 @@ func _ready() -> void:
 	await get_tree().process_frame
 	print("SIRA ATLAMA UI: GEÇTİ" if _hata == 0 else "SIRA ATLAMA UI: KALDI (%d hata)" % _hata)
 	get_tree().quit(1 if _hata > 0 else 0)
+
+
+func _cizgi_sirasini_dene(sahne: KapiSahnesi) -> void:
+	sahne.kuyruk_doldur(ADLAR.slice(0, 4))
+	var ilk := sahne._kuyruktakiler.duplicate()
+	_dene(ilk.size() == 4, "SAH-35: Dört gerçek kuyruk modeli")
+	if ilk.size() != 4:
+		return
+	var head: KarakterModel = ilk.pop_front()
+	sahne.gelen_yaklas(sahne._kuyruk_adlari[0])
+	var ters_sira := 0
+	var sure := 0.0
+	while sure < 4.0:
+		await get_tree().process_frame
+		sure += get_process_delta_time()
+		for i in range(1, ilk.size()):
+			if ilk[i - 1].position.z <= ilk[i].position.z:
+				ters_sira += 1
+	_dene(sahne._gelen == head and sahne._kuyruktakiler == ilk, "SAH-35: Baştaki ilerlerken diğer üç modelin sırası korunur")
+	_dene(ters_sira == 0, "SAH-35: Yürüyüş karelerinde sıra tersine dönmez")
+	for i in ilk.size():
+		_dene(ilk[i].position.distance_to(KapiSahnesi.kuyruk_yeri(i)) < 0.03, "SAH-35: Kişi mevcut çizgide kendi yerine varır")
+	print("SAH-35 kişi=4, sıra değişimi=%d" % ters_sira)
 
 
 func _dene(kosul: bool, ad: String) -> void:

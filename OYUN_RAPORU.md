@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-35 kapı çizgisi (Kalfa)
+
+Mevcut kapı kuyruğunda dört gerçek model izlendi. Baştaki kapıya ilerlerken kalan üçü kendi yerlerine vardı. Dört saniye boyunca sıra değişimi 0. Sıra atlama ve nesne kimliği kontrolleri de headless koşuda geçti. Asset gerekmedi. Sırada SAH-36. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-34 kapı çevresinde ayrı varış hücreleri (Kalfa)
 
 Sekiz muhafız mevcut ANI-13 ağı üzerinden sekiz ayrı hücreye 8,36 saniyede vardı. Kapı sahibinin yaklaşma hücresi geçişe ayrıldı. Kesişim 0, en küçük kök aralığı 0,60004 m. Kalabalık varış, zemin navigasyonu ve muhafız devriyesi headless testleri geçti. Asset gerekmedi. Sırada SAH-35, Görev 24 Kalfa maddeleri de sırada. ds çalışma ve ayna yolları yok, önceki istisna geçerli. Kota görünmüyor.
