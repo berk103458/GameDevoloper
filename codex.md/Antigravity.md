@@ -1562,6 +1562,12 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Asset:** asset gerekmedi.
 - kota görünmüyor
 
+## Oturum — 16 Kasım 2026 (ROADMAP_4.md 3 Turluk Kapsam Genişletmesi)
+- **Yapılan:** [ROADMAP_4.md](ROADMAP_4.md) dosyası baştan yazılmadan mevcut maddeler korunarak 3 turluk analizle genişletildi; gerçek oyun sistemleri (`Papers, Please`, `Frostpunk`, `Darkest Dungeon`, `This War of Mine`, `FTL`, `Yes, Your Grace`) ile karşılaştırmalı eksik başlıklar/alt başlıklar eklendi ve mevcut maddeler adım adım zenginleştirildi.
+- **Doğrulanan kapsam sayıları:** `61` ana madde, `57` alt madde (`118` iş birimi): `A (TST)`: `10` ana / `11` alt, `B (ICR)`: `18` ana / `22` alt, `C (TEL)`: `8` ana / `6` alt, `D (SES)`: `9` ana / `6` alt, `E (PKT)`: `8` ana / `6` alt, `F (ING)`: `8` ana / `6` alt. Tekrar denetimi: `0` çakışan/tekrarlayan ID, `0` kırık veya sıra dışı bağımlılık.
+- **Eklenen başlık ve alt başlıklar:** `TST-09` deterministik tohum yeniden oynatma testi, `TST-10` `KayitGocu` v1/v2/v3 regresyon matrisi, `ICR-06` (`ICR-06.a/.b`) köy olayı + `Celiski` çapraz kanıt köprüsü, `ICR-11` (`ICR-11.a/.b`) `UcHukumleri` vergi/erzak/nöbet politikaları, `ICR-13` dış güç itibar salınımı ve sınır baskısı tırmanması, `ICR-16` Day-1 açık koşu mutatörleri, `TEL-07` (`TEL-07.a/.b`) oyun içi koşu özeti & tohum kodu paylaşımı, `TEL-08` anonim yerel tanı paketi (`tani_*.json`), `SES-08` (`SES-08.a/.b`) erişilebilirlik görsel ses işaret şeridi, `SES-09` kategori bazlı eşzamanlı ses kotası, `PKT-05` yuvalı yuvarlanan `.bak.json` kayıt yedeği, `PKT-08` (`PKT-08.a/.b`) Demo → Tam Sürüm kayıt aktarımı ve `DAGITIM_KONTROL.md`/`SHA256SUMS.txt`, `ING-05` (`ING-05.a/.b`) dinamik `%d`/`%s` İngilizce dilbilgisi ve `GuvenliMetin.cogul()`, `ING-06` 30 karakter İngilizce ses/ritim redaksiyonu; ayrıca `TST-07`, `TST-08`, `ICR-05`, `ICR-09`, `ICR-10`, `ICR-12`, `ICR-14`, `ICR-15`, `PKT-07`, `ING-08` alt maddelere bölündü.
+- **Kota:** kota görünmüyor. (Antigravity)
+
 ### 2026-11-16 — SOY-43 Tamamlandı (Antigravity-Berk)
 - **Değişiklikler:**
   - `data/soz/soylenti_duydum.json`, `data/metin/metinler.csv`: `dallar` (`duydum_ki`) korunarak 3 sınıf (`ciftci`, `esnaf`, `asker`), 5 YAZ-09 hitap (`saygi`, `sefkat`, `aliskanlik`, `agirlik`, `gulus`) ve `varsayilan` ağız şablonları (`soz.soylenti.agiz.*`) ile 17 olayın `{yer}` / `{hadise}` olay alanları (`soz.soylenti.olay.*`) TR/EN eklendi; `{kaynak} dedi, {olay}` kalıbı kullanılmadı.
