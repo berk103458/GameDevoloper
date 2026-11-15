@@ -22,15 +22,16 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	if ayarlar != null:
 		AyarlarEk.bagla(ayarlar)
-	var zemin := ColorRect.new()
-	zemin.color = Renkler.GECE
+	var zemin := Panel.new()
+	zemin.name = "TemaZemini"
+	zemin.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(zemin)
 	var kenar := MarginContainer.new()
 	kenar.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	kenar.add_theme_constant_override("margin_left", 160)
 	kenar.add_theme_constant_override("margin_top", 120)
-	kenar.add_theme_constant_override("margin_right", 760)
+	kenar.add_theme_constant_override("margin_right", 160)
 	add_child(kenar)
 	var dikey := VBoxContainer.new()
 	dikey.add_theme_constant_override("separation", 16)

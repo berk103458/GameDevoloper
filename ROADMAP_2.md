@@ -339,7 +339,7 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ### 15.3 Soru ve heybe
 
-- [ ] **KAP-18:** (Cursor bıraktı: DNY-01 dünya savaş olayı ve KAP-17 kafilesi yok) Yetimler ve savaştan kaçan çocuklar. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/soz/yetim_kafilesi.json`, `data/soz/en/yetim_kafilesi.json` ve `kap18.yetim.*` metin anahtarları eklendi)*
+- [/] **KAP-18:** (Antigravity-Berk) Yetimler ve savaştan kaçan çocuklar. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/soz/yetim_kafilesi.json`, `data/soz/en/yetim_kafilesi.json` ve `kap18.yetim.*` metin anahtarları eklendi)*
   - Ne: Dünya savaş olayından sonra kapıya çocuk kafilesi düşer; olay yoksa bu kafile 28 günde hiç gelmez. Kabul edilen çocuk bir haneye ya da eşe emanet edilir. Hane yoksa ACL-05 uyarısı çıkar ve çocuk açıkta kalır, silinmez. Çocuk çalışmaz. 28. günde yaş grubu gence döner ve çırak düğmesi açılır. Model KAP-17 çocuk modelidir.
   - Kurallar:
     1. Bu kafile, dünya savaş olayından sonra açılır (DNY-01). Olay yoksa ağırlık 0.
@@ -7163,7 +7163,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-02. Boyut: S.
   - Dosya: bu bölüm. Uygulanırken kopya `docs/arayuz/EKRANLAR.md` (oyun deposu).
   - Asset: asset gerekmedi.
-- [/] **GRV-02:** (Codex-Berk) Ayarlar `eksik`tir.
+- [x] **GRV-02:** (Codex-Berk) Ayarlar `eksik`tir.
   - Ne: `ayarlar_ekrani.gd` zemini yalnız `ColorRect`. ARY-02 sonrası tema düzlemi gelir; fotoğraf üretilmez. Sağ kenar boşluğu bugün `margin_right 760` (satır 30) — 1600×900'de sağ yarı boş kalır, yerleşim tema ile dolar.
   - Kabul: yerel `ColorRect` rengi 0, tema kaynağından 1. Test: ARY-02 tarama.
   - Bağımlılık: ARY-02, GRV-01. Boyut: M.

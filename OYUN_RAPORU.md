@@ -3290,3 +3290,6 @@ Sıradaki: KRI-12. Görev düzeni: Claude yönetir/doğrular, Codex uygular.
 KRI-12 açlık–sağlık çaprazı, KRI-13 Şifahane triyajı/yatak çöküşü, KRI-14 kıtlıkta nöbetçi ambara, KRI-15 salgında şifalı ot, SYS-16 diyalog sırası kaydı, SYS-17 diyalog mantığı, SYS-18 atıl bayraklar, SYS-19 2. perde 12 gece, SYS-20 beş nihai son + epilog. Codex limiti 15 Ekim'e kadar dolu olduğundan Claude yazdı; tam sanity 319 PASS / 0 hata / 20 gece; görünür Godot vitrini (KRI-12/13/15 rapor satırları, SYS-20 son ekranı). Asset gerekmedi.
 
 ROADMAP'te açık madde kalmadı. Sıradaki: Codex limiti yenilenince öz denetim + Claude son denetimi.
+
+## 15 Kasım 2026 — GRV-02 (Codex-Berk)
+Ayarların zemini mevcut Tema Panel stilini miras alır; yerel ColorRect kaldırıldı, 760 piksel sağ kenar 160 oldu. Gerçek ekran 1600x900/1280x720 ve negatif ColorRect mutasyonu doğrulandı; ayarlar regresyonu geçti. Import script/parse hatası yok; editör kapanış sızıntıları sürüyor. ARY-01 seçimi yapılmadı, asset gerekmedi.

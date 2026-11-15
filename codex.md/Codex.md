@@ -1253,3 +1253,8 @@ Ajan Masası sorun kaydı: https://github.com/berk103458/GameDevoloper/issues/11
 
 ENGEL
 KLT-13'ün DYL-13 inceleme kaydı sözleşmesi mevcut değil; başka ajanın [x] maddesine müdahale yasağı nedeniyle ön koşul tamamlanmadan madde kapatılamaz.
+## 15 Kasım 2026 — GRV-02 (Codex-Berk)
+
+223eba23 sahiplik commit/push başarılı. Kullanıcının yeni yönlendirmesiyle KLT-13/14/47 beklenmeden GRV grubuna devam edildi. Ayarlar zeminindeki yerel ColorRect, üst kabuğun mevcut Tema Panel stilini miras alan, girdiyi geçiren tam ekran Panel oldu; eski margin_right 760 simetrik 160 oldu. ARY-01 seçimi boş olduğundan yeni şablon/palet seçilmedi. ARY-02 kaynak göçü ileride aynı miras üzerinden uygulanabilir. Gerçek AyarlarEkrani ile 1600x900 ve 1280x720, stil nesnesi kimliği ve yerel stil yokluğu test edildi: GRV-02 GEÇTİ, exit0. ColorRect mutasyonu testi exit1 ile düşürdü; özgün kaynak geri yüklendi. Mevcut ayarlar_kontrol exit0, SCRIPT ERROR/ERROR yok. İlk import tüm assetleri yeniden işliyor; eski UID hataları görülüyor, temiz toparlama importu kapanıştan önce doğrulanacak. Yeni asset gerekmedi. kota görünmüyor.
+
+GRV-02 kapanış: son hedef test tekrar exit0. Toparlama ve recovery-mode import exit0; SCRIPT ERROR/Parse Error/Failed to load script 0. İlk UID hataları tekrar etmedi. Editör kaynak/PagedAllocator kapanış sızıntıları recovery-mode ile de sürüyor; import bütünüyle hatasız denmedi. Oyun testlerinde ERROR yok. Asset gerekmedi. ds çalışma/ayna ve Ahmet yolları mevcut değil; eşitleme yapılamadı. kota görünmüyor.
