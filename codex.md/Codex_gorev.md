@@ -114,3 +114,52 @@ Sana düşen **21** madde (Cursor — yarım GRV). ROADMAP'de `[/] (Codex-Berk)`
 - [/] **GRV-101** (ROADMAP_2.md:7887) — `hastalik_teshis_adaptoru.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
 
 onay bekleyip durma; maddeler bitene ya da gerçek bir engel çıkana kadar devam et
+
+---
+
+## ROADMAP_3 son denetimi
+
+Hedef: Codex. Günlük: `codex.md/Codex.md`. Dal: `claude/festive-volta-li1sfm`. Onay: Ahmet, 15 Kasım 2026, 22:05. İmza: `(Codex)`.
+
+Bu bölüm, yukarıdaki ROADMAP_2 madde döngüsünden ayrıdır. ROADMAP_2 satırlarına, `[ ]`, `[/]` ve `[x]` işaretlerine dokunma. Kod, sahne, test ve asset yazma.
+
+### Amaç
+
+Gemini 4 Hydrogen High'ın (Antigravity, Görev 27) yazıp push ettiği `ROADMAP_3.md` dosyasını denetle. Eksik, hatalı ya da tekrar eden kısımları ekle, düzelt ya da sil. Çıkan dosya nihai `ROADMAP_3.md` olur.
+
+### Ne zaman başlanır
+
+`ROADMAP_3.md` festive dalında yoksa ya da Antigravity günlüğünde Görev 27 için `TAMAMLANDI` satırı yoksa bu işe başlama. Günlüğe `BEKLE: Hydrogen push etmedi` yaz ve dur. Dosyayı Hydrogen'ın yerine sen yazma.
+
+Başlarken `git pull` et. Hydrogen'ın commit'inden sonra gelen hali oku. Force push ve `reset --hard` yok.
+
+### Kapsam
+
+Kaynaklar: `ROADMAP_3.md`, `docs/ROADMAP_3_SAVAS_ON_RAPOR.md` (§5, §5.9, §7A, §8), `codex.md/Antigravity_gorev.md` içindeki Görev 27, `AGENTS.md`.
+
+Denetimde şunları ara:
+
+- §7A kararlarıyla çelişen madde. Dönem 1243 sonrası Selçuklu ucudur. Turda 2 eylem vardır. Can HP'dir. Muhafız ölmez. HP 0 olursa savaş kaybedilmiş sayılır, komuta kimseye geçmez. Otomatik çözüm yoktur. Küçük Moğol grubu savaşılır, büyük akın savaşılmaz. Kadın ve genç katılımı varsayılan açıktır. Çocuklar savaşmaz. Bir savaşta en fazla 20 birim vardır. Eski metinlere dokunulmaz.
+- Eksik katman: dengeleme, buff ve debuff, sınıf yetenekleri, teçhizat farkları, moral ve yorgunluk etkileşimi, baskın strateji yasağı, zorluk eğrisi, kapı düellosu, esir ve fidye, ganimet terazisi, galibiyet ve mağlubiyet tablosu, kayıt, erişilebilirlik, performans.
+- Başta oyun analizi bölümü yoksa ekle: XCOM 2, Battle Brothers, Into the Breach, Darkest Dungeon, Mount & Blade, Banner Saga. Hangi sistemden ne alındı ve neden. Bu bölüm madde değildir.
+- Kabul ölçütü, test, veri şeması, metin anahtarı ya da sahip alanı boş kalan madde.
+- ROADMAP_2'nin "yeni savaş yok" sınırını bozan iş. Böyle bir işi sil ya da "ROADMAP_2 sınırı" diye daralt.
+
+### Benzersizlik kuralı (en önemli kural)
+
+Her madde benzersizdir. Kapsamı başka hiçbir maddeyle örtüşmez. Birbirini tekrar eden basit maddeler kalmaz. Her düşman, her silah ya da her savaş türü için açılmış kopya maddeleri sil ve tek tabloya indir. Uzun sıralı iş tek başlık altında alt adım olarak durur. Küçük ama farklı işler, kapsamları karışmıyorsa tek başlıkta toplanabilir.
+
+### Tekrar denetimi
+
+Düzeltmeyi bitirince bütün maddeleri kapsam bakımından birbiriyle karşılaştır. Örtüşeni birleştir ya da ayır. Sonucu ve yaptığın değişikliklerin listesini `codex.md/Codex.md` günlüğüne yaz: eklenen madde, silinen madde, birleştirilen çift, daraltılan kapsam. Denetim yapılmadan push edilmez.
+
+### Kurallar
+
+- Karar listesinde olmayan bir sayı ya da hikâye sonucu uydurma. Kilitlenen madde `[ ]` kalır. Soruyu `ROADMAP_3.md` sonundaki `## Antigravity sorusu` bölümüne ekle ya da orada duranı olduğu gibi bırak.
+- Zar kuralı durur: ikinci bir isabet hesabı açılmaz.
+- Sayılar koda gömülmez. Eşikler `data/savas/` altındadır.
+- Commit başlığı Türkçe olur ve `(Codex)` imzası taşır. `claude/festive-volta-li1sfm` dalına push et. Gizli anahtar yazma.
+
+### Bitiş
+
+Nihai `ROADMAP_3.md` push edildikten sonra günlüğün sonuna madde sayısını, değişiklik listesini ve commit hash'ini yaz. Kota görünmüyorsa `kota görünmüyor` yaz. Son satır `TAMAMLANDI` olur. Bu satır ROADMAP_2 işinin bittiği anlamına gelmez.

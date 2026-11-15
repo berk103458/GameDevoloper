@@ -133,13 +133,40 @@ onay bekleyip durma; maddeler bitene ya da gerçek bir engel çıkana kadar deva
 
 ## Görev 27: ROADMAP_3 sıra tabanlı savaş yol haritasını yaz
 
-Hedef model: Gemini 4 Argon. Ajan adı: Antigravity. Günlük: `codex.md/Antigravity.md`. Dal: `claude/festive-volta-li1sfm`. Onay: Ahmet, 15 Kasım 2026.
+Hedef model: **Gemini 4 Hydrogen High**. Bu görev tamamen Hydrogen High'a bırakılır. Ajan adı: Antigravity. Günlük: `codex.md/Antigravity.md`. Dal: `claude/festive-volta-li1sfm`. Onay: Ahmet, 15 Kasım 2026, ek talimat 22:05.
 
-Bu görev, yukarıdaki ROADMAP_2 madde döngüsünden ayrıdır. Bu turda kod yazılmaz, test koşulmaz, ROADMAP_2.md'ye dokunulmaz. Tek iş `ROADMAP_3.md` dosyasını yazmaktır.
+Bu görev, yukarıdaki ROADMAP_2 madde döngüsünden ayrıdır. Bu turda kod yazılmaz, test koşulmaz, ROADMAP_2.md'ye dokunulmaz. Tek iş `ROADMAP_3.md` dosyasını yazmaktır. Yazım bittikten sonra denetim Codex'indir (`codex.md/Codex_gorev.md` içindeki "ROADMAP_3 son denetimi"). Hydrogen denetimi beklemez.
+
+### Benzersizlik kuralı (en önemli kural)
+
+Her madde benzersizdir. Kapsamı başka hiçbir maddeyle örtüşmez. Madde 1 ile madde 2 farklı işlerdir. Birbirini tekrar eden basit maddeler yazılmaz. Her düşman türü, her silah ya da her savaş türü için kopya madde açılmaz. Türler tek bir veri tablosunun satırı olur. Ayrı madde, ancak kuralı gerçekten farklıysa açılır.
+
+Madde boyutu içeriğe göre belirlenir. Uzun ve sıralı bir iş tek başlık altında numaralı alt adımlara bölünür. Küçük ama farklı işler, kapsamları karışmıyorsa tek başlık altında toplanabilir. Alt madde (`SVS-xx.a`) yalnız üst maddenin sıradaki adımıysa açılır. Aynı işi ikinci kez tarif etmez.
+
+### Oyun sistemleri analizi
+
+ROADMAP'i yazmadan önce şu sıra tabanlı oyunları incele: XCOM 2, Battle Brothers, Into the Breach, Darkest Dungeon, Mount & Blade, Banner Saga ve benzerleri. Derin bir tarih araştırması yapma. Her oyundan bu oyuna taşınacak tek bir mekanik karar çıkar.
+
+Analiz `ROADMAP_3.md` dosyasının başında kısa bir bölüm olur: hangi sistemden ne alındı ve neden. Alınmayanlar da birer cümleyle yazılır. Bu bölüm madde değildir ve SVS kimliği almaz.
+
+İncelemeden çıkan şu konuların her biri yol haritasında açık bir madde ya da alt adım olarak durur. Her biri tek yerde tarif edilir, başka maddede tekrarlanmaz:
+
+- **Dengeleme:** sayısal tablolar, tavanlar, karşı güçler. Her güçlü seçeneğin bir karşı gücü vardır.
+- **Güçlendirme ve zayıflatma:** buff ve debuff, durum etkileri, süreleri, yığılma kuralları. Aynı etki üst üste binmez, süre uzar ya da tablo ne diyorsa o olur.
+- **Sınıf ve birim yetenekleri:** bekleme süresi, maliyet (eylem ya da yorgunluk), karşı oynanış. Her düşmana ayrı yetenek maddesi açılmaz. Yetenekler tek tablodadır.
+- **Teçhizat:** 13. yüzyıl silah ve zırhlarının birbirinden farkı (menzil, hasar, zırh delme, ağırlık, iki eylem harcayan atış). Her silah ayrı madde değildir.
+- **Moral ve yorgunluk:** ikisi birbirini nasıl etkiler. Yorgun birimin morali daha kolay bozulur. İki ayrı çubuk, tek etkileşim kuralı.
+- **Baskın strateji yasağı:** tek doğru yol olmasın. "Hep yay", "hep kapıda bekle" gibi bir yol tabloyla cezalandırılır. Kaçınılacak yollar maddede adıyla yazılır.
+- **Zorluk eğrisi:** ilk savaş küçük ve okunaklıdır. Sonraki savaşlar birim sayısıyla ve düşman bileşimiyle zorlaşır. 20 birim tavana kadar. Zorluk, YZ hilesiyle artmaz.
 
 ### Amaç
 
 Kapı Muhafızı (Godot 4.7.2, 1243 Kösedağ sonrası Selçuklu ucu, ciddi ve gerçekçi) için ROADMAP_1 ve ROADMAP_2 kalitesinde, uçtan uca düşünülmüş, uygulanabilir bir savaş yol haritası yaz. Yol haritası sıra tabanlı savaşın bütün katmanlarını kapsar. Ön rapordaki 54 maddelik taslak başlangıçtır; onu kopyalayıp bırakmak yetmez. Eksikleri bul, maddeleri gerekirse alt maddelere böl, bağımlılık sırasını kur.
+
+### İş akışı
+
+1. Hydrogen High `ROADMAP_3.md` dosyasını yazar, commitler ve `claude/festive-volta-li1sfm` dalına pushlar. İmza `(Antigravity)`.
+2. Codex, push edilmiş dosyanın üstünden geçer. Eksik, hatalı ya da tekrar eden kısımları ekler, düzeltir ya da siler ve nihai `ROADMAP_3.md` dosyasını oluşturur. Bu adım Hydrogen'ın işi değildir. Görevi `codex.md/Codex_gorev.md` içindeki "ROADMAP_3 son denetimi" bölümündedir. İmza `(Codex)`.
 
 ### Başlamadan
 
@@ -195,6 +222,7 @@ Her maddede şu alanlar durur:
 15. Performans: bir savaşta en fazla 20 birim (K15). 21. birim sahneye girmez. Kabul ölçütü bu tavanı sabit tohumla doğrular.
 16. Okçuluk (K9): `okculuk_oyunu.gd` sur okçusu becerisine bağlanır.
 17. Katılım ayarı (K6): kadınlar ve gençler. Varsayılan açık, oyun ortasında değiştirilebilir. Çocuklar her durumda savaş dışıdır.
+18. Denge, durum etkileri, yetenek tablosu, teçhizat farkları, moral ve yorgunluk etkileşimi, baskın strateji yasağı, zorluk eğrisi. Bunlar yukarıdaki "Oyun sistemleri analizi" listesindeki tek maddelerdir. Aynı kural ikinci bir maddede yeniden yazılmaz.
 
 ### Kararlar (bunların dışına çıkma)
 
@@ -227,6 +255,10 @@ Berk tarafının ROADMAP_2 maddelerine dokunma. `[ ]`, `[/]` ve `[x]` satırlar�
 
 Karar listesinde olmayan bir sayıyı, eşiği ya da hikâye sonucunu uydurma. Aynı `ROADMAP_3.md` dosyasının sonuna `## Antigravity sorusu` başlığıyla yaz. Her soru tek cümle olsun, hangi maddeyi kilitlediğini söylesin ve senin tahminini karar diye yazma. Kilitlenen maddeyi `[ ]` bırak, sahibini yaz, kabul ölçütünü "soru kapanınca" diye işaretle.
 
+### Tekrar denetimi
+
+Yazmayı bitirince, commit atmadan önce bütün maddeleri kapsam bakımından birbiriyle karşılaştır. Örtüşen iki maddeyi birleştir ya da kapsamlarını ayır. Kopya düşman, kopya silah ve kopya savaş türü maddesi kalmasın. Sonuç `codex.md/Antigravity.md` günlüğüne yazılır: kaç madde birleştirildi, kaç madde ayrıldı, kalan madde sayısı. Denetim yapılmadan push edilmez.
+
 ### Bitiş
 
-İş bitince `codex.md/Antigravity.md` sonuna şunları yaz: `ROADMAP_3.md` yolu, madde sayısı (SVS-xx ve alt maddeler ayrı sayılır), bölüm listesi, açık `Antigravity sorusu` varsa sayısı ve konusu, commit hash'leri. Kota görünmüyorsa `kota görünmüyor` yaz. `TAMAMLANDI` satırını ancak `ROADMAP_3.md` push edildikten sonra ekle.
+İş bitince `codex.md/Antigravity.md` sonuna şunları yaz: `ROADMAP_3.md` yolu, madde sayısı (SVS-xx ve alt maddeler ayrı sayılır), bölüm listesi, tekrar denetiminin sonucu, açık `Antigravity sorusu` varsa sayısı ve konusu, commit hash'leri. Kota görünmüyorsa `kota görünmüyor` yaz. `TAMAMLANDI` satırını ancak `ROADMAP_3.md` push edildikten sonra ekle. Denetim Codex'e aittir. Hydrogen Codex'in işine başlamaz.
