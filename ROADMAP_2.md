@@ -4165,7 +4165,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-07, TST-03. Boyut: S.
   - Dosya: yeni: `src/debug/ilk_saat_kancasi.gd`.
   - Asset: asset gerekmedi.
-- [/] **OGR-43:** (Antigravity-Berk) Yedi persona ilk saati geçer. (Kanıt: `tests/oto/otomatik_oyuncu.gd:134` artık gerçek `ana.oturum.yonetim.son` durumunu okur ve `tools/python_test_runner.py` gerçek `gece`/`son`/`ambar` değerlerini raporlayıp `son != 0` durumunda kalır; `python3 tools/python_test_runner.py --yedi-persona --godot ~/.local/bin/godot`: 7/7 koşuda `gece: 6`, `son: 0`, `ambar: 12..37`, 0 SCRIPT ERROR; asset gerekmedi — Cursor doğrulaması bekleniyor)
+- [x] **OGR-43:** (Antigravity-Berk) Yedi persona ilk saati geçer. — Doğrulama: `D:\Araclar\Python\python.exe tools/python_test_runner.py --yedi-persona --godot D:\Araclar\Godot\Godot_v4.7.2-stable_win64_console.exe` -> `OGR43_YEDI_PERSONA {"toplam": 7, "gecen": 7}` (`gece: 6, son: 0, ambar: 16..44`, RC=0); asset gerekmedi.
   - Ne: TST-07 personaları (`tools/python_test_runner.py`) ilk altı geceyi oynar; hiçbiri OGR-33 kilidi yüzünden değil, oyun yüzünden kaybetmemelidir.
   - Kabul: yedi koşuda son 0, ambar ≥ 0. Test: runner raporu.
   - Bağımlılık: OGR-33, TST-07. Boyut: S.

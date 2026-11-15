@@ -1505,3 +1505,8 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `rusvet_hakki_test.tscn` (`RUSVET HAKKI: GEÇTİ`), `chr_kapi_kontrol.tscn`, `tuccar_kapi_kontrol.tscn`, `hastalik_teshis_kontrol.tscn`, `karar_bir_kez_test.tscn`, `heybe_kilit_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (RC=0).
 - **Asset:** asset gerekmedi.
 - kota görünmüyor
+
+### 2026-11-16 — OGR-43 Doğrulandı ve Kapatıldı (Antigravity-Berk)
+- **Doğrulama:** Güncel `claude/festive-volta-li1sfm` üzerinde `D:\Araclar\Python\python.exe tools/python_test_runner.py --yedi-persona --godot D:\Araclar\Godot\Godot_v4.7.2-stable_win64_console.exe` çalıştırıldı (`OGR43_YEDI_PERSONA`: `toplam=7, gecen=7`; `gece=6`, `son=0`, `ambar=16..44`, RC=0).
+- **Asset:** asset gerekmedi.
+- kota görünmüyor
