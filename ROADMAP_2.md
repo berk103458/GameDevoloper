@@ -4731,7 +4731,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: DIY-11. Boyut: S.
   - Dosya: Söz motoru görünümüne tek satır; `ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-11:** (Cursor) Konuşma geçmişi kaydırılabilir. (doğrulanmadı — Görev 22; KonusmaGecmisi (src/arayuz/kapi/konusma_gecmisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **AYR-11:** (Cursor — üzerinde) Konuşma geçmişi kaydırılabilir. (doğrulanmadı — Görev 22; KonusmaGecmisi (src/arayuz/kapi/konusma_gecmisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: sorgu sırasında önceki satırlar yukarı kaydırılarak okunur (beyan defteri DIY-07'den ayrı, yalnız bu ziyaretin akışı). Fare tekeri ve gamepad sağ çubuk.
   - Kabul: 20 satırlık sorguda ilk satıra dönülür. Test: ekran.
   - Bağımlılık: DIY-03. Boyut: S.
@@ -4929,7 +4929,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-01. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/goruntu_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-41:** (Cursor) Düşük profil otomatik önerisi. (doğrulanmadı — Görev 22; ProfilOnerisi (src/sistemler/profil_onerisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **AYR-41:** (Cursor — üzerinde) Düşük profil otomatik önerisi. (doğrulanmadı — Görev 22; ProfilOnerisi (src/sistemler/profil_onerisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: `performans_seridi` üç gece ortalaması 30 fps altında kalırsa bir kez "düşük profil?" satırı; otomatik değiştirmez.
   - Kabul: öneri bir kez; `grafik_profili` kendi kendine değişmez. Test: birim.
   - Bağımlılık: TEK-10. Boyut: S.
@@ -6463,13 +6463,13 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Dosya: —.
   - Asset: asset gerekmedi.
 
-- [ ] **KLT-46:** Kör okuma satırı silinmez
+- [/] **KLT-46:** (Cursor — üzerinde) Kör okuma satırı silinmez
   - Ne: Kör okuma satırı silinmez. Skor dosyasında eski satır kalır, üstüne yazılırsa tarih düşer.
   - Kabul: Silinen id 0. Test: diff.
   - Bağımlılık: DYL-11. Boyut: S.
   - Dosya: `docs/soz/kor_okuma.csv`
   - Asset: asset gerekmedi.
-- [ ] **KLT-47:** Örnek cümle kadro adıdır
+- [/] **KLT-47:** (Cursor — üzerinde) Örnek cümle kadro adıdır
   - Ne: Örnek cümle kadro adıdır. Örnekteki ad kadroda yoksa 1 hata.
   - Kabul: Hata 1. Test: fixtures.
   - Bağımlılık: DYL-14. Boyut: S.
@@ -6481,7 +6481,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: DIY-16. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-50:** İnceleme kutusu satır sayısı dosya satırına eşittir
+- [/] **KLT-50:** (Cursor — üzerinde) İnceleme kutusu satır sayısı dosya satırına eşittir
   - Ne: İnceleme kutusu satır sayısı dosya satırına eşittir. Eksik satır 1 hata.
   - Kabul: Hata 1. Test: sayım.
   - Bağımlılık: YAZ-10. Boyut: S.
@@ -6620,7 +6620,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `ROADMAP_2_B.md`.
   - Asset: asset gerekmedi.
-- [ ] **KLT-25:** Kapanış testi.
+- [/] **KLT-25:** (Cursor — üzerinde) Kapanış testi.
   - Ne: fixtures: yasak kalıp, onaysız dosya, ölü adı, 91 karakter ipucu, çift boşluk — beşinin de red.
   - Kabul: beş fixture 5 hata. Test: `tests/tools/test_soz_kapi.py`. Taşınan: KLT-75: Kapanış beş fixtures reddeder.
   - Bağımlılık: KLT-01…24. Boyut: M.
