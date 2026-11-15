@@ -5568,7 +5568,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: DIY-14, SOY-18. Boyut: S.
   - Dosya: DIY-14 tetik listesi satırı.
   - Asset: asset gerekmedi.
-- [ ] **SOY-27:** Söylenti satırları YAZ kotasına girer. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [/] **SOY-27:** (Claude-Berk) Söylenti satırları YAZ kotasına girer. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: "duydum ki" satırları OZGUNLUK kotasında (YAZ-09) "dedikodu çekirdeği" türüne sayılır; kadroda ≤ %20 (öneri).
   - Kabul: kota raporu. Test: YAZ-09 denetimi.
   - Bağımlılık: YAZ-09. Boyut: S.
