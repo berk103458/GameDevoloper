@@ -7208,7 +7208,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-02. Boyut: L.
   - Dosya: `src/arayuz/koy_hud/*.gd`.
   - Asset: asset gerekmedi.
-- [/] **GRV-09:** (Codex-Berk) Pazar `pazar_satis_paneli.gd`.
+- [x] **GRV-09:** (Codex-Berk) Pazar `pazar_satis_paneli.gd`.
   - Ne: ARY-03 pazar alt kapanışı bu panel ve `ticaret_fiyat_paneli.gd`, `pazar_kart_kaydirma.gd`. Fiyat motoru değişmez.
   - Kabul: üç dosyada yerel renk 0. Test: tarama.
   - Bağımlılık: ARY-03. Boyut: S.

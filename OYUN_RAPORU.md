@@ -3293,3 +3293,6 @@ ROADMAP'te açık madde kalmadı. Sıradaki: Codex limiti yenilenince öz deneti
 
 ## 15 Kasım 2026 — GRV-02 (Codex-Berk)
 Ayarların zemini mevcut Tema Panel stilini miras alır; yerel ColorRect kaldırıldı, 760 piksel sağ kenar 160 oldu. Gerçek ekran 1600x900/1280x720 ve negatif ColorRect mutasyonu doğrulandı; ayarlar regresyonu geçti. Import script/parse hatası yok; editör kapanış sızıntıları sürüyor. ARY-01 seçimi yapılmadı, asset gerekmedi.
+
+## 15 Kasım 2026 — GRV-09 (Codex-Berk)
+Pazar satış/fiyat/kaydırma dosyalarının mevcut tema bağları hedefli headless taramayla doğrulandı. Üç betik yüklenir ve oyunda çağrılır; yerel renk/stil 0. Ham Color ekleme mutasyonu testte exit1 üretir. Yeni test eklendi, fiyat motoru değiştirilmedi. Asset gerekmedi.
