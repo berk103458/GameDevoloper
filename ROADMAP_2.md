@@ -5559,7 +5559,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: DNY-02, SOY-05. Boyut: S.
   - Dosya: Söz dosyaları; `soylenti_agi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SOY-26:** (Cursor-Berk) "Bu hatırlanacak" söylentide de çıkar (DIY-14). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [x] **SOY-26:** (Cursor-Berk) "Bu hatırlanacak" söylentide de çıkar (DIY-14). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: oyuncunun seçimi ağa muhafız düğümü yazıyorsa DIY-14 notu çıkar; kural DIY-14'ündür.
   - Kabul: not bir kez. Test: birim.
   - Bağımlılık: DIY-14, SOY-18. Boyut: S.
