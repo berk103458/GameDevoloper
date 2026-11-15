@@ -1273,3 +1273,18 @@ GRV-17 3b180eee ve GRV-24 sahiplik2161436c push başarılı. Hafıza defterindek
 
 ## 15 Kasım 2026 — GRV-25 (Codex-Berk)
 GRV-24 09351b5d ve GRV-25 sahiplik7e495d66 push başarılı. Yeni grv_sekme_koprusu mevcut KontrollerSekmesi ve DilAyari API'lerini ayarların mevcut içerik yuvasına bağlar. İkinci ayar ekranı yok. Sekme geçişinde eski içerik ağaçtan hemen ayrılır; kuyrukta aynı kare görünmez. Yedi geçişte tek ekran/tek içerik, gerçek tuş kimlikleri, aynı ayar nesnesi, gömülü dil seçenekleri ve eski tam ekran pencerenin gizli kalması sınandı. Hedef test exit0, köprü çağrısı kaldırılınca exit1; mevcut ayarlar regresyonu exit0. İlk recovery import script hatası olmadan yerel motor erişim ihlaliyle kapandı (-1073741819); tekrar import exit0/script-parse hatası0, bilinen editör kapanış sızıntıları sürüyor. Son hedef test yeniden exit0. Asset gerekmedi; kota görünmüyor. ds aynası bu makinede yok.
+
+## 15 Kasım 2026 — Kota limiti, devir (Usta)
+
+Codex döngüsü kullanım limiti nedeniyle 3 hızlı başarısızlıktan sonra durdu (sıfırlanma: 15 Kasım 2026, 20:56 Europe/Istanbul). Codex döngüsü yeniden başlatılmadı.
+
+Bitmeyen maddeler (açık `[/] (Codex-Berk)` + KLT-13…GRV-64 aralığındaki kalan `[ ]`): 31 madde, yarı yarıya Antigravity ve Claude'a devredildi. Tam eşleme: `D:\Kapi_Muhafizi\work\codex_devir.txt`.
+
+- Antigravity (16): KLT-13, KLT-14, KLT-47, KLT-18, KLT-57, GRV-32, GRV-33, GRV-35, GRV-37, GRV-39, GRV-40, GRV-41, GRV-42, GRV-43, GRV-44, GRV-45
+- Claude (15): GRV-46, GRV-47, GRV-49, GRV-51, GRV-52, GRV-53, GRV-55, GRV-56, GRV-57, GRV-58, GRV-59, GRV-60, GRV-62, GRV-63, GRV-64
+
+Codex-Berk'in tamamladığı `[x]` maddeler yerinde kaldı: GRV-02, GRV-09, GRV-14, GRV-17, GRV-24, GRV-25.
+
+GRV-32 açık `[/] (Codex-Berk)` idi; sahiplik `d6419b67` (yalnız ROADMAP, uygulama commit'i yok). Satır `[/] (Antigravity-Berk)` olarak güncellendi; not Antigravity_gorev.md içinde.
+
+agy döngüsü (21644) ve Claude döngüsü (21332) durdurulmadı; bir sonraki turlarında görev dosyasını yeniden okuyacaklar.

@@ -85,4 +85,28 @@ Grup dışındaki boş maddelere, kendi grubun bitmeden başlama. Grup bitince k
 
 İlerlemeyi `codex.md/Antigravity.md` dosyasının sonuna ekle: hangi maddeyi aldığın, ne yaptığın, testin nasıl geçtiği, kalan kota (göremiyorsan `kota görünmüyor`). Her commit/push sonrası güncelle.
 
+
+## Codex'ten devir (limit)
+
+Codex kullanım limiti doldu (sıfırlanma: 15 Kasım 2026, 20:56 Europe/Istanbul). Aşağıdaki **16** madde, Codex'in bitmemiş işinden (açık `[/] (Codex-Berk)` + aralıktaki kalan `[ ]`, KLT-13…GRV-64) geçici olarak sana devredildi. Kota sıfırlandıktan sonra Usta bunları Codex'e iade edebilir.
+
+Elindeki mevcut `[/]` işi bitirdikten sonra orijinal grubunun bitmesini beklemeden bu devir listesine geç. Boş maddeleri önce `[/] (Antigravity-Berk)` ile sahiplen (commit+push), sonra uygula, hedefli testle ve kendin `[x]` işaretle. GRV-32 zaten `[/] (Antigravity-Berk)` olarak işaretlendi; yeniden sahiplenmen gerekmez.
+
+- [ ] **KLT-13** (ROADMAP_2.md:6449) — DYL-13 yan yana bakış kapı adımıdır. Not: Codex daha önce KLT-13 için DYL-13 kayıt sözleşmesi yok diye ENGEL yazmıştı; gerekirse atlayıp listedeki bağımsız maddelere geç.
+- [ ] **KLT-14** (ROADMAP_2.md:6455) — DYL-14 örnek defteri yazarın elindedir.
+- [ ] **KLT-47** (ROADMAP_2.md:6474) — (Cursor bıraktı: DYL-14 örnek defteri yok (Antigravity Görev 24)) Örnek cümle kadro adıdır
+- [ ] **KLT-18** (ROADMAP_2.md:6529) — Tester K7 kör noktası bu kapıya bağlanır.
+- [ ] **KLT-57** (ROADMAP_2.md:6542) — Hikâye personası dal gezmez diye kalite puanı yazılmaz
+- [/] **GRV-32** (ROADMAP_2.md:7383) — `chr_inceleme_paneli.gd` temaya bağlanır. Not: Codex-Berk bu maddeyi `d6419b67` ile sahiplendi; limit öncesi uygulama commit'i yok (yalnız ROADMAP sahipliği). Sahiplik şimdi Antigravity-Berk. Kaldığın yerden uygula, test et, `[x]` işaretle.
+- [ ] **GRV-33** (ROADMAP_2.md:7390) — `grafik_ayarlari_paneli.gd` temaya bağlanır.
+- [ ] **GRV-35** (ROADMAP_2.md:7404) — `hud.gd` temaya bağlanır.
+- [ ] **GRV-37** (ROADMAP_2.md:7418) — `koylu_karti.gd` temaya bağlanır.
+- [ ] **GRV-39** (ROADMAP_2.md:7432) — `heyet_kapi_paneli.gd` temaya bağlanır.
+- [ ] **GRV-40** (ROADMAP_2.md:7439) — `tuccar_kapi_paneli.gd` temaya bağlanır.
+- [ ] **GRV-41** (ROADMAP_2.md:7449) — `oda_gelistirme_paneli.gd` temaya bağlanır.
+- [ ] **GRV-42** (ROADMAP_2.md:7456) — `oda_kasasi_paneli.gd` temaya bağlanır.
+- [ ] **GRV-43** (ROADMAP_2.md:7463) — `oda_terazisi_paneli.gd` temaya bağlanır.
+- [ ] **GRV-44** (ROADMAP_2.md:7470) — `oda_vicdan_paneli.gd` temaya bağlanır.
+- [ ] **GRV-45** (ROADMAP_2.md:7477) — `oda_yetenek_paneli.gd` temaya bağlanır.
+
 onay bekleyip durma; maddeler bitene ya da gerçek bir engel çıkana kadar devam et

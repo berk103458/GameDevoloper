@@ -77,4 +77,27 @@ Grup dışındaki boş maddelere, kendi grubun bitmeden başlama. Grup bitince k
 
 İlerlemeyi `codex.md/Claude.md` dosyasının sonuna ekle: hangi maddeyi aldığın, ne yaptığın, testin nasıl geçtiği, kalan kota (göremiyorsan `kota görünmüyor`). Her commit/push sonrası güncelle.
 
+
+## Codex'ten devir (limit)
+
+Codex kullanım limiti doldu (sıfırlanma: 15 Kasım 2026, 20:56 Europe/Istanbul). Aşağıdaki **15** madde, Codex'in bitmemiş işinden (açık `[/] (Codex-Berk)` + aralıktaki kalan `[ ]`, KLT-13…GRV-64) geçici olarak sana devredildi. Kota sıfırlandıktan sonra Usta bunları Codex'e iade edebilir.
+
+Elindeki mevcut `[/]` işi bitirdikten sonra orijinal grubunun bitmesini beklemeden bu devir listesine geç. Boş maddeleri önce `[/] (Claude-Berk)` ile sahiplen (commit+push), sonra uygula, hedefli testle ve kendin `[x]` işaretle.
+
+- [ ] **GRV-46** (ROADMAP_2.md:7484) — `harman_oyunu.gd` temaya bağlanır.
+- [ ] **GRV-47** (ROADMAP_2.md:7491) — `okculuk_oyunu.gd` temaya bağlanır.
+- [ ] **GRV-49** (ROADMAP_2.md:7505) — `kapi_gorus_adaptoru.gd` temaya bağlanır.
+- [ ] **GRV-51** (ROADMAP_2.md:7522) — `divan_sorgu_paneli.gd` temaya bağlanır.
+- [ ] **GRV-52** (ROADMAP_2.md:7529) — `divan_hukum_paneli.gd` temaya bağlanır.
+- [ ] **GRV-53** (ROADMAP_2.md:7536) — `divan_haksizlik_paneli.gd` temaya bağlanır.
+- [ ] **GRV-55** (ROADMAP_2.md:7550) — `ambar_kapisi_paneli.gd` temaya bağlanır.
+- [ ] **GRV-56** (ROADMAP_2.md:7557) — `cati_kar_bilgisi.gd` temaya bağlanır.
+- [ ] **GRV-57** (ROADMAP_2.md:7564) — `cinar_meclis_paneli.gd` temaya bağlanır.
+- [ ] **GRV-58** (ROADMAP_2.md:7571) — `harita_baglantisi.gd` temaya bağlanır.
+- [ ] **GRV-59** (ROADMAP_2.md:7578) — `hekim_ilac_bilgisi.gd` temaya bağlanır.
+- [ ] **GRV-60** (ROADMAP_2.md:7585) — `histeri_paneli.gd` temaya bağlanır.
+- [ ] **GRV-62** (ROADMAP_2.md:7602) — `kese_gostergesi.gd` temaya bağlanır.
+- [ ] **GRV-63** (ROADMAP_2.md:7609) — `kundak_clue_bilgisi.gd` temaya bağlanır.
+- [ ] **GRV-64** (ROADMAP_2.md:7616) — `kuyu_kirecleme_paneli.gd` temaya bağlanır.
+
 onay bekleyip durma; maddeler bitene ya da gerçek bir engel çıkana kadar devam et
