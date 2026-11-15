@@ -69,5 +69,26 @@ func _initialize() -> void:
 	var gercek_oran := float(atolye_ciktisi) / float(maxi(1, gecici_ciktisi))
 	dene(gercek_oran >= taban_oran, "DEN-36: gerçekleşen oran (%.2f) >= tablodaki oran (%.2f)" % [gercek_oran, taban_oran])
 
+	# DEN-38: Meslek değişiminin bir günlük kaybı ölçülür, uzatılmaz.
+	var HaneEsi38 = load("res://src/koy/hane_esi.gd")
+	var kat38 := Katalog.new()
+	kat38.yukle()
+	var o38 := Oturum.new(kat38, 1438)
+	load("res://src/sistemler/acilis_senaryosu.gd").kur(o38, "olagan")
+	var y38: KoyYonetimi = o38.yonetim
+	var once_cikti := int(HaneEsi38.cikti_al(y38).get("miktar", 0))
+	var r38: Dictionary = HaneEsi38.meslek_sec(y38, "firinci", o38)
+	dene(bool(r38.ok) and bool(r38.degisti), "DEN-38: meslek değişimi kabul edilir")
+	var degisim_gunu := int(HaneEsi38.cikti_al(y38).get("miktar", 0))
+	var olaylar38: Array[Dictionary] = []
+	HaneEsi38.gece(y38, olaylar38)
+	var ertesi_gun := int(HaneEsi38.cikti_al(y38).get("miktar", 0))
+	HaneEsi38.gece(y38, olaylar38)
+	var ikinci_gun := int(HaneEsi38.cikti_al(y38).get("miktar", 0))
+	dene(once_cikti > 0, "DEN-38: değişim öncesi üretim pozitif (%d)" % once_cikti)
+	dene(degisim_gunu < ertesi_gun, "DEN-38: değişim günü üretim (%d) < ertesi gün (%d)" % [degisim_gunu, ertesi_gun])
+	dene(ertesi_gun == ikinci_gun, "DEN-38: kayıp bir günde kalır, uzamaz (%d == %d)" % [ertesi_gun, ikinci_gun])
+	dene(int(HaneEsi38.AYAR.verimsiz_gun) == 1, "DEN-38: verimsiz gün tabloda 1")
+
 	print("MESLEK VERIM TEST: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
 	quit(hata)

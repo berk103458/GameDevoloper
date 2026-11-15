@@ -3597,7 +3597,7 @@ Alt başlıklar ondur. Her birinde sekiz madde vardır. Dokuzuncu ve onuncu, var
   - Bağımlılık: ACL-02. Boyut: S.
   - Dosya: mevcut ACL-02 testi.
   - Asset: asset gerekmedi.
-- [/] **DEN-38:** (Claude-Berk) Meslek değişiminin bir günlük kaybı durur.
+- [x] **DEN-38:** (Claude) Meslek değişiminin bir günlük kaybı durur.
   - Ne: ACL-02'deki 1 gün verimsizlik ölçülür, uzatılmaz.
   - Kabul: ACL-02'deki 1 gün verimsizlik ölçülür, uzatılmaz. Test: değişim günü üretim, ertesi günden düşüktür.
   - Bağımlılık: ACL-02. Boyut: S.
@@ -4033,7 +4033,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: GIR-03, OGR-07. Boyut: S.
   - Dosya: `src/sistemler/ilk_saat.gd` tetik satırı.
   - Asset: asset gerekmedi.
-- [ ] **OGR-23:** Boş gün ilk kez gelince açıklanır.
+- [/] **OGR-23:** (Claude-Berk) Boş gün ilk kez gelince açıklanır.
   - Ne: KAP-16 boş gün ilk kez düşünce ipucu: bugün kapıya kimse gelmedi, köy günü (SEV-01).
   - Kabul: ilk boş günde bir kez. Test: boş gün olmayan altı gecede 0.
   - Bağımlılık: KAP-16, SEV-01. Boyut: S.
