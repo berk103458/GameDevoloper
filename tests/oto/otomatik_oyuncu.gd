@@ -131,7 +131,8 @@ func _dongu() -> void:
 				if ilk_koy_ms < 0: ilk_koy_ms = Time.get_ticks_msec()
 				var rapor_karti := koy._ust_kart
 				if ana.oturum.gun == 6 and rapor_karti != null and rapor_karti.find_child("kisa_ilk_saat_ozeti", true, false) != null:
-					var rapor := {"gece": ana.oturum.gun, "sure_ms": Time.get_ticks_msec() - ilk_koy_ms, "tohum": str(ana.oturum.tohum), "son": 0, "ambar": ana.oturum.ambar}
+					var gercek_son: Variant = "yonetim_yok" if ana.oturum.yonetim == null else (0 if ana.oturum.yonetim.son.is_empty() else ana.oturum.yonetim.son)
+					var rapor := {"gece": ana.oturum.gun, "sure_ms": Time.get_ticks_msec() - ilk_koy_ms, "tohum": str(ana.oturum.tohum), "son": gercek_son, "ambar": ana.oturum.ambar}
 					print("ILKSAAT_SURE ", JSON.stringify(rapor))
 					Ses.cik()
 					return

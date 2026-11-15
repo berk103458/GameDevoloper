@@ -49,7 +49,7 @@ def main():
         tempfile.mkdtemp = original
 
 
-def olcum_calistir(args, ad, ortam_ekleri, etiket, hedef=None):
+def olcum_calistir(args, ad, ortam_ekleri, etiket, hedef=None, rapor_cikti=None):
     # Otomatik oyuncu kendi user:// kaydını temizler. Gerçek oyuncu dizininden ayır.
     calisma = ROOT / "work" / (ad + "_" + uuid.uuid4().hex)
     veri = calisma / "veri"
@@ -79,8 +79,9 @@ def olcum_calistir(args, ad, ortam_ekleri, etiket, hedef=None):
         if etiket == "ILKSAAT_SURE":
             if rapor["gece"] != 6 or rapor["sure_ms"] <= 0:
                 raise ValueError("Ölçümün gece veya süre değeri geçersiz")
-            if int(rapor.get("son", 0)) != 0 or int(rapor.get("ambar", 0)) < 0:
-                raise ValueError("İlk saat ölçümünde oyun sonu veya negatif ambar oluştu")
+            son_val = rapor.get("son")
+            if isinstance(son_val, bool) or son_val != 0 or int(rapor.get("ambar", -1)) < 0:
+                raise ValueError(f"İlk saat ölçümünde oyun sonu ({son_val!r}) veya negatif ambar oluştu")
         elif etiket == "PERDE2_AMBAR":
             geceler = rapor["geceler"]
             gunler = [g["gece"] for g in geceler]
@@ -101,6 +102,8 @@ def olcum_calistir(args, ad, ortam_ekleri, etiket, hedef=None):
     except (OSError, ValueError, KeyError, subprocess.TimeoutExpired) as hata:
         print(f"{hata}. Günlük {log_yolu}", file=sys.stderr)
         return 1
+    if rapor_cikti is not None:
+        rapor_cikti.update(rapor)
     print(etiket + " " + json.dumps({**rapor, "gunluk": str(log_yolu)}, ensure_ascii=False))
     return 0
 
@@ -117,12 +120,19 @@ def yedi_persona_calistir(args):
             "GECE_SINIRI": "6",
             "MUHAFIZ_GECMISI": p["gecmis"],
         }
-        # olcum_calistir prints ILKSAAT_SURE {...}; capture via return code and re-run check
-        calisma_once = set((ROOT / "work").glob("ogr43_*")) if (ROOT / "work").exists() else set()
-        kod = olcum_calistir(p_args, f"ogr43_{p['ad']}", ortam_ek, "ILKSAAT_SURE")
+        rapor_cikti = {}
+        kod = olcum_calistir(p_args, f"ogr43_{p['ad']}", ortam_ek, "ILKSAAT_SURE", rapor_cikti=rapor_cikti)
         if kod != 0:
             return 1
-        sonuclar.append({"persona": p["ad"], "gecmis": p["gecmis"], "kabul_orani": p["kabul_orani"], "tohum": p_args.tohum, "son": 0})
+        sonuclar.append({
+            "persona": p["ad"],
+            "gecmis": p["gecmis"],
+            "kabul_orani": p["kabul_orani"],
+            "tohum": p_args.tohum,
+            "gece": rapor_cikti["gece"],
+            "son": rapor_cikti["son"],
+            "ambar": rapor_cikti["ambar"],
+        })
     print("OGR43_YEDI_PERSONA " + json.dumps({"toplam": len(sonuclar), "gecen": len(sonuclar), "kosular": sonuclar}, ensure_ascii=False))
     return 0
 
