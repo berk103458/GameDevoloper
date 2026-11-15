@@ -7,10 +7,10 @@ Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Curs
 
 Ahmet'in görevi: ROADMAP_2'de çekince notu taşıyan 30 [x] madde. 21 Antigravity "sanity bekliyor" ve 4 Görev 22 "doğrulanmadı" notu kanıtla değişti; hiçbir madde geri çekilmedi. SOY-10/23/24/26/28 Cursor-Berk'in, dokunulmadı (SOY-28 başlığındaki "şu anda bu işlemi yapıyorum" ibaresi Berk tarafında bayat duruyor).
 
-- 20af62d6: `muhafiz_odasi.gd:51` parse hatası (Antigravity 3002e507) — headless import kırmızıydı.
-- c93dccd7: ZAR-01/02/03/04, DEN-19 oyuna bağlandı. Zar `SorguZari` ile, KAP-09 ikinci olasılık yolu kalktı, tecrübe görünür −1 satırı (karar), kaçış `ChrSorgusu.tansiyon_artir` + `TansiyonKacisAkisi`. Test `tests/oto/zar_oyun_baglanti_kontrol.tscn` 17 GEÇTİ, mutasyonda kırmızı.
-- 0145f92d: DEN-05/06/22 — `DengeGunlugu` gece sonu ölçümünü geliştirme günlüğüne yazar. Test `tests/oto/denge_gunlugu_kontrol.tscn` 9 GEÇTİ, mutasyonda kırmızı.
-- 50ab0973: DEN-08 oyun tarafı testi; DEN-03b açılış testi bayat sahte tablo yüzünden kırmızıydı, düzeldi.
+- d871cfa4: `muhafiz_odasi.gd:51` parse hatası (Antigravity 3002e507) — headless import kırmızıydı.
+- 9e750843: ZAR-01/02/03/04, DEN-19 oyuna bağlandı. Zar `SorguZari` ile, KAP-09 ikinci olasılık yolu kalktı, tecrübe görünür −1 satırı (karar), kaçış `ChrSorgusu.tansiyon_artir` + `TansiyonKacisAkisi`. Test `tests/oto/zar_oyun_baglanti_kontrol.tscn` 17 GEÇTİ, mutasyonda kırmızı.
+- 425f9267: DEN-05/06/22 — `DengeGunlugu` gece sonu ölçümünü geliştirme günlüğüne yazar. Test `tests/oto/denge_gunlugu_kontrol.tscn` 9 GEÇTİ, mutasyonda kırmızı.
+- 7d416d6a: DEN-08 oyun tarafı testi; DEN-03b açılış testi bayat sahte tablo yüzünden kırmızıydı, düzeldi.
 - Metin işleri Gemini'ye: `docs/GEMINI_METIN_ISLERI.md` (dedikodu.kacis, arayuz.kapi.karar_kacti, ZAR_* sözleri, değiştirici adları). Kod anahtar yokken bugünkü sözle çalışır.
 - Var olan, bu işe ait olmayan kırmızılar: `sezgi_kapi_test` (ZAR-06 ek satır), `acilis_denge_kontrol` taş ocağı 10 gün ve DEN-12, `tuketim_dengesi_test` "Gerçek kulübe kurulabilir".
 Asset gerekmedi. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
