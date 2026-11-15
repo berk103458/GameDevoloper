@@ -5574,7 +5574,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.6 Görünürlük — oyuncu ağı nasıl okur
 
-- [/] **SOY-28:** (Cursor-Berk — şu anda bu işlemi yapıyorum) Fısıltı gazetesi aynı kalır, kaynak sütunu eklenir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `src/arayuz/koy_hud/pusula_kaynak.gd` dosyası yok)
+- [x] **SOY-28:** (Cursor-Berk — şu anda bu işlemi yapıyorum) Fısıltı gazetesi aynı kalır, kaynak sütunu eklenir. (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor; `src/arayuz/koy_hud/pusula_kaynak.gd` dosyası yok) **Doğrulama (Cursor-Berk): GEÇTİ** — 9e5dd474; koy_ekrani `_olay_goster` → PusulaKaynak.ekle (koy_ekrani.gd:787), Oturum.olay_sec → FisiltiGazetesi.olay (oturum.gd:480); pusula_kaynak/fisilti_yer/soylenti_agi ve metin_dogrula çıkış 0.
   - Ne: sabah pusulası satırının altına küçük yazı: "duyan: Fatma" (SOY-01 `kaynak`). Satır sayısı ve kalıp değişmez.
   - Kabul: pusula satırında kaynak 1; kaynaksız kayıtta boş. Test: ekran.
   - Bağımlılık: SOY-01. Boyut: S.
