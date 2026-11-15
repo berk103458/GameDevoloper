@@ -4162,7 +4162,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-07, TST-03. Boyut: S.
   - Dosya: yeni: `src/debug/ilk_saat_kancasi.gd`.
   - Asset: asset gerekmedi.
-- [x] **OGR-43:** (Antigravity) Yedi persona ilk saati geçer. (Kanıt: `tools/python_test_runner.py --yedi-persona`: 7/7 koşuda `gece: 6`, `son: 0`, `ambar: 11..37`, 0 SCRIPT ERROR; `src/sistemler/karakter_kadrosu.gd:122` güvenli `.get` eklendi; asset gerekmedi) **Doğrulama (Cursor-Berk): KALDI** — 70ecc754: `tests/oto/otomatik_oyuncu.gd:134` ILKSAAT_SURE `son` sabit 0, gerçek `KoyYonetimi.son` okunmuyor; 6. gece raporunda oyun sonu olsa bile kart açılınca 'son: 0' basılıp test geçebilir (sahte GEÇTİ yolu). Ayrıca HEAD cdce446b'de `Renkler.PARSOMEN` hatasıyla ilk persona 480 sn timeout oldu (309e5549 ile düzeltildi), diğer 6 persona koşulamadı.
+- [/] **OGR-43:** (Antigravity) Yedi persona ilk saati geçer. (Kanıt: `tools/python_test_runner.py --yedi-persona`: 7/7 koşuda `gece: 6`, `son: 0`, `ambar: 11..37`, 0 SCRIPT ERROR; `src/sistemler/karakter_kadrosu.gd:122` güvenli `.get` eklendi; asset gerekmedi) **Doğrulama (Cursor-Berk): KALDI** — 70ecc754: `tests/oto/otomatik_oyuncu.gd:134` ILKSAAT_SURE `son` sabit 0, gerçek `KoyYonetimi.son` okunmuyor; 6. gece raporunda oyun sonu olsa bile kart açılınca 'son: 0' basılıp test geçebilir (sahte GEÇTİ yolu). Ayrıca HEAD cdce446b'de `Renkler.PARSOMEN` hatasıyla ilk persona 480 sn timeout oldu (309e5549 ile düzeltildi), diğer 6 persona koşulamadı.
   - Ne: TST-07 personaları (`tools/python_test_runner.py`) ilk altı geceyi oynar; hiçbiri OGR-33 kilidi yüzünden değil, oyun yüzünden kaybetmemelidir.
   - Kabul: yedi koşuda son 0, ambar ≥ 0. Test: runner raporu.
   - Bağımlılık: OGR-33, TST-07. Boyut: S.
