@@ -2,6 +2,7 @@
 extends Node
 
 const GRUPLAR := {
+	"GRV-52": ["res://src/kapi/divan_hukum_paneli.gd"],
 	"GRV-51": ["res://src/kapi/divan_sorgu_paneli.gd"],
 	"GRV-49": ["res://src/arayuz/kapi/kapi_gorus_adaptoru.gd"],
 	"GRV-47": ["res://src/arayuz/okculuk_oyunu.gd"],
@@ -29,6 +30,8 @@ func _ready() -> void:
 		await _odak()
 	if grup == "GRV-24":
 		_defter()
+	if grup == "GRV-49":
+		_gorus()
 	var kaynaklar := _kaynaklar("res://src")
 	var ihlal := RegEx.create_from_string("\\bColor\\s*\\(|\\bColor8\\s*\\(|Color\\.from_|Color\\.html|ColorRect\\.new|StyleBoxFlat\\.new|add_theme_stylebox_override|font_size[\\\"']\\s*,\\s*\\d")
 	for yol in GRUPLAR.get(grup, []):
@@ -145,4 +148,28 @@ func _mini(grup: String) -> void:
 		m.bas()
 		_kontrol(m.puan == 2 and m._ok == 2, "iska puan vermez")
 	await get_tree().process_frame
+	kok.free()
+
+
+func _gorus() -> void:
+	var katalog := Katalog.new()
+	katalog.yukle()
+	var o := Oturum.new(katalog, 84)
+	var kok := VBoxContainer.new()
+	kok.theme = Tema.olustur(Ayarlar.new("user://grv49_kullanilmaz.cfg"))
+	add_child(kok)
+	var portre := TextureButton.new()
+	portre.name = "GorselIz"
+	kok.add_child(portre)
+	IklimDeneyi.degistir(o, -1, "kar_firtinasi")
+	KapiGorusAdaptoru.uygula(kok, o.yonetim)
+	var uyari := kok.get_node_or_null("KapiGorusUyarisi") as Label
+	_kontrol(uyari != null and uyari.visible, "tipi uyarısı gerçek adaptörden gelir")
+	if uyari != null:
+		_kontrol(uyari.get_theme_font_size("font_size") == Kabuk.KUCUK, "uyarı ortak küçük puntoyu okur")
+	var mat := portre.material as ShaderMaterial
+	_kontrol(mat != null and mat.get_shader_parameter("yaricap") == 4.0, "tipi aynı shader değerini korur")
+	IklimDeneyi.degistir(o, -1, "normal")
+	KapiGorusAdaptoru.uygula(kok, o.yonetim)
+	_kontrol(portre.material == null and not uyari.visible, "normal hava materyali geri yükler")
 	kok.free()

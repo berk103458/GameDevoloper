@@ -7526,7 +7526,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/kapi/divan_sorgu_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-52:** (Codex-Berk) `divan_hukum_paneli.gd` temaya bağlanır.
+- [x] **GRV-52:** (Codex-Berk) `divan_hukum_paneli.gd` temaya bağlanır.
   - Ne: `src/kapi/divan_hukum_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Hüküm düğmesi düz. Tema bağlanınca yalnız `divan_hukum_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Hüküm düğmesi düz davranışı değişmez.
   - Kabul: `divan_hukum_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `divan_hukum_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
