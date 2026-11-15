@@ -1,6 +1,7 @@
 {
   "toplam_karakter": 30,
   "sir_cekirdegi_kotasi_yuzde_max": 50,
+  "dedikodu_kotasi_yuzde_max": 20,
   "cekirdek_dagilimi": {
     "durust": 16,
     "koruma_yalani": 8,
