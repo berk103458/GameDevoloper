@@ -37,6 +37,8 @@ static func diyalog_goster(ekran: Control, gelen: Gelen, secenekler: VBoxContain
 	panel.ayarlar = ekran.get("ayarlar") as Ayarlar
 	panel.baglam = gelen.get_meta(&"zar06_baglam", {}).duplicate(true)
 	panel.karar_istendi.connect(Callable(ekran, "_karar_goster"))
+	panel.kacis_istendi.connect(func() -> void: preload("res://src/kapi/tansiyon_kacis_akisi.gd").ekranda(ekran))
+	preload("res://src/kapi/tansiyon_kacis_akisi.gd").bagla(ekran, sorgu)
 	secenekler.add_child(panel)
 	inceleme_dugmesi(ekran, gelen, eylemler)
 	beyan_defteri_dugmesi(ekran, gelen, eylemler, panel)

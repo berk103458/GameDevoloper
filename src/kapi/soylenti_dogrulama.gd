@@ -157,8 +157,7 @@ static func _yanilma(celiski: Celiski, id_a: String, id_b: String, ctx: Dictiona
 	var sorgu := ctx.get("sorgu") as ChrSorgusu
 	var yeni := celiski.tansiyon
 	if sorgu != null:
-		sorgu.tansiyon = clampi(sorgu.tansiyon + 1, 0, 10)
-		sorgu.tansiyon_degisti.emit(sorgu.tansiyon)
+		sorgu.tansiyon_artir(1)
 		yeni = sorgu.tansiyon
 	return {
 		"basarili": false,

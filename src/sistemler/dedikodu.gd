@@ -16,6 +16,7 @@ const AGIR_OLAY_TURLERI := [
 	"aileyi_bolme",
 	"haksiz_ret",
 	"muhafizin_yalani",
+	"kacis",
 ]
 
 const VARSAYILAN_SATIRLAR := {

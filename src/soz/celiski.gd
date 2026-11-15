@@ -265,8 +265,11 @@ func yuzles(id_1: String, id_2: String, ctx: Dictionary = {}) -> Dictionary:
 		yeni_sabir = motor.sabir
 	var yeni_tansiyon := tansiyon
 	if sorgu != null:
-		sorgu.tansiyon = clampi(int(sorgu.tansiyon) + 1, 0, 10)
-		sorgu.tansiyon_degisti.emit(sorgu.tansiyon)
+		if sorgu.has_method("tansiyon_artir"):
+			sorgu.tansiyon_artir(1)
+		else:
+			sorgu.tansiyon = clampi(int(sorgu.tansiyon) + 1, 0, 10)
+			sorgu.tansiyon_degisti.emit(sorgu.tansiyon)
 		yeni_tansiyon = sorgu.tansiyon
 	return {
 		"basarili": false,

@@ -1,6 +1,6 @@
 ## ZAR-04: Yaklaşım türleri ve değiştiriciler.
 ## Dört yaklaşım vardır: ikna, blöf, gözdağı ve gönül alma.
-## Terazi, grup itibarı, kanıt, asker ve yorgunluk gerekli değerini en çok -3 ile +3 arasında değiştirir.
+## Terazi, grup itibarı, kanıt, asker, yorgunluk ve muhafız tecrübesi gerekli değerini en çok -3 ile +3 arasında değiştirir.
 ## Zar öncesi liste tutan her maddeyi ayrı satırda gösterir; gizli değiştirici yoktur.
 ## Beşinci yaklaşım adı reddedilir. Kalp veya romans eşiği yoktur.
 class_name ZarDegistiricileri
@@ -123,6 +123,11 @@ static func hesapla(yaklasim: Variant, baglam: Dictionary = {}, tablo_override: 
 	if yorgunluk:
 		satirlar.append({"tur": "yorgunluk", "metin": "Nöbet yorgunluğu", "deger": 1})
 		ham_toplam += 1
+
+	# 6. Muhafız tecrübesi: ZAR-06 sezgi eşiğini geçince -1 (ikinci eşik yok; KAP-09 tecrübesi buradan yazar).
+	if bool(baglam.get("tecrube_esigi_gecti", false)):
+		satirlar.append({"tur": "tecrube", "metin": "Muhafız tecrüben", "deger": -1})
+		ham_toplam -= 1
 
 	# Toplam -3...+3 dışında kesilir.
 	var toplam := clampi(ham_toplam, ASGARI_TOPLAM, AZAMI_TOPLAM)

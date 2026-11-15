@@ -61,13 +61,21 @@ func _calistir() -> void:
 	var beceri := preload("res://src/sistemler/chr_sorgusu.gd").new(sorgu.karakter)
 	beceri.tohumla(42)
 	var dusuk: float = beceri.basari_olasiligi()
+	_kontrol(is_equal_approx(dusuk, SorguZari.olasilik(SorguZari.gerekli(beceri.karakter.sorgu_degeri, 0, 0, beceri.kurallar), beceri.zar_turu())), "KAP-09 olasılığı ZAR-01 formülünden geliyor")
 	beceri.tecrube = 10
-	_kontrol(beceri.basari_olasiligi() > dusuk, "Tecrübe ikna olasılığını artırıyor")
+	var tec_deg: Dictionary = beceri.yaklasim_degistiricisi({"beceri": "ikna"})
+	_kontrol(int(tec_deg["toplam"]) == -1 and String(tec_deg["satirlar"][-1]["tur"]) == "tecrube", "Tecrübe eşiği görünür -1 değiştirici satırı")
+	_kontrol(beceri.basari_olasiligi(int(tec_deg["toplam"])) > dusuk, "Tecrübe ikna olasılığını artırıyor")
 	beceri.tansiyon = 7
-	_kontrol(beceri.basari_olasiligi() < dusuk + 0.2, "Tansiyon ikna olasılığını düşürüyor")
-	beceri.kurallar = beceri.kurallar.duplicate(true)
-	beceri.kurallar.asgari = 0.0
-	beceri.kurallar.azami = 0.0
+	_kontrol(beceri.basari_olasiligi() < dusuk, "Tansiyon ikna olasılığını düşürüyor")
+	var tohum := 0
+	while true:
+		var r := RandomNumberGenerator.new()
+		r.seed = tohum
+		if SorguZari.at(r, beceri.zar_turu()) == 1:
+			break
+		tohum += 1
+	beceri.tohumla(tohum)
 	beceri._dugume_git(&"1.1")
 	_kontrol(beceri.secenek_sec(1) and not beceri.son_zar["basarili"] and beceri.bayraklar["Flag_Kilitlendi"], "Başarısız blöf 7→8 panik oluşturuyor")
 	_kontrol(beceri.replik_baslat() and not beceri.replik_baslat(), "UI yenileme aynı repliği/sesi tekrar başlatmıyor")

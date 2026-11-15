@@ -39,11 +39,22 @@ func replik_baslat() -> bool:
 func tohumla(tohum: int) -> void:
 	_rng.seed = tohum
 
+## ZAR-01: KAP-09 olasılığı görünür zar kuralına döner; ikinci hesap yolu yoktur.
 func basari_olasiligi(degistirici: int = 0) -> float:
-	var taban: float = kurallar.olasilik(tecrube, tansiyon)
-	if degistirici == 0:
-		return taban
-	return clampf(taban - float(degistirici) * 0.08, kurallar.asgari, kurallar.azami)
+	return SorguZari.olasilik(gerekli(degistirici), zar_turu())
+
+func zar_turu() -> StringName:
+	return StringName(karakter.zar) if SorguZari.gecerli_tur(StringName(karakter.zar)) else SorguZari.TUR_D6
+
+func gerekli(degistirici: int = 0) -> int:
+	return SorguZari.gerekli(karakter.sorgu_degeri, tansiyon, degistirici, kurallar)
+
+## Gerekli değer zarın tavanını aşan beceri seçeneği kilitlidir; zar atılmaz.
+func zar_kilitli(secenek: Dictionary, ek_baglam: Dictionary = {}) -> bool:
+	if String(secenek.get("beceri", "")).is_empty():
+		return false
+	var deg := yaklasim_degistiricisi(secenek, ek_baglam)
+	return SorguZari.kilitli(gerekli(int(deg.get("toplam", 0)) if bool(deg.get("gecerli", false)) else 0), zar_turu())
 
 
 ## ZAR-04: Seçeneğin yaklaşımına göre tutan zar değiştiricilerini döner (gizli ek yok).
@@ -61,6 +72,8 @@ func yaklasim_degistiricisi(secenek: Dictionary, ek_baglam: Dictionary = {}) -> 
 		birlesik[k] = ek_baglam[k]
 	if not ipuclari.is_empty():
 		birlesik["kanit"] = true
+	if not birlesik.has("tecrube_esigi_gecti"):
+		birlesik["tecrube_esigi_gecti"] = tecrube >= preload("res://src/soz/muhafiz_sezgisi.gd").esik()
 	return preload("res://src/kapi/zar_degistiricileri.gd").hesapla(ham_yaklasim, birlesik)
 
 func metin(anahtar: StringName) -> String:
@@ -80,7 +93,24 @@ func secenek_acik(secenek: Dictionary, indeks: int = -1) -> bool:
 	for bayrak in secenek.get("gerekli_bayraklar", []):
 		if not bayraklar.get(String(bayrak), false):
 			return false
-	return true
+	return not kacti() and not zar_kilitli(secenek)
+
+## ZAR-03: tansiyon eşiği aşıldı; ziyaret "kaçtı" kararıyla biter, başka karar açılmaz.
+func kacti() -> bool:
+	return bool(bayraklar.get("Flag_Kacti", false))
+
+## Başarısız zar dışındaki artışlar (çelişki, yemin, söylenti) da eşiği buradan aşar.
+func tansiyon_artir(artis: int) -> bool:
+	var kacti_mi := _kacis_hesapla(artis)
+	tansiyon_degisti.emit(tansiyon)
+	return kacti_mi
+
+func _kacis_hesapla(artis: int) -> bool:
+	var kacis := SorguZari.kacis_kontrol(tansiyon, artis, false, SorguZari.kacis_esigi_oku("res://data/ayarlar/denge.json", kurallar))
+	if bool(kacis.kacti):
+		bayraklar["Flag_Kacti"] = true
+	tansiyon = clampi(tansiyon + artis, 0, 10)
+	return bool(kacis.kacti)
 
 func secenek_sec(indeks: int, ek_baglam: Dictionary = {}) -> bool:
 	var dugum := karakter.diyalog_dugumu(dugum_id)
@@ -95,20 +125,29 @@ func secenek_sec(indeks: int, ek_baglam: Dictionary = {}) -> bool:
 		_denemeler[deneme_id] = true
 		var deg := yaklasim_degistiricisi(secenek, ek_baglam)
 		var deg_toplam: int = int(deg.get("toplam", 0)) if bool(deg.get("gecerli", false)) else 0
-		var olasilik := basari_olasiligi(deg_toplam)
-		var zar := _rng.randf()
+		var atis := SorguZari.sonuc(_rng, zar_turu(), karakter.sorgu_degeri, tansiyon, deg_toplam, kurallar)
+		if not bool(atis.atildi):
+			_denemeler.erase(deneme_id)
+			return false
 		son_zar = {
 			"beceri": secenek["beceri"],
-			"olasilik": olasilik,
-			"zar": zar,
-			"basarili": zar < olasilik,
+			"tur": atis.tur,
+			"olasilik": basari_olasiligi(deg_toplam),
+			"zar": int(atis.zar),
+			"gerekli": int(atis.gerekli),
+			"sozcuk": atis.sozcuk,
+			"basarili": bool(atis.basarili),
 			"degistirici": deg_toplam,
 			"degistirici_satirlari": deg.get("satirlar", []),
 			"kesildi": bool(deg.get("kesildi", false)),
 		}
 		if not son_zar["basarili"]:
-			tansiyon = clampi(tansiyon + kurallar.basarisiz_tansiyon_delta, 0, 10)
-			_dugume_git(dugum_id)
+			preload("res://src/debug/denge_gunlugu.gd").zar_basarisiz()
+			var artis := int(secenek.get("basarisiz_tansiyon_delta", kurallar.basarisiz_tansiyon_delta))
+			if _kacis_hesapla(artis):
+				son_zar["kacti"] = true
+			else:
+				_dugume_git(dugum_id)
 			tansiyon_degisti.emit(tansiyon)
 			return true
 	tansiyon = clampi(tansiyon + int(secenek.get("tansiyon_delta", 0)), 0, 10)
@@ -155,6 +194,8 @@ func devam_et() -> bool:
 	return false
 
 func karar_acik(karar: StringName) -> bool:
+	if kacti():
+		return false
 	if not preload("res://src/kapi/chr_karar_matrisi.gd").matriste_var_mi(self, karar):
 		return false
 	return not bayraklar["Flag_Kilitlendi"] or karar in [&"kisla", &"ret", &"zorunlu_ret", &"rusvet"]

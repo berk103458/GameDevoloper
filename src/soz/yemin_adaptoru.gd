@@ -52,8 +52,7 @@ static func uygula(o: Oturum, g: Gelen, sekil: String = "") -> Dictionary:
 	if r.yalan_yemin and "yalan_yemin" not in g.gizli_bayraklar: g.gizli_bayraklar.append("yalan_yemin")
 	var chr = g.chr_sorgusu()
 	if chr != null:
-		chr.tansiyon = clampi(chr.tansiyon + 1, 0, 10)
-		chr.tansiyon_degisti.emit(chr.tansiyon)
+		chr.tansiyon_artir(1)
 	else:
 		var bekleme: Dictionary = g.get_meta(KapiFirtinaKuyrugu.BEKLEME, {})
 		bekleme["toplam"] = int(bekleme.get("toplam", 0)) + 1

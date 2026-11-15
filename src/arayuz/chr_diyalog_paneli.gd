@@ -2,6 +2,8 @@
 extends VBoxContainer
 
 signal karar_istendi
+## ZAR-03: tansiyon eşiği aşıldı; kapı ziyareti "kaçtı" kararıyla kapatır.
+signal kacis_istendi
 var sorgu: RefCounted
 var oturum: Oturum
 var ayarlar: Ayarlar
@@ -40,7 +42,12 @@ func guncelle() -> void:
 			"blof": yak_ad = "Blöf"
 			"gozdagi": yak_ad = "Gözdağı"
 			"gonul_alma": yak_ad = "Gönül alma"
-		sonuc.text = "%s: %s" % [yak_ad, "başarılı" if sorgu.son_zar["basarili"] else "başarısız — tansiyon arttı"]
+		var sozcuk := "başarılı" if sorgu.son_zar["basarili"] else "başarısız — tansiyon arttı"
+		if sorgu.son_zar.has("gerekli"):
+			sonuc.name = "ZarSonucu"
+			sonuc.text = "%s — %s: %d, gereken %d+ · %s" % [yak_ad, String(sorgu.son_zar.get("tur", "d6")), int(sorgu.son_zar["zar"]), int(sorgu.son_zar["gerekli"]), sozcuk]
+		else:
+			sonuc.text = "%s: %s" % [yak_ad, sozcuk]
 		add_child(sonuc)
 		if not _zar_ipucu.is_empty():
 			var ipucu_lbl := Label.new()
@@ -83,6 +90,9 @@ func guncelle() -> void:
 		b.pressed.connect(func() -> void:
 			_zar_ipucu = ""
 			if sorgu.secenek_sec(i, baglam):
+				if sorgu.has_method("kacti") and sorgu.kacti():
+					kacis_istendi.emit()
+					return
 				_ton_tepkisi = TON.tepki(oturum, secenek, baglam)
 				if not sorgu.son_zar.is_empty():
 					var z_res := preload("res://src/kapi/zar_ipucu.gd").oturumda_goster(oturum, ayarlar)

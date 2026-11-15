@@ -20,7 +20,6 @@ func _ready() -> void:
  e._gelen=g
  e._sohbet_goster()
  assert(g.chr_sorgusu().tecrube==8 and o.muhafiz_tecrubesi==12)
- var sans: float=g.chr_sorgusu().basari_olasiligi()
  e.queue_free()
  await get_tree().process_frame
  var oda:=MuhafizOdasiEkrani.new()
@@ -64,7 +63,10 @@ func _ready() -> void:
  kok.add_child(e)
  e._gelen=g
  e._sohbet_goster()
- assert(g.chr_sorgusu().tecrube==12 and g.chr_sorgusu().basari_olasiligi()>sans)
+ var sor:=g.chr_sorgusu()
+ var deg:Dictionary=sor.yaklasim_degistiricisi({"beceri":"ikna"})
+ # ZAR-01: tecrübe tek eşikli görünür -1 satırıdır (MuhafizSezgisi eşiği); ikinci olasılık yolu yok.
+ assert(sor.tecrube==12 and String(deg.satirlar[-1].tur)=="tecrube" and sor.basari_olasiligi(int(deg.toplam))>sor.basari_olasiligi())
  assert(o.koy_akce==kamu and o.yonetim.kaynaklar.kaydet()==stok and o.yonetim._rng.state==rng)
  kok.queue_free()
  await get_tree().process_frame
