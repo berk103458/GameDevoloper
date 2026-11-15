@@ -3348,3 +3348,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-48 (Codex-Berk): Tansiyon üç rengi ortak kabuk kaynaklarına bağlandı; ProgressBar stili tema mirasından gelir ve mevcut kademe rengi çubuğa uygulanır. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-61 (Codex-Berk): Kaynak kartının renkleri Kabuk kaynaklarına bağlandı; PanelContainer ortak panel stilini miras alır. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-70 (Codex-Berk): Yapı kartındaki özel düğme stilleri kaldırıldı; normal, odak, basılı ve kapalı stiller ortak temadan gelir. Kilit ve maliyet koşulları korundu. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.

@@ -1372,3 +1372,6 @@ Tansiyon üç rengi ortak kabuk kaynaklarına bağlandı; ProgressBar stili tema
 
 ## 15 Kasım 2026 — GRV-61 (Codex-Berk)
 Kaynak kartının renkleri Kabuk kaynaklarına bağlandı; PanelContainer ortak panel stilini miras alır. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-70 (Codex-Berk)
+Yapı kartındaki özel düğme stilleri kaldırıldı; normal, odak, basılı ve kapalı stiller ortak temadan gelir. Kilit ve maliyet koşulları korundu. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

@@ -7655,7 +7655,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/su_rezerv_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-70:** (Codex-Berk) `yapi_karti.gd` temaya bağlanır.
+- [x] **GRV-70:** (Codex-Berk) `yapi_karti.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/yapi_karti.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Yapı kartı zeminsiz. Tema bağlanınca yalnız `yapi_karti.gd` ARY-02 zeminini ve düğme durumunu okur, Yapı kartı zeminsiz davranışı değişmez.
   - Kabul: `yapi_karti.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `yapi_karti.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

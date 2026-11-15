@@ -9,23 +9,10 @@ func kur(tur: String, y: KoyYonetimi, ayarlar: Ayarlar) -> void:
 	set_meta("yapi_turu", tur)
 	custom_minimum_size = Vector2(220, 136)
 	focus_mode = Control.FOCUS_ALL
-	var stil := Kabuk.panel()
-	add_theme_stylebox_override("normal", stil)
-	add_theme_stylebox_override("hover", stil)
-	var odak := stil.duplicate() as StyleBoxFlat
-	odak.border_color = KaynakGostergesi.BRONZ
-	odak.set_border_width_all(2)
-	odak.draw_center = false
-	add_theme_stylebox_override("focus", odak)
-	var secili := stil.duplicate() as StyleBoxFlat
-	secili.bg_color = Color("423723")
-	add_theme_stylebox_override("pressed", secili)
-	add_theme_stylebox_override("disabled", stil)
 	var m := y.katalog.maliyet(tur)
 	disabled = not y.kaynaklar.yeterli(_malzeme(m)) or y.akce < int(m.get("akce", 0))
 	var kilit := YapiKilidi.durum(y, tur)
 	disabled = disabled or not kilit.acik
-	modulate = Color(0.6, 0.6, 0.6) if not kilit.acik else Color.WHITE
 	tooltip_text = MeslekYapilari.aciklama(tur)
 	var v := VBoxContainer.new()
 	v.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
