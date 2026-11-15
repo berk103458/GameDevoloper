@@ -19,6 +19,8 @@ const PORTRE_MODEL := {
 	"soldier_01": "asker", "craftsman_01": "esnaf", "farmer_01": "ciftci", "farmer_02": "ciftci_kadin",
 	"vergi_tahsildari": "tahsildar", "aydogdu_oba": "turkmen_bey_adami",
 	"celep_hamdullah": "celep", "beyin_denetcisi": "denetci",
+	"nalbur": "nalbur", "silah_tuccari": "silah_tuccari", "kumasci_aktar": "kumasci",
+	"zanaat_ustasi": "usta", "tohum_ustasi": "usta", "bitki_ustasi": "usta", "su_ustasi": "usta",
 }
 const SINIF_MODEL := {&"asker": "asker", &"esnaf": "esnaf", &"ciftci": "ciftci"}
 

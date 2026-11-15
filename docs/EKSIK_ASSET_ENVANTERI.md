@@ -695,7 +695,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `ANI-SILAH` | [ÜRETİLDİ: `assets/model/nesne/kilic.glb`, `kalkan.glb`, `mizrak.glb`, `mesale_el.glb`] Kılıç, kalkan, mızrak, meşale soketi (`MuhafizDonanimi`, `ElEsyasi`); glTF, el kemiği. | Kılıç 0,08 × 0,85 × 0,04 m; kalkan çapı 0,60 m; mızrak boyu 2,0 m; alet boyu 0,35–1,20 m |
 | `ANI-ALET` | Kova, orak, balta, örs çekici, fırın küreği; glTF. | Kova 0,30 × 0,35 × 0,30 m; orak 0,40 m; balta 0,60 m; çekiç 0,35 m; kürek 1,20 m |
 | `ANI-HAYVAN-SURU` | Öküz yürüyüş, koyun otlama; glTF klip. | Mevcut öküz ve koyun riginde yürüyüş/otlama klibi; model ölçeği korunur |
-| `TUC-TACIR` | Celep, nalbur, kumaşçı, aktar, silah tüccarı; `karakter/<ad>_yuru.glb`. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `TUC-TACIR` | [ÜRETİLDİ: `assets/model/karakter/celep_yuru.glb`, `nalbur_yuru.glb`, `kumasci_yuru.glb`, `aktar_yuru.glb`, `silah_tuccari_yuru.glb`] Celep, nalbur, kumaşçı, aktar, silah tüccarı (`TuccarKapiGecisi`, `Dunya3B.PORTRE_MODEL`). | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `TUC-HAYVAN` | İnek, koç, beygir; glTF. | İnek 0,85 × 1,45 × 2,20 m; koç 0,55 × 0,85 × 1,10 m; beygir 0,80 × 1,60 × 2,30 m |
 | `MEV-ZEMIN` | Kar örtüsü, çatı karı, kürek — prompt hazır, Ahmet üretecek; 3D geometri açık; shader + PNG; `kurek.glb`. | Kürek 0,25 × 1,20 × 0,08 m; kar geometri katmanı mevcut çatı/zemin zarfında |
 | `MEV-AFET` | Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF + PNG. | Bent modülü 3,0 × 0,8 × 0,6 m; kurt 0,45 × 0,8 × 1,1 m |
@@ -741,7 +741,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `KAP17-YASLI` | [ÜRETİLDİ: `assets/model/karakter/yasli_yuru.glb`] Yaşlı köylü modeli (`aile_kapi_gorunumu.gd`, `HazirKarakterler`, `aile_yas_gorunumu.gd`); glTF / 3B model. | 0,55 × 1,65 × 0,40 m |
 | `CAT02-KAVGA` | Kapıda kavga canlandırması; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `ISG02-ALETLER` | Geçici işlere özel el aletleri; glTF. | Kürek 0,20 × 1,20 × 0,08 m; sepet 0,35 × 0,35 × 0,35 m; su kabı 0,25 × 0,40 × 0,25 m; kirmen 0,05 × 0,30 × 0,05 m; bakım bezi 0,25 × 0,25 m. |
-| `YAP03-USTALAR` | Kapıdan gelen usta modelleri; glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `YAP03-USTALAR` | [ÜRETİLDİ: `assets/model/karakter/usta_yuru.glb`] Kapıdan gelen usta modelleri (`Dunya3B.PORTRE_MODEL`, `HazirKarakterler`); glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `YAP05-ODA` | Çözümleme odası modeli; glTF / 3B model. | 4,0 × 2,8 × 4,0 m |
 | `DYL02-AYRINTI-*` | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | Çarık 0,12 × 0,08 × 0,28 m; el/yara/giysi mevcut karakter rigine bağlı, ölçek değişmez |
 | `DYL03-YEMIN` | Yemin nesneleri (dünya kitabına göre); glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
@@ -859,7 +859,7 @@ ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik bura
 | ZAR01-ZAR | ZAR-01 | Görünür zar (d6, d12) — prompt hazır, Ahmet üretecek | PNG / SVG + 3B isteğe bağlı | 3B model Meshy ile üretildi: `assets/model/nesne/zar.glb` (`Dunya3B.nesne("zar")`) | kemik zar d6 d12; medieval bone dice d6 d12 | yüksek | Claude |
 | CAT02-KAVGA | CAT-02 | Kapıda kavga canlandırması | glTF / iskelet animasyon klibi | yer tutucu sarsıntı + metin oyuna bağlandı (`src/kapi/kapi_kavgasi_paneli.gd`); gerçek animasyon hâlâ eksik | kapı itişme kavga; medieval gate scuffle brawl animation | orta | Claude |
 | ISG02-ALETLER | ISG-02 | Geçici işler: kürek, dal sepeti, su kabı, kirmen ve bakım bezi | glTF | Mekanik (Kalfa): mevcut köylü figürü ve kartta iş adı; özel alet görseli henüz bağlanmadı. Entegrasyon noktası `src/dunya/karakter_ekipman_yoneticisi.gd` (ANI-11); mevcut kutu soketi korunur. | ortaçağ el aleti kürek kirmen su kabı; medieval shovel spindle basket water jug tools | orta | Claude (ilk kayıt), Kalfa (mekanik durumu) |
-| YAP03-USTALAR | YAP-03 | Kapıdan gelen usta modelleri | glTF / 3B model | planlı — madde kodlanınca: duran köylü modeli + renk farkı + etiket | Selçuklu usta zanaatkâr; seljuk master craftsman | orta | Claude |
+| YAP03-USTALAR | YAP-03 | Kapıdan gelen usta modelleri | glTF / 3B model | Meshy ile üretildi: `assets/model/karakter/usta_yuru.glb` (`Dunya3B.PORTRE_MODEL`, `HazirKarakterler`) | Selçuklu usta zanaatkâr; seljuk master craftsman | orta | Claude |
 | YAP04-DEFTER | YAP-04 | Usta defteri ikonu — prompt hazır, Ahmet üretecek | SVG / PNG | planlı — madde kodlanınca: düz ColorRect + etiket | usta defteri kitap; medieval master's notebook icon | orta | Claude |
 | YAP05-ODA | YAP-05 | Çözümleme odası modeli | glTF / 3B model | planlı — madde kodlanınca: düz renk BoxMesh + etiket | araştırma odası masa; medieval study workshop room | orta | Claude |
 | YAP06-ESYA | YAP-06 | Özel eşya ikonları — prompt hazır, Ahmet üretecek; ortak ikon, türler YAP-06 tanımını bekler | SVG / PNG | planlı — madde kodlanınca: düz ColorRect + etiket | özel eşya ikon; medieval special item icons | orta | Claude |

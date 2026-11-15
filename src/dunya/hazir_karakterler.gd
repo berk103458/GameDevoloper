@@ -22,6 +22,8 @@ static func koy_adi(k: Koylu, eski: String) -> String:
 			return cirak_ad
 	if k.adli_id == &"" and k.zanaat_turu == ZanaatTuru.Tur.DEMIRCI and k.portre != "farmer_02":
 		return "lowpo_demirci"
+	if k.adli_id == &"" and CirakEgitimi.usta(k) and k.portre != "farmer_02" and Dunya3B.model_var_mi("usta_yuru", "karakter"):
+		return "usta"
 	return eski
 
 static func olustur(ad: String) -> KarakterModel:
