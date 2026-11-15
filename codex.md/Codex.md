@@ -1,3 +1,7 @@
+## 2026-11-16 — Meshy topluluk envanteri (Kalfa)
+
+Yerel gelen klasöründeki 85 GLB ve bir destek dosyası incelendi. Seçim listesindeki 86 koddan 65 kesin, 7 yalnız aday, 14 dosyasız. Listede karşılığı olmayan 9 ekstra GLB kaydedildi. Teknik veriler, model önizlemeleri, dönem uyumu ve inceltme hedefleri docs/meshy/TOPLULUK_INCELEME.md içinde. Kota görünmüyor.
+
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
 ## SEV-04 — Tek istek / 15 Kasım 2026 (Codex, Berk)
