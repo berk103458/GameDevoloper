@@ -3,6 +3,8 @@
 class_name SoylentiHukmu
 extends RefCounted
 
+const HATIRLANMA := preload("res://src/arayuz/kapi/hatirlanma_notu_baglanti.gd")
+
 
 static func ekle(e: Node, v: Control, sikayet: String) -> void:
 	CinarMeclisPaneli._metin(e, v, sikayet, "meclis_soylenti_sikayeti")
@@ -22,6 +24,8 @@ static func ekle(e: Node, v: Control, sikayet: String) -> void:
 		n.pressed.connect(func() -> void:
 			var satir := SoylentiKoprusu.nitele(e.oturum, dogru_der)
 			if satir.is_empty(): return
+			# SOY-26: dugum yazildiysa DIY-14 notu. Bos nitelik (ikinci kez) not acmaz.
+			HATIRLANMA.bildir(e, {"soylenti_muhafiz": true})
 			for c in v.get_children():
 				if String(c.name).begins_with("meclis_soylenti_nitele_"): c.disabled = true
 			var l := CinarMeclisPaneli._metin(e, v, satir, "meclis_soylenti_niteleme")

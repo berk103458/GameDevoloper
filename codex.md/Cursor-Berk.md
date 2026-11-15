@@ -69,3 +69,28 @@ Asset gerekmedi.
 kota: kota görünmüyor
 
 Bu makinede `C:\Users\ds\Documents\GitHub\GameDevoloper` kopyası yok; eşitlendi denmez. Durum: kod ve testler festive'e push edildi; madde ROADMAP_2'de `[/] (Cursor-Berk)` kalır, `[x]` Usta doğrulamasından sonra.
+
+## SOY-26 — "Bu hatırlanacak" söylentide de çıkar (15 Kasım 2026)
+
+Ne yapıldı: Oyuncu çınar meclisinde söze "doğru" ya da "yalan" deyip ağa muhafız düğümü yazınca DIY-14 notu bir kez çıkar. Tetik anahtarı `soylenti_muhafiz`; kural `HatirlanmaNotu` listesindedir, ikinci not sistemi yok. Metin mevcut `UI_BU_HATIRLANACAK` anahtarıdır. `nitele` boş dönerse (aynı konuya ikinci kez) not açılmaz. Ayar `hatirlanma_notu` kapalıyken not gizlenir, düğüm yine kayda yazılır. Akşam sohbeti (DYL-07) muhafız düğümü yazmıyor; `nitele` yalnız meclis düğmesinden çağrılıyor. Kayıt biçimi değişmedi.
+
+Oyuna bağlantı: `CinarMeclisPaneli.ac` → `SoylentiHukmu.ekle` → `meclis_soylenti_nitele_*` → `SoylentiKoprusu.nitele` (`muhafiz_dugumu`) → `HatirlanmaNotuBaglantisi.bildir` → `HatirlanmaNotu.secim_bildir`. Köy ekranında not yoksa aynı sınıftan tek örnek açılır.
+
+Değişen dosyalar:
+- `src/arayuz/kapi/hatirlanma_notu.gd` (tetik listesine `soylenti_muhafiz`)
+- `src/arayuz/kapi/hatirlanma_notu_baglanti.gd` (yeni)
+- `src/arayuz/koy_hud/soylenti_hukmu.gd` (nitelik düğmesi)
+- `tests/unit/sistemler/soylenti_hatirlanma_test.gd` (yeni)
+- Yeni betiklerin `.uid` dosyaları duruyor.
+
+Test:
+- `godot --headless --path . -s tests/unit/sistemler/soylenti_hatirlanma_test.gd` → `SOY-26 GECTI`, çıkış kodu 0.
+- `godot --headless --path . -s tests/unit/kapi/hatirlanma_notu_test.gd` → `HATIRLANMA NOTU: GEÇTİ (0 hata)`, çıkış kodu 0.
+- `godot --headless --path . -s tests/unit/sistemler/soylenti_muhafiz_test.gd` → `SÖYLENTİ MUHAFIZ: GEÇTİ`, çıkış kodu 0.
+- `--import` sonrası `project.godot` değişmedi. SCRIPT ERROR yok. Tam sanity koşulmadı.
+
+Asset gerekmedi.
+
+kota: kota görünmüyor
+
+Bu makinede `C:\Users\ds\Documents\GitHub\GameDevoloper` kopyası yok; eşitlendi denmez. Durum: kod ve testler push edilecek; madde `[/] (Cursor-Berk)` kalır, `[x]` Usta doğrulamasından sonra.
