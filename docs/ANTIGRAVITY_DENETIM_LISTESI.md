@@ -207,7 +207,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | DIY-11 | Kişi hafızası | `[x]` | `src/soz/kisi_hafizasi.gd` | `kaydet_olay`, `hafiza_uygula` çağrılıyor | — | TAM | — |
 | DIY-12 | Grup itibarı | `[x]` | `src/soz/grup_itibari.gd` | `gecerli_grup_mu` çağrılıyor | — | TAM | — |
 | DIY-13 | Dedikodu | `[x]` | `src/sistemler/dedikodu.gd` | Kuruluyor | — | TAM | — |
-| DIY-14 | Hatırlanma notu | `[x]` | `src/arayuz/kapi/hatirlanma_notu.gd` | Sınıf ve testi var | `HatirlanmaNotu` hiç çağrılmıyor; not ekranda görünmüyor | SAHTE-BAĞSIZ | Kapı kararının verildiği yere tek satır ekle |
+| DIY-14 | Hatırlanma notu | `[x]` | `src/arayuz/kapi/hatirlanma_notu.gd` | `KapiEkrani._karar_ver` + `Oturum.karar_ver` (`KisiHafizasi.kaydet_olay` / `dedikodu_yazildi`) `HatirlanmaNotu.secim_bildir` çağırıyor | `HatirlanmaNotu` hiç çağrılmıyor; not ekranda görünmüyor → çözüldü | TAM | Kapı kararının verildiği yere tek satır ekle (`hatirlanma_notu_test`, `hatirlanma_notu_kontrol`, `kisi_hafizasi_test`, `chr_kapi_kontrol` GEÇTİ) |
 
 ## DYL — Diyalog
 

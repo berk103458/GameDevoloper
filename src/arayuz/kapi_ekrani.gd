@@ -16,6 +16,7 @@ const KONUSMA := Rect2(36, 742, 1104, 314)
 const KAMERA_KAYMA := 1.3
 const KARAR_SIMGE := {"kabul": "accept", "harc": "bribe", "ret": "reject", "rusvet": "bribe", "kisla": "barracks", "elkoy": "reject"}
 const ILK_GECE = preload("res://src/kapi/ilk_gece_kisiti.gd")
+const HATIRLANMA_NOTU := preload("res://src/arayuz/kapi/hatirlanma_notu.gd")
 
 var oturum: Oturum
 var ayarlar: Ayarlar
@@ -37,6 +38,7 @@ var _chr_muzik: Node
 var _tercuman_durumu: Dictionary = {}
 var _dil_sabri: int = 5
 var _dil_notlari: Array[Dictionary] = []
+var _hatirlanma_notu: Control
 
 var hud: Hud
 var _dunya: Control
@@ -621,12 +623,19 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	_temizle()
 	_bolum.text = ""
 	Ses.cal(&"sfx_onay")
+	var dedikodu_once := oturum.dedikodu.yazma_sayisi() if oturum != null else 0
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar), is_yeri)
 	if not _dil_notlari.is_empty():
 		_gelen.set_meta(&"dil_notlari", _dil_notlari.duplicate(true))
 	if not sonuc.get("engellendi", false):
 		preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "kapi_karar")
 	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").sonuc_yaz(self, sonuc)
+	if not sonuc.get("engellendi", false):
+		hatirlanma_notunu_bildir({
+			"hafiza": bool(sonuc.get("hafiza_yazildi", false)) or bool(sonuc.get("aile_bolundu", false)),
+			"dedikodu": bool(sonuc.get("dedikodu_yazildi", false)) or (oturum != null and oturum.dedikodu.yazma_sayisi() > dedikodu_once),
+			"kacis_hafiza": bool(sonuc.get("kacis_hafiza", false)),
+		})
 	set_meta(&"sonuclanan_gelen", _gelen)
 	if anahtar == "rusvet" or anahtar == "elkoy":
 		Ses.cal(&"sfx_kese")
@@ -863,3 +872,21 @@ func _tercuman_cagir() -> void:
 	var ad := String(sonuc.get("koylu_ad", "Köylü"))
 	_yaz("[i][color=#82C4C4]%s tercüman olarak çağrıldı (sabır −2).[/color][/i]" % ad)
 	_sohbet_goster()
+
+
+
+## DIY-14: Kapı kararında hafıza veya dedikodu yazıldığında 2 sn "Bu hatırlanacak" notunu açar.
+func _hatirlanma_notu_al() -> Control:
+	if _hatirlanma_notu == null or not is_instance_valid(_hatirlanma_notu):
+		_hatirlanma_notu = HATIRLANMA_NOTU.new()
+		_hatirlanma_notu.name = "HatirlanmaNotu"
+		_hatirlanma_notu.z_index = 40
+		_hatirlanma_notu.position = Vector2(360, 28)
+		add_child(_hatirlanma_notu)
+	if ayarlar != null:
+		_hatirlanma_notu.set("bildirim_acik", bool(ayarlar.degerler.get(&"hatirlanma_notu", true)))
+	return _hatirlanma_notu
+
+
+func hatirlanma_notunu_bildir(olay: Dictionary, kayit_islemi: Callable = Callable()) -> Dictionary:
+	return _hatirlanma_notu_al().call("secim_bildir", olay, kayit_islemi)

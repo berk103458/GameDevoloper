@@ -218,6 +218,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 			if not bayrak in gelen.acik_bayraklar:
 				gelen.acik_bayraklar.append(bayrak)
 	var h := gelen.heybe
+	var dedikodu_once := dedikodu.yazma_sayisi()
 	var ek := {"kirilan": -1, "rusvet_harcandi": -1, "alinan": [], "alinan_akce": 0, "alinan_ambar": 0, "gasp": false,
 		"durust_arandi": false, "harc": karar == &"harc", "koylu_id": -1}
 	if sorgu == null:
@@ -286,6 +287,11 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	_koy_esitle()
 	if gelen.adli:
 		kadro.sonuc(gelen.id, kaldi, &"kabul" if karar == &"harc" else karar, gun)
+		if KisiHafizasi.kaydet_olay(kadro, gelen.id, {
+			"karar": String(&"kabul" if karar == &"harc" else karar),
+			"alinan_akce": int(ek.get("alinan_akce", 0)) + rusvet_akce,
+		}, gun):
+			ek["hafiza_yazildi"] = true
 	ek["kaldi"] = kaldi
 	muhafiz_tecrubesi += 1
 	MuhafizOdaGelisimi.karar(self)
@@ -293,6 +299,8 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	KararDonusu.kapi_kararini_yaz(self, gelen, karar, ek)
 	AksamSohbeti.karardan_ekle(self, gelen, karar, ek)
 	SoylentiKoprusu.karar(self, gelen, karar, ek)
+	if dedikodu.yazma_sayisi() > dedikodu_once or bool(ek.get("dedikodu_yazildi", false)):
+		ek["dedikodu_yazildi"] = true
 	preload("res://src/sistemler/kapi_acilis_olayi.gd").karar_sonrasi(self, gelen, ek)
 	return ek
 

@@ -152,3 +152,18 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/hastalik_teshis_kontrol.tscn` → `KAPI HASTALIK UI: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 9 — `DIY-14` (`TAM`)
+- **Değişiklikler:**
+  - `src/sistemler/oturum.gd`: `karar_ver` içinde adlı ziyaretçilerde `KisiHafizasi.kaydet_olay` ile `karar_gecmisi` kalıcı hafızaya yazıldı ve dönüş sözlüğüne `hafiza_yazildi` / `dedikodu_yazildi` eklendi.
+  - `src/arayuz/kapi_ekrani.gd`: `HATIRLANMA_NOTU` bağlandı; `_hatirlanma_notu_al()` ile ayar senkronlu tek `HatirlanmaNotu` düğümü ekrana eklendi, `_karar_ver` sonunda tek satır `hatirlanma_notunu_bildir(...)` ile hafıza/dedikodu yazıldığında 2 sn `"Bu hatırlanacak"` bildirimi açılıyor.
+  - `tests/oto/hatirlanma_notu_kontrol.{gd,tscn}`: Gerçek `Oturum` + `KapiEkrani._karar_ver` üzerinden `HatirlanmaNotu` görünürlüğü, tıklama ile kapanış ve ayar kapalıyken gizli kalma doğrulamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `DIY-14` → `TAM`.
+- **Hedefli test çıktıları (son satırlar):**
+  - `Godot.exe --headless --path . -s res://tests/unit/kapi/hatirlanma_notu_test.gd` → `HATIRLANMA NOTU: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/hatirlanma_notu_kontrol.tscn` → `HATIRLANMA NOTU UI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/kisi_hafizasi_test.gd` → `KISI HAFIZASI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` → `CHR KAPI UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor
