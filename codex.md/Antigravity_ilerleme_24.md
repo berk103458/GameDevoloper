@@ -263,3 +263,18 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/ayarlar_kontrol.tscn` → `AYARLAR KONTROL: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 16 — `AYR-28` & `AYR-32` (`TAM`)
+- **Değişiklikler:**
+  - `src/sistemler/kayit_yuvalari.gd`: `en_son_dolu_yuva()` eklendi (1..3 yuvalarının `.json`/`.bak` zamanına göre en son dolu yuvayı seçer).
+  - `src/arayuz/yeni_oyun_ekrani.gd`: `secilen_yuva()` ve `yuva_sec(no)` eklendi; yuva düğmeleri tekil toggle durumunu günceller.
+  - `src/arayuz/ana.gd`: `yuvalar`, `aktif_yuva` ve `yuva_sec(no)` eklendi; `Ana._ready()` aktif yuvanın `kayit_<n>.json` yoluna bağlanır (`yuvalar == null` test alt sınıflarını bozmaz), `_yeni_oyun_ekrani()` seçilen yuvayı `Ana.kayit`'a aktarır, `_kayit_yaz()` içine `"yuva": aktif_yuva` yazar, `devam_et()` son dolu yuvadan yükler.
+  - `tests/oto/ayarlar_kontrol.gd`: `Ana.yuva_sec(2)` ile `kayit.yol` (`kayit_2.json`) ve kayıt dosyasında `"yuva": 2` kalıcılığı doğrulandı.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `AYR-28`, `AYR-32` → `[x]` `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ayarlar_ek_test.gd` → `AYARLAR EK: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/ayarlar_kontrol.tscn` → `AYARLAR KONTROL: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

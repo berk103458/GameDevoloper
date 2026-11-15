@@ -29,6 +29,19 @@ func tum_yuva_yollari() -> Array[String]:
 	return [yuva_yolu(1), yuva_yolu(2), yuva_yolu(3)]
 
 
+func en_son_dolu_yuva() -> int:
+	var secilen := 1
+	var en_yeni := -1
+	for n in range(1, YUVA_SAYISI + 1):
+		var y := yuva_yolu(n)
+		if FileAccess.file_exists(y) or FileAccess.file_exists(y + ".bak"):
+			var zaman := int(FileAccess.get_modified_time(y)) if FileAccess.file_exists(y) else int(FileAccess.get_modified_time(y + ".bak"))
+			if en_yeni < 0 or zaman >= en_yeni:
+				en_yeni = zaman
+				secilen = n
+	return secilen
+
+
 func eski_kayit_yolu() -> String:
 	return kok_dizin + ESKI_DOSYA_ADI
 

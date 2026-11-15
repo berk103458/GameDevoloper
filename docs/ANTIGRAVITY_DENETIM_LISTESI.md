@@ -180,10 +180,10 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 |---|---|---|---|---|---|---|---|
 | AYR-05 | Ayarlar eki | `[x]` | `src/sistemler/ayarlar_ek.gd` | `ana.gd:28` `bagla` çağırıyor, ayar satırı `ayarla` çağırıyor | — | TAM | — |
 | AYR-22 | Odak kaybında ses | `[x]` | `src/sistemler/odak_sesi.gd` | Sınıf ve testi var | `ana.gd` `_odak_sesini_kur()` (`OdakSesi` çocuğu) ve `_notification(NOTIFICATION_APPLICATION_FOCUS_OUT/IN)` bağlantısı ile odak kaybında ses kısılıp dönüşte geri yükleniyor | TAM | — |
-| AYR-28 | Üç kayıt yuvası | `[x]` | `src/sistemler/kayit_yuvalari.gd` | `yeni_oyun_ekrani.gd` yuva seçiyor | Seçilen yuva `Ana.kayit`'a bağlanmıyor; oyun tek `GuvenliKayit` dosyasına yazıyor | EKSİK | `Ana.kayit` yolunu seçilen yuvanın yoluna çevir |
+| AYR-28 | Üç kayıt yuvası | `[x]` | `src/sistemler/kayit_yuvalari.gd` | `KayitYuvalari.en_son_dolu_yuva()`, `YeniOyunEkrani.secilen_yuva()`/`yuva_sec()`, `Ana.yuva_sec()` ile seçili yuvanın `kayit_<n>.json` yoluna bağlandı | — | TAM | — |
 | AYR-29 | Yuva kartı | `[ ]` | `src/arayuz/kayit_yuva_karti.gd` | Kod var | Görev 22 geri açtı; AYR-28 bağlanmadan kart gerçek kaydı göstermez | SAHTE-BAĞSIZ | Önce AYR-28'i bağla |
 | AYR-31 | Ayarlar eki | `[x]` | `src/sistemler/ayarlar_ek.gd` | Aynı bağ | — | TAM | — |
-| AYR-32 | Kayıt yuvaları | `[x]` | `src/sistemler/kayit_yuvalari.gd` | AYR-28 ile aynı durum | Yuva seçimi kayda yazılmıyor | EKSİK | AYR-28 ile birlikte bağla |
+| AYR-32 | Kayıt yuvaları | `[x]` | `src/sistemler/kayit_yuvalari.gd` | `Ana._kayit_yaz()` kayda `"yuva": aktif_yuva` yazıyor, `devam_et()` son dolu yuvadan yüklüyor | — | TAM | — |
 | AYR-33 | Uyumsuz kayıt | `[ ]` | `src/arayuz/kayit_yuva_karti.gd` | Kod var | Görev 22 geri açtı | SAHTE-BAĞSIZ | AYR-28 bağlanınca kartın sürüm kontrolü de çalışır |
 | AYR-43 | Ayarlar eki | `[x]` | `src/sistemler/ayarlar_ek.gd` | Aynı bağ | — | TAM | — |
 | AYR-46 | Ayarlar eki | `[x]` | `src/sistemler/ayarlar_ek.gd` | Aynı bağ | — | TAM | — |

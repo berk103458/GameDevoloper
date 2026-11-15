@@ -6,6 +6,8 @@ extends Control
 
 var katalog: Katalog
 var ayarlar: Ayarlar
+var yuvalar: KayitYuvalari
+var aktif_yuva: int = 1
 var kayit: GuvenliKayit
 var oyuncu_izi := OyuncuIzi.new()
 var oturum: Oturum
@@ -39,7 +41,9 @@ func _ready() -> void:
 	theme = Tema.olustur(ayarlar)
 	preload("res://src/arayuz/renk_paleti.gd").uygula(theme, ayarlar)
 	_imleci_kur()
-	kayit = GuvenliKayit.new()
+	yuvalar = KayitYuvalari.new()
+	aktif_yuva = yuvalar.en_son_dolu_yuva()
+	kayit = GuvenliKayit.new(yuvalar.yuva_yolu(aktif_yuva))
 	katalog = Katalog.new()
 	if katalog.yukle() != Katalog.Durum.HAZIR:
 		_hata_goster()
@@ -113,11 +117,16 @@ func yeni_oyun(tohum: int = 0, gecmis: String = "") -> void:
 func devam_et() -> void:
 	# Açık yükleme isteği oynanış aşamasını bitirir; göç ekranda çalışan oyun işi değildir.
 	preload("res://src/sistemler/kayit_gocu_soz.gd").oynanis_isaretle(_ekran, false)
+	if yuvalar != null and (kayit == null or not kayit.var_mi()):
+		yuva_sec(yuvalar.en_son_dolu_yuva())
 	var o = preload("res://src/sistemler/kayit_gocu_soz.gd").oturum_veya_yedek(katalog, kayit)
 	if o == null:
 		preload("res://src/arayuz/kayit_hata_paneli.gd").goster(self)
 		return
 	oturum = o
+	var kayit_soz := kayit.oku()
+	if kayit_soz.has("yuva"):
+		aktif_yuva = clampi(int(kayit_soz.get("yuva", aktif_yuva)), 1, KayitYuvalari.YUVA_SAYISI)
 	if preload("res://src/sistemler/oturum_fazi.gd").durum(o) == "koy":
 		_koye_git()
 	else:
@@ -239,11 +248,25 @@ func _duraklat() -> void:
 	_ust_ac(e)
 
 
+func yuva_sec(no: int) -> void:
+	aktif_yuva = clampi(no, 1, KayitYuvalari.YUVA_SAYISI)
+	if yuvalar == null:
+		yuvalar = KayitYuvalari.new()
+	kayit = GuvenliKayit.new(yuvalar.yuva_yolu(aktif_yuva))
+
+
 func _yeni_oyun_ekrani() -> void:
 	var e := preload("res://src/arayuz/yeni_oyun_ekrani.gd").new()
 	e.ayarlar = ayarlar
 	e.iz = oyuncu_izi
-	e.baslatildi.connect(_gecmis_secildi)
+	if yuvalar != null:
+		e.yuvalar = yuvalar
+		e.yuva_sec(aktif_yuva)
+	e.baslatildi.connect(func(tohum: int, gecmis: String) -> void:
+		if yuvalar != null:
+			yuva_sec(e.secilen_yuva())
+		_gecmis_secildi(tohum, gecmis)
+	)
 	e.vazgecildi.connect(ana_menu)
 	_goster(e)
 
@@ -264,7 +287,9 @@ func _gecmis_secildi(tohum: int, gecmis: String) -> void:
 
 
 func _kayit_yaz() -> void:
-	kayit.yaz(oturum.kaydet())
+	var veri := oturum.kaydet()
+	veri["yuva"] = aktif_yuva
+	kayit.yaz(veri)
 
 
 func _ayarlari_ac(sonra: Callable, ustte: bool = false) -> void:
