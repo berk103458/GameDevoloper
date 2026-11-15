@@ -3,6 +3,7 @@
 extends RefCounted
 
 const META := &"kapi_teshis_ipuclari"
+const BAKIS_META := &"kapi_bakis_ornegi"
 const SONUC := &"kapi_teshis_sonuclandi"
 const AYAR: Dictionary = preload("res://data/kapi_hastalik_teshisi.json").data
 
@@ -94,24 +95,104 @@ static func kilit(b: Button, o: RefCounted, g: Gelen, karar: StringName) -> void
 		b.set("alt_yazi", sebep if not sebep.is_empty() else "Kabulde 2 gün karantina · 1 erzak, kişisel moral −2")
 		b.tooltip_text = String(b.get("alt_yazi"))
 
-## Sohbet/karar eylemlerine tek inceleme satırı; statik ekran/autoload tipi yok.
+## Sohbet/karar eylemlerine inceleme ve bölge bakışı düğmeleri; statik ekran/autoload tipi yok.
 static func eylem(e: Node, g: Gelen, kap: Container) -> void:
-	var eski := kap.get_node_or_null("HastalikIncele")
+	_bakis_dugmesi_ekle(e, g, kap, "HastalikIncele", "Yüz ve hastalık belirtilerini incele", &"hepsi")
+	_bakis_dugmesi_ekle(e, g, kap, "BakisYuz", "Yüzüne bak", &"yuz")
+	_bakis_dugmesi_ekle(e, g, kap, "BakisEller", "Ellerine bak", &"eller")
+
+static func _bakis_dugmesi_ekle(e: Node, g: Gelen, kap: Container, ad: String, yazi: String, mod: StringName) -> void:
+	var eski := kap.get_node_or_null(ad)
 	if eski != null:
 		if not eski.is_queued_for_deletion(): return
 		kap.remove_child(eski)
 	var b := Button.new()
-	b.name = "HastalikIncele"
-	b.text = "Yüz ve hastalık belirtilerini incele"
+	b.name = ad
+	b.text = yazi
 	b.custom_minimum_size.y = 58
 	kap.add_child(b)
 	b.pressed.connect(func() -> void:
 		if e.get("_gelen") != g: return
-		var yazi := incele(g, "portre")
-		if g.heybe == null: yazi += "\n" + incele(g, "heybe")
-		e.call("_yaz", yazi + "\n" + metin(g))
+		var satirlar: Array[String] = []
+		if mod == &"hepsi":
+			var r_yuz := bolge_bak(null, g, "yuz", _baglam_kur(e, g))
+			var r_el := bolge_bak(null, g, "eller", _baglam_kur(e, g))
+			for r in [r_yuz, r_el]:
+				var s := String(r.get("satir", "")).strip_edges()
+				if not s.is_empty(): satirlar.append(s)
+			if g.heybe == null:
+				var h_yazi := incele(g, "heybe")
+				if not h_yazi.is_empty(): satirlar.append(h_yazi)
+		else:
+			var r_bolge := bolge_bak(null, g, String(mod), _baglam_kur(e, g))
+			var s := String(r_bolge.get("satir", "")).strip_edges()
+			if not s.is_empty(): satirlar.append(s)
+		var cikti := "\n".join(satirlar)
+		if cikti.is_empty(): cikti = "Bölgede dikkate değer yeni iz görülmedi."
+		e.call("_yaz", cikti + "\n" + metin(g))
 		e.call("_karar_goster" if e.get("evre") == &"karar" else "_sohbet_goster")
 	)
+
+## KOP-03: Tek ziyaretçi için Bakis örneği ve yüz/el verisi; aydınlık şartı korunur.
+static func _bakis(g: Gelen) -> RefCounted:
+	if g != null and g.has_meta(BAKIS_META):
+		var mevcut := g.get_meta(BAKIS_META) as RefCounted
+		if mevcut != null: return mevcut
+	var sinif := load("res://src/soz/bakis.gd") as Script
+	var b := sinif.new() as RefCounted
+	if g != null: g.set_meta(BAKIS_META, b)
+	return b
+
+static func _baglam_kur(e: Node, g: Gelen, ek: Dictionary = {}) -> Dictionary:
+	var baglam := ek.duplicate(true)
+	if not baglam.has("isik"):
+		if g != null and g.has_meta(&"bakis_isik"):
+			baglam["isik"] = bool(g.get_meta(&"bakis_isik"))
+		elif e != null and e.has_meta(&"bakis_isik"):
+			baglam["isik"] = bool(e.get_meta(&"bakis_isik"))
+		else:
+			baglam["isik"] = true
+	return baglam
+
+static func bakis_verisi_kur(g: Gelen) -> Dictionary:
+	var veri := {}
+	if g != null and g.has_meta(&"bakis_verisi") and g.get_meta(&"bakis_verisi") is Dictionary:
+		veri = (g.get_meta(&"bakis_verisi") as Dictionary).duplicate(true)
+	var yuz: Dictionary = (veri.get("yuz", {}) as Dictionary).duplicate(true)
+	var eller: Dictionary = (veri.get("eller", {}) as Dictionary).duplicate(true)
+	var yuz_satir: Array = Array(yuz.get("satirlar", []))
+	var el_satir: Array = Array(eller.get("satirlar", []))
+	for b in belirtiler(g):
+		if String(b.get("kaynak", "")) != "portre": continue
+		var m := String(b.get("metin", ""))
+		if m.is_empty(): continue
+		var el_mi := m.to_lower().find("irin") >= 0
+		if el_mi:
+			if m not in el_satir: el_satir.append(m)
+			if not eller.has("belirti") and String(b.get("ipucu", "")) == "Clue_Enfeksiyon_Irin":
+				eller["belirti"] = "belirti_irin"
+		else:
+			if m not in yuz_satir: yuz_satir.append(m)
+			if not yuz.has("belirti") and String(b.get("ipucu", "")) == "Clue_Enfeksiyon_Ates":
+				yuz["belirti"] = "belirti_ates"
+	if yuz_satir.is_empty(): yuz_satir.append("Yorgun, güneşten yanmış bir çehre; açık belirti seçilmiyor.")
+	if el_satir.is_empty(): el_satir.append("Yol tozu sinmiş nasırlı eller; açık belirti seçilmiyor.")
+	yuz["satirlar"] = yuz_satir
+	eller["satirlar"] = el_satir
+	veri["yuz"] = yuz
+	veri["eller"] = eller
+	return veri
+
+## KOP-03: Kapı ekranı ve CHR inceleme paneli için tek bölge bakışı girişi (Bakis.bak çağırır).
+static func bolge_bak(e: Node, g: Gelen, bolge: String, ek_baglam: Dictionary = {}) -> Dictionary:
+	if g == null or bolge not in ["yuz", "eller"]:
+		return {}
+	var sonuc: Dictionary = _bakis(g).call("bak", bolge, bakis_verisi_kur(g), _baglam_kur(e, g, ek_baglam), null, g)
+	if e != null and e.has_method("_yaz"):
+		var satir := String(sonuc.get("satir", "")).strip_edges()
+		if not satir.is_empty():
+			e.call("_yaz", satir + "\n" + metin(g))
+	return sonuc
 
 ## Mevcut heybe incelemesine küçük yazılı belirti bağlantısı; tek değişim noktası.
 static func heybe_bagla(panel: Control, e: Node, g: Gelen) -> void:
@@ -136,7 +217,7 @@ static func heybe_bagla(panel: Control, e: Node, g: Gelen) -> void:
 		e.call("_yaz", etiket.text)
 	)
 
-## CHR'nin portre/yük düğmelerine bağlanır; var olan ipucu ve metin akışı korunur.
+## CHR'nin portre/yük düğmelerine bağlanır; bölge seçimiyle Bakis ve mevcut ipucu akışı çalışır.
 static func chr_bagla(panel: Control, e: Node, g: Gelen) -> void:
 	var portre := panel.find_child("GorselIz", true, false) as BaseButton
 	if portre != null:
@@ -149,11 +230,38 @@ static func chr_bagla(panel: Control, e: Node, g: Gelen) -> void:
 	etiket.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	etiket.add_theme_font_size_override("font_size", Kabuk.KUCUK)
 	kutu.add_child(etiket)
+	for bolge_cifti in [["ChrBakisYuz", "Yüz bölgesine bak", "yuz"], ["ChrBakisEller", "El bölgesine bak", "eller"]]:
+		var btn := Button.new()
+		btn.name = String(bolge_cifti[0])
+		btn.text = String(bolge_cifti[1])
+		btn.custom_minimum_size.y = 52
+		btn.pressed.connect(func() -> void: _chr_incele(panel, e, g, String(bolge_cifti[2])))
+		kutu.add_child(btn)
 
 static func _chr_incele(panel: Control, e: Node, g: Gelen, kaynak: String) -> void:
 	if e.get("_gelen") != g: return
-	e.call("_yaz", incele(g, kaynak) + "\n" + metin(g))
-	(panel.find_child("HastalikIbre", true, false) as Label).text = metin(g)
+	var yazi := ""
+	if kaynak == "portre":
+		var r_yuz := bolge_bak(null, g, "yuz", _baglam_kur(e, g))
+		var r_el := bolge_bak(null, g, "eller", _baglam_kur(e, g))
+		var parcalar: Array[String] = []
+		for r in [r_yuz, r_el]:
+			var s := String(r.get("satir", "")).strip_edges()
+			if not s.is_empty(): parcalar.append(s)
+		yazi = "\n".join(parcalar)
+	elif kaynak in ["yuz", "eller"]:
+		yazi = String(bolge_bak(null, g, kaynak, _baglam_kur(e, g)).get("satir", ""))
+	else:
+		yazi = incele(g, kaynak)
+	e.call("_yaz", yazi + "\n" + metin(g))
+	var ibre := panel.find_child("HastalikIbre", true, false) as Label
+	if ibre != null: ibre.text = metin(g)
+	if panel.get("_aciklama") is RichTextLabel and not yazi.is_empty():
+		var aciklama := panel.get("_aciklama") as RichTextLabel
+		if kaynak == "portre" and not aciklama.text.is_empty() and not aciklama.text.contains(yazi):
+			aciklama.text += "\n" + yazi
+		else:
+			aciklama.text = yazi
 	if e.get("evre") == &"karar": e.call("_karar_goster")
 
 ## Gerçek kabul sonucunu aynı konuşma kaydında görünür kılar.

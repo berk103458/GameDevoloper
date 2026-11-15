@@ -137,3 +137,18 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . -s res://tests/unit/kayit/soz_kayit_test.gd` → `SÖZ KAYDI: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 8 — `KOP-03` (`TAM`)
+- **Değişiklikler:**
+  - `src/kapi/hastalik_teshis_adaptoru.gd`: `bakis_verisi_kur(g)` ve `bolge_bak(e, g, bolge, ek_baglam)` eklendi; `eylem(...)` içindeki `HastalikIncele`, `BakisYuz`, `BakisEller` ve `chr_bagla(...)` içindeki `GorselIz`, `ChrBakisYuz`, `ChrBakisEller` doğrudan gerçek `Bakis.bak(...)` çağrısıyla `"yuz"` / `"eller"` bakış satırlarını üretip kapı kayıt defterine ve `IpucuYoneticisi`'ne bağlıyor (ayrı teşhis düğmesi 0, karanlıkta 0 belirti/ipucu).
+  - `tests/unit/kapi/kop03_bakis_hastalik_test.gd`: `HastalikTeshisAdaptoru.bolge_bak` & `eylem` (`BakisYuz`/`BakisEller`, karanlıkta 0 ipucu, `BAKIS_META` gerçek `Bakis` nesnesi) doğrulaması eklendi.
+  - `tests/unit/kvr/hastalik_teshis_test.gd` & `tests/oto/hastalik_teshis_kontrol.gd`: `YAP-01` (`sifahane` K2 ön koşulu) uyumu ve gerçek `KapiEkrani` UI `BakisYuz`/`BakisEller` doğrulaması eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `KOP-03` → `TAM`.
+- **Hedefli test çıktıları (son satırlar):**
+  - `Godot.exe --headless --path . -s res://tests/unit/kapi/kop03_bakis_hastalik_test.gd` → `KOP03 BAKIS HASTALIK: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/bakis_test.gd` → `TEST PASS: bakis_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/kvr/hastalik_teshis_test.gd` → `KAPI HASTALIK TEŞHİSİ: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/hastalik_teshis_kontrol.tscn` → `KAPI HASTALIK UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

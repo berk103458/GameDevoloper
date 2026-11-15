@@ -192,7 +192,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 
 | Madde | Başlık | ROADMAP | İlgili dosyalar | Ne var | Ne eksik | Karar | Antigravity'ye not |
 |---|---|---|---|---|---|---|---|
-| KOP-03 | Bakışla teşhis | `[x]` | `src/soz/bakis.gd`, `src/kapi/hastalik_teshis_adaptoru.gd` | Teşhis adaptörü `oturum.gd` içinden çağrılıyor | `Bakis` sınıfı hiç çağrılmıyor; yüz ve el satırı üretilmiyor | SAHTE-BAĞSIZ | Bakış satırını kapı ekranındaki bölge seçimine bağla |
+| KOP-03 | Bakışla teşhis | `[x]` | `src/soz/bakis.gd`, `src/kapi/hastalik_teshis_adaptoru.gd` | `HastalikTeshisAdaptoru.bolge_bak` + `BakisYuz`/`BakisEller` ve `ChrBakisYuz`/`ChrBakisEller` doğrudan `Bakis.bak()` çağırır | `Bakis` sınıfı hiç çağrılmıyor; yüz ve el satırı üretilmiyor → çözüldü | TAM | Bakış satırını kapı ekranındaki bölge seçimine bağla (`kop03_bakis_hastalik_test`, `bakis_test`, `hastalik_teshis_test`, `hastalik_teshis_kontrol` GEÇTİ) |
 | KOP-04 | Karar dönüşü | `[x]` | `src/soz/karar_donusu.gd`, `src/sistemler/oturum.gd` | `Oturum.gecikmeli_kuyruk`, `karar_ver` -> `KararDonusu.kapi_kararini_yaz`, `gece_kuyrugu` -> `spawn_ekle` ve `kaydet`/`kayittan` bağlı | — | TAM | Tek kuyruk `Oturum.gecikmeli_kuyruk` + `sonraki_spawns` zinciri çalışıyor |
 | KOP-05 | Dedikodu | `[x]` | `src/sistemler/dedikodu.gd` | `Dedikodu.new` çağrılıyor | — | TAM | — |
 | KOP-09 | Kapı | `[x]` | — | Madde veri kuralı | — | TAM | — |

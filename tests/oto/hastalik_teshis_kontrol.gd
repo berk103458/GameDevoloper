@@ -93,6 +93,9 @@ func _ready() -> void:
 	await get_tree().process_frame
 	(e._eylemler.get_node("HastalikIncele") as Button).pressed.emit()
 	await get_tree().process_frame
+	(e._eylemler.get_node("BakisYuz") as Button).pressed.emit()
+	(e._eylemler.get_node("BakisEller") as Button).pressed.emit()
+	await get_tree().process_frame
 	_kontrol(T.kaydet(gizli).is_empty() and not e._karar_dugmeleri[0].disabled and T.metin(gizli) == T.metin(Gelen.new()), "Gerçek UI gizli kuluçkayı ifşa etmez")
 	kok.queue_free()
 	await get_tree().process_frame
@@ -101,7 +104,20 @@ func _ready() -> void:
 	await Ses.cik(hata)
 
 func _kur(y: KoyYonetimi) -> KoyBinasi:
-	for tur in ["odun","tas","kereste"]: y.kaynaklar.ekle(tur,30)
+	for tur in ["odun","tas","kereste"]: y.kaynaklar.ekle(tur,40)
+	var bilgi_sahibi: Koylu = y.koylular[0] if not y.koylular.is_empty() else y.kabul({"ad": "Usta"})
+	bilgi_sahibi.yapi_bilgisi = PackedStringArray(["sifahane", "kulube"])
+	if not YapiKilidi.durum(y, "sifahane").acik:
+		for cy in y.a.izgara_boyut.y:
+			var k_kuruldu := false
+			for cx in y.a.izgara_boyut.x:
+				var kh := Vector2i(cx,cy)
+				if y.yerlesim("kulube",kh).olur:
+					var kb := y.bina(y.bina_kur("kulube",kh).id)
+					kb.insa_kalan = 0
+					k_kuruldu = true
+					break
+			if k_kuruldu: break
 	for cy in y.a.izgara_boyut.y:
 		for cx in y.a.izgara_boyut.x:
 			var h := Vector2i(cx,cy)

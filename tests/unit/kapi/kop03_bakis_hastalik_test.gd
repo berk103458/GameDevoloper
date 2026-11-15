@@ -86,6 +86,26 @@ func _initialize() -> void:
 	TESHIS.kacista_hafizaya_yaz(g_kacan, kisi_hafiza)
 	dene(kisi_hafiza.get("enfeksiyon_ipuclari") == ["Clue_Enfeksiyon_Irin"] and bool(kisi_hafiza.get("karantina_acildi", true)) == false, "Karakter kaçarsa ipucu kişi hafızasında kalır, karantina açılmaz")
 
+	# 6. Gerçek kapı eylem/bölge düğmeleri Bakis üzerinden çalışır (karanlıkta 0 ipucu, aydınlıkta yüz+el).
+	var karanlik_gelen := _gelen(["belirti_ates"])
+	karanlik_gelen.set_meta(&"bakis_isik", false)
+	var r_karanlik := TESHIS.bolge_bak(null, karanlik_gelen, "yuz")
+	dene(String(r_karanlik.get("ipucu", "")).is_empty() and TESHIS.kaydet(karanlik_gelen).is_empty(), "Kapı bölge bakışı karanlıkta enfeksiyon ipucu yazmaz")
+
+	var bolge_gelen := _gelen(["humma", "belirti_irin"])
+	var kutu := VBoxContainer.new()
+	var sahte_ekran := Node.new()
+	# Gerçek KapiEkrani ui testi hastalik_teshis_kontrol.tscn içinde ayrıca koşulur.
+	var r_bolge_yuz := TESHIS.bolge_bak(null, bolge_gelen, "yuz")
+	var r_bolge_el := TESHIS.bolge_bak(null, bolge_gelen, "eller")
+	var bakis_ornegi := bolge_gelen.get_meta(TESHIS.BAKIS_META, null) as RefCounted
+	dene(bakis_ornegi != null and r_bolge_yuz.get("ipucu") == "Clue_Enfeksiyon_Ates" and r_bolge_el.get("ipucu") == "Clue_Enfeksiyon_Irin", "HastalikTeshisAdaptoru gerçek Bakis örneğiyle yüz ve el ipuçlarını üretir")
+	dene(String(r_bolge_yuz.get("satir", "")).contains("ateş") and String(r_bolge_el.get("satir", "")).contains("irin"), "Bölge bakışı yüz ve el satırlarını ayrı ayrı üretir")
+	TESHIS.eylem(sahte_ekran, bolge_gelen, kutu)
+	dene(kutu.get_node_or_null("BakisYuz") != null and kutu.get_node_or_null("BakisEller") != null, "Kapı eylem kutusuna BakisYuz ve BakisEller bölge düğmeleri eklenir")
+	kutu.free()
+	sahte_ekran.free()
+
 	print("KOP03 BAKIS HASTALIK: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
 	quit(hata)
 
