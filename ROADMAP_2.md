@@ -1678,7 +1678,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.7 Kart
 
-- [ ] **YAP-55:** Yapı kartı tema zemini ister
+- [/] **YAP-55:** (Claude-Berk) Yapı kartı tema zemini ister
   - Ne: GRV dosya maddesi. Bu madde kural değiştirmez.
   - Kabul: Renk 0. Test: GRV.
   - Bağımlılık: ARY-02 Boyut: S.
