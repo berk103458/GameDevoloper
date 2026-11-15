@@ -5,8 +5,26 @@ const FIZIKSEL := ["tarla", "bostan", "hizarhane", "odunluk", "tas_ocagi", "kire
 static func aday(k: Koylu, tur: String) -> bool:
 	var okumus := k.adli_id == &"chr_007" or k.zanaat_turu == ZanaatTuru.Tur.KATIP or "soylu" in k.bayraklar + k.gizli_bayraklar or "okumus" in k.bayraklar + k.gizli_bayraklar
 	return okumus and tur in FIZIKSEL and YasRolleri.fiziksel(k, tur) and MeslekUyumu.carpan(k, tur) <= 1.0
+static func soylenti_olasilik_artisi(y: KoyYonetimi, tur: String = "") -> float:
+	if y == null or not y.has_meta(SoylentiKoprusu.META): return 0.0
+	var ag: Variant = y.get_meta(SoylentiKoprusu.META)
+	if ag == null or not ag.has_method("grev_olasilik_artisi"): return 0.0
+	return float(ag.grev_olasilik_artisi(tur))
+static func olasilik(k: Koylu, y: KoyYonetimi) -> float:
+	if k.saglik <= 0 or "hasta" in k.bayraklar + k.gizli_bayraklar or "agir_yarali" in k.bayraklar + k.gizli_bayraklar: return 0.0
+	var tur := IsMemnuniyeti.gorev(k, y)
+	if aday(k, tur): return 1.0
+	if not (tur in FIZIKSEL) or not YasRolleri.fiziksel(k, tur): return 0.0
+	return clampf(soylenti_olasilik_artisi(y, tur), 0.0, 1.0)
+static func _soylenti_tetiklendi(k: Koylu, y: KoyYonetimi, tur: String) -> bool:
+	var p := soylenti_olasilik_artisi(y, tur)
+	if p <= 0.0 or not (tur in FIZIKSEL) or not YasRolleri.fiziksel(k, tur): return false
+	if p >= 1.0: return true
+	return posmod(hash("soylenti_grev|%d|%d|%s" % [y.gun, k.id, tur]), 10000) < int(round(p * 10000.0))
 static func aktif(k: Koylu, y: KoyYonetimi) -> bool:
-	return k.saglik > 0 and "hasta" not in k.bayraklar + k.gizli_bayraklar and "agir_yarali" not in k.bayraklar + k.gizli_bayraklar and aday(k, IsMemnuniyeti.gorev(k, y))
+	if k.saglik <= 0 or "hasta" in k.bayraklar + k.gizli_bayraklar or "agir_yarali" in k.bayraklar + k.gizli_bayraklar: return false
+	var tur := IsMemnuniyeti.gorev(k, y)
+	return aday(k, tur) or _soylenti_tetiklendi(k, y, tur)
 static func oku(v: Variant) -> Dictionary:
 	if not v is Dictionary: return {}
 	for alan in ["son_gece", "gece"]:

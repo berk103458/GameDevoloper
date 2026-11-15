@@ -1432,3 +1432,10 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `aksam_sohbeti_test.gd`, `aksam_sohbeti_kontrol.tscn`, `cinar_meclisi_genisletme_test.gd`, `ingilizce_entegrasyon_test.gd` ve `es_aksam_ogretisi_test.gd` 0 hata ile geçti.
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor.
+
+
+### 2026-11-15 — `SOY-34` ve `ISG-39` Tamamlandı
+- **Yapılan:** `data/soylenti.json` içine `grev_olasilik_artisi` (`0.1`), `grev_soylenti_turleri` (`["is_kazasi", "ucret"]`), `koy_olay_turleri` ve ilgili kalıplar eklendi; `src/sistemler/soylenti_agi.gd` içine `grev_olasilik_artisi` ile `meslek`/`hedef` alanları, `src/sistemler/soylenti_koprusu.gd` içine `bagla`, `grev_esigi` ve yeni iş yaralanmalarının (`IsKazalari.YARALI_GECE`) ağa düşmesi eklendi. `src/sistemler/oturum.gd` (`gece_sonu`) ve `src/koy/meslek_grevi.gd` (`soylenti_olasilik_artisi`, `olasilik`, `aktif`) tek SOY-34 eşiğine bağlandı (`soylenti_koprusu.gd` `olcum` içindeki ham `0.0` SOY-38 uyumu için `float(0)` yapıldı).
+- **Testler:** `soylenti_ayar_tarama_test.gd`, `meslek_grevi_test.gd` (SOY-34 + ISG-39 senaryoları eklendi, K2 `demirhane` ön koşulu güncellendi), `soylenti_koprusu_test.gd` ve `meslek_grevi_kontrol.tscn` 0 hata ile geçti.
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.

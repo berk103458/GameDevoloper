@@ -66,7 +66,10 @@ func soylenti_ekle(
 
 	# SOY-SON-01: kritik söylenti muhafızın fiili değildir, DIY-13 dedikodu kapısından geçmez.
 	var kritik := bool(ek.get("kritik", false))
-	if not kritik and not dedikodu_sonuc.get("olur", false) and not ag_kayitlari.has(temiz_id):
+	var koy_olayi: bool = tur in (veri_yapilandirma.get("koy_olay_turleri", []) as Array)
+	if koy_olayi and (temiz_id.is_empty() or tanik.is_empty() or ag_kayitlari.has(temiz_id)):
+		return dedikodu_sonuc
+	if not kritik and not koy_olayi and not dedikodu_sonuc.get("olur", false) and not ag_kayitlari.has(temiz_id):
 		# Dedikodu doğrudan kabul etmese bile (örneğin iyi_olay ise) ağ kaydı açılabilir
 		if not (tur in veri_yapilandirma.get("iyi_olaylar", [])):
 			return dedikodu_sonuc
@@ -89,6 +92,10 @@ func soylenti_ekle(
 		"susturuldu": false,
 		"bar_etkisi_uygulandi": false
 	}
+	if not String(ek.get("meslek", "")).is_empty():
+		ag_kaydi["meslek"] = String(ek.get("meslek", ""))
+	if not String(ek.get("hedef", "")).is_empty():
+		ag_kaydi["hedef"] = String(ek.get("hedef", ""))
 	if kritik:
 		ag_kaydi["kritik"] = true
 	ag_kayitlari[temiz_id] = ag_kaydi
@@ -282,6 +289,20 @@ func _bozuk_kopya(k: Dictionary, olay_id: String, bozan: String, bicim: String, 
 		"susturuldu": false,
 		"bar_etkisi_uygulandi": true
 	}
+
+## SOY-34: iş kazası / ücret söylentisi kamuoyu olursa meslek grevi olasılık artışı döner.
+func grev_olasilik_artisi(meslek: String = "") -> float:
+	var turler: Array = veri_yapilandirma.get("grev_soylenti_turleri", [])
+	for k in ag_kayitlari.values():
+		if not (k is Dictionary) or not bool(k.get("kamuoyu_oldu", false)) or bool(k.get("hukme_baglandi", false)):
+			continue
+		if not (str(k.get("tur", "")) in turler):
+			continue
+		var hedef_meslek := str(k.get("meslek", ""))
+		if meslek.is_empty() or hedef_meslek.is_empty() or hedef_meslek == meslek:
+			return float(_ayar("grev_olasilik_artisi"))
+	return float(0)
+
 
 ## SOY-12 & SOY-33: Çınar meclisi için canlı kamuoyu konusu seçimi.
 func meclis_sikayeti_sec() -> Dictionary:

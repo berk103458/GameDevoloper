@@ -17,6 +17,9 @@
   "susturma_ters_carpan": 2,
   "kademe_yari_koy_orani": 0.40,
   "kademe_herkes_orani": 0.80,
+  "grev_olasilik_artisi": 0.1,
+  "grev_soylenti_turleri": ["is_kazasi", "ucret"],
+  "koy_olay_turleri": ["is_kazasi", "ucret", "kervan_gelmeyecek", "yol_guvensiz"],
   "kritik_tur": "kritik_soylenti",
   "kapanis_gecesi": 2,
   "kritik_soylentiler": {
@@ -50,6 +53,8 @@
     "muhafizin_yalani": "Muhafızın meclis önünde bildiğini inkâr ettiği anlatılıyor.",
     "aile_birlikte_alma": "Kapıda bir kafilenin dağıtılmadan, ailece içeri alındığı anlatılıyor.",
     "haksizlik_karsi_durma": "Muhafızın bir haksızlığa karşı durduğu konuşuluyor.",
-    "yarali_tedavi": "Kapıdaki yaralının sarılıp kurtarıldığı anlatılıyor."
+    "yarali_tedavi": "Kapıdaki yaralının sarılıp kurtarıldığı anlatılıyor.",
+    "is_kazasi": "Bir işyerinde kaza olduğu, tedbir alınmadığı konuşuluyor.",
+    "ucret": "Emeğin karşılığının eksildiği, ücretlerin yetmediği konuşuluyor."
   }
 }

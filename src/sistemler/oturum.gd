@@ -334,6 +334,7 @@ func gece_sonu() -> Dictionary:
 	MuhafizOdaGelisimi.gece(self)
 	var harac := MuhafizYetenekleri.harac(self)
 	MuhafizAdaletYetenekleri.bagla(self)
+	SoylentiKoprusu.bagla(self)
 	yonetim.perde2_hedef = ayarlar.perde2_hedef_gece
 	var r := yonetim.gece()
 	preload("res://src/koy/usta_defterleri.gd").gece(self,r)

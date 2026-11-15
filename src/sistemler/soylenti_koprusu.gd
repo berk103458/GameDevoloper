@@ -12,10 +12,24 @@ const HUKUM := &"soylenti_hukum_satiri"
 
 static func ag(o: Object) -> RefCounted:
 	if o.has_meta(META):
-		return o.get_meta(META)
+		var mevcut: RefCounted = o.get_meta(META)
+		bagla(o)
+		return mevcut
 	var yeni: RefCounted = AG.new(o.dedikodu)
 	o.set_meta(META, yeni)
+	bagla(o)
 	return yeni
+
+
+static func bagla(o: Object) -> void:
+	if o != null and o.has_meta(META) and o.get("yonetim") is Object:
+		(o.get("yonetim") as Object).set_meta(META, o.get_meta(META))
+
+
+static func grev_esigi(o: Object, meslek: String = "") -> float:
+	if o == null or not o.has_meta(META):
+		return float(0)
+	return float((o.get_meta(META) as Object).call("grev_olasilik_artisi", meslek))
 
 
 ## Salt okuma: ağ henüz kurulmadıysa oturuma yazmadan varsayılan kelimeyi verir.
@@ -86,9 +100,19 @@ static func gece(o: Object, r: Dictionary) -> void:
 		if r.get("olaylar") is Array:
 			r.olaylar.append({"anahtar": "Çınar altında hüküm: %s", "deger": [String(o.get_meta(HUKUM))]})
 		o.remove_meta(HUKUM)
-	if not o.has_meta(META):
+	var yeni_kazalar: Array[Dictionary] = []
+	if o.get("yonetim") is KoyYonetimi:
+		var ky := o.get("yonetim") as KoyYonetimi
+		for k in ky.koylular:
+			if k.is_kazasi.get("tur") == "yaralanma" and int(k.is_kazasi.get("kalan", 0)) == IsKazalari.YARALI_GECE:
+				var b := ky.bina(k.is_yeri)
+				yeni_kazalar.append({"id": k.id, "meslek": b.tur if b != null else ""})
+	if not o.has_meta(META) and yeni_kazalar.is_empty():
 		return
 	var a: RefCounted = ag(o)
+	for kz in yeni_kazalar:
+		a.soylenti_ekle("is_kazasi_%d_%d" % [int(o.gun), int(kz.id)], "is_kazasi", str(int(kz.id)), true,
+			{"gece": int(o.gun), "meslek": String(kz.meslek)})
 	var y: KoyYonetimi = o.yonetim
 	var once := int(a.bar_degisimi_toplam)
 	var histeri_once := int(a.histeri_tetik_sayisi)
@@ -236,7 +260,7 @@ static func olay_metni(a: RefCounted, k: Dictionary) -> String:
 
 ## SOY-39: denge ölçümü için salt okuma — canlı (hükme bağlanmamış) kayıt, kamuoyu ve yanlış sayısı.
 static func olcum(o: Object) -> Dictionary:
-	var r := {"canli": 0, "kamuoyu": 0, "yanlis": 0, "yanlis_orani": 0.0}
+	var r := {"canli": 0, "kamuoyu": 0, "yanlis": 0, "yanlis_orani": float(0)}
 	if o == null or not o.has_meta(META):
 		return r
 	var a: RefCounted = o.get_meta(META)
@@ -247,7 +271,7 @@ static func olcum(o: Object) -> Dictionary:
 		r.canli += 1
 		r.kamuoyu += int(bool(k.get("kamuoyu_oldu", false)))
 		r.yanlis += int(not bool(k.get("dogru", true)))
-	r.yanlis_orani = float(r.yanlis) / float(r.canli) if r.canli > 0 else 0.0
+	r.yanlis_orani = float(r.yanlis) / float(r.canli) if r.canli > 0 else float(0)
 	return r
 
 
@@ -281,6 +305,7 @@ static func yukle(o: Object, v: Variant) -> bool:
 	if not v.get("ag_kayitlari", {}) is Dictionary or not v.get("guvenilirlikler", {}) is Dictionary or not v.get("teftis_sorulari", []) is Array:
 		return false
 	ag(o).kayit_verisi_yukle(v)
+	bagla(o)
 	if v.get("hukum_satiri") is String:
 		o.set_meta(HUKUM, v.hukum_satiri)
 	var b: Variant = v.get("bekleyen", [])
