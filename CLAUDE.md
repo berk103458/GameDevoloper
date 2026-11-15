@@ -86,7 +86,7 @@ elsewhere in the repo, so they are restated here rather than lost:
 Claude — kod / entegrasyon ajanı (Godot GDScript, festive dalı).
 
 ### Şu an üzerinde çalışılan
- 16 Kas 2026: EK GÖREV listesi — DEN-37, DEN-38, OGR-23, OMR-33, OMR-55 bitti. ENGEL (16 Kas yeniden kontrol, değişmedi): ARY-02 (SABLONLAR.md seçim satırı boş — Berk+Ahmet), ARY-03/04/70 (ARY-02), OGR-57 (OGR-43 Antigravity [/], Cursor doğrulaması bekliyor).
+ 16 Kas 2026: EK GÖREV listesi — DEN-37, DEN-38, OGR-23, OMR-33, OMR-55 bitti. ENGEL (16 Kas son kontrol): ARY-02 (SABLONLAR.md seçim satırı hâlâ boş — Berk+Ahmet kararı), ARY-03/04/70 (ARY-02 bağımlı). OGR-57 Antigravity-Berk sahiplendi [/] (e6446e38), atlandı. Liste bitti/engelli; durdu.
 
 ### Sonraki plan
 Codex limiti 15 Ekim 17:38'de yenilenince Codex öz denetimi (docs/denetim/2026-10-09-codex-oz-denetim.md) ve Claude son denetimi.
