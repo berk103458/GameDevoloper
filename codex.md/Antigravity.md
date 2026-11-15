@@ -1402,3 +1402,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `grv_tema_baglari_kontrol.tscn` (39 dosya), `ayarlar_kontrol.tscn`, `koylu_karti_kontrol.tscn`, `denge_hud_test.gd`, `tekfur_heyeti_kontrol.tscn` ve `tuccar_kapi_kontrol.tscn` 0 hata ile geçti.
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor.
+
+### 2026-11-15 — `GRV-41..45` Tamamlandı
+- **Yapılan:** `oda_gelistirme_paneli.gd` ve `oda_yetenek_paneli.gd` içindeki ham `Color("94999e")` ve `Color(String(a.renk))` ifadeleri `Kabuk.SOLUK` ve `Kabuk.renkten` ile değiştirildi; `oda_kasasi_paneli.gd`, `oda_terazisi_paneli.gd`, `oda_vicdan_paneli.gd` ile birlikte `tests/oto/grv_tema_baglari_kontrol.gd` taramasına eklendi.
+- **Testler:** `grv_tema_baglari_kontrol.tscn` (44 dosya), `oda_gelisim_kontrol.tscn`, `oda_kasasi_kontrol.tscn`, `oda_terazisi_kontrol.tscn`, `oda_vicdan_kontrol.tscn` ve `oda_yetenek_kontrol.tscn` 0 hata ile geçti.
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.

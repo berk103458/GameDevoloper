@@ -23,7 +23,7 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
   b.name="yetenek_"+id
   b.text=String(a.ad)+(" · açıldı" if MuhafizYetenekleri.var_mi(e.oturum,id) else " · %d kişisel akçe"%int(a.bedel))
   b.disabled=not MuhafizYetenekleri.alinabilir(e.oturum,id)
-  b.add_theme_color_override("font_disabled_color",Renkler.KUL if MuhafizYetenekleri.var_mi(e.oturum,id) else Color("94999e"))
+  b.add_theme_color_override("font_disabled_color",Renkler.KUL if MuhafizYetenekleri.var_mi(e.oturum,id) else Kabuk.SOLUK)
   b.custom_minimum_size.y=48
   var kosul: String="En az %d adalet; en çok %d yozlaşma."%[int(a.adalet),int(a.yozlasma_azami)] if a.has("adalet") else "En az %d yozlaşma."%int(a.yozlasma)
   b.tooltip_text="%s\nEn az %d tecrübe. %s Önceki yetenek: %s."%[a.aciklama,a.tecrube,kosul,"yok" if String(a.on_kosul).is_empty() else String(MuhafizYetenekleri.AYAR[a.on_kosul].ad)]

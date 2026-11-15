@@ -58,6 +58,10 @@ static func bar_stili(renk: Color) -> StyleBoxFlat:
 	return s
 
 
+static func renkten(hex: String) -> Color:
+	return Color.from_string(hex, SOLUK)
+
+
 ## Eksik asset için tek renkli yer tutucu kutu. Renk veri dosyasından gelir;
 ## paneller ColorRect'i kendisi kurmaz, gerçek asset gelince yalnız burası değişir.
 static func yer_tutucu(ad: String, renk_hex: String, boy: Vector2) -> ColorRect:

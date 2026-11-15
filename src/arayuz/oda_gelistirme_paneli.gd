@@ -40,7 +40,7 @@ static func kur(e: MuhafizOdasiEkrani,v: VBoxContainer) -> void:
  dinlen.text="Yatakta dinlen · günde bir kez"
  var d:=MuhafizOdaGelisimi.oku(e.oturum.oda_gelisimi)
  dinlen.disabled=e.oturum.yonetim.son!="" or not MuhafizOdaGelisimi.var_mi(e.oturum,"yatak") or int(d.yorgunluk)<=0 or int(d.son_dinlenme)>=e.oturum.gun
- dinlen.add_theme_color_override("font_disabled_color",Color("94999e"))
+ dinlen.add_theme_color_override("font_disabled_color", Kabuk.SOLUK)
  dinlen.tooltip_text="Yatak ve yorgunluk gerekir; aynı gün tekrar dinlenilmez."
  dinlen.custom_minimum_size.y=48
  n.add_child(dinlen)
@@ -57,7 +57,7 @@ static func gorsel(e: MuhafizOdasiEkrani) -> void:
   if id=="yatak":
    var y_dugum:=e.oda.get_node_or_null("yatak")
    if y_dugum is MeshInstance3D:
-    ((y_dugum as MeshInstance3D).material_override as StandardMaterial3D).albedo_color=Color(String(a.renk))
+    ((y_dugum as MeshInstance3D).material_override as StandardMaterial3D).albedo_color = Kabuk.renkten(String(a.renk))
    elif y_dugum != null and Dunya3B.model_var_mi("rahat_yatak") and not y_dugum.has_node("rahat_yatak_glb"):
     for c in y_dugum.get_children(): c.visible = false
     var ry := Dunya3B.nesne("rahat_yatak", 0.6)
