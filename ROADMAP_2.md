@@ -353,11 +353,11 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
   - Dosya: yeni `src/koy/yetim_bakimi.gd`; `Koylu.yas_grubu` geçişine adaptör.
   - Asset: KAP-17 çocuk modeli. Yeni satır yok.
 
-- [/] **KAP-39:** (Antigravity-Berk) Heybe açıkken soru seçilmez
+- [x] **KAP-39:** (Antigravity-Berk) Heybe açıkken soru seçilmez — Doğrulama: `heybe_kilit_test.tscn` (`HEYBE KILIT: GEÇTİ`), `heybe_kadraji_kontrol.tscn`, `hastalik_teshis_kontrol.tscn`, `ilk_aile_kapi_kontrol.tscn`, `defter_tanitimi_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (RC=0); asset gerekmedi.
   - Ne: Heybe paneli açıkken oyuncu yeni bir soru seçemez ve soru hakkı düşmez. Panel kapanınca kalan hak aynı sayıda durur. Karar düğmesi de bu sırada etki yazmaz.
   - Kabul: Heybe açıkken soru düğmesine basmak hak sayısını değiştirmez ve yeni dal açmaz (`tests/unit/kapi/heybe_kilit_test.gd`). Panel kapanınca hak, açılmadan önceki değerle aynıdır. Ek şart: Heybe açıkken sorgu eylemi seçilmez; panel kapanınca aynı düğme durur.
   - Bağımlılık: yok. Boyut: S.
-  - Dosya: `src/arayuz/kapi_ekrani.gd`, `src/arayuz/heybe_paneli.gd`
+  - Dosya: `src/arayuz/kapi_ekrani.gd`, `src/arayuz/chr_diyalog_paneli.gd`, `tests/unit/kapi/heybe_kilit_test.gd`
   - Asset: asset gerekmedi.
 
 ### 15.4 Karar

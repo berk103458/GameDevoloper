@@ -16,6 +16,15 @@ func _ready() -> void:
 	sorgu.ipucu_bulundu.connect(func(_ipucu: StringName) -> void: guncelle())
 	guncelle()
 
+func _heybe_acik_mi() -> bool:
+	var p: Node = get_parent()
+	while p != null:
+		if p.has_method("heybe_acik_mi"):
+			return bool(p.call("heybe_acik_mi"))
+		p = p.get_parent()
+	return false
+
+
 func guncelle() -> void:
 	for cocuk in get_children():
 		remove_child(cocuk)
@@ -94,6 +103,8 @@ func guncelle() -> void:
 			if not b.disabled:
 				b.modulate = Kabuk.vurgu()
 		b.pressed.connect(func() -> void:
+			if _heybe_acik_mi():
+				return
 			_zar_ipucu = ""
 			if sorgu.secenek_sec(i, baglam):
 				if sorgu.has_method("kacti") and sorgu.kacti():
@@ -127,7 +138,10 @@ func guncelle() -> void:
 		cikis.text = "Kararını ver"
 		cikis.tooltip_text = "Söylenecek söz kalmadı; ipucu bulursan yüzleşebilirsin."
 		cikis.custom_minimum_size.y = 70
-		cikis.pressed.connect(func() -> void: karar_istendi.emit())
+		cikis.pressed.connect(func() -> void:
+			if _heybe_acik_mi(): return
+			karar_istendi.emit()
+		)
 		add_child(cikis)
 	if secenekler.is_empty():
 		var karar := Button.new()
@@ -135,6 +149,8 @@ func guncelle() -> void:
 		karar.text = "Devam et" if gecis_var else "Kararını ver"
 		karar.custom_minimum_size.y = 70
 		karar.pressed.connect(func() -> void:
+			if _heybe_acik_mi():
+				return
 			if gecis_var:
 				if sorgu.devam_et():
 					guncelle()

@@ -344,9 +344,14 @@ func _sohbet_goster() -> void:
 	_sirayla_goster(dugmeler)
 
 
+## Heybe paneli açıksa soru/karar etkileşimlerini kilitler (KAP-39).
+func heybe_acik_mi() -> bool:
+	return _heybe_paneli != null and is_instance_valid(_heybe_paneli)
+
+
 ## "Heybende ne var?": gelen beyanını söyler (soru hakkından sayılmaz).
 func _heybe_sor() -> void:
-	if evre != &"sohbet" or not ILK_GECE.heybe_acik(oturum, _gelen):
+	if evre != &"sohbet" or heybe_acik_mi() or not ILK_GECE.heybe_acik(oturum, _gelen):
 		return
 	_gelen.heybe.soruldu = true
 	preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "beyan")
@@ -406,7 +411,21 @@ func _heybe_ac() -> void:
 	if donus == &"karar":
 		_karar_goster()
 	else:
-		_sohbet_goster()
+		var odak := _ilk_odaklanabilir(_secenekler)
+		if odak == null:
+			odak = _ilk_odaklanabilir(_eylemler)
+		if odak != null:
+			odak.grab_focus()
+
+
+func _ilk_odaklanabilir(kok: Node) -> Control:
+	for cocuk in kok.get_children():
+		if cocuk is Control and (cocuk as Control).focus_mode != Control.FOCUS_NONE and not bool(cocuk.get("disabled")):
+			return cocuk as Control
+		var alt := _ilk_odaklanabilir(cocuk)
+		if alt != null:
+			return alt
+	return null
 
 
 func _heybe_degisti() -> void:
@@ -466,7 +485,7 @@ func _karar_etiketi(anahtar: String) -> String:
 
 
 func _soru_sor(i: int) -> void:
-	if evre != &"sohbet":
+	if evre != &"sohbet" or heybe_acik_mi():
 		return
 	var chr := _gelen.chr_sorgusu()
 	if chr != null:
@@ -512,6 +531,8 @@ func _soru_sor(i: int) -> void:
 
 
 func _karar_goster() -> void:
+	if heybe_acik_mi():
+		return
 	evre = &"karar"
 	_secili = ""
 	_temizle()
@@ -586,11 +607,11 @@ func _karar_alt_yazi(anahtar: String) -> String:
 ## İki adımlı onay: ilk basış seçer, aynı karara ikinci basış verir.
 ## Kabul ve rüşvette ardından iş yeri seçilir.
 func _karar_bas(anahtar: String) -> void:
+	if heybe_acik_mi() or evre != &"karar":
+		return
 	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	var sorgu := _gelen.chr_sorgusu()
 	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)) and not (anahtar == "cocuklari_al" and preload("res://src/kapi/aile_kafilesi.gd").bolunur(_gelen)):
-		return
-	if evre != &"karar":
 		return
 	var ulak = preload("res://src/sistemler/sancak_ulagi.gd")
 	if ulak.ilgilenir(_gelen) and not ulak.uygun(oturum, _gelen, anahtar): return
@@ -620,7 +641,7 @@ func _karar_birak() -> void:
 
 
 func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
-	if evre == &"kavga": return
+	if evre == &"kavga" or heybe_acik_mi(): return
 	if not preload("res://src/sistemler/karar_onayi.gd").izinli(ayarlar, anahtar): return
 	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	if DiplomatikHeyet.ilgilenir(_gelen) and not DiplomatikHeyet.karar_olur(oturum, _gelen, StringName(anahtar)): return
@@ -875,7 +896,7 @@ func _tercuman_dugmesi_ekle() -> void:
 
 
 func _tercuman_cagir() -> void:
-	if evre != &"sohbet" or not tercuman_dugmesi_gorunur_mu():
+	if evre != &"sohbet" or heybe_acik_mi() or not tercuman_dugmesi_gorunur_mu():
 		return
 	var sonuc := DilEngeli.oturumda_tercuman_cagir(oturum, _gelen, _dil_sabri)
 	if not bool(sonuc.get("olur", false)):

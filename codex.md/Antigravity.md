@@ -1490,3 +1490,12 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `gelen_akisi_test.gd` (`GELEN AKISI: GEÇTİ`, 100 tohum en az 4/28 boş gün), `gelen_akisi_ekran_test.tscn` (`GELEN AKISI EKRAN: GEÇTİ`), `chr_parser.py --check`, `test_chr_parser.py` + `test_chr_sorgu_degeri.py` (12 test OK), `kapi_firtina_kuyrugu_test.gd`, `goc_yolu_guvenligi_test.gd`, `gecis_gecesi_oyun_test.gd`, `gozcu_kafile_ozeti_test.gd`, `pusu_ticaret_akisi_test.gd`, `omurga_kadro_test.gd`, `ozel_olay_test.gd`, `bos_gun_durusu_oyun_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (tümü RC=0, 0 SCRIPT ERROR).
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+### 2026-11-16 — KAP-39 Tamamlandı (Antigravity-Berk)
+- **Değişiklikler:**
+  - `src/arayuz/kapi_ekrani.gd`: `heybe_acik_mi()` yardımcısı ve `_ilk_odaklanabilir()` eklendi; heybe açıkken `_soru_sor()`, `_heybe_sor()`, `_tercuman_cagir()`, `_karar_goster()`, `_karar_bas()` ve `_karar_ver()` engellendi. `_heybe_ac()` kapanışında `donus != &"karar"` ise seçenek ve eylem düğmeleri yeniden kurulmadan korunur.
+  - `src/arayuz/chr_diyalog_paneli.gd`: `_heybe_acik_mi()` eklendi; heybe açıkken sorgu eylem seçenekleri, `KilitliKarar` ve boş dal geçiş düğmesi kilitlendi.
+  - `tests/unit/kapi/heybe_kilit_test.gd` ve `.tscn`: Adlı ve adsız ziyaretçiler için heybe açıkken soru hakkı/dal/karar/CHR sorgu eylemi kilidi ve panel kapanınca düğme geçerliliği doğrulandı.
+- **Doğrulama:** `heybe_kilit_test.tscn` (`HEYBE KILIT: GEÇTİ`), `heybe_kadraji_kontrol.tscn`, `hastalik_teshis_kontrol.tscn`, `ilk_aile_kapi_kontrol.tscn`, `defter_tanitimi_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (RC=0).
+- **Asset:** asset gerekmedi.
+- kota görünmüyor
