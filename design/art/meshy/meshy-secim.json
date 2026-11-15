@@ -120,36 +120,6 @@
   "url": "https://www.meshy.ai/posts/019e739d-8712-7a14-9736-fa75dd5246fc"
  },
  {
-  "kod": "O31",
-  "ad": "Keçe yurt (topak ev)",
-  "bolum": "dogrudan",
-  "grup": "Barınma: ev ve çadır (konak seviyesine göre)",
-  "yer": "`yapi/cadir.glb` — Türkmen çadırı",
-  "ucgen": 1116380,
-  "dosya": "o31_kece_yurt_topak_ev.glb",
-  "url": "https://www.meshy.ai/posts/019cecc0-28c7-77c3-9005-49e1b16b5f3b"
- },
- {
-  "kod": "O67",
-  "ad": "Yurt (hafif)",
-  "bolum": "dogrudan",
-  "grup": "Barınma: ev ve çadır (konak seviyesine göre)",
-  "yer": "çadır — uzak/küçük kopyalar",
-  "ucgen": 17841,
-  "dosya": "o67_yurt_hafif.glb",
-  "url": "https://www.meshy.ai/posts/01956c84-e0eb-7356-854a-05f2d691a1c6"
- },
- {
-  "kod": "B065",
-  "ad": "Tepe taş kulübesi",
-  "bolum": "dogrudan",
-  "grup": "Barınma: ev ve çadır (konak seviyesine göre)",
-  "yer": "çoban kulübesi — köy kenarı",
-  "ucgen": 3834,
-  "dosya": "b065_tepe_tas_kulubesi.glb",
-  "url": "https://www.meshy.ai/posts/019faf36-df11-7954-89ab-7c6fc4d15cb5"
- },
- {
   "kod": "O21",
   "ad": "Taş kuyu (çıkrıklı)",
   "bolum": "dogrudan",
@@ -210,16 +180,6 @@
   "url": "https://www.meshy.ai/posts/019667ff-f5a3-74d0-b3f3-79c558f21e1b"
  },
  {
-  "kod": "O03",
-  "ad": "Kuru taş yıkık duvar",
-  "bolum": "dogrudan",
-  "grup": "Köy merkezi ve ortak alan",
-  "yer": "köy kenarı, yıkık ev izi",
-  "ucgen": 20159,
-  "dosya": "o03_kuru_tas_yikik_duvar.glb",
-  "url": "https://www.meshy.ai/posts/019fce2f-fd27-704b-9639-e5629be4c4fa"
- },
- {
   "kod": "O20",
   "ad": "Taş oturak",
   "bolum": "dogrudan",
@@ -228,16 +188,6 @@
   "ucgen": 396660,
   "dosya": "o20_tas_oturak.glb",
   "url": "https://www.meshy.ai/posts/019e093e-c464-7c5e-9276-6093c15ab9c2"
- },
- {
-  "kod": "B021",
-  "ad": "13.–14. yy Anadolu kervansarayı",
-  "bolum": "dogrudan",
-  "grup": "Pazar ve kervansaray",
-  "yer": "`yapi/kervansaray.glb` yerine",
-  "ucgen": 452962,
-  "dosya": "b021_13_14_yy_anadolu_kervansarayi.glb",
-  "url": "https://www.meshy.ai/posts/0195321e-ca4a-76ec-96d8-5d669b069289"
  },
  {
   "kod": "A073",
@@ -280,16 +230,6 @@
   "url": "https://www.meshy.ai/posts/0199df3f-6b69-7bd6-9917-b9977d6a78e0"
  },
  {
-  "kod": "A242",
-  "ad": "Çömlekçi tezgâhı (çömleklerle)",
-  "bolum": "dogrudan",
-  "grup": "Pazar ve kervansaray",
-  "yer": "pazar — çömlekçi",
-  "ucgen": 55641,
-  "dosya": "a242_comlekci_tezgahi_comleklerle.glb",
-  "url": "https://www.meshy.ai/posts/0198e561-6a2d-7e22-b0af-9d2120a5d9be"
- },
- {
   "kod": "O07",
   "ad": "Toprak çömlek",
   "bolum": "dogrudan",
@@ -308,26 +248,6 @@
   "ucgen": 446726,
   "dosya": "o48_toprak_testi.glb",
   "url": "https://www.meshy.ai/posts/0199f738-2a88-706f-9543-671d0d0d3ead"
- },
- {
-  "kod": "O82",
-  "ad": "Küp (amfora)",
-  "bolum": "dogrudan",
-  "grup": "Kap kacak ve küçük eşya (iz propları)",
-  "yer": "kiler, pazar",
-  "ucgen": 66962,
-  "dosya": "o82_kup_amfora.glb",
-  "url": "https://www.meshy.ai/posts/019f0538-5faf-7303-a014-9905dbfa5336"
- },
- {
-  "kod": "O83",
-  "ad": "Eski küp",
-  "bolum": "dogrudan",
-  "grup": "Kap kacak ve küçük eşya (iz propları)",
-  "yer": "kiler",
-  "ucgen": 104748,
-  "dosya": "o83_eski_kup.glb",
-  "url": "https://www.meshy.ai/posts/019f0535-787f-7656-b0c1-a022848aea2a"
  },
  {
   "kod": "O84",
@@ -500,16 +420,6 @@
   "url": "https://www.meshy.ai/posts/019807f6-839f-7b28-98a1-da117255d146"
  },
  {
-  "kod": "O93",
-  "ad": "Öküzlü saman kağnısı (duran)",
-  "bolum": "dogrudan",
-  "grup": "Tarla ve çiftçi izleri",
-  "yer": "köy yolu, durağan dekor",
-  "ucgen": 21219,
-  "dosya": "o93_okuzlu_saman_kagnisi_duran.glb",
-  "url": "https://www.meshy.ai/posts/01945ac6-f2bc-78ea-8862-60da36999465"
- },
- {
   "kod": "O30",
   "ad": "Ahşap yalak",
   "bolum": "dogrudan",
@@ -518,16 +428,6 @@
   "ucgen": 179416,
   "dosya": "o30_ahsap_yalak.glb",
   "url": "https://www.meshy.ai/posts/019cfc6c-a5b0-7b45-8644-dd5e8ba06498"
- },
- {
-  "kod": "A095",
-  "ad": "Taş yalak",
-  "bolum": "dogrudan",
-  "grup": "Tarla ve çiftçi izleri",
-  "yer": "kuyu başı",
-  "ucgen": 520224,
-  "dosya": "a095_tas_yalak.glb",
-  "url": "https://www.meshy.ai/posts/019bed55-b1af-7626-82a5-89a1e92e8574"
  },
  {
   "kod": "O00",
@@ -650,16 +550,6 @@
   "url": "https://www.meshy.ai/posts/019514e9-eccc-7284-a498-9b57bb778b1a"
  },
  {
-  "kod": "A002",
-  "ad": "Ahşap yuvarlak kalkan",
-  "bolum": "dogrudan",
-  "grup": "Asker ve kışla izleri (kışla bina değil, iz)",
-  "yer": "nöbet yeri",
-  "ucgen": 164889,
-  "dosya": "a002_ahsap_yuvarlak_kalkan.glb",
-  "url": "https://www.meshy.ai/posts/01941a9d-b53d-778b-bbe9-9f6ef274dd2c"
- },
- {
   "kod": "A012",
   "ad": "Mızrak",
   "bolum": "dogrudan",
@@ -730,16 +620,6 @@
   "url": "https://www.meshy.ai/posts/019f3610-76c2-7929-8cf2-1342eebd0b47"
  },
  {
-  "kod": "K10",
-  "ad": "Kışlık giysili tüccar (T-poz)",
-  "bolum": "animasyon_bekliyor",
-  "grup": "",
-  "yer": "T-pozda; iskelete hazır. Tüccar.",
-  "ucgen": 19410,
-  "dosya": "k10_kislik_giysili_tuccar_t_poz.glb",
-  "url": "https://www.meshy.ai/posts/0193e214-e48c-755e-9625-d54a546df5d2"
- },
- {
   "kod": "K14",
   "ad": "Gezgin tüccar",
   "bolum": "animasyon_bekliyor",
@@ -770,16 +650,6 @@
   "url": "https://www.meshy.ai/posts/019f91c4-d9ce-7c70-99ba-f23cca54a497"
  },
  {
-  "kod": "B104",
-  "ad": "Savaşçı",
-  "bolum": "animasyon_bekliyor",
-  "grup": "",
-  "yer": "İnsan, iskelet + hareket gerekir. Asker.",
-  "ucgen": 9999,
-  "dosya": "b104_savasci.glb",
-  "url": "https://www.meshy.ai/posts/01978297-dc48-766c-b39c-175a23eb4bb0"
- },
- {
   "kod": "K07",
   "ad": "Ayı",
   "bolum": "animasyon_bekliyor",
@@ -798,16 +668,6 @@
   "ucgen": 388371,
   "dosya": "b019_kangal_anadolu_coban_kopegi.glb",
   "url": "https://www.meshy.ai/posts/019dc99d-b2b2-72de-bcb4-fa9fc2efd3ef"
- },
- {
-  "kod": "A140",
-  "ad": "Deve",
-  "bolum": "animasyon_bekliyor",
-  "grup": "",
-  "yer": "Dört ayaklı; animasyon gerekir. Kervansaray.",
-  "ucgen": 21286,
-  "dosya": "a140_deve.glb",
-  "url": "https://www.meshy.ai/posts/019421a5-5c84-7bc3-98fe-7c3156e0ae97"
  },
  {
   "kod": "A157",
