@@ -122,7 +122,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | OGR-37 | Geçmişe göre ipucu | `[x]` | `data/ogretici/ilk_saat.json` | `atla_gecmis` dokuz kez geçiyor | — | TAM | — |
 | OGR-45 | İpucu tavanı | `[x]` | `data/ogretici/ilk_saat.json` | `kavramlar` listesi 9, tavan 20 | — | TAM | — |
 | OGR-47 | Oyuncu izi | `[x]` | `src/sistemler/oyuncu_izi.gd` | `OyuncuIzi.new` çağrılıyor | — | TAM | — |
-| OGR-53 | Çekirdekte öğretici anahtarı yok | `[x]` | `src/arayuz/kapi_ekrani.gd` | Dört dosyanın üçü temiz | `kapi_ekrani.gd:226` hâlâ `kapi_acilis_ogretici.gd` çağırıyor; kabul "dört dosyada 0" diyor | EKSİK | Çağrıyı adaptör dosyasına taşı ya da kabulü güncelle |
+| OGR-53 | Çekirdekte öğretici anahtarı yok | `[x]` | `src/arayuz/kapi_ekrani.gd`, `src/arayuz/chr_kapi_adaptoru.gd` | Dört çekirdek dosyanın tümü (`ana.gd`, `kapi_ekrani.gd`, `koy_ekrani.gd`, `hud.gd`) `ogretici` referansından temiz; açılış öğreticisi `ChrKapiAdaptoru.acilis_kur` üzerinden kuruluyor (`chr_kapi_kontrol.tscn`, `celiski_goster_kontrol.tscn`, `acilis_koy_kontrol.tscn` `RC=0`) | — | TAM | `kapi_acilis_ogretici.gd` çağrısı `chr_kapi_adaptoru.gd` adaptörüne taşındı (Antigravity) |
 | OGR-55 | F1 anılmaz | `[x]` | `data/ogretici/ilk_saat.json` | Öğretici metinlerinde "F1" yok | — | TAM | — |
 
 ## OMR — Omurga

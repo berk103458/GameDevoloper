@@ -318,3 +318,17 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 20 — `OGR-53` (`TAM`)
+- **Değişiklikler:**
+  - `src/arayuz/chr_kapi_adaptoru.gd`: `acilis_kur(k: Control)` eklendi (`kapi_acilis_ogretici.gd.kur(k)`).
+  - `src/arayuz/kapi_ekrani.gd`: Doğrudan `kapi_acilis_ogretici.gd` çağrısı kaldırılıp `chr_kapi_adaptoru.gd.acilis_kur(self)` bağlantısı kuruldu (4 çekirdek dosyada `ogretici` = 0).
+  - `tests/oto/chr_kapi_kontrol.gd`: `_ogr53_kontrol(katalog)` ile 4 çekirdek dosyada 0 `ogretici` ve `AcilisOgretici` kurulumu doğrulandı; inceleme düğmesi metinle aranacak şekilde güncellendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `OGR-53` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` → `CHR KAPI UI: GEÇTİ` (`RC=0`, ön-mevcut `12 resources still in use at exit` uyarısı)
+  - `Godot.exe --headless --path . res://tests/oto/celiski_goster_kontrol.tscn` → `CELISKI GOSTER UI: GEÇTİ` (`RC=0`, ön-mevcut `12 resources still in use at exit` uyarısı)
+- Asset gerekmedi.
+- kota görünmüyor

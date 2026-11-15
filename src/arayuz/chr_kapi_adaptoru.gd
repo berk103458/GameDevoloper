@@ -133,3 +133,10 @@ static func beyan_defteri_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxCo
 		ekran.add_child(bpanel)
 	)
 	return dugme
+
+
+## OGR-53: Çekirdek `kapi_ekrani.gd` içinde öğretici yolu tutmamak için açılış öğreticisini adaptörden kurar.
+static func acilis_kur(k: Control) -> void:
+	if k == null:
+		return
+	preload("res://src/arayuz/kapi_acilis_ogretici.gd").kur(k)
