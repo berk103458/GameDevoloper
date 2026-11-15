@@ -183,3 +183,23 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . -s res://tests/unit/sistemler/dedikodu_test.gd` → `DEDIKODU: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+
+### Madde 11 — `DYL-01` (`TAM`)
+- **Değişiklikler:**
+  - `src/soz/celiski.gd`: Yeni `Celiski` çekirdeği (`{a, b, dal, guc}` çiftleri, `CeliskiYuzlesme` geri uyumu, tek kayıtta `"Göster"` kilidi, kendisiyle eşleşme engeli, aynı yanlış çift engeli, yanlışta `tansiyon +1`, `guven -2`, `sabir -1`, 3 yanlıştan sonra ziyaret boyu `"Göster"` kapanışı, `yardim_acik_mi` ile ilk 3 gün kuralı).
+  - `src/arayuz/kapi/beyan_defteri_paneli.gd`: Yeni `BeyanDefteriPaneli` (kaynak etiketli kayıt satırları, çözülen çiftlerin işaretlenip kilitlenmesi, 2 kayıt seçerek `"Göster"` tetiği).
+  - `src/soz/soz_motoru.gd` & `src/soz/celiski_yuzlesme.gd`: `celiskiler` yükleme, `celiski()` ve `celiski_yuzlestir(...)` delegasyonu, `celisir_ile` desteği.
+  - `src/sistemler/chr_sorgusu.gd`, `src/arayuz/chr_diyalog_paneli.gd`, `src/arayuz/chr_kapi_adaptoru.gd`, `src/arayuz/kapi_ekrani.gd`: CHR düğüm repliklerinin `BeyanDefteri` & `Celiski` kaydına yazılması, `gerekli_ipuclari` hedeflerinin `Celiski` çiftlerine bağlanması, 4. günden itibaren hazır yüzleş düğmesi yerine `"Göster · Beyan Defteri"` panelinden yüzleşme dalına geçiş.
+  - `tests/unit/soz/celiski_goster_test.gd` & `tests/oto/celiski_goster_kontrol.{gd,tscn}`: `SozMotoru` + `ChrSorgusu` + gerçek `KapiEkrani`/`BeyanDefteriPaneli` UI doğrulamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `DYL-01` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/celiski_goster_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/celiski_goster_kontrol.tscn` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/celiski_yuzlesme_test.gd` → `TEST PASS: celiski_yuzlesme_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/beyan_defteri_test.gd` → `TEST PASS: beyan_defteri_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/soz_motoru_test.gd` → `TEST PASS: soz_motoru_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

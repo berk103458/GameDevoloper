@@ -4,6 +4,7 @@ extends VBoxContainer
 signal karar_istendi
 var sorgu: RefCounted
 var oturum: Oturum
+var ayarlar: Ayarlar
 var baglam: Dictionary = {}
 var _ton_tepkisi := ""
 const TON = preload("res://src/soz/muhafiz_tonu.gd")
@@ -59,6 +60,8 @@ func guncelle() -> void:
 	for i in secenekler.size():
 		var secenek: Dictionary = secenekler[i]
 		if not TON.gorunur(oturum, secenek): continue
+		if not secenek.get("gerekli_ipuclari", []).is_empty() and not preload("res://src/soz/celiski.gd").yardim_acik_mi(oturum, ayarlar):
+			continue
 		var b := Button.new()
 		b.name = "Secenek%d" % i
 		b.text = sorgu.metin(StringName(TON.anahtar(oturum, secenek)))
