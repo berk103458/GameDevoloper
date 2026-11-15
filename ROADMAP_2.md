@@ -1642,7 +1642,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.6 Özel eşya
 
-- [ ] **YAP-06:** Özel eşyalar. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/ozel_esyalar.json` içinde 8 özel eşya ve `esya.ozel.*` metin anahtarları eklendi)*
+- [/] **YAP-06:** (Antigravity-Berk) Özel eşyalar. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/ozel_esyalar.json` içinde 8 özel eşya ve `esya.ozel.*` metin anahtarları eklendi)*
   - Ne: Oyuncu en az sekiz özel eşyadan birini çözer. Her satırda ad, dünya kitabı kaynak notu ve tek hedef sistem vardır. Hedef, oyunda duran bir kapıdır. Bir eşya iki kapıya yazamaz. Etki, o kapının gece hesabına tek çarpandır. Çözülmüş eşya satılınca açılmış kademe geri kapanmaz. Eşya çocuk heybesinden de okunur; ikinci kayıt açılmaz. İkon `Sanat` üzerinden gelir; yeni png üretilmez.
   - Kurallar:
     1. `data/ozel_esyalar.json` en az 8 satırdır. Her satırda ad, YAZ-01 kaynak notu ve tek `hedef_sistem` vardır.
