@@ -235,3 +235,19 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/celiski_goster_kontrol.tscn` → `CELISKI GOSTER UI: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 14 — `OGR-14` (`TAM`)
+- **Değişiklikler:**
+  - `src/kapi/defter_tanitimi.gd`: `celiski_yakalandi_mi(celiski, motor, defter, sorgu)` ve `oturumda_kontrol_et(o, ayarlar, celiski, motor, defter, sorgu, ekran)` eklendi; `o.ipucu_kaydi` (`ogretici.kapi.beyan_defteri`) ile kayıt/yükleme kalıcılığı ve tek seferlik `ilk_saat_kancasi.ipucu` + ekran bildirimi bağlandı.
+  - `src/arayuz/chr_kapi_adaptoru.gd`: `beyan_defteri_dugmesi(...)` görünürlüğü `DefterTanitimi.oturumda_kontrol_et` ile bağlandı (`kademeli_hud` açıkken çelişki öncesi 0, çelişkide 1; `sorgu.ipucu_bulundu`, `sorgu.replik_basladi` ve `bpanel.yuzlesildi` sinyallerinde güncellenir, `tree_exited` ile koparılır).
+  - `src/sistemler/chr_sorgusu.gd`: `_ipucu_servisi.ipucu_bulundu` lambdası `weakref(self)` ile düzeltildi (çıkışta kaynak sızıntısı 0).
+  - `tests/oto/celiski_goster_kontrol.gd` & `tests/unit/sistemler/ilk_saat_test.gd`: Çelişki öncesi gizli / sonrası görünür, tek seferlik ipucu ve kayıt/yükleme gidiş-dönüş kontrolleri eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `OGR-14` → `[x]` `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ilk_saat_test.gd` → `ILK SAAT: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/celiski_goster_test.gd` → `TEST PASS: celiski_goster_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/celiski_goster_kontrol.tscn` → `CELISKI GOSTER UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` → `CHR KAPI UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

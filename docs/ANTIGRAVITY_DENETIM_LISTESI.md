@@ -107,7 +107,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | OGR-11 | İpucu şeridi | `[x]` | `src/arayuz/koy_hud/ipucu_seridi.gd` | OGR-08 ile aynı bağ | — | TAM | — |
 | OGR-12 | İpucu paneli | `[x]` | `src/debug/ipucu_paneli.gd` | `IpucuPaneli.kur` çağrılıyor | — | TAM | — |
 | OGR-13 | İlk aile konuları | `[x]` | — | Kabul `gece_min` alanı istiyor | `data/soz` altında `gece_min` bulunamadı | EKSİK | İlk aile dosyasına `gece_min` ekle |
-| OGR-14 | Beyan defteri tanıtımı | `[ ]` | `src/kapi/defter_tanitimi.gd` | Kod var | Görev 22 geri açtı; Görev 23'te de bağlanamadı, çünkü çelişkiyi üreten söz motoru oyunda çalışmıyor | SAHTE-BAĞSIZ | Söz motoru bağlanmadan bu madde kapanmaz |
+| OGR-14 | Beyan defteri tanıtımı | `[x]` | `src/kapi/defter_tanitimi.gd` | `DefterTanitimi.celiski_yakalandi_mi`/`oturumda_kontrol_et` eklendi (`ipucu_kaydi` + meta kalıcılığı); `chr_kapi_adaptoru.gd` `BeyanDefteriDugmesi`'ni çelişki yakalanana dek kademeli HUD'da gizleyip çelişkide açıyor ve tek seferlik ipucunu gösteriyor; `chr_sorgusu.gd` WeakRef döngü sızıntısı giderildi | TAM | — |
 | OGR-15 | Heybe ipucu | `[x]` | `src/sistemler/ilk_saat.gd` | `IlkSaat` oyunda çağrılıyor | — | TAM | — |
 | OGR-16 | İlk saat | `[x]` | `src/sistemler/ilk_saat.gd` | Aynı bağ | — | TAM | — |
 | OGR-17 | İlk saat | `[x]` | `src/sistemler/ilk_saat.gd` | Aynı bağ | — | TAM | — |

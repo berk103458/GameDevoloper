@@ -79,6 +79,28 @@ static func beyan_defteri_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxCo
 	dugme.text = "Göster · Beyan Defteri"
 	dugme.custom_minimum_size.y = 64
 	eylemler.add_child(dugme)
+	var defter_tanitimi := preload("res://src/kapi/defter_tanitimi.gd")
+	var guncel := func() -> void:
+		if not is_instance_valid(dugme):
+			return
+		var res: Dictionary = defter_tanitimi.oturumda_kontrol_et(oturum, ekran.get("ayarlar") as Ayarlar, celiski, motor, defter, sorgu, ekran)
+		dugme.visible = bool(res.get("gorunur", false))
+	guncel.call()
+	if sorgu != null:
+		var cb_ipucu := func(_ip: StringName) -> void: guncel.call()
+		var cb_replik := func(_m: String) -> void: guncel.call()
+		if sorgu.has_signal("ipucu_bulundu"):
+			sorgu.ipucu_bulundu.connect(cb_ipucu)
+			dugme.tree_exited.connect(func() -> void:
+				if is_instance_valid(sorgu) and sorgu.ipucu_bulundu.is_connected(cb_ipucu):
+					sorgu.ipucu_bulundu.disconnect(cb_ipucu)
+			)
+		if sorgu.has_signal("replik_basladi"):
+			sorgu.replik_basladi.connect(cb_replik)
+			dugme.tree_exited.connect(func() -> void:
+				if is_instance_valid(sorgu) and sorgu.replik_basladi.is_connected(cb_replik):
+					sorgu.replik_basladi.disconnect(cb_replik)
+			)
 	dugme.pressed.connect(func() -> void:
 		if ekran.has_node("BeyanDefteriPaneli"):
 			return
@@ -91,6 +113,7 @@ static func beyan_defteri_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxCo
 			"oturum": oturum,
 		})
 		bpanel.yuzlesildi.connect(func(sonuc: Dictionary) -> void:
+			guncel.call()
 			if ekran.has_method("_yaz"):
 				if bool(sonuc.get("basarili", false)):
 					ekran.call("_yaz", "[color=#C4843A]%s[/color]" % String(sonuc.get("satir", "Çelişki ortaya çıkarıldı!")))
