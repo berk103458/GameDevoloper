@@ -76,8 +76,41 @@ Grup dışındaki boş maddelere, kendi grubun bitmeden başlama. Grup bitince k
 
 İlerlemeyi `codex.md/Codex.md` dosyasının sonuna ekle: hangi maddeyi aldığın, ne yaptığın, testin nasıl geçtiği, kalan kota (göremiyorsan `kota görünmüyor`). Her commit/push sonrası güncelle.
 
-onay bekleyip durma; maddeler bitene ya da gerçek bir engel çıkana kadar devam et
-
-
 ## GÜNCEL (15 Kasım 2026 21:05, Usta): Codex limiti sıfırlandı, iade edilen 18 madde
 Başlanmamış olduğu için ROADMAP_2'de [/] (Codex-Berk) yapıldı; yalnız bunlar senin: KLT-13, KLT-14, KLT-47, GRV-46, GRV-47, GRV-49, GRV-51, GRV-52, GRV-53, GRV-55, GRV-56, GRV-57, GRV-58, GRV-59, GRV-60, GRV-62, GRV-63, GRV-64. Yukarıdaki listede olup bunlar dışında kalan maddelere (Antigravity/Claude bitirdi) dokunma.
+
+## Sahipsiz yarım maddeler devri
+
+15 Kasım 2026, 21:03 Europe/Istanbul (Berk). Ahmet tarafı Cursor 19:40'ta kalan açık/yarım maddelerin Berk tarafına ait olduğunu bildirdi (`c8d0d423`). 27 sahipsiz/yarım madde, iade sonrası açık yüke göre paylaştırıldı:
+
+- Antigravity-Berk kalan iş: 24 madde (en yüklü; bu turda yeni pay yok)
+- Codex-Berk kalan iş: 18 iade edilmiş `[/]` madde (çalışabilir; en çok payı aldı)
+- Claude-Berk kalan iş: 0 madde, ancak 5 saatlik kota limiti var (sıfırlanma: 23:10 Europe/Istanbul)
+
+Rutin `Codex limit sonrası geri dönüş` 18 başlanmamış devir maddesini zaten Codex-Berk'e iade etti (`63120aee`); bu commit onu tekrarlamaz.
+
+Sana düşen **21** madde (Cursor — yarım GRV). ROADMAP'de `[/] (Codex-Berk)` olarak işaretlendi; yeniden sahiplenmen gerekmez. Cursor'un `8c9acb91` yarım kabuk/tema işinin üstünden devam et. İade edilen 18 madde de senin (KLT-13/14/47 ve GRV-46…64; KLT ön koşulu bütün grubu durdurmaz, bağımsız maddeye geçilebilir). Antigravity'nin bitirdiği `[x]` maddelere dokunma.
+
+- [/] **GRV-05** (ROADMAP_2.md:7187) — Harita `harita_ekrani.gd`. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-06** (ROADMAP_2.md:7193) — Sorgu `kapi_ekrani.gd` konuşma kutusu ve `chr_diyalog_paneli.gd`. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-07** (ROADMAP_2.md:7199) — Seçim düğmeleri kapı karar çubuğudur. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-08** (ROADMAP_2.md:7205) — Köy HUD `src/arayuz/koy_hud/`. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-10** (ROADMAP_2.md:7217) — Divan `divan_ekrani.gd`. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-11** (ROADMAP_2.md:7223) — Oda `muhafiz_odasi_ekrani.gd`. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-15** (ROADMAP_2.md:7250) — Uzun metin kesilmez, kayar. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-16** (ROADMAP_2.md:7259) — Düğme dört durumu temadadır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-30** (ROADMAP_2.md:7361) — Kapanış testi. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-31** (ROADMAP_2.md:7376) — `chr_diyalog_paneli.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-34** (ROADMAP_2.md:7397) — `esya_karti.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-36** (ROADMAP_2.md:7411) — `koy_ekrani.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-38** (ROADMAP_2.md:7425) — `koy_atama_alani.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-48** (ROADMAP_2.md:7498) — `tansiyon_gostergesi.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-50** (ROADMAP_2.md:7512) — `divan_ekrani.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-54** (ROADMAP_2.md:7543) — `divan_kanit_karti.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-61** (ROADMAP_2.md:7595) — `kaynak_gostergesi.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-70** (ROADMAP_2.md:7658) — `yapi_karti.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-94** (ROADMAP_2.md:7835) — `gezgin_stok_ikonu.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-96** (ROADMAP_2.md:7849) — `kisisel_karaborsa_paneli.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+- [/] **GRV-101** (ROADMAP_2.md:7887) — `hastalik_teshis_adaptoru.gd` temaya bağlanır. Not: Cursor WIP `8c9acb91` (3 Kas 2026, ortak kabuk ölçüleri). Satır `(Cursor — yarım)` idi; kod `src/arayuz/kabuk.gd` ve ilgili ekran/panel dosyalarında. Bitmemiş kabul; mevcut işin üstünden devam et, silme.
+
+onay bekleyip durma; maddeler bitene ya da gerçek bir engel çıkana kadar devam et

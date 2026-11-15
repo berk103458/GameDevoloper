@@ -77,7 +77,6 @@ Grup dışındaki boş maddelere, kendi grubun bitmeden başlama. Grup bitince k
 
 İlerlemeyi `codex.md/Claude.md` dosyasının sonuna ekle: hangi maddeyi aldığın, ne yaptığın, testin nasıl geçtiği, kalan kota (göremiyorsan `kota görünmüyor`). Her commit/push sonrası güncelle.
 
-
 ## Codex'ten devir (limit)
 
 Codex kullanım limiti doldu (sıfırlanma: 15 Kasım 2026, 20:56 Europe/Istanbul). Aşağıdaki **15** madde, Codex'in bitmemiş işinden (açık `[/] (Codex-Berk)` + aralıktaki kalan `[ ]`, KLT-13…GRV-64) geçici olarak sana devredildi. Kota sıfırlandıktan sonra Usta bunları Codex'e iade edebilir.
@@ -99,5 +98,26 @@ Elindeki mevcut `[/]` işi bitirdikten sonra orijinal grubunun bitmesini bekleme
 - [ ] **GRV-62** (ROADMAP_2.md:7602) — `kese_gostergesi.gd` temaya bağlanır.
 - [ ] **GRV-63** (ROADMAP_2.md:7609) — `kundak_clue_bilgisi.gd` temaya bağlanır.
 - [ ] **GRV-64** (ROADMAP_2.md:7616) — `kuyu_kirecleme_paneli.gd` temaya bağlanır.
+
+## Sahipsiz yarım maddeler devri
+
+15 Kasım 2026, 21:03 Europe/Istanbul (Berk). Ahmet tarafı Cursor 19:40'ta kalan açık/yarım maddelerin Berk tarafına ait olduğunu bildirdi (`c8d0d423`). 27 sahipsiz/yarım madde, iade sonrası açık yüke göre paylaştırıldı:
+
+- Antigravity-Berk kalan iş: 24 madde (en yüklü; bu turda yeni pay yok)
+- Codex-Berk kalan iş: 18 iade edilmiş `[/]` madde (çalışabilir; en çok payı aldı)
+- Claude-Berk kalan iş: 0 madde, ancak 5 saatlik kota limiti var (sıfırlanma: 23:10 Europe/Istanbul)
+
+Rutin `Codex limit sonrası geri dönüş` 18 başlanmamış devir maddesini zaten Codex-Berk'e iade etti (`63120aee`); bu commit onu tekrarlamaz.
+
+Sana düşen **6** madde. ROADMAP'de `[/] (Claude-Berk)` olarak işaretlendi; yeniden sahiplenmen gerekmez. Codex'ten devir edilen 15 GRV maddesi (`GRV-46`…`GRV-64`) rutin tarafından Codex-Berk'e iade edildi (`63120aee`); onları alma.
+
+5 saatlik kotan 23:10 Europe/Istanbul'da sıfırlanır; o saatten sonra bu listeyi oku, uygula, test et ve `[x]` işaretle.
+
+- [/] **OGR-43** (ROADMAP_2.md:4167) — Yedi persona ilk saati geçer. (Kanıt Antigravity'de; Cursor doğrulaması bekleniyordu.) Not: Eski sahip `(Antigravity)` (Ahmet tarafı). Uygulama `70ecc754`, `20461b6f`; Usta `[x]` geri alımı `ac18fe16`; Cursor-Berk doğrulaması KALDI `398d6d11` / devralma `46e74e2f`; sahiplik iadesi `8160160b`. Cursor doğrulaması hâlâ bekleniyor. Mevcut kanıtı bozmadan doğrulamayı bitir, test et, `[x]` işaretle.
+- [/] **KAP-16** (ROADMAP_2.md:310) — Değişken gelen sayısı, boş gün ve sayfadaki bar eşiği. Not: Eski etiket `(testx)`; ROADMAP sahipliği `75dbf1d0`. Uygulama commit'i bulunamadı.
+- [/] **KAP-39** (ROADMAP_2.md:356) — Heybe açıkken soru seçilmez Not: Eski etiket `(testx)`; ROADMAP sahipliği `2e19df1c` (KAP-39/45/48 birlikte). Uygulama commit'i bulunamadı.
+- [/] **KAP-45** (ROADMAP_2.md:380) — Karar bir kez uygulanır Not: Eski etiket `(testx)`; ROADMAP sahipliği `2e19df1c`. Uygulama commit'i bulunamadı.
+- [/] **KAP-48** (ROADMAP_2.md:387) — Rüşvet hakkı ayardadır Not: Eski etiket `(testx)`; ROADMAP sahipliği `2e19df1c`. Uygulama commit'i bulunamadı.
+- [/] **ACL-02** (ROADMAP_2.md:223) — Eş — oynanabilir ama sıradan köylü değil. Not: Eski etiket `(testx)`; ROADMAP sahipliği `0a24eb92`. Uygulama commit'i bulunamadı.
 
 onay bekleyip durma; maddeler bitene ya da gerçek bir engel çıkana kadar devam et

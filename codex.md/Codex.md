@@ -1288,3 +1288,14 @@ Codex-Berk'in tamamladığı `[x]` maddeler yerinde kaldı: GRV-02, GRV-09, GRV-
 GRV-32 açık `[/] (Codex-Berk)` idi; sahiplik `d6419b67` (yalnız ROADMAP, uygulama commit'i yok). Satır `[/] (Antigravity-Berk)` olarak güncellendi; not Antigravity_gorev.md içinde.
 
 agy döngüsü (21644) ve Claude döngüsü (21332) durdurulmadı; bir sonraki turlarında görev dosyasını yeniden okuyacaklar.
+## 15 Kasım 2026 — Kota sıfırlandı, sahipsiz yarım maddeler (Usta)
+
+Rutin `Codex limit sonrası geri dönüş` 21:04'te 18 başlanmamış devir maddesini Codex-Berk'e iade etti (`63120aee`) ve gizli Codex döngüsünü başlattı (pid 16388). Bu tur o iadeyi tekrarlamadı, ikinci döngü açılmadı.
+
+Kodex kotası açıldı (tiny `codex exec` PONG, exit 0). 27 sahipsiz/yarım madde yüke göre paylaşıldı (iade sonrası açık iş: Antigravity 24, Codex 18, Claude 0; Claude 5 saatlik limitte, sıfırlanma 23:10 Europe/Istanbul):
+
+- Codex-Berk (21): GRV-05, GRV-06, GRV-07, GRV-08, GRV-10, GRV-11, GRV-15, GRV-16, GRV-30, GRV-31, GRV-34, GRV-36, GRV-38, GRV-48, GRV-50, GRV-54, GRV-61, GRV-70, GRV-94, GRV-96, GRV-101
+- Claude-Berk (6): OGR-43, KAP-16, KAP-39, KAP-45, KAP-48, ACL-02
+- Antigravity-Berk (0): yeni pay yok; iade edilen KLT-13/14/47'yi almasın
+
+21 GRV maddesinin ortak WIP commit'i `8c9acb91`. OGR-43'te Antigravity uygulaması ve bekleyen Cursor doğrulaması var. KAP/ACL `(testx)` yalnız ROADMAP sahipliği. agy (21644) ve Claude (21332) durdurulmadı.

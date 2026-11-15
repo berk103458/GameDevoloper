@@ -85,7 +85,6 @@ Grup dışındaki boş maddelere, kendi grubun bitmeden başlama. Grup bitince k
 
 İlerlemeyi `codex.md/Antigravity.md` dosyasının sonuna ekle: hangi maddeyi aldığın, ne yaptığın, testin nasıl geçtiği, kalan kota (göremiyorsan `kota görünmüyor`). Her commit/push sonrası güncelle.
 
-
 ## Codex'ten devir (limit)
 
 Codex kullanım limiti doldu (sıfırlanma: 15 Kasım 2026, 20:56 Europe/Istanbul). Aşağıdaki **16** madde, Codex'in bitmemiş işinden (açık `[/] (Codex-Berk)` + aralıktaki kalan `[ ]`, KLT-13…GRV-64) geçici olarak sana devredildi. Kota sıfırlandıktan sonra Usta bunları Codex'e iade edebilir.
@@ -108,5 +107,17 @@ Elindeki mevcut `[/]` işi bitirdikten sonra orijinal grubunun bitmesini bekleme
 - [ ] **GRV-43** (ROADMAP_2.md:7463) — `oda_terazisi_paneli.gd` temaya bağlanır.
 - [ ] **GRV-44** (ROADMAP_2.md:7470) — `oda_vicdan_paneli.gd` temaya bağlanır.
 - [ ] **GRV-45** (ROADMAP_2.md:7477) — `oda_yetenek_paneli.gd` temaya bağlanır.
+
+## Sahipsiz yarım maddeler devri
+
+15 Kasım 2026, 21:03 Europe/Istanbul (Berk). Ahmet tarafı Cursor 19:40'ta kalan açık/yarım maddelerin Berk tarafına ait olduğunu bildirdi (`c8d0d423`). 27 sahipsiz/yarım madde, iade sonrası açık yüke göre paylaştırıldı:
+
+- Antigravity-Berk kalan iş: 24 madde (en yüklü; bu turda yeni pay yok)
+- Codex-Berk kalan iş: 18 iade edilmiş `[/]` madde (çalışabilir; en çok payı aldı)
+- Claude-Berk kalan iş: 0 madde, ancak 5 saatlik kota limiti var (sıfırlanma: 23:10 Europe/Istanbul)
+
+Rutin `Codex limit sonrası geri dönüş` 18 başlanmamış devir maddesini zaten Codex-Berk'e iade etti (`63120aee`); bu commit onu tekrarlamaz.
+
+Bu turda sana yeni yarım madde verilmedi (açık yükün 24, en yüksek). Codex'ten devir listesindeki başlanmamış KLT-13, KLT-14 ve KLT-47 rutin tarafından Codex-Berk'e iade edildi (`63120aee`); onları alma. Bitirdiğin KLT-18/57 ve GRV-32…45 sende `[x]` olarak kalır. Elindeki ISG/SOY ve kalan orijinal grubuna devam et.
 
 onay bekleyip durma; maddeler bitene ya da gerçek bir engel çıkana kadar devam et
