@@ -2,6 +2,7 @@
 extends Node
 
 const GRUPLAR := {
+	"GRV-59": ["res://src/arayuz/koy_hud/hekim_ilac_bilgisi.gd"],
 	"GRV-58": ["res://src/arayuz/koy_hud/harita_baglantisi.gd"],
 	"GRV-57": ["res://src/arayuz/koy_hud/cinar_meclis_paneli.gd"],
 	"GRV-56": ["res://src/arayuz/koy_hud/cati_kar_bilgisi.gd"],

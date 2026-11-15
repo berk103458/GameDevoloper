@@ -7575,7 +7575,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/harita_baglantisi.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-59:** (Codex-Berk) `hekim_ilac_bilgisi.gd` temaya bağlanır.
+- [x] **GRV-59:** (Codex-Berk) `hekim_ilac_bilgisi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/hekim_ilac_bilgisi.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Hekim satırı zeminsiz. Tema bağlanınca yalnız `hekim_ilac_bilgisi.gd` ARY-02 zeminini ve düğme durumunu okur, Hekim satırı zeminsiz davranışı değişmez.
   - Kabul: `hekim_ilac_bilgisi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `hekim_ilac_bilgisi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

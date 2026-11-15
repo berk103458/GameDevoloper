@@ -1339,3 +1339,6 @@ Meclis kabuğu tema mirasını kullanır; kaynak taraması ve gerçek meclis UI 
 
 ## 15 Kasım 2026 — GRV-58 (Codex-Berk)
 Harita bağlantısı ortak düğme durumlarını kullanır; tarama ve mevcut harita ekranı regresyonu doğrulandı. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-59 (Codex-Berk)
+Hekim bilgi satırı tema mirasını kullanır; kaynak ve gerçek ilaç bilgi ekranı regresyonu doğrulandı. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
