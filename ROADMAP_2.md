@@ -4255,7 +4255,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: YER-02. Boyut: S.
   - Dosya: `data/metin/metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-57:** Kapanış testi — altı gece tek koşu.
+- [/] **OGR-57:** (Antigravity-Berk) Kapanış testi — altı gece tek koşu.
   - Ne: tek otomatik koşu: ipucu sırası OGR-01 listesine eşit, panel açılış geceleri OGR-25'e eşit, son 0, ikinci açılışta ipucu 0.
   - Kabul: dört iddia tek testte. Test: `tests/oto/ilk_saat_kontrol.tscn`.
   - Bağımlılık: OGR-01…56. Boyut: S.
