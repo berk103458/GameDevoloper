@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-70 (Kalfa)
+
+Gece izni kalktığında eldeki meşalenin enerjisi ve görünürlüğü kapanıyor. Gündüze geçişte altı gerçek donanımın enerjisi 0 ölçüldü. Öncesinde gece devriyesi ve meşale başına tek ışık kontrolleri de geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-69 (Kalfa)
 
 Mevcut 11 m ateş ışığı menzili sahne tablosuna taşındı. Akşam ve gece beş gerçek köylünün baş konumu menzil içinde ve yüz yönü ateşe dönük ölçüldü. Headless ölçüm ışık enerjisi, menzil ve yönü denetler. Ateş başı sahnesi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

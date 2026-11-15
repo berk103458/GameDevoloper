@@ -72,6 +72,9 @@ func _ready() -> void:
 		get_viewport().get_texture().get_image().save_png(dizin.path_join("ani01_gece.png"))
 	sahne.faz(&"gunduz", 0.0)
 	kontrol(d != null and not d.isik.visible and not d.mesale.visible and d.kalkan.visible, "SAH-63: Gündüz kalkan geri ve ışık kapalı")
+	for model in h.modeller.values():
+		var donanim := model.get_node_or_null("muhafiz_donanimi") as MuhafizDonanimi
+		kontrol(donanim != null and is_zero_approx(donanim.isik.light_energy), "SAH-70: Gündüz meşalenin ışık enerjisi sıfır")
 	y.bosalt(y.koylular[0].id)
 	h.yenile()
 	await get_tree().process_frame

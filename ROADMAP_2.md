@@ -8348,7 +8348,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-07, SAH-67. Boyut: S.
   - Dosya: `data/ayarlar/sahne.json`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-70:** Gündüz meşale yakılmaz.
+- [x] **SAH-70:** Gündüz meşale yakılmaz. (Kalfa — altı meşalede gündüz enerji 0)
   - Ne: SAH-63 ile aynı saat kuralı. Gündüz enerji 0.
   - Kabul: SAH-63 ile aynı saat kuralı. Gündüz enerji 0. Test: öğle, meşale enerjisi 0.
   - Bağımlılık: SAH-63. Boyut: S.
