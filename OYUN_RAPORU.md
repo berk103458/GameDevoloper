@@ -3318,3 +3318,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-51 (Codex-Berk): Divan sorgusu zaten tema mirasını kullanıyor; dosya taraması, canlı çağrı bağı ve dört düğme durumu kabul testine eklendi. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-52 (Codex-Berk): Hüküm panelinin ortak temadan aldığı düğme durumları, oyundaki çağrısı ve yerel stil yokluğu sınandı; hüküm mekaniği regresyonu da geçti. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-53 (Codex-Berk): Haksızlık paneli ortak tema mirasıyla çalışır; tarama ve gerçek tazminat ekranı regresyonu doğrulandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.

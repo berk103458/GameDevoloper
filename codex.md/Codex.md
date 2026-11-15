@@ -1327,3 +1327,6 @@ Divan sorgusu zaten tema mirasını kullanıyor; dosya taraması, canlı çağr�
 
 ## 15 Kasım 2026 — GRV-52 (Codex-Berk)
 Hüküm panelinin ortak temadan aldığı düğme durumları, oyundaki çağrısı ve yerel stil yokluğu sınandı; hüküm mekaniği regresyonu da geçti. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-53 (Codex-Berk)
+Haksızlık paneli ortak tema mirasıyla çalışır; tarama ve gerçek tazminat ekranı regresyonu doğrulandı. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
