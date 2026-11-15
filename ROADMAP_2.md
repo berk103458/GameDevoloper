@@ -8393,7 +8393,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-73. Boyut: M.
   - Dosya: `tests/oto/karakter_muayene.tscn`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-77:** Rapor ayak, eşya ve klip diye üçe ayrılır.
+- [x] **SAH-77:** Rapor ayak, eşya ve klip diye üçe ayrılır.
   - Ne: SAH-08, SAH-16 ve SAH-74 aynı raporda üç başlıktır. Başlık karışmaz.
   - Kabul: SAH-08, SAH-16 ve SAH-74 aynı raporda üç başlıktır. Başlık karışmaz. Test: üç başlık.
   - Bağımlılık: SAH-08, SAH-16, SAH-74. Boyut: S.

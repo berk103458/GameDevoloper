@@ -204,6 +204,7 @@ func _muayene(ad: String, klasor: String, ciz: bool) -> void:
 	var turler := kesisen.keys()
 	turler.sort()
 	kayit["esya_kesisimleri"] = turler
+	kayit["rapor"] = uclu_rapor_olustur([kayit["ayak_muayenesi"]], turler, kayit["eksik"])
 	for tur in turler:
 		print("%s %s: %s" % [ESYA_KESISIM_ETIKETI, ad, tur])
 	kayit["satirlar"] = var_olan

@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-77 (Kalfa)
+
+Canlı CHR_002 headless raporunda ayak değeri, torba kesişimi ve bekleyen gerginlik klibi üç ayrı başlık altında doğrulandı. Mevcut JSON alanları korunarak rapor genişletildi. Asset gerekmedi.
+
 ## 2026-11-15 — SAH-76 (Kalfa)
 
 MODELLER=CHR ile tek headless koşuda CHR_001–030 için tam 30 benzersiz kayıt doğrulandı. Ayrı eksik model örneği kapsüle düştü ve yedek olarak raporlandı. Asset gerekmedi.
