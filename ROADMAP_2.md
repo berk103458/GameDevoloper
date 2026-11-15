@@ -864,7 +864,7 @@ CAT-01 … CAT-04 gövdesi durur. Yeni maddeler CAT-05 … CAT-84. Beşinci seç
 
 ### 18.4 Sıranın korkusu
 
-- [/] **CAT-04:** (Codex) Kapıda şiddet sırayı korkutur. (İlk mantık: Antigravity; Görev 22 bağlantısı giderildi: gerçek CAT-02 sec sonucu → SiddetKorkusuAdaptoru → aynı gerçek kuyruk, CHR/bekleme tansiyonu ve Dedikodu.olay_kaydet; görünür sıra ve menü donması bağlı. Birim, 39 kontrollü oyun ve gerçek ekran testleri GEÇTİ; asset gerekmedi.)
+- [x] **CAT-04:** (Codex) Kapıda şiddet sırayı korkutur. (İlk mantık: Antigravity; Görev 22 bağlantısı giderildi: gerçek CAT-02 sec sonucu → SiddetKorkusuAdaptoru → aynı gerçek kuyruk, CHR/bekleme tansiyonu ve Dedikodu.olay_kaydet; görünür sıra ve menü donması bağlı. Birim, 39 kontrollü oyun ve gerçek ekran testleri GEÇTİ; asset gerekmedi.)
   - Ne: Askerle karşılık veya ölüm, sıradaki kişilerin tansiyonunu okur. Eşik üstündekiler tablodaki olasılıkla ayrılabilir; herkes ayrılmaz. Yatıştırma ve erteleme bu ayrılmayı tetiklemez. Yeni korku barı açılmaz. Menü açıkken artış donar.
   - Kurallar:
     1. Şiddet, karşılık veya ölüm sonucudur. Sıradaki kişilerin sabrı ve tansiyonu okunur.
