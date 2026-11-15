@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-65 (Kalfa)
+
+Gerçek kapı sahnesi 4096 atlası 2048 sınırına indirdi. İki meşalenin gölge sönümü 16 m, kapı kapanınca atlas 4096 değerine döndü. Kapı gölge profili headless testi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-64 (Kalfa)
 
 Gerçek demirhane ve fırının iki duman kaynağı gözlendi. Mevcut yıkım ve sahne yenilemesi sonrası duman kaynağı 0, kulübe ve tarla sayısı 2 kaldı. Atölye parçacıkları headless sahnesi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

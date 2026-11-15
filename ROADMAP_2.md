@@ -8318,7 +8318,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
 
 ### 44.9 Işık ve gölge
 
-- [ ] **SAH-65:** Kapı ışığı BUG-04 ölçüsündedir.
+- [x] **SAH-65:** Kapı ışığı BUG-04 ölçüsündedir. (Kalfa — gerçek kapı atlası 2048)
   - Ne: gölge haritası o maddenin boyutunu aşmaz. Bu bölüm yeni bir gölge sistemi açmaz.
   - Kabul: gölge haritası o maddenin boyutunu aşmaz. Bu bölüm yeni bir gölge sistemi açmaz. Test: gölge boyutu tavanın altında.
   - Bağımlılık: BUG-04. Boyut: S.

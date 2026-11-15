@@ -31,11 +31,21 @@ func _calistir() -> void:
 	root.positional_shadow_atlas_size = 512
 	profil.free()
 	_kontrol(root.positional_shadow_atlas_size == 512, "Sahne açıkken değişen kalite tercihi ezilmez")
+	root.positional_shadow_atlas_size = 4096
+	var kapi := KapiSahnesi.new()
+	root.add_child(kapi)
+	_kontrol(root.positional_shadow_atlas_size == 2048 and not kapi._isiklar.is_empty(), "SAH-65: Gerçek kapı BUG-04 atlas tavanını uygular")
+	for mesale in kapi._isiklar:
+		_kontrol(mesale.distance_fade_enabled and mesale.distance_fade_shadow == 16.0, "SAH-65: Gerçek kapı meşalesinin gölge mesafesi sınırlı")
+	print("SAH-65 kapı atlası=%d, meşale=%d" % [root.positional_shadow_atlas_size, kapi._isiklar.size()])
+	kapi.queue_free()
+	await process_frame
+	_kontrol(root.positional_shadow_atlas_size == 4096, "SAH-65: Kapı kapanınca önceki atlas geri gelir")
 	root.positional_shadow_atlas_size = atlas_once
 	isik.free()
 	await process_frame
 	print("KAPI GÖLGE PROFİLİ: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
-	quit(hata)
+	await root.get_node("Ses").cik(hata)
 
 func _kontrol(olur: bool, mesaj: String) -> void:
 	if not olur:
