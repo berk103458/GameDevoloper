@@ -97,6 +97,28 @@ func _ready() -> void:
 	var sonuc := e._ust_kart.find_child("meclis_soylenti_sonucu", true, false) as Label if e._ust_kart != null else null
 	_kontrol(sonuc != null and sonuc.text.contains("Garip bir yolcunun") and hukum.disabled, "Hüküm kartta yazılır")
 	_kontrol(SoylentiKoprusu.kamuoyu_satiri(o).is_empty(), "Hükümden sonra kamuoyu söner")
+	var dava_dugmesi := e._ust_kart.find_child("meclis_davasi_ac", true, false) as Button if e._ust_kart != null else null
+	_kontrol(dava_dugmesi != null, "MECLIS-ARA-01: Çınar meclisinde dava açma düğmesi var")
+	if dava_dugmesi != null:
+		dava_dugmesi.pressed.emit()
+		for _f in 4:
+			await get_tree().process_frame
+		var dpanel := e.get_node_or_null("MeclisDavaPaneli") as KoyDiyalogPaneli
+		var dy := KoyDiyalogYoneticisi.aktif_yonetici
+		_kontrol(dpanel != null and dy != null and dy.ast != null and dy.ast.title == "meclis_davalari", "MECLIS-ARA-01: meclis_davalari.ds sahnesi açıldı")
+		_kontrol(dy != null and dy.son_secenekler.size() == 4, "MECLIS-ARA-01: 4 dava seçeneği sunuldu")
+		if dy != null and dy.son_secenekler.size() >= 1:
+			dy.secenek_sec(dy.son_secenekler[0])
+			for _f in 4:
+				await get_tree().process_frame
+			_kontrol(dy.son_secenekler.size() == 2, "MECLIS-ARA-01: dava hüküm seçenekleri açıldı")
+			if dy.son_secenekler.size() >= 1:
+				dy.secenek_sec(dy.son_secenekler[0])
+				for _f in 4:
+					await get_tree().process_frame
+		if dpanel != null and is_instance_valid(dpanel):
+			dpanel._kapat()
+			await get_tree().process_frame
 	print("SÖYLENTİ MECLİS UI: GEÇTİ" if hata == 0 else "SÖYLENTİ MECLİS UI: KALDI (%d hata)" % hata)
 	ana.kayit.sil()
 	await Ses.cik(hata)

@@ -276,7 +276,7 @@ Görev 17, "onaylanan 7 madde" dedi. Bunlar ROADMAP'e sonradan eklendi:
 | ANL-EPI-01 | `[x]` | `src/sistemler/epilog_metin_verisi.gd` var | Hiç çağrılmıyor; ROADMAP de "UI arayüz kodu: Kalfa bekleniyor" diyor | SAHTE-BAĞSIZ | Kalfa'ya bırak |
 | SOY-SON-01 | `[ ]` | — | Görev 22 geri açtı; Görev 23'te de bağlanamadı | SAHTE-BAĞSIZ | Kaynak olaylar oyuna girmeden kapanmaz |
 | KVR-SES-01 | `[ ]` | Metin ve adaptör var | Hava motoru Kalfa'da | EKSİK | Kalfa'ya bırak |
-| MECLIS-ARA-01 | `[x]` | `data/parley/koy/meclis_davalari.ds` var | Bu sahneyi açan kod bulunamadı | SAHTE-BAĞSIZ | Çınar meclisi paneline bağla |
+| MECLIS-ARA-01 | `[x]` | `data/parley/koy/meclis_davalari.ds` var | `CinarMeclisPaneli.dava_ac(e)` ve `"meclis_davasi_ac"` (`"Köy davalarını dinle"`) düğmesi `KoyDiyalogPaneli` üzerinden `meclis_davalari` akışını başlatıyor (`soylenti_meclis_kontrol.tscn` ve `cinar_alti_meclisi_kontrol.tscn` `RC=0, ERRS=0`) | TAM | — |
 | SES-DIL-01 | `[x]` | `docs/SESLENDIRME_REJI_KILAVUZU.md` var | Belge maddesi, kod yok | TAM | — |
 
 Ayrıca `gece kapisi ui: map_bg, ornament_emblem, cursor_grab, cursor_busy, icon_akce uretildi` commit'i `assets/ui/atmosfer/gece_kapisi/` altına beş görsel koymuş. Bu, "asset üretilmez" kuralına aykırı. Görseller duruyor; silmek bu denetimin kapsamı dışında.

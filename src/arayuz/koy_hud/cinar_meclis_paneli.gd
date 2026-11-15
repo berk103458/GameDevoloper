@@ -115,7 +115,31 @@ static func ac(e: Node) -> void:
 	if krizler.is_empty(): _metin(e, v, "Meclis çağrısı için aktif kriz yok.")
 	var o: Dictionary = CinarAltiMeclisi.durum(y).oylama
 	if not o.is_empty(): _metin(e, v, "Son meclis\n" + CinarAltiMeclisi.ozet(o) + "\n" + _karar_metni(o))
+	var dava_btn: Button = e._dugme("Köy davalarını dinle", v)
+	dava_btn.name = "meclis_davasi_ac"
+	dava_btn.pressed.connect(func() -> void: dava_ac(e))
 	_don(e, v)
+
+
+static func dava_ac(e: Node) -> Node:
+	if e == null or e.get("oturum") == null:
+		return null
+	if e.has_method("_kart_kapat"):
+		e._kart_kapat()
+	var dy: KoyDiyalogYoneticisi = preload("res://src/diyalog/koy_diyalog_yoneticisi.gd").new()
+	var panel: KoyDiyalogPaneli = preload("res://src/arayuz/koy_diyalog_paneli.gd").ac(e, dy)
+	panel.name = "MeclisDavaPaneli"
+	dy.diyalog_sonlandi.connect(func() -> void:
+		if is_instance_valid(e) and e.get("oturum") != null:
+			e.oturum._koy_esitle()
+			if e.has_method("_yenile"):
+				e._yenile()
+	)
+	if not dy.sekans_baslat("meclis_davalari", e.oturum.yonetim):
+		if is_instance_valid(panel):
+			panel.queue_free()
+		return null
+	return panel
 
 static func _karar_metni(o: Dictionary) -> String:
 	return {"": "Karar bekliyor", "uygulandi": "Halkın kararı uygulandı · sadakat +4, moral +3", "reddedildi": "Muhafız kararıyla reddedildi · adalet −5, sadakat −6", "suresi_doldu": "Kriz değişti veya 2 günlük karar süresi doldu · ek etki yok"}.get(o.karar, "")

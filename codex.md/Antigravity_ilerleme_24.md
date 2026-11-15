@@ -291,3 +291,16 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 18 — `MECLIS-ARA-01` (`TAM`)
+- **Değişiklikler:**
+  - `src/arayuz/koy_hud/cinar_meclis_paneli.gd`: `dava_ac(e)` ve `ac(e)` içinde `"meclis_davasi_ac"` (`"Köy davalarını dinle"`) düğmesi eklendi; `KoyDiyalogYoneticisi` + `KoyDiyalogPaneli` (`"MeclisDavaPaneli"`) ile `sekans_baslat("meclis_davalari", e.oturum.yonetim)` çalıştırılıp karar sonrası köy/oturum senkronize ediliyor (`hud()` görünürlüğü korundu).
+  - `tests/oto/soylenti_meclis_kontrol.gd`: `"meclis_davasi_ac"` tıklaması, `"MeclisDavaPaneli"` açılışı, `ast.title == "meclis_davalari"`, 4 dava seçeneği ve `opt_balta` → `opt_balta_h1` yargı akışı doğrulamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `MECLIS-ARA-01` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . res://tests/oto/soylenti_meclis_kontrol.tscn` → `SÖYLENTİ MECLİS UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/cinar_alti_meclisi_kontrol.tscn` → `ÇINAR ALTI MECLİSİ UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - Not: Ön-mevcut `tests/unit/kvr/soylenti_ve_meclis_davalari_test.gd` 31. satırda `"suc"` söylenti türü reddi nedeniyle kalmaktadır (`SOY-SON-01` maddesinde incelenecek).
+- Asset gerekmedi.
+- kota görünmüyor
