@@ -173,17 +173,7 @@ func tetikle(anahtar: String, guncel_gece: int, gecmis_id: String = "", perde_no
 
 ## OGR-03: Ikinci gece (gece >= 1) ilk zar atisinda ipucu bir kez doner ve `zar_gosterildi = true` yazilir.
 func zar_ipucu_kontrol(guncel_gece: int) -> Dictionary:
-	if guncel_gece < 1 or zar_gosterildi:
-		return {"ipucu_sayisi": 0, "metin": "", "zar_gosterildi": zar_gosterildi}
-	var sonuc := tetikle("ilk_zar_atisi", guncel_gece)
-	if not bool(sonuc.get("gosterildi", false)):
-		return {"ipucu_sayisi": 0, "metin": "", "zar_gosterildi": zar_gosterildi}
-	zar_gosterildi = true
-	return {
-		"ipucu_sayisi": 1,
-		"metin": ipucu_metni("ogretici.zar.formul"),
-		"zar_gosterildi": true,
-	}
+	return ZarIpucu.uygula(self, guncel_gece)
 
 
 ## OGR-21: Ilk insa denemesinde kaynak yetmezse kaynagin nereden geldigini (tas yatagi, oduncu) bir kez soyler.

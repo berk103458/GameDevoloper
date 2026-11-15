@@ -250,6 +250,20 @@ func _initialize() -> void:
 	var ipucu_tekrar: Dictionary = defter_tanitimi.ipucu_ver(defter_oturum)
 	_kontrol(not bool(ipucu_tekrar.get("ipucu_goster", true)), "OGR-14: ipucu yalniz bir kez verilmeli")
 
+	# OGR-03: Gercek Oturum + IlkSaat.zar_ipucu_kontrol + kayit/yukleme ile tek seferlik zar ipucu
+	var zar_ilk2 := ilk.zar_ipucu_kontrol(1)
+	_kontrol(int(zar_ilk2.get("ipucu_sayisi", -1)) == 0, "IlkSaat.zar_ipucu_kontrol ZarIpucu ile tutarli kalmali")
+	var zo := Oturum.new(kat, 1)
+	zo.gun = 0
+	_kontrol(int(ZarIpucuSinifi.oturumda_goster(zo).get("ipucu_sayisi", -1)) == 0, "OGR-03: gece 0'da zar ipucu cikmamali")
+	zo.gun = 1
+	var z_res1 := ZarIpucuSinifi.oturumda_goster(zo)
+	_kontrol(int(z_res1.get("ipucu_sayisi", 0)) == 1 and zo.ipucu_kaydi.goruldu_mu("zar"), "OGR-03: gece 1'de Oturum uzerinden zar ipucu 1 kez donmeli")
+	var z_kayit := zo.kaydet()
+	var zo_yuk := Oturum.kayittan(kat, z_kayit)
+	var z_res2 := ZarIpucuSinifi.oturumda_goster(zo_yuk)
+	_kontrol(int(z_res2.get("ipucu_sayisi", -1)) == 0, "OGR-03: kayit/yukleme sonrasi zar ipucu tekrar cikmamali")
+
 	# OGR-31: Ilk kotu karar bir aciklama satiri alir
 	var kotu_oturum := Oturum.new(kat, 1)
 	var aciklama_ilk := IlkSaatSinifi.ilk_kotu_karar_satiri(kotu_oturum, {"deger": -5, "tur": "kaybi"}, 3)

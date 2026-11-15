@@ -98,7 +98,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | Madde | Başlık | ROADMAP | İlgili dosyalar | Ne var | Ne eksik | Karar | Antigravity'ye not |
 |---|---|---|---|---|---|---|---|
 | OGR-01 | İlk saat | `[x]` | `src/sistemler/ilk_saat.gd` | `koy_hizi_ipucunu_goster` oyunda çağrılıyor | — | TAM | — |
-| OGR-03 | Zar ipucu | `[x]` | `src/kapi/zar_ipucu.gd` | Sınıf ve testi var | `ZarIpucu` oyunda hiç çağrılmıyor; `ilk_saat.gd` içindeki `zar_ipucu_kontrol` ayrı bir fonksiyon | SAHTE-BAĞSIZ | `ilk_saat.gd:175` içindeki kontrolü `ZarIpucu`'ya bağla |
+| OGR-03 | Zar ipucu | `[x]` | `src/kapi/zar_ipucu.gd` | Sınıf ve testi var | `ilk_saat.gd:175` `zar_ipucu_kontrol`, `ZarIpucu.uygula()`'ya; `chr_diyalog_paneli.gd` zar atışı `ZarIpucu.oturumda_goster()` ve `"ZarIpucuNotu"` ipucu bandına bağlandı | TAM | — |
 | OGR-04 | İlk saat bağları | `[x]` | `src/sistemler/ilk_saat.gd`, `src/arayuz/ana.gd` | `Ana._ready` çağırıyor | — | TAM | — |
 | OGR-06 | Tehdit başlangıcı | `[x]` | `data/ogretici/ilk_saat.json` | `tehdit_baslangic` alanı var | — | TAM | — |
 | OGR-07 | İpucu kaydı | `[x]` | `src/sistemler/ipucu_kaydi.gd` | `Oturum` içinde kuruluyor, kayda giriyor | — | TAM | — |

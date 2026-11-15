@@ -219,3 +219,19 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . -s res://tests/unit/soz/uslup_test.gd` → `TEST PASS: uslup_test.gd` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+
+### Madde 13 — `OGR-03` (`TAM`)
+- **Değişiklikler:**
+  - `src/kapi/zar_ipucu.gd`: `ZarIpucu.uygula(ilk_saat, guncel_gece)` ve `ZarIpucu.oturumda_goster(o, ayarlar)` eklendi (`ayarlar != null` kontrolü ve `o.ipucu_kaydi` + `ilk_saat_kancasi.ipucu`/`arac` bağlantısı); `ilk_atis_ipucu` kanonik `uygula`'ya bağlandı.
+  - `src/sistemler/ilk_saat.gd`: `zar_ipucu_kontrol(guncel_gece)` doğrudan `ZarIpucu.uygula(self, guncel_gece)`'ya bağlandı.
+  - `src/arayuz/chr_diyalog_paneli.gd`: Zar atışı sonrası `ZarIpucu.oturumda_goster(oturum, ayarlar)` çağrısı ve `"ZarIpucuNotu"` göstergesi bağlandı.
+  - `tests/unit/sistemler/ilk_saat_test.gd`: Gerçek `Oturum` + `Oturum.kaydet`/`Oturum.kayittan(kat, z_kayit)` + `ZarIpucu.oturumda_goster` doğrulamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `OGR-03` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ilk_saat_test.gd` → `ILK SAAT: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` → `CHR KAPI UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/celiski_goster_kontrol.tscn` → `CELISKI GOSTER UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

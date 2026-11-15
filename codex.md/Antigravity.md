@@ -1258,3 +1258,16 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **12.4 Uygula ve doğrula:** `test_uslup_kapisi.py`, `test_soz_kapi.py`, `tools/soz_dogrulayici.py` ve `uslup_test.gd` çalıştır, `YAZ-02` → `TAM` işaretle ve commit/push et.
 
 - **Sonuç:** `data/soz/yasak_kelimeler.txt`, `tools/soz_dogrulayici.py` ve `tests/tools/test_uslup_kapisi.py` eklendi/güncellendi; `test_uslup_kapisi.py` (3/3), `test_soz_kapi.py` (39/39), `soz_dogrulayici.py` ve `uslup_test.gd` geçti. Asset gerekmedi. kota görünmüyor.
+
+
+### Madde 13 — `OGR-03` (Zar ipucu: `IlkSaat.zar_ipucu_kontrol` -> `ZarIpucu` ve gerçek kapı zarı UI/kayıt bağı) Alt Madde Planı
+- **13.1 Sorunu anla:** `docs/ANTIGRAVITY_DENETIM_LISTESI.md` (`OGR-03`) `ZarIpucu` (`src/kapi/zar_ipucu.gd`) sınıfının gerçek oyun akışından hiç çağrılmadığını ve `src/sistemler/ilk_saat.gd:175` içindeki `zar_ipucu_kontrol` işlevinin `ZarIpucu`'ya bağlanmadığını belirtir.
+- **13.2 Oyuna nasıl bağlandığını kontrol et:**
+  - `IlkSaat.zar_ipucu_kontrol(guncel_gece)` yalnız kendi içinde `tetikle("ilk_zar_atisi", ...)` çalıştırıyor; `ZarIpucu.ilk_atis_ipucu` ise `IlkSaat` nesnesini geri `zar_ipucu_kontrol`'e yönlendiriyor ve gerçek kapı ekranında (`ChrDiyalogPaneli` / `KapiEkrani`) zar atıldığında hiç çağrılmıyor.
+- **13.3 «Daha iyi olur» iyileştirmeleri:**
+  - `src/kapi/zar_ipucu.gd` (`ZarIpucu`): tek kanonik uygulama `uygula(ilk_saat, guncel_gece)` ve gerçek oyun bağlayıcısı `oturumda_goster(o, ayarlar)` eklensin. `oturumda_goster` `o.gun >= 1` ve `o.perde == 1` iken `o.ipucu_kaydi` üzerinden `"zar"` ipucunu bir kez üretir (`IlkSaat.ipucu_metni("ogretici.zar.formul")`, yoksa `FORMUL_METNI`), `"zar"` kaydını yazar (`ilk_saat_kancasi.ipucu(o, "zar")`) ve ikinci çağrıda/yüklemede `0` döner.
+  - `src/sistemler/ilk_saat.gd:175`: `zar_ipucu_kontrol(guncel_gece)` doğrudan `ZarIpucu.uygula(self, guncel_gece)` çağrısına delege edilsin; `ZarIpucu.ilk_atis_ipucu` da `IlkSaat` nesnesinde doğrudan `uygula` çalıştırsın (çift yönlü döngü olmadan).
+  - `src/arayuz/chr_diyalog_paneli.gd`: `sorgu.secenek_sec(i, baglam)` sonrası `not sorgu.son_zar.is_empty()` ise `ZarIpucu.oturumda_goster(oturum, ayarlar)` çağrılsın ve dönen tek satırlık formül ipucu (`ZarIpucuNotu`) panelde gösterilsin.
+- **13.4 Uygula ve doğrula:** `tests/unit/sistemler/ilk_saat_test.gd` içine gerçek `Oturum` + `Oturum.kaydet/kayittan` + `ZarIpucu.oturumda_goster` ve `ChrDiyalogPaneli` zar ipucu gösterimi kontrolü ekle; `ilk_saat_test.gd` ve `chr_kapi_kontrol.tscn` çalıştır (`RC=0, ERRS=0`), `OGR-03` → `TAM` güncelle ve commit/push et.
+
+- **Sonuç:** `OGR-03` tamamlandı (`ZarIpucu.uygula` `ilk_saat.gd:175` `zar_ipucu_kontrol`'a bağlandı; `ZarIpucu.oturumda_goster` ve `ChrDiyalogPaneli` `"ZarIpucuNotu"` üzerinden gerçek zar atışında ilk saat kancası + ipucu kaydı işlendi). `ilk_saat_test.gd` (`ILK SAAT: GEÇTİ (0 hata)`), `chr_kapi_kontrol.tscn` (`CHR KAPI UI: GEÇTİ`), `celiski_goster_kontrol.tscn` (`CELISKI GOSTER UI: GEÇTİ`) `RC=0 ERRS=0` geçti; `OGR-03` → `TAM`. (kota görünmüyor)
