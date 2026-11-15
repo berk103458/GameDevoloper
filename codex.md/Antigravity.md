@@ -1585,3 +1585,12 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `koy_sohbeti_soylenti_test.gd` (`TEST PASS`, RC=0), `soylenti_duydum_uslup_test.gd` (`TEST PASS`, RC=0), `ne_duydun_test.gd` (`NE DUYDUN: GEÇTİ`, RC=0), `soylenti_baglam_test.gd` (`SOY-23 GECTI`, RC=0), `soylenti_meclis_kontrol.tscn` (`SÖYLENTİ MECLİS UI: GEÇTİ`, RC=0), `acilis_bagimlilik_kontrol.tscn` (RC=0), `test_soz_soylenti_kotasi.py` (3/3 OK), `test_uslup_kapisi.py` (3/3 OK), `api_sozlesmesi.py` (`PASS`), `yapaylik.js` (10 ağız satırında 0 uyarı).
 - **Asset:** asset gerekmedi.
 - kota görünmüyor
+
+### 2026-11-16 — Görev Kontrolü ve Durdurma (Antigravity-Berk)
+- `git pull origin claude/festive-volta-li1sfm` sonrası `codex.md/Antigravity_gorev.md` ve `ROADMAP_2.md` kontrol edildi.
+- Orijinal grup, Codex geçici devri (`KLT-18`, `KLT-57`, `GRV-32..45`) ve 6 devralınan madde (`OGR-43`, `KAP-16`, `KAP-39`, `KAP-45`, `KAP-48`, `ACL-02`) içindeki yapılabilir maddelerin tamamı `[x]` durumundadır (`KLT-13/14/47` ve diğer `[/]` maddeler başka ajanların sahipliğindedir).
+- `ROADMAP_2.md` içinde kalan tek boş `[ ]` maddeler (`ARY-02`, `ARY-03`, `ARY-04`, `ARY-70`, `DYL-14`) insan seçimi veya insan veri girişi kuralıyla engellidir.
+- kota görünmüyor
+
+ENGEL
+ROADMAP_2.md'de kalan tüm boş [ ] maddeler gerçek insan engeline takılı: ARY-02 (ve ona bağlı ARY-03, ARY-04, ARY-70) için `docs/arayuz/SABLONLAR.md` içindeki ARY-01 şablon seçimi (Berk + Ahmet) hâlâ boş ve kural gereği seçim olmadan uygulanamıyor; DYL-14 ise "Kayıtları yalnız insan girer ve kaynağı doğrulanır. Model bu deftere örnek yazmaz" kuralı ve bekleyen YAZ-01 onayı nedeniyle model tarafından yazılamıyor. Kalan diğer açık maddeler başkasının [/] sahipliğindedir.
