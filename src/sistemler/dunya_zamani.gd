@@ -109,6 +109,8 @@ static func satir_hatasi(olay: Variant, bilinen_olgular: Dictionary) -> String:
 		var hk: Variant = (etki as Dictionary).get("hedef_kapi", "")
 		if hk is Array and (hk as Array).size() > 1:
 			return "coklu_hedef_kapi:%s" % id
+		if hk is String and (String(hk).contains(",") or String(hk).contains(";")):
+			return "coklu_hedef_kapi:%s" % id
 		var hklar: Variant = (etki as Dictionary).get("hedef_kapilar", [])
 		if hklar is Array and (hklar as Array).size() > 1:
 			return "coklu_hedef_kapi:%s" % id
@@ -215,6 +217,7 @@ static func oku(v: Variant) -> Dictionary:
 		"son_gece": -1,
 		"taban_gun": 0,
 		"etki_uygulananlar": [],
+		"etkiler": {},
 		"kararlar": _varsayilan_kararlar(),
 		"bekleyen_karar_isaretleri": [],
 		"son_karar_gece": -1,
@@ -239,6 +242,7 @@ static func oku(v: Variant) -> Dictionary:
 			var s := String(x).strip_edges()
 			if not s.is_empty() and not (s in d["etki_uygulananlar"]):
 				(d["etki_uygulananlar"] as Array).append(s)
+	d["etkiler"] = DunyaEtkisi.temiz_etkiler(ham.get("etkiler", {}))
 	var kr: Variant = ham.get("kararlar", {})
 	if kr is Dictionary:
 		for k in GERI_DONEN_KARARLAR:

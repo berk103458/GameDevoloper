@@ -17,6 +17,9 @@ static func oku(v: Variant) -> Dictionary:
 static func durum(o: Oturum) -> Dictionary:
  var kalan:=maxi(0,int(AYAR.varis_gunu)-maxi(0,o.gun))
  return {"ad":String(AYAR.ad),"kalan":kalan,"sinirda":kalan==0}
+## DNY-03 tehdit kapısı çarpanı (ikinci sayaç/zar eklemez).
+static func tehdit_carpani(o: Oturum) -> float:
+ return DunyaEtkisi.o_carpani(o, "tehdit_kapisi")
 ## Aynı harita bilgi alanına insan metni verir; geliş tarihi dış JSON varsayımıdır.
 static func metin(o: Oturum) -> String:
  return olay_metin(durum(o))

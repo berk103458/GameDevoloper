@@ -93,10 +93,11 @@ static func dunya_olayi_carpani(o: Oturum) -> float:
 	if o == null or o.yonetim == null or o.yonetim.son != &"":
 		return 1.0
 	var isaretler := DunyaZamani.isaretler(o)
-	var carpan := 1.0
+	var etkiler: Dictionary = DunyaEtkisi.temiz_etkiler(o.dunya_zamani.get("etkiler", {}))
+	var carpan := DunyaEtkisi.o_carpani(o, "gelen_akisi")
 	for olay in DunyaZamani.gecerli_olaylar():
 		var oid := String(olay.get("id", "")).strip_edges()
-		if not ("%s.etki" % oid in isaretler):
+		if etkiler.has(oid) or not ("%s.etki" % oid in isaretler):
 			continue
 		var evreler: Variant = olay.get("evreler", {})
 		if not (evreler is Dictionary):

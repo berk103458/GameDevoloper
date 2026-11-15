@@ -207,6 +207,9 @@ func _initialize() -> void:
 	# 11. DNY-04: Oyuncunun kararları dünyaya geri döner
 	_test_dny04_kararlar(kat)
 
+	# 12. DNY-03: Dünya olayları doğru kapılara etki yazar
+	_test_dny03_etkiler(kat)
+
 	if _hata == 0:
 		print("DUNYA ZAMANI TESTI: GEÇTİ (0 hata)")
 		quit(0)
@@ -386,3 +389,116 @@ func _test_dny04_kararlar(kat: Katalog) -> void:
 		o_turk.gece_sonu()
 	var s_kimlik := nihai_sinif.son(o_turk, &"zafer")
 	_kontrol(s_kimlik in bes_son, "SYS-20 son kimliği beş değerden biri olmalı: %s" % s_kimlik)
+
+
+func _test_dny03_etkiler(kat: Katalog) -> void:
+	# a) Tüm 6 dünya olayı yalnızca kendi 1 hedef kapısını etkiler ve ikinci kez uygulanmaz
+	var o_base := Oturum.new(kat, 3031)
+	var o_etki := Oturum.new(kat, 3031)
+	o_base.yonetim.kabul({"ad": "Hasan", "sinif": &"ciftci", "stat": 5})
+	o_etki.yonetim.kabul({"ad": "Hasan", "sinif": &"ciftci", "stat": 5})
+	_besle(o_base)
+	_besle(o_etki)
+	o_base.yonetim.harac_bekliyor = true
+	o_etki.yonetim.harac_bekliyor = true
+	o_base.yonetim.kaynaklar.stok["bugday"] = 500
+	o_etki.yonetim.kaynaklar.stok["bugday"] = 500
+
+	var olaylar_by_id := {}
+	for ev in DunyaZamaniSinifi.cizelge().get("olaylar", []):
+		olaylar_by_id[String(ev.get("id", ""))] = ev
+
+	var beklenen_kapilar := {
+		"mogol_ilerleyisi": "tehdit_kapisi",
+		"selcuklu_taht_kavgasi": "gelen_akisi",
+		"bizans_uc_baskisi": "harac",
+		"kitlik_yili": "tuketim",
+		"salgin_dalgasi": "saglik_yoneticisi",
+		"ticaret_yolunun_kapanmasi": "fiyat",
+	}
+
+	for oid in beklenen_kapilar:
+		var ev: Dictionary = olaylar_by_id.get(oid, {})
+		_kontrol(not ev.is_empty(), "DNY-03 olay bulunamadi: %s" % oid)
+		_kontrol(DunyaEtkisi.satir_hatasi(ev) == "", "Gecerli olay satir hatasi vermemeli: %s" % oid)
+		var r_etki := {"gun": o_etki.gun, "olaylar": []}
+		var sonuc := DunyaEtkisi.uygula(o_etki, ev, r_etki)
+		_kontrol(bool(sonuc.get("yazildi", false)), "Etki evresi yazilmali: %s -> %s" % [oid, str(sonuc)])
+		_kontrol(String(sonuc.get("hedef_kapi", "")) == beklenen_kapilar[oid], "Hedef kapi eslesmeli: %s" % oid)
+		_kontrol((r_etki["olaylar"] as Array).size() == 1, "Her gecerli olay icin rapora tek satir dusmeli: %s" % oid)
+		var rapor_satir := String((r_etki["olaylar"] as Array)[0].get("anahtar", ""))
+		_kontrol(rapor_satir.contains(oid), "Gece raporu olay kimligini icermeli: %s" % rapor_satir)
+
+		# İkinci kez uygulama aynı olay kimliği için reddedilmeli
+		var r_tekrar := {"gun": o_etki.gun, "olaylar": []}
+		var sonuc_tekrar := DunyaEtkisi.uygula(o_etki, ev, r_tekrar)
+		_kontrol(not bool(sonuc_tekrar.get("yazildi", true)) and (r_tekrar["olaylar"] as Array).is_empty(), "Ayni olay ikinci kez uygulanmamali: %s" % oid)
+
+	# 6 hedef kapıda gerçek etki farkı oluşmalı, yan mekanikler şişirilmemeli
+	_kontrol(MogolOncusu.tehdit_carpani(o_etki) > MogolOncusu.tehdit_carpani(o_base), "mogol_ilerleyisi tehdit_kapisi carpanini artirmali")
+	_kontrol(GelenAkisi.dunya_olayi_carpani(o_etki) > GelenAkisi.dunya_olayi_carpani(o_base), "selcuklu_taht_kavgasi gelen_akisi carpanini artirmali")
+	var harac_base := TekfurHaracHeyeti.harac_bedeli(o_base.yonetim)
+	var harac_etki := TekfurHaracHeyeti.harac_bedeli(o_etki.yonetim)
+	_kontrol(int(harac_etki["akce"]) > int(harac_base["akce"]) and int(harac_etki["bugday"]) > int(harac_base["bugday"]), "bizans_uc_baskisi harac bedelini artirmali")
+	var akce_harac_once := o_etki.yonetim.akce
+	_kontrol(TekfurHaracHeyeti.ode(o_etki.yonetim) and (akce_harac_once - o_etki.yonetim.akce) == int(harac_etki["akce"]), "TekfurHaracHeyeti.ode carpanli bedeli kesmeli")
+	var tuketim_base := TuketimDengesi.gerek(o_base.yonetim)
+	var tuketim_etki := TuketimDengesi.gerek(o_etki.yonetim)
+	_kontrol(float(tuketim_etki["kisi_gida"]) > float(tuketim_base["kisi_gida"]), "kitlik_yili tuketim kisi_gida miktarini artirmali")
+	_kontrol(SaglikYoneticisi.AYAR.size() == 3, "salgin_dalgasi yeni hastalik eklememeli (3 sabit tur)")
+	_kontrol(DunyaEtkisi.y_carpani(o_etki.yonetim, "saglik_yoneticisi") > 1.0, "salgin_dalgasi saglik_yoneticisi carpanini artirmali")
+	_kontrol(TicaretFiyatlari.carpan(o_etki.yonetim, "gida") > TicaretFiyatlari.carpan(o_base.yonetim, "gida"), "ticaret_yolunun_kapanmasi fiyat carpanini artirmali")
+
+	# b) Kayıt-yükleme sonrası çarpanlar korunur, etkiler tekrar yazılmaz
+	var kayit_etki := o_etki.kaydet()
+	var yuklenen_etki := Oturum.kayittan(kat, kayit_etki)
+	_kontrol(yuklenen_etki != null, "Dunya etkileri olan kayit yuklenebilmeli")
+	if yuklenen_etki != null:
+		_kontrol(TuketimDengesi.gerek(yuklenen_etki.yonetim)["kisi_gida"] == tuketim_etki["kisi_gida"], "Yukleme sonrasi tuketim carpani korunmali")
+		_kontrol(TicaretFiyatlari.carpan(yuklenen_etki.yonetim, "gida") == TicaretFiyatlari.carpan(o_etki.yonetim, "gida"), "Yukleme sonrasi fiyat carpani korunmali")
+		var r_yukleme := {"gun": yuklenen_etki.gun, "olaylar": []}
+		var res_yuk := DunyaEtkisi.uygula(yuklenen_etki, olaylar_by_id["kitlik_yili"], r_yukleme)
+		_kontrol(not bool(res_yuk.get("yazildi", true)) and (r_yukleme["olaylar"] as Array).is_empty(), "Yukleme sonrasi ayni olay tekrar uygulanmamali")
+
+	# c) İki kapı isteyen olay satırı doğrulayıcıdan 1 hata alır
+	var iki_kapili_cizelge := {
+		"olaylar": [
+			{
+				"id": "cift_kapi_olayi",
+				"evreler": {
+					"erken_soylenti": {"gun": 2},
+					"kesin_haber": {"gun": 4},
+					"etki": {"gun": 6, "hedef_kapi": ["harac", "fiyat"]},
+				},
+			}
+		]
+	}
+	var dz_hatalar := DunyaZamaniSinifi.dogrula(iki_kapili_cizelge)
+	var de_hatalar := DunyaEtkisi.dogrula(iki_kapili_cizelge)
+	_kontrol(dz_hatalar.size() == 1, "Iki kapili satir DunyaZamani.dogrula icinde 1 hata vermeli: %s" % str(dz_hatalar))
+	_kontrol(de_hatalar.size() == 1, "Iki kapili satir DunyaEtkisi.dogrula icinde 1 hata vermeli: %s" % str(de_hatalar))
+
+	# d) Listede olmayan hedef kapı hiçbir çubuğu değiştirmez, raporda yazılmadı satırı görünür
+	var o_bilinmeyen := Oturum.new(kat, 3032)
+	o_bilinmeyen.yonetim.kabul({"ad": "Kemal", "sinif": &"ciftci", "stat": 5})
+	_besle(o_bilinmeyen)
+	var akce_once := o_bilinmeyen.yonetim.akce
+	var adalet_once := o_bilinmeyen.yonetim.adalet
+	var nufus_once := o_bilinmeyen.yonetim.koylular.size()
+	var moral_once := int(o_bilinmeyen.yonetim.koylular[0].moral)
+	var r_yok := {"gun": o_bilinmeyen.gun, "olaylar": []}
+	var gecersiz_olay := {
+		"id": "hayali_olay",
+		"evreler": {
+			"etki": {"gun": 5, "hedef_kapi": "olmayan_kapi", "carpan": 2.0},
+		},
+	}
+	var son_yok := DunyaEtkisi.uygula(o_bilinmeyen, gecersiz_olay, r_yok)
+	_kontrol(not bool(son_yok.get("yazildi", true)) and String(son_yok.get("neden", "")) == "yazilmadi", "Listede olmayan hedef kapi yazilmadi donmeli")
+	_kontrol(o_bilinmeyen.yonetim.akce == akce_once and o_bilinmeyen.yonetim.adalet == adalet_once and o_bilinmeyen.yonetim.koylular.size() == nufus_once and int(o_bilinmeyen.yonetim.koylular[0].moral) == moral_once, "Gecersiz kapi hicbir cubugu degistirmemeli")
+	_kontrol((r_yok["olaylar"] as Array).size() == 1 and String((r_yok["olaylar"] as Array)[0].get("anahtar", "")).contains("hayali_olay") and String((r_yok["olaylar"] as Array)[0].get("anahtar", "")).contains("yazılmadı"), "Gecersiz kapi gece raporunda yazilmadi satiri gostermeli: %s" % str(r_yok["olaylar"]))
+
+	# e) OlayVerisi şeması değişmemiştir
+	var olay_verisi_kod := FileAccess.get_file_as_string("res://src/veri/olay_verisi.gd")
+	_kontrol(not olay_verisi_kod.contains("hedef_kapi") and not olay_verisi_kod.contains("dunya_etkisi"), "OlayVerisi semasi degismemeli")
+

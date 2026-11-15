@@ -5,7 +5,7 @@ extends RefCounted
 static func gerek(y: KoyYonetimi) -> Dictionary:
 	var tablo = preload("res://src/sistemler/denge_tablosu.gd")
 	var zorluk := String(y.get_meta(&"zorluk", "olagan"))
-	var kisi_gida := y.a.gida_kisi * IklimDeneyi.gida_carpani(y) * tablo.zorluk_carpani(tablo.oku(), zorluk)
+	var kisi_gida := y.a.gida_kisi * IklimDeneyi.gida_carpani(y) * tablo.zorluk_carpani(tablo.oku(), zorluk) * DunyaEtkisi.y_carpani(y, "tuketim")
 	return {"gida": ceili(y.nufus() * kisi_gida), "odun": MevsimTuketimAdaptoru.odun(y), "kisi_gida": kisi_gida}
 ## Gerçek HUD kaynak kartının gecelik ihtiyaç ve eksik kaynak açıklaması.
 static func tip(y: KoyYonetimi, tur: String) -> String:

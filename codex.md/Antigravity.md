@@ -1526,3 +1526,13 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `usta_gelisi_test.gd` (`USTA GELISI (YAP-03): GEÇTİ`), `ustalar_metin_test.gd` (0 hata), `yapi_bilgisi_test.gd` (`YAPI BİLGİSİ: GEÇTİ`), `soz_dosyasi_opsiyonel_test.gd` (`OPTIONAL SÖZ KAYDI: GEÇTİ`), `ilk_saat_kontrol.tscn` (`ILK SAAT KAPANIS (OGR-57): GEÇTİ`), `heybe_kilit_test.tscn` (`HEYBE KILIT: GEÇTİ`), `chr_kapi_kontrol.tscn` (RC=0), `acilis_bagimlilik_kontrol.tscn` (RC=0).
 - **Asset:** asset gerekmedi (`YAP03-USTALAR` `docs/EKSIK_ASSET_ENVANTERI.md` içinde mevcut).
 - kota görünmüyor
+
+### 2026-11-16 — DNY-03 Tamamlandı (Antigravity-Berk)
+- **Değişiklikler:**
+  - `src/sistemler/dunya_etkisi.gd`: `DunyaEtkisi` eklendi (`GECERLI_KAPILAR`, tek kapı doğrulaması `satir_hatasi`/`dogrula`, tek seferlik `uygula`, `esitle`, `y_carpani`/`o_carpani`, geçersiz/eksik kapı için "yazılmadı" gece raporu satırı).
+  - `src/sistemler/dunya_zamani.gd`, `src/sistemler/oturum.gd`: Çizelge doğrulama + `etkiler` kalıcılığı ve `_koy_esitle()` senkronizasyonu bağlandı (`OlayVerisi` şemasına dokunulmadı).
+  - `src/sistemler/mogol_oncusu.gd`, `src/kapi/gelen_akisi.gd`, `src/sistemler/tekfur_harac_heyeti.gd`, `src/koy/tuketim_dengesi.gd`, `src/koy/saglik_yoneticisi.gd`, `src/koy/ticaret/ticaret_fiyatlari.gd`: Altı hedef kapı (`tehdit_kapisi`, `gelen_akisi`, `harac`, `tuketim`, `saglik_yoneticisi`, `fiyat`) `DunyaEtkisi` çarpanlarına bağlandı; yeni hastalık/isyan/pazar açılmadı.
+  - `tests/unit/sistemler/dunya_test.gd`: `_test_dny03_etkiler` ile 6 kapı etkisi, çift kapı doğrulama hatası, bilinmeyen kapıda sıfır bar değişimi ve `"yazılmadı"` satırı, kayıt/yükleme idempotansı ve `OlayVerisi` şema koruması doğrulandı.
+- **Doğrulama:** `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`), `mogol_oncusu_test.gd` (`MOGOL ONCUSU: GEÇTİ`), `fiyat_test.gd` (`FİYAT ÖLÇÜMÜ: GEÇTİ`), `ticaret_fiyatlari_test.gd` (`TİCARET FİYATLARI: GEÇTİ`), `tekfur_harac_heyeti_test.gd` (`TEKFUR HEYETI: GEÇTİ`), `gelen_akisi_test.gd` (`GELEN AKISI: GEÇTİ`), `usta_gelisi_test.gd` (`USTA GELISI (YAP-03): GEÇTİ`), `acilis_bagimlilik_kontrol.tscn` (`RC=0`). (`tuketim_dengesi_test.gd` ve `soz_ikiz_test.gd` mevcut `YapiKilidi`/`AcilisSenaryosu` gün-0/1 kapı-inşa kilidinden bağımsız ön-mevcut kaldı.)
+- **Asset:** asset gerekmedi.
+- kota görünmüyor

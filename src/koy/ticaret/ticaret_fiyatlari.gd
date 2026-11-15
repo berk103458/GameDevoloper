@@ -12,7 +12,7 @@ static func soylenti_carpani(y: KoyYonetimi) -> float:
 ## Kış kıtlığı/yaz bolluğu yalnız yakacak ve erzak türlerine uygulanır; dış kervan söylentisi pazar çarpanını artırır.
 static func carpan(y: KoyYonetimi, tur: String) -> float:
  var temel: float = float(AYAR.mevsim_carpani[y.mevsim()]) if tur in AYAR.urunler else 1.0
- return temel * soylenti_carpani(y)
+ return temel * soylenti_carpani(y) * DunyaEtkisi.y_carpani(y, "fiyat")
 ## Genel veya uzman alışın aynı birim bedeli; mevcut Tekfur farkı korunur.
 static func al_birim(y: KoyYonetimi, tur: String) -> float:
  var u: Dictionary = GezginTuccarStogu.urunler(y).get(tur, {})

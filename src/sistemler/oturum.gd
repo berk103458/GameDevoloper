@@ -428,6 +428,7 @@ func _herkese_moral(m: int) -> void:
 
 ## Köy nüfusu (sınıf sayıları ve adlılar) köy yönetiminden yeniden kurulur.
 func _koy_esitle() -> void:
+	DunyaEtkisi.esitle(self)
 	for s in koy.sayilar:
 		koy.sayilar[s] = 0
 	koy.adlilar.clear()
