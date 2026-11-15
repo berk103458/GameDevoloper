@@ -42,7 +42,8 @@ static func uygula(kulp: Control, y: KoyYonetimi, k: Koylu = null) -> Dictionary
 		var vurgu := (load("res://src/arayuz/koy_hud/ilk_atama_vurgusu.gd") as GDScript).new() as ColorRect
 		vurgu.name = VURGU_ADI
 		vurgu.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		vurgu.color = Color(0.95, 0.78, 0.25, 0.35)
+		vurgu.color = Kabuk.vurgu()
+		vurgu.color.a = 0.35
 		vurgu.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		kulp.add_child(vurgu)
 	return {

@@ -1390,3 +1390,6 @@ Divan ekranı ile sorgu, hüküm ve haksızlık panellerinin dördü ortak temay
 
 ## 15 Kasım 2026 — GRV-11 (Codex-Berk)
 Odanın yerel zemin rengi ve panel stili kaldırıldı; mevcut 3B oda korunarak Panel ve PanelContainer ortak temayı miras alır. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-08 (Codex-Berk)
+Köy HUD klasörünün tamamı ortak kaynak taramasından geçti; kalan yerel renk/punto ve kutu kurulumları Kabuk/Tema kaynaklarına taşındı. İşlevler değiştirilmedi. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

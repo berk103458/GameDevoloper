@@ -14,8 +14,7 @@ static func ac(koy: KoyEkrani) -> bool:
 	kat.name = "KapiAcilisSunumu"
 	kat.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	koy.add_child(kat)
-	var renk := ColorRect.new()
-	renk.color = Color("10171c")
+	var renk := Panel.new()
 	renk.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	kat.add_child(renk)
 	var kutu := VBoxContainer.new()
@@ -27,7 +26,7 @@ static func ac(koy: KoyEkrani) -> bool:
 	kutu.add_child(yer)
 	var baslik := Label.new()
 	baslik.text = String(AK.AYAR.ulak)
-	baslik.add_theme_font_size_override("font_size", 36)
+	baslik.add_theme_font_size_override("font_size", Kabuk.BASLIK)
 	kutu.add_child(baslik)
 	var olay := load("res://data/olaylar/kapi_acilisi.tres") as OlayVerisi
 	var metin := Label.new()

@@ -7203,7 +7203,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-02. Boyut: S.
   - Dosya: `kapi_ekrani.gd`.
   - Asset: asset gerekmedi.
-- [/] **GRV-08:** (Codex-Berk) Köy HUD `src/arayuz/koy_hud/`.
+- [x] **GRV-08:** (Codex-Berk) Köy HUD `src/arayuz/koy_hud/`.
   - Ne: 43 panel tek tema kaynağı. Her panele ayrı palet yok. İşlev (pazar, meclis, cenaze, vergi) durur.
   - Kabul: klasörde yerel renk tarama 0, istisna listesi ARY-02 belgesinde. Test: tarama.
   - Bağımlılık: ARY-02. Boyut: L.

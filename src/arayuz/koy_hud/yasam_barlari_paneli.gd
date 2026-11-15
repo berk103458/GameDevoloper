@@ -24,9 +24,8 @@ static func _satir(anahtar: String, d: Dictionary) -> Control:
 	var satir := HBoxContainer.new()
 	satir.name = "yasam_" + anahtar
 	satir.add_theme_constant_override("separation", 8)
-	var ikon := ColorRect.new() # YSM01-IKON yer tutucusu; gerçek ikon gelince bu kutu değişir.
-	ikon.custom_minimum_size = Vector2(14, 14)
-	ikon.color = IKON_RENK.get(anahtar, Color.WHITE)
+	var renk: Color = IKON_RENK.get(anahtar, Kabuk.SOLUK)
+	var ikon := Kabuk.yer_tutucu(anahtar, renk.to_html(), Vector2(14, 14))
 	satir.add_child(ikon)
 	var ad := Label.new()
 	ad.text = TranslationServer.translate(ADLAR.get(anahtar, anahtar))

@@ -4,7 +4,7 @@
 class_name YeniDugmeIsareti
 extends Control
 
-const VURGU_RENGI := Color(0.95, 0.78, 0.28, 0.92)
+const VURGU_RENGI := Kabuk.BAR_DOLU
 
 var _isaretli: Dictionary = {}
 var _gorulen: Dictionary = {}
@@ -56,4 +56,6 @@ func tiklama_sayisi(dugme_id: String) -> int:
 func _draw() -> void:
 	if _isaretli.is_empty():
 		return
-	draw_rect(Rect2(Vector2.ZERO, size), VURGU_RENGI, false, 2.0)
+	var renk := VURGU_RENGI
+	renk.a = 0.92
+	draw_rect(Rect2(Vector2.ZERO, size), renk, false, 2.0)
