@@ -67,5 +67,74 @@ func _initialize() -> void:
 	for v in [null,{}, {"son_gun":true,"son_ziyaret":"1","bekleyen":INF,"basari":1.5,"sonuc":"uydurma"}]:
 		var d:=GocYoluGuvenligi.oku(v)
 		dene(d.son_gun==-1 and d.bekleyen==0,"Bozuk optional alanlar elenir")
+	# SOY-37: "yol_guvensiz" kamuoyu olunca kapıya gelen sayısı o gece -1; doğruysa ertesi gün de.
+	var so_y := Oturum.new(kat, 9137)
+	so_y.gun = 3
+	for i in 6:
+		so_y.yonetim.kabul({"sinif": "ciftci"})
+	var baz_gelen := so_y.gece_kuyrugu().size()
+	var ag_y := SoylentiKoprusu.ag(so_y) as SoylentiAgi
+	var y_ek := ag_y.soylenti_ekle("yol_yanlis_1", "yol_guvensiz", str(so_y.yonetim.koylular[0].id), false, {"gece": so_y.gun})
+	dene(bool(y_ek.get("olur", false)), "Yol güvensiz söylentisi ağa girer")
+	ag_y.gece_ilerlet(so_y.gun, so_y.yonetim.koylular.size())
+	ag_y.gece_ilerlet(so_y.gun, so_y.yonetim.koylular.size())
+	dene(so_y.gece_kuyrugu().size() == baz_gelen - 1, "SOY-37: yol güvensiz (yanlış) o gece gelen -1")
+	so_y.gun += 1
+	dene(so_y.gece_kuyrugu().size() == baz_gelen, "SOY-37: yanlış söylenti ertesi gün normale döner")
+	var so_d := Oturum.new(kat, 9138)
+	var so_ref := Oturum.new(kat, 9138)
+	so_d.gun = 3
+	so_ref.gun = 3
+	for i in 6:
+		so_d.yonetim.kabul({"sinif": "ciftci"})
+		so_ref.yonetim.kabul({"sinif": "ciftci"})
+	var ag_d := SoylentiKoprusu.ag(so_d) as SoylentiAgi
+	ag_d.soylenti_ekle("yol_dogru_1", "yol_guvensiz", str(so_d.yonetim.koylular[0].id), true, {"gece": so_d.gun})
+	ag_d.gece_ilerlet(so_d.gun, so_d.yonetim.koylular.size())
+	ag_d.gece_ilerlet(so_d.gun, so_d.yonetim.koylular.size())
+	dene(so_d.gece_kuyrugu().size() == so_ref.gece_kuyrugu().size() - 1, "SOY-37: yol güvensiz (doğru) o gece -1")
+	so_d.gun += 1
+	so_ref.gun += 1
+	dene(so_d.gece_kuyrugu().size() == so_ref.gece_kuyrugu().size() - 1, "SOY-37: yol güvensiz (doğru) ertesi gün de -1")
+	so_d.gun += 1
+	so_ref.gun += 1
+	dene(so_d.gece_kuyrugu().size() == so_ref.gece_kuyrugu().size() and GocYoluGuvenligi.soylenti_gelen_farki(so_d) == 0, "SOY-37: ikinci gün sonrası normal")
+	# Gerçek Oturum.gece_sonu() + kaydet/kayittan akışında süre kontrolü (eşli referans oturumla):
+	var gs_y := Oturum.new(kat, 9139)
+	var gs_y_ref := Oturum.new(kat, 9139)
+	for x in [gs_y, gs_y_ref]:
+		x.yonetim.kaynaklar = Kaynaklar.new(10000, {"gida": 2000, "odun": 200})
+		x.gun = 3
+		for i in 6:
+			x.yonetim.kabul({"sinif": "ciftci"})
+	var ag_gs_y := SoylentiKoprusu.ag(gs_y) as SoylentiAgi
+	ag_gs_y.soylenti_ekle("yol_gs_y", "yol_guvensiz", str(gs_y.yonetim.koylular[0].id), false, {"gece": gs_y.gun})
+	gs_y.gece_sonu()
+	gs_y_ref.gece_sonu()
+	dene(GocYoluGuvenligi.soylenti_gelen_farki(gs_y) == -1 and gs_y.gece_kuyrugu().size() == gs_y_ref.gece_kuyrugu().size() - 1, "SOY-37: gece_sonu sonrası yanlış yol söylentisi ilk gece -1")
+	var gs_yuk := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(gs_y.kaydet())))
+	var gs_ref_yuk := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(gs_y_ref.kaydet())))
+	dene(GocYoluGuvenligi.soylenti_gelen_farki(gs_yuk) == -1 and gs_yuk.gece_kuyrugu().size() == gs_ref_yuk.gece_kuyrugu().size() - 1, "SOY-37: kaydet/kayittan sonrası gelen farkı korunur")
+	gs_yuk.gece_sonu()
+	gs_ref_yuk.gece_sonu()
+	dene(GocYoluGuvenligi.soylenti_gelen_farki(gs_yuk) == 0 and gs_yuk.gece_kuyrugu().size() == gs_ref_yuk.gece_kuyrugu().size(), "SOY-37: gece_sonu ertesi yanlış söylenti düzelir")
+	var gs_d := Oturum.new(kat, 9140)
+	var gs_d_ref := Oturum.new(kat, 9140)
+	for x in [gs_d, gs_d_ref]:
+		x.yonetim.kaynaklar = Kaynaklar.new(10000, {"gida": 2000, "odun": 200})
+		x.gun = 3
+		for i in 6:
+			x.yonetim.kabul({"sinif": "ciftci"})
+	var ag_gs_d := SoylentiKoprusu.ag(gs_d) as SoylentiAgi
+	ag_gs_d.soylenti_ekle("yol_gs_d", "yol_guvensiz", str(gs_d.yonetim.koylular[0].id), true, {"gece": gs_d.gun})
+	gs_d.gece_sonu()
+	gs_d_ref.gece_sonu()
+	dene(GocYoluGuvenligi.soylenti_gelen_farki(gs_d) == -1 and gs_d.gece_kuyrugu().size() == gs_d_ref.gece_kuyrugu().size() - 1, "SOY-37: gece_sonu sonrası doğru yol söylentisi 1. gece -1")
+	gs_d.gece_sonu()
+	gs_d_ref.gece_sonu()
+	dene(GocYoluGuvenligi.soylenti_gelen_farki(gs_d) == -1 and gs_d.gece_kuyrugu().size() == gs_d_ref.gece_kuyrugu().size() - 1, "SOY-37: gece_sonu sonrası doğru yol söylentisi 2. gece de -1")
+	gs_d.gece_sonu()
+	gs_d_ref.gece_sonu()
+	dene(GocYoluGuvenligi.soylenti_gelen_farki(gs_d) == 0 and gs_d.gece_kuyrugu().size() == gs_d_ref.gece_kuyrugu().size(), "SOY-37: doğru yol söylentisi 3. gece düzelir")
 	print("GOC YOLU: GEÇTİ" if hata==0 else "GOC YOLU: KALDI")
 	quit(hata)

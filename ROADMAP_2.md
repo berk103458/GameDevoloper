@@ -5634,7 +5634,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-12, DEN-01. Boyut: S.
   - Dosya: fiyat okuyucusuna tek satır; `denge.json`.
   - Asset: asset gerekmedi.
-- [/] **SOY-37:** Göç söylentisi (`goc_yolu_guvenligi.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor) (Antigravity-Berk)
+- [x] **SOY-37:** Göç söylentisi (`goc_yolu_guvenligi.gd`). (Antigravity-Berk: `GocYoluGuvenligi.soylenti_gelen_farki` ve `Oturum.gece_kuyrugu` gerçek `Oturum.gece_sonu()` ile bağlandı; yanlış `yol_guvensiz` kamuoyu o gece −1 yapıp ertesi gece düzeliyor, doğru söylenti 2 gece −1 sonra düzeliyor ve `kaydet/kayittan` ile korunuyor; `goc_yolu_guvenligi_test.gd`, `goc_yolu_kontrol.tscn` ve `soylenti_ayar_tarama_test.gd` geçti)
   - Ne: "yol güvensiz" söylentisi kamuoyu olunca kapıya gelen sayısı o gece −1 (öneri); doğruysa ertesi gün de.
   - Kabul: gelen sayısı −1. Test: birim.
   - Bağımlılık: SOY-12. Boyut: S.

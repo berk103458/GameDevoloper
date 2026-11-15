@@ -1472,3 +1472,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `ticaret_fiyatlari_test.gd` (`TİCARET FİYATLARI: GEÇTİ`), `fiyat_test.gd` (`FİYAT ÖLÇÜMÜ: GEÇTİ`), `soylenti_ayar_tarama_test.gd` (`SÖYLENTİ AYAR TARAMA: GEÇTİ`), `tests/oto/ticaret_fiyat_kontrol.tscn` (RC=0, 0 SCRIPT ERROR), `tools/denge_dogrula.py` (`Denge dogrulama: GECTI`).
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+### 2026-11-15 — SOY-37 Tamamlandı (Antigravity-Berk)
+- **Kapsam:** `src/sistemler/goc_yolu_guvenligi.gd` (`soylenti_gelen_farki`), `src/sistemler/oturum.gd` (`gece_kuyrugu` gelen sayısı bağlantısı), `tests/unit/kvr/goc_yolu_guvenligi_test.gd` (yanlış 1 gece / doğru 2 gece, gerçek `Oturum.gece_sonu()` ve `kaydet/kayittan` akışı).
+- **Doğrulama:** `goc_yolu_guvenligi_test.gd` (`GOC YOLU: GEÇTİ`), `tests/oto/goc_yolu_kontrol.tscn` (RC=0, 0 SCRIPT ERROR), `soylenti_ayar_tarama_test.gd` (`SÖYLENTİ AYAR TARAMA: GEÇTİ`).
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor

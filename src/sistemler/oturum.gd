@@ -126,7 +126,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 	if GecisGecesi.gecis_gecesi_mi(yonetim): return []
 	koy.bu_gece_girenler = []
 	var sayi := ayarlar.gece_basina_gelen if perde == 1 else ayarlar.perde2_gece_basina_gelen
-	sayi = maxi(1, sayi + sonraki_gelen_ek)
+	sayi = maxi(1, sayi + sonraki_gelen_ek + GocYoluGuvenligi.soylenti_gelen_farki(self))
 	sonraki_gelen_ek = 0
 	var uygun := preload("res://src/sistemler/tehdit_takvimi.gd").adaylar(gun, kadro.uygunlar(gun))
 	var sonuc: Array[Gelen] = []

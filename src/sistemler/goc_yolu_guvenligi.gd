@@ -63,6 +63,12 @@ static func ziyaret(o: Oturum,kuyruk: Array[Gelen]) -> void:
 	d.bekleyen=int(d.bekleyen)-1
 	d.son_ziyaret=o.gun
 	o.goc_yolu_guvenligi=d
+## SOY-37: "yol güvensiz" kamuoyu olunca kapıya gelen sayısı o gece -1 (doğruysa ertesi gün de).
+static func soylenti_gelen_farki(o: Oturum) -> int:
+	if o == null or not o.has_meta(SoylentiKoprusu.META): return 0
+	var ag: Variant = o.get_meta(SoylentiKoprusu.META)
+	if ag == null or not ag.has_method("goc_gelen_farki"): return 0
+	return int(ag.goc_gelen_farki(o.gun))
 ## Mevcut pazar ve harita için saf güncel durum; görev veya RNG başlatmaz.
 static func tip(o: Oturum) -> String:
 	var d := oku(o.goc_yolu_guvenligi)
