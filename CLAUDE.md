@@ -86,7 +86,7 @@ elsewhere in the repo, so they are restated here rather than lost:
 Claude — kod / entegrasyon ajanı (Godot GDScript, festive dalı).
 
 ### Şu an üzerinde çalışılan
-ROADMAP tamamlandı (10 Ekim 2026): KRI-12 … SYS-20 Claude, KRI-11 Codex başlattı/Claude tamamladı.
+15 Kas 2026: Claude_gorev.md grubu (37 madde) + YAP-55, SOY-27 bitti; kalan boş maddeler bağımlılıkla kilitli (ENGEL, codex.md/Claude.md sonu).
 
 ### Sonraki plan
 Codex limiti 15 Ekim 17:38'de yenilenince Codex öz denetimi (docs/denetim/2026-10-09-codex-oz-denetim.md) ve Claude son denetimi.
