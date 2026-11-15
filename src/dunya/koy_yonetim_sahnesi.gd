@@ -236,7 +236,7 @@ func _meydan_kur() -> void:
 	_ates_isigi = OmniLight3D.new()
 	_ates_isigi.light_color = Color("#ff9a4a")
 	_ates_isigi.light_energy = atmosfer.ates_gucu
-	_ates_isigi.omni_range = 11.0
+	_ates_isigi.omni_range = float(preload("res://data/ayarlar/sahne.json").data.ates_isik.menzil)
 	_ates_isigi.position = Vector3(0, 1.2, 0)
 	_ates_isigi.shadow_enabled = true
 	ocak.add_child(_ates_isigi)

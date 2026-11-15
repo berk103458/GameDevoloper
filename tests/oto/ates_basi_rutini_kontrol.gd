@@ -37,6 +37,7 @@ func _ready() -> void:
 		var duraklar: Array[Vector3] = []
 		var ofsetler := {}
 		var kol_pozlari := {}
+		var isik_alan_yuzler := 0
 		for id in ids:
 			var d: Dictionary = h._durum[id]
 			var f: KarakterModel = h.modeller[id]
@@ -53,6 +54,8 @@ func _ready() -> void:
 				h._process(0.0)
 			kontrol(int(d.adim) >= d.yol.size(), "Rota sonuna ulaşılır")
 			f.yurumeyi_durdur()
+			if _yuz_isikta(s._ates_isigi, f):
+				isik_alan_yuzler += 1
 			var poz := f.duzeltici()
 			kontrol(poz != null and poz.surekli == &"isin" and h.eylem(id) == "Ateş başında ısınıyor", "Varınca gerçek iskelette ısınma")
 			if poz != null and poz.surekli == &"isin":
@@ -61,6 +64,9 @@ func _ready() -> void:
 				var onkol := AtesBasiRutini.kol(1.0, 0.5 + poz.faz)[1]
 				kol_pozlari[snappedf(onkol.y, 0.0001)] = true
 		kontrol(ofsetler.size() == 5 and kol_pozlari.size() >= 2, "SAH-58: Beş modelin ısınma pozu aynı kareye yığılmaz")
+		var ayar: Dictionary = preload("res://data/ayarlar/sahne.json").data
+		kontrol(isik_alan_yuzler > 0 and is_equal_approx(s._ates_isigi.omni_range, float(ayar.ates_isik.menzil)), "SAH-69: Ateşin tablo menzilindeki köylüler yüzünü ışığa döner")
+		print("SAH-69 %s, menzilde ateşe dönük yüz=%d, menzil=%.1f m" % [faz, isik_alan_yuzler, s._ates_isigi.omni_range])
 		print("SAH-58 %s: ofset=%d, farklı önkol pozu=%d" % [faz, ofsetler.size(), kol_pozlari.size()])
 		kontrol(h._durum[guard.id].devriye and not h._durum[guard.id].ates_basi, "Muhafız devriyesi korunur")
 		var nobet: Dictionary = h._durum[guard.id]
@@ -110,6 +116,19 @@ func _ready() -> void:
 	await get_tree().create_timer(0.3).timeout
 	print("ATEŞ BAŞI UI: GEÇTİ" if hata == 0 else "ATEŞ BAŞI UI: KALDI")
 	await Ses.cik(hata)
+func _yuz_isikta(isik: OmniLight3D, figur: KarakterModel) -> bool:
+	var iskeletler := figur.find_children("*", "Skeleton3D", true, false)
+	if iskeletler.is_empty():
+		return false
+	var iskelet := iskeletler[0] as Skeleton3D
+	var bas := iskelet.find_bone("Head")
+	if bas < 0:
+		return false
+	var yuz := iskelet.to_global(iskelet.get_bone_global_pose(bas).origin)
+	var yon := isik.global_position - yuz
+	return isik.visible and isik.light_energy > 0 and yon.length() < isik.omni_range and figur.global_basis.z.normalized().dot(yon.normalized()) > 0.5
+
+
 func kontrol(v: bool, ad: String) -> void:
 	if not v:
 		hata += 1

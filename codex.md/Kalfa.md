@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-69 (Kalfa)
+
+Mevcut 11 m ateş ışığı menzili sahne tablosuna taşındı. Akşam ve gece beş gerçek köylünün baş konumu menzil içinde ve yüz yönü ateşe dönük ölçüldü. Headless ölçüm ışık enerjisi, menzil ve yönü denetler. Ateş başı sahnesi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-68 (Kalfa)
 
 Mevcut BUG-10 grafik adaptörü düşükte dinamik gölgeleri kapatıyor. Normal profile dönüşte her ışığın başlangıç gölge durumu geri geliyor. İki gerçek kapı ışığı düşük profilde görünür ve enerjisi pozitif kaldı. Kapı gölge headless testi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

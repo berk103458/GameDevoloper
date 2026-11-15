@@ -8342,7 +8342,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: BUG-10, SAH-65. Boyut: S.
   - Dosya: mevcut grafik ayarı.
   - Asset: asset gerekmedi.
-- [ ] **SAH-69:** Ateş ışığı halkayı geçer.
+- [x] **SAH-69:** Ateş ışığı halkayı geçer. (Kalfa — 11 m menzilde ateşe dönük beş yüz)
   - Ne: ANI-07 ateşinin ışığı oturanların yüzüne değer. Işık yarıçapı tablodadır.
   - Kabul: ANI-07 ateşinin ışığı oturanların yüzüne değer. Işık yarıçapı tablodadır. Test: ateş başı, en az bir yüz aydınlık.
   - Bağımlılık: ANI-07, SAH-67. Boyut: S.
