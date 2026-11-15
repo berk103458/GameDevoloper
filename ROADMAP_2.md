@@ -6620,7 +6620,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: yok. Boyut: S.
   - Dosya: `ROADMAP_2_B.md`.
   - Asset: asset gerekmedi.
-- [/] **KLT-25:** (Cursor — üzerinde) Kapanış testi.
+- [x] **KLT-25:** Kapanış testi. (Cursor — kapıya çift boşluk KLT-11 eklendi; beş fixture tek tek 5 red, kopyala 0: tests/tools/test_soz_kapi.py::test_klt25_kapanis_bes_fixture_bes_red; mutasyonda kırmızı)
   - Ne: fixtures: yasak kalıp, onaysız dosya, ölü adı, 91 karakter ipucu, çift boşluk — beşinin de red.
   - Kabul: beş fixture 5 hata. Test: `tests/tools/test_soz_kapi.py`. Taşınan: KLT-75: Kapanış beş fixtures reddeder.
   - Bağımlılık: KLT-01…24. Boyut: M.

@@ -196,6 +196,8 @@ def _satir_hatalari(paket: dict) -> list[dict]:
         anahtar = str(satir.get("anahtar", ""))
         if hata := ogretici_uzunluk_hatasi(anahtar, metin):
             hatalar.append({"tur": "hata", "kod": "KLT-12", "mesaj": hata})
+        if "  " in metin:
+            hatalar.append({"tur": "hata", "kod": "KLT-11", "mesaj": "cift bosluk"})
         if agiz != "kitap":
             if ";" in metin or re.search(r"değil,\s+\w", metin, re.I):
                 hatalar.append({"tur": "hata", "kod": "KLT-04", "mesaj": "yasak kalip"})

@@ -241,6 +241,38 @@ class SozKapiTest(unittest.TestCase):
         hatalar, _ = denetle(paket, KOR)
         self.assertTrue(any(h["kod"] == "KLT-07" for h in hatalar))
 
+    def test_klt25_kapanis_bes_fixture_bes_red(self):
+        def yasak(p):
+            p["satirlar"][0]["metin"] = "Kapı açık değil, kapalı."
+
+        def onaysiz(p):
+            p["onay"] = ["anlati"]
+
+        def olu(p):
+            p["kisiler"]["kisi_b"] = "oldu"
+            p["satirlar"][0]["anilan"] = ["kisi_b"]
+
+        def uzun_ipucu(p):
+            p["satirlar"][0].update({"anahtar": "ogretici.kapi.ipucu", "metin": "a" * 91})
+
+        def cift_bosluk(p):
+            p["satirlar"][0]["metin"] = "Kapı  açık."
+
+        fixtures = {"KLT-04": yasak, "KLT-02": onaysiz, "KLT-07": olu, "KLT-12": uzun_ipucu, "KLT-11": cift_bosluk}
+        self.assertEqual(denetle(_temiz_paket(), KOR)[0], [])
+        toplam = []
+        for kod, boz in fixtures.items():
+            with self.subTest(kod=kod):
+                paket = _temiz_paket()
+                boz(paket)
+                hatalar, _ = denetle(paket, KOR)
+                self.assertEqual([h["kod"] for h in hatalar], [kod])
+                with tempfile.TemporaryDirectory() as klasor:
+                    self.assertEqual(kopyala(paket, Path(klasor), KOR), 0)
+                    self.assertTrue((Path(klasor) / "red" / "ornek.json").is_file())
+                toplam.extend(hatalar)
+        self.assertEqual(len(toplam), 5)
+
     def test_celiski_uyari(self):
         paket = _temiz_paket()
         paket["olaylar"] = [
