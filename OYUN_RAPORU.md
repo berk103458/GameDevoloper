@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-75 (Kalfa)
+
+Envanterdeki CHR_002 gergin klibi oyunun karakter API’siyle çağrıldığında yürüyüşten m_bekle klibine hatasız döndü. Hedefli ayak zemini sahnesi geçti. Asset gerekmedi.
+
 ## 2026-11-15 — SAH-74 (Kalfa)
 
 Hedefli headless muayene 46 modeli tamamladı. Ölçülen 140 model–klip eşleşmesi ARY-05 envanterinde ayrı bekleyen satırlara işlendi. Yeni asset gerekmedi ve eklenmedi.

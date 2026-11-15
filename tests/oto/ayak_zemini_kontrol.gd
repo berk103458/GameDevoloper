@@ -41,6 +41,9 @@ func _calistir() -> void:
 	if not await _golgeli_ayak_temasi(kapi, ust):
 		await _bitir(false, "SAH-72: İki gölge profilinde aynı gerçek taban")
 		return
+	if not await _bekleyen_klip(kapi):
+		await _bitir(false, "SAH-75: Bekleyen gergin klibi güvenle beklemeye düşmeli")
+		return
 	var egim_ornekleri := [["ciftci", PI / 2.0, 4402], ["ciftci", -PI / 2.0, 4403], ["lowpo_demirci", PI / 2.0, 4404]]
 	for ornek in egim_ornekleri:
 		if not await _egim(kapi, ornek[0], ornek[1], ornek[2]):
@@ -80,6 +83,26 @@ func _calistir() -> void:
 	kapi.queue_free()
 	await get_tree().process_frame
 	await _bitir(true, "")
+
+
+func _bekleyen_klip(kapi: KapiSahnesi) -> bool:
+	var model := Dunya3B.karakter("chr_002")
+	kapi.add_child(model)
+	await get_tree().process_frame
+	var oynatici := model._oynatici
+	model.dur()
+	await get_tree().process_frame
+	var bekleme := oynatici.current_animation
+	oynatici.play(model._anim)
+	await get_tree().process_frame
+	var yurudu := oynatici.current_animation == model._anim
+	model.gergin()
+	await get_tree().process_frame
+	var sonuc := yurudu and not model.hareket_var("gergin") and not bekleme.is_empty()
+	sonuc = sonuc and bekleme != model._anim and oynatici.current_animation == bekleme
+	print("SAH-75 chr_002/gergin: bekleme=%s, geçti=%s" % [bekleme, sonuc])
+	model.queue_free()
+	return sonuc
 
 
 func _golgeli_ayak_temasi(kapi: KapiSahnesi, ust: Vector3) -> bool:

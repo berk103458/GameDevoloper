@@ -8381,7 +8381,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: BUG-09, ARY-05. Boyut: S.
   - Dosya: `docs/EKSIK_ASSET_ENVANTERI.md`.
   - Asset: `SAH-KLIP-*`. Yer tutucu idle.
-- [ ] **SAH-75:** Listede olan klip oyunda aranmaz.
+- [x] **SAH-75:** Listede olan klip oyunda aranmaz.
   - Ne: envanter satırı `bekliyor` ise oynatıcı idle kullanır, hata fırlatmaz.
   - Kabul: envanter satırı `bekliyor` ise oynatıcı idle kullanır, hata fırlatmaz. Test: bekleyen klip, idle.
   - Bağımlılık: SAH-74, BUG-12. Boyut: S.
