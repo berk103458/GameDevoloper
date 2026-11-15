@@ -9056,7 +9056,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/metin/metinler.csv, src/sistemler/epilog_metin_verisi.gd.
   - Asset: asset gerekmedi.
 
-- [/] **SOY-SON-01:** (Claude-Berk) Söylenti ağının somut olaylara ve hesaplaşmalara kapanışı. (Antigravity) (doğrulanmadı — Görev 22; SoylentiAgi (src/sistemler/soylenti_agi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **SOY-SON-01:** (Claude-Berk) Söylenti ağının somut olaylara ve hesaplaşmalara kapanışı. (Antigravity) (Claude-Berk — SoylentiKapanisi: beş kritik söylenti data/soylenti.json kritik_soylentiler ile mevcut başlatıcı kartlara bağlı (ambarda_hirsizlik, salgin_fisiltisi, tekfur_elcisi, mogol_duman, salgin); Oturum.olay_uygula söylentiyi köydeki tanıkla açar, kapanış kartı rastgele havuzdan çıkarıldı, kapanis_gecesi=2 dolunca Oturum.olay_sec getirir, seçim hükme bağlar. Test tests/unit/kvr/soylenti_kapanisi_oyun_test.gd 52 kontrol GEÇTİ, kancalar kaldırılınca KALDI. Not: maddedeki "sahte hekim, gece ışığı" yerine mevcut kart/metin seti (Moğol casusu, vebalı kumaş) kullanıldı; yeni metin yazılmadı)
   - Amaç: soylenti_agi.gd içinde yayılan fısıltıların 2-3 gün sonra köy meydanında veya kapıda somut bir çözüme bağlanması.
   - Kurallar:
     1. 5 kritik söylenti (Değirmenci un hırsızlığı, kuyu zehri, Tekfur arabası, sahte hekim, gece ışığı) sonuca kavuşur.

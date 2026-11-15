@@ -222,6 +222,12 @@ static func defter_satirlari(o: Object) -> Array:
 
 ## Oyuncu dilinde olay: bozuk kopya biçim kalıbıyla, asıl kayıt tür kalıbıyla söylenir (SOY-44).
 static func olay_metni(a: RefCounted, k: Dictionary) -> String:
+	if bool(k.get("kritik", false)):
+		# SOY-SON-01: kritik söylenti, kapanış kartının mevcut başlığıyla anılır; yeni metin yok.
+		var kart := String((a.veri_yapilandirma.get("kritik_soylentiler", {}) as Dictionary).get(String(k.get("olay_id", "")), {}).get("kapanis", ""))
+		var anahtar := "olay.%s.baslik" % kart
+		var cevrilen := TranslationServer.translate(anahtar)
+		return "" if kart.is_empty() or cevrilen == anahtar else cevrilen
 	if k.has("bicim"):
 		var bozuk: Dictionary = a.veri_yapilandirma.get("bozulma_kaliplari", {})
 		return String(bozuk.get(String(k.bicim), "")).replace("{kaynak}", String(a.veri_yapilandirma.get("bozulma_faili", "")))

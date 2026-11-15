@@ -64,7 +64,9 @@ func soylenti_ekle(
 		ek_kopya
 	)
 
-	if not dedikodu_sonuc.get("olur", false) and not ag_kayitlari.has(temiz_id):
+	# SOY-SON-01: kritik söylenti muhafızın fiili değildir, DIY-13 dedikodu kapısından geçmez.
+	var kritik := bool(ek.get("kritik", false))
+	if not kritik and not dedikodu_sonuc.get("olur", false) and not ag_kayitlari.has(temiz_id):
 		# Dedikodu doğrudan kabul etmese bile (örneğin iyi_olay ise) ağ kaydı açılabilir
 		if not (tur in veri_yapilandirma.get("iyi_olaylar", [])):
 			return dedikodu_sonuc
@@ -87,6 +89,8 @@ func soylenti_ekle(
 		"susturuldu": false,
 		"bar_etkisi_uygulandi": false
 	}
+	if kritik:
+		ag_kaydi["kritik"] = true
 	ag_kayitlari[temiz_id] = ag_kaydi
 
 	if not guvenilirlikler.has(tanik) and not tanik.is_empty():
@@ -206,7 +210,7 @@ func gece_ilerlet(
 		k["duyanlar"] = duyanlar
 
 		# SOY-05/44: doğru asıl kayıt her yeni duyanda bozulabilir; kopya `dogru=false`, kaynağı bozandır, asıl silinmez
-		if bool(k.get("dogru", true)) and not k.has("asil"):
+		if bool(k.get("dogru", true)) and not k.has("asil") and not bool(k.get("kritik", false)):
 			for yd in yeni_duyanlar:
 				var bicim := bozulma_bicimi(olay_id, yd, guncel_gece)
 				if not bicim.is_empty():
@@ -283,7 +287,7 @@ func _bozuk_kopya(k: Dictionary, olay_id: String, bozan: String, bicim: String, 
 func meclis_sikayeti_sec() -> Dictionary:
 	for olay_id in ag_kayitlari:
 		var k: Dictionary = ag_kayitlari[olay_id]
-		if bool(k.get("kamuoyu_oldu", false)) and not bool(k.get("hukme_baglandi", false)) and not String(k.get("tur", "")) in veri_yapilandirma.get("iyi_olaylar", []):
+		if bool(k.get("kamuoyu_oldu", false)) and not bool(k.get("hukme_baglandi", false)) and not String(k.get("tur", "")) in veri_yapilandirma.get("iyi_olaylar", []) and not bool(k.get("kritik", false)):
 			return {
 				"olay_id": olay_id,
 				"tur": k.get("tur", ""),

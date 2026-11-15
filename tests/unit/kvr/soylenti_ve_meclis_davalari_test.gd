@@ -28,7 +28,7 @@ func _initialize() -> void:
 	_dene(ag.soylenti_kapanis_olayi_al("degirmen_un") == "soylenti_degirmen_kapanis", "degirmen_un eslesmesi yanlis")
 	_dene(ag.soylenti_kapanis_olayi_al("kuyu_zehir") == "soylenti_kuyu_kapanis", "kuyu_zehir eslesmesi yanlis")
 	
-	ag.soylenti_ekle("degirmen_un", "suc", "yusuf", false)
+	ag.soylenti_ekle("degirmen_un", "kritik_soylenti", "yusuf", false, {"kritik": true})
 	_dene(ag.ag_kayitlari.has("degirmen_un"), "degirmen_un ag kaydi acilmadi")
 	var sonuc := ag.soylenti_kapanisi_uygula("degirmen_un", "adalet")
 	_dene(sonuc.get("cozuldu", false) == true, "soylenti kapanisi basarisiz")

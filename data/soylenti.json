@@ -17,6 +17,15 @@
   "susturma_ters_carpan": 2,
   "kademe_yari_koy_orani": 0.40,
   "kademe_herkes_orani": 0.80,
+  "kritik_tur": "kritik_soylenti",
+  "kapanis_gecesi": 2,
+  "kritik_soylentiler": {
+    "degirmen_un": {"baslatan": "ambarda_hirsizlik", "kapanis": "soylenti_degirmen_kapanis"},
+    "kuyu_zehir": {"baslatan": "salgin_fisiltisi", "kapanis": "soylenti_kuyu_kapanis"},
+    "tekfur_altin": {"baslatan": "tekfur_elcisi", "kapanis": "soylenti_tekfur_araba_kapanis"},
+    "mogol_casus": {"baslatan": "mogol_duman", "kapanis": "soylenti_mogol_casus_kapanis"},
+    "vebali_kumas": {"baslatan": "salgin", "kapanis": "soylenti_vebali_kumas_kapanis"}
+  },
   "iyi_olaylar": [
     "haksizlik_karsi_durma",
     "yarali_tedavi",
