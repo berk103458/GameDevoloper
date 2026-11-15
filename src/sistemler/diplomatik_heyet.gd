@@ -73,8 +73,13 @@ static func karar(o: Oturum,g: Gelen,k: StringName) -> Dictionary:
  if k==&"harc" and not TekfurHaracHeyeti.ode(o.yonetim): return s
  var b:=bilet(g)
  var d:=durum(o)
- if b.tur=="tekfur": d.tekfur_gun=o.gun
- else: d.mogol.append(int(b.kalan))
+ if b.tur=="tekfur":
+  d.tekfur_gun=o.gun
+  if k==&"harc":
+   DunyaZamani.karar_kaydet(o, "tekfur_haraci", "kabul")
+ else:
+  d.mogol.append(int(b.kalan))
+  DunyaZamani.karar_kaydet(o, "mogol_elcisi", "ret" if k==&"ret" else "kabul")
  o.set_meta(META,d)
  s.engellendi=false;s.odendi=k==&"harc"
  return s

@@ -9,6 +9,7 @@ static func ode(y: KoyYonetimi) -> bool:
 	y.akce -= y.a.harac_akce
 	y.kaynaklar.azalt("bugday", y.a.harac_gida)
 	y.harac_bekliyor = false
+	y.set_meta("tekfur_haraci_karar", "kabul")
 	return true
 ## Aynı gece raporu; ikinci heyet veya sayaç oluşturmaz.
 static func olay(y: KoyYonetimi) -> Dictionary:

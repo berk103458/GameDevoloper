@@ -1373,3 +1373,14 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`), `dunya_cizelge_metin_test.gd` (`gecti`), `dedikodu_test.gd` (`DEDIKODU: GEÇTİ (0 hata)`), `kop05_dedikodu_fisilti_test.gd` (`KOP05 DEDIKODU FISILTI: GEÇTİ (0 hata)`), `satir_secici_test.gd` (`SATIR SECICI: GEÇTİ (0 hata)`) ve `acilis_koy_kontrol.tscn` (RC=0; `divan_baglantisi.gd` / `DivanMeydani` başka ajan kaynaklı önceden var olan parse uyarısı dışında 0 hata) geçti. (`baglam_sorgusu_test.gd` 72/75. satırlarda `_kur_bina("sifahane")` önkoşulu nedeniyle başarısız; `DNY-02` ve `BaglamSorgusu` kontrolleri geçti.)
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor.
+
+## 15 Kasım 2026 — `DNY-04` (Oyuncunun Kararları Dünyaya Geri Döner)
+- **Yapılanlar:**
+  - `src/sistemler/dunya_zamani.gd`: Üç karar anahtarı (`tekfur_haraci`, `mogol_elcisi`, `turkmen_ittifaki`) ve üç değer (`bekliyor`, `kabul`, `ret`) kalıcı olarak bağlandı. `karar_kaydet()`, `karar_durumu()`, `kararlar_oku()`, `olay_karar_dali()` eklendi; aynı karara iki kez basılırsa son değer tutulur, tek gecede çizelgeye en çok bir karar işareti (`karar.<id>.<deger>`) yazılır, `evre_gunu()` karar dallarına göre (`kabul` +4 / `ret` -4 / `bekliyor` 0) olay zamanlamasını ve sırasını değiştirir, `kalp` ve kapı genel kabulü reddedilir, `bekliyor` varsayılan dalı korur ve yüklemede açılır.
+  - Karar bağlantıları: `src/sistemler/tekfur_harac_heyeti.gd` (`ode` -> `tekfur_haraci = kabul`), `src/koy/koy_yonetimi.gd` (`harac_reddet` -> `tekfur_haraci = ret`), `src/sistemler/oturum.gd` (`gece_sonu` senkronizasyonu), `src/sistemler/diplomatik_heyet.gd` (`tekfur`/`harc` ve `mogol` kararları), `src/sistemler/aydogdu_ziyareti.gd` (4 geceden önce açılmaz; `turkmen_ittifaki = kabul/ret`), `src/sistemler/oba_ittifaki.gd` (`ittifak_kur` -> `turkmen_ittifaki = kabul`).
+  - `src/sistemler/nihai_son.gd`: `SYS-20` kararları okur, beş nihai son kimliği dışına çıkmaz (altıncı son açılmaz).
+  - `src/soz/baglam_sorgusu.gd`: `dunya_olaylari.kararlar` salt-okunur bağlama eklendi (`bekliyor` değeri `isaretler` üzerine yazılmaz).
+  - `tests/unit/sistemler/dunya_test.gd`: `_test_dny04_kararlar` eklendi.
+- **Testler:** `dunya_test.gd`, `dunya_cizelge_metin_test.gd`, `nihai_son_kontrol.tscn`, `zorluk_test.gd`, `satir_secici_test.gd`, `koy_yonetimi_test.gd`, `soz_ikiz_test.gd`, `tekfur_harac_heyeti_test.gd`, `oba_ittifaki_test.gd`, `aydogdu_ziyareti_test.gd` 0 hata ile geçti. (`diplomatik_heyet_test.gd` 67. satır başka ajan kaynaklı önceden var olan `Oturum.new` Perde 2 `harac_bekliyor` beklentisinden `Array[Gelen]` 0 hatası veriyor.)
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.

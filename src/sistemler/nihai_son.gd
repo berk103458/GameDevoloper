@@ -21,9 +21,12 @@ static func son(o: Oturum, s: StringName) -> String:
 	var y := o.yonetim
 	var g := gostergeler(o)
 	var e: Dictionary = AYAR.esik
-	var haraca_boyun := y.agalik and y.tekfur_baski == 0 and y.savusturulan == 0 and KoyYonetimi.PERDE_GECISI.gece(y) >= y.a.harac_araligi
+	var dk := DunyaZamani.kararlar_oku(o)
+	var harac_karari := String(dk.get("tekfur_haraci", "bekliyor"))
+	var oba_karari := String(dk.get("turkmen_ittifaki", "bekliyor"))
+	var haraca_boyun := y.agalik and harac_karari != "ret" and y.tekfur_baski == 0 and y.savusturulan == 0 and (KoyYonetimi.PERDE_GECISI.gece(y) >= y.a.harac_araligi or harac_karari == "kabul")
 	if int(g.yozlasma) >= int(e.yozlasma) or (haraca_boyun and not dis_hat.hat_kapali_mi(o, "tekfur")): return "tekfur_haraccisi"
-	if not dis_hat.hat_kapali_mi(o, "oba") and ObaIttifaki.muttefik(o): return "ertugrul_obasi"
+	if not dis_hat.hat_kapali_mi(o, "oba") and oba_karari != "ret" and (ObaIttifaki.muttefik(o) or oba_karari == "kabul"): return "ertugrul_obasi"
 	if not dis_hat.hat_kapali_mi(o, "sancak") and (SancakAskerTalebi.oku(o.sancak_asker_talebi).levent_gonderildi or (int(g.guvenlik) >= int(e.guvenlik_bey) and y.etkin_muhafiz_sayisi() >= int(e.muhafiz_bey))): return "beyin_uc_koyu"
 	if not dis_hat.hat_kapali_mi(o, "ahi") and int(g.refah) >= int(e.refah_ahi) and int(g.adalet) >= int(e.adalet_ahi): return "ahi_kasabasi"
 	return "uc_tutundu"

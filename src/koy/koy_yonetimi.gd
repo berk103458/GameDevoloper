@@ -530,6 +530,7 @@ func harac_reddet() -> void:
 	if harac_bekliyor:
 		harac_bekliyor = false
 		tekfur_baski += 1
+		set_meta("tekfur_haraci_karar", "ret")
 
 
 func savunma_gucu() -> int:

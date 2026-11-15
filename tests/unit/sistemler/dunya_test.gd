@@ -204,6 +204,9 @@ func _initialize() -> void:
 	# 10. DNY-02: Haber önce insanlardan duyulur
 	_test_dny02_haber(kat)
 
+	# 11. DNY-04: Oyuncunun kararları dünyaya geri döner
+	_test_dny04_kararlar(kat)
+
 	if _hata == 0:
 		print("DUNYA ZAMANI TESTI: GEÇTİ (0 hata)")
 		quit(0)
@@ -292,3 +295,94 @@ func _test_dny02_haber(kat: Katalog) -> void:
 	var b_karar := SatirSecici.baglama_dunya_isareti_yaz(BaglamSorgusu.new().kur(o_salgin, null), "mogol_elcisi", "kabul")
 	var dalsiz_sec := SatirSecici.new().sec([{"id": "varsayilan", "metin": "Sıradan söz.", "kosullar": {}}], b_karar)
 	_kontrol(String(dalsiz_sec.get("id", "")) == "varsayilan" and String(b_karar.get("dunya.mogol_elcisi", "")) == "kabul", "Dalı olmayan karar işareti yalnızca yazılı bağlamda kalmalı")
+
+
+func _test_dny04_kararlar(kat: Katalog) -> void:
+	# a) İki farklı karar dizisi aynı tohumda iki farklı olay sırası üretir
+	var o_a := Oturum.new(kat, 4040)
+	var o_b := Oturum.new(kat, 4040)
+	o_a.yonetim.kabul({"ad": "Ali", "sinif": &"ciftci", "stat": 5})
+	o_b.yonetim.kabul({"ad": "Ali", "sinif": &"ciftci", "stat": 5})
+	DunyaZamaniSinifi.karar_kaydet(o_a, "tekfur_haraci", "ret")
+	DunyaZamaniSinifi.karar_kaydet(o_a, "mogol_elcisi", "kabul")
+	DunyaZamaniSinifi.karar_kaydet(o_b, "tekfur_haraci", "kabul")
+	DunyaZamaniSinifi.karar_kaydet(o_b, "mogol_elcisi", "ret")
+	var etki_sirasi_a: Array[String] = []
+	var etki_sirasi_b: Array[String] = []
+	for _g in 40:
+		_besle(o_a)
+		_besle(o_b)
+		o_a.gece_sonu()
+		o_b.gece_sonu()
+		for isr in DunyaZamaniSinifi.isaretler(o_a):
+			if isr.ends_with(".etki") and not (isr in etki_sirasi_a):
+				etki_sirasi_a.append(isr)
+		for isr in DunyaZamaniSinifi.isaretler(o_b):
+			if isr.ends_with(".etki") and not (isr in etki_sirasi_b):
+				etki_sirasi_b.append(isr)
+	_kontrol(etki_sirasi_a.find("bizans_uc_baskisi.etki") >= 0 and etki_sirasi_a.find("mogol_ilerleyisi.etki") >= 0, "A dizisinde her iki etki de gelmeli")
+	_kontrol(etki_sirasi_a != etki_sirasi_b, "İki farklı karar dizisi aynı tohumda farklı olay sırası üretmeli (%s vs %s)" % [str(etki_sirasi_a), str(etki_sirasi_b)])
+
+	# b) Aynı gecede en çok 1 karar işareti yazılır; aynı karara 2 kez basılırsa son değer kalır; kabul/ret ayrı dal
+	var o_tek := Oturum.new(kat, 4041)
+	o_tek.yonetim.kabul({"ad": "Veli", "sinif": &"ciftci", "stat": 5})
+	DunyaZamaniSinifi.karar_kaydet(o_tek, "tekfur_haraci", "kabul")
+	DunyaZamaniSinifi.karar_kaydet(o_tek, "tekfur_haraci", "ret")
+	_kontrol(DunyaZamaniSinifi.karar_durumu(o_tek, "tekfur_haraci") == "ret", "Aynı karara iki kez basılınca son değer tutulmalı")
+	DunyaZamaniSinifi.karar_kaydet(o_tek, "mogol_elcisi", "kabul")
+	o_tek.gun = 5
+	o_tek.yonetim.gun = 5
+	var g5 := DunyaZamaniSinifi.gece(o_tek, {"gun": 4, "olaylar": []})
+	_kontrol((g5.get("yeni_karar_isaretleri", []) as Array).size() <= 1, "Aynı gecede çizelgeye en çok bir karar işareti yazılmalı")
+	o_tek.gun = 6
+	o_tek.yonetim.gun = 6
+	var g6 := DunyaZamaniSinifi.gece(o_tek, {"gun": 5, "olaylar": []})
+	_kontrol("karar.tekfur_haraci.ret" in DunyaZamaniSinifi.isaretler(o_tek) and "karar.mogol_elcisi.kabul" in DunyaZamaniSinifi.isaretler(o_tek), "Bekleyen ikinci karar işareti ertesi gece yazılmalı (g6=%s)" % str(g6))
+
+	# c) Kapı kabulü, bilinmeyen karar ve kalp yazılmaz; HAR-03 / HAR-07 / Heyet / bekliyor kaydı ve yüklemesi
+	var o_kapi := Oturum.new(kat, 4042)
+	var bos_yolcu := o_kapi._adli_gelen(&"chr_001")
+	o_kapi.karar_ver(bos_yolcu, &"kabul")
+	var k_bek := DunyaZamaniSinifi.kararlar_oku(o_kapi)
+	_kontrol(k_bek.tekfur_haraci == "bekliyor" and k_bek.mogol_elcisi == "bekliyor" and k_bek.turkmen_ittifaki == "bekliyor", "Kapıdaki genel kabul dünya kararını değiştirmemeli")
+	_kontrol(not DunyaZamaniSinifi.karar_kaydet(o_kapi, "kalp", "kabul"), "Kalp alanı reddedilmeli")
+	_kontrol(not DunyaZamaniSinifi.karar_kaydet(o_kapi, "baska_karar", "kabul"), "Üç karar dışında kayıt yazılmamalı")
+	var yuklenen_bek := Oturum.kayittan(kat, o_kapi.kaydet())
+	_kontrol(yuklenen_bek != null and DunyaZamaniSinifi.karar_durumu(yuklenen_bek, "tekfur_haraci") == "bekliyor", "bekliyor ile biten kayıt yüklenip açılmalı")
+	var test_olay := {"id": "bizans_uc_baskisi", "karar_kosulu": {"bagli_karar": "tekfur_haraci", "kabul": "kabul_dal", "ret": "ret_dal", "bekliyor": "bekliyor_dal"}}
+	_kontrol(DunyaZamaniSinifi.olay_karar_dali(o_kapi, test_olay).anahtar == "bekliyor_dal", "Karar yokken bekliyor dalı kullanılmalı")
+	DunyaZamaniSinifi.karar_kaydet(o_kapi, "tekfur_haraci", "kabul")
+	var dal_k := String(DunyaZamaniSinifi.olay_karar_dali(o_kapi, test_olay).anahtar)
+	DunyaZamaniSinifi.karar_kaydet(o_kapi, "tekfur_haraci", "ret")
+	var dal_r := String(DunyaZamaniSinifi.olay_karar_dali(o_kapi, test_olay).anahtar)
+	_kontrol(dal_k == "kabul_dal" and dal_r == "ret_dal" and dal_k != dal_r, "Kabul ve ret ayrı koşul dalı olmalı")
+
+	# d) Türkmen ittifakı 4 geceden önce açılmaz; 4+ gecede açılır; SYS-20 beş son kimliğini korur
+	var aydogdu_sinif := preload("res://src/sistemler/aydogdu_ziyareti.gd")
+	var o_turk := Oturum.new(kat, 4043)
+	o_turk.yonetim.agalik = true
+	o_turk.yonetim.gun = 10
+	o_turk.gun = 10
+	o_turk.kadro.durumlar[&"aydogdu"] = {"durum": &"kalici_ayrildi", "ziyaret": 1, "son_gece": 7, "istendi": false}
+	var erken_kuyruk: Array[Gelen] = []
+	aydogdu_sinif.ekle(o_turk, erken_kuyruk)
+	_kontrol(erken_kuyruk.is_empty(), "Türkmen ittifakı 4 geceden önce (10 - 7 = 3) açılmamalı")
+	o_turk.gun = 11
+	o_turk.yonetim.gun = 11
+	var gec_kuyruk: Array[Gelen] = []
+	aydogdu_sinif.ekle(o_turk, gec_kuyruk)
+	_kontrol(gec_kuyruk.size() == 1, "Türkmen ittifakı 4 gecede (11 - 7 = 4) açılmalı")
+	if gec_kuyruk.size() == 1:
+		o_turk.kadro.durumlar[&"aydogdu"].ziyaret = 2
+		o_turk.kadro.durumlar[&"aydogdu"].son_gece = 11
+		aydogdu_sinif.karar(o_turk, gec_kuyruk[0], &"kabul")
+		_kontrol(DunyaZamaniSinifi.karar_durumu(o_turk, "turkmen_ittifaki") == "kabul", "Aydogdu kabulü turkmen_ittifaki kararını kaydetmeli")
+
+	# e) SYS-20 son kimliği beş değerden biri olarak kalır
+	var nihai_sinif := preload("res://src/sistemler/nihai_son.gd")
+	var bes_son := ["tekfur_haraccisi", "ertugrul_obasi", "beyin_uc_koyu", "ahi_kasabasi", "uc_tutundu"]
+	for i in 12:
+		_besle(o_turk)
+		o_turk.gece_sonu()
+	var s_kimlik := nihai_sinif.son(o_turk, &"zafer")
+	_kontrol(s_kimlik in bes_son, "SYS-20 son kimliği beş değerden biri olmalı: %s" % s_kimlik)

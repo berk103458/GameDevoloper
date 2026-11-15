@@ -47,6 +47,7 @@ static func karar(o: Oturum, g: Gelen, secim: StringName) -> Dictionary:
 	o.gorulen_olaylar[OLAY.id] = true
 	sonuc.merge(o.olay_uygula(OLAY, i), true)
 	if secim != &"ret": ObaIttifaki.ittifak_kur(o)
+	DunyaZamani.karar_kaydet(o, "turkmen_ittifaki", "ret" if secim == &"ret" else "kabul")
 	sonuc.engellendi = false
 	sonuc.oba_ziyareti = true
 	return sonuc

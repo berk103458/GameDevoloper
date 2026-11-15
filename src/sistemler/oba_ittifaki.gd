@@ -14,6 +14,7 @@ static func muttefik(o: Oturum) -> bool:
  return o.bayraklar.has(StringName(AYAR.ittifak_bayragi))
 static func ittifak_kur(o: Oturum) -> void:
  o.bayraklar[StringName(AYAR.ittifak_bayragi)]=true
+ DunyaZamani.karar_kaydet(o, "turkmen_ittifaki", "kabul")
 ## Günlük sınır, gerçek kaynaklar ve tamamlanmış ortak barınak/yatak kapasitesi.
 static func uygun(o: Oturum,tur: String) -> bool:
  var y:=o.yonetim

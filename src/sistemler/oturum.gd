@@ -341,6 +341,10 @@ func gece_sonu() -> Dictionary:
 	MuhafizVicdani.gece(self, r)
 	SancakTeftisi.gece(self, r)
 	MogolOncusu.gece(self, r)
+	if yonetim.has_meta("tekfur_haraci_karar"):
+		var hk := String(yonetim.get_meta("tekfur_haraci_karar", ""))
+		yonetim.remove_meta("tekfur_haraci_karar")
+		DunyaZamani.karar_kaydet(self, "tekfur_haraci", hk)
 	DunyaZamani.gece(self, r)
 	SancakAskerTalebi.gece(self, r)
 	HaberciAgi.gece(self, r)
@@ -488,6 +492,8 @@ func olay_sec() -> OlayVerisi:
 	if not preload("res://src/sistemler/sancak_ulagi.gd").kapida(self):
 		var ferman := SancakAskerTalebi.olay(self)
 		if ferman != null: return ferman
+	var soy_kapanis := SoylentiKapanisi.olay(self) # SOY-SON-01: olgunlaşan kritik söylenti hesaplaşması.
+	if soy_kapanis != null: return soy_kapanis
 	var haber := HaberciAgi.olay(self)
 	if haber != null: return haber
 	var bekleyen := preload("res://src/sistemler/ozel_olay.gd").bekleyen(self, katalog)
@@ -500,6 +506,7 @@ func olay_sec() -> OlayVerisi:
 	for o in katalog.olaylar():
 		if not preload("res://src/sistemler/olay_on_kosulu.gd").havuzda(self, o.id): continue
 		if not preload("res://src/sistemler/ozel_olay.gd").aday(self, o): continue
+		if SoylentiKapanisi.tanimli(o): continue
 		if o.tek_sefer and gorulen_olaylar.has(o.id):
 			continue
 		if not _kosul_tutar(o.kosullar):
@@ -575,6 +582,7 @@ func olay_uygula(olay: OlayVerisi, i: int, puan: int = -1) -> Dictionary:
 	if IlkbaharTaskini.tanimli(olay): return IlkbaharTaskini.uygula(self, olay, i)
 	if CasusDevriyesi.tanimli(olay): return CasusDevriyesi.uygula(self, olay, i)
 	if FisiltiGazetesi.tanimli(olay): return FisiltiGazetesi.uygula(self, olay, i)
+	SoylentiKapanisi.uygula(self, olay, i) # SOY-SON-01: başlatıcı söylenti açar, kapanış hükme bağlar.
 	var e: Dictionary = olay.secenek_etkileri[i]
 	if puan >= 0 and e.has("oyun"):
 		var odul: Dictionary = e.get("oyun_odul", {})

@@ -7,6 +7,9 @@ extends RefCounted
 const CIZELGE_YOLU := "res://data/dunya/zaman_cizelgesi.json"
 const KITAP_DIZINI := "res://docs/dunya_kitabi"
 const EVRELER := ["erken_soylenti", "kesin_haber", "etki"]
+const GERI_DONEN_KARARLAR := ["tekfur_haraci", "mogol_elcisi", "turkmen_ittifaki"]
+const KARAR_DEGERLERI := ["bekliyor", "kabul", "ret"]
+const KARAR_GUN_KAYMASI := {"kabul": 4, "ret": -4, "bekliyor": 0}
 const YASAK_CELISKI_KELIMELER := [
 	"fetret", "malazgirt", "1071", "1402", "1453",
 	"osmanli", "osmanlı", "timur", "tufek", "tüfek", "barut",
@@ -169,13 +172,41 @@ static func evre_gunu(o: Oturum, olay: Dictionary, evre: String) -> int:
 	if not (ev is Dictionary):
 		return 0
 	var ev_d: Dictionary = ev
+	var kayma := _olay_karar_kaymasi(o, olay)
 	if String(olay.get("gun_kaynagi", "")) == "har02_sayaci":
 		var g := maxi(0, o.gun) if o != null else 0
 		var varis := g + mogol_kalan_gun(o)
 		if o != null and g > int(MogolOncusu.AYAR.get("varis_gunu", varis)):
 			varis = int(MogolOncusu.AYAR.get("varis_gunu", varis))
-		return maxi(0, varis + int(ev_d.get("gun_ofset", 0)))
-	return maxi(0, int(ev_d.get("gun", 0)))
+		return maxi(1, varis + int(ev_d.get("gun_ofset", 0)) + kayma)
+	return maxi(1, int(ev_d.get("gun", 0)) + kayma)
+
+
+static func _olay_karar_kaymasi(o: Oturum, olay: Dictionary) -> int:
+	if o == null:
+		return 0
+	var dal := olay_karar_dali(o, olay)
+	var k := String(dal.get("karar", "bekliyor"))
+	return int(KARAR_GUN_KAYMASI.get(k, 0))
+
+
+static func _temiz_isaretler(ham_isaret: Variant) -> Array[String]:
+	var sonuc: Array[String] = []
+	if ham_isaret is Array:
+		for x in ham_isaret:
+			var s := String(x).strip_edges()
+			if s.is_empty() or s == "kalp" or s.begins_with("kalp."):
+				continue
+			if not (s in sonuc):
+				sonuc.append(s)
+	return sonuc
+
+
+static func _varsayilan_kararlar() -> Dictionary:
+	var k := {}
+	for ad in GERI_DONEN_KARARLAR:
+		k[ad] = "bekliyor"
+	return k
 
 
 static func oku(v: Variant) -> Dictionary:
@@ -184,24 +215,24 @@ static func oku(v: Variant) -> Dictionary:
 		"son_gece": -1,
 		"taban_gun": 0,
 		"etki_uygulananlar": [],
-		"kararlar": {},
+		"kararlar": _varsayilan_kararlar(),
+		"bekleyen_karar_isaretleri": [],
+		"son_karar_gece": -1,
 		"iletildi": [],
 	}
 	if not (v is Dictionary):
 		return d
 	var ham: Dictionary = v
-	var ham_isaret: Variant = ham.get("isaretler", [])
-	if ham_isaret is Array:
-		for x in ham_isaret:
-			var s := String(x).strip_edges()
-			if not s.is_empty() and not (s in d["isaretler"]):
-				(d["isaretler"] as Array).append(s)
+	d["isaretler"] = _temiz_isaretler(ham.get("isaretler", []))
 	var sg: Variant = ham.get("son_gece", -1)
 	if (sg is int or sg is float) and is_finite(float(sg)):
 		d["son_gece"] = maxi(-1, int(sg))
 	var tg: Variant = ham.get("taban_gun", 0)
 	if (tg is int or tg is float) and is_finite(float(tg)):
 		d["taban_gun"] = maxi(0, int(tg))
+	var skg: Variant = ham.get("son_karar_gece", -1)
+	if (skg is int or skg is float) and is_finite(float(skg)):
+		d["son_karar_gece"] = maxi(-1, int(skg))
 	var eu: Variant = ham.get("etki_uygulananlar", [])
 	if eu is Array:
 		for x in eu:
@@ -210,8 +241,16 @@ static func oku(v: Variant) -> Dictionary:
 				(d["etki_uygulananlar"] as Array).append(s)
 	var kr: Variant = ham.get("kararlar", {})
 	if kr is Dictionary:
-		for k in (kr as Dictionary).keys():
-			d["kararlar"][String(k)] = String((kr as Dictionary)[k])
+		for k in GERI_DONEN_KARARLAR:
+			if (kr as Dictionary).has(k):
+				var val := String((kr as Dictionary)[k]).strip_edges()
+				d["kararlar"][k] = val if val in KARAR_DEGERLERI else "bekliyor"
+	var bk: Variant = ham.get("bekleyen_karar_isaretleri", [])
+	if bk is Array:
+		for x in bk:
+			var s := String(x).strip_edges()
+			if s in GERI_DONEN_KARARLAR and not (s in d["bekleyen_karar_isaretleri"]):
+				(d["bekleyen_karar_isaretleri"] as Array).append(s)
 	var il: Variant = ham.get("iletildi", [])
 	if il is Array:
 		for x in il:
@@ -219,6 +258,94 @@ static func oku(v: Variant) -> Dictionary:
 			if not s.is_empty() and not (s in d["iletildi"]):
 				(d["iletildi"] as Array).append(s)
 	return d
+
+
+static func karar_durumu(o: Oturum, karar_id: String) -> String:
+	var kid := String(karar_id).strip_edges()
+	if not (kid in GERI_DONEN_KARARLAR):
+		return ""
+	var k: Dictionary = durum(o).get("kararlar", {})
+	var val := String(k.get(kid, "bekliyor")).strip_edges()
+	return val if val in KARAR_DEGERLERI else "bekliyor"
+
+
+static func kararlar_oku(o: Oturum) -> Dictionary:
+	var sonuc := {}
+	for k in GERI_DONEN_KARARLAR:
+		sonuc[k] = karar_durumu(o, k)
+	return sonuc
+
+
+static func olay_karar_dali(o: Oturum, olay: Dictionary) -> Dictionary:
+	var kk: Variant = olay.get("karar_kosulu", {})
+	if not (kk is Dictionary):
+		return {"bagli_karar": "", "karar": "bekliyor", "anahtar": ""}
+	var kk_d: Dictionary = kk
+	var bagli := String(kk_d.get("bagli_karar", "")).strip_edges()
+	if not (bagli in GERI_DONEN_KARARLAR):
+		return {"bagli_karar": "", "karar": "bekliyor", "anahtar": ""}
+	var val := karar_durumu(o, bagli)
+	return {
+		"bagli_karar": bagli,
+		"karar": val,
+		"anahtar": String(kk_d.get(val, kk_d.get("bekliyor", ""))),
+	}
+
+
+## DNY-04: Yalnız üç karar (tekfur_haraci, mogol_elcisi, turkmen_ittifaki) yazılır;
+## aynı karara iki kez basılırsa son değeri tutar; kalp alanı veya kapı genel kabulü yazılmaz.
+static func karar_kaydet(o: Oturum, karar_id: String, deger: String) -> bool:
+	var kid := String(karar_id).strip_edges()
+	var val := String(deger).strip_edges()
+	if o == null or not (kid in GERI_DONEN_KARARLAR) or not (val in KARAR_DEGERLERI):
+		return false
+	var d := oku(o.dunya_zamani)
+	d["kararlar"][kid] = val
+	if not (kid in d["bekleyen_karar_isaretleri"]):
+		(d["bekleyen_karar_isaretleri"] as Array).append(kid)
+	o.dunya_zamani = d
+	return true
+
+
+static func _karar_isareti_yaz(d: Dictionary, no: int) -> Array[String]:
+	var yazilan: Array[String] = []
+	if no <= int(d.get("son_karar_gece", -1)):
+		return yazilan
+	var aday := ""
+	var bekleyen: Array = d.get("bekleyen_karar_isaretleri", [])
+	for kid_v in bekleyen:
+		var kid := String(kid_v)
+		if kid in GERI_DONEN_KARARLAR and String((d["kararlar"] as Dictionary).get(kid, "bekliyor")) in ["kabul", "ret"]:
+			aday = kid
+			break
+	if aday.is_empty():
+		var kararlar_d: Dictionary = d.get("kararlar", {})
+		for kid in GERI_DONEN_KARARLAR:
+			var val := String(kararlar_d.get(kid, "bekliyor"))
+			if val in ["kabul", "ret"] and not ("karar.%s.%s" % [kid, val] in d["isaretler"]):
+				aday = kid
+				break
+	if aday.is_empty():
+		return yazilan
+	var val := String((d["kararlar"] as Dictionary).get(aday, "bekliyor"))
+	var hedef_isaret := "karar.%s.%s" % [aday, val]
+	var temiz: Array = []
+	for x in d["isaretler"]:
+		var s := String(x)
+		if s.begins_with("karar.%s." % aday):
+			continue
+		temiz.append(s)
+	if not (hedef_isaret in temiz):
+		temiz.append(hedef_isaret)
+		yazilan.append(hedef_isaret)
+	d["isaretler"] = temiz
+	d["son_karar_gece"] = no
+	var kalan_bekleyen: Array = []
+	for x in bekleyen:
+		if String(x) != aday:
+			kalan_bekleyen.append(x)
+	d["bekleyen_karar_isaretleri"] = kalan_bekleyen
+	return yazilan
 
 
 static func durum(o: Oturum) -> Dictionary:
@@ -291,8 +418,10 @@ static func gece(o: Oturum, r: Dictionary, ozel_cizelge: Variant = null, kitap_d
 				(d["isaretler"] as Array).append(isaret)
 				yazilan_evreler.append(isaret)
 				_koy_dedikodusu_yaz(o, olay, evre, no)
+	var karar_yazilan := _karar_isareti_yaz(d, no)
+	yazilan_evreler.append_array(karar_yazilan)
 	o.dunya_zamani = d
-	return {"gece": no, "yeni_isaretler": yazilan_evreler}
+	return {"gece": no, "yeni_isaretler": yazilan_evreler, "yeni_karar_isaretleri": karar_yazilan}
 
 
 static func _replik_metni(rep: Dictionary) -> String:
