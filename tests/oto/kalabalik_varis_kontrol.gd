@@ -73,6 +73,11 @@ func _tek_esigi_dene(h: KoyHalkHareketi, ids: Array[int], kapi: Vector2i) -> voi
 	ikinci.position = bekleme
 	ikinci.position = KoyRotaAraligi.adim(hedef, 0.25, h, ikinci)
 	_kontrol(ikinci.position.is_equal_approx(bekleme), "SAH-36: Eşik doluyken ikinci kök sınırda bekler")
+	var durum := {"bekle": 0.0, "ilerleme_konumu": bekleme}
+	ikinci.yuru(hedef, 1.35)
+	_kontrol(not h._sikismada_bekle(ikinci, durum, hedef, 1.99), "SAH-37: İki saniyeden önce yürüyüş kesilmez")
+	_kontrol(h._sikismada_bekle(ikinci, durum, hedef, 0.01), "SAH-37: İki saniyede bekleme başlar")
+	_kontrol(ikinci.hareket_bandi() == "dur" and ikinci._yurume == null and ikinci.position == bekleme, "SAH-37: Kök yerinde ve yürüyüş tween’i kapalı")
 	birinci.position = h._konum(kapi + Vector2i.LEFT)
 	ikinci.position = KoyRotaAraligi.adim(hedef, 0.25, h, ikinci)
 	_kontrol(_hucre(h.sahne, ikinci.position) == kapi, "SAH-36: Eşik boşalınca sıradaki kök geçer")

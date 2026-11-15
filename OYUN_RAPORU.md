@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-37 (Kalfa)
+
+Mevcut köy hareket döngüsü ilerlemeyen kökü iki saniyede yürüyüşten çıkarıyor. Kapalı eşik testinde 1,99 saniyede yürüyüş sürdü ve 2,00 saniyede kök taşınmadan durdu. Aynı headless koşuda sekiz muhafız sıfır kesişimle vardı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-36 (Kalfa)
 
 ANI-13 adımı dolu eşik hücresine ikinci kökü almıyor. Headless kabulde ikinci kök aynı yerde kaldı ve ilk kök ayrılınca geçti. Sekiz muhafızın varış regresyonu 8,36 saniye ve sıfır kesişimle geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

@@ -94,7 +94,7 @@ func esik_musait_mi(kisi_id: String) -> bool:
 
 
 ## SAH-37: 2 saniye yol bulamayan kök yürümeyi keser, idle'a (bekle) düşer; ışınlanma 0'dır.
-func sikisma_durumu(bekleme_suresi: float) -> String:
+static func sikisma_durumu(bekleme_suresi: float) -> String:
 	if bekleme_suresi >= 2.0:
 		return "bekle"
 	return "yuru"

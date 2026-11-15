@@ -122,6 +122,9 @@ func _iste(id: int, dolu_adimdan: bool = false) -> void:
 	_durum[id].yol = []
 	_durum[id].sinsi_kacis = false
 	_durum[id].dolu_adimdan = dolu_adimdan
+	if not dolu_adimdan:
+		_durum[id].sikisma = 0.0
+		_durum[id].ilerleme_konumu = f.position
 	_durum[id].bekle = 0.0
 
 func _process(delta: float) -> void:
@@ -137,6 +140,8 @@ func _process(delta: float) -> void:
 		if SinsiGeceRutini.guncelle(self, id, delta): continue
 		if d.adim < d.yol.size():
 			var hedef: Vector3 = d.yol[d.adim]
+			if _sikismada_bekle(f, d, hedef, delta):
+				continue
 			var varis_mesafesi := float(_ayar.varis_mesafesi)
 			if f.position.distance_to(hedef) <= varis_mesafesi or KoyRotaAraligi.duz_nokta_gecildi(self, f.position, d.yol, d.adim, varis_mesafesi):
 				d.adim += 1
@@ -186,6 +191,31 @@ func _process(delta: float) -> void:
 			if d.bekle >= sure:
 				d.dinlen = not d.dinlen
 				_iste(id)
+
+func _sikismada_bekle(figur: KarakterModel, durum: Dictionary, hedef: Vector3, delta: float) -> bool:
+	var onceki: Vector3 = durum.get("ilerleme_konumu", figur.position)
+	if not figur.position.is_equal_approx(onceki):
+		durum.ilerleme_konumu = figur.position
+		durum.sikisma = 0.0
+		return false
+	if figur.position.distance_to(hedef) <= float(_ayar.varis_mesafesi):
+		durum.sikisma = 0.0
+		return false
+	durum.sikisma = float(durum.get("sikisma", 0.0)) + delta
+	if KalabalikYol.sikisma_durumu(durum.sikisma) != "bekle":
+		return false
+	if figur.hareket_bandi() != "dur":
+		figur.yurumeyi_durdur()
+	durum.bekle += delta
+	if durum.bekle < ADIM_TEKRAR_SURESI:
+		return true
+	durum.bekle = 0.0
+	var aday := KoyRotaAraligi.adim(hedef, 0.02, self, figur)
+	if aday.is_equal_approx(figur.position):
+		return true
+	durum.sikisma = 0.0
+	return false
+
 
 func _planla(id: int) -> void:
 	var f: KarakterModel = modeller[id]

@@ -8138,7 +8138,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-05, SAH-34. Boyut: S.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-37:** Sıkışan kişi idle'a düşer. (doğrulanmadı — Görev 22; Kalfa bekleniyor — KalabalikYol oyunda çağrılmıyor, KoyHalkHareketi/kapı kuyruğu entegrasyonu gerekli)
+- [x] **SAH-37:** Sıkışan kişi idle'a düşer. (Kalfa — iki saniyede kök yerinde bekler)
   - Ne: 2 saniye yol bulamayan kök yürümeyi keser, ANI-12 bekler. Işınlanma yoktur.
   - Kabul: 2 saniye yol bulamayan kök yürümeyi keser, ANI-12 bekler. Işınlanma yoktur. Test: kapalı avlu, ışın 0.
   - Bağımlılık: ANI-12, SAH-34. Boyut: S.
