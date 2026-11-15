@@ -8399,7 +8399,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-08, SAH-16, SAH-74. Boyut: S.
   - Dosya: `tests/oto/karakter_muayene.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-78:** Rapor oyunu durdurmaz.
+- [x] **SAH-78:** Rapor oyunu durdurmaz.
   - Ne: hata satırı headless koşuda çıkar, oyuncu sürümünde panel açılmaz.
   - Kabul: hata satırı headless koşuda çıkar, oyuncu sürümünde panel açılmaz. Test: sürüm bayrağı, panel 0.
   - Bağımlılık: SAH-73. Boyut: S.

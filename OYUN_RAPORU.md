@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-78 (Kalfa)
+
+Başsız doğrudan koşu rapor üretti. Aynı sahne oyun ağacına gömülü eklendiğinde panel ve alt düğüm sayısı sıfır kaldı, süreç açık kaldı. Asset gerekmedi.
+
 ## 2026-11-15 — SAH-77 (Kalfa)
 
 Canlı CHR_002 headless raporunda ayak değeri, torba kesişimi ve bekleyen gerginlik klibi üç ayrı başlık altında doğrulandı. Mevcut JSON alanları korunarak rapor genişletildi. Asset gerekmedi.

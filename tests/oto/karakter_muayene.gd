@@ -22,10 +22,13 @@ var _ayak_hatasi := 0
 
 
 func _ready() -> void:
+	await get_tree().process_frame
+	# Yalnız doğrudan çalıştırılan geliştirici sahnesi oyun ağacını kapatabilir.
+	if not OS.is_debug_build() or get_tree().current_scene != self:
+		return
 	var ciz := DisplayServer.get_name() != "headless"
 	if ciz:
 		_cekimi_kur()
-	await get_tree().process_frame
 	var klasor := OS.get_environment("KLASOR")
 	if klasor.is_empty():
 		klasor = "user://karakter_muayene"
