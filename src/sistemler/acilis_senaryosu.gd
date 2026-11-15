@@ -43,6 +43,7 @@ static func kur(o: Oturum, zorluk: Variant = "olagan") -> void:
 	# Kuruluş sakinleri kapıda verilmiş iki kabul kararı sayılmaz.
 	y.kabul_sayisi = kapidan_kabul
 	o.set_meta(META, h)
+	Hane.acilis_hanesinden_turet(y, y.hane, h)
 	preload("res://src/koy/yapi_bilgisi.gd").gecmis(o)
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(o, "koy")
 	o._koy_esitle()
@@ -64,7 +65,10 @@ static func yukle(o: Oturum, v: Variant) -> void:
 				h["kuruldu"] = true
 				h[rol + "_id"] = k.id
 				if not h.has("ev_id"): h["ev_id"] = k.ev
-	if not h.is_empty(): o.set_meta(META, h)
+	if not h.is_empty():
+		o.set_meta(META, h)
+		if o.yonetim.hane.ev_id < 0 or o.yonetim.hane.uyeler.is_empty():
+			Hane.acilis_hanesinden_turet(o.yonetim, o.yonetim.hane, h)
 
 static func _kimlik(v: Variant) -> int:
 	if (v is int or v is float) and is_finite(float(v)) and float(v) == floor(float(v)) and float(v) >= 0 and float(v) <= 1000000000:

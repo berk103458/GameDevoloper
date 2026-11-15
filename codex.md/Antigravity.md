@@ -1172,3 +1172,15 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **6B.4 Uygula ve doğrula:** `tests/unit/koy/aksam_konu_test.gd` içine gerçek `Oturum.karar_ver` üzerinden yüksek ağırlık / ziyaret sırası, `KisiHafizasi.es` geçmişi, terazi/adalet ve ertesi gün ipucu testleri ekle; hedefli testleri koştur; `DYL-07` → `TAM` işaretle ve ayrı commit/push yap.
 - **Sonuç:** `aksam_sohbeti.gd`, `oturum.gd` ve `aksam_konu_test.gd` güncellendi; `aksam_konu_test.gd` (`TEST PASS`), `aksam_sohbeti_test.gd` (`TEST PASS`), `kisi_hafizasi_test.gd` (`KISI HAFIZASI: GEÇTİ (0 hata)`) ve `aksam_sohbeti_kontrol.tscn` (`AKSAM SOHBETI UI: GEÇTİ (0 hata)`) 0 script hatasıyla geçti. Asset gerekmedi. kota görünmüyor.
 
+### Madde 7 — `HAN-01` (Hane tek kayıt alanı ve `KoyYonetimi` / KAY zinciri bağlantısı) Alt Madde Planı
+- **7.1 Sorunu anla:** `docs/ANTIGRAVITY_DENETIM_LISTESI.md` (`HAN-01`) `src/koy/hane.gd` sınıfının 177 satır hazır olduğunu ancak `KoyYonetimi` içinde hiç çağrılmadığını ve kayda (`KoyYonetimi.kaydet`) girmediğini belirtir.
+- **7.2 Oyuna nasıl bağlandığını kontrol et:**
+  - `src/koy/hane.gd` `kayit_verisi_al()` ve `kayit_verisi_yukle(v)` metotlarına sahip, ancak `ROADMAP_2` (`HAN-01`) alanlarından `ev_id`, `uyeler`, `ocak_durumu`, `son_sofra_gunu` eksik ve `KoyYonetimi` (`src/koy/koy_yonetimi.gd`) bu sınıfı hiç tutmuyor / kaydetmiyor.
+  - `src/sistemler/acilis_senaryosu.gd` (`kur` ve `yukle`) gerçek kuruluş hanesini (`ev_id`, `muhafiz_id`, `es_id`) yönetiyor.
+- **7.3 «Daha iyi olur» iyileştirmeleri:**
+  - `Hane` (`src/koy/hane.gd`) üzerine `ev_id`, `uyeler`, `ocak_durumu`, `son_sofra_gunu` alanları ve `acilis_hanesinden_turet(y, h, acilis_hanesi)` eklensin (eski kayıtta `"hane"` yoksa `ACL-01` kuruluşundan ve canlı köylü eşten türetilir).
+  - `KoyYonetimi` (`src/koy/koy_yonetimi.gd`) üzerine `var hane := Hane.new()` eklensin; `kaydet()` içine `"hane": hane.kayit_verisi_al()` yazsın; `kayittan()` `"hane"` varsa `kayit_verisi_yukle`, yoksa `Hane.acilis_hanesinden_turet(y, y.hane)` çağırsın.
+  - `AcilisSenaryosu` (`src/sistemler/acilis_senaryosu.gd`) `kur` ve `yukle` içinde `o.yonetim.hane` alanını gerçek kuruluş verisiyle eşleştirsin (`ev_id`, `uyeler`, eş durumu).
+- **7.4 Uygula ve doğrula:** `tests/unit/koy/hane_test.gd` içine gerçek `Oturum` + `AcilisSenaryosu.kur` + `KoyYonetimi.kaydet/kayittan` ve eski kayıttan (`"hane"` silinmiş) türetme testleri ekle; `hane_test.gd`, `acilis_senaryosu_test.gd` ve `soz_kayit_test.gd` koştur; `HAN-01` → `TAM` güncelle ve commit/push et.
+
+- **Sonuç:** `hane.gd`, `koy_yonetimi.gd`, `acilis_senaryosu.gd` ve `hane_test.gd` güncellendi; `hane_test.gd` (`PASS: HAN-01..52 Muhafiz Hanesi testi basariyla tamamlandi.`), `acilis_senaryosu_test.gd` (`AÇILIŞ SENARYOSU: GEÇTİ`) ve `soz_kayit_test.gd` (`SÖZ KAYDI: GEÇTİ`) 0 script hatasıyla geçti. Asset gerekmedi. kota görünmüyor.

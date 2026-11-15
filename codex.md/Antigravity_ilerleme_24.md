@@ -122,3 +122,18 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/aksam_sohbeti_kontrol.tscn` → `AKSAM SOHBETI UI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 7 — `HAN-01` (`TAM`)
+- **Değişiklikler:**
+  - `src/koy/hane.gd`: `ev_id`, `uyeler`, `ocak_durumu`, `son_sofra_gunu` alanları eklendi ve serileştirildi; `sofra_kur(gun)` `son_sofra_gunu` güncelliyor; `acilis_hanesinden_turet(y, mevcut, acilis_hanesi)` eski kayıtta `"hane"` yokken `ACL-01` kuruluşundan hane ve eş bilgisini türetiyor.
+  - `src/koy/koy_yonetimi.gd`: `var hane := Hane.new()` eklendi; `kaydet()` içine `"hane": hane.kayit_verisi_al()` yazıldı; `kayittan()` `"hane"` varsa `kayit_verisi_yukle`, yoksa `Hane.acilis_hanesinden_turet` çağırıyor.
+  - `src/sistemler/acilis_senaryosu.gd`: `kur` ve `yukle` akışları `o.yonetim.hane` alanını gerçek kuruluş verisiyle senkronize ediyor.
+  - `tests/unit/koy/hane_test.gd`: Gerçek `Oturum` + `AcilisSenaryosu.kur` + `KoyYonetimi.kaydet/kayittan` + `"hane"` silinmiş eski kayıttan türetme sınamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `HAN-01` → `TAM`.
+- **Hedefli test çıktıları (son satırlar):**
+  - `Godot.exe --headless --path . -s res://tests/unit/koy/hane_test.gd` → `PASS: HAN-01..52 Muhafiz Hanesi testi basariyla tamamlandi.` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/acilis_senaryosu_test.gd` → `AÇILIŞ SENARYOSU: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/kayit/soz_kayit_test.gd` → `SÖZ KAYDI: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

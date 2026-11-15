@@ -9,6 +9,10 @@ extends RefCounted
 const SABAH_SATIRLARI_YOLU := "res://data/soz/hane_sabah_satirlari.json"
 
 var kasa_akce: int = 0
+var ev_id: int = -1
+var uyeler: Array[int] = []
+var ocak_durumu: String = "sicak"
+var son_sofra_gunu: int = -1
 var es_meslegi: String = "dokumaci"
 var es_hayatta: bool = true
 var es_moral: int = 50
@@ -50,6 +54,7 @@ func sofra_kur(gun: int) -> Dictionary:
 	if not es_hayatta or yas_donemi:
 		return { "sofra_acildi": false }
 	sofra_kuruldu = true
+	son_sofra_gunu = gun
 	es_moral = mini(es_moral + 5, 100)
 	return {
 		"sofra_acildi": true,
@@ -143,6 +148,10 @@ func es_olumu() -> void:
 ## HAN-01 & HAN-52: KAY zinciri uyumlu kayıt alma ve yükleme.
 func kayit_verisi_al() -> Dictionary:
 	return {
+		"ev_id": ev_id,
+		"uyeler": uyeler.duplicate(),
+		"ocak_durumu": ocak_durumu,
+		"son_sofra_gunu": son_sofra_gunu,
 		"kasa_akce": kasa_akce,
 		"es_meslegi": es_meslegi,
 		"es_hayatta": es_hayatta,
@@ -155,6 +164,12 @@ func kayit_verisi_al() -> Dictionary:
 	}
 
 func kayit_verisi_yukle(veri: Dictionary) -> void:
+	ev_id = int(veri.get("ev_id", -1))
+	uyeler.clear()
+	for u in veri.get("uyeler", []):
+		uyeler.append(int(u))
+	ocak_durumu = str(veri.get("ocak_durumu", "sicak"))
+	son_sofra_gunu = int(veri.get("son_sofra_gunu", -1))
 	kasa_akce = int(veri.get("kasa_akce", 10))
 	es_meslegi = str(veri.get("es_meslegi", "dokumaci"))
 	es_hayatta = bool(veri.get("es_hayatta", true))
@@ -164,6 +179,43 @@ func kayit_verisi_yukle(veri: Dictionary) -> void:
 	acik_duyumlar.assign(veri.get("acik_duyumlar", []))
 	sofra_kuruldu = bool(veri.get("sofra_kuruldu", false))
 	yas_donemi = bool(veri.get("yas_donemi", false))
+
+
+## HAN-01: Eski kayıtlarda 'hane' yoksa ACL-01 kuruluşundan türetir.
+static func acilis_hanesinden_turet(y: KoyYonetimi, mevcut: Hane = null, acilis_hanesi: Dictionary = {}) -> Hane:
+	var h := mevcut if mevcut != null else Hane.new()
+	if y == null:
+		return h
+	if acilis_hanesi.has("ev_id"):
+		h.ev_id = int(acilis_hanesi.get("ev_id", h.ev_id))
+	var bulunan_uyeler: Array[int] = []
+	var es_bulundu := false
+	for k in y.koylular:
+		var kurulus_uyesi := k.bayrak_var("acl01_muhafiz") or k.bayrak_var("acl01_es")
+		if kurulus_uyesi or (h.ev_id >= 0 and k.ev == h.ev_id):
+			if not (k.id in bulunan_uyeler):
+				bulunan_uyeler.append(k.id)
+			if h.ev_id < 0 and k.ev >= 0:
+				h.ev_id = k.ev
+			if k.bayrak_var("acl01_es") or int(acilis_hanesi.get("es_id", -1)) == k.id:
+				es_bulundu = true
+				h.es_hayatta = k.saglik > 0
+				h.es_moral = k.moral
+				var s := String(k.sinif).to_lower()
+				if s in ["dokumaci", "firinci", "ebe", "bostanci", "sutcu", "yun_egirici"]:
+					h.es_meslegi = s
+	if not bulunan_uyeler.is_empty():
+		h.uyeler = bulunan_uyeler
+	elif acilis_hanesi.get("kuruldu", false):
+		for alan in ["muhafiz_id", "es_id"]:
+			var id := int(acilis_hanesi.get(alan, -1))
+			if id >= 0 and not (id in h.uyeler):
+				h.uyeler.append(id)
+	if acilis_hanesi.has("es_id") and not es_bulundu:
+		h.es_hayatta = false
+		h.yas_donemi = true
+		h.ocak_durumu = "soguk"
+	return h
 
 func hane_durumu() -> Dictionary:
 	return {

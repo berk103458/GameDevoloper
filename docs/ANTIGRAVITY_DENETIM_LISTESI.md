@@ -259,7 +259,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | Madde | Başlık | ROADMAP | İlgili dosyalar | Ne var | Ne eksik | Karar | Antigravity'ye not |
 |---|---|---|---|---|---|---|---|
 | ACL-03 | Akşam sohbeti | `[x]` | `src/koy/aksam_sohbeti.gd`, `src/sistemler/oturum.gd`, `src/arayuz/koy_hud/aksam_sohbeti_paneli.gd`, `src/arayuz/koy_ekrani.gd` | `KoyEkrani._geceye_gec` -> `AksamSohbetiPaneli.ac` -> `_geceye_gec_rapor` akışı ve `Oturum` tetik/atlama/kayıt bağlandı | — | TAM | Ağır karar=1, tekrar=0, Atla=0 bar/moral, meclis/ölü eş=0 doğrulandı |
-| HAN-01 | Hane kaydı | `[x]` | `src/koy/hane.gd` | 177 satır | `Hane` sınıfı hiç çağrılmıyor; kayda girmiyor | SAHTE-BAĞSIZ | `KoyYonetimi.kaydet` içine hane alanını ekle |
+| HAN-01 | Hane kaydı | `[x]` | `src/koy/hane.gd` | `KoyYonetimi.hane` + `kaydet`/`kayittan` + `AcilisSenaryosu` bağlandı; eski kayıttan `ACL-01` türetimi | `Hane` sınıfı hiç çağrılmıyor; kayda girmiyor → çözüldü | TAM | `KoyYonetimi.kaydet` içine hane alanını ekle (`hane_test`, `acilis_senaryosu_test`, `soz_kayit_test` GEÇTİ) |
 | MCL-02 | Meclis sesi | `[x]` | `src/koy/meclis_sesi.gd` | `cinar_alti_meclisi.gd` ve `cinar_meclis_paneli.gd` çağırıyor | — | TAM | — |
 | BUG-16 | Olay ön koşulu | `[x]` | `src/sistemler/olay_on_kosulu.gd` | `oturum.gd:472` havuzu bu koşuldan geçiriyor | — | TAM | — |
 | KAY-04 | İçerik sürümü | `[x]` | `src/sistemler/kayit_gocu_soz.gd` | `icerik_surumu_oku` içerik dosyasını okuyor | — | TAM | — |

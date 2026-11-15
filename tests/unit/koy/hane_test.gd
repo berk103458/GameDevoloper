@@ -95,6 +95,34 @@ func _init() -> void:
 	if yeni_hane.yetimler.size() != 2:
 		hatalar.append("KAY yüklemesinde yetimler sayısı uyuşmadı!")
 
+	# ----------------------------------------------------
+	# İddia 4: Gerçek Oturum & KoyYonetimi.kaydet/kayittan içinde HAN-01 Hane kaydı + eski kayıt türetimi
+	# ----------------------------------------------------
+	var kat := Katalog.new()
+	kat.yukle()
+	var oturum := Oturum.new(kat, 5151)
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(oturum)
+	oturum.yonetim.hane.sofra_kur(3)
+	oturum.yonetim.hane.maas_al(15)
+	var tam_kayit := oturum.kaydet()
+	var koy_kayit: Dictionary = tam_kayit.get("koy_yonetimi", {})
+	if not koy_kayit.has("hane"):
+		hatalar.append("KoyYonetimi.kaydet() içine 'hane' alanı yazılmadı!")
+	var h_kayit: Dictionary = koy_kayit.get("hane", {})
+	if int(h_kayit.get("ev_id", -1)) < 0 or (h_kayit.get("uyeler", []) as Array).size() < 2 or int(h_kayit.get("son_sofra_gunu", -1)) != 3:
+		hatalar.append("KoyYonetimi 'hane' sözlüğü ev_id, uyeler veya son_sofra_gunu eksik!")
+
+	var yuklenen := Oturum.kayittan(kat, tam_kayit)
+	if yuklenen == null or yuklenen.yonetim.hane.kasa_akce != 25 or yuklenen.yonetim.hane.son_sofra_gunu != 3 or yuklenen.yonetim.hane.uyeler.size() < 2:
+		hatalar.append("Oturum.kayittan KoyYonetimi.hane verisini geri yükleyemedi!")
+
+	# Eski kayıtta 'hane' alanı yokken ACL-01 kuruluşundan türetilmeli
+	var eski_kayit := tam_kayit.duplicate(true)
+	(eski_kayit["koy_yonetimi"] as Dictionary).erase("hane")
+	var eski_yuklenen := Oturum.kayittan(kat, eski_kayit)
+	if eski_yuklenen == null or eski_yuklenen.yonetim.hane.ev_id < 0 or eski_yuklenen.yonetim.hane.uyeler.size() < 2:
+		hatalar.append("Eski kayıtta 'hane' yokken ACL-01 kuruluşundan türetilmedi!")
+
 	if not hatalar.is_empty():
 		for h in hatalar:
 			push_error(h)
