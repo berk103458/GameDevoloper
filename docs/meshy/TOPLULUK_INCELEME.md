@@ -266,22 +266,22 @@ Teknik kontrolde 8 GLB’de iskelet ve klip bulundu. Kapüşonlu köylünün gö
 
 ## F. İnceltme ve bağlama sonuçları
 
-16 Kasım 2026. Blender 4.2 Decimate (Collapse), üst uç, tavan 60.000 üçgen. 50.000 altındaki geometriye dokunulmadı; 1024 üstü dokular JPEG'e indirildi. İskelet ve klipler duruyor. 70 dosyanın 70'i inceldi, atlanan yok. Toplam 1501,9 MB → 83,8 MB. Bağlanan 12 kod `Dunya3B.TOPLULUK_YER` üzerinden mevcut yer tutucunun adını kullanır.
+16 Kasım 2026. Blender 4.2 Decimate (Collapse), üst uç, tavan 60.000 üçgen. 50.000 altındaki geometriye dokunulmadı; 1024 üstü dokular JPEG'e indirildi. İskelet ve klipler duruyor. 70 dosyanın 70'i inceldi, atlanan yok. Toplam 1501,9 MB → 83,8 MB. Bağlanan 12 kod `Dunya3B.TOPLULUK_YER` üzerinden mevcut yer tutucunun adını kullanır. 16 Kasım akşamı 39 model daha `ToplulukDekoru` ile köy ızgarasının dışına, her birinden bir kopya, statik dekor olarak kondu. Kapı yolu ve yürüme ızgarası boş. Görüş mesafesi 120 m; Godot LOD açık.
 
 | Dosya | Önce/sonra üçgen | Önce/sonra MB | Oyunda nereye bağlandı | Not |
 |---|---|---|---|---|
-| `assets/meshy/animasyon_bekliyor/a146_tavuk_gercekci.glb` | 655.213 → 25.000 | 54,2 → 1,4 | — | Kümes yer tutucusu yok |
-| `assets/meshy/animasyon_bekliyor/a157_esek.glb` | 9.999 → 9.999 | 1,1 → 0,6 | — | Eşek yer tutucusu yok |
+| `assets/meshy/animasyon_bekliyor/a146_tavuk_gercekci.glb` | 655.213 → 25.000 | 54,2 → 1,4 | Köyün batısı, ağıl yanı, tavuk | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/animasyon_bekliyor/a157_esek.glb` | 9.999 → 9.999 | 1,1 → 0,6 | Köyün batısı, ağıl yanı, eşek | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/animasyon_bekliyor/a163_keci.glb` | 19.452 → 19.452 | 1,5 → 0,6 | — | Keçi zaten hayvan/keci.glb |
-| `assets/meshy/animasyon_bekliyor/a172_okuz.glb` | 19.401 → 19.401 | 1,5 → 0,6 | — | Öküz çağıranı yok (okuz.glb yok); zebu şüpheli |
+| `assets/meshy/animasyon_bekliyor/a172_okuz.glb` | 19.401 → 19.401 | 1,5 → 0,6 | Köyün batısı, ağıl yanı, öküz | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/animasyon_bekliyor/b019_kangal_anadolu_coban_kopegi.glb` | 388.371 → 25.000 | 22,6 → 1,2 | — | Köpek zaten hayvan/kopek.glb |
 | `assets/meshy/animasyon_bekliyor/b092_kapusonlu_koylu.glb` | 10.214 → 10.214 | 70,7 → 1,0 | — | Köylü iskeleti yok; figür zorlanmadı |
-| `assets/meshy/animasyon_bekliyor/b117_coban_ve_koyun_heykel.glb` | 1.084.178 → 30.000 | 42,1 → 1,9 | — | Heykel için sahne yuvası yok |
+| `assets/meshy/animasyon_bekliyor/b117_coban_ve_koyun_heykel.glb` | 1.084.178 → 30.000 | 42,1 → 1,9 | Köyün doğusu, heykel | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/animasyon_bekliyor/k02_kipcak_kuman_savascisi.glb` | 1.257.156 → 30.000 | 47,0 → 1,5 | — | İskelet yok; asker yuvası ayrı, statik zorlanmadı |
-| `assets/meshy/animasyon_bekliyor/k07_ayi.glb` | 1.546.078 → 24.999 | 52,7 → 1,7 | — | Ayı olayı yer tutucusu yok |
+| `assets/meshy/animasyon_bekliyor/k07_ayi.glb` | 1.546.078 → 24.999 | 52,7 → 1,7 | Köyün kuzeybatısı, ayı | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/animasyon_bekliyor/k14_gezgin_tuccar.glb` | 217.307 → 30.000 | 8,0 → 1,3 | — | İskelet yok; kervan figürü zorlanmadı |
 | `assets/meshy/animasyon_bekliyor/k15_gezgin_tuccar_sepetli.glb` | 171.460 → 29.999 | 6,3 → 1,1 | — | İskelet yok; pazar figürü zorlanmadı |
-| `assets/meshy/animasyonlu/k04_tavuk.glb` | 235.964 → 24.990 | 14,6 → 1,7 | — | Kümes yer tutucusu yok; klip duruyor |
+| `assets/meshy/animasyonlu/k04_tavuk.glb` | 235.964 → 24.990 | 14,6 → 1,7 | Köyün batısı, ağıl yanı, tavuk | Statik dekor, tek kopya; klipler duruyor |
 | `assets/meshy/animasyonlu/k05_at.glb` | 47.468 → 47.468 | 4,0 → 1,8 | — | At zaten hayvan/at.glb; statik klip sonra |
 | `assets/meshy/animasyonlu/k09_okcu_pers.glb` | 257.376 → 29.989 | 15,6 → 2,5 | — | Okçu kıyafeti şüpheli; ayrı yuva yok, klip duruyor |
 | `assets/meshy/animasyonlu/k12_ortacag_tuccari.glb` | 29.944 → 29.944 | 4,5 → 1,8 | — | Dolaşan tüccar yuvası yok; klip duruyor |
@@ -289,54 +289,54 @@ Teknik kontrolde 8 GLB’de iskelet ve klip bulundu. Kapüşonlu köylünün gö
 | `assets/meshy/dogrudan/a012_mizrak.glb` | 24.786 → 24.786 | 7,8 → 1,0 | Muhafızın elinde mızrak | Dunya3B.nesne; doku korundu, taban y=0 |
 | `assets/meshy/dogrudan/a016_mizrak_sehpasi.glb` | 222.356 → 24.999 | 8,5 → 1,2 | Kapı, mızrak sehpası | Dunya3B.nesne; doku korundu, taban y=0 |
 | `assets/meshy/dogrudan/a040_kutuk_ustunde_ors.glb` | 172.837 → 39.999 | 6,8 → 1,6 | — | Örs yuvası tek parça; bu atölye dioraması değil |
-| `assets/meshy/dogrudan/a042_el_korugu.glb` | 36.986 → 36.986 | 2,5 → 1,2 | — | Körük için ayrı yer tutucu yok |
+| `assets/meshy/dogrudan/a042_el_korugu.glb` | 36.986 → 36.986 | 2,5 → 1,2 | Doğu mutfak avlusu, körük | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/dogrudan/a060_tas_halkali_ocak.glb` | 3.000 → 3.000 | 1,2 → 0,3 | Köy meydanı, nöbet ocağı | Dunya3B.nesne; doku korundu, taban y=0 |
 | `assets/meshy/dogrudan/a073_sazdan_catili_pazar_tezgahi_cuvalli.glb` | 635.056 → 25.000 | 22,4 → 1,4 | — | Pazar 1 zaten pazar_tezgahi.glb; ikinci tezgâh yok |
 | `assets/meshy/dogrudan/a077_ortulu_pazar_tezgahi.glb` | 566.952 → 25.000 | 20,3 → 1,4 | — | Pazar yuvası dolu; ikinci tezgâh yok |
-| `assets/meshy/dogrudan/a081_agzi_acik_un_cuvali.glb` | 473.038 → 8.000 | 15,5 → 0,5 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/a113_sazdan_catili_ahsap_gozetleme_kulesi.glb` | 1.013.142 → 39.999 | 43,3 → 2,4 | — | Gözcü kulesi zaten gozetleme_kulesi.glb |
-| `assets/meshy/dogrudan/a116_iki_katli_duz_damli_kerpic_ev.glb` | 575.656 → 40.000 | 26,5 → 1,7 | — | Ayrı konak yuvası yok |
-| `assets/meshy/dogrudan/a117_duz_damli_kerpic_ev.glb` | 984.892 → 40.000 | 35,7 → 1,8 | — | Ayrı konak yuvası yok |
-| `assets/meshy/dogrudan/a177_kubbeli_toprak_firin.glb` | 9.960 → 9.960 | 2,5 → 0,5 | — | Fırın ağzı A181; ikinci fırın yok |
+| `assets/meshy/dogrudan/a081_agzi_acik_un_cuvali.glb` | 473.038 → 8.000 | 15,5 → 0,5 | Güney kenar, un çuvalı | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/a113_sazdan_catili_ahsap_gozetleme_kulesi.glb` | 1.013.142 → 39.999 | 43,3 → 2,4 | Kuzeybatı dışı, saz çatılı kule | Statik dekor; mevcut gözetleme kulesinin yerine geçmez |
+| `assets/meshy/dogrudan/a116_iki_katli_duz_damli_kerpic_ev.glb` | 575.656 → 40.000 | 26,5 → 1,7 | Kuzey kenar, iki katlı ev | Statik dekor; ev.glb duruyor |
+| `assets/meshy/dogrudan/a117_duz_damli_kerpic_ev.glb` | 984.892 → 40.000 | 35,7 → 1,8 | Kuzey kenar, kerpiç ev | Statik dekor; ev.glb duruyor |
+| `assets/meshy/dogrudan/a177_kubbeli_toprak_firin.glb` | 9.960 → 9.960 | 2,5 → 0,5 | Doğu mutfak avlusu, kubbeli fırın | Statik dekor; fırın ağzı A181 olarak duruyor |
 | `assets/meshy/dogrudan/a181_tandir.glb` | 20.387 → 20.387 | 1,6 → 0,7 | Fırın, fırın ağzı | Dunya3B.nesne; doku korundu, taban y=0 |
-| `assets/meshy/dogrudan/a186_saman_kovan.glb` | 9.991 → 9.991 | 1,9 → 0,6 | — | Sahnede aynı adlı yer tutucu yok |
+| `assets/meshy/dogrudan/a186_saman_kovan.glb` | 9.991 → 9.991 | 1,9 → 0,6 | Güney kenar, kovan | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/dogrudan/a190_tahil_cuvali.glb` | 477.522 → 8.000 | 16,0 → 0,5 | Değirmen, çuval yığını | Dunya3B.nesne; doku korundu, taban y=0 |
-| `assets/meshy/dogrudan/a202_tinaz_saman_yigini.glb` | 33.259 → 33.259 | 13,0 → 2,5 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/a205_degirmen_tasi.glb` | 158.967 → 15.000 | 5,7 → 0,6 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/a209_el_degirmeni.glb` | 874.267 → 15.000 | 36,4 → 1,1 | — | Sahnede aynı adlı yer tutucu yok |
+| `assets/meshy/dogrudan/a202_tinaz_saman_yigini.glb` | 33.259 → 33.259 | 13,0 → 2,5 | Batı tarla, saman yığını | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/a205_degirmen_tasi.glb` | 158.967 → 15.000 | 5,7 → 0,6 | Güney kenar, değirmen taşı | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/a209_el_degirmeni.glb` | 874.267 → 15.000 | 36,4 → 1,1 | Güney kenar, el değirmeni | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/dogrudan/a211_orak.glb` | 105.180 → 8.000 | 10,9 → 0,8 | Elde orak | Dunya3B.nesne; doku korundu, taban y=0 |
-| `assets/meshy/dogrudan/a220_karasaban.glb` | 86.388 → 15.000 | 3,7 → 0,7 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/a227_bakir_kazan.glb` | 617.352 → 15.000 | 27,2 → 1,1 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/a228_sacayak_ustunde_kazan.glb` | 6.296 → 6.296 | 9,1 → 0,5 | — | Sahnede aynı adlı yer tutucu yok |
+| `assets/meshy/dogrudan/a220_karasaban.glb` | 86.388 → 15.000 | 3,7 → 0,7 | Batı tarla, karasaban | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/a227_bakir_kazan.glb` | 617.352 → 15.000 | 27,2 → 1,1 | Doğu mutfak avlusu, bakır kazan | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/a228_sacayak_ustunde_kazan.glb` | 6.296 → 6.296 | 9,1 → 0,5 | Doğu, sacayak kazan | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/dogrudan/a236_kilim_dokuma_tezgahi.glb` | 583.794 → 15.000 | 84,8 → 1,3 | Atölye, dokuma tezgâhı | Dunya3B.nesne; doku korundu, taban y=0 |
-| `assets/meshy/dogrudan/a241_comlek_takimi.glb` | 680.172 → 14.999 | 27,4 → 0,9 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/o00_odun_yigini_kutuk.glb` | 30.415 → 30.415 | 24,6 → 2,2 | — | Sahnede aynı adlı yer tutucu yok |
+| `assets/meshy/dogrudan/a241_comlek_takimi.glb` | 680.172 → 14.999 | 27,4 → 0,9 | Doğu mutfak avlusu, çömlek takımı | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/o00_odun_yigini_kutuk.glb` | 30.415 → 30.415 | 24,6 → 2,2 | Güney kenar, odun yığını | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/dogrudan/o01_hasir_sepet.glb` | 229.763 → 7.999 | 30,1 → 1,0 | Elde büyük sepet | Dunya3B.nesne; doku korundu, taban y=0 |
-| `assets/meshy/dogrudan/o05_demir_mangal_nobet_ocagi.glb` | 4.254 → 4.254 | 9,0 → 0,5 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/o07_toprak_comlek.glb` | 761.834 → 7.999 | 33,9 → 0,4 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/o14_yumurta_sepeti.glb` | 28.037 → 28.037 | 17,7 → 1,7 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/o17_sivri_kazik_cit.glb` | 769.860 → 25.000 | 33,6 → 1,6 | — | Sur 1 kazığı O37; ikinci çit yok |
-| `assets/meshy/dogrudan/o18_tas_yigini.glb` | 5.220 → 5.220 | 16,2 → 0,6 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/o19_asma_toprak_kandil.glb` | 316.518 → 8.000 | 18,5 → 0,7 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/o20_tas_oturak.glb` | 396.660 → 15.000 | 46,7 → 0,9 | — | Sahnede aynı adlı yer tutucu yok |
+| `assets/meshy/dogrudan/o05_demir_mangal_nobet_ocagi.glb` | 4.254 → 4.254 | 9,0 → 0,5 | Doğu, mangal | Meydan ocağının üstüne konmadı |
+| `assets/meshy/dogrudan/o07_toprak_comlek.glb` | 761.834 → 7.999 | 33,9 → 0,4 | Doğu mutfak avlusu, çömlek | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/o14_yumurta_sepeti.glb` | 28.037 → 28.037 | 17,7 → 1,7 | Güney kenar, yumurta sepeti | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/o17_sivri_kazik_cit.glb` | 769.860 → 25.000 | 33,6 → 1,6 | Batı kenar, tek sivri çit | Sur kazığının yerine geçmez; tek parça |
+| `assets/meshy/dogrudan/o18_tas_yigini.glb` | 5.220 → 5.220 | 16,2 → 0,6 | Güney kenar, taş yığını | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/o19_asma_toprak_kandil.glb` | 316.518 → 8.000 | 18,5 → 0,7 | Güney kenar, asma kandil | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/o20_tas_oturak.glb` | 396.660 → 15.000 | 46,7 → 0,9 | Güney kenar, taş oturak | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/dogrudan/o21_tas_kuyu_cikrikli.glb` | 809.733 → 24.999 | 34,0 → 1,5 | Köy meydanı, kuyu | Dunya3B.nesne; doku korundu, taban y=0 |
-| `assets/meshy/dogrudan/o23_rafli_odun_istifi.glb` | 2.954 → 2.954 | 3,0 → 0,3 | — | Sahnede aynı adlı yer tutucu yok |
+| `assets/meshy/dogrudan/o23_rafli_odun_istifi.glb` | 2.954 → 2.954 | 3,0 → 0,3 | Güney kenar, raflı odun | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/dogrudan/o25_ahsap_palisat_kapisi.glb` | 1.599.643 → 39.999 | 59,1 → 2,5 | — | Kapı zaten kapi.glb; ikinci kanat yok |
-| `assets/meshy/dogrudan/o26_toprak_damli_kerpic_ev.glb` | 7.890 → 7.890 | 8,4 → 0,6 | — | Kulübe zaten ev.glb |
-| `assets/meshy/dogrudan/o30_ahsap_yalak.glb` | 179.416 → 15.000 | 12,8 → 1,0 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/o32_toprak_kandil.glb` | 364.307 → 7.999 | 15,1 → 0,5 | — | Sahnede aynı adlı yer tutucu yok |
+| `assets/meshy/dogrudan/o26_toprak_damli_kerpic_ev.glb` | 7.890 → 7.890 | 8,4 → 0,6 | Kuzey kenar, toprak damlı ev | Statik dekor; ev.glb duruyor |
+| `assets/meshy/dogrudan/o30_ahsap_yalak.glb` | 179.416 → 15.000 | 12,8 → 1,0 | Batı, yalak | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/o32_toprak_kandil.glb` | 364.307 → 7.999 | 15,1 → 0,5 | Güney kenar, kandil | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/dogrudan/o37_ahsap_palisat_kazik_sur.glb` | 2.990 → 2.990 | 9,5 → 0,7 | Sur 1 ve ana menü, kazık çit | Dunya3B.nesne; doku korundu, taban y=0 |
-| `assets/meshy/dogrudan/o48_toprak_testi.glb` | 446.726 → 7.999 | 21,6 → 0,7 | — | Sahnede aynı adlı yer tutucu yok |
-| `assets/meshy/dogrudan/o49_kervan_konak_yeri_ortu_yuk.glb` | 951.487 → 40.000 | 42,6 → 2,3 | — | Sahnede aynı adlı yer tutucu yok |
+| `assets/meshy/dogrudan/o48_toprak_testi.glb` | 446.726 → 7.999 | 21,6 → 0,7 | Doğu mutfak avlusu, testi | Statik dekor, tek kopya, ızgara dışı |
+| `assets/meshy/dogrudan/o49_kervan_konak_yeri_ortu_yuk.glb` | 951.487 → 40.000 | 42,6 → 2,3 | Doğu, kapı yolunun uzağı, kervan konağı | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/dogrudan/o51_sapli_sepet.glb` | 9.969 → 9.969 | 9,2 → 0,8 | Elde sepet | Dunya3B.nesne; doku korundu, taban y=0 |
 | `assets/meshy/dogrudan/o58_saman_arabasi.glb` | 24.866 → 24.866 | 4,1 → 0,9 | Kapı sahnesi, araba | Dunya3B.nesne; doku korundu, taban y=0 |
-| `assets/meshy/dogrudan/o64_orme_cubuk_cit_ceper.glb` | 307.734 → 25.000 | 10,7 → 1,1 | — | Sahnede aynı adlı yer tutucu yok |
+| `assets/meshy/dogrudan/o64_orme_cubuk_cit_ceper.glb` | 307.734 → 25.000 | 10,7 → 1,1 | Kuzeybatı kenar, tek örgü çit | Surun yerine geçmez; tek parça |
 | `assets/meshy/dogrudan/o65_renkli_carsi_tezgahi.glb` | 184.169 → 25.000 | 8,3 → 1,4 | — | Pazar yuvası dolu; ikinci tezgâh yok |
-| `assets/meshy/dogrudan/o72_tas_ahsap_kule.glb` | 320.119 → 40.000 | 11,4 → 1,7 | — | Burç yuvası ayrı değil; kule modeli duruyor |
-| `assets/meshy/dogrudan/o76_su_degirmeni.glb` | 1.927.250 → 38.000 | 94,1 → 2,4 | — | Değirmen binası zaten degirmen.glb; diorama zorlanmadı |
-| `assets/meshy/dogrudan/o79_debbaghane_deri_gerdirme.glb` | 549.278 → 24.999 | 55,1 → 1,2 | — | Sahnede aynı adlı yer tutucu yok |
+| `assets/meshy/dogrudan/o72_tas_ahsap_kule.glb` | 320.119 → 40.000 | 11,4 → 1,7 | Kuzeydoğu dışı, kule | Statik dekor; mevcut kule duruyor |
+| `assets/meshy/dogrudan/o76_su_degirmeni.glb` | 1.927.250 → 38.000 | 94,1 → 2,4 | Doğu, dere yanı, su değirmeni | Statik dekor; degirmen.glb duruyor |
+| `assets/meshy/dogrudan/o79_debbaghane_deri_gerdirme.glb` | 549.278 → 24.999 | 55,1 → 1,2 | Doğu, debbaghane | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/dogrudan/o81_yurume_yollu_ahsap_palisat.glb` | 650.912 → 40.000 | 58,4 → 1,8 | — | Sur 2 zaten sur_2_palisat.glb |
-| `assets/meshy/dogrudan/o84_kapakli_bakir_tencere.glb` | 374.832 → 7.999 | 15,6 → 0,6 | — | Sahnede aynı adlı yer tutucu yok |
+| `assets/meshy/dogrudan/o84_kapakli_bakir_tencere.glb` | 374.832 → 7.999 | 15,6 → 0,6 | Doğu mutfak avlusu, tencere | Statik dekor, tek kopya, ızgara dışı |
 | `assets/meshy/dogrudan/o90_tas_sur_duvari.glb` | 51.117 → 24.999 | 3,9 → 1,4 | — | Sur 3 zaten sur_3_tas.glb |
 | `assets/meshy/dogrudan/o92_tas_cerceveli_demir_parmaklikli_kapi.glb` | 75.028 → 25.000 | 3,8 → 1,1 | — | Kapı zaten kapi.glb; ikinci kanat yok |
 | `assets/meshy/ekstra/Meshy_AI_시장_한가운데_서_있는_듯한_활기찬_중세_상인_여성의_전신_3D_모델_20251018_animated_mixamo_All_animation.glb` | 88.592 → 29.972 | 9,2 → 2,1 | — | Sahnede aynı adlı yer tutucu yok |

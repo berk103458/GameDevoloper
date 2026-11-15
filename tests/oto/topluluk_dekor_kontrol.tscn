@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/oto/topluluk_dekor_kontrol.gd" id="1"]
+
+[node name="ToplulukDekorKontrol" type="Node"]
+script = ExtResource("1")
