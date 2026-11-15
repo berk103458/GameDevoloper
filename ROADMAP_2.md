@@ -8144,7 +8144,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-12, SAH-34. Boyut: S.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-38:** Gece devriyesi kalabalığı delmez. (Kalfa bekleniyor — devriye köylü kaçınma rotası)
+- [x] **SAH-38:** Gece devriyesi kalabalığı delmez. (Kalfa — ateş başındaki altı kişiyi dolaşır)
   - Ne: ANI-02 rotası dolu hücreden kayar. Nöbetçi köylünün içinden geçmez.
   - Kabul: ANI-02 rotası dolu hücreden kayar. Nöbetçi köylünün içinden geçmez. Test: ateş başı kalabalık, devriye kesişimi 0.
   - Bağımlılık: ANI-02, SAH-34. Boyut: M.

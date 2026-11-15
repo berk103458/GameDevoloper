@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-38 (Kalfa)
+
+Gerçek ANI-02 devriyesi, normal rotası ateş başındaki altı köylünün arasından geçecekken mevcut kalabalık rotasıyla kapıya yürüdü. Dolu hücrelerden geçiş ve kök kesişimi 0, asgari kök aralığı 1,99974 m. Muhafız devriyesi headless testi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-37 (Kalfa)
 
 Mevcut köy hareket döngüsü ilerlemeyen kökü iki saniyede yürüyüşten çıkarıyor. Kapalı eşik testinde 1,99 saniyede yürüyüş sürdü ve 2,00 saniyede kök taşınmadan durdu. Aynı headless koşuda sekiz muhafız sıfır kesişimle vardı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

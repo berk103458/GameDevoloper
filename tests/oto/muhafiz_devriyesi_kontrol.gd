@@ -87,12 +87,70 @@ func _ready() -> void:
 	h.yenile()
 	h._process(0.0)
 	kontrol(not h._durum[k.id].devriye, "Görev bitince normal rutin")
+	kontrol(y.ata(k.id, b.id), "SAH-38: Muhafız kışlaya yeniden atanır")
+	await _ates_devriyesi(h, k.id)
 	ana.kayit.sil()
 	ana.queue_free()
 	await get_tree().process_frame
 	await get_tree().create_timer(0.3).timeout
 	print("MUHAFIZ DEVRİYESİ UI: GEÇTİ" if hata == 0 else "MUHAFIZ DEVRİYESİ UI: KALDI")
 	await Ses.cik(hata)
+func _ates_devriyesi(h: KoyHalkHareketi, muhafiz: int) -> void:
+	var y := h.sahne.yonetim
+	for i in 6:
+		y.kabul({"sinif": "ciftci", "stat": 5})
+	h.yenile()
+	h.faz(&"gece")
+	for i in 3:
+		h._process(0.0)
+	var dolu := {}
+	for id in h.modeller:
+		var d: Dictionary = h._durum[id]
+		if not d.get("ates_basi", false) or d.yol.is_empty():
+			continue
+		var figur: KarakterModel = h.modeller[id]
+		figur.yurumeyi_durdur()
+		figur.position = d.yol[-1]
+		d.adim = d.yol.size()
+		dolu[KoyRotaAraligi.hucre(h, figur.position)] = figur
+	var esik := KapiNobeti.esik_hucresi(y)
+	var bas := Vector2i(-1, -1)
+	for z in range(y.a.meydan.position.y - 3, y.a.meydan.end.y + 3):
+		for x in range(y.a.meydan.position.x - 3, y.a.meydan.end.x + 3):
+			var aday := Vector2i(x, z)
+			if dolu.has(aday):
+				continue
+			var normal := h.rotaci.yol(aday, esik)
+			if normal.any(func(hucre: Vector2i) -> bool: return dolu.has(hucre)):
+				bas = aday
+				break
+		if bas.x >= 0:
+			break
+	kontrol(dolu.size() >= 4 and bas.x >= 0, "SAH-38: Normal kapı rotasında gerçek ateş kalabalığı")
+	if bas.x < 0:
+		return
+	var f: KarakterModel = h.modeller[muhafiz]
+	f.position = h._konum(bas)
+	var d: Dictionary = h._durum[muhafiz]
+	d.devriye_i = 0
+	h._iste(muhafiz)
+	h._process(0.0)
+	kontrol(d.devriye and d.devriye_ad == "Kapıda nöbet" and not d.yol.is_empty(), "SAH-38: Mevcut devriye durağı korunur")
+	for nokta in d.yol:
+		kontrol(not dolu.has(KoyRotaAraligi.hucre(h, nokta)), "SAH-38: Devriye rotası dolu ateş hücresine girmez")
+	var en_yakin := INF
+	var sure := 0.0
+	while sure < 25.0 and int(d.adim) < d.yol.size():
+		await get_tree().process_frame
+		var delta := get_process_delta_time()
+		sure += delta
+		h._process(delta)
+		for figur: KarakterModel in dolu.values():
+			en_yakin = minf(en_yakin, f.position.distance_to(figur.position))
+	kontrol(KoyRotaAraligi.hucre(h, f.position) == esik and en_yakin >= AyakZemini.CARPISMA_PAYI - 0.001, "SAH-38: Devriye kapıya canlı yürür ve kalabalıkla kesişmez")
+	print("SAH-38 ateş başında=%d, en küçük kök aralığı=%.5f m" % [dolu.size(), en_yakin])
+
+
 func _kur(y: KoyYonetimi, tur: String) -> KoyBinasi:
 	for cy in y.a.izgara_boyut.y:
 		for cx in y.a.izgara_boyut.x:
