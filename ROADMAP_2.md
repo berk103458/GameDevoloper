@@ -6463,7 +6463,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Dosya: —.
   - Asset: asset gerekmedi.
 
-- [/] **KLT-46:** (Cursor — üzerinde) Kör okuma satırı silinmez
+- [x] **KLT-46:** Kör okuma satırı silinmez (Cursor — kural tools/soz_kapi.py kor_okuma_gecmis_hatalari: silinen id ve tarihi düşmeyen üzerine yazım hata; HEAD karşılaştırması tools/kor_okuma_gecmis.py sanity_check 'kor-okuma-gecmis' adımında; csv'ye tarih sütunu; test tests/tools/test_soz_kapi.py::test_klt46_kor_okuma_satiri_silinmez_tarih_duser; mutasyonda kırmızı)
   - Ne: Kör okuma satırı silinmez. Skor dosyasında eski satır kalır, üstüne yazılırsa tarih düşer.
   - Kabul: Silinen id 0. Test: diff.
   - Bağımlılık: DYL-11. Boyut: S.

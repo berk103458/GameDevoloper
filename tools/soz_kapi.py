@@ -36,6 +36,7 @@ SOZ = ROOT / "data" / "soz"
 ESKI_DIYALOG = ROOT / "data" / "diyalog" / "diyalog_01_20.json"
 ESKI_SOHBET = ROOT / "data" / "sohbetler"
 METIN_TABLOSU = ROOT / "data" / "metin" / "metinler.csv"
+KOR_OKUMA = ROOT / "docs" / "soz" / "kor_okuma.csv"
 # Kısa selam ve tek kelimelik cevaplar ortak dildir; kopya sayılmaz.
 ESKI_ASGARI_KELIME = 4
 
@@ -255,6 +256,23 @@ def _satir_uyarilari(paket: dict) -> list[dict]:
 def _duz_cumle(metin: str) -> bool:
     parcalar = [p for p in metin.split() if p]
     return len(parcalar) >= 4 and "." not in metin
+
+
+def _kor_satirlari(metin: str) -> dict[str, dict]:
+    return {str(s.get("id", "")): s for s in csv.DictReader(metin.splitlines()) if s.get("id")}
+
+
+def kor_okuma_gecmis_hatalari(eski: str, yeni: str) -> list[dict]:
+    """KLT-46: kör okuma skoru silinmez; üstüne yazılan satır yeni tarih taşır."""
+    onceki, simdiki = _kor_satirlari(eski), _kor_satirlari(yeni)
+    hatalar = []
+    for kimlik, satir in onceki.items():
+        yeni_satir = simdiki.get(kimlik)
+        if yeni_satir is None:
+            hatalar.append({"tur": "hata", "kod": "KLT-46", "mesaj": "kor okuma satiri silindi: " + kimlik})
+        elif yeni_satir != satir and yeni_satir.get("tarih", "") <= satir.get("tarih", ""):
+            hatalar.append({"tur": "hata", "kod": "KLT-46", "mesaj": "tarih dusmedi: " + kimlik})
+    return hatalar
 
 
 def kopyala(paket: dict, hedef: Path, kor_satirlari: list[dict] | None = None) -> int:

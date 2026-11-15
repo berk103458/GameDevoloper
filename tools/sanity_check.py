@@ -87,6 +87,7 @@ def find_godot(explicit=None):
 def checks(godot, root):
     yield "chr-source", [sys.executable, "-B", "tools/chr_parser.py", "--check"], None
     yield "metin-csv", [sys.executable, "-B", "tools/metin_dogrula.py", "--kaynak"], None
+    yield "kor-okuma-gecmis", [sys.executable, "-B", "tools/kor_okuma_gecmis.py"], None
     yield "denge-sinirlari", [sys.executable, "-B", "tools/denge_dogrula.py"], "GECTI"
     yield "python-tests", [sys.executable, "-B", "tools/python_test_runner.py"], None
     yield "startup-source", [sys.executable, "-B", "tools/acilis_denetimi.py", "--filesystem"], None

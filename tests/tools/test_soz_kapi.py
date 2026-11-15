@@ -22,6 +22,7 @@ from soz_kapi import (  # noqa: E402
     godot_baslatir_mi,
     kitap_exportta_mi,
     kopyala,
+    kor_okuma_gecmis_hatalari,
     soz_kopya_taramasi,
     src_editor_sayisi,
     _temiz_paket,
@@ -272,6 +273,19 @@ class SozKapiTest(unittest.TestCase):
                     self.assertTrue((Path(klasor) / "red" / "ornek.json").is_file())
                 toplam.extend(hatalar)
         self.assertEqual(len(toplam), 5)
+
+    def test_klt46_kor_okuma_satiri_silinmez_tarih_duser(self):
+        eski = "id,skor,agiz,tarih\na,0.9,3,2026-11-01\nb,0.8,3,2026-11-01\n"
+        self.assertEqual(kor_okuma_gecmis_hatalari(eski, eski + "c,0.7,3,2026-11-02\n"), [])
+        silinen = kor_okuma_gecmis_hatalari(eski, "id,skor,agiz,tarih\na,0.9,3,2026-11-01\n")
+        self.assertEqual([h["mesaj"] for h in silinen], ["kor okuma satiri silindi: b"])
+        tarihsiz = kor_okuma_gecmis_hatalari(eski, eski.replace("b,0.8,3,2026-11-01", "b,0.5,3,2026-11-01"))
+        self.assertEqual([h["kod"] for h in tarihsiz], ["KLT-46"])
+        tarihli = eski.replace("b,0.8,3,2026-11-01", "b,0.5,3,2026-11-15")
+        self.assertEqual(kor_okuma_gecmis_hatalari(eski, tarihli), [])
+        sonuc = subprocess.run([sys.executable, "-B", str(ROOT / "tools" / "kor_okuma_gecmis.py")],
+                               capture_output=True, text=True, encoding="utf-8", timeout=15)
+        self.assertIn("silinen_kor=", sonuc.stdout)
 
     def test_celiski_uyari(self):
         paket = _temiz_paket()
