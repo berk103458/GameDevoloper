@@ -283,6 +283,8 @@ func _siradaki() -> void:
 	preload("res://src/dunya/aile_kapi_gorunumu.gd").kur(sahne._gelen, _gelen)
 	for satir in KapiHavaRepligi.satirlar(oturum, _gelen):
 		_yaz(satir)
+	for satir in DonenSoylenti.satirlar(oturum, _gelen):
+		_yaz(satir)
 	if _gelen.acilis != "":
 		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), tr(_gelen.acilis)])
 	for satir in IlkAileEsIpucu.satirlar(oturum, _gelen):

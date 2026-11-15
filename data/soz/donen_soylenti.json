@@ -1,0 +1,14 @@
+{
+  "aciklama": "SOY-24. Kapıya ikinci kez gelen adlı karakter, duyduğu söylentiyi anar. Sayaç ziyaret_basladi sonrası okunur: ilk geliş 1, dönüş 2. Eşik onceki_ziyaret_min 2'dir.",
+  "dallar": [
+    {
+      "id": "donen_soylenti",
+      "metin_anahtari": "kapi.donen.soylenti",
+      "oncelik": 1,
+      "kosullar": {
+        "soylenti_duydu": true,
+        "onceki_ziyaret_min": 2
+      }
+    }
+  ]
+}

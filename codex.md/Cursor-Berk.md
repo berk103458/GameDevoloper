@@ -94,3 +94,30 @@ Asset gerekmedi.
 kota: kota görünmüyor
 
 Bu makinede `C:\Users\ds\Documents\GitHub\GameDevoloper` kopyası yok; eşitlendi denmez. Durum: kod ve testler push edilecek; madde `[/] (Cursor-Berk)` kalır, `[x]` Usta doğrulamasından sonra.
+
+## SOY-24 — Dönen karakter söylentiyi getirir (15 Kasım 2026)
+
+Ne yapıldı: Kapıya ikinci kez gelen adlı karakter, ağda duyduğu söylentiyi açılışta bir cümleyle anar. `DonenSoylenti.sec` ölü kişide ve ağ yokken dal 0 döner; ağ yoksa `SoylentiKoprusu.ag` çağrılmaz. Duyma, `gelen.id` ve kabul sonrası `adli_id` eşleşen köylü kimliği (`str(int)`) üzerinden bakılır; biri duyduysa yeter. Satır seçici `data/soz/donen_soylenti.json` dalını kullanır. Sayaç `ziyaret_basladi` ile satırdan önce artar: ilk geliş 1, dönüş 2. Bu yüzden dal eşiği `onceki_ziyaret_min: 2` (önceki ziyaret ≥ 1). Oyuncu metni `kapi.donen.soylenti` anahtarındadır.
+
+Oyuna bağlantı: `KapiEkrani` gelen açılışı → `oturum.ziyaret_basladi` → `KapiHavaRepligi.satirlar` hemen ardından `DonenSoylenti.satirlar` → `DonenSoylenti.sec` → `KisiHafizasi` + `SoylentiBaglami` + `SatirSecici` (`data/soz/donen_soylenti.json`) → `TranslationServer` (`kapi.donen.soylenti`).
+
+Değişen dosyalar:
+- `src/kapi/donen_soylenti.gd` (yeni)
+- `data/soz/donen_soylenti.json` (yeni)
+- `src/arayuz/kapi_ekrani.gd` (hava repliğinden sonra tek döngü)
+- `data/metin/metinler.csv` (tek satır, TR+EN)
+- `data/metin/metinler.tr.translation`, `data/metin/metinler.en.translation` (`--import`)
+- `tests/unit/kapi/donen_soylenti_test.gd` (yeni)
+- Yeni betiklerin `.uid` dosyaları duruyor. `project.godot` değişmedi.
+
+Test:
+- `godot --headless --path . -s tests/unit/kapi/donen_soylenti_test.gd` → `SOY-24 GECTI`, çıkış kodu 0.
+- `godot --headless --path . -s tests/unit/soz/kisi_hafizasi_test.gd` → `KISI HAFIZASI: GEÇTİ (0 hata)`, çıkış kodu 0.
+- `godot --headless --path . -s tests/unit/sistemler/soylenti_baglam_test.gd` → `SOY-23 GECTI`, çıkış kodu 0.
+- SCRIPT ERROR / Failed to load script yok. Tam sanity koşulmadı.
+
+Asset gerekmedi.
+
+kota: kota görünmüyor
+
+Bu makinede `C:\Users\ds\Documents\GitHub\GameDevoloper` kopyası yok; eşitlendi denmez. Durum: kod ve testler push edilecek; madde `[/] (Cursor-Berk)` kalır, `[x]` Usta doğrulamasından sonra.
