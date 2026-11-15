@@ -2,7 +2,7 @@ extends Node
 
 class BozukAna extends Ana:
 	func _denge_hatasi() -> String:
-		return preload("res://src/sistemler/denge_sinir_denetimi.gd").hata({"x": 2}, {"x": {"alt": 1, "ust": 1}})
+		return preload("res://src/sistemler/denge_sinir_denetimi.gd").hata({"x": 2, "zorluk": {"kolay": {}, "olagan": {}, "siki": {}}}, {"x": {"alt": 1, "ust": 1}})
 
 func _ready() -> void:
 	TranslationServer.set_locale("tr")
