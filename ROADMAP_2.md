@@ -7568,7 +7568,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/cinar_meclis_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-58:** (Codex-Berk) `harita_baglantisi.gd` temaya bağlanır.
+- [x] **GRV-58:** (Codex-Berk) `harita_baglantisi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/harita_baglantisi.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Harita düğmesi düz. Tema bağlanınca yalnız `harita_baglantisi.gd` ARY-02 zeminini ve düğme durumunu okur, Harita düğmesi düz davranışı değişmez.
   - Kabul: `harita_baglantisi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `harita_baglantisi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
