@@ -3328,3 +3328,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-58 (Codex-Berk): Harita bağlantısı ortak düğme durumlarını kullanır; tarama ve mevcut harita ekranı regresyonu doğrulandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-59 (Codex-Berk): Hekim bilgi satırı tema mirasını kullanır; kaynak ve gerçek ilaç bilgi ekranı regresyonu doğrulandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-62 (Codex-Berk): Kese göstergesi mevcut ortak renk kaynağını kullanır; tarama ve kişisel para göstergesi regresyonu doğrulandı. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.

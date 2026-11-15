@@ -7599,7 +7599,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/kaynak_gostergesi.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-62:** (Codex-Berk) `kese_gostergesi.gd` temaya bağlanır.
+- [x] **GRV-62:** (Codex-Berk) `kese_gostergesi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/kese_gostergesi.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Kese yazısı zeminsiz. Tema bağlanınca yalnız `kese_gostergesi.gd` ARY-02 zeminini ve düğme durumunu okur, Kese yazısı zeminsiz davranışı değişmez.
   - Kabul: `kese_gostergesi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kese_gostergesi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
