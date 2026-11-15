@@ -1,5 +1,45 @@
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
+## SEV-04 — Tek istek / 15 Kasım 2026 (Codex, Berk)
+
+Durum: `[/] (Codex)`, Usta doğrulamasını bekliyor; görsel insan doğrulaması yapılmadı.
+SEV-02 `[x]`, Usta 958258d8. Kullanıcı mesajından sonra pull ile gelen Usta a09f2545
+SEV-03 kutusunu `[x]` yaptı; uzak onayı geri alınmadı, SEV-03 satırına dokunulmadı.
+SEV-01, CAT-04, DYL-03 ve diğer sahiplikler korunur. SEV-05 hâlâ `[ ]`; alınmadı.
+kota görünmüyor; token kota bilgisi görünmüyor. Asset gerekmedi; envantere satır eklenmedi.
+
+Yalnız /workspace/codex/GameDevoloper ve festive dalında çalışıldı; 59c2ab06 claim tekrarlanmadı.
+Issue #11'e yazılmadı, başka ajan klasörüne dokunulmadı; bu isteğin yalnız workspace sınırı
+nedeniyle Windows kopyalarına aktarım yapılmadı. Belirtilen dört ~/.agents/skills Godot skill'i okundu.
+Yeni src/koy/tek_istek.gd ve data/soz/istekler.json: gerçek çiftçiler chr_002/011/013/020,
+yerleşmeden sonraki 1–3. gün, hazır ambar, maliyet 2 bugday. Konuşulmamış pencere sessiz
+kapanır; konuşulmuş istek süre sonunda tek cümle değiştirir. Aynı anda tek açık istek.
+İlk kabul hazir alanını koyar; acik ve tüm kapanışlar kalır. Alanı eksik eski kayıtta
+önceden gelmiş kişi eski_kayit ile kapalı tutulur; henüz gelmemiş kişi ilk hakkını korur.
+Kapıdaki istendi alanı kullanılmaz; verilen_soz ve hane.hediye değiştirilmez.
+Mevcut karta ince adaptör + iki isteğe bağlı cevap; eksik kaynak ve bina kaybında kapanır,
+başarıda Kaynaklar.yeterli/harca kullanır. Ret mevcut husumet.reddedilenler kaydına nötr
+iz bırakır, puan artırmaz; yeni bar/düşman yok. Ölüm, çocukluk, köyden düşme ve temelli
+ayrılış kapatır. SevilenYuz.veda_et(chr_id, oturum) geriye uyumlu opsiyonel oturumla kapatır;
+chr_004 istek_uret stub kabul kimliği bir_cuval_tohum korunur.
+CSV anahtarları ve import edilen TR/EN translation dosyaları aynı pakettedir.
+
+Doğrulama (Godot ~/.local/bin/godot, 4.7.2):
+- --headless --path . --import --quit: tamamlandı; yeni parse/script hatası yok.
+- --headless --path . -s res://tests/unit/koy/sevilen_yuz_test.gd: TEST PASS.
+- --headless --path . res://tests/unit/koy/tek_istek_oyun_test.tscn: 42 kontrol / 0 hata.
+- Aynı koşucuda kasıtlı tek yanlış kontrol: exit 1; kaynak geri kondu ve tekrar 42/0 geçti.
+- --headless --path . res://tests/unit/koy/bos_gun_durusu_oyun_test.tscn: 17/0.
+- --headless --path . res://tests/unit/koy/tanidik_yuz_oyun_test.tscn: 35/0.
+- --headless --path . res://tests/unit/koy/kisisel_iz_oyun_test.tscn: 25/0.
+- python3 -B tools/metin_dogrula.py --kaynak: PASS.
+- --headless --path . --check-only --script res://src/koy/tek_istek.gd: temiz.
+- git diff --check: temiz. Tam sanity çalıştırılmadı; mevcut katalog/öğretici metin uyarıları kapsam dışı.
+Push öncesi git fetch origin + git diff origin/claude/festive-volta-li1sfm -- ROADMAP_2.md
+kontrolü GEÇTİ: fark yalnız SEV-04 satırıdır. Rebase uzak OGR-43/SOY-24/SOY-26
+ve Usta işaretlerini korudu; başka satır geri alınmadı. Commit sonrası kota görünmüyor.
+Sonraki aday SEV-05; bu turda üstlenilmedi.
+
 ## SEV-03 — Köyde kişisel iz ve oda rafı bağı / 15 Kasım 2026 (Codex, Berk)
 
 Durum: madde `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor.

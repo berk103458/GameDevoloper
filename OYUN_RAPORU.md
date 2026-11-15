@@ -1,3 +1,7 @@
+## 2026-11-15 — SEV-04 tek istek (Codex, Berk)
+
+Gerçek kabulden sonra çiftçinin tek isteği mevcut köylü kartına bağlandı: hazır ambar, yerleşme sonrası 1–3 gün ve 2 buğday bedeli JSON'da. Süre dolunca tek satır değişir; çocuk, ölüm/ayrılış/veda ve eksik kaynak kapatır. Kadro kaydı ve eski kayıt koruması ikinci istek açmaz; kapı kararı, görev listesi, borç veya hediye takvimi eklenmez. Ret mevcut husumet kaydına nötr iz bırakır. Yeni oyun testi 42/0, SEV-01/02/03 regresyonları 17/35/25 kontrol ve 0 hata; birim, import, parse ve metin doğrulaması geçti. SEV-04 `[/] (Codex)` ve Usta doğrulamasını bekliyor. Uzak Usta a09f2545 SEV-03 `[x]` onayı korundu. Görsel insan doğrulaması yapılmadı. Asset gerekmedi; kota görünmüyor.
+
 ## 2026-11-15 — SEV-03 kişisel izin oyun bağı (Codex, Berk)
 
 CHR_017 kabul + çözülmüş sır kurdeleyi köyde iş binası/ağıl kenarındaki etiketli kutuya bağlar; iş binası yoksa mevcut ev yanına gider. İz üretim veya otomatik işçi yazmaz; ölüm/ayrılışta kalkar. Kartta kelime, opsiyonel kadro alanıyla oturum kaydı, eski kayıtta izsiz açılış bağlıdır. ODA-03 aynı rafta rüşvete ekşi, kabul tablosundan gelen gönüllü lokmaya sıcak etiket gösterir; Clue iki yerde tutulmaz. Hedefli oyun testi 25, SEV-01 17, SEV-02 35 kontrol / 0 hata; birim, import, parse ve metin kontrolü geçti. SEV03-IZ kutusu oyunda, gerçek glTF eksik; asset gerekmedi. SEV-03 `[/] (Codex)` kaldı, Usta doğrulamasını bekliyor. SEV-02 Usta 958258d8 ile `[x]`; korundu. Kota görünmüyor.
