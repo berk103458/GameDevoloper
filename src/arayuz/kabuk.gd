@@ -50,6 +50,18 @@ static func panel() -> StyleBoxFlat:
 	return s
 
 
+## Eksik asset için tek renkli yer tutucu kutu. Renk veri dosyasından gelir;
+## paneller ColorRect'i kendisi kurmaz, gerçek asset gelince yalnız burası değişir.
+static func yer_tutucu(ad: String, renk_hex: String, boy: Vector2) -> ColorRect:
+	var kutu := ColorRect.new()
+	kutu.name = ad
+	kutu.color = Color.from_string(renk_hex, SOLUK)
+	kutu.custom_minimum_size = boy
+	kutu.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	kutu.set_meta("kabuk_yer_tutucu", true)
+	return kutu
+
+
 ## Sağ alt menü ipucu kutusu. Ölçek büyüyünce kutu uzar, ekranın içinde kalır.
 static func ipucu_kutusu(ekran: Vector2, olcek: int) -> Rect2:
 	var yuk := maxi(KUCUK, roundi(IPUCU_YUKSEKLIK * olcek / 100.0))

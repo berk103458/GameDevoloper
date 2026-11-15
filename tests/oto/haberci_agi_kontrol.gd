@@ -31,7 +31,7 @@ func _ready() -> void:
 	var olay := HaberciAgi.olay(o)
 	e._olay_goster(olay,{})
 	var al:=dugme(e,"Haberi okudum")
-	assert(al!=null and not al.disabled and e.find_child("HaberciYerTutucu",true,false)!=null)
+	assert(al!=null and not al.disabled and e.find_child("HaberciYerTutucu",true,false)!=null and e.find_child("HaberciYerTutucu",true,false).has_meta("kabuk_yer_tutucu"))
 	var dizin:=OS.get_environment("ADMIN_TEST_CIKTI")
 	if not dizin.is_empty() and DisplayServer.get_name()!="headless":
 		await get_tree().create_timer(0.5).timeout

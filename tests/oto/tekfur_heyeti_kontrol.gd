@@ -32,7 +32,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	var e := ana._ekran as KoyEkrani
 	var ode := e.find_child("TekfurHaracOde",true,false) as Button
-	assert(ode!=null and ode.disabled and e.find_children("TekfurHeyetiYerTutucu","",true,false).size()==1)
+	assert(ode!=null and ode.disabled and e.find_children("TekfurHeyetiYerTutucu","",true,false).size()==1 and e.find_child("TekfurHeyetiYerTutucu",true,false).has_meta("kabuk_yer_tutucu"))
 	y.kaynaklar.stok["bugday"] += 1
 	e._yenile()
 	await get_tree().process_frame

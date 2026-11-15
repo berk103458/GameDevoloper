@@ -7620,35 +7620,35 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/kuyu_kirecleme_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-65:** (Claude-Berk) `muhafiz_odasi_baglantisi.gd` temaya bağlanır.
+- [x] **GRV-65:** (Claude-Berk) `muhafiz_odasi_baglantisi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/muhafiz_odasi_baglantisi.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Oda düğmesi düz. Tema bağlanınca yalnız `muhafiz_odasi_baglantisi.gd` ARY-02 zeminini ve düğme durumunu okur, Oda düğmesi düz davranışı değişmez.
   - Kabul: `muhafiz_odasi_baglantisi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `muhafiz_odasi_baglantisi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/muhafiz_odasi_baglantisi.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-66:** (Claude-Berk) `pazar_satis_paneli.gd` temaya bağlanır.
+- [x] **GRV-66:** (Claude-Berk) `pazar_satis_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/pazar_satis_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Pazar düğmesi düz. Tema bağlanınca yalnız `pazar_satis_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Pazar düğmesi düz davranışı değişmez.
   - Kabul: `pazar_satis_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `pazar_satis_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/pazar_satis_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-67:** (Claude-Berk) `saman_bilgisi.gd` temaya bağlanır.
+- [x] **GRV-67:** (Claude-Berk) `saman_bilgisi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/saman_bilgisi.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Saman düğmesi düz. Tema bağlanınca yalnız `saman_bilgisi.gd` ARY-02 zeminini ve düğme durumunu okur, Saman düğmesi düz davranışı değişmez.
   - Kabul: `saman_bilgisi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `saman_bilgisi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/saman_bilgisi.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-68:** (Claude-Berk) `siparis_sozlesme_paneli.gd` temaya bağlanır.
+- [x] **GRV-68:** (Claude-Berk) `siparis_sozlesme_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/siparis_sozlesme_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Sözleşme düğmesi düz. Tema bağlanınca yalnız `siparis_sozlesme_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Sözleşme düğmesi düz davranışı değişmez.
   - Kabul: `siparis_sozlesme_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `siparis_sozlesme_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/siparis_sozlesme_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-69:** (Claude-Berk) `su_rezerv_paneli.gd` temaya bağlanır.
+- [x] **GRV-69:** (Claude-Berk) `su_rezerv_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/su_rezerv_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Su düğmesi düz. Tema bağlanınca yalnız `su_rezerv_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Su düğmesi düz davranışı değişmez.
   - Kabul: `su_rezerv_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `su_rezerv_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7665,70 +7665,70 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.15 Köy şeridi — yazı
 
-- [/] **GRV-71:** (Claude-Berk) `alet_asinma_bilgisi.gd` temaya bağlanır.
+- [x] **GRV-71:** (Claude-Berk) `alet_asinma_bilgisi.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/alet_asinma_bilgisi.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Aşınma satırı zeminsiz. Tema bağlanınca yalnız `alet_asinma_bilgisi.gd` ARY-02 zeminini ve düğme durumunu okur, Aşınma satırı zeminsiz davranışı değişmez.
   - Kabul: `alet_asinma_bilgisi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `alet_asinma_bilgisi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/alet_asinma_bilgisi.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-72:** (Claude-Berk) `ceki_hayvani_paneli.gd` temaya bağlanır.
+- [x] **GRV-72:** (Claude-Berk) `ceki_hayvani_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/ceki_hayvani_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Çeki hayvanı paneli zeminsiz. Tema bağlanınca yalnız `ceki_hayvani_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Çeki hayvanı paneli zeminsiz davranışı değişmez.
   - Kabul: `ceki_hayvani_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `ceki_hayvani_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/ceki_hayvani_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-73:** (Claude-Berk) `celep_pazar_adaptoru.gd` temaya bağlanır.
+- [x] **GRV-73:** (Claude-Berk) `celep_pazar_adaptoru.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/celep_pazar_adaptoru.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Celep adaptörü zeminsiz. Tema bağlanınca yalnız `celep_pazar_adaptoru.gd` ARY-02 zeminini ve düğme durumunu okur, Celep adaptörü zeminsiz davranışı değişmez.
   - Kabul: `celep_pazar_adaptoru.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `celep_pazar_adaptoru.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/celep_pazar_adaptoru.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-74:** (Claude-Berk) `cenaze_raporu.gd` temaya bağlanır.
+- [x] **GRV-74:** (Claude-Berk) `cenaze_raporu.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/cenaze_raporu.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Cenaze raporu zeminsiz. Tema bağlanınca yalnız `cenaze_raporu.gd` ARY-02 zeminini ve düğme durumunu okur, Cenaze raporu zeminsiz davranışı değişmez.
   - Kabul: `cenaze_raporu.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `cenaze_raporu.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/cenaze_raporu.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-75:** (Claude-Berk) `cete_anlasma_paneli.gd` temaya bağlanır.
+- [x] **GRV-75:** (Claude-Berk) `cete_anlasma_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/cete_anlasma_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Çete paneli zeminsiz. Tema bağlanınca yalnız `cete_anlasma_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Çete paneli zeminsiz davranışı değişmez.
   - Kabul: `cete_anlasma_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `cete_anlasma_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/cete_anlasma_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-76:** (Claude-Berk) `gezgin_stok_paneli.gd` temaya bağlanır.
+- [x] **GRV-76:** (Claude-Berk) `gezgin_stok_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/gezgin_stok_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Gezgin stok paneli zeminsiz. Tema bağlanınca yalnız `gezgin_stok_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Gezgin stok paneli zeminsiz davranışı değişmez.
   - Kabul: `gezgin_stok_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `gezgin_stok_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/gezgin_stok_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-77:** (Claude-Berk) `gezgin_tuccar_pazar_adaptoru.gd` temaya bağlanır.
+- [x] **GRV-77:** (Claude-Berk) `gezgin_tuccar_pazar_adaptoru.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/gezgin_tuccar_pazar_adaptoru.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Gezgin tüccar adaptörü zeminsiz. Tema bağlanınca yalnız `gezgin_tuccar_pazar_adaptoru.gd` ARY-02 zeminini ve düğme durumunu okur, Gezgin tüccar adaptörü zeminsiz davranışı değişmez.
   - Kabul: `gezgin_tuccar_pazar_adaptoru.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `gezgin_tuccar_pazar_adaptoru.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/gezgin_tuccar_pazar_adaptoru.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-78:** (Claude-Berk) `goc_yolu_paneli.gd` temaya bağlanır.
+- [x] **GRV-78:** (Claude-Berk) `goc_yolu_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/goc_yolu_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Göç yolu paneli zeminsiz. Tema bağlanınca yalnız `goc_yolu_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Göç yolu paneli zeminsiz davranışı değişmez.
   - Kabul: `goc_yolu_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `goc_yolu_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/goc_yolu_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-79:** (Claude-Berk) `hayvan_takas_paneli.gd` temaya bağlanır.
+- [x] **GRV-79:** (Claude-Berk) `hayvan_takas_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/hayvan_takas_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Hayvan takas paneli zeminsiz. Tema bağlanınca yalnız `hayvan_takas_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Hayvan takas paneli zeminsiz davranışı değişmez.
   - Kabul: `hayvan_takas_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `hayvan_takas_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/hayvan_takas_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-80:** (Claude-Berk) `karantina_paneli.gd` temaya bağlanır.
+- [x] **GRV-80:** (Claude-Berk) `karantina_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/karantina_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Karantina paneli zeminsiz. Tema bağlanınca yalnız `karantina_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Karantina paneli zeminsiz davranışı değişmez.
   - Kabul: `karantina_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `karantina_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7738,70 +7738,70 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.16 Köy şeridi — kalan paneller
 
-- [/] **GRV-81:** (Claude-Berk) `kasa_transfer_paneli.gd` temaya bağlanır.
+- [x] **GRV-81:** (Claude-Berk) `kasa_transfer_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/kasa_transfer_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Kasa transferi zeminsiz. Tema bağlanınca yalnız `kasa_transfer_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Kasa transferi zeminsiz davranışı değişmez.
   - Kabul: `kasa_transfer_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kasa_transfer_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/kasa_transfer_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-82:** (Claude-Berk) `kervan_koruma_paneli.gd` temaya bağlanır.
+- [x] **GRV-82:** (Claude-Berk) `kervan_koruma_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/kervan_koruma_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Kervan koruma paneli zeminsiz. Tema bağlanınca yalnız `kervan_koruma_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Kervan koruma paneli zeminsiz davranışı değişmez.
   - Kabul: `kervan_koruma_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kervan_koruma_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/kervan_koruma_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-83:** (Claude-Berk) `konuslanma_paneli.gd` temaya bağlanır.
+- [x] **GRV-83:** (Claude-Berk) `konuslanma_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/konuslanma_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Konuşlanma paneli zeminsiz. Tema bağlanınca yalnız `konuslanma_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Konuşlanma paneli zeminsiz davranışı değişmez.
   - Kabul: `konuslanma_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `konuslanma_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/konuslanma_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-84:** (Claude-Berk) `kumas_aktar_paneli.gd` temaya bağlanır.
+- [x] **GRV-84:** (Claude-Berk) `kumas_aktar_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/kumas_aktar_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Kumaş aktarım paneli zeminsiz. Tema bağlanınca yalnız `kumas_aktar_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Kumaş aktarım paneli zeminsiz davranışı değişmez.
   - Kabul: `kumas_aktar_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `kumas_aktar_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/kumas_aktar_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-85:** (Claude-Berk) `mevsim_takvim.gd` temaya bağlanır.
+- [x] **GRV-85:** (Claude-Berk) `mevsim_takvim.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/mevsim_takvim.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Mevsim takvimi zeminsiz. Tema bağlanınca yalnız `mevsim_takvim.gd` ARY-02 zeminini ve düğme durumunu okur, Mevsim takvimi zeminsiz davranışı değişmez.
   - Kabul: `mevsim_takvim.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `mevsim_takvim.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/mevsim_takvim.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-86:** (Claude-Berk) `oba_ittifak_paneli.gd` temaya bağlanır.
+- [x] **GRV-86:** (Claude-Berk) `oba_ittifak_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/oba_ittifak_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Oba paneli zeminsiz. Tema bağlanınca yalnız `oba_ittifak_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Oba paneli zeminsiz davranışı değişmez.
   - Kabul: `oba_ittifak_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `oba_ittifak_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/oba_ittifak_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-87:** (Claude-Berk) `pazar_kart_kaydirma.gd` temaya bağlanır.
+- [x] **GRV-87:** (Claude-Berk) `pazar_kart_kaydirma.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/pazar_kart_kaydirma.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Pazar kaydırma zeminsiz. Tema bağlanınca yalnız `pazar_kart_kaydirma.gd` ARY-02 zeminini ve düğme durumunu okur, Pazar kaydırma zeminsiz davranışı değişmez.
   - Kabul: `pazar_kart_kaydirma.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `pazar_kart_kaydirma.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/pazar_kart_kaydirma.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-88:** (Claude-Berk) `silah_karaborsa_paneli.gd` temaya bağlanır.
+- [x] **GRV-88:** (Claude-Berk) `silah_karaborsa_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/silah_karaborsa_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Silah paneli zeminsiz. Tema bağlanınca yalnız `silah_karaborsa_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Silah paneli zeminsiz davranışı değişmez.
   - Kabul: `silah_karaborsa_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `silah_karaborsa_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/silah_karaborsa_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-89:** (Claude-Berk) `siparis_ihlal_paneli.gd` temaya bağlanır.
+- [x] **GRV-89:** (Claude-Berk) `siparis_ihlal_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/siparis_ihlal_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: İhlal paneli zeminsiz. Tema bağlanınca yalnız `siparis_ihlal_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, İhlal paneli zeminsiz davranışı değişmez.
   - Kabul: `siparis_ihlal_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `siparis_ihlal_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/siparis_ihlal_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-90:** (Claude-Berk) `siparis_komisyon_paneli.gd` temaya bağlanır.
+- [x] **GRV-90:** (Claude-Berk) `siparis_komisyon_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/siparis_komisyon_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Komisyon paneli zeminsiz. Tema bağlanınca yalnız `siparis_komisyon_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Komisyon paneli zeminsiz davranışı değişmez.
   - Kabul: `siparis_komisyon_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `siparis_komisyon_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7811,21 +7811,21 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.17 Tek renk ve bağlar
 
-- [/] **GRV-91:** (Claude-Berk) `siparis_teslim_paneli.gd` temaya bağlanır.
+- [x] **GRV-91:** (Claude-Berk) `siparis_teslim_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/siparis_teslim_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Teslim paneli zeminsiz. Tema bağlanınca yalnız `siparis_teslim_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Teslim paneli zeminsiz davranışı değişmez.
   - Kabul: `siparis_teslim_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `siparis_teslim_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/siparis_teslim_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-92:** (Claude-Berk) `ticaret_fiyat_paneli.gd` temaya bağlanır.
+- [x] **GRV-92:** (Claude-Berk) `ticaret_fiyat_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/ticaret_fiyat_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Fiyat paneli zeminsiz. Tema bağlanınca yalnız `ticaret_fiyat_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Fiyat paneli zeminsiz davranışı değişmez.
   - Kabul: `ticaret_fiyat_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `ticaret_fiyat_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/ticaret_fiyat_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-93:** (Claude-Berk) `vergi_paneli.gd` temaya bağlanır.
+- [x] **GRV-93:** (Claude-Berk) `vergi_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/vergi_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Vergi paneli zeminsiz. Tema bağlanınca yalnız `vergi_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Vergi paneli zeminsiz davranışı değişmez.
   - Kabul: `vergi_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `vergi_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7839,7 +7839,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/gezgin_stok_ikonu.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-95:** (Claude-Berk) `haberci_anlati_paneli.gd` temaya bağlanır.
+- [x] **GRV-95:** (Claude-Berk) `haberci_anlati_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/haberci_anlati_paneli.gd` bugün ColorRect 1 ve 0 düz düğmeyle duruyor; notu: Tek ColorRect, düz anlatı. Tema bağlanınca yalnız `haberci_anlati_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Tek ColorRect, düz anlatı davranışı değişmez.
   - Kabul: `haberci_anlati_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `haberci_anlati_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7853,28 +7853,28 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/kisisel_karaborsa_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-97:** (Claude-Berk) `tekfur_heyeti_paneli.gd` temaya bağlanır.
+- [x] **GRV-97:** (Claude-Berk) `tekfur_heyeti_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/tekfur_heyeti_paneli.gd` bugün ColorRect 1 ve 0 düz düğmeyle duruyor; notu: Tek ColorRect, tema dışı. Tema bağlanınca yalnız `tekfur_heyeti_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Tek ColorRect, tema dışı davranışı değişmez.
   - Kabul: `tekfur_heyeti_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `tekfur_heyeti_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koy_hud/tekfur_heyeti_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-98:** (Claude-Berk) `koylu_surukleme_kulpu.gd` temaya bağlanır.
+- [x] **GRV-98:** (Claude-Berk) `koylu_surukleme_kulpu.gd` temaya bağlanır.
   - Ne: `src/arayuz/koylu_surukleme_kulpu.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Sürükleme kulpu zeminsiz. Tema bağlanınca yalnız `koylu_surukleme_kulpu.gd` ARY-02 zeminini ve düğme durumunu okur, Sürükleme kulpu zeminsiz davranışı değişmez.
   - Kabul: `koylu_surukleme_kulpu.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `koylu_surukleme_kulpu.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/koylu_surukleme_kulpu.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-99:** (Claude-Berk) `divan_baglantisi.gd` temaya bağlanır.
+- [x] **GRV-99:** (Claude-Berk) `divan_baglantisi.gd` temaya bağlanır.
   - Ne: `src/kapi/divan_baglantisi.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Divan açılış düğmesi düz. Tema bağlanınca yalnız `divan_baglantisi.gd` ARY-02 zeminini ve düğme durumunu okur, Divan açılış düğmesi düz davranışı değişmez.
   - Kabul: `divan_baglantisi.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `divan_baglantisi.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/kapi/divan_baglantisi.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-100:** (Claude-Berk) `chr_kapi_adaptoru.gd` temaya bağlanır.
+- [x] **GRV-100:** (Claude-Berk) `chr_kapi_adaptoru.gd` temaya bağlanır.
   - Ne: `src/arayuz/chr_kapi_adaptoru.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Kapı adaptör düğmesi düz. Tema bağlanınca yalnız `chr_kapi_adaptoru.gd` ARY-02 zeminini ve düğme durumunu okur, Kapı adaptör düğmesi düz davranışı değişmez.
   - Kabul: `chr_kapi_adaptoru.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `chr_kapi_adaptoru.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

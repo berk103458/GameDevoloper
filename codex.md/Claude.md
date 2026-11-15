@@ -11,3 +11,7 @@ Claude: yönetici ajan. testx (EVREN/DeepSeek) ve Codex'in teslimlerini inceler,
 - kota: kota görünmüyor
 - ACL-05 yayında (testx + Claude tamamladı). kota: kota görünmüyor
 - BUG-0021 (temiz klon import 16→0) ve AYR-06 düğme taşması düzeltildi, oyunda doğrulandı. kota: kota görünmüyor
+
+## 15 Kasım 2026 (Claude_gorev.md)
+
+- **GRV-65…100 (33 madde) [x]:** `Kabuk.yer_tutucu` eklendi (renk veriden, bozuk renk nötr yedeğe düşer); haberci ve tekfur panellerindeki yerel ColorRect'ler buna, sürükleme kulpunun sabit 22 puntosu `ayarlar.boyut(Kabuk.KUCUK)`'a bağlandı. Diğer 30 dosyada ihlal yoktu, düğmeler genel temanın dört durumunu okuyor. Test `tests/oto/grv_tema_baglari_kontrol.tscn`: GEÇTİ (33 dosya, her biri oyunda çağrılıyor); eski kodla KALDI (3 hata) — bozulunca düşüyor. `haberci_agi_kontrol`, `tekfur_heyeti_kontrol` GEÇTİ. Not: `gecici_isler_kart_kontrol` bu değişiklikten bağımsız olarak KALDI (kulube kurulamıyor; eski kodla da aynı), kulp sürükleme denetimi geçiyor. kota: kota görünmüyor

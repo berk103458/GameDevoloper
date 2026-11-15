@@ -6,13 +6,8 @@ static func kur(e: Control, v: VBoxContainer) -> void:
 	var y: KoyYonetimi = e._y
 	var h := HBoxContainer.new()
 	v.add_child(h)
-	var kutu := ColorRect.new()
-	kutu.name = "TekfurHeyetiYerTutucu"
-	kutu.color = Color(String(TekfurHaracHeyeti.AYAR.yer_tutucu_renk))
 	var boy := float(TekfurHaracHeyeti.AYAR.yer_tutucu_boyutu)
-	kutu.custom_minimum_size = Vector2(boy,boy)
-	kutu.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	h.add_child(kutu)
+	h.add_child(Kabuk.yer_tutucu("TekfurHeyetiYerTutucu",String(TekfurHaracHeyeti.AYAR.yer_tutucu_renk),Vector2(boy,boy)))
 	var etiket: Label = e._etiket(h,TekfurHaracHeyeti.metin(TekfurHaracHeyeti.olay(y).tekfur_harac),Tema.KUCUK_PX)
 	etiket.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	etiket.size_flags_horizontal = Control.SIZE_EXPAND_FILL

@@ -8,10 +8,5 @@ static func ekle(e: KoyEkrani,kok: VBoxContainer,olay: OlayVerisi) -> void:
  var a: Dictionary=HaberciAgi.AYAR.kanallar[kanal]
  var satir:=HBoxContainer.new()
  kok.add_child(satir)
- var kutu:=ColorRect.new()
- kutu.name="HaberciYerTutucu"
- kutu.color=Color(String(a.renk))
- kutu.custom_minimum_size=Vector2.ONE*int(HaberciAgi.AYAR.kutu_px)
- kutu.mouse_filter=Control.MOUSE_FILTER_IGNORE
- satir.add_child(kutu)
+ satir.add_child(Kabuk.yer_tutucu("HaberciYerTutucu",String(a.renk),Vector2.ONE*int(HaberciAgi.AYAR.kutu_px)))
  e._etiket(satir,String(a.ad)+" haberi",Tema.KUCUK_PX)
