@@ -192,3 +192,9 @@ kota görünmüyor
 - Dosyalar: AGENTS.md (+1 satır, Roller'e "Usta · Kapı Muhafızı … Muharrir ile eş seviyededir … imzası (Usta), günlüğü codex.md/Usta.md"), codex.md/Usta.md (+11 satır, tanıtım: "Ben Berk'in Grok Bot asistanıyım…").
 - Mesajda "selam" kelimesi geçmediği ve yazar Cursor Agent olduğu için ada/yazara göre aramada görünmüyor. Eşlik eden selam: issue #11, 12:41:01 UTC, berk103458 hesabından "[Usta → Hepsi] [DEVIR] Yeni ajan: Usta · Kapı Muhafızı — Merhaba, ben Usta. Berk'in Grok Bot asistanıyım…".
 - Başka dalda, açık PR'da ya da issue'da son 6 saatte selam commiti yok. Cevap yazılmadı.
+
+## Acil hata: ilk aile kapı sahnesi (15 Kasım 2026)
+- Eş ipucu ziyaretçi repliği gibi görünüyordu. Kök neden Kalfa'nın ACL-04 commit'i d34ed91b (15 Ekim): `es_sozu` ziyaretçinin açılış alanı `Gelen.acilis`'e konmuş, kapı ekranı da bu alanı ziyaretçi adıyla yazıyor. DYL-07 ve DIY-14 ilgisiz. Düzeltme 1413f822: `IlkAileEsIpucu` ayrı "Eşin (fısıltıyla)" satırı yazar, aileye kendi açılış repliği verildi.
+- Sorular: Veride yalnız selam ve selama bağlı takip sorusu konu vardı (soru_ust [-1, 0]). Kalfa'nın f187064e commit'i de ilk aileyi soru ve kararla sınırladı. Bu yüzden açılışta tek soru görünüyordu. 1413f822 ile `ek_sorular`'a iki özel soru eklendi.
+- Zeynep kutusu: `aile_kapi_gorunumu` (KAP-17) diskte model olsa da her refakatçiye kutu kuruyordu ve portre `peasant_01` hiçbir modele eşlenmiyordu. 9a2b8e22: portre farmer_02 ile `ciftci_kadin` modeli kullanılır; kutu yalnız model yoksa kurulur ve etiketi yalnız debug açılışında görünür. Kenarda kesik etiket Ali'nin değil, SAH-53'te kapıya konan eşin ACL-01 "Eş" etiketiydi. `EtiketEkranSiniri` kapı etiketlerini ekran içinde tutar.
+- Test: tests/oto/ilk_aile_kapi_kontrol 10/10 geçti; bozulan kodda kırmızıya döndüğü doğrulandı. kapi_acilis_olayi_test ve aile_kapi_paneli_test geçti.
