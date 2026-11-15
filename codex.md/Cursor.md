@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Topluluk modelleri inceldi ve bağlandı — 16 Kasım 2026
+
+70 GLB Blender 4.2 ile inceldi (1.501,9 MB → 83,8 MB). 50 binin altındaki geometri durdu, hiçbiri 60 bini geçmiyor, iskelet ve klipler duruyor. 12 kod mevcut yer tutucunun adıyla `Dunya3B.nesne` üzerinden bağlandı: kuyu, kazık çit, nöbet ocağı, mızrak sehpası, çuval, dokuma tezgâhı, fırın ağzı, araba, orak, mızrak, sepet, büyük sepet. Karşılığı olmayanlar sahneye sokulmadı. `pazar_tezgahi`, `su_bendi`, `yanik_ev` bağları manifeste geri yazıldı. Üretim yok, kredi yok. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## Üç yapı modeli bağlandı — 15 Kasım 2026
 
 `pazar_tezgahi`, `su_bendi` ve `yanik_ev` mevcut `Dunya3B.nesne` yoluyla sahneye girdi. Yeni yükleyici yok. Model yoksa kutu yer tutucu kalır. Üretim yok, kredi harcanmadı. `oyun_baglantisi: baglandi`; üretim `durum` alanı kilitli kaldı (yeniden üretilmesin). Test: `olay_yapilari_kontrol` ve istenen köy/olay sahneleri GEÇTİ, SCRIPT ERROR yok. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
