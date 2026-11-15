@@ -289,7 +289,8 @@ static func _ozel_ziyaret_mi(g: Gelen) -> bool:
 		or YetimBakimi.ilgilenir(g) \
 		or preload("res://src/kapi/aile_kafilesi.gd").ilgilenir(g) \
 		or preload("res://src/sistemler/aydogdu_ziyareti.gd").ilgilenir(g) \
-		or preload("res://src/sistemler/sancak_ulagi.gd").ilgilenir(g)
+		or preload("res://src/sistemler/sancak_ulagi.gd").ilgilenir(g) \
+		or preload("res://src/kapi/usta_gelisi.gd").ilgilenir(g)
 
 
 static func kuyrugu_temizle_ve_sinirla(o: Oturum, sonuc: Array[Gelen]) -> Array[Gelen]:

@@ -220,7 +220,8 @@ func _model_adi(g: Gelen) -> String:
 func _bilgi_yaz() -> void:
 	_bilgi.text = tr("arayuz.kapi.bilgi") % [oturum.gosterilen_gece(), _gece_gelen, _kuyruk.size()]
 	KapiFirtinaKuyrugu.bilgi(oturum, _gelen, _bilgi)
-	_bilgi.text += "\n" + preload("res://src/kapi/barinak_uyarisi.gd").metin(oturum.yonetim, preload("res://src/kapi/aile_kafilesi.gd").kisi_sayisi(_gelen))
+	var gorunen_kisi := maxi(preload("res://src/kapi/aile_kafilesi.gd").kisi_sayisi(_gelen), preload("res://src/kapi/usta_gelisi.gd").kisi_sayisi(_gelen))
+	_bilgi.text += "\n" + preload("res://src/kapi/barinak_uyarisi.gd").metin(oturum.yonetim, gorunen_kisi)
 
 
 ## Yeni geceyi başlatır: kuyruk kurulur, ilk gelen kapıya yürür.
@@ -600,6 +601,7 @@ func _karar_goster() -> void:
 func _karar_alt_yazi(anahtar: String) -> String:
 	if DiplomatikHeyet.ilgilenir(_gelen): return HeyetKapiPaneli.alt(oturum, anahtar)
 	if TuccarKapiGecisi.ilgilenir(_gelen): return TuccarKapiPaneli.alt(_gelen, anahtar)
+	if preload("res://src/kapi/usta_gelisi.gd").ilgilenir(_gelen): return preload("res://src/kapi/usta_gelisi.gd").karar_alt_yazi(oturum, _gelen, anahtar)
 	var sorgu := _gelen.chr_sorgusu()
 	if anahtar == "rusvet" and sorgu != null:
 		return ", ".join(sorgu.karakter.karar_verisi(&"rusvet").get("esyalar", []))
@@ -708,8 +710,8 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	if preload("res://src/arayuz/aile_kapi_paneli.gd").sonuc(self, _gelen, sonuc): pass
 	elif HeyetKapiPaneli.sonuc(self, _gelen, sonuc): pass
 	elif TuccarKapiPaneli.sonuc(self, _gelen, sonuc): pass
-	elif sonuc.get("oba_ziyareti", false) or sonuc.get("ulak_ziyareti", false):
-		_yaz(tr(String(sonuc.sonuc_anahtari)))
+	elif sonuc.get("oba_ziyareti", false) or sonuc.get("ulak_ziyareti", false) or sonuc.get("usta", false):
+		_yaz(String(sonuc.get("sonuc_metin", tr(String(sonuc.get("sonuc_anahtari", ""))))))
 	elif replik.ilgilendirir(anahtar):
 		_karar_replik_dusur(replik, anahtar)
 	else:

@@ -1544,7 +1544,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.3 Usta
 
-- [/] **YAP-03:** (Antigravity-Berk) (Cursor bıraktı: geliş ağırlığı KAP-16 (testx) çekiciliği ve DNY olayını okur; ikisi açık) Ustalar kapıdan gelir — özel karakterler. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/ustalar.json`, `data/soz/usta_*.json` TR/EN ve `yap03.usta.*` pazarlık/köy metin anahtarları eklendi)*
+- [x] **YAP-03:** (Antigravity-Berk) Ustalar kapıdan gelir — özel karakterler. (`src/kapi/usta_gelisi.gd`, `Oturum`, `GelenAkisi` ve `KapiEkrani` entegre edildi; ağırlık KAP-16 çekiciliği ve `DunyaZamani` okur, ikinci zar açılmaz; ücret `koy_akce`'den düşer `muhafiz_akce` değişmez; yatak/aile `ACL-05` uyarılı açıkta kalma, ret sonrası bilgi kilidi + aynı gün tekrar eklememe, 2. ziyarette `bilgi_deltasi=0` ve `kalp` alanı 1 hata kuralı `usta_gelisi_test.gd`, `ustalar_metin_test.gd`, `yapi_bilgisi_test.gd`, `ilk_saat_kontrol.tscn`, `acilis_bagimlilik_kontrol.tscn` ile GEÇTİ; asset gerekmedi, `YAP03-USTALAR` envanterde mevcut)
   - Ne: Oyuncu kapıda bir usta görür. Kimlerin geleceği `data/ustalar.json` içindedir; ağırlık köy çekiciliğini ve dünya olayını okur, ikinci bir gelen zarı açılmaz. Kabul pazarlığı ücret, ev ve aile başlıklarındadır. Ücret kamu kasasından düşer, kişisel keseden düşmez. Test tohumunda bir K2 ustası 28 günde en az bir kez gelir. Ret yiyen usta bilgi açmaz. Aynı usta ikinci gelişinde aynı bilgiyi yeniden açmaz.
   - Kurallar:
     1. Kimler geleceği `data/ustalar.json` içindedir. Geliş ağırlığı köy çekiciliğini (KAP-16: refah, güvenlik, yatak) ve dünya olayını (DNY) okur. Bu madde ikinci bir gelen zarı açmaz.

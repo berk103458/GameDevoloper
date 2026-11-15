@@ -161,6 +161,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 	DiplomatikHeyet.ekle(self, sonuc)
 	preload("res://src/kapi/aile_kafilesi.gd").ekle(self, sonuc)
 	YetimBakimi.ekle(self, sonuc)
+	preload("res://src/kapi/usta_gelisi.gd").ekle(self, sonuc)
 	preload("res://src/sistemler/sancak_ulagi.gd").ekle(self, sonuc)
 	KararDonusu.spawn_ekle(self, sonuc)
 	sonuc = GelenAkisi.kuyrugu_temizle_ve_sinirla(self, sonuc)
@@ -225,6 +226,7 @@ func _karar_sonucu(gelen: Gelen, res: Dictionary) -> Dictionary:
 
 func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> Dictionary:
 	if YetimBakimi.ilgilenir(gelen): return _karar_sonucu(gelen, YetimBakimi.karar(self, gelen, karar, _is_yeri))
+	if preload("res://src/kapi/usta_gelisi.gd").ilgilenir(gelen): return _karar_sonucu(gelen, preload("res://src/kapi/usta_gelisi.gd").karar(self, gelen, karar, _is_yeri))
 	if preload("res://src/kapi/aile_kafilesi.gd").ilgilenir(gelen): return _karar_sonucu(gelen, preload("res://src/kapi/aile_kafilesi.gd").karar(self, gelen, karar, _is_yeri))
 	if preload("res://src/sistemler/kapi_acilis_olayi.gd").karar_engelli(self, gelen, karar): return {"engellendi": true, "kaldi": false, "kirilan": -1}
 	if not SiraOlayiSonucu.neden(gelen).is_empty(): return {"engellendi": true, "kaldi": false, "kirilan": -1}
@@ -1011,6 +1013,8 @@ func kaydet() -> Dictionary:
 		veri["ilk_gece_gelenleri"] = GeceBilancosu.gelenleri_oku(get_meta(GeceBilancosu.GELEN_META))
 	if gun <= GeceBilancosu.ILK_SAAT_SON_GECE and ilk_saat_gelen >= 0:
 		veri["ilk_saat_gelen"] = ilk_saat_gelen
+	if has_meta(preload("res://src/kapi/usta_gelisi.gd").META):
+		veri["yap03_ustalar"] = preload("res://src/kapi/usta_gelisi.gd").durum(self)
 	if not gecikmeli_kuyruk.is_empty():
 		veri["gecikmeli_kuyruk"] = gecikmeli_kuyruk.duplicate(true)
 	if aksam_sohbeti_gece >= 0 or not gunun_aksam_kararlari.is_empty():
@@ -1076,6 +1080,8 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	preload("res://src/sistemler/muhafiz_gecmisi.gd").yukle(o, veri.get("muhafiz_gecmisi"))
 	preload("res://src/kapi/aile_kafilesi.gd").yukle(o, veri.get("aile_kararlari"))
 	YetimBakimi.yukle(o, veri.get("yetim_bakimi"))
+	if veri.has("yap03_ustalar"):
+		preload("res://src/kapi/usta_gelisi.gd").yukle(o, veri.get("yap03_ustalar"))
 	preload("res://src/sistemler/kayit_gocu_bildirimi.gd").yukle(o, veri.get("kayit_gocu_bildirimi"))
 	var grup_verisi: Variant = veri.get("grup_itibari", {})
 	if not grup_verisi is Dictionary or not o.grup_itibari.yukle(grup_verisi): return null

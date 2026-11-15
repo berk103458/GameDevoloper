@@ -1517,3 +1517,12 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `ilk_saat_kontrol.tscn` (`ILK SAAT KAPANIS (OGR-57): GEÇTİ`), `hud_katmani_kontrol.tscn` (`HUD KATMANI KAYIT İKİZİ: GEÇTİ`), `acilis_bagimlilik_kontrol.tscn` (RC=0).
 - **Asset:** asset gerekmedi.
 - kota görünmüyor
+
+### 2026-11-16 — YAP-03 Tamamlandı (Antigravity-Berk)
+- **Değişiklikler:**
+  - `src/kapi/usta_gelisi.gd`: `UstaGelisi` eklendi (`data/ustalar.json` ve `data/soz/usta_*.json` okuma, `kalp` alanında tek hata veren `kayit_hatalari`/`dogrula`, `KAP-16` çekiciliği + `DunyaZamani` olay ağırlığı — ikinci gelen zarı yok, 3 başlıklı pazarlık, `koy_akce` kesintisi / `muhafiz_akce` koruması, `aile_uyeleri` + `BarinakUyarisi` `ACL-05` uyarısı ve yatak doluysa açıkta kalma, ret durumunda bilgi açılmaması ve aynı gün yeniden kuyruğa girmeme, ikinci ziyarette sıfır `bilgi_deltasi`).
+  - `src/sistemler/oturum.gd`, `src/kapi/gelen_akisi.gd`, `src/arayuz/kapi_ekrani.gd`: İnce adaptör bağları ve `yap03_ustalar` kayıt/yükleme eklendi.
+  - `tests/unit/kapi/usta_gelisi_test.gd`: Tohumlu 28 gün K2 usta gelişi, kamu/kişisel kese, `ACL-05` dolu yatak, ret kilidi, 2. ziyaret 0 bilgi deltası ve `kalp` hata sayısı doğrulandı.
+- **Doğrulama:** `usta_gelisi_test.gd` (`USTA GELISI (YAP-03): GEÇTİ`), `ustalar_metin_test.gd` (0 hata), `yapi_bilgisi_test.gd` (`YAPI BİLGİSİ: GEÇTİ`), `soz_dosyasi_opsiyonel_test.gd` (`OPTIONAL SÖZ KAYDI: GEÇTİ`), `ilk_saat_kontrol.tscn` (`ILK SAAT KAPANIS (OGR-57): GEÇTİ`), `heybe_kilit_test.tscn` (`HEYBE KILIT: GEÇTİ`), `chr_kapi_kontrol.tscn` (RC=0), `acilis_bagimlilik_kontrol.tscn` (RC=0).
+- **Asset:** asset gerekmedi (`YAP03-USTALAR` `docs/EKSIK_ASSET_ENVANTERI.md` içinde mevcut).
+- kota görünmüyor
