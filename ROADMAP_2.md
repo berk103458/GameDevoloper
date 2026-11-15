@@ -8303,7 +8303,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: NBT-01, ANI-07. Boyut: S.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-63:** Gece yürüyüşü meşale soketini söndürmez.
+- [x] **SAH-63:** Gece yürüyüşü meşale soketini söndürmez. (Kalfa — 209 yürüyüş karesinde ışık açık)
   - Ne: ANI-01 meşalesi gece devriyesinde yanar. Gündüz işinde yanmaz.
   - Kabul: ANI-01 meşalesi gece devriyesinde yanar. Gündüz işinde yanmaz. Test: iki saat, ışık açık ve kapalı.
   - Bağımlılık: ANI-01, ANI-02. Boyut: S.

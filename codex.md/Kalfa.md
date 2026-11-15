@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-63 (Kalfa)
+
+209 gerçek baştan sona yürüyüş karesinde aynı el meşalesi ve ona bağlı ışık açık kaldı. Gündüz meşale ve ışık kapandı, kalkan geri geldi. Muhafız donanımı headless testi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-62 (Kalfa)
 
 NBT yuvasındaki kişi akşam ve gece kendi eşiğine yönelir, ateş halkasına girmez ve devriye bekleme süresi dolduğunda direğinde kalır. İki fazda ateşten uzaklık 22,157 m. Ateş başı headless sahnesi, ayrı duraklar ve kayıt eşitliği geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

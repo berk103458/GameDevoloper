@@ -19,9 +19,9 @@ func _ready() -> void:
 	for i in 6:
 		var k := y.kabul({"sinif": "asker", "stat": 5})
 		y.muhafiz_ata(k.id)
-	var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
 	ana._koye_git()
 	await get_tree().process_frame
+	var once := JSON.stringify(ana.oturum.kaydet())
 	var sahne: KoyYonetimSahnesi = ana._ekran.sahne3b
 	var h := sahne.halk_hareketi
 	h.yenile()
@@ -39,6 +39,18 @@ func _ready() -> void:
 		if e != null and e.isik.visible: isiklar += 1
 	kontrol(isiklar == int(MuhafizDonanimi.AYAR.azami_isik), "Gerçek sahnede ışık bütçesi")
 	kontrol(d != null and d.mesale.visible, "Gece meşalesi elde")
+	if d != null:
+		var bas := f.position
+		var yuruyus_kareleri := 0
+		var son := 0.0
+		while son < 2.0:
+			await get_tree().process_frame
+			son += get_process_delta_time()
+			if f.hareket_bandi() == "yuru" and f._yurume != null and f._yurume.is_running():
+				yuruyus_kareleri += 1
+				kontrol(d.mesale.visible and d.isik.visible and d.isik.get_parent() == d.mesale, "SAH-63: Gece yürüyüşünde aynı el soketi ve ışık açık")
+		kontrol(yuruyus_kareleri >= 20 and f.position.distance_to(bas) > 0.1, "SAH-63: Gerçek devriye yürüyüşü gözlendi")
+		print("SAH-63 gece yürüyüş karesi=%d" % yuruyus_kareleri)
 	kontrol(JSON.stringify(ana.oturum.kaydet()) == once, "Donanım/faz RNG, kayıt veya ekonomiyi değiştirmez")
 	var dizin := OS.get_environment("ADMIN_TEST_CIKTI")
 	if not dizin.is_empty() and DisplayServer.get_name() != "headless":
@@ -50,7 +62,7 @@ func _ready() -> void:
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(dizin.path_join("ani01_gece.png"))
 	sahne.faz(&"gunduz", 0.0)
-	kontrol(d != null and not d.isik.visible and d.kalkan.visible, "Gündüz kalkan geri ve ışık kapalı")
+	kontrol(d != null and not d.isik.visible and not d.mesale.visible and d.kalkan.visible, "SAH-63: Gündüz kalkan geri ve ışık kapalı")
 	y.bosalt(y.koylular[0].id)
 	h.yenile()
 	await get_tree().process_frame
