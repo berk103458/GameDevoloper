@@ -1420,3 +1420,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `yil_izi_test.gd`, `yil_izi_oyun_test.gd`, `sevilen_yuz_test.gd` ve `kisisel_iz_oyun_test.tscn` 0 hata ile geçti.
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor.
+
+### 2026-11-15 — `AYR-29` ve `AYR-33` Tamamlandı
+- **Yapılan:** `src/arayuz/kayit_yuva_karti.gd` içindeki yuva başlığı okuması gerçek `Oturum.kaydet()` (`koy_yonetimi`, `koylular`, `agalik`) ve test sözlüğü (`yonetim`, `koyluler`, `agalik_acildi`) anahtarlarını birlikte okuyacak şekilde düzeltildi; `tests/oto/ayarlar_kontrol.gd` gerçek `Ana._kayit_yaz()` çıktısından nüfus ve `muhafiz_gecmisi` eşitliğini doğrulayacak şekilde güçlendirildi. `YeniOyunEkrani` ve `KayitHataPaneli` ile sürüm 99 uyarısı, açılmama ve dosya koruması korundu.
+- **Testler:** `ayarlar_kontrol.tscn`, `ayarlar_ek_test.gd`, `ayarlar_bolum35_test.gd` ve `acilis_koy_kontrol.tscn` 0 hata ile geçti.
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.

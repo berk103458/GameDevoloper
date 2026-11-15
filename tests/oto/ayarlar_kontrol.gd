@@ -67,6 +67,8 @@ func _ready() -> void:
 	var kat := Katalog.new()
 	kat.yukle()
 	ana_ornek.oturum = Oturum.new(kat, 77)
+	preload("res://src/sistemler/muhafiz_gecmisi.gd").sec(ana_ornek.oturum, "eski_levent")
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(ana_ornek.oturum)
 	ana_ornek._kayit_yaz()
 	var yuva2_veri := ana_ornek.kayit.oku()
 	_kontrol(int(yuva2_veri.get("yuva", 0)) == 2 and ana_yuva.var_mi(2), "AYR-32: kayıt dosyasına seçili yuva (2) yazılır")
@@ -85,7 +87,8 @@ func _ready() -> void:
 	var k2 := yeni_ekran.yuva_karti(2)
 	var k3 := yeni_ekran.yuva_karti(3)
 	_kontrol(k1 != null and k1.durum_kodu == "okunamadi" and k1.baslik_etiketi.text.contains("okunamadı"), "AYR-29: bozuk yuva kartı okunamadı yazar")
-	_kontrol(k2 != null and k2.acilabilir and int(k2.ozet.get("nufus", -1)) >= 0 and k2.detay_etiketi.text.contains("Saat:"), "AYR-29: dolu yuva kartı gerçek kayıttan okur")
+	var beklenen_nufus: int = (yuva2_veri.get("koy_yonetimi", {}) as Dictionary).get("koylular", []).size()
+	_kontrol(k2 != null and k2.acilabilir and beklenen_nufus > 0 and int(k2.ozet.get("nufus", 0)) == beklenen_nufus and String(k2.ozet.get("gecmis", "")) == "eski_levent" and k2.detay_etiketi.text.contains("Saat:"), "AYR-29: dolu yuva kartı gerçek kayıttan okur")
 	_kontrol(k3 != null and k3.durum_kodu == "yeni_surum" and not k3.acilabilir and k3.baslik_etiketi.text.contains("yeni sürüm kaydı"), "AYR-33: ileri sürüm yuva kartı yeni sürüm kaydı yazar")
 	var sil3 := yeni_ekran.find_child("SilYuvaDugmesi_3", true, false) as Button
 	_kontrol(sil3 != null and not sil3.visible, "AYR-33: ileri sürüm yuvada silme düğmesi gizli/kapalıdır")

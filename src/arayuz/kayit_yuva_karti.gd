@@ -77,20 +77,26 @@ func sozlukten_yukle(veri: Dictionary, azami_surum: int = DESTEKLENEN_SURUM, dos
 		detay_etiketi.text = "yeni sürüm kaydı (sürüm %d)" % surum
 		return ozet
 	var gun := int(veri.get("gun", 0))
-	var yonetim_soz: Dictionary = veri.get("yonetim", {}) if veri.get("yonetim", null) is Dictionary else {}
+	var yonetim_soz: Dictionary = {}
+	if veri.get("koy_yonetimi", null) is Dictionary:
+		yonetim_soz = veri["koy_yonetimi"]
+	elif veri.get("yonetim", null) is Dictionary:
+		yonetim_soz = veri["yonetim"]
 	if gun == 0 and yonetim_soz.has("gun"):
 		gun = int(yonetim_soz.get("gun", 0))
 	var nufus := int(veri.get("nufus", -1))
 	if nufus < 0:
 		if yonetim_soz.has("nufus") and yonetim_soz["nufus"] is Array:
 			nufus = (yonetim_soz["nufus"] as Array).size()
+		elif yonetim_soz.has("koylular") and yonetim_soz["koylular"] is Array:
+			nufus = (yonetim_soz["koylular"] as Array).size()
 		elif yonetim_soz.has("koyluler") and yonetim_soz["koyluler"] is Array:
 			nufus = (yonetim_soz["koyluler"] as Array).size()
 		else:
 			nufus = int(yonetim_soz.get("nufus_sayisi", 0))
 	var perde := int(veri.get("perde", 0))
 	if perde <= 0:
-		perde = 2 if bool(yonetim_soz.get("agalik_acildi", false)) or int(yonetim_soz.get("perde", 1)) >= 2 else 1
+		perde = 2 if bool(yonetim_soz.get("agalik", yonetim_soz.get("agalik_acildi", false))) or int(yonetim_soz.get("perde", 1)) >= 2 else 1
 	var son_saat := String(veri.get("son_kayit_saati", "")).strip_edges()
 	if son_saat.is_empty():
 		son_saat = Time.get_datetime_string_from_unix_time(dosya_zamani) if dosya_zamani > 0 else "bilinmiyor"
