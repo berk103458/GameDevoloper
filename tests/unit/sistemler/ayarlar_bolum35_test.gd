@@ -219,14 +219,10 @@ func _hareket_ve_gecmis() -> void:
 	_kontrol(Okunmus.soluk_mu(a, kadro, kisi, "selam"), "AYR-10: ikinci ziyaret soluk")
 	AyarlarEk.ayarla(a, &"okunmus_isaret", false)
 	_kontrol(not Okunmus.soluk_mu(a, kadro, kisi, "selam"), "AYR-10: anahtar kapalıyken soluk yok")
-	var gecmis := Gecmis.new()
-	root.add_child(gecmis)
-	for i in 20:
-		gecmis.satir_ekle("satir %d" % i)
-	gecmis.scroll_vertical = 40
-	gecmis.ilk_satira_don()
-	_kontrol(gecmis.satir_sayisi() == 20 and gecmis.imlec == 0 and gecmis.ilk_satir() == "satir 0", "AYR-11: 20 satırda ilk satıra dönülür")
-	gecmis.queue_free()
+	var sol := InputEventJoypadMotion.new()
+	sol.axis = JOY_AXIS_LEFT_Y
+	sol.axis_value = -1.0
+	_kontrol(not Gecmis.kaydir(RichTextLabel.new(), sol) and not Gecmis.kaydir(null, sol), "AYR-11: sol çubuk ve boş kayıt kaydırmaz")
 
 
 func _yeni_oyun_ve_yuva() -> void:

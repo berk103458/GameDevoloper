@@ -233,6 +233,7 @@ func gece_baslat() -> void:
 	await VarlikYuklemePaneli.bitir(self, kuyruk_kaynaklari)
 	_gece_gelen = 0
 	_kayit.clear()
+	KonusmaGecmisi.ziyaret_basi(_kayit)
 	_yaz("[color=#B8C2CC][b]%s[/b][/color]" % (tr("anlati.gece.basladi") % oturum.gosterilen_gece()))
 	hud.guncelle()
 	await Adim.kesme(self, 0.3)
@@ -265,6 +266,7 @@ func _siradaki() -> void:
 	_bolum.text = ""
 	# Yeni gelenle konuşma kaydı baştan: yalnız gece başlığı ve bu gelenin konuşması.
 	_kayit.clear()
+	KonusmaGecmisi.ziyaret_basi(_kayit)
 	_yaz("[color=#4A6B8A]%s[/color]" % (tr("arayuz.hud.gun") % oturum.gosterilen_gece()))
 	_yaz("[i]%s[/i]" % tr(_gelen.giris_anahtari))
 	oturum.ziyaret_basladi(_gelen)
@@ -650,6 +652,7 @@ func _sira_olayi(o: OlayVerisi) -> bool:
 	evre = &"sira"
 	_temizle()
 	_kayit.clear()
+	KonusmaGecmisi.ziyaret_basi(_kayit)
 	_ad.text = tr("arayuz.kapi.sira")
 	_sinif.text = tr(o.baslik_anahtari)
 	_levha_ad.text = tr(o.baslik_anahtari)
@@ -757,6 +760,9 @@ func _yaz(s: String) -> void:
 
 func _input(olay: InputEvent) -> void:
 	if _heybe_paneli != null or has_node("ChrInceleme"):
+		return
+	if KonusmaGecmisi.kaydir(_kayit, olay):
+		get_viewport().set_input_as_handled()
 		return
 	# Belirme sürerken bir basış atlamadır: kalanlar görünür, hiçbiri seçilmez (Girdi kural 17).
 	if _beliriyor and (olay.is_action_pressed("ui_accept") or (olay is InputEventMouseButton and olay.pressed)):

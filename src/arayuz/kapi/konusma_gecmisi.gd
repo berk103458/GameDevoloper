@@ -1,54 +1,32 @@
-## AYR-11: Bu ziyaretin konuşma akışı kaydırılır. Fare tekeri ve sağ çubuk ilk satıra dönebilir.
+## AYR-11: Bu ziyaretin konuşma akışı kaydırılır. Fare tekeri RichTextLabel'ın kendisinde,
+## gamepad sağ çubuk burada; ikisi de ilk satıra kadar gider.
 class_name KonusmaGecmisi
-extends ScrollContainer
+extends RefCounted
 
-var _kutu: VBoxContainer
-var _satirlar: Array[String] = []
-var imlec := 0
-
-
-func _ready() -> void:
-	horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	if _kutu == null:
-		_kutu = VBoxContainer.new()
-		_kutu.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		add_child(_kutu)
+const ESIK := 0.5
+const ADIM := 48.0
 
 
-func satir_ekle(metin: String) -> void:
-	_satirlar.append(metin)
-	imlec = maxi(_satirlar.size() - 1, 0)
-	var l := Label.new()
-	l.text = metin
-	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	if _kutu == null:
-		_kutu = VBoxContainer.new()
-		add_child(_kutu)
-	_kutu.add_child(l)
-	scroll_vertical = int(get_v_scroll_bar().max_value) if get_v_scroll_bar() != null else 0
+static func kaydir(kayit: RichTextLabel, olay: InputEvent) -> bool:
+	if kayit == null or not (olay is InputEventJoypadMotion):
+		return false
+	var hareket := olay as InputEventJoypadMotion
+	if hareket.axis != JOY_AXIS_RIGHT_Y or absf(hareket.axis_value) <= ESIK:
+		return false
+	var cubuk := kayit.get_v_scroll_bar()
+	cubuk.value = clampf(cubuk.value + signf(hareket.axis_value) * ADIM, 0.0, cubuk.max_value)
+	kayit.scroll_following = sonda_mi(kayit)
+	return true
 
 
-func satir_sayisi() -> int:
-	return _satirlar.size()
+static func sonda_mi(kayit: RichTextLabel) -> bool:
+	var cubuk := kayit.get_v_scroll_bar()
+	return cubuk.value + cubuk.page >= cubuk.max_value - 1.0
 
 
-func ilk_satir() -> String:
-	return "" if _satirlar.is_empty() else _satirlar[0]
+static func ilk_satirda_mi(kayit: RichTextLabel) -> bool:
+	return kayit.get_v_scroll_bar().value <= 0.0
 
 
-func ilk_satira_don() -> void:
-	imlec = 0
-	scroll_vertical = 0
-
-
-func _gui_input(olay: InputEvent) -> void:
-	if olay is InputEventMouseButton and (olay as InputEventMouseButton).pressed:
-		var dugme := (olay as InputEventMouseButton).button_index
-		if dugme == MOUSE_BUTTON_WHEEL_UP or dugme == MOUSE_BUTTON_WHEEL_DOWN:
-			ilk_satira_don()
-			accept_event()
-	if olay is InputEventJoypadMotion:
-		var hareket := olay as InputEventJoypadMotion
-		if hareket.axis == JOY_AXIS_RIGHT_Y and absf(hareket.axis_value) > 0.5:
-			ilk_satira_don()
-			accept_event()
+static func ziyaret_basi(kayit: RichTextLabel) -> void:
+	kayit.scroll_following = true

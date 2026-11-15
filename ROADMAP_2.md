@@ -4731,7 +4731,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: DIY-11. Boyut: S.
   - Dosya: Söz motoru görünümüne tek satır; `ayarlar_ek.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-11:** (Cursor — üzerinde) Konuşma geçmişi kaydırılabilir. (doğrulanmadı — Görev 22; KonusmaGecmisi (src/arayuz/kapi/konusma_gecmisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **AYR-11:** Konuşma geçmişi kaydırılabilir. (doğrulanmadı — Görev 22; KonusmaGecmisi (src/arayuz/kapi/konusma_gecmisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten) (Cursor — KonusmaGecmisi kapı ekranının _kayit akışını sağ çubukla kaydırır, kapi_ekrani._input bağlı, yeni ziyarette takip açılır; fare tekeri RichTextLabel; test tests/oto/konusma_gecmisi_kontrol.tscn 6 GEÇTİ (20 satırda ilk satır); mutasyonda kırmızı)
   - Ne: sorgu sırasında önceki satırlar yukarı kaydırılarak okunur (beyan defteri DIY-07'den ayrı, yalnız bu ziyaretin akışı). Fare tekeri ve gamepad sağ çubuk.
   - Kabul: 20 satırlık sorguda ilk satıra dönülür. Test: ekran.
   - Bağımlılık: DIY-03. Boyut: S.
