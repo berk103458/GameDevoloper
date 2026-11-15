@@ -8,6 +8,30 @@ var puan: int = 0
 var reddedilenler: Array[Dictionary] = []
 ## Haksız reddedilip Tekfur'un hizmetine geçen ustalar (uzmanlık adları).
 var tekfura_gecenler: PackedStringArray = []
+## SOY-35: iki köylü arasındaki yanlış söylenti kaynaklı ikili husumet.
+var kisi_husumeti: Dictionary = {}
+
+
+static func _ikili_anahtar(a: Variant, b: Variant) -> String:
+	var sa := str(a).strip_edges()
+	var sb := str(b).strip_edges()
+	if sa.is_empty() or sb.is_empty() or sa == sb:
+		return ""
+	return "%s|%s" % ([sa, sb] if sa < sb else [sb, sa])
+
+
+func soylenti_husumeti_ekle(kaynak: Variant, hedef: Variant, artis: int = 1) -> int:
+	var anahtar := _ikili_anahtar(kaynak, hedef)
+	if anahtar.is_empty() or artis <= 0:
+		return 0
+	var yeni := int(kisi_husumeti.get(anahtar, 0)) + artis
+	kisi_husumeti[anahtar] = yeni
+	return yeni
+
+
+func kisi_husumeti_oku(kisi_a: Variant, kisi_b: Variant) -> int:
+	var anahtar := _ikili_anahtar(kisi_a, kisi_b)
+	return int(kisi_husumeti.get(anahtar, 0)) if not anahtar.is_empty() else 0
 
 
 ## Bir ret kaydeder. `haksiz`: masum köylü ya da usta reddedildi.
@@ -32,7 +56,10 @@ func gece(a: KoyAyarlari, muhafiz: int, rng: RandomNumberGenerator) -> String:
 
 
 func kaydet() -> Dictionary:
-	return {"puan": puan, "reddedilenler": reddedilenler.duplicate(true), "tekfur": Array(tekfura_gecenler)}
+	var d := {"puan": puan, "reddedilenler": reddedilenler.duplicate(true), "tekfur": Array(tekfura_gecenler)}
+	if not kisi_husumeti.is_empty():
+		d["kisi_husumeti"] = kisi_husumeti.duplicate()
+	return d
 
 
 static func kayittan(v: Dictionary) -> Husumet:
@@ -41,4 +68,10 @@ static func kayittan(v: Dictionary) -> Husumet:
 	for r in v.get("reddedilenler", []):
 		h.reddedilenler.append(r)
 	h.tekfura_gecenler = PackedStringArray(v.get("tekfur", []))
+	var kh: Variant = v.get("kisi_husumeti", {})
+	if kh is Dictionary:
+		for anahtar in kh:
+			var val: Variant = kh[anahtar]
+			if (val is int or val is float) and int(val) > 0:
+				h.kisi_husumeti[String(anahtar)] = int(val)
 	return h

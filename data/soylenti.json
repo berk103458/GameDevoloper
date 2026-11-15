@@ -19,6 +19,13 @@
   "kademe_herkes_orani": 0.80,
   "grev_olasilik_artisi": 0.1,
   "grev_soylenti_turleri": ["is_kazasi", "ucret"],
+  "yanlis_soylenti_husumet_artisi": 1,
+  "pazar_soylenti_turu": "kervan_gelmeyecek",
+  "pazar_soylenti_gun_omru": 1,
+  "goc_soylenti_turu": "yol_guvensiz",
+  "goc_gelen_azaltma": 1,
+  "goc_sure_yanlis_gece": 1,
+  "goc_sure_dogru_gece": 2,
   "koy_olay_turleri": ["is_kazasi", "ucret", "kervan_gelmeyecek", "yol_guvensiz"],
   "kritik_tur": "kritik_soylenti",
   "kapanis_gecesi": 2,
@@ -55,6 +62,8 @@
     "haksizlik_karsi_durma": "Muhafızın bir haksızlığa karşı durduğu konuşuluyor.",
     "yarali_tedavi": "Kapıdaki yaralının sarılıp kurtarıldığı anlatılıyor.",
     "is_kazasi": "Bir işyerinde kaza olduğu, tedbir alınmadığı konuşuluyor.",
-    "ucret": "Emeğin karşılığının eksildiği, ücretlerin yetmediği konuşuluyor."
+    "ucret": "Emeğin karşılığının eksildiği, ücretlerin yetmediği konuşuluyor.",
+    "kervan_gelmeyecek": "Kervanın uzun süre köye uğramayacağı konuşuluyor.",
+    "yol_guvensiz": "Yolların güvensiz olduğu, yolcuların önünün kesildiği söyleniyor."
   }
 }

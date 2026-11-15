@@ -1459,3 +1459,10 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Commit:** `cb325eb0` (`ROADMAP_3.md` genişletmesi), günlük güncellemesi bu commit ile pushlandı.
 - **Kota:** kota görünmüyor
 - **Durum:** TAMAMLANDI
+
+
+## 15 Kasım 2026 — `SOY-35` (Antigravity-Berk)
+- **Yapılanlar:** `data/soylenti.json` (`yanlis_soylenti_husumet_artisi: 1`), `src/sistemler/soylenti_agi.gd` (`_bozuk_kopya` hedef/meslek taşıma ve `yanlis_hedef_husumetleri_al`), `src/sistemler/soylenti_koprusu.gd` (`gece` içinde `y.husumet.soylenti_husumeti_ekle`), `src/koy/husumet.gd` (`kisi_husumeti`, `soylenti_husumeti_ekle`, `kisi_husumeti_oku`, `kaydet`/`kayittan`) ve `src/koy/kan_davasi.gd` (`soylenti_husumeti`, `KAVGA_RISKI = 0.20` sabit) tamamlandı; `tests/unit/kvr/kan_davasi_test.gd` içinde `Oturum.gece_sonu()`, `SOY-05` bozuk kopya hedefi, yineleme engeli ve kayıt/eski kayıt doğrulandı (pre-existing `atolye` K3 testi için `harc` + K1/K2 ön koşulu eklendi).
+- **Testler:** `kan_davasi_test.gd` (`KAN DAVASI: GEÇTİ`), `soylenti_ayar_tarama_test.gd` (`SÖYLENTİ AYAR TARAMA: GEÇTİ`), `soylenti_koprusu_test.gd` (`SÖYLENTİ KÖPRÜSÜ: GEÇTİ`), `soylenti_agi_test.gd` (`PASS`), `koy_yonetimi_test.gd` (`KOY YONETIMI TEST: GEÇTİ (0 hata)`) — hepsi RC=0, 0 SCRIPT ERROR.
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor

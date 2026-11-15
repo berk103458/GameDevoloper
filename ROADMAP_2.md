@@ -5622,7 +5622,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-12. Boyut: S.
   - Dosya: grev okuyucusuna tek satır.
   - Asset: asset gerekmedi.
-- [/] **SOY-35:** Husumet söylentiyle büyür (`husumet.gd`, `kan_davasi.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor) (Antigravity-Berk)
+- [x] **SOY-35:** Husumet söylentiyle büyür (`husumet.gd`, `kan_davasi.gd`). (Antigravity-Berk: `data/soylenti.json` `yanlis_soylenti_husumet_artisi: 1`, `SoylentiAgi._bozuk_kopya` + `yanlis_hedef_husumetleri_al`, `SoylentiKoprusu.gece` → `Husumet.soylenti_husumeti_ekle` / `kisi_husumeti_oku` + kayıt/yükleme ve `KanDavasi.soylenti_husumeti` bağlandı, `KAVGA_RISKI` 0.20 sabit kaldı; `kan_davasi_test.gd`, `soylenti_ayar_tarama_test.gd`, `soylenti_koprusu_test.gd`, `soylenti_agi_test.gd`, `koy_yonetimi_test.gd` GEÇTİ, asset gerekmedi)
   - Ne: iki köylü arasındaki husumet, biri diğeri hakkında yanlış söylenti yaydığında +1; kan davası eşiği değişmez.
   - Kabul: yanlış söylenti kaynağı ve hedefi → husumet +1. Test: birim.
   - Bağımlılık: SOY-05. Boyut: S.

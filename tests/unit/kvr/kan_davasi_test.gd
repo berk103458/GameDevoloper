@@ -49,8 +49,15 @@ func _initialize() -> void:
 	z.toplumsal_bag = {"grup": "koy_c", "dusman_gruplar": []}
 	_kontrol(not KanDavasi.dusman(x, z), "Farklı gruplar tek başına düşman sayılmaz")
 	z.toplumsal_bag = {"grup": "koy_b", "dusman_gruplar": []}
-	y.akce = 100
+	y.akce = 500
 	y.kaynaklar.ekle("demir", 20)
+	y.kaynaklar.ekle("harc", 20)
+	y.kaynaklar.ekle("odun", 200)
+	y.kaynaklar.ekle("tas", 200)
+	y.kaynaklar.ekle("kereste", 200)
+	x.yapi_bilgisi = PackedStringArray(["kulube", "tas_ev", "atolye"])
+	_kur(y, "kulube")
+	_kur(y, "tas_ev")
 	var demirhane := _kur(y, "atolye")
 	_kontrol(y.ata(x.id, demirhane.id) and y.ata(z.id, demirhane.id), "Düşman köylerden iki kişi gerçek girdili atölyeye atanır")
 	var demir := y.kaynaklar.miktar("demir")
@@ -68,6 +75,28 @@ func _initialize() -> void:
 	var anlik := o.kaydet()
 	KoyluDenetcisi.satirlar(o)
 	_kontrol(o.kaydet() == anlik, "İlişki önizlemesi salt okunur")
+	# SOY-35: yanlış söylenti kaynağı ve hedefi arasındaki ikili husumet +1 artar; kan davası eşiği değişmez.
+	var soy_o := Oturum.new(kat, 9135)
+	var sy := soy_o.yonetim
+	sy.kaynaklar = Kaynaklar.new(10000, {"gida": 2000, "odun": 200})
+	var k1 := sy.kabul({"sinif": "ciftci"})
+	var k2 := sy.kabul({"sinif": "ciftci"})
+	var k3 := sy.kabul({"sinif": "ciftci"})
+	var s_ag := SoylentiKoprusu.ag(soy_o) as SoylentiAgi
+	s_ag.soylenti_ekle("dogru_9135", "haksiz_ret", str(k1.id), true, {"gece": sy.gun, "hedef": str(k2.id)})
+	s_ag.soylenti_ekle("iftira_9135", "haksiz_ret", str(k1.id), false, {"gece": sy.gun, "hedef": str(k2.id)})
+	soy_o.gece_sonu()
+	_kontrol(sy.husumet.kisi_husumeti_oku(k1.id, k2.id) == 1 and KanDavasi.soylenti_husumeti(sy, k1, k2) == 1, "SOY-35: yalnız yanlış söylenti ikili husumeti +1 artırır")
+	var kopya := s_ag._bozuk_kopya(s_ag.ag_kayitlari["dogru_9135"], "dogru_9135", str(k3.id), "abarti", sy.gun)
+	s_ag.ag_kayitlari[kopya.olay_id] = kopya
+	soy_o.gece_sonu()
+	_kontrol(sy.husumet.kisi_husumeti_oku(k1.id, k2.id) == 1 and sy.husumet.kisi_husumeti_oku(k3.id, k2.id) == 1 and is_equal_approx(KanDavasi.KAVGA_RISKI, 0.20), "SOY-05 bozuk kopya hedefi taşır, aynı söylenti yinelenmez ve kan davası eşiği değişmez")
+	var soy_veri := JSON.parse_string(JSON.stringify(soy_o.kaydet())) as Dictionary
+	var soy_geri := Oturum.kayittan(kat, soy_veri)
+	_kontrol(soy_geri.yonetim.husumet.kisi_husumeti_oku(k1.id, k2.id) == 1 and soy_geri.yonetim.husumet.kisi_husumeti_oku(k3.id, k2.id) == 1, "İkili husumet kayıttan döner")
+	soy_veri["koy_yonetimi"]["husumet"].erase("kisi_husumeti")
+	var soy_eski := Oturum.kayittan(kat, soy_veri)
+	_kontrol(soy_eski.yonetim.husumet.kisi_husumeti_oku(k1.id, k2.id) == 0, "Eski kayıtta ikili husumet güvenli 0 açılır")
 	print("KAN DAVASI: GEÇTİ" if hata == 0 else "KAN DAVASI: KALDI")
 	quit(hata)
 func _tohum() -> int:

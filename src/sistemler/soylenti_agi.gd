@@ -273,7 +273,7 @@ func bozulma_bicimi(olay_id: String, bozan: String, gece: int) -> String:
 	return String(bicimler[posmod(h / olcek, bicimler.size())])
 
 func _bozuk_kopya(k: Dictionary, olay_id: String, bozan: String, bicim: String, gece: int) -> Dictionary:
-	return {
+	var kopya := {
 		"olay_id": "%s~%s" % [olay_id, bozan],
 		"asil": olay_id,
 		"bicim": bicim,
@@ -289,6 +289,11 @@ func _bozuk_kopya(k: Dictionary, olay_id: String, bozan: String, bicim: String, 
 		"susturuldu": false,
 		"bar_etkisi_uygulandi": true
 	}
+	if not str(k.get("hedef", "")).is_empty():
+		kopya["hedef"] = str(k.get("hedef", ""))
+	if not str(k.get("meslek", "")).is_empty():
+		kopya["meslek"] = str(k.get("meslek", ""))
+	return kopya
 
 ## SOY-34: iş kazası / ücret söylentisi kamuoyu olursa meslek grevi olasılık artışı döner.
 func grev_olasilik_artisi(meslek: String = "") -> float:
@@ -302,6 +307,57 @@ func grev_olasilik_artisi(meslek: String = "") -> float:
 		if meslek.is_empty() or hedef_meslek.is_empty() or hedef_meslek == meslek:
 			return float(_ayar("grev_olasilik_artisi"))
 	return float(0)
+
+
+## SOY-35: hedefi belli yanlış söylentilerin ikili husumet artışlarını tek seferde toplar.
+func yanlis_hedef_husumetleri_al() -> Array[Dictionary]:
+	var sonuc: Array[Dictionary] = []
+	var artis := int(_ayar("yanlis_soylenti_husumet_artisi"))
+	for k in ag_kayitlari.values():
+		if not (k is Dictionary) or bool(k.get("dogru", true)) or bool(k.get("husumet_islendi", false)):
+			continue
+		var kaynak := str(k.get("kaynak", "")).strip_edges()
+		var hedef := str(k.get("hedef", "")).strip_edges()
+		if kaynak.is_empty() or hedef.is_empty() or kaynak == hedef:
+			continue
+		k["husumet_islendi"] = true
+		sonuc.append({"kaynak": kaynak, "hedef": hedef, "artis": artis})
+	return sonuc
+
+
+## SOY-36: "kervan_gelmeyecek" kamuoyu olunca bir gün pazar fiyat çarpanı aktif olur (yanlışsa ertesi gün biter).
+func pazar_soylenti_aktif_mi(guncel_gun: int) -> bool:
+	var pazar_tur := str(veri_yapilandirma.get("pazar_soylenti_turu", ""))
+	var omur := int(_ayar("pazar_soylenti_gun_omru"))
+	for k in ag_kayitlari.values():
+		if not (k is Dictionary) or not bool(k.get("kamuoyu_oldu", false)) or bool(k.get("hukme_baglandi", false)):
+			continue
+		if str(k.get("tur", "")) != pazar_tur:
+			continue
+		var baslangic := int(k.get("kamuoyu_gecesi", guncel_gun))
+		var yas := guncel_gun - baslangic
+		if yas >= 0 and yas < omur:
+			return true
+	return false
+
+
+## SOY-37: "yol_guvensiz" kamuoyu olunca o gece gelen sayısı -1 (doğruysa ertesi gün de).
+func goc_gelen_farki(guncel_gun: int) -> int:
+	var goc_tur := str(veri_yapilandirma.get("goc_soylenti_turu", ""))
+	var azaltma := int(_ayar("goc_gelen_azaltma"))
+	var dogru_sure := int(_ayar("goc_sure_dogru_gece"))
+	var yanlis_sure := int(_ayar("goc_sure_yanlis_gece"))
+	for k in ag_kayitlari.values():
+		if not (k is Dictionary) or not bool(k.get("kamuoyu_oldu", false)) or bool(k.get("hukme_baglandi", false)):
+			continue
+		if str(k.get("tur", "")) != goc_tur:
+			continue
+		var baslangic := int(k.get("kamuoyu_gecesi", guncel_gun))
+		var yas := guncel_gun - baslangic
+		var sure := dogru_sure if bool(k.get("dogru", true)) else yanlis_sure
+		if yas >= 0 and yas < sure:
+			return -azaltma
+	return 0
 
 
 ## SOY-12 & SOY-33: Çınar meclisi için canlı kamuoyu konusu seçimi.

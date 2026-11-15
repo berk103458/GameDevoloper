@@ -38,6 +38,13 @@ static func ciftler(y: KoyYonetimi, bina: int) -> Array[Dictionary]:
 static func engel(y: KoyYonetimi, bina: int) -> bool:
 	return not ciftler(y, bina).is_empty()
 
+
+## SOY-35: köylüler arası yanlış söylenti husumetini okur; kan davası eşiği değişmez.
+static func soylenti_husumeti(y: KoyYonetimi, a: Koylu, b: Koylu) -> int:
+	if y == null or a == null or b == null:
+		return 0
+	return y.husumet.kisi_husumeti_oku(a.id, b.id)
+
 static func gece(y: KoyYonetimi, olaylar: Array[Dictionary]) -> void:
 	for b in y.binalar:
 		if not b.hazir(): continue

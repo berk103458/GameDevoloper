@@ -122,6 +122,8 @@ static func gece(o: Object, r: Dictionary) -> void:
 			onceki_kamuoyu[id] = true
 	var b := baglar(y)
 	a.gece_ilerlet(int(o.gun), y.koylular.size(), b[0], b[1])
+	for hh in a.yanlis_hedef_husumetleri_al():
+		y.husumet.soylenti_husumeti_ekle(String(hh.kaynak), String(hh.hedef), int(hh.artis))
 	var fark := int(a.bar_degisimi_toplam) - once
 	if fark != 0:
 		o._herkese_moral(fark * o.KOPRU_MORAL)
