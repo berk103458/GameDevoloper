@@ -337,7 +337,7 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ### 15.3 Soru ve heybe
 
-- [/] **KAP-18:** (Cursor — Kalfa devri, üzerinde) Yetimler ve savaştan kaçan çocuklar. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/soz/yetim_kafilesi.json`, `data/soz/en/yetim_kafilesi.json` ve `kap18.yetim.*` metin anahtarları eklendi)*
+- [ ] **KAP-18:** (Cursor bıraktı: DNY-01 dünya savaş olayı ve KAP-17 kafilesi yok) Yetimler ve savaştan kaçan çocuklar. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/soz/yetim_kafilesi.json`, `data/soz/en/yetim_kafilesi.json` ve `kap18.yetim.*` metin anahtarları eklendi)*
   - Ne: Dünya savaş olayından sonra kapıya çocuk kafilesi düşer; olay yoksa bu kafile 28 günde hiç gelmez. Kabul edilen çocuk bir haneye ya da eşe emanet edilir. Hane yoksa ACL-05 uyarısı çıkar ve çocuk açıkta kalır, silinmez. Çocuk çalışmaz. 28. günde yaş grubu gence döner ve çırak düğmesi açılır. Model KAP-17 çocuk modelidir.
   - Kurallar:
     1. Bu kafile, dünya savaş olayından sonra açılır (DNY-01). Olay yoksa ağırlık 0.
@@ -1541,7 +1541,7 @@ YAP-01 … YAP-06 gövdesi durur. Yeni maddeler YAP-07 … YAP-86. Yeni bina tü
 
 ### 21.3 Usta
 
-- [/] **YAP-03:** (Cursor — Kalfa devri, üzerinde) Ustalar kapıdan gelir — özel karakterler. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/ustalar.json`, `data/soz/usta_*.json` TR/EN ve `yap03.usta.*` pazarlık/köy metin anahtarları eklendi)*
+- [ ] **YAP-03:** (Cursor bıraktı: geliş ağırlığı KAP-16 (testx) çekiciliği ve DNY olayını okur; ikisi açık) Ustalar kapıdan gelir — özel karakterler. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/ustalar.json`, `data/soz/usta_*.json` TR/EN ve `yap03.usta.*` pazarlık/köy metin anahtarları eklendi)*
   - Ne: Oyuncu kapıda bir usta görür. Kimlerin geleceği `data/ustalar.json` içindedir; ağırlık köy çekiciliğini ve dünya olayını okur, ikinci bir gelen zarı açılmaz. Kabul pazarlığı ücret, ev ve aile başlıklarındadır. Ücret kamu kasasından düşer, kişisel keseden düşmez. Test tohumunda bir K2 ustası 28 günde en az bir kez gelir. Ret yiyen usta bilgi açmaz. Aynı usta ikinci gelişinde aynı bilgiyi yeniden açmaz.
   - Kurallar:
     1. Kimler geleceği `data/ustalar.json` içindedir. Geliş ağırlığı köy çekiciliğini (KAP-16: refah, güvenlik, yatak) ve dünya olayını (DNY) okur. Bu madde ikinci bir gelen zarı açmaz.
@@ -8252,7 +8252,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-49. Boyut: S.
   - Dosya: `src/kapi/kapi_kamera_vurgu.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-55:** (Cursor — Kalfa devri, üzerinde) Kaçan kişi kadrajdan yürür.
+- [ ] **SAH-55:** (Cursor bıraktı: ZAR-03 kaçışı oyunda çağrılmıyor; TansiyonKacisAdaptoru/SorguZari.kacis_kontrol bağsız) Kaçan kişi kadrajdan yürür.
   - Ne: ZAR-03 kaçışında kamera ışınlanmaz. Kişi eşiğe kadar görünür.
   - Kabul: ZAR-03 kaçışında kamera ışınlanmaz. Kişi eşiğe kadar görünür. Test: kaçış, kadrajda en az 1 saniye.
   - Bağımlılık: ZAR-03, SAH-49. Boyut: S.

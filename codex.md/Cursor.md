@@ -177,3 +177,11 @@ kota görünmüyor
 - Asset gerekmedi. Tam sanity koşulmadı.
 
 kota görünmüyor
+
+## Kalfa devri (Ahmet, 15 Kasım 2026)
+- Kapatılanlar: SAH-50 (79d34806), KVR-SES-01 (48730127), YAZ-10 düzeltmesi (45cd9153), KLT-50 (f49b59f8).
+- YAZ-10 bulgusu: f833c5c6 (4 Kasım, Ahmet hesabı, imza Antigravity) 27 YAZ maddesiyle birlikte [x] yapmış; kapsam_taramasi.py yalnız gecis.json karakter sayıyordu. Gerçek uygulama tools/soz_inceleme.py.
+- Bırakılanlar: SAH-19 (oyunda kovalama olayı yok, tasarım gerekir), SAH-47 (CAT-02 Antigravity), SAH-55 (ZAR-03 bağsız), KAP-18 (DNY-01/KAP-17), YAP-03 (KAP-16/DNY), YAP-06 ve DNY-01…04 (kota), KLT-13 (DYL-13 yan yana bakış eksik).
+- Asset gerekmedi. Tam sanity koşulmadı.
+
+kota görünmüyor
