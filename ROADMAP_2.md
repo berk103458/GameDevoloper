@@ -7422,7 +7422,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koylu_karti.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-38:** (Codex-Berk) `koy_atama_alani.gd` temaya bağlanır.
+- [x] **GRV-38:** (Codex-Berk) `koy_atama_alani.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_atama_alani.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Atama alanı zeminsiz. Tema bağlanınca yalnız `koy_atama_alani.gd` ARY-02 zeminini ve düğme durumunu okur, Atama alanı zeminsiz davranışı değişmez.
   - Kabul: `koy_atama_alani.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `koy_atama_alani.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

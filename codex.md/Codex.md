@@ -1360,3 +1360,6 @@ Divan kanıt kartındaki yerel panel stili kaldırıldı; ortak tema mirası ve 
 
 ## 15 Kasım 2026 — GRV-101 (Codex-Berk)
 Teşhis adaptörünün ortak tema mirası, yerel renk/stil yokluğu ve canlı kapı çağrısı doğrulandı. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.
+
+## 15 Kasım 2026 — GRV-38 (Codex-Berk)
+Atama önizlemesinin olumlu ve olumsuz rengi mevcut Kabuk.MORAL ve Hud.UYARI kaynaklarına bağlandı; atama kuralları değişmedi. Hedefli tema testi exit0 / SCRIPT ERROR0; ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası bu makinede yok; eşitleme yapılamadı.

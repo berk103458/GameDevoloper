@@ -42,7 +42,7 @@ func _can_drop_data(yer: Vector2, veri: Variant) -> bool:
 		son.olur = false
 		son.neden = "Önce inşaat/yol/yıkım kipini kapatın"
 	aciklama.text = AtamaOnizlemesi.metin(son)
-	aciklama.modulate = Color(0.45, 1.0, 0.55) if son.yesil and son.olur else Color(1.0, 0.45, 0.40)
+	aciklama.modulate = Kabuk.MORAL if son.yesil and son.olur else Hud.UYARI
 	onizleme.position = Vector2(clampf(yer.x + 16, 0, maxf(0, ekran.size.x - 410)), clampf(yer.y + 16, 0, maxf(0, ekran.size.y - 190)))
 	onizleme.show()
 	return son.olur
