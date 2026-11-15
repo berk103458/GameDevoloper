@@ -22,6 +22,35 @@ class Politika:
         self.rng = random.Random(tohum)
         self.sohbet_sayisi = {}
         self.koy_adimi = {}
+        self.gorulen_secenekler = {}
+        self.gorulen_eylemler = {}
+
+    def _hikaye_sohbet_sec(self, imza, secenekler, eylemler):
+        """KLT-18: hikâye odaklı persona karar öncesi tüm diyalog dallarını ve incelemeleri gezer."""
+        sayi = self.sohbet_sayisi.get(imza, 0)
+        secilen_sec = self.gorulen_secenekler.setdefault(imza, set())
+        secilen_eylem = self.gorulen_eylemler.setdefault(imza, set())
+        if sayi < 12:
+            for b in secenekler:
+                anahtar = (b["indeks"], b["metin"])
+                if "karar" not in b["metin"].lower() and anahtar not in secilen_sec:
+                    secilen_sec.add(anahtar)
+                    self.sohbet_sayisi[imza] = sayi + 1
+                    return "soru_sor", {"indeks": b["indeks"]}
+            for b in eylemler:
+                anahtar = (b["indeks"], b["metin"])
+                if "karar" not in b["metin"].lower() and anahtar not in secilen_eylem:
+                    secilen_eylem.add(anahtar)
+                    self.sohbet_sayisi[imza] = sayi + 1
+                    return "devam", {"alan": "eylem", "indeks": b["indeks"]}
+        for alan, liste in (("secenek", secenekler), ("eylem", eylemler)):
+            for b in liste:
+                if "karar" in b["metin"].lower():
+                    return "devam", {"alan": alan, "indeks": b["indeks"]}
+        if secenekler:
+            self.sohbet_sayisi[imza] = sayi + 1
+            return "soru_sor", {"indeks": secenekler[sayi % len(secenekler)]["indeks"]}
+        return None
 
     def sec(self, s):
         """Yalnız get_state içindeki oyuncunun gördüğü veriyi kullanır."""
@@ -57,6 +86,8 @@ class Politika:
                 sayi = self.sohbet_sayisi.get(imza, 0)
                 secenekler = s.get("secenekler", [])
                 eylemler = s.get("eylemler", [])
+                if self.ad == "hikaye_odakli":
+                    return self._hikaye_sohbet_sec(imza, secenekler, eylemler)
                 # CHR yönlendirme/karar düğmeleri de gerçek sohbet panelindedir.
                 for alan, liste in (("secenek", secenekler), ("eylem", eylemler)):
                     for b in liste:
@@ -254,7 +285,7 @@ def main(argv=None):
     parser.add_argument("--godot", default=os.environ.get("GODOT_BIN", "godot"))
     parser.add_argument("--headless", action="store_true", help="Penceresiz; varsayılan pencereli")
     parser.add_argument("--tohum", type=int, default=11)
-    parser.add_argument("--politika", choices=("rastgele", "temkinli", "rusvetci"), default="temkinli")
+    parser.add_argument("--politika", choices=("rastgele", "temkinli", "rusvetci", "hikaye_odakli"), default="temkinli")
     parser.add_argument("--gece", type=int, default=30, help="Tamamlanan gece sınırı")
     parser.add_argument("--cikti", type=Path)
     parser.add_argument("--arac-raporu", action="store_true", help="İlk altı gecenin araç tablosunu yaz")

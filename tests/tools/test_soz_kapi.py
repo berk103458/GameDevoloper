@@ -25,6 +25,8 @@ from soz_kapi import (  # noqa: E402
     kor_okuma_gecmis_hatalari,
     soz_kopya_taramasi,
     src_editor_sayisi,
+    tur_ozet_satiri,
+    tur_raporu_hatalari,
     _temiz_paket,
 )
 
@@ -400,6 +402,35 @@ class EskiMetinKopyasiTest(unittest.TestCase):
             bulunan = soz_kopya_taramasi(hedef)
         self.assertEqual(len(bulunan), 1)
         self.assertEqual(bulunan[0][0], "kopya.json")
+
+
+class TurRaporuKopruTest(unittest.TestCase):
+    """KLT-18 / KLT-57: tur raporunda tek satır soz_kapi özeti zorunlu, öznel kanaat yasaktır."""
+
+    def test_tur_ozet_satiri_ve_cli(self):
+        paket = _temiz_paket()
+        paket["cekirdekler"] = ["sir", "dinlenmek_isteyen", "durust", "durust"]
+        paket["satirlar"][0]["metin"] = "Kapı kapalı; bekle."
+        paket["satirlar"].append({"id": "bos.1", "agiz": "kisi_a", "anahtar": ""})
+        satir = tur_ozet_satiri(paket, KOR)
+        self.assertEqual(satir, "soz_kapi: ihlal=1, kota=sir:1/4|dinleyici:1, eksik_anahtar=1")
+        with tempfile.TemporaryDirectory() as klasor:
+            yol = Path(klasor) / "paket.json"
+            yol.write_text(json.dumps(paket), encoding="utf-8")
+            sonuc = subprocess.run(
+                [sys.executable, "-B", str(ROOT / "tools" / "soz_kapi.py"), "--paket", str(yol), "--tur-ozet"],
+                capture_output=True, text=True, encoding="utf-8", timeout=15,
+            )
+        self.assertEqual(sonuc.returncode, 1)
+        self.assertEqual(sonuc.stdout.strip(), satir)
+
+    def test_sablon_temiz_ve_kanaatsiz_mutasyonda_hata_verir(self):
+        sablon = (ROOT / "docs" / "tester" / "TUR_SABLONU.md").read_text(encoding="utf-8")
+        self.assertEqual(tur_raporu_hatalari(sablon), [])
+        ozetsiz = "\n".join(s for s in sablon.splitlines() if not s.startswith("soz_kapi:"))
+        self.assertTrue(any("KLT-18" in h for h in tur_raporu_hatalari(ozetsiz)))
+        kanaatli = sablon + "\nKanaat: diyaloglar iyi görünüyor (7/10)\n"
+        self.assertTrue(any("KLT-57" in h for h in tur_raporu_hatalari(kanaatli)))
 
 
 if __name__ == "__main__":

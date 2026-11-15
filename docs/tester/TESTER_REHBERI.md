@@ -221,8 +221,9 @@ Sayıları **ölçerek** yaz. "Daha iyi gibi" demek yerine "ortalama gece 15 →
 
 ## 6. Raporu repoya yükleme ve Claude ile iletişim
 
-**Test ettiğin her şeyin raporu olur.** Her tur için ayrı bir tur raporu dosyası açarsın: `docs/tester/turlar/TUR-NNN.md` (ör. `TUR-001.md`). İçinde:
+**Test ettiğin her şeyin raporu olur.** Her tur için [tur raporu şablonunu](TUR_SABLONU.md) esas alarak ayrı bir dosya açarsın: `docs/tester/turlar/TUR-NNN.md` (ör. `TUR-001.md`). İçinde:
 - tarih, test ettiğin commit (`git log -1 --format=%h`), turun süresi;
+- tek satırlık `soz_kapi` özeti (`soz_kapi: ihlal=..., kota=..., eksik_anahtar=...`; KLT-18) — diyalog kalitesi için öznel `Kanaat:` satırı yazılmaz, ölçü kapı sayısıdır (KLT-57);
 - **test edilenler listesi**: her biri için ne denendi, nasıl (elle / admin / otomatik oyuncu / sanity / akış testi), sonuç (GEÇTİ / BULGU TST-xxxx / ÖLÇÜLMEDİ);
 - kullanılan tohumlar ve komutlar;
 - kanıt dosyalarının yolları (`work/tester/turNNN/...`);
@@ -383,7 +384,7 @@ veya `BRIDGE_PORT=9316` ile localhost üzerinde açılır. Komut sözleşmesi ve
 python -B tools/tester_oyuncu.py --godot <godot_console> --headless --tohum 11 --politika temkinli --gece 10 --cikti work/tester/oyun_11.jsonl
 ```
 
-`--politika rastgele|temkinli|rusvetci`; `--headless` çıkarılırsa pencereli.
+`--politika rastgele|temkinli|rusvetci|hikaye_odakli`; `--headless` çıkarılırsa pencereli.
 `--zaman-asimi 1800` oyun süresi sınırıdır. Her adımın durumu, gönderilen eylem ve
 hatası JSONL'e; Godot konsolu `.godot.log`, özet `.ozet.json` dosyasına gider.
 Araç kendi oyununu başlatır ve sonunda temizler; insan kayıtları ayrı tutulur.

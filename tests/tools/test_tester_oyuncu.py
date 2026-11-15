@@ -71,6 +71,22 @@ class TesterOyuncuTest(unittest.TestCase):
                 thread.join(timeout=3)
             self.assertEqual(len(received), 1)
 
+    def test_hikaye_odakli_dali_ve_eylemleri_gezer_sonra_karar_verir(self):
+        p = tester.Politika("hikaye_odakli", 11)
+        s = {
+            "hazir": True, "ekran": "kapi", "evre": "sohbet", "gun": 1,
+            "kisi": {"ad": "Yusuf", "sirada": 0},
+            "secenekler": [{"indeks": 0, "metin": "Nereden geldin?"}, {"indeks": 1, "metin": "Kimle yolculuk ettin?"}],
+            "eylemler": [{"indeks": 0, "metin": "Heybeyi incele"}, {"indeks": 1, "metin": "Kararını ver"}],
+        }
+        adimlar = [p.sec(s) for _ in range(4)]
+        self.assertEqual(adimlar, [
+            ("soru_sor", {"indeks": 0}),
+            ("soru_sor", {"indeks": 1}),
+            ("devam", {"alan": "eylem", "indeks": 0}),
+            ("devam", {"alan": "eylem", "indeks": 1}),
+        ])
+
 
 if __name__ == "__main__":
     unittest.main()

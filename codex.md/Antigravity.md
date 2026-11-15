@@ -1408,3 +1408,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `grv_tema_baglari_kontrol.tscn` (44 dosya), `oda_gelisim_kontrol.tscn`, `oda_kasasi_kontrol.tscn`, `oda_terazisi_kontrol.tscn`, `oda_vicdan_kontrol.tscn` ve `oda_yetenek_kontrol.tscn` 0 hata ile geçti.
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor.
+
+### 2026-11-15 — `KLT-18` ve `KLT-57` Tamamlandı
+- **Yapılan:** `tools/soz_kapi.py` içine tek satırlık `--tur-ozet` (`tur_ozet_satiri`) ve şablon/kanaat doğrulaması (`tur_raporu_hatalari`) eklendi; `tools/tester_oyuncu.py` içine karar öncesi tüm diyalog dallarını ve inceleme eylemlerini gezen `hikaye_odakli` politikası eklendi; `docs/tester/TUR_SABLONU.md` oluşturulup `docs/tester/TESTER_REHBERI.md` güncellendi.
+- **Testler:** `test_soz_kapi.py` içindeki yeni `TurRaporuKopruTest` (2/2) ve `test_tester_oyuncu.py` (7/7) geçti; `tester_oyuncu.py --politika hikaye_odakli --headless --tohum 11 --gece 1` (`hata_sayisi=0`, çıkış 0) ile doğrulandı. (Not: gömülü Windows Python'da `kor_okuma_gecmis.py` ve `soz_dogrula.py` alt süreçleri mevcut ortam nedeniyle eksik import verir.)
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.

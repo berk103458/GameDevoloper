@@ -16,6 +16,9 @@ if __package__:
     from .metin_dogrula import ogretici_uzunluk_hatasi
     from .soz_inceleme import onay_hatalari as inceleme_hatalari
 else:
+    _TOOLS_DIR = str(Path(__file__).resolve().parent)
+    if _TOOLS_DIR not in sys.path:
+        sys.path.insert(0, _TOOLS_DIR)
     from metin_dogrula import ogretici_uzunluk_hatasi
     from soz_inceleme import onay_hatalari as inceleme_hatalari
 
@@ -337,11 +340,40 @@ def _temiz_paket() -> dict:
     }
 
 
+def tur_ozet_satiri(paket: dict, kor_satirlari: list[dict] | None = None) -> str:
+    """KLT-18: tur raporunda tek satırlık soz_kapi özeti (ihlal, kota, eksik_anahtar)."""
+    hatalar, _uyarilar = denetle(paket, kor_satirlari)
+    sayim = _cekirdek_kota_sayimi([str(c) for c in paket.get("cekirdekler", [])])
+    satirlar = paket.get("satirlar", [])
+    eksik_satir = sum(1 for s in satirlar if isinstance(s, dict) and not str(s.get("anahtar", "")).strip())
+    eksik = int(paket.get("eksik_anahtar", 0)) + eksik_satir
+    return (
+        f"soz_kapi: ihlal={len(hatalar)}, "
+        f"kota=sir:{sayim['sir']}/{sayim['toplam']}|dinleyici:{sayim['dinleyici']}, "
+        f"eksik_anahtar={eksik}"
+    )
+
+
+def tur_raporu_hatalari(metin: str) -> list[str]:
+    """KLT-18 / KLT-57: tur raporunda soz_kapi özeti zorunlu, öznel kanaat satırı yasaktır."""
+    hatalar: list[str] = []
+    ozet_satiri = re.search(
+        r"(?m)^\s*(?:[-*]\s*)?(?:\*\*)?soz_kapi(?:\*\*)?\s*:\s*ihlal=\d+.*kota=.*eksik_anahtar=\d+",
+        metin,
+    )
+    if not ozet_satiri:
+        hatalar.append("KLT-18: tur raporunda soz_kapi ozet satiri yok")
+    if re.search(r"(?im)^\s*(?:[-*]\s*)?(?:\*\*)?kanaat(?:\*\*)?\s*:", metin):
+        hatalar.append("KLT-57: kalite puani kanaat degildir, kapi sayisidir (kanaat satiri yasak)")
+    return hatalar
+
+
 def main(argv: list[str] | None = None) -> int:
     ayr = argparse.ArgumentParser(description="Söz kapısı")
     ayr.add_argument("--paket", type=Path)
     ayr.add_argument("--hedef", type=Path)
     ayr.add_argument("--eski-tara", action="store_true", help="data/soz içinde eski konuşma cümlesi arar (KLT-48)")
+    ayr.add_argument("--tur-ozet", action="store_true", help="Tur raporu için tek satır özet basar (KLT-18)")
     arg = ayr.parse_args(argv)
     if arg.eski_tara:
         bulunan = soz_kopya_taramasi()
@@ -354,7 +386,11 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     paket = json.loads(arg.paket.read_text(encoding="utf-8"))
     if arg.hedef is None:
-        hatalar, uyarilar = denetle(paket, _ornek_kor(str(paket.get("id", ""))))
+        kor = _ornek_kor(str(paket.get("id", "")))
+        hatalar, uyarilar = denetle(paket, kor)
+        if arg.tur_ozet:
+            print(tur_ozet_satiri(paket, kor))
+            return 1 if hatalar else 0
         print("hata=%d uyari=%d" % (len(hatalar), len(uyarilar)))
         sayim = _cekirdek_kota_sayimi([str(c) for c in paket.get("cekirdekler", [])])
         print("toplam\tsır\tdinleyici")

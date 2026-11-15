@@ -6526,7 +6526,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
 
 ### 40.7 Tester köprüsü
 
-- [/] **KLT-18:** (Antigravity-Berk) Tester K7 kör noktası bu kapıya bağlanır.
+- [x] **KLT-18:** (Antigravity-Berk) Tester K7 kör noktası bu kapıya bağlanır. (`tools/soz_kapi.py` `tur_ozet_satiri`/`--tur-ozet`, `tools/tester_oyuncu.py --politika hikaye_odakli`, `docs/tester/TUR_SABLONU.md`; `test_soz_kapi.py` `TurRaporuKopruTest` + `test_tester_oyuncu.py` 7/7 + ADM-16 headless 1 gece `hata_sayisi=0` geçti)
   - Ne: tur raporunda `soz_kapi.py` özeti bir satır: ihlal, kota, eksik anahtar. Persona "hikâye odaklı" (TESTER planı §3) diyalog dalını gezer; kalite puanı kanaat değildir, kapı sayısıdır.
   - Kabul: tur raporunda `soz_kapi` satırı. Test: örnek rapor. Taşınan: KLT-56: Tur satırı `soz_kapi` özetidir.
   - Bağımlılık: ADM-16. Boyut: S.
@@ -6539,7 +6539,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Dosya: —.
   - Asset: asset gerekmedi.
 
-- [/] **KLT-57:** (Antigravity-Berk) Hikâye personası dal gezmez diye kalite puanı yazılmaz
+- [x] **KLT-57:** (Antigravity-Berk) Hikâye personası dal gezmez diye kalite puanı yazılmaz (`tools/soz_kapi.py` `tur_raporu_hatalari`, `docs/tester/TUR_SABLONU.md` + `docs/tester/TESTER_REHBERI.md` kanaat satırı yasağı; `test_sablon_temiz_ve_kanaatsiz_mutasyonda_hata_verir` geçti)
   - Ne: Hikâye personası dal gezmez diye kalite puanı yazılmaz. Puan kapı sayısıdır. Kanaat satırı raporda 0.
   - Kabul: Kanaat 0. Test: şablon.
   - Bağımlılık: KLT-18. Boyut: S.
