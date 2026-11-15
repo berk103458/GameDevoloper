@@ -8026,7 +8026,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-17. Boyut: M.
   - Dosya: `src/dunya/hareket_gecisi.gd`.
   - Asset: asset gerekmedi.
-- [/] **SAH-19:** (Claude-Berk) Koşu yalnız kovalama ve kaçışta açılır. (Kalfa — devriye ve ANI-10 kaçışı doğrulandı; canlı kovalama tetikleyicisi bekliyor)
+- [x] **SAH-19:** (Claude-Berk) Koşu yalnız kovalama ve kaçışta açılır. (Kalfa — devriye ve ANI-10 kaçışı doğrulandı) (Claude-Berk — kovalama tetikleyicisi mevcut ANI-10 kaçışına bağlandı: kaçan kişiye yakın nöbetçi SinsiGeceRutini.kovalayanlar ile &"kovalama" bağlamına geçer ve kendi devriye rotasında koşar, kaçana doğru yön değiştirmez; yeni koşu hali yok, HareketGecisi.kosu_izni. Test tests/oto/sah19_kovalama_kontrol.tscn: devriyede 12 adım koşu 0, kaçışta ikisi koşar, bitince yürür; tetik kaldırılınca KALDI)
   - Ne: günlük devriye yürür. Koşu, mevcut kaçış ve kovalama olayına bağlıdır. Yeni bir koşu hali yazılmaz.
   - Kabul: günlük devriye yürür. Koşu, mevcut kaçış ve kovalama olayına bağlıdır. Yeni bir koşu hali yazılmaz. Test: devriyede koşu klibi 0.
   - Bağımlılık: ANI-02, SAH-17. Boyut: S.

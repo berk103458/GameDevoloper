@@ -394,15 +394,22 @@ func _adim(id: int) -> void:
 	var kisi := sahne.yonetim.koylu(id)
 	var durum := SinsiGeceRutini.hareket_baglami(self, id)
 	var hiz := float(_ayar.yurume_hizi) * (1.0 + fark) * SinsiGeceRutini.hiz(d)
-	if durum == &"kacis":
+	var kosu := HareketGecisi.kosu_izni(durum)
+	if kosu:
 		hiz = maxf(hiz, HareketGecisi.kosu_taban_hizi())
 	elif kisi != null and NobetYorgunlugu.aktif(kisi, sahne.yonetim):
 		hiz = HareketGecisi.yorgun_yuruyus_hizi(hiz)
-	if kisi != null and durum != &"kacis":
+	if kisi != null and not kosu:
 		var yas_carpanlari: Dictionary = SAHNE_AYARI.yas_yuruyus_carpanlari
 		hiz *= float(yas_carpanlari.get(String(kisi.yas_grubu), 1.0))
 	hiz *= KarakterHavaTepkisi.hiz(sahne.yonetim) * preload("res://src/koy/aclik_kademesi.gd").yurume(kisi)
 	modeller[id].yuru(d.yol[d.adim], hiz, durum)
+	# SAH-19: kaçış başlayınca yakındaki nöbetçi aynı anda kovalamaya (koşuya) geçer.
+	if durum == &"kacis":
+		for gid in SinsiGeceRutini.kovalayanlar(self, id):
+			var gd: Dictionary = _durum.get(gid, {})
+			if not gd.is_empty() and int(gd.adim) < gd.yol.size():
+				_adim(gid)
 
 func _konum(h: Vector2i) -> Vector3:
 	return sahne.alan_merkezi(h, Vector2i.ONE)

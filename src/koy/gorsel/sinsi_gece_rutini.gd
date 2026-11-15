@@ -86,6 +86,11 @@ static func hiz(d: Dictionary) -> float:
 
 ## Koşu izni yalnız yakın nöbetçiden uzaklaşan mevcut kuytu rotasındadır.
 static func hareket_baglami(h: KoyHalkHareketi, id: int) -> StringName:
+ var nk: Koylu = h.sahne.yonetim.koylu(id)
+ if nk != null and MuhafizMaasi.aday(nk, h.sahne.yonetim):
+  for diger in h._durum:
+   if diger != id and h._durum[diger].get("sinsi_kacis", false) and id in kovalayanlar(h, diger): return &"kovalama"
+  return &""
  var d: Dictionary = h._durum[id]
  if not d.get("sinsi_kacis", false) or not d.get("sinsi", false) or d.yol.is_empty(): return &""
  var p: Vector3 = h.modeller[id].position
@@ -94,3 +99,14 @@ static func hareket_baglami(h: KoyHalkHareketi, id: int) -> StringName:
  for n in nobetciler(h):
   if p.distance_to(n) < mesafe and son.distance_to(n) > mesafe: return &"kacis"
  return &""
+
+## SAH-19: Kovalama, mevcut kaçış olayına bağlıdır: kaçan kişiye yakın nöbetçi aynı rotasında koşar.
+## Yeni koşu hali yazılmaz; HareketGecisi.kosu_izni(&"kovalama") kullanılır. Devriyede bağlam boştur, koşu 0.
+static func kovalayanlar(h: KoyHalkHareketi, kacan: int) -> Array[int]:
+ var sonuc: Array[int] = []
+ if not h.modeller.has(kacan) or hareket_baglami(h, kacan) != &"kacis": return sonuc
+ var p: Vector3 = h.modeller[kacan].position
+ for id in h.modeller:
+  var k: Koylu = h.sahne.yonetim.koylu(id)
+  if k != null and MuhafizMaasi.aday(k, h.sahne.yonetim) and h.modeller[id].position.distance_to(p) < float(AYAR.muhafiz_mesafesi): sonuc.append(id)
+ return sonuc
