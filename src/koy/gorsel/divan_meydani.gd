@@ -3,16 +3,16 @@ class_name DivanMeydani
 extends RefCounted
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/divan_meydani.json"))
 ## Bir divan; eski oyun aktörleri/ızgara/ekonomi değişmez. Kaldırılınca tüm geçici kutular birlikte temizlenir.
- static func kur(s: KoyYonetimSahnesi) -> Node3D:
-  var n := Node3D.new()
-  n.name = "divan_meydani"
-  s.add_child(n)
-  var m := s.yonetim.a.meydan
-  n.position = s.alan_merkezi(m.position,m.size)+Vector3(float(AYAR.ofset[0]),float(AYAR.ofset[1]),float(AYAR.ofset[2]))
-  _parca(n,"divan_masasi",AYAR.masa,Vector3(0,0.45,0))
-  _parca(n,"divan_oturak",AYAR.sira,Vector3(0,0.2,2))
-  _parca(n,"divan_oturak",AYAR.sira,Vector3(0,0.2,4))
-  return n
+static func kur(s: KoyYonetimSahnesi) -> Node3D:
+ var n := Node3D.new()
+ n.name = "divan_meydani"
+ s.add_child(n)
+ var m := s.yonetim.a.meydan
+ n.position = s.alan_merkezi(m.position,m.size)+Vector3(float(AYAR.ofset[0]),float(AYAR.ofset[1]),float(AYAR.ofset[2]))
+ _parca(n,"divan_masasi",AYAR.masa,Vector3(0,0.45,0))
+ _parca(n,"divan_oturak",AYAR.sira,Vector3(0,0.2,2))
+ _parca(n,"divan_oturak",AYAR.sira,Vector3(0,0.2,4))
+ return n
 ## Asset yer değiştirme noktası; model varsa kullanır, yoksa basit BoxMesh.
 static func _parca(n: Node3D,ad: String,boy: Array,yer: Vector3) -> void:
  if Dunya3B.model_var_mi(ad):

@@ -1,3 +1,7 @@
+## 15 Kasım 2026 — DivanMeydani girinti onarımı (Claude-Berk)
+
+e7053ac4 (Meshy 15. parti, Antigravity) `src/koy/gorsel/divan_meydani.gd` içinde `static func kur` ve gövdesini bir boşluk içeri kaydırmış; dosya parse olmuyordu ("Unexpected Indent in class body"). Köy ekranı `divan_baglantisi.gd` üzerinden bu sınıfı yüklediği için her köy testi SCRIPT ERROR veriyordu. Yalnız girinti düzeltildi (`git diff -w` boş); model/JSON/asset değişmedi. Bu makinede `gh` yok, issue #11 yazılamadı; not buradadır.
+
 ## 6 Kasım 2026 — YAP-05 iş/gece/kayıt dilimi doğrulandı (Kalfa)
 
 Çözümleme işi köyün mevcut kayıt sözlüğünde surum1 optional alt kayıt taşır: tek aktif iş, FIFO kuyruk, tamamlanan kimlikler, tek başlatma/son gece makbuzu. Canlı nesne kaydedilmez. Eski/bozuk/gelecek alt kayıt iş veya ödül üretmez. Oda/defter/yetişkin sağlıklı atama/bedel doğrulanmadan mutasyon yok. İlk iş tek kamu bedeli alır, ikinci aynı gün başlamaz ve ücret alınmadan sırada bekler. İşçi/oda yeniden bağlanınca ilerleme ve tahsilat korunur.
