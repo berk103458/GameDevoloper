@@ -377,11 +377,11 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ---
 
-- [/] **KAP-45:** (Antigravity-Berk) Karar bir kez uygulanır
+- [x] **KAP-45:** (Antigravity-Berk) Karar bir kez uygulanır — Doğrulama: `karar_bir_kez_test.tscn` (`KARAR BIR KEZ: GEÇTİ`), `diplomatik_heyet_kontrol.tscn`, `kapi_kavgasi_ekran_test.tscn`, `kavga_secenek_ekran_test.tscn`, `hatirlanma_notu_kontrol.tscn`, `heybe_kilit_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (RC=0); asset gerekmedi.
   - Ne: Oyuncu kabul ya da ret düğmesine art arda bassa bile gece sonu etkisi bir kez yazılır. Bar kırılınca `oturum_bitti` bir kez gider; ikinci kırılma ikinci sinyal üretmez. Heybe açıkken bu düğmeler de etki yazmaz.
   - Kabul: Aynı karara iki tıkta bar deltası 1'dir (`tests/unit/kapi/karar_bir_kez_test.gd`). Bar sıfıra inince `oturum_bitti` 1 kez yayılır.
   - Bağımlılık: yok. Boyut: S.
-  - Dosya: `src/arayuz/kapi_ekrani.gd`
+  - Dosya: `src/arayuz/kapi_ekrani.gd`, `tests/unit/kapi/karar_bir_kez_test.gd`
   - Asset: asset gerekmedi.
 
 - [/] **KAP-48:** (Antigravity-Berk) Rüşvet hakkı ayardadır

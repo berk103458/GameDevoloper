@@ -1489,3 +1489,11 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
   - `tests/oto/chr_kapi_kontrol.tscn`: `CHR KAPI UI: GEÇTİ` (`RC=0`).
   - Tüm 44 karakter klip kontrolü (`KarakterModel`): 43/44 karakterde 6/6 klip tam çözülür (`chr_006` hariç).
 - **Kota:** kota görünmüyor
+
+### 2026-11-16 — KAP-45 Tamamlandı (Antigravity-Berk)
+- **Değişiklikler:**
+  - `src/arayuz/kapi_ekrani.gd`: `_karar_kilitli()` ve `_oturum_bitir(kirilan)` eklendi; `_karar_ver()` karar anında `evre = &"sonuc"` ile karar düğmelerini devre dışı bırakır ve heybe açık / `sonuc` / `kavga` / `gecis` / `_oturum_bitti_yayildi` durumlarında ikinci kararı engeller. `_oturum_bitir()` ise hem karar sonrası hem sıra olayı sonrası `oturum_bitti` sinyalini oturum başına en fazla 1 kez yayar.
+  - `tests/unit/kapi/karar_bir_kez_test.gd` ve `.tscn`: Heybe kilidi, art arda kabul/ret tıklamalarında bar deltasının tam 1 kez yazılması ve çift kırılmada `oturum_bitti` sinyalinin 1 kez yayılması doğrulandı.
+- **Doğrulama:** `karar_bir_kez_test.tscn` (`KARAR BIR KEZ: GEÇTİ`), `diplomatik_heyet_kontrol.tscn`, `kapi_kavgasi_ekran_test.tscn`, `kavga_secenek_ekran_test.tscn`, `hatirlanma_notu_kontrol.tscn`, `heybe_kilit_test.tscn`, `acilis_bagimlilik_kontrol.tscn` (RC=0).
+- **Asset:** asset gerekmedi.
+- kota görünmüyor

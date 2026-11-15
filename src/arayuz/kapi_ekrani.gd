@@ -55,6 +55,7 @@ var _bolum: Label
 var _bilgi: Label
 var _levha_ad: Label
 var _gece_gelen := 0
+var _oturum_bitti_yayildi := false
 ## Sıra olayında seçilen seçenek.
 signal _sira_secildi(i: int)
 var _sira_satirlari: Array[Button] = []
@@ -225,6 +226,7 @@ func _bilgi_yaz() -> void:
 ## Yeni geceyi başlatır: kuyruk kurulur, ilk gelen kapıya yürür.
 func gece_baslat() -> void:
 	evre = &"gecis"
+	_oturum_bitti_yayildi = false
 	_temizle()
 	_kuyruk = oturum.gece_kuyrugu()
 	preload("res://src/arayuz/chr_kapi_adaptoru.gd").acilis_kur(self)
@@ -607,7 +609,7 @@ func _karar_alt_yazi(anahtar: String) -> String:
 ## İki adımlı onay: ilk basış seçer, aynı karara ikinci basış verir.
 ## Kabul ve rüşvette ardından iş yeri seçilir.
 func _karar_bas(anahtar: String) -> void:
-	if heybe_acik_mi() or evre != &"karar":
+	if heybe_acik_mi() or _oturum_bitti_yayildi or evre != &"karar":
 		return
 	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	var sorgu := _gelen.chr_sorgusu()
@@ -640,8 +642,21 @@ func _karar_birak() -> void:
 		_karar_dugmeleri[i].queue_redraw()
 
 
+func _karar_kilitli() -> bool:
+	return heybe_acik_mi() or _oturum_bitti_yayildi or evre == &"kavga" or evre == &"sonuc" or evre == &"gecis"
+
+
+func _oturum_bitir(kirilan: int) -> bool:
+	if kirilan < 0 or _oturum_bitti_yayildi:
+		return false
+	_oturum_bitti_yayildi = true
+	evre = &"gecis"
+	oturum_bitti.emit(kirilan)
+	return true
+
+
 func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
-	if evre == &"kavga" or heybe_acik_mi(): return
+	if _karar_kilitli(): return
 	if not preload("res://src/sistemler/karar_onayi.gd").izinli(ayarlar, anahtar): return
 	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	if DiplomatikHeyet.ilgilenir(_gelen) and not DiplomatikHeyet.karar_olur(oturum, _gelen, StringName(anahtar)): return
@@ -649,6 +664,9 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	if sorgu != null and not sorgu.karar_acik(StringName(anahtar)) and not (anahtar == "cocuklari_al" and preload("res://src/kapi/aile_kafilesi.gd").bolunur(_gelen)):
 		return
 	evre = &"sonuc"
+	for b in _karar_dugmeleri:
+		if is_instance_valid(b):
+			b.disabled = true
 	_temizle()
 	_bolum.text = ""
 	Ses.cal(&"sfx_onay")
@@ -704,6 +722,8 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	_daralt(false)
 	_adim_sesi(8)
 	await sahne.gelen_git(sonuc["kaldi"], _gelen.tehlikeli or not _gelen.adli)
+	if _oturum_bitir(int(sonuc.get("kirilan", -1))):
+		return
 	# İki gelen arasında sırada bir şey olabilir.
 	var so := KapiFirtinaKuyrugu.sira_olayi(oturum, sahne, _kuyruk.size(), _kuyruk)
 	if so != null and await _sira_olayi(so):
@@ -765,8 +785,7 @@ func _sira_olayi(o: OlayVerisi) -> bool:
 		hud.guncelle()
 	await sahne.sira_olayi_bitir(anahtar, etki)
 	await get_tree().create_timer(0.8).timeout
-	if sonuc["kirilan"] >= 0:
-		oturum_bitti.emit(sonuc["kirilan"])
+	if _oturum_bitir(int(sonuc.get("kirilan", -1))):
 		return true
 	return false
 
