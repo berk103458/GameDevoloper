@@ -34,6 +34,9 @@ var _gosterilecek: Array[Button] = []
 var _heybe_paneli: HeybePaneli
 var _yalan_yazildi := false
 var _chr_muzik: Node
+var _tercuman_durumu: Dictionary = {}
+var _dil_sabri: int = 5
+var _dil_notlari: Array[Dictionary] = []
 
 var hud: Hud
 var _dunya: Control
@@ -258,6 +261,9 @@ func _siradaki() -> void:
 		_chr_muzik.durdur()
 	_sorulan = []
 	_yalan_yazildi = false
+	_tercuman_durumu = {}
+	_dil_sabri = 5
+	_dil_notlari = []
 	_ad.text = tr(_gelen.ad_anahtari)
 	_sinif.text = tr("arayuz.sinif.gibi") % tr("arayuz.sinif." + String(_gelen.sinif))
 	_levha_ad.text = tr(_gelen.ad_anahtari)
@@ -289,8 +295,13 @@ func _sohbet_goster() -> void:
 	_bolum.text = tr("arayuz.kapi.sorular")
 	if preload("res://src/arayuz/chr_kapi_adaptoru.gd").diyalog_goster(self, _gelen, _secenekler, _eylemler):
 		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").eylem(self, _gelen, _eylemler)
+		if tercuman_dugmesi_gorunur_mu():
+			_tercuman_dugmesi_ekle()
 		return
+	var ortak_dil := DilEngeli.oturum_ortak_dil_var_mi(oturum, _gelen)
+	var tercuman_aktif := bool(_tercuman_durumu.get("aktif", false))
 	var dugmeler: Array[Button] = []
+	var konu_sayac := 0
 	for i in _gelen.sorular.size():
 		if i in _sorulan:
 			continue
@@ -298,6 +309,9 @@ func _sohbet_goster() -> void:
 		var ust: int = _gelen.soru_ust[i] if i < _gelen.soru_ust.size() else -1
 		if ust >= 0 and not (ust in _sorulan):
 			continue
+		if not ortak_dil and not tercuman_aktif and konu_sayac >= 2:
+			continue
+		konu_sayac += 1
 		var b := _dugme(("↳ " if ust >= 0 else "— ") + tr(_gelen.sorular[i][0]))
 		b.girinti = 30.0 if ust >= 0 else 0.0
 		b.pressed.connect(_soru_sor.bind(i))
@@ -309,6 +323,8 @@ func _sohbet_goster() -> void:
 		dugmeler.append(h)
 	if heybe_acik:
 		_heybe_dugmesi()
+	if tercuman_dugmesi_gorunur_mu():
+		_tercuman_dugmesi_ekle()
 	var k := _dugme(tr("arayuz.sohbet.karar_ver"), _eylemler)
 	k.ikon = MenuSatiri.Ikon.KAPI
 	k.pressed.connect(_karar_goster)
@@ -451,8 +467,21 @@ func _soru_sor(i: int) -> void:
 		preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "kapi_selam" if i == 0 else "kapi_konu")
 	var once := _gelen.acik_bayraklar.size()
 	_gelen.soru_soruldu(i)
-	_yaz("[color=#4A6B8A]%s:[/color] %s\n[b]%s:[/b] %s" % [tr("arayuz.sohbet.sen"), tr(_gelen.sorular[i][0]),
-		tr(_gelen.ad_anahtari), tr(_gelen.sorular[i][1])])
+	var ortak_dil := DilEngeli.oturum_ortak_dil_var_mi(oturum, _gelen)
+	var soru_metni := tr(_gelen.sorular[i][0])
+	var cevap_tam := tr(_gelen.sorular[i][1])
+	var diller := DilEngeli.gelen_dilleri(_gelen)
+	var kirik_yazi := "%s bir şeyler söylüyor..." % String(diller[0]).capitalize()
+	var cozum := DilEngeli.satir_coz({"id": soru_metni, "tam": cevap_tam, "kirik": kirik_yazi}, ortak_dil, _tercuman_durumu)
+	var gosterilen := String(cozum.get("metin", cevap_tam))
+	if bool(cozum.get("kirik_mi", false)):
+		_dil_notlari.append(DilEngeli.tercumansiz_beyan_kaydi(soru_metni))
+	if not String(cozum.get("es_aksam_anisi", "")).is_empty():
+		_dil_notlari.append({"tur": "es_aksam_anisi", "metin": cevap_tam})
+	_yaz("[color=#4A6B8A]%s:[/color] %s\n[b]%s:[/b] %s" % [tr("arayuz.sohbet.sen"), soru_metni,
+		tr(_gelen.ad_anahtari), gosterilen])
+	if not String(cozum.get("sezgi", "")).is_empty():
+		_yaz("[i][color=#C4843A]%s[/color][/i]" % String(cozum.get("sezgi", "")))
 	preload("res://src/kapi/es_yorumu_adaptoru.gd").soru_soruldu(self, _gelen, _sorulan.size())
 	if _gelen.acik_bayraklar.size() > once:
 		Ses.cal(&"sfx_olay", -6.0)
@@ -589,6 +618,8 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	_bolum.text = ""
 	Ses.cal(&"sfx_onay")
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar), is_yeri)
+	if not _dil_notlari.is_empty():
+		_gelen.set_meta(&"dil_notlari", _dil_notlari.duplicate(true))
 	if not sonuc.get("engellendi", false):
 		preload("res://src/debug/ilk_saat_kancasi.gd").arac(oturum, "kapi_karar")
 	preload("res://src/kapi/hastalik_teshis_adaptoru.gd").sonuc_yaz(self, sonuc)
@@ -802,3 +833,29 @@ func _unhandled_input(olay: InputEvent) -> void:
 	elif olay.is_action_pressed("menu"):
 		get_viewport().set_input_as_handled()
 		duraklat_istendi.emit()
+
+
+## DYL-06: Gelenle ortak dil yoksa ve uygun tercüman köyde varsa tercüman düğmesi görünür.
+func tercuman_dugmesi_gorunur_mu(bayrak: bool = true) -> bool:
+	if bool(_tercuman_durumu.get("aktif", false)):
+		return false
+	return DilEngeli.oturum_dugme_sayisi(oturum, _gelen, bayrak) == 1
+
+
+func _tercuman_dugmesi_ekle() -> void:
+	var t := _dugme("— Tercüman çağır (−2 sabır)", _eylemler)
+	t.name = &"TercumanCagir"
+	t.pressed.connect(_tercuman_cagir)
+
+
+func _tercuman_cagir() -> void:
+	if evre != &"sohbet" or not tercuman_dugmesi_gorunur_mu():
+		return
+	var sonuc := DilEngeli.oturumda_tercuman_cagir(oturum, _gelen, _dil_sabri)
+	if not bool(sonuc.get("olur", false)):
+		return
+	_tercuman_durumu = sonuc
+	_dil_sabri = int(sonuc.get("kalan_sabir", _dil_sabri))
+	var ad := String(sonuc.get("koylu_ad", "Köylü"))
+	_yaz("[i][color=#82C4C4]%s tercüman olarak çağrıldı (sabır −2).[/color][/i]" % ad)
+	_sohbet_goster()

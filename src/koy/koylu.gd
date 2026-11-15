@@ -36,6 +36,8 @@ var bayraklar: PackedStringArray = []
 var gizli_bayraklar: PackedStringArray = []
 ## DYL-06: köylünün bildiği diller (optional alan).
 var diller: PackedStringArray = []
+## DYL-06: tercüman çağrılan gün iş gücü 0.5'e iner, ertesi sabah 1.0'a döner.
+var is_gucu: float = 1.0
 ## YAP-01/02: bilgi yalnız kişide taşınır; eski kayıtta boş.
 var yapi_bilgisi: PackedStringArray = []
 ## Kamu kasasından ayrı ekonomik yaşam standardı (0–100).
@@ -97,6 +99,8 @@ func kaydet() -> Dictionary:
 		"pasif_ozellikler": pasif_ozellikler.duplicate(true), "egitim": egitim.duplicate(true), "gelisim": gelisim.duplicate(true), "grev": grev.duplicate(true), "yorgunluk": yorgunluk.duplicate(true), "gecici_is": gecici_is.duplicate(true), "is_kazasi": is_kazasi.duplicate(true), "zanaat_kazasi": zanaat_kazasi.duplicate(true), "kis_hastaligi": kis_hastaligi.duplicate(true), "toplumsal_bag": toplumsal_bag.duplicate(true), "hane_id": hane_id, "yas_grubu": String(yas_grubu), "gizli_egilim": gizli_egilim.duplicate(true), "divan_kanit": DivanKanit.durum(self)}
 	if not diller.is_empty():
 		kayit_sozluk["diller"] = Array(diller)
+	if not is_equal_approx(is_gucu, 1.0):
+		kayit_sozluk["is_gucu"] = is_gucu
 	if not bosta_kalma.is_empty():
 		kayit_sozluk["bosta_kalma"] = bosta_kalma.duplicate(true)
 	if not yapi_bilgisi.is_empty():
@@ -130,6 +134,7 @@ static func kayittan(v: Dictionary) -> Koylu:
 	k.bayraklar = PackedStringArray(v.get("bayraklar", []))
 	k.gizli_bayraklar = PackedStringArray(v.get("gizli", []))
 	k.diller = PackedStringArray(v.get("diller", []))
+	k.is_gucu = clampf(float(v.get("is_gucu", 1.0)), 0.0, 1.0)
 	k.yapi_bilgisi = YapiKilidi.bilgi_oku(v.get("yapi_bilgisi"))
 	if SaglikYoneticisi.hasta(k) and "hasta" not in k.bayraklar + k.gizli_bayraklar: k.gizli_bayraklar.append("hasta")
 	if k.kis_hastaligi.is_empty(): k.bayraklar.erase(KisHastaligi.FLAG)

@@ -76,3 +76,20 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . -s res://tests/unit/kapi/zar_tur_test.gd` → `ZAR TUR TESTI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+### Madde 5 — `DYL-06` (`TAM`)
+- **Değişiklikler:**
+  - `src/koy/koylu.gd`: `is_gucu: float = 1.0` eklendi ve optional kaydet/kayittan desteğine alındı.
+  - `src/koy/koy_yonetimi.gd`: `_uret` günlük bina üretiminde `clampf(k.is_gucu, 0.0, 1.0)` çarpanı uygulandı, `gece()` sonunda `k.is_gucu = 1.0` sıfırlandı.
+  - `src/sistemler/gelen.gd`: `diller: PackedStringArray = []` eklendi.
+  - `src/soz/dil_engeli.gd`: `uygun_tercumanlar` `saglik > 0` korundu; `gelen_dilleri`, `oturum_ortak_dil_var_mi`, `oturum_dugme_sayisi`, `oturumda_tercuman_cagir` (`sabir -2`, `is_gucu = 0.5` idempotent, `es_id` eş denetimi) eklendi.
+  - `src/arayuz/kapi_ekrani.gd`: `_sohbet_goster` içinde ortak dil yoksa max 2 başlangıç konusu ve koşullu `TercumanCagir` düğmesi, `_soru_sor` içinde `DilEngeli.satir_coz` ve `_karar_ver` içinde `dil_notlari` kaydı bağlandı.
+  - `tests/unit/soz/dil_engeli_test.gd`: gerçek `Oturum`, `KoyYonetimi._uret` (%50 üretim düşüşü + gece sıfırlama), `sabir -2` ve `saglik == 0` sınamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `DYL-06` → `TAM`.
+- **Hedefli test çıktıları (son satırlar):**
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/dil_engeli_test.gd` → `DIL ENGELI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/denge/aclik_uretim_test.gd` → `AÇLIK ÜRETİM: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ilk_saat_test.gd` → `ILK SAAT: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` → `CHR KAPI UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

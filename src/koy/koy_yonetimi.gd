@@ -638,6 +638,8 @@ func gece() -> Dictionary:
 	_bugun_usta_ret = false
 	if Takvim.hafta_basi(gun, a.mevsim_gun):
 		vergi_muaf = false
+	for k in koylular:
+		k.is_gucu = 1.0
 	return rapor
 
 
@@ -713,7 +715,7 @@ func _uret(uretim: Dictionary, olaylar: Array[Dictionary], calismalar: Dictionar
 			var c := Uretim.koylu_carpani(k, uzmanlik, a, b.tur) * YasRolleri.carpan(self, b) * DemirZinciri.carpan(self, b.tur) * CenazeYasi.is_carpani(self, k)
 			var bonus := a.kritik_bonus if k.moral > a.kritik_moral else 0.0
 			for t in cikti:
-				var miktar := Uretim.gunluk(float(cikti[t]), k.stat, c) * b.uretim_carpani() * CanliHayvanTakasi.carpan(self, b, String(t)) * preload("res://src/koy/cozumleme.gd").uretim_carpani(self,b.tur)
+				var miktar := Uretim.gunluk(float(cikti[t]), k.stat, c) * clampf(k.is_gucu, 0.0, 1.0) * b.uretim_carpani() * CanliHayvanTakasi.carpan(self, b, String(t)) * preload("res://src/koy/cozumleme.gd").uretim_carpani(self,b.tur)
 				_ambara(b, t, miktar, miktar * bonus, uretim, olaylar)
 			if not cikti.is_empty() and ambar_yeri_var: MeslekUyumu.alet_denetimi(self, k, b, olaylar)
 			if not cikti.is_empty() and ambar_yeri_var:

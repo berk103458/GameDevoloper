@@ -214,7 +214,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | Madde | Başlık | ROADMAP | İlgili dosyalar | Ne var | Ne eksik | Karar | Antigravity'ye not |
 |---|---|---|---|---|---|---|---|
 | DYL-01 | Çelişki yüzleştirme | `[x]` | — | ROADMAP `src/soz/celiski.gd` diyor | Dosya yok. Görev 23'te de bağlanamadı | YOK | Çelişki yüzleştirmesini yeniden yaz; söz motoru bağlanmadan çalışmaz |
-| DYL-06 | Dil engeli | `[x]` | `src/soz/dil_engeli.gd` | 233 satır, testi var | Hiç çağrılmıyor; tercüman düğmesi çıkmıyor | SAHTE-BAĞSIZ | Kapı ekranında ortak dil yokken `DilEngeli` çağır |
+| DYL-06 | Dil engeli | `[x]` | `src/soz/dil_engeli.gd`, `src/koy/koylu.gd`, `src/koy/koy_yonetimi.gd`, `src/sistemler/gelen.gd`, `src/arayuz/kapi_ekrani.gd` | `DilEngeli` köprüleri + `KapiEkrani` `TercumanCagir` düğmesi + `Koylu.is_gucu` yarıya iniş & günlük üretim/gece sıfırlama bağlandı | — | TAM | Ortak dil/tercüman yokken kırık satır ve max 2 basit konu, sabır `-2`, tercüman yarım iş gücü doğrulandı |
 | DYL-07 | Akşam konusu | `[x]` | `src/koy/aksam_sohbeti.gd` | Konu seçimi ve testi var | `AksamSohbeti` hiç açılmıyor | SAHTE-BAĞSIZ | ACL-03 ile birlikte gece raporundan önce aç |
 | DYL-08 | Karar dönüşü | `[x]` | `src/soz/karar_donusu.gd`, `src/sistemler/oturum.gd`, `src/arayuz/koy_hud/hafiza_defteri_baglantisi.gd` | `Oturum.gece_sonu()` -> `KararDonusu.ilerlet` + `HafizaDefteri` `dyl08` bağlantısı kuruldu | — | TAM | 2/gün sınırı, ölen/giden->haberci, tek-sefer bar, tanıklı/tanıksız dedikodu, 0 SAB-01 sızması doğrulu |
 

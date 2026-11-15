@@ -1136,3 +1136,16 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **4.4 Uygula ve doğrula:** `zar_degistirici_test.gd`, `chr_sorgu_test.gd` ve `zar_tur_test.gd` hedefli testleriyle hem `SorguZari` eşiğini hem `ChrSorgusu` + `ChrDiyalogPaneli` ön-liste bağını doğrula, denetim listesini güncelle ve commit/push et.
 - **Sonuç:** `sorgu_zari.gd`, `chr_sorgusu.gd`, `chr_kapi_adaptoru.gd`, `chr_diyalog_paneli.gd` ve `zar_degistirici_test.gd` güncellendi; `zar_degistirici_test.gd` (`ZAR DEGISTIRICI TEST: GEÇTİ (0 hata)`), `chr_sorgu_test.gd` (`CHR SORGU: GEÇTİ (0 hata)`) ve `zar_tur_test.gd` (`ZAR TUR TESTI: GEÇTİ (0 hata)`) 0 script hatasıyla geçti. Asset gerekmedi. kota görünmüyor.
 
+### Madde 5 — `DYL-06` (Dil engeli ve tercüman) Alt Madde Planı
+- **5.1 Sorunu anla:** `docs/ANTIGRAVITY_DENETIM_LISTESI.md` (`DYL-06`) `src/soz/dil_engeli.gd` sınıfının eksiksiz durduğunu ancak kapı ekranında (`src/arayuz/kapi_ekrani.gd`) hiç çağrılmadığını, tercüman düğmesinin çıkmadığını, köylü `is_gucu` değerinin üretime bağlanmadığını belirtir.
+- **5.2 Oyuna nasıl bağlandığını kontrol et:**
+  - `src/koy/koylu.gd` zaten optional `diller: PackedStringArray` taşıyor ve kaydediyor; `is_gucu: float = 1.0` eksikti.
+  - `src/koy/koy_yonetimi.gd:716` günlük bina üretimini `Uretim.gunluk(...)` ile hesaplıyor; `k.is_gucu` çarpanı tek satırla buraya bağlanabilir.
+  - `src/sistemler/gelen.gd` üzerinde `diller: PackedStringArray` yoktu; `src/arayuz/kapi_ekrani.gd` (`_sonraki_gelen`, `_sohbet_goster`, `_soru_sor`, `_karar_goster`) ortak dil denetimi ve tercüman düğmesi taşımıyordu.
+- **5.3 «Daha iyi olur» iyileştirmeleri:**
+  - `Koylu` üzerine `is_gucu: float = 1.0` eklenip `KoyYonetimi` günlük üretiminde (`* k.is_gucu`) kullanılsın ve gece sonunda `1.0`'a sıfırlansın.
+  - `Gelen` üzerine `diller: PackedStringArray = []` ve `DilEngeli` üzerine `oturumda_tercuman_cagir(oturum, gelen)` adaptörü eklensin (sabır `-2`, tercüman `Koylu.is_gucu = 0.5`, eş tercüman çarpıtmadan akşam sohbeti anısını kaydeder).
+  - `KapiEkrani` ortak dil yoksa `DilEngeli.tercuman_dugmesi_sayisi(...) == 1` olduğunda `TercumanCagir` düğmesini açsın (tercüman yoksa veya bayrak kapalıysa 0 düğme), satırları `DilEngeli.satir_coz(...)` üzerinden geçirsin ve tercümansız kararda `DilEngeli.tercumansiz_beyan_kaydi(...)` yazsın.
+- **5.4 Uygula ve doğrula:** `dil_engeli_test.gd` içine `Oturum` + `KoyYonetimi` üretim düşüşü (`1.0 -> 0.5`) + `KapiEkrani` ortak dil / tercüman düğmesi sınamalarını ekle, `dil_engeli_test.gd` ile `kapi_karar_test` / `otomatik` testleri koştur, `DYL-06` güncelle ve commit/push et.
+- **Sonuç:** `koylu.gd`, `koy_yonetimi.gd`, `gelen.gd`, `dil_engeli.gd`, `kapi_ekrani.gd` ve `dil_engeli_test.gd` güncellendi; `dil_engeli_test.gd` (`DIL ENGELI: GEÇTİ (0 hata)`), `aclik_uretim_test.gd` (`AÇLIK ÜRETİM: GEÇTİ`), `ilk_saat_test.gd` (`ILK SAAT: GEÇTİ (0 hata)`) ve `chr_kapi_kontrol.tscn` (`CHR KAPI UI: GEÇTİ`) 0 script hatasıyla geçti. Asset gerekmedi. kota görünmüyor.
+

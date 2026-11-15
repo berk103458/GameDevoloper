@@ -73,7 +73,10 @@ static func uygun_tercumanlar(koylular: Array, gelen_dilleri: Array) -> Array:
 	for k in koylular:
 		var k_diller: Array = []
 		if k is Koylu:
-			k_diller = Array((k as Koylu).diller)
+			var kl: Koylu = k as Koylu
+			if kl.saglik <= 0:
+				continue
+			k_diller = Array(kl.diller)
 		elif k is Dictionary:
 			var d: Dictionary = k
 			if not bool(d.get("tercuman_bayragi", true)):
@@ -231,3 +234,64 @@ static func _norm_dil(dil: String) -> String:
 	var s := dil.strip_edges().to_lower()
 	s = s.replace("ü", "u").replace("ş", "s").replace("ı", "i").replace("ç", "c").replace("ğ", "g").replace("ö", "o")
 	return s
+
+
+## Gelen karakterin dillerini doner; bossa varsayilan Turkce kabul edilir.
+static func gelen_dilleri(gelen: Gelen) -> Array[String]:
+	var sonuc: Array[String] = []
+	if gelen != null:
+		for d in gelen.diller:
+			var n := _norm_dil(String(d))
+			if not n.is_empty() and not (n in sonuc):
+				sonuc.append(n)
+	if sonuc.is_empty():
+		sonuc.append(VARSAYILAN_DIL)
+	return sonuc
+
+
+## Oturumda muhafiz ile gelen arasinda ortak dil olup olmadigini kontrol eder.
+static func oturum_ortak_dil_var_mi(oturum: Oturum, gelen: Gelen) -> bool:
+	return ortak_dil_var_mi(muhafiz_dilleri(oturum), gelen_dilleri(gelen))
+
+
+## Gercek Oturum + KoyYonetimi uzerinden tercuman dugmesinin gorunurlugunu (0 veya 1) doner.
+static func oturum_dugme_sayisi(oturum: Oturum, gelen: Gelen, tercuman_bayragi: bool = true) -> int:
+	if oturum == null or oturum.yonetim == null or gelen == null:
+		return 0
+	if oturum_ortak_dil_var_mi(oturum, gelen):
+		return 0
+	return tercuman_dugmesi_sayisi(oturum.yonetim.koylular, gelen_dilleri(gelen), tercuman_bayragi)
+
+
+## Oturumdaki ilk uygun (veya secili) tercuman koyluyu cagirir; sabir -2 ve is_gucu 0.5 uygulanir.
+static func oturumda_tercuman_cagir(
+	oturum: Oturum,
+	gelen: Gelen,
+	mevcut_sabir: int = 5,
+	aday_koylu: Koylu = null
+) -> Dictionary:
+	if oturum == null or oturum.yonetim == null or gelen == null:
+		return {"olur": false, "aktif": false, "kalan_sabir": mevcut_sabir}
+	var uygunlar := uygun_tercumanlar(oturum.yonetim.koylular, gelen_dilleri(gelen))
+	var secilen: Koylu = aday_koylu if (aday_koylu != null and (aday_koylu in uygunlar)) else (uygunlar[0] as Koylu if not uygunlar.is_empty() else null)
+	if secilen == null:
+		return {"olur": false, "aktif": false, "kalan_sabir": mevcut_sabir}
+	var onceki_is_gucu := secilen.is_gucu
+	if onceki_is_gucu > YARIM_IS_GUCU:
+		secilen.is_gucu = YARIM_IS_GUCU
+	var es_id := int(preload("res://src/sistemler/acilis_senaryosu.gd").durum(oturum).get("es_id", -1))
+	var es_mi := es_id > 0 and secilen.id == es_id
+	var yeni_sabir := maxi(0, mevcut_sabir - SABIR_BEDELI)
+	return {
+		"olur": true,
+		"aktif": true,
+		"koylu_id": secilen.id,
+		"koylu_ad": secilen.ad,
+		"es_mi": es_mi,
+		"grup": String(secilen.sinif),
+		"gelen_grup": String(gelen.sinif),
+		"sabir_deltasi": -SABIR_BEDELI,
+		"kalan_sabir": yeni_sabir,
+		"onceki_is_gucu": onceki_is_gucu,
+		"is_gucu": secilen.is_gucu,
+	}

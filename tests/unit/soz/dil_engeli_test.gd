@@ -26,6 +26,7 @@ func _calistir() -> void:
 	_test_tercuman_bayragi_ve_dugme_gorunurlugu()
 	_test_es_tercuman_carpitmaz_ve_grup_carpitmasi()
 	_test_koylu_optional_diller_kayit_ve_dogrulayici()
+	_test_gercek_oturum_is_gucu_ve_tercuman_koprusu(katalog)
 
 	await process_frame
 	print("DIL ENGELI: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
@@ -116,6 +117,83 @@ func _test_koylu_optional_diller_kayit_ve_dogrulayici() -> void:
 
 	var hatalar: Array[String] = DilEngeliSinifi.dogrula_satirlar(["rumca"], [{"id": "s1", "tam": "Merhaba", "kirik": ""}])
 	_kontrol(hatalar.size() == 1, "Eksik kırık varyant doğrulayıcıda 1 hata vermeli")
+
+
+func _test_gercek_oturum_is_gucu_ve_tercuman_koprusu(katalog: Katalog) -> void:
+	var oturum := Oturum.new(katalog, 4213)
+	var gelen := Gelen.new()
+	gelen.id = &"misafir_rum"
+	gelen.sinif = &"tuccar"
+	gelen.diller = PackedStringArray(["rumca"])
+	for kl in oturum.yonetim.koylular:
+		kl.diller = PackedStringArray([])
+	_kontrol(DilEngeliSinifi.oturum_dugme_sayisi(oturum, gelen) == 0, "Gerçek oturumda dili bilen köylü yoksa tercüman düğmesi 0 olmalı")
+
+	var koylu := oturum.yonetim.kabul({"ad": "Nikola", "sinif": "tuccar"})
+	koylu.diller = PackedStringArray(["rumca"])
+	_kontrol(DilEngeliSinifi.oturum_dugme_sayisi(oturum, gelen) == 1, "Köyde Rumca bilen köylü varken tercüman düğmesi 1 olmalı")
+	_kontrol(DilEngeliSinifi.oturum_dugme_sayisi(oturum, gelen, false) == 0, "Tercüman bayrağı yokken gerçek oturumda düğme 0 olmalı")
+
+	var turk_gelen := Gelen.new()
+	turk_gelen.diller = PackedStringArray(["turkce"])
+	_kontrol(DilEngeliSinifi.oturum_ortak_dil_var_mi(oturum, turk_gelen), "Türkçe ortak dil olmalı")
+	_kontrol(DilEngeliSinifi.oturum_dugme_sayisi(oturum, turk_gelen) == 0, "Ortak dil varken tercüman düğmesi 0 olmalı")
+
+	var c1 := DilEngeliSinifi.oturumda_tercuman_cagir(oturum, gelen, 5, koylu)
+	_kontrol(bool(c1.get("olur", false)) and is_equal_approx(koylu.is_gucu, 0.5), "Gerçek köylü tercüman çağrılınca iş gücü 0.5 olmalı")
+	_kontrol(int(c1.get("kalan_sabir", -1)) == 3, "Gerçek çağrıda sabır 5 -> 3 inmeli")
+	var c2 := DilEngeliSinifi.oturumda_tercuman_cagir(oturum, gelen, 3, koylu)
+	_kontrol(is_equal_approx(koylu.is_gucu, 0.5) and int(c2.get("kalan_sabir", -1)) == 1, "İkinci çağrı iş gücünü 0'a indirmemeli")
+
+	# Ölü/baygın köylü (saglik <= 0) tercüman seçilmez
+	koylu.saglik = 0
+	_kontrol(DilEngeliSinifi.oturum_dugme_sayisi(oturum, gelen, true) == 0, "Sağlığı 0 olan köylü tercüman sayılmamalı")
+	koylu.saglik = 100
+
+	# Günlük bina üretiminde 0.5 iş gücü yarıya düşürür ve gece() sonunda 1.0'a sıfırlanır
+	var o1 := Oturum.new(katalog, 7001)
+	var y := o1.yonetim
+	y.binalar.clear()
+	y.koylular.clear()
+	var bina1 := KoyBinasi.new()
+	bina1.id = 901
+	bina1.tur = "tas_ocagi"
+	bina1.recete = "tas"
+	y.binalar.append(bina1)
+	var isci1 := y.kabul({"ad": "Tam Isci", "sinif": "tasci"})
+	isci1.stat = 5
+	isci1.moral = 50
+	isci1.pasif_ozellikler = {}
+	isci1.is_yeri = bina1.id
+	isci1.is_gucu = 1.0
+	var tam_uretim := {}
+	var ol1: Array[Dictionary] = []
+	y._uret(tam_uretim, ol1)
+	var tam_tas := float(tam_uretim.get("tas", 0.0)) + float(y._artik.get("901:tas", 0.0))
+
+	var o2 := Oturum.new(katalog, 7001)
+	var y2 := o2.yonetim
+	y2.binalar.clear()
+	y2.koylular.clear()
+	var bina2 := KoyBinasi.new()
+	bina2.id = 901
+	bina2.tur = "tas_ocagi"
+	bina2.recete = "tas"
+	y2.binalar.append(bina2)
+	var isci2 := y2.kabul({"ad": "Yarim Isci", "sinif": "tasci"})
+	isci2.stat = 5
+	isci2.moral = 50
+	isci2.pasif_ozellikler = {}
+	isci2.is_yeri = bina2.id
+	isci2.is_gucu = 0.5
+	var yarim_uretim := {}
+	var ol2: Array[Dictionary] = []
+	y2._uret(yarim_uretim, ol2)
+	var yarim_tas := float(yarim_uretim.get("tas", 0.0)) + float(y2._artik.get("901:tas", 0.0))
+	_kontrol(tam_tas > 0.0 and is_equal_approx(yarim_tas, tam_tas * 0.5), "Yarım iş gücü günlük bina üretimini yarıya (%%50) düşürmeli (tam=%s yarim=%s)" % [tam_tas, yarim_tas])
+
+	y2.gece()
+	_kontrol(is_equal_approx(isci2.is_gucu, 1.0), "Gece sonunda köylü iş gücü ertesi gün için 1.0'a sıfırlanmalı")
 
 
 func _kontrol(olur: bool, mesaj: String) -> void:

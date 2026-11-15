@@ -54,6 +54,8 @@ var soru_bayraklari: PackedStringArray = []
 var gizli_bayraklar: PackedStringArray = []
 ## Kapıda sorguyla açılan bayraklar (KapiEkrani doldurur).
 var acik_bayraklar: PackedStringArray = []
+## DYL-06: gelenin bildiği diller (boşsa Türkçe kabul edilir).
+var diller: PackedStringArray = []
 
 
 ## Yoksul değil mi: heybesinde söylediği akçe zenginlik eşiğinde ya da üstünde.
