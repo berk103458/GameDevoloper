@@ -5676,7 +5676,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
 
 ### 37.9 Yazım
 
-- [ ] **SOY-43:** "Duydum ki" kalıpları şablon dilbilgisidir (YAZ-09). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
+- [/] (Antigravity-Berk) **SOY-43:** "Duydum ki" kalıpları şablon dilbilgisidir (YAZ-09). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor)
   - Ne: söylenti satırı şablonu `{kaynak} dedi, {olay}` değil; her karakter kendi ağzından söyler, şablon yalnız olay alanlarını doldurur. USLUP §1 yapay kalıp listesi geçerlidir.
   - Kabul: aynı olay için iki karakterde iki farklı cümle yapısı. Test: inceleme.
   - Bağımlılık: YAZ-09. Boyut: S.
