@@ -4,6 +4,21 @@ class_name Dunya3B
 extends RefCounted
 
 const MODEL_KOK := "res://assets/model/"
+## Küçük yer tutucunun yerine geçen inceltilmiş topluluk modeli. Karşılığı olmayan kod buraya yazılmaz.
+const TOPLULUK_YER := {
+	"kuyu": "res://assets/meshy/dogrudan/o21_tas_kuyu_cikrikli.glb",
+	"kazik_cit": "res://assets/meshy/dogrudan/o37_ahsap_palisat_kazik_sur.glb",
+	"nobet_ocagi": "res://assets/meshy/dogrudan/a060_tas_halkali_ocak.glb",
+	"mizrak_sehpasi": "res://assets/meshy/dogrudan/a016_mizrak_sehpasi.glb",
+	"cuval_yigini": "res://assets/meshy/dogrudan/a190_tahil_cuvali.glb",
+	"dokuma_tezgahi": "res://assets/meshy/dogrudan/a236_kilim_dokuma_tezgahi.glb",
+	"firin_agzi": "res://assets/meshy/dogrudan/a181_tandir.glb",
+	"araba": "res://assets/meshy/dogrudan/o58_saman_arabasi.glb",
+	"orak": "res://assets/meshy/dogrudan/a211_orak.glb",
+	"mizrak": "res://assets/meshy/dogrudan/a012_mizrak.glb",
+	"el_sepet": "res://assets/meshy/dogrudan/o51_sapli_sepet.glb",
+	"el_sepet_buyuk": "res://assets/meshy/dogrudan/o01_hasir_sepet.glb",
+}
 const MESALE_ALEV_DIS := Color("#E0782A")
 const MESALE_ALEV_IC := Color("#FFD27A")
 ## Dokusuz nesnelerin palet rengi.
@@ -153,7 +168,10 @@ static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "", renk: Va
 		olcek = yukseklik / kutu.size.y
 	n.scale = Vector3.ONE * olcek
 	n.position = Vector3(-(kutu.position.x + kutu.size.x / 2.0) * olcek, -kutu.position.y * olcek, -(kutu.position.z + kutu.size.z / 2.0) * olcek)
-	if NESNE_RENK.has(ad) or renk is Color or malzeme != null:
+	var topluluk := yol.begins_with("res://assets/meshy/")
+	if topluluk:
+		kap.set_meta(&"topluluk_dosya", yol)
+	if not topluluk and (NESNE_RENK.has(ad) or renk is Color or malzeme != null):
 		var mat: Material = malzeme if malzeme != null else duz_malzeme(nesne_rengi)
 		for mi in n.find_children("*", "MeshInstance3D", true, false):
 			(mi as MeshInstance3D).material_override = mat
@@ -187,6 +205,9 @@ static func karakter_adi(adli_id: StringName, portre: String, sinif: StringName)
 
 
 static func _yol(ad: String, tur: String) -> String:
+	var topluluk: String = TOPLULUK_YER.get(ad, "")
+	if topluluk != "" and ResourceLoader.exists(topluluk):
+		return topluluk
 	var adaylar := [tur] if tur != "" else ["karakter", "yapi", "nesne"]
 	for t in adaylar:
 		var y := "%s%s/%s.glb" % [MODEL_KOK, t, ad]
