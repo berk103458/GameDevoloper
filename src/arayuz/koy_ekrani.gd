@@ -159,6 +159,7 @@ func _alt_panel_kur() -> void:
 	nufus.pressed.connect(_nufus_ac)
 	DivanBaglantisi.kur(self, sag)
 	YeniDugmeBaglantisi.kur(sag, oturum.ipucu_kaydi if oturum != null else null, {"pazar": pazar, "divan": sag.get_node_or_null("divan_ac")})
+	ProfilOnerisiBaglantisi.kur(self)
 	MuhafizOdasiBaglantisi.kur(self, sag)
 	HaritaBaglantisi.kur(self, sag)
 	AyarlarBaglantisi.kur(self, sag)  # AYR-06: oyun içinden aynı ayar ekranı
@@ -723,6 +724,7 @@ func _geceye_gec() -> void:
 	if not preload("res://src/arayuz/gece_raporu_kisa.gd").ekle(self, v, sonuc["bilanco"]):
 		_rapor_ayrinti(v, r)
 	preload("res://src/arayuz/gece_raporu_kisa.gd").ilk_saat_ozetini_ekle(self, v, sonuc["bilanco"])
+	ProfilOnerisiBaglantisi.gece(self, v)
 	preload("res://src/sistemler/rapor_bekle.gd").uygula(v, ayarlar)
 	var tamam := _dugme(tr("koy.rapor.sabah"), v)
 	CenazeRaporu.ekle(self, v, tamam, r, sonuc)

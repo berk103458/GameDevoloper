@@ -4929,7 +4929,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-01. Boyut: S.
   - Dosya: `src/arayuz/ayarlar/goruntu_sekmesi.gd`.
   - Asset: asset gerekmedi.
-- [/] **AYR-41:** (Cursor — üzerinde) Düşük profil otomatik önerisi. (doğrulanmadı — Görev 22; ProfilOnerisi (src/sistemler/profil_onerisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **AYR-41:** Düşük profil otomatik önerisi. (doğrulanmadı — Görev 22; ProfilOnerisi (src/sistemler/profil_onerisi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten) (Cursor — ProfilOnerisiBaglantisi köy günü kare hızını yayın yapısında da örnekler, gece raporunda ProfilOnerisi'ne verir, satırı bir kez ekler; koy_ekrani _ready ve _geceye_gec bağlı; test tests/oto/profil_onerisi_kontrol.tscn 4 GEÇTİ (60-20-20 yok, 20-20-20 bir kez, profil değişmez); mutasyonda kırmızı)
   - Ne: `performans_seridi` üç gece ortalaması 30 fps altında kalırsa bir kez "düşük profil?" satırı; otomatik değiştirmez.
   - Kabul: öneri bir kez; `grafik_profili` kendi kendine değişmez. Test: birim.
   - Bağımlılık: TEK-10. Boyut: S.
@@ -6469,7 +6469,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: DYL-11. Boyut: S.
   - Dosya: `docs/soz/kor_okuma.csv`
   - Asset: asset gerekmedi.
-- [/] **KLT-47:** (Cursor — üzerinde) Örnek cümle kadro adıdır
+- [ ] **KLT-47:** (Cursor bıraktı: DYL-14 örnek defteri yok (Antigravity Görev 24)) Örnek cümle kadro adıdır
   - Ne: Örnek cümle kadro adıdır. Örnekteki ad kadroda yoksa 1 hata.
   - Kabul: Hata 1. Test: fixtures.
   - Bağımlılık: DYL-14. Boyut: S.
@@ -6481,7 +6481,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: DIY-16. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [/] **KLT-50:** (Cursor — üzerinde) İnceleme kutusu satır sayısı dosya satırına eşittir
+- [ ] **KLT-50:** (Cursor bıraktı: YAZ-10 inceleme modu/işaret dosyası repoda yok) İnceleme kutusu satır sayısı dosya satırına eşittir
   - Ne: İnceleme kutusu satır sayısı dosya satırına eşittir. Eksik satır 1 hata.
   - Kabul: Hata 1. Test: sayım.
   - Bağımlılık: YAZ-10. Boyut: S.
