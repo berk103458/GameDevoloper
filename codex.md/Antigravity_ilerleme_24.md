@@ -346,3 +346,14 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/acilis_koy_kontrol.tscn` → `AÇILIŞ KÖY: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 22 — `OZL-12` (`TAM`)
+- **Değişiklikler:**
+  - `tests/unit/sistemler/ozl_kart_tarama_test.gd`: Tek kartlı `Katalog` ile kış mevsiminde `mevsim_o.olay_sec() == null`, baharda `mevsim_o.olay_sec().id == &"tarla_yagmur"` doğrulaması eklendi (`tarla_yagmur.tres` içinde `"kis_mi": false` mevcut).
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `OZL-12` → `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ozl_kart_tarama_test.gd` → `OZL KART TARAMA: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/koy/tarla_is_noktalari_test.gd` → `TARLA İŞ NOKTALARI: GEÇTİ (759 kontrol; 20 deneme; dışarıda=0; çakışma=0)` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

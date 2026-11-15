@@ -166,7 +166,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | OZL-04 | Tek sefer | `[x]` | `data/olaylar/*.tres` | `tek_sefer` alanı şemada | — | TAM | — |
 | OZL-05 | Boş havuz | `[x]` | `src/sistemler/gece_bilancosu.gd`, `src/sistemler/oturum.gd` | `Oturum.gece_sonu()` olay havuzu boşken `GeceBilancosu.sessiz_gece_kontrol(sonuc["olay"], r)` ile `{"anahtar": "bu gece köy sessiz"}` satırını rapora ekliyor (`ozl_kart_tarama_test.gd`, `gece_bilancosu_test.gd`, `soylenti_gecesi_test.gd`, `acilis_koy_kontrol.tscn` `RC=0, ERRS=0`) | — | TAM | `sessiz_gece_kontrol` `gece_sonu()` akışına bağlandı (Antigravity) |
 | OZL-07 | Olay söz bağı | `[x]` | `src/sistemler/olay_soz_bagi.gd` | Aynı bağ | — | TAM | — |
-| OZL-12 | Mevsim koşulu | `[x]` | `data/olaylar/*.tres` | `kosullar` alanı var | Dört mevsim için ayrı koşul doğrulanamadı | EKSİK | `tarla_yagmur` kartına kış koşulunu yaz |
+| OZL-12 | Mevsim koşulu | `[x]` | `data/olaylar/tarla_yagmur.tres`, `tests/unit/sistemler/ozl_kart_tarama_test.gd` | `tarla_yagmur.tres` içinde `"kis_mi": false` var; `ozl_kart_tarama_test.gd` hem 4 mevsim `_kosul_tutar` hem tek kartlı gerçek `Oturum.olay_sec()` seçiminde kışın `null`, baharda `&"tarla_yagmur"` döndüğünü doğruluyor (`RC=0, ERRS=0`) | — | TAM | `tarla_yagmur` 4 mevsim ve kış dışlaması gerçek `olay_sec()` ile doğrulandı (Antigravity) |
 | OZL-13 | Hafta başı ağırlığı | `[x]` | `data/olay_agirlik.json` | `olay_on_kosulu.gd:91` dosyayı okuyor | — | TAM | — |
 | OZL-14 | Kış odunu kartı yok | `[x]` | `data/olaylar/` | `kis_odun` kimliği yok | — | TAM | — |
 | OZL-15 | Düğün koşulu | `[x]` | `data/olaylar/dugun.tres` | `yetiskin_hane_min: 2` yazıyor; `nufus_katmani_test.gd` gerçek `olay_sec` çağırıyor | — | TAM | — |

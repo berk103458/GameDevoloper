@@ -87,6 +87,18 @@ func _initialize() -> void:
 			_kontrol(not uygun_mu, "Kista (mevsim 3) tarla_yagmur 0 olmali")
 		else:
 			_kontrol(uygun_mu, "Kis disindaki mevsimlerde tarla_yagmur uygun olmali")
+	var mevsim_kat := Katalog.new()
+	mevsim_kat.yukle()
+	mevsim_kat._olaylar.clear()
+	mevsim_kat._olaylar[yagmur_kart.id] = yagmur_kart
+	var mevsim_o := Oturum.new(mevsim_kat, 88)
+	mevsim_o.ayarlar.olay_olasiligi = 1.0
+	mevsim_o.yonetim.binalar.append(tarla_bina)
+	mevsim_o.yonetim.gun = 3 * m_gun
+	_kontrol(mevsim_o.olay_sec() == null, "OZL-12: Gercek olay_sec() kista tarla_yagmur secmemeli")
+	mevsim_o.yonetim.gun = 0
+	var bahar_olay := mevsim_o.olay_sec()
+	_kontrol(bahar_olay != null and bahar_olay.id == &"tarla_yagmur", "OZL-12: Gercek olay_sec() kis disinda tarla_yagmur secebilmeli")
 
 	# OZL-13: 7 gece boyunca harman ve pazar_gunu hafta basi olmayan gecede taban, hafta basinda carpan alir
 	var harman_kart := kat.olay(&"harman")
