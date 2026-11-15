@@ -6,6 +6,9 @@ static func secenekler(g: Gelen, liste: PackedStringArray) -> PackedStringArray:
 	if A.bolunur(g) and not sonuc.has("cocuklari_al"): sonuc.append("cocuklari_al")
 	return sonuc
 static func sonuc(e: KapiEkrani, g: Gelen, r: Dictionary) -> bool:
+	if r.get("yetim", false):
+		e._yaz(String(r.get("sonuc_metin", "")))
+		return true
 	if not r.get("aile", false): return false
 	e._yaz("Kafile: %d kişi içeri alındı, %d kişi kapı dışında kaldı." % [int(r.kabul_edilen), int(r.disarida_kalan)])
 	return true

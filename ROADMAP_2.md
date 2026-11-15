@@ -339,7 +339,7 @@ KAP-16 … KAP-19 gövdesi durur. Yeni maddeler KAP-20 … KAP-99. İkinci kapı
 
 ### 15.3 Soru ve heybe
 
-- [/] **KAP-18:** (Antigravity-Berk) Yetimler ve savaştan kaçan çocuklar. *(metin tamam, Kalfa bekleniyor — Antigravity: `data/soz/yetim_kafilesi.json`, `data/soz/en/yetim_kafilesi.json` ve `kap18.yetim.*` metin anahtarları eklendi)*
+- [x] **KAP-18:** (Antigravity-Berk) Yetimler ve savaştan kaçan çocuklar. *(YetimBakimi, YasRolleri, KoyluKarti, Oturum ve yetim_bakimi_test.gd tamam; testler geçti — Antigravity-Berk)*
   - Ne: Dünya savaş olayından sonra kapıya çocuk kafilesi düşer; olay yoksa bu kafile 28 günde hiç gelmez. Kabul edilen çocuk bir haneye ya da eşe emanet edilir. Hane yoksa ACL-05 uyarısı çıkar ve çocuk açıkta kalır, silinmez. Çocuk çalışmaz. 28. günde yaş grubu gence döner ve çırak düğmesi açılır. Model KAP-17 çocuk modelidir.
   - Kurallar:
     1. Bu kafile, dünya savaş olayından sonra açılır (DNY-01). Olay yoksa ağırlık 0.

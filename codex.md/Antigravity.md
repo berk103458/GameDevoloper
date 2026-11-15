@@ -1354,3 +1354,11 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** `Godot.exe --headless --path . --import --quit` (RC=0), `dil_test.gd` (RC=0), `zar_oyun_baglanti_kontrol.tscn` (RC=0), `sorgu_zari_test.gd` (RC=0), `zar_degistirici_test.gd` (RC=0), `test_metin_ve_surum_sinirlari.py` (8 test OK).
 - **Not (Cursor/Muharrir için):** `tests/tools/test_metin_dogrula.py` (`tools/metin_dogrula.py`) kural gereği `dedikodu.kacis` için `YER-02` (3 parça) ve `ZAR_BASARILI`/`ZAR_BASARISIZ`/`ZAR_KILITLI` için `KVR-11` (küçük harf noktalı) uyarısı veriyor; mevcut kod anahtarları (`tansiyon_kacis_akisi.gd`, `sorgu_zari.gd`) ve görev kuralı gereği anahtar adları değiştirilmedi.
 - kota görünmüyor
+
+## 15 Kasım 2026 — `KAP-18` (Yetimler ve Savaştan Kaçan Çocuklar)
+- **Yapılanlar:**
+  - `src/koy/yetim_bakimi.gd` (`YetimBakimi`) eklendi: `DNY-01` savaş olayı (`mogol_ilerleyisi.etki`) yoksa kafile ağırlığı 0'dır; savaş olayı sonrası `Oturum.gece_kuyrugu()` içine `data/soz/yetim_kafilesi.json` ve KAP-17 `AileKafilesi.uyeleri_oku` çocuk şemasıyla tek `Gelen` ekler. Kabulde mevcut haneye (`hane_id`) veya eş hayatta ve barınaklıysa `y.hane`'ye emanet eder; ikisi de yoksa ya da yatak yoksa ACL-05 `BarinakUyarisi` ile çocuk köyde `acikta` (`ev = -1`) kalır, silinmez. Hane sonradan dağılırsa da çocuk silinmeden `acikta` durumuna düşer. 28. günde `yas_grubu` `&"genc"` olur ve `kap18.yetim.genc_oldu` olayı düşer. Tamamlanan kafile yüklemede yeniden tetiklenmez.
+  - `src/koy/yas_rolleri.gd`, `src/koy/koylu_karti_verisi.gd`, `src/arayuz/koylu_karti.gd`, `src/arayuz/aile_kapi_paneli.gd`, `src/koy/koy_yonetimi.gd` ve `src/sistemler/oturum.gd` üzerinden çocuk çalışma engeli (`kap18_yetim`), `&"genc"` desteği, çırak düğmesi (`cirak_dugmesi` / `cirak_atamasi`), barındırma ve kayıt/yükleme bağlandı.
+- **Testler:** `yetim_bakimi_test.gd` (`YETIM BAKIMI TESTI: GEÇTİ`), `kap18_yetim_metinleri_test.gd` (`gecti (0 hata)`), `aile_kafilesi_test.gd` (`AİLE KAFİLESİ: GEÇTİ`), `cirak_yas_kaynagi_test.gd` (`ÇIRAK YAŞ KAYNAĞI: GEÇTİ`), `hane_test.gd` (`PASS`), `kay04_icerik_surumu_test.gd` (`KAY-04: GEÇTİ (0 hata)`) ve `acilis_koy_kontrol.tscn` (RC=0) geçti.
+- **Asset:** asset gerekmedi (KAP-17 çocuk modeli ve mevcut `kap18.yetim.*` metinleri kullanıldı).
+- **Kota:** kota görünmüyor.

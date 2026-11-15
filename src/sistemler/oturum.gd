@@ -150,6 +150,7 @@ func gece_kuyrugu() -> Array[Gelen]:
 	TuccarKapiGecisi.ekle(self, sonuc)
 	DiplomatikHeyet.ekle(self, sonuc)
 	preload("res://src/kapi/aile_kafilesi.gd").ekle(self, sonuc)
+	YetimBakimi.ekle(self, sonuc)
 	preload("res://src/sistemler/sancak_ulagi.gd").ekle(self, sonuc)
 	KararDonusu.spawn_ekle(self, sonuc)
 	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").kuyruk_hazirla(self, sonuc)
@@ -204,6 +205,7 @@ func ziyaret_basladi(gelen: Gelen) -> void:
 ## Kararlar: `kabul`, `harc` (yoksuldan zorla geçiş akçesi), `rusvet` (teklifini alıp içeri), `kisla` (asker, muhafız),
 ## `ret`, `elkoy` (astardan çıkanlara el konur, geri çevrilir; yalnız yalan yakalanınca).
 func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> Dictionary:
+	if YetimBakimi.ilgilenir(gelen): return YetimBakimi.karar(self, gelen, karar, _is_yeri)
 	if preload("res://src/kapi/aile_kafilesi.gd").ilgilenir(gelen): return preload("res://src/kapi/aile_kafilesi.gd").karar(self, gelen, karar, _is_yeri)
 	if preload("res://src/sistemler/kapi_acilis_olayi.gd").karar_engelli(self, gelen, karar): return {"engellendi": true, "kaldi": false, "kirilan": -1}
 	if not SiraOlayiSonucu.neden(gelen).is_empty(): return {"engellendi": true, "kaldi": false, "kirilan": -1}
@@ -928,6 +930,7 @@ func kaydet() -> Dictionary:
 		"grup_itibari": grup_itibari.kaydet(),
 		"kayit_gocu_bildirimi": preload("res://src/sistemler/kayit_gocu_bildirimi.gd").durum(self),
 		"aile_kararlari": preload("res://src/kapi/aile_kafilesi.gd").durum(self),
+		"yetim_bakimi": YetimBakimi.durum(self),
 		"muhafiz_gecmisi": preload("res://src/sistemler/muhafiz_gecmisi.gd").kimlik(self),
 		"acilis_hanesi": preload("res://src/sistemler/acilis_senaryosu.gd").durum(self),
 		"faz": preload("res://src/sistemler/oturum_fazi.gd").durum(self),
@@ -1022,6 +1025,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	preload("res://src/sistemler/acilis_senaryosu.gd").yukle(o, veri.get("acilis_hanesi"))
 	preload("res://src/sistemler/muhafiz_gecmisi.gd").yukle(o, veri.get("muhafiz_gecmisi"))
 	preload("res://src/kapi/aile_kafilesi.gd").yukle(o, veri.get("aile_kararlari"))
+	YetimBakimi.yukle(o, veri.get("yetim_bakimi"))
 	preload("res://src/sistemler/kayit_gocu_bildirimi.gd").yukle(o, veri.get("kayit_gocu_bildirimi"))
 	var grup_verisi: Variant = veri.get("grup_itibari", {})
 	if not grup_verisi is Dictionary or not o.grup_itibari.yukle(grup_verisi): return null

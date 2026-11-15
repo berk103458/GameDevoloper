@@ -639,6 +639,7 @@ func gece() -> Dictionary:
 	rapor["huzur"] = huzur()
 	rapor["son"] = son
 	gun += 1
+	YetimBakimi.gece(self, olaylar)
 	KaynakKurtarici.sabah(self, olaylar)
 	CinarAltiMeclisi.esitle(self)
 	KarantinaYoneticisi.esitle(self, olaylar)
@@ -787,6 +788,7 @@ func _barindir() -> void:
 		if k.ev >= 0:
 			continue
 		if KarantinaYoneticisi.aktif(k): continue # Evsiz kişinin ataması da izolasyonda korunur.
+		if YetimBakimi.acikta_kalmali(self, k): continue
 		for b in binalar:
 			if b.hazir() and b.yatak(katalog) > int(dolu.get(b.id, 0)):
 				k.ev = b.id

@@ -27,6 +27,27 @@ static func ata(y: KoyYonetimi, kisi: int, hedef: int) -> bool:
 		return true
 	if hedef == KoyYonetimi.MUHAFIZ: return y.muhafiz_ata(kisi)
 	return y.ata(kisi, hedef)
+## KAP-18: genç yaş grubuna geçince ustanın yanına ya da uygun boş işe çırak ataması.
+static func cirak_atamasi(y: KoyYonetimi, k: Koylu) -> Dictionary:
+	if y == null or k == null or k.yas_grubu != &"genc":
+		return {"acik": false, "hedef": -1, "ad": ""}
+	if KarantinaYoneticisi.aktif(k) or DivanHukmu.zindanda(k):
+		return {"acik": false, "hedef": -1, "ad": ""}
+	var sec := secenekler(y, k)
+	var usta_bina := -1
+	var ilk_bos := -1
+	var ad_harita := {}
+	for s in sec:
+		ad_harita[int(s.id)] = String(s.ad)
+		if not String(s.neden).is_empty(): continue
+		if ilk_bos < 0: ilk_bos = int(s.id)
+		if usta_bina < 0:
+			for u in y.calisanlar(int(s.id)):
+				if CirakEgitimi.usta(u):
+					usta_bina = int(s.id)
+					break
+	var hedef := usta_bina if usta_bina >= 0 else ilk_bos
+	return {"acik": true, "hedef": hedef, "ad": String(ad_harita.get(hedef, ""))}
 static func ozet(y: KoyYonetimi, k: Koylu) -> String:
 	var acik: Array[String] = []
 	for f in k.bayraklar: acik.append("Zindanda" if f == DivanHukmu.FLAG else "Kış hastası" if f == KisHastaligi.FLAG else TranslationServer.translate("koy.bayrak." + f))

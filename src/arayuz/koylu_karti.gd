@@ -59,6 +59,15 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 		d.disabled = not s.neden.is_empty() or k.is_yeri == s.id
 		d.pressed.connect(func() -> void: _ata(ekran, id, s.id))
 	KonuslanmaPaneli.ekle(ekran, ic, k)
+	var cirak_bilgi := KoyluKartiVerisi.cirak_atamasi(y, k)
+	if k.bayrak_var(YetimBakimi.YETIM_BAYRAK) or k.yas_grubu in [&"cocuk", &"genc"]:
+		var cirak_dugme := ekran._dugme("Çıraklığa ver" if int(cirak_bilgi.hedef) < 0 else "Çıraklığa ver (%s)" % String(cirak_bilgi.ad), ic)
+		cirak_dugme.name = "cirak_dugmesi"
+		cirak_dugme.set_meta("hedef_tur", "cirak")
+		cirak_dugme.set_meta("hedef", int(cirak_bilgi.hedef))
+		cirak_dugme.visible = bool(cirak_bilgi.acik)
+		cirak_dugme.disabled = not bool(cirak_bilgi.acik) or int(cirak_bilgi.hedef) < 0 or k.is_yeri == int(cirak_bilgi.hedef)
+		cirak_dugme.pressed.connect(func() -> void: _ata(ekran, id, int(cirak_bilgi.hedef)))
 	var muhafiz := ekran._dugme("Muhafız görevi", ic)
 	muhafiz.set_meta("hedef", KoyYonetimi.MUHAFIZ)
 	if KarantinaYoneticisi.aktif(k): muhafiz.hide()
