@@ -963,6 +963,7 @@ func kaydet() -> Dictionary:
 		"haberci_agi": HaberciAgi.oku(haberci_agi), "diplomatik_heyet": DiplomatikHeyet.durum(self),
 		"muhafiz_yetenekleri": MuhafizYetenekleri.oku(muhafiz_yetenekleri),
 		"mevsim": yonetim.mevsim(), "yeni_binalar": yeni_binalar.duplicate(true),
+		"baglar": KoyluBagi.oku(yonetim.baglar),
 		"koy_yonetimi": yonetim.kaydet(),
 		"rng": [str(_rng.state), str(_rng_donus.state), str(_rng_ad.state), str(_rng_heybe.state)]}
 	# 64 bit sayılar JSON'da float'a döner; metin olarak saklanır.
@@ -994,6 +995,8 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	var o := Oturum.new(katalog_, String(veri["tohum"]).to_int())
 	preload("res://src/sistemler/oturum_fazi.gd").ayarla(o, preload("res://src/sistemler/oturum_fazi.gd").oku(veri.get("faz")))
 	o.yonetim = KoyYonetimi.kayittan(katalog_.koy_ayarlari, katalog_.binalar, veri["koy_yonetimi"])
+	if o.yonetim != null and o.yonetim.baglar.is_empty() and veri.get("baglar") is Array:
+		o.yonetim.baglar = KoyluBagi.oku(veri.get("baglar", []))
 	o.yonetim.set_meta(&"zorluk", preload("res://src/sistemler/zorluk_secimi.gd").oku(veri.get("zorluk")))
 	o.sonraki_gelen_ek = int(veri.get("sonraki_gelen_ek", 0))
 	for b in veri.get("bayraklar", []):

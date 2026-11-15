@@ -51,9 +51,14 @@ static func tikla(e: KoyEkrani) -> bool:
 			k = secim.koylu
 			anahtar = secim.ates_sozu
 		else:
-			# Adlı kişinin hafızası yoksa genel iş satırıyla selam uydurma.
-			for aday in adaylar:
-				if aday.adli_id != &"": return false
+			var bag_satiri := KoyluBagi.ates_satiri(e.oturum.yonetim, adaylar)
+			if not bag_satiri.is_empty():
+				anahtar = bag_satiri
+			else:
+				# Adlı kişinin hafızası yoksa genel iş satırıyla selam uydurma.
+				for aday in adaylar:
+					if aday.adli_id != &"": return false
+	if anahtar.is_empty(): anahtar = KoyluBagi.ates_satiri(e.oturum.yonetim, [k])
 	if anahtar.is_empty(): anahtar = DURUS.satir(e.oturum, k)
 	if anahtar.is_empty(): return false
 	# Yeni panel/sahne yok; YAZ-08 sohbetinin yanındaki salt metin adaptörü.

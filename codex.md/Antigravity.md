@@ -1384,3 +1384,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `dunya_test.gd`, `dunya_cizelge_metin_test.gd`, `nihai_son_kontrol.tscn`, `zorluk_test.gd`, `satir_secici_test.gd`, `koy_yonetimi_test.gd`, `soz_ikiz_test.gd`, `tekfur_harac_heyeti_test.gd`, `oba_ittifaki_test.gd`, `aydogdu_ziyareti_test.gd` 0 hata ile geçti. (`diplomatik_heyet_test.gd` 67. satır başka ajan kaynaklı önceden var olan `Oturum.new` Perde 2 `harac_bekliyor` beklentisinden `Array[Gelen]` 0 hatası veriyor.)
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor.
+
+### 2026-11-15 — `SEV-05` Tamamlandı
+- **Yapılan:** `data/soz/koylu_bagi.json`, `data/metin/metinler.csv` (`anlati.bag.dost`, `koy.bag.dost`, `koy.bag.dusman`) ve `src/koy/koylu_bagi.gd` (`KoyluBagi`) eklendi; `src/koy/koy_yonetimi.gd` (`baglar`, `_uret` dost verim farkı, `gece` içinde günlük en çok 1 bağ, `kaydet`/`kayittan`), `src/sistemler/oturum.gd` (`baglar` kayıt/yükleme), `src/koy/bos_gun_durusu_adaptoru.gd` (`ates_satiri`) ve `src/arayuz/koylu_karti.gd` (`koylu_bagi` tek kelime etiketi) bağlandı. Aynı günde en fazla 1 yeni bağ, aynı çifte dost+düşman bağ yasağı, bir taraf köyde değilken verim/ateş cümlesi kesilmesi, `kalp`/`romans`/`hediye` reddi ve `grup_itibari` dokunulmazlığı sağlandı.
+- **Testler:** `sevilen_yuz_test.gd`, `koy_yonetimi_test.gd`, `bos_gun_durusu_oyun_test.tscn`, `kisisel_iz_oyun_test.tscn`, `tek_istek_oyun_test.tscn`, `ates_basi_rutini_kontrol.tscn`, `admin_koylu_kontrol.tscn`, `acilis_koy_kontrol.tscn` 0 hata ile geçti.
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.

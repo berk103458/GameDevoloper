@@ -35,6 +35,8 @@ static func ac(ekran: KoyEkrani, id: int) -> void:
 	sekmeler.add_child(ic)
 	var iz := preload("res://src/koy/kisisel_iz.gd").iz(ekran.oturum, k)
 	if not iz.is_empty(): ekran._etiket(ic, preload("res://src/koy/kisisel_iz.gd").kelime(iz), Tema.KUCUK_PX).name = "kisisel_iz"
+	var bag_kelime := KoyluBagi.kart_kelimesi(y, k)
+	if not bag_kelime.is_empty(): ekran._etiket(ic, bag_kelime, Tema.KUCUK_PX).name = "koylu_bagi"
 	preload("res://src/arayuz/koy_hud/tek_istek_karti.gd").ekle(ekran, ic, k)
 	var bilgi := ekran._etiket(ic, KoyluKartiVerisi.ozet(y, k), Tema.KUCUK_PX)
 	bilgi.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

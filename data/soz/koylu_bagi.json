@@ -1,0 +1,7 @@
+{
+  "dost_verim_farki": 0.1,
+  "ates_satiri": "anlati.bag.dost",
+  "kart_kelimesi_dost": "koy.bag.dost",
+  "kart_kelimesi_dusman": "koy.bag.dusman",
+  "uclar": ["dost", "dusman"]
+}

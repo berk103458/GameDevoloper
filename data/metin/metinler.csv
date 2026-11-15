@@ -2708,3 +2708,6 @@ zar.degistirici.asker,Yanındaki asker,Soldier at your side
 zar.degistirici.yorgunluk,Nöbet yorgunluğu,Watch fatigue
 zar.degistirici.tecrube,Muhafız tecrüben,Guard experience
 zar.degistirici.kesilme,Sınır kesintisi (en çok %d),Cap limit (at most %d)
+anlati.bag.dost,Ocak başında iki dost omuz omuza gülüştü.,Two friends shared a warm word by the hearth.
+koy.bag.dost,Dost,Friend
+koy.bag.dusman,Düşman,Enemy
