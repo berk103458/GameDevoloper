@@ -16,6 +16,10 @@ func _ready() -> void:
  isik.rotation_degrees=Vector3(-50,-25,0)
  isik.light_energy=1.0
  add_child(isik)
+ if Dunya3B.model_var_mi("muhafiz_odasi", "yapi"):
+  var oda_glb := Dunya3B.nesne("muhafiz_odasi", 2.8, "yapi")
+  oda_glb.name = "oda_kabugu"
+  add_child(oda_glb)
  for p in AYAR.parcalar: _kutu(p)
  var kamera:=Camera3D.new()
  kamera.projection=Camera3D.PROJECTION_ORTHOGONAL
@@ -43,6 +47,13 @@ func _kutu(p: Dictionary) -> void:
  n.material_override=renk
  n.position=_vektor(p.yer)
  add_child(n)
+ var ad_s := String(p.ad)
+ var glb_ad := {"mesale": "mesale_el", "gizli_kasa": "kasa", "askilik": "askilik", "kutuphane": "kutuphane"}.get(ad_s, "")
+ if not glb_ad.is_empty() and Dunya3B.model_var_mi(glb_ad):
+  var glb := Dunya3B.nesne(glb_ad, float(p.boyut[1]))
+  glb.position = Vector3(0, -float(p.boyut[1]) / 2.0, 0)
+  n.add_child(glb)
+  return
  if p.has("etiket"):
   var l:=Label3D.new()
   l.text=String(p.etiket)

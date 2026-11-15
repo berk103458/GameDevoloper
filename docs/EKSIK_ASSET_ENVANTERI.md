@@ -700,7 +700,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `MEV-ZEMIN` | Kar örtüsü, çatı karı, kürek — prompt hazır, Ahmet üretecek; 3D geometri açık; shader + PNG; `kurek.glb`. | Kürek 0,25 × 1,20 × 0,08 m; kar geometri katmanı mevcut çatı/zemin zarfında |
 | `MEV-AFET` | Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF + PNG. | Bent modülü 3,0 × 0,8 × 0,6 m; kurt 0,45 × 0,8 × 1,1 m |
 | `CAS-GECE` | Fener, yangın kovası; glTF. | Açık kandil 0,18 × 0,08 × 0,12 m; kova 0,30 × 0,35 × 0,30 m |
-| `ODA-ODA` | Muhafız odası, yatak, masa, kasa, kütüphane; `assets/model/yapi/muhafiz_odasi.glb` + prop. | Oda 4,0 × 2,8 × 4,0 m; yatak 0,9 × 0,5 × 2,0 m; masa 1,2 × 0,75 × 0,7 m |
+| `ODA-ODA` | [ÜRETİLDİ: `assets/model/yapi/muhafiz_odasi.glb`, `yatak.glb`, `masa.glb`, `kasa.glb`, `kutuphane.glb`] Muhafız odası, yatak, masa, kasa, kütüphane (`MuhafizOdasi`). | Oda 4,0 × 2,8 × 4,0 m; yatak 0,9 × 0,5 × 2,0 m; masa 1,2 × 0,75 × 0,7 m |
 | `KRI-MEZAR` | Toplu mezar, yazısız taş; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |
 | `ANI07-ISINMA` | İki el ateşe uzatılan ısınma döngüsü; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `ANI08-TEZGAH` | Örs ve fırın ağzı; glTF. | Örs/kütük 0,50 × 0,75 × 0,35 m; fırın ağzı 0,80 × 0,70 × 0,40 m |
@@ -721,15 +721,15 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `MEV10-KURT` | Kurt modeli, yürüyüş ve kaçış klibi; glTF / iskelet klibi. | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
 | `CAS05-DIVAN` | Meydan divan masası ve oturma sıraları; glTF. | Masa 2,00 × 0,80 × 1,00 m; oturak 0,50 × 0,45 × 0,50 m |
 | `CAS07-ZINDAN` | Kapı zindan hücresi kapısı; glTF. | Parmaklık modülü 1,50 × 2,00 × 0,10 m |
-| `ODA01-ICMEKAN` | Oda zemin ve duvarları; glTF. | 4,0 × 2,8 × 4,0 m; mevcut oda tabanı y=0 |
-| `ODA01-YATAK` | Muhafız yatağı; glTF. | 0,90 × 0,50 × 2,00 m |
-| `ODA01-MASA` | Muhafız masası; glTF. | 1,20 × 0,75 × 0,70 m |
+| `ODA01-ICMEKAN` | [ÜRETİLDİ: `assets/model/yapi/muhafiz_odasi.glb`] Oda zemin ve duvarları (`MuhafizOdasi`); glTF. | 4,0 × 2,8 × 4,0 m; mevcut oda tabanı y=0 |
+| `ODA01-YATAK` | [ÜRETİLDİ: `assets/model/nesne/yatak.glb`] Muhafız yatağı (`MuhafizOdasi`); glTF. | 0,90 × 0,50 × 2,00 m |
+| `ODA01-MASA` | [ÜRETİLDİ: `assets/model/nesne/masa.glb`] Muhafız masası (`MuhafizOdasi`); glTF. | 1,20 × 0,75 × 0,70 m |
 | `ODA01-MESALE` | [ÜRETİLDİ: `assets/model/nesne/mesale_el.glb`] Oda meşalesi; glTF. | 0,12 × 0,60 × 0,12 m |
-| `ODA01-KASA` | Gizli zemin kasası; glTF. | 0,60 × 0,40 × 0,40 m |
+| `ODA01-KASA` | [ÜRETİLDİ: `assets/model/nesne/kasa.glb`] Gizli zemin kasası (`MuhafizOdasi`); glTF. | 0,60 × 0,40 × 0,40 m |
 | `ODA09-KABUS` | Rüya gölgesi figürü; glTF. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
-| `ODA08-YATAK` | Rahat muhafız yatağı; glTF. | 1,10 × 0,55 × 2,00 m |
-| `ODA08-ASKILIK` | Donanım askılığı; glTF. | 0,60 × 1,60 × 0,40 m |
-| `ODA08-KUTUPHANE` | Muhafız kütüphanesi; glTF. | 1,00 × 1,80 × 0,35 m |
+| `ODA08-YATAK` | [ÜRETİLDİ: `assets/model/nesne/rahat_yatak.glb`] Rahat muhafız yatağı (`OdaGelistirmePaneli`); glTF. | 1,10 × 0,55 × 2,00 m |
+| `ODA08-ASKILIK` | [ÜRETİLDİ: `assets/model/nesne/askilik.glb`] Donanım askılığı (`MuhafizOdasi`, `OdaGelistirmePaneli`); glTF. | 0,60 × 1,60 × 0,40 m |
+| `ODA08-KUTUPHANE` | [ÜRETİLDİ: `assets/model/nesne/kutuphane.glb`] Muhafız kütüphanesi (`MuhafizOdasi`, `OdaGelistirmePaneli`); glTF. | 1,00 × 1,80 × 0,35 m |
 | `ODA03-ESYA` | Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri); glTF / set. | Mühür 0,05 × 0,06 × 0,05 m; iksir 0,06 × 0,15 × 0,06 m; hediye zarfı 0,30 m |
 | `KRI05-MEZAR` | Toplu mezar ve cenaze töreni mezar işareti; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |
 | `BUG21-TASYATAGI` | [ÜRETİLDİ: `assets/model/yapi/tas_yatagi.glb`] Kazılabilir taş yatağı (`tas_yatagi_gorseli.gd`); glTF / 3B model. | 3,0 × 0,6 × 2,0 m; açık taş yatağı |

@@ -17,6 +17,8 @@ const NESNE_RENK := {
 	"el_sepet_buyuk": Renkler.AHSAP, "el_asa": Renkler.AHSAP, "el_degnek": Renkler.AHSAP,
 	"el_odun": Renkler.AHSAP, "el_sandik": Renkler.AHSAP, "el_cekic": Renkler.SOGUK_MAVI,
 	"el_kamci": Renkler.AHSAP, "el_kurk_bohca": Renkler.AHSAP,
+	"yatak": Renkler.AHSAP, "masa": Renkler.AHSAP, "kasa": Renkler.AHSAP,
+	"rahat_yatak": Renkler.AHSAP, "askilik": Renkler.AHSAP, "kutuphane": Renkler.AHSAP,
 }
 ## Portre kökü → karakter modeli.
 const PORTRE_MODEL := {

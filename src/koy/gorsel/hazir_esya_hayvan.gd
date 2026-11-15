@@ -17,7 +17,13 @@ static func esya(ad: String, boy: Vector3 = Vector3.ZERO) -> Node3D:
 	if not MODELLER.has(ad):
 		return null
 	var veri: Array = MODELLER[ad]
-	var n := HazirSahneModeli.al("res://assets/esya/" + veri[0], veri[1] if boy == Vector3.ZERO else boy)
+	var hedef: Vector3 = veri[1] if boy == Vector3.ZERO else boy
+	if ad in ["masa", "yatak", "ors"] and Dunya3B.model_var_mi(ad):
+		var m := HazirSahneModeli.al("res://assets/model/nesne/" + ad + ".glb", hedef)
+		if m != null:
+			m.name = "hazir_" + ad
+			return m
+	var n := HazirSahneModeli.al("res://assets/esya/" + veri[0], hedef)
 	if n != null:
 		n.name = "hazir_" + ad
 	return n

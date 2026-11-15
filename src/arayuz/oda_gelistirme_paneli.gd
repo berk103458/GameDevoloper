@@ -55,7 +55,12 @@ static func gorsel(e: MuhafizOdasiEkrani) -> void:
   if not MuhafizOdaGelisimi.var_mi(e.oturum,id): continue
   var a: Dictionary=MuhafizOdaGelisimi.AYAR[id]
   if id=="yatak":
-   var b:=e.oda.get_node("yatak") as MeshInstance3D
-   if b != null:
-    (b.material_override as StandardMaterial3D).albedo_color=Color(String(a.renk))
+   var y_dugum:=e.oda.get_node_or_null("yatak")
+   if y_dugum is MeshInstance3D:
+    ((y_dugum as MeshInstance3D).material_override as StandardMaterial3D).albedo_color=Color(String(a.renk))
+   elif y_dugum != null and Dunya3B.model_var_mi("rahat_yatak") and not y_dugum.has_node("rahat_yatak_glb"):
+    for c in y_dugum.get_children(): c.visible = false
+    var ry := Dunya3B.nesne("rahat_yatak", 0.6)
+    ry.name = "rahat_yatak_glb"
+    y_dugum.add_child(ry)
   elif not e.oda.has_node(id): e.oda.call("_kutu",a.parca)
