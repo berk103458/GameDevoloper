@@ -3972,7 +3972,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: DIY-04, ACL-04. Boyut: S.
   - Dosya: Söz veri dosyası (DIY-02 şeması) `gece_min` alanı; ilk aile dosyası YAZ-05 pilotunda.
   - Asset: asset gerekmedi.
-- [ ] **OGR-14:** Beyan defteri ilk çelişkide tanıtılır. (Antigravity) (doğrulanmadı — Görev 22; DefterTanitimi (src/kapi/defter_tanitimi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **OGR-14:** (Antigravity) Beyan defteri ilk çelişkide tanıtılır. (doğrulanmadı — Görev 22; DefterTanitimi (src/kapi/defter_tanitimi.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: beyan defteri (DIY-07) ilk kez bir karakter kendi sözüyle çelişince açılır; o ana kadar HUD'da düğmesi görünmez.
   - Kabul: ilk çelişki öncesi defter düğmesi 0; sonrası 1 ve ipucu bir kez. Test: çelişkisiz üç ziyaret sonrası düğme 0.
   - Bağımlılık: DIY-07, DIY-08, OGR-07. Boyut: S.
