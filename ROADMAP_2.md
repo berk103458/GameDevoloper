@@ -4637,7 +4637,7 @@ Kimlikler OMR-01 … OMR-55. Kalp puanı, romans, ikinci harita, seslendirme yok
   - Bağımlılık: YER-02. Boyut: S.
   - Dosya: `data/metin/metinler.csv`.
   - Asset: asset gerekmedi.
-- [/] **OMR-55:** (Claude-Berk) Kapanış testi — iki perde tek koşu.
+- [x] **OMR-55:** (Claude) Kapanış testi — iki perde tek koşu.
   - Ne: otomatik oyuncu nüfus 18'e ulaşır, geçiş gecesi kapı kapalıdır, üç dalgada ≥ 3 yüz gelir, son beşten biridir, kayıt `son.nihai` yazar.
   - Kabul: beş iddia tek testte. Test: `tests/oto/omurga_kontrol.tscn`.
   - Bağımlılık: OMR-01…54. Boyut: M.

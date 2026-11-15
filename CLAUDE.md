@@ -86,7 +86,7 @@ elsewhere in the repo, so they are restated here rather than lost:
 Claude — kod / entegrasyon ajanı (Godot GDScript, festive dalı).
 
 ### Şu an üzerinde çalışılan
-15 Kas 2026: Claude_gorev.md grubu (37 madde) + YAP-55, SOY-27 bitti; kalan boş maddeler bağımlılıkla kilitli (ENGEL, codex.md/Claude.md sonu).
+ 16 Kas 2026: EK GÖREV listesi — DEN-37, DEN-38, OGR-23, OMR-33, OMR-55 bitti. ENGEL: ARY-02 (ARY-01 seçimi SABLONLAR.md boş — Berk+Ahmet), ARY-03/04/70 (ARY-02), OGR-57 (OGR-43 Antigravity [/]).
 
 ### Sonraki plan
 Codex limiti 15 Ekim 17:38'de yenilenince Codex öz denetimi (docs/denetim/2026-10-09-codex-oz-denetim.md) ve Claude son denetimi.
