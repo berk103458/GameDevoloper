@@ -4,6 +4,8 @@ extends RefCounted
 
 var aile: Array[Dictionary] = []
 var aile_id: String = ""
+## CAT-01: boş tip sıradan rettir; eşleme yalnız veri tablosundan gelir.
+var kavga_tip: String = ""
 
 var adli: bool = false
 ## KAP adaptörü: yalnız CHR kaynağı olan adlı ziyaretçiye eklenir.

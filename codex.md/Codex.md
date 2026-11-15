@@ -1,5 +1,48 @@
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
+
+## CAT-01 — Gerçek kapı retine bağlantı / 15 Kasım 2026 (Codex, Berk)
+
+Giriş: 5032bdec claim yeniden alınmadı. Fetch + ff-only pull ile 99e1ae9b
+alındı; yalnız CAT-01 uygulandı. Ben Berk tarafındaki Codex ajanıyım.
+Oturum.karar_ver ret dalına tek adaptör çağrısı eklendi; mevcut kavga API'si
+korundu. Aynı oturum metasında tek KapiKavgasi yaşar, gün/kişi kilidi sıfırlanmaz.
+Oturum.gece_kuyrugu sonunda heybe ve aile tamamlandıktan sonra tip atanır.
+data/kapi_kavgasi.json tip_eslemeleri: genç çırak şablonu → genc_erkek,
+silahını bırakmış asker şablonu → asker_kacagi, yoksul heybesi olan çok kişili
+aile → ac_aile_reisi. Bu son eşleme mevcut zenginlik eşiğini okur; ikinci açlık
+sistemi kurulmadı. Eşleşmeyen/boş tip sıradan rettir; veri yoksa tip uydurulmaz.
+
+Ret nedeni ACL-05 yatak hesabı, Gelen.kusurlu veya CHR zorunlu ret kilidinden
+okunur. Nöbet sayısı köy kaydındandır. Kalan sıradan kişi tanık olur; heyet
+ve kapı dışı mekan engeli korunur. Askersiz tehdit gerçek Dedikodu'ya özel
+tehdit/gidiş satırıyla yazılır. KoyYonetimi görev atama/boşaltma, sürgün ve gece
+sonu nobet_degisti sinyali asker_ayrildi'ya bağlanır; son asker ayrılınca aynı
+karar sözlüğü kaçışa/tehdide döner. KapiEkrani._karar_ver kalan sırayı bildirir,
+sonuc_yaz arbede/tehdit metnini gösterir. CAT-02 seçenek UI'si kurulmadı.
+
+Godot 4.7.2; PATH=$HOME/.local/bin:$PATH. Nihai hedefli komutlar:
+- godot --headless --path . --import --quit → çıkış 0; SCRIPT ERROR / Failed to load script 0.
+- godot --headless --path . -s res://tests/unit/kapi/kapi_kavgasi_test.gd → KAPI KAVGASI: GEÇTİ (0 hata), çıkış 0.
+- godot --headless --path . -s res://tests/unit/kapi/kapi_kavgasi_oyun_test.gd → KAPI KAVGASI OYUN: GEÇTİ (143 kontrol, 0 hata), çıkış 0.
+- godot --headless --path . res://tests/unit/kapi/kapi_kavgasi_ekran_test.tscn → KAPI KAVGASI EKRAN: GEÇTİ (0 hata), çıkış 0.
+- --check-only -s ile yeni adaptör/oyun testi parse kontrolü; ekran betiği import ve gerçek sahne koşusunda derlendi.
+
+İlk parse koşusundaki Variant çıkarımı ve ilk testte yanlış yatak bina türü
+düzeltildi; başarısız koşular PASS sayılmadı. Nihai importta mevcut editor
+RID/kaynak kapanış uyarıları; katalog testlerinde mevcut eksik metin anahtarı
+uyarıları var. Nihai hedefli koşularda betik/parse hatası yok. Tam sanity yapılmadı.
+
+Durum: CAT-01 [x], asset gerekmedi; envantere satır eklenmedi. Sonraki plan:
+CAT-02 adaydır, bu turda üstlenilmedi. Issue #11'e kullanıcı talimatıyla yazılmadı.
+Çalışma yalnız /workspace/codex/GameDevoloper üzerinde yapıldı; Windows
+aynalarına/başka ajan klasörlerine dokunulmadı (bu turdaki açık kapsam).
+İlk normal push ortak dala yeni commit geldiği için reddedildi; c27ca221 üzerine
+rebase yapıldı. Kapı ekranındaki DIY-14 dedikodu sayacı ve CAT-01 tanık çağrısı
+birlikte korundu. Hedefli doğrulamalar birleşik sürümde tekrar çalıştırıldı.
+Commit/push: bu doğrulanmış CAT-01 paketi normal push ile festive'e yayımlanır.
+kota görünmüyor
+
 ## TEK-04 / TEK-07 — 11 Ekim 2026
 
 Berk tarafındaki Codex: aynı ziyaretin yüz/heybe/CHR incelemelerinde aynı teşhis
