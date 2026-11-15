@@ -1432,3 +1432,30 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
   - `tests/oto/chr_kapi_kontrol.tscn`: `CHR KAPI UI: GEÇTİ` (`RC=0`).
 - **Durum:** Pilot tamamlandı; kalan 42 karakter için Ahmet'in `"devam"` onayı bekleniyor.
 - **Kota:** kota görünmüyor
+
+
+## 15 Kasım 2026 — Görev 27 (Genişletme): `ROADMAP_3.md` Alt Maddeler ve Somut Tasarım
+- **Dosya:** `ROADMAP_3.md` (kökte; kod, test, asset ve `ROADMAP_2.md` değişmedi).
+- **Yapılan genişletme:**
+  - **11 büyük/sıralı ana madde alt maddelere bölündü (`23` alt madde):**
+    - `SVS-04` → `SVS-04.a` (13. yy silah matrisi) + `SVS-04.b` (zırh/koruma matrisi ve köy stoğu dağıtımı)
+    - `SVS-06` → `SVS-06.a` (13 dost rolü istatistik matrisi) + `SVS-06.b` (8 birim yeteneği: maliyet, bekleme, karşı oynanış)
+    - `SVS-11` → `SVS-11.a` (2 eylem modeli K2) + `SVS-11.b` (7 buff/debuff durum etkisi, süre, yığılma yasağı)
+    - `SVS-15` → `SVS-15.a` (4 moral basamağı ve bozgun) + `SVS-15.b` (moral–yorgunluk tek etkileşim kuralı)
+    - `SVS-18` → `SVS-18.a` (bitiş koşulları ve K4 Muhafız kuralı) + `SVS-18.b` (§5.9 `sonuc_tablosu.json` somut değerleri)
+    - `SVS-20` → `SVS-20.a` (fayda tabanlı YZ, hile yok) + `SVS-20.b` (4 evreli zorluk eğrisi) + `SVS-20.c` (3 baskın strateji yasağı)
+    - `SVS-23` → `SVS-23.a` (CAT-02 iki yol seçimi K11) + `SVS-23.b` (kapı arenası düello/arbede akışı)
+    - `SVS-25` → `SVS-25.a` (kuşatma hazırlığı ve HAR-10) + `SVS-25.b` (3 evreli kapı/gedik/iç avlu akışı)
+    - `SVS-34` → `SVS-34.a` (esir yakalama ve günlük erzak) + `SVS-34.b` (fidye, salıverme, kısmi divan hükmü K14)
+    - `SVS-41` → `SVS-41.a` (savaş ekranı düzeni) + `SVS-41.b` (etkileşimli ızgara vurguları)
+    - `SVS-49` → `SVS-49.a` (dengeleme tavanları ve karşı güç matrisi) + `SVS-49.b` (5 senaryolu `senaryo_kosucusu` ölçümü)
+  - **Sıralı numaralı alt adımlar eklendi:** `SVS-03`, `SVS-08`, `SVS-13`, `SVS-33`.
+  - **4 yeni benzersiz eksik alan maddesi eklendi:** `SVS-55` (Arazi, mevsim/hava etkisi ve hareket maliyeti), `SVS-56` (Cephe düzeni ve yan saldırı / flanking), `SVS-57` (Cephane sınırı ve mühimmat tüketimi), `SVS-58` (Savaş kamerası ve hamle geri bildirimi).
+  - **Oyun Sistemleri Analizi:** XCOM 2, Battle Brothers, Into the Breach, Darkest Dungeon, Mount & Blade ve The Banner Saga'dan alınan mekanikler somut sayısal başlangıç önerileri ve karşı güçlerle `data/savas/` tablolarına bağlandı.
+- **Tekrar denetimi sonucu:**
+  - **Toplam iş birimi:** `70` (`47` tekil ana madde + `11` bölünmüş ana başlıktan `23` alt madde; `baştan`: `44`, `sondan`: `26`).
+  - **Bölünen:** `11` madde (`SVS-04, 06, 11, 15, 18, 20, 23, 25, 34, 41, 49`); **Birleşen:** `0`; **Yeni eklenen:** `4` (`SVS-55..58`).
+  - **Doğrulama:** `SVS-01..58` arasında eksik veya çift ID yok (`Missing: []`, `Duplicates: []`); tüm `70` iş biriminde 10 zorunlu alan eksiksiz (`Missing fields: []`); tür başına kopya madde yok, her kural tek yerde.
+- **Commit:** `cb325eb0` (`ROADMAP_3.md` genişletmesi), günlük güncellemesi bu commit ile pushlandı.
+- **Kota:** kota görünmüyor
+- **Durum:** TAMAMLANDI
