@@ -128,3 +128,105 @@ Berk'in güncel emri: Claude 5 saatlik limitte (sıfırlanma 23:10 Europe/Istanb
 - [/] **ACL-02** (ROADMAP_2.md:223) — Eş — oynanabilir ama sıradan köylü değil. Not: Eski etiket `(testx)`; ROADMAP sahipliği `0a24eb92`. Uygulama commit'i bulunamadı.
 
 onay bekleyip durma; maddeler bitene ya da gerçek bir engel çıkana kadar devam et
+
+---
+
+## Görev 27: ROADMAP_3 sıra tabanlı savaş yol haritasını yaz
+
+Hedef model: Gemini 4 Argon. Ajan adı: Antigravity. Günlük: `codex.md/Antigravity.md`. Dal: `claude/festive-volta-li1sfm`. Onay: Ahmet, 15 Kasım 2026.
+
+Bu görev, yukarıdaki ROADMAP_2 madde döngüsünden ayrıdır. Bu turda kod yazılmaz, test koşulmaz, ROADMAP_2.md'ye dokunulmaz. Tek iş `ROADMAP_3.md` dosyasını yazmaktır.
+
+### Amaç
+
+Kapı Muhafızı (Godot 4.7.2, 1243 Kösedağ sonrası Selçuklu ucu, ciddi ve gerçekçi) için ROADMAP_1 ve ROADMAP_2 kalitesinde, uçtan uca düşünülmüş, uygulanabilir bir savaş yol haritası yaz. Yol haritası sıra tabanlı savaşın bütün katmanlarını kapsar. Ön rapordaki 54 maddelik taslak başlangıçtır; onu kopyalayıp bırakmak yetmez. Eksikleri bul, maddeleri gerekirse alt maddelere böl, bağımlılık sırasını kur.
+
+### Başlamadan
+
+1. `git pull` et. Force push ve `reset --hard` yok.
+2. Şu dosyaları oku ve biçimlerini çıkar: kökteki `ROADMAP.md`, `ROADMAP_2.md` (özellikle baştaki ajan panosu, bölüm başlıkları ve bir maddenin iç iskeleti: Ne, Kurallar, Uç durumlar, Kabul, Bağımlılık, Dosya, Asset), `AGENTS.md`, `docs/ROADMAP_3_SAVAS_ON_RAPOR.md`.
+3. Asıl kaynak ön raporun §5 (motor), §5.9 (galibiyet ve mağlubiyet tablosu), §7A (kesinleşen kararlar) ve §8 (madde taslağı) bölümleridir. §7A gövdeyle çelişirse §7A geçerlidir.
+4. `ROADMAP_3.md` yoksa oluştur. Varsa baştan yazma; eksik bölümü ekle. Bu görevde dosya henüz yoktur.
+
+### Çıktı
+
+Tek dosya: kökte `ROADMAP_3.md`.
+
+Biçim, ROADMAP_2 ile aynı ailede olsun: başlık, kısa ajan panosu, sonra ana bölümler. Maddeler `- [ ] **SVS-xx:**` satırıyla başlar. Bir madde tek cümleyle kapanmaz.
+
+Yapı üç seviyeye kadar iner:
+
+- Ana bölüm (ör. motor çekirdeği, yapay zekâ, savaş türleri).
+- Madde: `SVS-xx`.
+- Gerekirse alt madde: `SVS-xx.a`, `SVS-xx.b`.
+- Gerekirse alt-alt adım: aynı maddenin içinde numaralı adımlar. Yeni bir ID öneki açma.
+
+Her maddede şu alanlar durur:
+
+- **Amaç:** Bu madde bitince oyuncu ya da sistem ne kazanır.
+- **Kapsam:** Ne dahildir, ne dışarıdadır.
+- **Bağımlılıklar:** SVS kimlikleri ve ilgili ROADMAP_2 / ROADMAP_1 kimlikleri (CAT, ZAR, HAR, KRI, DNY, GRV, YER, SYS). Yoksa "yok" yaz.
+- **Etkilenen dosya ve klasörler:** Yeni dosya yolu ve dokunulacak mevcut dosya. Korumalı çekirdeğe (`src/arayuz/ana.gd`, `koy_ekrani.gd`, `tema.gd`, `hud.gd`, `src/dunya/karakter_model.gd`, `koy_yonetim_sahnesi.gd`, `src/sistemler/oturum.gd`, `ses.gd`, `koy_nufusu.gd`, `guvenli_kayit.gd`, `data/metin/metinler.csv`, `tests/oto/otomatik_oyuncu.gd`) yalnız tek satırlık adaptör gerekçesiyle girilir. Gerek yoksa "çekirdeğe dokunulmaz" yaz.
+- **Veri şeması:** JSON ya da kaynak alanı, anahtar adları ve birim. Sayı gömülmez; eşikler `data/savas/` altındadır. Şema gerekmiyorsa "veri yok" yaz.
+- **Kabul ölçütleri:** Sayılabilir. "Çalışıyor" kabul değildir.
+- **Testler:** Birim ya da senaryo testi, dosya yolu, sabit tohum. Headless koşulur. Oyuncuya açık otomatik çözüm için test yazılmaz.
+- **Asset:** Yer tutucu yolu ve `docs/EKSIK_ASSET_ENVANTERI.md` satırı. Asset gerekmiyorsa "asset gerekmedi" yaz.
+- **Metin anahtarları:** `svs.xx.*` biçiminde TR ve EN. Metin yoksa "metin yok" yaz. Eski `metinler.csv` satırları ve mevcut diyaloglar değiştirilmez.
+- **Sahip:** `baştan` ya da `sondan` (K17). Antigravity baştan ileri gider. Berk tarafı sondan geri gelir. Her maddeye birini yaz. Orta bölge açma.
+
+### Kapsanacak katmanlar
+
+Ön rapordaki SVS-01 … SVS-54 durur. Bunları genişlet ve en az şu katmanların her biri için madde ya da alt madde olsun:
+
+1. Veri: birim şablonu, HP, silah ve zırh, dost ve düşman şablonları, 13. yüzyıl teçhizatı.
+2. Motor çekirdeği: savaş durumu, deterministik RNG, kare ızgara, kapı arenası, inisiyatif, turda 2 eylem, hareket ve görüş, savaş zarı, HP hasarı, düştü durumu, moral, yorgunluk, nöbet tutma, galibiyet ve mağlubiyet.
+3. Yapay zekâ: fayda tabanlı çekirdek, davranış profilleri, niyet gösterimi. YZ hile yapmaz.
+4. Savaş türleri: gece baskını, tekfur kuşatması, kapı ve sur hasarı, yangın, küçük Moğol grubu, büyük Moğol kolunun savaşsız karar düğümü, dış sefer, kervan koruma, müttefik takviyesi.
+5. Kapı düellosu (K11): oyuncu ya muhafızın adamlarını gönderir ya da muhafızın kendisi kapıdaki karakterle düello yapar. İkisi de oynanır. Eski tek zar çözümü oyuncuya açık kalmaz. Bu iki yol, CAT-02 "askerle karşılık" seçeneğinin içindedir. Beşinci kapı seçeneği açılmaz.
+6. Savaş öncesi ve sonrası: karar paneli, konuşlanma, tedavi, ölüm, hane ve yetim, köye etki, kan davası, söylenti, gece raporu.
+7. Esir ve fidye (K14): yakalama, tutma, fidye, salıverme. Divan hükmü bu akışın parçasıdır.
+8. Ganimet terazisi (K13): paylaşım adalet ve yozlaşma terazisine yazılır.
+9. Galibiyet ve mağlubiyet sonuç tablosu (§5.9): ganimet, itibar, husumet, yara, kaynak kaybı, köye etki. Tablo `data/savas/sonuc_tablosu.json` olur.
+10. Muhafız (K4): ölmez. HP 0 olursa savaş kaybedilmiş sayılır. Kalan dostlar çekilebilir, galibiyet yazılmaz, komuta kimseye devredilmez. Muhafız yara zarının ölüm satırına girmez, hayatta kalır, yerine kimse geçmez.
+11. Arayüz, girdi, yerelleştirme: savaş ekranı, zar kadrajı, günlük, özet, klavye ve gamepad, TR/EN anahtarlar.
+12. Kayıt (K12): savaş ortasında kayıt yok. Savaş başlamadan otomatik kayıt alınır.
+13. Denge ve kapanış: senaryo koşucusu, `otomatik_oyuncu` 20 gece duman testi, perde ve son bağlantıları, kapanış testi.
+14. Erişilebilirlik: sonuç renkle değil sözcükle yazılır. Punto GRV-13'ün altına inmez.
+15. Performans: bir savaşta en fazla 20 birim (K15). 21. birim sahneye girmez. Kabul ölçütü bu tavanı sabit tohumla doğrular.
+16. Okçuluk (K9): `okculuk_oyunu.gd` sur okçusu becerisine bağlanır.
+17. Katılım ayarı (K6): kadınlar ve gençler. Varsayılan açık, oyun ortasında değiştirilebilir. Çocuklar her durumda savaş dışıdır.
+
+### Kararlar (bunların dışına çıkma)
+
+- Dönem 1243 Kösedağ sonrası Selçuklu ucudur. Yeni metinde akıncı, tımar, sipahi, yeniçeri ve levent ocağı yazılmaz. Yerine uç beyi, subaşı, alp, gazi, tekfur, harami kullanılır. Eski metinler ve diyaloglar olduğu gibi kalır (K18).
+- Turda 2 eylem vardır. Aksiyon puanı yoktur (K2).
+- Can sayısal HP'dir (K3).
+- Küçük Moğol grupları savaşılır. Büyük akın savaş olarak oynanmaz (K5).
+- Kıtlık ve açlık isyanı için madde açılmaz (K7). Gelecek notu olarak bir satır yeter.
+- Otomatik çözüm yoktur (K10). SVS-19 yalnız test amaçlı YZ-YZ koşucusudur. Oyuncu menüsünde görünmez. Eski formüllerle "aynı sayıyı versin" diye yeni test isteme.
+- ID öneki SVS-'dir. CAT-01..04 durur. CAT-05 ve sonrası açılmaz (K8).
+- Nüfus eşiği altındaki savaş yasağı (BUG-18, OMR-42) korunur. Meclis savaş açamaz (MCL-09).
+
+### ROADMAP_2 bağlantısı
+
+Her savaş maddesi, ön raporun §6 tablosundaki ilgili ROADMAP_2 kimliğini bağımlılık alanına yazar: CAT-01..04, ZAR-01..06, HAR-02, HAR-03, HAR-04, HAR-05, HAR-07, HAR-10, HAR-14, HAR-15, KRI-03, KRI-05, KRI-13, DNY-01, KAP-18, YAP-56, SYS-19, SYS-20 ve diğerleri.
+
+Berk tarafının ROADMAP_2 maddelerine dokunma. `[ ]`, `[/]` ve `[x]` satırlarını değiştirme. ROADMAP_2.md'ye savaş maddesi ekleme. Çakışan bir kural görürsen (örneğin "yeni savaş yok" diyen nöbet ve usta defteri maddeleri) ROADMAP_3 içinde "ROADMAP_2 sınırı" diye yaz, o maddenin kabul testini bozacak iş önerme.
+
+### Kurallar
+
+- `AGENTS.md` geçerlidir. Genişletme yapılır, yeniden yazma yapılmaz. Eski `koy_sahnesi` geri gelmez.
+- Asset: 2B arayüz üretimi serbesttir. 3B yalnız Meshy ya da doğrulanmış açık lisans (CC0, CC-BY) ile gelir. Ses sessiz yer tutucudur. Her ihtiyaç `docs/EKSIK_ASSET_ENVANTERI.md` içine yazılır. 3B savaş animasyonları 3B başlığındadır (K16). Bu görev asset üretmez. Yalnızca yol haritasında ihtiyacı tarif eder.
+- Zar: `SorguZari` dili kullanılır. d6 ve d12, `zar >= gerekli`, tavan her zaman başarı, 1 her zaman başarısız. İsabet olasılığı mevcut `basari_olasiligi` yolundan gelir. İkinci bir hesap yolu yazılmaz.
+- Sayılar koda gömülmez. Eşikler veridedir.
+- Bu görev kod, sahne, test ve asset yazmaz. Yalnız `ROADMAP_3.md` ve kendi günlüğünü yazar.
+- Commit başlığı Türkçe olur ve `(Antigravity)` imzası taşır. İş bölünebilir. Her tutarlı parçada commit at ve `claude/festive-volta-li1sfm` dalına push et. Force push ve `reset --hard` yok. Yazmadan önce pull et.
+- Gizli anahtar, parola ve token yazma.
+
+### Belirsizlik
+
+Karar listesinde olmayan bir sayıyı, eşiği ya da hikâye sonucunu uydurma. Aynı `ROADMAP_3.md` dosyasının sonuna `## Antigravity sorusu` başlığıyla yaz. Her soru tek cümle olsun, hangi maddeyi kilitlediğini söylesin ve senin tahminini karar diye yazma. Kilitlenen maddeyi `[ ]` bırak, sahibini yaz, kabul ölçütünü "soru kapanınca" diye işaretle.
+
+### Bitiş
+
+İş bitince `codex.md/Antigravity.md` sonuna şunları yaz: `ROADMAP_3.md` yolu, madde sayısı (SVS-xx ve alt maddeler ayrı sayılır), bölüm listesi, açık `Antigravity sorusu` varsa sayısı ve konusu, commit hash'leri. Kota görünmüyorsa `kota görünmüyor` yaz. `TAMAMLANDI` satırını ancak `ROADMAP_3.md` push edildikten sonra ekle.

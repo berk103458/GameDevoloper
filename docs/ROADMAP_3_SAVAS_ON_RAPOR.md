@@ -27,9 +27,9 @@ Bu kararlar raporun geri kalanından önce gelir. Gövdede çelişen bir cümle 
 - **K1 — Dönem:** 13. yüzyıl Selçuklu ucu, Kösedağ (1243) sonrası. `docs/dunya_kitabi/` geçerlidir. Dost ve düşman listesi, terimler ve teçhizat buna göre yazılır. Osmanlı dönemine ait terimler kullanılmaz: akıncı, tımar, sipahi, yeniçeri, levent ocağı (yeni metinde). Asset görsel stili bu karardan etkilenmez; o ayrı bir konudur ve şimdilik değişmez.
 - **K2 — Hamle:** Turda her karakterin **2 eylemi** vardır (XCOM tarzı). Aksiyon puanı (AP) modeli kullanılmaz.
 - **K3 — Can:** **Sayısal can (HP)** kullanılır. Yara basamakları can yerine geçmez. Öneri: HP sıfıra inen karakter "düştü" durumuna geçer. Savaş sonunda düşenler için ayrı bir **yara ve sakatlık zarı** atılır (ölüm, ağır yara, kalıcı sakatlık, hafif yara). Ayrıntı §3.4 M23 ve §5.4'tedir.
-- **K4 — Muhafızın ölümü:** Muhafız savaşta düşünce **oyun bitmez**. Düştükten sonra ne olacağı (ölüm, ağır yara, yerine kimin geçeceği) sona bırakıldı.
+- **K4 — Muhafız:** Muhafız **ölmez**. HP'si 0 olursa savaş kaybedilmiş sayılır; muhafız hayatta kalır ve mağlubiyet sonucu uygulanır. Yerine kimse geçmez. Ayrıntı §5.9 ve §7A.
 - **K5 — Moğol akınları:** **Küçük Moğol grupları** (öncü, keşif kolu, dağılmış atlılar) ile savaşılabilir. **Büyük akın kolları** savaş olarak oynanmaz. Onlar karar düğümüyle çözülür: kaç, saklan, haraç ver, elçiyle görüş.
-- **K6 — Kadınlar ve gençler:** Savaşa katılıp katılmayacaklarını **oyuncu belirler**. Bu bir oyun ayarı olarak tasarlanır (yeni oyun seçeneği ve ayarlar menüsü). Ayrıntı SVS-53'tedir.
+- **K6 — Kadınlar ve gençler:** Savaşa katılıp katılmayacaklarını **oyuncu belirler**. Varsayılan **açık**tır ve oyun ortasında değiştirilebilir. Çocuklar her durumda savaş dışıdır. Ayrıntı SVS-53 ve §7A.
 - **K7 — Kıtlık / açlık isyanı:** **Şimdilik kapsam dışı.** ROADMAP_3'e madde olarak girmez. "Gelecek" notu olarak kalır (§3.1 M8).
 
 ---
@@ -57,7 +57,7 @@ Bu kararlar raporun geri kalanından önce gelir. Gövdede çelişen bir cümle 
 | Çete anlaşması (HAR-08) | `src/koy/cete_anlasmasi.gd` | Aylık rüşvet karşılığında dokunulmazlık. | — |
 | Pusu temizliği (HAR-05, HAR-14) | `data/pusu_ticaret_akisi.json` | Başarılı pusu temizliği tüccar akışını artırır. | Pusunun kendisi oynanmıyor. Dış sefer için doğal bir aday. |
 | Tehdit takvimi (BUG-18, OMR-42) | `src/sistemler/tehdit_takvimi.gd` | Nüfus 14'ün altındayken kurt dışındaki baskınlar gelmez. "Nüfus 18 öncesi savaş yok." | ROADMAP_3 bu kapıyı korumalı. |
-| Okçuluk mini oyunu | `src/arayuz/okculuk_oyunu.gd` | Ayrı bir beceri oyunu. | Sur okçusu becerisine bağlanabilir (Açık soru 7.9). |
+| Okçuluk mini oyunu | `src/arayuz/okculuk_oyunu.gd` | Ayrı bir beceri oyunu. | Sur okçusu becerisine bağlanır (§7A, K9). |
 | Sınıflar ve karakterler | `data/siniflar/asker.tres`, `data/karakterler/*.tres`, `karakterler/CHR_*.md` | Üç sınıf var: asker, çiftçi, esnaf. Adlı askerler: aydogdu, nogay, miraen. CHR_021..024 asker kaçağı ya da eski asker. | Savaş istatistiği yok (saldırı, savunma, inisiyatif, can/yara, moral, ekipman). |
 | Donanım | `data/muhafiz_donanimi.json` | Kılıç ve mızrak yer tutucu parçaları (yalnız görsel kutular). | Silah ve zırh istatistiği yok. |
 | Gruplar | `data/gruplar.json` | Türkmen, Rum, Ahi, Köylü, Tüccar, Asker; itibar ve karar deltaları. | Savaş sonuçları itibara yazılmıyor. |
@@ -66,12 +66,12 @@ Bu kararlar raporun geri kalanından önce gelir. Gövdede çelişen bir cümle 
 ### 1.2 ROADMAP_2 notları
 
 - ROADMAP_2 durumu (15 Kasım): 941 `[x]`, 29 `[/]`, 108 `[ ]`.
-- `ROADMAP_2.md:808` "Yeni maddeler CAT-05 … CAT-84" diyor, ama bu maddeler hiç yazılmamış. ROADMAP_3 bu boşluğu kapatmalı. ID karışmasın diye CAT dizisini uzatmak yerine yeni **SVS** önekini öneriyorum (Açık soru 7.1).
+- `ROADMAP_2.md:808` "Yeni maddeler CAT-05 … CAT-84" diyor, ama bu maddeler hiç yazılmamış. ROADMAP_3 bu boşluğu kapatmalı. ID öneki **SVS-** olarak kesinleşti (§7A, K8). CAT-01..04 olduğu gibi kalır.
 - ROADMAP_2 birçok yerde açıkça "yeni savaş yok" diyor: Bölüm 26 nöbet devri, YAP-56 usta defterleri ("Yeni savaş … açılmaz"), MCL-09 ("Meclis savaş … açamaz"), HAR-02. Bunlar ROADMAP_2'nin sınırlarıdır. ROADMAP_3 bu sınırları bilinçli olarak açar, ama ROADMAP_2 maddelerinin kabul testlerini bozmamalıdır.
 
 ### 1.3 Kısa sonuç
 
-Savaş verisinin ve sonuç zincirinin iskeleti hazır: kim asker, kim yaralı, kim öldü, cenaze, söylenti, itibar, güvenlik ve konuşlanma. Eksik olan **savaş anının kendisi**. Şu an her çatışma bir zar ya da bir sayı karşılaştırmasıyla bitiyor. ROADMAP_3'ün ana işi bu anları oynanır kılmak. Bunu yaparken mevcut formüller (`savunma_gucu`, `SorguZari`, `HusumetBaskini`) silinmemeli, **otomatik çözüm** yolu olarak kalmalı.
+Savaş verisinin ve sonuç zincirinin iskeleti hazır: kim asker, kim yaralı, kim öldü, cenaze, söylenti, itibar, güvenlik ve konuşlanma. Eksik olan **savaş anının kendisi**. Şu an her çatışma bir zar ya da bir sayı karşılaştırmasıyla bitiyor. ROADMAP_3'ün ana işi bu anları oynanır kılmak. Oyuncuya açık otomatik çözüm yoktur (§7A, K10): her savaş oynanır. Mevcut formüller (`savunma_gucu`, `SorguZari`, `HusumetBaskini`) silinmez; savaş sonucu aynı köy alanlarına yazılır. YZ'ye karşı YZ yalnız test koşucusudur.
 
 ---
 
@@ -102,7 +102,7 @@ Dayanak: `docs/dunya_kitabi/uc_duzeni.md`, `tarih.md`, `bizans_rum.md`, `turkmen
 | Harami | Bıçak, balta, sopa, yay, sapan | Çoğunlukla yok; ganimetten parça zırh |
 | Köylü milis | Orak, balta, sopa, sapan, taş, yaba | Yok |
 
-**Terim kuralı (K1):** Yeni metinde Osmanlı dönemine ait terimler kullanılmaz: akıncı, tımar, sipahi, yeniçeri, levent ocağı. Yerine dönem terimleri kullanılır: uç beyi, subaşı, ikta sahibi, alp, gazi, Türkmen atlısı, tekfur, harami. Mevcut verideki eski adlar (ör. "Sancak Beyi", CHR_021'deki "levent ocağı") için Açık soru 7.17'ye bakılır.
+**Terim kuralı (K1):** Yeni metinde Osmanlı dönemine ait terimler kullanılmaz: akıncı, tımar, sipahi, yeniçeri, levent ocağı. Yerine dönem terimleri kullanılır: uç beyi, subaşı, ikta sahibi, alp, gazi, Türkmen atlısı, tekfur, harami. Mevcut metinlere ve diyaloglara dokunulmaz (§7A, K18). "Sancak Beyi" ve CHR_021'deki "levent ocağı" olduğu gibi kalır. Dönem terimi yalnız yeni savaş metinlerinde kullanılır.
 
 ### 2.2 Sıra tabanlı oyunlardan alınacaklar
 
@@ -111,7 +111,7 @@ Dayanak: `docs/dunya_kitabi/uc_duzeni.md`, `tarih.md`, `bizans_rum.md`, `turkmen
 | **Battle Brothers** | Yorgunluk; ön ve arka sıra; moral durumları (kararlı → sarsılmış → bozgun); kalıcı yara ve sakatlık; ölümün kalıcı olması; silaha göre farklı yetenekler. | Aksiyon puanı (K2: 2 eylem), paralı asker şirketi yönetimi, sınırsız asker alma. |
 | **Darkest Dungeon** | Stres veya moralin ayrı bir kaynak olması; savaş sonrası kamp ve iyileşme ekonomisi; kahramanların kalıcı travmaları. | Sabit 4'lü sıra düzeni, fantastik düşmanlar. |
 | **XCOM** | İki eylemli basit tur (hareket + eylem); siper ve görüş; isabet olasılığının açıkça gösterilmesi; düşman sırasının görünmesi. | Bilimkurgu ekipman ağacı, %95 ıskalama şakası (zar şeffaf olmalı). |
-| **Mount & Blade** | Savaş öncesi karar: savaş, pazarlık, kaç, rüşvet ver, adam bırak; otomatik çözüm seçeneği; esir ve fidye; birlik moralinin komutana bağlı olması. | Gerçek zamanlı savaş. |
+| **Mount & Blade** | Savaş öncesi karar: savaş, pazarlık, kaç, rüşvet ver, adam bırak; esir ve fidye; birlik moralinin komutana bağlı olması. | Gerçek zamanlı savaş. Oyuncuya açık otomatik çözüm (K10). |
 | **Into the Breach** | Düşman niyetinin bir tur önceden görünmesi; küçük harita, az birim, her hamlenin önemli olması. | Bulmaca hissi. |
 
 ### 2.3 Bu oyuna çeviri
@@ -132,7 +132,7 @@ Her mekanik için önerilen yön yazıldı. Detay ROADMAP_3 maddelerinde açıla
 
 | # | Tür | Yer | Tipik boyut | Tetikleyici (mevcut) | Önerilen çözüm |
 |---|---|---|---|---|---|
-| M1 | **Kapı arbedesi** | Kapı önü (küçük arena) | 1–3'e 1–3 | CAT-01 / CAT-02 "askerle karşılık" | Sıra tabanlı kısa savaş. İstenirse eski tek zar otomatik çözüm olarak kalır. |
+| M1 | **Kapı arbedesi** | Kapı önü (küçük arena) | Düello 1'e 1, ya da muhafızın adamları 1–3'e 1–3 | CAT-01 / CAT-02 "askerle karşılık" | Oyuncu iki yoldan birini seçer (§7A, K11): adamlarını gönderir, ya da muhafızın kendisi kapıdaki karakterle düello yapar. İkisi de sıra tabanlıdır ve oynanır. Otomatik çözüm yoktur. |
 | M2 | **Gece baskını / sızma** | Köy (mevcut ızgara) | 3–8 eşkıyaya karşı nöbetçiler | `Husumet.gece` → `baskin`, CAS-08 | Gece görüşü kısıtlı sıra tabanlı savaş. Hedef ambar ya da ağıl. Otomatik çözüm `HusumetBaskini.uygula` olarak kalır. |
 | M3 | **Tekfur baskını / kapı kuşatması** | Sur + kapı + iç avlu | 8–20'ye karşı köy savunması | `tekfur_baski > savusturulan` | Çok aşamalı savunma: yaklaşma, kapı ve sur, gedik, iç avlu. Başlangıç dizilişi HAR-10 konuşlanmasından gelir. Otomatik çözüm `tekfur_gucu > savunma_gucu`. |
 | M4a | **Küçük Moğol grubu** | Köy çevresi, yol | 3–8 öncü ya da keşif atlısı | HAR-02 öncü uyarısı, DNY-01 Moğol ilerleyişi | Sıra tabanlı savaş (K5). Düşman atlı okçu profilidir; yenilen grup büyük kolun gelişini hızlandırabilir. |
@@ -144,7 +144,7 @@ Her mekanik için önerilen yön yazıldı. Detay ROADMAP_3 maddelerinde açıla
 
 ### 3.2 Savaş öncesi
 
-- **M9 Savaş kararı ekranı:** Savaş, pazarlık, rüşvet (akçe ya da erzak), kapıyı kapatıp bekle, kaç / sakla, otomatik çöz. Mount & Blade benzeri. Pazarlık mevcut söz sistemi ve zar ile yapılır.
+- **M9 Savaş kararı ekranı:** Savaş, pazarlık, rüşvet (akçe ya da erzak), kapıyı kapatıp bekle, kaç / sakla. **Otomatik çöz seçeneği yoktur (§7A, K10).** Kapı arbedesinde ek olarak "adamlarını gönder" ve "muhafızın kendisi düello yapsın" seçenekleri vardır (K11). Pazarlık mevcut söz sistemi ve zar ile yapılır.
 - **M10 Keşif ve erken uyarı:** Gözcü kulesi (HAR-06, HAR-13) düşman sayısını ve türünü önceden gösterir. Kule yoksa sayı "bilinmiyor" görünür.
 - **M11 Konuşlanma:** HAR-10 rolleri (kapı mızraklısı, sur okçusu, devriye) savaşın başlangıç konumlarına dönüşür. Oyuncu savaş başında sınırlı bir yeniden diziliş yapabilir.
 - **M12 Silahlanma:** Köyün silah stoğu (silah karaborsası, demirci) birimlere dağıtılır. Silahı olmayan köylü alet kullanır.
@@ -171,7 +171,7 @@ Her mekanik için önerilen yön yazıldı. Detay ROADMAP_3 maddelerinde açıla
   - **Hafif yara:** Kısa süre iş gücü kaybı.
   - HP'si sıfıra inmeyen ama düşük kalan karakter "hafif yaralı" sayılır.
   - Tablo veridedir. Mevcut köylü sağlık değeri (0–100) savaş sonrası HP oranına göre düşürülür. CAT-03 ve KRI-03 tedavi akışı genişletilir.
-- **M24 Ölüm:** Mevcut nüfus ve cenaze akışına tek çağrı yapılır (CAT-02 kuralı korunur). Hane reisi ölürse hane, eş, yetim ve miras etkileri devreye girer. **Muhafız düşünce oyun bitmez (K4).** Düşen muhafızın akıbeti (ölüm, ağır yara, yerine kimin geçeceği) sona bırakıldı (Açık soru 7.5).
+- **M24 Ölüm:** Mevcut nüfus ve cenaze akışına tek çağrı yapılır (CAT-02 kuralı korunur). Hane reisi ölürse hane, eş, yetim ve miras etkileri devreye girer. **Muhafız bu zara girmez ve ölmez (§7A, K4).** HP'si 0 olursa savaş mağlubiyet sayılır; muhafız hayatta kalır, en kötü sonuç ağır yaradır, yerine kimse geçmez. Galibiyet ve mağlubiyetin getirileri §5.9 tablosundadır.
 - **M25 Ganimet:** Düşmandan silah, zırh, at, akçe, defter (YAP-56) ve esir. Paylaşım kararı (beye pay, köye pay, muhafıza pay) mevcut kasa ve vergi ile adalet / yozlaşma terazisine bağlanır.
 - **M26 Köye etkisi:** Moral (zafer +, kayıp −), Güvenlik, husumet puanı, grup itibarı (Rum, Türkmen, Asker), söylenti, kervan ve tüccar akışı, göç (kapıya savaştan kaçanlar gelir: KAP-18 yetim kafilesi).
 - **M27 Kan davası ve intikam:** Öldürülen eşkıyanın çetesi husumet kazanır. Öldürülen tekfur askeri tekfur baskısını artırır.
@@ -189,13 +189,13 @@ Her mekanik için önerilen yön yazıldı. Detay ROADMAP_3 maddelerinde açıla
 
 | Tip | Kaynak (mevcut) | Rol | Not |
 |---|---|---|---|
-| **Muhafız (oyuncu karakteri)** | `Oturum`, muhafız yetenekleri | Komutan, yakın dövüş | Moral aurası, emir (bir müttefike ek eylem). Düşünce oyun bitmez (K4). Düştükten sonraki akıbeti sona bırakıldı (Açık soru 7.5). Muhafız düşünce dost moraline büyük ceza gelir, komuta çavuşa geçer. |
+| **Muhafız (oyuncu karakteri)** | `Oturum`, muhafız yetenekleri | Komutan, yakın dövüş | Moral aurası, emir (bir müttefike ek eylem). Ölmez (K4). HP 0 olursa savaş kaybedilmiş sayılır; muhafız hayatta kalır, komuta kimseye devredilmez. Kalan dostlar savaşı sürdürebilir, sonuç yine mağlubiyettir (§5.9). |
 | **Çavuş / nöbet başı** | Yeni rol etiketi (mevcut asker sınıfından) | Ast komutan | Muhafız yokken moral kaynağı. CHR_023'teki "çavuş Bedri" adı dünyada var. |
 | **Kapı mızraklısı** | HAR-10 `kapi` rolü | Kapıyı tutan, karşılama saldırısı | Başlangıç konumu kapıdır. |
 | **Sur okçusu** | HAR-10 `sur` rolü | Menzilli, yüksekten atış | Okçuluk mini oyununa bağlanabilir. |
 | **Devriye askeri** | HAR-10 `devriye` | Hareketli yedek | |
 | **Adlı askerler** | `aydogdu`, `nogay`, `miraen` (sinif=asker) | Özel yetenekli birim | Kişisel geçmiş ve yemin sistemine bağlanır. |
-| **Eski asker / kaçak köylü** | CHR_021 Cemil (kaçak piyade; veride "levent ocağı" geçer, bkz. 7.17), CHR_022 Bayram (kışla davulcusu), CHR_023 Necip (keşif eri), CHR_024 Fehmi (cebe yamağı) | Kabul edilmişse savaşa katılabilir | Davulcu moral, keşif eri görüş, cebeci silah onarımı verir. Kaçak olarak tanınma riski. |
+| **Eski asker / kaçak köylü** | CHR_021 Cemil (kaçak piyade; verideki "levent ocağı" ifadesine dokunulmaz, K18), CHR_022 Bayram (kışla davulcusu), CHR_023 Necip (keşif eri), CHR_024 Fehmi (cebe yamağı) | Kabul edilmişse savaşa katılabilir | Davulcu moral, keşif eri görüş, cebeci silah onarımı verir. Kaçak olarak tanınma riski. |
 | **Köylü milis (yetişkin erkek)** | çiftçi / esnaf sınıfı yetişkin erkekler | Zayıf, çok sayıda | Silah stoğuna bağlı; yoksa orak, balta, sopa ya da sapan. |
 | **Kadın ve genç milis** | çiftçi / esnaf sınıfı yetişkin kadınlar ve gençler | Destek ya da tam savaşçı | **Oyuncu belirler (K6).** Ayar kapalıysa savaşa girmezler, ama sivil olarak korunurlar. Ayar açıksa milis şablonunu kullanırlar. Çocuklar her durumda savaşmaz (öneri). Ayrıntı SVS-53. |
 | **Hekim** | CHR_008, şifahane | Savaş içinde tedavi | Cephe dışında durur, düşeni yerden kaldırır, HP'sini biraz geri verir. |
@@ -234,7 +234,8 @@ Her mekanik için önerilen yön yazıldı. Detay ROADMAP_3 maddelerinde açıla
 - **Yeni dosyalar + ince adaptör.** Önerilen klasör: `src/savas/` (motor), `src/arayuz/savas/` (arayüz), `data/savas/` (birim, silah, harita ve tablo verisi), `tests/unit/savas/`.
 - Korumalı çekirdek dosyalara (`koy_yonetimi.gd`, `oturum.gd`, `koy_ekrani.gd`, `hud.gd`) yalnızca tek satırlık adaptör çağrısı eklenir.
 - Motor **sahneden bağımsız saf mantık** olmalı (RefCounted). Headless testler savaşı arayüz açmadan, deterministik RNG ile koşabilmeli. Bu, mevcut `_rng.state` kayıt düzenine uyar.
-- Her çatışma iki yoldan çözülebilir: **oynanır savaş** ya da **otomatik çözüm**. Otomatik çözüm mevcut formülleri kullanır, böylece eski testler bozulmaz. Önerim, otomatik çözümün oynanır savaşla aynı motoru "YZ'ye karşı YZ" olarak koşması. İkinci bir formül yazılmamalı (Açık soru 7.10).
+- **Her savaş oynanır (§7A, K10).** Oyuncuya açık otomatik çözüm yoktur. Eski formüller (`savunma_gucu`, `HusumetBaskini`) silinmez; savaşın sonucu aynı köy alanlarına yazılır. YZ'ye karşı YZ yalnız test koşucusudur (SVS-19) ve oyuncu menüsünde görünmez.
+- **Bir savaşta en fazla 20 birim** vardır (§7A, K15). 21. birim sahneye girmez; fazlası yedek ya da "gelmedi" olarak veride kalır.
 
 ### 5.2 Izgara ve konum
 
@@ -242,6 +243,7 @@ Her mekanik için önerilen yön yazıldı. Detay ROADMAP_3 maddelerinde açıla
 - **Seçenek B — altıgen ızgara:** Battle Brothers hissi verir, ama köy ızgarasıyla çeviri katmanı gerektirir.
 - **Önerim:** Seçenek A, kare ızgara ve 8 yön. Köy savaşları köy sahnesinde, kapı savaşı küçük sabit bir kapı arenasında yapılır. Yeni harita üretilmez, mevcut sahne kullanılır.
 - Hücre özellikleri: geçilebilirlik, siper (yok, yarım, tam), yükseklik (zemin, sur), yanıcılık, kapı (sağlamlık).
+- Izgara ve tur döngüsü 20 birim tavanına göre kurulur (K15). Kapı düellosu aynı motoru 2 birimle kullanır.
 
 ### 5.3 Tur yapısı
 
@@ -272,7 +274,7 @@ Her mekanik için önerilen yön yazıldı. Detay ROADMAP_3 maddelerinde açıla
   - **Harami:** Hedef ganimet hücresidir (ambar, ağıl). Zayıf hedefi seçer, moral düşünce kaçar.
   - **Tekfur yayası:** Kapıya ilerler, kalkan duvarını korur, gedik açar.
   - **Atlı okçu:** Mesafe korur, vurup çekilir.
-  - **Köylü milis (dost YZ'si, otomatik çözümde):** Savunur, mevzisini bırakmaz.
+  - **Köylü milis (oyuncu seçmediği dost birimler ve test koşucusu):** Savunur, mevzisini bırakmaz.
   - **Çaresiz tek kişi (kapı):** Kaçış yolu arar, sıkışınca saldırır.
 - **Niyet gösterimi (Into the Breach):** İsteğe bağlı. Düşmanın bir sonraki hedefinin çizgiyle gösterilmesi. Gözcü kulesi ya da keşif eri varsa açılabilir.
 - **Zorluk:** YZ hile yapmaz. Zorluk birim sayısı ve donanımla ayarlanır.
@@ -280,7 +282,7 @@ Her mekanik için önerilen yön yazıldı. Detay ROADMAP_3 maddelerinde açıla
 ### 5.6 Arayüz akışı
 
 1. **Tetik:** Kapıda kavga, gece olayı ya da harita olayı.
-2. **Savaş kararı paneli (M9):** Düşman özeti (gözcüye göre kesin ya da belirsiz), seçenekler, otomatik çözüm tahmini.
+2. **Savaş kararı paneli (M9):** Düşman özeti (gözcüye göre kesin ya da belirsiz) ve seçenekler. Otomatik çöz satırı yoktur (K10). Kapı arbedesinde iki yol vardır: adamlarını gönder, ya da muhafızın kendisi düello yapsın (K11).
 3. **Konuşlanma (M11):** HAR-10 dizilişi gelir. Sınırlı yeniden diziliş yapılabilir.
 4. **Savaş ekranı:**
    - Üstte tur sırası şeridi.
@@ -292,20 +294,35 @@ Her mekanik için önerilen yön yazıldı. Detay ROADMAP_3 maddelerinde açıla
 5. **Savaş sonu özeti:** Kayıplar, yaralılar, esirler, ganimet ve paylaşım kararı.
 6. **Gece raporu ve hafıza defteri** satırları (ayrı sahne yok).
 
-- Tema: Bölüm 43 tema anahtarları. Yeni doku üretilmez. Birimler kutu ve kapsül yer tutucularıyla, isim etiketiyle gösterilir. Assetler envantere yazılır.
+- Tema: Bölüm 43 tema anahtarları. 2B arayüz üretimi serbesttir. Birimler kutu ve kapsül yer tutucularıyla, isim etiketiyle gösterilir.
+- Ses sessiz yer tutucudur (§7A, K16). 3B savaş animasyonları Meshy ile üretilebilir. İkisi de `docs/EKSIK_ASSET_ENVANTERI.md` içine yazılır; 3B kalemler 3B başlığına girer.
 - Erişilebilirlik: Sonuç renkle değil sözcükle yazılır. Okuma puntosu GRV-13'e uyar. Savaş hızı ayarlanabilir.
 
 ### 5.7 Kayıt
 
-- **Önerim:** Savaş ortasında kayıt yok. Savaş başlamadan önce otomatik kayıt alınır. Oyun savaş sırasında kapanırsa savaş başlangıcından devam edilir. Bu, `GuvenliKayit` ve `KAYIT_SURUMU` göç yükünü küçük tutar (Açık soru 7.11).
+- **Karar (§7A, K12):** Savaşın ortasında kayıt yoktur. Savaş başlamadan önce otomatik kayıt alınır. Oyun savaş sırasında kapanırsa savaş başından devam edilir. Bu, `GuvenliKayit` ve `KAYIT_SURUMU` göç yükünü küçük tutar.
 - Savaş sonucu mevcut alanlara yazılır: nüfus, sağlık, `sur_hasar`, kaynaklar, husumet, itibar. Yeni kayıt alanı gerekirse SYS-14 adım göçüyle eklenir.
 
 ### 5.8 Test
 
-- Saf mantık birim testleri: isabet formülü, HP hasarı, 2 eylem kuralı, savaş sonu yara tablosu, moral eşiği, inisiyatif sırası, kazanma ve kaybetme (muhafız düşünce oyun bitmez).
-- Sabit tohumlu senaryo testleri: "3 harami / 2 muhafız" gibi senaryolar `senaryo_kosucusu.gd` ile koşulur.
-- Otomatik çözüm ile eski formüllerin aynı yönde sonuç verdiğini gösteren denge testi.
-- `otomatik_oyuncu.gd` 20 gece koşusunda savaşın otomatik çözümle kilitlenmeden geçtiğinin kontrolü.
+- Saf mantık birim testleri: isabet formülü, HP hasarı, 2 eylem kuralı, savaş sonu yara tablosu, moral eşiği, inisiyatif sırası, 20 birim tavanı, galibiyet ve mağlubiyet tablosu. Muhafızın HP'si 0 olunca sonuç mağlubiyettir ve muhafız hayattadır.
+- Sabit tohumlu senaryo testleri: "3 harami / 2 muhafız" ve "kapı düellosu" `senaryo_kosucusu.gd` ile koşulur.
+- Oyuncuya açık otomatik çözüm testi yazılmaz. `otomatik_oyuncu.gd` 20 geceyi, oyuncu menüsünde olmayan YZ-YZ test koşucusuyla (SVS-19) kilitlenmeden geçer.
+- Eski `savunma_gucu` ve `HusumetBaskini` testleri durur. Yeni bir "otomatik çöz, eski formülle aynı sayı" testi açılmaz.
+
+### 5.9 Galibiyet ve mağlubiyet (§7A, K4)
+
+Muhafız ölmez. HP'si 0 olursa savaş kaybedilmiş sayılır. Kalan dost birimler o turu bitirebilir (çekilme), ama galibiyet yazılmaz ve komuta kimseye devredilmez. Muhafız savaş sonu yara zarının ölüm satırına girmez. Savaştan en kötü ağır yarayla çıkar ve oyuncu aynı muhafızla devam eder. Yerine geçme yolu yoktur.
+
+Değerler veridedir (`data/savas/sonuc_tablosu.json`). İşaretler yön gösterir; sayılar madde yazılırken tabloya konur.
+
+| Sonuç | Tetik | Ganimet | İtibar | Husumet | Yara | Kaynak | Köye etki |
+|---|---|---|---|---|---|---|---|
+| Galibiyet | Düşman bitti (öldü, kaçtı ya da teslim oldu) ve muhafızın HP'si 0'ın üstünde | Düşmandan silah, akçe, at ve esir. Paylaşım terazisi (K13) | Savunulan tarafın grubuna artı | Rakip çete ya da tekfur baskısı artabilir (kan davası) ya da azalır | Düşen dostlara yara zarı. Muhafıza ölüm satırı yok | Ok ve cephane tüketilir | Moral ve Güvenlik artar. Zafer söylentisi yazılır |
+| Mağlubiyet | Dost taraf bozulur, kaçar ya da teslim olur | Ganimet yoktur. Düşman payını alır | Eksi | Artı | Düşen dostlara yara zarı | Ambar, akçe ya da sürü kaybı. Sur ve kapı hasarı | Moral ve Güvenlik düşer. Yenilgi söylentisi. Kapıya kaçanlar gelebilir |
+| Muhafız düşer | Muhafızın HP'si 0 olur | Mağlubiyet satırı | Mağlubiyet satırı | Mağlubiyet satırı | Muhafız ölmez. En kötü sonuç ağır yaradır. Savaştan düşük HP ile çıkar | Mağlubiyet satırı | Savaş kaybedilmiş sayılır. Kalan dostlar çekilir. Galibiyet yazılmaz |
+
+Kapı düellosu aynı tabloyu küçük ölçekte kullanır. Düelloyu kaybetmek kapı kavgasının kin, yara ve dedikodu sonucudur. Muhafız yine ölmez.
 
 ---
 
@@ -313,7 +330,7 @@ Her mekanik için önerilen yön yazıldı. Detay ROADMAP_3 maddelerinde açıla
 
 | ROADMAP_2 / ROADMAP_1 maddesi | Bağlantı |
 |---|---|
-| CAT-01..04 | Kapı arbedesinin tetiği ve sonuç tablosu. "Askerle karşılık" seçeneği oynanır savaşa açılır, eski zar otomatik çözüm olarak kalır. "Beşinci seçenek yok" kuralı korunur: savaş, karşılık seçeneğinin içidir. |
+| CAT-01..04 | Kapı arbedesinin tetiği. "Askerle karşılık" seçeneğinin içinde oyuncu iki yoldan birini seçer: adamlarını gönder, ya da muhafızın kendisi düello yapsın (K11). İkisi de oynanır. Eski tek zar otomatik çözüm olarak kalmaz. "Beşinci seçenek yok" kuralı korunur: bu iki yol, karşılık seçeneğinin içindedir. |
 | ZAR-01..06 | Savaş zarının dili ve kuralları. |
 | CAT-03, KRI-03, KRI-13 | Yara tedavisi, şifahane yatak kapasitesi ve triyaj. |
 | KRI-05, CAT-02 kural 5 | Ölüm → cenaze ve yas (`cenaze_yasi.gd`). |
@@ -340,28 +357,46 @@ Her mekanik için önerilen yön yazıldı. Detay ROADMAP_3 maddelerinde açıla
 
 ---
 
-## 7. Açık sorular (Ahmet / Berk kararı gerekenler)
+## 7. Açık sorular
 
-Numaralar ilk sürümdeki gibi korunur; gövdedeki "Açık soru 7.x" atıfları bu yüzden bozulmaz. 15 Kasım kararlarıyla kapanan sorular listeden çıkarıldı: 2 (dönem → K1), 3 (hamle → K2), 4 (can → K3), 6 (iç kargaşa → K7), 7 (Moğol akını → K5), 8 (kadın ve gençler → K6). Soru 5 kısmen cevaplandı (K4) ve daraltılmış haliyle duruyor.
+Bu bölümdeki soruların tamamı 15 Kasım 2026 akşamı Ahmet tarafından kapatıldı. Kararlar §7A'dadır. Bu listeden açık soru kalmadı.
 
-1. **ID öneki:** ROADMAP_2'de yazılı ama hiç açılmamış CAT-05..84 dizisi mi kullanılsın, yoksa yeni **SVS-** öneki mi? (Önerim: SVS; CAT-01..04 olduğu gibi kalsın.)
-5. **Muhafız düşünce ne olur (sona bırakıldı):** Oyunun bitmeyeceği kesin (K4). Açık kalan şunlar: Muhafız ölebilir mi, yoksa en kötü ihtimalle ağır yaralı mı kalır? Ölürse oyuncu kimle devam eder (eş, oğul, çavuş, yeni muhafız)? Muhafızın kişisel hayatı (Bölüm 36) ve sonlar (SYS-20) buna göre nasıl değişir?
-9. **Okçuluk mini oyunu:** Sur okçusu becerisine bağlansın mı, yoksa ayrı kalsın mı?
-10. **Otomatik çözüm:** Oyuncu her savaşı otomatik çözebilsin mi? Kapı arbedesi her zaman isteğe bağlı oynanır mı olsun?
-11. **Kayıt:** Savaş ortasında kayıt alınsın mı? (Önerim: hayır, savaş öncesi otomatik kayıt.)
-12. **Ganimet paylaşımı:** Paylaşım bir ahlak kararı (adalet / yozlaşma terazisi) olsun mu?
-13. **Esir ve fidye:** Esir yönetimi ROADMAP_3'e mi girsin, yoksa divana mı bırakılsın?
-14. **Ölçek tavanı:** Bir savaşta en fazla kaç birim olsun? Performans hedefi nedir? (Önerim: 20 birim.)
-15. **Ses ve animasyon:** Savaş için hangi asset kalemleri öncelikli? Ses yer tutucusu sessiz kalabilir mi? (Asset kuralı: üretim yok, envanter var.)
-16. **Bölüşüm:** ROADMAP_3'te Antigravity ve Cursor / Berk tarafı bölüşümü ROADMAP_2'deki "baştan / sondan / orta" düzeniyle mi yapılsın?
-17. **Mevcut verideki dönem dışı terimler (K1'den doğdu):** Oyunda zaten duran "Sancak Beyi" (HAR-04, `sancak_asker_talebi`, `sancak_teftisi`) ve CHR_021'deki "levent ocağı" gibi adlar ROADMAP_3 içinde düzeltilsin mi (ör. "uç beyi", "subaşı", "kışla piyadesi"), yoksa yalnız yeni savaş metinlerinde mi dönem terimi kullanılsın? Bu, metinler.csv'ye ve mevcut diyaloglara dokunmak demektir.
-18. **Kadın ve genç ayarının varsayılanı (K6'dan doğdu):** Ayarın varsayılanı açık mı, kapalı mı olsun? Ayar oyun ortasında değiştirilebilsin mi, yoksa yalnız yeni oyunda mı seçilsin? Ayar kapalıyken kuşatmada destek rolleri (ok taşıma, taş atma, yangın söndürme) açık kalsın mı?
+Kapananlar: 7.1 → K8, 7.2 → K1, 7.3 → K2, 7.4 → K3, 7.5 → K4, 7.6 → K7, 7.7 → K5, 7.8 ve 7.18 → K6, 7.9 → K9, 7.10 ve kapı arbedesi → K10 ve K11, 7.11 → K12, 7.12 → K13, 7.13 → K14, 7.14 → K15, 7.15 → K16, 7.16 → K17, 7.17 → K18.
+
+---
+
+## 7A. Kesinleşen kararlar (15 Kas 2026, Ahmet)
+
+K1–K7 öğleden sonraki kararlardır. K8–K18 akşamki kararlardır. Çelişen bir cümle kalırsa bu tablo geçerlidir.
+
+| ID | Kaynak | Karar |
+|---|---|---|
+| K1 | Dönem | 13. yüzyıl Selçuklu ucu, Kösedağ (1243) sonrası. `docs/dunya_kitabi/` geçerlidir. Asset görsel stili bu karardan etkilenmez. |
+| K2 | Hamle | Turda her karakterin 2 eylemi vardır (XCOM tarzı). Aksiyon puanı yoktur. |
+| K3 | Can | Sayısal can (HP). HP 0 "düştü" demektir. Savaş sonunda düşenler için yara ve sakatlık zarı atılır. Muhafız bu zarın ölüm satırına girmez (K4). |
+| K4 | 7.5, eski K4 | Muhafız ölmez. HP'si 0 olursa savaş kaybedilmiş sayılır. Savaş sürebilir, kalan dostlar çekilir, ama galibiyet yazılmaz ve komuta kimseye devredilmez. Muhafız hayatta kalır. Yerine geçme yolu yoktur. Getiri ve götürü §5.9 tablosundadır: ganimet, itibar, husumet, yara, kaynak kaybı, köye etki. |
+| K5 | Moğol | Küçük gruplarla savaşılır. Büyük akın savaş olarak oynanmaz; kaç, saklan, haraç ver ya da elçiyle görüş. |
+| K6 | 7.8, 7.18 | Kadın ve genç katılımı bir ayardır. Varsayılan **açık**tır ve oyun ortasında değiştirilebilir. Çocuklar her durumda savaş dışıdır. |
+| K7 | Kıtlık | Kıtlık ve açlık isyanı şimdilik kapsam dışıdır. Gelecek notu olarak kalır. |
+| K8 | 7.1 | Önek **SVS-** dir. CAT-01..04 olduğu gibi kalır. CAT-05..84 açılmaz. |
+| K9 | 7.9 | Okçuluk mini oyunu (`okculuk_oyunu.gd`) sur okçusu becerisine bağlanır. |
+| K10 | 7.10 | Otomatik çözüm yoktur. Her savaş oynanır. YZ'ye karşı YZ yalnız test koşucusudur ve oyuncuya açık bir seçenek değildir. |
+| K11 | Kapı arbedesi | Oyuncu iki yoldan birini seçer: muhafızın adamlarını gönderir, ya da muhafızın kendisi kapıdaki karakterle sıra tabanlı düello yapar. |
+| K12 | 7.11 | Savaşın ortasında kayıt yoktur. Savaş başlamadan otomatik kayıt alınır. |
+| K13 | 7.12 | Ganimet paylaşımı terazili bir ahlak kararıdır (adalet ve yozlaşma). |
+| K14 | 7.13 | Esir ve fidye ROADMAP_3'e girer. |
+| K15 | 7.14 | Bir savaşta en fazla 20 birim olur. |
+| K16 | 7.15 | Ses için sessiz yer tutucu kullanılır. Savaş asset'leri envantere yazılır. 3B savaş animasyonları Meshy ile üretilebilir ve envanterde 3B başlığına yazılır. |
+| K17 | 7.16 | Bölüşüm ROADMAP_2'deki gibi baştan ve sondan yapılır. Her maddenin sahip alanı "baştan" ya da "sondan" olur. |
+| K18 | 7.17 | Eski metinlere ve diyaloglara dokunulmaz. Dönem terimi (uç beyi, subaşı, alp, gazi) yalnız yeni savaş metinlerinde kullanılır. |
 
 ---
 
 ## 8. ROADMAP_3 için önerilen madde başlıkları
 
-Henüz detaysızdır. ID önerisi **SVS-xx**. Sıra, önerilen uygulama sırasıdır. Bağımlılıklar parantez içinde verildi.
+Henüz detaysızdır. Önek **SVS-** olarak kesinleşti (K8). Sıra, önerilen uygulama sırasıdır. Bağımlılıklar parantez içinde verildi.
+
+**Bölüşüm (K17):** ROADMAP_2'deki gibi baştan ve sondan. Antigravity listenin başından (A grubu) ileri gider. Berk tarafı listenin sonundan (G ve H) geri gelir. Her maddede sahip alanı "baştan" ya da "sondan" yazılır. Ayrı bir orta bölge açılmaz.
 
 ### A. Temel ve veri
 
@@ -375,7 +410,7 @@ Henüz detaysızdır. ID önerisi **SVS-xx**. Sıra, önerilen uygulama sırası
 ### B. Motor çekirdeği
 
 - **SVS-07:** Savaş durumu nesnesi ve deterministik RNG (saf mantık, sahnesiz).
-- **SVS-08:** Savaş ızgarası: köy A* hücrelerinden savaş haritası, siper ve yükseklik (SVS-07).
+- **SVS-08:** Savaş ızgarası: köy A* hücrelerinden savaş haritası, siper ve yükseklik. Bir savaşta en fazla 20 birim (K15) (SVS-07).
 - **SVS-09:** Kapı arenası haritası (küçük sabit ızgara) (SVS-08).
 - **SVS-10:** İnisiyatif ve tur sırası (SVS-07).
 - **SVS-11:** Eylem modeli: turda karakter başına 2 eylem (XCOM tarzı); ağır eylemler iki eylemi harcar (K2) (SVS-10).
@@ -385,8 +420,8 @@ Henüz detaysızdır. ID önerisi **SVS-xx**. Sıra, önerilen uygulama sırası
 - **SVS-15:** Moral basamakları ve bozgun (SVS-13).
 - **SVS-16:** Yorgunluk ve nöbet yorgunluğundan devralma (SVS-11).
 - **SVS-17:** Nöbet tutma / karşılama saldırısı (SVS-12).
-- **SVS-18:** Kazanma, kaybetme, geri çekilme ve teslim koşulları; muhafız düşünce savaş ve oyun sürer, komuta çavuşa geçer (K4) (SVS-15).
-- **SVS-19:** Otomatik çözüm: aynı motorda YZ'ye karşı YZ, eski formüllerle denge testi (SVS-18, SVS-20).
+- **SVS-18:** Kazanma, kaybetme, geri çekilme ve teslim. Muhafız ölmez. HP'si 0 olursa savaş kaybedilmiş sayılır; kalan dostlar çekilebilir, galibiyet yazılmaz, komuta kimseye devredilmez. Sonuç §5.9 tablosundan gelir (K4) (SVS-15).
+- **SVS-19:** Yalnız test amaçlı YZ-YZ koşucusu. Oyuncu menüsünde yoktur ve otomatik çözüm değildir (K10). `otomatik_oyuncu` bu koşucuyu kullanır. Eski formüllerle "aynı sayıyı ver" testi yazılmaz (SVS-18, SVS-20).
 
 ### C. Yapay zekâ
 
@@ -396,21 +431,21 @@ Henüz detaysızdır. ID önerisi **SVS-xx**. Sıra, önerilen uygulama sırası
 
 ### D. Savaş türleri
 
-- **SVS-23:** Kapı arbedesi: CAT-02 "askerle karşılık" seçeneğinden oynanır savaşa geçiş (SVS-09, SVS-19).
-- **SVS-24:** Gece baskını: husumet ve CAS-08 baskınının oynanır sürümü (SVS-19).
-- **SVS-25:** Kapı ve sur kuşatması: tekfur baskınının çok aşamalı savunması (SVS-19).
+- **SVS-23:** Kapı arbedesi (K11): oyuncu ya muhafızın adamlarını gönderir ya da muhafızın kendisi kapıdaki karakterle düello yapar. İkisi de oynanır. Otomatik zar çözümü yoktur (SVS-09, CAT-02).
+- **SVS-24:** Gece baskını: husumet ve CAS-08 baskınının oynanır sürümü (SVS-18).
+- **SVS-25:** Kapı ve sur kuşatması: tekfur baskınının çok aşamalı savunması (SVS-18).
 - **SVS-26:** Kapı ve sur hasarı, yangın, onarım (SVS-25).
-- **SVS-27:** Moğol tehdidi (K5): küçük öncü / keşif grubuyla sıra tabanlı savaş; büyük akın kolu savaşsız karar düğümü (kaç, saklan, haraç ver, elçiyle görüş) (HAR-02, DNY-01, SVS-19).
+- **SVS-27:** Moğol tehdidi (K5): küçük öncü / keşif grubuyla sıra tabanlı savaş; büyük akın kolu savaşsız karar düğümü (kaç, saklan, haraç ver, elçiyle görüş) (HAR-02, DNY-01, SVS-18).
 - **SVS-28:** Dış sefer / pusu temizliği (HAR-05, HAR-14).
 - **SVS-29:** Kervan koruma savaşı (`kervan_korumasi`).
 - **SVS-30:** Müttefik takviyesi: Türkmen obası ve uç beyi / subaşı askeri (HAR-04, HAR-07, K1).
 
 ### E. Savaş öncesi ve sonrası
 
-- **SVS-31:** Savaş kararı paneli: savaş, pazarlık, rüşvet, kapat, kaç, otomatik çöz.
+- **SVS-31:** Savaş kararı paneli: savaş, pazarlık, rüşvet, kapat, kaç. Otomatik çöz satırı yoktur (K10). Kapıda iki yol: adamlarını gönder, düello (K11).
 - **SVS-32:** Konuşlanma ekranı: HAR-10 dizilişinden başlangıç (HAR-10).
-- **SVS-33:** Ganimet ve paylaşım kararı (karar 7.12).
-- **SVS-34:** Esir, teslim ve fidye; divana devir (karar 7.13).
+- **SVS-33:** Ganimet paylaşımı, terazili ahlak kararı: adalet ve yozlaşma (K13).
+- **SVS-34:** Esir ve fidye ROADMAP_3 içindedir: yakalama, tutma, fidye, salıverme. Divan hükmü bu akışın parçasıdır, işin tamamı divana bırakılmaz (K14).
 - **SVS-35:** Savaş sonrası tedavi: SVS-14 sonuçlarının şifahane akışına bağlanması, HP'den köylü sağlığına aktarım, kalıcı sakatlığın iş gücüne etkisi (CAT-03, KRI-13, SVS-14).
 - **SVS-36:** Ölüm sonrası: hane, eş, yetim, miras ve cenaze zinciri (KRI-05, KAP-18).
 - **SVS-37:** Köye etki: moral, Güvenlik, husumet, grup itibarı.
@@ -426,20 +461,21 @@ Henüz detaysızdır. ID önerisi **SVS-xx**. Sıra, önerilen uygulama sırası
 - **SVS-44:** Savaş sonu özet paneli.
 - **SVS-45:** Savaş girdileri: klavye, fare ve gamepad eylemleri (Bölüm 45).
 - **SVS-46:** Savaş metin anahtarları TR/EN (Bölüm 46).
-- **SVS-47:** Yer tutucu birim görselleri (kutu + isim etiketi) ve savaş asset envanteri.
+- **SVS-47:** Yer tutucu birimler (kutu + isim etiketi). Ses sessiz yer tutucudur. 3B savaş animasyonları Meshy ile üretilebilir. Hepsi envantere yazılır; 3B kalemler 3B başlığındadır (K16).
 
 ### G. Kayıt, denge ve kapanış
 
-- **SVS-48:** Savaş öncesi otomatik kayıt ve kayıt göçü (karar 7.11).
+- **SVS-48:** Savaş başlamadan otomatik kayıt. Savaş ortasında kayıt yoktur (K12). Kayıt göçü SYS-14 adımıyla.
 - **SVS-49:** Denge tabloları ve ölçüm koşusu (senaryo koşucusu ile).
-- **SVS-50:** `otomatik_oyuncu` savaş kipi ve 20 gece duman testi.
+- **SVS-50:** `otomatik_oyuncu` 20 gece duman testi. Savaşlar SVS-19 test koşucusuyla geçer. Oyuncuya açık bir atlama seçeneği eklenmez (K10).
 - **SVS-51:** Perde ve son bağlantıları: 2. perde savunması, tekfur sonu (SYS-19, SYS-20).
 - **SVS-52:** ROADMAP_3 kapanış testi.
 
 ### H. Kararlardan doğan ek madde
 
-- **SVS-53:** Savaşa katılım ayarı (K6): kadınlar ve gençler savaşa katılabilir mi, oyuncu seçer; yeni oyun seçeneği ve ayarlar paneli (Bölüm 35); çocuklar her durumda savaş dışıdır. Uygulama sırası A grubunda, SVS-03'ten öncedir (Açık soru 7.18).
+- **SVS-53:** Savaşa katılım ayarı (K6): kadınlar ve gençler. Varsayılan açık, oyun ortasında değiştirilebilir. Çocuklar her durumda savaş dışıdır. Yeni oyun seçeneği ve ayarlar paneli (Bölüm 35). Uygulama sırası A grubunda, SVS-03'ten öncedir.
+- **SVS-54:** Okçuluk mini oyunu sur okçusu becerisine bağlanır (`okculuk_oyunu.gd`, HAR-10 `sur` rolü) (K9).
 
-**Toplam: 53 madde başlığı (SVS-01 … SVS-53).**
+**Toplam: 54 madde başlığı (SVS-01 … SVS-54).**
 
 **Kapsam dışı (K7, gelecek notu):** Kıtlık / açlık isyanı ve ambar yağması için SVS maddesi açılmaz.

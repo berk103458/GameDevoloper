@@ -238,3 +238,8 @@ kota görünmüyor
 - Kod yazılmadı, ROADMAP_2'ye dokunulmadı, ROADMAP_3 dosyası açılmadı. Asset gerekmedi.
 - Dikkat: dünya kitabı oyunu 1243 sonrasına (13. yy Selçuklu ucu) koyuyor, istekte 14. yy Osmanlı uç beyliği yazıyor. Karar açık soru 7.2'de.
 - kota görünmüyor
+
+## ROADMAP_3 kararları ve Argon görev promptu (15 Kasım 2026, akşam)
+- `docs/ROADMAP_3_SAVAS_ON_RAPOR.md`: §7 kapatıldı, §7A kesinleşen kararlar tablosu (K1–K18) eklendi, §5.9 galibiyet/mağlubiyet tablosu yazıldı, §5 ve §8 kararlara çekildi. SVS-19 test koşucusuna döndü, SVS-54 okçuluk bağı eklendi. Toplam 54 madde. Kod yok.
+- `codex.md/Antigravity_gorev.md` sonuna Görev 27 eklendi: Argon yalnız `ROADMAP_3.md` yazar. Mevcut bölümlere dokunulmadı.
+- kota görünmüyor
