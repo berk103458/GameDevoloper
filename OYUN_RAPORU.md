@@ -3299,3 +3299,6 @@ Pazar satış/fiyat/kaydırma dosyalarının mevcut tema bağları hedefli headl
 
 ## 15 Kasım 2026 — GRV-14 (Codex-Berk)
 Tema kullanan gerçek köylü kartındaki güvenlik satırı iki çözünürlükte görünür, modelle aynı, kaydırma dışında ve tema fontundadır. Yeni hedefli headless test exit0, negatif mutasyon exit1. Üretim kodu değişmedi; asset gerekmedi.
+
+## 15 Kasım 2026 — GRV-17 (Codex-Berk)
+Ortak odak stili AYR odak_cercevesi normal/kalın/normal geçişinde 1/3/1 kalınlık verir; iki düğme aynı kaynak ve metin rengini kullanır. Hedefli test exit0, bozuk kalınlık mutasyonu exit1. Üretim kodu değişmedi; asset gerekmedi.

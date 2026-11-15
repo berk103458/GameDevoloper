@@ -7262,7 +7262,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-01. Boyut: S.
   - Dosya: `menu_satiri.gd`.
   - Asset: asset gerekmedi.
-- [/] **GRV-17:** (Codex-Berk) Odak çerçevesi AYR ile aynı anahtardır.
+- [x] **GRV-17:** (Codex-Berk) Odak çerçevesi AYR ile aynı anahtardır.
   - Ne: klavye odağı kalınlığı AYR `odak_cercevesi` değeridir. Burada ikinci çerçeve rengi yok.
   - Kabul: tema odak stili 1. Test: AYR ile ortak.
   - Bağımlılık: AYR. Boyut: S.
