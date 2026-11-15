@@ -251,3 +251,15 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` → `CHR KAPI UI: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+### Madde 15 — `AYR-22` (`TAM`)
+- **Değişiklikler:**
+  - `src/arayuz/ana.gd`: `_ready()` içinde `_odak_sesini_kur()` ile `OdakSesi` (`"OdakSesi"`) düğümü bağlandı ve `_notification` içinde `NOTIFICATION_APPLICATION_FOCUS_OUT` / `WM_WINDOW_FOCUS_OUT` / `IN` bildirimleri `OdakSesi`'ne iletildi.
+  - `tests/oto/ayarlar_kontrol.gd`: Gerçek `Ana` örneği üzerinde `OdakSesi` çocuğu ve `NOTIFICATION_APPLICATION_FOCUS_OUT` / `IN` ile `ses_ana` kısılma ve geri dönüşü doğrulandı.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `AYR-22` → `[x]` `TAM`.
+- **Hedefli test çıktıları:**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/ayarlar_ek_test.gd` → `AYARLAR EK: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/ayarlar_kontrol.tscn` → `AYARLAR KONTROL: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

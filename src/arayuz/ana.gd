@@ -30,6 +30,7 @@ func _ready() -> void:
 	DilAyari.uygula(ayarlar)
 	_eylemleri_kur()
 	ayarlar.uygula()
+	_odak_sesini_kur()
 	var giris_kaynaklari := await VarlikYuklemePaneli.hazirla(self, GirisVarliklari.menu())
 	ayarlar.degisti.connect(func(_a: StringName) -> void:
 		theme = Tema.olustur(ayarlar)
@@ -347,6 +348,23 @@ func _imleci_kur() -> void:
 	if t != null:
 		Input.set_custom_mouse_cursor(t, Input.CURSOR_ARROW)
 		Input.set_custom_mouse_cursor(t, Input.CURSOR_POINTING_HAND)
+
+
+func _odak_sesini_kur() -> void:
+	var mevcut := get_node_or_null("OdakSesi") as OdakSesi
+	if mevcut != null:
+		mevcut.ayarlar = ayarlar
+		return
+	var odak := OdakSesi.new(ayarlar)
+	odak.name = "OdakSesi"
+	add_child(odak)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_WM_WINDOW_FOCUS_OUT or what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_WM_WINDOW_FOCUS_IN:
+		var odak := get_node_or_null("OdakSesi") as OdakSesi
+		if odak != null:
+			odak._notification(what)
 
 
 ## Girdi eylemleri (GIR-04). Gezinme ve onay Godot'un ui_* eylemleridir; atama girdi bölümündedir.

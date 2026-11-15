@@ -50,6 +50,17 @@ func _ready() -> void:
 		_kontrol(yuvalar.yaz(n, {"surum": Oturum.KAYIT_SURUMU, "gun": n, "nufus": n + 3, "perde": 1}), "yuva yazılır %d" % n)
 		var okunan := yuvalar.oku(n)
 		_kontrol(int(okunan.get("gun", -1)) == n, "yuva okunur %d" % n)
+	var ana_ornek: Ana = preload("res://src/arayuz/ana.gd").new()
+	ana_ornek.ayarlar = a
+	ana_ornek._odak_sesini_kur()
+	var odak_dugum := ana_ornek.get_node_or_null("OdakSesi") as OdakSesi
+	_kontrol(odak_dugum != null, "AYR-22: Ana sahnesinde OdakSesi çocuğu kurulmalı")
+	a.ayarla(&"ses_ana", 8)
+	ana_ornek._notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	_kontrol(int(a.al(&"ses_ana")) == 0, "AYR-22: Ana odak kaybedince ses_ana 0 olur")
+	ana_ornek._notification(Node.NOTIFICATION_APPLICATION_FOCUS_IN)
+	_kontrol(int(a.al(&"ses_ana")) == 8, "AYR-22: Ana odak dönünce ses_ana eski değere döner")
+	ana_ornek.free()
 	_temizle()
 	print("AYARLAR KONTROL: %s (%d hata)" % ["GEÇTİ" if hata == 0 else "KALDI", hata])
 	get_tree().quit(hata)
