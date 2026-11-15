@@ -4135,7 +4135,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-37, YAZ-03. Boyut: S.
   - Dosya: `data/metin/metinler.csv`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-39:** Eş ilk akşam sohbetinde bir şey öğretir.
+- [/] **OGR-39:** (Cursor-Berk) Eş ilk akşam sohbetinde bir şey öğretir.
   - Ne: ACL-03 / DYL-07 akşam sohbetinin ilk gecesinde eş, gün içinde kullanılmayan bir aracı tek cümleyle anar (heybe, beyan). Bu Söz motorunda bir bağlam sorgusu dalıdır (DIY-09).
   - Kabul: dal yalnız ilk üç gecede ve araç kullanılmadıysa açılır. Test: aracı kullanan kayıtta dal 0.
   - Bağımlılık: DYL-07, DIY-09. Boyut: S.
