@@ -24,6 +24,7 @@
   "kriz_aralik.alt": {"alt": 0, "ust": 140, "not": "DEN-57: 28 gecede toplam yeni kriz sayisinin alt siniri."},
   "kriz_aralik.ust": {"alt": 0, "ust": 140, "not": "DEN-57: bes mevcut kriz turu icin gece basina tek yeni donem, 28 gecelik sayim tavani."},
   "kriz_dalga_carpani": {"alt": 1.0, "ust": 3.0, "not": "OMR-41: Perde 2 dalga 2 KRI kriz tetik olasiligi carpani."},
+  "pazar_soylenti_carpani": {"alt": 1.0, "ust": 2.0, "not": "SOY-36: kervan gelmeyecek soylentisi kamuoyu olunca bir gunluk pazar fiyat carpani."},
   "nitelikli_gecici_is_orani": {"alt": 1.1, "ust": 5.0, "not": "DEN-36: Atolyeli kumascinin gecelik ciktisinin ayni kisinin gecici is ciktisina taban orani."},
   "kriz_aralik_zorluk.kolay.alt": {"alt": 0, "ust": 140, "not": "DEN-70: Kolay zorluk kriz alt siniri."},
   "kriz_aralik_zorluk.kolay.ust": {"alt": 0, "ust": 140, "not": "DEN-70: Kolay zorluk kriz ust siniri."},

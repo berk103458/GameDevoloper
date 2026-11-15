@@ -334,7 +334,7 @@ func pazar_soylenti_aktif_mi(guncel_gun: int) -> bool:
 			continue
 		if str(k.get("tur", "")) != pazar_tur:
 			continue
-		var baslangic := int(k.get("kamuoyu_gecesi", guncel_gun))
+		var baslangic := int(k.get("etki_gunu", k.get("kamuoyu_gecesi", guncel_gun)))
 		var yas := guncel_gun - baslangic
 		if yas >= 0 and yas < omur:
 			return true
@@ -352,7 +352,7 @@ func goc_gelen_farki(guncel_gun: int) -> int:
 			continue
 		if str(k.get("tur", "")) != goc_tur:
 			continue
-		var baslangic := int(k.get("kamuoyu_gecesi", guncel_gun))
+		var baslangic := int(k.get("etki_gunu", k.get("kamuoyu_gecesi", guncel_gun)))
 		var yas := guncel_gun - baslangic
 		var sure := dogru_sure if bool(k.get("dogru", true)) else yanlis_sure
 		if yas >= 0 and yas < sure:

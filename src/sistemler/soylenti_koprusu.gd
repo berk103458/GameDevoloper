@@ -137,6 +137,8 @@ static func gece(o: Object, r: Dictionary) -> void:
 	for id in a.ag_kayitlari:
 		var k: Dictionary = a.ag_kayitlari[id]
 		if bool(k.get("kamuoyu_oldu", false)) and not onceki_kamuoyu.has(id):
+			if int(y.gun) > int(o.gun):
+				k["etki_gunu"] = int(y.gun)
 			var satir := String(kaliplar.get(String(k.get("tur", "")), ""))
 			if not satir.is_empty():
 				r.olaylar.append({"anahtar": "Köy bunu konuşuyor: %s", "deger": [satir], "soylenti": id})

@@ -44,6 +44,7 @@
   "fiyat_carpani": {
     "kaynak": "res://data/ticaret_fiyatlari.json"
   },
+  "pazar_soylenti_carpani": 1.1,
   "zar_esigi": {
     "kaynak": "res://data/chr_runtime/sorgu_kurallari.tres",
     "zar_gergin_alt": 4,

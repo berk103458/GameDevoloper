@@ -2,9 +2,17 @@
 class_name TicaretFiyatlari
 extends RefCounted
 static var AYAR: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/ticaret_fiyatlari.json"))
-## Kış kıtlığı/yaz bolluğu yalnız yakacak ve erzak türlerine uygulanır.
+static var DENGE: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/ayarlar/denge.json"))
+## SOY-36: "kervan gelmeyecek" kamuoyu çarpanı bir gün uygulanır (sayı denge.json'dan).
+static func soylenti_carpani(y: KoyYonetimi) -> float:
+ if y == null or not y.has_meta(SoylentiKoprusu.META): return 1.0
+ var ag: Variant = y.get_meta(SoylentiKoprusu.META)
+ if ag == null or not ag.has_method("pazar_soylenti_aktif_mi") or not bool(ag.pazar_soylenti_aktif_mi(y.gun)): return 1.0
+ return float(DENGE["pazar_soylenti_carpani"])
+## Kış kıtlığı/yaz bolluğu yalnız yakacak ve erzak türlerine uygulanır; dış kervan söylentisi pazar çarpanını artırır.
 static func carpan(y: KoyYonetimi, tur: String) -> float:
- return float(AYAR.mevsim_carpani[y.mevsim()]) if tur in AYAR.urunler else 1.0
+ var temel: float = float(AYAR.mevsim_carpani[y.mevsim()]) if tur in AYAR.urunler else 1.0
+ return temel * soylenti_carpani(y)
 ## Genel veya uzman alışın aynı birim bedeli; mevcut Tekfur farkı korunur.
 static func al_birim(y: KoyYonetimi, tur: String) -> float:
  var u: Dictionary = GezginTuccarStogu.urunler(y).get(tur, {})

@@ -1466,3 +1466,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `kan_davasi_test.gd` (`KAN DAVASI: GEÇTİ`), `soylenti_ayar_tarama_test.gd` (`SÖYLENTİ AYAR TARAMA: GEÇTİ`), `soylenti_koprusu_test.gd` (`SÖYLENTİ KÖPRÜSÜ: GEÇTİ`), `soylenti_agi_test.gd` (`PASS`), `koy_yonetimi_test.gd` (`KOY YONETIMI TEST: GEÇTİ (0 hata)`) — hepsi RC=0, 0 SCRIPT ERROR.
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor
+
+### 2026-11-15 — SOY-36 Tamamlandı (Antigravity-Berk)
+- **Kapsam:** `data/ayarlar/denge.json` ve `data/ayarlar/denge_sinirlari.json` (`pazar_soylenti_carpani`: 1.1, aralık 1.0..2.0), `src/koy/ticaret/ticaret_fiyatlari.gd` (`soylenti_carpani`, `DENGE`), `src/sistemler/soylenti_koprusu.gd` ve `src/sistemler/soylenti_agi.gd` (`etki_gunu` ile `Oturum.gece_sonu()` gün sırası hizası), `tests/unit/kvr/ticaret_fiyatlari_test.gd`.
+- **Doğrulama:** `ticaret_fiyatlari_test.gd` (`TİCARET FİYATLARI: GEÇTİ`), `fiyat_test.gd` (`FİYAT ÖLÇÜMÜ: GEÇTİ`), `soylenti_ayar_tarama_test.gd` (`SÖYLENTİ AYAR TARAMA: GEÇTİ`), `tests/oto/ticaret_fiyat_kontrol.tscn` (RC=0, 0 SCRIPT ERROR), `tools/denge_dogrula.py` (`Denge dogrulama: GECTI`).
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor

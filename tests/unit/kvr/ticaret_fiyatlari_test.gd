@@ -35,6 +35,24 @@ func _initialize() -> void:
  dene(TicaretFiyatlari.al_birim(y, "gida") == 1.5, "Mevcut admin mevsim önayarı ortak fiyat yoluna yansır")
  y.husumet.tekfura_gecenler.append("demirci")
  dene(TicaretFiyatlari.al_birim(y, "alet") == 7.5, "Mevcut Tekfur alet ek fiyatı korunur")
+ # SOY-36: "kervan_gelmeyecek" kamuoyu olunca pazar fiyat çarpanı bir gün +%10; ertesi gün düzelir.
+ var so := Oturum.new(kat, 9136)
+ var sy := so.yonetim
+ sy.kaynaklar = Kaynaklar.new(10000, {"gida": 2000, "odun": 200})
+ sy.gun = 1
+ so.gun = 1
+ for i in 6:
+  sy.kabul({"sinif": "ciftci"})
+ var s_ag := SoylentiKoprusu.ag(so) as SoylentiAgi
+ var s_ek := s_ag.soylenti_ekle("kervan_9136", "kervan_gelmeyecek", str(sy.koylular[0].id), false, {"gece": sy.gun})
+ dene(bool(s_ek.get("olur", false)), "Kervan söylentisi ağa girer")
+ so.gece_sonu()
+ dene(bool(s_ag.ag_kayitlari["kervan_9136"].get("kamuoyu_oldu", false)), "Kervan söylentisi gerçek gece_sonu ile kamuoyu olur")
+ dene(is_equal_approx(TicaretFiyatlari.carpan(sy, "gida"), 1.1) and is_equal_approx(TicaretFiyatlari.al_birim(sy, "gida"), 0.55), "SOY-36: kamuoyu gününde pazar çarpanı +10%")
+ var so_geri := Oturum.kayittan(kat, JSON.parse_string(JSON.stringify(so.kaydet())))
+ dene(is_equal_approx(TicaretFiyatlari.carpan(so_geri.yonetim, "gida"), 1.1), "SOY-36: pazar çarpanı kayıttan korunur")
+ so.gece_sonu()
+ dene(is_equal_approx(TicaretFiyatlari.carpan(sy, "gida"), 1.0) and is_equal_approx(TicaretFiyatlari.al_birim(sy, "gida"), 0.5), "SOY-36: yanlış söylenti ertesi gün düzelir")
  print("TİCARET FİYATLARI: GEÇTİ" if hata == 0 else "TİCARET FİYATLARI: KALDI")
  quit(hata)
 func dene(v: bool, ad: String) -> void:

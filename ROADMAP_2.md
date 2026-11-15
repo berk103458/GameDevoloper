@@ -5628,7 +5628,7 @@ Kimlikler SOY-01 … SOY-50. Kalp puanı, romans, seslendirme yok. Asset üretil
   - Bağımlılık: SOY-05. Boyut: S.
   - Dosya: husumet okuyucusuna tek satır.
   - Asset: asset gerekmedi.
-- [/] **SOY-36:** Pazar fiyatı söylentiye tepki verir (`ticaret_fiyatlari.gd`). (doğrulanmadı — Görev 22; SoylentiAgi oyunda hiçbir sahne/betikten kurulmuyor ve kayda yazılmıyor, yalnız testten çağrılıyor) (Antigravity-Berk)
+- [x] **SOY-36:** Pazar fiyatı söylentiye tepki verir (`ticaret_fiyatlari.gd`). (Antigravity-Berk: `denge.json` ve `denge_sinirlari.json`a `pazar_soylenti_carpani` eklendi; `TicaretFiyatlari.soylenti_carpani(y)` ile `pazar_soylenti_aktif_mi` ertesi gece `etki_gunu` üzerinden gerçek `Oturum.gece_sonu()` ile bağlandı; `ticaret_fiyatlari_test.gd`, `fiyat_test.gd`, `soylenti_ayar_tarama_test.gd`, `ticaret_fiyat_kontrol.tscn` ve `denge_dogrula.py` geçti)
   - Ne: "kervan gelmeyecek" türü dış söylenti kamuoyu olunca pazar fiyat çarpanı bir gün +%10 (öneri); yanlışsa ertesi gün düzelir. Fiyat motoru değişmez.
   - Kabul: çarpan bir gün; DEN tablosunda. Test: birim.
   - Bağımlılık: SOY-12, DEN-01. Boyut: S.
