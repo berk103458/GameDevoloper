@@ -6,7 +6,6 @@ static func ekle(e: DivanEkrani,v: VBoxContainer,id: int,clue: String,kaynak: Di
  var p:=PanelContainer.new()
  p.name="kanit_"+clue
  p.set_meta("clue",clue)
- p.add_theme_stylebox_override("panel",Kabuk.panel())
  v.add_child(p)
  var n:=VBoxContainer.new()
  n.add_theme_constant_override("separation",8)

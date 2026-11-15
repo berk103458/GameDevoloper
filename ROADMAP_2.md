@@ -7540,7 +7540,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/kapi/divan_haksizlik_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-54:** (Codex-Berk) `divan_kanit_karti.gd` temaya bağlanır.
+- [x] **GRV-54:** (Codex-Berk) `divan_kanit_karti.gd` temaya bağlanır.
   - Ne: `src/kapi/divan_kanit_karti.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Kanıt kartı düz düğme. Tema bağlanınca yalnız `divan_kanit_karti.gd` ARY-02 zeminini ve düğme durumunu okur, Kanıt kartı düz düğme davranışı değişmez.
   - Kabul: `divan_kanit_karti.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `divan_kanit_karti.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
