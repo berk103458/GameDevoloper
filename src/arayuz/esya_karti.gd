@@ -18,9 +18,7 @@ func _ready() -> void:
 	custom_minimum_size = BOYUT
 	size = BOYUT
 	focus_mode = Control.FOCUS_ALL
-	var bos := StyleBoxEmpty.new()
-	for s in ["normal", "hover", "pressed", "hover_pressed", "focus", "disabled"]:
-		add_theme_stylebox_override(s, bos)
+	flat = true
 	text = ""
 	tooltip_text = ad
 	focus_entered.connect(queue_redraw)
@@ -57,9 +55,12 @@ func _draw() -> void:
 	var alinan := int(esya["alinan"])
 	draw_rect(r, Kabuk.zemin())
 	var kenar := Renkler.MESALE if gizli else Renkler.KUL
-	draw_rect(r.grow(-1), Color(kenar, 1.0 if has_focus() else 0.55), false, 4.0 if has_focus() else 2.0)
+	kenar.a = 1.0 if has_focus() else 0.55
+	draw_rect(r.grow(-1), kenar, false, 4.0 if has_focus() else 2.0)
 	if alinan > 0:
-		draw_rect(r.grow(-6), Color(MenuSatiri.ALTIN, 0.8), false, 1.5)
+		var secim := Kabuk.vurgu()
+		secim.a = 0.8
+		draw_rect(r.grow(-6), secim, false, 1.5)
 	EsyaSimgesi.ciz(self, String(esya["id"]), Vector2(size.x / 2.0, 62), 38.0, int(esya["adet"]))
 	if font_ == null:
 		return

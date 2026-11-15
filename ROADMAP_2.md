@@ -7394,7 +7394,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/grafik_ayarlari_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-34:** (Codex-Berk) `esya_karti.gd` temaya bağlanır.
+- [x] **GRV-34:** (Codex-Berk) `esya_karti.gd` temaya bağlanır.
   - Ne: `src/arayuz/esya_karti.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Eşya kartı zeminsiz. Tema bağlanınca yalnız `esya_karti.gd` ARY-02 zeminini ve düğme durumunu okur, Eşya kartı zeminsiz davranışı değişmez.
   - Kabul: `esya_karti.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `esya_karti.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
