@@ -170,3 +170,10 @@ Ayrıntı: `codex.md/Cursor_ilerleme_23.md`.
 - Asset gerekmedi. Windows kopyaları bu ortamda yok; eşitlendi denmez.
 
 kota görünmüyor
+
+## Sahipsiz madde turu (Ahmet, 15 Kasım 2026)
+- Kapatılanlar: KLT-25 (24cb0c53), KLT-46 (4711563f), AYR-11 (9f4beac6), AYR-41 (b8951ba4). Hepsinde hedefli test ve mutasyon kanıtı var.
+- Bırakılanlar: KLT-47/14 (DYL-14 Antigravity), KLT-50/13 (YAZ-10 inceleme modu yok), KLT-18/57 (docs/tester, testx/Claude), OGR-43/57 ve OMR-55 (Antigravity OGR-33/OMR-17 bağımlılığı), GRV temaya bağlama (ARY-01/02 kararı), DEN-37/38 ve OGR-23/OMR-33 (testx ACL-02/KAP-16), YIL-09 (SEV-06 maskesi yok).
+- Asset gerekmedi. Tam sanity koşulmadı.
+
+kota görünmüyor
