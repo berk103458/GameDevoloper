@@ -136,7 +136,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | OMR-11 | İlk saat | `[x]` | `src/sistemler/ilk_saat.gd` | Aynı bağ | — | TAM | — |
 | OMR-13 | Son göstergeleri | `[x]` | `src/arayuz/oda_gidisat_paneli.gd` | `muhafiz_odasi_ekrani.gd:60` çağırıyor, perde 2'de altı satır | — | TAM | — |
 | OMR-14 | Gidişat cümlesi | `[x]` | `src/arayuz/oda_gidisat_paneli.gd` | Aynı panel, dalga 2'den itibaren | — | TAM | — |
-| OMR-17 | Son kayda yazılır | `[x]` | `src/sistemler/son_kaydi.gd` | Sınıf eksiksiz: `kayda_yaz`, `kayittan_oku` | Oyunda hiçbir betik `SonKaydi` çağırmıyor; epilog kayda girmiyor | SAHTE-BAĞSIZ | `nihai_son.son_metni` dönüşünü `Oturum.kaydet` içine `SonKaydi.kayda_son_ekle` ile bağla |
+| OMR-17 | Son kayda yazılır | `[x]` | `src/sistemler/son_kaydi.gd`, `src/sistemler/oturum.gd`, `src/arayuz/ana.gd`, `src/sistemler/hafiza_defteri.gd` | `SonKaydi` hem `Oturum` (`kaydet`/`kayittan`) hem `Ana._son_goster` hem Bölüm 39 `HafizaDefteri` ile bağlı | — | TAM | `Oturum.son_kaydi` + `Ana._son_goster` `son_verisi_isle`/`SonKaydi.kayda_son_ekle` + `HafizaDefteri.son_kaydi_oku` |
 | OMR-19 | Dış hat kapısı | `[x]` | `src/sistemler/dis_hat_kapisi.gd` | `koy_yonetimi.gd`, `haberci_agi.gd`, `sancak_asker_talebi.gd` çağırıyor | — | TAM | — |
 | OMR-20 | Dış hat | `[x]` | `src/sistemler/dis_hat_kapisi.gd` | Aynı bağ | — | TAM | — |
 | OMR-23 | Dış hat | `[x]` | `src/sistemler/dis_hat_kapisi.gd` | Aynı bağ | — | TAM | — |

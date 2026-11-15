@@ -274,7 +274,37 @@ func _not_sayfasi(kaynak: Dictionary) -> Array:
 			"kisi": "",
 			"govde_anahtari": oyuncu_yuzu(kimlik),
 		})
+	var son_veri := son_kaydi_oku(kaynak)
+	var nihai := String(son_veri.get("nihai", "")).strip_edges()
+	if not nihai.is_empty():
+		var son_soz := _sozluk(kaynak, "son")
+		var baslik := String(son_soz.get("baslik", nihai)).strip_edges()
+		if baslik.is_empty():
+			baslik = nihai
+		var epilog := String(son_veri.get("epilog", ""))
+		if satirlar.size() >= NOT_SINIRI:
+			satirlar = satirlar.slice(0, NOT_SINIRI - 1)
+		satirlar.append({
+			"id": "son:%s" % nihai,
+			"sayfa": "not",
+			"metin_anahtari": epilog,
+			"baslik_anahtari": "hafiza.satir.baslik",
+			"baslik": baslik,
+			"gece": -1,
+			"ad": "",
+			"kisi": "",
+			"govde_anahtari": epilog,
+			"nihai": nihai,
+			"epilog": epilog,
+		})
 	return satirlar
+
+
+## OMR-17: Kaydedilmiş son ve epilog bilgisini Bölüm 39 defterinden salt-okunur okur.
+func son_kaydi_oku(kaynak: Dictionary) -> Dictionary:
+	var nihai := String(SonKaydi.kayittan_nihai_al(kaynak))
+	var epilog := SonKaydi.kayittan_epilog_al(kaynak)
+	return {"nihai": nihai, "epilog": epilog}
 
 
 func _karar_satiri(oge: Dictionary, kisi: String, ad: String, durum: String) -> Dictionary:

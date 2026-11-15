@@ -22,3 +22,18 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/nihai_son_kontrol.tscn` → `NIHAI SON UI: GEÇTİ` (`RC=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+### Madde 2 — `OMR-17` (`TAM`)
+- **Değişiklikler:**
+  - `src/sistemler/oturum.gd`: `son_kaydi := SonKaydi.new()` ve `son_verisi_isle(son_verisi)` eklendi; `kaydet()` içinde `son_kaydi.kayda_yaz(veri)`, `kayittan()` içinde `o.son_kaydi.kayittan_oku(veri)` bağlandı (eski kayıtlarda `"son"` yoksa boş kalır).
+  - `src/arayuz/ana.gd`: `_son_goster(son)` içinde `son != &"demo"` iken `son_metni` + `epilog` paketi `oturum.son_verisi_isle` ve `SonKaydi.kayda_son_ekle(oturum.kaydet(), kayit_paketi)` ile işlendi (`kayit.sil()` korundu).
+  - `src/arayuz/koy_hud/hafiza_defteri_baglantisi.gd` & `src/sistemler/hafiza_defteri.gd`: `kaynak_derle` `oturum.son_kaydi.kayda_yaz(kaynak)` ekler; `_not_sayfasi` ve `son_kaydi_oku` ile kayıtlı son/epilog Bölüm 39 defterinden yeniden okunur.
+  - `tests/unit/sistemler/son_kaydi_test.gd`: Gerçek `Oturum`, `HafizaDefteri` ve `Ana._son_goster` tarama sınamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `OMR-17` → `TAM`.
+- **Hedefli test çıktıları (son satırlar):**
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/son_kaydi_test.gd` → `SON KAYDI (OMR-17): GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/hafiza_defteri_test.gd` → `HAFIZA DEFTERI (HFZ-01…32): GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/nihai_son_kontrol.tscn` → `NIHAI SON UI: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/kvr/kayit_surum_kapisi_test.gd` → `KAYIT SÜRÜM KAPISI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

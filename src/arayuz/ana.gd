@@ -183,6 +183,13 @@ func _son_goster(son: StringName) -> void:
 		var son_metni := preload("res://src/sistemler/nihai_son.gd").son_metni(oturum, son, SancakTeftisi.son_metni(son))
 		baslik = String(son_metni.baslik)
 		metin = MuhafizEpilogu.metin(oturum, son, String(son_metni.metin)) + "\n\n" + istatistik
+		if oturum != null:
+			var kayit_paketi: Dictionary = son_metni.duplicate(true)
+			if String(kayit_paketi.get("nihai", "")).strip_edges().is_empty():
+				kayit_paketi["nihai"] = String(son)
+			kayit_paketi["epilog"] = metin
+			oturum.son_verisi_isle(kayit_paketi)
+			SonKaydi.kayda_son_ekle(oturum.kaydet(), kayit_paketi)
 	var e := _bilgi(baslik, metin, [tr("arayuz.son.yeniden"), tr("arayuz.son.menu")],
 		oturum.gun, "3d_koy")
 	e.oturum = oturum

@@ -44,6 +44,36 @@ func _initialize() -> void:
 	_kontrol(sk.kayittan_oku(eski_kayit), "Eski kayit yuklenirken cokmemeli")
 	_kontrol(sk.nihai == &"", "Nesne nihai bos olmali")
 
+	# Gercek oyun baglantisi: Oturum kaydet/yukle + Bolum 39 HafizaDefteri + Ana._son_goster
+	var kat := Katalog.new()
+	_kontrol(kat.yukle() == Katalog.Durum.HAZIR, "Katalog yuklenmeli")
+	var o := Oturum.new(kat, 19)
+	o.son_verisi_isle({"nihai": "uc_tutundu", "baslik": "Uç tutundu", "metin": "Sınır ayakta.", "epilog": "Uzun epilog..."})
+	var ham_kayit := o.kaydet()
+	_kontrol(SonKaydiSinifi.kayittan_nihai_al(ham_kayit) == &"uc_tutundu", "Oturum.kaydet son.nihai yazmali")
+	_kontrol(SonKaydiSinifi.kayittan_epilog_al(ham_kayit) == "Uzun epilog...", "Oturum.kaydet epilog yazmali")
+	var yuklenen := Oturum.kayittan(kat, ham_kayit)
+	_kontrol(yuklenen != null, "Oturum.kayittan son verisiyle yuklenmeli")
+	if yuklenen != null:
+		_kontrol(yuklenen.son_kaydi.nihai == &"uc_tutundu", "Yuklenen oturum son_kaydi.nihai okumali")
+		_kontrol(yuklenen.son_kaydi.epilog == "Uzun epilog...", "Yuklenen oturum epilogu okumali")
+
+	var kayitsiz := ham_kayit.duplicate(true)
+	kayitsiz.erase("son")
+	var eski_oturum := Oturum.kayittan(kat, kayitsiz)
+	_kontrol(eski_oturum != null and eski_oturum.son_kaydi.nihai == &"" and eski_oturum.son_kaydi.epilog == "", "Eski kayitta son yoksa bos kalmali")
+
+	var kaynak := HafizaDefteriBaglantisi.kaynak_derle(o)
+	var defter := HafizaDefteri.new()
+	var okunan := defter.oku(kaynak)
+	var not_satirlari: Array = okunan.get("not", [])
+	_kontrol(not_satirlari.any(func(s: Variant) -> bool: return s is Dictionary and String((s as Dictionary).get("nihai", "")) == "uc_tutundu"), "HafizaDefteri not sayfasinda son satiri olmali")
+	var son_okuma := defter.son_kaydi_oku(kaynak)
+	_kontrol(String(son_okuma.get("epilog", "")) == "Uzun epilog...", "HafizaDefteri epilogu yeniden okuyabilmeli")
+
+	var ana_kod := FileAccess.get_file_as_string("res://src/arayuz/ana.gd")
+	_kontrol(ana_kod.contains("son_verisi_isle") and ana_kod.contains("SonKaydi.kayda_son_ekle"), "Ana._son_goster SonKaydi baglantisi icermeli")
+
 	if _hata == 0:
 		print("SON KAYDI (OMR-17): GEÇTİ (0 hata)")
 	else:

@@ -778,7 +778,13 @@ func _perde_secenekleri(secenekler: PackedStringArray) -> PackedStringArray:
 
 ## Gün sonu kaydı için sözlük (oturum + köy yönetimi).
 var ipucu_kaydi := IpucuKaydi.new()
+var son_kaydi := SonKaydi.new()
 var ilk_saat_gelen: int = 0
+
+
+## OMR-17: Seçilen son ve epilog verisini oturumun son kaydına işler.
+func son_verisi_isle(son_verisi: Dictionary) -> void:
+	son_kaydi.son_isle(son_verisi)
 
 
 func kaydet() -> Dictionary:
@@ -821,6 +827,7 @@ func kaydet() -> Dictionary:
 		veri["ilk_gece_gelenleri"] = GeceBilancosu.gelenleri_oku(get_meta(GeceBilancosu.GELEN_META))
 	if gun <= GeceBilancosu.ILK_SAAT_SON_GECE and ilk_saat_gelen >= 0:
 		veri["ilk_saat_gelen"] = ilk_saat_gelen
+	son_kaydi.kayda_yaz(veri)
 	return veri
 
 
@@ -880,6 +887,7 @@ static func kayittan(katalog_: Katalog, veri: Dictionary) -> Oturum:
 	SoylentiKoprusu.yukle(o, veri.get("soylenti_agi"))
 	o._koy_esitle()
 	o.ipucu_kaydi.kayittan_oku(veri)
+	o.son_kaydi.kayittan_oku(veri)
 	o.ilk_saat_gelen = GeceBilancosu.ilk_saat_gelen_oku(veri.get("ilk_saat_gelen"))
 	if GeceBilancosu.kisa_mi(o) and veri.has("ilk_gece_gelenleri"):
 		o.set_meta(GeceBilancosu.GELEN_META, GeceBilancosu.gelenleri_oku(veri["ilk_gece_gelenleri"]))
