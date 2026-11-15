@@ -63,9 +63,12 @@ func _ready() -> void:
 	s._dugume_git(&"1.1")
 	var tansiyon_once: int = s.tansiyon
 	var deg: Dictionary = s.yaklasim_degistiricisi(s.karakter.diyalog_dugumu(s.dugum_id)["secenekler"][1], {})
-	_kontrol(deg.satirlar.any(func(r: Dictionary) -> bool: return String(r.tur) == "tecrube"), "Tecrübe eşiği değiştirici satırı olarak görünüyor")
+	_kontrol(deg.satirlar.any(func(r: Dictionary) -> bool: return String(r.tur) == "tecrube" and String(r.metin) == String(TranslationServer.translate("zar.degistirici.tecrube"))), "Tecrübe satırı zar.degistirici.tecrube anahtarından geliyor")
 	s.tohumla(_tohum(s.zar_turu(), 6))
 	panel.guncelle()
+	var liste := panel.find_child("ZarDegistiriciler1", true, false)
+	var tecrube_yazisi := String(TranslationServer.translate("zar.degistirici.tecrube"))
+	_kontrol(liste != null and liste.get_child_count() > 0 and tecrube_yazisi in String(liste.get_child(liste.get_child_count() - 1).text), "Panel tecrübe satırını anahtardan yazıyor")
 	var b := panel.find_child("Secenek1", true, false) as Button
 	_kontrol(b != null and not b.disabled, "Beceri seçeneği açık")
 	if b != null:
@@ -81,6 +84,15 @@ func _ready() -> void:
 	kilit.karakter.sorgu_degeri = 20
 	kilit._dugume_git(&"1.1")
 	_kontrol(kilit.zar_kilitli(kilit.karakter.diyalog_dugumu(kilit.dugum_id)["secenekler"][1]) and not kilit.secenek_acik(kilit.karakter.diyalog_dugumu(kilit.dugum_id)["secenekler"][1], 1) and not kilit.secenek_sec(1), "Tavanı aşan zar kilitli")
+	var eski_deger: int = s.karakter.sorgu_degeri
+	s.karakter.sorgu_degeri = 20
+	s._dugume_git(&"1.1")
+	s._denemeler.clear()
+	panel.guncelle()
+	var kilitli := panel.find_child("Secenek1", true, false) as Button
+	_kontrol(kilitli != null and kilitli.disabled and String(TranslationServer.translate("ZAR_KILITLI")) in kilitli.tooltip_text, "Kilitli seçenek ZAR_KILITLI sözünü gösteriyor")
+	s.karakter.sorgu_degeri = eski_deger
+	s._denemeler.clear()
 
 	# ZAR-03 + DEN-19: tansiyon 9 + başarısız zar eşiği aşar; ziyaret kaçışla biter.
 	var ret_once: int = o.yonetim.ret_sayisi
