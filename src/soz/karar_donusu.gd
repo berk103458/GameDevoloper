@@ -167,6 +167,8 @@ static func oku(ham: Variant) -> Array[Dictionary]:
 static func kapi_kararini_yaz(o: Oturum, gelen: Gelen, karar: StringName, ek: Dictionary = {}) -> Dictionary:
 	if o == null or gelen == null or bool(ek.get("engellendi", false)):
 		return {}
+	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").sozleri_kapat(o, gelen, karar)
+	if ek.get("durum", "") == "kavga_acik": return {} # CAT-02 sonucu beklenir; sıradan ret dönüşü yazılmaz.
 	var sorgu := gelen.chr_sorgusu()
 	if not gelen.adli and sorgu == null and not gelen.has_meta(&"defter_id"):
 		return {}
@@ -204,6 +206,7 @@ static func kapi_kararini_yaz(o: Oturum, gelen: Gelen, karar: StringName, ek: Di
 static func spawn_ekle(o: Oturum, sonuc: Array[Gelen]) -> void:
 	if o == null or o.gecikmeli_kuyruk.is_empty():
 		return
+	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").sozleri_kapat(o)
 	var mevcutlar := {}
 	for g in sonuc:
 		if g != null and not String(g.id).is_empty():
@@ -220,8 +223,23 @@ static func spawn_ekle(o: Oturum, sonuc: Array[Gelen]) -> void:
 		var ham_id := String(satir.get("deger", "")).strip_edges()
 		if ham_id.is_empty():
 			continue
+		if satir.has("cat02_soz") and not satir.get("cat02_figur", {}).is_empty():
+			var figur := Gelen.new()
+			var veri: Dictionary = satir.cat02_figur
+			for alan in veri:
+				if alan in ["acik_bayraklar", "gizli_bayraklar"]: figur.set(alan, PackedStringArray(veri[alan]))
+				elif alan == "aile": figur.aile.assign(veri[alan])
+				else: figur.set(alan, veri[alan])
+			figur.id = StringName(ham_id)
+			figur.secenekler = PackedStringArray(["kabul", "ret"])
+			figur.heybe = o.heybe_uret(figur.sinif)
+			sonuc.append(figur)
+			satir["spawned"] = true
+			continue
 		var aday_id := _karakter_kimligi_bul(o, ham_id)
-		if aday_id == &"" or mevcutlar.has(String(aday_id).to_lower()):
+		if aday_id == &"": continue
+		if mevcutlar.has(String(aday_id).to_lower()):
+			if satir.has("cat02_soz"): satir["spawned"] = true
 			continue
 		var durum := String(o.kadro.durumlar.get(aday_id, {}).get("durum", ""))
 		if HafizaDefteri.GITTI_DURUMLARI.has(durum):

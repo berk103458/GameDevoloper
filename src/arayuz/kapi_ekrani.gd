@@ -614,6 +614,7 @@ func _karar_birak() -> void:
 
 
 func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
+	if evre == &"kavga": return
 	if not preload("res://src/sistemler/karar_onayi.gd").izinli(ayarlar, anahtar): return
 	if not preload("res://src/kapi/hastalik_teshis_adaptoru.gd").neden(oturum, _gelen, StringName(anahtar)).is_empty(): return
 	if DiplomatikHeyet.ilgilenir(_gelen) and not DiplomatikHeyet.karar_olur(oturum, _gelen, StringName(anahtar)): return
@@ -627,6 +628,9 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	var dedikodu_once := oturum.dedikodu.yazma_sayisi() if oturum != null else 0
 	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").tanik_hazirla(oturum, _kuyruk)
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar), is_yeri)
+	if sonuc.get("durum", "") == "kavga_acik":
+		await preload("res://src/kapi/kapi_kavgasi_paneli.gd").ac(self)
+		if not is_inside_tree(): return
 	if not _dil_notlari.is_empty():
 		_gelen.set_meta(&"dil_notlari", _dil_notlari.duplicate(true))
 	if not sonuc.get("engellendi", false):

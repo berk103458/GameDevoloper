@@ -25,7 +25,7 @@ const YER_TUTUCU_CANLANDIRMA := {
 	"asset_id": "CAT02-KAVGA",
 	"tur": "sarsinti_ve_metin",
 	"sarsinti_siddeti": 0.35,
-	"metin": "Kapıda arbede çıktı!",
+	"metin": "anlati.kavga.arbede",
 }
 
 const GECERLI_SECENEKLER := [
@@ -36,6 +36,7 @@ const GECERLI_SECENEKLER := [
 ]
 
 var _veri: Dictionary = {}
+var _zar_rng := RandomNumberGenerator.new()
 var _gunluk_istekler: Dictionary = {}
 var _aktif_kavga: Dictionary = {}
 var _secim_uygulandi: bool = false
@@ -44,6 +45,7 @@ var _cenaze_cagrilari: Array[Dictionary] = []
 
 
 func _init() -> void:
+	_zar_rng.randomize()
 	_veri_yukle()
 
 
@@ -355,7 +357,7 @@ func _uygula_askerle_karsilik(
 	var tablo: Dictionary = _veri.get("karsilik_sonuc_tablosu", {})
 	var zorluk := int(baglam.get("zorluk", 4))
 	var asker_becerisi := int(baglam.get("asker_becerisi", 0))
-	var atis := int(baglam.get("zar_atis", 4))
+	var atis := int(baglam["zar_atis"]) if baglam.has("zar_atis") else SorguZari.at(_zar_rng, SorguZari.TUR_D6)
 	var gerekli_hedef := maxi(2, zorluk - asker_becerisi)
 	var basarili: bool = SorguZari.basarili(atis, gerekli_hedef, SorguZari.TUR_D6)
 	var zar_sonuc: Dictionary = {
@@ -461,7 +463,7 @@ func _uygula_sozle_yatistirma(
 	if yaklasim != "ikna" and yaklasim != "gonul_alma":
 		yaklasim = "ikna"
 	var zorluk := int(baglam.get("zorluk", 3))
-	var atis := int(baglam.get("zar_atis", 5))
+	var atis := int(baglam["zar_atis"]) if baglam.has("zar_atis") else SorguZari.at(_zar_rng, SorguZari.TUR_D6)
 	var basarili: bool = SorguZari.basarili(atis, zorluk, SorguZari.TUR_D6)
 	var zar_sonuc: Dictionary = {
 		"tur": String(SorguZari.TUR_D6),

@@ -1,5 +1,63 @@
 # Codex — Çalışma günlüğü (Kapı Muhafızı)
 
+## CAT-02 — Dört seçenek gerçek kapıda / 15 Kasım 2026 (Codex, Berk)
+
+Giriş: Berk tarafındaki Codex ajanıyım. Yalnız /workspace/codex/GameDevoloper,
+claude/festive-volta-li1sfm üzerinde çalıştım. Fetch/prune + ff-only pull günceldi;
+7c367d29 claim yeniden alınmadı. İstenen dört Godot skill'i okundu ve uygulandı.
+
+Oyuna bağ: KapiEkrani._karar_ver kavga_acik sonucunda yeni ince paneli bekler;
+ziyaretçi seçimden önce gönderilmez. Panel mevcut karar listesine yalnız dört
+düğme ekler; klavye/gamepad odağı, kilit nedeni ve nöbet sinyaliyle yenileme vardır.
+Aynı oturum metasındaki KapiKavgasi.secenek_uygula çağrılır; çift tık tek sonuçtur.
+Asker becerisi nöbetteki gerçek Koylu.stat'tan, zar SorguZari.at'tan gelir.
+Asker ayrılınca panelde asker seçeneği kapanır; diğer üç seçenek durur.
+CAT-01'in panel dışı ayrılış davranışı ve API'leri korunmuştur.
+
+Erteleme gerçek muhafiz_akce hesabından düşer; mevcut SozKaydi/VerilenSoz'e tek
+satır ve mevcut KararDonusu.gecikmeli_kuyruk'a 2–4 gün dönüşü yazılır.
+Adlı ve figür dönüşleri save/load sonrasında çalışır; adlı kişinin eski rastgele
+ret dönüşü söz tarihine alınır. Açık kavga sıradan ret dönüşü üretmez.
+Sözün kabul/ret/vade sonucu aynı kayıtta kapanır; tutulmayan söz GrupItibari -1,
+ölümle düşen söz cezasızdır. VerilenSoz kapanmış sonuc alanını açık sayısına katmaz;
+tutulmayan söz tutuldu=true diye yanlış işaretlenmez.
+Ölüm mevcut BUG-20 ölüm makbuzuna tek haber verir; kalıcı köy kaydı ve gerçek
+gece olenler/CenazeYasi hattı tüketir. DIY-11 oldu işareti korunur.
+
+19 yeni arayuz.kavga / anlati.kavga metin anahtarı CSV'ye eklendi; TR/EN translation
+Godot import ile üretildi. CAT02-KAVGA mevcut envanter satırı güncellendi:
+sarsıntı + metin oyuna bağlı, gerçek animasyon eksik. Asset üretilmedi/indirilmedi.
+Oturum.gd ve korumalı köy çekirdeği değişmedi. CAT-04'e dokunulmadı.
+
+Doğrulama (Godot 4.7.2, PATH=$HOME/.local/bin:$PATH):
+- godot --headless --path . --import --quit: çıkış 0; SCRIPT ERROR / Failed to load script yok.
+- -s res://tests/unit/kapi/kavga_secenek_test.gd: GEÇTİ, 0 hata.
+- -s res://tests/unit/kapi/kapi_kavgasi_test.gd: GEÇTİ, 0 hata.
+- -s res://tests/unit/kapi/kapi_kavgasi_oyun_test.gd: GEÇTİ, 143 kontrol.
+- res://tests/unit/kapi/kapi_kavgasi_ekran_test.tscn: GEÇTİ, 0 hata.
+- -s res://tests/unit/kapi/kavga_secenek_oyun_test.gd: GEÇTİ, 54 kontrol.
+- res://tests/unit/kapi/kavga_secenek_ekran_test.tscn: GEÇTİ, 0 hata; gerçek dört düğme.
+- -s res://tests/unit/kayit/soz_kayit_test.gd: GEÇTİ.
+- -s res://tests/unit/soz/karar_donusu_test.gd: TEST PASS, çıkış 0.
+- Yeni panel/adaptör/iki test GDScript load + can_instantiate parse: 0 hata.
+- python3 -B tools/metin_dogrula.py --kaynak: PASS (ortamda python adı yok).
+- Test koşucusu mutasyonu: dört sonuç beklentisi bilerek beşe çekilmiş /tmp kopyası
+  1 hatayla KALDI ve çıkış 1; asıl test değiştirilmedi. Tam sanity çalıştırılmadı.
+
+Durum: CAT-02 tamamlandı. Sonraki plan: CAT-04 aday; bu tur başlanmadı.
+Mevcut katalog eksik metin ve editor/RID kapanış uyarıları görev dışıdır;
+betik/parse hatası yok. Eski izlenmeyen import/UID dosyaları korunup commit dışı
+bırakıldı; import'un project.godot değişikliği geri alındı. Son talimata göre
+başka çalışma kopyasına/ajan klasörüne dokunulmadı; issue #11'e yazılmadı.
+Yayın: ilk normal push uzak dal ilerlediği için reddedildi. Rebase ile 03243dd5
+alındı; CSV/kod otomatik birleşti, iki binary translation birleşmiş CSV’den Godot
+import ile yeniden üretildi. Başka ajanların değişiklikleri korundu. Rebase sonrası
+aynı hedefli test paketi ve metin doğrulaması tekrar geçti. İkinci push sırasında
+OGR-03 geldi; 02b143d6 üstüne ikinci rebase çakışmasız tamamlandı. Bu commit
+CAT-02 dosyalarını değiştirmiyor; hedefli parse yeniden doğrulanır. Normal push.
+kota görünmüyor
+
+
 
 ## CAT-01 — Gerçek kapı retine bağlantı / 15 Kasım 2026 (Codex, Berk)
 

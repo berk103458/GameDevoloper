@@ -78,6 +78,25 @@ arayuz.is.pazar,Pazara yaz,Assign to Market
 arayuz.is.tarla,Tarlaya yaz,Assign to Fields
 arayuz.is.uygun,%s işi,%s work
 arayuz.kapi.bilgi,%d. gün · %d. gelen · sırada %d kişi,Day %d · Visitor %d · %d in queue
+arayuz.kavga.askerle_karsilik,Askerle karşılık ver,Respond with soldiers
+arayuz.kavga.akceyle_erteleme,Akçeyle ertele,Pay to postpone
+arayuz.kavga.sozle_yatistirma,Sözle yatıştır,Calm with words
+arayuz.kavga.reddetme,Reddet,Refuse
+arayuz.kavga.akce_yetersiz,Kişisel akçe yetersiz,Not enough personal coins
+arayuz.kavga.acik_soz_siniri_dolu,Beş açık söz sınırı dolu,Five open promises already
+arayuz.kavga.asker_yok,Nöbette asker yok,No soldier on duty
+anlati.kavga.arbede,Kapıda arbede çıktı!,A scuffle broke out at the gate!
+anlati.kavga.tehdit,Geri çevrilen kişi tehdit edip gitti.,The refused visitor left with threats.
+anlati.kavga.kacti,Asker ayrılınca kişi kaçtı.,The visitor fled when the soldier left.
+anlati.kavga.karsilik_kacti,Asker karşılık verince kişi kaçtı.,The visitor fled from the soldiers.
+anlati.kavga.karsilik_yaralanma,Arbedede kişi yaralandı.,The visitor was injured in the scuffle.
+anlati.kavga.karsilik_olum,Arbedede kişi öldü; cenaze haberi kaydedildi.,The visitor died; a funeral notice was recorded.
+anlati.kavga.karsilik_kin,Kişi kapıdan kinle ayrıldı.,The visitor left bearing a grudge.
+anlati.kavga.erteleme_yarin_gel,Akçe ödendi; dönüş sözü kaydedildi.,Coins paid; a return promise was recorded.
+anlati.kavga.yatistirma_basarili,Sözlerin arbedeyi yatıştırdı.,Your words calmed the scuffle.
+anlati.kavga.yatistirma_basarisiz,Sözlerin öfkeyi dindiremedi.,Your words failed to calm the anger.
+anlati.kavga.reddetme_kin,Reddedilen kişi kinle ayrıldı.,The refused visitor left bearing a grudge.
+anlati.kavga.zar,Zar: %d · gereken: %d,Roll: %d · required: %d
 arayuz.kapi.karar,Karar,Decision
 arayuz.kapi.yatak_satiri,Yatak: %d/%d,Beds: %d/%d
 arayuz.kapi.yatak_uyari,Yatacak yer yok; açıkta kalır.,No beds available; will sleep out in the cold.

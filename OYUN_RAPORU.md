@@ -1,3 +1,7 @@
+## 2026-11-15 — CAT-02 (Codex, Berk)
+
+Kapı retindeki kavga artık dört gerçek düğmeyle seçim bekler. Aynı oturum kavga motoru asker becerisi/SorguZari, kişisel kasa, beş açık söz sınırı ve çift tık kilidini uygular. Erteleme mevcut söz kaydına ve KararDonusu kuyruğuna bağlıdır; adlı/figür kişi 2–4 gün sonra kayıt yüklenince de döner, tutulmayan söz grup itibarını bir kez düşürür. Ölüm mevcut kalıcı ölüm makbuzuyla gece cenazesine gider. Gerçek oturum testi 54 kontrol, dört düğmeli ekran testi ve CAT-01 testleri geçti. CAT02-KAVGA sarsıntı + metin yer tutucusu oyunda; gerçek animasyon eksik, envanter güncellendi. CSV ve Godot'un ürettiği TR/EN tabloları aynı pakette. CAT-04'e dokunulmadı. Kota görünmüyor.
+
 ## 2026-11-15 — CAT-01 (Codex, Berk)
 
 Kapı ret kararı mevcut KapiKavgasi motoruna bağlandı. Tipler JSON eşlemelerinden gerçek kuyruğa atanır; yatak/kusur/CHR kilidi ret nedenini, köy kaydı asker sayısını verir. Askersiz tehdit tanık varsa Dedikodu'ya yazılır; son nöbetçinin görevden alınması/sürgünü aktif isteği kaçışa veya tehdide çevirir. Gerçek kapı ekranı arbede metnini gösterir. Mevcut birim testi, 143 kontrollü gerçek Oturum testi ve gerçek ekran testi geçti. Import 0, betik/parse hatası yok; mevcut editor kapanış ve katalog metin uyarıları sürüyor. Asset gerekmedi. CAT-02 alınmadı.
