@@ -35,8 +35,13 @@ func _kur() -> void:
 		kutu.size = Vector3(0.35, 0.4, 0.8)
 		m.mesh = kutu
 		m.position.y = 0.2
-		m.material_override = Dunya3B.duz_malzeme(Color(KurtBaskini.AYAR.renk))
+		var mat := Dunya3B.duz_malzeme(Color(KurtBaskini.AYAR.renk))
+		m.material_override = mat
 		n.add_child(m)
+		if Dunya3B.model_var_mi("kurt", "hayvan"):
+			mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+			mat.albedo_color = Color(0, 0, 0, 0)
+			n.add_child(Dunya3B.nesne("kurt", 0.65, "hayvan"))
 		add_child(n)
 		kurtlar.append(n)
 func _rota(b: KoyBinasi) -> void:

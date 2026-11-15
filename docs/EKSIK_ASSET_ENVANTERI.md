@@ -698,7 +698,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `TUC-TACIR` | [ÜRETİLDİ: `assets/model/karakter/celep_yuru.glb`, `nalbur_yuru.glb`, `kumasci_yuru.glb`, `aktar_yuru.glb`, `silah_tuccari_yuru.glb`] Celep, nalbur, kumaşçı, aktar, silah tüccarı (`TuccarKapiGecisi`, `Dunya3B.PORTRE_MODEL`). | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `TUC-HAYVAN` | [ÜRETİLDİ: `inek.glb`, `koc.glb`, `beygir.glb` (Antigravity)] İnek, koç, beygir; glTF. | İnek 0,85 × 1,45 × 2,20 m; koç 0,55 × 0,85 × 1,10 m; beygir 0,80 × 1,60 × 2,30 m |
 | `MEV-ZEMIN` | [ÜRETİLDİ: `assets/model/nesne/kurek.glb` (Antigravity)] Kar örtüsü, çatı karı, kürek — prompt hazır, Ahmet üretecek; 3D geometri açık; shader + PNG; `kurek.glb`. | Kürek 0,25 × 1,20 × 0,08 m; kar geometri katmanı mevcut çatı/zemin zarfında |
-| `MEV-AFET` | Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF + PNG. | Bent modülü 3,0 × 0,8 × 0,6 m; kurt 0,45 × 0,8 × 1,1 m |
+| `MEV-AFET` | [ÜRETİLDİ: `su_bendi.glb`, `yanik_ev.glb`, `kurt.glb` (Antigravity)] Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF + PNG. | Bent modülü 3,0 × 0,8 × 0,6 m; kurt 0,45 × 0,8 × 1,1 m |
 | `CAS-GECE` | Fener, yangın kovası; glTF. | Açık kandil 0,18 × 0,08 × 0,12 m; kova 0,30 × 0,35 × 0,30 m |
 | `ODA-ODA` | [ÜRETİLDİ: `assets/model/yapi/muhafiz_odasi.glb`, `yatak.glb`, `masa.glb`, `kasa.glb`, `kutuphane.glb`] Muhafız odası, yatak, masa, kasa, kütüphane (`MuhafizOdasi`). | Oda 4,0 × 2,8 × 4,0 m; yatak 0,9 × 0,5 × 2,0 m; masa 1,2 × 0,75 × 0,7 m |
 | `KRI-MEZAR` | Toplu mezar, yazısız taş; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |
@@ -709,7 +709,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `ANI09-BUZULME` | Soğukta büzülmüş yürüyüş; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `ANI10-SINSI` | Sinsi yürüyüş ve temkinli kuytu bekleyiş; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `ANI11-ALET` | [ÜRETİLDİ: `el_cekic.glb`, `firin_kuregi.glb` (Antigravity)] Gerçek çekiç ve fırın küreği; sokete hazır tutma noktası; glTF. | Çekiç 0,12 × 0,35 × 0,06 m; kürek 0,20 × 1,20 × 0,06 m |
-| `ANI12-IDLE` | Üç doğal bekleme döngüsü (nefes / ağırlık aktarma / çevreye bakış); glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `ANI12-IDLE` | [ÜRETİLDİ: `muhafiz_idle_nefes.glb`, `muhafiz_idle_agirlik.glb`, `muhafiz_idle_bakis.glb` (Antigravity)] Üç doğal bekleme döngüsü (nefes / ağırlık aktarma / çevreye bakış); glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `TUC02-OKUZ` | Öküz barınak modeli; glTF. | 0,85 × 1,45 × 2,20 m; ayak tabanı y=0 |
 | `TUC02-INEK` | [ÜRETİLDİ: `assets/model/hayvan/inek.glb` (Antigravity)] İnek barınak modeli; glTF. | 0,85 × 1,45 × 2,20 m; ayak tabanı y=0 |
 | `TUC02-BEYGIR` | [ÜRETİLDİ: `assets/model/hayvan/beygir.glb` (Antigravity)] Beygir barınak modeli; glTF. | 0,80 × 1,60 × 2,30 m |
@@ -718,7 +718,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `HAR10-YAY` | [ÜRETİLDİ: `assets/model/nesne/yay.glb`] Sur okçusu el yayı (`KonuslanmaDonanimi`); glTF. | 0,08 × 1,10 × 0,35 m |
 | `HAR10-MIZRAK` | [ÜRETİLDİ: `assets/model/nesne/mizrak.glb`] Kapı mızraklısı görev mızrağı (`KonuslanmaDonanimi`); glTF. | 0,06 × 2,00 × 0,06 m |
 | `MEV05-KUREK` | [ÜRETİLDİ: `assets/model/nesne/kurek.glb` (Antigravity)] Kar küreme küreği ve temizlik klibi; glTF / iskelet klibi. | 0,25 × 1,20 × 0,08 m |
-| `MEV10-KURT` | Kurt modeli, yürüyüş ve kaçış klibi; glTF / iskelet klibi. | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
+| `MEV10-KURT` | [ÜRETİLDİ: `assets/model/hayvan/kurt.glb` (Antigravity)] Kurt modeli, yürüyüş ve kaçış klibi; glTF / iskelet klibi. | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
 | `CAS05-DIVAN` | [ÜRETİLDİ: `assets/model/nesne/divan_masasi.glb`, `divan_oturak.glb`] Meydan divan masası ve oturma sıraları (`DivanMeydani`); glTF. | Masa 2,00 × 0,80 × 1,00 m; oturak 0,50 × 0,45 × 0,50 m |
 | `CAS07-ZINDAN` | [ÜRETİLDİ: `assets/model/nesne/zindan_kapisi.glb`] Kapı zindan hücresi kapısı (`DivanZindanGorseli`); glTF. | Parmaklık modülü 1,50 × 2,00 × 0,10 m |
 | `ODA01-ICMEKAN` | [ÜRETİLDİ: `assets/model/yapi/muhafiz_odasi.glb`] Oda zemin ve duvarları (`MuhafizOdasi`); glTF. | 4,0 × 2,8 × 4,0 m; mevcut oda tabanı y=0 |
@@ -726,7 +726,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `ODA01-MASA` | [ÜRETİLDİ: `assets/model/nesne/masa.glb`] Muhafız masası (`MuhafizOdasi`); glTF. | 1,20 × 0,75 × 0,70 m |
 | `ODA01-MESALE` | [ÜRETİLDİ: `assets/model/nesne/mesale_el.glb`] Oda meşalesi; glTF. | 0,12 × 0,60 × 0,12 m |
 | `ODA01-KASA` | [ÜRETİLDİ: `assets/model/nesne/kasa.glb`] Gizli zemin kasası (`MuhafizOdasi`); glTF. | 0,60 × 0,40 × 0,40 m |
-| `ODA09-KABUS` | Rüya gölgesi figürü; glTF. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
+| `ODA09-KABUS` | [ÜRETİLDİ: `assets/model/karakter/kabus_golgesi.glb` (Antigravity)] Rüya gölgesi figürü; glTF. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `ODA08-YATAK` | [ÜRETİLDİ: `assets/model/nesne/rahat_yatak.glb`] Rahat muhafız yatağı (`OdaGelistirmePaneli`); glTF. | 1,10 × 0,55 × 2,00 m |
 | `ODA08-ASKILIK` | [ÜRETİLDİ: `assets/model/nesne/askilik.glb`] Donanım askılığı (`MuhafizOdasi`, `OdaGelistirmePaneli`); glTF. | 0,60 × 1,60 × 0,40 m |
 | `ODA08-KUTUPHANE` | [ÜRETİLDİ: `assets/model/nesne/kutuphane.glb`] Muhafız kütüphanesi (`MuhafizOdasi`, `OdaGelistirmePaneli`); glTF. | 1,00 × 1,80 × 0,35 m |

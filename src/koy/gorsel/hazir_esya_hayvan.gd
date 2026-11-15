@@ -72,6 +72,11 @@ static func hayvan(tur: String) -> Node3D:
 				return null
 			yol = "res://assets/model/nesne/okuz.glb"
 			boy = Vector3(2.3, 1.55, 2.3)
+		"kurt":
+			if not Dunya3B.model_var_mi("kurt", "hayvan"):
+				return null
+			yol = "res://assets/model/hayvan/kurt.glb"
+			boy = Vector3(1.4, 0.75, 1.4)
 		_:
 			return null
 	var n := HazirSahneModeli.al(yol, boy, true)
@@ -96,6 +101,14 @@ static func bina(n: Node3D, tur: String, en: float, derin: float) -> void:
 			if e != null:
 				e.position = Vector3(i * 0.3, 0, derin * 0.35)
 				n.add_child(e)
+	if tur == "sifahane" and Dunya3B.model_var_mi("hasta_cadiri"):
+		var hc := Dunya3B.nesne("hasta_cadiri", 1.8)
+		hc.position = Vector3(en * 0.35, 0.0, derin * 0.3)
+		n.add_child(hc)
+	if tur == "han" and Dunya3B.model_var_mi("kervan_yuku"):
+		var ky := Dunya3B.nesne("kervan_yuku", 0.95)
+		ky.position = Vector3(-en * 0.35, 0.0, derin * 0.35)
+		n.add_child(ky)
 
 static func kopek_kur(kok: Node3D, yer: Vector3) -> void:
 	var n := hayvan("kopek")

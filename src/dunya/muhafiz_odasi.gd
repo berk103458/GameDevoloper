@@ -48,6 +48,13 @@ func _kutu(p: Dictionary) -> void:
  n.position=_vektor(p.yer)
  add_child(n)
  var ad_s := String(p.ad)
+ if ad_s == "kabus_golgesi" and Dunya3B.model_var_mi("kabus_golgesi", "karakter"):
+  renk.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+  renk.albedo_color = Color(0, 0, 0, 0)
+  var kg := Dunya3B.nesne("kabus_golgesi", float(p.boyut[1]), "karakter")
+  kg.position = Vector3(0, -float(p.boyut[1]) / 2.0, 0)
+  n.add_child(kg)
+  return
  var glb_ad: String = {"mesale": "mesale_el", "gizli_kasa": "kasa", "askilik": "askilik", "kutuphane": "kutuphane"}.get(ad_s, "")
  if not glb_ad.is_empty() and Dunya3B.model_var_mi(glb_ad):
   var glb := Dunya3B.nesne(glb_ad, float(p.boyut[1]))
