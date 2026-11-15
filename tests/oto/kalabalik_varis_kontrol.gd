@@ -31,6 +31,7 @@ func _calistir() -> void:
 		await get_tree().physics_frame
 	_kontrol(n.hazir(), "SAH-34: Gerçek ANI-13 ağı hazır")
 	var kapi := KapiNobeti.esik_hucresi(y)
+	_tek_esigi_dene(h, ids, kapi)
 	h._bekleyen.clear()
 	for i in ids.size():
 		var id := ids[i]
@@ -60,6 +61,21 @@ func _calistir() -> void:
 	await get_tree().process_frame
 	print("KALABALIK VARIŞ: GEÇTİ" if hata == 0 else "KALABALIK VARIŞ: KALDI")
 	await Ses.cik(hata)
+
+
+func _tek_esigi_dene(h: KoyHalkHareketi, ids: Array[int], kapi: Vector2i) -> void:
+	var birinci: KarakterModel = h.modeller[ids[0]]
+	var ikinci: KarakterModel = h.modeller[ids[1]]
+	var merkez := h._konum(kapi)
+	birinci.position = merkez + Vector3(-0.6, 0, 0)
+	var bekleme := merkez + Vector3(0.6, 0, -1.05)
+	var hedef := merkez + Vector3(0.6, 0, 0.6)
+	ikinci.position = bekleme
+	ikinci.position = KoyRotaAraligi.adim(hedef, 0.25, h, ikinci)
+	_kontrol(ikinci.position.is_equal_approx(bekleme), "SAH-36: Eşik doluyken ikinci kök sınırda bekler")
+	birinci.position = h._konum(kapi + Vector2i.LEFT)
+	ikinci.position = KoyRotaAraligi.adim(hedef, 0.25, h, ikinci)
+	_kontrol(_hucre(h.sahne, ikinci.position) == kapi, "SAH-36: Eşik boşalınca sıradaki kök geçer")
 
 
 func _varislari_olc(s: KoyYonetimSahnesi, ids: Array[int]) -> void:

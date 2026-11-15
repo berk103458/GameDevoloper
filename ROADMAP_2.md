@@ -8132,7 +8132,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-34. Boyut: S.
   - Dosya: `src/dunya/kalabalik_yol.gd`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-36:** Dar kapıdan tek kişi geçer. (doğrulanmadı — Görev 22; Kalfa bekleniyor — KalabalikYol oyunda çağrılmıyor, KoyHalkHareketi/kapı kuyruğu entegrasyonu gerekli)
+- [x] **SAH-36:** Dar kapıdan tek kişi geçer. (Kalfa — dolu eşikte ikinci kök bekler)
   - Ne: eşik hücresi aynı anda bir köke açıktır. İkinci kişi bekler, itmez.
   - Kabul: eşik hücresi aynı anda bir köke açıktır. İkinci kişi bekler, itmez. Test: iki kişi, eşikte bir kök.
   - Bağımlılık: SAH-05, SAH-34. Boyut: S.

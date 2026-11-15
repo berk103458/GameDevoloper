@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-36 (Kalfa)
+
+ANI-13 adımı dolu eşik hücresine ikinci kökü almıyor. Headless kabulde ikinci kök aynı yerde kaldı ve ilk kök ayrılınca geçti. Sekiz muhafızın varış regresyonu 8,36 saniye ve sıfır kesişimle geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-35 kapı çizgisi (Kalfa)
 
 Mevcut kapı kuyruğunda dört gerçek model izlendi. Baştaki kapıya ilerlerken kalan üçü kendi yerlerine vardı. Dört saniye boyunca sıra değişimi 0. Sıra atlama ve nesne kimliği kontrolleri de headless koşuda geçti. Asset gerekmedi. Sırada SAH-36. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

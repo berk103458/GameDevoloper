@@ -11,14 +11,26 @@ static func adim(hedef: Vector3, metre: float, h: KoyHalkHareketi, f: KarakterMo
 	var fark := Vector2(hedef.x, hedef.z) - bas
 	var ilerleme := fark.limit_length(metre)
 	var dogru := bas + ilerleme
+	var esik := KapiNobeti.esik_hucresi(h.sahne.yonetim)
+	if hucre(h, Vector3(dogru.x, 0, dogru.y)) == esik and _esik_dolu(h, f, esik):
+		return f.position
 	if _agda(h, dogru, false) and _aralik_var(h, f, bas, dogru):
 		var y := lerpf(f.position.y, hedef.y, minf(1.0, metre / maxf(fark.length(), 0.001)))
 		return Vector3(dogru.x, y, dogru.y)
 	for aci in YAN_ADIM_ACILARI:
 		var aday := bas + ilerleme.rotated(aci)
+		if hucre(h, Vector3(aday.x, 0, aday.y)) == esik and _esik_dolu(h, f, esik):
+			continue
 		if _agda(h, aday, true) and _aralik_var(h, f, bas, aday):
 			return Vector3(aday.x, f.position.y, aday.y)
 	return f.position
+
+
+static func _esik_dolu(h: KoyHalkHareketi, figur: KarakterModel, esik: Vector2i) -> bool:
+	for diger: KarakterModel in h.modeller.values():
+		if diger != figur and is_instance_valid(diger) and not diger.is_queued_for_deletion() and hucre(h, diger.position) == esik:
+			return true
+	return false
 
 
 ## Yan adımda aynı doğru üzerindeki ara noktaya geri dönme. Köşe ve son hedef tam varış ister.
