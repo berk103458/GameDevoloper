@@ -7387,7 +7387,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/chr_inceleme_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-33:** (Antigravity-Berk) `grafik_ayarlari_paneli.gd` temaya bağlanır.
+- [x] **GRV-33:** (Antigravity-Berk) `grafik_ayarlari_paneli.gd` temaya bağlanır. (`Tema.BASLIK_PX`/`Tema.KUCUK_PX` + `ayarlar.boyut`, ham punto/renk 0; `grv_tema_baglari_kontrol.tscn` ve `ayarlar_kontrol.tscn` geçti. - asset gerekmedi)
   - Ne: `src/arayuz/grafik_ayarlari_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Grafik seçicisi düz düğme, zemin yok. Tema bağlanınca yalnız `grafik_ayarlari_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Grafik seçicisi düz düğme, zemin yok davranışı değişmez.
   - Kabul: `grafik_ayarlari_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `grafik_ayarlari_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7401,7 +7401,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/esya_karti.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-35:** (Antigravity-Berk) `hud.gd` temaya bağlanır.
+- [x] **GRV-35:** (Antigravity-Berk) `hud.gd` temaya bağlanır. (`Renkler.MESALE`, `HudPanel` ve `ProgressBar` temaya taşındı, ham `Color`/`StyleBoxFlat`/override 0; `grv_tema_baglari_kontrol.tscn` ve `denge_hud_test.gd` geçti. - asset gerekmedi)
   - Ne: `src/arayuz/hud.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Kapı HUD yazısı zeminsiz. Tema bağlanınca yalnız `hud.gd` ARY-02 zeminini ve düğme durumunu okur, Kapı HUD yazısı zeminsiz davranışı değişmez.
   - Kabul: `hud.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `hud.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7415,7 +7415,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_ekrani.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-37:** (Antigravity-Berk) `koylu_karti.gd` temaya bağlanır.
+- [x] **GRV-37:** (Antigravity-Berk) `koylu_karti.gd` temaya bağlanır. (ham renk/punto/ColorRect 0; `grv_tema_baglari_kontrol.tscn` ve `koylu_karti_kontrol.tscn` geçti. - asset gerekmedi)
   - Ne: `src/arayuz/koylu_karti.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Köylü kartı zeminsiz. Tema bağlanınca yalnız `koylu_karti.gd` ARY-02 zeminini ve düğme durumunu okur, Köylü kartı zeminsiz davranışı değişmez.
   - Kabul: `koylu_karti.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `koylu_karti.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
@@ -7429,14 +7429,14 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_atama_alani.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-39:** (Antigravity-Berk) `heyet_kapi_paneli.gd` temaya bağlanır.
+- [x] **GRV-39:** (Antigravity-Berk) `heyet_kapi_paneli.gd` temaya bağlanır. (ham renk/punto/ColorRect 0; `grv_tema_baglari_kontrol.tscn` ve `tekfur_heyeti_kontrol.tscn` geçti. - asset gerekmedi)
   - Ne: `src/arayuz/heyet_kapi_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Heyet paneli zeminsiz. Tema bağlanınca yalnız `heyet_kapi_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Heyet paneli zeminsiz davranışı değişmez.
   - Kabul: `heyet_kapi_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `heyet_kapi_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/heyet_kapi_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-40:** (Antigravity-Berk) `tuccar_kapi_paneli.gd` temaya bağlanır.
+- [x] **GRV-40:** (Antigravity-Berk) `tuccar_kapi_paneli.gd` temaya bağlanır. (ham renk/punto/ColorRect 0; `grv_tema_baglari_kontrol.tscn` ve `tuccar_kapi_kontrol.tscn` geçti. - asset gerekmedi)
   - Ne: `src/arayuz/tuccar_kapi_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Tüccar paneli zeminsiz. Tema bağlanınca yalnız `tuccar_kapi_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Tüccar paneli zeminsiz davranışı değişmez.
   - Kabul: `tuccar_kapi_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `tuccar_kapi_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

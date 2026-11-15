@@ -5,7 +5,7 @@ class_name Hud
 extends PanelContainer
 
 const STOKLAR: Array[String] = ["gida", "odun", "tas", "kereste", "alet", "tomruk", "bugday", "un", "kirec", "harc", "cevher", "demir", "civi", "tirpan", "balta", "afyon", "sargi", "kece", "kumas", "zirh", "yay", "kalkan", "su", "saman"]
-const UYARI := Color("#C4843A")
+const UYARI := Renkler.MESALE
 ## Asayiş riski bu değerin üstündeyse kritik sayılır.
 const ASAYIS_KRITIK := 60
 
@@ -50,7 +50,7 @@ func bagla(oturum: Oturum) -> void:
 
 func _ready() -> void:
 	custom_minimum_size = Vector2(0, 108)
-	add_theme_stylebox_override("panel", Tema.koy_paneli())
+	theme_type_variation = &"HudPanel"
 	var kutu := HBoxContainer.new()
 	kutu.add_theme_constant_override("separation", 14)
 	var kaynak_kaydir := ScrollContainer.new()
@@ -192,12 +192,6 @@ func _bar(ust: Control) -> ProgressBar:
 	bar.custom_minimum_size = Vector2(150, 8)
 	bar.show_percentage = false
 	bar.mouse_filter = Control.MOUSE_FILTER_PASS
-	var arka := StyleBoxFlat.new()
-	arka.bg_color = Color("36362e")
-	var dolu := StyleBoxFlat.new()
-	dolu.bg_color = KaynakGostergesi.BRONZ
-	bar.add_theme_stylebox_override("background", arka)
-	bar.add_theme_stylebox_override("fill", dolu)
 	ust.add_child(bar)
 	return bar
 

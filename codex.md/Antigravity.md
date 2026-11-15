@@ -1396,3 +1396,9 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `grv_tema_baglari_kontrol.tscn` (34 dosya) ve `chr_kapi_kontrol.tscn` 0 hata ile geçti.
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor.
+
+### 2026-11-15 — `GRV-33`, `GRV-35`, `GRV-37`, `GRV-39`, `GRV-40` Tamamlandı
+- **Yapılan:** `grafik_ayarlari_paneli.gd` ham punto değerleri `ayarlar.boyut(Tema.*)` ile değiştirildi; `hud.gd` içindeki ham `Color`, `StyleBoxFlat` ve `add_theme_stylebox_override` kalıntıları `Renkler.MESALE`, `HudPanel` varyasyonu ve `Kabuk`/`Tema` `ProgressBar` stillerine taşındı; `koylu_karti.gd`, `heyet_kapi_paneli.gd`, `tuccar_kapi_paneli.gd` ve ilk iki dosya `tests/oto/grv_tema_baglari_kontrol.gd` listesine eklendi.
+- **Testler:** `grv_tema_baglari_kontrol.tscn` (39 dosya), `ayarlar_kontrol.tscn`, `koylu_karti_kontrol.tscn`, `denge_hud_test.gd`, `tekfur_heyeti_kontrol.tscn` ve `tuccar_kapi_kontrol.tscn` 0 hata ile geçti.
+- **Asset:** asset gerekmedi.
+- **Kota:** kota görünmüyor.

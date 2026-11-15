@@ -49,6 +49,11 @@ static func olustur(ayarlar: Ayarlar) -> Theme:
 	var bos := StyleBoxEmpty.new()
 	t.set_stylebox("normal", "RichTextLabel", bos)
 	t.set_stylebox("focus", "RichTextLabel", bos)
+	t.add_type("HudPanel")
+	t.set_type_variation("HudPanel", "PanelContainer")
+	t.set_stylebox("panel", "HudPanel", koy_paneli())
+	t.set_stylebox("background", "ProgressBar", Kabuk.bar_stili(Kabuk.BAR_ARKA))
+	t.set_stylebox("fill", "ProgressBar", Kabuk.bar_stili(Kabuk.BAR_DOLU))
 	_menu_dugmesi(t, ayarlar)
 	return t
 

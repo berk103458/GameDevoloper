@@ -6,6 +6,11 @@ extends Node
 
 const DOSYALAR := {
 	"GRV-32": "res://src/arayuz/chr_inceleme_paneli.gd",
+	"GRV-33": "res://src/arayuz/grafik_ayarlari_paneli.gd",
+	"GRV-35": "res://src/arayuz/hud.gd",
+	"GRV-37": "res://src/arayuz/koylu_karti.gd",
+	"GRV-39": "res://src/arayuz/heyet_kapi_paneli.gd",
+	"GRV-40": "res://src/arayuz/tuccar_kapi_paneli.gd",
 	"GRV-65": "res://src/arayuz/koy_hud/muhafiz_odasi_baglantisi.gd",
 	"GRV-66": "res://src/arayuz/koy_hud/pazar_satis_paneli.gd",
 	"GRV-67": "res://src/arayuz/koy_hud/saman_bilgisi.gd",

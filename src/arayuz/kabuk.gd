@@ -22,6 +22,8 @@ const MORAL := Color("7FA86E")
 const STOK_SU := Color("678fa7")
 const STOK_KUMAS := Color("857c65")
 const LEVHA := Color(0.06, 0.05, 0.04, 0.95)
+const BAR_ARKA := Color("36362e")
+const BAR_DOLU := Color("c6a56b")
 
 
 static func zemin() -> Color:
@@ -47,6 +49,12 @@ static func panel() -> StyleBoxFlat:
 	s.content_margin_right = 12
 	s.content_margin_top = 6
 	s.content_margin_bottom = 6
+	return s
+
+
+static func bar_stili(renk: Color) -> StyleBoxFlat:
+	var s := StyleBoxFlat.new()
+	s.bg_color = renk
 	return s
 
 

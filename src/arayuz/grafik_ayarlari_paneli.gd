@@ -15,7 +15,7 @@ func _ready() -> void:
 	add_theme_constant_override("separation", 20)
 	var baslik := Label.new()
 	baslik.text = tr("arayuz.ayarlar.grafik.baslik")
-	baslik.add_theme_font_size_override("font_size", 36)
+	baslik.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.BASLIK_PX) if ayarlar != null else Tema.BASLIK_PX)
 	add_child(baslik)
 	_profil = _secici(tr("arayuz.ayarlar.grafik.profil"), [tr("arayuz.ayarlar.grafik.normal"), tr("arayuz.ayarlar.grafik.dusuk")])
 	_profil.item_selected.connect(func(i: int) -> void:
@@ -25,7 +25,7 @@ func _ready() -> void:
 		ayarlar.ayarla(&"cozunurluk_3d", Ayarlar.GECERLI[&"cozunurluk_3d"][i]))
 	var notu := Label.new()
 	notu.text = tr("arayuz.ayarlar.grafik.not")
-	notu.add_theme_font_size_override("font_size", 22)
+	notu.add_theme_font_size_override("font_size", ayarlar.boyut(Tema.KUCUK_PX) if ayarlar != null else Tema.KUCUK_PX)
 	add_child(notu)
 	ayarlar.degisti.connect(_yenile)
 	_yenile()
