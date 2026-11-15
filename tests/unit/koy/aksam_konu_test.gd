@@ -52,6 +52,69 @@ func _init() -> void:
 	if hafiza.get("son_konu") != "rusvet_almak" or hafiza.get("son_cevap") != "savunmak":
 		hatalar.append("Eş hafızası güncellenmedi!")
 
+	# 6. Gerçek Oturum.karar_ver -> ağırlık eşleşmesi, DIY-11 eş hafızası, terazi/adalet ve ertesi gün ipucu
+	var kat := Katalog.new()
+	kat.yukle()
+	var o := Oturum.new(kat, 9202)
+	preload("res://src/sistemler/acilis_senaryosu.gd").kur(o)
+	o.gun = 1
+	o.yonetim.gun = 1
+	var es_id := int(preload("res://src/sistemler/acilis_senaryosu.gd").durum(o).get("es_id", -1))
+	var es := o.yonetim.koylu(es_id)
+	var es_once_moral := es.moral if es != null else 60
+	var adalet_once := o.yonetim.adalet
+
+	var g_hasta := Gelen.new()
+	g_hasta.sinif = &"hasta"
+	g_hasta.gizli_bayraklar = PackedStringArray(["hasta"])
+	g_hasta.heybe = Heybe.new()
+	o.karar_ver(g_hasta, &"kabul")
+
+	var g_rusvet := Gelen.new()
+	g_rusvet.sinif = &"tuccar"
+	g_rusvet.heybe = Heybe.new()
+	o.karar_ver(g_rusvet, &"rusvet")
+
+	var sohbet1 := o.aksam_sohbeti_hazirla({"meclis_gecesi": false})
+	if String(sohbet1.get("konu_id", "")) != "rusvet_almak":
+		hatalar.append("Oturum kararlarından en ağır konu (rusvet_almak) seçilmedi!")
+
+	o.aksam_sohbeti_uygula("rusvet_almak", "kabul_etmek")
+	if es != null and es.moral != es_once_moral + 2:
+		hatalar.append("kabul_etmek cevabı gerçek eş moraline +2 yazmalı!")
+	if o.yonetim.adalet != clampi(adalet_once + 1, 0, 100):
+		hatalar.append("kabul_etmek terazi/adaleti güncellemeli!")
+	if String(o.get_meta(&"es_aksam_ipucu", "")) != "rusvet_fisiltisi_koyde":
+		hatalar.append("Eş sohbeti ertesi gün ipucunu yazmalı!")
+	var diy_es := KisiHafizasi.es_hafizasi_oku(o.kadro, &"es")
+	if String(diy_es.get("son_cevap", "")) != "kabul_etmek":
+		hatalar.append("Eş sohbet hafızası DIY-11 KisiHafizasi.es altına yazılmalı!")
+
+	# Ertesi gün: yeni ağır kararda eş geçmiş sohbeti anar; susmak moral bozmadan 'kacti' yazar
+	o.gun = 2
+	o.yonetim.gun = 2
+	var g_yetim := Gelen.new()
+	g_yetim.sinif = &"ciftci"
+	g_yetim.acik_bayraklar = PackedStringArray(["yetim"])
+	g_yetim.heybe = Heybe.new()
+	o.karar_ver(g_yetim, &"kabul")
+	var sohbet2 := o.aksam_sohbeti_hazirla({"meclis_gecesi": false})
+	var ani_var := false
+	for r in sohbet2.get("es_replikleri", []):
+		if "Geçen" in str(r):
+			ani_var = true
+	if not ani_var:
+		hatalar.append("Ertesi akşam eş geçmiş sohbeti anmalı!")
+	var es_moral_2 := es.moral if es != null else 60
+	o.aksam_sohbeti_uygula(String(sohbet2.get("konu_id", "kacak_yetimi_almak")), "susmak")
+	if es != null and es.moral != es_moral_2:
+		hatalar.append("susmak cevabı eş moralini düşürmemeli!")
+	var diy_es_2 := KisiHafizasi.es_hafizasi_oku(o.kadro, &"es")
+	if String(diy_es_2.get("son_terazi", "")) != "kacti":
+		hatalar.append("susmak terazi kaydına 'kacti' yazmalı!")
+	if AksamSohbeti.gundelik_satir({"es_hayatta": true}).is_empty():
+		hatalar.append("Ağır karar yokken gündelik kısa satır okunabilmeli!")
+
 	if not hatalar.is_empty():
 		for h in hatalar:
 			push_error(h)

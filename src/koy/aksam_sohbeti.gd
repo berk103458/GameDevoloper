@@ -122,6 +122,15 @@ static func konu_sec(kararlar: Array, gun: int = 1, baglam: Dictionary = {}) -> 
 		# Varsayılan ilk varyant
 		replikler.append(meslek_varyantlari.values()[0])
 
+	# Geçmiş eş hafızası varsa önceki konuşmayı anar (DYL-07 Kural 5)
+	var es_gecmis_v: Variant = baglam.get("es_gecmis", {})
+	if es_gecmis_v is Dictionary and not (es_gecmis_v as Dictionary).is_empty():
+		var gecmis_d: Dictionary = es_gecmis_v
+		var onceki_konu := str(gecmis_d.get("son_konu", ""))
+		var onceki_cevap := str(gecmis_d.get("son_cevap", ""))
+		if not onceki_konu.is_empty() and not onceki_cevap.is_empty():
+			replikler.append("Geçen günlerde de böyle demiştin...")
+
 	return {
 		"konu_id": secilen_konu_id,
 		"baslik": konu_sablonu.get("baslik", ""),
@@ -171,3 +180,41 @@ static func atla() -> Dictionary:
 		"moral_etkisi": 0,
 		"terazi": ""
 	}
+
+
+## Ağır karar yoksa isteğe bağlı tek satırlık gündelik ocak başı cümlesi döner.
+static func gundelik_satir(baglam: Dictionary = {}) -> String:
+	if baglam.get("es_oldu", false) or not baglam.get("es_hayatta", true):
+		return ""
+	var veri := veri_al()
+	var gundelik: Dictionary = veri.get("konular", {}).get("gundelik_sessizlik", {})
+	var replikler: Array = gundelik.get("es_replikleri", [])
+	return str(replikler[0]) if not replikler.is_empty() else ""
+
+
+## Gerçek kapı kararını ağırlık tablosundaki DYL-07 akşam konusuna eşler; sıradan karar boş döner.
+static func karardan_ekle(oturum: Oturum, gelen: Gelen, karar: StringName, ek: Dictionary) -> String:
+	if oturum == null or gelen == null:
+		return ""
+	var kaldi := bool(ek.get("kaldi", false))
+	var bayraklar := gelen.acik_bayraklar + gelen.gizli_bayraklar
+	var konu := ""
+	if karar == &"rusvet":
+		konu = "rusvet_almak"
+	elif karar == &"cocuklari_al":
+		konu = "aileyi_bolmek"
+	elif karar == &"ret" and (not gelen.aile.is_empty() or preload("res://src/kapi/aile_kafilesi.gd").kisi_sayisi(gelen) > 1):
+		konu = "cocuklu_aileyi_cevirmek"
+	elif kaldi and ("hasta" in bayraklar or gelen.sinif == &"hasta"):
+		konu = "hastayi_koye_almak"
+	elif karar == &"elkoy" or (karar == &"ret" and gelen.heybe != null and gelen.heybe.yalan_var()):
+		konu = "yakalanan_yalan"
+	elif kaldi and (gelen.kusurlu() or (gelen.heybe != null and gelen.heybe.yalan_var())):
+		konu = "yalan_yemin_edeni_almak"
+	elif kaldi and "yetim" in bayraklar:
+		konu = "kacak_yetimi_almak"
+	elif kaldi and gelen.sinif == &"asker" and "kacak" in bayraklar:
+		konu = "firari_askeri_almak"
+	if not konu.is_empty():
+		oturum.aksam_sohbeti_ekle(konu)
+	return konu

@@ -108,3 +108,17 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/gece_gecis_kontrol.tscn` → `GECE GEÇİŞİ: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+### Madde 6B — `DYL-07` (`TAM`)
+- **Değişiklikler:**
+  - `src/koy/aksam_sohbeti.gd`: `karardan_ekle(...)` (bölünen aile, rüşvet, çocuklu aile reddi, hasta kabulü, yakalanan/tutulan yalan, kaçak asker/yetim kabulü ağırlık tablosuna eşlendi), `konu_sec` `es_gecmis` anı cümlesi ve `gundelik_satir()` eklendi.
+  - `src/sistemler/oturum.gd`: `karar_ver` -> `AksamSohbeti.karardan_ekle`; `aksam_sohbeti_hazirla` -> `KisiHafizasi.es_hafizasi_oku(kadro, &"es")`; `aksam_sohbeti_uygula` -> `KisiHafizasi.es_hafizasi_yaz(kadro, &"es", ...)`, `terazi` (`kabul_etti` → `yonetim.adalet +1`, `susmak` → moral 0 + `"kacti"`) ve ertesi gün `es_aksam_ipucu` eklendi.
+  - `tests/unit/koy/aksam_konu_test.gd`: Gerçek `Oturum.karar_ver` -> `KisiHafizasi.es` -> terazi/adalet -> ertesi gece geçmiş anma sınamaları eklendi.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `DYL-07` → `TAM`.
+- **Hedefli test çıktıları (son satırlar):**
+  - `Godot.exe --headless --path . -s res://tests/unit/koy/aksam_konu_test.gd` → `TEST PASS: aksam_konu_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/koy/aksam_sohbeti_test.gd` → `TEST PASS: aksam_sohbeti_test.gd` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/soz/kisi_hafizasi_test.gd` → `KISI HAFIZASI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . res://tests/oto/aksam_sohbeti_kontrol.tscn` → `AKSAM SOHBETI UI: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

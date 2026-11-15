@@ -291,6 +291,7 @@ func karar_ver(gelen: Gelen, karar: StringName, _is_yeri: StringName = &"") -> D
 	MuhafizOdaGelisimi.karar(self)
 	MuhafizVicdani.karar(self, gelen, karar)
 	KararDonusu.kapi_kararini_yaz(self, gelen, karar, ek)
+	AksamSohbeti.karardan_ekle(self, gelen, karar, ek)
 	SoylentiKoprusu.karar(self, gelen, karar, ek)
 	preload("res://src/sistemler/kapi_acilis_olayi.gd").karar_sonrasi(self, gelen, ek)
 	return ek
@@ -846,6 +847,7 @@ func aksam_sohbeti_hazirla(ek_baglam: Dictionary = {}) -> Dictionary:
 		"es_hayatta": true,
 		"es_oldu": false,
 		"es_meslegi": String(ek_baglam.get("es_meslegi", es_bilgi["es_meslegi"])),
+		"es_gecmis": KisiHafizasi.es_hafizasi_oku(kadro, &"es"),
 		"meclis_gecesi": false,
 	}
 	var secim := AksamSohbeti.konu_sec(gunun_aksam_kararlari, gun + 1, baglam)
@@ -863,8 +865,23 @@ func aksam_sohbeti_uygula(konu_id: String, cevap_tipi: String) -> Dictionary:
 	var delta := int(sonuc.get("moral_etkisi", 0))
 	if es != null and es.saglik > 0 and delta != 0:
 		es.moral = clampi(es.moral + delta, 0, 100)
-	if not String(sonuc.get("terazi", "")).is_empty():
-		set_meta(&"aksam_son_terazi", String(sonuc.get("terazi", "")))
+	var terazi := String(sonuc.get("terazi", ""))
+	if not terazi.is_empty():
+		set_meta(&"aksam_son_terazi", terazi)
+		if terazi == "kabul_etti":
+			yonetim.adalet = clampi(yonetim.adalet + 1, 0, 100)
+	var ipucu := String(sonuc.get("ipucu", ""))
+	if not ipucu.is_empty():
+		set_meta(&"es_aksam_ipucu", ipucu)
+	if not kadro.durumlar.has(&"es"):
+		kadro.durumlar[&"es"] = {}
+	KisiHafizasi.es_hafizasi_yaz(kadro, &"es", {
+		"son_konu": konu_id,
+		"son_cevap": cevap_tipi,
+		"son_terazi": terazi,
+		"gun": gun + 1,
+		"ipucu": ipucu,
+	})
 	return sonuc
 
 
