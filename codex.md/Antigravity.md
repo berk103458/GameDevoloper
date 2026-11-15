@@ -1510,3 +1510,10 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Doğrulama:** Güncel `claude/festive-volta-li1sfm` üzerinde `D:\Araclar\Python\python.exe tools/python_test_runner.py --yedi-persona --godot D:\Araclar\Godot\Godot_v4.7.2-stable_win64_console.exe` çalıştırıldı (`OGR43_YEDI_PERSONA`: `toplam=7, gecen=7`; `gece=6`, `son=0`, `ambar=16..44`, RC=0).
 - **Asset:** asset gerekmedi.
 - kota görünmüyor
+
+### 2026-11-16 — OGR-57 Tamamlandı (Antigravity-Berk)
+- **Değişiklikler:**
+  - `tests/oto/ilk_saat_kontrol.gd` ve `.tscn`: Altı gecelik tek otomatik koşuda 4 iddia tek testte doğrulandı: (1) ipucu tetik sırası `OGR-01` (`data/ogretici/ilk_saat.json`) listesine eşit ve erken tetik 0, (2) `OGR-25` `hud_katmani` panel açılış geceleri eşleşiyor, (3) 6 gecede `son == ""` (`SonKilidi`) ve `ambar >= 0`, (4) kayıt sonrası ikinci açılışta ipucu 0.
+- **Doğrulama:** `ilk_saat_kontrol.tscn` (`ILK SAAT KAPANIS (OGR-57): GEÇTİ`), `hud_katmani_kontrol.tscn` (`HUD KATMANI KAYIT İKİZİ: GEÇTİ`), `acilis_bagimlilik_kontrol.tscn` (RC=0).
+- **Asset:** asset gerekmedi.
+- kota görünmüyor
