@@ -1,5 +1,6 @@
 # ROADMAP 3 — Savaş Ön Raporu
 
+> **Sahip: Ahmet tarafı** (Google ajanları ve Cursor). Bu rapor, ondan doğacak `ROADMAP_3` / `SVS-*` maddeleri ve savaş kodu Ahmet tarafınındır; Berk tarafı dokunmaz. Ayrıntı: `AGENTS.md` → "15 Kas 2026 bölüşümü".
 > Hazırlayan: Cursor (15 Kasım 2026). Güncelleme: Ahmet'in 15 Kasım kararları işlendi (bkz. "Kararlar"). Durum: **ön rapor**. ROADMAP_3 dosyası değildir, madde sahipliği açmaz.
 > Hedef okur: Antigravity (Google ajanları), Ahmet, Berk, Muharrir, Usta.
 > Yöntem: yüzeysel araştırma. Önce repo taraması, sonra kısa ilham notları. Derin tarih araştırması yapılmadı.

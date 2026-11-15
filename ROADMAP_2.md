@@ -1,5 +1,7 @@
 # Kapı Muhafızı — ROADMAP 2
 
+> **Bölüşüm (Ahmet, 15 Kasım 2026):** Kalan bütün açık `[ ]` ve yarım `[/]` maddeler Berk tarafındadır (Usta, Codex-Berk, Cursor-Berk, testx). Ahmet tarafı bu maddelere commit atmaz, işaretlerini değiştirmez. Madde satırlarındaki eski sahip adları değiştirilmedi. Ayrıntı: `AGENTS.md` → "15 Kas 2026 bölüşümü".
+
 Bu dosya ROADMAP 2’nin tek ve geçerli kopyasıdır (11 Ekim 2026, Muharrir birleştirdi). ROADMAP 1 (`ROADMAP.md`) bitmiş oyundur ve yalnız okuma referansıdır.
 
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)

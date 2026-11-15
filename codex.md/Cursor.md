@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Bölüşüm kararı yazıldı — 15 Kasım 2026
+
+Ahmet'in 19:39 kararı repoya yazıldı, kod yazılmadı. AGENTS.md "Madde sahipliği ve bölüşüm" bölümüne "15 Kas 2026 bölüşümü" alt başlığı ve tablosu eklendi: ROADMAP_2'de kalan bütün açık/yarım maddeler Berk tarafının (Usta, Codex-Berk, Cursor-Berk, testx). Ahmet tarafında Meshy (Antigravity), Gemini metin anahtarları ve kod bağlantısı (Cursor), ROADMAP 3 savaş (Google ajanları ve Cursor) kalıyor. ROADMAP_2.md başına kısa not, ROADMAP_3 ön raporuna "Sahip: Ahmet tarafı", CLAUDE.md ve codex.md/SOUL.md'ye tek satır atıf eklendi. Madde satırlarındaki sahip adları değiştirilmedi. Asset gerekmedi. Test gerekmedi (yalnız belge). Kota görünmüyor.
+
 ## 30 madde doğrulama — 15 Kasım 2026
 
 Ahmet'in görevi: ROADMAP_2'de çekince notu taşıyan 30 [x] madde. 21 Antigravity "sanity bekliyor" ve 4 Görev 22 "doğrulanmadı" notu kanıtla değişti; hiçbir madde geri çekilmedi. SOY-10/23/24/26/28 Cursor-Berk'in, dokunulmadı (SOY-28 başlığındaki "şu anda bu işlemi yapıyorum" ibaresi Berk tarafında bayat duruyor).

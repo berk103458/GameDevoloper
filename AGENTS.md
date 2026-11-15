@@ -150,6 +150,21 @@ Bütün ajanlar için geçerlidir: Antigravity, Cursor, Cursor-Berk, Codex, Clau
    - Berk tarafı (Usta, Codex, Cursor-Berk) Usta'nın Ajan Masası'nda (issue #11) bildirdiği orta bölümlerde çalışır.
    - Bölge dışına çıkmak için insan ya da koordinatör (Muharrir veya Usta) onayı gerekir.
 
+### 15 Kas 2026 bölüşümü (Ahmet, 15 Kasım 2026 19:39)
+
+Bu karar yukarıdaki 7. kuraldaki bölge bölüşümünün yerine geçer; 1–6. kurallar aynen geçerlidir.
+
+| Alan | Sahip | Kapsam | Öbür taraf |
+|---|---|---|---|
+| `ROADMAP_2.md`'de kalan bütün açık `[ ]` ve yarım `[/]` maddeler | **Berk tarafı** (Usta, Codex-Berk, Cursor-Berk, testx) | Cursor'un yarım bıraktığı 21 GRV maddesi; Antigravity'nin 8 açık maddesi (OGR-43, DYL-14, SEV-05, AYR-29, AYR-33, HAN-13, HAN-34, SOY-SON-01); Cursor'un bıraktığı KAP-18, YAP-03, KLT-47, SAH-55, YIL-09; sahipsiz bütün maddeler | Ahmet tarafı bu maddelere commit atmaz, işaretlerini değiştirmez |
+| Meshy asset üretimi ve oyuna bağlanması | **Ahmet tarafı** — Antigravity | `tools/meshy/**`, `assets/meshy_manifest.json`, `assets/model/**` ve ilgili görsel bağlantı dosyaları | Berk tarafı dokunmaz |
+| Gemini metin işleri | **Ahmet tarafı** — metin Gemini (Antigravity), kod bağlantısı Cursor | `docs/GEMINI_METIN_ISLERI.md`'deki anahtarlar: `dedikodu.kacis`, `arayuz.kapi.karar_kacti`, `ZAR_BASARILI`, `ZAR_BASARISIZ`, `ZAR_KILITLI`, `zar.degistirici.*` ve bunların kod bağlantısı | Berk tarafı dokunmaz |
+| ROADMAP 3 savaş | **Ahmet tarafı** — Google ajanları ve Cursor | `docs/ROADMAP_3_SAVAS_ON_RAPOR.md`, ondan doğacak `ROADMAP_3` / `SVS-*` maddeleri ve savaş kodu | Berk tarafı dokunmaz |
+
+- **Ahmet tarafı:** Antigravity, Cursor, Codex, Claude. **Berk tarafı:** Usta, Codex-Berk, Cursor-Berk, testx.
+- **Ortak dosyalar** (`data/metin/metinler.csv`, `ROADMAP_2.md` gibi) iki tarafça da düzenlenebilir. Ancak yalnız kendi maddelerinin satırlarına dokunulur. Çakışma olursa Ajan Masası'na (issue #11) `[SORUN]` yazılır.
+- `ROADMAP_2.md`'deki madde satırlarında yazan eski sahip adları değiştirilmez; sahiplik bu tablodan okunur.
+
 ## Güncel asset teslim kuralı — 12 Ekim 2026 (Ahmet/Muharrir)
 
 Önceki ekleme/üretim sırası yerine: üretim tamamlanana kadar mekanikler isim etiketli kutu yer tutucuyla bitirilir; asset beklenmez. Assetler üretim sonunda ayrı entegrasyonla eklenir. docs/EKSIK_ASSET_ENVANTERI.md aktif 2D / 3D başlıklarıdır; eski G tablosuna ekleme yönlendirmesi geçersizdir. Her yeni 2D ihtiyacı için aynı maddede gece_kapisi stilinde tekli İngilizce Nano Banana promptu, dosya adı, boyut ve saydamlık hazırlanır; saydam kaynak düz #00FF00 yeşildir. 3D için kısa tanım ve metreyle ölçü yeterlidir.

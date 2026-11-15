@@ -100,6 +100,8 @@ Bu projede her çalıştığında **önce** bu dosyayı ve `AGENTS.md`’yi oku.
 
 Ajan listesi ve kitleri: docs/AJAN_KITLERI.md. Kalfa = Ahmet'in Codex'i (Berk'in Codex'i değil); kimlik: codex.md/Kalfa.md. Başka ajanın [/] sahipliğine dokunma.
 
+Bölüşüm (Ahmet, 15 Kasım 2026): ROADMAP_2'de kalan açık/yarım maddeler Berk tarafının; Meshy, Gemini metin işleri ve ROADMAP 3 savaş Ahmet tarafının. Ayrıntı: AGENTS.md → "15 Kas 2026 bölüşümü".
+
 ### Roller
 
 Bu not mevcut işleyişi bozmaz. Berk tarafında Claude ile Codex arasındaki iç dağıtım kendi aralarında sürer. 9 Ekim 2026’da Ahmet’in onayıyla roller şöyle durur:

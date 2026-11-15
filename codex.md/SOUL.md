@@ -3,6 +3,7 @@
 Kaynak: Ahmet'in 7 Ekim 2026 açık talimatı. Bu dosya kalıcı proje hafızasıdır; işe başlarken AGENTS.md ile okunur. Daha yeni açık kullanıcı talimatı önceliklidir.
 
 - Tek ana çalışma dalı `claude/festive-volta-li1sfm`; ortak repo `berk103458/GameDevoloper`.
+- Bölüşüm (Ahmet, 15 Kasım 2026): ROADMAP_2'de kalan açık/yarım maddeler Berk tarafının; Meshy, Gemini metin işleri ve ROADMAP 3 savaş Ahmet tarafının. Ayrıntı: AGENTS.md → "15 Kas 2026 bölüşümü".
 - Yenilik = yeni dosya + ince adaptör. Çekirdek dosyalara paralel ikinci sistem yazılmaz. Mevcut HUD/kaynak paneli genişletilir; aynı iş için çift panel üretilmez.
 - `koy_sahnesi`, statik `KoyYerlesimi` ve eski full-RTS paralel mimari untracked bile üretilmez, commit/merge edilmez. Festive yolu `KoyYonetimSahnesi` ve mevcut adaptörlerdir.
 - Olgun, kontrolleri geçmiş paket bitince anlamlı mesajla commit edilir; saatlerce dirty bırakılmaz. Tek harf/“d” commit mesajı kullanılmaz. Ahmet “commit etme” derse commit durur. Olgunlaşmamış WIP remote'a gönderilmez; normal push yapılır, force-push açık yetki gerektirir.
