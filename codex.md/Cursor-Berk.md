@@ -121,3 +121,29 @@ Asset gerekmedi.
 kota: kota görünmüyor
 
 Bu makinede `C:\Users\ds\Documents\GitHub\GameDevoloper` kopyası yok; eşitlendi denmez. Durum: kod ve testler push edilecek; madde `[/] (Cursor-Berk)` kalır, `[x]` Usta doğrulamasından sonra.
+
+## SOY-28 — Fısıltı gazetesi kaynak satırı (15 Kasım 2026)
+
+Ne yapıldı: Sabah pusulasının cümlesi, satır sayısı ve seçenekleri duruyor. Cümlenin hemen altına küçük puntoyla tek etiket geliyor: `pusula.kaynak.duyan` ("duyan: %s" / "heard by: %s"). Ağ oturumda yoksa (`SoylentiKoprusu.META` yok) satır boş kalır ve ağ kurulmaz. Ağ varsa kayıtlar olay kimliği sırasında taranır. Kapanmış kayıt atlanır. Önce pusulanın konu kişisiyle ilgili kayıt seçilir (kişi, kaydın `kaynak`ı ya da `duyanlar` içindedir). Yoksa pusulanın gecesiyle aynı geceye yazılmış ilk kayıt alınır. Kaynak köyde sağ bir köylü değilse o kayıt da atlanır (SOY-45).
+
+Oyuna bağlantı: `Oturum.olay_sec` → `FisiltiGazetesi.olay` → `KoyEkrani._olay_goster` (ana metnin altı, histeri kartı değilse) → `PusulaKaynak.ekle` → `SoylentiKoprusu` meta `ag_kayitlari` → `TranslationServer` (`pusula.kaynak.duyan`).
+
+Değişen dosyalar:
+- `src/arayuz/koy_hud/pusula_kaynak.gd` (yeni)
+- `src/arayuz/koy_ekrani.gd` (olay kartına tek satır)
+- `data/metin/metinler.csv` (tek anahtar, TR+EN)
+- `data/metin/metinler.tr.translation`, `data/metin/metinler.en.translation` (`--import`)
+- `tests/unit/arayuz/pusula_kaynak_test.gd` (yeni)
+- Yeni betiklerin `.uid` dosyaları duruyor. `project.godot` değişmedi. `ROADMAP_2.md` değişmedi.
+
+Test:
+- `godot --headless --path . --script res://tests/unit/arayuz/pusula_kaynak_test.gd` → `SOY-28 GECTI`, çıkış kodu 0.
+- `godot --headless --path . --script res://tests/unit/kapi/fisilti_yer_test.gd` → `FISILTI YER: GEÇTİ`, çıkış kodu 0.
+- `godot --headless --path . --script res://tests/unit/kvr/soylenti_agi_test.gd` → `PASS: SOY-01..50 Soylenti Agi kapanis testi basariyla gecti.`, çıkış kodu 0.
+- SCRIPT ERROR / Failed to load script yok. Tam sanity koşulmadı.
+
+Asset gerekmedi.
+
+kota: kota görünmüyor
+
+Durum: kod ve testler push edilecek; [x] ve #11 Usta'da.

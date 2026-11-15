@@ -784,6 +784,7 @@ func _olay_goster(olay: OlayVerisi, sonuc: Dictionary) -> void:
 	var m := _etiket(v, tr(olay.metin_anahtari), Tema.GOVDE_PX)
 	m.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	m.custom_minimum_size.x = 900
+	if FisiltiGazetesi.tanimli(olay) and not FisiltiGazetesi.HISTERI.tanimli(olay): PusulaKaynak.ekle(v, oturum, olay)
 	var ilk: Button = null
 	for i in olay.secenek_anahtarlari.size():
 		var d := _dugme("— " + tr(olay.secenek_anahtarlari[i]), v)
