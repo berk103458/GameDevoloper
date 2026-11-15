@@ -7190,7 +7190,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-03. Boyut: M.
   - Dosya: `src/arayuz/harita_ekrani.gd`.
   - Asset: `ARY03-HARITA` yer tutucu, düz renk.
-- [/] **GRV-06:** (Codex-Berk) Sorgu `kapi_ekrani.gd` konuşma kutusu ve `chr_diyalog_paneli.gd`.
+- [x] **GRV-06:** (Codex-Berk) Sorgu `kapi_ekrani.gd` konuşma kutusu ve `chr_diyalog_paneli.gd`.
   - Ne: `KONUSMA` dikdörtgeni (satır 14, `Rect2(36, 742, 1104, 314)`) ve sağ `DEFTER` (satır 13) tema kaynağına bağlanır. 3B kapı sahnesi yeniden çizilmez.
   - Kabul: iki panelde yerel renk 0. Test: ARY-02 tarama.
   - Bağımlılık: ARY-03. Boyut: M.

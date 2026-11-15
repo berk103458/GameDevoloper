@@ -3354,3 +3354,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-94 (Codex-Berk): Gezgin stok kutusu Kabuk.yer_tutucu üzerinden kurulur; saman rengi veriden, su ve kumaş renkleri ortak kabuktan gelir. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV-96 (Codex-Berk): Kişisel eşya kutusu ortak Kabuk.yer_tutucu fabrikasına bağlandı; kişisel para ve stok davranışı değişmedi. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
+
+- 2026-11-15 GRV-06 (Codex-Berk): Kapının tam ekran zemin kutusu ortak Panel stilini miras alır; 3B sahne ve konuşma akışı korunur. İki konuşma dosyasında yerel stil taraması sıfırdır. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.

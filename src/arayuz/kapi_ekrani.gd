@@ -62,8 +62,7 @@ var _sira_satirlari: Array[Button] = []
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var zemin := ColorRect.new()
-	zemin.color = Renkler.GECE
+	var zemin := Panel.new()
 	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(zemin)
 
