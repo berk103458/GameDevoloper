@@ -218,16 +218,19 @@ func _meydan_kur() -> void:
 	# Meydan ateşi (9.1: akşam köylüler kandil ve ateş başında).
 	var ocak := Node3D.new()
 	ocak.position = AtesBasiRutini.konum(self)
-	for i in 7:
-		var tas := MeshInstance3D.new()
-		var s := SphereMesh.new()
-		s.radius = 0.22
-		s.height = 0.3
-		tas.mesh = s
-		var a := TAU * i / 7.0
-		tas.position = Vector3(cos(a), 0.1, sin(a)) * 0.65
-		tas.material_override = Pbr.malzeme("aerial_rocks_02", 1.0)
-		ocak.add_child(tas)
+	if Dunya3B.model_var_mi("nobet_ocagi"):
+		ocak.add_child(Dunya3B.nesne("nobet_ocagi", 0.9))
+	else:
+		for i in 7:
+			var tas := MeshInstance3D.new()
+			var s := SphereMesh.new()
+			s.radius = 0.22
+			s.height = 0.3
+			tas.mesh = s
+			var a := TAU * i / 7.0
+			tas.position = Vector3(cos(a), 0.1, sin(a)) * 0.65
+			tas.material_override = Pbr.malzeme("aerial_rocks_02", 1.0)
+			ocak.add_child(tas)
 	var alev: Node3D = HazirAtesEfektleri.olustur("ocak", 1.1, 24)
 	if alev == null:
 		alev = KapiManzarasi.alev(1.1, 1.0, 3)
@@ -270,7 +273,8 @@ func _sur_kur() -> void:
 			var p := a.lerp(c, (i + 0.5) / n)
 			if absf(p.x - kapi_x) < 3.0 and absf(p.z - uc.z) < 0.5:
 				continue
-			var parca := Dunya3B.nesne("kazik_cit", boy)
+			var sur_ad := "sur_3_tas" if (yonetim.sur_seviye >= 3 and Dunya3B.model_var_mi("sur_3_tas", "yapi")) else ("sur_2_palisat" if (yonetim.sur_seviye == 2 and Dunya3B.model_var_mi("sur_2_palisat", "yapi")) else "kazik_cit")
+			var parca := Dunya3B.nesne(sur_ad, boy, "yapi" if sur_ad != "kazik_cit" else "nesne")
 			SurHasarGorseli.uygula(parca, yonetim.sur_hasar)
 			parca.position = p
 			var d := (c - a).normalized()

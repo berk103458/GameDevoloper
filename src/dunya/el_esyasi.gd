@@ -364,6 +364,11 @@ func _cekic() -> void:
 
 func _kilic_bez() -> void:
 	# Beze sarılı eğri kılıç: kabzadan tutulur, ucu aşağıda.
+	if Dunya3B.model_var_mi("kilic"):
+		var glb := Dunya3B.nesne("kilic", 0.85)
+		glb.position = Vector3(0, -0.75, 0)
+		add_child(glb)
+		return
 	_parca(_silindir(0.016, 0.016, 0.12), DERI, Vector3(0, 0.02, 0))
 	_parca(_kutu(Vector3(0.05, 0.75, 0.035)), YUN.darkened(0.15), Vector3(0, -0.42, 0), Vector3(0, 0, 0.05))
 

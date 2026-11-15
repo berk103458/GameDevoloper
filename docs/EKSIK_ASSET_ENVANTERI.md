@@ -683,7 +683,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `YAPI-muhafiz_kislasi` | kutu | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `YAPI-gozetleme_kulesi` | menü `model_var_mi` ile atlar | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
 | `YAPI-pazar_tezgahi` | GLB var, sahne kurmuyor | 6,0 × 3,0 × 5,0 m; hedef yapı zarfı, yerleşimde doğrulanır |
-| `YAPI-sur 2–3` | kazık çit ölçeklenir, `SurHasarGorseli` | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
+| `YAPI-sur 2–3` | [ÜRETİLDİ: `assets/model/yapi/sur_2_palisat.glb`, `sur_3_tas.glb`] kazık çit ölçeklenir, `SurHasarGorseli`, `koy_yonetim_sahnesi.gd` | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
 | `HYV-AT` | Sorhan, Nogay, kervan, TUC, HAR-07 | 0,80 × 1,60 × 2,30 m; deve yüksekliği 2,10 m |
 | `HYV-KOYUN` | Ağıl, ANI-05, TUC-02 | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
 | `HYV-KECI` | Yusuf olayı | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
@@ -692,7 +692,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `PROP-ORS` | Demirhane izi | 0,50 × 0,75 × 0,35 m; kütük dahil |
 | `PROP-TEZGAH` | Ayşe / bez | 1,50 × 1,60 × 0,60 m |
 | `PROP-AGAC-2` | Tek `agac.glb` | Ağaç 2,0 × 5,0 × 2,0 m; kaya 1,2 × 0,8 × 1,0 m |
-| `ANI-SILAH` | Kılıç, kalkan, mızrak, meşale soketi; glTF, el kemiği. | Kılıç 0,08 × 0,85 × 0,04 m; kalkan çapı 0,60 m; mızrak boyu 2,0 m; alet boyu 0,35–1,20 m |
+| `ANI-SILAH` | [ÜRETİLDİ: `assets/model/nesne/kilic.glb`, `kalkan.glb`, `mizrak.glb`, `mesale_el.glb`] Kılıç, kalkan, mızrak, meşale soketi (`MuhafizDonanimi`, `ElEsyasi`); glTF, el kemiği. | Kılıç 0,08 × 0,85 × 0,04 m; kalkan çapı 0,60 m; mızrak boyu 2,0 m; alet boyu 0,35–1,20 m |
 | `ANI-ALET` | Kova, orak, balta, örs çekici, fırın küreği; glTF. | Kova 0,30 × 0,35 × 0,30 m; orak 0,40 m; balta 0,60 m; çekiç 0,35 m; kürek 1,20 m |
 | `ANI-HAYVAN-SURU` | Öküz yürüyüş, koyun otlama; glTF klip. | Mevcut öküz ve koyun riginde yürüyüş/otlama klibi; model ölçeği korunur |
 | `TUC-TACIR` | Celep, nalbur, kumaşçı, aktar, silah tüccarı; `karakter/<ad>_yuru.glb`. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
@@ -715,8 +715,8 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `TUC02-BEYGIR` | Beygir barınak modeli; glTF. | 0,80 × 1,60 × 2,30 m |
 | `TUC02-KOC` | Koç barınak ve sürü modeli; glTF. | 0,55 × 0,85 × 1,10 m |
 | `HAR06-KULE` | Gözcü kulesi yapı modeli; glTF. | 3,0 × 6,0 × 3,0 m; sur modülü 4,0 × 3,0 × 0,6 m |
-| `HAR10-YAY` | Sur okçusu el yayı; glTF. | 0,08 × 1,10 × 0,35 m |
-| `HAR10-MIZRAK` | Kapı mızraklısı görev mızrağı; glTF. | 0,06 × 2,00 × 0,06 m |
+| `HAR10-YAY` | [ÜRETİLDİ: `assets/model/nesne/yay.glb`] Sur okçusu el yayı (`KonuslanmaDonanimi`); glTF. | 0,08 × 1,10 × 0,35 m |
+| `HAR10-MIZRAK` | [ÜRETİLDİ: `assets/model/nesne/mizrak.glb`] Kapı mızraklısı görev mızrağı (`KonuslanmaDonanimi`); glTF. | 0,06 × 2,00 × 0,06 m |
 | `MEV05-KUREK` | Kar küreme küreği ve temizlik klibi; glTF / iskelet klibi. | 0,25 × 1,20 × 0,08 m |
 | `MEV10-KURT` | Kurt modeli, yürüyüş ve kaçış klibi; glTF / iskelet klibi. | 0,45 × 0,80 × 1,10 m; sürü üyeleri ayrı nesne |
 | `CAS05-DIVAN` | Meydan divan masası ve oturma sıraları; glTF. | Masa 2,00 × 0,80 × 1,00 m; oturak 0,50 × 0,45 × 0,50 m |
@@ -724,7 +724,7 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `ODA01-ICMEKAN` | Oda zemin ve duvarları; glTF. | 4,0 × 2,8 × 4,0 m; mevcut oda tabanı y=0 |
 | `ODA01-YATAK` | Muhafız yatağı; glTF. | 0,90 × 0,50 × 2,00 m |
 | `ODA01-MASA` | Muhafız masası; glTF. | 1,20 × 0,75 × 0,70 m |
-| `ODA01-MESALE` | Oda meşalesi; glTF. | 0,12 × 0,60 × 0,12 m |
+| `ODA01-MESALE` | [ÜRETİLDİ: `assets/model/nesne/mesale_el.glb`] Oda meşalesi; glTF. | 0,12 × 0,60 × 0,12 m |
 | `ODA01-KASA` | Gizli zemin kasası; glTF. | 0,60 × 0,40 × 0,40 m |
 | `ODA09-KABUS` | Rüya gölgesi figürü; glTF. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `ODA08-YATAK` | Rahat muhafız yatağı; glTF. | 1,10 × 0,55 × 2,00 m |

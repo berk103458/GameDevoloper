@@ -23,10 +23,16 @@ static func yenile(h: Node) -> void:
   var e:=ElEsyasi.new()
   e.name="taktik_silah";e.dik=true;e.set_meta("rol",rol)
   d.add_child(e)
-  var m:=MeshInstance3D.new()
-  var b:=BoxMesh.new()
-  b.size=Vector3(a.boyut[0],a.boyut[1],a.boyut[2])
-  m.mesh=b;m.material_override=Dunya3B.duz_malzeme(Color(a.renk))
-  e.add_child(m)
+  var silah_ad:="yay" if rol=="sur" else "mizrak"
+  if Dunya3B.model_var_mi(silah_ad):
+   var glb:=Dunya3B.nesne(silah_ad,float(a.boyut[1]))
+   glb.position=Vector3(0,-float(a.boyut[1])*0.2,0)
+   e.add_child(glb)
+  else:
+   var m:=MeshInstance3D.new()
+   var b:=BoxMesh.new()
+   b.size=Vector3(a.boyut[0],a.boyut[1],a.boyut[2])
+   m.mesh=b;m.material_override=Dunya3B.duz_malzeme(Color(a.renk))
+   e.add_child(m)
   e.bagla(f,sk,true,f.duzeltici())
   d.silah.visible=false

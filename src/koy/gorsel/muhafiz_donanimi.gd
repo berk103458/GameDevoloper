@@ -56,6 +56,26 @@ func _esya(tur: String, f: KarakterModel, sk: Skeleton3D, sag: bool) -> ElEsyasi
  e.name = tur
  e.dik = true
  add_child(e)
+ var model_ad := "mesale_el" if tur == "mesale" else tur
+ var boy := 0.6 if tur in ["mesale", "kalkan"] else (0.85 if tur == "kilic" else 2.0)
+ if Dunya3B.model_var_mi(model_ad):
+  var glb := Dunya3B.nesne(model_ad, boy)
+  glb.position = Vector3(0, -0.3 if tur == "kalkan" else -0.1, 0)
+  e.add_child(glb)
+  if tur == "mesale":
+   var b := SphereMesh.new()
+   b.radius = 0.075
+   b.height = 0.2
+   var m := MeshInstance3D.new()
+   m.mesh = b
+   var malzeme := Dunya3B.duz_malzeme(Color("#ffad55"))
+   malzeme.emission_enabled = true
+   malzeme.emission = Color("#ffad55")
+   m.material_override = malzeme
+   m.position = Vector3(0, 0.55, 0)
+   e.add_child(m)
+  e.bagla(f, sk, sag, f.duzeltici())
+  return e
  for p in AYAR.parcalar[tur]:
   var mesh: Mesh
   if p.tur == "kutu":

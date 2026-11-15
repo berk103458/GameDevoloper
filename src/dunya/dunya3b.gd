@@ -10,7 +10,9 @@ const MESALE_ALEV_IC := Color("#FFD27A")
 const NESNE_RENK := {
 	"mesale": Renkler.AHSAP, "kazik_cit": Renkler.AHSAP, "araba": Renkler.AHSAP, "agac": Renkler.DERIN_MAVI,
 	"kuyu": Renkler.SOGUK_MAVI, "kaya": Renkler.SOGUK_MAVI, "cuval_yigini": Renkler.AHSAP,
-	"zar": Renkler.KUL,
+	"zar": Renkler.KUL, "mesale_el": Renkler.AHSAP, "nobet_ocagi": Renkler.SOGUK_MAVI,
+	"mizrak_sehpasi": Renkler.AHSAP, "mizrak": Renkler.AHSAP, "kalkan": Renkler.AHSAP,
+	"kilic": Renkler.KUL, "yay": Renkler.AHSAP, "fener": Renkler.SOGUK_MAVI, "sancak": Renkler.MESALE,
 }
 ## Portre kökü → karakter modeli.
 const PORTRE_MODEL := {

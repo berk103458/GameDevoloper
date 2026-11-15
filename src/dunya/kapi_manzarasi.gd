@@ -488,6 +488,10 @@ func _multeciler_kur() -> void:
 			fener.position = Vector3(0.35, 0.95, 0.1)
 			fener.material_override = _isik_sacan(ATES_IC, 4.0)
 			k.add_child(fener)
+			if Dunya3B.model_var_mi("fener"):
+				var fener_glb := Dunya3B.nesne("fener", 0.22)
+				fener_glb.position = Vector3(0.35, 0.84, 0.1)
+				k.add_child(fener_glb)
 			if not gunduz:
 				var l := OmniLight3D.new()
 				l.light_color = ATES

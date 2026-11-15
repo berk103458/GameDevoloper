@@ -154,8 +154,13 @@ func _tas_sur(boy: float, kuleli: bool) -> void:
 	_gecit(1.3 if kuleli else 0.9, true)
 	if kuleli:
 		_kutu(Vector3(YARI * 2.0 + 1.4, 1.6, 1.2), Vector3(0, boy + 0.95, Z - 0.2), _tas)
-		var sancak := _kutu(Vector3(0.9, 1.6, 0.04), Vector3(0, boy - 0.2, Z + 0.45), Dunya3B.duz_malzeme(Color("#6a1e1a")))
-		sancak.rotation.x = 0.05
+		if Dunya3B.model_var_mi("sancak"):
+			var s := Dunya3B.nesne("sancak", 1.8)
+			s.position = Vector3(0, boy - 1.0, Z + 0.45)
+			add_child(s)
+		else:
+			var sancak := _kutu(Vector3(0.9, 1.6, 0.04), Vector3(0, boy - 0.2, Z + 0.45), Dunya3B.duz_malzeme(Color("#6a1e1a")))
+			sancak.rotation.x = 0.05
 
 
 ## Taş kemer: iki direğin üstünden yarım daire dizilmiş takozlar ve kilit taşı.
@@ -351,3 +356,12 @@ func _on_plan() -> void:
 	govde.material_override = testi
 	add_child(govde)
 	_silindir(0.06, 0.14, Vector3(YARI - 0.95, 0.5, Z + 0.5), testi)
+	if Dunya3B.model_var_mi("nobet_ocagi"):
+		var ocak := Dunya3B.nesne("nobet_ocagi", 0.85)
+		ocak.position = Vector3(-YARI + 0.65, 0, Z + 1.15)
+		add_child(ocak)
+	if Dunya3B.model_var_mi("mizrak_sehpasi"):
+		var sehpa := Dunya3B.nesne("mizrak_sehpasi", 1.5)
+		sehpa.position = Vector3(YARI - 0.55, 0, Z + 1.45)
+		sehpa.rotation.y = -0.35
+		add_child(sehpa)
