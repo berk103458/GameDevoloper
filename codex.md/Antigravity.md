@@ -1345,3 +1345,12 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Testler:** `dunya_test.gd` (`DUNYA ZAMANI TESTI: GEÇTİ (0 hata)`), `dunya_cizelge_metin_test.gd` (`gecti`), `kay04_icerik_surumu_test.gd` (`KAY-04: GEÇTİ (0 hata)`), `soz_kayit_test.gd` (`SÖZ KAYDI: GEÇTİ`) ve `acilis_koy_kontrol.tscn` (`AÇILIŞ KÖY: GEÇTİ`) 0 script hatasıyla geçti.
 - **Asset:** asset gerekmedi.
 - **Kota:** kota görünmüyor.
+## 15 Kasım 2026 — Gemini metin işleri (`docs/GEMINI_METIN_ISLERI.md`)
+- **Yapılan:** `data/metin/metinler.csv` içine 13 anahtar (TR + EN) satır satır eklendi; koda ve `ROADMAP_2.md`'ye dokunulmadı.
+  - `dedikodu.kacis` (`Kapıdaki sorgudan kaçıp gitmiş.` / `They fled from the gate during questioning.`)
+  - `arayuz.kapi.karar_kacti` (`kaçtı` / `fled`)
+  - `ZAR_BASARILI` (`başarılı` / `succeeded`), `ZAR_BASARISIZ` (`başarısız — tansiyon arttı` / `failed — tension rose`), `ZAR_KILITLI` (`kilitli` / `locked`)
+  - `zar.degistirici.<tur>` önerileri (`terazi_adil`, `terazi_yoz`, `grup_itibari`, `kanit`, `asker`, `yorgunluk`, `tecrube`, `kesilme` — Cursor kod bağlantısı için).
+- **Doğrulama:** `Godot.exe --headless --path . --import --quit` (RC=0), `dil_test.gd` (RC=0), `zar_oyun_baglanti_kontrol.tscn` (RC=0), `sorgu_zari_test.gd` (RC=0), `zar_degistirici_test.gd` (RC=0), `test_metin_ve_surum_sinirlari.py` (8 test OK).
+- **Not (Cursor/Muharrir için):** `tests/tools/test_metin_dogrula.py` (`tools/metin_dogrula.py`) kural gereği `dedikodu.kacis` için `YER-02` (3 parça) ve `ZAR_BASARILI`/`ZAR_BASARISIZ`/`ZAR_KILITLI` için `KVR-11` (küçük harf noktalı) uyarısı veriyor; mevcut kod anahtarları (`tansiyon_kacis_akisi.gd`, `sorgu_zari.gd`) ve görev kuralı gereği anahtar adları değiştirilmedi.
+- kota görünmüyor
