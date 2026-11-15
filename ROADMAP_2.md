@@ -8156,7 +8156,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SAH-34. Boyut: M.
   - Dosya: `data/ayarlar/sahne.json`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-40:** Çocuk ve yaşlı aynı ağı kullanır. (doğrulanmadı — Görev 22; Kalfa bekleniyor — KalabalikYol oyunda çağrılmıyor, KoyHalkHareketi/kapı kuyruğu entegrasyonu gerekli)
+- [x] **SAH-40:** Çocuk ve yaşlı aynı ağı kullanır. (Kalfa — üç yaş tek ANI-13 bölgesinde)
   - Ne: UZM-08 ayrı navigasyon açmaz. Hızları banttan düşer (SAH-22).
   - Kabul: UZM-08 ayrı navigasyon açmaz. Hızları banttan düşer (SAH-22). Test: iki yaş, ağ kimliği aynı.
   - Bağımlılık: UZM-08, SAH-33. Boyut: S.

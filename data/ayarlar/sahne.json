@@ -13,6 +13,7 @@
   "gecis_suresi": 0.25,
   "yuruyus_gecisi_suresi": 0.08,
   "yol_butcesi_ms": 2.0,
+  "yas_yuruyus_carpanlari": {"cocuk": 0.80, "yasli": 0.70},
   "kamera_uzaklik": {
     "min": 14.0,
     "max": 80.0,

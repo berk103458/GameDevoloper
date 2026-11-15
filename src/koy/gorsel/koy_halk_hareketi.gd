@@ -391,6 +391,9 @@ func _adim(id: int) -> void:
 		hiz = maxf(hiz, HareketGecisi.kosu_taban_hizi())
 	elif kisi != null and NobetYorgunlugu.aktif(kisi, sahne.yonetim):
 		hiz = HareketGecisi.yorgun_yuruyus_hizi(hiz)
+	if kisi != null and durum != &"kacis":
+		var yas_carpanlari: Dictionary = SAHNE_AYARI.yas_yuruyus_carpanlari
+		hiz *= float(yas_carpanlari.get(String(kisi.yas_grubu), 1.0))
 	hiz *= KarakterHavaTepkisi.hiz(sahne.yonetim) * preload("res://src/koy/aclik_kademesi.gd").yurume(kisi)
 	modeller[id].yuru(d.yol[d.adim], hiz, durum)
 

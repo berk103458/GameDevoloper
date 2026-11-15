@@ -62,8 +62,64 @@ func _calistir() -> void:
 	await _rota_butcesini_dene(h)
 	s.queue_free()
 	await get_tree().process_frame
+	await _yaslari_dene(katalog)
 	print("KALABALIK VARIŞ: GEÇTİ" if hata == 0 else "KALABALIK VARIŞ: KALDI")
 	await Ses.cik(hata)
+
+
+func _yaslari_dene(katalog: Katalog) -> void:
+	var oturum := Oturum.new(katalog, 76)
+	var ids: Array[int] = []
+	for yas in ["yetiskin", "cocuk", "yasli"]:
+		ids.append(oturum.yonetim.kabul({"sinif": "ciftci", "yas_grubu": yas}).id)
+	var sahne := KoyYonetimSahnesi.new()
+	sahne.yonetim = oturum.yonetim
+	add_child(sahne)
+	await _ortak_agi_dene(sahne.halk_hareketi, ids)
+	sahne.queue_free()
+	await get_tree().process_frame
+
+
+func _ortak_agi_dene(h: KoyHalkHareketi, ids: Array) -> void:
+	h.set_process(false)
+	h._ayar.hiz_farki = 0.0
+	var s := h.sahne
+	var bolge := h.get_node("zemin_navigasyonu") as KoyZeminNavigasyonu
+	for i in 120:
+		if bolge.hazir():
+			break
+		await get_tree().physics_frame
+	var bas := s.yonetim.a.meydan.position
+	var hucreler := h.rotaci.yol(bas, bas + Vector2i.RIGHT)
+	var once := bolge.sorgu_sayisi
+	var hizlar := PackedFloat64Array()
+	for id in ids:
+		var figur: KarakterModel = h.modeller[id]
+		figur.yurumeyi_durdur()
+		figur.position = h._konum(bas)
+		var yol := KoyZeminNavigasyonu.yol(h, hucreler)
+		_kontrol(yol.size() >= 2, "SAH-40: İki yaş ve yetişkin ortak rota alır")
+		if yol.size() < 2:
+			return
+		h._durum[id].yol = yol
+		h._durum[id].adim = 1
+		for nokta in yol:
+			_kontrol(NavigationServer3D.map_get_closest_point_owner(bolge.get_navigation_map(), nokta) == bolge.get_rid(), "SAH-40: Aynı ANI-13 bölge kimliği")
+		# Aynı rotada hız ölçülürken diğer aktörler başlangıç hücresinde beklemez.
+		for diger in ids:
+			if diger != id:
+				h.modeller[diger].yurumeyi_durdur()
+				h.modeller[diger].position = h._konum(bas + Vector2i(0, 2 + ids.find(diger)))
+		h._adim(id)
+		_kontrol(figur.hareket_bandi() == "yuru" and figur._yurume != null, "SAH-40: Yaşlar yürüyüş bandını kullanır")
+		if figur._yurume == null:
+			return
+		figur._yurume.pause()
+		figur._yurume.custom_step(0.1)
+		hizlar.append(figur.position.distance_to(h._konum(bas)) / 0.1)
+	_kontrol(bolge.sorgu_sayisi - once == 3 and NavigationServer3D.map_get_regions(bolge.get_navigation_map()).size() == 1, "SAH-40: Üç aktör tek sunucu bölgesini kullanır")
+	_kontrol(hizlar[0] > hizlar[1] and hizlar[1] > hizlar[2] and hizlar[2] > 0.0, "SAH-40: Çocuk ve yaşlı yetişkinden yavaş yürür")
+	print("SAH-40 yetişkin/çocuk/yaşlı m/s=%s" % [hizlar])
 
 
 func _rota_butcesini_dene(h: KoyHalkHareketi) -> void:

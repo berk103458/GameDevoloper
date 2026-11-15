@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-40 (Kalfa)
+
+Gerçek yetişkin, çocuk ve yaşlı tek ANI-13 sunucu bölgesinde aynı rotayı yürüdü. Tabloda çocuk için 0,80 ve yaşlı için 0,70 katsayısı seçildi. Ölçülen hızlar 1,60, 1,28 ve 1,12 m/s. Kalabalık varış, eşik, sıkışma ve bütçe kontrolleri aynı headless koşuda geçti. Eski yaş UI testi değirmen kurulumunda ayrı bir hata verdi, yaş ve navigasyon kabulü ayrı köy sahnesinde çalıştı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-39 (Kalfa)
 
 Rota planlaması sahne tablosundaki 2 ms bütçeyi her plan arasında kontrol ediyor. Bütçe bittiğinde yeni arama sonraki kareye kalıyor ve mevcut hareketi olan kök eski rotasını sürdürüyor. Tek A* sorgusu bölünemediği için ilk iş tamamlanır. Kontrollü on istek testinde 9 istek ertelendi, bir bütçe aşımı kaydedildi ve devam eden tween korundu. Kalabalık varış, muhafız devriyesi ve köy hareketi headless geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
