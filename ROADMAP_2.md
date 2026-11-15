@@ -4853,7 +4853,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: KAY-04, SYS-01. Boyut: M.
   - Dosya: yeni: `src/sistemler/kayit_yuvalari.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-29:** Yuva kartı. (Antigravity) (doğrulanmadı — Görev 22; KayitYuvaKarti (src/arayuz/kayit_yuva_karti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **AYR-29:** Yuva kartı. (Antigravity-Berk) (doğrulanmadı — Görev 22; KayitYuvaKarti (src/arayuz/kayit_yuva_karti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: her yuvada gün, nüfus, perde, son kayıt saati ve muhafızın geçmişi (ACL-06) yazar; ekran görüntüsü yok.
   - Kabul: beş alan kayıt başlığından okunur; bozuk kayıt "okunamadı" yazar, çökmez. Test: bozuk dosya.
   - Bağımlılık: AYR-28. Boyut: S.
@@ -4877,7 +4877,7 @@ Kimlikler AYR-01 … AYR-52. Asset üretilmez; görsel ihtiyaç ARY-05'e yazıl�
   - Bağımlılık: AYR-28. Boyut: S.
   - Dosya: `src/sistemler/kayit_yuvalari.gd`.
   - Asset: asset gerekmedi.
-- [ ] **AYR-33:** Uyumsuz kayıt açılmaz, açıklanır. (Antigravity) (doğrulanmadı — Görev 22; KayitYuvaKarti (src/arayuz/kayit_yuva_karti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **AYR-33:** Uyumsuz kayıt açılmaz, açıklanır. (Antigravity-Berk) (doğrulanmadı — Görev 22; KayitYuvaKarti (src/arayuz/kayit_yuva_karti.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: `KAYIT_SURUMU` ileri olan dosya yuva kartında "yeni sürüm kaydı" yazar; açılmaz, silinmez.
   - Kabul: sürüm 99 dosyası → kart uyarısı, çökme 0. Test: birim.
   - Bağımlılık: AYR-29, KAY-04. Boyut: S.
