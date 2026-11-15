@@ -112,6 +112,18 @@ class SozKapsamTest(unittest.TestCase):
         self.assertIn("YAZ-10 ulasilmayan dugum: yetim", sonuc.stdout)
         self.assertIn("YAZ-10 onay=red hata=2", sonuc.stdout)
 
+    def test_klt50_inceleme_kutusu_satir_sayisi_dosya_satirina_esit(self):
+        sahne = _sahne()
+        del sahne["dugumler"]["yetim"]
+        isaret = _hepsi_dogal(sahne)
+        self.assertEqual(len(isaret["isaretler"]), len(inc.satirlar(sahne)))
+        self.assertEqual(inc.onay_hatalari(sahne, isaret, _tohumlar()), [])
+        del isaret["isaretler"]["giris/sec_b"]
+        hatalar = inc.onay_hatalari(sahne, isaret, _tohumlar())
+        self.assertEqual([h["mesaj"] for h in hatalar], ["giris/sec_b: isaretsiz"])
+        hat = (ROOT / "docs" / "soz" / "HAT.md").read_text(encoding="utf-8")
+        self.assertIn("KLT-50", hat)
+
     def test_gercek_soz_dosyasi_taranir(self):
         sahne = json.loads((ROOT / "data" / "soz" / "yetim_kafilesi.json").read_text(encoding="utf-8-sig"))
         tarama = inc.kapsam(sahne, [{}])

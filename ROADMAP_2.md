@@ -6481,7 +6481,7 @@ Kimlikler KLT-01 … KLT-75. Bitince `[x]` ve ajan adı.
   - Bağımlılık: DIY-16. Boyut: S.
   - Dosya: `tools/soz_kapi.py`
   - Asset: asset gerekmedi.
-- [ ] **KLT-50:** (Cursor bıraktı: YAZ-10 inceleme modu/işaret dosyası repoda yok) İnceleme kutusu satır sayısı dosya satırına eşittir
+- [x] **KLT-50:** İnceleme kutusu satır sayısı dosya satırına eşittir (Cursor — YAZ-10 inceleme işaretleri üzerinden: işaret sayısı satır sayısına eşit, işaretsiz satır 1 hata; HAT.md kuralı; test tests/tools/test_soz_kapsam.py::test_klt50_inceleme_kutusu_satir_sayisi_dosya_satirina_esit; mutasyonda kırmızı)
   - Ne: İnceleme kutusu satır sayısı dosya satırına eşittir. Eksik satır 1 hata.
   - Kabul: Hata 1. Test: sayım.
   - Bağımlılık: YAZ-10. Boyut: S.

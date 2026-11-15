@@ -38,3 +38,7 @@ Tur raporunda diyalog kutusunu yalnız `python -B tools/soz_kapi.py --paket <pak
 - [ ] Diyalog geçti. Yazım kapısı çıkış 1, yasak kalıp.
 
 Kapı Godot başlatmaz, `user://` yazmaz, `data/soz` dosyası silmez. Red listesi ayrı `red/` klasörüne yazılır.
+
+## İnceleme kutusu (YAZ-10, KLT-50)
+
+Yapaylık adımında her sahne satırı inceleme işaret dosyasında bir satırdır: düğüm `<dugum>`, seçenek `<dugum>/<secenek>`. İşaret sayısı sahnedeki satır sayısına eşittir; işaretsiz kalan her satır 1 hatadır. Denetim `tools/soz_inceleme.py`, komut `python -B tools/soz_dogrula.py --kapsam <sahne> --tohum <tohumlar> --isaret <isaret>`.
