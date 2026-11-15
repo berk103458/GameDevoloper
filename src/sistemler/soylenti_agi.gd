@@ -99,6 +99,17 @@ func kaynak_ve_dogruluk(olay_id: String) -> Dictionary:
 	var k: Dictionary = ag_kayitlari.get(olay_id, {})
 	return {"kaynak": String(k.get("kaynak", "")), "dogru": bool(k.get("dogru", true))}
 
+func dogru_kayit_mi(olay_id: String) -> bool:
+	return bool(kaynak_ve_dogruluk(olay_id).get("dogru", true))
+
+func dogru_kayitlar() -> Dictionary:
+	var sonuc := {}
+	for olay_id in ag_kayitlari:
+		var k: Variant = ag_kayitlari[olay_id]
+		if k is Dictionary and bool((k as Dictionary).get("dogru", true)):
+			sonuc[olay_id] = (k as Dictionary).duplicate(true)
+	return sonuc
+
 ## SOY-07 & SOY-08: Köylü söz güvenilirliği (0..3).
 func guvenilirlik_al(koylu_id: String) -> int:
 	return int(guvenilirlikler.get(koylu_id, _ayar("varsayilan_guvenilirlik")))

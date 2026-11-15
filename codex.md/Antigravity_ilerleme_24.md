@@ -167,3 +167,19 @@ Kaynak: `docs/ANTIGRAVITY_DENETIM_LISTESI.md`
   - `Godot.exe --headless --path . res://tests/oto/chr_kapi_kontrol.tscn` → `CHR KAPI UI: GEÇTİ` (`RC=0`, `ERRS=0`)
 - Asset gerekmedi.
 - kota görünmüyor
+
+
+
+### Madde 10 — `SOY-01` (`TAM`)
+- **Değişiklikler:**
+  - `src/sistemler/soylenti_agi.gd`: `dogru_kayit_mi(olay_id)` ve `dogru_kayitlar()` eklendi (`Dedikodu` imzaları korundu).
+  - `src/sistemler/dis_hat_kapisi.gd`: `OMR-39` üzerinde `soylenti_dogru_haber_var_mi(o, olay_id)` eklendi (`dogru == false` sahte haberler eleniyor).
+  - `tests/unit/kayit/soz_kayit_test.gd`: `_soy01_soylenti_kaynak_ve_dogruluk` ile `Oturum.kaydet/kayittan` gidiş-dönüşü, eski kayıtta varsayılan (`kaynak == ""`, `dogru == true`) ve `dogru == false` reddi doğrulandı.
+  - `docs/ANTIGRAVITY_DENETIM_LISTESI.md`: `SOY-01` → `TAM`.
+- **Hedefli test çıktıları (son satırlar):**
+  - `Godot.exe --headless --path . -s res://tests/unit/kayit/soz_kayit_test.gd` → `SÖZ KAYDI: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/kvr/soylenti_agi_test.gd` → `PASS: SOY-01..50 Soylenti Agi kapanis testi basariyla gecti.` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/soylenti_koprusu_test.gd` → `SÖYLENTİ KÖPRÜSÜ: GEÇTİ` (`RC=0`, `ERRS=0`)
+  - `Godot.exe --headless --path . -s res://tests/unit/sistemler/dedikodu_test.gd` → `DEDIKODU: GEÇTİ (0 hata)` (`RC=0`, `ERRS=0`)
+- Asset gerekmedi.
+- kota görünmüyor

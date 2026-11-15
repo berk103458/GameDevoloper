@@ -4,6 +4,7 @@ extends SceneTree
 const GOC = preload("res://src/sistemler/kayit_gocu_soz.gd")
 const ACILIS = preload("res://src/sistemler/acilis_senaryosu.gd")
 const GECMIS = preload("res://src/sistemler/muhafiz_gecmisi.gd")
+const DIS_HAT = preload("res://src/sistemler/dis_hat_kapisi.gd")
 
 var hata := 0
 
@@ -26,6 +27,7 @@ func _initialize() -> void:
 	_eski_gorunum()
 	_bayrak(kat)
 	_dedikodu_tavani()
+	_soy01_soylenti_kaynak_ve_dogruluk(kat)
 	print("SÖZ KAYDI: %s" % ("GEÇTİ" if hata == 0 else "KALDI"))
 	quit(hata)
 
@@ -182,3 +184,24 @@ func _dedikodu_tavani() -> void:
 		kimlikler.append(String(satir.olay_id))
 	dene(not kimlikler.has("olay_0") and kimlikler.has("olay_80"), "KAY-70 en eski satır düşer, 81. listeyi büyütmez")
 	dene(not d.olay_kaydet("olay_0", "rusvet", 1, "tanik", 1).olur, "KAY-70 düşen yayılmamış olay geri gelmez")
+
+
+func _soy01_soylenti_kaynak_ve_dogruluk(kat: Katalog) -> void:
+	var o := Oturum.new(kat, 7071)
+	var ag: RefCounted = SoylentiKoprusu.ag(o)
+	ag.soylenti_ekle("dogru_olay", "rusvet", "koylu_1", true, {"gece": 2})
+	ag.soylenti_ekle("yanlis_olay", "siddet", "koylu_2", false, {"gece": 2})
+	dene(ag.kaynak_ve_dogruluk("dogru_olay") == {"kaynak": "koylu_1", "dogru": true}, "SOY-01 doğru olay kaynağı ve doğruluğu SoylentiAgi kaydında tutulur")
+	dene(ag.kaynak_ve_dogruluk("yanlis_olay") == {"kaynak": "koylu_2", "dogru": false}, "SOY-01 yanlış söylenti dogru=false korunur")
+	dene(DIS_HAT.soylenti_dogru_haber_var_mi(o, "dogru_olay") and not DIS_HAT.soylenti_dogru_haber_var_mi(o, "yanlis_olay"), "SOY-01/OMR-39 yalnız dogru=true söylentiyi okur")
+	dene(ag.dogru_kayitlar().has("dogru_olay") and not ag.dogru_kayitlar().has("yanlis_olay"), "SOY-01 doğru kayıtlar süzgeci yanlış söylentiyi ayıklar")
+
+	var kayit: Dictionary = JSON.parse_string(JSON.stringify(o.kaydet()))
+	var geri := Oturum.kayittan(kat, kayit)
+	dene(geri != null and SoylentiKoprusu.ag(geri).kaynak_ve_dogruluk("dogru_olay") == {"kaynak": "koylu_1", "dogru": true}, "SOY-01 kaynak ve doğruluk kayıttan döner")
+	dene(geri != null and SoylentiKoprusu.ag(geri).kaynak_ve_dogruluk("yanlis_olay").dogru == false, "SOY-01 dogru=false kayıttan korunur")
+
+	var eski := kayit.duplicate(true)
+	eski.erase("soylenti_agi")
+	var eski_oturum := Oturum.kayittan(kat, eski)
+	dene(eski_oturum != null and SoylentiKoprusu.ag(eski_oturum).kaynak_ve_dogruluk("dogru_olay") == {"kaynak": "", "dogru": true}, "SOY-01 eski kayıtta SoylentiAgi yokken kaynak='' ve dogru=true sayılır")

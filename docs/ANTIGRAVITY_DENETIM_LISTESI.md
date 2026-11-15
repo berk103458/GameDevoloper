@@ -263,7 +263,7 @@ Kalfa, 15 Kasım'da SAH-01'den SAH-34'e kadar olan maddeleri yeniden işledi. G�
 | MCL-02 | Meclis sesi | `[x]` | `src/koy/meclis_sesi.gd` | `cinar_alti_meclisi.gd` ve `cinar_meclis_paneli.gd` çağırıyor | — | TAM | — |
 | BUG-16 | Olay ön koşulu | `[x]` | `src/sistemler/olay_on_kosulu.gd` | `oturum.gd:472` havuzu bu koşuldan geçiriyor | — | TAM | — |
 | KAY-04 | İçerik sürümü | `[x]` | `src/sistemler/kayit_gocu_soz.gd` | `icerik_surumu_oku` içerik dosyasını okuyor | — | TAM | — |
-| SOY-01 | Söylenti kaynağı | `[x]` | `src/sistemler/dedikodu.gd` | Dedikodu kaydı var | `kaynak` ve `dogru` alanı yok; Görev 23'te bu iş `SoylentiAgi` ile ayrı yapıldı | EKSİK | Alanları `Dedikodu` yerine `SoylentiAgi` kaydında tut |
+| SOY-01 | Söylenti kaynağı | `[x]` | `src/sistemler/soylenti_agi.gd`, `src/sistemler/dis_hat_kapisi.gd` | `SoylentiAgi` (`kaynak`, `dogru`, `dogru_kayit_mi`, `dogru_kayitlar`) + `DisHatKapisi.soylenti_dogru_haber_var_mi` + `soz_kayit_test.gd` gerçek ağı sorgular (`Dedikodu` imzaları korundu) | — | TAM | Alanlar `SoylentiAgi`'nda ve `DisHatKapisi` filtresinde doğrulandı (Antigravity) |
 
 ## Günlükteki id'siz kapanış iddiaları
 

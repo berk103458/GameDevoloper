@@ -46,6 +46,15 @@ static func dogrulanmis_haber_var_mi(o: Oturum, hat: String) -> bool:
 		return bool(kaynaklar[hat])
 	return false
 
+## SOY-01 & OMR-39: Söylenti ağı kaydında yalnız dogru=true olan gerçek haberi kabul eder.
+static func soylenti_dogru_haber_var_mi(o: Oturum, olay_id: String) -> bool:
+	if o == null or not o.has_meta(SoylentiKoprusu.META):
+		return false
+	var ag: RefCounted = SoylentiKoprusu.ag(o)
+	if not ag.ag_kayitlari.has(olay_id):
+		return false
+	return bool(ag.call("dogru_kayit_mi", olay_id))
+
 ## OMR-19: Moğol hattı üç adımdır: duman (dalga 1), haber (dalga 2), öncü (dalga 3). Adım atlanırsa sonraki tetiklenmez.
 static func mogol_adim_izin(o: Oturum, adim: int) -> bool:
 	if o == null or o.yonetim == null or not o.yonetim.agalik: return false

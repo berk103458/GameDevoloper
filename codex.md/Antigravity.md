@@ -1216,3 +1216,16 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
   - `KapiEkrani` (`src/arayuz/kapi_ekrani.gd`): ekranda tek bir `HatirlanmaNotu` çocuk düğümü (`"HatirlanmaNotu"`) tutulsun; `_karar_ver` içinde tek satır `_hatirlanma_notunu_goster(sonuc)` ile `HatirlanmaNotu.secim_bildir(...)` çalıştırılsın (hem ayar `hatirlanma_notu` okunsun, hem tek kararda en fazla 1 not açılsın, özel ad/grup/gece sayısı basılmasın, 2 sn sonra veya tıklayınca kapansın).
 - **9.4 Uygula ve doğrula:** `tests/unit/kapi/hatirlanma_notu_test.gd` ile gerçek `Oturum` + `KapiEkrani` UI sahne doğrulaması (`tests/oto/hatirlanma_notu_kontrol.{gd,tscn}` veya mevcut kontrol testi) koştur (`RC=0, ERRS=0`), `DIY-14` → `TAM` güncelle ve commit/push et.
 - **Sonuç:** `oturum.gd`, `kapi_ekrani.gd` ve `tests/oto/hatirlanma_notu_kontrol.{gd,tscn}` güncellendi/eklendi; `hatirlanma_notu_test.gd`, `hatirlanma_notu_kontrol.tscn`, `kisi_hafizasi_test.gd` ve `chr_kapi_kontrol.tscn` sıfır script hatasıyla geçti. Asset gerekmedi. kota görünmüyor.
+
+### Madde 10 — `SOY-01` (Söylenti kaynağı ve doğruluğu: `SoylentiAgi` + `KAY` + `OMR-39` doğrulaması) Alt Madde Planı
+- **10.1 Sorunu anla:** `docs/ANTIGRAVITY_DENETIM_LISTESI.md` (`SOY-01`) `Dedikodu` sınıfında `kaynak`/`dogru` olmadığını, bu işin `SoylentiAgi` ile ayrı kurulduğunu (`ROADMAP_2`: `dedikodu.gd imzaları değişmez`) ama denetimde hâlâ `EKSİK` göründüğünü ve `KAY` birimi + `OMR-39` doğruluk süzgeci bağlantısının kanıtlanmadığını belirtir.
+- **10.2 Oyuna nasıl bağlandığını kontrol et:**
+  - `src/sistemler/soylenti_agi.gd` zaten `ag_kayitlari` içinde `"kaynak"` ve `"dogru"` tutuyor ve `kaynak_ve_dogruluk(olay_id)` (eski kayıtta `{"kaynak": "", "dogru": true}`) sunuyor; yalnız `dogru == true` süzgeç yardımcısı (`dogru_kayit_mi`, `dogru_kayitlar`) yok.
+  - `src/sistemler/soylenti_koprusu.gd` kapı kararını ve kayıt/yüklemeyi (`"soylenti_agi"`) `Oturum` ile bağlıyor; `tests/unit/kayit/soz_kayit_test.gd` içinde ise `SOY-01` `KAY` birimi testi bulunmuyor.
+- **10.3 «Daha iyi olur» iyileştirmeleri:**
+  - `SoylentiAgi` (`src/sistemler/soylenti_agi.gd`) içine `dogru_kayit_mi(olay_id)` ve `dogru_kayitlar()` ekleyerek `OMR-39` ve diğer okuyucuların yanlış söylenti (`dogru == false`) kopyalarını dışlamasını kolaylaştır (`Dedikodu` imzalarına dokunma).
+  - `DisHatKapisi` (`src/sistemler/dis_hat_kapisi.gd`) `OMR-39` üzerinde `soylenti_dogru_haber_var_mi(o, olay_id)` okuyucusu ekleyerek yalnız `SoylentiAgi` kaydında `dogru == true` olan haberi geçerli say; sahte `dogru = false` kaydını reddet.
+  - `tests/unit/kayit/soz_kayit_test.gd` içine `_soy01_soylenti_kaynak_ve_dogruluk(kat)` ekle: `Oturum.kaydet`/`kayittan` ile `kaynak` ve `dogru` gidiş-dönüşünü, eski kayıtta `"soylenti_agi"` yokken `kaynak == ""` + `dogru == true` davranışını ve `dogru == false` sahte haber reddini sına.
+- **10.4 Uygula ve doğrula:** `soz_kayit_test.gd`, `soylenti_agi_test.gd`, `soylenti_koprusu_test.gd` ve `dedikodu_test.gd` koştur (`RC=0`, `ERRS=0`), `SOY-01` → `TAM` işaretle ve commit/push et.
+
+- **Sonuç:** `soylenti_agi.gd`, `dis_hat_kapisi.gd` ve `soz_kayit_test.gd` güncellendi; `soz_kayit_test.gd`, `soylenti_agi_test.gd`, `soylenti_koprusu_test.gd` ve `dedikodu_test.gd` sıfır script hatasıyla geçti. Asset gerekmedi. kota görünmüyor.
