@@ -34,10 +34,12 @@ static func diyalog_goster(ekran: Control, gelen: Gelen, secenekler: VBoxContain
 	var panel := preload("res://src/arayuz/chr_diyalog_paneli.gd").new()
 	panel.sorgu = sorgu
 	panel.oturum = ekran.get("oturum") as Oturum
+	panel.ayarlar = ekran.get("ayarlar") as Ayarlar
 	panel.baglam = gelen.get_meta(&"zar06_baglam", {}).duplicate(true)
 	panel.karar_istendi.connect(Callable(ekran, "_karar_goster"))
 	secenekler.add_child(panel)
 	inceleme_dugmesi(ekran, gelen, eylemler)
+	beyan_defteri_dugmesi(ekran, gelen, eylemler, panel)
 	return true
 
 static func inceleme_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxContainer) -> Button:
@@ -60,5 +62,43 @@ static func inceleme_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxContain
 		MuhafizAdaletYetenekleri.chr_incele(oturum, panel)
 		KapiGorusAdaptoru.bagla(panel, ekran)
 		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").chr_bagla(panel, ekran, gelen)
+	)
+	return dugme
+
+
+static func beyan_defteri_dugmesi(ekran: Control, gelen: Gelen, eylemler: VBoxContainer, diyalog_paneli: Control = null) -> Button:
+	var sorgu := gelen.chr_sorgusu() if gelen != null else null
+	var oturum := ekran.get("oturum") as Oturum
+	var motor: SozMotoru = oturum.soz_kaydi.motor if oturum != null and oturum.soz_kaydi != null else null
+	var defter: BeyanDefteri = sorgu.beyan_defteri if sorgu != null else (oturum.soz_kaydi.beyanlar if oturum != null and oturum.soz_kaydi != null else null)
+	var celiski: RefCounted = sorgu.celiski_durumu if sorgu != null else (motor.celiski() if motor != null else null)
+	if sorgu == null and (motor == null or motor.beyan_defteri.is_empty()):
+		return null
+	var dugme := Button.new()
+	dugme.name = "BeyanDefteriDugmesi"
+	dugme.text = "Göster · Beyan Defteri"
+	dugme.custom_minimum_size.y = 64
+	eylemler.add_child(dugme)
+	dugme.pressed.connect(func() -> void:
+		if ekran.has_node("BeyanDefteriPaneli"):
+			return
+		var bpanel := preload("res://src/arayuz/kapi/beyan_defteri_paneli.gd").new()
+		bpanel.kur({
+			"celiski": celiski,
+			"motor": motor,
+			"defter": defter,
+			"sorgu": sorgu,
+			"oturum": oturum,
+		})
+		bpanel.yuzlesildi.connect(func(sonuc: Dictionary) -> void:
+			if ekran.has_method("_yaz"):
+				if bool(sonuc.get("basarili", false)):
+					ekran.call("_yaz", "[color=#C4843A]%s[/color]" % String(sonuc.get("satir", "Çelişki ortaya çıkarıldı!")))
+				else:
+					ekran.call("_yaz", "[i]%s[/i]" % String(sonuc.get("tepki", "Ne alakası var bunun?")))
+			if diyalog_paneli != null and is_instance_valid(diyalog_paneli) and diyalog_paneli.has_method("guncelle"):
+				diyalog_paneli.call("guncelle")
+		)
+		ekran.add_child(bpanel)
 	)
 	return dugme

@@ -334,6 +334,7 @@ func _sohbet_goster() -> void:
 	k.pressed.connect(_karar_goster)
 	if not ILK_GECE.etkin(oturum, _gelen):
 		preload("res://src/kapi/hastalik_teshis_adaptoru.gd").eylem(self, _gelen, _eylemler)
+	preload("res://src/arayuz/chr_kapi_adaptoru.gd").beyan_defteri_dugmesi(self, _gelen, _eylemler)
 	_sirayla_goster(dugmeler)
 
 

@@ -22,6 +22,8 @@ var zar_baglami: Dictionary = {}
 var _rng := RandomNumberGenerator.new()
 var _denemeler: Dictionary = {}
 var _son_konusulan: StringName = &""
+var beyan_defteri := BeyanDefteri.new()
+var celiski_durumu := preload("res://src/soz/celiski.gd").new()
 
 func replik_baslat() -> bool:
 	if _son_konusulan == dugum_id:
@@ -125,7 +127,9 @@ func _dugume_git(hedef: StringName) -> void:
 		var dugum := karakter.diyalog_dugumu(dugum_id)
 		for bayrak in dugum.get("bayraklar", []):
 			bayraklar[String(bayrak)] = true
-		if not metin(StringName(dugum.get("replik_anahtari", ""))).is_empty():
+		var replik_metni := metin(StringName(dugum.get("replik_anahtari", "")))
+		if not replik_metni.is_empty():
+			_dugum_beyanini_kaydet(dugum_id, replik_metni)
 			return
 		var yonlendi := false
 		for gecis in dugum.get("gecisler", []):
@@ -167,6 +171,63 @@ func _init(k: KarakterVerisi) -> void:
 	k = karakter
 	bayraklar = k.yeni_sorgu_bayraklari()
 	tansiyon = k.baslangic_tansiyonu
+	_ipucu_servisi.ipucu_bulundu.connect(func(ipucu: StringName) -> void:
+		celiski_durumu.kayit_ekle({
+			"id": String(ipucu),
+			"ipucu_id": String(ipucu),
+			"tur": "ipucu",
+			"metin": _ipucu_metni(ipucu),
+			"kaynak": "İnceleme / Bakış",
+		})
+	)
+	_celiskileri_bagla()
+	var ilk_dugum := karakter.diyalog_dugumu(dugum_id)
+	var ilk_replik := metin(StringName(ilk_dugum.get("replik_anahtari", "")))
+	if not ilk_replik.is_empty():
+		_dugum_beyanini_kaydet(dugum_id, ilk_replik)
+
+
+func celiski_dalina_gec(hedef: StringName, tansiyon_delta: int = 0) -> bool:
+	if not karakter.diyalog_dugumleri.has(String(hedef)):
+		return false
+	tansiyon = clampi(tansiyon + tansiyon_delta, 0, 10)
+	_dugume_git(hedef)
+	tansiyon_degisti.emit(tansiyon)
+	return true
+
+
+func _celiskileri_bagla() -> void:
+	for d_anahtar in karakter.diyalog_dugumleri.keys():
+		var d_id := String(d_anahtar)
+		var d_veri: Dictionary = karakter.diyalog_dugumu(StringName(d_id))
+		for sec in d_veri.get("secenekler", []):
+			if not sec is Dictionary:
+				continue
+			var reqs: Array = sec.get("gerekli_ipuclari", [])
+			var hedef := String(sec.get("hedef", ""))
+			if reqs.is_empty() or hedef.is_empty():
+				continue
+			for ip in reqs:
+				celiski_durumu.celiski_ekle("beyan_" + d_id, String(ip), hedef, "guclu")
+
+
+func _dugum_beyanini_kaydet(d_id: StringName, metin_str: String) -> void:
+	var bid := "beyan_" + String(d_id)
+	beyan_defteri.beyan_ekle(bid, metin_str, true, "")
+	celiski_durumu.kayit_ekle({
+		"id": bid,
+		"tur": "beyan",
+		"metin": metin_str,
+		"kaynak": "Soru (%s)" % String(d_id),
+		"dugum": String(d_id),
+	})
+
+
+func _ipucu_metni(ipucu: StringName) -> String:
+	var baslik := String(ipucu).to_upper().replace("GÖRSEL", "GORSEL") + "_BASLIK"
+	if karakter.metinler.has(baslik):
+		return String(karakter.metinler[baslik])
+	return String(ipucu)
 
 func obje_incele(sira: int) -> String:
 	if sira not in [1, 2]:

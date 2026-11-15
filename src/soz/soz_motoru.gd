@@ -34,6 +34,8 @@ var guven: int = 3 # 0 - 10
 var korku: int = 0 # 0 - 10
 var sabir: int = 5
 var beyan_defteri: Array[Dictionary] = []
+var celiskiler: Array[Dictionary] = []
+var _celiski: RefCounted = null
 var uygulanan_etkiler: Dictionary = {}
 var kesilen_dugumler: Array[String] = []
 var hafiza_soylenen: Dictionary = {}
@@ -98,6 +100,9 @@ func _yukle_diyalog(dosya: Dictionary, baglam: Dictionary = {}) -> bool:
 	hatalar.clear()
 	dugumler.clear()
 	beyan_defteri.clear()
+	celiskiler.clear()
+	if _celiski != null:
+		_celiski.sifirla()
 	uygulanan_etkiler.clear()
 	kesilen_dugumler.clear()
 	hafiza_soylenen.clear()
@@ -121,6 +126,11 @@ func _yukle_diyalog(dosya: Dictionary, baglam: Dictionary = {}) -> bool:
 
 	konusmaci = str(dosya.get("konusmaci", ""))
 	cekirdek = str(dosya.get("cekirdek", "durust"))
+	for c in dosya.get("celiskiler", []):
+		if c is Dictionary:
+			var kopya := (c as Dictionary).duplicate(true)
+			celiskiler.append(kopya)
+			celiski().celiski_ekle(String(kopya.get("a", "")), String(kopya.get("b", "")), String(kopya.get("dal", "yuzlesme")), String(kopya.get("guc", "guclu")))
 
 	var ham_dugumler: Dictionary = dosya.get("dugumler", {})
 	for d_id in ham_dugumler.keys():
@@ -358,7 +368,20 @@ func _etkileri_uygula(sec_id: String, etkiler: Dictionary, _baglam: Dictionary) 
 
 
 ## Çelişki ve Yüzleşme (DIY-07 / DYL-01)
+func celiski() -> RefCounted:
+	if _celiski == null:
+		_celiski = preload("res://src/soz/celiski.gd").new()
+		for c in celiskiler:
+			_celiski.celiski_ekle(String(c.get("a", "")), String(c.get("b", "")), String(c.get("dal", "yuzlesme")), String(c.get("guc", "guclu")))
+	return _celiski
+
+
 func celiski_yuzlestir(beyan_id_1: String, beyan_id_2: String) -> Dictionary:
+	var durum := celiski()
+	if not durum.kayitlari_al(self).is_empty():
+		var sonuc: Dictionary = durum.yuzles(beyan_id_1, beyan_id_2, {"motor": self})
+		if String(sonuc.get("sebep", "")) != "kayit_bulunamadi":
+			return sonuc
 	var b1: Dictionary = {}
 	var b2: Dictionary = {}
 	for b in beyan_defteri:
@@ -379,8 +402,9 @@ func celiski_yuzlestir(beyan_id_1: String, beyan_id_2: String) -> Dictionary:
 			return {"basarili": true, "yuzlesme_acildi": true, "satir": son_satir}
 		return {"basarili": true, "yuzlesme_acildi": false}
 	else:
-		guven = clampi(guven - 1, 0, 10)
-		return {"basarili": false, "sebep": "celiski_yok", "guven": guven}
+		guven = clampi(guven - 2, 0, 10)
+		sabir = maxi(sabir - 1, 0)
+		return {"basarili": false, "sebep": "celiski_yok", "guven": guven, "sabir": sabir}
 
 
 func selam_yeniden_okunur() -> bool:

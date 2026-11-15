@@ -20,6 +20,11 @@ static func eslestir(kayit_1: Dictionary, kayit_2: Dictionary, soz_motoru: SozMo
 	if (not kanit_id_1.is_empty() and kanit_id_1 == ipucu_id_2) or (not kanit_id_2.is_empty() and kanit_id_2 == ipucu_id_1):
 		celiski_var = true
 
+	var celisir_1 := str(kayit_1.get("celisir_ile", ""))
+	var celisir_2 := str(kayit_2.get("celisir_ile", ""))
+	if (not celisir_1.is_empty() and celisir_1 == ipucu_id_2) or (not celisir_2.is_empty() and celisir_2 == ipucu_id_1):
+		celiski_var = true
+
 	# 2. İki zıt beyan eşleşmesi (Biri doğru: false diğeri doğru: true veya tersi)
 	if kayit_1.has("dogru") and kayit_2.has("dogru"):
 		if kayit_1.get("dogru") != kayit_2.get("dogru"):
