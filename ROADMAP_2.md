@@ -8309,7 +8309,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-01, ANI-02. Boyut: S.
   - Dosya: mevcut donanım.
   - Asset: asset gerekmedi.
-- [ ] **SAH-64:** Canlılık yeni bina kurmaz.
+- [x] **SAH-64:** Canlılık yeni bina kurmaz. (Kalfa — iki tezgâh kaldırılınca duman kaynağı 0)
   - Ne: duman yalnız var olan tezgâhtan çıkar. Eksik bina, parçacık doğurmaz.
   - Kabul: duman yalnız var olan tezgâhtan çıkar. Eksik bina, parçacık doğurmaz. Test: tezgâhsız köy, duman 0.
   - Bağımlılık: ANI-15. Boyut: S.

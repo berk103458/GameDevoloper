@@ -39,9 +39,9 @@ func _ready() -> void:
   if tur != "tarla": kontrol(y.recete_sec(b.id, "alet" if tur == "demirhane" else "ekmek"), "Gerçek reçete")
   bs.append(b)
   ids.append(k.id)
- var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
  ana._koye_git()
  await get_tree().process_frame
+ var once := JSON.stringify(ana.oturum.kaydet())
  var s: KoyYonetimSahnesi = ana._ekran.sahne3b
  var h := s.halk_hareketi
  h.set_process(false)
@@ -131,6 +131,17 @@ func _ready() -> void:
   fx.guncelle()
   for p in fx.efektler.values(): kontrol(not p.emitting, "Gece üretim durağı emisyonu kapanır")
  kontrol(JSON.stringify(ana.oturum.kaydet()) == once, "Efektler stok/kayıt/RNG değiştirmez")
+ for b in bs.slice(0, 2):
+  kontrol(y.bina_yik(b.id), "SAH-64: Mevcut dumanlı yapı kaldırılır")
+ s.yenile()
+ s.faz(&"gunduz", 0.0)
+ await get_tree().process_frame
+ var kalan_duman := 0
+ for fx: AtolyeParcaciklari in s.find_children("atolye_parcaciklari", "", true, false):
+  fx.guncelle()
+  kalan_duman += int(fx.efektler.has("duman"))
+ kontrol(kalan_duman == 0 and y.binalar.size() == 2, "SAH-64: Tezgâhsız köyde duman yok, kalan kulübe ve tarla değişmedi")
+ print("SAH-64 tezgâhsız duman kaynağı=%d" % kalan_duman)
  ana.kayit.sil()
  ana.queue_free()
  await get_tree().process_frame
