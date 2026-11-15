@@ -2266,7 +2266,7 @@ SEV-01 … SEV-07 gövdesi durur. Yeni maddeler SEV-08 … SEV-87. Kalp, romans 
 
 ### 25a.4 Tek istek
 
-- [ ] **SEV-04:** (Antigravity) Tek istek. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [/] **SEV-04:** (Codex) Tek istek. (doğrulanmadı — Görev 22; SevilenYuz (src/koy/sevilen_yuz.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
   - Ne: Kişi köye yerleştikten sonra bir kez, bir cümleyle bir şey ister. İstek `gun_min` ve `gun_max` taşır. Tutmak isteğe bağlıdır; tutulmazsa süre bitince bir satır değişir. Ceza barı, yeni düşman veya zorunlu görev doğmaz. Aynı anda oyuncunun önünde en çok bir istek cümlesi durur. İstek muhafızın borcu değildir (DYL-05). Süre dolmadan kişi ölürse istek kapanır. Şart olan bina yoksa istek açılmaz.
   - Kabul: Bir test kişisinde istek bir kez konuşulur, süre bitince satır değişir ve ikinci istek açılmaz (`tests/unit/koy/sevilen_yuz_test.gd`). Görev listesi düğümü yoktur. Ek şart: İstek kapıdaki kabul veya ret düğmesini açmaz. Ek şart: İstenen kaynak yoksa istek kapanır ve bedelsiz tamamlanmaz. Ek şart: Çocuk istek sahibi olmaz. Ek şart: Reddedilen istek yeni bar açmaz; husumet artışı varsa duran `husumet.gd` kaydına yazılır. Ek şart: Yükleme aynı isteği ikinci kez açmaz. Ek şart: Hediye takvimi yazılmaz.
   - Bağımlılık: YAZ-08, DIY-11. Boyut: S.
