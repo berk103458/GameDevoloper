@@ -198,3 +198,13 @@ kota görünmüyor
 - Sorular: Veride yalnız selam ve selama bağlı takip sorusu konu vardı (soru_ust [-1, 0]). Kalfa'nın f187064e commit'i de ilk aileyi soru ve kararla sınırladı. Bu yüzden açılışta tek soru görünüyordu. 1413f822 ile `ek_sorular`'a iki özel soru eklendi.
 - Zeynep kutusu: `aile_kapi_gorunumu` (KAP-17) diskte model olsa da her refakatçiye kutu kuruyordu ve portre `peasant_01` hiçbir modele eşlenmiyordu. 9a2b8e22: portre farmer_02 ile `ciftci_kadin` modeli kullanılır; kutu yalnız model yoksa kurulur ve etiketi yalnız debug açılışında görünür. Kenarda kesik etiket Ali'nin değil, SAH-53'te kapıya konan eşin ACL-01 "Eş" etiketiydi. `EtiketEkranSiniri` kapı etiketlerini ekran içinde tutar.
 - Test: tests/oto/ilk_aile_kapi_kontrol 10/10 geçti; bozulan kodda kırmızıya döndüğü doğrulandı. kapi_acilis_olayi_test ve aile_kapi_paneli_test geçti.
+
+## Sahiplik çakışması taraması (15 Kasım 2026)
+- Taranan: son 3 günde festive'e giren 104 commit (merge'ler hariç), ROADMAP_2 diff'leri ve güncel madde imzaları.
+- Gerçek çakışmalar:
+  - CAT-04: Usta 0d84162f ile [x] yapmıştı; Codex f6b7ee66 eski satırla [/]'e çevirdi. [x] geri alındı.
+  - YER-03: Cursor b5f88a8f ile kapatmıştı ama sabit set_locale kalmıştı; Antigravity 9dee819c bitirdi. Sahiplik Antigravity'ye taşındı.
+  - YAZ-10: Antigravity f833c5c6 sahte [x] koymuştu; Cursor 45cd9153 gerçekten bitirdi. Sahiplik Cursor'a taşındı.
+  - SOY-01: Cursor ee863efa kapalıyken Antigravity c27ca221 örtüşen yardımcılar ekledi. Çift yazım; silme kararı Ahmet'te.
+- Çakışma sayılmayanlar: Kalfa→Cursor devri (SAH-50, SAH-55, KVR-SES-01, KAP-18, YAP-03; Ahmet'in talimatı), Usta doğrulamaları (CAT-04, DYL-03), ANL-EPI-01 (veri Antigravity, ekran Kalfa, açıkça bölünmüş), ACL-04 acil hata düzeltmesi.
+- AGENTS.md'ye "Madde sahipliği ve bölüşüm" kuralı eklendi. Ajan Masası'na yazılmadı.
