@@ -110,16 +110,6 @@
   "url": "https://www.meshy.ai/posts/019ec7a5-98c6-7d1f-a282-51496ed64b45"
  },
  {
-  "kod": "O16",
-  "ad": "Avlulu kerpiç ev",
-  "bolum": "dogrudan",
-  "grup": "Barınma: ev ve çadır (konak seviyesine göre)",
-  "yer": "konak (ağa evi) — seviye 1–2",
-  "ucgen": 3149762,
-  "dosya": "o16_avlulu_kerpic_ev.glb",
-  "url": "https://www.meshy.ai/posts/019e739d-8712-7a14-9736-fa75dd5246fc"
- },
- {
   "kod": "O21",
   "ad": "Taş kuyu (çıkrıklı)",
   "bolum": "dogrudan",
@@ -158,16 +148,6 @@
   "ucgen": 6296,
   "dosya": "a228_sacayak_ustunde_kazan.glb",
   "url": "https://www.meshy.ai/posts/019f9566-5b55-7733-b8b7-0ca7045913bd"
- },
- {
-  "kod": "B071",
-  "ad": "Kuru taş duvar köşesi",
-  "bolum": "dogrudan",
-  "grup": "Köy merkezi ve ortak alan",
-  "yer": "ağıl / bahçe duvarı",
-  "ucgen": 4518708,
-  "dosya": "b071_kuru_tas_duvar_kosesi.glb",
-  "url": "https://www.meshy.ai/posts/01999573-4cea-7882-be3a-ecc7a149b581"
  },
  {
   "kod": "O64",
@@ -458,16 +438,6 @@
   "ucgen": 5220,
   "dosya": "o18_tas_yigini.glb",
   "url": "https://www.meshy.ai/posts/019e4507-432d-73b0-8069-f5355da00473"
- },
- {
-  "kod": "O78",
-  "ad": "Çömlekçi fırını sundurması",
-  "bolum": "dogrudan",
-  "grup": "İş yerleri ve esnaf izleri (karakter sayfalarıyla bağlı)",
-  "yer": "çömlekçi Rasim (CHR_027) — pazar",
-  "ucgen": 3077942,
-  "dosya": "o78_comlekci_firini_sundurmasi.glb",
-  "url": "https://www.meshy.ai/posts/01a0513e-7c42-726b-a5f9-5a6f8184beb4"
  },
  {
   "kod": "O79",

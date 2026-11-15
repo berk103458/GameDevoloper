@@ -34672,47 +34672,6 @@
    "hedef_dosya": "assets/meshy/animasyon_bekliyor/b019_kangal_anadolu_coban_kopegi.glb"
   },
   {
-   "asset_id": "topluluk_b071",
-   "ad": "Kuru taş duvar köşesi",
-   "tur": "topluluk",
-   "kaynak_plan": [
-    "design/art/meshy/meshy-secim.json#B071"
-   ],
-   "plan_kimlikleri": [
-    "B071"
-   ],
-   "prompt": "",
-   "prompt_ozeti": "",
-   "poly_hedef": 4518708,
-   "boy_m": null,
-   "olcu": "ağıl / bahçe duvarı",
-   "doku": false,
-   "iskelet": false,
-   "hareketler": [],
-   "oncelik": "orta",
-   "sira": 900,
-   "kullanim_grubu": "mevcut_veya_harici",
-   "durum": "mevcut",
-   "meshy_uygun": false,
-   "uygun_degil_nedeni": "Meshy topluluk modeli: üretilmez, hesapla elle indirilir (tools/varlik/meshy_esle.py)",
-   "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "assets/meshy/dogrudan/b071_kuru_tas_duvar_kosesi.glb",
-   "ek_dosyalar": [],
-   "sha256": "0acde8a36f193c13006be3d171563c2e4a4337c5e234de46a90e96f25ef0946b",
-   "kredi_tahmini": 0,
-   "kredi_harcanan": 0,
-   "kaynak": "Meshy topluluk",
-   "lisans_notu": "CC0 (lisans model başına Meshy API'den okundu — design/art/meshy/meshy-koy-varliklari.md)",
-   "topluluk_adayi": [],
-   "notlar": [
-    "Elle indirildi (16 Kas 2026); ham GLB yalniz Ahmet'in PC'sinde, inceltme sonrasi repoya girecek. Kaynak: docs/meshy/TOPLULUK_INCELEME.md"
-   ],
-   "topluluk_url": "https://www.meshy.ai/posts/01999573-4cea-7882-be3a-ecc7a149b581",
-   "hedef_yol": "assets/meshy/dogrudan/b071_kuru_tas_duvar_kosesi.glb",
-   "hedef_dosya": "assets/meshy/dogrudan/b071_kuru_tas_duvar_kosesi.glb"
-  },
-  {
    "asset_id": "topluluk_b092",
    "ad": "Kapüşonlu köylü",
    "tur": "topluluk",
@@ -35367,47 +35326,6 @@
    "topluluk_url": "https://www.meshy.ai/posts/019e8fd3-5da3-76e3-8ee4-e1c6b0d98f3f",
    "hedef_yol": "assets/meshy/dogrudan/o14_yumurta_sepeti.glb",
    "hedef_dosya": "assets/meshy/dogrudan/o14_yumurta_sepeti.glb"
-  },
-  {
-   "asset_id": "topluluk_o16",
-   "ad": "Avlulu kerpiç ev",
-   "tur": "topluluk",
-   "kaynak_plan": [
-    "design/art/meshy/meshy-secim.json#O16"
-   ],
-   "plan_kimlikleri": [
-    "O16"
-   ],
-   "prompt": "",
-   "prompt_ozeti": "",
-   "poly_hedef": 3149762,
-   "boy_m": null,
-   "olcu": "konak (ağa evi) — seviye 1–2",
-   "doku": false,
-   "iskelet": false,
-   "hareketler": [],
-   "oncelik": "orta",
-   "sira": 900,
-   "kullanim_grubu": "mevcut_veya_harici",
-   "durum": "mevcut",
-   "meshy_uygun": false,
-   "uygun_degil_nedeni": "Meshy topluluk modeli: üretilmez, hesapla elle indirilir (tools/varlik/meshy_esle.py)",
-   "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "assets/meshy/dogrudan/o16_avlulu_kerpic_ev.glb",
-   "ek_dosyalar": [],
-   "sha256": "a95e4c48a2e275d8321dfa16941bd3abe546b1833be3624a75cbb22688029b07",
-   "kredi_tahmini": 0,
-   "kredi_harcanan": 0,
-   "kaynak": "Meshy topluluk",
-   "lisans_notu": "CC0 (lisans model başına Meshy API'den okundu — design/art/meshy/meshy-koy-varliklari.md)",
-   "topluluk_adayi": [],
-   "notlar": [
-    "Elle indirildi (16 Kas 2026); ham GLB yalniz Ahmet'in PC'sinde, inceltme sonrasi repoya girecek. Kaynak: docs/meshy/TOPLULUK_INCELEME.md"
-   ],
-   "topluluk_url": "https://www.meshy.ai/posts/019e739d-8712-7a14-9736-fa75dd5246fc",
-   "hedef_yol": "assets/meshy/dogrudan/o16_avlulu_kerpic_ev.glb",
-   "hedef_dosya": "assets/meshy/dogrudan/o16_avlulu_kerpic_ev.glb"
   },
   {
    "asset_id": "topluluk_o17",
@@ -36187,47 +36105,6 @@
    "topluluk_url": "https://www.meshy.ai/posts/0193fc1f-52e8-70ca-aa3f-5e5e48dae7e7",
    "hedef_yol": "assets/meshy/dogrudan/o76_su_degirmeni.glb",
    "hedef_dosya": "assets/meshy/dogrudan/o76_su_degirmeni.glb"
-  },
-  {
-   "asset_id": "topluluk_o78",
-   "ad": "Çömlekçi fırını sundurması",
-   "tur": "topluluk",
-   "kaynak_plan": [
-    "design/art/meshy/meshy-secim.json#O78"
-   ],
-   "plan_kimlikleri": [
-    "O78"
-   ],
-   "prompt": "",
-   "prompt_ozeti": "",
-   "poly_hedef": 3077942,
-   "boy_m": null,
-   "olcu": "çömlekçi Rasim (CHR_027) — pazar",
-   "doku": false,
-   "iskelet": false,
-   "hareketler": [],
-   "oncelik": "orta",
-   "sira": 900,
-   "kullanim_grubu": "mevcut_veya_harici",
-   "durum": "mevcut",
-   "meshy_uygun": false,
-   "uygun_degil_nedeni": "Meshy topluluk modeli: üretilmez, hesapla elle indirilir (tools/varlik/meshy_esle.py)",
-   "meshy_task_id": "",
-   "meshy_gorevleri": {},
-   "dosya": "assets/meshy/dogrudan/o78_comlekci_firini_sundurmasi.glb",
-   "ek_dosyalar": [],
-   "sha256": "26a2d42d725b4290a3aa3224cfd8eed975ed716820022fa141018f11b7f192fa",
-   "kredi_tahmini": 0,
-   "kredi_harcanan": 0,
-   "kaynak": "Meshy topluluk",
-   "lisans_notu": "CC0 (lisans model başına Meshy API'den okundu — design/art/meshy/meshy-koy-varliklari.md)",
-   "topluluk_adayi": [],
-   "notlar": [
-    "Elle indirildi (16 Kas 2026); ham GLB yalniz Ahmet'in PC'sinde, inceltme sonrasi repoya girecek. Kaynak: docs/meshy/TOPLULUK_INCELEME.md"
-   ],
-   "topluluk_url": "https://www.meshy.ai/posts/01a0513e-7c42-726b-a5f9-5a6f8184beb4",
-   "hedef_yol": "assets/meshy/dogrudan/o78_comlekci_firini_sundurmasi.glb",
-   "hedef_dosya": "assets/meshy/dogrudan/o78_comlekci_firini_sundurmasi.glb"
   },
   {
    "asset_id": "topluluk_o79",
