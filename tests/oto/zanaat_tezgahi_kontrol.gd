@@ -115,6 +115,16 @@ func _ready() -> void:
 	for i in 3: h._process(0.0)
 	kontrol(not h._durum[ids[1]].is, "Unsuz fırın küreği çalışmaz")
 	y.kaynaklar.ekle("un", un)
+	var bina_sayisi := y.binalar.size()
+	y.koylular.clear()
+	h.yenile()
+	for faz in [&"gunduz", &"gece"]:
+		s.faz(faz, 0.0)
+		h._process(0.5)
+		var sayim := MUAYENE.rutin_say(h)
+		kontrol(h.modeller.is_empty() and h._bekleyen.is_empty() and sayim.tezgah == 0 and sayim.ates == 0, "SAH-61: Nüfus sıfırken hazır yapılarda bile iş veya ateş rutini yok")
+	kontrol(y.binalar.size() == bina_sayisi, "SAH-61: Boş köyün mevcut yapıları korunur")
+	print("SAH-61 nüfus=0, tezgâh=0, ateş=0, mevcut bina=%d" % bina_sayisi)
 	ana.kayit.sil()
 	ana.queue_free()
 	await get_tree().process_frame

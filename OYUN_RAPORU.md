@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-61 (Kalfa)
+
+Gerçek köy sahnesinde üç hazır yapı kaldı ve nüfus sıfıra indirildi. Gündüz ve gece tezgâh, ateş ve rota kuyruğu sayıları 0. Zanaat tezgâhı headless sahnesi geçti. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.
+
 ## 2026-11-15 — SAH-40 (Kalfa)
 
 Gerçek yetişkin, çocuk ve yaşlı tek ANI-13 sunucu bölgesinde aynı rotayı yürüdü. Tabloda çocuk için 0,80 ve yaşlı için 0,70 katsayısı seçildi. Ölçülen hızlar 1,60, 1,28 ve 1,12 m/s. Kalabalık varış, eşik, sıkışma ve bütçe kontrolleri aynı headless koşuda geçti. Eski yaş UI testi değirmen kurulumunda ayrı bir hata verdi, yaş ve navigasyon kabulü ayrı köy sahnesinde çalıştı. Asset gerekmedi. ds yolları yok, önceki istisna geçerli. Kota görünmüyor.

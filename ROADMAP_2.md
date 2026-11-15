@@ -8291,7 +8291,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: ANI-15, SAH-42. Boyut: S.
   - Dosya: mevcut parçacık.
   - Asset: asset gerekmedi.
-- [ ] **SAH-61:** Boş köy rutin başlatmaz.
+- [x] **SAH-61:** Boş köy rutin başlatmaz. (Kalfa — hazır yapılarda gündüz ve gece rutin sayısı 0)
   - Ne: köylü 0 ise ateş halkası ve tezgâh klibi aranmaz.
   - Kabul: köylü 0 ise ateş halkası ve tezgâh klibi aranmaz. Test: boş köy, iş klibi 0.
   - Bağımlılık: SAH-57. Boyut: S.
