@@ -9064,7 +9064,7 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
   - Dosya: data/olaylar/, src/sistemler/soylenti_agi.gd.
   - Asset: asset gerekmedi.
 
-- [/] **KVR-SES-01:** (Cursor — Kalfa devri, üzerinde) Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin ve adaptör: [x] Antigravity-C; hava motoru: Kalfa bekleniyor) (doğrulanmadı — Görev 22; HavaReplikAdaptoru (src/soz/hava_replik_adaptoru.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten)
+- [x] **KVR-SES-01:** Kapı nöbetinde dinamik hava, ayaz ve gece vaktine bağlı replikler. (Metin ve adaptör: [x] Antigravity-C; hava motoru: Kalfa bekleniyor) (doğrulanmadı — Görev 22; HavaReplikAdaptoru (src/soz/hava_replik_adaptoru.gd) oyunda hiçbir sahne/betikten çağrılmıyor, yalnız testten) (Cursor — KapiHavaRepligi havayı ANI-09 sözleşmesinden (IklimDeneyi.hava) okur, kış gecesinde açık havayı ayaz sayar; kapi_ekrani._siradaki ziyaretçi açılışından önce muhafız karşılaması + ziyaretçi ön eki yazar; test tests/oto/kapi_hava_kontrol.tscn 4 GEÇTİ (ayaz, fırtına, yazda yok); mutasyonda kırmızı. Not: ayrı rastgele hava üreteci yok, normal oyunda hava mevsimden ve iklim ayarından gelir)
   - Amaç: Sert Anadolu kışını hissettirmek için hava durumu ve ayaza bağlı dinamik açılış replikleri eklenmesi.
   - Kurallar:
     1. Tipi, fırtına ve ayazda ziyaretçinin ve muhafızın diş vurma/titreme replikleri (kapi.hava.*).

@@ -279,6 +279,8 @@ func _siradaki() -> void:
 	_adim_sesi(12)
 	await sahne.gelen_yaklas(_model_adi(_gelen))
 	preload("res://src/dunya/aile_kapi_gorunumu.gd").kur(sahne._gelen, _gelen)
+	for satir in KapiHavaRepligi.satirlar(oturum, _gelen):
+		_yaz(satir)
 	if _gelen.acilis != "":
 		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), tr(_gelen.acilis)])
 	if oturum.perde == 2 or _gelen.sorular.is_empty():
