@@ -789,7 +789,8 @@ Cursor, 15 Kasım'da docs/ANTIGRAVITY_DENETIM_LISTESI.md belgesini yazdı (commi
 
 Bu görev Gemini 4 Hydrogen High ile çalışır. gemini-3.8-flash (low, medium veya high) kullanma. Kota biterse flash'a düşme; ilerleme dosyasına yaz ve dur.
 
-Çalışma yeri: C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi, dal claude/festive-volta-li1sfm. Kapi_Muhafizi_diyalog ve Kapi_Muhafizi_agy_B/C/D klasörlerine girme. Kalfa'nın kirli .import dosyalarına, kökteki _tmp_* / _doc_* artıklarına ve work/ altındaki başkasının işine dokunma. Force push, eset --hard, stash ile başkasının dosyasını silme yok.
+Çalışma yeri: C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi, dal claude/festive-volta-li1sfm. Kapi_Muhafizi_diyalog ve Kapi_Muhafizi_agy_B/C/D klasörlerine girme. Kalfa'nın kirli .import dosyalarına, kökteki _tmp_* / _doc_* artıklarına ve work/ altındaki başkasının işine dokunma. Force push, 
+eset --hard, stash ile başkasının dosyasını silme yok.
 
 Kaynak belge: docs/ANTIGRAVITY_DENETIM_LISTESI.md. Sayılar özet tablo ile satır satır tablolar arasında 1 sapabilir (özet 23/27/2 der; tablolarda bu yazım anında SAHTE-BAĞSIZ 22, EKSİK 26, YOK olarak açıkça işaretli 1 satır — DYL-01 — göründü). Kaynak doğruluk tablolardadır; atlanan satır varsa belgeyi baştan sona tara ve ilerleme dosyasına yaz.
 
