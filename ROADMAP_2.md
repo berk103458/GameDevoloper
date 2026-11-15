@@ -7161,7 +7161,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-02. Boyut: S.
   - Dosya: bu bölüm. Uygulanırken kopya `docs/arayuz/EKRANLAR.md` (oyun deposu).
   - Asset: asset gerekmedi.
-- [ ] **GRV-02:** Ayarlar `eksik`tir.
+- [/] **GRV-02:** (Codex-Berk) Ayarlar `eksik`tir.
   - Ne: `ayarlar_ekrani.gd` zemini yalnız `ColorRect`. ARY-02 sonrası tema düzlemi gelir; fotoğraf üretilmez. Sağ kenar boşluğu bugün `margin_right 760` (satır 30) — 1600×900'de sağ yarı boş kalır, yerleşim tema ile dolar.
   - Kabul: yerel `ColorRect` rengi 0, tema kaynağından 1. Test: ARY-02 tarama.
   - Bağımlılık: ARY-02, GRV-01. Boyut: M.
