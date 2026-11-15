@@ -7446,35 +7446,35 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
 
 #### 43.12 Köy, kart, oda
 
-- [ ] **GRV-41:** `oda_gelistirme_paneli.gd` temaya bağlanır.
+- [/] **GRV-41:** (Antigravity-Berk) `oda_gelistirme_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/oda_gelistirme_paneli.gd` bugün ColorRect 0 ve 2 düz düğmeyle duruyor; notu: Geliştirme düğmeleri düz. Tema bağlanınca yalnız `oda_gelistirme_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Geliştirme düğmeleri düz davranışı değişmez.
   - Kabul: `oda_gelistirme_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `oda_gelistirme_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/oda_gelistirme_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-42:** `oda_kasasi_paneli.gd` temaya bağlanır.
+- [/] **GRV-42:** (Antigravity-Berk) `oda_kasasi_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/oda_kasasi_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Kasa düğmesi düz, zemin yok. Tema bağlanınca yalnız `oda_kasasi_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Kasa düğmesi düz, zemin yok davranışı değişmez.
   - Kabul: `oda_kasasi_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `oda_kasasi_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/oda_kasasi_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-43:** `oda_terazisi_paneli.gd` temaya bağlanır.
+- [/] **GRV-43:** (Antigravity-Berk) `oda_terazisi_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/oda_terazisi_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Terazi yazısı zeminsiz. Tema bağlanınca yalnız `oda_terazisi_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Terazi yazısı zeminsiz davranışı değişmez.
   - Kabul: `oda_terazisi_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `oda_terazisi_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/oda_terazisi_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-44:** `oda_vicdan_paneli.gd` temaya bağlanır.
+- [/] **GRV-44:** (Antigravity-Berk) `oda_vicdan_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/oda_vicdan_paneli.gd` bugün ColorRect 0 ve 0 düz düğmeyle duruyor; notu: Vicdan yazısı zeminsiz. Tema bağlanınca yalnız `oda_vicdan_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Vicdan yazısı zeminsiz davranışı değişmez.
   - Kabul: `oda_vicdan_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `oda_vicdan_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
   - Dosya: `src/arayuz/oda_vicdan_paneli.gd`.
   - Asset: asset gerekmedi.
 
-- [ ] **GRV-45:** `oda_yetenek_paneli.gd` temaya bağlanır.
+- [/] **GRV-45:** (Antigravity-Berk) `oda_yetenek_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/oda_yetenek_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Yetenek düğmesi düz. Tema bağlanınca yalnız `oda_yetenek_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Yetenek düğmesi düz davranışı değişmez.
   - Kabul: `oda_yetenek_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `oda_yetenek_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.
