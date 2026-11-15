@@ -109,6 +109,14 @@ static func bina(n: Node3D, tur: String, en: float, derin: float) -> void:
 		var ky := Dunya3B.nesne("kervan_yuku", 0.95)
 		ky.position = Vector3(-en * 0.35, 0.0, derin * 0.35)
 		n.add_child(ky)
+	if tur == "sifahane" and Dunya3B.model_var_mi("ilac_kutusu"):
+		var ik := Dunya3B.nesne("ilac_kutusu", 0.38)
+		ik.position = Vector3(-en * 0.28, 0.0, derin * 0.32)
+		n.add_child(ik)
+	if tur == "demirhane" and Dunya3B.model_var_mi("blok_ham"):
+		var bh := Dunya3B.nesne("blok_ham", 0.32)
+		bh.position = Vector3(en * 0.25, 0.0, derin * 0.32)
+		n.add_child(bh)
 
 static func kopek_kur(kok: Node3D, yer: Vector3) -> void:
 	var n := hayvan("kopek")

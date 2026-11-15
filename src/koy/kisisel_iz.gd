@@ -83,6 +83,12 @@ static func yenile(e: Node) -> void:
 			var renk := StandardMaterial3D.new()
 			renk.albedo_color = Color(0.65, 0.3, 0.35)
 			n.material_override = renk
+			if Dunya3B.model_var_mi("kisisel_iz"):
+				renk.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+				renk.albedo_color = Color(0, 0, 0, 0)
+				var glb_iz := Dunya3B.nesne("kisisel_iz", 0.32)
+				glb_iz.position.y = -0.15
+				n.add_child(glb_iz)
 			grup.add_child(n)
 			var etiket := Label3D.new()
 			etiket.name = "etiket"

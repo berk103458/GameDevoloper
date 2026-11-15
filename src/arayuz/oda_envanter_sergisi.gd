@@ -61,5 +61,13 @@ static func _kutu(grup: Node3D,i: int) -> void:
  var renk:=StandardMaterial3D.new()
  renk.albedo_color=Color(String(a.sergi_renk))
  n.material_override=renk
+ var sergi_modeller := ["hediye_bohcasi", "iksir_sisesi", "teslim_parcasi", "ahi_kusagi", "yemin_nesneleri", "ilac_kutusu", "kirik_kin", "muhur"]
+ var s_ad: String = sergi_modeller[i % sergi_modeller.size()]
+ if Dunya3B.model_var_mi(s_ad):
+  renk.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+  renk.albedo_color = Color(0, 0, 0, 0)
+  var glb_s := Dunya3B.nesne(s_ad, float(a.sergi_boyut[1]))
+  glb_s.position.y = -float(a.sergi_boyut[1]) / 2.0
+  n.add_child(glb_s)
  n.position=Vector3(float(a.sergi_yer[0])+float(i%int(a.sergi_sutun))*float(a.sergi_aralik),float(a.sergi_yer[1]),float(a.sergi_yer[2])+floor(float(i)/float(a.sergi_sutun))*float(a.sergi_aralik))
  grup.add_child(n)

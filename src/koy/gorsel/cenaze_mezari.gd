@@ -21,6 +21,13 @@ static func kur(s: KoyYonetimSahnesi, ust: Node3D) -> void:
 	var malzeme := StandardMaterial3D.new()
 	malzeme.albedo_color = Color(0.30, 0.24, 0.19)
 	kutu.material_override = malzeme
+	var m_ad := "toplu_mezar" if d.secim == "toplu_mezar" else "mezar"
+	if Dunya3B.model_var_mi(m_ad):
+		malzeme.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		malzeme.albedo_color = Color(0, 0, 0, 0)
+		var glb_m := Dunya3B.nesne(m_ad, 0.55)
+		glb_m.position.y = -0.12
+		kutu.add_child(glb_m)
 	n.add_child(kutu)
 	var etiket := Label3D.new()
 	etiket.text = "%s · %d kişi" % ["Cenaze töreni" if d.secim == "toren" else "Toplu mezar" if d.secim == "toplu_mezar" else "Cenaze", d.sayi]

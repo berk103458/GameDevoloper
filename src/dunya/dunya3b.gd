@@ -26,6 +26,12 @@ const NESNE_RENK := {
 	"balta": Renkler.AHSAP, "orak": Renkler.KUL, "kova": Renkler.AHSAP, "kurek": Renkler.AHSAP,
 	"firin_kuregi": Renkler.AHSAP, "su_kabi": Renkler.AHSAP, "kirmen": Renkler.AHSAP, "bakim_bezi": Renkler.KUL,
 	"kervan_yuku": Renkler.AHSAP, "hasta_cadiri": Renkler.AHSAP, "sonen_ates": Renkler.KUL,
+	"mezar": Renkler.SOGUK_MAVI, "toplu_mezar": Renkler.AHSAP, "yemin_nesneleri": Renkler.AHSAP,
+	"ahi_kusagi": Renkler.MESALE, "davul_zurna": Renkler.AHSAP, "ilac_kutusu": Renkler.AHSAP,
+	"kirik_kin": Renkler.KUL, "tezgah_ortusu": Renkler.AHSAP, "blok_ham": Renkler.SOGUK_MAVI,
+	"blok_iz": Renkler.SOGUK_MAVI, "blok_bicim": Renkler.KUL, "blok_agiz": Renkler.KUL,
+	"teslim_parcasi": Renkler.AHSAP, "hediye_bohcasi": Renkler.AHSAP, "iksir_sisesi": Renkler.DERIN_MAVI,
+	"kisisel_iz": Renkler.MESALE, "muhur": Renkler.MESALE,
 }
 ## Portre kökü → karakter modeli.
 const PORTRE_MODEL := {

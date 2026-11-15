@@ -701,13 +701,13 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `MEV-AFET` | [ÜRETİLDİ: `su_bendi.glb`, `yanik_ev.glb`, `kurt.glb` (Antigravity)] Su bendi, yangın, kurt sürüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF + PNG. | Bent modülü 3,0 × 0,8 × 0,6 m; kurt 0,45 × 0,8 × 1,1 m |
 | `CAS-GECE` | Fener, yangın kovası; glTF. | Açık kandil 0,18 × 0,08 × 0,12 m; kova 0,30 × 0,35 × 0,30 m |
 | `ODA-ODA` | [ÜRETİLDİ: `assets/model/yapi/muhafiz_odasi.glb`, `yatak.glb`, `masa.glb`, `kasa.glb`, `kutuphane.glb`] Muhafız odası, yatak, masa, kasa, kütüphane (`MuhafizOdasi`). | Oda 4,0 × 2,8 × 4,0 m; yatak 0,9 × 0,5 × 2,0 m; masa 1,2 × 0,75 × 0,7 m |
-| `KRI-MEZAR` | Toplu mezar, yazısız taş; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |
-| `ANI07-ISINMA` | İki el ateşe uzatılan ısınma döngüsü; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `KRI-MEZAR` | [ÜRETİLDİ: `mezar.glb`, `toplu_mezar.glb` (Antigravity)] Toplu mezar, yazısız taş; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |
+| `ANI07-ISINMA` | [ÜRETİLDİ: `muhafiz_isinma.glb` (Antigravity)] İki el ateşe uzatılan ısınma döngüsü; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `ANI08-TEZGAH` | [ÜRETİLDİ: `assets/model/nesne/ors.glb`, `firin_agzi.glb`] Örs ve fırın ağzı (`ZanaatTezgahi`); glTF. | Örs/kütük 0,50 × 0,75 × 0,35 m; fırın ağzı 0,80 × 0,70 × 0,40 m |
-| `ANI08-HAREKET` | Çekiç vurma ve fırın küreği döngüsü; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `ANI08-HAREKET` | [ÜRETİLDİ: `muhafiz_cekic_vurma.glb`, `muhafiz_firin_kuregi.glb` (Antigravity)] Çekiç vurma ve fırın küreği döngüsü; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `ANI09-SACAK` | [ÜRETİLDİ: `assets/model/nesne/sacak.glb`] Yağmurdan korunma saçağı (`KarakterHavaTepkisi`); glTF. | 2,00 × 0,25 × 1,20 m; taşıyıcı ev kenarına uygun |
-| `ANI09-BUZULME` | Soğukta büzülmüş yürüyüş; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
-| `ANI10-SINSI` | Sinsi yürüyüş ve temkinli kuytu bekleyiş; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `ANI09-BUZULME` | [ÜRETİLDİ: `muhafiz_buzulme.glb`, `muhafiz_yagmur_yuru.glb` (Antigravity)] Soğukta büzülmüş yürüyüş; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `ANI10-SINSI` | [ÜRETİLDİ: `muhafiz_sinsi_yuru.glb`, `muhafiz_temkinli_bekle.glb` (Antigravity)] Sinsi yürüyüş ve temkinli kuytu bekleyiş; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `ANI11-ALET` | [ÜRETİLDİ: `el_cekic.glb`, `firin_kuregi.glb` (Antigravity)] Gerçek çekiç ve fırın küreği; sokete hazır tutma noktası; glTF. | Çekiç 0,12 × 0,35 × 0,06 m; kürek 0,20 × 1,20 × 0,06 m |
 | `ANI12-IDLE` | [ÜRETİLDİ: `muhafiz_idle_nefes.glb`, `muhafiz_idle_agirlik.glb`, `muhafiz_idle_bakis.glb` (Antigravity)] Üç doğal bekleme döngüsü (nefes / ağırlık aktarma / çevreye bakış); glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `TUC02-OKUZ` | Öküz barınak modeli; glTF. | 0,85 × 1,45 × 2,20 m; ayak tabanı y=0 |
@@ -730,8 +730,8 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `ODA08-YATAK` | [ÜRETİLDİ: `assets/model/nesne/rahat_yatak.glb`] Rahat muhafız yatağı (`OdaGelistirmePaneli`); glTF. | 1,10 × 0,55 × 2,00 m |
 | `ODA08-ASKILIK` | [ÜRETİLDİ: `assets/model/nesne/askilik.glb`] Donanım askılığı (`MuhafizOdasi`, `OdaGelistirmePaneli`); glTF. | 0,60 × 1,60 × 0,40 m |
 | `ODA08-KUTUPHANE` | [ÜRETİLDİ: `assets/model/nesne/kutuphane.glb`] Muhafız kütüphanesi (`MuhafizOdasi`, `OdaGelistirmePaneli`); glTF. | 1,00 × 1,80 × 0,35 m |
-| `ODA03-ESYA` | Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri); glTF / set. | Mühür 0,05 × 0,06 × 0,05 m; iksir 0,06 × 0,15 × 0,06 m; hediye zarfı 0,30 m |
-| `KRI05-MEZAR` | Toplu mezar ve cenaze töreni mezar işareti; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |
+| `ODA03-ESYA` | [ÜRETİLDİ: `muhur.glb`, `iksir_sisesi.glb`, `hediye_bohcasi.glb` (Antigravity)] Rüşvet ve kişisel eşya sergi modelleri (mühür, iksir, CHR hediyeleri); glTF / set. | Mühür 0,05 × 0,06 × 0,05 m; iksir 0,06 × 0,15 × 0,06 m; hediye zarfı 0,30 m |
+| `KRI05-MEZAR` | [ÜRETİLDİ: `mezar.glb`, `toplu_mezar.glb` (Antigravity)] Toplu mezar ve cenaze töreni mezar işareti; glTF. | 2,0 × 0,4 × 1,0 m; işaretsiz taş 0,3 × 0,6 × 0,2 m |
 | `BUG21-TASYATAGI` | [ÜRETİLDİ: `assets/model/yapi/tas_yatagi.glb`] Kazılabilir taş yatağı (`tas_yatagi_gorseli.gd`); glTF / 3B model. | 3,0 × 0,6 × 2,0 m; açık taş yatağı |
 | `BUG25-MESALE` | Kapı meşalesi gerçek modeli (gerekirse); glTF / 3B model. | 0,12 × 0,60 × 0,12 m; mevcut sokete uygun |
 | `BUG25-KUYU` | Köy kuyusu gerçek modeli (gerekirse); glTF / 3B model. | 1,20 × 1,20 × 1,20 m; taban y=0, mevcut kuyu yüksekliği korunur |
@@ -739,22 +739,22 @@ Headless karakter muayenesindeki eksik klipler. Yer tutucu mevcut bekleme klibi 
 | `ACL01-ES` | [ÜRETİLDİ: `assets/model/karakter/muhafiz_esi_yuru.glb`] Muhafızın eşi gövdesi (`HazirKarakterler`, `ilk_aile_es_kadraji.gd`, `acilis_hane_gorunumu.gd`); glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `KAP17-COCUK` | Çocuk köylü modeli; glTF / 3B model. | 0,40 × 1,15 × 0,30 m |
 | `KAP17-YASLI` | [ÜRETİLDİ: `assets/model/karakter/yasli_yuru.glb`] Yaşlı köylü modeli (`aile_kapi_gorunumu.gd`, `HazirKarakterler`, `aile_yas_gorunumu.gd`); glTF / 3B model. | 0,55 × 1,65 × 0,40 m |
-| `CAT02-KAVGA` | Kapıda kavga canlandırması; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `CAT02-KAVGA` | [ÜRETİLDİ: `muhafiz_kavga.glb` (Antigravity)] Kapıda kavga canlandırması; glTF / iskelet animasyon klibi. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 | `ISG02-ALETLER` | [ÜRETİLDİ: `kurek.glb`, `el_sepet.glb`, `su_kabi.glb`, `kirmen.glb`, `bakim_bezi.glb` (Antigravity)] Geçici işlere özel el aletleri; glTF. | Kürek 0,20 × 1,20 × 0,08 m; sepet 0,35 × 0,35 × 0,35 m; su kabı 0,25 × 0,40 × 0,25 m; kirmen 0,05 × 0,30 × 0,05 m; bakım bezi 0,25 × 0,25 m. |
 | `YAP03-USTALAR` | [ÜRETİLDİ: `assets/model/karakter/usta_yuru.glb`] Kapıdan gelen usta modelleri (`Dunya3B.PORTRE_MODEL`, `HazirKarakterler`); glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
 | `YAP05-ODA` | [ÜRETİLDİ: `assets/model/yapi/cozumleme_odasi.glb`] Çözümleme odası modeli (`cozumleme_oda_yer_tutucu.gd`); glTF / 3B model. | 4,0 × 2,8 × 4,0 m |
 | `DYL02-AYRINTI-*` | Karakter ayrıntıları: yamalı çarık, nasırlı el, sarılı yara, yanık giysi — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | Çarık 0,12 × 0,08 × 0,28 m; el/yara/giysi mevcut karakter rigine bağlı, ölçek değişmez |
-| `DYL03-YEMIN` | Yemin nesneleri (dünya kitabına göre); glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `DYL03-YEMIN` | [ÜRETİLDİ: `assets/model/nesne/yemin_nesneleri.glb` (Antigravity)] Yemin nesneleri (dünya kitabına göre); glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
 | `DYL09-DENETCI` | [ÜRETİLDİ: `assets/model/karakter/denetci_yuru.glb`] Beyin denetçisi modeli; glTF / 3B model. | 0,55 × 1,75 × 0,40 m; yetişkin insan, ayak tabanı y=0 |
-| `SEV03-IZ` | Kişisel iz; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
-| `SAB03-ORTU` | Kapalı iş yeri örtüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | 1,50 × 1,00 × 0,80 m; örtü aynı taşıyıcının zarfına oturur |
-| `TEZ01-ORTU` | Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | 1,50 × 1,00 × 0,80 m; örtü aynı taşıyıcının zarfına oturur |
-| `TEZ03-HAM` | Ham blok; glTF. | 0,30 × 0,30 × 0,30 m |
-| `TEZ04-IZ` | İz bloğu; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
-| `TEZ05-BICIM` | Biçim bloğu; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
-| `TEZ06-AGIZ` | Ağız bloğu; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
-| `TEZ08-PARCA` | Teslim parçası; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
-| `B4-ILERI-KLIPLER` | kos, otur, orak, cekic, nobet, saldir, dus, yagmur_yuru, kar_yuru — bir ileri 3D klip grubu. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
+| `SEV03-IZ` | [ÜRETİLDİ: `assets/model/nesne/kisisel_iz.glb` (Antigravity)] Kişisel iz; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `SAB03-ORTU` | [ÜRETİLDİ: `assets/model/nesne/tezgah_ortusu.glb` (Antigravity)] Kapalı iş yeri örtüsü — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | 1,50 × 1,00 × 0,80 m; örtü aynı taşıyıcının zarfına oturur |
+| `TEZ01-ORTU` | [ÜRETİLDİ: `assets/model/nesne/tezgah_ortusu.glb` (Antigravity)] Dört tezgâh örtüsü (ağıl kirli beyaz, değirmen taş gri, demir is, bez ham) — prompt hazır, Ahmet üretecek; 3D geometri açık; glTF / doku. | 1,50 × 1,00 × 0,80 m; örtü aynı taşıyıcının zarfına oturur |
+| `TEZ03-HAM` | [ÜRETİLDİ: `assets/model/nesne/blok_ham.glb` (Antigravity)] Ham blok; glTF. | 0,30 × 0,30 × 0,30 m |
+| `TEZ04-IZ` | [ÜRETİLDİ: `assets/model/nesne/blok_iz.glb` (Antigravity)] İz bloğu; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `TEZ05-BICIM` | [ÜRETİLDİ: `assets/model/nesne/blok_bicim.glb` (Antigravity)] Biçim bloğu; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `TEZ06-AGIZ` | [ÜRETİLDİ: `assets/model/nesne/blok_agiz.glb` (Antigravity)] Ağız bloğu; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `TEZ08-PARCA` | [ÜRETİLDİ: `assets/model/nesne/teslim_parcasi.glb` (Antigravity)] Teslim parçası; glTF. | 0,30 × 0,30 × 0,30 m; elde taşınan nesne zarfı |
+| `B4-ILERI-KLIPLER` | [ÜRETİLDİ: `muhafiz_kos.glb`, `muhafiz_otur.glb`, `muhafiz_orak.glb`, `muhafiz_cekic_vurma.glb`, `muhafiz_nobet.glb`, `muhafiz_saldir.glb`, `muhafiz_dus.glb`, `muhafiz_yagmur_yuru.glb`, `muhafiz_kar_kureme.glb` (Antigravity)] kos, otur, orak, cekic, nobet, saldir, dus, yagmur_yuru, kar_yuru — bir ileri 3D klip grubu. | Mevcut insan rigine uyum; yetişkin boyu 1,65–1,80 m (ölçek değişmez) |
 
 
 ### Diyalog ve Anlatı 2D Parçaları (Görev 13 — Antigravity)
