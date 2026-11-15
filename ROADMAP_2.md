@@ -4162,7 +4162,7 @@ Mimari: her madde yeni dosyadır, çekirdeğe (`ana.gd`, `koy_ekrani.gd`, `hud.g
   - Bağımlılık: OGR-07, TST-03. Boyut: S.
   - Dosya: yeni: `src/debug/ilk_saat_kancasi.gd`.
   - Asset: asset gerekmedi.
-- [ ] **OGR-43:** Yedi persona ilk saati geçer.
+- [/] **OGR-43:** (Antigravity) Yedi persona ilk saati geçer.
   - Ne: TST-07 personaları (`tools/python_test_runner.py`) ilk altı geceyi oynar; hiçbiri OGR-33 kilidi yüzünden değil, oyun yüzünden kaybetmemelidir.
   - Kabul: yedi koşuda son 0, ambar ≥ 0. Test: runner raporu.
   - Bağımlılık: OGR-33, TST-07. Boyut: S.
