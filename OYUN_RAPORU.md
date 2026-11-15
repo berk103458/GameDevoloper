@@ -1,3 +1,7 @@
+## 2026-11-15 — SAH-80 (Kalfa)
+
+Gerçek CHR_012 kamera kadrajı ve oynayan konuşma klibi altında 4 altın satır değişmedi. Yusuf’un 15 kayıtlı oynanışı da hedefli headless testte geçti. Söz motoru beklemede. Asset gerekmedi.
+
 ## 2026-11-15 — SAH-79 (Kalfa)
 
 Yalnız kayıtlı karakter_muayene adımı çalıştırıldı. Başsız koşu 30 modeli ve bitiş işaretini doğruladı. Tam sanity çalıştırılmadı. Asset gerekmedi.

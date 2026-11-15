@@ -15,6 +15,10 @@ func dene(v: bool, ad: String) -> void:
 
 
 func _initialize() -> void:
+	call_deferred("_calistir")
+
+
+func _calistir() -> void:
 	# 1. Cursor KAY-24 / KAY-54 Testi
 	var ham := FileAccess.get_file_as_string("res://tests/fixtures/kayit/yusuf_altin.json")
 	var paket: Variant = JSON.parse_string(ham)
@@ -63,6 +67,30 @@ func _initialize() -> void:
 			dene(gerceklesen_satirlar.size() == beklenen_satirlar.size(), "Altın oynanış satır sayısı uyuşmuyor")
 			for i in range(mini(gerceklesen_satirlar.size(), beklenen_satirlar.size())):
 				dene(gerceklesen_satirlar[i] == beklenen_satirlar[i], "Adım %d satırı uyuşmuyor" % i)
+			await _cilali_kapi_satirlari(secimler, gerceklesen_satirlar)
 
 	print("ALTIN OYNANIŞ: %s" % ("GEÇTİ" if hata == 0 else "KALDI"))
 	quit(hata)
+
+
+func _cilali_kapi_satirlari(secimler: Array, temel_satirlar: Array[String]) -> void:
+	var kapi := KapiSahnesi.new()
+	root.add_child(kapi)
+	await kapi.gelen_yaklas("chr_012")
+	var model := kapi._gelen
+	dene(KapiKameraVurgu.kadrajda_mi(kapi.kamera, model.global_position),
+		"SAH-80: gerçek kapı kadrajı etkin")
+	dene(kapi.gelen_hareket_var("konus"), "SAH-80: gerçek konuşma klibi yüklü")
+	kapi.gelen_konus(5.0)
+	await process_frame
+	dene(model._oynatici.current_animation == model._klipler.get("konus", ""),
+		"SAH-80: konuşma klibi oynuyor")
+	var motor := SozMotoru.new()
+	motor.yukle(JSON.parse_string(FileAccess.get_file_as_string("res://data/soz/ornek_durust.json")))
+	var satirlar: Array[String] = [motor.mevcut_satir()]
+	for secim in secimler:
+		motor.sec(str(secim))
+		satirlar.append(motor.mevcut_satir())
+	dene(satirlar == temel_satirlar, "SAH-80: kamera ve klip altın satırları değiştirmedi")
+	print("SAH-80 cila açık: %d satır" % satirlar.size())
+	kapi.free()

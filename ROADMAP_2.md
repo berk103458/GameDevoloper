@@ -8411,7 +8411,7 @@ Bölüm 45 ile sınır: burada tuş yoktur. Kamera orta tuşu BUG-24'te kalır. 
   - Bağımlılık: SYS-11, SAH-76. Boyut: S.
   - Dosya: `tools/sanity_check.py`.
   - Asset: asset gerekmedi.
-- [ ] **SAH-80:** Cila, diyaloğun metnini değiştirmez.
+- [x] **SAH-80:** Cila, diyaloğun metnini değiştirmez.
   - Ne: kamera ve klip, söz dosyasına yazmaz. Replik seçimi aynı kalır.
   - Kabul: kamera ve klip, söz dosyasına yazmaz. Replik seçimi aynı kalır. Test: altın oynanış (DYL-16) cila açıkken de aynı satırları verir.
   - Bağımlılık: DYL-16, SAH-49. Boyut: S.
