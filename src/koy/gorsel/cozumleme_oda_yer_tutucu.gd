@@ -12,4 +12,10 @@ static func kur(kok: Node3D, en: float, derin: float) -> void:
 	malzeme.roughness = 1.0
 	kutu.material_override = malzeme
 	kok.add_child(kutu)
+	if Dunya3B.model_var_mi("cozumleme_odasi", "yapi"):
+		kutu.visible = false
+		var oda := Dunya3B.nesne("cozumleme_odasi", 2.8, "yapi")
+		oda.name = "meshy_cozumleme_odasi"
+		kok.add_child(oda)
+		return
 	HazirSahneModeli.etiket(kok,TranslationServer.translate("koy.yapi.cozumleme_odasi"),2.8)

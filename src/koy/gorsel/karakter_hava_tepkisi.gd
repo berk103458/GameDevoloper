@@ -32,10 +32,13 @@ static func hedef(h: KoyHalkHareketi, k: Koylu, bas: Vector2i) -> Dictionary:
 ## Tek değişim noktası: ön durak üzerinde düz renk kutu saçak yer tutucusu.
 static func sacak_kur(s: KoyYonetimSahnesi, n: Node3D, b: KoyBinasi) -> void:
  if b.tur not in AYAR.sacak_turleri: return
- var hazir := HazirKoyYapilari.sacak(Vector3(AYAR.sacak_boy[0], AYAR.sacak_yukseklik, AYAR.sacak_boy[2]))
+ var hazir: Node3D = HazirKoyYapilari.sacak(Vector3(AYAR.sacak_boy[0], AYAR.sacak_yukseklik, AYAR.sacak_boy[2]))
+ if hazir == null and Dunya3B.model_var_mi("sacak"):
+  hazir = Dunya3B.nesne("sacak", float(AYAR.sacak_boy[1]))
+  hazir.position.y = float(AYAR.sacak_yukseklik)
  if hazir != null:
   hazir.name = "hava_sacagi_hazir"
-  hazir.position = s.alan_merkezi(durak(s.yonetim, b), Vector2i.ONE) - s.alan_merkezi(b.hucre, b.boyut(s.yonetim.katalog))
+  hazir.position += s.alan_merkezi(durak(s.yonetim, b), Vector2i.ONE) - s.alan_merkezi(b.hucre, b.boyut(s.yonetim.katalog))
   n.add_child(hazir)
   return
  var m := MeshInstance3D.new()

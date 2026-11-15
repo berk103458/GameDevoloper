@@ -55,6 +55,10 @@ static func bina(n: Node3D, tur: String, en: float, derin: float) -> void:
 			if e != null:
 				e.position = Vector3(-en * 0.32, 0.0, derin * 0.35 + (0.3 if ad == "cekic" else 0.0))
 				n.add_child(e)
+		if tur == "atolye" and Dunya3B.model_var_mi("dokuma_tezgahi"):
+			var dt := Dunya3B.nesne("dokuma_tezgahi", 1.55)
+			dt.position = Vector3(en * 0.28, 0.0, derin * 0.28)
+			n.add_child(dt)
 	if tur in ["hizarhane", "odunluk"]:
 		for i in 2:
 			var e := esya("odun")

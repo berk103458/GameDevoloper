@@ -14,6 +14,11 @@ static func kur(kok: Node3D) -> void:
 	m.albedo_color=Color(String(GozcuKulesi.AYAR.renk))
 	n.material_override=m
 	kok.add_child(n)
+	if Dunya3B.model_var_mi("gozetleme_kulesi", "yapi"):
+		n.visible = false
+		var kule := Dunya3B.nesne("gozetleme_kulesi", float(boy[1]), "yapi")
+		kule.name = "meshy_gozetleme_kulesi"
+		kok.add_child(kule)
 ## Aynı yapı kartı için ColorRect ikon; yeni doku/model yolu açılmaz.
 static func ikon(boy: int) -> ColorRect:
 	var n:=ColorRect.new()

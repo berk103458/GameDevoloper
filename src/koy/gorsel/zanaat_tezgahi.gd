@@ -33,10 +33,21 @@ static func hedef(h: KoyHalkHareketi, k: Koylu, bas: Vector2i) -> Dictionary:
 static func kur(n: Node3D, tur: String, en: float, derin: float) -> void:
  if not AYAR.turler.has(tur): return
  var f: bool = AYAR.turler[tur] == "pisir"
+ var kon := Vector3((en - KoyYonetimSahnesi.HUCRE) / 2, 0, derin / 2)
+ if f and Dunya3B.model_var_mi("firin_agzi"):
+  var fa := Dunya3B.nesne("firin_agzi", float(AYAR.firin_boy[1]))
+  fa.position = kon
+  n.add_child(fa)
+  return
  if not f:
+  if Dunya3B.model_var_mi("ors"):
+   var m_ors := Dunya3B.nesne("ors", float(AYAR.ors_boy[1]))
+   m_ors.position = kon
+   n.add_child(m_ors)
+   return
   var ors := HazirEsyaHayvan.esya("ors", Vector3(AYAR.ors_boy[0], AYAR.ors_boy[1], AYAR.ors_boy[2]))
   if ors != null:
-   ors.position = Vector3((en - KoyYonetimSahnesi.HUCRE) / 2, 0, derin / 2)
+   ors.position = kon
    n.add_child(ors)
    return
  var mesh := _kutu(AYAR.firin_boy if f else AYAR.ors_boy, Color(AYAR.tugla if f else AYAR.demir))
