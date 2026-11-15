@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/oto/grv_kart_guvenlik_kontrol.gd" id="1"]
+
+[node name="GrvKartGuvenlikKontrol" type="Node"]
+script = ExtResource("1")

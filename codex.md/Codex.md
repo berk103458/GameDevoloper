@@ -1261,3 +1261,6 @@ GRV-02 kapanış: son hedef test tekrar exit0. Toparlama ve recovery-mode import
 
 ## 15 Kasım 2026 — GRV-09 (Codex-Berk)
 GRV-02 de3b53eb push doğrulandı; GRV-09 sahiplik 46e875fa push başarılı. Üç pazar dosyası zaten ortak kabuğu kullanıyor; fiyat motoru değiştirilmedi. Yeni bağımsız headless kabulü üç betiğin yüklenmesini, oyun kaynaklarında çağrılmasını, tema dışı renk/StyleBox/ColorRect/sayı punto bulunmamasını ve dört düğme durumunu doğruladı: exit0, 0 hata. Fiyat paneline geçici ham Color sabiti eklenince test exit1 ile düştü; dosya byte bazında geri yüklendi ve git diff boş. Mevcut ARY-01 seçimi ve başkalarının maddeleri korunuyor. Asset gerekmedi; kota görünmüyor. C: aynası yok, eşitlenemedi.
+
+## 15 Kasım 2026 — GRV-14 (Codex-Berk)
+GRV-09 20b1c876 ve GRV-14 sahiplik 1cd2398a push başarılı. Yeni bağımsız gerçek kart testi 1920x1080/1280x720'de güvenlik satırının model metnini, görünürlüğünü, tema fontunu ve kaydırma dışında kalmasını doğruladı. İlk fixture kayit nesnesini kurmadığı için script hatası verdi; kabul sayılmadı. Testte kayıt yazımı devre dışı bırakıldı; nihai test exit0/script hatası0. Güvenlik satırının adı bozulunca test exit1/iki hata; üretim dosyası byte bazında geri yüklendi, diff boş. TEK-03'ün tamamlanmış kodu/testi değiştirilmedi. Asset gerekmedi; kota görünmüyor.

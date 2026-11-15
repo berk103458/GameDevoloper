@@ -3296,3 +3296,6 @@ Ayarların zemini mevcut Tema Panel stilini miras alır; yerel ColorRect kaldır
 
 ## 15 Kasım 2026 — GRV-09 (Codex-Berk)
 Pazar satış/fiyat/kaydırma dosyalarının mevcut tema bağları hedefli headless taramayla doğrulandı. Üç betik yüklenir ve oyunda çağrılır; yerel renk/stil 0. Ham Color ekleme mutasyonu testte exit1 üretir. Yeni test eklendi, fiyat motoru değiştirilmedi. Asset gerekmedi.
+
+## 15 Kasım 2026 — GRV-14 (Codex-Berk)
+Tema kullanan gerçek köylü kartındaki güvenlik satırı iki çözünürlükte görünür, modelle aynı, kaydırma dışında ve tema fontundadır. Yeni hedefli headless test exit0, negatif mutasyon exit1. Üretim kodu değişmedi; asset gerekmedi.
