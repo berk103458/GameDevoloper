@@ -3372,3 +3372,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-16 GRV-63 (Codex-Berk): Ambar fixture gerçek yapı bilgisi ve yeterli kapasiteyle kurulur; geçici kurulum kişisi yangın nüfusuna katılmaz. Gerçek ipucu, suyla yangını kurtarma ve çift gece tıklaması testi temiz geçti. Hedefli testler temiz, bozulma yakalandı. Asset gerekmedi.
 
 - 2026-11-16 GRV-64 (Codex-Berk): Gerçek kuyu testi hatası giderildi: gecikmeli spawn ilk varış/dönüş tarihine uyar, uygun olmayan karakter ve makbuz sonraki güne kalır. Aynı kayıt tek kişi üretir. Erken varış/dönüş ve çift çağrı regresyonu geçti; uygunluk koruması kaldırılan mutasyon exit1 verdi. Hedefli testler temiz, bozulma yakalandı. Asset gerekmedi.
+
+- 2026-11-16 GRV-16 (Codex-Berk): MenuSatiri yerel boş StyleBox override yerine ortak düğme stillerini miras alır; tema zemini çizilir, süs ve erişilebilir metin korunur. Gerçek Ana.ana_menu kayıtsız Devam görünür/disabled ve etkin ilk odak kabulü geçti. flat=true mutasyonu testte dört hata verdi. Hedefli testler temiz, bozulma yakalandı. Asset gerekmedi.

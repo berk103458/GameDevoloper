@@ -1454,3 +1454,9 @@ GRV-63: commit ve normal push doğrulandı: a6ddb92d; kota görünmüyor.
 ## 16 Kasım 2026 — GRV-64 (Codex-Berk)
 Gerçek kuyu testi hatası giderildi: gecikmeli spawn ilk varış/dönüş tarihine uyar, uygun olmayan karakter ve makbuz sonraki güne kalır. Aynı kayıt tek kişi üretir. Erken varış/dönüş ve çift çağrı regresyonu geçti; uygunluk koruması kaldırılan mutasyon exit1 verdi.
 Hedefli gerçek oyun ve tema kabulü exit0/script0/ERROR0. Ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Kanıt: D:/Kapi_Muhafizi/work/*16.log. Testler sırayla ve zaman sınırıyla ön planda çalıştı, süreçler kapandı. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası belirtilen yollarda yok; eşitleme yapılamadı.
+
+GRV-64: commit ve normal push doğrulandı: a008bd4f; kota görünmüyor.
+
+## 16 Kasım 2026 — GRV-16 (Codex-Berk)
+MenuSatiri yerel boş StyleBox override yerine ortak düğme stillerini miras alır; tema zemini çizilir, süs ve erişilebilir metin korunur. Gerçek Ana.ana_menu kayıtsız Devam görünür/disabled ve etkin ilk odak kabulü geçti. flat=true mutasyonu testte dört hata verdi.
+Hedefli gerçek oyun ve tema kabulü exit0/script0/ERROR0. Kasıtlı davranış/tema mutasyonu exit1, kaynak byte bazında geri yüklendi. Kanıt: D:/Kapi_Muhafizi/work/*16.log. Testler sırayla ve zaman sınırıyla ön planda çalıştı, süreçler kapandı. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası belirtilen yollarda yok; eşitleme yapılamadı.

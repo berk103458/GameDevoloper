@@ -7257,7 +7257,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
 
 ### 43.4 Odak ve durum
 
-- [/] **GRV-16:** (Codex-Berk) Düğme dört durumu temadadır.
+- [x] **GRV-16:** (Codex-Berk) Düğme dört durumu temadadır.
   - Ne: normal, üstünde, basılı, kapalı. Kapalı devam düğmesi (`pasifler`) kapalı stili kullanır, kaybolmaz.
   - Kabul: kayıtsız menüde devam görünür ve `disabled`. Test: menü.
   - Bağımlılık: ARY-01. Boyut: S.

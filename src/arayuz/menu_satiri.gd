@@ -24,11 +24,9 @@ var alt_punto := 18
 
 
 func _ready() -> void:
-	flat = true
+	# Dört durumun zemini ortak Theme'den gelir; süs/metin çizimi korunur.
+	flat = false
 	focus_mode = Control.FOCUS_ALL
-	var bos := StyleBoxEmpty.new()
-	for s in ["normal", "hover", "pressed", "hover_pressed", "focus", "disabled"]:
-		add_theme_stylebox_override(s, bos)
 	# Düğmenin kendi metni görünmez (erişilebilirlik için durur); metni _draw çizer.
 	for c in ["font_color", "font_hover_color", "font_focus_color", "font_pressed_color", "font_hover_pressed_color", "font_disabled_color"]:
 		add_theme_color_override(c, Color(0, 0, 0, 0))
@@ -45,7 +43,7 @@ func _draw() -> void:
 	var w := size.x
 	var h := size.y
 	var cy := h / 2.0
-	var odak := has_focus()
+	var odak := not disabled and has_focus()
 	if odak:
 		var u := 14.0
 		var dis := PackedVector2Array([Vector2(u, 0), Vector2(w - u, 0), Vector2(w, cy), Vector2(w - u, h), Vector2(u, h), Vector2(0, cy)])
