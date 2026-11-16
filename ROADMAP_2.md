@@ -7197,7 +7197,7 @@ Kimlikler GRV-01 … GRV-101. Asset üretilmez. Bitince `[x]` ve ajan adı.
   - Bağımlılık: ARY-03. Boyut: M.
   - Dosya: `kapi_ekrani.gd`, `chr_diyalog_paneli.gd`.
   - Asset: asset gerekmedi.
-- [/] **GRV-07:** (Codex-Berk) Seçim düğmeleri kapı karar çubuğudur.
+- [x] **GRV-07:** (Codex-Berk) Seçim düğmeleri kapı karar çubuğudur.
   - Ne: `kapi_ekrani` karar düğmeleri (`_karar_dugmeleri`) tema düğme durumlarını (normal, üstünde, basılı, kapalı) kullanır. Yeni karar türü eklenmez.
   - Kabul: düğme `StyleBox` tema kaynağından. Test: tarama.
   - Bağımlılık: ARY-02. Boyut: S.
