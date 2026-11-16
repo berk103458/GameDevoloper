@@ -7583,7 +7583,7 @@ Her satır 11 Ekim 2026 taramasındandır (`ColorRect` ve `Button.new` sayımı)
   - Dosya: `src/arayuz/koy_hud/hekim_ilac_bilgisi.gd`.
   - Asset: asset gerekmedi.
 
-- [/] **GRV-60:** (Codex-Berk) `histeri_paneli.gd` temaya bağlanır.
+- [x] **GRV-60:** (Codex-Berk) `histeri_paneli.gd` temaya bağlanır.
   - Ne: `src/arayuz/koy_hud/histeri_paneli.gd` bugün ColorRect 0 ve 1 düz düğmeyle duruyor; notu: Histeri düğmesi düz. Tema bağlanınca yalnız `histeri_paneli.gd` ARY-02 zeminini ve düğme durumunu okur, Histeri düğmesi düz davranışı değişmez.
   - Kabul: `histeri_paneli.gd` içinde ham `Color(` ve tema dışı ColorRect kalmaz. Test: GRV-22 yalnız `histeri_paneli.gd` satırında 0 ihlal görür.
   - Bağımlılık: ARY-02, GRV-22. Boyut: S.

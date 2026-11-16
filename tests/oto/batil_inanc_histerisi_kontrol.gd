@@ -23,7 +23,7 @@ func _ready() -> void:
 	y.a.ambar_taban_kapasite = 10000
 	y.a.emniyet_nufus = 100000
 	ana.katalog.koy_ayarlari = y.a
-	y.kaynaklar = Kaynaklar.new(10000, {"gida": 500, "su": 100, "kirec": 10, "odun": 100, "tas": 100, "kereste": 100})
+	y.kaynaklar = Kaynaklar.new(10000, {"gida": 500, "su": 100, "kirec": 10, "odun": 100, "tas": 100, "kereste": 100, "alet": 2})
 	y.akce = 200
 	y.gun = 6
 	o.muhafiz_akce = 77
@@ -31,6 +31,11 @@ func _ready() -> void:
 	var k := y.koylu(o.karar_ver(o._adli_gelen(&"chr_008"), &"kabul").koylu_id)
 	var sif := _kur(y, "sifahane")
 	_kontrol(k != null and sif != null and y.ata(k.id, sif.id) and HekimIlac.etkin(y), "Gerçek kapı kabulü/otacı/Şifahane")
+	if k == null or sif == null:
+		ana.queue_free()
+		await get_tree().process_frame
+		await Ses.cik(1)
+		return
 	var id := k.id
 	ana._koye_git()
 	await get_tree().process_frame
@@ -136,6 +141,10 @@ func _metin(n: Node) -> String:
 	return r
 
 func _kur(y: KoyYonetimi, tur: String) -> KoyBinasi:
+	# Gerçek yapı bilgisi ve kademe ön koşulları; üretim kilidi gevşetilmez.
+	preload("res://src/koy/yapi_bilgisi.gd").ekle(y.koylular[0], PackedStringArray([tur]))
+	if YapiKilidi.durum(y, tur).neden == "yapi_on_kademe":
+		if _kur(y, "tas_ocagi") == null: return null
 	for cy in y.a.izgara_boyut.y:
 		for cx in y.a.izgara_boyut.x:
 			var h := Vector2i(cx, cy)
