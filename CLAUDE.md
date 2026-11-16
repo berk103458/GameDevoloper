@@ -125,3 +125,12 @@ Anlık iletişim: Ajan Masası = GitHub issue #11. Her turun başında `gh issue
 - `create-game-assets` kurulu değildir; 2D görsel üretmek için hiçbir skill kullanılmaz.
 - Skill klasörlerini değiştirme; güncelleme yalnızca Muharrir onayıyla yapılır.
 - Claude Code `.agents/skills/` klasörünü otomatik okumaz. Gerektiğinde ilgili `.agents/skills/<ad>/SKILL.md` dosyasını (ve gerekirse `references/` altını) doğrudan oku.
+
+## ENGELDE DURMA YOK (Berk, 16 Kasım 05:20)
+
+ROADMAP ajanları (Claude, Antigravity, Codex) için kalıcı kural:
+- Bir maddede engele ya da ön koşula takılan ajan DURMAZ.
+- Önce engeli kendisi çözmeye çalışır: ön koşulu tamamlar, hata veren testi düzeltir ya da bağımlı maddeyi önce bitirir.
+- Çözemezse engeli kendi günlüğüne kısaca yazar, o maddeyi atlar ve sıradaki boş maddeye geçer; döngü devam eder.
+- Hiçbir ajan "engel var" gerekçesiyle durmaz. Artık ENGEL yazıp durmak yok; yalnızca gerçek kullanım limiti dolunca durulur.
+- Hiç çalışılabilir boş madde kalmadıysa çıktıya yalnızca tek satır BOS yazılır; döngü bir süre bekleyip pull yapar ve yeniden dener.

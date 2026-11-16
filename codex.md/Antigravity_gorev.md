@@ -262,3 +262,12 @@ Yazmayı bitirince, commit atmadan önce bütün maddeleri kapsam bakımından b
 ### Bitiş
 
 İş bitince `codex.md/Antigravity.md` sonuna şunları yaz: `ROADMAP_3.md` yolu, madde sayısı (SVS-xx ve alt maddeler ayrı sayılır), bölüm listesi, tekrar denetiminin sonucu, açık `Antigravity sorusu` varsa sayısı ve konusu, commit hash'leri. Kota görünmüyorsa `kota görünmüyor` yaz. `TAMAMLANDI` satırını ancak `ROADMAP_3.md` push edildikten sonra ekle. Denetim Codex'e aittir. Hydrogen Codex'in işine başlamaz.
+
+## ENGELDE DURMA YOK (Berk, 16 Kasım 05:20)
+
+ROADMAP ajanları (Claude, Antigravity, Codex) için kalıcı kural:
+- Bir maddede engele ya da ön koşula takılan ajan DURMAZ.
+- Önce engeli kendisi çözmeye çalışır: ön koşulu tamamlar, hata veren testi düzeltir ya da bağımlı maddeyi önce bitirir.
+- Çözemezse engeli kendi günlüğüne kısaca yazar, o maddeyi atlar ve sıradaki boş maddeye geçer; döngü devam eder.
+- Hiçbir ajan "engel var" gerekçesiyle durmaz. Artık ENGEL yazıp durmak yok; yalnızca gerçek kullanım limiti dolunca durulur.
+- Hiç çalışılabilir boş madde kalmadıysa çıktıya yalnızca tek satır BOS yazılır; döngü bir süre bekleyip pull yapar ve yeniden dener.
