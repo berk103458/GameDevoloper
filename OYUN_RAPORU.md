@@ -3364,3 +3364,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-15 GRV-08 (Codex-Berk): Köy HUD klasörünün tamamı ortak kaynak taramasından geçti; kalan yerel renk/punto ve kutu kurulumları Kabuk/Tema kaynaklarına taşındı. İşlevler değiştirilmedi. Hedefli headless kabul ve bozulma deneyi geçti. Asset gerekmedi.
 
 - 2026-11-15 GRV kapanışı (Codex-Berk): 27 madde yayımlandı; 63 HUD betiği ortak kaynak taramasında temiz. Soğuk commitli kopyada gerçek menü testi exit0/script0/ERROR0. Import script/parse0, editör kapanışında3 kaynak ERROR. Dört oyun regresyonu ve kapsam dışı metin/kabuk kontrolleri kaldığından tam kapanış verilmedi. Kanıt: docs/denetim/2026-11-15-grv-codex.md. Asset gerekmedi; kota görünmüyor.
+
+- 2026-11-16 GRV-56 (Codex-Berk): Eski fixture yap? bilgisi ve faz s?zle?mesine uyarland?; assertionlar ge?ti, renderer ERROR1 nedeniyle [/] korunuyor. Asset gerekmedi.

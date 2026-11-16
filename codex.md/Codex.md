@@ -1434,3 +1434,7 @@ Zorunlu ds ayna ve Ahmet yolları bulunamadı; eşitleme yapılamadı. kota gör
 
 ENGEL
 GRV oyun kabul testlerinde gerçek hatalar ve genel metin/kabuk kapanışında kapsam dışı ihlaller var; ayrıntı ve tekrar komutları denetim raporunda. KLT ön koşulları bu duruşun gerekçesi değildir.
+
+## 16 Kas?m 2026 ? GRV-56 yeniden deneme (Codex-Berk)
+Pull: 0e9e4d9e. Sahiplik zaten push edilmi?ti. ?at? fixture kurulumuna ya?ayan ki?inin kul?be bilgisi ve yeterli ambar kapasitesi eklendi; ekonomi kilidi de?i?tirilmedi. Salt okunurluk foto?raf? ger?ek k?y faz?na ge?i?ten sonra al?n?r; eski elle faz ekleme kald?r?ld?. Ger?ek ?at?/rutin/ekipman/gece testindeki b?t?n assertionlar art?k ge?iyor, SCRIPT ERROR=0 ve exit=0. Ancak dummy renderer `material_get_instance_shader_parameters: material null` ERROR=1 ?retiyor; bu nedenle madde [/] kal?r, temiz kabul denmez. Log: D:/Kapi_Muhafizi/work/GRV56_roof_16.log. Import exit0/script0, kapan??ta kaynak/PagedAllocator ERROR3. S?re s?n?rl? ?n plan s?re?leri kapand?. S?radaki ba??ms?z maddeye ge?ilecek.
+Asset gerekmedi; kota g?r?nm?yor. ds ?al??ma/ayna ve Ahmet kopyas? belirtilen C: yollar?nda yok; e?itleme yap?lamad?. Ba??ms?z import/?eviri/oturum loglar? commit d???nda.

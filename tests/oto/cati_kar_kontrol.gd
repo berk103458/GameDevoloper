@@ -13,18 +13,24 @@ func _ready() -> void:
  var ana := TestAna.new()
  add_child(ana)
  var y := ana.oturum.yonetim
+ y.kaynaklar.kapasite = 1000
  for t in ["odun", "tas", "kereste"]: y.kaynaklar.ekle(t, 50)
- var b := kur(y)
- assert(b != null)
+ # YAP-01: kulübe bilgisi yaşayan kişiden gelir; üretim kilidi atlanmaz.
  var k := y.kabul({"ad":"Kürekçi", "sinif":"ciftci", "stat":5})
+ preload("res://src/koy/yapi_bilgisi.gd").ekle(k, PackedStringArray(["kulube"]))
+ var b := kur(y)
+ if b == null:
+  push_error("Çatı testi: bilgi/malzeme ile gerçek kulübe kurulamadı")
+  await Ses.cik(1)
+  return
  y.gun = 27
  b.cati_kar.yuk = 2.0
- var once := JSON.stringify(ana.oturum.kaydet().merged({"faz": "koy"}, true))
  ana._koye_git()
  var s: KoyYonetimSahnesi = ana._ekran.sahne3b
  var h := s.halk_hareketi
  h.set_process(false)
  await get_tree().process_frame
+ var once := JSON.stringify(ana.oturum.kaydet())
  h._bekleyen.clear()
  h._planla(k.id)
  var d: Dictionary = h._durum[k.id]
