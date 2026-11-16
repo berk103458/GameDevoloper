@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Dönem asset envanteri — 17 Kasım 2026
+
+Yalnız belge: `docs/arayuz/DONEM_ASSET_ENVANTERI.md`. 73 linkli satır. Kod, sahne, manifest ve indirme yok. ROADMAP_2'ye dokunulmadı. Asset gerekmedi. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## SummerEngine sesleri ve üç bus — 17 Kasım 2026
 
 Ahmet kararı: oyun yayınlanmıyor, lisans yayın öncesi alınacak. Hesap açılmadan, ödeme olmadan mağazanın açık sayfalarından 7 ses alındı (ateş, tıklama, tahta adım, taş adım, ağaç kesimi, gece cırcır/rüzgâr, gerilim vurgusu). Hepsi sayfada Free ve yapay zekâ; CC0 cümlesi yok. Kapı, kilit, mühür, zar, kâğıt, para, örs, çekiç, değirmen, kuyu, hayvan, kalabalık, gündüz köy ve ney/ud/saz/def parçaları açık listedeki komşu sayfalarda yok; arama hesabı istiyor, duruldu. `Master → Muzik, Efekt, Ortam`. Ortam sürgüsü 0–10, varsayılan 8. Seviye tablosu tepeyi -1 dBFS altında tutar; sessizliği gerçek olan nefes, deri ve eski gece yatağı +10..+12 dB alır. `dere_01.wav` oyunda yok, dışa aktarmadan çıkarıldı, silinmedi. ROADMAP_4 SES maddeleri işaretlenmedi. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
