@@ -6,7 +6,7 @@ extends RefCounted
 signal degisti(anahtar: StringName)
 
 const VARSAYILAN := {
-	&"ses_ana": 8, &"ses_muzik": 7, &"ses_efekt": 8,
+	&"ses_ana": 8, &"ses_muzik": 7, &"ses_efekt": 8, &"ses_ortam": 8,
 	&"ekran_modu": &"tam_ekran", &"metin_olcegi": 100, &"belirme_hizi": &"normal",
 	&"grafik_profili": &"normal", &"cozunurluk_3d": 100,
 	&"kamera_eksen_ters": false,
@@ -19,7 +19,7 @@ const GECERLI := {
 	&"cozunurluk_3d": [50, 67, 75, 85, 100],
 }
 const CARPAN := {&"normal": 1.0, &"hizli": 0.5, &"aninda": 0.0}
-const BUSLAR := {&"ses_ana": "Master", &"ses_muzik": "Muzik", &"ses_efekt": "Efekt"}
+const BUSLAR := {&"ses_ana": "Master", &"ses_muzik": "Muzik", &"ses_efekt": "Efekt", &"ses_ortam": "Ortam"}
 
 var degerler: Dictionary = VARSAYILAN.duplicate()
 var yol: String
@@ -122,7 +122,7 @@ func uygula() -> void:
 func _gecerli(a: StringName, v: Variant) -> bool:
 	if a == &"kamera_eksen_ters":
 		return v is bool
-	if a in [&"ses_ana", &"ses_muzik", &"ses_efekt"]:
+	if a in [&"ses_ana", &"ses_muzik", &"ses_efekt", &"ses_ortam"]:
 		return (v is int or v is float) and v == floorf(v) and v >= 0 and v <= 10
 	if GECERLI.has(a):
 		var liste: Array = GECERLI[a]

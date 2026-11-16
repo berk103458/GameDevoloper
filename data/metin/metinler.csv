@@ -52,6 +52,7 @@ arayuz.ayarlar.geri,Geri,Back
 arayuz.ayarlar.metin_olcegi,Metin büyüklüğü,Text Size
 arayuz.ayarlar.ses_ana,Ana ses,Master Volume
 arayuz.ayarlar.ses_efekt,Efektler,Sound Effects
+arayuz.ayarlar.ses_ortam,Ortam Sesleri,Ambience Volume
 arayuz.ayarlar.ses_muzik,Müzik,Music Volume
 arayuz.ayarlar.varsayilan,Varsayılana dön,Reset to Defaults
 arayuz.bayrak.acildi,Ortaya çıktı: %s,Revealed: %s
@@ -2119,6 +2120,7 @@ arayuz.ayarlar.yeni_oyun.iz,Önceki oyun: %d,Previous Record: %d
 arayuz.ayarlar.ses_ana_aciklama,Ana ses. 0 sessizdir. Varsayılan 8.,Master volume. 0 is mute. Default 8.
 arayuz.ayarlar.ses_muzik_aciklama,Müzik sesi. Varsayılan 7.,Music volume. Default 7.
 arayuz.ayarlar.ses_efekt_aciklama,Efekt sesi. Varsayılan 8.,Sound effects volume. Default 8.
+arayuz.ayarlar.ses_ortam_aciklama,Ortam sesi. Köy ve meşale döngüsü. Varsayılan 8.,Ambience volume. Village and hearth loops. Default 8.
 arayuz.ayarlar.ekran_modu_aciklama,Tam ekran ya da pencere. Varsayılan tam ekran.,Fullscreen or windowed mode. Default fullscreen.
 arayuz.ayarlar.metin_olcegi_aciklama,"Yazı büyüklüğü. 100, 125, 150 veya 175. Varsayılan 100.","Text scale. 100, 125, 150, or 175. Default 100."
 arayuz.ayarlar.belirme_hizi_aciklama,Satırların belirme hızı. Varsayılan normal.,Dialogue reveal speed. Default normal.

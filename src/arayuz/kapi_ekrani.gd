@@ -811,7 +811,7 @@ func _sira_olayi(o: OlayVerisi) -> bool:
 
 func _adim_sesi(adet: int) -> void:
 	for i in adet / 2:
-		Ses.cal(&"sfx_adim", -6.0)
+		Ses.cal(&"sfx_adim_tahta", -6.0)
 		await get_tree().create_timer(Adim.KARE_SN * 4.0).timeout
 
 

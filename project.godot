@@ -17,6 +17,10 @@ config/use_custom_user_dir=true
 config/custom_user_dir_name="KapiMuhafizi"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="res://data/ses/default_bus_layout.tres"
+
 [autoload]
 
 Ses="*res://src/sistemler/ses.gd"

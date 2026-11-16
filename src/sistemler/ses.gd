@@ -1,5 +1,5 @@
 ## Ses yöneticisi (autoload `Ses`): müzik ve ortam döngüleri, efektler.
-## Dosyalar `res://assets/ses/<ad>.wav`; yoksa sessizce geçilir. Bus'lar: Master → Muzik, Efekt (Ayarlar GDD).
+## Dosyalar `res://assets/ses/<ad>.wav`; yoksa sessizce geçilir. Bus'lar: Master → Muzik, Efekt, Ortam.
 extends Node
 
 const KOK := "res://assets/ses/"
@@ -20,21 +20,19 @@ var _ortam_ad: StringName = &""
 var _efektler: Array[AudioStreamPlayer] = []
 var _sira := 0
 var _onbellek: Dictionary = {}
+var _telafi: Dictionary = {}
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().auto_accept_quit = false
-	for bus in ["Muzik", "Efekt"]:
-		if AudioServer.get_bus_index(bus) < 0:
-			AudioServer.add_bus()
-			var i := AudioServer.bus_count - 1
-			AudioServer.set_bus_name(i, bus)
-			AudioServer.set_bus_send(i, "Master")
+	for bus in ["Muzik", "Efekt", "Ortam"]:
+		_bus_hazirla(bus)
+	_denge_yukle()
 	_muzik = _oynatici("Muzik")
 	_muzik_yedek = _oynatici("Muzik")
-	_ortam = _oynatici("Efekt")
-	_ortam_yedek = _oynatici("Efekt")
+	_ortam = _oynatici("Ortam")
+	_ortam_yedek = _oynatici("Ortam")
 	for i in ES_ZAMANLI:
 		var o := _oynatici("Efekt")
 		o.finished.connect(EfektHavuzuTemizligi.biteni_birak.bind(o))
@@ -151,7 +149,10 @@ func ortam_adi() -> StringName:
 	return _ortam_ad
 
 func ortam_busu_adi() -> StringName:
-	return _ortam.bus if is_instance_valid(_ortam) else &"Efekt"
+	return _ortam.bus if is_instance_valid(_ortam) else &"Ortam"
+
+func telafi(ad: StringName) -> float:
+	return _telafi_db(String(ad))
 
 func ortam_busunu_ayarla(ad: StringName) -> void:
 	for o in [_ortam, _ortam_yedek]:
@@ -167,7 +168,7 @@ func _gecis(eski: AudioStreamPlayer, yeni: AudioStreamPlayer, ad: StringName, db
 	if not yeni.playing:
 		return false
 	var t := create_tween().set_parallel()
-	t.tween_property(yeni, "volume_db", db, GECIS)
+	t.tween_property(yeni, "volume_db", db + _telafi_db(String(ad)), GECIS)
 	t.tween_property(eski, "volume_db", SESSIZ_DB, GECIS)
 	t.chain().tween_callback(eski.stop)
 	return true
@@ -198,7 +199,7 @@ func oynat(ad: StringName, db: float = 0.0) -> bool:
 	if not is_instance_valid(o):
 		return false
 	o.stream = akis
-	o.volume_db = db
+	o.volume_db = db + _telafi_db(String(ad))
 	o.play()
 	return true
 
@@ -221,7 +222,7 @@ func _dongu(o: AudioStreamPlayer, ad: String, db: float = 0.0) -> void:
 	if akis == null:
 		return
 	o.stream = akis
-	o.volume_db = db
+	o.volume_db = db + _telafi_db(ad)
 	o.play()
 
 
@@ -241,6 +242,29 @@ func _akis(ad: String) -> AudioStream:
 	var a: AudioStream = load(yol) if ResourceLoader.exists(yol) else null
 	_onbellek[ad] = a
 	return a
+
+
+func _bus_hazirla(ad: String) -> void:
+	var i := AudioServer.get_bus_index(ad)
+	if i < 0:
+		AudioServer.add_bus()
+		i = AudioServer.bus_count - 1
+		AudioServer.set_bus_name(i, ad)
+	AudioServer.set_bus_send(i, "Master")
+
+
+func _denge_yukle() -> void:
+	_telafi = {}
+	var yol := "res://data/ses/ses_denge_tablosu.json"
+	if not FileAccess.file_exists(yol):
+		return
+	var veri = JSON.parse_string(FileAccess.get_file_as_string(yol))
+	if veri is Dictionary and veri.has("telafi") and veri["telafi"] is Dictionary:
+		_telafi = veri["telafi"]
+
+
+func _telafi_db(ad: String) -> float:
+	return float(_telafi.get(ad, 0.0))
 
 
 func _oynatici(bus: String) -> AudioStreamPlayer:

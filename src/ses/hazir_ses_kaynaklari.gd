@@ -10,6 +10,13 @@ const YOLLAR := {
 	"sfx_kese": "kenney_rpg/handleCoins.ogg",
 	"sfx_ors": "heyhey_savas/anvil_strike_01.ogg",
 	"ortam_koy_gunduz": "quendel/dere_dongu.ogg",
+	"ortam_koy_gece": "summer/ortam/gece_cir_ruzgar.ogg",
+	"ortam_mesale_dongu": "summer/ates/yanan_odun.ogg",
+	"sfx_secim": "summer/arayuz/tiklama.ogg",
+	"sfx_adim_tas": "summer/adim/tas.ogg",
+	"sfx_adim_tahta": "summer/adim/tahta.ogg",
+	"sfx_odun": "summer/odun/agac_kesimi.ogg",
+	"sfx_gerilim": "summer/gerilim/karanlik_vurgu.ogg",
 }
 
 static func yol(ad: String) -> String:

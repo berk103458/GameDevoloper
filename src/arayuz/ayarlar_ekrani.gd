@@ -8,6 +8,7 @@ const SATIRLAR := [
 	[&"ses_ana", "arayuz.ayarlar.ses_ana"],
 	[&"ses_muzik", "arayuz.ayarlar.ses_muzik"],
 	[&"ses_efekt", "arayuz.ayarlar.ses_efekt"],
+	[&"ses_ortam", "arayuz.ayarlar.ses_ortam"],
 	[&"ekran_modu", "arayuz.ayarlar.ekran_modu"],
 	[&"metin_olcegi", "arayuz.ayarlar.metin_olcegi"],
 	[&"belirme_hizi", "arayuz.ayarlar.belirme_hizi"],

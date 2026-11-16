@@ -1,11 +1,11 @@
-## AYR-20: Üç ses kaydırıcısı. Yeni bus yoktur.
+## Ayarlar ses sekmesi: ana, müzik, efekt ve ortam sürgüleri.
 extends VBoxContainer
 
 var ayarlar: Ayarlar
 var aciklama: Label
 var kaydiricilar: Array[HSlider] = []
 
-const ANAHTARLAR: Array[StringName] = [&"ses_ana", &"ses_muzik", &"ses_efekt"]
+const ANAHTARLAR: Array[StringName] = [&"ses_ana", &"ses_muzik", &"ses_efekt", &"ses_ortam"]
 
 
 func _ready() -> void:

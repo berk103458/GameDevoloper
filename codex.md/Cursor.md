@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## SummerEngine sesleri ve üç bus — 17 Kasım 2026
+
+Ahmet kararı: oyun yayınlanmıyor, lisans yayın öncesi alınacak. Hesap açılmadan, ödeme olmadan mağazanın açık sayfalarından 7 ses alındı (ateş, tıklama, tahta adım, taş adım, ağaç kesimi, gece cırcır/rüzgâr, gerilim vurgusu). Hepsi sayfada Free ve yapay zekâ; CC0 cümlesi yok. Kapı, kilit, mühür, zar, kâğıt, para, örs, çekiç, değirmen, kuyu, hayvan, kalabalık, gündüz köy ve ney/ud/saz/def parçaları açık listedeki komşu sayfalarda yok; arama hesabı istiyor, duruldu. `Master → Muzik, Efekt, Ortam`. Ortam sürgüsü 0–10, varsayılan 8. Seviye tablosu tepeyi -1 dBFS altında tutar; sessizliği gerçek olan nefes, deri ve eski gece yatağı +10..+12 dB alır. `dere_01.wav` oyunda yok, dışa aktarmadan çıkarıldı, silinmedi. ROADMAP_4 SES maddeleri işaretlenmedi. Tam sanity yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## Kalan topluluk modelleri köyün dışına kondu — 16 Kasım 2026
 
 PR #31 festive'e alındı (`2c968ec4`). Kalan 39 model `ToplulukDekoru` ile köy ızgarasının dışına, her birinden bir kopya, statik dekor olarak kondu: kuzey kenarda üç ev, kuzeybatı ve kuzeydoğuda birer kule, batıda eşek, öküz, yalak, karasaban, saman, iki tavuk, ayı ve iki kısa çit, doğuda mutfak kabı, fırın, körük, heykel, debbaghane, kervan konağı ve su değirmeni, güney kenarda (kapı yolunun doğusunda) oturak, kandil, sepet, un çuvalı, kovan, değirmen taşı, el değirmeni, odun ve taş. Mekanik, yol ve kayıt değişmedi. Görüş 120 m, Godot LOD açık; çoğaltma yok. İkinci pazar, ikinci kapı, ikinci sur, mevcut hayvanın kopyası, iskeletsiz figür ve Koreli tüccar dosyası konmadı. Manifestte 54 satır `oyun_baglantisi: baglandi`. ROADMAP_4'te bu işe denk madde yok. Test: `topluluk_dekor_kontrol`, `acilis_menu_kontrol` ve mevcut köy testleri. Tam sanity yok. Üretim yok. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez. Stash'e dokunulmadı.

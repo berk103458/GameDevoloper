@@ -25,4 +25,11 @@ func _process(_delta: float) -> void:
 	var simdi := Time.get_ticks_msec()
 	if simdi - _son_adim >= 180:
 		_son_adim = simdi
-		get_tree().root.get_node("Ses").cal(&"sfx_adim", -24.0)
+		get_tree().root.get_node("Ses").cal(_zemin_adi(aktor), -24.0)
+
+
+func _zemin_adi(aktor: Node3D) -> StringName:
+	var p := aktor.global_position
+	if absf(p.x) <= 4.0 and absf(p.z) <= 4.0:
+		return &"sfx_adim_tas"
+	return &"sfx_adim"

@@ -24,7 +24,7 @@ func _calistir() -> void:
 	var ortam := preload("res://src/sistemler/koy_ortam_sesi.gd").new()
 	ortam._ses = ses
 	root.add_child(ortam)
-	_dene(ses.bus == &"Ambiance" and AudioServer.get_bus_send(AudioServer.get_bus_index("Ambiance")) == &"Efekt", "koy_ortam_test.gd:25")
+	_dene(ses.bus == &"Ortam" and AudioServer.get_bus_send(AudioServer.get_bus_index("Ortam")) == &"Master", "koy_ortam_test.gd:25")
 	ortam.faz(&"gunduz")
 	_dene(ses.parca == &"ortam_koy_gunduz", "koy_ortam_test.gd:27")
 	ortam.faz(&"aksam")

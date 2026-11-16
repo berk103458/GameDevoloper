@@ -132,6 +132,8 @@ static func esya(f: KarakterModel, y: KoyYonetimi, id: int, etkin: bool, adim: i
 static func varis(f: KarakterModel, kesiyor: bool) -> void:
  var d := f.get_node_or_null("oduncu_rutini") as OduncuRutini
  if d != null and not d.is_queued_for_deletion(): d._kesiyor = kesiyor
+ if kesiyor:
+  preload("res://src/sistemler/guvenli_ses_cagrisi.gd").oynat(&"sfx_odun", -8.0)
 func _process(delta: float) -> void:
  if not _kesiyor or _balta_gorsel == null: return
  _zaman += delta

@@ -13,13 +13,13 @@ func _ready() -> void:
 	ekran.theme = Tema.olustur(ekran.ayarlar)
 	add_child(ekran)
 	ekran.ortam_baslat()
-	_dene(Ses.ortam_adi() == &"ortam_koy_gunduz" and Ses.ortam_busu_adi() == &"Ambiance", "koy_ortam_kontrol.gd:14")
+	_dene(Ses.ortam_adi() == &"ortam_koy_gunduz" and Ses.ortam_busu_adi() == &"Ortam", "koy_ortam_kontrol.gd:14")
 	ekran._geceye_gec()
 	_dene(Ses.ortam_adi() == &"ortam_koy_gece", "koy_ortam_kontrol.gd:16")
 	await Ses.sustur()
 	ekran.queue_free()
 	await get_tree().process_frame
-	_dene(Ses.ortam_busu_adi() == &"Efekt", "koy_ortam_kontrol.gd:20")
+	_dene(Ses.ortam_busu_adi() == &"Ortam", "koy_ortam_kontrol.gd:20")
 	print("KÖY ORTAM UI: GEÇTİ" if _hata == 0 else "KÖY ORTAM UI: KALDI (%d hata)" % _hata)
 	get_tree().quit(1 if _hata > 0 else 0)
 

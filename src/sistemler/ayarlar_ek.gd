@@ -58,7 +58,7 @@ const SEKME_ANAHTARLARI := {
 	&"oyun": [&"koy_hizi_varsayilan", &"kamera_eksen_ters", &"otomatik_kayit", &"ipuclari", &"kademeli_hud", &"olayda_duraklat", &"rapor_bekle", &"karar_onayi", &"zorluk"],
 	&"goruntu": [&"ekran_modu", &"grafik_profili", &"cozunurluk_3d", &"pencere_boyutu", &"vsync", &"kare_siniri", &"renk_paleti", &"yuksek_kontrast", &"hareket_azalt", &"odak_cercevesi"],
 	&"okuma": [&"metin_olcegi", &"belirme_hizi", &"satir_araligi", &"metin_agirligi", &"okunmus_isaret"],
-	&"ses": [&"ses_ana", &"ses_muzik", &"ses_efekt", &"arka_planda_sustur"],
+	&"ses": [&"ses_ana", &"ses_muzik", &"ses_efekt", &"ses_ortam", &"arka_planda_sustur"],
 }
 
 ## AYR-44 günlüğü: reddedilen her değer için bir satır; `_reddet()` doldurur.

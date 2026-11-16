@@ -34,6 +34,8 @@ func guncelle(tansiyon: int) -> void:
 	var hedef := katman_indeksi(tansiyon)
 	if hedef == katman:
 		return
+	if hedef > katman and hedef >= 1:
+		preload("res://src/sistemler/guvenli_ses_cagrisi.gd").oynat(&"sfx_gerilim", -14.0)
 	if not _bastirildi and _ses != null:
 		_eski_db = _ses.call("muzik_sesi")
 		_ses.call("muzik_sesini_ayarla", -80.0)

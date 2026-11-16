@@ -1,0 +1,726 @@
+{
+ "hedef_dbfs": {
+  "Muzik": -20,
+  "Ortam": -24,
+  "Efekt": -18
+ },
+ "telafi": {
+  "muzik_chr_sakin": 3,
+  "sfx_yagmur": 1,
+  "sfx_saldiri": -2,
+  "sfx_chr_sikke": 5,
+  "muzik_gece_dongu": 6,
+  "sfx_secim": -1,
+  "sfx_kavga": 2,
+  "sfx_adim": 2,
+  "sfx_ruzgar": -1,
+  "sfx_bar_catlak": 2,
+  "sfx_at_nali": 2,
+  "sfx_oksuruk": 2,
+  "ortam_mesale_dongu": -3,
+  "ortam_koy_gece": -7,
+  "muzik_dugun_dongu": 8,
+  "sfx_ekim": 2,
+  "muzik_chr_panik": 4,
+  "sfx_insaat": 2,
+  "sfx_kapi_acilir": 2,
+  "sfx_kese": 2,
+  "sfx_kurt": -1,
+  "sfx_chr_bebek": 12,
+  "sfx_cekirge": 2,
+  "sfx_chr_kagit": 8,
+  "sfx_ok": 2,
+  "sfx_onay": 0,
+  "ortam_koy_dongu": 5,
+  "sfx_gece_bitti": -2,
+  "sfx_hasat": 2,
+  "sfx_kalabalik": 2,
+  "sfx_chr_deri": 12,
+  "sfx_kervan": -1,
+  "sfx_chr_kabza": 5,
+  "muzik_chr_gergin": 5,
+  "ortam_koy_gunduz": 10,
+  "sfx_olay": 2,
+  "sfx_bar_kirildi": 2,
+  "sfx_chr_metal": 5,
+  "sfx_kapi_kapanir": 2,
+  "ot_01": 8,
+  "cakil_01": 8,
+  "toprak_01": 7,
+  "nefes": 12,
+  "ic_cekim": 4,
+  "mirilti": 12,
+  "tahta_tik_01": 7,
+  "tahta_tik_02": 7,
+  "sword_draw_01": 7,
+  "bow_release_01": 0,
+  "anvil_strike_01": 6,
+  "war_horn_01": 0,
+  "blade_scrape_01": 5,
+  "chainmail_move_01": 1,
+  "dere_01": 5,
+  "dere_dongu": 4,
+  "wood_squeak_01": 0,
+  "door_open_01": -1,
+  "wood_cracking_01": 3,
+  "hammer_01": -1,
+  "wood_hammer_01": -1,
+  "lock_open_01": -1,
+  "wood_slam_01": 0,
+  "wood_breaking_01": -1,
+  "creak1": 6,
+  "handleCoins": -1,
+  "doorClose_1": -1,
+  "doorOpen_1": -1,
+  "chop": -1,
+  "yanan_odun": -3,
+  "karanlik_vurgu": -4,
+  "tiklama": -1,
+  "gece_cir_ruzgar": -7,
+  "tas": -1,
+  "tahta": -6,
+  "agac_kesimi": -1,
+  "coin": -2,
+  "sword-unsheathe": -1,
+  "coin2": -1,
+  "chainmail1": -1,
+  "sfx_adim_tas": -1,
+  "sfx_adim_tahta": -6,
+  "sfx_odun": -1,
+  "sfx_gerilim": -4
+ },
+ "dosyalar": [
+  {
+   "dosya": "assets/ses/muzik_chr_sakin.wav",
+   "anahtar": "muzik_chr_sakin",
+   "rms_db": -22.6,
+   "peak_db": -16.9,
+   "bus": "Muzik",
+   "telafi_db": 3
+  },
+  {
+   "dosya": "assets/ses/sfx_yagmur.wav",
+   "anahtar": "sfx_yagmur",
+   "rms_db": -18.6,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 1
+  },
+  {
+   "dosya": "assets/ses/sfx_saldiri.wav",
+   "anahtar": "sfx_saldiri",
+   "rms_db": -16.3,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": -2
+  },
+  {
+   "dosya": "assets/ses/sfx_chr_sikke.wav",
+   "anahtar": "sfx_chr_sikke",
+   "rms_db": -23.5,
+   "peak_db": -6.3,
+   "bus": "Efekt",
+   "telafi_db": 5
+  },
+  {
+   "dosya": "assets/ses/muzik_gece_dongu.wav",
+   "anahtar": "muzik_gece_dongu",
+   "rms_db": -26.5,
+   "peak_db": -12.0,
+   "bus": "Muzik",
+   "telafi_db": 6
+  },
+  {
+   "dosya": "assets/ses/sfx_secim.wav",
+   "anahtar": "sfx_secim",
+   "rms_db": -22.1,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_kavga.wav",
+   "anahtar": "sfx_kavga",
+   "rms_db": -20.4,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_adim.wav",
+   "anahtar": "sfx_adim",
+   "rms_db": -23.3,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_ruzgar.wav",
+   "anahtar": "sfx_ruzgar",
+   "rms_db": -16.9,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/sfx_bar_catlak.wav",
+   "anahtar": "sfx_bar_catlak",
+   "rms_db": -37.5,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_at_nali.wav",
+   "anahtar": "sfx_at_nali",
+   "rms_db": -20.3,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_oksuruk.wav",
+   "anahtar": "sfx_oksuruk",
+   "rms_db": -23.0,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/ortam_mesale_dongu.wav",
+   "anahtar": "ortam_mesale_dongu",
+   "rms_db": -31.3,
+   "peak_db": -12.0,
+   "bus": "Ortam",
+   "telafi_db": 7
+  },
+  {
+   "dosya": "assets/ses/ortam_koy_gece.wav",
+   "anahtar": "ortam_koy_gece",
+   "rms_db": -33.6,
+   "peak_db": -20.0,
+   "bus": "Ortam",
+   "telafi_db": 10
+  },
+  {
+   "dosya": "assets/ses/muzik_dugun_dongu.wav",
+   "anahtar": "muzik_dugun_dongu",
+   "rms_db": -27.7,
+   "peak_db": -12.0,
+   "bus": "Muzik",
+   "telafi_db": 8
+  },
+  {
+   "dosya": "assets/ses/sfx_ekim.wav",
+   "anahtar": "sfx_ekim",
+   "rms_db": -24.8,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/muzik_chr_panik.wav",
+   "anahtar": "muzik_chr_panik",
+   "rms_db": -24.3,
+   "peak_db": -7.7,
+   "bus": "Muzik",
+   "telafi_db": 4
+  },
+  {
+   "dosya": "assets/ses/sfx_insaat.wav",
+   "anahtar": "sfx_insaat",
+   "rms_db": -30.9,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_kapi_acilir.wav",
+   "anahtar": "sfx_kapi_acilir",
+   "rms_db": -20.8,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_kese.wav",
+   "anahtar": "sfx_kese",
+   "rms_db": -20.5,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_kurt.wav",
+   "anahtar": "sfx_kurt",
+   "rms_db": -16.9,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/sfx_chr_bebek.wav",
+   "anahtar": "sfx_chr_bebek",
+   "rms_db": -29.5,
+   "peak_db": -17.5,
+   "bus": "Efekt",
+   "telafi_db": 12
+  },
+  {
+   "dosya": "assets/ses/sfx_cekirge.wav",
+   "anahtar": "sfx_cekirge",
+   "rms_db": -21.7,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_chr_kagit.wav",
+   "anahtar": "sfx_chr_kagit",
+   "rms_db": -25.8,
+   "peak_db": -13.7,
+   "bus": "Efekt",
+   "telafi_db": 8
+  },
+  {
+   "dosya": "assets/ses/sfx_ok.wav",
+   "anahtar": "sfx_ok",
+   "rms_db": -23.8,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_onay.wav",
+   "anahtar": "sfx_onay",
+   "rms_db": -18.3,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 0
+  },
+  {
+   "dosya": "assets/ses/ortam_koy_dongu.wav",
+   "anahtar": "ortam_koy_dongu",
+   "rms_db": -29.1,
+   "peak_db": -12.0,
+   "bus": "Ortam",
+   "telafi_db": 5
+  },
+  {
+   "dosya": "assets/ses/sfx_gece_bitti.wav",
+   "anahtar": "sfx_gece_bitti",
+   "rms_db": -16.5,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": -2
+  },
+  {
+   "dosya": "assets/ses/sfx_hasat.wav",
+   "anahtar": "sfx_hasat",
+   "rms_db": -21.6,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_kalabalik.wav",
+   "anahtar": "sfx_kalabalik",
+   "rms_db": -20.1,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_chr_deri.wav",
+   "anahtar": "sfx_chr_deri",
+   "rms_db": -31.8,
+   "peak_db": -20.3,
+   "bus": "Efekt",
+   "telafi_db": 12
+  },
+  {
+   "dosya": "assets/ses/sfx_kervan.wav",
+   "anahtar": "sfx_kervan",
+   "rms_db": -16.7,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/sfx_chr_kabza.wav",
+   "anahtar": "sfx_chr_kabza",
+   "rms_db": -23.5,
+   "peak_db": -6.4,
+   "bus": "Efekt",
+   "telafi_db": 5
+  },
+  {
+   "dosya": "assets/ses/muzik_chr_gergin.wav",
+   "anahtar": "muzik_chr_gergin",
+   "rms_db": -24.7,
+   "peak_db": -14.4,
+   "bus": "Muzik",
+   "telafi_db": 5
+  },
+  {
+   "dosya": "assets/ses/ortam_koy_gunduz.wav",
+   "anahtar": "ortam_koy_gunduz",
+   "rms_db": -33.9,
+   "peak_db": -14.3,
+   "bus": "Ortam",
+   "telafi_db": 10
+  },
+  {
+   "dosya": "assets/ses/sfx_olay.wav",
+   "anahtar": "sfx_olay",
+   "rms_db": -21.5,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_bar_kirildi.wav",
+   "anahtar": "sfx_bar_kirildi",
+   "rms_db": -21.9,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/sfx_chr_metal.wav",
+   "anahtar": "sfx_chr_metal",
+   "rms_db": -23.4,
+   "peak_db": -6.2,
+   "bus": "Efekt",
+   "telafi_db": 5
+  },
+  {
+   "dosya": "assets/ses/sfx_kapi_kapanir.wav",
+   "anahtar": "sfx_kapi_kapanir",
+   "rms_db": -24.6,
+   "peak_db": -3.0,
+   "bus": "Efekt",
+   "telafi_db": 2
+  },
+  {
+   "dosya": "assets/ses/heyhey/ot_01.ogg",
+   "anahtar": "ot_01",
+   "rms_db": -28.5,
+   "peak_db": -8.5,
+   "bus": "Efekt",
+   "telafi_db": 8
+  },
+  {
+   "dosya": "assets/ses/heyhey/cakil_01.ogg",
+   "anahtar": "cakil_01",
+   "rms_db": -27.7,
+   "peak_db": -9.2,
+   "bus": "Efekt",
+   "telafi_db": 8
+  },
+  {
+   "dosya": "assets/ses/heyhey/toprak_01.ogg",
+   "anahtar": "toprak_01",
+   "rms_db": -28.4,
+   "peak_db": -8.0,
+   "bus": "Efekt",
+   "telafi_db": 7
+  },
+  {
+   "dosya": "assets/ses/cici/nefes.wav",
+   "anahtar": "nefes",
+   "rms_db": -35.5,
+   "peak_db": -14.8,
+   "bus": "Efekt",
+   "telafi_db": 12
+  },
+  {
+   "dosya": "assets/ses/cici/ic_cekim.wav",
+   "anahtar": "ic_cekim",
+   "rms_db": -22.3,
+   "peak_db": -8.4,
+   "bus": "Efekt",
+   "telafi_db": 4
+  },
+  {
+   "dosya": "assets/ses/cici/mirilti.wav",
+   "anahtar": "mirilti",
+   "rms_db": -30.9,
+   "peak_db": -18.0,
+   "bus": "Efekt",
+   "telafi_db": 12
+  },
+  {
+   "dosya": "assets/ses/cyrex/tahta_tik_01.ogg",
+   "anahtar": "tahta_tik_01",
+   "rms_db": -35.0,
+   "peak_db": -7.7,
+   "bus": "Efekt",
+   "telafi_db": 7
+  },
+  {
+   "dosya": "assets/ses/cyrex/tahta_tik_02.ogg",
+   "anahtar": "tahta_tik_02",
+   "rms_db": -34.7,
+   "peak_db": -8.2,
+   "bus": "Efekt",
+   "telafi_db": 7
+  },
+  {
+   "dosya": "assets/ses/heyhey_savas/sword_draw_01.ogg",
+   "anahtar": "sword_draw_01",
+   "rms_db": -25.6,
+   "peak_db": -7.9,
+   "bus": "Efekt",
+   "telafi_db": 7
+  },
+  {
+   "dosya": "assets/ses/heyhey_savas/bow_release_01.ogg",
+   "anahtar": "bow_release_01",
+   "rms_db": -26.2,
+   "peak_db": -1.3,
+   "bus": "Efekt",
+   "telafi_db": 0
+  },
+  {
+   "dosya": "assets/ses/heyhey_savas/anvil_strike_01.ogg",
+   "anahtar": "anvil_strike_01",
+   "rms_db": -25.0,
+   "peak_db": -7.4,
+   "bus": "Efekt",
+   "telafi_db": 6
+  },
+  {
+   "dosya": "assets/ses/heyhey_savas/war_horn_01.ogg",
+   "anahtar": "war_horn_01",
+   "rms_db": -18.1,
+   "peak_db": -7.9,
+   "bus": "Efekt",
+   "telafi_db": 0
+  },
+  {
+   "dosya": "assets/ses/heyhey_savas/blade_scrape_01.ogg",
+   "anahtar": "blade_scrape_01",
+   "rms_db": -23.9,
+   "peak_db": -5.7,
+   "bus": "Efekt",
+   "telafi_db": 5
+  },
+  {
+   "dosya": "assets/ses/heyhey_savas/chainmail_move_01.ogg",
+   "anahtar": "chainmail_move_01",
+   "rms_db": -24.1,
+   "peak_db": -2.1,
+   "bus": "Efekt",
+   "telafi_db": 1
+  },
+  {
+   "dosya": "assets/ses/quendel/dere_01.wav",
+   "anahtar": "dere_01",
+   "rms_db": -24.2,
+   "peak_db": -6.4,
+   "bus": "Efekt",
+   "telafi_db": 5
+  },
+  {
+   "dosya": "assets/ses/quendel/dere_dongu.ogg",
+   "anahtar": "dere_dongu",
+   "rms_db": -23.3,
+   "peak_db": -5.2,
+   "bus": "Efekt",
+   "telafi_db": 4
+  },
+  {
+   "dosya": "assets/ses/rubberduck/wood_squeak_01.ogg",
+   "anahtar": "wood_squeak_01",
+   "rms_db": -26.9,
+   "peak_db": -0.7,
+   "bus": "Efekt",
+   "telafi_db": 0
+  },
+  {
+   "dosya": "assets/ses/rubberduck/door_open_01.ogg",
+   "anahtar": "door_open_01",
+   "rms_db": -24.6,
+   "peak_db": -0.4,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/rubberduck/wood_cracking_01.ogg",
+   "anahtar": "wood_cracking_01",
+   "rms_db": -30.9,
+   "peak_db": -4.4,
+   "bus": "Efekt",
+   "telafi_db": 3
+  },
+  {
+   "dosya": "assets/ses/rubberduck/hammer_01.ogg",
+   "anahtar": "hammer_01",
+   "rms_db": -22.4,
+   "peak_db": -0.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/rubberduck/wood_hammer_01.ogg",
+   "anahtar": "wood_hammer_01",
+   "rms_db": -18.0,
+   "peak_db": 0.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/rubberduck/lock_open_01.ogg",
+   "anahtar": "lock_open_01",
+   "rms_db": -24.5,
+   "peak_db": -0.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/rubberduck/wood_slam_01.ogg",
+   "anahtar": "wood_slam_01",
+   "rms_db": -25.5,
+   "peak_db": -1.5,
+   "bus": "Efekt",
+   "telafi_db": 0
+  },
+  {
+   "dosya": "assets/ses/rubberduck/wood_breaking_01.ogg",
+   "anahtar": "wood_breaking_01",
+   "rms_db": -20.8,
+   "peak_db": 0.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/kenney_rpg/creak1.ogg",
+   "anahtar": "creak1",
+   "rms_db": -25.8,
+   "peak_db": -6.7,
+   "bus": "Efekt",
+   "telafi_db": 6
+  },
+  {
+   "dosya": "assets/ses/kenney_rpg/handleCoins.ogg",
+   "anahtar": "handleCoins",
+   "rms_db": -28.8,
+   "peak_db": 0.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/kenney_rpg/doorClose_1.ogg",
+   "anahtar": "doorClose_1",
+   "rms_db": -17.3,
+   "peak_db": 0.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/kenney_rpg/doorOpen_1.ogg",
+   "anahtar": "doorOpen_1",
+   "rms_db": -20.2,
+   "peak_db": 0.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/kenney_rpg/chop.ogg",
+   "anahtar": "chop",
+   "rms_db": -18.5,
+   "peak_db": 0.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/summer/ates/yanan_odun.ogg",
+   "anahtar": "yanan_odun",
+   "rms_db": -21.1,
+   "peak_db": 0.0,
+   "bus": "Ortam",
+   "telafi_db": -3
+  },
+  {
+   "dosya": "assets/ses/summer/gerilim/karanlik_vurgu.ogg",
+   "anahtar": "karanlik_vurgu",
+   "rms_db": -14.3,
+   "peak_db": -0.8,
+   "bus": "Efekt",
+   "telafi_db": -4
+  },
+  {
+   "dosya": "assets/ses/summer/arayuz/tiklama.ogg",
+   "anahtar": "tiklama",
+   "rms_db": -27.3,
+   "peak_db": 0.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/summer/ortam/gece_cir_ruzgar.ogg",
+   "anahtar": "gece_cir_ruzgar",
+   "rms_db": -17.0,
+   "peak_db": -1.5,
+   "bus": "Ortam",
+   "telafi_db": -7
+  },
+  {
+   "dosya": "assets/ses/summer/adim/tas.ogg",
+   "anahtar": "tas",
+   "rms_db": -21.3,
+   "peak_db": 0.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/summer/adim/tahta.ogg",
+   "anahtar": "tahta",
+   "rms_db": -11.7,
+   "peak_db": -0.6,
+   "bus": "Efekt",
+   "telafi_db": -6
+  },
+  {
+   "dosya": "assets/ses/summer/odun/agac_kesimi.ogg",
+   "anahtar": "agac_kesimi",
+   "rms_db": -20.7,
+   "peak_db": 0.0,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/rpg_sound/coin.wav",
+   "anahtar": "coin",
+   "rms_db": -15.5,
+   "peak_db": -0.1,
+   "bus": "Efekt",
+   "telafi_db": -2
+  },
+  {
+   "dosya": "assets/ses/rpg_sound/sword-unsheathe.wav",
+   "anahtar": "sword-unsheathe",
+   "rms_db": -17.6,
+   "peak_db": -0.1,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/rpg_sound/coin2.wav",
+   "anahtar": "coin2",
+   "rms_db": -19.3,
+   "peak_db": -0.1,
+   "bus": "Efekt",
+   "telafi_db": -1
+  },
+  {
+   "dosya": "assets/ses/rpg_sound/chainmail1.wav",
+   "anahtar": "chainmail1",
+   "rms_db": -22.5,
+   "peak_db": -0.1,
+   "bus": "Efekt",
+   "telafi_db": -1
+  }
+ ]
+}
