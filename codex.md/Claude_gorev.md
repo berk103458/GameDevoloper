@@ -125,3 +125,10 @@ ROADMAP ajanları (Claude, Antigravity, Codex) için kalıcı kural:
 - Çözemezse engeli kendi günlüğüne kısaca yazar, o maddeyi atlar ve sıradaki boş maddeye geçer; döngü devam eder.
 - Hiçbir ajan "engel var" gerekçesiyle durmaz. Artık ENGEL yazıp durmak yok; yalnızca gerçek kullanım limiti dolunca durulur.
 - Hiç çalışılabilir boş madde kalmadıysa çıktıya yalnızca tek satır BOS yazılır; döngü bir süre bekleyip pull yapar ve yeniden dener.
+
+## ONAY BEKLEME YOK (Berk, 16 Kasım 05:35)
+
+Yapay zekâ ajanları (Claude, Antigravity, Codex ve diğerleri) için kalıcı kural:
+- Berk'in ya da Ahmet'in onayını beklemeden işi doğrudan yap, kendi kararınla ilerle.
+- Tek istisna: ROADMAP_2.md'de insan kararı ya da insan işi bekleyen boş maddeler. Bunlarda onay beklenmeye devam edilir: ARY-01 şablon seçimi ve ona bağlı ARY-02, ARY-03, ARY-04, ARY-70; DYL-14 örnek defteri (kayıtları yalnızca insan girer); YAZ-01 onayı.
+- Güvenlik kuralları aynen geçerli: asset üretme, gizli bilgi yazma, force push ya da reset --hard yapma, yalnızca D: sürücüsünü kullan, başkalarının [/] ve [x] satırlarına dokunma.
