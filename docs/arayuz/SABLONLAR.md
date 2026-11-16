@@ -62,5 +62,5 @@ Her şablonun (zemin, vurgu) çifti diğerlerinden ayrıdır: Çini `#0F1C2B`/`#
 Berk ve Ahmet aşağıya şablonun kimliğini ve adlarını yazar. Satır boşken oyun teması değişmez.
 
 - Seçilen şablon: 
-- Berk: 
+- Berk: parsomen (Parşömen)
 - Ahmet: 
