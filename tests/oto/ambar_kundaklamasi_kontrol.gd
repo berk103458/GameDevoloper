@@ -26,9 +26,16 @@ func _ready() -> void:
  var o := ana.oturum
  var y := o.yonetim
  y.akce = 100
+ y.kaynaklar.kapasite = 1000
  for t in ["odun","tas","kereste"]: y.kaynaklar.ekle(t,20)
+ var usta := y.kabul({"ad": "Ambar kurulum bilgisi"})
+ preload("res://src/koy/yapi_bilgisi.gd").ekle(usta, PackedStringArray(["ambar"]))
  var b := kur(y)
- assert(b != null)
+ y.koylular.erase(usta) # Yalnız kurulum; kundaklama nüfusunu değiştirmez.
+ if b == null:
+  push_error("Kundak testi: bilgi/malzeme ile gerçek ambar kurulamadı")
+  await Ses.cik(1)
+  return
  var g := o._adli_gelen(&"chr_001")
  g.chr_sorgusu().obje_incele(2)
  o.karar_ver(g,&"kabul")

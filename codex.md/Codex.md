@@ -1442,3 +1442,9 @@ Asset gerekmedi; kota g?r?nm?yor. ds ?al??ma/ayna ve Ahmet kopyas? belirtilen C:
 ## 16 Kasım 2026 — GRV-60 (Codex-Berk)
 Şifahane fixture yaşayan kişide yapı bilgisi, hazır K1 taş ocağı ve gereken alet stoğuyla kurulur. Null kurulum erken başarısız çıkar; koruma, sürgün, kayıt ve kireçleme gerçek oyun testi geçti.
 Hedefli gerçek oyun ve tema kabulü exit0/script0/ERROR0. Ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Kanıt: D:/Kapi_Muhafizi/work/*16.log. Testler sırayla ve zaman sınırıyla ön planda çalıştı, süreçler kapandı. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası belirtilen yollarda yok; eşitleme yapılamadı.
+
+GRV-60: commit ve normal push doğrulandı: 9df4fc71; kota görünmüyor.
+
+## 16 Kasım 2026 — GRV-63 (Codex-Berk)
+Ambar fixture gerçek yapı bilgisi ve yeterli kapasiteyle kurulur; geçici kurulum kişisi yangın nüfusuna katılmaz. Gerçek ipucu, suyla yangını kurtarma ve çift gece tıklaması testi temiz geçti.
+Hedefli gerçek oyun ve tema kabulü exit0/script0/ERROR0. Ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Kanıt: D:/Kapi_Muhafizi/work/*16.log. Testler sırayla ve zaman sınırıyla ön planda çalıştı, süreçler kapandı. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası belirtilen yollarda yok; eşitleme yapılamadı.

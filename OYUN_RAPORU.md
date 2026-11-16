@@ -3368,3 +3368,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-16 GRV-56 (Codex-Berk): Eski fixture yap? bilgisi ve faz s?zle?mesine uyarland?; assertionlar ge?ti, renderer ERROR1 nedeniyle [/] korunuyor. Asset gerekmedi.
 
 - 2026-11-16 GRV-60 (Codex-Berk): Şifahane fixture yaşayan kişide yapı bilgisi, hazır K1 taş ocağı ve gereken alet stoğuyla kurulur. Null kurulum erken başarısız çıkar; koruma, sürgün, kayıt ve kireçleme gerçek oyun testi geçti. Hedefli testler temiz, bozulma yakalandı. Asset gerekmedi.
+
+- 2026-11-16 GRV-63 (Codex-Berk): Ambar fixture gerçek yapı bilgisi ve yeterli kapasiteyle kurulur; geçici kurulum kişisi yangın nüfusuna katılmaz. Gerçek ipucu, suyla yangını kurtarma ve çift gece tıklaması testi temiz geçti. Hedefli testler temiz, bozulma yakalandı. Asset gerekmedi.
