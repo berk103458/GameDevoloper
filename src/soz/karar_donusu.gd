@@ -245,6 +245,10 @@ static func spawn_ekle(o: Oturum, sonuc: Array[Gelen]) -> void:
 		if HafizaDefteri.GITTI_DURUMLARI.has(durum):
 			satir["spawned"] = true
 			continue
+		# Gecikmeli çağrı da ilk varış/dönüş tarihine uyar. Henüz uygun
+		# olmayan kişiyi tüketme; aynı kayıt sonraki kapı gününde denenir.
+		if aday_id not in o.kadro.uygunlar(o.gun):
+			continue
 		o.kadro.iste(aday_id, o.gun)
 		var gelen: Gelen = o._adli_gelen(aday_id)
 		if gelen != null:

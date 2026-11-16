@@ -1448,3 +1448,9 @@ GRV-60: commit ve normal push doğrulandı: 9df4fc71; kota görünmüyor.
 ## 16 Kasım 2026 — GRV-63 (Codex-Berk)
 Ambar fixture gerçek yapı bilgisi ve yeterli kapasiteyle kurulur; geçici kurulum kişisi yangın nüfusuna katılmaz. Gerçek ipucu, suyla yangını kurtarma ve çift gece tıklaması testi temiz geçti.
 Hedefli gerçek oyun ve tema kabulü exit0/script0/ERROR0. Ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Kanıt: D:/Kapi_Muhafizi/work/*16.log. Testler sırayla ve zaman sınırıyla ön planda çalıştı, süreçler kapandı. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası belirtilen yollarda yok; eşitleme yapılamadı.
+
+GRV-63: commit ve normal push doğrulandı: a6ddb92d; kota görünmüyor.
+
+## 16 Kasım 2026 — GRV-64 (Codex-Berk)
+Gerçek kuyu testi hatası giderildi: gecikmeli spawn ilk varış/dönüş tarihine uyar, uygun olmayan karakter ve makbuz sonraki güne kalır. Aynı kayıt tek kişi üretir. Erken varış/dönüş ve çift çağrı regresyonu geçti; uygunluk koruması kaldırılan mutasyon exit1 verdi.
+Hedefli gerçek oyun ve tema kabulü exit0/script0/ERROR0. Ham renk mutasyonu exit1, kaynak byte bazında geri yüklendi. Kanıt: D:/Kapi_Muhafizi/work/*16.log. Testler sırayla ve zaman sınırıyla ön planda çalıştı, süreçler kapandı. Asset gerekmedi; kota görünmüyor. ds aynası ve Ahmet kopyası belirtilen yollarda yok; eşitleme yapılamadı.

@@ -3370,3 +3370,5 @@ Kontroller ve dil seçenekleri artık mevcut ayar sekmelerinde çalışır. Yeni
 - 2026-11-16 GRV-60 (Codex-Berk): Şifahane fixture yaşayan kişide yapı bilgisi, hazır K1 taş ocağı ve gereken alet stoğuyla kurulur. Null kurulum erken başarısız çıkar; koruma, sürgün, kayıt ve kireçleme gerçek oyun testi geçti. Hedefli testler temiz, bozulma yakalandı. Asset gerekmedi.
 
 - 2026-11-16 GRV-63 (Codex-Berk): Ambar fixture gerçek yapı bilgisi ve yeterli kapasiteyle kurulur; geçici kurulum kişisi yangın nüfusuna katılmaz. Gerçek ipucu, suyla yangını kurtarma ve çift gece tıklaması testi temiz geçti. Hedefli testler temiz, bozulma yakalandı. Asset gerekmedi.
+
+- 2026-11-16 GRV-64 (Codex-Berk): Gerçek kuyu testi hatası giderildi: gecikmeli spawn ilk varış/dönüş tarihine uyar, uygun olmayan karakter ve makbuz sonraki güne kalır. Aynı kayıt tek kişi üretir. Erken varış/dönüş ve çift çağrı regresyonu geçti; uygunluk koruması kaldırılan mutasyon exit1 verdi. Hedefli testler temiz, bozulma yakalandı. Asset gerekmedi.

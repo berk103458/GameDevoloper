@@ -122,6 +122,8 @@ func _ready() -> void:
 		_defter()
 	if grup == "GRV-49":
 		_gorus()
+	if grup == "GRV-64":
+		_spawn()
 	if grup in ["GRV-34", "GRV-48", "GRV-61", "GRV-70", "GRV-94"]:
 		await _ortak_kart(grup)
 	var kaynaklar := _kaynaklar("res://src")
@@ -211,6 +213,33 @@ func _kontrol(durum: bool, mesaj: String) -> void:
 	if not durum:
 		_hata += 1
 		push_error(mesaj)
+
+
+func _spawn() -> void:
+	var katalog := Katalog.new()
+	katalog.yukle()
+	var o := Oturum.new(katalog, 222)
+	var ilk := katalog.karakter(&"chr_008").en_erken_gece
+	o.gun = ilk - 1
+	o.gecikmeli_kuyruk = [{"hedef_sistem": "spawn", "deger": "chr_008", "hedef_gun": o.gun, "spawned": false}]
+	var sira: Array[Gelen] = []
+	KararDonusu.spawn_ekle(o, sira)
+	_kontrol(sira.is_empty() and not o.gecikmeli_kuyruk[0].spawned and not o.kadro.durumlar[&"chr_008"].istendi, "erken çağrı bekler; makbuz ve kadro tüketilmez")
+	o.gun = ilk
+	KararDonusu.spawn_ekle(o, sira)
+	_kontrol(sira.size() == 1 and sira[0].id == &"chr_008" and o.gecikmeli_kuyruk[0].spawned, "ilk uygun günde gerçek kişi sıraya girer")
+	KararDonusu.spawn_ekle(o, sira)
+	_kontrol(sira.size() == 1, "aynı makbuz ikinci kişi üretmez")
+	sira.clear()
+	o.kadro.gece_bitti()
+	o.kadro.durumlar[&"chr_008"].durum = &"donebilir"
+	o.kadro.durumlar[&"chr_008"].donus = ilk + 2
+	o.gecikmeli_kuyruk[0].spawned = false
+	KararDonusu.spawn_ekle(o, sira)
+	_kontrol(sira.is_empty() and not o.gecikmeli_kuyruk[0].spawned, "dönüş süresi de erken çağrıyla atlanmaz")
+	o.gun = ilk + 2
+	KararDonusu.spawn_ekle(o, sira)
+	_kontrol(sira.size() == 1 and o.gecikmeli_kuyruk[0].spawned, "vadesi gelen dönüş aynı kayıttan işler")
 
 
 func _mini(grup: String) -> void:
