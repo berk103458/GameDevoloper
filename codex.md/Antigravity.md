@@ -1586,11 +1586,11 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - **Asset:** asset gerekmedi.
 - kota görünmüyor
 
-### 2026-11-16 — Görev Kontrolü ve Durdurma (Antigravity-Berk)
-- `git pull origin claude/festive-volta-li1sfm` sonrası `codex.md/Antigravity_gorev.md` ve `ROADMAP_2.md` kontrol edildi.
-- Orijinal grup, Codex geçici devri (`KLT-18`, `KLT-57`, `GRV-32..45`) ve 6 devralınan madde (`OGR-43`, `KAP-16`, `KAP-39`, `KAP-45`, `KAP-48`, `ACL-02`) içindeki yapılabilir maddelerin tamamı `[x]` durumundadır (`KLT-13/14/47` ve diğer `[/]` maddeler başka ajanların sahipliğindedir).
-- `ROADMAP_2.md` içinde kalan tek boş `[ ]` maddeler (`ARY-02`, `ARY-03`, `ARY-04`, `ARY-70`, `DYL-14`) insan seçimi veya insan veri girişi kuralıyla engellidir.
+### 2026-11-16 — Görev Kontrolü (Antigravity-Berk)
+- `git pull` / `git fetch origin claude/festive-volta-li1sfm` sonrası `codex.md/Antigravity_gorev.md` ve `ROADMAP_2.md` kontrol edildi.
+- Orijinal grup, Codex geçici devri (`KLT-18`, `KLT-57`, `GRV-32..45`) ve 6 devralınan madde (`OGR-43`, `KAP-16`, `KAP-39`, `KAP-45`, `KAP-48`, `ACL-02`) içindeki yapılabilir maddelerin tamamı `[x]` durumundadır (`YAZ-01`, `ARY-01`, `KLT-13/14/47` ve `GRV-*` maddeleri başka ajanların `[/]` sahipliğindedir).
+- `ROADMAP_2.md` içinde kalan tek 5 boş `[ ]` madde insan kararı/girdisi olmadan çözülemiyor:
+  - `ARY-02` (ve bağımlıları `ARY-03`, `ARY-04`, `ARY-70`): `docs/arayuz/SABLONLAR.md` içindeki `ARY-01` şablon seçimi (Berk + Ahmet) boş ve kural gereği seçim olmadan `tema.gd`/`src/arayuz/tema/` değiştirilemiyor.
+  - `DYL-14`: `YAZ-01` insan onayı bekliyor ve kural gereği kaynaklı örnek kayıtlarını yalnız insan girebilir ("Model bu deftere örnek yazmaz").
+- ENGELDE DURMA YOK kuralı gereği tüm boş maddeler tarandı; çalışılabilir boş madde kalmadığı için `BOS` durumuna geçildi.
 - kota görünmüyor
-
-ENGEL
-ROADMAP_2.md'de kalan tüm boş [ ] maddeler gerçek insan engeline takılı: ARY-02 (ve ona bağlı ARY-03, ARY-04, ARY-70) için `docs/arayuz/SABLONLAR.md` içindeki ARY-01 şablon seçimi (Berk + Ahmet) hâlâ boş ve kural gereği seçim olmadan uygulanamıyor; DYL-14 ise "Kayıtları yalnız insan girer ve kaynağı doğrulanır. Model bu deftere örnek yazmaz" kuralı ve bekleyen YAZ-01 onayı nedeniyle model tarafından yazılamıyor. Kalan diğer açık maddeler başkasının [/] sahipliğindedir.
