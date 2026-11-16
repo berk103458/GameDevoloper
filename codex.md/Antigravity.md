@@ -1594,3 +1594,15 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
   - `DYL-14`: `YAZ-01` insan onayı bekliyor ve kural gereği kaynaklı örnek kayıtlarını yalnız insan girebilir ("Model bu deftere örnek yazmaz").
 - ENGELDE DURMA YOK kuralı gereği tüm boş maddeler tarandı; çalışılabilir boş madde kalmadığı için `BOS` durumuna geçildi.
 - kota görünmüyor
+
+
+---
+
+## Oturum — 17 Kasım 2026 (Kapsamlı Cilalama Planı — `docs/CILALAMA_PLANI.md`)
+- **Yapılan:** Yalnız araştırma + plan kapsamıyla [docs/CILALAMA_PLANI.md](docs/CILALAMA_PLANI.md) hazırlandı (oyun kodu, sahne, asset ve manifest değiştirilmedi).
+- **Kapsam & Bulgular:**
+  - `assets/meshy_manifest.json` (`1144` kayıt; `54` `baglandi`: `51` topluluk + `3` yapı), `69/69` topluluk kodu (`meshy-secim.json`), `31/31` `assets/model/yapi/*.glb`, hayvan/el eşyası modelleri (`184` GLB/GLTF Godot 4.7.2 headless AABB + klip ölçümüyle) denetlendi.
+  - Kök nedenler doğrulandı: `HazirKoyYapilari.KAPALI` (`demirhane` dâhil) MegaKit gölgelemesi, `kisla` / `muhafiz_kislasi` ve `avci` / `avci_cadiri` ad uyuşmazlıkları, `Armature` `0.01` vertex-AABB ölçek hatası (`k04` `26.92x`, `k05` `0.03 mm`, `k13` `0.17 mm`), `ahir` `0.061 m` ince levha ve `styloo/kopek.glb` `"iddle"` klip yazım hatası.
+  - Tur 3 UI araştırması (`12` referans oyun + `XAG 101/102`, `44` hazır + `13` eksik `gece_kapisi` PNG, Ahmet–Berk `ARY-01` Parşömen çelişkisi işaretlendi) ve Tur 4 ses taraması (`73` dosya = `72` ses + `LICENSE.txt`, `-37.5..-15.5 dBFS` 22 dB RMS farkı, `Ambiance` → `Master -> Muzik, Efekt, Ortam` D2 bus geçişi) tamamlandı.
+  - Faz F0–F6 altında `CIL-01`..`CIL-22` uygulama planı, 4 yeni Nano Banana `#00FF00` promptu ve `EKSIK_ASSET_ENVANTERI.md` eklenti satırları eklendi; kendi kendini denetlemede `69` kod, `31` yapı, `22` `CIL-*` ve tüm repo yolları `0` kırık referansla geçti.
+- **Kota:** kota görünmüyor. (Antigravity)
