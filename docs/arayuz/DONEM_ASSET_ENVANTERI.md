@@ -29,7 +29,7 @@ Tablolardaki linkli satır 73'tür. Uygunluk, satırın gerekçe hücresinden sa
 | Katalog veya sınıfsız (tek parça açılmadı) | 4 |
 | Toplam satır | 73 |
 
-İlk küme: ikon 11, sikke ve belge 3, çerçeve 4, yazı tipi 10, yapı paketi ve tek yapı 11, eşya ve silah 7, hayvan 3, karakter ve hareket 11, doğa ve doku 12, VFX satırı 0. Katalog satırları bu kümelerin içindedir.
+Bölüm satırları: ikon 11, sikke ve belge 3, çerçeve 5, yazı tipi 10, yapı 10, eşya ve silah 7, hayvan 3, karakter ve hareket 8, doğa ve doku 13, ücretli ve kısıtlı 3, VFX 0. Katalog satırları yapı ve doğa bölümlerinin içindedir.
 
 KESİN olanlar tahta ve taş dokusu, kurumuş gövde, deve piktogramı, EB Garamond, Amiri, repodaki Alegreya ve Cinzel, Quaternius hareket kütüphanesi ve Mixamo hareket lisansıdır. Köy evi, cami, hamam, tekke, ferace ve çakşır için hazır ve dönemine oturan bir 3B paket bulunamadı.
 
