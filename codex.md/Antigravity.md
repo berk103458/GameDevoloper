@@ -1654,3 +1654,27 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
   - `tests/oto/heybe_kadraji_kontrol.tscn`: `GEÇTİ`, `EXIT=0`.
   - Görsel kanıt (`CIL-25` önce/sonra): `once_gunduz.png` / `once_gece.png` vs `sonra_gunduz.png` / `sonra_gece.png` (`C:\Users\Ahmet\.gemini\antigravity\brain\e6a7a1c2-adbb-4290-b2de-26433fb4b2f3\scratch\`).
 - **Kota:** kota görünmüyor. (Antigravity)
+
+
+---
+
+## Uygulama Tur 3 — 17 Kasım 2026 (`CIL-08`..`CIL-11`, `CIL-23` Tamamlandı)
+- **Plan & Envanter güncellemesi:** [docs/CILALAMA_PLANI.md](docs/CILALAMA_PLANI.md) üzerinde `CIL-08`, `CIL-09`, `CIL-10`, `CIL-11` ve `CIL-23` `✅` olarak işaretlendi; [docs/EKSIK_ASSET_ENVANTERI.md](docs/EKSIK_ASSET_ENVANTERI.md) içine `CIL11-RIG-BEKLEYEN` (`k02`, `b092`, `k14`, `k15`, `b019`) satırı eklendi.
+- **Kod & Veri Değişiklikleri:**
+  - `src/dunya/animasyonlu_varlik.gd` (yeni) + `src/dunya/dunya3b.gd` (`CIL-08`): Tüm `AnimationPlayer` klipleri `LOOP_LINEAR` döngüsüne alındı; `Armature`/`Hips` XZ root-motion kayması kırpıldı; durum bazlı (`dur`/`yuru`/`kos`/`saldir`) klip seçimi ve rastgele başlangıç fazı eklendi; `Dunya3B.nesne()` animasyonlu modelleri otomatik başlatıyor.
+  - `src/koy/gorsel/hazir_esya_hayvan.gd` (`CIL-09`): `hayvan("kopek")` içinde animasyonlu `assets/hayvan/styloo/kopek.glb` statik modelin önüne alındı (`"iddle"` + `walk`/`walksent`/`run`/`attack1` uyumlu); `kangal_kur()` (`td_b019`) seçeneği eklendi.
+  - `src/koy/gorsel/coban_surusu.gd`, `src/koy/gorsel/canli_hayvan_surusu.gd`, `src/koy/gorsel/celep_hayvan_gorseli.gd`, `src/koy/gorsel/bina_avlu_esyalari.gd`, `data/varlik_olculeri.json` (`CIL-10`, `CIL-11`):
+    - Ahmet kararıyla `a146_tavuk_gercekci.glb` (`0.40 m`) kulübe/ağıl avlularında tekilleştirildi (`td_k04` devre dışı).
+    - `CobanSurusu` birincil `td_k13` (`0.78 m` animasyonlu `k13_koyun.glb`) + keçi çeşitliliği `td_a163` (`0.78 m`) ve `CanliHayvanSurusu._koc()` doğrudan `koc.glb` (`0.79 m`) ile bağlandı; `CelepHayvanGorseli` (`at`/`k05`, `okuz`/`a172`, `esek`/`a157`, `koyun`/`k13`, `keci`/`a163`, `tavuk`/`a146`) entegre edildi.
+    - B1 30-köylü sınırı ve Berk `SVS-*` kodu bozulmadan `muhafiz_kislasi` avlusuna `td_k09` (animasyonlu nöbet) + `td_k02` (Ahmet kararı: sakin kışla nöbeti), `han` avlusuna `td_k12` (animasyonlu tüccar) ve `td_k05` at bağlandı.
+    - `ElEsyasi.olustur()` tüm 20 el eşyası için `data/varlik_olculeri.json -> el_esyalari` tablosunu okuyup dinamik üst/merkez hizalama uyguluyor (`<= 0.15 m`).
+  - `src/dunya/karakter_model.gd` + `data/bekleme_cesitliligi.json` (`CIL-23`): `_sakin_bekle_yatistir()` ile `m_bekle` kliplerindeki `Hips` kök yer değiştirmesi (`2.5–7.5 cm/s`) kilitlenip salınım `%92` sönümlendirildi (`max_kok = 0.0054 m <= 0.02 m`); `bekleme_cesitliligi.json` (`nefes=1.2° / 4.0s`, `agirlik=0.6° / 7.5s`, `bakis=9.0° / >= 17s`) ile birleştirildi.
+    - **İskelet Tablosu (40 karakter):** `24 kemik` Meshy standart (`Hips` köklü): `chr_001`..`chr_005`, `chr_007`..`chr_030` + `ciftci`, `asker`, `esnaf`, `yasli`, `cocuk`, `dervis`, `haberci`, `aydogdu`, `karaca_usta`, `hasan_celebi` (tümü sönümlü `m_bekle`). `27 kemik` (`Hips` + saç/aksesuar ek kemikleri): `chr_006` (yerleşik sakin `bekle` klibi).
+- **Doğrulamalar:**
+  - `tests/unit/dunya/animasyonlu_varlik_test.gd` (`CIL-08`): `GEÇTİ (6 tür)`, `EXIT=0`.
+  - `tests/unit/koy/kopek_animasyon_test.gd` (`CIL-09`): `GEÇTİ`, `EXIT=0`.
+  - `tests/unit/koy/hayvan_surusu_cilalama_test.gd` (`CIL-10`): `GEÇTİ`, `EXIT=0`.
+  - `tests/unit/dunya/el_esyasi_ve_aktor_test.gd` (`CIL-11`): `GEÇTİ (20 eşya + 3 aktör)`, `EXIT=0`.
+  - `tests/oto/sakin_bosta_kontrol.gd` (`CIL-23`): `GEÇTİ (40 karakter, max_kok=0.0054m)`, `EXIT=0`.
+  - Regresyonlar: `hazir_esya_hayvan_kontrol.tscn` (`EXIT=0`), `coban_surusu_test.gd` (`EXIT=0`), `sahne_ayak_esya_test.gd` (`EXIT=0`), `bekleme_cesitliligi_kontrol.tscn` (`EXIT=0`), `avlu_esya_yerlesim_test.gd` (`EXIT=0`).
+- **Kota:** kota görünmüyor. (Antigravity)

@@ -282,7 +282,21 @@ static func sigdir(ad: String, yukseklik: float = 0.0, tur: String = "", en_azam
 		var mat: Material = malzeme if malzeme != null else duz_malzeme(nesne_rengi)
 		for mi in n.find_children("*", "MeshInstance3D", true, false):
 			(mi as MeshInstance3D).material_override = mat
+	if not n.find_children("*", "AnimationPlayer", true, false).is_empty():
+		AnimasyonluVarlik.kur(kap, &"dur", true)
 	return kap
+
+
+## CIL-11: El eşyası tutuş ayarlarını data/varlik_olculeri.json'dan okur.
+static var _el_esya_olculeri: Dictionary = {}
+
+
+static func el_esya_ayari(tur: String) -> Dictionary:
+	if _el_esya_olculeri.is_empty():
+		var veri: Variant = JSON.parse_string(FileAccess.get_file_as_string(VARLIK_OLCULERI))
+		_el_esya_olculeri = veri.get("el_esyalari", {}) if veri is Dictionary else {"_": {}}
+	var k: Variant = _el_esya_olculeri.get(tur, {})
+	return k if k is Dictionary else {}
 
 
 ## İsteğe bağlı bir model diskte var mı (yoksa çağıran onu atlar; kutu yer tutucu istemez).

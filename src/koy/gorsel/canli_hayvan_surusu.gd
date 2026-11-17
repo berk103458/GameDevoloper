@@ -31,7 +31,7 @@ static func yenile(s: CobanSurusu) -> void:
    n.queue_free()
    mevcut -= 1
   while mevcut < hedef:
-   var n := _koc() if satin else CobanSurusu.koyun()
+   var n := _koc() if satin else CobanSurusu.koyun("keci" if (mevcut % 4 == 3 and Dunya3B.model_var_mi("td_a163")) else "koyun")
    s.add_child(n)
    var b := y.bina(s.bina_id)
    n.global_position = s.koyunlar[0].global_position if not s.koyunlar.is_empty() else s.halk.sahne.alan_merkezi(b.hucre, b.boyut(y.katalog))
@@ -40,6 +40,14 @@ static func yenile(s: CobanSurusu) -> void:
    s.koyunlar.append(n)
    mevcut += 1
 static func _koc() -> Node3D:
+ if Dunya3B.model_var_mi("koc", "hayvan"):
+  var n := Dunya3B.nesne("koc", 0.79, "hayvan")
+  n.name = "satinalinan_koc"
+  n.set_meta("satinalinan_koc", true)
+  var bas := Node3D.new()
+  bas.name = "bas"
+  n.add_child(bas)
+  return n
  var n := Node3D.new()
  n.name = "satinalinan_koc"
  n.set_meta("satinalinan_koc", true)

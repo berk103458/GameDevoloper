@@ -437,7 +437,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
 
 ### Faz F2 — Animasyonlu Modeller, Hayvanlar ve Karakter Bağlantısı
 
-- **`CIL-08` — İskeletli Animasyon Motoru (`k04_tavuk`, `k05_at`, `k13_koyun`, `k09_okcu_pers`, `k12_ortacag_tuccari`)**
+- **`CIL-08` ✅ — İskeletli Animasyon Motoru (`a146_tavuk_gercekci`, `k05_at`, `k13_koyun`, `k09_okcu_pers`, `k12_ortacag_tuccari`)**
   - **Faz:** F2 · **Boyut:** `L` · **Önerilen Sahip:** Ahmet tarafı (`Cursor` / `Antigravity`)
   - **Sorun:** Animasyonlu 5 Meshy GLB'sinin hiçbiri sahnede `AnimationPlayer.play()` çalıştırmıyor; `k05_at` ve `k13_koyun` `"Armature|Unreal Take|baselayer"` tek klibi kullanıyor ve kök ölçeği bozuk.
   - **Yapılacak iş:** Ortak `src/dunya/animasyonlu_varlik.gd` yardımcı sınıfını yaz:
@@ -449,7 +449,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
   - **Kabul ölçütü:** 5 animasyonlu GLB'nin her biri örneklendiğinde `AnimationPlayer.is_playing() == true` ve `AABB` boyu gerçek dünya ölçüsündedir.
   - **Hedefli headless test:** `tests/unit/dunya/animasyonlu_varlik_test.gd`.
 
-- **`CIL-09` — Köpek Modellerinin ve `"iddle"` Klip Hatasının Düzeltilmesi (`HazirEsyaHayvan.kopek_kur`)**
+- **`CIL-09` ✅ — Köpek Modellerinin ve `"iddle"` Klip Hatasının Düzeltilmesi (`HazirEsyaHayvan.kopek_kur`)**
   - **Faz:** F2 · **Boyut:** `S` · **Önerilen Sahip:** Ahmet tarafı (`Cursor`)
   - **Sorun:** `HazirEsyaHayvan.hayvan("kopek")` (`src/koy/gorsel/hazir_esya_hayvan.gd:32-42`) statik `model/hayvan/kopek.glb`'yi animasyonlu `styloo/kopek.glb`'nin önüne koyar; `kopek_kur()` (`satir 129`) `"idle"` arar ama klipteki ad `"iddle"`dır. Ayrıca `b019_kangal` çoban köpeği boşta durmaktadır.
   - **Yapılacak iş:** Hareketli devriye/çoban köpeği için `assets/hayvan/styloo/kopek.glb` zorunlu önceliklendir; klip eşlemesini `["idle", "iddle"]`, `["walk", "walksent"]`, `["run"]`, `["attack1"]` olarak düzelt; `b019_kangal_anadolu_coban_kopegi.glb`'yi `agil`/`kapi` önü sabit bekçi seçeneği olarak normalleştir (veya `B019` için rig sırasına al).
@@ -458,7 +458,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
   - **Kabul ölçütü:** `kopek_kur()` sonrası `AnimationPlayer` mevcut animasyonu oynatır, idle seçimi `iddle` ile eşleşir (`0` klip kaçırma).
   - **Hedefli headless test:** `tests/unit/koy/kopek_animasyon_test.gd`.
 
-- **`CIL-10` — Hayvan Sürülerinin Canlı Animasyon ve Ölçekle Köye Bağlanması**
+- **`CIL-10` ✅ — Hayvan Sürülerinin Canlı Animasyon ve Ölçekle Köye Bağlanması**
   - **Faz:** F2 · **Boyut:** `M` · **Önerilen Sahip:** Ahmet tarafı (`Cursor`)
   - **Sorun:** `k04_tavuk` devasa ve donuk; `k13_koyun` ve `a163_keci` bağsız; `a157_esek` ve `a172_okuz` dış çemberde sabit duruyor; `model/hayvan/` canlı hayvanları düşük boylu.
   - **Yapılacak iş:**
@@ -470,7 +470,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
   - **Kabul ölçütü:** Köy açılışında en az tavuk, koyun ve köpek sürüleri yürüme hızına göre animasyon değiştirir; tavuk boyu insan bacağının diz altındadır (`~0.40 m`).
   - **Hedefli headless test:** `tests/unit/koy/hayvan_surusu_cilalama_test.gd`.
 
-- **`CIL-11` — Bağsız İnsan Figürleri (`k09`, `k12`, `k02`, `b092`, `k14`, `k15`) ve `ElEsyasi` Kalibrasyonu**
+- **`CIL-11` ✅ — Bağsız İnsan Figürleri (`k09`, `k12`, `k02`, `b092`, `k14`, `k15`) ve `ElEsyasi` Kalibrasyonu**
   - **Faz:** F2 · **Boyut:** `M` · **Önerilen Sahip:** Ahmet tarafı (`Cursor`) + Savaş okçu için **Berk/Usta `[EMIR]`**
   - **Sorun:** `k09_okcu_pers` (`6` klipli!) ve `k12_ortacag_tuccari` (`2` klipli!) animasyonlu olmalarına rağmen oyunda hiç yer almıyor; `k02`, `b092`, `k14`, `k15` rig bekliyor; `ElEsyasi` (`el_esyasi.gd:55-85`) elle girilmiş offset yüzünden `a012_mizrak` ve `a211_orak` avuçtan kayabiliyor.
   - **Yapılacak iş:**
@@ -616,7 +616,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
 
 ### Ek Tespitler (`CIL-23`..`CIL-25` — Ahmet'in Oynanış Gözlemleri)
 
-- **`CIL-23` — Köylülerin Sakin Boşta Duruş (`idle`) Animasyonu**
+- **`CIL-23` ✅ — Köylülerin Sakin Boşta Duruş (`idle`) Animasyonu**
   - **Faz:** F2 · **Boyut:** `M` · **Önerilen Sahip:** Ahmet tarafı (`Antigravity`)
   - **Sorun:** Köylüler ve insan karakterler boşta dururken fazla sallanıp hareket ediyor.
   - **Yapılacak iş:** `assets/model/hareket/` (383 dosya), `assets/animasyon/`, `assets/meshy/animasyonlu/` içindeki klipleri tara; yoksa Mixamo veya kodla kök/gövde salınımı bastırılmış, hafif nefes alma ve yavaş (`>= 3 s` periyot, `<= ±25°`) baş bakışlı sakin bir `sakin_bekle` klibi/retarget katmanı üret ve 30 karakter ile varyantlarında varsayılan boşta klip yap; hangi karakterin hangi iskeleti kullandığını tabloya yaz.

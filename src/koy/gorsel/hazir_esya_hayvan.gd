@@ -40,7 +40,7 @@ static func hayvan(tur: String) -> Node3D:
 			yol = "res://assets/model/hayvan/inek.glb" if Dunya3B.model_var_mi("inek", "hayvan") else "res://assets/hayvan/vertexcat/inek.gltf"
 			boy = Vector3(2.2, 1.45, 2.2)
 		"kopek":
-			yol = "res://assets/model/hayvan/kopek.glb" if Dunya3B.model_var_mi("kopek", "hayvan") else "res://assets/hayvan/styloo/kopek.glb"
+			yol = "res://assets/hayvan/styloo/kopek.glb" if ResourceLoader.exists("res://assets/hayvan/styloo/kopek.glb") else "res://assets/model/hayvan/kopek.glb"
 			boy = Vector3(1.6, 0.8, 1.6)
 		"koc":
 			if not Dunya3B.model_var_mi("koc", "hayvan"):
@@ -124,9 +124,15 @@ static func kopek_kur(kok: Node3D, yer: Vector3) -> void:
 		return
 	n.position = yer
 	kok.add_child(n)
-	for p in n.find_children("*", "AnimationPlayer", true, false):
-		for ad in p.get_animation_list():
-			if "idle" in String(ad).to_lower():
-				p.get_animation(ad).loop_mode = Animation.LOOP_LINEAR
-				p.play(ad)
-				return
+	AnimasyonluVarlik.kur(n, &"dur", true)
+
+
+## CIL-09: Ağıl / kapı önü sabit Kangal bekçi seçeneği (`B019`, rigsız normalize edilmiş).
+static func kangal_kur(kok: Node3D, yer: Vector3) -> Node3D:
+	if not Dunya3B.model_var_mi("td_b019"):
+		return null
+	var k := Dunya3B.nesne("td_b019", 0.82)
+	k.name = "kangal_bekci"
+	k.position = yer
+	kok.add_child(k)
+	return k

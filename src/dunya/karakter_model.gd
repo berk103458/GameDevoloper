@@ -269,9 +269,30 @@ func _klipleri_yukle(ad: String) -> void:
 			if anim == null or not _izler_cozulur(anim, kok):
 				continue
 			anim = anim.duplicate()
+			if h == "bekle":
+				_sakin_bekle_yatistir(anim)
 			anim.loop_mode = Animation.LOOP_LINEAR if h in DONGULU else Animation.LOOP_NONE
 			kitap.add_animation(adi, anim)
 		_klipler[h] = adi
+
+
+## CIL-23: Boşta kalça/kök salınımını bastırır (`<= 2 cm / sn`), canlı nefes ve yavaş bakışı DurusDuzeltici'ya bırakır.
+static func _sakin_bekle_yatistir(anim: Animation) -> void:
+	for i in anim.get_track_count():
+		var tur := anim.track_get_type(i)
+		var sub := String(anim.track_get_path(i).get_concatenated_subnames())
+		var k_say := anim.track_get_key_count(i)
+		if k_say <= 1:
+			continue
+		if tur == Animation.TYPE_POSITION_3D and sub in ["Hips", "Pelvis", "Root"]:
+			var p0: Vector3 = anim.track_get_key_value(i, 0)
+			for k in k_say:
+				anim.track_set_key_value(i, k, p0)
+		elif tur == Animation.TYPE_ROTATION_3D and sub in ["Hips", "Spine", "Spine01", "Spine02", "neck", "Head", "LeftUpLeg", "RightUpLeg"]:
+			var r0: Quaternion = anim.track_get_key_value(i, 0)
+			for k in k_say:
+				var rk: Quaternion = anim.track_get_key_value(i, k)
+				anim.track_set_key_value(i, k, rk.slerp(r0, 0.92))
 
 
 static func _klip_al(yol: String) -> Animation:

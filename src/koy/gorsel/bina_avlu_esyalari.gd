@@ -66,6 +66,8 @@ const ESYA_HARITASI := {
 		{"ad": "td_o05", "boy": 0.85, "ofset": Vector3(0.36, 0.0, 0.38), "don": 0.0, "isik": true},
 		{"ad": "td_o20", "boy": 0.48, "ofset": Vector3(0.0, 0.0, 0.40), "don": 0.0},
 		{"ad": "td_o19", "boy": 0.35, "ofset": Vector3(0.26, 2.05, 0.38), "don": 0.0, "isik": true},
+		{"ad": "td_k09", "boy": 1.72, "ofset": Vector3(-0.40, 0.0, 0.40), "don": 0.0},
+		{"ad": "td_k02", "boy": 1.75, "ofset": Vector3(0.40, 0.0, 0.40), "don": 0.0},
 	],
 	"tas_ev": [
 		{"ad": "td_o20", "boy": 0.48, "ofset": Vector3(-0.36, 0.0, 0.38), "don": 0.0},
@@ -75,20 +77,27 @@ const ESYA_HARITASI := {
 	"kulube": [
 		{"ad": "td_o48", "boy": 0.42, "ofset": Vector3(-0.36, 0.0, 0.38), "don": 20.0},
 		{"ad": "td_o14", "boy": 0.34, "ofset": Vector3(0.36, 0.0, 0.38), "don": 0.0},
+		{"ad": "td_a146", "boy": 0.40, "ofset": Vector3(0.0, 0.0, 0.42), "don": -25.0},
 	],
 	"ahir": [
 		{"ad": "td_o30", "boy": 0.45, "ofset": Vector3(0.0, 0.0, 0.40), "don": 0.0},
 		{"ad": "td_a202", "boy": 1.15, "ofset": Vector3(-0.36, 0.0, -0.35), "don": 20.0},
+		{"ad": "td_a172", "boy": 1.45, "ofset": Vector3(-0.38, 0.0, 0.38), "don": 20.0},
+		{"ad": "td_a157", "boy": 1.20, "ofset": Vector3(0.38, 0.0, 0.38), "don": -25.0},
 	],
 	"agil": [
 		{"ad": "td_o30", "boy": 0.45, "ofset": Vector3(0.36, 0.0, 0.40), "don": 0.0},
 		{"ad": "td_b117", "boy": 1.50, "ofset": Vector3(-0.38, 0.0, 0.38), "don": 0.0},
+		{"ad": "td_b019", "boy": 0.82, "ofset": Vector3(0.38, 0.0, -0.38), "don": 180.0},
+		{"ad": "td_a146", "boy": 0.40, "ofset": Vector3(-0.38, 0.0, -0.38), "don": 40.0},
 	],
 	"han": [
 		{"ad": "td_a073", "boy": 2.10, "ofset": Vector3(-0.36, 0.0, 0.36), "don": 12.0},
 		{"ad": "td_a077", "boy": 2.00, "ofset": Vector3(0.36, 0.0, 0.36), "don": -12.0},
 		{"ad": "td_o65", "boy": 1.95, "ofset": Vector3(-0.36, 0.0, -0.34), "don": 25.0},
 		{"ad": "td_o19", "boy": 0.35, "ofset": Vector3(0.0, 2.05, 0.38), "don": 0.0, "isik": true},
+		{"ad": "td_k12", "boy": 1.70, "ofset": Vector3(0.0, 0.0, 0.42), "don": 0.0},
+		{"ad": "td_k05", "boy": 1.60, "ofset": Vector3(0.40, 0.0, -0.36), "don": -90.0},
 	],
 }
 

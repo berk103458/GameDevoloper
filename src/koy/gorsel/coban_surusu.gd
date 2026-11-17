@@ -126,6 +126,8 @@ func _process(delta: float) -> void:
   if fark.length() > 0.01:
    n.rotation.y = atan2(-fark.x, -fark.z)
    n.global_position = n.global_position.move_toward(hedef_p, float(AYAR.yurume_hizi) * delta)
+  if n.has_meta(&"animasyonlu_varlik"):
+   AnimasyonluVarlik.durum_ayarla(n, &"yuru" if gidiyor else &"dur", float(AYAR.yurume_hizi) if gidiyor else 0.0)
   var bas := n.get_node("bas") as Node3D
   bas.rotation.x = 0.0 if gidiyor else -0.35 + sin(_zaman * 1.4 + i) * 0.1
   if gidiyor or (coban_id >= 0 and halk.faz_adi != &"gunduz" and yollar[i].is_empty()): tamam = false
@@ -137,14 +139,23 @@ func _kapi(acik: bool) -> void:
   if int(n.get_meta("bina_id", -1)) == bina_id and not n.is_queued_for_deletion():
    var kapi := n.get_node_or_null("agil_kapisi") as Node3D
    if kapi != null: kapi.rotation.y = PI / 2 if acik else 0.0
-## Prosedürel düşük poligon koyun: dış ölçü/renk ayarları, ek ücretli varlık yoktur.
-static func koyun() -> Node3D:
- var hazir := HazirEsyaHayvan.hayvan("koyun")
+## CIL-10: Animasyonlu k13_koyun / a163_keci (0.78 m) birincil; vertexcat statik/prosedürel koyun yedektir.
+static func koyun(tur: String = "koyun") -> Node3D:
+ var hazir: Node3D = null
+ if tur == "keci" and Dunya3B.model_var_mi("td_a163"):
+  hazir = Dunya3B.nesne("td_a163", 0.78)
+ elif Dunya3B.model_var_mi("td_k13"):
+  hazir = Dunya3B.nesne("td_k13", 0.78)
+ if hazir == null:
+  hazir = HazirEsyaHayvan.hayvan("koyun")
  if hazir != null:
-  # Vertexcat statik: mevcut rota sürer; baş eğimi için ayrı rig yoktur.
-  var bas_soketi := Node3D.new()
-  bas_soketi.name = "bas"
-  hazir.add_child(bas_soketi)
+  if not hazir.has_meta("asset_yolu"):
+   hazir.set_meta("asset_yolu", String(hazir.get_meta(&"topluluk_dosya", "res://assets/meshy/animasyonlu/k13_koyun.glb")))
+  var bas_soketi := hazir.get_node_or_null("bas") as Node3D
+  if bas_soketi == null:
+   bas_soketi = Node3D.new()
+   bas_soketi.name = "bas"
+   hazir.add_child(bas_soketi)
   hazir.set_meta("statik_hayvan", true)
   return hazir
  var n := Node3D.new()

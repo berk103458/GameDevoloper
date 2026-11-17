@@ -52,35 +52,20 @@ static func olustur(tur: String) -> ElEsyasi:
 	var e := ElEsyasi.new()
 	e.name = "esya_" + tur
 	e._tur = tur
-	var el_map := {
-		"torba": ["el_torba", 0.36, -0.36, false, false],
-		"heybe": ["el_heybe", 0.34, -0.34, false, false],
-		"sepet": ["el_sepet", 0.36, -0.36, false, false],
-		"sepet_buyuk": ["el_sepet_buyuk", 0.48, -0.48, false, false],
-		"asa": ["el_asa", 1.45, -0.72, true, true],
-		"degnek": ["el_degnek", 1.50, -0.74, true, true],
-		"odun": ["el_odun", 0.35, -0.35, false, false],
-		"sandik": ["el_sandik", 0.25, -0.25, false, false],
-		"cekic": ["el_cekic", 0.32, -0.28, true, false],
-		"kamci": ["el_kamci", 0.55, -0.50, false, false],
-		"kurk": ["el_kurk_bohca", 0.32, -0.32, false, false],
-		"kova": ["kova", 0.32, -0.32, false, false],
-		"balta": ["balta", 0.55, -0.25, true, false],
-		"orak": ["orak", 0.38, -0.20, true, false],
-		"kurek": ["kurek", 1.15, -0.55, true, false],
-		"firin_kuregi": ["firin_kuregi", 1.15, -0.55, true, false],
-		"su_kabi": ["su_kabi", 0.35, -0.35, false, false],
-		"kirmen": ["kirmen", 0.30, -0.20, true, false],
-		"bakim_bezi": ["bakim_bezi", 0.25, -0.15, false, false],
-		"kilic_bez": ["bakim_bezi", 0.25, -0.15, false, false],
-	}
-	if el_map.has(tur):
-		var m_bilgi: Array = el_map[tur]
-		if Dunya3B.model_var_mi(String(m_bilgi[0])):
-			var glb := Dunya3B.nesne(String(m_bilgi[0]), float(m_bilgi[1]))
-			glb.position.y = float(m_bilgi[2])
-			e.dik = bool(m_bilgi[3])
-			e._sapta_kayabilir = bool(m_bilgi[4])
+	var m_bilgi := Dunya3B.el_esya_ayari(tur)
+	if not m_bilgi.is_empty():
+		var model_ad := String(m_bilgi.get("model", ""))
+		if Dunya3B.model_var_mi(model_ad):
+			var glb := Dunya3B.nesne(model_ad, float(m_bilgi.get("boy", 0.35)))
+			var hiza := String(m_bilgi.get("hiza", "sabit"))
+			var ofset_y := float(m_bilgi.get("ofset_y", 0.0))
+			if hiza == "ust":
+				var kutu_boy := Dunya3B.boyut(glb)
+				glb.position.y = -kutu_boy.y + ofset_y
+			else:
+				glb.position.y = ofset_y
+			e.dik = bool(m_bilgi.get("dik", false))
+			e._sapta_kayabilir = bool(m_bilgi.get("sapta_kayabilir", false))
 			e.add_child(glb)
 			return e
 	if tur in ["cekic", "kazma", "odun"]:
