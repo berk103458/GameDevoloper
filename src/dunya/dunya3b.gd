@@ -54,9 +54,25 @@ const TOPLULUK_YER := {
 	"td_a228": "res://assets/meshy/dogrudan/a228_sacayak_ustunde_kazan.glb",
 	"td_o05": "res://assets/meshy/dogrudan/o05_demir_mangal_nobet_ocagi.glb",
 	"td_a177": "res://assets/meshy/dogrudan/a177_kubbeli_toprak_firin.glb",
-	"td_k04": "res://assets/meshy/animasyonlu/k04_tavuk.glb",
 	"td_a146": "res://assets/meshy/animasyon_bekliyor/a146_tavuk_gercekci.glb",
 	"td_o49": "res://assets/meshy/dogrudan/o49_kervan_konak_yeri_ortu_yuk.glb",
+	"degirmen_o76": "res://assets/meshy/dogrudan/o76_su_degirmeni.glb",
+	"td_a040": "res://assets/meshy/dogrudan/a040_kutuk_ustunde_ors.glb",
+	"td_a073": "res://assets/meshy/dogrudan/a073_sazdan_catili_pazar_tezgahi_cuvalli.glb",
+	"td_a077": "res://assets/meshy/dogrudan/a077_ortulu_pazar_tezgahi.glb",
+	"td_a163": "res://assets/meshy/animasyon_bekliyor/a163_keci.glb",
+	"td_b019": "res://assets/meshy/animasyon_bekliyor/b019_kangal_anadolu_coban_kopegi.glb",
+	"td_k02": "res://assets/meshy/animasyon_bekliyor/k02_kipcak_kuman_savascisi.glb",
+	"td_k05": "res://assets/meshy/animasyonlu/k05_at.glb",
+	"td_k09": "res://assets/meshy/animasyonlu/k09_okcu_pers.glb",
+	"td_k12": "res://assets/meshy/animasyonlu/k12_ortacag_tuccari.glb",
+	"td_k13": "res://assets/meshy/animasyonlu/k13_koyun.glb",
+	"td_o25": "res://assets/meshy/dogrudan/o25_ahsap_palisat_kapisi.glb",
+	"td_o65": "res://assets/meshy/dogrudan/o65_renkli_carsi_tezgahi.glb",
+	"td_o81": "res://assets/meshy/dogrudan/o81_yurume_yollu_ahsap_palisat.glb",
+	"td_o90": "res://assets/meshy/dogrudan/o90_tas_sur_duvari.glb",
+	"td_o92": "res://assets/meshy/dogrudan/o92_tas_cerceveli_demir_parmaklikli_kapi.glb",
+	"styloo_kopek": "res://assets/hayvan/styloo/kopek.glb",
 }
 const MESALE_ALEV_DIS := Color("#E0782A")
 const MESALE_ALEV_IC := Color("#FFD27A")
@@ -99,7 +115,9 @@ const SINIF_MODEL := {&"asker": "asker", &"esnaf": "esnaf", &"ciftci": "ciftci"}
 
 static var _onbellek: Dictionary = {}
 const EL_ESYALARI := "res://data/el_esyalari.json"
+const VARLIK_OLCULERI := "res://data/varlik_olculeri.json"
 static var _el_esyalari: Dictionary = {}
+static var _varlik_olculeri: Dictionary = {}
 
 
 ## Gece ortamı: koyu gök, soğuk mavi ortam ışığı, sis, ay ışığı.
@@ -184,9 +202,32 @@ static func mesale_kur(kok: Node3D, konum: Vector3, guc: float = 2.6, menzil: fl
 	return isik
 
 
-## Statik model: tabanı y=0'a oturtulmuş, verilen yüksekliğe ölçeklenmiş. Model yoksa düz kutu.
+static func _olculeri_oku() -> Dictionary:
+	if _varlik_olculeri.is_empty():
+		var veri: Variant = JSON.parse_string(FileAccess.get_file_as_string(VARLIK_OLCULERI))
+		_varlik_olculeri = veri.get("varliklar", {}) if veri is Dictionary else {"_": {}}
+	return _varlik_olculeri
+
+
+static func olcu_kaydi(ad: String) -> Dictionary:
+	var tablo := _olculeri_oku()
+	if tablo.has(ad) and tablo[ad] is Dictionary:
+		return tablo[ad]
+	return {}
+
+
+static func devre_disi_mi(ad: String) -> bool:
+	return bool(olcu_kaydi(ad).get("devre_disi", false))
+
+
+## Statik/animasyonlu model: tabanı y=0'a oturtulmuş, hedef boy ve azami X/Z ayak izine ölçeklenmiş.
 static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "", renk: Variant = null, malzeme: Material = null) -> Node3D:
-	var yol := _yol(ad, tur)
+	return sigdir(ad, yukseklik, tur, 0.0, 0.0, renk, malzeme)
+
+
+## Modeli hem hedef yüksekliğe hem azami (en, derin) parsel zarfına oranlı sığdırır.
+static func sigdir(ad: String, yukseklik: float = 0.0, tur: String = "", en_azami: float = 0.0, derin_azami: float = 0.0, renk: Variant = null, malzeme: Material = null) -> Node3D:
+	var yol := "" if devre_disi_mi(ad) else _yol(ad, tur)
 	var nesne_rengi: Color = renk if renk is Color else NESNE_RENK.get(ad, Renkler.AHSAP)
 	var kap := Node3D.new()
 	kap.name = ad
@@ -200,13 +241,40 @@ static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "", renk: Va
 		kap.add_child(m)
 		return kap
 	var n: Node3D = (_sahne(yol)).instantiate()
-	kap.add_child(n)
-	var kutu := _kutu(n)
+	var olcu := olcu_kaydi(ad)
+	var ic_pivot := Node3D.new()
+	ic_pivot.name = "ModelKok"
+	var ic_donus: Array = olcu.get("ic_donus_derece", [])
+	if ic_donus.size() >= 3:
+		n.rotation_degrees = Vector3(float(ic_donus[0]), float(ic_donus[1]), float(ic_donus[2]))
+	var yon_d := float(olcu.get("yon_derece", 0.0))
+	if not is_zero_approx(yon_d):
+		n.rotation_degrees.y += yon_d
+	ic_pivot.add_child(n)
+	kap.add_child(ic_pivot)
+	for mi in n.find_children("*", "MeshInstance3D", true, false):
+		var mesh_inst := mi as MeshInstance3D
+		if mesh_inst.skin != null:
+			mesh_inst.extra_cull_margin = maxf(mesh_inst.extra_cull_margin, 2.0)
+	var kutu := _kutu(ic_pivot)
 	var olcek := 1.0
-	if yukseklik > 0.0 and kutu.size.y > 0.001:
-		olcek = yukseklik / kutu.size.y
-	n.scale = Vector3.ONE * olcek
-	n.position = Vector3(-(kutu.position.x + kutu.size.x / 2.0) * olcek, -kutu.position.y * olcek, -(kutu.position.z + kutu.size.z / 2.0) * olcek)
+	var hedef_y := yukseklik if yukseklik > 0.0 else float(olcu.get("hedef_boy_m", 0.0))
+	if hedef_y > 0.0 and kutu.size.y > 0.00001:
+		olcek = hedef_y / kutu.size.y
+	var kat_ayak: Array = olcu.get("azami_ayak_m", [])
+	var max_x := en_azami if en_azami > 0.0 else (float(kat_ayak[0]) if kat_ayak.size() >= 2 else 0.0)
+	var max_z := derin_azami if derin_azami > 0.0 else (float(kat_ayak[1]) if kat_ayak.size() >= 2 else 0.0)
+	if max_x > 0.0 and kutu.size.x > 0.00001:
+		olcek = minf(olcek, max_x / kutu.size.x)
+	if max_z > 0.0 and kutu.size.z > 0.00001:
+		olcek = minf(olcek, max_z / kutu.size.z)
+	var taban_y := float(olcu.get("taban_y", 0.0))
+	ic_pivot.scale = Vector3.ONE * olcek
+	ic_pivot.position = Vector3(
+		-(kutu.position.x + kutu.size.x / 2.0) * olcek,
+		-kutu.position.y * olcek + taban_y,
+		-(kutu.position.z + kutu.size.z / 2.0) * olcek
+	)
 	var topluluk := yol.begins_with("res://assets/meshy/")
 	if topluluk:
 		kap.set_meta(&"topluluk_dosya", yol)
@@ -219,6 +287,8 @@ static func nesne(ad: String, yukseklik: float = 0.0, tur: String = "", renk: Va
 
 ## İsteğe bağlı bir model diskte var mı (yoksa çağıran onu atlar; kutu yer tutucu istemez).
 static func model_var_mi(ad: String, tur: String = "") -> bool:
+	if devre_disi_mi(ad):
+		return false
 	return _yol(ad, tur) != ""
 
 
@@ -261,18 +331,69 @@ static func _sahne(yol: String) -> PackedScene:
 	return _onbellek[yol]
 
 
+static func _goreceli_donusum(dugum: Node, kok: Node) -> Transform3D:
+	var t := Transform3D.IDENTITY
+	var p: Node = dugum
+	while p != null and p != kok and p is Node3D:
+		t = (p as Node3D).transform * t
+		p = p.get_parent()
+	return t
+
+
 static func _kutu(n: Node) -> AABB:
 	var kutu := AABB()
 	var ilk := true
 	for mi in n.find_children("*", "MeshInstance3D", true, false):
 		var m := mi as MeshInstance3D
-		var a := m.get_aabb()
-		var t := Transform3D.IDENTITY
-		var p: Node = m
-		while p != n and p is Node3D:
-			t = (p as Node3D).transform * t
-			p = p.get_parent()
-		a = t * a
+		if m.mesh == null:
+			continue
+		var sk: Skeleton3D = m.get_node_or_null(m.skeleton) as Skeleton3D if not m.skeleton.is_empty() else null
+		if sk != null and m.skin != null:
+			var sk_t := _goreceli_donusum(sk, n)
+			var bind_sayisi := m.skin.get_bind_count()
+			var kemikler: Array[Transform3D] = []
+			kemikler.resize(bind_sayisi)
+			for bi in bind_sayisi:
+				var bidx := m.skin.get_bind_bone(bi)
+				if bidx < 0:
+					bidx = sk.find_bone(m.skin.get_bind_name(bi))
+				kemikler[bi] = sk_t * sk.get_bone_global_pose(bidx) * m.skin.get_bind_pose(bi) if bidx >= 0 else sk_t
+			var mt := _goreceli_donusum(m, n)
+			for si in m.mesh.get_surface_count():
+				var arr := m.mesh.surface_get_arrays(si)
+				var verts: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+				var bones: PackedInt32Array = arr[Mesh.ARRAY_BONES]
+				var weights: PackedFloat32Array = arr[Mesh.ARRAY_WEIGHTS]
+				if verts.is_empty():
+					continue
+				if bones.is_empty() or weights.is_empty() or bones.size() < verts.size() * 4:
+					for v in verts:
+						var p := mt * v
+						kutu = AABB(p, Vector3.ZERO) if ilk else kutu.expand(p)
+						ilk = false
+					continue
+				var stride := int(bones.size() / verts.size())
+				var adim := maxi(1, verts.size() / 600)
+				for vi in range(0, verts.size(), adim):
+					var v := verts[vi]
+					var p := Vector3.ZERO
+					var wsum := 0.0
+					for k in mini(4, stride):
+						var w := weights[vi * stride + k]
+						if w <= 0.0:
+							continue
+						var b := bones[vi * stride + k]
+						if b >= 0 and b < kemikler.size():
+							p += (kemikler[b] * v) * w
+							wsum += w
+					if wsum > 0.001:
+						p /= wsum
+					else:
+						p = mt * v
+					kutu = AABB(p, Vector3.ZERO) if ilk else kutu.expand(p)
+					ilk = false
+			continue
+		var a := _goreceli_donusum(m, n) * m.get_aabb()
 		kutu = a if ilk else kutu.merge(a)
 		ilk = false
 	return kutu

@@ -6,14 +6,22 @@ extends RefCounted
 const PAZAR_BOY := 1.2
 const BENT_BOY := 0.8
 const YANIK_BOY := 2.2
+const YAPI_MAP := {
+	"kisla": "muhafiz_kislasi",
+	"avci": "avci_cadiri",
+	"kulube": "ev",
+	"han": "pazar_tezgahi",
+	"degirmen": "degirmen_o76",
+}
 
 
-## Hanın ahşap kutu yer tutucusu pazar tezgâhıdır; kışla eşlemesi aynı satırda kalır.
+## Yapı türünü gerçek model kimliğine eşler (`avci` → `avci_cadiri`, `kisla` → `muhafiz_kislasi`, `han` → `pazar_tezgahi`).
 static func yapi_adi(tur: String) -> String:
-	if tur == "kisla":
-		return "muhafiz_kislasi"
-	if tur == "han" and Dunya3B.model_var_mi("pazar_tezgahi", "yapi"):
-		return "pazar_tezgahi"
+	if YAPI_MAP.has(tur):
+		var hedef := String(YAPI_MAP[tur])
+		if tur == "han" and not Dunya3B.model_var_mi(hedef, "yapi"):
+			return tur
+		return hedef
 	return tur
 
 

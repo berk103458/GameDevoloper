@@ -1606,3 +1606,23 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
   - Tur 3 UI araştırması (`12` referans oyun + `XAG 101/102`, `44` hazır + `13` eksik `gece_kapisi` PNG, Ahmet–Berk `ARY-01` Parşömen çelişkisi işaretlendi) ve Tur 4 ses taraması (`73` dosya = `72` ses + `LICENSE.txt`, `-37.5..-15.5 dBFS` 22 dB RMS farkı, `Ambiance` → `Master -> Muzik, Efekt, Ortam` D2 bus geçişi) tamamlandı.
   - Faz F0–F6 altında `CIL-01`..`CIL-22` uygulama planı, 4 yeni Nano Banana `#00FF00` promptu ve `EKSIK_ASSET_ENVANTERI.md` eklenti satırları eklendi; kendi kendini denetlemede `69` kod, `31` yapı, `22` `CIL-*` ve tüm repo yolları `0` kırık referansla geçti.
 - **Kota:** kota görünmüyor. (Antigravity)
+
+
+---
+
+## Uygulama Tur 1 — 17 Kasım 2026 (`CIL-01`..`CIL-05` Tamamlandı)
+- **Plan güncellemesi:** `CIL-23`, `CIL-24`, `CIL-25` ve Ahmet'in onayladığı tekilleştirme/tasarım kararları [docs/CILALAMA_PLANI.md](docs/CILALAMA_PLANI.md) içine işlendi; `CIL-01`..`CIL-05` `✅` olarak işaretlendi.
+- **Kod & Veri Değişiklikleri:**
+  - `data/varlik_olculeri.json` + `src/dunya/dunya3b.gd` (`CIL-01`): Tekil normalizasyon katmanı (`Dunya3B.sigdir`, `nesne`), `Skeleton3D` + `Skin` vertex-AABB ölçümü (`Armature` `0.01` hatasını çözer), ayak izi sınırlaması, `taban_y=0` ve `extra_cull_margin`.
+  - `tools/meshy/manifest.py` + `assets/meshy_manifest.json` + `.csv` (`CIL-02`): Yalnız `yaz(nesne)` ile bağlantı/ölçü senkronizasyonu ve tekilleştirme işareti.
+  - Tekilleştirmeler & `CIL-03`: Koreli ekstra model (`assets/meshy/ekstra/`) kaldırıldı; `assets/ses/quendel/dere_01.wav` `96 kHz → 48 kHz` (`24b` stereo) düşürüldü; `data/koy/muhafiz_maasi.json` `kisla` `3×3` oldu; `olay_yapilari.gd` (`avci→avci_cadiri`, `kisla→muhafiz_kislasi`, `degirmen→degirmen_o76`), `degirmen_hareketi.gd` (`O76_su_degirmeni.glb`), `cozumleme_oda_yer_tutucu.gd` ve `topluluk_dekoru.gd` (`td_k04` kaldırıldı) güncellendi.
+  - `src/dunya/koy_yonetim_sahnesi.gd`, `src/koy/gorsel/insaat_kademesi_gorseli.gd`, `src/arayuz/koy_ekrani.gd` (`CIL-04`, `CIL-05`): `demirhane` ve tüm GLB'li yapılar MegaKit'ten kurtarılıp görünür yapıldı; `AhirYerTutucu` kuruldu; %0/%34/%67/%100 inşaat kademesi + yanık kaplama + `InsaatIlerlemeBar` UI çubuğu eklendi.
+- **Doğrulamalar:**
+  - `tests/unit/dunya/varlik_normalizasyon_test.gd` (`CIL-01`): `GEÇTİ (105 varlık)`, `EXIT=0`.
+  - `tests/py/test_meshy_manifest_uyumu.py` (`CIL-02`): `1 test OK`, `EXIT=0`. (`tests/tools/test_meshy_hat.py` mevcut `ciftci_bekle.res` / `planli` yokluğu nedeniyle pre-existing `1F/6E` verdi).
+  - `tests/unit/koy/yapi_gorsel_esleme_test.gd` (`CIL-03`): `GEÇTİ`, `EXIT=0`.
+  - `tests/unit/dunya/bina_gorunurluk_test.gd` (`CIL-04`): `GEÇTİ (12 tür)`, `EXIT=0`.
+  - `tests/unit/dunya/insaat_kademesi_test.gd` (`CIL-05`): `GEÇTİ`, `EXIT=0`.
+  - `tests/oto/hazir_koy_yapilari_kontrol.tscn`: `HAZIR KÖY YAPILARI: GEÇTİ`, `EXIT=0`.
+  - Görsel kanıt: `demirhane_kanit.png` üzerinde bitmiş `demirhane.glb`, şantiye iskeleli `demirhane`, `AhirYerTutucu` ve `O76` doğrulandı (`sacak_kur` beyaz MegaKit sundurması Tur 2'de temizlenecek).
+- **Kota:** kota görünmüyor. (Antigravity)

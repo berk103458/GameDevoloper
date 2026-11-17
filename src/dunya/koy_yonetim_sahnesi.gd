@@ -284,104 +284,99 @@ func _sur_kur() -> void:
 			_yapilar.add_child(parca)
 
 
-## Bir yapının görünümü (hazır modeller ve taranmış PBR parçalarla); iskeledeyse iskele.
+## Bir yapının görünümü (seçili Meshy GLB / açık ahır yer tutucusu / inşaat kademesi); MegaKit GLB'yi gizlemez.
 func _bina_dugumu(b: KoyBinasi) -> Node3D:
 	var boy := b.boyut(yonetim.katalog)
 	var en := boy.x * HUCRE
 	var derin := boy.y * HUCRE
 	var n := Node3D.new()
 	if not b.hazir():
-		_iskele(n, en, derin)
+		InsaatKademesiGorseli.insa_kur(n, b, yonetim.katalog, en, derin, func(govde: Node3D) -> void:
+			_tam_bina_govdesi(govde, b, en, derin)
+		)
 		return n
-	if b.tur == "cozumleme_odasi":
-		preload("res://src/koy/gorsel/cozumleme_oda_yer_tutucu.gd").kur(n,en,derin)
-		return n
-	if b.tur==GozcuKulesi.TUR:
-		GozcuKulesiGorseli.kur(n)
-		return n
-	if HazirKoyYapilari.kur(n, b.tur, en, derin):
-		var mk_ad := "muhafiz_kislasi" if b.tur == "kisla" else b.tur
-		if mk_ad != "kulube" and Dunya3B.model_var_mi(mk_ad, "yapi"):
-			var glb_yapi := Dunya3B.nesne(mk_ad, 2.8, "yapi")
-			glb_yapi.name = "meshy_" + mk_ad
-			n.add_child(glb_yapi)
-	else:
-		match b.tur:
-			"cadir":
-				n.add_child(Dunya3B.nesne("cadir", 2.3, "yapi"))
-			"kulube":
-				n.add_child(Dunya3B.nesne("ev", 2.9, "yapi"))
-			"tarla", "bostan":
-				_tarla(n, en, derin)
-				if Dunya3B.model_var_mi(b.tur):
-					var tb := Dunya3B.nesne(b.tur, 0.45 if b.tur == "bostan" else 0.3)
-					tb.position.y = 0.04
-					n.add_child(tb)
-				SulamaRutini.ark_kur(n, en, derin)
-			"hizarhane", "odunluk":
-				if Dunya3B.model_var_mi(b.tur, "yapi"):
-					n.add_child(Dunya3B.nesne(b.tur, 2.6, "yapi"))
-				else:
-					_sundurma(n, en * 0.8, derin * 0.7, 2.6)
-					var kutuk := Pbr.model("dead_tree_trunk_02")
-					if kutuk != null:
-						kutuk.scale = Vector3.ONE * 0.6
-						kutuk.position = Vector3(en * 0.25, 0, derin * 0.3)
-						n.add_child(kutuk)
-			"tas_ocagi":
-				if Dunya3B.model_var_mi("tas_ocagi", "yapi"):
-					n.add_child(Dunya3B.nesne("tas_ocagi", 2.5, "yapi"))
-				else:
-					for i in 3:
-						var kaya := Pbr.model("boulder_01" if i < 2 else "rock_moss_set_01")
-						if kaya != null:
-							kaya.scale = Vector3.ONE * (1.1 - i * 0.25)
-							kaya.position = Vector3((i - 1) * 1.2, 0, (i % 2) * 0.8 - 0.4)
-							n.add_child(kaya)
-					for i in 4:
-						_kutu(n, Vector3(0.6, 0.4, 0.45), Vector3(-en * 0.3 + i * 0.65, 0.2, derin * 0.35), Pbr.malzeme("castle_wall_varriation", 1.5))
-			"avci":
-				if Dunya3B.model_var_mi("avci_cadiri", "yapi"):
-					n.add_child(Dunya3B.nesne("avci_cadiri", 2.4, "yapi"))
-				else:
-					n.add_child(Dunya3B.nesne("cadir", 2.0, "yapi"))
-					_kutu(n, Vector3(0.08, 1.6, 0.08), Vector3(en * 0.35, 0.8, -derin * 0.3), Pbr.malzeme("bark_willow", 1.0))
-					_kutu(n, Vector3(0.08, 1.6, 0.08), Vector3(en * 0.35, 0.8, derin * 0.3), Pbr.malzeme("bark_willow", 1.0))
-					_kutu(n, Vector3(0.06, 0.06, derin * 0.6), Vector3(en * 0.35, 1.5, 0), Pbr.malzeme("bark_willow", 1.0))
-			"atolye", "demirhane":
-				if Dunya3B.model_var_mi(b.tur, "yapi"):
-					n.add_child(Dunya3B.nesne(b.tur, 2.8, "yapi"))
-				else:
-					_sundurma(n, en * 0.85, derin * 0.75, 2.4)
-					var sandik := Pbr.model("wooden_crate_01")
-					if sandik != null:
-						sandik.position = Vector3(-en * 0.3, 0, derin * 0.32)
-						n.add_child(sandik)
-			"degirmen":
-				var d := DegirmenHareketi.new()
-				d.sahne = self
-				d.bina_id = b.id
-				n.add_child(d)
-				d.kur(en, derin)
-			"agil":
-				CobanSurusu.agil_kur(n, en, derin)
-				if Dunya3B.model_var_mi("agil", "yapi"):
-					n.add_child(Dunya3B.nesne("agil", 1.8, "yapi"))
-			"ambar":
-				n.add_child(Dunya3B.nesne("ambar" if Dunya3B.model_var_mi("ambar", "yapi") else "kervansaray", 3.0, "yapi"))
-			_:
-				var yapi_ad := OlayYapilari.yapi_adi(b.tur)
-				if Dunya3B.model_var_mi(yapi_ad, "yapi"):
-					n.add_child(Dunya3B.nesne(yapi_ad, OlayYapilari.yukseklik(yapi_ad, 2.8), "yapi"))
-				else:
-					_kutu(n, Vector3(en * 0.8, 1.5, derin * 0.8), Vector3(0, 0.75, 0), Pbr.malzeme("medieval_wood", 2.0))
-					HazirSahneModeli.etiket(n, b.tur.replace("_", " ").capitalize(), 1.8)
+	_tam_bina_govdesi(n, b, en, derin)
+	InsaatKademesiGorseli.hasar_uygula(n, yonetim, b)
 	HazirEsyaHayvan.bina(n, b.tur, en, derin)
 	ZanaatTezgahi.kur(n, b.tur, en, derin)
 	AtolyeParcaciklari.kur(self, n, b)
 	CelepHayvanGorseli.kur(self, n, b)
 	KarakterHavaTepkisi.sacak_kur(self, n, b)
 	return n
+
+
+func _tam_bina_govdesi(n: Node3D, b: KoyBinasi, en: float, derin: float) -> void:
+	var max_en := en * 0.88
+	var max_derin := derin * 0.88
+	if b.tur == "cozumleme_odasi":
+		preload("res://src/koy/gorsel/cozumleme_oda_yer_tutucu.gd").kur(n, en, derin)
+		return
+	if b.tur == GozcuKulesi.TUR:
+		GozcuKulesiGorseli.kur(n)
+		return
+	if b.tur == "ahir":
+		InsaatKademesiGorseli.ahir_yer_tutucu(n, en, derin)
+		return
+	var yapi_ad := OlayYapilari.yapi_adi(b.tur)
+	if b.tur != "kulube" and b.tur not in ["tarla", "bostan", "degirmen", "agil"] and Dunya3B.model_var_mi(yapi_ad, "yapi"):
+		var glb := Dunya3B.sigdir(yapi_ad, OlayYapilari.yukseklik(yapi_ad, 2.8), "yapi", max_en, max_derin)
+		glb.name = "meshy_" + yapi_ad
+		n.add_child(glb)
+		return
+	if HazirKoyYapilari.kur(n, b.tur, en, derin):
+		return
+	match b.tur:
+		"cadir":
+			n.add_child(Dunya3B.sigdir("cadir", 2.3, "yapi", max_en, max_derin))
+		"kulube":
+			n.add_child(Dunya3B.sigdir("ev", 2.9, "yapi", max_en, max_derin))
+		"tarla", "bostan":
+			_tarla(n, en, derin)
+			if Dunya3B.model_var_mi(b.tur):
+				var tb := Dunya3B.sigdir(b.tur, 0.45 if b.tur == "bostan" else 0.3, "", max_en, max_derin)
+				tb.position.y = 0.04
+				n.add_child(tb)
+			SulamaRutini.ark_kur(n, en, derin)
+		"hizarhane", "odunluk":
+			_sundurma(n, en * 0.8, derin * 0.7, 2.6)
+			var kutuk := Pbr.model("dead_tree_trunk_02")
+			if kutuk != null:
+				kutuk.scale = Vector3.ONE * 0.6
+				kutuk.position = Vector3(en * 0.25, 0, derin * 0.3)
+				n.add_child(kutuk)
+		"tas_ocagi":
+			for i in 3:
+				var kaya := Pbr.model("boulder_01" if i < 2 else "rock_moss_set_01")
+				if kaya != null:
+					kaya.scale = Vector3.ONE * (1.1 - i * 0.25)
+					kaya.position = Vector3((i - 1) * 1.2, 0, (i % 2) * 0.8 - 0.4)
+					n.add_child(kaya)
+			for i in 4:
+				_kutu(n, Vector3(0.6, 0.4, 0.45), Vector3(-en * 0.3 + i * 0.65, 0.2, derin * 0.35), Pbr.malzeme("castle_wall_varriation", 1.5))
+		"avci":
+			n.add_child(Dunya3B.sigdir("cadir", 2.0, "yapi", max_en, max_derin))
+			_kutu(n, Vector3(0.08, 1.6, 0.08), Vector3(en * 0.35, 0.8, -derin * 0.3), Pbr.malzeme("bark_willow", 1.0))
+			_kutu(n, Vector3(0.08, 1.6, 0.08), Vector3(en * 0.35, 0.8, derin * 0.3), Pbr.malzeme("bark_willow", 1.0))
+			_kutu(n, Vector3(0.06, 0.06, derin * 0.6), Vector3(en * 0.35, 1.5, 0), Pbr.malzeme("bark_willow", 1.0))
+		"atolye", "demirhane":
+			_sundurma(n, en * 0.85, derin * 0.75, 2.4)
+			var sandik := Pbr.model("wooden_crate_01")
+			if sandik != null:
+				sandik.position = Vector3(-en * 0.3, 0, derin * 0.32)
+				n.add_child(sandik)
+		"degirmen":
+			var d := DegirmenHareketi.new()
+			d.sahne = self
+			d.bina_id = b.id
+			n.add_child(d)
+			d.kur(en, derin)
+		"agil":
+			CobanSurusu.agil_kur(n, en, derin)
+			if Dunya3B.model_var_mi("agil", "yapi"):
+				n.add_child(Dunya3B.sigdir("agil", 1.8, "yapi", max_en, max_derin))
+		_:
+			_kutu(n, Vector3(en * 0.8, 1.5, derin * 0.8), Vector3(0, 0.75, 0), Pbr.malzeme("medieval_wood", 2.0))
+			HazirSahneModeli.etiket(n, b.tur.replace("_", " ").capitalize(), 1.8)
 
 
 func _iskele(n: Node3D, en: float, derin: float) -> void:

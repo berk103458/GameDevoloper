@@ -44,7 +44,6 @@ static func _liste() -> Array:
 		{"ad": "td_o30", "boy": 0.55, "h": Vector2i(-11, 6)},
 		{"ad": "td_a220", "boy": 1.0, "h": Vector2i(-11, 2)},
 		{"ad": "td_a202", "boy": 1.5, "h": Vector2i(-7, 13)},
-		{"ad": "td_k04", "boy": 0.42, "h": Vector2i(-4, 11)},
 		{"ad": "td_a146", "boy": 0.42, "h": Vector2i(-11, 11)},
 		{"ad": "td_k07", "boy": 1.45, "h": Vector2i(-12, 18)},
 		{"ad": "td_o17", "boy": 1.45, "h": Vector2i(-6, 20), "don": 90.0},

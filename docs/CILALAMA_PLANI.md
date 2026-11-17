@@ -350,7 +350,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
 
 ### Faz F0 — Temel Normalizasyon, Manifest ve İsim/Yol Onarımı
 
-- **`CIL-01` — Tekil 3B Ölçek, Taban, Yön ve `Skeleton3D` Vertex-AABB Normalizasyon Katmanı**
+- ✅ **`CIL-01` — Tekil 3B Ölçek, Taban, Yön ve `Skeleton3D` Vertex-AABB Normalizasyon Katmanı**
   - **Faz:** F0 · **Boyut:** `L` · **Önerilen Sahip:** Ahmet tarafı (`Cursor` / `Codex`)
   - **Sorun:** `Dunya3B.nesne()` (`src/dunya/dunya3b.gd:188-255`) yalnız Y yüksekliğine böler; `Armature` `0.01` ölçekli modellerde `_kutu()` (`dunya3b.gd:264-278`) `0.000033 m` ölçer (`k04_tavuk` 27× büyür, `k05_at`/`k13_koyun` görünmez/bozuk olur); `muhafiz_kislasi` `7.96 m` taşar, `ahir` `0.26 m` ince kalır.
   - **Yapılacak iş:** `data/varlik_olculeri.json` şeması oluştur (`hedef_boy_m`, `azami_ayak_m: [x, z]`, `taban_y`, `yon_derece`, `olcu_kural`: `"vertex_aabb"` | `"mesh_aabb"`). `Dunya3B._kutu()`'yu kemikli GLB'lerde yüzey köşelerini (`Mesh.ARRAY_VERTEX`) ve `Skeleton3D` kök transformunu hesaba katacak şekilde düzelt; `nesne()` içinde `olcek = min(hedef_y / size.y, max_x / size.x, max_z / size.z)` uygula, tabanı `y = taban_y`'ye ve X/Z merkezine oturt, `yon_derece` dönüşünü uygula.
@@ -359,7 +359,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
   - **Kabul ölçütü:** `k04_tavuk` boyu `0.38–0.44 m`, `k05_at` `1.55–1.75 m`, `k13_koyun` `0.80–0.92 m`, her `yapi` GLB tabanı `y=0.0 ± 0.02 m` ve `X/Z <= parsel * 0.90` içinde kalır.
   - **Hedefli headless test:** Yeni `tests/unit/dunya/varlik_normalizasyon_test.gd` (tüm 69 topluluk + 31 yapı GLB'sini `Dunya3B.nesne()` ile örnekler, min/max boyut + `y0` sapması + script hatasında `quit(1)`).
 
-- **`CIL-02` — `assets/meshy_manifest.json` Bağlantı & Ölçü Kayıtlarının `manifest.py -> yaz()` ile Senkronizasyonu**
+- ✅ **`CIL-02` — `assets/meshy_manifest.json` Bağlantı & Ölçü Kayıtlarının `manifest.py -> yaz()` ile Senkronizasyonu**
   - **Faz:** F0 · **Boyut:** `S` · **Önerilen Sahip:** Ahmet tarafı (`Antigravity` / `Cursor`)
   - **Sorun:** 31 `yapi` satırının 28'i `oyun_baglantisi: None`, 18 `topluluk` satırı `None`, `cadir`/`ev`/`kapi`/`kervansaray`/`yanik_ev`/`pazar_tezgahi` `boy_m` alanı `None`.
   - **Yapılacak iş:** `tools/meshy/manifest.py` içindeki `kur()`/`yaz(nesne)` (`satir 716`) akışına `data/varlik_olculeri.json` ve gerçek kod bağlarını okuyup `oyun_baglantisi`, `boy_m` ve `olcu` alanlarını güncelleyen bir doğrulama komutu ekle ve `yaz(nesne)` ile `assets/meshy_manifest.json` + `.csv` yeniden üret.
@@ -368,7 +368,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
   - **Kabul ölçütü:** Oyunda kullanılan tüm `yapi` ve seçili `topluluk` satırlarının `oyun_baglantisi` ve `boy_m` değeri sıfır elle düzenlemeyle `manifest.py` üzerinden dolu gelir.
   - **Hedefli headless/Python test:** `tests/py/test_meshy_manifest_uyumu.py` (eksik dosya/bozuk durum/eksik `boy_m` kontrolü → exit 1).
 
-- **`CIL-03` — Yapı ID Çakışmaları, Ölü Yer Tutucular ve Eksik/Ekstra Model Kararlarının Temizliği**
+- ✅ **`CIL-03` — Yapı ID Çakışmaları, Ölü Yer Tutucular ve Eksik/Ekstra Model Kararlarının Temizliği**
   - **Faz:** F0 · **Boyut:** `M` · **Önerilen Sahip:** Ahmet tarafı (`Cursor`)
   - **Sorun:** `HazirKoyYapilari.KAPALI` `"kisla"` yazarken katalog `"muhafiz_kislasi"` kullanır; `OlayYapilari.YAPI_MAP` `"avci"` → `"avci"` arar (`avci_cadiri.glb` kullanılmaz); `CozumlemeOdaYerTutucu` önce küp ekleyip gizler; `bez_evi` ve `ahir` (`Z=0.061 m`) görseli yetersiz; `ekstra/` altındaki Koreli kadın modeli döneme uyumsuz.
   - **Yapılacak iş:** `OlayYapilari.YAPI_MAP` (`src/koy/gorsel/olay_yapilari.gd`) içine `"avci": "avci_cadiri"`, `"kulube": "ev"` ekle; `CozumlemeOdaYerTutucu` fallback küpünü yalnız GLB yüklenmezse kur; `ekstra/` koreli modeli arşivle/reddet kararı (Bölüm 5) + 14 kaynak GLB'siz kod için envanter temizliği; `ahir` ve `bez_evi` için 3D eksik kaydı / geçici sahne çözümü.
@@ -381,7 +381,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
 
 ### Faz F1 — Yapı Modelleri ve İnşaat Kademesi Bağlantısı
 
-- **`CIL-04` — `HazirKoyYapilari.KAPALI` Gölgeleme Hatasının Kaldırılması (Demirci vb. Binaların Görünmesi)**
+- ✅ **`CIL-04` — `HazirKoyYapilari.KAPALI` Gölgeleme Hatasının Kaldırılması (Demirci vb. Binaların Görünmesi)**
   - **Faz:** F1 · **Boyut:** `M` · **Önerilen Sahip:** Ahmet tarafı (`Cursor`)
   - **Sorun:** `HazirKoyYapilari.kur()` (`src/koy/gorsel/hazir_koy_yapilari.gd:6-46`) ve `koy_yonetim_sahnesi.gd:302-307` kapalı MegaKit evinin içine `demirhane.glb`, `firin.glb`, `ambar.glb`, `sifahane.glb`, `tas_ev.glb`, `atolye.glb` modellerini hapsederek görünmez kılar; `satir 344` ve `368` ölü koddur.
   - **Yapılacak iş:** `HazirKoyYapilari.kur()` yalnız GLB modeli olmayan yapılar (fallback) için çağrılsın; `demirhane`, `firin`, `ambar`, `sifahane`, `tas_ev`, `atolye`, `kulube` (`ev.glb`), `muhafiz_kislasi`, `cadir`, `avci` (`avci_cadiri`), `kirec_kuyusu`, `demir_madeni`, `demir_ocagi`, `hizarhane`, `odunluk`, `tas_ocagi` doğrudan `Dunya3B.nesne()` ile normalleştirilmiş parsel zarfında sahneye basılsın.
@@ -390,7 +390,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
   - **Kabul ölçütü:** `demirhane` dahil tüm inşa edilebilir binaların kökünde `megakit_yapi` gölge kutusu bulunmaz; kamera açısından GLB mesh yüzeyi doğrudan görünür ve parsel sınırını aşmaz.
   - **Hedefli headless test:** `tests/unit/dunya/bina_gorunurluk_test.gd` (`demirhane`, `firin`, `ambar`, `sifahane`, `muhafiz_kislasi` kurup `megakit_yapi` yokluğu + AABB `<= parsel` kontrolü; ihlalde `quit(1)`).
 
-- **`CIL-05` — Çok Aşamalı İnşaat İlerleme Kademeleri (%0 → %33 → %66 → %100) ve Hasarlı/Yanık Görseli**
+- ✅ **`CIL-05` — Çok Aşamalı İnşaat İlerleme Kademeleri (%0 → %33 → %66 → %100) ve Hasarlı/Yanık Görseli**
   - **Faz:** F1 · **Boyut:** `L` · **Önerilen Sahip:** Ahmet tarafı (`Cursor` / `Antigravity`)
   - **Sorun:** `koy_yonetim_sahnesi.gd:293-295` inşaat halindeki tüm yapıları ilerlemeye bakmaksızın 4 ahşap direk (`_iskele`) gösterir; `yanik_ev.glb` hasar sistemine tam bağlanmamıştır.
   - **Yapılacak iş:** `YapiInsaati` (`yapilan / insa_gun`) oranına göre paylaşımlı hafif şantiye görselleştiricisi (`src/koy/gorsel/insaat_kademesi_gorseli.gd`) kur:
@@ -614,30 +614,56 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
 
 ---
 
-## 5. Karar Soruları (Ahmet & Berk)
+### Ek Tespitler (`CIL-23`..`CIL-25` — Ahmet'in Oynanış Gözlemleri)
 
-Aşağıdaki noktalarda tasarım tercihi veya iki taraf arasındaki sahiplik kesişmesi bulunduğu için plan karar vermez; **uygulamaya geçmeden önce Ahmet ve/veya Berk kararı gerekir**:
+- **`CIL-23` — Köylülerin Sakin Boşta Duruş (`idle`) Animasyonu**
+  - **Faz:** F2 · **Boyut:** `M` · **Önerilen Sahip:** Ahmet tarafı (`Antigravity`)
+  - **Sorun:** Köylüler ve insan karakterler boşta dururken fazla sallanıp hareket ediyor.
+  - **Yapılacak iş:** `assets/model/hareket/` (383 dosya), `assets/animasyon/`, `assets/meshy/animasyonlu/` içindeki klipleri tara; yoksa Mixamo veya kodla kök/gövde salınımı bastırılmış, hafif nefes alma ve yavaş (`>= 3 s` periyot, `<= ±25°`) baş bakışlı sakin bir `sakin_bekle` klibi/retarget katmanı üret ve 30 karakter ile varyantlarında varsayılan boşta klip yap; hangi karakterin hangi iskeleti kullandığını tabloya yaz.
+  - **Dokunulacak dosyalar:** `src/dunya/karakter_model.gd`, `src/koy/gorsel/karakter_bekleme_cesitliligi.gd`, `src/dunya/hazir_karakter_animasyonu.gd`.
+  - **Bağımlılıklar:** `CIL-08`.
+  - **Kabul ölçütü:** Boşta duran köylülerin kök kemiği `1 sn` içinde `<= 2 cm` yer değiştirir; baş dönüşü `±25°` ve `>= 3 s` periyotludur; 30 karakter ve varyantlarında klip bulunur.
+  - **Hedefli headless test:** `tests/oto/sakin_bosta_kontrol.gd` (`quit(1)` on failure).
 
-1. **[Ahmet–Berk kararı gerekiyor] `ARY-01` Arayüz Görsel Dili (`parsomen` vs `gece_kapisi`):**
-   - *Çelişki:* `docs/arayuz/SABLONLAR.md` ve `CLAUDE.md:54`'te Usta/Berk'in `ARY-01` için `parsomen` (*Parşömen*) şablonunu seçtiği yazılıdır; ancak Ahmet Çini/Parşömen/Ocak şablonlarını reddedip düz web UI yerine atmosferik arka planlı (`assets/ui/atmosfer/gece_kapisi/` 44 hazır PNG) gerçek oyun UI'sını yönlendirmiştir.
-   - **Seçenek A (*Gece Kapısı* Birincil Dil):** `ARY-01` kararı resmen `gece_kapisi` olarak güncellenir; `Tema`/`Kabuk` koyu meşe + dövme demir + amber yağ lambası 9-slice dokularını (`gece_kapisi/*.png`) kullanır, *Parşömen* yalnızca kapı beyan defteri / mektup içi kâğıt dokusu olarak yaşar.
-   - **Seçenek B (*Hibrit Parşömen + Gece Kapısı*):** Berk'in `parsomen` `StyleBox` kurgusu (`ARY-02/03`) ana kabukta korunur ama arka plan ve düğme çerçevelerinde `gece_kapisi` dokuları temel alınır (ikili doku bakımı maliyeti doğar).
+- **`CIL-24` — Karakterlerde Kol, Omuz ve Vücut Tutarsızlıkları Denetimi ve Düzeltmesi**
+  - **Faz:** F2 · **Boyut:** `L` · **Önerilen Sahip:** Ahmet tarafı (`Antigravity`)
+  - **Sorun:** Bazı insan karakterlerde kollar gövdeye giriyor, kol/omuz oranları veya uzunlukları tutarsız, A-poz/T-poz kalıntıları ya da ters dönen kemik/normaller var.
+  - **Yapılacak iş:** `assets/model/karakter/`, `assets/karakter/`, `assets/meshy/` ve 30 karakter + varyantlarının kemik pozisyonlarından omuz genişliği/boy, kol uzunluğu/boy ve boşta kol–gövde kesişimini kodla ölç; çözüm sırası (a) kemik pose/rest ofseti ile kolu gövdeden uzaklaştırma, (b) kemik oran düzeltme, (c) düzelmeyeni uygun modelle değiştirme; tam tabloyu ve önce/sonra ekran görüntüsü yollarını `docs/KARAKTER_GOVDE_DENETIMI.md` raporuna yaz.
+  - **Dokunulacak dosyalar:** `docs/KARAKTER_GOVDE_DENETIMI.md`, `src/dunya/durus_duzeltici.gd`, `src/dunya/karakter_model.gd`.
+  - **Bağımlılıklar:** `CIL-23`.
+  - **Kabul ölçütü:** Köyde kullanılan hiçbir karakterde boşta pozda kol–gövde kesişmesi kalmaz; kol uzunluğu/boy oranı `±%10` içindedir.
+  - **Hedefli headless test:** `tests/oto/karakter_govde_kontrol.gd` (`quit(1)` on failure).
 
-2. **[Ahmet kararı] Dış Mekan Tekilleştirmeleri (`O76`, `A146`, `ahir`, `ekstra/`):**
-   - `degirmen.glb` vs `O76_su_degirmeni.glb`: Parsel değirmeni için `degirmen.glb` kalsın mı, yoksa dere kenarı varsa `O76` ayrı su değirmeni yapısına mı dönsün?
-   - `k04_tavuk.glb` (animasyonlu) vs `a146_tavuk_gercekci.glb` (statik): İkisi birlikte sürü varyantı olarak mı dursun, yoksa yalnızca animasyonlu `k04` mü kullanılsın?
-   - `ahir.glb` (`Z = 0.061 m` ince levha): Yeni bir 3B ahır modeli için açık envanter (`3D`) satırı açılsın mı, yoksa `O30` yalak + `A172` öküz + basit sundurma çatısı geçici yeterli mi?
-   - `assets/meshy/ekstra/` Koreli tüccar kadın modeli: 14. yy Anadolu atmosferiyle çeliştiği için `reddedildi` sayıp arşivden/paketten çıkaralım mı?
+- **`CIL-25` — Kapı Bekçiliği Sahnesi Asset Çakışmaları ve Kamera Açısı Cilası**
+  - **Faz:** F1 · **Boyut:** `M` · **Önerilen Sahip:** Ahmet tarafı (`Antigravity`)
+  - **Sorun:** Kapı sahnesinde `kapi.glb`, sur parçaları (`O37`, sur 1/2/3), `O58` araba, `A016` mızrak sehpası ve çevre dekorları birbirinin üstüne biniyor; kamera açısı ve paneller gelen kişiyi/kapıyı kötü gösteriyor.
+  - **Yapılacak iş:** Kapı sahnesindeki tüm görünür nesnelerin AABB'lerini çıkarıp 1 cm üstü iç içe geçmeleri yeniden konumlandır/ayır; kamera açısını (`kapi_kamera_gecisi.gd`, `kapi_kamera_vurgu.gd`, `kapi_sahnesi.gd`) *Papers, Please* / *Kingdom Come* benzeri göz hizasına yakın hafif yukarı bakışa kalibre et; gündüz ve gece önce/sonra ekran görüntüleri al.
+  - **Dokunulacak dosyalar:** `src/dunya/kapi_cercevesi.gd`, `src/dunya/kapi_sahnesi.gd`, `src/dunya/kapi_kamera_gecisi.gd`, `src/kapi/kapi_kamera_vurgu.gd`, `src/arayuz/kapi_ekrani.gd`.
+  - **Bağımlılıklar:** `CIL-01`, `CIL-04`.
+  - **Kabul ölçütü:** Görünür nesneler arasında `> 1 cm` istenmeyen iç içe geçme yok; gelen kişinin başı ve gövdesi `1920×1080`'de orta üçte birde ve panel altında değil.
+  - **Hedefli headless test:** `tests/oto/kapi_sahne_cakisma_kontrol.gd` (`quit(1)` on failure).
 
-3. **[Ahmet–Berk kararı] Askerî/İnsan Meshy Modelleri (`k02`, `k09`, `k12`, `b092`, `k14`, `k15`):**
-   - `k09_okcu_pers` (`6` klipli) ve `k02_kipcak_kuman_savascisi` yalnız köy kışlası/kulesi nöbetinde mi kullanılsın, yoksa **`ROADMAP_3` (`SVS-*`)** savaş sahnesi için **Berk/Usta'ya** mı devredilsin?
-   - `b092`, `k14`, `k15` (animasyonsuz insan modelleri) rig sırasına alınsın mı, yoksa `ROADMAP_4` **B1** (30 karakter sınırı) gereği yalnız statik yan dekor/tüccar kalabalığı mı olsun?
+---
 
-4. **[Ahmet kararı] `muhafiz_kislasi.glb` Ölçek Tercihi:**
-   - Ham ölçüsü `(0.944, 0.332, 0.759)` basık/geniş olduğu için `2×2` (`4×4 m`) parsel içine sığdırıldığında yüksekliği `~1.48 m` alçak kalır; ya `binalar.json`'da parsel boyutu `[3, 3]` (`6×6 m`, yükseklik `~2.1 m`) büyütülür ya da `2×2` parselde küçültülmüş karakol olarak kalır.
+## 5. Karar Soruları (Ahmet & Berk) — Ahmet Tarafından Onaylanan Kararlar (17 Kas 2026)
 
-5. **[Ahmet kararı] `quendel/dere_01.wav` (`96 kHz`, ~23 MB):**
-   - Oyunda zaten `quendel/dere_dongu.ogg` (`55.9 KB`) varken yüksek hacimli ham `dere_01.wav` dosyası `export_presets.cfg` dışına alınsın mı (veya silinsin mi)?
+1. **[Ahmet Kararı Onaylandı · Berk `ARY-01` için issue #11 `[EMIR]` süreciyle uygulanacak] `ARY-01` Arayüz Görsel Dili (Hibrit):**
+   - **Karar:** **Gece Kapısı** ana tema olacak (`assets/ui/atmosfer/gece_kapisi/*.png`); **Parşömen** ise yalnızca defter, beyan ve belge panellerinde yaşayacak (hibrit).
+
+2. **[Ahmet Kararı Onaylandı] Dış Mekan Tekilleştirmeleri:**
+   - **Tavuk:** `a146_tavuk_gercekci.glb` kalır, `k04_tavuk.glb` sahneden çıkar.
+   - **Değirmen:** Meshy `O76_su_degirmeni.glb` kalır, eski `degirmen.glb` sahneden çıkar.
+   - **Ahır:** Bozuk `ahir.glb` (`Z = 0,061 m`) kullanılmaz; yerine düzgün ahır yer tutucusu/yapısı konur.
+   - **Koreli satıcı (`assets/meshy/ekstra/`):** Repodan çıkarılır.
+
+3. **[Ahmet Kararı Onaylandı] Askerî Modeller (`k09`, `k02`) ve İnsan Figürleri:**
+   - `k09_okcu_pers` ve `k02_kipcak_kuman_savascisi` köyde `muhafiz_kislasi` çevresinde sakin nöbet animasyonuyla durur. `ROADMAP_3` (`SVS-*`) savaş kullanımı Berk'e bırakılır.
+
+4. **[Ahmet Kararı Onaylandı] `muhafiz_kislasi` Ölçeği & Kimlikler:**
+   - `muhafiz_kislasi` `3×3` (`6×6 m`) parsele genişler; `kisla` ↔ `muhafiz_kislasi` ve `avci` ↔ `avci_cadiri` kimlik eşleşmesi düzeltilir.
+
+5. **[Ahmet Kararı Onaylandı] `quendel/dere_01.wav`:**
+   - `96 kHz` → `48 kHz`'e indirilir (ses sistemine bağlamaya ve `CIL-19..21`'e dokunulmaz; o faz başka ajan tarafından yürütülüyor).
 
 ---
 

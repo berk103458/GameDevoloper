@@ -38,7 +38,7 @@ TARANMAZ = (".godot", ".git", "node_modules", "work", "tools/art/ham", "tools/ar
 
 URETIM_ALANLARI = ("durum", "meshy_task_id", "meshy_gorevleri", "dosya", "ek_dosyalar", "sha256",
                    "kredi_harcanan", "dogrulama", "onay_notu", "red_nedeni", "uretim_gunlugu", "hesap_plani_uretimde",
-                   "_sayilan_gorev", "onceki_uretimler", "sha256_simdi", "meshy_uygun")
+                   "_sayilan_gorev", "onceki_uretimler", "sha256_simdi", "meshy_uygun", "oyun_baglantisi")
 
 HARICI_LISANS = [
     ("assets/esya/kaykit_", "KayKit (Kay Lousberg)", "CC0 — docs/credits/HAZIR_ASSET_ATIFLARI.md"),
@@ -725,9 +725,40 @@ def yaz(nesne):
             w.writerow([";".join(map(str, r.get(a) or [])) if isinstance(r.get(a), list) else r.get(a, "") for a in alanlar])
 
 
+def _cilalama_olculeri_bagla(satirlar):
+    yol = os.path.join(KOK, "data", "varlik_olculeri.json")
+    if not os.path.isfile(yol):
+        return
+    veri = _json_oku(yol).get("varliklar", {})
+    kod_olcu = {}
+    for ad, cfg in veri.items():
+        if isinstance(cfg, dict) and cfg.get("kod"):
+            kod_olcu[cfg["kod"]] = cfg
+    for r in satirlar.values():
+        cfg = None
+        if r.get("tur") == "topluluk" and r.get("plan_kimlikleri"):
+            cfg = kod_olcu.get(r["plan_kimlikleri"][0])
+        elif r["asset_id"] in veri and isinstance(veri[r["asset_id"]], dict):
+            cfg = veri[r["asset_id"]]
+        if not cfg:
+            continue
+        if cfg.get("hedef_boy_m") and r.get("boy_m") is None:
+            r["boy_m"] = float(cfg["hedef_boy_m"])
+        if not r.get("olcu") and isinstance(cfg.get("azami_ayak_m"), list) and len(cfg["azami_ayak_m"]) >= 2 and r.get("boy_m"):
+            ax, az = cfg["azami_ayak_m"][0], cfg["azami_ayak_m"][1]
+            r["olcu"] = ("%.1f × %.1f × %.1f m" % (ax, float(r["boy_m"]), az)).replace(".", ",")
+        if cfg.get("devre_disi"):
+            r["oyun_baglantisi"] = "devre_disi"
+            r["durum"] = "reddedildi"
+            r["red_nedeni"] = cfg.get("neden", "Cilalama tekilleştirme kararı")
+        elif cfg.get("bag"):
+            r["oyun_baglantisi"] = cfg["bag"]
+
+
 def guncelle(eski_dal=True):
     ayar = ortak.ayarlar_oku()
     taze, ek = kur(ayar, eski_dal=eski_dal)
     birlesik = birlestir(taze, oku())
+    _cilalama_olculeri_bagla(birlesik)
     nesne = manifest_nesnesi(birlesik, ayar, ek)
     return nesne, tekrar_istemleri(birlesik)

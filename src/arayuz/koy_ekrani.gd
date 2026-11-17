@@ -456,7 +456,15 @@ func _bilgi_goster() -> void:
 	_etiket(_bilgi_icerik, MeslekYapilari.ad(b.tur), Tema.BASLIK_PX)
 	_etiket(_bilgi_icerik, "Seviye %d · Üretim ×%.2f" % [b.seviye, b.uretim_carpani()], Tema.KUCUK_PX)
 	if not b.hazir():
-		_etiket(_bilgi_icerik, tr("koy.bilgi.iskele") % b.insa_kalan, Tema.KUCUK_PX)
+		var oran := InsaatKademesiGorseli.ilerleme_orani(b, _y.katalog)
+		var bar := ProgressBar.new()
+		bar.name = "InsaatIlerlemeBar"
+		bar.max_value = 100.0
+		bar.value = roundf(oran * 100.0)
+		bar.show_percentage = true
+		bar.custom_minimum_size = Vector2(200, 22)
+		_bilgi_icerik.add_child(bar)
+		_etiket(_bilgi_icerik, "%s (%%%d)" % [tr("koy.bilgi.iskele") % b.insa_kalan, int(roundf(oran * 100.0))], Tema.KUCUK_PX)
 	elif KanDavasi.engel(_y, b.id):
 		_etiket(_bilgi_icerik, KanDavasi.DURUS_METNI, Tema.KUCUK_PX).add_theme_color_override("font_color", Hud.UYARI)
 	elif b.bekliyor != "" and b.bekliyor != "kan_davasi":

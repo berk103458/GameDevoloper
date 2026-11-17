@@ -13,7 +13,7 @@ static func al(yol: String, boy: Vector3, orantili: bool = false) -> Node3D:
 	var model := kaynak.instantiate() as Node3D
 	kok.add_child(model)
 	var a := Dunya3B._kutu(model)
-	if a.size.x <= 0.0001 or a.size.y <= 0.0001 or a.size.z <= 0.0001:
+	if a.size.x <= 0.00001 or a.size.y <= 0.00001 or a.size.z <= 0.00001:
 		kok.free()
 		return null
 	var oran := boy / a.size
