@@ -195,6 +195,7 @@ func yenile() -> void:
 	CenazeMezari.kur(self, _yapilar)
 	OlayYapilari.kur(self, _yapilar)
 	ToplulukDekoru.kur(self, _yapilar)
+	BinaAvluEsyalari.cevre_kur(self, _yapilar)
 	TasYatagiGorseli.kur(self, _yapilar)
 	for b in yonetim.binalar:
 		var n := _bina_dugumu(b)
@@ -254,7 +255,19 @@ func _sur_kur() -> void:
 	var uc := hucre_kosesi(b)
 	var kp := kapi_noktasi()
 	var kapi_x := kp.x
-	var kapi := Dunya3B.nesne("kapi", 3.6 + yonetim.sur_seviye * 0.5, "yapi")
+	var kapi_ad := "kapi"
+	var kapi_kat := "yapi"
+	var kapi_boy := 3.6 + yonetim.sur_seviye * 0.5
+	if yonetim.sur_seviye <= 1 and Dunya3B.model_var_mi("td_o25"):
+		kapi_ad = "td_o25"
+		kapi_kat = ""
+		kapi_boy = 3.4
+	elif yonetim.sur_seviye >= 3 and Dunya3B.model_var_mi("td_o92"):
+		kapi_ad = "td_o92"
+		kapi_kat = ""
+		kapi_boy = 3.8
+	var kapi := Dunya3B.nesne(kapi_ad, kapi_boy, kapi_kat)
+	kapi.name = "sur_kapisi_" + kapi_ad
 	SurHasarGorseli.uygula(kapi, yonetim.sur_hasar)
 	kapi.add_to_group(&"koy_kapisi")
 	kapi.position = Vector3(kapi_x, arazi.yukseklik_burada(kapi_x, kp.y), kp.y)
@@ -262,8 +275,26 @@ func _sur_kur() -> void:
 	Dunya3B.mesale_kur(_yapilar, kapi.position + Vector3(-2.6, 0, 0.4), 2.0, 8.0)
 	if yonetim.sur_seviye <= 0:
 		return
-	# Sur: köyün çevresinde kazık sırası; seviye yükseldikçe kazık boyu artar.
-	var boy := 1.6 + yonetim.sur_seviye * 0.6
+	# Sur: S1 O37 kazık → S2 O81/sur_2_palisat → S3 O90/sur_3_tas.
+	var sur_ad := "kazik_cit"
+	var sur_kat := ""
+	var boy := 2.4
+	if yonetim.sur_seviye == 2:
+		if Dunya3B.model_var_mi("td_o81"):
+			sur_ad = "td_o81"
+			boy = 2.8
+		elif Dunya3B.model_var_mi("sur_2_palisat", "yapi"):
+			sur_ad = "sur_2_palisat"
+			sur_kat = "yapi"
+			boy = 2.8
+	elif yonetim.sur_seviye >= 3:
+		if Dunya3B.model_var_mi("td_o90"):
+			sur_ad = "td_o90"
+			boy = 3.1
+		elif Dunya3B.model_var_mi("sur_3_tas", "yapi"):
+			sur_ad = "sur_3_tas"
+			sur_kat = "yapi"
+			boy = 3.2
 	var aralik := 4.0
 	var kenarlar := [[Vector3(kose.x, 0, kose.z), Vector3(uc.x, 0, kose.z)], [Vector3(uc.x, 0, kose.z), Vector3(uc.x, 0, uc.z)],
 		[Vector3(uc.x, 0, uc.z), Vector3(kose.x, 0, uc.z)], [Vector3(kose.x, 0, uc.z), Vector3(kose.x, 0, kose.z)]]
@@ -275,8 +306,8 @@ func _sur_kur() -> void:
 			var p := a.lerp(c, (i + 0.5) / n)
 			if absf(p.x - kapi_x) < 3.0 and absf(p.z - uc.z) < 0.5:
 				continue
-			var sur_ad := "sur_3_tas" if (yonetim.sur_seviye >= 3 and Dunya3B.model_var_mi("sur_3_tas", "yapi")) else ("sur_2_palisat" if (yonetim.sur_seviye == 2 and Dunya3B.model_var_mi("sur_2_palisat", "yapi")) else "kazik_cit")
-			var parca := Dunya3B.nesne(sur_ad, boy, "yapi" if sur_ad != "kazik_cit" else "nesne")
+			var parca := Dunya3B.nesne(sur_ad, boy, sur_kat)
+			parca.name = "sur_" + sur_ad
 			SurHasarGorseli.uygula(parca, yonetim.sur_hasar)
 			parca.position = p
 			var d := (c - a).normalized()
@@ -302,22 +333,23 @@ func _bina_dugumu(b: KoyBinasi) -> Node3D:
 	AtolyeParcaciklari.kur(self, n, b)
 	CelepHayvanGorseli.kur(self, n, b)
 	KarakterHavaTepkisi.sacak_kur(self, n, b)
+	BinaAvluEsyalari.bina_ekle(n, b.tur, en, derin)
 	return n
 
 
 func _tam_bina_govdesi(n: Node3D, b: KoyBinasi, en: float, derin: float) -> void:
-	var max_en := en * 0.88
-	var max_derin := derin * 0.88
+	var max_en := en * 0.80
+	var max_derin := derin * 0.80
 	if b.tur == "cozumleme_odasi":
 		preload("res://src/koy/gorsel/cozumleme_oda_yer_tutucu.gd").kur(n, en, derin)
 		return
 	if b.tur == GozcuKulesi.TUR:
-		GozcuKulesiGorseli.kur(n)
+		GozcuKulesiGorseli.kur(n, b.seviye)
 		return
 	if b.tur == "ahir":
 		InsaatKademesiGorseli.ahir_yer_tutucu(n, en, derin)
 		return
-	var yapi_ad := OlayYapilari.yapi_adi(b.tur)
+	var yapi_ad := OlayYapilari.yapi_adi_seviyeli(b.tur, b.seviye)
 	if b.tur != "kulube" and b.tur not in ["tarla", "bostan", "degirmen", "agil"] and Dunya3B.model_var_mi(yapi_ad, "yapi"):
 		var glb := Dunya3B.sigdir(yapi_ad, OlayYapilari.yukseklik(yapi_ad, 2.8), "yapi", max_en, max_derin)
 		glb.name = "meshy_" + yapi_ad
@@ -371,9 +403,13 @@ func _tam_bina_govdesi(n: Node3D, b: KoyBinasi, en: float, derin: float) -> void
 			n.add_child(d)
 			d.kur(en, derin)
 		"agil":
-			CobanSurusu.agil_kur(n, en, derin)
 			if Dunya3B.model_var_mi("agil", "yapi"):
-				n.add_child(Dunya3B.sigdir("agil", 1.8, "yapi", max_en, max_derin))
+				var ag := Dunya3B.sigdir("agil", 1.8, "yapi", max_en, max_derin)
+				ag.name = "meshy_agil"
+				n.add_child(ag)
+				CobanSurusu.agil_kapi_kur(n, en, derin)
+			else:
+				CobanSurusu.agil_kur(n, en, derin)
 		_:
 			_kutu(n, Vector3(en * 0.8, 1.5, derin * 0.8), Vector3(0, 0.75, 0), Pbr.malzeme("medieval_wood", 2.0))
 			HazirSahneModeli.etiket(n, b.tur.replace("_", " ").capitalize(), 1.8)

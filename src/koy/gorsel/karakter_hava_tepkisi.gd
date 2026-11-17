@@ -29,9 +29,11 @@ static func hedef(h: KoyHalkHareketi, k: Koylu, bas: Vector2i) -> Dictionary:
   en_kisa = yol.size()
   sonuc = {"son": son, "bak": h.sahne.alan_merkezi(b.hucre, b.boyut(y.katalog))}
  return sonuc
-## Tek değişim noktası: ön durak üzerinde düz renk kutu saçak yer tutucusu.
+## Tek değişim noktası: kulübede MegaKit saçağı; kendi çatılı Meshy GLB yapılarında beyaz ek saçak konmaz.
 static func sacak_kur(s: KoyYonetimSahnesi, n: Node3D, b: KoyBinasi) -> void:
  if b.tur not in AYAR.sacak_turleri: return
+ if b.tur != "kulube" and Dunya3B.model_var_mi(OlayYapilari.yapi_adi(b.tur), "yapi"):
+  return
  var hazir: Node3D = HazirKoyYapilari.sacak(Vector3(AYAR.sacak_boy[0], AYAR.sacak_yukseklik, AYAR.sacak_boy[2]))
  if hazir == null and Dunya3B.model_var_mi("sacak"):
   hazir = Dunya3B.nesne("sacak", float(AYAR.sacak_boy[1]))

@@ -9,11 +9,11 @@ signal gece_bitti(rapor: Dictionary)
 signal oturum_bitti(kirilan: int)
 signal duraklat_istendi
 
-## Sağdaki kapı defteri paneli ve sol alttaki konuşma kutusu (ekran px, 1080p).
-const DEFTER := Rect2(1172, 104, 716, 952)
-const KONUSMA := Rect2(36, 742, 1104, 314)
-## Kamerayı yana kaydırır: gelen kişi ekranın sol-ortasında durur, defterin altında kalmaz.
-const KAMERA_KAYMA := 1.3
+## Sağdaki kapı defteri paneli ve sol alttaki konuşma kutusu (ekran px, 1080p; HUD altını ve orta kadrajı açar).
+const DEFTER := Rect2(1240, 198, 652, 856)
+const KONUSMA := Rect2(36, 792, 1168, 264)
+## Kamerayı yana kaydırır: gelen kişi sol-orta açık kadrajda durur, defter ve konuşma kutusu altında kalmaz.
+const KAMERA_KAYMA := 0.78
 const KARAR_SIMGE := {"kabul": "accept", "harc": "bribe", "ret": "reject", "rusvet": "bribe", "kisla": "barracks", "elkoy": "reject"}
 const ILK_GECE = preload("res://src/kapi/ilk_gece_kisiti.gd")
 const HATIRLANMA_NOTU := preload("res://src/arayuz/kapi/hatirlanma_notu.gd")

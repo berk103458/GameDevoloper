@@ -403,7 +403,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
   - **Kabul ölçütü:** Aynı binanın `yapilan = 0, 1, 2` günlerindeki düğüm çocukları aşama ilerlemesine göre farklı geometri üretir ve bitişte iskele temizlenir.
   - **Hedefli headless test:** `tests/unit/dunya/insaat_kademesi_test.gd` (`0%`, `50%`, `100%`, `yanik` durumlarında düğüm doğrulama → `quit(1)`).
 
-- **`CIL-06` — Çakışan Çift Yapıların Birleştirilmesi (`Değirmen`, `Ağıl`, `Gözetleme Kulesi`, `Han/Pazar`, `Sur`)**
+- **`CIL-06` ✅ — Çakışan Çift Yapıların Birleştirilmesi (`Değirmen`, `Ağıl`, `Gözetleme Kulesi`, `Han/Pazar`, `Sur`)**
   - **Faz:** F1 · **Boyut:** `M` · **Önerilen Sahip:** Ahmet tarafı (`Cursor`)
   - **Sorun:** `DegirmenHareketi` (`degirmen_hareketi.gd`) `degirmen.glb` üstüne prosedürel baraka+çark bindiriyor (`O76_su_degirmeni.glb` dışta bekliyor); `CobanSurusu.agil_kur()` (`coban_surusu.gd:181`) `agil.glb` üstüne ayrı çit kuruyor; `nobetci_kulesi` için 3 aday (`gozetleme_kulesi.glb`, `A113`, `O72`), `han` için 4 aday (`pazar_tezgahi`, `A073`, `A077`, `O65`, `kervansaray`), `sur` için 6 modül (`O37`, `O81`, `O25`, `O90`, `O92`, `sur_2_palisat`, `sur_3_tas`) dağınık duruyor.
   - **Yapılacak iş:** Çift model bindirmelerini kaldır; her yapıya seviye/rol haritası kur:
@@ -417,7 +417,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
   - **Kabul ölçütü:** `degirmen` üstünde ikinci prosedürel kulübe yok; `sur` seviye 1→2→3 yükseltmesinde ilgili sur/kule modelleri otomatik değişir.
   - **Hedefli headless test:** `tests/unit/dunya/yapi_yukseltme_gorseli_test.gd`.
 
-- **`CIL-07` — `ToplulukDekoru` Dış-Izgara Yığınının Köy İçi Bağlama Dağıtılması**
+- **`CIL-07` ✅ — `ToplulukDekoru` Dış-Izgara Yığınının Köy İçi Bağlama Dağıtılması**
   - **Faz:** F1 · **Boyut:** `L` · **Önerilen Sahip:** Ahmet tarafı (`Cursor`)
   - **Sorun:** `ToplulukDekoru` (`src/koy/gorsel/topluluk_dekoru.gd`, `koy_yonetim_sahnesi.gd:197`) 39 topluluk modelini yürüme ızgarasının dış çemberine vitrin gibi diziyor (`A040`, `A073` vb. ise hiç kullanılmıyor).
   - **Yapılacak iş:** Dış-ızgara vitrin listesini kaldır; her küçük/orta topluluk eşyasını ait olduğu binanın veya köy noktasının **avlu kenarına (`bina + local_offset`, yürüme hücresini tıkamadan)**:
@@ -634,7 +634,7 @@ Aşağıdaki kategorilerde oyunda boşluk vardır (`ROADMAP_4` `SES-03` ile orta
   - **Kabul ölçütü:** Köyde kullanılan hiçbir karakterde boşta pozda kol–gövde kesişmesi kalmaz; kol uzunluğu/boy oranı `±%10` içindedir.
   - **Hedefli headless test:** `tests/oto/karakter_govde_kontrol.gd` (`quit(1)` on failure).
 
-- **`CIL-25` — Kapı Bekçiliği Sahnesi Asset Çakışmaları ve Kamera Açısı Cilası**
+- **`CIL-25` ✅ — Kapı Bekçiliği Sahnesi Asset Çakışmaları ve Kamera Açısı Cilası**
   - **Faz:** F1 · **Boyut:** `M` · **Önerilen Sahip:** Ahmet tarafı (`Antigravity`)
   - **Sorun:** Kapı sahnesinde `kapi.glb`, sur parçaları (`O37`, sur 1/2/3), `O58` araba, `A016` mızrak sehpası ve çevre dekorları birbirinin üstüne biniyor; kamera açısı ve paneller gelen kişiyi/kapıyı kötü gösteriyor.
   - **Yapılacak iş:** Kapı sahnesindeki tüm görünür nesnelerin AABB'lerini çıkarıp 1 cm üstü iç içe geçmeleri yeniden konumlandır/ayır; kamera açısını (`kapi_kamera_gecisi.gd`, `kapi_kamera_vurgu.gd`, `kapi_sahnesi.gd`) *Papers, Please* / *Kingdom Come* benzeri göz hizasına yakın hafif yukarı bakışa kalibre et; gündüz ve gece önce/sonra ekran görüntüleri al.

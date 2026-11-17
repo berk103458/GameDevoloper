@@ -177,6 +177,23 @@ static func _top(n: Node3D, p: Vector3, olcek: Array, renk: Color) -> void:
  m.scale = Vector3(olcek[0], olcek[1], olcek[2])
  m.material_override = Dunya3B.duz_malzeme(renk)
  n.add_child(m)
+## Hazır agil.glb içinde çakışan iç çit örmez; yalnız dış ön kenara kontrol edilebilir ağıl kapısı ve eksik yanlara O64 koyar.
+static func agil_kapi_kur(n: Node3D, en: float, derin: float) -> void:
+ var boy := float(AYAR.cit_boy)
+ var d := float(AYAR.cit_kalinlik)
+ var renk := Color(AYAR.cit_renk)
+ var kapi := Node3D.new()
+ kapi.name = "agil_kapisi"
+ kapi.position = Vector3(-float(AYAR.kapi_genislik) / 2, 0, derin * 0.48)
+ n.add_child(kapi)
+ for y in [boy * 0.3, boy * 0.8]:
+  _kutu(kapi, Vector3(float(AYAR.kapi_genislik), d, d), Vector3(float(AYAR.kapi_genislik) / 2, y, 0), renk)
+ if Dunya3B.model_var_mi("td_o64"):
+  var yan := Dunya3B.sigdir("td_o64", 1.1, "", minf(en * 0.42, 1.8), 0.55)
+  yan.name = "agil_o64_sol"
+  yan.position = Vector3(-en * 0.44, 0, 0)
+  yan.rotation.y = PI * 0.5
+  n.add_child(yan)
 ## Mevcut bina kökünde kapılı ahşap ağıl; kapı yalnız sürü dönünce kapanır.
 static func agil_kur(n: Node3D, en: float, derin: float) -> void:
  var boy := float(AYAR.cit_boy)

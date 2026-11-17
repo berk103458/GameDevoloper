@@ -1626,3 +1626,31 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
   - `tests/oto/hazir_koy_yapilari_kontrol.tscn`: `HAZIR KÖY YAPILARI: GEÇTİ`, `EXIT=0`.
   - Görsel kanıt: `demirhane_kanit.png` üzerinde bitmiş `demirhane.glb`, şantiye iskeleli `demirhane`, `AhirYerTutucu` ve `O76` doğrulandı (`sacak_kur` beyaz MegaKit sundurması Tur 2'de temizlenecek).
 - **Kota:** kota görünmüyor. (Antigravity)
+
+
+---
+
+## Uygulama Tur 2 — 17 Kasım 2026 (`CIL-06`, `CIL-07`, `CIL-25` Tamamlandı)
+- **Plan güncellemesi:** [docs/CILALAMA_PLANI.md](docs/CILALAMA_PLANI.md) üzerinde `CIL-06`, `CIL-07` ve `CIL-25` `✅` olarak işaretlendi.
+- **Kod Değişiklikleri:**
+  - `src/koy/gorsel/gozcu_kulesi_gorseli.gd`, `src/koy/gorsel/muhafiz_devriyesi.gd`, `src/koy/gorsel/coban_surusu.gd`, `src/koy/gorsel/olay_yapilari.gd`, `src/koy/gorsel/karakter_hava_tepkisi.gd`, `src/dunya/koy_yonetim_sahnesi.gd` (`CIL-06`):
+    - Gözcü kulesi S1 `td_a113` → S2 `td_o72` → S3 `gozetleme_kulesi.glb`; han S1 `pazar_tezgahi` → S2+ `kervansaray.glb`; sur ve kapı S1 `kazik_cit`/`td_o25` → S2 `td_o81`/`kapi` → S3 `td_o90`/`td_o92` bağlandı.
+    - `agil` için çakışan tam iç çit kaldırılıp `CobanSurusu.agil_kapi_kur` eklendi; `demirhane` gibi Meshy GLB yapılarındaki beyaz MegaKit `Overhang_Plaster_Short` saçağı kaldırıldı (`kulube` uyumlu kaldı).
+  - `src/koy/gorsel/bina_avlu_esyalari.gd` (yeni), `src/koy/gorsel/topluluk_dekoru.gd`, `src/dunya/koy_yonetim_sahnesi.gd` (`CIL-07`):
+    - Eski 38'li dış-ızgara vitrin yığını kaldırılıp `ToplulukDekoru._liste()` yalnız 4 dış silüet/orman öğesine (`td_o26`, `td_a117`, `td_a116`, `td_k07`) indirildi; küçük/orta zanaat, ev, kışla, ahır, ağıl ve han eşyaları (`96` avlu + `10` çevre düğümü) `KoyZeminNavigasyonu` yürüme koridorlarını tıkamadan bina avlularına bağlandı.
+  - `src/dunya/kapi_cercevesi.gd`, `src/dunya/kapi_sahnesi.gd`, `src/arayuz/kapi_ekrani.gd` (`CIL-25`):
+    - Kapı içi `fici`, `nobet_ocagi`, `testi`, `sandik`, `mizrak_sehpasi`, `kapi_ic`, `kazik_cit`, `kapi_mesale`, `_kanat`, `_kemer`, `_direk`, `_gecit` ve kağnı üstü çift yük çakışmaları (`282`'ye varan iç içe geçme) ayrıştırılarak `sur=0..3` seviyelerinin tamamında `0` (`>1 cm`) çakışmaya indirildi.
+    - Muhafız göz hizası kamera kadrajı (`GORUS=38.0`, `kamera=(0.0, 1.46, 1.35)`, `BAKIS_KAPI=(0.0, 1.42, -6.0)`, `KAMERA_KAYMA=0.78`) ile `DEFTER=Rect2(1240, 198, 652, 856)` ve `KONUSMA=Rect2(36, 792, 1168, 264)` panelleri kalibre edilerek gelen kişinin başı/gövdesi `1920×1080` orta üçte bire alındı ve HUD örtüşmesi giderildi.
+    - Not: `chr_001` üstündeki ayrı `geometry_0` kalkan parçasının duruş ofseti Tur 4 `CIL-24` karakter gövde denetiminde ele alınacak.
+- **Doğrulamalar:**
+  - `tests/unit/dunya/yapi_yukseltme_gorseli_test.gd` (`CIL-06`): `GEÇTİ`, `EXIT=0`.
+  - `tests/unit/koy/avlu_esya_yerlesim_test.gd` (`CIL-07`): `GEÇTİ (96 avlu, 10 çevre)`, `EXIT=0`.
+  - `tests/oto/topluluk_dekor_kontrol.tscn`: `TOPLULUK DEKOR: GEÇTİ`, `EXIT=0`.
+  - `tests/unit/kvr/coban_surusu_test.gd`: `ÇOBAN SÜRÜSÜ: GEÇTİ`, `EXIT=0`.
+  - `tests/oto/hazir_koy_yapilari_kontrol.tscn`: `HAZIR KÖY YAPILARI: GEÇTİ`, `EXIT=0`.
+  - `tests/oto/karakter_hava_kontrol.tscn`: `KARAKTER HAVA UI: GEÇTİ`, `EXIT=0`.
+  - `tests/oto/kapi_sahne_cakisma_kontrol.tscn` (`CIL-25`): `GEÇTİ`, `EXIT=0`.
+  - `tests/unit/dunya/sah_kamera_kanit_test.gd`: `SAH KAMERA KANIT: GEÇTİ (31 kontrol)`, `EXIT=0`.
+  - `tests/oto/heybe_kadraji_kontrol.tscn`: `GEÇTİ`, `EXIT=0`.
+  - Görsel kanıt (`CIL-25` önce/sonra): `once_gunduz.png` / `once_gece.png` vs `sonra_gunduz.png` / `sonra_gece.png` (`C:\Users\Ahmet\.gemini\antigravity\brain\e6a7a1c2-adbb-4290-b2de-26433fb4b2f3\scratch\`).
+- **Kota:** kota görünmüyor. (Antigravity)

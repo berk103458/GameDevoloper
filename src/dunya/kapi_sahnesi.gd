@@ -6,8 +6,8 @@ class_name KapiSahnesi
 extends Node3D
 
 const DURMA := Vector3(0.0, 0.0, -2.5)
-## Kameranın görüş açısı (dikey, derece).
-const GORUS := 46.0
+## Kameranın görüş açısı (dikey, derece) — muhafız göz hizası kapı sorgu kadrajı.
+const GORUS := 38.0
 ## Kuyruk boşken (yalnız yedek) gelenin çıktığı yer: kuyruğun başının da gerisi, sisin içi.
 const BASLANGIC := Vector3(0.0, 0.0, -14.0)
 ## Kuyruğun başından kapıya yürüyüş hızı (m/s): yorgun ama istekli bir adım (~3.5 s).
@@ -74,11 +74,11 @@ func _ready() -> void:
 	add_child(golge_profili)
 	_kagni_kur()
 	kamera = Camera3D.new()
-	# Bekçinin yeri: kapının biraz gerisinde; iki direk ve meşaleler kadrajın kenarlarında (arayüzün solunda) kalır.
-	kamera.position = Vector3(0.0, 1.62, 3.0)
+	# Muhafız nöbet göz hizası: göz/omuz yüksekliği (1.46 m), kapı önündeki kişiye yakın hafif yukarı bakış.
+	kamera.position = Vector3(0.0, 1.46, 1.35)
 	kamera.fov = GORUS
 	add_child(kamera)
-	kamera.look_at(Vector3(0.0, 1.35, -6.0))
+	kamera.look_at(BAKIS_KAPI)
 	_kamera_gecisi = KapiKameraGecisi.new()
 	_kamera_gecisi.kamera = kamera
 	_kamera_gecisi.taban_konum = kamera.position
@@ -285,7 +285,7 @@ func _ayril(g: KarakterModel, kaldi: bool, tehlikeli: bool = true) -> void:
 
 
 ## Kameranın bakış noktası ve görüş açısı (sıra olayında kuyruğa döner).
-const BAKIS_KAPI := Vector3(0.0, 1.35, -6.0)
+const BAKIS_KAPI := Vector3(0.0, 1.42, -6.0)
 const BAKIS_KUYRUK := Vector3(-0.1, 1.1, -14.0)
 var _bakis := BAKIS_KAPI
 
@@ -543,31 +543,32 @@ func _gunduz_ortami(env: Environment) -> void:
 		l.set_meta("taban", float(l.get_meta("taban")) * 0.3)
 
 
-## Sağ orta planda öküzlü kağnı: yükü bir ailenin bütün evi (çuval, sandık, testi, yorgan).
+## Sağ orta planda öküzlü kağnı: hazır O58 saman arabası zaten yüklüdür; ikinci prosedürel yük çakışmaz.
 func _kagni_kur() -> void:
 	var araba := Dunya3B.nesne("araba", 1.7)
 	araba.position = Vector3(1.9, 0, -12.5)
 	araba.rotation.y = deg_to_rad(-100)
 	add_child(araba)
-	var yuk := Node3D.new()
-	yuk.position = araba.position + Vector3(0, 1.0, 0)
-	yuk.rotation.y = araba.rotation.y
-	add_child(yuk)
-	var renkler := [Color("#6b5a40"), Color("#4a3a2c"), Color("#5c4a5a"), Color("#7a6a4a")]
-	for i in 5:
-		var m := MeshInstance3D.new()
-		if i % 2 == 0:
-			var k := SphereMesh.new()
-			k.radius = 0.35
-			k.height = 0.55
-			m.mesh = k
-		else:
-			var b := BoxMesh.new()
-			b.size = Vector3(0.6, 0.45, 0.5)
-			m.mesh = b
-		m.position = Vector3(-0.7 + i * 0.35, 0.25 + (i % 2) * 0.15, (i % 3 - 1) * 0.3)
-		m.material_override = Dunya3B.duz_malzeme(renkler[i % renkler.size()])
-		yuk.add_child(m)
+	if not Dunya3B.model_var_mi("araba"):
+		var yuk := Node3D.new()
+		yuk.position = araba.position + Vector3(0, 1.0, 0)
+		yuk.rotation.y = araba.rotation.y
+		add_child(yuk)
+		var renkler := [Color("#6b5a40"), Color("#4a3a2c"), Color("#5c4a5a"), Color("#7a6a4a")]
+		for i in 5:
+			var m := MeshInstance3D.new()
+			if i % 2 == 0:
+				var k := SphereMesh.new()
+				k.radius = 0.35
+				k.height = 0.55
+				m.mesh = k
+			else:
+				var b := BoxMesh.new()
+				b.size = Vector3(0.6, 0.45, 0.5)
+				m.mesh = b
+			m.position = Vector3(-0.7 + i * 0.35, 0.25 + (i % 2) * 0.15, (i % 3 - 1) * 0.3)
+			m.material_override = Dunya3B.duz_malzeme(renkler[i % renkler.size()])
+			yuk.add_child(m)
 	if Dunya3B.model_var_mi("okuz"):
 		_okuz = Dunya3B.nesne("okuz", 1.55)
 		_okuz.position = araba.position + Vector3(-0.6, 0, 2.6)

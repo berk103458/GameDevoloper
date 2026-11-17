@@ -44,7 +44,8 @@ func _ready() -> void:
 		_:
 			_tas_sur(5.6, true)
 	for yan in [-1.0, 1.0]:
-		_mesale(Vector3(yan * (YARI - 0.3), 2.05, Z + (0.85 if seviye <= 1 and Dunya3B.model_var_mi("kapi_ic", "yapi") else 0.4)), yan)
+		var m_kon := Vector3(yan * 1.85, 2.05, 0.22) if (seviye <= 1 and Dunya3B.model_var_mi("kapi_ic", "yapi")) else Vector3(yan * (YARI - 0.30), 2.05, Z + 0.96)
+		_mesale(m_kon, yan)
 	_esik()
 	_on_plan()
 
@@ -88,23 +89,22 @@ func _kutuk_kapi() -> void:
 		_kapi_ic_kur(4.9)
 		for yan in [-1.0, 1.0]:
 			for i in 6:
-				var x: float = yan * (4.0 + i * 0.45)
-				_silindir(0.04, 1.3, Vector3(x, 0.65, Z + 0.1), _kutuk, Vector3(0, 0, yan * 0.05))
+				var x: float = yan * (4.05 + i * 0.45)
+				_silindir(0.04, 1.3, Vector3(x, 0.65, Z + 0.08), _kutuk, Vector3(0, 0, yan * 0.05))
 			for h in [0.45, 0.95]:
-				_kutu(Vector3(2.8, 0.07, 0.07), Vector3(yan * 5.2, h, Z + 0.1), _ahsap)
+				_kutu(Vector3(2.8, 0.07, 0.07), Vector3(yan * 5.2, h, Z + 0.20), _ahsap)
 		return
 	for yan in [-1.0, 1.0]:
 		_silindir(0.22, 4.0, Vector3(yan * YARI, 2.0, Z), _kutuk)
-		# Alçak örgü çit (çubuklar + yatay sırıklar).
+		# Alçak örgü çit (çubuklar + yatay sırıklar — çakışmasız ayrılmış).
 		for i in 10:
 			var x: float = yan * (YARI + 0.5 + i * 0.45)
-			_silindir(0.04, 1.3, Vector3(x, 0.65, Z + 0.1), _kutuk, Vector3(0, 0, yan * 0.05))
+			_silindir(0.04, 1.3, Vector3(x, 0.65, Z + 0.06), _kutuk, Vector3(0, 0, yan * 0.05))
 		for h in [0.45, 0.95]:
-			_kutu(Vector3(4.6, 0.07, 0.07), Vector3(yan * (YARI + 2.5), h, Z + 0.1), _ahsap)
-	_silindir(0.17, YARI * 2.0 + 0.9, Vector3(0, 3.35, Z), _kutuk, Vector3(0, 0, PI / 2.0))
-	# Kirişe bağlı ip ve çaprazlama sırık: kaba ama tutuyor.
+			_kutu(Vector3(4.6, 0.07, 0.07), Vector3(yan * (YARI + 2.5), h, Z + 0.18), _ahsap)
+	_silindir(0.17, YARI * 2.0 + 0.3, Vector3(0, 4.18, Z), _kutuk, Vector3(0, 0, PI / 2.0))
 	for yan in [-1.0, 1.0]:
-		_silindir(0.06, 1.3, Vector3(yan * (YARI - 0.45), 2.95, Z), _koyu_ahsap, Vector3(0, 0, yan * 0.8))
+		_silindir(0.06, 0.75, Vector3(yan * (YARI - 0.55), 3.65, Z), _koyu_ahsap, Vector3(0, 0, yan * 0.75))
 
 
 # ── 1: ahşap kapı + kazık çit ──
@@ -117,7 +117,7 @@ func _ahsap_kapi() -> void:
 			ornek.free()
 			for i in 4:
 				var c := Dunya3B.nesne("kazik_cit", 3.6)
-				c.position = Vector3(yan * (4.1 + w / 2.0 + i * w * 0.95), 0, Z - 0.1)
+				c.position = Vector3(yan * (4.15 + w / 2.0 + i * (w + 0.05)), 0, Z - 0.1)
 				add_child(c)
 		return
 	for yan in [-1.0, 1.0]:
@@ -128,129 +128,135 @@ func _ahsap_kapi() -> void:
 		ornek.free()
 		for i in 5:
 			var c := Dunya3B.nesne("kazik_cit", 3.6)
-			c.position = Vector3(yan * (YARI + 0.35 + w / 2.0 + i * w * 0.95), 0, Z - 0.1)
+			c.position = Vector3(yan * (YARI + 0.45 + w / 2.0 + i * (w + 0.05)), 0, Z - 0.1)
 			add_child(c)
-	_kutu(Vector3(YARI * 2.0 + 1.2, 0.45, 0.55), Vector3(0, 3.45, Z), _ahsap)
+	_kutu(Vector3(YARI * 2.0 + 0.6, 0.45, 0.55), Vector3(0, 4.85, Z), _ahsap)
 	for x in [-1.2, 0.0, 1.2]:
-		_kutu(Vector3(0.08, 0.47, 0.58), Vector3(x, 3.45, Z), _demir)
+		_kutu(Vector3(0.08, 0.47, 0.05), Vector3(x, 4.85, Z + 0.31), _demir)
 	_gecit(1.4, false)
 
 
 # ── 2 ve 3: taş sur ──
 func _tas_sur(boy: float, kuleli: bool) -> void:
+	var direk_boy := 3.9
 	for yan in [-1.0, 1.0]:
-		# Sur duvarı: taş dokulu kalın gövde (dokuda taşlar zaten var; blok blok örmek gerekmez).
-		_kutu(Vector3(10.0, boy, 1.1), Vector3(yan * (YARI + 0.45 + 5.0), boy * 0.5, Z - 0.2), _tas)
-		_direk(yan, boy - 0.3)
+		# Sur duvarı: kapı direği / kuleden temiz ayrı başlar.
+		var duvar_bas := YARI + (2.65 if kuleli else 0.72)
+		_kutu(Vector3(9.0, boy, 1.1), Vector3(yan * (duvar_bas + 4.5), boy * 0.5, Z - 0.35), _tas)
+		_direk(yan, direk_boy)
 		_kanat(yan)
 		if kuleli:
-			# Mazgallar ve kapının iki yanında çıkıntılı kule gövdesi.
-			for i in 7:
-				_kutu(Vector3(0.7, 0.7, 1.2), Vector3(yan * (YARI + 1.0 + i * 1.4), boy + 0.35, Z - 0.2), _tas)
-			_kutu(Vector3(2.0, boy + 1.4, 2.2), Vector3(yan * (YARI + 1.6), (boy + 1.4) * 0.5, Z - 1.2), _tas)
-	# Kapı üstü: taş kemer (kilit taşı ortada); 3'te kemerin üstünde kule duvarı ve sancak.
-	_kemer(2.6 if not kuleli else 2.7)
-	_kutu(Vector3(YARI * 2.0 + 1.4, boy - 3.6, 1.2), Vector3(0, 3.6 + (boy - 3.6) * 0.5 + 0.35, Z - 0.2), _tas)
-	_gecit(1.3 if kuleli else 0.9, true)
+			for i in 6:
+				_kutu(Vector3(0.7, 0.65, 1.1), Vector3(yan * (duvar_bas + 0.6 + i * 1.4), boy + 0.35, Z - 0.35), _tas)
+			_kutu(Vector3(1.85, boy + 1.4, 2.0), Vector3(yan * (YARI + 1.65), (boy + 1.4) * 0.5, Z - 0.8), _tas)
+	_kemer(direk_boy + 0.05)
+	_gecit(1.25 if kuleli else 0.9, true)
 	if kuleli:
-		_kutu(Vector3(YARI * 2.0 + 1.4, 1.6, 1.2), Vector3(0, boy + 0.95, Z - 0.2), _tas)
+		_kutu(Vector3(YARI * 2.0 + 0.6, 1.2, 1.0), Vector3(0, boy + 0.75, Z - 0.35), _tas)
 		if Dunya3B.model_var_mi("sancak"):
 			var s := Dunya3B.nesne("sancak", 1.8)
-			s.position = Vector3(0, boy - 1.0, Z + 0.45)
+			s.position = Vector3(0, boy + 1.4, Z - 0.35)
 			add_child(s)
 		else:
-			var sancak := _kutu(Vector3(0.9, 1.6, 0.04), Vector3(0, boy - 0.2, Z + 0.45), Dunya3B.duz_malzeme(Color("#6a1e1a")))
+			var sancak := _kutu(Vector3(0.9, 1.6, 0.04), Vector3(0, boy + 2.2, Z - 0.35), Dunya3B.duz_malzeme(Color("#6a1e1a")))
 			sancak.rotation.x = 0.05
 
 
-## Taş kemer: iki direğin üstünden yarım daire dizilmiş takozlar ve kilit taşı.
+## Taş kemer: iki direğin üstünden üst üste binmeden dizilen takozlar ve kilit taşı.
 func _kemer(dogus: float) -> void:
-	var adet := 11
+	var adet := 9
 	for i in adet:
+		if i == 4:
+			continue
 		var a := PI * (i + 0.5) / adet
-		var p := Vector3(cos(a) * YARI, dogus + sin(a) * YARI * 0.55, Z + 0.3)
+		var p := Vector3(cos(a) * YARI * 0.96, dogus + sin(a) * YARI * 0.68, Z + 0.25)
 		var ton := _tas.duplicate() as StandardMaterial3D
 		ton.albedo_color = _tas.albedo_color.darkened(0.04 * (i % 3))
-		var tas := _kutu(Vector3(0.5, 0.42, 0.7), p, ton)
+		var tas := _kutu(Vector3(0.24, 0.24, 0.45), p, ton)
 		tas.rotation.z = a - PI / 2.0
-	_kutu(Vector3(0.42, 0.55, 0.75), Vector3(0, dogus + YARI * 0.55 + 0.05, Z + 0.32), _tas)
-	# Kemerin iki yanını dolduran duvar.
-	for yan in [-1.0, 1.0]:
-		_kutu(Vector3(1.0, 1.4, 0.7), Vector3(yan * (YARI + 0.1), dogus + 0.6, Z + 0.3), _tas)
+	_kutu(Vector3(0.32, 0.38, 0.50), Vector3(0, dogus + YARI * 0.72, Z + 0.25), _tas)
 
 
-## Kapı geçidi: direklerin ardında `derin` metre derinlikte yan duvarlar (açıklığın kenarlarından görünür).
+## Kapı geçidi: direklerin ardında `derin` metre derinlikte yan duvarlar (çakışmasız başlar).
 func _gecit(derin: float, tas: bool) -> void:
+	var bas_z := Z - 0.34
 	for yan in [-1.0, 1.0]:
 		if tas:
-			# Geçit duvarı: tek taş gövde; ağzında hafif içeri çekilmiş bir sıra blok (kalınlık okunsun).
-			_kutu(Vector3(0.7, 3.8, derin), Vector3(yan * (YARI + 0.35), 1.9, Z - derin * 0.5), _tas)
+			_kutu(Vector3(0.65, 3.8, derin), Vector3(yan * (YARI + 0.35), 1.9, bas_z - derin * 0.5), _tas)
 			var y := 0.0
 			while y < 3.4:
-				var h := 0.5 + fmod(y * 3.7, 0.25)
-				_kutu(Vector3(0.18, h - 0.03, 0.55), Vector3(yan * (YARI + 0.02), y + h * 0.5, Z - 0.3), _tas)
+				var h := 0.48 + fmod(y * 3.7, 0.22)
+				_kutu(Vector3(0.16, h - 0.04, 0.45), Vector3(yan * (YARI - 0.10), y + h * 0.5, bas_z - 0.28), _tas)
 				y += h
 		else:
-			var z := Z - 0.1
-			while z > Z - derin:
-				_silindir(0.16, 3.4 + fmod(z * 7.0, 0.5), Vector3(yan * (YARI + 0.05), 1.75, z - 0.16), _kutuk)
-				z -= 0.32
+			var z := bas_z - 0.18
+			while z > bas_z - derin:
+				_silindir(0.14, 3.4 + fmod(absf(z) * 7.0, 0.4), Vector3(yan * (YARI + 0.12), 1.75, z), _kutuk)
+				z -= 0.34
 
 
 func _direk(yan: float, boy: float) -> void:
-	# Kalın kapı direği: dikey kalaslar (aralarında koyu derz) ve demir lamalar.
+	# Kalın kapı direği: dikey kalaslar ve ön yüzde çakışmasız demir lamalar + çiviler.
 	for k in 3:
-		_kutu(Vector3(0.18, boy, 0.6), Vector3(yan * (YARI - 0.18 + k * 0.185), boy * 0.5, Z), _ahsap if k % 2 == 0 else _koyu_ahsap)
+		_kutu(Vector3(0.175, boy, 0.58), Vector3(yan * (YARI - 0.18 + k * 0.185), boy * 0.5, Z), _ahsap if k % 2 == 0 else _koyu_ahsap)
 	for h in [0.9, 2.4, boy - 0.6]:
-		_kutu(Vector3(0.57, 0.08, 0.62), Vector3(yan * YARI, h, Z + 0.01), _demir)
+		_kutu(Vector3(0.57, 0.08, 0.04), Vector3(yan * YARI, h, Z + 0.32), _demir)
 		for c in [-0.2, 0.0, 0.2]:
-			var civi := _kutu(Vector3(0.05, 0.05, 0.05), Vector3(yan * YARI + c, h, Z + 0.34), _demir)
+			var civi := _kutu(Vector3(0.04, 0.04, 0.03), Vector3(yan * YARI + c, h, Z + 0.365), _demir)
 			civi.scale = Vector3.ONE
 	if seviye >= 2:
-		# Taş söve: direğin iç yanında ve önünde kaba yontma bloklar (kenarı dişli).
 		var y := 0.0
 		var i := 0
 		while y < 3.0:
-			var h := 0.45 + (i % 2) * 0.12
-			var en := 0.42 + (i % 3) * 0.1
+			var h := 0.44 + (i % 2) * 0.10
+			var en := 0.36 + (i % 3) * 0.08
 			var ton := _tas.duplicate() as StandardMaterial3D
 			ton.albedo_color = _tas.albedo_color.darkened(0.05 + (i % 4) * 0.05)
-			_kutu(Vector3(en, h - 0.04, 0.3), Vector3(yan * (YARI - 0.3 + en * 0.5), y + h * 0.5, Z + 0.42), ton)
-			y += h
+			_kutu(Vector3(en, h - 0.05, 0.24), Vector3(yan * (YARI - 0.30 + en * 0.5), y + h * 0.5, Z + 0.52), ton)
+			y += h + 0.02
 			i += 1
 
 
 func _kanat(yan: float) -> void:
-	# Kale kapısının kanadı (Poly Haven `large_castle_door`): içe doğru tam açık, geçidin iç yüzüne yaslı.
+	# Kale kapısının kanadı (Poly Haven `large_castle_door`): tam açık, geçidin iç yan duvarına yaslı.
 	var model := Pbr.model("large_castle_door")
 	if model != null:
 		for c in model.get_children():
 			var ad := String(c.name)
 			if not ad.ends_with("_left" if yan < 0.0 else "_right"):
 				c.queue_free()
-		model.scale = Vector3(1.7, 1.2, 1.3)
-		model.position = Vector3(yan * (YARI + 0.1), 0, Z + 0.25)
-		model.rotation.y = yan * -1.5
+		model.scale = Vector3(0.95, 1.15, 0.95)
+		model.position = Vector3(yan * (YARI - 0.43), 0, Z - 0.42)
+		model.rotation.y = yan * 1.56
 		add_child(model)
 		return
 	# Model yoksa: kalaslardan kanat.
 	var kanat := Node3D.new()
-	# Kanat duvarın iç yüzüne yaslanmış (tam açık): direğin ardında kalır, görüşü kapatmaz.
-	kanat.position = Vector3(yan * (YARI + 0.3), 0, Z + 0.45)
+	kanat.position = Vector3(yan * (YARI + 0.3), 0, Z + 0.72)
 	add_child(kanat)
 	for i in 4:
-		var t := _kutu(Vector3(0.5, 3.9, 0.12), Vector3(yan * (0.27 + i * 0.5), 1.95, 0), _ahsap if i % 2 == 0 else _koyu_ahsap)
+		var t := _kutu(Vector3(0.48, 3.8, 0.12), Vector3(yan * (0.27 + i * 0.5), 1.9, 0), _ahsap if i % 2 == 0 else _koyu_ahsap)
 		remove_child(t)
 		kanat.add_child(t)
 	for h in [0.8, 3.0]:
-		var l := _kutu(Vector3(2.0, 0.12, 0.16), Vector3(yan * 1.0, h, 0.03), _demir)
+		var l := _kutu(Vector3(1.9, 0.12, 0.04), Vector3(yan * 1.0, h, 0.09), _demir)
 		remove_child(l)
 		kanat.add_child(l)
 
 
 func _mesale(konum: Vector3, yan: float) -> void:
-	# Duvara demir kolla bağlı sepetli meşale.
-	_kutu(Vector3(0.06, 0.06, 0.45), konum + Vector3(0, -0.35, -0.2), _demir, Vector3(-0.6, 0, 0))
+	# Tek birleşik meşale grubu (kol + sepet + kor + alev tek düğümde, dış duvarla çakışmaz).
+	var grup := Node3D.new()
+	grup.name = "kapi_mesale_" + ("sol" if yan < 0.0 else "sag")
+	add_child(grup)
+	var kol := MeshInstance3D.new()
+	var kb := BoxMesh.new()
+	kb.size = Vector3(0.06, 0.06, 0.26)
+	kol.mesh = kb
+	kol.position = konum + Vector3(0, -0.22, -0.14)
+	kol.rotation = Vector3(-0.6, 0, 0)
+	kol.material_override = _demir
+	grup.add_child(kol)
 	var sepet := MeshInstance3D.new()
 	var c := CylinderMesh.new()
 	c.top_radius = 0.09
@@ -260,11 +266,11 @@ func _mesale(konum: Vector3, yan: float) -> void:
 	sepet.mesh = c
 	sepet.position = konum
 	sepet.material_override = _demir
-	add_child(sepet)
+	grup.add_child(sepet)
 	# Alev: parçacık (yumuşak, titreşen); sepetin içinde küçük kor.
 	var alev := Node3D.new()
 	alev.position = KapiKuyuAyari.alev_konumu(konum)
-	add_child(alev)
+	grup.add_child(alev)
 	for k in 2:
 		var dil := KapiManzarasi.alev(0.42 - k * 0.12, 3.0 - k * 0.6, yan * 5.0 + k * 2.3)
 		dil.position = Vector3((k - 0.5) * 0.03, 0, 0)
@@ -274,14 +280,14 @@ func _mesale(konum: Vector3, yan: float) -> void:
 	kk.radius = 0.07
 	kk.height = 0.08
 	kor.mesh = kk
-	kor.position = konum + Vector3(0, 0.07, 0)
+	kor.position = konum + Vector3(0, 0.12, 0)
 	var km := StandardMaterial3D.new()
 	km.albedo_color = Color.BLACK
 	km.emission_enabled = true
 	km.emission = Color("#ff8a2a")
 	km.emission_energy_multiplier = 3.0
 	kor.material_override = km
-	add_child(kor)
+	grup.add_child(kor)
 	var isik := OmniLight3D.new()
 	isik.light_color = Renkler.MESALE
 	var ayar: Dictionary = preload("res://data/ayarlar/sahne.json").data.kapi_isik
@@ -327,24 +333,27 @@ func esik_yuksekligi(konum: Vector3) -> float:
 
 
 func _on_plan() -> void:
-	# Kapının içinde, iki kenarda: fıçılar ve sandık (Poly Haven modelleri), testi. Sorgu alanından uzakta.
+	# Kapının iç avlusunda çakışmasız yan yerleşimler (kapi_ic z_max=-0.048 önü, yaya yolu dışı).
 	var fici := Pbr.model("wooden_barrels_01")
 	if fici != null:
 		for c in fici.get_children():
 			if not String(c.name).ends_with("barrel01"):
 				c.queue_free()
 			else:
-				# Takımdaki konumu sıfırlanır: fıçı kendi yerinde (kapının sol dibinde) durur.
-				(c as Node3D).position = Vector3((c as Node3D).position.x * 0.0, (c as Node3D).position.y, 0)
-		fici.position = Vector3(-YARI + 0.35, 0, Z + 0.55)
+				(c as Node3D).position = Vector3(0.0, (c as Node3D).position.y, 0.0)
+		fici.position = Vector3(-2.65, 0.0, 0.55)
 		fici.rotation.y = 0.4
 		add_child(fici)
 	var sandik := Pbr.model("wooden_crate_01")
 	if sandik != null:
-		sandik.position = Vector3(YARI - 0.35, 0, Z + 0.9)
-		sandik.rotation.y = -0.5
-		sandik.scale = Vector3.ONE * 1.1
+		sandik.position = Vector3(1.62, 0.02, 0.45)
+		sandik.rotation.y = -0.3
+		sandik.scale = Vector3.ONE * 1.05
 		add_child(sandik)
+	var testi_grup := Node3D.new()
+	testi_grup.name = "testi"
+	testi_grup.position = Vector3(0.80, 0.0, 0.28)
+	add_child(testi_grup)
 	var testi := Dunya3B.duz_malzeme(Color("#6e3f26"))
 	testi.roughness = 0.85
 	var govde := MeshInstance3D.new()
@@ -352,16 +361,25 @@ func _on_plan() -> void:
 	k.radius = 0.2
 	k.height = 0.46
 	govde.mesh = k
-	govde.position = Vector3(YARI - 0.95, 0.23, Z + 0.5)
+	govde.position = Vector3(0.0, 0.23, 0.0)
 	govde.material_override = testi
-	add_child(govde)
-	_silindir(0.06, 0.14, Vector3(YARI - 0.95, 0.5, Z + 0.5), testi)
+	testi_grup.add_child(govde)
+	var boyun := MeshInstance3D.new()
+	var bc := CylinderMesh.new()
+	bc.top_radius = 0.06
+	bc.bottom_radius = 0.063
+	bc.height = 0.12
+	bc.radial_segments = 10
+	boyun.mesh = bc
+	boyun.position = Vector3(0.0, 0.52, 0.0)
+	boyun.material_override = testi
+	testi_grup.add_child(boyun)
 	if Dunya3B.model_var_mi("nobet_ocagi"):
 		var ocak := Dunya3B.nesne("nobet_ocagi", 0.85)
-		ocak.position = Vector3(-YARI + 0.65, 0, Z + 1.15)
+		ocak.position = Vector3(-1.35, 0.0, 0.75)
 		add_child(ocak)
 	if Dunya3B.model_var_mi("mizrak_sehpasi"):
 		var sehpa := Dunya3B.nesne("mizrak_sehpasi", 1.5)
-		sehpa.position = Vector3(YARI - 0.55, 0, Z + 1.45)
-		sehpa.rotation.y = -0.35
+		sehpa.position = Vector3(2.98, 0.0, 1.05)
+		sehpa.rotation.y = 0.0
 		add_child(sehpa)

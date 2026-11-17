@@ -15,19 +15,31 @@ const YAPI_MAP := {
 }
 
 
-## Yapı türünü gerçek model kimliğine eşler (`avci` → `avci_cadiri`, `kisla` → `muhafiz_kislasi`, `han` → `pazar_tezgahi`).
+## Yapı türünü gerçek model kimliğine eşler (`avci` → `avci_cadiri`, `kisla` → `muhafiz_kislasi`, `han` → `pazar_tezgahi` / `kervansaray`).
 static func yapi_adi(tur: String) -> String:
+	return yapi_adi_seviyeli(tur, 1)
+
+
+## Seviye duyarlı yapı kimliği (`han` seviye 2+ olduğunda `kervansaray`).
+static func yapi_adi_seviyeli(tur: String, seviye: int = 1) -> String:
+	if tur == "han":
+		if seviye >= 2 and Dunya3B.model_var_mi("kervansaray", "yapi"):
+			return "kervansaray"
+		if Dunya3B.model_var_mi("pazar_tezgahi", "yapi"):
+			return "pazar_tezgahi"
+		return tur
 	if YAPI_MAP.has(tur):
-		var hedef := String(YAPI_MAP[tur])
-		if tur == "han" and not Dunya3B.model_var_mi(hedef, "yapi"):
-			return tur
-		return hedef
+		return String(YAPI_MAP[tur])
 	return tur
 
 
-## Tezgâh han hücresine (2 m) sığsın; diğer yapılar çağıranın boyunu kullanır.
+## Tezgâh han hücresine (2 m) sığsın; kervansaray 3.2 m, diğer yapılar çağıranın boyunu kullanır.
 static func yukseklik(ad: String, varsayilan: float) -> float:
-	return PAZAR_BOY if ad == "pazar_tezgahi" else varsayilan
+	if ad == "pazar_tezgahi":
+		return PAZAR_BOY
+	if ad == "kervansaray":
+		return 3.2
+	return varsayilan
 
 
 static func kur(s: KoyYonetimSahnesi, ust: Node3D) -> void:

@@ -27,12 +27,22 @@ static func hedef(y: KoyYonetimi, r: KoyRotasi, bas: Vector2i, sira: int, kisi: 
   if son.x >= 0 and not r.yol(bas, son).is_empty():
    return {"son": son, "ad": d.ad, "sira": posmod(sira + i, ds.size())}
  return {}
-## Mevcut yapı köküne dört ahşap gözetleme platformu; kayıt/ızgara doluluğu değişmez.
+## Mevcut yapı köküne seviye uyumlu gözetleme kuleleri (S1 A113 → S2 O72 → S3 gozetleme_kulesi.glb).
 static func kule_kur(s: KoyYonetimSahnesi, kok: Node3D) -> void:
  if s.yonetim.sur_seviye <= 0 or s.yonetim.sur_hasar >= 100: return
  var en := float(AYAR.kule_genislik)
  var boy := float(AYAR.kule_yukseklik)
  var d := float(AYAR.direk_kalinlik)
+ var model_ad := "gozetleme_kulesi"
+ var kat := "yapi"
+ if s.yonetim.sur_seviye <= 1 and Dunya3B.model_var_mi("td_a113"):
+  model_ad = "td_a113"
+  kat = ""
+  boy = 4.8
+ elif s.yonetim.sur_seviye == 2 and Dunya3B.model_var_mi("td_o72"):
+  model_ad = "td_o72"
+  kat = ""
+  boy = 5.5
  for h in kuleler(s.yonetim):
   var n := Node3D.new()
   n.name = "devriye_kulesi_%d_%d" % [h.x, h.y]
@@ -41,8 +51,10 @@ static func kule_kur(s: KoyYonetimSahnesi, kok: Node3D) -> void:
   # Izgara dışına taşan kule; yürüyüş zeminde iç köşe durağına yapılır.
   n.position += Vector3(-s.HUCRE if h.x == 0 else s.HUCRE, 0, -s.HUCRE if h.y == 0 else s.HUCRE)
   kok.add_child(n)
-  if Dunya3B.model_var_mi("gozetleme_kulesi", "yapi"):
-   n.add_child(Dunya3B.nesne("gozetleme_kulesi", boy, "yapi"))
+  if Dunya3B.model_var_mi(model_ad, kat):
+   var kule := Dunya3B.sigdir(model_ad, boy, kat, 3.6, 3.6)
+   kule.name = "meshy_" + model_ad
+   n.add_child(kule)
    continue
   for x in [-1, 1]:
    for z in [-1, 1]: _kutu(n, Vector3(d, boy, d), Vector3(x * en / 2, boy / 2, z * en / 2))
