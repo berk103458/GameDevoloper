@@ -29,10 +29,9 @@ func _ready() -> void:
 
 
 func _calistirilsin() -> bool:
-	var tum := " ".join(OS.get_cmdline_args())
-	if "tests/" in tum or "--import" in tum or "--editor" in tum:
-		return false
-	return true
+	# Beş ayrı aday paket (Lamoot, Kenney, Crisp) ana menünün üstüne biniyordu.
+	# Oyun içi kabuk artık tek gece kapısı temasıdır. Menü satırları kendi çizer.
+	return false
 
 
 func _eklendi(n: Node) -> void:

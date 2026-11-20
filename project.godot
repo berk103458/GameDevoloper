@@ -28,6 +28,10 @@ AdayTema="*res://src/arayuz/ui_adaylari/bagla.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GdPAIAutoload="*res://addons/GdPlanningAI/gdpai_autoload.gd"
 
+[dialogue_manager]
+
+runtime/balloon_path="res://src/arayuz/diyalog/balon.tscn"
+
 [display]
 
 window/size/viewport_width=1920

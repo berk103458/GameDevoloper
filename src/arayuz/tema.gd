@@ -14,6 +14,10 @@ const FONT_ITALIK := "res://assets/font/Alegreya-Italic-wght.ttf"
 ## Verilen ayarlara göre tema üretir.
 static func olustur(ayarlar: Ayarlar) -> Theme:
 	var t := Theme.new()
+	if ResourceLoader.exists(GeceKapisiCerceve.TEMA):
+		var kayit := load(GeceKapisiCerceve.TEMA) as Theme
+		if kayit != null:
+			t = kayit.duplicate(true)
 	t.default_font = font(400)
 	t.default_font_size = ayarlar.boyut(GOVDE_PX)
 	t.set_font("italics_font", "RichTextLabel", font(400, true))
@@ -55,6 +59,12 @@ static func olustur(ayarlar: Ayarlar) -> Theme:
 	t.set_stylebox("background", "ProgressBar", Kabuk.bar_stili(Kabuk.BAR_ARKA))
 	t.set_stylebox("fill", "ProgressBar", Kabuk.bar_stili(Kabuk.BAR_DOLU))
 	_menu_dugmesi(t, ayarlar)
+	# Menü düğmesi kutusuz kalır. Oyun içi panel ve düğme, doku varsa çerçeve giyer.
+	GeceKapisiCerceve.uygula(t)
+	# Basılı düğme artık açık zemin değil. Yazı kül kalsın.
+	t.set_color("font_pressed_color", "Button", Renkler.KUL)
+	t.set_color("font_hover_pressed_color", "Button", Renkler.KUL)
+	t.set_color("icon_pressed_color", "Button", Renkler.KUL)
 	return t
 
 
@@ -99,7 +109,7 @@ static func _kutu(dolgu: Color, kenar: Color, kalinlik: int) -> StyleBoxFlat:
 
 
 ## Köy panelleri Kabuk'tan gelir. Görünüm seçilince yalnız Kabuk.panel() değişir.
-static func koy_paneli() -> StyleBoxFlat:
+static func koy_paneli() -> StyleBox:
 	return Kabuk.panel()
 
 ## Köy başlıklarında kullanılan SIL OFL lisanslı Cinzel.

@@ -38,7 +38,14 @@ static func vurgu() -> Color:
 	return MenuSatiri.ALTIN
 
 
-static func panel() -> StyleBoxFlat:
+static func panel() -> StyleBox:
+	var doku := GeceKapisiCerceve.panel()
+	if doku != null:
+		return doku
+	return _duz_panel()
+
+
+static func _duz_panel() -> StyleBoxFlat:
 	var s := StyleBoxFlat.new()
 	s.bg_color = PANEL_DOLGU
 	s.border_color = PANEL_KENAR

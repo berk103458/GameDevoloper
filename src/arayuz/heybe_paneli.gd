@@ -33,9 +33,8 @@ func _ready() -> void:
 	size = Vector2(1140, 988)
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	_font = Tema.font(500)
-	var zemin := ColorRect.new()
-	zemin.color = Color(Renkler.GECE, 0.94)
-	zemin.size = size
+	var zemin := GeceKapisiCerceve.arka_plan("envanter")
+	zemin.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(zemin)
 	_etiket(tr("heybe.baslik") % gelen_adi, Vector2(48, 24), Tema.BASLIK_PX, Renkler.KUL)
 	var b := _etiket(tr("heybe.soyledigi") % beyan_metni if heybe.soruldu else tr("heybe.sormadin"), Vector2(48, 76), 22, Renkler.SOGUK_MAVI)

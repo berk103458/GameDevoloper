@@ -23,10 +23,9 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	if ayarlar != null:
 		AyarlarEk.bagla(ayarlar)
-	var zemin := Panel.new()
+	var zemin := GeceKapisiCerceve.arka_plan("ayarlar")
 	zemin.name = "TemaZemini"
 	zemin.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	zemin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(zemin)
 	var kenar := MarginContainer.new()
 	kenar.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
