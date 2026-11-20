@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Eklenti kurulumu — 20 Kasım 2026
+
+Yedi paketten altısı resmi sürümle, Instanced Renderer 1.3 ile (2.0.0 Linux ikilisi GLIBC 2.43 istediği için alınmadı) `addons/` altına kondu. Oyun sahnesi ve çekirdek kod değişmedi. `project.godot` yalnız eklenti listesi ve iki autoload. Ayrıntı: `docs/EKLENTI_LISANSLARI.md`. Köylü için öneri LimboAI. Headless import çıkış 0, yeni SCRIPT ERROR yok. Tam sanity yok. Asset gerekmedi. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## Hazır 3D set taraması — 20 Kasım 2026
 
 Yalnız belge: `docs/arayuz/HAZIR_ASSET_SETLERI.md`. 14 set. Kod ve indirme yok. Asset gerekmedi. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.

@@ -160,3 +160,7 @@ Bu araçlar kapı, köy ve kayıt koduna bağlanmadı. `src/` ve `project.godot`
 - Ne işe yarar: Düz metinle yazılan, satır satır ilerleyen diyalog eklentisi. Tamamı GDScript. `Dialogue.load`, `TheatreStage.start`, `progress` akışıyla çalışır. Değişken atama ve `Expression` tabanlı ifade değerlendirmesi içerir.
 - Kurulum yolu: `addons/Theatre/`
 - Godot 4.7.2 uyumu: Uyumlu; headless ve editör import'unda SCRIPT ERROR veya Failed to load vermeden yüklendi. Yalnızca `feature/diyalog-eklenti-denemesi` dalında `project.godot` eklenti listesinde etkinleştirildi.
+
+## 8. 20 Kasım 2026 eklenti paketi
+
+Dialogue Manager, Sky3D, Terrain3D, LimboAI, GdPlanningAI, ProtonScatter ve Instanced Renderer bu turda `addons/` altına kondu ve (`plugin.cfg` olanlar) `project.godot` içinde etkinleştirildi. Sürüm, commit, lisans ve alınmayan Instanced Renderer 2.0.0 notu: `docs/EKLENTI_LISANSLARI.md`. Oyun sahnelerine bağlanmadı.

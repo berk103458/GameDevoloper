@@ -25,6 +25,8 @@ buses/default_bus_layout="res://data/ses/default_bus_layout.tres"
 
 Ses="*res://src/sistemler/ses.gd"
 AdayTema="*res://src/arayuz/ui_adaylari/bagla.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GdPAIAutoload="*res://addons/GdPlanningAI/gdpai_autoload.gd"
 
 [display]
 
@@ -41,7 +43,7 @@ script/search_in_file_extensions=PackedStringArray("gd", "gdshader", "dlg")
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/parley/plugin.cfg", "res://addons/Theatre/plugin.cfg")
+enabled=PackedStringArray("res://addons/parley/plugin.cfg", "res://addons/Theatre/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/sky_3d/plugin.cfg", "res://addons/terrain_3d/plugin.cfg", "res://addons/GdPlanningAI/plugin.cfg", "res://addons/proton_scatter/plugin.cfg")
 
 [internationalization]
 
