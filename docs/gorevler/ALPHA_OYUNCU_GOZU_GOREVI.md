@@ -93,9 +93,61 @@ Her bölümün sonunda aynı dört başlık yazılır.
 
 ### 5. Kendi ajanların oyunu görsün
 
-Godot Engine'in resmi bir MCP sunucusu yoktur. `godotengine.org` ve resmi belge bunu tanımlamaz. Aşağıdaki depolar üçüncü taraftır. Hiçbiri bu oyunda denenmedi. "Resmi Godot eklentisi" deme.
+Godot Engine'in resmi bir MCP sunucusu yoktur. `godotengine.org` ve resmi belge bunu tanımlamaz. "Resmi Godot eklentisi" deme.
 
-Önce eklentisiz yol. Bu yol bugün çalışır ve repoya dosya eklemez.
+Birincil yol **hi-godot/godot-ai** eklentisi v4'tür. https://github.com/hi-godot/godot-ai
+
+`LICENSE` dosyası (20 Kasım 2026, `main`): **MIT**. Telif satırı `Copyright (c) 2025 Godot AI contributors`. Koşul: bu telif ve izin metni kopyalarda durur. Yazılım olduğu gibi verilir, garanti yoktur. README de lisansı MIT diye yazar.
+
+README'nin ilk cümlesi: eklenti Claude Code, Codex, Cursor ve diğer MCP istemcilerini **canlı bir Godot editörüne** bağlar. Desteklenen istemciler listesinde **Antigravity** vardır. Editör kapalıyken eklenti tarafı yoktur. Bağlantı, README'deki şema:
+
+```text
+MCP client
+  → godot-ai attach (stdio)
+  → Python server (authenticated HTTP, port 8000)
+  → Godot editor plugin (authenticated WebSocket, port 9500)
+```
+
+v4 istemcisi `godot-ai attach` ile stdio üzerinden bağlanır. Düz `http://127.0.0.1:8000/mcp` satırı kimlik doğrulayamaz. README bunu böyle yazar.
+
+Gerekenler, README Quick start: **Godot 4.7+**, [uv](https://docs.astral.sh/uv/getting-started/installation/), bir MCP istemcisi.
+
+Kurulum adımları README Quick start'tan, Windows:
+
+1. uv'yi bir kez kur (PowerShell):
+
+```powershell
+irm https://astral.sh/uv/install.ps1 | iex
+```
+
+2. Eklentiyi Godot **AssetLib** sekmesinden veya bir [GitHub release](https://github.com/hi-godot/godot-ai/releases) dosyasından `your-project/addons/godot_ai/` altına kur.
+3. **Project → Project Settings → Plugins → Godot AI** ile aç.
+4. **Godot AI** dock'unda istemcinin yanındaki **Configure**, ya da **Configure all**. İstemci değişikliği görmezse istemciyi yeniden başlat.
+
+README uyarısı: kurulu sürümün üstüne yeni zip açma. Dock'taki **Update** kullanılır. v3'ten v4'e geçiş de bu düğmeyledir.
+
+Antigravity dosyası README'de hazır JSON olarak durmaz. Dock üretir. Yazılacağı yer, eklenti kaynağı `plugin/addons/godot_ai/clients/antigravity.gd`: Windows'ta `%USERPROFILE%\.gemini\config\mcp_config.json`. Eski `%USERPROFILE%\.gemini\antigravity\mcp_config.json` yalnız mevcut kurulumu tanımak içindir. Yeni kayıt güncel yola gider. Biçim düz `command` / `args` / `env` şeklindedir. `type` anahtarı yoktur. Eski `serverUrl` yeniden yapılandırmada silinir. Elle yazılacak iskelet, argv uydurmadan:
+
+```json
+{
+  "mcpServers": {
+    "godot-ai": {
+      "command": "<dock'un yazdığı komut>",
+      "args": ["<dock'un yazdığı argümanlar>"],
+      "env": {},
+      "disabled": false
+    }
+  }
+}
+```
+
+Kapsam varsayılanı global `user`dir. Proje kapsamı için **Editor Settings → Plugins → `godot_ai/mcp_client_scope`** değerini `project` yap, sonra **Configure**'a yeniden bas. Godot'yu proje klasöründen aç. Dock'un ürettiği komut sürümü, portu ve araç alanını sabitler. Elle `uvx` satırı yazma.
+
+Eklenti repoya commit edilecekse MIT kaydı `docs/credits/` altına yazılır. LICENSE'taki telif satırı kopyada durur. Commit edilmeyecekse `addons/godot_ai/` satırı `.gitignore` dosyasına eklenir. İkisi birden yapılmaz. Eklenti commit edilmiyorsa `project.godot` içindeki eklenti açma satırı da commit edilmez.
+
+Sahne ve betik yazma yetkisi `AGENTS.md` bölüm 2'deki korumalı çekirdek dosya kuralına tabidir. O listedeki dosya baştan yazılmaz. İnce adaptör yeter. Eklentinin kendi sınırı ayrıca durur: README, yazmaların proje içinde kaldığını ve `project.godot`, `override.cfg`, `.godot/` yollarının eklentiye kapalı olduğunu söyler.
+
+Eklentisiz yol test içindir ve durur. MCP değildir.
 
 ```
 C:\Users\Ahmet\Desktop\Godot.exe --headless --editor --import --quit --path C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi
@@ -105,7 +157,9 @@ C:\Users\Ahmet\Desktop\Godot.exe --path C:\Users\Ahmet\Desktop\Cursor_All_DAta\K
 
 20 gece duman, `docs/tester/TESTER_REHBERI.md` bölüm 3.3: `DUMAN_TESTI_20=1` ve `tests/oto/otomatik_oyuncu.tscn`. Ekran görüntüsü için aynı rehberdeki `tests/oto/menu_foto.tscn`, `kapi_foto.tscn`, `koy_foto.tscn`.
 
-Canlı tıklama ve oyun içi kare ancak Ahmet bir MCP kurarsa gelir. Kurulum adımları aşağıdaki iki bölümdedir. Eklenti repoya, Ahmet soru kanalında yazmadan eklenmez. Eklenirse lisansı `docs/credits/` altına kaydedilir.
+**Yedek: Ziva** (https://ziva.sh). Tescilli yazılımdır. Hesap ister. Antigravity resmi istemci listesinde yoktur. Yalnız Cursor, Claude ve Codex içindir. Godot AI kurulamazsa ve Ahmet bu yedeği kendi Cursor, Claude veya Codex oturumunda açarsa kullanılır. Telemetri kapalı kalır. Sohbet yedeği kapalı kalır. Üretim özellikleri ve Share Web build kullanılmaz. Eklenti repoya commit edilmez. Kurulursa klasörü `.gitignore` satırına yazılır.
+
+**Üçüncü seçenek: Coding-Solo/godot-mcp.** https://github.com/Coding-Solo/godot-mcp `LICENSE` dosyası MIT'tir. Telif `Copyright (c) 2025 Solomon Elias`. README özellik listesinde girdi simülasyonu ve ekran görüntüsü yoktur. Godot AI çalışıyorsa bu kurulmaz. İkisi birden açık kalmaz.
 
 ## Bölüm sırası
 
@@ -132,43 +186,15 @@ C:\Users\Ahmet\Desktop\Godot.exe --path C:\Users\Ahmet\Desktop\Cursor_All_DAta\K
 
 F1 ile admin paneli gelir. Bayraksız açılış oyuncu sürümüdür. O sürümde F1 yoktur. Bu beklenen davranıştır.
 
-4. MCP şart değildir. Headless test ve foto sahnesi eklentisiz çalışır. Canlı tıklama istiyorsan aşağıdaki ikisinden birini seç. İkisini birden kurma.
+4. Birincil bağlantı hi-godot/godot-ai v4'tür. Hedef 5'teki README adımlarını uygula. Editör açık kalsın. uv kurulu olsun. Dock'ta Antigravity için **Configure**'a bas. Üretilen kayıt `%USERPROFILE%\.gemini\config\mcp_config.json` dosyasına gider. Düz HTTP adresi yazma. Meshy anahtarı bu `env` içine girmez.
 
-**Seçenek A — Erengun/godot-mcp.** https://github.com/Erengun/godot-mcp Lisans: MIT (deponun README rozeti ve LICENSE). Durum, 20 Kasım 2026'da okunan README'ye göre `2.0.0-dev`, npm'de değil. `npx godot-mcp` eski 0.x sürümünü kurar. Onu kullanma. Kaynaktan `npm ci` ve `npm run build`. Node.js 20 veya üstü gerekir. README, Godot 4.7.2 ile CI geçtiğini yazar. Aynı README'nin yol haritası şunu henüz yapmadığını söyler: çalışan oyunun ekran görüntüsü, debugger ve **girdi simülasyonu**. Yani bu sunucu oyunu başlatır, log okur ve sahne düzenler. "Düğmeye bas" bu sürümde yoktur. Bunu Alpha'ya yaz.
+Eklentiyi depoya koyacaksan önce `## Antigravity sorusu` altına yaz ve MIT kaydını `docs/credits/` altına ekle. Koymayacaksan `addons/godot_ai/` satırını `.gitignore` dosyasına yaz. `project.godot` eklenti satırını, eklenti commit edilmiyorsa commit etme.
 
-Kurulum, deponun kendi adımlarıdır. Özet:
+Godot AI kurulamazsa yedek Ziva'dır (https://ziva.sh). Antigravity listesinde yoktur. Yalnız kendi Cursor, Claude veya Codex oturumunda dene. Telemetri kapalı, sohbet yedeği kapalı. Üretim özellikleri ve Share Web build yok. Eklentiyi commit etme.
 
-```
-git clone https://github.com/Erengun/godot-mcp.git
-cd godot-mcp
-npm ci
-npm run build
-```
+Üçüncü seçenek Coding-Solo/godot-mcp'dir (MIT). Girdi simülasyonu ve ekran görüntüsü yoktur. Godot AI açıksa bunu kurma.
 
-Antigravity CLI MCP dosyası, resmi belgeye göre ya genel `~/.gemini/config/mcp_config.json` ya da projede `.agents/mcp_config.json` dosyasıdır. Yönetim: CLI içinde `/mcp`. Kaynak: https://antigravity.google/docs/mcp/ ve https://antigravity.google/docs/settings/
-
-Windows örneği (yolları kendi clone yolunla değiştir):
-
-```json
-{
-  "mcpServers": {
-    "godot": {
-      "command": "node",
-      "args": ["C:\\src\\godot-mcp\\build\\index.js"],
-      "env": {
-        "GODOT_PATH": "C:\\Users\\Ahmet\\Desktop\\Godot.exe",
-        "GODOT_MCP_ALLOWED_ROOTS": "C:\\Users\\Ahmet\\Desktop\\Cursor_All_DAta\\Kapı_Muhafizi"
-      }
-    }
-  }
-}
-```
-
-`GODOT_MCP_ALLOWED_ROOTS` bu klasörle sınırlı kalsın. Sunucu `127.0.0.1` dışında dinlemesin. Meshy anahtarı bu `env` içine girmez.
-
-**Seçenek B — juffson/godot-agent.** https://github.com/juffson/godot-agent Lisans: README "MIT" der. Rust ile derlenir. README Godot 4.2 ve üstü, denenen sürüm olarak 4.6.3 yazar. **4.7.2 bu sayfada yazmaz.** Oyun içi MCP `127.0.0.1:6011` için girdi simülasyonu ve kare yakalama tarif eder. `execute_script` oyun sürecinde isteğe bağlı GDScript çalıştırır. Bu güçlüdür ve tehlikelidir. Yalnız `127.0.0.1`. Port yönlendirme yok. Derleme `install.sh` ile Linux veya macOS içindir. Windows'ta aynı betiğin çalıştığı bu görevde doğrulanmadı. Windows adımını uydurma. Depodaki Windows notunu oku. Yoksa Seçenek A'da kal.
-
-Seçenek B, `addons/godot_agent/` ve bir autoload ekler. Bu, oyun deposunu değiştirir. Ahmet istemeden Alpha bu eklentiyi commit etmez.
+Headless test ve foto sahnesi eklentisiz çalışır. MCP şart değildir.
 
 5. Bölüm sonundaki test adımlarını kendin oyna. Onay cümlesini `codex.md/Antigravity_gorev.md` dosyasına yaz. "Onay" yazılmadan Alpha sonraki bölüme geçmez.
 6. Tarih sorusuna bir cümle cevap ver: 14. yüzyıl Osmanlı mı, repodaki 13. yüzyıl metinleri mi esas. Cevap gelene kadar Alpha tarihî metinleri toplu değiştirmez.
@@ -177,9 +203,9 @@ Seçenek B, `addons/godot_agent/` ve bir autoload ekler. Bu, oyun deposunu deği
 
 1. `git pull --ff-only`. `AGENTS.md`, bu belge, `TESTER_REHBERI.md` bölüm 3 ve `TESTX_KOD_REHBERI.md` komutlarını oku.
 2. Model: Hydrogen High, olmazsa Argon Medium.
-3. Eklenti kurma. Ahmet kurmadıysa headless, otomatik oyuncu ve foto sahneleriyle ilerle. "MCP yok" diye durma.
-4. Ahmet Seçenek A'yı kurduysa araç listesini sunucunun kendi `docs/mcp-tools.md` dosyasından oku. README'de olmayan aracı varmış gibi çağırma. Girdi simülasyonu bu sürümün yol haritasındadır. Yoksa tıklamayı kendin yaptığını yazma.
-5. Ahmet Seçenek B'yi kurup autoload'u onayladıysa 6011 araçlarını kullan. `execute_script` ile kayıt silme, dosya yazma veya ağ çağrısı yapma. Yalnız ekran durumu ve girdi. Kareyi ve logu `work/tester/` altına koy. `work/` commit edilmez.
+3. Birincil yol hi-godot/godot-ai v4. Ahmet kurmadıysa headless, otomatik oyuncu ve foto sahneleriyle ilerle. "MCP yok" diye durma. Kurduysa editör açıkken dock bağlantısını kullan. Araç listesini eklentinin `docs/TOOLS.md` dosyasından oku. README'de olmayan aracı çağırma.
+4. Sahne veya betik yazarken `AGENTS.md` bölüm 2 geçerlidir. Korumalı dosyayı baştan yazma. Yalnız ince adaptör. `project.godot`, `override.cfg` ve `.godot/` eklentiye kapalıdır. Onları MCP ile de yazma.
+5. Ziva'ya kendin geçme. Ahmet yedeği açtıysa telemetri ve sohbet yedeği kapalı kalsın. Üretim özelliği ve Share Web build yok. Eklenti commit edilmez. Coding-Solo üçüncü sıradadır. Girdi veya ekran görüntüsü aldığını yazma. Godot AI ile aynı anda açık bırakma.
 6. Bölüm 1'den başla. Menüyü pencerede veya foto sahnesinde gör. `_baslat` sessiz dönüşünü ya düzelt ya da Ahmet'in tıkladığı düğme bu değilse gerçek düğmeyi bul. Düzeltme, oyuncuya görünen bir cevap verir.
 7. Her kod değişiminden sonra hedefli test. Bölüm bitince, sanity boşsa tam sanity. Sonuç günlükte `PASS` sayısı veya "sanity bekliyor".
 8. İhtiyaç satırını aynı commit'te envantere ekle. Asset yoksa commit mesajında "asset gerekmedi" yaz.
@@ -244,7 +270,9 @@ Yapılacaklar:
 - Asset, doku, model veya yapay zekâ sesi üretmek.
 - Meshy anahtarını yazmak.
 - Force push, `reset --hard`, başkasının maddesini kapatmak.
-- MCP eklentisini onaysız commit etmek.
+- Godot AI eklentisini `docs/credits/` MIT kaydı olmadan commit etmek. Commit yoksa `addons/godot_ai/` `.gitignore` satırı olmadan bırakmak.
+- Ziva eklentisini depoya koymak. Telemetri, sohbet yedeği, üretim özelliği veya Share Web build açmak.
+- Godot AI açıkken Coding-Solo/godot-mcp kurmak.
 - Bir bölüm bitmeden sonrakinin koduna girmek.
 - Godot MCP'yi resmi motor özelliği diye anlatmak.
 - `.godot/` klasörünü silmek veya depoya eklemek.
