@@ -40,15 +40,17 @@ LimboAI ve Instanced Renderer `plugin.cfg` taşımaz. `.gdextension` dosyası a�
 
 `addons/terrain_3d/src/double_slider.gd`: headless Godot 4.7, `interface/editor/display_scale` ayarını boş döndürüyor. Nil bir `int`e yazılınca SCRIPT ERROR oluyordu. Boş değer 100% ölçeğe düşer. Dolu editör ayarı eskisi gibi okunur.
 
+`addons/GdPlanningAI/scripts/nodes/gdpai_agent.gd`: zamanlayıcı araması genel `GdPAIAutoload` adı yerine `Engine.get_main_loop().root.get_node(^"/root/GdPAIAutoload")`. Genel ad, autoload kaydından önce derlenen betikte yoktu; hata zinciri JSON sözlüklerini boşaltıyordu.
+
 ## Üçüncü parti doku (Sky3D)
 
-Samanyolu panoraması ESO/S. Brunier, CC BY 4.0. Dosya: `addons/sky_3d/assets/thirdparty/textures/milkyway/LICENSE.md`. Oyunda gökyüzü kullanılırsa kredi metni: `The Milky Way panorama by ESO/S. Brunier, licensed under CC BY 4.0`.
+Samanyolu panoraması ESO/S. Brunier, CC BY 4.0. Dosya: `addons/sky_3d/assets/thirdparty/textures/milkyway/LICENSE.md`. Köy göğü Sky3D kubbesini kullandığı için bu kredi geçerlidir: `The Milky Way panorama by ESO/S. Brunier, licensed under CC BY 4.0`.
 
 ## Köylü yapay zekası
 
-İkisi de yüklendi, ikisi de sahneye bağlanmadı. Sınıf adları çakışmıyor (`BTPlayer` / `LimboHSM` ile `GdPAIAgent`).
+İkisi de yüklendi ve ikisi de bağlandı. Ayrıntı: `docs/EKLENTI_BAGLANTI.md`. Sınıf adları çakışmıyor. Yeni genel `Action` / `Goal` adı eklenmedi; planlayıcı eklentinin sınıflarını önekssiz `class_name` olmadan kullanır.
 
-Köylü için önerilen **LimboAI**. Gün içi iş, yürüme, bekleme ve tepki bir davranış ağacı ve durum makinesidir; mevcut iş ve takvim kodunun üstüne ince bir düğüm olarak oturur. GdPlanningAI hedef seçen bir planlayıcıdır (aç → yemek bul). Köylünün anlık hareketi için ağırdır ve genel sınıf adları (`Action`, `Goal`, `Precondition`) ileride çakışma riski taşır. Planlayıcı ayrıca istenirse Limbo ağacının üstünde durabilir; bu turda bağ yok.
+LimboAI köylü, hayvan ve tüccar görselinin gündüz iş, bekleme, gece eve dönüş ve alarm katmanıdır. GdPlanningAI bunun üstünde, en çok üç kişi için açlık, su ve pazar planıdır. Anahtar `data/ayarlar/eklenti_bag.json`.
 
 ## Ahmet'in makinesinde
 

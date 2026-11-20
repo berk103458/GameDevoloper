@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Eklenti bağları — 20 Kasım 2026
+
+Yedi eklenti köy sahnesine bağlandı. Ayrıntı `docs/EKLENTI_BAGLANTI.md`. Instanced Renderer: iskeletsiz durağan dekor ve çit, hareketli sürü; çim ve orman eski MultiMesh. Sky3D faz saatine bağlı (şafak, gündüz, akşam, gece); Samanyolu kredi ESO/S. Brunier CC BY 4.0. Terrain3D düz ızgara, hafif dış tepe, üç Poly Haven katmanı, çarpışma kapalı, eski düzlem gizli duruyor. ProtonScatter 140 ot, 28 taş, 18 çalı, 12 ağaç; yol ve yapı içi yasak; taş, çalı ve ağaç etiketli kutu, envantere yazıldı. LimboAI görsel davranış, ekonomiye dokunmaz. GdPlanningAI en çok 3 kişi, `ihtiyac_plani` açık. Dialogue Manager kapı sorgusu ve tüccar; Parley ve metinler.csv duruyor. Ölçüm (headless, GPU sayacı 0): çağrı 32, üçgen 296.988; 4 dekor yığına geçti, 198 serpinti noktası 4 MultiMesh. Test `eklenti_bag_test.gd` GEÇTİ. Tam sanity yok. Ekran görüntüsü headless pencerede alınamadı. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## Eklenti kurulumu — 20 Kasım 2026
 
 Yedi paketten altısı resmi sürümle, Instanced Renderer 1.3 ile (2.0.0 Linux ikilisi GLIBC 2.43 istediği için alınmadı) `addons/` altına kondu. Oyun sahnesi ve çekirdek kod değişmedi. `project.godot` yalnız eklenti listesi ve iki autoload. Ayrıntı: `docs/EKLENTI_LISANSLARI.md`. Köylü için öneri LimboAI. Headless import çıkış 0, yeni SCRIPT ERROR yok. Tam sanity yok. Asset gerekmedi. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.

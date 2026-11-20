@@ -1,3 +1,7 @@
+## 20 Kasım 2026 — köy serpinti yer tutucuları (Cursor)
+
+EKLENTI-SERPINTI. 3B. ProtonScatter yol kenarı ve köy halkası. Ot, repodaki mevcut tutam ağı (`KoyArazisi._tutam`); yeni dosya yok. Taş, çalı ve ağaç: repoda `Dunya3B.model_var_mi("agac")` yoksa isim etiketli BoxMesh (`src/koy/gorsel/koy_serpintisi.gd`). Ölçü: taş yaklaşık 0,35×0,22×0,28 m, çalı 0,7×0,45×0,7 m, ağaç 0,8×3,2×0,8 m. Arama: TR "14. yy Anadolu yol kenarı taş / çalı / servis ağacı", EN "14th century Anatolian roadside stone / shrub / cypress glb". Lisans yalnız CC0 veya CC-BY. Öncelik düşük. Üretim ve indirme yok. Zemin dokuları repodaki Poly Haven CC0 (`sparse_grass`, `rocky_trail`, `muddy_tracks`); yeni doku indirilmedi. Ekleyen: Cursor.
+
 ## 6 Kasım 2026 — YAP05-ODA (Kalfa)
 
 3D çözümleme odası:13. yüzyıl Anadolu köyünde sade tek odalı ahşap/kâgir çalışma yapısı; yaklaşık4×4 m taban,3 m yükseklik. Öncelik orta. Yer tutucu src/koy/gorsel/cozumleme_oda_yer_tutucu.gd içindeki düz renk BoxMesh ve Türkçe isim etiketi; katalog kimliği cozumleme_odasi. Gerçek başsız sahnede kutu ve dokusuz malzeme doğrulandı. Yeni model/görsel üretilmedi veya indirilmedi. Ekleyen Kalfa.

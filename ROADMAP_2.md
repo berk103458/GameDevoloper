@@ -4,6 +4,10 @@
 
 Bu dosya ROADMAP 2’nin tek ve geçerli kopyasıdır (11 Ekim 2026, Muharrir birleştirdi). ROADMAP 1 (`ROADMAP.md`) bitmiş oyundur ve yalnız okuma referansıdır.
 
+## Eklenti bağları (Cursor, 20 Kasım 2026)
+
+Yedi kurulu eklenti köy sahnesine ince adaptörle bağlandı. Yeni `[ ]` madde açılmadı. Mevcut `[x]` ve `[/]` satırlarına dokunulmadı. Ayrıntı ve ölçüm: `docs/EKLENTI_BAGLANTI.md`. (Cursor)
+
 ## AJAN İLERLEME PANOSU (her ajan önce burayı okusun)
 
 - **Sahiplik:** Bir maddeye başlamadan önce `git pull`, sonra maddeyi `[/] (AjanAdı)` yap, commit + push et. Başka ajanın `[/]` işaretlediği maddeye DOKUNMA. Bitince `[x] (AjanAdı)`.
