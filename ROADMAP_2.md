@@ -9106,3 +9106,8 @@ Ahmet'in 4 Kasım sabahı onayladığı 7 yeni anlatı ve derinleştirme maddesi
 Oyun koduna ve sahnelere bağlanmadan kurulan paketler. Açık madde değil; sahiplenilecek `[ ]` satırı yok. Ayrıntı: `docs/EKLENTI_LISANSLARI.md`.
 
 Dialogue Manager 4.2.0 (MIT), Sky3D 2.1.0 (MIT), Terrain3D 1.1.0 (MIT), LimboAI 1.8.1 (MIT), GdPlanningAI 1.0.0 (Apache-2.0), ProtonScatter 4.2.0 (MIT; demo sahneleri yok), Instanced Renderer 1.3 (Unlicense). Instanced Renderer 2.0.0 alınmadı: Linux ikilisi GLIBC 2.43 istiyor, Godot 4.7.2 açılışında ERROR veriyor. Köylü davranışı için önerilen araç LimboAI; GdPlanningAI duruyor, bağlanmadı. Asset gerekmedi.
+
+## Arayüz kabuğu (20 Kasım 2026, Cursor)
+
+- [x] **ARY-KABUK:** Oyun içi panel, düğme ve yükleme örtüsü gece kapısı 9-dilim temasına bağlandı. Ana menü satırı ve Çini/Parşömen/Ocak seçimi durur. Dialogue Manager balonu `src/arayuz/diyalog/balon.tscn`. (Cursor)
+  - Asset: yeni zip yok. Arka planlar `docs/arayuz/NANO_BANANA_PROMPTLARI.md` içinde, üretilmedi.
