@@ -124,8 +124,8 @@ func _konusma_kur() -> void:
 	kenar.size = KONUSMA.size
 	for y in ["margin_left", "margin_right"]:
 		kenar.add_theme_constant_override(y, 30)
-	kenar.add_theme_constant_override("margin_top", 34)
-	kenar.add_theme_constant_override("margin_bottom", 18)
+	kenar.add_theme_constant_override("margin_top", 26)
+	kenar.add_theme_constant_override("margin_bottom", 12)
 	add_child(kenar)
 	_kayit = RichTextLabel.new()
 	_kayit.bbcode_enabled = true
@@ -155,11 +155,13 @@ func _defter_kur() -> void:
 	var kenar := MarginContainer.new()
 	kenar.position = DEFTER.position
 	kenar.size = DEFTER.size
-	for y in ["margin_left", "margin_right", "margin_top", "margin_bottom"]:
+	for y in ["margin_left", "margin_right"]:
 		kenar.add_theme_constant_override(y, 26)
+	kenar.add_theme_constant_override("margin_top", 18)
+	kenar.add_theme_constant_override("margin_bottom", 16)
 	add_child(kenar)
 	var dikey := VBoxContainer.new()
-	dikey.add_theme_constant_override("separation", 6)
+	dikey.add_theme_constant_override("separation", 4)
 	kenar.add_child(dikey)
 	_ad = Label.new()
 	_ad.add_theme_font_override("font", Tema.font(600))
@@ -181,6 +183,7 @@ func _defter_kur() -> void:
 	_bolum.add_theme_color_override("font_color", MenuSatiri.ALTIN)
 	dikey.add_child(_bolum)
 	var kaydir := ScrollContainer.new()
+	kaydir.custom_minimum_size.y = 180
 	kaydir.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	kaydir.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	kaydir.follow_focus = true
@@ -191,7 +194,7 @@ func _defter_kur() -> void:
 	kaydir.add_child(_secenekler)
 	dikey.add_child(_ayrac(MenuSusu.Tur.UST))
 	_eylemler = VBoxContainer.new()
-	_eylemler.add_theme_constant_override("separation", 6)
+	_eylemler.add_theme_constant_override("separation", 4)
 	dikey.add_child(_eylemler)
 	var ipucu := Label.new()
 	ipucu.text = tr("arayuz.sohbet.ipucu")
@@ -205,7 +208,7 @@ func _ayrac(tur: MenuSusu.Tur) -> Control:
 	var s := MenuSusu.new()
 	s.tur = tur
 	s.konum = 332.0
-	s.custom_minimum_size = Vector2(0, 24)
+	s.custom_minimum_size = Vector2(0, 16)
 	s.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	s.resized.connect(s.queue_redraw)
 	return s
@@ -831,7 +834,7 @@ func _dugme(yazi: String, kap: Container = null) -> MenuSatiri:
 	b.font_ = Tema.font(500)
 	b.punto = ayarlar.boyut(26)
 	b.alt_punto = ayarlar.boyut(Kabuk.KUCUK)
-	b.custom_minimum_size = Vector2(0, 58)
+	b.custom_minimum_size = Vector2(0, 46 if kap == _eylemler else 54)
 	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	b.focus_entered.connect(func() -> void: Ses.cal(&"sfx_secim", -8.0))
 	(kap if kap != null else _secenekler).add_child(b)
@@ -885,9 +888,28 @@ func _input(olay: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 	# Belirme sürerken bir basış atlamadır: kalanlar görünür, hiçbiri seçilmez (Girdi kural 17).
+	# Görünür bir düğmeye yapılan ilk sol fare tıklaması ise yutulmaz; doğrudan o düğmeye gider.
 	if _beliriyor and (olay.is_action_pressed("ui_accept") or (olay is InputEventMouseButton and olay.pressed)):
+		var gorunur_dugmeye := _gorunur_dugme_tiklandi_mi(olay)
 		_tumunu_goster()
-		get_viewport().set_input_as_handled()
+		if not gorunur_dugmeye:
+			get_viewport().set_input_as_handled()
+
+
+func _gorunur_dugme_tiklandi_mi(olay: InputEvent) -> bool:
+	if not (olay is InputEventMouseButton):
+		return false
+	var fare := olay as InputEventMouseButton
+	if not fare.pressed or fare.button_index != MOUSE_BUTTON_LEFT:
+		return false
+	for kap: Node in [_secenekler, _eylemler]:
+		if kap == null or not is_instance_valid(kap):
+			continue
+		for n in kap.find_children("*", "BaseButton", true, false):
+			var b := n as BaseButton
+			if b != null and b.is_visible_in_tree() and not b.disabled and b.get_global_rect().has_point(fare.global_position):
+				return true
+	return false
 
 
 func _unhandled_input(olay: InputEvent) -> void:

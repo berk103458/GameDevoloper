@@ -1697,3 +1697,33 @@ Hedef: Kalfa'ya bırakılanlar (`ANL-EPI-01`, `KAP-18`, `YAP-03`, `KVR-SES-01`) 
 - `meshes/light_baking=1` (Godot 4.7.2 varsayılan `Static` modu, UV2 üretmez) ve `meshes/generate_lods=true` parametreleri ölçüm olmadan toplu değiştirilmedi; `compress/mode` da değiştirilmedi.
 - `.claude/.gdignore` ve `.github/.gdignore` oluşturuldu. Headless `--import` sonrası kaynak dosyası değişmeden kendiliğinden değişen mevcut `.import`/`.uid` dosyaları commit dışı bırakıldı.
 
+### 21 Kasım — `performans_izi.gd` (Hedef 3) ve oyuncu gözü, bölüm 2
+- Oynanan & İncelenen: `tests/oto/kapi_foto.tscn` (değişiklik öncesi görsel inceleme), `tests/oto/ilk_aile_kapi_kontrol.tscn`, `tests/unit/sistemler/kapi_acilis_olayi_test.gd`, `tests/oto/ilk_saat_kontrol.tscn`, `tests/oto/chr_kapi_kontrol.tscn`, `tests/oto/hastalik_teshis_kontrol.tscn` ve `tests/unit/soz/yemin_ekran_test.tscn` ile ilk gün ulak sunumu, ilk aile kapı sahnesi ve kapı sorgu/karar arayüzü incelendi.
+- Kök nedenler tespit edildi:
+  1. `KapiEkrani._input()` içinde `_beliriyor` aktifken fare tıklaması halihazırda görünür/etkin bir düğmeye basıldığında bile `set_input_as_handled()` ile yutuluyor ve oyuncuyu ikinci kez tıklamaya zorluyordu.
+  2. `MenuSatiri._ready()` içinde `clip_text = true` olmadığı için uzun soru satırları kapı defteri `ScrollContainer` genişliğini sağa doğru ekran dışına itiyor, alttaki eylem düğmeleri (`YeminEt`, `YeminNesnesi`, `HastalikIncele`, `BakisYuz`, `BakisEller`) ile dikey boşluk sıkışınca `_secenekler` alanı eziliyordu.
+  3. İlk akşam ulak sunumunda (`kapi_acilis_paneli.gd`) debug dışı açılışta bile `"ACL04-ARASAHNE · Ulak / ilk aile"` yer tutucu satırı görünüyor ve 8 saniyelik bekleme için geçiş düğmesi bulunmuyordu.
+  4. `ilk_aile_es_kadraji.gd` (`SAH-53`) kamera yakınlaşmasından (`CIL-25`, `FOV=38`, `z=1.35`) sonra eş modelini (`Vector3(-1.1, 0, -1.7)`) frustum dışında bırakıyordu (`oyun_koprusu_kontrol.gd:54`). Ayrıca `oyun_koprusu_kontrol.gd:71` `ACL-04` ile eklenen 2 özel soruyu (`ek_sorular`) henüz hesaba katmıyordu.
+  5. `tests/oto/olcum/performans_izi.gd` dosyası eksikti; 10 saniyede bir FPS, kare süresi, statik bellek, düğüm sayısı ve sahne değişiminde yükleme süresini yalnız `--debug-arac` veya `--perf-log` açıkken `PerformansGunlugu` JSONL alanlarının devamı olarak yazacak şekilde eklendi.
+- Değişen dosyalar: `tests/oto/olcum/performans_izi.gd` (+ `.uid`), `tests/unit/sistemler/performans_izi_test.gd` (+ `.uid`), `src/arayuz/ana.gd` (yalnız `--debug-arac`/`--perf-log` açıkken çalışan minimal 4 satırlık iz/sahne süresi kancası), `src/arayuz/menu_satiri.gd`, `src/arayuz/kapi_ekrani.gd`, `src/soz/yemin_adaptoru.gd`, `src/kapi/hastalik_teshis_adaptoru.gd`, `src/arayuz/koy_hud/kapi_acilis_paneli.gd`, `src/dunya/ilk_aile_es_kadraji.gd`, `tests/oto/oyun_koprusu_kontrol.gd`.
+- Testler (`EXIT_CODE=0`):
+  - `Godot.exe --headless --editor --import --quit --path .` (`EXIT=0`)
+  - `tests/unit/sistemler/performans_izi_test.gd` (`32 kontrol / GEÇTİ`, `EXIT=0`)
+  - `tests/oto/performans_gunlugu_kontrol.tscn` (`50 kontrol / GEÇTİ`, `EXIT=0`)
+  - `tests/oto/ilk_aile_kapi_kontrol.tscn` (`EXIT=0`)
+  - `tests/unit/sistemler/kapi_acilis_olayi_test.gd` (`KAPI AÇILIŞ OLAYI: GEÇTİ`, `EXIT=0`)
+  - `tests/oto/ilk_saat_kontrol.tscn` (`ILK SAAT KAPANIS (OGR-57): GEÇTİ`, `EXIT=0`)
+  - `tests/oto/chr_kapi_kontrol.tscn` (`CHR KAPI UI: GEÇTİ`, `EXIT=0`)
+  - `tests/oto/hastalik_teshis_kontrol.tscn` (`KAPI HASTALIK UI: GEÇTİ`, `EXIT=0`)
+  - `tests/unit/soz/yemin_ekran_test.tscn` (`YEMIN EKRAN: GEÇTİ (0 hata)`, `EXIT=0`)
+  - Not: `tests/oto/oyun_koprusu_kontrol.tscn` kullanıcı isteği üzerine durduruldu (bundan sonraki bölümlerde yalnız değişen yere ait tek hızlı hedefli kontrol koşulacak).
+- İhtiyaç & ileriki bölüm notları: Yeni asset ihtiyacı yok (`asset gerekmedi`). Bölüm 3/HUD notu: değişiklik öncesi `kapi_foto.png` üzerinde sağ üst HUD'daki `Adalet` (`A`) ile `Asayiş riski 10` metninin üst üste bindiği görüldü (sonraki HUD adımında ele alınacak).
+- kota görünmüyor
+
+#### Bölüm 2 Teslim Özeti
+- **Ne değişti:** `tests/oto/olcum/performans_izi.gd` (+ `.uid`), `tests/unit/sistemler/performans_izi_test.gd` (+ `.uid`), `src/arayuz/ana.gd`, `src/arayuz/menu_satiri.gd`, `src/arayuz/kapi_ekrani.gd`, `src/soz/yemin_adaptoru.gd`, `src/kapi/hastalik_teshis_adaptoru.gd`, `src/arayuz/koy_hud/kapi_acilis_paneli.gd`, `src/dunya/ilk_aile_es_kadraji.gd`, `tests/oto/oyun_koprusu_kontrol.gd`.
+- **Ahmet'in basacağı adımlar:** Bölüm 1 kaydından köy ekranına girip hemen `"Geceye Geç"` düğmesine bas; Sancak Beyi ulağı ekranında debug yer tutucu satırının görünmediğini gör ve `"Berat teslim edildi"` düğmesine tıkla (veya ~8 sn bekle); ilk aile (Ali ve Zeynep) kapıya gelince belirme animasyonu sırasında görünür ilk soruya doğrudan tek sol tıkla bas (ekstra boşa tık gerekmeden soru seçilmeli); sağdaki defterde soruların kesilmeden/taşmadan sığdığını gör, sorularını sorup `"Kararını ver"` -> `"Kabul"` (2 tık) veya `"Ret"` (2 tık) ile kararı tamamla.
+- **Kabul:** Ulak ekranı düğmeyle veya zamanlayıcıyla temizce ilk aile kapısına geçer; görünür soru/karar satırına ilk sol tıklama yutulmaz; defter soruları ve eylem düğmeleri ekran içine sığar; kabul/ret kararı sorunsuz uygulanır. `--perf-log` açıkken `user://performans_izi_*.jsonl` oluşur, bayraksız oyuncu sürümünde oluşmaz.
+- **Ret:** Ulak ekranında yer tutucu yazısı çıkarsa, soru satırına basınca tıklama yutulup ikinci tıklama isterse, defter sağa taşıp yazılar ekran dışına çıkarsa veya konsolda `SCRIPT ERROR` görülürse bölüm geri çevrilir.
+
+

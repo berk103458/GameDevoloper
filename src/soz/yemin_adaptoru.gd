@@ -78,7 +78,7 @@ static func eylem(e: Node, g: Gelen, kap: Container) -> void:
 	var b := Button.new()
 	b.name = "YeminEt"
 	b.text = TranslationServer.translate("arayuz.kapi.yemin_et")
-	b.custom_minimum_size.y = 58
+	b.custom_minimum_size.y = 38
 	kap.add_child(b)
 	b.pressed.connect(func() -> void:
 		if e.get("_gelen") != g: return
@@ -96,10 +96,12 @@ static func eylem(e: Node, g: Gelen, kap: Container) -> void:
 	var etiket := Label.new()
 	var sekil: String = TABLO.inanclar[g.inanc][0]
 	etiket.text = TranslationServer.translate(String(TABLO.sekiller[sekil].anahtar))
-	var dikey := VBoxContainer.new()
-	kutu.add_child(dikey)
-	dikey.add_child(etiket)
-	dikey.add_child(secim)
+	etiket.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var yatay := HBoxContainer.new()
+	yatay.add_theme_constant_override("separation", 8)
+	kutu.add_child(yatay)
+	yatay.add_child(etiket)
+	yatay.add_child(secim)
 	secim.item_selected.connect(func(i: int) -> void: etiket.text = secim.get_item_text(i))
 	kap.add_child(kutu)
 

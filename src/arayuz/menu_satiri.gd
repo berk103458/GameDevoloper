@@ -26,6 +26,7 @@ var alt_punto := 18
 func _ready() -> void:
 	# Dört durumun zemini ortak Theme'den gelir; süs/metin çizimi korunur.
 	flat = false
+	clip_text = true
 	focus_mode = Control.FOCUS_ALL
 	# Düğmenin kendi metni görünmez (erişilebilirlik için durur); metni _draw çizer.
 	for c in ["font_color", "font_hover_color", "font_focus_color", "font_pressed_color", "font_hover_pressed_color", "font_disabled_color"]:

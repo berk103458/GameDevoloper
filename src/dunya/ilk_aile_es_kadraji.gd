@@ -4,7 +4,7 @@ extends RefCounted
 const ACILIS = preload("res://src/sistemler/acilis_senaryosu.gd")
 const KAPI_ACILISI = preload("res://src/sistemler/kapi_acilis_olayi.gd")
 const GORUNUM = preload("res://src/koy/gorsel/acilis_hane_gorunumu.gd")
-const KONUM := Vector3(-1.1, 0.0, -1.7)
+const KONUM := Vector3(-0.75, 0.0, -1.9)
 
 
 static func kur(ekran: KapiEkrani) -> void:

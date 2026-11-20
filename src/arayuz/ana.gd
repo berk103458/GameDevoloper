@@ -19,6 +19,8 @@ var _kapi_yukleniyor := false
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	if PerformansIzi.iz_acik():
+		PerformansIzi.bagla(self)
 	if AdminHud.arac_acik():
 		var admin := AdminHud.new()
 		admin.baglam = self
@@ -337,6 +339,7 @@ func _bilgi(baslik: String, metin: String, dugmeler: Array, sayi: int = -1, arka
 
 
 func _goster(e: Control) -> void:
+	var _iz_bas := Time.get_ticks_usec() if PerformansIzi.iz_acik() else 0
 	Ses.efektleri_temizle()
 	_ust_kapat()
 	if _ekran != null:
@@ -357,6 +360,8 @@ func _goster(e: Control) -> void:
 	else:
 		Ses.ortam_cal(&"")
 	Ses.muzik_cal(&"")
+	if _iz_bas > 0:
+		PerformansIzi.bagla(self).ekran_degisti(e, (Time.get_ticks_usec() - _iz_bas) / 1000.0)
 
 
 func _hata_goster() -> void:
