@@ -210,6 +210,33 @@ Kota görünmüyorsa bu cümle kalır. Uydurma yüzde yazma.
 
 Her soru tek cümledir. Tahminini karar diye yazma.
 
+## Açılış ve import yavaşlığı
+
+Ahmet, Godot 4.7.2 editörünü her açışında asset'lerin yeniden içe aktarıldığını ve bunun uzun sürdüğünü söyledi. Sık `git pull` yapıyor. Proje `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Bu madde bölüm 1 ile birlikte ele alınır. Kök neden ölçülmeden toplu import ayarı değiştirilmez.
+
+20 Kasım 2026 sayımı, festive `386e6556`:
+
+- `.gitignore` satır 3: `.godot/` depoya girmez. Bu, Godot'nun istediği davranıştır. Resmi belge: `.godot/`, proje önbelleğidir. İçindeki `imported/` silinirse veya klasörün tamamı yoksa asset'ler otomatik yeniden içe aktarılır. Önbelleği depoya koymak başka bilgisayarda süreyi kısaltabilir ama boyut ve bant genişliği yüzünden önerilmez. Kaynak: https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/import_process.html ve https://docs.godotengine.org/en/stable/tutorials/best_practices/version_control_systems.html
+- Aynı belge: kaynak dosyanın MD5 toplamı değişince Godot o asset'i otomatik yeniden içe aktarır. `.import` dosyası commit edilir. 1 Kasım'dan bu yana `.import` dosyasına dokunan 11 commit var. Bunlar çoğunlukla yeni sidecar ekler. Aynı dosyanın import parametresinin ajanlar arasında gidip geldiği bir iz bu taramada çıkmadı. Bunu kanıtlanmış neden diye yazma.
+- `assets/model` altında 217 GLB var, yaklaşık 787 MB. 158'inin commit edilmiş `.import` dosyası yok. `assets/meshy` altında 69 GLB, yaklaşık 78 MB, bunların sidecar'ı var. Toplam izlenen GLB yaklaşık 867 MB. Önbellek yokken editör bu gövdeyi baştan işler.
+- Commit edilmiş 254 sahne `.import` dosyasının hepsinde `meshes/generate_lods=true`. Resmi 4.7 belge: Generate LODs açıksa uzakta daha kaba mesh üretilir. Kapatmak içe aktarmayı hızlandırır ve çıktıyı küçültür. Uzakta görünmeyen mesh'te faydası azdır. Kaynak: https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/import_configuration.html
+- Aynı 254 dosyada `meshes/light_baking=1` ve `meshes/lightmap_texel_size=0.2`. Resmi belge: Light Baking, Static Lightmaps ise mesh'e UV2 üretir. Daha küçük texel daha uzun bake demektir. `1` sayısının editörde hangi etikete denk geldiğini Import dock'ta doğrula. Sayıyı tahminen çevirme.
+- 476 görselde `compress/mode=0`, 86 görselde `compress/mode=2`. Resmi görsel belgesi: Lossless 2B için varsayılandır ve VRAM'de daha çok yer tutar. 3B için yaygın olan VRAM Compressed'dir. Kaynak: https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_images.html Bu, her açılışta yeniden içe aktarma tetiklemez. Toplu sıkıştırma değiştirme bu maddenin ilk işi değildir.
+- `.uid`: 1371 `.gd` için 1329 `.uid` izleniyor. Eksik olanlar açılışta üretilebilir. Asıl süre GLB gövdesindedir. `docs/tester/TESTX_KOD_REHBERI.md` yeni `class_name` için `.uid` dosyasının teslim edilmesini ister.
+- `docs/`, `design/`, `tools/`, `production/`, `prototypes/`, `scripts/`, `bridge/`, `assets/meshy/gelen/` ve `assets/ui/atmosfer/gece_kapisi/_inceleme/` içinde `.gdignore` var. `.claude/` ve `.github/` içinde yok. Resmi belge: klasöre boş `.gdignore` koymak o klasörü içe aktarmaz ve ilk içe aktarmayı hızlandırır. Kaynak: https://docs.godotengine.org/en/stable/tutorials/best_practices/project_organization.html
+- Test kitapları her işten önce `godot --headless --editor --import --quit` çalıştırır. Tester tur notları (`docs/tester/turlar/TUR-003.md` ve devamı) bu komutun `.import` ve `.uid` dosyalarını yeniden yazdığını söyler. Yayın betiği onları commit etmez. Editörle aynı klasörde bu komut çalışırsa önbellek ve sidecar yine yazılır.
+- Git LFS yok. `.gitattributes` yalnız `*.sh` ve `*.ps1` için satır sonu yazar. Resmi Windows notu: `core.autocrlf=true` metin dosyalarını gereksiz değişmiş gösterir. Öneri `git config --global core.autocrlf input`. Bu, GLB baytlarını değiştirmez.
+
+Yapılacaklar:
+
+1. Ahmet `.godot` klasörünü silmez. `git clean -fdx` ve `.godot` silen betik yok. Önbellek duruyorsa pull yalnız MD5'si değişen dosyayı yeniden içe aktarır.
+2. Açılış çubuğu yine tüm projeyi gezıyorsa, hangi dosyaların yeniden işlendiğini editör çıktısından yaz. 158 sidecar'sız GLB listesi ilk şüphelidir.
+3. Kullanılan `assets/model/**/*.glb` için Godot 4.7.2'nin ürettiği `.import` dosyasını, parametre uydurmadan, bir kez commit et. Kullanılmayan ham kopya depoya eklenmez. `.gitignore` içindeki karakter ham GLB kuralı durur.
+4. Işık haritası kullanılmayan prop'ta Light Baking'i, Import dock etiketi doğrulandıktan sonra, UV2 üretmeyen moda al. Generate LODs yalnız uzakta görünen mesh'te açık kalsın. İkisini de ölçmeden toplu kapatma.
+5. `.claude/` ve `.github/` köküne boş `.gdignore` ekle. Oyun asset'i bu klasörlerde değildir.
+6. Headless `--import` sonrası `git status` yalnız kendi işinin dosyalarını gösterir. Kendiliğinden değişen `.import` ve `.uid` farkını, kaynak dosya değişmediyse commit etme.
+7. Sıkıştırmayı bu maddede toplu değiştirme. Ayrı ölçüm ve Ahmet onayı olmadan `compress/mode` yazma.
+
 ## Yapılmayacaklar
 
 - `ToplulukDekoru` listesini oyuna bağlamak.
@@ -220,3 +247,5 @@ Her soru tek cümledir. Tahminini karar diye yazma.
 - MCP eklentisini onaysız commit etmek.
 - Bir bölüm bitmeden sonrakinin koduna girmek.
 - Godot MCP'yi resmi motor özelliği diye anlatmak.
+- `.godot/` klasörünü silmek veya depoya eklemek.
+- Import dock'ta doğrulamadan `generate_lods` ve `light_baking` değerlerini toplu çevirmek.
