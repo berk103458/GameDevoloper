@@ -50,3 +50,6 @@ assets/ph/model/island_tree_02/
 /assets/model/karakter/*_yuru_Image_0.jpg.import
 /assets/model/karakter/*_yuru_texture_0.png
 /assets/model/karakter/*_yuru_texture_0.png.import
+
+# Godot AI MCP eklentisi (commit edilmiyor)
+addons/godot_ai/

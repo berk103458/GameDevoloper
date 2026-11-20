@@ -891,4 +891,5 @@ ROADMAP 2 maddelerinin `Asset:` satırlarında "envantere" denen her kimlik bura
 | SRM18-IKON | SRM-18 | Pencere ve dosya ikonu — prompt hazır, Ahmet üretecek | ICO / PNG | planlı — madde kodlanınca: Godot varsayılan ikonu | kapı muhafızı oyun ikonu; game app icon gate | düşük | Claude |
 
 KAP-17 notu (2 Kasım 2026, Kalfa): KAP17-COCUK/YASLI ihtiyaçları yukarıdaki mevcut 3D satırlarında güncellendi; yeni asset üretilmedi/indirilmedi. Kapıdaki refakatçiler isimli BoxMesh, köyde çocuk mevcut LOWPO, yaşlı mevcut yetişkin yer tutucusudur. Boy hedefleri mevcut 1,15 m / 1,65 m. Yaşlı modeli tamamlandı sayılmaz; yeni 2D ihtiyacı yok.
-| CIL11-RIG-BEKLEYEN | CIL-11 | `k02_kipcak_kuman_savascisi`, `b092`, `k14`, `k15` (ve `b019_kangal`) için iskelet + yürüme/sakin bekleme klibi | 3B rig + animasyon klibi | Heykel olarak dikilmez; `k02` kışla sabit nöbeti (`CIL-11`) dışında `b092`/`k14`/`k15` rigleme sırasını bekler | seljuk kipchak warrior dog walk idle rig | orta | Antigravity |
+
+CIL-11 notu (17 Kasım 2026, Antigravity): `CIL11-RIG-BEKLEYEN` — `k02_kipcak_kuman_savascisi`, `b092`, `k14`, `k15` (ve `b019_kangal`) için iskelet + yürüme/sakin bekleme klibi bekleniyor; `k02` kışla sabit nöbeti (`CIL-11`) dışında `b092`/`k14`/`k15` rigleme sırasını bekler.

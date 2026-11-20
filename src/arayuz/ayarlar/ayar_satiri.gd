@@ -39,7 +39,7 @@ static func ekle(kutu: VBoxContainer, a: Ayarlar, anahtar: StringName, aciklama:
 
 
 static func _ceviri_var(anahtar: String) -> bool:
-	return TranslationServer.translate(anahtar) != anahtar
+	return not GuvenliMetin.eksik_mi(anahtar) and TranslationServer.translate(anahtar) != anahtar
 
 
 static func _acikla(aciklama: Label, anahtar: StringName) -> void:

@@ -16,6 +16,9 @@ var _kartlar: Dictionary = {}
 var _sil_dugmeleri: Dictionary = {}
 var _yuva_dugmeleri: Dictionary = {}
 var _tohum: LineEdit
+var _gecmis_satir_kutusu: HBoxContainer
+var _uyari_etiketi: Label
+var _baslat_dugmesi: Button
 
 
 static func menu_hazir(menu: Control) -> void:
@@ -77,10 +80,16 @@ func _ready() -> void:
 	var iz_yazi := Label.new()
 	iz_yazi.text = iz_satiri(iz)
 	dikey.add_child(iz_yazi)
-	var baslat := Button.new()
-	baslat.text = tr("arayuz.ayarlar.yeni_oyun.baslat")
-	baslat.pressed.connect(_baslat)
-	dikey.add_child(baslat)
+	_uyari_etiketi = Label.new()
+	_uyari_etiketi.name = "UyariEtiketi"
+	_uyari_etiketi.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_uyari_etiketi.add_theme_color_override("font_color", Color("#E8B96B"))
+	dikey.add_child(_uyari_etiketi)
+	_baslat_dugmesi = Button.new()
+	_baslat_dugmesi.name = "BaslatDugmesi"
+	_baslat_dugmesi.text = tr("arayuz.ayarlar.yeni_oyun.baslat")
+	_baslat_dugmesi.pressed.connect(_baslat)
+	dikey.add_child(_baslat_dugmesi)
 	var geri := Button.new()
 	geri.text = tr("arayuz.ayarlar.geri")
 	geri.pressed.connect(func() -> void: vazgecildi.emit())
@@ -90,6 +99,7 @@ func _ready() -> void:
 func _gecmis_satiri(dikey: VBoxContainer) -> void:
 	var g = preload("res://src/sistemler/muhafiz_gecmisi.gd")
 	var satir := HBoxContainer.new()
+	_gecmis_satir_kutusu = satir
 	dikey.add_child(satir)
 	for id in g.SIRA:
 		var d := Button.new()
@@ -101,9 +111,11 @@ func _gecmis_satiri(dikey: VBoxContainer) -> void:
 
 func _gecmis_sec(id: String, dugme: Button, satir: HBoxContainer) -> void:
 	_gecmis = id
+	_onay = false
 	for c in satir.get_children():
 		if c is Button:
 			(c as Button).set_pressed_no_signal(c == dugme)
+	_durum_guncelle()
 
 
 func secilen_yuva() -> int:
@@ -118,6 +130,7 @@ func yuva_sec(no: int) -> void:
 		var dug := _yuva_dugmeleri[k] as Button
 		if dug != null:
 			dug.set_pressed_no_signal(int(k) == _yuva)
+	_durum_guncelle()
 
 
 func yuva_karti(no: int) -> KayitYuvaKarti:
@@ -127,6 +140,7 @@ func yuva_karti(no: int) -> KayitYuvaKarti:
 func yuvalari_yenile() -> void:
 	if yuvalar == null:
 		return
+	_onay = false
 	for n in [1, 2, 3]:
 		var kart := yuva_karti(n)
 		if kart != null:
@@ -135,6 +149,7 @@ func yuvalari_yenile() -> void:
 		if sil != null and kart != null:
 			sil.visible = kart.durum_kodu != "bos" and kart.durum_kodu != "yeni_surum"
 			sil.text = "Silmeyi onayla" if _sil_onay == n else "Yuvayı sil"
+	_durum_guncelle()
 
 
 func _yuva_satiri(dikey: VBoxContainer) -> void:
@@ -157,6 +172,10 @@ func _yuva_satiri(dikey: VBoxContainer) -> void:
 		sutun.add_child(d)
 		_yuva_dugmeleri[n] = d
 		var kart := KayitYuvaKarti.new(n)
+		kart.gui_input.connect(func(olay: InputEvent) -> void:
+			if olay is InputEventMouseButton and olay.pressed and olay.button_index == MOUSE_BUTTON_LEFT:
+				yuva_sec(n)
+		)
 		sutun.add_child(kart)
 		_kartlar[n] = kart
 		var sil := Button.new()
@@ -179,15 +198,39 @@ func _yuva_satiri(dikey: VBoxContainer) -> void:
 	yuvalari_yenile()
 
 
+func _durum_guncelle() -> void:
+	if _uyari_etiketi != null:
+		_uyari_etiketi.text = ""
+	if _baslat_dugmesi != null:
+		_baslat_dugmesi.text = tr("arayuz.ayarlar.yeni_oyun.baslat")
+
+
 func _baslat() -> void:
 	if _gecmis.is_empty():
+		if _uyari_etiketi != null:
+			_uyari_etiketi.text = "Önce muhafızın geçmişini seç."
+		if _baslat_dugmesi != null:
+			_baslat_dugmesi.text = "Önce muhafızın geçmişini seç"
+		if _gecmis_satir_kutusu != null:
+			for c in _gecmis_satir_kutusu.get_children():
+				if c is Button:
+					(c as Button).grab_focus()
+					break
 		return
 	var kart := yuva_karti(_yuva)
 	if kart != null and kart.durum_kodu == "yeni_surum":
+		if _uyari_etiketi != null:
+			_uyari_etiketi.text = "Seçili yuvada yeni sürüm kaydı var; başka yuva seç."
+		if _baslat_dugmesi != null:
+			_baslat_dugmesi.text = "Başka yuva seç (Yeni sürüm kaydı)"
 		return
 	var dolu := yuvalar.var_mi(_yuva)
 	if not baslat_olur(dolu, _onay):
 		_onay = true
+		if _baslat_dugmesi != null:
+			_baslat_dugmesi.text = "Dolu yuvanın üzerine yaz (Onayla)"
+		if _uyari_etiketi != null:
+			_uyari_etiketi.text = "Yuva %d dolu. Üzerine yazmak için tekrar bas." % _yuva
 		return
 	var tohum := tohum_coz(_tohum.text if _tohum != null else "")
 	baslatildi.emit(tohum, _gecmis)

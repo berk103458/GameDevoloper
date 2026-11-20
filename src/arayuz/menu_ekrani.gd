@@ -138,19 +138,25 @@ void fragment() {
 	return r
 
 
-## Satırlar yukarıdan aşağı sırayla belirir; ilk etkin satır odak alır.
+## Satırlar yukarıdan aşağı sırayla belirir; ilk etkin satır beklemeden odak alır.
 func _sirayla_goster(liste: Array[Button]) -> void:
 	var adim := ayarlar.belirme_ms(ADIM_S * 1000.0) / 1000.0
-	for d in liste:
-		if adim > 0.0:
+	for i in liste.size():
+		var d := liste[i]
+		if i > 0 and adim > 0.0:
 			await get_tree().create_timer(adim).timeout
 		if not is_instance_valid(d):
 			return
 		d.visible = true
-	for d in liste:
-		if not d.disabled:
+		if not d.disabled and not _herhangi_odakli(liste):
 			d.grab_focus()
-			break
+
+
+func _herhangi_odakli(liste: Array[Button]) -> bool:
+	for b in liste:
+		if is_instance_valid(b) and b.has_focus():
+			return true
+	return false
 
 
 func _dil_degisti(anahtar: StringName) -> void:
