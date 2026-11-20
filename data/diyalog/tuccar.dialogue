@@ -1,0 +1,16 @@
+~ start
+Tüccar: Resmi geçiş bacını köy kasasına bırakabilirim. Çabuk geçmek istersem kesene ayrıca akçe koyarım.
+- Resmi bacı köy kasasına yaz
+	do tuccar_etki("harc")
+	Tüccar: Bac köy kasasına geçsin. Pazardaki esnafla sonra konuşurum.
+	=> end
+- Kişisel keseye bırak, çabuk geçeyim
+	do tuccar_etki("rusvet")
+	Tüccar: Kesene bıraktım. Bugün bir köylünün işi ağırlar; sıradaki esnafa haber sal.
+	=> end
+- Bu konaklamada geri dön
+	do tuccar_etki("ret")
+	Tüccar: O zaman yolu geri dönerim. Kapıda bekleyen sıradaki kişiye geç.
+	=> end
+
+~ end

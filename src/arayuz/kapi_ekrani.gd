@@ -291,6 +291,8 @@ func _siradaki() -> void:
 		_yaz(satir)
 	if _gelen.acilis != "":
 		_yaz("[b]%s:[/b] %s" % [tr(_gelen.ad_anahtari), tr(_gelen.acilis)])
+	for satir in await DmKopru.kapi_satirlari(oturum, _gelen):
+		_yaz(satir)
 	for satir in IlkAileEsIpucu.satirlar(oturum, _gelen):
 		_yaz(satir)
 	if oturum.perde == 2 or _gelen.sorular.is_empty():
@@ -692,6 +694,8 @@ func _karar_ver(anahtar: String, is_yeri: StringName = &"") -> void:
 	var dedikodu_once := oturum.dedikodu.yazma_sayisi() if oturum != null else 0
 	preload("res://src/kapi/kapi_kavgasi_adaptoru.gd").tanik_hazirla(oturum, _kuyruk)
 	var sonuc := oturum.karar_ver(_gelen, StringName(anahtar), is_yeri)
+	if not sonuc.get("engellendi", false):
+		await DmKopru.kapi_uygula(oturum, _gelen, anahtar)
 	if sonuc.get("durum", "") == "kavga_acik":
 		await preload("res://src/kapi/kapi_kavgasi_paneli.gd").ac(self)
 		if not is_inside_tree(): return

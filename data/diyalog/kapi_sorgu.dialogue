@@ -1,0 +1,12 @@
+~ start
+Muhafız: Kapıdasın. Ne işin var?
+- Tarlada çalışmaya geldim
+	do kapi_etki("is", "tarla")
+	Muhafız: Tarlada yerin var. Akşama kadar oradasın. Sıradaki kişiye ben haber veririm.
+	=> end
+- Su istiyorum, işim yok
+	do kapi_etki("debuff", "su")
+	Muhafız: Su iç. Bugün iş gücün düşer; sonra sıradaki kişiyle konuşulur.
+	=> end
+
+~ end

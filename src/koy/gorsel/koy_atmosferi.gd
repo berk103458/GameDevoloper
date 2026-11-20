@@ -16,16 +16,54 @@ const FAZLAR := {
 		"gunes_enerji": 0.34, "aci": Vector3(-55, 120, 0), "sis": Color("#1c2433"), "ates": 3.4},
 }
 
+const SAAT := {&"safak": 5.4, &"gunduz": 9.5, &"aksam": 18.85, &"gece": 22.6}
+const SIS := {&"safak": 0.0026, &"gunduz": 0.0009, &"aksam": 0.002, &"gece": 0.0034}
+const AY := [4, 7, 10, 1]
+
 var faz_adi: StringName = &"aksam"
 var cevre: Environment
 var gunes: DirectionalLight3D
 ## Meydan ateşinin taban gücü (sahne titreşimi bunun üstüne uygular).
 var ates_gucu := 2.4
 var _gok: PanoramaSkyMaterial
+var _sky: Sky3D
 var _tween: Tween
 
 
 func _ready() -> void:
+	_sky = Sky3D.new()
+	_sky.name = &"Sky3D"
+	add_child(_sky)
+	if _sky.sun == null or _sky.environment == null or _sky.tod == null:
+		_sky.queue_free()
+		_sky = null
+		_eski_kur()
+		faz(faz_adi, 0.0)
+		return
+	# Samanyolu dokusu eklentinin kendi STARMAP'idir: ESO/S. Brunier, CC BY 4.0.
+	cevre = _sky.environment
+	cevre.tonemap_mode = Environment.TONE_MAPPER_AGX
+	cevre.tonemap_exposure = 1.1
+	cevre.fog_enabled = true
+	cevre.fog_density = 0.0016
+	cevre.fog_sky_affect = 0.35
+	cevre.adjustment_enabled = true
+	cevre.adjustment_contrast = 1.12
+	cevre.adjustment_saturation = 1.2
+	cevre.ssao_enabled = true
+	cevre.glow_enabled = true
+	cevre.glow_intensity = 0.35
+	cevre.glow_hdr_threshold = 1.4
+	gunes = _sky.sun
+	gunes.shadow_enabled = true
+	gunes.directional_shadow_max_distance = 140.0
+	_sky.tod.game_time_enabled = false
+	_sky.tod.year = 1352
+	_takvim()
+	faz(faz_adi, 0.0)
+
+
+func _eski_kur() -> void:
 	cevre = Environment.new()
 	cevre.background_mode = Environment.BG_SKY
 	var gok := Sky.new()
@@ -36,10 +74,8 @@ func _ready() -> void:
 	cevre.tonemap_mode = Environment.TONE_MAPPER_AGX
 	cevre.tonemap_exposure = 1.1
 	cevre.fog_enabled = true
-	# Kuşbakışı kamerada yoğun sis köyü pusa boğar: yalnız ufku ve orman kuşağını yumuşatacak kadar.
 	cevre.fog_density = 0.0016
 	cevre.fog_sky_affect = 0.3
-	# AgX renkleri soldurur; köy canlı kalsın diye hafif kontrast ve doygunluk.
 	cevre.adjustment_enabled = true
 	cevre.adjustment_contrast = 1.12
 	cevre.adjustment_saturation = 1.2
@@ -54,14 +90,18 @@ func _ready() -> void:
 	gunes.shadow_enabled = true
 	gunes.directional_shadow_max_distance = 140.0
 	add_child(gunes)
-	faz(faz_adi, 0.0)
 
 
 ## Işığı `ad` fazına geçirir (`sure` saniyede; 0 = anında).
 func faz(ad: StringName, sure: float = 2.0) -> void:
 	var f: Dictionary = FAZLAR.get(ad, FAZLAR[&"aksam"])
 	var ortam := float(ORTAM_ENERJISI.get(String(ad), ORTAM_ENERJISI.aksam))
+	var once := faz_adi
 	faz_adi = ad
+	_takvim()
+	if _sky != null:
+		_sky_faz(ad, once, f, ortam, sure)
+		return
 	if _tween != null and _tween.is_valid():
 		_tween.kill()
 	if sure <= 0.0:
@@ -86,3 +126,44 @@ func faz(ad: StringName, sure: float = 2.0) -> void:
 	gok_t.tween_property(_gok, "energy_multiplier", 0.04, sure * 0.5)
 	gok_t.tween_callback(func() -> void: _gok.panorama = Pbr.gok(f["gok"]))
 	gok_t.tween_property(_gok, "energy_multiplier", f["gok_enerji"], sure * 0.5)
+
+
+func _sky_faz(ad: StringName, once: StringName, f: Dictionary, ortam: float, sure: float) -> void:
+	var hedef := float(SAAT.get(ad, SAAT[&"aksam"]))
+	var bas := hedef
+	if once == &"gece" and ad == &"gunduz" and sure > 0.0:
+		bas = float(SAAT[&"safak"])
+	var sis := float(SIS.get(ad, 0.0016))
+	if _tween != null and _tween.is_valid():
+		_tween.kill()
+	gunes.light_color = f["gunes"]
+	cevre.fog_light_color = f["sis"]
+	ates_gucu = f["ates"]
+	if _sky.moon != null:
+		_sky.moon.light_energy = 0.22 if ad == &"gece" else 0.04
+	if _sky.sky != null:
+		_sky.sky.fog_visible = true
+		_sky.sky.fog_density = sis
+	if sure <= 0.0:
+		_sky.tod.current_time = hedef
+		gunes.light_energy = f["gunes_enerji"]
+		cevre.ambient_light_energy = ortam
+		cevre.fog_density = sis
+		return
+	_sky.tod.current_time = bas
+	_tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_SINE)
+	_tween.tween_property(_sky.tod, "current_time", hedef, sure)
+	_tween.tween_property(gunes, "light_energy", f["gunes_enerji"], sure)
+	_tween.tween_property(cevre, "ambient_light_energy", ortam, sure)
+	_tween.tween_property(cevre, "fog_density", sis, sure)
+
+
+func _takvim() -> void:
+	if _sky == null or _sky.tod == null:
+		return
+	var s := get_parent() as KoyYonetimSahnesi
+	if s == null or s.yonetim == null:
+		return
+	var indeks := Takvim.mevsim(s.yonetim.gun, s.yonetim.a.mevsim_gun)
+	_sky.tod.month = AY[indeks]
+	_sky.tod.day = mini(28, Takvim.mevsim_gunu(s.yonetim.gun, s.yonetim.a.mevsim_gun))

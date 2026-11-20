@@ -20,6 +20,7 @@ static func kur(s: KoyYonetimSahnesi, ust: Node3D) -> void:
 		n.position = s.alan_merkezi(p["h"], Vector2i.ONE)
 		n.rotation.y = deg_to_rad(float(p.get("don", 0.0)))
 		_mesafe(n)
+		OrnekYigini.duragan_kil(n)
 		kok.add_child(n)
 
 

@@ -104,6 +104,8 @@ func yenile() -> void:
 	KonuslanmaDonanimi.yenile(self)
 	CobanSurusu.yenile(self)
 	KurtSurusu.yenile(self)
+	HalkAgaci.bagla(self)
+	IhtiyacPlani.bagla(self)
 
 ## Gece eve; akşam meydana; gündüz iş ve kısa dinlenme döngüsüne geçer.
 func faz(ad: StringName) -> void:
@@ -115,6 +117,7 @@ func faz(ad: StringName) -> void:
 	KonuslanmaDonanimi.yenile(self)
 	CobanSurusu.yenile(self)
 	KurtSurusu.yenile(self)
+	HalkAgaci.bagla(self)
 
 func _iste(id: int, dolu_adimdan: bool = false) -> void:
 	if not _bekleyen.has(id):

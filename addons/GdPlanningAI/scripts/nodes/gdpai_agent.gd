@@ -201,7 +201,8 @@ func _start_plan_async() -> void:
 		push_warning("GdPAIAgent: no GdPAIWorldNode found in scene")
 		return
 
-	var scheduler: GdPAIPlanScheduler = GdPAIAutoload.get_scheduler()
+	# Autoload adı, bu betik oyun betiklerinden önce derlenince bulunamıyor.
+	var scheduler: GdPAIPlanScheduler = Engine.get_main_loop().root.get_node(^"/root/GdPAIAutoload").get_scheduler()
 	if scheduler == null:
 		_waiting_for_plan = false
 		push_error("GdPAIAgent: scheduler not available; async planning is required")

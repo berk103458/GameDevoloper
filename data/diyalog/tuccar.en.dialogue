@@ -1,0 +1,16 @@
+~ start
+Merchant: I can pay the official passage due into the village chest. If I must pass quickly I will put extra coin in your purse.
+- Record the official due in the village chest
+	do tuccar_etki("harc")
+	Merchant: Let the due go to the village chest. I will speak with the shopkeeper in the market afterwards.
+	=> end
+- Leave it in your purse and let me through
+	do tuccar_etki("rusvet")
+	Merchant: It is in your purse. One villager's work will be heavier today; send word to the next shopkeeper.
+	=> end
+- Turn back for this stay
+	do tuccar_etki("ret")
+	Merchant: Then I take the road back. Pass to the next person waiting at the gate.
+	=> end
+
+~ end

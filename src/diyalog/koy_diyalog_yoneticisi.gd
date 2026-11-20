@@ -51,6 +51,9 @@ func muhabbet_baslat(k: Koylu, y: KoyYonetimi = null) -> bool:
 	_bosta_soylendi = false
 	_soylenti_soylendi = false
 	yonetim = y
+	if DmKopru.tuccar_muhabbeti(koylu):
+		DmKopru.muhabbet_baslat(self, koylu, yonetim)
+		return true
 	var ds_yolu := "res://data/parley/koy/koylu_muhabbet_genel.ds"
 	if koylu:
 		var ad_id := ""
@@ -124,6 +127,10 @@ func sekans_baslat(sekans_adi: String, y: KoyYonetimi = null) -> bool:
 
 
 ## Bir seçeneği tıklandığında akışı sürdürür
+func dm_secenek(id: String) -> void:
+	DmKopru.muhabbet_sec(self, id)
+
+
 func secenek_sec(secenek_d: ParleyNodeAst) -> void:
 	if not calisiyor or not ast:
 		return

@@ -1,0 +1,12 @@
+~ start
+Gatekeeper: You are at the gate. What is your business?
+- I came to work the field
+	do kapi_etki("is", "tarla")
+	Gatekeeper: There is a place in the field. Stay until evening. I will send the next person.
+	=> end
+- I need water, I have no work
+	do kapi_etki("debuff", "su")
+	Gatekeeper: Drink. Your work strength falls today; the next person will be spoken to after.
+	=> end
+
+~ end

@@ -84,6 +84,16 @@ func _replik_goster(konusan: String, metin: String, secenekler: Array) -> void:
 						yonetici.secenek_sec(opt)
 				)
 				_secenekler_kutusu.add_child(btn)
+			elif opt is Dictionary:
+				var btn := Button.new()
+				btn.text = "▸ " + String(opt.get("metin", ""))
+				btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
+				var kimlik := String(opt.get("id", ""))
+				btn.pressed.connect(func() -> void:
+					if yonetici:
+						yonetici.dm_secenek(kimlik)
+				)
+				_secenekler_kutusu.add_child(btn)
 
 
 func _kapat() -> void:

@@ -312,6 +312,7 @@ func _sur_kur() -> void:
 			parca.position = p
 			var d := (c - a).normalized()
 			parca.rotation.y = atan2(d.x, d.z) + PI * 0.5
+			OrnekYigini.duragan_kil(parca)
 			_yapilar.add_child(parca)
 
 

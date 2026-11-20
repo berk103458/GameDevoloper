@@ -119,6 +119,8 @@ func _process(delta: float) -> void:
    if n.global_position.distance_to(hedef_p) <= float(AYAR.varis_mesafesi): adimlar[i] += 1
   elif coban_id >= 0 and halk.faz_adi == &"gunduz" and not yol.is_empty():
    hedef_p = yol[-1] + Vector3((i % 2 - 0.5) * float(AYAR.otlama_aralik[0]), 0, (i / 2 - 0.5) * float(AYAR.otlama_aralik[1]))
+   if String(get_meta(&"limbo", "")) == "dolas":
+    hedef_p += Vector3(sin(_zaman + i) * 0.35, 0, cos(_zaman * 0.7 + i) * 0.35)
   elif coban_id < 0 or (halk.faz_adi != &"gunduz" and not yollar[i].is_empty()):
    hedef_p = halk.sahne.alan_merkezi(b.hucre, b.boyut(halk.sahne.yonetim.katalog)) + _fark(i)
    gidiyor = n.global_position.distance_to(hedef_p) > float(AYAR.varis_mesafesi)
@@ -177,16 +179,12 @@ static func koyun(tur: String = "koyun") -> Node3D:
    _kutu(n, Vector3(float(AYAR.bacak_yaricap) * 2, float(AYAR.bacak_boy), float(AYAR.bacak_yaricap) * 2), Vector3(x * 0.2, float(AYAR.bacak_boy) / 2, z * 0.3), Color(AYAR.deri_renk))
  return n
 static func _top(n: Node3D, p: Vector3, olcek: Array, renk: Color) -> void:
- var m := MeshInstance3D.new()
  var b := SphereMesh.new()
  b.radius = 1.0
  b.height = 2.0
  b.radial_segments = 12
  b.rings = 6
- m.mesh = b
- m.position = p
- m.scale = Vector3(olcek[0], olcek[1], olcek[2])
- m.material_override = Dunya3B.duz_malzeme(renk)
+ var m := OrnekYigini.hareketli(b, Dunya3B.duz_malzeme(renk), p, Vector3(olcek[0], olcek[1], olcek[2]))
  n.add_child(m)
 ## Hazır agil.glb içinde çakışan iç çit örmez; yalnız dış ön kenara kontrol edilebilir ağıl kapısı ve eksik yanlara O64 koyar.
 static func agil_kapi_kur(n: Node3D, en: float, derin: float) -> void:
@@ -223,10 +221,7 @@ static func agil_kur(n: Node3D, en: float, derin: float) -> void:
  n.add_child(kapi)
  for y in [boy * 0.3, boy * 0.8]: _kutu(kapi, Vector3(float(AYAR.kapi_genislik), d, d), Vector3(float(AYAR.kapi_genislik) / 2, y, 0), renk)
 static func _kutu(n: Node3D, boy: Vector3, p: Vector3, renk: Color) -> void:
- var m := MeshInstance3D.new()
  var b := BoxMesh.new()
  b.size = boy
- m.mesh = b
- m.position = p
- m.material_override = Dunya3B.duz_malzeme(renk)
+ var m := OrnekYigini.hareketli(b, Dunya3B.duz_malzeme(renk), p)
  n.add_child(m)

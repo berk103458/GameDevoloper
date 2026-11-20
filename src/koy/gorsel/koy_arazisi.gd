@@ -58,6 +58,8 @@ func kur(s: KoyYonetimSahnesi, kapi: Vector2) -> void:
 	_zemin_kur(gurultu)
 	_cimen_kur()
 	_orman_kur()
+	KoyZemini.kur(self)
+	KoySerpintisi.kur(self)
 
 
 ## Arazi yüksekliği (m); köyün ızgarası ve kapı yolu düzdür. Şader (spatial_env_arazi) aynı formülü kullanır.
@@ -141,6 +143,7 @@ func _zemin_kur(gurultu: NoiseTexture2D) -> void:
 	p.subdivide_width = ZEMIN_BOLUM - 1
 	p.subdivide_depth = ZEMIN_BOLUM - 1
 	var z := MeshInstance3D.new()
+	z.name = &"zemin_eski"
 	z.mesh = p
 	# Köşeler şaderde yükselir: görünürlük kutusu tepeleri de kapsasın.
 	z.extra_cull_margin = 12.0
