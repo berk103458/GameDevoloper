@@ -3,6 +3,10 @@
 ## Kimlik
 Cursor — Muharrir’in verdiği doğrulama ve ince adaptör işi. İmza `(Cursor)`. Günlük bu dosyadır. Repo: `C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi`. Dal: `claude/festive-volta-li1sfm`.
 
+## Hazır 3D set taraması — 20 Kasım 2026
+
+Yalnız belge: `docs/arayuz/HAZIR_ASSET_SETLERI.md`. 14 set. Kod ve indirme yok. Asset gerekmedi. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
+
 ## Dönem asset envanteri — 17 Kasım 2026
 
 Yalnız belge: `docs/arayuz/DONEM_ASSET_ENVANTERI.md`. 73 linkli satır. Kod, sahne, manifest ve indirme yok. ROADMAP_2'ye dokunulmadı. Asset gerekmedi. Kota görünmüyor. Ahmet'in yerel kopyası bu makinede yok; eşitlendi denmez.
