@@ -147,7 +147,20 @@ Eklenti repoya commit edilecekse MIT kaydı `docs/credits/` altına yazılır. L
 
 Sahne ve betik yazma yetkisi `AGENTS.md` bölüm 2'deki korumalı çekirdek dosya kuralına tabidir. O listedeki dosya baştan yazılmaz. İnce adaptör yeter. Eklentinin kendi sınırı ayrıca durur: README, yazmaların proje içinde kaldığını ve `project.godot`, `override.cfg`, `.godot/` yollarının eklentiye kapalı olduğunu söyler.
 
-Eklentisiz yol test içindir ve durur. MCP değildir.
+### Oyunu görerek oynama
+
+`docs/TOOLS.md` (20 Kasım 2026, `main`) üçünü de tanımlar. Eklenti bağlıyken ve editör açıkken Alpha sahneyi çalıştırır, girdi gönderir ve oyun karesini alır. Araç adları:
+
+- Çalıştırma: `project_run`. Proje oynar ve `_mcp_game_helper` kısa süre beklenir. Durdurma: `project_manage`, op `stop`. Durum: `editor_state` içindeki `game_status`. `status` değeri `live` ise helper gelmiştir. `no_helper` oyun açıldı ama autoload yok demektir. Bu durumda girdi ve oyun karesi beklenmez.
+- Klavye, fare ve input action: `game_manage` op `input_key`, `input_mouse`, `input_gamepad`, `input_action`, `input_sequence`, `input_state`. `input_sequence` kare zamanlı aksiyon dizisidir. Belge, aksiyon girdisinin pencere odağından bağımsız olduğunu yazar.
+- Ekran görüntüsü: `editor_screenshot`, kaynak `game`. Bu, çalışan oyunun framebuffer'ıdır. Aynı araçta `viewport`, `viewport_2d` ve `cinematic` vardır. Vision Routing açıksa satır içi PNG metin açıklamasına döner (`vision_description`). Piksel gerekirse `save_to` ile dosyaya yaz. Konsol: `logs_read`, source `game`.
+
+Bu üç araç istemcide yoksa, `game_status` `live` olmuyorsa veya dönen kareyi Antigravity göstermiyorsa Alpha "gördüm" yazmaz. Yol şudur:
+
+1. `tests/oto/otomatik_oyuncu.tscn` ve o bölümün hedefli `tests/oto` sahnesi. Log, Godot çıktısıdır. `logs_read` varsa onu da yaz. Performans izi, bölüm 1 onayından sonra `tests/oto/olcum/performans_izi.gd`. Foto: `tests/oto/menu_foto.tscn`, `kapi_foto.tscn`, `koy_foto.tscn`.
+2. Ziva MCP, Antigravity'ye elle stdio ile denenir. Resmi destek yoktur. Ziva'nın kendi sayfaları istemci olarak Cursor, Claude ve Codex'i yazar. Antigravity bu listede yoktur. Ahmet dock'ta oturum açar. Cursor veya Claude için üretilen kayıttaki `command` ve `args` kopyalanır. `%USERPROFILE%\.gemini\config\mcp_config.json` içine düz `mcpServers` kaydı olarak konur. Argüman uydurulmaz. Beklenen araç adları, Ziva'nın kendi metninden: `run_scene` ve `get_screenshot`. Kaynak: https://ziva.sh/blogs/godot-automated-playtesting ve https://ziva.sh/blogs/use-claude-or-chatgpt-with-godot Telemetri kapalı. Sohbet yedeği kapalı. Üretim özellikleri ve Share Web build yok. Eklenti commit edilmez. Deneme bağlanmazsa 1. yol kalır.
+
+Eklentisiz test yolu MCP değildir ve her durumda durur.
 
 ```
 C:\Users\Ahmet\Desktop\Godot.exe --headless --editor --import --quit --path C:\Users\Ahmet\Desktop\Cursor_All_DAta\Kapı_Muhafizi
@@ -157,7 +170,7 @@ C:\Users\Ahmet\Desktop\Godot.exe --path C:\Users\Ahmet\Desktop\Cursor_All_DAta\K
 
 20 gece duman, `docs/tester/TESTER_REHBERI.md` bölüm 3.3: `DUMAN_TESTI_20=1` ve `tests/oto/otomatik_oyuncu.tscn`. Ekran görüntüsü için aynı rehberdeki `tests/oto/menu_foto.tscn`, `kapi_foto.tscn`, `koy_foto.tscn`.
 
-**Yedek: Ziva** (https://ziva.sh). Tescilli yazılımdır. Hesap ister. Antigravity resmi istemci listesinde yoktur. Yalnız Cursor, Claude ve Codex içindir. Godot AI kurulamazsa ve Ahmet bu yedeği kendi Cursor, Claude veya Codex oturumunda açarsa kullanılır. Telemetri kapalı kalır. Sohbet yedeği kapalı kalır. Üretim özellikleri ve Share Web build kullanılmaz. Eklenti repoya commit edilmez. Kurulursa klasörü `.gitignore` satırına yazılır.
+**Yedek: Ziva** (https://ziva.sh). Tescilli yazılımdır. Hesap ister. Resmi istemci listesi Cursor, Claude ve Codex'tir. Antigravity bu listede yoktur. godot-ai oyun karesini veya girdiyi Antigravity'ye vermezse, yukarıdaki elle stdio denemesi yapılır. Telemetri kapalı kalır. Sohbet yedeği kapalı kalır. Üretim özellikleri ve Share Web build kullanılmaz. Eklenti repoya commit edilmez. Kurulursa klasörü `.gitignore` satırına yazılır.
 
 **Üçüncü seçenek: Coding-Solo/godot-mcp.** https://github.com/Coding-Solo/godot-mcp `LICENSE` dosyası MIT'tir. Telif `Copyright (c) 2025 Solomon Elias`. README özellik listesinde girdi simülasyonu ve ekran görüntüsü yoktur. Godot AI çalışıyorsa bu kurulmaz. İkisi birden açık kalmaz.
 
@@ -190,7 +203,7 @@ F1 ile admin paneli gelir. Bayraksız açılış oyuncu sürümüdür. O sürüm
 
 Eklentiyi depoya koyacaksan önce `## Antigravity sorusu` altına yaz ve MIT kaydını `docs/credits/` altına ekle. Koymayacaksan `addons/godot_ai/` satırını `.gitignore` dosyasına yaz. `project.godot` eklenti satırını, eklenti commit edilmiyorsa commit etme.
 
-Godot AI kurulamazsa yedek Ziva'dır (https://ziva.sh). Antigravity listesinde yoktur. Yalnız kendi Cursor, Claude veya Codex oturumunda dene. Telemetri kapalı, sohbet yedeği kapalı. Üretim özellikleri ve Share Web build yok. Eklentiyi commit etme.
+godot-ai `project_run`, `game_manage` girdi op'ları ve `editor_screenshot` kaynak `game` Antigravity'de çalışıyorsa onu kullan. Çalışmıyorsa hedef 5'teki tests/oto yolu ve Ziva'nın elle stdio denemesi geçerlidir. Ziva resmi olarak Antigravity istemcisi değildir. Telemetri kapalı, sohbet yedeği kapalı. Üretim özellikleri ve Share Web build yok. Eklentiyi commit etme.
 
 Üçüncü seçenek Coding-Solo/godot-mcp'dir (MIT). Girdi simülasyonu ve ekran görüntüsü yoktur. Godot AI açıksa bunu kurma.
 
@@ -203,9 +216,9 @@ Headless test ve foto sahnesi eklentisiz çalışır. MCP şart değildir.
 
 1. `git pull --ff-only`. `AGENTS.md`, bu belge, `TESTER_REHBERI.md` bölüm 3 ve `TESTX_KOD_REHBERI.md` komutlarını oku.
 2. Model: Hydrogen High, olmazsa Argon Medium.
-3. Birincil yol hi-godot/godot-ai v4. Ahmet kurmadıysa headless, otomatik oyuncu ve foto sahneleriyle ilerle. "MCP yok" diye durma. Kurduysa editör açıkken dock bağlantısını kullan. Araç listesini eklentinin `docs/TOOLS.md` dosyasından oku. README'de olmayan aracı çağırma.
+3. Birincil yol hi-godot/godot-ai v4. Ahmet kurmadıysa headless, otomatik oyuncu ve foto sahneleriyle ilerle. "MCP yok" diye durma. Kurduysa editör açıkken `project_run`, `game_manage` (`input_key`, `input_mouse`, `input_action`, `input_sequence`) ve `editor_screenshot` kaynak `game` kullan. `game_status` `live` değilse veya kare gelmiyorsa "gördüm" yazma. tests/oto ve Ziva elle stdio yoluna geç. Araç listesini `docs/TOOLS.md` dosyasından oku. Orada olmayan aracı çağırma.
 4. Sahne veya betik yazarken `AGENTS.md` bölüm 2 geçerlidir. Korumalı dosyayı baştan yazma. Yalnız ince adaptör. `project.godot`, `override.cfg` ve `.godot/` eklentiye kapalıdır. Onları MCP ile de yazma.
-5. Ziva'ya kendin geçme. Ahmet yedeği açtıysa telemetri ve sohbet yedeği kapalı kalsın. Üretim özelliği ve Share Web build yok. Eklenti commit edilmez. Coding-Solo üçüncü sıradadır. Girdi veya ekran görüntüsü aldığını yazma. Godot AI ile aynı anda açık bırakma.
+5. Ziva'ya, godot-ai kare ve girdi vermeden geçme. Geçersen stdio kaydını Ahmet'in ürettiği `command` ve `args` ile yaz. Resmi Antigravity desteği yoktur. Telemetri ve sohbet yedeği kapalı kalsın. Üretim özelliği ve Share Web build yok. Eklenti commit edilmez. Coding-Solo üçüncü sıradadır. Onun girdi veya ekran görüntüsü aldığını yazma. Godot AI ile aynı anda açık bırakma.
 6. Bölüm 1'den başla. Menüyü pencerede veya foto sahnesinde gör. `_baslat` sessiz dönüşünü ya düzelt ya da Ahmet'in tıkladığı düğme bu değilse gerçek düğmeyi bul. Düzeltme, oyuncuya görünen bir cevap verir.
 7. Her kod değişiminden sonra hedefli test. Bölüm bitince, sanity boşsa tam sanity. Sonuç günlükte `PASS` sayısı veya "sanity bekliyor".
 8. İhtiyaç satırını aynı commit'te envantere ekle. Asset yoksa commit mesajında "asset gerekmedi" yaz.
